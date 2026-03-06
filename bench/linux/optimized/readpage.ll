@@ -21,13 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_key = type { %struct.atomic_t, %union.anon.26 }
 %union.anon.26 = type { i64 }
 %struct.ext4_map_blocks = type { i64, i32, i32, i32 }
-%struct.page = type { i64, %union.anon.11, %union.anon.19, %struct.atomic_t, [8 x i8] }
-%union.anon.11 = type { %struct.anon.12 }
-%struct.anon.12 = type { %union.anon.13, ptr, %union.anon.15, i64 }
-%union.anon.13 = type { %struct.list_head }
-%union.anon.15 = type { i64 }
-%union.anon.19 = type { %struct.atomic_t }
-%struct.bio_vec = type { ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [18 x i8] c"bio_post_read_ctx\00", align 1
 @bio_post_read_ctx_cache = internal unnamed_addr global ptr null, align 8
@@ -98,7 +91,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
   %43 = zext nneg i32 %42 to i64
   %44 = add nuw nsw i64 %10, 4294967295
   %45 = and i64 %44, 4294967295
-  %46 = getelementptr i64, ptr %4, i64 %45
+  %46 = getelementptr [8 x i8], ptr %4, i64 %45
   %47 = zext i32 %32 to i64
   br label %48
 
@@ -233,7 +226,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
 
 129:                                              ; preds = %125
   %130 = add i64 %121, %126
-  %131 = getelementptr i64, ptr %4, i64 %126
+  %131 = getelementptr [8 x i8], ptr %4, i64 %126
   store i64 %130, ptr %131, align 8
   %132 = add nuw nsw i64 %126, 1
   %133 = add i64 %127, 1
@@ -384,7 +377,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
 
 223:                                              ; preds = %221
   %224 = zext nneg i32 %150 to i64
-  %225 = getelementptr i64, ptr %4, i64 %224
+  %225 = getelementptr [8 x i8], ptr %4, i64 %224
   %226 = getelementptr i8, ptr %225, i64 -8
   %227 = load i64, ptr %226, align 8
   %228 = load i64, ptr %5, align 8
@@ -412,7 +405,7 @@ define dso_local noundef i32 @ext4_mpage_readpages(ptr noundef %0, ptr noundef c
 242:                                              ; preds = %237
   %243 = add i64 %238, %235
   %244 = zext i32 %239 to i64
-  %245 = getelementptr i64, ptr %4, i64 %244
+  %245 = getelementptr [8 x i8], ptr %4, i64 %244
   store i64 %243, ptr %245, align 8
   %246 = add i32 %239, 1
   %247 = add i64 %240, 1
@@ -911,7 +904,7 @@ define internal fastcc void @__read_end_io(ptr noundef %0) unnamed_addr #0 align
   br i1 %76, label %.thread, label %77
 
 77:                                               ; preds = %74
-  %78 = getelementptr %struct.page, ptr %44, i64 %75
+  %78 = getelementptr [64 x i8], ptr %44, i64 %75
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %80
 
@@ -957,7 +950,7 @@ define internal fastcc void @__read_end_io(ptr noundef %0) unnamed_addr #0 align
 
 109:                                              ; preds = %105, %98
   %110 = phi i64 [ %108, %105 ], [ 1, %98 ]
-  %111 = getelementptr %struct.page, ptr %84, i64 %110
+  %111 = getelementptr [64 x i8], ptr %84, i64 %110
   br label %189
 
 112:                                              ; preds = %80
@@ -982,7 +975,7 @@ define internal fastcc void @__read_end_io(ptr noundef %0) unnamed_addr #0 align
 122:                                              ; preds = %118
   %123 = load ptr, ptr %12, align 8
   %124 = sext i32 %113 to i64
-  %125 = getelementptr %struct.bio_vec, ptr %123, i64 %124
+  %125 = getelementptr [16 x i8], ptr %123, i64 %124
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load volatile i64, ptr %127, align 8
@@ -1071,7 +1064,7 @@ define internal fastcc void @__read_end_io(ptr noundef %0) unnamed_addr #0 align
 
 186:                                              ; preds = %182, %172
   %187 = phi i64 [ %185, %182 ], [ 1, %172 ]
-  %188 = getelementptr %struct.page, ptr %156, i64 %187
+  %188 = getelementptr [64 x i8], ptr %156, i64 %187
   br label %189
 
 189:                                              ; preds = %186, %109

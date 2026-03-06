@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.anon = type { i32, i32 }
-%"struct.base::debug::Activity" = type { i64, i64, [10 x i64], i8, [7 x i8], %"union.base::debug::ActivityData" }
-%"union.base::debug::ActivityData" = type { %struct.anon.0 }
-%struct.anon.0 = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -347,7 +344,7 @@ define void @_ZN4base5debug21ThreadActivityTracker12PushActivityEPKvNS0_8Activit
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !32
   %16 = zext i32 %8 to i64
-  %17 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [112 x i8], ptr %15, i64 %16
   %18 = tail call i64 @_ZN4base9TimeTicks3NowEv()
   store i64 %18, ptr %17, align 8, !tbaa !8
   %19 = ptrtoint ptr %1 to i64
@@ -386,7 +383,7 @@ define void @_ZN4base5debug21ThreadActivityTracker14ChangeActivityENS0_8Activity
   %12 = load ptr, ptr %11, align 8, !tbaa !32
   %13 = add i32 %7, -1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [112 x i8], ptr %12, i64 %14
   %.not9 = icmp eq i8 %1, 0
   br i1 %.not9, label %18, label %16
 
@@ -513,7 +510,7 @@ _ZNSt12_Vector_baseIN4base5debug8ActivityESaIS2_EE13_M_deallocateEPS2_m.exit.i: 
   store ptr %52, ptr %37, align 8, !tbaa !20
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 %50
   store ptr %56, ptr %47, align 8, !tbaa !46
-  %57 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %52, i64 %38
+  %57 = getelementptr inbounds nuw [112 x i8], ptr %52, i64 %38
   store ptr %57, ptr %39, align 8, !tbaa !45
   br label %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE7reserveEm.exit
 
@@ -565,7 +562,7 @@ _ZNSt6vectorIN4base5debug8ActivityESaIS2_EE7reserveEm.exit: ; preds = %36, %_ZNS
   br i1 %90, label %91, label %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE6resizeEm.exit
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %81, i64 %79
+  %92 = getelementptr inbounds nuw [112 x i8], ptr %81, i64 %79
   %.not.i.i = icmp eq ptr %80, %92
   br i1 %.not.i.i, label %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE6resizeEm.exit, label %93
 
@@ -841,7 +838,7 @@ define void @_ZN4base5debug21GlobalActivityTracker22ManagedActivityTrackerD2Ev(p
   %20 = add i64 %16, 1
   store i64 %20, ptr %15, align 8, !tbaa !88
   %21 = load ptr, ptr %19, align 8, !tbaa !90
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %16
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %16
   store i32 %4, ptr %22, align 4, !tbaa !47
   br label %23
 
@@ -894,7 +891,7 @@ define void @_ZN4base5debug21GlobalActivityTracker19ReturnTrackerMemoryEPNS1_22M
   %20 = add i64 %16, 1
   store i64 %20, ptr %15, align 8, !tbaa !88
   %21 = load ptr, ptr %19, align 8, !tbaa !90
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %16
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %16
   store i32 %4, ptr %22, align 4, !tbaa !47
   br label %23
 
@@ -1001,7 +998,7 @@ define noundef ptr @_ZN4base5debug21GlobalActivityTracker29CreateTrackerForCurre
   %9 = add i64 %7, -1
   store i64 %9, ptr %4, align 8, !tbaa !88
   %10 = load ptr, ptr %5, align 8, !tbaa !90
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %9
   %12 = load i32, ptr %11, align 4, !tbaa !47
   br label %13
 
@@ -1618,7 +1615,7 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i12, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !32
   %26 = zext i32 %18 to i64
-  %27 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [112 x i8], ptr %25, i64 %26
   %28 = tail call i64 @_ZN4base9TimeTicks3NowEv()
   store i64 %28, ptr %27, align 8, !tbaa !8
   %29 = ptrtoint ptr %7 to i64
@@ -1664,7 +1661,7 @@ define void @_ZN4base5debug14ScopedActivity12ChangeActionEh(ptr noundef nonnull 
   %14 = load ptr, ptr %13, align 8, !tbaa !32
   %15 = add i32 %9, -1
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [112 x i8], ptr %14, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   store i8 %3, ptr %18, align 8, !tbaa !11
   br label %_ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit
@@ -1700,7 +1697,7 @@ define void @_ZN4base5debug14ScopedActivity10ChangeInfoEi(ptr noundef nonnull re
   %15 = load ptr, ptr %14, align 8, !tbaa !32
   %16 = add i32 %10, -1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [112 x i8], ptr %15, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 104
   store i64 %.sroa.0.0.insert.insert.i, ptr %19, align 8, !tbaa !12
   br label %_ZN4base5debug21ThreadActivityTracker14ScopedActivity17ChangeTypeAndDataENS0_8Activity4TypeERKNS0_12ActivityDataE.exit
@@ -1737,7 +1734,7 @@ define void @_ZN4base5debug14ScopedActivity19ChangeActionAndInfoEhi(ptr noundef 
   %17 = load ptr, ptr %16, align 8, !tbaa !32
   %18 = add i32 %12, -1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [112 x i8], ptr %17, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
   store i8 %4, ptr %21, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 104
@@ -1799,7 +1796,7 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   %23 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = zext i32 %17 to i64
-  %26 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [112 x i8], ptr %24, i64 %25
   %27 = tail call i64 @_ZN4base9TimeTicks3NowEv()
   store i64 %27, ptr %26, align 8, !tbaa !8
   %28 = ptrtoint ptr %4 to i64
@@ -1858,7 +1855,7 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !32
   %20 = zext i32 %12 to i64
-  %21 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [112 x i8], ptr %19, i64 %20
   %22 = tail call i64 @_ZN4base9TimeTicks3NowEv()
   store i64 %22, ptr %21, align 8, !tbaa !8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -1926,7 +1923,7 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   %19 = getelementptr inbounds nuw i8, ptr %.0.i.i4, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !32
   %21 = zext i32 %13 to i64
-  %22 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [112 x i8], ptr %20, i64 %21
   %23 = tail call i64 @_ZN4base9TimeTicks3NowEv()
   store i64 %23, ptr %22, align 8, !tbaa !8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -1994,7 +1991,7 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   %19 = getelementptr inbounds nuw i8, ptr %.0.i.i4, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !32
   %21 = zext i32 %13 to i64
-  %22 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [112 x i8], ptr %20, i64 %21
   %23 = tail call i64 @_ZN4base9TimeTicks3NowEv()
   store i64 %23, ptr %22, align 8, !tbaa !8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -2063,7 +2060,7 @@ _ZN4base5debug21GlobalActivityTracker20ScopedThreadActivity18GetOrCreateTrackerE
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.i4, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !32
   %22 = zext i32 %14 to i64
-  %23 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [112 x i8], ptr %21, i64 %22
   %24 = tail call i64 @_ZN4base9TimeTicks3NowEv()
   store i64 %24, ptr %23, align 8, !tbaa !8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -2193,9 +2190,9 @@ _ZNSt6vectorIN4base5debug8ActivityESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; 
 
 _ZNSt12_Vector_baseIN4base5debug8ActivityESaIS2_EE13_M_deallocateEPS2_m.exit38: ; preds = %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %42
   store ptr %32, ptr %0, align 8, !tbaa !20
-  %43 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %33, i64 %1
+  %43 = getelementptr inbounds nuw [112 x i8], ptr %33, i64 %1
   store ptr %43, ptr %4, align 8, !tbaa !46
-  %44 = getelementptr inbounds nuw %"struct.base::debug::Activity", ptr %32, i64 %30
+  %44 = getelementptr inbounds nuw [112 x i8], ptr %32, i64 %30
   store ptr %44, ptr %11, align 8, !tbaa !45
   br label %45
 

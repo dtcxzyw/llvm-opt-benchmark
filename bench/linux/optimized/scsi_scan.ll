@@ -27,7 +27,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_scsi_scan_ho
 %struct.bus_type = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
 %struct.scsi_sense_hdr = type { i8, i8, i8, i8, i8, i8, i8, i8 }
 %struct.scsi_exec_args = type { ptr, i32, ptr, i32, i32, ptr }
-%struct.scsi_lun = type { [8 x i8] }
 
 @__param_str_max_luns = internal constant [18 x i8] c"scsi_mod.max_luns\00", align 16
 @param_ops_ullong = external dso_local constant %struct.kernel_param_ops, align 8
@@ -1973,7 +1972,7 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
 121:                                              ; preds = %110
   %122 = lshr i32 %112, 3
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr %struct.scsi_lun, ptr %92, i64 %123
+  %124 = getelementptr [8 x i8], ptr %92, i64 %123
   %125 = getelementptr i8, ptr %92, i64 8
   %126 = icmp ugt ptr %125, %124
   br i1 %126, label %.loopexit15, label %.preheader14

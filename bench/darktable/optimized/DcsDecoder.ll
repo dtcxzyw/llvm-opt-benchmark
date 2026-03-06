@@ -283,7 +283,7 @@ define hidden void @_ZN8rawspeed10DcsDecoder17decodeRawInternalEv(ptr dead_on_un
           to label %28 unwind label %_ZNSt6vectorItSaItEED2Ev.exit.i.i, !noalias !63
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %indvars.iv.i.i
   store i16 %27, ptr %29, align 2, !tbaa !69, !noalias !63
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 256

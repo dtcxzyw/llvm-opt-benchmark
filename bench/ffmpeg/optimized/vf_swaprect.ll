@@ -372,48 +372,48 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 196:                                              ; preds = %.lr.ph198, %.loopexit
   %197 = phi i32 [ %190, %.lr.ph198 ], [ %253, %.loopexit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph198 ], [ %indvars.iv.next, %.loopexit ]
-  %198 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %199 = load i32, ptr %198, align 4, !tbaa !53
-  %200 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %201 = load i32, ptr %200, align 4, !tbaa !53
   %202 = icmp eq i32 %199, %201
   br i1 %202, label %203, label %.loopexit
 
 203:                                              ; preds = %196
-  %204 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %205 = load i32, ptr %204, align 4, !tbaa !53
-  %206 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %207 = load i32, ptr %206, align 4, !tbaa !53
   %208 = icmp eq i32 %205, %207
   br i1 %208, label %209, label %.loopexit
 
 209:                                              ; preds = %203
-  %210 = getelementptr inbounds nuw i32, ptr %192, i64 %indvars.iv
-  %211 = getelementptr inbounds nuw i32, ptr %193, i64 %indvars.iv
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %indvars.iv
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv
   %212 = icmp sgt i32 %199, 0
   br i1 %212, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %209
-  %213 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %214 = load ptr, ptr %213, align 8, !tbaa !59
-  %215 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %216 = load i32, ptr %215, align 4, !tbaa !53
   %217 = load i32, ptr %210, align 4, !tbaa !53
   %218 = mul nsw i32 %216, %217
   %219 = sext i32 %218 to i64
   %220 = getelementptr inbounds i8, ptr %214, i64 %219
-  %221 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %222 = load i32, ptr %221, align 4, !tbaa !53
   %223 = load i32, ptr %211, align 4, !tbaa !53
   %224 = mul nsw i32 %222, %223
   %225 = sext i32 %224 to i64
   %226 = getelementptr inbounds i8, ptr %220, i64 %225
-  %227 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %228 = load i32, ptr %227, align 4, !tbaa !53
   %229 = mul nsw i32 %217, %228
   %230 = sext i32 %229 to i64
   %231 = getelementptr inbounds i8, ptr %214, i64 %230
-  %232 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %233 = load i32, ptr %232, align 4, !tbaa !53
   %234 = mul nsw i32 %223, %233
   %235 = sext i32 %234 to i64

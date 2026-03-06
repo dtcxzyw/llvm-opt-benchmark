@@ -152,7 +152,7 @@ invoke.cont4:                                     ; preds = %entry
 for.body:                                         ; preds = %invoke.cont4, %for.body
   %indvars.iv = phi i64 [ 0, %invoke.cont4 ], [ %indvars.iv.next, %for.body ]
   %ss.0180 = phi double [ %mul5, %invoke.cont4 ], [ %ss.1, %for.body ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i64, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i64, i64 %indvars.iv
   store double %ss.0180, ptr %add.ptr.i, align 8, !tbaa !18
   %add9 = fadd double %ss.0180, %ss.0180
   %cmp10 = fcmp ult double %add9, 1.000000e+00
@@ -196,14 +196,14 @@ for.cond146.preheader:                            ; preds = %if.end141
 
 for.body30:                                       ; preds = %for.cond28.preheader, %for.body30
   %indvars.iv197 = phi i64 [ 99, %for.cond28.preheader ], [ %indvars.iv.next198, %for.body30 ]
-  %add.ptr.i77 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv197
+  %add.ptr.i77 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv197
   %3 = load double, ptr %add.ptr.i77, align 8, !tbaa !18
   %4 = shl nuw nsw i64 %indvars.iv197, 1
-  %add.ptr.i78 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i70, i64 %4
+  %add.ptr.i78 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i70, i64 %4
   store double %3, ptr %add.ptr.i78, align 8, !tbaa !18
-  %add.ptr.i79 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i64, i64 %indvars.iv197
+  %add.ptr.i79 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i64, i64 %indvars.iv197
   %5 = load double, ptr %add.ptr.i79, align 8, !tbaa !18
-  %add.ptr.i80 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i64, i64 %4
+  %add.ptr.i80 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i64, i64 %4
   store double %5, ptr %add.ptr.i80, align 8, !tbaa !18
   %indvars.iv.next198 = add nsw i64 %indvars.iv197, -1
   %cmp29 = icmp samesign ugt i64 %indvars.iv197, 1
@@ -212,14 +212,14 @@ for.body30:                                       ; preds = %for.cond28.preheade
 for.body45:                                       ; preds = %for.body30, %for.body45
   %indvars.iv201 = phi i64 [ %indvars.iv.next202, %for.body45 ], [ 198, %for.body30 ]
   %6 = sub nuw nsw i64 199, %indvars.iv201
-  %add.ptr.i81 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i70, i64 %6
+  %add.ptr.i81 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i70, i64 %6
   store double 0.000000e+00, ptr %add.ptr.i81, align 8, !tbaa !18
-  %add.ptr.i82 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i64, i64 %indvars.iv201
+  %add.ptr.i82 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i64, i64 %indvars.iv201
   %7 = load double, ptr %add.ptr.i82, align 8, !tbaa !18
-  %add.ptr.i83 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv201
+  %add.ptr.i83 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv201
   %8 = load double, ptr %add.ptr.i83, align 8, !tbaa !18
   %sub53 = fsub double %7, %8
-  %add.ptr.i84 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i64, i64 %6
+  %add.ptr.i84 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i64, i64 %6
   store double %sub53, ptr %add.ptr.i84, align 8, !tbaa !18
   %indvars.iv.next202 = add nsw i64 %indvars.iv201, -2
   %cmp44 = icmp samesign ugt i64 %indvars.iv201, 65
@@ -227,20 +227,20 @@ for.body45:                                       ; preds = %for.body30, %for.bo
 
 for.body62:                                       ; preds = %for.body45, %for.inc103
   %indvars.iv205 = phi i64 [ %indvars.iv.next206, %for.inc103 ], [ 198, %for.body45 ]
-  %add.ptr.i85 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv205
+  %add.ptr.i85 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i70, i64 %indvars.iv205
   %9 = load double, ptr %add.ptr.i85, align 8, !tbaa !18
   %cmp65 = fcmp une double %9, 0.000000e+00
   br i1 %cmp65, label %if.then66, label %for.inc103
 
 if.then66:                                        ; preds = %for.body62
   %10 = add nsw i64 %indvars.iv205, -63
-  %add.ptr.i86 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i70, i64 %10
+  %add.ptr.i86 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i70, i64 %10
   %11 = load double, ptr %add.ptr.i86, align 8, !tbaa !18
   %sub70 = fsub double 0x3CB0000000000000, %11
   store double %sub70, ptr %add.ptr.i86, align 8, !tbaa !18
-  %add.ptr.i88 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i64, i64 %10
+  %add.ptr.i88 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i64, i64 %10
   %12 = load double, ptr %add.ptr.i88, align 8, !tbaa !18
-  %add.ptr.i89 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i64, i64 %indvars.iv205
+  %add.ptr.i89 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i64, i64 %indvars.iv205
   %13 = load double, ptr %add.ptr.i89, align 8, !tbaa !18
   %add.i = fadd double %12, %13
   %conv.i = fptosi double %add.i to i32
@@ -248,11 +248,11 @@ if.then66:                                        ; preds = %for.body62
   %sub.i = fsub double %add.i, %conv3.i
   store double %sub.i, ptr %add.ptr.i88, align 8, !tbaa !18
   %14 = add nsw i64 %indvars.iv205, -100
-  %add.ptr.i91 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i70, i64 %14
+  %add.ptr.i91 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i70, i64 %14
   %15 = load double, ptr %add.ptr.i91, align 8, !tbaa !18
   %sub88 = fsub double 0x3CB0000000000000, %15
   store double %sub88, ptr %add.ptr.i91, align 8, !tbaa !18
-  %add.ptr.i93 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i64, i64 %14
+  %add.ptr.i93 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i64, i64 %14
   %16 = load double, ptr %add.ptr.i93, align 8, !tbaa !18
   %add.i95 = fadd double %13, %16
   %conv.i96 = fptosi double %add.i95 to i32
@@ -302,9 +302,9 @@ if.end141:                                        ; preds = %for.body111.prehead
 
 for.body148:                                      ; preds = %for.cond146.preheader, %for.body148
   %indvars.iv216 = phi i64 [ 0, %for.cond146.preheader ], [ %indvars.iv.next217, %for.body148 ]
-  %add.ptr.i118 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i64, i64 %indvars.iv216
+  %add.ptr.i118 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i64, i64 %indvars.iv216
   %21 = load double, ptr %add.ptr.i118, align 8, !tbaa !18
-  %22 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv216
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv216
   %add.ptr.i119 = getelementptr inbounds nuw i8, ptr %22, i64 504
   store double %21, ptr %add.ptr.i119, align 8, !tbaa !18
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
@@ -313,9 +313,9 @@ for.body148:                                      ; preds = %for.cond146.prehead
 
 for.body160:                                      ; preds = %for.body148, %for.body160
   %indvars.iv221 = phi i64 [ %indvars.iv.next222, %for.body160 ], [ 37, %for.body148 ]
-  %add.ptr.i120 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i64, i64 %indvars.iv221
+  %add.ptr.i120 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i64, i64 %indvars.iv221
   %23 = load double, ptr %add.ptr.i120, align 8, !tbaa !18
-  %24 = getelementptr double, ptr %2, i64 %indvars.iv221
+  %24 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv221
   %add.ptr.i121 = getelementptr i8, ptr %24, i64 -296
   store double %23, ptr %add.ptr.i121, align 8, !tbaa !18
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
@@ -348,9 +348,9 @@ for.body6.lr.ph:                                  ; preds = %for.cond4.preheader
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %2 = load double, ptr %add.ptr.i, align 8, !tbaa !18
-  %add.ptr.i26 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %add.ptr.i26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store double %2, ptr %add.ptr.i26, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100
@@ -366,7 +366,7 @@ for.body20.preheader:                             ; preds = %for.cond4.preheader
 
 for.body6:                                        ; preds = %for.body6.lr.ph, %for.body6
   %indvars.iv53 = phi i64 [ 100, %for.body6.lr.ph ], [ %indvars.iv.next54, %for.body6 ]
-  %4 = getelementptr double, ptr %1, i64 %indvars.iv53
+  %4 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv53
   %add.ptr.i27 = getelementptr i8, ptr %4, i64 -800
   %5 = load double, ptr %add.ptr.i27, align 8, !tbaa !18
   %add.ptr.i28 = getelementptr i8, ptr %4, i64 -296
@@ -385,7 +385,7 @@ for.body20:                                       ; preds = %for.body20.preheade
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %for.body20 ], [ 0, %for.body20.preheader ]
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %for.body20 ], [ %indvars.iv57.ph, %for.body20.preheader ]
   %indvars.iv65 = add nuw nsw i64 %indvars.iv65.in, 1
-  %7 = getelementptr double, ptr %1, i64 %indvars.iv57
+  %7 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv57
   %add.ptr.i30 = getelementptr i8, ptr %7, i64 -800
   %8 = load double, ptr %add.ptr.i30, align 8, !tbaa !18
   %add.ptr.i31 = getelementptr i8, ptr %7, i64 -296
@@ -394,7 +394,7 @@ for.body20:                                       ; preds = %for.body20.preheade
   %conv.i33 = fptosi double %add.i32 to i32
   %conv3.i34 = sitofp i32 %conv.i33 to double
   %sub.i35 = fsub double %add.i32, %conv3.i34
-  %add.ptr.i36 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv59
+  %add.ptr.i36 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv59
   store double %sub.i35, ptr %add.ptr.i36, align 8, !tbaa !18
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
@@ -404,10 +404,10 @@ for.body20:                                       ; preds = %for.body20.preheade
 for.body37:                                       ; preds = %for.body20, %for.body37
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %for.body37 ], [ 37, %for.body20 ]
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %for.body37 ], [ %indvars.iv65, %for.body20 ]
-  %10 = getelementptr double, ptr %1, i64 %indvars.iv67
+  %10 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv67
   %add.ptr.i37 = getelementptr i8, ptr %10, i64 -800
   %11 = load double, ptr %add.ptr.i37, align 8, !tbaa !18
-  %12 = getelementptr double, ptr %0, i64 %indvars.iv69
+  %12 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv69
   %add.ptr.i38 = getelementptr i8, ptr %12, i64 -296
   %13 = load double, ptr %add.ptr.i38, align 8, !tbaa !18
   %add.i39 = fadd double %11, %13
@@ -434,9 +434,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %2 = load double, ptr %add.ptr.i.i, align 8, !tbaa !18
-  %add.ptr.i26.i = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i
+  %add.ptr.i26.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   store double %2, ptr %add.ptr.i26.i, align 8, !tbaa !18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 100
@@ -444,7 +444,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 for.body6.i:                                      ; preds = %for.body.i, %for.body6.i
   %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %for.body6.i ], [ 100, %for.body.i ]
-  %3 = getelementptr double, ptr %1, i64 %indvars.iv53.i
+  %3 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv53.i
   %add.ptr.i27.i = getelementptr i8, ptr %3, i64 -800
   %4 = load double, ptr %add.ptr.i27.i, align 8, !tbaa !18
   %add.ptr.i28.i = getelementptr i8, ptr %3, i64 -296
@@ -462,7 +462,7 @@ for.body20.i:                                     ; preds = %for.body6.i, %for.b
   %indvars.iv65.in.i = phi i64 [ %indvars.iv65.i, %for.body20.i ], [ 1009, %for.body6.i ]
   %indvars.iv59.i = phi i64 [ %indvars.iv.next60.i, %for.body20.i ], [ 0, %for.body6.i ]
   %indvars.iv65.i = add nuw nsw i64 %indvars.iv65.in.i, 1
-  %6 = getelementptr double, ptr %1, i64 %indvars.iv65.in.i
+  %6 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv65.in.i
   %add.ptr.i30.i = getelementptr i8, ptr %6, i64 -800
   %7 = load double, ptr %add.ptr.i30.i, align 8, !tbaa !18
   %add.ptr.i31.i = getelementptr i8, ptr %6, i64 -296
@@ -471,7 +471,7 @@ for.body20.i:                                     ; preds = %for.body6.i, %for.b
   %conv.i33.i = fptosi double %add.i32.i to i32
   %conv3.i34.i = sitofp i32 %conv.i33.i to double
   %sub.i35.i = fsub double %add.i32.i, %conv3.i34.i
-  %add.ptr.i36.i = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv59.i
+  %add.ptr.i36.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv59.i
   store double %sub.i35.i, ptr %add.ptr.i36.i, align 8, !tbaa !18
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond64.not.i = icmp eq i64 %indvars.iv.next60.i, 37
@@ -480,10 +480,10 @@ for.body20.i:                                     ; preds = %for.body6.i, %for.b
 for.body37.i:                                     ; preds = %for.body20.i, %for.body37.i
   %indvars.iv69.i = phi i64 [ %indvars.iv.next70.i, %for.body37.i ], [ 37, %for.body20.i ]
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %for.body37.i ], [ 1046, %for.body20.i ]
-  %9 = getelementptr double, ptr %1, i64 %indvars.iv67.i
+  %9 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv67.i
   %add.ptr.i37.i = getelementptr i8, ptr %9, i64 -800
   %10 = load double, ptr %add.ptr.i37.i, align 8, !tbaa !18
-  %11 = getelementptr double, ptr %0, i64 %indvars.iv69.i
+  %11 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv69.i
   %add.ptr.i38.i = getelementptr i8, ptr %11, i64 -296
   %12 = load double, ptr %add.ptr.i38.i, align 8, !tbaa !18
   %add.i39.i = fadd double %10, %12

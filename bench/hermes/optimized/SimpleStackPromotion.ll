@@ -157,7 +157,7 @@ _ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i.i.i: ; 
   %13 = phi i32 [ %.pre.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %11, %if.end7.i.i.i ]
   %14 = load ptr, ptr %destroyer.i.i.i, align 8
   %conv.i3.i.i.i.i.i = zext i32 %13 to i64
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %14, i64 %conv.i3.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %conv.i3.i.i.i.i.i
   %15 = ptrtoint ptr %9 to i64
   store i64 %15, ptr %add.ptr.i.i.i.i.i.i, align 1
   %16 = load i32, ptr %Size.i.i.i.i.i.i.i.i.i, align 8
@@ -318,7 +318,7 @@ _ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i50.i.i: 
   %43 = phi i32 [ %.pre.i.i.i49.i.i, %if.then.i.i.i48.i.i ], [ %41, %if.then50.i.i.i ]
   %44 = load ptr, ptr %destroyer.i18.i.i, align 8
   %conv.i3.i.i.i51.i.i = zext i32 %43 to i64
-  %add.ptr.i.i.i.i52.i.i = getelementptr inbounds nuw ptr, ptr %44, i64 %conv.i3.i.i.i51.i.i
+  %add.ptr.i.i.i.i52.i.i = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %conv.i3.i.i.i51.i.i
   %45 = ptrtoint ptr %36 to i64
   store i64 %45, ptr %add.ptr.i.i.i.i52.i.i, align 1
   %46 = load i32, ptr %Size.i.i.i.i.i.i.i30.i.i, align 8
@@ -431,7 +431,7 @@ _ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i73.i.i: 
   %60 = phi i32 [ %.pre.i.i.i72.i.i, %if.then.i.i.i71.i.i ], [ %57, %for.body15.i.i.i ]
   %61 = load ptr, ptr %destroyer.i54.i.i, align 8
   %conv.i3.i.i.i74.i.i = zext i32 %60 to i64
-  %add.ptr.i.i.i.i75.i.i = getelementptr inbounds nuw ptr, ptr %61, i64 %conv.i3.i.i.i74.i.i
+  %add.ptr.i.i.i.i75.i.i = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %conv.i3.i.i.i74.i.i
   %62 = ptrtoint ptr %58 to i64
   store i64 %62, ptr %add.ptr.i.i.i.i75.i.i, align 1
   %63 = load i32, ptr %Size.i.i.i.i.i.i.i66.i.i, align 8

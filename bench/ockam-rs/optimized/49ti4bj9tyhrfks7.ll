@@ -235,7 +235,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
   %55 = add i64 %.sroa.01.0.i.i.i.i, %54
   %56 = and i64 %55, %.val5.i
   %57 = sub nsw i64 0, %56
-  %58 = getelementptr inbounds { { ptr, ptr }, { { { i64, [56 x i64] }, i64 }, i64 } }, ptr %.val.i, i64 %57
+  %58 = getelementptr inbounds [488 x i8], ptr %.val.i, i64 %57
   %59 = getelementptr inbounds i8, ptr %58, i64 -488
   %60 = invoke noundef zeroext i1 @"_ZN75_$LT$tracing_core..callsite..Identifier$u20$as$u20$core..cmp..PartialEq$GT$2eq17he947e55d5354db5cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(488) %59)
           to label %.noexc19 unwind label %.loopexit
@@ -679,7 +679,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
   %68 = load ptr, ptr %67, align 8, !alias.scope !89, !nonnull !13, !noundef !13
   %69 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %70 = load i64, ptr %69, align 8, !alias.scope !89, !noundef !13
-  %71 = getelementptr inbounds i64, ptr %68, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %68, i64 %70
   %72 = load i64, ptr %7, align 8, !range !74
   br label %73
 
@@ -1019,7 +1019,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
   %45 = add i64 %.sroa.01.0.i.i.i.i, %42
   %46 = and i64 %45, %29
   %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds { i64, { { { i64, [64 x i64] }, i64 }, i64 } }, ptr %30, i64 %47
+  %48 = getelementptr inbounds [544 x i8], ptr %30, i64 %47
   %49 = getelementptr inbounds i8, ptr %48, i64 -544
   %.val3.i.i.i.i = load i64, ptr %49, align 8, !alias.scope !170, !noalias !175, !noundef !13
   %50 = icmp eq i64 %31, %.val3.i.i.i.i
@@ -1111,7 +1111,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
 88:                                               ; preds = %81, %.noexc10
   %89 = phi i64 [ %.pre.i, %.noexc10 ], [ %83, %81 ]
   %90 = load ptr, ptr %75, align 8, !alias.scope !185, !nonnull !13, !noundef !13
-  %91 = getelementptr inbounds i64, ptr %90, i64 %89
+  %91 = getelementptr inbounds [8 x i8], ptr %90, i64 %89
   store i64 %77, ptr %91, align 8
   %92 = load i64, ptr %82, align 8, !alias.scope !185, !noundef !13
   %93 = add i64 %92, 1
@@ -1291,7 +1291,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
   %45 = add i64 %.sroa.01.0.i.i.i.i, %42
   %46 = and i64 %45, %29
   %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds { i64, { { { i64, [64 x i64] }, i64 }, i64 } }, ptr %30, i64 %47
+  %48 = getelementptr inbounds [544 x i8], ptr %30, i64 %47
   %49 = getelementptr inbounds i8, ptr %48, i64 -544
   %.val3.i.i.i.i = load i64, ptr %49, align 8, !alias.scope !249, !noalias !254, !noundef !13
   %50 = icmp eq i64 %31, %.val3.i.i.i.i
@@ -2743,7 +2743,7 @@ define hidden noundef align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$
   %28 = add i64 %.sroa.01.0.i.i.i, %25
   %29 = and i64 %28, %12
   %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds { i64, { { { i64, [64 x i64] }, i64 }, i64 } }, ptr %13, i64 %30
+  %31 = getelementptr inbounds [544 x i8], ptr %13, i64 %30
   %32 = getelementptr inbounds i8, ptr %31, i64 -544
   %.val3.i.i.i = load i64, ptr %32, align 8, !alias.scope !451, !noalias !456, !noundef !13
   %33 = icmp eq i64 %14, %.val3.i.i.i
@@ -2813,7 +2813,7 @@ define hidden noundef align 8 ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get
   %23 = add i64 %.sroa.01.0.i.i, %20
   %24 = and i64 %23, %7
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i64, { { { i64, [64 x i64] }, i64 }, i64 } }, ptr %8, i64 %25
+  %26 = getelementptr inbounds [544 x i8], ptr %8, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -544
   %.val3.i.i = load i64, ptr %27, align 8, !alias.scope !475, !noalias !480, !noundef !13
   %28 = icmp eq i64 %9, %.val3.i.i
@@ -2874,7 +2874,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h419e
   %23 = add i64 %.sroa.01.0.i, %20
   %24 = and i64 %23, %7
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i64, { { { i64, [64 x i64] }, i64 }, i64 } }, ptr %8, i64 %25
+  %26 = getelementptr inbounds [544 x i8], ptr %8, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -544
   %.val3.i = load i64, ptr %27, align 8, !alias.scope !493, !noalias !498, !noundef !13
   %28 = icmp eq i64 %9, %.val3.i

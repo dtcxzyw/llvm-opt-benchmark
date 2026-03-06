@@ -31,9 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.28" = type { %"struct.std::_Vector_base<cmDebugger::cmDebuggerVariableEntry, std::allocator<cmDebugger::cmDebuggerVariableEntry>>::_Vector_impl" }
 %"struct.std::_Vector_base<cmDebugger::cmDebuggerVariableEntry, std::allocator<cmDebugger::cmDebuggerVariableEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<cmDebugger::cmDebuggerVariableEntry, std::allocator<cmDebugger::cmDebuggerVariableEntry>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cmDebugger::cmDebuggerVariableEntry, std::allocator<cmDebugger::cmDebuggerVariableEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::shared_ptr.19" = type { %"class.std::__shared_ptr.20" }
-%"class.std::__shared_ptr.20" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 
 $_ZN3dap8optionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEED2Ev = comdat any
 
@@ -2505,7 +2502,7 @@ _ZNSt6vectorISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EE11_S_rel
 _ZNSt12_Vector_baseISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !54
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !55
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.19", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !57
   ret void
 }
@@ -2924,7 +2921,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 91:                                               ; preds = %168, %.lr.ph._crit_edge
   %.010.i.i.i = phi i64 [ %16, %.lr.ph._crit_edge ], [ %169, %168 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %92 = getelementptr inbounds %"struct.dap::Variable", ptr %0, i64 %.010.i.i.i
+  %92 = getelementptr inbounds [352 x i8], ptr %0, i64 %.010.i.i.i
   call void @_ZN3dap8VariableC2EOS0_(ptr noundef nonnull align 8 dereferenceable(352) %6, ptr noundef nonnull align 8 dereferenceable(352) %92)
   store ptr %17, ptr %7, align 8, !tbaa !37
   %93 = load ptr, ptr %6, align 8, !tbaa !11
@@ -3518,7 +3515,7 @@ define internal fastcc nonnull ptr @"_ZSt27__unguarded_partition_pivotIN9__gnu_c
   %11 = ptrtoint ptr %0 to i64
   %12 = sub i64 %10, %11
   %13 = sdiv i64 %12, 704
-  %14 = getelementptr inbounds %"struct.dap::Variable", ptr %0, i64 %13
+  %14 = getelementptr inbounds [352 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %16 = getelementptr inbounds i8, ptr %1, i64 -352
   %17 = getelementptr i8, ptr %0, i64 456
@@ -4104,9 +4101,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.036 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN10cmDebugger19cmDebuggerVariables22HandleVariablesRequestEvE3$_0EclINS_17__normal_iteratorIPN3dap8VariableESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit" ], [ %1, %4 ]
   %9 = shl i64 %.036, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.dap::Variable", ptr %0, i64 %10
+  %11 = getelementptr inbounds [352 x i8], ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.dap::Variable", ptr %0, i64 %12
+  %13 = getelementptr inbounds [352 x i8], ptr %0, i64 %12
   %14 = getelementptr i8, ptr %11, i64 104
   %.val1.i = load i64, ptr %14, align 8, !tbaa !38
   %15 = getelementptr i8, ptr %13, i64 104
@@ -4135,8 +4132,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
   %.0.i.i.i.i = phi i32 [ %19, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %.0.i6.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ]
   %21 = icmp slt i32 %.0.i.i.i.i, 0
   %spec.select = select i1 %21, i64 %12, i64 %10
-  %22 = getelementptr inbounds %"struct.dap::Variable", ptr %0, i64 %spec.select
-  %23 = getelementptr inbounds %"struct.dap::Variable", ptr %0, i64 %.036
+  %22 = getelementptr inbounds [352 x i8], ptr %0, i64 %spec.select
+  %23 = getelementptr inbounds [352 x i8], ptr %0, i64 %.036
   %24 = tail call noundef nonnull align 8 dereferenceable(352) ptr @_ZN3dap8VariableaSEOS0_(ptr noundef nonnull align 8 dereferenceable(352) %23, ptr noundef nonnull align 8 dereferenceable(352) %22) #25
   %25 = icmp slt i64 %spec.select, %7
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !150
@@ -4156,8 +4153,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
 32:                                               ; preds = %28
   %33 = shl nsw i64 %.0.lcssa, 1
   %34 = or disjoint i64 %33, 1
-  %35 = getelementptr inbounds %"struct.dap::Variable", ptr %0, i64 %34
-  %36 = getelementptr inbounds %"struct.dap::Variable", ptr %0, i64 %.0.lcssa
+  %35 = getelementptr inbounds [352 x i8], ptr %0, i64 %34
+  %36 = getelementptr inbounds [352 x i8], ptr %0, i64 %.0.lcssa
   %37 = tail call noundef nonnull align 8 dereferenceable(352) ptr @_ZN3dap8VariableaSEOS0_(ptr noundef nonnull align 8 dereferenceable(352) %36, ptr noundef nonnull align 8 dereferenceable(352) %35) #25
   br label %38
 
@@ -4176,7 +4173,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
   %.010.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0911.i, %50 ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %43 = getelementptr inbounds %"struct.dap::Variable", ptr %0, i64 %.0911.i
+  %43 = getelementptr inbounds [352 x i8], ptr %0, i64 %.0911.i
   %.val10.i = load i64, ptr %40, align 8, !tbaa !38
   %44 = getelementptr i8, ptr %43, i64 104
   %.val2.i.i = load i64, ptr %44, align 8, !tbaa !38
@@ -4205,14 +4202,14 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZNSt11c
   br i1 %49, label %50, label %.loopexit
 
 50:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN10cmDebugger19cmDebuggerVariables22HandleVariablesRequestEvE3$_0EclINS_17__normal_iteratorIPN3dap8VariableESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i"
-  %51 = getelementptr inbounds %"struct.dap::Variable", ptr %0, i64 %.010.i
+  %51 = getelementptr inbounds [352 x i8], ptr %0, i64 %.010.i
   %52 = call noundef nonnull align 8 dereferenceable(352) ptr @_ZN3dap8VariableaSEOS0_(ptr noundef nonnull align 8 dereferenceable(352) %51, ptr noundef nonnull align 8 dereferenceable(352) %43) #25
   %53 = icmp sgt i64 %.0911.i, %1
   br i1 %53, label %42, label %.loopexit, !llvm.loop !151
 
 .loopexit:                                        ; preds = %50, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN10cmDebugger19cmDebuggerVariables22HandleVariablesRequestEvE3$_0EclINS_17__normal_iteratorIPN3dap8VariableESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i", %38
   %.0.lcssa.i = phi i64 [ %.1, %38 ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN10cmDebugger19cmDebuggerVariables22HandleVariablesRequestEvE3$_0EclINS_17__normal_iteratorIPN3dap8VariableESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i" ], [ %.0911.i, %50 ]
-  %54 = getelementptr inbounds %"struct.dap::Variable", ptr %0, i64 %.0.lcssa.i
+  %54 = getelementptr inbounds [352 x i8], ptr %0, i64 %.0.lcssa.i
   %55 = call noundef nonnull align 8 dereferenceable(352) ptr @_ZN3dap8VariableaSEOS0_(ptr noundef nonnull align 8 dereferenceable(352) %54, ptr noundef nonnull align 8 dereferenceable(352) %5) #25
   call void @_ZN3dap8VariableD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %5) #25
   ret void
@@ -5235,7 +5232,7 @@ _ZSt8_DestroyIPN3dap8VariableES1_EvT_S3_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.i, 
 _ZNSt12_Vector_baseIN3dap8VariableESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN3dap8VariableES1_EvT_S3_RSaIT0_E.exit, %49
   store ptr %20, ptr %0, align 8, !tbaa !103
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !89
-  %53 = getelementptr inbounds nuw %"struct.dap::Variable", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [352 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !92
   ret void
 

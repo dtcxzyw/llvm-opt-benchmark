@@ -8268,7 +8268,7 @@ define hidden void @_ZN11sqlx_sqlite9arguments15SqliteArguments3add17h3f432709eb
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9e77727f51a28cb7E.llvm.9977487472220041507.exit": ; preds = %5, %._crit_edge.i
   %17 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %7, %5 ]
   %18 = load ptr, ptr %0, align 8, !alias.scope !1868, !noalias !1871, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds { i32, [7 x i32] }, ptr %18, i64 %17
+  %19 = getelementptr inbounds [32 x i8], ptr %18, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %20 = load i64, ptr %6, align 8, !alias.scope !1868, !noalias !1871, !noundef !4
   %21 = add i64 %20, 1
@@ -8336,7 +8336,7 @@ define hidden void @_ZN11sqlx_sqlite9arguments15SqliteArguments3add17hb4ad5c07e5
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9e77727f51a28cb7E.llvm.9977487472220041507.exit": ; preds = %7, %._crit_edge.i
   %19 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %9, %7 ]
   %20 = load ptr, ptr %0, align 8, !alias.scope !1878, !noalias !1881, !nonnull !4, !noundef !4
-  %21 = getelementptr inbounds { i32, [7 x i32] }, ptr %20, i64 %19
+  %21 = getelementptr inbounds [32 x i8], ptr %20, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %22 = load i64, ptr %8, align 8, !alias.scope !1878, !noalias !1881, !noundef !4
   %23 = add i64 %22, 1
@@ -8394,7 +8394,7 @@ define hidden void @_ZN11sqlx_sqlite9arguments15SqliteArguments3add17hcc1e2ab00b
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9e77727f51a28cb7E.llvm.9977487472220041507.exit": ; preds = %6, %._crit_edge.i
   %18 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %8, %6 ]
   %19 = load ptr, ptr %0, align 8, !alias.scope !1886, !noalias !1889, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds { i32, [7 x i32] }, ptr %19, i64 %18
+  %20 = getelementptr inbounds [32 x i8], ptr %19, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %21 = load i64, ptr %7, align 8, !alias.scope !1886, !noalias !1889, !noundef !4
   %22 = add i64 %21, 1
@@ -8456,7 +8456,7 @@ define hidden void @_ZN11sqlx_sqlite9arguments15SqliteArguments3add17hcd2d556e51
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9e77727f51a28cb7E.llvm.9977487472220041507.exit": ; preds = %"_ZN11sqlx_sqlite122_$LT$impl$u20$sqlx_core..encode..Encode$LT$sqlx_sqlite..database..Sqlite$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$6encode17hb2588073c9e7a5bdE.llvm.9977487472220041507.exit.thread", %._crit_edge.i
   %19 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %9, %"_ZN11sqlx_sqlite122_$LT$impl$u20$sqlx_core..encode..Encode$LT$sqlx_sqlite..database..Sqlite$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$6encode17hb2588073c9e7a5bdE.llvm.9977487472220041507.exit.thread" ]
   %20 = load ptr, ptr %0, align 8, !alias.scope !1897, !noalias !1900, !nonnull !4, !noundef !4
-  %21 = getelementptr inbounds { i32, [7 x i32] }, ptr %20, i64 %19
+  %21 = getelementptr inbounds [32 x i8], ptr %20, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %22 = load i64, ptr %8, align 8, !alias.scope !1897, !noalias !1900, !noundef !4
   %23 = add i64 %22, 1
@@ -13056,7 +13056,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:    ; preds = %90
 165:                                              ; preds = %153, %._crit_edge.i
   %166 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %156, %153 ]
   %167 = load ptr, ptr %154, align 8, !alias.scope !2444, !noalias !2447, !nonnull !4, !noundef !4
-  %168 = getelementptr inbounds { { { i64, [3 x i64] }, { i64, [3 x i64] }, { i64, i32 }, { i64, i32 }, { [24 x i8], i8, [7 x i8] }, { i8, [55 x i8] }, { ptr, [2 x i64] }, i8, [7 x i8] }, { i64, ptr }, { { i64, [3 x i64] }, { i64, [3 x i64] }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] } } }, ptr %167, i64 %166
+  %168 = getelementptr inbounds [344 x i8], ptr %167, i64 %166
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %168, ptr noundef nonnull align 8 dereferenceable(344) %26, i64 344, i1 false)
   %169 = load i64, ptr %155, align 8, !alias.scope !2444, !noalias !2447, !noundef !4
   %170 = add i64 %169, 1
@@ -59909,7 +59909,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9e77727f51a28cb7E.ll
 9:                                                ; preds = %._crit_edge, %2
   %10 = phi i64 [ %.pre, %._crit_edge ], [ %4, %2 ]
   %11 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds { i32, [7 x i32] }, ptr %11, i64 %10
+  %12 = getelementptr inbounds [32 x i8], ptr %11, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %13 = load i64, ptr %3, align 8, !noundef !4
   %14 = add i64 %13, 1
@@ -126890,7 +126890,7 @@ define hidden void @"_ZN91_$LT$sqlx_sqlite..arguments..SqliteArguments$u20$as$u2
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9e77727f51a28cb7E.llvm.9977487472220041507.exit.i": ; preds = %._crit_edge.i.i, %7
   %19 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %9, %7 ]
   %20 = load ptr, ptr %0, align 8, !alias.scope !19752, !noalias !19755, !nonnull !4, !noundef !4
-  %21 = getelementptr inbounds { i32, [7 x i32] }, ptr %20, i64 %19
+  %21 = getelementptr inbounds [32 x i8], ptr %20, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !noalias !19743
   %22 = load i64, ptr %8, align 8, !alias.scope !19752, !noalias !19755, !noundef !4
   %23 = add i64 %22, 1
@@ -126949,7 +126949,7 @@ define hidden void @"_ZN91_$LT$sqlx_sqlite..arguments..SqliteArguments$u20$as$u2
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9e77727f51a28cb7E.llvm.9977487472220041507.exit.i": ; preds = %._crit_edge.i.i, %6
   %18 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %8, %6 ]
   %19 = load ptr, ptr %0, align 8, !alias.scope !19763, !noalias !19766, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds { i32, [7 x i32] }, ptr %19, i64 %18
+  %20 = getelementptr inbounds [32 x i8], ptr %19, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %21 = load i64, ptr %7, align 8, !alias.scope !19763, !noalias !19766, !noundef !4
   %22 = add i64 %21, 1
@@ -127004,7 +127004,7 @@ define hidden void @"_ZN91_$LT$sqlx_sqlite..arguments..SqliteArguments$u20$as$u2
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9e77727f51a28cb7E.llvm.9977487472220041507.exit.i": ; preds = %._crit_edge.i.i, %5
   %17 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %7, %5 ]
   %18 = load ptr, ptr %0, align 8, !alias.scope !19773, !noalias !19776, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds { i32, [7 x i32] }, ptr %18, i64 %17
+  %19 = getelementptr inbounds [32 x i8], ptr %18, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !19778
   %20 = load i64, ptr %6, align 8, !alias.scope !19773, !noalias !19776, !noundef !4
   %21 = add i64 %20, 1
@@ -127067,7 +127067,7 @@ define hidden void @"_ZN91_$LT$sqlx_sqlite..arguments..SqliteArguments$u20$as$u2
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9e77727f51a28cb7E.llvm.9977487472220041507.exit.i": ; preds = %._crit_edge.i.i, %"_ZN11sqlx_sqlite122_$LT$impl$u20$sqlx_core..encode..Encode$LT$sqlx_sqlite..database..Sqlite$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$6encode17hb2588073c9e7a5bdE.llvm.9977487472220041507.exit.thread.i"
   %19 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %9, %"_ZN11sqlx_sqlite122_$LT$impl$u20$sqlx_core..encode..Encode$LT$sqlx_sqlite..database..Sqlite$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$6encode17hb2588073c9e7a5bdE.llvm.9977487472220041507.exit.thread.i" ]
   %20 = load ptr, ptr %0, align 8, !alias.scope !19788, !noalias !19791, !nonnull !4, !noundef !4
-  %21 = getelementptr inbounds { i32, [7 x i32] }, ptr %20, i64 %19
+  %21 = getelementptr inbounds [32 x i8], ptr %20, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %22 = load i64, ptr %8, align 8, !alias.scope !19788, !noalias !19791, !noundef !4
   %23 = add i64 %22, 1
@@ -129955,7 +129955,7 @@ define hidden void @"_ZN9sqlx_core5query84Query$LT$DB$C$$LT$DB$u20$as$u20$sqlx_c
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9e77727f51a28cb7E.llvm.9977487472220041507.exit.i.i": ; preds = %._crit_edge.i.i.i, %12
   %23 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %14, %12 ]
   %24 = load ptr, ptr %8, align 8, !alias.scope !20140, !noalias !20143, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds { i32, [7 x i32] }, ptr %24, i64 %23
+  %25 = getelementptr inbounds [32 x i8], ptr %24, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !20145
   %26 = load i64, ptr %13, align 8, !alias.scope !20140, !noalias !20143, !noundef !4
   %27 = add i64 %26, 1
@@ -130105,7 +130105,7 @@ define hidden void @"_ZN9sqlx_core5query84Query$LT$DB$C$$LT$DB$u20$as$u20$sqlx_c
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9e77727f51a28cb7E.llvm.9977487472220041507.exit.i.i": ; preds = %._crit_edge.i.i.i, %"_ZN11sqlx_sqlite122_$LT$impl$u20$sqlx_core..encode..Encode$LT$sqlx_sqlite..database..Sqlite$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$6encode17hb2588073c9e7a5bdE.llvm.9977487472220041507.exit.thread.i.i"
   %22 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %13, %"_ZN11sqlx_sqlite122_$LT$impl$u20$sqlx_core..encode..Encode$LT$sqlx_sqlite..database..Sqlite$GT$$u20$for$u20$core..option..Option$LT$T$GT$$GT$6encode17hb2588073c9e7a5bdE.llvm.9977487472220041507.exit.thread.i.i" ]
   %23 = load ptr, ptr %7, align 8, !alias.scope !20180, !noalias !20183, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds { i32, [7 x i32] }, ptr %23, i64 %22
+  %24 = getelementptr inbounds [32 x i8], ptr %23, i64 %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %25 = load i64, ptr %12, align 8, !alias.scope !20180, !noalias !20183, !noundef !4
   %26 = add i64 %25, 1
@@ -130191,7 +130191,7 @@ define hidden void @"_ZN9sqlx_core5query84Query$LT$DB$C$$LT$DB$u20$as$u20$sqlx_c
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9e77727f51a28cb7E.llvm.9977487472220041507.exit.i.i": ; preds = %._crit_edge.i.i.i, %10
   %21 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %12, %10 ]
   %22 = load ptr, ptr %6, align 8, !alias.scope !20195, !noalias !20198, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds { i32, [7 x i32] }, ptr %22, i64 %21
+  %23 = getelementptr inbounds [32 x i8], ptr %22, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   %24 = load i64, ptr %11, align 8, !alias.scope !20195, !noalias !20198, !noundef !4
   %25 = add i64 %24, 1
@@ -130278,7 +130278,7 @@ define hidden void @"_ZN9sqlx_core5query84Query$LT$DB$C$$LT$DB$u20$as$u20$sqlx_c
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9e77727f51a28cb7E.llvm.9977487472220041507.exit.i.i": ; preds = %._crit_edge.i.i.i, %12
   %23 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %14, %12 ]
   %24 = load ptr, ptr %8, align 8, !alias.scope !20209, !noalias !20212, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds { i32, [7 x i32] }, ptr %24, i64 %23
+  %25 = getelementptr inbounds [32 x i8], ptr %24, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !20214
   %26 = load i64, ptr %13, align 8, !alias.scope !20209, !noalias !20212, !noundef !4
   %27 = add i64 %26, 1
@@ -137821,7 +137821,7 @@ common.ret:                                       ; preds = %32, %14
   store ptr %41, ptr %.sroa.445.0..sroa_idx, align 8
   %.sroa.546.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %.sroa.1135.0.copyload37, ptr %.sroa.546.0..sroa_idx, align 8
-  %43 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, [7 x i8] }, ptr %38, i64 %.sroa.1135.0.copyload37
+  %43 = getelementptr inbounds [80 x i8], ptr %38, i64 %.sroa.1135.0.copyload37
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !21090
   store ptr null, ptr %6, align 8, !noalias !21090
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !21090
@@ -138139,7 +138139,7 @@ common.ret:                                       ; preds = %44, %18
   %.sroa.549.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %.sroa.11.0.copyload42, ptr %.sroa.549.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
-  %55 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, [7 x i8] }, ptr %50, i64 %.sroa.11.0.copyload42
+  %55 = getelementptr inbounds [80 x i8], ptr %50, i64 %.sroa.11.0.copyload42
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !21130
   store ptr null, ptr %6, align 8, !noalias !21130
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !21130
@@ -143455,7 +143455,7 @@ common.ret:                                       ; preds = %91, %16
   store ptr %100, ptr %.sroa.452.0..sroa_idx, align 8
   %.sroa.553.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %.sroa.1139.0.copyload41, ptr %.sroa.553.0..sroa_idx, align 8
-  %102 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } }, i8, [7 x i8] }, ptr %97, i64 %.sroa.1139.0.copyload41
+  %102 = getelementptr inbounds [56 x i8], ptr %97, i64 %.sroa.1139.0.copyload41
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !21669
   store ptr null, ptr %6, align 8, !noalias !21669
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !21669

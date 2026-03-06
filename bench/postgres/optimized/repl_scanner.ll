@@ -90,7 +90,7 @@ define dso_local i32 @replication_yylex(ptr noundef %0, ptr noundef initializes(
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not200 = icmp eq ptr %29, null
   br i1 %.not200, label %36, label %53
@@ -134,7 +134,7 @@ replication_yyrealloc.exit.i:                     ; preds = %36
 
 44:                                               ; preds = %replication_yyrealloc.exit.i
   %45 = load i64, ptr %37, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %46, i8 0, i64 64, i1 false)
   store i64 %40, ptr %37, align 8
   br label %replication_yyensure_buffer_stack.exit
@@ -145,11 +145,11 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
   %49 = load ptr, ptr %23, align 8
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %51
   store ptr %48, ptr %52, align 8
   %.pre = load ptr, ptr %23, align 8
   %.pre704 = load i64, ptr %50, align 8
-  %.phi.trans.insert705 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.pre704
+  %.phi.trans.insert705 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.pre704
   %.pre706 = load ptr, ptr %.phi.trans.insert705, align 8
   br label %53
 
@@ -157,7 +157,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
   %54 = phi ptr [ %.pre706, %replication_yyensure_buffer_stack.exit ], [ %29, %25 ]
   %55 = phi i64 [ %.pre704, %replication_yyensure_buffer_stack.exit ], [ %27, %25 ]
   %56 = phi ptr [ %.pre, %replication_yyensure_buffer_stack.exit ], [ %24, %25 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %55
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %55
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 28
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 52
@@ -223,7 +223,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
   %92 = getelementptr inbounds nuw i8, ptr @yy_ec, i64 %91
   %93 = load i8, ptr %92, align 1
   %94 = sext i32 %.1 to i64
-  %95 = getelementptr inbounds i16, ptr @yy_accept, i64 %94
+  %95 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %94
   %96 = load i16, ptr %95, align 2
   %.not202 = icmp eq i16 %96, 0
   br i1 %.not202, label %98, label %97
@@ -234,12 +234,12 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
   br label %98
 
 98:                                               ; preds = %97, %89
-  %99 = getelementptr inbounds i16, ptr @yy_base, i64 %94
+  %99 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %94
   %100 = load i16, ptr %99, align 2
   %101 = sext i16 %100 to i64
   %102 = zext i8 %93 to i64
   %103 = add nsw i64 %101, %102
-  %104 = getelementptr inbounds i16, ptr @yy_chk, i64 %103
+  %104 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %103
   %105 = load i16, ptr %104, align 2
   %106 = sext i16 %105 to i32
   %.not203585 = icmp eq i32 %.1, %106
@@ -249,7 +249,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
   %107 = phi i64 [ %120, %115 ], [ %102, %98 ]
   %108 = phi i64 [ %116, %115 ], [ %94, %98 ]
   %.0190586 = phi i8 [ %.1191, %115 ], [ %93, %98 ]
-  %109 = getelementptr inbounds i16, ptr @yy_def, i64 %108
+  %109 = getelementptr inbounds [2 x i8], ptr @yy_def, i64 %108
   %110 = load i16, ptr %109, align 2
   %111 = icmp sgt i16 %110, 284
   br i1 %111, label %112, label %115
@@ -262,19 +262,19 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
 115:                                              ; preds = %112, %.lr.ph
   %.1191 = phi i8 [ %114, %112 ], [ %.0190586, %.lr.ph ]
   %116 = sext i16 %110 to i64
-  %117 = getelementptr inbounds i16, ptr @yy_base, i64 %116
+  %117 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %116
   %118 = load i16, ptr %117, align 2
   %119 = sext i16 %118 to i64
   %120 = zext i8 %.1191 to i64
   %121 = add nsw i64 %119, %120
-  %122 = getelementptr inbounds i16, ptr @yy_chk, i64 %121
+  %122 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %121
   %123 = load i16, ptr %122, align 2
   %.not203 = icmp eq i16 %110, %123
   br i1 %.not203, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %115, %98
   %.lcssa = phi i64 [ %103, %98 ], [ %121, %115 ]
-  %124 = getelementptr inbounds i16, ptr @yy_nxt, i64 %.lcssa
+  %124 = getelementptr inbounds [2 x i8], ptr @yy_nxt, i64 %.lcssa
   %125 = load i16, ptr %124, align 2
   %126 = sext i16 %125 to i32
   %127 = getelementptr inbounds nuw i8, ptr %.1177, i64 1
@@ -292,7 +292,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
   %.2178 = phi ptr [ %128, %.backedge.sink.split1092 ], [ %593, %.backedge.backedge ]
   %.3 = phi i32 [ %129, %.backedge.sink.split1092 ], [ %.3.be, %.backedge.backedge ]
   %130 = sext i32 %.3 to i64
-  %131 = getelementptr inbounds i16, ptr @yy_accept, i64 %130
+  %131 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %130
   %132 = load i16, ptr %131, align 2
   %133 = sext i16 %132 to i32
   store ptr %.1183, ptr %78, align 8
@@ -548,7 +548,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
   store i8 %219, ptr %.2178, align 1
   %220 = load ptr, ptr %80, align 8
   %221 = load i64, ptr %81, align 8
-  %222 = getelementptr inbounds nuw ptr, ptr %220, i64 %221
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %221
   %223 = load ptr, ptr %222, align 8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 56
   %225 = load i32, ptr %224, align 8
@@ -564,13 +564,13 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
   store ptr %230, ptr %231, align 8
   %232 = load ptr, ptr %80, align 8
   %233 = load i64, ptr %81, align 8
-  %234 = getelementptr inbounds nuw ptr, ptr %232, i64 %233
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %233
   %235 = load ptr, ptr %234, align 8
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 56
   store i32 1, ptr %236, align 8
   %.pre707 = load ptr, ptr %80, align 8
   %.pre708 = load i64, ptr %81, align 8
-  %.phi.trans.insert709 = getelementptr inbounds nuw ptr, ptr %.pre707, i64 %.pre708
+  %.phi.trans.insert709 = getelementptr inbounds nuw [8 x i8], ptr %.pre707, i64 %.pre708
   %.pre710 = load ptr, ptr %.phi.trans.insert709, align 8
   br label %237
 
@@ -617,7 +617,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
 263:                                              ; preds = %259, %.lr.ph31.i
   %264 = phi i8 [ %262, %259 ], [ 1, %.lr.ph31.i ]
   %265 = sext i32 %.02129.i to i64
-  %266 = getelementptr inbounds i16, ptr @yy_accept, i64 %265
+  %266 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %265
   %267 = load i16, ptr %266, align 2
   %.not24.i = icmp eq i16 %267, 0
   br i1 %.not24.i, label %269, label %268
@@ -628,12 +628,12 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
   br label %269
 
 269:                                              ; preds = %268, %263
-  %270 = getelementptr inbounds i16, ptr @yy_base, i64 %265
+  %270 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %265
   %271 = load i16, ptr %270, align 2
   %272 = sext i16 %271 to i64
   %273 = zext i8 %264 to i64
   %274 = add nsw i64 %272, %273
-  %275 = getelementptr inbounds i16, ptr @yy_chk, i64 %274
+  %275 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %274
   %276 = load i16, ptr %275, align 2
   %277 = sext i16 %276 to i32
   %.not2526.i = icmp eq i32 %.02129.i, %277
@@ -643,7 +643,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
   %278 = phi i64 [ %291, %286 ], [ %273, %269 ]
   %279 = phi i64 [ %287, %286 ], [ %265, %269 ]
   %.027.i = phi i8 [ %.1.i, %286 ], [ %264, %269 ]
-  %280 = getelementptr inbounds i16, ptr @yy_def, i64 %279
+  %280 = getelementptr inbounds [2 x i8], ptr @yy_def, i64 %279
   %281 = load i16, ptr %280, align 2
   %282 = icmp sgt i16 %281, 284
   br i1 %282, label %283, label %286
@@ -656,19 +656,19 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
 286:                                              ; preds = %283, %.lr.ph.i
   %.1.i = phi i8 [ %285, %283 ], [ %.027.i, %.lr.ph.i ]
   %287 = sext i16 %281 to i64
-  %288 = getelementptr inbounds i16, ptr @yy_base, i64 %287
+  %288 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %287
   %289 = load i16, ptr %288, align 2
   %290 = sext i16 %289 to i64
   %291 = zext i8 %.1.i to i64
   %292 = add nsw i64 %290, %291
-  %293 = getelementptr inbounds i16, ptr @yy_chk, i64 %292
+  %293 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %292
   %294 = load i16, ptr %293, align 2
   %.not25.i = icmp eq i16 %281, %294
   br i1 %.not25.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %286, %269
   %.lcssa.i = phi i64 [ %274, %269 ], [ %292, %286 ]
-  %295 = getelementptr inbounds i16, ptr @yy_nxt, i64 %.lcssa.i
+  %295 = getelementptr inbounds [2 x i8], ptr @yy_nxt, i64 %.lcssa.i
   %296 = load i16, ptr %295, align 2
   %297 = sext i16 %296 to i32
   %298 = getelementptr inbounds nuw i8, ptr %.02328.i, i64 1
@@ -678,7 +678,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %33, %36, %44
 yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %247
   %.021.lcssa.i = phi i32 [ %256, %247 ], [ %297, %._crit_edge.i ]
   %299 = sext i32 %.021.lcssa.i to i64
-  %300 = getelementptr inbounds i16, ptr @yy_accept, i64 %299
+  %300 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %299
   %301 = load i16, ptr %300, align 2
   %.not.i215 = icmp eq i16 %301, 0
   br i1 %.not.i215, label %303, label %302
@@ -689,11 +689,11 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %247
   br label %303
 
 303:                                              ; preds = %302, %yy_get_previous_state.exit
-  %304 = getelementptr inbounds i16, ptr @yy_base, i64 %299
+  %304 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %299
   %305 = load i16, ptr %304, align 2
   %306 = sext i16 %305 to i64
   %307 = add nsw i64 %306, 1
-  %308 = getelementptr inbounds i16, ptr @yy_chk, i64 %307
+  %308 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %307
   %309 = load i16, ptr %308, align 2
   %310 = sext i16 %309 to i32
   %.not1819.i = icmp eq i32 %.021.lcssa.i, %310
@@ -701,21 +701,21 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %247
 
 .lr.ph.i216:                                      ; preds = %303, %.lr.ph.i216
   %311 = phi i64 [ %314, %.lr.ph.i216 ], [ %299, %303 ]
-  %312 = getelementptr inbounds i16, ptr @yy_def, i64 %311
+  %312 = getelementptr inbounds [2 x i8], ptr @yy_def, i64 %311
   %313 = load i16, ptr %312, align 2
   %314 = sext i16 %313 to i64
-  %315 = getelementptr inbounds i16, ptr @yy_base, i64 %314
+  %315 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %314
   %316 = load i16, ptr %315, align 2
   %317 = sext i16 %316 to i64
   %318 = add nsw i64 %317, 1
-  %319 = getelementptr inbounds i16, ptr @yy_chk, i64 %318
+  %319 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %318
   %320 = load i16, ptr %319, align 2
   %.not18.i = icmp eq i16 %313, %320
   br i1 %.not18.i, label %yy_try_NUL_trans.exit, label %.lr.ph.i216, !llvm.loop !9
 
 yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i216, %303
   %.lcssa.i218 = phi i64 [ %307, %303 ], [ %318, %.lr.ph.i216 ]
-  %321 = getelementptr inbounds i16, ptr @yy_nxt, i64 %.lcssa.i218
+  %321 = getelementptr inbounds [2 x i8], ptr @yy_nxt, i64 %.lcssa.i218
   %322 = load i16, ptr %321, align 2
   %323 = icmp eq i16 %322, 284
   %.not206257 = icmp eq i64 %.lcssa.i218, 0
@@ -785,7 +785,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i216, %303
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i222
   %.pre.i = load ptr, ptr %80, align 8
   %.pre182.i = load i64, ptr %81, align 8
-  %.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %.pre182.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.pre182.i
   %.pre183.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge.i219
 
@@ -799,7 +799,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i216, %303
   br i1 %357, label %358, label %360
 
 358:                                              ; preds = %._crit_edge.i219
-  %359 = getelementptr inbounds nuw ptr, ptr %354, i64 %353
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %354, i64 %353
   store i32 0, ptr %82, align 4
   br label %466
 
@@ -877,7 +877,7 @@ replication_yyrealloc.exit.i221:                  ; preds = %385, %383
   store ptr %389, ptr %73, align 8
   %390 = load ptr, ptr %80, align 8
   %391 = load i64, ptr %81, align 8
-  %392 = getelementptr inbounds nuw ptr, ptr %390, i64 %391
+  %392 = getelementptr inbounds nuw [8 x i8], ptr %390, i64 %391
   %393 = load ptr, ptr %392, align 8
   %.pn.in.i = getelementptr inbounds nuw i8, ptr %393, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
@@ -913,7 +913,7 @@ replication_yyrealloc.exit.i221:                  ; preds = %385, %383
   %404 = trunc i32 %402 to i8
   %405 = load ptr, ptr %80, align 8
   %406 = load i64, ptr %81, align 8
-  %407 = getelementptr inbounds nuw ptr, ptr %405, i64 %406
+  %407 = getelementptr inbounds nuw [8 x i8], ptr %405, i64 %406
   %408 = load ptr, ptr %407, align 8
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 8
   %410 = load ptr, ptr %409, align 8
@@ -938,7 +938,7 @@ replication_yyrealloc.exit.i221:                  ; preds = %385, %383
 .thread.i:                                        ; preds = %.critedge.i
   %414 = load ptr, ptr %80, align 8
   %415 = load i64, ptr %81, align 8
-  %416 = getelementptr inbounds nuw ptr, ptr %414, i64 %415
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %414, i64 %415
   %417 = load ptr, ptr %416, align 8
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 8
   %419 = load ptr, ptr %418, align 8
@@ -972,7 +972,7 @@ replication_yyrealloc.exit.i221:                  ; preds = %385, %383
   %432 = zext nneg i32 %396 to i64
   %433 = load ptr, ptr %80, align 8
   %434 = load i64, ptr %81, align 8
-  %435 = getelementptr inbounds nuw ptr, ptr %433, i64 %434
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %433, i64 %434
   %436 = load ptr, ptr %435, align 8
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 8
   %438 = load ptr, ptr %437, align 8
@@ -1005,7 +1005,7 @@ replication_yyrealloc.exit.i221:                  ; preds = %385, %383
   tail call void @clearerr(ptr noundef %450) #17
   %451 = load ptr, ptr %80, align 8
   %452 = load i64, ptr %81, align 8
-  %453 = getelementptr inbounds nuw ptr, ptr %451, i64 %452
+  %453 = getelementptr inbounds nuw [8 x i8], ptr %451, i64 %452
   %454 = load ptr, ptr %453, align 8
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 8
   %456 = load ptr, ptr %455, align 8
@@ -1021,7 +1021,7 @@ replication_yyrealloc.exit.i221:                  ; preds = %385, %383
   %462 = phi i32 [ %.1158.i, %428 ], [ %442, %429 ], [ 0, %.lr.ph174.i ], [ %460, %449 ]
   %463 = load ptr, ptr %80, align 8
   %464 = load i64, ptr %81, align 8
-  %465 = getelementptr inbounds nuw ptr, ptr %463, i64 %464
+  %465 = getelementptr inbounds nuw [8 x i8], ptr %463, i64 %464
   br label %466
 
 466:                                              ; preds = %.critedge2.i, %358
@@ -1046,7 +1046,7 @@ replication_yyrealloc.exit.i221:                  ; preds = %385, %383
 474:                                              ; preds = %470
   %475 = load ptr, ptr %80, align 8
   %476 = load i64, ptr %81, align 8
-  %477 = getelementptr inbounds nuw ptr, ptr %475, i64 %476
+  %477 = getelementptr inbounds nuw [8 x i8], ptr %475, i64 %476
   %478 = load ptr, ptr %477, align 8
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 56
   store i32 2, ptr %479, align 8
@@ -1058,7 +1058,7 @@ replication_yyrealloc.exit.i221:                  ; preds = %385, %383
   %482 = add i32 %481, %346
   %483 = load ptr, ptr %80, align 8
   %484 = load i64, ptr %81, align 8
-  %485 = getelementptr inbounds nuw ptr, ptr %483, i64 %484
+  %485 = getelementptr inbounds nuw [8 x i8], ptr %483, i64 %484
   %486 = load ptr, ptr %485, align 8
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 24
   %488 = load i32, ptr %487, align 8
@@ -1086,13 +1086,13 @@ replication_yyrealloc.exit154.i:                  ; preds = %498, %496
   %.0.i153.i = phi ptr [ %497, %496 ], [ %499, %498 ]
   %500 = load ptr, ptr %80, align 8
   %501 = load i64, ptr %81, align 8
-  %502 = getelementptr inbounds nuw ptr, ptr %500, i64 %501
+  %502 = getelementptr inbounds nuw [8 x i8], ptr %500, i64 %501
   %503 = load ptr, ptr %502, align 8
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 8
   store ptr %.0.i153.i, ptr %504, align 8
   %505 = load ptr, ptr %80, align 8
   %506 = load i64, ptr %81, align 8
-  %507 = getelementptr inbounds nuw ptr, ptr %505, i64 %506
+  %507 = getelementptr inbounds nuw [8 x i8], ptr %505, i64 %506
   %508 = load ptr, ptr %507, align 8
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 8
   %510 = load ptr, ptr %509, align 8
@@ -1118,7 +1118,7 @@ yy_get_next_buffer.exit:                          ; preds = %480, %512
   %515 = phi i64 [ %.pre187.i, %512 ], [ %484, %480 ]
   %516 = phi ptr [ %.pre186.i, %512 ], [ %483, %480 ]
   store i32 %.pre-phi.i, ptr %82, align 4
-  %517 = getelementptr inbounds nuw ptr, ptr %516, i64 %515
+  %517 = getelementptr inbounds nuw [8 x i8], ptr %516, i64 %515
   %518 = load ptr, ptr %517, align 8
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 8
   %520 = load ptr, ptr %519, align 8
@@ -1127,7 +1127,7 @@ yy_get_next_buffer.exit:                          ; preds = %480, %512
   store i8 0, ptr %522, align 1
   %523 = load ptr, ptr %80, align 8
   %524 = load i64, ptr %81, align 8
-  %525 = getelementptr inbounds nuw ptr, ptr %523, i64 %524
+  %525 = getelementptr inbounds nuw [8 x i8], ptr %523, i64 %524
   %526 = load ptr, ptr %525, align 8
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 8
   %528 = load ptr, ptr %527, align 8
@@ -1138,7 +1138,7 @@ yy_get_next_buffer.exit:                          ; preds = %480, %512
   store i8 0, ptr %532, align 1
   %533 = load ptr, ptr %80, align 8
   %534 = load i64, ptr %81, align 8
-  %535 = getelementptr inbounds nuw ptr, ptr %533, i64 %534
+  %535 = getelementptr inbounds nuw [8 x i8], ptr %533, i64 %534
   %536 = load ptr, ptr %535, align 8
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 8
   %538 = load ptr, ptr %537, align 8
@@ -1150,7 +1150,7 @@ yy_get_next_buffer.exit:                          ; preds = %480, %512
   ]
 
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread255_crit_edge: ; preds = %yy_get_next_buffer.exit
-  %539 = getelementptr inbounds nuw ptr, ptr %533, i64 %534
+  %539 = getelementptr inbounds nuw [8 x i8], ptr %533, i64 %534
   %.pre711 = load ptr, ptr %539, align 8
   %.phi.trans.insert712 = getelementptr inbounds nuw i8, ptr %.pre711, i64 8
   %.pre713 = load ptr, ptr %.phi.trans.insert712, align 8
@@ -1187,7 +1187,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread255_crit_edge: ; preds = %
 555:                                              ; preds = %551, %.lr.ph31.i225
   %556 = phi i8 [ %554, %551 ], [ 1, %.lr.ph31.i225 ]
   %557 = sext i32 %.02129.i226 to i64
-  %558 = getelementptr inbounds i16, ptr @yy_accept, i64 %557
+  %558 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %557
   %559 = load i16, ptr %558, align 2
   %.not24.i229 = icmp eq i16 %559, 0
   br i1 %.not24.i229, label %561, label %560
@@ -1198,12 +1198,12 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread255_crit_edge: ; preds = %
   br label %561
 
 561:                                              ; preds = %560, %555
-  %562 = getelementptr inbounds i16, ptr @yy_base, i64 %557
+  %562 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %557
   %563 = load i16, ptr %562, align 2
   %564 = sext i16 %563 to i64
   %565 = zext i8 %556 to i64
   %566 = add nsw i64 %564, %565
-  %567 = getelementptr inbounds i16, ptr @yy_chk, i64 %566
+  %567 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %566
   %568 = load i16, ptr %567, align 2
   %569 = sext i16 %568 to i32
   %.not2526.i230 = icmp eq i32 %.02129.i226, %569
@@ -1213,7 +1213,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread255_crit_edge: ; preds = %
   %570 = phi i64 [ %583, %578 ], [ %565, %561 ]
   %571 = phi i64 [ %579, %578 ], [ %557, %561 ]
   %.027.i232 = phi i8 [ %.1.i233, %578 ], [ %556, %561 ]
-  %572 = getelementptr inbounds i16, ptr @yy_def, i64 %571
+  %572 = getelementptr inbounds [2 x i8], ptr @yy_def, i64 %571
   %573 = load i16, ptr %572, align 2
   %574 = icmp sgt i16 %573, 284
   br i1 %574, label %575, label %578
@@ -1226,19 +1226,19 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread255_crit_edge: ; preds = %
 578:                                              ; preds = %575, %.lr.ph.i231
   %.1.i233 = phi i8 [ %577, %575 ], [ %.027.i232, %.lr.ph.i231 ]
   %579 = sext i16 %573 to i64
-  %580 = getelementptr inbounds i16, ptr @yy_base, i64 %579
+  %580 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %579
   %581 = load i16, ptr %580, align 2
   %582 = sext i16 %581 to i64
   %583 = zext i8 %.1.i233 to i64
   %584 = add nsw i64 %582, %583
-  %585 = getelementptr inbounds i16, ptr @yy_chk, i64 %584
+  %585 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %584
   %586 = load i16, ptr %585, align 2
   %.not25.i234 = icmp eq i16 %573, %586
   br i1 %.not25.i234, label %._crit_edge.i235, label %.lr.ph.i231, !llvm.loop !7
 
 ._crit_edge.i235:                                 ; preds = %578, %561
   %.lcssa.i236 = phi i64 [ %566, %561 ], [ %584, %578 ]
-  %587 = getelementptr inbounds i16, ptr @yy_nxt, i64 %.lcssa.i236
+  %587 = getelementptr inbounds [2 x i8], ptr @yy_nxt, i64 %.lcssa.i236
   %588 = load i16, ptr %587, align 2
   %589 = sext i16 %588 to i32
   %590 = getelementptr inbounds nuw i8, ptr %.02328.i227, i64 1
@@ -1275,7 +1275,7 @@ yy_get_next_buffer.exit.thread255:                ; preds = %340, %yy_get_next_b
 601:                                              ; preds = %597, %.lr.ph31.i240
   %602 = phi i8 [ %600, %597 ], [ 1, %.lr.ph31.i240 ]
   %603 = sext i32 %.02129.i241 to i64
-  %604 = getelementptr inbounds i16, ptr @yy_accept, i64 %603
+  %604 = getelementptr inbounds [2 x i8], ptr @yy_accept, i64 %603
   %605 = load i16, ptr %604, align 2
   %.not24.i244 = icmp eq i16 %605, 0
   br i1 %.not24.i244, label %607, label %606
@@ -1286,12 +1286,12 @@ yy_get_next_buffer.exit.thread255:                ; preds = %340, %yy_get_next_b
   br label %607
 
 607:                                              ; preds = %606, %601
-  %608 = getelementptr inbounds i16, ptr @yy_base, i64 %603
+  %608 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %603
   %609 = load i16, ptr %608, align 2
   %610 = sext i16 %609 to i64
   %611 = zext i8 %602 to i64
   %612 = add nsw i64 %610, %611
-  %613 = getelementptr inbounds i16, ptr @yy_chk, i64 %612
+  %613 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %612
   %614 = load i16, ptr %613, align 2
   %615 = sext i16 %614 to i32
   %.not2526.i245 = icmp eq i32 %.02129.i241, %615
@@ -1301,7 +1301,7 @@ yy_get_next_buffer.exit.thread255:                ; preds = %340, %yy_get_next_b
   %616 = phi i64 [ %629, %624 ], [ %611, %607 ]
   %617 = phi i64 [ %625, %624 ], [ %603, %607 ]
   %.027.i247 = phi i8 [ %.1.i248, %624 ], [ %602, %607 ]
-  %618 = getelementptr inbounds i16, ptr @yy_def, i64 %617
+  %618 = getelementptr inbounds [2 x i8], ptr @yy_def, i64 %617
   %619 = load i16, ptr %618, align 2
   %620 = icmp sgt i16 %619, 284
   br i1 %620, label %621, label %624
@@ -1314,19 +1314,19 @@ yy_get_next_buffer.exit.thread255:                ; preds = %340, %yy_get_next_b
 624:                                              ; preds = %621, %.lr.ph.i246
   %.1.i248 = phi i8 [ %623, %621 ], [ %.027.i247, %.lr.ph.i246 ]
   %625 = sext i16 %619 to i64
-  %626 = getelementptr inbounds i16, ptr @yy_base, i64 %625
+  %626 = getelementptr inbounds [2 x i8], ptr @yy_base, i64 %625
   %627 = load i16, ptr %626, align 2
   %628 = sext i16 %627 to i64
   %629 = zext i8 %.1.i248 to i64
   %630 = add nsw i64 %628, %629
-  %631 = getelementptr inbounds i16, ptr @yy_chk, i64 %630
+  %631 = getelementptr inbounds [2 x i8], ptr @yy_chk, i64 %630
   %632 = load i16, ptr %631, align 2
   %.not25.i249 = icmp eq i16 %619, %632
   br i1 %.not25.i249, label %._crit_edge.i250, label %.lr.ph.i246, !llvm.loop !7
 
 ._crit_edge.i250:                                 ; preds = %624, %607
   %.lcssa.i251 = phi i64 [ %612, %607 ], [ %630, %624 ]
-  %633 = getelementptr inbounds i16, ptr @yy_nxt, i64 %.lcssa.i251
+  %633 = getelementptr inbounds [2 x i8], ptr @yy_nxt, i64 %.lcssa.i251
   %634 = load i16, ptr %633, align 2
   %635 = sext i16 %634 to i32
   %636 = getelementptr inbounds nuw i8, ptr %.02328.i242, i64 1
@@ -1421,7 +1421,7 @@ define dso_local nonnull ptr @replication_yy_create_buffer(ptr noundef %0, i32 n
 26:                                               ; preds = %13
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %4, %30
   br i1 %31, label %32, label %replication_yy_flush_buffer.exit.i
@@ -1458,7 +1458,7 @@ replication_yy_flush_buffer.exit.i:               ; preds = %32, %26, %13
 48:                                               ; preds = %replication_yy_flush_buffer.exit.i
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds nuw ptr, ptr %47, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %4, %52
   br i1 %53, label %replication_yy_init_buffer.exit, label %.critedge.i
@@ -1515,7 +1515,7 @@ define dso_local void @replication_yyrestart(ptr noundef %0, ptr noundef capture
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
   br i1 %.not16, label %16, label %.thread
@@ -1559,7 +1559,7 @@ replication_yyrealloc.exit.i:                     ; preds = %16
 
 24:                                               ; preds = %replication_yyrealloc.exit.i
   %25 = load i64, ptr %17, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, i8 0, i64 64, i1 false)
   store i64 %20, ptr %17, align 8
   br label %27
@@ -1571,7 +1571,7 @@ replication_yyrealloc.exit.i:                     ; preds = %16
   %31 = load ptr, ptr %3, align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %33
   store ptr %30, ptr %34, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
@@ -1586,7 +1586,7 @@ replication_yyrealloc.exit.i:                     ; preds = %16
   %37 = phi ptr [ %.pre, %27 ], [ %4, %5 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr @__errno_location() #20
   %43 = load i32, ptr %42, align 4
@@ -1615,7 +1615,7 @@ replication_yyrealloc.exit.i:                     ; preds = %16
 
 55:                                               ; preds = %44
   %56 = load i64, ptr %38, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %54, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %41, %58
   br i1 %59, label %60, label %replication_yy_flush_buffer.exit.i
@@ -1655,7 +1655,7 @@ replication_yy_flush_buffer.exit.i:               ; preds = %.thread19, %60, %55
 79:                                               ; preds = %replication_yy_flush_buffer.exit.i
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %78, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %81
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %76, %83
   br i1 %84, label %replication_yy_init_buffer.exit, label %.critedge.i
@@ -1674,7 +1674,7 @@ replication_yy_init_buffer.exit:                  ; preds = %79, %.critedge.i
   %88 = load ptr, ptr %3, align 8
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds nuw ptr, ptr %88, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %90
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 28
   %94 = load i32, ptr %93, align 4
@@ -1745,7 +1745,7 @@ replication_yyrealloc.exit.i:                     ; preds = %11
 
 21:                                               ; preds = %replication_yyrealloc.exit.i
   %22 = load i64, ptr %14, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 64, i1 false)
   store i64 %17, ptr %14, align 8
   br label %replication_yyensure_buffer_stack.exit
@@ -1763,7 +1763,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %8, %11, %21
 .thread:                                          ; preds = %replication_yyensure_buffer_stack.exit
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, %0
   br i1 %31, label %74, label %32
@@ -1781,7 +1781,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %8, %11, %21
   %38 = load ptr, ptr %36, align 8
   %39 = load ptr, ptr %3, align 8
   %40 = load i64, ptr %27, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %38, ptr %43, align 8
@@ -1789,7 +1789,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %8, %11, %21
   %45 = load i32, ptr %44, align 4
   %46 = load ptr, ptr %3, align 8
   %47 = load i64, ptr %27, align 8
-  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 28
   store i32 %45, ptr %50, align 4
@@ -1800,11 +1800,11 @@ replication_yyensure_buffer_stack.exit:           ; preds = %8, %11, %21
   %52 = phi ptr [ %24, %32 ], [ %.pre, %33 ]
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds nuw ptr, ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %54
   store ptr %0, ptr %55, align 8
   %56 = load ptr, ptr %3, align 8
   %57 = load i64, ptr %53, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %61 = load i32, ptr %60, align 4
@@ -1852,7 +1852,7 @@ define dso_local void @replication_yy_delete_buffer(ptr noundef %0, ptr noundef 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %0, %10
   br i1 %11, label %12, label %.critedge
@@ -1927,7 +1927,7 @@ define dso_local void @replication_yy_flush_buffer(ptr noundef captures(address)
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %0, %19
   br i1 %20, label %21, label %.critedge
@@ -2009,7 +2009,7 @@ replication_yyrealloc.exit.i:                     ; preds = %13
 
 23:                                               ; preds = %replication_yyrealloc.exit.i
   %24 = load i64, ptr %16, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, i8 0, i64 64, i1 false)
   store i64 %19, ptr %16, align 8
   %.pre = load i64, ptr %14, align 8
@@ -2019,7 +2019,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %10, %13, %23
   %26 = phi i64 [ 0, %10 ], [ %15, %13 ], [ %.pre, %23 ]
   %27 = load ptr, ptr %5, align 8, !nonnull !14, !noundef !14
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %30 = load ptr, ptr %29, align 8
   %.not25 = icmp eq ptr %30, null
   br i1 %.not25, label %.thread, label %31
@@ -2033,7 +2033,7 @@ replication_yyensure_buffer_stack.exit:           ; preds = %10, %13, %23
   %36 = load ptr, ptr %34, align 8
   %37 = load ptr, ptr %5, align 8
   %38 = load i64, ptr %28, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %36, ptr %41, align 8
@@ -2041,13 +2041,13 @@ replication_yyensure_buffer_stack.exit:           ; preds = %10, %13, %23
   %43 = load i32, ptr %42, align 4
   %44 = load ptr, ptr %5, align 8
   %45 = load i64, ptr %28, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 28
   store i32 %43, ptr %48, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.pre30 = load i64, ptr %28, align 8
-  %.phi.trans.insert31 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %.pre30
+  %.phi.trans.insert31 = getelementptr inbounds nuw [8 x i8], ptr %.pr.pre, i64 %.pre30
   %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8
   %49 = icmp eq ptr %.pre32, null
   br i1 %49, label %.thread, label %50
@@ -2060,11 +2060,11 @@ replication_yyensure_buffer_stack.exit:           ; preds = %10, %13, %23
 .thread:                                          ; preds = %replication_yyensure_buffer_stack.exit, %50, %31
   %.pr40 = phi ptr [ %.pr.pre, %50 ], [ %.pr.pre, %31 ], [ %27, %replication_yyensure_buffer_stack.exit ]
   %52 = phi i64 [ %51, %50 ], [ %.pre30, %31 ], [ %26, %replication_yyensure_buffer_stack.exit ]
-  %53 = getelementptr inbounds nuw ptr, ptr %.pr40, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pr40, i64 %52
   store ptr %0, ptr %53, align 8
   %54 = load ptr, ptr %5, align 8
   %55 = load i64, ptr %28, align 8
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 28
   %59 = load i32, ptr %58, align 4
@@ -2102,7 +2102,7 @@ define dso_local void @replication_yypop_buffer_state(ptr noundef captures(none)
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not20 = icmp eq ptr %8, null
   br i1 %.not20, label %42, label %.critedge.i
@@ -2128,7 +2128,7 @@ replication_yy_delete_buffer.exit:                ; preds = %.critedge.i, %11, %
   tail call void @pfree(ptr noundef nonnull %8) #17
   %15 = load ptr, ptr %2, align 8
   %16 = load i64, ptr %5, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   store ptr null, ptr %17, align 8
   %18 = load i64, ptr %5, align 8
   %.not21 = icmp eq i64 %18, 0
@@ -2146,7 +2146,7 @@ replication_yy_delete_buffer.exit:                ; preds = %.critedge.i, %11, %
   br i1 %.not22, label %42, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %26 = load ptr, ptr %25, align 8
   %.not23 = icmp eq ptr %26, null
   br i1 %.not23, label %42, label %27
@@ -2363,7 +2363,7 @@ define dso_local i32 @replication_yyget_lineno(ptr noundef readonly captures(non
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
@@ -2388,7 +2388,7 @@ define dso_local i32 @replication_yyget_column(ptr noundef readonly captures(non
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
@@ -2447,7 +2447,7 @@ define dso_local void @replication_yyset_lineno(i32 noundef %0, ptr noundef read
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %10, label %11
@@ -2472,7 +2472,7 @@ define dso_local void @replication_yyset_column(i32 noundef %0, ptr noundef read
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %10, label %11
@@ -2635,7 +2635,7 @@ define dso_local noundef i32 @replication_yylex_destroy(ptr noundef %0) local_un
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %4, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.critedge, label %.critedge.i
@@ -2663,7 +2663,7 @@ replication_yy_delete_buffer.exit:                ; preds = %.critedge.i, %19, %
   tail call void @pfree(ptr noundef nonnull %15) #17
   %23 = load ptr, ptr %2, align 8
   %24 = load i64, ptr %4, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   store ptr null, ptr %25, align 8
   %26 = load ptr, ptr %2, align 8
   %.not.i23 = icmp eq ptr %26, null
@@ -2671,7 +2671,7 @@ replication_yy_delete_buffer.exit:                ; preds = %.critedge.i, %19, %
 
 27:                                               ; preds = %replication_yy_delete_buffer.exit
   %28 = load i64, ptr %4, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not20.i = icmp eq ptr %30, null
   br i1 %.not20.i, label %replication_yypop_buffer_state.exit, label %.critedge.i.i
@@ -2697,7 +2697,7 @@ replication_yy_delete_buffer.exit.i:              ; preds = %36, %33, %.critedge
   tail call void @pfree(ptr noundef nonnull %30) #17
   %37 = load ptr, ptr %2, align 8
   %38 = load i64, ptr %4, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   store ptr null, ptr %39, align 8
   %40 = load i64, ptr %4, align 8
   %.not21.i = icmp eq i64 %40, 0
@@ -2715,7 +2715,7 @@ replication_yy_delete_buffer.exit.i:              ; preds = %36, %33, %.critedge
   br i1 %.not22.i, label %replication_yyfree.exit, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %44
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %44
   %48 = load ptr, ptr %47, align 8
   %.not23.i = icmp eq ptr %48, null
   br i1 %.not23.i, label %replication_yypop_buffer_state.exit, label %49
@@ -2740,7 +2740,7 @@ replication_yy_delete_buffer.exit.i:              ; preds = %36, %33, %.critedge
 replication_yypop_buffer_state.exit:              ; preds = %27, %46, %49
   %58 = phi ptr [ %45, %46 ], [ %26, %27 ], [ %45, %49 ]
   %59 = load i64, ptr %4, align 8
-  %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.critedge, label %.critedge.i, !llvm.loop !16

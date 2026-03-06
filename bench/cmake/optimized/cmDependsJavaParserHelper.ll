@@ -18,13 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<cmDependsJavaParserHelper::CurrentClass, std::allocator<cmDependsJavaParserHelper::CurrentClass>>::_Vector_impl" }
 %"struct.std::_Vector_base<cmDependsJavaParserHelper::CurrentClass, std::allocator<cmDependsJavaParserHelper::CurrentClass>>::_Vector_impl" = type { %"struct.std::_Vector_base<cmDependsJavaParserHelper::CurrentClass, std::allocator<cmDependsJavaParserHelper::CurrentClass>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cmDependsJavaParserHelper::CurrentClass, std::allocator<cmDependsJavaParserHelper::CurrentClass>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.cmDependsJavaParserHelper::ParserType" = type { ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.17" }
-%"struct.std::_Head_base.17" = type { ptr }
 %"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
@@ -1430,7 +1423,7 @@ define dso_local void @_ZN25cmDependsJavaParserHelper10CheckEmptyEiiPNS_10Parser
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.013 = phi i32 [ 1, %.lr.ph.preheader ], [ %9, %.lr.ph ]
-  %7 = getelementptr inbounds %"struct.cmDependsJavaParserHelper::ParserType", ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !85
   tail call void @_ZN25cmDependsJavaParserHelper16SafePrintMissingEPKcii(ptr nonnull align 8 poison, ptr noundef %8, i32 noundef %1, i32 noundef %.013)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -1551,7 +1544,7 @@ _ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4
 .noexc:                                           ; preds = %47, %_ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i
   store ptr %40, ptr %19, align 8, !tbaa !44
   store ptr %46, ptr %20, align 8, !tbaa !45
-  %48 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %40, i64 %38
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %38
   store ptr %48, ptr %22, align 8, !tbaa !49
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
@@ -3128,7 +3121,7 @@ _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS
 _ZNSt12_Vector_baseIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, %96
   store ptr %22, ptr %0, align 8, !tbaa !41
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !38
-  %100 = getelementptr inbounds nuw %"class.cmDependsJavaParserHelper::CurrentClass", ptr %22, i64 %16
+  %100 = getelementptr inbounds nuw [56 x i8], ptr %22, i64 %16
   store ptr %100, ptr %95, align 8, !tbaa !39
   ret void
 }
@@ -3328,7 +3321,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !50
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !51
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !53
   ret void
 
@@ -3568,7 +3561,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit37, %74
   store ptr %23, ptr %0, align 8, !tbaa !50
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !51
-  %78 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %78, ptr %73, align 8, !tbaa !53
   ret void
 
@@ -3794,7 +3787,7 @@ _ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS
 _ZNSt12_Vector_baseIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN25cmDependsJavaParserHelper12CurrentClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %72
   store ptr %20, ptr %0, align 8, !tbaa !41
   store ptr %.0.lcssa.i.i.i35, ptr %4, align 8, !tbaa !38
-  %76 = getelementptr inbounds nuw %"class.cmDependsJavaParserHelper::CurrentClass", ptr %20, i64 %16
+  %76 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %76, ptr %71, align 8, !tbaa !39
   ret void
 

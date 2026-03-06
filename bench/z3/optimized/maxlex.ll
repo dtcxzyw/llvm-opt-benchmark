@@ -183,7 +183,7 @@ _ZNK6vectorIN3opt4softELb1EjE8capacityEv.exit.i.i: ; preds = %1
 
 _ZN6vectorIN3opt4softELb1EjE3endEv.exit:          ; preds = %_ZNK6vectorIN3opt4softELb1EjE8capacityEv.exit.i.i, %18
   %.0.i.i.i.i = phi i64 [ %21, %18 ], [ 0, %_ZNK6vectorIN3opt4softELb1EjE8capacityEv.exit.i.i ]
-  %22 = getelementptr inbounds nuw %"struct.opt::soft", ptr %16, i64 %.0.i.i.i.i
+  %22 = getelementptr inbounds nuw [56 x i8], ptr %16, i64 %.0.i.i.i.i
   %23 = tail call noundef ptr @_ZSt16__do_uninit_copyIPKN3opt4softEPS1_ET0_T_S6_S5_(ptr noundef %16, ptr noundef %22, ptr noundef nonnull %15)
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !9
@@ -241,12 +241,12 @@ _ZNK6vectorIN3opt4softELb1EjE4sizeEv.exit.i:      ; preds = %"_ZSt4sortIPN3opt4s
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %42 = getelementptr inbounds nuw %"struct.opt::soft", ptr %.pr, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [56 x i8], ptr %.pr, i64 %indvars.iv.i
   %43 = trunc nuw nsw i64 %indvars.iv.i to i32
   %44 = xor i32 %43, -1
   %45 = add i32 %40, %44
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"struct.opt::soft", ptr %.pr, i64 %46
+  %47 = getelementptr inbounds nuw [56 x i8], ptr %.pr, i64 %46
   tail call void @_ZSt4swapIN3opt4softEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS5_ESt18is_move_assignableIS5_EEE5valueEvE4typeERS5_SE_(ptr noundef nonnull align 8 dereferenceable(52) %42, ptr noundef nonnull align 8 dereferenceable(52) %47) #19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -888,7 +888,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN3opt4softElN9__gnu_cxx5__
 44:                                               ; preds = %_ZN3opt4softD2Ev.exit20.i.i.i, %24
   %.015.i.i.i = phi i64 [ %27, %24 ], [ %93, %_ZN3opt4softD2Ev.exit20.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %45 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %.015.i.i.i
+  %45 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %.015.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !47
   store ptr %47, ptr %28, align 8, !tbaa !22
@@ -1215,7 +1215,7 @@ _ZN8rationalD2Ev.exit.i9.i:                       ; preds = %.noexc.i.i8.i
 185:                                              ; preds = %21
   %186 = add nsw i64 %.01723, -1
   %187 = udiv i64 %22, 112
-  %188 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %187
+  %188 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %187
   %189 = getelementptr inbounds i8, ptr %.024, i64 -56
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %191 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
@@ -1634,8 +1634,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__
   %.031 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit" ], [ %1, %4 ]
   %9 = shl nuw nsw i64 %.031, 1
   %10 = add nuw nsw i64 %9, 2
-  %11 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %10
-  %12 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %9
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %10
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %15 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
@@ -1693,8 +1693,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__
   %.0.i.i.i.i = phi i1 [ %51, %50 ], [ %46, %43 ], [ %49, %47 ]
   %52 = or disjoint i64 %9, 1
   %spec.select = select i1 %.0.i.i.i.i, i64 %52, i64 %10
-  %53 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %spec.select
-  %54 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %.031
+  %53 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %spec.select
+  %54 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %.031
   %55 = tail call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %54, ptr noundef nonnull align 8 dereferenceable(52) %53) #19
   %56 = icmp slt i64 %spec.select, %7
   br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !64
@@ -1714,8 +1714,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__
 63:                                               ; preds = %59
   %64 = shl nuw nsw i64 %.0.lcssa, 1
   %65 = or disjoint i64 %64, 1
-  %66 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %65
-  %67 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %.0.lcssa
+  %66 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %65
+  %67 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %.0.lcssa
   %68 = tail call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %67, ptr noundef nonnull align 8 dereferenceable(52) %66) #19
   br label %69
 
@@ -1767,7 +1767,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__
   %.0133.i = phi i64 [ %.0411.i, %133 ], [ %.1, %69 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.0411.i = lshr i64 %.04.in.i, 1
-  %98 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %.0411.i
+  %98 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %.0411.i
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 32
@@ -1824,7 +1824,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__
   br i1 %132, label %133, label %"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit.loopexit"
 
 133:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_S4_EEbT_RT0_.exit.i", %.noexc30, %.noexc
-  %134 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %.0133.i
+  %134 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %.0133.i
   %135 = call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %134, ptr noundef nonnull align 8 dereferenceable(52) %98) #19
   %136 = icmp samesign ugt i64 %.0411.i, %1
   br i1 %136, label %.lr.ph.i, label %"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit.loopexit", !llvm.loop !65
@@ -1837,7 +1837,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__
 "_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit": ; preds = %"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit.loopexit", %69
   %137 = phi ptr [ %73, %69 ], [ %.pre, %"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit.loopexit" ]
   %.013.lcssa.i = phi i64 [ %.1, %69 ], [ %.013.lcssa.i.ph, %"_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9is_maxlexERK6vectorIS1_Lb1EjEE3$_0EEEvT_T0_SD_T1_RT2_.exit.loopexit" ]
-  %138 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %.013.lcssa.i
+  %138 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %.013.lcssa.i
   %139 = load ptr, ptr %138, align 8, !tbaa !50
   store ptr %137, ptr %138, align 8, !tbaa !50
   store ptr %139, ptr %5, align 8, !tbaa !50
@@ -3405,7 +3405,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK3opt18maxsmt_solver_base14get
   %4 = load ptr, ptr %3, align 8, !tbaa !26
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.opt::soft", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load i32, ptr %8, align 8, !tbaa !52
   %10 = icmp eq i32 %9, 1
@@ -3597,7 +3597,7 @@ _ZSt14__partial_sortIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6maxlex8
 19:                                               ; preds = %11
   %20 = add nsw i64 %.01720, -1
   %21 = udiv i64 %12, 112
-  %22 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %21
   %23 = getelementptr inbounds i8, ptr %.021, i64 -56
   tail call void @_ZSt22__move_median_to_firstIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6maxlex8cmp_softEEEEvT_S9_S9_S9_T0_(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %22, ptr noundef nonnull %23)
   %24 = tail call noundef ptr @_ZSt21__unguarded_partitionIPN3opt4softEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_6maxlex8cmp_softEEEET_S9_S9_S9_T0_(ptr noundef nonnull %10, ptr noundef %.021, ptr noundef %0)
@@ -3646,7 +3646,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPN3opt4softEN9__gnu_cxx5__ops
 30:                                               ; preds = %_ZN3opt4softD2Ev.exit20, %11
   %.015 = phi i64 [ %13, %11 ], [ %79, %_ZN3opt4softD2Ev.exit20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %31 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %.015
+  %31 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %.015
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !47
   store ptr %33, ptr %14, align 8, !tbaa !22
@@ -3979,8 +3979,8 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx
   %.030 = phi i64 [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit ], [ %1, %4 ]
   %10 = shl i64 %.030, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"struct.opt::soft", ptr %0, i64 %11
-  %13 = getelementptr %"struct.opt::soft", ptr %0, i64 %10
+  %12 = getelementptr inbounds [56 x i8], ptr %0, i64 %11
+  %13 = getelementptr [56 x i8], ptr %0, i64 %10
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = getelementptr i8, ptr %13, i64 72
   %16 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
@@ -4038,8 +4038,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEb
   %.0.i.i.i.i.i = phi i1 [ %52, %51 ], [ %47, %44 ], [ %50, %48 ]
   %53 = or disjoint i64 %10, 1
   %spec.select = select i1 %.0.i.i.i.i.i, i64 %53, i64 %11
-  %54 = getelementptr inbounds %"struct.opt::soft", ptr %0, i64 %spec.select
-  %55 = getelementptr inbounds %"struct.opt::soft", ptr %0, i64 %.030
+  %54 = getelementptr inbounds [56 x i8], ptr %0, i64 %spec.select
+  %55 = getelementptr inbounds [56 x i8], ptr %0, i64 %.030
   %56 = tail call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %55, ptr noundef nonnull align 8 dereferenceable(52) %54) #19
   %57 = icmp slt i64 %spec.select, %8
   br i1 %57, label %.lr.ph, label %._crit_edge, !llvm.loop !91
@@ -4059,8 +4059,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEb
 64:                                               ; preds = %60
   %65 = shl nsw i64 %.0.lcssa, 1
   %66 = or disjoint i64 %65, 1
-  %67 = getelementptr inbounds %"struct.opt::soft", ptr %0, i64 %66
-  %68 = getelementptr inbounds %"struct.opt::soft", ptr %0, i64 %.0.lcssa
+  %67 = getelementptr inbounds [56 x i8], ptr %0, i64 %66
+  %68 = getelementptr inbounds [56 x i8], ptr %0, i64 %.0.lcssa
   %69 = tail call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %68, ptr noundef nonnull align 8 dereferenceable(52) %67) #19
   br label %70
 
@@ -4178,7 +4178,7 @@ define linkonce_odr hidden void @_ZSt11__push_heapIPN3opt4softElS1_N9__gnu_cxx5_
   %.01316 = phi i64 [ %1, %.lr.ph ], [ %.017, %47 ]
   %.017.in = add nsw i64 %.01316, -1
   %.017 = sdiv i64 %.017.in, 2
-  %12 = getelementptr inbounds %"struct.opt::soft", ptr %0, i64 %.017
+  %12 = getelementptr inbounds [56 x i8], ptr %0, i64 %.017
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
   %15 = load i8, ptr %9, align 4
@@ -4229,14 +4229,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3opt6maxlex8cmp_softEEclIPNS2_4softES7_EEbT
   br i1 %46, label %47, label %.critedge
 
 47:                                               ; preds = %39, %42, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3opt6maxlex8cmp_softEEclIPNS2_4softES7_EEbT_RT0_.exit
-  %48 = getelementptr inbounds %"struct.opt::soft", ptr %0, i64 %.01316
+  %48 = getelementptr inbounds [56 x i8], ptr %0, i64 %.01316
   %49 = tail call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %48, ptr noundef nonnull align 8 dereferenceable(52) %12) #19
   %50 = icmp sgt i64 %.017, %2
   br i1 %50, label %11, label %.critedge, !llvm.loop !92
 
 .critedge:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3opt6maxlex8cmp_softEEclIPNS2_4softES7_EEbT_RT0_.exit, %47, %42, %39, %5
   %.013.lcssa = phi i64 [ %1, %5 ], [ %.01316, %39 ], [ %.01316, %42 ], [ %.017, %47 ], [ %.01316, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3opt6maxlex8cmp_softEEclIPNS2_4softES7_EEbT_RT0_.exit ]
-  %51 = getelementptr inbounds %"struct.opt::soft", ptr %0, i64 %.013.lcssa
+  %51 = getelementptr inbounds [56 x i8], ptr %0, i64 %.013.lcssa
   %52 = tail call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %51, ptr noundef nonnull align 8 dereferenceable(52) %3) #19
   ret void
 }
@@ -5529,7 +5529,7 @@ _ZNK6vectorIN3opt4softELb1EjE4sizeEv.exit:        ; preds = %1
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %13 = load ptr, ptr %3, align 8, !tbaa !26
   %14 = load ptr, ptr %13, align 8, !tbaa !3
-  %15 = getelementptr inbounds nuw %"struct.opt::soft", ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [56 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !52
   %.not = icmp eq i32 %17, 0
@@ -5561,7 +5561,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !9
   %27 = zext i32 %.pre2.i.i to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %27
   store ptr %21, ptr %28, align 8, !tbaa !50
   %29 = add i32 %.pre2.i.i, 1
   store i32 %29, ptr %.phi.trans.insert.i.i, align 4, !tbaa !9
@@ -5621,7 +5621,7 @@ _ZN6solver9check_satERK10ref_vectorI4expr11ast_managerE.exit: ; preds = %_ZNK15r
 46:                                               ; preds = %.preheader
   %47 = load ptr, ptr %3, align 8, !tbaa !26
   %48 = load ptr, ptr %47, align 8, !tbaa !3
-  %49 = getelementptr inbounds nuw %"struct.opt::soft", ptr %48, i64 %indvars.iv.next53
+  %49 = getelementptr inbounds nuw [56 x i8], ptr %48, i64 %indvars.iv.next53
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %51 = load i32, ptr %50, align 8, !tbaa !52
   %.not34 = icmp eq i32 %51, 1

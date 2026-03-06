@@ -99,9 +99,9 @@ define internal range(i32 -1, 1) i32 @H5D__compact_construct(ptr noundef %0, ptr
 
 16:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %17 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !48
-  %19 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !48
   %21 = icmp ugt i64 %18, %20
   br i1 %21, label %22, label %15

@@ -3,10 +3,8 @@ source_filename = "bench/bullet3/original/gim_box_set.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.GIM_AABB_DATA = type { %class.GIM_AABB, i32 }
 %class.GIM_AABB = type { %class.btVector3, %class.btVector3 }
 %class.btVector3 = type { [4 x float] }
-%struct.GIM_BOX_TREE_NODE = type { %class.GIM_AABB, i32, i32, i32, i32 }
 
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
@@ -27,7 +25,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN12GIM_BOX_TREE20_calc_splitting
   %.sroa.1485.091 = phi float [ 0.000000e+00, %.lr.ph ], [ %30, %9 ]
   %.sroa.882.090 = phi float [ 0.000000e+00, %.lr.ph ], [ %29, %9 ]
   %.sroa.079.089 = phi float [ 0.000000e+00, %.lr.ph ], [ %28, %9 ]
-  %10 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [36 x i8], ptr %7, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load float, ptr %11, align 4, !tbaa !11
   %13 = load float, ptr %10, align 4, !tbaa !11
@@ -72,7 +70,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN12GIM_BOX_TREE20_calc_splitting
   %.sroa.14.097 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %66, %39 ]
   %.sroa.8.096 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %65, %39 ]
   %.sroa.069.095 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %64, %39 ]
-  %40 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %37, i64 %indvars.iv111
+  %40 = getelementptr inbounds nuw [36 x i8], ptr %37, i64 %indvars.iv111
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load float, ptr %41, align 4, !tbaa !11
   %43 = load float, ptr %40, align 4, !tbaa !11
@@ -141,11 +139,11 @@ define dso_local noundef i32 @_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexE
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.04446 = phi float [ 0.000000e+00, %.lr.ph ], [ %19, %11 ]
-  %12 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [36 x i8], ptr %8, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = getelementptr inbounds nuw float, ptr %13, i64 %9
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %9
   %15 = load float, ptr %14, align 4, !tbaa !11
-  %16 = getelementptr inbounds nuw float, ptr %12, i64 %9
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %9
   %17 = load float, ptr %16, align 4, !tbaa !11
   %18 = fadd float %15, %17
   %19 = tail call float @llvm.fmuladd.f32(float %18, float 5.000000e-01, float %.04446)
@@ -166,11 +164,11 @@ define dso_local noundef i32 @_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexE
   %indvars.iv55 = phi i64 [ %23, %.lr.ph51 ], [ %indvars.iv.next56, %41 ]
   %.04248 = phi i32 [ %2, %.lr.ph51 ], [ %.143, %41 ]
   %25 = load ptr, ptr %1, align 8, !tbaa !4
-  %26 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %25, i64 %indvars.iv55
+  %26 = getelementptr inbounds nuw [36 x i8], ptr %25, i64 %indvars.iv55
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = getelementptr inbounds nuw float, ptr %27, i64 %22
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %22
   %29 = load float, ptr %28, align 4, !tbaa !11
-  %30 = getelementptr inbounds nuw float, ptr %26, i64 %22
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %22
   %31 = load float, ptr %30, align 4, !tbaa !11
   %32 = fadd float %29, %31
   %33 = fmul float %32, 5.000000e-01
@@ -184,7 +182,7 @@ define dso_local noundef i32 @_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexE
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !17
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %38 = load i32, ptr %37, align 4, !tbaa !19
-  %39 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %25, i64 %36
+  %39 = getelementptr inbounds nuw [36 x i8], ptr %25, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %26, ptr noundef nonnull align 4 dereferenceable(36) %39, i64 36, i1 false), !tbaa.struct !23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i, i64 32, i1 false), !tbaa.struct !23
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %39, i64 32
@@ -228,7 +226,7 @@ define dso_local void @_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = zext i32 %5 to i64
   %11 = load ptr, ptr %9, align 8, !tbaa !30
-  %12 = getelementptr inbounds nuw %struct.GIM_BOX_TREE_NODE, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %10
   br i1 %8, label %13, label %24
 
 13:                                               ; preds = %4
@@ -240,10 +238,10 @@ define dso_local void @_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB
   store i32 0, ptr %16, align 4, !tbaa !34
   %17 = zext i32 %2 to i64
   %18 = load ptr, ptr %1, align 8, !tbaa !4
-  %19 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [36 x i8], ptr %18, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %12, ptr noundef nonnull align 4 dereferenceable(32) %19, i64 32, i1 false), !tbaa.struct !35
   %20 = load ptr, ptr %1, align 8, !tbaa !4
-  %21 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %20, i64 %17
+  %21 = getelementptr inbounds nuw [36 x i8], ptr %20, i64 %17
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load i32, ptr %22, align 4, !tbaa !19
   br label %common.ret
@@ -277,7 +275,7 @@ define dso_local void @_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB
   %37 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %51, %33 ]
   %38 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %47, %33 ]
   %39 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %43, %33 ]
-  %40 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %31, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [36 x i8], ptr %31, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !11
   %42 = fcmp ogt float %39, %41
   %43 = select i1 %42, float %41, float %39
@@ -330,11 +328,11 @@ define dso_local void @_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB
 68:                                               ; preds = %68, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %67, %.lr.ph.i ], [ %indvars.iv.next.i, %68 ]
   %.04446.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %76, %68 ]
-  %69 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %65, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw [36 x i8], ptr %65, i64 %indvars.iv.i
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %71 = getelementptr inbounds nuw float, ptr %70, i64 %66
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %66
   %72 = load float, ptr %71, align 4, !tbaa !11
-  %73 = getelementptr inbounds nuw float, ptr %69, i64 %66
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %66
   %74 = load float, ptr %73, align 4, !tbaa !11
   %75 = fadd float %72, %74
   %76 = tail call float @llvm.fmuladd.f32(float %75, float 5.000000e-01, float %.04446.i)
@@ -352,11 +350,11 @@ define dso_local void @_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB
   %80 = phi ptr [ %65, %.lr.ph51.i ], [ %97, %96 ]
   %indvars.iv55.i = phi i64 [ %67, %.lr.ph51.i ], [ %indvars.iv.next56.i, %96 ]
   %.04248.i = phi i32 [ %2, %.lr.ph51.i ], [ %.143.i, %96 ]
-  %81 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %80, i64 %indvars.iv55.i
+  %81 = getelementptr inbounds nuw [36 x i8], ptr %80, i64 %indvars.iv55.i
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %83 = getelementptr inbounds nuw float, ptr %82, i64 %66
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %66
   %84 = load float, ptr %83, align 4, !tbaa !11
-  %85 = getelementptr inbounds nuw float, ptr %81, i64 %66
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %66
   %86 = load float, ptr %85, align 4, !tbaa !11
   %87 = fadd float %84, %86
   %88 = fmul float %87, 5.000000e-01
@@ -370,7 +368,7 @@ define dso_local void @_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %82, i64 16, i1 false), !tbaa.struct !17
   %92 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %93 = load i32, ptr %92, align 4, !tbaa !19
-  %94 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %80, i64 %91
+  %94 = getelementptr inbounds nuw [36 x i8], ptr %80, i64 %91
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %81, ptr noundef nonnull align 4 dereferenceable(36) %94, i64 36, i1 false), !tbaa.struct !23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i.i.i, i64 32, i1 false), !tbaa.struct !23
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %94, i64 32
@@ -391,7 +389,7 @@ common.ret:                                       ; preds = %13, %_ZN12GIM_BOX_T
   %.sink52 = phi i64 [ 44, %13 ], [ 40, %_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj.exit ]
   %.sink = phi i32 [ %23, %13 ], [ %118, %_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjjj.exit ]
   %98 = load ptr, ptr %9, align 8, !tbaa !30
-  %99 = getelementptr inbounds nuw %struct.GIM_BOX_TREE_NODE, ptr %98, i64 %10
+  %99 = getelementptr inbounds nuw [48 x i8], ptr %98, i64 %10
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 %.sink52
   store i32 %.sink, ptr %100, align 4, !tbaa !24
   ret void
@@ -415,13 +413,13 @@ _ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexER9gim_arrayI13GIM_AABB_DATAEjj
   %109 = lshr i32 %7, 1
   %110 = add i32 %109, %2
   %.2.i = select i1 %108, i32 %110, i32 %.042.lcssa.i
-  %111 = getelementptr inbounds nuw %struct.GIM_BOX_TREE_NODE, ptr %101, i64 %10
+  %111 = getelementptr inbounds nuw [48 x i8], ptr %101, i64 %10
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 32
   store i32 %102, ptr %112, align 4, !tbaa !31
   tail call void @_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, i32 noundef %.2.i)
   %113 = load i32, ptr %0, align 8, !tbaa !26
   %114 = load ptr, ptr %9, align 8, !tbaa !30
-  %115 = getelementptr inbounds nuw %struct.GIM_BOX_TREE_NODE, ptr %114, i64 %10
+  %115 = getelementptr inbounds nuw [48 x i8], ptr %114, i64 %10
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 36
   store i32 %113, ptr %116, align 4, !tbaa !33
   tail call void @_ZN12GIM_BOX_TREE15_build_sub_treeER9gim_arrayI13GIM_AABB_DATAEjj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %.2.i, i32 noundef %3)
@@ -483,7 +481,7 @@ _ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i: ; preds = %_ZN9gim_arrayI17
   %27 = phi i32 [ %33, %.lr.ph.i ], [ %25, %_ZN9gim_arrayI17GIM_BOX_TREE_NODEE7reserveEj.exit.i ]
   %28 = load ptr, ptr %3, align 8, !tbaa !30
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw %struct.GIM_BOX_TREE_NODE, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %28, i64 %29
   %31 = getelementptr i8, ptr %30, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %32 = load i32, ptr %7, align 8, !tbaa !38

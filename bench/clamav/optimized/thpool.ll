@@ -114,7 +114,7 @@ jobqueue_destroy.exit:                            ; preds = %.lr.ph.i.i, %30
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %thread_init.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %thread_init.exit ]
   %48 = load ptr, ptr %2, align 8, !tbaa !22
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   %50 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
   store ptr %50, ptr %49, align 8, !tbaa !23
   %51 = icmp eq ptr %50, null
@@ -352,7 +352,7 @@ jobqueue_destroy.exit:                            ; preds = %.lr.ph.i.i, %._crit
 .lr.ph21:                                         ; preds = %jobqueue_destroy.exit, %.lr.ph21
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph21 ], [ 0, %jobqueue_destroy.exit ]
   %47 = load ptr, ptr %0, align 8, !tbaa !22
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !23
   call void @free(ptr noundef %49) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -392,7 +392,7 @@ define dso_local void @thpool_pause(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !22
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !30

@@ -3,17 +3,6 @@ source_filename = "bench/gromacs/original/dlb.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.gmx_domdec_comm_dim_t = type <{ %"class.std::vector.113", i8, [7 x i8] }>
-%"class.std::vector.113" = type { %"struct.std::_Vector_base.114" }
-%"struct.std::_Vector_base.114" = type { %"struct.std::_Vector_base<gmx_domdec_ind_t, std::allocator<gmx_domdec_ind_t>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx_domdec_ind_t, std::allocator<gmx_domdec_ind_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx_domdec_ind_t, std::allocator<gmx_domdec_ind_t>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx_domdec_ind_t, std::allocator<gmx_domdec_ind_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.gmx_domdec_ind_t = type { [6 x i32], [6 x i32], %"class.std::vector.39", [4 x i32], [4 x i32] }
-%"class.std::vector.39" = type { %"struct.std::_Vector_base.40" }
-%"struct.std::_Vector_base.40" = type { %"struct.std::_Vector_base<int, gmx::DefaultInitializationAllocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, gmx::DefaultInitializationAllocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, gmx::DefaultInitializationAllocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, gmx::DefaultInitializationAllocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-
 $_ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE17_M_default_appendEm = comdat any
 
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
@@ -66,9 +55,9 @@ define void @_Z14set_dlb_limitsP12gmx_domdec_t(ptr noundef readonly captures(non
   %8 = phi ptr [ %.pre, %.lr.ph ], [ %38, %_ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE6resizeEm.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE6resizeEm.exit ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 880
-  %10 = getelementptr inbounds nuw %struct.gmx_domdec_comm_dim_t, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 384
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !21
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -91,7 +80,7 @@ define void @_Z14set_dlb_limitsP12gmx_domdec_t(ptr noundef readonly captures(non
   br i1 %26, label %27, label %_ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE6resizeEm.exit
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw %struct.gmx_domdec_ind_t, ptr %17, i64 %14
+  %28 = getelementptr inbounds nuw [104 x i8], ptr %17, i64 %14
   %.not.i.i = icmp eq ptr %16, %28
   br i1 %.not.i.i, label %_ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -123,13 +112,13 @@ _ZSt8_DestroyIP16gmx_domdec_ind_tS0_EvT_S2_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_D
 _ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE6resizeEm.exit: ; preds = %23, %25, %27, %_ZSt8_DestroyIP16gmx_domdec_ind_tS0_EvT_S2_RSaIT0_E.exit.i.i
   %38 = load ptr, ptr %5, align 8, !tbaa !4
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 592
-  %40 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !21
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds float, ptr %39, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %39, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !125
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 580
-  %46 = getelementptr inbounds float, ptr %45, i64 %42
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %42
   store float %44, ptr %46, align 4, !tbaa !125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %2, align 8, !tbaa !23
@@ -231,9 +220,9 @@ _ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; pred
 
 _ZNSt12_Vector_baseI16gmx_domdec_ind_tSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %_ZNSt6vectorI16gmx_domdec_ind_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %42
   store ptr %26, ptr %0, align 8, !tbaa !120
-  %46 = getelementptr inbounds nuw %struct.gmx_domdec_ind_t, ptr %27, i64 %1
+  %46 = getelementptr inbounds nuw [104 x i8], ptr %27, i64 %1
   store ptr %46, ptr %4, align 8, !tbaa !117
-  %47 = getelementptr inbounds nuw %struct.gmx_domdec_ind_t, ptr %26, i64 %24
+  %47 = getelementptr inbounds nuw [104 x i8], ptr %26, i64 %24
   store ptr %47, ptr %11, align 8, !tbaa !127
   br label %48
 

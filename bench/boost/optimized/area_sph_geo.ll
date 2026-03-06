@@ -207,8 +207,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.boost::runtime::init_error" = type { %"class.boost::runtime::param_error" }
 %"class.boost::runtime::param_error" = type { %"class.std::exception", %"class.boost::unit_test::basic_cstring", %"class.std::__cxx11::basic_string" }
 %"struct.boost::unit_test::framework::nothing_to_test" = type { i32 }
-%"struct.std::pair.158" = type <{ ptr, i32, [4 x i8] }>
-%"struct.std::pair.155" = type <{ ptr, i32, [4 x i8] }>
 %"struct.boost::unit_test::framework::impl::sum_to_first_only" = type { i8 }
 %"class.boost::runtime::invalid_cla_id" = type { %"class.boost::runtime::specific_param_error.714" }
 %"class.boost::runtime::specific_param_error.714" = type { %"class.boost::runtime::init_error" }
@@ -257,7 +255,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.boost::unit_test::lazy_ostream_impl.242" = type { %"class.boost::unit_test::lazy_ostream.base", ptr, ptr }
 %"class.boost::unit_test::lazy_ostream_impl.243" = type { %"class.boost::unit_test::lazy_ostream.base", ptr, ptr }
 %"struct.boost::execution_aborted" = type { i8 }
-%"struct.std::pair.992" = type { ptr, ptr }
 %"class.boost::unit_test::lazy_ostream_impl.247" = type { %"class.boost::unit_test::lazy_ostream.base", ptr, ptr }
 %"class.boost::unit_test::lazy_ostream_impl.248" = type { %"class.boost::unit_test::lazy_ostream.base", ptr, ptr }
 %"class.boost::unit_test::lazy_ostream_impl.249" = type { %"class.boost::unit_test::lazy_ostream.base", ptr, ptr }
@@ -458,7 +455,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.398" = type { %"struct.std::_Head_base.399" }
 %"struct.std::_Head_base.399" = type { %"class.boost::reference_wrapper.400" }
 %"class.boost::reference_wrapper.400" = type { ptr }
-%"struct.boost::unit_test::framework::impl::name_filter::component" = type { i32, %"class.boost::unit_test::basic_cstring" }
 %"class.boost::exception_detail::refcount_ptr" = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
 %"struct.std::pair.720" = type { %"class.boost::unit_test::basic_cstring", %"class.boost::shared_ptr.496" }
@@ -501,7 +497,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.1015" = type { i8, %"class.boost::shared_ptr.800" }
 %"class.boost::runtime::conflicting_param" = type { %"class.boost::runtime::specific_param_error.1017" }
 %"class.boost::runtime::specific_param_error.1017" = type { %"class.boost::runtime::init_error" }
-%"class.boost::reference_wrapper.854" = type { ptr }
 %"struct.std::_Rb_tree<char, std::pair<const char, boost::shared_ptr<boost::runtime::cla::rt_cla_detail::parameter_trie>>, std::_Select1st<std::pair<const char, boost::shared_ptr<boost::runtime::cla::rt_cla_detail::parameter_trie>>>, std::less<char>>::_Auto_node" = type { ptr, ptr }
 %"struct.boost::test_tools::check_is_close_t" = type { i8 }
 %"class.boost::unit_test::lazy_ostream_impl.1095" = type { %"class.boost::unit_test::lazy_ostream.base", ptr, ptr }
@@ -15899,7 +15894,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %42, %_ZNKS
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %38, ptr %16, align 8, !tbaa !364
   store ptr %43, ptr %18, align 8, !tbaa !362
-  %45 = getelementptr inbounds nuw i64, ptr %38, i64 %36
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %36
   store ptr %45, ptr %20, align 8, !tbaa !363
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -22015,7 +22010,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit272: ; preds = %37
 
 .preheader605:                                    ; preds = %393, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit
   %.0130767 = phi i64 [ %411, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit ], [ 0, %393 ]
-  %401 = getelementptr inbounds nuw %"struct.std::pair.158", ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE11all_formats, i64 %.0130767
+  %401 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE11all_formats, i64 %.0130767
   %402 = load ptr, ptr %401, align 16, !tbaa !524
   %strlen.i.i = call noundef i64 @strlen(ptr nonnull dereferenceable(1) %402)
   %403 = icmp eq i64 %strlen.i.i, %398
@@ -22526,7 +22521,7 @@ _ZN5boost9unit_test15unit_test_log_t13get_formatterENS0_13output_formatE.exit.th
 
 .preheader:                                       ; preds = %568, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit336
   %.0127768 = phi i64 [ %581, %_ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit336 ], [ 0, %568 ]
-  %569 = getelementptr inbounds nuw %"struct.std::pair.155", ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE14all_log_levels, i64 %.0127768
+  %569 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN5boost9unit_test9framework4impl13setup_loggersEvE14all_log_levels, i64 %.0127768
   %570 = load ptr, ptr %569, align 16, !tbaa !548
   %strlen.i.i327 = call noundef i64 @strlen(ptr nonnull dereferenceable(1) %570)
   %571 = icmp eq i64 %strlen.i.i327, %558
@@ -23889,7 +23884,7 @@ _ZNSt6vectorIPN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESa
 _ZNSt6vectorIPN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %76, %_ZNSt6vectorIPN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit18.i.i.i
   store ptr %71, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 24), align 8, !tbaa !587
   store ptr %75, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 32), align 8, !tbaa !589
-  %77 = getelementptr inbounds nuw ptr, ptr %71, i64 %69
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %69
   store ptr %77, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 40), align 8, !tbaa !590
   br label %_ZNSt6vectorIPN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS4_EE9push_backEOS4_.exit
 
@@ -28158,7 +28153,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %290, %_Z
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %292, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %287, ptr %267, align 8, !tbaa !364
   store ptr %291, ptr %268, align 8, !tbaa !362
-  %293 = getelementptr inbounds nuw i64, ptr %287, i64 %285
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %285
   store ptr %293, ptr %270, align 8, !tbaa !363
   br label %_ZN5boost9unit_test9framework4implL26collect_dependant_siblingsEmmmRSt3mapImNS2_10order_infoESt4lessImESaISt4pairIKmS4_EEE.exit
 
@@ -29479,7 +29474,7 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit: ; preds = 
 
 _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit11: ; preds = %.lr.ph, %24, %27
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 160), align 8, !tbaa !684
-  %32 = getelementptr inbounds nuw %"struct.boost::unit_test::framework::state::context_frame", ptr %31, i64 %indvars.iv.next
+  %32 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %indvars.iv.next
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 36
   %34 = load i8, ptr %33, align 4, !tbaa !679, !range !17, !noundef !18
   %35 = trunc nuw i8 %34 to i1
@@ -29535,7 +29530,7 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit13: ; preds 
 
 _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit15: ; preds = %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit13, %48, %51
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 160), align 8, !tbaa !174
-  %56 = getelementptr inbounds nuw %"struct.boost::unit_test::framework::state::context_frame", ptr %55, i64 %indvars.iv.next
+  %56 = getelementptr inbounds nuw [40 x i8], ptr %55, i64 %indvars.iv.next
   %57 = tail call ptr @_ZNSt6vectorIN5boost9unit_test9framework5state13context_frameESaIS4_EE8_M_eraseEN9__gnu_cxx17__normal_iteratorIPS4_S6_EE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 160), ptr %56)
   br label %58
 
@@ -29870,7 +29865,7 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit2: ; preds =
   store i32 %32, ptr %1, align 4, !tbaa !687
   %33 = zext i32 %31 to i64
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 160), align 8, !tbaa !684
-  %35 = getelementptr inbounds nuw %"struct.boost::unit_test::framework::state::context_frame", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !4
   store ptr %36, ptr %0, align 8, !tbaa !12
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30079,7 +30074,7 @@ _ZNSt6vectorIPN5boost9unit_test10test_suiteESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN5boost9unit_test10test_suiteESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %49, %_ZNSt6vectorIPN5boost9unit_test10test_suiteESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %44, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 8), align 8, !tbaa !693
   store ptr %48, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 16), align 8, !tbaa !691
-  %50 = getelementptr inbounds nuw ptr, ptr %44, i64 %42
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %42
   store ptr %50, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 24), align 8, !tbaa !692
   br label %_ZNSt6vectorIPN5boost9unit_test10test_suiteESaIS3_EE9push_backEOS3_.exit
 
@@ -30201,7 +30196,7 @@ _ZNSt6vectorIPN5boost9unit_test10test_suiteESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt6vectorIPN5boost9unit_test10test_suiteESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %97, %_ZNSt6vectorIPN5boost9unit_test10test_suiteESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %92, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 8), align 8, !tbaa !693
   store ptr %96, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 16), align 8, !tbaa !691
-  %98 = getelementptr inbounds nuw ptr, ptr %92, i64 %90
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %90
   store ptr %98, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst, i64 24), align 8, !tbaa !692
   br label %_ZNSt6vectorIPN5boost9unit_test10test_suiteESaIS3_EE9push_backERKS3_.exit
 
@@ -33996,7 +33991,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %378, %.noe
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %379, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
-  %380 = getelementptr inbounds nuw i64, ptr %374, i64 %372
+  %380 = getelementptr inbounds nuw [8 x i8], ptr %374, i64 %372
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %360
@@ -34040,8 +34035,8 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   br i1 %.not.i425, label %395, label %390
 
 390:                                              ; preds = %.lr.ph.i
-  %391 = getelementptr inbounds i64, ptr %.sroa.0537.1.lcssa, i64 %.014.i
-  %392 = getelementptr inbounds nuw i64, ptr %.sroa.0537.1.lcssa, i64 %389
+  %391 = getelementptr inbounds [8 x i8], ptr %.sroa.0537.1.lcssa, i64 %.014.i
+  %392 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0537.1.lcssa, i64 %389
   %393 = load i64, ptr %391, align 8, !tbaa !93
   %394 = load i64, ptr %392, align 8, !tbaa !93
   store i64 %394, ptr %391, align 8, !tbaa !93
@@ -39847,7 +39842,7 @@ _ZN5boost9unit_test9framework20current_test_case_idEv.exit: ; preds = %_ZN5boost
 
 switch.lookup:                                    ; preds = %_ZN5boost9unit_test9framework20current_test_case_idEv.exit
   %22 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5boost9unit_test19results_collector_t16assertion_resultENS0_16assertion_resultE, i64 %22
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5boost9unit_test19results_collector_t16assertion_resultENS0_16assertion_resultE, i64 %22
   %switch.load = load i64, ptr %switch.gep, align 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %switch.load
   %24 = load i64, ptr %23, align 8, !tbaa !336
@@ -40290,7 +40285,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %32, %_ZNKS
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %34, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %28, ptr %6, align 8, !tbaa !364
   store ptr %33, ptr %8, align 8, !tbaa !362
-  %35 = getelementptr inbounds nuw i64, ptr %28, i64 %26
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   store ptr %35, ptr %10, align 8, !tbaa !363
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -40765,13 +40760,13 @@ _ZN5boost9unit_test9framework16test_in_progressEv.exit: ; preds = %7, %13, %16
 
 switch.lookup:                                    ; preds = %23
   %27 = zext nneg i32 %spec.select to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz, i64 %27
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   %28 = zext nneg i32 %spec.select to i64
-  %switch.gep17 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.579, i64 %28
+  %switch.gep17 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.579, i64 %28
   %switch.load18 = load ptr, ptr %switch.gep17, align 8
   %29 = zext nneg i32 %spec.select to i64
-  %switch.gep19 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.580, i64 %29
+  %switch.gep19 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz.580, i64 %29
   %switch.load20 = load ptr, ptr %switch.gep19, align 8
   %30 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_113unit_test_logE, align 8, !tbaa !174
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -41304,7 +41299,7 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit204: ; preds = %_ZN5boost9unit
   %236 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %24)
   %237 = add nsw i32 %4, -2
   %238 = zext nneg i32 %237 to i64
-  %239 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 %238
+  %239 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 %238
   %240 = load ptr, ptr %239, align 8, !tbaa !174
   store ptr %240, ptr %25, align 8, !tbaa !12
   %strlen.i.i206 = tail call noundef i64 @strlen(ptr nonnull dereferenceable(1) %240)
@@ -41351,7 +41346,7 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit221: ; preds = %_ZN5boost9unit
   store ptr getelementptr inbounds nuw (i8, ptr @.str.226, i64 2), ptr %254, align 8, !tbaa !14
   %255 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %28)
   %256 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_12lazy_ostreamE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(9) %224)
-  %257 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 %238
+  %257 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 %238
   %258 = load ptr, ptr %257, align 8, !tbaa !174
   store ptr %258, ptr %29, align 8, !tbaa !12
   %strlen.i.i219 = tail call noundef i64 @strlen(ptr nonnull dereferenceable(1) %258)
@@ -41792,7 +41787,7 @@ _ZNSt12_Vector_baseISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE11_M_a
           to label %.lr.ph unwind label %503
 
 .lr.ph:                                           ; preds = %_ZNSt12_Vector_baseISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE11_M_allocateEm.exit.i
-  %499 = getelementptr inbounds nuw %"struct.std::pair.992", ptr %498, i64 %5
+  %499 = getelementptr inbounds nuw [16 x i8], ptr %498, i64 %5
   %500 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %501 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %505
@@ -41922,7 +41917,7 @@ _ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE11_S_relocate
   br label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i
 
 _ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %548, %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i
-  %549 = getelementptr inbounds nuw %"struct.std::pair.992", ptr %544, i64 %542
+  %549 = getelementptr inbounds nuw [16 x i8], ptr %544, i64 %542
   br label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE9push_backEOS8_.exit
 
 _ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE9push_backEOS8_.exit: ; preds = %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, %531
@@ -41976,7 +41971,7 @@ _ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE9push_backEOS
 
 563:                                              ; preds = %.lr.ph412, %575
   %.0132411 = phi i64 [ 0, %.lr.ph412 ], [ %576, %575 ]
-  %564 = getelementptr inbounds nuw %"struct.std::pair.992", ptr %.sroa.0359.1.lcssa, i64 %.0132411
+  %564 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0359.1.lcssa, i64 %.0132411
   %565 = load ptr, ptr %564, align 8, !tbaa !860
   %.not.i276 = icmp eq ptr %565, null
   br i1 %.not.i276, label %.thread.i278, label %566
@@ -42060,7 +42055,7 @@ _ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE9push_backEOS
 
 591:                                              ; preds = %.lr.ph415, %601
   %.0133414 = phi i64 [ 0, %.lr.ph415 ], [ %602, %601 ]
-  %592 = getelementptr inbounds nuw %"struct.std::pair.992", ptr %.sroa.0359.1.lcssa, i64 %.0133414
+  %592 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0359.1.lcssa, i64 %.0133414
   %593 = getelementptr inbounds nuw i8, ptr %592, i64 8
   %594 = load ptr, ptr %593, align 8, !tbaa !863
   %595 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_12lazy_ostreamE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(9) %594)
@@ -43481,7 +43476,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit184: ; preds = %208,
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit186: ; preds = %219, %227
   %230 = add nsw i32 %4, -2
   %231 = zext nneg i32 %230 to i64
-  %232 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 %231
+  %232 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5boost10test_tools9tt_detailL9check_strE, i64 %231
   %233 = load ptr, ptr %232, align 8, !tbaa !174
   %234 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %233) #57
   %235 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %233, i64 noundef %234)
@@ -43534,7 +43529,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit194: ; preds = %_ZSt
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %261 = load ptr, ptr %260, align 8
   %262 = tail call noundef nonnull align 8 dereferenceable(8) ptr %261(ptr noundef nonnull align 8 dereferenceable(9) %205, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %263 = getelementptr inbounds nuw ptr, ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 %231
+  %263 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5boost10test_tools9tt_detailL9rever_strE, i64 %231
   %264 = load ptr, ptr %263, align 8, !tbaa !174
   %265 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %264) #57
   %266 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %262, ptr noundef nonnull %264, i64 noundef %265)
@@ -43966,7 +43961,7 @@ _ZNSt12_Vector_baseISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE11_M_a
           to label %.lr.ph unwind label %540
 
 .lr.ph:                                           ; preds = %_ZNSt12_Vector_baseISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE11_M_allocateEm.exit.i
-  %526 = getelementptr inbounds nuw %"struct.std::pair.992", ptr %525, i64 %5
+  %526 = getelementptr inbounds nuw [16 x i8], ptr %525, i64 %5
   %527 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %528 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %542
@@ -44108,7 +44103,7 @@ _ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE11_S_relocate
   br label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i
 
 _ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %585, %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i
-  %586 = getelementptr inbounds nuw %"struct.std::pair.992", ptr %581, i64 %579
+  %586 = getelementptr inbounds nuw [16 x i8], ptr %581, i64 %579
   br label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE9push_backEOS8_.exit
 
 _ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE9push_backEOS8_.exit: ; preds = %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, %568
@@ -44154,7 +44149,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit227._crit_edge: ; pr
 
 595:                                              ; preds = %.lr.ph341, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit235
   %.0132340 = phi i64 [ 0, %.lr.ph341 ], [ %613, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit235 ]
-  %596 = getelementptr inbounds nuw %"struct.std::pair.992", ptr %.sroa.0292.1.lcssa, i64 %.0132340
+  %596 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0292.1.lcssa, i64 %.0132340
   %597 = load ptr, ptr %596, align 8, !tbaa !860
   %.not.i230 = icmp eq ptr %597, null
   br i1 %.not.i230, label %598, label %606
@@ -44234,7 +44229,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit241._crit_edge: ; pr
 
 629:                                              ; preds = %.lr.ph343, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit247
   %.0133342 = phi i64 [ 0, %.lr.ph343 ], [ %641, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit247 ]
-  %630 = getelementptr inbounds nuw %"struct.std::pair.992", ptr %.sroa.0292.1.lcssa, i64 %.0133342
+  %630 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0292.1.lcssa, i64 %.0133342
   %631 = getelementptr inbounds nuw i8, ptr %630, i64 8
   %632 = load ptr, ptr %631, align 8, !tbaa !863
   %633 = load ptr, ptr %632, align 8, !tbaa !25
@@ -51677,7 +51672,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %63, %_ZN
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %65, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %59, ptr %9, align 8, !tbaa !364
   store ptr %64, ptr %10, align 8, !tbaa !362
-  %66 = getelementptr inbounds nuw i64, ptr %59, i64 %57
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %57
   store ptr %66, ptr %11, align 8, !tbaa !363
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -52449,7 +52444,7 @@ define dso_local void @_ZN5boost9unit_test18traverse_test_treeERKNS0_10test_suit
   %21 = phi ptr [ %34, %_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorEb.exit.us ], [ %16, %.lr.ph ]
   %.023.us = phi i64 [ %spec.select21.us, %_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorEb.exit.us ], [ 0, %.lr.ph ]
   %.01622.us = phi i64 [ %spec.select.us, %_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorEb.exit.us ], [ %20, %.lr.ph ]
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %.023.us
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.023.us
   %23 = load i64, ptr %22, align 8, !tbaa !93
   %24 = and i64 %23, 4294901760
   %.not.i.not.us = icmp eq i64 %24, 0
@@ -52494,7 +52489,7 @@ _ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorEb.exit.us: ; p
   %45 = phi ptr [ %62, %_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorEb.exit ], [ %16, %.lr.ph ]
   %.023 = phi i64 [ %spec.select21, %_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorEb.exit ], [ 0, %.lr.ph ]
   %.01622 = phi i64 [ %spec.select, %_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorEb.exit ], [ %20, %.lr.ph ]
-  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %.023
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.023
   %47 = load i64, ptr %46, align 8, !tbaa !93
   %48 = and i64 %47, 4294901760
   %.not.i.not = icmp eq i64 %48, 0
@@ -55442,7 +55437,7 @@ _ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaI
 _ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %71, %_ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit23.i.i
   store ptr %36, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, align 8, !tbaa !1056
   store ptr %70, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 8), align 8, !tbaa !1053
-  %75 = getelementptr inbounds nuw %"struct.boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl", ptr %36, i64 %34
+  %75 = getelementptr inbounds nuw [56 x i8], ptr %36, i64 %34
   store ptr %75, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 16), align 8, !tbaa !1055
   br label %_ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
@@ -59474,7 +59469,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES
 ._ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit_crit_edge.i: ; preds = %1021, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES5_SaIS4_EET0_T_S8_S7_RT1_.exit34.i
   store ptr %1008, ptr %983, align 8, !tbaa !1193
   store ptr %1020, ptr %984, align 8, !tbaa !1190
-  %1022 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr %1008, i64 %1006
+  %1022 = getelementptr inbounds nuw [16 x i8], ptr %1008, i64 %1006
   store ptr %1022, ptr %985, align 8, !tbaa !1194
   br label %_ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit.i
 
@@ -60330,7 +60325,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES
 ._ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit_crit_edge.i1038: ; preds = %1327, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES5_SaIS4_EET0_T_S8_S7_RT1_.exit34.i2003
   store ptr %1314, ptr %1289, align 8, !tbaa !1193
   store ptr %1326, ptr %1290, align 8, !tbaa !1190
-  %1328 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr %1314, i64 %1312
+  %1328 = getelementptr inbounds nuw [16 x i8], ptr %1314, i64 %1312
   store ptr %1328, ptr %1291, align 8, !tbaa !1194
   br label %_ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit.i1034
 
@@ -61158,7 +61153,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES
 ._ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit_crit_edge.i1156: ; preds = %1617, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES5_SaIS4_EET0_T_S8_S7_RT1_.exit34.i2024
   store ptr %1604, ptr %1579, align 8, !tbaa !1193
   store ptr %1616, ptr %1580, align 8, !tbaa !1190
-  %1618 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr %1604, i64 %1602
+  %1618 = getelementptr inbounds nuw [16 x i8], ptr %1604, i64 %1602
   store ptr %1618, ptr %1581, align 8, !tbaa !1194
   br label %_ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit.i1151
 
@@ -62794,7 +62789,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES
 ._ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit_crit_edge.i1505: ; preds = %2181, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES5_SaIS4_EET0_T_S8_S7_RT1_.exit34.i2045
   store ptr %2168, ptr %2143, align 8, !tbaa !1193
   store ptr %2180, ptr %2144, align 8, !tbaa !1190
-  %2182 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr %2168, i64 %2166
+  %2182 = getelementptr inbounds nuw [16 x i8], ptr %2168, i64 %2166
   store ptr %2182, ptr %2145, align 8, !tbaa !1194
   br label %_ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit.i1500
 
@@ -66540,7 +66535,7 @@ _ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit: ; preds = %_ZN5boos
   %.sroa.37.0327 = phi i64 [ %60, %_ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit.lr.ph ], [ %.sroa.37.2, %502 ]
   %.sroa.22.0325 = phi i64 [ 1, %_ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit.lr.ph ], [ %.sroa.22.2, %502 ]
   %.sroa.0182.0324 = phi i64 [ %57, %_ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit.lr.ph ], [ %.sroa.0182.3, %502 ]
-  %90 = getelementptr inbounds nuw ptr, ptr %2, i64 %.sroa.22.0325
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.sroa.22.0325
   %91 = load ptr, ptr %90, align 8, !tbaa !174, !noalias !1421
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 %.sroa.37.0327
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -66567,9 +66562,9 @@ _ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit: ; preds = %_ZN5boos
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.04.i = phi i64 [ %96, %.lr.ph.i ], [ %.sroa.22.0325, %.preheader.i ]
   %96 = add nuw i64 %.04.i, 1
-  %97 = getelementptr inbounds nuw ptr, ptr %2, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !174
-  %99 = getelementptr inbounds nuw ptr, ptr %2, i64 %.04.i
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.04.i
   store ptr %98, ptr %99, align 8, !tbaa !174
   %exitcond.not.i = icmp eq i64 %96, %94
   br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !1424
@@ -66649,7 +66644,7 @@ _ZN5boost7runtime3cla13rt_cla_detailL20report_foreing_tokenENS_9unit_test13basic
   br i1 %121, label %_ZN5boost7runtime3cla14argv_traverser10save_tokenEv.exit, label %122, !llvm.loop !1427
 
 122:                                              ; preds = %_ZN5boost7runtime3cla13rt_cla_detailL20report_foreing_tokenENS_9unit_test13basic_cstringIKcEES6_.exit
-  %123 = getelementptr inbounds nuw ptr, ptr %2, i64 %120
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %120
   %124 = load ptr, ptr %123, align 8, !tbaa !174
   %125 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %124) #65
   br label %_ZN5boost7runtime3cla14argv_traverser10save_tokenEv.exit, !llvm.loop !1427
@@ -67016,9 +67011,9 @@ _ZN5boost10shared_ptrINS_7runtime11basic_paramEEC2ERKS3_.exit: ; preds = %_ZN5bo
 .lr.ph.i104:                                      ; preds = %.preheader.i102, %.lr.ph.i104
   %.04.i105 = phi i64 [ %267, %.lr.ph.i104 ], [ %.sroa.22.0325, %.preheader.i102 ]
   %267 = add nuw i64 %.04.i105, 1
-  %268 = getelementptr inbounds nuw ptr, ptr %2, i64 %267
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %267
   %269 = load ptr, ptr %268, align 8, !tbaa !174
-  %270 = getelementptr inbounds nuw ptr, ptr %2, i64 %.04.i105
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.04.i105
   store ptr %269, ptr %270, align 8, !tbaa !174
   %exitcond.not.i106 = icmp eq i64 %267, %265
   br i1 %exitcond.not.i106, label %_ZN5boost7runtime3cla14argv_traverser10next_tokenEv.exit107, label %.lr.ph.i104, !llvm.loop !1424
@@ -67171,9 +67166,9 @@ _ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit110.thread: ; preds =
 .lr.ph.i116:                                      ; preds = %.preheader.i114, %.lr.ph.i116
   %.04.i117 = phi i64 [ %318, %.lr.ph.i116 ], [ %.sroa.22.0325, %.preheader.i114 ]
   %318 = add nuw i64 %.04.i117, 1
-  %319 = getelementptr inbounds nuw ptr, ptr %2, i64 %318
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %318
   %320 = load ptr, ptr %319, align 8, !tbaa !174
-  %321 = getelementptr inbounds nuw ptr, ptr %2, i64 %.04.i117
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.04.i117
   store ptr %320, ptr %321, align 8, !tbaa !174
   %exitcond.not.i118 = icmp eq i64 %318, %316
   br i1 %exitcond.not.i118, label %.loopexit, label %.lr.ph.i116, !llvm.loop !1424
@@ -67495,9 +67490,9 @@ _ZNK5boost7runtime15arguments_store3hasENS_9unit_test13basic_cstringIKcEE.exit.t
 .lr.ph.i135:                                      ; preds = %.preheader.i133, %.lr.ph.i135
   %.04.i136 = phi i64 [ %430, %.lr.ph.i135 ], [ %.sroa.22.0325, %.preheader.i133 ]
   %430 = add nuw i64 %.04.i136, 1
-  %431 = getelementptr inbounds nuw ptr, ptr %2, i64 %430
+  %431 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %430
   %432 = load ptr, ptr %431, align 8, !tbaa !174
-  %433 = getelementptr inbounds nuw ptr, ptr %2, i64 %.04.i136
+  %433 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.04.i136
   store ptr %432, ptr %433, align 8, !tbaa !174
   %exitcond.not.i137 = icmp eq i64 %430, %426
   br i1 %exitcond.not.i137, label %._crit_edge.i134, label %.lr.ph.i135, !llvm.loop !1424
@@ -70948,7 +70943,7 @@ define hidden void @_ZN5boost9unit_test6output17xml_log_formatter15log_entry_sta
 
 18:                                               ; preds = %16, %14, %4
   %19 = zext i32 %3 to i64
-  %20 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr @_ZZN5boost9unit_test6output17xml_log_formatter15log_entry_startERSoRKNS0_14log_entry_dataENS0_23unit_test_log_formatter15log_entry_typesEE8xml_tags, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN5boost9unit_test6output17xml_log_formatter15log_entry_startERSoRKNS0_14log_entry_dataENS0_23unit_test_log_formatter15log_entry_typesEE8xml_tags, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %20, align 16, !tbaa !12
   store ptr %22, ptr %21, align 8, !tbaa !12
@@ -106218,7 +106213,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %169, %_ZNK
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %171, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %166, ptr %146, align 8, !tbaa !364
   store ptr %170, ptr %147, align 8, !tbaa !362
-  %172 = getelementptr inbounds nuw i64, ptr %166, i64 %164
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %164
   store ptr %172, ptr %149, align 8, !tbaa !363
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -106901,7 +106896,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %43, %_ZNKS
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %45, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %39, ptr %17, align 8, !tbaa !364
   store ptr %44, ptr %19, align 8, !tbaa !362
-  %46 = getelementptr inbounds nuw i64, ptr %39, i64 %37
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %46, ptr %21, align 8, !tbaa !363
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -106989,7 +106984,7 @@ define linkonce_odr hidden void @_ZN5boost9unit_test9framework4impl11name_filter
 _ZN5boost9unit_test9framework4impl11name_filter11filter_unitERKNS0_9test_unitE.exit: ; preds = %16
   %18 = add i32 %5, -1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"class.std::vector.385", ptr %10, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !174
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !174
@@ -107069,7 +107064,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %54, %_ZNKS
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %50, ptr %28, align 8, !tbaa !364
   store ptr %55, ptr %30, align 8, !tbaa !362
-  %57 = getelementptr inbounds nuw i64, ptr %50, i64 %48
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   store ptr %57, ptr %32, align 8, !tbaa !363
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -107091,7 +107086,7 @@ _ZN5boost9unit_test9framework4impl11name_filter11filter_unitERKNS0_9test_unitE.e
   %9 = add i32 %5, -1
   %10 = zext i32 %9 to i64
   %11 = load ptr, ptr %8, align 8, !tbaa !2142
-  %12 = getelementptr inbounds nuw %"class.std::vector.385", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %10
   %13 = load ptr, ptr %12, align 8, !tbaa !174
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !174
@@ -107194,7 +107189,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %60, %_ZNKS
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %62, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %56, ptr %34, align 8, !tbaa !364
   store ptr %61, ptr %36, align 8, !tbaa !362
-  %63 = getelementptr inbounds nuw i64, ptr %56, i64 %54
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %54
   store ptr %63, ptr %38, align 8, !tbaa !363
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -107372,7 +107367,7 @@ _ZNSt6vectorIS_IN5boost9unit_test9framework4impl11name_filter9componentESaIS5_EE
 _ZNSt12_Vector_baseISt6vectorIN5boost9unit_test9framework4impl11name_filter9componentESaIS6_EESaIS8_EE13_M_deallocateEPS8_m.exit: ; preds = %_ZNSt6vectorIS_IN5boost9unit_test9framework4impl11name_filter9componentESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !2142
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !2144
-  %53 = getelementptr inbounds nuw %"class.std::vector.385", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !2149
   ret void
 }
@@ -107748,7 +107743,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test9framework4impl11name
 _ZNSt12_Vector_baseIN5boost9unit_test9framework4impl11name_filter9componentESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test9framework4impl11name_filter9componentES6_SaIS5_EET0_T_S9_S8_RT1_.exit34, %71
   store ptr %22, ptr %0, align 8, !tbaa !2145
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8, !tbaa !2162
-  %75 = getelementptr inbounds nuw %"struct.boost::unit_test::framework::impl::name_filter::component", ptr %22, i64 %16
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %16
   store ptr %75, ptr %70, align 8, !tbaa !2147
   ret void
 }
@@ -115889,7 +115884,7 @@ _ZNK5boost3nfp23named_parameter_combineINS0_15named_parameterIKSt16initializer_l
   store ptr %180, ptr %183, align 8, !tbaa !150
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 272
   store i64 0, ptr %184, align 8, !tbaa !151
-  %185 = getelementptr inbounds nuw %"struct.std::pair.586", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
+  %185 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
   invoke void @_ZNSt8_Rb_treeIN5boost9unit_test13basic_cstringIKcEESt4pairIKS4_NS1_13output_formatEESt10_Select1stIS8_ESt4lessIS4_ESaIS8_EE22_M_insert_range_uniqueIPKS8_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESJ_SJ_(ptr noundef nonnull align 8 dereferenceable(56) %170, ptr noundef %.sroa.0.0.copyload.i.i.i, ptr noundef %185)
           to label %_ZN5boost7runtime17value_interpreterINS_9unit_test13output_formatELb1EEC2INS_3nfp23named_parameter_combineINS6_15named_parameterIKNS2_13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSC_EENS7_INS8_IKSt16initializer_listISt4pairISC_S3_EENSD_13enum_values_tERSL_EENS7_INS8_IKS3_NSD_15default_value_tERSP_EENS7_INS8_ISC_NSD_9env_var_tESF_EENS8_ISC_NSD_13description_tESF_EEEEEEEEEEEERKT_.exit.i.i unwind label %.body.i.i.i
 
@@ -116023,7 +116018,7 @@ _ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit:
   %227 = phi i64 [ %.pre3, %._ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit_crit_edge ], [ %216, %220 ]
   %228 = phi ptr [ %.pre, %._ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backERKS4_.exit_crit_edge ], [ %217, %220 ]
   %229 = getelementptr inbounds nuw i8, ptr %.02, i64 24
-  %230 = getelementptr inbounds nuw %"struct.std::pair.586", ptr %228, i64 %227
+  %230 = getelementptr inbounds nuw [24 x i8], ptr %228, i64 %227
   %.not = icmp eq ptr %229, %230
   br i1 %.not, label %._crit_edge, label %215, !llvm.loop !2340
 
@@ -122391,7 +122386,7 @@ _ZNSt6vectorIN5boost7runtime16parameter_cla_idESaIS2_EE11_S_relocateEPS2_S5_S5_R
 _ZNSt12_Vector_baseIN5boost7runtime16parameter_cla_idESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5boost7runtime16parameter_cla_idESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34, %168
   store ptr %22, ptr %0, align 8, !tbaa !2360
   store ptr %.0.lcssa.i.i.i33, ptr %4, align 8, !tbaa !2361
-  %172 = getelementptr inbounds nuw %"struct.boost::runtime::parameter_cla_id", ptr %22, i64 %16
+  %172 = getelementptr inbounds nuw [104 x i8], ptr %22, i64 %16
   store ptr %172, ptr %167, align 8, !tbaa !2363
   ret void
 }
@@ -127237,7 +127232,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES
 _ZNSt12_Vector_baseIN5boost9unit_test13basic_cstringIKcEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES5_SaIS4_EET0_T_S8_S7_RT1_.exit34, %40
   store ptr %20, ptr %0, align 8, !tbaa !1193
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8, !tbaa !1190
-  %44 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !1194
   ret void
 }
@@ -135075,7 +135070,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trie
 .noexc:                                           ; preds = %146, %_ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
   store ptr %131, ptr %6, align 8, !tbaa !2514
   store ptr %145, ptr %28, align 8, !tbaa !2511
-  %150 = getelementptr inbounds nuw %"class.boost::shared_ptr.800", ptr %131, i64 %129
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %131, i64 %129
   store ptr %150, ptr %29, align 8, !tbaa !2513
   br label %_ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE9push_backERKS6_.exit
 
@@ -135272,7 +135267,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trie
 .noexc182:                                        ; preds = %227, %_ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i277
   store ptr %213, ptr %6, align 8, !tbaa !2514
   store ptr %226, ptr %28, align 8, !tbaa !2511
-  %231 = getelementptr inbounds nuw %"class.boost::shared_ptr.800", ptr %213, i64 %211
+  %231 = getelementptr inbounds nuw [16 x i8], ptr %213, i64 %211
   store ptr %231, ptr %29, align 8, !tbaa !2513
   br label %_ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE9push_backERKS6_.exit183
 
@@ -135579,7 +135574,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trie
 .noexc216:                                        ; preds = %351, %_ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i300
   store ptr %338, ptr %7, align 8, !tbaa !2514
   store ptr %350, ptr %32, align 8, !tbaa !2511
-  %352 = getelementptr inbounds nuw %"class.boost::shared_ptr.800", ptr %338, i64 %336
+  %352 = getelementptr inbounds nuw [16 x i8], ptr %338, i64 %336
   store ptr %352, ptr %33, align 8, !tbaa !2513
   br label %_ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE9push_backERKS6_.exit217
 
@@ -136039,7 +136034,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES
   br label %.noexc228
 
 .noexc228:                                        ; preds = %532, %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES5_SaIS4_EET0_T_S8_S7_RT1_.exit34.i
-  %533 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr %523, i64 %521
+  %533 = getelementptr inbounds nuw [16 x i8], ptr %523, i64 %521
   br label %_ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backEOS4_.exit
 
 _ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EE9push_backEOS4_.exit: ; preds = %.noexc228, %509
@@ -137634,7 +137629,7 @@ _ZNSt12_Vector_baseIN5boost9unit_test13basic_cstringIKcEESaIS4_EE13_M_deallocate
   store ptr %19, ptr %0, align 8, !tbaa !1193
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %27, ptr %14, align 8, !tbaa !1190
-  %28 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr %19, i64 %1
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %1
   store ptr %28, ptr %6, align 8, !tbaa !1194
   br label %29
 
@@ -138210,7 +138205,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trie
 _ZNSt12_Vector_baseIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %43
   store ptr %20, ptr %0, align 8, !tbaa !2514
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !2511
-  %47 = getelementptr inbounds nuw %"class.boost::shared_ptr.800", ptr %20, i64 %16
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %47, ptr %42, align 8, !tbaa !2513
   ret void
 }
@@ -138303,7 +138298,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES
 _ZNSt12_Vector_baseIN5boost9unit_test13basic_cstringIKcEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN5boost9unit_test13basic_cstringIKcEES5_SaIS4_EET0_T_S8_S7_RT1_.exit34, %40
   store ptr %20, ptr %0, align 8, !tbaa !1193
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8, !tbaa !1190
-  %44 = getelementptr inbounds nuw %"class.boost::unit_test::basic_cstring", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !1194
   ret void
 }
@@ -141070,7 +141065,7 @@ _ZNSt6vectorIN5boost9unit_test6output10junit_impl16junit_log_helper15assertion_e
 _ZNSt12_Vector_baseIN5boost9unit_test6output10junit_impl16junit_log_helper15assertion_entryESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN5boost9unit_test6output10junit_impl16junit_log_helper15assertion_entryESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit44, %118
   store ptr %20, ptr %0, align 8, !tbaa !158
   store ptr %.0.lcssa.i.i.i43, ptr %4, align 8, !tbaa !160
-  %122 = getelementptr inbounds nuw %"struct.boost::unit_test::output::junit_impl::junit_log_helper::assertion_entry", ptr %20, i64 %16
+  %122 = getelementptr inbounds nuw [104 x i8], ptr %20, i64 %16
   store ptr %122, ptr %117, align 8, !tbaa !199
   ret void
 
@@ -141881,7 +141876,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !324
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !319
-  %44 = getelementptr inbounds nuw %"class.boost::shared_ptr", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !320
   ret void
 }
@@ -142100,7 +142095,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptr
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
   %104 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
   %105 = sub nuw nsw i64 %9, %20
-  %106 = getelementptr inbounds nuw %"class.boost::shared_ptr", ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %105
   store ptr %106, ptr %12, align 8, !tbaa !319
   %.not11.i.i.i.i.i56 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i56, label %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62, label %.lr.ph.i.i.i.i.i57
@@ -142352,7 +142347,7 @@ _ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES5_EvT_S7_RSa
 _ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES5_EvT_S7_RSaIT0_E.exit, %205
   store ptr %162, ptr %0, align 8, !tbaa !324
   store ptr %.0.lcssa.i.i.i.i.i94, ptr %12, align 8, !tbaa !319
-  %209 = getelementptr inbounds nuw %"class.boost::shared_ptr", ptr %162, i64 %158
+  %209 = getelementptr inbounds nuw [16 x i8], ptr %162, i64 %158
   store ptr %209, ptr %10, align 8, !tbaa !320
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit
 
@@ -142843,7 +142838,7 @@ _ZNSt6vectorIS_IN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EESaIS
 _ZNSt12_Vector_baseISt6vectorIN5boost10shared_ptrINS1_9unit_test9decorator4baseEEESaIS6_EESaIS8_EE13_M_deallocateEPS8_m.exit: ; preds = %_ZNSt6vectorIS_IN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !315
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !318
-  %53 = getelementptr inbounds nuw %"class.std::vector.27", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !317
   ret void
 }
@@ -143492,7 +143487,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE11_
 _ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %43
   store ptr %20, ptr %0, align 8, !tbaa !708
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !365
-  %47 = getelementptr inbounds nuw %"class.boost::shared_ptr.94", ptr %20, i64 %16
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %47, ptr %42, align 8, !tbaa !366
   ret void
 }
@@ -147689,7 +147684,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !511
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !331
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !332
   ret void
 
@@ -150021,7 +150016,7 @@ _ZNSt6vectorIN5boost9unit_test9framework5state13context_frameESaIS4_EE11_S_reloc
 _ZNSt12_Vector_baseIN5boost9unit_test9framework5state13context_frameESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5boost9unit_test9framework5state13context_frameESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, %75
   store ptr %22, ptr %0, align 8, !tbaa !684
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !680
-  %79 = getelementptr inbounds nuw %"struct.boost::unit_test::framework::state::context_frame", ptr %22, i64 %16
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %79, ptr %74, align 8, !tbaa !681
   ret void
 }
@@ -150756,7 +150751,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE11_
 _ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test17test_unit_fixtureEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !708
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !365
-  %44 = getelementptr inbounds nuw %"class.boost::shared_ptr.94", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !366
   ret void
 }
@@ -151664,7 +151659,7 @@ _ZSt8_DestroyIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES5_EvT_S
 _ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES5_EvT_S7_RSaIT0_E.exit, %94
   store ptr %22, ptr %0, align 8, !tbaa !999
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %4, align 8, !tbaa !369
-  %98 = getelementptr inbounds nuw %"class.boost::function.95", ptr %22, i64 %16
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %98, ptr %93, align 8, !tbaa !370
   ret void
 
@@ -151932,7 +151927,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !511
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !331
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !332
   ret void
 }
@@ -152438,7 +152433,7 @@ _ZNSt6vectorISt4pairIN5boost10shared_ptrINS1_9unit_test19test_unit_generatorEEES
 _ZNSt12_Vector_baseISt4pairIN5boost10shared_ptrINS1_9unit_test19test_unit_generatorEEESt6vectorINS2_INS3_9decorator4baseEEESaIS9_EEESaISC_EE13_M_deallocateEPSC_m.exit: ; preds = %_ZNSt6vectorISt4pairIN5boost10shared_ptrINS1_9unit_test19test_unit_generatorEEES_INS2_INS3_9decorator4baseEEESaIS8_EEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit32, %88
   store ptr %20, ptr %0, align 8, !tbaa !1017
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !1018
-  %92 = getelementptr inbounds nuw %"struct.std::pair.263", ptr %20, i64 %16
+  %92 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %92, ptr %87, align 8, !tbaa !1019
   ret void
 
@@ -154291,7 +154286,7 @@ _ZNSt6vectorIN5boost17reference_wrapperIKNS0_7runtime16parameter_cla_idEEESaIS5_
 _ZNSt6vectorIN5boost17reference_wrapperIKNS0_7runtime16parameter_cla_idEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %87, %_ZNSt6vectorIN5boost17reference_wrapperIKNS0_7runtime16parameter_cla_idEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i
   store ptr %80, ptr %59, align 8, !tbaa !2549
   store ptr %86, ptr %60, align 8, !tbaa !2547
-  %88 = getelementptr inbounds nuw %"class.boost::reference_wrapper.854", ptr %80, i64 %78
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %78
   store ptr %88, ptr %61, align 8, !tbaa !2854
   br label %_ZNSt6vectorIN5boost17reference_wrapperIKNS0_7runtime16parameter_cla_idEEESaIS5_EE9push_backERKS5_.exit
 
@@ -161906,7 +161901,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %72, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i
   store ptr %67, ptr %3, align 8, !tbaa !1670
   store ptr %71, ptr %14, align 8, !tbaa !2895
-  %73 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %67, i64 %65
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %65
   store ptr %73, ptr %15, align 8, !tbaa !1672
   br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESE_RKSB_b.exit
 
@@ -161983,7 +161978,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i30: ; preds = %102, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i28
   store ptr %97, ptr %3, align 8, !tbaa !1670
   store ptr %101, ptr %14, align 8, !tbaa !2895
-  %103 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %97, i64 %95
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %97, i64 %95
   store ptr %103, ptr %15, align 8, !tbaa !1672
   br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESE_RKSB_b.exit31
 
@@ -164532,7 +164527,7 @@ _ZNSt6vectorIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs20spherical_equa
 _ZNSt12_Vector_baseIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEELb1ELb1ESt6vectorSaEESaISB_EE13_M_deallocateEPSB_m.exit: ; preds = %_ZNSt6vectorIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEELb1ELb1ES_SaEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !1741
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !1743
-  %53 = getelementptr inbounds nuw %"class.boost::geometry::model::ring.1037", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !1745
   ret void
 }
@@ -166405,7 +166400,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %72, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i
   store ptr %67, ptr %3, align 8, !tbaa !1683
   store ptr %71, ptr %14, align 8, !tbaa !2988
-  %73 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %67, i64 %65
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %65
   store ptr %73, ptr %15, align 8, !tbaa !1685
   br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESE_RKSB_b.exit
 
@@ -166482,7 +166477,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i30: ; preds = %102, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i28
   store ptr %97, ptr %3, align 8, !tbaa !1683
   store ptr %101, ptr %14, align 8, !tbaa !2988
-  %103 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %97, i64 %95
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %97, i64 %95
   store ptr %103, ptr %15, align 8, !tbaa !1685
   br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESE_RKSB_b.exit31
 
@@ -167215,7 +167210,7 @@ _ZNSt6vectorIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs10geographicINS1
 _ZNSt12_Vector_baseIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEELb1ELb1ESt6vectorSaEESaISB_EE13_M_deallocateEPSB_m.exit: ; preds = %_ZNSt6vectorIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEELb1ELb1ES_SaEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !1736
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !1738
-  %53 = getelementptr inbounds nuw %"class.boost::geometry::model::ring", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !1740
   ret void
 }
@@ -167826,8 +167821,8 @@ _ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE9normalizeIdEEvRT_S6_.exit65
 
 187:                                              ; preds = %183, %180
   %188 = phi double [ %186, %183 ], [ 1.000000e+00, %180 ]
-  %189 = getelementptr inbounds nuw double, ptr %179, i64 %.01415.i
-  %190 = getelementptr inbounds nuw double, ptr %179, i64 %181
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %.01415.i
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %181
   br label %191
 
 191:                                              ; preds = %191, %187
@@ -167841,7 +167836,7 @@ _ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE9normalizeIdEEvRT_S6_.exit65
 
 _ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE15horner_evaluateIdPKdEET_RKS7_T0_SA_.exit.i: ; preds = %191
   %195 = fmul double %188, %194
-  %196 = getelementptr inbounds nuw double, ptr %9, i64 %.016.i
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.016.i
   store double %195, ptr %196, align 8, !tbaa !1481
   %197 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %197, 6
@@ -170173,7 +170168,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %72, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i
   store ptr %67, ptr %3, align 8, !tbaa !1670
   store ptr %71, ptr %14, align 8, !tbaa !2895
-  %73 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %67, i64 %65
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %65
   store ptr %73, ptr %15, align 8, !tbaa !1672
   br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb0ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESE_RKSB_b.exit
 
@@ -170250,7 +170245,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i30: ; preds = %102, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i28
   store ptr %97, ptr %3, align 8, !tbaa !1670
   store ptr %101, ptr %14, align 8, !tbaa !2895
-  %103 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %97, i64 %95
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %97, i64 %95
   store ptr %103, ptr %15, align 8, !tbaa !1672
   br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEELb0ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESE_RKSB_b.exit31
 
@@ -170370,7 +170365,7 @@ _ZNSt6vectorIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs20spherical_equa
 _ZNSt12_Vector_baseIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEELb0ELb1ESt6vectorSaEESaISB_EE13_M_deallocateEPSB_m.exit: ; preds = %_ZNSt6vectorIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEELb0ELb1ES_SaEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !1688
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !1690
-  %53 = getelementptr inbounds nuw %"class.boost::geometry::model::ring.1050", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !1692
   ret void
 }
@@ -171707,7 +171702,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %72, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i
   store ptr %67, ptr %3, align 8, !tbaa !1683
   store ptr %71, ptr %14, align 8, !tbaa !2988
-  %73 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %67, i64 %65
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %65
   store ptr %73, ptr %15, align 8, !tbaa !1685
   br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb0ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESE_RKSB_b.exit
 
@@ -171784,7 +171779,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i30: ; preds = %102, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i28
   store ptr %97, ptr %3, align 8, !tbaa !1683
   store ptr %101, ptr %14, align 8, !tbaa !2988
-  %103 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %97, i64 %95
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %97, i64 %95
   store ptr %103, ptr %15, align 8, !tbaa !1685
   br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb0ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESE_RKSB_b.exit31
 
@@ -171904,7 +171899,7 @@ _ZNSt6vectorIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs10geographicINS1
 _ZNSt12_Vector_baseIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEELb0ELb1ESt6vectorSaEESaISB_EE13_M_deallocateEPSB_m.exit: ; preds = %_ZNSt6vectorIN5boost8geometry5model4ringINS2_5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEELb0ELb1ES_SaEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !1680
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !1682
-  %53 = getelementptr inbounds nuw %"class.boost::geometry::model::ring.1057", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !1687
   ret void
 }
@@ -172589,8 +172584,8 @@ _ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE9normalizeIdEEvRT_S6_.exit65
   %.016.i = phi i64 [ 2, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE9normalizeIdEEvRT_S6_.exit65 ], [ 1, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE15horner_evaluateIdPKdEET_RKS7_T0_SA_.exit.i ]
   %.01415.i = phi i64 [ 0, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE9normalizeIdEEvRT_S6_.exit65 ], [ %182, %_ZN5boost8geometry7formula13area_formulasIdLm1ELb1EE15horner_evaluateIdPKdEET_RKS7_T0_SA_.exit.i ]
   %182 = add i64 %.016.i, %.01415.i
-  %183 = getelementptr inbounds nuw double, ptr %179, i64 %.01415.i
-  %184 = getelementptr inbounds nuw double, ptr %179, i64 %182
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %.01415.i
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %182
   br label %185
 
 185:                                              ; preds = %185, %180
@@ -173994,8 +173989,8 @@ _ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE9normalizeIdEEvRT_S6_.exit65
 
 187:                                              ; preds = %183, %180
   %188 = phi double [ %186, %183 ], [ 1.000000e+00, %180 ]
-  %189 = getelementptr inbounds nuw double, ptr %179, i64 %.01415.i
-  %190 = getelementptr inbounds nuw double, ptr %179, i64 %181
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %.01415.i
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %181
   br label %191
 
 191:                                              ; preds = %191, %187
@@ -174009,7 +174004,7 @@ _ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE9normalizeIdEEvRT_S6_.exit65
 
 _ZN5boost8geometry7formula13area_formulasIdLm2ELb1EE15horner_evaluateIdPKdEET_RKS7_T0_SA_.exit.i: ; preds = %191
   %195 = fmul double %188, %194
-  %196 = getelementptr inbounds nuw double, ptr %9, i64 %.016.i
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.016.i
   store double %195, ptr %196, align 8, !tbaa !1481
   %197 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %197, 3
@@ -175006,8 +175001,8 @@ _ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE9normalizeIdEEvRT_S6_.exit65
 
 187:                                              ; preds = %183, %180
   %188 = phi double [ %186, %183 ], [ 1.000000e+00, %180 ]
-  %189 = getelementptr inbounds nuw double, ptr %179, i64 %.01415.i
-  %190 = getelementptr inbounds nuw double, ptr %179, i64 %181
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %.01415.i
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %181
   br label %191
 
 191:                                              ; preds = %191, %187
@@ -175021,7 +175016,7 @@ _ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE9normalizeIdEEvRT_S6_.exit65
 
 _ZN5boost8geometry7formula13area_formulasIdLm4ELb1EE15horner_evaluateIdPKdEET_RKS7_T0_SA_.exit.i: ; preds = %191
   %195 = fmul double %188, %194
-  %196 = getelementptr inbounds nuw double, ptr %9, i64 %.016.i
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.016.i
   store double %195, ptr %196, align 8, !tbaa !1481
   %197 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %197, 5
@@ -175573,8 +175568,8 @@ _ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE9normalizeIdEEvRT_S6_.exit65
 
 187:                                              ; preds = %183, %180
   %188 = phi double [ %186, %183 ], [ 1.000000e+00, %180 ]
-  %189 = getelementptr inbounds nuw double, ptr %179, i64 %.01415.i
-  %190 = getelementptr inbounds nuw double, ptr %179, i64 %181
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %.01415.i
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %181
   br label %191
 
 191:                                              ; preds = %191, %187
@@ -175588,7 +175583,7 @@ _ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE9normalizeIdEEvRT_S6_.exit65
 
 _ZN5boost8geometry7formula13area_formulasIdLm5ELb1EE15horner_evaluateIdPKdEET_RKS7_T0_SA_.exit.i: ; preds = %191
   %195 = fmul double %188, %194
-  %196 = getelementptr inbounds nuw double, ptr %9, i64 %.016.i
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.016.i
   store double %195, ptr %196, align 8, !tbaa !1481
   %197 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %197, 6
@@ -176362,14 +176357,14 @@ _ZN5boost8geometry4math21normalize_unit_vectorIdEEvRT_S4_.exit143: ; preds = %29
   %395 = add nsw i64 %.02427.i.i, -1
   %396 = fneg double %.029.i.i
   %397 = call double @llvm.fmuladd.f64(double %393, double %.02328.i.i, double %396)
-  %398 = getelementptr double, ptr %27, i64 %.126.i.i
+  %398 = getelementptr [8 x i8], ptr %27, i64 %.126.i.i
   %399 = getelementptr i8, ptr %398, i64 -8
   %400 = load double, ptr %399, align 8, !tbaa !1481
   %401 = fadd double %397, %400
   %402 = fneg double %.02328.i.i
   %403 = call double @llvm.fmuladd.f64(double %393, double %401, double %402)
   %404 = add nsw i64 %.126.i.i, -2
-  %405 = getelementptr inbounds nuw double, ptr %27, i64 %404
+  %405 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %404
   %406 = load double, ptr %405, align 8, !tbaa !1481
   %407 = fadd double %406, %403
   %.not.i.i146 = icmp eq i64 %395, 0
@@ -176390,14 +176385,14 @@ _ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C1ILm8EdEEEET_
   %413 = add nsw i64 %.02427.i15.i, -1
   %414 = fneg double %.029.i13.i
   %415 = call double @llvm.fmuladd.f64(double %411, double %.02328.i14.i, double %414)
-  %416 = getelementptr double, ptr %27, i64 %.126.i16.i
+  %416 = getelementptr [8 x i8], ptr %27, i64 %.126.i16.i
   %417 = getelementptr i8, ptr %416, i64 -8
   %418 = load double, ptr %417, align 8, !tbaa !1481
   %419 = fadd double %415, %418
   %420 = fneg double %.02328.i14.i
   %421 = call double @llvm.fmuladd.f64(double %411, double %419, double %420)
   %422 = add nsw i64 %.126.i16.i, -2
-  %423 = getelementptr inbounds nuw double, ptr %27, i64 %422
+  %423 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %422
   %424 = load double, ptr %423, align 8, !tbaa !1481
   %425 = fadd double %424, %421
   %.not.i17.i = icmp eq i64 %413, 0
@@ -176752,14 +176747,14 @@ _ZN5boost8geometry4math21normalize_unit_vectorIdEEvRT_S4_.exit160: ; preds = %54
   %627 = add nsw i64 %.02427.i.i163, -1
   %628 = fneg double %.029.i.i161
   %629 = call double @llvm.fmuladd.f64(double %625, double %.02328.i.i162, double %628)
-  %630 = getelementptr double, ptr %40, i64 %.126.i.i164
+  %630 = getelementptr [8 x i8], ptr %40, i64 %.126.i.i164
   %631 = getelementptr i8, ptr %630, i64 -8
   %632 = load double, ptr %631, align 8, !tbaa !1481
   %633 = fadd double %629, %632
   %634 = fneg double %.02328.i.i162
   %635 = call double @llvm.fmuladd.f64(double %625, double %633, double %634)
   %636 = add nsw i64 %.126.i.i164, -2
-  %637 = getelementptr inbounds nuw double, ptr %40, i64 %636
+  %637 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %636
   %638 = load double, ptr %637, align 8, !tbaa !1481
   %639 = fadd double %638, %635
   %.not.i.i165 = icmp eq i64 %627, 0
@@ -176782,14 +176777,14 @@ _ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C1ILm8EdEEEET_
   %647 = add nsw i64 %.02427.i15.i169, -1
   %648 = fneg double %.029.i13.i167
   %649 = call double @llvm.fmuladd.f64(double %645, double %.02328.i14.i168, double %648)
-  %650 = getelementptr double, ptr %40, i64 %.126.i16.i170
+  %650 = getelementptr [8 x i8], ptr %40, i64 %.126.i16.i170
   %651 = getelementptr i8, ptr %650, i64 -8
   %652 = load double, ptr %651, align 8, !tbaa !1481
   %653 = fadd double %649, %652
   %654 = fneg double %.02328.i14.i168
   %655 = call double @llvm.fmuladd.f64(double %645, double %653, double %654)
   %656 = add nsw i64 %.126.i16.i170, -2
-  %657 = getelementptr inbounds nuw double, ptr %40, i64 %656
+  %657 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %656
   %658 = load double, ptr %657, align 8, !tbaa !1481
   %659 = fadd double %658, %655
   %.not.i17.i171 = icmp eq i64 %647, 0
@@ -177778,14 +177773,14 @@ _ZN5boost8geometry4math21normalize_unit_vectorIdEEvRT_S4_.exit130: ; preds = %12
   %174 = add nsw i64 %.02427.i, -1
   %175 = fneg double %.029.i
   %176 = call double @llvm.fmuladd.f64(double %170, double %.02328.i, double %175)
-  %177 = getelementptr double, ptr %27, i64 %.126.i
+  %177 = getelementptr [8 x i8], ptr %27, i64 %.126.i
   %178 = getelementptr i8, ptr %177, i64 -8
   %179 = load double, ptr %178, align 8, !tbaa !1481
   %180 = fadd double %176, %179
   %181 = fneg double %.02328.i
   %182 = call double @llvm.fmuladd.f64(double %170, double %180, double %181)
   %183 = add nsw i64 %.126.i, -2
-  %184 = getelementptr inbounds nuw double, ptr %27, i64 %183
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %183
   %185 = load double, ptr %184, align 8, !tbaa !1481
   %186 = fadd double %185, %182
   %.not.i = icmp eq i64 %174, 0
@@ -177808,14 +177803,14 @@ _ZN5boost8geometry16series_expansion14sin_cos_seriesIdNS1_9coeffs_C3ILm8EdEEEET_
   %194 = add nsw i64 %.02427.i134, -1
   %195 = fneg double %.029.i132
   %196 = call double @llvm.fmuladd.f64(double %192, double %.02328.i133, double %195)
-  %197 = getelementptr double, ptr %27, i64 %.126.i135
+  %197 = getelementptr [8 x i8], ptr %27, i64 %.126.i135
   %198 = getelementptr i8, ptr %197, i64 -8
   %199 = load double, ptr %198, align 8, !tbaa !1481
   %200 = fadd double %196, %199
   %201 = fneg double %.02328.i133
   %202 = call double @llvm.fmuladd.f64(double %192, double %200, double %201)
   %203 = add nsw i64 %.126.i135, -2
-  %204 = getelementptr inbounds nuw double, ptr %27, i64 %203
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %203
   %205 = load double, ptr %204, align 8, !tbaa !1481
   %206 = fadd double %205, %202
   %.not.i136 = icmp eq i64 %194, 0
@@ -178058,8 +178053,8 @@ define linkonce_odr hidden void @_ZN5boost8geometry16series_expansion9coeffs_C3I
   %.01617.i = phi i64 [ 0, %3 ], [ %108, %_ZN5boost8geometry4math15horner_evaluateIdPdEET_RKS4_T0_S7_.exit.i ]
   %97 = sub nuw nsw i64 8, %.01518.i
   %98 = load double, ptr %2, align 8, !tbaa !1481
-  %99 = getelementptr inbounds nuw double, ptr %4, i64 %.01617.i
-  %100 = getelementptr inbounds nuw double, ptr %99, i64 %97
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01617.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %97
   br label %101
 
 101:                                              ; preds = %101, %96
@@ -178074,7 +178069,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry16series_expansion9coeffs_C3I
 _ZN5boost8geometry4math15horner_evaluateIdPdEET_RKS4_T0_S7_.exit.i: ; preds = %101
   %105 = fmul double %.019.i, %98
   %106 = fmul double %105, %104
-  %107 = getelementptr inbounds nuw double, ptr %0, i64 %.01518.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01518.i
   store double %106, ptr %107, align 8, !tbaa !1481
   %108 = add i64 %97, %.01617.i
   %109 = add nuw nsw i64 %.01518.i, 1
@@ -179218,7 +179213,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIeLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIeLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %72, %_ZNSt6vectorIN5boost8geometry5model5pointIeLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i
   store ptr %67, ptr %3, align 8, !tbaa !1731
   store ptr %71, ptr %14, align 8, !tbaa !3116
-  %73 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1161", ptr %67, i64 %65
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %67, i64 %65
   store ptr %73, ptr %15, align 8, !tbaa !1733
   br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESE_RKSB_b.exit
 
@@ -179295,7 +179290,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIeLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIeLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i30: ; preds = %102, %_ZNSt6vectorIN5boost8geometry5model5pointIeLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i28
   store ptr %97, ptr %3, align 8, !tbaa !1731
   store ptr %101, ptr %14, align 8, !tbaa !3116
-  %103 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1161", ptr %97, i64 %95
+  %103 = getelementptr inbounds nuw [32 x i8], ptr %97, i64 %95
   store ptr %103, ptr %15, align 8, !tbaa !1733
   br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIeLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESE_RKSB_b.exit31
 
@@ -180370,7 +180365,7 @@ _ZNSt6vectorIN5boost8geometry5model4ringINS2_5pointIeLm2ENS1_2cs10geographicINS1
 _ZNSt12_Vector_baseIN5boost8geometry5model4ringINS2_5pointIeLm2ENS1_2cs10geographicINS1_6degreeEEEEELb1ELb1ESt6vectorSaEESaISB_EE13_M_deallocateEPSB_m.exit: ; preds = %_ZNSt6vectorIN5boost8geometry5model4ringINS2_5pointIeLm2ENS1_2cs10geographicINS1_6degreeEEEEELb1ELb1ES_SaEESaISA_EE11_S_relocateEPSA_SD_SD_RSB_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !1728
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !1730
-  %53 = getelementptr inbounds nuw %"class.boost::geometry::model::ring.1064", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !1735
   ret void
 }
@@ -181072,8 +181067,8 @@ _ZN5boost8geometry7formula13area_formulasIeLm1ELb1EE9normalizeIeEEvRT_S6_.exit83
   %.016.i = phi i64 [ 2, %_ZN5boost8geometry7formula13area_formulasIeLm1ELb1EE9normalizeIeEEvRT_S6_.exit83 ], [ 1, %_ZN5boost8geometry7formula13area_formulasIeLm1ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i ]
   %.01415.i = phi i64 [ 0, %_ZN5boost8geometry7formula13area_formulasIeLm1ELb1EE9normalizeIeEEvRT_S6_.exit83 ], [ %192, %_ZN5boost8geometry7formula13area_formulasIeLm1ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i ]
   %192 = add i64 %.016.i, %.01415.i
-  %193 = getelementptr inbounds nuw double, ptr %189, i64 %.01415.i
-  %194 = getelementptr inbounds nuw double, ptr %189, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %.01415.i
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %192
   br label %195
 
 195:                                              ; preds = %195, %190
@@ -182322,8 +182317,8 @@ _ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE9normalizeIeEEvRT_S6_.exit83
 
 197:                                              ; preds = %193, %190
   %198 = phi x86_fp80 [ %196, %193 ], [ 0xK3FFF8000000000000000, %190 ]
-  %199 = getelementptr inbounds nuw double, ptr %189, i64 %.01415.i
-  %200 = getelementptr inbounds nuw double, ptr %189, i64 %191
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %.01415.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %191
   br label %201
 
 201:                                              ; preds = %201, %197
@@ -182338,7 +182333,7 @@ _ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE9normalizeIeEEvRT_S6_.exit83
 
 _ZN5boost8geometry7formula13area_formulasIeLm2ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i: ; preds = %201
   %206 = fmul x86_fp80 %198, %205
-  %207 = getelementptr inbounds nuw x86_fp80, ptr %10, i64 %.016.i
+  %207 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %.016.i
   store x86_fp80 %206, ptr %207, align 16, !tbaa !2885
   %208 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %208, 3
@@ -183413,8 +183408,8 @@ _ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE9normalizeIeEEvRT_S6_.exit83
 
 197:                                              ; preds = %193, %190
   %198 = phi x86_fp80 [ %196, %193 ], [ 0xK3FFF8000000000000000, %190 ]
-  %199 = getelementptr inbounds nuw double, ptr %189, i64 %.01415.i
-  %200 = getelementptr inbounds nuw double, ptr %189, i64 %191
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %.01415.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %191
   br label %201
 
 201:                                              ; preds = %201, %197
@@ -183429,7 +183424,7 @@ _ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE9normalizeIeEEvRT_S6_.exit83
 
 _ZN5boost8geometry7formula13area_formulasIeLm4ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i: ; preds = %201
   %206 = fmul x86_fp80 %198, %205
-  %207 = getelementptr inbounds nuw x86_fp80, ptr %10, i64 %.016.i
+  %207 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %.016.i
   store x86_fp80 %206, ptr %207, align 16, !tbaa !2885
   %208 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %208, 5
@@ -184392,8 +184387,8 @@ _ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE9normalizeIeEEvRT_S6_.exit83
 
 197:                                              ; preds = %193, %190
   %198 = phi x86_fp80 [ %196, %193 ], [ 0xK3FFF8000000000000000, %190 ]
-  %199 = getelementptr inbounds nuw double, ptr %189, i64 %.01415.i
-  %200 = getelementptr inbounds nuw double, ptr %189, i64 %191
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %.01415.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %191
   br label %201
 
 201:                                              ; preds = %201, %197
@@ -184408,7 +184403,7 @@ _ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE9normalizeIeEEvRT_S6_.exit83
 
 _ZN5boost8geometry7formula13area_formulasIeLm5ELb1EE15horner_evaluateIePKdEET_RKS7_T0_SA_.exit.i: ; preds = %201
   %206 = fmul x86_fp80 %198, %205
-  %207 = getelementptr inbounds nuw x86_fp80, ptr %10, i64 %.016.i
+  %207 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %.016.i
   store x86_fp80 %206, ptr %207, align 16, !tbaa !2885
   %208 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %208, 6
@@ -185214,14 +185209,14 @@ _ZN5boost8geometry4math21normalize_unit_vectorIeEEvRT_S4_.exit152: ; preds = %31
   %426 = add nsw i64 %.02328.i.i, -1
   %427 = fneg x86_fp80 %.029.i.i
   %428 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %424, x86_fp80 %.02427.i.i, x86_fp80 %427)
-  %429 = getelementptr x86_fp80, ptr %27, i64 %.126.i.i
+  %429 = getelementptr [16 x i8], ptr %27, i64 %.126.i.i
   %430 = getelementptr i8, ptr %429, i64 -16
   %431 = load x86_fp80, ptr %430, align 16, !tbaa !2885
   %432 = fadd x86_fp80 %428, %431
   %433 = fneg x86_fp80 %.02427.i.i
   %434 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %424, x86_fp80 %432, x86_fp80 %433)
   %435 = add nsw i64 %.126.i.i, -2
-  %436 = getelementptr inbounds nuw x86_fp80, ptr %27, i64 %435
+  %436 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %435
   %437 = load x86_fp80, ptr %436, align 16, !tbaa !2885
   %438 = fadd x86_fp80 %437, %434
   %.not.i.i155 = icmp eq i64 %426, 0
@@ -185242,14 +185237,14 @@ _ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C1ILm8EeEEEET_
   %444 = add nsw i64 %.02328.i15.i, -1
   %445 = fneg x86_fp80 %.029.i14.i
   %446 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %442, x86_fp80 %.02427.i16.i, x86_fp80 %445)
-  %447 = getelementptr x86_fp80, ptr %27, i64 %.126.i17.i
+  %447 = getelementptr [16 x i8], ptr %27, i64 %.126.i17.i
   %448 = getelementptr i8, ptr %447, i64 -16
   %449 = load x86_fp80, ptr %448, align 16, !tbaa !2885
   %450 = fadd x86_fp80 %446, %449
   %451 = fneg x86_fp80 %.02427.i16.i
   %452 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %442, x86_fp80 %450, x86_fp80 %451)
   %453 = add nsw i64 %.126.i17.i, -2
-  %454 = getelementptr inbounds nuw x86_fp80, ptr %27, i64 %453
+  %454 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %453
   %455 = load x86_fp80, ptr %454, align 16, !tbaa !2885
   %456 = fadd x86_fp80 %455, %452
   %.not.i18.i = icmp eq i64 %444, 0
@@ -185609,14 +185604,14 @@ _ZN5boost8geometry4math21normalize_unit_vectorIeEEvRT_S4_.exit169: ; preds = %58
   %663 = add nsw i64 %.02328.i.i171, -1
   %664 = fneg x86_fp80 %.029.i.i170
   %665 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %661, x86_fp80 %.02427.i.i172, x86_fp80 %664)
-  %666 = getelementptr x86_fp80, ptr %40, i64 %.126.i.i173
+  %666 = getelementptr [16 x i8], ptr %40, i64 %.126.i.i173
   %667 = getelementptr i8, ptr %666, i64 -16
   %668 = load x86_fp80, ptr %667, align 16, !tbaa !2885
   %669 = fadd x86_fp80 %665, %668
   %670 = fneg x86_fp80 %.02427.i.i172
   %671 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %661, x86_fp80 %669, x86_fp80 %670)
   %672 = add nsw i64 %.126.i.i173, -2
-  %673 = getelementptr inbounds nuw x86_fp80, ptr %40, i64 %672
+  %673 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %672
   %674 = load x86_fp80, ptr %673, align 16, !tbaa !2885
   %675 = fadd x86_fp80 %674, %671
   %.not.i.i174 = icmp eq i64 %663, 0
@@ -185639,14 +185634,14 @@ _ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C1ILm8EeEEEET_
   %683 = add nsw i64 %.02328.i15.i177, -1
   %684 = fneg x86_fp80 %.029.i14.i176
   %685 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %681, x86_fp80 %.02427.i16.i178, x86_fp80 %684)
-  %686 = getelementptr x86_fp80, ptr %40, i64 %.126.i17.i179
+  %686 = getelementptr [16 x i8], ptr %40, i64 %.126.i17.i179
   %687 = getelementptr i8, ptr %686, i64 -16
   %688 = load x86_fp80, ptr %687, align 16, !tbaa !2885
   %689 = fadd x86_fp80 %685, %688
   %690 = fneg x86_fp80 %.02427.i16.i178
   %691 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %681, x86_fp80 %689, x86_fp80 %690)
   %692 = add nsw i64 %.126.i17.i179, -2
-  %693 = getelementptr inbounds nuw x86_fp80, ptr %40, i64 %692
+  %693 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %692
   %694 = load x86_fp80, ptr %693, align 16, !tbaa !2885
   %695 = fadd x86_fp80 %694, %691
   %.not.i18.i180 = icmp eq i64 %683, 0
@@ -186720,14 +186715,14 @@ _ZN5boost8geometry4math21normalize_unit_vectorIeEEvRT_S4_.exit139: ; preds = %12
   %186 = add nsw i64 %.02328.i, -1
   %187 = fneg x86_fp80 %.029.i
   %188 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %182, x86_fp80 %.02427.i, x86_fp80 %187)
-  %189 = getelementptr x86_fp80, ptr %27, i64 %.126.i
+  %189 = getelementptr [16 x i8], ptr %27, i64 %.126.i
   %190 = getelementptr i8, ptr %189, i64 -16
   %191 = load x86_fp80, ptr %190, align 16, !tbaa !2885
   %192 = fadd x86_fp80 %188, %191
   %193 = fneg x86_fp80 %.02427.i
   %194 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %182, x86_fp80 %192, x86_fp80 %193)
   %195 = add nsw i64 %.126.i, -2
-  %196 = getelementptr inbounds nuw x86_fp80, ptr %27, i64 %195
+  %196 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %195
   %197 = load x86_fp80, ptr %196, align 16, !tbaa !2885
   %198 = fadd x86_fp80 %197, %194
   %.not.i = icmp eq i64 %186, 0
@@ -186750,14 +186745,14 @@ _ZN5boost8geometry16series_expansion14sin_cos_seriesIeNS1_9coeffs_C3ILm8EeEEEET_
   %206 = add nsw i64 %.02328.i142, -1
   %207 = fneg x86_fp80 %.029.i141
   %208 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %204, x86_fp80 %.02427.i143, x86_fp80 %207)
-  %209 = getelementptr x86_fp80, ptr %27, i64 %.126.i144
+  %209 = getelementptr [16 x i8], ptr %27, i64 %.126.i144
   %210 = getelementptr i8, ptr %209, i64 -16
   %211 = load x86_fp80, ptr %210, align 16, !tbaa !2885
   %212 = fadd x86_fp80 %208, %211
   %213 = fneg x86_fp80 %.02427.i143
   %214 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %204, x86_fp80 %212, x86_fp80 %213)
   %215 = add nsw i64 %.126.i144, -2
-  %216 = getelementptr inbounds nuw x86_fp80, ptr %27, i64 %215
+  %216 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %215
   %217 = load x86_fp80, ptr %216, align 16, !tbaa !2885
   %218 = fadd x86_fp80 %217, %214
   %.not.i145 = icmp eq i64 %206, 0
@@ -187004,8 +186999,8 @@ define linkonce_odr hidden void @_ZN5boost8geometry16series_expansion9coeffs_C3I
   %.01617.i = phi i64 [ 0, %3 ], [ %108, %_ZN5boost8geometry4math15horner_evaluateIePeEET_RKS4_T0_S7_.exit.i ]
   %97 = sub nuw nsw i64 8, %.01518.i
   %98 = load x86_fp80, ptr %2, align 16, !tbaa !2885
-  %99 = getelementptr inbounds nuw x86_fp80, ptr %4, i64 %.01617.i
-  %100 = getelementptr inbounds nuw x86_fp80, ptr %99, i64 %97
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.01617.i
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %97
   br label %101
 
 101:                                              ; preds = %101, %96
@@ -187020,7 +187015,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry16series_expansion9coeffs_C3I
 _ZN5boost8geometry4math15horner_evaluateIePeEET_RKS4_T0_S7_.exit.i: ; preds = %101
   %105 = fmul x86_fp80 %.019.i, %98
   %106 = fmul x86_fp80 %105, %104
-  %107 = getelementptr inbounds nuw x86_fp80, ptr %0, i64 %.01518.i
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.01518.i
   store x86_fp80 %106, ptr %107, align 16, !tbaa !2885
   %108 = add i64 %97, %.01617.i
   %109 = add nuw nsw i64 %.01518.i, 1
@@ -187135,7 +187130,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i41: ; preds = %31, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i39
   store ptr %26, ptr %0, align 8, !tbaa !1670
   store ptr %30, ptr %1, align 8, !tbaa !2895
-  %32 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %32, ptr %2, align 8, !tbaa !1672
   %.not.i.i45 = icmp eq ptr %30, %32
   br i1 %.not.i.i45, label %36, label %33
@@ -187202,7 +187197,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i51: ; preds = %54, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i49
   store ptr %49, ptr %0, align 8, !tbaa !1670
   store ptr %53, ptr %1, align 8, !tbaa !2895
-  %55 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %49, i64 %47
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %47
   store ptr %55, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit54
 
@@ -187274,7 +187269,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i61: ; preds = %79, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i59
   store ptr %74, ptr %0, align 8, !tbaa !1670
   store ptr %78, ptr %1, align 8, !tbaa !2895
-  %80 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %74, i64 %72
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %72
   store ptr %80, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit64
 
@@ -187346,7 +187341,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i71: ; preds = %104, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i69
   store ptr %99, ptr %0, align 8, !tbaa !1670
   store ptr %103, ptr %1, align 8, !tbaa !2895
-  %105 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %99, i64 %97
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %97
   store ptr %105, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit74
 
@@ -187418,7 +187413,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i81: ; preds = %129, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i79
   store ptr %124, ptr %0, align 8, !tbaa !1670
   store ptr %128, ptr %1, align 8, !tbaa !2895
-  %130 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %124, i64 %122
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %122
   store ptr %130, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit84
 
@@ -187490,7 +187485,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i91: ; preds = %154, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i89
   store ptr %149, ptr %0, align 8, !tbaa !1670
   store ptr %153, ptr %1, align 8, !tbaa !2895
-  %155 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %149, i64 %147
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %147
   store ptr %155, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit94
 
@@ -187562,7 +187557,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i101: ; preds = %179, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i99
   store ptr %174, ptr %0, align 8, !tbaa !1670
   store ptr %178, ptr %1, align 8, !tbaa !2895
-  %180 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %174, i64 %172
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %172
   store ptr %180, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit104
 
@@ -187634,7 +187629,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i111: ; preds = %204, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i109
   store ptr %199, ptr %0, align 8, !tbaa !1670
   store ptr %203, ptr %1, align 8, !tbaa !2895
-  %205 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %199, i64 %197
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %199, i64 %197
   store ptr %205, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit114
 
@@ -187706,7 +187701,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i121: ; preds = %229, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i119
   store ptr %224, ptr %0, align 8, !tbaa !1670
   store ptr %228, ptr %1, align 8, !tbaa !2895
-  %230 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %224, i64 %222
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %224, i64 %222
   store ptr %230, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit124
 
@@ -187778,7 +187773,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i131: ; preds = %254, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i129
   store ptr %249, ptr %0, align 8, !tbaa !1670
   store ptr %253, ptr %1, align 8, !tbaa !2895
-  %255 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %249, i64 %247
+  %255 = getelementptr inbounds nuw [16 x i8], ptr %249, i64 %247
   store ptr %255, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit134
 
@@ -187850,7 +187845,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i141: ; preds = %279, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i139
   store ptr %274, ptr %0, align 8, !tbaa !1670
   store ptr %278, ptr %1, align 8, !tbaa !2895
-  %280 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %274, i64 %272
+  %280 = getelementptr inbounds nuw [16 x i8], ptr %274, i64 %272
   store ptr %280, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit144
 
@@ -187922,7 +187917,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i151: ; preds = %304, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i149
   store ptr %299, ptr %0, align 8, !tbaa !1670
   store ptr %303, ptr %1, align 8, !tbaa !2895
-  %305 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %299, i64 %297
+  %305 = getelementptr inbounds nuw [16 x i8], ptr %299, i64 %297
   store ptr %305, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit154
 
@@ -187994,7 +187989,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i161: ; preds = %329, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i159
   store ptr %324, ptr %0, align 8, !tbaa !1670
   store ptr %328, ptr %1, align 8, !tbaa !2895
-  %330 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %324, i64 %322
+  %330 = getelementptr inbounds nuw [16 x i8], ptr %324, i64 %322
   store ptr %330, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit164
 
@@ -188066,7 +188061,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i171: ; preds = %354, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i169
   store ptr %349, ptr %0, align 8, !tbaa !1670
   store ptr %353, ptr %1, align 8, !tbaa !2895
-  %355 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %349, i64 %347
+  %355 = getelementptr inbounds nuw [16 x i8], ptr %349, i64 %347
   store ptr %355, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit174
 
@@ -188138,7 +188133,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i181: ; preds = %379, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i179
   store ptr %374, ptr %0, align 8, !tbaa !1670
   store ptr %378, ptr %1, align 8, !tbaa !2895
-  %380 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %374, i64 %372
+  %380 = getelementptr inbounds nuw [16 x i8], ptr %374, i64 %372
   store ptr %380, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit184
 
@@ -188210,7 +188205,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i191: ; preds = %404, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i189
   store ptr %399, ptr %0, align 8, !tbaa !1670
   store ptr %403, ptr %1, align 8, !tbaa !2895
-  %405 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %399, i64 %397
+  %405 = getelementptr inbounds nuw [16 x i8], ptr %399, i64 %397
   store ptr %405, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit194
 
@@ -188282,7 +188277,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i201: ; preds = %429, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i199
   store ptr %424, ptr %0, align 8, !tbaa !1670
   store ptr %428, ptr %1, align 8, !tbaa !2895
-  %430 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %424, i64 %422
+  %430 = getelementptr inbounds nuw [16 x i8], ptr %424, i64 %422
   store ptr %430, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit204
 
@@ -188354,7 +188349,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i211: ; preds = %454, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i209
   store ptr %449, ptr %0, align 8, !tbaa !1670
   store ptr %453, ptr %1, align 8, !tbaa !2895
-  %455 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %449, i64 %447
+  %455 = getelementptr inbounds nuw [16 x i8], ptr %449, i64 %447
   store ptr %455, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit214
 
@@ -188426,7 +188421,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i221: ; preds = %479, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i219
   store ptr %474, ptr %0, align 8, !tbaa !1670
   store ptr %478, ptr %1, align 8, !tbaa !2895
-  %480 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %474, i64 %472
+  %480 = getelementptr inbounds nuw [16 x i8], ptr %474, i64 %472
   store ptr %480, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit224
 
@@ -188498,7 +188493,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i231: ; preds = %504, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i229
   store ptr %499, ptr %0, align 8, !tbaa !1670
   store ptr %503, ptr %1, align 8, !tbaa !2895
-  %505 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %499, i64 %497
+  %505 = getelementptr inbounds nuw [16 x i8], ptr %499, i64 %497
   store ptr %505, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit234
 
@@ -188570,7 +188565,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i241: ; preds = %529, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i239
   store ptr %524, ptr %0, align 8, !tbaa !1670
   store ptr %528, ptr %1, align 8, !tbaa !2895
-  %530 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %524, i64 %522
+  %530 = getelementptr inbounds nuw [16 x i8], ptr %524, i64 %522
   store ptr %530, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit244
 
@@ -188642,7 +188637,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i251: ; preds = %554, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i249
   store ptr %549, ptr %0, align 8, !tbaa !1670
   store ptr %553, ptr %1, align 8, !tbaa !2895
-  %555 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %549, i64 %547
+  %555 = getelementptr inbounds nuw [16 x i8], ptr %549, i64 %547
   store ptr %555, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit254
 
@@ -188714,7 +188709,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i261: ; preds = %579, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i259
   store ptr %574, ptr %0, align 8, !tbaa !1670
   store ptr %578, ptr %1, align 8, !tbaa !2895
-  %580 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %574, i64 %572
+  %580 = getelementptr inbounds nuw [16 x i8], ptr %574, i64 %572
   store ptr %580, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit264
 
@@ -188786,7 +188781,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i271: ; preds = %604, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i269
   store ptr %599, ptr %0, align 8, !tbaa !1670
   store ptr %603, ptr %1, align 8, !tbaa !2895
-  %605 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %599, i64 %597
+  %605 = getelementptr inbounds nuw [16 x i8], ptr %599, i64 %597
   store ptr %605, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit274
 
@@ -188858,7 +188853,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i281: ; preds = %629, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i279
   store ptr %624, ptr %0, align 8, !tbaa !1670
   store ptr %628, ptr %1, align 8, !tbaa !2895
-  %630 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %624, i64 %622
+  %630 = getelementptr inbounds nuw [16 x i8], ptr %624, i64 %622
   store ptr %630, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit284
 
@@ -188930,7 +188925,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i291: ; preds = %654, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i289
   store ptr %649, ptr %0, align 8, !tbaa !1670
   store ptr %653, ptr %1, align 8, !tbaa !2895
-  %655 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %649, i64 %647
+  %655 = getelementptr inbounds nuw [16 x i8], ptr %649, i64 %647
   store ptr %655, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit294
 
@@ -189002,7 +188997,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i301: ; preds = %679, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i299
   store ptr %674, ptr %0, align 8, !tbaa !1670
   store ptr %678, ptr %1, align 8, !tbaa !2895
-  %680 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %674, i64 %672
+  %680 = getelementptr inbounds nuw [16 x i8], ptr %674, i64 %672
   store ptr %680, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit304
 
@@ -189074,7 +189069,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i311: ; preds = %704, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i309
   store ptr %699, ptr %0, align 8, !tbaa !1670
   store ptr %703, ptr %1, align 8, !tbaa !2895
-  %705 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %699, i64 %697
+  %705 = getelementptr inbounds nuw [16 x i8], ptr %699, i64 %697
   store ptr %705, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit314
 
@@ -189146,7 +189141,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i321: ; preds = %729, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i319
   store ptr %724, ptr %0, align 8, !tbaa !1670
   store ptr %728, ptr %1, align 8, !tbaa !2895
-  %730 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %724, i64 %722
+  %730 = getelementptr inbounds nuw [16 x i8], ptr %724, i64 %722
   store ptr %730, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit324
 
@@ -189218,7 +189213,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i331: ; preds = %754, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i329
   store ptr %749, ptr %0, align 8, !tbaa !1670
   store ptr %753, ptr %1, align 8, !tbaa !2895
-  %755 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %749, i64 %747
+  %755 = getelementptr inbounds nuw [16 x i8], ptr %749, i64 %747
   store ptr %755, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit334
 
@@ -189290,7 +189285,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i341: ; preds = %779, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i339
   store ptr %774, ptr %0, align 8, !tbaa !1670
   store ptr %778, ptr %1, align 8, !tbaa !2895
-  %780 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %774, i64 %772
+  %780 = getelementptr inbounds nuw [16 x i8], ptr %774, i64 %772
   store ptr %780, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit344
 
@@ -189362,7 +189357,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i351: ; preds = %804, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i349
   store ptr %799, ptr %0, align 8, !tbaa !1670
   store ptr %803, ptr %1, align 8, !tbaa !2895
-  %805 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %799, i64 %797
+  %805 = getelementptr inbounds nuw [16 x i8], ptr %799, i64 %797
   store ptr %805, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit354
 
@@ -189434,7 +189429,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i361: ; preds = %829, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i359
   store ptr %824, ptr %0, align 8, !tbaa !1670
   store ptr %828, ptr %1, align 8, !tbaa !2895
-  %830 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %824, i64 %822
+  %830 = getelementptr inbounds nuw [16 x i8], ptr %824, i64 %822
   store ptr %830, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit364
 
@@ -189506,7 +189501,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i371: ; preds = %854, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i369
   store ptr %849, ptr %0, align 8, !tbaa !1670
   store ptr %853, ptr %1, align 8, !tbaa !2895
-  %855 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %849, i64 %847
+  %855 = getelementptr inbounds nuw [16 x i8], ptr %849, i64 %847
   store ptr %855, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit374
 
@@ -189577,7 +189572,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i381: ; preds = %879, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i379
   store ptr %874, ptr %0, align 8, !tbaa !1670
   store ptr %878, ptr %1, align 8, !tbaa !2895
-  %880 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %874, i64 %872
+  %880 = getelementptr inbounds nuw [16 x i8], ptr %874, i64 %872
   store ptr %880, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit384
 
@@ -189883,7 +189878,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i41: ; preds = %31, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i39
   store ptr %26, ptr %0, align 8, !tbaa !1670
   store ptr %30, ptr %1, align 8, !tbaa !2895
-  %32 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %32, ptr %2, align 8, !tbaa !1672
   %.not.i.i45 = icmp eq ptr %30, %32
   br i1 %.not.i.i45, label %36, label %33
@@ -189950,7 +189945,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i51: ; preds = %54, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i49
   store ptr %49, ptr %0, align 8, !tbaa !1670
   store ptr %53, ptr %1, align 8, !tbaa !2895
-  %55 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %49, i64 %47
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %47
   store ptr %55, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit54
 
@@ -190022,7 +190017,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i61: ; preds = %79, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i59
   store ptr %74, ptr %0, align 8, !tbaa !1670
   store ptr %78, ptr %1, align 8, !tbaa !2895
-  %80 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %74, i64 %72
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %72
   store ptr %80, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit64
 
@@ -190094,7 +190089,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i71: ; preds = %104, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i69
   store ptr %99, ptr %0, align 8, !tbaa !1670
   store ptr %103, ptr %1, align 8, !tbaa !2895
-  %105 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %99, i64 %97
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %97
   store ptr %105, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit74
 
@@ -190166,7 +190161,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i81: ; preds = %129, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i79
   store ptr %124, ptr %0, align 8, !tbaa !1670
   store ptr %128, ptr %1, align 8, !tbaa !2895
-  %130 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %124, i64 %122
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %122
   store ptr %130, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit84
 
@@ -190238,7 +190233,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i91: ; preds = %154, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i89
   store ptr %149, ptr %0, align 8, !tbaa !1670
   store ptr %153, ptr %1, align 8, !tbaa !2895
-  %155 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %149, i64 %147
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %147
   store ptr %155, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit94
 
@@ -190310,7 +190305,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i101: ; preds = %179, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i99
   store ptr %174, ptr %0, align 8, !tbaa !1670
   store ptr %178, ptr %1, align 8, !tbaa !2895
-  %180 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %174, i64 %172
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %172
   store ptr %180, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit104
 
@@ -190382,7 +190377,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i111: ; preds = %204, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i109
   store ptr %199, ptr %0, align 8, !tbaa !1670
   store ptr %203, ptr %1, align 8, !tbaa !2895
-  %205 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %199, i64 %197
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %199, i64 %197
   store ptr %205, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit114
 
@@ -190454,7 +190449,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i121: ; preds = %229, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i119
   store ptr %224, ptr %0, align 8, !tbaa !1670
   store ptr %228, ptr %1, align 8, !tbaa !2895
-  %230 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %224, i64 %222
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %224, i64 %222
   store ptr %230, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit124
 
@@ -190526,7 +190521,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i131: ; preds = %254, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i129
   store ptr %249, ptr %0, align 8, !tbaa !1670
   store ptr %253, ptr %1, align 8, !tbaa !2895
-  %255 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %249, i64 %247
+  %255 = getelementptr inbounds nuw [16 x i8], ptr %249, i64 %247
   store ptr %255, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit134
 
@@ -190598,7 +190593,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i141: ; preds = %279, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i139
   store ptr %274, ptr %0, align 8, !tbaa !1670
   store ptr %278, ptr %1, align 8, !tbaa !2895
-  %280 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %274, i64 %272
+  %280 = getelementptr inbounds nuw [16 x i8], ptr %274, i64 %272
   store ptr %280, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit144
 
@@ -190670,7 +190665,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i151: ; preds = %304, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i149
   store ptr %299, ptr %0, align 8, !tbaa !1670
   store ptr %303, ptr %1, align 8, !tbaa !2895
-  %305 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %299, i64 %297
+  %305 = getelementptr inbounds nuw [16 x i8], ptr %299, i64 %297
   store ptr %305, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit154
 
@@ -190742,7 +190737,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i161: ; preds = %329, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i159
   store ptr %324, ptr %0, align 8, !tbaa !1670
   store ptr %328, ptr %1, align 8, !tbaa !2895
-  %330 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %324, i64 %322
+  %330 = getelementptr inbounds nuw [16 x i8], ptr %324, i64 %322
   store ptr %330, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit164
 
@@ -190814,7 +190809,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i171: ; preds = %354, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i169
   store ptr %349, ptr %0, align 8, !tbaa !1670
   store ptr %353, ptr %1, align 8, !tbaa !2895
-  %355 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %349, i64 %347
+  %355 = getelementptr inbounds nuw [16 x i8], ptr %349, i64 %347
   store ptr %355, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit174
 
@@ -190886,7 +190881,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i181: ; preds = %379, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i179
   store ptr %374, ptr %0, align 8, !tbaa !1670
   store ptr %378, ptr %1, align 8, !tbaa !2895
-  %380 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %374, i64 %372
+  %380 = getelementptr inbounds nuw [16 x i8], ptr %374, i64 %372
   store ptr %380, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit184
 
@@ -190958,7 +190953,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i191: ; preds = %404, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i189
   store ptr %399, ptr %0, align 8, !tbaa !1670
   store ptr %403, ptr %1, align 8, !tbaa !2895
-  %405 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %399, i64 %397
+  %405 = getelementptr inbounds nuw [16 x i8], ptr %399, i64 %397
   store ptr %405, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit194
 
@@ -191030,7 +191025,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i201: ; preds = %429, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i199
   store ptr %424, ptr %0, align 8, !tbaa !1670
   store ptr %428, ptr %1, align 8, !tbaa !2895
-  %430 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %424, i64 %422
+  %430 = getelementptr inbounds nuw [16 x i8], ptr %424, i64 %422
   store ptr %430, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit204
 
@@ -191102,7 +191097,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i211: ; preds = %454, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i209
   store ptr %449, ptr %0, align 8, !tbaa !1670
   store ptr %453, ptr %1, align 8, !tbaa !2895
-  %455 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %449, i64 %447
+  %455 = getelementptr inbounds nuw [16 x i8], ptr %449, i64 %447
   store ptr %455, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit214
 
@@ -191174,7 +191169,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i221: ; preds = %479, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i219
   store ptr %474, ptr %0, align 8, !tbaa !1670
   store ptr %478, ptr %1, align 8, !tbaa !2895
-  %480 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %474, i64 %472
+  %480 = getelementptr inbounds nuw [16 x i8], ptr %474, i64 %472
   store ptr %480, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit224
 
@@ -191246,7 +191241,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i231: ; preds = %504, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i229
   store ptr %499, ptr %0, align 8, !tbaa !1670
   store ptr %503, ptr %1, align 8, !tbaa !2895
-  %505 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %499, i64 %497
+  %505 = getelementptr inbounds nuw [16 x i8], ptr %499, i64 %497
   store ptr %505, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit234
 
@@ -191318,7 +191313,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i241: ; preds = %529, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i239
   store ptr %524, ptr %0, align 8, !tbaa !1670
   store ptr %528, ptr %1, align 8, !tbaa !2895
-  %530 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %524, i64 %522
+  %530 = getelementptr inbounds nuw [16 x i8], ptr %524, i64 %522
   store ptr %530, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit244
 
@@ -191390,7 +191385,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i251: ; preds = %554, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i249
   store ptr %549, ptr %0, align 8, !tbaa !1670
   store ptr %553, ptr %1, align 8, !tbaa !2895
-  %555 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %549, i64 %547
+  %555 = getelementptr inbounds nuw [16 x i8], ptr %549, i64 %547
   store ptr %555, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit254
 
@@ -191462,7 +191457,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i261: ; preds = %579, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i259
   store ptr %574, ptr %0, align 8, !tbaa !1670
   store ptr %578, ptr %1, align 8, !tbaa !2895
-  %580 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %574, i64 %572
+  %580 = getelementptr inbounds nuw [16 x i8], ptr %574, i64 %572
   store ptr %580, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit264
 
@@ -191534,7 +191529,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i271: ; preds = %604, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i269
   store ptr %599, ptr %0, align 8, !tbaa !1670
   store ptr %603, ptr %1, align 8, !tbaa !2895
-  %605 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %599, i64 %597
+  %605 = getelementptr inbounds nuw [16 x i8], ptr %599, i64 %597
   store ptr %605, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit274
 
@@ -191606,7 +191601,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i281: ; preds = %629, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i279
   store ptr %624, ptr %0, align 8, !tbaa !1670
   store ptr %628, ptr %1, align 8, !tbaa !2895
-  %630 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %624, i64 %622
+  %630 = getelementptr inbounds nuw [16 x i8], ptr %624, i64 %622
   store ptr %630, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit284
 
@@ -191678,7 +191673,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i291: ; preds = %654, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i289
   store ptr %649, ptr %0, align 8, !tbaa !1670
   store ptr %653, ptr %1, align 8, !tbaa !2895
-  %655 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %649, i64 %647
+  %655 = getelementptr inbounds nuw [16 x i8], ptr %649, i64 %647
   store ptr %655, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit294
 
@@ -191750,7 +191745,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i301: ; preds = %679, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i299
   store ptr %674, ptr %0, align 8, !tbaa !1670
   store ptr %678, ptr %1, align 8, !tbaa !2895
-  %680 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %674, i64 %672
+  %680 = getelementptr inbounds nuw [16 x i8], ptr %674, i64 %672
   store ptr %680, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit304
 
@@ -191822,7 +191817,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i311: ; preds = %704, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i309
   store ptr %699, ptr %0, align 8, !tbaa !1670
   store ptr %703, ptr %1, align 8, !tbaa !2895
-  %705 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %699, i64 %697
+  %705 = getelementptr inbounds nuw [16 x i8], ptr %699, i64 %697
   store ptr %705, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit314
 
@@ -191894,7 +191889,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i321: ; preds = %729, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i319
   store ptr %724, ptr %0, align 8, !tbaa !1670
   store ptr %728, ptr %1, align 8, !tbaa !2895
-  %730 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %724, i64 %722
+  %730 = getelementptr inbounds nuw [16 x i8], ptr %724, i64 %722
   store ptr %730, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit324
 
@@ -191966,7 +191961,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i331: ; preds = %754, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i329
   store ptr %749, ptr %0, align 8, !tbaa !1670
   store ptr %753, ptr %1, align 8, !tbaa !2895
-  %755 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %749, i64 %747
+  %755 = getelementptr inbounds nuw [16 x i8], ptr %749, i64 %747
   store ptr %755, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit334
 
@@ -192038,7 +192033,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i341: ; preds = %779, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i339
   store ptr %774, ptr %0, align 8, !tbaa !1670
   store ptr %778, ptr %1, align 8, !tbaa !2895
-  %780 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %774, i64 %772
+  %780 = getelementptr inbounds nuw [16 x i8], ptr %774, i64 %772
   store ptr %780, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit344
 
@@ -192110,7 +192105,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i351: ; preds = %804, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i349
   store ptr %799, ptr %0, align 8, !tbaa !1670
   store ptr %803, ptr %1, align 8, !tbaa !2895
-  %805 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %799, i64 %797
+  %805 = getelementptr inbounds nuw [16 x i8], ptr %799, i64 %797
   store ptr %805, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit354
 
@@ -192182,7 +192177,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i361: ; preds = %829, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i359
   store ptr %824, ptr %0, align 8, !tbaa !1670
   store ptr %828, ptr %1, align 8, !tbaa !2895
-  %830 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %824, i64 %822
+  %830 = getelementptr inbounds nuw [16 x i8], ptr %824, i64 %822
   store ptr %830, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit364
 
@@ -192254,7 +192249,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i371: ; preds = %854, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i369
   store ptr %849, ptr %0, align 8, !tbaa !1670
   store ptr %853, ptr %1, align 8, !tbaa !2895
-  %855 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %849, i64 %847
+  %855 = getelementptr inbounds nuw [16 x i8], ptr %849, i64 %847
   store ptr %855, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit374
 
@@ -192325,7 +192320,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i381: ; preds = %879, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i379
   store ptr %874, ptr %0, align 8, !tbaa !1670
   store ptr %878, ptr %1, align 8, !tbaa !2895
-  %880 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %874, i64 %872
+  %880 = getelementptr inbounds nuw [16 x i8], ptr %874, i64 %872
   store ptr %880, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit384
 
@@ -193006,7 +193001,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i41: ; preds = %31, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i39
   store ptr %26, ptr %0, align 8, !tbaa !1670
   store ptr %30, ptr %1, align 8, !tbaa !2895
-  %32 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %32, ptr %2, align 8, !tbaa !1672
   ret void
 
@@ -193289,7 +193284,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i41: ; preds = %31, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i39
   store ptr %26, ptr %0, align 8, !tbaa !1670
   store ptr %30, ptr %1, align 8, !tbaa !2895
-  %32 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %32, ptr %2, align 8, !tbaa !1672
   %.not.i.i45 = icmp eq ptr %30, %32
   br i1 %.not.i.i45, label %36, label %33
@@ -193356,7 +193351,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i51: ; preds = %54, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i49
   store ptr %49, ptr %0, align 8, !tbaa !1670
   store ptr %53, ptr %1, align 8, !tbaa !2895
-  %55 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %49, i64 %47
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %47
   store ptr %55, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit54
 
@@ -193428,7 +193423,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i61: ; preds = %79, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i59
   store ptr %74, ptr %0, align 8, !tbaa !1670
   store ptr %78, ptr %1, align 8, !tbaa !2895
-  %80 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %74, i64 %72
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %72
   store ptr %80, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit64
 
@@ -193500,7 +193495,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i71: ; preds = %104, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i69
   store ptr %99, ptr %0, align 8, !tbaa !1670
   store ptr %103, ptr %1, align 8, !tbaa !2895
-  %105 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %99, i64 %97
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %97
   store ptr %105, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit74
 
@@ -193572,7 +193567,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i81: ; preds = %129, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i79
   store ptr %124, ptr %0, align 8, !tbaa !1670
   store ptr %128, ptr %1, align 8, !tbaa !2895
-  %130 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %124, i64 %122
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %122
   store ptr %130, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit84
 
@@ -193644,7 +193639,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i91: ; preds = %154, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i89
   store ptr %149, ptr %0, align 8, !tbaa !1670
   store ptr %153, ptr %1, align 8, !tbaa !2895
-  %155 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %149, i64 %147
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %147
   store ptr %155, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit94
 
@@ -193716,7 +193711,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i101: ; preds = %179, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i99
   store ptr %174, ptr %0, align 8, !tbaa !1670
   store ptr %178, ptr %1, align 8, !tbaa !2895
-  %180 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %174, i64 %172
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %172
   store ptr %180, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit104
 
@@ -193788,7 +193783,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i111: ; preds = %204, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i109
   store ptr %199, ptr %0, align 8, !tbaa !1670
   store ptr %203, ptr %1, align 8, !tbaa !2895
-  %205 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %199, i64 %197
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %199, i64 %197
   store ptr %205, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit114
 
@@ -193860,7 +193855,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i121: ; preds = %229, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i119
   store ptr %224, ptr %0, align 8, !tbaa !1670
   store ptr %228, ptr %1, align 8, !tbaa !2895
-  %230 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %224, i64 %222
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %224, i64 %222
   store ptr %230, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit124
 
@@ -193932,7 +193927,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i131: ; preds = %254, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i129
   store ptr %249, ptr %0, align 8, !tbaa !1670
   store ptr %253, ptr %1, align 8, !tbaa !2895
-  %255 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %249, i64 %247
+  %255 = getelementptr inbounds nuw [16 x i8], ptr %249, i64 %247
   store ptr %255, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit134
 
@@ -194004,7 +193999,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i141: ; preds = %279, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i139
   store ptr %274, ptr %0, align 8, !tbaa !1670
   store ptr %278, ptr %1, align 8, !tbaa !2895
-  %280 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %274, i64 %272
+  %280 = getelementptr inbounds nuw [16 x i8], ptr %274, i64 %272
   store ptr %280, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit144
 
@@ -194076,7 +194071,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i151: ; preds = %304, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i149
   store ptr %299, ptr %0, align 8, !tbaa !1670
   store ptr %303, ptr %1, align 8, !tbaa !2895
-  %305 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %299, i64 %297
+  %305 = getelementptr inbounds nuw [16 x i8], ptr %299, i64 %297
   store ptr %305, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit154
 
@@ -194148,7 +194143,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i161: ; preds = %329, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i159
   store ptr %324, ptr %0, align 8, !tbaa !1670
   store ptr %328, ptr %1, align 8, !tbaa !2895
-  %330 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %324, i64 %322
+  %330 = getelementptr inbounds nuw [16 x i8], ptr %324, i64 %322
   store ptr %330, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit164
 
@@ -194220,7 +194215,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i171: ; preds = %354, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i169
   store ptr %349, ptr %0, align 8, !tbaa !1670
   store ptr %353, ptr %1, align 8, !tbaa !2895
-  %355 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %349, i64 %347
+  %355 = getelementptr inbounds nuw [16 x i8], ptr %349, i64 %347
   store ptr %355, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit174
 
@@ -194292,7 +194287,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i181: ; preds = %379, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i179
   store ptr %374, ptr %0, align 8, !tbaa !1670
   store ptr %378, ptr %1, align 8, !tbaa !2895
-  %380 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %374, i64 %372
+  %380 = getelementptr inbounds nuw [16 x i8], ptr %374, i64 %372
   store ptr %380, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit184
 
@@ -194364,7 +194359,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i191: ; preds = %404, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i189
   store ptr %399, ptr %0, align 8, !tbaa !1670
   store ptr %403, ptr %1, align 8, !tbaa !2895
-  %405 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %399, i64 %397
+  %405 = getelementptr inbounds nuw [16 x i8], ptr %399, i64 %397
   store ptr %405, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit194
 
@@ -194436,7 +194431,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i201: ; preds = %429, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i199
   store ptr %424, ptr %0, align 8, !tbaa !1670
   store ptr %428, ptr %1, align 8, !tbaa !2895
-  %430 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %424, i64 %422
+  %430 = getelementptr inbounds nuw [16 x i8], ptr %424, i64 %422
   store ptr %430, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit204
 
@@ -194508,7 +194503,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i211: ; preds = %454, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i209
   store ptr %449, ptr %0, align 8, !tbaa !1670
   store ptr %453, ptr %1, align 8, !tbaa !2895
-  %455 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %449, i64 %447
+  %455 = getelementptr inbounds nuw [16 x i8], ptr %449, i64 %447
   store ptr %455, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit214
 
@@ -194580,7 +194575,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i221: ; preds = %479, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i219
   store ptr %474, ptr %0, align 8, !tbaa !1670
   store ptr %478, ptr %1, align 8, !tbaa !2895
-  %480 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %474, i64 %472
+  %480 = getelementptr inbounds nuw [16 x i8], ptr %474, i64 %472
   store ptr %480, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit224
 
@@ -194652,7 +194647,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i231: ; preds = %504, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i229
   store ptr %499, ptr %0, align 8, !tbaa !1670
   store ptr %503, ptr %1, align 8, !tbaa !2895
-  %505 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %499, i64 %497
+  %505 = getelementptr inbounds nuw [16 x i8], ptr %499, i64 %497
   store ptr %505, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit234
 
@@ -194724,7 +194719,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i241: ; preds = %529, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i239
   store ptr %524, ptr %0, align 8, !tbaa !1670
   store ptr %528, ptr %1, align 8, !tbaa !2895
-  %530 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %524, i64 %522
+  %530 = getelementptr inbounds nuw [16 x i8], ptr %524, i64 %522
   store ptr %530, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit244
 
@@ -194796,7 +194791,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i251: ; preds = %554, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i249
   store ptr %549, ptr %0, align 8, !tbaa !1670
   store ptr %553, ptr %1, align 8, !tbaa !2895
-  %555 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %549, i64 %547
+  %555 = getelementptr inbounds nuw [16 x i8], ptr %549, i64 %547
   store ptr %555, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit254
 
@@ -194868,7 +194863,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i261: ; preds = %579, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i259
   store ptr %574, ptr %0, align 8, !tbaa !1670
   store ptr %578, ptr %1, align 8, !tbaa !2895
-  %580 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %574, i64 %572
+  %580 = getelementptr inbounds nuw [16 x i8], ptr %574, i64 %572
   store ptr %580, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit264
 
@@ -194940,7 +194935,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i271: ; preds = %604, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i269
   store ptr %599, ptr %0, align 8, !tbaa !1670
   store ptr %603, ptr %1, align 8, !tbaa !2895
-  %605 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %599, i64 %597
+  %605 = getelementptr inbounds nuw [16 x i8], ptr %599, i64 %597
   store ptr %605, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit274
 
@@ -195012,7 +195007,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i281: ; preds = %629, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i279
   store ptr %624, ptr %0, align 8, !tbaa !1670
   store ptr %628, ptr %1, align 8, !tbaa !2895
-  %630 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %624, i64 %622
+  %630 = getelementptr inbounds nuw [16 x i8], ptr %624, i64 %622
   store ptr %630, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit284
 
@@ -195084,7 +195079,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i291: ; preds = %654, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i289
   store ptr %649, ptr %0, align 8, !tbaa !1670
   store ptr %653, ptr %1, align 8, !tbaa !2895
-  %655 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %649, i64 %647
+  %655 = getelementptr inbounds nuw [16 x i8], ptr %649, i64 %647
   store ptr %655, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit294
 
@@ -195156,7 +195151,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i301: ; preds = %679, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i299
   store ptr %674, ptr %0, align 8, !tbaa !1670
   store ptr %678, ptr %1, align 8, !tbaa !2895
-  %680 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %674, i64 %672
+  %680 = getelementptr inbounds nuw [16 x i8], ptr %674, i64 %672
   store ptr %680, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit304
 
@@ -195228,7 +195223,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i311: ; preds = %704, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i309
   store ptr %699, ptr %0, align 8, !tbaa !1670
   store ptr %703, ptr %1, align 8, !tbaa !2895
-  %705 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %699, i64 %697
+  %705 = getelementptr inbounds nuw [16 x i8], ptr %699, i64 %697
   store ptr %705, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit314
 
@@ -195300,7 +195295,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i321: ; preds = %729, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i319
   store ptr %724, ptr %0, align 8, !tbaa !1670
   store ptr %728, ptr %1, align 8, !tbaa !2895
-  %730 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %724, i64 %722
+  %730 = getelementptr inbounds nuw [16 x i8], ptr %724, i64 %722
   store ptr %730, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit324
 
@@ -195372,7 +195367,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i331: ; preds = %754, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i329
   store ptr %749, ptr %0, align 8, !tbaa !1670
   store ptr %753, ptr %1, align 8, !tbaa !2895
-  %755 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %749, i64 %747
+  %755 = getelementptr inbounds nuw [16 x i8], ptr %749, i64 %747
   store ptr %755, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit334
 
@@ -195444,7 +195439,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i341: ; preds = %779, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i339
   store ptr %774, ptr %0, align 8, !tbaa !1670
   store ptr %778, ptr %1, align 8, !tbaa !2895
-  %780 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %774, i64 %772
+  %780 = getelementptr inbounds nuw [16 x i8], ptr %774, i64 %772
   store ptr %780, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit344
 
@@ -195516,7 +195511,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i351: ; preds = %804, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i349
   store ptr %799, ptr %0, align 8, !tbaa !1670
   store ptr %803, ptr %1, align 8, !tbaa !2895
-  %805 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %799, i64 %797
+  %805 = getelementptr inbounds nuw [16 x i8], ptr %799, i64 %797
   store ptr %805, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit354
 
@@ -195588,7 +195583,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i361: ; preds = %829, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i359
   store ptr %824, ptr %0, align 8, !tbaa !1670
   store ptr %828, ptr %1, align 8, !tbaa !2895
-  %830 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %824, i64 %822
+  %830 = getelementptr inbounds nuw [16 x i8], ptr %824, i64 %822
   store ptr %830, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit364
 
@@ -195660,7 +195655,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i371: ; preds = %854, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i369
   store ptr %849, ptr %0, align 8, !tbaa !1670
   store ptr %853, ptr %1, align 8, !tbaa !2895
-  %855 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %849, i64 %847
+  %855 = getelementptr inbounds nuw [16 x i8], ptr %849, i64 %847
   store ptr %855, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit374
 
@@ -195731,7 +195726,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i381: ; preds = %879, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i379
   store ptr %874, ptr %0, align 8, !tbaa !1670
   store ptr %878, ptr %1, align 8, !tbaa !2895
-  %880 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %874, i64 %872
+  %880 = getelementptr inbounds nuw [16 x i8], ptr %874, i64 %872
   store ptr %880, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit384
 
@@ -196037,7 +196032,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i41: ; preds = %31, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i39
   store ptr %26, ptr %0, align 8, !tbaa !1670
   store ptr %30, ptr %1, align 8, !tbaa !2895
-  %32 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %32, ptr %2, align 8, !tbaa !1672
   %.not.i.i45 = icmp eq ptr %30, %32
   br i1 %.not.i.i45, label %36, label %33
@@ -196104,7 +196099,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i51: ; preds = %54, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i49
   store ptr %49, ptr %0, align 8, !tbaa !1670
   store ptr %53, ptr %1, align 8, !tbaa !2895
-  %55 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %49, i64 %47
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %47
   store ptr %55, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit54
 
@@ -196176,7 +196171,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i61: ; preds = %79, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i59
   store ptr %74, ptr %0, align 8, !tbaa !1670
   store ptr %78, ptr %1, align 8, !tbaa !2895
-  %80 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %74, i64 %72
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %72
   store ptr %80, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit64
 
@@ -196248,7 +196243,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i71: ; preds = %104, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i69
   store ptr %99, ptr %0, align 8, !tbaa !1670
   store ptr %103, ptr %1, align 8, !tbaa !2895
-  %105 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %99, i64 %97
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %97
   store ptr %105, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit74
 
@@ -196320,7 +196315,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i81: ; preds = %129, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i79
   store ptr %124, ptr %0, align 8, !tbaa !1670
   store ptr %128, ptr %1, align 8, !tbaa !2895
-  %130 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %124, i64 %122
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %122
   store ptr %130, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit84
 
@@ -196392,7 +196387,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i91: ; preds = %154, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i89
   store ptr %149, ptr %0, align 8, !tbaa !1670
   store ptr %153, ptr %1, align 8, !tbaa !2895
-  %155 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %149, i64 %147
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %147
   store ptr %155, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit94
 
@@ -196464,7 +196459,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i101: ; preds = %179, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i99
   store ptr %174, ptr %0, align 8, !tbaa !1670
   store ptr %178, ptr %1, align 8, !tbaa !2895
-  %180 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %174, i64 %172
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %172
   store ptr %180, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit104
 
@@ -196536,7 +196531,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i111: ; preds = %204, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i109
   store ptr %199, ptr %0, align 8, !tbaa !1670
   store ptr %203, ptr %1, align 8, !tbaa !2895
-  %205 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %199, i64 %197
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %199, i64 %197
   store ptr %205, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit114
 
@@ -196608,7 +196603,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i121: ; preds = %229, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i119
   store ptr %224, ptr %0, align 8, !tbaa !1670
   store ptr %228, ptr %1, align 8, !tbaa !2895
-  %230 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %224, i64 %222
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %224, i64 %222
   store ptr %230, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit124
 
@@ -196680,7 +196675,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i131: ; preds = %254, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i129
   store ptr %249, ptr %0, align 8, !tbaa !1670
   store ptr %253, ptr %1, align 8, !tbaa !2895
-  %255 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %249, i64 %247
+  %255 = getelementptr inbounds nuw [16 x i8], ptr %249, i64 %247
   store ptr %255, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit134
 
@@ -196752,7 +196747,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i141: ; preds = %279, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i139
   store ptr %274, ptr %0, align 8, !tbaa !1670
   store ptr %278, ptr %1, align 8, !tbaa !2895
-  %280 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %274, i64 %272
+  %280 = getelementptr inbounds nuw [16 x i8], ptr %274, i64 %272
   store ptr %280, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit144
 
@@ -196824,7 +196819,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i151: ; preds = %304, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i149
   store ptr %299, ptr %0, align 8, !tbaa !1670
   store ptr %303, ptr %1, align 8, !tbaa !2895
-  %305 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %299, i64 %297
+  %305 = getelementptr inbounds nuw [16 x i8], ptr %299, i64 %297
   store ptr %305, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit154
 
@@ -196896,7 +196891,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i161: ; preds = %329, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i159
   store ptr %324, ptr %0, align 8, !tbaa !1670
   store ptr %328, ptr %1, align 8, !tbaa !2895
-  %330 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %324, i64 %322
+  %330 = getelementptr inbounds nuw [16 x i8], ptr %324, i64 %322
   store ptr %330, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit164
 
@@ -196968,7 +196963,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i171: ; preds = %354, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i169
   store ptr %349, ptr %0, align 8, !tbaa !1670
   store ptr %353, ptr %1, align 8, !tbaa !2895
-  %355 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %349, i64 %347
+  %355 = getelementptr inbounds nuw [16 x i8], ptr %349, i64 %347
   store ptr %355, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit174
 
@@ -197040,7 +197035,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i181: ; preds = %379, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i179
   store ptr %374, ptr %0, align 8, !tbaa !1670
   store ptr %378, ptr %1, align 8, !tbaa !2895
-  %380 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %374, i64 %372
+  %380 = getelementptr inbounds nuw [16 x i8], ptr %374, i64 %372
   store ptr %380, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit184
 
@@ -197112,7 +197107,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i191: ; preds = %404, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i189
   store ptr %399, ptr %0, align 8, !tbaa !1670
   store ptr %403, ptr %1, align 8, !tbaa !2895
-  %405 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %399, i64 %397
+  %405 = getelementptr inbounds nuw [16 x i8], ptr %399, i64 %397
   store ptr %405, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit194
 
@@ -197184,7 +197179,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i201: ; preds = %429, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i199
   store ptr %424, ptr %0, align 8, !tbaa !1670
   store ptr %428, ptr %1, align 8, !tbaa !2895
-  %430 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %424, i64 %422
+  %430 = getelementptr inbounds nuw [16 x i8], ptr %424, i64 %422
   store ptr %430, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit204
 
@@ -197256,7 +197251,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i211: ; preds = %454, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i209
   store ptr %449, ptr %0, align 8, !tbaa !1670
   store ptr %453, ptr %1, align 8, !tbaa !2895
-  %455 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %449, i64 %447
+  %455 = getelementptr inbounds nuw [16 x i8], ptr %449, i64 %447
   store ptr %455, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit214
 
@@ -197328,7 +197323,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i221: ; preds = %479, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i219
   store ptr %474, ptr %0, align 8, !tbaa !1670
   store ptr %478, ptr %1, align 8, !tbaa !2895
-  %480 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %474, i64 %472
+  %480 = getelementptr inbounds nuw [16 x i8], ptr %474, i64 %472
   store ptr %480, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit224
 
@@ -197400,7 +197395,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i231: ; preds = %504, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i229
   store ptr %499, ptr %0, align 8, !tbaa !1670
   store ptr %503, ptr %1, align 8, !tbaa !2895
-  %505 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %499, i64 %497
+  %505 = getelementptr inbounds nuw [16 x i8], ptr %499, i64 %497
   store ptr %505, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit234
 
@@ -197472,7 +197467,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i241: ; preds = %529, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i239
   store ptr %524, ptr %0, align 8, !tbaa !1670
   store ptr %528, ptr %1, align 8, !tbaa !2895
-  %530 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %524, i64 %522
+  %530 = getelementptr inbounds nuw [16 x i8], ptr %524, i64 %522
   store ptr %530, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit244
 
@@ -197544,7 +197539,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i251: ; preds = %554, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i249
   store ptr %549, ptr %0, align 8, !tbaa !1670
   store ptr %553, ptr %1, align 8, !tbaa !2895
-  %555 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %549, i64 %547
+  %555 = getelementptr inbounds nuw [16 x i8], ptr %549, i64 %547
   store ptr %555, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit254
 
@@ -197616,7 +197611,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i261: ; preds = %579, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i259
   store ptr %574, ptr %0, align 8, !tbaa !1670
   store ptr %578, ptr %1, align 8, !tbaa !2895
-  %580 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %574, i64 %572
+  %580 = getelementptr inbounds nuw [16 x i8], ptr %574, i64 %572
   store ptr %580, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit264
 
@@ -197688,7 +197683,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i271: ; preds = %604, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i269
   store ptr %599, ptr %0, align 8, !tbaa !1670
   store ptr %603, ptr %1, align 8, !tbaa !2895
-  %605 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %599, i64 %597
+  %605 = getelementptr inbounds nuw [16 x i8], ptr %599, i64 %597
   store ptr %605, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit274
 
@@ -197760,7 +197755,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i281: ; preds = %629, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i279
   store ptr %624, ptr %0, align 8, !tbaa !1670
   store ptr %628, ptr %1, align 8, !tbaa !2895
-  %630 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %624, i64 %622
+  %630 = getelementptr inbounds nuw [16 x i8], ptr %624, i64 %622
   store ptr %630, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit284
 
@@ -197832,7 +197827,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i291: ; preds = %654, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i289
   store ptr %649, ptr %0, align 8, !tbaa !1670
   store ptr %653, ptr %1, align 8, !tbaa !2895
-  %655 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %649, i64 %647
+  %655 = getelementptr inbounds nuw [16 x i8], ptr %649, i64 %647
   store ptr %655, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit294
 
@@ -197904,7 +197899,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i301: ; preds = %679, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i299
   store ptr %674, ptr %0, align 8, !tbaa !1670
   store ptr %678, ptr %1, align 8, !tbaa !2895
-  %680 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %674, i64 %672
+  %680 = getelementptr inbounds nuw [16 x i8], ptr %674, i64 %672
   store ptr %680, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit304
 
@@ -197976,7 +197971,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i311: ; preds = %704, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i309
   store ptr %699, ptr %0, align 8, !tbaa !1670
   store ptr %703, ptr %1, align 8, !tbaa !2895
-  %705 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %699, i64 %697
+  %705 = getelementptr inbounds nuw [16 x i8], ptr %699, i64 %697
   store ptr %705, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit314
 
@@ -198048,7 +198043,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i321: ; preds = %729, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i319
   store ptr %724, ptr %0, align 8, !tbaa !1670
   store ptr %728, ptr %1, align 8, !tbaa !2895
-  %730 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %724, i64 %722
+  %730 = getelementptr inbounds nuw [16 x i8], ptr %724, i64 %722
   store ptr %730, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit324
 
@@ -198120,7 +198115,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i331: ; preds = %754, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i329
   store ptr %749, ptr %0, align 8, !tbaa !1670
   store ptr %753, ptr %1, align 8, !tbaa !2895
-  %755 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %749, i64 %747
+  %755 = getelementptr inbounds nuw [16 x i8], ptr %749, i64 %747
   store ptr %755, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit334
 
@@ -198192,7 +198187,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i341: ; preds = %779, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i339
   store ptr %774, ptr %0, align 8, !tbaa !1670
   store ptr %778, ptr %1, align 8, !tbaa !2895
-  %780 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %774, i64 %772
+  %780 = getelementptr inbounds nuw [16 x i8], ptr %774, i64 %772
   store ptr %780, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit344
 
@@ -198264,7 +198259,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i351: ; preds = %804, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i349
   store ptr %799, ptr %0, align 8, !tbaa !1670
   store ptr %803, ptr %1, align 8, !tbaa !2895
-  %805 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %799, i64 %797
+  %805 = getelementptr inbounds nuw [16 x i8], ptr %799, i64 %797
   store ptr %805, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit354
 
@@ -198336,7 +198331,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i361: ; preds = %829, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i359
   store ptr %824, ptr %0, align 8, !tbaa !1670
   store ptr %828, ptr %1, align 8, !tbaa !2895
-  %830 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %824, i64 %822
+  %830 = getelementptr inbounds nuw [16 x i8], ptr %824, i64 %822
   store ptr %830, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit364
 
@@ -198408,7 +198403,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i371: ; preds = %854, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i369
   store ptr %849, ptr %0, align 8, !tbaa !1670
   store ptr %853, ptr %1, align 8, !tbaa !2895
-  %855 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %849, i64 %847
+  %855 = getelementptr inbounds nuw [16 x i8], ptr %849, i64 %847
   store ptr %855, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit374
 
@@ -198479,7 +198474,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i381: ; preds = %879, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i379
   store ptr %874, ptr %0, align 8, !tbaa !1670
   store ptr %878, ptr %1, align 8, !tbaa !2895
-  %880 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %874, i64 %872
+  %880 = getelementptr inbounds nuw [16 x i8], ptr %874, i64 %872
   store ptr %880, ptr %2, align 8, !tbaa !1672
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit384
 
@@ -199160,7 +199155,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i41: ; preds = %31, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs20spherical_equatorialINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i39
   store ptr %26, ptr %0, align 8, !tbaa !1670
   store ptr %30, ptr %1, align 8, !tbaa !2895
-  %32 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %32, ptr %2, align 8, !tbaa !1672
   ret void
 
@@ -199749,7 +199744,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i41: ; preds = %31, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i39
   store ptr %26, ptr %0, align 8, !tbaa !1683
   store ptr %30, ptr %1, align 8, !tbaa !2988
-  %32 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %32, ptr %2, align 8, !tbaa !1685
   %.not.i.i45 = icmp eq ptr %30, %32
   br i1 %.not.i.i45, label %36, label %33
@@ -199816,7 +199811,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i51: ; preds = %54, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i49
   store ptr %49, ptr %0, align 8, !tbaa !1683
   store ptr %53, ptr %1, align 8, !tbaa !2988
-  %55 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %49, i64 %47
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %47
   store ptr %55, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit54
 
@@ -199888,7 +199883,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i61: ; preds = %79, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i59
   store ptr %74, ptr %0, align 8, !tbaa !1683
   store ptr %78, ptr %1, align 8, !tbaa !2988
-  %80 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %74, i64 %72
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %72
   store ptr %80, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit64
 
@@ -199960,7 +199955,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i71: ; preds = %104, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i69
   store ptr %99, ptr %0, align 8, !tbaa !1683
   store ptr %103, ptr %1, align 8, !tbaa !2988
-  %105 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %99, i64 %97
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %97
   store ptr %105, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit74
 
@@ -200032,7 +200027,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i81: ; preds = %129, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i79
   store ptr %124, ptr %0, align 8, !tbaa !1683
   store ptr %128, ptr %1, align 8, !tbaa !2988
-  %130 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %124, i64 %122
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %122
   store ptr %130, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit84
 
@@ -200104,7 +200099,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i91: ; preds = %154, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i89
   store ptr %149, ptr %0, align 8, !tbaa !1683
   store ptr %153, ptr %1, align 8, !tbaa !2988
-  %155 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %149, i64 %147
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %147
   store ptr %155, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit94
 
@@ -200176,7 +200171,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i101: ; preds = %179, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i99
   store ptr %174, ptr %0, align 8, !tbaa !1683
   store ptr %178, ptr %1, align 8, !tbaa !2988
-  %180 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %174, i64 %172
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %172
   store ptr %180, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit104
 
@@ -200248,7 +200243,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i111: ; preds = %204, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i109
   store ptr %199, ptr %0, align 8, !tbaa !1683
   store ptr %203, ptr %1, align 8, !tbaa !2988
-  %205 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %199, i64 %197
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %199, i64 %197
   store ptr %205, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit114
 
@@ -200320,7 +200315,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i121: ; preds = %229, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i119
   store ptr %224, ptr %0, align 8, !tbaa !1683
   store ptr %228, ptr %1, align 8, !tbaa !2988
-  %230 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %224, i64 %222
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %224, i64 %222
   store ptr %230, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit124
 
@@ -200392,7 +200387,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i131: ; preds = %254, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i129
   store ptr %249, ptr %0, align 8, !tbaa !1683
   store ptr %253, ptr %1, align 8, !tbaa !2988
-  %255 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %249, i64 %247
+  %255 = getelementptr inbounds nuw [16 x i8], ptr %249, i64 %247
   store ptr %255, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit134
 
@@ -200464,7 +200459,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i141: ; preds = %279, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i139
   store ptr %274, ptr %0, align 8, !tbaa !1683
   store ptr %278, ptr %1, align 8, !tbaa !2988
-  %280 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %274, i64 %272
+  %280 = getelementptr inbounds nuw [16 x i8], ptr %274, i64 %272
   store ptr %280, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit144
 
@@ -200536,7 +200531,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i151: ; preds = %304, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i149
   store ptr %299, ptr %0, align 8, !tbaa !1683
   store ptr %303, ptr %1, align 8, !tbaa !2988
-  %305 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %299, i64 %297
+  %305 = getelementptr inbounds nuw [16 x i8], ptr %299, i64 %297
   store ptr %305, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit154
 
@@ -200608,7 +200603,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i161: ; preds = %329, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i159
   store ptr %324, ptr %0, align 8, !tbaa !1683
   store ptr %328, ptr %1, align 8, !tbaa !2988
-  %330 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %324, i64 %322
+  %330 = getelementptr inbounds nuw [16 x i8], ptr %324, i64 %322
   store ptr %330, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit164
 
@@ -200680,7 +200675,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i171: ; preds = %354, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i169
   store ptr %349, ptr %0, align 8, !tbaa !1683
   store ptr %353, ptr %1, align 8, !tbaa !2988
-  %355 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %349, i64 %347
+  %355 = getelementptr inbounds nuw [16 x i8], ptr %349, i64 %347
   store ptr %355, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit174
 
@@ -200752,7 +200747,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i181: ; preds = %379, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i179
   store ptr %374, ptr %0, align 8, !tbaa !1683
   store ptr %378, ptr %1, align 8, !tbaa !2988
-  %380 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %374, i64 %372
+  %380 = getelementptr inbounds nuw [16 x i8], ptr %374, i64 %372
   store ptr %380, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit184
 
@@ -200824,7 +200819,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i191: ; preds = %404, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i189
   store ptr %399, ptr %0, align 8, !tbaa !1683
   store ptr %403, ptr %1, align 8, !tbaa !2988
-  %405 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %399, i64 %397
+  %405 = getelementptr inbounds nuw [16 x i8], ptr %399, i64 %397
   store ptr %405, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit194
 
@@ -200896,7 +200891,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i201: ; preds = %429, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i199
   store ptr %424, ptr %0, align 8, !tbaa !1683
   store ptr %428, ptr %1, align 8, !tbaa !2988
-  %430 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %424, i64 %422
+  %430 = getelementptr inbounds nuw [16 x i8], ptr %424, i64 %422
   store ptr %430, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit204
 
@@ -200968,7 +200963,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i211: ; preds = %454, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i209
   store ptr %449, ptr %0, align 8, !tbaa !1683
   store ptr %453, ptr %1, align 8, !tbaa !2988
-  %455 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %449, i64 %447
+  %455 = getelementptr inbounds nuw [16 x i8], ptr %449, i64 %447
   store ptr %455, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit214
 
@@ -201040,7 +201035,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i221: ; preds = %479, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i219
   store ptr %474, ptr %0, align 8, !tbaa !1683
   store ptr %478, ptr %1, align 8, !tbaa !2988
-  %480 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %474, i64 %472
+  %480 = getelementptr inbounds nuw [16 x i8], ptr %474, i64 %472
   store ptr %480, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit224
 
@@ -201112,7 +201107,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i231: ; preds = %504, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i229
   store ptr %499, ptr %0, align 8, !tbaa !1683
   store ptr %503, ptr %1, align 8, !tbaa !2988
-  %505 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %499, i64 %497
+  %505 = getelementptr inbounds nuw [16 x i8], ptr %499, i64 %497
   store ptr %505, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit234
 
@@ -201184,7 +201179,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i241: ; preds = %529, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i239
   store ptr %524, ptr %0, align 8, !tbaa !1683
   store ptr %528, ptr %1, align 8, !tbaa !2988
-  %530 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %524, i64 %522
+  %530 = getelementptr inbounds nuw [16 x i8], ptr %524, i64 %522
   store ptr %530, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit244
 
@@ -201256,7 +201251,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i251: ; preds = %554, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i249
   store ptr %549, ptr %0, align 8, !tbaa !1683
   store ptr %553, ptr %1, align 8, !tbaa !2988
-  %555 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %549, i64 %547
+  %555 = getelementptr inbounds nuw [16 x i8], ptr %549, i64 %547
   store ptr %555, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit254
 
@@ -201328,7 +201323,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i261: ; preds = %579, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i259
   store ptr %574, ptr %0, align 8, !tbaa !1683
   store ptr %578, ptr %1, align 8, !tbaa !2988
-  %580 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %574, i64 %572
+  %580 = getelementptr inbounds nuw [16 x i8], ptr %574, i64 %572
   store ptr %580, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit264
 
@@ -201400,7 +201395,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i271: ; preds = %604, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i269
   store ptr %599, ptr %0, align 8, !tbaa !1683
   store ptr %603, ptr %1, align 8, !tbaa !2988
-  %605 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %599, i64 %597
+  %605 = getelementptr inbounds nuw [16 x i8], ptr %599, i64 %597
   store ptr %605, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit274
 
@@ -201472,7 +201467,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i281: ; preds = %629, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i279
   store ptr %624, ptr %0, align 8, !tbaa !1683
   store ptr %628, ptr %1, align 8, !tbaa !2988
-  %630 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %624, i64 %622
+  %630 = getelementptr inbounds nuw [16 x i8], ptr %624, i64 %622
   store ptr %630, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit284
 
@@ -201544,7 +201539,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i291: ; preds = %654, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i289
   store ptr %649, ptr %0, align 8, !tbaa !1683
   store ptr %653, ptr %1, align 8, !tbaa !2988
-  %655 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %649, i64 %647
+  %655 = getelementptr inbounds nuw [16 x i8], ptr %649, i64 %647
   store ptr %655, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit294
 
@@ -201616,7 +201611,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i301: ; preds = %679, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i299
   store ptr %674, ptr %0, align 8, !tbaa !1683
   store ptr %678, ptr %1, align 8, !tbaa !2988
-  %680 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %674, i64 %672
+  %680 = getelementptr inbounds nuw [16 x i8], ptr %674, i64 %672
   store ptr %680, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit304
 
@@ -201688,7 +201683,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i311: ; preds = %704, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i309
   store ptr %699, ptr %0, align 8, !tbaa !1683
   store ptr %703, ptr %1, align 8, !tbaa !2988
-  %705 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %699, i64 %697
+  %705 = getelementptr inbounds nuw [16 x i8], ptr %699, i64 %697
   store ptr %705, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit314
 
@@ -201760,7 +201755,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i321: ; preds = %729, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i319
   store ptr %724, ptr %0, align 8, !tbaa !1683
   store ptr %728, ptr %1, align 8, !tbaa !2988
-  %730 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %724, i64 %722
+  %730 = getelementptr inbounds nuw [16 x i8], ptr %724, i64 %722
   store ptr %730, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit324
 
@@ -201832,7 +201827,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i331: ; preds = %754, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i329
   store ptr %749, ptr %0, align 8, !tbaa !1683
   store ptr %753, ptr %1, align 8, !tbaa !2988
-  %755 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %749, i64 %747
+  %755 = getelementptr inbounds nuw [16 x i8], ptr %749, i64 %747
   store ptr %755, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit334
 
@@ -201904,7 +201899,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i341: ; preds = %779, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i339
   store ptr %774, ptr %0, align 8, !tbaa !1683
   store ptr %778, ptr %1, align 8, !tbaa !2988
-  %780 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %774, i64 %772
+  %780 = getelementptr inbounds nuw [16 x i8], ptr %774, i64 %772
   store ptr %780, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit344
 
@@ -201976,7 +201971,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i351: ; preds = %804, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i349
   store ptr %799, ptr %0, align 8, !tbaa !1683
   store ptr %803, ptr %1, align 8, !tbaa !2988
-  %805 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %799, i64 %797
+  %805 = getelementptr inbounds nuw [16 x i8], ptr %799, i64 %797
   store ptr %805, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit354
 
@@ -202048,7 +202043,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i361: ; preds = %829, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i359
   store ptr %824, ptr %0, align 8, !tbaa !1683
   store ptr %828, ptr %1, align 8, !tbaa !2988
-  %830 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %824, i64 %822
+  %830 = getelementptr inbounds nuw [16 x i8], ptr %824, i64 %822
   store ptr %830, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit364
 
@@ -202120,7 +202115,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i371: ; preds = %854, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i369
   store ptr %849, ptr %0, align 8, !tbaa !1683
   store ptr %853, ptr %1, align 8, !tbaa !2988
-  %855 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %849, i64 %847
+  %855 = getelementptr inbounds nuw [16 x i8], ptr %849, i64 %847
   store ptr %855, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit374
 
@@ -202191,7 +202186,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i381: ; preds = %879, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i379
   store ptr %874, ptr %0, align 8, !tbaa !1683
   store ptr %878, ptr %1, align 8, !tbaa !2988
-  %880 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %874, i64 %872
+  %880 = getelementptr inbounds nuw [16 x i8], ptr %874, i64 %872
   store ptr %880, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit384
 
@@ -202497,7 +202492,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i41: ; preds = %31, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i39
   store ptr %26, ptr %0, align 8, !tbaa !1683
   store ptr %30, ptr %1, align 8, !tbaa !2988
-  %32 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %32, ptr %2, align 8, !tbaa !1685
   %.not.i.i45 = icmp eq ptr %30, %32
   br i1 %.not.i.i45, label %36, label %33
@@ -202564,7 +202559,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i51: ; preds = %54, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i49
   store ptr %49, ptr %0, align 8, !tbaa !1683
   store ptr %53, ptr %1, align 8, !tbaa !2988
-  %55 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %49, i64 %47
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %47
   store ptr %55, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit54
 
@@ -202636,7 +202631,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i61: ; preds = %79, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i59
   store ptr %74, ptr %0, align 8, !tbaa !1683
   store ptr %78, ptr %1, align 8, !tbaa !2988
-  %80 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %74, i64 %72
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %72
   store ptr %80, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit64
 
@@ -202708,7 +202703,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i71: ; preds = %104, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i69
   store ptr %99, ptr %0, align 8, !tbaa !1683
   store ptr %103, ptr %1, align 8, !tbaa !2988
-  %105 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %99, i64 %97
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %97
   store ptr %105, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit74
 
@@ -202780,7 +202775,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i81: ; preds = %129, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i79
   store ptr %124, ptr %0, align 8, !tbaa !1683
   store ptr %128, ptr %1, align 8, !tbaa !2988
-  %130 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %124, i64 %122
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %122
   store ptr %130, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit84
 
@@ -202852,7 +202847,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i91: ; preds = %154, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i89
   store ptr %149, ptr %0, align 8, !tbaa !1683
   store ptr %153, ptr %1, align 8, !tbaa !2988
-  %155 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %149, i64 %147
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %147
   store ptr %155, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit94
 
@@ -202924,7 +202919,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i101: ; preds = %179, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i99
   store ptr %174, ptr %0, align 8, !tbaa !1683
   store ptr %178, ptr %1, align 8, !tbaa !2988
-  %180 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %174, i64 %172
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %172
   store ptr %180, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit104
 
@@ -202996,7 +202991,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i111: ; preds = %204, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i109
   store ptr %199, ptr %0, align 8, !tbaa !1683
   store ptr %203, ptr %1, align 8, !tbaa !2988
-  %205 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %199, i64 %197
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %199, i64 %197
   store ptr %205, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit114
 
@@ -203068,7 +203063,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i121: ; preds = %229, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i119
   store ptr %224, ptr %0, align 8, !tbaa !1683
   store ptr %228, ptr %1, align 8, !tbaa !2988
-  %230 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %224, i64 %222
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %224, i64 %222
   store ptr %230, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit124
 
@@ -203140,7 +203135,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i131: ; preds = %254, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i129
   store ptr %249, ptr %0, align 8, !tbaa !1683
   store ptr %253, ptr %1, align 8, !tbaa !2988
-  %255 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %249, i64 %247
+  %255 = getelementptr inbounds nuw [16 x i8], ptr %249, i64 %247
   store ptr %255, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit134
 
@@ -203212,7 +203207,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i141: ; preds = %279, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i139
   store ptr %274, ptr %0, align 8, !tbaa !1683
   store ptr %278, ptr %1, align 8, !tbaa !2988
-  %280 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %274, i64 %272
+  %280 = getelementptr inbounds nuw [16 x i8], ptr %274, i64 %272
   store ptr %280, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit144
 
@@ -203284,7 +203279,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i151: ; preds = %304, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i149
   store ptr %299, ptr %0, align 8, !tbaa !1683
   store ptr %303, ptr %1, align 8, !tbaa !2988
-  %305 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %299, i64 %297
+  %305 = getelementptr inbounds nuw [16 x i8], ptr %299, i64 %297
   store ptr %305, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit154
 
@@ -203356,7 +203351,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i161: ; preds = %329, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i159
   store ptr %324, ptr %0, align 8, !tbaa !1683
   store ptr %328, ptr %1, align 8, !tbaa !2988
-  %330 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %324, i64 %322
+  %330 = getelementptr inbounds nuw [16 x i8], ptr %324, i64 %322
   store ptr %330, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit164
 
@@ -203428,7 +203423,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i171: ; preds = %354, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i169
   store ptr %349, ptr %0, align 8, !tbaa !1683
   store ptr %353, ptr %1, align 8, !tbaa !2988
-  %355 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %349, i64 %347
+  %355 = getelementptr inbounds nuw [16 x i8], ptr %349, i64 %347
   store ptr %355, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit174
 
@@ -203500,7 +203495,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i181: ; preds = %379, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i179
   store ptr %374, ptr %0, align 8, !tbaa !1683
   store ptr %378, ptr %1, align 8, !tbaa !2988
-  %380 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %374, i64 %372
+  %380 = getelementptr inbounds nuw [16 x i8], ptr %374, i64 %372
   store ptr %380, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit184
 
@@ -203572,7 +203567,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i191: ; preds = %404, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i189
   store ptr %399, ptr %0, align 8, !tbaa !1683
   store ptr %403, ptr %1, align 8, !tbaa !2988
-  %405 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %399, i64 %397
+  %405 = getelementptr inbounds nuw [16 x i8], ptr %399, i64 %397
   store ptr %405, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit194
 
@@ -203644,7 +203639,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i201: ; preds = %429, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i199
   store ptr %424, ptr %0, align 8, !tbaa !1683
   store ptr %428, ptr %1, align 8, !tbaa !2988
-  %430 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %424, i64 %422
+  %430 = getelementptr inbounds nuw [16 x i8], ptr %424, i64 %422
   store ptr %430, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit204
 
@@ -203716,7 +203711,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i211: ; preds = %454, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i209
   store ptr %449, ptr %0, align 8, !tbaa !1683
   store ptr %453, ptr %1, align 8, !tbaa !2988
-  %455 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %449, i64 %447
+  %455 = getelementptr inbounds nuw [16 x i8], ptr %449, i64 %447
   store ptr %455, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit214
 
@@ -203788,7 +203783,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i221: ; preds = %479, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i219
   store ptr %474, ptr %0, align 8, !tbaa !1683
   store ptr %478, ptr %1, align 8, !tbaa !2988
-  %480 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %474, i64 %472
+  %480 = getelementptr inbounds nuw [16 x i8], ptr %474, i64 %472
   store ptr %480, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit224
 
@@ -203860,7 +203855,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i231: ; preds = %504, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i229
   store ptr %499, ptr %0, align 8, !tbaa !1683
   store ptr %503, ptr %1, align 8, !tbaa !2988
-  %505 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %499, i64 %497
+  %505 = getelementptr inbounds nuw [16 x i8], ptr %499, i64 %497
   store ptr %505, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit234
 
@@ -203932,7 +203927,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i241: ; preds = %529, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i239
   store ptr %524, ptr %0, align 8, !tbaa !1683
   store ptr %528, ptr %1, align 8, !tbaa !2988
-  %530 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %524, i64 %522
+  %530 = getelementptr inbounds nuw [16 x i8], ptr %524, i64 %522
   store ptr %530, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit244
 
@@ -204004,7 +203999,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i251: ; preds = %554, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i249
   store ptr %549, ptr %0, align 8, !tbaa !1683
   store ptr %553, ptr %1, align 8, !tbaa !2988
-  %555 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %549, i64 %547
+  %555 = getelementptr inbounds nuw [16 x i8], ptr %549, i64 %547
   store ptr %555, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit254
 
@@ -204076,7 +204071,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i261: ; preds = %579, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i259
   store ptr %574, ptr %0, align 8, !tbaa !1683
   store ptr %578, ptr %1, align 8, !tbaa !2988
-  %580 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %574, i64 %572
+  %580 = getelementptr inbounds nuw [16 x i8], ptr %574, i64 %572
   store ptr %580, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit264
 
@@ -204148,7 +204143,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i271: ; preds = %604, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i269
   store ptr %599, ptr %0, align 8, !tbaa !1683
   store ptr %603, ptr %1, align 8, !tbaa !2988
-  %605 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %599, i64 %597
+  %605 = getelementptr inbounds nuw [16 x i8], ptr %599, i64 %597
   store ptr %605, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit274
 
@@ -204220,7 +204215,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i281: ; preds = %629, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i279
   store ptr %624, ptr %0, align 8, !tbaa !1683
   store ptr %628, ptr %1, align 8, !tbaa !2988
-  %630 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %624, i64 %622
+  %630 = getelementptr inbounds nuw [16 x i8], ptr %624, i64 %622
   store ptr %630, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit284
 
@@ -204292,7 +204287,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i291: ; preds = %654, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i289
   store ptr %649, ptr %0, align 8, !tbaa !1683
   store ptr %653, ptr %1, align 8, !tbaa !2988
-  %655 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %649, i64 %647
+  %655 = getelementptr inbounds nuw [16 x i8], ptr %649, i64 %647
   store ptr %655, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit294
 
@@ -204364,7 +204359,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i301: ; preds = %679, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i299
   store ptr %674, ptr %0, align 8, !tbaa !1683
   store ptr %678, ptr %1, align 8, !tbaa !2988
-  %680 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %674, i64 %672
+  %680 = getelementptr inbounds nuw [16 x i8], ptr %674, i64 %672
   store ptr %680, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit304
 
@@ -204436,7 +204431,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i311: ; preds = %704, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i309
   store ptr %699, ptr %0, align 8, !tbaa !1683
   store ptr %703, ptr %1, align 8, !tbaa !2988
-  %705 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %699, i64 %697
+  %705 = getelementptr inbounds nuw [16 x i8], ptr %699, i64 %697
   store ptr %705, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit314
 
@@ -204508,7 +204503,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i321: ; preds = %729, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i319
   store ptr %724, ptr %0, align 8, !tbaa !1683
   store ptr %728, ptr %1, align 8, !tbaa !2988
-  %730 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %724, i64 %722
+  %730 = getelementptr inbounds nuw [16 x i8], ptr %724, i64 %722
   store ptr %730, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit324
 
@@ -204580,7 +204575,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i331: ; preds = %754, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i329
   store ptr %749, ptr %0, align 8, !tbaa !1683
   store ptr %753, ptr %1, align 8, !tbaa !2988
-  %755 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %749, i64 %747
+  %755 = getelementptr inbounds nuw [16 x i8], ptr %749, i64 %747
   store ptr %755, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit334
 
@@ -204652,7 +204647,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i341: ; preds = %779, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i339
   store ptr %774, ptr %0, align 8, !tbaa !1683
   store ptr %778, ptr %1, align 8, !tbaa !2988
-  %780 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %774, i64 %772
+  %780 = getelementptr inbounds nuw [16 x i8], ptr %774, i64 %772
   store ptr %780, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit344
 
@@ -204724,7 +204719,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i351: ; preds = %804, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i349
   store ptr %799, ptr %0, align 8, !tbaa !1683
   store ptr %803, ptr %1, align 8, !tbaa !2988
-  %805 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %799, i64 %797
+  %805 = getelementptr inbounds nuw [16 x i8], ptr %799, i64 %797
   store ptr %805, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit354
 
@@ -204796,7 +204791,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i361: ; preds = %829, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i359
   store ptr %824, ptr %0, align 8, !tbaa !1683
   store ptr %828, ptr %1, align 8, !tbaa !2988
-  %830 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %824, i64 %822
+  %830 = getelementptr inbounds nuw [16 x i8], ptr %824, i64 %822
   store ptr %830, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit364
 
@@ -204868,7 +204863,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i371: ; preds = %854, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i369
   store ptr %849, ptr %0, align 8, !tbaa !1683
   store ptr %853, ptr %1, align 8, !tbaa !2988
-  %855 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %849, i64 %847
+  %855 = getelementptr inbounds nuw [16 x i8], ptr %849, i64 %847
   store ptr %855, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit374
 
@@ -204939,7 +204934,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i381: ; preds = %879, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i379
   store ptr %874, ptr %0, align 8, !tbaa !1683
   store ptr %878, ptr %1, align 8, !tbaa !2988
-  %880 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %874, i64 %872
+  %880 = getelementptr inbounds nuw [16 x i8], ptr %874, i64 %872
   store ptr %880, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit384
 
@@ -205620,7 +205615,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i41: ; preds = %31, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i39
   store ptr %26, ptr %0, align 8, !tbaa !1683
   store ptr %30, ptr %1, align 8, !tbaa !2988
-  %32 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %32, ptr %2, align 8, !tbaa !1685
   ret void
 
@@ -205903,7 +205898,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i41: ; preds = %31, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i39
   store ptr %26, ptr %0, align 8, !tbaa !1683
   store ptr %30, ptr %1, align 8, !tbaa !2988
-  %32 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %32, ptr %2, align 8, !tbaa !1685
   %.not.i.i45 = icmp eq ptr %30, %32
   br i1 %.not.i.i45, label %36, label %33
@@ -205970,7 +205965,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i51: ; preds = %54, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i49
   store ptr %49, ptr %0, align 8, !tbaa !1683
   store ptr %53, ptr %1, align 8, !tbaa !2988
-  %55 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %49, i64 %47
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %47
   store ptr %55, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit54
 
@@ -206042,7 +206037,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i61: ; preds = %79, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i59
   store ptr %74, ptr %0, align 8, !tbaa !1683
   store ptr %78, ptr %1, align 8, !tbaa !2988
-  %80 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %74, i64 %72
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %72
   store ptr %80, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit64
 
@@ -206114,7 +206109,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i71: ; preds = %104, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i69
   store ptr %99, ptr %0, align 8, !tbaa !1683
   store ptr %103, ptr %1, align 8, !tbaa !2988
-  %105 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %99, i64 %97
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %97
   store ptr %105, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit74
 
@@ -206186,7 +206181,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i81: ; preds = %129, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i79
   store ptr %124, ptr %0, align 8, !tbaa !1683
   store ptr %128, ptr %1, align 8, !tbaa !2988
-  %130 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %124, i64 %122
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %122
   store ptr %130, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit84
 
@@ -206258,7 +206253,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i91: ; preds = %154, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i89
   store ptr %149, ptr %0, align 8, !tbaa !1683
   store ptr %153, ptr %1, align 8, !tbaa !2988
-  %155 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %149, i64 %147
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %147
   store ptr %155, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit94
 
@@ -206330,7 +206325,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i101: ; preds = %179, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i99
   store ptr %174, ptr %0, align 8, !tbaa !1683
   store ptr %178, ptr %1, align 8, !tbaa !2988
-  %180 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %174, i64 %172
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %172
   store ptr %180, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit104
 
@@ -206402,7 +206397,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i111: ; preds = %204, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i109
   store ptr %199, ptr %0, align 8, !tbaa !1683
   store ptr %203, ptr %1, align 8, !tbaa !2988
-  %205 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %199, i64 %197
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %199, i64 %197
   store ptr %205, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit114
 
@@ -206474,7 +206469,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i121: ; preds = %229, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i119
   store ptr %224, ptr %0, align 8, !tbaa !1683
   store ptr %228, ptr %1, align 8, !tbaa !2988
-  %230 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %224, i64 %222
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %224, i64 %222
   store ptr %230, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit124
 
@@ -206546,7 +206541,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i131: ; preds = %254, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i129
   store ptr %249, ptr %0, align 8, !tbaa !1683
   store ptr %253, ptr %1, align 8, !tbaa !2988
-  %255 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %249, i64 %247
+  %255 = getelementptr inbounds nuw [16 x i8], ptr %249, i64 %247
   store ptr %255, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit134
 
@@ -206618,7 +206613,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i141: ; preds = %279, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i139
   store ptr %274, ptr %0, align 8, !tbaa !1683
   store ptr %278, ptr %1, align 8, !tbaa !2988
-  %280 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %274, i64 %272
+  %280 = getelementptr inbounds nuw [16 x i8], ptr %274, i64 %272
   store ptr %280, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit144
 
@@ -206690,7 +206685,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i151: ; preds = %304, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i149
   store ptr %299, ptr %0, align 8, !tbaa !1683
   store ptr %303, ptr %1, align 8, !tbaa !2988
-  %305 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %299, i64 %297
+  %305 = getelementptr inbounds nuw [16 x i8], ptr %299, i64 %297
   store ptr %305, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit154
 
@@ -206762,7 +206757,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i161: ; preds = %329, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i159
   store ptr %324, ptr %0, align 8, !tbaa !1683
   store ptr %328, ptr %1, align 8, !tbaa !2988
-  %330 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %324, i64 %322
+  %330 = getelementptr inbounds nuw [16 x i8], ptr %324, i64 %322
   store ptr %330, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit164
 
@@ -206834,7 +206829,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i171: ; preds = %354, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i169
   store ptr %349, ptr %0, align 8, !tbaa !1683
   store ptr %353, ptr %1, align 8, !tbaa !2988
-  %355 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %349, i64 %347
+  %355 = getelementptr inbounds nuw [16 x i8], ptr %349, i64 %347
   store ptr %355, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit174
 
@@ -206906,7 +206901,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i181: ; preds = %379, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i179
   store ptr %374, ptr %0, align 8, !tbaa !1683
   store ptr %378, ptr %1, align 8, !tbaa !2988
-  %380 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %374, i64 %372
+  %380 = getelementptr inbounds nuw [16 x i8], ptr %374, i64 %372
   store ptr %380, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit184
 
@@ -206978,7 +206973,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i191: ; preds = %404, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i189
   store ptr %399, ptr %0, align 8, !tbaa !1683
   store ptr %403, ptr %1, align 8, !tbaa !2988
-  %405 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %399, i64 %397
+  %405 = getelementptr inbounds nuw [16 x i8], ptr %399, i64 %397
   store ptr %405, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit194
 
@@ -207050,7 +207045,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i201: ; preds = %429, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i199
   store ptr %424, ptr %0, align 8, !tbaa !1683
   store ptr %428, ptr %1, align 8, !tbaa !2988
-  %430 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %424, i64 %422
+  %430 = getelementptr inbounds nuw [16 x i8], ptr %424, i64 %422
   store ptr %430, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit204
 
@@ -207122,7 +207117,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i211: ; preds = %454, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i209
   store ptr %449, ptr %0, align 8, !tbaa !1683
   store ptr %453, ptr %1, align 8, !tbaa !2988
-  %455 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %449, i64 %447
+  %455 = getelementptr inbounds nuw [16 x i8], ptr %449, i64 %447
   store ptr %455, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit214
 
@@ -207194,7 +207189,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i221: ; preds = %479, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i219
   store ptr %474, ptr %0, align 8, !tbaa !1683
   store ptr %478, ptr %1, align 8, !tbaa !2988
-  %480 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %474, i64 %472
+  %480 = getelementptr inbounds nuw [16 x i8], ptr %474, i64 %472
   store ptr %480, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit224
 
@@ -207266,7 +207261,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i231: ; preds = %504, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i229
   store ptr %499, ptr %0, align 8, !tbaa !1683
   store ptr %503, ptr %1, align 8, !tbaa !2988
-  %505 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %499, i64 %497
+  %505 = getelementptr inbounds nuw [16 x i8], ptr %499, i64 %497
   store ptr %505, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit234
 
@@ -207338,7 +207333,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i241: ; preds = %529, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i239
   store ptr %524, ptr %0, align 8, !tbaa !1683
   store ptr %528, ptr %1, align 8, !tbaa !2988
-  %530 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %524, i64 %522
+  %530 = getelementptr inbounds nuw [16 x i8], ptr %524, i64 %522
   store ptr %530, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit244
 
@@ -207410,7 +207405,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i251: ; preds = %554, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i249
   store ptr %549, ptr %0, align 8, !tbaa !1683
   store ptr %553, ptr %1, align 8, !tbaa !2988
-  %555 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %549, i64 %547
+  %555 = getelementptr inbounds nuw [16 x i8], ptr %549, i64 %547
   store ptr %555, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit254
 
@@ -207482,7 +207477,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i261: ; preds = %579, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i259
   store ptr %574, ptr %0, align 8, !tbaa !1683
   store ptr %578, ptr %1, align 8, !tbaa !2988
-  %580 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %574, i64 %572
+  %580 = getelementptr inbounds nuw [16 x i8], ptr %574, i64 %572
   store ptr %580, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit264
 
@@ -207554,7 +207549,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i271: ; preds = %604, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i269
   store ptr %599, ptr %0, align 8, !tbaa !1683
   store ptr %603, ptr %1, align 8, !tbaa !2988
-  %605 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %599, i64 %597
+  %605 = getelementptr inbounds nuw [16 x i8], ptr %599, i64 %597
   store ptr %605, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit274
 
@@ -207626,7 +207621,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i281: ; preds = %629, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i279
   store ptr %624, ptr %0, align 8, !tbaa !1683
   store ptr %628, ptr %1, align 8, !tbaa !2988
-  %630 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %624, i64 %622
+  %630 = getelementptr inbounds nuw [16 x i8], ptr %624, i64 %622
   store ptr %630, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit284
 
@@ -207698,7 +207693,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i291: ; preds = %654, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i289
   store ptr %649, ptr %0, align 8, !tbaa !1683
   store ptr %653, ptr %1, align 8, !tbaa !2988
-  %655 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %649, i64 %647
+  %655 = getelementptr inbounds nuw [16 x i8], ptr %649, i64 %647
   store ptr %655, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit294
 
@@ -207770,7 +207765,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i301: ; preds = %679, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i299
   store ptr %674, ptr %0, align 8, !tbaa !1683
   store ptr %678, ptr %1, align 8, !tbaa !2988
-  %680 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %674, i64 %672
+  %680 = getelementptr inbounds nuw [16 x i8], ptr %674, i64 %672
   store ptr %680, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit304
 
@@ -207842,7 +207837,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i311: ; preds = %704, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i309
   store ptr %699, ptr %0, align 8, !tbaa !1683
   store ptr %703, ptr %1, align 8, !tbaa !2988
-  %705 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %699, i64 %697
+  %705 = getelementptr inbounds nuw [16 x i8], ptr %699, i64 %697
   store ptr %705, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit314
 
@@ -207914,7 +207909,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i321: ; preds = %729, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i319
   store ptr %724, ptr %0, align 8, !tbaa !1683
   store ptr %728, ptr %1, align 8, !tbaa !2988
-  %730 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %724, i64 %722
+  %730 = getelementptr inbounds nuw [16 x i8], ptr %724, i64 %722
   store ptr %730, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit324
 
@@ -207986,7 +207981,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i331: ; preds = %754, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i329
   store ptr %749, ptr %0, align 8, !tbaa !1683
   store ptr %753, ptr %1, align 8, !tbaa !2988
-  %755 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %749, i64 %747
+  %755 = getelementptr inbounds nuw [16 x i8], ptr %749, i64 %747
   store ptr %755, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit334
 
@@ -208058,7 +208053,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i341: ; preds = %779, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i339
   store ptr %774, ptr %0, align 8, !tbaa !1683
   store ptr %778, ptr %1, align 8, !tbaa !2988
-  %780 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %774, i64 %772
+  %780 = getelementptr inbounds nuw [16 x i8], ptr %774, i64 %772
   store ptr %780, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit344
 
@@ -208130,7 +208125,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i351: ; preds = %804, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i349
   store ptr %799, ptr %0, align 8, !tbaa !1683
   store ptr %803, ptr %1, align 8, !tbaa !2988
-  %805 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %799, i64 %797
+  %805 = getelementptr inbounds nuw [16 x i8], ptr %799, i64 %797
   store ptr %805, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit354
 
@@ -208202,7 +208197,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i361: ; preds = %829, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i359
   store ptr %824, ptr %0, align 8, !tbaa !1683
   store ptr %828, ptr %1, align 8, !tbaa !2988
-  %830 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %824, i64 %822
+  %830 = getelementptr inbounds nuw [16 x i8], ptr %824, i64 %822
   store ptr %830, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit364
 
@@ -208274,7 +208269,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i371: ; preds = %854, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i369
   store ptr %849, ptr %0, align 8, !tbaa !1683
   store ptr %853, ptr %1, align 8, !tbaa !2988
-  %855 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %849, i64 %847
+  %855 = getelementptr inbounds nuw [16 x i8], ptr %849, i64 %847
   store ptr %855, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit374
 
@@ -208345,7 +208340,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i381: ; preds = %879, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i379
   store ptr %874, ptr %0, align 8, !tbaa !1683
   store ptr %878, ptr %1, align 8, !tbaa !2988
-  %880 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %874, i64 %872
+  %880 = getelementptr inbounds nuw [16 x i8], ptr %874, i64 %872
   store ptr %880, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit384
 
@@ -208651,7 +208646,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i41: ; preds = %31, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i39
   store ptr %26, ptr %0, align 8, !tbaa !1683
   store ptr %30, ptr %1, align 8, !tbaa !2988
-  %32 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %32, ptr %2, align 8, !tbaa !1685
   %.not.i.i45 = icmp eq ptr %30, %32
   br i1 %.not.i.i45, label %36, label %33
@@ -208718,7 +208713,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i51: ; preds = %54, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i49
   store ptr %49, ptr %0, align 8, !tbaa !1683
   store ptr %53, ptr %1, align 8, !tbaa !2988
-  %55 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %49, i64 %47
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %47
   store ptr %55, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit54
 
@@ -208790,7 +208785,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i61: ; preds = %79, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i59
   store ptr %74, ptr %0, align 8, !tbaa !1683
   store ptr %78, ptr %1, align 8, !tbaa !2988
-  %80 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %74, i64 %72
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %72
   store ptr %80, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit64
 
@@ -208862,7 +208857,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i71: ; preds = %104, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i69
   store ptr %99, ptr %0, align 8, !tbaa !1683
   store ptr %103, ptr %1, align 8, !tbaa !2988
-  %105 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %99, i64 %97
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %97
   store ptr %105, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit74
 
@@ -208934,7 +208929,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i81: ; preds = %129, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i79
   store ptr %124, ptr %0, align 8, !tbaa !1683
   store ptr %128, ptr %1, align 8, !tbaa !2988
-  %130 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %124, i64 %122
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %122
   store ptr %130, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit84
 
@@ -209006,7 +209001,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i91: ; preds = %154, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i89
   store ptr %149, ptr %0, align 8, !tbaa !1683
   store ptr %153, ptr %1, align 8, !tbaa !2988
-  %155 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %149, i64 %147
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %147
   store ptr %155, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit94
 
@@ -209078,7 +209073,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i101: ; preds = %179, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i99
   store ptr %174, ptr %0, align 8, !tbaa !1683
   store ptr %178, ptr %1, align 8, !tbaa !2988
-  %180 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %174, i64 %172
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %172
   store ptr %180, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit104
 
@@ -209150,7 +209145,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i111: ; preds = %204, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i109
   store ptr %199, ptr %0, align 8, !tbaa !1683
   store ptr %203, ptr %1, align 8, !tbaa !2988
-  %205 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %199, i64 %197
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %199, i64 %197
   store ptr %205, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit114
 
@@ -209222,7 +209217,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i121: ; preds = %229, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i119
   store ptr %224, ptr %0, align 8, !tbaa !1683
   store ptr %228, ptr %1, align 8, !tbaa !2988
-  %230 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %224, i64 %222
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %224, i64 %222
   store ptr %230, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit124
 
@@ -209294,7 +209289,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i131: ; preds = %254, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i129
   store ptr %249, ptr %0, align 8, !tbaa !1683
   store ptr %253, ptr %1, align 8, !tbaa !2988
-  %255 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %249, i64 %247
+  %255 = getelementptr inbounds nuw [16 x i8], ptr %249, i64 %247
   store ptr %255, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit134
 
@@ -209366,7 +209361,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i141: ; preds = %279, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i139
   store ptr %274, ptr %0, align 8, !tbaa !1683
   store ptr %278, ptr %1, align 8, !tbaa !2988
-  %280 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %274, i64 %272
+  %280 = getelementptr inbounds nuw [16 x i8], ptr %274, i64 %272
   store ptr %280, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit144
 
@@ -209438,7 +209433,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i151: ; preds = %304, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i149
   store ptr %299, ptr %0, align 8, !tbaa !1683
   store ptr %303, ptr %1, align 8, !tbaa !2988
-  %305 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %299, i64 %297
+  %305 = getelementptr inbounds nuw [16 x i8], ptr %299, i64 %297
   store ptr %305, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit154
 
@@ -209510,7 +209505,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i161: ; preds = %329, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i159
   store ptr %324, ptr %0, align 8, !tbaa !1683
   store ptr %328, ptr %1, align 8, !tbaa !2988
-  %330 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %324, i64 %322
+  %330 = getelementptr inbounds nuw [16 x i8], ptr %324, i64 %322
   store ptr %330, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit164
 
@@ -209582,7 +209577,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i171: ; preds = %354, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i169
   store ptr %349, ptr %0, align 8, !tbaa !1683
   store ptr %353, ptr %1, align 8, !tbaa !2988
-  %355 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %349, i64 %347
+  %355 = getelementptr inbounds nuw [16 x i8], ptr %349, i64 %347
   store ptr %355, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit174
 
@@ -209654,7 +209649,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i181: ; preds = %379, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i179
   store ptr %374, ptr %0, align 8, !tbaa !1683
   store ptr %378, ptr %1, align 8, !tbaa !2988
-  %380 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %374, i64 %372
+  %380 = getelementptr inbounds nuw [16 x i8], ptr %374, i64 %372
   store ptr %380, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit184
 
@@ -209726,7 +209721,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i191: ; preds = %404, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i189
   store ptr %399, ptr %0, align 8, !tbaa !1683
   store ptr %403, ptr %1, align 8, !tbaa !2988
-  %405 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %399, i64 %397
+  %405 = getelementptr inbounds nuw [16 x i8], ptr %399, i64 %397
   store ptr %405, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit194
 
@@ -209798,7 +209793,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i201: ; preds = %429, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i199
   store ptr %424, ptr %0, align 8, !tbaa !1683
   store ptr %428, ptr %1, align 8, !tbaa !2988
-  %430 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %424, i64 %422
+  %430 = getelementptr inbounds nuw [16 x i8], ptr %424, i64 %422
   store ptr %430, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit204
 
@@ -209870,7 +209865,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i211: ; preds = %454, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i209
   store ptr %449, ptr %0, align 8, !tbaa !1683
   store ptr %453, ptr %1, align 8, !tbaa !2988
-  %455 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %449, i64 %447
+  %455 = getelementptr inbounds nuw [16 x i8], ptr %449, i64 %447
   store ptr %455, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit214
 
@@ -209942,7 +209937,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i221: ; preds = %479, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i219
   store ptr %474, ptr %0, align 8, !tbaa !1683
   store ptr %478, ptr %1, align 8, !tbaa !2988
-  %480 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %474, i64 %472
+  %480 = getelementptr inbounds nuw [16 x i8], ptr %474, i64 %472
   store ptr %480, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit224
 
@@ -210014,7 +210009,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i231: ; preds = %504, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i229
   store ptr %499, ptr %0, align 8, !tbaa !1683
   store ptr %503, ptr %1, align 8, !tbaa !2988
-  %505 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %499, i64 %497
+  %505 = getelementptr inbounds nuw [16 x i8], ptr %499, i64 %497
   store ptr %505, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit234
 
@@ -210086,7 +210081,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i241: ; preds = %529, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i239
   store ptr %524, ptr %0, align 8, !tbaa !1683
   store ptr %528, ptr %1, align 8, !tbaa !2988
-  %530 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %524, i64 %522
+  %530 = getelementptr inbounds nuw [16 x i8], ptr %524, i64 %522
   store ptr %530, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit244
 
@@ -210158,7 +210153,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i251: ; preds = %554, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i249
   store ptr %549, ptr %0, align 8, !tbaa !1683
   store ptr %553, ptr %1, align 8, !tbaa !2988
-  %555 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %549, i64 %547
+  %555 = getelementptr inbounds nuw [16 x i8], ptr %549, i64 %547
   store ptr %555, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit254
 
@@ -210230,7 +210225,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i261: ; preds = %579, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i259
   store ptr %574, ptr %0, align 8, !tbaa !1683
   store ptr %578, ptr %1, align 8, !tbaa !2988
-  %580 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %574, i64 %572
+  %580 = getelementptr inbounds nuw [16 x i8], ptr %574, i64 %572
   store ptr %580, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit264
 
@@ -210302,7 +210297,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i271: ; preds = %604, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i269
   store ptr %599, ptr %0, align 8, !tbaa !1683
   store ptr %603, ptr %1, align 8, !tbaa !2988
-  %605 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %599, i64 %597
+  %605 = getelementptr inbounds nuw [16 x i8], ptr %599, i64 %597
   store ptr %605, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit274
 
@@ -210374,7 +210369,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i281: ; preds = %629, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i279
   store ptr %624, ptr %0, align 8, !tbaa !1683
   store ptr %628, ptr %1, align 8, !tbaa !2988
-  %630 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %624, i64 %622
+  %630 = getelementptr inbounds nuw [16 x i8], ptr %624, i64 %622
   store ptr %630, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit284
 
@@ -210446,7 +210441,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i291: ; preds = %654, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i289
   store ptr %649, ptr %0, align 8, !tbaa !1683
   store ptr %653, ptr %1, align 8, !tbaa !2988
-  %655 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %649, i64 %647
+  %655 = getelementptr inbounds nuw [16 x i8], ptr %649, i64 %647
   store ptr %655, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit294
 
@@ -210518,7 +210513,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i301: ; preds = %679, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i299
   store ptr %674, ptr %0, align 8, !tbaa !1683
   store ptr %678, ptr %1, align 8, !tbaa !2988
-  %680 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %674, i64 %672
+  %680 = getelementptr inbounds nuw [16 x i8], ptr %674, i64 %672
   store ptr %680, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit304
 
@@ -210590,7 +210585,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i311: ; preds = %704, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i309
   store ptr %699, ptr %0, align 8, !tbaa !1683
   store ptr %703, ptr %1, align 8, !tbaa !2988
-  %705 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %699, i64 %697
+  %705 = getelementptr inbounds nuw [16 x i8], ptr %699, i64 %697
   store ptr %705, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit314
 
@@ -210662,7 +210657,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i321: ; preds = %729, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i319
   store ptr %724, ptr %0, align 8, !tbaa !1683
   store ptr %728, ptr %1, align 8, !tbaa !2988
-  %730 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %724, i64 %722
+  %730 = getelementptr inbounds nuw [16 x i8], ptr %724, i64 %722
   store ptr %730, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit324
 
@@ -210734,7 +210729,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i331: ; preds = %754, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i329
   store ptr %749, ptr %0, align 8, !tbaa !1683
   store ptr %753, ptr %1, align 8, !tbaa !2988
-  %755 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %749, i64 %747
+  %755 = getelementptr inbounds nuw [16 x i8], ptr %749, i64 %747
   store ptr %755, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit334
 
@@ -210806,7 +210801,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i341: ; preds = %779, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i339
   store ptr %774, ptr %0, align 8, !tbaa !1683
   store ptr %778, ptr %1, align 8, !tbaa !2988
-  %780 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %774, i64 %772
+  %780 = getelementptr inbounds nuw [16 x i8], ptr %774, i64 %772
   store ptr %780, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit344
 
@@ -210878,7 +210873,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i351: ; preds = %804, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i349
   store ptr %799, ptr %0, align 8, !tbaa !1683
   store ptr %803, ptr %1, align 8, !tbaa !2988
-  %805 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %799, i64 %797
+  %805 = getelementptr inbounds nuw [16 x i8], ptr %799, i64 %797
   store ptr %805, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit354
 
@@ -210950,7 +210945,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i361: ; preds = %829, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i359
   store ptr %824, ptr %0, align 8, !tbaa !1683
   store ptr %828, ptr %1, align 8, !tbaa !2988
-  %830 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %824, i64 %822
+  %830 = getelementptr inbounds nuw [16 x i8], ptr %824, i64 %822
   store ptr %830, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit364
 
@@ -211022,7 +211017,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i371: ; preds = %854, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i369
   store ptr %849, ptr %0, align 8, !tbaa !1683
   store ptr %853, ptr %1, align 8, !tbaa !2988
-  %855 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %849, i64 %847
+  %855 = getelementptr inbounds nuw [16 x i8], ptr %849, i64 %847
   store ptr %855, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit374
 
@@ -211093,7 +211088,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i381: ; preds = %879, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i379
   store ptr %874, ptr %0, align 8, !tbaa !1683
   store ptr %878, ptr %1, align 8, !tbaa !2988
-  %880 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %874, i64 %872
+  %880 = getelementptr inbounds nuw [16 x i8], ptr %874, i64 %872
   store ptr %880, ptr %2, align 8, !tbaa !1685
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE9push_backEOS8_.exit384
 
@@ -211774,7 +211769,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEE
 _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i41: ; preds = %31, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs10geographicINS1_6degreeEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i39
   store ptr %26, ptr %0, align 8, !tbaa !1683
   store ptr %30, ptr %1, align 8, !tbaa !2988
-  %32 = getelementptr inbounds nuw %"class.boost::geometry::model::point.1108", ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %32, ptr %2, align 8, !tbaa !1685
   ret void
 

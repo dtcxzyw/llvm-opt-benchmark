@@ -3331,7 +3331,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
 
 743:                                              ; preds = %739
   %744 = load ptr, ptr %733, align 8, !noalias !659, !nonnull !5, !noundef !5
-  %745 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %744, i64 %732
+  %745 = getelementptr inbounds [64 x i8], ptr %744, i64 %732
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hb691800f6da1eb92E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull align 8 %745)
           to label %747 unwind label %.thread.loopexit.i.i.i.i, !noalias !659
 
@@ -3383,7 +3383,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
   %763 = phi i64 [ %.pre.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %754, %749 ]
   %764 = getelementptr inbounds nuw i8, ptr %750, i64 16
   %765 = load ptr, ptr %764, align 8, !alias.scope !663, !noalias !666, !nonnull !5, !noundef !5
-  %766 = getelementptr inbounds ptr, ptr %765, i64 %763
+  %766 = getelementptr inbounds [8 x i8], ptr %765, i64 %763
   store ptr %716, ptr %766, align 8, !noalias !666
   %767 = load i64, ptr %753, align 8, !alias.scope !663, !noalias !668, !noundef !5
   %768 = add i64 %767, 1

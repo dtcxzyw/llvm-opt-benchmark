@@ -25773,10 +25773,10 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 421:                                              ; preds = %413, %421
   %indvars.iv = phi i64 [ 0, %413 ], [ %indvars.iv.next, %421 ]
-  %422 = getelementptr inbounds nuw [3 x float], ptr %246, i64 %indvars.iv
+  %422 = getelementptr inbounds nuw [12 x i8], ptr %246, i64 %indvars.iv
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 8
   %424 = load float, ptr %423, align 4, !tbaa !25
-  %425 = getelementptr inbounds nuw float, ptr %412, i64 %indvars.iv
+  %425 = getelementptr inbounds nuw [4 x i8], ptr %412, i64 %indvars.iv
   store float %424, ptr %425, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 362

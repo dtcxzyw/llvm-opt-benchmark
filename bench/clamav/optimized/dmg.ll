@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.bz_stream = type { ptr, i32, i32, i32, ptr, i32, i32, i32, ptr, ptr, ptr, ptr }
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
 %struct.adc_stream = type { ptr, i64, i64, ptr, i64, i64, ptr, ptr, i32, i16, i16, i32 }
-%struct.dmg_block_data = type { i32, i32, i64, i64, i64, i64 }
 
 @.str = private unnamed_addr constant [30 x i8] c"cli_scandmg: Invalid context\0A\00", align 1
 @.str.1 = private unnamed_addr constant [47 x i8] c"cli_scandmg: DMG smaller than DMG koly block!\0A\00", align 1
@@ -711,7 +710,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
 255:                                              ; preds = %252
   %256 = add i32 %.0217464549, -1
   %257 = zext i32 %256 to i64
-  %258 = getelementptr inbounds nuw i32, ptr %3, i64 %257
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %257
   %259 = load i32, ptr %258, align 4, !tbaa !3
   %260 = icmp slt i32 %253, %259
   br i1 %260, label %264, label %261
@@ -737,7 +736,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %70, %fmap_need_off_
 266:                                              ; preds = %.thread438, %264, %264
   %267 = phi i32 [ 4, %.thread438 ], [ %265, %264 ], [ %265, %264 ]
   %268 = zext nneg i32 %267 to i64
-  %269 = getelementptr inbounds nuw i32, ptr %3, i64 %268
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %268
   store i32 -1, ptr %269, align 4, !tbaa !3
   br label %.critedge292
 
@@ -1054,7 +1053,7 @@ define internal fastcc i32 @dmg_handle_mish(ptr noundef nonnull %0, i32 noundef 
   %.0208259 = phi i8 [ %.2210.ph, %63 ], [ 0, %5 ]
   %.0211258 = phi i64 [ %.1212.ph, %63 ], [ 0, %5 ]
   %20 = zext i32 %.0170260 to i64
-  %21 = getelementptr inbounds nuw %struct.dmg_block_data, ptr %16, i64 %20
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %20
   %22 = load i32, ptr %21, align 1, !tbaa !66
   %23 = tail call i32 @llvm.bswap.i32(i32 %22)
   store i32 %23, ptr %21, align 1, !tbaa !66
@@ -1099,7 +1098,7 @@ define internal fastcc i32 @dmg_handle_mish(ptr noundef nonnull %0, i32 noundef 
   %47 = load i64, ptr %24, align 1, !tbaa !68
   %48 = add i32 %.0170260, -1
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %struct.dmg_block_data, ptr %16, i64 %49
+  %50 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 1, !tbaa !68
   %53 = icmp ult i64 %47, %52
@@ -1242,7 +1241,7 @@ dmg_track_sectors.exit:                           ; preds = %62
 
 108:                                              ; preds = %.lr.ph270, %dmg_stripe_store.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph270 ], [ %indvars.iv.next, %dmg_stripe_store.exit ]
-  %109 = getelementptr inbounds nuw %struct.dmg_block_data, ptr %16, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %indvars.iv
   %110 = load i32, ptr %109, align 1, !tbaa !66
   switch i32 %110, label %322 [
     i32 0, label %111
@@ -1255,7 +1254,7 @@ dmg_track_sectors.exit:                           ; preds = %62
 
 111:                                              ; preds = %108, %108
   %.val = load ptr, ptr %15, align 8, !tbaa !65
-  %112 = getelementptr inbounds nuw %struct.dmg_block_data, ptr %.val, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [40 x i8], ptr %.val, i64 %indvars.iv
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %114 = load i64, ptr %113, align 1, !tbaa !69
   %115 = shl i64 %114, 9
@@ -1298,7 +1297,7 @@ dmg_stripe_zeroes.exit:                           ; preds = %111, %._crit_edge.i
 
 125:                                              ; preds = %108
   %.val183 = load ptr, ptr %15, align 8, !tbaa !65
-  %126 = getelementptr inbounds nuw %struct.dmg_block_data, ptr %.val183, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [40 x i8], ptr %.val183, i64 %indvars.iv
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %128 = load i64, ptr %127, align 1, !tbaa !70
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 32
@@ -1340,7 +1339,7 @@ dmg_stripe_zeroes.exit:                           ; preds = %111, %._crit_edge.i
 145:                                              ; preds = %108
   %.val184 = load ptr, ptr %15, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %146 = getelementptr inbounds nuw %struct.dmg_block_data, ptr %.val184, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [40 x i8], ptr %.val184, i64 %indvars.iv
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %148 = load i64, ptr %147, align 1, !tbaa !70
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 32
@@ -1462,7 +1461,7 @@ dmg_stripe_adc.exit:                              ; preds = %145, %161, %164, %1
 192:                                              ; preds = %108
   %.val185 = load ptr, ptr %15, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %193 = getelementptr inbounds nuw %struct.dmg_block_data, ptr %.val185, i64 %indvars.iv
+  %193 = getelementptr inbounds nuw [40 x i8], ptr %.val185, i64 %indvars.iv
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 24
   %195 = load i64, ptr %194, align 1, !tbaa !70
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 32
@@ -1625,7 +1624,7 @@ dmg_stripe_inflate.exit:                          ; preds = %192, %208, %213, %2
 
 254:                                              ; preds = %108
   %.val186 = load ptr, ptr %15, align 8, !tbaa !65
-  %255 = getelementptr inbounds nuw %struct.dmg_block_data, ptr %.val186, i64 %indvars.iv
+  %255 = getelementptr inbounds nuw [40 x i8], ptr %.val186, i64 %indvars.iv
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 24
   %257 = load i64, ptr %256, align 1, !tbaa !70
   %258 = getelementptr inbounds nuw i8, ptr %255, i64 32

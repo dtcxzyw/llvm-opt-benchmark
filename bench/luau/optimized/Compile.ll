@@ -5,18 +5,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.GlobalOptions = type { i32, i32, i32, ptr, ptr, ptr }
 %"struct.Luau::FValue" = type { i8, i8, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.Luau::CodeGen::FunctionStats" = type { %"class.std::__cxx11::basic_string", i32, i32, i32, i32, i32, %"class.std::vector" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::vector<unsigned int>, std::allocator<std::vector<unsigned int>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::vector<unsigned int>, std::allocator<std::vector<unsigned int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<unsigned int>, std::allocator<std::vector<unsigned int>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::vector<unsigned int>, std::allocator<std::vector<unsigned int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::optional.24" = type { %"struct.std::_Optional_base.25" }
 %"struct.std::_Optional_base.25" = type { %"struct.std::_Optional_payload.27" }
 %"struct.std::_Optional_payload.27" = type { %"struct.std::_Optional_payload.base.31", [7 x i8] }
@@ -36,6 +27,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.45" = type { %"struct.std::_Vector_base<Luau::BytecodeBuilder::Constant, std::allocator<Luau::BytecodeBuilder::Constant>>::_Vector_impl" }
 %"struct.std::_Vector_base<Luau::BytecodeBuilder::Constant, std::allocator<Luau::BytecodeBuilder::Constant>>::_Vector_impl" = type { %"struct.std::_Vector_base<Luau::BytecodeBuilder::Constant, std::allocator<Luau::BytecodeBuilder::Constant>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<Luau::BytecodeBuilder::Constant, std::allocator<Luau::BytecodeBuilder::Constant>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
+%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
+%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.49" = type { %"struct.std::_Vector_base.50" }
 %"struct.std::_Vector_base.50" = type { %"struct.std::_Vector_base<Luau::BytecodeBuilder::Jump, std::allocator<Luau::BytecodeBuilder::Jump>>::_Vector_impl" }
 %"struct.std::_Vector_base<Luau::BytecodeBuilder::Jump, std::allocator<Luau::BytecodeBuilder::Jump>>::_Vector_impl" = type { %"struct.std::_Vector_base<Luau::BytecodeBuilder::Jump, std::allocator<Luau::BytecodeBuilder::Jump>>::_Vector_impl_data" }
@@ -2213,7 +2208,7 @@ define dso_local void @_Z22serializeFunctionStatsP8_IO_FILERKN4Luau7CodeGen13Fun
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %69
   %.03841 = phi i64 [ %70, %69 ], [ 0, %.lr.ph43.preheader ]
   %35 = load ptr, ptr %22, align 8, !tbaa !26
-  %36 = getelementptr inbounds nuw %"class.std::vector.3", ptr %35, i64 %.03841
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %.03841
   %37 = tail call i64 @fwrite(ptr nonnull @.str.89, i64 25, i64 1, ptr %0)
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !27
@@ -2236,7 +2231,7 @@ define dso_local void @_Z22serializeFunctionStatsP8_IO_FILERKN4Luau7CodeGen13Fun
 .lr.ph:                                           ; preds = %.lr.ph43, %63
   %49 = phi ptr [ %64, %63 ], [ %40, %.lr.ph43 ]
   %.040 = phi i64 [ %65, %63 ], [ 0, %.lr.ph43 ]
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.040
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.040
   %51 = load i32, ptr %50, align 4, !tbaa !4
   %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.90, i32 noundef %51) #29
   %53 = load ptr, ptr %38, align 8, !tbaa !27
@@ -2365,7 +2360,7 @@ define dso_local void @_Z22serializeLoweringStatsP8_IO_FILERKN4Luau7CodeGen13Low
 58:                                               ; preds = %.lr.ph, %64
   %.041 = phi i64 [ 0, %.lr.ph ], [ %65, %64 ]
   %59 = load ptr, ptr %44, align 8, !tbaa !55
-  %60 = getelementptr inbounds nuw %"struct.Luau::CodeGen::FunctionStats", ptr %59, i64 %.041
+  %60 = getelementptr inbounds nuw [80 x i8], ptr %59, i64 %.041
   tail call void @_Z22serializeFunctionStatsP8_IO_FILERKN4Luau7CodeGen13FunctionStatsE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(80) %60)
   %61 = icmp ult i64 %.041, %56
   br i1 %61, label %62, label %64
@@ -2659,7 +2654,7 @@ sub_0:                                            ; preds = %sub_0.preheader, %.
   %.0152372 = phi i32 [ 0, %sub_0.preheader ], [ %.4156, %.critedge ]
   %.0157371 = phi i32 [ 0, %sub_0.preheader ], [ %.4161, %.critedge ]
   %.0173370 = phi i1 [ false, %sub_0.preheader ], [ %.1174, %.critedge ]
-  %27 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !71
   %29 = load i8, ptr %28, align 1
   %.not386 = icmp eq i8 %29, 45
@@ -3031,7 +3026,7 @@ _ZNSt12_Vector_baseI12CompileStatsSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds 
   %211 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %210, ptr %21, align 8, !tbaa !93
   store ptr %210, ptr %211, align 8, !tbaa !96
-  %212 = getelementptr inbounds nuw %struct.CompileStats, ptr %210, i64 %179
+  %212 = getelementptr inbounds nuw [160 x i8], ptr %210, i64 %179
   store ptr %212, ptr %208, align 8, !tbaa !97
   br label %_ZNSt6vectorI12CompileStatsSaIS0_EE7reserveEm.exit
 
@@ -4233,7 +4228,7 @@ _ZNSt6vectorI12CompileStatsSaIS0_EE9push_backERKS0_.exit: ; preds = %.noexc205, 
   %.0382 = phi i64 [ 0, %.lr.ph384 ], [ %705, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %691 = load ptr, ptr %19, align 8, !tbaa !91
-  %692 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %691, i64 %.0382
+  %692 = getelementptr inbounds nuw [32 x i8], ptr %691, i64 %.0382
   invoke void @_Z14escapeFilenameRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %692)
           to label %693 unwind label %706
 
@@ -4241,7 +4236,7 @@ _ZNSt6vectorI12CompileStatsSaIS0_EE9push_backERKS0_.exit: ; preds = %.noexc205, 
   %694 = load ptr, ptr %23, align 8, !tbaa !8
   %695 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %680, ptr noundef nonnull @.str.161, ptr noundef %694) #29
   %696 = load ptr, ptr %21, align 8, !tbaa !93
-  %697 = getelementptr inbounds nuw %struct.CompileStats, ptr %696, i64 %.0382
+  %697 = getelementptr inbounds nuw [160 x i8], ptr %696, i64 %.0382
   call void @_Z21serializeCompileStatsP8_IO_FILERK12CompileStats(ptr noundef nonnull %680, ptr noundef nonnull align 8 dereferenceable(160) %697)
   %698 = icmp eq i64 %.0382, %688
   %699 = select i1 %698, ptr @.str.162, ptr @.str.93
@@ -5913,7 +5908,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CodeGen13Fu
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CodeGen13FunctionStatsESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CodeGen13FunctionStatsESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CodeGen13FunctionStatsESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
   %86 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CodeGen13FunctionStatsESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CodeGen13FunctionStatsESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
   %87 = sub nuw nsw i64 %9, %20
-  %88 = getelementptr inbounds nuw %"struct.Luau::CodeGen::FunctionStats", ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [80 x i8], ptr %86, i64 %87
   store ptr %88, ptr %12, align 8, !tbaa !54
   %.not11.i.i.i.i.i54 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i54, label %_ZSt22__uninitialized_move_aIPN4Luau7CodeGen13FunctionStatsES3_SaIS2_EET0_T_S6_S5_RT1_.exit62, label %.lr.ph.i.i.i.i.i55
@@ -6275,7 +6270,7 @@ _ZSt8_DestroyIPN4Luau7CodeGen13FunctionStatsES2_EvT_S4_RSaIT0_E.exit: ; preds = 
 _ZNSt12_Vector_baseIN4Luau7CodeGen13FunctionStatsESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4Luau7CodeGen13FunctionStatsES2_EvT_S4_RSaIT0_E.exit, %234
   store ptr %143, ptr %0, align 8, !tbaa !55
   store ptr %.0.lcssa.i.i.i.i.i93, ptr %12, align 8, !tbaa !54
-  %238 = getelementptr inbounds nuw %"struct.Luau::CodeGen::FunctionStats", ptr %143, i64 %139
+  %238 = getelementptr inbounds nuw [80 x i8], ptr %143, i64 %139
   store ptr %238, ptr %10, align 8, !tbaa !334
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4Luau7CodeGen13FunctionStatsESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit
 
@@ -7574,7 +7569,7 @@ _ZNSt6vectorI12CompileStatsSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32: ; preds 
 _ZNSt12_Vector_baseI12CompileStatsSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI12CompileStatsSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, %54
   store ptr %20, ptr %0, align 8, !tbaa !93
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !96
-  %58 = getelementptr inbounds nuw %struct.CompileStats, ptr %20, i64 %16
+  %58 = getelementptr inbounds nuw [160 x i8], ptr %20, i64 %16
   store ptr %58, ptr %53, align 8, !tbaa !97
   ret void
 

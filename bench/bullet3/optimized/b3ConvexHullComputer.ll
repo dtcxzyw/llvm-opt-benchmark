@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.b3ConvexHullInternal::Pool" = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.b3ConvexHullInternal::Pool.0" = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.b3ConvexHullInternal::Pool.2" = type <{ ptr, ptr, ptr, i32, [4 x i8] }>
-%"class.b3ConvexHullComputer::Edge" = type { i32, i32, i32 }
 
 $_ZN20b3ConvexHullInternal4DMulINS_6Int128EmE3mulES1_S1_RS1_S3_ = comdat any
 
@@ -1243,7 +1242,7 @@ define dso_local void @_ZN20b3ConvexHullInternal15computeInternalEiiRNS_16Interm
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.pre = load ptr, ptr %.phi.trans.insert, align 16, !tbaa !76
   %.pre127 = sext i32 %1 to i64
-  %.phi.trans.insert128 = getelementptr inbounds ptr, ptr %.pre, i64 %.pre127
+  %.phi.trans.insert128 = getelementptr inbounds [8 x i8], ptr %.pre, i64 %.pre127
   %.pre129 = load ptr, ptr %.phi.trans.insert128, align 8, !tbaa !66
   br label %.critedge117
 
@@ -1255,7 +1254,7 @@ define dso_local void @_ZN20b3ConvexHullInternal15computeInternalEiiRNS_16Interm
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 16, !tbaa !76
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !66
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 104
@@ -1363,7 +1362,7 @@ _ZNK20b3ConvexHullInternal7Point32neERKS0_.exit.thread.thread: ; preds = %8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %61 = load ptr, ptr %60, align 16, !tbaa !76
   %62 = sext i32 %59 to i64
-  %63 = getelementptr ptr, ptr %61, i64 %62
+  %63 = getelementptr [8 x i8], ptr %61, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -8
   %65 = load ptr, ptr %64, align 8, !tbaa !66
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 104
@@ -1381,7 +1380,7 @@ _ZNK20b3ConvexHullInternal7Point32neERKS0_.exit.thread.thread: ; preds = %8
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %81
   %indvars.iv = phi i64 [ %62, %.lr.ph.preheader ], [ %indvars.iv.next, %81 ]
-  %69 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv
+  %69 = getelementptr inbounds [8 x i8], ptr %61, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8, !tbaa !66
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 104
   %72 = load i32, ptr %71, align 4, !tbaa !77
@@ -3923,8 +3922,8 @@ _ZN20b3AlignedObjectArrayIN20b3ConvexHullInternal7Point32EE8allocateEi.exit.i.i:
 
 97:                                               ; preds = %97, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %97 ]
-  %98 = getelementptr inbounds nuw %"class.b3ConvexHullInternal::Point32", ptr %93, i64 %indvars.iv.i.i.i
-  %99 = getelementptr inbounds nuw %"class.b3ConvexHullInternal::Point32", ptr %.pre372, i64 %indvars.iv.i.i.i
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %indvars.iv.i.i.i
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %.pre372, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %98, ptr noundef nonnull align 4 dereferenceable(16) %99, i64 16, i1 false), !tbaa.struct !125
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -3982,16 +3981,16 @@ _ZNK20b3AlignedObjectArrayIN20b3ConvexHullInternal7Point32EE4copyEiiPS1_.exit.i.
 
 .lr.ph:                                           ; preds = %.loopexit326
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %114 = getelementptr inbounds float, ptr %8, i64 %108
-  %115 = getelementptr inbounds float, ptr %8, i64 %110
-  %116 = getelementptr inbounds float, ptr %8, i64 %112
+  %114 = getelementptr inbounds [4 x i8], ptr %8, i64 %108
+  %115 = getelementptr inbounds [4 x i8], ptr %8, i64 %110
+  %116 = getelementptr inbounds [4 x i8], ptr %8, i64 %112
   br label %153
 
 .lr.ph354:                                        ; preds = %.loopexit326
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %118 = getelementptr inbounds float, ptr %7, i64 %108
-  %119 = getelementptr inbounds float, ptr %7, i64 %110
-  %120 = getelementptr inbounds float, ptr %7, i64 %112
+  %118 = getelementptr inbounds [4 x i8], ptr %7, i64 %108
+  %119 = getelementptr inbounds [4 x i8], ptr %7, i64 %110
+  %120 = getelementptr inbounds [4 x i8], ptr %7, i64 %112
   br label %123
 
 121:                                              ; preds = %103, %.noexc111, %_ZNK20b3AlignedObjectArrayIN20b3ConvexHullInternal7Point32EE4copyEiiPS1_.exit15.i.i, %_ZN20b3AlignedObjectArrayIN20b3ConvexHullInternal7Point32EE8allocateEi.exit.i.i
@@ -4028,7 +4027,7 @@ _ZNK20b3AlignedObjectArrayIN20b3ConvexHullInternal7Point32EE4copyEiiPS1_.exit.i.
   store <2 x float> %.sroa.3.12.vec.insert.i.i126, ptr %117, align 8, !tbaa !117
   %142 = load float, ptr %118, align 4, !tbaa !111
   %143 = fptosi float %142 to i32
-  %144 = getelementptr inbounds nuw %"class.b3ConvexHullInternal::Point32", ptr %93, i64 %indvars.iv362
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %indvars.iv362
   store i32 %143, ptr %144, align 4, !tbaa !77
   %145 = load float, ptr %119, align 4, !tbaa !111
   %146 = fptosi float %145 to i32
@@ -4072,7 +4071,7 @@ _ZNK20b3AlignedObjectArrayIN20b3ConvexHullInternal7Point32EE4copyEiiPS1_.exit.i.
   store <2 x float> %.sroa.3.12.vec.insert.i.i141, ptr %113, align 8, !tbaa !117
   %169 = load float, ptr %114, align 4, !tbaa !111
   %170 = fptosi float %169 to i32
-  %171 = getelementptr inbounds nuw %"class.b3ConvexHullInternal::Point32", ptr %93, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %indvars.iv
   store i32 %170, ptr %171, align 4, !tbaa !77
   %172 = load float, ptr %115, align 4, !tbaa !111
   %173 = fptosi float %172 to i32
@@ -4151,8 +4150,8 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE8allocateEi.exit.i.i:
 
 203:                                              ; preds = %203, %.lr.ph.i.i.i156
   %indvars.iv.i.i.i158 = phi i64 [ 0, %.lr.ph.i.i.i156 ], [ %indvars.iv.next.i.i.i159, %203 ]
-  %204 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv.i.i.i158
-  %205 = getelementptr inbounds nuw ptr, ptr %202, i64 %indvars.iv.i.i.i158
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %indvars.iv.i.i.i158
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %indvars.iv.i.i.i158
   %206 = load ptr, ptr %205, align 8, !tbaa !66
   store ptr %206, ptr %204, align 8, !tbaa !66
   %indvars.iv.next.i.i.i159 = add nuw nsw i64 %indvars.iv.i.i.i158, 1
@@ -4306,11 +4305,11 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(124) %.09.i, i8 0, i64 40, i1 false)
   store i32 -1, ptr %253, align 8, !tbaa !143
   %254 = load ptr, ptr %87, align 8, !tbaa !122
-  %255 = getelementptr inbounds nuw %"class.b3ConvexHullInternal::Point32", ptr %254, i64 %indvars.iv367
+  %255 = getelementptr inbounds nuw [16 x i8], ptr %254, i64 %indvars.iv367
   %256 = getelementptr inbounds nuw i8, ptr %.09.i, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %256, ptr noundef nonnull align 4 dereferenceable(16) %255, i64 16, i1 false), !tbaa.struct !125
   %257 = load ptr, ptr %218, align 16, !tbaa !76
-  %258 = getelementptr inbounds nuw ptr, ptr %257, i64 %indvars.iv367
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %257, i64 %indvars.iv367
   store ptr %.09.i, ptr %258, align 8, !tbaa !66
   %indvars.iv.next368 = add nuw nsw i64 %indvars.iv367, 1
   %exitcond371.not = icmp eq i64 %indvars.iv.next368, %wide.trip.count370
@@ -4465,7 +4464,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZN20b3ConvexHullInternal10toBtVe
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load i32, ptr %6, align 8, !tbaa !116
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds float, ptr %3, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %3, i64 %8
   store float %5, ptr %9, align 4, !tbaa !111
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !78
@@ -4473,7 +4472,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZN20b3ConvexHullInternal10toBtVe
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %14 = load i32, ptr %13, align 4, !tbaa !114
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds float, ptr %3, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %3, i64 %15
   store float %12, ptr %16, align 4, !tbaa !111
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 4, !tbaa !79
@@ -4481,7 +4480,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZN20b3ConvexHullInternal10toBtVe
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %21 = load i32, ptr %20, align 4, !tbaa !115
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds float, ptr %3, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %3, i64 %22
   store float %19, ptr %23, align 4, !tbaa !111
   %24 = load float, ptr %3, align 16, !tbaa !117
   %25 = load float, ptr %0, align 16, !tbaa !117
@@ -4516,7 +4515,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZN20b3ConvexHullInternal11getBtN
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load i32, ptr %8, align 8, !tbaa !116
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds float, ptr %4, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %4, i64 %10
   store float %7, ptr %11, align 4, !tbaa !111
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %13 = load i32, ptr %12, align 4, !tbaa !78
@@ -4524,7 +4523,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZN20b3ConvexHullInternal11getBtN
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %16 = load i32, ptr %15, align 4, !tbaa !114
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds float, ptr %4, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %4, i64 %17
   store float %14, ptr %18, align 4, !tbaa !111
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %20 = load i32, ptr %19, align 4, !tbaa !79
@@ -4532,7 +4531,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZN20b3ConvexHullInternal11getBtN
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %23 = load i32, ptr %22, align 4, !tbaa !115
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds float, ptr %4, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %4, i64 %24
   store float %21, ptr %25, align 4, !tbaa !111
   %26 = load float, ptr %4, align 16, !tbaa !117
   %27 = load float, ptr %0, align 16, !tbaa !117
@@ -4552,17 +4551,17 @@ define dso_local { <2 x float>, <2 x float> } @_ZN20b3ConvexHullInternal11getBtN
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %40 = load i32, ptr %39, align 4, !tbaa !77
   %41 = sitofp i32 %40 to float
-  %42 = getelementptr inbounds float, ptr %3, i64 %10
+  %42 = getelementptr inbounds [4 x i8], ptr %3, i64 %10
   store float %41, ptr %42, align 4, !tbaa !111
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %44 = load i32, ptr %43, align 4, !tbaa !78
   %45 = sitofp i32 %44 to float
-  %46 = getelementptr inbounds float, ptr %3, i64 %17
+  %46 = getelementptr inbounds [4 x i8], ptr %3, i64 %17
   store float %45, ptr %46, align 4, !tbaa !111
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %48 = load i32, ptr %47, align 4, !tbaa !79
   %49 = sitofp i32 %48 to float
-  %50 = getelementptr inbounds float, ptr %3, i64 %24
+  %50 = getelementptr inbounds [4 x i8], ptr %3, i64 %24
   store float %49, ptr %50, align 4, !tbaa !111
   %51 = load float, ptr %3, align 16, !tbaa !117
   %52 = fmul float %27, %51
@@ -4614,7 +4613,7 @@ _ZNK20b3ConvexHullInternal6Vertex6xvalueEv.exit.thread: ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %11 = load i32, ptr %10, align 8, !tbaa !116
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds float, ptr %3, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %3, i64 %12
   store float %9, ptr %13, align 4, !tbaa !111
   br label %_ZNK20b3ConvexHullInternal6Vertex6yvalueEv.exit.thread
 
@@ -4629,7 +4628,7 @@ _ZNK20b3ConvexHullInternal6Vertex6xvalueEv.exit:  ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %21 = load i32, ptr %20, align 8, !tbaa !116
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds float, ptr %3, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %3, i64 %22
   store float %18, ptr %23, align 4, !tbaa !111
   br i1 %19, label %_ZNK20b3ConvexHullInternal6Vertex6yvalueEv.exit.thread, label %_ZNK20b3ConvexHullInternal6Vertex6yvalueEv.exit
 
@@ -4640,7 +4639,7 @@ _ZNK20b3ConvexHullInternal6Vertex6yvalueEv.exit.thread: ; preds = %_ZNK20b3Conve
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %28 = load i32, ptr %27, align 4, !tbaa !114
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds float, ptr %3, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %3, i64 %29
   store float %26, ptr %30, align 4, !tbaa !111
   br label %41
 
@@ -4655,7 +4654,7 @@ _ZNK20b3ConvexHullInternal6Vertex6yvalueEv.exit:  ; preds = %_ZNK20b3ConvexHullI
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %38 = load i32, ptr %37, align 4, !tbaa !114
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds float, ptr %3, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %3, i64 %39
   store float %35, ptr %40, align 4, !tbaa !111
   br i1 %36, label %41, label %45
 
@@ -4678,7 +4677,7 @@ _ZNK20b3ConvexHullInternal6Vertex6zvalueEv.exit:  ; preds = %41, %45
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %53 = load i32, ptr %52, align 4, !tbaa !115
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds float, ptr %3, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %3, i64 %54
   store float %51, ptr %55, align 4, !tbaa !111
   %56 = load float, ptr %3, align 16, !tbaa !117
   %57 = load float, ptr %0, align 16, !tbaa !117
@@ -4780,7 +4779,7 @@ _ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit15.
   %.sroa.3.0361 = phi i32 [ 0, %21 ], [ %.sroa.3.1, %.loopexit336 ]
   %33 = add nsw i32 %.sroa.3297.0364, -1
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %.sroa.28308.0366, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.28308.0366, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !66
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !67
@@ -4844,8 +4843,8 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE8allocateEi.exit.i.i1
 
 59:                                               ; preds = %59, %.lr.ph.i.i.i146
   %indvars.iv.i.i.i148 = phi i64 [ 0, %.lr.ph.i.i.i146 ], [ %indvars.iv.next.i.i.i149, %59 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i.i.i148
-  %61 = getelementptr inbounds nuw ptr, ptr %.sroa.28308.2, i64 %indvars.iv.i.i.i148
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv.i.i.i148
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.28308.2, i64 %indvars.iv.i.i.i148
   %62 = load ptr, ptr %61, align 8, !tbaa !66
   store ptr %62, ptr %60, align 8, !tbaa !66
   %indvars.iv.next.i.i.i149 = add nuw nsw i64 %indvars.iv.i.i.i148, 1
@@ -4879,7 +4878,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit
   %.sroa.28308.7 = phi ptr [ %.sroa.28308.2, %47 ], [ %.sroa.28308.2, %49 ], [ %.0.i18.i.i139418, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137.thread ], [ %.0.i18.i.i139, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137 ]
   %63 = phi i32 [ %.sroa.3297.2, %47 ], [ %.sroa.3297.2, %49 ], [ %.sroa.3297.5417, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137.thread ], [ %.sroa.3297.5, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE4copyEiiPS2_.exit.i.i137 ]
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr %.sroa.28308.7, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %.sroa.28308.7, i64 %64
   %66 = load ptr, ptr %43, align 8, !tbaa !66
   store ptr %66, ptr %65, align 8, !tbaa !66
   %67 = add nsw i32 %63, 1
@@ -5068,8 +5067,8 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE8allocateEi.exit.i.i: ;
 
 152:                                              ; preds = %152, %.lr.ph.i.i.i171
   %indvars.iv.i.i.i173 = phi i64 [ 0, %.lr.ph.i.i.i171 ], [ %indvars.iv.next.i.i.i174, %152 ]
-  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv.i.i.i173
-  %154 = getelementptr inbounds nuw ptr, ptr %.sroa.17284.2, i64 %indvars.iv.i.i.i173
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %indvars.iv.i.i.i173
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.17284.2, i64 %indvars.iv.i.i.i173
   %155 = load ptr, ptr %154, align 8, !tbaa !162
   store ptr %155, ptr %153, align 8, !tbaa !162
   %indvars.iv.next.i.i.i174 = add nuw nsw i64 %indvars.iv.i.i.i173, 1
@@ -5103,7 +5102,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE9push_backERKS2_.exit: 
   %.sroa.17284.5 = phi ptr [ %.sroa.17284.2, %140 ], [ %.sroa.17284.2, %142 ], [ %.0.i18.i.i165425, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i.thread ], [ %.0.i18.i.i165, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i ]
   %156 = phi i32 [ %.sroa.3.2, %140 ], [ %.sroa.3.2, %142 ], [ %.sroa.3.4424, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i.thread ], [ %.sroa.3.4, %_ZNK20b3AlignedObjectArrayIPN20b3ConvexHullInternal4FaceEE4copyEiiPS2_.exit.i.i ]
   %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds ptr, ptr %.sroa.17284.5, i64 %157
+  %158 = getelementptr inbounds [8 x i8], ptr %.sroa.17284.5, i64 %157
   store ptr %.09.i, ptr %158, align 8, !tbaa !162
   %.promoted = load i64, ptr %7, align 8
   %.promoted354 = load i64, ptr %24, align 8
@@ -5297,7 +5296,7 @@ _ZNK20b3ConvexHullInternal6Int1287getSignEv.exit: ; preds = %271
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %280 = load i32, ptr %279, align 8, !tbaa !116
   %281 = sext i32 %280 to i64
-  %282 = getelementptr inbounds float, ptr %11, i64 %281
+  %282 = getelementptr inbounds [4 x i8], ptr %11, i64 %281
   store float %277, ptr %282, align 4, !tbaa !111
   %283 = invoke noundef float @_ZNK20b3ConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %284 unwind label %339
@@ -5306,7 +5305,7 @@ _ZNK20b3ConvexHullInternal6Int1287getSignEv.exit: ; preds = %271
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %286 = load i32, ptr %285, align 4, !tbaa !114
   %287 = sext i32 %286 to i64
-  %288 = getelementptr inbounds float, ptr %11, i64 %287
+  %288 = getelementptr inbounds [4 x i8], ptr %11, i64 %287
   store float %283, ptr %288, align 4, !tbaa !111
   %289 = invoke noundef float @_ZNK20b3ConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
           to label %290 unwind label %339
@@ -5315,7 +5314,7 @@ _ZNK20b3ConvexHullInternal6Int1287getSignEv.exit: ; preds = %271
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %292 = load i32, ptr %291, align 4, !tbaa !115
   %293 = sext i32 %292 to i64
-  %294 = getelementptr inbounds float, ptr %11, i64 %293
+  %294 = getelementptr inbounds [4 x i8], ptr %11, i64 %293
   store float %289, ptr %294, align 4, !tbaa !111
   %295 = invoke noundef float @_ZNK20b3ConvexHullInternal6Int1288toScalarEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %296 unwind label %341
@@ -5352,23 +5351,23 @@ _ZNK20b3ConvexHullInternal6Int1287getSignEv.exit: ; preds = %271
 .lr.ph:                                           ; preds = %.preheader333
   %317 = load i32, ptr %279, align 8, !tbaa !116
   %318 = sext i32 %317 to i64
-  %319 = getelementptr inbounds float, ptr %6, i64 %318
+  %319 = getelementptr inbounds [4 x i8], ptr %6, i64 %318
   %320 = load i32, ptr %285, align 4, !tbaa !114
   %321 = sext i32 %320 to i64
-  %322 = getelementptr inbounds float, ptr %6, i64 %321
+  %322 = getelementptr inbounds [4 x i8], ptr %6, i64 %321
   %323 = load i32, ptr %291, align 4, !tbaa !115
   %324 = sext i32 %323 to i64
-  %325 = getelementptr inbounds float, ptr %6, i64 %324
+  %325 = getelementptr inbounds [4 x i8], ptr %6, i64 %324
   %326 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %327 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %328 = getelementptr inbounds float, ptr %5, i64 %318
-  %329 = getelementptr inbounds float, ptr %5, i64 %321
-  %330 = getelementptr inbounds float, ptr %5, i64 %324
+  %328 = getelementptr inbounds [4 x i8], ptr %5, i64 %318
+  %329 = getelementptr inbounds [4 x i8], ptr %5, i64 %321
+  %330 = getelementptr inbounds [4 x i8], ptr %5, i64 %324
   %331 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %332 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %333 = getelementptr inbounds float, ptr %4, i64 %318
-  %334 = getelementptr inbounds float, ptr %4, i64 %321
-  %335 = getelementptr inbounds float, ptr %4, i64 %324
+  %333 = getelementptr inbounds [4 x i8], ptr %4, i64 %318
+  %334 = getelementptr inbounds [4 x i8], ptr %4, i64 %321
+  %335 = getelementptr inbounds [4 x i8], ptr %4, i64 %324
   %336 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %337 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %wide.trip.count = zext nneg i32 %.sroa.3.1 to i64
@@ -5391,7 +5390,7 @@ _ZNK20b3ConvexHullInternal6Int1287getSignEv.exit: ; preds = %271
 343:                                              ; preds = %.lr.ph, %343
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %343 ]
   %.071367 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.172, %343 ]
-  %344 = getelementptr inbounds nuw ptr, ptr %.sroa.17284.1, i64 %indvars.iv
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.17284.1, i64 %indvars.iv
   %345 = load ptr, ptr %344, align 8, !tbaa !162
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -5510,10 +5509,10 @@ _ZNK20b3ConvexHullInternal6Int1287getSignEv.exit: ; preds = %271
 .lr.ph372:                                        ; preds = %.lr.ph372.preheader, %.lr.ph372
   %indvars.iv385 = phi i64 [ 0, %.lr.ph372.preheader ], [ %indvars.iv.next386, %.lr.ph372 ]
   %.068369 = phi i32 [ 243703, %.lr.ph372.preheader ], [ %430, %.lr.ph372 ]
-  %423 = getelementptr inbounds nuw ptr, ptr %.sroa.17284.1, i64 %indvars.iv385
+  %423 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.17284.1, i64 %indvars.iv385
   %424 = urem i32 %.068369, %.sroa.3.1
   %425 = zext nneg i32 %424 to i64
-  %426 = getelementptr inbounds nuw ptr, ptr %.sroa.17284.1, i64 %425
+  %426 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.17284.1, i64 %425
   %427 = load ptr, ptr %423, align 8, !tbaa !162
   %428 = load ptr, ptr %426, align 8, !tbaa !162
   store ptr %428, ptr %423, align 8, !tbaa !162
@@ -5531,7 +5530,7 @@ _ZNK20b3ConvexHullInternal6Int1287getSignEv.exit: ; preds = %271
 
 432:                                              ; preds = %.lr.ph375, %431
   %indvars.iv391 = phi i64 [ 0, %.lr.ph375 ], [ %indvars.iv.next392, %431 ]
-  %433 = getelementptr inbounds nuw ptr, ptr %.sroa.17284.1, i64 %indvars.iv391
+  %433 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.17284.1, i64 %indvars.iv391
   %434 = load ptr, ptr %433, align 8, !tbaa !162
   store i8 1, ptr %419, align 8, !tbaa !137
   store ptr null, ptr %420, align 8, !tbaa !76
@@ -5706,8 +5705,8 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE8allocateEi.exit.i: ;
 
 21:                                               ; preds = %21, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %21 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !66
   store ptr %24, ptr %22, align 8, !tbaa !66
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -5750,7 +5749,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE7reserveEi.exit: ; pr
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !76
   %34 = sext i32 %31 to i64
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %1, align 8, !tbaa !66
   store ptr %36, ptr %35, align 8, !tbaa !66
   %37 = add nsw i32 %31, 1
@@ -5815,7 +5814,7 @@ define dso_local noundef zeroext i1 @_ZN20b3ConvexHullInternal9shiftFaceEPNS_4Fa
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %20 = load i32, ptr %19, align 8, !tbaa !116
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds float, ptr %6, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %6, i64 %21
   store float %18, ptr %22, align 4, !tbaa !111
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %24 = load i32, ptr %23, align 4, !tbaa !78
@@ -5823,7 +5822,7 @@ define dso_local noundef zeroext i1 @_ZN20b3ConvexHullInternal9shiftFaceEPNS_4Fa
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %27 = load i32, ptr %26, align 4, !tbaa !114
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds float, ptr %6, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 %28
   store float %25, ptr %29, align 4, !tbaa !111
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %31 = load i32, ptr %30, align 4, !tbaa !79
@@ -5831,7 +5830,7 @@ define dso_local noundef zeroext i1 @_ZN20b3ConvexHullInternal9shiftFaceEPNS_4Fa
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %34 = load i32, ptr %33, align 4, !tbaa !115
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds float, ptr %6, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %6, i64 %35
   store float %32, ptr %36, align 4, !tbaa !111
   %37 = load float, ptr %6, align 16, !tbaa !117
   %38 = load float, ptr %0, align 16, !tbaa !117
@@ -5851,17 +5850,17 @@ define dso_local noundef zeroext i1 @_ZN20b3ConvexHullInternal9shiftFaceEPNS_4Fa
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %51 = load i32, ptr %50, align 4, !tbaa !77
   %52 = sitofp i32 %51 to float
-  %53 = getelementptr inbounds float, ptr %5, i64 %21
+  %53 = getelementptr inbounds [4 x i8], ptr %5, i64 %21
   store float %52, ptr %53, align 4, !tbaa !111
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %55 = load i32, ptr %54, align 4, !tbaa !78
   %56 = sitofp i32 %55 to float
-  %57 = getelementptr inbounds float, ptr %5, i64 %28
+  %57 = getelementptr inbounds [4 x i8], ptr %5, i64 %28
   store float %56, ptr %57, align 4, !tbaa !111
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %59 = load i32, ptr %58, align 4, !tbaa !79
   %60 = sitofp i32 %59 to float
-  %61 = getelementptr inbounds float, ptr %5, i64 %35
+  %61 = getelementptr inbounds [4 x i8], ptr %5, i64 %35
   store float %60, ptr %61, align 4, !tbaa !111
   %62 = load float, ptr %5, align 16, !tbaa !117
   %63 = fmul float %38, %62
@@ -5927,13 +5926,13 @@ define dso_local noundef zeroext i1 @_ZN20b3ConvexHullInternal9shiftFaceEPNS_4Fa
   br label %103
 
 103:                                              ; preds = %101, %99
-  %104 = getelementptr inbounds float, ptr %7, i64 %21
+  %104 = getelementptr inbounds [4 x i8], ptr %7, i64 %21
   %105 = load float, ptr %104, align 4, !tbaa !111
   %106 = fptosi float %105 to i32
-  %107 = getelementptr inbounds float, ptr %7, i64 %28
+  %107 = getelementptr inbounds [4 x i8], ptr %7, i64 %28
   %108 = load float, ptr %107, align 4, !tbaa !111
   %109 = fptosi float %108 to i32
-  %110 = getelementptr inbounds float, ptr %7, i64 %35
+  %110 = getelementptr inbounds [4 x i8], ptr %7, i64 %35
   %111 = load float, ptr %110, align 4, !tbaa !111
   %112 = fptosi float %111 to i32
   %113 = icmp eq i32 %106, 0
@@ -7339,8 +7338,8 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE8allocateEi.exit.i.i:
 
 1032:                                             ; preds = %1032, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %1032 ]
-  %1033 = getelementptr inbounds nuw ptr, ptr %1028, i64 %indvars.iv.i.i.i
-  %1034 = getelementptr inbounds nuw ptr, ptr %.pre1047, i64 %indvars.iv.i.i.i
+  %1033 = getelementptr inbounds nuw [8 x i8], ptr %1028, i64 %indvars.iv.i.i.i
+  %1034 = getelementptr inbounds nuw [8 x i8], ptr %.pre1047, i64 %indvars.iv.i.i.i
   %1035 = load ptr, ptr %1034, align 8, !tbaa !66
   store ptr %1035, ptr %1033, align 8, !tbaa !66
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -7382,7 +7381,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit
   %1041 = phi i32 [ %.pre.i472, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i.i ], [ %1018, %1021 ], [ %1018, %_ZNK20b3ConvexHullInternal6Int128mlEl.exit468 ]
   %1042 = load ptr, ptr %217, align 8, !tbaa !76
   %1043 = sext i32 %1041 to i64
-  %1044 = getelementptr inbounds ptr, ptr %1042, i64 %1043
+  %1044 = getelementptr inbounds [8 x i8], ptr %1042, i64 %1043
   store ptr %.09.i312, ptr %1044, align 8, !tbaa !66
   %1045 = add nsw i32 %1041, 1
   store i32 %1045, ptr %215, align 4, !tbaa !134
@@ -7419,8 +7418,8 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE8allocateEi.exit.i.i4
 
 1058:                                             ; preds = %1058, %.lr.ph.i.i.i486
   %indvars.iv.i.i.i488 = phi i64 [ 0, %.lr.ph.i.i.i486 ], [ %indvars.iv.next.i.i.i489, %1058 ]
-  %1059 = getelementptr inbounds nuw ptr, ptr %1054, i64 %indvars.iv.i.i.i488
-  %1060 = getelementptr inbounds nuw ptr, ptr %.pre1049, i64 %indvars.iv.i.i.i488
+  %1059 = getelementptr inbounds nuw [8 x i8], ptr %1054, i64 %indvars.iv.i.i.i488
+  %1060 = getelementptr inbounds nuw [8 x i8], ptr %.pre1049, i64 %indvars.iv.i.i.i488
   %1061 = load ptr, ptr %1060, align 8, !tbaa !66
   store ptr %1061, ptr %1059, align 8, !tbaa !66
   %indvars.iv.next.i.i.i489 = add nuw nsw i64 %indvars.iv.i.i.i488, 1
@@ -7462,7 +7461,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit
   %1067 = phi ptr [ %.0.i18.i.i479, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i.i483 ], [ %1042, %1047 ], [ %1042, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit ]
   %1068 = phi i32 [ %.pre.i484, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i.i483 ], [ %1040, %1047 ], [ %1045, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit ]
   %1069 = sext i32 %1068 to i64
-  %1070 = getelementptr inbounds ptr, ptr %1067, i64 %1069
+  %1070 = getelementptr inbounds [8 x i8], ptr %1067, i64 %1069
   store ptr %321, ptr %1070, align 8, !tbaa !66
   %1071 = add nsw i32 %1068, 1
   store i32 %1071, ptr %215, align 4, !tbaa !134
@@ -7499,8 +7498,8 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE8allocateEi.exit.i.i4
 
 1084:                                             ; preds = %1084, %.lr.ph.i.i.i506
   %indvars.iv.i.i.i508 = phi i64 [ 0, %.lr.ph.i.i.i506 ], [ %indvars.iv.next.i.i.i509, %1084 ]
-  %1085 = getelementptr inbounds nuw ptr, ptr %1080, i64 %indvars.iv.i.i.i508
-  %1086 = getelementptr inbounds nuw ptr, ptr %.pre1051, i64 %indvars.iv.i.i.i508
+  %1085 = getelementptr inbounds nuw [8 x i8], ptr %1080, i64 %indvars.iv.i.i.i508
+  %1086 = getelementptr inbounds nuw [8 x i8], ptr %.pre1051, i64 %indvars.iv.i.i.i508
   %1087 = load ptr, ptr %1086, align 8, !tbaa !66
   store ptr %1087, ptr %1085, align 8, !tbaa !66
   %indvars.iv.next.i.i.i509 = add nuw nsw i64 %indvars.iv.i.i.i508, 1
@@ -7541,7 +7540,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit
   %1092 = phi ptr [ %.0.i18.i.i499, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i.i503 ], [ %1067, %1073 ], [ %1067, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit492 ]
   %1093 = phi i32 [ %.pre.i504, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i.i503 ], [ %1066, %1073 ], [ %1071, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit492 ]
   %1094 = sext i32 %1093 to i64
-  %1095 = getelementptr inbounds ptr, ptr %1092, i64 %1094
+  %1095 = getelementptr inbounds [8 x i8], ptr %1092, i64 %1094
   store ptr null, ptr %1095, align 8, !tbaa !66
   %1096 = add nsw i32 %1093, 1
   store i32 %1096, ptr %215, align 4, !tbaa !134
@@ -7681,8 +7680,8 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE8allocateEi.exit.i.i5
 
 1153:                                             ; preds = %1153, %.lr.ph.i.i.i526
   %indvars.iv.i.i.i528 = phi i64 [ 0, %.lr.ph.i.i.i526 ], [ %indvars.iv.next.i.i.i529, %1153 ]
-  %1154 = getelementptr inbounds nuw ptr, ptr %1149, i64 %indvars.iv.i.i.i528
-  %1155 = getelementptr inbounds nuw ptr, ptr %.pre1060, i64 %indvars.iv.i.i.i528
+  %1154 = getelementptr inbounds nuw [8 x i8], ptr %1149, i64 %indvars.iv.i.i.i528
+  %1155 = getelementptr inbounds nuw [8 x i8], ptr %.pre1060, i64 %indvars.iv.i.i.i528
   %1156 = load ptr, ptr %1155, align 8, !tbaa !66
   store ptr %1156, ptr %1154, align 8, !tbaa !66
   %indvars.iv.next.i.i.i529 = add nuw nsw i64 %indvars.iv.i.i.i528, 1
@@ -7726,7 +7725,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit
   %1163 = phi i32 [ %.pre.i524, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i.i523 ], [ %1139, %1142 ], [ %1139, %1137 ]
   %1164 = load ptr, ptr %217, align 8, !tbaa !76
   %1165 = sext i32 %1163 to i64
-  %1166 = getelementptr inbounds ptr, ptr %1164, i64 %1165
+  %1166 = getelementptr inbounds [8 x i8], ptr %1164, i64 %1165
   %1167 = load ptr, ptr %1138, align 8, !tbaa !66
   store ptr %1167, ptr %1166, align 8, !tbaa !66
   %storemerge959 = add nsw i32 %1163, 1
@@ -7821,8 +7820,8 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE8allocateEi.exit.i.i5
 
 1207:                                             ; preds = %1207, %.lr.ph.i.i.i547
   %indvars.iv.i.i.i549 = phi i64 [ 0, %.lr.ph.i.i.i547 ], [ %indvars.iv.next.i.i.i550, %1207 ]
-  %1208 = getelementptr inbounds nuw ptr, ptr %1203, i64 %indvars.iv.i.i.i549
-  %1209 = getelementptr inbounds nuw ptr, ptr %.pre1063, i64 %indvars.iv.i.i.i549
+  %1208 = getelementptr inbounds nuw [8 x i8], ptr %1203, i64 %indvars.iv.i.i.i549
+  %1209 = getelementptr inbounds nuw [8 x i8], ptr %.pre1063, i64 %indvars.iv.i.i.i549
   %1210 = load ptr, ptr %1209, align 8, !tbaa !66
   store ptr %1210, ptr %1208, align 8, !tbaa !66
   %indvars.iv.next.i.i.i550 = add nuw nsw i64 %indvars.iv.i.i.i549, 1
@@ -7864,7 +7863,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit
   %1216 = phi i32 [ %.pre.i545, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i.i544 ], [ %1193, %1196 ], [ %1193, %_ZN20b3ConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit ]
   %1217 = load ptr, ptr %217, align 8, !tbaa !76
   %1218 = sext i32 %1216 to i64
-  %1219 = getelementptr inbounds ptr, ptr %1217, i64 %1218
+  %1219 = getelementptr inbounds [8 x i8], ptr %1217, i64 %1218
   store ptr %1171, ptr %1219, align 8, !tbaa !66
   %storemerge = add nsw i32 %1216, 1
   store i32 %storemerge, ptr %215, align 4, !tbaa !134
@@ -7910,8 +7909,8 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE8allocateEi.exit.i.i5
 
 1237:                                             ; preds = %1237, %.lr.ph.i.i.i567
   %indvars.iv.i.i.i569 = phi i64 [ 0, %.lr.ph.i.i.i567 ], [ %indvars.iv.next.i.i.i570, %1237 ]
-  %1238 = getelementptr inbounds nuw ptr, ptr %1233, i64 %indvars.iv.i.i.i569
-  %1239 = getelementptr inbounds nuw ptr, ptr %.pre1065, i64 %indvars.iv.i.i.i569
+  %1238 = getelementptr inbounds nuw [8 x i8], ptr %1233, i64 %indvars.iv.i.i.i569
+  %1239 = getelementptr inbounds nuw [8 x i8], ptr %.pre1065, i64 %indvars.iv.i.i.i569
   %1240 = load ptr, ptr %1239, align 8, !tbaa !66
   store ptr %1240, ptr %1238, align 8, !tbaa !66
   %indvars.iv.next.i.i.i570 = add nuw nsw i64 %indvars.iv.i.i.i569, 1
@@ -7952,7 +7951,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit
   %1245 = phi ptr [ %.0.i18.i.i560, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i.i564 ], [ %1222, %1226 ], [ %1222, %._crit_edge ]
   %1246 = phi i32 [ %.pre.i565, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i.i564 ], [ %1223, %1226 ], [ %1224, %._crit_edge ]
   %1247 = sext i32 %1246 to i64
-  %1248 = getelementptr inbounds ptr, ptr %1245, i64 %1247
+  %1248 = getelementptr inbounds [8 x i8], ptr %1245, i64 %1247
   store ptr null, ptr %1248, align 8, !tbaa !66
   %1249 = add nsw i32 %1246, 1
   store i32 %1249, ptr %215, align 4, !tbaa !134
@@ -8094,8 +8093,8 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE8allocateEi.exit.i.i5
 
 1316:                                             ; preds = %1316, %.lr.ph.i.i.i592
   %indvars.iv.i.i.i594 = phi i64 [ 0, %.lr.ph.i.i.i592 ], [ %indvars.iv.next.i.i.i595, %1316 ]
-  %1317 = getelementptr inbounds nuw ptr, ptr %1312, i64 %indvars.iv.i.i.i594
-  %1318 = getelementptr inbounds nuw ptr, ptr %.pre1035, i64 %indvars.iv.i.i.i594
+  %1317 = getelementptr inbounds nuw [8 x i8], ptr %1312, i64 %indvars.iv.i.i.i594
+  %1318 = getelementptr inbounds nuw [8 x i8], ptr %.pre1035, i64 %indvars.iv.i.i.i594
   %1319 = load ptr, ptr %1318, align 8, !tbaa !66
   store ptr %1319, ptr %1317, align 8, !tbaa !66
   %indvars.iv.next.i.i.i595 = add nuw nsw i64 %indvars.iv.i.i.i594, 1
@@ -8136,7 +8135,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit
   %1324 = phi i32 [ %.pre.i590, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i.i589 ], [ %1302, %1305 ], [ %1302, %_ZN20b3ConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit578 ]
   %1325 = load ptr, ptr %217, align 8, !tbaa !76
   %1326 = sext i32 %1324 to i64
-  %1327 = getelementptr inbounds ptr, ptr %1325, i64 %1326
+  %1327 = getelementptr inbounds [8 x i8], ptr %1325, i64 %1326
   store ptr %1280, ptr %1327, align 8, !tbaa !66
   %1328 = add nsw i32 %1324, 1
   store i32 %1328, ptr %215, align 4, !tbaa !134
@@ -8178,7 +8177,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit
   %1344 = phi ptr [ %1340, %.preheader ], [ %1490, %._crit_edge974.thread ]
   %.1213977 = phi i32 [ %.0212978, %.preheader ], [ %.lcssa1215, %._crit_edge974.thread ]
   %1345 = sext i32 %.1213977 to i64
-  %1346 = getelementptr ptr, ptr %1344, i64 %1345
+  %1346 = getelementptr [8 x i8], ptr %1344, i64 %1345
   %1347 = load ptr, ptr %1346, align 8, !tbaa !66
   %1348 = add i32 %.1213977, 2
   %1349 = getelementptr i8, ptr %1346, i64 8
@@ -8196,7 +8195,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit
   %.1203.lcssa = phi i8 [ %.0202971, %_ZN20b3ConvexHullInternal6Vertex18receiveNearbyFacesEPS0_.exit ], [ 1, %_ZN20b3ConvexHullInternal14removeEdgePairEPNS_4EdgeE.exit645 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %1354 = load ptr, ptr %217, align 8, !tbaa !76
-  %1355 = getelementptr inbounds ptr, ptr %1354, i64 %indvars.iv
+  %1355 = getelementptr inbounds [8 x i8], ptr %1354, i64 %indvars.iv
   %1356 = load ptr, ptr %1355, align 8, !tbaa !66
   %.not281 = icmp eq ptr %1356, null
   br i1 %.not281, label %._crit_edge974, label %1357, !llvm.loop !202
@@ -8297,8 +8296,8 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE8allocateEi.exit.i.i6
 
 1389:                                             ; preds = %1389, %.lr.ph.i.i.i614
   %indvars.iv.i.i.i616 = phi i64 [ 0, %.lr.ph.i.i.i614 ], [ %indvars.iv.next.i.i.i617, %1389 ]
-  %1390 = getelementptr inbounds nuw ptr, ptr %1385, i64 %indvars.iv.i.i.i616
-  %1391 = getelementptr inbounds nuw ptr, ptr %.pre1037, i64 %indvars.iv.i.i.i616
+  %1390 = getelementptr inbounds nuw [8 x i8], ptr %1385, i64 %indvars.iv.i.i.i616
+  %1391 = getelementptr inbounds nuw [8 x i8], ptr %.pre1037, i64 %indvars.iv.i.i.i616
   %1392 = load ptr, ptr %1391, align 8, !tbaa !66
   store ptr %1392, ptr %1390, align 8, !tbaa !66
   %indvars.iv.next.i.i.i617 = add nuw nsw i64 %indvars.iv.i.i.i616, 1
@@ -8342,7 +8341,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit
   %1398 = phi i32 [ %.pre.i612, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i.i611 ], [ %.pre1039, %1378 ], [ %.pre1039, %1376 ]
   %1399 = load ptr, ptr %217, align 8, !tbaa !76
   %1400 = sext i32 %1398 to i64
-  %1401 = getelementptr inbounds ptr, ptr %1399, i64 %1400
+  %1401 = getelementptr inbounds [8 x i8], ptr %1399, i64 %1400
   store ptr %1347, ptr %1401, align 8, !tbaa !66
   %1402 = add nsw i32 %1398, 1
   store i32 %1402, ptr %215, align 4, !tbaa !134
@@ -8386,8 +8385,8 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE8allocateEi.exit.i.i6
 
 1420:                                             ; preds = %1420, %.lr.ph.i.i.i634
   %indvars.iv.i.i.i636 = phi i64 [ 0, %.lr.ph.i.i.i634 ], [ %indvars.iv.next.i.i.i637, %1420 ]
-  %1421 = getelementptr inbounds nuw ptr, ptr %1416, i64 %indvars.iv.i.i.i636
-  %1422 = getelementptr inbounds nuw ptr, ptr %.pre1042, i64 %indvars.iv.i.i.i636
+  %1421 = getelementptr inbounds nuw [8 x i8], ptr %1416, i64 %indvars.iv.i.i.i636
+  %1422 = getelementptr inbounds nuw [8 x i8], ptr %.pre1042, i64 %indvars.iv.i.i.i636
   %1423 = load ptr, ptr %1422, align 8, !tbaa !66
   store ptr %1423, ptr %1421, align 8, !tbaa !66
   %indvars.iv.next.i.i.i637 = add nuw nsw i64 %indvars.iv.i.i.i636, 1
@@ -8430,7 +8429,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit
   %1429 = phi i32 [ %.pre.i632, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i.i631 ], [ %1404, %1409 ], [ %1405, %1403 ]
   %1430 = load ptr, ptr %217, align 8, !tbaa !76
   %1431 = sext i32 %1429 to i64
-  %1432 = getelementptr inbounds ptr, ptr %1430, i64 %1431
+  %1432 = getelementptr inbounds [8 x i8], ptr %1430, i64 %1431
   %1433 = load ptr, ptr %1407, align 8, !tbaa !66
   store ptr %1433, ptr %1432, align 8, !tbaa !66
   %1434 = add nsw i32 %1429, 1
@@ -8529,8 +8528,8 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE8allocateEi.exit.i.i6
 
 1476:                                             ; preds = %1476, %.lr.ph.i.i.i659
   %indvars.iv.i.i.i661 = phi i64 [ 0, %.lr.ph.i.i.i659 ], [ %indvars.iv.next.i.i.i662, %1476 ]
-  %1477 = getelementptr inbounds nuw ptr, ptr %1472, i64 %indvars.iv.i.i.i661
-  %1478 = getelementptr inbounds nuw ptr, ptr %.pre1045, i64 %indvars.iv.i.i.i661
+  %1477 = getelementptr inbounds nuw [8 x i8], ptr %1472, i64 %indvars.iv.i.i.i661
+  %1478 = getelementptr inbounds nuw [8 x i8], ptr %.pre1045, i64 %indvars.iv.i.i.i661
   %1479 = load ptr, ptr %1478, align 8, !tbaa !66
   store ptr %1479, ptr %1477, align 8, !tbaa !66
   %indvars.iv.next.i.i.i662 = add nuw nsw i64 %indvars.iv.i.i.i661, 1
@@ -8571,7 +8570,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit
   %1484 = phi ptr [ %.0.i18.i.i652, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i.i656 ], [ %1354, %1465 ], [ %1354, %1461 ]
   %1485 = phi i32 [ %.pre.i657, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i.i656 ], [ %1462, %1465 ], [ %1462, %1461 ]
   %1486 = sext i32 %1485 to i64
-  %1487 = getelementptr inbounds ptr, ptr %1484, i64 %1486
+  %1487 = getelementptr inbounds [8 x i8], ptr %1484, i64 %1486
   store ptr null, ptr %1487, align 8, !tbaa !66
   %1488 = add nsw i32 %1485, 1
   store i32 %1488, ptr %215, align 4, !tbaa !134
@@ -9226,7 +9225,7 @@ _ZN20b3AlignedObjectArrayI9b3Vector3E10deallocateEv.exit.i.i: ; preds = %99, %.n
 102:                                              ; preds = %102, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %101, %.lr.ph.i ], [ %indvars.iv.next.i, %102 ]
   %103 = load ptr, ptr %100, align 8, !tbaa !207
-  %104 = getelementptr inbounds %class.b3Vector3, ptr %103, i64 %indvars.iv.i
+  %104 = getelementptr inbounds [16 x i8], ptr %103, i64 %indvars.iv.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %104, i8 0, i64 16, i1 false)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 0
@@ -9282,7 +9281,7 @@ _ZN20b3AlignedObjectArrayIN20b3ConvexHullComputer4EdgeEE10deallocateEv.exit.i.i:
 121:                                              ; preds = %121, %.lr.ph.i118
   %indvars.iv.i119 = phi i64 [ %120, %.lr.ph.i118 ], [ %indvars.iv.next.i120, %121 ]
   %122 = load ptr, ptr %119, align 8, !tbaa !214
-  %123 = getelementptr inbounds %"class.b3ConvexHullComputer::Edge", ptr %122, i64 %indvars.iv.i119
+  %123 = getelementptr inbounds [12 x i8], ptr %122, i64 %indvars.iv.i119
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %123, i8 0, i64 12, i1 false)
   %indvars.iv.next.i120 = add nsw i64 %indvars.iv.i119, 1
   %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, 0
@@ -9385,7 +9384,7 @@ _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %137, %.noexc134
   %159 = phi ptr [ %.pre217.pre, %.lr.ph ], [ %320, %318 ]
   %160 = phi ptr [ %.pre217.pre, %.lr.ph ], [ %321, %318 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %318 ]
-  %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv
   %162 = load ptr, ptr %161, align 8, !tbaa !66
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %163 = invoke { <2 x float>, <2 x float> } @_ZN20b3ConvexHullInternal14getCoordinatesEPKNS_6VertexE(ptr noundef nonnull align 16 dereferenceable(192) %8, ptr noundef %162)
@@ -9461,9 +9460,9 @@ _ZN20b3AlignedObjectArrayIN20b3ConvexHullComputer4EdgeEE8allocateEi.exit.i.i: ; 
 
 193:                                              ; preds = %193, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %193 ]
-  %194 = getelementptr inbounds nuw %"class.b3ConvexHullComputer::Edge", ptr %189, i64 %indvars.iv.i.i.i
+  %194 = getelementptr inbounds nuw [12 x i8], ptr %189, i64 %indvars.iv.i.i.i
   %195 = load ptr, ptr %152, align 8, !tbaa !214
-  %196 = getelementptr inbounds nuw %"class.b3ConvexHullComputer::Edge", ptr %195, i64 %indvars.iv.i.i.i
+  %196 = getelementptr inbounds nuw [12 x i8], ptr %195, i64 %indvars.iv.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %194, ptr noundef nonnull align 4 dereferenceable(12) %196, i64 12, i1 false), !tbaa.struct !230
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -9506,7 +9505,7 @@ _ZN20b3AlignedObjectArrayIN20b3ConvexHullComputer4EdgeEE10deallocateEv.exit.i.i1
   %202 = phi i32 [ %.pre.i140, %_ZN20b3AlignedObjectArrayIN20b3ConvexHullComputer4EdgeEE10deallocateEv.exit.i.i139 ], [ %179, %182 ], [ %179, %178 ]
   %203 = load ptr, ptr %152, align 8, !tbaa !214
   %204 = sext i32 %202 to i64
-  %205 = getelementptr inbounds %"class.b3ConvexHullComputer::Edge", ptr %203, i64 %204
+  %205 = getelementptr inbounds [12 x i8], ptr %203, i64 %204
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %205, i8 0, i64 12, i1 false)
   %206 = load i32, ptr %105, align 4, !tbaa !219
   %207 = add nsw i32 %206, 1
@@ -9547,9 +9546,9 @@ _ZN20b3AlignedObjectArrayIN20b3ConvexHullComputer4EdgeEE8allocateEi.exit.i.i147:
 
 221:                                              ; preds = %221, %.lr.ph.i.i.i156
   %indvars.iv.i.i.i158 = phi i64 [ 0, %.lr.ph.i.i.i156 ], [ %indvars.iv.next.i.i.i159, %221 ]
-  %222 = getelementptr inbounds nuw %"class.b3ConvexHullComputer::Edge", ptr %217, i64 %indvars.iv.i.i.i158
+  %222 = getelementptr inbounds nuw [12 x i8], ptr %217, i64 %indvars.iv.i.i.i158
   %223 = load ptr, ptr %152, align 8, !tbaa !214
-  %224 = getelementptr inbounds nuw %"class.b3ConvexHullComputer::Edge", ptr %223, i64 %indvars.iv.i.i.i158
+  %224 = getelementptr inbounds nuw [12 x i8], ptr %223, i64 %indvars.iv.i.i.i158
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %222, ptr noundef nonnull align 4 dereferenceable(12) %224, i64 12, i1 false), !tbaa.struct !230
   %indvars.iv.next.i.i.i159 = add nuw nsw i64 %indvars.iv.i.i.i158, 1
   %exitcond.not.i.i.i160 = icmp eq i64 %indvars.iv.next.i.i.i159, %wide.trip.count.i.i.i157
@@ -9592,17 +9591,17 @@ _ZN20b3AlignedObjectArrayIN20b3ConvexHullComputer4EdgeEE10deallocateEv.exit.i.i1
   %230 = phi i32 [ %.pre.i155, %_ZN20b3AlignedObjectArrayIN20b3ConvexHullComputer4EdgeEE10deallocateEv.exit.i.i154 ], [ %207, %210 ], [ %207, %201 ]
   %231 = load ptr, ptr %152, align 8, !tbaa !214
   %232 = sext i32 %230 to i64
-  %233 = getelementptr inbounds %"class.b3ConvexHullComputer::Edge", ptr %231, i64 %232
+  %233 = getelementptr inbounds [12 x i8], ptr %231, i64 %232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %233, i8 0, i64 12, i1 false)
   %234 = load i32, ptr %105, align 4, !tbaa !219
   %235 = add nsw i32 %234, 1
   store i32 %235, ptr %105, align 4, !tbaa !219
   %236 = load ptr, ptr %152, align 8, !tbaa !214
   %237 = sext i32 %179 to i64
-  %238 = getelementptr inbounds %"class.b3ConvexHullComputer::Edge", ptr %236, i64 %237
+  %238 = getelementptr inbounds [12 x i8], ptr %236, i64 %237
   %239 = add nsw i32 %179, 1
   %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds %"class.b3ConvexHullComputer::Edge", ptr %236, i64 %240
+  %241 = getelementptr inbounds [12 x i8], ptr %236, i64 %240
   store i32 %179, ptr %175, align 8, !tbaa !52
   %242 = getelementptr inbounds nuw i8, ptr %.075, i64 16
   %243 = load ptr, ptr %242, align 8, !tbaa !41
@@ -9656,8 +9655,8 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE8allocateEi.exit.i.i.
 
 265:                                              ; preds = %265, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %265 ]
-  %266 = getelementptr inbounds nuw ptr, ptr %262, i64 %indvars.iv.i.i.i.i
-  %267 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv.i.i.i.i
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %indvars.iv.i.i.i.i
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %indvars.iv.i.i.i.i
   %268 = load ptr, ptr %267, align 8, !tbaa !66
   store ptr %268, ptr %266, align 8, !tbaa !66
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -9705,7 +9704,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit
   %272 = phi ptr [ %.0.i18.i.i.i, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i.i.i ], [ %172, %255 ], [ %172, %252 ]
   %273 = phi i32 [ %.pre.i.i, %_ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE10deallocateEv.exit.i.i.i ], [ %173, %255 ], [ %173, %252 ]
   %274 = sext i32 %273 to i64
-  %275 = getelementptr inbounds ptr, ptr %272, i64 %274
+  %275 = getelementptr inbounds [8 x i8], ptr %272, i64 %274
   store ptr %248, ptr %275, align 8, !tbaa !66
   %276 = add nsw i32 %273, 1
   store i32 %276, ptr %144, align 4, !tbaa !134
@@ -9777,7 +9776,7 @@ _ZL13getVertexCopyPN20b3ConvexHullInternal6VertexER20b3AlignedObjectArrayIS1_E.e
   %307 = sub nsw i32 %.076, %305
   %308 = load ptr, ptr %152, align 8, !tbaa !214
   %309 = sext i32 %305 to i64
-  %310 = getelementptr inbounds %"class.b3ConvexHullComputer::Edge", ptr %308, i64 %309
+  %310 = getelementptr inbounds [12 x i8], ptr %308, i64 %309
   store i32 %307, ptr %310, align 4, !tbaa !235
   br label %311
 
@@ -9791,7 +9790,7 @@ _ZL13getVertexCopyPN20b3ConvexHullInternal6VertexER20b3AlignedObjectArrayIS1_E.e
   %314 = sub nsw i32 %305, %.178
   %315 = load ptr, ptr %152, align 8, !tbaa !214
   %316 = sext i32 %.178 to i64
-  %317 = getelementptr inbounds %"class.b3ConvexHullComputer::Edge", ptr %315, i64 %316
+  %317 = getelementptr inbounds [12 x i8], ptr %315, i64 %316
   store i32 %314, ptr %317, align 4, !tbaa !235
   br label %318
 
@@ -9829,7 +9828,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEED2Ev.exit: ; preds = 
 
 330:                                              ; preds = %.lr.ph205, %.loopexit192
   %indvars.iv209 = phi i64 [ 0, %.lr.ph205 ], [ %indvars.iv.next210, %.loopexit192 ]
-  %331 = getelementptr inbounds nuw ptr, ptr %320, i64 %indvars.iv209
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %320, i64 %indvars.iv209
   %332 = load ptr, ptr %331, align 8, !tbaa !66
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 16
   %334 = load ptr, ptr %333, align 8, !tbaa !67
@@ -9882,8 +9881,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %346
 
 353:                                              ; preds = %353, %.lr.ph.i.i.i183
   %indvars.iv.i.i.i185 = phi i64 [ 0, %.lr.ph.i.i.i183 ], [ %indvars.iv.next.i.i.i186, %353 ]
-  %354 = getelementptr inbounds nuw i32, ptr %349, i64 %indvars.iv.i.i.i185
-  %355 = getelementptr inbounds nuw i32, ptr %.pre215, i64 %indvars.iv.i.i.i185
+  %354 = getelementptr inbounds nuw [4 x i8], ptr %349, i64 %indvars.iv.i.i.i185
+  %355 = getelementptr inbounds nuw [4 x i8], ptr %.pre215, i64 %indvars.iv.i.i.i185
   %356 = load i32, ptr %355, align 4, !tbaa !82
   store i32 %356, ptr %354, align 4, !tbaa !82
   %indvars.iv.next.i.i.i186 = add nuw nsw i64 %indvars.iv.i.i.i185, 1
@@ -9930,7 +9929,7 @@ _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %338, %342, %_ZN20b3
   %362 = phi i32 [ %.pre.i182, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i181 ], [ %339, %342 ], [ %339, %338 ]
   %363 = load ptr, ptr %155, align 8, !tbaa !221
   %364 = sext i32 %362 to i64
-  %365 = getelementptr inbounds i32, ptr %363, i64 %364
+  %365 = getelementptr inbounds [4 x i8], ptr %363, i64 %364
   store i32 %361, ptr %365, align 4, !tbaa !82
   %366 = load i32, ptr %124, align 4, !tbaa !226
   %367 = add nsw i32 %366, 1
@@ -10036,8 +10035,8 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE8allocateEi.exit.i.i:
 
 25:                                               ; preds = %25, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i.i
-  %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i.i.i
   %28 = load ptr, ptr %27, align 8, !tbaa !66
   store ptr %28, ptr %26, align 8, !tbaa !66
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -10080,7 +10079,7 @@ _ZN20b3AlignedObjectArrayIPN20b3ConvexHullInternal6VertexEE9push_backERKS2_.exit
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !76
   %38 = sext i32 %35 to i64
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %37, i64 %38
   store ptr %0, ptr %39, align 8, !tbaa !66
   %40 = add nsw i32 %35, 1
   store i32 %40, ptr %7, align 4, !tbaa !134
@@ -10129,9 +10128,9 @@ _ZN20b3AlignedObjectArrayI9b3Vector3E8allocateEi.exit.i: ; preds = %12
 
 20:                                               ; preds = %20, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %20 ]
-  %21 = getelementptr inbounds nuw %class.b3Vector3, ptr %15, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %19, align 8, !tbaa !207
-  %23 = getelementptr inbounds nuw %class.b3Vector3, ptr %22, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, ptr noundef nonnull align 16 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !242
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -10171,7 +10170,7 @@ _ZN20b3AlignedObjectArrayI9b3Vector3E7reserveEi.exit: ; preds = %_ZN20b3AlignedO
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !207
   %33 = sext i32 %30 to i64
-  %34 = getelementptr inbounds %class.b3Vector3, ptr %32, i64 %33
+  %34 = getelementptr inbounds [16 x i8], ptr %32, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %34, ptr noundef nonnull align 16 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !242
   %35 = load i32, ptr %3, align 4, !tbaa !212
   %36 = add nsw i32 %35, 1
@@ -10347,7 +10346,7 @@ define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN20b3ConvexHullInt
   %9 = add nsw i32 %3, %2
   %10 = sdiv i32 %9, 2
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %"class.b3ConvexHullInternal::Point32", ptr %8, i64 %11
+  %12 = getelementptr inbounds [16 x i8], ptr %8, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !125
   br label %13
 
@@ -10360,7 +10359,7 @@ define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN20b3ConvexHullInt
 15:                                               ; preds = %15, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ %14, %13 ]
   %16 = load ptr, ptr %7, align 8, !tbaa !122
-  %17 = getelementptr inbounds %"class.b3ConvexHullInternal::Point32", ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %indvars.iv
   %18 = call noundef zeroext i1 %1(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %6)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br i1 %18, label %15, label %.preheader, !llvm.loop !247
@@ -10372,7 +10371,7 @@ define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN20b3ConvexHullInt
 20:                                               ; preds = %20, %.preheader
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %20 ], [ %19, %.preheader ]
   %21 = load ptr, ptr %7, align 8, !tbaa !122
-  %22 = getelementptr inbounds %"class.b3ConvexHullInternal::Point32", ptr %21, i64 %indvars.iv37
+  %22 = getelementptr inbounds [16 x i8], ptr %21, i64 %indvars.iv37
   %23 = call noundef zeroext i1 %1(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %22)
   %indvars.iv.next38 = add nsw i64 %indvars.iv37, -1
   br i1 %23, label %20, label %24, !llvm.loop !248
@@ -10386,12 +10385,12 @@ define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN20b3ConvexHullInt
 27:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %28 = load ptr, ptr %7, align 8, !tbaa !122
-  %29 = getelementptr inbounds %"class.b3ConvexHullInternal::Point32", ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds [16 x i8], ptr %28, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !125
-  %30 = getelementptr inbounds %"class.b3ConvexHullInternal::Point32", ptr %28, i64 %indvars.iv37
+  %30 = getelementptr inbounds [16 x i8], ptr %28, i64 %indvars.iv37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !125
   %31 = load ptr, ptr %7, align 8, !tbaa !122
-  %32 = getelementptr inbounds %"class.b3ConvexHullInternal::Point32", ptr %31, i64 %indvars.iv37
+  %32 = getelementptr inbounds [16 x i8], ptr %31, i64 %indvars.iv37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !125
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %33 = add nsw i32 %25, 1

@@ -816,7 +816,7 @@ ifallzero.exit79.i:                               ; preds = %243
 
 263:                                              ; preds = %261
   %264 = sext i32 %262 to i64
-  %265 = getelementptr i64, ptr @__const.decfloat.p10s, i64 %264
+  %265 = getelementptr [8 x i8], ptr @__const.decfloat.p10s, i64 %264
   %266 = getelementptr i8, ptr %265, i64 -8
   %267 = load i64, ptr %266, align 8
   %268 = sitofp i64 %267 to x86_fp80

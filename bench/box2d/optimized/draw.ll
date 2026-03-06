@@ -13,13 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.ImVec2 = type { float, float }
 %struct.ImVec4 = type { float, float, float, float }
-%struct.VertexData = type { %struct.b2Vec2, %struct.RGBA8 }
 %struct.RGBA8 = type { i8, i8, i8, i8 }
-%struct.PolygonData = type { %struct.b2Transform, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, i32, float, %struct.RGBA8 }
-%struct.CircleData = type { %struct.b2Vec2, float, %struct.RGBA8 }
-%struct.SolidCircleData = type { %struct.b2Transform, float, %struct.RGBA8 }
-%struct.CapsuleData = type { %struct.b2Transform, float, float, %struct.RGBA8 }
-%struct.PointData = type { %struct.b2Vec2, float, %struct.RGBA8 }
 
 $_ZN8GLPoints6CreateEv = comdat any
 
@@ -319,7 +313,7 @@ define dso_local void @_Z14DrawPolygonFcnPK6b2Vec2i10b2HexColorPv(ptr noundef re
 
 .lr.ph.i:                                         ; preds = %4
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr %struct.b2Vec2, ptr %0, i64 %6
+  %7 = getelementptr [8 x i8], ptr %0, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %.sroa.06.0.copyload.i = load <2 x float>, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -328,7 +322,7 @@ define dso_local void @_Z14DrawPolygonFcnPK6b2Vec2i10b2HexColorPv(ptr noundef re
 10:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
   %.sroa.06.013.i = phi <2 x float> [ %.sroa.06.0.copyload.i, %.lr.ph.i ], [ %.sroa.02.0.copyload.i, %10 ]
-  %11 = getelementptr inbounds nuw %struct.b2Vec2, ptr %0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %.sroa.02.0.copyload.i = load <2 x float>, ptr %11, align 4
   %12 = load ptr, ptr %9, align 8, !tbaa !16
   tail call void @_ZN7GLLines7AddLineE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(40) %12, <2 x float> %.sroa.06.013.i, <2 x float> %.sroa.02.0.copyload.i, i32 noundef %2)
@@ -347,7 +341,7 @@ define dso_local void @_ZN4Draw11DrawPolygonEPK6b2Vec2i10b2HexColor(ptr noundef 
 
 .lr.ph:                                           ; preds = %4
   %6 = zext nneg i32 %2 to i64
-  %7 = getelementptr %struct.b2Vec2, ptr %1, i64 %6
+  %7 = getelementptr [8 x i8], ptr %1, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %.sroa.06.0.copyload = load <2 x float>, ptr %8, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -360,7 +354,7 @@ define dso_local void @_ZN4Draw11DrawPolygonEPK6b2Vec2i10b2HexColor(ptr noundef 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %.sroa.06.013 = phi <2 x float> [ %.sroa.06.0.copyload, %.lr.ph ], [ %.sroa.02.0.copyload, %10 ]
-  %11 = getelementptr inbounds nuw %struct.b2Vec2, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %.sroa.02.0.copyload = load <2 x float>, ptr %11, align 4
   %12 = load ptr, ptr %9, align 8, !tbaa !16
   tail call void @_ZN7GLLines7AddLineE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(40) %12, <2 x float> %.sroa.06.013, <2 x float> %.sroa.02.0.copyload, i32 noundef %3)
@@ -1775,7 +1769,7 @@ _ZNSt6vectorI10VertexDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; pr
 _ZNSt6vectorI10VertexDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorI10VertexDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   store ptr %26, ptr %0, align 8, !tbaa !139
   store ptr %30, ptr %6, align 8, !tbaa !149
-  %32 = getelementptr inbounds nuw %struct.VertexData, ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 %24
   store ptr %32, ptr %8, align 8, !tbaa !140
   br label %_ZNSt6vectorI10VertexDataSaIS0_EE9push_backEOS0_.exit
 
@@ -1840,7 +1834,7 @@ _ZNSt6vectorI10VertexDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i8: ; p
 _ZNSt6vectorI10VertexDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i10: ; preds = %56, %_ZNSt6vectorI10VertexDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i8
   store ptr %51, ptr %0, align 8, !tbaa !139
   store ptr %55, ptr %6, align 8, !tbaa !149
-  %57 = getelementptr inbounds nuw %struct.VertexData, ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %51, i64 %49
   store ptr %57, ptr %8, align 8, !tbaa !140
   br label %_ZNSt6vectorI10VertexDataSaIS0_EE9push_backEOS0_.exit11
 
@@ -1941,7 +1935,7 @@ _ZNSt6vectorI11PolygonDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; pre
 _ZNSt6vectorI11PolygonDataSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorI11PolygonDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %34, ptr %0, align 8, !tbaa !147
   store ptr %38, ptr %14, align 8, !tbaa !156
-  %40 = getelementptr inbounds nuw %struct.PolygonData, ptr %34, i64 %32
+  %40 = getelementptr inbounds nuw [92 x i8], ptr %34, i64 %32
   store ptr %40, ptr %16, align 8, !tbaa !148
   br label %_ZNSt6vectorI11PolygonDataSaIS0_EE9push_backERKS0_.exit
 
@@ -2025,7 +2019,7 @@ _ZNSt6vectorI10CircleDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; pr
 _ZNSt6vectorI10CircleDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorI10CircleDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   store ptr %26, ptr %0, align 8, !tbaa !141
   store ptr %30, ptr %6, align 8, !tbaa !159
-  %32 = getelementptr inbounds nuw %struct.CircleData, ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %32, ptr %8, align 8, !tbaa !142
   br label %_ZNSt6vectorI10CircleDataSaIS0_EE9push_backEOS0_.exit
 
@@ -2108,7 +2102,7 @@ _ZNSt6vectorI15SolidCircleDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i:
 _ZNSt6vectorI15SolidCircleDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorI15SolidCircleDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   store ptr %26, ptr %0, align 8, !tbaa !143
   store ptr %30, ptr %6, align 8, !tbaa !160
-  %32 = getelementptr inbounds nuw %struct.SolidCircleData, ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %32, ptr %8, align 8, !tbaa !144
   br label %_ZNSt6vectorI15SolidCircleDataSaIS0_EE9push_backEOS0_.exit
 
@@ -2230,7 +2224,7 @@ _ZNSt6vectorI11CapsuleDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; p
 _ZNSt6vectorI11CapsuleDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %46, %_ZNSt6vectorI11CapsuleDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   store ptr %41, ptr %0, align 8, !tbaa !145
   store ptr %45, ptr %21, align 8, !tbaa !161
-  %47 = getelementptr inbounds nuw %struct.CapsuleData, ptr %41, i64 %39
+  %47 = getelementptr inbounds nuw [28 x i8], ptr %41, i64 %39
   store ptr %47, ptr %23, align 8, !tbaa !146
   br label %_ZNSt6vectorI11CapsuleDataSaIS0_EE9push_backEOS0_.exit
 
@@ -2313,7 +2307,7 @@ _ZNSt6vectorI9PointDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; pred
 _ZNSt6vectorI9PointDataSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorI9PointDataSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   store ptr %26, ptr %0, align 8, !tbaa !137
   store ptr %30, ptr %6, align 8, !tbaa !162
-  %32 = getelementptr inbounds nuw %struct.PointData, ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %32, ptr %8, align 8, !tbaa !138
   br label %_ZNSt6vectorI9PointDataSaIS0_EE9push_backEOS0_.exit
 
@@ -2511,7 +2505,7 @@ define linkonce_odr dso_local void @_ZN14GLSolidCircles5FlushEv(ptr noundef nonn
   %narrow = mul nuw nsw i32 %65, 24
   %67 = zext nneg i32 %narrow to i64
   %68 = load ptr, ptr %0, align 8, !tbaa !143
-  %69 = getelementptr inbounds nuw %struct.SolidCircleData, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %indvars.iv
   call void %66(i32 noundef 34962, i64 noundef 0, i64 noundef %67, ptr noundef nonnull %69)
   %70 = load ptr, ptr @glad_glDrawArraysInstanced, align 8, !tbaa !45
   call void %70(i32 noundef 4, i32 noundef 0, i32 noundef 6, i32 noundef %65)
@@ -2645,7 +2639,7 @@ define linkonce_odr dso_local void @_ZN15GLSolidCapsules5FlushEv(ptr noundef non
   %narrow = mul nuw nsw i32 %65, 28
   %67 = zext nneg i32 %narrow to i64
   %68 = load ptr, ptr %0, align 8, !tbaa !145
-  %69 = getelementptr inbounds nuw %struct.CapsuleData, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [28 x i8], ptr %68, i64 %indvars.iv
   call void %66(i32 noundef 34962, i64 noundef 0, i64 noundef %67, ptr noundef nonnull %69)
   %70 = load ptr, ptr @glad_glDrawArraysInstanced, align 8, !tbaa !45
   call void %70(i32 noundef 4, i32 noundef 0, i32 noundef 6, i32 noundef %65)
@@ -2779,7 +2773,7 @@ define linkonce_odr dso_local void @_ZN15GLSolidPolygons5FlushEv(ptr noundef non
   %narrow = mul nuw nsw i32 %65, 92
   %67 = zext nneg i32 %narrow to i64
   %68 = load ptr, ptr %0, align 8, !tbaa !147
-  %69 = getelementptr inbounds nuw %struct.PolygonData, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [92 x i8], ptr %68, i64 %indvars.iv
   call void %66(i32 noundef 34962, i64 noundef 0, i64 noundef %67, ptr noundef nonnull %69)
   %70 = load ptr, ptr @glad_glDrawArraysInstanced, align 8, !tbaa !45
   call void %70(i32 noundef 4, i32 noundef 0, i32 noundef 6, i32 noundef %65)
@@ -2905,7 +2899,7 @@ define linkonce_odr dso_local void @_ZN11GLTriangles5FlushEv(ptr noundef nonnull
   %narrow = mul nuw nsw i32 %58, 12
   %60 = zext nneg i32 %narrow to i64
   %61 = load ptr, ptr %0, align 8, !tbaa !139
-  %62 = getelementptr inbounds nuw %struct.VertexData, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [12 x i8], ptr %61, i64 %indvars.iv
   call void %59(i32 noundef 34962, i64 noundef 0, i64 noundef %60, ptr noundef nonnull %62)
   %63 = load ptr, ptr @glad_glDrawArrays, align 8, !tbaa !45
   call void %63(i32 noundef 4, i32 noundef 0, i32 noundef %58)
@@ -3039,7 +3033,7 @@ define linkonce_odr dso_local void @_ZN9GLCircles5FlushEv(ptr noundef nonnull al
   %67 = shl nuw nsw i32 %65, 4
   %68 = zext nneg i32 %67 to i64
   %69 = load ptr, ptr %0, align 8, !tbaa !141
-  %70 = getelementptr inbounds nuw %struct.CircleData, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %indvars.iv
   call void %66(i32 noundef 34962, i64 noundef 0, i64 noundef %68, ptr noundef nonnull %70)
   %71 = load ptr, ptr @glad_glDrawArraysInstanced, align 8, !tbaa !45
   call void %71(i32 noundef 4, i32 noundef 0, i32 noundef 6, i32 noundef %65)
@@ -3161,7 +3155,7 @@ define linkonce_odr dso_local void @_ZN7GLLines5FlushEv(ptr noundef nonnull alig
   %narrow = mul nuw nsw i32 %56, 12
   %58 = zext nneg i32 %narrow to i64
   %59 = load ptr, ptr %0, align 8, !tbaa !139
-  %60 = getelementptr inbounds nuw %struct.VertexData, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [12 x i8], ptr %59, i64 %indvars.iv
   call void %57(i32 noundef 34962, i64 noundef 0, i64 noundef %58, ptr noundef nonnull %60)
   %61 = load ptr, ptr @glad_glDrawArrays, align 8, !tbaa !45
   call void %61(i32 noundef 1, i32 noundef 0, i32 noundef %56)
@@ -3283,7 +3277,7 @@ define linkonce_odr dso_local void @_ZN8GLPoints5FlushEv(ptr noundef nonnull ali
   %59 = shl nuw nsw i32 %57, 4
   %60 = zext nneg i32 %59 to i64
   %61 = load ptr, ptr %0, align 8, !tbaa !137
-  %62 = getelementptr inbounds nuw %struct.PointData, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %indvars.iv
   call void %58(i32 noundef 34962, i64 noundef 0, i64 noundef %60, ptr noundef nonnull %62)
   %63 = load ptr, ptr @glad_glDrawArrays, align 8, !tbaa !45
   call void %63(i32 noundef 0, i32 noundef 0, i32 noundef %57)

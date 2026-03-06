@@ -370,11 +370,11 @@ define dso_local range(i32 -2147483648, 128) i32 @cmd_merge_file(i32 noundef %0,
 151:                                              ; preds = %.preheader, %188
   %indvars.iv = phi i64 [ %indvars.iv.next, %188 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %152 = getelementptr inbounds nuw %struct.s_mmfile, ptr %6, i64 %indvars.iv
-  %153 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %154 = load ptr, ptr %153, align 8, !tbaa !36
   %.not71 = icmp eq ptr %154, null
-  %155 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %156 = load ptr, ptr %155, align 8, !tbaa !36
   br i1 %.not71, label %157, label %._crit_edge
 
@@ -383,7 +383,7 @@ define dso_local range(i32 -2147483648, 128) i32 @cmd_merge_file(i32 noundef %0,
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %151, %157
-  %158 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %159 = call ptr @prefix_filename(ptr noundef %2, ptr noundef %156) #12
   %160 = load i32, ptr %10, align 4, !tbaa !4
   %.not72 = icmp eq i32 %160, 0
@@ -598,7 +598,7 @@ select.unfold:                                    ; preds = %175, %176, %178
 
 256:                                              ; preds = %255, %256
   %indvars.iv108 = phi i64 [ 0, %255 ], [ %indvars.iv.next109, %256 ]
-  %257 = getelementptr inbounds nuw %struct.s_mmfile, ptr %6, i64 %indvars.iv108
+  %257 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv108
   %258 = load ptr, ptr %257, align 16, !tbaa !60
   call void @free(ptr noundef %258) #12
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
@@ -687,7 +687,7 @@ define internal range(i32 -1, 1) i32 @label_cb(ptr noundef readonly captures(non
   %13 = add nuw nsw i32 %8, 1
   store i32 %13, ptr @label_cb.label_count, align 4, !tbaa !4
   %14 = zext nneg i32 %8 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %5, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %14
   store ptr %1, ptr %15, align 8, !tbaa !36
   br label %16
 

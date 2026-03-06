@@ -175,7 +175,7 @@ define internal ptr @netlink_reachable(ptr noundef %0, ptr noundef %1) #1 {
 
 85:                                               ; preds = %83
   %86 = zext nneg i32 %84 to i64
-  %87 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %86
+  %87 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %89 = load i32, ptr %88, align 4, !tbaa !31
   %90 = icmp sgt i32 %89, 19
@@ -190,9 +190,9 @@ get_weights.exit:                                 ; preds = %83, %85, %91
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %92 = load ptr, ptr %21, align 8, !tbaa !34
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv37
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv37
   %94 = load ptr, ptr %93, align 8, !tbaa !37
-  %95 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv
   store i32 %.227.i, ptr %95, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %96 = getelementptr inbounds nuw i8, ptr %.028, i64 120

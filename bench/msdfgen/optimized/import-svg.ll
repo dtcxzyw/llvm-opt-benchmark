@@ -3536,7 +3536,7 @@ if.end:                                           ; preds = %_ZN7msdfgenL14skipE
   %inc = add nsw i32 %7, 1
   store i32 %inc, ptr %count, align 4
   %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds float, ptr %dst, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x i8], ptr %dst, i64 %idxprom
   store float %conv11, ptr %arrayidx, align 4
   br label %while.cond.i13
 

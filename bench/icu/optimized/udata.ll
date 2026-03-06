@@ -919,13 +919,13 @@ define internal fastcc void @_ZL16setCommonICUDataP11UDataMemoryaP10UErrorCode(p
 
 9:                                                ; preds = %7, %20
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %20 ]
-  %10 = getelementptr inbounds nuw ptr, ptr @_ZL19gCommonICUDataArray, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZL19gCommonICUDataArray, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !30
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %15
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw ptr, ptr @_ZL19gCommonICUDataArray, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZL19gCommonICUDataArray, i64 %indvars.iv
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   store ptr %4, ptr %13, align 8, !tbaa !30
   br label %.loopexit
@@ -1807,7 +1807,7 @@ define internal noundef signext i8 @_ZL13udata_cleanupv() #1 personality ptr @__
 
 4:                                                ; preds = %3, %7
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %7 ]
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZL19gCommonICUDataArray, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZL19gCommonICUDataArray, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !30
   %.not7 = icmp eq ptr %6, null
   br i1 %.not7, label %.critedge, label %7
@@ -2273,7 +2273,7 @@ _ZL20udata_findCachedDataPKcR10UErrorCode.exit.i.i: ; preds = %68
 
 77:                                               ; preds = %85, %75
   %indvars.iv.i.i = phi i64 [ 0, %75 ], [ %indvars.iv.next.i.i, %85 ]
-  %78 = getelementptr inbounds nuw ptr, ptr @_ZL19gCommonICUDataArray, i64 %indvars.iv.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr @_ZL19gCommonICUDataArray, i64 %indvars.iv.i.i
   %79 = load ptr, ptr %78, align 8, !tbaa !30
   %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %85, label %80
@@ -2339,7 +2339,7 @@ define internal fastcc noundef ptr @_ZL14openCommonDataPKciP10UErrorCode(ptr nou
 13:                                               ; preds = %11
   call void @umtx_lock_77(ptr noundef null)
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @_ZL19gCommonICUDataArray, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZL19gCommonICUDataArray, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !30
   %.not48 = icmp eq ptr %16, null
   br i1 %.not48, label %.preheader, label %.loopexit
@@ -2350,7 +2350,7 @@ define internal fastcc noundef ptr @_ZL14openCommonDataPKciP10UErrorCode(ptr nou
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %17 = getelementptr inbounds nuw ptr, ptr @_ZL19gCommonICUDataArray, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZL19gCommonICUDataArray, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !30
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !32

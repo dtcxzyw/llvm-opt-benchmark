@@ -107,7 +107,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %18, %20
   %.0108152 = phi i32 [ %.2110, %125 ], [ 0, %.lr.ph.preheader ]
   %39 = add nsw i32 %.093155, 1
   %40 = sext i32 %.093155 to i64
-  %41 = getelementptr inbounds i16, ptr %.0.i, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !8
   %43 = icmp eq i16 %42, 39
   br i1 %43, label %44, label %57
@@ -118,7 +118,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %18, %20
 
 46:                                               ; preds = %44
   %47 = sext i32 %39 to i64
-  %48 = getelementptr inbounds i16, ptr %.0.i, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !8
   %50 = icmp eq i16 %49, 39
   br i1 %50, label %51, label %53
@@ -174,7 +174,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %18, %20
 
 77:                                               ; preds = %74
   %78 = sext i32 %39 to i64
-  %79 = getelementptr inbounds i16, ptr %.0.i, i64 %78
+  %79 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %78
   %80 = load i16, ptr %79, align 2, !tbaa !8
   %81 = zext i16 %80 to i32
   %82 = add nsw i32 %81, -48
@@ -184,7 +184,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %18, %20
 
 84:                                               ; preds = %77
   %85 = sext i32 %75 to i64
-  %86 = getelementptr inbounds i16, ptr %.0.i, i64 %85
+  %86 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %85
   %87 = load i16, ptr %86, align 2, !tbaa !8
   %88 = icmp eq i16 %87, 125
   br i1 %88, label %89, label %91
@@ -199,7 +199,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %18, %20
 
 93:                                               ; preds = %91
   %94 = sext i32 %39 to i64
-  %95 = getelementptr inbounds i16, ptr %.0.i, i64 %94
+  %95 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !8
   %97 = add i16 %96, -49
   %or.cond10 = icmp ult i16 %97, 9
@@ -219,7 +219,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %18, %20
 
 103:                                              ; preds = %102
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %104 = getelementptr inbounds i16, ptr %.0.i, i64 %indvars.iv
+  %104 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %indvars.iv
   %105 = load i16, ptr %104, align 2, !tbaa !8
   %106 = add i16 %105, -48
   %or.cond16 = icmp ult i16 %106, 10
@@ -406,7 +406,7 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_771
   %.05680.i = phi i32 [ %.157.i, %60 ], [ 1, %.lr.ph81.split.i.preheader ]
   %38 = add nsw i32 %.05680.i, 1
   %39 = sext i32 %.05680.i to i64
-  %40 = getelementptr inbounds i16, ptr %.0.i.i, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %.0.i.i, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !8
   %42 = icmp ult i16 %41, 256
   br i1 %42, label %43, label %52
@@ -428,7 +428,7 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_771
   %53 = zext i16 %41 to i32
   %54 = add nsw i32 %53, -256
   %55 = sext i32 %38 to i64
-  %56 = getelementptr inbounds i16, ptr %.0.i.i, i64 %55
+  %56 = getelementptr inbounds [2 x i8], ptr %.0.i.i, i64 %55
   %57 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %56, i32 noundef 0, i32 noundef %54)
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i unwind label %.split.i
 
@@ -620,14 +620,14 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_771
   %.05680.i = phi i32 [ %.157.i, %67 ], [ 1, %.preheader78.i ]
   %38 = add nsw i32 %.05680.i, 1
   %39 = sext i32 %.05680.i to i64
-  %40 = getelementptr inbounds i16, ptr %.0.i.i, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %.0.i.i, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !8
   %42 = icmp ult i16 %41, 256
   br i1 %42, label %43, label %59
 
 43:                                               ; preds = %.lr.ph81.split.i
   %44 = zext nneg i16 %41 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %6, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !15
   %47 = icmp eq ptr %46, null
   %48 = icmp eq ptr %46, %3
@@ -650,7 +650,7 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_771
   %60 = zext i16 %41 to i32
   %61 = add nsw i32 %60, -256
   %62 = sext i32 %38 to i64
-  %63 = getelementptr inbounds i16, ptr %.0.i.i, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr %.0.i.i, i64 %62
   %64 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %63, i32 noundef 0, i32 noundef %61)
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i unwind label %.split.i
 
@@ -755,14 +755,14 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_771
   %.05680.i = phi i32 [ %.157.i, %69 ], [ 1, %.preheader78.i ]
   %40 = add nsw i32 %.05680.i, 1
   %41 = sext i32 %.05680.i to i64
-  %42 = getelementptr inbounds i16, ptr %.0.i.i, i64 %41
+  %42 = getelementptr inbounds [2 x i8], ptr %.0.i.i, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !8
   %44 = icmp ult i16 %43, 256
   br i1 %44, label %45, label %61
 
 45:                                               ; preds = %.lr.ph81.split.i
   %46 = zext nneg i16 %43 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %7, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !15
   %49 = icmp eq ptr %48, null
   %50 = icmp eq ptr %48, %4
@@ -785,7 +785,7 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_771
   %62 = zext i16 %43 to i32
   %63 = add nsw i32 %62, -256
   %64 = sext i32 %40 to i64
-  %65 = getelementptr inbounds i16, ptr %.0.i.i, i64 %64
+  %65 = getelementptr inbounds [2 x i8], ptr %.0.i.i, i64 %64
   %66 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %65, i32 noundef 0, i32 noundef %63)
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i unwind label %.split.i
 
@@ -846,7 +846,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7715SimpleFormat
   %.05680.us = phi i32 [ %.157.us, %82 ], [ 1, %.lr.ph81 ]
   %20 = add nsw i32 %.05680.us, 1
   %21 = sext i32 %.05680.us to i64
-  %22 = getelementptr inbounds i16, ptr %0, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %0, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !8
   %24 = zext i16 %23 to i32
   %25 = icmp ult i16 %23, 256
@@ -855,7 +855,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7715SimpleFormat
 26:                                               ; preds = %.lr.ph81.split.us
   %27 = add nsw i32 %24, -256
   %28 = sext i32 %20 to i64
-  %29 = getelementptr inbounds i16, ptr %0, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %0, i64 %28
   %30 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %29, i32 noundef 0, i32 noundef %27)
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us unwind label %.split.us
 
@@ -866,7 +866,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us: ; preds = %26
 
 32:                                               ; preds = %.lr.ph81.split.us
   %33 = zext nneg i16 %23 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %2, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !15
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit.sink.split, label %37
@@ -886,7 +886,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us: ; preds = %26
   %45 = sext i16 %44 to i32
   %46 = load i32, ptr %17, align 4
   %47 = select i1 %43, i32 %46, i32 %45
-  %48 = getelementptr inbounds nuw i32, ptr %6, i64 %33
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %33
   store i32 %47, ptr %48, align 4, !tbaa !18
   br label %49
 
@@ -917,7 +917,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us: ; preds = %26
   %67 = sext i16 %66 to i32
   %68 = load i32, ptr %17, align 4
   %69 = select i1 %65, i32 %68, i32 %67
-  %70 = getelementptr inbounds nuw i32, ptr %6, i64 %33
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %33
   store i32 %69, ptr %70, align 4, !tbaa !18
   br label %71
 
@@ -935,7 +935,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us: ; preds = %26
   br i1 %61, label %80, label %82
 
 80:                                               ; preds = %79
-  %81 = getelementptr inbounds nuw i32, ptr %6, i64 %33
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %33
   store i32 0, ptr %81, align 4, !tbaa !18
   br label %82
 
@@ -953,7 +953,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us: ; preds = %26
   %.05680 = phi i32 [ %.157, %125 ], [ 1, %.lr.ph81 ]
   %85 = add nsw i32 %.05680, 1
   %86 = sext i32 %.05680 to i64
-  %87 = getelementptr inbounds i16, ptr %0, i64 %86
+  %87 = getelementptr inbounds [2 x i8], ptr %0, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !8
   %89 = zext i16 %88 to i32
   %90 = icmp ult i16 %88, 256
@@ -961,7 +961,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us: ; preds = %26
 
 91:                                               ; preds = %.lr.ph81.split
   %92 = zext nneg i16 %88 to i64
-  %93 = getelementptr inbounds nuw ptr, ptr %2, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !15
   %95 = icmp eq ptr %94, null
   %96 = icmp eq ptr %94, %3
@@ -979,7 +979,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us: ; preds = %26
   %103 = sext i16 %102 to i32
   %104 = load i32, ptr %17, align 4
   %105 = select i1 %101, i32 %104, i32 %103
-  %106 = getelementptr inbounds nuw i32, ptr %6, i64 %92
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %92
   store i32 %105, ptr %106, align 4, !tbaa !18
   br label %107
 
@@ -998,7 +998,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us: ; preds = %26
 117:                                              ; preds = %.lr.ph81.split
   %118 = add nsw i32 %89, -256
   %119 = sext i32 %85 to i64
-  %120 = getelementptr inbounds i16, ptr %0, i64 %119
+  %120 = getelementptr inbounds [2 x i8], ptr %0, i64 %119
   %121 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %120, i32 noundef 0, i32 noundef %118)
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit unwind label %.split
 
@@ -1135,7 +1135,7 @@ _ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit58: ; preds = %_ZN6icu_7
   %.14669 = phi i32 [ -1, %.lr.ph ], [ %.2, %75 ]
   %50 = add nsw i32 %.04170, 1
   %51 = sext i32 %.04170 to i64
-  %52 = getelementptr inbounds i16, ptr %.0.i, i64 %51
+  %52 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !8
   %54 = zext i16 %53 to i32
   %55 = icmp ult i16 %53, 256
@@ -1143,7 +1143,7 @@ _ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit58: ; preds = %_ZN6icu_7
 
 56:                                               ; preds = %49
   %57 = zext nneg i16 %53 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %1, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !15
   %60 = icmp eq ptr %59, %3
   br i1 %60, label %61, label %75
@@ -1248,7 +1248,7 @@ _ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit: ; preds = %._crit_edge
   %.02736 = phi i32 [ 1, %.lr.ph37 ], [ %.1, %43 ]
   %18 = add nsw i32 %.02736, 1
   %19 = sext i32 %.02736 to i64
-  %20 = getelementptr inbounds i16, ptr %1, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %1, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !8
   %22 = zext i16 %21 to i32
   %23 = icmp ugt i16 %21, 256
@@ -1257,7 +1257,7 @@ _ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit: ; preds = %._crit_edge
 24:                                               ; preds = %17
   %25 = add nsw i32 %22, -256
   %26 = sext i32 %18 to i64
-  %27 = getelementptr inbounds i16, ptr %1, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %1, i64 %26
   %28 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %27, i32 noundef 0, i32 noundef %25)
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit unwind label %30
 
@@ -1285,7 +1285,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %24
   %39 = load i32, ptr %16, align 4
   %40 = select i1 %36, i32 %39, i32 %38
   %41 = zext nneg i16 %21 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %3, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %41
   store i32 %40, ptr %42, align 4, !tbaa !18
   br label %43
 

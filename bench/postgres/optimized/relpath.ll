@@ -34,7 +34,7 @@ define dso_local range(i32 0, 4) i32 @forkname_to_number(ptr noundef readonly ca
 
 2:                                                ; preds = %1, %9
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @forkNames, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @forkNames, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0) #5
   %6 = icmp eq i32 %5, 0
@@ -78,7 +78,7 @@ define dso_local i32 @forkname_chars(ptr noundef readonly captures(none) %0, ptr
 
 3:                                                ; preds = %2, %13
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %13 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @forkNames, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @forkNames, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #5
   %sext = shl i64 %6, 32
@@ -163,7 +163,7 @@ define dso_local ptr @GetRelationPath(i32 noundef %0, i32 noundef %1, i32 nounde
 
 7:                                                ; preds = %6
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds ptr, ptr @forkNames, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr @forkNames, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, i32 noundef %2, ptr noundef %10) #7
   br label %50
@@ -182,7 +182,7 @@ define dso_local ptr @GetRelationPath(i32 noundef %0, i32 noundef %1, i32 nounde
 
 17:                                               ; preds = %16
   %18 = sext i32 %4 to i64
-  %19 = getelementptr inbounds ptr, ptr @forkNames, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr @forkNames, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.14, i32 noundef %0, i32 noundef %2, ptr noundef %20) #7
   br label %50
@@ -196,7 +196,7 @@ define dso_local ptr @GetRelationPath(i32 noundef %0, i32 noundef %1, i32 nounde
 
 25:                                               ; preds = %24
   %26 = sext i32 %4 to i64
-  %27 = getelementptr inbounds ptr, ptr @forkNames, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr @forkNames, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.16, i32 noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef %28) #7
   br label %50
@@ -215,7 +215,7 @@ define dso_local ptr @GetRelationPath(i32 noundef %0, i32 noundef %1, i32 nounde
 
 35:                                               ; preds = %34
   %36 = sext i32 %4 to i64
-  %37 = getelementptr inbounds ptr, ptr @forkNames, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr @forkNames, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.10, i32 noundef %1, ptr noundef nonnull @.str.11, i32 noundef %0, i32 noundef %2, ptr noundef %38) #7
   br label %50
@@ -229,7 +229,7 @@ define dso_local ptr @GetRelationPath(i32 noundef %0, i32 noundef %1, i32 nounde
 
 43:                                               ; preds = %42
   %44 = sext i32 %4 to i64
-  %45 = getelementptr inbounds ptr, ptr @forkNames, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr @forkNames, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.10, i32 noundef %1, ptr noundef nonnull @.str.11, i32 noundef %0, i32 noundef %3, i32 noundef %2, ptr noundef %46) #7
   br label %50

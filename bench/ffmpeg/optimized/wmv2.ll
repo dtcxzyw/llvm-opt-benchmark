@@ -148,7 +148,7 @@ define void @ff_mspel_motion(ptr noundef readonly captures(none) %0, ptr noundef
   %.not147 = phi i1 [ false, %61 ], [ true, %58 ]
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %78 = sext i32 %.1135 to i64
-  %79 = getelementptr inbounds ptr, ptr %77, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %77, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !57
   tail call void %80(ptr noundef %1, ptr noundef %.0133, i64 noundef %43) #4
   %81 = load ptr, ptr %79, align 8, !tbaa !57
@@ -232,7 +232,7 @@ define void @ff_mspel_motion(ptr noundef readonly captures(none) %0, ptr noundef
   %.1 = phi ptr [ %136, %125 ], [ %124, %96 ]
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %139 = zext nneg i32 %.5 to i64
-  %140 = getelementptr inbounds nuw ptr, ptr %138, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !57
   %142 = ashr i32 %8, 1
   tail call void %141(ptr noundef %2, ptr noundef %.1, i64 noundef %45, i32 noundef %142) #4

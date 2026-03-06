@@ -1098,7 +1098,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$
   %5 = load i64, ptr %4, align 8, !noundef !10
   %6 = icmp ult i64 %1, %5
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds { { { i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %3, i64 %1
+  %7 = getelementptr inbounds [56 x i8], ptr %3, i64 %1
   %8 = load atomic i64, ptr %7 monotonic, align 8
   %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %8, i64 4)
   %10 = extractvalue { i64, i1 } %9, 1

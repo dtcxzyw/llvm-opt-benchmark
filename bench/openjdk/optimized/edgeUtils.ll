@@ -119,11 +119,11 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %8, %18
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 120
   br label %45
 
-45:                                               ; preds = %96, %34
-  %.117 = phi ptr [ %.016, %34 ], [ %.218, %96 ]
-  %.015 = phi ptr [ undef, %34 ], [ %.1, %96 ]
+45:                                               ; preds = %94, %34
+  %.117 = phi ptr [ %.016, %34 ], [ %.218, %94 ]
+  %.015 = phi ptr [ undef, %34 ], [ %.1, %94 ]
   %.not = icmp eq ptr %.117, null
-  br i1 %.not, label %97, label %46
+  br i1 %.not, label %95, label %46
 
 46:                                               ; preds = %45
   %47 = getelementptr inbounds nuw i8, ptr %.117, i64 448
@@ -173,11 +173,11 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   br i1 %.not2023, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN15JavaFieldStreamC2EPK13InstanceKlass.exit, %_ZN15FieldStreamBase4nextEv.exit
-  %75 = phi i32 [ %92, %_ZN15FieldStreamBase4nextEv.exit ], [ %74, %_ZN15JavaFieldStreamC2EPK13InstanceKlass.exit ]
-  %76 = phi i32 [ %93, %_ZN15FieldStreamBase4nextEv.exit ], [ %73, %_ZN15JavaFieldStreamC2EPK13InstanceKlass.exit ]
+  %75 = phi i32 [ %90, %_ZN15FieldStreamBase4nextEv.exit ], [ %74, %_ZN15JavaFieldStreamC2EPK13InstanceKlass.exit ]
+  %76 = phi i32 [ %91, %_ZN15FieldStreamBase4nextEv.exit ], [ %73, %_ZN15JavaFieldStreamC2EPK13InstanceKlass.exit ]
   %77 = load i32, ptr %37, align 8
   %78 = icmp eq i32 %77, %25
-  br i1 %78, label %79, label %89
+  br i1 %78, label %79, label %87
 
 79:                                               ; preds = %.lr.ph
   %.sroa.0.0.copyload.i.i = load i32, ptr %40, align 4
@@ -189,50 +189,49 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
   %84 = and i32 %83, 2
   %.not.i.i = icmp eq i32 %84, 0
   %85 = zext i16 %82 to i64
-  %86 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %85
-  %87 = getelementptr inbounds nuw i8, ptr %81, i64 72
-  %88 = getelementptr inbounds nuw i64, ptr %87, i64 %85
-  %.0.in.i.i = select i1 %.not.i.i, ptr %88, ptr %86
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 72
+  %.0.in.v.i.i = select i1 %.not.i.i, ptr %86, ptr @_ZN6Symbol11_vm_symbolsE
+  %.0.in.i.i = getelementptr inbounds nuw [8 x i8], ptr %.0.in.v.i.i, i64 %85
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
-  br label %96
+  br label %94
 
-89:                                               ; preds = %.lr.ph
-  %90 = add nsw i32 %76, 1
-  store i32 %90, ptr %35, align 8
-  %.not.i = icmp slt i32 %90, %75
-  br i1 %.not.i, label %91, label %_ZN15FieldStreamBase4nextEv.exit
+87:                                               ; preds = %.lr.ph
+  %88 = add nsw i32 %76, 1
+  store i32 %88, ptr %35, align 8
+  %.not.i = icmp slt i32 %88, %75
+  br i1 %.not.i, label %89, label %_ZN15FieldStreamBase4nextEv.exit
 
-91:                                               ; preds = %89
+89:                                               ; preds = %87
   call void @_ZN15FieldInfoReader15read_field_infoER9FieldInfo(ptr noundef nonnull align 8 dereferenceable(20) %38, ptr noundef nonnull align 4 dereferenceable(26) %39)
   %.pre = load i32, ptr %35, align 8
   %.pre25 = load i32, ptr %36, align 4
   br label %_ZN15FieldStreamBase4nextEv.exit
 
-_ZN15FieldStreamBase4nextEv.exit:                 ; preds = %89, %91
-  %92 = phi i32 [ %75, %89 ], [ %.pre25, %91 ]
-  %93 = phi i32 [ %90, %89 ], [ %.pre, %91 ]
-  %.not20 = icmp slt i32 %93, %92
+_ZN15FieldStreamBase4nextEv.exit:                 ; preds = %87, %89
+  %90 = phi i32 [ %75, %87 ], [ %.pre25, %89 ]
+  %91 = phi i32 [ %88, %87 ], [ %.pre, %89 ]
+  %.not20 = icmp slt i32 %91, %90
   br i1 %.not20, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_ZN15FieldStreamBase4nextEv.exit, %_ZN15JavaFieldStreamC2EPK13InstanceKlass.exit
-  %94 = getelementptr inbounds nuw i8, ptr %.117, i64 120
-  %95 = load ptr, ptr %94, align 8
-  br label %96
+  %92 = getelementptr inbounds nuw i8, ptr %.117, i64 120
+  %93 = load ptr, ptr %92, align 8
+  br label %94
 
-96:                                               ; preds = %._crit_edge, %79
+94:                                               ; preds = %._crit_edge, %79
   %.not2022 = phi i1 [ true, %79 ], [ false, %._crit_edge ]
-  %.218 = phi ptr [ %.117, %79 ], [ %95, %._crit_edge ]
+  %.218 = phi ptr [ %.117, %79 ], [ %93, %._crit_edge ]
   %.1 = phi ptr [ %.0.i.i, %79 ], [ %.015, %._crit_edge ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #8
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %41) #8
   br i1 %.not2022, label %.loopexit, label %45
 
-97:                                               ; preds = %45
+95:                                               ; preds = %45
   store i16 0, ptr %1, align 2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %96, %97
-  %.2 = phi ptr [ null, %97 ], [ %.1, %96 ]
+.loopexit:                                        ; preds = %94, %95
+  %.2 = phi ptr [ null, %95 ], [ %.1, %94 ]
   ret ptr %.2
 }
 
@@ -478,7 +477,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %30 to i64
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %33, i64 %34
   store ptr %2, ptr %35, align 8
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
@@ -721,9 +720,9 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -740,7 +739,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

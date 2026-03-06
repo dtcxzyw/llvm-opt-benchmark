@@ -1227,7 +1227,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang10TargetInfo17hasFeatur
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %1, align 8
-  %.sroa.0.0.i.i.i = getelementptr inbounds ptr, ptr %13, i64 %11
+  %.sroa.0.0.i.i.i = getelementptr inbounds [8 x i8], ptr %13, i64 %11
   %14 = load ptr, ptr %.sroa.0.0.i.i.i, align 8, !tbaa !120
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i8, ptr %15, align 8, !tbaa !122, !range !54, !noundef !55
@@ -1949,7 +1949,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocator
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #11
   %6 = load ptr, ptr %0, align 8, !tbaa !132
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !120
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -2003,7 +2003,7 @@ _ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #11
   %27 = load ptr, ptr %0, align 8, !tbaa !132
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit

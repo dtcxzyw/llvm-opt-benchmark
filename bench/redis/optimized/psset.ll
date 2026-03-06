@@ -3,12 +3,6 @@ source_filename = "bench/redis/original/psset.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.hpdata_age_heap_t = type { %struct.ph_s }
-%struct.ph_s = type { ptr, i64 }
-%struct.psset_bin_stats_s = type { i64, i64, i64 }
-%struct.hpdata_purge_list_t = type { %struct.anon.0 }
-%struct.anon.0 = type { ptr }
-
 ; Function Attrs: nounwind uwtable
 define hidden void @je_psset_init(ptr noundef %0) local_unnamed_addr #0 {
   br label %4
@@ -20,7 +14,7 @@ define hidden void @je_psset_init(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %struct.hpdata_age_heap_t, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   tail call void @je_hpdata_age_heap_new(ptr noundef %5) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -113,8 +107,8 @@ define hidden void @je_psset_stats_accum(ptr noundef captures(none) %0, ptr noun
 
 64:                                               ; preds = %2, %64
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %64 ]
-  %65 = getelementptr inbounds nuw [2 x %struct.psset_bin_stats_s], ptr %0, i64 %indvars.iv
-  %66 = getelementptr inbounds nuw [2 x %struct.psset_bin_stats_s], ptr %1, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [48 x i8], ptr %1, i64 %indvars.iv
   %67 = load i64, ptr %66, align 8, !tbaa !6
   %68 = load i64, ptr %65, align 8, !tbaa !6
   %69 = add i64 %68, %67
@@ -187,7 +181,7 @@ define internal fastcc void @psset_stats_remove(ptr noundef captures(none) %0, p
   %6 = getelementptr i8, ptr %1, i64 16
   %.val.i = load i8, ptr %6, align 8, !tbaa !25, !range !22, !noundef !23
   %7 = zext nneg i8 %.val.i to i64
-  %8 = getelementptr inbounds nuw %struct.psset_bin_stats_s, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !6
   %10 = add i64 %9, -1
   store i64 %10, ptr %8, align 8, !tbaa !6
@@ -212,7 +206,7 @@ define internal fastcc void @psset_stats_remove(ptr noundef captures(none) %0, p
   %23 = getelementptr i8, ptr %1, i64 16
   %.val.i15 = load i8, ptr %23, align 8, !tbaa !25, !range !22, !noundef !23
   %24 = zext nneg i8 %.val.i15 to i64
-  %25 = getelementptr inbounds nuw %struct.psset_bin_stats_s, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !6
   %27 = add i64 %26, -1
   store i64 %27, ptr %25, align 8, !tbaa !6
@@ -271,11 +265,11 @@ define internal fastcc void @psset_stats_remove(ptr noundef captures(none) %0, p
 sz_psz2ind.exit:                                  ; preds = %44, %49
   %.0.i = phi i64 [ %64, %49 ], [ 199, %44 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %66 = getelementptr inbounds nuw [2 x %struct.psset_bin_stats_s], ptr %65, i64 %.0.i
+  %66 = getelementptr inbounds nuw [48 x i8], ptr %65, i64 %.0.i
   %67 = getelementptr i8, ptr %1, i64 16
   %.val.i19 = load i8, ptr %67, align 8, !tbaa !25, !range !22, !noundef !23
   %68 = zext nneg i8 %.val.i19 to i64
-  %69 = getelementptr inbounds nuw %struct.psset_bin_stats_s, ptr %66, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %68
   %70 = load i64, ptr %69, align 8, !tbaa !6
   %71 = add i64 %70, -1
   store i64 %71, ptr %69, align 8, !tbaa !6
@@ -392,7 +386,7 @@ define internal fastcc void @psset_alloc_container_remove(ptr noundef %0, ptr no
 
 sz_psz2ind.exit:                                  ; preds = %32, %37
   %.0.i = phi i64 [ %52, %37 ], [ 199, %32 ]
-  %53 = getelementptr inbounds nuw %struct.hpdata_age_heap_t, ptr %0, i64 %.0.i
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.0.i
   tail call void @je_hpdata_age_heap_remove(ptr noundef %53, ptr noundef nonnull %1) #9
   %54 = tail call zeroext i1 @je_hpdata_age_heap_empty(ptr noundef %53) #9
   br i1 %54, label %55, label %hpdata_empty_list_remove.exit
@@ -403,7 +397,7 @@ sz_psz2ind.exit:                                  ; preds = %32, %37
   %58 = and i64 %.0.i, 63
   %59 = shl nuw i64 1, %58
   %60 = xor i64 %59, -1
-  %61 = getelementptr inbounds nuw i64, ptr %56, i64 %57
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %62 = load i64, ptr %61, align 8, !tbaa !38
   %63 = and i64 %62, %60
   store i64 %63, ptr %61, align 8, !tbaa !38
@@ -474,7 +468,7 @@ sz_psz2ind.exit.i:                                ; preds = %17, %11
 psset_purge_list_ind.exit:                        ; preds = %8, %sz_psz2ind.exit.i
   %.0.i = phi i64 [ %..i, %8 ], [ %36, %sz_psz2ind.exit.i ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4232
-  %38 = getelementptr inbounds nuw %struct.hpdata_purge_list_t, ptr %37, i64 %.0.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.0.i
   %39 = load ptr, ptr %38, align 8, !tbaa !36
   %40 = icmp eq ptr %39, %1
   br i1 %40, label %41, label %hpdata_purge_list_remove.exit
@@ -518,7 +512,7 @@ hpdata_purge_list_remove.exit:                    ; preds = %psset_purge_list_in
   %61 = and i64 %.0.i, 63
   %62 = shl nuw i64 1, %61
   %63 = xor i64 %62, -1
-  %64 = getelementptr inbounds nuw i64, ptr %59, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %60
   %65 = load i64, ptr %64, align 8, !tbaa !38
   %66 = and i64 %65, %63
   store i64 %66, ptr %64, align 8, !tbaa !38
@@ -602,7 +596,7 @@ sz_psz2ind.exit.i.i:                              ; preds = %22, %16
 psset_purge_list_ind.exit.i:                      ; preds = %sz_psz2ind.exit.i.i, %13
   %.0.i.i = phi i64 [ %..i.i, %13 ], [ %41, %sz_psz2ind.exit.i.i ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4232
-  %43 = getelementptr inbounds nuw %struct.hpdata_purge_list_t, ptr %42, i64 %.0.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.0.i.i
   %.val8.i = load ptr, ptr %43, align 8, !tbaa !36
   %44 = icmp eq ptr %.val8.i, null
   br i1 %44, label %.thread.i, label %54
@@ -612,7 +606,7 @@ psset_purge_list_ind.exit.i:                      ; preds = %sz_psz2ind.exit.i.i
   %46 = lshr i64 %.0.i.i, 6
   %47 = and i64 %.0.i.i, 63
   %48 = shl nuw i64 1, %47
-  %49 = getelementptr inbounds nuw i64, ptr %45, i64 %46
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %50 = load i64, ptr %49, align 8, !tbaa !38
   %51 = or i64 %50, %48
   store i64 %51, ptr %49, align 8, !tbaa !38
@@ -751,7 +745,7 @@ define internal fastcc void @psset_stats_insert(ptr noundef captures(none) %0, p
   %6 = getelementptr i8, ptr %1, i64 16
   %.val.i = load i8, ptr %6, align 8, !tbaa !25, !range !22, !noundef !23
   %7 = zext nneg i8 %.val.i to i64
-  %8 = getelementptr inbounds nuw %struct.psset_bin_stats_s, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !6
   %10 = add i64 %9, 1
   store i64 %10, ptr %8, align 8, !tbaa !6
@@ -768,7 +762,7 @@ define internal fastcc void @psset_stats_insert(ptr noundef captures(none) %0, p
   %17 = getelementptr i8, ptr %1, i64 16
   %.val.i15 = load i8, ptr %17, align 8, !tbaa !25, !range !22, !noundef !23
   %18 = zext nneg i8 %.val.i15 to i64
-  %19 = getelementptr inbounds nuw %struct.psset_bin_stats_s, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !6
   %21 = add i64 %20, 1
   store i64 %21, ptr %19, align 8, !tbaa !6
@@ -819,11 +813,11 @@ define internal fastcc void @psset_stats_insert(ptr noundef captures(none) %0, p
 sz_psz2ind.exit:                                  ; preds = %33, %38
   %.0.i = phi i64 [ %53, %38 ], [ 199, %33 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %55 = getelementptr inbounds nuw [2 x %struct.psset_bin_stats_s], ptr %54, i64 %.0.i
+  %55 = getelementptr inbounds nuw [48 x i8], ptr %54, i64 %.0.i
   %56 = getelementptr i8, ptr %1, i64 16
   %.val.i18 = load i8, ptr %56, align 8, !tbaa !25, !range !22, !noundef !23
   %57 = zext nneg i8 %.val.i18 to i64
-  %58 = getelementptr inbounds nuw %struct.psset_bin_stats_s, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !6
   %60 = add i64 %59, 1
   store i64 %60, ptr %58, align 8, !tbaa !6
@@ -935,7 +929,7 @@ hpdata_empty_list_prepend.exit:                   ; preds = %5, %11
 
 sz_psz2ind.exit:                                  ; preds = %25, %30
   %.0.i = phi i64 [ %45, %30 ], [ 199, %25 ]
-  %46 = getelementptr inbounds nuw %struct.hpdata_age_heap_t, ptr %0, i64 %.0.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.0.i
   %47 = tail call zeroext i1 @je_hpdata_age_heap_empty(ptr noundef %46) #9
   br i1 %47, label %48, label %psset_hpdata_heap_insert.exit
 
@@ -944,7 +938,7 @@ sz_psz2ind.exit:                                  ; preds = %25, %30
   %50 = lshr i64 %.0.i, 6
   %51 = and i64 %.0.i, 63
   %52 = shl nuw i64 1, %51
-  %53 = getelementptr inbounds nuw i64, ptr %49, i64 %50
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %54 = load i64, ptr %53, align 8, !tbaa !38
   %55 = or i64 %54, %52
   store i64 %55, ptr %53, align 8, !tbaa !38
@@ -988,7 +982,7 @@ sz_psz2ind.exit:                                  ; preds = %2, %5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %22 = lshr i64 %.0.i, 6
   %23 = and i64 %.0.i, 63
-  %24 = getelementptr inbounds nuw i64, ptr %21, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !38
   %notmask.i.i = shl nsw i64 -1, %23
   %.040.i.i = and i64 %notmask.i.i, %25
@@ -1002,7 +996,7 @@ sz_psz2ind.exit:                                  ; preds = %2, %5
 
 28:                                               ; preds = %.lr.ph.i
   %29 = add nuw nsw i64 %.039.i4.i, 1
-  %30 = getelementptr inbounds nuw i64, ptr %21, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !38
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %.lr.ph.i, label %fb_ffs.exit, !llvm.loop !47
@@ -1023,7 +1017,7 @@ fb_ffs.exit.thread:                               ; preds = %.lr.ph.i, %fb_ffs.e
   br label %41
 
 38:                                               ; preds = %fb_ffs.exit
-  %39 = getelementptr inbounds nuw %struct.hpdata_age_heap_t, ptr %0, i64 %35
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %35
   %40 = tail call ptr @je_hpdata_age_heap_first(ptr noundef %39) #9
   br label %41
 
@@ -1056,7 +1050,7 @@ fb_fls.exit:                                      ; preds = %.lr.ph.i, %1
   %7 = or disjoint i64 %6, %.039.i.lcssa.i
   %8 = xor i64 %7, 63
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4232
-  %10 = getelementptr inbounds nuw %struct.hpdata_purge_list_t, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   %.val = load ptr, ptr %10, align 8, !tbaa !36
   br label %fb_fls.exit.thread
 
@@ -1146,7 +1140,7 @@ sz_psz2ind.exit.i.i:                              ; preds = %22, %16
 psset_purge_list_ind.exit.i:                      ; preds = %sz_psz2ind.exit.i.i, %13
   %.0.i.i = phi i64 [ %..i.i, %13 ], [ %41, %sz_psz2ind.exit.i.i ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4232
-  %43 = getelementptr inbounds nuw %struct.hpdata_purge_list_t, ptr %42, i64 %.0.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.0.i.i
   %.val8.i = load ptr, ptr %43, align 8, !tbaa !36
   %44 = icmp eq ptr %.val8.i, null
   br i1 %44, label %.thread.i, label %54
@@ -1156,7 +1150,7 @@ psset_purge_list_ind.exit.i:                      ; preds = %sz_psz2ind.exit.i.i
   %46 = lshr i64 %.0.i.i, 6
   %47 = and i64 %.0.i.i, 63
   %48 = shl nuw i64 1, %47
-  %49 = getelementptr inbounds nuw i64, ptr %45, i64 %46
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %50 = load i64, ptr %49, align 8, !tbaa !38
   %51 = or i64 %50, %48
   store i64 %51, ptr %49, align 8, !tbaa !38

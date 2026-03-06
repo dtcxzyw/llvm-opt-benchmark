@@ -6,12 +6,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.SnapshotData = type { i32, i32, i32, ptr, i32, ptr, i32, i8, i8, i8, i32, i32, ptr, i32, i32, %struct.pairingheap_node, i64 }
 %struct.pairingheap_node = type { ptr, ptr, ptr }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
-%struct.ItemIdData = type { i32 }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 %struct.HeapTupleData = type { i32, %struct.ItemPointerData, i32, ptr }
 
 @heapam_methods = internal constant { i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 438, [4 x i8] zeroinitializer, ptr @heapam_slot_callbacks, ptr @heap_beginscan, ptr @heap_endscan, ptr @heap_rescan, ptr @heap_getnextslot, ptr @heap_set_tidrange, ptr @heap_getnextslot_tidrange, ptr @table_block_parallelscan_estimate, ptr @table_block_parallelscan_initialize, ptr @table_block_parallelscan_reinitialize, ptr @heapam_index_fetch_begin, ptr @heapam_index_fetch_reset, ptr @heapam_index_fetch_end, ptr @heapam_index_fetch_tuple, ptr @heapam_fetch_row_version, ptr @heapam_tuple_tid_valid, ptr @heap_get_latest_tid, ptr @heapam_tuple_satisfies_snapshot, ptr @heap_index_delete_tuples, ptr @heapam_tuple_insert, ptr @heapam_tuple_insert_speculative, ptr @heapam_tuple_complete_speculative, ptr @heap_multi_insert, ptr @heapam_tuple_delete, ptr @heapam_tuple_update, ptr @heapam_tuple_lock, ptr null, ptr @heapam_relation_set_new_filelocator, ptr @heapam_relation_nontransactional_truncate, ptr @heapam_relation_copy_data, ptr @heapam_relation_copy_for_cluster, ptr @heap_vacuum_rel, ptr @heapam_scan_analyze_next_block, ptr @heapam_scan_analyze_next_tuple, ptr @heapam_index_build_range_scan, ptr @heapam_index_validate_scan, ptr @table_block_relation_size, ptr @heapam_relation_needs_toast_table, ptr @heapam_relation_toast_am, ptr @heap_fetch_toast_slice, ptr @heapam_estimate_rel_size, ptr @heapam_scan_bitmap_next_block, ptr @heapam_scan_bitmap_next_tuple, ptr @heapam_scan_sample_next_block, ptr @heapam_scan_sample_next_tuple }, align 8
@@ -1112,7 +1108,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %129, %131
 .lr.ph.i:                                         ; preds = %160, %170
   %163 = phi i32 [ %171, %170 ], [ %161, %160 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %170 ], [ 0, %160 ]
-  %164 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %.val118, i64 %indvars.iv.i
+  %164 = getelementptr inbounds nuw [16 x i8], ptr %.val118, i64 %indvars.iv.i
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 33
   %166 = load i8, ptr %165, align 1, !range !4, !noundef !5
   %167 = trunc nuw i8 %166 to i1
@@ -1202,7 +1198,7 @@ reform_and_rewrite_tuple.exit:                    ; preds = %170, %160
 .lr.ph.i122:                                      ; preds = %194, %205
   %198 = phi i32 [ %206, %205 ], [ %196, %194 ]
   %indvars.iv.i123 = phi i64 [ %indvars.iv.next.i124, %205 ], [ 0, %194 ]
-  %199 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %.val120, i64 %indvars.iv.i123
+  %199 = getelementptr inbounds nuw [16 x i8], ptr %.val120, i64 %indvars.iv.i123
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 33
   %201 = load i8, ptr %200, align 1, !range !4, !noundef !5
   %202 = trunc nuw i8 %201 to i1
@@ -1275,7 +1271,7 @@ define internal noundef zeroext i1 @heapam_scan_analyze_next_tuple(ptr noundef c
   %10 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %11 = xor i32 %7, -1
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8
   br label %BufferGetPage.exit
 
@@ -1316,7 +1312,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
 38:                                               ; preds = %.lr.ph, %91
   %39 = phi i32 [ %29, %.lr.ph ], [ %93, %91 ]
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr %struct.ItemIdData, ptr %31, i64 %40
+  %41 = getelementptr [4 x i8], ptr %31, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = lshr i32 %42, 15
   %44 = and i32 %43, 3
@@ -1640,7 +1636,7 @@ heapam_scan_get_blocks_done.exit:                 ; preds = %93, %95
   %108 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %109 = xor i32 %105, -1
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw ptr, ptr %108, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %110
   %112 = load ptr, ptr %111, align 8
   br label %BufferGetPage.exit
 
@@ -1932,7 +1928,7 @@ HeapTupleIsHotUpdated.exit178.thread:             ; preds = %185, %189
   %237 = getelementptr i8, ptr %85, i64 8
   %.val = load i16, ptr %237, align 2
   %238 = zext i16 %.val to i64
-  %239 = getelementptr i16, ptr %15, i64 %238
+  %239 = getelementptr [2 x i8], ptr %15, i64 %238
   %240 = getelementptr i8, ptr %239, i64 -2
   %241 = load i16, ptr %240, align 2
   %242 = icmp eq i16 %241, 0
@@ -1947,7 +1943,7 @@ HeapTupleIsHotUpdated.exit178.thread:             ; preds = %185, %189
   %247 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %248 = xor i32 %244, -1
   %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr inbounds nuw ptr, ptr %247, i64 %249
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %249
   %251 = load ptr, ptr %250, align 8
   br label %BufferGetPage.exit182
 
@@ -2164,7 +2160,7 @@ define internal void @heapam_index_validate_scan(ptr noundef %0, ptr noundef %1,
   %66 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %67 = xor i32 %63, -1
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %66, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %68
   %70 = load ptr, ptr %69, align 8
   br label %BufferGetPage.exit
 
@@ -2200,7 +2196,7 @@ BufferGetPage.exit:                               ; preds = %65, %71
 
 84:                                               ; preds = %79
   %85 = zext i16 %.val to i64
-  %86 = getelementptr i16, ptr %9, i64 %85
+  %86 = getelementptr [2 x i8], ptr %9, i64 %85
   %87 = getelementptr i8, ptr %86, i64 -2
   %88 = load i16, ptr %87, align 2
   %89 = add i16 %88, -1
@@ -2388,7 +2384,7 @@ define internal zeroext i1 @heapam_relation_needs_toast_table(ptr noundef readon
   %8 = shl nsw i64 %7, 4
   %9 = getelementptr i8, ptr %3, i64 %8
   %10 = getelementptr i8, ptr %9, i64 24
-  %11 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [100 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 91
   %13 = load i8, ptr %12, align 1, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
@@ -2608,7 +2604,7 @@ define internal noundef zeroext i1 @heapam_scan_bitmap_next_block(ptr noundef in
 61:                                               ; preds = %.lr.ph99, %70
   %indvars.iv108 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next109, %70 ]
   %.07898 = phi i32 [ 0, %.lr.ph99 ], [ %.1, %70 ]
-  %62 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv108
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %indvars.iv108
   %63 = load i16, ptr %62, align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2623,7 +2619,7 @@ define internal noundef zeroext i1 @heapam_scan_bitmap_next_block(ptr noundef in
   %.val88 = load i16, ptr %59, align 2
   %67 = add i32 %.07898, 1
   %68 = sext i32 %.07898 to i64
-  %69 = getelementptr inbounds i16, ptr %60, i64 %68
+  %69 = getelementptr inbounds [2 x i8], ptr %60, i64 %68
   store i16 %.val88, ptr %69, align 2
   br label %70
 
@@ -2645,7 +2641,7 @@ define internal noundef zeroext i1 @heapam_scan_bitmap_next_block(ptr noundef in
   %77 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %78 = xor i32 %46, -1
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %77, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %79
   %81 = load ptr, ptr %80, align 8
   br label %BufferGetPage.exit
 
@@ -2690,7 +2686,7 @@ BufferGetPage.exit:                               ; preds = %76, %82
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %134 ]
   %.396 = phi i32 [ 0, %.lr.ph ], [ %.4, %134 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %107 = getelementptr %struct.ItemIdData, ptr %94, i64 %indvars.iv
+  %107 = getelementptr [4 x i8], ptr %94, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4
   %109 = and i32 %108, 98304
   %110 = icmp eq i32 %109, 32768
@@ -2717,7 +2713,7 @@ BufferGetPage.exit:                               ; preds = %76, %82
 121:                                              ; preds = %111
   %122 = add i32 %.396, 1
   %123 = sext i32 %.396 to i64
-  %124 = getelementptr inbounds i16, ptr %103, i64 %123
+  %124 = getelementptr inbounds [2 x i8], ptr %103, i64 %123
   store i16 %119, ptr %124, align 2
   %125 = load ptr, ptr %0, align 8
   %126 = load ptr, ptr %95, align 8
@@ -2798,7 +2794,7 @@ define internal noundef zeroext i1 @heapam_scan_bitmap_next_tuple(ptr noundef %0
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %17 = zext i32 %12 to i64
-  %18 = getelementptr inbounds nuw i16, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %17
   %19 = load i16, ptr %18, align 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %21 = load i32, ptr %20, align 4
@@ -2809,7 +2805,7 @@ define internal noundef zeroext i1 @heapam_scan_bitmap_next_tuple(ptr noundef %0
   %24 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %25 = xor i32 %21, -1
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %26
   %28 = load ptr, ptr %27, align 8
   br label %BufferGetPage.exit
 
@@ -2825,7 +2821,7 @@ BufferGetPage.exit:                               ; preds = %23, %29
   %.0.i.i = phi ptr [ %28, %23 ], [ %34, %29 ]
   %35 = zext i16 %19 to i64
   %36 = getelementptr i8, ptr %.0.i.i, i64 20
-  %37 = getelementptr %struct.ItemIdData, ptr %36, i64 %35
+  %37 = getelementptr [4 x i8], ptr %36, i64 %35
   %.val = load i32, ptr %37, align 4
   %38 = and i32 %.val, 32767
   %39 = zext nneg i32 %38 to i64
@@ -3032,7 +3028,7 @@ define internal noundef zeroext i1 @heapam_scan_sample_next_tuple(ptr noundef %0
   %19 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %20 = xor i32 %16, -1
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = load ptr, ptr %22, align 8
   br label %BufferGetPage.exit
 
@@ -3137,14 +3133,14 @@ BufferGetPage.exit:                               ; preds = %18, %24
 
 90:                                               ; preds = %85
   %91 = zext nneg i16 %87 to i64
-  %92 = getelementptr %struct.ItemIdData, ptr %62, i64 %91
+  %92 = getelementptr [4 x i8], ptr %62, i64 %91
   %93 = load i32, ptr %92, align 4
   %94 = and i32 %93, 98304
   %95 = icmp eq i32 %94, 32768
   br i1 %95, label %SampleHeapTupleVisible.exit.us.us, label %.split.us.split.us
 
 SampleHeapTupleVisible.exit.us.us:                ; preds = %90
-  %96 = getelementptr %struct.ItemIdData, ptr %62, i64 %91
+  %96 = getelementptr [4 x i8], ptr %62, i64 %91
   %97 = and i32 %93, 32767
   %98 = zext nneg i32 %97 to i64
   %99 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %98
@@ -3179,14 +3175,14 @@ SampleHeapTupleVisible.exit.us.us:                ; preds = %90
 
 112:                                              ; preds = %107
   %113 = zext nneg i16 %109 to i64
-  %114 = getelementptr %struct.ItemIdData, ptr %62, i64 %113
+  %114 = getelementptr [4 x i8], ptr %62, i64 %113
   %115 = load i32, ptr %114, align 4
   %116 = and i32 %115, 98304
   %117 = icmp eq i32 %116, 32768
   br i1 %117, label %SampleHeapTupleVisible.exit.us, label %.split.us.split
 
 SampleHeapTupleVisible.exit.us:                   ; preds = %112
-  %118 = getelementptr %struct.ItemIdData, ptr %62, i64 %113
+  %118 = getelementptr [4 x i8], ptr %62, i64 %113
   %119 = and i32 %115, 32767
   %120 = zext nneg i32 %119 to i64
   %121 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %120
@@ -3217,7 +3213,7 @@ SampleHeapTupleVisible.exit.us:                   ; preds = %112
 
 131:                                              ; preds = %126
   %132 = zext nneg i16 %128 to i64
-  %133 = getelementptr %struct.ItemIdData, ptr %82, i64 %132
+  %133 = getelementptr [4 x i8], ptr %82, i64 %132
   %134 = load i32, ptr %133, align 4
   %135 = and i32 %134, 98304
   %136 = icmp eq i32 %135, 32768
@@ -3251,7 +3247,7 @@ SampleHeapTupleVisible.exit.us:                   ; preds = %112
   %148 = lshr i32 %147, 1
   %149 = add i32 %148, %.02131.i
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw i16, ptr %81, i64 %150
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %150
   %152 = load i16, ptr %151, align 2
   %.not29.i = icmp eq i16 %128, %152
   br i1 %.not29.i, label %SampleHeapTupleVisible.exit, label %153

@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/mvdistinct.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.MVNDistinctItem = type { double, i32, ptr }
-%struct.SortItem = type { ptr, ptr, i32 }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [45 x i8] c"cache lookup failed for statistics object %u\00", align 1
@@ -119,13 +117,13 @@ generator_next.exit:                              ; preds = %generator_next.exit
   store i32 %45, ptr %34, align 8
   %46 = mul i32 %44, %42
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %43, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %43, i64 %47
   %.not38 = icmp eq ptr %43, null
   br i1 %.not38, label %generator_next.exit.thread, label %49
 
 49:                                               ; preds = %generator_next.exit
   %50 = sext i32 %.151 to i64
-  %51 = getelementptr inbounds %struct.MVNDistinctItem, ptr %13, i64 %50
+  %51 = getelementptr inbounds [24 x i8], ptr %13, i64 %50
   %52 = tail call ptr @palloc(i64 noundef %39) #9
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr %52, ptr %53, align 8
@@ -136,13 +134,13 @@ generator_next.exit:                              ; preds = %generator_next.exit
 .lr.ph:                                           ; preds = %49, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %49 ]
   %55 = load ptr, ptr %14, align 8
-  %56 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i16, ptr %55, i64 %58
+  %59 = getelementptr inbounds [2 x i8], ptr %55, i64 %58
   %60 = load i16, ptr %59, align 2
   %61 = load ptr, ptr %53, align 8
-  %62 = getelementptr inbounds nuw i16, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %61, i64 %indvars.iv
   store i16 %60, ptr %62, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count107.i
@@ -179,10 +177,10 @@ generator_next.exit:                              ; preds = %generator_next.exit
 .lr.ph87.split.us.i:                              ; preds = %.preheader.i, %._crit_edge.us.i
   %indvars.iv114.i = phi i64 [ %indvars.iv.next115.i, %._crit_edge.us.i ], [ 0, %.preheader.i ]
   %73 = load ptr, ptr %15, align 8
-  %74 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv114.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv114.i
   %75 = load i32, ptr %74, align 4
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds ptr, ptr %73, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %73, i64 %76
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4
@@ -204,18 +202,18 @@ generator_next.exit:                              ; preds = %generator_next.exit
   %89 = load ptr, ptr %16, align 8
   %90 = load i32, ptr %74, align 4
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr %89, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %89, i64 %91
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i64, ptr %93, i64 %indvars.iv109.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv109.i
   %95 = load i64, ptr %94, align 8
-  %96 = getelementptr inbounds nuw %struct.SortItem, ptr %67, i64 %indvars.iv109.i
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %indvars.iv109.i
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %indvars.iv114.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv114.i
   store i64 %95, ptr %98, align 8
   %99 = load ptr, ptr %17, align 8
   %100 = load i32, ptr %74, align 4
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds ptr, ptr %99, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %99, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 %indvars.iv109.i
   %105 = load i8, ptr %104, align 1, !range !7, !noundef !8
@@ -237,8 +235,8 @@ generator_next.exit:                              ; preds = %generator_next.exit
   %109 = trunc nuw nsw i64 %indvars.iv.i to i32
   %110 = mul i32 %.03455, %109
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds i64, ptr %69, i64 %111
-  %113 = getelementptr inbounds nuw %struct.SortItem, ptr %67, i64 %indvars.iv.i
+  %112 = getelementptr inbounds [8 x i8], ptr %69, i64 %111
+  %113 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %indvars.iv.i
   store ptr %112, ptr %113, align 8
   %114 = getelementptr inbounds i8, ptr %71, i64 %111
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
@@ -250,10 +248,10 @@ generator_next.exit:                              ; preds = %generator_next.exit
 .lr.ph87.split.i:                                 ; preds = %.preheader.thread.i, %132
   %indvars.iv104.i = phi i64 [ %indvars.iv.next105.i, %132 ], [ 0, %.preheader.thread.i ]
   %116 = load ptr, ptr %15, align 8
-  %117 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv104.i
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv104.i
   %118 = load i32, ptr %117, align 4
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds ptr, ptr %116, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr %116, i64 %119
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
   %123 = load i32, ptr %122, align 4
@@ -293,7 +291,7 @@ generator_next.exit:                              ; preds = %generator_next.exit
   %.07391.i = phi i32 [ 0, %.lr.ph93.preheader.i ], [ %.174.i, %.lr.ph93.i ]
   %.07690.i = phi i32 [ 1, %.lr.ph93.preheader.i ], [ %141, %.lr.ph93.i ]
   %.07889.i = phi i32 [ 1, %.lr.ph93.preheader.i ], [ %.179.i, %.lr.ph93.i ]
-  %135 = getelementptr %struct.SortItem, ptr %67, i64 %indvars.iv119.i
+  %135 = getelementptr [24 x i8], ptr %67, i64 %indvars.iv119.i
   %136 = getelementptr i8, ptr %135, i64 -24
   %137 = tail call i32 @multi_sort_compare(ptr noundef nonnull %135, ptr noundef %136, ptr noundef %64) #9
   %.not.i = icmp ne i32 %137, 0
@@ -621,7 +619,7 @@ define dso_local noundef ptr @statext_ndistinct_deserialize(ptr noundef readonly
   %.06994 = phi ptr [ %60, %.lr.ph ], [ %145, %127 ]
   %.07093 = phi i32 [ 0, %.lr.ph ], [ %146, %127 ]
   %128 = sext i32 %.07093 to i64
-  %129 = getelementptr inbounds %struct.MVNDistinctItem, ptr %126, i64 %128
+  %129 = getelementptr inbounds [24 x i8], ptr %126, i64 %128
   %130 = load i64, ptr %.06994, align 1
   store i64 %130, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %.06994, i64 8
@@ -667,7 +665,7 @@ define dso_local noundef ptr @statext_ndistinct_serialize(ptr noundef readonly c
   %.038 = phi i32 [ %12, %.lr.ph ], [ 0, %1 ]
   %.03637 = phi i64 [ %11, %.lr.ph ], [ 16, %1 ]
   %4 = sext i32 %.038 to i64
-  %5 = getelementptr %struct.MVNDistinctItem, ptr %0, i64 %4
+  %5 = getelementptr [24 x i8], ptr %0, i64 %4
   %6 = getelementptr i8, ptr %5, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
@@ -707,7 +705,7 @@ define dso_local noundef ptr @statext_ndistinct_serialize(ptr noundef readonly c
   %.140 = phi i32 [ 0, %.lr.ph42 ], [ %34, %26 ]
   %.03539 = phi ptr [ %24, %.lr.ph42 ], [ %33, %26 ]
   %27 = sext i32 %.140 to i64
-  %28 = getelementptr inbounds %struct.MVNDistinctItem, ptr %25, i64 %27
+  %28 = getelementptr inbounds [24 x i8], ptr %25, i64 %27
   %.sroa.0.0.copyload = load double, ptr %28, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8
@@ -771,7 +769,7 @@ define dso_local i64 @pg_ndistinct_out(ptr noundef readonly captures(none) %0) l
 11:                                               ; preds = %.lr.ph17, %._crit_edge
   %.015 = phi i32 [ 0, %.lr.ph17 ], [ %24, %._crit_edge ]
   %12 = sext i32 %.015 to i64
-  %13 = getelementptr inbounds %struct.MVNDistinctItem, ptr %10, i64 %12
+  %13 = getelementptr inbounds [24 x i8], ptr %10, i64 %12
   %.sroa.0.0.copyload = load double, ptr %13, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8
@@ -794,7 +792,7 @@ define dso_local i64 @pg_ndistinct_out(ptr noundef readonly captures(none) %0) l
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %18 = getelementptr inbounds nuw i16, ptr %.sroa.51.0.copyload, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.51.0.copyload, i64 %indvars.iv
   %19 = load i16, ptr %18, align 2
   %20 = icmp eq i64 %indvars.iv, 0
   %21 = select i1 %20, ptr @.str.11, ptr @.str.9
@@ -872,7 +870,7 @@ define internal fastcc void @generate_combinations_recurse(ptr noundef captures(
 
 .lr.ph:                                           ; preds = %.preheader
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds i32, ptr %3, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %3, i64 %10
   %12 = add nsw i32 %1, 1
   br label %13
 
@@ -892,7 +890,7 @@ define internal fastcc void @generate_combinations_recurse(ptr noundef captures(
   %21 = load i32, ptr %20, align 8
   %22 = mul i32 %21, %5
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %19, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %19, i64 %23
   %25 = sext i32 %5 to i64
   %26 = shl nsw i64 %25, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %24, ptr align 4 %3, i64 %26, i1 false)

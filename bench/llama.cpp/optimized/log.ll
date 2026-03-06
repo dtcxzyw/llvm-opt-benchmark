@@ -333,7 +333,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load i64, ptr %11, align 8, !tbaa !48
   %13 = load ptr, ptr %10, align 8, !tbaa !39
-  %14 = getelementptr inbounds nuw %struct.common_log_entry, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i8 1, ptr %15, align 8, !tbaa !49
   %16 = add i64 %12, 1
@@ -507,7 +507,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load i64, ptr %14, align 8, !tbaa !48
   %16 = load ptr, ptr %13, align 8, !tbaa !39
-  %17 = getelementptr inbounds nuw %struct.common_log_entry, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %16, i64 %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.va_copy.p0(ptr nonnull %5, ptr %3)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -610,7 +610,7 @@ _ZNSt6vectorI16common_log_entrySaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; pred
 
 .noexc34:                                         ; preds = %_ZNSt6vectorI16common_log_entrySaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   store ptr %77, ptr %6, align 8, !tbaa !39
-  %78 = getelementptr inbounds nuw %struct.common_log_entry, ptr %77, i64 %73
+  %78 = getelementptr inbounds nuw [48 x i8], ptr %77, i64 %73
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %77, i8 0, i64 %76, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %77, i64 %76
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -623,8 +623,8 @@ _ZNSt6vectorI16common_log_entrySaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; pred
   %82 = phi ptr [ %63, %.noexc34 ], [ %107, %_ZN16common_log_entryaSEOS_.exit ]
   %83 = phi i64 [ %68, %.noexc34 ], [ %112, %_ZN16common_log_entryaSEOS_.exit ]
   %.026 = phi i64 [ 0, %.noexc34 ], [ %113, %_ZN16common_log_entryaSEOS_.exit ]
-  %84 = getelementptr inbounds nuw %struct.common_log_entry, ptr %82, i64 %83
-  %85 = getelementptr inbounds nuw %struct.common_log_entry, ptr %77, i64 %.026
+  %84 = getelementptr inbounds nuw [48 x i8], ptr %82, i64 %83
+  %85 = getelementptr inbounds nuw [48 x i8], ptr %77, i64 %.026
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %85, ptr noundef nonnull align 8 dereferenceable(41) %84, i64 16, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
@@ -740,7 +740,7 @@ _ZNSt6vectorI16common_log_entrySaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP16co
 .lr.ph:                                           ; preds = %115, %141
   %138 = phi ptr [ %143, %141 ], [ %77, %115 ]
   %.043 = phi i64 [ %142, %141 ], [ %113, %115 ]
-  %139 = getelementptr inbounds nuw %struct.common_log_entry, ptr %138, i64 %.043
+  %139 = getelementptr inbounds nuw [48 x i8], ptr %138, i64 %.043
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
   invoke void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %140, i64 noundef 256)
           to label %141 unwind label %148
@@ -851,7 +851,7 @@ define void @_Z21common_log_set_colorsP10common_logb(ptr noundef nonnull %0, i1 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.04.i = phi i64 [ %20, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %.04.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.04.i
   store ptr @.str, ptr %19, align 8, !tbaa !68
   %20 = add nuw i64 %.04.i, 1
   %exitcond.not.i = icmp eq i64 %20, %8
@@ -938,7 +938,7 @@ define linkonce_odr void @_ZN10common_logC2Em(ptr noundef nonnull align 8 derefe
   br i1 %22, label %23, label %_ZNSt6vectorI16common_log_entrySaIS0_EE6resizeEm.exit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw %struct.common_log_entry, ptr %13, i64 %1
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %1
   %.not.i.i = icmp eq ptr %12, %24
   br i1 %.not.i.i, label %_ZNSt6vectorI16common_log_entrySaIS0_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -1298,9 +1298,9 @@ _ZNSt6vectorI16common_log_entrySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; pred
 
 _ZNSt12_Vector_baseI16common_log_entrySaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %_ZNSt6vectorI16common_log_entrySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %43
   store ptr %26, ptr %0, align 8, !tbaa !39
-  %47 = getelementptr inbounds nuw %struct.common_log_entry, ptr %27, i64 %1
+  %47 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %1
   store ptr %47, ptr %4, align 8, !tbaa !40
-  %48 = getelementptr inbounds nuw %struct.common_log_entry, ptr %26, i64 %24
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %24
   store ptr %48, ptr %11, align 8, !tbaa !43
   br label %49
 
@@ -1414,7 +1414,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %_ZNSt11unique_lockI
 _ZNSt18condition_variable4waitIZZN10common_log6resumeEvENKUlvE_clEvEUlvE_EEvRSt11unique_lockISt5mutexET_.exit: ; preds = %.noexc, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %19 = phi i64 [ %15, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ], [ %17, %.noexc ]
   %20 = load ptr, ptr %9, align 8, !tbaa !39
-  %21 = getelementptr inbounds nuw %struct.common_log_entry, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %10, ptr noundef nonnull align 8 dereferenceable(41) %21, i64 16, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIcSaIcEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %22)

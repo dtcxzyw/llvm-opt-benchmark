@@ -591,7 +591,7 @@ define noundef ptr @Z3_mk_lstring(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %.pre.i.i.i = phi ptr [ %15, %._crit_edge ], [ %.pre.i.i6.i, %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i ]
   %19 = phi i32 [ 0, %._crit_edge ], [ %39, %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i.i, %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i ]
-  %20 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv.i.i
   %21 = load i32, ptr %17, align 4, !tbaa !172
   %.not.i.i.i = icmp ult i32 %19, %21
   br i1 %.not.i.i.i, label %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i, label %22
@@ -629,8 +629,8 @@ define noundef ptr @Z3_mk_lstring(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 30:                                               ; preds = %30, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv.i.i.i.i
-  %32 = getelementptr inbounds nuw i32, ptr %.pre.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv.i.i.i.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %33 = load i32, ptr %32, align 4, !tbaa !173
   store i32 %33, ptr %31, align 4, !tbaa !173
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -647,7 +647,7 @@ _ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i:    ; preds = %_ZN6bufferIjLb1ELj1
   %.pre.i.i6.i = phi ptr [ %26, %_ZN6bufferIjLb1ELj16EE6expandEv.exit.i.i.i ], [ %.pre.i.i.i, %18 ]
   %34 = phi i32 [ %.pre2.i.i.i, %_ZN6bufferIjLb1ELj16EE6expandEv.exit.i.i.i ], [ %19, %18 ]
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %.pre.i.i6.i, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i6.i, i64 %35
   %37 = load i32, ptr %20, align 4, !tbaa !173
   store i32 %37, ptr %36, align 4, !tbaa !173
   %38 = load i32, ptr %16, align 8, !tbaa !171
@@ -696,7 +696,7 @@ _ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i:    ; preds = %_ZN6bufferIjLb1ELj1
   %56 = phi i32 [ %.pre2.i, %.noexc ], [ %49, %47 ]
   %57 = getelementptr inbounds i8, ptr %55, i64 -4
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %58
   store i32 %45, ptr %59, align 4, !tbaa !173
   %60 = add i32 %56, 1
   store i32 %60, ptr %57, align 4, !tbaa !173
@@ -908,7 +908,7 @@ define noundef ptr @Z3_mk_u32string(ptr noundef %0, i32 noundef %1, ptr noundef 
   %.pre.i.i.i = phi ptr [ %11, %.lr.ph.i.i ], [ %.pre.i.i6.i, %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i ]
   %15 = phi i32 [ 0, %.lr.ph.i.i ], [ %35, %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i ]
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.i
   %17 = load i32, ptr %13, align 4, !tbaa !172
   %.not.i.i.i = icmp ult i32 %15, %17
   br i1 %.not.i.i.i, label %_ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i, label %18
@@ -946,8 +946,8 @@ define noundef ptr @Z3_mk_u32string(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 26:                                               ; preds = %26, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %26 ]
-  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i.i.i.i
-  %28 = getelementptr inbounds nuw i32, ptr %.pre.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv.i.i.i.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %29 = load i32, ptr %28, align 4, !tbaa !173
   store i32 %29, ptr %27, align 4, !tbaa !173
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -964,7 +964,7 @@ _ZN6bufferIjLb1ELj16EE9push_backERKj.exit.i.i:    ; preds = %_ZN6bufferIjLb1ELj1
   %.pre.i.i6.i = phi ptr [ %22, %_ZN6bufferIjLb1ELj16EE6expandEv.exit.i.i.i ], [ %.pre.i.i.i, %14 ]
   %30 = phi i32 [ %.pre2.i.i.i, %_ZN6bufferIjLb1ELj16EE6expandEv.exit.i.i.i ], [ %15, %14 ]
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %.pre.i.i6.i, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i6.i, i64 %31
   %33 = load i32, ptr %16, align 4, !tbaa !173
   store i32 %33, ptr %32, align 4, !tbaa !173
   %34 = load i32, ptr %12, align 8, !tbaa !171
@@ -2453,7 +2453,7 @@ _ZN6vectorIcLb0EjED2Ev.exit:                      ; preds = %._crit_edge201.thre
   %indvars.iv204 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next205, %237 ]
   %38 = phi i32 [ %25, %.lr.ph200 ], [ %240, %237 ]
   %39 = load ptr, ptr %4, align 8, !tbaa !168
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv204
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv204
   %41 = load i32, ptr %40, align 4, !tbaa !173
   %42 = add i32 %41, -256
   %or.cond = icmp ult i32 %42, -255
@@ -2470,7 +2470,7 @@ _ZN6vectorIcLb0EjED2Ev.exit:                      ; preds = %._crit_edge201.thre
   br i1 %48, label %49, label %221
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i32, ptr %39, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %46
   %51 = load i32, ptr %50, align 4, !tbaa !173
   %52 = icmp eq i32 %51, 117
   br i1 %52, label %53, label %221
@@ -3343,9 +3343,9 @@ define void @Z3_get_string_contents(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !173
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %26, ptr %27, align 4, !tbaa !173
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -49,7 +49,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.seccomp_notif_sizes = type { i16, i16, i16 }
 %struct.sock_fprog = type { i16, ptr }
 %struct.compat_sock_fprog = type { i16, i32 }
-%struct.sock_filter = type { i16, i8, i8, i32 }
 %struct.seccomp_notif_addfd = type { i64, i32, i32, i32, i32 }
 %struct.seccomp_kaddfd = type { ptr, i32, i32, i32, %union.anon.21, %struct.completion, %struct.list_head }
 %union.anon.21 = type { i32 }
@@ -2012,7 +2011,7 @@ define internal noundef range(i32 -22, 1) i32 @seccomp_check_filter(ptr noundef 
 .preheader:                                       ; preds = %2, %16
   %4 = phi i32 [ %17, %16 ], [ 0, %2 ]
   %5 = sext i32 %4 to i64
-  %6 = getelementptr %struct.sock_filter, ptr %0, i64 %5
+  %6 = getelementptr [8 x i8], ptr %0, i64 %5
   %7 = load i16, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   switch i16 %7, label %.loopexit [
@@ -2991,7 +2990,7 @@ define internal fastcc void @seccomp_cache_prepare_bitmap(ptr %.152.val.64.val, 
   %32 = phi i32 [ 0, %25 ], [ %.ph1, %28 ]
   %33 = phi i32 [ 0, %25 ], [ %29, %28 ]
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr %struct.sock_filter, ptr %26, i64 %34
+  %35 = getelementptr [8 x i8], ptr %26, i64 %34
   %36 = load i16, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %38 = load i32, ptr %37, align 4

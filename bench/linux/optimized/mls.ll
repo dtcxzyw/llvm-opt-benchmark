@@ -3,8 +3,6 @@ source_filename = "bench/linux/original/mls.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.mls_level = type { i32, %struct.ebitmap }
-%struct.ebitmap = type { ptr, i32 }
 %struct.range_trans = type { i32, i32, i32 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -26,12 +24,12 @@ define dso_local i32 @mls_compute_context_len(ptr noundef readonly captures(none
   %13 = phi i1 [ true, %5 ], [ false, %126 ]
   %14 = phi i64 [ 0, %5 ], [ 1, %126 ]
   %15 = phi i32 [ 1, %5 ], [ %130, %126 ]
-  %16 = getelementptr %struct.mls_level, ptr %6, i64 %14
+  %16 = getelementptr [24 x i8], ptr %6, i64 %14
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -1
   %19 = load ptr, ptr %7, align 8
   %20 = zext i32 %18 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i64 @strlen(ptr noundef %22) #10
   %24 = trunc i64 %23 to i32
@@ -82,7 +80,7 @@ define dso_local i32 @mls_compute_context_len(ptr noundef readonly captures(none
 
 53:                                               ; preds = %51
   %54 = zext i32 %44 to i64
-  %55 = getelementptr ptr, ptr %.pre30, i64 %54
+  %55 = getelementptr [8 x i8], ptr %.pre30, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = tail call i64 @strlen(ptr noundef %56) #10
   %58 = trunc i64 %57 to i32
@@ -93,7 +91,7 @@ define dso_local i32 @mls_compute_context_len(ptr noundef readonly captures(none
 61:                                               ; preds = %53, %51
   %62 = phi i32 [ %60, %53 ], [ %46, %51 ]
   %63 = zext i32 %47 to i64
-  %64 = getelementptr ptr, ptr %.pre30, i64 %63
+  %64 = getelementptr [8 x i8], ptr %.pre30, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = tail call i64 @strlen(ptr noundef %65) #10
   %67 = trunc i64 %66 to i32
@@ -159,7 +157,7 @@ define dso_local i32 @mls_compute_context_len(ptr noundef readonly captures(none
 108:                                              ; preds = %106
   %109 = load ptr, ptr %8, align 8
   %110 = zext i32 %47 to i64
-  %111 = getelementptr ptr, ptr %109, i64 %110
+  %111 = getelementptr [8 x i8], ptr %109, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = tail call i64 @strlen(ptr noundef %112) #10
   %114 = trunc i64 %113 to i32
@@ -220,12 +218,12 @@ define dso_local void @mls_sid_to_context(ptr noundef readonly captures(none) %0
   %16 = phi i64 [ 0, %6 ], [ 1, %136 ]
   %.pn = phi ptr [ %7, %6 ], [ %129, %136 ]
   %17 = getelementptr i8, ptr %.pn, i64 1
-  %18 = getelementptr %struct.mls_level, ptr %8, i64 %16
+  %18 = getelementptr [24 x i8], ptr %8, i64 %16
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, -1
   %21 = load ptr, ptr %9, align 8
   %22 = zext i32 %20 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @strcpy(ptr noundef %17, ptr noundef %24) #10
   %26 = tail call i64 @strlen(ptr noundef %17) #10
@@ -281,7 +279,7 @@ define dso_local void @mls_sid_to_context(ptr noundef readonly captures(none) %0
   store i8 %58, ptr %49, align 1
   %60 = load ptr, ptr %10, align 8
   %61 = zext i32 %46 to i64
-  %62 = getelementptr ptr, ptr %60, i64 %61
+  %62 = getelementptr [8 x i8], ptr %60, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = tail call ptr @strcpy(ptr noundef %59, ptr noundef %63) #10
   %65 = tail call i64 @strlen(ptr noundef %63) #10
@@ -296,7 +294,7 @@ define dso_local void @mls_sid_to_context(ptr noundef readonly captures(none) %0
   store i8 %70, ptr %68, align 1
   %72 = load ptr, ptr %10, align 8
   %73 = zext i32 %48 to i64
-  %74 = getelementptr ptr, ptr %72, i64 %73
+  %74 = getelementptr [8 x i8], ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = tail call ptr @strcpy(ptr noundef %71, ptr noundef %75) #10
   %77 = tail call i64 @strlen(ptr noundef %75) #10
@@ -366,7 +364,7 @@ define dso_local void @mls_sid_to_context(ptr noundef readonly captures(none) %0
   store i8 %120, ptr %80, align 1
   %122 = load ptr, ptr %10, align 8
   %123 = zext i32 %48 to i64
-  %124 = getelementptr ptr, ptr %122, i64 %123
+  %124 = getelementptr [8 x i8], ptr %122, i64 %123
   %125 = load ptr, ptr %124, align 8
   %126 = tail call ptr @strcpy(ptr noundef %121, ptr noundef %125) #10
   %127 = tail call i64 @strlen(ptr noundef %125) #10
@@ -421,7 +419,7 @@ define dso_local i32 @mls_level_isvalid(ptr noundef %0, ptr noundef %1) local_un
   %12 = getelementptr i8, ptr %0, i64 248
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %11 to i64
-  %15 = getelementptr ptr, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @symtab_search(ptr noundef %10, ptr noundef %16) #10
   %18 = icmp eq ptr %17, null
@@ -465,7 +463,7 @@ define dso_local range(i32 0, 2) i32 @mls_range_isvalid(ptr noundef %0, ptr noun
   %12 = getelementptr i8, ptr %0, i64 248
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %11 to i64
-  %15 = getelementptr ptr, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @symtab_search(ptr noundef %10, ptr noundef %16) #10
   %18 = icmp eq ptr %17, null
@@ -496,7 +494,7 @@ define dso_local range(i32 0, 2) i32 @mls_range_isvalid(ptr noundef %0, ptr noun
   %35 = add i32 %29, -1
   %36 = load ptr, ptr %12, align 8
   %37 = zext i32 %35 to i64
-  %38 = getelementptr ptr, ptr %36, i64 %37
+  %38 = getelementptr [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @symtab_search(ptr noundef %10, ptr noundef %39) #10
   %41 = icmp eq ptr %40, null
@@ -562,7 +560,7 @@ define dso_local range(i32 0, 2) i32 @mls_context_isvalid(ptr noundef %0, ptr no
   %22 = load ptr, ptr %21, align 8
   %23 = add i32 %14, -1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr ptr, ptr %22, i64 %24
+  %25 = getelementptr [8 x i8], ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load i32, ptr %6, align 8
@@ -693,7 +691,7 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %58, align 8
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr %struct.mls_level, ptr %45, i64 %49
+  %63 = getelementptr [24 x i8], ptr %45, i64 %49
   store i32 %62, ptr %63, align 8
   %64 = icmp eq ptr %57, null
   br i1 %64, label %.loopexit22, label %65
@@ -878,9 +876,9 @@ define dso_local i32 @mls_range_set(ptr noundef %0, ptr noundef %1) local_unname
 4:                                                ; preds = %4, %2
   %5 = phi i1 [ true, %2 ], [ false, %4 ]
   %6 = phi i64 [ 0, %2 ], [ 1, %4 ]
-  %7 = getelementptr %struct.mls_level, ptr %1, i64 %6
+  %7 = getelementptr [24 x i8], ptr %1, i64 %6
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr %struct.mls_level, ptr %3, i64 %6
+  %9 = getelementptr [24 x i8], ptr %3, i64 %6
   store i32 %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1052,12 +1050,12 @@ define dso_local i32 @mls_convert_context(ptr noundef readonly captures(none) %0
 17:                                               ; preds = %.loopexit, %10
   %18 = phi i1 [ true, %10 ], [ false, %.loopexit ]
   %19 = phi i64 [ 0, %10 ], [ 1, %.loopexit ]
-  %20 = getelementptr %struct.mls_level, ptr %11, i64 %19
+  %20 = getelementptr [24 x i8], ptr %11, i64 %19
   %21 = load i32, ptr %20, align 8
   %22 = add i32 %21, -1
   %23 = load ptr, ptr %12, align 8
   %24 = zext i32 %22 to i64
-  %25 = getelementptr ptr, ptr %23, i64 %24
+  %25 = getelementptr [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @symtab_search(ptr noundef %13, ptr noundef %26) #10
   %28 = icmp eq ptr %27, null
@@ -1066,7 +1064,7 @@ define dso_local i32 @mls_convert_context(ptr noundef readonly captures(none) %0
 29:                                               ; preds = %17
   %30 = load ptr, ptr %27, align 8
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr %struct.mls_level, ptr %14, i64 %19
+  %32 = getelementptr [24 x i8], ptr %14, i64 %19
   store i32 %31, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %34 = load ptr, ptr %33, align 8
@@ -1106,7 +1104,7 @@ define dso_local i32 @mls_convert_context(ptr noundef readonly captures(none) %0
   %55 = phi ptr [ %36, %51 ], [ %98, %97 ]
   %56 = load ptr, ptr %16, align 8
   %57 = zext i32 %54 to i64
-  %58 = getelementptr ptr, ptr %56, i64 %57
+  %58 = getelementptr [8 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = tail call ptr @symtab_search(ptr noundef %15, ptr noundef %59) #10
   %61 = icmp eq ptr %60, null
@@ -1212,9 +1210,9 @@ define dso_local i32 @mls_compute_sid(ptr noundef %0, ptr noundef %1, ptr nounde
 24:                                               ; preds = %24, %22
   %.not9 = phi i1 [ false, %22 ], [ true, %24 ]
   %25 = phi i64 [ 0, %22 ], [ 1, %24 ]
-  %26 = getelementptr %struct.mls_level, ptr %20, i64 %25
+  %26 = getelementptr [24 x i8], ptr %20, i64 %25
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr %struct.mls_level, ptr %23, i64 %25
+  %28 = getelementptr [24 x i8], ptr %23, i64 %25
   store i32 %27, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -1237,7 +1235,7 @@ define dso_local i32 @mls_compute_sid(ptr noundef %0, ptr noundef %1, ptr nounde
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %41 = load ptr, ptr %40, align 8
   %42 = zext i16 %3 to i64
-  %43 = getelementptr ptr, ptr %41, i64 %42
+  %43 = getelementptr [8 x i8], ptr %41, i64 %42
   %44 = getelementptr i8, ptr %43, i64 -8
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null

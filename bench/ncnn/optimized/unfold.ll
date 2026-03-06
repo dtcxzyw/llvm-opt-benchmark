@@ -708,7 +708,7 @@ define internal void @_ZNK4ncnn6Unfold7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_o
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge59.split.us.us.us.us.us.us.us ], [ 0, %.lr.ph.split.us.split.us.us.us.us.us ]
   %.14061.us.us.us.us.us.us = phi ptr [ %75, %._crit_edge59.split.us.us.us.us.us.us.us ], [ %.03970.us.us.us.us, %.lr.ph.split.us.split.us.us.us.us.us ]
   %70 = mul nsw i64 %indvars.iv, %52
-  %71 = getelementptr inbounds float, ptr %63, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %63, i64 %70
   br label %.preheader.us.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us:                  ; preds = %._crit_edge.us.us.us.us.us.us.us, %.preheader.lr.ph.us.us.us.us.us.us
@@ -723,14 +723,14 @@ define internal void @_ZNK4ncnn6Unfold7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_o
   %.352.us.us.us.us.us.us.us = phi ptr [ %.256.us.us.us.us.us.us.us, %.preheader.us.us.us.us.us.us.us ], [ %75, %72 ]
   %73 = load float, ptr %.153.us.us.us.us.us.us.us, align 4, !tbaa !69
   store float %73, ptr %.352.us.us.us.us.us.us.us, align 4, !tbaa !69
-  %74 = getelementptr inbounds float, ptr %.153.us.us.us.us.us.us.us, i64 %69
+  %74 = getelementptr inbounds [4 x i8], ptr %.153.us.us.us.us.us.us.us, i64 %69
   %75 = getelementptr inbounds nuw i8, ptr %.352.us.us.us.us.us.us.us, i64 4
   %76 = add nuw nsw i32 %.054.us.us.us.us.us.us.us, 1
   %exitcond.not = icmp eq i32 %76, %64
   br i1 %exitcond.not, label %._crit_edge.us.us.us.us.us.us.us, label %72, !llvm.loop !70
 
 ._crit_edge.us.us.us.us.us.us.us:                 ; preds = %72
-  %77 = getelementptr inbounds float, ptr %74, i64 %67
+  %77 = getelementptr inbounds [4 x i8], ptr %74, i64 %67
   %78 = add nuw nsw i32 %.03558.us.us.us.us.us.us.us, 1
   %exitcond98.not = icmp eq i32 %78, %58
   br i1 %exitcond98.not, label %._crit_edge59.split.us.us.us.us.us.us.us, label %.preheader.us.us.us.us.us.us.us, !llvm.loop !71

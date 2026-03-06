@@ -344,7 +344,7 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as
   %9 = load i64, ptr %8, align 8, !noundef !19
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !42
   call void @_ZN4core3fmt9Formatter10debug_list17h1616b9a56f5bf339E(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !46
-  %10 = getelementptr inbounds { i8, [31 x i8] }, ptr %7, i64 %9
+  %10 = getelementptr inbounds [32 x i8], ptr %7, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !47
   store ptr %7, ptr %4, align 8, !noalias !47
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8

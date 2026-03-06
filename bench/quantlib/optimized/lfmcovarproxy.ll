@@ -757,13 +757,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul.i = mul i64 %8, %storemerge23
   %add.i = add nuw i64 %storemerge23, 1
   %mul.i8 = mul i64 %8, %add.i
-  %add.ptr.i9 = getelementptr inbounds nuw double, ptr %7, i64 %mul.i8
+  %add.ptr.i9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %mul.i8
   %cmp.not6.i = icmp samesign eq i64 %mul.i, %mul.i8
   br i1 %cmp.not6.i, label %for.inc, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.body
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %7, i64 %mul.i
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %.pre24, i64 %storemerge23
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %mul.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.pre24, i64 %storemerge23
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
@@ -866,11 +866,11 @@ for.cond10.preheader.lr.ph:                       ; preds = %_ZN8QuantLib6Matrix
 
 for.cond10.preheader:                             ; preds = %for.cond10.preheader.lr.ph, %for.cond.cleanup13
   %i.031 = phi i64 [ 0, %for.cond10.preheader.lr.ph ], [ %inc27, %for.cond.cleanup13 ]
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %10, i64 %i.031
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %i.031
   %mul.i.i = mul i64 %11, %i.031
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %.pre, i64 %mul.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %mul.i.i
   %mul.i.i19 = mul i64 %i.031, %6
-  %add.ptr.i.i20 = getelementptr inbounds nuw double, ptr %cond.i, i64 %mul.i.i19
+  %add.ptr.i.i20 = getelementptr inbounds nuw [8 x i8], ptr %cond.i, i64 %mul.i.i19
   br label %for.body14
 
 lpad:                                             ; preds = %cond.false.i13, %invoke.cont
@@ -897,13 +897,13 @@ for.cond.cleanup13:                               ; preds = %for.body14
 for.body14:                                       ; preds = %for.cond10.preheader, %for.body14
   %j.029 = phi i64 [ 0, %for.cond10.preheader ], [ %inc, %for.body14 ]
   %15 = load double, ptr %arrayidx.i, align 8, !tbaa !35
-  %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %j.029
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %j.029
   %16 = load double, ptr %arrayidx, align 8, !tbaa !35
   %mul = fmul double %15, %16
-  %arrayidx.i17 = getelementptr inbounds nuw double, ptr %10, i64 %j.029
+  %arrayidx.i17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %j.029
   %17 = load double, ptr %arrayidx.i17, align 8, !tbaa !35
   %mul22 = fmul double %mul, %17
-  %arrayidx25 = getelementptr inbounds nuw double, ptr %add.ptr.i.i20, i64 %j.029
+  %arrayidx25 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i20, i64 %j.029
   store double %mul22, ptr %arrayidx25, align 8, !tbaa !35
   %inc = add nuw i64 %j.029, 1
   %exitcond.not = icmp eq i64 %inc, %6

@@ -10,10 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.drm_format_info = type { i32, i8, i8, %union.anon.48, [4 x i8], [4 x i8], i8, i8, i8, i8, i8 }
 %union.anon.48 = type { [4 x i8] }
 %struct.fb_plane_view_dims = type { i32, i32, i32, i32 }
-%struct.i915_color_plane_view = type { i32, i32, i32, i32, i32 }
 %struct.drm_rect = type { i32, i32, i32, i32 }
-%struct.intel_remapped_plane_info = type { i32, %union.anon.51 }
-%union.anon.51 = type { i32, [4 x i8] }
 %struct.drm_mode_fb_cmd2 = type { i32, i32, i32, i32, i32, [4 x i32], [4 x i32], [4 x i32], [4 x i64] }
 
 @.str = private unnamed_addr constant [26 x i8] c"Missing case (%s == %ld)\0A\00", align 1
@@ -75,7 +72,7 @@ define dso_local noundef range(i32 0, 3) i32 @intel_fb_modifier_to_tiling(i64 no
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %6
+  %7 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %6
   %8 = load i64, ptr %7, align 16
   %9 = icmp eq i64 %8, %0
   br i1 %9, label %10, label %2
@@ -91,7 +88,7 @@ define dso_local noundef range(i32 0, 3) i32 @intel_fb_modifier_to_tiling(i64 no
 
 .preheader:                                       ; preds = %10, %12
   %15 = phi i64 [ %13, %12 ], [ 0, %10 ]
-  %16 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %15
+  %16 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %15
   %17 = load i64, ptr %16, align 16
   %18 = icmp eq i64 %17, %0
   br i1 %18, label %19, label %12
@@ -147,7 +144,7 @@ define dso_local noundef ptr @intel_fb_get_format_info(ptr noundef readonly capt
 
 7:                                                ; preds = %4, %1
   %8 = phi i64 [ 0, %1 ], [ %5, %4 ]
-  %9 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %8
+  %9 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %8
   %10 = load i64, ptr %9, align 16
   %11 = icmp eq i64 %10, %3
   br i1 %11, label %12, label %4
@@ -185,7 +182,7 @@ define dso_local noundef ptr @intel_fb_get_format_info(ptr noundef readonly capt
 
 31:                                               ; preds = %28, %24
   %32 = phi i64 [ 0, %24 ], [ %29, %28 ]
-  %33 = getelementptr %struct.drm_format_info, ptr %16, i64 %32
+  %33 = getelementptr [24 x i8], ptr %16, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, %22
   br i1 %35, label %.thread, label %28
@@ -206,7 +203,7 @@ define dso_local zeroext i1 @intel_fb_is_tiled_modifier(i64 noundef %0) local_un
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %6
+  %7 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %6
   %8 = load i64, ptr %7, align 16
   %9 = icmp eq i64 %8, %0
   br i1 %9, label %10, label %2
@@ -241,7 +238,7 @@ define dso_local zeroext i1 @intel_fb_is_ccs_modifier(i64 noundef %0) local_unna
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %6
+  %7 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %6
   %8 = load i64, ptr %7, align 16
   %9 = icmp eq i64 %8, %0
   br i1 %9, label %10, label %2
@@ -276,7 +273,7 @@ define dso_local zeroext i1 @intel_fb_is_rc_ccs_cc_modifier(i64 noundef %0) loca
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %6
+  %7 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %6
   %8 = load i64, ptr %7, align 16
   %9 = icmp eq i64 %8, %0
   br i1 %9, label %10, label %2
@@ -311,7 +308,7 @@ define dso_local zeroext i1 @intel_fb_is_mc_ccs_modifier(i64 noundef %0) local_u
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %6
+  %7 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %6
   %8 = load i64, ptr %7, align 16
   %9 = icmp eq i64 %8, %0
   br i1 %9, label %10, label %2
@@ -344,7 +341,7 @@ define dso_local noalias ptr @intel_fb_plane_get_modifiers(ptr noundef readonly 
 5:                                                ; preds = %52, %2
   %6 = phi i64 [ 0, %2 ], [ %55, %52 ]
   %7 = phi i32 [ 1, %2 ], [ %54, %52 ]
-  %8 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %6
+  %8 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %6
   %9 = load i16, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i8, ptr %10, align 8
@@ -377,7 +374,7 @@ define dso_local noalias ptr @intel_fb_plane_get_modifiers(ptr noundef readonly 
 
 29:                                               ; preds = %26, %24
   %30 = phi i64 [ 0, %24 ], [ %27, %26 ]
-  %31 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %30
+  %31 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %30
   %32 = load i64, ptr %31, align 16
   %33 = icmp eq i64 %32, %25
   br i1 %33, label %34, label %26
@@ -459,7 +456,7 @@ define dso_local noalias ptr @intel_fb_plane_get_modifiers(ptr noundef readonly 
 .preheader:                                       ; preds = %59, %122
   %75 = phi i64 [ %124, %122 ], [ 0, %59 ]
   %76 = phi ptr [ %123, %122 ], [ %62, %59 ]
-  %77 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %75
+  %77 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %75
   %78 = load i16, ptr %3, align 8
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %80 = load i8, ptr %79, align 8
@@ -492,7 +489,7 @@ define dso_local noalias ptr @intel_fb_plane_get_modifiers(ptr noundef readonly 
 
 98:                                               ; preds = %95, %93
   %99 = phi i64 [ 0, %93 ], [ %96, %95 ]
-  %100 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %99
+  %100 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %99
   %101 = load i64, ptr %100, align 16
   %102 = icmp eq i64 %101, %94
   br i1 %102, label %103, label %95
@@ -571,7 +568,7 @@ define dso_local zeroext i1 @intel_fb_plane_supports_modifier(ptr noundef readon
 
 13:                                               ; preds = %.preheader
   %14 = sext i32 %11 to i64
-  %15 = getelementptr i64, ptr %7, i64 %14
+  %15 = getelementptr [8 x i8], ptr %7, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, %1
   br i1 %17, label %18, label %.preheader, !llvm.loop !26
@@ -597,7 +594,7 @@ define dso_local zeroext i1 @intel_format_info_is_yuv_semiplanar(ptr noundef rea
 
 6:                                                ; preds = %3, %2
   %7 = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %8 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %7
+  %8 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %7
   %9 = load i64, ptr %8, align 16
   %10 = icmp eq i64 %9, %1
   br i1 %10, label %11, label %3
@@ -650,7 +647,7 @@ define dso_local zeroext i1 @intel_fb_is_ccs_aux_plane(ptr noundef readonly capt
 
 8:                                                ; preds = %5, %2
   %9 = phi i64 [ 0, %2 ], [ %6, %5 ]
-  %10 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %9
+  %10 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %9
   %11 = load i64, ptr %10, align 16
   %12 = icmp eq i64 %11, %4
   br i1 %12, label %13, label %5
@@ -717,7 +714,7 @@ define dso_local i32 @intel_fb_rc_ccs_cc_plane(ptr noundef readonly captures(non
 
 7:                                                ; preds = %4, %1
   %8 = phi i64 [ 0, %1 ], [ %5, %4 ]
-  %9 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %8
+  %9 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %8
   %10 = load i64, ptr %9, align 16
   %11 = icmp eq i64 %10, %3
   br i1 %11, label %12, label %4
@@ -799,7 +796,7 @@ define dso_local zeroext i1 @is_surface_linear(ptr noundef readonly captures(non
 
 .preheader:                                       ; preds = %2, %6
   %9 = phi i64 [ %7, %6 ], [ 0, %2 ]
-  %10 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %9
+  %10 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %9
   %11 = load i64, ptr %10, align 16
   %12 = icmp eq i64 %11, %4
   br i1 %12, label %13, label %6
@@ -887,7 +884,7 @@ define dso_local i32 @main_to_ccs_plane(ptr noundef readonly captures(none) %0, 
 
 8:                                                ; preds = %5, %2
   %9 = phi i64 [ 0, %2 ], [ %6, %5 ]
-  %10 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %9
+  %10 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %9
   %11 = load i64, ptr %10, align 16
   %12 = icmp eq i64 %11, %4
   br i1 %12, label %13, label %5
@@ -975,7 +972,7 @@ define dso_local i32 @skl_ccs_to_main_plane(ptr noundef readonly captures(none) 
 
 8:                                                ; preds = %5, %2
   %9 = phi i64 [ 0, %2 ], [ %6, %5 ]
-  %10 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %9
+  %10 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %9
   %11 = load i64, ptr %10, align 16
   %12 = icmp eq i64 %11, %4
   br i1 %12, label %13, label %5
@@ -1068,7 +1065,7 @@ define dso_local i32 @skl_main_to_aux_plane(ptr noundef readonly captures(none) 
 
 8:                                                ; preds = %5, %2
   %9 = phi i64 [ 0, %2 ], [ %6, %5 ]
-  %10 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %9
+  %10 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %9
   %11 = load i64, ptr %10, align 16
   %12 = icmp eq i64 %11, %4
   br i1 %12, label %13, label %5
@@ -1199,7 +1196,7 @@ define dso_local range(i32 0, 4097) i32 @intel_tile_width_bytes(ptr noundef read
   br i1 %28, label %29, label %23
 
 29:                                               ; preds = %.preheader
-  %30 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %26
+  %30 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %26
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.thread, label %32, !prof !14
 
@@ -1263,7 +1260,7 @@ define dso_local range(i32 0, 4097) i32 @intel_tile_width_bytes(ptr noundef read
 
 65:                                               ; preds = %62, %59
   %66 = phi i64 [ 0, %59 ], [ %63, %62 ]
-  %67 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %66
+  %67 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %66
   %68 = load i64, ptr %67, align 16
   %69 = icmp eq i64 %68, %61
   br i1 %69, label %70, label %62
@@ -1355,7 +1352,7 @@ define dso_local range(i32 0, 4097) i32 @intel_tile_width_bytes(ptr noundef read
   br i1 %121, label %122, label %116
 
 122:                                              ; preds = %.preheader8
-  %123 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %119
+  %123 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %119
   %124 = icmp eq ptr %123, null
   br i1 %124, label %.thread7, label %125, !prof !14
 
@@ -1477,7 +1474,7 @@ define dso_local i32 @intel_tile_row_size(ptr noundef readonly captures(none) %0
   %10 = udiv i16 %.lhs.trunc, %.rhs.trunc
   %.zext = zext nneg i16 %10 to i32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %12 = getelementptr i32, ptr %11, i64 %4
+  %12 = getelementptr [4 x i8], ptr %11, i64 %4
   %13 = load i32, ptr %12, align 4
   %14 = mul i32 %13, %.zext
   ret i32 %14
@@ -1593,7 +1590,7 @@ define dso_local i32 @intel_surf_alignment(ptr noundef readonly captures(none) %
 
 17:                                               ; preds = %14, %._crit_edge
   %18 = phi i64 [ 0, %._crit_edge ], [ %15, %14 ]
-  %19 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %18
+  %19 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %18
   %20 = load i64, ptr %19, align 16
   %21 = icmp eq i64 %20, %.pre
   br i1 %21, label %22, label %14
@@ -1657,7 +1654,7 @@ define dso_local i32 @intel_surf_alignment(ptr noundef readonly captures(none) %
 
 57:                                               ; preds = %54, %52
   %58 = phi i64 [ 0, %52 ], [ %55, %54 ]
-  %59 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %58
+  %59 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %58
   %60 = load i64, ptr %59, align 16
   %61 = icmp eq i64 %60, %53
   br i1 %61, label %62, label %54
@@ -1717,7 +1714,7 @@ define dso_local i32 @intel_surf_alignment(ptr noundef readonly captures(none) %
   %95 = udiv i16 %.lhs.trunc, %.rhs.trunc
   %.zext = zext nneg i16 %95 to i32
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %97 = getelementptr i32, ptr %96, i64 %48
+  %97 = getelementptr [4 x i8], ptr %96, i64 %48
   %98 = load i32, ptr %97, align 4
   %99 = mul i32 %98, %.zext
   br label %135
@@ -1835,7 +1832,7 @@ define dso_local void @intel_fb_plane_get_subsampling(ptr noundef writeonly capt
 
 13:                                               ; preds = %10, %7
   %14 = phi i64 [ 0, %7 ], [ %11, %10 ]
-  %15 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %14
+  %15 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %14
   %16 = load i64, ptr %15, align 16
   %17 = icmp eq i64 %16, %9
   br i1 %17, label %18, label %10
@@ -2007,7 +2004,7 @@ define internal fastcc noundef i32 @intel_adjust_aligned_offset(ptr noundef capt
 
 .preheader.i:                                     ; preds = %30, %34
   %37 = phi i64 [ %35, %34 ], [ 0, %30 ]
-  %38 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %37
+  %38 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %37
   %39 = load i64, ptr %38, align 16
   %40 = icmp eq i64 %39, %32
   br i1 %40, label %41, label %34
@@ -2253,7 +2250,7 @@ define internal fastcc i32 @intel_compute_aligned_offset(ptr noundef readonly ca
 
 .preheader.i:                                     ; preds = %8, %19
   %22 = phi i64 [ %20, %19 ], [ 0, %8 ]
-  %23 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %22
+  %23 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %22
   %24 = load i64, ptr %23, align 16
   %25 = icmp eq i64 %24, %17
   br i1 %25, label %26, label %19
@@ -2647,7 +2644,7 @@ define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly 
   br i1 %92, label %93, label %98
 
 93:                                               ; preds = %85
-  %94 = getelementptr i32, ptr %77, i64 %86
+  %94 = getelementptr [4 x i8], ptr %77, i64 %86
   %95 = load i32, ptr %94, align 4
   %96 = and i32 %95, 4095
   %97 = icmp eq i32 %96, 0
@@ -2664,7 +2661,7 @@ define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly 
 
 103:                                              ; preds = %100, %98
   %104 = phi i64 [ 0, %98 ], [ %101, %100 ]
-  %105 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %104
+  %105 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %104
   %106 = load i64, ptr %105, align 16
   %107 = icmp eq i64 %106, %99
   br i1 %107, label %108, label %100
@@ -2802,7 +2799,7 @@ define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly 
 
 182:                                              ; preds = %179, %176
   %183 = phi i64 [ 0, %176 ], [ %180, %179 ]
-  %184 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %183
+  %184 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %183
   %185 = load i64, ptr %184, align 16
   %186 = icmp eq i64 %185, %177
   br i1 %186, label %187, label %179
@@ -2868,7 +2865,7 @@ define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly 
 
 .thread29:                                        ; preds = %172, %.thread26..thread29_crit_edge, %210
   %221 = phi i32 [ %219, %210 ], [ %209, %.thread26..thread29_crit_edge ], [ 4096, %172 ]
-  %222 = getelementptr i32, ptr %77, i64 %86
+  %222 = getelementptr [4 x i8], ptr %77, i64 %86
   %223 = load i32, ptr %222, align 4
   %224 = urem i32 %223, %221
   %225 = icmp eq i32 %224, 0
@@ -2938,12 +2935,12 @@ define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly 
   %.zext42 = zext nneg i16 %265 to i32
   %266 = sub nsw i32 0, %.zext42
   %267 = and i32 %259, %266
-  %268 = getelementptr i32, ptr %76, i64 %86
+  %268 = getelementptr [4 x i8], ptr %76, i64 %86
   %269 = load i32, ptr %268, align 4
   %270 = zext i32 %267 to i64
   %271 = zext i32 %269 to i64
   %272 = mul nuw i64 %270, %271
-  %273 = getelementptr i32, ptr %77, i64 %86
+  %273 = getelementptr [4 x i8], ptr %77, i64 %86
   %274 = load i32, ptr %273, align 4
   %275 = trunc i64 %272 to i32
   %276 = add i32 %274, %275
@@ -2978,7 +2975,7 @@ define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly 
 
 292:                                              ; preds = %289, %286
   %293 = phi ptr [ %291, %289 ], [ null, %286 ]
-  %294 = getelementptr i32, ptr %77, i64 %86
+  %294 = getelementptr [4 x i8], ptr %77, i64 %86
   %295 = load i32, ptr %294, align 4
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %293, i32 noundef 2, ptr noundef nonnull @.str.25, i32 noundef %.pre155, i32 noundef %295) #15
   br label %.thread39
@@ -3004,7 +3001,7 @@ define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly 
 
 305:                                              ; preds = %302, %296
   %306 = phi i64 [ 0, %296 ], [ %303, %302 ]
-  %307 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %306
+  %307 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %306
   %308 = load i64, ptr %307, align 16
   %309 = icmp eq i64 %308, %301
   br i1 %309, label %310, label %302
@@ -3083,7 +3080,7 @@ define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly 
 
 354:                                              ; preds = %351, %337
   %355 = phi i64 [ 0, %337 ], [ %352, %351 ]
-  %356 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %355
+  %356 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %355
   %357 = load i64, ptr %356, align 16
   %358 = icmp eq i64 %357, %350
   br i1 %358, label %359, label %351
@@ -3159,7 +3156,7 @@ define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly 
   %404 = srem i32 %403, %400
   %405 = tail call i32 @skl_ccs_to_main_plane(ptr noundef %1, i32 noundef %.pre155)
   %406 = sext i32 %405 to i64
-  %407 = getelementptr %struct.i915_color_plane_view, ptr %78, i64 %406
+  %407 = getelementptr [20 x i8], ptr %78, i64 %406
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 4
   %409 = load i32, ptr %408, align 4
   %410 = urem i32 %409, %398
@@ -3250,7 +3247,7 @@ define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly 
   %461 = udiv i16 %.lhs.trunc46, %.rhs.trunc47
   %.zext48 = zext nneg i16 %461 to i32
   store i32 %.zext48, ptr %81, align 4
-  %462 = getelementptr %struct.i915_color_plane_view, ptr %78, i64 %86
+  %462 = getelementptr [20 x i8], ptr %78, i64 %86
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 4
   store i32 %298, ptr %463, align 4
   %464 = getelementptr inbounds nuw i8, ptr %462, i64 8
@@ -3344,7 +3341,7 @@ define dso_local range(i32 -34, 1) i32 @intel_fill_fb_info(ptr noundef readonly 
 
 .preheader.i:                                     ; preds = %516, %522
   %525 = phi i64 [ %523, %522 ], [ 0, %516 ]
-  %526 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %525
+  %526 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %525
   %527 = load i64, ptr %526, align 16
   %528 = icmp eq i64 %527, %520
   br i1 %528, label %529, label %522
@@ -3519,9 +3516,9 @@ define internal fastcc i32 @calc_plane_remap_info(ptr noundef readonly captures(
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %12 = sext i32 %1 to i64
-  %13 = getelementptr %struct.intel_remapped_plane_info, ptr %11, i64 %12
+  %13 = getelementptr [12 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %15 = getelementptr %struct.i915_color_plane_view, ptr %14, i64 %12
+  %15 = getelementptr [20 x i8], ptr %14, i64 %12
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load i32, ptr %16, align 4
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -3546,7 +3543,7 @@ define internal fastcc i32 @calc_plane_remap_info(ptr noundef readonly captures(
 
 31:                                               ; preds = %28, %8
   %32 = phi i64 [ 0, %8 ], [ %29, %28 ]
-  %33 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %32
+  %33 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %32
   %34 = load i64, ptr %33, align 16
   %35 = icmp eq i64 %34, %27
   br i1 %35, label %36, label %28
@@ -3617,7 +3614,7 @@ define internal fastcc i32 @calc_plane_remap_info(ptr noundef readonly captures(
   store i32 %76, ptr %13, align 1
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %79 = getelementptr i32, ptr %78, i64 %12
+  %79 = getelementptr [4 x i8], ptr %78, i64 %12
   %80 = load ptr, ptr %0, align 8
   %81 = load i32, ptr %77, align 4
   %82 = add i32 %81, %6
@@ -3647,7 +3644,7 @@ define internal fastcc i32 @calc_plane_remap_info(ptr noundef readonly captures(
   %103 = and i32 %102, 2147483647
   store i32 %103, ptr %13, align 1
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %105 = getelementptr i32, ptr %104, i64 %12
+  %105 = getelementptr [4 x i8], ptr %104, i64 %12
   %106 = load i32, ptr %105, align 4
   %107 = load i32, ptr %16, align 4
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -4089,7 +4086,7 @@ define internal fastcc i32 @calc_plane_remap_info(ptr noundef readonly captures(
 
 359:                                              ; preds = %352
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %361 = getelementptr i32, ptr %360, i64 %12
+  %361 = getelementptr [4 x i8], ptr %360, i64 %12
   %362 = load i32, ptr %361, align 4
   %363 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %362, ptr %363, align 4
@@ -4136,7 +4133,7 @@ define internal fastcc i32 @calc_plane_remap_info(ptr noundef readonly captures(
 
 .preheader:                                       ; preds = %382, %389
   %392 = phi i64 [ %390, %389 ], [ 0, %382 ]
-  %393 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %392
+  %393 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %392
   %394 = load i64, ptr %393, align 16
   %395 = icmp eq i64 %394, %383
   br i1 %395, label %396, label %389
@@ -4460,7 +4457,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_plane_compute_gtt(ptr noun
 
 30:                                               ; preds = %27, %24
   %31 = phi i64 [ 0, %24 ], [ %28, %27 ]
-  %32 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %31
+  %32 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %31
   %33 = load i64, ptr %32, align 16
   %34 = icmp eq i64 %33, %26
   br i1 %34, label %35, label %27
@@ -4506,7 +4503,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_plane_compute_gtt(ptr noun
 
 58:                                               ; preds = %58, %56
   %59 = phi i64 [ 0, %56 ], [ %64, %58 ]
-  %60 = getelementptr i32, ptr %50, i64 %59
+  %60 = getelementptr [4 x i8], ptr %50, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, %49
   %63 = icmp eq i32 %62, 0
@@ -4629,7 +4626,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_plane_compute_gtt(ptr noun
 
 148:                                              ; preds = %145, %128
   %149 = phi i64 [ 0, %128 ], [ %146, %145 ]
-  %150 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %149
+  %150 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %149
   %151 = load i64, ptr %150, align 16
   %152 = icmp eq i64 %151, %144
   br i1 %152, label %153, label %145
@@ -4761,7 +4758,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_plane_compute_gtt(ptr noun
   %226 = udiv i16 %.lhs.trunc11, %.rhs.trunc12
   %.zext13 = zext nneg i16 %226 to i32
   store i32 %.zext13, ptr %192, align 4
-  %227 = getelementptr %struct.i915_color_plane_view, ptr %193, i64 %197
+  %227 = getelementptr [20 x i8], ptr %193, i64 %197
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 4
   %229 = load i32, ptr %228, align 4
   %230 = add i32 %229, %210
@@ -4775,7 +4772,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_plane_compute_gtt(ptr noun
   %236 = load i16, ptr %235, align 8
   %237 = icmp eq i16 %236, 2
   %238 = select i1 %237, i32 2048, i32 4096
-  %239 = getelementptr i32, ptr %194, i64 %197
+  %239 = getelementptr [4 x i8], ptr %194, i64 %197
   %240 = load i32, ptr %239, align 4
   %241 = call fastcc i32 @intel_compute_aligned_offset(ptr noundef %234, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %106, i32 noundef %214, i32 noundef %240, i32 noundef 1, i32 noundef %238)
   %242 = select i1 %237, i32 11, i32 12
@@ -4877,7 +4874,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_plane_compute_gtt(ptr noun
 
 306:                                              ; preds = %303, %300
   %307 = phi i64 [ 0, %300 ], [ %304, %303 ]
-  %308 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %307
+  %308 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %307
   %309 = load i64, ptr %308, align 16
   %310 = icmp eq i64 %309, %302
   br i1 %310, label %311, label %303
@@ -4923,7 +4920,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_plane_compute_gtt(ptr noun
 
 334:                                              ; preds = %334, %332
   %335 = phi i64 [ 0, %332 ], [ %340, %334 ]
-  %336 = getelementptr i32, ptr %326, i64 %335
+  %336 = getelementptr [4 x i8], ptr %326, i64 %335
   %337 = load i32, ptr %336, align 4
   %338 = and i32 %337, %325
   %339 = icmp eq i32 %338, 0
@@ -5025,7 +5022,7 @@ define dso_local i32 @intel_framebuffer_init(ptr noundef %0, ptr noundef %1, ptr
 
 .preheader:                                       ; preds = %26, %32
   %35 = phi i64 [ %33, %32 ], [ 0, %26 ]
-  %36 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %35
+  %36 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %35
   %37 = load i64, ptr %36, align 16
   %38 = icmp eq i64 %37, %28
   br i1 %38, label %39, label %32
@@ -5130,7 +5127,7 @@ define dso_local i32 @intel_framebuffer_init(ptr noundef %0, ptr noundef %1, ptr
 97:                                               ; preds = %.thread27, %89
   %98 = phi ptr [ %85, %89 ], [ %309, %.thread27 ]
   %99 = phi i64 [ 0, %89 ], [ %308, %.thread27 ]
-  %100 = getelementptr i32, ptr %90, i64 %99
+  %100 = getelementptr [4 x i8], ptr %90, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = load i32, ptr %90, align 4
   %103 = icmp eq i32 %101, %102
@@ -5163,7 +5160,7 @@ define dso_local i32 @intel_framebuffer_init(ptr noundef %0, ptr noundef %1, ptr
 
 .preheader.i:                                     ; preds = %110, %115
   %118 = phi i64 [ %116, %115 ], [ 0, %110 ]
-  %119 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %118
+  %119 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %118
   %120 = load i64, ptr %119, align 16
   %121 = icmp eq i64 %120, %113
   br i1 %121, label %122, label %115
@@ -5240,7 +5237,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
   %161 = load i32, ptr %160, align 4
   %162 = load i64, ptr %93, align 8
   %163 = tail call i32 @intel_plane_fb_max_stride(ptr noundef %111, i32 noundef %161, i64 noundef %162) #15
-  %164 = getelementptr i32, ptr %95, i64 %99
+  %164 = getelementptr [4 x i8], ptr %95, i64 %99
   %165 = load i32, ptr %164, align 4
   %166 = icmp ugt i32 %165, %163
   br i1 %166, label %167, label %231
@@ -5256,7 +5253,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
 
 172:                                              ; preds = %169, %167
   %173 = phi i64 [ 0, %167 ], [ %170, %169 ]
-  %174 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %173
+  %174 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %173
   %175 = load i64, ptr %174, align 16
   %176 = icmp eq i64 %175, %168
   br i1 %176, label %177, label %169
@@ -5298,7 +5295,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
 
 196:                                              ; preds = %193, %190
   %197 = phi i64 [ 0, %190 ], [ %194, %193 ]
-  %198 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %197
+  %198 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %197
   %199 = load i64, ptr %198, align 16
   %200 = icmp eq i64 %199, %192
   br i1 %200, label %201, label %193
@@ -5357,7 +5354,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
 
 231:                                              ; preds = %226, %224, %217, %213, %203, %185, %179, %is_surface_linear.exit.thread
   %232 = phi i32 [ %189, %185 ], [ 64, %179 ], [ 64, %is_surface_linear.exit.thread ], [ %214, %213 ], [ %191, %224 ], [ %191, %217 ], [ %191, %203 ], [ %230, %226 ]
-  %233 = getelementptr i32, ptr %95, i64 %99
+  %233 = getelementptr [4 x i8], ptr %95, i64 %99
   %234 = load i32, ptr %233, align 4
   %235 = add nsw i32 %232, -1
   %236 = and i32 %234, %235
@@ -5387,7 +5384,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
 
 248:                                              ; preds = %245, %243
   %249 = phi i64 [ 0, %243 ], [ %246, %245 ]
-  %250 = getelementptr %struct.intel_modifier_desc, ptr @intel_modifiers, i64 %249
+  %250 = getelementptr [32 x i8], ptr @intel_modifiers, i64 %249
   %251 = load i64, ptr %250, align 16
   %252 = icmp eq i64 %251, %244
   br i1 %252, label %253, label %245
@@ -5453,7 +5450,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
 289:                                              ; preds = %284
   %290 = tail call i32 @skl_ccs_to_main_plane(ptr noundef %0, i32 noundef %112)
   %291 = sext i32 %290 to i64
-  %292 = getelementptr i32, ptr %95, i64 %291
+  %292 = getelementptr [4 x i8], ptr %95, i64 %291
   %293 = load i32, ptr %292, align 4
   %294 = tail call i32 @intel_tile_width_bytes(ptr noundef %0, i32 noundef %290), !range !57
   %295 = shl nuw nsw i32 %294, 2
@@ -5478,7 +5475,7 @@ is_surface_linear.exit.thread:                    ; preds = %is_surface_linear.e
   br label %.thread28
 
 .thread27:                                        ; preds = %289, %284, %260, %255
-  %307 = getelementptr ptr, ptr %96, i64 %99
+  %307 = getelementptr [8 x i8], ptr %96, i64 %99
   store ptr %1, ptr %307, align 8
   %308 = add nuw nsw i64 %99, 1
   %309 = load ptr, ptr %84, align 8

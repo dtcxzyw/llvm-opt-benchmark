@@ -161,7 +161,7 @@ define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = sub i32 %25, %23
-  %27 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8, !tbaa !15
   %isneg = icmp slt i32 %26, 0
   %29 = select i1 %isneg, i64 %28, i64 0
@@ -189,7 +189,7 @@ define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef 
   %35 = mul i64 %34, %31
   %36 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %.07783, ptr noundef %20, i32 noundef %6, i64 noundef %35) #4
   %37 = add i64 %36, %.07882
-  %38 = getelementptr inbounds nuw i64, ptr %.07783, i64 %32
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.07783, i64 %32
   %39 = load i64, ptr %38, align 8, !tbaa !15
   %40 = add i64 %37, %39
   %41 = icmp ne i64 %37, 0
@@ -219,7 +219,7 @@ define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef 
   %51 = load ptr, ptr %0, align 8, !tbaa !12
   %52 = load ptr, ptr %1, align 8, !tbaa !12
   %53 = sext i32 %6 to i64
-  %54 = getelementptr inbounds i64, ptr %52, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %52, i64 %53
   %55 = tail call i64 @bn_sub_words(ptr noundef %51, ptr noundef nonnull %54, ptr noundef %20, i32 noundef %6) #4
   %56 = sub i64 %.078.lcssa, %55
   br i1 %24, label %.lr.ph90, label %.loopexit
@@ -231,10 +231,10 @@ define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef 
 
 58:                                               ; preds = %.lr.ph90, %58
   %indvars.iv93 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next94, %58 ]
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv93
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv93
   %60 = load i64, ptr %59, align 8, !tbaa !15
   %61 = and i64 %60, %56
-  %62 = getelementptr inbounds nuw i64, ptr %51, i64 %indvars.iv93
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv93
   %63 = load i64, ptr %62, align 8, !tbaa !15
   %64 = and i64 %63, %57
   %65 = or i64 %64, %61

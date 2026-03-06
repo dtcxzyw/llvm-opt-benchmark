@@ -112,9 +112,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph91.split:                                   ; preds = %.lr.ph91, %._crit_edge84
   %45 = phi i32 [ %99, %._crit_edge84 ], [ %43, %.lr.ph91 ]
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %._crit_edge84 ], [ 0, %.lr.ph91 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv115
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv115
   %47 = load ptr, ptr %46, align 8, !tbaa !47
-  %48 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv115
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv115
   %49 = load ptr, ptr %48, align 8, !tbaa !47
   %50 = icmp sgt i32 %45, 0
   br i1 %50, label %.lr.ph83, label %._crit_edge84
@@ -130,12 +130,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph83.split.us.split.us:                       ; preds = %.lr.ph83.split.us, %.lr.ph83.split.us.split.us
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.lr.ph83.split.us.split.us ], [ 0, %.lr.ph83.split.us ]
-  %54 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv103
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv103
   %55 = load i32, ptr %54, align 4, !tbaa !48
   %56 = sitofp i32 %55 to double
   %57 = tail call nsz double @llvm.fmuladd.f64(double %.fr92, double 0x41DFFFFFFFC00000, double %56)
   %58 = tail call i32 @llvm.fptosi.sat.i32.f64(double %57)
-  %59 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv103
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv103
   store i32 %58, ptr %59, align 4, !tbaa !48
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %60 = load i32, ptr %39, align 8, !tbaa !39
@@ -145,7 +145,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph83.split.us.split:                          ; preds = %.lr.ph83.split.us, %75
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %75 ], [ 0, %.lr.ph83.split.us ]
-  %63 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv106
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv106
   %64 = load i32, ptr %63, align 4, !tbaa !48
   %65 = sitofp i32 %64 to double
   %66 = fcmp nsz olt double %65, %52
@@ -166,7 +166,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 75:                                               ; preds = %69, %67
   %.063.us = phi nsz double [ %68, %67 ], [ %74, %69 ]
   %76 = tail call i32 @llvm.fptosi.sat.i32.f64(double %.063.us)
-  %77 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv106
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv106
   store i32 %76, ptr %77, align 4, !tbaa !48
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %78 = load i32, ptr %39, align 8, !tbaa !39
@@ -176,7 +176,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph83.split.split.us:                          ; preds = %.lr.ph83, %93
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %93 ], [ 0, %.lr.ph83 ]
-  %81 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv109
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv109
   %82 = load i32, ptr %81, align 4, !tbaa !48
   %83 = sitofp i32 %82 to double
   %84 = fcmp nsz olt double %51, %83
@@ -197,7 +197,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 93:                                               ; preds = %87, %85
   %.063.us87 = phi nsz double [ %92, %87 ], [ %86, %85 ]
   %94 = tail call i32 @llvm.fptosi.sat.i32.f64(double %.063.us87)
-  %95 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv109
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv109
   store i32 %94, ptr %95, align 4, !tbaa !48
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %96 = load i32, ptr %39, align 8, !tbaa !39
@@ -217,21 +217,21 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %103 = phi i32 [ %119, %._crit_edge ], [ %26, %.lr.ph80 ]
   %104 = phi i32 [ %120, %._crit_edge ], [ %33, %.lr.ph80 ]
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %._crit_edge ], [ 0, %.lr.ph80 ]
-  %105 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv100
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv100
   %106 = load ptr, ptr %105, align 8, !tbaa !47
-  %107 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv100
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv100
   %108 = load ptr, ptr %107, align 8, !tbaa !47
   %109 = icmp sgt i32 %104, 0
   br i1 %109, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph80.split, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph80.split ]
-  %110 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv
   %111 = load i32, ptr %110, align 4, !tbaa !48
   %112 = sitofp i32 %111 to double
   %113 = tail call nsz double @llvm.fmuladd.f64(double %.fr92, double 0x41E0000000000000, double %112)
   %114 = tail call i32 @llvm.fptosi.sat.i32.f64(double %113)
-  %115 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %indvars.iv
   store i32 %114, ptr %115, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %116 = load i32, ptr %32, align 8, !tbaa !39

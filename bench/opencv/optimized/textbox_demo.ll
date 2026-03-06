@@ -49,7 +49,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Rect_" = type { i32, i32, i32, i32 }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -615,11 +614,11 @@ _ZNSolsEPFRSoS_E.exit82:                          ; preds = %.noexc137
   br i1 %216, label %217, label %274
 
 217:                                              ; preds = %212
-  %218 = getelementptr inbounds nuw i32, ptr %213, i64 %.068.i
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %213, i64 %.068.i
   %219 = load i32, ptr %218, align 4, !tbaa !66
   %220 = sext i32 %219 to i64
   %221 = load ptr, ptr %29, align 8, !tbaa !67
-  %222 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %221, i64 %220
+  %222 = getelementptr inbounds nuw [16 x i8], ptr %221, i64 %220
   %.sroa.060.0.copyload.i = load i64, ptr %222, align 4
   %.sroa.060.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.060.0.copyload.i to i32
   %.sroa.060.sroa.9.0.extract.shift.i = lshr i64 %.sroa.060.0.copyload.i, 32
@@ -644,11 +643,11 @@ _ZNSolsEPFRSoS_E.exit82:                          ; preds = %.noexc137
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %223 = load ptr, ptr %32, align 8, !tbaa !58
-  %224 = getelementptr inbounds nuw i32, ptr %223, i64 %.068.i
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %223, i64 %.068.i
   %225 = load i32, ptr %224, align 4, !tbaa !66
   %226 = sext i32 %225 to i64
   %227 = load ptr, ptr %30, align 8, !tbaa !72
-  %228 = getelementptr inbounds nuw float, ptr %227, i64 %226
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %227, i64 %226
   %229 = load float, ptr %228, align 4, !tbaa !75
   %230 = fpext float %229 to double
   invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull @.str.16, double noundef %230)
@@ -703,11 +702,11 @@ _ZN2cvlsIiEERSoS1_RKNS_5Rect_IT_EE.exit.i:        ; preds = %.noexc42.i
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45.i: ; preds = %_ZN2cvlsIiEERSoS1_RKNS_5Rect_IT_EE.exit.i
   %242 = load ptr, ptr %32, align 8, !tbaa !58
-  %243 = getelementptr inbounds nuw i32, ptr %242, i64 %.068.i
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %.068.i
   %244 = load i32, ptr %243, align 4, !tbaa !66
   %245 = sext i32 %244 to i64
   %246 = load ptr, ptr %30, align 8, !tbaa !72
-  %247 = getelementptr inbounds nuw float, ptr %246, i64 %245
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %246, i64 %245
   %248 = load float, ptr %247, align 4, !tbaa !75
   %249 = fpext float %248 to double
   %250 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %239, double noundef %249)
@@ -827,7 +826,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit51.i: ; preds = %2
   store i32 50397184, ptr %11, align 8, !tbaa !53
   store ptr %33, ptr %196, align 8, !tbaa !55
   %275 = load ptr, ptr %29, align 8, !tbaa !67
-  %276 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %275, i64 %.068.i
+  %276 = getelementptr inbounds nuw [16 x i8], ptr %275, i64 %.068.i
   %.sroa.0.0.copyload.i = load i64, ptr %276, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %276, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 4

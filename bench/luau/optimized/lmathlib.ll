@@ -643,7 +643,7 @@ define internal noundef i32 @_ZL10math_noiseP9lua_State(ptr noundef %0) #0 {
   %71 = load i8, ptr %70, align 1, !tbaa !33
   %72 = and i8 %71, 15
   %73 = zext nneg i8 %72 to i64
-  %74 = getelementptr inbounds nuw [3 x float], ptr @_ZL11kPerlinGrad, i64 %73
+  %74 = getelementptr inbounds nuw [12 x i8], ptr @_ZL11kPerlinGrad, i64 %73
   %75 = load float, ptr %74, align 4, !tbaa !34
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %77 = load float, ptr %76, align 4, !tbaa !34
@@ -657,7 +657,7 @@ define internal noundef i32 @_ZL10math_noiseP9lua_State(ptr noundef %0) #0 {
   %85 = fadd float %33, -1.000000e+00
   %86 = and i8 %84, 15
   %87 = zext nneg i8 %86 to i64
-  %88 = getelementptr inbounds nuw [3 x float], ptr @_ZL11kPerlinGrad, i64 %87
+  %88 = getelementptr inbounds nuw [12 x i8], ptr @_ZL11kPerlinGrad, i64 %87
   %89 = load float, ptr %88, align 4, !tbaa !34
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %91 = load float, ptr %90, align 4, !tbaa !34
@@ -673,7 +673,7 @@ define internal noundef i32 @_ZL10math_noiseP9lua_State(ptr noundef %0) #0 {
   %101 = fadd float %34, -1.000000e+00
   %102 = and i8 %100, 15
   %103 = zext nneg i8 %102 to i64
-  %104 = getelementptr inbounds nuw [3 x float], ptr @_ZL11kPerlinGrad, i64 %103
+  %104 = getelementptr inbounds nuw [12 x i8], ptr @_ZL11kPerlinGrad, i64 %103
   %105 = load float, ptr %104, align 4, !tbaa !34
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %107 = load float, ptr %106, align 4, !tbaa !34
@@ -686,7 +686,7 @@ define internal noundef i32 @_ZL10math_noiseP9lua_State(ptr noundef %0) #0 {
   %114 = load i8, ptr %113, align 1, !tbaa !33
   %115 = and i8 %114, 15
   %116 = zext nneg i8 %115 to i64
-  %117 = getelementptr inbounds nuw [3 x float], ptr @_ZL11kPerlinGrad, i64 %116
+  %117 = getelementptr inbounds nuw [12 x i8], ptr @_ZL11kPerlinGrad, i64 %116
   %118 = load float, ptr %117, align 4, !tbaa !34
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %120 = load float, ptr %119, align 4, !tbaa !34
@@ -702,7 +702,7 @@ define internal noundef i32 @_ZL10math_noiseP9lua_State(ptr noundef %0) #0 {
   %130 = fadd float %35, -1.000000e+00
   %131 = and i8 %129, 15
   %132 = zext nneg i8 %131 to i64
-  %133 = getelementptr inbounds nuw [3 x float], ptr @_ZL11kPerlinGrad, i64 %132
+  %133 = getelementptr inbounds nuw [12 x i8], ptr @_ZL11kPerlinGrad, i64 %132
   %134 = load float, ptr %133, align 4, !tbaa !34
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %136 = load float, ptr %135, align 4, !tbaa !34
@@ -715,7 +715,7 @@ define internal noundef i32 @_ZL10math_noiseP9lua_State(ptr noundef %0) #0 {
   %143 = load i8, ptr %142, align 1, !tbaa !33
   %144 = and i8 %143, 15
   %145 = zext nneg i8 %144 to i64
-  %146 = getelementptr inbounds nuw [3 x float], ptr @_ZL11kPerlinGrad, i64 %145
+  %146 = getelementptr inbounds nuw [12 x i8], ptr @_ZL11kPerlinGrad, i64 %145
   %147 = load float, ptr %146, align 4, !tbaa !34
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 4
   %149 = load float, ptr %148, align 4, !tbaa !34
@@ -730,7 +730,7 @@ define internal noundef i32 @_ZL10math_noiseP9lua_State(ptr noundef %0) #0 {
   %158 = load i8, ptr %157, align 1, !tbaa !33
   %159 = and i8 %158, 15
   %160 = zext nneg i8 %159 to i64
-  %161 = getelementptr inbounds nuw [3 x float], ptr @_ZL11kPerlinGrad, i64 %160
+  %161 = getelementptr inbounds nuw [12 x i8], ptr @_ZL11kPerlinGrad, i64 %160
   %162 = load float, ptr %161, align 4, !tbaa !34
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 4
   %164 = load float, ptr %163, align 4, !tbaa !34
@@ -743,7 +743,7 @@ define internal noundef i32 @_ZL10math_noiseP9lua_State(ptr noundef %0) #0 {
   %171 = load i8, ptr %170, align 1, !tbaa !33
   %172 = and i8 %171, 15
   %173 = zext nneg i8 %172 to i64
-  %174 = getelementptr inbounds nuw [3 x float], ptr @_ZL11kPerlinGrad, i64 %173
+  %174 = getelementptr inbounds nuw [12 x i8], ptr @_ZL11kPerlinGrad, i64 %173
   %175 = load float, ptr %174, align 4, !tbaa !34
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 4
   %177 = load float, ptr %176, align 4, !tbaa !34

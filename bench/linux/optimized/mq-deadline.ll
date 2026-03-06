@@ -25,9 +25,6 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.12 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
 %struct.seq_operations = type { ptr, ptr, ptr, ptr }
-%struct.dd_per_prio = type { %struct.list_head, [2 x %struct.rb_root], [2 x %struct.list_head], [2 x i64], %struct.io_stats_per_prio }
-%struct.rb_root = type { ptr }
-%struct.io_stats_per_prio = type { i32, i32, i32, %struct.atomic_t }
 
 @__UNIQUE_ID_alias751 = internal constant [38 x i8] c"mq_deadline.alias=mq-deadline-iosched\00", section ".modinfo", align 1
 @mq_deadline = internal global %struct.elevator_type { ptr null, %struct.elevator_mq_ops { ptr @dd_init_sched, ptr @dd_exit_sched, ptr @dd_init_hctx, ptr null, ptr @dd_depth_updated, ptr null, ptr @dd_bio_merge, ptr @dd_request_merge, ptr @dd_request_merged, ptr @dd_merged_requests, ptr @dd_limit_depth, ptr @dd_prepare_request, ptr @dd_finish_request, ptr @dd_insert_requests, ptr @dd_dispatch_request, ptr @dd_has_work, ptr null, ptr null, ptr @elv_rb_former_request, ptr @elv_rb_latter_request, ptr null, ptr null }, i64 0, i64 0, ptr @deadline_attrs, ptr @.str, ptr @.str.1, i32 1, ptr null, ptr @deadline_queue_debugfs_attrs, ptr null, [22 x i8] zeroinitializer, %struct.list_head zeroinitializer }, align 8
@@ -130,7 +127,7 @@ define internal noundef range(i32 -12, 1) i32 @dd_init_sched(ptr noundef %0, ptr
 
 13:                                               ; preds = %13, %11
   %14 = phi i64 [ 0, %11 ], [ %22, %13 ]
-  %15 = getelementptr %struct.dd_per_prio, ptr %9, i64 %14
+  %15 = getelementptr [96 x i8], ptr %9, i64 %14
   store volatile ptr %15, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store volatile ptr %15, ptr %16, align 8
@@ -191,7 +188,7 @@ define internal void @dd_exit_sched(ptr noundef readonly captures(none) %0) #2 a
 
 5:                                                ; preds = %33, %1
   %6 = phi i64 [ 0, %1 ], [ %34, %33 ]
-  %7 = getelementptr %struct.dd_per_prio, ptr %3, i64 %6
+  %7 = getelementptr [96 x i8], ptr %3, i64 %6
   %8 = getelementptr i8, ptr %7, i64 80
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %10 = load volatile ptr, ptr %9, align 8
@@ -347,16 +344,16 @@ define internal noundef range(i32 0, 4) i32 @dd_request_merge(ptr noundef readon
   %20 = load i16, ptr %19, align 2
   %21 = lshr i16 %20, 13
   %22 = zext nneg i16 %21 to i64
-  %23 = getelementptr i32, ptr @ioprio_class_to_prio, i64 %22
+  %23 = getelementptr [4 x i8], ptr @ioprio_class_to_prio, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %29 = zext nneg i32 %28 to i64
-  %.split = getelementptr %struct.dd_per_prio, ptr %7, i64 %25
+  %.split = getelementptr [96 x i8], ptr %7, i64 %25
   %.split1 = getelementptr i8, ptr %.split, i64 16
-  %30 = getelementptr %struct.rb_root, ptr %.split1, i64 %29
+  %30 = getelementptr [8 x i8], ptr %.split1, i64 %29
   %31 = tail call ptr @elv_rb_find(ptr noundef %30, i64 noundef %14) #12
   %32 = icmp eq ptr %31, null
   br i1 %32, label %51, label %33
@@ -413,21 +410,21 @@ define internal void @dd_request_merged(ptr noundef readonly captures(none) %0, 
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr i32, ptr @ioprio_class_to_prio, i64 %9
+  %14 = getelementptr [4 x i8], ptr @ioprio_class_to_prio, i64 %9
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %20 = zext nneg i32 %19 to i64
-  %.split = getelementptr %struct.dd_per_prio, ptr %13, i64 %16
+  %.split = getelementptr [96 x i8], ptr %13, i64 %16
   %.split1 = getelementptr i8, ptr %.split, i64 16
-  %21 = getelementptr %struct.rb_root, ptr %.split1, i64 %20
+  %21 = getelementptr [8 x i8], ptr %.split1, i64 %20
   tail call void @elv_rb_del(ptr noundef %21, ptr noundef %1) #12
   %22 = load i32, ptr %17, align 8
   %23 = and i32 %22, 1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr %struct.rb_root, ptr %.split1, i64 %24
+  %25 = getelementptr [8 x i8], ptr %.split1, i64 %24
   tail call void @elv_rb_add(ptr noundef %25, ptr noundef %1) #12
   br label %26
 
@@ -445,10 +442,10 @@ define internal void @dd_merged_requests(ptr noundef %0, ptr noundef %1, ptr nou
   %9 = load i16, ptr %8, align 4
   %10 = lshr i16 %9, 13
   %11 = zext nneg i16 %10 to i64
-  %12 = getelementptr i32, ptr @ioprio_class_to_prio, i64 %11
+  %12 = getelementptr [4 x i8], ptr @ioprio_class_to_prio, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
-  %15 = getelementptr %struct.dd_per_prio, ptr %7, i64 %14
+  %15 = getelementptr [96 x i8], ptr %7, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 84
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, 1
@@ -511,7 +508,7 @@ define internal void @dd_merged_requests(ptr noundef %0, ptr noundef %1, ptr nou
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 1
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr %struct.rb_root, ptr %51, i64 %55
+  %56 = getelementptr [8 x i8], ptr %51, i64 %55
   tail call void @elv_rb_del(ptr noundef %56, ptr noundef %2) #12
   br label %57
 
@@ -581,10 +578,10 @@ define internal void @dd_finish_request(ptr noundef readonly captures(none) %0) 
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr i32, ptr @ioprio_class_to_prio, i64 %9
+  %15 = getelementptr [4 x i8], ptr @ioprio_class_to_prio, i64 %9
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
-  %.split = getelementptr %struct.dd_per_prio, ptr %14, i64 %17
+  %.split = getelementptr [96 x i8], ptr %14, i64 %17
   %18 = getelementptr i8, ptr %.split, i64 92
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %18, ptr elementtype(i32) %18) #12, !srcloc !24
   br label %19
@@ -640,10 +637,10 @@ define internal void @dd_insert_requests(ptr noundef readonly captures(none) %0,
   %34 = load i16, ptr %33, align 4
   %35 = lshr i16 %34, 13
   %36 = zext nneg i16 %35 to i64
-  %37 = getelementptr i32, ptr @ioprio_class_to_prio, i64 %36
+  %37 = getelementptr [4 x i8], ptr @ioprio_class_to_prio, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = zext i32 %38 to i64
-  %40 = getelementptr %struct.dd_per_prio, ptr %29, i64 %39
+  %40 = getelementptr [96 x i8], ptr %29, i64 %39
   %41 = getelementptr i8, ptr %19, i64 120
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
@@ -721,7 +718,7 @@ define internal void @dd_insert_requests(ptr noundef readonly captures(none) %0,
   %79 = load i32, ptr %30, align 8
   %80 = and i32 %79, 1
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr %struct.rb_root, ptr %78, i64 %81
+  %82 = getelementptr [8 x i8], ptr %78, i64 %81
   call void @elv_rb_add(ptr noundef %82, ptr noundef %20) #12
   %83 = load i32, ptr %30, align 8
   %84 = and i32 %83, 254
@@ -763,14 +760,14 @@ define internal void @dd_insert_requests(ptr noundef readonly captures(none) %0,
   %102 = load volatile i64, ptr @jiffies, align 64
   %103 = getelementptr inbounds nuw i8, ptr %29, i64 300
   %104 = zext nneg i32 %32 to i64
-  %105 = getelementptr i32, ptr %103, i64 %104
+  %105 = getelementptr [4 x i8], ptr %103, i64 %104
   %106 = load i32, ptr %105, align 4
   %107 = sext i32 %106 to i64
   %108 = add i64 %102, %107
   %109 = getelementptr i8, ptr %19, i64 152
   store i64 %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %111 = getelementptr %struct.list_head, ptr %110, i64 %104
+  %111 = getelementptr [16 x i8], ptr %110, i64 %104
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
   store ptr %19, ptr %112, align 8
@@ -852,7 +849,7 @@ define internal ptr @dd_dispatch_request(ptr noundef readonly captures(none) %0)
 33:                                               ; preds = %33, %31
   %34 = phi i1 [ false, %31 ], [ true, %33 ]
   %35 = phi i64 [ 1, %31 ], [ 2, %33 ]
-  %36 = getelementptr %struct.dd_per_prio, ptr %7, i64 %35
+  %36 = getelementptr [96 x i8], ptr %7, i64 %35
   %37 = load i32, ptr %32, align 4
   %38 = sext i32 %37 to i64
   %39 = sub i64 %8, %38
@@ -870,7 +867,7 @@ define internal ptr @dd_dispatch_request(ptr noundef readonly captures(none) %0)
 
 .preheader:                                       ; preds = %.preheader.preheader, %47
   %43 = phi i64 [ %53, %47 ], [ 0, %.preheader.preheader ]
-  %44 = getelementptr %struct.dd_per_prio, ptr %7, i64 %43
+  %44 = getelementptr [96 x i8], ptr %7, i64 %43
   %45 = tail call fastcc ptr @__dd_dispatch_request(ptr noundef %7, ptr noundef %44, i64 noundef %8)
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %.loopexit
@@ -925,7 +922,7 @@ define internal zeroext i1 @dd_has_work(ptr noundef readonly captures(none) %0) 
   br i1 %19, label %..loopexit_crit_edge, label %20, !llvm.loop !37
 
 20:                                               ; preds = %16
-  %21 = getelementptr %struct.dd_per_prio, ptr %7, i64 %17
+  %21 = getelementptr [96 x i8], ptr %7, i64 %17
   %22 = load volatile ptr, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !36
   %23 = icmp eq ptr %22, %21
@@ -938,7 +935,7 @@ define internal zeroext i1 @dd_has_work(ptr noundef readonly captures(none) %0) 
   br i1 %27, label %.lr.ph, label %..loopexit.loopexit_crit_edge32, !llvm.loop !37
 
 .lr.ph:                                           ; preds = %24
-  %28 = getelementptr %struct.dd_per_prio, ptr %7, i64 %17
+  %28 = getelementptr [96 x i8], ptr %7, i64 %17
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load volatile ptr, ptr %29, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !36
@@ -949,7 +946,7 @@ define internal zeroext i1 @dd_has_work(ptr noundef readonly captures(none) %0) 
   %32 = phi ptr [ %29, %.lr.ph ], [ %13, %.lr.ph.preheader ]
   %33 = phi i1 [ %18, %.lr.ph ], [ true, %.lr.ph.preheader ]
   %34 = phi i64 [ %17, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %35 = getelementptr %struct.dd_per_prio, ptr %7, i64 %34
+  %35 = getelementptr [96 x i8], ptr %7, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load volatile ptr, ptr %36, align 8
   %38 = icmp eq ptr %32, %37
@@ -1071,7 +1068,7 @@ define internal fastcc ptr @__dd_dispatch_request(ptr noundef captures(none) %0,
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 1
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr i32, ptr %9, i64 %13
+  %14 = getelementptr [4 x i8], ptr %9, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = sub i64 %2, %8
@@ -1098,10 +1095,10 @@ define internal fastcc ptr @__dd_dispatch_request(ptr noundef captures(none) %0,
   %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %32 = zext i32 %30 to i64
-  %33 = getelementptr i64, ptr %31, i64 %32
+  %33 = getelementptr [8 x i8], ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %36 = getelementptr %struct.rb_root, ptr %35, i64 %32
+  %36 = getelementptr [8 x i8], ptr %35, i64 %32
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.thread, label %.preheader11
@@ -1199,9 +1196,9 @@ define internal fastcc ptr @__dd_dispatch_request(ptr noundef captures(none) %0,
 95:                                               ; preds = %93, %77, %70
   %96 = phi i32 [ 1, %93 ], [ 0, %77 ], [ 0, %70 ]
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr i64, ptr %31, i64 %97
+  %98 = getelementptr [8 x i8], ptr %31, i64 %97
   %99 = load i64, ptr %98, align 8
-  %100 = getelementptr %struct.rb_root, ptr %35, i64 %97
+  %100 = getelementptr [8 x i8], ptr %35, i64 %97
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %.loopexit, label %.preheader
@@ -1222,7 +1219,7 @@ define internal fastcc ptr @__dd_dispatch_request(ptr noundef captures(none) %0,
 
 .loopexit:                                        ; preds = %.preheader, %95
   %114 = phi ptr [ null, %95 ], [ %109, %.preheader ]
-  %115 = getelementptr %struct.list_head, ptr %63, i64 %97
+  %115 = getelementptr [16 x i8], ptr %63, i64 %97
   %116 = load ptr, ptr %115, align 8
   %117 = load volatile i64, ptr @jiffies, align 64
   %118 = getelementptr i8, ptr %116, i64 152
@@ -1261,7 +1258,7 @@ define internal fastcc ptr @__dd_dispatch_request(ptr noundef captures(none) %0,
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %139 = zext nneg i32 %.pre-phi to i64
-  %140 = getelementptr i32, ptr %137, i64 %139
+  %140 = getelementptr [4 x i8], ptr %137, i64 %139
   %141 = load i32, ptr %140, align 4
   %142 = sext i32 %141 to i64
   %143 = sub i64 %2, %136
@@ -1292,7 +1289,7 @@ define internal fastcc ptr @__dd_dispatch_request(ptr noundef captures(none) %0,
   %159 = load i32, ptr %138, align 8
   %160 = and i32 %159, 1
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr %struct.rb_root, ptr %35, i64 %161
+  %162 = getelementptr [8 x i8], ptr %35, i64 %161
   tail call void @elv_rb_del(ptr noundef %162, ptr noundef nonnull %134) #12
   br label %163
 
@@ -1314,15 +1311,15 @@ define internal fastcc ptr @__dd_dispatch_request(ptr noundef captures(none) %0,
   %172 = load i16, ptr %171, align 4
   %173 = lshr i16 %172, 13
   %174 = zext nneg i16 %173 to i64
-  %175 = getelementptr i32, ptr @ioprio_class_to_prio, i64 %174
+  %175 = getelementptr [4 x i8], ptr @ioprio_class_to_prio, i64 %174
   %176 = load i32, ptr %175, align 4
   %177 = getelementptr inbounds nuw i8, ptr %170, i64 48
   %178 = load i64, ptr %177, align 8
   %179 = zext i32 %176 to i64
-  %180 = getelementptr %struct.dd_per_prio, ptr %0, i64 %179
+  %180 = getelementptr [96 x i8], ptr %0, i64 %179
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 64
   %182 = zext nneg i32 %169 to i64
-  %183 = getelementptr i64, ptr %181, i64 %182
+  %183 = getelementptr [8 x i8], ptr %181, i64 %182
   store i64 %178, ptr %183, align 8
   %184 = getelementptr inbounds nuw i8, ptr %180, i64 88
   %185 = load i32, ptr %184, align 8

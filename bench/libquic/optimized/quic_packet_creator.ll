@@ -27,7 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.46" = type { %"class.net::StreamBufferDeleter" }
 %"class.net::StreamBufferDeleter" = type { ptr }
 %"struct.std::_Head_base.47" = type { ptr }
-%struct.iovec = type { ptr, i64 }
 %"struct.net::QuicPacketHeader" = type <{ %"struct.net::QuicPacketPublicHeader", i64, i8, i8, i8, i8, [4 x i8] }>
 %"struct.net::QuicPacketPublicHeader" = type { i64, i32, i8, i8, i8, i8, %"class.std::vector.24", ptr }
 %"class.std::vector.24" = type { %"struct.std::_Vector_base.25" }
@@ -1709,7 +1708,7 @@ _ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; 
 _ZNSt6vectorIN3net9QuicFrameESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %190, %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %185, ptr %154, align 8, !tbaa !83
   store ptr %189, ptr %156, align 8, !tbaa !96
-  %191 = getelementptr inbounds nuw %"struct.net::QuicFrame", ptr %185, i64 %183
+  %191 = getelementptr inbounds nuw [16 x i8], ptr %185, i64 %183
   store ptr %191, ptr %168, align 8, !tbaa !132
   br label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE9push_backERKS1_.exit
 
@@ -1777,7 +1776,7 @@ _ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i54: 
 _ZNSt6vectorIN3net9QuicFrameESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i57: ; preds = %216, %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i54
   store ptr %211, ptr %122, align 8, !tbaa !83
   store ptr %215, ptr %130, align 8, !tbaa !96
-  %217 = getelementptr inbounds nuw %"struct.net::QuicFrame", ptr %211, i64 %209
+  %217 = getelementptr inbounds nuw [16 x i8], ptr %211, i64 %209
   store ptr %217, ptr %193, align 8, !tbaa !132
   br label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE9push_backERKS1_.exit58
 
@@ -1861,7 +1860,7 @@ _ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i68: 
 _ZNSt6vectorIN3net9QuicFrameESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i71: ; preds = %250, %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i68
   store ptr %245, ptr %122, align 8, !tbaa !83
   store ptr %249, ptr %130, align 8, !tbaa !96
-  %251 = getelementptr inbounds nuw %"struct.net::QuicFrame", ptr %245, i64 %243
+  %251 = getelementptr inbounds nuw [16 x i8], ptr %245, i64 %243
   store ptr %251, ptr %228, align 8, !tbaa !132
   br label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE9push_backERKS1_.exit72thread-pre-split
 
@@ -2022,7 +2021,7 @@ define void @_ZN3net17QuicPacketCreator12CopyToBufferENS_12QuicIOVectorEmmPc(ptr
 10:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %.03468 = phi i64 [ %1, %.lr.ph ], [ %15, %14 ]
-  %11 = getelementptr inbounds nuw %struct.iovec, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !118
   %.not = icmp ult i64 %.03468, %13
@@ -2049,7 +2048,7 @@ define void @_ZN3net17QuicPacketCreator12CopyToBufferENS_12QuicIOVectorEmmPc(ptr
 19:                                               ; preds = %.critedge
   %20 = load ptr, ptr %0, align 8, !tbaa !115
   %21 = zext i32 %.036.lcssa to i64
-  %22 = getelementptr inbounds nuw %struct.iovec, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !118
   %25 = sub i64 %24, %.034.lcssa
@@ -2079,7 +2078,7 @@ define void @_ZN3net17QuicPacketCreator12CopyToBufferENS_12QuicIOVectorEmmPc(ptr
   br i1 %.not40, label %34, label %41
 
 34:                                               ; preds = %.lr.ph76
-  %35 = getelementptr inbounds nuw %struct.iovec, ptr %20, i64 %indvars.iv.next81
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %indvars.iv.next81
   %36 = load ptr, ptr %35, align 8, !tbaa !151
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !102
@@ -3581,7 +3580,7 @@ _ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: 
 _ZNSt6vectorIN3net9QuicFrameESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %261, %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %256, ptr %235, align 8, !tbaa !83
   store ptr %260, ptr %236, align 8, !tbaa !96
-  %262 = getelementptr inbounds nuw %"struct.net::QuicFrame", ptr %256, i64 %254
+  %262 = getelementptr inbounds nuw [16 x i8], ptr %256, i64 %254
   store ptr %262, ptr %238, align 8, !tbaa !132
   br label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE9push_backEOS1_.exit
 
@@ -4146,7 +4145,7 @@ common.resume:                                    ; preds = %_ZNSt10_HashtableIh
   %27 = load i64, ptr %26, align 8, !tbaa !80
   %28 = urem i64 %25, %27
   %29 = load ptr, ptr %24, align 8, !tbaa !79
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8, !tbaa !209
   %.not.i.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %32
@@ -4225,7 +4224,7 @@ _ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEEixERS5_.exit: ; 
   %61 = load i64, ptr %26, align 8, !tbaa !80
   %62 = urem i64 %60, %61
   %63 = load ptr, ptr %24, align 8, !tbaa !79
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %62
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %62
   %65 = load ptr, ptr %64, align 8, !tbaa !209
   %.not.i.i.i.i10 = icmp eq ptr %65, null
   br i1 %.not.i.i.i.i10, label %_ZNSt13unordered_mapIhmSt4hashIhESt8equal_toIhESaISt4pairIKhmEEE4findERS5_.exit.thread, label %66
@@ -4380,7 +4379,7 @@ _ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4
 31:                                               ; preds = %_ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4hashIhENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4hashIhENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !79
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !209
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -4407,7 +4406,7 @@ _ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4
   %45 = load i8, ptr %43, align 1, !tbaa !92
   %46 = zext i8 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !209
   br label %49
 
@@ -4476,7 +4475,7 @@ _ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4
   %16 = load i8, ptr %15, align 8, !tbaa !92
   %17 = zext i8 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !209
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -4491,7 +4490,7 @@ _ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt4
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !209
   br label %29
 

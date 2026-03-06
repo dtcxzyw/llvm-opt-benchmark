@@ -19,7 +19,7 @@ define hidden range(i32 0, 2) i32 @BN_div(ptr noundef %0, ptr noundef %1, ptr no
 10:                                               ; preds = %5
   %11 = load ptr, ptr %2, align 8, !tbaa !13
   %12 = zext nneg i32 %8 to i64
-  %13 = getelementptr i64, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !14
   %16 = icmp eq i64 %15, 0
@@ -34,7 +34,7 @@ define hidden range(i32 0, 2) i32 @BN_div(ptr noundef %0, ptr noundef %1, ptr no
 21:                                               ; preds = %17
   %22 = load ptr, ptr %3, align 8, !tbaa !13
   %23 = zext nneg i32 %19 to i64
-  %24 = getelementptr i64, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -8
   %26 = load i64, ptr %25, align 8, !tbaa !14
   %27 = icmp eq i64 %26, 0
@@ -187,7 +187,7 @@ define hidden range(i32 0, 2) i32 @BN_div(ptr noundef %0, ptr noundef %1, ptr no
   %100 = load ptr, ptr %51, align 8, !tbaa !13
   %101 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !6
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i64, ptr %100, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %100, i64 %102
   store i64 0, ptr %103, align 8, !tbaa !14
   %104 = add nsw i32 %101, 1
   br label %._crit_edge220.sink.split
@@ -206,7 +206,7 @@ define hidden range(i32 0, 2) i32 @BN_div(ptr noundef %0, ptr noundef %1, ptr no
   store i32 0, ptr %109, align 8, !tbaa !17
   %110 = load ptr, ptr %51, align 8, !tbaa !13
   %111 = sext i32 %108 to i64
-  %112 = getelementptr inbounds i64, ptr %110, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %110, i64 %111
   store ptr %112, ptr %6, align 8, !tbaa !13
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %107, ptr %113, align 8, !tbaa !6
@@ -217,7 +217,7 @@ define hidden range(i32 0, 2) i32 @BN_div(ptr noundef %0, ptr noundef %1, ptr no
   store i32 %116, ptr %117, align 4, !tbaa !18
   %118 = load ptr, ptr %52, align 8, !tbaa !13
   %119 = sext i32 %107 to i64
-  %120 = getelementptr i64, ptr %118, i64 %119
+  %120 = getelementptr [8 x i8], ptr %118, i64 %119
   %121 = getelementptr i8, ptr %120, i64 -8
   %122 = load i64, ptr %121, align 8, !tbaa !14
   %123 = icmp eq i32 %107, 1
@@ -231,7 +231,7 @@ define hidden range(i32 0, 2) i32 @BN_div(ptr noundef %0, ptr noundef %1, ptr no
 127:                                              ; preds = %._crit_edge220, %124
   %128 = phi i64 [ %126, %124 ], [ 0, %._crit_edge220 ]
   %129 = sext i32 %105 to i64
-  %130 = getelementptr i64, ptr %110, i64 %129
+  %130 = getelementptr [8 x i8], ptr %110, i64 %129
   %131 = getelementptr i8, ptr %130, i64 -8
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %133 = load i32, ptr %132, align 8, !tbaa !17
@@ -253,7 +253,7 @@ define hidden range(i32 0, 2) i32 @BN_div(ptr noundef %0, ptr noundef %1, ptr no
   %144 = load ptr, ptr %.0145, align 8, !tbaa !13
   %145 = add i32 %108, -1
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds i64, ptr %144, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %144, i64 %146
   %148 = add nsw i32 %107, 1
   %149 = sext i32 %148 to i64
   %150 = tail call ptr @bn_wexpand(ptr noundef nonnull %50, i64 noundef %149) #6
@@ -355,7 +355,7 @@ thread-pre-split:                                 ; preds = %151, %155
   %197 = load ptr, ptr %52, align 8, !tbaa !13
   %198 = call i64 @bn_mul_words(ptr noundef %196, ptr noundef %197, i32 noundef %107, i64 noundef %.0189) #6
   %199 = load ptr, ptr %50, align 8, !tbaa !13
-  %200 = getelementptr inbounds i64, ptr %199, i64 %119
+  %200 = getelementptr inbounds [8 x i8], ptr %199, i64 %119
   store i64 %198, ptr %200, align 8, !tbaa !14
   %201 = load ptr, ptr %6, align 8, !tbaa !13
   %202 = getelementptr inbounds i8, ptr %201, i64 -8
@@ -876,14 +876,14 @@ define hidden i64 @BN_div_word(ptr noundef %0, i64 noundef %1) local_unnamed_add
   %indvars.iv = phi i64 [ %16, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02933 = phi i64 [ 0, %.lr.ph.preheader ], [ %23, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next
   %19 = load i64, ptr %18, align 8, !tbaa !14
   %20 = tail call { i64, i64 } asm sideeffect "divq $4", "={ax},={dx},{ax},{dx},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %19, i64 %.02933, i64 %11) #6, !srcloc !19
   %21 = extractvalue { i64, i64 } %20, 0
   %22 = mul i64 %21, %11
   %23 = sub i64 %19, %22
   %24 = load ptr, ptr %0, align 8, !tbaa !13
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv.next
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.next
   store i64 %21, ptr %25, align 8, !tbaa !14
   %26 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !23
@@ -896,7 +896,7 @@ define hidden i64 @BN_div_word(ptr noundef %0, i64 noundef %1) local_unnamed_add
 28:                                               ; preds = %._crit_edge
   %29 = load ptr, ptr %0, align 8, !tbaa !13
   %30 = zext nneg i32 %.pre36 to i64
-  %31 = getelementptr i64, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -8
   %33 = load i64, ptr %32, align 8, !tbaa !14
   %34 = icmp eq i64 %33, 0
@@ -941,7 +941,7 @@ define hidden i64 @BN_mod_word(ptr noundef readonly captures(none) %0, i64 nound
   %.01013 = phi i128 [ 0, %.lr.ph ], [ %17, %11 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %12 = shl nuw i128 %.01013, 64
-  %13 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next
   %14 = load i64, ptr %13, align 8, !tbaa !14
   %15 = zext i64 %14 to i128
   %16 = or disjoint i128 %12, %15

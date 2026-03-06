@@ -33,12 +33,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.21" }
 %"struct.std::_Head_base.21" = type { ptr }
 %"class.irr::core::vector2d" = type { float, float }
-%"class.std::unique_ptr.30" = type { %"struct.std::__uniq_ptr_data.31" }
-%"struct.std::__uniq_ptr_data.31" = type { %"class.std::__uniq_ptr_impl.32" }
-%"class.std::__uniq_ptr_impl.32" = type { %"class.std::tuple.33" }
-%"class.std::tuple.33" = type { %"struct.std::_Tuple_impl.34" }
-%"struct.std::_Tuple_impl.34" = type { %"struct.std::_Head_base.37" }
-%"struct.std::_Head_base.37" = type { ptr }
 %"class.std::unique_ptr.43" = type { %"struct.std::__uniq_ptr_data.44" }
 %"struct.std::__uniq_ptr_data.44" = type { %"class.std::__uniq_ptr_impl.45" }
 %"class.std::__uniq_ptr_impl.45" = type { %"class.std::tuple.46" }
@@ -753,7 +747,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIP10Ren
 _ZNSt6vectorIP10RenderStepSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %m_pipeline.i, align 8, !tbaa !43
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !40
   br label %_ZN14RenderPipeline7addStepEP10RenderStep.exit
 
@@ -849,7 +843,7 @@ if.then.i39.i.i.i.1:                              ; preds = %_ZNSt6vectorIP10Ren
 _ZNSt6vectorIP10RenderStepSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.1: ; preds = %if.then.i39.i.i.i.1, %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i.1
   store ptr %call5.i.i.i.i.i.i.1, ptr %m_pipeline.i, align 8, !tbaa !43
   store ptr %incdec.ptr.i.i.i.1, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %add.ptr19.i.i.i.1 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.1, i64 %cond.i.i.i.i.1
+  %add.ptr19.i.i.i.1 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.1, i64 %cond.i.i.i.i.1
   store ptr %add.ptr19.i.i.i.1, ptr %_M_end_of_storage.i.i, align 8, !tbaa !40
   br label %_ZN14RenderPipeline7addStepEP10RenderStep.exit.1
 
@@ -1068,7 +1062,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorISt10un
   %incdec.ptr.i8 = phi ptr [ %incdec.ptr.i7, %if.then.i41.i ], [ %incdec.ptr.i, %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i ]
   store ptr %call5.i.i.i.i12, ptr %m_objects, align 8, !tbaa !72
   store ptr %incdec.ptr.i8, ptr %_M_finish.i.i, align 8, !tbaa !56
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::unique_ptr.30", ptr %call5.i.i.i.i12, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i12, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !54
   br label %_ZNSt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS0_EED2Ev.exit
 
@@ -1194,7 +1188,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIP10Ren
 _ZNSt6vectorIP10RenderStepSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %m_pipeline.i, align 8, !tbaa !43
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !40
   br label %_ZN14RenderPipeline7addStepEP10RenderStep.exit
 
@@ -1320,7 +1314,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIP10Ren
 _ZNSt6vectorIP10RenderStepSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %m_pipeline.i, align 8, !tbaa !43
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !40
   br label %_ZN14RenderPipeline7addStepEP10RenderStep.exit
 
@@ -1439,7 +1433,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIP10Ren
 _ZNSt6vectorIP10RenderStepSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %m_pipeline.i, align 8, !tbaa !43
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !40
   br label %_ZN14RenderPipeline7addStepEP10RenderStep.exit
 
@@ -1563,7 +1557,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIP10Ren
 _ZNSt6vectorIP10RenderStepSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %m_pipeline.i, align 8, !tbaa !43
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !40
   br label %_ZN14RenderPipeline7addStepEP10RenderStep.exit
 
@@ -1674,7 +1668,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIP10Ren
 _ZNSt6vectorIP10RenderStepSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %m_pipeline.i, align 8, !tbaa !43
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !40
   br label %_ZN14RenderPipeline7addStepEP10RenderStep.exit
 
@@ -1799,7 +1793,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIP10Ren
 _ZNSt6vectorIP10RenderStepSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %m_pipeline.i, align 8, !tbaa !43
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !40
   br label %_ZN14RenderPipeline7addStepEP10RenderStep.exit
 
@@ -1916,7 +1910,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIP10Ren
 _ZNSt6vectorIP10RenderStepSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIP10RenderStepSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %m_pipeline.i, align 8, !tbaa !43
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !42
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !40
   br label %_ZN14RenderPipeline7addStepEP10RenderStep.exit
 
@@ -2152,7 +2146,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorISt10un
   %incdec.ptr.i8 = phi ptr [ %incdec.ptr.i7, %if.then.i41.i ], [ %incdec.ptr.i, %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i ]
   store ptr %call5.i.i.i.i12, ptr %m_objects, align 8, !tbaa !72
   store ptr %incdec.ptr.i8, ptr %_M_finish.i.i, align 8, !tbaa !56
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::unique_ptr.30", ptr %call5.i.i.i.i12, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i12, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !54
   br label %_ZNSt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS0_EED2Ev.exit
 
@@ -2331,7 +2325,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorISt10un
   %incdec.ptr.i8 = phi ptr [ %incdec.ptr.i7, %if.then.i41.i ], [ %incdec.ptr.i, %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i ]
   store ptr %call5.i.i.i.i12, ptr %m_objects, align 8, !tbaa !72
   store ptr %incdec.ptr.i8, ptr %_M_finish.i.i, align 8, !tbaa !56
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::unique_ptr.30", ptr %call5.i.i.i.i12, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i12, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !54
   br label %_ZNSt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS0_EED2Ev.exit
 
@@ -2509,7 +2503,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorISt10un
   %incdec.ptr.i8 = phi ptr [ %incdec.ptr.i7, %if.then.i41.i ], [ %incdec.ptr.i, %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i ]
   store ptr %call5.i.i.i.i12, ptr %m_objects, align 8, !tbaa !72
   store ptr %incdec.ptr.i8, ptr %_M_finish.i.i, align 8, !tbaa !56
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::unique_ptr.30", ptr %call5.i.i.i.i12, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i12, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !54
   br label %_ZNSt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS0_EED2Ev.exit
 
@@ -2687,7 +2681,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorISt10un
   %incdec.ptr.i8 = phi ptr [ %incdec.ptr.i7, %if.then.i41.i ], [ %incdec.ptr.i, %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i ]
   store ptr %call5.i.i.i.i12, ptr %m_objects, align 8, !tbaa !72
   store ptr %incdec.ptr.i8, ptr %_M_finish.i.i, align 8, !tbaa !56
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::unique_ptr.30", ptr %call5.i.i.i.i12, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i12, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !54
   br label %_ZNSt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS0_EED2Ev.exit
 
@@ -2865,7 +2859,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorISt10un
   %incdec.ptr.i8 = phi ptr [ %incdec.ptr.i7, %if.then.i41.i ], [ %incdec.ptr.i, %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i ]
   store ptr %call5.i.i.i.i12, ptr %m_objects, align 8, !tbaa !72
   store ptr %incdec.ptr.i8, ptr %_M_finish.i.i, align 8, !tbaa !56
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::unique_ptr.30", ptr %call5.i.i.i.i12, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i12, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !54
   br label %_ZNSt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS0_EED2Ev.exit
 
@@ -3041,7 +3035,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorISt10un
   %incdec.ptr.i8 = phi ptr [ %incdec.ptr.i7, %if.then.i41.i ], [ %incdec.ptr.i, %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i ]
   store ptr %call5.i.i.i.i12, ptr %m_objects, align 8, !tbaa !72
   store ptr %incdec.ptr.i8, ptr %_M_finish.i.i, align 8, !tbaa !56
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::unique_ptr.30", ptr %call5.i.i.i.i12, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i12, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !54
   br label %_ZNSt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS0_EED2Ev.exit
 
@@ -3217,7 +3211,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorISt10un
   %incdec.ptr.i8 = phi ptr [ %incdec.ptr.i7, %if.then.i41.i ], [ %incdec.ptr.i, %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i ]
   store ptr %call5.i.i.i.i12, ptr %m_objects, align 8, !tbaa !72
   store ptr %incdec.ptr.i8, ptr %_M_finish.i.i, align 8, !tbaa !56
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::unique_ptr.30", ptr %call5.i.i.i.i12, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i12, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !54
   br label %_ZNSt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS0_EED2Ev.exit
 
@@ -3395,7 +3389,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorISt10un
   %incdec.ptr.i8 = phi ptr [ %incdec.ptr.i7, %if.then.i41.i ], [ %incdec.ptr.i, %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i ]
   store ptr %call5.i.i.i.i12, ptr %m_objects, align 8, !tbaa !72
   store ptr %incdec.ptr.i8, ptr %_M_finish.i.i, align 8, !tbaa !56
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::unique_ptr.30", ptr %call5.i.i.i.i12, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i12, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !54
   br label %_ZNSt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS0_EED2Ev.exit
 
@@ -3571,7 +3565,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorISt10un
   %incdec.ptr.i8 = phi ptr [ %incdec.ptr.i7, %if.then.i41.i ], [ %incdec.ptr.i, %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i ]
   store ptr %call5.i.i.i.i12, ptr %m_objects, align 8, !tbaa !72
   store ptr %incdec.ptr.i8, ptr %_M_finish.i.i, align 8, !tbaa !56
-  %add.ptr19.i = getelementptr inbounds nuw %"class.std::unique_ptr.30", ptr %call5.i.i.i.i12, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i12, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !54
   br label %_ZNSt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS0_EED2Ev.exit
 

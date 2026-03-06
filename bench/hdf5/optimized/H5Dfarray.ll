@@ -2165,11 +2165,11 @@ define internal i32 @H5D__farray_idx_iterate_cb(i64 %0, ptr noundef readonly cap
 43:                                               ; preds = %.lr.ph, %50
   %.031 = phi i32 [ %40, %.lr.ph ], [ %51, %50 ]
   %44 = zext nneg i32 %.031 to i64
-  %45 = getelementptr inbounds nuw i64, ptr %24, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !39
   %47 = add i64 %46, 1
   store i64 %47, ptr %45, align 8, !tbaa !39
-  %48 = getelementptr inbounds nuw i64, ptr %42, i64 %44
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %44
   %49 = load i64, ptr %48, align 8, !tbaa !39
   %.not30 = icmp ult i64 %47, %49
   br i1 %.not30, label %.loopexit, label %50

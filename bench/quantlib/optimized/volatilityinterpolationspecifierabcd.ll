@@ -153,7 +153,7 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorIN5boos
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %sub, 4
   %call5.i.i.i.i2.i.i46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #19
   store ptr %call5.i.i.i.i2.i.i46, ptr %interpolatedVariances_, align 8, !tbaa !28
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.boost::shared_ptr.13", ptr %call5.i.i.i.i2.i.i46, i64 %sub
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i2.i.i46, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i46, i8 0, i64 %mul.i.i.i.i.i.i, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i46, i64 %mul.i.i.i.i.i.i
   br label %invoke.cont
@@ -199,7 +199,7 @@ for.body.preheader.i.i.i.i.i55:                   ; preds = %_ZNSt6vectorIN5boos
 
 call5.i.i.i.i2.i.i.noexc65:                       ; preds = %for.body.preheader.i.i.i.i.i55
   store ptr %call5.i.i.i.i2.i.i66, ptr %originalVariances_, align 8, !tbaa !28
-  %add.ptr.i.i.i57 = getelementptr inbounds nuw %"class.boost::shared_ptr.13", ptr %call5.i.i.i.i2.i.i66, i64 %sub.ptr.div.i51
+  %add.ptr.i.i.i57 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i2.i.i66, i64 %sub.ptr.div.i51
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i66, i8 0, i64 %mul.i.i.i.i.i.i56, i1 false)
   %scevgep.i.i.i.i.i58 = getelementptr i8, ptr %call5.i.i.i.i2.i.i66, i64 %mul.i.i.i.i.i.i56
   br label %invoke.cont5
@@ -300,7 +300,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIdSaIdE
 
 call5.i.i.i.i2.i.i.noexc86:                       ; preds = %if.end.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i87, ptr %scalingFactors_, align 8, !tbaa !27
-  %add.ptr.i.i.i80 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i87, i64 %sub.ptr.div.i76
+  %add.ptr.i.i.i80 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i87, i64 %sub.ptr.div.i76
   %_M_end_of_storage.i.i.i81 = getelementptr inbounds nuw i8, ptr %this, i64 168
   store ptr %add.ptr.i.i.i80, ptr %_M_end_of_storage.i.i.i81, align 8, !tbaa !35
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i87, i64 %mul.i.i.i.i.i.i79
@@ -528,7 +528,7 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup.lo
 for.cond54:                                       ; preds = %invoke.cont67, %for.cond54.preheader
   %j.0 = phi i64 [ %inc, %invoke.cont67 ], [ 0, %for.cond54.preheader ]
   %41 = load ptr, ptr %originalVariances, align 8, !tbaa !32
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::PiecewiseConstantAbcdVariance", ptr %41, i64 %i.0225
+  %add.ptr.i = getelementptr inbounds nuw [112 x i8], ptr %41, i64 %i.0225
   %vtable = load ptr, ptr %add.ptr.i, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %42 = load ptr, ptr %vfn, align 8
@@ -559,7 +559,7 @@ lpad56:                                           ; preds = %do.body63, %for.con
 
 do.body63:                                        ; preds = %invoke.cont57
   %47 = load ptr, ptr %originalVariances, align 8, !tbaa !32
-  %add.ptr.i122 = getelementptr inbounds nuw %"class.QuantLib::PiecewiseConstantAbcdVariance", ptr %47, i64 %i.0225
+  %add.ptr.i122 = getelementptr inbounds nuw [112 x i8], ptr %47, i64 %i.0225
   %vtable65 = load ptr, ptr %add.ptr.i122, align 8, !tbaa !3
   %vfn66 = getelementptr inbounds nuw i8, ptr %vtable65, i64 32
   %48 = load ptr, ptr %vfn66, align 8
@@ -568,12 +568,12 @@ do.body63:                                        ; preds = %invoke.cont57
 
 invoke.cont67:                                    ; preds = %do.body63
   %49 = load ptr, ptr %call68, align 8, !tbaa !27
-  %add.ptr.i123 = getelementptr inbounds nuw double, ptr %49, i64 %j.0
+  %add.ptr.i123 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %j.0
   %50 = load double, ptr %add.ptr.i123, align 8, !tbaa !37
   %mul = mul i64 %j.0, %period
   %51 = load ptr, ptr %timesForSmallRates, align 8, !tbaa !27
-  %52 = getelementptr double, ptr %51, i64 %offset
-  %add.ptr.i124 = getelementptr double, ptr %52, i64 %mul
+  %52 = getelementptr [8 x i8], ptr %51, i64 %offset
+  %add.ptr.i124 = getelementptr [8 x i8], ptr %52, i64 %mul
   %53 = load double, ptr %add.ptr.i124, align 8, !tbaa !37
   %cmp71 = fcmp oeq double %50, %53
   %inc = add nuw i64 %j.0, 1
@@ -725,7 +725,7 @@ ehcleanup109:                                     ; preds = %ehcleanup108, %lpad
 if.then120:                                       ; preds = %for.cond.cleanup
   %sub122 = add i64 %39, -1
   %72 = load ptr, ptr %originalVariances, align 8, !tbaa !32
-  %add.ptr.i152 = getelementptr inbounds nuw %"class.QuantLib::PiecewiseConstantAbcdVariance", ptr %72, i64 %sub122
+  %add.ptr.i152 = getelementptr inbounds nuw [112 x i8], ptr %72, i64 %sub122
   %call128 = invoke noundef double @_ZNK8QuantLib25PiecewiseConstantVariance15totalVolatilityEm(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i152, i64 noundef %sub122)
           to label %invoke.cont127 unwind label %lpad126
 
@@ -760,7 +760,7 @@ for.body136:                                      ; preds = %for.body136.lr.ph, 
 
 invoke.cont139:                                   ; preds = %for.body136
   %75 = load ptr, ptr %originalVariances, align 8, !tbaa !32
-  %add.ptr.i153 = getelementptr inbounds nuw %"class.QuantLib::PiecewiseConstantAbcdVariance", ptr %75, i64 %i131.0227
+  %add.ptr.i153 = getelementptr inbounds nuw [112 x i8], ptr %75, i64 %i131.0227
   invoke void @_ZN8QuantLib29PiecewiseConstantAbcdVarianceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %call140, ptr noundef nonnull align 8 dereferenceable(112) %add.ptr.i153)
           to label %invoke.cont143 unwind label %lpad142
 
@@ -811,7 +811,7 @@ invoke.cont145:                                   ; preds = %invoke.cont143
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call140, ptr %px_.i.i.i.i, align 8, !tbaa !56
   %82 = load ptr, ptr %originalVariances_, align 8, !tbaa !28
-  %add.ptr.i155 = getelementptr inbounds nuw %"class.boost::shared_ptr.13", ptr %82, i64 %i131.0227
+  %add.ptr.i155 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %i131.0227
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp137, i8 0, i64 16, i1 false)
   store ptr %call140, ptr %add.ptr.i155, align 8, !tbaa !36
   %pn3.i2.i = getelementptr inbounds nuw i8, ptr %add.ptr.i155, i64 8
@@ -1478,10 +1478,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %c)
   call void @llvm.lifetime.start.p0(ptr nonnull %d)
   %3 = load ptr, ptr %originalABCDVariances_, align 8, !tbaa !32
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::PiecewiseConstantAbcdVariance", ptr %3, i64 %i.0228
+  %add.ptr.i = getelementptr inbounds nuw [112 x i8], ptr %3, i64 %i.0228
   call void @_ZNK8QuantLib29PiecewiseConstantAbcdVariance7getABCDERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(112) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 8 dereferenceable(8) %c, ptr noundef nonnull align 8 dereferenceable(8) %d)
   %4 = load ptr, ptr %scalingFactors_, align 8, !tbaa !27
-  %add.ptr.i28 = getelementptr inbounds nuw double, ptr %4, i64 %i.0228
+  %add.ptr.i28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %i.0228
   %5 = load double, ptr %add.ptr.i28, align 8, !tbaa !37
   %6 = load double, ptr %a, align 8, !tbaa !37
   %mul = fmul double %5, %6
@@ -1497,14 +1497,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   %11 = load double, ptr %c, align 8, !tbaa !37
   %12 = load ptr, ptr %originalABCDVariances_, align 8, !tbaa !32
-  %add.ptr.i31 = getelementptr inbounds nuw %"class.QuantLib::PiecewiseConstantAbcdVariance", ptr %12, i64 %i.0228
+  %add.ptr.i31 = getelementptr inbounds nuw [112 x i8], ptr %12, i64 %i.0228
   %vtable = load ptr, ptr %add.ptr.i31, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %13 = load ptr, ptr %vfn, align 8
   %call11 = call noundef nonnull align 8 dereferenceable(24) ptr %13(ptr noundef nonnull align 8 dereferenceable(112) %add.ptr.i31)
   call void @_ZN8QuantLib29PiecewiseConstantAbcdVarianceC1EddddmRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp, double noundef %mul, double noundef %mul5, double noundef %11, double noundef %mul8, i64 noundef %i.0228, ptr noundef nonnull align 8 dereferenceable(24) %call11)
   %14 = load ptr, ptr %originalABCDVariancesScaled_, align 8, !tbaa !32
-  %add.ptr.i32 = getelementptr inbounds nuw %"class.QuantLib::PiecewiseConstantAbcdVariance", ptr %14, i64 %i.0228
+  %add.ptr.i32 = getelementptr inbounds nuw [112 x i8], ptr %14, i64 %i.0228
   %variances_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i32, i64 8
   %15 = load ptr, ptr %variances_.i, align 8, !tbaa !27
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i32, i64 16
@@ -1704,7 +1704,7 @@ _ZN5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEC2INS1_29PiecewiseC
   %px_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   store ptr %call26, ptr %px_.i.i.i.i, align 8, !tbaa !56
   %48 = load ptr, ptr %interpolatedVariances_, align 8, !tbaa !28
-  %add.ptr.i36 = getelementptr inbounds nuw %"class.boost::shared_ptr.13", ptr %48, i64 %i20.0230
+  %add.ptr.i36 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %i20.0230
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp25, i8 0, i64 16, i1 false)
   store ptr %call26, ptr %add.ptr.i36, align 8, !tbaa !36
   %pn3.i2.i = getelementptr inbounds nuw i8, ptr %add.ptr.i36, i64 8
@@ -1809,7 +1809,7 @@ for.cond.cleanup35:                               ; preds = %for.cond.cleanup56,
   call void @llvm.lifetime.start.p0(ptr nonnull %c82)
   call void @llvm.lifetime.start.p0(ptr nonnull %d83)
   %65 = load ptr, ptr %originalABCDVariancesScaled_18, align 8, !tbaa !32
-  %add.ptr.i48 = getelementptr inbounds nuw %"class.QuantLib::PiecewiseConstantAbcdVariance", ptr %65, i64 %sub.lcssa
+  %add.ptr.i48 = getelementptr inbounds nuw [112 x i8], ptr %65, i64 %sub.lcssa
   call void @_ZNK8QuantLib29PiecewiseConstantAbcdVariance7getABCDERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(112) %add.ptr.i48, ptr noundef nonnull align 8 dereferenceable(8) %a80, ptr noundef nonnull align 8 dereferenceable(8) %b81, ptr noundef nonnull align 8 dereferenceable(8) %c82, ptr noundef nonnull align 8 dereferenceable(8) %d83)
   %66 = load i64, ptr %offset_, align 8, !tbaa !25
   %67 = load i64, ptr %noBigRates_, align 8, !tbaa !40
@@ -1840,11 +1840,11 @@ for.body36:                                       ; preds = %for.body36.lr.ph, %
   call void @llvm.lifetime.start.p0(ptr nonnull %c1)
   call void @llvm.lifetime.start.p0(ptr nonnull %d1)
   %70 = load ptr, ptr %originalABCDVariancesScaled_18, align 8, !tbaa !32
-  %add.ptr.i49 = getelementptr inbounds nuw %"class.QuantLib::PiecewiseConstantAbcdVariance", ptr %70, i64 %j.0235
+  %add.ptr.i49 = getelementptr inbounds nuw [112 x i8], ptr %70, i64 %j.0235
   call void @_ZNK8QuantLib29PiecewiseConstantAbcdVariance7getABCDERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(112) %add.ptr.i49, ptr noundef nonnull align 8 dereferenceable(8) %a0, ptr noundef nonnull align 8 dereferenceable(8) %b0, ptr noundef nonnull align 8 dereferenceable(8) %c0, ptr noundef nonnull align 8 dereferenceable(8) %d0)
   %add = add nuw i64 %j.0235, 1
   %71 = load ptr, ptr %originalABCDVariancesScaled_18, align 8, !tbaa !32
-  %add.ptr.i50 = getelementptr inbounds nuw %"class.QuantLib::PiecewiseConstantAbcdVariance", ptr %71, i64 %add
+  %add.ptr.i50 = getelementptr inbounds nuw [112 x i8], ptr %71, i64 %add
   call void @_ZNK8QuantLib29PiecewiseConstantAbcdVariance7getABCDERdS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(112) %add.ptr.i50, ptr noundef nonnull align 8 dereferenceable(8) %a1, ptr noundef nonnull align 8 dereferenceable(8) %b1, ptr noundef nonnull align 8 dereferenceable(8) %c1, ptr noundef nonnull align 8 dereferenceable(8) %d1)
   %72 = load double, ptr %a0, align 8, !tbaa !37
   %73 = load double, ptr %a1, align 8, !tbaa !37
@@ -1940,9 +1940,9 @@ _ZN5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEC2INS1_29PiecewiseC
   %mul68 = mul i64 %89, %j.0235
   %90 = load i64, ptr %offset_, align 8, !tbaa !25
   %91 = load ptr, ptr %interpolatedVariances_66, align 8, !tbaa !28
-  %92 = getelementptr %"class.boost::shared_ptr.13", ptr %91, i64 %i53.0232
-  %93 = getelementptr %"class.boost::shared_ptr.13", ptr %92, i64 %mul68
-  %add.ptr.i65 = getelementptr %"class.boost::shared_ptr.13", ptr %93, i64 %90
+  %92 = getelementptr [16 x i8], ptr %91, i64 %i53.0232
+  %93 = getelementptr [16 x i8], ptr %92, i64 %mul68
+  %add.ptr.i65 = getelementptr [16 x i8], ptr %93, i64 %90
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp58, i8 0, i64 16, i1 false)
   store ptr %call59, ptr %add.ptr.i65, align 8, !tbaa !36
   %pn3.i2.i67 = getelementptr inbounds nuw i8, ptr %add.ptr.i65, i64 8
@@ -2048,7 +2048,7 @@ for.cond.cleanup97:                               ; preds = %_ZN5boost10shared_p
   %.lcssa = phi i64 [ %69, %for.cond.cleanup35 ], [ %146, %_ZN5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEED2Ev.exit147 ]
   %interpolatedVariances_110 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %110 = load ptr, ptr %interpolatedVariances_110, align 8, !tbaa !28
-  %111 = getelementptr %"class.boost::shared_ptr.13", ptr %110, i64 %.lcssa
+  %111 = getelementptr [16 x i8], ptr %110, i64 %.lcssa
   %add.ptr.i99 = getelementptr i8, ptr %111, i64 -16
   %112 = load ptr, ptr %add.ptr.i99, align 8, !tbaa !48
   %cmp.not.i = icmp eq ptr %112, null
@@ -2144,7 +2144,7 @@ _ZN5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEC2INS1_29PiecewiseC
   %px_.i.i.i.i112 = getelementptr inbounds nuw i8, ptr %call.i.i.i101, i64 16
   store ptr %call100, ptr %px_.i.i.i.i112, align 8, !tbaa !56
   %131 = load ptr, ptr %interpolatedVariances_104, align 8, !tbaa !28
-  %add.ptr.i114 = getelementptr inbounds nuw %"class.boost::shared_ptr.13", ptr %131, i64 %i88.0237
+  %add.ptr.i114 = getelementptr inbounds nuw [16 x i8], ptr %131, i64 %i88.0237
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp99, i8 0, i64 16, i1 false)
   store ptr %call100, ptr %add.ptr.i114, align 8, !tbaa !36
   %pn3.i2.i116 = getelementptr inbounds nuw i8, ptr %add.ptr.i114, i64 8
@@ -2287,7 +2287,7 @@ _ZN5boost10shared_ptrIN8QuantLib25PiecewiseConstantVarianceEEC2INS1_29PiecewiseC
   store ptr %call122, ptr %px_.i.i.i.i160, align 8, !tbaa !56
   %154 = load i64, ptr %noSmallRates_, align 8, !tbaa !41
   %155 = load ptr, ptr %interpolatedVariances_110, align 8, !tbaa !28
-  %156 = getelementptr %"class.boost::shared_ptr.13", ptr %155, i64 %154
+  %156 = getelementptr [16 x i8], ptr %155, i64 %154
   %add.ptr.i162 = getelementptr i8, ptr %156, i64 -16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp121, i8 0, i64 16, i1 false)
   store ptr %call122, ptr %add.ptr.i162, align 8, !tbaa !36

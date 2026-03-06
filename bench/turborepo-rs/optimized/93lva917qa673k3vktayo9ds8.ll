@@ -414,7 +414,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc5boxed3Box
 
 93:                                               ; preds = %89
   %94 = load ptr, ptr %81, align 8, !noalias !65, !nonnull !23, !noundef !23
-  %95 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %94, i64 %80
+  %95 = getelementptr inbounds [64 x i8], ptr %94, i64 %80
   invoke void @_RNvMs5_NtNtCsapf13pIxsjn_3std4sync5mutexINtB5_5MutexINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtBT_5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEEE8try_lockCsff1zCjKRl2o_13turborepo_env(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 %95)
           to label %97 unwind label %.loopexit.i.i, !noalias !65
 
@@ -461,7 +461,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc5boxed3Box
 112:                                              ; preds = %107, %99
   %113 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %114 = load ptr, ptr %113, align 8, !alias.scope !68, !noalias !71, !nonnull !23, !noundef !23
-  %115 = getelementptr inbounds ptr, ptr %114, i64 %104
+  %115 = getelementptr inbounds [8 x i8], ptr %114, i64 %104
   store ptr %.sroa.46.0.copyload.i, ptr %115, align 8, !noalias !71
   %116 = add i64 %104, 1
   store i64 %116, ptr %103, align 8, !alias.scope !68, !noalias !73
@@ -940,7 +940,7 @@ _RINvYINtNtNtCs1LoaDTb72WA_4core5slice4iter14ChunksExactMuthENtNtNtNtBa_4iter6tr
   %80 = add nuw nsw i64 %.sroa.12.031.i.i.i.i, 1
   %81 = shl nuw nsw i64 %.sroa.12.031.i.i.i.i, 2
   %82 = getelementptr inbounds nuw i8, ptr %18, i64 %81
-  %83 = getelementptr inbounds nuw i32, ptr %22, i64 %.sroa.12.031.i.i.i.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.sroa.12.031.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !188
   %84 = load i32, ptr %83, align 4, !alias.scope !186, !noalias !187, !noundef !23
   %85 = call i32 @llvm.bswap.i32(i32 %84)
@@ -2036,7 +2036,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCsff1zCjKRl2o_13turborepo_env12Wi
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtB6_6string6StringE4pushCsff1zCjKRl2o_13turborepo_env.exit: ; preds = %288, %292
   %297 = load ptr, ptr %59, align 8, !alias.scope !345, !noalias !348, !nonnull !23, !noundef !23
-  %298 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %297, i64 %289
+  %298 = getelementptr inbounds [24 x i8], ptr %297, i64 %289
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %298, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   %299 = add i64 %289, 1
   store i64 %299, ptr %60, align 8, !alias.scope !345, !noalias !348
@@ -2086,7 +2086,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtB6_6string6StringE4pushCsff1zCjKR
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtB6_6string6StringE4pushCsff1zCjKRl2o_13turborepo_env.exit167: ; preds = %309, %313
   %318 = load ptr, ptr %57, align 8, !alias.scope !353, !noalias !356, !nonnull !23, !noundef !23
-  %319 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %318, i64 %310
+  %319 = getelementptr inbounds [24 x i8], ptr %318, i64 %310
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %319, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false)
   %320 = add i64 %310, 1
   store i64 %320, ptr %58, align 8, !alias.scope !353, !noalias !356
@@ -2132,7 +2132,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtB6_6string6StringE4pushCsff1zCjKR
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtB6_6string6StringE4pushCsff1zCjKRl2o_13turborepo_env.exit171: ; preds = %327, %331
   %336 = load ptr, ptr %57, align 8, !alias.scope !358, !noalias !361, !nonnull !23, !noundef !23
-  %337 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %336, i64 %328
+  %337 = getelementptr inbounds [24 x i8], ptr %336, i64 %328
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %337, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false)
   %338 = add i64 %328, 1
   store i64 %338, ptr %58, align 8, !alias.scope !358, !noalias !361
@@ -3122,7 +3122,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCsff1zCjKRl2o_13turborepo_env12Wi
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtB6_6string6StringE4pushCsff1zCjKRl2o_13turborepo_env.exit: ; preds = %287, %291
   %296 = load ptr, ptr %59, align 8, !alias.scope !480, !noalias !483, !nonnull !23, !noundef !23
-  %297 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %296, i64 %288
+  %297 = getelementptr inbounds [24 x i8], ptr %296, i64 %288
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %297, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   %298 = add i64 %288, 1
   store i64 %298, ptr %60, align 8, !alias.scope !480, !noalias !483
@@ -3172,7 +3172,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtB6_6string6StringE4pushCsff1zCjKR
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtB6_6string6StringE4pushCsff1zCjKRl2o_13turborepo_env.exit167: ; preds = %308, %312
   %317 = load ptr, ptr %57, align 8, !alias.scope !488, !noalias !491, !nonnull !23, !noundef !23
-  %318 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %317, i64 %309
+  %318 = getelementptr inbounds [24 x i8], ptr %317, i64 %309
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %318, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false)
   %319 = add i64 %309, 1
   store i64 %319, ptr %58, align 8, !alias.scope !488, !noalias !491
@@ -3218,7 +3218,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtB6_6string6StringE4pushCsff1zCjKR
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VecNtNtB6_6string6StringE4pushCsff1zCjKRl2o_13turborepo_env.exit171: ; preds = %326, %330
   %335 = load ptr, ptr %57, align 8, !alias.scope !493, !noalias !496, !nonnull !23, !noundef !23
-  %336 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %335, i64 %327
+  %336 = getelementptr inbounds [24 x i8], ptr %335, i64 %327
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %336, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false)
   %337 = add i64 %327, 1
   store i64 %337, ptr %58, align 8, !alias.scope !493, !noalias !496

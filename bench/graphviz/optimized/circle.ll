@@ -193,7 +193,7 @@ node_queue_push_back.exit.i.i:                    ; preds = %findCenterNode.exit
   %.sroa.12.077.i.i = phi i64 [ 0, %node_queue_push_back.exit.i.i ], [ %.sroa.12.1.lcssa.i.i, %.loopexit.i.i ]
   %.sroa.0.076.i.i = phi ptr [ %malloc.i.i, %node_queue_push_back.exit.i.i ], [ %.sroa.0.1.lcssa.i.i, %.loopexit.i.i ]
   %76 = urem i64 %.sroa.12.077.i.i, %.sroa.30.079.i.i
-  %77 = getelementptr inbounds nuw ptr, ptr %.sroa.0.076.i.i, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.076.i.i, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !44
   %79 = add i64 %.sroa.12.077.i.i, 1
   %80 = urem i64 %79, %.sroa.30.079.i.i
@@ -285,7 +285,7 @@ streq.exit.thread.i.i:                            ; preds = %streq.exit.i.i, %90
   br i1 %131, label %144, label %132
 
 132:                                              ; preds = %128
-  %133 = getelementptr inbounds nuw ptr, ptr %130, i64 %.sroa.30.170.i.i
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %.sroa.30.170.i.i
   %134 = sub i64 %spec.select.i.i.i35.i.i, %.sroa.30.170.i.i
   %135 = shl i64 %134, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %133, i8 0, i64 %135, i1 false)
@@ -296,8 +296,8 @@ streq.exit.thread.i.i:                            ; preds = %streq.exit.i.i, %90
 138:                                              ; preds = %132
   %139 = sub i64 %.sroa.30.170.i.i, %.sroa.12.168.i.i
   %140 = sub i64 %spec.select.i.i.i35.i.i, %139
-  %141 = getelementptr inbounds nuw ptr, ptr %130, i64 %140
-  %142 = getelementptr inbounds nuw ptr, ptr %130, i64 %.sroa.12.168.i.i
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %140
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %.sroa.12.168.i.i
   %143 = shl i64 %139, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %141, ptr nonnull align 8 %142, i64 %143, i1 false)
   br label %node_queue_push_back.exit38.i.i
@@ -316,7 +316,7 @@ node_queue_push_back.exit38.i.i:                  ; preds = %138, %132, %116
   %.sroa.30.4.i.i = phi i64 [ %.sroa.30.170.i.i, %116 ], [ %spec.select.i.i.i35.i.i, %138 ], [ %spec.select.i.i.i35.i.i, %132 ]
   %148 = add i64 %.sroa.12.6.i.i, %.sroa.21.169.i.i
   %149 = urem i64 %148, %.sroa.30.4.i.i
-  %150 = getelementptr inbounds nuw ptr, ptr %.sroa.0.4.i.i, i64 %149
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.4.i.i, i64 %149
   store ptr %.026.i.i, ptr %150, align 8, !tbaa !44
   %151 = add i64 %.sroa.21.169.i.i, 1
   br label %152
@@ -489,7 +489,7 @@ gv_calloc.exit.i.i:                               ; preds = %204
   %.03043.i26.i = phi double [ %222, %.lr.ph.i.i44 ], [ 0.000000e+00, %.lr.ph.i.preheader.i ]
   %221 = tail call double @llvm.maxnum.f64(double %220, double 2.000000e-02)
   %222 = fadd double %221, %.03043.i26.i
-  %223 = getelementptr inbounds nuw double, ptr %205, i64 %.03242.i27.i
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %.03242.i27.i
   store double %222, ptr %223, align 8, !tbaa !62
   %224 = load ptr, ptr %3, align 8, !tbaa !63
   br label %225
@@ -522,7 +522,7 @@ gv_isspace.exit.thread.i.i:                       ; preds = %225, %225, %225, %2
   %.053.i.i = phi i64 [ %230, %.lr.ph54.i.i ], [ %.133.i.i, %.critedge.i.i ]
   %.252.i.i = phi double [ %228, %.lr.ph54.i.i ], [ %.131.i.i, %.critedge.i.i ]
   %228 = fadd double %.129.i.i, %.252.i.i
-  %229 = getelementptr inbounds nuw double, ptr %205, i64 %.053.i.i
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %.053.i.i
   store double %228, ptr %229, align 8, !tbaa !62
   %230 = add i64 %.053.i.i, 1
   %exitcond55.not.i.i = icmp eq i64 %.053.i.i, %spec.select21.i
@@ -547,7 +547,7 @@ getRankseps.exit.i:                               ; preds = %.critedge2.loopexit
 237:                                              ; preds = %237, %232
   %.030.i = phi i64 [ 0, %232 ], [ %242, %237 ]
   %238 = load ptr, ptr @stderr, align 8, !tbaa !42
-  %239 = getelementptr inbounds nuw double, ptr %205, i64 %.030.i
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %.030.i
   %240 = load double, ptr %239, align 8, !tbaa !62
   %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %238, ptr noundef nonnull @.str.6, double noundef %240) #19
   %242 = add nuw i64 %.030.i, 1
@@ -567,7 +567,7 @@ getRankseps.exit.i:                               ; preds = %.critedge2.loopexit
   %248 = load ptr, ptr %247, align 8, !tbaa !28
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 24
   %250 = load i64, ptr %249, align 8, !tbaa !29
-  %251 = getelementptr inbounds nuw double, ptr %205, i64 %250
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %250
   %252 = load double, ptr %251, align 8, !tbaa !62
   %253 = getelementptr inbounds nuw i8, ptr %248, i64 48
   %254 = load double, ptr %253, align 8, !tbaa !31

@@ -1354,7 +1354,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(77) ptr @_ZN4
 11:                                               ; preds = %3
   %12 = zext i32 %6 to i64
   %13 = load ptr, ptr %0, align 8, !tbaa !99
-  %14 = getelementptr inbounds nuw %"class.clang::FrontendInputFile", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [80 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %1, align 8, !tbaa !45
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !47
@@ -1422,7 +1422,7 @@ _ZN5clang17FrontendInputFileC2EN4llvm9StringRefENS_9InputKindEb.exit: ; preds = 
   store i32 %38, ptr %5, align 8, !tbaa !101
   %39 = load ptr, ptr %0, align 8, !tbaa !99
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw %"class.clang::FrontendInputFile", ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [80 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -80
   br label %43
 
@@ -1491,7 +1491,7 @@ define linkonce_odr hidden void @_ZN5clang4ento13ModelInjectorD2Ev(ptr noundef n
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %16 ]
   %10 = load ptr, ptr %2, align 8, !tbaa !194
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !22
   %magicptr.i = ptrtoint ptr %12 to i64
   switch i64 %magicptr.i, label %13 [
@@ -1539,7 +1539,7 @@ define linkonce_odr hidden void @_ZN5clang4ento13ModelInjectorD0Ev(ptr noundef n
 .lr.ph.i.i:                                       ; preds = %16, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %16 ]
   %10 = load ptr, ptr %2, align 8, !tbaa !194
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %11, align 8, !tbaa !22
   %magicptr.i.i = ptrtoint ptr %12 to i64
   switch i64 %magicptr.i.i, label %13 [
@@ -1632,7 +1632,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang4StmtENS_15Ma
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #14
   %6 = load ptr, ptr %0, align 8, !tbaa !194
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !22
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -1686,7 +1686,7 @@ _ZN4llvm14StringMapEntryIPN5clang4StmtEE6createINS_15MallocAllocatorEJEEEPS4_NS_
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #14
   %27 = load ptr, ptr %0, align 8, !tbaa !194
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryIPN5clang4StmtEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.exit
@@ -2416,7 +2416,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNS
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %40 ]
   %28 = load ptr, ptr %20, align 8, !tbaa !194
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8, !tbaa !22
   %magicptr.i = ptrtoint ptr %30 to i64
   switch i64 %magicptr.i, label %31 [
@@ -2819,7 +2819,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(77) ptr @_ZN4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !101
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"class.clang::FrontendInputFile", ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [80 x i8], ptr %7, i64 %10
   %12 = load ptr, ptr %1, align 8, !tbaa !45
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !47
@@ -2984,7 +2984,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang17FrontendInputFileELb0EE21takeAllocati
   %70 = add i32 %69, 1
   store i32 %70, ptr %8, align 8, !tbaa !101
   %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw %"class.clang::FrontendInputFile", ptr %7, i64 %71
+  %72 = getelementptr inbounds nuw [80 x i8], ptr %7, i64 %71
   %73 = getelementptr inbounds i8, ptr %72, i64 -80
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %73

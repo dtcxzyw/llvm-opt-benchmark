@@ -291,7 +291,7 @@ match_word.exit.thread.i.i:                       ; preds = %get_hex_color.exit.
 
 104:                                              ; preds = %match_word.exit25.thread.i.i, %match_word.exit.thread.i.i
   %indvars.iv.i.i = phi i64 [ 0, %match_word.exit.thread.i.i ], [ %indvars.iv.next.i.i, %match_word.exit25.thread.i.i ]
-  %105 = getelementptr inbounds nuw ptr, ptr @parse_ansi_color.color_names, i64 %indvars.iv.i.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr @parse_ansi_color.color_names, i64 %indvars.iv.i.i
   %106 = load ptr, ptr %105, align 8, !tbaa !12
   %107 = tail call i32 @strncasecmp(ptr noundef readonly %.019.i.i, ptr noundef readonly %106, i64 noundef %103) #14
   %.not.i23.i.i = icmp eq i32 %107, 0
@@ -402,7 +402,7 @@ skip_prefix_mem.exit17.i:                         ; preds = %146, %145, %142, %1
 
 149:                                              ; preds = %156, %skip_prefix_mem.exit17.i
   %indvars.iv.i = phi i64 [ 0, %skip_prefix_mem.exit17.i ], [ %indvars.iv.next.i, %156 ]
-  %150 = getelementptr inbounds nuw %struct.anon, ptr @parse_attr.attrs, i64 %indvars.iv.i
+  %150 = getelementptr inbounds nuw [24 x i8], ptr @parse_attr.attrs, i64 %indvars.iv.i
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load i64, ptr %151, align 8, !tbaa !16
   %153 = icmp eq i64 %152, %.020.i
@@ -765,7 +765,7 @@ define dso_local i32 @want_color_fd(i32 noundef %0, i32 noundef %1) local_unname
   br i1 %9, label %10, label %32
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw i32, ptr @want_color_fd.want_auto, i64 %3
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @want_color_fd.want_auto, i64 %3
   %12 = load i32, ptr %11, align 4, !tbaa !22
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %32

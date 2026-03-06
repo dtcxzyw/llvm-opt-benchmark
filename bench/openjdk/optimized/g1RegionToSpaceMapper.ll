@@ -245,7 +245,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper14commi
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = lshr i64 %5, 6
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %5, 63
   %15 = lshr i64 %13, %14
@@ -269,7 +269,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper14commi
   br i1 %24, label %25, label %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw i64, ptr %11, i64 %23
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %23
   %27 = load i64, ptr %26, align 8
   %.not36.i.i.i = icmp eq i64 %27, 0
   br i1 %.not36.i.i.i, label %22, label %28, !llvm.loop !6
@@ -359,7 +359,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper16uncom
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = lshr i64 %4, 6
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %9
   %12 = load i64, ptr %11, align 8
   %13 = xor i64 %12, -1
   %14 = and i64 %4, 63
@@ -384,7 +384,7 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper16uncom
   br i1 %24, label %25, label %_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw i64, ptr %10, i64 %23
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %23
   %27 = load i64, ptr %26, align 8
   %.not36.i.i.i = icmp eq i64 %27, -1
   br i1 %.not36.i.i.i, label %22, label %28, !llvm.loop !9
@@ -508,7 +508,7 @@ define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapper14comm
 23:                                               ; preds = %18
   %24 = lshr i64 %20, 6
   %25 = load ptr, ptr %15, align 8
-  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %24
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %20, 63
   %29 = lshr i64 %27, %28
@@ -532,7 +532,7 @@ define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapper14comm
   br i1 %38, label %39, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw i64, ptr %25, i64 %37
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %37
   %41 = load i64, ptr %40, align 8
   %.not36.i.i.i = icmp eq i64 %41, 0
   br i1 %.not36.i.i.i, label %36, label %42, !llvm.loop !6
@@ -637,7 +637,7 @@ define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapper16unco
   %21 = xor i64 %20, -1
   %22 = load ptr, ptr %14, align 8
   %23 = lshr i64 %4, 6
-  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, %21
   store i64 %26, ptr %24, align 8
@@ -666,7 +666,7 @@ _ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit: ; preds = %18, %27
 34:                                               ; preds = %29
   %35 = lshr i64 %31, 6
   %36 = load ptr, ptr %14, align 8
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %35
   %38 = load i64, ptr %37, align 8
   %39 = and i64 %31, 63
   %40 = lshr i64 %38, %39
@@ -690,7 +690,7 @@ _ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit: ; preds = %18, %27
   br i1 %49, label %50, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds nuw i64, ptr %36, i64 %48
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %48
   %52 = load i64, ptr %51, align 8
   %.not36.i.i.i = icmp eq i64 %52, 0
   br i1 %.not36.i.i.i, label %47, label %53, !llvm.loop !6

@@ -31,7 +31,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.seq_operations = type { ptr, ptr, ptr, ptr }
 %struct.path = type { ptr, ptr }
-%struct.probe_arg = type { ptr, i8, i32, i32, ptr, ptr, ptr, ptr }
 %struct.traceprobe_parse_context = type { ptr, ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i32, i32 }
 %struct.uprobe_dispatch_data = type { ptr, i64 }
 %struct.trace_event_buffer = type { ptr, ptr, ptr, ptr, i32, ptr }
@@ -1252,7 +1251,7 @@ define internal noundef i32 @trace_uprobe_show(ptr noundef %0, ptr noundef reado
 44:                                               ; preds = %44, %42
   %45 = phi i32 [ 0, %42 ], [ %52, %44 ]
   %46 = sext i32 %45 to i64
-  %47 = getelementptr %struct.probe_arg, ptr %43, i64 %46
+  %47 = getelementptr [56 x i8], ptr %43, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
@@ -1758,7 +1757,7 @@ define internal i32 @__trace_uprobe_create(i32 noundef %0, ptr noundef %1) #0 al
   %161 = trunc nuw nsw i64 %160 to i32
   %162 = add nuw nsw i32 %161, 2
   call void @trace_probe_log_set_index(i32 noundef %162) #18
-  %163 = getelementptr ptr, ptr %131, i64 %160
+  %163 = getelementptr [8 x i8], ptr %131, i64 %160
   %164 = load ptr, ptr %163, align 8
   %165 = call i32 @traceprobe_parse_probe_arg(ptr noundef nonnull %152, i32 noundef %161, ptr noundef %164, ptr noundef nonnull %10) #18
   call void @traceprobe_finish_parse(ptr noundef nonnull %10) #18
@@ -2329,7 +2328,7 @@ define internal noundef range(i32 0, 2) i32 @uprobe_dispatcher(ptr noundef %0, p
   %28 = phi i32 [ 0, %23 ], [ %42, %40 ]
   %29 = phi i32 [ 0, %23 ], [ %43, %40 ]
   %30 = sext i32 %29 to i64
-  %31 = getelementptr %struct.probe_arg, ptr %24, i64 %30
+  %31 = getelementptr [56 x i8], ptr %24, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i8, ptr %32, align 8, !range !31, !noundef !32
   %34 = icmp eq i8 %33, 0
@@ -2359,7 +2358,7 @@ define internal noundef range(i32 0, 2) i32 @uprobe_dispatcher(ptr noundef %0, p
   %50 = load ptr, ptr @uprobe_cpu_buffer, align 8
   %51 = ptrtoint ptr %50 to i64
   %52 = sext i32 %49 to i64
-  %53 = getelementptr i64, ptr @__per_cpu_offset, i64 %52
+  %53 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %52
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, %51
   %56 = inttoptr i64 %55 to ptr
@@ -2385,7 +2384,7 @@ define internal noundef range(i32 0, 2) i32 @uprobe_dispatcher(ptr noundef %0, p
   %71 = phi ptr [ %66, %63 ], [ %100, %89 ]
   %72 = phi i32 [ %45, %63 ], [ %98, %89 ]
   %73 = sext i32 %70 to i64
-  %74 = getelementptr %struct.probe_arg, ptr %67, i64 %73
+  %74 = getelementptr [56 x i8], ptr %67, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 12
   %76 = load i32, ptr %75, align 4
   %77 = zext i32 %76 to i64
@@ -2560,7 +2559,7 @@ define internal noundef i32 @uretprobe_dispatcher(ptr noundef %0, i64 noundef %1
   %24 = phi i32 [ 0, %19 ], [ %38, %36 ]
   %25 = phi i32 [ 0, %19 ], [ %39, %36 ]
   %26 = sext i32 %25 to i64
-  %27 = getelementptr %struct.probe_arg, ptr %20, i64 %26
+  %27 = getelementptr [56 x i8], ptr %20, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i8, ptr %28, align 8, !range !31, !noundef !32
   %30 = icmp eq i8 %29, 0
@@ -2590,7 +2589,7 @@ define internal noundef i32 @uretprobe_dispatcher(ptr noundef %0, i64 noundef %1
   %46 = load ptr, ptr @uprobe_cpu_buffer, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = sext i32 %45 to i64
-  %49 = getelementptr i64, ptr @__per_cpu_offset, i64 %48
+  %49 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = add i64 %50, %47
   %52 = inttoptr i64 %51 to ptr
@@ -2616,7 +2615,7 @@ define internal noundef i32 @uretprobe_dispatcher(ptr noundef %0, i64 noundef %1
   %67 = phi ptr [ %62, %59 ], [ %96, %85 ]
   %68 = phi i32 [ %41, %59 ], [ %94, %85 ]
   %69 = sext i32 %66 to i64
-  %70 = getelementptr %struct.probe_arg, ptr %63, i64 %69
+  %70 = getelementptr [56 x i8], ptr %63, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 12
   %72 = load i32, ptr %71, align 4
   %73 = zext i32 %72 to i64
@@ -3461,7 +3460,7 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
 
 58:                                               ; preds = %54
   %59 = and i64 %55, 63
-  %60 = getelementptr i64, ptr @__per_cpu_offset, i64 %59
+  %60 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %61, ptrtoint (ptr @numa_node to i64)
   %63 = inttoptr i64 %62 to ptr
@@ -3527,7 +3526,7 @@ define internal fastcc i32 @probe_event_enable(ptr noundef %0, ptr noundef %1, p
 105:                                              ; preds = %98
   %106 = ptrtoint ptr %104 to i64
   %107 = and i64 %99, 63
-  %108 = getelementptr i64, ptr @__per_cpu_offset, i64 %107
+  %108 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %107
   %109 = load i64, ptr %108, align 8
   %110 = add i64 %109, %106
   %111 = inttoptr i64 %110 to ptr
@@ -3945,7 +3944,7 @@ define internal fastcc void @uprobe_buffer_disable() unnamed_addr #0 align 16 {
 18:                                               ; preds = %13
   %19 = ptrtoint ptr %17 to i64
   %20 = and i64 %14, 63
-  %21 = getelementptr i64, ptr @__per_cpu_offset, i64 %20
+  %21 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %19
   %24 = inttoptr i64 %23 to ptr

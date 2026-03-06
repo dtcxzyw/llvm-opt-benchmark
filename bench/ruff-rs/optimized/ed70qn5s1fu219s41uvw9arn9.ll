@@ -1123,7 +1123,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %.sroa.0.0.lcssa.i = phi i32 [ %39, %69 ], [ %83, %81 ]
   %.sroa.07.0.lcssa.i = phi i32 [ %.sroa.07.09.i, %69 ], [ %.sroa.07.0.i, %81 ]
   %75 = zext nneg i32 %.sroa.07.0.lcssa.i to i64
-  %76 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017h725e7953d6b56c16E, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017h725e7953d6b56c16E, i64 %75
   %77 = load double, ptr %76, align 8, !noalias !167, !noundef !4
   %78 = icmp sgt i32 %.sroa.0.0.lcssa.i, -1
   br i1 %78, label %92, label %90
@@ -1401,7 +1401,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   %.sroa.0.0.lcssa.i = phi i32 [ %39, %69 ], [ %83, %81 ]
   %.sroa.07.0.lcssa.i = phi i32 [ %.sroa.07.09.i, %69 ], [ %.sroa.07.0.i, %81 ]
   %75 = zext nneg i32 %.sroa.07.0.lcssa.i to i64
-  %76 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017h725e7953d6b56c16E, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017h725e7953d6b56c16E, i64 %75
   %77 = load double, ptr %76, align 8, !noalias !218, !noundef !4
   %78 = icmp sgt i32 %.sroa.0.0.lcssa.i, -1
   br i1 %78, label %92, label %90
@@ -2229,7 +2229,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %.sroa.0.0.lcssa.i = phi i32 [ %.sroa.014.0, %80 ], [ %94, %92 ]
   %.sroa.07.0.lcssa.i = phi i32 [ %.sroa.07.09.i, %80 ], [ %.sroa.07.0.i, %92 ]
   %86 = zext nneg i32 %.sroa.07.0.lcssa.i to i64
-  %87 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017h725e7953d6b56c16E, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017h725e7953d6b56c16E, i64 %86
   %88 = load double, ptr %87, align 8, !noalias !354, !noundef !4
   %89 = icmp sgt i32 %.sroa.0.0.lcssa.i, -1
   br i1 %89, label %103, label %101
@@ -2533,7 +2533,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   %.sroa.0.0.lcssa.i = phi i32 [ %.sroa.014.0, %80 ], [ %94, %92 ]
   %.sroa.07.0.lcssa.i = phi i32 [ %.sroa.07.09.i, %80 ], [ %.sroa.07.0.i, %92 ]
   %86 = zext nneg i32 %.sroa.07.0.lcssa.i to i64
-  %87 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017h725e7953d6b56c16E, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017h725e7953d6b56c16E, i64 %86
   %88 = load double, ptr %87, align 8, !noalias !407, !noundef !4
   %89 = icmp sgt i32 %.sroa.0.0.lcssa.i, -1
   br i1 %89, label %103, label %101
@@ -3316,7 +3316,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_long_integer17h51
   %.sroa.0.0.lcssa.i = phi i32 [ %.sroa.02.0, %30 ], [ %44, %42 ]
   %.sroa.07.0.lcssa.i = phi i32 [ %.sroa.07.09.i, %30 ], [ %.sroa.07.0.i, %42 ]
   %36 = zext nneg i32 %.sroa.07.0.lcssa.i to i64
-  %37 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017h725e7953d6b56c16E, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017h725e7953d6b56c16E, i64 %36
   %38 = load double, ptr %37, align 8, !noalias !503, !noundef !4
   %39 = icmp sgt i32 %.sroa.0.0.lcssa.i, -1
   br i1 %39, label %53, label %51
@@ -3478,7 +3478,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_long_integer17h68
   %.sroa.0.0.lcssa.i = phi i32 [ %.sroa.02.0, %30 ], [ %44, %42 ]
   %.sroa.07.0.lcssa.i = phi i32 [ %.sroa.07.09.i, %30 ], [ %.sroa.07.0.i, %42 ]
   %36 = zext nneg i32 %.sroa.07.0.lcssa.i to i64
-  %37 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017h725e7953d6b56c16E, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017h725e7953d6b56c16E, i64 %36
   %38 = load double, ptr %37, align 8, !noalias !525, !noundef !4
   %39 = icmp sgt i32 %.sroa.0.0.lcssa.i, -1
   br i1 %39, label %53, label %51
@@ -3866,7 +3866,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_decimal_overflow1
   %.sroa.0.0.lcssa.i = phi i32 [ %4, %46 ], [ %60, %58 ]
   %.sroa.07.0.lcssa.i = phi i32 [ %.sroa.07.09.i, %46 ], [ %.sroa.07.0.i, %58 ]
   %52 = zext nneg i32 %.sroa.07.0.lcssa.i to i64
-  %53 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017h725e7953d6b56c16E, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017h725e7953d6b56c16E, i64 %52
   %54 = load double, ptr %53, align 8, !noalias !614, !noundef !4
   %55 = icmp sgt i32 %.sroa.0.0.lcssa.i, -1
   br i1 %55, label %69, label %67
@@ -4068,7 +4068,7 @@ define void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_decimal_overflow1
   %.sroa.0.0.lcssa.i = phi i32 [ %4, %46 ], [ %60, %58 ]
   %.sroa.07.0.lcssa.i = phi i32 [ %.sroa.07.09.i, %46 ], [ %.sroa.07.0.i, %58 ]
   %52 = zext nneg i32 %.sroa.07.0.lcssa.i to i64
-  %53 = getelementptr inbounds nuw double, ptr @_ZN10serde_json2de5POW1017h725e7953d6b56c16E, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10serde_json2de5POW1017h725e7953d6b56c16E, i64 %52
   %54 = load double, ptr %53, align 8, !noalias !642, !noundef !4
   %55 = icmp sgt i32 %.sroa.0.0.lcssa.i, -1
   br i1 %55, label %69, label %67
@@ -9384,7 +9384,7 @@ default.unreachable:                              ; preds = %227, %85
 
 149:                                              ; preds = %144, %140
   %150 = load ptr, ptr %117, align 8, !alias.scope !1571, !noalias !1574, !nonnull !4, !noundef !4
-  %151 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %150, i64 %141
+  %151 = getelementptr inbounds nuw [32 x i8], ptr %150, i64 %141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %151, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !1565
   %152 = add i64 %141, 1
   store i64 %152, ptr %118, align 8, !alias.scope !1571, !noalias !1574
@@ -10327,7 +10327,7 @@ default.unreachable:                              ; preds = %227, %85
 
 149:                                              ; preds = %144, %140
   %150 = load ptr, ptr %117, align 8, !alias.scope !1790, !noalias !1793, !nonnull !4, !noundef !4
-  %151 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %150, i64 %141
+  %151 = getelementptr inbounds nuw [32 x i8], ptr %150, i64 %141
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %151, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !1784
   %152 = add i64 %141, 1
   store i64 %152, ptr %118, align 8, !alias.scope !1790, !noalias !1793
@@ -11528,7 +11528,7 @@ _ZN5serde2de9MapAccess10next_value17h9f6f48c2ca57263cE.exit.i: ; preds = %88
 
 116:                                              ; preds = %111, %107
   %117 = load ptr, ptr %56, align 8, !alias.scope !1995, !noalias !1998, !nonnull !4, !noundef !4
-  %118 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %117, i64 %108
+  %118 = getelementptr inbounds nuw [64 x i8], ptr %117, i64 %108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %118, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false), !noalias !1966
   %119 = add i64 %108, 1
   store i64 %119, ptr %57, align 8, !alias.scope !1995, !noalias !1998
@@ -11563,7 +11563,7 @@ _ZN5serde2de9MapAccess10next_value17h9f6f48c2ca57263cE.exit.i: ; preds = %88
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1953
   %126 = load ptr, ptr %56, align 8, !noalias !1953, !nonnull !4, !noundef !4
   %127 = load i64, ptr %57, align 8, !noalias !1953, !noundef !4
-  %128 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [64 x i8], ptr %126, i64 %127
   store ptr %126, ptr %7, align 8, !noalias !1953
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %128, ptr %129, align 8, !noalias !1953
@@ -12494,7 +12494,7 @@ _ZN5serde2de9MapAccess10next_value17hf049cf1aefbd03f4E.exit.i: ; preds = %115
 
 185:                                              ; preds = %180, %176
   %186 = load ptr, ptr %69, align 8, !alias.scope !2094, !noalias !2097, !nonnull !4, !noundef !4
-  %187 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %186, i64 %177
+  %187 = getelementptr inbounds nuw [64 x i8], ptr %186, i64 %177
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %187, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !2052
   %188 = add i64 %177, 1
   store i64 %188, ptr %70, align 8, !alias.scope !2094, !noalias !2097
@@ -12681,7 +12681,7 @@ _ZN5serde2de9MapAccess10next_value17hf049cf1aefbd03f4E.exit.i: ; preds = %115
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2039
   %237 = load ptr, ptr %69, align 8, !noalias !2039, !nonnull !4, !noundef !4
   %238 = load i64, ptr %70, align 8, !noalias !2039, !noundef !4
-  %239 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %237, i64 %238
+  %239 = getelementptr inbounds nuw [64 x i8], ptr %237, i64 %238
   store ptr %237, ptr %7, align 8, !noalias !2039
   %240 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %239, ptr %240, align 8, !noalias !2039
@@ -13528,7 +13528,7 @@ _ZN5serde2de9MapAccess10next_value17hf049cf1aefbd03f4E.exit.i: ; preds = %88
 
 116:                                              ; preds = %111, %107
   %117 = load ptr, ptr %56, align 8, !alias.scope !2195, !noalias !2198, !nonnull !4, !noundef !4
-  %118 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %117, i64 %108
+  %118 = getelementptr inbounds nuw [64 x i8], ptr %117, i64 %108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %118, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false), !noalias !2166
   %119 = add i64 %108, 1
   store i64 %119, ptr %57, align 8, !alias.scope !2195, !noalias !2198
@@ -13563,7 +13563,7 @@ _ZN5serde2de9MapAccess10next_value17hf049cf1aefbd03f4E.exit.i: ; preds = %88
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2153
   %126 = load ptr, ptr %56, align 8, !noalias !2153, !nonnull !4, !noundef !4
   %127 = load i64, ptr %57, align 8, !noalias !2153, !noundef !4
-  %128 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [64 x i8], ptr %126, i64 %127
   store ptr %126, ptr %7, align 8, !noalias !2153
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %128, ptr %129, align 8, !noalias !2153
@@ -14479,7 +14479,7 @@ _ZN5serde2de9MapAccess10next_value17h9f6f48c2ca57263cE.exit.i: ; preds = %110
 
 175:                                              ; preds = %170, %166
   %176 = load ptr, ptr %66, align 8, !alias.scope !2291, !noalias !2294, !nonnull !4, !noundef !4
-  %177 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %176, i64 %167
+  %177 = getelementptr inbounds nuw [64 x i8], ptr %176, i64 %167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %177, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 64, i1 false), !noalias !2252
   %178 = add i64 %167, 1
   store i64 %178, ptr %67, align 8, !alias.scope !2291, !noalias !2294
@@ -14603,7 +14603,7 @@ _ZN5serde2de9MapAccess10next_value17h9f6f48c2ca57263cE.exit.i: ; preds = %110
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2239
   %207 = load ptr, ptr %66, align 8, !noalias !2239, !nonnull !4, !noundef !4
   %208 = load i64, ptr %67, align 8, !noalias !2239, !noundef !4
-  %209 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %207, i64 %208
+  %209 = getelementptr inbounds nuw [64 x i8], ptr %207, i64 %208
   store ptr %207, ptr %7, align 8, !noalias !2239
   %210 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %209, ptr %210, align 8, !noalias !2239
@@ -15705,7 +15705,7 @@ _ZN5serde2de9MapAccess10next_value17hf049cf1aefbd03f4E.exit.i: ; preds = %110
 
 175:                                              ; preds = %170, %166
   %176 = load ptr, ptr %66, align 8, !alias.scope !2401, !noalias !2404, !nonnull !4, !noundef !4
-  %177 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %176, i64 %167
+  %177 = getelementptr inbounds nuw [64 x i8], ptr %176, i64 %167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %177, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 64, i1 false), !noalias !2363
   %178 = add i64 %167, 1
   store i64 %178, ptr %67, align 8, !alias.scope !2401, !noalias !2404
@@ -15829,7 +15829,7 @@ _ZN5serde2de9MapAccess10next_value17hf049cf1aefbd03f4E.exit.i: ; preds = %110
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2350
   %207 = load ptr, ptr %66, align 8, !noalias !2350, !nonnull !4, !noundef !4
   %208 = load i64, ptr %67, align 8, !noalias !2350, !noundef !4
-  %209 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %207, i64 %208
+  %209 = getelementptr inbounds nuw [64 x i8], ptr %207, i64 %208
   store ptr %207, ptr %7, align 8, !noalias !2350
   %210 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %209, ptr %210, align 8, !noalias !2350
@@ -16946,7 +16946,7 @@ _ZN5serde2de9MapAccess10next_value17h9f6f48c2ca57263cE.exit.i: ; preds = %115
 
 185:                                              ; preds = %180, %176
   %186 = load ptr, ptr %69, align 8, !alias.scope !2514, !noalias !2517, !nonnull !4, !noundef !4
-  %187 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %186, i64 %177
+  %187 = getelementptr inbounds nuw [64 x i8], ptr %186, i64 %177
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %187, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !2473
   %188 = add i64 %177, 1
   store i64 %188, ptr %70, align 8, !alias.scope !2514, !noalias !2517
@@ -17133,7 +17133,7 @@ _ZN5serde2de9MapAccess10next_value17h9f6f48c2ca57263cE.exit.i: ; preds = %115
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2460
   %237 = load ptr, ptr %69, align 8, !noalias !2460, !nonnull !4, !noundef !4
   %238 = load i64, ptr %70, align 8, !noalias !2460, !noundef !4
-  %239 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %237, i64 %238
+  %239 = getelementptr inbounds nuw [64 x i8], ptr %237, i64 %238
   store ptr %237, ptr %7, align 8, !noalias !2460
   %240 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %239, ptr %240, align 8, !noalias !2460

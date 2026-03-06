@@ -232,7 +232,7 @@ define hidden ptr @core_lookup(ptr noundef readonly captures(none) %0, i64 nound
   %12 = add nuw nsw i32 %.03651, %.03850
   %13 = lshr i32 %12, 1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
@@ -251,7 +251,7 @@ define hidden ptr @core_lookup(ptr noundef readonly captures(none) %0, i64 nound
   %.038.lcssa = phi i64 [ %21, %._crit_edge.loopexit ], [ 0, %2 ]
   %.036.lcssa = phi i32 [ %..036, %._crit_edge.loopexit ], [ %8, %2 ]
   %22 = sext i32 %.036.lcssa to i64
-  %23 = getelementptr inbounds ptr, ptr %11, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %11, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i64, ptr %25, align 8
@@ -259,7 +259,7 @@ define hidden ptr @core_lookup(ptr noundef readonly captures(none) %0, i64 nound
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %._crit_edge
-  %29 = getelementptr inbounds nuw ptr, ptr %11, i64 %.038.lcssa
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.038.lcssa
   %30 = load ptr, ptr %29, align 8
   %.phi.trans.insert59 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %.pre60 = load i64, ptr %.phi.trans.insert59, align 8
@@ -523,7 +523,7 @@ define hidden range(i32 0, 2) i32 @init_classsharing_workaround(ptr noundef %0) 
 
 71:                                               ; preds = %66, %90
   %indvars.iv = phi i64 [ 0, %66 ], [ %indvars.iv.next, %90 ]
-  %72 = getelementptr inbounds nuw %struct.CDSFileMapRegion, ptr %70, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [88 x i8], ptr %70, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = load i32, ptr %73, align 4
   %.not64 = icmp eq i32 %74, 0

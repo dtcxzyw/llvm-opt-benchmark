@@ -123,7 +123,7 @@ define noundef ptr @_ZN3url19RemoveURLWhitespaceEPKtiPNS_12CanonOutputTItEEPi(pt
 
 .lr.ph.i:                                         ; preds = %_ZN3url12_GLOBAL__N_124IsRemovableURLWhitespaceEi.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN3url12_GLOBAL__N_124IsRemovableURLWhitespaceEi.exit.i ]
-  %5 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.i
   %6 = load i16, ptr %5, align 2, !tbaa !20
   switch i16 %6, label %_ZN3url12_GLOBAL__N_124IsRemovableURLWhitespaceEi.exit.i [
     i16 13, label %.lr.ph27.i
@@ -154,7 +154,7 @@ _ZN3url12_GLOBAL__N_124IsRemovableURLWhitespaceEi.exit.i: ; preds = %.lr.ph.i
 
 11:                                               ; preds = %_ZN3url12CanonOutputTItE9push_backEt.exit.i, %.lr.ph27.i
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph27.i ], [ %indvars.iv.next30.i, %_ZN3url12CanonOutputTItE9push_backEt.exit.i ]
-  %12 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv29.i
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv29.i
   %13 = load i16, ptr %12, align 2, !tbaa !20
   switch i16 %13, label %_ZN3url12_GLOBAL__N_124IsRemovableURLWhitespaceEi.exit23.i [
     i16 13, label %_ZN3url12CanonOutputTItE9push_backEt.exit.i
@@ -195,7 +195,7 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i: ; preds = %21, %_ZN3url12_G
   %.sink.i.i = phi i32 [ %25, %21 ], [ %14, %_ZN3url12_GLOBAL__N_124IsRemovableURLWhitespaceEi.exit23.i ]
   %.sink5.i.i = load ptr, ptr %.sink5.in.i.i, align 8, !tbaa !26
   %26 = sext i32 %.sink.i.i to i64
-  %27 = getelementptr inbounds i16, ptr %.sink5.i.i, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %.sink5.i.i, i64 %26
   store i16 %13, ptr %27, align 2, !tbaa !20
   %28 = add nsw i32 %.sink.i.i, 1
   store i32 %28, ptr %7, align 4, !tbaa !23
@@ -560,7 +560,7 @@ select.unfold.i.i34.i:                            ; preds = %select.unfold.i.pre
   %.02976.i = phi i1 [ true, %26 ], [ %.1.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit51.i ]
   %storemerge75.i = phi i32 [ %27, %26 ], [ %98, %_ZN3url12CanonOutputTIcE9push_backEc.exit51.i ]
   %47 = sext i32 %storemerge75.i to i64
-  %48 = getelementptr inbounds i16, ptr %0, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %0, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !20
   %50 = icmp ult i16 %49, 128
   br i1 %50, label %51, label %.thread.thread.i
@@ -878,7 +878,7 @@ define noundef zeroext i1 @_ZN3url20CanonicalizeUserInfoEPKtRKNS_9ComponentES1_S
 19:                                               ; preds = %15
   %20 = load i32, ptr %1, align 4, !tbaa !32
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %0, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %0, i64 %21
   tail call void @_ZN3url18AppendStringOfTypeEPKtiNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %22, i32 noundef %9, i32 noundef 2, ptr noundef nonnull %4)
   %.pre.i = load i32, ptr %16, align 4, !tbaa !10
   %.pre48.i = load i32, ptr %5, align 4, !tbaa !32
@@ -942,7 +942,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.i:      ; preds = %select.unfold.i.i.i
   store i32 %48, ptr %6, align 4, !tbaa !32
   %49 = load i32, ptr %3, align 4, !tbaa !32
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i16, ptr %2, i64 %50
+  %51 = getelementptr inbounds [2 x i8], ptr %2, i64 %50
   tail call void @_ZN3url18AppendStringOfTypeEPKtiNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %51, i32 noundef %47, i32 noundef 2, ptr noundef nonnull %4)
   %52 = load i32, ptr %16, align 4, !tbaa !10
   %53 = load i32, ptr %6, align 4, !tbaa !32
@@ -1642,7 +1642,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.i:      ; preds = %select.unfold.i.i.i
 39:                                               ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit31.i, %.lr.ph.i
   %storemerge35.i = phi i32 [ %32, %.lr.ph.i ], [ %72, %_ZN3url12CanonOutputTIcE9push_backEc.exit31.i ]
   %40 = sext i32 %storemerge35.i to i64
-  %41 = getelementptr inbounds i16, ptr %0, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %0, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !20
   %43 = icmp eq i16 %42, 0
   br i1 %43, label %_ZN3url12CanonOutputTIcE9push_backEc.exit31.i, label %44

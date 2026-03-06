@@ -225,7 +225,7 @@ define ptr @ossl_qrl_get_suite_cipher_name(i32 noundef %0) local_unnamed_addr #3
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = load ptr, ptr %switch.load, align 8, !tbaa !16
   br label %get_suite.exit
@@ -243,7 +243,7 @@ define ptr @ossl_qrl_get_suite_md_name(i32 noundef %0) local_unnamed_addr #3 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = getelementptr inbounds nuw i8, ptr %switch.load, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !18
@@ -262,7 +262,7 @@ define i32 @ossl_qrl_get_suite_secret_len(i32 noundef %0) local_unnamed_addr #3 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = getelementptr inbounds nuw i8, ptr %switch.load, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !19
@@ -281,7 +281,7 @@ define i32 @ossl_qrl_get_suite_cipher_key_len(i32 noundef %0) local_unnamed_addr
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = getelementptr inbounds nuw i8, ptr %switch.load, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !20
@@ -300,7 +300,7 @@ define i32 @ossl_qrl_get_suite_cipher_iv_len(i32 noundef %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = getelementptr inbounds nuw i8, ptr %switch.load, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !21
@@ -319,7 +319,7 @@ define i32 @ossl_qrl_get_suite_cipher_tag_len(i32 noundef %0) local_unnamed_addr
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = getelementptr inbounds nuw i8, ptr %switch.load, i64 28
   %5 = load i32, ptr %4, align 4, !tbaa !22
@@ -338,7 +338,7 @@ define i32 @ossl_qrl_get_suite_hdr_prot_cipher_id(i32 noundef %0) local_unnamed_
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = getelementptr inbounds nuw i8, ptr %switch.load, i64 36
   %5 = load i32, ptr %4, align 4, !tbaa !23
@@ -357,7 +357,7 @@ define i32 @ossl_qrl_get_suite_hdr_prot_key_len(i32 noundef %0) local_unnamed_ad
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = getelementptr inbounds nuw i8, ptr %switch.load, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !24
@@ -376,7 +376,7 @@ define i64 @ossl_qrl_get_suite_max_pkt(i32 noundef %0) local_unnamed_addr #3 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = getelementptr inbounds nuw i8, ptr %switch.load, i64 40
   %5 = load i64, ptr %4, align 8, !tbaa !25
@@ -395,7 +395,7 @@ define i64 @ossl_qrl_get_suite_max_forged_pkt(i32 noundef %0) local_unnamed_addr
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_qrl_get_suite_max_forged_pkt, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = getelementptr inbounds nuw i8, ptr %switch.load, i64 48
   %5 = load i64, ptr %4, align 8, !tbaa !26

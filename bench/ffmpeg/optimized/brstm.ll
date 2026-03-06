@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/brstm.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.BRSTMCoeffOffset = type { i8, i32 }
-
 @.str = private unnamed_addr constant [6 x i8] c"brstm\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"BRSTM (Binary Revolution Stream)\00", align 1
 @ff_brstm_demuxer = local_unnamed_addr constant { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr }, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr @.str, ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr @.str, ptr null, ptr null, ptr null }, i32 0, i32 10288, i32 1, [4 x i8] zeroinitializer, ptr @probe, ptr @read_header, ptr @read_packet, ptr @read_close, ptr @read_seek, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -810,7 +808,7 @@ read32.exit366:                                   ; preds = %338, %340
   %401 = load ptr, ptr %12, align 8, !tbaa !41
   %402 = tail call i64 @avio_skip(ptr noundef %401, i64 noundef 4) #10
   %403 = trunc i64 %indvars.iv to i8
-  %404 = getelementptr inbounds nuw %struct.BRSTMCoeffOffset, ptr %399, i64 %indvars.iv
+  %404 = getelementptr inbounds nuw [8 x i8], ptr %399, i64 %indvars.iv
   store i8 %403, ptr %404, align 8, !tbaa !58
   %405 = load ptr, ptr %2, align 8, !tbaa !12
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 10280
@@ -885,7 +883,7 @@ read32.exit375:                                   ; preds = %409, %411
 .lr.ph410.split:                                  ; preds = %.lr.ph410, %456
   %indvars.iv432 = phi i64 [ %indvars.iv.next433, %456 ], [ 0, %.lr.ph410 ]
   %443 = load ptr, ptr %12, align 8, !tbaa !41
-  %444 = getelementptr inbounds nuw %struct.BRSTMCoeffOffset, ptr %3, i64 %indvars.iv432
+  %444 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv432
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 8236
   %446 = load i32, ptr %445, align 4, !tbaa !60
   %447 = zext i32 %446 to i64
@@ -1308,7 +1306,7 @@ define internal i32 @read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %2, i
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !67
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !68
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !12

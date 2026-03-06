@@ -7,11 +7,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.xdiff_emit_state = type { ptr, ptr, ptr, %struct.strbuf }
 %struct.strbuf = type { i64, i64, ptr }
 %struct.s_xdemitcb = type { ptr, ptr, ptr }
-%struct.s_mmbuffer = type { ptr, i64 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.ff_reg = type { %struct.re_pattern_buffer, i32 }
-%struct.re_pattern_buffer = type { ptr, i64, i64, i64, ptr, ptr, i64, i8 }
 %struct.regmatch_t = type { i32, i32 }
 
 @.str = private unnamed_addr constant [18 x i8] c"Could not stat %s\00", align 1
@@ -307,7 +304,7 @@ define internal range(i32 -1, 2) i32 @xdiff_outf(ptr noundef %0, ptr noundef rea
   br i1 %.not43, label %12, label %.loopexit
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds nuw %struct.s_mmbuffer, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !32
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !34
@@ -653,7 +650,7 @@ st_mult.exit:                                     ; preds = %15
   %24 = phi i32 [ %52, %49 ], [ %22, %st_mult.exit ]
   %.03851 = phi ptr [ %51, %49 ], [ %1, %st_mult.exit ]
   %25 = load ptr, ptr %21, align 8, !tbaa !52
-  %26 = getelementptr inbounds nuw %struct.ff_reg, ptr %25, i64 %indvars.iv57
+  %26 = getelementptr inbounds nuw [72 x i8], ptr %25, i64 %indvars.iv57
   %.not43 = icmp eq ptr %.03851, null
   br i1 %.not43, label %27, label %28
 
@@ -762,7 +759,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ff_regexp(ptr noundef %0
 27:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %28 = load ptr, ptr %24, align 8, !tbaa !52
-  %29 = getelementptr inbounds nuw %struct.ff_reg, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [72 x i8], ptr %28, i64 %indvars.iv
   store i32 0, ptr %6, align 16, !tbaa !58
   store i32 %25, ptr %26, align 4, !tbaa !60
   %30 = call i32 @regexec(ptr noundef %29, ptr noundef %0, i64 noundef 2, ptr noundef nonnull %6, i32 noundef 4) #13
@@ -875,7 +872,7 @@ define dso_local void @xdiff_clear_find_func(ptr noundef captures(none) %0) loca
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %9, align 8, !tbaa !52
-  %12 = getelementptr inbounds nuw %struct.ff_reg, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [72 x i8], ptr %11, i64 %indvars.iv
   tail call void @regfree(ptr noundef %12) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %6, align 8, !tbaa !48

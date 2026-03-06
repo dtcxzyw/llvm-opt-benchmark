@@ -474,7 +474,7 @@ define internal fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noun
 38:                                               ; preds = %35
   %39 = zext nneg i32 %36 to i64
   %40 = tail call ptr @proto_registrar_get_name(i32 noundef %2)
-  %41 = getelementptr ptr, ptr @stringDictionary, i64 %39
+  %41 = getelementptr [8 x i8], ptr @stringDictionary, i64 %39
   %42 = load ptr, ptr %41, align 8
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %27, ptr noundef nonnull @.str.3, ptr noundef %40, ptr noundef %42)
   br label %45

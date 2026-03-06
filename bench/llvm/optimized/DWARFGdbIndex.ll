@@ -80,10 +80,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.71" = type { %"class.llvm::SmallVectorTemplateCommon.72" }
 %"class.llvm::SmallVectorTemplateCommon.72" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvm::DWARFGdbIndex::TypeUnitEntry" = type { i64, i64, i64 }
-%"struct.llvm::DWARFGdbIndex::CompUnitEntry" = type { i64, i64 }
-%"struct.llvm::DWARFGdbIndex::SymTableEntry" = type { i32, i32 }
-%"struct.std::pair" = type { i32, %"class.llvm::SmallVector.69" }
 
 $_ZN4llvm7support6detail23provider_format_adapterImED0Ev = comdat any
 
@@ -1202,7 +1198,7 @@ _ZN4llvm15SmallVectorImplINS_13DWARFGdbIndex13TypeUnitEntryEE7reserveEm.exit.i.i
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplINS_13DWARFGdbIndex13TypeUnitEntryEE7reserveEm.exit.i.i
   %.pre-phi.i.i = zext i32 %.pre-phi.i.i.in.fr to i64
   %52 = load ptr, ptr %39, align 8, !tbaa !30
-  %53 = getelementptr %"struct.llvm::DWARFGdbIndex::TypeUnitEntry", ptr %52, i64 %.pre-phi.i.i
+  %53 = getelementptr [24 x i8], ptr %52, i64 %.pre-phi.i.i
   %reass.add.i = sub nsw i64 %40, %.pre-phi.i.i
   %reass.mul.i = mul nsw i64 %reass.add.i, 24
   %54 = add nsw i64 %reass.mul.i, -24
@@ -1244,7 +1240,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_13DWARFGdbIndex13CompUnitEntryELb1EE9push_b
   %65 = phi i32 [ %60, %57 ], [ %.pre.i, %62 ]
   %66 = load ptr, ptr %27, align 8, !tbaa !30
   %67 = zext i32 %65 to i64
-  %68 = getelementptr inbounds nuw %"struct.llvm::DWARFGdbIndex::CompUnitEntry", ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %67
   store i64 %58, ptr %68, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i64 %59, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -1291,7 +1287,7 @@ _ZN4llvm15SmallVectorImplINS_13DWARFGdbIndex12AddressEntryEE7reserveEm.exit: ; p
   %89 = call noundef i64 @_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %3, ptr noundef null) #15
   %90 = call noundef i64 @_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef nonnull %3, ptr noundef null) #15
   %91 = load ptr, ptr %39, align 8, !tbaa !30
-  %92 = getelementptr inbounds nuw %"struct.llvm::DWARFGdbIndex::TypeUnitEntry", ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %indvars.iv
   store i64 %88, ptr %92, align 8, !tbaa !34
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i64 %89, ptr %.sroa.424.0..sroa_idx, align 8, !tbaa !34
@@ -1371,7 +1367,7 @@ _ZN4llvm15SmallVectorImplINS_13DWARFGdbIndex13SymTableEntryEE7reserveEm.exit: ; 
   br i1 %.not.i.i.not.i51, label %_ZN4llvm23SmallVectorTemplateBaseINS_13DWARFGdbIndex12AddressEntryELb1EE9push_backERKS2_.exit, label %127, !prof !168
 
 127:                                              ; preds = %119
-  %128 = getelementptr inbounds nuw %"struct.llvm::DWARFGdbIndex::AddressEntry", ptr %.pre3.i, i64 %124
+  %128 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %124
   %129 = icmp uge ptr %4, %.pre3.i
   %130 = icmp ult ptr %4, %128
   %spec.select.i.i.i.i.i = and i1 %129, %130
@@ -1395,7 +1391,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_13DWARFGdbIndex12AddressEntryELb1EE9push_ba
   %.016.i.i.i = phi ptr [ %4, %119 ], [ %135, %131 ], [ %4, %.critedge.i.i.i ]
   %137 = load i32, ptr %85, align 8, !tbaa !3
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw %"struct.llvm::DWARFGdbIndex::AddressEntry", ptr %136, i64 %138
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %136, i64 %138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %139, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %140 = load i32, ptr %85, align 8, !tbaa !3
   %141 = add i32 %140, 1
@@ -1443,7 +1439,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_13DWARFGdbIndex13SymTableEntryELb1EE9push_b
   %157 = phi i32 [ %152, %149 ], [ %.pre.i54, %154 ]
   %158 = load ptr, ptr %97, align 8, !tbaa !30
   %159 = zext i32 %157 to i64
-  %160 = getelementptr inbounds nuw %"struct.llvm::DWARFGdbIndex::SymTableEntry", ptr %158, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %159
   store i64 %.sroa.09.0.insert.insert, ptr %160, align 1
   %161 = load i32, ptr %117, align 8, !tbaa !3
   %162 = add i32 %161, 1
@@ -1563,7 +1559,7 @@ _ZNSt3setIjSt4lessIjESaIjEE6insertERKj.exit:      ; preds = %_ZNSt8_Rb_treeIjjSt
 204:                                              ; preds = %194
   %205 = zext i32 %200 to i64
   %206 = load ptr, ptr %143, align 8, !tbaa !30
-  %207 = getelementptr inbounds nuw %"struct.std::pair", ptr %206, i64 %205
+  %207 = getelementptr inbounds nuw [24 x i8], ptr %206, i64 %205
   store i32 0, ptr %207, align 8, !tbaa !114
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 24
@@ -1636,7 +1632,7 @@ _ZN4llvm11SmallVectorIjLj0EED2Ev.exit:            ; preds = %_ZN4llvm15SmallVect
   %227 = load ptr, ptr %143, align 8, !tbaa !30
   %228 = load i32, ptr %147, align 8, !tbaa !3
   %229 = zext i32 %228 to i64
-  %230 = getelementptr inbounds nuw %"struct.std::pair", ptr %227, i64 %229
+  %230 = getelementptr inbounds nuw [24 x i8], ptr %227, i64 %229
   %231 = getelementptr inbounds i8, ptr %230, i64 -24
   %232 = load i64, ptr %3, align 8, !tbaa !34
   %233 = load i32, ptr %19, align 4, !tbaa !88
@@ -1677,7 +1673,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %241, %245
   %248 = phi i32 [ %243, %241 ], [ %.pre.i60, %245 ]
   %249 = load ptr, ptr %237, align 8, !tbaa !30
   %250 = zext i32 %248 to i64
-  %251 = getelementptr inbounds nuw i32, ptr %249, i64 %250
+  %251 = getelementptr inbounds nuw [4 x i8], ptr %249, i64 %250
   store i32 %242, ptr %251, align 1
   %252 = load i32, ptr %238, align 8, !tbaa !3
   %253 = add i32 %252, 1
@@ -2241,7 +2237,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !3
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %9
   %11 = load i32, ptr %1, align 4, !tbaa !20
   store i32 %11, ptr %10, align 8, !tbaa !114
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2347,7 +2343,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_11SmallVectorIjLj0EEEELb0EE21takeA
   %49 = add i32 %48, 1
   store i32 %49, ptr %7, align 8, !tbaa !3
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %50
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %52
@@ -2452,7 +2448,7 @@ _ZSt4moveIPjS0_ET0_T_S2_S1_.exit35:               ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 2
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !30
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 4 %43, i64 %gepdiff, i1 false)

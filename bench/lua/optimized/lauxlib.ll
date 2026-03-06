@@ -1003,7 +1003,7 @@ luaL_optlstring.exit:                             ; preds = %luaL_optlstring.exi
 
 19:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next
   %21 = load ptr, ptr %20, align 8, !tbaa !33
   %.not20 = icmp eq ptr %21, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph
@@ -2247,7 +2247,7 @@ define dso_local i32 @luaL_makeseed(ptr noundef readnone captures(none) %0) loca
   %8 = lshr i32 %.015.i, 3
   %9 = shl i32 %.015.i, 7
   %10 = add i32 %8, %9
-  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4, !tbaa !32
   %13 = add i32 %10, %12
   %14 = xor i32 %13, %.015.i
@@ -2278,7 +2278,7 @@ define dso_local ptr @luaL_newstate() local_unnamed_addr #0 {
   %7 = lshr i32 %.015.i, 3
   %8 = shl i32 %.015.i, 7
   %9 = add i32 %7, %8
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4, !tbaa !32
   %12 = add i32 %9, %11
   %13 = xor i32 %12, %.015.i

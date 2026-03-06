@@ -2604,7 +2604,7 @@ _ZN3std4path4Path12strip_prefix17h81628d03ca6e3590E.exit: ; preds = %330
   %.sroa.0.0.copyload.i = load ptr, ptr %294, align 8, !noalias !594, !nonnull !8, !noundef !8
   %.sroa.43.0.copyload.i = load i64, ptr %.sroa.43.0..sroa_idx.i, align 8, !noalias !594
   %443 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 272
-  %444 = getelementptr inbounds { [3 x i64] }, ptr %443, i64 %.sroa.43.0.copyload.i
+  %444 = getelementptr inbounds [24 x i8], ptr %443, i64 %.sroa.43.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %444, i64 24, i1 false), !noalias !602
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %444, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 24, i1 false)
   %.pr = load i64, ptr %51, align 8, !alias.scope !603

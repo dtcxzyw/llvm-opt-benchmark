@@ -935,10 +935,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !10, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !90, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9ddf379e3f5e1e64E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9ddf379e3f5e1e64E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9ddf379e3f5e1e64E.39", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9ddf379e3f5e1e64E.39", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -2123,7 +2123,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17heb0cd6dea
   br i1 %12, label %.lr.ph.preheader.i, label %"_ZN91_$LT$T$u20$as$u20$core..slice..sort..shared..smallsort..UnstableSmallSortFreezeTypeImpl$GT$10small_sort17h6697b2587348b0d8E.exit"
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge
-  %13 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, ptr, ptr, { ptr, ptr, ptr, ptr, ptr }, ptr }, ptr %.sroa.0.0.lcssa, i64 %.sroa.11.0.lcssa
+  %13 = getelementptr inbounds nuw [176 x i8], ptr %.sroa.0.0.lcssa, i64 %.sroa.11.0.lcssa
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 176
   br label %.lr.ph.i
 
@@ -2226,7 +2226,7 @@ _ZN4core5slice4sort6shared5pivot12choose_pivot17hfa8d78d5a4086aa3E.exit: ; preds
   %.val.i = load ptr, ptr %61, align 8, !alias.scope !297
   tail call void @llvm.experimental.noalias.scope.decl(metadata !303)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i)
-  %62 = getelementptr { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, ptr, ptr, { ptr, ptr, ptr, ptr, ptr }, ptr }, ptr %.sroa.0.068, i64 %.sroa.11.067
+  %62 = getelementptr [176 x i8], ptr %.sroa.0.068, i64 %.sroa.11.067
   %63 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   br label %.outer.i.i
 
@@ -2363,7 +2363,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17hee8c4efa6b607a85E.exit: ; pre
   %.val.i29 = load ptr, ptr %112, align 8, !alias.scope !318
   tail call void @llvm.experimental.noalias.scope.decl(metadata !324)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i27)
-  %113 = getelementptr { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, ptr, ptr, { ptr, ptr, ptr, ptr, ptr }, ptr }, ptr %.sroa.0.068, i64 %.sroa.11.067
+  %113 = getelementptr [176 x i8], ptr %.sroa.0.068, i64 %.sroa.11.067
   %114 = getelementptr inbounds nuw i8, ptr %.val.i29, i64 16
   br label %.outer.i.i30
 
@@ -2484,7 +2484,7 @@ _ZN4core5slice4sort8unstable9quicksort9partition17h9d262682f3bc5976E.exit: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %158 = add nuw nsw i64 %149, 1
   %159 = sub nuw i64 %.sroa.11.067, %158
-  %160 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [2 x i64] }, { i8, [47 x i8] }, ptr, ptr, { ptr, ptr, ptr, ptr, ptr }, ptr }, ptr %.sroa.0.068, i64 %158
+  %160 = getelementptr inbounds nuw [176 x i8], ptr %.sroa.0.068, i64 %158
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN4core5slice4sort8unstable9quicksort9partition17h9d262682f3bc5976E.exit, %_ZN4core5slice4sort8unstable9quicksort9partition17hee8c4efa6b607a85E.exit

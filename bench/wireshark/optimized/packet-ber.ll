@@ -30,11 +30,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.except_t = type { %struct.except_id_t, ptr, ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%struct._ber_sequence_t = type { ptr, i8, i32, i32, ptr }
 %struct.nstime_t = type { i64, i32 }
 %struct.ber_decode_as_populate = type { ptr, ptr }
-%struct._oid_user_t = type { ptr, ptr, ptr }
-%struct._value_string = type { i32, ptr }
 
 @hf_ber_encoding_boiler_plate = internal global i32 0, align 4
 @.str = private unnamed_addr constant [8 x i8] c"ber.oid\00", align 1
@@ -1585,7 +1582,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
 
 263:                                              ; preds = %259
   %264 = zext i8 %261 to i64
-  %265 = getelementptr i16, ptr %258, i64 %264
+  %265 = getelementptr [2 x i8], ptr %258, i64 %264
   %266 = load i16, ptr %265, align 2
   %267 = trunc i16 %266 to i8
   %268 = lshr i8 %267, 6
@@ -3818,7 +3815,7 @@ define i32 @dissect_ber_set(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %
   %indvars.iv = phi i64 [ 0, %56 ], [ %indvars.iv.next, %62 ]
   %58 = phi i32 [ 0, %56 ], [ %68, %62 ]
   %.0210297 = phi i32 [ 0, %56 ], [ %.1211, %62 ]
-  %59 = getelementptr %struct._ber_sequence_t, ptr %5, i64 %indvars.iv
+  %59 = getelementptr [32 x i8], ptr %5, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8
   %.not232 = icmp eq ptr %61, null
@@ -4124,7 +4121,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %94, 
 214:                                              ; preds = %.preheader, %233
   %indvars.iv329 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next330, %233 ]
   %215 = phi i32 [ 0, %.preheader ], [ %234, %233 ]
-  %216 = getelementptr %struct._ber_sequence_t, ptr %5, i64 %indvars.iv329
+  %216 = getelementptr [32 x i8], ptr %5, i64 %indvars.iv329
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 24
   %218 = load ptr, ptr %217, align 8
   %.not234 = icmp eq ptr %218, null
@@ -5998,7 +5995,7 @@ thread-pre-split:                                 ; preds = %27, %19, %46
 119:                                              ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %137 ]
   %120 = shl i64 %indvars.iv, 3
-  %121 = getelementptr ptr, ptr %7, i64 %120
+  %121 = getelementptr [8 x i8], ptr %7, i64 %120
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %122 = trunc nuw nsw i64 %120 to i32
   %123 = sub i32 %8, %122
@@ -6310,7 +6307,7 @@ define internal void @ber_update_oids() #0 {
 .lr.ph:                                           ; preds = %0, %register_ber_oid_syntax.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %register_ber_oid_syntax.exit ], [ 0, %0 ]
   %2 = load ptr, ptr @oid_users, align 8
-  %3 = getelementptr %struct._oid_user_t, ptr %2, i64 %indvars.iv
+  %3 = getelementptr [24 x i8], ptr %2, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -6475,7 +6472,7 @@ define hidden void @proto_reg_handoff_ber() local_unnamed_addr #0 {
 9:                                                ; preds = %6, %0
   %10 = phi i32 [ %.pre, %6 ], [ %4, %0 ]
   %11 = zext i32 %10 to i64
-  %12 = getelementptr %struct._value_string, ptr @syntax_names, i64 %11
+  %12 = getelementptr [16 x i8], ptr @syntax_names, i64 %11
   store i32 0, ptr %12, align 16
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr null, ptr %13, align 8
@@ -6490,7 +6487,7 @@ define hidden void @proto_reg_handoff_ber() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %9, %register_ber_oid_syntax.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %register_ber_oid_syntax.exit.i ], [ 0, %9 ]
   %17 = load ptr, ptr @oid_users, align 8
-  %18 = getelementptr %struct._oid_user_t, ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr [24 x i8], ptr %17, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8
@@ -6550,11 +6547,11 @@ define internal void @ber_add_syntax_name(ptr noundef %0, ptr readnone captures(
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr %struct._value_string, ptr @syntax_names, i64 %7
+  %8 = getelementptr [16 x i8], ptr @syntax_names, i64 %7
   store i32 %4, ptr %8, align 16
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr %struct._value_string, ptr @syntax_names, i64 %10
+  %11 = getelementptr [16 x i8], ptr @syntax_names, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %0, ptr %12, align 8
   %13 = load i32, ptr %2, align 4
@@ -7064,7 +7061,7 @@ define internal void @oid_users_syntax_set_cb(ptr noundef writeonly captures(non
   %.01622 = phi i32 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %12 = add i32 %.01622, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null

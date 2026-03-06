@@ -1641,7 +1641,7 @@ _ZN6icu_7712LocalPointerINS_15AlphabeticIndex6BucketEE29adoptInsteadAndCheckErro
 _ZNK6icu_777UVector11lastElementEv.exit:          ; preds = %240
   %244 = add nuw nsw i64 %238, 4294967231
   %245 = and i64 %244, 4294967295
-  %246 = getelementptr inbounds nuw ptr, ptr %10, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %245
   store ptr %243, ptr %246, align 8, !tbaa !61
   br label %.thread414
 
@@ -1698,7 +1698,7 @@ _ZNK6icu_7713UnicodeString10startsWithENS_14ConstChar16PtrEi.exit: ; preds = %24
 
 _ZNK6icu_777UVector11lastElementEv.exit320:       ; preds = %268
   %272 = zext nneg i16 %266 to i64
-  %273 = getelementptr ptr, ptr %11, i64 %272
+  %273 = getelementptr [8 x i8], ptr %11, i64 %272
   %274 = getelementptr i8, ptr %273, i64 -520
   store ptr %271, ptr %274, align 8, !tbaa !61
   br label %.thread414
@@ -1745,7 +1745,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph.i: ; preds = %.preheader.i
 _ZNK6icu_779UVector6410elementAtiEi.exit.i:       ; preds = %290, %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph.i ], [ %indvars.iv.next.i, %290 ]
   %.01828.i = phi i8 [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph.i ], [ %.220.i, %290 ]
-  %284 = getelementptr inbounds nuw i64, ptr %283, i64 %indvars.iv.i
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %283, i64 %indvars.iv.i
   %285 = load i64, ptr %284, align 8, !tbaa !66
   %286 = lshr i64 %285, 32
   %287 = trunc nuw i64 %286 to i32
@@ -1784,7 +1784,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit329:      ; preds = %291
   %301 = load ptr, ptr %300, align 8
   %302 = select i1 %.not.i.i.i328, ptr %301, ptr %299
   %303 = sext i32 %297 to i64
-  %304 = getelementptr i16, ptr %302, i64 %303
+  %304 = getelementptr [2 x i8], ptr %302, i64 %303
   %305 = getelementptr i8, ptr %304, i64 -2
   %306 = load i16, ptr %305, align 2, !tbaa !43
   %.not256 = icmp eq i16 %306, -1
@@ -1857,7 +1857,7 @@ _ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph.i334: ; preds = %.preheader.i332
 _ZNK6icu_779UVector6410elementAtiEi.exit.i336:    ; preds = %333, %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph.i334
   %indvars.iv.i337 = phi i64 [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph.i334 ], [ %indvars.iv.next.i340, %333 ]
   %.01828.i338 = phi i8 [ 0, %_ZNK6icu_779UVector6410elementAtiEi.exit.lr.ph.i334 ], [ %.220.i339, %333 ]
-  %327 = getelementptr inbounds nuw i64, ptr %326, i64 %indvars.iv.i337
+  %327 = getelementptr inbounds nuw [8 x i8], ptr %326, i64 %indvars.iv.i337
   %328 = load i64, ptr %327, align 8, !tbaa !66
   %329 = lshr i64 %328, 32
   %330 = trunc nuw i64 %329 to i32
@@ -2051,11 +2051,11 @@ _ZN6icu_7712_GLOBAL__N_125hasMultiplePrimaryWeightsERKNS_17RuleBasedCollatorEjRK
   %indvars.iv = phi i64 [ %indvars.iv.next, %403 ], [ 0, %394 ]
   %.8200568 = phi i8 [ %.9201, %403 ], [ %.0192.lcssa651, %394 ]
   %.0207566 = phi ptr [ %spec.select301, %403 ], [ null, %394 ]
-  %395 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %395 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %396 = load ptr, ptr %395, align 8, !tbaa !61
   %.not283 = icmp eq ptr %396, null
   %spec.select301 = select i1 %.not283, ptr %.0207566, ptr %396
-  %397 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %397 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %398 = load ptr, ptr %397, align 8, !tbaa !61
   %399 = icmp ne ptr %398, null
   %400 = icmp ne ptr %spec.select301, null
@@ -2690,7 +2690,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %56
   %68 = load ptr, ptr %67, align 8
   %69 = select i1 %.not.i.i.i, ptr %68, ptr %66
   %70 = sext i32 %57 to i64
-  %71 = getelementptr inbounds i16, ptr %69, i64 %70
+  %71 = getelementptr inbounds [2 x i8], ptr %69, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !43
   %73 = icmp eq i16 %72, 42
   br i1 %73, label %74, label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEE12adoptInsteadEPS1_.exit
@@ -2702,7 +2702,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %56
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit106:      ; preds = %74
   %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds i16, ptr %69, i64 %77
+  %78 = getelementptr inbounds [2 x i8], ptr %69, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !43
   %.not90 = icmp eq i16 %79, 42
   br i1 %.not90, label %_ZN6icu_7712LocalPointerINS_13UnicodeStringEE12adoptInsteadEPS1_.exit, label %_ZNK6icu_7713UnicodeString6charAtEi.exit106.thread
@@ -3523,7 +3523,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %24
   %36 = load ptr, ptr %35, align 8
   %37 = select i1 %.not.i.i.i, ptr %36, ptr %34
   %38 = sext i32 %32 to i64
-  %39 = getelementptr i16, ptr %37, i64 %38
+  %39 = getelementptr [2 x i8], ptr %37, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -2
   %41 = load i16, ptr %40, align 2, !tbaa !43
   %42 = add i16 %41, -65

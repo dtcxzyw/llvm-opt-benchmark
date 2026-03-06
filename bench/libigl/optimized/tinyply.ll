@@ -14,12 +14,6 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.igl::tinyply::PlyElement" = type { %"class.std::__cxx11::basic_string", i64, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<igl::tinyply::PlyProperty, std::allocator<igl::tinyply::PlyProperty>>::_Vector_impl" }
-%"struct.std::_Vector_base<igl::tinyply::PlyProperty, std::allocator<igl::tinyply::PlyProperty>>::_Vector_impl" = type { %"struct.std::_Vector_base<igl::tinyply::PlyProperty, std::allocator<igl::tinyply::PlyProperty>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<igl::tinyply::PlyProperty, std::allocator<igl::tinyply::PlyProperty>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.igl::tinyply::PlyProperty" = type { %"class.std::__cxx11::basic_string", i8, i8, i8, i64 }
 %"class.std::vector.16" = type { %"struct.std::_Vector_base.17" }
 %"struct.std::_Vector_base.17" = type { %"struct.std::_Vector_base<std::vector<igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup>, std::allocator<std::vector<igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup>, std::allocator<std::vector<igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup>, std::allocator<std::vector<igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup>>>::_Vector_impl_data" }
@@ -29,7 +23,6 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"struct.std::_Vector_base.34" = type { %"struct.std::_Vector_base<igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup, std::allocator<igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup>>::_Vector_impl" }
 %"struct.std::_Vector_base<igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup, std::allocator<igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup>>::_Vector_impl" = type { %"struct.std::_Vector_base<igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup, std::allocator<igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup, std::allocator<igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup" = type { ptr, i8, i64, i64 }
 %"class.std::__cxx11::basic_istringstream" = type { %"class.std::basic_istream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -71,6 +64,12 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"class.std::basic_ostream.base" = type { ptr }
 %"struct.std::pair.78" = type { i32, [4 x i8], %"struct.igl::tinyply::PlyFile::PlyFileImpl::ParsingHelper" }
 %class.anon = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%"struct.igl::tinyply::PlyElement" = type { %"class.std::__cxx11::basic_string", i64, %"class.std::vector" }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<igl::tinyply::PlyProperty, std::allocator<igl::tinyply::PlyProperty>>::_Vector_impl" }
+%"struct.std::_Vector_base<igl::tinyply::PlyProperty, std::allocator<igl::tinyply::PlyProperty>>::_Vector_impl" = type { %"struct.std::_Vector_base<igl::tinyply::PlyProperty, std::allocator<igl::tinyply::PlyProperty>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<igl::tinyply::PlyProperty, std::allocator<igl::tinyply::PlyProperty>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.igl::tinyply::PlyProperty" = type { %"class.std::__cxx11::basic_string", i8, i8, i8, i64 }
 %"class.std::vector.11" = type { %"struct.std::_Vector_base.12" }
 %"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<igl::tinyply::PlyElement, std::allocator<igl::tinyply::PlyElement>>::_Vector_impl" }
 %"struct.std::_Vector_base<igl::tinyply::PlyElement, std::allocator<igl::tinyply::PlyElement>>::_Vector_impl" = type { %"struct.std::_Vector_base<igl::tinyply::PlyElement, std::allocator<igl::tinyply::PlyElement>>::_Vector_impl_data" }
@@ -964,7 +963,7 @@ define dso_local noundef i64 @_ZN3igl7tinyply12find_elementERKNSt7__cxx1112basic
 
 14:                                               ; preds = %.lr.ph, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10
   %.0812 = phi i64 [ 0, %.lr.ph ], [ %22, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10 ]
-  %15 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyElement", ptr %5, i64 %.0812
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.0812
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !32
   %18 = icmp eq i64 %17, %11
@@ -1010,7 +1009,7 @@ define dso_local noundef i64 @_ZN3igl7tinyply13find_propertyERKNSt7__cxx1112basi
 
 14:                                               ; preds = %.lr.ph, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10
   %.0812 = phi i64 [ 0, %.lr.ph ], [ %22, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10 ]
-  %15 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyProperty", ptr %5, i64 %.0812
+  %15 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %.0812
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !32
   %18 = icmp eq i64 %17, %11
@@ -1256,7 +1255,7 @@ _ZN3igl7tinyply10hash_fnv1aERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %86 = load i64, ptr %14, align 8, !tbaa !87
   %87 = urem i64 %85, %86
   %88 = load ptr, ptr %1, align 8, !tbaa !88
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %87
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %87
   %90 = load ptr, ptr %89, align 8, !tbaa !89
   %.not.i.i.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIjN3igl7tinyply7PlyFile11PlyFileImpl13ParsingHelperESt4hashIjESt8equal_toIjESaISt4pairIKjS4_EEE4findERSA_.exit, label %91
@@ -1642,7 +1641,7 @@ _ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE11_S_rel
 _ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %224, %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i
   store ptr %219, ptr %5, align 8, !tbaa !59
   store ptr %223, ptr %18, align 8, !tbaa !63
-  %225 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup", ptr %219, i64 %217
+  %225 = getelementptr inbounds nuw [32 x i8], ptr %219, i64 %217
   store ptr %225, ptr %19, align 8, !tbaa !64
   br label %_ZNSt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EE9push_backERKS4_.exit
 
@@ -3097,7 +3096,7 @@ _ZNSt6vectorISt10shared_ptrIN3igl7tinyply7PlyDataEESaIS4_EE9push_backERKS4_.exit
   %69 = load i64, ptr %48, align 8, !tbaa !176
   %70 = urem i64 %68, %69
   %71 = load ptr, ptr %7, align 8, !tbaa !174
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %70
   %73 = load ptr, ptr %72, align 8, !tbaa !89
   %.not.i.i.i.i87 = icmp eq ptr %73, null
   br i1 %.not.i.i.i.i87, label %.loopexit.i.i, label %74
@@ -3532,7 +3531,7 @@ _ZNSt8_Rb_treeIN3igl7tinyply4TypeESt4pairIKS2_NS1_12PropertyInfoEESt10_Select1st
   %242 = load i64, ptr %48, align 8, !tbaa !176
   %243 = urem i64 %241, %242
   %244 = load ptr, ptr %7, align 8, !tbaa !174
-  %245 = getelementptr inbounds nuw ptr, ptr %244, i64 %243
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %243
   %246 = load ptr, ptr %245, align 8, !tbaa !89
   %.not.i.i.i.i98 = icmp eq ptr %246, null
   br i1 %.not.i.i.i.i98, label %.loopexit.i.i104, label %247
@@ -4263,9 +4262,9 @@ define dso_local void @_ZN3igl7tinyply7PlyFile11PlyFileImpl10parse_dataERSib(ptr
   %.042112.us = phi i64 [ %144, %_ZNKSt8functionIFmRN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupERKNS1_11PlyPropertyERSiEEclES5_S8_S9_.exit66.us ], [ 0, %.lr.ph ]
   %.sroa.087.0111.us = phi ptr [ %145, %_ZNKSt8functionIFmRN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupERKNS1_11PlyPropertyERSiEEclES5_S8_S9_.exit66.us ], [ %113, %.lr.ph ]
   %115 = load ptr, ptr %15, align 8, !tbaa !108
-  %116 = getelementptr inbounds nuw %"class.std::vector.33", ptr %115, i64 %.040122
+  %116 = getelementptr inbounds nuw [24 x i8], ptr %115, i64 %.040122
   %117 = load ptr, ptr %116, align 8, !tbaa !59
-  %118 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup", ptr %117, i64 %.042112.us
+  %118 = getelementptr inbounds nuw [32 x i8], ptr %117, i64 %.042112.us
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i8, ptr %119, align 8, !tbaa !232, !range !101, !noundef !102
   %121 = trunc nuw i8 %120 to i1
@@ -4335,9 +4334,9 @@ _ZNKSt8functionIFmRN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupERKNS1_11Pl
   %.042112 = phi i64 [ %175, %_ZNKSt8functionIFmRN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupERKNS1_11PlyPropertyERSiEEclES5_S8_S9_.exit66 ], [ 0, %.lr.ph ]
   %.sroa.087.0111 = phi ptr [ %176, %_ZNKSt8functionIFmRN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupERKNS1_11PlyPropertyERSiEEclES5_S8_S9_.exit66 ], [ %113, %.lr.ph ]
   %149 = load ptr, ptr %15, align 8, !tbaa !108
-  %150 = getelementptr inbounds nuw %"class.std::vector.33", ptr %149, i64 %.040122
+  %150 = getelementptr inbounds nuw [24 x i8], ptr %149, i64 %.040122
   %151 = load ptr, ptr %150, align 8, !tbaa !59
-  %152 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup", ptr %151, i64 %.042112
+  %152 = getelementptr inbounds nuw [32 x i8], ptr %151, i64 %.042112
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %154 = load i8, ptr %153, align 8, !tbaa !232, !range !101, !noundef !102
   %155 = trunc nuw i8 %154 to i1
@@ -4910,9 +4909,9 @@ _ZNSt6vectorIS_IN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EESaIS6
   %.03560 = phi i64 [ %.1, %99 ], [ 0, %.lr.ph63.split ]
   %.sroa.040.058 = phi ptr [ %100, %99 ], [ %39, %.lr.ph63.split ]
   %44 = load ptr, ptr %4, align 8, !tbaa !108
-  %45 = getelementptr inbounds nuw %"class.std::vector.33", ptr %44, i64 %.069
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %.069
   %46 = load ptr, ptr %45, align 8, !tbaa !59
-  %47 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup", ptr %46, i64 %.03560
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %46, i64 %.03560
   %48 = load ptr, ptr %47, align 8, !tbaa !234
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load i8, ptr %49, align 8, !tbaa !232, !range !101, !noundef !102
@@ -5111,9 +5110,9 @@ _ZNSt6vectorIS_IN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EESaIS6
   %.03858 = phi i64 [ %.1, %80 ], [ 0, %33 ]
   %.sroa.041.057 = phi ptr [ %81, %80 ], [ %34, %33 ]
   %37 = load ptr, ptr %3, align 8, !tbaa !108
-  %38 = getelementptr inbounds nuw %"class.std::vector.33", ptr %37, i64 %.03565
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %.03565
   %39 = load ptr, ptr %38, align 8, !tbaa !59
-  %40 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup", ptr %39, i64 %.03858
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %.03858
   %41 = load ptr, ptr %40, align 8, !tbaa !234
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i8, ptr %42, align 8, !tbaa !232, !range !101, !noundef !102
@@ -5365,9 +5364,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit41: ; preds = %_ZNSo
   %.031149 = phi i64 [ %228, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit69 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit41 ]
   %.sroa.0121.0148 = phi ptr [ %229, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit69 ], [ %61, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit41 ]
   %66 = load ptr, ptr %8, align 8, !tbaa !108
-  %67 = getelementptr inbounds nuw %"class.std::vector.33", ptr %66, i64 %.0154
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %.0154
   %68 = load ptr, ptr %67, align 8, !tbaa !59
-  %69 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyFile::PlyFileImpl::PropertyLookup", ptr %68, i64 %.031149
+  %69 = getelementptr inbounds nuw [32 x i8], ptr %68, i64 %.031149
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i8, ptr %70, align 8, !tbaa !232, !range !101, !noundef !102
   %72 = trunc nuw i8 %71 to i1
@@ -5966,7 +5965,7 @@ define dso_local void @_ZN3igl7tinyply7PlyFile11PlyFileImpl31request_properties_
 
 57:                                               ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i, %.lr.ph.i
   %.0812.i = phi i64 [ 0, %.lr.ph.i ], [ %64, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i ]
-  %58 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyElement", ptr %19, i64 %.0812.i
+  %58 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 %.0812.i
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i64, ptr %59, align 8, !tbaa !32
   %61 = icmp eq i64 %60, %30
@@ -6180,7 +6179,7 @@ _ZNSt12__shared_ptrIN3igl7tinyply7PlyFile11PlyFileImpl13PlyDataCursorELN9__gnu_c
 
 .lr.ph.i92.split.us:                              ; preds = %.lr.ph.i92, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i94.us
   %.0812.i93.us = phi i64 [ %154, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i94.us ], [ 0, %.lr.ph.i92 ]
-  %150 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyProperty", ptr %141, i64 %.0812.i93.us
+  %150 = getelementptr inbounds nuw [48 x i8], ptr %141, i64 %.0812.i93.us
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load i64, ptr %151, align 8, !tbaa !32
   %153 = icmp eq i64 %152, 0
@@ -6193,7 +6192,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 .lr.ph.i92.split:                                 ; preds = %.lr.ph.i92, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i94
   %.0812.i93 = phi i64 [ %161, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i94 ], [ 0, %.lr.ph.i92 ]
-  %155 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyProperty", ptr %141, i64 %.0812.i93
+  %155 = getelementptr inbounds nuw [48 x i8], ptr %141, i64 %.0812.i93
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load i64, ptr %156, align 8, !tbaa !32
   %158 = icmp eq i64 %157, %.fr285
@@ -6475,7 +6474,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %_Z
 
 .lr.ph.i106.split.us:                             ; preds = %.lr.ph.i106, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i108.us
   %.0812.i107.us = phi i64 [ %260, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i108.us ], [ 0, %.lr.ph.i106 ]
-  %256 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyProperty", ptr %247, i64 %.0812.i107.us
+  %256 = getelementptr inbounds nuw [48 x i8], ptr %247, i64 %.0812.i107.us
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %258 = load i64, ptr %257, align 8, !tbaa !32
   %259 = icmp eq i64 %258, 0
@@ -6488,7 +6487,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 .lr.ph.i106.split:                                ; preds = %.lr.ph.i106, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i108
   %.0812.i107 = phi i64 [ %267, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i108 ], [ 0, %.lr.ph.i106 ]
-  %261 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyProperty", ptr %247, i64 %.0812.i107
+  %261 = getelementptr inbounds nuw [48 x i8], ptr %247, i64 %.0812.i107
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %263 = load i64, ptr %262, align 8, !tbaa !32
   %264 = icmp eq i64 %263, %.fr
@@ -6507,7 +6506,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 _ZN3igl7tinyply13find_propertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_11PlyPropertyESaISA_EE.exit112: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i108, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i110, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i108.us, %.lr.ph.i106.split.us, %245
   %268 = phi i64 [ -1, %245 ], [ -1, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i108.us ], [ %.0812.i107.us, %.lr.ph.i106.split.us ], [ -1, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i108 ], [ %.0812.i107, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i110 ]
-  %269 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyProperty", ptr %247, i64 %268
+  %269 = getelementptr inbounds nuw [48 x i8], ptr %247, i64 %268
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 32
   %271 = load i8, ptr %270, align 8, !tbaa !35
   %272 = load ptr, ptr %8, align 8, !tbaa !161
@@ -6936,7 +6935,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
 
 .lr.ph.i138.split.us:                             ; preds = %.lr.ph.i138, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i140.us
   %.0812.i139.us = phi i64 [ %432, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i140.us ], [ 0, %.lr.ph.i138 ]
-  %428 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyProperty", ptr %419, i64 %.0812.i139.us
+  %428 = getelementptr inbounds nuw [48 x i8], ptr %419, i64 %.0812.i139.us
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 8
   %430 = load i64, ptr %429, align 8, !tbaa !32
   %431 = icmp eq i64 %430, 0
@@ -6949,7 +6948,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 .lr.ph.i138.split:                                ; preds = %.lr.ph.i138, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i140
   %.0812.i139 = phi i64 [ %439, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i140 ], [ 0, %.lr.ph.i138 ]
-  %433 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyProperty", ptr %419, i64 %.0812.i139
+  %433 = getelementptr inbounds nuw [48 x i8], ptr %419, i64 %.0812.i139
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 8
   %435 = load i64, ptr %434, align 8, !tbaa !32
   %436 = icmp eq i64 %435, %.fr286
@@ -6968,7 +6967,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 _ZN3igl7tinyply13find_propertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_11PlyPropertyESaISA_EE.exit144: ; preds = %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i140, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i142, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i140.us, %.lr.ph.i138.split.us, %417
   %440 = phi i64 [ -1, %417 ], [ -1, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i140.us ], [ %.0812.i139.us, %.lr.ph.i138.split.us ], [ -1, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i140 ], [ %.0812.i139, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i142 ]
-  %441 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyProperty", ptr %419, i64 %440
+  %441 = getelementptr inbounds nuw [48 x i8], ptr %419, i64 %440
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 32
   %.not.i145 = icmp eq ptr %.sroa.9.0277, %.sroa.14.0278
   br i1 %.not.i145, label %445, label %443
@@ -7868,7 +7867,7 @@ _ZNSt12__shared_ptrIN3igl7tinyply7PlyFile11PlyFileImpl13PlyDataCursorELN9__gnu_c
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i.us
   %.0812.i.us = phi i64 [ %49, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i.us ], [ 0, %.lr.ph.i ]
-  %45 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyElement", ptr %.pre51, i64 %.0812.i.us
+  %45 = getelementptr inbounds nuw [64 x i8], ptr %.pre51, i64 %.0812.i.us
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !32
   %48 = icmp eq i64 %47, 0
@@ -7881,7 +7880,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i
   %.0812.i = phi i64 [ %56, %_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread10.i ], [ 0, %.lr.ph.i ]
-  %50 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyElement", ptr %.pre51, i64 %.0812.i
+  %50 = getelementptr inbounds nuw [64 x i8], ptr %.pre51, i64 %.0812.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8, !tbaa !32
   %53 = icmp eq i64 %52, %.fr45
@@ -7904,7 +7903,7 @@ _ZN3igl7tinyply12find_elementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   br i1 %57, label %58, label %_ZN3igl7tinyply12find_elementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_10PlyElementESaISA_EE.exit.thread
 
 58:                                               ; preds = %_ZN3igl7tinyply12find_elementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS0_10PlyElementESaISA_EE.exit
-  %59 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyElement", ptr %.pre51, i64 %.us-phi
+  %59 = getelementptr inbounds nuw [64 x i8], ptr %.pre51, i64 %.us-phi
   invoke fastcc void @"_ZZN3igl7tinyply7PlyFile11PlyFileImpl25add_properties_to_elementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EENS0_4TypeEmPhSE_mENK3$_0clERNS0_10PlyElementE"(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(64) %59)
           to label %115 unwind label %64
 
@@ -9634,7 +9633,7 @@ _ZNSt6vectorIN3igl7tinyply11PlyPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt12_Vector_baseIN3igl7tinyply11PlyPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3igl7tinyply11PlyPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %79
   store ptr %23, ptr %0, align 8, !tbaa !41
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !44
-  %83 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyProperty", ptr %23, i64 %17
+  %83 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %17
   store ptr %83, ptr %78, align 8, !tbaa !46
   ret void
 
@@ -10289,7 +10288,7 @@ _ZNSt6vectorIS_IN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EESaIS6
 _ZNSt12_Vector_baseISt6vectorIN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS5_EESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorIS_IN3igl7tinyply7PlyFile11PlyFileImpl14PropertyLookupESaIS4_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit33, %60
   store ptr %20, ptr %0, align 8, !tbaa !108
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !55
-  %64 = getelementptr inbounds nuw %"class.std::vector.33", ptr %20, i64 %16
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !58
   ret void
 
@@ -10523,7 +10522,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !255
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !135
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !138
   ret void
 
@@ -10792,7 +10791,7 @@ _ZNSt6vectorIN3igl7tinyply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt12_Vector_baseIN3igl7tinyply10PlyElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3igl7tinyply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %93
   store ptr %22, ptr %0, align 8, !tbaa !50
   store ptr %.0.lcssa.i.i.i35, ptr %4, align 8, !tbaa !47
-  %97 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyElement", ptr %22, i64 %16
+  %97 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %97, ptr %92, align 8, !tbaa !151
   ret void
 
@@ -11043,7 +11042,7 @@ _ZNSt6vectorIN3igl7tinyply11PlyPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt12_Vector_baseIN3igl7tinyply11PlyPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3igl7tinyply11PlyPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %58
   store ptr %20, ptr %0, align 8, !tbaa !41
   store ptr %.0.lcssa.i.i.i35, ptr %4, align 8, !tbaa !44
-  %62 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyProperty", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !46
   ret void
 
@@ -11210,7 +11209,7 @@ _ZNSt6vectorISt10shared_ptrIN3igl7tinyply7PlyDataEESaIS4_EE11_S_relocateEPS4_S7_
 _ZNSt12_Vector_baseISt10shared_ptrIN3igl7tinyply7PlyDataEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN3igl7tinyply7PlyDataEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit23, %48
   store ptr %20, ptr %0, align 8, !tbaa !216
   store ptr %.0.lcssa.i.i.i22, ptr %4, align 8, !tbaa !158
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !160
   ret void
 }
@@ -11270,7 +11269,7 @@ _ZNSt10_HashtableIPN3igl7tinyply7PlyDataESt4pairIKS3_iESaIS6_ENSt8__detail10_Sel
 31:                                               ; preds = %_ZNSt10_HashtableIPN3igl7tinyply7PlyDataESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPN3igl7tinyply7PlyDataESt4pairIKS3_iESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !174
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !89
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -11297,7 +11296,7 @@ _ZNSt10_HashtableIPN3igl7tinyply7PlyDataESt4pairIKS3_iESaIS6_ENSt8__detail10_Sel
   %45 = load ptr, ptr %43, align 8, !tbaa !179
   %46 = ptrtoint ptr %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !89
   br label %49
 
@@ -11362,7 +11361,7 @@ _ZNSt10_HashtableIPN3igl7tinyply7PlyDataESt4pairIKS3_iESaIS6_ENSt8__detail10_Sel
   %16 = load ptr, ptr %15, align 8, !tbaa !179
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !89
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -11377,7 +11376,7 @@ _ZNSt10_HashtableIPN3igl7tinyply7PlyDataESt4pairIKS3_iESaIS6_ENSt8__detail10_Sel
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !89
   br label %29
 
@@ -11460,7 +11459,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3igl7tinypl
 22:                                               ; preds = %14
   %23 = add nsw i64 %.017, -1
   %24 = lshr i64 %15, 1
-  %25 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %24
   %26 = getelementptr inbounds i8, ptr %storemerge16, i64 -16
   %27 = load ptr, ptr %11, align 8, !tbaa !161
   %28 = load ptr, ptr %25, align 8, !tbaa !161
@@ -11613,7 +11612,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iter
 16:                                               ; preds = %_ZNSt12__shared_ptrIN3igl7tinyply7PlyDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit13, %11
   %.08 = phi i64 [ %13, %11 ], [ %44, %_ZNSt12__shared_ptrIN3igl7tinyply7PlyDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %17 = getelementptr inbounds %"class.std::shared_ptr", ptr %0, i64 %.08
+  %17 = getelementptr inbounds [16 x i8], ptr %0, i64 %.08
   %18 = load ptr, ptr %17, align 8, !tbaa !161
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !166
@@ -11948,15 +11947,15 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_it
   %.039 = phi i64 [ %spec.select, %_ZNSt10shared_ptrIN3igl7tinyply7PlyDataEEaSEOS3_.exit ], [ %1, %4 ]
   %10 = shl i64 %.039, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"class.std::shared_ptr", ptr %0, i64 %11
+  %12 = getelementptr inbounds [16 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"class.std::shared_ptr", ptr %0, i64 %13
+  %14 = getelementptr inbounds [16 x i8], ptr %0, i64 %13
   %15 = load ptr, ptr %12, align 8, !tbaa !161
   %16 = load ptr, ptr %14, align 8, !tbaa !161
   %17 = icmp ult ptr %15, %16
   %spec.select = select i1 %17, i64 %13, i64 %11
-  %18 = getelementptr inbounds %"class.std::shared_ptr", ptr %0, i64 %spec.select
-  %19 = getelementptr inbounds %"class.std::shared_ptr", ptr %0, i64 %.039
+  %18 = getelementptr inbounds [16 x i8], ptr %0, i64 %spec.select
+  %19 = getelementptr inbounds [16 x i8], ptr %0, i64 %.039
   %20 = load ptr, ptr %18, align 8, !tbaa !161
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !166
@@ -12031,8 +12030,8 @@ _ZNSt10shared_ptrIN3igl7tinyply7PlyDataEEaSEOS3_.exit: ; preds = %.lr.ph, %30, %
 53:                                               ; preds = %49
   %54 = shl nsw i64 %.0.lcssa, 1
   %55 = or disjoint i64 %54, 1
-  %56 = getelementptr inbounds %"class.std::shared_ptr", ptr %0, i64 %55
-  %57 = getelementptr inbounds %"class.std::shared_ptr", ptr %0, i64 %.0.lcssa
+  %56 = getelementptr inbounds [16 x i8], ptr %0, i64 %55
+  %57 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa
   %58 = load ptr, ptr %56, align 8, !tbaa !161
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !166
@@ -12172,14 +12171,14 @@ define linkonce_odr dso_local void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iter
   %.023 = phi i64 [ %.0924, %_ZNSt10shared_ptrIN3igl7tinyply7PlyDataEEaSEOS3_.exit ], [ %1, %5 ]
   %.0924.in = add nsw i64 %.023, -1
   %.0924 = sdiv i64 %.0924.in, 2
-  %7 = getelementptr inbounds %"class.std::shared_ptr", ptr %0, i64 %.0924
+  %7 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0924
   %8 = load ptr, ptr %7, align 8, !tbaa !161
   %9 = load ptr, ptr %3, align 8, !tbaa !161
   %10 = icmp ult ptr %8, %9
   br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds %"class.std::shared_ptr", ptr %0, i64 %.023
+  %12 = getelementptr inbounds [16 x i8], ptr %0, i64 %.023
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !166
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
@@ -12240,7 +12239,7 @@ _ZNSt10shared_ptrIN3igl7tinyply7PlyDataEEaSEOS3_.exit: ; preds = %11, %22, %_ZN9
 
 .critedge:                                        ; preds = %.lr.ph, %_ZNSt10shared_ptrIN3igl7tinyply7PlyDataEEaSEOS3_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0924, %_ZNSt10shared_ptrIN3igl7tinyply7PlyDataEEaSEOS3_.exit ], [ %.023, %.lr.ph ]
-  %39 = getelementptr inbounds %"class.std::shared_ptr", ptr %0, i64 %.0.lcssa
+  %39 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa
   %40 = load ptr, ptr %3, align 8, !tbaa !161
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !166
@@ -12940,7 +12939,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN3igl7ti
   %27 = load i64, ptr %26, align 8, !tbaa !87
   %28 = urem i64 %25, %27
   %29 = load ptr, ptr %0, align 8, !tbaa !88
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8, !tbaa !89
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %.critedge27, label %44
@@ -13085,7 +13084,7 @@ _ZNSt10_HashtableIjSt4pairIKjN3igl7tinyply7PlyFile11PlyFileImpl13ParsingHelperEE
 31:                                               ; preds = %_ZNSt10_HashtableIjSt4pairIKjN3igl7tinyply7PlyFile11PlyFileImpl13ParsingHelperEESaIS7_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIjSt4pairIKjN3igl7tinyply7PlyFile11PlyFileImpl13ParsingHelperEESaIS7_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !88
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !89
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -13112,7 +13111,7 @@ _ZNSt10_HashtableIjSt4pairIKjN3igl7tinyply7PlyFile11PlyFileImpl13ParsingHelperEE
   %45 = load i32, ptr %43, align 4, !tbaa !25
   %46 = zext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !89
   br label %49
 
@@ -13198,7 +13197,7 @@ _ZNSt10_HashtableIjSt4pairIKjN3igl7tinyply7PlyFile11PlyFileImpl13ParsingHelperEE
   %16 = load i32, ptr %15, align 8, !tbaa !25
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !89
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -13213,7 +13212,7 @@ _ZNSt10_HashtableIjSt4pairIKjN3igl7tinyply7PlyFile11PlyFileImpl13ParsingHelperEE
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !89
   br label %29
 
@@ -13589,7 +13588,7 @@ _ZNSt6vectorIN3igl7tinyply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt12_Vector_baseIN3igl7tinyply10PlyElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN3igl7tinyply10PlyElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %78
   store ptr %20, ptr %0, align 8, !tbaa !50
   store ptr %.0.lcssa.i.i.i35, ptr %4, align 8, !tbaa !47
-  %82 = getelementptr inbounds nuw %"struct.igl::tinyply::PlyElement", ptr %20, i64 %16
+  %82 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %16
   store ptr %82, ptr %77, align 8, !tbaa !151
   ret void
 

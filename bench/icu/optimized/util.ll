@@ -539,7 +539,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility1
   %.13346 = phi i32 [ %.recomposed, %.lr.ph48 ], [ %.032, %.preheader ]
   %25 = sdiv i32 %.13346, %.147
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr @_ZL6DIGITS, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr @_ZL6DIGITS, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 %28, ptr %5, align 2, !tbaa !15
@@ -643,7 +643,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility6
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %17 = lshr i32 %1, 28
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr @_ZL6DIGITS, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr @_ZL6DIGITS, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i16 %20, ptr %11, align 2, !tbaa !15
@@ -652,7 +652,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility6
   %22 = lshr i32 %1, 24
   %23 = and i32 %22, 15
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i16, ptr @_ZL6DIGITS, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @_ZL6DIGITS, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i16 %26, ptr %10, align 2, !tbaa !15
@@ -661,7 +661,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility6
   %28 = lshr i32 %1, 20
   %29 = and i32 %28, 15
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i16, ptr @_ZL6DIGITS, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr @_ZL6DIGITS, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 %32, ptr %9, align 2, !tbaa !15
@@ -670,7 +670,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility6
   %34 = lshr i32 %1, 16
   %35 = and i32 %34, 15
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw i16, ptr @_ZL6DIGITS, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr @_ZL6DIGITS, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i16 %38, ptr %8, align 2, !tbaa !15
@@ -689,7 +689,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility6
   %43 = lshr i32 %1, 12
   %44 = and i32 %43, 15
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i16, ptr @_ZL6DIGITS, i64 %45
+  %46 = getelementptr inbounds nuw [2 x i8], ptr @_ZL6DIGITS, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i16 %47, ptr %6, align 2, !tbaa !15
@@ -698,7 +698,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility6
   %49 = lshr i32 %1, 8
   %50 = and i32 %49, 15
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i16, ptr @_ZL6DIGITS, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr @_ZL6DIGITS, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i16 %53, ptr %5, align 2, !tbaa !15
@@ -707,7 +707,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility6
   %55 = lshr i32 %1, 4
   %56 = and i32 %55, 15
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i16, ptr @_ZL6DIGITS, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr @_ZL6DIGITS, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 %59, ptr %4, align 2, !tbaa !15
@@ -715,7 +715,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7711ICU_Utility6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %61 = and i32 %1, 15
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw i16, ptr @_ZL6DIGITS, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr @_ZL6DIGITS, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 %64, ptr %3, align 2, !tbaa !15
@@ -750,7 +750,7 @@ define noundef i32 @_ZN6icu_7711ICU_Utility14skipWhitespaceERKNS_13UnicodeString
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %3, %10, %12
   %.0.i = phi ptr [ %14, %12 ], [ %11, %10 ], [ null, %3 ]
   %15 = sext i32 %4 to i64
-  %16 = getelementptr inbounds i16, ptr %.0.i, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %15
   %17 = icmp slt i16 %6, 0
   %18 = ashr i16 %6, 5
   %19 = sext i16 %18 to i32
@@ -803,7 +803,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7711ICU_Utility9parseCharERKNS
 _ZN6icu_7711ICU_Utility14skipWhitespaceERKNS_13UnicodeStringERia.exit: ; preds = %3, %10, %12
   %.0.i.i = phi ptr [ %14, %12 ], [ %11, %10 ], [ null, %3 ]
   %15 = sext i32 %4 to i64
-  %16 = getelementptr inbounds i16, ptr %.0.i.i, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %.0.i.i, i64 %15
   %17 = icmp slt i16 %6, 0
   %18 = ashr i16 %6, 5
   %19 = sext i16 %18 to i32
@@ -840,7 +840,7 @@ _ZN6icu_7711ICU_Utility14skipWhitespaceERKNS_13UnicodeStringERia.exit: ; preds =
   %44 = select i1 %.not.i.i.i, ptr %43, ptr %41
   %sext = shl i64 %27, 31
   %45 = ashr i64 %sext, 32
-  %46 = getelementptr inbounds i16, ptr %44, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %44, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !15
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit
 
@@ -980,7 +980,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7713Unicod
   %.not.i.i.i = icmp eq i16 %18, 0
   %19 = load ptr, ptr %15, align 8
   %20 = select i1 %.not.i.i.i, ptr %19, ptr %14
-  %21 = getelementptr inbounds i16, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds [2 x i8], ptr %20, i64 %indvars.iv
   %22 = load i16, ptr %21, align 2, !tbaa !15
   %23 = add i16 %22, -48
   %or.cond = icmp ult i16 %23, 10
@@ -1129,14 +1129,14 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit88:       ; preds = %_ZNK6icu_7713Unicod
   %69 = load ptr, ptr %63, align 8
   %70 = select i1 %.not.i.i.i87, ptr %69, ptr %62
   %71 = zext nneg i32 %67 to i64
-  %72 = getelementptr inbounds nuw i16, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %71
   %73 = load i16, ptr %72, align 2, !tbaa !15
   %74 = icmp eq i16 %73, 39
   br i1 %74, label %_ZNK6icu_7713UnicodeString6charAtEi.exit91, label %.critedge2.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit91:       ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit88
   %75 = zext nneg i32 %65 to i64
-  %76 = getelementptr i16, ptr %70, i64 %75
+  %76 = getelementptr [2 x i8], ptr %70, i64 %75
   %77 = getelementptr i8, ptr %76, i64 -2
   %78 = load i16, ptr %77, align 2, !tbaa !15
   %79 = icmp eq i16 %78, 39
@@ -1273,7 +1273,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit97:       ; preds = %126
   %139 = load ptr, ptr %138, align 8
   %140 = select i1 %.not.i.i.i96, ptr %139, ptr %137
   %141 = zext nneg i32 %134 to i64
-  %142 = getelementptr i16, ptr %140, i64 %141
+  %142 = getelementptr [2 x i8], ptr %140, i64 %141
   %143 = getelementptr i8, ptr %142, i64 -2
   %144 = load i16, ptr %143, align 2, !tbaa !15
   %.not80 = icmp eq i16 %144, 32
@@ -1394,7 +1394,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %_ZNK6icu_7713Unicod
   %.not.i.i.i = icmp eq i16 %18, 0
   %19 = load ptr, ptr %16, align 8
   %20 = select i1 %.not.i.i.i, ptr %19, ptr %15
-  %21 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv
   %22 = load i16, ptr %21, align 2, !tbaa !15
   %23 = zext i16 %22 to i32
   tail call void @_ZN6icu_7711ICU_Utility12appendToRuleERNS_13UnicodeStringEiaaS2_(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %23, i8 noundef signext %2, i8 noundef signext %3, ptr noundef nonnull align 8 dereferenceable(64) %4)
@@ -1451,7 +1451,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit.i:            ; preds = %.noexc, %_ZNK6icu_7
   %.not.i.i.i.i = icmp eq i16 %25, 0
   %26 = load ptr, ptr %23, align 8
   %27 = select i1 %.not.i.i.i.i, ptr %26, ptr %22
-  %28 = getelementptr inbounds nuw i16, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %indvars.iv.i
   %29 = load i16, ptr %28, align 2, !tbaa !15
   %30 = zext i16 %29 to i32
   invoke void @_ZN6icu_7711ICU_Utility12appendToRuleERNS_13UnicodeStringEiaaS2_(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %30, i8 noundef signext 1, i8 noundef signext %2, ptr noundef nonnull align 8 dereferenceable(64) %3)

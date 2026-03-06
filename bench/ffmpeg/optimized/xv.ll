@@ -9,8 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.XVTagFormatMap = type { i32, i32 }
 %struct.XColor = type { i64, i16, i16, i16, i8, i8 }
 %struct.XWindowAttributes = type { i32, i32, i32, i32, i32, i32, ptr, i64, i32, i32, i32, i32, i64, i64, i32, i64, i32, i32, i64, i64, i64, i32, ptr }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
-%struct.XvImageFormatValues = type { i32, i32, i32, [16 x i8], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [32 x i8], i32 }
 %union._XEvent = type { [24 x i64] }
 %struct.XRectangle = type { i16, i16, i16, i16 }
 
@@ -99,7 +97,7 @@ define internal range(i32 -1163346256, 1) i32 @xv_write_header(ptr noundef %0) #
 .lr.ph:                                           ; preds = %23, %27
   %indvars.iv.i135 = phi i64 [ %indvars.iv.next.i, %27 ], [ 0, %23 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i135, 1
-  %31 = getelementptr inbounds nuw %struct.XVTagFormatMap, ptr @tag_codec_map, i64 %indvars.iv.next.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @tag_codec_map, i64 %indvars.iv.next.i
   %.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %.not.i, label %.xv_get_tag_from_format.exit_crit_edge136, label %27, !llvm.loop !43
 
@@ -203,7 +201,7 @@ xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_fro
   %80 = getelementptr inbounds nuw i8, ptr %38, i64 224
   %81 = load i32, ptr %80, align 8, !tbaa !65
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %struct.Screen, ptr %79, i64 %82
+  %83 = getelementptr inbounds [128 x i8], ptr %79, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load i64, ptr %84, align 8, !tbaa !66
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -262,7 +260,7 @@ xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_fro
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 224
   %121 = load i32, ptr %120, align 8, !tbaa !65
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds %struct.Screen, ptr %119, i64 %122
+  %123 = getelementptr inbounds [128 x i8], ptr %119, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load i64, ptr %124, align 8, !tbaa !66
   %126 = call i32 @XvQueryAdaptors(ptr noundef %117, i64 noundef %125, ptr noundef nonnull %2, ptr noundef nonnull %3) #5
@@ -303,7 +301,7 @@ xv_get_tag_from_format.exit.thread:               ; preds = %23, %xv_get_tag_fro
 
 .lr.ph139:                                        ; preds = %.lr.ph139.preheader, %144
   %indvars.iv = phi i64 [ 0, %.lr.ph139.preheader ], [ %indvars.iv.next, %144 ]
-  %141 = getelementptr inbounds nuw %struct.XvImageFormatValues, ptr %138, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw [128 x i8], ptr %138, i64 %indvars.iv
   %142 = load i32, ptr %141, align 4, !tbaa !78
   %143 = icmp eq i32 %142, %.lcssa.i160
   br i1 %143, label %._crit_edge.loopexit.split.loop.exit, label %144

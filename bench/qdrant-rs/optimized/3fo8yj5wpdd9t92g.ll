@@ -62,7 +62,7 @@ define internal fastcc void @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT
   store i64 %17, ptr %7, align 8, !alias.scope !12, !noalias !15
   %18 = icmp ult i64 %16, 2
   call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds nuw { [3 x i64] }, ptr %1, i64 %16
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %16
   %.sroa.013.0.copyload14.i.i = load i64, ptr %19, align 8, !alias.scope !20, !noalias !21
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.not.i.i = icmp eq i64 %.sroa.013.0.copyload14.i.i, -9223372036854775808
@@ -317,7 +317,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7781df0c0956cbf1E.exit.i.i": ; preds = %40, %31
   %35 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !96, !noalias !97, !nonnull !18, !noundef !18
-  %36 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %35, i64 %32
+  %36 = getelementptr inbounds [24 x i8], ptr %35, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !noalias !97
   %37 = add i64 %32, 1
   store i64 %37, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !96, !noalias !97
@@ -936,7 +936,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$$u5b$sparse..index..posting_
 
 7:                                                ; preds = %.lr.ph, %"_ZN4core3ptr61drop_in_place$LT$sparse..index..posting_list..PostingList$GT$17h64ca154535454f4dE.exit"
   %.07 = phi i64 [ 0, %.lr.ph ], [ %9, %"_ZN4core3ptr61drop_in_place$LT$sparse..index..posting_list..PostingList$GT$17h64ca154535454f4dE.exit" ]
-  %8 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.07
+  %8 = getelementptr inbounds [24 x i8], ptr %0, i64 %.07
   %9 = add nuw i64 %.07, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !188
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha4a4075c8585a03fE.llvm.4482545766329047864"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
@@ -976,7 +976,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$$u5b$sparse..index..posting_
   br label %17
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.1
+  %22 = getelementptr inbounds [24 x i8], ptr %0, i64 %.1
   %23 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr61drop_in_place$LT$sparse..index..posting_list..PostingList$GT$17h64ca154535454f4dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #17
           to label %17 unwind label %25
@@ -1063,7 +1063,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$$u5b$sparse..index..posting_
 
 7:                                                ; preds = %.lr.ph, %"_ZN4core3ptr64drop_in_place$LT$sparse..index..posting_list..PostingBuilder$GT$17hebdc5fe9d3b6d913E.exit"
   %.07 = phi i64 [ 0, %.lr.ph ], [ %9, %"_ZN4core3ptr64drop_in_place$LT$sparse..index..posting_list..PostingBuilder$GT$17hebdc5fe9d3b6d913E.exit" ]
-  %8 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.07
+  %8 = getelementptr inbounds [24 x i8], ptr %0, i64 %.07
   %9 = add nuw i64 %.07, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !216
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha4a4075c8585a03fE.llvm.4482545766329047864"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
@@ -1103,7 +1103,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$$u5b$sparse..index..posting_
   br label %17
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.1
+  %22 = getelementptr inbounds [24 x i8], ptr %0, i64 %.1
   %23 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr64drop_in_place$LT$sparse..index..posting_list..PostingBuilder$GT$17hebdc5fe9d3b6d913E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #17
           to label %17 unwind label %25
@@ -1263,7 +1263,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h076999dc4a91
   %16 = phi i64 [ %13, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h106ee98f758efe2eE.exit.i" ], [ %18, %15 ]
   %.0.i.in.i.i.i = phi i64 [ %8, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h106ee98f758efe2eE.exit.i" ], [ %.0.i.i.i.i, %15 ]
   %.0.i.i.i.i = add i64 %.0.i.in.i.i.i, -1
-  %17 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [24 x i8], ptr %14, i64 %16
   store i64 0, ptr %17, align 8, !noalias !273
   %.sroa.5.8..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.5.8..sroa_idx.i.i.i.i, align 8, !noalias !273
@@ -1314,7 +1314,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11resize_with17h6a1cd82a1a3c
   %16 = phi i64 [ %13, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6d7e95e8e5f51674E.exit.i" ], [ %18, %15 ]
   %.0.i.in.i.i.i = phi i64 [ %8, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h6d7e95e8e5f51674E.exit.i" ], [ %.0.i.i.i.i, %15 ]
   %.0.i.i.i.i = add i64 %.0.i.in.i.i.i, -1
-  %17 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [24 x i8], ptr %14, i64 %16
   store i64 0, ptr %17, align 8, !noalias !291
   %.sroa.5.8..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.5.8..sroa_idx.i.i.i.i, align 8, !noalias !291
@@ -1423,7 +1423,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h4dc182719
   %13 = phi i64 [ %10, %9 ], [ %15, %12 ]
   %.0.i.in.i.i = phi i64 [ %1, %9 ], [ %.0.i.i.i, %12 ]
   %.0.i.i.i = add i64 %.0.i.in.i.i, -1
-  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %11, i64 %13
+  %14 = getelementptr inbounds [24 x i8], ptr %11, i64 %13
   store i64 0, ptr %14, align 8, !noalias !322
   %.sroa.5.8..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.5.8..sroa_idx.i.i.i, align 8, !noalias !322
@@ -1467,7 +1467,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h7c24b9059
   %13 = phi i64 [ %10, %9 ], [ %15, %12 ]
   %.0.i.in.i.i = phi i64 [ %1, %9 ], [ %.0.i.i.i, %12 ]
   %.0.i.i.i = add i64 %.0.i.in.i.i, -1
-  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %11, i64 %13
+  %14 = getelementptr inbounds [24 x i8], ptr %11, i64 %13
   store i64 0, ptr %14, align 8, !noalias !337
   %.sroa.5.8..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr inttoptr (i64 4 to ptr), ptr %.sroa.5.8..sroa_idx.i.i.i, align 8, !noalias !337
@@ -1524,7 +1524,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert17h35dc1dee97e3c65eE"
 8:                                                ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h0459aa17ee9d3031E.llvm.4012134325007315671.exit", %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !18, !noundef !18
-  %11 = getelementptr inbounds { i32, float, float }, ptr %10, i64 %1
+  %11 = getelementptr inbounds [12 x i8], ptr %10, i64 %1
   %12 = icmp ult i64 %1, %5
   br i1 %12, label %15, label %13
 
@@ -1596,7 +1596,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h0e6a985f90ed7a4b
   %8 = sub nuw i64 %5, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !18, !noundef !18
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %10, i64 %1
+  %11 = getelementptr inbounds [24 x i8], ptr %10, i64 %1
   store i64 %1, ptr %4, align 8
   %12 = icmp eq i64 %5, %1
   br i1 %12, label %"_ZN4core3ptr71drop_in_place$LT$$u5b$sparse..index..posting_list..PostingList$u5d$$GT$17h4c2dead7c9bb240bE.llvm.4012134325007315671.exit", label %.lr.ph.i
@@ -1608,7 +1608,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h0e6a985f90ed7a4b
 
 15:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$sparse..index..posting_list..PostingList$GT$17h64ca154535454f4dE.exit.i", %.lr.ph.i
   %.07.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %"_ZN4core3ptr61drop_in_place$LT$sparse..index..posting_list..PostingList$GT$17h64ca154535454f4dE.exit.i" ]
-  %16 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %11, i64 %.07.i
+  %16 = getelementptr inbounds [24 x i8], ptr %11, i64 %.07.i
   %17 = add nuw i64 %.07.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !355
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha4a4075c8585a03fE.llvm.4482545766329047864"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
@@ -1645,7 +1645,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h0e6a985f90ed7a4b
   br label %25
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %11, i64 %.1.i
+  %30 = getelementptr inbounds [24 x i8], ptr %11, i64 %.1.i
   %31 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr61drop_in_place$LT$sparse..index..posting_list..PostingList$GT$17h64ca154535454f4dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30) #17
           to label %25 unwind label %33
@@ -1675,7 +1675,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h27ff9007663bf40c
   %8 = sub nuw i64 %5, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !18, !noundef !18
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %10, i64 %1
+  %11 = getelementptr inbounds [24 x i8], ptr %10, i64 %1
   store i64 %1, ptr %4, align 8
   %12 = icmp eq i64 %5, %1
   br i1 %12, label %"_ZN4core3ptr74drop_in_place$LT$$u5b$sparse..index..posting_list..PostingBuilder$u5d$$GT$17hd8f9e49ca3dd5c46E.llvm.4012134325007315671.exit", label %.lr.ph.i
@@ -1687,7 +1687,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h27ff9007663bf40c
 
 15:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$sparse..index..posting_list..PostingBuilder$GT$17hebdc5fe9d3b6d913E.exit.i", %.lr.ph.i
   %.07.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %"_ZN4core3ptr64drop_in_place$LT$sparse..index..posting_list..PostingBuilder$GT$17hebdc5fe9d3b6d913E.exit.i" ]
-  %16 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %11, i64 %.07.i
+  %16 = getelementptr inbounds [24 x i8], ptr %11, i64 %.07.i
   %17 = add nuw i64 %.07.i, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !366
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha4a4075c8585a03fE.llvm.4482545766329047864"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16)
@@ -1724,7 +1724,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h27ff9007663bf40c
   br label %25
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %11, i64 %.1.i
+  %30 = getelementptr inbounds [24 x i8], ptr %11, i64 %.1.i
   %31 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr64drop_in_place$LT$sparse..index..posting_list..PostingBuilder$GT$17hebdc5fe9d3b6d913E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30) #17
           to label %25 unwind label %33
@@ -1768,11 +1768,11 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.sroa.01.02.i = phi i64 [ %15, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %15 = add nuw nsw i64 %.sroa.01.02.i, 1
-  %16 = getelementptr inbounds nuw { { i32, float } }, ptr %.val, i64 %.sroa.01.02.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %.sroa.01.02.i
   %17 = load i32, ptr %16, align 4, !noalias !387, !noundef !18
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %19 = load float, ptr %18, align 4, !noalias !387, !noundef !18
-  %20 = getelementptr inbounds nuw { i32, float }, ptr %6, i64 %.sroa.01.02.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.sroa.01.02.i
   store i32 %17, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store float %19, ptr %21, align 4

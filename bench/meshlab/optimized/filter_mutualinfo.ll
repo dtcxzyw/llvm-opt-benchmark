@@ -87,7 +87,6 @@ module asm ".previous"
 %class.MutualInfo = type { i32, i8, i32, ptr, ptr, ptr }
 %class.QList.180 = type { %union.anon.182 }
 %union.anon.182 = type { %struct.QListData }
-%"struct.QList<int>::Node" = type { ptr }
 %"struct.std::pair" = type { i32, %"class.std::vector.5" }
 %"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl" }
@@ -2957,7 +2956,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   %407 = getelementptr inbounds nuw i8, ptr %405, i64 8
   %408 = load i32, ptr %407, align 8
   %409 = sext i32 %408 to i64
-  %410 = getelementptr inbounds ptr, ptr %406, i64 %409
+  %410 = getelementptr inbounds [8 x i8], ptr %406, i64 %409
   %411 = getelementptr inbounds nuw i8, ptr %405, i64 12
   %412 = load i32, ptr %411, align 4
   %.not4.i.i.i.i = icmp eq i32 %408, %412
@@ -2965,7 +2964,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
   %413 = sext i32 %412 to i64
-  %414 = getelementptr inbounds ptr, ptr %406, i64 %413
+  %414 = getelementptr inbounds [8 x i8], ptr %406, i64 %413
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -3070,7 +3069,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %12 = load i32, ptr %11, align 4
   %.not4.i.i.i = icmp eq i32 %8, %12
@@ -3078,7 +3077,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %6, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %6, i64 %13
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN7QStringD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -3217,14 +3216,14 @@ define linkonce_odr noundef ptr @_ZN5QListI7QStringE18detach_helper_growEii(ptr 
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = call noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4, i32 noundef %2)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %13, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %13, i64 %16
   %18 = load i32, ptr %4, align 4
   %19 = sext i32 %18 to i64
   %.idx = shl nsw i64 %19, 3
@@ -3279,7 +3278,7 @@ _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit: ; preds = %_ZN5QListI7QStr
   br i1 %.not8.i6, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit14, label %.lr.ph.i7.preheader
 
 .lr.ph.i7.preheader:                              ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit
-  %38 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %10, i64 %28
+  %38 = getelementptr inbounds [8 x i8], ptr %10, i64 %28
   %39 = getelementptr inbounds i8, ptr %30, i64 %33
   br label %.lr.ph.i7
 
@@ -3320,7 +3319,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread16:     ; preds = %_ZN5QListI7QStringE
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %48, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %48, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %54 = load i32, ptr %53, align 4
   %.not4.i.i = icmp eq i32 %50, %54
@@ -3328,7 +3327,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread16:     ; preds = %_ZN5QListI7QStringE
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread16
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr %48, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %48, i64 %55
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN7QStringD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -3369,10 +3368,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %_ZN5QListI7QStringE
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds ptr, ptr %63, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %63, i64 %66
   %68 = load i32, ptr %4, align 4
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds ptr, ptr %67, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %67, i64 %69
   ret ptr %70
 }
 
@@ -4872,14 +4871,14 @@ define linkonce_odr void @_ZN5QListIiE6appendERKi(ptr noundef nonnull align 8 de
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = call noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i32 noundef 1)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %15, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %18
   %.not.i.i = icmp ne ptr %12, %19
   %.pre18.i = load i32, ptr %3, align 4
   %20 = icmp sgt i32 %.pre18.i, 0
@@ -4907,7 +4906,7 @@ _ZN5QListIiE9node_copyEPNS0_4NodeES2_S2_.exit.i:  ; preds = %21, %7
   %27 = add nsw i64 %.idx1215.i, %26
   %28 = shl nsw i64 %27, 3
   %29 = getelementptr inbounds i8, ptr %25, i64 %28
-  %30 = getelementptr inbounds %"struct.QList<int>::Node", ptr %12, i64 %26
+  %30 = getelementptr inbounds [8 x i8], ptr %12, i64 %26
   %.not.i6.i = icmp eq ptr %30, %29
   br i1 %.not.i6.i, label %_ZN5QListIiE9node_copyEPNS0_4NodeES2_S2_.exit7.i, label %31
 
@@ -4946,10 +4945,10 @@ _ZN5QListIiE18detach_helper_growEii.exit:         ; preds = %_ZN5QListIiE9node_c
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   %46 = load i32, ptr %3, align 4
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load i32, ptr %1, align 4
   store i32 %49, ptr %48, align 4

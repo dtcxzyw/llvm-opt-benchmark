@@ -322,7 +322,7 @@ define internal void @grayscale_convert(ptr noundef readonly captures(none) %0, 
   %13 = load ptr, ptr %.022.us, align 8
   %14 = load ptr, ptr %2, align 8
   %15 = zext i32 %.01421.us to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -361,7 +361,7 @@ define internal void @rgb_ycc_start(ptr noundef %0) #0 {
 
 9:                                                ; preds = %1, %9
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %11 = trunc i64 %indvars.iv to i32
   %12 = mul i32 %11, 19595
   store i32 %12, ptr %10, align 4
@@ -428,7 +428,7 @@ define internal void @rgb_gray_convert(ptr noundef readonly captures(none) %0, p
   %14 = load ptr, ptr %.030.us, align 8
   %15 = load ptr, ptr %2, align 8
   %16 = zext i32 %.02329.us to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   br label %19
 
@@ -444,13 +444,13 @@ define internal void @rgb_gray_convert(ptr noundef readonly captures(none) %0, p
   %26 = zext i8 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %.02427.us, i64 3
   %28 = zext i8 %20 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %9, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %28
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds nuw i32, ptr %9, i64 %23
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %23
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1024
   %33 = load i32, ptr %32, align 4
   %34 = add nsw i32 %33, %30
-  %35 = getelementptr inbounds nuw i32, ptr %9, i64 %26
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %26
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 2048
   %37 = load i32, ptr %36, align 4
   %38 = add nsw i32 %34, %37
@@ -504,9 +504,9 @@ define internal void @null_convert(ptr noundef readonly captures(none) %0, ptr n
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
   %15 = load ptr, ptr %.033.us.us, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv41
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv41
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %14
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %14
   %19 = load ptr, ptr %18, align 8
   br label %20
 
@@ -566,13 +566,13 @@ define internal void @rgb_ycc_convert(ptr noundef readonly captures(none) %0, pt
   %16 = load ptr, ptr %.050.us, align 8
   %17 = load ptr, ptr %2, align 8
   %18 = zext i32 %.04349.us to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %18
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %14, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %18
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %18
   %26 = load ptr, ptr %25, align 8
   br label %27
 
@@ -588,13 +588,13 @@ define internal void @rgb_ycc_convert(ptr noundef readonly captures(none) %0, pt
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %.04547.us, i64 3
-  %37 = getelementptr inbounds nuw i32, ptr %9, i64 %29
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %29
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds nuw i32, ptr %9, i64 %32
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %32
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1024
   %41 = load i32, ptr %40, align 4
   %42 = add nsw i32 %41, %38
-  %43 = getelementptr inbounds nuw i32, ptr %9, i64 %35
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %35
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 2048
   %45 = load i32, ptr %44, align 4
   %46 = add nsw i32 %42, %45
@@ -670,16 +670,16 @@ define internal void @cmyk_ycck_convert(ptr noundef readonly captures(none) %0, 
   %17 = load ptr, ptr %.055.us, align 8
   %18 = load ptr, ptr %2, align 8
   %19 = zext i32 %.04854.us to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %13, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %19
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %19
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %14, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %19
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %19
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %15, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %19
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %19
   %30 = load ptr, ptr %29, align 8
   br label %31
 
@@ -702,13 +702,13 @@ define internal void @cmyk_ycck_convert(ptr noundef readonly captures(none) %0, 
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv
   store i8 %44, ptr %45, align 1
   %46 = getelementptr inbounds nuw i8, ptr %.05052.us, i64 4
-  %47 = getelementptr inbounds nuw i32, ptr %9, i64 %34
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %34
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds nuw i32, ptr %9, i64 %38
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %38
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1024
   %51 = load i32, ptr %50, align 4
   %52 = add nsw i32 %51, %48
-  %53 = getelementptr inbounds nuw i32, ptr %9, i64 %42
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %42
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 2048
   %55 = load i32, ptr %54, align 4
   %56 = add nsw i32 %52, %55

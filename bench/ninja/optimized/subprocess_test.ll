@@ -4927,7 +4927,7 @@ define dso_local void @_ZN32SubprocessTest_SetWithMulti_Test8TestBodyEv(ptr noun
 51:                                               ; preds = %1, %124
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %124 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !74
   store ptr %47, ptr %5, align 8, !tbaa !4
   %54 = icmp eq ptr %53, null
@@ -4984,7 +4984,7 @@ define dso_local void @_ZN32SubprocessTest_SetWithMulti_Test8TestBodyEv(ptr noun
           to label %70 unwind label %81
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store ptr %69, ptr %71, align 8, !tbaa !16
   %72 = load ptr, ptr %5, align 8, !tbaa !12
   %73 = icmp eq ptr %72, %47
@@ -5346,7 +5346,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 183:                                              ; preds = %177, %275
   %indvars.iv311 = phi i64 [ 0, %177 ], [ %indvars.iv.next312, %275 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %184 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv311
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv311
   %185 = load ptr, ptr %184, align 8, !tbaa !16
   %186 = call noundef zeroext i1 @_ZNK10Subprocess4DoneEv(ptr noundef nonnull align 8 dereferenceable(41) %185)
   %187 = xor i1 %186, true
@@ -6151,7 +6151,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store i32 0, ptr %38, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  %462 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv315
+  %462 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv315
   %463 = load ptr, ptr %462, align 8, !tbaa !16
   %464 = call noundef i32 @_ZN10Subprocess6FinishEv(ptr noundef nonnull align 8 dereferenceable(41) %463)
   store i32 %464, ptr %39, align 4, !tbaa !37
@@ -6916,7 +6916,7 @@ _ZNSt6vectorIP10SubprocessSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; pre
   br label %_ZNSt6vectorIP10SubprocessSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP10SubprocessSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %158, %_ZNSt6vectorIP10SubprocessSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  %159 = getelementptr inbounds nuw ptr, ptr %153, i64 %151
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %151
   br label %160
 
 160:                                              ; preds = %139, %_ZNSt6vectorIP10SubprocessSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
@@ -6988,7 +6988,7 @@ _ZNSt6vectorIP10SubprocessSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__n
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !37
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %179 = getelementptr inbounds nuw ptr, ptr %.sroa.0186.5, i64 %.0269
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0186.5, i64 %.0269
   %180 = load ptr, ptr %179, align 8, !tbaa !16
   %181 = invoke noundef i32 @_ZN10Subprocess6FinishEv(ptr noundef nonnull align 8 dereferenceable(41) %180)
           to label %182 unwind label %189

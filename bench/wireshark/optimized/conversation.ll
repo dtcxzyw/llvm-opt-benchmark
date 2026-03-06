@@ -312,7 +312,7 @@ define internal fastcc ptr @conversation_element_list_name(ptr noundef %0, ptr n
 4:                                                ; preds = %7, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 1, %2 ]
   %.0.i = phi i64 [ %8, %7 ], [ 0, %2 ]
-  %5 = getelementptr %struct.conversation_element, ptr %1, i64 %.0.i
+  %5 = getelementptr [32 x i8], ptr %1, i64 %.0.i
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %10, label %7
@@ -342,7 +342,7 @@ define internal fastcc ptr @conversation_element_list_name(ptr noundef %0, ptr n
 conversation_element_count.exit.preheader:        ; preds = %10, %conversation_element_count.exit
   %.015 = phi ptr [ @.str.18, %conversation_element_count.exit ], [ @.str.15, %10 ]
   %.01114 = phi i64 [ %21, %conversation_element_count.exit ], [ 0, %10 ]
-  %14 = getelementptr %struct.conversation_element, ptr %1, i64 %.01114
+  %14 = getelementptr [32 x i8], ptr %1, i64 %.01114
   %15 = load i32, ptr %14, align 8
   %16 = icmp ult i32 %15, 9
   br i1 %16, label %conversation_element_count.exit, label %17
@@ -353,7 +353,7 @@ conversation_element_count.exit.preheader:        ; preds = %10, %conversation_e
 
 conversation_element_count.exit:                  ; preds = %conversation_element_count.exit.preheader
   %18 = zext nneg i32 %15 to i64
-  %19 = getelementptr ptr, ptr @type_names, i64 %18
+  %19 = getelementptr [8 x i8], ptr @type_names, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %3, ptr noundef nonnull @.str.17, ptr noundef nonnull %.015, ptr noundef %20)
   %21 = add nuw nsw i64 %.01114, 1
@@ -778,7 +778,7 @@ define noundef ptr @conversation_new_full(i32 noundef %0, ptr noundef %1) local_
 18:                                               ; preds = %21, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 1, %17 ]
   %.0.i = phi i64 [ %22, %21 ], [ 0, %17 ]
-  %19 = getelementptr %struct.conversation_element, ptr %1, i64 %.0.i
+  %19 = getelementptr [32 x i8], ptr %1, i64 %.0.i
   %20 = load i32, ptr %19, align 8
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %24, label %21
@@ -827,7 +827,7 @@ conversation_element_count.exit:                  ; preds = %24
 
 39:                                               ; preds = %conversation_element_count.exit, %copy_address_wmem.exit
   %.04047 = phi i64 [ 0, %conversation_element_count.exit ], [ %75, %copy_address_wmem.exit ]
-  %40 = getelementptr %struct.conversation_element, ptr %29, i64 %.04047
+  %40 = getelementptr [32 x i8], ptr %29, i64 %.04047
   %41 = load i32, ptr %40, align 8
   switch i32 %41, label %copy_address_wmem.exit [
     i32 1, label %42
@@ -838,7 +838,7 @@ conversation_element_count.exit:                  ; preds = %24
 42:                                               ; preds = %39
   %43 = tail call ptr @wmem_file_scope()
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %45 = getelementptr %struct.conversation_element, ptr %1, i64 %.04047
+  %45 = getelementptr [32 x i8], ptr %1, i64 %.04047
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 12
@@ -863,7 +863,7 @@ conversation_element_count.exit:                  ; preds = %24
 
 59:                                               ; preds = %39
   %60 = tail call ptr @wmem_file_scope()
-  %61 = getelementptr %struct.conversation_element, ptr %1, i64 %.04047
+  %61 = getelementptr [32 x i8], ptr %1, i64 %.04047
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = tail call noalias ptr @wmem_strdup(ptr noundef %60, ptr noundef %63)
@@ -873,7 +873,7 @@ conversation_element_count.exit:                  ; preds = %24
 
 66:                                               ; preds = %39
   %67 = tail call ptr @wmem_file_scope()
-  %68 = getelementptr %struct.conversation_element, ptr %1, i64 %.04047
+  %68 = getelementptr [32 x i8], ptr %1, i64 %.04047
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 16
@@ -1070,7 +1070,7 @@ copy_address_wmem.exit:                           ; preds = %21, %12, %27
   %conversation_hashtable_exact_addr.val = load ptr, ptr @conversation_hashtable_exact_addr, align 8
   %conversation_hashtable_exact_addr_port.val = load ptr, ptr @conversation_hashtable_exact_addr_port, align 8
   %.04669 = select i1 %.not50, ptr %conversation_hashtable_exact_addr.val, ptr %conversation_hashtable_exact_addr_port.val
-  %39 = getelementptr %struct.conversation_element, ptr %11, i64 %.59
+  %39 = getelementptr [32 x i8], ptr %11, i64 %.59
   store i32 1, ptr %39, align 8
   %.not55 = icmp eq ptr %2, null
   br i1 %.not55, label %58, label %42
@@ -1128,7 +1128,7 @@ copy_address_wmem.exit63:                         ; preds = %42
   %.0447383 = phi i64 [ 2, %37 ], [ %.044.ph94, %copy_address_wmem.exit63 ], [ %.044.ph94, %52 ], [ 3, %58 ]
   %.07581 = phi i64 [ 3, %37 ], [ %.0.ph96, %copy_address_wmem.exit63 ], [ %.0.ph96, %52 ], [ 4, %58 ]
   %.0467779 = phi ptr [ %conversation_hashtable_no_addr2.val, %37 ], [ %.0466998, %copy_address_wmem.exit63 ], [ %.0466998, %52 ], [ %conversation_hashtable_exact_addr_port.val, %58 ]
-  %61 = getelementptr %struct.conversation_element, ptr %11, i64 %.0447383
+  %61 = getelementptr [32 x i8], ptr %11, i64 %.0447383
   store i32 2, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 %5, ptr %62, align 8
@@ -1137,7 +1137,7 @@ copy_address_wmem.exit63:                         ; preds = %42
 63:                                               ; preds = %.thread100, %58, %52, %37, %60, %copy_address_wmem.exit63
   %.07582 = phi i64 [ 2, %37 ], [ %.07581, %60 ], [ %.0.ph96, %copy_address_wmem.exit63 ], [ %.0.ph96, %52 ], [ 2, %58 ], [ 3, %.thread100 ]
   %.0467780 = phi ptr [ %conversation_hashtable_no_addr2_or_port2.val, %37 ], [ %.0467779, %60 ], [ %.0466998, %copy_address_wmem.exit63 ], [ %.0466998, %52 ], [ %conversation_hashtable_exact_addr.val, %58 ], [ %.0466990, %.thread100 ]
-  %64 = getelementptr %struct.conversation_element, ptr %11, i64 %.07582
+  %64 = getelementptr [32 x i8], ptr %11, i64 %.07582
   store i32 0, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i32 %3, ptr %65, align 8
@@ -3692,7 +3692,7 @@ define internal fastcc noundef ptr @conversation_create_from_template(ptr nounde
 
 6:                                                ; preds = %9, %3
   %.0.i = phi i64 [ 0, %3 ], [ %10, %9 ]
-  %7 = getelementptr %struct.conversation_element, ptr %5, i64 %.0.i
+  %7 = getelementptr [32 x i8], ptr %5, i64 %.0.i
   %8 = load i32, ptr %7, align 8
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %conversation_get_key_type.exit, label %9
@@ -5576,7 +5576,7 @@ switch.lookup:                                    ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %47 = zext nneg i32 %42 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.conversation_pt_to_endpoint_type, i64 %47
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.conversation_pt_to_endpoint_type, i64 %47
   %switch.load = load i32, ptr %switch.gep, align 4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %49 = load i32, ptr %48, align 4
@@ -5613,7 +5613,7 @@ define range(i32 0, 34) i32 @conversation_pt_to_conversation_type(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.conversation_pt_to_endpoint_type, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.conversation_pt_to_endpoint_type, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -5672,7 +5672,7 @@ define ptr @find_conversation_pinfo_ro(ptr noundef %0, i32 noundef %1) local_unn
 
 switch.lookup:                                    ; preds = %28
   %33 = zext nneg i32 %30 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.conversation_pt_to_endpoint_type, i64 %33
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.conversation_pt_to_endpoint_type, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   %34 = tail call ptr @find_conversation_strat(ptr noundef %0, i32 noundef %switch.load, i32 noundef %1)
   br label %35
@@ -5735,7 +5735,7 @@ switch.lookup:                                    ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %35 = zext nneg i32 %30 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.conversation_pt_to_endpoint_type, i64 %35
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.conversation_pt_to_endpoint_type, i64 %35
   %switch.load = load i32, ptr %switch.gep, align 4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %37 = load i32, ptr %36, align 4
@@ -6103,7 +6103,7 @@ define range(i32 0, 34) i32 @conversation_pt_to_endpoint_type(i32 noundef %0) lo
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.conversation_pt_to_endpoint_type, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.conversation_pt_to_endpoint_type, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

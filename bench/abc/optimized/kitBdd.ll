@@ -3,9 +3,6 @@ source_filename = "bench/abc/original/kitBdd.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Kit_Node_t_ = type { %struct.Kit_Edge_t_, %struct.Kit_Edge_t_, %union.anon.0, i32 }
-%struct.Kit_Edge_t_ = type { i32 }
-%union.anon.0 = type { ptr }
 %struct.Kit_Sop_t_ = type { i32, i32, ptr }
 
 @Kit_SopFactorVerify.dd = internal unnamed_addr global ptr null, align 8
@@ -28,7 +25,7 @@ define noundef ptr @Kit_SopToBdd(ptr noundef %0, ptr noundef readonly captures(n
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %._crit_edge.us ], [ 0, %.lr.ph48 ]
   %.03645.us = phi ptr [ %27, %._crit_edge.us ], [ %4, %.lr.ph48 ]
   %.val41.us = load ptr, ptr %5, align 8, !tbaa !10
-  %9 = getelementptr inbounds nuw i32, ptr %.val41.us, i64 %indvars.iv56
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %.val41.us, i64 %indvars.iv56
   %10 = load i32, ptr %9, align 4, !tbaa !11
   %.not.us = icmp eq i32 %10, 0
   br i1 %.not.us, label %.critedge, label %.lr.ph.us
@@ -88,7 +85,7 @@ define noundef ptr @Kit_SopToBdd(ptr noundef %0, ptr noundef readonly captures(n
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.lr.ph48 ]
   %.03645 = phi ptr [ %34, %32 ], [ %4, %.lr.ph48 ]
   %.val41 = load ptr, ptr %5, align 8, !tbaa !10
-  %30 = getelementptr inbounds nuw i32, ptr %.val41, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %.val41, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4, !tbaa !11
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %.critedge, label %32
@@ -177,7 +174,7 @@ define ptr @Kit_GraphToBdd(ptr noundef %0, ptr noundef readonly captures(none) %
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.val59 = load ptr, ptr %11, align 8, !tbaa !37
-  %20 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val59, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %.val59, i64 %indvars.iv
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %21) #6
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -191,12 +188,12 @@ define ptr @Kit_GraphToBdd(ptr noundef %0, ptr noundef readonly captures(none) %
 .critedge:                                        ; preds = %.lr.ph71, %.critedge
   %indvars.iv78 = phi i64 [ %18, %.lr.ph71 ], [ %indvars.iv.next79, %.critedge ]
   %.val60 = load ptr, ptr %17, align 8, !tbaa !37
-  %27 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val60, i64 %indvars.iv78
+  %27 = getelementptr inbounds [24 x i8], ptr %.val60, i64 %indvars.iv78
   %28 = load i32, ptr %27, align 8
   %29 = lshr i32 %28, 1
   %30 = and i32 %29, 1073741823
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val60, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %.val60, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !38
   %35 = ptrtoint ptr %34 to i64
@@ -209,7 +206,7 @@ define ptr @Kit_GraphToBdd(ptr noundef %0, ptr noundef readonly captures(none) %
   %42 = lshr i32 %41, 1
   %43 = and i32 %42, 1073741823
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val60, i64 %44
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %.val60, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !38
   %48 = ptrtoint ptr %47 to i64
@@ -245,7 +242,7 @@ define ptr @Kit_GraphToBdd(ptr noundef %0, ptr noundef readonly captures(none) %
 65:                                               ; preds = %.lr.ph74, %65
   %indvars.iv81 = phi i64 [ %64, %.lr.ph74 ], [ %indvars.iv.next82, %65 ]
   %.val63 = load ptr, ptr %63, align 8, !tbaa !37
-  %66 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val63, i64 %indvars.iv81
+  %66 = getelementptr inbounds [24 x i8], ptr %.val63, i64 %indvars.iv81
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !38
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %68) #6
@@ -281,7 +278,7 @@ define ptr @Kit_TruthToBdd_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %10 = lshr i32 -1, %9
   %11 = ashr i32 %2, 5
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %1, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %1, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !11
   %15 = and i32 %2, 31
   %16 = lshr i32 %14, %15
@@ -337,7 +334,7 @@ define ptr @Kit_TruthToBdd_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %45 = load ptr, ptr %44, align 8, !tbaa !42
   %46 = sext i32 %43 to i64
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !43
   %49 = tail call ptr @Cudd_bddIte(ptr noundef %0, ptr noundef %48, ptr noundef %phi.call46, ptr noundef %phi.call) #6
   tail call void @Cudd_Ref(ptr noundef %49) #6

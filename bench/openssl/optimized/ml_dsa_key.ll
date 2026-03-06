@@ -3,7 +3,6 @@ source_filename = "bench/openssl/original/ml_dsa_key.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.poly_st = type { [256 x i32] }
 %struct.vector_st = type { ptr, i64 }
 %struct.matrix_st = type { ptr, i64, i64 }
 
@@ -260,12 +259,12 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_key_priv_alloc(ptr noundef captures(none
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i64 %7, ptr %17, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %19 = getelementptr inbounds nuw %struct.poly_st, ptr %14, i64 %7
+  %19 = getelementptr inbounds nuw [1024 x i8], ptr %14, i64 %7
   store ptr %19, ptr %18, align 8, !tbaa !28
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 %5, ptr %20, align 8, !tbaa !29
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %22 = getelementptr inbounds nuw %struct.poly_st, ptr %19, i64 %5
+  %22 = getelementptr inbounds nuw [1024 x i8], ptr %19, i64 %5
   store ptr %22, ptr %21, align 8, !tbaa !28
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i64 %5, ptr %23, align 8, !tbaa !29
@@ -510,12 +509,12 @@ define ptr @ossl_ml_dsa_key_dup(ptr noundef readonly captures(address_is_null) %
   %82 = getelementptr inbounds nuw i8, ptr %15, i64 248
   store i64 %72, ptr %82, align 8, !tbaa !32
   %83 = getelementptr inbounds nuw i8, ptr %15, i64 224
-  %84 = getelementptr inbounds nuw %struct.poly_st, ptr %79, i64 %72
+  %84 = getelementptr inbounds nuw [1024 x i8], ptr %79, i64 %72
   store ptr %84, ptr %83, align 8, !tbaa !28
   %85 = getelementptr inbounds nuw i8, ptr %15, i64 232
   store i64 %70, ptr %85, align 8, !tbaa !29
   %86 = getelementptr inbounds nuw i8, ptr %15, i64 208
-  %87 = getelementptr inbounds nuw %struct.poly_st, ptr %84, i64 %70
+  %87 = getelementptr inbounds nuw [1024 x i8], ptr %84, i64 %70
   store ptr %87, ptr %86, align 8, !tbaa !28
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 216
   store i64 %70, ptr %88, align 8, !tbaa !29
@@ -777,9 +776,9 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_key_public_from_private(ptr noundef %0) 
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %30
   %.02.i = phi i64 [ %31, %30 ], [ 0, %.preheader.i ]
-  %32 = getelementptr inbounds nuw %struct.poly_st, ptr %8, i64 %.02.i
+  %32 = getelementptr inbounds nuw [1024 x i8], ptr %8, i64 %.02.i
   %33 = load ptr, ptr %27, align 8, !tbaa !28
-  %34 = getelementptr inbounds nuw %struct.poly_st, ptr %33, i64 %.02.i
+  %34 = getelementptr inbounds nuw [1024 x i8], ptr %33, i64 %.02.i
   %35 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %32, ptr noundef %34, i64 noundef 1024) #9
   %.not1.i = icmp eq i32 %35, 0
   br i1 %.not1.i, label %30, label %shake_xof.exit
@@ -855,12 +854,12 @@ define internal fastcc range(i32 0, 2) i32 @public_from_private(ptr noundef %0, 
   store ptr %19, ptr %7, align 8, !tbaa !28
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %22, ptr %23, align 8, !tbaa !29
-  %24 = getelementptr inbounds nuw %struct.poly_st, ptr %19, i64 %22
+  %24 = getelementptr inbounds nuw [1024 x i8], ptr %19, i64 %22
   %25 = and i64 %13, 4294967295
   store ptr %24, ptr %6, align 8, !tbaa !28
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %25, ptr %26, align 8, !tbaa !29
-  %27 = getelementptr inbounds nuw %struct.poly_st, ptr %24, i64 %25
+  %27 = getelementptr inbounds nuw [1024 x i8], ptr %24, i64 %25
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %22, ptr %28, align 8, !tbaa !36
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -885,7 +884,7 @@ define internal fastcc range(i32 0, 2) i32 @public_from_private(ptr noundef %0, 
 
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.i
   %.04.i = phi i64 [ %39, %.lr.ph.i ], [ 0, %34 ]
-  %38 = getelementptr inbounds nuw %struct.poly_st, ptr %24, i64 %.04.i
+  %38 = getelementptr inbounds nuw [1024 x i8], ptr %24, i64 %.04.i
   call void @ossl_ml_dsa_poly_ntt(ptr noundef nonnull %38) #9
   %39 = add nuw nsw i64 %.04.i, 1
   %40 = icmp samesign ult i64 %39, %25
@@ -900,7 +899,7 @@ vector_ntt.exit:                                  ; preds = %.lr.ph.i, %34
 .lr.ph.i30:                                       ; preds = %vector_ntt.exit, %.lr.ph.i30
   %.04.i31 = phi i64 [ %44, %.lr.ph.i30 ], [ 0, %vector_ntt.exit ]
   %42 = load ptr, ptr %7, align 8, !tbaa !28
-  %43 = getelementptr inbounds nuw %struct.poly_st, ptr %42, i64 %.04.i31
+  %43 = getelementptr inbounds nuw [1024 x i8], ptr %42, i64 %.04.i31
   call void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef %43) #9
   %44 = add nuw i64 %.04.i31, 1
   %45 = load i64, ptr %23, align 8
@@ -919,15 +918,15 @@ vector_ntt_inverse.exit:                          ; preds = %.lr.ph.i30
 
 49:                                               ; preds = %poly_add.exit.i, %.lr.ph.i33
   %.03.i = phi i64 [ 0, %.lr.ph.i33 ], [ %67, %poly_add.exit.i ]
-  %50 = getelementptr inbounds nuw %struct.poly_st, ptr %.val26, i64 %.03.i
-  %51 = getelementptr inbounds nuw %struct.poly_st, ptr %48, i64 %.03.i
+  %50 = getelementptr inbounds nuw [1024 x i8], ptr %.val26, i64 %.03.i
+  %51 = getelementptr inbounds nuw [1024 x i8], ptr %48, i64 %.03.i
   br label %52
 
 52:                                               ; preds = %52, %49
   %indvars.iv.i.i = phi i64 [ 0, %49 ], [ %indvars.iv.next.i.i, %52 ]
-  %53 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i.i
   %54 = load i32, ptr %53, align 4, !tbaa !42
-  %55 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i.i
   %56 = load i32, ptr %55, align 4, !tbaa !42
   %57 = add i32 %56, %54
   %58 = add i32 %57, -8380417
@@ -953,19 +952,19 @@ poly_add.exit.i:                                  ; preds = %52
 .lr.ph.i35:                                       ; preds = %poly_add.exit.i, %poly_power2_round.exit.i
   %.08.i = phi i64 [ %79, %poly_power2_round.exit.i ], [ 0, %poly_add.exit.i ]
   %68 = load ptr, ptr %7, align 8, !tbaa !28
-  %69 = getelementptr inbounds nuw %struct.poly_st, ptr %68, i64 %.08.i
+  %69 = getelementptr inbounds nuw [1024 x i8], ptr %68, i64 %.08.i
   %70 = load ptr, ptr %2, align 8, !tbaa !28
-  %71 = getelementptr inbounds nuw %struct.poly_st, ptr %70, i64 %.08.i
+  %71 = getelementptr inbounds nuw [1024 x i8], ptr %70, i64 %.08.i
   %72 = load ptr, ptr %3, align 8, !tbaa !28
-  %73 = getelementptr inbounds nuw %struct.poly_st, ptr %72, i64 %.08.i
+  %73 = getelementptr inbounds nuw [1024 x i8], ptr %72, i64 %.08.i
   br label %74
 
 74:                                               ; preds = %74, %.lr.ph.i35
   %indvars.iv.i.i36 = phi i64 [ 0, %.lr.ph.i35 ], [ %indvars.iv.next.i.i37, %74 ]
-  %75 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i.i36
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i.i36
   %76 = load i32, ptr %75, align 4, !tbaa !42
-  %77 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i.i36
-  %78 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i.i36
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i.i36
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv.i.i36
   call void @ossl_ml_dsa_key_compress_power2_round(i32 noundef %76, ptr noundef %77, ptr noundef %78) #9
   %indvars.iv.next.i.i37 = add nuw nsw i64 %indvars.iv.i.i36, 1
   %exitcond.not.i.i38 = icmp eq i64 %indvars.iv.next.i.i37, 256
@@ -1042,7 +1041,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_key_pairwise_check(ptr noundef %0) local
   store ptr %18, ptr %2, align 8, !tbaa !28
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %24, ptr %25, align 8, !tbaa !29
-  %26 = getelementptr inbounds nuw %struct.poly_st, ptr %18, i64 %24
+  %26 = getelementptr inbounds nuw [1024 x i8], ptr %18, i64 %24
   store ptr %26, ptr %3, align 8, !tbaa !28
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %24, ptr %27, align 8, !tbaa !29
@@ -1068,9 +1067,9 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_key_pairwise_check(ptr noundef %0) local
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %33
   %.02.i = phi i64 [ %34, %33 ], [ 0, %.preheader.i ]
-  %35 = getelementptr inbounds nuw %struct.poly_st, ptr %18, i64 %.02.i
+  %35 = getelementptr inbounds nuw [1024 x i8], ptr %18, i64 %.02.i
   %36 = load ptr, ptr %30, align 8, !tbaa !28
-  %37 = getelementptr inbounds nuw %struct.poly_st, ptr %36, i64 %.02.i
+  %37 = getelementptr inbounds nuw [1024 x i8], ptr %36, i64 %.02.i
   %38 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %35, ptr noundef %37, i64 noundef 1024) #9
   %.not1.i = icmp eq i32 %38, 0
   br i1 %.not1.i, label %33, label %vector_equal.exit33
@@ -1096,9 +1095,9 @@ vector_equal.exit.thread36:                       ; preds = %.preheader.i
 
 .lr.ph.i29:                                       ; preds = %vector_equal.exit, %44
   %.02.i30 = phi i64 [ %45, %44 ], [ 0, %vector_equal.exit ]
-  %46 = getelementptr inbounds nuw %struct.poly_st, ptr %26, i64 %.02.i30
+  %46 = getelementptr inbounds nuw [1024 x i8], ptr %26, i64 %.02.i30
   %47 = load ptr, ptr %39, align 8, !tbaa !28
-  %48 = getelementptr inbounds nuw %struct.poly_st, ptr %47, i64 %.02.i30
+  %48 = getelementptr inbounds nuw [1024 x i8], ptr %47, i64 %.02.i30
   %49 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %46, ptr noundef %48, i64 noundef 1024) #9
   %.not1.i31 = icmp eq i32 %49, 0
   br i1 %.not1.i31, label %44, label %vector_equal.exit33
@@ -1207,12 +1206,12 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_generate_key(ptr noundef %0) local_unnam
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i64 %44, ptr %54, align 8, !tbaa !32
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %56 = getelementptr inbounds nuw %struct.poly_st, ptr %51, i64 %44
+  %56 = getelementptr inbounds nuw [1024 x i8], ptr %51, i64 %44
   store ptr %56, ptr %55, align 8, !tbaa !28
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i64 %42, ptr %57, align 8, !tbaa !29
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %59 = getelementptr inbounds nuw %struct.poly_st, ptr %56, i64 %42
+  %59 = getelementptr inbounds nuw [1024 x i8], ptr %56, i64 %42
   store ptr %59, ptr %58, align 8, !tbaa !28
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i64 %42, ptr %60, align 8, !tbaa !29

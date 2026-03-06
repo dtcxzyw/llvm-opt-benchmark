@@ -154,7 +154,7 @@ define dso_local range(i64 0, -1) i64 @parse_time(ptr noundef %0, i32 noundef %1
   %47 = tail call ptr @__ctype_b_loc() #14
   %48 = load ptr, ptr %47, align 8
   %49 = sext i8 %45 to i64
-  %50 = getelementptr inbounds i16, ptr %48, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %48, i64 %49
   %51 = load i16, ptr %50, align 2
   %.fr = freeze i16 %51
   %.not74 = trunc i16 %.fr to i1
@@ -307,7 +307,7 @@ switch.early.test:                                ; preds = %46
 108:                                              ; preds = %94
   %109 = load ptr, ptr %47, align 8
   %110 = sext i8 %96 to i64
-  %111 = getelementptr inbounds i16, ptr %109, i64 %110
+  %111 = getelementptr inbounds [2 x i8], ptr %109, i64 %110
   %112 = load i16, ptr %111, align 2
   %113 = and i16 %112, 1
   %.not83 = icmp eq i16 %113, 0
@@ -490,7 +490,7 @@ switch.early.test:                                ; preds = %46
   %204 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
   %205 = load i8, ptr %204, align 1
   %206 = sext i8 %205 to i64
-  %207 = getelementptr inbounds i16, ptr %202, i64 %206
+  %207 = getelementptr inbounds [2 x i8], ptr %202, i64 %206
   %208 = load i16, ptr %207, align 2
   %209 = and i16 %208, 8192
   %.not97.i = icmp eq i16 %209, 0
@@ -1089,7 +1089,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_delta(ptr noundef %0, ptr noun
   %10 = tail call ptr @__ctype_b_loc() #14
   %11 = load ptr, ptr %10, align 8
   %12 = sext i8 %8 to i64
-  %13 = getelementptr inbounds i16, ptr %11, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 8192
   %.not46 = icmp eq i16 %15, 0
@@ -1106,7 +1106,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_delta(ptr noundef %0, ptr noun
 
 .preheader:                                       ; preds = %.preheader.preheader, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %.preheader.preheader ]
-  %18 = getelementptr inbounds nuw %struct.unit_names, ptr @un, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @un, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %20, align 8

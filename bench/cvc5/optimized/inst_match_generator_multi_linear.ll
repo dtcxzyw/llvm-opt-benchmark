@@ -775,7 +775,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %314 = zext i32 %.190 to i64
   %315 = load ptr, ptr %4, align 8, !tbaa !41
-  %316 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %315, i64 %314
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %315, i64 %314
   %317 = load ptr, ptr %316, align 8, !tbaa !6
   store ptr %317, ptr %35, align 8, !tbaa !6
   %318 = load i64, ptr %317, align 8
@@ -812,7 +812,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit: 
   %.093570 = phi i1 [ false, %.preheader456.lr.ph ], [ %.093570.be, %.preheader456.backedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %333 = load ptr, ptr %4, align 8, !tbaa !41
-  %334 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %333, i64 %.092571
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %.092571
   %335 = load ptr, ptr %334, align 8, !tbaa !6
   store ptr %335, ptr %33, align 8, !tbaa !6
   %336 = load i64, ptr %335, align 8
@@ -1385,7 +1385,7 @@ _ZNSt4pairIKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EEED2Ev.exit4
   %.sroa.06.0.i179 = phi ptr [ %.sroa.0.010.i331, %.noexc182 ], [ %.19.i.i.i.i173, %506 ]
   %573 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i179, i64 40
   %574 = load ptr, ptr %573, align 8, !tbaa !41
-  %575 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %574, i64 %400
+  %575 = getelementptr inbounds nuw [8 x i8], ptr %574, i64 %400
   %576 = load ptr, ptr %575, align 8, !tbaa !6
   store ptr %576, ptr %34, align 8, !tbaa !6
   %577 = load i64, ptr %576, align 8
@@ -2207,7 +2207,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEED2
   %907 = sub i64 %905, %906
   %908 = ashr exact i64 %907, 3
   %909 = sub nsw i64 0, %908
-  %910 = getelementptr inbounds i64, ptr %904, i64 %909
+  %910 = getelementptr inbounds [8 x i8], ptr %904, i64 %909
   call void @_ZdlPvm(ptr noundef %910, i64 noundef %907) #24
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -2303,7 +2303,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ES
   %.057580 = phi i64 [ 0, %.lr.ph581 ], [ %1067, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit293 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %943 = load ptr, ptr %30, align 8, !tbaa !41
-  %944 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %943, i64 %.057580
+  %944 = getelementptr inbounds nuw [8 x i8], ptr %943, i64 %.057580
   %945 = load ptr, ptr %944, align 8, !tbaa !6
   store ptr %945, ptr %36, align 8, !tbaa !6
   %946 = load i64, ptr %945, align 8
@@ -2509,7 +2509,7 @@ _ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6
 _ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %1042, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i
   store ptr %1037, ptr %895, align 8, !tbaa !67
   store ptr %1041, ptr %896, align 8, !tbaa !61
-  %1043 = getelementptr inbounds nuw ptr, ptr %1037, i64 %1035
+  %1043 = getelementptr inbounds nuw [8 x i8], ptr %1037, i64 %1035
   store ptr %1043, ptr %897, align 8, !tbaa !64
   br label %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst18InstMatchGeneratorESaIS6_EE9push_backERKS6_.exit
 
@@ -2621,7 +2621,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEED2
   %1080 = sub i64 %1078, %1079
   %1081 = ashr exact i64 %1080, 3
   %1082 = sub nsw i64 0, %1081
-  %1083 = getelementptr inbounds i64, ptr %1077, i64 %1082
+  %1083 = getelementptr inbounds [8 x i8], ptr %1077, i64 %1082
   call void @_ZdlPvm(ptr noundef %1083, i64 noundef %1080) #24
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit299
 
@@ -2937,7 +2937,7 @@ define hidden noundef i32 @_ZN4cvc58internal6theory11quantifiers4inst29InstMatch
   %.0154 = phi i64 [ %121, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91 ], [ 0, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = load ptr, ptr %27, align 8, !tbaa !67
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.0154
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.0154
   %37 = load ptr, ptr %36, align 8, !tbaa !65
   call void @llvm.experimental.noalias.scope.decl(metadata !324)
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
@@ -2971,7 +2971,7 @@ define hidden noundef i32 @_ZN4cvc58internal6theory11quantifiers4inst29InstMatch
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit87: ; preds = %45, %51, %53
   %55 = load ptr, ptr %27, align 8, !tbaa !67
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %.0154
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.0154
   %57 = load ptr, ptr %56, align 8, !tbaa !65
   store ptr %39, ptr %6, align 8, !tbaa !6
   %58 = load i64, ptr %39, align 8
@@ -4389,7 +4389,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !41
   store ptr %42, ptr %4, align 8, !tbaa !39
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !48
   ret void
 
@@ -4661,7 +4661,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %12
   %22 = trunc i64 %21 to i32
   %23 = and i32 %22, 63
   %24 = lshr i64 %21, 6
-  %25 = getelementptr inbounds nuw i64, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %24
   br label %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i
 
 _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i:          ; preds = %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
@@ -4913,13 +4913,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
 136:                                              ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
   %137 = ashr exact i64 %60, 3
   %138 = sub nsw i64 0, %137
-  %139 = getelementptr inbounds i64, ptr %8, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %8, i64 %138
   tail call void @_ZdlPvm(ptr noundef %139, i64 noundef %60) #24
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %136
   %140 = lshr i64 %70, 6
-  %141 = getelementptr inbounds nuw i64, ptr %73, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %140
   store ptr %141, ptr %7, align 8, !tbaa !36
   store ptr %73, ptr %0, align 8
   %.sroa.588.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %0, i64 8

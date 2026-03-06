@@ -43,7 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::FileNode" = type { ptr, i64, i64 }
 %"class.cv::_InputOutputArray" = type { %"class.cv::_OutputArray" }
 %"class.cv::Mat_" = type { %"class.cv::Mat" }
-%"class.cv::Point3_" = type { float, float, float }
 %"struct.cv::Ptr.8" = type { %"class.std::shared_ptr.9" }
 %"class.std::shared_ptr.9" = type { %"class.std::__shared_ptr.10" }
 %"class.std::__shared_ptr.10" = type { ptr, %"class.std::__shared_count" }
@@ -1109,7 +1108,7 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.u
 _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.us.i: ; preds = %246, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.us.i
   store ptr %241, ptr %49, align 8, !tbaa !71
   store ptr %245, ptr %214, align 8, !tbaa !61
-  %247 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %241, i64 %239
+  %247 = getelementptr inbounds nuw [12 x i8], ptr %241, i64 %239
   store ptr %247, ptr %217, align 8, !tbaa !72
   br label %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backEOS2_.exit.us.i
 
@@ -4240,7 +4239,7 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !117
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i64, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !10
   br label %16

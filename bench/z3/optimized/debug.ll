@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%class.ptr_hash_entry = type { i32, ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -2085,7 +2084,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14ptr_hash_entryIKcE13str_h
   %.idx = shl nuw nsw i64 %23, 4
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %25 = zext i32 %19 to i64
-  %26 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %25
   %.not66 = icmp eq i32 %21, %19
   br i1 %.not66, label %.preheader, label %.lr.ph
 
@@ -2245,7 +2244,7 @@ _ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tab
   %14 = zext i32 %12 to i64
   %.idx.i = shl nuw nsw i64 %14, 4
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
-  %16 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %7, i64 %5
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %12, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit, label %.lr.ph41.i
 
@@ -2349,7 +2348,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14ptr_hash_entryIKcE13str_h
   %.idx = shl nuw nsw i64 %12, 4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %14 = zext i32 %8 to i64
-  %15 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %14
   %.not42 = icmp eq i32 %10, %8
   br i1 %.not42, label %.preheader, label %.lr.ph
 
@@ -2497,7 +2496,7 @@ _ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE11alloc_tab
   %15 = zext i32 %13 to i64
   %.idx.i = shl nuw nsw i64 %15, 4
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
-  %17 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %8, i64 %15
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %15
   %.not38.i = icmp eq i32 %13, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI14ptr_hash_entryIKcE13str_hash_proc11str_eq_procE10move_tableEPS2_jS6_j.exit, label %.lr.ph41.i
 
@@ -2600,7 +2599,7 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI14ptr_hash_entryIKc
   %.idx = shl nuw nsw i64 %12, 4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %14 = zext i32 %8 to i64
-  %15 = getelementptr inbounds nuw %class.ptr_hash_entry, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %14
   %.not33 = icmp eq i32 %10, %8
   br i1 %.not33, label %.preheader, label %.lr.ph
 

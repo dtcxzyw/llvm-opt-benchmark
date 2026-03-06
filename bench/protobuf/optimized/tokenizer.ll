@@ -5579,7 +5579,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i25, ptr %_M_finish.i.i, align 8
-  %add.ptr26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8
   ret void
 
@@ -5683,7 +5683,7 @@ invoke.cont.loopexit:                             ; preds = %for.body.i.i.i.i.i
 
 invoke.cont:                                      ; preds = %invoke.cont.loopexit, %if.then11
   %3 = phi ptr [ %.pre, %invoke.cont.loopexit ], [ %2, %if.then11 ]
-  %add.ptr16 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %3, i64 %__n
+  %add.ptr16 = getelementptr inbounds [32 x i8], ptr %3, i64 %__n
   store ptr %add.ptr16, ptr %_M_finish, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i
@@ -5920,7 +5920,7 @@ for.body.i.i.i.i.i95:                             ; preds = %invoke.cont57, %for
 
 invoke.cont60:                                    ; preds = %for.body.i.i.i.i.i95, %invoke.cont57
   %__cur.0.lcssa.i.i.i.i.i101 = phi ptr [ %cond.i71, %invoke.cont57 ], [ %incdec.ptr.i.i.i.i.i99, %for.body.i.i.i.i.i95 ]
-  %add.ptr62 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %__cur.0.lcssa.i.i.i.i.i101, i64 %__n
+  %add.ptr62 = getelementptr inbounds nuw [32 x i8], ptr %__cur.0.lcssa.i.i.i.i.i101, i64 %__n
   %cmp.i.i.not7.i.i.i.i.i102 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i102, label %invoke.cont64, label %for.body.i.i.i.i.i103
 
@@ -5956,7 +5956,7 @@ if.then.i116:                                     ; preds = %_ZSt8_DestroyIPNSt7
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, %if.then.i116
   store ptr %cond.i71, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i109, ptr %_M_finish, align 8
-  %add.ptr90 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i71, i64 %cond.i
+  %add.ptr90 = getelementptr inbounds nuw [32 x i8], ptr %cond.i71, i64 %cond.i
   store ptr %add.ptr90, ptr %_M_end_of_storage, align 8
   br label %if.end94
 

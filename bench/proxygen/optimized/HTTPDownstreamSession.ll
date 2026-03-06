@@ -15,7 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.folly::DelayedDestructionBase::DestructorGuard" = type { ptr }
-%"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
 %"class.std::unique_ptr.209" = type { %"struct.std::__uniq_ptr_data.210" }
 %"struct.std::__uniq_ptr_data.210" = type { %"class.std::__uniq_ptr_impl.211" }
 %"class.std::__uniq_ptr_impl.211" = type { %"class.std::tuple.212" }
@@ -1106,7 +1105,7 @@ if.then23.i.i:                                    ; preds = %if.end15.i.i
   %sub.i.i = xor i32 %13, 31
   %conv.i.i = zext nneg i32 %sub.i.i to i64
   %rawItems_.i.i.i = getelementptr inbounds i8, ptr %c.i.0.i, i64 -112
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %rawItems_.i.i.i, i64 %conv.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %rawItems_.i.i.i, i64 %conv.i.i
   br label %for.body.backedge
 
 for.body.backedge:                                ; preds = %while.body.i.i, %if.then23.i.i
@@ -3527,7 +3526,7 @@ entry:
   %savedValue.i = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 0)
   %idx.ext.i = zext i8 %code to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %call.i, i64 %idx.ext.i
   call void @llvm.lifetime.start.p0(ptr nonnull %savedValue.i)
   %0 = load ptr, ptr %this, align 8
   %length_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3537,7 +3536,7 @@ entry:
   %cmp.i = icmp eq i64 %1, %2
   %cmp2.not.i = icmp uge ptr %value, %0
   %or.cond.not8.i = and i1 %cmp2.not.i, %cmp.i
-  %add.ptr.i2 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %1
+  %add.ptr.i2 = getelementptr inbounds [32 x i8], ptr %0, i64 %1
   %cmp5.i = icmp ult ptr %value, %add.ptr.i2
   %or.cond7.i = select i1 %or.cond.not8.i, i1 %cmp5.i, i1 false
   br i1 %or.cond7.i, label %if.then.i, label %if.else.i
@@ -3620,8 +3619,8 @@ for.body.preheader.i.i:                           ; preds = %if.end.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.023.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
-  %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i.i, i64 %i.023.i.i
-  %arrayidx.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre24.i.i, i64 %i.023.i.i
+  %add.ptr.i.i = getelementptr inbounds [32 x i8], ptr %call.i.i.i, i64 %i.023.i.i
+  %arrayidx.i.i = getelementptr inbounds [32 x i8], ptr %.pre24.i.i, i64 %i.023.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i) #23
   %inc.i.i = add nuw i64 %i.023.i.i, 1
   %3 = load i64, ptr %length_, align 8
@@ -3662,13 +3661,13 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
   %mul.i.i5 = shl i64 %9, 5
   %add.ptr.i.i6 = getelementptr inbounds i8, ptr %8, i64 %mul.i.i5
   %10 = load i64, ptr %length_, align 8
-  %arrayidx5 = getelementptr inbounds ptr, ptr %add.ptr.i.i6, i64 %10
+  %arrayidx5 = getelementptr inbounds [8 x i8], ptr %add.ptr.i.i6, i64 %10
   store ptr %name, ptr %arrayidx5, align 8
   %11 = load ptr, ptr %this, align 8
   %12 = load i64, ptr %length_, align 8
   %inc = add i64 %12, 1
   store i64 %inc, ptr %length_, align 8
-  %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %11, i64 %12
+  %add.ptr = getelementptr inbounds [32 x i8], ptr %11, i64 %12
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #23
   %call3.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #23
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %call3.i
@@ -3755,8 +3754,8 @@ for.body.preheader.i.i:                           ; preds = %if.end.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %i.023.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.preheader.i.i ]
-  %add.ptr.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %call.i.i.i, i64 %i.023.i.i
-  %arrayidx.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.pre24.i.i, i64 %i.023.i.i
+  %add.ptr.i.i = getelementptr inbounds [32 x i8], ptr %call.i.i.i, i64 %i.023.i.i
+  %arrayidx.i.i = getelementptr inbounds [32 x i8], ptr %.pre24.i.i, i64 %i.023.i.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i) #23
   %inc.i.i = add nuw i64 %i.023.i.i, 1
   %3 = load i64, ptr %length_, align 8
@@ -3797,13 +3796,13 @@ _ZN8proxygen11HTTPHeaders6ensureEm.exit:          ; preds = %entry, %_ZNSt10uniq
   %mul.i.i5 = shl i64 %9, 5
   %add.ptr.i.i6 = getelementptr inbounds i8, ptr %8, i64 %mul.i.i5
   %10 = load i64, ptr %length_, align 8
-  %arrayidx5 = getelementptr inbounds ptr, ptr %add.ptr.i.i6, i64 %10
+  %arrayidx5 = getelementptr inbounds [8 x i8], ptr %add.ptr.i.i6, i64 %10
   store ptr %name, ptr %arrayidx5, align 8
   %11 = load ptr, ptr %this, align 8
   %12 = load i64, ptr %length_, align 8
   %inc = add i64 %12, 1
   store i64 %inc, ptr %length_, align 8
-  %add.ptr = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %11, i64 %12
+  %add.ptr = getelementptr inbounds [32 x i8], ptr %11, i64 %12
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #23
   %call3.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #23
   %add.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %call3.i

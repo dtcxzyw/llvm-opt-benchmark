@@ -1716,7 +1716,7 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta6srcgen9Formatter11update_
   %47 = load ptr, ptr %46, align 8, !nonnull !3, !noundef !3
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load i64, ptr %48, align 8, !noundef !3
-  %50 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %47, i64 %49
+  %50 = getelementptr inbounds [24 x i8], ptr %47, i64 %49
   store ptr %47, ptr %6, align 8
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %50, ptr %51, align 8
@@ -1898,7 +1898,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter11doc_comment17h
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !3
-  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [24 x i8], ptr %9, i64 %11
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h76593dc900892069E"(ptr nonnull %9, ptr nonnull %12, ptr nonnull align 8 %0)
           to label %16 unwind label %14
@@ -1950,7 +1950,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter11doc_comment17h
   %13 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !3
-  %16 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %13, i64 %15
+  %16 = getelementptr inbounds [24 x i8], ptr %13, i64 %15
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6547af14cd02a03dE"(ptr nonnull %13, ptr nonnull %16, ptr nonnull align 8 %0)
           to label %19 unwind label %17
@@ -1994,7 +1994,7 @@ define hidden void @_ZN22cranelift_codegen_meta6srcgen9Formatter11doc_comment17h
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %11, i64 %13
+  %14 = getelementptr inbounds [24 x i8], ptr %11, i64 %13
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0c5498db8a8cd6f8E"(ptr nonnull %11, ptr nonnull %14, ptr nonnull align 8 %0)
           to label %18 unwind label %16

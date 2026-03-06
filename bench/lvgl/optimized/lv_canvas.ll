@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct._lv_obj_class_t = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32 }
 %struct.lv_color32_t = type { i8, i8, i8, i8 }
-%struct.lv_color16_t = type { i16 }
-%struct.lv_color16a_t = type { i8, i8 }
 
 @lv_image_class = external constant %struct._lv_obj_class_t, align 8
 @.str = private unnamed_addr constant [7 x i8] c"canvas\00", align 1
@@ -369,7 +367,7 @@ define i32 @lv_canvas_get_px(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
 
 24:                                               ; preds = %9
   %25 = sext i32 %1 to i64
-  %26 = getelementptr inbounds %struct.lv_color16_t, ptr %10, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %10, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = lshr i16 %27, 11
   %narrow = mul nuw i16 %28, 2106
@@ -583,7 +581,7 @@ define void @lv_canvas_fill_bg(ptr noundef %0, i24 %1, i8 noundef zeroext %2) lo
 
 .lr.ph187:                                        ; preds = %.lr.ph191, %.lr.ph187
   %indvars.iv235 = phi i64 [ %indvars.iv.next236, %.lr.ph187 ], [ 0, %.lr.ph191 ]
-  %25 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv235
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv235
   store i16 %18, ptr %25, align 2, !tbaa !34
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %26 = load i64, ptr %6, align 4
@@ -627,7 +625,7 @@ define void @lv_canvas_fill_bg(ptr noundef %0, i24 %1, i8 noundef zeroext %2) lo
 
 .lr.ph180:                                        ; preds = %.lr.ph184, %.lr.ph180
   %indvars.iv229 = phi i64 [ %indvars.iv.next230, %.lr.ph180 ], [ 0, %.lr.ph184 ]
-  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv229
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv229
   store i32 %.0149, ptr %47, align 4, !tbaa !38
   %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
   %48 = load i64, ptr %6, align 4
@@ -733,7 +731,7 @@ define void @lv_canvas_fill_bg(ptr noundef %0, i24 %1, i8 noundef zeroext %2) lo
 
 .lr.ph:                                           ; preds = %.lr.ph164, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph164 ]
-  %94 = getelementptr inbounds nuw %struct.lv_color16a_t, ptr %92, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %indvars.iv
   store i8 %87, ptr %94, align 1, !tbaa !23
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 1
   store i8 -1, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !23

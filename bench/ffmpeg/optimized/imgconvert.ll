@@ -22,7 +22,7 @@ define i32 @avcodec_find_best_pix_fmt_of_list(ptr noundef readonly captures(none
   store i32 0, ptr %5, align 4, !tbaa !4
   %8 = call i32 @av_find_best_pix_fmt_of_2(i32 noundef %.018.us, i32 noundef %7, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5) #3
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
-  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next23
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next23
   %10 = load i32, ptr %9, align 4, !tbaa !4
   %.not.us = icmp eq i32 %10, -1
   br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !8
@@ -35,7 +35,7 @@ define i32 @avcodec_find_best_pix_fmt_of_list(ptr noundef readonly captures(none
   store i32 %12, ptr %5, align 4, !tbaa !4
   %13 = call i32 @av_find_best_pix_fmt_of_2(i32 noundef %.018, i32 noundef %11, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next
   %15 = load i32, ptr %14, align 4, !tbaa !4
   %.not = icmp eq i32 %15, -1
   br i1 %.not, label %._crit_edge.thread29, label %.lr.ph.split, !llvm.loop !8

@@ -863,7 +863,7 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   %9 = load ptr, ptr %8, align 8, !noalias !51, !nonnull !3, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
   %11 = load i64, ptr %10, align 8, !noalias !51, !noundef !3
-  %12 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [88 x i8], ptr %9, i64 %11
   %13 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder5nodes17hab9f140582813925E(ptr noalias noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull %9, ptr noundef nonnull %12), !noalias !55
   call void @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder6finish17h62912731f10a6f0fE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !51
@@ -927,7 +927,7 @@ define internal void @"_ZN113_$LT$ruff_formatter..builders..FormatWith$LT$Contex
   %10 = load ptr, ptr %9, align 8, !noalias !59, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
   %12 = load i64, ptr %11, align 8, !noalias !59, !noundef !3
-  %13 = getelementptr inbounds nuw { { [31 x i8], i8 }, { i32, i32 }, { { i32, i32 }, { { { ptr, i64, i32, i16, i8, i8 } } } } }, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [72 x i8], ptr %10, i64 %12
   %14 = call noundef align 8 dereferenceable(48) ptr @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder7entries17hc6f7ab9fd3c5af98E(ptr noalias noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %10, ptr noundef nonnull %13), !noalias !63
   call void @_ZN21ruff_python_formatter8builders25JoinCommaSeparatedBuilder6finish17h62912731f10a6f0fE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !59
@@ -1505,7 +1505,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h15070aa7e1a7be89E.exit.i: ; pr
   %47 = icmp eq <16 x i8> %.val3.i.i, %31
   %48 = icmp eq <16 x i8> %.val.i.i, %32
   %narrow.i.i = select <16 x i1> %47, <16 x i1> %48, <16 x i1> zeroinitializer
-  %49 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.023.0109.i
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.023.0109.i
   store <16 x i1> %narrow.i.i, ptr %49, align 2, !noalias !142
   %exitcond.not.i = icmp eq i64 %43, 4
   br i1 %exitcond.not.i, label %.preheader107.i, label %42
@@ -1523,7 +1523,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h15070aa7e1a7be89E.exit.i: ; pr
   %55 = phi i64 [ %60, %59 ], [ 1, %42 ]
   %.sroa.028.0111.i = phi i64 [ %55, %59 ], [ 0, %42 ]
   %.sroa.014.2110.i = phi i8 [ %.sroa.014.3.i, %59 ], [ 0, %42 ]
-  %56 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.028.0111.i
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.028.0111.i
   %57 = load i16, ptr %56, align 2, !noalias !142, !noundef !3
   %58 = icmp eq i16 %57, 0
   br i1 %58, label %59, label %61

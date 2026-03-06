@@ -2511,7 +2511,7 @@ _ZNSt6vectorIN10cmPolicies8PolicyIDESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.
   br label %_ZNSt6vectorIN10cmPolicies8PolicyIDESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN10cmPolicies8PolicyIDESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %408, %_ZNSt6vectorIN10cmPolicies8PolicyIDESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  %409 = getelementptr inbounds nuw i32, ptr %403, i64 %401
+  %409 = getelementptr inbounds nuw [4 x i8], ptr %403, i64 %401
   br label %_ZNSt6vectorIN10cmPolicies8PolicyIDESaIS1_EE9push_backERKS1_.exit
 
 .loopexit:                                        ; preds = %_ZL17isPolicyNewerThanN10cmPolicies8PolicyIDEjjj.exit.thread130, %_ZNKSt6vectorIN10cmPolicies8PolicyIDESaIS1_EE12_M_check_lenEmPKc.exit.i.i
@@ -3130,7 +3130,7 @@ define internal fastcc noundef ptr @_ZL10idToStringN10cmPolicies8PolicyIDE(i32 n
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL10idToStringN10cmPolicies8PolicyIDE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL10idToStringN10cmPolicies8PolicyIDE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -3314,7 +3314,7 @@ define internal fastcc noundef ptr @_ZL20idToShortDescriptionN10cmPolicies8Polic
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZL20idToShortDescriptionN10cmPolicies8PolicyIDE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL20idToShortDescriptionN10cmPolicies8PolicyIDE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -3825,7 +3825,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK10cmPolicies9PolicyMap3GetENS_
   %3 = mul nsw i32 %1, 3
   %4 = sext i32 %3 to i64
   %5 = lshr i64 %4, 6
-  %6 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !17
   %8 = and i64 %4, 63
   %9 = shl nuw i64 1, %8
@@ -3837,7 +3837,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK10cmPolicies9PolicyMap3GetENS_
   %12 = add nsw i32 %3, 2
   %13 = sext i32 %12 to i64
   %14 = lshr i64 %13, 6
-  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !17
   %17 = and i64 %13, 63
   %18 = shl nuw i64 1, %17
@@ -3857,7 +3857,7 @@ define dso_local void @_ZN10cmPolicies9PolicyMap3SetENS_8PolicyIDENS_12PolicySta
   %5 = mul nsw i32 %1, 3
   %6 = sext i32 %5 to i64
   %7 = lshr i64 %6, 6
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %7
   %9 = and i64 %6, 63
   %10 = shl nuw i64 1, %9
   br i1 %4, label %_ZNSt6bitsetILm558EE9referenceaSEb.exit.thread, label %_ZNSt6bitsetILm558EE9referenceaSEb.exit
@@ -3869,7 +3869,7 @@ _ZNSt6bitsetILm558EE9referenceaSEb.exit.thread:   ; preds = %3
   %13 = add nsw i32 %5, 1
   %14 = sext i32 %13 to i64
   %15 = lshr i64 %14, 6
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %15
   %17 = and i64 %14, 63
   %18 = shl nuw i64 1, %17
   br label %_ZNSt6bitsetILm558EE9referenceaSEb.exit6
@@ -3883,7 +3883,7 @@ _ZNSt6bitsetILm558EE9referenceaSEb.exit:          ; preds = %3
   %23 = add nsw i32 %5, 1
   %24 = sext i32 %23 to i64
   %25 = lshr i64 %24, 6
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = and i64 %24, 63
   %28 = shl nuw i64 1, %27
   br i1 %22, label %_ZNSt6bitsetILm558EE9referenceaSEb.exit6.thread, label %_ZNSt6bitsetILm558EE9referenceaSEb.exit6
@@ -3895,7 +3895,7 @@ _ZNSt6bitsetILm558EE9referenceaSEb.exit6.thread:  ; preds = %_ZNSt6bitsetILm558E
   %31 = add nsw i32 %5, 2
   %32 = sext i32 %31 to i64
   %33 = lshr i64 %32, 6
-  %34 = getelementptr inbounds nuw i64, ptr %0, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %33
   %35 = and i64 %32, 63
   %36 = shl nuw i64 1, %35
   br label %52
@@ -3911,7 +3911,7 @@ _ZNSt6bitsetILm558EE9referenceaSEb.exit6:         ; preds = %_ZNSt6bitsetILm558E
   %43 = add nsw i32 %5, 2
   %44 = sext i32 %43 to i64
   %45 = lshr i64 %44, 6
-  %46 = getelementptr inbounds nuw i64, ptr %0, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %45
   %47 = and i64 %44, 63
   %48 = shl nuw i64 1, %47
   br i1 %42, label %49, label %52
@@ -3940,7 +3940,7 @@ define dso_local noundef zeroext i1 @_ZNK10cmPolicies9PolicyMap9IsDefinedENS_8Po
   %3 = mul nsw i32 %1, 3
   %4 = sext i32 %3 to i64
   %5 = lshr i64 %4, 6
-  %6 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !17
   %8 = and i64 %4, 63
   %9 = shl nuw i64 1, %8
@@ -3952,7 +3952,7 @@ define dso_local noundef zeroext i1 @_ZNK10cmPolicies9PolicyMap9IsDefinedENS_8Po
   %12 = add nsw i32 %3, 1
   %13 = sext i32 %12 to i64
   %14 = lshr i64 %13, 6
-  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !17
   %17 = and i64 %13, 63
   %18 = shl nuw i64 1, %17
@@ -3964,7 +3964,7 @@ define dso_local noundef zeroext i1 @_ZNK10cmPolicies9PolicyMap9IsDefinedENS_8Po
   %21 = add nsw i32 %3, 2
   %22 = sext i32 %21 to i64
   %23 = lshr i64 %22, 6
-  %24 = getelementptr inbounds nuw i64, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !17
   %26 = and i64 %22, 63
   %27 = shl nuw i64 1, %26
@@ -3983,7 +3983,7 @@ define dso_local noundef zeroext i1 @_ZNK10cmPolicies9PolicyMap7IsEmptyEv(ptr no
 
 2:                                                ; preds = %2, %1
   %.058.i.i = phi i64 [ 0, %1 ], [ %5, %2 ]
-  %3 = getelementptr inbounds nuw i64, ptr %0, i64 %.058.i.i
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.058.i.i
   %4 = load i64, ptr %3, align 8, !tbaa !17
   %.not.not.i.i = icmp ne i64 %4, 0
   %5 = add nuw nsw i64 %.058.i.i, 1

@@ -5351,7 +5351,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %26 = icmp eq <16 x i8> %.val3.i.i, splat (i8 85)
   %27 = icmp eq <16 x i8> %.val.i.i, splat (i8 73)
   %narrow.i.i = select <16 x i1> %26, <16 x i1> %27, <16 x i1> zeroinitializer
-  %28 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.023.044.i
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.sroa.023.044.i
   store <16 x i1> %narrow.i.i, ptr %28, align 2, !noalias !871
   %exitcond.not.i = icmp eq i64 %22, 4
   br i1 %exitcond.not.i, label %.preheader43.i, label %21
@@ -5369,7 +5369,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %.sroa.028.046.i = phi i64 [ %34, %38 ], [ 0, %21 ]
   %.sroa.014.245.i = phi i8 [ %.sroa.014.3.i, %38 ], [ 0, %21 ]
   %34 = add nuw nsw i64 %.sroa.028.046.i, 1
-  %35 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.028.046.i
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.sroa.028.046.i
   %36 = load i16, ptr %35, align 2, !noalias !871, !noundef !11
   %37 = icmp eq i16 %36, 0
   br i1 %37, label %38, label %39
@@ -7468,7 +7468,7 @@ define hidden void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ite
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %3 = icmp ult i64 %.sroa.5.0.copyload, 384307168202282326
   tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds nuw { { [8 x i8], i8, [7 x i8] }, i8, { i8, [1 x i8] }, { i8, [1 x i8] }, { i8, [1 x i8] }, i8 }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %4 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   %5 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %5)
   store ptr %.sroa.4.0.copyload, ptr %0, align 8
@@ -8241,7 +8241,7 @@ define hidden void @"_ZN9uv_pep5086marker11environment1_107_$LT$impl$u20$serde..
   %5 = load ptr, ptr %4, align 8, !alias.scope !1411, !noalias !1417, !nonnull !11, !noundef !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !1411, !noalias !1417, !noundef !11
-  %8 = getelementptr inbounds { i8, [63 x i8] }, ptr %5, i64 %7
+  %8 = getelementptr inbounds [64 x i8], ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %5, ptr %9, align 8, !noalias !1414
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -8265,7 +8265,7 @@ define hidden void @"_ZN9uv_pep5086marker11environment1_107_$LT$impl$u20$serde..
   %5 = load ptr, ptr %4, align 8, !alias.scope !1418, !noalias !1424, !nonnull !11, !noundef !11
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !1418, !noalias !1424, !noundef !11
-  %8 = getelementptr inbounds { i8, [63 x i8] }, ptr %5, i64 %7
+  %8 = getelementptr inbounds [64 x i8], ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %5, ptr %9, align 8, !noalias !1421
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -10028,7 +10028,7 @@ define void @_ZN9uv_python11interpreter11Interpreter3key17h08a7fabb2ac76f5eE(ptr
   %42 = xor i64 %41, -9223372036854775808
   %43 = icmp ult i64 %42, 11
   %44 = select i1 %43, i64 %42, i64 8
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9uv_python11interpreter11Interpreter2os17h6a0317fd8d84f117E, i64 %44
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9uv_python11interpreter11Interpreter2os17h6a0317fd8d84f117E, i64 %44
   %switch.load = load i64, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %45 = invoke noundef i8 @_ZN16uv_platform_tags8platform8Platform4arch17h8fe1da0e2004b70cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %39)
@@ -10132,7 +10132,7 @@ switch.lookup:
   %4 = xor i64 %3, -9223372036854775808
   %5 = icmp ult i64 %4, 11
   %6 = select i1 %5, i64 %4, i64 8
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9uv_python11interpreter11Interpreter2os17h6a0317fd8d84f117E, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9uv_python11interpreter11Interpreter2os17h6a0317fd8d84f117E, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }
@@ -10561,7 +10561,7 @@ define void @_ZN9uv_python11interpreter11Interpreter21is_externally_managed17h99
   %107 = add i64 %.sroa.01.0.i.i.i, %106
   %108 = and i64 %107, %98
   %109 = sub nsw i64 0, %108
-  %110 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %99, i64 %109
+  %110 = getelementptr inbounds [72 x i8], ptr %99, i64 %109
   %111 = getelementptr i8, ptr %110, i64 -56
   %.val5.i.i.i = load i64, ptr %111, align 8, !alias.scope !1949, !noalias !1956, !noundef !11
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.val5.i.i.i, 18
@@ -12489,7 +12489,7 @@ define hidden noundef zeroext i1 @_ZN9uv_python11interpreter11Interpreter27has_d
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2151, !noalias !2148
   %27 = icmp ult i64 %.sroa.5.0.copyload.i, 384307168202282326
   tail call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds nuw { { [8 x i8], i8, [7 x i8] }, i8, { i8, [1 x i8] }, { i8, [1 x i8] }, { i8, [1 x i8] }, i8 }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   %29 = icmp sgt i64 %.sroa.0.0.copyload.i, -1
   tail call void @llvm.assume(i1 %29)
   store ptr %.sroa.4.0.copyload.i, ptr %9, align 8, !alias.scope !2148, !noalias !2151

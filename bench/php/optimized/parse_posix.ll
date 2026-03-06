@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._timelib_rel_time = type { i64, i64, i64, i64, i64, i64, i64, i32, i32, i32, i32, i64, %struct.anon.2, i32, i32 }
 %struct.anon.2 = type { i32, i64 }
 %struct._timelib_posix_transitions = type { i64, [6 x i64], [6 x i64] }
-%struct._ttinfo = type { i32, i32, i32, i32, i32 }
 
 @month_lengths = internal unnamed_addr constant [2 x [12 x i32]] [[12 x i32] [i32 31, i32 28, i32 31, i32 30, i32 31, i32 30, i32 31, i32 31, i32 30, i32 31, i32 30, i32 31], [12 x i32] [i32 31, i32 29, i32 31, i32 30, i32 31, i32 30, i32 31, i32 31, i32 30, i32 31, i32 30, i32 31]], align 16
 
@@ -1083,10 +1082,10 @@ define hidden void @timelib_get_transitions_for_year(ptr noundef readonly captur
   %38 = icmp slt i64 %26, %37
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load i64, ptr %2, align 8, !tbaa !34
-  %41 = getelementptr i64, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 52
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %44 = getelementptr i64, ptr %43, i64 %40
+  %44 = getelementptr [8 x i8], ptr %43, i64 %40
   br i1 %38, label %45, label %53
 
 45:                                               ; preds = %3
@@ -1214,10 +1213,10 @@ define internal fastcc i64 @calc_transition(ptr noundef readonly captures(none) 
 
 .lr.ph:                                           ; preds = %26
   %57 = zext i1 %11 to i64
-  %58 = getelementptr inbounds nuw [12 x i32], ptr @month_lengths, i64 %57
+  %58 = getelementptr inbounds nuw [48 x i8], ptr @month_lengths, i64 %57
   %59 = add i32 %28, -1
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i32, ptr %58, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %58, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !39
   %63 = mul i32 %55, 7
   %64 = add i32 %.046, %63
@@ -1246,14 +1245,14 @@ define internal fastcc i64 @calc_transition(ptr noundef readonly captures(none) 
 
 .lr.ph64:                                         ; preds = %._crit_edge
   %73 = zext i1 %11 to i64
-  %74 = getelementptr inbounds nuw [12 x i32], ptr @month_lengths, i64 %73
+  %74 = getelementptr inbounds nuw [48 x i8], ptr @month_lengths, i64 %73
   %wide.trip.count = zext nneg i32 %.pre-phi to i64
   br label %75
 
 75:                                               ; preds = %.lr.ph64, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %75 ]
   %.062 = phi i64 [ %71, %.lr.ph64 ], [ %80, %75 ]
-  %76 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv
   %77 = load i32, ptr %76, align 4, !tbaa !39
   %78 = mul i32 %77, 86400
   %79 = sext i32 %78 to i64
@@ -1289,7 +1288,7 @@ define hidden ptr @timelib_fetch_posix_timezone_offset(ptr noundef readonly capt
   %13 = load ptr, ptr %12, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i64, ptr %14, align 8, !tbaa !41
-  %16 = getelementptr i64, ptr %13, i64 %15
+  %16 = getelementptr [8 x i8], ptr %13, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load i64, ptr %17, align 8, !tbaa !42
   store i64 %18, ptr %2, align 8, !tbaa !36
@@ -1301,7 +1300,7 @@ define hidden ptr @timelib_fetch_posix_timezone_offset(ptr noundef readonly capt
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %23 = load i32, ptr %22, align 8, !tbaa !38
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct._ttinfo, ptr %21, i64 %24
+  %25 = getelementptr inbounds [20 x i8], ptr %21, i64 %24
   br label %.loopexit
 
 timelib_get_transitions_for_year.exit:            ; preds = %3
@@ -1443,7 +1442,7 @@ timelib_get_transitions_for_year.exit28:          ; preds = %timelib_get_transit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %130
   %.033 = phi i64 [ %131, %130 ], [ 1, %.lr.ph.preheader ]
-  %116 = getelementptr inbounds nuw i64, ptr %62, i64 %.033
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.033
   %117 = load i64, ptr %116, align 8, !tbaa !36
   %118 = icmp slt i64 %1, %117
   br i1 %118, label %119, label %130
@@ -1453,7 +1452,7 @@ timelib_get_transitions_for_year.exit28:          ; preds = %timelib_get_transit
   br i1 %.not26, label %123, label %120
 
 120:                                              ; preds = %119
-  %121 = getelementptr i64, ptr %5, i64 %.033
+  %121 = getelementptr [8 x i8], ptr %5, i64 %.033
   %122 = load i64, ptr %121, align 8, !tbaa !36
   store i64 %122, ptr %2, align 8, !tbaa !36
   br label %123
@@ -1462,9 +1461,9 @@ timelib_get_transitions_for_year.exit28:          ; preds = %timelib_get_transit
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %125 = load ptr, ptr %124, align 8, !tbaa !43
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %127 = getelementptr i64, ptr %126, i64 %.033
+  %127 = getelementptr [8 x i8], ptr %126, i64 %.033
   %128 = load i64, ptr %127, align 8, !tbaa !36
-  %129 = getelementptr inbounds %struct._ttinfo, ptr %125, i64 %128
+  %129 = getelementptr inbounds [20 x i8], ptr %125, i64 %128
   br label %.loopexit
 
 130:                                              ; preds = %.lr.ph

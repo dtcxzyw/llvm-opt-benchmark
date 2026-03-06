@@ -19,10 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.5 = type { ptr, ptr, ptr, i32 }
 %struct.uv__io_s = type { ptr, %struct.uv__queue, %struct.uv__queue, i32, i32, i32 }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
-%struct.uv_buf_t = type { ptr, i64 }
-%struct.uv_dirent_s = type { ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.uv_env_item_s = type { ptr, ptr }
 
 @uv__allocator.0 = internal unnamed_addr global ptr @malloc, align 8
 @uv__allocator.1 = internal unnamed_addr global ptr @realloc, align 8
@@ -438,7 +435,7 @@ define dso_local range(i64 -1, 313) i64 @uv_handle_size(i32 noundef %0) local_un
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv_handle_size, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv_handle_size, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %4
 
@@ -455,7 +452,7 @@ define dso_local range(i64 -1, 1321) i64 @uv_req_size(i32 noundef %0) local_unna
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv_req_size, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv_req_size, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %4
 
@@ -2712,7 +2709,7 @@ uv_default_loop.exit:                             ; preds = %7, %5, %3
 
 switch.lookup:                                    ; preds = %.lr.ph.split.us
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.uv__print_handles.2, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv__print_handles.2, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %17
 
@@ -2764,7 +2761,7 @@ switch.lookup:                                    ; preds = %.lr.ph.split.us
 
 switch.lookup37:                                  ; preds = %43
   %47 = zext nneg i32 %switch.tableidx36 to i64
-  %switch.gep38 = getelementptr inbounds nuw ptr, ptr @switch.table.uv__print_handles.2, i64 %47
+  %switch.gep38 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv__print_handles.2, i64 %47
   %switch.load39 = load ptr, ptr %switch.gep38, align 8
   br label %48
 
@@ -2893,7 +2890,7 @@ define hidden i64 @uv__count_bufs(ptr noundef readonly captures(none) %0, i32 no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.08 = phi i64 [ 0, %.lr.ph.preheader ], [ %6, %.lr.ph ]
-  %3 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, %.08
@@ -2991,7 +2988,7 @@ define hidden void @uv__fs_scandir_cleanup(ptr noundef captures(none) %0) local_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %12, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   tail call void @free(ptr noundef %15) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3035,7 +3032,7 @@ define dso_local i32 @uv_fs_scandir_next(ptr noundef captures(none) %0, ptr noun
 14:                                               ; preds = %11
   %15 = add i32 %13, -1
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %16
   %18 = load ptr, ptr %17, align 8
   tail call void @free(ptr noundef %18) #26
   %.pre = load i32, ptr %12, align 4
@@ -3058,7 +3055,7 @@ define dso_local i32 @uv_fs_scandir_next(ptr noundef captures(none) %0, ptr noun
   %26 = add i32 %21, 1
   store i32 %26, ptr %12, align 4
   %27 = zext i32 %21 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %10, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 19
   store ptr %30, ptr %1, align 8
@@ -3070,7 +3067,7 @@ define dso_local i32 @uv_fs_scandir_next(ptr noundef captures(none) %0, ptr noun
 
 switch.lookup:                                    ; preds = %25
   %34 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.uv__fs_get_dirent_type, i64 %34
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.uv__fs_get_dirent_type, i64 %34
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %uv__fs_get_dirent_type.exit
 
@@ -3095,7 +3092,7 @@ define hidden range(i32 0, 8) i32 @uv__fs_get_dirent_type(ptr noundef readonly c
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.uv__fs_get_dirent_type, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.uv__fs_get_dirent_type, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -3129,7 +3126,7 @@ define hidden void @uv__fs_readdir_cleanup(ptr noundef captures(none) %0) local_
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %6, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %11, align 4
   %16 = load ptr, ptr @uv__allocator.3, align 8
@@ -3353,7 +3350,7 @@ define dso_local void @uv_os_free_environ(ptr noundef %0, i32 noundef %1) local_
 
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %struct.uv_env_item_s, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @uv__allocator.3, align 8
   tail call void %8(ptr noundef %7) #26

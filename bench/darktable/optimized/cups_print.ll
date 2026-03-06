@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
 %struct.cups_size_s = type { [128 x i8], i32, i32, i32, i32, i32, i32 }
-%struct.cups_option_s = type { ptr, ptr }
 %struct.dt_printer_info_t = type { [128 x i8], i32, double, double, double, double, i32, [256 x i8], i32 }
 
 @.str = private unnamed_addr constant [10 x i8] c"ModelName\00", align 1
@@ -792,7 +791,7 @@ define void @dt_print_file(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   store ptr @.str.28, ptr %40, align 8, !tbaa !123
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr @.str.25, ptr %41, align 16, !tbaa !123
-  %42 = getelementptr inbounds nuw ptr, ptr @__const.dt_print_file.tp_intent_name, i64 %spec.select
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @__const.dt_print_file.tp_intent_name, i64 %spec.select
   %43 = load ptr, ptr %42, align 8, !tbaa !123
   %44 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.29, ptr noundef %43) #16
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -929,7 +928,7 @@ define void @dt_print_file(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %120 ]
   %.594 = phi i32 [ 0, %.lr.ph ], [ %.6, %120 ]
   %107 = load ptr, ptr %91, align 8, !tbaa !24
-  %108 = getelementptr inbounds nuw %struct.cups_option_s, ptr %107, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %indvars.iv
   %109 = load ptr, ptr %108, align 8, !tbaa !126
   %110 = load ptr, ptr %5, align 8, !tbaa !120
   %111 = call ptr @cupsGetOption(ptr noundef %109, i32 noundef %.594, ptr noundef %110) #16
@@ -938,7 +937,7 @@ define void @dt_print_file(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 113:                                              ; preds = %106
   %114 = load ptr, ptr %91, align 8, !tbaa !24
-  %115 = getelementptr inbounds nuw %struct.cups_option_s, ptr %114, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %indvars.iv
   %116 = load ptr, ptr %115, align 8, !tbaa !126
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !128
@@ -1023,7 +1022,7 @@ define void @dt_print_file(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 154:                                              ; preds = %.lr.ph97
   %155 = load ptr, ptr %5, align 8, !tbaa !120
-  %156 = getelementptr inbounds nuw %struct.cups_option_s, ptr %155, i64 %indvars.iv100
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %155, i64 %indvars.iv100
   %157 = load ptr, ptr %156, align 8, !tbaa !126
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %159 = load ptr, ptr %158, align 8, !tbaa !128

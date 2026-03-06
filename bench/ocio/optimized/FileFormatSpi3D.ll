@@ -851,7 +851,7 @@ _ZSt11make_sharedIN19OpenColorIO_v2_5dev11Lut3DOpDataEJmEESt10shared_ptrINSt9ena
 
 237:                                              ; preds = %232
   %238 = lshr i64 %233, 6
-  %239 = getelementptr inbounds nuw i64, ptr %236, i64 %238
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %238
   %.idx.i = shl nuw nsw i64 %238, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %236, i8 0, i64 %.idx.i, i1 false)
   br label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit
@@ -1306,17 +1306,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit291: ; preds = %38
 397:                                              ; preds = %351
   %398 = zext nneg i32 %356 to i64
   %399 = load ptr, ptr %254, align 8, !tbaa !92
-  %400 = getelementptr inbounds nuw float, ptr %399, i64 %398
+  %400 = getelementptr inbounds nuw [4 x i8], ptr %399, i64 %398
   store float %.2, ptr %400, align 4, !tbaa !93
   %401 = zext nneg i32 %356 to i64
-  %402 = getelementptr inbounds nuw float, ptr %399, i64 %401
+  %402 = getelementptr inbounds nuw [4 x i8], ptr %399, i64 %401
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 4
   store float %.2369, ptr %403, align 4, !tbaa !93
   %404 = getelementptr inbounds nuw i8, ptr %402, i64 8
   store float %292, ptr %404, align 4, !tbaa !93
   %405 = lshr i32 %356, 6
   %.zext = zext nneg i32 %405 to i64
-  %406 = getelementptr inbounds nuw i64, ptr %.sroa.0352.0, i64 %.zext
+  %406 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0352.0, i64 %.zext
   %407 = and i64 %398, 63
   %408 = shl nuw i64 1, %407
   %409 = load i64, ptr %406, align 8, !tbaa !95
@@ -1693,7 +1693,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalCachedFileELN9__g
   %546 = sub i64 %544, %545
   %547 = ashr exact i64 %546, 3
   %548 = sub nsw i64 0, %547
-  %549 = getelementptr inbounds i64, ptr %.sroa.28358.0, i64 %548
+  %549 = getelementptr inbounds [8 x i8], ptr %.sroa.28358.0, i64 %548
   call void @_ZdlPvm(ptr noundef %549, i64 noundef %546) #28
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -1773,7 +1773,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut3DOpDataELN9__gnu_cxx12_Lock_poli
   %577 = sub i64 %575, %576
   %578 = ashr exact i64 %577, 3
   %579 = sub nsw i64 0, %578
-  %580 = getelementptr inbounds i64, ptr %.sroa.28358.0, i64 %579
+  %580 = getelementptr inbounds [8 x i8], ptr %.sroa.28358.0, i64 %579
   call void @_ZdlPvm(ptr noundef %580, i64 noundef %577) #28
   br label %.body
 
@@ -2796,7 +2796,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40, %90
   store ptr %20, ptr %0, align 8, !tbaa !122
   store ptr %.0.lcssa.i.i.i.i39, ptr %4, align 8, !tbaa !23
-  %94 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::FormatInfo", ptr %20, i64 %16
+  %94 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %94, ptr %89, align 8, !tbaa !26
   ret void
 

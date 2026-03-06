@@ -3,8 +3,6 @@ source_filename = "bench/hdf5/original/H5Tvisit.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.H5T_cmemb_t = type { ptr, i64, i64, ptr }
-
 @H5T_init_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
 @.str = private unnamed_addr constant [102 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/hdf5/hdf5/src/H5Tvisit.c\00", align 1
@@ -90,7 +88,7 @@ switch.edge:                                      ; preds = %4
   %35 = phi ptr [ %30, %29 ], [ %26, %.preheader ]
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %37 = load ptr, ptr %36, align 8, !tbaa !26
-  %38 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load ptr, ptr %39, align 8, !tbaa !29
   %41 = tail call i32 @H5T__visit(ptr noundef %40, i32 noundef %1, ptr noundef %2, ptr noundef %3)

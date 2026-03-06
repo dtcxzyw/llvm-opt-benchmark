@@ -85,7 +85,7 @@ define hidden void @_ZN15XPhysicalMemory11add_segmentERK22XPhysicalMemorySegment
 
 13:                                               ; preds = %10
   %14 = add nsw i64 %indvars.iv, -1
-  %15 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %7, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8
   %.not = icmp ugt i64 %17, %8
@@ -113,7 +113,7 @@ define hidden void @_ZN15XPhysicalMemory11add_segmentERK22XPhysicalMemorySegment
   br label %49
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %7, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val52 = load i64, ptr %29, align 8
   %.val54 = load i64, ptr %28, align 8
@@ -144,8 +144,8 @@ define hidden void @_ZN15XPhysicalMemory11add_segmentERK22XPhysicalMemorySegment
   %indvars.iv10.i.i = phi i64 [ %indvars.iv, %.lr.ph.i.i ], [ %indvars.iv.next11.i.i, %41 ]
   %indvars.iv.i.i = phi i64 [ %40, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %41 ]
   %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %42, i64 %indvars.iv.i.i
-  %44 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %42, i64 %indvars.iv10.i.i
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %indvars.iv10.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %44, ptr noundef nonnull align 8 dereferenceable(17) %43, i64 17, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %45 = load i32, ptr %0, align 8
@@ -176,7 +176,7 @@ _ZN15XPhysicalMemory14remove_segmentEi.exit:      ; preds = %41, %34
   br label %62
 
 53:                                               ; preds = %52
-  %54 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %7, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val56 = load i64, ptr %55, align 8
   %.val58 = load i64, ptr %54, align 8
@@ -261,7 +261,7 @@ define hidden void @_ZN15XPhysicalMemoryC2ERKS_(ptr noundef nonnull align 8 dere
 6:                                                ; preds = %6, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.i
   tail call void @_ZN15XPhysicalMemory11add_segmentERK22XPhysicalMemorySegment(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(17) %8)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %9 = load i32, ptr %1, align 8
@@ -286,7 +286,7 @@ define hidden void @_ZN15XPhysicalMemory12add_segmentsERKS_(ptr noundef nonnull 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   tail call void @_ZN15XPhysicalMemory11add_segmentERK22XPhysicalMemorySegment(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(17) %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %1, align 8
@@ -333,7 +333,7 @@ _ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %indvars.iv.i
   tail call void @_ZN15XPhysicalMemory11add_segmentERK22XPhysicalMemorySegment(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(17) %14)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %15 = load i32, ptr %1, align 8
@@ -360,7 +360,7 @@ define hidden noundef i64 @_ZNK15XPhysicalMemory4sizeEv(ptr noundef nonnull read
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.056 = phi i64 [ 0, %.lr.ph ], [ %12, %6 ]
-  %7 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = load i64, ptr %7, align 8
@@ -433,9 +433,9 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemo
 
 24:                                               ; preds = %24, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %24 ]
-  %25 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %16, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %indvars.iv.i.i
   %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %26, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %28 = load i32, ptr %0, align 8
@@ -451,7 +451,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemo
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %23, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %33 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %16, i64 %indvars.iv20.i.i
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %indvars.iv20.i.i
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %33, i8 -1, i64 16, i1 false)
   store i8 0, ptr %34, align 8
@@ -489,8 +489,8 @@ _ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_
   %indvars.iv = phi i64 [ %42, %.lr.ph ], [ %indvars.iv.next, %44 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %45 = load ptr, ptr %41, align 8
-  %46 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %45, i64 %indvars.iv.next
-  %47 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds [24 x i8], ptr %45, i64 %indvars.iv.next
+  %47 = getelementptr inbounds [24 x i8], ptr %45, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %47, ptr noundef nonnull align 8 dereferenceable(17) %46, i64 17, i1 false)
   %.not.not = icmp sgt i64 %indvars.iv.next, %43
   br i1 %.not.not, label %44, label %._crit_edge.loopexit, !llvm.loop !13
@@ -506,7 +506,7 @@ _ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_
   store i32 %49, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %51, i64 %.pre-phi
+  %52 = getelementptr inbounds [24 x i8], ptr %51, i64 %.pre-phi
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %52, ptr noundef nonnull align 8 dereferenceable(17) %2, i64 17, i1 false)
   ret void
 }
@@ -518,7 +518,7 @@ define hidden void @_ZN15XPhysicalMemory15replace_segmentEimmb(ptr noundef nonnu
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %9, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr %9, i64 %10
   store i64 %2, ptr %11, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %7, ptr %.sroa.2.0..sroa_idx, align 8
@@ -544,8 +544,8 @@ define hidden void @_ZN15XPhysicalMemory14remove_segmentEi(ptr noundef nonnull a
   %indvars.iv10.i = phi i64 [ %6, %.lr.ph.i ], [ %indvars.iv.next11.i, %8 ]
   %indvars.iv.i = phi i64 [ %7, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %9, i64 %indvars.iv.i
-  %11 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %9, i64 %indvars.iv10.i
+  %10 = getelementptr inbounds [24 x i8], ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr inbounds [24 x i8], ptr %9, i64 %indvars.iv10.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %11, ptr noundef nonnull align 8 dereferenceable(17) %10, i64 17, i1 false)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %12 = load i32, ptr %0, align 8
@@ -594,7 +594,7 @@ define hidden noundef zeroext i1 @_ZN15XPhysicalMemory14commit_segmentEim(ptr no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %6, i64 %7
+  %8 = getelementptr inbounds [24 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr %8, align 8
@@ -618,7 +618,7 @@ define hidden noundef zeroext i1 @_ZN15XPhysicalMemory14commit_segmentEim(ptr no
   call void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(17) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %20, i64 %7
+  %21 = getelementptr inbounds [24 x i8], ptr %20, i64 %7
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %2
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -627,7 +627,7 @@ define hidden noundef zeroext i1 @_ZN15XPhysicalMemory14commit_segmentEim(ptr no
 
 .sink.split:                                      ; preds = %3, %15
   %24 = phi ptr [ %20, %15 ], [ %6, %3 ]
-  %25 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %24, i64 %7
+  %25 = getelementptr inbounds [24 x i8], ptr %24, i64 %7
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i8 1, ptr %.sroa.3.0..sroa_idx.i, align 8
   br label %26
@@ -642,7 +642,7 @@ define hidden noundef zeroext i1 @_ZN15XPhysicalMemory16uncommit_segmentEim(ptr 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %6, i64 %7
+  %8 = getelementptr inbounds [24 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr %8, align 8
@@ -666,7 +666,7 @@ define hidden noundef zeroext i1 @_ZN15XPhysicalMemory16uncommit_segmentEim(ptr 
   call void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(17) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %20, i64 %7
+  %21 = getelementptr inbounds [24 x i8], ptr %20, i64 %7
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %2
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -675,7 +675,7 @@ define hidden noundef zeroext i1 @_ZN15XPhysicalMemory16uncommit_segmentEim(ptr 
 
 .sink.split:                                      ; preds = %3, %15
   %24 = phi ptr [ %20, %15 ], [ %6, %3 ]
-  %25 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %24, i64 %7
+  %25 = getelementptr inbounds [24 x i8], ptr %24, i64 %7
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i8 0, ptr %.sroa.3.0..sroa_idx.i, align 8
   br label %26
@@ -704,7 +704,7 @@ define hidden void @_ZN15XPhysicalMemory5splitEm(ptr dead_on_unwind noalias writ
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
   %.050 = phi i32 [ 0, %.lr.ph ], [ %.1, %67 ]
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %0, align 8
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph.i, label %_ZNK15XPhysicalMemory4sizeEv.exit.thread
@@ -717,7 +717,7 @@ define hidden void @_ZN15XPhysicalMemory5splitEm(ptr dead_on_unwind noalias writ
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
   %.056.i = phi i64 [ 0, %.lr.ph.i ], [ %23, %17 ]
-  %18 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %16, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %indvars.iv.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = load i64, ptr %18, align 8
@@ -737,7 +737,7 @@ _ZNK15XPhysicalMemory4sizeEv.exit.thread:         ; preds = %11
 .lr.ph.i24:                                       ; preds = %_ZNK15XPhysicalMemory4sizeEv.exit, %.lr.ph.i24
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i28, %.lr.ph.i24 ], [ 0, %_ZNK15XPhysicalMemory4sizeEv.exit ]
   %.056.i27 = phi i64 [ %30, %.lr.ph.i24 ], [ 0, %_ZNK15XPhysicalMemory4sizeEv.exit ]
-  %25 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %16, i64 %indvars.iv.i26
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %indvars.iv.i26
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = load i64, ptr %25, align 8
@@ -771,7 +771,7 @@ _ZNK15XPhysicalMemory4sizeEv.exit30.thread:       ; preds = %.lr.ph.i24
 .lr.ph.i32:                                       ; preds = %_ZNK15XPhysicalMemory4sizeEv.exit30.thread, %.lr.ph.i32
   %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i36, %.lr.ph.i32 ], [ 0, %_ZNK15XPhysicalMemory4sizeEv.exit30.thread ]
   %.056.i35 = phi i64 [ %46, %.lr.ph.i32 ], [ 0, %_ZNK15XPhysicalMemory4sizeEv.exit30.thread ]
-  %41 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %16, i64 %indvars.iv.i34
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %indvars.iv.i34
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8
   %44 = load i64, ptr %41, align 8
@@ -802,7 +802,7 @@ _ZNK15XPhysicalMemory4sizeEv.exit38:              ; preds = %.lr.ph.i32, %_ZNK15
   %59 = and i8 %58, 1
   %60 = load ptr, ptr %7, align 8
   %61 = sext i32 %.050 to i64
-  %62 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %60, i64 %61
+  %62 = getelementptr inbounds [24 x i8], ptr %60, i64 %61
   store i64 %56, ptr %62, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 %57, ptr %.sroa.2.0..sroa_idx, align 8
@@ -813,7 +813,7 @@ _ZNK15XPhysicalMemory4sizeEv.exit38:              ; preds = %.lr.ph.i32, %_ZNK15
 63:                                               ; preds = %_ZNK15XPhysicalMemory4sizeEv.exit.thread, %_ZNK15XPhysicalMemory4sizeEv.exit
   %64 = add nsw i32 %.050, 1
   %65 = sext i32 %.050 to i64
-  %66 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %12, i64 %65
+  %66 = getelementptr inbounds [24 x i8], ptr %12, i64 %65
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %66, ptr noundef nonnull align 8 dereferenceable(17) %13, i64 17, i1 false)
   br label %67
 
@@ -846,7 +846,7 @@ define hidden void @_ZN15XPhysicalMemory15split_committedEv(ptr dead_on_unwind n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.0910 = phi i32 [ 0, %.lr.ph ], [ %.1, %17 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
@@ -859,7 +859,7 @@ define hidden void @_ZN15XPhysicalMemory15split_committedEv(ptr dead_on_unwind n
 13:                                               ; preds = %6
   %14 = add nsw i32 %.0910, 1
   %15 = sext i32 %.0910 to i64
-  %16 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %7, i64 %15
+  %16 = getelementptr inbounds [24 x i8], ptr %7, i64 %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %16, ptr noundef nonnull align 8 dereferenceable(17) %8, i64 17, i1 false)
   br label %17
 
@@ -967,7 +967,7 @@ define hidden void @_ZN22XPhysicalMemoryManager19try_enable_uncommitEmm(ptr noun
   %29 = phi i32 [ %25, %.lr.ph.i ], [ %.pr, %54 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %54 ]
   %30 = load ptr, ptr %27, align 8
-  %31 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %30, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %indvars.iv.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i8, ptr %32, align 8
   %34 = trunc i8 %33 to i1
@@ -980,7 +980,7 @@ define hidden void @_ZN22XPhysicalMemoryManager19try_enable_uncommitEmm(ptr noun
   %39 = sub i64 %38, %36
   %40 = call noundef i64 @_ZNK22XPhysicalMemoryBacking6commitEmm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %36, i64 noundef %39) #14
   %41 = load ptr, ptr %27, align 8
-  %42 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %41, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %indvars.iv.i
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = load i64, ptr %42, align 8
@@ -1027,7 +1027,7 @@ _ZN15XPhysicalMemory14commit_segmentEim.exit.i:   ; preds = %48
   %58 = phi i32 [ %84, %83 ], [ %.pr, %56 ]
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %83 ], [ 0, %56 ]
   %59 = load ptr, ptr %27, align 8
-  %60 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %59, i64 %indvars.iv.i12
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %indvars.iv.i12
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i8, ptr %61, align 8
   %63 = trunc i8 %62 to i1
@@ -1040,7 +1040,7 @@ _ZN15XPhysicalMemory14commit_segmentEim.exit.i:   ; preds = %48
   %68 = sub i64 %67, %65
   %69 = call noundef i64 @_ZNK22XPhysicalMemoryBacking8uncommitEmm(ptr noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %65, i64 noundef %68) #14
   %70 = load ptr, ptr %27, align 8
-  %71 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %70, i64 %indvars.iv.i12
+  %71 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %indvars.iv.i12
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i64, ptr %72, align 8
   %74 = load i64, ptr %71, align 8
@@ -1084,7 +1084,7 @@ _ZN22XPhysicalMemoryManager6commitER15XPhysicalMemory.exit.sink.split: ; preds =
   %.lcssa41.sink = phi i64 [ %69, %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.i ], [ %40, %_ZN15XPhysicalMemory14commit_segmentEim.exit.i ]
   %.sink = phi i8 [ 0, %_ZN15XPhysicalMemory16uncommit_segmentEim.exit.i ], [ 1, %_ZN15XPhysicalMemory14commit_segmentEim.exit.i ]
   %86 = load ptr, ptr %27, align 8
-  %87 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %86, i64 %indvars.iv.i12.lcssa.sink
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %indvars.iv.i12.lcssa.sink
   %88 = load i64, ptr %87, align 8
   %89 = add i64 %88, %.lcssa41.sink
   %.sroa.2.0..sroa_idx.i.i.i16 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -1165,7 +1165,7 @@ define hidden noundef zeroext i1 @_ZN22XPhysicalMemoryManager6commitER15XPhysica
   %8 = phi i32 [ %4, %.lr.ph ], [ %38, %37 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
@@ -1178,7 +1178,7 @@ define hidden noundef zeroext i1 @_ZN22XPhysicalMemoryManager6commitER15XPhysica
   %18 = sub i64 %17, %15
   %19 = tail call noundef i64 @_ZNK22XPhysicalMemoryBacking6commitEmm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %15, i64 noundef %18) #14
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = load i64, ptr %21, align 8
@@ -1209,7 +1209,7 @@ _ZN15XPhysicalMemory14commit_segmentEim.exit:     ; preds = %27
   call void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(17) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, %19
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -1245,7 +1245,7 @@ define hidden noundef zeroext i1 @_ZN22XPhysicalMemoryManager8uncommitER15XPhysi
   %8 = phi i32 [ %4, %.lr.ph ], [ %38, %37 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
@@ -1258,7 +1258,7 @@ define hidden noundef zeroext i1 @_ZN22XPhysicalMemoryManager8uncommitER15XPhysi
   %18 = sub i64 %17, %15
   %19 = tail call noundef i64 @_ZNK22XPhysicalMemoryBacking8uncommitEmm(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %15, i64 noundef %18) #14
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = load i64, ptr %21, align 8
@@ -1289,7 +1289,7 @@ _ZN15XPhysicalMemory16uncommit_segmentEim.exit:   ; preds = %27
   call void @_ZN26GrowableArrayWithAllocatorI22XPhysicalMemorySegment18GrowableArrayCHeapIS0_L8MEMFLAGS5EEE13insert_beforeEiRKS0_(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(17) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %33 = load ptr, ptr %6, align 8
-  %34 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, %19
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -1426,7 +1426,7 @@ define hidden void @_ZN22XPhysicalMemoryManager4freeERK15XPhysicalMemory(ptr nou
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8
@@ -1475,7 +1475,7 @@ define hidden void @_ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory(p
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.016 = phi i64 [ 0, %.lr.ph ], [ %18, %7 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
   %10 = add i64 %.016, %1
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8
@@ -1595,7 +1595,7 @@ define hidden void @_ZNK22XPhysicalMemoryManager3mapEmRK15XPhysicalMemory(ptr no
 10:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
   %.056.i = phi i64 [ 0, %.lr.ph.i ], [ %16, %10 ]
-  %11 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = load i64, ptr %11, align 8
@@ -1638,7 +1638,7 @@ _ZNK15XPhysicalMemory4sizeEv.exit.thread:         ; preds = %3
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i11 ], [ %indvars.iv.next.i13, %31 ]
   %.016.i = phi i64 [ 0, %.lr.ph.i11 ], [ %42, %31 ]
   %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %32, i64 %indvars.iv.i12
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv.i12
   %34 = add i64 %.016.i, %30
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i64, ptr %35, align 8
@@ -1675,7 +1675,7 @@ _ZNK15XPhysicalMemory4sizeEv.exit.thread:         ; preds = %3
   %indvars.iv.i18 = phi i64 [ 0, %.lr.ph.i17 ], [ %indvars.iv.next.i20, %53 ]
   %.016.i19 = phi i64 [ 0, %.lr.ph.i17 ], [ %64, %53 ]
   %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %54, i64 %indvars.iv.i18
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %indvars.iv.i18
   %56 = add i64 %.016.i19, %52
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load i64, ptr %57, align 8
@@ -1727,7 +1727,7 @@ _ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit21: ; preds = %._
   %indvars.iv.i26 = phi i64 [ 0, %.lr.ph.i25 ], [ %indvars.iv.next.i28, %83 ]
   %.016.i27 = phi i64 [ 0, %.lr.ph.i25 ], [ %94, %83 ]
   %84 = load ptr, ptr %82, align 8
-  %85 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %84, i64 %indvars.iv.i26
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %84, i64 %indvars.iv.i26
   %86 = add i64 %.016.i27, %80
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %88 = load i64, ptr %87, align 8
@@ -1777,7 +1777,7 @@ _ZNK22XPhysicalMemoryManager8map_viewEmRK15XPhysicalMemory.exit29: ; preds = %._
   %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i36, %112 ]
   %.016.i35 = phi i64 [ 0, %.lr.ph.i33 ], [ %123, %112 ]
   %113 = load ptr, ptr %111, align 8
-  %114 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %113, i64 %indvars.iv.i34
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %indvars.iv.i34
   %115 = add i64 %.016.i35, %109
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %117 = load i64, ptr %116, align 8
@@ -1917,7 +1917,7 @@ define hidden void @_ZNK22XPhysicalMemoryManager9debug_mapEmRK15XPhysicalMemory(
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
   %.016.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %11 ]
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv.i
   %14 = add i64 %.016.i, %7
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8

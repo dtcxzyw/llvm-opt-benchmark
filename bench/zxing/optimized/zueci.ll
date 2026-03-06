@@ -283,7 +283,7 @@ zueci_is_valid_utf8.exit:                         ; preds = %.preheader119
 
 70:                                               ; preds = %53
   %71 = zext nneg i32 %0 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr @zueci_utf8_to_eci.zueci_eci_funcs, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @zueci_utf8_to_eci.zueci_eci_funcs, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !9
   br label %74
 
@@ -399,7 +399,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp437(i32 noundef %0, ptr noundef w
   %6 = add nuw nsw i32 %.01727, %.02026
   %7 = lshr i32 %6, 1
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw i16, ptr @zueci_cp437_u_u, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr @zueci_cp437_u_u, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !14
   %11 = zext i16 %10 to i32
   %12 = icmp ugt i32 %0, %11
@@ -462,7 +462,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_2(i32 noundef %0, ptr nound
   %11 = add nsw i32 %0, -160
   %12 = lshr i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_2_s, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_2_s, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = zext i16 %15 to i32
   %17 = and i32 %0, 15
@@ -481,7 +481,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_2(i32 noundef %0, ptr nound
   %22 = add nsw i32 %.03442.i, %.02943.i
   %23 = ashr i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr @zueci_iso8859_2_u_u, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_2_u_u, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = icmp ugt i32 %0, %27
@@ -544,7 +544,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_3(i32 noundef %0, ptr nound
   %11 = add nsw i32 %0, -160
   %12 = lshr i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_3_s, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_3_s, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = zext i16 %15 to i32
   %17 = and i32 %0, 15
@@ -563,7 +563,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_3(i32 noundef %0, ptr nound
   %22 = add nsw i32 %.03442.i, %.02943.i
   %23 = ashr i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr @zueci_iso8859_3_u_u, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_3_u_u, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = icmp ugt i32 %0, %27
@@ -626,7 +626,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_4(i32 noundef %0, ptr nound
   %11 = add nsw i32 %0, -160
   %12 = lshr i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_4_s, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_4_s, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = zext i16 %15 to i32
   %17 = and i32 %0, 15
@@ -645,7 +645,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_4(i32 noundef %0, ptr nound
   %22 = add nsw i32 %.03442.i, %.02943.i
   %23 = ashr i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr @zueci_iso8859_4_u_u, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_4_u_u, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = icmp ugt i32 %0, %27
@@ -708,7 +708,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_5(i32 noundef %0, ptr nound
   %11 = add nsw i32 %0, -160
   %12 = lshr i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_5_s, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_5_s, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = zext i16 %15 to i32
   %17 = and i32 %0, 15
@@ -727,7 +727,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_5(i32 noundef %0, ptr nound
   %22 = add nsw i32 %.03442.i, %.02943.i
   %23 = ashr i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr @zueci_iso8859_5_u_u, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_5_u_u, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = icmp ugt i32 %0, %27
@@ -790,7 +790,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_6(i32 noundef %0, ptr nound
   %11 = add nsw i32 %0, -160
   %12 = lshr i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_6_s, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_6_s, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = zext i16 %15 to i32
   %17 = and i32 %0, 15
@@ -809,7 +809,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_6(i32 noundef %0, ptr nound
   %22 = add nsw i32 %.03442.i, %.02943.i
   %23 = ashr i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr @zueci_iso8859_6_u_u, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_6_u_u, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = icmp ugt i32 %0, %27
@@ -872,7 +872,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_7(i32 noundef %0, ptr nound
   %11 = add nsw i32 %0, -160
   %12 = lshr i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_7_s, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_7_s, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = zext i16 %15 to i32
   %17 = and i32 %0, 15
@@ -891,7 +891,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_7(i32 noundef %0, ptr nound
   %22 = add nsw i32 %.03442.i, %.02943.i
   %23 = ashr i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr @zueci_iso8859_7_u_u, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_7_u_u, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = icmp ugt i32 %0, %27
@@ -954,7 +954,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_8(i32 noundef %0, ptr nound
   %11 = add nsw i32 %0, -160
   %12 = lshr i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_8_s, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_8_s, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = zext i16 %15 to i32
   %17 = and i32 %0, 15
@@ -973,7 +973,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_8(i32 noundef %0, ptr nound
   %22 = add nsw i32 %.03442.i, %.02943.i
   %23 = ashr i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr @zueci_iso8859_8_u_u, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_8_u_u, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = icmp ugt i32 %0, %27
@@ -1036,7 +1036,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_9(i32 noundef %0, ptr nound
   %11 = add nsw i32 %0, -160
   %12 = lshr i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_9_s, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_9_s, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = zext i16 %15 to i32
   %17 = and i32 %0, 15
@@ -1055,7 +1055,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_9(i32 noundef %0, ptr nound
   %22 = add nsw i32 %.03442.i, %.02943.i
   %23 = ashr i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr @zueci_iso8859_9_u_u, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_9_u_u, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = icmp ugt i32 %0, %27
@@ -1118,7 +1118,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_10(i32 noundef %0, ptr noun
   %11 = add nsw i32 %0, -160
   %12 = lshr i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_10_s, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_10_s, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = zext i16 %15 to i32
   %17 = and i32 %0, 15
@@ -1137,7 +1137,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_10(i32 noundef %0, ptr noun
   %22 = add nsw i32 %.03442.i, %.02943.i
   %23 = ashr i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr @zueci_iso8859_10_u_u, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_10_u_u, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = icmp ugt i32 %0, %27
@@ -1200,7 +1200,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_11(i32 noundef %0, ptr noun
   %11 = add nsw i32 %0, -160
   %12 = lshr i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_11_s, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_11_s, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = zext i16 %15 to i32
   %17 = and i32 %0, 15
@@ -1219,7 +1219,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_11(i32 noundef %0, ptr noun
   %22 = add nsw i32 %.03442.i, %.02943.i
   %23 = ashr i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr @zueci_iso8859_11_u_u, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_11_u_u, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = icmp ugt i32 %0, %27
@@ -1282,7 +1282,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_13(i32 noundef %0, ptr noun
   %11 = add nsw i32 %0, -160
   %12 = lshr i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_13_s, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_13_s, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = zext i16 %15 to i32
   %17 = and i32 %0, 15
@@ -1301,7 +1301,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_13(i32 noundef %0, ptr noun
   %22 = add nsw i32 %.03442.i, %.02943.i
   %23 = ashr i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr @zueci_iso8859_13_u_u, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_13_u_u, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = icmp ugt i32 %0, %27
@@ -1364,7 +1364,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_14(i32 noundef %0, ptr noun
   %11 = add nsw i32 %0, -160
   %12 = lshr i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_14_s, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_14_s, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = zext i16 %15 to i32
   %17 = and i32 %0, 15
@@ -1383,7 +1383,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_14(i32 noundef %0, ptr noun
   %22 = add nsw i32 %.03442.i, %.02943.i
   %23 = ashr i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr @zueci_iso8859_14_u_u, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_14_u_u, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = icmp ugt i32 %0, %27
@@ -1446,7 +1446,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_15(i32 noundef %0, ptr noun
   %11 = add nsw i32 %0, -160
   %12 = lshr i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_15_s, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_15_s, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = zext i16 %15 to i32
   %17 = and i32 %0, 15
@@ -1465,7 +1465,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_15(i32 noundef %0, ptr noun
   %22 = add nsw i32 %.03442.i, %.02943.i
   %23 = ashr i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr @zueci_iso8859_15_u_u, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_15_u_u, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = icmp ugt i32 %0, %27
@@ -1528,7 +1528,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_16(i32 noundef %0, ptr noun
   %11 = add nsw i32 %0, -160
   %12 = lshr i32 %11, 4
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_16_s, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_16_s, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !14
   %16 = zext i16 %15 to i32
   %17 = and i32 %0, 15
@@ -1547,7 +1547,7 @@ define internal range(i32 0, 2) i32 @zueci_u_iso8859_16(i32 noundef %0, ptr noun
   %22 = add nsw i32 %.03442.i, %.02943.i
   %23 = ashr i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr @zueci_iso8859_16_u_u, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_16_u_u, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = icmp ugt i32 %0, %27
@@ -1616,7 +1616,7 @@ switch.early.test:                                ; preds = %2
   %12 = and i32 %0, 15
   %13 = shl nuw nsw i32 1, %12
   %14 = zext nneg i32 %11 to i64
-  %15 = getelementptr inbounds nuw i16, ptr @zueci_sjis_uro_u, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr @zueci_sjis_uro_u, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !14
   %17 = zext i16 %16 to i32
   %18 = and i32 %13, %17
@@ -1627,12 +1627,12 @@ switch.early.test:                                ; preds = %2
   %21 = add nuw nsw i32 %13, 65535
   %22 = and i32 %21, %17
   %23 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %22)
-  %24 = getelementptr inbounds nuw i16, ptr @zueci_sjis_uro_mb_ind, i64 %14
+  %24 = getelementptr inbounds nuw [2 x i8], ptr @zueci_sjis_uro_mb_ind, i64 %14
   %25 = load i16, ptr %24, align 2, !tbaa !14
   %26 = zext i16 %25 to i32
   %27 = add nuw nsw i32 %23, %26
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i16, ptr @zueci_sjis_u_mb, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr @zueci_sjis_u_mb, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !14
   %31 = lshr i16 %30, 8
   %32 = trunc nuw i16 %31 to i8
@@ -1682,7 +1682,7 @@ switch.early.test:                                ; preds = %2
   %52 = add nsw i32 %.05576, %.05875
   %53 = ashr i32 %52, 1
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i16, ptr @zueci_sjis_u_u, i64 %54
+  %55 = getelementptr inbounds [2 x i8], ptr @zueci_sjis_u_u, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !14
   %57 = zext i16 %56 to i32
   %58 = icmp ugt i32 %0, %57
@@ -1704,7 +1704,7 @@ switch.early.test:                                ; preds = %2
   %66 = add nsw i32 %53, 6356
   %67 = select i1 %51, i32 %66, i32 %53
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i16, ptr @zueci_sjis_u_mb, i64 %68
+  %69 = getelementptr inbounds [2 x i8], ptr @zueci_sjis_u_mb, i64 %68
   %70 = load i16, ptr %69, align 2, !tbaa !14
   %71 = icmp ugt i16 %70, 255
   br i1 %71, label %72, label %77
@@ -1754,7 +1754,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1250(i32 noundef %0, ptr noundef 
 8:                                                ; preds = %6
   %9 = lshr i32 %7, 4
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr @zueci_cp1250_s, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr @zueci_cp1250_s, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !14
   %13 = zext i16 %12 to i32
   %14 = and i32 %0, 15
@@ -1773,7 +1773,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1250(i32 noundef %0, ptr noundef 
   %19 = add nsw i32 %.03543.i, %.03044.i
   %20 = ashr i32 %19, 1
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i16, ptr @zueci_cp1250_u_u, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr @zueci_cp1250_u_u, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !14
   %24 = zext i16 %23 to i32
   %25 = icmp ugt i32 %0, %24
@@ -1832,7 +1832,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1251(i32 noundef %0, ptr noundef 
 8:                                                ; preds = %6
   %9 = lshr i32 %7, 4
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr @zueci_cp1251_s, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr @zueci_cp1251_s, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !14
   %13 = zext i16 %12 to i32
   %14 = and i32 %0, 15
@@ -1851,7 +1851,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1251(i32 noundef %0, ptr noundef 
   %19 = add nsw i32 %.03543.i, %.03044.i
   %20 = ashr i32 %19, 1
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i16, ptr @zueci_cp1251_u_u, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr @zueci_cp1251_u_u, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !14
   %24 = zext i16 %23 to i32
   %25 = icmp ugt i32 %0, %24
@@ -1914,7 +1914,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1252(i32 noundef %0, ptr noundef 
   %10 = add nsw i32 %.03543.i, %.03044.i
   %11 = ashr i32 %10, 1
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i16, ptr @zueci_cp1252_u_u, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr @zueci_cp1252_u_u, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !14
   %15 = zext i16 %14 to i32
   %16 = icmp ugt i32 %0, %15
@@ -1973,7 +1973,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1256(i32 noundef %0, ptr noundef 
 8:                                                ; preds = %6
   %9 = lshr i32 %7, 4
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr @zueci_cp1256_s, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr @zueci_cp1256_s, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !14
   %13 = zext i16 %12 to i32
   %14 = and i32 %0, 15
@@ -1992,7 +1992,7 @@ define internal range(i32 0, 2) i32 @zueci_u_cp1256(i32 noundef %0, ptr noundef 
   %19 = add nsw i32 %.03543.i, %.03044.i
   %20 = ashr i32 %19, 1
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i16, ptr @zueci_cp1256_u_u, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr @zueci_cp1256_u_u, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !14
   %24 = zext i16 %23 to i32
   %25 = icmp ugt i32 %0, %24
@@ -2109,7 +2109,7 @@ define internal range(i32 0, 3) i32 @zueci_u_big5(i32 noundef %0, ptr noundef wr
   %13 = and i32 %0, 15
   %14 = shl nuw nsw i32 1, %13
   %15 = zext nneg i32 %12 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @zueci_big5_uro_u, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @zueci_big5_uro_u, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %14, %18
@@ -2120,12 +2120,12 @@ define internal range(i32 0, 3) i32 @zueci_u_big5(i32 noundef %0, ptr noundef wr
   %22 = add nuw nsw i32 %14, 65535
   %23 = and i32 %22, %18
   %24 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %23)
-  %25 = getelementptr inbounds nuw i16, ptr @zueci_big5_uro_mb_ind, i64 %15
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @zueci_big5_uro_mb_ind, i64 %15
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = add nuw nsw i32 %24, %27
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i16, ptr @zueci_big5_u_mb, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr @zueci_big5_u_mb, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !14
   %32 = lshr i16 %31, 8
   %33 = trunc nuw i16 %32 to i8
@@ -2146,7 +2146,7 @@ define internal range(i32 0, 3) i32 @zueci_u_big5(i32 noundef %0, ptr noundef wr
   %38 = add nsw i32 %.02941, %.03340
   %39 = ashr i32 %38, 1
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i16, ptr @zueci_big5_u_u, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr @zueci_big5_u_u, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !14
   %43 = zext i16 %42 to i32
   %44 = icmp ugt i32 %0, %43
@@ -2168,7 +2168,7 @@ define internal range(i32 0, 3) i32 @zueci_u_big5(i32 noundef %0, ptr noundef wr
   %51 = add nsw i32 %39, 13061
   %52 = select i1 %7, i32 %51, i32 %39
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i16, ptr @zueci_big5_u_mb, i64 %53
+  %54 = getelementptr inbounds [2 x i8], ptr @zueci_big5_u_mb, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !14
   %56 = lshr i16 %55, 8
   %57 = trunc nuw i16 %56 to i8
@@ -2213,7 +2213,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr noundef 
   %12 = and i32 %0, 15
   %13 = shl nuw nsw i32 1, %12
   %14 = zext nneg i32 %11 to i64
-  %15 = getelementptr inbounds nuw i16, ptr @zueci_gb2312_uro_u, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gb2312_uro_u, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !14
   %17 = zext i16 %16 to i32
   %18 = and i32 %13, %17
@@ -2224,12 +2224,12 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr noundef 
   %21 = add nuw nsw i32 %13, 65535
   %22 = and i32 %21, %17
   %23 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %22)
-  %24 = getelementptr inbounds nuw i16, ptr @zueci_gb2312_uro_mb_ind, i64 %14
+  %24 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gb2312_uro_mb_ind, i64 %14
   %25 = load i16, ptr %24, align 2, !tbaa !14
   %26 = zext i16 %25 to i32
   %27 = add nuw nsw i32 %23, %26
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i16, ptr @zueci_gb2312_u_mb, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gb2312_u_mb, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !14
   %31 = lshr i16 %30, 8
   %32 = trunc nuw i16 %31 to i8
@@ -2247,7 +2247,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr noundef 
 37:                                               ; preds = %35
   %38 = lshr i32 %36, 8
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i16, ptr @zueci_gb2312_u_ind, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gb2312_u_ind, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !14
   %42 = zext i16 %41 to i32
   %43 = tail call i32 @llvm.umin.i32(i32 %42, i32 562)
@@ -2261,7 +2261,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr noundef 
   %45 = add nsw i32 %.03547, %.03846
   %46 = ashr i32 %45, 1
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i16, ptr @zueci_gb2312_u_u, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr @zueci_gb2312_u_u, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !14
   %50 = zext i16 %49 to i32
   %51 = icmp ugt i32 %0, %50
@@ -2290,7 +2290,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr noundef 
   %61 = add nsw i32 %46, 6627
   %62 = select i1 %60, i32 %61, i32 %46
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i16, ptr @zueci_gb2312_u_mb, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr @zueci_gb2312_u_mb, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !14
   %66 = lshr i16 %65, 8
   %67 = trunc nuw i16 %66 to i8
@@ -2330,7 +2330,7 @@ define internal range(i32 0, 3) i32 @zueci_u_ksx1001(i32 noundef %0, ptr noundef
   %13 = and i32 %0, 15
   %14 = shl nuw nsw i32 1, %13
   %15 = zext nneg i32 %12 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @zueci_ksx1001_uro_u, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @zueci_ksx1001_uro_u, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %14, %18
@@ -2341,12 +2341,12 @@ define internal range(i32 0, 3) i32 @zueci_u_ksx1001(i32 noundef %0, ptr noundef
   %22 = add nuw nsw i32 %14, 65535
   %23 = and i32 %22, %18
   %24 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %23)
-  %25 = getelementptr inbounds nuw i16, ptr @zueci_ksx1001_uro_mb_ind, i64 %15
+  %25 = getelementptr inbounds nuw [2 x i8], ptr @zueci_ksx1001_uro_mb_ind, i64 %15
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
   %28 = add nuw nsw i32 %24, %27
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i16, ptr @zueci_ksx1001_u_mb, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr @zueci_ksx1001_u_mb, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !14
   %32 = lshr i16 %31, 8
   %33 = trunc nuw i16 %32 to i8
@@ -2364,7 +2364,7 @@ define internal range(i32 0, 3) i32 @zueci_u_ksx1001(i32 noundef %0, ptr noundef
 38:                                               ; preds = %36
   %39 = lshr i32 %37, 8
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i16, ptr @zueci_ksx1001_u_ind, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr @zueci_ksx1001_u_ind, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !14
   %43 = zext i16 %42 to i32
   %44 = tail call i32 @llvm.umin.i32(i32 %43, i32 3351)
@@ -2378,7 +2378,7 @@ define internal range(i32 0, 3) i32 @zueci_u_ksx1001(i32 noundef %0, ptr noundef
   %46 = add nsw i32 %.03245, %.03644
   %47 = ashr i32 %46, 1
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i16, ptr @zueci_ksx1001_u_u, i64 %48
+  %49 = getelementptr inbounds [2 x i8], ptr @zueci_ksx1001_u_u, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !14
   %51 = zext i16 %50 to i32
   %52 = icmp ugt i32 %0, %51
@@ -2400,7 +2400,7 @@ define internal range(i32 0, 3) i32 @zueci_u_ksx1001(i32 noundef %0, ptr noundef
   %59 = add nsw i32 %47, 4620
   %60 = select i1 %7, i32 %59, i32 %47
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i16, ptr @zueci_ksx1001_u_mb, i64 %61
+  %62 = getelementptr inbounds [2 x i8], ptr @zueci_ksx1001_u_mb, i64 %61
   %63 = load i16, ptr %62, align 2, !tbaa !14
   %64 = lshr i16 %63, 8
   %65 = trunc nuw i16 %64 to i8
@@ -2457,7 +2457,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
   %15 = and i32 %0, 15
   %16 = shl nuw nsw i32 1, %15
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds nuw i16, ptr @zueci_gb2312_uro_u, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gb2312_uro_u, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !14
   %20 = zext i16 %19 to i32
   %21 = and i32 %16, %20
@@ -2468,12 +2468,12 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
   %24 = add nuw nsw i32 %16, 65535
   %25 = and i32 %24, %20
   %26 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %25)
-  %27 = getelementptr inbounds nuw i16, ptr @zueci_gb2312_uro_mb_ind, i64 %17
+  %27 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gb2312_uro_mb_ind, i64 %17
   %28 = load i16, ptr %27, align 2, !tbaa !14
   %29 = zext i16 %28 to i32
   %30 = add nuw nsw i32 %26, %29
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw i16, ptr @zueci_gb2312_u_mb, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gb2312_u_mb, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !14
   %34 = lshr i16 %33, 8
   %35 = trunc nuw i16 %34 to i8
@@ -2491,7 +2491,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
 40:                                               ; preds = %38
   %41 = lshr i32 %39, 8
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw i16, ptr @zueci_gb2312_u_ind, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gb2312_u_ind, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !14
   %45 = zext i16 %44 to i32
   %46 = tail call i32 @llvm.umin.i32(i32 %45, i32 562)
@@ -2505,7 +2505,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
   %48 = add nsw i32 %.03846.i, %.03547.i
   %49 = ashr i32 %48, 1
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i16, ptr @zueci_gb2312_u_u, i64 %50
+  %51 = getelementptr inbounds [2 x i8], ptr @zueci_gb2312_u_u, i64 %50
   %52 = load i16, ptr %51, align 2, !tbaa !14
   %53 = zext i16 %52 to i32
   %54 = icmp ugt i32 %0, %53
@@ -2534,7 +2534,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
   %64 = add nsw i32 %49, 6627
   %65 = select i1 %63, i32 %64, i32 %49
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i16, ptr @zueci_gb2312_u_mb, i64 %66
+  %67 = getelementptr inbounds [2 x i8], ptr @zueci_gb2312_u_mb, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !14
   %69 = lshr i16 %68, 8
   %70 = trunc nuw i16 %69 to i8
@@ -2557,7 +2557,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
   %76 = and i32 %0, 15
   %77 = shl nuw nsw i32 1, %76
   %78 = zext nneg i32 %75 to i64
-  %79 = getelementptr inbounds nuw i16, ptr @zueci_gbk_uro_u, i64 %78
+  %79 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gbk_uro_u, i64 %78
   %80 = load i16, ptr %79, align 2, !tbaa !14
   %81 = zext i16 %80 to i32
   %82 = and i32 %77, %81
@@ -2568,12 +2568,12 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
   %85 = add nuw nsw i32 %77, 65535
   %86 = and i32 %85, %81
   %87 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %86)
-  %88 = getelementptr inbounds nuw i16, ptr @zueci_gbk_uro_mb_ind, i64 %78
+  %88 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gbk_uro_mb_ind, i64 %78
   %89 = load i16, ptr %88, align 2, !tbaa !14
   %90 = zext i16 %89 to i32
   %91 = add nuw nsw i32 %87, %90
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw i16, ptr @zueci_gbk_u_mb, i64 %92
+  %93 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gbk_u_mb, i64 %92
   %94 = load i16, ptr %93, align 2, !tbaa !14
   %95 = lshr i16 %94, 8
   %96 = trunc nuw i16 %95 to i8
@@ -2595,7 +2595,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
   %101 = add nsw i32 %.03859, %.04158
   %102 = ashr i32 %101, 1
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i16, ptr @zueci_gbk_u_u, i64 %103
+  %104 = getelementptr inbounds [2 x i8], ptr @zueci_gbk_u_u, i64 %103
   %105 = load i16, ptr %104, align 2, !tbaa !14
   %106 = zext i16 %105 to i32
   %107 = icmp ugt i32 %0, %106
@@ -2623,7 +2623,7 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
   %116 = add nsw i32 %102, 14139
   %117 = select i1 %99, i32 %116, i32 %102
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i16, ptr @zueci_gbk_u_mb, i64 %118
+  %119 = getelementptr inbounds [2 x i8], ptr @zueci_gbk_u_mb, i64 %118
   %120 = load i16, ptr %119, align 2, !tbaa !14
   %121 = lshr i16 %120, 8
   %122 = trunc nuw i16 %121 to i8
@@ -2787,7 +2787,7 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr noundef
   %70 = add nuw nsw i32 %.083110, %.086109
   %71 = lshr i32 %70, 1
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw i16, ptr @zueci_gb18030_2_u_u, i64 %72
+  %73 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gb18030_2_u_u, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !14
   %75 = zext i16 %74 to i32
   %76 = icmp ugt i32 %0, %75
@@ -2806,7 +2806,7 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr noundef
   br label %89
 
 .critedge:                                        ; preds = %79
-  %83 = getelementptr inbounds nuw i16, ptr @zueci_gb18030_2_u_mb, i64 %72
+  %83 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gb18030_2_u_mb, i64 %72
   %84 = load i16, ptr %83, align 2, !tbaa !14
   %85 = lshr i16 %84, 8
   %86 = trunc nuw i16 %85 to i8
@@ -2842,7 +2842,7 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr noundef
   %95 = add nsw i32 %.089112, %.093111
   %96 = ashr i32 %95, 1
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i16, ptr @zueci_gb18030_4_u_e, i64 %97
+  %98 = getelementptr inbounds [2 x i8], ptr @zueci_gb18030_4_u_e, i64 %97
   %99 = load i16, ptr %98, align 2, !tbaa !14
   %100 = zext i16 %99 to i32
   %101 = icmp ugt i32 %0, %100
@@ -2854,7 +2854,7 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr noundef
 
 104:                                              ; preds = %.preheader
   %105 = sext i32 %.190 to i64
-  %106 = getelementptr inbounds i16, ptr @zueci_gb18030_4_u_mb_o, i64 %105
+  %106 = getelementptr inbounds [2 x i8], ptr @zueci_gb18030_4_u_mb_o, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !14
   %108 = zext i16 %107 to i32
   %109 = sub nsw i32 %0, %108
@@ -3569,7 +3569,7 @@ zueci_is_valid_utf8.exit:                         ; preds = %.preheader190
 
 195:                                              ; preds = %92
   %196 = zext nneg i32 %0 to i64
-  %197 = getelementptr inbounds nuw ptr, ptr @zueci_utf8_funcs, i64 %196
+  %197 = getelementptr inbounds nuw [8 x i8], ptr @zueci_utf8_funcs, i64 %196
   %198 = load ptr, ptr %197, align 8, !tbaa !9
   br label %199
 
@@ -4022,7 +4022,7 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
 
 88:                                               ; preds = %43
   %89 = zext nneg i32 %0 to i64
-  %90 = getelementptr inbounds nuw ptr, ptr @zueci_utf8_funcs, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr @zueci_utf8_funcs, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !9
   br label %92
 
@@ -4174,7 +4174,7 @@ define internal noundef i32 @zueci_cp437_u(ptr noundef readonly captures(none) %
   %12 = getelementptr i8, ptr %11, i64 -128
   %13 = load i8, ptr %12, align 1, !tbaa !3
   %14 = sext i8 %13 to i64
-  %15 = getelementptr inbounds i16, ptr @zueci_cp437_u_u, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr @zueci_cp437_u_u, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !14
   %17 = zext i16 %16 to i32
   br label %18
@@ -4204,7 +4204,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_2_u(ptr noundef readonly capt
   %13 = zext nneg i8 %12 to i32
   %14 = lshr i32 %13, 4
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_2_s, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_2_s, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %13, 15
@@ -4222,7 +4222,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_2_u(ptr noundef readonly capt
 
 26:                                               ; preds = %22
   %27 = sext i8 %25 to i64
-  %28 = getelementptr inbounds i16, ptr @zueci_iso8859_2_u_u, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_2_u_u, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !14
   %30 = zext i16 %29 to i32
   br label %.sink.split.i
@@ -4261,7 +4261,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_3_u(ptr noundef readonly capt
   %13 = zext nneg i8 %12 to i32
   %14 = lshr i32 %13, 4
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_3_s, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_3_s, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %13, 15
@@ -4279,7 +4279,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_3_u(ptr noundef readonly capt
 
 26:                                               ; preds = %22
   %27 = sext i8 %25 to i64
-  %28 = getelementptr inbounds i16, ptr @zueci_iso8859_3_u_u, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_3_u_u, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !14
   %30 = zext i16 %29 to i32
   br label %.sink.split.i
@@ -4318,7 +4318,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_4_u(ptr noundef readonly capt
   %13 = zext nneg i8 %12 to i32
   %14 = lshr i32 %13, 4
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_4_s, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_4_s, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %13, 15
@@ -4336,7 +4336,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_4_u(ptr noundef readonly capt
 
 26:                                               ; preds = %22
   %27 = sext i8 %25 to i64
-  %28 = getelementptr inbounds i16, ptr @zueci_iso8859_4_u_u, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_4_u_u, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !14
   %30 = zext i16 %29 to i32
   br label %.sink.split.i
@@ -4375,7 +4375,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_5_u(ptr noundef readonly capt
   %13 = zext nneg i8 %12 to i32
   %14 = lshr i32 %13, 4
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_5_s, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_5_s, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %13, 15
@@ -4395,7 +4395,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_5_u(ptr noundef readonly capt
   %25 = getelementptr inbounds nuw i8, ptr @zueci_iso8859_5_sb_u, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !3
   %27 = sext i8 %26 to i64
-  %28 = getelementptr inbounds i16, ptr @zueci_iso8859_5_u_u, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_5_u_u, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !14
   %30 = zext i16 %29 to i32
   br label %.sink.split.i
@@ -4434,7 +4434,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_6_u(ptr noundef readonly capt
   %13 = zext nneg i8 %12 to i32
   %14 = lshr i32 %13, 4
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_6_s, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_6_s, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %13, 15
@@ -4456,7 +4456,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_6_u(ptr noundef readonly capt
 
 28:                                               ; preds = %24
   %29 = sext i8 %27 to i64
-  %30 = getelementptr inbounds i16, ptr @zueci_iso8859_6_u_u, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_6_u_u, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !14
   %32 = zext i16 %31 to i32
   br label %.sink.split.i
@@ -4495,7 +4495,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_7_u(ptr noundef readonly capt
   %13 = zext nneg i8 %12 to i32
   %14 = lshr i32 %13, 4
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_7_s, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_7_s, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %13, 15
@@ -4517,7 +4517,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_7_u(ptr noundef readonly capt
 
 27:                                               ; preds = %23
   %28 = sext i8 %26 to i64
-  %29 = getelementptr inbounds i16, ptr @zueci_iso8859_7_u_u, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_7_u_u, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !14
   %31 = zext i16 %30 to i32
   br label %.sink.split.i
@@ -4556,7 +4556,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_8_u(ptr noundef readonly capt
   %13 = zext nneg i8 %12 to i32
   %14 = lshr i32 %13, 4
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_8_s, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_8_s, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %13, 15
@@ -4578,7 +4578,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_8_u(ptr noundef readonly capt
 
 27:                                               ; preds = %23
   %28 = sext i8 %26 to i64
-  %29 = getelementptr inbounds i16, ptr @zueci_iso8859_8_u_u, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_8_u_u, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !14
   %31 = zext i16 %30 to i32
   br label %.sink.split.i
@@ -4617,7 +4617,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_9_u(ptr noundef readonly capt
   %13 = zext nneg i8 %12 to i32
   %14 = lshr i32 %13, 4
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_9_s, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_9_s, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %13, 15
@@ -4639,7 +4639,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_9_u(ptr noundef readonly capt
 
 27:                                               ; preds = %23
   %28 = sext i8 %26 to i64
-  %29 = getelementptr inbounds i16, ptr @zueci_iso8859_9_u_u, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_9_u_u, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !14
   %31 = zext i16 %30 to i32
   br label %.sink.split.i
@@ -4678,7 +4678,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_10_u(ptr noundef readonly cap
   %13 = zext nneg i8 %12 to i32
   %14 = lshr i32 %13, 4
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_10_s, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_10_s, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %13, 15
@@ -4696,7 +4696,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_10_u(ptr noundef readonly cap
 
 26:                                               ; preds = %22
   %27 = sext i8 %25 to i64
-  %28 = getelementptr inbounds i16, ptr @zueci_iso8859_10_u_u, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_10_u_u, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !14
   %30 = zext i16 %29 to i32
   br label %.sink.split.i
@@ -4735,7 +4735,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_11_u(ptr noundef readonly cap
   %13 = zext nneg i8 %12 to i32
   %14 = lshr i32 %13, 4
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_11_s, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_11_s, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %13, 15
@@ -4757,7 +4757,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_11_u(ptr noundef readonly cap
 
 28:                                               ; preds = %24
   %29 = sext i8 %27 to i64
-  %30 = getelementptr inbounds i16, ptr @zueci_iso8859_11_u_u, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_11_u_u, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !14
   %32 = zext i16 %31 to i32
   br label %.sink.split.i
@@ -4796,7 +4796,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_13_u(ptr noundef readonly cap
   %13 = zext nneg i8 %12 to i32
   %14 = lshr i32 %13, 4
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_13_s, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_13_s, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %13, 15
@@ -4814,7 +4814,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_13_u(ptr noundef readonly cap
 
 26:                                               ; preds = %22
   %27 = sext i8 %25 to i64
-  %28 = getelementptr inbounds i16, ptr @zueci_iso8859_13_u_u, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_13_u_u, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !14
   %30 = zext i16 %29 to i32
   br label %.sink.split.i
@@ -4853,7 +4853,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_14_u(ptr noundef readonly cap
   %13 = zext nneg i8 %12 to i32
   %14 = lshr i32 %13, 4
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_14_s, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_14_s, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %13, 15
@@ -4875,7 +4875,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_14_u(ptr noundef readonly cap
 
 27:                                               ; preds = %23
   %28 = sext i8 %26 to i64
-  %29 = getelementptr inbounds i16, ptr @zueci_iso8859_14_u_u, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_14_u_u, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !14
   %31 = zext i16 %30 to i32
   br label %.sink.split.i
@@ -4914,7 +4914,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_15_u(ptr noundef readonly cap
   %13 = zext nneg i8 %12 to i32
   %14 = lshr i32 %13, 4
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_15_s, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_15_s, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %13, 15
@@ -4938,7 +4938,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_15_u(ptr noundef readonly cap
   %29 = getelementptr inbounds nuw i8, ptr @zueci_iso8859_15_sb_u, i64 %25
   %30 = load i8, ptr %29, align 1, !tbaa !3
   %31 = sext i8 %30 to i64
-  %32 = getelementptr inbounds i16, ptr @zueci_iso8859_15_u_u, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_15_u_u, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !14
   %34 = zext i16 %33 to i32
   br label %.sink.split.i
@@ -4977,7 +4977,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_16_u(ptr noundef readonly cap
   %13 = zext nneg i8 %12 to i32
   %14 = lshr i32 %13, 4
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr @zueci_iso8859_16_s, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @zueci_iso8859_16_s, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !14
   %18 = zext i16 %17 to i32
   %19 = and i32 %13, 15
@@ -4999,7 +4999,7 @@ define internal range(i32 0, 2) i32 @zueci_iso8859_16_u(ptr noundef readonly cap
 
 27:                                               ; preds = %23
   %28 = sext i8 %26 to i64
-  %29 = getelementptr inbounds i16, ptr @zueci_iso8859_16_u_u, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr @zueci_iso8859_16_u_u, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !14
   %31 = zext i16 %30 to i32
   br label %.sink.split.i
@@ -5103,7 +5103,7 @@ define internal range(i32 0, 3) i32 @zueci_sjis_u(ptr noundef readonly captures(
 
 52:                                               ; preds = %41
   %53 = sext i32 %50 to i64
-  %54 = getelementptr inbounds i16, ptr @zueci_sjis_mb_u, i64 %53
+  %54 = getelementptr inbounds [2 x i8], ptr @zueci_sjis_mb_u, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !14
   %.not = icmp eq i16 %55, 0
   br i1 %.not, label %switch.lookup, label %56
@@ -5146,7 +5146,7 @@ define internal range(i32 0, 2) i32 @zueci_cp1250_u(ptr noundef readonly capture
   %12 = zext nneg i8 %11 to i32
   %13 = lshr i32 %12, 4
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i16, ptr @zueci_cp1250_s, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr @zueci_cp1250_s, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !14
   %17 = zext i16 %16 to i32
   %18 = and i32 %12, 15
@@ -5165,7 +5165,7 @@ define internal range(i32 0, 2) i32 @zueci_cp1250_u(ptr noundef readonly capture
 
 25:                                               ; preds = %.critedge.i
   %26 = sext i8 %24 to i64
-  %27 = getelementptr inbounds i16, ptr @zueci_cp1250_u_u, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr @zueci_cp1250_u_u, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !14
   %29 = zext i16 %28 to i32
   br label %.sink.split.i
@@ -5201,7 +5201,7 @@ define internal range(i32 0, 2) i32 @zueci_cp1251_u(ptr noundef readonly capture
   %12 = zext nneg i8 %11 to i32
   %13 = lshr i32 %12, 4
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i16, ptr @zueci_cp1251_s, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr @zueci_cp1251_s, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !14
   %17 = zext i16 %16 to i32
   %18 = and i32 %12, 15
@@ -5220,7 +5220,7 @@ define internal range(i32 0, 2) i32 @zueci_cp1251_u(ptr noundef readonly capture
 
 25:                                               ; preds = %.critedge.i
   %26 = sext i8 %24 to i64
-  %27 = getelementptr inbounds i16, ptr @zueci_cp1251_u_u, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr @zueci_cp1251_u_u, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !14
   %29 = zext i16 %28 to i32
   br label %.sink.split.i
@@ -5257,7 +5257,7 @@ define internal range(i32 0, 2) i32 @zueci_cp1252_u(ptr noundef readonly capture
 
 11:                                               ; preds = %.critedge.i
   %12 = sext i8 %10 to i64
-  %13 = getelementptr inbounds i16, ptr @zueci_cp1252_u_u, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr @zueci_cp1252_u_u, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !14
   %15 = zext i16 %14 to i32
   br label %.sink.split.i
@@ -5293,7 +5293,7 @@ define internal range(i32 0, 2) i32 @zueci_cp1256_u(ptr noundef readonly capture
   %12 = zext nneg i8 %11 to i32
   %13 = lshr i32 %12, 4
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i16, ptr @zueci_cp1256_s, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr @zueci_cp1256_s, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !14
   %17 = zext i16 %16 to i32
   %18 = and i32 %12, 15
@@ -5312,7 +5312,7 @@ define internal range(i32 0, 2) i32 @zueci_cp1256_u(ptr noundef readonly capture
 
 25:                                               ; preds = %.critedge.i
   %26 = sext i8 %24 to i64
-  %27 = getelementptr inbounds i16, ptr @zueci_cp1256_u_u, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr @zueci_cp1256_u_u, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !14
   %29 = zext i16 %28 to i32
   br label %.sink.split.i
@@ -5451,7 +5451,7 @@ define internal range(i32 0, 3) i32 @zueci_big5_u(ptr noundef readonly captures(
 
 31:                                               ; preds = %21
   %32 = sext i32 %29 to i64
-  %33 = getelementptr inbounds i16, ptr @zueci_big5_mb_u, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr @zueci_big5_mb_u, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !14
   %.not = icmp eq i16 %34, 0
   br i1 %.not, label %37, label %35
@@ -5518,7 +5518,7 @@ define internal range(i32 0, 3) i32 @zueci_gb2312_u(ptr noundef readonly capture
   %21 = mul nsw i32 %20, 94
   %22 = add nsw i32 %21, %18
   %23 = sext i32 %22 to i64
-  %24 = getelementptr i16, ptr @zueci_gb2312_mb_u, i64 %23
+  %24 = getelementptr [2 x i8], ptr @zueci_gb2312_mb_u, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -322
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %.not = icmp eq i16 %26, 0
@@ -5581,7 +5581,7 @@ define internal range(i32 0, 3) i32 @zueci_ksx1001_u(ptr noundef readonly captur
   %23 = mul nsw i32 %22, 94
   %24 = add nsw i32 %23, %18
   %25 = sext i32 %24 to i64
-  %26 = getelementptr i16, ptr @zueci_ksx1001_mb_u, i64 %25
+  %26 = getelementptr [2 x i8], ptr @zueci_ksx1001_mb_u, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -322
   %28 = load i16, ptr %27, align 2, !tbaa !14
   %.not = icmp eq i16 %28, 0
@@ -5675,7 +5675,7 @@ switch.early.test:                                ; preds = %8
   %33 = add nuw nsw i32 %.092118, %.095117
   %34 = lshr i32 %33, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i16, ptr @zueci_gbk_nonuro_mb, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gbk_nonuro_mb, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !14
   %38 = zext i16 %37 to i32
   %39 = icmp samesign ugt i32 %31, %38
@@ -5694,7 +5694,7 @@ switch.early.test:                                ; preds = %8
   br label %49
 
 .critedge:                                        ; preds = %42
-  %46 = getelementptr inbounds nuw i16, ptr @zueci_gbk_nonuro_u, i64 %35
+  %46 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gbk_nonuro_u, i64 %35
   %47 = load i16, ptr %46, align 2, !tbaa !14
   %48 = zext i16 %47 to i32
   br label %.sink.split
@@ -5728,7 +5728,7 @@ switch.early.test:                                ; preds = %8
 
 61:                                               ; preds = %53
   %62 = sext i32 %59 to i64
-  %63 = getelementptr inbounds i16, ptr @zueci_gbk_mb_u, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr @zueci_gbk_mb_u, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !14
   %.not110 = icmp eq i16 %64, 0
   br i1 %.not110, label %67, label %65
@@ -5835,7 +5835,7 @@ switch.early.test:                                ; preds = %8
   %53 = add nuw nsw i32 %.0178209, %.0180208
   %54 = lshr i32 %53, 1
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr @zueci_gb18030_4_mb_e, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @zueci_gb18030_4_mb_e, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !12
   %58 = icmp ult i32 %57, %32
   %59 = add nuw nsw i32 %54, 1
@@ -5846,10 +5846,10 @@ switch.early.test:                                ; preds = %8
 
 61:                                               ; preds = %.preheader
   %62 = zext nneg i32 %.1181 to i64
-  %63 = getelementptr inbounds nuw i16, ptr @zueci_gb18030_4_u_e, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gb18030_4_u_e, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !14
   %65 = zext i16 %64 to i32
-  %66 = getelementptr inbounds nuw i32, ptr @zueci_gb18030_4_mb_e, i64 %62
+  %66 = getelementptr inbounds nuw [4 x i8], ptr @zueci_gb18030_4_mb_e, i64 %62
   %67 = load i32, ptr %66, align 4, !tbaa !12
   %68 = lshr i32 %67, 24
   %69 = lshr i32 %67, 16
@@ -5964,7 +5964,7 @@ switch.early.test:                                ; preds = %8
   %121 = add nuw nsw i32 %.0170207, %.0173206
   %122 = lshr i32 %121, 1
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw i16, ptr @zueci_gb18030_2_mb_mb, i64 %123
+  %124 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gb18030_2_mb_mb, i64 %123
   %125 = load i16, ptr %124, align 2, !tbaa !14
   %126 = zext i16 %125 to i32
   %127 = icmp samesign ugt i32 %119, %126
@@ -5983,7 +5983,7 @@ switch.early.test:                                ; preds = %8
   br label %137
 
 .critedge:                                        ; preds = %130
-  %134 = getelementptr inbounds nuw i16, ptr @zueci_gb18030_2_mb_u, i64 %123
+  %134 = getelementptr inbounds nuw [2 x i8], ptr @zueci_gb18030_2_mb_u, i64 %123
   %135 = load i16, ptr %134, align 2, !tbaa !14
   %136 = zext i16 %135 to i32
   br label %.critedge195.sink.split

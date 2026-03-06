@@ -24,7 +24,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.19 = type { i64, [8 x i8] }
 %"class.irr::core::rect" = type { %"class.irr::core::vector2d", %"class.irr::core::vector2d" }
 %"class.irr::core::vector2d" = type { i32, i32 }
-%"struct.ProfilerGraph::Piece" = type { %"class.std::map" }
 
 $_ZN3irr4core6stringIwEC2IwEEPKT_ = comdat any
 
@@ -713,7 +712,7 @@ for.body73:                                       ; preds = %for.cond.cleanup, %
 if.then80:                                        ; preds = %for.body73
   %inc = add nuw nsw i32 %next_color_i.0710, 1
   %idxprom = zext nneg i32 %next_color_i.0710 to i64
-  %arrayidx = getelementptr inbounds nuw %"class.irr::video::SColor", ptr @_ZZNK13ProfilerGraph4drawEiiPN3irr5video12IVideoDriverEPNS0_3gui8IGUIFontEE13usable_colors, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr @_ZZNK13ProfilerGraph4drawEiiPN3irr5video12IVideoDriverEPNS0_3gui8IGUIFontEE13usable_colors, i64 %idxprom
   %58 = load i32, ptr %arrayidx, align 4, !tbaa !61
   br label %if.end81
 
@@ -1332,11 +1331,11 @@ vector.ph:                                        ; preds = %for.body.lr.ph.i
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %6 = getelementptr inbounds i32, ptr %c, i64 %index
+  %6 = getelementptr inbounds [4 x i8], ptr %c, i64 %index
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %wide.load = load <4 x i32>, ptr %6, align 4, !tbaa !90
   %wide.load5 = load <4 x i32>, ptr %7, align 4, !tbaa !90
-  %8 = getelementptr inbounds i32, ptr %3, i64 %index
+  %8 = getelementptr inbounds [4 x i8], ptr %3, i64 %index
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store <4 x i32> %wide.load, ptr %8, align 4, !tbaa !90
   store <4 x i32> %wide.load5, ptr %9, align 4, !tbaa !90
@@ -1358,9 +1357,9 @@ for.body.i.preheader:                             ; preds = %middle.block, %for.
 for.body.i.prol:                                  ; preds = %for.body.i.preheader, %for.body.i.prol
   %indvars.iv.i.prol = phi i64 [ %indvars.iv.next.i.prol, %for.body.i.prol ], [ %indvars.iv.i.ph, %for.body.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.prol ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i.prol = getelementptr inbounds nuw i32, ptr %c, i64 %indvars.iv.i.prol
+  %arrayidx.i.prol = getelementptr inbounds nuw [4 x i8], ptr %c, i64 %indvars.iv.i.prol
   %11 = load i32, ptr %arrayidx.i.prol, align 4, !tbaa !90
-  %arrayidx.i.i.prol = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.prol
+  %arrayidx.i.i.prol = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.prol
   store i32 %11, ptr %arrayidx.i.i.prol, align 4, !tbaa !90
   %indvars.iv.next.i.prol = add nuw nsw i64 %indvars.iv.i.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -1375,24 +1374,24 @@ for.body.i.prol.loopexit:                         ; preds = %for.body.i.prol, %f
 
 for.body.i:                                       ; preds = %for.body.i.prol.loopexit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i.3, %for.body.i ], [ %indvars.iv.i.unr, %for.body.i.prol.loopexit ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %c, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %c, i64 %indvars.iv.i
   %14 = load i32, ptr %arrayidx.i, align 4, !tbaa !90
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv.i
   store i32 %14, ptr %arrayidx.i.i, align 4, !tbaa !90
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i.1 = getelementptr inbounds i32, ptr %c, i64 %indvars.iv.next.i
+  %arrayidx.i.1 = getelementptr inbounds [4 x i8], ptr %c, i64 %indvars.iv.next.i
   %15 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !90
-  %arrayidx.i.i.1 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i
+  %arrayidx.i.i.1 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv.next.i
   store i32 %15, ptr %arrayidx.i.i.1, align 4, !tbaa !90
   %indvars.iv.next.i.1 = add nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx.i.2 = getelementptr inbounds i32, ptr %c, i64 %indvars.iv.next.i.1
+  %arrayidx.i.2 = getelementptr inbounds [4 x i8], ptr %c, i64 %indvars.iv.next.i.1
   %16 = load i32, ptr %arrayidx.i.2, align 4, !tbaa !90
-  %arrayidx.i.i.2 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i.1
+  %arrayidx.i.i.2 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv.next.i.1
   store i32 %16, ptr %arrayidx.i.i.2, align 4, !tbaa !90
   %indvars.iv.next.i.2 = add nuw nsw i64 %indvars.iv.i, 3
-  %arrayidx.i.3 = getelementptr inbounds i32, ptr %c, i64 %indvars.iv.next.i.2
+  %arrayidx.i.3 = getelementptr inbounds [4 x i8], ptr %c, i64 %indvars.iv.next.i.2
   %17 = load i32, ptr %arrayidx.i.3, align 4, !tbaa !90
-  %arrayidx.i.i.3 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next.i.2
+  %arrayidx.i.i.3 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv.next.i.2
   store i32 %17, ptr %arrayidx.i.i.3, align 4, !tbaa !90
   %indvars.iv.next.i.3 = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i.3 = icmp eq i64 %indvars.iv.next.i.3, %conv.i
@@ -1949,9 +1948,9 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8, !tbaa !100
   %sub = sub i64 %2, %add4
   %div88 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div88
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div88
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
@@ -1974,8 +1973,8 @@ if.then.i.i.i.i.i93:                              ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i91 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i89, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i91, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
-  %add.ptr.i.i.i.i.i94 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %.pre.i.i.i.i.i
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %add.ptr9, i64 %add
+  %add.ptr.i.i.i.i.i94 = getelementptr inbounds [8 x i8], ptr %add.ptr29, i64 %.pre.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i94, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i91, i1 false)
   br label %if.end65
 
@@ -2003,9 +2002,9 @@ _ZNSt11_Deque_baseIN13ProfilerGraph5PieceESaIS1_EE15_M_allocate_mapEm.exit: ; pr
   %call5.i.i4.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #19
   %sub40 = sub i64 %add38, %add4
   %div4187 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i4.i, i64 %div4187
+  %add.ptr42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i4.i, i64 %div4187
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
+  %add.ptr48 = getelementptr inbounds [8 x i8], ptr %add.ptr42, i64 %cond47
   %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i98 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i98, label %_ZSt4copyIPPN13ProfilerGraph5PieceES3_ET0_T_S5_S4_.exit101, label %if.then.i.i.i.i.i99
@@ -2032,7 +2031,7 @@ if.end65:                                         ; preds = %_ZSt4copyIPPN13Prof
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 480
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8, !tbaa !30
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
+  %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8, !tbaa !27
   %6 = load ptr, ptr %add.ptr71, align 8, !tbaa !20
@@ -2415,7 +2414,7 @@ land.lhs.true.i.i:                                ; preds = %if.end17
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %add.ptr.i.i154 = getelementptr inbounds %"struct.ProfilerGraph::Piece", ptr %34, i64 %add12.i
+  %add.ptr.i.i154 = getelementptr inbounds [48 x i8], ptr %34, i64 %add12.i
   br label %_ZStplRKSt15_Deque_iteratorIN13ProfilerGraph5PieceERS1_PS1_El.exit
 
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i
@@ -2430,7 +2429,7 @@ cond.false.i.i:                                   ; preds = %if.end17
 
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i64 [ %div25.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
-  %add.ptr11.i.i = getelementptr inbounds ptr, ptr %37, i64 %cond.i.i
+  %add.ptr11.i.i = getelementptr inbounds [8 x i8], ptr %37, i64 %cond.i.i
   store ptr %add.ptr11.i.i, ptr %_M_node.i.i145, align 8, !tbaa !27, !alias.scope !134
   %38 = load ptr, ptr %add.ptr11.i.i, align 8, !tbaa !20, !noalias !134
   store ptr %38, ptr %_M_first.i.i141, align 8, !tbaa !29, !alias.scope !134
@@ -2438,7 +2437,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   store ptr %add.ptr.i.i.i153, ptr %_M_last.i.i143, align 8, !tbaa !30, !alias.scope !134
   %.idx = mul i64 %cond.i.i, -480
   %39 = getelementptr i8, ptr %38, i64 %.idx
-  %add.ptr15.i.i = getelementptr %"struct.ProfilerGraph::Piece", ptr %39, i64 %add.i.i151
+  %add.ptr15.i.i = getelementptr [48 x i8], ptr %39, i64 %add.i.i151
   br label %_ZStplRKSt15_Deque_iteratorIN13ProfilerGraph5PieceERS1_PS1_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN13ProfilerGraph5PieceERS1_PS1_El.exit: ; preds = %cond.end.i.i, %if.then.i.i
@@ -2494,7 +2493,7 @@ if.end:                                           ; preds = %if.then, %while.bod
   %__rend.0 = phi ptr [ %add.ptr6, %if.then ], [ %1, %while.body ]
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %__rlen.0, i64 %__len.024)
   %idx.neg = sub nsw i64 0, %.sroa.speculated
-  %add.ptr8 = getelementptr inbounds %"struct.ProfilerGraph::Piece", ptr %__last.addr.025, i64 %idx.neg
+  %add.ptr8 = getelementptr inbounds [48 x i8], ptr %__last.addr.025, i64 %idx.neg
   %cmp6.i.i.i = icmp sgt i64 %.sroa.speculated, 0
   br i1 %cmp6.i.i.i, label %for.body.i.i.i, label %_ZSt23__copy_move_backward_a1ILb1EPN13ProfilerGraph5PieceES2_ET1_T0_S4_S3_.exit
 
@@ -2577,7 +2576,7 @@ land.lhs.true.i.i:                                ; preds = %_ZSt23__copy_move_b
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %add.ptr.i.i = getelementptr inbounds %"struct.ProfilerGraph::Piece", ptr %12, i64 %idx.neg
+  %add.ptr.i.i = getelementptr inbounds [48 x i8], ptr %12, i64 %idx.neg
   br label %_ZNSt15_Deque_iteratorIN13ProfilerGraph5PieceERS1_PS1_EmIEl.exit
 
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i
@@ -2593,7 +2592,7 @@ cond.false.i.i:                                   ; preds = %_ZSt23__copy_move_b
 cond.end.i.i:                                     ; preds = %cond.false.i.i, %cond.true.i.i
   %cond.i.i = phi i64 [ %div25.i.i, %cond.true.i.i ], [ %sub10.i.i, %cond.false.i.i ]
   %13 = load ptr, ptr %_M_node, align 8, !tbaa !27
-  %add.ptr11.i.i = getelementptr inbounds ptr, ptr %13, i64 %cond.i.i
+  %add.ptr11.i.i = getelementptr inbounds [8 x i8], ptr %13, i64 %cond.i.i
   store ptr %add.ptr11.i.i, ptr %_M_node, align 8, !tbaa !27
   %14 = load ptr, ptr %add.ptr11.i.i, align 8, !tbaa !20
   store ptr %14, ptr %_M_first, align 8, !tbaa !29
@@ -2601,7 +2600,7 @@ cond.end.i.i:                                     ; preds = %cond.false.i.i, %co
   store ptr %add.ptr.i.i.i, ptr %_M_last.i.i.i, align 8, !tbaa !30
   %.idx = mul i64 %cond.i.i, -480
   %15 = getelementptr i8, ptr %14, i64 %.idx
-  %add.ptr15.i.i = getelementptr %"struct.ProfilerGraph::Piece", ptr %15, i64 %add.i.i
+  %add.ptr15.i.i = getelementptr [48 x i8], ptr %15, i64 %add.i.i
   br label %_ZNSt15_Deque_iteratorIN13ProfilerGraph5PieceERS1_PS1_EmIEl.exit
 
 _ZNSt15_Deque_iteratorIN13ProfilerGraph5PieceERS1_PS1_EmIEl.exit: ; preds = %cond.end.i.i, %if.then.i.i
@@ -2657,7 +2656,7 @@ while.body:                                       ; preds = %_ZNSt15_Deque_itera
   %sub.ptr.sub3 = sub i64 %sub.ptr.lhs.cast1, %sub.ptr.rhs.cast2
   %sub.ptr.div4 = sdiv exact i64 %sub.ptr.sub3, 48
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %sub.ptr.div4, i64 %storemerge22)
-  %add.ptr = getelementptr inbounds %"struct.ProfilerGraph::Piece", ptr %__first.addr.023, i64 %.sroa.speculated
+  %add.ptr = getelementptr inbounds [48 x i8], ptr %__first.addr.023, i64 %.sroa.speculated
   %cmp8.i.i.i = icmp sgt i64 %sub.ptr.sub3, 0
   br i1 %cmp8.i.i.i, label %for.body.i.i.i, label %_ZSt14__copy_move_a1ILb1EPN13ProfilerGraph5PieceES2_ET1_T0_S4_S3_.exit
 
@@ -2739,7 +2738,7 @@ land.lhs.true.i:                                  ; preds = %_ZSt14__copy_move_a
   br i1 %cmp2.i, label %if.then.i, label %cond.true.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %add.ptr.i = getelementptr inbounds %"struct.ProfilerGraph::Piece", ptr %9, i64 %.sroa.speculated
+  %add.ptr.i = getelementptr inbounds [48 x i8], ptr %9, i64 %.sroa.speculated
   br label %_ZNSt15_Deque_iteratorIN13ProfilerGraph5PieceERS1_PS1_EpLEl.exit
 
 cond.true.i:                                      ; preds = %land.lhs.true.i
@@ -2755,7 +2754,7 @@ cond.false.i:                                     ; preds = %_ZSt14__copy_move_a
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
   %cond.i = phi i64 [ %div25.i, %cond.true.i ], [ %sub10.i, %cond.false.i ]
   %11 = load ptr, ptr %_M_node.i, align 8, !tbaa !27
-  %add.ptr11.i = getelementptr inbounds ptr, ptr %11, i64 %cond.i
+  %add.ptr11.i = getelementptr inbounds [8 x i8], ptr %11, i64 %cond.i
   store ptr %add.ptr11.i, ptr %_M_node.i, align 8, !tbaa !27
   %12 = load ptr, ptr %add.ptr11.i, align 8, !tbaa !20
   store ptr %12, ptr %_M_first.i, align 8, !tbaa !29
@@ -2763,7 +2762,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
   store ptr %add.ptr.i.i, ptr %_M_last, align 8, !tbaa !30
   %.idx = mul i64 %cond.i, -480
   %13 = getelementptr i8, ptr %12, i64 %.idx
-  %add.ptr15.i = getelementptr %"struct.ProfilerGraph::Piece", ptr %13, i64 %add.i
+  %add.ptr15.i = getelementptr [48 x i8], ptr %13, i64 %add.i
   br label %_ZNSt15_Deque_iteratorIN13ProfilerGraph5PieceERS1_PS1_EpLEl.exit
 
 _ZNSt15_Deque_iteratorIN13ProfilerGraph5PieceERS1_PS1_EpLEl.exit: ; preds = %cond.end.i, %if.then.i

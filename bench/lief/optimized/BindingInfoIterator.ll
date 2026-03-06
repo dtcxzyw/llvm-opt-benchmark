@@ -4,24 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::locale::id" = type { i64 }
-%"class.std::unique_ptr.56" = type { %"struct.std::__uniq_ptr_data.57" }
-%"struct.std::__uniq_ptr_data.57" = type { %"class.std::__uniq_ptr_impl.58" }
-%"class.std::__uniq_ptr_impl.58" = type { %"class.std::tuple.59" }
-%"class.std::tuple.59" = type { %"struct.std::_Tuple_impl.60" }
-%"struct.std::_Tuple_impl.60" = type { %"struct.std::_Head_base.63" }
-%"struct.std::_Head_base.63" = type { ptr }
-%"class.std::unique_ptr.79" = type { %"struct.std::__uniq_ptr_data.80" }
-%"struct.std::__uniq_ptr_data.80" = type { %"class.std::__uniq_ptr_impl.81" }
-%"class.std::__uniq_ptr_impl.81" = type { %"class.std::tuple.82" }
-%"class.std::tuple.82" = type { %"struct.std::_Tuple_impl.83" }
-%"struct.std::_Tuple_impl.83" = type { %"struct.std::_Head_base.86" }
-%"struct.std::_Head_base.86" = type { ptr }
-%"class.std::unique_ptr.159" = type { %"struct.std::__uniq_ptr_data.160" }
-%"struct.std::__uniq_ptr_data.160" = type { %"class.std::__uniq_ptr_impl.161" }
-%"class.std::__uniq_ptr_impl.161" = type { %"class.std::tuple.162" }
-%"class.std::tuple.162" = type { %"struct.std::_Tuple_impl.163" }
-%"struct.std::_Tuple_impl.163" = type { %"struct.std::_Head_base.166" }
-%"struct.std::_Head_base.166" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -74,7 +56,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK4LIEF5MachO19Binding
   unreachable
 
 _ZNKSt6vectorISt10unique_ptrIN4LIEF5MachO15DyldBindingInfoESt14default_deleteIS3_EESaIS6_EE2atEm.exit: ; preds = %4
-  %17 = getelementptr inbounds nuw %"class.std::unique_ptr.56", ptr %11, i64 %8
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %8
   br label %48
 
 18:                                               ; preds = %1
@@ -97,7 +79,7 @@ _ZNKSt6vectorISt10unique_ptrIN4LIEF5MachO15DyldBindingInfoESt14default_deleteIS3
   unreachable
 
 _ZNKSt6vectorISt10unique_ptrIN4LIEF5MachO18ChainedBindingInfoESt14default_deleteIS3_EESaIS6_EE2atEm.exit: ; preds = %18
-  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.79", ptr %25, i64 %22
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %22
   br label %48
 
 32:                                               ; preds = %1
@@ -120,7 +102,7 @@ _ZNKSt6vectorISt10unique_ptrIN4LIEF5MachO18ChainedBindingInfoESt14default_delete
   unreachable
 
 _ZNKSt6vectorISt10unique_ptrIN4LIEF5MachO19IndirectBindingInfoESt14default_deleteIS3_EESaIS6_EE2atEm.exit: ; preds = %32
-  %45 = getelementptr inbounds nuw %"class.std::unique_ptr.159", ptr %39, i64 %36
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %36
   br label %48
 
 46:                                               ; preds = %1

@@ -468,7 +468,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   %159 = add nsw i32 %157, 1
   store i32 %159, ptr %43, align 8, !tbaa !29
   %160 = sext i32 %157 to i64
-  %161 = getelementptr inbounds %struct.Command, ptr %158, i64 %160
+  %161 = getelementptr inbounds [40 x i8], ptr %158, i64 %160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %161, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !44
   %162 = load ptr, ptr %6, align 8, !tbaa !26
   %163 = call i64 @strspn(ptr noundef %162, ptr noundef nonnull @.str.35) #12
@@ -504,7 +504,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
   br label %173
 
 173:                                              ; preds = %172, %171
-  %174 = getelementptr inbounds nuw ptr, ptr @make_command_flags_str.flag_strings, i64 %indvars.iv.i.i.i.i
+  %174 = getelementptr inbounds nuw [8 x i8], ptr @make_command_flags_str.flag_strings, i64 %indvars.iv.i.i.i.i
   %175 = load ptr, ptr %174, align 8, !tbaa !26
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.12, ptr noundef %175) #11
   br label %176
@@ -604,7 +604,7 @@ parse_interval.exit.thread.i:                     ; preds = %parse_interval.exit
   %201 = add nsw i32 %199, 1
   store i32 %201, ptr %37, align 4, !tbaa !29
   %202 = sext i32 %199 to i64
-  %203 = getelementptr inbounds %struct.Interval, ptr %200, i64 %202
+  %203 = getelementptr inbounds [40 x i8], ptr %200, i64 %202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %203, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !48
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -642,7 +642,7 @@ parse_intervals.exit.thread59:                    ; preds = %185, %parse_interva
   %indvars.iv268 = phi i64 [ %indvars.iv.next269, %._crit_edge ], [ 0, %207 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %212 = load ptr, ptr %38, align 8, !tbaa !50
-  %213 = getelementptr inbounds nuw %struct.Interval, ptr %212, i64 %indvars.iv268
+  %213 = getelementptr inbounds nuw [40 x i8], ptr %212, i64 %indvars.iv268
   %214 = load i64, ptr %213, align 8, !tbaa !36
   %215 = sitofp i64 %214 to double
   %216 = fdiv nsz double %215, 1.000000e+06
@@ -665,7 +665,7 @@ parse_intervals.exit.thread59:                    ; preds = %185, %parse_interva
 227:                                              ; preds = %.lr.ph, %make_command_flags_str.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %make_command_flags_str.exit ]
   %228 = load ptr, ptr %226, align 8, !tbaa !52
-  %229 = getelementptr inbounds nuw %struct.Command, ptr %228, i64 %indvars.iv
+  %229 = getelementptr inbounds nuw [40 x i8], ptr %228, i64 %indvars.iv
   %230 = load i32, ptr %229, align 8, !tbaa !40
   call void @av_bprint_init(ptr noundef nonnull %10, i32 noundef 0, i32 noundef 1) #11
   br label %231
@@ -688,7 +688,7 @@ parse_intervals.exit.thread59:                    ; preds = %185, %parse_interva
   br label %237
 
 237:                                              ; preds = %236, %235
-  %238 = getelementptr inbounds nuw ptr, ptr @make_command_flags_str.flag_strings, i64 %indvars.iv.i
+  %238 = getelementptr inbounds nuw [8 x i8], ptr @make_command_flags_str.flag_strings, i64 %indvars.iv.i
   %239 = load ptr, ptr %238, align 8, !tbaa !26
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.12, ptr noundef %239) #11
   br label %240
@@ -745,7 +745,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 8:                                                ; preds = %.lr.ph19, %._crit_edge
   %indvars.iv22 = phi i64 [ 0, %.lr.ph19 ], [ %indvars.iv.next23, %._crit_edge ]
   %9 = load ptr, ptr %7, align 8, !tbaa !50
-  %10 = getelementptr inbounds nuw %struct.Interval, ptr %9, i64 %indvars.iv22
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %indvars.iv22
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i32, ptr %11, align 8, !tbaa !51
   %13 = icmp sgt i32 %12, 0
@@ -758,7 +758,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %16 = load ptr, ptr %14, align 8, !tbaa !52
-  %17 = getelementptr inbounds nuw %struct.Command, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   tail call void @av_freep(ptr noundef nonnull %18) #11
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -833,7 +833,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %37 = phi i32 [ %22, %.lr.ph135 ], [ %154, %.thread124 ]
   %indvars.iv139 = phi i64 [ 0, %.lr.ph135 ], [ %indvars.iv.next140, %.thread124 ]
   %38 = load ptr, ptr %24, align 8, !tbaa !50
-  %39 = getelementptr inbounds nuw %struct.Interval, ptr %38, i64 %indvars.iv139
+  %39 = getelementptr inbounds nuw [40 x i8], ptr %38, i64 %indvars.iv139
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 36
   %41 = load i32, ptr %40, align 4, !tbaa !73
   %.not = icmp eq i32 %41, 0
@@ -898,7 +898,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br label %63
 
 63:                                               ; preds = %62, %61
-  %64 = getelementptr inbounds nuw ptr, ptr @make_command_flags_str.flag_strings, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr @make_command_flags_str.flag_strings, i64 %indvars.iv.i
   %65 = load ptr, ptr %64, align 8, !tbaa !26
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, ptr noundef %65) #11
   br label %66
@@ -938,7 +938,7 @@ make_command_flags_str.exit:                      ; preds = %66
 80:                                               ; preds = %.lr.ph, %151
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %151 ]
   %81 = load ptr, ptr %79, align 8, !tbaa !52
-  %82 = getelementptr inbounds nuw %struct.Command, ptr %81, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %81, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = load ptr, ptr %83, align 8, !tbaa !43

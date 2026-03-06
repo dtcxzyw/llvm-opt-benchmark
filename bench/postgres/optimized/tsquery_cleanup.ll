@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.PLAINTREE = type { ptr, i32, i32 }
-%union.QueryItem = type { %struct.QueryOperand }
-%struct.QueryOperand = type { i8, i8, i8, i32, i32 }
 
 @.str = private unnamed_addr constant [79 x i8] c"text-search query contains only stop words or doesn't contain lexemes, ignored\00", align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"tsquery_cleanup.c\00", align 1
@@ -77,7 +75,7 @@ common.ret12:                                     ; preds = %6, %1, %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %union.QueryItem, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %15
   %17 = tail call fastcc ptr @maketree(ptr noundef nonnull %16)
   store ptr %17, ptr %2, align 8
   br label %common.ret12
@@ -248,7 +246,7 @@ plaintree.exit:                                   ; preds = %22, %29
   %45 = phi i32 [ %32, %.lr.ph.preheader ], [ %80, %79 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %79 ]
   %.04045 = phi ptr [ %44, %.lr.ph.preheader ], [ %.1, %79 ]
-  %46 = getelementptr inbounds nuw %union.QueryItem, ptr %40, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [12 x i8], ptr %40, i64 %indvars.iv
   %47 = load i8, ptr %46, align 4
   %.not = icmp eq i8 %47, 1
   br i1 %.not, label %48, label %.lr.ph._crit_edge
@@ -556,7 +554,7 @@ define internal fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %1) u
   %14 = phi i32 [ %.pre27, %8 ], [ %4, %2 ]
   %15 = phi ptr [ %12, %8 ], [ %.pre, %2 ]
   %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds %union.QueryItem, ptr %15, i64 %16
+  %17 = getelementptr inbounds [12 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %17, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 12, i1 false)
@@ -581,7 +579,7 @@ define internal fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %1) u
   %31 = load ptr, ptr %0, align 8
   %32 = load i32, ptr %3, align 4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %union.QueryItem, ptr %31, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr %31, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 1, ptr %35, align 4
   %36 = load i32, ptr %3, align 4
@@ -603,7 +601,7 @@ define internal fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %1) u
   %46 = sub i32 %45, %41
   %47 = load ptr, ptr %0, align 8
   %48 = sext i32 %41 to i64
-  %49 = getelementptr inbounds %union.QueryItem, ptr %47, i64 %48
+  %49 = getelementptr inbounds [12 x i8], ptr %47, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   store i32 %46, ptr %50, align 4
   %51 = load ptr, ptr %1, align 8

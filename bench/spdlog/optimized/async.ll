@@ -47,8 +47,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::thread" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
 %"class.std::unique_lock" = type <{ ptr, i8, [7 x i8] }>
 %struct.id_adapter = type <{ ptr, i32, [4 x i8] }>
 %"struct.fmt::v11::formatter" = type { %"struct.fmt::v11::detail::native_formatter" }
@@ -248,7 +246,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %13
   store ptr %11, ptr %1, align 8, !tbaa !4
   store i64 0, ptr %21, align 8, !tbaa !12
   store i8 0, ptr %11, align 8, !tbaa !13
-  %23 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %2, i64 %3
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %3
   %24 = load ptr, ptr %4, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !19
@@ -2841,7 +2839,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit33.i.i: ; preds =
 "_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN6spdlog7details11thread_poolC1EmmSt8functionIFvvEES9_E3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i": ; preds = %139, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit33.i.i
   store ptr %108, ptr %11, align 8, !tbaa !147
   store ptr %138, ptr %23, align 8, !tbaa !139
-  %151 = getelementptr inbounds nuw %"class.std::thread", ptr %108, i64 %106
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %106
   store ptr %151, ptr %24, align 8, !tbaa !142
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN6spdlog7details11thread_poolC1EmmSt8functionIFvvEES9_E3$_0EEEvDpOT_.exit"
 
@@ -2961,7 +2959,7 @@ _ZNSt12_Vector_baseIN6spdlog7details9async_msgESaIS2_EEC2EmRKS3_.exit.i.i: ; pre
 
 .noexc3:                                          ; preds = %_ZNSt12_Vector_baseIN6spdlog7details9async_msgESaIS2_EEC2EmRKS3_.exit.i.i
   store ptr %11, ptr %8, align 8, !tbaa !162
-  %12 = getelementptr inbounds nuw %"struct.spdlog::details::async_msg", ptr %11, i64 %6
+  %12 = getelementptr inbounds nuw [408 x i8], ptr %11, i64 %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %12, ptr %13, align 8, !tbaa !163
   br label %.lr.ph.i.i.i.i.i.i
@@ -3976,7 +3974,7 @@ _ZNSt18condition_variable4waitIZN6spdlog7details19mpmc_blocking_queueINS2_9async
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %17 = load ptr, ptr %16, align 8, !tbaa !162
-  %18 = getelementptr inbounds nuw %"struct.spdlog::details::async_msg", ptr %17, i64 %14
+  %18 = getelementptr inbounds nuw [408 x i8], ptr %17, i64 %14
   %19 = call noundef nonnull align 8 dereferenceable(384) ptr @_ZN6spdlog7details14log_msg_bufferaSEOS1_(ptr noundef nonnull align 8 dereferenceable(408) %1, ptr noundef nonnull align 8 dereferenceable(408) %18) #26
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 384
   %21 = load i32, ptr %20, align 8, !tbaa !100
@@ -4857,7 +4855,7 @@ _ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE9on_arg_idEv.exit: ; pre
 
 35:                                               ; preds = %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE9on_arg_idEv.exit
   %36 = zext nneg i32 %22 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %10, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !196
   %39 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(20) %8)
   br label %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE20on_replacement_fieldEiPKc.exit
@@ -4921,7 +4919,7 @@ _ZN3fmt3v1113parse_contextIcE11next_arg_idEv.exit.i.i31: ; preds = %43
 
 63:                                               ; preds = %55
   %64 = zext nneg i32 %52 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %10, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !196
   %67 = call noundef ptr %66(ptr noundef nonnull align 8 dereferenceable(20) %8)
   br label %.thread47
@@ -4966,7 +4964,7 @@ _ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE9on_arg_idEv.exit33: ; p
 
 79:                                               ; preds = %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE9on_arg_idEv.exit33
   %80 = zext nneg i32 %.038.i to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %10, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !196
   %83 = call noundef ptr %82(ptr noundef nonnull align 8 dereferenceable(20) %8)
   br label %_ZN3fmt3v116detail21format_string_checkerIcLi3ELi0ELb0EE15on_format_specsEiPKcS5_.exit
@@ -6637,7 +6635,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details10circular_qINS0_9async_ms
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !170
   %8 = load ptr, ptr %5, align 8, !tbaa !162
-  %9 = getelementptr inbounds nuw %"struct.spdlog::details::async_msg", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [408 x i8], ptr %8, i64 %7
   %10 = tail call noundef nonnull align 8 dereferenceable(384) ptr @_ZN6spdlog7details14log_msg_bufferaSEOS1_(ptr noundef nonnull align 8 dereferenceable(408) %9, ptr noundef nonnull align 8 dereferenceable(408) %1) #26
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %12 = load i32, ptr %11, align 8, !tbaa !100

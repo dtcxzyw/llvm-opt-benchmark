@@ -572,7 +572,7 @@ define dso_local i64 @oidvectortypes(ptr noundef readonly captures(none) %0) loc
   %.036 = phi ptr [ %10, %.lr.ph ], [ %.1, %28 ]
   %.02834 = phi i64 [ %12, %.lr.ph ], [ %30, %28 ]
   %.03033 = phi i64 [ %9, %.lr.ph ], [ %.131, %28 ]
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = tail call ptr @format_type_extended(i32 noundef %16, i32 noundef -1, i16 noundef zeroext 2)
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #8

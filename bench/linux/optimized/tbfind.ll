@@ -5,8 +5,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %struct.acpi_table_list = type { ptr, i32, i32, i8 }
 %struct.acpi_table_header = type { [4 x i8], i32, i8, i8, [6 x i8], [8 x i8], i32, [4 x i8], i32 }
-%struct.acpi_table_desc = type { i64, ptr, i32, %union.acpi_name_union, i16, i8, i16 }
-%union.acpi_name_union = type { i32 }
 
 @acpi_gbl_root_table_list = external dso_local local_unnamed_addr global %struct.acpi_table_list, align 8
 
@@ -50,7 +48,7 @@ define dso_local i32 @acpi_tb_find_table(ptr noundef %0, ptr noundef readonly ca
   %24 = phi ptr [ %65, %64 ], [ %.pre, %.preheader.preheader ]
   %25 = phi ptr [ %66, %64 ], [ %.pre, %.preheader.preheader ]
   %26 = phi i64 [ %67, %64 ], [ 0, %.preheader.preheader ]
-  %27 = getelementptr %struct.acpi_table_desc, ptr %25, i64 %26
+  %27 = getelementptr [32 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %29 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %28, ptr noundef nonnull dereferenceable(4) %5, i64 4)
   %30 = icmp eq i32 %29, 0
@@ -63,7 +61,7 @@ define dso_local i32 @acpi_tb_find_table(ptr noundef %0, ptr noundef readonly ca
   br i1 %34, label %35, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %31
-  %.split2.phi.trans.insert = getelementptr %struct.acpi_table_desc, ptr %24, i64 %26
+  %.split2.phi.trans.insert = getelementptr [32 x i8], ptr %24, i64 %26
   %.phi.trans.insert = getelementptr i8, ptr %.split2.phi.trans.insert, i64 8
   %.pre5 = load ptr, ptr %.phi.trans.insert, align 8
   br label %43
@@ -75,7 +73,7 @@ define dso_local i32 @acpi_tb_find_table(ptr noundef %0, ptr noundef readonly ca
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr @acpi_gbl_root_table_list, align 8
-  %.split = getelementptr %struct.acpi_table_desc, ptr %39, i64 %26
+  %.split = getelementptr [32 x i8], ptr %39, i64 %26
   %40 = getelementptr i8, ptr %.split, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null

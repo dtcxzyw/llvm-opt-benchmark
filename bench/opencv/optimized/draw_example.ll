@@ -38,8 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::util::variant" = type { i64, [1 x %"union.std::aligned_storage<200, 8>::type"] }
-%"union.std::aligned_storage<200, 8>::type" = type { [200 x i8] }
 
 $_ZNSt6vectorIN2cv11GCompileArgESaIS1_EED2Ev = comdat any
 
@@ -638,7 +636,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %_ZN
 .lr.ph.i.i.i.i40:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38, %_ZSt8_DestroyIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i41 = phi ptr [ %204, %_ZSt8_DestroyIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEEEvPT_.exit.i.i.i.i ], [ %195, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38 ]
   %197 = load i64, ptr %.05.i.i.i.i41, align 8, !tbaa !62
-  %198 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %197
+  %198 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %197
   %199 = load ptr, ptr %198, align 8, !tbaa !95
   %200 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i41, i64 8
   invoke void %199(ptr noundef nonnull %200)
@@ -879,7 +877,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4d
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %12, %_ZSt8_DestroyIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEEEvPT_.exit.i.i.i ], [ %2, %1 ]
   %5 = load i64, ptr %.05.i.i.i, align 8, !tbaa !62
-  %6 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !95
   %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   invoke void %7(ptr noundef nonnull %8)
@@ -1088,7 +1086,7 @@ _ZNKSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS
   tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
   %37 = load i64, ptr %.0913.i.i.i.i, align 8, !tbaa !62, !alias.scope !107, !noalias !104
   store i64 %37, ptr %.014.i.i.i.i, align 8, !tbaa !62, !alias.scope !104, !noalias !107
-  %38 = getelementptr inbounds nuw ptr, ptr @constinit.5, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @constinit.5, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !95, !noalias !109
   %40 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i, i64 8
@@ -1104,7 +1102,7 @@ _ZNKSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEEEE9constructISE_JSE_EEEvRSF_PT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %45 = load i64, ptr %.0913.i.i.i.i, align 8, !tbaa !62, !alias.scope !107, !noalias !104
-  %46 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !95, !noalias !109
   invoke void %47(ptr noundef nonnull %41)
           to label %_ZSt19__relocate_object_aIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i.i unwind label %48
@@ -1135,7 +1133,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
   %54 = load i64, ptr %.0913.i.i.i.i29, align 8, !tbaa !62, !alias.scope !114, !noalias !111
   store i64 %54, ptr %.014.i.i.i.i28, align 8, !tbaa !62, !alias.scope !111, !noalias !114
-  %55 = getelementptr inbounds nuw ptr, ptr @constinit.5, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr @constinit.5, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !95, !noalias !116
   %57 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i28, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i29, i64 8
@@ -1151,7 +1149,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEEEE9constructISE_JSE_EEEvRSF_PT_DpOT0_.exit.i.i.i.i.i30: ; preds = %.lr.ph.i.i.i.i27
   %62 = load i64, ptr %.0913.i.i.i.i29, align 8, !tbaa !62, !alias.scope !114, !noalias !111
-  %63 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !95, !noalias !116
   invoke void %64(ptr noundef nonnull %58)
           to label %_ZSt19__relocate_object_aIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i.i31 unwind label %65
@@ -1182,7 +1180,7 @@ _ZNSt12_Vector_baseIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4R
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !94
   store ptr %.0.lcssa.i.i.i.i33, ptr %4, align 8, !tbaa !58
-  %72 = getelementptr inbounds nuw %"class.cv::util::variant", ptr %20, i64 %16
+  %72 = getelementptr inbounds nuw [208 x i8], ptr %20, i64 %16
   store ptr %72, ptr %71, align 8, !tbaa !61
   ret void
 }
@@ -1540,7 +1538,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   %53 = load i64, ptr %.0913.i.i.i.i, align 8, !tbaa !62, !alias.scope !126, !noalias !123
   store i64 %53, ptr %.014.i.i.i.i, align 8, !tbaa !62, !alias.scope !123, !noalias !126
-  %54 = getelementptr inbounds nuw ptr, ptr @constinit.5, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr @constinit.5, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !95, !noalias !128
   %56 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i, i64 8
@@ -1556,7 +1554,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEEEE9constructISE_JSE_EEEvRSF_PT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %61 = load i64, ptr %.0913.i.i.i.i, align 8, !tbaa !62, !alias.scope !126, !noalias !123
-  %62 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !95, !noalias !128
   invoke void %63(ptr noundef nonnull %57)
           to label %_ZSt19__relocate_object_aIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i.i unwind label %64
@@ -1587,7 +1585,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %70 = load i64, ptr %.0913.i.i.i.i29, align 8, !tbaa !62, !alias.scope !132, !noalias !129
   store i64 %70, ptr %.014.i.i.i.i28, align 8, !tbaa !62, !alias.scope !129, !noalias !132
-  %71 = getelementptr inbounds nuw ptr, ptr @constinit.5, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr @constinit.5, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !95, !noalias !134
   %73 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i28, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i29, i64 8
@@ -1603,7 +1601,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEEEE9constructISE_JSE_EEEvRSF_PT_DpOT0_.exit.i.i.i.i.i30: ; preds = %.lr.ph.i.i.i.i27
   %78 = load i64, ptr %.0913.i.i.i.i29, align 8, !tbaa !62, !alias.scope !132, !noalias !129
-  %79 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !95, !noalias !134
   invoke void %80(ptr noundef nonnull %74)
           to label %_ZSt19__relocate_object_aIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i.i31 unwind label %81
@@ -1634,7 +1632,7 @@ _ZNSt12_Vector_baseIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4R
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !94
   store ptr %.0.lcssa.i.i.i.i33, ptr %4, align 8, !tbaa !58
-  %88 = getelementptr inbounds nuw %"class.cv::util::variant", ptr %20, i64 %16
+  %88 = getelementptr inbounds nuw [208 x i8], ptr %20, i64 %16
   store ptr %88, ptr %87, align 8, !tbaa !61
   ret void
 }
@@ -1700,7 +1698,7 @@ _ZNKSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
   %37 = load i64, ptr %.0913.i.i.i.i, align 8, !tbaa !62, !alias.scope !138, !noalias !135
   store i64 %37, ptr %.014.i.i.i.i, align 8, !tbaa !62, !alias.scope !135, !noalias !138
-  %38 = getelementptr inbounds nuw ptr, ptr @constinit.5, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @constinit.5, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !95, !noalias !140
   %40 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i, i64 8
@@ -1716,7 +1714,7 @@ _ZNKSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEEEE9constructISE_JSE_EEEvRSF_PT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %45 = load i64, ptr %.0913.i.i.i.i, align 8, !tbaa !62, !alias.scope !138, !noalias !135
-  %46 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !95, !noalias !140
   invoke void %47(ptr noundef nonnull %41)
           to label %_ZSt19__relocate_object_aIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i.i unwind label %48
@@ -1747,7 +1745,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
   %54 = load i64, ptr %.0913.i.i.i.i29, align 8, !tbaa !62, !alias.scope !144, !noalias !141
   store i64 %54, ptr %.014.i.i.i.i28, align 8, !tbaa !62, !alias.scope !141, !noalias !144
-  %55 = getelementptr inbounds nuw ptr, ptr @constinit.5, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr @constinit.5, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !95, !noalias !146
   %57 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i28, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i29, i64 8
@@ -1763,7 +1761,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEEEE9constructISE_JSE_EEEvRSF_PT_DpOT0_.exit.i.i.i.i.i30: ; preds = %.lr.ph.i.i.i.i27
   %62 = load i64, ptr %.0913.i.i.i.i29, align 8, !tbaa !62, !alias.scope !144, !noalias !141
-  %63 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !95, !noalias !146
   invoke void %64(ptr noundef nonnull %58)
           to label %_ZSt19__relocate_object_aIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i.i31 unwind label %65
@@ -1794,7 +1792,7 @@ _ZNSt12_Vector_baseIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4R
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !94
   store ptr %.0.lcssa.i.i.i.i33, ptr %4, align 8, !tbaa !58
-  %72 = getelementptr inbounds nuw %"class.cv::util::variant", ptr %20, i64 %16
+  %72 = getelementptr inbounds nuw [208 x i8], ptr %20, i64 %16
   store ptr %72, ptr %71, align 8, !tbaa !61
   ret void
 }
@@ -1841,7 +1839,7 @@ _ZNKSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS
   tail call void @llvm.experimental.noalias.scope.decl(metadata !150)
   %23 = load i64, ptr %.0913.i.i.i.i, align 8, !tbaa !62, !alias.scope !150, !noalias !147
   store i64 %23, ptr %.014.i.i.i.i, align 8, !tbaa !62, !alias.scope !147, !noalias !150
-  %24 = getelementptr inbounds nuw ptr, ptr @constinit.5, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @constinit.5, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !95, !noalias !152
   %26 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i, i64 8
@@ -1857,7 +1855,7 @@ _ZNKSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEEEE9constructISE_JSE_EEEvRSF_PT_DpOT0_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %31 = load i64, ptr %.0913.i.i.i.i, align 8, !tbaa !62, !alias.scope !150, !noalias !147
-  %32 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !95, !noalias !152
   invoke void %33(ptr noundef nonnull %27)
           to label %_ZSt19__relocate_object_aIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i.i unwind label %34
@@ -1888,7 +1886,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !156)
   %40 = load i64, ptr %.0913.i.i.i.i29, align 8, !tbaa !62, !alias.scope !156, !noalias !153
   store i64 %40, ptr %.014.i.i.i.i28, align 8, !tbaa !62, !alias.scope !153, !noalias !156
-  %41 = getelementptr inbounds nuw ptr, ptr @constinit.5, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @constinit.5, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !95, !noalias !158
   %43 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i28, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i.i29, i64 8
@@ -1904,7 +1902,7 @@ _ZNSt6vectorIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5
 
 _ZNSt16allocator_traitsISaIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEEEE9constructISE_JSE_EEEvRSF_PT_DpOT0_.exit.i.i.i.i.i30: ; preds = %.lr.ph.i.i.i.i27
   %48 = load i64, ptr %.0913.i.i.i.i29, align 8, !tbaa !62, !alias.scope !156, !noalias !153
-  %49 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !95, !noalias !158
   invoke void %50(ptr noundef nonnull %44)
           to label %_ZSt19__relocate_object_aIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4RectENS5_6CircleENS5_4LineENS5_6MosaicENS5_5ImageENS5_4PolyEEEESE_SaISE_EEvPT_PT0_RT1_.exit.i.i.i.i31 unwind label %51
@@ -1935,7 +1933,7 @@ _ZNSt12_Vector_baseIN2cv4util7variantIJNS0_4gapi3wip4draw4TextENS5_5FTextENS5_4R
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !94
   store ptr %.0.lcssa.i.i.i.i33, ptr %4, align 8, !tbaa !58
-  %58 = getelementptr inbounds nuw %"class.cv::util::variant", ptr %20, i64 %16
+  %58 = getelementptr inbounds nuw [208 x i8], ptr %20, i64 %16
   store ptr %58, ptr %57, align 8, !tbaa !61
   ret void
 }

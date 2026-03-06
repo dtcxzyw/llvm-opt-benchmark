@@ -870,9 +870,9 @@ store_fp.exit.i:                                  ; preds = %238, %236
 
 .lr.ph.i.i:                                       ; preds = %246
   %248 = sext i32 %.078121.i to i64
-  %249 = getelementptr inbounds ptr, ptr @argreg8, i64 %248
+  %249 = getelementptr inbounds [8 x i8], ptr @argreg8, i64 %248
   %250 = load ptr, ptr %249, align 8, !tbaa !53
-  %251 = getelementptr inbounds ptr, ptr @argreg64, i64 %248
+  %251 = getelementptr inbounds [8 x i8], ptr @argreg64, i64 %248
   br label %252
 
 252:                                              ; preds = %252, %.lr.ph.i.i
@@ -887,10 +887,10 @@ store_fp.exit.i:                                  ; preds = %238, %236
 
 switch.lookup:                                    ; preds = %.split.i.i
   %256 = zext nneg i32 %244 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.codegen.2, i64 %256
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.codegen.2, i64 %256
   %switch.load = load ptr, ptr %switch.gep, align 8
   %257 = sext i32 %.078121.i to i64
-  %258 = getelementptr inbounds ptr, ptr %switch.load, i64 %257
+  %258 = getelementptr inbounds [8 x i8], ptr %switch.load, i64 %257
   %259 = load ptr, ptr %258, align 8, !tbaa !53
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.50, ptr noundef %259, i32 noundef %226)
   br label %store_gp.exit.i
@@ -941,9 +941,9 @@ store_fp.exit95.i:                                ; preds = %268, %266
 
 .lr.ph.i96.i:                                     ; preds = %.split.i99.i, %270
   %277 = sext i32 %.280.i to i64
-  %278 = getelementptr inbounds ptr, ptr @argreg8, i64 %277
+  %278 = getelementptr inbounds [8 x i8], ptr @argreg8, i64 %277
   %279 = load ptr, ptr %278, align 8, !tbaa !53
-  %280 = getelementptr inbounds ptr, ptr @argreg64, i64 %277
+  %280 = getelementptr inbounds [8 x i8], ptr @argreg64, i64 %277
   br label %281
 
 281:                                              ; preds = %281, %.lr.ph.i96.i
@@ -958,10 +958,10 @@ store_fp.exit95.i:                                ; preds = %268, %266
 
 switch.lookup39:                                  ; preds = %.split.i99.i
   %285 = zext nneg i32 %275 to i64
-  %switch.gep40 = getelementptr inbounds nuw ptr, ptr @switch.table.codegen.2, i64 %285
+  %switch.gep40 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.codegen.2, i64 %285
   %switch.load41 = load ptr, ptr %switch.gep40, align 8
   %286 = sext i32 %.280.i to i64
-  %287 = getelementptr inbounds ptr, ptr %switch.load41, i64 %286
+  %287 = getelementptr inbounds [8 x i8], ptr %switch.load41, i64 %286
   %288 = load ptr, ptr %287, align 8, !tbaa !53
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.50, ptr noundef %288, i32 noundef %265)
   br label %store_gp.exit102.i
@@ -1004,9 +1004,9 @@ store_fp.exit104.i:                               ; preds = %292, %289
 
 .lr.ph.i105.i:                                    ; preds = %301
   %303 = sext i32 %.078121.i to i64
-  %304 = getelementptr inbounds ptr, ptr @argreg8, i64 %303
+  %304 = getelementptr inbounds [8 x i8], ptr @argreg8, i64 %303
   %305 = load ptr, ptr %304, align 8, !tbaa !53
-  %306 = getelementptr inbounds ptr, ptr @argreg64, i64 %303
+  %306 = getelementptr inbounds [8 x i8], ptr @argreg64, i64 %303
   br label %307
 
 307:                                              ; preds = %307, %.lr.ph.i105.i
@@ -1021,10 +1021,10 @@ store_fp.exit104.i:                               ; preds = %292, %289
 
 switch.lookup42:                                  ; preds = %.split.i108.i
   %311 = zext nneg i32 %299 to i64
-  %switch.gep43 = getelementptr inbounds nuw ptr, ptr @switch.table.codegen.2, i64 %311
+  %switch.gep43 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.codegen.2, i64 %311
   %switch.load44 = load ptr, ptr %switch.gep43, align 8
   %312 = sext i32 %.078121.i to i64
-  %313 = getelementptr inbounds ptr, ptr %switch.load44, i64 %312
+  %313 = getelementptr inbounds [8 x i8], ptr %switch.load44, i64 %312
   %314 = load ptr, ptr %313, align 8, !tbaa !53
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.50, ptr noundef %314, i32 noundef %226)
   br label %store_gp.exit102.i
@@ -1065,7 +1065,7 @@ emit_text.exit:                                   ; preds = %318, %._crit_edge
   %323 = load ptr, ptr %320, align 8, !tbaa !69
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str, i32 noundef %322, ptr noundef %323)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %324 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next
   %325 = load ptr, ptr %324, align 8, !tbaa !12
   %.not = icmp eq ptr %325, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
@@ -2018,8 +2018,8 @@ getTypeId.exit.i:                                 ; preds = %172, %171, %170, %1
 
 getTypeId.exit10.i:                               ; preds = %195, %194, %193, %188, %183, %178, %173, %getTypeId.exit.i
   %.0.i9.i = phi i64 [ 7, %195 ], [ %177, %173 ], [ %182, %178 ], [ %187, %183 ], [ %192, %188 ], [ 10, %194 ], [ 9, %193 ], [ 8, %getTypeId.exit.i ]
-  %196 = getelementptr inbounds nuw [11 x ptr], ptr @cast_table, i64 %.0.i.i
-  %197 = getelementptr inbounds nuw ptr, ptr %196, i64 %.0.i9.i
+  %196 = getelementptr inbounds nuw [88 x i8], ptr @cast_table, i64 %.0.i.i
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %.0.i9.i
   %198 = load ptr, ptr %197, align 8, !tbaa !53
   %.not.i = icmp eq ptr %198, null
   br i1 %.not.i, label %common.ret438, label %199
@@ -2635,7 +2635,7 @@ push_args.exit:                                   ; preds = %406, %410, %416
 465:                                              ; preds = %462
   %466 = add nsw i32 %.1287, 1
   %467 = sext i32 %.1287 to i64
-  %468 = getelementptr inbounds ptr, ptr @argreg64, i64 %467
+  %468 = getelementptr inbounds [8 x i8], ptr @argreg64, i64 %467
   %469 = load ptr, ptr %468, align 8, !tbaa !53
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.252, ptr noundef %469)
   br label %470
@@ -2661,7 +2661,7 @@ push_args.exit:                                   ; preds = %406, %410, %416
 476:                                              ; preds = %473
   %477 = add nsw i32 %.4, 1
   %478 = sext i32 %.4 to i64
-  %479 = getelementptr inbounds ptr, ptr @argreg64, i64 %478
+  %479 = getelementptr inbounds [8 x i8], ptr @argreg64, i64 %478
   %480 = load ptr, ptr %479, align 8, !tbaa !53
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.252, ptr noundef %480)
   %481 = load i32, ptr @depth, align 4, !tbaa !87
@@ -2689,7 +2689,7 @@ push_args.exit:                                   ; preds = %406, %410, %416
 491:                                              ; preds = %489
   %492 = add nsw i32 %.1287, 1
   %493 = sext i32 %.1287 to i64
-  %494 = getelementptr inbounds ptr, ptr @argreg64, i64 %493
+  %494 = getelementptr inbounds [8 x i8], ptr @argreg64, i64 %493
   %495 = load ptr, ptr %494, align 8, !tbaa !53
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.252, ptr noundef %495)
   %496 = load i32, ptr @depth, align 4, !tbaa !87
@@ -2817,10 +2817,10 @@ push_args.exit:                                   ; preds = %406, %410, %416
 
 switch.lookup:                                    ; preds = %.split.i
   %558 = zext nneg i32 %555 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.gen_expr, i64 %558
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.gen_expr, i64 %558
   %switch.load = load ptr, ptr %switch.gep, align 8
   %559 = zext nneg i32 %555 to i64
-  %switch.gep389 = getelementptr inbounds nuw ptr, ptr @switch.table.gen_expr.4, i64 %559
+  %switch.gep389 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.gen_expr.4, i64 %559
   %switch.load390 = load ptr, ptr %switch.gep389, align 8
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.149, ptr noundef nonnull %switch.load)
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.150)
@@ -2867,7 +2867,7 @@ switch.lookup:                                    ; preds = %.split.i
 
 switch.lookup391:                                 ; preds = %.split.i226
   %581 = zext nneg i32 %578 to i64
-  %switch.gep392 = getelementptr inbounds nuw ptr, ptr @switch.table.gen_expr.4, i64 %581
+  %switch.gep392 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.gen_expr.4, i64 %581
   %switch.load393 = load ptr, ptr %switch.gep392, align 8
   tail call void (ptr, ...) @println(ptr noundef nonnull @.str.155, ptr noundef nonnull %switch.load393)
   br label %common.ret438
@@ -3012,7 +3012,7 @@ switch.lookup391:                                 ; preds = %.split.i226
 
 switch.lookup394:                                 ; preds = %624
   %627 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep395 = getelementptr inbounds nuw ptr, ptr @switch.table.gen_expr.5, i64 %627
+  %switch.gep395 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.gen_expr.5, i64 %627
   %switch.load396 = load ptr, ptr %switch.gep395, align 8
   br label %628
 
@@ -3596,7 +3596,7 @@ define internal fastcc void @store(ptr noundef readonly captures(none) %0) unnam
 
 switch.lookup:                                    ; preds = %14
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.store, i64 %18
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.store, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.loopexit.sink.split
 

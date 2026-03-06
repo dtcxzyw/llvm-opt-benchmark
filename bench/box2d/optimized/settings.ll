@@ -3,8 +3,8 @@ source_filename = "bench/box2d/original/settings.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.jsmntok = type { i32, i32, i32, i32 }
 %struct.jsmn_parser = type { i32, i32, i32 }
+%struct.jsmntok = type { i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [2 x i8] c"w\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"{\0A\00", align 1
@@ -81,7 +81,7 @@ _ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit: ; preds = %21
   %22 = zext i32 %12 to i64
   %23 = add nuw i32 %12, 1
   store i32 %23, ptr %6, align 4, !tbaa !4
-  %24 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %22
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %22
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 -1, ptr %25, align 4, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -93,7 +93,7 @@ _ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit: ; preds = %21
 
 29:                                               ; preds = %_ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds %struct.jsmntok, ptr %3, i64 %30
+  %31 = getelementptr inbounds [16 x i8], ptr %3, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %33 = load i32, ptr %32, align 4, !tbaa !14
   %34 = add nsw i32 %33, 1
@@ -124,7 +124,7 @@ _ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit: ; preds = %21
 
 .lr.ph205:                                        ; preds = %.lr.ph205.preheader, %53
   %indvars.iv246 = phi i64 [ %43, %.lr.ph205.preheader ], [ %indvars.iv.next247, %53 ]
-  %44 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %indvars.iv246
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv246
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !17
   %.not136 = icmp eq i32 %46, -1
@@ -164,7 +164,7 @@ _ZL16jsmn_alloc_tokenP11jsmn_parserP7jsmntokm.exit: ; preds = %21
 
 .lr.ph208:                                        ; preds = %.lr.ph208.preheader, %69
   %indvars.iv249 = phi i64 [ %59, %.lr.ph208.preheader ], [ %indvars.iv.next250, %69 ]
-  %60 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %indvars.iv249
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv249
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !17
   %.not138 = icmp eq i32 %62, -1
@@ -301,7 +301,7 @@ _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %80
   %107 = zext i32 %13 to i64
   %108 = add nuw i32 %13, 1
   store i32 %108, ptr %6, align 4, !tbaa !4
-  %109 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %107
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %107
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 12
@@ -316,7 +316,7 @@ _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %80
 
 115:                                              ; preds = %_ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit
   %116 = sext i32 %114 to i64
-  %117 = getelementptr inbounds %struct.jsmntok, ptr %3, i64 %116
+  %117 = getelementptr inbounds [16 x i8], ptr %3, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 12
   %119 = load i32, ptr %118, align 4, !tbaa !14
   %120 = add nsw i32 %119, 1
@@ -338,7 +338,7 @@ _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %80
 
 126:                                              ; preds = %124
   %127 = sext i32 %125 to i64
-  %128 = getelementptr inbounds %struct.jsmntok, ptr %3, i64 %127
+  %128 = getelementptr inbounds [16 x i8], ptr %3, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !16
   %.off = add i32 %129, -1
   %switch = icmp ult i32 %.off, 2
@@ -355,7 +355,7 @@ _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %80
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %144
   %indvars.iv = phi i64 [ %132, %.lr.ph.preheader ], [ %indvars.iv.next, %144 ]
-  %133 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %134 = load i32, ptr %133, align 4, !tbaa !16
   %.off140 = add i32 %134, -1
   %switch141 = icmp ult i32 %.off140, 2
@@ -429,7 +429,7 @@ _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %80
   %160 = zext i32 %12 to i64
   %161 = add nuw i32 %12, 1
   store i32 %161, ptr %6, align 4, !tbaa !4
-  %162 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %160
+  %162 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %160
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %165 = getelementptr inbounds nuw i8, ptr %162, i64 12
@@ -445,7 +445,7 @@ _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %80
 
 169:                                              ; preds = %159
   %170 = sext i32 %168 to i64
-  %171 = getelementptr inbounds %struct.jsmntok, ptr %3, i64 %170
+  %171 = getelementptr inbounds [16 x i8], ptr %3, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 12
   %173 = load i32, ptr %172, align 4, !tbaa !14
   %174 = add nsw i32 %173, 1
@@ -481,7 +481,7 @@ _ZL17jsmn_parse_stringP11jsmn_parserPKcmP7jsmntokm.exit: ; preds = %80
 
 .lr.ph219:                                        ; preds = %.lr.ph219.preheader, %193
   %indvars.iv252 = phi i64 [ %185, %.lr.ph219.preheader ], [ %indvars.iv.next253, %193 ]
-  %186 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %indvars.iv252
+  %186 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv252
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %188 = load i32, ptr %187, align 4, !tbaa !17
   %.not130 = icmp eq i32 %188, -1
@@ -658,7 +658,7 @@ define dso_local void @_ZN8Settings4LoadEv(ptr noundef nonnull writeonly align 4
 
 28:                                               ; preds = %.lr.ph, %_ZL6jsoneqPKcP7jsmntokS0_.exit25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL6jsoneqPKcP7jsmntokS0_.exit25 ]
-  %29 = getelementptr inbounds nuw %struct.jsmntok, ptr %3, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %30 = load i32, ptr %29, align 16, !tbaa !16
   %31 = icmp eq i32 %30, 4
   br i1 %31, label %32, label %_ZL6jsoneqPKcP7jsmntokS0_.exit25

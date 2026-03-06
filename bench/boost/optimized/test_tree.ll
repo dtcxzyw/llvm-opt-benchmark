@@ -39,7 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.std::allocator.17" = type { i8 }
 %"class.boost::exception_detail::refcount_ptr" = type { ptr }
-%"class.boost::shared_ptr.87" = type { ptr, %"class.boost::detail::shared_count" }
 
 $_ZN5boost9unit_test14class_propertyISt6vectorINS_8functionIFNS_10test_tools16assertion_resultEmEEESaIS7_EEED2Ev = comdat any
 
@@ -1303,7 +1302,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %42, %_ZNKS
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %38, ptr %16, align 8, !tbaa !70
   store ptr %43, ptr %18, align 8, !tbaa !98
-  %45 = getelementptr inbounds nuw i64, ptr %38, i64 %36
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %36
   store ptr %45, ptr %20, align 8, !tbaa !71
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -3353,7 +3352,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %32, %_ZNKS
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %34, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %28, ptr %6, align 8, !tbaa !70
   store ptr %33, ptr %8, align 8, !tbaa !98
-  %35 = getelementptr inbounds nuw i64, ptr %28, i64 %26
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   store ptr %35, ptr %10, align 8, !tbaa !71
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -3986,7 +3985,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %61, %_ZN
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %63, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %57, ptr %7, align 8, !tbaa !70
   store ptr %62, ptr %8, align 8, !tbaa !98
-  %64 = getelementptr inbounds nuw i64, ptr %57, i64 %55
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %55
   store ptr %64, ptr %9, align 8, !tbaa !71
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
 
@@ -4981,7 +4980,7 @@ define void @_ZN5boost9unit_test18traverse_test_treeERKNS0_10test_suiteERNS0_17t
   %21 = phi ptr [ %34, %_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorEb.exit.us ], [ %16, %.lr.ph ]
   %.023.us = phi i64 [ %spec.select21.us, %_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorEb.exit.us ], [ 0, %.lr.ph ]
   %.01622.us = phi i64 [ %spec.select.us, %_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorEb.exit.us ], [ %20, %.lr.ph ]
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %.023.us
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.023.us
   %23 = load i64, ptr %22, align 8, !tbaa !64
   %24 = and i64 %23, 4294901760
   %.not.i.not.us = icmp eq i64 %24, 0
@@ -5026,7 +5025,7 @@ _ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorEb.exit.us: ; p
   %45 = phi ptr [ %62, %_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorEb.exit ], [ %16, %.lr.ph ]
   %.023 = phi i64 [ %spec.select21, %_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorEb.exit ], [ 0, %.lr.ph ]
   %.01622 = phi i64 [ %spec.select, %_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorEb.exit ], [ %20, %.lr.ph ]
-  %46 = getelementptr inbounds nuw i64, ptr %45, i64 %.023
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.023
   %47 = load i64, ptr %46, align 8, !tbaa !64
   %48 = and i64 %47, 4294901760
   %.not.i.not = icmp eq i64 %48, 0
@@ -6508,7 +6507,7 @@ _ZSt8_DestroyIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES5_EvT_S
 _ZNSt12_Vector_baseIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPN5boost8functionIFNS0_10test_tools16assertion_resultEmEEES5_EvT_S7_RSaIT0_E.exit, %94
   store ptr %22, ptr %0, align 8, !tbaa !72
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %4, align 8, !tbaa !73
-  %98 = getelementptr inbounds nuw %"class.boost::function", ptr %22, i64 %16
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %98, ptr %93, align 8, !tbaa !81
   ret void
 
@@ -7587,7 +7586,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !82
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !83
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !85
   ret void
 }
@@ -8093,7 +8092,7 @@ _ZNSt6vectorISt4pairIN5boost10shared_ptrINS1_9unit_test19test_unit_generatorEEES
 _ZNSt12_Vector_baseISt4pairIN5boost10shared_ptrINS1_9unit_test19test_unit_generatorEEESt6vectorINS2_INS3_9decorator4baseEEESaIS9_EEESaISC_EE13_M_deallocateEPSC_m.exit: ; preds = %_ZNSt6vectorISt4pairIN5boost10shared_ptrINS1_9unit_test19test_unit_generatorEEES_INS2_INS3_9decorator4baseEEESaIS8_EEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit32, %88
   store ptr %20, ptr %0, align 8, !tbaa !137
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !139
-  %92 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i64 %16
+  %92 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %92, ptr %87, align 8, !tbaa !140
   ret void
 
@@ -8456,7 +8455,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptr
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
   %104 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
   %105 = sub nuw nsw i64 %9, %20
-  %106 = getelementptr inbounds nuw %"class.boost::shared_ptr.87", ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %105
   store ptr %106, ptr %12, align 8, !tbaa !95
   %.not11.i.i.i.i.i56 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i56, label %_ZSt22__uninitialized_move_aIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit62, label %.lr.ph.i.i.i.i.i57
@@ -8708,7 +8707,7 @@ _ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES5_EvT_S7_RSa
 _ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPN5boost10shared_ptrINS0_9unit_test9decorator4baseEEES5_EvT_S7_RSaIT0_E.exit, %205
   store ptr %162, ptr %0, align 8, !tbaa !94
   store ptr %.0.lcssa.i.i.i.i.i94, ptr %12, align 8, !tbaa !95
-  %209 = getelementptr inbounds nuw %"class.boost::shared_ptr.87", ptr %162, i64 %158
+  %209 = getelementptr inbounds nuw [16 x i8], ptr %162, i64 %158
   store ptr %209, ptr %10, align 8, !tbaa !97
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPN5boost10shared_ptrINS2_9unit_test9decorator4baseEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit
 

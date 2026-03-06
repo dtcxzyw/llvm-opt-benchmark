@@ -32,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"struct.Assimp::Blender::Field" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, i64, [2 x i64], i32, [4 x i8] }>
-%struct.Type = type { i64, %"class.std::__cxx11::basic_string" }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -335,7 +334,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 .noexc137:                                        ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i
   store ptr %60, ptr %6, align 8
-  %61 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %60, i64 %55
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %60, i64 %55
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %61, ptr %62, align 8
   br label %.lr.ph.i.i.i.i.i
@@ -611,7 +610,7 @@ _ZNSt12_Vector_baseI4TypeSaIS0_EEC2EmRKS1_.exit.i: ; preds = %_ZNSt6vectorI4Type
 
 .noexc171:                                        ; preds = %_ZNSt12_Vector_baseI4TypeSaIS0_EEC2EmRKS1_.exit.i
   store ptr %154, ptr %7, align 8
-  %155 = getelementptr inbounds nuw %struct.Type, ptr %154, i64 %149
+  %155 = getelementptr inbounds nuw [40 x i8], ptr %154, i64 %149
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %155, ptr %156, align 8
   br label %.lr.ph.i.i.i.i.i165
@@ -1109,7 +1108,7 @@ _ZN6Assimp12StreamReaderILb1ELb1EE5GetI1Ev.exit195: ; preds = %.lr.ph371
 343:                                              ; preds = %324
   %344 = load ptr, ptr %288, align 8
   %345 = load ptr, ptr %287, align 8
-  %346 = getelementptr inbounds nuw %struct.Type, ptr %331, i64 %329
+  %346 = getelementptr inbounds nuw [40 x i8], ptr %331, i64 %329
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 8
   %348 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEEixERS9_(ptr noundef nonnull align 8 dereferenceable(48) %289, ptr noundef nonnull align 8 dereferenceable(32) %347)
           to label %349 unwind label %.loopexit305
@@ -1413,7 +1412,7 @@ _ZN6Assimp7Blender5FieldD2Ev.exit:                ; preds = %_ZNSt7__cxx1112basi
   store i64 %.0103373, ptr %453, align 8
   %454 = load i16, ptr %12, align 2
   %455 = zext i16 %454 to i64
-  %456 = getelementptr inbounds nuw %struct.Type, ptr %400, i64 %455
+  %456 = getelementptr inbounds nuw [40 x i8], ptr %400, i64 %455
   %457 = getelementptr inbounds nuw i8, ptr %456, i64 8
   %458 = getelementptr inbounds i8, ptr %451, i64 -72
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %458, ptr noundef nonnull align 8 dereferenceable(32) %457)
@@ -1422,7 +1421,7 @@ _ZN6Assimp7Blender5FieldD2Ev.exit:                ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit247: ; preds = %_ZN6Assimp7Blender5FieldD2Ev.exit
   %459 = load i16, ptr %12, align 2
   %460 = zext i16 %459 to i64
-  %461 = getelementptr inbounds nuw %struct.Type, ptr %400, i64 %460
+  %461 = getelementptr inbounds nuw [40 x i8], ptr %400, i64 %460
   %462 = load i64, ptr %461, align 8
   %463 = getelementptr inbounds i8, ptr %451, i64 -40
   store i64 %462, ptr %463, align 8
@@ -1514,7 +1513,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit247: ; preds =
   br label %.body242
 
 494:                                              ; preds = %473
-  %495 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %480, i64 %478
+  %495 = getelementptr inbounds nuw [32 x i8], ptr %480, i64 %478
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %452, ptr noundef nonnull align 8 dereferenceable(32) %495)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit258 unwind label %.loopexit
 
@@ -2472,7 +2471,7 @@ _ZNSt12_Vector_baseIN6Assimp7Blender9StructureESaIS2_EE13_M_deallocateEPS2_m.exi
   store ptr %19, ptr %0, align 8
   %73 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %73, ptr %14, align 8
-  %74 = getelementptr inbounds nuw %"class.Assimp::Blender::Structure", ptr %19, i64 %1
+  %74 = getelementptr inbounds nuw [120 x i8], ptr %19, i64 %1
   store ptr %74, ptr %6, align 8
   br label %75
 
@@ -2838,7 +2837,7 @@ _ZNSt12_Vector_baseIN6Assimp7Blender5FieldESaIS2_EE13_M_deallocateEPS2_m.exit: ;
   store ptr %19, ptr %0, align 8
   %58 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %58, ptr %14, align 8
-  %59 = getelementptr inbounds nuw %"struct.Assimp::Blender::Field", ptr %19, i64 %1
+  %59 = getelementptr inbounds nuw [104 x i8], ptr %19, i64 %1
   store ptr %59, ptr %6, align 8
   br label %60
 
@@ -6316,7 +6315,7 @@ _ZNSt6vectorIN6Assimp7Blender9StructureESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt12_Vector_baseIN6Assimp7Blender9StructureESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp7Blender9StructureESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit29, %165
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i28, ptr %4, align 8
-  %169 = getelementptr inbounds nuw %"class.Assimp::Blender::Structure", ptr %22, i64 %16
+  %169 = getelementptr inbounds nuw [120 x i8], ptr %22, i64 %16
   store ptr %169, ptr %164, align 8
   ret void
 }
@@ -6654,7 +6653,7 @@ _ZNSt6vectorIN6Assimp7Blender5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit30:
 _ZNSt12_Vector_baseIN6Assimp7Blender5FieldESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp7Blender5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit30, %120
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i29, ptr %4, align 8
-  %124 = getelementptr inbounds nuw %"struct.Assimp::Blender::Field", ptr %22, i64 %16
+  %124 = getelementptr inbounds nuw [104 x i8], ptr %22, i64 %16
   store ptr %124, ptr %119, align 8
   ret void
 }

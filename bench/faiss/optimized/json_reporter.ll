@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.benchmark::CPUInfo::CacheInfo" = type <{ %"class.std::__cxx11::basic_string", i32, i32, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -1008,7 +1007,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit298._cr
 370:                                              ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit400
   %371 = phi ptr [ %343, %.lr.ph ], [ %516, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit400 ]
   %.0101628 = phi i64 [ 0, %.lr.ph ], [ %514, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit400 ]
-  %372 = getelementptr inbounds nuw %"struct.benchmark::CPUInfo::CacheInfo", ptr %371, i64 %.0101628
+  %372 = getelementptr inbounds nuw [48 x i8], ptr %371, i64 %.0101628
   %373 = load ptr, ptr %7, align 8, !tbaa !12
   %374 = load i64, ptr %53, align 8, !tbaa !15
   %375 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %373, i64 noundef %374)
@@ -4854,7 +4853,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %844 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %845 = load i32, ptr %844, align 8, !tbaa !126
   %846 = zext nneg i32 %845 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9benchmark12JSONReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE.6, i64 %846
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9benchmark12JSONReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE.6, i64 %846
   %switch.load = load ptr, ptr %switch.gep, align 8
   invoke fastcc void @_ZN9benchmark12_GLOBAL__N_18FormatKVERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias writable align 8 %52, ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull %switch.load)
           to label %847 unwind label %861
@@ -5156,7 +5155,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
   %960 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %961 = load i32, ptr %960, align 8, !tbaa !126
   %962 = zext nneg i32 %961 to i64
-  %switch.gep1255 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9benchmark12JSONReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE.6, i64 %962
+  %switch.gep1255 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9benchmark12JSONReporter12PrintRunDataERKNS_17BenchmarkReporter3RunE.6, i64 %962
   %switch.load1256 = load ptr, ptr %switch.gep1255, align 8
   invoke fastcc void @_ZN9benchmark12_GLOBAL__N_18FormatKVERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias writable align 8 %61, ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull %switch.load1256)
           to label %963 unwind label %1025

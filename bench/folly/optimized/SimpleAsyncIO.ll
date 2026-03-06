@@ -8,16 +8,16 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.folly::AtomicStruct" = type { %"struct.std::atomic.21" }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr }
+%"struct.folly::SharedMutexImpl<false>::WaitForever" = type { i8 }
+%"class.std::chrono::time_point" = type { %"class.std::chrono::duration.35" }
+%"class.std::chrono::duration.35" = type { i64 }
+%"class.folly::WaitOptions" = type <{ %"class.std::chrono::duration.35", i8, [7 x i8] }>
 %"class.std::unique_ptr.122" = type { %"struct.std::__uniq_ptr_data.123" }
 %"struct.std::__uniq_ptr_data.123" = type { %"class.std::__uniq_ptr_impl.124" }
 %"class.std::__uniq_ptr_impl.124" = type { %"class.std::tuple.125" }
 %"class.std::tuple.125" = type { %"struct.std::_Tuple_impl.126" }
 %"struct.std::_Tuple_impl.126" = type { %"struct.std::_Head_base.129" }
 %"struct.std::_Head_base.129" = type { ptr }
-%"struct.folly::SharedMutexImpl<false>::WaitForever" = type { i8 }
-%"class.std::chrono::time_point" = type { %"class.std::chrono::duration.35" }
-%"class.std::chrono::duration.35" = type { i64 }
-%"class.folly::WaitOptions" = type <{ %"class.std::chrono::duration.35", i8, [7 x i8] }>
 %"class.folly::Function.137" = type { %"union.folly::detail::function::Data", ptr, ptr }
 %"union.folly::detail::function::Data" = type { %"struct.folly::detail::function::Data::BigTrivialLayout", [24 x i8] }
 %"struct.folly::detail::function::Data::BigTrivialLayout" = type { ptr, i64, i64 }
@@ -330,7 +330,7 @@ _ZNSt11_Deque_baseISt10unique_ptrIN5folly11AsyncBaseOpESt14default_deleteIS2_EES
   store ptr %7, ptr %0, align 8, !tbaa !76
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -424,7 +424,7 @@ _ZNSt11_Deque_baseISt10unique_ptrIN5folly11AsyncBaseOpESt14default_deleteIS2_EES
   store ptr %48, ptr %49, align 8, !tbaa !82
   store ptr %39, ptr %37, align 8, !tbaa !83
   %50 = and i64 %1, 63
-  %51 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !84
   ret void
 
@@ -1004,7 +1004,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %3, %5
   %.1.ph = phi i32 [ 0, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ], [ %18, %17 ]
   %10 = shl i32 %.1.ph, 2
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %11
   br label %13
 
 13:                                               ; preds = %.outer, %24
@@ -1201,7 +1201,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %4, %6
   %.4 = phi i32 [ %.250, %16 ], [ %25, %24 ]
   %18 = shl i32 %.4, 2
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %19
   %21 = load atomic i64, ptr %20 acquire, align 32
   %22 = and i64 %21, -2
   %23 = icmp eq i64 %22, %9
@@ -1239,7 +1239,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %4, %6
   %.02651 = phi i32 [ 0, %.lr.ph ], [ %.127, %46 ]
   %36 = shl i64 %indvars.iv, 2
   %37 = and i64 %36, 4294967292
-  %38 = getelementptr inbounds nuw %"struct.std::atomic.21", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %37
   %39 = load atomic i64, ptr %38 acquire, align 32
   %40 = and i64 %39, -2
   %41 = icmp eq i64 %40, %9
@@ -2064,9 +2064,9 @@ define linkonce_odr void @_ZNSt5dequeISt10unique_ptrIN5folly11AsyncBaseOpESt14de
   %19 = load ptr, ptr %0, align 8, !tbaa !76
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -2085,12 +2085,12 @@ define linkonce_odr void @_ZNSt5dequeISt10unique_ptrIN5folly11AsyncBaseOpESt14de
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPSt10unique_ptrIN5folly11AsyncBaseOpESt14default_deleteIS2_EES7_ET0_T_S9_S8_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPSt10unique_ptrIN5folly11AsyncBaseOpESt14default_deleteIS2_EES7_ET0_T_S9_S8_.exit
 
@@ -2118,9 +2118,9 @@ _ZNSt11_Deque_baseISt10unique_ptrIN5folly11AsyncBaseOpESt14default_deleteIS2_EES
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #25
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPSt10unique_ptrIN5folly11AsyncBaseOpESt14default_deleteIS2_EES7_ET0_T_S9_S8_.exit26, label %53
@@ -2148,7 +2148,7 @@ _ZSt4copyIPPSt10unique_ptrIN5folly11AsyncBaseOpESt14default_deleteIS2_EES7_ET0_T
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !82
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !80
   %64 = load ptr, ptr %63, align 8, !tbaa !77

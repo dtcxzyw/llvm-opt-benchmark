@@ -25,7 +25,7 @@ define hidden void @_mi_segment_map_allocated_at(ptr noundef %0) local_unnamed_a
 9:                                                ; preds = %6
   %10 = udiv i64 %7, 2164663517184
   %11 = urem i64 %7, 2164663517184
-  %12 = getelementptr inbounds nuw ptr, ptr @mi_segment_map, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @mi_segment_map, i64 %10
   %13 = load atomic i64, ptr %12 monotonic, align 8
   %14 = inttoptr i64 %13 to ptr
   %15 = icmp eq i64 %13, 0
@@ -69,7 +69,7 @@ mi_segment_map_index_of.exit:                     ; preds = %9, %26
   %30 = and i64 %29, 63
   %31 = lshr i64 %11, 31
   %32 = getelementptr inbounds nuw i8, ptr %.029.i, i64 24
-  %33 = getelementptr inbounds nuw i64, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
   %34 = load atomic i64, ptr %33 monotonic, align 8
   %35 = shl nuw i64 1, %30
   br label %36
@@ -101,7 +101,7 @@ define hidden void @_mi_segment_map_freed_at(ptr noundef %0) local_unnamed_addr 
 8:                                                ; preds = %5
   %9 = udiv i64 %6, 2164663517184
   %10 = urem i64 %6, 2164663517184
-  %11 = getelementptr inbounds nuw ptr, ptr @mi_segment_map, i64 %9
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @mi_segment_map, i64 %9
   %12 = load atomic i64, ptr %11 monotonic, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %mi_segment_map_index_of.exit.thread, label %mi_segment_map_index_of.exit
@@ -112,7 +112,7 @@ mi_segment_map_index_of.exit:                     ; preds = %8
   %16 = and i64 %15, 63
   %17 = lshr i64 %10, 31
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load atomic i64, ptr %19 monotonic, align 8
   %21 = shl nuw i64 1, %16
   %22 = xor i64 %21, -1
@@ -153,7 +153,7 @@ define hidden zeroext i1 @mi_is_in_heap_region(ptr noundef %0) local_unnamed_add
 14:                                               ; preds = %5
   %15 = udiv i64 %12, 2164663517184
   %16 = urem i64 %12, 2164663517184
-  %17 = getelementptr inbounds nuw ptr, ptr @mi_segment_map, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @mi_segment_map, i64 %15
   %18 = load atomic i64, ptr %17 monotonic, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %mi_is_valid_pointer.exit, label %mi_segment_map_index_of.exit.i.i
@@ -164,7 +164,7 @@ mi_segment_map_index_of.exit.i.i:                 ; preds = %14
   %22 = and i64 %21, 63
   %23 = lshr i64 %16, 31
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   %26 = load atomic i64, ptr %25 monotonic, align 8
   %27 = shl nuw i64 1, %22
   %28 = and i64 %26, %27
@@ -187,7 +187,7 @@ define hidden void @_mi_segment_map_unsafe_destroy() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0, %7
   %.08 = phi i64 [ 0, %0 ], [ %8, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @mi_segment_map, i64 %.08
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @mi_segment_map, i64 %.08
   %4 = atomicrmw xchg ptr %3, i64 0 monotonic, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %7, label %5

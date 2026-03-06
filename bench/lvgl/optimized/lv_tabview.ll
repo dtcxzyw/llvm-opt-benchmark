@@ -306,7 +306,7 @@ define void @lv_tabview_set_tab_bar_position(ptr noundef %0, i32 noundef %1) loc
 
 switch.lookup:                                    ; preds = %.split
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lv_tabview_set_tab_bar_position, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lv_tabview_set_tab_bar_position, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void @lv_obj_set_flex_flow(ptr noundef nonnull %0, i32 noundef %switch.load) #6
   br label %9

@@ -233,7 +233,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %4 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   %6 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h1a2b4de5bdbc3e42E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0, ptr noundef nonnull %5)
   %7 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h7a7cb238ea66350dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -776,7 +776,7 @@ _ZN11quinn_proto10connection7streams5state12StreamsState6insert17h80c12fc951cbb0
   %123 = load ptr, ptr %88, align 8, !alias.scope !17, !nonnull !3, !noundef !3
   %124 = icmp ult i64 %106, 576460752303423489
   call void @llvm.assume(i1 %124)
-  %125 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %123, i64 %120
+  %125 = getelementptr inbounds nuw [16 x i8], ptr %123, i64 %120
   %126 = load i64, ptr %125, align 8, !range !15, !noundef !3
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %128 = load ptr, ptr %127, align 8, !noundef !3
@@ -961,7 +961,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState10se
   %53 = add i64 %.sroa.01.0.i.i.i, %52
   %54 = and i64 %53, %45
   %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds { i64, ptr }, ptr %46, i64 %55
+  %56 = getelementptr inbounds [16 x i8], ptr %46, i64 %55
   %57 = getelementptr inbounds i8, ptr %56, i64 -16
   %58 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h068cc55827360f34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %57), !noalias !42
   br i1 %58, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17ha1f76031d9475efaE.exit", label %62, !prof !21
@@ -1029,7 +1029,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState17ze
 15:                                               ; preds = %.lr.ph24, %45
   %16 = phi i8 [ %8, %.lr.ph24 ], [ %46, %45 ]
   %17 = zext nneg i8 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %9, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %17
   %19 = load i64, ptr %18, align 8, !noundef !3
   %.not26 = icmp eq i64 %19, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
@@ -1110,7 +1110,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState17ze
   br i1 %.not, label %._crit_edge25, label %15
 
 47:                                               ; preds = %._crit_edge
-  %48 = getelementptr inbounds nuw i64, ptr %14, i64 %17
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   store i64 0, ptr %48, align 8
   br label %45
 
@@ -1569,7 +1569,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState8rec
   %150 = add i64 %.sroa.01.0.i.i.i, %149
   %151 = and i64 %150, %142
   %152 = sub nsw i64 0, %151
-  %153 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %143, i64 %152
+  %153 = getelementptr inbounds [24 x i8], ptr %143, i64 %152
   %154 = getelementptr inbounds i8, ptr %153, i64 -24
   %155 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h068cc55827360f34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %154)
           to label %.noexc182 unwind label %.body.thread192.loopexit
@@ -2503,7 +2503,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState14re
   %141 = add i64 %.sroa.01.0.i.i.i, %140
   %142 = and i64 %141, %133
   %143 = sub nsw i64 0, %142
-  %144 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %134, i64 %143
+  %144 = getelementptr inbounds [24 x i8], ptr %134, i64 %143
   %145 = getelementptr inbounds i8, ptr %144, i64 -24
   %146 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h068cc55827360f34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %145), !noalias !110
   br i1 %146, label %156, label %150, !prof !21
@@ -2908,7 +2908,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState21re
   %30 = add i64 %.sroa.01.0.i.i.i, %29
   %31 = and i64 %30, %22
   %32 = sub nsw i64 0, %31
-  %33 = getelementptr inbounds { i64, ptr }, ptr %23, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %23, i64 %32
   %34 = getelementptr inbounds i8, ptr %33, i64 -16
   %35 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h068cc55827360f34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %34), !noalias !146
   br i1 %35, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17ha1f76031d9475efaE.exit", label %39, !prof !21
@@ -2975,7 +2975,7 @@ _ZN11quinn_proto10connection7streams5state12StreamsState15on_stream_frame17h6050
   %62 = call noundef zeroext i1 @_ZN11quinn_proto8StreamId3dir17hf0e4737ecc11fd1dE(i64 noundef %56), !noalias !159
   %63 = zext i1 %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %65 = getelementptr inbounds nuw i64, ptr %64, i64 %63
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %63
   %66 = call noundef i64 @_ZN11quinn_proto8StreamId5index17hcc9f57d30e85bb08E(i64 noundef %56), !noalias !159
   %67 = load i64, ptr %65, align 8, !alias.scope !159, !noundef !3
   %.not.i6 = icmp ult i64 %66, %67
@@ -3111,7 +3111,7 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto10connection7streams5state12St
   %22 = add i64 %.sroa.01.0.i.i.i, %21
   %23 = and i64 %22, %14
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %15, i64 %24
+  %25 = getelementptr inbounds [24 x i8], ptr %15, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -24
   %27 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h068cc55827360f34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26), !noalias !179
   br i1 %27, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h02004744877c64ceE.exit", label %31, !prof !21
@@ -3377,7 +3377,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   %152 = load ptr, ptr %103, align 8, !nonnull !3, !noundef !3
   %153 = icmp ult i64 %148, 576460752303423489
   call void @llvm.assume(i1 %153)
-  %154 = getelementptr inbounds nuw { i64, i64 }, ptr %152, i64 %149
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %152, i64 %149
   %155 = load i64, ptr %154, align 8, !noundef !3
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %157 = load i64, ptr %156, align 8, !noundef !3
@@ -3417,7 +3417,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   %172 = add i64 %.sroa.01.0.i.i.i, %171
   %173 = and i64 %172, %164
   %174 = sub nsw i64 0, %173
-  %175 = getelementptr inbounds { i64, ptr }, ptr %165, i64 %174
+  %175 = getelementptr inbounds [16 x i8], ptr %165, i64 %174
   %176 = getelementptr inbounds i8, ptr %175, i64 -16
   %177 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h068cc55827360f34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %96, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %176), !noalias !201
   br i1 %177, label %706, label %181, !prof !21
@@ -3466,7 +3466,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   %200 = load ptr, ptr %131, align 8, !nonnull !3, !noundef !3
   %201 = icmp ult i64 %195, 576460752303423489
   call void @llvm.assume(i1 %201)
-  %202 = getelementptr inbounds nuw { i64, i64 }, ptr %200, i64 %197
+  %202 = getelementptr inbounds nuw [16 x i8], ptr %200, i64 %197
   %203 = load i64, ptr %202, align 8, !noundef !3
   %204 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %205 = load i64, ptr %204, align 8, !noundef !3
@@ -3929,7 +3929,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   %368 = add i64 %.sroa.01.0.i.i.i610, %367
   %369 = and i64 %368, %360
   %370 = sub nsw i64 0, %369
-  %371 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %361, i64 %370
+  %371 = getelementptr inbounds [24 x i8], ptr %361, i64 %370
   %372 = getelementptr inbounds i8, ptr %371, i64 -24
   %373 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h068cc55827360f34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %372), !noalias !220
   br i1 %373, label %505, label %377, !prof !21
@@ -3992,9 +3992,9 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   %401 = getelementptr inbounds nuw i8, ptr %398, i64 184
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 %400
   store i8 1, ptr %402, align 1
-  %403 = getelementptr inbounds nuw i64, ptr %332, i64 %400
+  %403 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %400
   %404 = load i64, ptr %403, align 8, !noundef !3
-  %405 = getelementptr inbounds nuw i64, ptr %333, i64 %400
+  %405 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %400
   store i64 %404, ptr %405, align 8
   %406 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h9e420ea5df983dc6E monotonic, align 8
   %407 = icmp eq i64 %406, 5
@@ -4115,7 +4115,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   store i64 1, ptr %.sroa.6292.sroa.4.0..sroa.6292.0..sroa_idx293.sroa_idx, align 8
   %459 = load i8, ptr %35, align 1, !range !25, !noundef !3
   %460 = zext nneg i8 %459 to i64
-  %461 = getelementptr inbounds nuw i64, ptr %332, i64 %460
+  %461 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %460
   store ptr %25, ptr %26, align 8
   store ptr %24, ptr %.sroa.4279.0..sroa_idx, align 8
   store ptr @anon.8801f4312e2f8894f33ba1843a3fdad8.37, ptr %.sroa.5280.0..sroa_idx, align 8
@@ -4148,7 +4148,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$5write17h8ba7dd11a22decdeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %.589)
   %466 = load i8, ptr %35, align 1, !range !25, !noundef !3
   %467 = zext nneg i8 %466 to i64
-  %468 = getelementptr inbounds nuw i64, ptr %332, i64 %467
+  %468 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %467
   %469 = load i64, ptr %468, align 8, !noundef !3
   call void @"_ZN52_$LT$T$u20$as$u20$quinn_proto..coding..BufMutExt$GT$9write_var17hf05269890952936bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %469)
   %470 = load i8, ptr %35, align 1, !range !25, !noundef !3
@@ -4184,7 +4184,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
   store i64 1, ptr %.sroa.6266.sroa.4.0..sroa.6266.0..sroa_idx267.sroa_idx, align 8
   %475 = load i8, ptr %35, align 1, !range !25, !noundef !3
   %476 = zext nneg i8 %475 to i64
-  %477 = getelementptr inbounds nuw i64, ptr %332, i64 %476
+  %477 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %476
   store ptr %32, ptr %33, align 8
   store ptr %31, ptr %.sroa.4253.0..sroa_idx, align 8
   store ptr @anon.8801f4312e2f8894f33ba1843a3fdad8.37, ptr %.sroa.5254.0..sroa_idx, align 8
@@ -4729,7 +4729,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h512b6c1986f935fdE.exit": ; preds = %665, %672
   %673 = getelementptr inbounds nuw i8, ptr %666, i64 32
   %674 = load ptr, ptr %673, align 8, !alias.scope !232, !nonnull !3, !noundef !3
-  %675 = getelementptr inbounds nuw { i64, i64 }, ptr %674, i64 %669
+  %675 = getelementptr inbounds nuw [16 x i8], ptr %674, i64 %669
   store i64 %203, ptr %675, align 8
   %676 = getelementptr inbounds nuw i8, ptr %675, i64 8
   store i64 %205, ptr %676, align 8
@@ -5007,7 +5007,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20wr
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5037f72649d3361E.exit": ; preds = %769, %775
   %776 = getelementptr inbounds nuw i8, ptr %770, i64 8
   %777 = load ptr, ptr %776, align 8, !alias.scope !238, !nonnull !3, !noundef !3
-  %778 = getelementptr inbounds nuw { i64, i64 }, ptr %777, i64 %772
+  %778 = getelementptr inbounds nuw [16 x i8], ptr %777, i64 %772
   store i64 %155, ptr %778, align 8
   %779 = getelementptr inbounds nuw i8, ptr %778, i64 8
   store i64 %157, ptr %779, align 8
@@ -5380,7 +5380,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState19wr
   %95 = add i64 %.sroa.01.0.i.i.i, %94
   %96 = and i64 %95, %87
   %97 = sub nsw i64 0, %96
-  %98 = getelementptr inbounds { i64, ptr }, ptr %88, i64 %97
+  %98 = getelementptr inbounds [16 x i8], ptr %88, i64 %97
   %99 = getelementptr inbounds i8, ptr %98, i64 -16
   %100 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h068cc55827360f34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %99)
           to label %.noexc236 unwind label %.loopexit
@@ -5891,7 +5891,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState19wr
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha2d0d0fe5e87726cE.exit.i": ; preds = %263, %259
   %264 = load ptr, ptr %72, align 8, !alias.scope !278, !noalias !281, !nonnull !3, !noundef !3
-  %265 = getelementptr inbounds nuw { i64, { i64, i64 }, i8, [7 x i8] }, ptr %264, i64 %260
+  %265 = getelementptr inbounds nuw [32 x i8], ptr %264, i64 %260
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %265, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0247, i64 24, i1 false)
   %.sroa.6.0..sroa_idx250 = getelementptr inbounds nuw i8, ptr %265, i64 24
   store i8 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx250, align 8
@@ -5996,7 +5996,7 @@ define internal fastcc void @_ZN11quinn_proto10connection7streams5state12Streams
   %12 = tail call noundef zeroext i1 @_ZN11quinn_proto8StreamId3dir17hf0e4737ecc11fd1dE(i64 noundef %2)
   %13 = zext i1 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = tail call noundef i64 @_ZN11quinn_proto8StreamId5index17hcc9f57d30e85bb08E(i64 noundef %2)
   %17 = load i64, ptr %15, align 8, !noundef !3
   %.not = icmp ult i64 %16, %17
@@ -6167,7 +6167,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState10re
   %21 = add i64 %.sroa.01.0.i.i.i, %20
   %22 = and i64 %21, %13
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds { i64, ptr }, ptr %14, i64 %23
+  %24 = getelementptr inbounds [16 x i8], ptr %14, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -16
   %26 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h068cc55827360f34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %25), !noalias !311
   br i1 %26, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17ha1f76031d9475efaE.exit", label %30, !prof !21
@@ -6260,7 +6260,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState23re
   %16 = phi i8 [ %8, %.lr.ph17 ], [ %14, %.loopexit ]
   %17 = trunc nuw i8 %16 to i1
   %18 = zext nneg i8 %16 to i64
-  %19 = getelementptr inbounds nuw i64, ptr %9, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %18
   %20 = load i64, ptr %19, align 8, !noundef !3
   %.not18 = icmp eq i64 %20, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph
@@ -6308,7 +6308,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState23re
   %37 = add i64 %.sroa.01.0.i.i.i, %36
   %38 = and i64 %37, %29
   %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds { i64, ptr }, ptr %30, i64 %39
+  %40 = getelementptr inbounds [16 x i8], ptr %30, i64 %39
   %41 = getelementptr inbounds i8, ptr %40, i64 -16
   %42 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h068cc55827360f34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %41), !noalias !330
   br i1 %42, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17ha1f76031d9475efaE.exit", label %46, !prof !21
@@ -6413,7 +6413,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState20re
 18:                                               ; preds = %4
   %19 = zext i1 %2 to i64
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %22 = load i64, ptr %21, align 8, !noundef !3
   %23 = icmp ugt i64 %3, %22
   br i1 %23, label %24, label %28
@@ -6554,7 +6554,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState24re
   %73 = add i64 %.sroa.01.0.i.i.i, %72
   %74 = and i64 %73, %65
   %75 = sub nsw i64 0, %74
-  %76 = getelementptr inbounds { i64, ptr }, ptr %66, i64 %75
+  %76 = getelementptr inbounds [16 x i8], ptr %66, i64 %75
   %77 = getelementptr inbounds i8, ptr %76, i64 -16
   %78 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h068cc55827360f34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %77), !noalias !361
   br i1 %78, label %153, label %82, !prof !21
@@ -6861,7 +6861,7 @@ _ZN4core3ops8function6FnOnce9call_once17h897f84b4fe06bd80E.exit: ; preds = %_ZN4
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h09d0ea64f363d7c2E.exit": ; preds = %176, %183
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %185 = load ptr, ptr %184, align 8, !alias.scope !379, !nonnull !3, !noundef !3
-  %186 = getelementptr inbounds nuw i64, ptr %185, i64 %180
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %180
   store i64 %178, ptr %186, align 8
   %187 = add i64 %180, 1
   store i64 %187, ptr %179, align 8, !alias.scope !379
@@ -6880,7 +6880,7 @@ _ZN4core3ops8function6FnOnce9call_once17h897f84b4fe06bd80E.exit: ; preds = %_ZN4
   %195 = call noundef zeroext i1 @_ZN11quinn_proto8StreamId3dir17hf0e4737ecc11fd1dE(i64 noundef %189), !noalias !382
   %196 = zext i1 %195 to i64
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %198 = getelementptr inbounds nuw i64, ptr %197, i64 %196
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %196
   %199 = call noundef i64 @_ZN11quinn_proto8StreamId5index17hcc9f57d30e85bb08E(i64 noundef %189), !noalias !382
   %200 = load i64, ptr %198, align 8, !alias.scope !382, !noundef !3
   %.not.i150 = icmp ult i64 %199, %200
@@ -6908,7 +6908,7 @@ _ZN11quinn_proto10connection7streams5state12StreamsState15on_stream_frame17h6050
   %211 = call noundef zeroext i1 @_ZN11quinn_proto8StreamId3dir17hf0e4737ecc11fd1dE(i64 noundef %209), !noalias !385
   %212 = zext i1 %211 to i64
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %214 = getelementptr inbounds nuw i64, ptr %213, i64 %212
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %212
   %215 = load i64, ptr %214, align 8, !alias.scope !385, !noundef !3
   %.not194 = icmp ult i64 %210, %215
   br i1 %.not194, label %188, label %216
@@ -7219,7 +7219,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState4pol
   tail call void @llvm.assume(i1 %44)
   %45 = icmp ult i64 %42, 1152921504606846977
   tail call void @llvm.assume(i1 %45)
-  %46 = getelementptr inbounds nuw i64, ptr %41, i64 %43
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %43
   %47 = load i64, ptr %46, align 8, !noundef !3
   store i64 %47, ptr %3, align 8
   %48 = icmp eq i64 %43, 0
@@ -7243,7 +7243,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState4pol
   %55 = load ptr, ptr %33, align 8, !nonnull !3, !noundef !3
   %56 = icmp samesign ult i64 %51, 1152921504606846977
   call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds nuw i64, ptr %55, i64 %52
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %52
   %58 = load i64, ptr %57, align 8, !noundef !3
   store i64 %58, ptr %3, align 8
   %59 = load i64, ptr %34, align 8, !alias.scope !402, !noalias !405, !noundef !3
@@ -7280,7 +7280,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState4pol
   %73 = add i64 %.sroa.01.0.i.i.i, %72
   %74 = and i64 %73, %65
   %75 = sub nsw i64 0, %74
-  %76 = getelementptr inbounds { i64, ptr }, ptr %66, i64 %75
+  %76 = getelementptr inbounds [16 x i8], ptr %66, i64 %75
   %77 = getelementptr inbounds i8, ptr %76, i64 -16
   %78 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h068cc55827360f34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %77), !noalias !418
   br i1 %78, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17ha1f76031d9475efaE.exit", label %82, !prof !21
@@ -7361,12 +7361,12 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto10connection7streams5state12St
   %14 = phi i8 [ %8, %.lr.ph ], [ %26, %25 ]
   %.sroa.0.04 = phi i1 [ false, %.lr.ph ], [ %.sroa.0.1, %25 ]
   %15 = zext nneg i8 %14 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %9, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %15
   %17 = load i64, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds nuw i64, ptr %10, i64 %15
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %15
   %19 = load i64, ptr %18, align 8, !noundef !3
   %20 = sub i64 %17, %19
-  %21 = getelementptr inbounds nuw i64, ptr %11, i64 %15
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %15
   %22 = load i64, ptr %21, align 8, !noundef !3
   %23 = lshr i64 %22, 3
   %24 = icmp ugt i64 %20, %23
@@ -7405,7 +7405,7 @@ define internal fastcc void @_ZN11quinn_proto10connection7streams5state12Streams
 13:                                               ; preds = %3
   %14 = zext i1 %12 to i64
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load i64, ptr %16, align 8, !noundef !3
   %18 = tail call noundef i64 @_ZN11quinn_proto8StreamId5index17hcc9f57d30e85bb08E(i64 noundef %2)
   %.not = icmp ult i64 %18, %17
@@ -7528,7 +7528,7 @@ define hidden noundef zeroext i1 @_ZN11quinn_proto10connection7streams5state12St
   %4 = tail call noundef zeroext i1 @_ZN11quinn_proto8StreamId3dir17hf0e4737ecc11fd1dE(i64 noundef %1)
   %5 = zext i1 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %7 = getelementptr inbounds nuw i64, ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %5
   %8 = load i64, ptr %7, align 8, !noundef !3
   %9 = icmp uge i64 %3, %8
   ret i1 %9
@@ -7541,10 +7541,10 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState18se
   %5 = tail call noundef i64 @"_ZN11quinn_proto6varint88_$LT$impl$u20$core..convert..From$LT$quinn_proto..varint..VarInt$GT$$u20$for$u20$u64$GT$4from17hb152fc06ae6efc50E"(i64 noundef %2)
   %6 = zext i1 %1 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %8 = getelementptr inbounds nuw i64, ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   store i64 %5, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %6
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %6
   %11 = load i64, ptr %10, align 8, !alias.scope !437, !noundef !3
   %12 = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 %11)
   %.not.not.i = icmp ugt i64 %5, %11
@@ -7553,7 +7553,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState18se
 .lr.ph.i:                                         ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 450
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %15 = getelementptr inbounds nuw i64, ptr %14, i64 %6
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %6
   br label %16
 
 16:                                               ; preds = %16, %.lr.ph.i
@@ -7578,7 +7578,7 @@ _ZN11quinn_proto10connection7streams5state12StreamsState21ensure_remote_streams1
   %26 = add i64 %25, %12
   store i64 %26, ptr %10, align 8, !alias.scope !437
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %6
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %6
   %29 = load i64, ptr %28, align 8, !alias.scope !437, !noundef !3
   %30 = add i64 %29, %12
   store i64 %30, ptr %28, align 8, !alias.scope !437
@@ -7589,7 +7589,7 @@ _ZN11quinn_proto10connection7streams5state12StreamsState21ensure_remote_streams1
 define hidden noundef i64 @_ZN11quinn_proto10connection7streams5state12StreamsState14max_concurrent17h6e5db88e9327c4fbE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(456) %0, i1 noundef zeroext %1) unnamed_addr #5 {
   %3 = zext i1 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %5 = getelementptr inbounds nuw i64, ptr %4, i64 %3
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %3
   %6 = load i64, ptr %5, align 8, !noundef !3
   ret i64 %6
 }
@@ -7687,7 +7687,7 @@ define hidden void @_ZN11quinn_proto10connection7streams5state12StreamsState6ins
   %28 = load ptr, ptr %27, align 8, !nonnull !3, !noundef !3
   %29 = icmp ult i64 %20, 576460752303423489
   tail call void @llvm.assume(i1 %29)
-  %30 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %28, i64 %24
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %24
   %31 = load i64, ptr %30, align 8, !range !15, !noundef !3
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load ptr, ptr %32, align 8, !noundef !3
@@ -7778,7 +7778,7 @@ define internal fastcc void @_ZN11quinn_proto10connection7streams5state12Streams
   %13 = call noundef zeroext i1 @_ZN11quinn_proto8StreamId3dir17hf0e4737ecc11fd1dE(i64 noundef %12)
   %14 = zext i1 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load i64, ptr %16, align 8, !noundef !3
   %18 = add i64 %17, -1
   store i64 %18, ptr %16, align 8
@@ -7786,9 +7786,9 @@ define internal fastcc void @_ZN11quinn_proto10connection7streams5state12Streams
   %20 = call noundef zeroext i1 @_ZN11quinn_proto8StreamId3dir17hf0e4737ecc11fd1dE(i64 noundef %19)
   %21 = zext i1 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   %24 = load i64, ptr %23, align 8, !alias.scope !440, !noundef !3
-  %25 = getelementptr inbounds nuw i64, ptr %15, i64 %21
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %21
   %26 = load i64, ptr %25, align 8, !alias.scope !440, !noundef !3
   %27 = call i64 @llvm.usub.sat.i64(i64 %24, i64 %26)
   %.not.not.i = icmp ugt i64 %24, %26
@@ -7796,7 +7796,7 @@ define internal fastcc void @_ZN11quinn_proto10connection7streams5state12Streams
 
 .lr.ph.i:                                         ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h6e41831ba556da08E.exit.thread"
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %21
   br label %30
 
 30:                                               ; preds = %30, %.lr.ph.i
@@ -7821,7 +7821,7 @@ _ZN11quinn_proto10connection7streams5state12StreamsState21ensure_remote_streams1
   %40 = add i64 %39, %27
   store i64 %40, ptr %25, align 8, !alias.scope !440
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %21
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %21
   %43 = load i64, ptr %42, align 8, !alias.scope !440, !noundef !3
   %44 = add i64 %43, %27
   store i64 %44, ptr %42, align 8, !alias.scope !440
@@ -7866,7 +7866,7 @@ _ZN11quinn_proto10connection7streams5state12StreamsState21ensure_remote_streams1
   %64 = add i64 %.sroa.01.0.i.i.i, %63
   %65 = and i64 %64, %56
   %66 = sub nsw i64 0, %65
-  %67 = getelementptr inbounds { i64, ptr }, ptr %57, i64 %66
+  %67 = getelementptr inbounds [16 x i8], ptr %57, i64 %66
   %68 = getelementptr inbounds i8, ptr %67, i64 -16
   %69 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h068cc55827360f34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %68), !noalias !459
   br i1 %69, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h6e41831ba556da08E.exit", label %73, !prof !21
@@ -7927,7 +7927,7 @@ _ZN11quinn_proto10connection7streams5state12StreamsState21ensure_remote_streams1
   %98 = add i64 %.sroa.01.0.i.i.i7, %97
   %99 = and i64 %98, %90
   %100 = sub nsw i64 0, %99
-  %101 = getelementptr inbounds { i64, { i64, [1 x i64] } }, ptr %91, i64 %100
+  %101 = getelementptr inbounds [24 x i8], ptr %91, i64 %100
   %102 = getelementptr inbounds i8, ptr %101, i64 -24
   %103 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h068cc55827360f34E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %102), !noalias !478
   br i1 %103, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h6e41831ba556da08E.exit", label %107, !prof !21
@@ -8040,7 +8040,7 @@ _ZN11quinn_proto10connection7streams5state10StreamRecv4free17h63106b829b149ffeE.
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h4d7744b2d32c3ab8E.exit": ; preds = %_ZN11quinn_proto10connection7streams5state10StreamRecv4free17h63106b829b149ffeE.exit, %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = load ptr, ptr %33, align 8, !alias.scope !481, !nonnull !3, !noundef !3
-  %35 = getelementptr inbounds nuw { i64, [1 x i64] }, ptr %34, i64 %25
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %25
   store i64 0, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %3, ptr %36, align 8

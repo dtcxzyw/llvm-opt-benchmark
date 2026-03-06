@@ -84,7 +84,7 @@ define void @_ZN5boost10filesystem6detail11path_traits7convertEPKcS4_RNSt7__cxx1
   %18 = mul i64 %13, 12
   %19 = select i1 %17, i64 -1, i64 %18
   %20 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #15
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %14
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %14
   invoke fastcc void @_ZN12_GLOBAL__N_111convert_auxEPKcS1_PwS2_RNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEERKSt7codecvtIwc11__mbstate_tE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %.0)
           to label %_ZNSt10unique_ptrIA_wSt14default_deleteIS0_EED2Ev.exit unwind label %_ZNSt10unique_ptrIA_wSt14default_deleteIS0_EED2Ev.exit23
 

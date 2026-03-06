@@ -144,8 +144,8 @@ define internal i32 @nf_conntrack_irc_init() #0 section ".init.text" align 16 {
 18:                                               ; preds = %.preheader, %18
   %19 = phi i32 [ %24, %18 ], [ 0, %.preheader ]
   %20 = sext i32 %19 to i64
-  %21 = getelementptr %struct.nf_conntrack_helper, ptr @irc, i64 %20
-  %22 = getelementptr i16, ptr @ports, i64 %20
+  %21 = getelementptr [160 x i8], ptr @irc, i64 %20
+  %22 = getelementptr [2 x i8], ptr @ports, i64 %20
   %23 = load i16, ptr %22, align 2
   tail call void @nf_ct_helper_init(ptr noundef %21, i16 noundef zeroext 2, i16 noundef zeroext 6, ptr noundef nonnull @.str.2, i16 noundef zeroext 6667, i16 noundef zeroext %23, i32 noundef %19, ptr noundef nonnull @irc_exp_policy, i32 noundef 0, ptr noundef nonnull @help, ptr noundef null, ptr noundef null) #11
   %24 = add nuw i32 %19, 1
@@ -340,7 +340,7 @@ define internal i32 @help(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 97:                                               ; preds = %189, %95
   %98 = phi i64 [ 0, %95 ], [ %191, %189 ]
   %99 = phi ptr [ %96, %95 ], [ %190, %189 ]
-  %100 = getelementptr ptr, ptr @dccprotos, i64 %98
+  %100 = getelementptr [8 x i8], ptr @dccprotos, i64 %98
   %101 = load ptr, ptr %100, align 8
   %102 = call i64 @strlen(ptr noundef %101) #11
   %103 = call i32 @bcmp(ptr %99, ptr %101, i64 %102)

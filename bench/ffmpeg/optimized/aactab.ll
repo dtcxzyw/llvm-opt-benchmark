@@ -178,16 +178,16 @@ define internal fastcc void @aac_tableinit() unnamed_addr #2 {
   %12 = fmul nsz float %.02022, 2.000000e+00
   %.121 = select nsz i1 %11, float %12, float %.02022
   %13 = zext nneg i32 %4 to i64
-  %14 = getelementptr inbounds nuw float, ptr @aac_tableinit.exp2_lut, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @aac_tableinit.exp2_lut, i64 %13
   %15 = load float, ptr %14, align 16, !tbaa !4
   %16 = fmul nsz float %.1, %15
-  %17 = getelementptr inbounds nuw float, ptr @ff_aac_pow2sf_tab, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @ff_aac_pow2sf_tab, i64 %indvars.iv
   store float %16, ptr %17, align 4, !tbaa !4
   %18 = zext nneg i32 %8 to i64
-  %19 = getelementptr inbounds nuw float, ptr @aac_tableinit.exp2_lut, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @aac_tableinit.exp2_lut, i64 %18
   %20 = load float, ptr %19, align 4, !tbaa !4
   %21 = fmul nsz float %.121, %20
-  %22 = getelementptr inbounds nuw float, ptr @ff_aac_pow34sf_tab, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @ff_aac_pow34sf_tab, i64 %indvars.iv
   store float %21, ptr %22, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 428

@@ -370,7 +370,7 @@ define void @_ZN15uv_requirements7sources18RequirementsSource21from_requirements
 22:                                               ; preds = %2, %93
   %23 = phi i64 [ 0, %2 ], [ %24, %93 ]
   %24 = add nuw nsw i64 %23, 1
-  %25 = getelementptr inbounds nuw { [2 x i64] }, ptr %18, i64 %23
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %23
   %26 = load ptr, ptr %25, align 8, !alias.scope !36, !nonnull !3, !align !27, !noundef !3
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load i64, ptr %27, align 8, !alias.scope !36, !noundef !3
@@ -680,7 +680,7 @@ define void @_ZN15uv_requirements7sources18RequirementsSource20from_constraints_
 22:                                               ; preds = %2, %93
   %23 = phi i64 [ 0, %2 ], [ %24, %93 ]
   %24 = add nuw nsw i64 %23, 1
-  %25 = getelementptr inbounds nuw { [2 x i64] }, ptr %18, i64 %23
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %23
   %26 = load ptr, ptr %25, align 8, !alias.scope !98, !nonnull !3, !align !27, !noundef !3
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load i64, ptr %27, align 8, !alias.scope !98, !noundef !3
@@ -990,7 +990,7 @@ define void @_ZN15uv_requirements7sources18RequirementsSource18from_overrides_tx
 22:                                               ; preds = %2, %93
   %23 = phi i64 [ 0, %2 ], [ %24, %93 ]
   %24 = add nuw nsw i64 %23, 1
-  %25 = getelementptr inbounds nuw { [2 x i64] }, ptr %18, i64 %23
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %23
   %26 = load ptr, ptr %25, align 8, !alias.scope !159, !nonnull !3, !align !27, !noundef !3
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load i64, ptr %27, align 8, !alias.scope !159, !noundef !3

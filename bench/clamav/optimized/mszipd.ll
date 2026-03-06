@@ -1192,7 +1192,7 @@ default.unreachable:                              ; preds = %._crit_edge673
   %.6183.lcssa.i = phi i32 [ %.5182504.i, %.preheader297.i ], [ %362, %356 ]
   %364 = and i32 %.6190.lcssa.i, 127
   %365 = zext nneg i32 %364 to i64
-  %366 = getelementptr inbounds nuw i16, ptr %2, i64 %365
+  %366 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %365
   %367 = load i16, ptr %366, align 2, !tbaa !36
   %368 = zext i16 %367 to i64
   %369 = getelementptr inbounds nuw i8, ptr %3, i64 %368
@@ -1625,7 +1625,7 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %.13.lcssa = phi ptr [ %.12, %.preheader497 ], [ %539, %538 ]
   %546 = and i32 %.7370.lcssa, 511
   %547 = zext nneg i32 %546 to i64
-  %548 = getelementptr inbounds nuw i16, ptr %20, i64 %547
+  %548 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %547
   %549 = load i16, ptr %548, align 2, !tbaa !36
   %550 = icmp ugt i16 %549, 287
   br i1 %550, label %.preheader491, label %.loopexit493
@@ -1644,7 +1644,7 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %556 = and i32 %555, 1
   %557 = or disjoint i32 %554, %556
   %558 = zext nneg i32 %557 to i64
-  %559 = getelementptr inbounds nuw i16, ptr %20, i64 %558
+  %559 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %558
   %560 = load i16, ptr %559, align 2, !tbaa !36
   %561 = icmp ugt i16 %560, 287
   br i1 %561, label %.preheader491, label %.loopexit493
@@ -1773,13 +1773,13 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %.16337.lcssa = phi ptr [ %.13334.lcssa, %.preheader490 ], [ %.17338, %616 ]
   %.16.lcssa = phi ptr [ %.13.lcssa, %.preheader490 ], [ %617, %616 ]
   %624 = zext i8 %588 to i64
-  %625 = getelementptr inbounds nuw i16, ptr @lsb_bit_mask, i64 %624
+  %625 = getelementptr inbounds nuw [2 x i8], ptr @lsb_bit_mask, i64 %624
   %626 = load i16, ptr %625, align 2, !tbaa !36
   %627 = zext i16 %626 to i32
   %628 = and i32 %.9372.lcssa, %627
   %629 = lshr i32 %.9372.lcssa, %589
   %630 = sub nsw i32 %.9359.lcssa, %589
-  %631 = getelementptr inbounds nuw i16, ptr @lit_lengths, i64 %586
+  %631 = getelementptr inbounds nuw [2 x i8], ptr @lit_lengths, i64 %586
   %632 = load i16, ptr %631, align 2, !tbaa !36
   %633 = zext i16 %632 to i32
   %634 = add nuw nsw i32 %628, %633
@@ -1861,7 +1861,7 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %.18.lcssa = phi ptr [ %.16.lcssa, %._crit_edge704 ], [ %662, %661 ]
   %669 = and i32 %.10373.lcssa, 63
   %670 = zext nneg i32 %669 to i64
-  %671 = getelementptr inbounds nuw i16, ptr %21, i64 %670
+  %671 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %670
   %672 = load i16, ptr %671, align 2, !tbaa !36
   %673 = icmp ugt i16 %672, 31
   br i1 %673, label %.preheader488, label %.loopexit
@@ -1880,7 +1880,7 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %679 = and i32 %678, 1
   %680 = or disjoint i32 %677, %679
   %681 = zext nneg i32 %680 to i64
-  %682 = getelementptr inbounds nuw i16, ptr %21, i64 %681
+  %682 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %681
   %683 = load i16, ptr %682, align 2, !tbaa !36
   %684 = icmp ugt i16 %683, 31
   br i1 %684, label %.preheader488, label %.loopexit
@@ -1977,13 +1977,13 @@ zip_read_lens.exit.thread:                        ; preds = %._crit_edge458.i, %
   %.20341.lcssa = phi ptr [ %.18339.lcssa, %.preheader487 ], [ %.21342, %721 ]
   %.20.lcssa = phi ptr [ %.18.lcssa, %.preheader487 ], [ %722, %721 ]
   %729 = zext i8 %693 to i64
-  %730 = getelementptr inbounds nuw i16, ptr @lsb_bit_mask, i64 %729
+  %730 = getelementptr inbounds nuw [2 x i8], ptr @lsb_bit_mask, i64 %729
   %731 = load i16, ptr %730, align 2, !tbaa !36
   %732 = zext i16 %731 to i32
   %733 = and i32 %.11374.lcssa, %732
   %734 = lshr i32 %.11374.lcssa, %694
   %735 = sub nsw i32 %.11361.lcssa, %694
-  %736 = getelementptr inbounds nuw i16, ptr @dist_offsets, i64 %685
+  %736 = getelementptr inbounds nuw [2 x i8], ptr @dist_offsets, i64 %685
   %737 = load i16, ptr %736, align 2, !tbaa !36
   %738 = zext i16 %737 to i32
   %739 = add nuw nsw i32 %733, %738
@@ -2558,7 +2558,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %.1111 = phi i32 [ %31, %.preheader178 ], [ %23, %26 ]
   %.1106 = phi i32 [ %32, %.preheader178 ], [ %.0157, %26 ]
   %29 = zext i32 %.1111 to i64
-  %30 = getelementptr inbounds nuw i16, ptr %3, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %29
   store i16 %.0121153, ptr %30, align 2, !tbaa !36
   %31 = add i32 %.1111, %11
   %32 = add i32 %.1106, -1
@@ -2610,7 +2610,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
 
 52:                                               ; preds = %46
   %53 = zext i32 %49 to i64
-  %54 = getelementptr inbounds nuw i16, ptr %3, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %53
   store i16 -1, ptr %54, align 2, !tbaa !36
   %55 = add nuw i16 %.1122158, 1
   %56 = zext i16 %55 to i32
@@ -2676,7 +2676,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
   %.4114160.us = phi i32 [ %spec.select.us, %88 ], [ %73, %70 ]
   %.3119159.us = phi i16 [ %.4120.us, %88 ], [ %.1117165.us, %70 ]
   %79 = zext i32 %.4114160.us to i64
-  %80 = getelementptr inbounds nuw i16, ptr %3, i64 %79
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %79
   %81 = load i16, ptr %80, align 2, !tbaa !36
   %82 = icmp eq i16 %81, -1
   br i1 %82, label %83, label %88
@@ -2707,7 +2707,7 @@ define internal fastcc range(i32 0, 2) i32 @make_decode_table(i32 noundef range(
 
 ._crit_edge162.us:                                ; preds = %88
   %96 = zext nneg i32 %spec.select.us to i64
-  %97 = getelementptr inbounds nuw i16, ptr %3, i64 %96
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %96
   store i16 %.2123164.us, ptr %97, align 2, !tbaa !36
   %98 = add i32 %.4166.us, %.1171
   br label %76

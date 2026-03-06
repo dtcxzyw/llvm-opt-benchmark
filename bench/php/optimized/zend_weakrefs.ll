@@ -2211,7 +2211,7 @@ define internal range(i32 -1, 1) i32 @zend_weakmap_iterator_valid(ptr noundef re
   tail call void @llvm.assume(i1 %6)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !83
   %8 = zext i32 %.val to i64
-  %9 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef nonnull %4, ptr noundef nonnull %10) #8
   %12 = icmp eq i32 %11, 3
@@ -2230,7 +2230,7 @@ define internal ptr @zend_weakmap_iterator_get_current_data(ptr noundef readonly
   tail call void @llvm.assume(i1 %6)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !83
   %8 = zext i32 %.val to i64
-  %9 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef nonnull %4, ptr noundef nonnull %10) #8
   ret ptr %11
@@ -2249,7 +2249,7 @@ define internal void @zend_weakmap_iterator_get_current_key(ptr noundef readonly
   tail call void @llvm.assume(i1 %9)
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !83
   %11 = zext i32 %.val to i64
-  %12 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2289,7 +2289,7 @@ define internal void @zend_weakmap_iterator_move_forward(ptr noundef readonly ca
   tail call void @llvm.assume(i1 %6)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !83
   %8 = zext i32 %.val to i64
-  %9 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = tail call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %4, ptr noundef nonnull %10) #8
   ret void
@@ -2306,7 +2306,7 @@ define internal void @zend_weakmap_iterator_rewind(ptr noundef readonly captures
   tail call void @llvm.assume(i1 %6)
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !83
   %8 = zext i32 %.val to i64
-  %9 = getelementptr inbounds nuw %struct._HashTableIterator, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef nonnull %4, ptr noundef nonnull %10) #8
   ret void

@@ -112,7 +112,7 @@ _ZNSt6vectorIP10ThreadDataSaIS1_EED2Ev.exit:      ; preds = %_ZNSt6vectorINSt7__
 define void @_ZN6Memory11ResetThreadEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = zext i32 %1 to i64
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %3
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %3
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 987984
   %8 = load ptr, ptr %7, align 8
@@ -121,7 +121,7 @@ define void @_ZN6Memory11ResetThreadEj(ptr noundef nonnull readonly align 8 capt
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef 5)
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %3
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %3
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 987984
   %16 = load ptr, ptr %15, align 8
@@ -131,7 +131,7 @@ define void @_ZN6Memory11ResetThreadEj(ptr noundef nonnull readonly align 8 capt
   %20 = tail call noundef double %19(ptr noundef nonnull align 8 dereferenceable(8) %16)
   %21 = fadd double %20, 9.600000e+02
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %3
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %3
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4928
   store double %21, ptr %25, align 8
@@ -142,7 +142,7 @@ define void @_ZN6Memory11ResetThreadEj(ptr noundef nonnull readonly align 8 capt
 define noundef double @_ZNK6Memory13MemoryInUseMBEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = zext i32 %1 to i64
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %3
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %3
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 987984
   %8 = load ptr, ptr %7, align 8
@@ -158,7 +158,7 @@ define noundef double @_ZNK6Memory13MemoryInUseMBEj(ptr noundef nonnull readonly
 define void @_ZN6Memory12ReturnThreadEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = zext i32 %1 to i64
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %3
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %3
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 987984
   %8 = load ptr, ptr %7, align 8
@@ -167,7 +167,7 @@ define void @_ZN6Memory12ReturnThreadEj(ptr noundef nonnull readonly align 8 cap
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8)
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %3
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %3
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 987984
   %16 = load ptr, ptr %15, align 8
@@ -177,7 +177,7 @@ define void @_ZN6Memory12ReturnThreadEj(ptr noundef nonnull readonly align 8 cap
   %20 = tail call noundef double %19(ptr noundef nonnull align 8 dereferenceable(8) %16)
   %21 = fadd double %20, 9.600000e+02
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %3
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %3
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4928
   store double %21, ptr %25, align 8
@@ -199,7 +199,7 @@ define void @_ZN6Memory6ResizeEj8TTmemoryii(ptr noundef nonnull align 8 derefere
 .lr.ph52:                                         ; preds = %9, %33
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %33 ], [ %11, %9 ]
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv59
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv59
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 987984
   %16 = load ptr, ptr %15, align 8
@@ -208,7 +208,7 @@ define void @_ZN6Memory6ResizeEj8TTmemoryii(ptr noundef nonnull align 8 derefere
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16)
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv59
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv59
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 987984
   %24 = load ptr, ptr %23, align 8
@@ -221,7 +221,7 @@ define void @_ZN6Memory6ResizeEj8TTmemoryii(ptr noundef nonnull align 8 derefere
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %24) #16
   %.pre = load ptr, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv59
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv59
   %.pre62 = load ptr, ptr %.phi.trans.insert, align 8
   %30 = icmp eq ptr %.pre62, null
   br i1 %30, label %33, label %.thread
@@ -261,7 +261,7 @@ define void @_ZN6Memory6ResizeEj8TTmemoryii(ptr noundef nonnull align 8 derefere
   br i1 %48, label %49, label %_ZNSt6vectorIP10ThreadDataSaIS1_EE6resizeEm.exit
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw ptr, ptr %39, i64 %11
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %11
   %.not.i.i = icmp eq ptr %38, %50
   br i1 %.not.i.i, label %_ZNSt6vectorIP10ThreadDataSaIS1_EE6resizeEm.exit, label %51
 
@@ -291,7 +291,7 @@ _ZNSt6vectorIP10ThreadDataSaIS1_EE6resizeEm.exit: ; preds = %45, %47, %49, %51
   br i1 %64, label %65, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %55, i64 %11
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %55, i64 %11
   %.not.i.i37 = icmp eq ptr %54, %66
   br i1 %.not.i.i37, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -327,7 +327,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br i1 %80, label %81, label %_ZNSt6vectorIP10ThreadDataSaIS1_EE6resizeEm.exit39
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds nuw ptr, ptr %71, i64 %11
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %11
   %.not.i.i38 = icmp eq ptr %70, %82
   br i1 %.not.i.i38, label %_ZNSt6vectorIP10ThreadDataSaIS1_EE6resizeEm.exit39, label %83
 
@@ -357,7 +357,7 @@ _ZNSt6vectorIP10ThreadDataSaIS1_EE6resizeEm.exit39: ; preds = %77, %79, %81, %83
   br i1 %96, label %97, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit45
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %87, i64 %11
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %87, i64 %11
   %.not.i.i40 = icmp eq ptr %86, %98
   br i1 %.not.i.i40, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit45, label %.lr.ph.i.i.i.i.i41
 
@@ -392,7 +392,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
 
 _ZN10ThreadDataC2Ev.exit:                         ; preds = %104
   %107 = load ptr, ptr %0, align 8
-  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv
   store ptr %105, ptr %108, align 8
   br i1 %102, label %109, label %115
 
@@ -428,15 +428,15 @@ _ZN10ThreadDataC2Ev.exit:                         ; preds = %104
   %.sink = phi ptr [ %110, %109 ], [ %116, %115 ]
   %.str.1.sink = phi ptr [ @.str, %109 ], [ @.str.1, %115 ]
   %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 987984
   store ptr %.sink, ptr %123, align 8
   %124 = load ptr, ptr %84, align 8
-  %125 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %124, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [32 x i8], ptr %124, i64 %indvars.iv
   %126 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull %.str.1.sink)
   %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 987984
   %131 = load ptr, ptr %130, align 8
@@ -445,7 +445,7 @@ _ZN10ThreadDataC2Ev.exit:                         ; preds = %104
   %134 = load ptr, ptr %133, align 8
   tail call void %134(ptr noundef nonnull align 8 dereferenceable(8) %131, i32 noundef %3)
   %135 = load ptr, ptr %0, align 8
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 987984
   %139 = load ptr, ptr %138, align 8
@@ -454,7 +454,7 @@ _ZN10ThreadDataC2Ev.exit:                         ; preds = %104
   %142 = load ptr, ptr %141, align 8
   tail call void %142(ptr noundef nonnull align 8 dereferenceable(8) %139, i32 noundef %4)
   %143 = load ptr, ptr %0, align 8
-  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %indvars.iv
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 987984
   %147 = load ptr, ptr %146, align 8
@@ -522,7 +522,7 @@ define noundef ptr @_ZN6Memory6GetPtrEj(ptr noundef nonnull readonly align 8 cap
 13:                                               ; preds = %2
   %14 = zext i32 %1 to i64
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8
   ret ptr %17
 }
@@ -549,7 +549,7 @@ define void @_ZNK6Memory10ThreadSizeB5cxx11Ej(ptr dead_on_unwind noalias nonnull
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = zext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %5
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7)
   ret void
 }
@@ -653,9 +653,9 @@ _ZNSt6vectorIP10ThreadDataSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %
 
 _ZNSt12_Vector_baseIP10ThreadDataSaIS1_EE13_M_deallocateEPS1_m.exit36: ; preds = %_ZNSt6vectorIP10ThreadDataSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %37
   store ptr %30, ptr %0, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8
   br label %41
 
@@ -761,9 +761,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit41: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %33
   store ptr %27, ptr %0, align 8
-  %37 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %1
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %1
   store ptr %37, ptr %4, align 8
-  %38 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %25
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %25
   store ptr %38, ptr %11, align 8
   br label %39
 

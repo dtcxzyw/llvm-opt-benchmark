@@ -7665,7 +7665,7 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17h7cd5d20d7
 
 66:                                               ; preds = %64
   %67 = zext i32 %65 to i64
-  %68 = getelementptr { { i64, { i64, [1 x i64] } }, ptr, i64 }, ptr %13, i64 %67
+  %68 = getelementptr [40 x i8], ptr %13, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load ptr, ptr %69, align 8, !alias.scope !1708, !noalias !1711, !nonnull !11, !align !12, !noundef !11
   %71 = load ptr, ptr %70, align 8, !noalias !1713, !nonnull !11, !noundef !11
@@ -7720,7 +7720,7 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17h7cd5d20d7
 
 90:                                               ; preds = %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h1b24444ed62bcd8eE.exit.thread"
   %91 = zext i32 %89 to i64
-  %92 = getelementptr { { i64, { i64, [1 x i64] } }, ptr, i64 }, ptr %13, i64 %91
+  %92 = getelementptr [40 x i8], ptr %13, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %94 = load ptr, ptr %93, align 8, !alias.scope !1718, !noalias !1719, !nonnull !11, !align !12, !noundef !11
   %95 = load ptr, ptr %94, align 8, !noalias !1714, !nonnull !11, !noundef !11
@@ -7763,7 +7763,7 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot9anchor_at17h7cd5d20d7
 
 112:                                              ; preds = %106
   %113 = getelementptr inbounds nuw i8, ptr %95, i64 136
-  %114 = getelementptr inbounds nuw { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }, ptr %113, i64 %100
+  %114 = getelementptr inbounds nuw [600 x i8], ptr %113, i64 %100
   %115 = load i64, ptr %13, align 8, !noundef !11
   %116 = load i64, ptr %15, align 8, !noundef !11
   %117 = call i64 @llvm.usub.sat.i64(i64 %116, i64 %115)

@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%struct.t_clustid = type { i32, i32 }
 
 $_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE = comdat any
 
@@ -66,7 +65,7 @@ define noundef ptr @_Z8init_matib(i32 noundef %0, i1 noundef zeroext %1) local_u
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %2 ]
-  %19 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %20, ptr %19, align 4, !tbaa !24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -94,7 +93,7 @@ define void @_Z11reset_indexP5t_mat(ptr noundef readonly captures(none) %0) loca
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %8, ptr %7, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -160,32 +159,32 @@ define void @_Z10copy_t_matP5t_matS0_(ptr noundef captures(none) %0, ptr noundef
 
 .lr.ph:                                           ; preds = %.preheader
   %33 = load ptr, ptr %21, align 8, !tbaa !21
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv35
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv35
   %35 = load ptr, ptr %34, align 8, !tbaa !22
   %36 = load ptr, ptr %22, align 8, !tbaa !21
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv35
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv35
   %38 = load ptr, ptr %37, align 8, !tbaa !22
   %wide.trip.count = zext nneg i32 %31 to i64
   br label %39
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !31
-  %42 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   store float %41, ptr %42, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %39, %.preheader
-  %43 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv35
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv35
   %44 = load float, ptr %43, align 4, !tbaa !31
-  %45 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv35
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv35
   store float %44, ptr %45, align 4, !tbaa !31
-  %46 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv35
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv35
   %47 = load i32, ptr %46, align 4, !tbaa !24
-  %48 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv35
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv35
   store i32 %47, ptr %48, align 4, !tbaa !24
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %49 = load i32, ptr %5, align 4, !tbaa !16
@@ -205,14 +204,14 @@ define void @_Z13set_mat_entryP5t_matiif(ptr noundef captures(none) %0, i32 noun
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !21
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !22
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds float, ptr %9, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %9, i64 %10
   store float %3, ptr %11, align 4, !tbaa !31
-  %12 = getelementptr inbounds ptr, ptr %6, i64 %10
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %10
   %13 = load ptr, ptr %12, align 8, !tbaa !22
-  %14 = getelementptr inbounds float, ptr %13, i64 %7
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %7
   store float %3, ptr %14, align 4, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load float, ptr %15, align 8, !tbaa !31
@@ -285,10 +284,10 @@ define noundef float @_Z10mat_energyP5t_mat(ptr noundef readonly captures(none) 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.09 = phi float [ 0.000000e+00, %.lr.ph ], [ %14, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.next
   %12 = load float, ptr %11, align 4, !tbaa !31
   %13 = fmul float %12, %12
   %14 = fadd float %.09, %13
@@ -305,18 +304,18 @@ define void @_Z9swap_rowsP5t_matii(ptr noundef readonly captures(none) %0, i32 n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !24
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds i32, ptr %5, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %5, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !24
   store i32 %11, ptr %7, align 4, !tbaa !24
   store i32 %8, ptr %10, align 4, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !21
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %6
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %6
   %15 = load ptr, ptr %14, align 8, !tbaa !22
-  %16 = getelementptr inbounds ptr, ptr %13, i64 %9
+  %16 = getelementptr inbounds [8 x i8], ptr %13, i64 %9
   %17 = load ptr, ptr %16, align 8, !tbaa !22
   store ptr %17, ptr %14, align 8, !tbaa !22
   store ptr %15, ptr %16, align 8, !tbaa !22
@@ -331,11 +330,11 @@ define void @_Z9swap_rowsP5t_matii(ptr noundef readonly captures(none) %0, i32 n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %21 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !22
-  %23 = getelementptr inbounds float, ptr %22, i64 %6
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %6
   %24 = load float, ptr %23, align 4, !tbaa !31
-  %25 = getelementptr inbounds float, ptr %22, i64 %9
+  %25 = getelementptr inbounds [4 x i8], ptr %22, i64 %9
   %26 = load float, ptr %25, align 4, !tbaa !31
   store float %26, ptr %23, align 4, !tbaa !31
   store float %24, ptr %25, align 4, !tbaa !31
@@ -377,13 +376,13 @@ define void @_Z13low_rmsd_distPKcfiPPfPK16gmx_output_env_t(ptr noundef %0, float
   br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph50
-  %15 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv55
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv55
   %16 = load ptr, ptr %15, align 8, !tbaa !22
   br label %17
 
 17:                                               ; preds = %.lr.ph, %29
   %indvars.iv52 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next53, %29 ]
-  %18 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv52
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv52
   %19 = load float, ptr %18, align 4, !tbaa !31
   %20 = fmul float %10, %19
   %21 = tail call float @llvm.rint.f32(float %20)
@@ -393,7 +392,7 @@ define void @_Z13low_rmsd_distPKcfiPPfPK16gmx_output_env_t(ptr noundef %0, float
 
 24:                                               ; preds = %17
   %25 = sext i32 %22 to i64
-  %26 = getelementptr inbounds i32, ptr %11, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %11, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !24
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %26, align 4, !tbaa !24
@@ -483,7 +482,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
   %56 = uitofp nneg i32 %55 to float
   %57 = fdiv float %56, %10
   %58 = fpext float %57 to double
-  %59 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv60
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv60
   %60 = load i32, ptr %59, align 4, !tbaa !24
   %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.12, double noundef %58, i32 noundef %60) #18
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
@@ -697,7 +696,7 @@ define noundef ptr @_Z11new_clustidi(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw %struct.t_clustid, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %6, ptr %5, align 4, !tbaa !53
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4

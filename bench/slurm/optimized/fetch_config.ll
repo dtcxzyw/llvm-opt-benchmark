@@ -1300,7 +1300,7 @@ define dso_local ptr @new_config_response(i1 noundef zeroext %0) local_unnamed_a
 
 15:                                               ; preds = %.lr.ph, %13, %10, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw ptr, ptr %spec.store.select, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %spec.store.select, i64 %indvars.iv.next
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
@@ -1318,7 +1318,7 @@ define dso_local ptr @new_config_response(i1 noundef zeroext %0) local_unnamed_a
   %19 = phi i32 [ %5, %.lr.ph40.preheader ], [ %26, %25 ]
   %20 = phi ptr [ %.pre52, %.lr.ph40.preheader ], [ %27, %25 ]
   %indvars.iv46 = phi i64 [ 0, %.lr.ph40.preheader ], [ %indvars.iv.next47, %25 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv46
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv46
   %22 = load ptr, ptr %21, align 8
   %23 = load i8, ptr %22, align 1
   %.not32 = icmp eq i8 %23, 47
@@ -1342,7 +1342,7 @@ define dso_local ptr @new_config_response(i1 noundef zeroext %0) local_unnamed_a
   %30 = phi i32 [ %18, %.lr.ph42.preheader ], [ %37, %36 ]
   %31 = phi ptr [ %.pre55, %.lr.ph42.preheader ], [ %38, %36 ]
   %indvars.iv49 = phi i64 [ 0, %.lr.ph42.preheader ], [ %indvars.iv.next50, %36 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv49
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv49
   %33 = load ptr, ptr %32, align 8
   %34 = load i8, ptr %33, align 1
   %.not31 = icmp eq i8 %34, 47
@@ -1516,7 +1516,7 @@ define dso_local void @grab_include_directives() local_unnamed_addr #0 {
 15:                                               ; preds = %9, %12, %7
   call void @slurm_xfree(ptr noundef nonnull %1) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw ptr, ptr @slurmd_config_files, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @slurmd_config_files, i64 %indvars.iv.next
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq i64 %indvars.iv.next, 12
   br i1 %.not, label %3, label %4, !llvm.loop !23

@@ -1681,7 +1681,7 @@ _PyMutex_Lock.exit:                               ; preds = %4, %10
   %18 = load i32, ptr %17, align 4, !tbaa !191
   %19 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
   %20 = sext i32 %18 to i64
-  %21 = getelementptr %struct._pending_call, ptr %19, i64 %20
+  %21 = getelementptr [24 x i8], ptr %19, i64 %20
   store ptr %1, ptr %21, align 8, !tbaa !192
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %2, ptr %22, align 8, !tbaa !194
@@ -1776,7 +1776,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %5, %2
 9:                                                ; preds = %_PyMutex_Lock.exit.i
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 9940), align 4, !tbaa !191
   %11 = sext i32 %10 to i64
-  %12 = getelementptr %struct._pending_call, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2736), i64 %11
+  %12 = getelementptr [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2736), i64 %11
   store ptr %0, ptr %12, align 8, !tbaa !192
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %1, ptr %13, align 8, !tbaa !194
@@ -2456,7 +2456,7 @@ _PyMutex_Lock.exit:                               ; preds = %17, %20
 _next_pending_call.exit.i:                        ; preds = %_PyMutex_Lock.exit
   %23 = load i32, ptr %13, align 8, !tbaa !206
   %24 = sext i32 %23 to i64
-  %25 = getelementptr %struct._pending_call, ptr %14, i64 %24
+  %25 = getelementptr [24 x i8], ptr %14, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !192
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !194
@@ -2467,7 +2467,7 @@ _next_pending_call.exit.i:                        ; preds = %_PyMutex_Lock.exit
 
 32:                                               ; preds = %_next_pending_call.exit.i
   %33 = zext nneg i32 %23 to i64
-  %34 = getelementptr %struct._pending_call, ptr %14, i64 %33
+  %34 = getelementptr [24 x i8], ptr %14, i64 %33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   %35 = add nuw i32 %23, 1
   %36 = srem i32 %35, 300

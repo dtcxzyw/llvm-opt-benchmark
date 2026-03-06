@@ -86,8 +86,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.gmx::PTCouplingArrays" = type { ptr, %"class.gmx::ArrayRef.464", %"class.gmx::ArrayRef.464", %"class.gmx::ArrayRef.464", %"class.gmx::ArrayRef.464" }
 %"class.gmx::ArrayRef.464" = type { %"struct.gmx::ArrayRefIter.465", %"struct.gmx::ArrayRefIter.465" }
 %"struct.gmx::ArrayRefIter.465" = type { ptr }
-%struct.wallcc_t = type { i32, i64, i64 }
-%"class.gmx::BasicVector.22" = type { [3 x float] }
 
 $_ZN3gmx16EnumerationArrayINS_14MtsForceGroupsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_7EED2Ev = comdat any
 
@@ -1900,7 +1898,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit296:              ; preds = %720, %_ZNKSt7__cxx1
   %872 = load i32, ptr %871, align 4, !tbaa !376
   %873 = mul nsw i32 %872, 60
   %874 = sext i32 %873 to i64
-  %875 = getelementptr %struct.wallcc_t, ptr %861, i64 %874
+  %875 = getelementptr [24 x i8], ptr %861, i64 %874
   %876 = getelementptr i8, ptr %875, i64 24
   %877 = load i32, ptr %876, align 8, !tbaa !491
   %878 = add nsw i32 %877, 1
@@ -2098,7 +2096,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit298._crit_edge: ; pred
   %968 = load i32, ptr %964, align 8, !tbaa !527
   %969 = sext i32 %968 to i64
   %.not.i.i299 = icmp eq ptr %967, null
-  %970 = getelementptr inbounds nuw %"class.gmx::BasicVector.22", ptr %967, i64 %969
+  %970 = getelementptr inbounds nuw [12 x i8], ptr %967, i64 %969
   %spec.select.i.i = select i1 %.not.i.i299, ptr null, ptr %970
   %971 = ptrtoint ptr %spec.select.i.i to i64
   %972 = ptrtoint ptr %967 to i64

@@ -64,7 +64,7 @@ define noalias ptr @pmix_path_find(ptr noundef %0, ptr noundef readonly captures
 14:                                               ; preds = %.lr.ph, %pmix_path_access.exit51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %pmix_path_access.exit51 ]
   %15 = phi ptr [ %7, %.lr.ph ], [ %69, %pmix_path_access.exit51 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %17 = load i8, ptr %15, align 1, !tbaa !3
   %18 = icmp eq i8 %17, 36
   br i1 %18, label %19, label %63
@@ -185,7 +185,7 @@ pmix_path_access.exit51.sink.split:               ; preds = %66, %62, %60, %55, 
 pmix_path_access.exit51:                          ; preds = %pmix_path_access.exit51.sink.split, %63, %43, %.thread, %42
   %.1 = phi ptr [ null, %43 ], [ null, %.thread ], [ null, %42 ], [ null, %63 ], [ %.1.ph, %pmix_path_access.exit51.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %68 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %69 = load ptr, ptr %68, align 8, !tbaa !6
   %70 = icmp ne ptr %69, null
   %71 = icmp eq ptr %.1, null
@@ -358,7 +358,7 @@ sub_0.outer:                                      ; preds = %.thread49, %sub_0.p
 
 sub_0:                                            ; preds = %sub_0.outer, %.tail.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.tail.thread ], [ %indvars.iv.ph, %sub_0.outer ]
-  %38 = getelementptr inbounds nuw ptr, ptr %.ph54, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.ph54, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !6
   %40 = load i8, ptr %39, align 1
   %.not = icmp eq i8 %40, 46
@@ -374,7 +374,7 @@ sub_0:                                            ; preds = %sub_0.outer, %.tail
   call void @free(ptr noundef nonnull %39) #14
   %45 = call noalias ptr @strdup(ptr noundef nonnull %3) #14
   %46 = load ptr, ptr %5, align 8, !tbaa !14
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   store ptr %45, ptr %47, align 8, !tbaa !6
   %48 = icmp eq ptr %45, null
   br i1 %48, label %.loopexit, label %.thread49
@@ -578,7 +578,7 @@ define noundef zeroext i1 @pmix_path_nfs(ptr noundef %0, ptr noundef writeonly c
 
 42:                                               ; preds = %42, %35
   %indvars.iv = phi i64 [ 0, %35 ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw ptr, ptr @__const.pmix_path_nfs.fs_types, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @__const.pmix_path_nfs.fs_types, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !6
   %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %41) #15
   %46 = icmp eq i32 %45, 0

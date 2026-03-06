@@ -426,7 +426,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %81
 
 117:                                              ; preds = %113, %108
   %118 = load ptr, ptr %98, align 8, !tbaa !3
-  %119 = getelementptr inbounds nuw double, ptr %118, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv
   br label %_ZN2cv3Mat2atIdEERT_i.exit
 
 120:                                              ; preds = %113
@@ -456,7 +456,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %81
   %139 = mul i64 %137, %138
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 %139
   %141 = sext i32 %.recomposed to i64
-  %142 = getelementptr inbounds double, ptr %140, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr %140, i64 %141
   br label %_ZN2cv3Mat2atIdEERT_i.exit
 
 _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %117, %124, %130
@@ -488,7 +488,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit312.thread: ; preds = %143, 
 
 152:                                              ; preds = %148, %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit312.thread
   %153 = load ptr, ptr %98, align 8, !tbaa !3
-  %154 = getelementptr inbounds nuw double, ptr %153, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %indvars.iv
   br label %_ZN2cv3Mat2atIdEERT_i.exit315
 
 155:                                              ; preds = %148
@@ -518,7 +518,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit312.thread: ; preds = %143, 
   %174 = mul i64 %172, %173
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 %174
   %176 = sext i32 %.recomposed405 to i64
-  %177 = getelementptr inbounds double, ptr %175, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %175, i64 %176
   br label %_ZN2cv3Mat2atIdEERT_i.exit315
 
 _ZN2cv3Mat2atIdEERT_i.exit315:                    ; preds = %152, %159, %165
@@ -761,8 +761,8 @@ _ZL10_Py_DECREFP7_object.exit325:                 ; preds = %250, %249, %_ZL19_P
 .lr.ph359.preheader:                              ; preds = %256
   %260 = zext nneg i32 %257 to i64
   %261 = zext nneg i32 %257 to i64
-  %262 = getelementptr inbounds nuw i64, ptr %.val307, i64 %260
-  %263 = getelementptr inbounds nuw i64, ptr %.val306, i64 %260
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %.val307, i64 %260
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %.val306, i64 %260
   br label %.lr.ph359
 
 ._crit_edge:                                      ; preds = %277, %269, %283, %256
@@ -790,13 +790,13 @@ _ZL10_Py_DECREFP7_object.exit325:                 ; preds = %250, %249, %_ZL19_P
   br i1 %272, label %273, label %283
 
 273:                                              ; preds = %271
-  %274 = getelementptr inbounds nuw i64, ptr %.val306, i64 %indvars.iv371
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %.val306, i64 %indvars.iv371
   %275 = load i64, ptr %274, align 8, !tbaa !51
   %276 = icmp sgt i64 %275, 1
   br i1 %276, label %277, label %283
 
 277:                                              ; preds = %273
-  %278 = getelementptr inbounds nuw i64, ptr %.val307, i64 %indvars.iv371
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %.val307, i64 %indvars.iv371
   %279 = load i64, ptr %278, align 8, !tbaa !51
   %280 = getelementptr inbounds nuw i8, ptr %278, i64 8
   %281 = load i64, ptr %280, align 8, !tbaa !51
@@ -814,7 +814,7 @@ _ZL10_Py_DECREFP7_object.exit325:                 ; preds = %250, %249, %_ZL19_P
 
 287:                                              ; preds = %285
   %288 = zext nneg i32 %257 to i64
-  %289 = getelementptr inbounds nuw i64, ptr %.val306, i64 %288
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %.val306, i64 %288
   %290 = load i64, ptr %289, align 8, !tbaa !51
   %291 = trunc i64 %290 to i32
   %292 = icmp slt i32 %291, 513
@@ -829,7 +829,7 @@ _ZL10_Py_DECREFP7_object.exit325:                 ; preds = %250, %249, %_ZL19_P
 
 297:                                              ; preds = %293
   %298 = zext nneg i32 %.val305 to i64
-  %299 = getelementptr i64, ptr %.val307, i64 %298
+  %299 = getelementptr [8 x i8], ptr %.val307, i64 %298
   %300 = getelementptr i8, ptr %299, i64 -16
   %301 = load i64, ptr %300, align 8, !tbaa !51
   %302 = mul nsw i64 %290, %225
@@ -940,16 +940,16 @@ _ZL10_Py_DECREFP7_object.exit325:                 ; preds = %250, %249, %_ZL19_P
   %indvars.iv374 = phi i64 [ %346, %.lr.ph365.preheader ], [ %indvars.iv.next375, %365 ]
   %.0214362 = phi i64 [ %.0229, %.lr.ph365.preheader ], [ %.1215, %365 ]
   %indvars.iv.next375 = add nsw i64 %indvars.iv374, -1
-  %352 = getelementptr inbounds nuw i64, ptr %.val306, i64 %indvars.iv.next375
+  %352 = getelementptr inbounds nuw [8 x i8], ptr %.val306, i64 %indvars.iv.next375
   %353 = load i64, ptr %352, align 8, !tbaa !51
   %354 = trunc i64 %353 to i32
-  %355 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next375
+  %355 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.next375
   store i32 %354, ptr %355, align 4, !tbaa !49
   %356 = icmp sgt i32 %354, 1
   br i1 %356, label %357, label %362
 
 357:                                              ; preds = %.lr.ph365
-  %358 = getelementptr inbounds nuw i64, ptr %.0226, i64 %indvars.iv.next375
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %.0226, i64 %indvars.iv.next375
   %359 = load i64, ptr %358, align 8, !tbaa !51
   %360 = and i64 %353, 2147483647
   %361 = mul i64 %359, %360
@@ -964,7 +964,7 @@ _ZL10_Py_DECREFP7_object.exit325:                 ; preds = %250, %249, %_ZL19_P
 365:                                              ; preds = %357, %362
   %.0214362.sink = phi i64 [ %359, %357 ], [ %.0214362, %362 ]
   %.1215 = phi i64 [ %361, %357 ], [ %364, %362 ]
-  %366 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.next375
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next375
   store i64 %.0214362.sink, ptr %366, align 8, !tbaa !51
   %367 = icmp samesign ugt i64 %indvars.iv374, 1
   br i1 %367, label %.lr.ph365, label %._crit_edge366, !llvm.loop !79
@@ -1199,7 +1199,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN2c
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds double, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   br label %43
 
 15:                                               ; preds = %5
@@ -1234,7 +1234,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN2c
   %39 = mul i64 %37, %38
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 %39
   %41 = sext i32 %.recomposed to i64
-  %42 = getelementptr inbounds double, ptr %40, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %40, i64 %41
   br label %43
 
 43:                                               ; preds = %28, %19, %10
@@ -3439,7 +3439,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm2
   %.not41 = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ true, %11 ]
   %.02540 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper", ptr %1, i64 %.02540
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !111
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
@@ -3572,7 +3572,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm2
   %.not41 = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ true, %11 ]
   %.02540 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper.0", ptr %1, i64 %.02540
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !118
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
@@ -3712,7 +3712,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm4
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper", ptr %1, i64 %.02540
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !111
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
@@ -3856,7 +3856,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm4
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper.0", ptr %1, i64 %.02540
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !118
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
@@ -4004,7 +4004,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm4
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper.3", ptr %1, i64 %.02540
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !138
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
@@ -4621,7 +4621,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm2
   %.not41 = phi i1 [ false, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ true, %11 ]
   %.02540 = phi i64 [ 1, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper.3", ptr %1, i64 %.02540
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !138
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
@@ -4756,7 +4756,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIiLm3
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper", ptr %1, i64 %.02540
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !111
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIiEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
@@ -4895,7 +4895,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIfLm3
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper.0", ptr %1, i64 %.02540
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !118
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIfEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 4 dereferenceable(4) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit
@@ -5037,7 +5037,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113parseSequenceIdLm3
 .preheader:                                       ; preds = %11, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34
   %.02540 = phi i64 [ %39, %_ZN12_GLOBAL__N_111SafeSeqItemD2Ev.exit34 ], [ 0, %11 ]
   %16 = tail call ptr @PySequence_GetItem(ptr noundef nonnull %0, i64 noundef %.02540)
-  %17 = getelementptr inbounds nuw %"class.(anonymous namespace)::RefWrapper.3", ptr %1, i64 %.02540
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02540
   %.val31 = load ptr, ptr %17, align 8, !tbaa !138
   %18 = invoke noundef zeroext i1 @_Z11pyopencv_toIdEbP7_objectRT_RK7ArgInfo(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %.val31, ptr noundef nonnull align 8 dereferenceable(12) %2)
           to label %19 unwind label %.loopexit

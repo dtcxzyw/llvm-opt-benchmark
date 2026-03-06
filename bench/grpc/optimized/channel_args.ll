@@ -1095,7 +1095,7 @@ define void @_ZN9grpc_core11ChannelArgs5FromCEPK17grpc_channel_args(ptr dead_on_
   %.09 = phi i64 [ 0, %.lr.ph ], [ %16, %_ZN9grpc_core11ChannelArgsaSEOS0_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = load ptr, ptr %5, align 8, !tbaa !53
-  %8 = getelementptr inbounds nuw %struct.grpc_arg, ptr %7, i64 %.09
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %.09
   invoke void @_ZNK9grpc_core11ChannelArgs3SetE8grpc_arg(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::ChannelArgs") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull byval(%struct.grpc_arg) align 8 %8)
           to label %9 unwind label %19
 
@@ -2678,7 +2678,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i20: ; preds = %36, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i17
   store ptr %31, ptr %2, align 8, !tbaa !117
   store ptr %35, ptr %8, align 8, !tbaa !119
-  %37 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %31, i64 %29
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %29
   store ptr %37, ptr %9, align 8, !tbaa !120
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit23
 
@@ -2966,7 +2966,7 @@ define void @_ZNK9grpc_core11ChannelArgs18ChannelArgsDeleterclEPK17grpc_channel_
 5:                                                ; preds = %19, %.lr.ph.i.i
   %.016.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %24, %19 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !53
-  %7 = getelementptr inbounds nuw %struct.grpc_arg, ptr %6, i64 %.016.i.i
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.016.i.i
   %8 = load i32, ptr %7, align 8, !tbaa !37
   switch i32 %8, label %19 [
     i32 0, label %9
@@ -2991,7 +2991,7 @@ define void @_ZNK9grpc_core11ChannelArgs18ChannelArgsDeleterclEPK17grpc_channel_
 
 19:                                               ; preds = %12, %9, %5
   %20 = load ptr, ptr %4, align 8, !tbaa !53
-  %21 = getelementptr inbounds nuw %struct.grpc_arg, ptr %20, i64 %.016.i.i
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %.016.i.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !40
   tail call void @gpr_free(ptr noundef %23)
@@ -3080,7 +3080,7 @@ define noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channe
 .lr.ph.i:                                         ; preds = %.lr.ph.split, %.loopexit72
   %.04676 = phi i64 [ 0, %.lr.ph.split ], [ %22, %.loopexit72 ]
   %.14875 = phi i64 [ 0, %.lr.ph.split ], [ %21, %.loopexit72 ]
-  %10 = getelementptr inbounds nuw %struct.grpc_arg, ptr %9, i64 %.04676
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %.04676
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !40
   br label %15
@@ -3092,7 +3092,7 @@ define noundef ptr @_Z41grpc_channel_args_copy_and_add_and_removePK17grpc_channe
 
 15:                                               ; preds = %13, %.lr.ph.i
   %.0710.i = phi i64 [ 0, %.lr.ph.i ], [ %14, %13 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0710.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0710.i
   %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %17) #45
   %19 = icmp eq i32 %18, 0
@@ -3145,7 +3145,7 @@ _ZL17should_remove_argPK8grpc_argPPKcm.exit.thread.loopexit: ; preds = %13
   %.sroa.567.079 = phi ptr [ undef, %.lr.ph82 ], [ %.sroa.567.1, %_ZL17should_remove_argPK8grpc_argPPKcm.exit59 ]
   %.sroa.968.078 = phi ptr [ undef, %.lr.ph82 ], [ %.sroa.968.1, %_ZL17should_remove_argPK8grpc_argPPKcm.exit59 ]
   %36 = load ptr, ptr %33, align 8, !tbaa !53
-  %37 = getelementptr inbounds nuw %struct.grpc_arg, ptr %36, i64 %.04381
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %.04381
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !40
   br i1 %.not.i54, label %.loopexit, label %.lr.ph.i55
@@ -3157,7 +3157,7 @@ _ZL17should_remove_argPK8grpc_argPPKcm.exit.thread.loopexit: ; preds = %13
 
 .lr.ph.i55:                                       ; preds = %34, %38
   %.0710.i56 = phi i64 [ %39, %38 ], [ 0, %34 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0710.i56
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0710.i56
   %41 = load ptr, ptr %40, align 8, !tbaa !30
   %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre, ptr noundef nonnull dereferenceable(1) %41) #45
   %43 = icmp eq i32 %42, 0
@@ -3202,7 +3202,7 @@ _ZL8copy_argPK8grpc_arg.exit:                     ; preds = %.loopexit, %46, %50
   %.sroa.567.2 = phi ptr [ %.sroa.567.079, %.loopexit ], [ %49, %46 ], [ %54, %50 ], [ %59, %55 ]
   %60 = load ptr, ptr %31, align 8, !tbaa !53
   %61 = add i64 %.180, 1
-  %62 = getelementptr inbounds nuw %struct.grpc_arg, ptr %60, i64 %.180
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %60, i64 %.180
   store i32 %44, ptr %62, align 8, !tbaa !170
   %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %45, ptr %.sroa.466.0..sroa_idx, align 8, !tbaa !30
@@ -3238,7 +3238,7 @@ _ZL17should_remove_argPK8grpc_argPPKcm.exit59:    ; preds = %.lr.ph.i55, %_ZL8co
   %.386 = phi i64 [ %87, %_ZL8copy_argPK8grpc_arg.exit60 ], [ %.044, %.loopexit71 ]
   %.sroa.5.085 = phi ptr [ %.sroa.5.1, %_ZL8copy_argPK8grpc_arg.exit60 ], [ undef, %.loopexit71 ]
   %.sroa.9.084 = phi ptr [ %.sroa.9.1, %_ZL8copy_argPK8grpc_arg.exit60 ], [ undef, %.loopexit71 ]
-  %67 = getelementptr inbounds nuw %struct.grpc_arg, ptr %3, i64 %.04287
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %.04287
   %68 = load i32, ptr %67, align 8, !tbaa !37, !noalias !173
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !40, !noalias !173
@@ -3279,7 +3279,7 @@ _ZL8copy_argPK8grpc_arg.exit60:                   ; preds = %.lr.ph88, %72, %76,
   %.sroa.5.1 = phi ptr [ %.sroa.5.085, %.lr.ph88 ], [ %75, %72 ], [ %80, %76 ], [ %85, %81 ]
   %86 = load ptr, ptr %31, align 8, !tbaa !53
   %87 = add i64 %.386, 1
-  %88 = getelementptr inbounds nuw %struct.grpc_arg, ptr %86, i64 %.386
+  %88 = getelementptr inbounds nuw [32 x i8], ptr %86, i64 %.386
   store i32 %68, ptr %88, align 8, !tbaa !170
   %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 8
   store ptr %71, ptr %.sroa.463.0..sroa_idx, align 8, !tbaa !30
@@ -3366,8 +3366,8 @@ define noundef ptr @_Z23grpc_channel_args_unionPK17grpc_channel_argsS1_(ptr noun
 21:                                               ; preds = %.lr.ph, %21
   %.03037 = phi i64 [ 0, %.lr.ph ], [ %25, %21 ]
   %22 = load ptr, ptr %17, align 8, !tbaa !53
-  %23 = getelementptr inbounds nuw %struct.grpc_arg, ptr %22, i64 %.03037
-  %24 = getelementptr inbounds nuw %struct.grpc_arg, ptr %15, i64 %.03037
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %.03037
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %.03037
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false), !tbaa.struct !177
   %25 = add nuw i64 %.03037, 1
   %26 = load i64, ptr %0, align 8, !tbaa !51
@@ -3385,7 +3385,7 @@ define noundef ptr @_Z23grpc_channel_args_unionPK17grpc_channel_argsS1_(ptr noun
   %.03139 = phi i64 [ 0, %.preheader.i.lr.ph ], [ %47, %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit ]
   %.03238 = phi i64 [ %.lcssa, %.preheader.i.lr.ph ], [ %.1, %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit ]
   %30 = load ptr, ptr %19, align 8, !tbaa !53
-  %31 = getelementptr inbounds nuw %struct.grpc_arg, ptr %30, i64 %.03139
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %.03139
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !40
   %34 = load i64, ptr %0, align 8, !tbaa !51
@@ -3403,7 +3403,7 @@ define noundef ptr @_Z23grpc_channel_args_unionPK17grpc_channel_argsS1_(ptr noun
 
 38:                                               ; preds = %36, %.lr.ph.i
   %.01015.i = phi i64 [ 0, %.lr.ph.i ], [ %37, %36 ]
-  %39 = getelementptr inbounds nuw %struct.grpc_arg, ptr %35, i64 %.01015.i
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %.01015.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !40
   %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(1) %33) #45
@@ -3412,7 +3412,7 @@ define noundef ptr @_Z23grpc_channel_args_unionPK17grpc_channel_argsS1_(ptr noun
 
 .loopexit:                                        ; preds = %36, %.preheader.i
   %44 = add i64 %.03238, 1
-  %45 = getelementptr inbounds nuw %struct.grpc_arg, ptr %15, i64 %.03238
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %.03238
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false), !tbaa.struct !177
   %.pre = load i64, ptr %1, align 8, !tbaa !51
   br label %_Z22grpc_channel_args_findPK17grpc_channel_argsPKc.exit
@@ -3451,7 +3451,7 @@ define noundef ptr @_Z22grpc_channel_args_findPK17grpc_channel_argsPKc(ptr nound
 
 8:                                                ; preds = %.lr.ph, %6
   %.01015 = phi i64 [ 0, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds nuw %struct.grpc_arg, ptr %5, i64 %.01015
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %.01015
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !40
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %1) #45
@@ -3485,8 +3485,8 @@ define noundef ptr @_Z27grpc_channel_args_normalizePK17grpc_channel_args(ptr nou
 7:                                                ; preds = %.lr.ph, %7
   %.02326 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
   %8 = load ptr, ptr %6, align 8, !tbaa !53
-  %9 = getelementptr inbounds nuw %struct.grpc_arg, ptr %8, i64 %.02326
-  %10 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02326
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %.02326
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.02326
   store ptr %9, ptr %10, align 8, !tbaa !70
   %11 = add nuw i64 %.02326, 1
   %exitcond.not = icmp eq i64 %11, %5
@@ -3516,7 +3516,7 @@ define noundef ptr @_Z27grpc_channel_args_normalizePK17grpc_channel_args(ptr nou
   %.029 = phi i64 [ %41, %_ZL8copy_argPK8grpc_arg.exit ], [ 0, %._crit_edge.thread ]
   %.sroa.5.028 = phi ptr [ %.sroa.5.1, %_ZL8copy_argPK8grpc_arg.exit ], [ undef, %._crit_edge.thread ]
   %.sroa.9.027 = phi ptr [ %.sroa.9.1, %_ZL8copy_argPK8grpc_arg.exit ], [ undef, %._crit_edge.thread ]
-  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %.029
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.029
   %20 = load ptr, ptr %19, align 8, !tbaa !70
   %21 = load i32, ptr %20, align 8, !tbaa !37, !noalias !182
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -3557,7 +3557,7 @@ _ZL8copy_argPK8grpc_arg.exit:                     ; preds = %.lr.ph31, %25, %29,
   %.sroa.9.1 = phi ptr [ %.sroa.9.027, %.lr.ph31 ], [ %.sroa.9.027, %25 ], [ %.sroa.9.027, %29 ], [ %.sroa.9.16.copyload, %34 ]
   %.sroa.5.1 = phi ptr [ %.sroa.5.028, %.lr.ph31 ], [ %28, %25 ], [ %33, %29 ], [ %38, %34 ]
   %39 = load ptr, ptr %17, align 8, !tbaa !53
-  %40 = getelementptr inbounds nuw %struct.grpc_arg, ptr %39, i64 %.029
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %.029
   store i32 %21, ptr %40, align 8, !tbaa !170
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %24, ptr %.sroa.425.0..sroa_idx, align 8, !tbaa !30
@@ -3609,7 +3609,7 @@ define void @_Z25grpc_channel_args_destroyP17grpc_channel_args(ptr noundef %0) l
 4:                                                ; preds = %.lr.ph, %18
   %.016 = phi i64 [ 0, %.lr.ph ], [ %23, %18 ]
   %5 = load ptr, ptr %3, align 8, !tbaa !53
-  %6 = getelementptr inbounds nuw %struct.grpc_arg, ptr %5, i64 %.016
+  %6 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %.016
   %7 = load i32, ptr %6, align 8, !tbaa !37
   switch i32 %7, label %18 [
     i32 0, label %8
@@ -3634,7 +3634,7 @@ define void @_Z25grpc_channel_args_destroyP17grpc_channel_args(ptr noundef %0) l
 
 18:                                               ; preds = %11, %8, %4
   %19 = load ptr, ptr %3, align 8, !tbaa !53
-  %20 = getelementptr inbounds nuw %struct.grpc_arg, ptr %19, i64 %.016
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %.016
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !40
   tail call void @gpr_free(ptr noundef %22)
@@ -3689,9 +3689,9 @@ define noundef i32 @_Z25grpc_channel_args_comparePK17grpc_channel_argsS1_(ptr no
   %14 = phi i64 [ %9, %.lr.ph ], [ %57, %_ZL7cmp_argPK8grpc_argS1_.exit.thread ]
   %.037 = phi i64 [ 0, %.lr.ph ], [ %58, %_ZL7cmp_argPK8grpc_argS1_.exit.thread ]
   %15 = load ptr, ptr %11, align 8, !tbaa !53
-  %16 = getelementptr inbounds nuw %struct.grpc_arg, ptr %15, i64 %.037
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %.037
   %17 = load ptr, ptr %12, align 8, !tbaa !53
-  %18 = getelementptr inbounds nuw %struct.grpc_arg, ptr %17, i64 %.037
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %.037
   %19 = load i32, ptr %16, align 4, !tbaa !170
   %20 = load i32, ptr %18, align 4, !tbaa !170
   %.0.i.i = tail call noundef i32 @llvm.scmp.i32.i32(i32 %19, i32 %20)
@@ -3956,7 +3956,7 @@ define noundef i32 @_Z30grpc_channel_args_find_integerPK17grpc_channel_argsPKc20
 
 10:                                               ; preds = %8, %.lr.ph.i
   %.01015.i = phi i64 [ 0, %.lr.ph.i ], [ %9, %8 ]
-  %11 = getelementptr inbounds nuw %struct.grpc_arg, ptr %7, i64 %.01015.i
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %.01015.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !40
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %1) #45
@@ -4036,7 +4036,7 @@ define noundef ptr @_Z29grpc_channel_args_find_stringPK17grpc_channel_argsPKc(pt
 
 9:                                                ; preds = %7, %.lr.ph.i
   %.01015.i = phi i64 [ 0, %.lr.ph.i ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw %struct.grpc_arg, ptr %6, i64 %.01015.i
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.01015.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !40
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %1) #45
@@ -4194,7 +4194,7 @@ define noundef zeroext i1 @_Z27grpc_channel_args_find_boolPK17grpc_channel_argsP
 
 9:                                                ; preds = %7, %.lr.ph.i
   %.01015.i = phi i64 [ 0, %.lr.ph.i ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw %struct.grpc_arg, ptr %6, i64 %.01015.i
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.01015.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !40
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull readonly dereferenceable(1) %1) #45
@@ -4229,7 +4229,7 @@ define noundef zeroext i1 @_Z36grpc_channel_args_want_minimal_stackPK17grpc_chan
 
 7:                                                ; preds = %5, %.lr.ph.i
   %.01015.i = phi i64 [ 0, %.lr.ph.i ], [ %6, %5 ]
-  %8 = getelementptr inbounds nuw %struct.grpc_arg, ptr %4, i64 %.01015.i
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %.01015.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !40
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(19) @.str) #45
@@ -4265,7 +4265,7 @@ define void @_Z24grpc_channel_args_stringB5cxx11PK17grpc_channel_args(ptr dead_o
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %_ZN9grpc_core11ChannelArgsaSEOS0_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !189
   %8 = load ptr, ptr %6, align 8, !tbaa !53, !noalias !189
-  %9 = getelementptr inbounds nuw %struct.grpc_arg, ptr %8, i64 %.09.i
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %.09.i
   invoke void @_ZNK9grpc_core11ChannelArgs3SetE8grpc_arg(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::ChannelArgs") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull byval(%struct.grpc_arg) align 8 %9)
           to label %10 unwind label %20
 
@@ -4371,7 +4371,7 @@ define void @_ZN9grpc_core30ChannelArgsBuiltinPreconditionEPK17grpc_channel_args
   %.076 = phi i64 [ 0, %.lr.ph ], [ %93, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = load ptr, ptr %18, align 8, !tbaa !53
-  %25 = getelementptr inbounds nuw %struct.grpc_arg, ptr %24, i64 %.076
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %.076
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !40
   %28 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #38
@@ -4443,7 +4443,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit: ; pr
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr %18, align 8, !tbaa !53
-  %45 = getelementptr inbounds nuw %struct.grpc_arg, ptr %44, i64 %.076
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %.076
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !41
   %48 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #38
@@ -4520,7 +4520,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %73, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %68, ptr %42, align 8, !tbaa !117
   store ptr %72, ptr %49, align 8, !tbaa !119
-  %74 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %68, i64 %66
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %66
   store ptr %74, ptr %51, align 8, !tbaa !120
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit
 
@@ -4563,7 +4563,7 @@ _ZN4absl12lts_2024072210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_
 81:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %82 = load ptr, ptr %18, align 8, !tbaa !53
-  %83 = getelementptr inbounds nuw %struct.grpc_arg, ptr %82, i64 %.076
+  %83 = getelementptr inbounds nuw [32 x i8], ptr %82, i64 %.076
   invoke void @_ZNK9grpc_core11ChannelArgs3SetE8grpc_arg(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::ChannelArgs") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull byval(%struct.grpc_arg) align 8 %83)
           to label %84 unwind label %91
 
@@ -5064,7 +5064,7 @@ define linkonce_odr noundef i32 @_ZN9grpc_core12QsortCompareERKNS_3AVLINS_21RefC
 10:                                               ; preds = %10, %.lr.ph.i
   %.07.i = phi ptr [ %5, %.lr.ph.i ], [ %.0.i, %10 ]
   %11 = phi i64 [ 0, %.lr.ph.i ], [ %13, %10 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   store ptr %.07.i, ptr %12, align 8, !tbaa !25
   %13 = add i64 %11, 1
   %14 = getelementptr inbounds nuw i8, ptr %.07.i, i64 32
@@ -5085,7 +5085,7 @@ _ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE8IteratorC2
 16:                                               ; preds = %16, %.lr.ph.i25
   %.07.i26 = phi ptr [ %6, %.lr.ph.i25 ], [ %.0.i27, %16 ]
   %17 = phi i64 [ 0, %.lr.ph.i25 ], [ %19, %16 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %17
   store ptr %.07.i26, ptr %18, align 8, !tbaa !25
   %19 = add i64 %17, 1
   %20 = getelementptr inbounds nuw i8, ptr %.07.i26, i64 32
@@ -5106,7 +5106,7 @@ _ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE8IteratorC2
   br i1 %24, label %_ZNK9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE8Iterator7currentEv.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr ptr, ptr %3, i64 %.lcssa47
+  %26 = getelementptr [8 x i8], ptr %3, i64 %.lcssa47
   %27 = load ptr, ptr %26, align 8, !tbaa !25
   br label %_ZNK9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE8Iterator7currentEv.exit
 
@@ -5116,7 +5116,7 @@ _ZNK9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE8Iterator7
   br i1 %29, label %_ZNK9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE8Iterator7currentEv.exit31, label %30
 
 30:                                               ; preds = %_ZNK9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE8Iterator7currentEv.exit
-  %31 = getelementptr ptr, ptr %4, i64 %.lcssa4450
+  %31 = getelementptr [8 x i8], ptr %4, i64 %.lcssa4450
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   br label %_ZNK9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE8Iterator7currentEv.exit31
 
@@ -5145,7 +5145,7 @@ _ZNK9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE8Iterator7
 
 43:                                               ; preds = %42, %38
   %44 = add i64 %.lcssa47, -1
-  %45 = getelementptr ptr, ptr %3, i64 %.lcssa47
+  %45 = getelementptr [8 x i8], ptr %3, i64 %.lcssa47
   %46 = load ptr, ptr %45, align 8, !tbaa !25
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %48 = load ptr, ptr %47, align 8, !tbaa !21
@@ -5155,7 +5155,7 @@ _ZNK9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE8Iterator7
 .preheader.i:                                     ; preds = %43, %.preheader.i
   %.07.i33 = phi ptr [ %53, %.preheader.i ], [ %48, %43 ]
   %49 = phi i64 [ %51, %.preheader.i ], [ %44, %43 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %21, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %49
   store ptr %.07.i33, ptr %50, align 8, !tbaa !25
   %51 = add i64 %49, 1
   %52 = getelementptr inbounds nuw i8, ptr %.07.i33, i64 32
@@ -5166,7 +5166,7 @@ _ZNK9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE8Iterator7
 _ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE8Iterator8MoveNextEv.exit: ; preds = %.preheader.i, %43
   %.lcssa48 = phi i64 [ %44, %43 ], [ %51, %.preheader.i ]
   %54 = add i64 %.lcssa4450, -1
-  %55 = getelementptr ptr, ptr %4, i64 %.lcssa4450
+  %55 = getelementptr [8 x i8], ptr %4, i64 %.lcssa4450
   %56 = load ptr, ptr %55, align 8, !tbaa !25
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load ptr, ptr %57, align 8, !tbaa !21
@@ -5176,7 +5176,7 @@ _ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE8Iterator8M
 .preheader.i36:                                   ; preds = %_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE8Iterator8MoveNextEv.exit, %.preheader.i36
   %.07.i37 = phi ptr [ %63, %.preheader.i36 ], [ %58, %_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE8Iterator8MoveNextEv.exit ]
   %59 = phi i64 [ %61, %.preheader.i36 ], [ %54, %_ZN9grpc_core3AVLINS_21RefCountedStringValueENS_11ChannelArgs5ValueEE8Iterator8MoveNextEv.exit ]
-  %60 = getelementptr inbounds nuw ptr, ptr %22, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %59
   store ptr %.07.i37, ptr %60, align 8, !tbaa !25
   %61 = add i64 %59, 1
   %62 = getelementptr inbounds nuw i8, ptr %.07.i37, i64 32
@@ -5457,7 +5457,7 @@ _ZNSt6vectorI8grpc_argSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i.i: ; pre
 _ZNSt6vectorI8grpc_argSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i: ; preds = %40, %_ZNSt6vectorI8grpc_argSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i.i
   store ptr %35, ptr %.val, align 8, !tbaa !67
   store ptr %39, ptr %15, align 8, !tbaa !69
-  %41 = getelementptr inbounds nuw %struct.grpc_arg, ptr %35, i64 %33
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %33
   store ptr %41, ptr %17, align 8, !tbaa !71
   br label %"_ZZNK9grpc_core11ChannelArgs3ToCEvENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.exit"
 
@@ -10197,7 +10197,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_inse
   %.pre.i = phi ptr [ %.pre.pre.i, %39 ], [ %11, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i ]
   store ptr %34, ptr %.pre70.i, align 8, !tbaa !117
   store ptr %38, ptr %15, align 8, !tbaa !119
-  %40 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %34, i64 %32
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %32
   store ptr %40, ptr %17, align 8, !tbaa !120
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit.i
 
@@ -10287,7 +10287,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_inse
   %.pre71.i = phi ptr [ %.pre71.pre.i, %73 ], [ %41, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i12.i ]
   store ptr %68, ptr %41, align 8, !tbaa !117
   store ptr %72, ptr %49, align 8, !tbaa !119
-  %74 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %68, i64 %66
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %66
   store ptr %74, ptr %51, align 8, !tbaa !120
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre71.i, i64 8
   %.pre72.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !119
@@ -10366,7 +10366,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_inse
   %.pre75.i = phi ptr [ %.pre75.pre.i, %100 ], [ %77, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i26.i ]
   store ptr %95, ptr %77, align 8, !tbaa !117
   store ptr %99, ptr %78, align 8, !tbaa !119
-  %101 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %95, i64 %93
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %93
   store ptr %101, ptr %79, align 8, !tbaa !120
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backEOS3_.exit30.i
 
@@ -10443,7 +10443,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i43.i: ; preds = %131, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i40.i
   store ptr %126, ptr %102, align 8, !tbaa !117
   store ptr %130, ptr %107, align 8, !tbaa !119
-  %132 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %126, i64 %124
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %126, i64 %124
   store ptr %132, ptr %109, align 8, !tbaa !120
   br label %"_ZZNK9grpc_core11ChannelArgs8ToStringB5cxx11EvENK3$_0clERKNS_21RefCountedStringValueERKNS0_5ValueE.exit"
 

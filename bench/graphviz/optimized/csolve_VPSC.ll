@@ -13,9 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<Rectangle, std::allocator<Rectangle>>::_Vector_impl" }
 %"struct.std::_Vector_base<Rectangle, std::allocator<Rectangle>>::_Vector_impl" = type { %"struct.std::_Vector_base<Rectangle, std::allocator<Rectangle>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<Rectangle, std::allocator<Rectangle>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.boxf = type { %struct.pointf_s, %struct.pointf_s }
-%struct.pointf_s = type { double, double }
-%class.Rectangle = type { double, double, double, double }
 
 $__clang_call_terminate = comdat any
 
@@ -116,7 +113,7 @@ define noundef i32 @genXConstraints(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 11:                                               ; preds = %.lr.ph, %_ZNSt6vectorI9RectangleSaIS0_EE12emplace_backIJRdS4_S4_S4_EEERS0_DpOT_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorI9RectangleSaIS0_EE12emplace_backIJRdS4_S4_S4_EEERS0_DpOT_.exit ]
-  %12 = getelementptr inbounds nuw %struct.boxf, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -218,7 +215,7 @@ define noundef i32 @genYConstraints(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 10:                                               ; preds = %.lr.ph, %_ZNSt6vectorI9RectangleSaIS0_EE12emplace_backIJRdS4_S4_S4_EEERS0_DpOT_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorI9RectangleSaIS0_EE12emplace_backIJRdS4_S4_S4_EEERS0_DpOT_.exit ]
-  %11 = getelementptr inbounds nuw %struct.boxf, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -328,7 +325,7 @@ define void @deleteConstraints(i32 noundef %0, ptr noundef %1) local_unnamed_add
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !28
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
@@ -608,7 +605,7 @@ _ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; pre
 _ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %41, %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %36, ptr %8, align 8, !tbaa !31
   store ptr %40, ptr %9, align 8, !tbaa !46
-  %42 = getelementptr inbounds nuw ptr, ptr %36, i64 %34
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %34
   store ptr %42, ptr %10, align 8, !tbaa !32
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit
 
@@ -713,7 +710,7 @@ _ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; pre
 _ZNSt6vectorIP10ConstraintSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %40, %_ZNSt6vectorIP10ConstraintSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %35, ptr %8, align 8, !tbaa !31
   store ptr %39, ptr %9, align 8, !tbaa !46
-  %41 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   store ptr %41, ptr %10, align 8, !tbaa !32
   br label %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit
 
@@ -815,7 +812,7 @@ _ZNSt6vectorI9RectangleSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.
 _ZNSt12_Vector_baseI9RectangleSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI9RectangleSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %35
   store ptr %23, ptr %0, align 8, !tbaa !26
   store ptr %.0.lcssa.i.i.i34, ptr %7, align 8, !tbaa !19
-  %39 = getelementptr inbounds nuw %class.Rectangle, ptr %23, i64 %19
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %19
   store ptr %39, ptr %34, align 8, !tbaa !22
   ret void
 

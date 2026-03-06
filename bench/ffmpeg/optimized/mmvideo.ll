@@ -219,7 +219,7 @@ bytestream2_get_be24.exit.i:                      ; preds = %89, %88
   %106 = add nuw nsw i32 %.011.i37, %.0.i.i
   %107 = and i32 %106, 255
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i32, ptr %82, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %108
   store i32 %.0.i10.i, ptr %109, align 4, !tbaa !44
   %110 = add nuw nsw i32 %.011.i37, 1
   %exitcond.not.i = icmp eq i32 %110, %81

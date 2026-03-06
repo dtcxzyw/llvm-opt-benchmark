@@ -16,13 +16,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.cpumask = type { [1 x i64] }
 %struct.anon.11 = type { %struct.shash_desc, [4 x i8] }
 %struct.shash_desc = type { ptr, [0 x ptr] }
-%struct.ext4_ext_path = type { i64, i16, i16, ptr, ptr, ptr, ptr }
-%struct.ext4_extent_idx = type { i32, i32, i16, i16 }
-%struct.ext4_extent = type { i32, i16, i16, i32 }
 %struct.partial_cluster = type { i64, i32, i32 }
 %struct.extent_status = type { %struct.rb_node, i32, i32, i64 }
 %struct.rb_node = type { i64, ptr, ptr }
 %struct.ext4_map_blocks = type { i64, i32, i32, i32 }
+%struct.ext4_extent = type { i32, i16, i16, i32 }
 %struct.ext4_allocation_request = type { ptr, i32, i32, i32, i32, i64, i64, i64, i32 }
 %struct.ext4_iloc = type { ptr, i64, i32 }
 
@@ -644,7 +642,7 @@ define dso_local i32 @ext4_ext_precache(ptr noundef %0) local_unnamed_addr #0 al
   br i1 %30, label %._crit_edge, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr %struct.ext4_ext_path, ptr %17, i64 %.pre
+  %32 = getelementptr [48 x i8], ptr %17, i64 %.pre
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 32
@@ -652,12 +650,12 @@ define dso_local i32 @ext4_ext_precache(ptr noundef %0) local_unnamed_addr #0 al
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i64
-  %40 = getelementptr %struct.ext4_extent_idx, ptr %36, i64 %39
+  %40 = getelementptr [12 x i8], ptr %36, i64 %39
   %41 = icmp ugt ptr %34, %40
   br i1 %41, label %._crit_edge, label %51
 
 ._crit_edge:                                      ; preds = %28, %31
-  %.split = getelementptr %struct.ext4_ext_path, ptr %17, i64 %.pre
+  %.split = getelementptr [48 x i8], ptr %17, i64 %.pre
   %42 = getelementptr i8, ptr %.split, i64 40
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
@@ -694,7 +692,7 @@ define dso_local i32 @ext4_ext_precache(ptr noundef %0) local_unnamed_addr #0 al
 60:                                               ; preds = %51
   %61 = add nuw i32 %29, 1
   %62 = sext i32 %61 to i64
-  %63 = getelementptr %struct.ext4_ext_path, ptr %17, i64 %62
+  %63 = getelementptr [48 x i8], ptr %17, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   store ptr %55, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %55, i64 40
@@ -1115,12 +1113,12 @@ define dso_local ptr @ext4_find_extent(ptr noundef %0, i32 noundef %1, ptr nound
   %indvars.iv = phi i32 [ %105, %.preheader33.preheader ], [ %144, %151 ]
   %107 = phi i16 [ 0, %.preheader33.preheader ], [ %154, %151 ]
   %108 = sext i16 %107 to i64
-  %109 = getelementptr %struct.ext4_ext_path, ptr %60, i64 %108
+  %109 = getelementptr [48 x i8], ptr %60, i64 %108
   %110 = getelementptr i8, ptr %106, i64 24
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 2
   %112 = load i16, ptr %111, align 2
   %113 = zext i16 %112 to i64
-  %114 = getelementptr %struct.ext4_extent_idx, ptr %106, i64 %113
+  %114 = getelementptr [12 x i8], ptr %106, i64 %113
   %115 = icmp ugt ptr %110, %114
   br i1 %115, label %.loopexit32, label %.preheader31
 
@@ -1131,7 +1129,7 @@ define dso_local ptr @ext4_find_extent(ptr noundef %0, i32 noundef %1, ptr nound
   %119 = ptrtoint ptr %117 to i64
   %120 = sub i64 %118, %119
   %121 = sdiv i64 %120, 24
-  %122 = getelementptr %struct.ext4_extent_idx, ptr %117, i64 %121
+  %122 = getelementptr [12 x i8], ptr %117, i64 %121
   %123 = load i32, ptr %122, align 4
   %124 = icmp ugt i32 %123, %1
   %125 = getelementptr i8, ptr %122, i64 -12
@@ -1176,7 +1174,7 @@ define dso_local ptr @ext4_find_extent(ptr noundef %0, i32 noundef %1, ptr nound
   %153 = load ptr, ptr %152, align 8
   %154 = add nuw i16 %107, 1
   %155 = sext i16 %154 to i64
-  %156 = getelementptr %struct.ext4_ext_path, ptr %60, i64 %155
+  %156 = getelementptr [48 x i8], ptr %60, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 40
   store ptr %145, ptr %157, align 8
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 32
@@ -1190,7 +1188,7 @@ define dso_local ptr @ext4_find_extent(ptr noundef %0, i32 noundef %1, ptr nound
 
 .thread29:                                        ; preds = %67, %159, %.loopexit34
   %161 = phi i64 [ 0, %.loopexit34 ], [ %160, %159 ], [ 0, %67 ]
-  %162 = getelementptr %struct.ext4_ext_path, ptr %60, i64 %161
+  %162 = getelementptr [48 x i8], ptr %60, i64 %161
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store i16 0, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 16
@@ -1205,7 +1203,7 @@ define dso_local ptr @ext4_find_extent(ptr noundef %0, i32 noundef %1, ptr nound
 170:                                              ; preds = %.thread29
   %171 = getelementptr i8, ptr %166, i64 24
   %172 = zext i16 %168 to i64
-  %173 = getelementptr %struct.ext4_extent, ptr %166, i64 %172
+  %173 = getelementptr [12 x i8], ptr %166, i64 %172
   %174 = icmp ugt ptr %171, %173
   br i1 %174, label %.loopexit69, label %.preheader
 
@@ -1216,7 +1214,7 @@ define dso_local ptr @ext4_find_extent(ptr noundef %0, i32 noundef %1, ptr nound
   %178 = ptrtoint ptr %176 to i64
   %179 = sub i64 %177, %178
   %180 = sdiv i64 %179, 24
-  %181 = getelementptr %struct.ext4_extent, ptr %176, i64 %180
+  %181 = getelementptr [12 x i8], ptr %176, i64 %180
   %182 = load i32, ptr %181, align 4
   %183 = icmp ugt i32 %182, %1
   %184 = getelementptr i8, ptr %181, i64 -12
@@ -1325,7 +1323,7 @@ define dso_local i32 @ext4_ext_next_allocated_block(ptr noundef readonly capture
 
 15:                                               ; preds = %12, %40
   %indvars.iv = phi i64 [ %13, %12 ], [ %indvars.iv.next, %40 ]
-  %16 = getelementptr %struct.ext4_ext_path, ptr %0, i64 %indvars.iv
+  %16 = getelementptr [48 x i8], ptr %0, i64 %indvars.iv
   %17 = icmp eq i64 %indvars.iv, %14
   br i1 %17, label %18, label %30
 
@@ -1341,7 +1339,7 @@ define dso_local i32 @ext4_ext_next_allocated_block(ptr noundef readonly capture
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i64
-  %28 = getelementptr %struct.ext4_extent, ptr %24, i64 %27
+  %28 = getelementptr [12 x i8], ptr %24, i64 %27
   %29 = icmp eq ptr %20, %28
   br i1 %29, label %40, label %.thread.sink.split
 
@@ -1353,7 +1351,7 @@ define dso_local i32 @ext4_ext_next_allocated_block(ptr noundef readonly capture
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i64
-  %38 = getelementptr %struct.ext4_extent_idx, ptr %34, i64 %37
+  %38 = getelementptr [12 x i8], ptr %34, i64 %37
   %39 = icmp eq ptr %32, %38
   br i1 %39, label %40, label %.thread.sink.split
 
@@ -1397,7 +1395,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   %20 = getelementptr i8, ptr %1, i64 -290
   %21 = load i16, ptr %20, align 2
   %22 = zext i16 %21 to i64
-  %23 = getelementptr %struct.ext4_ext_path, ptr %8, i64 %22
+  %23 = getelementptr [48 x i8], ptr %8, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -1427,7 +1425,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i64
-  %41 = getelementptr %struct.ext4_extent, ptr %37, i64 %40
+  %41 = getelementptr [12 x i8], ptr %37, i64 %40
   %42 = getelementptr i8, ptr %41, i64 -12
   %43 = icmp ult ptr %25, %42
   br i1 %43, label %44, label %57
@@ -1676,7 +1674,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
 
 209:                                              ; preds = %.critedge64
   %210 = zext i16 %205 to i64
-  %211 = getelementptr %struct.ext4_extent, ptr %27, i64 %210
+  %211 = getelementptr [12 x i8], ptr %27, i64 %210
   %212 = load i32, ptr %3, align 4
   %213 = load i32, ptr %211, align 4
   %214 = icmp ugt i32 %212, %213
@@ -1708,7 +1706,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
 
 227:                                              ; preds = %224
   %228 = add nsw i64 %225, -1
-  %229 = getelementptr %struct.ext4_ext_path, ptr %8, i64 %228
+  %229 = getelementptr [48 x i8], ptr %8, i64 %228
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 24
   %231 = load ptr, ptr %230, align 8
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 32
@@ -1716,7 +1714,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 2
   %235 = load i16, ptr %234, align 2
   %236 = zext i16 %235 to i64
-  %237 = getelementptr %struct.ext4_extent_idx, ptr %233, i64 %236
+  %237 = getelementptr [12 x i8], ptr %233, i64 %236
   %238 = icmp eq ptr %231, %237
   br i1 %238, label %224, label %239, !llvm.loop !47
 
@@ -1749,7 +1747,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   unreachable
 
 255:                                              ; preds = %249
-  %.split60 = getelementptr %struct.ext4_ext_path, ptr %244, i64 %22
+  %.split60 = getelementptr [48 x i8], ptr %244, i64 %22
   %256 = getelementptr i8, ptr %.split60, i64 32
   %257 = load ptr, ptr %256, align 8
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 2
@@ -1783,7 +1781,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   %275 = phi ptr [ %263, %.thread68 ], [ %750, %752 ]
   %276 = zext i16 %274 to i32
   %277 = zext i16 %274 to i64
-  %278 = getelementptr %struct.ext4_ext_path, ptr %275, i64 %277
+  %278 = getelementptr [48 x i8], ptr %275, i64 %277
   %279 = icmp eq i16 %274, 0
   br i1 %279, label %.loopexit98, label %.preheader97
 
@@ -1828,7 +1826,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   %308 = load i16, ptr %307, align 4
   %309 = icmp eq i16 %308, 0
   %310 = zext i16 %308 to i64
-  %311 = getelementptr %struct.ext4_extent, ptr %306, i64 %310
+  %311 = getelementptr [12 x i8], ptr %306, i64 %310
   %312 = select i1 %309, ptr null, ptr %311
   %313 = icmp ugt ptr %304, %312
   br i1 %313, label %314, label %315, !prof !9
@@ -1866,7 +1864,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
 333:                                              ; preds = %330
   %334 = load i16, ptr %328, align 8
   %335 = zext i16 %334 to i64
-  %336 = getelementptr %struct.ext4_ext_path, ptr %275, i64 %335
+  %336 = getelementptr [48 x i8], ptr %275, i64 %335
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 16
   %338 = load ptr, ptr %337, align 8
   %339 = icmp eq ptr %338, null
@@ -1914,7 +1912,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   br i1 %369, label %.thread76, label %370
 
 370:                                              ; preds = %.thread70
-  %371 = getelementptr i64, ptr %321, i64 %331
+  %371 = getelementptr [8 x i8], ptr %321, i64 %331
   store i64 %368, ptr %371, align 8
   %372 = add nuw nsw i64 %331, 1
   %373 = icmp eq i64 %372, %329
@@ -1927,7 +1925,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
 376:                                              ; preds = %374, %323
   %377 = phi i32 [ -1, %323 ], [ %375, %374 ]
   %378 = sext i32 %377 to i64
-  %379 = getelementptr i64, ptr %321, i64 %378
+  %379 = getelementptr [8 x i8], ptr %321, i64 %378
   %380 = load i64, ptr %379, align 8
   %381 = icmp eq i64 %380, 0
   br i1 %381, label %382, label %383, !prof !9
@@ -2006,7 +2004,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
 425:                                              ; preds = %403
   %426 = icmp eq i16 %418, 0
   %427 = zext i16 %418 to i64
-  %428 = getelementptr %struct.ext4_extent, ptr %416, i64 %427
+  %428 = getelementptr [12 x i8], ptr %416, i64 %427
   %429 = ptrtoint ptr %428 to i64
   %430 = select i1 %426, i64 0, i64 %429
   %431 = load ptr, ptr %303, align 8
@@ -2125,7 +2123,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   %497 = add i32 %494, -1
   %498 = add i32 %496, -1
   %499 = sext i32 %498 to i64
-  %500 = getelementptr i64, ptr %321, i64 %499
+  %500 = getelementptr [8 x i8], ptr %321, i64 %499
   %501 = load i64, ptr %500, align 8
   %502 = load ptr, ptr %266, align 8
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 200
@@ -2198,7 +2196,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   %549 = getelementptr i8, ptr %531, i64 20
   store i16 %548, ptr %549, align 4
   %550 = sext i32 %497 to i64
-  %551 = getelementptr %struct.ext4_ext_path, ptr %275, i64 %550
+  %551 = getelementptr [48 x i8], ptr %275, i64 %550
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 32
   %553 = load ptr, ptr %552, align 8
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 4
@@ -2206,13 +2204,13 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   %556 = icmp eq i16 %555, 0
   %557 = getelementptr i8, ptr %553, i64 12
   %558 = zext i16 %555 to i64
-  %559 = getelementptr %struct.ext4_extent_idx, ptr %557, i64 %558
+  %559 = getelementptr [12 x i8], ptr %557, i64 %558
   %560 = getelementptr i8, ptr %559, i64 -12
   %561 = select i1 %556, ptr null, ptr %560
   %562 = getelementptr inbounds nuw i8, ptr %553, i64 2
   %563 = load i16, ptr %562, align 2
   %564 = zext i16 %563 to i64
-  %565 = getelementptr %struct.ext4_extent_idx, ptr %557, i64 %564
+  %565 = getelementptr [12 x i8], ptr %557, i64 %564
   %566 = getelementptr i8, ptr %565, i64 -12
   %567 = icmp eq ptr %561, %566
   br i1 %567, label %572, label %568, !prof !13
@@ -2325,7 +2323,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
 .loopexit95:                                      ; preds = %628, %487
   %631 = phi i64 [ %380, %487 ], [ %501, %628 ]
   %632 = zext nneg i32 %294 to i64
-  %633 = getelementptr %struct.ext4_ext_path, ptr %275, i64 %632
+  %633 = getelementptr [48 x i8], ptr %275, i64 %632
   %634 = call fastcc i32 @ext4_ext_insert_index(ptr noundef %0, ptr noundef %1, ptr noundef %633, i32 noundef %319, i64 noundef %631)
   store i32 %634, ptr %7, align 4
   br label %.thread76
@@ -2359,7 +2357,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
 
 .preheader:                                       ; preds = %.thread76, %650
   %645 = phi i64 [ %651, %650 ], [ 0, %.thread76 ]
-  %646 = getelementptr i64, ptr %321, i64 %645
+  %646 = getelementptr [8 x i8], ptr %321, i64 %645
   %647 = load i64, ptr %646, align 8
   %648 = icmp eq i64 %647, 0
   br i1 %648, label %650, label %649
@@ -2557,7 +2555,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
 752:                                              ; preds = %748
   %753 = load i16, ptr %20, align 2
   %754 = zext i16 %753 to i64
-  %.split61 = getelementptr %struct.ext4_ext_path, ptr %750, i64 %754
+  %.split61 = getelementptr [48 x i8], ptr %750, i64 %754
   %755 = getelementptr i8, ptr %.split61, i64 32
   %756 = load ptr, ptr %755, align 8
   %757 = getelementptr inbounds nuw i8, ptr %756, i64 2
@@ -2577,7 +2575,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
 .thread86:                                        ; preds = %752, %655, %.loopexit100
   %764 = load i16, ptr %20, align 2
   %765 = zext i16 %764 to i64
-  %.split62 = getelementptr %struct.ext4_ext_path, ptr %8, i64 %765
+  %.split62 = getelementptr [48 x i8], ptr %8, i64 %765
   %766 = getelementptr i8, ptr %.split62, i64 32
   %767 = load ptr, ptr %766, align 8
   br label %768
@@ -2587,7 +2585,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   %769 = phi ptr [ %264, %.thread86 ], [ %244, %255 ], [ null, %.critedge64 ]
   %770 = phi ptr [ %767, %.thread86 ], [ %257, %255 ], [ %27, %.critedge64 ]
   %771 = phi ptr [ %8, %.thread86 ], [ %244, %255 ], [ %8, %.critedge64 ]
-  %772 = getelementptr %struct.ext4_ext_path, ptr %771, i64 %.pre-phi
+  %772 = getelementptr [48 x i8], ptr %771, i64 %.pre-phi
   %773 = getelementptr inbounds nuw i8, ptr %772, i64 16
   %774 = load ptr, ptr %773, align 8
   %775 = getelementptr inbounds nuw i8, ptr %772, i64 40
@@ -2640,7 +2638,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   %801 = getelementptr inbounds nuw i8, ptr %770, i64 2
   %802 = load i16, ptr %801, align 2
   %803 = zext i16 %802 to i64
-  %804 = getelementptr %struct.ext4_extent, ptr %770, i64 %803
+  %804 = getelementptr [12 x i8], ptr %770, i64 %803
   %805 = ptrtoint ptr %804 to i64
   %806 = ptrtoint ptr %800 to i64
   %807 = sub i64 %805, %806
@@ -2697,7 +2695,7 @@ define dso_local i32 @ext4_ext_insert_extent(ptr noundef %0, ptr noundef %1, ptr
   %839 = getelementptr inbounds nuw i8, ptr %834, i64 8
   %840 = load i16, ptr %839, align 8
   %841 = zext i16 %840 to i64
-  %842 = getelementptr %struct.ext4_ext_path, ptr %834, i64 %841
+  %842 = getelementptr [48 x i8], ptr %834, i64 %841
   %843 = getelementptr i8, ptr %1, i64 -40
   %844 = load volatile i64, ptr %843, align 8
   %845 = icmp eq i64 %844, 0
@@ -2813,7 +2811,7 @@ define internal fastcc void @ext4_ext_try_to_merge(ptr noundef %0, ptr noundef %
   %5 = getelementptr i8, ptr %1, i64 -290
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i64
-  %.split = getelementptr %struct.ext4_ext_path, ptr %2, i64 %7
+  %.split = getelementptr [48 x i8], ptr %2, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -2943,7 +2941,7 @@ define internal fastcc i32 @ext4_ext_correct_indexes(ptr noundef %0, ptr noundef
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
   %7 = zext i16 %5 to i64
-  %8 = getelementptr %struct.ext4_ext_path, ptr %2, i64 %7
+  %8 = getelementptr [48 x i8], ptr %2, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -2968,7 +2966,7 @@ define internal fastcc i32 @ext4_ext_correct_indexes(ptr noundef %0, ptr noundef
   %23 = add nsw i32 %6, -1
   %24 = load i32, ptr %12, align 4
   %25 = zext nneg i32 %23 to i64
-  %26 = getelementptr %struct.ext4_ext_path, ptr %2, i64 %25
+  %26 = getelementptr [48 x i8], ptr %2, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
@@ -3045,7 +3043,7 @@ __ext4_ext_dirty.exit.thread:                     ; preds = %59, %54, %__ext4_ex
 
 68:                                               ; preds = %64
   %69 = sext i32 %65 to i64
-  %70 = getelementptr %struct.ext4_ext_path, ptr %2, i64 %69
+  %70 = getelementptr [48 x i8], ptr %2, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 32
@@ -3056,7 +3054,7 @@ __ext4_ext_dirty.exit.thread:                     ; preds = %59, %54, %__ext4_ex
 
 77:                                               ; preds = %68
   %78 = sext i32 %66 to i64
-  %79 = getelementptr %struct.ext4_ext_path, ptr %2, i64 %78
+  %79 = getelementptr [48 x i8], ptr %2, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
@@ -3186,7 +3184,7 @@ define dso_local i32 @ext4_ext_calc_credits_for_single_extent(ptr noundef %0, i3
   %6 = getelementptr i8, ptr %0, i64 -290
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i64
-  %.split = getelementptr %struct.ext4_ext_path, ptr %2, i64 %8
+  %.split = getelementptr [48 x i8], ptr %2, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2
@@ -3374,7 +3372,7 @@ define dso_local i32 @ext4_ext_remove_space(ptr noundef %0, i32 noundef %1, i32 
   %74 = load i16, ptr %13, align 2
   %75 = zext i16 %74 to i32
   %76 = zext i16 %74 to i64
-  %.split = getelementptr %struct.ext4_ext_path, ptr %71, i64 %76
+  %.split = getelementptr [48 x i8], ptr %71, i64 %76
   %77 = getelementptr i8, ptr %.split, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
@@ -3431,7 +3429,7 @@ define dso_local i32 @ext4_ext_remove_space(ptr noundef %0, i32 noundef %1, i32 
   %115 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %116 = load i16, ptr %115, align 8
   %117 = zext i16 %116 to i64
-  %.split52 = getelementptr %struct.ext4_ext_path, ptr %71, i64 %117
+  %.split52 = getelementptr [48 x i8], ptr %71, i64 %117
   %118 = getelementptr i8, ptr %.split52, i64 16
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
@@ -3506,7 +3504,7 @@ define dso_local i32 @ext4_ext_remove_space(ptr noundef %0, i32 noundef %1, i32 
 154:                                              ; preds = %154, %152
   %155 = phi i64 [ %153, %152 ], [ %156, %154 ]
   %156 = add nsw i64 %155, -1
-  %157 = getelementptr %struct.ext4_ext_path, ptr %.pre, i64 %156
+  %157 = getelementptr [48 x i8], ptr %.pre, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 32
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 2
@@ -3568,7 +3566,7 @@ define dso_local i32 @ext4_ext_remove_space(ptr noundef %0, i32 noundef %1, i32 
   %193 = load i16, ptr %13, align 2
   %194 = zext i16 %193 to i32
   %195 = zext i16 %193 to i64
-  %196 = getelementptr %struct.ext4_ext_path, ptr %186, i64 %195
+  %196 = getelementptr [48 x i8], ptr %186, i64 %195
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load ptr, ptr %197, align 8
   %199 = icmp eq ptr %198, null
@@ -3598,7 +3596,7 @@ define dso_local i32 @ext4_ext_remove_space(ptr noundef %0, i32 noundef %1, i32 
   %212 = getelementptr inbounds nuw i8, ptr %207, i64 2
   %213 = load i16, ptr %212, align 2
   %214 = zext i16 %213 to i64
-  %215 = getelementptr %struct.ext4_extent, ptr %207, i64 %214
+  %215 = getelementptr [12 x i8], ptr %207, i64 %214
   br label %216
 
 216:                                              ; preds = %211, %.thread65
@@ -4217,14 +4215,14 @@ ext4_datasem_ensure_credits.exit:                 ; preds = %359
   %605 = getelementptr i8, ptr %259, i64 12
   %606 = load i16, ptr %251, align 2
   %607 = zext i16 %606 to i64
-  %608 = getelementptr %struct.ext4_extent, ptr %207, i64 %607
+  %608 = getelementptr [12 x i8], ptr %207, i64 %607
   %609 = ptrtoint ptr %608 to i64
   %610 = ptrtoint ptr %259 to i64
   %611 = sub i64 %609, %610
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %259, ptr align 4 %605, i64 %611, i1 false)
   %612 = load i16, ptr %251, align 2
   %613 = zext i16 %612 to i64
-  %614 = getelementptr %struct.ext4_extent, ptr %207, i64 %613
+  %614 = getelementptr [12 x i8], ptr %207, i64 %613
   call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(12) %614, i8 0, i64 12, i1 false)
   br label %615
 
@@ -4488,7 +4486,7 @@ __ext4_ext_dirty.exit:                            ; preds = %621
 __ext4_ext_dirty.exit.thread71:                   ; preds = %ext4_extent_block_csum_set.exit, %383, %__ext4_ext_dirty.exit, %760, %756, %.thread75, %751, %.loopexit, %301, %206
   %762 = phi i32 [ -117, %206 ], [ -117, %301 ], [ %379, %.loopexit ], [ %761, %760 ], [ 0, %756 ], [ 0, %.thread75 ], [ %689, %751 ], [ %668, %ext4_extent_block_csum_set.exit ], [ %385, %383 ], [ %677, %__ext4_ext_dirty.exit ]
   %763 = load ptr, ptr %5, align 8
-  %.split60 = getelementptr %struct.ext4_ext_path, ptr %763, i64 %184
+  %.split60 = getelementptr [48 x i8], ptr %763, i64 %184
   %764 = getelementptr i8, ptr %.split60, i64 40
   %765 = load ptr, ptr %764, align 8
   %766 = icmp eq ptr %765, null
@@ -4522,7 +4520,7 @@ __ext4_ext_dirty.exit.thread71:                   ; preds = %ext4_extent_block_c
 
 779:                                              ; preds = %185
   %780 = zext nneg i32 %187 to i64
-  %781 = getelementptr %struct.ext4_ext_path, ptr %186, i64 %780
+  %781 = getelementptr [48 x i8], ptr %186, i64 %780
   %782 = getelementptr inbounds nuw i8, ptr %781, i64 32
   %783 = load ptr, ptr %782, align 8
   %784 = icmp eq ptr %783, null
@@ -4547,7 +4545,7 @@ __ext4_ext_dirty.exit.thread71:                   ; preds = %ext4_extent_block_c
   %796 = getelementptr inbounds nuw i8, ptr %791, i64 2
   %797 = load i16, ptr %796, align 2
   %798 = zext i16 %797 to i64
-  %799 = getelementptr %struct.ext4_extent_idx, ptr %791, i64 %798
+  %799 = getelementptr [12 x i8], ptr %791, i64 %798
   store ptr %799, ptr %792, align 8
   %800 = load i16, ptr %796, align 2
   %801 = zext i16 %800 to i64
@@ -4611,7 +4609,7 @@ __ext4_ext_dirty.exit.thread71:                   ; preds = %ext4_extent_block_c
 828:                                              ; preds = %824
   %829 = add nuw nsw i32 %187, 1
   %830 = zext nneg i32 %829 to i64
-  %.split55 = getelementptr %struct.ext4_ext_path, ptr %186, i64 %830
+  %.split55 = getelementptr [48 x i8], ptr %186, i64 %830
   %831 = getelementptr i8, ptr %.split55, i64 40
   store ptr %819, ptr %831, align 8
   %832 = load ptr, ptr %782, align 8
@@ -4916,7 +4914,7 @@ define internal fastcc i32 @ext4_ext_search_right(ptr noundef %0, ptr noundef re
 
 18:                                               ; preds = %14, %9
   %19 = zext i16 %11 to i64
-  %20 = getelementptr %struct.ext4_ext_path, ptr %1, i64 %19
+  %20 = getelementptr [48 x i8], ptr %1, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -4948,7 +4946,7 @@ define internal fastcc i32 @ext4_ext_search_right(ptr noundef %0, ptr noundef re
 
 40:                                               ; preds = %.preheader
   %41 = add nsw i64 %38, -1
-  %42 = getelementptr %struct.ext4_ext_path, ptr %1, i64 %41
+  %42 = getelementptr [48 x i8], ptr %1, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -4976,7 +4974,7 @@ define internal fastcc i32 @ext4_ext_search_right(ptr noundef %0, ptr noundef re
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 2
   %58 = load i16, ptr %57, align 2
   %59 = zext i16 %58 to i64
-  %60 = getelementptr %struct.ext4_extent, ptr %56, i64 %59
+  %60 = getelementptr [12 x i8], ptr %56, i64 %59
   %61 = icmp eq ptr %22, %60
   br i1 %61, label %.preheader24, label %62
 
@@ -4991,7 +4989,7 @@ define internal fastcc i32 @ext4_ext_search_right(ptr noundef %0, ptr noundef re
 
 66:                                               ; preds = %.preheader24
   %67 = add nsw i64 %64, -1
-  %68 = getelementptr %struct.ext4_ext_path, ptr %1, i64 %67
+  %68 = getelementptr [48 x i8], ptr %1, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 32
@@ -4999,7 +4997,7 @@ define internal fastcc i32 @ext4_ext_search_right(ptr noundef %0, ptr noundef re
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 2
   %74 = load i16, ptr %73, align 2
   %75 = zext i16 %74 to i64
-  %76 = getelementptr %struct.ext4_extent_idx, ptr %72, i64 %75
+  %76 = getelementptr [12 x i8], ptr %72, i64 %75
   %77 = icmp eq ptr %70, %76
   br i1 %77, label %.preheader24, label %78, !llvm.loop !90
 
@@ -5096,7 +5094,7 @@ define internal fastcc i32 @ext4_ext_search_right(ptr noundef %0, ptr noundef re
 define internal fastcc i32 @ext4_ext_rm_idx(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 align 16 {
   %5 = add nsw i32 %3, -1
   %6 = sext i32 %5 to i64
-  %7 = getelementptr %struct.ext4_ext_path, ptr %2, i64 %6
+  %7 = getelementptr [48 x i8], ptr %2, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -5146,7 +5144,7 @@ define internal fastcc i32 @ext4_ext_rm_idx(ptr noundef %0, ptr noundef %1, ptr 
   %38 = phi ptr [ %.pre15, %33 ], [ %19, %24 ]
   %39 = phi ptr [ %.pre, %33 ], [ %9, %24 ]
   %40 = zext i16 %37 to i64
-  %41 = getelementptr %struct.ext4_extent_idx, ptr %38, i64 %40
+  %41 = getelementptr [12 x i8], ptr %38, i64 %40
   %42 = icmp eq ptr %39, %41
   br i1 %42, label %50, label %43
 
@@ -5447,7 +5445,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %47 = getelementptr i8, ptr %1, i64 -290
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i64
-  %50 = getelementptr %struct.ext4_ext_path, ptr %42, i64 %49
+  %50 = getelementptr [48 x i8], ptr %42, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
@@ -5559,7 +5557,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %123 = phi i32 [ 16383, %121 ], [ %119, %118 ]
   %124 = load i16, ptr %47, align 2
   %125 = zext i16 %124 to i64
-  %.split = getelementptr %struct.ext4_ext_path, ptr %42, i64 %125
+  %.split = getelementptr [48 x i8], ptr %42, i64 %125
   %126 = getelementptr i8, ptr %.split, i64 16
   %127 = load ptr, ptr %126, align 8
   %128 = load i32, ptr %127, align 4
@@ -5595,7 +5593,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 148:                                              ; preds = %141
   %149 = load i16, ptr %47, align 2
   %150 = zext i16 %149 to i64
-  %.split93 = getelementptr %struct.ext4_ext_path, ptr %143, i64 %150
+  %.split93 = getelementptr [48 x i8], ptr %143, i64 %150
   %151 = getelementptr i8, ptr %.split93, i64 16
   %152 = load ptr, ptr %151, align 8
   %153 = icmp eq ptr %152, null
@@ -5611,7 +5609,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %.pre-phi173 = phi i64 [ %150, %148 ], [ %125, %130 ]
   %158 = phi ptr [ %143, %148 ], [ %42, %130 ]
   %159 = phi ptr [ %152, %148 ], [ %127, %130 ]
-  %.split94 = getelementptr %struct.ext4_ext_path, ptr %158, i64 %.pre-phi173
+  %.split94 = getelementptr [48 x i8], ptr %158, i64 %.pre-phi173
   %160 = getelementptr i8, ptr %.split94, i64 40
   %161 = load ptr, ptr %160, align 8
   %162 = icmp eq ptr %161, null
@@ -5648,7 +5646,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %178 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %179 = load i16, ptr %178, align 8
   %180 = zext i16 %179 to i64
-  %181 = getelementptr %struct.ext4_ext_path, ptr %158, i64 %180
+  %181 = getelementptr [48 x i8], ptr %158, i64 %180
   %182 = call fastcc i32 @__ext4_ext_dirty(ptr noundef nonnull @__func__.convert_initialized_extent, i32 noundef 3810, ptr noundef %0, ptr noundef %1, ptr noundef %181)
   %183 = icmp eq i32 %182, 0
   br i1 %183, label %184, label %213
@@ -5783,7 +5781,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %264 = tail call i32 @llvm.umax.i32(i32 %263, i32 %260)
   %265 = load i16, ptr %47, align 2
   %266 = zext i16 %265 to i64
-  %.split95 = getelementptr %struct.ext4_ext_path, ptr %42, i64 %266
+  %.split95 = getelementptr [48 x i8], ptr %42, i64 %266
   %267 = getelementptr i8, ptr %.split95, i64 16
   %268 = load ptr, ptr %267, align 8
   %269 = load i32, ptr %268, align 4
@@ -5821,7 +5819,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 293:                                              ; preds = %290
   %294 = load i16, ptr %47, align 2
   %295 = zext i16 %294 to i64
-  %.split96 = getelementptr %struct.ext4_ext_path, ptr %42, i64 %295
+  %.split96 = getelementptr [48 x i8], ptr %42, i64 %295
   %296 = getelementptr i8, ptr %.split96, i64 16
   %297 = load ptr, ptr %296, align 8
   %298 = load i32, ptr %297, align 4
@@ -5875,7 +5873,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 336:                                              ; preds = %329
   %337 = load i16, ptr %47, align 2
   %338 = zext i16 %337 to i64
-  %.split97 = getelementptr %struct.ext4_ext_path, ptr %331, i64 %338
+  %.split97 = getelementptr [48 x i8], ptr %331, i64 %338
   %339 = getelementptr i8, ptr %.split97, i64 16
   %340 = load ptr, ptr %339, align 8
   br label %341
@@ -5884,7 +5882,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %.pre-phi = phi i64 [ %338, %336 ], [ %295, %293 ]
   %342 = phi ptr [ %340, %336 ], [ %297, %293 ]
   %343 = phi ptr [ %331, %336 ], [ %42, %293 ]
-  %.split98 = getelementptr %struct.ext4_ext_path, ptr %343, i64 %.pre-phi
+  %.split98 = getelementptr [48 x i8], ptr %343, i64 %.pre-phi
   %344 = getelementptr i8, ptr %.split98, i64 40
   %345 = load ptr, ptr %344, align 8
   %346 = icmp eq ptr %345, null
@@ -5913,7 +5911,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %360 = getelementptr inbounds nuw i8, ptr %343, i64 8
   %361 = load i16, ptr %360, align 8
   %362 = zext i16 %361 to i64
-  %363 = getelementptr %struct.ext4_ext_path, ptr %343, i64 %362
+  %363 = getelementptr [48 x i8], ptr %343, i64 %362
   %364 = call fastcc i32 @__ext4_ext_dirty(ptr noundef nonnull @__func__.ext4_convert_unwritten_extents_endio, i32 noundef 3747, ptr noundef %0, ptr noundef %1, ptr noundef %363)
   br label %365
 
@@ -5997,7 +5995,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %419 = tail call i32 @llvm.umax.i32(i32 %418, i32 %416)
   %420 = load i16, ptr %47, align 2
   %421 = zext i16 %420 to i64
-  %422 = getelementptr %struct.ext4_ext_path, ptr %42, i64 %421
+  %422 = getelementptr [48 x i8], ptr %42, i64 %421
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 32
   %424 = load ptr, ptr %423, align 8
   %425 = getelementptr inbounds nuw i8, ptr %422, i64 16
@@ -6219,7 +6217,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %560 = getelementptr inbounds nuw i8, ptr %424, i64 2
   %561 = load i16, ptr %560, align 2
   %562 = zext i16 %561 to i64
-  %563 = getelementptr %struct.ext4_extent, ptr %468, i64 %562
+  %563 = getelementptr [12 x i8], ptr %468, i64 %562
   %564 = getelementptr i8, ptr %563, i64 -12
   %565 = icmp ult ptr %426, %564
   br i1 %565, label %566, label %.thread113
@@ -6599,7 +6597,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !19
   %811 = load i16, ptr %47, align 2
   %812 = zext i16 %811 to i64
-  %.split99 = getelementptr %struct.ext4_ext_path, ptr %42, i64 %812
+  %.split99 = getelementptr [48 x i8], ptr %42, i64 %812
   %813 = getelementptr i8, ptr %.split99, i64 16
   %814 = load ptr, ptr %813, align 8
   %815 = icmp eq ptr %814, null
@@ -6653,7 +6651,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 
 844:                                              ; preds = %841, %869
   %indvars.iv = phi i64 [ %842, %841 ], [ %indvars.iv.next, %869 ]
-  %845 = getelementptr %struct.ext4_ext_path, ptr %42, i64 %indvars.iv
+  %845 = getelementptr [48 x i8], ptr %42, i64 %indvars.iv
   %846 = icmp eq i64 %indvars.iv, %843
   br i1 %846, label %847, label %859
 
@@ -6669,7 +6667,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %854 = getelementptr inbounds nuw i8, ptr %853, i64 2
   %855 = load i16, ptr %854, align 2
   %856 = zext i16 %855 to i64
-  %857 = getelementptr %struct.ext4_extent, ptr %853, i64 %856
+  %857 = getelementptr [12 x i8], ptr %853, i64 %856
   %858 = icmp eq ptr %849, %857
   br i1 %858, label %869, label %.thread128.sink.split
 
@@ -6681,7 +6679,7 @@ define dso_local i32 @ext4_ext_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   %864 = getelementptr inbounds nuw i8, ptr %863, i64 2
   %865 = load i16, ptr %864, align 2
   %866 = zext i16 %865 to i64
-  %867 = getelementptr %struct.ext4_extent_idx, ptr %863, i64 %866
+  %867 = getelementptr [12 x i8], ptr %863, i64 %866
   %868 = icmp eq ptr %861, %867
   br i1 %868, label %869, label %.thread128.sink.split
 
@@ -6834,7 +6832,7 @@ thread-pre-split:                                 ; preds = %919, %._crit_edge
 
 947:                                              ; preds = %943, %939
   %948 = zext i16 %941 to i64
-  %949 = getelementptr %struct.ext4_ext_path, ptr %42, i64 %948
+  %949 = getelementptr [48 x i8], ptr %42, i64 %948
   %950 = getelementptr inbounds nuw i8, ptr %949, i64 16
   %951 = load ptr, ptr %950, align 8
   %952 = getelementptr inbounds nuw i8, ptr %951, i64 4
@@ -6866,7 +6864,7 @@ thread-pre-split:                                 ; preds = %919, %._crit_edge
 
 969:                                              ; preds = %.preheader
   %970 = add nsw i64 %967, -1
-  %971 = getelementptr %struct.ext4_ext_path, ptr %42, i64 %970
+  %971 = getelementptr [48 x i8], ptr %42, i64 %970
   %972 = getelementptr inbounds nuw i8, ptr %971, i64 24
   %973 = load ptr, ptr %972, align 8
   %974 = getelementptr inbounds nuw i8, ptr %971, i64 32
@@ -6975,7 +6973,7 @@ thread-pre-split:                                 ; preds = %919, %._crit_edge
   %1037 = add nsw i32 %1035, -32768
   %1038 = select i1 %1036, i32 %1035, i32 %1037
   %1039 = zext i16 %.val to i64
-  %.split.i = getelementptr %struct.ext4_ext_path, ptr %42, i64 %1039
+  %.split.i = getelementptr [48 x i8], ptr %42, i64 %1039
   %1040 = getelementptr i8, ptr %.split.i, i64 16
   %1041 = load ptr, ptr %1040, align 8
   %1042 = icmp eq ptr %1041, null
@@ -7006,7 +7004,7 @@ thread-pre-split:                                 ; preds = %919, %._crit_edge
 
 1058:                                             ; preds = %1083, %1056
   %indvars.iv.i = phi i64 [ %1057, %1056 ], [ %indvars.iv.next.i, %1083 ]
-  %1059 = getelementptr %struct.ext4_ext_path, ptr %42, i64 %indvars.iv.i
+  %1059 = getelementptr [48 x i8], ptr %42, i64 %indvars.iv.i
   %1060 = icmp eq i64 %indvars.iv.i, %1057
   br i1 %1060, label %1061, label %1073
 
@@ -7022,7 +7020,7 @@ thread-pre-split:                                 ; preds = %919, %._crit_edge
   %1068 = getelementptr inbounds nuw i8, ptr %1067, i64 2
   %1069 = load i16, ptr %1068, align 2
   %1070 = zext i16 %1069 to i64
-  %1071 = getelementptr %struct.ext4_extent, ptr %1067, i64 %1070
+  %1071 = getelementptr [12 x i8], ptr %1067, i64 %1070
   %1072 = icmp eq ptr %1063, %1071
   br i1 %1072, label %1083, label %1085
 
@@ -7034,7 +7032,7 @@ thread-pre-split:                                 ; preds = %919, %._crit_edge
   %1078 = getelementptr inbounds nuw i8, ptr %1077, i64 2
   %1079 = load i16, ptr %1078, align 2
   %1080 = zext i16 %1079 to i64
-  %1081 = getelementptr %struct.ext4_extent_idx, ptr %1077, i64 %1080
+  %1081 = getelementptr [12 x i8], ptr %1077, i64 %1080
   %1082 = icmp eq ptr %1075, %1081
   br i1 %1082, label %1083, label %1085
 
@@ -7097,7 +7095,7 @@ ext4_ext_check_overlap.exit:                      ; preds = %1092, %ext4_ext_che
   store ptr %1, ptr %11, align 8
   %1103 = load i16, ptr %940, align 8
   %1104 = zext i16 %1103 to i64
-  %1105 = getelementptr %struct.ext4_ext_path, ptr %42, i64 %1104
+  %1105 = getelementptr [48 x i8], ptr %42, i64 %1104
   %1106 = getelementptr inbounds nuw i8, ptr %1105, i64 16
   %1107 = load ptr, ptr %1106, align 8
   %1108 = icmp eq ptr %1107, null
@@ -7545,7 +7543,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @get_implied_cluster_alloc(pt
 
 74:                                               ; preds = %71, %99
   %indvars.iv = phi i64 [ %72, %71 ], [ %indvars.iv.next, %99 ]
-  %75 = getelementptr %struct.ext4_ext_path, ptr %3, i64 %indvars.iv
+  %75 = getelementptr [48 x i8], ptr %3, i64 %indvars.iv
   %76 = icmp eq i64 %indvars.iv, %73
   br i1 %76, label %77, label %89
 
@@ -7561,7 +7559,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @get_implied_cluster_alloc(pt
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 2
   %85 = load i16, ptr %84, align 2
   %86 = zext i16 %85 to i64
-  %87 = getelementptr %struct.ext4_extent, ptr %83, i64 %86
+  %87 = getelementptr [12 x i8], ptr %83, i64 %86
   %88 = icmp eq ptr %79, %87
   br i1 %88, label %99, label %.thread.sink.split
 
@@ -7573,7 +7571,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @get_implied_cluster_alloc(pt
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 2
   %95 = load i16, ptr %94, align 2
   %96 = zext i16 %95 to i64
-  %97 = getelementptr %struct.ext4_extent_idx, ptr %93, i64 %96
+  %97 = getelementptr [12 x i8], ptr %93, i64 %96
   %98 = icmp eq ptr %91, %97
   br i1 %98, label %99, label %.thread.sink.split
 
@@ -8225,7 +8223,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ext4_fallocate(ptr noun
   %281 = getelementptr i8, ptr %172, i64 -290
   %282 = load i16, ptr %281, align 2
   %283 = zext i16 %282 to i64
-  %.split = getelementptr %struct.ext4_ext_path, ptr %277, i64 %283
+  %.split = getelementptr [48 x i8], ptr %277, i64 %283
   %284 = getelementptr i8, ptr %.split, i64 16
   %285 = load ptr, ptr %284, align 8
   %286 = icmp eq ptr %285, null
@@ -9634,13 +9632,13 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i16, ptr %52, align 8
   %54 = zext i16 %53 to i64
-  %.split = getelementptr %struct.ext4_ext_path, ptr %51, i64 %54
+  %.split = getelementptr [48 x i8], ptr %51, i64 %54
   %55 = getelementptr i8, ptr %.split, i64 16
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %58 = load i16, ptr %57, align 8
   %59 = zext i16 %58 to i64
-  %.split29 = getelementptr %struct.ext4_ext_path, ptr %45, i64 %59
+  %.split29 = getelementptr [48 x i8], ptr %45, i64 %59
   %60 = getelementptr i8, ptr %.split29, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
@@ -9697,7 +9695,7 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
 
 98:                                               ; preds = %96, %123
   %indvars.iv = phi i64 [ %54, %96 ], [ %indvars.iv.next, %123 ]
-  %99 = getelementptr %struct.ext4_ext_path, ptr %51, i64 %indvars.iv
+  %99 = getelementptr [48 x i8], ptr %51, i64 %indvars.iv
   %100 = icmp eq i64 %indvars.iv, %97
   br i1 %100, label %101, label %113
 
@@ -9713,7 +9711,7 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 2
   %109 = load i16, ptr %108, align 2
   %110 = zext i16 %109 to i64
-  %111 = getelementptr %struct.ext4_extent, ptr %107, i64 %110
+  %111 = getelementptr [12 x i8], ptr %107, i64 %110
   %112 = icmp eq ptr %103, %111
   br i1 %112, label %123, label %.thread.sink.split
 
@@ -9725,7 +9723,7 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 2
   %119 = load i16, ptr %118, align 2
   %120 = zext i16 %119 to i64
-  %121 = getelementptr %struct.ext4_extent_idx, ptr %117, i64 %120
+  %121 = getelementptr [12 x i8], ptr %117, i64 %120
   %122 = icmp eq ptr %115, %121
   br i1 %122, label %123, label %.thread.sink.split
 
@@ -9766,7 +9764,7 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
 
 138:                                              ; preds = %136, %163
   %indvars.iv66 = phi i64 [ %59, %136 ], [ %indvars.iv.next67, %163 ]
-  %139 = getelementptr %struct.ext4_ext_path, ptr %45, i64 %indvars.iv66
+  %139 = getelementptr [48 x i8], ptr %45, i64 %indvars.iv66
   %140 = icmp eq i64 %indvars.iv66, %137
   br i1 %140, label %141, label %153
 
@@ -9782,7 +9780,7 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 2
   %149 = load i16, ptr %148, align 2
   %150 = zext i16 %149 to i64
-  %151 = getelementptr %struct.ext4_extent, ptr %147, i64 %150
+  %151 = getelementptr [12 x i8], ptr %147, i64 %150
   %152 = icmp eq ptr %143, %151
   br i1 %152, label %163, label %.thread38.sink.split
 
@@ -9794,7 +9792,7 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 2
   %159 = load i16, ptr %158, align 2
   %160 = zext i16 %159 to i64
-  %161 = getelementptr %struct.ext4_extent_idx, ptr %157, i64 %160
+  %161 = getelementptr [12 x i8], ptr %157, i64 %160
   %162 = icmp eq ptr %155, %161
   br i1 %162, label %163, label %.thread38.sink.split
 
@@ -9852,7 +9850,7 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
 191:                                              ; preds = %.thread102, %188
   %192 = load i16, ptr %57, align 8
   %193 = zext i16 %192 to i64
-  %.split30 = getelementptr %struct.ext4_ext_path, ptr %45, i64 %193
+  %.split30 = getelementptr [48 x i8], ptr %45, i64 %193
   %194 = getelementptr i8, ptr %.split30, i64 16
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
@@ -9881,7 +9879,7 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %214 = load i16, ptr %213, align 8
   %215 = zext i16 %214 to i64
-  %.split31 = getelementptr %struct.ext4_ext_path, ptr %212, i64 %215
+  %.split31 = getelementptr [48 x i8], ptr %212, i64 %215
   %216 = getelementptr i8, ptr %.split31, i64 16
   %217 = load ptr, ptr %216, align 8
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 4
@@ -9905,7 +9903,7 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
   %228 = add i32 %208, %37
   %229 = load i16, ptr %57, align 8
   %230 = zext i16 %229 to i64
-  %.split32 = getelementptr %struct.ext4_ext_path, ptr %45, i64 %230
+  %.split32 = getelementptr [48 x i8], ptr %45, i64 %230
   %231 = getelementptr i8, ptr %.split32, i64 16
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 4
@@ -9923,7 +9921,7 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %242 = load i16, ptr %241, align 8
   %243 = zext i16 %242 to i64
-  %.split33 = getelementptr %struct.ext4_ext_path, ptr %240, i64 %243
+  %.split33 = getelementptr [48 x i8], ptr %240, i64 %243
   %244 = getelementptr i8, ptr %.split33, i64 40
   %245 = load ptr, ptr %244, align 8
   %246 = icmp eq ptr %245, null
@@ -9949,7 +9947,7 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 0, ptr %7, align 4
   %256 = load i16, ptr %57, align 8
   %257 = zext i16 %256 to i64
-  %.split34 = getelementptr %struct.ext4_ext_path, ptr %45, i64 %257
+  %.split34 = getelementptr [48 x i8], ptr %45, i64 %257
   %258 = getelementptr i8, ptr %.split34, i64 40
   %259 = load ptr, ptr %258, align 8
   %260 = icmp eq ptr %259, null
@@ -10032,7 +10030,7 @@ define dso_local i32 @ext4_swap_extents(ptr noundef %0, ptr noundef %1, ptr noun
   call fastcc void @ext4_ext_try_to_merge(ptr noundef %0, ptr noundef %1, ptr noundef %240, ptr noundef nonnull %56)
   %297 = load i16, ptr %57, align 8
   %298 = zext i16 %297 to i64
-  %299 = getelementptr %struct.ext4_ext_path, ptr %45, i64 %298
+  %299 = getelementptr [48 x i8], ptr %45, i64 %298
   %300 = load volatile i64, ptr %16, align 8
   %301 = icmp eq i64 %300, 0
   br i1 %301, label %302, label %303, !prof !9
@@ -10087,7 +10085,7 @@ __ext4_ext_dirty.exit:                            ; preds = %303
 322:                                              ; preds = %__ext4_ext_dirty.exit.thread, %__ext4_ext_dirty.exit
   %323 = load i16, ptr %241, align 8
   %324 = zext i16 %323 to i64
-  %325 = getelementptr %struct.ext4_ext_path, ptr %240, i64 %324
+  %325 = getelementptr [48 x i8], ptr %240, i64 %324
   %326 = load volatile i64, ptr %11, align 8
   %327 = icmp eq i64 %326, 0
   br i1 %327, label %328, label %329, !prof !9
@@ -10274,7 +10272,7 @@ define dso_local i32 @ext4_clu_mapped(ptr noundef %0, i32 noundef %1) local_unna
   %28 = getelementptr i8, ptr %0, i64 -290
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i64
-  %31 = getelementptr %struct.ext4_ext_path, ptr %23, i64 %30
+  %31 = getelementptr [48 x i8], ptr %23, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
@@ -10341,7 +10339,7 @@ define dso_local i32 @ext4_clu_mapped(ptr noundef %0, i32 noundef %1) local_unna
 
 73:                                               ; preds = %98, %71
   %indvars.iv.i = phi i64 [ %72, %71 ], [ %indvars.iv.next.i, %98 ]
-  %74 = getelementptr %struct.ext4_ext_path, ptr %23, i64 %indvars.iv.i
+  %74 = getelementptr [48 x i8], ptr %23, i64 %indvars.iv.i
   %75 = icmp eq i64 %indvars.iv.i, %72
   br i1 %75, label %76, label %88
 
@@ -10357,7 +10355,7 @@ define dso_local i32 @ext4_clu_mapped(ptr noundef %0, i32 noundef %1) local_unna
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 2
   %84 = load i16, ptr %83, align 2
   %85 = zext i16 %84 to i64
-  %86 = getelementptr %struct.ext4_extent, ptr %82, i64 %85
+  %86 = getelementptr [12 x i8], ptr %82, i64 %85
   %87 = icmp eq ptr %78, %86
   br i1 %87, label %98, label %.thread.sink.split.i
 
@@ -10369,7 +10367,7 @@ define dso_local i32 @ext4_clu_mapped(ptr noundef %0, i32 noundef %1) local_unna
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 2
   %94 = load i16, ptr %93, align 2
   %95 = zext i16 %94 to i64
-  %96 = getelementptr %struct.ext4_extent_idx, ptr %92, i64 %95
+  %96 = getelementptr [12 x i8], ptr %92, i64 %95
   %97 = icmp eq ptr %90, %96
   br i1 %97, label %98, label %.thread.sink.split.i
 
@@ -10454,7 +10452,7 @@ define dso_local i32 @ext4_ext_replay_update_ex(ptr noundef %0, i32 noundef %1, 
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load i16, ptr %13, align 8
   %15 = zext i16 %14 to i64
-  %.split = getelementptr %struct.ext4_ext_path, ptr %7, i64 %15
+  %.split = getelementptr [48 x i8], ptr %7, i64 %15
   %16 = getelementptr i8, ptr %.split, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
@@ -10481,7 +10479,7 @@ define dso_local i32 @ext4_ext_replay_update_ex(ptr noundef %0, i32 noundef %1, 
   tail call void @down_write(ptr noundef %31) #16
   %32 = load i16, ptr %13, align 8
   %33 = zext i16 %32 to i64
-  %.split9 = getelementptr %struct.ext4_ext_path, ptr %7, i64 %33
+  %.split9 = getelementptr [48 x i8], ptr %7, i64 %33
   %34 = getelementptr i8, ptr %.split9, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
@@ -10504,7 +10502,7 @@ define dso_local i32 @ext4_ext_replay_update_ex(ptr noundef %0, i32 noundef %1, 
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %47 = load i16, ptr %46, align 8
   %48 = zext i16 %47 to i64
-  %.split10 = getelementptr %struct.ext4_ext_path, ptr %43, i64 %48
+  %.split10 = getelementptr [48 x i8], ptr %43, i64 %48
   %49 = getelementptr i8, ptr %.split10, i64 16
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %50, align 4
@@ -10532,7 +10530,7 @@ define dso_local i32 @ext4_ext_replay_update_ex(ptr noundef %0, i32 noundef %1, 
   %63 = add i32 %2, %1
   %64 = load i16, ptr %46, align 8
   %65 = zext i16 %64 to i64
-  %.split11 = getelementptr %struct.ext4_ext_path, ptr %43, i64 %65
+  %.split11 = getelementptr [48 x i8], ptr %43, i64 %65
   %66 = getelementptr i8, ptr %.split11, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
@@ -10554,7 +10552,7 @@ define dso_local i32 @ext4_ext_replay_update_ex(ptr noundef %0, i32 noundef %1, 
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %79 = load i16, ptr %78, align 8
   %80 = zext i16 %79 to i64
-  %.split12 = getelementptr %struct.ext4_ext_path, ptr %75, i64 %80
+  %.split12 = getelementptr [48 x i8], ptr %75, i64 %80
   %81 = getelementptr i8, ptr %.split12, i64 16
   %82 = load ptr, ptr %81, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %82, i64 4
@@ -10604,7 +10602,7 @@ define dso_local i32 @ext4_ext_replay_update_ex(ptr noundef %0, i32 noundef %1, 
   %107 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %108 = load i16, ptr %107, align 8
   %109 = zext i16 %108 to i64
-  %110 = getelementptr %struct.ext4_ext_path, ptr %86, i64 %109
+  %110 = getelementptr [48 x i8], ptr %86, i64 %109
   %111 = load volatile i64, ptr %106, align 8
   %112 = icmp eq i64 %111, 0
   br i1 %112, label %113, label %114, !prof !9
@@ -10715,7 +10713,7 @@ define dso_local void @ext4_ext_replay_shrink_inode(ptr noundef %0, i32 noundef 
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load i16, ptr %11, align 8
   %13 = zext i16 %12 to i64
-  %.split = getelementptr %struct.ext4_ext_path, ptr %8, i64 %13
+  %.split = getelementptr [48 x i8], ptr %8, i64 %13
   %14 = getelementptr i8, ptr %.split, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
@@ -10768,7 +10766,7 @@ define dso_local void @ext4_ext_replay_shrink_inode(ptr noundef %0, i32 noundef 
   tail call void @down_write(ptr noundef %5) #16
   %44 = load i16, ptr %11, align 8
   %45 = zext i16 %44 to i64
-  %46 = getelementptr %struct.ext4_ext_path, ptr %8, i64 %45
+  %46 = getelementptr [48 x i8], ptr %8, i64 %45
   %47 = load volatile i64, ptr %5, align 8
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %49, label %50, !prof !9
@@ -10869,7 +10867,7 @@ define dso_local i32 @ext4_ext_replay_set_iblocks(ptr noundef %0) local_unnamed_
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i16, ptr %11, align 8
   %13 = zext i16 %12 to i64
-  %.split = getelementptr %struct.ext4_ext_path, ptr %5, i64 %13
+  %.split = getelementptr [48 x i8], ptr %5, i64 %13
   %14 = getelementptr i8, ptr %.split, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
@@ -11044,7 +11042,7 @@ define dso_local i32 @ext4_ext_replay_set_iblocks(ptr noundef %0) local_unnamed_
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %115 = load i16, ptr %114, align 8
   %116 = zext i16 %115 to i64
-  %.split21 = getelementptr %struct.ext4_ext_path, ptr %111, i64 %116
+  %.split21 = getelementptr [48 x i8], ptr %111, i64 %116
   %117 = getelementptr i8, ptr %.split21, i64 16
   %118 = load ptr, ptr %117, align 8
   %119 = icmp eq ptr %118, null
@@ -11116,7 +11114,7 @@ define dso_local i32 @ext4_ext_replay_set_iblocks(ptr noundef %0) local_unnamed_
   br i1 %162, label %170, label %163
 
 163:                                              ; preds = %159
-  %.split22 = getelementptr %struct.ext4_ext_path, ptr %111, i64 %160
+  %.split22 = getelementptr [48 x i8], ptr %111, i64 %160
   %164 = getelementptr i8, ptr %.split22, i64 40
   %165 = load ptr, ptr %164, align 8
   %166 = icmp eq ptr %165, null
@@ -11133,7 +11131,7 @@ define dso_local i32 @ext4_ext_replay_set_iblocks(ptr noundef %0) local_unnamed_
   br i1 %172, label %180, label %173
 
 173:                                              ; preds = %170
-  %.split23 = getelementptr %struct.ext4_ext_path, ptr %148, i64 %160
+  %.split23 = getelementptr [48 x i8], ptr %148, i64 %160
   %174 = getelementptr i8, ptr %.split23, i64 40
   %175 = load ptr, ptr %174, align 8
   %176 = icmp eq ptr %175, null
@@ -11262,7 +11260,7 @@ define dso_local i32 @ext4_ext_clear_bb(ptr noundef %0) local_unnamed_addr #0 al
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i16, ptr %14, align 8
   %16 = zext i16 %15 to i64
-  %.split = getelementptr %struct.ext4_ext_path, ptr %8, i64 %16
+  %.split = getelementptr [48 x i8], ptr %8, i64 %16
   %17 = getelementptr i8, ptr %.split, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
@@ -11376,7 +11374,7 @@ define dso_local i32 @ext4_ext_clear_bb(ptr noundef %0) local_unnamed_addr #0 al
 .preheader:                                       ; preds = %77, %.preheader
   %81 = phi i64 [ %90, %.preheader ], [ 0, %77 ]
   %82 = load ptr, ptr %62, align 8
-  %83 = getelementptr %struct.ext4_ext_path, ptr %73, i64 %81
+  %83 = getelementptr [48 x i8], ptr %73, i64 %81
   %84 = load i64, ptr %83, align 8
   call void @ext4_mb_mark_bb(ptr noundef %82, i64 noundef %84, i32 noundef 1, i1 noundef zeroext false) #16
   %85 = load ptr, ptr %62, align 8
@@ -11653,7 +11651,7 @@ define internal fastcc i32 @ext4_ext_insert_index(ptr noundef %0, ptr noundef %1
   %37 = getelementptr i8, ptr %19, i64 %36
   %38 = getelementptr i8, ptr %25, i64 12
   %39 = zext i16 %29 to i64
-  %40 = getelementptr %struct.ext4_extent_idx, ptr %38, i64 %39
+  %40 = getelementptr [12 x i8], ptr %38, i64 %39
   %41 = getelementptr i8, ptr %40, i64 -12
   %42 = icmp ugt ptr %37, %41
   br i1 %42, label %43, label %44, !prof !9
@@ -11664,7 +11662,7 @@ define internal fastcc i32 @ext4_ext_insert_index(ptr noundef %0, ptr noundef %1
 
 44:                                               ; preds = %34
   %45 = zext i16 %27 to i64
-  %46 = getelementptr %struct.ext4_extent_idx, ptr %38, i64 %45
+  %46 = getelementptr [12 x i8], ptr %38, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -12
   %48 = ptrtoint ptr %47 to i64
   %49 = ptrtoint ptr %37 to i64
@@ -11709,7 +11707,7 @@ define internal fastcc i32 @ext4_ext_insert_index(ptr noundef %0, ptr noundef %1
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 2
   %74 = load i16, ptr %73, align 2
   %75 = zext i16 %74 to i64
-  %76 = getelementptr %struct.ext4_extent_idx, ptr %72, i64 %75
+  %76 = getelementptr [12 x i8], ptr %72, i64 %75
   %77 = icmp ugt ptr %37, %76
   br i1 %77, label %78, label %79, !prof !9
 
@@ -11792,7 +11790,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ext4_ext_try_to_merge_right(
   %4 = getelementptr i8, ptr %0, i64 -290
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i64
-  %.split = getelementptr %struct.ext4_ext_path, ptr %1, i64 %6
+  %.split = getelementptr [48 x i8], ptr %1, i64 %6
   %7 = getelementptr i8, ptr %.split, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -11802,7 +11800,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ext4_ext_try_to_merge_right(
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i64
-  %14 = getelementptr %struct.ext4_extent, ptr %8, i64 %13
+  %14 = getelementptr [12 x i8], ptr %8, i64 %13
   %15 = icmp ugt ptr %14, %2
   br i1 %15, label %16, label %.critedge
 
@@ -11924,7 +11922,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ext4_ext_try_to_merge_right(
 99:                                               ; preds = %97, %87
   %100 = load i16, ptr %11, align 2
   %101 = zext i16 %100 to i64
-  %102 = getelementptr %struct.ext4_extent, ptr %8, i64 %101
+  %102 = getelementptr [12 x i8], ptr %8, i64 %101
   %103 = icmp ult ptr %17, %102
   br i1 %103, label %104, label %108
 
@@ -11960,7 +11958,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ext4_ext_try_to_merge_right(
 .thread:                                          ; preds = %108, %114, %112
   %115 = phi i16 [ %110, %108 ], [ %.pre11, %114 ], [ %.pr, %112 ]
   %116 = zext i16 %115 to i64
-  %117 = getelementptr %struct.ext4_extent, ptr %8, i64 %116
+  %117 = getelementptr [12 x i8], ptr %8, i64 %116
   %118 = icmp ugt ptr %117, %2
   br i1 %118, label %41, label %.thread..critedge.loopexit_crit_edge, !llvm.loop !193
 
@@ -11994,7 +11992,7 @@ define internal fastcc i32 @ext4_split_extent_at(ptr noundef %0, ptr noundef %1,
   %10 = getelementptr i8, ptr %1, i64 -290
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i64
-  %13 = getelementptr %struct.ext4_ext_path, ptr %9, i64 %12
+  %13 = getelementptr [48 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 4
@@ -12102,7 +12100,7 @@ define internal fastcc i32 @ext4_split_extent_at(ptr noundef %0, ptr noundef %1,
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %80 = load i16, ptr %79, align 8
   %81 = zext i16 %80 to i64
-  %82 = getelementptr %struct.ext4_ext_path, ptr %9, i64 %81
+  %82 = getelementptr [48 x i8], ptr %9, i64 %81
   %83 = getelementptr i8, ptr %1, i64 -40
   %84 = load volatile i64, ptr %83, align 8
   %85 = icmp eq i64 %84, 0
@@ -12334,7 +12332,7 @@ __ext4_ext_dirty.exit9.thread:                    ; preds = %139, %134, %__ext4_
   %212 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %213 = load i16, ptr %212, align 8
   %214 = zext i16 %213 to i64
-  %215 = getelementptr %struct.ext4_ext_path, ptr %9, i64 %214
+  %215 = getelementptr [48 x i8], ptr %9, i64 %214
   %216 = tail call fastcc i32 @__ext4_ext_dirty(ptr noundef nonnull @__func__.ext4_split_extent_at, i32 noundef 3263, ptr noundef %0, ptr noundef %1, ptr noundef %215)
   %217 = icmp eq i32 %216, 0
   br i1 %217, label %218, label %__ext4_ext_dirty.exit
@@ -12349,7 +12347,7 @@ __ext4_ext_dirty.exit9.thread11:                  ; preds = %128, %203, %162, %_
   %220 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %221 = load i16, ptr %220, align 8
   %222 = zext i16 %221 to i64
-  %223 = getelementptr %struct.ext4_ext_path, ptr %9, i64 %222
+  %223 = getelementptr [48 x i8], ptr %9, i64 %222
   %224 = load volatile i64, ptr %121, align 8
   %225 = icmp eq i64 %224, 0
   br i1 %225, label %226, label %227, !prof !9
@@ -12506,7 +12504,7 @@ define internal fastcc i32 @ext4_split_extent(ptr noundef %0, ptr noundef %1, pt
   %10 = getelementptr i8, ptr %1, i64 -290
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i64
-  %.split = getelementptr %struct.ext4_ext_path, ptr %7, i64 %12
+  %.split = getelementptr [48 x i8], ptr %7, i64 %12
   %13 = getelementptr i8, ptr %.split, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 4
@@ -12559,7 +12557,7 @@ define internal fastcc i32 @ext4_split_extent(ptr noundef %0, ptr noundef %1, pt
 48:                                               ; preds = %40
   %49 = load i16, ptr %10, align 2
   %50 = zext i16 %49 to i64
-  %.split5 = getelementptr %struct.ext4_ext_path, ptr %43, i64 %50
+  %.split5 = getelementptr [48 x i8], ptr %43, i64 %50
   %51 = getelementptr i8, ptr %.split5, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
@@ -12882,7 +12880,7 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = load i16, ptr %15, align 8
   %17 = zext i16 %16 to i64
-  %.split = getelementptr %struct.ext4_ext_path, ptr %9, i64 %17
+  %.split = getelementptr [48 x i8], ptr %9, i64 %17
   %18 = getelementptr i8, ptr %.split, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
@@ -12910,7 +12908,7 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %33 = load i16, ptr %32, align 8
   %34 = zext i16 %33 to i64
-  %.split34 = getelementptr %struct.ext4_ext_path, ptr %26, i64 %34
+  %.split34 = getelementptr [48 x i8], ptr %26, i64 %34
   %35 = getelementptr i8, ptr %.split34, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
@@ -12995,7 +12993,7 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %88 = load i16, ptr %87, align 8
   %89 = zext i16 %88 to i64
-  %90 = getelementptr %struct.ext4_ext_path, ptr %84, i64 %89
+  %90 = getelementptr [48 x i8], ptr %84, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
@@ -13013,7 +13011,7 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 2
   %102 = load i16, ptr %101, align 2
   %103 = zext i16 %102 to i64
-  %104 = getelementptr %struct.ext4_extent, ptr %99, i64 %103
+  %104 = getelementptr [12 x i8], ptr %99, i64 %103
   %105 = icmp ult ptr %92, %104
   br i1 %105, label %.split111.us, label %106
 
@@ -13037,7 +13035,7 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
 
 116:                                              ; preds = %141, %114
   %indvars.iv = phi i64 [ %indvars.iv.next, %141 ], [ %89, %114 ]
-  %117 = getelementptr %struct.ext4_ext_path, ptr %84, i64 %indvars.iv
+  %117 = getelementptr [48 x i8], ptr %84, i64 %indvars.iv
   %118 = icmp eq i64 %indvars.iv, %115
   br i1 %118, label %129, label %119
 
@@ -13049,7 +13047,7 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 2
   %125 = load i16, ptr %124, align 2
   %126 = zext i16 %125 to i64
-  %127 = getelementptr %struct.ext4_extent_idx, ptr %123, i64 %126
+  %127 = getelementptr [12 x i8], ptr %123, i64 %126
   %128 = icmp eq ptr %121, %127
   br i1 %128, label %141, label %.thread.us.sink.split
 
@@ -13065,7 +13063,7 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 2
   %137 = load i16, ptr %136, align 2
   %138 = zext i16 %137 to i64
-  %139 = getelementptr %struct.ext4_extent, ptr %135, i64 %138
+  %139 = getelementptr [12 x i8], ptr %135, i64 %138
   %140 = icmp eq ptr %131, %139
   br i1 %140, label %141, label %.thread.us.sink.split
 
@@ -13111,7 +13109,7 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
   %155 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %156 = load i16, ptr %155, align 8
   %157 = zext i16 %156 to i64
-  %158 = getelementptr %struct.ext4_ext_path, ptr %150, i64 %157
+  %158 = getelementptr [48 x i8], ptr %150, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = load ptr, ptr %159, align 8
   %161 = icmp eq ptr %160, null
@@ -13143,7 +13141,7 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
   %173 = getelementptr inbounds nuw i8, ptr %99, i64 2
   %174 = load i16, ptr %173, align 2
   %175 = zext i16 %174 to i64
-  %176 = getelementptr %struct.ext4_extent, ptr %172, i64 %175
+  %176 = getelementptr [12 x i8], ptr %172, i64 %175
   %177 = getelementptr i8, ptr %176, i64 -12
   %178 = load i32, ptr %177, align 4
   %179 = getelementptr i8, ptr %176, i64 -8
@@ -13171,7 +13169,7 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
   %191 = getelementptr inbounds nuw i8, ptr %167, i64 2
   %192 = load i16, ptr %191, align 2
   %193 = zext i16 %192 to i64
-  %194 = getelementptr %struct.ext4_extent, ptr %168, i64 %193
+  %194 = getelementptr [12 x i8], ptr %168, i64 %193
   br label %195
 
 195:                                              ; preds = %195, %190
@@ -13189,7 +13187,7 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
   %203 = phi ptr [ %.pre, %186 ], [ %150, %188 ], [ %150, %200 ]
   %204 = phi ptr [ %168, %186 ], [ %168, %188 ], [ %196, %200 ]
   %205 = phi ptr [ %77, %186 ], [ null, %188 ], [ null, %200 ]
-  %.split36 = getelementptr %struct.ext4_ext_path, ptr %203, i64 %157
+  %.split36 = getelementptr [48 x i8], ptr %203, i64 %157
   %206 = getelementptr i8, ptr %.split36, i64 16
   store ptr %204, ptr %206, align 8
   br label %207
@@ -13213,7 +13211,7 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
 
 220:                                              ; preds = %214
   %221 = zext nneg i32 %216 to i64
-  %222 = getelementptr %struct.ext4_ext_path, ptr %208, i64 %221
+  %222 = getelementptr [48 x i8], ptr %208, i64 %221
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 16
   %224 = load ptr, ptr %223, align 8
   %225 = icmp eq ptr %224, null
@@ -13226,7 +13224,7 @@ define internal fastcc i32 @ext4_ext_shift_extents(ptr noundef %0, ptr noundef %
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 2
   %231 = load i16, ptr %230, align 2
   %232 = zext i16 %231 to i64
-  %233 = getelementptr %struct.ext4_extent, ptr %229, i64 %232
+  %233 = getelementptr [12 x i8], ptr %229, i64 %232
   %234 = getelementptr i8, ptr %233, i64 -12
   %235 = icmp ne ptr %224, %229
   %236 = add nuw nsw i32 %216, 2
@@ -13393,7 +13391,7 @@ __ext4_ext_dirty.exit.thread:                     ; preds = %310, %305, %__ext4_
   %319 = phi i32 [ %315, %__ext4_ext_dirty.exit.thread ], [ %216, %214 ]
   %320 = phi i8 [ 1, %__ext4_ext_dirty.exit.thread ], [ %215, %214 ]
   %321 = zext nneg i32 %319 to i64
-  %322 = getelementptr %struct.ext4_ext_path, ptr %208, i64 %321
+  %322 = getelementptr [48 x i8], ptr %208, i64 %321
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 40
   %324 = load ptr, ptr %323, align 8
   %325 = icmp eq ptr %324, null

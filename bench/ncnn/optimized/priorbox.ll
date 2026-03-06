@@ -1244,7 +1244,7 @@ _ZNK4ncnn3Mat5emptyEv.exit54:                     ; preds = %62
 
 .lr.ph75:                                         ; preds = %.lr.ph75.preheader, %.lr.ph75
   %indvars.iv78 = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next79, %.lr.ph75 ]
-  %94 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv78
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv78
   %95 = load float, ptr %94, align 4, !tbaa !25
   %96 = fcmp fast olt float %95, 0.000000e+00
   %.sroa.speculated67 = select i1 %96, float 0.000000e+00, float %95
@@ -1416,7 +1416,7 @@ _ZNK4ncnn3Mat5emptyEv.exit55:                     ; preds = %151
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %178 = getelementptr inbounds nuw float, ptr %174, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %indvars.iv
   %179 = load float, ptr %178, align 4, !tbaa !25
   %180 = fcmp fast olt float %179, 0.000000e+00
   %.sroa.speculated59 = select i1 %180, float 0.000000e+00, float %179
@@ -1619,7 +1619,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   %41 = trunc i64 %indvars.iv149 to i32
   %.reass.reass.us.us.us = mul i32 %factor.op.mul100, %41
   %42 = sext i32 %.reass.reass.us.us.us to i64
-  %43 = getelementptr inbounds float, ptr %24, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %24, i64 %42
   %44 = load float, ptr %27, align 8, !tbaa !48
   %45 = fmul fast float %40, %44
   %46 = load float, ptr %8, align 4, !tbaa !25
@@ -1641,7 +1641,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
 52:                                               ; preds = %._crit_edge.us.us.us.us.us, %52
   %indvars.iv143 = phi i64 [ 1, %._crit_edge.us.us.us.us.us ], [ %indvars.iv.next144, %52 ]
   %.270.us.us.us.us.us = phi ptr [ %76, %._crit_edge.us.us.us.us.us ], [ %64, %52 ]
-  %53 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv143
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv143
   %54 = load float, ptr %53, align 4, !tbaa !25
   %55 = call fast float @llvm.sqrt.f32(float %54)
   %.reass76.us.reass.us.us.us.us = fmul fast float %.reass82.us.reass.us.us.us.us, %55
@@ -1665,7 +1665,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
 65:                                               ; preds = %65, %.preheader.us.us.us.us.us
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %65 ], [ 0, %.preheader.us.us.us.us.us ]
   %.168.us.us.us.us.us = phi ptr [ %76, %65 ], [ %.06279.us.us.us.us.us, %.preheader.us.us.us.us.us ]
-  %66 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv138
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv138
   %67 = load float, ptr %66, align 4, !tbaa !25
   %.reass.us.reass.us.us.us.us = fmul fast float %67, %factor.op.fmul.reass.us.us.us
   %68 = fmul fast float %67, 5.000000e-01
@@ -1710,7 +1710,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   %83 = trunc i64 %indvars.iv133 to i32
   %.reass.reass.us.us = mul i32 %factor.op.mul100, %83
   %84 = sext i32 %.reass.reass.us.us to i64
-  %85 = getelementptr inbounds float, ptr %24, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr %24, i64 %84
   %86 = load float, ptr %27, align 8, !tbaa !48
   %87 = fmul fast float %82, %86
   %88 = load float, ptr %8, align 4, !tbaa !25
@@ -1734,7 +1734,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
 96:                                               ; preds = %96, %.preheader.us.us.us
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %96 ], [ 1, %.preheader.us.us.us ]
   %.270.us.us.us = phi ptr [ %108, %96 ], [ %.06279.us.us.us, %.preheader.us.us.us ]
-  %97 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv127
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv127
   %98 = load float, ptr %97, align 4, !tbaa !25
   %99 = call fast float @llvm.sqrt.f32(float %98)
   %.reass76.us.reass.us.us = fmul fast float %.reass82.us.reass.us.us, %99
@@ -1784,7 +1784,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   %115 = trunc i64 %indvars.iv123 to i32
   %.reass.reass.us.us112 = mul i32 %factor.op.mul100, %115
   %116 = sext i32 %.reass.reass.us.us112 to i64
-  %117 = getelementptr inbounds float, ptr %24, i64 %116
+  %117 = getelementptr inbounds [4 x i8], ptr %24, i64 %116
   %118 = load float, ptr %27, align 8, !tbaa !48
   %119 = fmul fast float %114, %118
   %120 = load float, ptr %8, align 4, !tbaa !25
@@ -1805,7 +1805,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
 126:                                              ; preds = %126, %.preheader.us83.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.preheader.us83.us.us ]
   %.168.us88.us.us = phi ptr [ %137, %126 ], [ %.06279.us84.us.us, %.preheader.us83.us.us ]
-  %127 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   %128 = load float, ptr %127, align 4, !tbaa !25
   %.reass.us90.reass.us.us = fmul fast float %128, %factor.op.fmul94.reass.us.us
   %129 = fmul fast float %128, 5.000000e-01
@@ -1940,7 +1940,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   %45 = trunc i64 %indvars.iv219 to i32
   %.reass.reass.us.us = mul i32 %factor.op.mul142, %45
   %46 = sext i32 %.reass.reass.us.us to i64
-  %47 = getelementptr inbounds float, ptr %27, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %27, i64 %46
   %48 = load float, ptr %30, align 8, !tbaa !48
   %49 = load float, ptr %8, align 4, !tbaa !25
   %50 = sitofp i32 %45 to float
@@ -1973,7 +1973,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
 64:                                               ; preds = %64, %.preheader.us.us148.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.preheader.us.us148.us ]
   %.1107.us126.us.us = phi ptr [ %79, %64 ], [ %.095125.us.us149.us, %.preheader.us.us148.us ]
-  %65 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   %66 = load float, ptr %65, align 4, !tbaa !25
   %67 = fmul fast float %66, 5.000000e-01
   %68 = fsub fast float %.197122.us.us150.us, %67
@@ -2036,7 +2036,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
 90:                                               ; preds = %._crit_edge.split.us113.us.us.us.us, %.preheader.us.us.us154.us
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %._crit_edge.split.us113.us.us.us.us ], [ 0, %.preheader.us.us.us154.us ]
   %.1107.us.us.us.us.us = phi ptr [ %153, %._crit_edge.split.us113.us.us.us.us ], [ %.095125.us.us.us155.us, %.preheader.us.us.us154.us ]
-  %91 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv191
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv191
   %92 = load float, ptr %91, align 4, !tbaa !25
   %93 = fmul fast float %92, 5.000000e-01
   %94 = fsub fast float %.197122.us.us.us156.us, %93
@@ -2059,7 +2059,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
 
 106:                                              ; preds = %90
   %107 = load ptr, ptr %36, align 8, !tbaa !16
-  %108 = getelementptr inbounds nuw float, ptr %107, i64 %indvars.iv191
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %indvars.iv191
   %109 = load float, ptr %108, align 4, !tbaa !25
   %110 = fmul fast float %109, %92
   %111 = call fast float @llvm.sqrt.f32(float %110)
@@ -2089,7 +2089,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
 .lr.ph.us.us.us.us.us:                            ; preds = %.lr.ph.us.us.us.us.us.preheader, %.lr.ph.us.us.us.us.us
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %.lr.ph.us.us.us.us.us ], [ 0, %.lr.ph.us.us.us.us.us.preheader ]
   %.3104.us112.us.us.us.us = phi ptr [ %153, %.lr.ph.us.us.us.us.us ], [ %.3104.us112.us.us.us.us.ph, %.lr.ph.us.us.us.us.us.preheader ]
-  %125 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv186
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv186
   %126 = load float, ptr %125, align 4, !tbaa !25
   %127 = call fast float @llvm.sqrt.f32(float %126)
   %128 = fmul fast float %93, %127
@@ -2155,7 +2155,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
 158:                                              ; preds = %158, %.preheader.us.us134.us.us
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %158 ], [ 0, %.preheader.us.us134.us.us ]
   %.1107.us117.us.us.us.us = phi ptr [ %190, %158 ], [ %.095125.us.us135.us.us, %.preheader.us.us134.us.us ]
-  %159 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv180
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv180
   %160 = load float, ptr %159, align 4, !tbaa !25
   %161 = fmul fast float %160, 5.000000e-01
   %162 = fsub fast float %.197122.us.us136.us.us, %161
@@ -2174,7 +2174,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   %172 = getelementptr inbounds nuw i8, ptr %.1107.us117.us.us.us.us, i64 12
   store float %171, ptr %172, align 4, !tbaa !25
   %173 = getelementptr inbounds nuw i8, ptr %.1107.us117.us.us.us.us, i64 16
-  %174 = getelementptr inbounds nuw float, ptr %157, i64 %indvars.iv180
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %indvars.iv180
   %175 = load float, ptr %174, align 4, !tbaa !25
   %176 = fmul fast float %175, %160
   %177 = call fast float @llvm.sqrt.f32(float %176)
@@ -2222,7 +2222,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
 .lr.ph.us.us.us.us.us.us.us:                      ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us, %.preheader.us.us.us.us162.us
   %indvars.iv202 = phi i64 [ %indvars.iv.next203, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us162.us ]
   %.1107.us.us.us.us.us.us.us = phi ptr [ %226, %._crit_edge.split.us.us.us.us.us.us.us.us ], [ %.095125.us.us.us.us163.us, %.preheader.us.us.us.us162.us ]
-  %194 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv202
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv202
   %195 = load float, ptr %194, align 4, !tbaa !25
   %196 = fmul fast float %195, 5.000000e-01
   %197 = fsub fast float %.197122.us.us.us.us164.us, %196
@@ -2246,7 +2246,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
 209:                                              ; preds = %209, %.lr.ph.us.us.us.us.us.us.us
   %indvars.iv197 = phi i64 [ %indvars.iv.next198, %209 ], [ 0, %.lr.ph.us.us.us.us.us.us.us ]
   %.3104.us.us.us.us.us.us.us.us = phi ptr [ %226, %209 ], [ %208, %.lr.ph.us.us.us.us.us.us.us ]
-  %210 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv197
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv197
   %211 = load float, ptr %210, align 4, !tbaa !25
   %212 = call fast float @llvm.sqrt.f32(float %211)
   %213 = fmul fast float %196, %212
@@ -2297,7 +2297,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
 .lr.ph.us.us.us.us.us.us.us.us.us:                ; preds = %._crit_edge.split.us.us.us.us.us.us.us.us.us.us, %.preheader.us.us.us.us.us.us
   %indvars.iv213 = phi i64 [ %indvars.iv.next214, %._crit_edge.split.us.us.us.us.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us.us.us ]
   %.1107.us.us.us.us.us.us.us.us.us = phi ptr [ %280, %._crit_edge.split.us.us.us.us.us.us.us.us.us.us ], [ %.095125.us.us.us.us.us.us, %.preheader.us.us.us.us.us.us ]
-  %231 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv213
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv213
   %232 = load float, ptr %231, align 4, !tbaa !25
   %233 = fmul fast float %232, 5.000000e-01
   %234 = fsub fast float %.197122.us.us.us.us.us.us, %233
@@ -2316,7 +2316,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
   %244 = getelementptr inbounds nuw i8, ptr %.1107.us.us.us.us.us.us.us.us.us, i64 12
   store float %243, ptr %244, align 4, !tbaa !25
   %245 = getelementptr inbounds nuw i8, ptr %.1107.us.us.us.us.us.us.us.us.us, i64 16
-  %246 = getelementptr inbounds nuw float, ptr %230, i64 %indvars.iv213
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %230, i64 %indvars.iv213
   %247 = load float, ptr %246, align 4, !tbaa !25
   %248 = fmul fast float %247, %232
   %249 = call fast float @llvm.sqrt.f32(float %248)
@@ -2342,7 +2342,7 @@ define internal void @_ZNK4ncnn8PriorBox7forwardERKSt6vectorINS_3MatESaIS2_EERS4
 263:                                              ; preds = %263, %.lr.ph.us.us.us.us.us.us.us.us.us
   %indvars.iv208 = phi i64 [ %indvars.iv.next209, %263 ], [ 0, %.lr.ph.us.us.us.us.us.us.us.us.us ]
   %.3104.us.us.us.us.us.us.us.us.us.us = phi ptr [ %280, %263 ], [ %262, %.lr.ph.us.us.us.us.us.us.us.us.us ]
-  %264 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv208
+  %264 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv208
   %265 = load float, ptr %264, align 4, !tbaa !25
   %266 = call fast float @llvm.sqrt.f32(float %265)
   %267 = fmul fast float %233, %266

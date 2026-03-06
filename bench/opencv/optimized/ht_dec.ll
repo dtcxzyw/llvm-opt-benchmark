@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dec_mel = type { ptr, i64, i32, i32, i32, i32, i32, i64 }
 %struct.rev_struct = type { ptr, i64, i32, i32, i32 }
 %struct.frwd_struct = type { ptr, i64, i32, i32, i32, i32 }
-%struct.opj_tcd_seg_data_chunk = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [49 x i8] c"We do not support ROI in decoding HT codeblocks\0A\00", align 1
 @.str.1 = private unnamed_addr constant [132 x i8] c"A malformed codeblock that has more than one coding pass, but zero length for 2nd and potentially the 3rd pass in an HT codeblock.\0A\00", align 1
@@ -153,7 +152,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
 68:                                               ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
   %.014471857 = phi i32 [ 0, %.lr.ph ], [ %72, %68 ]
-  %69 = getelementptr inbounds nuw %struct.opj_tcd_seg_data_chunk, ptr %67, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %indvars.iv
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i32, ptr %70, align 8, !tbaa !30
   %72 = add i32 %71, %.014471857
@@ -219,14 +218,14 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %.214491860 = phi i32 [ 0, %.lr.ph1861 ], [ %105, %92 ]
   %94 = zext i32 %.214491860 to i64
   %95 = getelementptr inbounds nuw i8, ptr %89, i64 %94
-  %96 = getelementptr inbounds nuw %struct.opj_tcd_seg_data_chunk, ptr %93, i64 %indvars.iv2030
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %indvars.iv2030
   %97 = load ptr, ptr %96, align 8, !tbaa !37
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %99 = load i32, ptr %98, align 8, !tbaa !30
   %100 = zext i32 %99 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %95, ptr align 1 %97, i64 %100, i1 false)
   %101 = load ptr, ptr %91, align 8, !tbaa !29
-  %102 = getelementptr inbounds nuw %struct.opj_tcd_seg_data_chunk, ptr %101, i64 %indvars.iv2030
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %101, i64 %indvars.iv2030
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load i32, ptr %103, align 8, !tbaa !30
   %105 = add i32 %104, %.214491860
@@ -575,7 +574,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %267 = and i32 %265, 127
   %268 = or disjoint i32 %267, %266
   %269 = zext nneg i32 %268 to i64
-  %270 = getelementptr inbounds nuw i16, ptr @vlc_tbl0, i64 %269
+  %270 = getelementptr inbounds nuw [2 x i8], ptr @vlc_tbl0, i64 %269
   %271 = load i16, ptr %270, align 2, !tbaa !45
   %272 = zext i16 %271 to i32
   %273 = icmp eq i32 %.014251865, 0
@@ -625,7 +624,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %306 = and i32 %293, 127
   %307 = or disjoint i32 %306, %305
   %308 = zext nneg i32 %307 to i64
-  %309 = getelementptr inbounds nuw i16, ptr @vlc_tbl0, i64 %308
+  %309 = getelementptr inbounds nuw [2 x i8], ptr @vlc_tbl0, i64 %308
   %310 = load i16, ptr %309, align 2, !tbaa !45
   %311 = zext i16 %310 to i32
   %312 = icmp eq i32 %286, 0
@@ -675,7 +674,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %341 = lshr exact i32 %.014401863, 2
   %.lobit1706 = and i32 %341, 1
   %342 = zext nneg i32 %.lobit1706 to i64
-  %343 = getelementptr inbounds nuw i32, ptr %.013511869, i64 %342
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %.013511869, i64 %342
   %344 = xor i32 %.013521868, 16
   %345 = lshr i32 %.sroa.0.0, 3
   %346 = and i32 %345, 1
@@ -826,7 +825,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %432 = add i32 %431, 2
   %433 = shl i32 %432, %238
   %434 = or i32 %433, %424
-  %435 = getelementptr inbounds nuw i32, ptr %.014361864, i64 %239
+  %435 = getelementptr inbounds nuw [4 x i8], ptr %.014361864, i64 %239
   store i32 %434, ptr %435, align 4, !tbaa !51
   %436 = load i8, ptr %.013561867, align 1, !tbaa !44
   %437 = and i8 %436, 127
@@ -845,7 +844,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %.not1712, label %448, label %446
 
 446:                                              ; preds = %444
-  %447 = getelementptr inbounds nuw i32, ptr %.014361864, i64 %239
+  %447 = getelementptr inbounds nuw [4 x i8], ptr %.014361864, i64 %239
   store i32 0, ptr %447, align 4, !tbaa !51
   br label %448
 
@@ -921,7 +920,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %494 = add i32 %493, 2
   %495 = shl i32 %494, %238
   %496 = or i32 %495, %486
-  %497 = getelementptr inbounds nuw i32, ptr %450, i64 %239
+  %497 = getelementptr inbounds nuw [4 x i8], ptr %450, i64 %239
   store i32 %496, ptr %497, align 4, !tbaa !51
   %498 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %493, i1 true)
   %499 = trunc nuw nsw i32 %498 to i8
@@ -935,7 +934,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %.not1718, label %505, label %503
 
 503:                                              ; preds = %501
-  %504 = getelementptr inbounds nuw i32, ptr %450, i64 %239
+  %504 = getelementptr inbounds nuw [4 x i8], ptr %450, i64 %239
   store i32 0, ptr %504, align 4, !tbaa !51
   br label %505
 
@@ -1010,7 +1009,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %551 = add i32 %550, 2
   %552 = shl i32 %551, %238
   %553 = or i32 %552, %543
-  %554 = getelementptr inbounds nuw i32, ptr %506, i64 %239
+  %554 = getelementptr inbounds nuw [4 x i8], ptr %506, i64 %239
   store i32 %553, ptr %554, align 4, !tbaa !51
   %555 = load i8, ptr %449, align 1, !tbaa !44
   %556 = and i8 %555, 127
@@ -1029,7 +1028,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %.not1724, label %567, label %565
 
 565:                                              ; preds = %563
-  %566 = getelementptr inbounds nuw i32, ptr %506, i64 %239
+  %566 = getelementptr inbounds nuw [4 x i8], ptr %506, i64 %239
   store i32 0, ptr %566, align 4, !tbaa !51
   br label %567
 
@@ -1105,7 +1104,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %613 = add i32 %612, 2
   %614 = shl i32 %613, %238
   %615 = or i32 %614, %605
-  %616 = getelementptr inbounds nuw i32, ptr %569, i64 %239
+  %616 = getelementptr inbounds nuw [4 x i8], ptr %569, i64 %239
   store i32 %615, ptr %616, align 4, !tbaa !51
   %617 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %612, i1 true)
   %618 = trunc nuw nsw i32 %617 to i8
@@ -1118,7 +1117,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   br i1 %.not1730, label %623, label %621
 
 621:                                              ; preds = %620
-  %622 = getelementptr inbounds nuw i32, ptr %569, i64 %239
+  %622 = getelementptr inbounds nuw [4 x i8], ptr %569, i64 %239
   store i32 0, ptr %622, align 4, !tbaa !51
   br label %623
 
@@ -1149,7 +1148,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
 
 .lr.ph1883:                                       ; preds = %626
   %630 = mul nsw i64 %indvars.iv2043, %246
-  %631 = getelementptr inbounds i32, ptr %113, i64 %630
+  %631 = getelementptr inbounds [4 x i8], ptr %113, i64 %630
   %632 = trunc nuw nsw i64 %indvars.iv2043 to i32
   %633 = and i32 %632, 4
   %.not1649 = icmp eq i32 %633, 0
@@ -1181,7 +1180,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %648 = and i32 %646, 127
   %649 = or disjoint i32 %647, %648
   %650 = zext nneg i32 %649 to i64
-  %651 = getelementptr inbounds nuw i16, ptr @vlc_tbl1, i64 %650
+  %651 = getelementptr inbounds nuw [2 x i8], ptr @vlc_tbl1, i64 %650
   %652 = load i16, ptr %651, align 2, !tbaa !45
   %653 = zext i16 %652 to i32
   %654 = icmp eq i32 %645, 0
@@ -1240,7 +1239,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %696 = and i32 %674, 127
   %697 = or disjoint i32 %695, %696
   %698 = zext nneg i32 %697 to i64
-  %699 = getelementptr inbounds nuw i16, ptr @vlc_tbl1, i64 %698
+  %699 = getelementptr inbounds nuw [2 x i8], ptr @vlc_tbl1, i64 %698
   %700 = load i16, ptr %699, align 2, !tbaa !45
   %701 = zext i16 %700 to i32
   %702 = icmp eq i32 %694, 0
@@ -1289,7 +1288,7 @@ define hidden range(i32 0, 2) i32 @opj_t1_ht_decode_cblk(ptr noundef captures(no
   %730 = lshr exact i32 %.015041874, 2
   %.lobit = and i32 %730, 1
   %731 = zext nneg i32 %.lobit to i64
-  %732 = getelementptr inbounds nuw i32, ptr %.014741876, i64 %731
+  %732 = getelementptr inbounds nuw [4 x i8], ptr %.014741876, i64 %731
   %733 = xor i32 %.213541881, 16
   %734 = lshr i32 %.sroa.0.1, 3
   %735 = and i32 %734, 1
@@ -1530,7 +1529,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   %887 = add i32 %886, 2
   %888 = shl i32 %887, %245
   %889 = or i32 %888, %879
-  %890 = getelementptr inbounds nuw i32, ptr %.214381877, i64 %246
+  %890 = getelementptr inbounds nuw [4 x i8], ptr %.214381877, i64 %246
   store i32 %889, ptr %890, align 4, !tbaa !51
   %891 = load i8, ptr %.213581880, align 1, !tbaa !44
   %892 = and i8 %891, 127
@@ -1549,7 +1548,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   br i1 %.not1682, label %903, label %901
 
 901:                                              ; preds = %899
-  %902 = getelementptr inbounds nuw i32, ptr %.214381877, i64 %246
+  %902 = getelementptr inbounds nuw [4 x i8], ptr %.214381877, i64 %246
   store i32 0, ptr %902, align 4, !tbaa !51
   br label %903
 
@@ -1621,7 +1620,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   %946 = add i32 %945, 2
   %947 = shl i32 %946, %245
   %948 = or i32 %947, %938
-  %949 = getelementptr inbounds nuw i32, ptr %904, i64 %246
+  %949 = getelementptr inbounds nuw [4 x i8], ptr %904, i64 %246
   store i32 %948, ptr %949, align 4, !tbaa !51
   %950 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %945, i1 true)
   %951 = trunc nuw nsw i32 %950 to i8
@@ -1635,7 +1634,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   br i1 %.not1688, label %957, label %955
 
 955:                                              ; preds = %953
-  %956 = getelementptr inbounds nuw i32, ptr %904, i64 %246
+  %956 = getelementptr inbounds nuw [4 x i8], ptr %904, i64 %246
   store i32 0, ptr %956, align 4, !tbaa !51
   br label %957
 
@@ -1710,7 +1709,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   %1003 = add i32 %1002, 2
   %1004 = shl i32 %1003, %245
   %1005 = or i32 %1004, %995
-  %1006 = getelementptr inbounds nuw i32, ptr %958, i64 %246
+  %1006 = getelementptr inbounds nuw [4 x i8], ptr %958, i64 %246
   store i32 %1005, ptr %1006, align 4, !tbaa !51
   %1007 = load i8, ptr %640, align 1, !tbaa !44
   %1008 = and i8 %1007, 127
@@ -1729,7 +1728,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   br i1 %.not1694, label %1019, label %1017
 
 1017:                                             ; preds = %1015
-  %1018 = getelementptr inbounds nuw i32, ptr %958, i64 %246
+  %1018 = getelementptr inbounds nuw [4 x i8], ptr %958, i64 %246
   store i32 0, ptr %1018, align 4, !tbaa !51
   br label %1019
 
@@ -1803,7 +1802,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   %1064 = add i32 %1063, 2
   %1065 = shl i32 %1064, %245
   %1066 = or i32 %1065, %1056
-  %1067 = getelementptr inbounds nuw i32, ptr %1020, i64 %246
+  %1067 = getelementptr inbounds nuw [4 x i8], ptr %1020, i64 %246
   store i32 %1066, ptr %1067, align 4, !tbaa !51
   %1068 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, 0) %1063, i1 true)
   %1069 = trunc nuw nsw i32 %1068 to i8
@@ -1816,7 +1815,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   br i1 %.not1700, label %1074, label %1072
 
 1072:                                             ; preds = %1071
-  %1073 = getelementptr inbounds nuw i32, ptr %1020, i64 %246
+  %1073 = getelementptr inbounds nuw [4 x i8], ptr %1020, i64 %246
   store i32 0, ptr %1073, align 4, !tbaa !51
   br label %1074
 
@@ -1843,7 +1842,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
 1081:                                             ; preds = %1078
   %1082 = add nsw i64 %indvars.iv2043, -2
   %1083 = mul nsw i64 %1082, %246
-  %1084 = getelementptr inbounds i32, ptr %113, i64 %1083
+  %1084 = getelementptr inbounds [4 x i8], ptr %113, i64 %1083
   %.not1650 = icmp eq i32 %1080, 0
   %1085 = select i1 %.not1650, ptr %142, ptr %141
   br i1 %231, label %.loopexit1843.thread, label %.lr.ph1894
@@ -1862,7 +1861,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   br i1 %.not1668, label %.split, label %1090
 
 1090:                                             ; preds = %.lr.ph1894
-  %1091 = getelementptr inbounds nuw i32, ptr %1084, i64 %indvars.iv2034
+  %1091 = getelementptr inbounds nuw [4 x i8], ptr %1084, i64 %indvars.iv2034
   br label %1092
 
 1092:                                             ; preds = %1090, %1141
@@ -1902,7 +1901,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   %1109 = and i32 %.21549, 1
   %1110 = xor i32 %1109, 1
   %1111 = shl nuw i32 %1110, %245
-  %1112 = getelementptr inbounds nuw i32, ptr %.015551887, i64 %246
+  %1112 = getelementptr inbounds nuw [4 x i8], ptr %.015551887, i64 %246
   %1113 = load i32, ptr %1112, align 4, !tbaa !51
   %1114 = xor i32 %1113, %1111
   %1115 = or i32 %1114, %248
@@ -1921,7 +1920,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   %1121 = and i32 %.31550, 1
   %1122 = xor i32 %1121, 1
   %1123 = shl nuw i32 %1122, %245
-  %1124 = getelementptr inbounds nuw i32, ptr %.015551887, i64 %250
+  %1124 = getelementptr inbounds nuw [4 x i8], ptr %.015551887, i64 %250
   %1125 = load i32, ptr %1124, align 4, !tbaa !51
   %1126 = xor i32 %1125, %1123
   %1127 = or i32 %1126, %248
@@ -1940,7 +1939,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   %1133 = and i32 %.41551, 1
   %1134 = xor i32 %1133, 1
   %1135 = shl nuw i32 %1134, %245
-  %1136 = getelementptr inbounds nuw i32, ptr %.015551887, i64 %252
+  %1136 = getelementptr inbounds nuw [4 x i8], ptr %.015551887, i64 %252
   %1137 = load i32, ptr %1136, align 4, !tbaa !51
   %1138 = xor i32 %1137, %1135
   %1139 = or i32 %1138, %248
@@ -2079,7 +2078,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
 .lr.ph1941:                                       ; preds = %._crit_edge1909
   %1210 = add nsw i64 %indvars.iv2043, -6
   %1211 = mul nsw i64 %1210, %246
-  %1212 = getelementptr inbounds i32, ptr %113, i64 %1211
+  %1212 = getelementptr inbounds [4 x i8], ptr %113, i64 %1211
   br label %1213
 
 1213:                                             ; preds = %.lr.ph1941, %1382
@@ -2097,7 +2096,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   %1216 = sub nsw i32 %137, %1215
   %1217 = getelementptr inbounds nuw i8, ptr %.115401935, i64 4
   %1218 = getelementptr inbounds nuw i8, ptr %.115381936, i64 4
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %1212, i64 %indvars.iv2040
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %1212, i64 %indvars.iv2040
   br label %1219
 
 1219:                                             ; preds = %.loopexit1840, %.preheader1841
@@ -2106,7 +2105,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   %.115081932 = phi i32 [ 0, %.preheader1841 ], [ %.21509.lcssa2163, %.loopexit1840 ]
   %.015191931 = phi i32 [ %1214, %.preheader1841 ], [ %.11520.lcssa2162, %.loopexit1840 ]
   %1221 = call fastcc i32 @frwd_fetch(ptr noundef %12)
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv2037
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv2037
   %indvars.iv2037.tr = trunc nuw nsw i64 %indvars.iv2037 to i32
   %1222 = shl nuw nsw i32 %indvars.iv2037.tr, 2
   %1223 = shl nuw nsw i32 15, %1222
@@ -2309,7 +2308,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
 
 1314:                                             ; preds = %1311
   %1315 = shl i32 %.81499, 31
-  %1316 = getelementptr inbounds nuw i32, ptr %.014701928, i64 %246
+  %1316 = getelementptr inbounds nuw [4 x i8], ptr %.014701928, i64 %246
   %1317 = load i32, ptr %1316, align 4, !tbaa !51
   %1318 = or i32 %1315, %1317
   %1319 = or i32 %1318, %255
@@ -2328,7 +2327,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
 
 1325:                                             ; preds = %1322
   %1326 = shl i32 %.91500, 31
-  %1327 = getelementptr inbounds nuw i32, ptr %.014701928, i64 %250
+  %1327 = getelementptr inbounds nuw [4 x i8], ptr %.014701928, i64 %250
   %1328 = load i32, ptr %1327, align 4, !tbaa !51
   %1329 = or i32 %1326, %1328
   %1330 = or i32 %1329, %255
@@ -2347,7 +2346,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
 
 1336:                                             ; preds = %1333
   %1337 = shl i32 %.101501, 31
-  %1338 = getelementptr inbounds nuw i32, ptr %.014701928, i64 %252
+  %1338 = getelementptr inbounds nuw [4 x i8], ptr %.014701928, i64 %252
   %1339 = load i32, ptr %1338, align 4, !tbaa !51
   %1340 = or i32 %1337, %1339
   %1341 = or i32 %1340, %255
@@ -2464,7 +2463,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   %1405 = and i32 %140, 16777212
   %1406 = mul nsw i32 %1405, %137
   %1407 = sext i32 %1406 to i64
-  %1408 = getelementptr inbounds i32, ptr %113, i64 %1407
+  %1408 = getelementptr inbounds [4 x i8], ptr %113, i64 %1407
   %1409 = add i32 %184, -2
   %1410 = shl nuw i32 1, %1409
   br i1 %231, label %.loopexit1837, label %.lr.ph1955
@@ -2493,7 +2492,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   br i1 %.not1643, label %.split1558, label %1425
 
 1425:                                             ; preds = %1421
-  %1426 = getelementptr inbounds nuw i32, ptr %1408, i64 %indvars.iv2047
+  %1426 = getelementptr inbounds nuw [4 x i8], ptr %1408, i64 %indvars.iv2047
   br label %1427
 
 1427:                                             ; preds = %1425, %1476
@@ -2533,7 +2532,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   %1444 = and i32 %.21462, 1
   %1445 = xor i32 %1444, 1
   %1446 = shl nuw i32 %1445, %1413
-  %1447 = getelementptr inbounds nuw i32, ptr %.014571950, i64 %1414
+  %1447 = getelementptr inbounds nuw [4 x i8], ptr %.014571950, i64 %1414
   %1448 = load i32, ptr %1447, align 4, !tbaa !51
   %1449 = xor i32 %1448, %1446
   %1450 = or i32 %1449, %1410
@@ -2552,7 +2551,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   %1456 = and i32 %.31463, 1
   %1457 = xor i32 %1456, 1
   %1458 = shl nuw i32 %1457, %1413
-  %1459 = getelementptr inbounds nuw i32, ptr %.014571950, i64 %1416
+  %1459 = getelementptr inbounds nuw [4 x i8], ptr %.014571950, i64 %1416
   %1460 = load i32, ptr %1459, align 4, !tbaa !51
   %1461 = xor i32 %1460, %1458
   %1462 = or i32 %1461, %1410
@@ -2571,7 +2570,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
   %1468 = and i32 %.41464, 1
   %1469 = xor i32 %1468, 1
   %1470 = shl nuw i32 %1469, %1413
-  %1471 = getelementptr inbounds nuw i32, ptr %.014571950, i64 %1418
+  %1471 = getelementptr inbounds nuw [4 x i8], ptr %.014571950, i64 %1418
   %1472 = load i32, ptr %1471, align 4, !tbaa !51
   %1473 = xor i32 %1472, %1470
   %1474 = or i32 %1473, %1410
@@ -2742,7 +2741,7 @@ decode_noninit_uvlc.exit:                         ; preds = %720, %739, %758
 
 switch.lookup:                                    ; preds = %1528
   %1567 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.opj_t1_ht_decode_cblk, i64 %1567
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.opj_t1_ht_decode_cblk, i64 %1567
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread1813
 
@@ -2759,7 +2758,7 @@ switch.lookup:                                    ; preds = %1528
   %1571 = select i1 %.not1627, ptr %143, ptr %144
   %1572 = select i1 %.not1627, ptr %141, ptr %142
   %1573 = mul nsw i64 %indvars.iv2056, %1519
-  %1574 = getelementptr inbounds i32, ptr %113, i64 %1573
+  %1574 = getelementptr inbounds [4 x i8], ptr %113, i64 %1573
   br label %1575
 
 1575:                                             ; preds = %.lr.ph1999, %1746
@@ -2778,7 +2777,7 @@ switch.lookup:                                    ; preds = %1528
   %1579 = sub nsw i32 %137, %1578
   %1580 = getelementptr inbounds nuw i8, ptr %.114351994, i64 4
   %1581 = getelementptr inbounds nuw i8, ptr %.114331995, i64 4
-  %invariant.gep2195 = getelementptr inbounds nuw i32, ptr %1574, i64 %indvars.iv2053
+  %invariant.gep2195 = getelementptr inbounds nuw [4 x i8], ptr %1574, i64 %indvars.iv2053
   br label %1582
 
 1582:                                             ; preds = %.loopexit, %.preheader1834
@@ -2787,7 +2786,7 @@ switch.lookup:                                    ; preds = %1528
   %.113991991 = phi i32 [ 0, %.preheader1834 ], [ %.21400.lcssa2179, %.loopexit ]
   %.014101990 = phi i32 [ %1577, %.preheader1834 ], [ %.11411.lcssa2178, %.loopexit ]
   %1584 = call fastcc i32 @frwd_fetch(ptr noundef %12)
-  %gep2196 = getelementptr inbounds nuw i32, ptr %invariant.gep2195, i64 %indvars.iv2050
+  %gep2196 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep2195, i64 %indvars.iv2050
   %indvars.iv2050.tr = trunc nuw nsw i64 %indvars.iv2050 to i32
   %1585 = shl nuw nsw i32 %indvars.iv2050.tr, 2
   %1586 = shl nuw nsw i32 15, %1585
@@ -2991,7 +2990,7 @@ switch.lookup:                                    ; preds = %1528
 
 1678:                                             ; preds = %1675
   %1679 = shl i32 %.81378, 31
-  %1680 = getelementptr inbounds nuw i32, ptr %.013461987, i64 %1519
+  %1680 = getelementptr inbounds nuw [4 x i8], ptr %.013461987, i64 %1519
   %1681 = load i32, ptr %1680, align 4, !tbaa !51
   %1682 = or i32 %1679, %1681
   %1683 = or i32 %1682, %1518
@@ -3010,7 +3009,7 @@ switch.lookup:                                    ; preds = %1528
 
 1689:                                             ; preds = %1686
   %1690 = shl i32 %.91379, 31
-  %1691 = getelementptr inbounds nuw i32, ptr %.013461987, i64 %1521
+  %1691 = getelementptr inbounds nuw [4 x i8], ptr %.013461987, i64 %1521
   %1692 = load i32, ptr %1691, align 4, !tbaa !51
   %1693 = or i32 %1690, %1692
   %1694 = or i32 %1693, %1518
@@ -3029,7 +3028,7 @@ switch.lookup:                                    ; preds = %1528
 
 1700:                                             ; preds = %1697
   %1701 = shl i32 %.101380, 31
-  %1702 = getelementptr inbounds nuw i32, ptr %.013461987, i64 %1523
+  %1702 = getelementptr inbounds nuw [4 x i8], ptr %.013461987, i64 %1523
   %1703 = load i32, ptr %1702, align 4, !tbaa !51
   %1704 = or i32 %1701, %1703
   %1705 = or i32 %1704, %1518
@@ -3141,7 +3140,7 @@ switch.lookup:                                    ; preds = %1528
 .lr.ph2007.us:                                    ; preds = %.lr.ph2007.us.preheader, %._crit_edge2008.us
   %indvars.iv2060 = phi i64 [ 0, %.lr.ph2007.us.preheader ], [ %indvars.iv.next2061, %._crit_edge2008.us ]
   %1767 = mul nuw nsw i64 %indvars.iv2060, %1766
-  %1768 = getelementptr inbounds nuw i32, ptr %113, i64 %1767
+  %1768 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %1767
   br label %1769
 
 1769:                                             ; preds = %.lr.ph2007.us, %1769
@@ -3863,7 +3862,7 @@ define internal fastcc range(i32 0, 128) i32 @mel_get_run(ptr noundef nonnull ca
   %87 = phi i32 [ %.promoted52.i, %.lr.ph.i ], [ %.sink.i, %109 ]
   %indvars.iv16 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next, %109 ]
   %88 = sext i32 %spec.select.sink.i20 to i64
-  %89 = getelementptr inbounds i32, ptr @mel_decode.mel_exp, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr @mel_decode.mel_exp, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !51
   %.not.i = icmp sgt i64 %.sink42.i22, -1
   br i1 %.not.i, label %96, label %91

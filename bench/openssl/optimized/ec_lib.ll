@@ -2469,7 +2469,7 @@ define i32 @EC_POINTs_make_affine(ptr noundef %0, i64 noundef %1, ptr noundef %2
 
 11:                                               ; preds = %.lr.ph, %ec_point_is_compat.exit.thread
   %.017 = phi i64 [ 0, %.lr.ph ], [ %23, %ec_point_is_compat.exit.thread ]
-  %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %.017
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.017
   %13 = load ptr, ptr %12, align 8, !tbaa !61
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = icmp eq ptr %5, %14
@@ -2550,7 +2550,7 @@ ec_point_is_compat.exit.thread:                   ; preds = %11, %15
 
 .lr.ph:                                           ; preds = %.preheader, %ec_point_is_compat.exit42.thread
   %.03356 = phi i64 [ %32, %ec_point_is_compat.exit42.thread ], [ 0, %.preheader ]
-  %23 = getelementptr inbounds nuw ptr, ptr %4, i64 %.03356
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.03356
   %24 = load ptr, ptr %23, align 8, !tbaa !61
   %25 = load ptr, ptr %24, align 8, !tbaa !30
   %26 = icmp eq ptr %8, %25
@@ -2928,7 +2928,7 @@ define range(i32 0, 684) i32 @EC_GROUP_get_basis_type(ptr noundef readonly captu
 
 6:                                                ; preds = %.preheader, %9
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %9 ]
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !71
   %.not8 = icmp eq i32 %8, 0
   br i1 %.not8, label %.critedge, label %9

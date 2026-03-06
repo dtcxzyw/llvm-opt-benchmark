@@ -31,8 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<llvm::ValueProfileCollector::CandidateInfo, std::allocator<llvm::ValueProfileCollector::CandidateInfo>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::ValueProfileCollector::CandidateInfo, std::allocator<llvm::ValueProfileCollector::CandidateInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::ValueProfileCollector::CandidateInfo, std::allocator<llvm::ValueProfileCollector::CandidateInfo>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<llvm::ValueProfileCollector::CandidateInfo, std::allocator<llvm::ValueProfileCollector::CandidateInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
-%"struct.llvm::ValueProfileCollector::CandidateInfo" = type { ptr, ptr, ptr }
 %"struct.llvm::PGOIndirectCallVisitor" = type <{ %"class.std::vector.48", %"class.std::vector.55", i32, [4 x i8] }>
 %"class.std::vector.48" = type { %"struct.std::_Vector_base.49" }
 %"struct.std::_Vector_base.49" = type { %"struct.std::_Vector_base<llvm::CallBase *, std::allocator<llvm::CallBase *>>::_Vector_impl" }
@@ -351,7 +349,7 @@ _ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit: ; pr
   %39 = and i32 %38, 134217727
   %40 = zext nneg i32 %39 to i64
   %41 = sub nsw i64 0, %40
-  %42 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %41
+  %42 = getelementptr inbounds [32 x i8], ptr %1, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %44 = load ptr, ptr %43, align 8, !tbaa !31
   %45 = load i8, ptr %44, align 8, !tbaa !22
@@ -426,7 +424,7 @@ _ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE11_S_relocateE
 _ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %69, ptr %49, align 8, !tbaa !83
   store ptr %73, ptr %50, align 8, !tbaa !76
-  %75 = getelementptr inbounds nuw %"struct.llvm::ValueProfileCollector::CandidateInfo", ptr %69, i64 %67
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %67
   store ptr %75, ptr %52, align 8, !tbaa !79
   br label %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
 
@@ -445,7 +443,7 @@ define linkonce_odr hidden void @_ZN18MemIntrinsicPlugin17visitMemIntrinsicERN4l
   %5 = and i32 %4, 134217727
   %6 = zext nneg i32 %5 to i64
   %7 = sub nsw i64 0, %6
-  %8 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %7
+  %8 = getelementptr inbounds [32 x i8], ptr %1, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !31
   %11 = load i8, ptr %10, align 8, !tbaa !22
@@ -520,7 +518,7 @@ _ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE11_S_relocateE
 _ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %40, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %35, ptr %15, align 8, !tbaa !83
   store ptr %39, ptr %16, align 8, !tbaa !76
-  %41 = getelementptr inbounds nuw %"struct.llvm::ValueProfileCollector::CandidateInfo", ptr %35, i64 %33
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %33
   store ptr %41, ptr %18, align 8, !tbaa !79
   br label %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
 
@@ -706,7 +704,7 @@ _ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE11_S_relocateE
 _ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %68, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %63, ptr %1, align 8, !tbaa !83
   store ptr %67, ptr %36, align 8, !tbaa !76
-  %69 = getelementptr inbounds nuw %"struct.llvm::ValueProfileCollector::CandidateInfo", ptr %63, i64 %61
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %61
   store ptr %69, ptr %37, align 8, !tbaa !79
   br label %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
 
@@ -891,7 +889,7 @@ _ZNSt6vectorIPN4llvm8CallBaseESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i:
 _ZNSt6vectorIPN4llvm8CallBaseESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %29, %_ZNSt6vectorIPN4llvm8CallBaseESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %24, ptr %0, align 8, !tbaa !92
   store ptr %28, ptr %5, align 8, !tbaa !89
-  %30 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %30, ptr %7, align 8, !tbaa !98
   br label %_ZNSt6vectorIPN4llvm8CallBaseESaIS2_EE9push_backEOS2_.exit
 
@@ -983,7 +981,7 @@ _ZNSt6vectorIPN4llvm11InstructionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.
 _ZNSt6vectorIPN4llvm11InstructionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %71, %_ZNSt6vectorIPN4llvm11InstructionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %66, ptr %46, align 8, !tbaa !94
   store ptr %70, ptr %47, align 8, !tbaa !112
-  %72 = getelementptr inbounds nuw ptr, ptr %66, i64 %64
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %64
   store ptr %72, ptr %49, align 8, !tbaa !97
   br label %_ZNSt6vectorIPN4llvm11InstructionESaIS2_EE9push_backERKS2_.exit
 
@@ -1174,7 +1172,7 @@ _ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE11_S_relocateE
 _ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %68, %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %63, ptr %1, align 8, !tbaa !83
   store ptr %67, ptr %35, align 8, !tbaa !76
-  %69 = getelementptr inbounds nuw %"struct.llvm::ValueProfileCollector::CandidateInfo", ptr %63, i64 %61
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %61
   store ptr %69, ptr %36, align 8, !tbaa !79
   br label %_ZNSt6vectorIN4llvm21ValueProfileCollector13CandidateInfoESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
 

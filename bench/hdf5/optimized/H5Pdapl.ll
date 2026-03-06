@@ -1099,7 +1099,7 @@ define range(i32 -1, 1) i32 @H5Pset_append_flush(i64 noundef %0, i32 noundef %1,
 
 77:                                               ; preds = %73, %84
   %indvars.iv = phi i64 [ 0, %73 ], [ %indvars.iv.next, %84 ]
-  %78 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %79 = load i64, ptr %78, align 8, !tbaa !3
   %.not40 = icmp ult i64 %79, 4294967296
   br i1 %.not40, label %84, label %80, !prof !24
@@ -1111,7 +1111,7 @@ define range(i32 -1, 1) i32 @H5Pset_append_flush(i64 noundef %0, i32 noundef %1,
   br label %.thread55
 
 84:                                               ; preds = %77
-  %85 = getelementptr inbounds nuw i64, ptr %76, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv
   store i64 %79, ptr %85, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -31,7 +31,7 @@ define dso_local nonnull ptr @AllocSetContextCreateInternal(ptr noundef %0, ptr 
 .thread:                                          ; preds = %5, %8
   %.08295 = phi i32 [ 1, %8 ], [ 0, %5 ]
   %10 = zext nneg i32 %.08295 to i64
-  %11 = getelementptr inbounds nuw %struct.AllocSetFreeList, ptr @context_freelists, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr @context_freelists, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
@@ -230,7 +230,7 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %1
   %10 = zext nneg i32 %6 to i64
-  %11 = getelementptr inbounds nuw %struct.AllocSetFreeList, ptr @context_freelists, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr @context_freelists, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i8, ptr %12, align 4, !range !7, !noundef !8
   %14 = trunc nuw i8 %13 to i1
@@ -332,7 +332,7 @@ define dso_local ptr @AllocSetAlloc(ptr noundef %0, i64 noundef %1, i32 noundef 
   %.0.i = select i1 %11, i32 %15, i32 0
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = sext i32 %.0.i to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %23, label %20
@@ -513,7 +513,7 @@ define internal fastcc ptr @AllocSetAllocFromNewBlock(ptr noundef %0, i64 nounde
   %39 = or disjoint i64 %38, 3
   store i64 %39, ptr %30, align 8
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %41 = getelementptr inbounds ptr, ptr %16, i64 %33
+  %41 = getelementptr inbounds [8 x i8], ptr %16, i64 %33
   %42 = load ptr, ptr %41, align 8
   store ptr %42, ptr %40, align 8
   store ptr %30, ptr %41, align 8
@@ -701,7 +701,7 @@ define dso_local void @AllocSetFree(ptr noundef %0) local_unnamed_addr #0 {
   %44 = lshr i64 %.val, 5
   %45 = and i64 %44, 1073741823
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 88
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   %48 = load ptr, ptr %47, align 8
   store ptr %48, ptr %0, align 8
   store ptr %2, ptr %47, align 8
@@ -845,7 +845,7 @@ MemoryContextCheckSize.exit:                      ; preds = %20, %22
   %.0.i.i = select i1 %72, i32 %76, i32 0
   %77 = getelementptr inbounds nuw i8, ptr %60, i64 88
   %78 = sext i32 %.0.i.i to i64
-  %79 = getelementptr inbounds ptr, ptr %77, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %77, i64 %78
   %80 = load ptr, ptr %79, align 8
   %.not.i = icmp eq ptr %80, null
   br i1 %.not.i, label %84, label %81
@@ -1011,7 +1011,7 @@ define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly captur
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %.04272 = phi i64 [ 0, %.preheader ], [ %.1.lcssa, %._crit_edge ]
   %.14670 = phi i64 [ %.045.lcssa, %.preheader ], [ %.2.lcssa, %._crit_edge ]
-  %23 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %.04162 = load ptr, ptr %23, align 8
   %.not5263 = icmp eq ptr %.04162, null
   br i1 %.not5263, label %._crit_edge, label %.lr.ph67

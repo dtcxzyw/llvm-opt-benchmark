@@ -372,7 +372,7 @@ define hidden void @"_ZN15ruff_python_ast4node57_$LT$impl$u20$ruff_python_ast..g
   %.val = load ptr, ptr %4, align 8, !nonnull !4, !align !3, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val2 = load i64, ptr %11, align 8, !noundef !4
-  %12 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.val, i64 %.val2
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %.val, i64 %.val2
   call void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17hf80f31754021e59aE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %.val, ptr noundef nonnull %12)
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.43.0.copyload = load ptr, ptr %.sroa.43.0..sroa_idx, align 8
@@ -389,7 +389,7 @@ define hidden void @"_ZN15ruff_python_ast4node57_$LT$impl$u20$ruff_python_ast..g
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit.lr.ph", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit"
   %.sroa.54.09 = phi i64 [ %.sroa.54.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit.lr.ph" ], [ %15, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hcc703ed29a4b832aE.exit" ]
-  %14 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.sroa.43.0.copyload, i64 %.sroa.54.09
+  %14 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.43.0.copyload, i64 %.sroa.54.09
   %15 = add i64 %.sroa.54.09, 1
   tail call void @"_ZN111_$LT$ruff_graph..collector..Collector$u20$as$u20$ruff_python_ast..visitor..source_order..SourceOrderVisitor$GT$10visit_expr17h88cae7ce78a0f73fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 %14)
   %exitcond.not = icmp eq i64 %15, %.sroa.7.0.copyload
@@ -473,7 +473,7 @@ define hidden void @"_ZN15ruff_python_ast4node61_$LT$impl$u20$ruff_python_ast..n
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !4
-  %12 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %11
   %13 = tail call { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h271d134962124241E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4), !noalias !25
   %14 = extractvalue { ptr, ptr } %13, 0
   %15 = extractvalue { ptr, ptr } %13, 1
@@ -497,8 +497,8 @@ define hidden void @"_ZN15ruff_python_ast4node61_$LT$impl$u20$ruff_python_ast..n
   %.sroa.0.116 = phi ptr [ %.sroa.0.0, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.lr.ph" ], [ %.sroa.0.2, %30 ]
   %.sroa.510.015 = phi i64 [ %.sroa.510.0.copyload, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h531b4deb626e21acE.exit.lr.ph" ], [ %17, %30 ]
   %17 = add i64 %.sroa.510.015, 1
-  %18 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %.sroa.0.0.copyload, i64 %.sroa.510.015
-  %19 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %.sroa.49.0.copyload, i64 %.sroa.510.015
+  %18 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.0.copyload, i64 %.sroa.510.015
+  %19 = getelementptr inbounds nuw [88 x i8], ptr %.sroa.49.0.copyload, i64 %.sroa.510.015
   %.not8 = icmp eq ptr %.sroa.0.116, null
   br i1 %.not8, label %30, label %24
 

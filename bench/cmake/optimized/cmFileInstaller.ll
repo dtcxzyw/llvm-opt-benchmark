@@ -2986,7 +2986,7 @@ define linkonce_odr dso_local void @_ZNSt3mapISt17basic_string_viewIcSt11char_tr
   store ptr %6, ptr %9, align 8, !tbaa !160
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %10, align 8, !tbaa !161
-  %11 = getelementptr inbounds nuw %"struct.std::pair", ptr %1, i64 %2
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %2
   invoke void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_13cmInstallModeESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE22_M_insert_range_uniqueIPKS7_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESI_SI_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %11)
           to label %12 unwind label %13
 

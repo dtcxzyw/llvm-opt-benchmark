@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
-%struct.FunctionScanPerFuncState = type { ptr, ptr, i32, ptr, i64, ptr }
 
 @.str = private unnamed_addr constant [45 x i8] c"function in FROM has unsupported return type\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"nodeFunctionscan.c\00", align 1
@@ -86,14 +84,14 @@ list_length.exit:                                 ; preds = %3, %8
   %.094107137 = phi i32 [ %94, %92 ], [ 0, %.lr.ph ]
   %indvars.iv136 = phi i64 [ %indvars.iv.next, %92 ], [ 0, %.lr.ph ]
   %40 = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds nuw %union.ListCell, ptr %40, i64 %indvars.iv136
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv136
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load i32, ptr %45, align 8
   %47 = load ptr, ptr %32, align 8
-  %48 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %47, i64 %indvars.iv136
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %47, i64 %indvars.iv136
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %49 = load ptr, ptr %36, align 8
   %50 = call ptr @ExecInitTableFunctionResult(ptr noundef %44, ptr noundef %49, ptr noundef nonnull %12) #5
@@ -216,7 +214,7 @@ list_length.exit:                                 ; preds = %3, %8
   %indvars.iv125 = phi i64 [ 0, %.lr.ph119.preheader ], [ %indvars.iv.next126, %._crit_edge ]
   %.096116 = phi i16 [ 0, %.lr.ph119.preheader ], [ %.197.lcssa, %._crit_edge ]
   %110 = load ptr, ptr %32, align 8
-  %111 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %110, i64 %indvars.iv125
+  %111 = getelementptr inbounds nuw [48 x i8], ptr %110, i64 %indvars.iv125
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
@@ -335,7 +333,7 @@ define dso_local void @ExecEndFunctionScan(ptr noundef readonly captures(none) %
   %7 = phi i32 [ %3, %.lr.ph ], [ %14, %13 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
@@ -393,7 +391,7 @@ define dso_local void @ExecReScanFunctionScan(ptr noundef %0) local_unnamed_addr
   %19 = phi i32 [ %15, %.lr.ph ], [ %30, %29 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
   %.not49 = icmp eq ptr %23, null
@@ -437,7 +435,7 @@ define dso_local void @ExecReScanFunctionScan(ptr noundef %0) local_unnamed_addr
 .lr.ph58:                                         ; preds = %.lr.ph54, %60
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %60 ], [ 0, %.lr.ph54 ]
   %41 = load ptr, ptr %37, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv63
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv63
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
   %45 = load ptr, ptr %44, align 8
@@ -446,7 +444,7 @@ define dso_local void @ExecReScanFunctionScan(ptr noundef %0) local_unnamed_addr
 
 47:                                               ; preds = %.lr.ph58
   %48 = load ptr, ptr %38, align 8
-  %49 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %48, i64 %indvars.iv63
+  %49 = getelementptr inbounds nuw [48 x i8], ptr %48, i64 %indvars.iv63
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load ptr, ptr %50, align 8
   %.not48 = icmp eq ptr %51, null
@@ -455,7 +453,7 @@ define dso_local void @ExecReScanFunctionScan(ptr noundef %0) local_unnamed_addr
 52:                                               ; preds = %47
   tail call void @tuplestore_end(ptr noundef nonnull %51) #5
   %53 = load ptr, ptr %38, align 8
-  %54 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %53, i64 %indvars.iv63
+  %54 = getelementptr inbounds nuw [48 x i8], ptr %53, i64 %indvars.iv63
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store ptr null, ptr %55, align 8
   %.pre71 = load ptr, ptr %38, align 8
@@ -463,7 +461,7 @@ define dso_local void @ExecReScanFunctionScan(ptr noundef %0) local_unnamed_addr
 
 56:                                               ; preds = %52, %47
   %57 = phi ptr [ %.pre71, %52 ], [ %48, %47 ]
-  %58 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %57, i64 %indvars.iv63
+  %58 = getelementptr inbounds nuw [48 x i8], ptr %57, i64 %indvars.iv63
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   store i64 -1, ptr %59, align 8
   br label %60
@@ -490,7 +488,7 @@ define dso_local void @ExecReScanFunctionScan(ptr noundef %0) local_unnamed_addr
   %69 = phi i32 [ %65, %.lr.ph60 ], [ %76, %75 ]
   %indvars.iv68 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next69, %75 ]
   %70 = load ptr, ptr %67, align 8
-  %71 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %70, i64 %indvars.iv68
+  %71 = getelementptr inbounds nuw [48 x i8], ptr %70, i64 %indvars.iv68
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = load ptr, ptr %72, align 8
   %.not47 = icmp eq ptr %73, null
@@ -599,7 +597,7 @@ define internal ptr @FunctionNext(ptr noundef captures(none) %0) #0 {
   %.07997 = phi i1 [ true, %.lr.ph98 ], [ %.180, %.loopexit ]
   %.08296 = phi i32 [ 0, %.lr.ph98 ], [ %.2, %.loopexit ]
   %53 = load ptr, ptr %46, align 8
-  %54 = getelementptr inbounds nuw %struct.FunctionScanPerFuncState, ptr %53, i64 %indvars.iv104
+  %54 = getelementptr inbounds nuw [48 x i8], ptr %53, i64 %indvars.iv104
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
@@ -681,7 +679,7 @@ define internal ptr @FunctionNext(ptr noundef captures(none) %0) #0 {
   %.18391 = phi i32 [ %107, %.lr.ph93 ], [ %.08296, %98 ]
   %102 = load ptr, ptr %50, align 8
   %103 = sext i32 %.18391 to i64
-  %104 = getelementptr inbounds i64, ptr %102, i64 %103
+  %104 = getelementptr inbounds [8 x i8], ptr %102, i64 %103
   store i64 0, ptr %104, align 8
   %105 = load ptr, ptr %51, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 %103
@@ -718,11 +716,11 @@ slot_getallattrs.exit:                            ; preds = %111, %119
   %123 = load ptr, ptr %85, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds nuw i64, ptr %125, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %indvars.iv
   %127 = load i64, ptr %126, align 8
   %128 = load ptr, ptr %50, align 8
   %129 = sext i32 %.389 to i64
-  %130 = getelementptr inbounds i64, ptr %128, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %128, i64 %129
   store i64 %127, ptr %130, align 8
   %131 = load ptr, ptr %85, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
@@ -764,7 +762,7 @@ slot_getallattrs.exit:                            ; preds = %111, %119
   %150 = load i64, ptr %36, align 8
   %151 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i64, ptr %152, i64 %.082.lcssa
+  %153 = getelementptr inbounds [8 x i8], ptr %152, i64 %.082.lcssa
   store i64 %150, ptr %153, align 8
   %154 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %155 = load ptr, ptr %154, align 8

@@ -35,7 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.15" }
 %"struct.std::_Head_base.15" = type { ptr }
 %"class.absl::lts_20240722::strings_internal::PairFormatterImpl" = type <{ [8 x i8], %"class.std::__cxx11::basic_string", [8 x i8] }>
-%"struct.grpc_core::(anonymous namespace)::ForcedExperiment" = type { i8, i8 }
 %"class.absl::lts_20240722::strings_internal::Splitter" = type <{ %"class.std::basic_string_view", %"class.absl::lts_20240722::ByChar", [7 x i8] }>
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.absl::lts_20240722::ByChar" = type { i8 }
@@ -141,7 +140,7 @@ define void @_ZN9grpc_core44TestOnlyReloadExperimentsFromConfigVariablesEv() loc
 
 3:                                                ; preds = %3, %0
   %.03.i = phi i64 [ 0, %0 ], [ %5, %3 ]
-  %4 = getelementptr inbounds nuw %"struct.std::atomic", ptr @_ZN9grpc_core15ExperimentFlags17experiment_flags_E, i64 %.03.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9grpc_core15ExperimentFlags17experiment_flags_E, i64 %.03.i
   store atomic i64 0, ptr %4 monotonic, align 8
   %5 = add nuw nsw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %5, 8
@@ -209,7 +208,7 @@ define void @_ZN9grpc_core15ExperimentFlags13TestOnlyClearEv() local_unnamed_add
 
 2:                                                ; preds = %0, %2
   %.03 = phi i64 [ 0, %0 ], [ %4, %2 ]
-  %3 = getelementptr inbounds nuw %"struct.std::atomic", ptr @_ZN9grpc_core15ExperimentFlags17experiment_flags_E, i64 %.03
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9grpc_core15ExperimentFlags17experiment_flags_E, i64 %.03
   store atomic i64 0, ptr %3 monotonic, align 8
   %4 = add nuw nsw i64 %.03, 1
   %exitcond.not = icmp eq i64 %4, 8
@@ -312,7 +311,7 @@ define void @_ZN9grpc_core20PrintExperimentsListEv() local_unnamed_addr #0 perso
 
 52:                                               ; preds = %0, %316
   %.069377 = phi i64 [ 0, %0 ], [ %317, %316 ]
-  %53 = getelementptr inbounds nuw %"struct.grpc_core::ExperimentMetadata", ptr @_ZN9grpc_core21g_experiment_metadataE, i64 %.069377
+  %53 = getelementptr inbounds nuw [40 x i8], ptr @_ZN9grpc_core21g_experiment_metadataE, i64 %.069377
   %54 = load ptr, ptr %53, align 8, !tbaa !27
   %55 = load atomic i64, ptr @_ZN9grpc_core15ExperimentFlags17experiment_flags_E monotonic, align 16
   %56 = shl nuw nsw i64 1, %.069377
@@ -348,7 +347,7 @@ _ZN9grpc_core19IsExperimentEnabledEm.exit:        ; preds = %58, %52, %59
   br label %_ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit
 
 _ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit: ; preds = %.preheader.preheader.i, %66, %_ZN9grpc_core19IsExperimentEnabledEm.exit
-  %68 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::ForcedExperiment", ptr @_ZZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEvE18forced_experiments, i64 %.069377
+  %68 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEvE18forced_experiments, i64 %.069377
   %69 = load i8, ptr %68, align 2, !tbaa !33, !range !31, !noundef !32
   %70 = trunc nuw i8 %69 to i1
   %or.cond = or i1 %.0.i.i, %63
@@ -1650,12 +1649,12 @@ define void @_ZN9grpc_core35LoadTestOnlyExperimentsFromMetadataEPKNS_18Experimen
 
 .lr.ph.i:                                         ; preds = %11
   %18 = lshr i64 %12, 6
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %18
   store ptr %19, ptr %10, align 8, !tbaa !83
   store ptr %15, ptr %6, align 8
   store i32 0, ptr %7, align 8
   %20 = sdiv i64 %1, 64
-  %21 = getelementptr inbounds i64, ptr %15, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %15, i64 %20
   %22 = and i64 %1, -9223372036854775745
   %23 = icmp ugt i64 %22, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i.i = select i1 %23, i64 -8, i64 0
@@ -1672,11 +1671,11 @@ define void @_ZN9grpc_core35LoadTestOnlyExperimentsFromMetadataEPKNS_18Experimen
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZNSt14_Bit_referenceaSEb.exit.us.i
   %.03088.us.i = phi i64 [ %45, %_ZNSt14_Bit_referenceaSEb.exit.us.i ], [ 0, %.lr.ph.i ]
-  %28 = getelementptr inbounds nuw %"struct.grpc_core::ExperimentMetadata", ptr %0, i64 %.03088.us.i
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %.03088.us.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 33
   %30 = load i8, ptr %29, align 1, !tbaa !30, !range !31, !noundef !32
   %31 = sdiv i64 %.03088.us.i, 64
-  %32 = getelementptr inbounds i64, ptr %15, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %15, i64 %31
   %33 = and i64 %.03088.us.i, -9223372036854775745
   %34 = icmp ugt i64 %33, -9223372036854775808
   %storemerge.idx.i.i.i.i.i41.us.i = select i1 %34, i64 -8, i64 0
@@ -1724,7 +1723,7 @@ _ZNSt14_Bit_referenceaSEb.exit.us.i:              ; preds = %42, %38
   %50 = phi ptr [ %90, %.lr.ph.splitthread-pre-split.i ], [ %15, %.lr.ph.i ]
   %.03088.i = phi i64 [ %91, %.lr.ph.splitthread-pre-split.i ], [ 0, %.lr.ph.i ]
   %.not.i = icmp eq ptr %49, null
-  %51 = getelementptr inbounds nuw %"struct.grpc_core::ExperimentMetadata", ptr %0, i64 %.03088.i
+  %51 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %.03088.i
   br i1 %.not.i, label %73, label %52
 
 52:                                               ; preds = %.lr.ph.split.i
@@ -1739,7 +1738,7 @@ _ZNSt14_Bit_referenceaSEb.exit.us.i:              ; preds = %42, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %57 = load ptr, ptr %6, align 8, !tbaa !78
   %58 = sdiv i64 %.03088.i, 64
-  %59 = getelementptr inbounds i64, ptr %57, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %57, i64 %58
   %60 = and i64 %.03088.i, -9223372036854775745
   %61 = icmp ugt i64 %60, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i = select i1 %61, i64 -8, i64 0
@@ -1770,7 +1769,7 @@ _ZNSt14_Bit_referenceaSEb.exit.us.i:              ; preds = %42, %38
   %74 = getelementptr inbounds nuw i8, ptr %51, i64 33
   %75 = load i8, ptr %74, align 1, !tbaa !30, !range !31, !noundef !32
   %76 = sdiv i64 %.03088.i, 64
-  %77 = getelementptr inbounds i64, ptr %50, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %50, i64 %76
   %78 = and i64 %.03088.i, -9223372036854775745
   %79 = icmp ugt i64 %78, -9223372036854775808
   %storemerge.idx.i.i.i.i.i41.i = select i1 %79, i64 -8, i64 0
@@ -1883,7 +1882,7 @@ _ZN4absl12lts_2024072213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcE
 
 .lr.ph90.split.us.i:                              ; preds = %.lr.ph90.i, %120
   %.02989.us.i = phi i64 [ %121, %120 ], [ 0, %.lr.ph90.i ]
-  %117 = getelementptr inbounds nuw %"struct.grpc_core::ExperimentMetadata", ptr %0, i64 %.02989.us.i
+  %117 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %.02989.us.i
   %118 = load ptr, ptr %117, align 8, !tbaa !27
   %char0.i = load i8, ptr %118, align 1
   %119 = icmp eq i8 %char0.i, 0
@@ -1896,7 +1895,7 @@ _ZN4absl12lts_2024072213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcE
 
 .lr.ph90.split.i:                                 ; preds = %.lr.ph90.i, %141
   %.02989.i = phi i64 [ %142, %141 ], [ 0, %.lr.ph90.i ]
-  %122 = getelementptr inbounds nuw %"struct.grpc_core::ExperimentMetadata", ptr %0, i64 %.02989.i
+  %122 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %.02989.i
   %123 = load ptr, ptr %122, align 8, !tbaa !27
   %124 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %123) #26
   %125 = icmp eq i64 %.sroa.066.0.fr.i, %124
@@ -1911,7 +1910,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph90.split.i
   %.us-phi.i = phi i64 [ %.02989.us.i, %.lr.ph90.split.us.i ], [ %.02989.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   %127 = load ptr, ptr %6, align 8, !tbaa !78
   %128 = sdiv i64 %.us-phi.i, 64
-  %129 = getelementptr inbounds i64, ptr %127, i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr %127, i64 %128
   %130 = and i64 %.us-phi.i, -9223372036854775745
   %131 = icmp ugt i64 %130, -9223372036854775808
   %storemerge.idx.i.i.i.i.i47.i = select i1 %131, i64 -8, i64 0
@@ -2346,7 +2345,7 @@ _ZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEv.exit: ; preds = %1, %6, %9
 
 12:                                               ; preds = %_ZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEv.exit, %12
   %.01619 = phi i64 [ 0, %_ZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEv.exit ], [ %14, %12 ]
-  %13 = getelementptr inbounds nuw i64, ptr %3, i64 %.01619
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.01619
   store i64 -9223372036854775808, ptr %13, align 8, !tbaa !37
   %14 = add nuw nsw i64 %.01619, 1
   %exitcond.not = icmp eq i64 %14, 8
@@ -2378,8 +2377,8 @@ _ZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEv.exit: ; preds = %1, %6, %9
 
 28:                                               ; preds = %.preheader, %28
   %.021 = phi i64 [ 0, %.preheader ], [ %32, %28 ]
-  %29 = getelementptr inbounds nuw %"struct.std::atomic", ptr @_ZN9grpc_core15ExperimentFlags17experiment_flags_E, i64 %.021
-  %30 = getelementptr inbounds nuw i64, ptr %3, i64 %.021
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9grpc_core15ExperimentFlags17experiment_flags_E, i64 %.021
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.021
   %31 = load i64, ptr %30, align 8, !tbaa !37
   store atomic i64 %31, ptr %29 monotonic, align 8
   %32 = add nuw nsw i64 %.021, 1
@@ -2465,7 +2464,7 @@ _ZN9grpc_core10ConfigVars3GetEv.exit:             ; preds = %7, %9
   br label %_ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit
 
 _ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit: ; preds = %24, %27, %.preheader.preheader.i
-  %29 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::ForcedExperiment", ptr @_ZZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEvE18forced_experiments, i64 %.03873
+  %29 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEvE18forced_experiments, i64 %.03873
   %30 = load i8, ptr %29, align 2, !tbaa !33, !range !31, !noundef !32
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %45, label %32
@@ -2473,7 +2472,7 @@ _ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit: ; preds = %24, %27, %.pre
 32:                                               ; preds = %_ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit
   %33 = load ptr, ptr @_ZN9grpc_core12_GLOBAL__N_122g_check_constraints_cbE, align 8, !tbaa !41
   %.not = icmp eq ptr %33, null
-  %34 = getelementptr inbounds nuw %"struct.grpc_core::ExperimentMetadata", ptr @_ZN9grpc_core21g_experiment_metadataE, i64 %.03873
+  %34 = getelementptr inbounds nuw [40 x i8], ptr @_ZN9grpc_core21g_experiment_metadataE, i64 %.03873
   br i1 %.not, label %41, label %35
 
 35:                                               ; preds = %32
@@ -2543,7 +2542,7 @@ _ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit48: ; preds = %45, %48, %.p
 
 .split.us:                                        ; preds = %55, %63
   %.04174.us = phi i64 [ %64, %63 ], [ 0, %55 ]
-  %60 = getelementptr inbounds nuw %"struct.grpc_core::ExperimentMetadata", ptr @_ZN9grpc_core21g_experiment_metadataE, i64 %.04174.us
+  %60 = getelementptr inbounds nuw [40 x i8], ptr @_ZN9grpc_core21g_experiment_metadataE, i64 %.04174.us
   %61 = load ptr, ptr %60, align 8, !tbaa !27
   %char0 = load i8, ptr %61, align 1
   %62 = icmp eq i8 %char0, 0
@@ -2556,7 +2555,7 @@ _ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit48: ; preds = %45, %48, %.p
 
 .split:                                           ; preds = %55, %72
   %.04174 = phi i64 [ %73, %72 ], [ 0, %55 ]
-  %65 = getelementptr inbounds nuw %"struct.grpc_core::ExperimentMetadata", ptr @_ZN9grpc_core21g_experiment_metadataE, i64 %.04174
+  %65 = getelementptr inbounds nuw [40 x i8], ptr @_ZN9grpc_core21g_experiment_metadataE, i64 %.04174
   %66 = load ptr, ptr %65, align 8, !tbaa !27
   %67 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #26
   %68 = icmp eq i64 %.sroa.057.0.fr, %67
@@ -2929,7 +2928,7 @@ _ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCha
 
 .preheader:                                       ; preds = %._crit_edge, %._crit_edge95
   %.03796 = phi i64 [ 0, %._crit_edge ], [ %242, %._crit_edge95 ]
-  %234 = getelementptr inbounds nuw %"struct.grpc_core::ExperimentMetadata", ptr @_ZN9grpc_core21g_experiment_metadataE, i64 %.03796
+  %234 = getelementptr inbounds nuw [40 x i8], ptr @_ZN9grpc_core21g_experiment_metadataE, i64 %.03796
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 32
   %236 = load i8, ptr %235, align 8, !tbaa !137
   %237 = zext i8 %236 to i64
@@ -2989,7 +2988,7 @@ define noundef zeroext i1 @_ZN9grpc_core23IsTestExperimentEnabledEm(i64 noundef 
   %4 = ashr exact i64 %sext, 32
   %5 = sdiv i32 %3, 64
   %.sext.i = sext i32 %5 to i64
-  %6 = getelementptr inbounds i64, ptr %.val, i64 %.sext.i
+  %6 = getelementptr inbounds [8 x i8], ptr %.val, i64 %.sext.i
   %7 = and i64 %4, -9223372036854775745
   %8 = icmp ugt i64 %7, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i = select i1 %8, i64 -8, i64 0
@@ -3181,7 +3180,7 @@ _ZN9grpc_core12_GLOBAL__N_16LoadedEv.exit:        ; preds = %3, %11, %13
 
 .critedge.preheader:                              ; preds = %.critedge.preheader.preheader, %.critedge
   %.02649 = phi i64 [ %47, %.critedge ], [ 0, %.critedge.preheader.preheader ]
-  %18 = getelementptr inbounds nuw %"struct.grpc_core::ExperimentMetadata", ptr @_ZN9grpc_core21g_experiment_metadataE, i64 %.02649
+  %18 = getelementptr inbounds nuw [40 x i8], ptr @_ZN9grpc_core21g_experiment_metadataE, i64 %.02649
   %19 = load ptr, ptr %18, align 8, !tbaa !27
   %20 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #26
   %21 = icmp eq i64 %20, %0
@@ -3211,7 +3210,7 @@ _ZStneIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   br label %_ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit
 
 _ZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEv.exit: ; preds = %_ZStneIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit, %26, %.preheader.preheader.i
-  %28 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::ForcedExperiment", ptr @_ZZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEvE18forced_experiments, i64 %.02649
+  %28 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEvE18forced_experiments, i64 %.02649
   %29 = load i8, ptr %28, align 2, !tbaa !33, !range !31, !noundef !32
   %30 = trunc nuw i8 %29 to i1
   %31 = load atomic i8, ptr @_ZGVZN9grpc_core12_GLOBAL__N_117ForcedExperimentsEvE18forced_experiments acquire, align 8
@@ -3423,7 +3422,7 @@ define linkonce_odr void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull al
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %8) #29
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8

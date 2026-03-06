@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.diff_words_style_elem = type { ptr, ptr, ptr }
 %struct.strvec = type { ptr, i64, i64 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.emitted_diff_symbol = type { ptr, i32, i32, i32, i32, i32, i32 }
 %struct.diff_populate_filespec_options = type { i8, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
@@ -42,18 +41,13 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.checkdiff_t = type { ptr, i32, i32, ptr, i32, i32 }
 %struct.emit_callback = type { i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr }
 %struct.diffstat_t = type { i32, i32, ptr }
-%struct.dirstat_file = type { ptr, i64 }
-%struct.moved_entry_list = type { ptr, ptr }
-%struct.moved_block = type { ptr, i32 }
 %struct.oid_array = type { ptr, i64, i64, i32 }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
-%struct.diff_words_style = type { i32, %struct.diff_words_style_elem, %struct.diff_words_style_elem, %struct.diff_words_style_elem, ptr }
 %struct.conv_attrs = type { ptr, i32, i32, i32, ptr }
 %struct.checkout_metadata = type { ptr, %struct.object_id, %struct.object_id }
 %struct.git_zstream = type { %struct.z_stream_s, i64, i64, i64, i64, ptr, ptr }
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
 %struct.regmatch_t = type { i32, i32 }
-%struct.diff_words_orig = type { ptr, ptr }
 
 @diff_auto_refresh_index = dso_local local_unnamed_addr global i32 1, align 4
 @.str = private unnamed_addr constant [6 x i8] c"plain\00", align 1
@@ -596,7 +590,7 @@ define dso_local void @list_config_color_diff_slots(ptr noundef %0, ptr noundef 
 
 5:                                                ; preds = %.preheader, %11
   %.012 = phi i64 [ 0, %.preheader ], [ %12, %11 ]
-  %6 = getelementptr inbounds nuw ptr, ptr @color_diff_slots, i64 %.012
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @color_diff_slots, i64 %.012
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %8
@@ -1136,7 +1130,7 @@ define internal fastcc i32 @parse_color_moved_ws(ptr noundef %0) unnamed_addr #0
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %2, align 8, !tbaa !18
   %10 = load i64, ptr %7, align 8, !tbaa !21
-  %11 = getelementptr inbounds nuw %struct.string_list_item, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %10
   %12 = icmp ult ptr %6, %11
   br i1 %12, label %sub_0, label %.critedge
 
@@ -1226,7 +1220,7 @@ _.exit:                                           ; preds = %37, %40
   %45 = getelementptr inbounds nuw i8, ptr %.02636, i64 16
   %46 = load ptr, ptr %2, align 8, !tbaa !18
   %47 = load i64, ptr %7, align 8, !tbaa !21
-  %48 = getelementptr inbounds nuw %struct.string_list_item, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %47
   %49 = icmp ult ptr %45, %48
   br i1 %49, label %sub_0, label %.critedge
 
@@ -1746,7 +1740,7 @@ define internal fastcc i32 @parse_dirstat_params(ptr noundef writeonly captures(
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
   %.03147 = phi i32 [ 0, %.lr.ph ], [ %.1, %78 ]
   %17 = load ptr, ptr %4, align 8, !tbaa !18
-  %18 = getelementptr inbounds nuw %struct.string_list_item, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !22
   %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(8) @.str.296) #35
   %.not34 = icmp eq i32 %20, 0
@@ -1980,7 +1974,7 @@ st_mult.exit.i:                                   ; preds = %20
   %36 = add nsw i32 %32, 1
   store i32 %36, ptr %35, align 8, !tbaa !56
   %37 = sext i32 %32 to i64
-  %38 = getelementptr inbounds %struct.emitted_diff_symbol, ptr %33, i64 %37
+  %38 = getelementptr inbounds [32 x i8], ptr %33, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 32, i1 false)
   %.not23.i = icmp eq ptr %2, null
   br i1 %.not23.i, label %append_emitted_diff_symbol.exit, label %39
@@ -2191,7 +2185,7 @@ define dso_local void @free_diffstat_info(ptr noundef readonly captures(none) %0
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !69
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !70
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !72
@@ -3030,7 +3024,7 @@ define internal fastcc range(i32 0, 2) i32 @reuse_worktree_file(ptr noundef %0, 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %0, align 8, !tbaa !127
   %19 = zext nneg i32 %15 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !138
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %2, ptr noundef nonnull readonly dereferenceable(32) %22, i64 32)
@@ -3529,7 +3523,7 @@ diff_queue.exit:                                  ; preds = %._crit_edge.i.i, %s
   %120 = add nsw i32 %118, 1
   store i32 %120, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !172
   %121 = sext i32 %118 to i64
-  %122 = getelementptr inbounds ptr, ptr %119, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %119, i64 %121
   store ptr %104, ptr %122, align 8, !tbaa !177
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %124 = load i32, ptr %123, align 8, !tbaa !179
@@ -3915,7 +3909,7 @@ diff_queue.exit:                                  ; preds = %._crit_edge.i.i, %s
   %111 = add nsw i32 %109, 1
   store i32 %111, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !172
   %112 = sext i32 %109 to i64
-  %113 = getelementptr inbounds ptr, ptr %110, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %110, i64 %112
   store ptr %95, ptr %113, align 8, !tbaa !177
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %115 = load i32, ptr %114, align 8, !tbaa !179
@@ -3944,7 +3938,7 @@ define dso_local i32 @diff_filter_bit(i8 noundef signext %0) local_unnamed_addr 
   %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   %6 = shl nuw i32 1, %5
   %7 = sext i8 %4 to i64
-  %8 = getelementptr inbounds i32, ptr @filter_bit, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr @filter_bit, i64 %7
   store i32 %6, ptr %8, align 4, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not5.i = icmp eq i64 %indvars.iv.next.i, 10
@@ -3952,7 +3946,7 @@ define dso_local i32 @diff_filter_bit(i8 noundef signext %0) local_unnamed_addr 
 
 prepare_filter_bits.exit:                         ; preds = %.preheader.i, %1
   %9 = sext i8 %0 to i64
-  %10 = getelementptr inbounds i32, ptr @filter_bit, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr @filter_bit, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !11
   ret i32 %11
 }
@@ -7382,7 +7376,7 @@ st_mult.exit:                                     ; preds = %22
   %32 = phi i64 [ %17, %._crit_edge ], [ %.pre24, %st_mult.exit ]
   %33 = phi ptr [ %.pre, %._crit_edge ], [ %30, %st_mult.exit ]
   store i64 %.pre-phi, ptr %16, align 8, !tbaa !197
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %32
   store ptr %8, ptr %34, align 8, !tbaa !235
   br label %35
 
@@ -7423,7 +7417,7 @@ define internal range(i32 -1, 1) i32 @diff_opt_patience(ptr noundef readonly cap
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = load ptr, ptr %10, align 8, !tbaa !238
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   tail call void @free(ptr noundef %15) #34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7596,7 +7590,7 @@ st_mult.exit:                                     ; preds = %18
   %31 = load i64, ptr %12, align 8, !tbaa !237
   %32 = add i64 %31, 1
   store i64 %32, ptr %12, align 8, !tbaa !237
-  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   store ptr %28, ptr %33, align 8, !tbaa !4
   ret i32 0
 }
@@ -8114,7 +8108,7 @@ define internal range(i32 -1, 1) i32 @diff_opt_diff_filter(ptr noundef readonly 
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
   %12 = shl nuw i32 1, %11
   %13 = sext i8 %10 to i64
-  %14 = getelementptr inbounds i32, ptr @filter_bit, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr @filter_bit, i64 %13
   store i32 %12, ptr %14, align 4, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not5.i = icmp eq i64 %indvars.iv.next.i, 10
@@ -8155,7 +8149,7 @@ prepare_filter_bits.exit:                         ; preds = %.preheader.i, %7
 
 30:                                               ; preds = %29
   %31 = zext nneg i32 %.026 to i64
-  %32 = getelementptr inbounds nuw i32, ptr @filter_bit, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @filter_bit, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !11
   %.not31.not = icmp eq i32 %33, 0
   br i1 %.not31.not, label %.thread36, label %38
@@ -8368,7 +8362,7 @@ st_mult.exit:                                     ; preds = %7
   %20 = add nsw i32 %18, 1
   store i32 %20, ptr %3, align 4, !tbaa !172
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %19, i64 %21
   store ptr %1, ptr %22, align 8, !tbaa !177
   ret void
 }
@@ -8425,7 +8419,7 @@ diff_q.exit:                                      ; preds = %._crit_edge.i, %st_
   %23 = add nsw i32 %21, 1
   store i32 %23, ptr %7, align 4, !tbaa !172
   %24 = sext i32 %21 to i64
-  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %22, i64 %24
   store ptr %4, ptr %25, align 8, !tbaa !177
   br label %26
 
@@ -8572,7 +8566,7 @@ define dso_local void @diff_queue_clear(ptr noundef captures(none) %0) local_unn
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %6 = load ptr, ptr %0, align 8, !tbaa !176
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !177
   tail call void @diff_free_filepair(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8803,7 +8797,7 @@ strmap_get_size.exit:                             ; preds = %4
 
 23:                                               ; preds = %.lr.ph, %diff_unmodified_pair.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %diff_unmodified_pair.exit ]
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !177
   %26 = load ptr, ptr %25, align 8, !tbaa !168
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -8955,7 +8949,7 @@ define dso_local range(i32 -1, 1) i32 @diff_flush_patch_id(ptr noundef readonly 
 
 24:                                               ; preds = %26, %3
   %.0811.i.i.i = phi i64 [ 0, %3 ], [ %27, %26 ]
-  %25 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
+  %25 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %23, %25
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %26
 
@@ -8997,7 +8991,7 @@ diff_get_patch_id.exit.thread:                    ; preds = %oidclr.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %38 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !176
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8, !tbaa !177
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, i8 0, i64 48, i1 false)
@@ -9592,7 +9586,7 @@ diff_get_patch_id.exit:                           ; preds = %394, %diff_unmodifi
 .lr.ph.i4:                                        ; preds = %diff_get_patch_id.exit, %.lr.ph.i4
   %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i6, %.lr.ph.i4 ], [ 0, %diff_get_patch_id.exit ]
   %399 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !176
-  %400 = getelementptr inbounds nuw ptr, ptr %399, i64 %indvars.iv.i5
+  %400 = getelementptr inbounds nuw [8 x i8], ptr %399, i64 %indvars.iv.i5
   %401 = load ptr, ptr %400, align 8, !tbaa !177
   call void @diff_free_filepair(ptr noundef %401)
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
@@ -9729,11 +9723,11 @@ diff_free_file.exit:                              ; preds = %._crit_edge, %18, %
 26:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
   %27 = load ptr, ptr %25, align 8, !tbaa !234
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8, !tbaa !235
   tail call void @regfree(ptr noundef %29) #34
   %30 = load ptr, ptr %25, align 8, !tbaa !234
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8, !tbaa !235
   tail call void @free(ptr noundef %32) #34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -9753,7 +9747,7 @@ diff_free_ignore_regex.exit:                      ; preds = %26, %diff_free_file
 38:                                               ; preds = %.lr.ph, %38
   %.021 = phi i64 [ 0, %.lr.ph ], [ %42, %38 ]
   %39 = load ptr, ptr %13, align 8, !tbaa !238
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %.021
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.021
   %41 = load ptr, ptr %40, align 8, !tbaa !4
   tail call void @free(ptr noundef %41) #34
   %42 = add nuw i64 %.021, 1
@@ -9850,7 +9844,7 @@ define dso_local void @diff_flush(ptr noundef %0) local_unnamed_addr #0 {
   %58 = phi i32 [ %30, %.lr.ph ], [ %349, %check_pair_status.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %check_pair_status.exit.thread ]
   %59 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !176
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !177
   %62 = getelementptr i8, ptr %61, i64 18
   %.val = load i8, ptr %62, align 2, !tbaa !270
@@ -10507,7 +10501,7 @@ check_pair_status.exit.thread:                    ; preds = %57, %flush_one_pair
 370:                                              ; preds = %440, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %440 ]
   %371 = load ptr, ptr %365, align 8, !tbaa !69
-  %372 = getelementptr inbounds nuw ptr, ptr %371, i64 %indvars.iv.i
+  %372 = getelementptr inbounds nuw [8 x i8], ptr %371, i64 %indvars.iv.i
   %373 = load ptr, ptr %372, align 8, !tbaa !70
   %374 = load ptr, ptr %366, align 8, !tbaa !63
   %375 = load ptr, ptr %367, align 8, !tbaa !61
@@ -10706,7 +10700,7 @@ diff_line_prefix.exit.i113:                       ; preds = %449, %446
 
 472:                                              ; preds = %468
   %473 = load ptr, ptr %467, align 8, !tbaa !69
-  %474 = getelementptr inbounds nuw ptr, ptr %473, i64 %indvars.iv.i118
+  %474 = getelementptr inbounds nuw [8 x i8], ptr %473, i64 %indvars.iv.i118
   %475 = load ptr, ptr %474, align 8, !tbaa !70
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 40
   %477 = load i64, ptr %476, align 8, !tbaa !300
@@ -10951,7 +10945,7 @@ fill_print_name.exit.i119:                        ; preds = %505, %488
 597:                                              ; preds = %strbuf_setlen.exit.i, %.lr.ph341.i
   %indvars.iv353.i = phi i64 [ 0, %.lr.ph341.i ], [ %indvars.iv.next354.i, %strbuf_setlen.exit.i ]
   %598 = load ptr, ptr %587, align 8, !tbaa !69
-  %599 = getelementptr inbounds nuw ptr, ptr %598, i64 %indvars.iv353.i
+  %599 = getelementptr inbounds nuw [8 x i8], ptr %598, i64 %indvars.iv353.i
   %600 = load ptr, ptr %599, align 8, !tbaa !70
   %601 = getelementptr inbounds nuw i8, ptr %600, i64 16
   %602 = load ptr, ptr %601, align 8, !tbaa !72
@@ -11212,7 +11206,7 @@ strbuf_setlen.exit.i:                             ; preds = %strbuf_setlen.exit.
   %.0229343.i = phi i32 [ %444, %.lr.ph347.i ], [ %.1230.i, %730 ]
   %.0236342.i = phi i32 [ 0, %.lr.ph347.i ], [ %.1237.i, %730 ]
   %705 = load ptr, ptr %595, align 8, !tbaa !69
-  %706 = getelementptr inbounds nuw ptr, ptr %705, i64 %indvars.iv357.i
+  %706 = getelementptr inbounds nuw [8 x i8], ptr %705, i64 %indvars.iv357.i
   %707 = load ptr, ptr %706, align 8, !tbaa !70
   %708 = getelementptr inbounds nuw i8, ptr %707, i64 40
   %709 = load i64, ptr %708, align 8, !tbaa !300
@@ -11307,7 +11301,7 @@ show_stats.exit:                                  ; preds = %diff_line_prefix.ex
   %.0253.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %762 ]
   %.0262.i = phi i32 [ %.pre289.pre292, %.lr.ph.preheader.i ], [ %.127.i, %762 ]
   %.0281.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.129.i, %762 ]
-  %740 = getelementptr inbounds nuw ptr, ptr %.val106, i64 %indvars.iv.i128
+  %740 = getelementptr inbounds nuw [8 x i8], ptr %.val106, i64 %indvars.iv.i128
   %741 = load ptr, ptr %740, align 8, !tbaa !70
   %742 = getelementptr inbounds nuw i8, ptr %741, i64 40
   %743 = load i64, ptr %742, align 8, !tbaa !300
@@ -11402,7 +11396,7 @@ show_shortstats.exit.thread:                      ; preds = %736
   %.2933.i = phi i32 [ 0, %.lr.ph.i133 ], [ %.28.i, %802 ]
   %778 = phi ptr [ null, %.lr.ph.i133 ], [ %804, %802 ]
   %779 = load ptr, ptr %775, align 8, !tbaa !69
-  %780 = getelementptr inbounds nuw ptr, ptr %779, i64 %indvars.iv47.i
+  %780 = getelementptr inbounds nuw [8 x i8], ptr %779, i64 %indvars.iv47.i
   %781 = load ptr, ptr %780, align 8, !tbaa !70
   %782 = getelementptr inbounds nuw i8, ptr %781, i64 40
   %783 = load i64, ptr %782, align 8, !tbaa !300
@@ -11447,7 +11441,7 @@ st_mult.exit.i:                                   ; preds = %793
   %.28.i = phi i32 [ %..i137, %st_mult.exit.i ], [ %.2933.i, %776 ]
   %805 = getelementptr inbounds nuw i8, ptr %781, i64 8
   %806 = load ptr, ptr %805, align 8, !tbaa !74
-  %807 = getelementptr inbounds nuw %struct.dirstat_file, ptr %804, i64 %indvars.iv47.i
+  %807 = getelementptr inbounds nuw [16 x i8], ptr %804, i64 %indvars.iv47.i
   store ptr %806, ptr %807, align 8, !tbaa !312
   %808 = getelementptr inbounds nuw i8, ptr %807, i64 8
   store i64 %.0.i136, ptr %808, align 8, !tbaa !314
@@ -11501,7 +11495,7 @@ show_dirstat_by_line.exit:                        ; preds = %.thread376, %763, %
 821:                                              ; preds = %821, %.lr.ph.i143
   %indvars.iv.i144 = phi i64 [ 0, %.lr.ph.i143 ], [ %indvars.iv.next.i145, %821 ]
   %822 = load ptr, ptr %820, align 8, !tbaa !69
-  %823 = getelementptr inbounds nuw ptr, ptr %822, i64 %indvars.iv.i144
+  %823 = getelementptr inbounds nuw [8 x i8], ptr %822, i64 %indvars.iv.i144
   %824 = load ptr, ptr %823, align 8, !tbaa !70
   %825 = getelementptr inbounds nuw i8, ptr %824, i64 16
   %826 = load ptr, ptr %825, align 8, !tbaa !72
@@ -11561,7 +11555,7 @@ free_diffstat_info.exit:                          ; preds = %821, %show_shortsta
   %.8589.i = phi i32 [ 0, %.lr.ph.i147 ], [ %.83.i, %1010 ]
   %853 = phi ptr [ null, %.lr.ph.i147 ], [ %1012, %1010 ]
   %854 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !176
-  %855 = getelementptr inbounds nuw ptr, ptr %854, i64 %indvars.iv.i148
+  %855 = getelementptr inbounds nuw [8 x i8], ptr %854, i64 %indvars.iv.i148
   %856 = load ptr, ptr %855, align 8, !tbaa !177
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -11862,7 +11856,7 @@ st_mult.exit.i154:                                ; preds = %996
   %1005 = phi ptr [ %1003, %st_mult.exit.i154 ], [ %853, %994 ]
   %.84.i = phi i32 [ %..i152, %st_mult.exit.i154 ], [ %.8589.i, %994 ]
   %1006 = sext i32 %852 to i64
-  %1007 = getelementptr inbounds %struct.dirstat_file, ptr %1005, i64 %1006
+  %1007 = getelementptr inbounds [16 x i8], ptr %1005, i64 %1006
   store ptr %865, ptr %1007, align 8, !tbaa !312
   %1008 = getelementptr inbounds nuw i8, ptr %1007, i64 8
   store i64 %.0.i151, ptr %1008, align 8, !tbaa !314
@@ -11927,7 +11921,7 @@ show_dirstat.exit:                                ; preds = %837, %._crit_edge.i
 
 1027:                                             ; preds = %1044, %.lr.ph.i163
   %indvars.iv.i165 = phi i64 [ 0, %.lr.ph.i163 ], [ %indvars.iv.next.i168, %1044 ]
-  %1028 = getelementptr inbounds nuw ptr, ptr %1026, i64 %indvars.iv.i165
+  %1028 = getelementptr inbounds nuw [8 x i8], ptr %1026, i64 %indvars.iv.i165
   %1029 = load ptr, ptr %1028, align 8, !tbaa !177
   %1030 = getelementptr inbounds nuw i8, ptr %1029, i64 18
   %1031 = load i8, ptr %1030, align 2, !tbaa !270
@@ -11980,7 +11974,7 @@ show_dirstat.exit:                                ; preds = %837, %._crit_edge.i
 1053:                                             ; preds = %.lr.ph249, %diff_summary.exit
   %indvars.iv282 = phi i64 [ 0, %.lr.ph249 ], [ %indvars.iv.next283, %diff_summary.exit ]
   %1054 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !176
-  %1055 = getelementptr inbounds nuw ptr, ptr %1054, i64 %indvars.iv282
+  %1055 = getelementptr inbounds nuw [8 x i8], ptr %1054, i64 %indvars.iv282
   %1056 = load ptr, ptr %1055, align 8, !tbaa !177
   %1057 = getelementptr inbounds nuw i8, ptr %1056, i64 18
   %1058 = load i8, ptr %1057, align 2, !tbaa !270
@@ -12166,7 +12160,7 @@ is_summary_empty.exit.thread:                     ; preds = %1044, %1023, %1021
 .lr.ph.i.i:                                       ; preds = %1137, %1157
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %1157 ], [ 0, %1137 ]
   %1140 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !176
-  %1141 = getelementptr inbounds nuw ptr, ptr %1140, i64 %indvars.iv.i.i
+  %1141 = getelementptr inbounds nuw [8 x i8], ptr %1140, i64 %indvars.iv.i.i
   %1142 = load ptr, ptr %1141, align 8, !tbaa !177
   %1143 = load ptr, ptr %1142, align 8, !tbaa !168
   %1144 = getelementptr inbounds nuw i8, ptr %1143, i64 40
@@ -12319,7 +12313,7 @@ diff_queue.exit.i.i:                              ; preds = %st_mult.exit.i.i.i.
   %1213 = add nsw i32 %1211, 1
   store i32 %1213, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !172
   %1214 = sext i32 %1211 to i64
-  %1215 = getelementptr inbounds ptr, ptr %1212, i64 %1214
+  %1215 = getelementptr inbounds [8 x i8], ptr %1212, i64 %1214
   store ptr %1197, ptr %1215, align 8, !tbaa !177
   %1216 = getelementptr inbounds nuw i8, ptr %1197, i64 18
   store i8 77, ptr %1216, align 2, !tbaa !270
@@ -12360,7 +12354,7 @@ create_filepairs_for_header_only_notifications.exit.i: ; preds = %1221, %._crit_
   %1227 = phi i32 [ %1225, %.lr.ph.preheader.i186 ], [ %1233, %check_pair_status.exit.thread.i ]
   %1228 = phi ptr [ %.pre117.i, %.lr.ph.preheader.i186 ], [ %1234, %check_pair_status.exit.thread.i ]
   %indvars.iv.i188 = phi i64 [ 0, %.lr.ph.preheader.i186 ], [ %indvars.iv.next.i190, %check_pair_status.exit.thread.i ]
-  %1229 = getelementptr inbounds nuw ptr, ptr %1228, i64 %indvars.iv.i188
+  %1229 = getelementptr inbounds nuw [8 x i8], ptr %1228, i64 %indvars.iv.i188
   %1230 = load ptr, ptr %1229, align 8, !tbaa !177
   %1231 = getelementptr i8, ptr %1230, i64 18
   %.val.i189 = load i8, ptr %1231, align 2, !tbaa !270
@@ -12426,7 +12420,7 @@ check_pair_status.exit.thread.i:                  ; preds = %check_pair_status.e
   %.06079.i.i = phi i32 [ 0, %.lr.ph.i32.i ], [ %.161.i.i, %1360 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %1251 = load ptr, ptr %1250, align 8, !tbaa !60
-  %1252 = getelementptr inbounds nuw %struct.emitted_diff_symbol, ptr %1251, i64 %indvars.iv.i33.i
+  %1252 = getelementptr inbounds nuw [32 x i8], ptr %1251, i64 %indvars.iv.i33.i
   %1253 = getelementptr inbounds nuw i8, ptr %1252, i64 28
   %1254 = load i32, ptr %1253, align 4, !tbaa !54
   %1255 = and i32 %1254, -2
@@ -12616,7 +12610,7 @@ st_mult.exit.i.i:                                 ; preds = %1325
 1332:                                             ; preds = %st_mult.exit.i.i, %1325
   %.4.i.i = phi i64 [ %..i.i, %st_mult.exit.i.i ], [ %.05680.i.i, %1325 ]
   %.3.i.i = phi ptr [ %1331, %st_mult.exit.i.i ], [ %.05481.i.i, %1325 ]
-  %1333 = getelementptr inbounds nuw %struct.moved_entry_list, ptr %.3.i.i, i64 %1322
+  %1333 = getelementptr inbounds nuw [16 x i8], ptr %.3.i.i, i64 %1322
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1333, i8 0, i64 16, i1 false)
   %1334 = call ptr @mem_pool_alloc(ptr noundef nonnull %2, i64 noundef 24) #34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %1334, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
@@ -12657,7 +12651,7 @@ thread-pre-split.i.i:                             ; preds = %1335
   %1349 = getelementptr inbounds nuw i8, ptr %1252, i64 24
   %1350 = load i32, ptr %1349, align 8, !tbaa !53
   %1351 = zext i32 %1350 to i64
-  %1352 = getelementptr inbounds nuw %struct.moved_entry_list, ptr %.2.i.i, i64 %1351
+  %1352 = getelementptr inbounds nuw [16 x i8], ptr %.2.i.i, i64 %1351
   br i1 %1348, label %1353, label %1356
 
 1353:                                             ; preds = %1346
@@ -12716,7 +12710,7 @@ add_lines_to_move_detection.exit.i:               ; preds = %1360, %1241
   %.0154252.i.i = phi ptr [ null, %.lr.ph.i35.i ], [ %.1155.i.i, %.thread168.i.i ]
   %1373 = load ptr, ptr %1372, align 8, !tbaa !60
   %1374 = sext i32 %.0260.i.i to i64
-  %1375 = getelementptr inbounds %struct.emitted_diff_symbol, ptr %1373, i64 %1374
+  %1375 = getelementptr inbounds [32 x i8], ptr %1373, i64 %1374
   %1376 = getelementptr inbounds nuw i8, ptr %1375, i64 28
   %1377 = load i32, ptr %1376, align 4, !tbaa !54
   switch i32 %1377, label %.thread.i.i [
@@ -12728,7 +12722,7 @@ add_lines_to_move_detection.exit.i:               ; preds = %1360, %1241
   %1379 = getelementptr inbounds nuw i8, ptr %1375, i64 24
   %1380 = load i32, ptr %1379, align 8, !tbaa !53
   %1381 = zext i32 %1380 to i64
-  %1382 = getelementptr inbounds nuw %struct.moved_entry_list, ptr %.054.lcssa.i.i, i64 %1381
+  %1382 = getelementptr inbounds nuw [16 x i8], ptr %.054.lcssa.i.i, i64 %1381
   %1383 = getelementptr inbounds nuw i8, ptr %1382, i64 8
   br label %1389
 
@@ -12736,7 +12730,7 @@ add_lines_to_move_detection.exit.i:               ; preds = %1360, %1241
   %1385 = getelementptr inbounds nuw i8, ptr %1375, i64 24
   %1386 = load i32, ptr %1385, align 8, !tbaa !53
   %1387 = zext i32 %1386 to i64
-  %1388 = getelementptr inbounds nuw %struct.moved_entry_list, ptr %.054.lcssa.i.i, i64 %1387
+  %1388 = getelementptr inbounds nuw [16 x i8], ptr %.054.lcssa.i.i, i64 %1387
   br label %1389
 
 1389:                                             ; preds = %1384, %1378
@@ -12776,7 +12770,7 @@ add_lines_to_move_detection.exit.i:               ; preds = %1360, %1241
   %indvars.iv.i.i38.i = phi i64 [ 1, %.lr.ph45.i.i.i ], [ %indvars.iv.next.i.i43.i, %._crit_edge.i.i42.i ]
   %.02144.i.i.i = phi i32 [ 0, %.lr.ph45.i.i.i ], [ %.1.lcssa.i.i.i, %._crit_edge.i.i42.i ]
   %1396 = sub nsw i64 %1374, %indvars.iv.i.i38.i
-  %1397 = getelementptr inbounds %struct.emitted_diff_symbol, ptr %1373, i64 %1396
+  %1397 = getelementptr inbounds [32 x i8], ptr %1373, i64 %1396
   %1398 = load ptr, ptr %1397, align 8, !tbaa !47
   %1399 = load i8, ptr %1398, align 1, !tbaa !38
   %.not3239.i.i.i = icmp eq i8 %1399, 0
@@ -12814,7 +12808,7 @@ add_lines_to_move_detection.exit.i:               ; preds = %1360, %1241
 .preheader.i.i45.i:                               ; preds = %._crit_edge.i.i42.i, %.preheader.i.i45.i
   %indvars.iv51.i.i.i = phi i64 [ %indvars.iv.next52.i.i.i, %.preheader.i.i45.i ], [ 1, %._crit_edge.i.i42.i ]
   %1411 = sub nsw i64 %1374, %indvars.iv51.i.i.i
-  %1412 = getelementptr inbounds %struct.emitted_diff_symbol, ptr %1373, i64 %1411
+  %1412 = getelementptr inbounds [32 x i8], ptr %1373, i64 %1411
   %1413 = getelementptr inbounds nuw i8, ptr %1412, i64 12
   %1414 = load i32, ptr %1413, align 4, !tbaa !50
   %1415 = and i32 %1414, -393217
@@ -12871,7 +12865,7 @@ adjust_last_block.exit.thread.i.i:                ; preds = %1405, %adjust_last_
 1432:                                             ; preds = %.thread46.i.i.i, %.lr.ph.i78.i.i
   %indvars.iv.i79.i.i = phi i64 [ 0, %.lr.ph.i78.i.i ], [ %indvars.iv.next.i81.i.i, %.thread46.i.i.i ]
   %.02649.i.i.i = phi i32 [ 0, %.lr.ph.i78.i.i ], [ %.1.i.i55.i, %.thread46.i.i.i ]
-  %1433 = getelementptr inbounds nuw %struct.moved_block, ptr %.0154252.i.i, i64 %indvars.iv.i79.i.i
+  %1433 = getelementptr inbounds nuw [16 x i8], ptr %.0154252.i.i, i64 %indvars.iv.i79.i.i
   %1434 = load ptr, ptr %1433, align 8, !tbaa !347
   %.not.i.i53.i = icmp eq ptr %1434, null
   br i1 %.not.i.i53.i, label %.thread46.i.i.i, label %1435
@@ -12931,7 +12925,7 @@ cmp_in_block_with_wsd.exit.i.i.i:                 ; preds = %1446
 
 .critedge.i.i57.i:                                ; preds = %cmp_in_block_with_wsd.exit.i.i.i, %1452, %cmp_in_block_with_wsd.exit.thread.i.i.i, %1444
   %1457 = sext i32 %.02649.i.i.i to i64
-  %1458 = getelementptr inbounds %struct.moved_block, ptr %.0154252.i.i, i64 %1457
+  %1458 = getelementptr inbounds [16 x i8], ptr %.0154252.i.i, i64 %1457
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1458, ptr noundef nonnull align 8 dereferenceable(16) %1433, i64 16, i1 false), !tbaa.struct !350
   %1459 = add nsw i32 %.02649.i.i.i, 1
   store ptr %1437, ptr %1458, align 8, !tbaa !347
@@ -12970,7 +12964,7 @@ pmb_advance_or_null.exit.i.i:                     ; preds = %.thread46.i.i.i
   %indvars.iv.i86.i.i = phi i64 [ 1, %.lr.ph45.i84.i.i ], [ %indvars.iv.next.i97.i.i, %._crit_edge.i95.i.i ]
   %.02144.i87.i.i = phi i32 [ 0, %.lr.ph45.i84.i.i ], [ %.1.lcssa.i96.i.i, %._crit_edge.i95.i.i ]
   %1467 = sub nsw i64 %1374, %indvars.iv.i86.i.i
-  %1468 = getelementptr inbounds %struct.emitted_diff_symbol, ptr %1464, i64 %1467
+  %1468 = getelementptr inbounds [32 x i8], ptr %1464, i64 %1467
   %1469 = load ptr, ptr %1468, align 8, !tbaa !47
   %1470 = load i8, ptr %1469, align 1, !tbaa !38
   %.not3239.i88.i.i = icmp eq i8 %1470, 0
@@ -13008,7 +13002,7 @@ pmb_advance_or_null.exit.i.i:                     ; preds = %.thread46.i.i.i
 .preheader.i99.i.i:                               ; preds = %._crit_edge.i95.i.i, %.preheader.i99.i.i
   %indvars.iv51.i101.i.i = phi i64 [ %indvars.iv.next52.i102.i.i, %.preheader.i99.i.i ], [ 1, %._crit_edge.i95.i.i ]
   %1482 = sub nsw i64 %1374, %indvars.iv51.i101.i.i
-  %1483 = getelementptr inbounds %struct.emitted_diff_symbol, ptr %1464, i64 %1482
+  %1483 = getelementptr inbounds [32 x i8], ptr %1464, i64 %1482
   %1484 = getelementptr inbounds nuw i8, ptr %1483, i64 12
   %1485 = load i32, ptr %1484, align 4, !tbaa !50
   %1486 = and i32 %1485, -393217
@@ -13089,7 +13083,7 @@ st_mult.exit.i.i.i:                               ; preds = %1493
 
 1511:                                             ; preds = %1505, %1502
   %.sink.i.i.i = phi i32 [ %.0.i.i.i.i, %1505 ], [ 0, %1502 ]
-  %1512 = getelementptr inbounds nuw %struct.moved_block, ptr %.130.i.i.i, i64 %indvars.iv.i106.i.i
+  %1512 = getelementptr inbounds nuw [16 x i8], ptr %.130.i.i.i, i64 %indvars.iv.i106.i.i
   %1513 = getelementptr inbounds nuw i8, ptr %1512, i64 8
   store i32 %.sink.i.i.i, ptr %1513, align 8, !tbaa !349
   store ptr %.03141.i.i.i, ptr %1512, align 8, !tbaa !347
@@ -13174,7 +13168,7 @@ st_mult.exit.i.i.i:                               ; preds = %1493
   %indvars.iv.i116.i.i = phi i64 [ 1, %.lr.ph45.i114.i.i ], [ %indvars.iv.next.i127.i.i, %._crit_edge.i125.i.i ]
   %.02144.i117.i.i = phi i32 [ 0, %.lr.ph45.i114.i.i ], [ %.1.lcssa.i126.i.i, %._crit_edge.i125.i.i ]
   %1543 = sub nsw i64 %1537, %indvars.iv.i116.i.i
-  %1544 = getelementptr inbounds %struct.emitted_diff_symbol, ptr %1540, i64 %1543
+  %1544 = getelementptr inbounds [32 x i8], ptr %1540, i64 %1543
   %1545 = load ptr, ptr %1544, align 8, !tbaa !47
   %1546 = load i8, ptr %1545, align 1, !tbaa !38
   %.not3239.i118.i.i = icmp eq i8 %1546, 0
@@ -13212,7 +13206,7 @@ st_mult.exit.i.i.i:                               ; preds = %1493
 .preheader.i129.i.i:                              ; preds = %._crit_edge.i125.i.i, %.preheader.i129.i.i
   %indvars.iv51.i131.i.i = phi i64 [ %indvars.iv.next52.i132.i.i, %.preheader.i129.i.i ], [ 1, %._crit_edge.i125.i.i ]
   %1558 = sub nsw i64 %1537, %indvars.iv51.i131.i.i
-  %1559 = getelementptr inbounds %struct.emitted_diff_symbol, ptr %1540, i64 %1558
+  %1559 = getelementptr inbounds [32 x i8], ptr %1540, i64 %1558
   %1560 = getelementptr inbounds nuw i8, ptr %1559, i64 12
   %1561 = load i32, ptr %1560, align 4, !tbaa !50
   %1562 = and i32 %1561, -393217
@@ -13245,7 +13239,7 @@ mark_color_as_moved.exit.i:                       ; preds = %1552, %.preheader.i
 1573:                                             ; preds = %1621, %.lr.ph.i59.i
   %indvars.iv.i60.i = phi i64 [ 0, %.lr.ph.i59.i ], [ %indvars.iv.next.i63.i, %1621 ]
   %.not.i61.i = icmp eq i64 %indvars.iv.i60.i, 0
-  %1574 = getelementptr %struct.emitted_diff_symbol, ptr %1570, i64 %indvars.iv.i60.i
+  %1574 = getelementptr [32 x i8], ptr %1570, i64 %indvars.iv.i60.i
   %1575 = getelementptr i8, ptr %1574, i64 -32
   %1576 = select i1 %.not.i61.i, ptr null, ptr %1575
   %.not62.i.i = icmp samesign ult i64 %indvars.iv.i60.i, %1572
@@ -13371,7 +13365,7 @@ dim_moved_lines.exit.i:                           ; preds = %1621, %1565, %mark_
 .lr.ph89.i:                                       ; preds = %1622, %.lr.ph89.i
   %indvars.iv111.i = phi i64 [ %indvars.iv.next112.i, %.lr.ph89.i ], [ 0, %1622 ]
   %1626 = load ptr, ptr @diff_flush_patch_all_file_pairs.esm, align 8, !tbaa !60
-  %1627 = getelementptr inbounds nuw %struct.emitted_diff_symbol, ptr %1626, i64 %indvars.iv111.i
+  %1627 = getelementptr inbounds nuw [32 x i8], ptr %1626, i64 %indvars.iv111.i
   call fastcc void @emit_diff_symbol_from_struct(ptr noundef %0, ptr noundef %1627)
   %indvars.iv.next112.i = add nuw nsw i64 %indvars.iv111.i, 1
   %1628 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_flush_patch_all_file_pairs.esm, i64 8), align 8, !tbaa !56
@@ -13382,7 +13376,7 @@ dim_moved_lines.exit.i:                           ; preds = %1621, %1565, %mark_
 .lr.ph91.i:                                       ; preds = %.preheader.i180, %.lr.ph91.i
   %indvars.iv114.i = phi i64 [ %indvars.iv.next115.i, %.lr.ph91.i ], [ 0, %.preheader.i180 ]
   %1631 = load ptr, ptr @diff_flush_patch_all_file_pairs.esm, align 8, !tbaa !60
-  %1632 = getelementptr inbounds nuw %struct.emitted_diff_symbol, ptr %1631, i64 %indvars.iv114.i
+  %1632 = getelementptr inbounds nuw [32 x i8], ptr %1631, i64 %indvars.iv114.i
   %1633 = load ptr, ptr %1632, align 8, !tbaa !47
   call void @free(ptr noundef %1633) #34
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
@@ -13469,7 +13463,7 @@ diff_free_file.exit:                              ; preds = %1651, %1654, %1657
 1669:                                             ; preds = %.lr.ph251, %1665
   %1670 = phi ptr [ %.pre291, %.lr.ph251 ], [ %1675, %1665 ]
   %indvars.iv285 = phi i64 [ 0, %.lr.ph251 ], [ %indvars.iv.next286, %1665 ]
-  %1671 = getelementptr inbounds nuw ptr, ptr %1670, i64 %indvars.iv285
+  %1671 = getelementptr inbounds nuw [8 x i8], ptr %1670, i64 %indvars.iv285
   %1672 = load ptr, ptr %1671, align 8, !tbaa !177
   %1673 = getelementptr i8, ptr %1672, i64 18
   %.val104 = load i8, ptr %1673, align 2, !tbaa !270
@@ -13505,7 +13499,7 @@ thread-pre-split:                                 ; preds = %check_pair_status.e
 .lr.ph.i197:                                      ; preds = %.loopexit, %.lr.ph.i197
   %indvars.iv.i198 = phi i64 [ %indvars.iv.next.i199, %.lr.ph.i197 ], [ 0, %.loopexit ]
   %1679 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !176
-  %1680 = getelementptr inbounds nuw ptr, ptr %1679, i64 %indvars.iv.i198
+  %1680 = getelementptr inbounds nuw [8 x i8], ptr %1679, i64 %indvars.iv.i198
   %1681 = load ptr, ptr %1680, align 8, !tbaa !177
   call void @diff_free_filepair(ptr noundef %1681)
   %indvars.iv.next.i199 = add nuw nsw i64 %indvars.iv.i198, 1
@@ -13555,7 +13549,7 @@ define dso_local void @compute_diffstat(ptr noundef captures(none) %0, ptr nound
 11:                                               ; preds = %.lr.ph, %diff_flush_stat.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %diff_flush_stat.exit ]
   %12 = load ptr, ptr %2, align 8, !tbaa !176
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !177
   %15 = getelementptr i8, ptr %14, i64 18
   %.val = load i8, ptr %15, align 2, !tbaa !270
@@ -14211,7 +14205,7 @@ define dso_local void @diff_queued_diff_prefetch(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %1, %diff_add_if_missing.exit13
   %indvars.iv = phi i64 [ %indvars.iv.next, %diff_add_if_missing.exit13 ], [ 0, %1 ]
   %5 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !176
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !177
   %8 = load ptr, ptr %7, align 8, !tbaa !168
   %.not.i = icmp eq ptr %8, null
@@ -14360,7 +14354,7 @@ define dso_local void @diffcore_std(ptr noundef %0) local_unnamed_addr #0 {
   %.sroa.7.019.i = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.7.1.i, %48 ]
   %.sroa.0.018.i = phi ptr [ null, %.lr.ph.i ], [ %.sroa.0.1.i, %48 ]
   %26 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !176
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8, !tbaa !177
   %29 = load ptr, ptr %2, align 8, !tbaa !141
   %30 = tail call fastcc i32 @diff_filespec_check_stat_unmatch(ptr noundef %29, ptr noundef %28)
@@ -14394,7 +14388,7 @@ diff_q.exit.i:                                    ; preds = %st_mult.exit.i.i, %
   %.sroa.0.2.i = phi ptr [ %39, %st_mult.exit.i.i ], [ %.sroa.0.018.i, %31 ]
   %.sroa.7.2.i = phi i32 [ %..i.i, %st_mult.exit.i.i ], [ %.sroa.7.019.i, %31 ]
   %40 = sext i32 %.sroa.9.020.i to i64
-  %41 = getelementptr inbounds ptr, ptr %.sroa.0.2.i, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %.sroa.0.2.i, i64 %40
   store ptr %28, ptr %41, align 8, !tbaa !177
   br label %48
 
@@ -14516,7 +14510,7 @@ diffcore_skip_stat_unmatch.exit:                  ; preds = %48, %21
   %83 = phi i32 [ %.pr.pre.pre, %.lr.ph.preheader.i ], [ %138, %137 ]
   %84 = phi ptr [ %.pre47.i, %.lr.ph.preheader.i ], [ %139, %137 ]
   %indvars.iv.i41 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i43, %137 ]
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv.i41
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv.i41
   %86 = load ptr, ptr %85, align 8, !tbaa !177
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 18
   store i8 0, ptr %87, align 2, !tbaa !270
@@ -14678,7 +14672,7 @@ diff_resolve_rename_copy.exit:                    ; preds = %137, %80
 
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i, %match_filter.exit.thread.us.us.i
   %indvars.iv101.i = phi i64 [ %indvars.iv.next102.i, %match_filter.exit.thread.us.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %154 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv101.i
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %indvars.iv101.i
   %155 = load ptr, ptr %154, align 8, !tbaa !177
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 18
   %157 = load i8, ptr %156, align 2, !tbaa !270
@@ -14687,7 +14681,7 @@ diff_resolve_rename_copy.exit:                    ; preds = %137, %80
 
 match_filter.exit.us.us.i:                        ; preds = %.lr.ph.split.us.split.us.i
   %159 = sext i8 %157 to i64
-  %160 = getelementptr inbounds i32, ptr @filter_bit, i64 %159
+  %160 = getelementptr inbounds [4 x i8], ptr @filter_bit, i64 %159
   %161 = load i32, ptr %160, align 4, !tbaa !11
   %162 = and i32 %161, %143
   %.fr.us.us.i = freeze i32 %162
@@ -14701,7 +14695,7 @@ match_filter.exit.thread.us.us.i:                 ; preds = %match_filter.exit.u
 
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.i, %match_filter.exit.thread.us.i
   %indvars.iv98.i = phi i64 [ %indvars.iv.next99.i, %match_filter.exit.thread.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %163 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv98.i
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %indvars.iv98.i
   %164 = load ptr, ptr %163, align 8, !tbaa !177
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 18
   %166 = load i8, ptr %165, align 2, !tbaa !270
@@ -14710,7 +14704,7 @@ match_filter.exit.thread.us.us.i:                 ; preds = %match_filter.exit.u
 
 match_filter.exit.us.i:                           ; preds = %.lr.ph.split.us.split.i
   %168 = sext i8 %166 to i64
-  %169 = getelementptr inbounds i32, ptr @filter_bit, i64 %168
+  %169 = getelementptr inbounds [4 x i8], ptr @filter_bit, i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !11
   %171 = and i32 %170, %143
   %.fr.us.i = freeze i32 %171
@@ -14733,7 +14727,7 @@ match_filter.exit.thread.us.i:                    ; preds = %172, %match_filter.
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %match_filter.exit.thread.us70.i
   %indvars.iv95.i = phi i64 [ %indvars.iv.next96.i, %match_filter.exit.thread.us70.i ], [ 0, %.lr.ph.split.i ]
-  %175 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv95.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %indvars.iv95.i
   %176 = load ptr, ptr %175, align 8, !tbaa !177
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 18
   %178 = load i8, ptr %177, align 2, !tbaa !270
@@ -14742,7 +14736,7 @@ match_filter.exit.thread.us.i:                    ; preds = %172, %match_filter.
 
 match_filter.exit.us65.i:                         ; preds = %.lr.ph.split.split.us.i
   %180 = sext i8 %178 to i64
-  %181 = getelementptr inbounds i32, ptr @filter_bit, i64 %180
+  %181 = getelementptr inbounds [4 x i8], ptr @filter_bit, i64 %180
   %182 = load i32, ptr %181, align 4, !tbaa !11
   %183 = and i32 %182, %143
   %.fr.us66.i = freeze i32 %183
@@ -14765,7 +14759,7 @@ match_filter.exit.thread.us70.i:                  ; preds = %184, %match_filter.
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %match_filter.exit.thread.i
   %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i49, %match_filter.exit.thread.i ], [ 0, %.lr.ph.split.i ]
-  %187 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv.i48
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %indvars.iv.i48
   %188 = load ptr, ptr %187, align 8, !tbaa !177
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 18
   %190 = load i8, ptr %189, align 2, !tbaa !270
@@ -14774,7 +14768,7 @@ match_filter.exit.thread.us70.i:                  ; preds = %184, %match_filter.
 
 match_filter.exit.thread.i:                       ; preds = %.lr.ph.split.split.i
   %192 = sext i8 %190 to i64
-  %193 = getelementptr inbounds i32, ptr @filter_bit, i64 %192
+  %193 = getelementptr inbounds [4 x i8], ptr @filter_bit, i64 %192
   %194 = load i32, ptr %193, align 4, !tbaa !11
   %195 = and i32 %194, %143
   %.fr.i = freeze i32 %195
@@ -14793,7 +14787,7 @@ match_filter.exit.thread.i:                       ; preds = %.lr.ph.split.split.
 .lr.ph78.i:                                       ; preds = %.lr.ph78.i.preheader, %.lr.ph78.i
   %indvars.iv104.i = phi i64 [ %indvars.iv.next105.i, %.lr.ph78.i ], [ 0, %.lr.ph78.i.preheader ]
   %197 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !176
-  %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv104.i
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %indvars.iv104.i
   %199 = load ptr, ptr %198, align 8, !tbaa !177
   tail call void @diff_free_filepair(ptr noundef %199)
   %indvars.iv.next105.i = add nuw nsw i64 %indvars.iv104.i, 1
@@ -14808,7 +14802,7 @@ match_filter.exit.thread.i:                       ; preds = %.lr.ph.split.split.
   %.sroa.7.180.i = phi i32 [ %.sroa.7.2.i57, %232 ], [ 0, %.preheader.i ]
   %.sroa.0.179.i = phi ptr [ %.sroa.0.2.i56, %232 ], [ null, %.preheader.i ]
   %203 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !176
-  %204 = getelementptr inbounds nuw ptr, ptr %203, i64 %indvars.iv107.i
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %indvars.iv107.i
   %205 = load ptr, ptr %204, align 8, !tbaa !177
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 18
   %207 = load i8, ptr %206, align 2, !tbaa !270
@@ -14837,7 +14831,7 @@ match_filter.exit.thread.i:                       ; preds = %.lr.ph.split.split.
 match_filter.exit43.i:                            ; preds = %.lr.ph83.i
   %.val.i37.i = load i32, ptr %142, align 4, !tbaa !209
   %218 = sext i8 %207 to i64
-  %219 = getelementptr inbounds i32, ptr @filter_bit, i64 %218
+  %219 = getelementptr inbounds [4 x i8], ptr @filter_bit, i64 %218
   %220 = load i32, ptr %219, align 4, !tbaa !11
   %221 = and i32 %220, %.val.i37.i
   %.not56.i = icmp eq i32 %221, 0
@@ -14870,7 +14864,7 @@ diff_q.exit.i55:                                  ; preds = %st_mult.exit.i.i54,
   %.sroa.0.3.i = phi ptr [ %229, %st_mult.exit.i.i54 ], [ %.sroa.0.179.i, %match_filter.exit43.thread.i ]
   %.sroa.7.3.i = phi i32 [ %..i.i52, %st_mult.exit.i.i54 ], [ %.sroa.7.180.i, %match_filter.exit43.thread.i ]
   %230 = sext i32 %.sroa.9.181.i to i64
-  %231 = getelementptr inbounds ptr, ptr %.sroa.0.3.i, i64 %230
+  %231 = getelementptr inbounds [8 x i8], ptr %.sroa.0.3.i, i64 %230
   store ptr %205, ptr %231, align 8, !tbaa !177
   br label %232
 
@@ -15279,7 +15273,7 @@ diff_queue.exit:                                  ; preds = %._crit_edge.i.i, %s
   %53 = add nsw i32 %51, 1
   store i32 %53, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !172
   %54 = sext i32 %51 to i64
-  %55 = getelementptr inbounds ptr, ptr %52, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %52, i64 %54
   store ptr %37, ptr %55, align 8, !tbaa !177
   %56 = getelementptr inbounds nuw i8, ptr %37, i64 19
   %57 = load i8, ptr %56, align 1
@@ -15388,7 +15382,7 @@ define dso_local i64 @fill_textconv(ptr noundef %0, ptr noundef readonly capture
 .preheader15.i:                                   ; preds = %35, %52
   %46 = phi i1 [ false, %52 ], [ true, %35 ]
   %indvars.iv.i.i = phi i64 [ 1, %52 ], [ 0, %35 ]
-  %47 = getelementptr inbounds nuw %struct.diff_tempfile, ptr @diff_temp, i64 %indvars.iv.i.i
+  %47 = getelementptr inbounds nuw [96 x i8], ptr @diff_temp, i64 %indvars.iv.i.i
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 88
   %49 = load ptr, ptr %48, align 8, !tbaa !416
   %.not6.i.i = icmp eq ptr %49, null
@@ -15427,7 +15421,7 @@ define dso_local i64 @fill_textconv(ptr noundef %0, ptr noundef readonly capture
 65:                                               ; preds = %72, %64
   %66 = phi i1 [ true, %64 ], [ false, %72 ]
   %indvars.iv.i9.i = phi i64 [ 0, %64 ], [ 1, %72 ]
-  %67 = getelementptr inbounds nuw %struct.diff_tempfile, ptr @diff_temp, i64 %indvars.iv.i9.i
+  %67 = getelementptr inbounds nuw [96 x i8], ptr @diff_temp, i64 %indvars.iv.i9.i
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 88
   %69 = load ptr, ptr %68, align 8, !tbaa !416
   %.not6.i10.i = icmp eq ptr %69, null
@@ -15444,7 +15438,7 @@ define dso_local i64 @fill_textconv(ptr noundef %0, ptr noundef readonly capture
 .preheader.i:                                     ; preds = %59, %79
   %73 = phi i1 [ false, %79 ], [ true, %59 ]
   %indvars.iv.i12.i = phi i64 [ 1, %79 ], [ 0, %59 ]
-  %74 = getelementptr inbounds nuw %struct.diff_tempfile, ptr @diff_temp, i64 %indvars.iv.i12.i
+  %74 = getelementptr inbounds nuw [96 x i8], ptr @diff_temp, i64 %indvars.iv.i12.i
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 88
   %76 = load ptr, ptr %75, align 8, !tbaa !416
   %.not6.i13.i = icmp eq ptr %76, null
@@ -15934,7 +15928,7 @@ diff_line_prefix.exit:                            ; preds = %26, %31
 
 switch.lookup:                                    ; preds = %54
   %62 = zext nneg i32 %57 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.emit_diff_symbol_from_struct, i64 %62
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.emit_diff_symbol_from_struct, i64 %62
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %63
 
@@ -16003,7 +15997,7 @@ switch.lookup:                                    ; preds = %54
 
 switch.lookup312:                                 ; preds = %81
   %89 = zext nneg i32 %84 to i64
-  %switch.gep313 = getelementptr inbounds nuw ptr, ptr @switch.table.emit_diff_symbol_from_struct.19, i64 %89
+  %switch.gep313 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.emit_diff_symbol_from_struct.19, i64 %89
   %switch.load314 = load ptr, ptr %switch.gep313, align 8
   br label %90
 
@@ -16638,7 +16632,7 @@ define internal fastcc void @diff_fill_oid_info(ptr noundef %0, ptr noundef %1) 
 
 16:                                               ; preds = %18, %12
   %.0811.i.i = phi i64 [ 0, %12 ], [ %19, %18 ]
-  %17 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %17 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %15, %17
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %18
 
@@ -16692,7 +16686,7 @@ oidclr.exit:                                      ; preds = %18, %.split.loop.ex
 
 38:                                               ; preds = %40, %34
   %.0811.i.i14 = phi i64 [ 0, %34 ], [ %41, %40 ]
-  %39 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i14
+  %39 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i14
   %.not.i.i15 = icmp eq ptr %37, %39
   br i1 %.not.i.i15, label %.split.loop.exit9.i.i18, label %40
 
@@ -17888,7 +17882,7 @@ additional_headers.exit.i:                        ; preds = %94
   %100 = phi i64 [ %112, %add_formatted_header.exit.i.i ], [ %99, %97 ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %add_formatted_header.exit.i.i ], [ 0, %97 ]
   %101 = load ptr, ptr %96, align 8, !tbaa !18
-  %102 = getelementptr inbounds nuw %struct.string_list_item, ptr %101, i64 %indvars.iv.i.i
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %101, i64 %indvars.iv.i.i
   %103 = load ptr, ptr %102, align 8, !tbaa !22
   %104 = load i8, ptr %103, align 1, !tbaa !38
   %.not15.i.i.i = icmp eq i8 %104, 0
@@ -18312,7 +18306,7 @@ diff_free_filespec_data.exit48.i:                 ; preds = %diff_free_filespec_
 312:                                              ; preds = %.preheader, %319
   %313 = phi i1 [ false, %319 ], [ true, %.preheader ]
   %indvars.iv.i.i75 = phi i64 [ 1, %319 ], [ 0, %.preheader ]
-  %314 = getelementptr inbounds nuw %struct.diff_tempfile, ptr @diff_temp, i64 %indvars.iv.i.i75
+  %314 = getelementptr inbounds nuw [96 x i8], ptr @diff_temp, i64 %indvars.iv.i.i75
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 88
   %316 = load ptr, ptr %315, align 8, !tbaa !416
   %.not6.i.i = icmp eq ptr %316, null
@@ -19832,7 +19826,7 @@ thread-pre-split.thread.i.i45.i.i:                ; preds = %thread-pre-split.i.
 
 994:                                              ; preds = %993, %991
   %indvars.iv.i.i94 = phi i64 [ 0, %991 ], [ %indvars.iv.next.i.i95, %993 ]
-  %995 = getelementptr inbounds nuw %struct.diff_words_style, ptr @diff_words_styles, i64 %indvars.iv.i.i94
+  %995 = getelementptr inbounds nuw [88 x i8], ptr @diff_words_styles, i64 %indvars.iv.i.i94
   %996 = load i32, ptr %995, align 8, !tbaa !460
   %997 = icmp eq i32 %992, %996
   br i1 %997, label %998, label %993
@@ -20120,7 +20114,7 @@ define internal fastcc noundef nonnull ptr @prepare_temp_file(ptr noundef %0, pt
 6:                                                ; preds = %5, %2
   %7 = phi i1 [ true, %2 ], [ false, %5 ]
   %indvars.iv.i = phi i64 [ 0, %2 ], [ 1, %5 ]
-  %8 = getelementptr inbounds nuw %struct.diff_tempfile, ptr @diff_temp, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [96 x i8], ptr @diff_temp, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 16, !tbaa !411
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %claim_diff_tempfile.exit, label %5
@@ -21408,7 +21402,7 @@ diff_words_show.exit:                             ; preds = %28, %80
 92:                                               ; preds = %.lr.ph, %append_emitted_diff_symbol.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %append_emitted_diff_symbol.exit ]
   %93 = load ptr, ptr %83, align 8, !tbaa !60
-  %94 = getelementptr inbounds nuw %struct.emitted_diff_symbol, ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [32 x i8], ptr %93, i64 %indvars.iv
   %95 = load ptr, ptr %90, align 8, !tbaa !55
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load i32, ptr %96, align 8, !tbaa !56
@@ -21454,7 +21448,7 @@ st_mult.exit.i:                                   ; preds = %100
   %116 = add nsw i32 %112, 1
   store i32 %116, ptr %115, align 8, !tbaa !56
   %117 = sext i32 %112 to i64
-  %118 = getelementptr inbounds %struct.emitted_diff_symbol, ptr %113, i64 %117
+  %118 = getelementptr inbounds [32 x i8], ptr %113, i64 %117
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %118, ptr noundef nonnull readonly align 8 dereferenceable(32) %94, i64 32, i1 false)
   %119 = load ptr, ptr %94, align 8, !tbaa !47
   %.not23.i = icmp eq ptr %119, null
@@ -21479,7 +21473,7 @@ append_emitted_diff_symbol.exit:                  ; preds = %111, %120
 .lr.ph27:                                         ; preds = %.preheader, %.lr.ph27
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %.lr.ph27 ], [ 0, %.preheader ]
   %129 = load ptr, ptr %83, align 8, !tbaa !60
-  %130 = getelementptr inbounds nuw %struct.emitted_diff_symbol, ptr %129, i64 %indvars.iv29
+  %130 = getelementptr inbounds nuw [32 x i8], ptr %129, i64 %indvars.iv29
   %131 = load ptr, ptr %130, align 8, !tbaa !47
   call void @free(ptr noundef %131) #34
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
@@ -21856,7 +21850,7 @@ st_mult.exit65:                                   ; preds = %92
   %106 = sext i32 %.48893 to i64
   %107 = getelementptr inbounds i8, ptr %105, i64 %106
   %108 = sext i32 %103 to i64
-  %109 = getelementptr inbounds %struct.diff_words_orig, ptr %104, i64 %108
+  %109 = getelementptr inbounds [16 x i8], ptr %104, i64 %108
   store ptr %107, ptr %109, align 8, !tbaa !509
   %110 = sext i32 %.494 to i64
   %111 = getelementptr inbounds i8, ptr %105, i64 %110
@@ -21933,12 +21927,12 @@ diff_line_prefix.exit:                            ; preds = %7, %14
   %.not = icmp eq i64 %2, 0
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !468
-  %21 = getelementptr inbounds %struct.diff_words_orig, ptr %20, i64 %1
+  %21 = getelementptr inbounds [16 x i8], ptr %20, i64 %1
   br i1 %.not, label %27, label %22
 
 22:                                               ; preds = %diff_line_prefix.exit
   %23 = load ptr, ptr %21, align 8, !tbaa !509
-  %24 = getelementptr %struct.diff_words_orig, ptr %21, i64 %2
+  %24 = getelementptr [16 x i8], ptr %21, i64 %2
   %25 = getelementptr i8, ptr %24, i64 -8
   %26 = load ptr, ptr %25, align 8, !tbaa !507
   br label %30
@@ -21954,12 +21948,12 @@ diff_line_prefix.exit:                            ; preds = %7, %14
   %.not56 = icmp eq i64 %4, 0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %32 = load ptr, ptr %31, align 8, !tbaa !470
-  %33 = getelementptr inbounds %struct.diff_words_orig, ptr %32, i64 %3
+  %33 = getelementptr inbounds [16 x i8], ptr %32, i64 %3
   br i1 %.not56, label %39, label %34
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %33, align 8, !tbaa !509
-  %36 = getelementptr %struct.diff_words_orig, ptr %33, i64 %4
+  %36 = getelementptr [16 x i8], ptr %33, i64 %4
   %37 = getelementptr i8, ptr %36, i64 -8
   %38 = load ptr, ptr %37, align 8, !tbaa !507
   br label %42
@@ -22136,7 +22130,7 @@ st_mult.exit.i:                                   ; preds = %29
   %43 = add nsw i32 %41, 1
   store i32 %43, ptr %4, align 8, !tbaa !66
   %44 = sext i32 %41 to i64
-  %45 = getelementptr inbounds ptr, ptr %42, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %42, i64 %44
   store ptr %25, ptr %45, align 8, !tbaa !70
   %.not28.i = icmp eq ptr %1, null
   br i1 %.not28.i, label %52, label %46
@@ -22549,7 +22543,7 @@ fill_mmfile.exit.thread:                          ; preds = %203, %190
   %247 = load ptr, ptr %246, align 8, !tbaa !69
   %248 = load i32, ptr %4, align 8, !tbaa !66
   %249 = sext i32 %248 to i64
-  %250 = getelementptr ptr, ptr %247, i64 %249
+  %250 = getelementptr [8 x i8], ptr %247, i64 %249
   %251 = getelementptr i8, ptr %250, i64 -8
   %252 = load ptr, ptr %251, align 8, !tbaa !70
   %253 = load i8, ptr %56, align 2, !tbaa !270
@@ -22682,7 +22676,7 @@ define internal noundef i32 @diffstat_consume(ptr noundef readonly captures(none
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = load i32, ptr %0, align 8, !tbaa !66
   %7 = sext i32 %6 to i64
-  %8 = getelementptr ptr, ptr %5, i64 %7
+  %8 = getelementptr [8 x i8], ptr %5, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8, !tbaa !70
   %.not = icmp eq i64 %2, 0

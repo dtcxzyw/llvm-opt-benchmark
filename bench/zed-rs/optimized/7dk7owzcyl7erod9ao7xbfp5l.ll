@@ -9933,8 +9933,8 @@ _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17hf17f30c162ec800
 
 83:                                               ; preds = %83, %._crit_edge53
   %.sroa.0.05.i.i = phi i64 [ 0, %._crit_edge53 ], [ %88, %83 ]
-  %84 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.0.05.i.i
-  %85 = getelementptr inbounds nuw i64, ptr %.sroa.631.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.05.i.i
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.631.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i
   %86 = load i64, ptr %84, align 8
   %87 = load i64, ptr %85, align 8
   store i64 %87, ptr %84, align 8
@@ -9978,7 +9978,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   %101 = add i64 %.sroa.5.1.lcssa, %98
   %102 = add i64 %.sroa.9.050, -1
   %103 = sub nsw i64 0, %101
-  %104 = getelementptr inbounds i64, ptr %69, i64 %103
+  %104 = getelementptr inbounds [8 x i8], ptr %69, i64 %103
   %105 = getelementptr inbounds i8, ptr %104, i64 -8
   %.val3.i = load i64, ptr %105, align 8, !noalias !835, !noundef !4
   %106 = icmp ult i64 %.val3.i, %3
@@ -9992,7 +9992,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   unreachable
 
 108:                                              ; preds = %._crit_edge
-  %109 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %.val3.i
+  %109 = getelementptr inbounds [104 x i8], ptr %2, i64 %.val3.i
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
   %111 = load i64, ptr %110, align 8, !noalias !835, !noundef !4
   %.sroa.0.09.i = and i64 %63, %111
@@ -10131,7 +10131,7 @@ _ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit
   %174 = sub nuw nsw i64 -8, %173
   %175 = getelementptr inbounds i8, ptr %169, i64 %174
   %176 = sub nsw i64 0, %.sroa.04.019.i
-  %177 = getelementptr inbounds i64, ptr %169, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %169, i64 %176
   %178 = getelementptr inbounds i8, ptr %177, i64 -8
   %.val3.i14.i = load i64, ptr %178, align 8, !noalias !854, !noundef !4
   %179 = icmp ult i64 %.val3.i14.i, %3
@@ -10140,7 +10140,7 @@ _ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h544378d21e7aad43E.exit
 _ZN4core3ptr19swap_nonoverlapping17hbeb38a9dd902912fE.exit.loopexit.i: ; preds = %.preheader.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !858)
   %180 = load ptr, ptr %0, align 8, !alias.scope !860, !noalias !861, !nonnull !4, !noundef !4
-  %181 = getelementptr inbounds i64, ptr %180, i64 %176
+  %181 = getelementptr inbounds [8 x i8], ptr %180, i64 %176
   %182 = getelementptr inbounds i8, ptr %181, i64 -8
   %.val3.i.i = load i64, ptr %182, align 8, !noalias !862, !noundef !4
   %183 = icmp ult i64 %.val3.i.i, %3
@@ -10157,7 +10157,7 @@ _ZN4core3ptr19swap_nonoverlapping17hbeb38a9dd902912fE.exit.loopexit.i: ; preds =
 .lr.ph.i8:                                        ; preds = %172, %_ZN4core3ptr19swap_nonoverlapping17hbeb38a9dd902912fE.exit.loopexit.i
   %.val3.i15.i = phi i64 [ %.val3.i.i, %_ZN4core3ptr19swap_nonoverlapping17hbeb38a9dd902912fE.exit.loopexit.i ], [ %.val3.i14.i, %172 ]
   %184 = phi ptr [ %180, %_ZN4core3ptr19swap_nonoverlapping17hbeb38a9dd902912fE.exit.loopexit.i ], [ %169, %172 ]
-  %185 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %.val3.i15.i
+  %185 = getelementptr inbounds [104 x i8], ptr %2, i64 %.val3.i15.i
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 96
   %187 = load i64, ptr %186, align 8, !noalias !863, !noundef !4
   %.val8.i = load i64, ptr %15, align 8, !alias.scope !845, !noundef !4
@@ -10486,7 +10486,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   %89 = add i16 %.lcssa.i.i.i, -1
   %90 = and i16 %89, %.lcssa.i.i.i
   %91 = sub nsw i64 0, %88
-  %92 = getelementptr inbounds i64, ptr %.sroa.012.1.i.i, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %.sroa.012.1.i.i, i64 %91
   %93 = add i64 %.sroa.1014.024.i.i, -1
   %94 = getelementptr inbounds i8, ptr %92, i64 -8
   %95 = load i64, ptr %94, align 8, !alias.scope !912, !noalias !901, !noundef !4
@@ -10494,7 +10494,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   %97 = sub i64 %77, %96
   %98 = ashr exact i64 %97, 3
   %99 = sub nsw i64 0, %98
-  %100 = getelementptr inbounds i64, ptr %71, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr %71, i64 %99
   %101 = getelementptr inbounds i8, ptr %100, i64 -8
   store i64 %95, ptr %101, align 8, !noalias !901
   %102 = icmp eq i64 %93, 0
@@ -10623,7 +10623,7 @@ common.resume:                                    ; preds = %160, %117
   %151 = add i16 %.lcssa.i, -1
   %152 = and i16 %151, %.lcssa.i
   %153 = sub nsw i64 0, %150
-  %154 = getelementptr inbounds i64, ptr %.sroa.027.1, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %.sroa.027.1, i64 %153
   %155 = add i64 %.sroa.1029.046, -1
   %156 = getelementptr inbounds i8, ptr %154, i64 -8
   %157 = load i64, ptr %156, align 8, !alias.scope !932, !noundef !4
@@ -10644,7 +10644,7 @@ common.resume:                                    ; preds = %160, %117
   br label %common.resume
 
 162:                                              ; preds = %.loopexit
-  %163 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %2, i64 %157
+  %163 = getelementptr inbounds [104 x i8], ptr %2, i64 %157
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 96
   %165 = load i64, ptr %164, align 8, !noundef !4
   %.sroa.0.09.i = and i64 %165, %6
@@ -10702,7 +10702,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.exi
   %196 = getelementptr i8, ptr %195, i64 16
   store i8 %191, ptr %196, align 1
   %197 = sub nsw i64 0, %.sroa.0.0.i4.i
-  %198 = getelementptr inbounds i64, ptr %.val17, i64 %197
+  %198 = getelementptr inbounds [8 x i8], ptr %.val17, i64 %197
   %199 = getelementptr inbounds i8, ptr %198, i64 -8
   store i64 %157, ptr %199, align 8
   %200 = icmp eq i64 %155, 0

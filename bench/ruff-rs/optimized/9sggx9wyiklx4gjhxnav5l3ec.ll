@@ -89,7 +89,7 @@ define internal { i64, ptr } @"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u2
 .preheader:                                       ; preds = %3, %.preheader
   %.sroa.07.0.i = phi i64 [ %8, %.preheader ], [ 0, %3 ]
   %.sroa.09.0.i = phi i64 [ %9, %.preheader ], [ 0, %3 ]
-  %6 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %.sroa.09.0.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.sroa.09.0.i
   %7 = getelementptr i8, ptr %6, i64 8
   %.val.i = load i64, ptr %7, align 8, !noundef !3
   %8 = add i64 %.val.i, %.sroa.07.0.i
@@ -142,7 +142,7 @@ define internal noalias noundef ptr @"_ZN3std2io5impls74_$LT$impl$u20$std..io..W
 .preheader.i:                                     ; preds = %3, %.preheader.i
   %.sroa.07.0.i.i = phi i64 [ %8, %.preheader.i ], [ 0, %3 ]
   %.sroa.09.0.i.i = phi i64 [ %9, %.preheader.i ], [ 0, %3 ]
-  %6 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %.sroa.09.0.i.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.sroa.09.0.i.i
   %7 = getelementptr i8, ptr %6, i64 8
   %.val.i.i = load i64, ptr %7, align 8, !alias.scope !4, !noalias !7, !noundef !3
   %8 = add i64 %.val.i.i, %.sroa.07.0.i.i
@@ -890,7 +890,7 @@ define void @_ZN13ruff_notebook8notebook8Notebook17from_raw_notebook17hab55f17c3
   %33 = load ptr, ptr %32, align 8, !nonnull !3, !noundef !3
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %35 = load i64, ptr %34, align 8, !noundef !3
-  %36 = getelementptr inbounds nuw { i64, [20 x i64] }, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [168 x i8], ptr %33, i64 %35
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !66
   store ptr %33, ptr %9, align 8, !alias.scope !73, !noalias !77
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1160,7 +1160,7 @@ define void @_ZN13ruff_notebook8notebook8Notebook17from_raw_notebook17hab55f17c3
 
 .noexc66:                                         ; preds = %115, %112
   %116 = phi i64 [ %113, %112 ], [ 0, %115 ]
-  %117 = getelementptr inbounds nuw i32, ptr %22, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %116
   %118 = load i32, ptr %117, align 4, !alias.scope !85, !noalias !94, !noundef !3
   %119 = add nuw nsw i64 %116, 1
   store i64 %119, ptr %100, align 16, !alias.scope !85, !noalias !94
@@ -1394,7 +1394,7 @@ define void @_ZN13ruff_notebook8notebook8Notebook17from_raw_notebook17hab55f17c3
 
 168:                                              ; preds = %73
   %169 = load ptr, ptr %32, align 8, !nonnull !3, !noundef !3
-  %170 = getelementptr inbounds nuw { i64, [20 x i64] }, ptr %169, i64 %75
+  %170 = getelementptr inbounds nuw [168 x i8], ptr %169, i64 %75
   %171 = invoke noundef align 8 dereferenceable(32) ptr @"_ZN13ruff_notebook4cell45_$LT$impl$u20$ruff_notebook..schema..Cell$GT$6source17h63051748ef2da716E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %170)
           to label %174 unwind label %.loopexit121
 
@@ -1483,7 +1483,7 @@ define void @_ZN13ruff_notebook8notebook8Notebook17from_raw_notebook17hab55f17c3
 
 201:                                              ; preds = %196, %190
   %202 = load ptr, ptr %57, align 8, !alias.scope !115, !noalias !118, !nonnull !3, !noundef !3
-  %203 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %202, i64 %193
+  %203 = getelementptr inbounds nuw [24 x i8], ptr %202, i64 %193
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %203, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   %204 = add i64 %193, 1
   store i64 %204, ptr %58, align 8, !alias.scope !115, !noalias !118
@@ -1667,7 +1667,7 @@ define internal fastcc void @_ZN13ruff_notebook8notebook8Notebook19update_cell_c
   %18 = tail call { ptr, i64 } @"_ZN76_$LT$ruff_notebook..cell..CellOffsets$u20$as$u20$core..ops..deref..Deref$GT$5deref17h0291d8c43dd477d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
   %19 = extractvalue { ptr, i64 } %18, 0
   %20 = extractvalue { ptr, i64 } %18, 1
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, i8 0, i64 24, i1 false)
@@ -1770,7 +1770,7 @@ define internal fastcc void @_ZN13ruff_notebook8notebook8Notebook19update_cell_c
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 %34
   %65 = sub nuw i64 %36, %34
   %66 = load ptr, ptr %24, align 8, !nonnull !3, !noundef !3
-  %67 = getelementptr inbounds nuw { i64, [20 x i64] }, ptr %66, i64 %57
+  %67 = getelementptr inbounds nuw [168 x i8], ptr %66, i64 %57
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 10, ptr %5, align 4
@@ -1855,7 +1855,7 @@ define hidden void @_ZN13ruff_notebook8notebook8Notebook11build_index17ha6ce64a2
   %15 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %17 = load i64, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1890,7 +1890,7 @@ define hidden void @_ZN13ruff_notebook8notebook8Notebook11build_index17ha6ce64a2
 
 37:                                               ; preds = %29
   %38 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
-  %39 = getelementptr inbounds nuw { i64, [20 x i64] }, ptr %38, i64 %32
+  %39 = getelementptr inbounds nuw [168 x i8], ptr %38, i64 %32
   %40 = invoke noundef align 8 dereferenceable(32) ptr @"_ZN13ruff_notebook4cell45_$LT$impl$u20$ruff_notebook..schema..Cell$GT$6source17h63051748ef2da716E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %39)
           to label %41 unwind label %.loopexit.split-lp.loopexit
 
@@ -2117,7 +2117,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h47bf2fe908103dcaE.exit: ; preds = 
 111:                                              ; preds = %47
   %112 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %113 = load ptr, ptr %112, align 8, !nonnull !3, !noundef !3
-  %114 = getelementptr { { { { i64, ptr, {} }, {} }, i64 } }, ptr %113, i64 %45
+  %114 = getelementptr [24 x i8], ptr %113, i64 %45
   %115 = getelementptr i8, ptr %114, i64 -16
   %116 = load ptr, ptr %115, align 8, !nonnull !3, !noundef !3
   %117 = getelementptr i8, ptr %114, i64 -8
@@ -2290,7 +2290,7 @@ define void @_ZN13ruff_notebook8notebook8Notebook6update17h03712c27c0d86f50E(ptr
 .noexc3:                                          ; preds = %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$ruff_notebook..index..NotebookIndex$GT$$GT$17ha0347e77e14696ccE.exit"
   %16 = extractvalue { ptr, i64 } %15, 0
   %17 = extractvalue { ptr, i64 } %15, 1
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !196
   store ptr %16, ptr %4, align 8, !noalias !196
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2326,7 +2326,7 @@ define void @_ZN13ruff_notebook8notebook8Notebook6update17h03712c27c0d86f50E(ptr
 .noexc6:                                          ; preds = %24
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = extractvalue { ptr, i64 } %25, 1
-  %28 = getelementptr inbounds nuw { i32, i32 }, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %26) ]
   %29 = load i32, ptr %20, align 4, !alias.scope !200, !noalias !203
   br label %30

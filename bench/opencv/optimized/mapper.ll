@@ -1020,7 +1020,7 @@ _ZN2cvmlIhLi3EEENS_3VecIT_XT0_EEEiRKS3_.exit:     ; preds = %68
   %78 = load i64, ptr %77, align 8, !tbaa !67
   %79 = mul i64 %78, %indvars.iv39
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 %79
-  %81 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [3 x i8], ptr %80, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %81, ptr noundef nonnull align 1 dereferenceable(3) %5, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1049,7 +1049,7 @@ _ZN2cvmlIhLi3EEENS_3VecIT_XT0_EEEiRKS3_.exit26:   ; preds = %84
   %94 = load i64, ptr %93, align 8, !tbaa !67
   %95 = mul i64 %94, %indvars.iv39
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 %95
-  %97 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %96, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [3 x i8], ptr %96, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %97, ptr noundef nonnull align 1 dereferenceable(3) %6, i64 3, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1112,10 +1112,10 @@ define linkonce_odr hidden void @_ZN2cv3reg16fillGridMatricesItEEvNS_3MatES2_S2_
 
 31:                                               ; preds = %.preheader.us, %31
   %indvars.iv42 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next43, %31 ]
-  %32 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv42
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv42
   store i16 %26, ptr %32, align 2, !tbaa !79
   %33 = trunc i64 %indvars.iv42 to i16
-  %34 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv42
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv42
   store i16 %33, ptr %34, align 2, !tbaa !79
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
@@ -1184,13 +1184,13 @@ define linkonce_odr hidden void @_ZN2cv3reg16fillGridMatricesItEEvNS_3MatES2_S2_
 
 58:                                               ; preds = %58, %57
   %indvars.iv.i.i.i = phi i64 [ 0, %57 ], [ %indvars.iv.next.i.i.i, %58 ]
-  %59 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i.i.i
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv.i.i.i
   %60 = load i16, ptr %59, align 2, !tbaa !79, !noalias !84
   %61 = zext i16 %60 to i32
   %62 = mul nuw nsw i32 %52, %61
   %63 = tail call i32 @llvm.umin.i32(i32 %62, i32 65535)
   %64 = trunc nuw i32 %63 to i16
-  %65 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i.i.i
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv.i.i.i
   store i16 %64, ptr %65, align 2, !tbaa !79, !alias.scope !84
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -1202,7 +1202,7 @@ _ZN2cvmlItLi3EEENS_3VecIT_XT0_EEEiRKS3_.exit:     ; preds = %58
   %68 = load i64, ptr %67, align 8, !tbaa !67
   %69 = mul i64 %68, %indvars.iv39
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 %69
-  %71 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [6 x i8], ptr %70, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %71, ptr noundef nonnull align 2 dereferenceable(6) %5, i64 6, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1213,13 +1213,13 @@ _ZN2cvmlItLi3EEENS_3VecIT_XT0_EEEiRKS3_.exit:     ; preds = %58
 
 74:                                               ; preds = %74, %_ZN2cvmlItLi3EEENS_3VecIT_XT0_EEEiRKS3_.exit
   %indvars.iv.i.i.i23 = phi i64 [ 0, %_ZN2cvmlItLi3EEENS_3VecIT_XT0_EEEiRKS3_.exit ], [ %indvars.iv.next.i.i.i24, %74 ]
-  %75 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i.i.i23
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv.i.i.i23
   %76 = load i16, ptr %75, align 2, !tbaa !79, !noalias !88
   %77 = zext i16 %76 to i32
   %78 = mul nuw nsw i32 %73, %77
   %79 = tail call i32 @llvm.umin.i32(i32 %78, i32 65535)
   %80 = trunc nuw i32 %79 to i16
-  %81 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.i.i.i23
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv.i.i.i23
   store i16 %80, ptr %81, align 2, !tbaa !79, !alias.scope !88
   %indvars.iv.next.i.i.i24 = add nuw nsw i64 %indvars.iv.i.i.i23, 1
   %exitcond.not.i.i.i25 = icmp eq i64 %indvars.iv.next.i.i.i24, 3
@@ -1231,7 +1231,7 @@ _ZN2cvmlItLi3EEENS_3VecIT_XT0_EEEiRKS3_.exit26:   ; preds = %74
   %84 = load i64, ptr %83, align 8, !tbaa !67
   %85 = mul i64 %84, %indvars.iv39
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 %85
-  %87 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [6 x i8], ptr %86, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %87, ptr noundef nonnull align 2 dereferenceable(6) %6, i64 6, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1293,11 +1293,11 @@ define linkonce_odr hidden void @_ZN2cv3reg16fillGridMatricesIfEEvNS_3MatES2_S2_
 
 32:                                               ; preds = %.preheader.us, %32
   %indvars.iv42 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next43, %32 ]
-  %33 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv42
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv42
   store float %27, ptr %33, align 4, !tbaa !92
   %34 = trunc nuw nsw i64 %indvars.iv42 to i32
   %35 = uitofp nneg i32 %34 to float
-  %36 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv42
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv42
   store float %35, ptr %36, align 4, !tbaa !92
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
@@ -1366,10 +1366,10 @@ define linkonce_odr hidden void @_ZN2cv3reg16fillGridMatricesIfEEvNS_3MatES2_S2_
 
 60:                                               ; preds = %60, %59
   %indvars.iv.i.i.i = phi i64 [ 0, %59 ], [ %indvars.iv.next.i.i.i, %60 ]
-  %61 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.i.i
   %62 = load float, ptr %61, align 4, !tbaa !92, !noalias !97
   %63 = fmul float %62, %54
-  %64 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i.i
   store float %63, ptr %64, align 4, !tbaa !92, !alias.scope !97
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -1381,7 +1381,7 @@ _ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEEfRKS3_.exit:     ; preds = %60
   %67 = load i64, ptr %66, align 8, !tbaa !67
   %68 = mul i64 %67, %indvars.iv39
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 %68
-  %70 = getelementptr inbounds nuw %"class.cv::Vec.4", ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [12 x i8], ptr %69, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %70, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1392,10 +1392,10 @@ _ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEEfRKS3_.exit:     ; preds = %60
 
 73:                                               ; preds = %73, %_ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEEfRKS3_.exit
   %indvars.iv.i.i.i23 = phi i64 [ 0, %_ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEEfRKS3_.exit ], [ %indvars.iv.next.i.i.i24, %73 ]
-  %74 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i.i23
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.i.i23
   %75 = load float, ptr %74, align 4, !tbaa !92, !noalias !101
   %76 = fmul float %75, %72
-  %77 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i.i23
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i.i23
   store float %76, ptr %77, align 4, !tbaa !92, !alias.scope !101
   %indvars.iv.next.i.i.i24 = add nuw nsw i64 %indvars.iv.i.i.i23, 1
   %exitcond.not.i.i.i25 = icmp eq i64 %indvars.iv.next.i.i.i24, 3
@@ -1407,7 +1407,7 @@ _ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEEfRKS3_.exit26:   ; preds = %73
   %80 = load i64, ptr %79, align 8, !tbaa !67
   %81 = mul i64 %80, %indvars.iv39
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 %81
-  %83 = getelementptr inbounds nuw %"class.cv::Vec.4", ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [12 x i8], ptr %82, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %83, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1469,11 +1469,11 @@ define linkonce_odr hidden void @_ZN2cv3reg16fillGridMatricesIdEEvNS_3MatES2_S2_
 
 32:                                               ; preds = %.preheader.us, %32
   %indvars.iv42 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next43, %32 ]
-  %33 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv42
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv42
   store double %27, ptr %33, align 8, !tbaa !19
   %34 = trunc nuw nsw i64 %indvars.iv42 to i32
   %35 = uitofp nneg i32 %34 to double
-  %36 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv42
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv42
   store double %35, ptr %36, align 8, !tbaa !19
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count
@@ -1542,10 +1542,10 @@ define linkonce_odr hidden void @_ZN2cv3reg16fillGridMatricesIdEEvNS_3MatES2_S2_
 
 60:                                               ; preds = %60, %59
   %indvars.iv.i.i.i = phi i64 [ 0, %59 ], [ %indvars.iv.next.i.i.i, %60 ]
-  %61 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i.i.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i.i
   %62 = load double, ptr %61, align 8, !tbaa !19, !noalias !108
   %63 = fmul double %62, %54
-  %64 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.i.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i.i
   store double %63, ptr %64, align 8, !tbaa !19, !alias.scope !108
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -1557,7 +1557,7 @@ _ZN2cvmlIdLi3EEENS_3VecIT_XT0_EEEdRKS3_.exit:     ; preds = %60
   %67 = load i64, ptr %66, align 8, !tbaa !67
   %68 = mul i64 %67, %indvars.iv39
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 %68
-  %70 = getelementptr inbounds nuw %"class.cv::Vec.6", ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1568,10 +1568,10 @@ _ZN2cvmlIdLi3EEENS_3VecIT_XT0_EEEdRKS3_.exit:     ; preds = %60
 
 73:                                               ; preds = %73, %_ZN2cvmlIdLi3EEENS_3VecIT_XT0_EEEdRKS3_.exit
   %indvars.iv.i.i.i23 = phi i64 [ 0, %_ZN2cvmlIdLi3EEENS_3VecIT_XT0_EEEdRKS3_.exit ], [ %indvars.iv.next.i.i.i24, %73 ]
-  %74 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i.i.i23
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i.i23
   %75 = load double, ptr %74, align 8, !tbaa !19, !noalias !112
   %76 = fmul double %75, %72
-  %77 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i.i.i23
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i.i23
   store double %76, ptr %77, align 8, !tbaa !19, !alias.scope !112
   %indvars.iv.next.i.i.i24 = add nuw nsw i64 %indvars.iv.i.i.i23, 1
   %exitcond.not.i.i.i25 = icmp eq i64 %indvars.iv.next.i.i.i24, 3
@@ -1583,7 +1583,7 @@ _ZN2cvmlIdLi3EEENS_3VecIT_XT0_EEEdRKS3_.exit26:   ; preds = %73
   %80 = load i64, ptr %79, align 8, !tbaa !67
   %81 = mul i64 %80, %indvars.iv39
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 %81
-  %83 = getelementptr inbounds nuw %"class.cv::Vec.6", ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [24 x i8], ptr %82, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1616,7 +1616,7 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !66
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i64, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !67
   br label %16

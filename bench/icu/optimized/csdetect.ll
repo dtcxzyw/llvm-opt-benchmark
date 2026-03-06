@@ -844,7 +844,7 @@ _ZN6icu_7726CharsetRecog_IBM420_ar_ltrC2Ev.exit.i: ; preds = %285
 
 323:                                              ; preds = %328, %322
   %indvars.iv.i = phi i64 [ 0, %322 ], [ %indvars.iv.next.i, %328 ]
-  %324 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %325 = load ptr, ptr %324, align 8, !tbaa !14
   %326 = icmp eq ptr %325, null
   br i1 %326, label %327, label %328
@@ -946,7 +946,7 @@ define void @_ZN6icu_7715CharsetDetectorC2ER10UErrorCode(ptr noundef nonnull ali
 
 23:                                               ; preds = %.lr.ph
   %24 = load ptr, ptr %7, align 8, !tbaa !32
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   store ptr null, ptr %25, align 8, !tbaa !33
   br label %.loopexit.sink.split
 
@@ -957,7 +957,7 @@ define void @_ZN6icu_7715CharsetDetectorC2ER10UErrorCode(ptr noundef nonnull ali
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %7, align 8, !tbaa !32
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   store ptr %20, ptr %30, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.b = load i1, ptr @_ZL19fCSRecognizers_size, align 4
@@ -1022,7 +1022,7 @@ define void @_ZN6icu_7715CharsetDetectorD2Ev(ptr noundef nonnull readonly align 
 9:                                                ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %10 = load ptr, ptr %6, align 8, !tbaa !32
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !33
   %13 = icmp eq ptr %12, null
   br i1 %13, label %15, label %14
@@ -1182,14 +1182,14 @@ define noundef ptr @_ZN6icu_7715CharsetDetector9detectAllERiR10UErrorCode(ptr no
 16:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %17 = load ptr, ptr @_ZL14fCSRecognizers, align 8, !tbaa !16
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !14
   %20 = load ptr, ptr %19, align 8, !tbaa !9
   %21 = load ptr, ptr %0, align 8, !tbaa !26
   %22 = load ptr, ptr %15, align 8, !tbaa !32
   %23 = load i32, ptr %14, align 8, !tbaa !40
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !33
   %27 = load ptr, ptr %20, align 8, !tbaa !7
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -1276,7 +1276,7 @@ define void @_ZN6icu_7715CharsetDetector20setDetectableCharsetEPKcaR10UErrorCode
 .lr.ph:                                           ; preds = %.preheader37, %15
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.preheader37 ]
   %7 = load ptr, ptr @_ZL14fCSRecognizers, align 8, !tbaa !16
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !14
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = load ptr, ptr %10, align 8, !tbaa !7
@@ -1329,7 +1329,7 @@ define void @_ZN6icu_7715CharsetDetector20setDetectableCharsetEPKcaR10UErrorCode
 
 31:                                               ; preds = %.lr.ph42, %31
   %indvars.iv46 = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next47, %31 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv46
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv46
   %33 = load ptr, ptr %32, align 8, !tbaa !14
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i8, ptr %34, align 8, !tbaa !13
@@ -1475,7 +1475,7 @@ define internal noundef signext i8 @_ZL13csdet_cleanupv() #0 {
 .lr.ph:                                           ; preds = %.preheader, %14
   %3 = phi ptr [ %15, %14 ], [ %1, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.preheader ]
-  %4 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !14
   %6 = icmp eq ptr %5, null
   br i1 %6, label %14, label %7
@@ -1501,7 +1501,7 @@ _ZN6icu_7716CSRecognizerInfoD2Ev.exit:            ; preds = %7, %10
 14:                                               ; preds = %_ZN6icu_7716CSRecognizerInfoD2Ev.exit, %.lr.ph
   %.b = phi i1 [ %.b.pre, %_ZN6icu_7716CSRecognizerInfoD2Ev.exit ], [ true, %.lr.ph ]
   %15 = phi ptr [ %.pre, %_ZN6icu_7716CSRecognizerInfoD2Ev.exit ], [ %3, %.lr.ph ]
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr null, ptr %16, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = icmp samesign ult i64 %indvars.iv, 27
@@ -1579,7 +1579,7 @@ define internal noundef i32 @_ZL9enumCountP12UEnumerationP10UErrorCode(ptr nound
 16:                                               ; preds = %.lr.ph29, %16
   %indvars.iv34 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next35, %16 ]
   %.327 = phi i32 [ 0, %.lr.ph29 ], [ %spec.select22, %16 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv34
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv34
   %18 = load ptr, ptr %17, align 8, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i8, ptr %19, align 8, !tbaa !13
@@ -1616,7 +1616,7 @@ define internal noundef ptr @_ZL8enumNextP12UEnumerationPiP10UErrorCode(ptr noun
 12:                                               ; preds = %9
   %13 = load ptr, ptr @_ZL14fCSRecognizers, align 8, !tbaa !16
   %14 = sext i32 %6 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = load ptr, ptr %17, align 8, !tbaa !7
@@ -1651,7 +1651,7 @@ define internal noundef ptr @_ZL8enumNextP12UEnumerationPiP10UErrorCode(ptr noun
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr @_ZL14fCSRecognizers, align 8, !tbaa !16
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %32
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %32
   %38 = load ptr, ptr %37, align 8, !tbaa !14
   %39 = load ptr, ptr %38, align 8, !tbaa !9
   %40 = load ptr, ptr %39, align 8, !tbaa !7
@@ -1683,7 +1683,7 @@ define internal noundef ptr @_ZL8enumNextP12UEnumerationPiP10UErrorCode(ptr noun
 52:                                               ; preds = %.preheader
   %53 = load ptr, ptr @_ZL14fCSRecognizers, align 8, !tbaa !16
   %54 = sext i32 %49 to i64
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !14
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i8, ptr %57, align 8, !tbaa !13

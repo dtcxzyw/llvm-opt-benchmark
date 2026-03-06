@@ -580,7 +580,7 @@ _ZSt22__uninitialized_move_aIPPK10ExpressionS3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; p
   %27 = sub i64 %26, %18
   %28 = ashr exact i64 %27, 3
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds ptr, ptr %13, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %13, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPPK10ExpressionS3_ET0_T_S5_S4_.exit
 
@@ -603,7 +603,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPK10ExpressionSt6vectorIS4_SaIS4_EE
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPPK10ExpressionSt6vectorIS4_SaIS4_EEEES5_S4_ET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPK10ExpressionSt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit, %32
   %35 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPK10ExpressionSt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ], [ %.pre, %32 ]
   %36 = sub nuw nsw i64 %9, %20
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   store ptr %37, ptr %12, align 8, !tbaa !37
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIPPK10ExpressionS3_SaIS2_EET0_T_S6_S5_RT1_.exit53, label %38
@@ -687,7 +687,7 @@ _ZNSt12_Vector_baseIPK10ExpressionSaIS2_EE11_M_allocateEm.exit: ; preds = %_ZNKS
 _ZNSt12_Vector_baseIPK10ExpressionSaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %66, %68
   store ptr %57, ptr %0, align 8, !tbaa !34
   store ptr %67, ptr %12, align 8, !tbaa !37
-  %70 = getelementptr inbounds nuw ptr, ptr %57, i64 %53
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %53
   store ptr %70, ptr %10, align 8, !tbaa !36
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPK10ExpressionSt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 

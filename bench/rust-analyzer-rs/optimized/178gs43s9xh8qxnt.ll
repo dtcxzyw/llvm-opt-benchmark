@@ -355,9 +355,9 @@ define internal fastcc void @_ZN17crossbeam_channel5waker5Waker6notify17hd3e96ea
   store i64 %8, ptr %5, align 8, !alias.scope !60, !noalias !63
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !alias.scope !60, !noalias !63, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds { ptr, i64, ptr }, ptr %11, i64 %8
+  %12 = getelementptr inbounds [24 x i8], ptr %11, i64 %8
   %13 = sub i64 %6, %9
-  %14 = getelementptr inbounds { ptr, i64, ptr }, ptr %11, i64 %9
+  %14 = getelementptr inbounds [24 x i8], ptr %11, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %12, ptr %3, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -700,7 +700,7 @@ common.resume:                                    ; preds = %47, %19
   %26 = load ptr, ptr %25, align 8, !alias.scope !101, !noalias !104, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load i64, ptr %27, align 8, !alias.scope !101, !noalias !104, !noundef !4
-  %29 = getelementptr inbounds { ptr, i64, ptr }, ptr %26, i64 %28
+  %29 = getelementptr inbounds [24 x i8], ptr %26, i64 %28
   br label %30
 
 30:                                               ; preds = %34, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd12ddbaae1ef1dc0E.exit"
@@ -730,7 +730,7 @@ common.resume:                                    ; preds = %47, %19
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h1f7173f083998e54E.exit.i": ; preds = %39
-  %41 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %26, i64 %31
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %31
   %.sroa.013.0.copyload = load ptr, ptr %41, align 8, !noalias !119
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false), !noalias !101
@@ -916,7 +916,7 @@ common.resume:                                    ; preds = %.body, %20
   %42 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %33, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb39a2905af9d1516E.exit" ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load ptr, ptr %43, align 8, !alias.scope !133, !noalias !136, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds { ptr, i64, ptr }, ptr %44, i64 %42
+  %45 = getelementptr inbounds [24 x i8], ptr %44, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %46 = load i64, ptr %32, align 8, !alias.scope !133, !noalias !136, !noundef !4
   %47 = add i64 %46, 1
@@ -1179,7 +1179,7 @@ _ZN17crossbeam_channel7context7Context12store_packet17hbbe90e382767dd1bE.exit.i.
 
 _ZN17crossbeam_channel5waker5Waker10try_select17hb3b14812dad24739E.exit: ; preds = %.noexc7
   %91 = load ptr, ptr %59, align 8, !alias.scope !178, !noalias !179, !nonnull !4, !noundef !4
-  %92 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %91, i64 %.015.i.i
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %.015.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %92, i64 24, i1 false), !noalias !146
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %94 = xor i64 %.015.i.i, -1
@@ -1375,7 +1375,7 @@ common.resume:                                    ; preds = %.body, %20
   %42 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %33, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb39a2905af9d1516E.exit" ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8, !alias.scope !203, !noalias !206, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds { ptr, i64, ptr }, ptr %44, i64 %42
+  %45 = getelementptr inbounds [24 x i8], ptr %44, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %46 = load i64, ptr %32, align 8, !alias.scope !203, !noalias !206, !noundef !4
   %47 = add i64 %46, 1
@@ -1589,7 +1589,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy
 .lr.ph:                                           ; preds = %2, %14
   %.sroa.01.08 = phi i64 [ %4, %14 ], [ %1, %2 ]
   %4 = add nuw nsw i64 %.sroa.01.08, 1
-  %5 = getelementptr inbounds nuw { { { [6 x i64] } }, { i64 } }, ptr %0, i64 %.sroa.01.08
+  %5 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %.sroa.01.08
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = and i64 %7, 2
@@ -1623,7 +1623,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$7destroy
 .lr.ph:                                           ; preds = %2, %14
   %.sroa.01.08 = phi i64 [ %4, %14 ], [ %1, %2 ]
   %4 = add nuw nsw i64 %.sroa.01.08, 1
-  %5 = getelementptr inbounds nuw { { { [39 x i64] } }, { i64 } }, ptr %0, i64 %.sroa.01.08
+  %5 = getelementptr inbounds nuw [320 x i8], ptr %0, i64 %.sroa.01.08
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 312
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = and i64 %7, 2
@@ -2470,7 +2470,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.17568388499
   br label %"_ZN4core3ptr48drop_in_place$LT$flycheck..CargoCheckMessage$GT$17h5f4573b3186c4732E.llvm.17568388499226789969.exit"
 
 43:                                               ; preds = %.lr.ph59
-  %44 = getelementptr inbounds nuw { { { [39 x i64] } }, { i64 } }, ptr %.157, i64 %27
+  %44 = getelementptr inbounds nuw [320 x i8], ptr %.157, i64 %27
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 312
   %46 = load atomic i64, ptr %45 acquire, align 8
   %47 = and i64 %46, 1
@@ -2676,7 +2676,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.17568388499
 
 42:                                               ; preds = %.lr.ph59
   %43 = getelementptr inbounds nuw i8, ptr %.157, i64 8
-  %44 = getelementptr inbounds nuw { { i64 }, { { [0 x i8] } } }, ptr %43, i64 %27
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %27
   %45 = load atomic i64, ptr %44 acquire, align 8
   %46 = and i64 %45, 1
   %47 = icmp eq i64 %46, 0
@@ -2867,7 +2867,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.17568388499
 
 42:                                               ; preds = %.lr.ph59
   %43 = getelementptr inbounds nuw i8, ptr %.157, i64 8
-  %44 = getelementptr inbounds nuw { { { [6 x i64] } }, { i64 } }, ptr %43, i64 %27
+  %44 = getelementptr inbounds nuw [56 x i8], ptr %43, i64 %27
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %46 = load atomic i64, ptr %45 acquire, align 8
   %47 = and i64 %46, 1
@@ -2980,7 +2980,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4read1
   %11 = load i64, ptr %10, align 8, !noundef !4
   %12 = icmp ult i64 %11, 31
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds nuw { { { [39 x i64] } }, { i64 } }, ptr %6, i64 %11
+  %13 = getelementptr inbounds nuw [320 x i8], ptr %6, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 312
   %15 = load atomic i64, ptr %14 acquire, align 8
   %16 = and i64 %15, 1
@@ -3034,7 +3034,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.17568388499
 .lr.ph.i4:                                        ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h5a320fc782141892E.llvm.17568388499226789969.exit", %43
   %.sroa.01.08.i = phi i64 [ %33, %43 ], [ 0, %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h5a320fc782141892E.llvm.17568388499226789969.exit" ]
   %33 = add nuw nsw i64 %.sroa.01.08.i, 1
-  %34 = getelementptr inbounds nuw { { { [39 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.08.i
+  %34 = getelementptr inbounds nuw [320 x i8], ptr %6, i64 %.sroa.01.08.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 312
   %36 = load atomic i64, ptr %35 acquire, align 8
   %37 = and i64 %36, 2
@@ -3058,7 +3058,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.17568388499
 .lr.ph.i6:                                        ; preds = %44, %56
   %.sroa.01.08.i7 = phi i64 [ %46, %56 ], [ %26, %44 ]
   %46 = add nuw nsw i64 %.sroa.01.08.i7, 1
-  %47 = getelementptr inbounds nuw { { { [39 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.08.i7
+  %47 = getelementptr inbounds nuw [320 x i8], ptr %6, i64 %.sroa.01.08.i7
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 312
   %49 = load atomic i64, ptr %48 acquire, align 8
   %50 = and i64 %49, 2
@@ -3103,7 +3103,7 @@ define hidden void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4read1
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = icmp ult i64 %12, 31
   tail call void @llvm.assume(i1 %14)
-  %15 = getelementptr inbounds nuw { { { [6 x i64] } }, { i64 } }, ptr %13, i64 %12
+  %15 = getelementptr inbounds nuw [56 x i8], ptr %13, i64 %12
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load atomic i64, ptr %16 acquire, align 8
   %18 = and i64 %17, 1
@@ -3157,7 +3157,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.17568388499
 .lr.ph.i4:                                        ; preds = %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h10aa32eb1dcfb122E.llvm.17568388499226789969.exit", %45
   %.sroa.01.08.i = phi i64 [ %35, %45 ], [ 0, %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h10aa32eb1dcfb122E.llvm.17568388499226789969.exit" ]
   %35 = add nuw nsw i64 %.sroa.01.08.i, 1
-  %36 = getelementptr inbounds nuw { { { [6 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.08.i
+  %36 = getelementptr inbounds nuw [56 x i8], ptr %6, i64 %.sroa.01.08.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %38 = load atomic i64, ptr %37 acquire, align 8
   %39 = and i64 %38, 2
@@ -3181,7 +3181,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.llvm.17568388499
 .lr.ph.i6:                                        ; preds = %46, %58
   %.sroa.01.08.i7 = phi i64 [ %48, %58 ], [ %28, %46 ]
   %48 = add nuw nsw i64 %.sroa.01.08.i7, 1
-  %49 = getelementptr inbounds nuw { { { [6 x i64] } }, { i64 } }, ptr %6, i64 %.sroa.01.08.i7
+  %49 = getelementptr inbounds nuw [56 x i8], ptr %6, i64 %.sroa.01.08.i7
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load atomic i64, ptr %50 acquire, align 8
   %52 = and i64 %51, 2
@@ -3874,7 +3874,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = 
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.4.139, i64 8
   %82 = icmp samesign ult i64 %.sroa.9.140, 31
   tail call void @llvm.assume(i1 %82)
-  %83 = getelementptr inbounds nuw { { { [6 x i64] } }, { i64 } }, ptr %81, i64 %.sroa.9.140
+  %83 = getelementptr inbounds nuw [56 x i8], ptr %81, i64 %.sroa.9.140
   store i64 %.sroa.017.0.copyload41, ptr %83, align 8, !noalias !279
   %.sroa.5.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %83, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx19, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5, i64 40, i1 false), !noalias !279
@@ -4181,7 +4181,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = 
   %.sroa.4.139 = phi ptr [ %.138.i, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$10start_send17h01e7d66e96995261E.exit.thread34" ], [ %.sroa.4.0, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$10start_send17h01e7d66e96995261E.exit" ]
   %82 = icmp samesign ult i64 %.sroa.9.140, 31
   tail call void @llvm.assume(i1 %82)
-  %83 = getelementptr inbounds nuw { { { [39 x i64] } }, { i64 } }, ptr %.sroa.4.139, i64 %.sroa.9.140
+  %83 = getelementptr inbounds nuw [320 x i8], ptr %.sroa.4.139, i64 %.sroa.9.140
   store i64 %.sroa.017.0.copyload41, ptr %83, align 8, !noalias !294
   %.sroa.5.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %83, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %.sroa.5.0..sroa_idx19, ptr noundef nonnull align 8 dereferenceable(304) %.sroa.5, i64 304, i1 false), !noalias !294
@@ -4502,7 +4502,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = 
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.4.144, i64 8
   %82 = icmp samesign ult i64 %.sroa.9.145, 31
   tail call void @llvm.assume(i1 %82)
-  %83 = getelementptr inbounds nuw { { { [6 x i64] } }, { i64 } }, ptr %81, i64 %.sroa.9.145
+  %83 = getelementptr inbounds nuw [56 x i8], ptr %81, i64 %.sroa.9.145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.018, i64 24, i1 false), !noalias !309
   %.sroa.5.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %83, i64 24
   store i64 %.sroa.5.0.copyload46, ptr %.sroa.5.0..sroa_idx19, align 8, !noalias !309

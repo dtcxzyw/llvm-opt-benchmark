@@ -175,7 +175,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN9Stockfish10dbg_hit_onEbi(i1 noundef zeroext %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds %"struct.Stockfish::(anonymous namespace)::DebugInfo", ptr @_ZN9Stockfish12_GLOBAL__N_13hitE, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr @_ZN9Stockfish12_GLOBAL__N_13hitE, i64 %3
   %5 = atomicrmw add ptr %4, i64 1 seq_cst, align 8
   br i1 %0, label %6, label %9
 
@@ -191,7 +191,7 @@ define dso_local void @_ZN9Stockfish10dbg_hit_onEbi(i1 noundef zeroext %0, i32 n
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN9Stockfish11dbg_mean_ofEli(i64 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds %"struct.Stockfish::(anonymous namespace)::DebugInfo", ptr @_ZN9Stockfish12_GLOBAL__N_14meanE, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr @_ZN9Stockfish12_GLOBAL__N_14meanE, i64 %3
   %5 = atomicrmw add ptr %4, i64 1 seq_cst, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = atomicrmw add ptr %6, i64 %0 seq_cst, align 8
@@ -201,7 +201,7 @@ define dso_local void @_ZN9Stockfish11dbg_mean_ofEli(i64 noundef %0, i32 noundef
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN9Stockfish12dbg_stdev_ofEli(i64 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds %"struct.Stockfish::(anonymous namespace)::DebugInfo.0", ptr @_ZN9Stockfish12_GLOBAL__N_15stdevE, i64 %3
+  %4 = getelementptr inbounds [24 x i8], ptr @_ZN9Stockfish12_GLOBAL__N_15stdevE, i64 %3
   %5 = atomicrmw add ptr %4, i64 1 seq_cst, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = atomicrmw add ptr %6, i64 %0 seq_cst, align 8
@@ -214,7 +214,7 @@ define dso_local void @_ZN9Stockfish12dbg_stdev_ofEli(i64 noundef %0, i32 nounde
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_ZN9Stockfish13dbg_correl_ofElli(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds %"struct.Stockfish::(anonymous namespace)::DebugInfo.1", ptr @_ZN9Stockfish12_GLOBAL__N_16correlE, i64 %4
+  %5 = getelementptr inbounds [48 x i8], ptr @_ZN9Stockfish12_GLOBAL__N_16correlE, i64 %4
   %6 = atomicrmw add ptr %5, i64 1 seq_cst, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = atomicrmw add ptr %7, i64 %0 seq_cst, align 8
@@ -238,7 +238,7 @@ define dso_local void @_ZN9Stockfish9dbg_printEv() local_unnamed_addr #3 {
 
 1:                                                ; preds = %0, %22
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %22 ]
-  %2 = getelementptr inbounds nuw %"struct.Stockfish::(anonymous namespace)::DebugInfo", ptr @_ZN9Stockfish12_GLOBAL__N_13hitE, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [16 x i8], ptr @_ZN9Stockfish12_GLOBAL__N_13hitE, i64 %indvars.iv
   %3 = load atomic i64, ptr %2 seq_cst, align 16
   %.not34 = icmp eq i64 %3, 0
   br i1 %.not34, label %22, label %4
@@ -270,7 +270,7 @@ define dso_local void @_ZN9Stockfish9dbg_printEv() local_unnamed_addr #3 {
 
 .preheader60:                                     ; preds = %22, %39
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %39 ], [ 0, %22 ]
-  %23 = getelementptr inbounds nuw %"struct.Stockfish::(anonymous namespace)::DebugInfo", ptr @_ZN9Stockfish12_GLOBAL__N_14meanE, i64 %indvars.iv66
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @_ZN9Stockfish12_GLOBAL__N_14meanE, i64 %indvars.iv66
   %24 = load atomic i64, ptr %23 seq_cst, align 16
   %.not33 = icmp eq i64 %24, 0
   br i1 %.not33, label %39, label %25
@@ -298,7 +298,7 @@ define dso_local void @_ZN9Stockfish9dbg_printEv() local_unnamed_addr #3 {
 
 .preheader59:                                     ; preds = %39, %63
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %63 ], [ 0, %39 ]
-  %40 = getelementptr inbounds nuw %"struct.Stockfish::(anonymous namespace)::DebugInfo.0", ptr @_ZN9Stockfish12_GLOBAL__N_15stdevE, i64 %indvars.iv70
+  %40 = getelementptr inbounds nuw [24 x i8], ptr @_ZN9Stockfish12_GLOBAL__N_15stdevE, i64 %indvars.iv70
   %41 = load atomic i64, ptr %40 seq_cst, align 8
   %.not32 = icmp eq i64 %41, 0
   br i1 %.not32, label %63, label %42
@@ -333,7 +333,7 @@ define dso_local void @_ZN9Stockfish9dbg_printEv() local_unnamed_addr #3 {
 
 .preheader:                                       ; preds = %63, %112
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %112 ], [ 0, %63 ]
-  %64 = getelementptr inbounds nuw %"struct.Stockfish::(anonymous namespace)::DebugInfo.1", ptr @_ZN9Stockfish12_GLOBAL__N_16correlE, i64 %indvars.iv74
+  %64 = getelementptr inbounds nuw [48 x i8], ptr @_ZN9Stockfish12_GLOBAL__N_16correlE, i64 %indvars.iv74
   %65 = load atomic i64, ptr %64 seq_cst, align 16
   %.not = icmp eq i64 %65, 0
   br i1 %.not, label %112, label %66

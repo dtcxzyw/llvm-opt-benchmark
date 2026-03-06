@@ -1830,7 +1830,7 @@ define noundef ptr @_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18ULi
 switch.lookup:                                    ; preds = %9, %7, %5
   %switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.6.sink = phi ptr [ @switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.5, %7 ], [ @switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode, %5 ], [ @switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.6, %9 ]
   %11 = zext nneg i32 %2 to i64
-  %switch.gep16 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.6.sink, i64 %11
+  %switch.gep16 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.6.sink, i64 %11
   %switch.load17 = load ptr, ptr %switch.gep16, align 8
   %12 = tail call noundef ptr @_ZN6icu_7713ListFormatter21getListFormatInternalERKNS_6LocaleEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull %switch.load17, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %13 = load i32, ptr %3, align 4, !tbaa !13
@@ -2453,7 +2453,7 @@ _ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit69: ; preds = %.thread92,
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 152
   %.val58 = load ptr, ptr %93, align 8, !tbaa !40
   %94 = sext i32 %90 to i64
-  %95 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %2, i64 %94
+  %95 = getelementptr inbounds [64 x i8], ptr %2, i64 %94
   %96 = load ptr, ptr %.val58, align 8, !tbaa !15
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
   %98 = load ptr, ptr %97, align 8
@@ -2464,7 +2464,7 @@ _ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit69: ; preds = %.thread92,
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %104 ]
   %100 = load ptr, ptr %86, align 8, !tbaa !39
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 80
-  %102 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %2, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %indvars.iv
   %103 = trunc nuw nsw i64 %indvars.iv to i32
   invoke fastcc void @_ZN6icu_7712_GLOBAL__N_120FormattedListBuilder6appendERKNS_15SimpleFormatterERKNS_13UnicodeStringEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(72) %101, ptr noundef nonnull align 8 dereferenceable(64) %102, i32 noundef %103, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %104 unwind label %105

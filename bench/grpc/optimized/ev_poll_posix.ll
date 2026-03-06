@@ -1177,14 +1177,14 @@ _ZL31poll_deadline_to_millis_timeoutN9grpc_core9TimestampE.exit: ; preds = %_ZN9
   %.0162305 = phi i64 [ 1, %.lr.ph ], [ %.1163, %_ZL8fd_unrefP7grpc_fd.exit ]
   %.0164304 = phi i64 [ 0, %.lr.ph ], [ %.1165, %_ZL8fd_unrefP7grpc_fd.exit ]
   %151 = load ptr, ptr %149, align 8, !tbaa !79
-  %152 = getelementptr inbounds nuw ptr, ptr %151, i64 %.0156306
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %.0156306
   %153 = load ptr, ptr %152, align 8, !tbaa !99
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load atomic i64, ptr %154 acquire, align 8
   %156 = and i64 %155, 1
   %157 = icmp eq i64 %156, 0
   %.pre329 = load ptr, ptr %149, align 8, !tbaa !79
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre329, i64 %.0156306
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre329, i64 %.0156306
   %.pre331 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !99
   br i1 %157, label %._crit_edge330, label %158
 
@@ -1295,10 +1295,10 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %185, %_ZL27fork_fd_
   unreachable
 
 193:                                              ; preds = %158
-  %194 = getelementptr inbounds nuw ptr, ptr %.pre329, i64 %.0164304
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %.pre329, i64 %.0164304
   store ptr %.pre331, ptr %194, align 8, !tbaa !99
   %195 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !99
-  %196 = getelementptr inbounds nuw %struct.grpc_fd_watcher, ptr %.0161, i64 %.0162305
+  %196 = getelementptr inbounds nuw [40 x i8], ptr %.0161, i64 %.0162305
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   store ptr %195, ptr %197, align 8, !tbaa !101
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 8
@@ -1325,10 +1325,10 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i:         ; preds = %185, %_ZL27fork_fd_
 _ZL6fd_refP7grpc_fd.exit:                         ; preds = %193
   %206 = add i64 %.0164304, 1
   %207 = load ptr, ptr %149, align 8, !tbaa !79
-  %208 = getelementptr inbounds nuw ptr, ptr %207, i64 %.0156306
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %.0156306
   %209 = load ptr, ptr %208, align 8, !tbaa !99
   %210 = load i32, ptr %209, align 8, !tbaa !23
-  %211 = getelementptr inbounds nuw %struct.pollfd, ptr %.0160, i64 %.0162305
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %.0160, i64 %.0162305
   store i32 %210, ptr %211, align 4, !tbaa !94
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 6
   store i16 0, ptr %212, align 2, !tbaa !98
@@ -1356,7 +1356,7 @@ _ZL8fd_unrefP7grpc_fd.exit:                       ; preds = %_ZN4absl12lts_20240
 
 .lr.ph309:                                        ; preds = %.preheader283, %_ZL8fd_unrefP7grpc_fd.exit210
   %.1157308 = phi i64 [ %298, %_ZL8fd_unrefP7grpc_fd.exit210 ], [ 1, %.preheader283 ]
-  %218 = getelementptr inbounds nuw %struct.grpc_fd_watcher, ptr %.0161, i64 %.1157308
+  %218 = getelementptr inbounds nuw [40 x i8], ptr %.0161, i64 %.1157308
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 32
   %220 = load ptr, ptr %219, align 8, !tbaa !101
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
@@ -1463,7 +1463,7 @@ _ZL6fd_refP7grpc_fd.exit.i:                       ; preds = %.lr.ph309
 
 _ZL13fd_begin_pollP7grpc_fdP12grpc_pollsetP19grpc_pollset_workerjjP15grpc_fd_watcher.exit: ; preds = %.noexc206, %.thread59.i
   %.047.i = phi i16 [ 0, %.noexc206 ], [ %.151.i, %.thread59.i ]
-  %264 = getelementptr inbounds nuw %struct.pollfd, ptr %.0160, i64 %.1157308
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %.0160, i64 %.1157308
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 4
   store i16 %.047.i, ptr %265, align 4, !tbaa !97
   %266 = getelementptr inbounds nuw i8, ptr %218, i64 16
@@ -1728,7 +1728,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit216:        ; preds = %_ZN4absl12lts_20240
 
 .lr.ph317:                                        ; preds = %351, %356
   %.2158315 = phi i64 [ %357, %356 ], [ 1, %351 ]
-  %352 = getelementptr inbounds nuw %struct.grpc_fd_watcher, ptr %.0161, i64 %.2158315
+  %352 = getelementptr inbounds nuw [40 x i8], ptr %.0161, i64 %.2158315
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 16
   %354 = load ptr, ptr %353, align 8, !tbaa !106
   %355 = icmp ne ptr %354, null
@@ -1750,7 +1750,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit216:        ; preds = %_ZN4absl12lts_20240
 
 .lr.ph314:                                        ; preds = %.preheader, %361
   %.3159313 = phi i64 [ %362, %361 ], [ 1, %.preheader ]
-  %360 = getelementptr inbounds nuw %struct.grpc_fd_watcher, ptr %.0161, i64 %.3159313
+  %360 = getelementptr inbounds nuw [40 x i8], ptr %.0161, i64 %.3159313
   invoke fastcc void @_ZL11fd_end_pollP15grpc_fd_watcherii(ptr noundef nonnull %360, i32 noundef 0, i32 noundef 0)
           to label %361 unwind label %.loopexit.split-lp.loopexit
 
@@ -1802,11 +1802,11 @@ _ZN4absl12lts_202407226StatusD2Ev.exit217:        ; preds = %372, %369, %363
 
 .lr.ph312:                                        ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit217, %405
   %.4311 = phi i64 [ %406, %405 ], [ 1, %_ZN4absl12lts_202407226StatusD2Ev.exit217 ]
-  %379 = getelementptr inbounds nuw %struct.grpc_fd_watcher, ptr %.0161, i64 %.4311
+  %379 = getelementptr inbounds nuw [40 x i8], ptr %.0161, i64 %.4311
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 16
   %381 = load ptr, ptr %380, align 8, !tbaa !106
   %382 = icmp eq ptr %381, null
-  %383 = getelementptr inbounds nuw %struct.pollfd, ptr %.0160, i64 %.4311
+  %383 = getelementptr inbounds nuw [8 x i8], ptr %.0160, i64 %.4311
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 6
   %385 = load i16, ptr %384, align 2, !tbaa !98
   %386 = and i16 %385, 16
@@ -2128,7 +2128,7 @@ define internal void @_ZL14pollset_add_fdP12grpc_pollsetP7grpc_fd(ptr noundef %0
 
 11:                                               ; preds = %.lr.ph, %9
   %.027 = phi i64 [ 0, %.lr.ph ], [ %10, %9 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %.027
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.027
   %13 = load ptr, ptr %12, align 8, !tbaa !99
   %14 = icmp eq ptr %13, %1
   br i1 %14, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %9
@@ -2163,7 +2163,7 @@ define internal void @_ZL14pollset_add_fdP12grpc_pollsetP7grpc_fd(ptr noundef %0
   %28 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %25, %18 ]
   %29 = add i64 %27, 1
   store i64 %29, ptr %5, align 8, !tbaa !92
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   store ptr %1, ptr %30, align 8, !tbaa !99
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = atomicrmw add ptr %31, i64 2 monotonic, align 8
@@ -2235,7 +2235,7 @@ define internal void @_ZL19pollset_set_destroyP16grpc_pollset_set(ptr noundef %0
 8:                                                ; preds = %.lr.ph, %8
   %.024 = phi i64 [ 0, %.lr.ph ], [ %12, %8 ]
   %9 = load ptr, ptr %4, align 8, !tbaa !133
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.024
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.024
   %11 = load ptr, ptr %10, align 8, !tbaa !99
   tail call fastcc void @_ZL8unref_byP7grpc_fdi(ptr noundef %11)
   %12 = add nuw i64 %.024, 1
@@ -2246,7 +2246,7 @@ define internal void @_ZL19pollset_set_destroyP16grpc_pollset_set(ptr noundef %0
 15:                                               ; preds = %.lr.ph26, %33
   %.125 = phi i64 [ 0, %.lr.ph26 ], [ %34, %33 ]
   %16 = load ptr, ptr %7, align 8, !tbaa !135
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.125
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.125
   %18 = load ptr, ptr %17, align 8, !tbaa !84
   tail call void @gpr_mu_lock(ptr noundef %18)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
@@ -2341,7 +2341,7 @@ define internal void @_ZL23pollset_set_add_pollsetP16grpc_pollset_setP12grpc_pol
   %19 = phi ptr [ %.pre, %._crit_edge36 ], [ %16, %11 ]
   %20 = add i64 %18, 1
   store i64 %20, ptr %6, align 8, !tbaa !132
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   store ptr %1, ptr %21, align 8, !tbaa !84
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i64, ptr %22, align 8, !tbaa !128
@@ -2356,14 +2356,14 @@ define internal void @_ZL23pollset_set_add_pollsetP16grpc_pollset_setP12grpc_pol
   %.035 = phi i64 [ 0, %.lr.ph ], [ %.1, %43 ]
   %.03034 = phi i64 [ 0, %.lr.ph ], [ %44, %43 ]
   %26 = load ptr, ptr %24, align 8, !tbaa !133
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %.03034
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.03034
   %28 = load ptr, ptr %27, align 8, !tbaa !99
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load atomic i64, ptr %29 acquire, align 8
   %31 = and i64 %30, 1
   %32 = icmp eq i64 %31, 0
   %33 = load ptr, ptr %24, align 8, !tbaa !133
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.03034
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.03034
   %35 = load ptr, ptr %34, align 8, !tbaa !99
   br i1 %32, label %36, label %37
 
@@ -2374,10 +2374,10 @@ define internal void @_ZL23pollset_set_add_pollsetP16grpc_pollset_setP12grpc_pol
 37:                                               ; preds = %25
   tail call void @_ZL14pollset_add_fdP12grpc_pollsetP7grpc_fd(ptr noundef %1, ptr noundef %35)
   %38 = load ptr, ptr %24, align 8, !tbaa !133
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.03034
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.03034
   %40 = load ptr, ptr %39, align 8, !tbaa !99
   %41 = add i64 %.035, 1
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %.035
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.035
   store ptr %40, ptr %42, align 8, !tbaa !99
   br label %43
 
@@ -2410,16 +2410,16 @@ define internal void @_ZL23pollset_set_del_pollsetP16grpc_pollset_setP12grpc_pol
 
 7:                                                ; preds = %.lr.ph, %16
   %.029 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.029
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.029
   %9 = load ptr, ptr %8, align 8, !tbaa !84
   %10 = icmp eq ptr %9, %1
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %.029
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.029
   %13 = add i64 %4, -1
   store i64 %13, ptr %3, align 8, !tbaa !132
-  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !84
   store ptr %15, ptr %12, align 8, !tbaa !84
   store ptr %9, ptr %14, align 8, !tbaa !84
@@ -2503,7 +2503,7 @@ define internal void @_ZL27pollset_set_add_pollset_setP16grpc_pollset_setS0_(ptr
   %16 = phi ptr [ %.pre, %._crit_edge33 ], [ %13, %8 ]
   %17 = add i64 %15, 1
   store i64 %17, ptr %3, align 8, !tbaa !141
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   store ptr %1, ptr %18, align 8, !tbaa !143
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load i64, ptr %19, align 8, !tbaa !128
@@ -2518,14 +2518,14 @@ define internal void @_ZL27pollset_set_add_pollset_setP16grpc_pollset_setS0_(ptr
   %.032 = phi i64 [ 0, %.lr.ph ], [ %.1, %40 ]
   %.02731 = phi i64 [ 0, %.lr.ph ], [ %41, %40 ]
   %23 = load ptr, ptr %21, align 8, !tbaa !133
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %.02731
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.02731
   %25 = load ptr, ptr %24, align 8, !tbaa !99
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load atomic i64, ptr %26 acquire, align 8
   %28 = and i64 %27, 1
   %29 = icmp eq i64 %28, 0
   %30 = load ptr, ptr %21, align 8, !tbaa !133
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %.02731
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02731
   %32 = load ptr, ptr %31, align 8, !tbaa !99
   br i1 %29, label %33, label %34
 
@@ -2536,10 +2536,10 @@ define internal void @_ZL27pollset_set_add_pollset_setP16grpc_pollset_setS0_(ptr
 34:                                               ; preds = %22
   tail call void @_ZL18pollset_set_add_fdP16grpc_pollset_setP7grpc_fd(ptr noundef %1, ptr noundef %32)
   %35 = load ptr, ptr %21, align 8, !tbaa !133
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.02731
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02731
   %37 = load ptr, ptr %36, align 8, !tbaa !99
   %38 = add i64 %.032, 1
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %.032
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.032
   store ptr %37, ptr %39, align 8, !tbaa !99
   br label %40
 
@@ -2572,16 +2572,16 @@ define internal void @_ZL27pollset_set_del_pollset_setP16grpc_pollset_setS0_(ptr
 
 7:                                                ; preds = %.lr.ph, %16
   %.019 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.019
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.019
   %9 = load ptr, ptr %8, align 8, !tbaa !143
   %10 = icmp eq ptr %9, %1
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %.019
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.019
   %13 = add i64 %4, -1
   store i64 %13, ptr %3, align 8, !tbaa !141
-  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !143
   store ptr %15, ptr %12, align 8, !tbaa !143
   store ptr %9, ptr %14, align 8, !tbaa !143
@@ -2641,7 +2641,7 @@ _ZL6fd_refP7grpc_fd.exit:                         ; preds = %15
   %26 = load i64, ptr %4, align 8, !tbaa !128
   %27 = add i64 %26, 1
   store i64 %27, ptr %4, align 8, !tbaa !128
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   store ptr %1, ptr %28, align 8, !tbaa !99
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !132
@@ -2665,7 +2665,7 @@ _ZL6fd_refP7grpc_fd.exit:                         ; preds = %15
 35:                                               ; preds = %.lr.ph, %35
   %.027 = phi i64 [ 0, %.lr.ph ], [ %39, %35 ]
   %36 = load ptr, ptr %31, align 8, !tbaa !135
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.027
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.027
   %38 = load ptr, ptr %37, align 8, !tbaa !84
   tail call void @_ZL14pollset_add_fdP12grpc_pollsetP7grpc_fd(ptr noundef %38, ptr noundef %1)
   %39 = add nuw i64 %.027, 1
@@ -2676,7 +2676,7 @@ _ZL6fd_refP7grpc_fd.exit:                         ; preds = %15
 42:                                               ; preds = %.lr.ph29, %42
   %.128 = phi i64 [ 0, %.lr.ph29 ], [ %46, %42 ]
   %43 = load ptr, ptr %34, align 8, !tbaa !137
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %.128
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.128
   %45 = load ptr, ptr %44, align 8, !tbaa !143
   tail call void @_ZL18pollset_set_add_fdP16grpc_pollset_setP7grpc_fd(ptr noundef %45, ptr noundef %1)
   %46 = add nuw i64 %.128, 1
@@ -2704,16 +2704,16 @@ define internal void @_ZL18pollset_set_del_fdP16grpc_pollset_setP7grpc_fd(ptr no
 
 7:                                                ; preds = %.lr.ph, %16
   %.027 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.027
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.027
   %9 = load ptr, ptr %8, align 8, !tbaa !99
   %10 = icmp eq ptr %9, %1
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %.027
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.027
   %13 = add i64 %4, -1
   store i64 %13, ptr %3, align 8, !tbaa !128
-  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !99
   store ptr %15, ptr %12, align 8, !tbaa !99
   store ptr %9, ptr %14, align 8, !tbaa !99
@@ -2738,7 +2738,7 @@ define internal void @_ZL18pollset_set_del_fdP16grpc_pollset_setP7grpc_fd(ptr no
 21:                                               ; preds = %.lr.ph29, %21
   %.128 = phi i64 [ 0, %.lr.ph29 ], [ %25, %21 ]
   %22 = load ptr, ptr %20, align 8, !tbaa !137
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.128
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.128
   %24 = load ptr, ptr %23, align 8, !tbaa !143
   tail call void @_ZL18pollset_set_del_fdP16grpc_pollset_setP7grpc_fd(ptr noundef %24, ptr noundef %1)
   %25 = add nuw i64 %.128, 1
@@ -4313,7 +4313,7 @@ define internal fastcc void @_ZL15finish_shutdownP12grpc_pollset(ptr noundef cap
 7:                                                ; preds = %.lr.ph, %7
   %.08 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
   %8 = load ptr, ptr %6, align 8, !tbaa !79
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.08
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.08
   %10 = load ptr, ptr %9, align 8, !tbaa !99
   tail call fastcc void @_ZL8unref_byP7grpc_fdi(ptr noundef %10)
   %11 = add nuw i64 %.08, 1

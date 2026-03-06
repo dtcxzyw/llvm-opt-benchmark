@@ -465,7 +465,7 @@ define internal i64 @marshal_dump(i32 noundef %0, ptr noundef readonly captures(
   %13 = phi i1 [ true, %.preheader ], [ false, %26 ]
   %.185.i11 = phi i32 [ 1, %.preheader ], [ %.286.i, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr ptr, ptr %7, i64 %indvars.iv
+  %14 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !28
   %16 = icmp slt i32 %.185.i11, %0
   %.not103.i = icmp eq ptr %15, null
@@ -476,7 +476,7 @@ define internal i64 @marshal_dump(i32 noundef %0, ptr noundef readonly captures(
 
 18:                                               ; preds = %17
   %19 = sext i32 %.185.i11 to i64
-  %20 = getelementptr i64, ptr %1, i64 %19
+  %20 = getelementptr [8 x i8], ptr %1, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !7
   store i64 %21, ptr %15, align 8, !tbaa !7
   br label %22
@@ -1186,7 +1186,7 @@ define internal fastcc range(i32 0, 32) i32 @rb_type(i64 noundef %0) unnamed_add
   br label %19
 
 switch.lookup:                                    ; preds = %11
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_type, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_type, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %19
 
@@ -2065,7 +2065,7 @@ BIGNUM_DIGITS.exit:                               ; preds = %327, %331
   %.0.i194241 = phi i64 [ %329, %327 ], [ %333, %331 ]
   %.0.i196 = phi ptr [ %330, %327 ], [ %335, %331 ]
   %336 = add i64 %.0.i194241, -1
-  %337 = getelementptr i32, ptr %.0.i196, i64 %336
+  %337 = getelementptr [4 x i8], ptr %.0.i196, i64 %336
   %338 = load i32, ptr %337, align 4, !tbaa !89
   %.not7.i = icmp eq i32 %338, 0
   br i1 %.not7.i, label %shortlen.exit, label %.lr.ph.i197
@@ -2233,7 +2233,7 @@ rb_array_len.exit209.thread:                      ; preds = %394
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit209.thread, %402
   %.0.i.i = phi ptr [ %403, %402 ], [ %392, %rb_array_len.exit209.thread ]
-  %404 = getelementptr i64, ptr %.0.i.i, i64 %.0135
+  %404 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.0135
   %405 = load i64, ptr %404, align 8, !tbaa !7
   call fastcc void @w_object(i64 noundef %405, ptr noundef %1, i32 noundef %spec.select)
   %406 = load i64, ptr %276, align 8, !tbaa !56
@@ -2361,7 +2361,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %443, %446
 
 RARRAY_AREF.exit223:                              ; preds = %456, %459
   %.0.i.i222 = phi ptr [ %460, %459 ], [ %452, %456 ]
-  %461 = getelementptr i64, ptr %.0.i.i222, i64 %.0129260
+  %461 = getelementptr [8 x i8], ptr %.0.i.i222, i64 %.0129260
   %462 = load i64, ptr %461, align 8, !tbaa !7
   call fastcc void @w_symbol(i64 noundef %462, ptr noundef %1)
   %463 = load i64, ptr %276, align 8, !tbaa !56
@@ -2375,7 +2375,7 @@ RARRAY_AREF.exit223:                              ; preds = %456, %459
 
 internal_RSTRUCT_GET.exit:                        ; preds = %RARRAY_AREF.exit223, %465
   %.0.i.i225 = phi ptr [ %466, %465 ], [ %454, %RARRAY_AREF.exit223 ]
-  %467 = getelementptr i64, ptr %.0.i.i225, i64 %.0129260
+  %467 = getelementptr [8 x i8], ptr %.0.i.i225, i64 %.0129260
   %468 = load i64, ptr %467, align 8, !tbaa !7
   call fastcc void @w_object(i64 noundef %468, ptr noundef %1, i32 noundef %spec.select)
   %469 = add nuw nsw i64 %.0129260, 1
@@ -6230,7 +6230,7 @@ r_entry0.exit559:                                 ; preds = %750, %758
 
 RARRAY_AREF.exit:                                 ; preds = %777, %780
   %.0.i.i = phi ptr [ %781, %780 ], [ %775, %777 ]
-  %782 = getelementptr i64, ptr %.0.i.i, i64 %.0386793
+  %782 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.0386793
   %783 = load i64, ptr %782, align 8, !tbaa !7
   %784 = call i64 @rb_sym2str(i64 noundef %783) #23
   br label %785
@@ -6294,7 +6294,7 @@ r_symbol.exit:                                    ; preds = %789, %794
 
 RARRAY_AREF.exit565:                              ; preds = %801, %804
   %.0.i.i564 = phi ptr [ %805, %804 ], [ %775, %801 ]
-  %806 = getelementptr i64, ptr %.0.i.i564, i64 %.0386793
+  %806 = getelementptr [8 x i8], ptr %.0.i.i564, i64 %.0386793
   %807 = load i64, ptr %806, align 8, !tbaa !7
   %808 = call fastcc i32 @r_byte(ptr noundef nonnull %0)
   %809 = call fastcc i64 @r_object_for(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef null, i64 noundef 4, i32 noundef %808)
@@ -8235,7 +8235,7 @@ rb_array_len.exit:                                ; preds = %6, %9
 
 RARRAY_AREF.exit:                                 ; preds = %15, %19
   %.0.i.i = phi ptr [ %20, %19 ], [ %13, %15 ]
-  %21 = getelementptr i64, ptr %.0.i.i, i64 %16
+  %21 = getelementptr [8 x i8], ptr %.0.i.i, i64 %16
   %22 = load i64, ptr %21, align 8, !tbaa !7
   tail call void @rb_extend_object(i64 noundef %0, i64 noundef %22) #23
   %23 = icmp samesign ugt i64 %.07, 1

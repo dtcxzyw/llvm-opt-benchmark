@@ -5644,8 +5644,8 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
 12:                                               ; preds = %0, %12
   %indvars.iv56 = phi i64 [ 11, %0 ], [ %indvars.iv.next57, %12 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr i32, ptr @ett_nas_eps_common_elem, i64 %indvars.iv
-  %14 = getelementptr ptr, ptr %1, i64 %indvars.iv56
+  %13 = getelementptr [4 x i8], ptr @ett_nas_eps_common_elem, i64 %indvars.iv
+  %14 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv56
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
@@ -5655,8 +5655,8 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
 .preheader42:                                     ; preds = %12, %.preheader42
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.preheader42 ], [ 23, %12 ]
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %.preheader42 ], [ 0, %12 ]
-  %15 = getelementptr i32, ptr @ett_nas_msg_emm, i64 %indvars.iv61
-  %16 = getelementptr ptr, ptr %1, i64 %indvars.iv63
+  %15 = getelementptr [4 x i8], ptr @ett_nas_msg_emm, i64 %indvars.iv61
+  %16 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv63
   store ptr %15, ptr %16, align 8
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
@@ -5666,8 +5666,8 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
 .preheader41:                                     ; preds = %.preheader42, %.preheader41
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.preheader41 ], [ 56, %.preheader42 ]
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.preheader41 ], [ 0, %.preheader42 ]
-  %17 = getelementptr i32, ptr @ett_nas_eps_emm_elem, i64 %indvars.iv69
-  %18 = getelementptr ptr, ptr %1, i64 %indvars.iv71
+  %17 = getelementptr [4 x i8], ptr @ett_nas_eps_emm_elem, i64 %indvars.iv69
+  %18 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv71
   store ptr %17, ptr %18, align 8
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
@@ -5677,8 +5677,8 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
 .preheader40:                                     ; preds = %.preheader41, %.preheader40
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.preheader40 ], [ 138, %.preheader41 ]
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %.preheader40 ], [ 0, %.preheader41 ]
-  %19 = getelementptr i32, ptr @ett_nas_msg_esm, i64 %indvars.iv77
-  %20 = getelementptr ptr, ptr %1, i64 %indvars.iv79
+  %19 = getelementptr [4 x i8], ptr @ett_nas_msg_esm, i64 %indvars.iv77
+  %20 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv79
   store ptr %19, ptr %20, align 8
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
@@ -5688,8 +5688,8 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
 .preheader:                                       ; preds = %.preheader40, %.preheader
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %.preheader ], [ 166, %.preheader40 ]
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.preheader ], [ 0, %.preheader40 ]
-  %21 = getelementptr i32, ptr @ett_nas_eps_esm_elem, i64 %indvars.iv85
-  %22 = getelementptr ptr, ptr %1, i64 %indvars.iv87
+  %21 = getelementptr [4 x i8], ptr @ett_nas_eps_esm_elem, i64 %indvars.iv85
+  %22 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv87
   store ptr %21, ptr %22, align 8
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
@@ -6144,7 +6144,7 @@ define internal fastcc void @dissect_nas_eps_esm_msg(ptr noundef %0, ptr noundef
   %19 = load i32, ptr @hf_nas_eps_msg_esm_type, align 4
   %20 = load i32, ptr %5, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr ptr, ptr @nas_msg_esm_fcn, i64 %21
+  %22 = getelementptr [8 x i8], ptr @nas_msg_esm_fcn, i64 %21
   %23 = load ptr, ptr %22, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7958,7 +7958,7 @@ define internal fastcc void @dissect_nas_eps_emm_msg(ptr noundef %0, ptr noundef
   %38 = load i32, ptr @hf_nas_eps_msg_emm_type, align 4
   %39 = load i32, ptr %6, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr ptr, ptr @nas_msg_emm_fcn, i64 %40
+  %41 = getelementptr [8 x i8], ptr @nas_msg_emm_fcn, i64 %40
   %42 = load ptr, ptr %41, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8

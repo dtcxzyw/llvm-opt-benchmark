@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.6 = type { ptr, ptr, ptr }
 %class.anon.7 = type { ptr }
 %class.anon.8 = type { ptr, ptr, ptr }
-%"struct.llvm::OptimizedStructLayoutField" = type <{ i64, i64, ptr, ptr, %"struct.llvm::Align", [7 x i8] }>
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
@@ -241,7 +240,7 @@ _ZN4llvm15SmallVectorImplINS_26OptimizedStructLayoutFieldEE7reserveEm.exit: ; pr
   br i1 %.not.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueLb1EE9push_backERKS4_.exit, label %79, !prof !36
 
 79:                                               ; preds = %.critedge3
-  %80 = getelementptr inbounds nuw %struct.AlignmentQueue, ptr %.val.pre4.i, i64 %76
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %.val.pre4.i, i64 %76
   %81 = icmp uge ptr %4, %.val.pre4.i
   %82 = icmp ult ptr %4, %80
   %spec.select.i.i.i.i.i = and i1 %81, %82
@@ -265,7 +264,7 @@ _ZN4llvm23SmallVectorTemplateBaseIZNS_28performOptimizedStructLayoutENS_15Mutabl
   %.016.i.i.i = phi ptr [ %4, %.critedge3 ], [ %86, %83 ], [ %4, %.critedge.i.i.i ]
   %.val3.i = load i32, ptr %51, align 8, !tbaa !21
   %87 = zext i32 %.val3.i to i64
-  %88 = getelementptr inbounds nuw %struct.AlignmentQueue, ptr %.val.i, i64 %87
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %.val.i, i64 %87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %88, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %89 = load i32, ptr %51, align 8, !tbaa !21
   %90 = add i32 %89, 1
@@ -304,7 +303,7 @@ _ZN4llvm23SmallVectorTemplateBaseIZNS_28performOptimizedStructLayoutENS_15Mutabl
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_26OptimizedStructLayoutFieldELb1EE9push_backERKS1_.exit, label %103, !prof !36
 
 103:                                              ; preds = %98
-  %104 = getelementptr inbounds nuw %"struct.llvm::OptimizedStructLayoutField", ptr %.pre3.i, i64 %100
+  %104 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %100
   %105 = icmp uge ptr %.075200, %.pre3.i
   %106 = icmp ult ptr %.075200, %104
   %spec.select.i.i.i.i.i103 = and i1 %105, %106
@@ -329,7 +328,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_26OptimizedStructLayoutFieldELb1EE9push_bac
   %.016.i.i.i105 = phi ptr [ %.075200, %98 ], [ %112, %107 ], [ %.075200, %.critedge.i.i.i104 ]
   %114 = load i32, ptr %57, align 8, !tbaa !21
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw %"struct.llvm::OptimizedStructLayoutField", ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [40 x i8], ptr %113, i64 %115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %116, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i105, i64 40, i1 false)
   %117 = load i32, ptr %57, align 8, !tbaa !21
   %118 = add i32 %117, 1
@@ -584,7 +583,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm28performOptimizedStructLay
   %71 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
   %.val6.i.i.i.i = load i32, ptr %71, align 8, !tbaa !21
   %72 = zext i32 %.val6.i.i.i.i to i64
-  %73 = getelementptr inbounds nuw %struct.AlignmentQueue, ptr %.val.i.i.i.i, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %.val.i.i.i.i, i64 %72
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %73, %70
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEE14AlignmentQueueE5eraseEPKS4_.exit.i.i.i, label %74
 
@@ -616,7 +615,7 @@ _ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRe
   br i1 %.not.i.i.not.i.i.i, label %100, label %88, !prof !36
 
 88:                                               ; preds = %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_1clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuePS1_S6_.exit.i.i"
-  %89 = getelementptr inbounds nuw %"struct.llvm::OptimizedStructLayoutField", ptr %.pre3.i.i.i, i64 %84
+  %89 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i.i.i, i64 %84
   %90 = icmp uge ptr %.014.i, %.pre3.i.i.i
   %91 = icmp ult ptr %.014.i, %89
   %spec.select.i.i.i.i.i.i.i = and i1 %90, %91
@@ -643,7 +642,7 @@ _ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRe
   %.016.i.i.i.i.i = phi ptr [ %.014.i, %"_ZZN4llvm28performOptimizedStructLayoutENS_15MutableArrayRefINS_26OptimizedStructLayoutFieldEEEENK3$_1clEPZNS_28performOptimizedStructLayoutES2_E14AlignmentQueuePS1_S6_.exit.i.i" ], [ %98, %92 ], [ %.014.i, %.critedge.i.i.i.i.i ]
   %102 = load i32, ptr %82, align 8, !tbaa !21
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw %"struct.llvm::OptimizedStructLayoutField", ptr %101, i64 %103
+  %104 = getelementptr inbounds nuw [40 x i8], ptr %101, i64 %103
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %104, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i.i, i64 40, i1 false)
   %105 = load i32, ptr %82, align 8, !tbaa !21
   %106 = add i32 %105, 1
@@ -653,7 +652,7 @@ _ZN4llvm15SmallVectorImplIZNS_28performOptimizedStructLayoutENS_15MutableArrayRe
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %110 = load i32, ptr %109, align 8, !tbaa !21
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw %"struct.llvm::OptimizedStructLayoutField", ptr %108, i64 %111
+  %112 = getelementptr inbounds nuw [40 x i8], ptr %108, i64 %111
   %113 = getelementptr inbounds i8, ptr %112, i64 -40
   store i64 %.us-phi, ptr %113, align 8, !tbaa !3
   %114 = getelementptr inbounds i8, ptr %112, i64 -32

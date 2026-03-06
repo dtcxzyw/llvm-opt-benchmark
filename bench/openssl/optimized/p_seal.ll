@@ -76,7 +76,7 @@ define range(i32 0, -2147483648) i32 @EVP_SealInit(ptr noundef %0, ptr noundef %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %37, ptr %9, align 8, !tbaa !3
-  %39 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !7
   %41 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %.043, ptr noundef %40, ptr noundef null) #3
   %42 = icmp eq ptr %41, null
@@ -94,7 +94,7 @@ define range(i32 0, -2147483648) i32 @EVP_SealInit(ptr noundef %0, ptr noundef %
   br i1 %46, label %.thread, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !10
   %50 = load i64, ptr %9, align 8, !tbaa !3
   %51 = call i32 @EVP_PKEY_encrypt(ptr noundef nonnull %41, ptr noundef %49, ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef %50) #3
@@ -108,7 +108,7 @@ define range(i32 0, -2147483648) i32 @EVP_SealInit(ptr noundef %0, ptr noundef %
 53:                                               ; preds = %47
   %54 = load i64, ptr %9, align 8, !tbaa !3
   %55 = trunc i64 %54 to i32
-  %56 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %55, ptr %56, align 4, !tbaa !12
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %41) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

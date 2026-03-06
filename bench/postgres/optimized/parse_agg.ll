@@ -3,10 +3,8 @@ source_filename = "bench/postgres/original/parse_agg.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
 %struct.check_agg_arguments_context = type { ptr, i32, i32, i32 }
 %struct.substitute_grouped_columns_context = type { ptr, ptr, i8, ptr, ptr, ptr, i8, ptr, i32, i8 }
-%struct.ParseNamespaceColumn = type { i32, i16, i32, i32, i32, i32, i32, i16, i8 }
 
 @.str = private unnamed_addr constant [52 x i8] c"could not identify an ordering operator for type %s\00", align 1
 @.str.1 = private unnamed_addr constant [60 x i8] c"Aggregates with DISTINCT must be able to sort their inputs.\00", align 1
@@ -155,7 +153,7 @@ list_length.exit130.split:                        ; preds = %list_length.exit130
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr %22, align 8
-  %31 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   br label %32
 
 32:                                               ; preds = %list_length.exit130.split, %25, %29
@@ -173,7 +171,7 @@ list_length.exit130.split:                        ; preds = %list_length.exit130
   br i1 %41, label %42, label %.thread
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw %union.ListCell, ptr %38, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %44 = load ptr, ptr %33, align 8
   %45 = load ptr, ptr %43, align 8
   %46 = add i16 %.099, 1
@@ -202,7 +200,7 @@ list_length.exit130.split:                        ; preds = %list_length.exit130
   %56 = phi ptr [ %62, %.lr.ph140 ], [ null, %.lr.ph ]
   %.1100133138 = phi i16 [ %60, %.lr.ph140 ], [ 1, %.lr.ph ]
   %57 = load ptr, ptr %53, align 8
-  %58 = getelementptr inbounds nuw %union.ListCell, ptr %57, i64 %indvars.iv179
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv179
   %59 = load ptr, ptr %58, align 8
   %60 = add i16 %.1100133138, 1
   %61 = tail call ptr @makeTargetEntry(ptr noundef %59, i16 noundef signext %.1100133138, ptr noundef null, i1 noundef zeroext false) #10
@@ -250,7 +248,7 @@ list_length.exit130.split:                        ; preds = %list_length.exit130
 
 78:                                               ; preds = %.lr.ph150, %77
   %indvars.iv181 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next182, %77 ]
-  %79 = getelementptr inbounds nuw %union.ListCell, ptr %76, i64 %indvars.iv181
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv181
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 12
   %82 = load i32, ptr %81, align 4
@@ -310,7 +308,7 @@ list_length.exit130.split:                        ; preds = %list_length.exit130
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %.lr.ph162 ], [ 0, %.lr.ph154 ]
   %.0153160 = phi ptr [ %110, %.lr.ph162 ], [ null, %.lr.ph154 ]
   %106 = load ptr, ptr %103, align 8
-  %107 = getelementptr inbounds nuw %union.ListCell, ptr %106, i64 %indvars.iv184
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv184
   %108 = load ptr, ptr %107, align 8
   %109 = call i32 @exprType(ptr noundef %108) #10
   %110 = call ptr @lappend_oid(ptr noundef %.0153160, i32 noundef %109) #10
@@ -342,7 +340,7 @@ list_length.exit130.split:                        ; preds = %list_length.exit130
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %132 ], [ 0, %.lr.ph166 ]
   %.1165172 = phi ptr [ %.2, %132 ], [ %.0.lcssa, %.lr.ph166 ]
   %120 = load ptr, ptr %116, align 8
-  %121 = getelementptr inbounds nuw %union.ListCell, ptr %120, i64 %indvars.iv187
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv187
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 42
   %124 = load i8, ptr %123, align 2, !range !6, !noundef !7
@@ -712,7 +710,7 @@ list_length.exit:                                 ; preds = %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge24 ], [ 0, %.lr.ph ]
   %.0212629 = phi ptr [ %24, %.critedge24 ], [ null, %.lr.ph ]
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %7, align 8
   %23 = tail call ptr @transformExpr(ptr noundef %0, ptr noundef %21, i32 noundef %22) #10
@@ -906,7 +904,7 @@ define dso_local void @transformWindowFuncCall(ptr noundef %0, ptr noundef captu
 
 65:                                               ; preds = %.lr.ph119, %73
   %indvars.iv = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next, %73 ]
-  %66 = getelementptr inbounds nuw %union.ListCell, ptr %64, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -957,7 +955,7 @@ define dso_local void @transformWindowFuncCall(ptr noundef %0, ptr noundef captu
 .lr.ph144:                                        ; preds = %.lr.ph122, %.thread107
   %indvars.iv129143 = phi i64 [ %indvars.iv.next130, %.thread107 ], [ 0, %.lr.ph122 ]
   %92 = load ptr, ptr %83, align 8
-  %93 = getelementptr inbounds nuw %union.ListCell, ptr %92, i64 %indvars.iv129143
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv129143
   %94 = load ptr, ptr %93, align 8
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129143, 1
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
@@ -1127,7 +1125,7 @@ define dso_local void @parseCheckAggregates(ptr noundef %0, ptr noundef %1) loca
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 1, %.preheader ]
   %.2168 = phi ptr [ %40, %33 ], [ %29, %.preheader ]
   %37 = load ptr, ptr %28, align 8
-  %38 = getelementptr inbounds nuw %union.ListCell, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @list_intersection_int(ptr noundef nonnull %.2168, ptr noundef %39) #10
   %.not148 = icmp eq ptr %40, null
@@ -1173,7 +1171,7 @@ list_length.exit:                                 ; preds = %.lr.ph, %33, %.preh
   %indvars.iv218 = phi i64 [ 0, %.lr.ph186 ], [ %indvars.iv.next219, %72 ]
   %.0125172184 = phi i1 [ false, %.lr.ph186 ], [ %.1126, %72 ]
   %.0123173183 = phi i8 [ 0, %.lr.ph186 ], [ %.1124, %72 ]
-  %57 = getelementptr inbounds nuw %union.ListCell, ptr %55, i64 %indvars.iv218
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv218
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load i32, ptr %59, align 8
@@ -1219,7 +1217,7 @@ list_length.exit:                                 ; preds = %.lr.ph, %33, %.preh
   %indvars.iv220 = phi i64 [ %indvars.iv.next221, %82 ], [ 0, %.lr.ph191 ]
   %.0112190197 = phi ptr [ %.1113, %82 ], [ null, %.lr.ph191 ]
   %73 = load ptr, ptr %64, align 8
-  %74 = getelementptr inbounds nuw %union.ListCell, ptr %73, i64 %indvars.iv220
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv220
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %65, align 8
   %77 = tail call ptr @get_sortgroupclause_tle(ptr noundef %75, ptr noundef %76) #10
@@ -1264,7 +1262,7 @@ list_length.exit:                                 ; preds = %.lr.ph, %33, %.preh
   %.0117201213 = phi i8 [ %.1118, %118 ], [ 0, %.lr.ph204 ]
   %.0115202212 = phi ptr [ %.1116, %118 ], [ null, %.lr.ph204 ]
   %93 = load ptr, ptr %90, align 8
-  %94 = getelementptr inbounds nuw %union.ListCell, ptr %93, i64 %indvars.iv223
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv223
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8
@@ -1487,7 +1485,7 @@ define dso_local ptr @expand_grouping_sets(ptr noundef readonly captures(address
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.084150.us = phi ptr [ %14, %.lr.ph.split.us ], [ null, %.lr.ph ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call fastcc ptr @expand_groupingset_node(ptr noundef %12)
   %14 = tail call ptr @lappend(ptr noundef %.084150.us, ptr noundef %13) #10
@@ -1502,7 +1500,7 @@ define dso_local ptr @expand_grouping_sets(ptr noundef readonly captures(address
   %.084150 = phi ptr [ %29, %28 ], [ null, %.lr.ph ]
   %.095149 = phi double [ %26, %28 ], [ 1.000000e+00, %.lr.ph ]
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv219
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv219
   %19 = load ptr, ptr %18, align 8
   %20 = tail call fastcc ptr @expand_groupingset_node(ptr noundef %19)
   %.not.i = icmp eq ptr %20, null
@@ -1547,7 +1545,7 @@ list_length.exit:                                 ; preds = %.lr.ph.split, %21
   %indvars.iv222 = phi i64 [ %indvars.iv.next223, %.lr.ph161 ], [ 0, %.lr.ph153 ]
   %.087152159 = phi ptr [ %42, %.lr.ph161 ], [ null, %.lr.ph153 ]
   %38 = load ptr, ptr %35, align 8
-  %39 = getelementptr inbounds nuw %union.ListCell, ptr %38, i64 %indvars.iv222
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv222
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @list_union_int(ptr noundef null, ptr noundef %40) #10
   %42 = tail call ptr @lappend(ptr noundef %.087152159, ptr noundef %41) #10
@@ -1573,7 +1571,7 @@ list_length.exit:                                 ; preds = %.lr.ph.split, %21
 
 .lr.ph177:                                        ; preds = %.lr.ph258
   %50 = load ptr, ptr %32, align 8
-  %51 = getelementptr inbounds nuw %union.ListCell, ptr %50, i64 %indvars.iv231256
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv231256
   %52 = load ptr, ptr %51, align 8
   %.fr = freeze ptr %52
   %53 = getelementptr inbounds nuw i8, ptr %.188199257, i64 16
@@ -1604,7 +1602,7 @@ list_length.exit:                                 ; preds = %.lr.ph.split, %21
   %indvars.iv228 = phi i64 [ %indvars.iv.next229, %..critedge129_crit_edge167.split ], [ 0, %.lr.ph165.lr.ph ]
   %.0103175190 = phi ptr [ %split168, %..critedge129_crit_edge167.split ], [ null, %.lr.ph165.lr.ph ]
   %62 = load ptr, ptr %53, align 8
-  %63 = getelementptr inbounds nuw %union.ListCell, ptr %62, i64 %indvars.iv228
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv228
   %64 = load ptr, ptr %63, align 8
   %65 = icmp sgt i32 %61, 0
   br i1 %65, label %.lr.ph173, label %..critedge129_crit_edge167.split
@@ -1621,7 +1619,7 @@ list_length.exit:                                 ; preds = %.lr.ph.split, %21
   %indvars.iv225 = phi i64 [ %indvars.iv.next226, %.lr.ph173 ], [ 0, %.lr.ph165 ]
   %.1104163172 = phi ptr [ %73, %.lr.ph173 ], [ %.0103175190, %.lr.ph165 ]
   %69 = load ptr, ptr %55, align 8
-  %70 = getelementptr inbounds nuw %union.ListCell, ptr %69, i64 %indvars.iv225
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv225
   %71 = load ptr, ptr %70, align 8
   %72 = tail call ptr @list_union_int(ptr noundef %64, ptr noundef %71) #10
   %73 = tail call ptr @lappend(ptr noundef %.1104163172, ptr noundef %72) #10
@@ -1661,7 +1659,7 @@ list_length.exit135.thread:                       ; preds = %list_length.exit135
 85:                                               ; preds = %.lr.ph205, %85
   %indvars.iv234 = phi i64 [ 0, %.lr.ph205 ], [ %indvars.iv.next235, %85 ]
   %86 = load ptr, ptr %84, align 8
-  %87 = getelementptr inbounds nuw %union.ListCell, ptr %86, i64 %indvars.iv234
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv234
   %88 = load ptr, ptr %87, align 8
   tail call void @list_sort(ptr noundef %88, ptr noundef nonnull @list_int_cmp) #10
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
@@ -1691,7 +1689,7 @@ list_length.exit135.thread:                       ; preds = %list_length.exit135
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.0209, i64 16
   %100 = load ptr, ptr %99, align 8
   %101 = sext i32 %.sroa.7.0208 to i64
-  %102 = getelementptr inbounds %union.ListCell, ptr %100, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %100, i64 %101
   %103 = load ptr, ptr %102, align 8
   %104 = tail call zeroext i1 @equal(ptr noundef %103, ptr noundef %.091206) #10
   br i1 %104, label %105, label %107
@@ -1793,7 +1791,7 @@ list_length.exit:                                 ; preds = %10
   %.060113125 = phi i32 [ %31, %21 ], [ %.056129, %.preheader ]
   %.058114124 = phi ptr [ %30, %21 ], [ null, %.preheader ]
   %25 = load ptr, ptr %17, align 8
-  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv147
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv147
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
@@ -1860,7 +1858,7 @@ list_length.exit:                                 ; preds = %10
 
 50:                                               ; preds = %.lr.ph105
   %51 = load ptr, ptr %41, align 8
-  %52 = getelementptr inbounds nuw %union.ListCell, ptr %51, i64 %indvars.iv144
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv144
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
@@ -1894,7 +1892,7 @@ list_length.exit:                                 ; preds = %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph92 ], [ 0, %.lr.ph ]
   %.38690 = phi ptr [ %73, %.lr.ph92 ], [ null, %.lr.ph ]
   %69 = load ptr, ptr %66, align 8
-  %70 = getelementptr inbounds nuw %union.ListCell, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8
   %72 = tail call fastcc ptr @expand_groupingset_node(ptr noundef %71)
   %73 = tail call ptr @list_concat(ptr noundef %.38690, ptr noundef %72) #10
@@ -1997,7 +1995,7 @@ cmp_list_len_asc.exit.thread.thread:              ; preds = %list_length.exit.i.
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr %17, align 8
-  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   br label %28
 
 28:                                               ; preds = %23, %25
@@ -2013,7 +2011,7 @@ cmp_list_len_asc.exit.thread.thread:              ; preds = %list_length.exit.i.
   br i1 %.not40, label %.thread43, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %36 = load i32, ptr %29, align 8
   %37 = load i32, ptr %35, align 8
   %38 = icmp sgt i32 %36, %37
@@ -2048,10 +2046,10 @@ define dso_local range(i32 0, -2147483648) i32 @get_aggregate_argtypes(ptr nound
 .lr.ph18:                                         ; preds = %.lr.ph, %.lr.ph18
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph18 ], [ 0, %.lr.ph ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %11, ptr %12, align 4
   %13 = load i32, ptr %5, align 4
   %14 = sext i32 %13 to i64
@@ -2126,7 +2124,7 @@ define dso_local noundef zeroext i1 @agg_args_support_sendreceive(ptr noundef re
 .lr.ph42:                                         ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -2215,7 +2213,7 @@ define dso_local void @build_aggregate_transfn_expr(ptr noundef readonly capture
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %21, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.033 = phi ptr [ %19, %.lr.ph.preheader ], [ %31, %.lr.ph ]
-  %22 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %22 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %24 = tail call noundef ptr @palloc0(i64 noundef 28) #10
   store i32 8, ptr %24, align 4
@@ -2357,7 +2355,7 @@ define dso_local void @build_aggregate_finalfn_expr(ptr noundef readonly capture
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.015 = phi ptr [ %15, %.lr.ph.preheader ], [ %27, %.lr.ph ]
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = tail call noundef ptr @palloc0(i64 noundef 28) #10
   store i32 8, ptr %20, align 4
@@ -2629,7 +2627,7 @@ thread-pre-split.thread:                          ; preds = %4, %17, %18
 buildGroupedVar.exit:                             ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.lr.ph ]
   %41 = load ptr, ptr %34, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -2740,7 +2738,7 @@ buildGroupedVar.exit:                             ; preds = %.lr.ph, %37
 
 107:                                              ; preds = %.lr.ph184, %128
   %indvars.iv195 = phi i64 [ 0, %.lr.ph184 ], [ %indvars.iv.next196, %128 ]
-  %108 = getelementptr inbounds nuw %union.ListCell, ptr %106, i64 %indvars.iv195
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv195
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
@@ -2798,7 +2796,7 @@ buildGroupedVar.exit:                             ; preds = %.lr.ph, %37
   %144 = getelementptr i8, ptr %141, i64 16
   %.val = load ptr, ptr %144, align 8
   %145 = sext i32 %143 to i64
-  %146 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %145
+  %146 = getelementptr inbounds [8 x i8], ptr %.val, i64 %145
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %149 = load i32, ptr %148, align 8
@@ -2893,7 +2891,7 @@ define internal fastcc ptr @buildGroupedVar(i32 noundef %0, i32 noundef %1, ptr 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %0 to i64
-  %10 = getelementptr inbounds %struct.ParseNamespaceColumn, ptr %8, i64 %9
+  %10 = getelementptr inbounds [32 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 -32
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds i8, ptr %10, i64 -28
@@ -3023,7 +3021,7 @@ common.ret235:                                    ; preds = %2, %16, %118, %.thr
   %.093157214 = phi ptr [ %114, %113 ], [ null, %.lr.ph158 ]
   %indvars.iv172213 = phi i64 [ %indvars.iv.next173, %113 ], [ 0, %.lr.ph158 ]
   %34 = load ptr, ptr %27, align 8
-  %35 = getelementptr inbounds nuw %union.ListCell, ptr %34, i64 %indvars.iv172213
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv172213
   %36 = load ptr, ptr %35, align 8
   %37 = load i8, ptr %28, align 8, !range !6, !noundef !7
   %38 = trunc nuw i8 %37 to i1
@@ -3081,7 +3079,7 @@ common.ret235:                                    ; preds = %2, %16, %118, %.thr
 
 60:                                               ; preds = %.lr.ph153, %81
   %indvars.iv169 = phi i64 [ 0, %.lr.ph153 ], [ %indvars.iv.next170, %81 ]
-  %61 = getelementptr inbounds nuw %union.ListCell, ptr %59, i64 %indvars.iv169
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv169
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
@@ -3146,7 +3144,7 @@ common.ret235:                                    ; preds = %2, %16, %118, %.thr
 .lr.ph136:                                        ; preds = %.lr.ph, %94
   %indvars.iv = phi i64 [ %indvars.iv.next, %94 ], [ 0, %.lr.ph ]
   %98 = load ptr, ptr %91, align 8
-  %99 = getelementptr inbounds nuw %union.ListCell, ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8

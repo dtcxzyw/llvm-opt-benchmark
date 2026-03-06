@@ -2264,11 +2264,11 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %66 = load ptr, ptr %0, align 8, !tbaa !4
   %67 = add nsw i64 %indvars.iv355.i.us, %47
   %68 = mul nsw i64 %67, %49
-  %69 = getelementptr inbounds float, ptr %66, i64 %68
-  %70 = getelementptr inbounds float, ptr %69, i64 %46
+  %69 = getelementptr inbounds [4 x i8], ptr %66, i64 %68
+  %70 = getelementptr inbounds [4 x i8], ptr %69, i64 %46
   %71 = load ptr, ptr %6, align 8, !tbaa !4
-  %72 = getelementptr inbounds float, ptr %71, i64 %47
-  %73 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv355.i.us
+  %72 = getelementptr inbounds [4 x i8], ptr %71, i64 %47
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv355.i.us
   %74 = load <4 x float>, ptr %73, align 16, !tbaa !15
   br i1 %48, label %.lr.ph216.i.us, label %.preheader136.i.us
 
@@ -2395,11 +2395,11 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %153 = load ptr, ptr %0, align 8, !tbaa !4
   %154 = add nsw i64 %indvars.iv355.i.us49, %47
   %155 = mul nsw i64 %154, %49
-  %156 = getelementptr inbounds float, ptr %153, i64 %155
-  %157 = getelementptr inbounds float, ptr %156, i64 %46
+  %156 = getelementptr inbounds [4 x i8], ptr %153, i64 %155
+  %157 = getelementptr inbounds [4 x i8], ptr %156, i64 %46
   %158 = load ptr, ptr %6, align 8, !tbaa !4
-  %159 = getelementptr inbounds float, ptr %158, i64 %47
-  %160 = getelementptr inbounds nuw float, ptr %159, i64 %indvars.iv355.i.us49
+  %159 = getelementptr inbounds [4 x i8], ptr %158, i64 %47
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %159, i64 %indvars.iv355.i.us49
   %161 = load <4 x float>, ptr %160, align 16, !tbaa !15
   br i1 %48, label %.lr.ph236.i.us, label %.preheader132.i.us
 
@@ -2408,11 +2408,11 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.4447234.i.us = phi ptr [ %202, %.lr.ph236.i.us ], [ %157, %.preheader133.i.us ]
   %.0456233.i.us = phi i32 [ %203, %.lr.ph236.i.us ], [ 0, %.preheader133.i.us ]
   %162 = load <4 x float>, ptr %.4447234.i.us, align 1, !tbaa !15
-  %163 = getelementptr inbounds float, ptr %.4447234.i.us, i64 %49
+  %163 = getelementptr inbounds [4 x i8], ptr %.4447234.i.us, i64 %49
   %164 = load <4 x float>, ptr %163, align 1, !tbaa !15
-  %165 = getelementptr inbounds float, ptr %.4447234.i.us, i64 %51
+  %165 = getelementptr inbounds [4 x i8], ptr %.4447234.i.us, i64 %51
   %166 = load <4 x float>, ptr %165, align 1, !tbaa !15
-  %167 = getelementptr inbounds float, ptr %.4447234.i.us, i64 %53
+  %167 = getelementptr inbounds [4 x i8], ptr %.4447234.i.us, i64 %53
   %168 = load <4 x float>, ptr %167, align 1, !tbaa !15
   %169 = shufflevector <4 x float> %162, <4 x float> %164, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   %170 = shufflevector <4 x float> %166, <4 x float> %168, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -2534,11 +2534,11 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %249 = load ptr, ptr %0, align 8, !tbaa !4
   %250 = add nsw i64 %indvars.iv.i, %22
   %251 = mul nsw i64 %250, %26
-  %252 = getelementptr inbounds float, ptr %249, i64 %251
-  %253 = getelementptr inbounds float, ptr %252, i64 %21
+  %252 = getelementptr inbounds [4 x i8], ptr %249, i64 %251
+  %253 = getelementptr inbounds [4 x i8], ptr %252, i64 %21
   %254 = load ptr, ptr %6, align 8, !tbaa !4
-  %255 = getelementptr inbounds float, ptr %254, i64 %22
-  %256 = getelementptr inbounds nuw float, ptr %255, i64 %indvars.iv.i
+  %255 = getelementptr inbounds [4 x i8], ptr %254, i64 %22
+  %256 = getelementptr inbounds nuw [4 x i8], ptr %255, i64 %indvars.iv.i
   %257 = load <8 x float>, ptr %256, align 32, !tbaa !15
   switch i32 %9, label %.loopexit140.i [
     i32 8, label %.preheader150.i
@@ -2701,7 +2701,7 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %360 = load <8 x float>, ptr %.5426170.i, align 1, !tbaa !15
   %361 = getelementptr inbounds nuw i8, ptr %.5426170.i, i64 32
   %362 = load <8 x float>, ptr %361, align 1, !tbaa !15
-  %363 = getelementptr inbounds float, ptr %.5426170.i, i64 %25
+  %363 = getelementptr inbounds [4 x i8], ptr %.5426170.i, i64 %25
   %364 = load <8 x float>, ptr %363, align 1, !tbaa !15
   %365 = getelementptr inbounds nuw i8, ptr %363, i64 32
   %366 = load <8 x float>, ptr %365, align 1, !tbaa !15
@@ -2770,7 +2770,7 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.6427177.i = phi ptr [ %443, %.lr.ph179.i ], [ %.5426.lcssa.i, %.preheader145.i ]
   %.1438176.i = phi i32 [ %444, %.lr.ph179.i ], [ %.0437.lcssa.i, %.preheader145.i ]
   %418 = load <8 x float>, ptr %.6427177.i, align 1, !tbaa !15
-  %419 = getelementptr inbounds float, ptr %.6427177.i, i64 %25
+  %419 = getelementptr inbounds [4 x i8], ptr %.6427177.i, i64 %25
   %420 = load <8 x float>, ptr %419, align 1, !tbaa !15
   %421 = shufflevector <8 x float> %418, <8 x float> %420, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %422 = shufflevector <8 x float> %418, <8 x float> %420, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
@@ -2806,7 +2806,7 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.7428184.i = phi ptr [ %465, %.lr.ph186.i ], [ %.6427.lcssa.i, %.preheader143.i ]
   %.2439183.i = phi i32 [ %466, %.lr.ph186.i ], [ %.1438.lcssa.i, %.preheader143.i ]
   %447 = load <4 x float>, ptr %.7428184.i, align 16, !tbaa !15
-  %448 = getelementptr inbounds float, ptr %.7428184.i, i64 %25
+  %448 = getelementptr inbounds [4 x i8], ptr %.7428184.i, i64 %25
   %449 = load <4 x float>, ptr %448, align 16, !tbaa !15
   %450 = shufflevector <4 x float> %447, <4 x float> %449, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %451 = fmul fast <8 x float> %450, %257
@@ -2845,19 +2845,19 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.8429190.i = phi ptr [ %546, %.lr.ph192.i ], [ %253, %.preheader142.i ]
   %.0440189.i = phi i32 [ %547, %.lr.ph192.i ], [ 0, %.preheader142.i ]
   %469 = load <4 x float>, ptr %.8429190.i, align 1, !tbaa !15
-  %470 = getelementptr inbounds float, ptr %.8429190.i, i64 %26
+  %470 = getelementptr inbounds [4 x i8], ptr %.8429190.i, i64 %26
   %471 = load <4 x float>, ptr %470, align 1, !tbaa !15
-  %472 = getelementptr inbounds float, ptr %.8429190.i, i64 %28
+  %472 = getelementptr inbounds [4 x i8], ptr %.8429190.i, i64 %28
   %473 = load <4 x float>, ptr %472, align 1, !tbaa !15
-  %474 = getelementptr inbounds float, ptr %.8429190.i, i64 %30
+  %474 = getelementptr inbounds [4 x i8], ptr %.8429190.i, i64 %30
   %475 = load <4 x float>, ptr %474, align 1, !tbaa !15
-  %476 = getelementptr inbounds float, ptr %.8429190.i, i64 %25
+  %476 = getelementptr inbounds [4 x i8], ptr %.8429190.i, i64 %25
   %477 = load <4 x float>, ptr %476, align 1, !tbaa !15
-  %478 = getelementptr inbounds float, ptr %.8429190.i, i64 %32
+  %478 = getelementptr inbounds [4 x i8], ptr %.8429190.i, i64 %32
   %479 = load <4 x float>, ptr %478, align 1, !tbaa !15
-  %480 = getelementptr inbounds float, ptr %.8429190.i, i64 %34
+  %480 = getelementptr inbounds [4 x i8], ptr %.8429190.i, i64 %34
   %481 = load <4 x float>, ptr %480, align 1, !tbaa !15
-  %482 = getelementptr inbounds float, ptr %.8429190.i, i64 %36
+  %482 = getelementptr inbounds [4 x i8], ptr %.8429190.i, i64 %36
   %483 = load <4 x float>, ptr %482, align 1, !tbaa !15
   %484 = shufflevector <4 x float> %469, <4 x float> %477, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %485 = shufflevector <4 x float> %471, <4 x float> %479, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
@@ -3051,10 +3051,10 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %616 = load ptr, ptr %0, align 8, !tbaa !4
   %617 = add nsw i64 %indvars.iv359.i, %606
   %618 = mul nsw i64 %617, %602
-  %619 = getelementptr inbounds float, ptr %616, i64 %618
-  %620 = getelementptr inbounds float, ptr %619, i64 %600
+  %619 = getelementptr inbounds [4 x i8], ptr %616, i64 %618
+  %620 = getelementptr inbounds [4 x i8], ptr %619, i64 %600
   %621 = load ptr, ptr %6, align 8, !tbaa !4
-  %622 = getelementptr float, ptr %621, i64 %617
+  %622 = getelementptr [4 x i8], ptr %621, i64 %617
   %623 = load float, ptr %622, align 4, !tbaa !98
   %624 = getelementptr i8, ptr %622, i64 4
   %625 = load float, ptr %624, align 4, !tbaa !98
@@ -3078,7 +3078,7 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.0450258.i = phi i32 [ %652, %.lr.ph260.i ], [ 0, %615 ]
   %.0459257.i = phi ptr [ %651, %.lr.ph260.i ], [ %620, %615 ]
   %633 = load <4 x float>, ptr %.0459257.i, align 1, !tbaa !15
-  %634 = getelementptr inbounds float, ptr %.0459257.i, i64 %602
+  %634 = getelementptr inbounds [4 x i8], ptr %.0459257.i, i64 %602
   %635 = load <4 x float>, ptr %634, align 1, !tbaa !15
   %636 = fmul fast <4 x float> %633, %627
   %637 = fmul fast <4 x float> %635, %629
@@ -3115,7 +3115,7 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.1460264.i = phi ptr [ %672, %.lr.ph267.i ], [ %.0459.lcssa.i, %.preheader129.i ]
   %656 = load i64, ptr %.1460264.i, align 1, !tbaa !15
   %657 = insertelement <2 x i64> poison, i64 %656, i64 0
-  %658 = getelementptr inbounds float, ptr %.1460264.i, i64 %602
+  %658 = getelementptr inbounds [4 x i8], ptr %.1460264.i, i64 %602
   %659 = load i64, ptr %658, align 1, !tbaa !15
   %.uncasted.i = insertelement <2 x i64> %657, i64 %659, i64 1
   %660 = bitcast <2 x i64> %.uncasted.i to <4 x float>
@@ -3149,7 +3149,7 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.0.i124.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i123.i, i32 127)
   %.0.i.i = trunc nsw i32 %.0.i124.i to i8
   store i8 %.0.i.i, ptr %.25273.i, align 1, !tbaa !15
-  %680 = getelementptr inbounds float, ptr %.2461271.i, i64 %602
+  %680 = getelementptr inbounds [4 x i8], ptr %.2461271.i, i64 %602
   %681 = load float, ptr %680, align 4, !tbaa !98
   %682 = fmul fast float %681, %625
   %683 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %682)
@@ -3177,10 +3177,10 @@ define hidden void @_ZN4ncnn36pack_A_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %691 = load ptr, ptr %0, align 8, !tbaa !4
   %692 = add nsw i64 %indvars.iv363.i, %613
   %693 = mul nsw i64 %692, %614
-  %694 = getelementptr inbounds float, ptr %691, i64 %693
-  %695 = getelementptr inbounds float, ptr %694, i64 %609
+  %694 = getelementptr inbounds [4 x i8], ptr %691, i64 %693
+  %695 = getelementptr inbounds [4 x i8], ptr %694, i64 %609
   %696 = load ptr, ptr %6, align 8, !tbaa !4
-  %697 = getelementptr inbounds nuw float, ptr %696, i64 %692
+  %697 = getelementptr inbounds nuw [4 x i8], ptr %696, i64 %692
   %698 = load float, ptr %697, align 4, !tbaa !98
   %699 = insertelement <4 x float> poison, float %698, i64 0
   %700 = shufflevector <4 x float> %699, <4 x float> poison, <4 x i32> zeroinitializer
@@ -3337,8 +3337,8 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %indvars.iv.i.us.us = phi i64 [ %indvars.iv.next.i.us.us, %.loopexit160.i.us.us ], [ 0, %.lr.ph197.i.split.us ]
   %.0196.i.us.us = phi ptr [ %.5.i.us.us, %.loopexit160.i.us.us ], [ %.val, %.lr.ph197.i.split.us ]
   %39 = load ptr, ptr %6, align 8, !tbaa !4
-  %40 = getelementptr inbounds float, ptr %39, i64 %22
-  %41 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv.i.us.us
+  %40 = getelementptr inbounds [4 x i8], ptr %39, i64 %22
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i.us.us
   %42 = load <8 x float>, ptr %41, align 32, !tbaa !15
   %43 = shufflevector <8 x float> %42, <8 x float> poison, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1>
   %44 = shufflevector <8 x float> %42, <8 x float> poison, <8 x i32> <i32 2, i32 2, i32 2, i32 2, i32 3, i32 3, i32 3, i32 3>
@@ -3348,10 +3348,10 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
 
 .lr.ph173.i.us.us.preheader:                      ; preds = %.loopexit165.i.us.us
   %47 = load ptr, ptr %0, align 8, !tbaa !4
-  %48 = getelementptr inbounds float, ptr %47, i64 %21
+  %48 = getelementptr inbounds [4 x i8], ptr %47, i64 %21
   %49 = add nsw i64 %indvars.iv.i.us.us, %22
   %50 = mul nsw i64 %49, %37
-  %51 = getelementptr inbounds float, ptr %48, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %48, i64 %50
   br label %.lr.ph173.i.us.us
 
 .lr.ph173.i.us.us:                                ; preds = %.lr.ph173.i.us.us.preheader, %.lr.ph173.i.us.us
@@ -3400,7 +3400,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %91 = shufflevector <8 x i32> %90, <8 x i32> %89, <8 x i32> <i32 0, i32 1, i32 4, i32 5, i32 8, i32 9, i32 12, i32 13>
   store <8 x i32> %91, ptr %.4172.i.us.us, align 32, !tbaa !15
   %92 = getelementptr inbounds nuw i8, ptr %.4172.i.us.us, i64 32
-  %93 = getelementptr inbounds float, ptr %.3457171.i.us.us, i64 %29
+  %93 = getelementptr inbounds [4 x i8], ptr %.3457171.i.us.us, i64 %29
   %94 = add nuw nsw i32 %.0465170.i.us.us, 4
   %95 = or disjoint i32 %94, 3
   %96 = icmp slt i32 %95, %5
@@ -3417,13 +3417,13 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %indvars.iv.i.us.us47 = phi i64 [ %indvars.iv.next.i.us.us51, %.loopexit160.i.us.us49 ], [ 0, %.lr.ph197.i.split.us ]
   %.0196.i.us.us48 = phi ptr [ %.5.i.us.us50, %.loopexit160.i.us.us49 ], [ %.val, %.lr.ph197.i.split.us ]
   %99 = load ptr, ptr %0, align 8, !tbaa !4
-  %100 = getelementptr inbounds float, ptr %99, i64 %21
+  %100 = getelementptr inbounds [4 x i8], ptr %99, i64 %21
   %101 = add nsw i64 %indvars.iv.i.us.us47, %22
   %102 = mul nsw i64 %101, %37
-  %103 = getelementptr inbounds float, ptr %100, i64 %102
+  %103 = getelementptr inbounds [4 x i8], ptr %100, i64 %102
   %104 = load ptr, ptr %6, align 8, !tbaa !4
-  %105 = getelementptr inbounds float, ptr %104, i64 %22
-  %106 = getelementptr inbounds nuw float, ptr %105, i64 %indvars.iv.i.us.us47
+  %105 = getelementptr inbounds [4 x i8], ptr %104, i64 %22
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv.i.us.us47
   %107 = load <8 x float>, ptr %106, align 32, !tbaa !15
   br i1 %27, label %.lr.ph179.i.us.us, label %.preheader161.i.us.us
 
@@ -3432,11 +3432,11 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %.4458177.i.us.us = phi ptr [ %157, %.lr.ph179.i.us.us ], [ %103, %.loopexit165.i.us.us46 ]
   %.0466176.i.us.us = phi i32 [ %158, %.lr.ph179.i.us.us ], [ 0, %.loopexit165.i.us.us46 ]
   %108 = load <8 x float>, ptr %.4458177.i.us.us, align 1, !tbaa !15
-  %109 = getelementptr inbounds float, ptr %.4458177.i.us.us, i64 %30
+  %109 = getelementptr inbounds [4 x i8], ptr %.4458177.i.us.us, i64 %30
   %110 = load <8 x float>, ptr %109, align 1, !tbaa !15
-  %111 = getelementptr inbounds float, ptr %.4458177.i.us.us, i64 %32
+  %111 = getelementptr inbounds [4 x i8], ptr %.4458177.i.us.us, i64 %32
   %112 = load <8 x float>, ptr %111, align 1, !tbaa !15
-  %113 = getelementptr inbounds float, ptr %.4458177.i.us.us, i64 %34
+  %113 = getelementptr inbounds [4 x i8], ptr %.4458177.i.us.us, i64 %34
   %114 = load <8 x float>, ptr %113, align 1, !tbaa !15
   %115 = fmul fast <8 x float> %108, %107
   %116 = fmul fast <8 x float> %110, %107
@@ -3481,7 +3481,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %155 = shufflevector <4 x i32> %153, <4 x i32> %154, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   store <8 x i32> %155, ptr %.6178.i.us.us, align 1, !tbaa !15
   %156 = getelementptr inbounds nuw i8, ptr %.6178.i.us.us, i64 32
-  %157 = getelementptr inbounds float, ptr %.4458177.i.us.us, i64 %29
+  %157 = getelementptr inbounds [4 x i8], ptr %.4458177.i.us.us, i64 %29
   %158 = add nuw nsw i32 %.0466176.i.us.us, 4
   %159 = or disjoint i32 %158, 3
   %160 = icmp slt i32 %159, %5
@@ -3500,7 +3500,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %.5459184.i.us.us = phi ptr [ %186, %.lr.ph186.i.us.us ], [ %.4458.lcssa.i.us.us, %.preheader161.i.us.us ]
   %.1467183.i.us.us = phi i32 [ %187, %.lr.ph186.i.us.us ], [ %.0466.lcssa.i.us.us, %.preheader161.i.us.us ]
   %163 = load <8 x float>, ptr %.5459184.i.us.us, align 1, !tbaa !15
-  %164 = getelementptr inbounds float, ptr %.5459184.i.us.us, i64 %30
+  %164 = getelementptr inbounds [4 x i8], ptr %.5459184.i.us.us, i64 %30
   %165 = load <8 x float>, ptr %164, align 1, !tbaa !15
   %166 = fmul fast <8 x float> %163, %107
   %167 = fmul fast <8 x float> %165, %107
@@ -3523,7 +3523,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %184 = shufflevector <16 x i8> %183, <16 x i8> poison, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <16 x i8> %184, ptr %.7185.i.us.us, align 1, !tbaa !15
   %185 = getelementptr inbounds nuw i8, ptr %.7185.i.us.us, i64 16
-  %186 = getelementptr inbounds float, ptr %.5459184.i.us.us, i64 %32
+  %186 = getelementptr inbounds [4 x i8], ptr %.5459184.i.us.us, i64 %32
   %187 = add nuw nsw i32 %.1467183.i.us.us, 2
   %188 = or disjoint i32 %187, 1
   %189 = icmp slt i32 %188, %5
@@ -3556,7 +3556,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %204 = extractelement <2 x i64> %203, i64 0
   store i64 %204, ptr %.8192.i.us.us, align 8, !tbaa !80
   %205 = getelementptr inbounds nuw i8, ptr %.8192.i.us.us, i64 8
-  %206 = getelementptr inbounds float, ptr %.6460191.i.us.us, i64 %30
+  %206 = getelementptr inbounds [4 x i8], ptr %.6460191.i.us.us, i64 %30
   %207 = add nuw nsw i32 %.2468190.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i32 %207, %5
   br i1 %exitcond.not.i.us.us, label %.loopexit160.i.us.us49, label %.lr.ph193.i.us.us, !llvm.loop !111
@@ -3607,10 +3607,10 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit160.i.loopexit13 ], [ 0, %.lr.ph197.i ]
   %.0196.i = phi ptr [ %357, %.loopexit160.i.loopexit13 ], [ %.val, %.lr.ph197.i ]
   %231 = load ptr, ptr %0, align 8, !tbaa !4
-  %232 = getelementptr inbounds float, ptr %231, i64 %21
+  %232 = getelementptr inbounds [4 x i8], ptr %231, i64 %21
   %233 = add nsw i64 %indvars.iv.i, %22
   %234 = mul nsw i64 %233, %37
-  %235 = getelementptr inbounds float, ptr %232, i64 %234
+  %235 = getelementptr inbounds [4 x i8], ptr %232, i64 %234
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -3633,7 +3633,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %249 = getelementptr inbounds nuw i8, ptr %.1455167.i, i64 224
   %250 = load <8 x float>, ptr %249, align 32, !tbaa !15
   %251 = load ptr, ptr %6, align 8, !tbaa !4
-  %252 = getelementptr float, ptr %251, i64 %233
+  %252 = getelementptr [4 x i8], ptr %251, i64 %233
   %253 = load float, ptr %252, align 4, !tbaa !98
   %254 = insertelement <8 x float> poison, float %253, i64 0
   %255 = shufflevector <8 x float> %254, <8 x float> poison, <8 x i32> zeroinitializer
@@ -3741,7 +3741,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %356 = getelementptr inbounds nuw i8, ptr %.2168.i, i64 32
   store <4 x i64> %355, ptr %356, align 32, !tbaa !15
   %357 = getelementptr inbounds nuw i8, ptr %.2168.i, i64 64
-  %358 = getelementptr inbounds float, ptr %.1455167.i, i64 %26
+  %358 = getelementptr inbounds [4 x i8], ptr %.1455167.i, i64 %26
   %359 = add nuw nsw i32 %.0463166.i, 8
   %360 = or disjoint i32 %359, 7
   %361 = icmp slt i32 %360, %5
@@ -3790,10 +3790,10 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %indvars.iv345.i = phi i64 [ %228, %.lr.ph233.i ], [ %indvars.iv.next346.i, %.loopexit154.i ]
   %.9232.i = phi ptr [ %.0.lcssa.i, %.lr.ph233.i ], [ %.14.i, %.loopexit154.i ]
   %386 = load ptr, ptr %0, align 8, !tbaa !4
-  %387 = getelementptr inbounds float, ptr %386, i64 %214
+  %387 = getelementptr inbounds [4 x i8], ptr %386, i64 %214
   %388 = add nsw i64 %indvars.iv345.i, %221
   %389 = mul nsw i64 %388, %230
-  %390 = getelementptr inbounds float, ptr %387, i64 %389
+  %390 = getelementptr inbounds [4 x i8], ptr %387, i64 %389
   switch i32 %9, label %.loopexit154.i [
     i32 8, label %391
     i32 4, label %462
@@ -3802,7 +3802,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
 
 391:                                              ; preds = %385
   %392 = load ptr, ptr %6, align 8, !tbaa !4
-  %393 = getelementptr float, ptr %392, i64 %388
+  %393 = getelementptr [4 x i8], ptr %392, i64 %388
   %394 = load float, ptr %393, align 4, !tbaa !98
   %395 = insertelement <8 x float> poison, float %394, i64 0
   %396 = shufflevector <8 x float> %395, <8 x float> poison, <8 x i32> zeroinitializer
@@ -3875,7 +3875,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %456 = getelementptr inbounds nuw i8, ptr %.11202.i, i64 16
   store <2 x i64> %455, ptr %456, align 16, !tbaa !15
   %457 = getelementptr inbounds nuw i8, ptr %.11202.i, i64 32
-  %458 = getelementptr inbounds float, ptr %.1471201.i, i64 %217
+  %458 = getelementptr inbounds [4 x i8], ptr %.1471201.i, i64 %217
   %459 = add nuw nsw i32 %.0477200.i, 8
   %460 = or disjoint i32 %459, 7
   %461 = icmp slt i32 %460, %5
@@ -3883,7 +3883,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
 
 462:                                              ; preds = %385
   %463 = load ptr, ptr %6, align 8, !tbaa !4
-  %464 = getelementptr float, ptr %463, i64 %388
+  %464 = getelementptr [4 x i8], ptr %463, i64 %388
   %465 = load float, ptr %464, align 4, !tbaa !98
   %466 = insertelement <4 x float> poison, float %465, i64 0
   %467 = shufflevector <4 x float> %466, <4 x float> poison, <4 x i32> zeroinitializer
@@ -3937,7 +3937,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %509 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %506, <8 x i16> %508)
   store <16 x i8> %509, ptr %.13208.i, align 16, !tbaa !15
   %510 = getelementptr inbounds nuw i8, ptr %.13208.i, i64 16
-  %511 = getelementptr inbounds float, ptr %.3473207.i, i64 %220
+  %511 = getelementptr inbounds [4 x i8], ptr %.3473207.i, i64 %220
   %512 = add nuw nsw i32 %.0484206.i, 4
   %513 = or disjoint i32 %512, 3
   %514 = icmp slt i32 %513, %5
@@ -3945,8 +3945,8 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
 
 515:                                              ; preds = %385
   %516 = load ptr, ptr %6, align 8, !tbaa !4
-  %517 = getelementptr inbounds float, ptr %516, i64 %221
-  %518 = getelementptr inbounds nuw float, ptr %517, i64 %indvars.iv345.i
+  %517 = getelementptr inbounds [4 x i8], ptr %516, i64 %221
+  %518 = getelementptr inbounds nuw [4 x i8], ptr %517, i64 %indvars.iv345.i
   %519 = load <4 x float>, ptr %518, align 16, !tbaa !15
   br i1 %218, label %.lr.ph215.i, label %.preheader155.i
 
@@ -3963,11 +3963,11 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %.4474213.i = phi ptr [ %554, %.lr.ph215.i ], [ %390, %515 ]
   %.0485212.i = phi i32 [ %555, %.lr.ph215.i ], [ 0, %515 ]
   %522 = load <4 x float>, ptr %.4474213.i, align 1, !tbaa !15
-  %523 = getelementptr inbounds float, ptr %.4474213.i, i64 %222
+  %523 = getelementptr inbounds [4 x i8], ptr %.4474213.i, i64 %222
   %524 = load <4 x float>, ptr %523, align 1, !tbaa !15
-  %525 = getelementptr inbounds float, ptr %.4474213.i, i64 %224
+  %525 = getelementptr inbounds [4 x i8], ptr %.4474213.i, i64 %224
   %526 = load <4 x float>, ptr %525, align 1, !tbaa !15
-  %527 = getelementptr inbounds float, ptr %.4474213.i, i64 %226
+  %527 = getelementptr inbounds [4 x i8], ptr %.4474213.i, i64 %226
   %528 = load <4 x float>, ptr %527, align 1, !tbaa !15
   %529 = fmul fast <4 x float> %522, %519
   %530 = fmul fast <4 x float> %524, %519
@@ -3995,7 +3995,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %552 = shufflevector <16 x i8> %551, <16 x i8> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
   store <16 x i8> %552, ptr %.15214.i, align 1, !tbaa !15
   %553 = getelementptr inbounds nuw i8, ptr %.15214.i, i64 16
-  %554 = getelementptr inbounds float, ptr %.4474213.i, i64 %220
+  %554 = getelementptr inbounds [4 x i8], ptr %.4474213.i, i64 %220
   %555 = add nuw nsw i32 %.0485212.i, 4
   %556 = or disjoint i32 %555, 3
   %557 = icmp slt i32 %556, %5
@@ -4013,7 +4013,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %.5475220.i = phi ptr [ %579, %.lr.ph222.i ], [ %.4474.lcssa.i, %.preheader155.i ]
   %.1486219.i = phi i32 [ %580, %.lr.ph222.i ], [ %.0485.lcssa.i, %.preheader155.i ]
   %559 = load <4 x float>, ptr %.5475220.i, align 1, !tbaa !15
-  %560 = getelementptr inbounds float, ptr %.5475220.i, i64 %222
+  %560 = getelementptr inbounds [4 x i8], ptr %.5475220.i, i64 %222
   %561 = load <4 x float>, ptr %560, align 1, !tbaa !15
   %562 = fmul fast <4 x float> %559, %519
   %563 = fmul fast <4 x float> %561, %519
@@ -4033,7 +4033,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %577 = extractelement <2 x i64> %576, i64 0
   store i64 %577, ptr %.16221.i, align 8, !tbaa !80
   %578 = getelementptr inbounds nuw i8, ptr %.16221.i, i64 8
-  %579 = getelementptr inbounds float, ptr %.5475220.i, i64 %224
+  %579 = getelementptr inbounds [4 x i8], ptr %.5475220.i, i64 %224
   %580 = add nuw nsw i32 %.1486219.i, 2
   %581 = or disjoint i32 %580, 1
   %582 = icmp slt i32 %581, %5
@@ -4056,7 +4056,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %593 = extractelement <4 x i32> %592, i64 0
   store i32 %593, ptr %.17228.i, align 4, !tbaa !82
   %594 = getelementptr inbounds nuw i8, ptr %.17228.i, i64 4
-  %595 = getelementptr inbounds float, ptr %.6476227.i, i64 %222
+  %595 = getelementptr inbounds [4 x i8], ptr %.6476227.i, i64 %222
   %596 = add nuw nsw i32 %.2487226.i, 1
   %exitcond344.not.i = icmp eq i32 %596, %5
   br i1 %exitcond344.not.i, label %.loopexit154.i, label %.lr.ph229.i, !llvm.loop !117
@@ -4101,10 +4101,10 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %indvars.iv349.i = phi i64 [ %381, %.lr.ph269.i ], [ %indvars.iv.next350.i, %.loopexit148.i ]
   %.18268.i = phi ptr [ %.9.lcssa.i, %.lr.ph269.i ], [ %.23.i, %.loopexit148.i ]
   %617 = load ptr, ptr %0, align 8, !tbaa !4
-  %618 = getelementptr inbounds float, ptr %617, i64 %368
+  %618 = getelementptr inbounds [4 x i8], ptr %617, i64 %368
   %619 = add nsw i64 %indvars.iv349.i, %383
   %620 = mul nsw i64 %619, %384
-  %621 = getelementptr inbounds float, ptr %618, i64 %620
+  %621 = getelementptr inbounds [4 x i8], ptr %618, i64 %620
   switch i32 %9, label %.loopexit148.i [
     i32 8, label %622
     i32 4, label %657
@@ -4113,7 +4113,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
 
 622:                                              ; preds = %616
   %623 = load ptr, ptr %6, align 8, !tbaa !4
-  %624 = getelementptr float, ptr %623, i64 %619
+  %624 = getelementptr [4 x i8], ptr %623, i64 %619
   %625 = load float, ptr %624, align 4, !tbaa !98
   %626 = insertelement <8 x float> poison, float %625, i64 0
   %627 = shufflevector <8 x float> %626, <8 x float> poison, <8 x i32> zeroinitializer
@@ -4149,7 +4149,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %651 = shufflevector <8 x i32> %650, <8 x i32> poison, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x i32> %651, ptr %.20238.i, align 16, !tbaa !15
   %652 = getelementptr inbounds nuw i8, ptr %.20238.i, i64 16
-  %653 = getelementptr inbounds float, ptr %.1489237.i, i64 %371
+  %653 = getelementptr inbounds [4 x i8], ptr %.1489237.i, i64 %371
   %654 = add nuw nsw i32 %.0495236.i, 8
   %655 = or disjoint i32 %654, 7
   %656 = icmp slt i32 %655, %5
@@ -4157,7 +4157,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
 
 657:                                              ; preds = %616
   %658 = load ptr, ptr %6, align 8, !tbaa !4
-  %659 = getelementptr float, ptr %658, i64 %619
+  %659 = getelementptr [4 x i8], ptr %658, i64 %619
   %660 = load float, ptr %659, align 4, !tbaa !98
   %661 = insertelement <4 x float> poison, float %660, i64 0
   %662 = shufflevector <4 x float> %661, <4 x float> poison, <4 x i32> zeroinitializer
@@ -4190,7 +4190,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %683 = extractelement <2 x i64> %682, i64 0
   store i64 %683, ptr %.22244.i, align 8, !tbaa !80
   %684 = getelementptr inbounds nuw i8, ptr %.22244.i, i64 8
-  %685 = getelementptr inbounds float, ptr %.3491243.i, i64 %374
+  %685 = getelementptr inbounds [4 x i8], ptr %.3491243.i, i64 %374
   %686 = add nuw nsw i32 %.0496242.i, 4
   %687 = or disjoint i32 %686, 3
   %688 = icmp slt i32 %687, %5
@@ -4198,7 +4198,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
 
 689:                                              ; preds = %616
   %690 = load ptr, ptr %6, align 8, !tbaa !4
-  %691 = getelementptr float, ptr %690, i64 %619
+  %691 = getelementptr [4 x i8], ptr %690, i64 %619
   %692 = load float, ptr %691, align 4, !tbaa !98
   %693 = getelementptr i8, ptr %691, i64 4
   %694 = load float, ptr %693, align 4, !tbaa !98
@@ -4224,15 +4224,15 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %702 = load i64, ptr %.4492249.i, align 1, !tbaa !15
   %703 = insertelement <2 x i64> poison, i64 %702, i64 0
   %704 = bitcast <2 x i64> %703 to <4 x float>
-  %705 = getelementptr inbounds float, ptr %.4492249.i, i64 %375
+  %705 = getelementptr inbounds [4 x i8], ptr %.4492249.i, i64 %375
   %706 = load i64, ptr %705, align 1, !tbaa !15
   %707 = insertelement <2 x i64> poison, i64 %706, i64 0
   %708 = bitcast <2 x i64> %707 to <4 x float>
-  %709 = getelementptr inbounds float, ptr %.4492249.i, i64 %377
+  %709 = getelementptr inbounds [4 x i8], ptr %.4492249.i, i64 %377
   %710 = load i64, ptr %709, align 1, !tbaa !15
   %711 = insertelement <2 x i64> poison, i64 %710, i64 0
   %712 = bitcast <2 x i64> %711 to <4 x float>
-  %713 = getelementptr inbounds float, ptr %.4492249.i, i64 %379
+  %713 = getelementptr inbounds [4 x i8], ptr %.4492249.i, i64 %379
   %714 = load i64, ptr %713, align 1, !tbaa !15
   %715 = insertelement <2 x i64> poison, i64 %714, i64 0
   %716 = bitcast <2 x i64> %715 to <4 x float>
@@ -4256,7 +4256,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %734 = extractelement <2 x i64> %733, i64 0
   store i64 %734, ptr %.24250.i, align 8, !tbaa !80
   %735 = getelementptr inbounds nuw i8, ptr %.24250.i, i64 8
-  %736 = getelementptr inbounds float, ptr %.4492249.i, i64 %374
+  %736 = getelementptr inbounds [4 x i8], ptr %.4492249.i, i64 %374
   %737 = add nuw nsw i32 %.0497248.i, 4
   %738 = or disjoint i32 %737, 3
   %739 = icmp slt i32 %738, %5
@@ -4276,7 +4276,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %741 = load i64, ptr %.5493256.i, align 1, !tbaa !15
   %742 = insertelement <2 x i64> poison, i64 %741, i64 0
   %743 = bitcast <2 x i64> %742 to <4 x float>
-  %744 = getelementptr inbounds float, ptr %.5493256.i, i64 %375
+  %744 = getelementptr inbounds [4 x i8], ptr %.5493256.i, i64 %375
   %745 = load i64, ptr %744, align 1, !tbaa !15
   %746 = insertelement <2 x i64> poison, i64 %745, i64 0
   %747 = bitcast <2 x i64> %746 to <4 x float>
@@ -4293,7 +4293,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %758 = extractelement <4 x i32> %757, i64 0
   store i32 %758, ptr %.25257.i, align 4, !tbaa !82
   %759 = getelementptr inbounds nuw i8, ptr %.25257.i, i64 4
-  %760 = getelementptr inbounds float, ptr %.5493256.i, i64 %377
+  %760 = getelementptr inbounds [4 x i8], ptr %.5493256.i, i64 %377
   %761 = add nuw nsw i32 %.1498255.i, 2
   %762 = or disjoint i32 %761, 1
   %763 = icmp slt i32 %762, %5
@@ -4322,7 +4322,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %773 = getelementptr inbounds nuw i8, ptr %.26264.i, i64 1
   store i8 %.0.i501.i, ptr %773, align 1, !tbaa !15
   %774 = getelementptr inbounds nuw i8, ptr %.26264.i, i64 2
-  %775 = getelementptr inbounds float, ptr %.6494263.i, i64 %375
+  %775 = getelementptr inbounds [4 x i8], ptr %.6494263.i, i64 %375
   %776 = add nuw nsw i32 %.2499262.i, 1
   %exitcond348.not.i = icmp eq i32 %776, %5
   br i1 %exitcond348.not.i, label %.loopexit148.i, label %.lr.ph265.i, !llvm.loop !123
@@ -4337,12 +4337,12 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %indvars.iv353.i = phi i64 [ %613, %.lr.ph298.i ], [ %indvars.iv.next354.i, %.loopexit.i ]
   %.27297.i = phi ptr [ %.18.lcssa.i, %.lr.ph298.i ], [ %.32.i, %.loopexit.i ]
   %779 = load ptr, ptr %0, align 8, !tbaa !4
-  %780 = getelementptr inbounds float, ptr %779, i64 %601
+  %780 = getelementptr inbounds [4 x i8], ptr %779, i64 %601
   %781 = add nsw i64 %indvars.iv353.i, %614
   %782 = mul nsw i64 %781, %615
-  %783 = getelementptr inbounds float, ptr %780, i64 %782
+  %783 = getelementptr inbounds [4 x i8], ptr %780, i64 %782
   %784 = load ptr, ptr %6, align 8, !tbaa !4
-  %785 = getelementptr inbounds nuw float, ptr %784, i64 %781
+  %785 = getelementptr inbounds nuw [4 x i8], ptr %784, i64 %781
   %786 = load float, ptr %785, align 4, !tbaa !98
   switch i32 %9, label %.loopexit.i [
     i32 8, label %787
@@ -4375,7 +4375,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %803 = extractelement <2 x i64> %802, i64 0
   store i64 %803, ptr %.29274.i, align 8, !tbaa !80
   %804 = getelementptr inbounds nuw i8, ptr %.29274.i, i64 8
-  %805 = getelementptr inbounds float, ptr %.1479272.i, i64 %604
+  %805 = getelementptr inbounds [4 x i8], ptr %.1479272.i, i64 %604
   %806 = add nuw nsw i32 %.0469273.i, 8
   %807 = or disjoint i32 %806, 7
   %808 = icmp slt i32 %807, %5
@@ -4403,7 +4403,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %822 = extractelement <4 x i32> %821, i64 0
   store i32 %822, ptr %.31280.i, align 4, !tbaa !82
   %823 = getelementptr inbounds nuw i8, ptr %.31280.i, i64 4
-  %824 = getelementptr inbounds float, ptr %.3481278.i, i64 %607
+  %824 = getelementptr inbounds [4 x i8], ptr %.3481278.i, i64 %607
   %825 = add nuw nsw i32 %.0464279.i, 4
   %826 = or disjoint i32 %825, 3
   %827 = icmp slt i32 %826, %5
@@ -4438,7 +4438,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %842 = extractelement <4 x i32> %841, i64 0
   store i32 %842, ptr %.33286.i, align 4, !tbaa !82
   %843 = getelementptr inbounds nuw i8, ptr %.33286.i, i64 4
-  %844 = getelementptr inbounds float, ptr %.4482284.i, i64 %607
+  %844 = getelementptr inbounds [4 x i8], ptr %.4482284.i, i64 %607
   %845 = add nuw nsw i32 %.0461285.i, 4
   %846 = or disjoint i32 %845, 3
   %847 = icmp slt i32 %846, %5
@@ -4457,7 +4457,7 @@ define hidden void @_ZN4ncnn46transpose_pack_A_tile_fp32_to_int8_avxvnniint8ERKN
   %.0.i.i = trunc nsw i32 %.0.i139.i to i8
   store i8 %.0.i.i, ptr %.34293.i, align 1, !tbaa !15
   %852 = getelementptr inbounds nuw i8, ptr %.34293.i, i64 1
-  %853 = getelementptr inbounds float, ptr %.5483291.i, i64 %611
+  %853 = getelementptr inbounds [4 x i8], ptr %.5483291.i, i64 %611
   %854 = add nuw nsw i32 %.1462292.i, 1
   %exitcond352.not.i = icmp eq i32 %854, %5
   br i1 %exitcond352.not.i, label %.loopexit.i, label %.lr.ph294.i, !llvm.loop !128
@@ -4567,8 +4567,8 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %70 = load ptr, ptr %0, align 8, !tbaa !4
   %71 = add nsw i64 %indvars.iv342.i.us, %63
   %72 = mul nsw i64 %71, %52
-  %73 = getelementptr inbounds float, ptr %70, i64 %72
-  %74 = getelementptr inbounds float, ptr %73, i64 %48
+  %73 = getelementptr inbounds [4 x i8], ptr %70, i64 %72
+  %74 = getelementptr inbounds [4 x i8], ptr %73, i64 %48
   br i1 %51, label %.lr.ph203.i.us, label %.preheader123.i.us
 
 .lr.ph203.i.us:                                   ; preds = %.preheader124.i.us, %.lr.ph203.i.us
@@ -4694,8 +4694,8 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %153 = load ptr, ptr %0, align 8, !tbaa !4
   %154 = add nsw i64 %indvars.iv342.i.us49, %63
   %155 = mul nsw i64 %154, %52
-  %156 = getelementptr inbounds float, ptr %153, i64 %155
-  %157 = getelementptr inbounds float, ptr %156, i64 %48
+  %156 = getelementptr inbounds [4 x i8], ptr %153, i64 %155
+  %157 = getelementptr inbounds [4 x i8], ptr %156, i64 %48
   br i1 %51, label %.lr.ph223.i.us, label %.preheader119.i.us
 
 .lr.ph223.i.us:                                   ; preds = %.preheader120.i.us, %.lr.ph223.i.us
@@ -4703,11 +4703,11 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.4389221.i.us = phi ptr [ %189, %.lr.ph223.i.us ], [ %157, %.preheader120.i.us ]
   %.0398220.i.us = phi i32 [ %190, %.lr.ph223.i.us ], [ 0, %.preheader120.i.us ]
   %158 = load <4 x float>, ptr %.4389221.i.us, align 1, !tbaa !15
-  %159 = getelementptr inbounds float, ptr %.4389221.i.us, i64 %52
+  %159 = getelementptr inbounds [4 x i8], ptr %.4389221.i.us, i64 %52
   %160 = load <4 x float>, ptr %159, align 1, !tbaa !15
-  %161 = getelementptr inbounds float, ptr %.4389221.i.us, i64 %54
+  %161 = getelementptr inbounds [4 x i8], ptr %.4389221.i.us, i64 %54
   %162 = load <4 x float>, ptr %161, align 1, !tbaa !15
-  %163 = getelementptr inbounds float, ptr %.4389221.i.us, i64 %56
+  %163 = getelementptr inbounds [4 x i8], ptr %.4389221.i.us, i64 %56
   %164 = load <4 x float>, ptr %163, align 1, !tbaa !15
   %165 = fmul fast <4 x float> %158, %50
   %166 = fmul fast <4 x float> %160, %50
@@ -4820,8 +4820,8 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %236 = load ptr, ptr %0, align 8, !tbaa !4
   %237 = add nsw i64 %indvars.iv.i, %43
   %238 = mul nsw i64 %237, %27
-  %239 = getelementptr inbounds float, ptr %236, i64 %238
-  %240 = getelementptr inbounds float, ptr %239, i64 %21
+  %239 = getelementptr inbounds [4 x i8], ptr %236, i64 %238
+  %240 = getelementptr inbounds [4 x i8], ptr %239, i64 %21
   switch i32 %9, label %.loopexit127.i [
     i32 8, label %.preheader137.i
     i32 4, label %.preheader133.i
@@ -4983,7 +4983,7 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %343 = load <8 x float>, ptr %.5367157.i, align 1, !tbaa !15
   %344 = getelementptr inbounds nuw i8, ptr %.5367157.i, i64 32
   %345 = load <8 x float>, ptr %344, align 1, !tbaa !15
-  %346 = getelementptr inbounds float, ptr %.5367157.i, i64 %26
+  %346 = getelementptr inbounds [4 x i8], ptr %.5367157.i, i64 %26
   %347 = load <8 x float>, ptr %346, align 1, !tbaa !15
   %348 = getelementptr inbounds nuw i8, ptr %346, i64 32
   %349 = load <8 x float>, ptr %348, align 1, !tbaa !15
@@ -5042,7 +5042,7 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.6368164.i = phi ptr [ %414, %.lr.ph166.i ], [ %.5367.lcssa.i, %.preheader132.i ]
   %.1377163.i = phi i32 [ %415, %.lr.ph166.i ], [ %.0376.lcssa.i, %.preheader132.i ]
   %391 = load <8 x float>, ptr %.6368164.i, align 1, !tbaa !15
-  %392 = getelementptr inbounds float, ptr %.6368164.i, i64 %26
+  %392 = getelementptr inbounds [4 x i8], ptr %.6368164.i, i64 %26
   %393 = load <8 x float>, ptr %392, align 1, !tbaa !15
   %394 = fmul fast <8 x float> %391, %23
   %395 = fmul fast <8 x float> %393, %23
@@ -5076,7 +5076,7 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.7369171.i = phi ptr [ %436, %.lr.ph173.i ], [ %.6368.lcssa.i, %.preheader130.i ]
   %.2378170.i = phi i32 [ %437, %.lr.ph173.i ], [ %.1377.lcssa.i, %.preheader130.i ]
   %418 = load <4 x float>, ptr %.7369171.i, align 16, !tbaa !15
-  %419 = getelementptr inbounds float, ptr %.7369171.i, i64 %26
+  %419 = getelementptr inbounds [4 x i8], ptr %.7369171.i, i64 %26
   %420 = load <4 x float>, ptr %419, align 16, !tbaa !15
   %421 = shufflevector <4 x float> %418, <4 x float> %420, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %422 = fmul fast <8 x float> %421, %23
@@ -5115,19 +5115,19 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.8370177.i = phi ptr [ %493, %.lr.ph179.i ], [ %240, %.preheader129.i ]
   %.0379176.i = phi i32 [ %494, %.lr.ph179.i ], [ 0, %.preheader129.i ]
   %440 = load <4 x float>, ptr %.8370177.i, align 1, !tbaa !15
-  %441 = getelementptr inbounds float, ptr %.8370177.i, i64 %27
+  %441 = getelementptr inbounds [4 x i8], ptr %.8370177.i, i64 %27
   %442 = load <4 x float>, ptr %441, align 1, !tbaa !15
-  %443 = getelementptr inbounds float, ptr %.8370177.i, i64 %29
+  %443 = getelementptr inbounds [4 x i8], ptr %.8370177.i, i64 %29
   %444 = load <4 x float>, ptr %443, align 1, !tbaa !15
-  %445 = getelementptr inbounds float, ptr %.8370177.i, i64 %31
+  %445 = getelementptr inbounds [4 x i8], ptr %.8370177.i, i64 %31
   %446 = load <4 x float>, ptr %445, align 1, !tbaa !15
-  %447 = getelementptr inbounds float, ptr %.8370177.i, i64 %26
+  %447 = getelementptr inbounds [4 x i8], ptr %.8370177.i, i64 %26
   %448 = load <4 x float>, ptr %447, align 1, !tbaa !15
-  %449 = getelementptr inbounds float, ptr %.8370177.i, i64 %33
+  %449 = getelementptr inbounds [4 x i8], ptr %.8370177.i, i64 %33
   %450 = load <4 x float>, ptr %449, align 1, !tbaa !15
-  %451 = getelementptr inbounds float, ptr %.8370177.i, i64 %35
+  %451 = getelementptr inbounds [4 x i8], ptr %.8370177.i, i64 %35
   %452 = load <4 x float>, ptr %451, align 1, !tbaa !15
-  %453 = getelementptr inbounds float, ptr %.8370177.i, i64 %37
+  %453 = getelementptr inbounds [4 x i8], ptr %.8370177.i, i64 %37
   %454 = load <4 x float>, ptr %453, align 1, !tbaa !15
   %455 = shufflevector <4 x float> %440, <4 x float> %442, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %456 = shufflevector <4 x float> %444, <4 x float> %446, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
@@ -5301,8 +5301,8 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %567 = load ptr, ptr %0, align 8, !tbaa !4
   %568 = add nsw i64 %indvars.iv346.i, %555
   %569 = mul nsw i64 %568, %551
-  %570 = getelementptr inbounds float, ptr %567, i64 %569
-  %571 = getelementptr inbounds float, ptr %570, i64 %547
+  %570 = getelementptr inbounds [4 x i8], ptr %567, i64 %569
+  %571 = getelementptr inbounds [4 x i8], ptr %570, i64 %547
   br i1 %550, label %.lr.ph247.i, label %.preheader116.i
 
 .preheader116.i:                                  ; preds = %.lr.ph247.i, %566
@@ -5318,7 +5318,7 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.0382245.i = phi i32 [ %593, %.lr.ph247.i ], [ 0, %566 ]
   %.0392244.i = phi ptr [ %592, %.lr.ph247.i ], [ %571, %566 ]
   %574 = load <4 x float>, ptr %.0392244.i, align 1, !tbaa !15
-  %575 = getelementptr inbounds float, ptr %.0392244.i, i64 %551
+  %575 = getelementptr inbounds [4 x i8], ptr %.0392244.i, i64 %551
   %576 = load <4 x float>, ptr %575, align 1, !tbaa !15
   %577 = fmul fast <4 x float> %574, %549
   %578 = fmul fast <4 x float> %576, %549
@@ -5355,7 +5355,7 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.1393251.i = phi ptr [ %613, %.lr.ph254.i ], [ %.0392.lcssa.i, %.preheader116.i ]
   %597 = load i64, ptr %.1393251.i, align 1, !tbaa !15
   %598 = insertelement <2 x i64> poison, i64 %597, i64 0
-  %599 = getelementptr inbounds float, ptr %.1393251.i, i64 %551
+  %599 = getelementptr inbounds [4 x i8], ptr %.1393251.i, i64 %551
   %600 = load i64, ptr %599, align 1, !tbaa !15
   %.uncasted.i = insertelement <2 x i64> %598, i64 %600, i64 1
   %601 = bitcast <2 x i64> %.uncasted.i to <4 x float>
@@ -5389,7 +5389,7 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %.0.i404111.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i403110.i, i32 127)
   %.0.i404.i = trunc nsw i32 %.0.i404111.i to i8
   store i8 %.0.i404.i, ptr %.25260.i, align 1, !tbaa !15
-  %621 = getelementptr inbounds float, ptr %.2394258.i, i64 %551
+  %621 = getelementptr inbounds [4 x i8], ptr %.2394258.i, i64 %551
   %622 = load float, ptr %621, align 4, !tbaa !98
   %623 = fmul fast float %622, %6
   %624 = tail call fast noundef nofpclass(nan inf) float @llvm.round.f32(float nofpclass(nan inf) %623)
@@ -5417,8 +5417,8 @@ define hidden void @_ZN4ncnn36pack_B_tile_fp32_to_int8_avxvnniint8ERKNS_3MatERS0
   %632 = load ptr, ptr %0, align 8, !tbaa !4
   %633 = add nsw i64 %indvars.iv350.i, %564
   %634 = mul nsw i64 %633, %565
-  %635 = getelementptr inbounds float, ptr %632, i64 %634
-  %636 = getelementptr inbounds float, ptr %635, i64 %558
+  %635 = getelementptr inbounds [4 x i8], ptr %632, i64 %634
+  %636 = getelementptr inbounds [4 x i8], ptr %635, i64 %558
   br i1 %561, label %.lr.ph272.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph272.i, %631
@@ -5539,10 +5539,10 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %indvars.iv.i.us.us.us = phi i64 [ %indvars.iv.next.i.us.us.us, %.loopexit148.i.us.us.us ], [ 0, %.lr.ph183.i.split.us.split.us ]
   %.0182.i.us.us.us = phi ptr [ %.5.i.us.us.us, %.loopexit148.i.us.us.us ], [ %.val, %.lr.ph183.i.split.us.split.us ]
   %44 = load ptr, ptr %0, align 8, !tbaa !4
-  %45 = getelementptr inbounds float, ptr %44, i64 %21
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %21
   %46 = add nsw i64 %indvars.iv.i.us.us.us, %39
   %47 = mul nuw nsw i64 %46, %40
-  %48 = getelementptr inbounds float, ptr %45, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %45, i64 %47
   br i1 %31, label %.lr.ph165.i.us.us.us, label %.preheader149.i.us.us.us
 
 .lr.ph165.i.us.us.us:                             ; preds = %.loopexit151.i.us.us.us, %.lr.ph165.i.us.us.us
@@ -5550,11 +5550,11 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %.4390163.i.us.us.us = phi ptr [ %98, %.lr.ph165.i.us.us.us ], [ %48, %.loopexit151.i.us.us.us ]
   %.0398162.i.us.us.us = phi i32 [ %99, %.lr.ph165.i.us.us.us ], [ 0, %.loopexit151.i.us.us.us ]
   %49 = load <8 x float>, ptr %.4390163.i.us.us.us, align 1, !tbaa !15
-  %50 = getelementptr inbounds float, ptr %.4390163.i.us.us.us, i64 %32
+  %50 = getelementptr inbounds [4 x i8], ptr %.4390163.i.us.us.us, i64 %32
   %51 = load <8 x float>, ptr %50, align 1, !tbaa !15
-  %52 = getelementptr inbounds float, ptr %.4390163.i.us.us.us, i64 %34
+  %52 = getelementptr inbounds [4 x i8], ptr %.4390163.i.us.us.us, i64 %34
   %53 = load <8 x float>, ptr %52, align 1, !tbaa !15
-  %54 = getelementptr inbounds float, ptr %.4390163.i.us.us.us, i64 %36
+  %54 = getelementptr inbounds [4 x i8], ptr %.4390163.i.us.us.us, i64 %36
   %55 = load <8 x float>, ptr %54, align 1, !tbaa !15
   %56 = fmul fast <8 x float> %49, %24
   %57 = fmul fast <8 x float> %51, %24
@@ -5599,7 +5599,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %96 = shufflevector <4 x i32> %94, <4 x i32> %95, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   store <8 x i32> %96, ptr %.6164.i.us.us.us, align 1, !tbaa !15
   %97 = getelementptr inbounds nuw i8, ptr %.6164.i.us.us.us, i64 32
-  %98 = getelementptr inbounds float, ptr %.4390163.i.us.us.us, i64 %29
+  %98 = getelementptr inbounds [4 x i8], ptr %.4390163.i.us.us.us, i64 %29
   %99 = add nuw nsw i32 %.0398162.i.us.us.us, 4
   %100 = or disjoint i32 %99, 3
   %101 = icmp slt i32 %100, %5
@@ -5618,7 +5618,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %.5391170.i.us.us.us = phi ptr [ %127, %.lr.ph172.i.us.us.us ], [ %.4390.lcssa.i.us.us.us, %.preheader149.i.us.us.us ]
   %.1399169.i.us.us.us = phi i32 [ %128, %.lr.ph172.i.us.us.us ], [ %.0398.lcssa.i.us.us.us, %.preheader149.i.us.us.us ]
   %104 = load <8 x float>, ptr %.5391170.i.us.us.us, align 1, !tbaa !15
-  %105 = getelementptr inbounds float, ptr %.5391170.i.us.us.us, i64 %32
+  %105 = getelementptr inbounds [4 x i8], ptr %.5391170.i.us.us.us, i64 %32
   %106 = load <8 x float>, ptr %105, align 1, !tbaa !15
   %107 = fmul fast <8 x float> %104, %24
   %108 = fmul fast <8 x float> %106, %24
@@ -5641,7 +5641,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %125 = shufflevector <16 x i8> %124, <16 x i8> poison, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <16 x i8> %125, ptr %.7171.i.us.us.us, align 1, !tbaa !15
   %126 = getelementptr inbounds nuw i8, ptr %.7171.i.us.us.us, i64 16
-  %127 = getelementptr inbounds float, ptr %.5391170.i.us.us.us, i64 %34
+  %127 = getelementptr inbounds [4 x i8], ptr %.5391170.i.us.us.us, i64 %34
   %128 = add nuw nsw i32 %.1399169.i.us.us.us, 2
   %129 = or disjoint i32 %128, 1
   %130 = icmp slt i32 %129, %5
@@ -5674,7 +5674,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %145 = extractelement <2 x i64> %144, i64 0
   store i64 %145, ptr %.8178.i.us.us.us, align 8, !tbaa !80
   %146 = getelementptr inbounds nuw i8, ptr %.8178.i.us.us.us, i64 8
-  %147 = getelementptr inbounds float, ptr %.6392177.i.us.us.us, i64 %32
+  %147 = getelementptr inbounds [4 x i8], ptr %.6392177.i.us.us.us, i64 %32
   %148 = add nuw nsw i32 %.2400176.i.us.us.us, 1
   %exitcond.not.i.us.us.us = icmp eq i32 %148, %5
   br i1 %exitcond.not.i.us.us.us, label %.loopexit148.i.us.us.us, label %.lr.ph179.i.us.us.us, !llvm.loop !156
@@ -5690,10 +5690,10 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.loopexit148.i.loopexit12.us ], [ 0, %.lr.ph183.i.split.us ]
   %.0182.i.us = phi ptr [ %196, %.loopexit148.i.loopexit12.us ], [ %.val, %.lr.ph183.i.split.us ]
   %151 = load ptr, ptr %0, align 8, !tbaa !4
-  %152 = getelementptr inbounds float, ptr %151, i64 %21
+  %152 = getelementptr inbounds [4 x i8], ptr %151, i64 %21
   %153 = add nsw i64 %indvars.iv.i.us, %39
   %154 = mul nsw i64 %153, %40
-  %155 = getelementptr inbounds float, ptr %152, i64 %154
+  %155 = getelementptr inbounds [4 x i8], ptr %152, i64 %154
   br label %.lr.ph159.i.us
 
 .lr.ph159.i.us:                                   ; preds = %.loopexit151.i.us, %.lr.ph159.i.us
@@ -5742,7 +5742,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %195 = shufflevector <8 x i32> %194, <8 x i32> %193, <8 x i32> <i32 0, i32 1, i32 4, i32 5, i32 8, i32 9, i32 12, i32 13>
   store <8 x i32> %195, ptr %.4158.i.us, align 32, !tbaa !15
   %196 = getelementptr inbounds nuw i8, ptr %.4158.i.us, i64 32
-  %197 = getelementptr inbounds float, ptr %.3389157.i.us, i64 %29
+  %197 = getelementptr inbounds [4 x i8], ptr %.3389157.i.us, i64 %29
   %198 = add nuw nsw i32 %.0397156.i.us, 4
   %199 = or disjoint i32 %198, 3
   %200 = icmp slt i32 %199, %5
@@ -5819,10 +5819,10 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %indvars.iv352.i.us.us.us = phi i64 [ %indvars.iv.next353.i.us.us.us, %.loopexit142.i.us.us.us ], [ %226, %.lr.ph219.i.split.us.split.us ]
   %.9218.i.us.us.us = phi ptr [ %.14.i.us.us.us, %.loopexit142.i.us.us.us ], [ %.0.lcssa.i, %.lr.ph219.i.split.us.split.us ]
   %238 = load ptr, ptr %0, align 8, !tbaa !4
-  %239 = getelementptr inbounds float, ptr %238, i64 %207
+  %239 = getelementptr inbounds [4 x i8], ptr %238, i64 %207
   %240 = add nsw i64 %indvars.iv352.i.us.us.us, %228
   %241 = mul nuw nsw i64 %240, %229
-  %242 = getelementptr inbounds float, ptr %239, i64 %241
+  %242 = getelementptr inbounds [4 x i8], ptr %239, i64 %241
   br i1 %219, label %.lr.ph201.i.us.us.us, label %.preheader143.i.us.us.us
 
 .lr.ph201.i.us.us.us:                             ; preds = %.loopexit145.i.us.us.us, %.lr.ph201.i.us.us.us
@@ -5830,11 +5830,11 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %.4406199.i.us.us.us = phi ptr [ %275, %.lr.ph201.i.us.us.us ], [ %242, %.loopexit145.i.us.us.us ]
   %.0417198.i.us.us.us = phi i32 [ %276, %.lr.ph201.i.us.us.us ], [ 0, %.loopexit145.i.us.us.us ]
   %243 = load <4 x float>, ptr %.4406199.i.us.us.us, align 1, !tbaa !15
-  %244 = getelementptr inbounds float, ptr %.4406199.i.us.us.us, i64 %220
+  %244 = getelementptr inbounds [4 x i8], ptr %.4406199.i.us.us.us, i64 %220
   %245 = load <4 x float>, ptr %244, align 1, !tbaa !15
-  %246 = getelementptr inbounds float, ptr %.4406199.i.us.us.us, i64 %222
+  %246 = getelementptr inbounds [4 x i8], ptr %.4406199.i.us.us.us, i64 %222
   %247 = load <4 x float>, ptr %246, align 1, !tbaa !15
-  %248 = getelementptr inbounds float, ptr %.4406199.i.us.us.us, i64 %224
+  %248 = getelementptr inbounds [4 x i8], ptr %.4406199.i.us.us.us, i64 %224
   %249 = load <4 x float>, ptr %248, align 1, !tbaa !15
   %250 = fmul fast <4 x float> %243, %215
   %251 = fmul fast <4 x float> %245, %215
@@ -5862,7 +5862,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %273 = shufflevector <16 x i8> %272, <16 x i8> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
   store <16 x i8> %273, ptr %.15200.i.us.us.us, align 1, !tbaa !15
   %274 = getelementptr inbounds nuw i8, ptr %.15200.i.us.us.us, i64 16
-  %275 = getelementptr inbounds float, ptr %.4406199.i.us.us.us, i64 %217
+  %275 = getelementptr inbounds [4 x i8], ptr %.4406199.i.us.us.us, i64 %217
   %276 = add nuw nsw i32 %.0417198.i.us.us.us, 4
   %277 = or disjoint i32 %276, 3
   %278 = icmp slt i32 %277, %5
@@ -5881,7 +5881,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %.5407206.i.us.us.us = phi ptr [ %301, %.lr.ph208.i.us.us.us ], [ %.4406.lcssa.i.us.us.us, %.preheader143.i.us.us.us ]
   %.1418205.i.us.us.us = phi i32 [ %302, %.lr.ph208.i.us.us.us ], [ %.0417.lcssa.i.us.us.us, %.preheader143.i.us.us.us ]
   %281 = load <4 x float>, ptr %.5407206.i.us.us.us, align 1, !tbaa !15
-  %282 = getelementptr inbounds float, ptr %.5407206.i.us.us.us, i64 %220
+  %282 = getelementptr inbounds [4 x i8], ptr %.5407206.i.us.us.us, i64 %220
   %283 = load <4 x float>, ptr %282, align 1, !tbaa !15
   %284 = fmul fast <4 x float> %281, %215
   %285 = fmul fast <4 x float> %283, %215
@@ -5901,7 +5901,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %299 = extractelement <2 x i64> %298, i64 0
   store i64 %299, ptr %.16207.i.us.us.us, align 8, !tbaa !80
   %300 = getelementptr inbounds nuw i8, ptr %.16207.i.us.us.us, i64 8
-  %301 = getelementptr inbounds float, ptr %.5407206.i.us.us.us, i64 %222
+  %301 = getelementptr inbounds [4 x i8], ptr %.5407206.i.us.us.us, i64 %222
   %302 = add nuw nsw i32 %.1418205.i.us.us.us, 2
   %303 = or disjoint i32 %302, 1
   %304 = icmp slt i32 %303, %5
@@ -5931,7 +5931,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %316 = extractelement <4 x i32> %315, i64 0
   store i32 %316, ptr %.17214.i.us.us.us, align 4, !tbaa !82
   %317 = getelementptr inbounds nuw i8, ptr %.17214.i.us.us.us, i64 4
-  %318 = getelementptr inbounds float, ptr %.6408213.i.us.us.us, i64 %220
+  %318 = getelementptr inbounds [4 x i8], ptr %.6408213.i.us.us.us, i64 %220
   %319 = add nuw nsw i32 %.2419212.i.us.us.us, 1
   %exitcond351.not.i.us.us.us = icmp eq i32 %319, %5
   br i1 %exitcond351.not.i.us.us.us, label %.loopexit142.i.us.us.us, label %.lr.ph215.i.us.us.us, !llvm.loop !161
@@ -5946,10 +5946,10 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %indvars.iv352.i.us = phi i64 [ %indvars.iv.next353.i.us, %.loopexit142.i.loopexit10.us ], [ %226, %.lr.ph219.i.split.us ]
   %.9218.i.us = phi ptr [ %356, %.loopexit142.i.loopexit10.us ], [ %.0.lcssa.i, %.lr.ph219.i.split.us ]
   %321 = load ptr, ptr %0, align 8, !tbaa !4
-  %322 = getelementptr inbounds float, ptr %321, i64 %207
+  %322 = getelementptr inbounds [4 x i8], ptr %321, i64 %207
   %323 = add nsw i64 %indvars.iv352.i.us, %228
   %324 = mul nsw i64 %323, %229
-  %325 = getelementptr inbounds float, ptr %322, i64 %324
+  %325 = getelementptr inbounds [4 x i8], ptr %322, i64 %324
   br label %.lr.ph195.i.us
 
 .lr.ph195.i.us:                                   ; preds = %.loopexit145.i.us, %.lr.ph195.i.us
@@ -5988,7 +5988,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %355 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %352, <8 x i16> %354)
   store <16 x i8> %355, ptr %.13194.i.us, align 16, !tbaa !15
   %356 = getelementptr inbounds nuw i8, ptr %.13194.i.us, i64 16
-  %357 = getelementptr inbounds float, ptr %.3405193.i.us, i64 %217
+  %357 = getelementptr inbounds [4 x i8], ptr %.3405193.i.us, i64 %217
   %358 = add nuw nsw i32 %.0416192.i.us, 4
   %359 = or disjoint i32 %358, 3
   %360 = icmp slt i32 %359, %5
@@ -6003,10 +6003,10 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit148.i.loopexit13 ], [ 0, %.lr.ph183.i ]
   %.0182.i = phi ptr [ %455, %.loopexit148.i.loopexit13 ], [ %.val, %.lr.ph183.i ]
   %362 = load ptr, ptr %0, align 8, !tbaa !4
-  %363 = getelementptr inbounds float, ptr %362, i64 %21
+  %363 = getelementptr inbounds [4 x i8], ptr %362, i64 %21
   %364 = add nsw i64 %indvars.iv.i, %39
   %365 = mul nsw i64 %364, %40
-  %366 = getelementptr inbounds float, ptr %363, i64 %365
+  %366 = getelementptr inbounds [4 x i8], ptr %363, i64 %365
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
@@ -6104,7 +6104,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %454 = getelementptr inbounds nuw i8, ptr %.2154.i, i64 32
   store <4 x i64> %453, ptr %454, align 32, !tbaa !15
   %455 = getelementptr inbounds nuw i8, ptr %.2154.i, i64 64
-  %456 = getelementptr inbounds float, ptr %.1387153.i, i64 %27
+  %456 = getelementptr inbounds [4 x i8], ptr %.1387153.i, i64 %27
   %457 = add nuw nsw i32 %.0395152.i, 8
   %458 = or disjoint i32 %457, 7
   %459 = icmp slt i32 %458, %5
@@ -6166,7 +6166,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
 
 .loopexit139.i.us.preheader:                      ; preds = %.lr.ph255.i.split.us
   %.pre = load ptr, ptr %0, align 8, !tbaa !4
-  %491 = getelementptr inbounds float, ptr %.pre, i64 %466
+  %491 = getelementptr inbounds [4 x i8], ptr %.pre, i64 %466
   br label %.loopexit139.i.us
 
 .lr.ph255.i.split.us.split.us:                    ; preds = %.lr.ph255.i.split.us
@@ -6186,10 +6186,10 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %indvars.iv356.i.us.us.us = phi i64 [ %indvars.iv.next357.i.us.us.us, %.loopexit136.i.us.us.us ], [ %485, %.lr.ph255.i.split.us.split.us ]
   %.18254.i.us.us.us = phi ptr [ %.23.i.us.us.us, %.loopexit136.i.us.us.us ], [ %.9.lcssa.i, %.lr.ph255.i.split.us.split.us ]
   %498 = load ptr, ptr %0, align 8, !tbaa !4
-  %499 = getelementptr inbounds float, ptr %498, i64 %466
+  %499 = getelementptr inbounds [4 x i8], ptr %498, i64 %466
   %500 = add nsw i64 %indvars.iv356.i.us.us.us, %487
   %501 = mul nuw nsw i64 %500, %488
-  %502 = getelementptr inbounds float, ptr %499, i64 %501
+  %502 = getelementptr inbounds [4 x i8], ptr %499, i64 %501
   br i1 %478, label %.lr.ph237.i.us.us.us, label %.preheader137.i.us.us.us
 
 .lr.ph237.i.us.us.us:                             ; preds = %.loopexit139.i.us.us.us, %.lr.ph237.i.us.us.us
@@ -6199,15 +6199,15 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %503 = load i64, ptr %.4424235.i.us.us.us, align 1, !tbaa !15
   %504 = insertelement <2 x i64> poison, i64 %503, i64 0
   %505 = bitcast <2 x i64> %504 to <4 x float>
-  %506 = getelementptr inbounds float, ptr %.4424235.i.us.us.us, i64 %479
+  %506 = getelementptr inbounds [4 x i8], ptr %.4424235.i.us.us.us, i64 %479
   %507 = load i64, ptr %506, align 1, !tbaa !15
   %508 = insertelement <2 x i64> poison, i64 %507, i64 0
   %509 = bitcast <2 x i64> %508 to <4 x float>
-  %510 = getelementptr inbounds float, ptr %.4424235.i.us.us.us, i64 %481
+  %510 = getelementptr inbounds [4 x i8], ptr %.4424235.i.us.us.us, i64 %481
   %511 = load i64, ptr %510, align 1, !tbaa !15
   %512 = insertelement <2 x i64> poison, i64 %511, i64 0
   %513 = bitcast <2 x i64> %512 to <4 x float>
-  %514 = getelementptr inbounds float, ptr %.4424235.i.us.us.us, i64 %483
+  %514 = getelementptr inbounds [4 x i8], ptr %.4424235.i.us.us.us, i64 %483
   %515 = load i64, ptr %514, align 1, !tbaa !15
   %516 = insertelement <2 x i64> poison, i64 %515, i64 0
   %517 = bitcast <2 x i64> %516 to <4 x float>
@@ -6231,7 +6231,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %535 = extractelement <2 x i64> %534, i64 0
   store i64 %535, ptr %.24236.i.us.us.us, align 8, !tbaa !80
   %536 = getelementptr inbounds nuw i8, ptr %.24236.i.us.us.us, i64 8
-  %537 = getelementptr inbounds float, ptr %.4424235.i.us.us.us, i64 %476
+  %537 = getelementptr inbounds [4 x i8], ptr %.4424235.i.us.us.us, i64 %476
   %538 = add nuw nsw i32 %.0429234.i.us.us.us, 4
   %539 = or disjoint i32 %538, 3
   %540 = icmp slt i32 %539, %5
@@ -6252,7 +6252,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %543 = load i64, ptr %.5425242.i.us.us.us, align 1, !tbaa !15
   %544 = insertelement <2 x i64> poison, i64 %543, i64 0
   %545 = bitcast <2 x i64> %544 to <4 x float>
-  %546 = getelementptr inbounds float, ptr %.5425242.i.us.us.us, i64 %479
+  %546 = getelementptr inbounds [4 x i8], ptr %.5425242.i.us.us.us, i64 %479
   %547 = load i64, ptr %546, align 1, !tbaa !15
   %548 = insertelement <2 x i64> poison, i64 %547, i64 0
   %549 = bitcast <2 x i64> %548 to <4 x float>
@@ -6269,7 +6269,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %560 = extractelement <4 x i32> %559, i64 0
   store i32 %560, ptr %.25243.i.us.us.us, align 4, !tbaa !82
   %561 = getelementptr inbounds nuw i8, ptr %.25243.i.us.us.us, i64 4
-  %562 = getelementptr inbounds float, ptr %.5425242.i.us.us.us, i64 %481
+  %562 = getelementptr inbounds [4 x i8], ptr %.5425242.i.us.us.us, i64 %481
   %563 = add nuw nsw i32 %.1430241.i.us.us.us, 2
   %564 = or disjoint i32 %563, 1
   %565 = icmp slt i32 %564, %5
@@ -6305,7 +6305,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %576 = getelementptr inbounds nuw i8, ptr %.26250.i.us.us.us, i64 1
   store i8 %.0.i433.i.us.us.us, ptr %576, align 1, !tbaa !15
   %577 = getelementptr inbounds nuw i8, ptr %.26250.i.us.us.us, i64 2
-  %578 = getelementptr inbounds float, ptr %.6426249.i.us.us.us, i64 %479
+  %578 = getelementptr inbounds [4 x i8], ptr %.6426249.i.us.us.us, i64 %479
   %579 = add nuw nsw i32 %.2431248.i.us.us.us, 1
   %exitcond355.not.i.us.us.us = icmp eq i32 %579, %5
   br i1 %exitcond355.not.i.us.us.us, label %.loopexit136.i.us.us.us, label %.lr.ph251.i.us.us.us, !llvm.loop !167
@@ -6321,7 +6321,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %.18254.i.us = phi ptr [ %601, %.loopexit136.i.loopexit8.us ], [ %.9.lcssa.i, %.loopexit139.i.us.preheader ]
   %581 = add nsw i64 %indvars.iv356.i.us, %487
   %582 = mul nsw i64 %581, %488
-  %583 = getelementptr inbounds float, ptr %491, i64 %582
+  %583 = getelementptr inbounds [4 x i8], ptr %491, i64 %582
   br label %.lr.ph231.i.us
 
 .lr.ph231.i.us:                                   ; preds = %.loopexit139.i.us, %.lr.ph231.i.us
@@ -6347,7 +6347,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %600 = extractelement <2 x i64> %599, i64 0
   store i64 %600, ptr %.22230.i.us, align 8, !tbaa !80
   %601 = getelementptr inbounds nuw i8, ptr %.22230.i.us, i64 8
-  %602 = getelementptr inbounds float, ptr %.3423229.i.us, i64 %476
+  %602 = getelementptr inbounds [4 x i8], ptr %.3423229.i.us, i64 %476
   %603 = add nuw nsw i32 %.0428228.i.us, 4
   %604 = or disjoint i32 %603, 3
   %605 = icmp slt i32 %604, %5
@@ -6362,10 +6362,10 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %indvars.iv352.i = phi i64 [ %indvars.iv.next353.i, %.loopexit142.i.loopexit11 ], [ %226, %.lr.ph219.i ]
   %.9218.i = phi ptr [ %660, %.loopexit142.i.loopexit11 ], [ %.0.lcssa.i, %.lr.ph219.i ]
   %607 = load ptr, ptr %0, align 8, !tbaa !4
-  %608 = getelementptr inbounds float, ptr %607, i64 %207
+  %608 = getelementptr inbounds [4 x i8], ptr %607, i64 %207
   %609 = add nsw i64 %indvars.iv352.i, %228
   %610 = mul nsw i64 %609, %229
-  %611 = getelementptr inbounds float, ptr %608, i64 %610
+  %611 = getelementptr inbounds [4 x i8], ptr %608, i64 %610
   br label %.lr.ph189.i
 
 .lr.ph189.i:                                      ; preds = %.lr.ph189.i.preheader, %.lr.ph189.i
@@ -6423,7 +6423,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %659 = getelementptr inbounds nuw i8, ptr %.11188.i, i64 16
   store <2 x i64> %658, ptr %659, align 16, !tbaa !15
   %660 = getelementptr inbounds nuw i8, ptr %.11188.i, i64 32
-  %661 = getelementptr inbounds float, ptr %.1403187.i, i64 %213
+  %661 = getelementptr inbounds [4 x i8], ptr %.1403187.i, i64 %213
   %662 = add nuw nsw i32 %.0415186.i, 8
   %663 = or disjoint i32 %662, 7
   %664 = icmp slt i32 %663, %5
@@ -6478,17 +6478,17 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
 
 .lr.ph261.i.preheader.preheader:                  ; preds = %.lr.ph284.i
   %.pre99 = load ptr, ptr %0, align 8, !tbaa !4
-  %692 = getelementptr inbounds float, ptr %.pre99, i64 %669
+  %692 = getelementptr inbounds [4 x i8], ptr %.pre99, i64 %669
   br label %.lr.ph261.i.preheader
 
 .loopexit133.i.us:                                ; preds = %.lr.ph284.i, %.loopexit.i.us
   %indvars.iv360.i.us = phi i64 [ %indvars.iv.next361.i.us, %.loopexit.i.us ], [ %689, %.lr.ph284.i ]
   %.27283.i.us = phi ptr [ %.32.i.us, %.loopexit.i.us ], [ %.18.lcssa.i, %.lr.ph284.i ]
   %693 = load ptr, ptr %0, align 8, !tbaa !4
-  %694 = getelementptr inbounds float, ptr %693, i64 %669
+  %694 = getelementptr inbounds [4 x i8], ptr %693, i64 %669
   %695 = add nsw i64 %indvars.iv360.i.us, %690
   %696 = mul nsw i64 %695, %691
-  %697 = getelementptr inbounds float, ptr %694, i64 %696
+  %697 = getelementptr inbounds [4 x i8], ptr %694, i64 %696
   br i1 %brmerge306.i, label %.loopexit132.i.us, label %.lr.ph267.i.us
 
 .lr.ph267.i.us:                                   ; preds = %.loopexit133.i.us, %.lr.ph267.i.us
@@ -6508,7 +6508,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %708 = extractelement <4 x i32> %707, i64 0
   store i32 %708, ptr %.31266.i.us, align 4, !tbaa !82
   %709 = getelementptr inbounds nuw i8, ptr %.31266.i.us, i64 4
-  %710 = getelementptr inbounds float, ptr %.3412264.i.us, i64 %681
+  %710 = getelementptr inbounds [4 x i8], ptr %.3412264.i.us, i64 %681
   %711 = add nuw nsw i32 %.0396265.i.us, 4
   %712 = or disjoint i32 %711, 3
   %713 = icmp slt i32 %712, %5
@@ -6537,7 +6537,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %725 = extractelement <4 x i32> %724, i64 0
   store i32 %725, ptr %.33272.i.us, align 4, !tbaa !82
   %726 = getelementptr inbounds nuw i8, ptr %.33272.i.us, i64 4
-  %727 = getelementptr inbounds float, ptr %.4413270.i.us, i64 %681
+  %727 = getelementptr inbounds [4 x i8], ptr %.4413270.i.us, i64 %681
   %728 = add nuw nsw i32 %.0393271.i.us, 4
   %729 = or disjoint i32 %728, 3
   %730 = icmp slt i32 %729, %5
@@ -6563,7 +6563,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %.0.i.i.us = trunc nsw i32 %.0.i127.i.us to i8
   store i8 %.0.i.i.us, ptr %.34279.i.us, align 1, !tbaa !15
   %736 = getelementptr inbounds nuw i8, ptr %.34279.i.us, i64 1
-  %737 = getelementptr inbounds float, ptr %.5414277.i.us, i64 %687
+  %737 = getelementptr inbounds [4 x i8], ptr %.5414277.i.us, i64 %687
   %738 = add nuw nsw i32 %.1394278.i.us, 1
   %exitcond359.not.i.us = icmp eq i32 %738, %5
   br i1 %exitcond359.not.i.us, label %.loopexit.i.us, label %.lr.ph280.i.us, !llvm.loop !173
@@ -6578,10 +6578,10 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %indvars.iv356.i = phi i64 [ %indvars.iv.next357.i, %.loopexit136.i.loopexit9 ], [ %485, %.lr.ph255.i ]
   %.18254.i = phi ptr [ %764, %.loopexit136.i.loopexit9 ], [ %.9.lcssa.i, %.lr.ph255.i ]
   %739 = load ptr, ptr %0, align 8, !tbaa !4
-  %740 = getelementptr inbounds float, ptr %739, i64 %466
+  %740 = getelementptr inbounds [4 x i8], ptr %739, i64 %466
   %741 = add nsw i64 %indvars.iv356.i, %487
   %742 = mul nsw i64 %741, %488
-  %743 = getelementptr inbounds float, ptr %740, i64 %742
+  %743 = getelementptr inbounds [4 x i8], ptr %740, i64 %742
   br label %.lr.ph225.i
 
 .lr.ph225.i:                                      ; preds = %.lr.ph225.i.preheader, %.lr.ph225.i
@@ -6610,7 +6610,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %763 = shufflevector <8 x i32> %762, <8 x i32> poison, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
   store <4 x i32> %763, ptr %.20224.i, align 16, !tbaa !15
   %764 = getelementptr inbounds nuw i8, ptr %.20224.i, i64 16
-  %765 = getelementptr inbounds float, ptr %.1421223.i, i64 %472
+  %765 = getelementptr inbounds [4 x i8], ptr %.1421223.i, i64 %472
   %766 = add nuw nsw i32 %.0427222.i, 8
   %767 = or disjoint i32 %766, 7
   %768 = icmp slt i32 %767, %5
@@ -6626,7 +6626,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %.27283.i = phi ptr [ %787, %.loopexit.i.loopexit7 ], [ %.18.lcssa.i, %.lr.ph261.i.preheader.preheader ]
   %770 = add nsw i64 %indvars.iv360.i, %690
   %771 = mul nsw i64 %770, %691
-  %772 = getelementptr inbounds float, ptr %692, i64 %771
+  %772 = getelementptr inbounds [4 x i8], ptr %692, i64 %771
   br label %.lr.ph261.i
 
 .lr.ph261.i:                                      ; preds = %.lr.ph261.i.preheader, %.lr.ph261.i
@@ -6649,7 +6649,7 @@ define hidden void @_ZN4ncnn46transpose_pack_B_tile_fp32_to_int8_avxvnniint8ERKN
   %786 = extractelement <2 x i64> %785, i64 0
   store i64 %786, ptr %.29260.i, align 8, !tbaa !80
   %787 = getelementptr inbounds nuw i8, ptr %.29260.i, i64 8
-  %788 = getelementptr inbounds float, ptr %.1410258.i, i64 %675
+  %788 = getelementptr inbounds [4 x i8], ptr %.1410258.i, i64 %675
   %789 = add nuw nsw i32 %.0401259.i, 8
   %790 = or disjoint i32 %789, 7
   %791 = icmp slt i32 %790, %5

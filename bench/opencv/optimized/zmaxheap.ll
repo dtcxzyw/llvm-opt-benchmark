@@ -34,10 +34,10 @@ define internal void @_ZN2cv5arucoL13_swap_defaultEPNS0_8zmaxheapEii(ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds float, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load float, ptr %8, align 4, !tbaa !14
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds float, ptr %6, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %6, i64 %10
   %12 = load float, ptr %11, align 4, !tbaa !14
   store float %12, ptr %8, align 4, !tbaa !14
   store float %9, ptr %11, align 4, !tbaa !14
@@ -91,18 +91,18 @@ define internal void @_ZN2cv5arucoL13_swap_pointerEPNS0_8zmaxheapEii(ptr noundef
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds float, ptr %5, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %8 = load float, ptr %7, align 4, !tbaa !14
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds float, ptr %5, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %5, i64 %9
   %11 = load float, ptr %10, align 4, !tbaa !14
   store float %11, ptr %7, align 4, !tbaa !14
   store float %8, ptr %10, align 4, !tbaa !14
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !19
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %6
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %6
   %15 = load ptr, ptr %14, align 8, !tbaa !20
-  %16 = getelementptr inbounds ptr, ptr %13, i64 %9
+  %16 = getelementptr inbounds [8 x i8], ptr %13, i64 %9
   %17 = load ptr, ptr %16, align 8, !tbaa !20
   store ptr %17, ptr %14, align 8, !tbaa !20
   store ptr %15, ptr %16, align 8, !tbaa !20
@@ -169,7 +169,7 @@ _ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit: ; preds = %._ZN2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !13
   %25 = sext i32 %22 to i64
-  %26 = getelementptr inbounds float, ptr %24, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %24, i64 %25
   store float %2, ptr %26, align 4, !tbaa !14
   %27 = load i64, ptr %0, align 8, !tbaa !3
   %28 = mul i64 %27, %25
@@ -191,7 +191,7 @@ _ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit: ; preds = %._ZN2
   %36 = lshr i32 %35, 1
   %37 = load ptr, ptr %23, align 8, !tbaa !13
   %38 = zext nneg i32 %36 to i64
-  %39 = getelementptr inbounds nuw float, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %38
   %40 = load float, ptr %39, align 4, !tbaa !14
   %41 = fcmp ult float %40, %2
   br i1 %41, label %42, label %.thread
@@ -254,7 +254,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN2cv5aruco19zmaxheap_remove_maxEPNS
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !13
   %28 = sext i32 %23 to i64
-  %29 = getelementptr inbounds float, ptr %27, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %27, i64 %28
   %30 = load float, ptr %29, align 4, !tbaa !14
   store float %30, ptr %27, align 4, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -285,7 +285,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN2cv5aruco19zmaxheap_remove_maxEPNS
 47:                                               ; preds = %41
   %48 = load ptr, ptr %26, align 8, !tbaa !13
   %49 = sext i32 %44 to i64
-  %50 = getelementptr inbounds float, ptr %48, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %48, i64 %49
   %51 = load float, ptr %50, align 4, !tbaa !14
   br label %52
 
@@ -297,7 +297,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN2cv5aruco19zmaxheap_remove_maxEPNS
 55:                                               ; preds = %52
   %56 = load ptr, ptr %26, align 8, !tbaa !13
   %57 = sext i32 %45 to i64
-  %58 = getelementptr inbounds float, ptr %56, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %56, i64 %57
   %59 = load float, ptr %58, align 4, !tbaa !14
   br label %60
 

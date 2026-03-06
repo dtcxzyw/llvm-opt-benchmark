@@ -5,10 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVBitStreamFilter = type { ptr, ptr, ptr }
 %union.anon = type { i64 }
-%struct.anon = type { i32, ptr }
-%struct.AV1OBU = type { i32, ptr, i32, i32, ptr, i32, i32, i32 }
-%struct.H2645NAL = type { ptr, i32, i32, i32, ptr, %struct.GetBitContext, i32, i32, i32, i32, i32, i32, ptr }
-%struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [18 x i8] c"extract_extradata\00", align 1
 @codec_ids = internal constant [12 x i32] [i32 225, i32 192, i32 194, i32 87, i32 27, i32 173, i32 1, i32 2, i32 12, i32 70, i32 196, i32 0], align 16
@@ -44,7 +40,7 @@ define internal range(i32 -558323010, 1) i32 @extract_extradata_init(ptr noundef
 
 9:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw %struct.anon, ptr @extract_tab, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr @extract_tab, i64 %indvars.iv
   %11 = load i32, ptr %10, align 16, !tbaa !23
   %12 = icmp eq i32 %11, %7
   br i1 %12, label %13, label %8
@@ -162,7 +158,7 @@ define internal range(i32 -2147483648, 1) i32 @extract_extradata_av1(ptr noundef
   %.053119 = phi i32 [ 0, %.lr.ph ], [ %.154, %64 ]
   %.055118 = phi i32 [ 0, %.lr.ph ], [ %.156, %64 ]
   %.058117 = phi i32 [ 0, %.lr.ph ], [ %.159, %64 ]
-  %21 = getelementptr inbounds nuw %struct.AV1OBU, ptr %18, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load i32, ptr %22, align 8, !tbaa !41
   br label %25
@@ -173,7 +169,7 @@ define internal range(i32 -2147483648, 1) i32 @extract_extradata_av1(ptr noundef
 25:                                               ; preds = %24, %20
   %exitcond.not.i.i = phi i1 [ false, %20 ], [ true, %24 ]
   %.0710.i.i = phi i64 [ 0, %20 ], [ 1, %24 ]
-  %26 = getelementptr inbounds nuw i32, ptr @obu_is_global.extradata_obu_types, i64 %.0710.i.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr @obu_is_global.extradata_obu_types, i64 %.0710.i.i
   %27 = load i32, ptr %26, align 4, !tbaa !35
   %28 = icmp eq i32 %27, %23
   br i1 %28, label %val_in_array.exit.i, label %24
@@ -222,7 +218,7 @@ val_in_array.exit.i:                              ; preds = %25
 get_leb.exit.i.i:                                 ; preds = %.preheader.i.i, %get_leb.exit.i.i
   %exitcond.not.i.i.i = phi i1 [ true, %get_leb.exit.i.i ], [ false, %.preheader.i.i ]
   %.0710.i.i.i = phi i64 [ 1, %get_leb.exit.i.i ], [ 0, %.preheader.i.i ]
-  %52 = getelementptr inbounds nuw i32, ptr @metadata_is_global.metadata_obu_types, i64 %.0710.i.i.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @metadata_is_global.metadata_obu_types, i64 %.0710.i.i.i
   %53 = load i32, ptr %52, align 4, !tbaa !35
   %54 = icmp eq i32 %53, %.1.i.i.i
   %brmerge.i.i = or i1 %exitcond.not.i.i.i, %54
@@ -341,7 +337,7 @@ bytestream2_init_writer.exit73:                   ; preds = %89
   %.sroa.0.0123 = phi ptr [ %.sroa.0.1, %146 ], [ %83, %94 ]
   %.sroa.098.1122 = phi ptr [ %.sroa.098.2, %146 ], [ %.sroa.098.0, %94 ]
   %97 = load ptr, ptr %8, align 8, !tbaa !40
-  %98 = getelementptr inbounds nuw %struct.AV1OBU, ptr %97, i64 %indvars.iv130
+  %98 = getelementptr inbounds nuw [48 x i8], ptr %97, i64 %indvars.iv130
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %100 = load i32, ptr %99, align 8, !tbaa !41
   br label %102
@@ -352,7 +348,7 @@ bytestream2_init_writer.exit73:                   ; preds = %89
 102:                                              ; preds = %101, %.lr.ph126
   %exitcond.not.i.i74 = phi i1 [ false, %.lr.ph126 ], [ true, %101 ]
   %.0710.i.i75 = phi i64 [ 0, %.lr.ph126 ], [ 1, %101 ]
-  %103 = getelementptr inbounds nuw i32, ptr @obu_is_global.extradata_obu_types, i64 %.0710.i.i75
+  %103 = getelementptr inbounds nuw [4 x i8], ptr @obu_is_global.extradata_obu_types, i64 %.0710.i.i75
   %104 = load i32, ptr %103, align 4, !tbaa !35
   %105 = icmp eq i32 %104, %100
   br i1 %105, label %val_in_array.exit.i77, label %101
@@ -401,7 +397,7 @@ val_in_array.exit.i77:                            ; preds = %102
 get_leb.exit.i.i90:                               ; preds = %.preheader.i.i83, %get_leb.exit.i.i90
   %exitcond.not.i.i.i91 = phi i1 [ true, %get_leb.exit.i.i90 ], [ false, %.preheader.i.i83 ]
   %.0710.i.i.i92 = phi i64 [ 1, %get_leb.exit.i.i90 ], [ 0, %.preheader.i.i83 ]
-  %129 = getelementptr inbounds nuw i32, ptr @metadata_is_global.metadata_obu_types, i64 %.0710.i.i.i92
+  %129 = getelementptr inbounds nuw [4 x i8], ptr @metadata_is_global.metadata_obu_types, i64 %.0710.i.i.i92
   %130 = load i32, ptr %129, align 4, !tbaa !35
   %131 = icmp eq i32 %130, %.1.i.i.i86
   %brmerge.i.i93 = or i1 %exitcond.not.i.i.i91, %131
@@ -596,7 +592,7 @@ define internal range(i32 -2147483648, 1) i32 @extract_extradata_h2645(ptr nound
   %.080134 = phi i32 [ 0, %.lr.ph ], [ %.181, %59 ]
   %.083133 = phi i32 [ 0, %.lr.ph ], [ %.184, %59 ]
   %.085132 = phi i32 [ 0, %.lr.ph ], [ %.3, %59 ]
-  %28 = getelementptr inbounds nuw %struct.H2645NAL, ptr %25, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [96 x i8], ptr %25, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load i32, ptr %29, align 8, !tbaa !60
   br label %33
@@ -608,7 +604,7 @@ define internal range(i32 -2147483648, 1) i32 @extract_extradata_h2645(ptr nound
 
 33:                                               ; preds = %31, %27
   %.0710.i = phi i64 [ 0, %27 ], [ %32, %31 ]
-  %34 = getelementptr inbounds nuw i32, ptr %.090, i64 %.0710.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %.090, i64 %.0710.i
   %35 = load i32, ptr %34, align 4, !tbaa !35
   %36 = icmp eq i32 %35, %30
   br i1 %36, label %val_in_array.exit, label %31
@@ -766,7 +762,7 @@ bytestream2_init_writer.exit110:                  ; preds = %92
   %.sroa.0.0140 = phi ptr [ %.sroa.0.1, %131 ], [ %86, %97 ]
   %.sroa.0119.1139 = phi ptr [ %.sroa.0119.2, %131 ], [ %.sroa.0119.0, %97 ]
   %100 = load ptr, ptr %15, align 8, !tbaa !59
-  %101 = getelementptr inbounds nuw %struct.H2645NAL, ptr %100, i64 %indvars.iv146
+  %101 = getelementptr inbounds nuw [96 x i8], ptr %100, i64 %indvars.iv146
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 64
   %103 = load i32, ptr %102, align 8, !tbaa !60
   br label %106
@@ -778,7 +774,7 @@ bytestream2_init_writer.exit110:                  ; preds = %92
 
 106:                                              ; preds = %104, %.lr.ph143
   %.0710.i111 = phi i64 [ 0, %.lr.ph143 ], [ %105, %104 ]
-  %107 = getelementptr inbounds nuw i32, ptr %.090, i64 %.0710.i111
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %.090, i64 %.0710.i111
   %108 = load i32, ptr %107, align 4, !tbaa !35
   %109 = icmp eq i32 %108, %103
   br i1 %109, label %val_in_array.exit113, label %104

@@ -236,7 +236,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %82 = load ptr, ptr %50, align 8, !tbaa !23
-  %83 = getelementptr inbounds nuw %"class.cv::Mat", ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [96 x i8], ptr %82, i64 %indvars.iv
   store i64 0, ptr %54, align 8
   store i32 50397184, ptr %11, align 8, !tbaa !24
   store ptr %83, ptr %53, align 8, !tbaa !28
@@ -326,7 +326,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %109, %.noe
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %111, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %106, ptr %59, align 8, !tbaa !34
   store ptr %110, ptr %60, align 8, !tbaa !29
-  %112 = getelementptr inbounds nuw i32, ptr %106, i64 %104
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %104
   store ptr %112, ptr %61, align 8, !tbaa !32
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -636,7 +636,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZN
   store i64 9, ptr %161, align 8, !tbaa !16
   store i8 0, ptr %166, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %202 = getelementptr inbounds nuw %"class.cv::Mat", ptr %201, i64 %.0127
+  %202 = getelementptr inbounds nuw [96 x i8], ptr %201, i64 %.0127
   store i32 0, ptr %162, align 8, !tbaa !40
   store i32 0, ptr %163, align 4, !tbaa !41
   store i32 16842752, ptr %19, align 8, !tbaa !24
@@ -657,7 +657,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i94
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %203, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i94
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %206 = load ptr, ptr %165, align 8, !tbaa !34
-  %207 = getelementptr inbounds nuw i32, ptr %206, i64 %.0127
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %.0127
   %208 = load i32, ptr %207, align 4, !tbaa !33
   %209 = invoke noundef i32 @_ZN2cv7waitKeyEi(i32 noundef %208)
           to label %210 unwind label %217
@@ -907,7 +907,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !23
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !19
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !22
   ret void
 }

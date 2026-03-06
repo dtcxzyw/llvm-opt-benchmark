@@ -198,13 +198,13 @@ _ZN20minEnclosingTriangleL10initialiseERSt6vectorIN2cv6Point_IfEESaIS3_EERd.exit
   %.0..promoted.i.i.i = phi i32 [ 2, %.lr.ph.i.i.i ], [ %.0..0..i.i.i, %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i ]
   %.val.i.i.i = load ptr, ptr %33, align 8
-  %79 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i, i64 %indvars.iv.i.i.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i, i64 %indvars.iv.i.i.i
   %.sroa_idx6.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %79, i64 4
   %80 = icmp eq i64 %indvars.iv.i.i.i, 0
   %.v.i.i.i.i.i.i = select i1 %80, i64 %67, i64 %indvars.iv.i.i.i
   %81 = add nuw i64 %.v.i.i.i.i.i.i, 4294967295
   %82 = and i64 %81, 4294967295
-  %83 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i, i64 %82
   %.sroa_idx2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %83, i64 4
   %84 = load float, ptr %79, align 4
   %85 = load float, ptr %.sroa_idx6.i.i.i.i.i, align 4
@@ -220,7 +220,7 @@ _ZN20minEnclosingTriangleL10initialiseERSt6vectorIN2cv6Point_IfEESaIS3_EERd.exit
   %sqrt.i.i.i.i.i.i = call double @llvm.sqrt.f64(double %94)
   %95 = fcmp une double %94, 0.000000e+00
   %.phi.trans.insert.i.i.i = zext i32 %.0..promoted.i.i.i to i64
-  %.phi.trans.insert234.i.i.i = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i, i64 %.phi.trans.insert.i.i.i
+  %.phi.trans.insert234.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i, i64 %.phi.trans.insert.i.i.i
   %.pre.i.i.i = load float, ptr %.phi.trans.insert234.i.i.i, align 4
   %.sroa_idx.i14.i.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert234.i.i.i, i64 4
   %.pre235.i.i.i = load float, ptr %.sroa_idx.i14.i.phi.trans.insert.i.i.i, align 4
@@ -233,7 +233,7 @@ _ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i.i.i.i: ; preds = %_Z
   %99 = add i32 %98, 1
   %100 = urem i32 %99, %68
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i, i64 %101
   %103 = load float, ptr %102, align 4
   %.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %102, i64 4
   %104 = load float, ptr %.sroa_idx.i.i.i.i.i, align 4
@@ -291,7 +291,7 @@ _ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS
   %.val.i.i.i.i = phi ptr [ %.val.i.i.i, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i ], [ %.val.i.pre.i.i.i, %264 ]
   %.0..promoted212.i.i.i = phi i32 [ %98, %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.preheader.i.i.i ], [ %.0..0..0..0..0..0..0..0..0.114.pre.i.i.i, %264 ]
   %139 = zext i32 %.0..promoted212.i.i.i to i64
-  %140 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i.i, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i.i, i64 %139
   %141 = load float, ptr %140, align 4
   %.sroa_idx.i.i32.i.i.i = getelementptr inbounds nuw i8, ptr %140, i64 4
   %142 = load float, ptr %.sroa_idx.i.i32.i.i.i, align 4
@@ -314,7 +314,7 @@ _ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS
   %158 = fdiv double %154, %sqrt.i.i.i33.i.i.i
   %159 = select i1 %157, double %158, double 0.000000e+00
   %160 = zext i32 %.0..0.125.i.i.i to i64
-  %161 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i.i, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i.i, i64 %160
   %162 = load float, ptr %161, align 4
   %.sroa_idx.i27.i.i.i.i = getelementptr inbounds nuw i8, ptr %161, i64 4
   %163 = load float, ptr %.sroa_idx.i27.i.i.i.i, align 4
@@ -331,8 +331,8 @@ _ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS
   br i1 %173, label %174, label %_ZN20minEnclosingTriangleL20moveAIfLowAndBIfHighERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjS8_j.exit.i.i.i
 
 174:                                              ; preds = %_ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS3_EEjRjj.exit.i.i.i
-  %175 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i.i, i64 %82
-  %176 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i.i, i64 %indvars.iv.i.i.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i.i, i64 %82
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i.i, i64 %indvars.iv.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store float 0.000000e+00, ptr %9, align 8, !tbaa !23
   store float 0.000000e+00, ptr %69, align 4, !tbaa !26
@@ -343,7 +343,7 @@ _ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS
   %.v.i.i81.i.i.i = select i1 %177, i32 %68, i32 %.0..0.125.i.i.i
   %178 = add i32 %.v.i.i81.i.i.i, -1
   %179 = zext i32 %178 to i64
-  %180 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.i.i.i, i64 %179
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i.i, i64 %179
   %181 = invoke fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGammaIntersectionPointsERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjRKS3_S9_S9_S9_RS3_SA_(ptr noundef nonnull readonly align 8 dereferenceable(24) %33, i32 noundef %68, i32 noundef %132, i32 noundef %.0..0.125.i.i.i, ptr noundef nonnull align 4 dereferenceable(8) %161, ptr noundef nonnull align 4 dereferenceable(8) %180, ptr noundef nonnull align 4 dereferenceable(8) %176, ptr noundef nonnull align 4 dereferenceable(8) %175, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %10)
           to label %.noexc.i unwind label %.loopexit.split-lp.loopexit.i
 
@@ -352,9 +352,9 @@ _ZN20minEnclosingTriangleL20advanceBToRightChainERKSt6vectorIN2cv6Point_IfEESaIS
 
 182:                                              ; preds = %.noexc.i
   %183 = load ptr, ptr %33, align 8, !tbaa !19
-  %184 = getelementptr inbounds nuw %"class.cv::Point_", ptr %183, i64 %134
-  %185 = getelementptr inbounds nuw %"class.cv::Point_", ptr %183, i64 %indvars.iv.i.i.i
-  %186 = getelementptr inbounds nuw %"class.cv::Point_", ptr %183, i64 %82
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %134
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %indvars.iv.i.i.i
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %82
   %.val.i82.i.i.i = load float, ptr %185, align 4, !tbaa !23
   %187 = getelementptr i8, ptr %185, i64 4
   %.val24.i.i.i.i = load float, ptr %187, align 4
@@ -469,7 +469,7 @@ _ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exi
   %249 = bitcast i32 %.sroa.5.0.extract.trunc.i.i.i to float
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %250 = getelementptr inbounds nuw %"class.cv::Point_", ptr %183, i64 %139
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %139
   %.val.i.i.i.i.i = load float, ptr %250, align 4, !tbaa !23
   %251 = getelementptr i8, ptr %250, i64 4
   %.val7.i.i.i.i.i = load float, ptr %251, align 4, !tbaa !26
@@ -497,11 +497,11 @@ _ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exi
   %267 = urem i32 %266, %68
   store i32 %267, ptr %.sink31.i.i.i.i, align 4, !tbaa !27
   %.0..0..0..0..0..0..0..0..0.114.pre.i.i.i = load i32, ptr %27, align 4, !tbaa !27
-  %.phi.trans.insert238.i.i.i = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.pre.i.i.i, i64 %indvars.iv.i.i.i
+  %.phi.trans.insert238.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.val.i.pre.i.i.i, i64 %indvars.iv.i.i.i
   %.pre239.i.i.i = load float, ptr %.phi.trans.insert238.i.i.i, align 4
   %.sroa_idx6.i.i30.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert238.i.i.i, i64 4
   %.pre240.i.i.i = load float, ptr %.sroa_idx6.i.i30.phi.trans.insert.i.i.i, align 4
-  %.phi.trans.insert241.i.i.i = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.i.pre.i.i.i, i64 %82
+  %.phi.trans.insert241.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.val.i.pre.i.i.i, i64 %82
   %.pre242.i.i.i = load float, ptr %.phi.trans.insert241.i.i.i, align 4
   %.sroa_idx2.i.i31.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert241.i.i.i, i64 4
   %.pre243.i.i.i = load float, ptr %.sroa_idx2.i.i31.phi.trans.insert.i.i.i, align 4
@@ -534,7 +534,7 @@ _ZN20minEnclosingTriangleL20moveAIfLowAndBIfHighERKSt6vectorIN2cv6Point_IfEESaIS
   %.val20.i.i.i.i = phi float [ %406, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.i.i.i ], [ %.val20.i.pre.i.i.i, %.lr.ph.i.i.i.i ]
   %273 = phi i32 [ %337, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.i.i.i ], [ %.0..promoted212.i.i.i, %.lr.ph.i.i.i.i ]
   %274 = zext i32 %273 to i64
-  %275 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val22.i36.i.i.i, i64 %274
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %.val22.i36.i.i.i, i64 %274
   %.val.i.i37.i.i.i = load float, ptr %275, align 4, !tbaa !23
   %276 = getelementptr i8, ptr %275, i64 4
   %.val7.i.i38.i.i.i = load float, ptr %276, align 4, !tbaa !26
@@ -553,11 +553,11 @@ _ZN20minEnclosingTriangleL20moveAIfLowAndBIfHighERKSt6vectorIN2cv6Point_IfEESaIS
   br i1 %288, label %289, label %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.loopexit.i.i.i
 
 289:                                              ; preds = %272
-  %290 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val22.i36.i.i.i, i64 %indvars.iv.i.i.i
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %.val22.i36.i.i.i, i64 %indvars.iv.i.i.i
   %291 = load float, ptr %290, align 4
   %.sroa_idx6.i.i39.i.i.i = getelementptr inbounds nuw i8, ptr %290, i64 4
   %292 = load float, ptr %.sroa_idx6.i.i39.i.i.i, align 4
-  %293 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val22.i36.i.i.i, i64 %82
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %.val22.i36.i.i.i, i64 %82
   %294 = load float, ptr %293, align 4
   %.sroa_idx2.i.i40.i.i.i = getelementptr inbounds nuw i8, ptr %293, i64 4
   %295 = load float, ptr %.sroa_idx2.i.i40.i.i.i, align 4
@@ -581,7 +581,7 @@ _ZN20minEnclosingTriangleL20moveAIfLowAndBIfHighERKSt6vectorIN2cv6Point_IfEESaIS
   %312 = fcmp une double %311, 0.000000e+00
   %313 = fdiv double %309, %sqrt.i.i.i42.i.i.i
   %314 = select i1 %312, double %313, double 0.000000e+00
-  %315 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val22.i36.i.i.i, i64 %271
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %.val22.i36.i.i.i, i64 %271
   %316 = load float, ptr %315, align 4
   %.sroa_idx.i26.i.i.i.i = getelementptr inbounds nuw i8, ptr %315, i64 4
   %317 = load float, ptr %.sroa_idx.i26.i.i.i.i, align 4
@@ -619,7 +619,7 @@ _ZN20minEnclosingTriangleL14greaterOrEqualEdd.exit.thread.i46.i.i.i: ; preds = %
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store float 0.000000e+00, ptr %8, align 8, !tbaa !23
   store float 0.000000e+00, ptr %73, align 4, !tbaa !26
-  %338 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val22.i36.i.i.i, i64 %160
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %.val22.i36.i.i.i, i64 %160
   %339 = invoke fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGammaIntersectionPointsERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjRKS3_S9_S9_S9_RS3_SA_(ptr noundef nonnull readonly align 8 dereferenceable(24) %33, i32 noundef %68, i32 noundef %132, i32 noundef %337, ptr noundef nonnull align 4 dereferenceable(8) %338, ptr noundef nonnull align 4 dereferenceable(8) %315, ptr noundef nonnull align 4 dereferenceable(8) %290, ptr noundef nonnull align 4 dereferenceable(8) %293, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %8)
           to label %.noexc25.i unwind label %.loopexit.i
 
@@ -635,9 +635,9 @@ _ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exi
 
 340:                                              ; preds = %.noexc25.i
   %341 = load ptr, ptr %33, align 8, !tbaa !19
-  %342 = getelementptr inbounds nuw %"class.cv::Point_", ptr %341, i64 %134
-  %343 = getelementptr inbounds nuw %"class.cv::Point_", ptr %341, i64 %indvars.iv.i.i.i
-  %344 = getelementptr inbounds nuw %"class.cv::Point_", ptr %341, i64 %82
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %341, i64 %134
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %341, i64 %indvars.iv.i.i.i
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %341, i64 %82
   %.val.i88.i.i.i = load float, ptr %343, align 4, !tbaa !23
   %345 = getelementptr i8, ptr %343, i64 4
   %.val24.i89.i.i.i = load float, ptr %345, align 4
@@ -757,21 +757,21 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   %.0..0..i.i.i = phi i32 [ %273, %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.loopexit.i.i.i ], [ %337, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.thread.i.i.i ], [ %.0..promoted212.i.i.i, %.noexc24.i ]
   %410 = phi ptr [ %.val22.i36.i.i.i, %_ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjRjj.exit.loopexit.i.i.i ], [ %.pre249.i.i.i, %_ZN20minEnclosingTriangleL5gammaEjRN2cv6Point_IfEERKSt6vectorIS2_SaIS2_EEjjj.exit96.thread.i.i.i ], [ %.pre250.i.i.i, %.noexc24.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %411 = getelementptr inbounds nuw %"class.cv::Point_", ptr %410, i64 %82
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %410, i64 %82
   %412 = load i64, ptr %411, align 4
   store i64 %412, ptr %24, align 8
-  %413 = getelementptr inbounds nuw %"class.cv::Point_", ptr %410, i64 %indvars.iv.i.i.i
+  %413 = getelementptr inbounds nuw [8 x i8], ptr %410, i64 %indvars.iv.i.i.i
   %414 = load i64, ptr %413, align 4
   store i64 %414, ptr %25, align 8
   %415 = icmp eq i32 %.0..0.125.i.i.i, 0
   %.v.i13.i.i.i.i = select i1 %415, i32 %68, i32 %.0..0.125.i.i.i
   %416 = add i32 %.v.i13.i.i.i.i, -1
   %417 = zext i32 %416 to i64
-  %418 = getelementptr inbounds nuw %"class.cv::Point_", ptr %410, i64 %417
+  %418 = getelementptr inbounds nuw [8 x i8], ptr %410, i64 %417
   %419 = load float, ptr %418, align 4
   %.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %418, i64 4
   %420 = load float, ptr %.sroa_idx.i.i.i, align 4
-  %421 = getelementptr inbounds nuw %"class.cv::Point_", ptr %410, i64 %160
+  %421 = getelementptr inbounds nuw [8 x i8], ptr %410, i64 %160
   %422 = load <2 x float>, ptr %421, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store float 0.000000e+00, ptr %20, align 4, !tbaa !23
@@ -801,7 +801,7 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   %.val19.i.i.i.i = load float, ptr %20, align 4, !tbaa !23
   %.val20.i55.i.i.i = load float, ptr %74, align 4, !tbaa !26
   %435 = zext i32 %.0..0..i.i.i to i64
-  %436 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %435
+  %436 = getelementptr inbounds nuw [8 x i8], ptr %.val.pre.i.i.i.i, i64 %435
   %.val8.i.i.i.i.i = load float, ptr %436, align 4, !tbaa !23
   %437 = getelementptr i8, ptr %436, i64 4
   %.val9.i.i.i.i.i = load float, ptr %437, align 4, !tbaa !26
@@ -821,15 +821,15 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
 
 450:                                              ; preds = %434, %._crit_edge.i.i.i.i
   %.pre-phi.i.i.i.i = phi i64 [ %.pre.i48.i.i.i, %._crit_edge.i.i.i.i ], [ %435, %434 ]
-  %451 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %indvars.iv.i.i.i
+  %451 = getelementptr inbounds nuw [8 x i8], ptr %.val.pre.i.i.i.i, i64 %indvars.iv.i.i.i
   %452 = load float, ptr %451, align 4
   %.sroa_idx6.i.i49.i.i.i = getelementptr inbounds nuw i8, ptr %451, i64 4
   %453 = load float, ptr %.sroa_idx6.i.i49.i.i.i, align 4
-  %454 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %82
+  %454 = getelementptr inbounds nuw [8 x i8], ptr %.val.pre.i.i.i.i, i64 %82
   %455 = load float, ptr %454, align 4
   %.sroa_idx2.i.i51.i.i.i = getelementptr inbounds nuw i8, ptr %454, i64 4
   %456 = load float, ptr %.sroa_idx2.i.i51.i.i.i, align 4
-  %457 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %.pre-phi.i.i.i.i
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %.val.pre.i.i.i.i, i64 %.pre-phi.i.i.i.i
   %458 = load float, ptr %457, align 4
   %.sroa_idx.i.i52.i.i.i = getelementptr inbounds nuw i8, ptr %457, i64 4
   %459 = load float, ptr %.sroa_idx.i.i52.i.i.i, align 4
@@ -851,7 +851,7 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   %474 = fcmp une double %473, 0.000000e+00
   %475 = fdiv double %471, %sqrt.i.i.i53.i.i.i
   %476 = select i1 %474, double %475, double 0.000000e+00
-  %477 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %417
+  %477 = getelementptr inbounds nuw [8 x i8], ptr %.val.pre.i.i.i.i, i64 %417
   %478 = load float, ptr %477, align 4
   %.sroa_idx.i25.i.i.i.i = getelementptr inbounds nuw i8, ptr %477, i64 4
   %479 = load float, ptr %.sroa_idx.i25.i.i.i.i, align 4
@@ -878,10 +878,10 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   %.v.i.i56.i.i.i = select i1 %491, i32 %68, i32 %.0..0..i.i.i
   %492 = add i32 %.v.i.i56.i.i.i, -1
   %493 = zext i32 %492 to i64
-  %494 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %493
+  %494 = getelementptr inbounds nuw [8 x i8], ptr %.val.pre.i.i.i.i, i64 %493
   %495 = load i64, ptr %494, align 4
   store i64 %495, ptr %22, align 8
-  %496 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %.pre-phi267.i.i.i
+  %496 = getelementptr inbounds nuw [8 x i8], ptr %.val.pre.i.i.i.i, i64 %.pre-phi267.i.i.i
   %497 = load i64, ptr %496, align 4
   store i64 %497, ptr %23, align 8
   %498 = trunc i64 %495 to i32
@@ -963,11 +963,11 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   %566 = fmul float %565, 5.000000e-01
   %567 = fadd float %564, %547
   %568 = fmul float %567, 5.000000e-01
-  %569 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %indvars.iv.i.i.i
+  %569 = getelementptr inbounds nuw [8 x i8], ptr %.val.pre.i.i.i.i, i64 %indvars.iv.i.i.i
   %570 = load float, ptr %569, align 4
   %.sroa_idx4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %569, i64 4
   %571 = load float, ptr %.sroa_idx4.i.i.i.i.i, align 4
-  %572 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %82
+  %572 = getelementptr inbounds nuw [8 x i8], ptr %.val.pre.i.i.i.i, i64 %82
   %573 = load float, ptr %572, align 4
   %.sroa_idx.i.i58.i.i.i = getelementptr inbounds nuw i8, ptr %572, i64 4
   %574 = load float, ptr %.sroa_idx.i.i58.i.i.i, align 4
@@ -989,7 +989,7 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   %589 = fcmp une double %588, 0.000000e+00
   %590 = fdiv double %586, %sqrt.i.i.i59.i.i.i
   %591 = select i1 %589, double %590, double 0.000000e+00
-  %592 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val.pre.i.i.i.i, i64 %417
+  %592 = getelementptr inbounds nuw [8 x i8], ptr %.val.pre.i.i.i.i, i64 %417
   %593 = load float, ptr %592, align 4
   %.sroa_idx.i52.i.i.i.i = getelementptr inbounds nuw i8, ptr %592, i64 4
   %594 = load float, ptr %.sroa_idx.i52.i.i.i.i, align 4
@@ -1052,8 +1052,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i: ; pred
 
 _ZN20minEnclosingTriangleL18findVertexCOnSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjRKS3_S9_S9_S9_.exit.i.i.i.i: ; preds = %.noexc28.i
   %614 = load ptr, ptr %33, align 8, !tbaa !19
-  %615 = getelementptr inbounds nuw %"class.cv::Point_", ptr %614, i64 %indvars.iv.i.i.i
-  %616 = getelementptr inbounds nuw %"class.cv::Point_", ptr %614, i64 %82
+  %615 = getelementptr inbounds nuw [8 x i8], ptr %614, i64 %indvars.iv.i.i.i
+  %616 = getelementptr inbounds nuw [8 x i8], ptr %614, i64 %82
   %.val.i.i60.i.i.i = load float, ptr %615, align 4, !tbaa !23
   %617 = getelementptr i8, ptr %615, i64 4
   %.val21.i.i.i.i.i = load float, ptr %617, align 4
@@ -1067,7 +1067,7 @@ _ZN20minEnclosingTriangleL18findVertexCOnSideBERKSt6vectorIN2cv6Point_IfEESaIS3_
           to label %.noexc30.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc30.i:                                       ; preds = %_ZN20minEnclosingTriangleL18findVertexCOnSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjRKS3_S9_S9_S9_.exit.i.i.i.i
-  %619 = getelementptr inbounds nuw %"class.cv::Point_", ptr %614, i64 %134
+  %619 = getelementptr inbounds nuw [8 x i8], ptr %614, i64 %134
   %620 = load double, ptr %13, align 8, !tbaa !31
   %621 = load float, ptr %16, align 8, !tbaa !23
   %622 = fpext float %621 to double
@@ -1145,7 +1145,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i: ; preds 
 _ZN20minEnclosingTriangleL11updateSideBERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_.exit.i.i.i: ; preds = %.noexc31.i
   %654 = zext i32 %.0..0..i.i.i to i64
   %655 = load ptr, ptr %33, align 8, !tbaa !19
-  %656 = getelementptr inbounds nuw %"class.cv::Point_", ptr %655, i64 %654
+  %656 = getelementptr inbounds nuw [8 x i8], ptr %655, i64 %654
   %657 = load i64, ptr %656, align 4
   store i64 %657, ptr %23, align 8
   %.val32.i.pre.i.i.i = load float, ptr %22, align 8, !tbaa !23
@@ -1270,7 +1270,7 @@ _ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjj
   br i1 %663, label %747, label %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i.i
 
 747:                                              ; preds = %726
-  %748 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val58.i.i.i.i, i64 %417
+  %748 = getelementptr inbounds nuw [8 x i8], ptr %.val58.i.i.i.i, i64 %417
   %.val28.i.i.i.i.i = load float, ptr %748, align 4, !tbaa !23
   %749 = fpext float %736 to double
   %750 = fpext float %.val28.i.i.i.i.i to double
@@ -1338,7 +1338,7 @@ _ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i.i: 
 
 796:                                              ; preds = %_ZN20minEnclosingTriangleL14areEqualPointsERKN2cv6Point_IfEES4_.exit.i.i.i.i.i
   %797 = zext i32 %.0..0..i.i.i to i64
-  %798 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val58.i.i.i.i, i64 %797
+  %798 = getelementptr inbounds nuw [8 x i8], ptr %.val58.i.i.i.i, i64 %797
   %.val24.i.i.i.i.i = load float, ptr %798, align 4, !tbaa !23
   %799 = fpext float %740 to double
   %800 = fpext float %.val24.i.i.i.i.i to double
@@ -1515,7 +1515,7 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i: ; pre
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i: ; preds = %905, %.noexc34.i
-  %906 = getelementptr inbounds nuw %"class.cv::Point_", ptr %903, i64 %901
+  %906 = getelementptr inbounds nuw [8 x i8], ptr %903, i64 %901
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i.i.i.i
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i.i.i.i: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i, %890
@@ -1591,7 +1591,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i28.i.
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i31.i.i.i.i
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i31.i.i.i.i: ; preds = %927, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i28.i.i.i.i
-  %928 = getelementptr inbounds nuw %"class.cv::Point_", ptr %921, i64 %919
+  %928 = getelementptr inbounds nuw [8 x i8], ptr %921, i64 %919
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit32.i.i.i.i
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit32.i.i.i.i: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i31.i.i.i.i, %907
@@ -1664,7 +1664,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i42.i.
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i45.i.i.i.i
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i45.i.i.i.i: ; preds = %947, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i42.i.i.i.i
-  %948 = getelementptr inbounds nuw %"class.cv::Point_", ptr %942, i64 %940
+  %948 = getelementptr inbounds nuw [8 x i8], ptr %942, i64 %940
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit46.i.i.i.i: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i45.i.i.i.i, %929
@@ -1706,7 +1706,7 @@ _ZN20minEnclosingTriangleL32findMinimumAreaEnclosingTriangleERKSt6vectorIN2cv6Po
   %954 = urem i32 %.015.i.i.i, %951
   %955 = zext nneg i32 %954 to i64
   %956 = load ptr, ptr %33, align 8, !tbaa !19
-  %957 = getelementptr inbounds nuw %"class.cv::Point_", ptr %956, i64 %955
+  %957 = getelementptr inbounds nuw [8 x i8], ptr %956, i64 %955
   %.not.i.i.i.i = icmp eq ptr %953, %.sroa.34.0.i
   br i1 %.not.i.i.i.i, label %960, label %958
 
@@ -1771,7 +1771,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i.
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %978, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i.i
-  %979 = getelementptr inbounds nuw %"class.cv::Point_", ptr %972, i64 %970
+  %979 = getelementptr inbounds nuw [8 x i8], ptr %972, i64 %970
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i.i.i
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i.i.i: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i, %958
@@ -2010,19 +2010,19 @@ define internal fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL5gammaEjRN2
   store float 0.000000e+00, ptr %13, align 4, !tbaa !26
   %14 = zext i32 %4 to i64
   %15 = load ptr, ptr %2, align 8, !tbaa !19
-  %16 = getelementptr inbounds nuw %"class.cv::Point_", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = icmp eq i32 %4, 0
   %.v.i = select i1 %17, i32 %3, i32 %4
   %18 = add i32 %.v.i, -1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"class.cv::Point_", ptr %15, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %19
   %21 = zext i32 %5 to i64
-  %22 = getelementptr inbounds nuw %"class.cv::Point_", ptr %15, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %21
   %23 = icmp eq i32 %5, 0
   %.v.i27 = select i1 %23, i32 %3, i32 %5
   %24 = add i32 %.v.i27, -1
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %"class.cv::Point_", ptr %15, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %25
   %27 = call fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGammaIntersectionPointsERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjRKS3_S9_S9_S9_RS3_SA_(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %5, i32 noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 4 dereferenceable(8) %22, ptr noundef nonnull align 4 dereferenceable(8) %26, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(8) %11)
   br i1 %27, label %28, label %63
 
@@ -2031,9 +2031,9 @@ define internal fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL5gammaEjRN2
   %30 = urem i32 %29, %3
   %31 = zext i32 %30 to i64
   %32 = load ptr, ptr %2, align 8, !tbaa !19
-  %33 = getelementptr inbounds nuw %"class.cv::Point_", ptr %32, i64 %31
-  %34 = getelementptr inbounds nuw %"class.cv::Point_", ptr %32, i64 %21
-  %35 = getelementptr inbounds nuw %"class.cv::Point_", ptr %32, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %21
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %25
   %.val = load float, ptr %34, align 4, !tbaa !23
   %36 = getelementptr i8, ptr %34, i64 4
   %.val24 = load float, ptr %36, align 4
@@ -2110,7 +2110,7 @@ define internal fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGamma
 17:                                               ; preds = %10
   %.val = load ptr, ptr %0, align 8, !tbaa !19
   %18 = zext i32 %2 to i64
-  %19 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %18
   %20 = load float, ptr %19, align 4
   %.sroa_idx6.i = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load float, ptr %.sroa_idx6.i, align 4
@@ -2118,12 +2118,12 @@ define internal fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGamma
   %.v.i.i = select i1 %22, i32 %1, i32 %2
   %23 = add i32 %.v.i.i, -1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %24
   %26 = load float, ptr %25, align 4
   %.sroa_idx2.i = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load float, ptr %.sroa_idx2.i, align 4
   %28 = zext i32 %3 to i64
-  %29 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.val, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %28
   %30 = load float, ptr %29, align 4
   %.sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load float, ptr %.sroa_idx.i, align 4
@@ -2466,9 +2466,9 @@ define internal fastcc noundef range(i32 1, 4) i32 @_ZN20minEnclosingTriangleL10
   %.v.i = select i1 %5, i32 %2, i32 %1
   %6 = add i32 %.v.i, -1
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.0.val, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.0.val, i64 %7
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.0.val, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.0.val, i64 %9
   %.val44 = load float, ptr %8, align 4, !tbaa !23
   %11 = getelementptr i8, ptr %8, i64 4
   %.val45 = load float, ptr %11, align 4, !tbaa !26
@@ -2488,7 +2488,7 @@ define internal fastcc noundef range(i32 1, 4) i32 @_ZN20minEnclosingTriangleL10
   %23 = add i32 %1, 1
   %24 = urem i32 %23, %2
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.0.val, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.val, i64 %25
   %.val40 = load float, ptr %26, align 4, !tbaa !23
   %27 = getelementptr i8, ptr %26, i64 4
   %.val41 = load float, ptr %27, align 4, !tbaa !26
@@ -2506,9 +2506,9 @@ define internal fastcc noundef range(i32 1, 4) i32 @_ZN20minEnclosingTriangleL10
   %.v.i57 = select i1 %38, i32 %2, i32 %3
   %39 = add i32 %.v.i57, -1
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.0.val, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.0.val, i64 %40
   %42 = zext i32 %3 to i64
-  %43 = getelementptr inbounds nuw %"class.cv::Point_", ptr %.0.val, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.0.val, i64 %42
   %.val = load float, ptr %41, align 4, !tbaa !23
   %44 = getelementptr i8, ptr %41, i64 4
   %.val37 = load float, ptr %44, align 4, !tbaa !26

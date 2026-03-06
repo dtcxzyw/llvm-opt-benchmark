@@ -46,10 +46,10 @@ define noundef signext i8 @_ZNK6icu_7713UnicodeString13doCaseCompareEiiPKDsiij(p
   %25 = load ptr, ptr %24, align 8
   %26 = select i1 %.not.i, ptr %25, ptr %23
   %27 = sext i32 %.037 to i64
-  %28 = getelementptr inbounds i16, ptr %26, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr %26, i64 %27
   %29 = sext i32 %4 to i64
   %30 = select i1 %21, i64 0, i64 %29
-  %31 = getelementptr inbounds i16, ptr %3, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %3, i64 %30
   %.not29 = icmp eq ptr %28, %31
   br i1 %.not29, label %38, label %32
 
@@ -70,7 +70,7 @@ define noundef signext i8 @_ZNK6icu_7713UnicodeString13doCaseCompareEiiPKDsiij(p
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i16, ptr %31, i64 %30
+  %41 = getelementptr inbounds [2 x i8], ptr %31, i64 %30
   %42 = tail call i32 @u_strlen_77(ptr noundef %41)
   br label %43
 
@@ -646,10 +646,10 @@ define signext range(i8 0, 2) i8 @uhash_compareCaselessUnicodeString_77(ptr %0, 
   %42 = load ptr, ptr %41, align 8
   %43 = select i1 %.not.i.i.i, ptr %42, ptr %40
   %44 = sext i32 %spec.select38.i.i to i64
-  %45 = getelementptr inbounds i16, ptr %43, i64 %44
+  %45 = getelementptr inbounds [2 x i8], ptr %43, i64 %44
   %46 = sext i32 %spec.select14.i to i64
   %47 = select i1 %37, i64 0, i64 %46
-  %48 = getelementptr inbounds i16, ptr %34, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %34, i64 %47
   %.not29.i.i = icmp eq ptr %45, %48
   br i1 %.not29.i.i, label %51, label %49
 
@@ -666,7 +666,7 @@ define signext range(i8 0, 2) i8 @uhash_compareCaselessUnicodeString_77(ptr %0, 
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds i16, ptr %48, i64 %47
+  %54 = getelementptr inbounds [2 x i8], ptr %48, i64 %47
   %55 = tail call i32 @u_strlen_77(ptr noundef %54)
   br label %56
 

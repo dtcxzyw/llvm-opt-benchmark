@@ -38,7 +38,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_sin(i16 noundef signext %0) local_
 
 11:                                               ; preds = %.preheader.preheader
   %12 = zext nneg i16 %9 to i64
-  %13 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr @sin0_90_table, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !3
   %15 = zext i16 %14 to i32
   br label %40
@@ -50,7 +50,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_sin(i16 noundef signext %0) local_
 18:                                               ; preds = %16
   %19 = sub nuw nsw i16 180, %9
   %20 = zext nneg i16 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr @sin0_90_table, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !3
   %23 = zext i16 %22 to i32
   br label %40
@@ -61,7 +61,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_sin(i16 noundef signext %0) local_
 
 26:                                               ; preds = %24
   %27 = zext nneg i16 %9 to i64
-  %28 = getelementptr i16, ptr @sin0_90_table, i64 %27
+  %28 = getelementptr [2 x i8], ptr @sin0_90_table, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -360
   %30 = load i16, ptr %29, align 2, !tbaa !3
   %31 = zext i16 %30 to i32
@@ -71,7 +71,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_sin(i16 noundef signext %0) local_
 33:                                               ; preds = %24
   %34 = sub nuw nsw i16 360, %9
   %35 = zext nneg i16 %34 to i64
-  %36 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr @sin0_90_table, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !3
   %38 = zext i16 %37 to i32
   %39 = sub nsw i32 0, %38
@@ -614,7 +614,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_cos(i16 noundef signext %0) local_
 
 12:                                               ; preds = %1
   %13 = zext nneg i16 %10 to i64
-  %14 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr @sin0_90_table, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !3
   %16 = zext i16 %15 to i32
   br label %41
@@ -626,7 +626,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_cos(i16 noundef signext %0) local_
 19:                                               ; preds = %17
   %20 = sub nuw nsw i16 180, %10
   %21 = zext nneg i16 %20 to i64
-  %22 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr @sin0_90_table, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !3
   %24 = zext i16 %23 to i32
   br label %41
@@ -637,7 +637,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_cos(i16 noundef signext %0) local_
 
 27:                                               ; preds = %25
   %28 = zext nneg i16 %10 to i64
-  %29 = getelementptr i16, ptr @sin0_90_table, i64 %28
+  %29 = getelementptr [2 x i8], ptr @sin0_90_table, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -360
   %31 = load i16, ptr %30, align 2, !tbaa !3
   %32 = zext i16 %31 to i32
@@ -647,7 +647,7 @@ define range(i32 -65535, 65536) i32 @lv_trigo_cos(i16 noundef signext %0) local_
 34:                                               ; preds = %25
   %35 = sub nuw nsw i16 360, %10
   %36 = zext nneg i16 %35 to i64
-  %37 = getelementptr inbounds nuw i16, ptr @sin0_90_table, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr @sin0_90_table, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !3
   %39 = zext i16 %38 to i32
   %40 = sub nsw i32 0, %39

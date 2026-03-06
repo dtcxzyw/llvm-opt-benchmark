@@ -56,11 +56,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.CheckpointHeaderContents = type <{ i32, [1024 x i8], [1024 x i8], [1024 x i8], [1024 x i8], i32, [1024 x i8], [1024 x i8], i32, i32, i64, double, i32, [3 x i32], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8] }>
 %"class.gmx::ParallelConsistencyError" = type { %"class.gmx::APIError" }
 %"class.gmx::APIError" = type { %"class.gmx::GromacsException" }
-%struct.t_filenm = type { i32, ptr, ptr, i64, %"class.std::vector.57" }
-%"class.std::vector.57" = type { %"struct.std::_Vector_base.58" }
-%"struct.std::_Vector_base.58" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::unique_ptr.47" = type { %"struct.std::__uniq_ptr_data.48" }
 %"struct.std::__uniq_ptr_data.48" = type { %"class.std::__uniq_ptr_impl.49" }
 %"class.std::__uniq_ptr_impl.49" = type { %"class.std::tuple.50" }
@@ -684,7 +679,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %1
 
 .lr.ph.i108:                                      ; preds = %.noexc131.i, %.thread.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.thread.thread.i ], [ 0, %.noexc131.i ]
-  %200 = getelementptr inbounds nuw %struct.t_filenm, ptr %6, i64 %indvars.iv.i
+  %200 = getelementptr inbounds nuw [56 x i8], ptr %6, i64 %indvars.iv.i
   %201 = invoke noundef zeroext i1 @_Z9is_outputPK8t_filenm(ptr noundef %200)
           to label %.noexc115 unwind label %.loopexit219
 
@@ -1476,11 +1471,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 414:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87.i, %.lr.ph.i40
   %415 = phi ptr [ %400, %.lr.ph.i40 ], [ %435, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87.i ]
   %.052167.i = phi i64 [ 0, %.lr.ph.i40 ], [ %433, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87.i ]
-  %416 = getelementptr inbounds nuw i32, ptr %415, i64 %.052167.i
+  %416 = getelementptr inbounds nuw [4 x i8], ptr %415, i64 %.052167.i
   %417 = load i32, ptr %416, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %418 = sext i32 %417 to i64
-  %419 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %40, i64 %418
+  %419 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %418
   %420 = load ptr, ptr %419, align 8, !tbaa !19
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %42, ptr noundef nonnull @.str.30, i64 noundef %.052167.i, ptr noundef %420)
           to label %421 unwind label %440
@@ -1704,7 +1699,7 @@ _ZSt13adjacent_findIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEESt12not_
   %486 = phi ptr [ %476, %.lr.ph170.i ], [ %503, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107.i ]
   %.026169.i = phi i64 [ 0, %.lr.ph170.i ], [ %501, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
-  %487 = getelementptr inbounds nuw i32, ptr %486, i64 %.026169.i
+  %487 = getelementptr inbounds nuw [4 x i8], ptr %486, i64 %.026169.i
   %488 = load i32, ptr %487, align 4, !tbaa !26
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %48, ptr noundef nonnull @.str.32, i64 noundef %.026169.i, i32 noundef %488)
           to label %489 unwind label %508
@@ -3859,7 +3854,7 @@ _ZNSt10filesystem7__cxx114pathC2IA4096_cS1_EERKT_NS1_6formatE.exit: ; preds = %6
 
 .lr.ph.i:                                         ; preds = %_ZNSt10filesystem7__cxx114pathC2IA4096_cS1_EERKT_NS1_6formatE.exit, %.thread.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.thread.thread.i ], [ 0, %_ZNSt10filesystem7__cxx114pathC2IA4096_cS1_EERKT_NS1_6formatE.exit ]
-  %75 = getelementptr inbounds nuw %struct.t_filenm, ptr %4, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [56 x i8], ptr %4, i64 %indvars.iv.i
   %76 = invoke noundef zeroext i1 @_Z9is_outputPK8t_filenm(ptr noundef %75)
           to label %.noexc98 unwind label %.loopexit212
 
@@ -4190,7 +4185,7 @@ _ZNSt10filesystem7__cxx114pathC2IA4096_cS1_EERKT_NS1_6formatE.exit119: ; preds =
 
 .lr.ph.i120:                                      ; preds = %_ZNSt10filesystem7__cxx114pathC2IA4096_cS1_EERKT_NS1_6formatE.exit119, %.thread.thread.i123
   %indvars.iv.i122 = phi i64 [ %indvars.iv.next.i124, %.thread.thread.i123 ], [ 0, %_ZNSt10filesystem7__cxx114pathC2IA4096_cS1_EERKT_NS1_6formatE.exit119 ]
-  %172 = getelementptr inbounds nuw %struct.t_filenm, ptr %4, i64 %indvars.iv.i122
+  %172 = getelementptr inbounds nuw [56 x i8], ptr %4, i64 %indvars.iv.i122
   %173 = invoke noundef zeroext i1 @_Z9is_outputPK8t_filenm(ptr noundef %172)
           to label %.noexc133 unwind label %.loopexit
 

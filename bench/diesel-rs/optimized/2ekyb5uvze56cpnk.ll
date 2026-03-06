@@ -802,7 +802,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %58 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %40, %39 ]
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %60 = load ptr, ptr %59, align 8, !alias.scope !119, !noalias !122, !nonnull !4, !noundef !4
-  %61 = getelementptr inbounds { i64, [2 x i64] }, ptr %60, i64 %58
+  %61 = getelementptr inbounds [24 x i8], ptr %60, i64 %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %62 = load i64, ptr %38, align 8, !alias.scope !119, !noalias !122, !noundef !4
   %63 = add i64 %62, 1
@@ -844,7 +844,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %75 = phi i64 [ %.pre.i24, %._crit_edge.i23 ], [ %49, %48 ]
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %77 = load ptr, ptr %76, align 8, !alias.scope !124, !noalias !127, !nonnull !4, !noundef !4
-  %78 = getelementptr inbounds { i64, [2 x i64] }, ptr %77, i64 %75
+  %78 = getelementptr inbounds [24 x i8], ptr %77, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   %79 = load i64, ptr %38, align 8, !alias.scope !124, !noalias !127, !noundef !4
   %80 = add i64 %79, 1
@@ -856,7 +856,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %82 = phi i64 [ %.pre.i31, %._crit_edge.i30 ], [ %66, %64 ]
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8, !alias.scope !129, !noalias !132, !nonnull !4, !noundef !4
-  %85 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %84, i64 %82
+  %85 = getelementptr inbounds [16 x i8], ptr %84, i64 %82
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   %86 = load i64, ptr %65, align 8, !alias.scope !129, !noalias !132, !noundef !4
   %87 = add i64 %86, 1
@@ -1020,7 +1020,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %44 = phi i64 [ %.pre.i25, %._crit_edge.i24 ], [ %30, %27 ]
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = load ptr, ptr %45, align 8, !alias.scope !165, !noalias !168, !nonnull !4, !noundef !4
-  %47 = getelementptr inbounds { i64, [2 x i64] }, ptr %46, i64 %44
+  %47 = getelementptr inbounds [24 x i8], ptr %46, i64 %44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %48 = load i64, ptr %29, align 8, !alias.scope !165, !noalias !168, !noundef !4
   %49 = add i64 %48, 1
@@ -1038,7 +1038,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %55 = phi i64 [ %.pre.i32, %._crit_edge.i31 ], [ %51, %43 ]
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8, !alias.scope !173, !noalias !170, !nonnull !4, !noundef !4
-  %58 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %57, i64 %55
+  %58 = getelementptr inbounds [16 x i8], ptr %57, i64 %55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %59 = load i64, ptr %50, align 8, !alias.scope !173, !noalias !170, !noundef !4
   %60 = add i64 %59, 1
@@ -1172,7 +1172,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %43 = phi i64 [ %.pre.i26, %._crit_edge.i25 ], [ %29, %"_ZN6diesel10type_impls6option106_$LT$impl$u20$diesel..sql_types..HasSqlType$LT$diesel..sql_types..Nullable$LT$T$GT$$GT$$u20$for$u20$DB$GT$8metadata17hb68b96b8ac61705bE.exit" ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %45 = load ptr, ptr %44, align 8, !alias.scope !203, !noalias !206, !nonnull !4, !noundef !4
-  %46 = getelementptr inbounds { i64, [2 x i64] }, ptr %45, i64 %43
+  %46 = getelementptr inbounds [24 x i8], ptr %45, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %47 = load i64, ptr %28, align 8, !alias.scope !203, !noalias !206, !noundef !4
   %48 = add i64 %47, 1
@@ -1190,7 +1190,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %54 = phi i64 [ %.pre.i33, %._crit_edge.i32 ], [ %50, %42 ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = load ptr, ptr %55, align 8, !alias.scope !211, !noalias !208, !nonnull !4, !noundef !4
-  %57 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %56, i64 %54
+  %57 = getelementptr inbounds [16 x i8], ptr %56, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %58 = load i64, ptr %49, align 8, !alias.scope !211, !noalias !208, !noundef !4
   %59 = add i64 %58, 1
@@ -1322,7 +1322,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %42 = phi i64 [ %.pre.i26, %._crit_edge.i25 ], [ %28, %"_ZN6diesel10type_impls6option106_$LT$impl$u20$diesel..sql_types..HasSqlType$LT$diesel..sql_types..Nullable$LT$T$GT$$GT$$u20$for$u20$DB$GT$8metadata17hb68b96b8ac61705bE.exit" ]
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %43, align 8, !alias.scope !235, !noalias !238, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds { i64, [2 x i64] }, ptr %44, i64 %42
+  %45 = getelementptr inbounds [24 x i8], ptr %44, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %46 = load i64, ptr %27, align 8, !alias.scope !235, !noalias !238, !noundef !4
   %47 = add i64 %46, 1
@@ -1340,7 +1340,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %53 = phi i64 [ %.pre.i33, %._crit_edge.i32 ], [ %49, %41 ]
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load ptr, ptr %54, align 8, !alias.scope !243, !noalias !240, !nonnull !4, !noundef !4
-  %56 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %55, i64 %53
+  %56 = getelementptr inbounds [16 x i8], ptr %55, i64 %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %57 = load i64, ptr %48, align 8, !alias.scope !243, !noalias !240, !noundef !4
   %58 = add i64 %57, 1
@@ -1472,7 +1472,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %43 = phi i64 [ %.pre.i25, %._crit_edge.i24 ], [ %29, %26 ]
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %45 = load ptr, ptr %44, align 8, !alias.scope !263, !noalias !266, !nonnull !4, !noundef !4
-  %46 = getelementptr inbounds { i64, [2 x i64] }, ptr %45, i64 %43
+  %46 = getelementptr inbounds [24 x i8], ptr %45, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %47 = load i64, ptr %28, align 8, !alias.scope !263, !noalias !266, !noundef !4
   %48 = add i64 %47, 1
@@ -1490,7 +1490,7 @@ define hidden void @"_ZN153_$LT$diesel..query_builder..bind_collector..RawBytesB
   %54 = phi i64 [ %.pre.i32, %._crit_edge.i31 ], [ %50, %42 ]
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = load ptr, ptr %55, align 8, !alias.scope !271, !noalias !268, !nonnull !4, !noundef !4
-  %57 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %56, i64 %54
+  %57 = getelementptr inbounds [16 x i8], ptr %56, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %58 = load i64, ptr %49, align 8, !alias.scope !271, !noalias !268, !noundef !4
   %59 = add i64 %58, 1
@@ -2918,7 +2918,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6diesel18expre
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN77_$LT$$RF$$u5b$T$u5d$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17h24e96d23be4969b1E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, {} }) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca { { i64, ptr }, i64 }, align 8
-  %5 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %1, i64 %2
+  %5 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h1412963eccff9c1bE.llvm.4517153386013165442"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull %1, ptr noundef nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   ret void
@@ -2927,7 +2927,7 @@ define hidden void @"_ZN77_$LT$$RF$$u5b$T$u5d$$u20$as$u20$diesel..insertable..In
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN77_$LT$$RF$$u5b$T$u5d$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17h76119025ecb79fe4E"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, {} }) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca { { i64, ptr }, i64 }, align 8
-  %5 = getelementptr inbounds { ptr, i64 }, ptr %1, i64 %2
+  %5 = getelementptr inbounds [16 x i8], ptr %1, i64 %2
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hd1637483b9781cdeE.llvm.4517153386013165442"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull %1, ptr noundef nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   ret void
@@ -2936,7 +2936,7 @@ define hidden void @"_ZN77_$LT$$RF$$u5b$T$u5d$$u20$as$u20$diesel..insertable..In
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN77_$LT$$RF$$u5b$T$u5d$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17hab485e9e921536daE"(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 }, {} }) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca { { i64, ptr }, i64 }, align 8
-  %5 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %1, i64 %2
+  %5 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h5028e90e1e1c2450E.llvm.4517153386013165442"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull %1, ptr noundef nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   ret void

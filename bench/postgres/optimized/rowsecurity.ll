@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/rowsecurity.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @row_security_policy_hook_permissive = dso_local local_unnamed_addr global ptr null, align 8
 @row_security_policy_hook_restrictive = dso_local local_unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [36 x i8] c"unrecognized policy command type %d\00", align 1
@@ -348,7 +346,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
 .lr.ph132:                                        ; preds = %.lr.ph, %.critedge76
   %indvars.iv131 = phi i64 [ %indvars.iv.next, %.critedge76 ], [ 0, %.lr.ph ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv131
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv131
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i8, ptr %17, align 8
@@ -439,7 +437,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %54
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %54 ], [ 0, %.preheader.i ]
-  %58 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i
   %59 = load i32, ptr %58, align 4
   %60 = tail call zeroext i1 @has_privs_of_role(i32 noundef %2, i32 noundef %59) #6
   br i1 %60, label %.loopexit101, label %54
@@ -477,7 +475,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
 .lr.ph108:                                        ; preds = %.lr.ph105, %check_role_for_policy.exit89
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %check_role_for_policy.exit89 ], [ 0, %.lr.ph105 ]
   %75 = load ptr, ptr %72, align 8
-  %76 = getelementptr inbounds nuw %union.ListCell, ptr %75, i64 %indvars.iv115
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv115
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
@@ -520,7 +518,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
 
 .lr.ph.i86:                                       ; preds = %.preheader.i84, %98
   %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i88, %98 ], [ 0, %.preheader.i84 ]
-  %102 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv.i87
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.i87
   %103 = load i32, ptr %102, align 4
   %104 = tail call zeroext i1 @has_privs_of_role(i32 noundef %2, i32 noundef %103) #6
   br i1 %104, label %.loopexit100, label %98
@@ -558,7 +556,7 @@ check_role_for_policy.exit89:                     ; preds = %98, %.preheader.i84
 .lr.ph113:                                        ; preds = %.lr.ph110, %check_role_for_policy.exit96
   %indvars.iv118 = phi i64 [ %indvars.iv.next119, %check_role_for_policy.exit96 ], [ 0, %.lr.ph110 ]
   %117 = load ptr, ptr %114, align 8
-  %118 = getelementptr inbounds nuw %union.ListCell, ptr %117, i64 %indvars.iv118
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv118
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load ptr, ptr %120, align 8
@@ -601,7 +599,7 @@ check_role_for_policy.exit89:                     ; preds = %98, %.preheader.i84
 
 .lr.ph.i93:                                       ; preds = %.preheader.i91, %140
   %indvars.iv.i94 = phi i64 [ %indvars.iv.next.i95, %140 ], [ 0, %.preheader.i91 ]
-  %144 = getelementptr inbounds nuw i32, ptr %134, i64 %indvars.iv.i94
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %indvars.iv.i94
   %145 = load i32, ptr %144, align 4
   %146 = tail call zeroext i1 @has_privs_of_role(i32 noundef %2, i32 noundef %145) #6
   br i1 %146, label %.loopexit, label %140
@@ -640,7 +638,7 @@ define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef read
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.lr.ph ]
   %.0395660 = phi ptr [ %.140, %27 ], [ null, %.lr.ph ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
@@ -685,7 +683,7 @@ define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef read
   %31 = phi i32 [ %48, %47 ], [ %18, %.lr.ph64 ]
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %47 ], [ 0, %.lr.ph64 ]
   %32 = load ptr, ptr %17, align 8
-  %33 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv69
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv69
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8
@@ -768,7 +766,7 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %25 ], [ 0, %.lr.ph.split.us.split ]
   %.07295.us113 = phi ptr [ %.173.us, %25 ], [ null, %.lr.ph.split.us.split ]
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv130
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv130
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
@@ -802,7 +800,7 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph.split.split ]
   %.07295108 = phi ptr [ %.173, %45 ], [ null, %.lr.ph.split.split ]
   %30 = load ptr, ptr %10, align 8
-  %31 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load ptr, ptr %33, align 8
@@ -895,7 +893,7 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
   %74 = phi i32 [ %99, %98 ], [ %72, %.lr.ph118.split.us.split ]
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %98 ], [ 0, %.lr.ph118.split.us.split ]
   %75 = load ptr, ptr %71, align 8
-  %76 = getelementptr inbounds nuw %union.ListCell, ptr %75, i64 %indvars.iv136
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv136
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %79 = load ptr, ptr %78, align 8
@@ -947,7 +945,7 @@ define internal fastcc void @add_with_check_options(ptr noundef readonly capture
   %102 = phi i32 [ %131, %130 ], [ %72, %.lr.ph118.split.split ]
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %130 ], [ 0, %.lr.ph118.split.split ]
   %103 = load ptr, ptr %71, align 8
-  %104 = getelementptr inbounds nuw %union.ListCell, ptr %103, i64 %indvars.iv133
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv133
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
   %107 = load ptr, ptr %106, align 8

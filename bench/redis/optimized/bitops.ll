@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.aclInfo = type { i64, i64, i64, i64 }
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
 %struct.sharedObjectsStruct = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [4 x ptr], [4 x ptr], [4 x ptr], [4 x ptr], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [10 x ptr], [10000 x ptr], [32 x ptr], [32 x ptr], [32 x ptr], [32 x ptr], ptr, ptr }
-%struct.bitfieldOp = type { i64, i64, i32, i32, i32, i32 }
 
 @__cpu_model = external dso_local local_unnamed_addr global { i32, i32, i32, [1 x i32] }
 @redisPopcount.bitsinbyte = internal unnamed_addr constant [256 x i8] c"\00\01\01\02\01\02\02\03\01\02\02\03\02\03\03\04\01\02\02\03\02\03\03\04\02\03\03\04\03\04\04\05\01\02\02\03\02\03\03\04\02\03\03\04\03\04\04\05\02\03\03\04\03\04\04\05\03\04\04\05\04\05\05\06\01\02\02\03\02\03\03\04\02\03\03\04\03\04\04\05\02\03\03\04\03\04\04\05\03\04\04\05\04\05\05\06\02\03\03\04\03\04\04\05\03\04\04\05\04\05\05\06\03\04\04\05\04\05\05\06\04\05\05\06\05\06\06\07\01\02\02\03\02\03\03\04\02\03\03\04\03\04\04\05\02\03\03\04\03\04\04\05\03\04\04\05\04\05\05\06\02\03\03\04\03\04\04\05\03\04\04\05\04\05\05\06\03\04\04\05\04\05\05\06\04\05\05\06\05\06\06\07\02\03\03\04\03\04\04\05\03\04\04\05\04\05\05\06\03\04\04\05\04\05\05\06\04\05\05\06\05\06\06\07\03\04\04\05\04\05\05\06\04\05\05\06\05\06\06\07\04\05\05\06\05\06\06\07\05\06\06\07\06\07\07\08", align 16
@@ -1500,7 +1499,7 @@ define dso_local void @bitopCommand(ptr noundef %0) local_unnamed_addr #3 {
   %.0226278 = phi i64 [ 0, %.lr.ph ], [ %93, %92 ]
   %43 = load ptr, ptr %41, align 8, !tbaa !73
   %44 = load ptr, ptr %3, align 8, !tbaa !61
-  %45 = getelementptr ptr, ptr %44, i64 %.0226278
+  %45 = getelementptr [8 x i8], ptr %44, i64 %.0226278
   %46 = getelementptr i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8, !tbaa !72
   %48 = tail call ptr @lookupKeyRead(ptr noundef %43, ptr noundef %47) #18
@@ -1508,11 +1507,11 @@ define dso_local void @bitopCommand(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %42
-  %51 = getelementptr inbounds nuw ptr, ptr %40, i64 %.0226278
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.0226278
   store ptr null, ptr %51, align 8, !tbaa !72
-  %52 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0226278
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.0226278
   store ptr null, ptr %52, align 8, !tbaa !81
-  %53 = getelementptr inbounds nuw i64, ptr %39, i64 %.0226278
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.0226278
   store i64 0, ptr %53, align 8, !tbaa !11
   br label %92
 
@@ -1527,7 +1526,7 @@ define dso_local void @bitopCommand(ptr noundef %0) local_unnamed_addr #3 {
 
 .lr.ph362:                                        ; preds = %.preheader, %59
   %.0215361 = phi i64 [ %60, %59 ], [ 0, %.preheader ]
-  %56 = getelementptr inbounds nuw ptr, ptr %40, i64 %.0215361
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.0215361
   %57 = load ptr, ptr %56, align 8, !tbaa !72
   %.not251 = icmp eq ptr %57, null
   br i1 %.not251, label %59, label %58
@@ -1549,11 +1548,11 @@ define dso_local void @bitopCommand(ptr noundef %0) local_unnamed_addr #3 {
 
 61:                                               ; preds = %54
   %62 = tail call ptr @getDecodedObject(ptr noundef nonnull %48) #18
-  %63 = getelementptr inbounds nuw ptr, ptr %40, i64 %.0226278
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.0226278
   store ptr %62, ptr %63, align 8, !tbaa !72
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !26
-  %66 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0226278
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.0226278
   store ptr %65, ptr %66, align 8, !tbaa !81
   %67 = getelementptr inbounds i8, ptr %65, i64 -1
   %68 = load i8, ptr %67, align 1, !tbaa !5
@@ -1597,7 +1596,7 @@ define dso_local void @bitopCommand(ptr noundef %0) local_unnamed_addr #3 {
 
 sdslen.exit:                                      ; preds = %61, %71, %74, %78, %82, %86
   %.0.i = phi i64 [ %88, %86 ], [ %73, %71 ], [ %77, %74 ], [ %81, %78 ], [ %85, %82 ], [ 0, %61 ]
-  %89 = getelementptr inbounds nuw i64, ptr %39, i64 %.0226278
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.0226278
   store i64 %.0.i, ptr %89, align 8, !tbaa !11
   %spec.select = tail call i64 @llvm.umax.i64(i64 %.0.i, i64 %.0222279)
   %90 = icmp eq i64 %.0226278, 0
@@ -1657,7 +1656,7 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   %107 = phi i64 [ %.promoted.us311, %.preheader264.us ], [ %115, %104 ]
   %108 = phi i64 [ %.0206.promoted.us, %.preheader264.us ], [ %112, %104 ]
   %.0207302.us = phi i64 [ 1, %.preheader264.us ], [ %123, %104 ]
-  %109 = getelementptr inbounds nuw ptr, ptr %2, i64 %.0207302.us
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0207302.us
   %110 = load ptr, ptr %109, align 8, !tbaa !84
   %111 = load i64, ptr %110, align 8, !tbaa !11
   %112 = and i64 %108, %111
@@ -1717,7 +1716,7 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   %136 = phi i64 [ %.promoted.us300, %.preheader267.us ], [ %144, %133 ]
   %137 = phi i64 [ %.1.promoted.us, %.preheader267.us ], [ %141, %133 ]
   %.1208291.us = phi i64 [ 1, %.preheader267.us ], [ %152, %133 ]
-  %138 = getelementptr inbounds nuw ptr, ptr %2, i64 %.1208291.us
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.1208291.us
   %139 = load ptr, ptr %138, align 8, !tbaa !84
   %140 = load i64, ptr %139, align 8, !tbaa !11
   %141 = or i64 %137, %140
@@ -1777,7 +1776,7 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
   %165 = phi i64 [ %.promoted.us, %.preheader270.us ], [ %173, %162 ]
   %166 = phi i64 [ %.2.promoted.us, %.preheader270.us ], [ %170, %162 ]
   %.2209282.us = phi i64 [ 1, %.preheader270.us ], [ %181, %162 ]
-  %167 = getelementptr inbounds nuw ptr, ptr %2, i64 %.2209282.us
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.2209282.us
   %168 = load ptr, ptr %167, align 8, !tbaa !84
   %169 = load i64, ptr %168, align 8, !tbaa !11
   %170 = xor i64 %166, %169
@@ -1879,13 +1878,13 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
 .lr.ph316.split.us:                               ; preds = %.lr.ph316, %.thread258.us
   %.3210314.us = phi i64 [ %221, %.thread258.us ], [ 1, %.lr.ph316 ]
   %.1212313.us = phi i8 [ %219, %.thread258.us ], [ %spec.select252, %.lr.ph316 ]
-  %212 = getelementptr inbounds nuw i64, ptr %39, i64 %.3210314.us
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.3210314.us
   %213 = load i64, ptr %212, align 8, !tbaa !11
   %.not249.us = icmp ugt i64 %213, %.7351
   br i1 %.not249.us, label %214, label %._crit_edge319.split.us
 
 214:                                              ; preds = %.lr.ph316.split.us
-  %215 = getelementptr inbounds nuw ptr, ptr %38, i64 %.3210314.us
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.3210314.us
   %216 = load ptr, ptr %215, align 8, !tbaa !81
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 %.7351
   %218 = load i8, ptr %217, align 1, !tbaa !5
@@ -1901,13 +1900,13 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
 .lr.ph316.split.us325:                            ; preds = %.lr.ph316, %.thread258.us329
   %.3210314.us326 = phi i64 [ %233, %.thread258.us329 ], [ %.0225256, %.lr.ph316 ]
   %.1212313.us327 = phi i8 [ %231, %.thread258.us329 ], [ %spec.select252, %.lr.ph316 ]
-  %222 = getelementptr inbounds nuw i64, ptr %39, i64 %.3210314.us326
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.3210314.us326
   %223 = load i64, ptr %222, align 8, !tbaa !11
   %.not249.us328 = icmp ugt i64 %223, %.7351
   br i1 %.not249.us328, label %224, label %230
 
 224:                                              ; preds = %.lr.ph316.split.us325
-  %225 = getelementptr inbounds nuw ptr, ptr %38, i64 %.3210314.us326
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.3210314.us326
   %226 = load ptr, ptr %225, align 8, !tbaa !81
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 %.7351
   %228 = load i8, ptr %227, align 1, !tbaa !5
@@ -1927,13 +1926,13 @@ sdslen.exit:                                      ; preds = %61, %71, %74, %78, 
 .lr.ph316.split.us334:                            ; preds = %.lr.ph316, %.thread258.us338
   %.3210314.us335 = phi i64 [ %243, %.thread258.us338 ], [ 1, %.lr.ph316 ]
   %.1212313.us336 = phi i8 [ %242, %.thread258.us338 ], [ %spec.select252, %.lr.ph316 ]
-  %234 = getelementptr inbounds nuw i64, ptr %39, i64 %.3210314.us335
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.3210314.us335
   %235 = load i64, ptr %234, align 8, !tbaa !11
   %.not249.us337 = icmp ugt i64 %235, %.7351
   br i1 %.not249.us337, label %236, label %.thread258.us338
 
 236:                                              ; preds = %.lr.ph316.split.us334
-  %237 = getelementptr inbounds nuw ptr, ptr %38, i64 %.3210314.us335
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.3210314.us335
   %238 = load ptr, ptr %237, align 8, !tbaa !81
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 %.7351
   %240 = load i8, ptr %239, align 1, !tbaa !5
@@ -1964,7 +1963,7 @@ default.unreachable:                              ; preds = %.lr.ph316
 
 .lr.ph359:                                        ; preds = %.loopexit, %249
   %.8357 = phi i64 [ %250, %249 ], [ 0, %.loopexit ]
-  %246 = getelementptr inbounds nuw ptr, ptr %40, i64 %.8357
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.8357
   %247 = load ptr, ptr %246, align 8, !tbaa !72
   %.not247 = icmp eq ptr %247, null
   br i1 %.not247, label %249, label %248
@@ -2893,7 +2892,7 @@ define dso_local void @bitfieldGeneric(ptr noundef %0, i32 noundef %1) local_unn
   %17 = add i32 %15, %16
   %18 = load ptr, ptr %13, align 8, !tbaa !61
   %19 = sext i32 %.0185425 to i64
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !72
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !26
@@ -2928,7 +2927,7 @@ define dso_local void @bitfieldGeneric(ptr noundef %0, i32 noundef %1) local_unn
 38:                                               ; preds = %34
   %39 = add nsw i32 %.0185425, 1
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %18, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %18, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !72
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !26
@@ -2999,7 +2998,7 @@ define dso_local void @bitfieldGeneric(ptr noundef %0, i32 noundef %1) local_unn
   %73 = trunc i64 %67 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %74 = load ptr, ptr %13, align 8, !tbaa !61
-  %75 = getelementptr ptr, ptr %74, i64 %19
+  %75 = getelementptr [8 x i8], ptr %74, i64 %19
   %76 = getelementptr i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !72
   %78 = call i32 @getBitOffsetFromArgument(ptr noundef nonnull %0, ptr noundef %77, ptr noundef nonnull %4, i32 noundef 1, i32 noundef %73)
@@ -3017,7 +3016,7 @@ define dso_local void @bitfieldGeneric(ptr noundef %0, i32 noundef %1) local_unn
   %84 = add i64 %83, %81
   %spec.select = call i64 @llvm.umax.i64(i64 %.0214420, i64 %84)
   %85 = load ptr, ptr %13, align 8, !tbaa !61
-  %86 = getelementptr ptr, ptr %85, i64 %19
+  %86 = getelementptr [8 x i8], ptr %85, i64 %19
   %87 = getelementptr i8, ptr %86, i64 24
   %88 = load ptr, ptr %87, align 8, !tbaa !72
   %89 = call i32 @getLongLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %88, ptr noundef nonnull %7, ptr noundef null) #18
@@ -3034,7 +3033,7 @@ define dso_local void @bitfieldGeneric(ptr noundef %0, i32 noundef %1) local_unn
   %95 = call ptr @zrealloc(ptr noundef %.0202423, i64 noundef %94) #22
   %96 = load i64, ptr %4, align 8, !tbaa !11
   %97 = sext i32 %.0186424 to i64
-  %98 = getelementptr inbounds %struct.bitfieldOp, ptr %95, i64 %97
+  %98 = getelementptr inbounds [32 x i8], ptr %95, i64 %97
   store i64 %96, ptr %98, align 8, !tbaa !96
   %99 = load i64, ptr %7, align 8, !tbaa !31
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -3135,7 +3134,7 @@ define dso_local void @bitfieldGeneric(ptr noundef %0, i32 noundef %1) local_unn
   %indvars.iv451 = phi i64 [ 0, %.lr.ph437 ], [ %indvars.iv.next452, %410 ]
   %.0195434 = phi i32 [ 0, %.lr.ph437 ], [ %.3, %410 ]
   %.0331433 = phi i64 [ undef, %.lr.ph437 ], [ %.2333, %410 ]
-  %134 = getelementptr inbounds nuw %struct.bitfieldOp, ptr %.0202.lcssa477, i64 %indvars.iv451
+  %134 = getelementptr inbounds nuw [32 x i8], ptr %.0202.lcssa477, i64 %indvars.iv451
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %136 = load i32, ptr %135, align 8, !tbaa !99
   %.off = add i32 %136, -1

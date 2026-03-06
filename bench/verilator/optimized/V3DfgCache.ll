@@ -1169,7 +1169,7 @@ define dso_local void @_ZN18V3DfgCacheInternal10V3DfgCache17invalidateByValueEP9
   %38 = urem i64 %37, %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %40 = load ptr, ptr %39, align 8, !tbaa !200
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %38
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %38
   %42 = load ptr, ptr %41, align 8, !tbaa !201
   br label %43
 
@@ -1196,7 +1196,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   br i1 %.not9.i.i.i.i.i.i, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i, label %52
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds nuw ptr, ptr %40, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %51
   store ptr %42, ptr %53, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i
 
@@ -1224,7 +1224,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   br i1 %.not17.i.i.i.i.i, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i, label %63
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw ptr, ptr %40, i64 %62
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %62
   store ptr %.0.i.i.i.i.i, ptr %64, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i
 
@@ -1263,7 +1263,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashEN
   %83 = urem i64 %82, %80
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %85 = load ptr, ptr %84, align 8, !tbaa !200
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %83
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %83
   %87 = load ptr, ptr %86, align 8, !tbaa !201
   br label %88
 
@@ -1290,7 +1290,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   br i1 %.not9.i.i.i.i.i.i29, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i28, label %97
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw ptr, ptr %85, i64 %96
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %96
   store ptr %87, ptr %98, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i30
 
@@ -1318,7 +1318,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   br i1 %.not17.i.i.i.i.i27, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i28, label %108
 
 108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw ptr, ptr %85, i64 %107
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %107
   store ptr %.0.i.i.i.i.i23, ptr %109, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i28
 
@@ -1361,7 +1361,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashEN
   %131 = urem i64 %130, %128
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %133 = load ptr, ptr %132, align 8, !tbaa !220
-  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %131
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %131
   %135 = load ptr, ptr %134, align 8, !tbaa !201
   br label %136
 
@@ -1388,7 +1388,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not9.i.i.i.i.i.i37, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i, label %145
 
 145:                                              ; preds = %141
-  %146 = getelementptr inbounds nuw ptr, ptr %133, i64 %144
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %144
   store ptr %135, ptr %146, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i38
 
@@ -1416,7 +1416,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not17.i.i.i.i.i36, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i, label %156
 
 156:                                              ; preds = %152
-  %157 = getelementptr inbounds nuw ptr, ptr %133, i64 %155
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %155
   store ptr %.0.i.i.i.i.i33, ptr %157, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i
 
@@ -1459,7 +1459,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4Hash
   %179 = urem i64 %178, %176
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %181 = load ptr, ptr %180, align 8, !tbaa !220
-  %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %179
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %179
   %183 = load ptr, ptr %182, align 8, !tbaa !201
   br label %184
 
@@ -1486,7 +1486,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not9.i.i.i.i.i.i46, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i45, label %193
 
 193:                                              ; preds = %189
-  %194 = getelementptr inbounds nuw ptr, ptr %181, i64 %192
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %192
   store ptr %183, ptr %194, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i47
 
@@ -1514,7 +1514,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not17.i.i.i.i.i44, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i45, label %204
 
 204:                                              ; preds = %200
-  %205 = getelementptr inbounds nuw ptr, ptr %181, i64 %203
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %203
   store ptr %.0.i.i.i.i.i40, ptr %205, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i45
 
@@ -1557,7 +1557,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4Hash
   %227 = urem i64 %226, %224
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %229 = load ptr, ptr %228, align 8, !tbaa !220
-  %230 = getelementptr inbounds nuw ptr, ptr %229, i64 %227
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %227
   %231 = load ptr, ptr %230, align 8, !tbaa !201
   br label %232
 
@@ -1584,7 +1584,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not9.i.i.i.i.i.i56, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i55, label %241
 
 241:                                              ; preds = %237
-  %242 = getelementptr inbounds nuw ptr, ptr %229, i64 %240
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %240
   store ptr %231, ptr %242, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i57
 
@@ -1612,7 +1612,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not17.i.i.i.i.i54, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i55, label %252
 
 252:                                              ; preds = %248
-  %253 = getelementptr inbounds nuw ptr, ptr %229, i64 %251
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %251
   store ptr %.0.i.i.i.i.i50, ptr %253, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i55
 
@@ -1655,7 +1655,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4Hash
   %275 = urem i64 %274, %272
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %277 = load ptr, ptr %276, align 8, !tbaa !220
-  %278 = getelementptr inbounds nuw ptr, ptr %277, i64 %275
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %275
   %279 = load ptr, ptr %278, align 8, !tbaa !201
   br label %280
 
@@ -1682,7 +1682,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not9.i.i.i.i.i.i66, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i65, label %289
 
 289:                                              ; preds = %285
-  %290 = getelementptr inbounds nuw ptr, ptr %277, i64 %288
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %288
   store ptr %279, ptr %290, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i67
 
@@ -1710,7 +1710,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not17.i.i.i.i.i64, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i65, label %300
 
 300:                                              ; preds = %296
-  %301 = getelementptr inbounds nuw ptr, ptr %277, i64 %299
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %299
   store ptr %.0.i.i.i.i.i60, ptr %301, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i65
 
@@ -1753,7 +1753,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4Hash
   %323 = urem i64 %322, %320
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %325 = load ptr, ptr %324, align 8, !tbaa !220
-  %326 = getelementptr inbounds nuw ptr, ptr %325, i64 %323
+  %326 = getelementptr inbounds nuw [8 x i8], ptr %325, i64 %323
   %327 = load ptr, ptr %326, align 8, !tbaa !201
   br label %328
 
@@ -1780,7 +1780,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not9.i.i.i.i.i.i76, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i75, label %337
 
 337:                                              ; preds = %333
-  %338 = getelementptr inbounds nuw ptr, ptr %325, i64 %336
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %325, i64 %336
   store ptr %327, ptr %338, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i77
 
@@ -1808,7 +1808,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not17.i.i.i.i.i74, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i75, label %348
 
 348:                                              ; preds = %344
-  %349 = getelementptr inbounds nuw ptr, ptr %325, i64 %347
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %325, i64 %347
   store ptr %.0.i.i.i.i.i70, ptr %349, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i75
 
@@ -1851,7 +1851,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4Hash
   %371 = urem i64 %370, %368
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %373 = load ptr, ptr %372, align 8, !tbaa !220
-  %374 = getelementptr inbounds nuw ptr, ptr %373, i64 %371
+  %374 = getelementptr inbounds nuw [8 x i8], ptr %373, i64 %371
   %375 = load ptr, ptr %374, align 8, !tbaa !201
   br label %376
 
@@ -1878,7 +1878,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not9.i.i.i.i.i.i86, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i85, label %385
 
 385:                                              ; preds = %381
-  %386 = getelementptr inbounds nuw ptr, ptr %373, i64 %384
+  %386 = getelementptr inbounds nuw [8 x i8], ptr %373, i64 %384
   store ptr %375, ptr %386, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i87
 
@@ -1906,7 +1906,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not17.i.i.i.i.i84, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i85, label %396
 
 396:                                              ; preds = %392
-  %397 = getelementptr inbounds nuw ptr, ptr %373, i64 %395
+  %397 = getelementptr inbounds nuw [8 x i8], ptr %373, i64 %395
   store ptr %.0.i.i.i.i.i80, ptr %397, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i85
 
@@ -1949,7 +1949,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4Hash
   %419 = urem i64 %418, %416
   %420 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %421 = load ptr, ptr %420, align 8, !tbaa !220
-  %422 = getelementptr inbounds nuw ptr, ptr %421, i64 %419
+  %422 = getelementptr inbounds nuw [8 x i8], ptr %421, i64 %419
   %423 = load ptr, ptr %422, align 8, !tbaa !201
   br label %424
 
@@ -1976,7 +1976,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not9.i.i.i.i.i.i96, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i95, label %433
 
 433:                                              ; preds = %429
-  %434 = getelementptr inbounds nuw ptr, ptr %421, i64 %432
+  %434 = getelementptr inbounds nuw [8 x i8], ptr %421, i64 %432
   store ptr %423, ptr %434, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i97
 
@@ -2004,7 +2004,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not17.i.i.i.i.i94, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i95, label %444
 
 444:                                              ; preds = %440
-  %445 = getelementptr inbounds nuw ptr, ptr %421, i64 %443
+  %445 = getelementptr inbounds nuw [8 x i8], ptr %421, i64 %443
   store ptr %.0.i.i.i.i.i90, ptr %445, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i95
 
@@ -2047,7 +2047,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4Hash
   %467 = urem i64 %466, %464
   %468 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %469 = load ptr, ptr %468, align 8, !tbaa !220
-  %470 = getelementptr inbounds nuw ptr, ptr %469, i64 %467
+  %470 = getelementptr inbounds nuw [8 x i8], ptr %469, i64 %467
   %471 = load ptr, ptr %470, align 8, !tbaa !201
   br label %472
 
@@ -2074,7 +2074,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not9.i.i.i.i.i.i106, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i105, label %481
 
 481:                                              ; preds = %477
-  %482 = getelementptr inbounds nuw ptr, ptr %469, i64 %480
+  %482 = getelementptr inbounds nuw [8 x i8], ptr %469, i64 %480
   store ptr %471, ptr %482, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i107
 
@@ -2102,7 +2102,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not17.i.i.i.i.i104, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i105, label %492
 
 492:                                              ; preds = %488
-  %493 = getelementptr inbounds nuw ptr, ptr %469, i64 %491
+  %493 = getelementptr inbounds nuw [8 x i8], ptr %469, i64 %491
   store ptr %.0.i.i.i.i.i100, ptr %493, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i105
 
@@ -2145,7 +2145,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4Hash
   %515 = urem i64 %514, %512
   %516 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %517 = load ptr, ptr %516, align 8, !tbaa !220
-  %518 = getelementptr inbounds nuw ptr, ptr %517, i64 %515
+  %518 = getelementptr inbounds nuw [8 x i8], ptr %517, i64 %515
   %519 = load ptr, ptr %518, align 8, !tbaa !201
   br label %520
 
@@ -2172,7 +2172,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not9.i.i.i.i.i.i116, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i115, label %529
 
 529:                                              ; preds = %525
-  %530 = getelementptr inbounds nuw ptr, ptr %517, i64 %528
+  %530 = getelementptr inbounds nuw [8 x i8], ptr %517, i64 %528
   store ptr %519, ptr %530, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i117
 
@@ -2200,7 +2200,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not17.i.i.i.i.i114, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i115, label %540
 
 540:                                              ; preds = %536
-  %541 = getelementptr inbounds nuw ptr, ptr %517, i64 %539
+  %541 = getelementptr inbounds nuw [8 x i8], ptr %517, i64 %539
   store ptr %.0.i.i.i.i.i110, ptr %541, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i115
 
@@ -2243,7 +2243,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4Hash
   %563 = urem i64 %562, %560
   %564 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %565 = load ptr, ptr %564, align 8, !tbaa !220
-  %566 = getelementptr inbounds nuw ptr, ptr %565, i64 %563
+  %566 = getelementptr inbounds nuw [8 x i8], ptr %565, i64 %563
   %567 = load ptr, ptr %566, align 8, !tbaa !201
   br label %568
 
@@ -2270,7 +2270,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not9.i.i.i.i.i.i126, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i125, label %577
 
 577:                                              ; preds = %573
-  %578 = getelementptr inbounds nuw ptr, ptr %565, i64 %576
+  %578 = getelementptr inbounds nuw [8 x i8], ptr %565, i64 %576
   store ptr %567, ptr %578, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i127
 
@@ -2298,7 +2298,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not17.i.i.i.i.i124, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i125, label %588
 
 588:                                              ; preds = %584
-  %589 = getelementptr inbounds nuw ptr, ptr %565, i64 %587
+  %589 = getelementptr inbounds nuw [8 x i8], ptr %565, i64 %587
   store ptr %.0.i.i.i.i.i120, ptr %589, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i125
 
@@ -2341,7 +2341,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4Hash
   %611 = urem i64 %610, %608
   %612 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %613 = load ptr, ptr %612, align 8, !tbaa !220
-  %614 = getelementptr inbounds nuw ptr, ptr %613, i64 %611
+  %614 = getelementptr inbounds nuw [8 x i8], ptr %613, i64 %611
   %615 = load ptr, ptr %614, align 8, !tbaa !201
   br label %616
 
@@ -2368,7 +2368,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not9.i.i.i.i.i.i136, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i135, label %625
 
 625:                                              ; preds = %621
-  %626 = getelementptr inbounds nuw ptr, ptr %613, i64 %624
+  %626 = getelementptr inbounds nuw [8 x i8], ptr %613, i64 %624
   store ptr %615, ptr %626, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i137
 
@@ -2396,7 +2396,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not17.i.i.i.i.i134, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i135, label %636
 
 636:                                              ; preds = %632
-  %637 = getelementptr inbounds nuw ptr, ptr %613, i64 %635
+  %637 = getelementptr inbounds nuw [8 x i8], ptr %613, i64 %635
   store ptr %.0.i.i.i.i.i130, ptr %637, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i135
 
@@ -2439,7 +2439,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4Hash
   %659 = urem i64 %658, %656
   %660 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %661 = load ptr, ptr %660, align 8, !tbaa !220
-  %662 = getelementptr inbounds nuw ptr, ptr %661, i64 %659
+  %662 = getelementptr inbounds nuw [8 x i8], ptr %661, i64 %659
   %663 = load ptr, ptr %662, align 8, !tbaa !201
   br label %664
 
@@ -2466,7 +2466,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not9.i.i.i.i.i.i146, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i145, label %673
 
 673:                                              ; preds = %669
-  %674 = getelementptr inbounds nuw ptr, ptr %661, i64 %672
+  %674 = getelementptr inbounds nuw [8 x i8], ptr %661, i64 %672
   store ptr %663, ptr %674, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i147
 
@@ -2494,7 +2494,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not17.i.i.i.i.i144, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i145, label %684
 
 684:                                              ; preds = %680
-  %685 = getelementptr inbounds nuw ptr, ptr %661, i64 %683
+  %685 = getelementptr inbounds nuw [8 x i8], ptr %661, i64 %683
   store ptr %.0.i.i.i.i.i140, ptr %685, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i145
 
@@ -2537,7 +2537,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4Hash
   %707 = urem i64 %706, %704
   %708 = getelementptr inbounds nuw i8, ptr %0, i64 976
   %709 = load ptr, ptr %708, align 8, !tbaa !220
-  %710 = getelementptr inbounds nuw ptr, ptr %709, i64 %707
+  %710 = getelementptr inbounds nuw [8 x i8], ptr %709, i64 %707
   %711 = load ptr, ptr %710, align 8, !tbaa !201
   br label %712
 
@@ -2564,7 +2564,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not9.i.i.i.i.i.i156, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i155, label %721
 
 721:                                              ; preds = %717
-  %722 = getelementptr inbounds nuw ptr, ptr %709, i64 %720
+  %722 = getelementptr inbounds nuw [8 x i8], ptr %709, i64 %720
   store ptr %711, ptr %722, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i157
 
@@ -2592,7 +2592,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not17.i.i.i.i.i154, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i155, label %732
 
 732:                                              ; preds = %728
-  %733 = getelementptr inbounds nuw ptr, ptr %709, i64 %731
+  %733 = getelementptr inbounds nuw [8 x i8], ptr %709, i64 %731
   store ptr %.0.i.i.i.i.i150, ptr %733, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i155
 
@@ -2631,7 +2631,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal9KeyBinaryEP15DfgVertexBinaryNS1_4Hash
   %752 = urem i64 %751, %749
   %753 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %754 = load ptr, ptr %753, align 8, !tbaa !200
-  %755 = getelementptr inbounds nuw ptr, ptr %754, i64 %752
+  %755 = getelementptr inbounds nuw [8 x i8], ptr %754, i64 %752
   %756 = load ptr, ptr %755, align 8, !tbaa !201
   br label %757
 
@@ -2658,7 +2658,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   br i1 %.not9.i.i.i.i.i.i166, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i165, label %766
 
 766:                                              ; preds = %762
-  %767 = getelementptr inbounds nuw ptr, ptr %754, i64 %765
+  %767 = getelementptr inbounds nuw [8 x i8], ptr %754, i64 %765
   store ptr %756, ptr %767, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i167
 
@@ -2686,7 +2686,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   br i1 %.not17.i.i.i.i.i164, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i165, label %777
 
 777:                                              ; preds = %773
-  %778 = getelementptr inbounds nuw ptr, ptr %754, i64 %776
+  %778 = getelementptr inbounds nuw [8 x i8], ptr %754, i64 %776
   store ptr %.0.i.i.i.i.i160, ptr %778, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i165
 
@@ -2725,7 +2725,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashEN
   %797 = urem i64 %796, %794
   %798 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %799 = load ptr, ptr %798, align 8, !tbaa !200
-  %800 = getelementptr inbounds nuw ptr, ptr %799, i64 %797
+  %800 = getelementptr inbounds nuw [8 x i8], ptr %799, i64 %797
   %801 = load ptr, ptr %800, align 8, !tbaa !201
   br label %802
 
@@ -2752,7 +2752,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   br i1 %.not9.i.i.i.i.i.i176, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i175, label %811
 
 811:                                              ; preds = %807
-  %812 = getelementptr inbounds nuw ptr, ptr %799, i64 %810
+  %812 = getelementptr inbounds nuw [8 x i8], ptr %799, i64 %810
   store ptr %801, ptr %812, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i177
 
@@ -2780,7 +2780,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   br i1 %.not17.i.i.i.i.i174, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i175, label %822
 
 822:                                              ; preds = %818
-  %823 = getelementptr inbounds nuw ptr, ptr %799, i64 %821
+  %823 = getelementptr inbounds nuw [8 x i8], ptr %799, i64 %821
   store ptr %.0.i.i.i.i.i170, ptr %823, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i175
 
@@ -2819,7 +2819,7 @@ _ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashEN
   %842 = urem i64 %841, %839
   %843 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %844 = load ptr, ptr %843, align 8, !tbaa !200
-  %845 = getelementptr inbounds nuw ptr, ptr %844, i64 %842
+  %845 = getelementptr inbounds nuw [8 x i8], ptr %844, i64 %842
   %846 = load ptr, ptr %845, align 8, !tbaa !201
   br label %847
 
@@ -2846,7 +2846,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   br i1 %.not9.i.i.i.i.i.i186, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i185, label %856
 
 856:                                              ; preds = %852
-  %857 = getelementptr inbounds nuw ptr, ptr %844, i64 %855
+  %857 = getelementptr inbounds nuw [8 x i8], ptr %844, i64 %855
   store ptr %846, ptr %857, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i.i187
 
@@ -2874,7 +2874,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   br i1 %.not17.i.i.i.i.i184, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i185, label %867
 
 867:                                              ; preds = %863
-  %868 = getelementptr inbounds nuw ptr, ptr %844, i64 %866
+  %868 = getelementptr inbounds nuw [8 x i8], ptr %844, i64 %866
   store ptr %.0.i.i.i.i.i180, ptr %868, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal8KeyUnaryEP14DfgVertexUnaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit.i185
 
@@ -2950,7 +2950,7 @@ _ZN18V3DfgCacheInternal4findERSt13unordered_mapINS_6KeySelEP6DfgSelNS1_4HashENS1
   %29 = urem i64 %28, %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !238
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %29
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   %33 = load ptr, ptr %32, align 8, !tbaa !201
   br label %34
 
@@ -2977,7 +2977,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8_
   br i1 %.not9.i.i.i.i.i, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw ptr, ptr %31, i64 %42
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %42
   store ptr %33, ptr %44, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i
 
@@ -3005,7 +3005,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8_
   br i1 %.not17.i.i.i.i, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw ptr, ptr %31, i64 %53
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %53
   store ptr %.0.i.i.i.i, ptr %55, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal6KeySelEP6DfgSelNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit
 
@@ -3070,7 +3070,7 @@ _ZN18V3DfgCacheInternal4findERSt13unordered_mapINS_10KeyTernaryEP16DfgVertexTern
   %25 = urem i64 %22, %24
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !256
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   %29 = load ptr, ptr %28, align 8, !tbaa !201
   %.not.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i, label %_ZN18V3DfgCacheInternal4findERSt13unordered_mapINS_10KeyTernaryEP16DfgVertexTernaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEEP12AstNodeDTypeP9DfgVertexSF_SF_.exit.thread, label %30
@@ -3132,7 +3132,7 @@ _ZN18V3DfgCacheInternal4findERSt13unordered_mapINS_10KeyTernaryEP16DfgVertexTern
   %54 = urem i64 %53, %51
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !256
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %54
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %54
   %58 = load ptr, ptr %57, align 8, !tbaa !201
   br label %59
 
@@ -3159,7 +3159,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal10KeyTernaryESt4pairIKS1_P16DfgVertexTern
   br i1 %.not9.i.i.i.i.i, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal10KeyTernaryEP16DfgVertexTernaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit, label %68
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds nuw ptr, ptr %56, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %67
   store ptr %58, ptr %69, align 8, !tbaa !201
   br label %._crit_edge.i.i.i.i.i
 
@@ -3187,7 +3187,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal10KeyTernaryESt4pairIKS1_P16DfgVertexTern
   br i1 %.not17.i.i.i.i, label %_ZNSt13unordered_mapIN18V3DfgCacheInternal10KeyTernaryEP16DfgVertexTernaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit, label %79
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds nuw ptr, ptr %56, i64 %78
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %78
   store ptr %.0.i.i.i.i, ptr %80, align 8, !tbaa !201
   br label %_ZNSt13unordered_mapIN18V3DfgCacheInternal10KeyTernaryEP16DfgVertexTernaryNS1_4HashENS1_5EqualESaISt4pairIKS1_S3_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb1EEE.exit
 
@@ -3403,7 +3403,7 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal6KeySelESt4pairIKS2_P6DfgS
 86:                                               ; preds = %66
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !238
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %84
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %84
   %90 = load ptr, ptr %89, align 8, !tbaa !201
   %.not.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i, label %.critedge29, label %91
@@ -3579,7 +3579,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8_
   store i64 %2, ptr %32, align 8, !tbaa !198
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !238
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.0
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0
   %36 = load ptr, ptr %35, align 8, !tbaa !201
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %40, label %37
@@ -3605,7 +3605,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8_
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !198
   %48 = urem i64 %47, %45
-  %49 = getelementptr inbounds nuw ptr, ptr %34, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %48
   store ptr %3, ptr %49, align 8, !tbaa !201
   br label %50
 
@@ -3717,7 +3717,7 @@ define linkonce_odr dso_local void @_ZNK9DfgVertex8typeNameB5cxx11Ev(ptr dead_on
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i16, ptr %4, align 8, !tbaa !274
   %6 = zext i16 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZZNK8VDfgType5asciiEvE5names, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK8VDfgType5asciiEvE5names, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !275
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %0, align 8, !tbaa !276
@@ -3807,7 +3807,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 define linkonce_odr dso_local noundef ptr @_ZNK8VDfgType5asciiEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #7 comdat align 2 {
   %2 = load i16, ptr %0, align 2, !tbaa !274
   %3 = zext i16 %2 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK8VDfgType5asciiEvE5names, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK8VDfgType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !275
   ret ptr %5
 }
@@ -3869,7 +3869,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8_
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !198
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !201
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -3884,7 +3884,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8_
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !201
   br label %28
 
@@ -4028,7 +4028,7 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS2_P14D
 52:                                               ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !200
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %50
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %50
   %56 = load ptr, ptr %55, align 8, !tbaa !201
   %.not.i.i = icmp eq ptr %56, null
   br i1 %.not.i.i, label %.critedge29, label %57
@@ -4188,7 +4188,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   store i64 %2, ptr %32, align 8, !tbaa !198
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !200
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.0
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0
   %36 = load ptr, ptr %35, align 8, !tbaa !201
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %40, label %37
@@ -4214,7 +4214,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %47 = load i64, ptr %46, align 8, !tbaa !198
   %48 = urem i64 %47, %45
-  %49 = getelementptr inbounds nuw ptr, ptr %34, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %48
   store ptr %3, ptr %49, align 8, !tbaa !201
   br label %50
 
@@ -4276,7 +4276,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !198
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !201
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -4291,7 +4291,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !201
   br label %28
 
@@ -4606,7 +4606,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   store i64 %2, ptr %32, align 8, !tbaa !198
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !220
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.0
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0
   %36 = load ptr, ptr %35, align 8, !tbaa !201
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %40, label %37
@@ -4632,7 +4632,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !198
   %48 = urem i64 %47, %45
-  %49 = getelementptr inbounds nuw ptr, ptr %34, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %48
   store ptr %3, ptr %49, align 8, !tbaa !201
   br label %50
 
@@ -4651,7 +4651,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
 define linkonce_odr dso_local noundef ptr @_ZNKSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS3_m(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %3) local_unnamed_addr #3 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !220
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %1
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %1
   %8 = load ptr, ptr %7, align 8, !tbaa !201
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %_ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS2_P15DfgVertexBinaryENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread20, label %9
@@ -4782,7 +4782,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !198
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !201
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -4797,7 +4797,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !201
   br label %28
 
@@ -4901,7 +4901,7 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal10KeyTernaryESt4pairIKS2_P
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !256
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %36
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %36
   %42 = load ptr, ptr %41, align 8, !tbaa !201
   %.not.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i, label %.critedge29, label %43
@@ -5041,7 +5041,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal10KeyTernaryESt4pairIKS1_P16DfgVertexTern
   store i64 %2, ptr %32, align 8, !tbaa !198
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !256
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.0
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0
   %36 = load ptr, ptr %35, align 8, !tbaa !201
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %40, label %37
@@ -5067,7 +5067,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal10KeyTernaryESt4pairIKS1_P16DfgVertexTern
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %47 = load i64, ptr %46, align 8, !tbaa !198
   %48 = urem i64 %47, %45
-  %49 = getelementptr inbounds nuw ptr, ptr %34, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %48
   store ptr %3, ptr %49, align 8, !tbaa !201
   br label %50
 
@@ -5309,7 +5309,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal10KeyTernaryESt4pairIKS1_P16DfgVertexTern
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 40
   %16 = load i64, ptr %15, align 8, !tbaa !198
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !201
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -5324,7 +5324,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal10KeyTernaryESt4pairIKS1_P16DfgVertexTern
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !201
   br label %28
 
@@ -5473,7 +5473,7 @@ _ZNKSt8__detail15_Hash_code_baseIN18V3DfgCacheInternal6KeySelESt4pairIKS2_P6DfgS
   %69 = urem i64 %66, %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !238
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %69
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %69
   %73 = load ptr, ptr %72, align 8, !tbaa !201
   %.not.i.i = icmp eq ptr %73, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %74
@@ -5627,7 +5627,7 @@ _ZNKSt8__detail15_Hash_code_baseIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS2_P14D
   %40 = urem i64 %37, %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !200
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   %44 = load ptr, ptr %43, align 8, !tbaa !201
   %.not.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit, label %45

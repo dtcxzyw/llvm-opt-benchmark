@@ -57,7 +57,7 @@ $_ZSt11make_uniqueI12cmCryptoHashJNS0_4AlgoEEENSt8__detail9_MakeUniqIT_E15__sing
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12cmCryptoHashC2ENS_4AlgoE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 4), (8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @_ZL20cmCryptoHashAlgoToId, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @_ZL20cmCryptoHashAlgoToId, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !4
   store i32 %5, ptr %0, align 8, !tbaa !8
   %.b.i = load i1, ptr @_ZL38cmCryptoHash_rhash_library_initialized, align 4
@@ -365,7 +365,7 @@ define linkonce_odr dso_local void @_ZSt11make_uniqueI12cmCryptoHashJNS0_4AlgoEE
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
   %4 = load i32, ptr %1, align 4, !tbaa !31
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw i32, ptr @_ZL20cmCryptoHashAlgoToId, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @_ZL20cmCryptoHashAlgoToId, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !4
   store i32 %7, ptr %3, align 8, !tbaa !8
   %.b.i.i = load i1, ptr @_ZL38cmCryptoHash_rhash_library_initialized, align 4

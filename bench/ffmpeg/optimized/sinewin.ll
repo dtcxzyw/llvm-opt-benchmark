@@ -36,7 +36,7 @@ define void @ff_sine_window_init(ptr noundef writeonly captures(none) %0, i32 no
   %11 = fmul nsz double %6, %10
   %12 = fptrunc nsz double %11 to float
   %13 = tail call nsz float @llvm.sin.f32(float %12)
-  %14 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store float %13, ptr %14, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -53,8 +53,8 @@ declare float @llvm.sin.f32(float) #1
 define void @ff_init_ff_sine_windows(i32 noundef %0) local_unnamed_addr #2 {
   %2 = add nsw i32 %0, -5
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds i32, ptr @init_sine_window_once, i64 %3
-  %5 = getelementptr inbounds ptr, ptr @sine_window_init_func_array, i64 %3
+  %4 = getelementptr inbounds [4 x i8], ptr @init_sine_window_once, i64 %3
+  %5 = getelementptr inbounds [8 x i8], ptr @sine_window_init_func_array, i64 %3
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = tail call i32 @pthread_once(ptr noundef nonnull %4, ptr noundef %6) #5
   ret void
@@ -74,7 +74,7 @@ define internal void @init_ff_sine_window_5() #4 {
   %5 = fmul nnan nsz double %4, 0x3FA921FB54442D18
   %6 = fptrunc nsz double %5 to float
   %7 = tail call nsz float @llvm.sin.f32(float %6)
-  %8 = getelementptr inbounds nuw float, ptr @ff_sine_32, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @ff_sine_32, i64 %indvars.iv.i
   store float %7, ptr %8, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
@@ -96,7 +96,7 @@ define internal void @init_ff_sine_window_6() #4 {
   %5 = fmul nnan nsz double %4, 0x3F9921FB54442D18
   %6 = fptrunc nsz double %5 to float
   %7 = tail call nsz float @llvm.sin.f32(float %6)
-  %8 = getelementptr inbounds nuw float, ptr @ff_sine_64, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @ff_sine_64, i64 %indvars.iv.i
   store float %7, ptr %8, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -118,7 +118,7 @@ define internal void @init_ff_sine_window_7() #4 {
   %5 = fmul nnan nsz double %4, 0x3F8921FB54442D18
   %6 = fptrunc nsz double %5 to float
   %7 = tail call nsz float @llvm.sin.f32(float %6)
-  %8 = getelementptr inbounds nuw float, ptr @ff_sine_128, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @ff_sine_128, i64 %indvars.iv.i
   store float %7, ptr %8, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
@@ -140,7 +140,7 @@ define internal void @init_ff_sine_window_8() #4 {
   %5 = fmul nnan nsz double %4, 0x3F7921FB54442D18
   %6 = fptrunc nsz double %5 to float
   %7 = tail call nsz float @llvm.sin.f32(float %6)
-  %8 = getelementptr inbounds nuw float, ptr @ff_sine_256, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @ff_sine_256, i64 %indvars.iv.i
   store float %7, ptr %8, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -162,7 +162,7 @@ define internal void @init_ff_sine_window_9() #4 {
   %5 = fmul nnan nsz double %4, 0x3F6921FB54442D18
   %6 = fptrunc nsz double %5 to float
   %7 = tail call nsz float @llvm.sin.f32(float %6)
-  %8 = getelementptr inbounds nuw float, ptr @ff_sine_512, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @ff_sine_512, i64 %indvars.iv.i
   store float %7, ptr %8, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
@@ -184,7 +184,7 @@ define internal void @init_ff_sine_window_10() #4 {
   %5 = fmul nnan nsz double %4, 0x3F5921FB54442D18
   %6 = fptrunc nsz double %5 to float
   %7 = tail call nsz float @llvm.sin.f32(float %6)
-  %8 = getelementptr inbounds nuw float, ptr @ff_sine_1024, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @ff_sine_1024, i64 %indvars.iv.i
   store float %7, ptr %8, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 1024
@@ -206,7 +206,7 @@ define internal void @init_ff_sine_window_11() #4 {
   %5 = fmul nnan nsz double %4, 0x3F4921FB54442D18
   %6 = fptrunc nsz double %5 to float
   %7 = tail call nsz float @llvm.sin.f32(float %6)
-  %8 = getelementptr inbounds nuw float, ptr @ff_sine_2048, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @ff_sine_2048, i64 %indvars.iv.i
   store float %7, ptr %8, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2048
@@ -228,7 +228,7 @@ define internal void @init_ff_sine_window_12() #4 {
   %5 = fmul nnan nsz double %4, 0x3F3921FB54442D18
   %6 = fptrunc nsz double %5 to float
   %7 = tail call nsz float @llvm.sin.f32(float %6)
-  %8 = getelementptr inbounds nuw float, ptr @ff_sine_4096, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @ff_sine_4096, i64 %indvars.iv.i
   store float %7, ptr %8, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4096
@@ -250,7 +250,7 @@ define internal void @init_ff_sine_window_13() #4 {
   %5 = fmul nnan nsz double %4, 0x3F2921FB54442D18
   %6 = fptrunc nsz double %5 to float
   %7 = tail call nsz float @llvm.sin.f32(float %6)
-  %8 = getelementptr inbounds nuw float, ptr @ff_sine_8192, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @ff_sine_8192, i64 %indvars.iv.i
   store float %7, ptr %8, align 4, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8192

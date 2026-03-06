@@ -3,10 +3,6 @@ source_filename = "bench/postgres/original/indextuple.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
-
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [48 x i8] c"number of index columns (%d) exceeds limit (%d)\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"indextuple.c\00", align 1
@@ -64,10 +60,10 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr noundef reado
   %17 = shl nsw i64 %16, 4
   %18 = getelementptr i8, ptr %0, i64 %17
   %19 = getelementptr i8, ptr %18, i64 24
-  %20 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %19, i64 %indvars.iv
-  %21 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [100 x i8], ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store i64 %22, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   store i8 0, ptr %24, align 1
@@ -180,7 +176,7 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr noundef reado
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %.lr.ph92
-  %72 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv99
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv99
   %73 = load i64, ptr %72, align 8
   %74 = inttoptr i64 %73 to ptr
   call void @pfree(ptr noundef %74) #10
@@ -293,7 +289,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 %..i
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %23 = sext i32 %6 to i64
-  %24 = getelementptr inbounds %struct.CompactAttribute, ptr %22, i64 %23
+  %24 = getelementptr inbounds [16 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %56, label %27
@@ -367,7 +363,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 .lr.ph192:                                        ; preds = %56, %58
   %.0127191 = phi i32 [ %59, %58 ], [ 0, %56 ]
   %60 = sext i32 %.0127191 to i64
-  %61 = getelementptr inbounds %struct.CompactAttribute, ptr %22, i64 %60
+  %61 = getelementptr inbounds [16 x i8], ptr %22, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i16, ptr %62, align 4
   %64 = icmp slt i16 %63, 1
@@ -393,7 +389,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 
 .lr.ph196:                                        ; preds = %.lr.ph196.preheader, %73
   %indvars.iv205 = phi i64 [ 1, %.lr.ph196.preheader ], [ %indvars.iv.next206, %73 ]
-  %70 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %68, i64 %indvars.iv205
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %indvars.iv205
   %71 = load i32, ptr %70, align 4
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %73, label %.critedge.loopexit
@@ -414,7 +410,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 
 .lr.ph202.preheader:                              ; preds = %.critedge
   %76 = zext i32 %.0124.lcssa to i64
-  %77 = getelementptr %struct.CompactAttribute, ptr %68, i64 %76
+  %77 = getelementptr [16 x i8], ptr %68, i64 %76
   %78 = getelementptr i8, ptr %77, i64 -16
   %79 = load i32, ptr %78, align 4
   %80 = getelementptr i8, ptr %77, i64 -12
@@ -426,7 +422,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 .lr.ph202:                                        ; preds = %.lr.ph202.preheader, %88
   %indvars.iv210 = phi i64 [ %76, %.lr.ph202.preheader ], [ %indvars.iv.next211, %88 ]
   %.0136200 = phi i32 [ %83, %.lr.ph202.preheader ], [ %97, %88 ]
-  %84 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %68, i64 %indvars.iv210
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %indvars.iv210
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i16, ptr %85, align 4
   %87 = icmp slt i16 %86, 1
@@ -450,7 +446,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 
 ._crit_edge:                                      ; preds = %73, %88, %.lr.ph202, %.critedge
   %100 = sext i32 %6 to i64
-  %101 = getelementptr inbounds %struct.CompactAttribute, ptr %68, i64 %100
+  %101 = getelementptr inbounds [16 x i8], ptr %68, i64 %100
   %102 = load i32, ptr %101, align 4
   br label %.loopexit
 
@@ -460,7 +456,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   %.0122 = phi i1 [ %.1123.ph, %209 ], [ true, %.preheader ]
   %.0121 = phi i32 [ %210, %209 ], [ 0, %.preheader ]
   %104 = sext i32 %.0121 to i64
-  %105 = getelementptr inbounds %struct.CompactAttribute, ptr %65, i64 %104
+  %105 = getelementptr inbounds [16 x i8], ptr %65, i64 %104
   %106 = icmp slt i16 %.val154, 0
   br i1 %106, label %107, label %116
 
@@ -649,7 +645,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   %212 = sext i32 %.2138 to i64
   %213 = getelementptr inbounds i8, ptr %211, i64 %212
   %214 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %215 = getelementptr inbounds %struct.CompactAttribute, ptr %214, i64 %.pre-phi
+  %215 = getelementptr inbounds [16 x i8], ptr %214, i64 %.pre-phi
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 6
   %217 = load i8, ptr %216, align 2, !range !4, !noundef !5
   %218 = trunc nuw i8 %217 to i1
@@ -739,7 +735,7 @@ define dso_local void @index_deform_tuple_internal(ptr noundef captures(none) %0
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %142 ]
   %.06681 = phi i1 [ false, %.lr.ph ], [ %.1, %142 ]
   %.06780 = phi i32 [ 0, %.lr.ph ], [ %.168, %142 ]
-  %11 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   br i1 %.not, label %25, label %12
 
 12:                                               ; preds = %10
@@ -756,7 +752,7 @@ define dso_local void @index_deform_tuple_internal(ptr noundef captures(none) %0
   br i1 %.not.i, label %22, label %25
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 1, ptr %24, align 1
@@ -900,7 +896,7 @@ define dso_local void @index_deform_tuple_internal(ptr noundef captures(none) %0
 
 fetch_att.exit:                                   ; preds = %85, %88, %91, %94, %99
   %.0.i = phi i64 [ %87, %85 ], [ %90, %88 ], [ %93, %91 ], [ %95, %94 ], [ %100, %99 ]
-  %101 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i64 %.0.i, ptr %101, align 8
   %102 = load i16, ptr %79, align 4
   %103 = icmp sgt i16 %102, 0

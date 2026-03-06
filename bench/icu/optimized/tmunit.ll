@@ -91,7 +91,7 @@ define void @_ZN6icu_778TimeUnitC2ENS0_15UTimeUnitFieldsE(ptr noundef nonnull al
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6icu_778TimeUnitC2ENS0_15UTimeUnitFieldsE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6icu_778TimeUnitC2ENS0_15UTimeUnitFieldsE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   invoke void @_ZN6icu_7711MeasureUnit8initTimeEPKc(ptr noundef nonnull align 8 dereferenceable(19) %0, ptr noundef nonnull %switch.load)
           to label %9 unwind label %5

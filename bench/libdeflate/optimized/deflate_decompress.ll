@@ -412,7 +412,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noun
   %.10624 = phi i64 [ %138, %135 ], [ %.9623, %128 ], [ %.12626, %157 ]
   %.9608 = phi ptr [ %144, %135 ], [ %.8607, %128 ], [ %.11610, %157 ]
   %161 = and i64 %.10624, 127
-  %162 = getelementptr inbounds nuw i32, ptr %20, i64 %161
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %161
   %163 = load i32, ptr %162, align 4, !tbaa !21
   %164 = and i32 %163, 255
   %165 = zext nneg i32 %164 to i64
@@ -620,7 +620,7 @@ default.unreachable:                              ; preds = %.loopexit916
   %269 = getelementptr inbounds i8, ptr %264, i64 %268
   %270 = or i32 %.16665, 56
   %271 = and i64 %263, %258
-  %272 = getelementptr inbounds nuw i32, ptr %0, i64 %271
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %271
   %273 = load i32, ptr %272, align 4, !tbaa !21
   br label %274
 
@@ -640,7 +640,7 @@ default.unreachable:                              ; preds = %.loopexit916
 279:                                              ; preds = %274
   %280 = lshr i32 %.0685, 16
   %281 = and i64 %277, %258
-  %282 = getelementptr inbounds nuw i32, ptr %0, i64 %281
+  %282 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %281
   %283 = load i32, ptr %282, align 4, !tbaa !21
   %284 = and i32 %283, 255
   %285 = zext nneg i32 %284 to i64
@@ -655,7 +655,7 @@ default.unreachable:                              ; preds = %.loopexit916
 290:                                              ; preds = %279
   %291 = lshr i32 %283, 16
   %292 = and i64 %286, %258
-  %293 = getelementptr inbounds nuw i32, ptr %0, i64 %292
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %292
   %294 = load i32, ptr %293, align 4, !tbaa !21
   %295 = and i32 %294, 255
   %296 = zext nneg i32 %295 to i64
@@ -670,7 +670,7 @@ default.unreachable:                              ; preds = %.loopexit916
 301:                                              ; preds = %290
   %302 = lshr i32 %294, 16
   %303 = and i64 %297, %258
-  %304 = getelementptr inbounds nuw i32, ptr %0, i64 %303
+  %304 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %303
   %305 = load i32, ptr %304, align 4, !tbaa !21
   %.0.copyload.i803 = load i64, ptr %.18, align 1
   %306 = and i32 %298, 255
@@ -717,8 +717,8 @@ default.unreachable:                              ; preds = %.loopexit916
   %notmask760 = shl nsw i64 -1, %327
   %328 = xor i64 %notmask760, -1
   %329 = and i64 %.22636, %328
-  %330 = getelementptr inbounds nuw i32, ptr %0, i64 %329
-  %331 = getelementptr inbounds nuw i32, ptr %330, i64 %324
+  %330 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %329
+  %331 = getelementptr inbounds nuw [4 x i8], ptr %330, i64 %324
   %332 = load i32, ptr %331, align 4, !tbaa !21
   %333 = and i32 %332, 255
   %334 = zext nneg i32 %333 to i64
@@ -730,7 +730,7 @@ default.unreachable:                              ; preds = %.loopexit916
 337:                                              ; preds = %322
   %338 = lshr i32 %332, 16
   %339 = and i64 %335, %258
-  %340 = getelementptr inbounds nuw i32, ptr %0, i64 %339
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %339
   %341 = load i32, ptr %340, align 4, !tbaa !21
   %.0.copyload.i804 = load i64, ptr %.18, align 1
   %342 = and i32 %336, 255
@@ -770,7 +770,7 @@ default.unreachable:                              ; preds = %.loopexit916
   %364 = trunc i64 %363 to i32
   %365 = add i32 %357, %364
   %366 = and i64 %.24638, 255
-  %367 = getelementptr inbounds nuw i32, ptr %22, i64 %366
+  %367 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %366
   %368 = load i32, ptr %367, align 4, !tbaa !17
   %369 = and i32 %368, 32768
   %.not764 = icmp eq i32 %369, 0
@@ -809,8 +809,8 @@ default.unreachable:                              ; preds = %.loopexit916
   %notmask765 = shl nsw i64 -1, %391
   %392 = xor i64 %notmask765, -1
   %393 = and i64 %385, %392
-  %394 = getelementptr inbounds nuw i32, ptr %22, i64 %393
-  %395 = getelementptr inbounds nuw i32, ptr %394, i64 %388
+  %394 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %393
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %394, i64 %388
   %396 = load i32, ptr %395, align 4, !tbaa !17
   br label %410
 
@@ -863,7 +863,7 @@ default.unreachable:                              ; preds = %.loopexit916
   %430 = zext i32 %365 to i64
   %431 = getelementptr inbounds nuw i8, ptr %.5595, i64 %430
   %432 = and i64 %427, %258
-  %433 = getelementptr inbounds nuw i32, ptr %0, i64 %432
+  %433 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %432
   %434 = load i32, ptr %433, align 4, !tbaa !21
   %.0.copyload.i807 = load i64, ptr %.21, align 1
   %435 = and i32 %426, 255
@@ -1078,7 +1078,7 @@ default.unreachable:                              ; preds = %.loopexit916
   %.31 = phi i64 [ %499, %495 ], [ %.27, %.preheader ], [ %.29, %518 ]
   %.26 = phi ptr [ %505, %495 ], [ %.22, %.preheader ], [ %.24, %518 ]
   %522 = and i64 %.31, %258
-  %523 = getelementptr inbounds nuw i32, ptr %0, i64 %522
+  %523 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %522
   %524 = load i32, ptr %523, align 4, !tbaa !21
   %525 = and i32 %524, 255
   %526 = zext nneg i32 %525 to i64
@@ -1097,8 +1097,8 @@ default.unreachable:                              ; preds = %.loopexit916
   %notmask773 = shl nsw i64 -1, %535
   %536 = xor i64 %notmask773, -1
   %537 = and i64 %527, %536
-  %538 = getelementptr inbounds nuw i32, ptr %0, i64 %537
-  %539 = getelementptr inbounds nuw i32, ptr %538, i64 %532
+  %538 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %537
+  %539 = getelementptr inbounds nuw [4 x i8], ptr %538, i64 %532
   %540 = load i32, ptr %539, align 4, !tbaa !21
   %541 = and i32 %540, 255
   %542 = zext nneg i32 %541 to i64
@@ -1156,7 +1156,7 @@ default.unreachable:                              ; preds = %.loopexit916
 
 569:                                              ; preds = %554
   %570 = and i64 %.32, 255
-  %571 = getelementptr inbounds nuw i32, ptr %22, i64 %570
+  %571 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %570
   %572 = load i32, ptr %571, align 4, !tbaa !17
   %573 = and i32 %572, 32768
   %.not777 = icmp eq i32 %573, 0
@@ -1173,8 +1173,8 @@ default.unreachable:                              ; preds = %.loopexit916
   %notmask778 = shl nsw i64 -1, %581
   %582 = xor i64 %notmask778, -1
   %583 = and i64 %575, %582
-  %584 = getelementptr inbounds nuw i32, ptr %22, i64 %583
-  %585 = getelementptr inbounds nuw i32, ptr %584, i64 %578
+  %584 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %583
+  %585 = getelementptr inbounds nuw [4 x i8], ptr %584, i64 %578
   %586 = load i32, ptr %585, align 4, !tbaa !17
   br label %587
 
@@ -1573,7 +1573,7 @@ define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef
   %.10624 = phi i64 [ %138, %135 ], [ %.9623, %128 ], [ %.12626, %157 ]
   %.9608 = phi ptr [ %144, %135 ], [ %.8607, %128 ], [ %.11610, %157 ]
   %161 = and i64 %.10624, 127
-  %162 = getelementptr inbounds nuw i32, ptr %20, i64 %161
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %161
   %163 = load i32, ptr %162, align 4, !tbaa !21
   %164 = and i32 %163, 255
   %165 = zext nneg i32 %164 to i64
@@ -1781,7 +1781,7 @@ default.unreachable:                              ; preds = %.loopexit916
   %269 = getelementptr inbounds i8, ptr %264, i64 %268
   %270 = or i32 %.16665, 56
   %271 = and i64 %263, %258
-  %272 = getelementptr inbounds nuw i32, ptr %0, i64 %271
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %271
   %273 = load i32, ptr %272, align 4, !tbaa !21
   br label %274
 
@@ -1801,7 +1801,7 @@ default.unreachable:                              ; preds = %.loopexit916
 279:                                              ; preds = %274
   %280 = lshr i32 %.0685, 16
   %281 = and i64 %277, %258
-  %282 = getelementptr inbounds nuw i32, ptr %0, i64 %281
+  %282 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %281
   %283 = load i32, ptr %282, align 4, !tbaa !21
   %284 = and i32 %283, 255
   %285 = zext nneg i32 %284 to i64
@@ -1816,7 +1816,7 @@ default.unreachable:                              ; preds = %.loopexit916
 290:                                              ; preds = %279
   %291 = lshr i32 %283, 16
   %292 = and i64 %286, %258
-  %293 = getelementptr inbounds nuw i32, ptr %0, i64 %292
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %292
   %294 = load i32, ptr %293, align 4, !tbaa !21
   %295 = and i32 %294, 255
   %296 = zext nneg i32 %295 to i64
@@ -1831,7 +1831,7 @@ default.unreachable:                              ; preds = %.loopexit916
 301:                                              ; preds = %290
   %302 = lshr i32 %294, 16
   %303 = and i64 %297, %258
-  %304 = getelementptr inbounds nuw i32, ptr %0, i64 %303
+  %304 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %303
   %305 = load i32, ptr %304, align 4, !tbaa !21
   %.0.copyload.i803 = load i64, ptr %.18, align 1
   %306 = and i32 %298, 255
@@ -1878,8 +1878,8 @@ default.unreachable:                              ; preds = %.loopexit916
   %notmask760 = shl nsw i64 -1, %327
   %328 = xor i64 %notmask760, -1
   %329 = and i64 %.22636, %328
-  %330 = getelementptr inbounds nuw i32, ptr %0, i64 %329
-  %331 = getelementptr inbounds nuw i32, ptr %330, i64 %324
+  %330 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %329
+  %331 = getelementptr inbounds nuw [4 x i8], ptr %330, i64 %324
   %332 = load i32, ptr %331, align 4, !tbaa !21
   %333 = and i32 %332, 255
   %334 = zext nneg i32 %333 to i64
@@ -1891,7 +1891,7 @@ default.unreachable:                              ; preds = %.loopexit916
 337:                                              ; preds = %322
   %338 = lshr i32 %332, 16
   %339 = and i64 %335, %258
-  %340 = getelementptr inbounds nuw i32, ptr %0, i64 %339
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %339
   %341 = load i32, ptr %340, align 4, !tbaa !21
   %.0.copyload.i804 = load i64, ptr %.18, align 1
   %342 = and i32 %336, 255
@@ -1931,7 +1931,7 @@ default.unreachable:                              ; preds = %.loopexit916
   %364 = trunc i64 %363 to i32
   %365 = add i32 %357, %364
   %366 = and i64 %.24638, 255
-  %367 = getelementptr inbounds nuw i32, ptr %22, i64 %366
+  %367 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %366
   %368 = load i32, ptr %367, align 4, !tbaa !17
   %369 = and i32 %368, 32768
   %.not764 = icmp eq i32 %369, 0
@@ -1970,8 +1970,8 @@ default.unreachable:                              ; preds = %.loopexit916
   %notmask765 = shl nsw i64 -1, %391
   %392 = xor i64 %notmask765, -1
   %393 = and i64 %385, %392
-  %394 = getelementptr inbounds nuw i32, ptr %22, i64 %393
-  %395 = getelementptr inbounds nuw i32, ptr %394, i64 %388
+  %394 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %393
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %394, i64 %388
   %396 = load i32, ptr %395, align 4, !tbaa !17
   br label %410
 
@@ -2024,7 +2024,7 @@ default.unreachable:                              ; preds = %.loopexit916
   %430 = zext i32 %365 to i64
   %431 = getelementptr inbounds nuw i8, ptr %.5595, i64 %430
   %432 = and i64 %427, %258
-  %433 = getelementptr inbounds nuw i32, ptr %0, i64 %432
+  %433 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %432
   %434 = load i32, ptr %433, align 4, !tbaa !21
   %.0.copyload.i807 = load i64, ptr %.21, align 1
   %435 = and i32 %426, 255
@@ -2239,7 +2239,7 @@ default.unreachable:                              ; preds = %.loopexit916
   %.31 = phi i64 [ %499, %495 ], [ %.27, %.preheader ], [ %.29, %518 ]
   %.26 = phi ptr [ %505, %495 ], [ %.22, %.preheader ], [ %.24, %518 ]
   %522 = and i64 %.31, %258
-  %523 = getelementptr inbounds nuw i32, ptr %0, i64 %522
+  %523 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %522
   %524 = load i32, ptr %523, align 4, !tbaa !21
   %525 = and i32 %524, 255
   %526 = zext nneg i32 %525 to i64
@@ -2258,8 +2258,8 @@ default.unreachable:                              ; preds = %.loopexit916
   %notmask773 = shl nsw i64 -1, %535
   %536 = xor i64 %notmask773, -1
   %537 = and i64 %527, %536
-  %538 = getelementptr inbounds nuw i32, ptr %0, i64 %537
-  %539 = getelementptr inbounds nuw i32, ptr %538, i64 %532
+  %538 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %537
+  %539 = getelementptr inbounds nuw [4 x i8], ptr %538, i64 %532
   %540 = load i32, ptr %539, align 4, !tbaa !21
   %541 = and i32 %540, 255
   %542 = zext nneg i32 %541 to i64
@@ -2317,7 +2317,7 @@ default.unreachable:                              ; preds = %.loopexit916
 
 569:                                              ; preds = %554
   %570 = and i64 %.32, 255
-  %571 = getelementptr inbounds nuw i32, ptr %22, i64 %570
+  %571 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %570
   %572 = load i32, ptr %571, align 4, !tbaa !17
   %573 = and i32 %572, 32768
   %.not777 = icmp eq i32 %573, 0
@@ -2334,8 +2334,8 @@ default.unreachable:                              ; preds = %.loopexit916
   %notmask778 = shl nsw i64 -1, %581
   %582 = xor i64 %notmask778, -1
   %583 = and i64 %575, %582
-  %584 = getelementptr inbounds nuw i32, ptr %22, i64 %583
-  %585 = getelementptr inbounds nuw i32, ptr %584, i64 %578
+  %584 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %583
+  %585 = getelementptr inbounds nuw [4 x i8], ptr %584, i64 %578
   %586 = load i32, ptr %585, align 4, !tbaa !17
   br label %587
 
@@ -2464,7 +2464,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1, !tbaa !21
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %8, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !17
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 4, !tbaa !17
@@ -2478,7 +2478,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
 .preheader222:                                    ; preds = %.preheader222.preheader, %22
   %.0145237 = phi i32 [ %23, %22 ], [ %5, %.preheader222.preheader ]
   %18 = zext i32 %.0145237 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !17
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %.critedge
@@ -2515,11 +2515,11 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
   %31 = phi i32 [ %28, %.lr.ph240.preheader ], [ %34, %.lr.ph240 ]
   %indvars.iv291 = phi i64 [ 1, %.lr.ph240.preheader ], [ %indvars.iv.next292, %.lr.ph240 ]
   %.0167239 = phi i32 [ 0, %.lr.ph240.preheader ], [ %37, %.lr.ph240 ]
-  %32 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv291
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv291
   %33 = load i32, ptr %32, align 4, !tbaa !17
   %34 = add i32 %33, %31
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
-  %35 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next292
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.next292
   store i32 %34, ptr %35, align 4, !tbaa !17
   %36 = shl i32 %.0167239, 1
   %37 = add i32 %33, %36
@@ -2534,7 +2534,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
 ._crit_edge:                                      ; preds = %27, %._crit_edge.loopexit
   %.1175.lcssa = phi i64 [ %39, %._crit_edge.loopexit ], [ 1, %27 ]
   %.0167.lcssa = phi i32 [ %38, %._crit_edge.loopexit ], [ 0, %27 ]
-  %40 = getelementptr inbounds nuw i32, ptr %8, i64 %.1175.lcssa
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.1175.lcssa
   %41 = load i32, ptr %40, align 4, !tbaa !17
   %42 = add i32 %41, %.0167.lcssa
   br i1 %.not, label %._crit_edge245, label %.lr.ph244.preheader
@@ -2549,12 +2549,12 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv296
   %45 = load i8, ptr %44, align 1, !tbaa !21
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %9, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !17
   %49 = add i32 %48, 1
   store i32 %49, ptr %47, align 4, !tbaa !17
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw i16, ptr %6, i64 %50
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %50
   store i16 %43, ptr %51, align 2, !tbaa !28
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %exitcond300.not = icmp eq i64 %indvars.iv.next297, %wide.trip.count299
@@ -2567,7 +2567,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
 
 ._crit_edge245:                                   ; preds = %._crit_edge245.loopexit, %._crit_edge
   %53 = phi i64 [ %52, %._crit_edge245.loopexit ], [ 0, %._crit_edge ]
-  %54 = getelementptr inbounds nuw i16, ptr %6, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %53
   %55 = shl nuw i32 1, %.0145.lcssa
   %56 = icmp ugt i32 %42, %55
   br i1 %56, label %.thread212, label %57, !prof !20
@@ -2597,7 +2597,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
 
 71:                                               ; preds = %59, %68
   %.2152 = phi i64 [ %70, %68 ], [ 0, %59 ]
-  %72 = getelementptr inbounds nuw i32, ptr %3, i64 %.2152
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.2152
   %73 = load i32, ptr %72, align 4, !tbaa !17
   %74 = add i32 %73, 257
   br label %75
@@ -2605,7 +2605,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
 75:                                               ; preds = %71, %75
   %.0149272 = phi i32 [ 0, %71 ], [ %78, %75 ]
   %76 = zext i32 %.0149272 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %0, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %76
   store i32 %74, ptr %77, align 4, !tbaa !17
   %78 = add i32 %.0149272, 1
   %.0149.highbits = lshr i32 %78, %.0143
@@ -2615,7 +2615,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
 .preheader221:                                    ; preds = %57, %.preheader221
   %.2176 = phi i32 [ %84, %.preheader221 ], [ 1, %57 ]
   %80 = zext i32 %.2176 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %8, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !17
   %83 = icmp eq i32 %82, 0
   %84 = add i32 %.2176, 1
@@ -2648,11 +2648,11 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
   %.1147 = phi ptr [ %103, %.thread ], [ %.0146251, %.preheader220 ]
   %90 = load i16, ptr %.1147, align 2, !tbaa !28
   %91 = zext i16 %90 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %3, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !17
   %94 = add i32 %87, %93
   %95 = zext i32 %.1183 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %0, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %95
   store i32 %94, ptr %96, align 4, !tbaa !17
   %.not203 = icmp eq i32 %.1183, %88
   br i1 %.not203, label %.preheader, label %.thread
@@ -2665,7 +2665,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
   %.2162258 = phi i32 [ %101, %.lr.ph259 ], [ %.0160250, %.preheader ]
   %.5179257 = phi i32 [ %102, %.lr.ph259 ], [ %.3177248, %.preheader ]
   %98 = zext i32 %.2162258 to i64
-  %99 = getelementptr inbounds nuw i32, ptr %0, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %98
   %100 = shl nuw nsw i64 %98, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %99, ptr nonnull align 4 %0, i64 %100, i1 false)
   %101 = shl i32 %.2162258, 1
@@ -2695,7 +2695,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
 
 113:                                              ; preds = %.preheader218
   %114 = zext i32 %.4164 to i64
-  %115 = getelementptr inbounds nuw i32, ptr %0, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %114
   %116 = shl nuw nsw i64 %114, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %115, ptr align 4 %0, i64 %116, i1 false)
   %117 = shl i32 %.4164, 1
@@ -2704,7 +2704,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
 118:                                              ; preds = %.preheader218, %113
   %.5165 = phi i32 [ %117, %113 ], [ %.4164, %.preheader218 ]
   %119 = zext i32 %112 to i64
-  %120 = getelementptr inbounds nuw i32, ptr %8, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !17
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %.preheader218, label %.loopexit219
@@ -2756,7 +2756,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
   %131 = shl nuw i32 %.1168260, 1
   %132 = add i32 %130, %.0143
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw i32, ptr %8, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !17
   %136 = add i32 %135, %131
   %137 = shl nuw i32 1, %130
@@ -2772,7 +2772,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
   %142 = or i32 %140, %141
   %.reass = or i32 %142, %invariant.op
   %143 = zext nneg i32 %127 to i64
-  %144 = getelementptr inbounds nuw i32, ptr %0, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %143
   store i32 %.reass, ptr %144, align 4, !tbaa !17
   br label %._crit_edge303
 
@@ -2782,7 +2782,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
   %.1157 = phi i32 [ %.6166, %._crit_edge264 ], [ %.0156, %.loopexit ]
   %145 = load i16, ptr %.2148, align 2, !tbaa !28
   %146 = zext i16 %145 to i64
-  %147 = getelementptr inbounds nuw i32, ptr %3, i64 %146
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !17
   %149 = add i32 %125, %148
   %150 = lshr i32 %.3185, %.0143
@@ -2792,7 +2792,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
 152:                                              ; preds = %152, %._crit_edge303
   %.0144 = phi i32 [ %151, %._crit_edge303 ], [ %155, %152 ]
   %153 = zext i32 %.0144 to i64
-  %154 = getelementptr inbounds nuw i32, ptr %0, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %153
   store i32 %149, ptr %154, align 4, !tbaa !17
   %155 = add i32 %.0144, %.pre304
   %156 = icmp ult i32 %155, %.7
@@ -2819,7 +2819,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
   %.10267 = phi i32 [ %169, %.lr.ph269 ], [ %.8.ph, %158 ]
   %169 = add i32 %.10267, 1
   %170 = zext i32 %169 to i64
-  %171 = getelementptr inbounds nuw i32, ptr %8, i64 %170
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %170
   %172 = load i32, ptr %171, align 4, !tbaa !17
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %.lr.ph269, label %.loopexit.outer

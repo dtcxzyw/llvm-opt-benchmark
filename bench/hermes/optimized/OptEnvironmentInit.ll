@@ -172,7 +172,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %cmp.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !9
 
 for.end.i.i.i:                                    ; preds = %for.inc.i.i.i, %if.then.i.i.i
-  %cond.i.i.i.i = getelementptr inbounds nuw ptr, ptr %8, i64 %idx.ext.i.i.i
+  %cond.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %idx.ext.i.i.i
   br label %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i
 
 if.end6.i.i.i:                                    ; preds = %if.then17
@@ -193,7 +193,7 @@ if.end10.i.i.i:                                   ; preds = %if.end6.i.i.i
   %14 = load i32, ptr %CurArraySize.i.i.i, align 8
   %cond.v.v.i11.i.i.i = select i1 %cmp.i.i8.i.i.i, i32 %13, i32 %14
   %cond.v.i12.i.i.i = zext i32 %cond.v.v.i11.i.i.i to i64
-  %cond.i13.i.i.i = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %cond.v.i12.i.i.i
+  %cond.i13.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i, i64 %cond.v.i12.i.i.i
   br label %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i
 
 _ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i: ; preds = %for.body.i.i.i, %if.end10.i.i.i, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i, %for.end.i.i.i
@@ -205,7 +205,7 @@ _ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i: ; preds = %for.body.i.i.i,
   %18 = load i32, ptr %CurArraySize.i.i.i, align 8
   %cond.v.v.i7.i.i.i = select i1 %cmp.i.i4.i.i.i, i32 %16, i32 %18
   %cond.v.i8.i.i.i = zext i32 %cond.v.v.i7.i.i.i to i64
-  %cond.i9.i.i.i = getelementptr inbounds nuw ptr, ptr %17, i64 %cond.v.i8.i.i.i
+  %cond.i9.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %cond.v.i8.i.i.i
   %cmp.not2.i3.i.i11.i.i.i = icmp eq ptr %retval.0.i.i.i, %cond.i9.i.i.i
   br i1 %cmp.not2.i3.i.i11.i.i.i, label %for.end, label %land.rhs.i4.i.i12.i.i.i
 
@@ -308,7 +308,7 @@ for.inc.i.i.i122:                                 ; preds = %for.body.i.i.i119
   br i1 %cmp.not.i.i.i124, label %for.end.i.i.i125, label %for.body.i.i.i119, !llvm.loop !9
 
 for.end.i.i.i125:                                 ; preds = %for.inc.i.i.i122, %if.then.i.i.i113
-  %cond.i.i.i.i126 = getelementptr inbounds nuw ptr, ptr %21, i64 %idx.ext.i.i.i115
+  %cond.i.i.i.i126 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %idx.ext.i.i.i115
   br label %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i94
 
 if.end6.i.i.i82:                                  ; preds = %if.end28
@@ -329,7 +329,7 @@ if.end10.i.i.i87:                                 ; preds = %if.end6.i.i.i82
   %31 = load i32, ptr %CurArraySize.i.i.i14, align 8
   %cond.v.v.i11.i.i.i91 = select i1 %cmp.i.i8.i.i.i88, i32 %30, i32 %31
   %cond.v.i12.i.i.i92 = zext i32 %cond.v.v.i11.i.i.i91 to i64
-  %cond.i13.i.i.i93 = getelementptr inbounds nuw ptr, ptr %.pre.i.i85, i64 %cond.v.i12.i.i.i92
+  %cond.i13.i.i.i93 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i85, i64 %cond.v.i12.i.i.i92
   br label %_ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i94
 
 _ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i94: ; preds = %for.body.i.i.i119, %if.end10.i.i.i87, %if.end6.i._ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit_crit_edge.i.i110, %for.end.i.i.i125
@@ -341,7 +341,7 @@ _ZNK4llvh19SmallPtrSetImplBase8find_impEPKv.exit.i.i94: ; preds = %for.body.i.i.
   %35 = load i32, ptr %CurArraySize.i.i.i14, align 8
   %cond.v.v.i7.i.i.i98 = select i1 %cmp.i.i4.i.i.i96, i32 %33, i32 %35
   %cond.v.i8.i.i.i99 = zext i32 %cond.v.v.i7.i.i.i98 to i64
-  %cond.i9.i.i.i100 = getelementptr inbounds nuw ptr, ptr %34, i64 %cond.v.i8.i.i.i99
+  %cond.i9.i.i.i100 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %cond.v.i8.i.i.i99
   %cmp.not2.i3.i.i11.i.i.i101 = icmp eq ptr %retval.0.i.i.i95, %cond.i9.i.i.i100
   br i1 %cmp.not2.i3.i.i11.i.i.i101, label %if.end33, label %land.rhs.i4.i.i12.i.i.i102
 
@@ -375,7 +375,7 @@ _ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit: ; preds 
   %39 = phi i32 [ %.pre.i.i129, %if.then.i.i128 ], [ %37, %if.end33 ]
   %40 = load ptr, ptr %destroyer, align 8
   %conv.i3.i.i = zext i32 %39 to i64
-  %add.ptr.i.i.i130 = getelementptr inbounds nuw ptr, ptr %40, i64 %conv.i3.i.i
+  %add.ptr.i.i.i130 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %conv.i3.i.i
   %41 = ptrtoint ptr %__begin3.sroa.0.0175 to i64
   store i64 %41, ptr %add.ptr.i.i.i130, align 1
   %42 = load i32, ptr %Size.i.i.i.i.i.i, align 8

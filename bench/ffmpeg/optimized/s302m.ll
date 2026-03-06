@@ -244,7 +244,7 @@ define internal i32 @s302m_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 .lr.ph185:                                        ; preds = %.lr.ph185.preheader, %157
   %.not154 = phi i1 [ %133, %.lr.ph185.preheader ], [ true, %157 ]
   %indvars.iv208 = phi i64 [ 0, %.lr.ph185.preheader ], [ %indvars.iv.next209, %157 ]
-  %134 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv208
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv208
   br i1 %.not154, label %135, label %.thread
 
 135:                                              ; preds = %.lr.ph185
@@ -255,7 +255,7 @@ define internal i32 @s302m_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 
 138:                                              ; preds = %135
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 2
-  %139 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv.next209
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv.next209
   %140 = load i32, ptr %139, align 4, !tbaa !33
   %.not156 = icmp eq i32 %140, 0
   br i1 %.not156, label %141, label %.thread
@@ -373,7 +373,7 @@ define internal i32 @s302m_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 .lr.ph173:                                        ; preds = %.lr.ph173.preheader, %243
   %.not150 = phi i1 [ %219, %.lr.ph173.preheader ], [ true, %243 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph173.preheader ], [ %indvars.iv.next, %243 ]
-  %220 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv
   br i1 %.not150, label %221, label %.thread
 
 221:                                              ; preds = %.lr.ph173
@@ -384,7 +384,7 @@ define internal i32 @s302m_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 
 224:                                              ; preds = %221
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %225 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv.next
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv.next
   %226 = load i32, ptr %225, align 4, !tbaa !33
   %.not152 = icmp eq i32 %226, 0
   br i1 %.not152, label %227, label %.thread
@@ -489,7 +489,7 @@ define internal i32 @s302m_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 .lr.ph197:                                        ; preds = %.lr.ph197.preheader, %318
   %.not = phi i1 [ %294, %.lr.ph197.preheader ], [ true, %318 ]
   %indvars.iv211 = phi i64 [ 0, %.lr.ph197.preheader ], [ %indvars.iv.next212, %318 ]
-  %295 = getelementptr inbounds nuw i16, ptr %64, i64 %indvars.iv211
+  %295 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %indvars.iv211
   br i1 %.not, label %296, label %.thread
 
 296:                                              ; preds = %.lr.ph197
@@ -500,7 +500,7 @@ define internal i32 @s302m_decode_frame(ptr noundef %0, ptr noundef %1, ptr noun
 
 299:                                              ; preds = %296
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 2
-  %300 = getelementptr inbounds nuw i16, ptr %64, i64 %indvars.iv.next212
+  %300 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %indvars.iv.next212
   %301 = load i16, ptr %300, align 2, !tbaa !49
   %.not148 = icmp eq i16 %301, 0
   br i1 %.not148, label %302, label %.thread

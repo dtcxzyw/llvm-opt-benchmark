@@ -706,7 +706,7 @@ hasher_merge_cv_stack.exit83:                     ; preds = %hasher_merge_cv_sta
   %.0.i98144 = phi i64 [ %309, %.lr.ph145 ], [ 0, %.lr.ph145.preheader ]
   %306 = shl i64 %.0.i98144, 6
   %307 = getelementptr inbounds nuw i8, ptr %15, i64 %306
-  %308 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0.i98144
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0.i98144
   store ptr %307, ptr %308, align 8, !tbaa !43
   %309 = add nuw i64 %.0.i98144, 1
   %exitcond.not = icmp eq i64 %.0.i98144, %304
@@ -1429,7 +1429,7 @@ define internal fastcc range(i64 0, -9223372036854775807) i64 @blake3_compress_s
   %.027.i43 = phi i64 [ %23, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.028.i42 = phi i64 [ %22, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 %.028.i42
-  %21 = getelementptr inbounds nuw ptr, ptr %8, i64 %.027.i43
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.027.i43
   store ptr %20, ptr %21, align 8, !tbaa !43
   %22 = add i64 %.028.i42, 1024
   %23 = add nuw nsw i64 %.027.i43, 1
@@ -1608,7 +1608,7 @@ compress_chunks_parallel.exit:                    ; preds = %._crit_edge, %chunk
   %.0.i52 = phi i64 [ %118, %.lr.ph54 ], [ 0, %.lr.ph54.preheader ]
   %115 = shl i64 %.0.i52, 6
   %116 = getelementptr inbounds nuw i8, ptr %12, i64 %115
-  %117 = getelementptr inbounds nuw ptr, ptr %11, i64 %.0.i52
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0.i52
   store ptr %116, ptr %117, align 8, !tbaa !43
   %118 = add nuw i64 %.0.i52, 1
   %exitcond65.not = icmp eq i64 %.0.i52, %113

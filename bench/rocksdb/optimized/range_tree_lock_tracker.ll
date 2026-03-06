@@ -289,7 +289,7 @@ define void @_ZN7rocksdb13RangeLockList6AppendEjPK10__toku_dbtS3_(ptr noundef no
   %20 = load i64, ptr %19, align 8, !tbaa !18
   %21 = urem i64 %18, %20
   %22 = load ptr, ptr %0, align 8, !tbaa !9
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8, !tbaa !46
   %.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %25
@@ -1093,7 +1093,7 @@ define void @_ZN7rocksdb13RangeLockList12ReplaceLocksEPKN4toku8locktreeERKNS1_12
   %25 = load i64, ptr %24, align 8, !tbaa !18
   %26 = urem i64 %23, %25
   %27 = load ptr, ptr %0, align 8, !tbaa !9
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !46, !nonnull !23, !noundef !23
   %30 = load ptr, ptr %29, align 8, !tbaa !43
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -1625,7 +1625,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4t
   %18 = load i64, ptr %17, align 8, !tbaa !18
   %19 = urem i64 %16, %18
   %20 = load ptr, ptr %0, align 8, !tbaa !9
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %.critedge28, label %35
@@ -1811,7 +1811,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku12range_bufferEEESaIS6_ENSt8__
 31:                                               ; preds = %_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku12range_bufferEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku12range_bufferEEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !9
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !46
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -1838,7 +1838,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku12range_bufferEEESaIS6_ENSt8__
   %45 = load i32, ptr %43, align 4, !tbaa !41
   %46 = zext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !46
   br label %49
 
@@ -1972,7 +1972,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku12range_bufferEEESaIS6_ENSt8__
   %16 = load i32, ptr %15, align 8, !tbaa !41
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !46
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -1987,7 +1987,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt10shared_ptrIN4toku12range_bufferEEESaIS6_ENSt8__
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !46
   br label %29
 

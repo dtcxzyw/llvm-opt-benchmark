@@ -9,13 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.2" }
 %"struct.std::_Head_base.2" = type { ptr }
-%"struct.ceres::internal::Block" = type { i32, i32 }
-%"struct.ceres::internal::CompressedList" = type { %"struct.ceres::internal::Block", %"class.std::vector.8", i32, i32 }
-%"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
-%"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<ceres::internal::Cell, std::allocator<ceres::internal::Cell>>::_Vector_impl" }
-%"struct.std::_Vector_base<ceres::internal::Cell, std::allocator<ceres::internal::Cell>>::_Vector_impl" = type { %"struct.std::_Vector_base<ceres::internal::Cell, std::allocator<ceres::internal::Cell>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ceres::internal::Cell, std::allocator<ceres::internal::Cell>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ceres::internal::Cell" = type { i32, i32 }
 
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
@@ -123,7 +116,7 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.
 _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %42, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %36, ptr %8, align 8, !tbaa !10
   store ptr %41, ptr %10, align 8, !tbaa !9
-  %43 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %36, i64 %34
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %34
   store ptr %43, ptr %11, align 8, !tbaa !3
   br label %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE9push_backEOS2_.exit
 
@@ -185,10 +178,10 @@ select.unfold.i.i.i.i.us:                         ; preds = %_ZNSt23mersenne_twi
 66:                                               ; preds = %66, %65
   %67 = phi i64 [ %.pre.i.i.us, %65 ], [ %72, %66 ]
   %.021.i.i.us = phi i64 [ 0, %65 ], [ %70, %66 ]
-  %68 = getelementptr inbounds nuw i64, ptr %6, i64 %.021.i.i.us
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.021.i.i.us
   %69 = and i64 %67, -2147483648
   %70 = add nuw nsw i64 %.021.i.i.us, 1
-  %71 = getelementptr inbounds nuw i64, ptr %6, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %70
   %72 = load i64, ptr %71, align 8, !tbaa !22
   %73 = and i64 %72, 2147483646
   %74 = or disjoint i64 %73, %69
@@ -211,10 +204,10 @@ select.unfold.i.i.i.i.us:                         ; preds = %_ZNSt23mersenne_twi
 .preheader.i.i.us:                                ; preds = %.preheader.i.i.us, %.preheader.preheader.i.i.us
   %82 = phi i64 [ %87, %.preheader.i.i.us ], [ %.pre24.i.i.us, %.preheader.preheader.i.i.us ]
   %.01822.i.i.us = phi i64 [ %85, %.preheader.i.i.us ], [ 227, %.preheader.preheader.i.i.us ]
-  %83 = getelementptr inbounds nuw i64, ptr %6, i64 %.01822.i.i.us
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01822.i.i.us
   %84 = and i64 %82, -2147483648
   %85 = add nuw nsw i64 %.01822.i.i.us, 1
-  %86 = getelementptr inbounds nuw i64, ptr %6, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %85
   %87 = load i64, ptr %86, align 8, !tbaa !22
   %88 = and i64 %87, 2147483646
   %89 = or disjoint i64 %88, %84
@@ -250,7 +243,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %108 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i.us ], [ %63, %select.unfold.i.i.i.i.us ]
   %109 = add nuw nsw i64 %108, 1
   store i64 %109, ptr %47, align 8, !tbaa !19
-  %110 = getelementptr inbounds nuw i64, ptr %6, i64 %108
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %108
   %111 = load i64, ptr %110, align 8, !tbaa !22
   %112 = lshr i64 %111, 11
   %113 = and i64 %112, 4294967295
@@ -380,7 +373,7 @@ _ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE11_S_relocateEPS2_S5_S5_RS
 _ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.us: ; preds = %178, %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.us
   store ptr %156, ptr %50, align 8, !tbaa !44
   store ptr %177, ptr %51, align 8, !tbaa !29
-  %179 = getelementptr inbounds nuw %"struct.ceres::internal::CompressedList", ptr %156, i64 %154
+  %179 = getelementptr inbounds nuw [40 x i8], ptr %156, i64 %154
   store ptr %179, ptr %52, align 8, !tbaa !32
   br label %_ZNSt6vectorIN5ceres8internal14CompressedListESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit.us
 
@@ -466,7 +459,7 @@ _ZNSt6vectorIN5ceres8internal4CellESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
 
 _ZNSt12_Vector_baseIN5ceres8internal4CellESaIS2_EE13_M_deallocateEPS2_m.exit37.i.i.us: ; preds = %212, %_ZNSt6vectorIN5ceres8internal4CellESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i.us
   store ptr %206, ptr %183, align 8, !tbaa !50
-  %214 = getelementptr inbounds nuw %"struct.ceres::internal::Cell", ptr %207, i64 %197
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %197
   store ptr %214, ptr %184, align 8, !tbaa !51
   %215 = getelementptr inbounds nuw i8, ptr %206, i64 16
   store ptr %215, ptr %198, align 8, !tbaa !52
@@ -573,7 +566,7 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.
 _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i66: ; preds = %252, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i63
   store ptr %246, ptr %8, align 8, !tbaa !10
   store ptr %251, ptr %15, align 8, !tbaa !9
-  %253 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %246, i64 %244
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %244
   store ptr %253, ptr %16, align 8, !tbaa !3
   br label %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE9push_backEOS2_.exit67
 
@@ -612,7 +605,7 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE9push_backEOS2_.exit67: ; preds = %2
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %260, %.lr.ph.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %273, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %260 ]
-  %267 = getelementptr inbounds nuw double, ptr %262, i64 %.05.i.i.i.i.i.i.i.i
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %.05.i.i.i.i.i.i.i.i
   %268 = tail call i32 @rand() #15
   %269 = sitofp i32 %268 to double
   %270 = fmul nnan double %269, 2.000000e+00

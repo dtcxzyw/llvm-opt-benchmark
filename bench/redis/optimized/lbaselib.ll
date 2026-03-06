@@ -253,7 +253,7 @@ define internal noundef i32 @luaB_collectgarbage(ptr noundef %0) #0 {
   %3 = tail call i64 @luaL_optinteger(ptr noundef %0, i32 noundef 2, i64 noundef 0) #8
   %4 = trunc i64 %3 to i32
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds i32, ptr @luaB_collectgarbage.optsnum, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr @luaB_collectgarbage.optsnum, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = tail call i32 @lua_gc(ptr noundef %0, i32 noundef %7, i32 noundef %4) #8
   switch i32 %7, label %16 [
@@ -671,7 +671,7 @@ define internal noundef i32 @luaB_tonumber(ptr noundef %0) #0 {
   %21 = phi ptr [ %17, %.preheader ], [ %27, %20 ]
   %22 = load i8, ptr %21, align 1, !tbaa !15
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw i16, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !20
   %26 = and i16 %25, 8192
   %.not19 = icmp eq i16 %26, 0
@@ -1177,7 +1177,7 @@ define internal noundef i32 @luaB_costatus(ptr noundef %0) #0 {
 
 costatus.exit:                                    ; preds = %27, %26, %18, %.split7, %15, %14, %6, %.split
   %phi.call = phi i64 [ 1, %6 ], [ %.1.i, %14 ], [ 3, %15 ], [ 0, %.split ], [ %.1.i9, %26 ], [ 3, %27 ], [ 0, %.split7 ], [ 1, %18 ]
-  %28 = getelementptr inbounds nuw ptr, ptr @statnames, i64 %phi.call
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @statnames, i64 %phi.call
   %29 = load ptr, ptr %28, align 8, !tbaa !16
   call void @lua_pushstring(ptr noundef %0, ptr noundef %29) #8
   ret i32 1
@@ -1268,7 +1268,7 @@ costatus.exit:                                    ; preds = %3, %6, %14, %15
 
 20:                                               ; preds = %19
   %21 = zext nneg i32 %.0.i to i64
-  %22 = getelementptr inbounds nuw ptr, ptr @statnames, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @statnames, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !16
   %24 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.74, ptr noundef %23) #8
   br label %35

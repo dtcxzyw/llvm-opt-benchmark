@@ -100,9 +100,9 @@ define noundef nonnull ptr @_ZNK6icu_7714IndianCalendar7getTypeEv(ptr nonnull re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZNK6icu_7714IndianCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [4 x i32], ptr @_ZN6icu_77L6LIMITSE, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6icu_77L6LIMITSE, i64 %4
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !6
   ret i32 %8
 }

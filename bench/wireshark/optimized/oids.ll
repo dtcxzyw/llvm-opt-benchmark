@@ -167,7 +167,7 @@ define internal fastcc void @add_oid(ptr noundef %0, i32 noundef range(i32 1, 0)
   %.051 = phi ptr [ %.1, %57 ], [ @oid_root, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.051, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr i32, ptr %2, i64 %indvars.iv
+  %9 = getelementptr [4 x i8], ptr %2, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @wmem_tree_lookup32(ptr noundef %8, i32 noundef %10)
   %.not = icmp eq ptr %11, null
@@ -477,7 +477,7 @@ check_num_oid.exit:                               ; preds = %.preheader.split.us
   %47 = shl nuw nsw i64 %46, 2
   %48 = tail call noalias ptr @wmem_alloc0(ptr noundef %0, i64 noundef %47) #8
   store ptr %48, ptr %2, align 8
-  %49 = getelementptr i32, ptr %48, i64 %46
+  %49 = getelementptr [4 x i8], ptr %48, i64 %46
   br label %.outer
 
 .outer:                                           ; preds = %53, %45
@@ -576,7 +576,7 @@ define void @oid_add_from_encoded(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %9 = zext i32 %spec.select.i.i to i64
   %10 = shl nuw nsw i64 %9, 2
   %11 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %10) #8
-  %12 = getelementptr i32, ptr %11, i64 %9
+  %12 = getelementptr [4 x i8], ptr %11, i64 %9
   %13 = icmp eq i32 %spec.select.i.i, 1
   br i1 %13, label %oid_encoded2subid.exit.thread26, label %.lr.ph89.i.i
 
@@ -745,7 +745,7 @@ define i32 @oid_encoded2subid(ptr noundef %0, ptr noundef readonly captures(none
   %10 = shl nuw nsw i64 %9, 2
   %11 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %10) #8
   store ptr %11, ptr %3, align 8
-  %12 = getelementptr i32, ptr %11, i64 %9
+  %12 = getelementptr [4 x i8], ptr %11, i64 %9
   %13 = icmp eq i32 %.064.lcssa.i, 1
   br i1 %13, label %14, label %15
 
@@ -1006,7 +1006,7 @@ define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr noundef readonly captures(
   %12 = shl nuw nsw i64 %11, 2
   %13 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %12) #8
   store ptr %13, ptr %3, align 8
-  %14 = getelementptr i32, ptr %13, i64 %11
+  %14 = getelementptr [4 x i8], ptr %13, i64 %11
   %15 = icmp eq i32 %.064.lcssa, 1
   %or.cond = and i1 %4, %15
   br i1 %or.cond, label %16, label %17
@@ -1119,7 +1119,7 @@ define ptr @oid_get(i32 noundef %0, ptr noundef readonly captures(address_is_nul
   %.02327 = phi ptr [ @oid_root, %.lr.ph.preheader ], [ %13, %14 ]
   %9 = getelementptr inbounds nuw i8, ptr %.02327, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr i32, ptr %1, i64 %indvars.iv
+  %11 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @wmem_tree_lookup32(ptr noundef %10, i32 noundef %12)
   %.not26 = icmp eq ptr %13, null
@@ -1178,7 +1178,7 @@ define ptr @oid_get_from_encoded(ptr noundef %0, ptr noundef readonly captures(n
   %12 = shl nuw nsw i64 %11, 2
   %13 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef %12) #8
   store ptr %13, ptr %3, align 8
-  %14 = getelementptr i32, ptr %13, i64 %11
+  %14 = getelementptr [4 x i8], ptr %13, i64 %11
   %15 = icmp eq i32 %.064.lcssa.i.i, 1
   br i1 %15, label %16, label %17
 
@@ -1280,7 +1280,7 @@ oid_encoded2subid.exit:                           ; preds = %oid_encoded2subid.e
   %.02327.i = phi ptr [ %49, %50 ], [ @oid_root, %.preheader.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.02327.i, i64 24
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr i32, ptr %40, i64 %indvars.iv.i
+  %47 = getelementptr [4 x i8], ptr %40, i64 %indvars.iv.i
   %48 = load i32, ptr %47, align 4
   %49 = tail call ptr @wmem_tree_lookup32(ptr noundef %46, i32 noundef %48)
   %.not26.i = icmp eq ptr %49, null
@@ -1338,7 +1338,7 @@ define ptr @oid_get_from_string(ptr noundef %0, ptr noundef %1, ptr noundef capt
   %.02327.i = phi ptr [ @oid_root, %.lr.ph.preheader.i ], [ %16, %17 ]
   %12 = getelementptr inbounds nuw i8, ptr %.02327.i, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr i32, ptr %7, i64 %indvars.iv.i
+  %14 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv.i
   %15 = load i32, ptr %14, align 4
   %16 = tail call ptr @wmem_tree_lookup32(ptr noundef %13, i32 noundef %15)
   %.not26.i = icmp eq ptr %16, null
@@ -1396,7 +1396,7 @@ define ptr @oid_resolved_from_encoded(ptr noundef %0, ptr noundef readonly captu
   %9 = zext i32 %spec.select.i.i to i64
   %10 = shl nuw nsw i64 %9, 2
   %11 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %10) #8
-  %12 = getelementptr i32, ptr %11, i64 %9
+  %12 = getelementptr [4 x i8], ptr %11, i64 %9
   %13 = icmp eq i32 %spec.select.i.i, 1
   br i1 %13, label %14, label %.lr.ph89.i.i
 
@@ -1497,7 +1497,7 @@ define ptr @oid_resolved(ptr noundef %0, i32 noundef %1, ptr noundef readonly ca
   %.02327.i = phi ptr [ @oid_root, %.lr.ph.preheader.i ], [ %13, %14 ]
   %9 = getelementptr inbounds nuw i8, ptr %.02327.i, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr i32, ptr %2, i64 %indvars.iv.i
+  %11 = getelementptr [4 x i8], ptr %2, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @wmem_tree_lookup32(ptr noundef %10, i32 noundef %12)
   %.not26.i = icmp eq ptr %13, null
@@ -1607,7 +1607,7 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
 oid_subid2string.exit39:                          ; preds = %42, %50
   %.0.i.i38 = phi ptr [ %43, %42 ], [ %53, %50 ]
   %54 = zext i32 %.052.lcssa to i64
-  %55 = getelementptr i32, ptr %2, i64 %54
+  %55 = getelementptr [4 x i8], ptr %2, i64 %54
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %59
 
@@ -1681,7 +1681,7 @@ define ptr @rel_oid_resolved_from_encoded(ptr noundef %0, ptr noundef readonly c
   %8 = zext i32 %.064.lcssa.i to i64
   %9 = shl nuw nsw i64 %8, 2
   %10 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %9) #8
-  %11 = getelementptr i32, ptr %10, i64 %8
+  %11 = getelementptr [4 x i8], ptr %10, i64 %8
   %12 = icmp ne i32 %.064.lcssa.i, 0
   %brmerge.not.i = and i1 %4, %12
   br i1 %brmerge.not.i, label %.lr.ph89.preheader.i, label %oid_encoded2subid_sub.exit
@@ -1755,7 +1755,7 @@ define i32 @oid_subid2encoded(ptr noundef %0, i32 noundef %1, ptr noundef readon
   %indvars.iv = phi i64 [ 1, %8 ], [ %indvars.iv.next, %22 ]
   %.05072 = phi i32 [ %10, %8 ], [ 0, %22 ]
   %.05470 = phi i32 [ 0, %8 ], [ %23, %22 ]
-  %12 = getelementptr i32, ptr %2, i64 %indvars.iv
+  %12 = getelementptr [4 x i8], ptr %2, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %13, %.05072
   %15 = icmp ult i32 %14, 128
@@ -1793,7 +1793,7 @@ define i32 @oid_subid2encoded(ptr noundef %0, i32 noundef %1, ptr noundef readon
   %indvars.iv77 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next78, %55 ]
   %.04975 = phi ptr [ %25, %.lr.ph.preheader ], [ %58, %55 ]
   %.15174 = phi i32 [ %27, %.lr.ph.preheader ], [ 0, %55 ]
-  %28 = getelementptr i32, ptr %2, i64 %indvars.iv77
+  %28 = getelementptr [4 x i8], ptr %2, i64 %indvars.iv77
   %29 = load i32, ptr %28, align 4
   %30 = add i32 %29, %.15174
   %31 = icmp ult i32 %30, 128
@@ -1890,7 +1890,7 @@ define ptr @oid_encoded2string(ptr noundef %0, ptr noundef readonly captures(non
   %9 = zext i32 %spec.select.i.i to i64
   %10 = shl nuw nsw i64 %9, 2
   %11 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %10) #8
-  %12 = getelementptr i32, ptr %11, i64 %9
+  %12 = getelementptr [4 x i8], ptr %11, i64 %9
   %13 = icmp eq i32 %spec.select.i.i, 1
   br i1 %13, label %oid_encoded2subid.exit.thread17, label %.lr.ph89.i.i
 
@@ -2029,7 +2029,7 @@ define ptr @rel_oid_encoded2string(ptr noundef %0, ptr noundef readonly captures
   %8 = zext i32 %.064.lcssa.i to i64
   %9 = shl nuw nsw i64 %8, 2
   %10 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %9) #8
-  %11 = getelementptr i32, ptr %10, i64 %8
+  %11 = getelementptr [4 x i8], ptr %10, i64 %8
   %12 = icmp ne i32 %.064.lcssa.i, 0
   %brmerge.not.i = and i1 %4, %12
   br i1 %brmerge.not.i, label %.lr.ph89.preheader.i, label %oid_encoded2subid_sub.exit
@@ -2123,7 +2123,7 @@ oid_subid2encoded.exit.thread:                    ; preds = %6
   %indvars.iv.i = phi i64 [ 1, %9 ], [ %indvars.iv.next.i, %23 ]
   %.05072.i = phi i32 [ %11, %9 ], [ 0, %23 ]
   %.05470.i = phi i32 [ 0, %9 ], [ %24, %23 ]
-  %13 = getelementptr i32, ptr %.pre10, i64 %indvars.iv.i
+  %13 = getelementptr [4 x i8], ptr %.pre10, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, %.05072.i
   %16 = icmp ult i32 %15, 128
@@ -2161,7 +2161,7 @@ oid_subid2encoded.exit.thread:                    ; preds = %6
   %indvars.iv77.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next78.i, %56 ]
   %.04975.i = phi ptr [ %26, %.lr.ph.preheader.i ], [ %59, %56 ]
   %.15174.i = phi i32 [ %28, %.lr.ph.preheader.i ], [ 0, %56 ]
-  %29 = getelementptr i32, ptr %.pre10, i64 %indvars.iv77.i
+  %29 = getelementptr [4 x i8], ptr %.pre10, i64 %indvars.iv77.i
   %30 = load i32, ptr %29, align 4
   %31 = add i32 %30, %.15174.i
   %32 = icmp ult i32 %31, 128
@@ -2320,7 +2320,7 @@ define void @oid_both_from_encoded(ptr noundef %0, ptr noundef readonly captures
   %11 = zext i32 %spec.select.i.i to i64
   %12 = shl nuw nsw i64 %11, 2
   %13 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %12) #8
-  %14 = getelementptr i32, ptr %13, i64 %11
+  %14 = getelementptr [4 x i8], ptr %13, i64 %11
   %15 = icmp eq i32 %spec.select.i.i, 1
   br i1 %15, label %16, label %.lr.ph89.i.i
 

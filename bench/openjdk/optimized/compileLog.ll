@@ -370,7 +370,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %50, %_ZNK10ciMetada
 75:                                               ; preds = %.lr.ph76, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next, %75 ]
   %76 = load ptr, ptr %74, align 8
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8
   %79 = tail call noundef i32 @_ZN10CompileLog8identifyEP12ciBaseObject(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef %78)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -420,7 +420,7 @@ _ZN10CompileLog4nameEP8ciSymbol.exit:             ; preds = %._crit_edge77, %89
   %101 = icmp eq i64 %indvars.iv83, 0
   %102 = select i1 %101, ptr @.str.9, ptr @.str.10
   %103 = load ptr, ptr %99, align 8
-  %104 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv83
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv83
   %105 = load ptr, ptr %104, align 8
   %106 = tail call noundef i32 @_ZN10CompileLog8identifyEP12ciBaseObject(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef %105)
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %102, i32 noundef %106) #11

@@ -21,14 +21,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_st
 %union.anon.125 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
 %struct.ieee80211_ampdu_params = type { i32, ptr, i16, i16, i16, i8, i16 }
-%struct.sk_buff_head = type { %union.anon.12, i32, %struct.spinlock }
-%union.anon.12 = type { %struct.anon.13 }
-%struct.anon.13 = type { ptr, ptr }
-%struct.spinlock = type { %union.anon }
-%union.anon = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.0 }
-%union.anon.0 = type { %struct.atomic_t }
 
 @__UNIQUE_ID___addressable_ieee80211_send_bar2955 = internal global ptr @ieee80211_send_bar, section ".discard.addressable", align 8
 @.str = private unnamed_addr constant [22 x i8] c"net/mac80211/agg-tx.c\00", align 1
@@ -132,7 +124,7 @@ define dso_local void @ieee80211_assign_tid_tx(ptr noundef %0, i32 noundef %1, p
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %5 = sext i32 %1 to i64
-  %6 = getelementptr ptr, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   store volatile ptr %2, ptr %6, align 8
   ret void
 }
@@ -176,12 +168,12 @@ define dso_local noundef range(i32 -114, 1) i32 @__ieee80211_stop_tx_ba_session(
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull %16) #10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %18 = zext i16 %1 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void @kfree(ptr noundef %20) #10
   store ptr null, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %22 = getelementptr ptr, ptr %21, i64 %18
+  %22 = getelementptr [8 x i8], ptr %21, i64 %18
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
@@ -232,7 +224,7 @@ define dso_local noundef range(i32 -114, 1) i32 @__ieee80211_stop_tx_ba_session(
 44:                                               ; preds = %39
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %27, i32 8, ptr nonnull elementtype(i8) %27) #10, !srcloc !14
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 2728
-  %46 = getelementptr ptr, ptr %45, i64 %18
+  %46 = getelementptr [8 x i8], ptr %45, i64 %18
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %55, label %49
@@ -329,13 +321,13 @@ define dso_local void @ieee80211_tx_ba_session_handle_start(ptr noundef %0, i32 
   store i16 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %16 = sext i32 %1 to i64
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 128
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %19, i32 -17, ptr nonnull elementtype(i8) %19) #10, !srcloc !15
   tail call void @synchronize_net() #10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 490
-  %21 = getelementptr i16, ptr %20, i64 %16
+  %21 = getelementptr [2 x i8], ptr %20, i64 %16
   %22 = load i16, ptr %21, align 2
   %23 = lshr i16 %22, 4
   store i16 %23, ptr %12, align 2
@@ -362,7 +354,7 @@ define dso_local void @ieee80211_tx_ba_session_handle_start(ptr noundef %0, i32 
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 5070
   %31 = and i16 %11, 7
   %32 = zext nneg i16 %31 to i64
-  %33 = getelementptr i32, ptr @ieee802_1d_to_ac, i64 %32
+  %33 = getelementptr [4 x i8], ptr @ieee802_1d_to_ac, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
   %36 = getelementptr i8, ptr %30, i64 %35
@@ -371,7 +363,7 @@ define dso_local void @ieee80211_tx_ba_session_handle_start(ptr noundef %0, i32 
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2360
   %41 = zext i8 %37 to i64
-  %42 = getelementptr %struct.atomic_t, ptr %40, i64 %41
+  %42 = getelementptr [4 x i8], ptr %40, i64 %41
   %43 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42, i32 -1, ptr elementtype(i32) %42) #10, !srcloc !22
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %45, label %48
@@ -409,14 +401,14 @@ define internal fastcc void @ieee80211_agg_splice_packets(ptr noundef readonly c
   %7 = zext i16 %2 to i32
   %8 = and i32 %7, 7
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr i32, ptr @ieee802_1d_to_ac, i64 %9
+  %10 = getelementptr [4 x i8], ptr @ieee802_1d_to_ac, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr i8, ptr %6, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 2360
   %16 = zext i8 %14 to i64
-  %17 = getelementptr %struct.atomic_t, ptr %15, i64 %16
+  %17 = getelementptr [4 x i8], ptr %15, i64 %16
   %18 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %17, i32 1, ptr elementtype(i32) %17) #10, !srcloc !22
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %23
@@ -455,7 +447,7 @@ define internal fastcc void @ieee80211_agg_splice_packets(ptr noundef readonly c
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 1896
-  %37 = getelementptr %struct.sk_buff_head, ptr %36, i64 %16
+  %37 = getelementptr [24 x i8], ptr %36, i64 %16
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -488,7 +480,7 @@ define internal fastcc void @ieee80211_agg_splice_packets(ptr noundef readonly c
 define internal fastcc void @ieee80211_agg_start_txq(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2728
   %5 = sext i32 %1 to i64
-  %6 = getelementptr ptr, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %78, label %9
@@ -662,7 +654,7 @@ define internal fastcc void @ieee80211_send_addba_with_timeout(ptr noundef %0, p
   %24 = load volatile i64, ptr @jiffies, align 64
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %26 = zext i8 %8 to i64
-  %27 = getelementptr i64, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   store i64 %24, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %29 = getelementptr i8, ptr %28, i64 %26
@@ -800,7 +792,7 @@ define dso_local void @ieee80211_refresh_tx_agg_session_timer(ptr noundef %0, i1
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 -1776
   %7 = zext nneg i16 %1 to i64
-  %8 = getelementptr ptr, ptr %6, i64 %7
+  %8 = getelementptr [8 x i8], ptr %6, i64 %7
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %14, label %11
@@ -988,7 +980,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_start_tx_ba_session(pt
 98:                                               ; preds = %96
   %99 = load volatile i64, ptr @jiffies, align 64
   %100 = getelementptr i8, ptr %0, i64 -1520
-  %101 = getelementptr i64, ptr %100, i64 %92
+  %101 = getelementptr [8 x i8], ptr %100, i64 %92
   %102 = load i64, ptr %101, align 8
   %103 = add i64 %99, -15000
   %104 = sub i64 %103, %102
@@ -997,14 +989,14 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_start_tx_ba_session(pt
 
 106:                                              ; preds = %98, %96
   %107 = getelementptr i8, ptr %0, i64 -1776
-  %108 = getelementptr ptr, ptr %107, i64 %92
+  %108 = getelementptr [8 x i8], ptr %107, i64 %92
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %109, null
   br i1 %110, label %111, label %139
 
 111:                                              ; preds = %106
   %112 = getelementptr i8, ptr %0, i64 -1648
-  %113 = getelementptr ptr, ptr %112, i64 %92
+  %113 = getelementptr [8 x i8], ptr %112, i64 %92
   %114 = load ptr, ptr %113, align 8
   %115 = icmp eq ptr %114, null
   br i1 %115, label %116, label %139
@@ -1204,7 +1196,7 @@ define internal fastcc void @ieee80211_agg_tx_operational(ptr noundef %0, ptr no
   store i16 0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 904
   %12 = zext i16 %2 to i64
-  %13 = getelementptr ptr, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 150
   %16 = load i16, ptr %15, align 2
@@ -1225,7 +1217,7 @@ define internal fastcc void @ieee80211_agg_tx_operational(ptr noundef %0, ptr no
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 5070
   %27 = and i16 %2, 7
   %28 = zext nneg i16 %27 to i64
-  %29 = getelementptr i32, ptr @ieee802_1d_to_ac, i64 %28
+  %29 = getelementptr [4 x i8], ptr @ieee802_1d_to_ac, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = getelementptr i8, ptr %26, i64 %31
@@ -1234,7 +1226,7 @@ define internal fastcc void @ieee80211_agg_tx_operational(ptr noundef %0, ptr no
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 2360
   %37 = zext i8 %33 to i64
-  %38 = getelementptr %struct.atomic_t, ptr %36, i64 %37
+  %38 = getelementptr [4 x i8], ptr %36, i64 %37
   %39 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %38, i32 -1, ptr elementtype(i32) %38) #10, !srcloc !22
   %40 = icmp eq i32 %39, 1
   br i1 %40, label %41, label %44
@@ -1310,7 +1302,7 @@ define dso_local void @ieee80211_start_tx_ba_cb_irqsafe(ptr noundef %0, ptr noun
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 904
   %34 = zext nneg i16 %2 to i64
-  %35 = getelementptr ptr, ptr %33, i64 %34
+  %35 = getelementptr [8 x i8], ptr %33, i64 %34
   %36 = load volatile ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %39, !prof !23
@@ -1398,7 +1390,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_stop_tx_ba_session(ptr
   tail call void @_raw_spin_lock_bh(ptr noundef %37) #10
   %38 = getelementptr i8, ptr %0, i64 -1776
   %39 = zext nneg i16 %1 to i64
-  %40 = getelementptr ptr, ptr %38, i64 %39
+  %40 = getelementptr [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %58, label %43
@@ -1472,7 +1464,7 @@ define dso_local void @ieee80211_stop_tx_ba_cb(ptr noundef %0, i32 noundef %1, p
   %20 = phi i1 [ false, %11 ], [ %18, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %22 = sext i32 %1 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %4, align 8
   %26 = trunc i32 %1 to i16
@@ -1483,7 +1475,7 @@ define dso_local void @ieee80211_stop_tx_ba_cb(ptr noundef %0, i32 noundef %1, p
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 5070
   %29 = and i16 %26, 7
   %30 = zext nneg i16 %29 to i64
-  %31 = getelementptr i32, ptr @ieee802_1d_to_ac, i64 %30
+  %31 = getelementptr [4 x i8], ptr @ieee802_1d_to_ac, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = getelementptr i8, ptr %28, i64 %33
@@ -1492,7 +1484,7 @@ define dso_local void @ieee80211_stop_tx_ba_cb(ptr noundef %0, i32 noundef %1, p
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 2360
   %39 = zext i8 %35 to i64
-  %40 = getelementptr %struct.atomic_t, ptr %38, i64 %39
+  %40 = getelementptr [4 x i8], ptr %38, i64 %39
   %41 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %40, i32 -1, ptr elementtype(i32) %40) #10, !srcloc !22
   %42 = icmp eq i32 %41, 1
   br i1 %42, label %43, label %46
@@ -1589,7 +1581,7 @@ define dso_local void @ieee80211_stop_tx_ba_cb_irqsafe(ptr noundef %0, ptr nound
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 904
   %34 = zext nneg i16 %2 to i64
-  %35 = getelementptr ptr, ptr %33, i64 %34
+  %35 = getelementptr [8 x i8], ptr %33, i64 %34
   %36 = load volatile ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %39, !prof !23
@@ -1629,7 +1621,7 @@ define dso_local void @ieee80211_process_addba_resp(ptr noundef %0, ptr noundef 
   %15 = tail call i16 @llvm.umin.i16(i16 %12, i16 %14)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 2728
   %17 = zext nneg i16 %11 to i64
-  %18 = getelementptr ptr, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp ne ptr %19, null
   %21 = select i1 %8, i1 %20, i1 false
@@ -1642,7 +1634,7 @@ define dso_local void @ieee80211_process_addba_resp(ptr noundef %0, ptr noundef 
 
 24:                                               ; preds = %22, %4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 904
-  %26 = getelementptr ptr, ptr %25, i64 %17
+  %26 = getelementptr [8 x i8], ptr %25, i64 %17
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %82, label %29

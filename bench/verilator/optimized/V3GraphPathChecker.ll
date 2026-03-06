@@ -150,7 +150,7 @@ _ZNSt6vectorIPK13V3GraphVertexSaIS2_EE5clearEv.exit.i: ; preds = %44, %41, %_ZN2
   %46 = phi i64 [ 0, %44 ], [ 0, %41 ], [ %29, %_ZN20GraphStreamUnorderedC2EP7V3Graph8GraphWay.exit ]
   %47 = add i64 %46, 1
   store i64 %47, ptr %5, align 8, !tbaa !17
-  %48 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %49 = load ptr, ptr %48, align 8, !tbaa !27
   %50 = load i8, ptr %3, align 8, !tbaa !29
   %51 = icmp eq i8 %50, 0
@@ -442,7 +442,7 @@ _ZNSt6vectorIPK13V3GraphVertexSaIS2_EE5clearEv.exit.i: ; preds = %44, %41, %_ZN2
   %46 = phi i64 [ 0, %44 ], [ 0, %41 ], [ %29, %_ZN20GraphStreamUnorderedC2EP7V3Graph8GraphWay.exit ]
   %47 = add i64 %46, 1
   store i64 %47, ptr %5, align 8, !tbaa !17
-  %48 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %49 = load ptr, ptr %48, align 8, !tbaa !27
   %50 = load i8, ptr %3, align 8, !tbaa !29
   %51 = icmp eq i8 %50, 0
@@ -1026,7 +1026,7 @@ _ZNSt6vectorIPK13V3GraphVertexSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPK13V3GraphVertexSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIPK13V3GraphVertexSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %23, ptr %0, align 8, !tbaa !12
   store ptr %28, ptr %3, align 8, !tbaa !24
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !16
   br label %_ZNSt6vectorIPK13V3GraphVertexSaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
 
@@ -1128,7 +1128,7 @@ _ZNSt6vectorIPK13V3GraphVertexSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPK13V3GraphVertexSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorIPK13V3GraphVertexSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %34, ptr %4, align 8, !tbaa !12
   store ptr %38, ptr %5, align 8, !tbaa !24
-  %40 = getelementptr inbounds nuw ptr, ptr %34, i64 %32
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   store ptr %40, ptr %6, align 8, !tbaa !16
   br label %_ZNSt6vectorIPK13V3GraphVertexSaIS2_EE9push_backERKS2_.exit
 
@@ -1226,7 +1226,7 @@ _ZNSt6vectorIPK13V3GraphVertexSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ;
 _ZNSt6vectorIPK13V3GraphVertexSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorIPK13V3GraphVertexSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %34, ptr %4, align 8, !tbaa !12
   store ptr %38, ptr %5, align 8, !tbaa !24
-  %40 = getelementptr inbounds nuw ptr, ptr %34, i64 %32
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   store ptr %40, ptr %6, align 8, !tbaa !16
   br label %_ZNSt6vectorIPK13V3GraphVertexSaIS2_EE9push_backERKS2_.exit
 

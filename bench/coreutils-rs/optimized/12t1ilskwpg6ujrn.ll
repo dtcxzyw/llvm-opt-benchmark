@@ -2994,7 +2994,7 @@ _ZN4core3ops8function6FnOnce9call_once17h64054f19c03024ddE.exit: ; preds = %16, 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = icmp ult i64 %.011.i.i, %21
   tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw i32, ptr %19, i64 %.011.i.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.011.i.i
   invoke void @_ZN4core5slice6rotate10ptr_rotate17hd37edbe7b5e69736E(i64 noundef %.011.i.i, ptr noundef nonnull %34, i64 noundef 1)
           to label %43 unwind label %30, !noalias !362
 

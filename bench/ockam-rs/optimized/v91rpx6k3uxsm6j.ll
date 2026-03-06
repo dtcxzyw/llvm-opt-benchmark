@@ -9721,7 +9721,7 @@ common.resume:                                    ; preds = %67, %42
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %1, align 8, !alias.scope !1489, !noalias !1496, !nonnull !5, !align !175, !noundef !5
-  %29 = getelementptr inbounds { ptr, i8 }, ptr %28, i64 %21
+  %29 = getelementptr inbounds [16 x i8], ptr %28, i64 %21
   %30 = call noundef align 8 dereferenceable(16) ptr @_ZN11sqlx_sqlite5value14SqliteValueRef5value17hbcf163c4c4486f94E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %29), !noalias !1495
   store ptr %30, ptr %15, align 8
   %31 = call noundef zeroext i1 @"_ZN81_$LT$sqlx_sqlite..value..SqliteValueRef$u20$as$u20$sqlx_core..value..ValueRef$GT$7is_null17h26da363a52642f57E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15)
@@ -9942,7 +9942,7 @@ common.resume:                                    ; preds = %68, %42
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %1, align 8, !alias.scope !1544, !noalias !1551, !nonnull !5, !align !175, !noundef !5
-  %29 = getelementptr inbounds { ptr, i8 }, ptr %28, i64 %21
+  %29 = getelementptr inbounds [16 x i8], ptr %28, i64 %21
   %30 = call noundef align 8 dereferenceable(16) ptr @_ZN11sqlx_sqlite5value14SqliteValueRef5value17hbcf163c4c4486f94E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %29), !noalias !1550
   store ptr %30, ptr %15, align 8
   %31 = call noundef zeroext i1 @"_ZN81_$LT$sqlx_sqlite..value..SqliteValueRef$u20$as$u20$sqlx_core..value..ValueRef$GT$7is_null17h26da363a52642f57E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15)
@@ -10164,7 +10164,7 @@ common.resume:                                    ; preds = %70, %44
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %1, align 8, !alias.scope !1600, !noalias !1607, !nonnull !5, !align !175, !noundef !5
-  %29 = getelementptr inbounds { ptr, i8 }, ptr %28, i64 %21
+  %29 = getelementptr inbounds [16 x i8], ptr %28, i64 %21
   %30 = call noundef align 8 dereferenceable(16) ptr @_ZN11sqlx_sqlite5value14SqliteValueRef5value17hbcf163c4c4486f94E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %29), !noalias !1606
   store ptr %30, ptr %15, align 8
   %31 = call noundef zeroext i1 @"_ZN81_$LT$sqlx_sqlite..value..SqliteValueRef$u20$as$u20$sqlx_core..value..ValueRef$GT$7is_null17h26da363a52642f57E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15)
@@ -10389,7 +10389,7 @@ common.resume:                                    ; preds = %70, %42
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %1, align 8, !alias.scope !1665, !noalias !1672, !nonnull !5, !align !175, !noundef !5
-  %29 = getelementptr inbounds { ptr, i8 }, ptr %28, i64 %21
+  %29 = getelementptr inbounds [16 x i8], ptr %28, i64 %21
   %30 = call noundef align 8 dereferenceable(16) ptr @_ZN11sqlx_sqlite5value14SqliteValueRef5value17hbcf163c4c4486f94E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %29), !noalias !1671
   store ptr %30, ptr %15, align 8
   %31 = call noundef zeroext i1 @"_ZN81_$LT$sqlx_sqlite..value..SqliteValueRef$u20$as$u20$sqlx_core..value..ValueRef$GT$7is_null17h26da363a52642f57E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15)
@@ -10613,7 +10613,7 @@ common.resume:                                    ; preds = %65, %40
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr %1, align 8, !alias.scope !1719, !noalias !1726, !nonnull !5, !align !175, !noundef !5
-  %27 = getelementptr inbounds { ptr, i8 }, ptr %26, i64 %19
+  %27 = getelementptr inbounds [16 x i8], ptr %26, i64 %19
   %28 = call noundef align 8 dereferenceable(16) ptr @_ZN11sqlx_sqlite5value14SqliteValueRef5value17hbcf163c4c4486f94E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27), !noalias !1725
   store ptr %28, ptr %14, align 8
   %29 = call noundef zeroext i1 @"_ZN81_$LT$sqlx_sqlite..value..SqliteValueRef$u20$as$u20$sqlx_core..value..ValueRef$GT$7is_null17h26da363a52642f57E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %14)
@@ -10834,7 +10834,7 @@ common.resume:                                    ; preds = %69, %44
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %1, align 8, !alias.scope !1773, !noalias !1780, !nonnull !5, !align !175, !noundef !5
-  %29 = getelementptr inbounds { ptr, i8 }, ptr %28, i64 %21
+  %29 = getelementptr inbounds [16 x i8], ptr %28, i64 %21
   %30 = call noundef align 8 dereferenceable(16) ptr @_ZN11sqlx_sqlite5value14SqliteValueRef5value17hbcf163c4c4486f94E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %29), !noalias !1779
   store ptr %30, ptr %15, align 8
   %31 = call noundef zeroext i1 @"_ZN81_$LT$sqlx_sqlite..value..SqliteValueRef$u20$as$u20$sqlx_core..value..ValueRef$GT$7is_null17h26da363a52642f57E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %15)
@@ -13683,7 +13683,7 @@ define hidden void @"_ZN182_$LT$ockam_node..storage..database..migrations..node_
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %1, align 8, !alias.scope !1996, !noalias !1997, !nonnull !5, !align !175, !noundef !5
-  %34 = getelementptr inbounds { ptr, i8 }, ptr %33, i64 %26
+  %34 = getelementptr inbounds [16 x i8], ptr %33, i64 %26
   %35 = invoke noundef align 8 dereferenceable(16) ptr @_ZN11sqlx_sqlite5value14SqliteValueRef5value17hbcf163c4c4486f94E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %34)
           to label %.noexc41 unwind label %74
 

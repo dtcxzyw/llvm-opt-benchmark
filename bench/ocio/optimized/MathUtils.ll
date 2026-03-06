@@ -249,7 +249,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev16IsVecEqualT
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load float, ptr %5, align 4, !tbaa !5
   %7 = bitcast float %6 to i32
   %8 = and i32 %7, 2139095040
@@ -292,7 +292,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev16IsVecEqualT
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load double, ptr %5, align 8, !tbaa !10
   %7 = fptrunc double %6 to float
   %8 = bitcast float %7 to i32
@@ -336,7 +336,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev15IsVecEqualT
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load float, ptr %5, align 4, !tbaa !5
   %7 = bitcast float %6 to i32
   %8 = and i32 %7, 2139095040
@@ -379,7 +379,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev15IsVecEqualT
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load double, ptr %5, align 8, !tbaa !10
   %7 = fptrunc double %6 to float
   %8 = bitcast float %7 to i32
@@ -422,9 +422,9 @@ define weak_odr hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev21VecsEqualWi
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !5
-  %9 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %10 = load float, ptr %9, align 4, !tbaa !5
   %11 = fcmp ogt float %8, %10
   %12 = fsub float %8, %10
@@ -460,9 +460,9 @@ define weak_odr hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev21VecsEqualWi
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %8 = load double, ptr %7, align 8, !tbaa !10
-  %9 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %10 = load double, ptr %9, align 8, !tbaa !10
   %11 = fcmp ogt double %8, %10
   %12 = fsub double %8, %10
@@ -496,7 +496,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev13IsM44Identi
 2:                                                ; preds = %.preheader, %34
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %34 ]
   %3 = icmp eq i64 %indvars.iv, %indvars.iv30
-  %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %4 = load float, ptr %gep, align 4, !tbaa !5
   %5 = bitcast float %4 to i32
   %6 = and i32 %5, 2139095040
@@ -567,7 +567,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev13IsM44Identi
 2:                                                ; preds = %.preheader, %35
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %35 ]
   %3 = icmp eq i64 %indvars.iv, %indvars.iv30
-  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %4 = load double, ptr %gep, align 8, !tbaa !10
   %5 = fptrunc double %4 to float
   %6 = bitcast float %5 to i32
@@ -673,7 +673,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev15VecContainsZeroEPKfi
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread ]
-  %4 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = load float, ptr %4, align 4, !tbaa !5
   %6 = bitcast float %5 to i32
   %7 = and i32 %6, 2139095040
@@ -716,7 +716,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev14VecContainsOneEPKfi(
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit.thread ]
-  %4 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = load float, ptr %4, align 4, !tbaa !5
   %6 = bitcast float %5 to i32
   %7 = and i32 %6, 2139095040
@@ -929,10 +929,10 @@ _ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %4
 
 88:                                               ; preds = %2, %88
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %88 ]
-  %89 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %90 = load float, ptr %89, align 4, !tbaa !5
   %91 = fpext float %90 to double
-  %92 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store double %91, ptr %92, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -1438,9 +1438,9 @@ define hidden void @_ZN19OpenColorIO_v2_5dev13GetMxbCombineEPfS0_PKfS2_S2_S2_(pt
 
 106:                                              ; preds = %106, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %106 ]
-  %107 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %108 = load float, ptr %107, align 4, !tbaa !5
-  %109 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   %110 = load float, ptr %109, align 4, !tbaa !5
   %111 = fadd float %108, %110
   store float %111, ptr %107, align 4, !tbaa !5
@@ -1530,7 +1530,7 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev13GetMxbInverseEPfS0_P
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %4 ]
-  %59 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %60 = load float, ptr %59, align 4, !tbaa !5
   %61 = fneg float %60
   store float %61, ptr %59, align 4, !tbaa !5

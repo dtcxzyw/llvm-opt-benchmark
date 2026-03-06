@@ -19,9 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.10" = type { ptr, %"class.std::__shared_count" }
 %"class.pxrInternal_v0_24__pxrReserved__::HdXformSchema" = type { %"class.pxrInternal_v0_24__pxrReserved__::HdSchema" }
 %"class.pxrInternal_v0_24__pxrReserved__::HdSchema" = type { %"class.std::shared_ptr" }
-%"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector.15" }
-%"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector.15" = type { %"union.pxrInternal_v0_24__pxrReserved__::TfSmallVectorBase::_DataUnion.16", i32, i32 }
-%"union.pxrInternal_v0_24__pxrReserved__::TfSmallVectorBase::_DataUnion.16" = type { ptr, [40 x i8] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtValue" = type { %"union.std::aligned_storage<8, 8>::type", %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits.18" }
 %"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
 %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits.18" = type { ptr }
@@ -2997,7 +2994,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__34HdFlattenedXformDataSourceP
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 448
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator", ptr %spec.select.i.i.i.i, i64 %11
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %spec.select.i.i.i.i, i64 %11
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE6assignIPKS1_vEEvT_S6_(ptr noundef nonnull align 8 dereferenceable(456) %1, ptr noundef %spec.select.i.i.i.i, ptr noundef %12)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetaSERKS0_.exit
 
@@ -4384,7 +4381,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i: ; preds = %37, %_ZN
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i: ; preds = %39, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i
   store ptr %33, ptr %4, align 8
   store ptr %38, ptr %8, align 8
-  %40 = getelementptr inbounds nuw float, ptr %33, i64 %31
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %31
   store ptr %40, ptr %9, align 8
   br label %_ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSERKf.exit
 
@@ -4454,7 +4451,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i15: ; preds = %67, %_
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i17: ; preds = %69, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i15
   store ptr %63, ptr %4, align 8
   store ptr %68, ptr %8, align 8
-  %70 = getelementptr inbounds nuw float, ptr %63, i64 %61
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %61
   store ptr %70, ptr %9, align 8
   br label %_ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSERKf.exit18
 
@@ -4517,7 +4514,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i23: ; preds = %93, %_
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i25: ; preds = %95, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i23
   store ptr %89, ptr %4, align 8
   store ptr %94, ptr %8, align 8
-  %96 = getelementptr inbounds nuw float, ptr %89, i64 %87
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %87
   store ptr %96, ptr %9, align 8
   br label %_ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSERKf.exit26
 
@@ -4611,7 +4608,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i: ; preds =
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i.i.i.i.i: ; preds = %135, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i
   store ptr %129, ptr %4, align 8
   store ptr %134, ptr %107, align 8
-  %136 = getelementptr inbounds nuw float, ptr %129, i64 %127
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %127
   store ptr %136, ptr %108, align 8
   br label %_ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSERKf.exit.i.i.i.i.i
 
@@ -4697,7 +4694,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i36: ; preds
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i.i.i.i.i.i38: ; preds = %174, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i.i.i.i.i.i36
   store ptr %168, ptr %4, align 8
   store ptr %173, ptr %146, align 8
-  %175 = getelementptr inbounds nuw float, ptr %168, i64 %166
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %166
   store ptr %175, ptr %147, align 8
   br label %_ZNSt20back_insert_iteratorISt6vectorIfSaIfEEEaSERKf.exit.i.i.i.i.i32
 

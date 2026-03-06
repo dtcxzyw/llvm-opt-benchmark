@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ffdh_params_st = type { ptr, i32, i32 }
 %struct.ec_curve_st = type { ptr, i32, i32, i64 }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.string_int_pair_st = type { ptr, i32 }
-%struct.loopargs_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, [16 x i8], i64, i64, i64, [7 x ptr], [7 x ptr], [7 x ptr], [7 x ptr], [2 x ptr], [2 x ptr], [22 x ptr], [22 x ptr], [24 x ptr], [2 x ptr], [2 x ptr], [1 x ptr], [1 x ptr], [1 x ptr], ptr, ptr, [24 x i64], [5 x ptr], ptr, ptr, ptr, ptr, [111 x ptr], [111 x ptr], [111 x ptr], [111 x i64], [111 x i64], [111 x ptr], [111 x ptr], [111 x ptr], [111 x ptr], [111 x ptr], [111 x ptr], [111 x i64], [111 x i64], [111 x ptr] }
 %struct.fd_set = type { [16 x i64] }
 %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM = type { ptr, ptr, i64, i32 }
 
@@ -1254,13 +1252,13 @@ have_cipher.exit:                                 ; preds = %133
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader2541 ], [ 0, %201 ]
   %209 = getelementptr inbounds nuw i8, ptr %18, i64 %208
   store i8 1, ptr %209, align 1, !tbaa !25
-  %210 = getelementptr inbounds nuw %struct.string_int_pair_st, ptr @rsa_choices, i64 %indvars.iv
+  %210 = getelementptr inbounds nuw [16 x i8], ptr @rsa_choices, i64 %indvars.iv
   %211 = load ptr, ptr %210, align 16, !tbaa !30
   %212 = call noalias ptr @CRYPTO_strdup(ptr noundef %211, ptr noundef nonnull @.str.112, i32 noundef 2221) #14
   %213 = load i64, ptr @kems_algs_len, align 8, !tbaa !28
   %214 = add i64 %213, 1
   store i64 %214, ptr @kems_algs_len, align 8, !tbaa !28
-  %215 = getelementptr inbounds nuw ptr, ptr @kems_algname, i64 %213
+  %215 = getelementptr inbounds nuw [8 x i8], ptr @kems_algname, i64 %213
   store ptr %212, ptr %215, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
@@ -1302,7 +1300,7 @@ sub_1:                                            ; preds = %sub_0
   %233 = load i64, ptr @kems_algs_len, align 8, !tbaa !28
   %234 = add i64 %233, 1
   store i64 %234, ptr @kems_algs_len, align 8, !tbaa !28
-  %235 = getelementptr inbounds nuw ptr, ptr @kems_algname, i64 %233
+  %235 = getelementptr inbounds nuw [8 x i8], ptr @kems_algname, i64 %233
   store ptr %232, ptr %235, align 8, !tbaa !23
   %236 = getelementptr inbounds nuw i8, ptr %18, i64 %234
   store i8 1, ptr %236, align 1, !tbaa !25
@@ -1310,7 +1308,7 @@ sub_1:                                            ; preds = %sub_0
   %238 = load i64, ptr @kems_algs_len, align 8, !tbaa !28
   %239 = add i64 %238, 1
   store i64 %239, ptr @kems_algs_len, align 8, !tbaa !28
-  %240 = getelementptr inbounds nuw ptr, ptr @kems_algname, i64 %238
+  %240 = getelementptr inbounds nuw [8 x i8], ptr @kems_algname, i64 %238
   store ptr %237, ptr %240, align 8, !tbaa !23
   %241 = getelementptr inbounds nuw i8, ptr %18, i64 %239
   store i8 1, ptr %241, align 1, !tbaa !25
@@ -1340,7 +1338,7 @@ sub_1:                                            ; preds = %sub_0
   %253 = load i64, ptr @kems_algs_len, align 8, !tbaa !28
   %254 = add i64 %253, 1
   store i64 %254, ptr @kems_algs_len, align 8, !tbaa !28
-  %255 = getelementptr inbounds nuw ptr, ptr @kems_algname, i64 %253
+  %255 = getelementptr inbounds nuw [8 x i8], ptr @kems_algname, i64 %253
   store ptr %.sink, ptr %255, align 8, !tbaa !23
   br label %.loopexit2542
 
@@ -1384,13 +1382,13 @@ sub_1:                                            ; preds = %sub_0
   %indvars.iv3614 = phi i64 [ %indvars.iv.next3615, %.preheader2537 ], [ 0, %266 ]
   %274 = getelementptr inbounds nuw i8, ptr %19, i64 %273
   store i8 1, ptr %274, align 1, !tbaa !25
-  %275 = getelementptr inbounds nuw %struct.string_int_pair_st, ptr @rsa_choices, i64 %indvars.iv3614
+  %275 = getelementptr inbounds nuw [16 x i8], ptr @rsa_choices, i64 %indvars.iv3614
   %276 = load ptr, ptr %275, align 16, !tbaa !30
   %277 = call noalias ptr @CRYPTO_strdup(ptr noundef %276, ptr noundef nonnull @.str.112, i32 noundef 2266) #14
   %278 = load i64, ptr @sigs_algs_len, align 8, !tbaa !28
   %279 = add i64 %278, 1
   store i64 %279, ptr @sigs_algs_len, align 8, !tbaa !28
-  %280 = getelementptr inbounds nuw ptr, ptr @sigs_algname, i64 %278
+  %280 = getelementptr inbounds nuw [8 x i8], ptr @sigs_algname, i64 %278
   store ptr %277, ptr %280, align 8, !tbaa !23
   %indvars.iv.next3615 = add nuw nsw i64 %indvars.iv3614, 1
   %exitcond3617.not = icmp eq i64 %indvars.iv.next3615, 7
@@ -1418,13 +1416,13 @@ sub_1:                                            ; preds = %sub_0
   %indvars.iv3611 = phi i64 [ 1, %.preheader2539 ], [ 0, %284 ]
   %293 = getelementptr inbounds nuw i8, ptr %19, i64 %291
   store i8 1, ptr %293, align 1, !tbaa !25
-  %294 = getelementptr inbounds nuw %struct.string_int_pair_st, ptr @dsa_choices, i64 %indvars.iv3611
+  %294 = getelementptr inbounds nuw [16 x i8], ptr @dsa_choices, i64 %indvars.iv3611
   %295 = load ptr, ptr %294, align 16, !tbaa !30
   %296 = call noalias ptr @CRYPTO_strdup(ptr noundef %295, ptr noundef nonnull @.str.112, i32 noundef 2278) #14
   %297 = load i64, ptr @sigs_algs_len, align 8, !tbaa !28
   %298 = add i64 %297, 1
   store i64 %298, ptr @sigs_algs_len, align 8, !tbaa !28
-  %299 = getelementptr inbounds nuw ptr, ptr @sigs_algname, i64 %297
+  %299 = getelementptr inbounds nuw [8 x i8], ptr @sigs_algname, i64 %297
   store ptr %296, ptr %299, align 8, !tbaa !23
   br i1 %292, label %.preheader2539, label %.loopexit2538, !llvm.loop !35
 
@@ -1486,7 +1484,7 @@ sub_1:                                            ; preds = %sub_0
   %326 = load i64, ptr @sigs_algs_len, align 8, !tbaa !28
   %327 = add i64 %326, 1
   store i64 %327, ptr @sigs_algs_len, align 8, !tbaa !28
-  %328 = getelementptr inbounds nuw ptr, ptr @sigs_algname, i64 %326
+  %328 = getelementptr inbounds nuw [8 x i8], ptr @sigs_algname, i64 %326
   store ptr %325, ptr %328, align 8, !tbaa !23
   br label %.loopexit2538
 
@@ -1895,7 +1893,7 @@ opt_found.exit1932.thread:                        ; preds = %504, %opt_found.exi
 .lr.ph.i:                                         ; preds = %opt_found.exit1932.thread, %512
   %507 = phi i64 [ %514, %512 ], [ 0, %opt_found.exit1932.thread ]
   %.09.i = phi i32 [ %513, %512 ], [ 0, %opt_found.exit1932.thread ]
-  %508 = getelementptr inbounds nuw ptr, ptr @kems_algname, i64 %507
+  %508 = getelementptr inbounds nuw [8 x i8], ptr @kems_algname, i64 %507
   %509 = load ptr, ptr %508, align 8, !tbaa !23
   %510 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %509, ptr noundef nonnull readonly dereferenceable(1) %351) #15
   %511 = icmp eq i32 %510, 0
@@ -1923,7 +1921,7 @@ kem_locate.exit.thread:                           ; preds = %512, %opt_found.exi
 .lr.ph.i1935:                                     ; preds = %kem_locate.exit.thread, %525
   %520 = phi i64 [ %527, %525 ], [ 0, %kem_locate.exit.thread ]
   %.09.i1936 = phi i32 [ %526, %525 ], [ 0, %kem_locate.exit.thread ]
-  %521 = getelementptr inbounds nuw ptr, ptr @sigs_algname, i64 %520
+  %521 = getelementptr inbounds nuw [8 x i8], ptr @sigs_algname, i64 %520
   %522 = load ptr, ptr %521, align 8, !tbaa !23
   %523 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %522, ptr noundef nonnull readonly dereferenceable(1) %351) #15
   %524 = icmp eq i32 %523, 0
@@ -2136,7 +2134,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %615, i8 0, i64 %614, i1 false)
   %616 = load ptr, ptr @lengths, align 8, !tbaa !26
   %617 = zext nneg i32 %.01340 to i64
-  %618 = getelementptr i32, ptr %616, i64 %617
+  %618 = getelementptr [4 x i8], ptr %616, i64 %617
   %619 = getelementptr i8, ptr %618, i64 -4
   %620 = load i32, ptr %619, align 4, !tbaa !13
   %621 = icmp sgt i32 %620, 2147483583
@@ -2162,7 +2160,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
 
 632:                                              ; preds = %631
   %633 = call ptr @ASYNC_WAIT_CTX_new() #14
-  %634 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3618
+  %634 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3618
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 8
   store ptr %633, ptr %635, align 8, !tbaa !45
   %636 = icmp eq ptr %633, null
@@ -2175,7 +2173,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
 
 640:                                              ; preds = %632, %631
   %641 = call ptr @app_malloc(i64 noundef %627, ptr noundef nonnull @.str.149) #14
-  %642 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3618
+  %642 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3618
   %643 = getelementptr inbounds nuw i8, ptr %642, i64 32
   store ptr %641, ptr %643, align 8, !tbaa !51
   %644 = call ptr @app_malloc(i64 noundef %627, ptr noundef nonnull @.str.149) #14
@@ -2227,7 +2225,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   br i1 %.b1626, label %666, label %673
 
 666:                                              ; preds = %665
-  %667 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3638
+  %667 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3638
   %668 = getelementptr inbounds nuw i8, ptr %667, i64 32
   %669 = load ptr, ptr %668, align 8, !tbaa !51
   %670 = call i32 @mlock(ptr noundef %669, i64 noundef %627) #14
@@ -2238,7 +2236,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
 
 673:                                              ; preds = %666, %665
   %.b16263873 = phi i1 [ %.b1626.pre, %666 ], [ false, %665 ]
-  %674 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3638
+  %674 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3638
   %675 = getelementptr inbounds nuw i8, ptr %674, i64 32
   %676 = load ptr, ptr %675, align 8, !tbaa !51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %676, i8 0, i64 %627, i1 false)
@@ -2276,7 +2274,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
 
 692:                                              ; preds = %690, %698
   %indvars.iv3660 = phi i64 [ 0, %690 ], [ %indvars.iv.next3661, %698 ]
-  %693 = getelementptr inbounds nuw ptr, ptr @names, i64 %indvars.iv3660
+  %693 = getelementptr inbounds nuw [8 x i8], ptr @names, i64 %indvars.iv3660
   %694 = load ptr, ptr %693, align 8, !tbaa !23
   %695 = call fastcc i32 @have_md(ptr noundef %694)
   %.not1650 = icmp eq i32 %695, 0
@@ -2294,7 +2292,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
 
 .preheader2528:                                   ; preds = %698, %704
   %indvars.iv3664 = phi i64 [ %indvars.iv.next3665, %704 ], [ 10, %698 ]
-  %699 = getelementptr inbounds nuw ptr, ptr @names, i64 %indvars.iv3664
+  %699 = getelementptr inbounds nuw [8 x i8], ptr @names, i64 %indvars.iv3664
   %700 = load ptr, ptr %699, align 8, !tbaa !23
   %701 = call fastcc i32 @have_cipher(ptr noundef %700)
   %.not1649 = icmp eq i32 %701, 0
@@ -2400,7 +2398,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %732 = load ptr, ptr @names, align 16, !tbaa !23
   %733 = load ptr, ptr @lengths, align 8, !tbaa !26
   %734 = zext nneg i32 %storemerge16532969 to i64
-  %735 = getelementptr inbounds nuw i32, ptr %733, i64 %734
+  %735 = getelementptr inbounds nuw [4 x i8], ptr %733, i64 %734
   %736 = load i32, ptr %735, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %732, i32 noundef %736, i32 noundef %.sroa.02052.0)
   %.b.i = load i1, ptr @usertime, align 4
@@ -2436,7 +2434,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %749 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @names, i64 8), align 8, !tbaa !23
   %750 = load ptr, ptr @lengths, align 8, !tbaa !26
   %751 = zext nneg i32 %storemerge16552972 to i64
-  %752 = getelementptr inbounds nuw i32, ptr %750, i64 %751
+  %752 = getelementptr inbounds nuw [4 x i8], ptr %750, i64 %751
   %753 = load i32, ptr %752, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %749, i32 noundef %753, i32 noundef %.sroa.02052.0)
   %.b.i1945 = load i1, ptr @usertime, align 4
@@ -2472,7 +2470,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %766 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @names, i64 16), align 16, !tbaa !23
   %767 = load ptr, ptr @lengths, align 8, !tbaa !26
   %768 = zext nneg i32 %storemerge16572975 to i64
-  %769 = getelementptr inbounds nuw i32, ptr %767, i64 %768
+  %769 = getelementptr inbounds nuw [4 x i8], ptr %767, i64 %768
   %770 = load i32, ptr %769, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %766, i32 noundef %770, i32 noundef %.sroa.02052.0)
   %.b.i1947 = load i1, ptr @usertime, align 4
@@ -2508,7 +2506,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %783 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @names, i64 24), align 8, !tbaa !23
   %784 = load ptr, ptr @lengths, align 8, !tbaa !26
   %785 = zext nneg i32 %storemerge16592978 to i64
-  %786 = getelementptr inbounds nuw i32, ptr %784, i64 %785
+  %786 = getelementptr inbounds nuw [4 x i8], ptr %784, i64 %785
   %787 = load i32, ptr %786, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %783, i32 noundef %787, i32 noundef %.sroa.02052.0)
   %.b.i1949 = load i1, ptr @usertime, align 4
@@ -2544,7 +2542,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %800 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @names, i64 32), align 16, !tbaa !23
   %801 = load ptr, ptr @lengths, align 8, !tbaa !26
   %802 = zext nneg i32 %storemerge16612981 to i64
-  %803 = getelementptr inbounds nuw i32, ptr %801, i64 %802
+  %803 = getelementptr inbounds nuw [4 x i8], ptr %801, i64 %802
   %804 = load i32, ptr %803, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %800, i32 noundef %804, i32 noundef %.sroa.02052.0)
   %.b.i1951 = load i1, ptr @usertime, align 4
@@ -2580,7 +2578,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %817 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @names, i64 48), align 16, !tbaa !23
   %818 = load ptr, ptr @lengths, align 8, !tbaa !26
   %819 = zext nneg i32 %storemerge16632984 to i64
-  %820 = getelementptr inbounds nuw i32, ptr %818, i64 %819
+  %820 = getelementptr inbounds nuw [4 x i8], ptr %818, i64 %819
   %821 = load i32, ptr %820, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %817, i32 noundef %821, i32 noundef %.sroa.02052.0)
   %.b.i1953 = load i1, ptr @usertime, align 4
@@ -2616,7 +2614,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %834 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @names, i64 56), align 8, !tbaa !23
   %835 = load ptr, ptr @lengths, align 8, !tbaa !26
   %836 = zext nneg i32 %storemerge16652987 to i64
-  %837 = getelementptr inbounds nuw i32, ptr %835, i64 %836
+  %837 = getelementptr inbounds nuw [4 x i8], ptr %835, i64 %836
   %838 = load i32, ptr %837, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %834, i32 noundef %838, i32 noundef %.sroa.02052.0)
   %.b.i1955 = load i1, ptr @usertime, align 4
@@ -2652,7 +2650,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %851 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @names, i64 64), align 16, !tbaa !23
   %852 = load ptr, ptr @lengths, align 8, !tbaa !26
   %853 = zext nneg i32 %storemerge16672990 to i64
-  %854 = getelementptr inbounds nuw i32, ptr %852, i64 %853
+  %854 = getelementptr inbounds nuw [4 x i8], ptr %852, i64 %853
   %855 = load i32, ptr %854, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %851, i32 noundef %855, i32 noundef %.sroa.02052.0)
   %.b.i1957 = load i1, ptr @usertime, align 4
@@ -2688,7 +2686,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %868 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @names, i64 40), align 8, !tbaa !23
   %869 = load ptr, ptr @lengths, align 8, !tbaa !26
   %870 = zext nneg i32 %storemerge16692993 to i64
-  %871 = getelementptr inbounds nuw i32, ptr %869, i64 %870
+  %871 = getelementptr inbounds nuw [4 x i8], ptr %869, i64 %870
   %872 = load i32, ptr %871, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %868, i32 noundef %872, i32 noundef %.sroa.02052.0)
   %.b.i1959 = load i1, ptr @usertime, align 4
@@ -2753,7 +2751,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %896 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @names, i64 72), align 8, !tbaa !23
   %897 = load ptr, ptr @lengths, align 8, !tbaa !26
   %898 = zext nneg i32 %storemerge16722996 to i64
-  %899 = getelementptr inbounds nuw i32, ptr %897, i64 %898
+  %899 = getelementptr inbounds nuw [4 x i8], ptr %897, i64 %898
   %900 = load i32, ptr %899, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %896, i32 noundef %900, i32 noundef %.sroa.02052.0)
   %.b.i1961 = load i1, ptr @usertime, align 4
@@ -2797,7 +2795,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %indvars.iv3672 = phi i64 [ 0, %.preheader2508.preheader ], [ %indvars.iv.next3673, %.preheader2508 ]
   %916 = call fastcc ptr @init_evp_cipher_ctx(ptr noundef nonnull @.str.160, ptr noundef nonnull @speed_main.deskey, i32 noundef 8)
   %.fr = freeze ptr %916
-  %917 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3672
+  %917 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3672
   %918 = getelementptr inbounds nuw i8, ptr %917, i64 1216
   store ptr %.fr, ptr %918, align 8, !tbaa !78
   %919 = icmp ne ptr %.fr, null
@@ -2817,7 +2815,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %924 = load ptr, ptr %923, align 8, !tbaa !78
   %925 = load ptr, ptr @lengths, align 8, !tbaa !26
   %926 = zext nneg i32 %storemerge16753000 to i64
-  %927 = getelementptr inbounds nuw i32, ptr %925, i64 %926
+  %927 = getelementptr inbounds nuw [4 x i8], ptr %925, i64 %926
   %928 = load i32, ptr %927, align 4, !tbaa !13
   %929 = call fastcc i32 @check_block_size(ptr noundef %924, i32 noundef %928)
   %.not1676 = icmp eq i32 %929, 0
@@ -2828,7 +2826,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %932 = load ptr, ptr @lengths, align 8, !tbaa !26
   %933 = load i32, ptr @testnum, align 4, !tbaa !13
   %934 = zext i32 %933 to i64
-  %935 = getelementptr inbounds nuw i32, ptr %932, i64 %934
+  %935 = getelementptr inbounds nuw [4 x i8], ptr %932, i64 %934
   %936 = load i32, ptr %935, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %931, i32 noundef %936, i32 noundef %.sroa.02052.0)
   %.b.i1963 = load i1, ptr @usertime, align 4
@@ -2850,7 +2848,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
 
 ._crit_edge3003:                                  ; preds = %._crit_edge3003.preheader, %._crit_edge3003
   %indvars.iv3675 = phi i64 [ %indvars.iv.next3676, %._crit_edge3003 ], [ 0, %._crit_edge3003.preheader ]
-  %945 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3675
+  %945 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3675
   %946 = getelementptr inbounds nuw i8, ptr %945, i64 1216
   %947 = load ptr, ptr %946, align 8, !tbaa !78
   call void @EVP_CIPHER_CTX_free(ptr noundef %947) #14
@@ -2869,7 +2867,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %indvars.iv3680 = phi i64 [ %indvars.iv.next3681, %.preheader2506 ], [ 0, %.loopexit2507 ]
   %950 = call fastcc ptr @init_evp_cipher_ctx(ptr noundef nonnull @.str.161, ptr noundef nonnull @speed_main.deskey, i32 noundef 24)
   %.fr3197 = freeze ptr %950
-  %951 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3680
+  %951 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3680
   %952 = getelementptr inbounds nuw i8, ptr %951, i64 1216
   store ptr %.fr3197, ptr %952, align 8, !tbaa !78
   %953 = icmp ne ptr %.fr3197, null
@@ -2889,7 +2887,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %958 = load ptr, ptr %957, align 8, !tbaa !78
   %959 = load ptr, ptr @lengths, align 8, !tbaa !26
   %960 = zext nneg i32 %storemerge16803007 to i64
-  %961 = getelementptr inbounds nuw i32, ptr %959, i64 %960
+  %961 = getelementptr inbounds nuw [4 x i8], ptr %959, i64 %960
   %962 = load i32, ptr %961, align 4, !tbaa !13
   %963 = call fastcc i32 @check_block_size(ptr noundef %958, i32 noundef %962)
   %.not1681 = icmp eq i32 %963, 0
@@ -2900,7 +2898,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %966 = load ptr, ptr @lengths, align 8, !tbaa !26
   %967 = load i32, ptr @testnum, align 4, !tbaa !13
   %968 = zext i32 %967 to i64
-  %969 = getelementptr inbounds nuw i32, ptr %966, i64 %968
+  %969 = getelementptr inbounds nuw [4 x i8], ptr %966, i64 %968
   %970 = load i32, ptr %969, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %965, i32 noundef %970, i32 noundef %.sroa.02052.0)
   %.b.i1965 = load i1, ptr @usertime, align 4
@@ -2922,7 +2920,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
 
 ._crit_edge3010:                                  ; preds = %._crit_edge3010.preheader, %._crit_edge3010
   %indvars.iv3683 = phi i64 [ %indvars.iv.next3684, %._crit_edge3010 ], [ 0, %._crit_edge3010.preheader ]
-  %979 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3683
+  %979 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3683
   %980 = getelementptr inbounds nuw i8, ptr %979, i64 1216
   %981 = load ptr, ptr %980, align 8, !tbaa !78
   call void @EVP_CIPHER_CTX_free(ptr noundef %981) #14
@@ -2962,10 +2960,10 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %indvars.iv3688 = phi i64 [ 0, %988 ], [ %indvars.iv.next3689, %991 ]
   %992 = load i32, ptr @algindex, align 4, !tbaa !13
   %993 = sext i32 %992 to i64
-  %994 = getelementptr inbounds ptr, ptr @names, i64 %993
+  %994 = getelementptr inbounds [8 x i8], ptr @names, i64 %993
   %995 = load ptr, ptr %994, align 8, !tbaa !23
   %996 = call fastcc ptr @init_evp_cipher_ctx(ptr noundef %995, ptr noundef nonnull @speed_main.key32, i32 noundef %990)
-  %997 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3688
+  %997 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3688
   %998 = getelementptr inbounds nuw i8, ptr %997, i64 1216
   store ptr %996, ptr %998, align 8, !tbaa !78
   %999 = icmp ne ptr %996, null
@@ -2979,7 +2977,7 @@ get_max.exit1944:                                 ; preds = %.preheader2531
   %storemerge18013014 = phi i32 [ %1069, %print_result.exit ], [ 0, %.lr.ph3015.preheader ]
   %1003 = load ptr, ptr %982, align 8, !tbaa !78
   %1004 = zext nneg i32 %storemerge18013014 to i64
-  %1005 = getelementptr inbounds nuw i32, ptr %1002, i64 %1004
+  %1005 = getelementptr inbounds nuw [4 x i8], ptr %1002, i64 %1004
   %1006 = load i32, ptr %1005, align 4, !tbaa !13
   %1007 = call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %1003) #14
   %1008 = call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %1003) #14
@@ -3007,12 +3005,12 @@ get_max.exit1944:                                 ; preds = %.preheader2531
 check_block_size.exit:                            ; preds = %1014
   %1020 = load i32, ptr @algindex, align 4, !tbaa !13
   %1021 = sext i32 %1020 to i64
-  %1022 = getelementptr inbounds ptr, ptr @names, i64 %1021
+  %1022 = getelementptr inbounds [8 x i8], ptr @names, i64 %1021
   %1023 = load ptr, ptr %1022, align 8, !tbaa !23
   %1024 = load ptr, ptr @lengths, align 8, !tbaa !26
   %1025 = load i32, ptr @testnum, align 4, !tbaa !13
   %1026 = zext i32 %1025 to i64
-  %1027 = getelementptr inbounds nuw i32, ptr %1024, i64 %1026
+  %1027 = getelementptr inbounds nuw [4 x i8], ptr %1024, i64 %1026
   %1028 = load i32, ptr %1027, align 4, !tbaa !13
   %1029 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %.b.i1969 = load i1, ptr @mr, align 4
@@ -3039,7 +3037,7 @@ check_block_size.exit:                            ; preds = %1014
 
 1044:                                             ; preds = %check_block_size.exit
   %1045 = sext i32 %1041 to i64
-  %1046 = getelementptr inbounds ptr, ptr @names, i64 %1045
+  %1046 = getelementptr inbounds [8 x i8], ptr @names, i64 %1045
   %1047 = load ptr, ptr %1046, align 8, !tbaa !23
   %1048 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1043, ptr noundef nonnull @.str.475, ptr noundef %1047) #14
   %1049 = load ptr, ptr @bio_err, align 8, !tbaa !19
@@ -3053,19 +3051,19 @@ check_block_size.exit:                            ; preds = %1014
   %.b.i1974 = load i1, ptr @mr, align 4
   %1052 = select i1 %.b.i1974, ptr @.str.476, ptr @.str.477
   %1053 = sext i32 %1041 to i64
-  %1054 = getelementptr inbounds ptr, ptr @names, i64 %1053
+  %1054 = getelementptr inbounds [8 x i8], ptr @names, i64 %1053
   %1055 = load ptr, ptr %1054, align 8, !tbaa !23
   %1056 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1043, ptr noundef nonnull %1052, i32 noundef %1037, ptr noundef %1055, double noundef %1039) #14
   %1057 = sitofp i32 %1037 to double
   %1058 = fdiv double %1057, %1039
   %1059 = load ptr, ptr @lengths, align 8, !tbaa !26
   %1060 = sext i32 %1051 to i64
-  %1061 = getelementptr inbounds i32, ptr %1059, i64 %1060
+  %1061 = getelementptr inbounds [4 x i8], ptr %1059, i64 %1060
   %1062 = load i32, ptr %1061, align 4, !tbaa !13
   %1063 = sitofp i32 %1062 to double
   %1064 = fmul double %1058, %1063
-  %1065 = getelementptr inbounds [6 x double], ptr @results, i64 %1053
-  %1066 = getelementptr inbounds double, ptr %1065, i64 %1060
+  %1065 = getelementptr inbounds [48 x i8], ptr @results, i64 %1053
+  %1066 = getelementptr inbounds [8 x i8], ptr %1065, i64 %1060
   store double %1064, ptr %1066, align 8, !tbaa !86
   br label %print_result.exit
 
@@ -3082,7 +3080,7 @@ check_block_size.exit.thread.preheader:           ; preds = %print_result.exit, 
 
 check_block_size.exit.thread:                     ; preds = %check_block_size.exit.thread.preheader, %check_block_size.exit.thread
   %indvars.iv3691 = phi i64 [ %indvars.iv.next3692, %check_block_size.exit.thread ], [ 0, %check_block_size.exit.thread.preheader ]
-  %1071 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3691
+  %1071 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3691
   %1072 = getelementptr inbounds nuw i8, ptr %1071, i64 1216
   %1073 = load ptr, ptr %1072, align 8, !tbaa !78
   call void @EVP_CIPHER_CTX_free(ptr noundef %1073) #14
@@ -3127,10 +3125,10 @@ check_block_size.exit.thread:                     ; preds = %check_block_size.ex
   %indvars.iv3700 = phi i64 [ 0, %1078 ], [ %indvars.iv.next3701, %1081 ]
   %1082 = load i32, ptr @algindex, align 4, !tbaa !13
   %1083 = sext i32 %1082 to i64
-  %1084 = getelementptr inbounds ptr, ptr @names, i64 %1083
+  %1084 = getelementptr inbounds [8 x i8], ptr @names, i64 %1083
   %1085 = load ptr, ptr %1084, align 8, !tbaa !23
   %1086 = call fastcc ptr @init_evp_cipher_ctx(ptr noundef %1085, ptr noundef nonnull @speed_main.key32, i32 noundef %1080)
-  %1087 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3700
+  %1087 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3700
   %1088 = getelementptr inbounds nuw i8, ptr %1087, i64 1216
   store ptr %1086, ptr %1088, align 8, !tbaa !78
   %1089 = icmp ne ptr %1086, null
@@ -3144,7 +3142,7 @@ check_block_size.exit.thread:                     ; preds = %check_block_size.ex
   %storemerge17963020 = phi i32 [ %1159, %print_result.exit1985 ], [ 0, %.lr.ph3021.preheader ]
   %1093 = load ptr, ptr %982, align 8, !tbaa !78
   %1094 = zext nneg i32 %storemerge17963020 to i64
-  %1095 = getelementptr inbounds nuw i32, ptr %1092, i64 %1094
+  %1095 = getelementptr inbounds nuw [4 x i8], ptr %1092, i64 %1094
   %1096 = load i32, ptr %1095, align 4, !tbaa !13
   %1097 = call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %1093) #14
   %1098 = call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %1093) #14
@@ -3172,12 +3170,12 @@ check_block_size.exit.thread:                     ; preds = %check_block_size.ex
 check_block_size.exit1978:                        ; preds = %1104
   %1110 = load i32, ptr @algindex, align 4, !tbaa !13
   %1111 = sext i32 %1110 to i64
-  %1112 = getelementptr inbounds ptr, ptr @names, i64 %1111
+  %1112 = getelementptr inbounds [8 x i8], ptr @names, i64 %1111
   %1113 = load ptr, ptr %1112, align 8, !tbaa !23
   %1114 = load ptr, ptr @lengths, align 8, !tbaa !26
   %1115 = load i32, ptr @testnum, align 4, !tbaa !13
   %1116 = zext i32 %1115 to i64
-  %1117 = getelementptr inbounds nuw i32, ptr %1114, i64 %1116
+  %1117 = getelementptr inbounds nuw [4 x i8], ptr %1114, i64 %1116
   %1118 = load i32, ptr %1117, align 4, !tbaa !13
   %1119 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %.b.i1979 = load i1, ptr @mr, align 4
@@ -3204,7 +3202,7 @@ check_block_size.exit1978:                        ; preds = %1104
 
 1134:                                             ; preds = %check_block_size.exit1978
   %1135 = sext i32 %1131 to i64
-  %1136 = getelementptr inbounds ptr, ptr @names, i64 %1135
+  %1136 = getelementptr inbounds [8 x i8], ptr @names, i64 %1135
   %1137 = load ptr, ptr %1136, align 8, !tbaa !23
   %1138 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1133, ptr noundef nonnull @.str.475, ptr noundef %1137) #14
   %1139 = load ptr, ptr @bio_err, align 8, !tbaa !19
@@ -3218,19 +3216,19 @@ check_block_size.exit1978:                        ; preds = %1104
   %.b.i1984 = load i1, ptr @mr, align 4
   %1142 = select i1 %.b.i1984, ptr @.str.476, ptr @.str.477
   %1143 = sext i32 %1131 to i64
-  %1144 = getelementptr inbounds ptr, ptr @names, i64 %1143
+  %1144 = getelementptr inbounds [8 x i8], ptr @names, i64 %1143
   %1145 = load ptr, ptr %1144, align 8, !tbaa !23
   %1146 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1133, ptr noundef nonnull %1142, i32 noundef %1127, ptr noundef %1145, double noundef %1129) #14
   %1147 = sitofp i32 %1127 to double
   %1148 = fdiv double %1147, %1129
   %1149 = load ptr, ptr @lengths, align 8, !tbaa !26
   %1150 = sext i32 %1141 to i64
-  %1151 = getelementptr inbounds i32, ptr %1149, i64 %1150
+  %1151 = getelementptr inbounds [4 x i8], ptr %1149, i64 %1150
   %1152 = load i32, ptr %1151, align 4, !tbaa !13
   %1153 = sitofp i32 %1152 to double
   %1154 = fmul double %1148, %1153
-  %1155 = getelementptr inbounds [6 x double], ptr @results, i64 %1143
-  %1156 = getelementptr inbounds double, ptr %1155, i64 %1150
+  %1155 = getelementptr inbounds [48 x i8], ptr @results, i64 %1143
+  %1156 = getelementptr inbounds [8 x i8], ptr %1155, i64 %1150
   store double %1154, ptr %1156, align 8, !tbaa !86
   br label %print_result.exit1985
 
@@ -3247,7 +3245,7 @@ check_block_size.exit1978.thread.preheader:       ; preds = %print_result.exit19
 
 check_block_size.exit1978.thread:                 ; preds = %check_block_size.exit1978.thread.preheader, %check_block_size.exit1978.thread
   %indvars.iv3703 = phi i64 [ %indvars.iv.next3704, %check_block_size.exit1978.thread ], [ 0, %check_block_size.exit1978.thread.preheader ]
-  %1161 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3703
+  %1161 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3703
   %1162 = getelementptr inbounds nuw i8, ptr %1161, i64 1216
   %1163 = load ptr, ptr %1162, align 8, !tbaa !78
   call void @EVP_CIPHER_CTX_free(ptr noundef %1163) #14
@@ -3280,10 +3278,10 @@ check_block_size.exit1978.thread:                 ; preds = %check_block_size.ex
   %indvars.iv3712 = phi i64 [ %indvars.iv.next3713, %.preheader2498 ], [ 0, %1164 ]
   %1168 = load i32, ptr @algindex, align 4, !tbaa !13
   %1169 = sext i32 %1168 to i64
-  %1170 = getelementptr inbounds ptr, ptr @names, i64 %1169
+  %1170 = getelementptr inbounds [8 x i8], ptr @names, i64 %1169
   %1171 = load ptr, ptr %1170, align 8, !tbaa !23
   %1172 = call fastcc ptr @init_evp_cipher_ctx(ptr noundef %1171, ptr noundef nonnull @speed_main.key32, i32 noundef 16)
-  %1173 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3712
+  %1173 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3712
   %1174 = getelementptr inbounds nuw i8, ptr %1173, i64 1216
   store ptr %1172, ptr %1174, align 8, !tbaa !78
   %1175 = icmp ne ptr %1172, null
@@ -3297,7 +3295,7 @@ check_block_size.exit1978.thread:                 ; preds = %check_block_size.ex
   %storemerge17913026 = phi i32 [ %1245, %print_result.exit1996 ], [ 0, %.lr.ph3027.preheader ]
   %1179 = load ptr, ptr %982, align 8, !tbaa !78
   %1180 = zext nneg i32 %storemerge17913026 to i64
-  %1181 = getelementptr inbounds nuw i32, ptr %1178, i64 %1180
+  %1181 = getelementptr inbounds nuw [4 x i8], ptr %1178, i64 %1180
   %1182 = load i32, ptr %1181, align 4, !tbaa !13
   %1183 = call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %1179) #14
   %1184 = call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %1179) #14
@@ -3325,12 +3323,12 @@ check_block_size.exit1978.thread:                 ; preds = %check_block_size.ex
 check_block_size.exit1989:                        ; preds = %1190
   %1196 = load i32, ptr @algindex, align 4, !tbaa !13
   %1197 = sext i32 %1196 to i64
-  %1198 = getelementptr inbounds ptr, ptr @names, i64 %1197
+  %1198 = getelementptr inbounds [8 x i8], ptr @names, i64 %1197
   %1199 = load ptr, ptr %1198, align 8, !tbaa !23
   %1200 = load ptr, ptr @lengths, align 8, !tbaa !26
   %1201 = load i32, ptr @testnum, align 4, !tbaa !13
   %1202 = zext i32 %1201 to i64
-  %1203 = getelementptr inbounds nuw i32, ptr %1200, i64 %1202
+  %1203 = getelementptr inbounds nuw [4 x i8], ptr %1200, i64 %1202
   %1204 = load i32, ptr %1203, align 4, !tbaa !13
   %1205 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %.b.i1990 = load i1, ptr @mr, align 4
@@ -3357,7 +3355,7 @@ check_block_size.exit1989:                        ; preds = %1190
 
 1220:                                             ; preds = %check_block_size.exit1989
   %1221 = sext i32 %1217 to i64
-  %1222 = getelementptr inbounds ptr, ptr @names, i64 %1221
+  %1222 = getelementptr inbounds [8 x i8], ptr @names, i64 %1221
   %1223 = load ptr, ptr %1222, align 8, !tbaa !23
   %1224 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1219, ptr noundef nonnull @.str.475, ptr noundef %1223) #14
   %1225 = load ptr, ptr @bio_err, align 8, !tbaa !19
@@ -3371,19 +3369,19 @@ check_block_size.exit1989:                        ; preds = %1190
   %.b.i1995 = load i1, ptr @mr, align 4
   %1228 = select i1 %.b.i1995, ptr @.str.476, ptr @.str.477
   %1229 = sext i32 %1217 to i64
-  %1230 = getelementptr inbounds ptr, ptr @names, i64 %1229
+  %1230 = getelementptr inbounds [8 x i8], ptr @names, i64 %1229
   %1231 = load ptr, ptr %1230, align 8, !tbaa !23
   %1232 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1219, ptr noundef nonnull %1228, i32 noundef %1213, ptr noundef %1231, double noundef %1215) #14
   %1233 = sitofp i32 %1213 to double
   %1234 = fdiv double %1233, %1215
   %1235 = load ptr, ptr @lengths, align 8, !tbaa !26
   %1236 = sext i32 %1227 to i64
-  %1237 = getelementptr inbounds i32, ptr %1235, i64 %1236
+  %1237 = getelementptr inbounds [4 x i8], ptr %1235, i64 %1236
   %1238 = load i32, ptr %1237, align 4, !tbaa !13
   %1239 = sitofp i32 %1238 to double
   %1240 = fmul double %1234, %1239
-  %1241 = getelementptr inbounds [6 x double], ptr @results, i64 %1229
-  %1242 = getelementptr inbounds double, ptr %1241, i64 %1236
+  %1241 = getelementptr inbounds [48 x i8], ptr @results, i64 %1229
+  %1242 = getelementptr inbounds [8 x i8], ptr %1241, i64 %1236
   store double %1240, ptr %1242, align 8, !tbaa !86
   br label %print_result.exit1996
 
@@ -3400,7 +3398,7 @@ check_block_size.exit1989.thread.preheader:       ; preds = %print_result.exit19
 
 check_block_size.exit1989.thread:                 ; preds = %check_block_size.exit1989.thread.preheader, %check_block_size.exit1989.thread
   %indvars.iv3715 = phi i64 [ %indvars.iv.next3716, %check_block_size.exit1989.thread ], [ 0, %check_block_size.exit1989.thread.preheader ]
-  %1247 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3715
+  %1247 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3715
   %1248 = getelementptr inbounds nuw i8, ptr %1247, i64 1216
   %1249 = load ptr, ptr %1248, align 8, !tbaa !78
   call void @EVP_CIPHER_CTX_free(ptr noundef %1249) #14
@@ -3461,7 +3459,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 
 .preheader2495:                                   ; preds = %1256, %1261
   %indvars.iv3720 = phi i64 [ %indvars.iv.next3721, %1261 ], [ 0, %1256 ]
-  %1262 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3720
+  %1262 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3720
   %1263 = getelementptr inbounds nuw i8, ptr %1262, i64 1224
   %1264 = load ptr, ptr %1263, align 8, !tbaa !100
   %1265 = call i32 @EVP_MAC_init(ptr noundef %1264, ptr noundef null, i64 noundef 0, ptr noundef null) #14
@@ -3473,7 +3471,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1266 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @names, i64 208), align 16, !tbaa !23
   %1267 = load ptr, ptr @lengths, align 8, !tbaa !26
   %1268 = zext nneg i32 %storemerge16873032 to i64
-  %1269 = getelementptr inbounds nuw i32, ptr %1267, i64 %1268
+  %1269 = getelementptr inbounds nuw [4 x i8], ptr %1267, i64 %1268
   %1270 = load i32, ptr %1269, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %1266, i32 noundef %1270, i32 noundef %.sroa.02052.0)
   %.b.i1997 = load i1, ptr @usertime, align 4
@@ -3518,7 +3516,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1284 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @names, i64 216), align 8, !tbaa !23
   %1285 = load ptr, ptr @lengths, align 8, !tbaa !26
   %1286 = zext nneg i32 %storemerge16903036 to i64
-  %1287 = getelementptr inbounds nuw i32, ptr %1285, i64 %1286
+  %1287 = getelementptr inbounds nuw [4 x i8], ptr %1285, i64 %1286
   %1288 = load i32, ptr %1287, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %1284, i32 noundef %1288, i32 noundef %.sroa.02052.0)
   %.b.i1999 = load i1, ptr @usertime, align 4
@@ -3608,7 +3606,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1317 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @names, i64 200), align 8, !tbaa !23
   %1318 = load ptr, ptr @lengths, align 8, !tbaa !26
   %1319 = zext nneg i32 %storemerge16963040 to i64
-  %1320 = getelementptr inbounds nuw i32, ptr %1318, i64 %1319
+  %1320 = getelementptr inbounds nuw [4 x i8], ptr %1318, i64 %1319
   %1321 = load i32, ptr %1320, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %1317, i32 noundef %1321, i32 noundef %.sroa.02052.0)
   br label %1322
@@ -3616,7 +3614,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 1322:                                             ; preds = %.lr.ph3042, %1452
   %indvars.iv3725 = phi i64 [ 0, %.lr.ph3042 ], [ %indvars.iv.next3726, %1452 ]
   %1323 = call ptr @EVP_CIPHER_CTX_new() #14
-  %1324 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3725
+  %1324 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3725
   %1325 = getelementptr inbounds nuw i8, ptr %1324, i64 1216
   store ptr %1323, ptr %1325, align 8, !tbaa !78
   %1326 = icmp eq ptr %1323, null
@@ -3757,7 +3755,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1388 = load ptr, ptr @lengths, align 8, !tbaa !26
   %1389 = load i32, ptr @testnum, align 4, !tbaa !13
   %1390 = zext i32 %1389 to i64
-  %1391 = getelementptr inbounds nuw i32, ptr %1388, i64 %1390
+  %1391 = getelementptr inbounds nuw [4 x i8], ptr %1388, i64 %1390
   %1392 = load i32, ptr %1391, align 4, !tbaa !13
   %1393 = call i32 @EVP_EncryptUpdate(ptr noundef %1387, ptr noundef null, ptr noundef nonnull %29, ptr noundef null, i32 noundef %1392) #14
   %.not1703 = icmp eq i32 %1393, 0
@@ -3794,7 +3792,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1408 = load ptr, ptr @lengths, align 8, !tbaa !26
   %1409 = load i32, ptr @testnum, align 4, !tbaa !13
   %1410 = zext i32 %1409 to i64
-  %1411 = getelementptr inbounds nuw i32, ptr %1408, i64 %1410
+  %1411 = getelementptr inbounds nuw [4 x i8], ptr %1408, i64 %1410
   %1412 = load i32, ptr %1411, align 4, !tbaa !13
   %1413 = call i32 @EVP_EncryptUpdate(ptr noundef %1405, ptr noundef %1407, ptr noundef nonnull %29, ptr noundef %1407, i32 noundef %1412) #14
   %.not1705 = icmp eq i32 %1413, 0
@@ -3891,7 +3889,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 
 1458:                                             ; preds = %1453, %1458
   %indvars.iv3730 = phi i64 [ 0, %1453 ], [ %indvars.iv.next3731, %1458 ]
-  %1459 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3730
+  %1459 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3730
   %1460 = getelementptr inbounds nuw i8, ptr %1459, i64 48
   %1461 = load ptr, ptr %1460, align 8, !tbaa !103
   call void @CRYPTO_clear_free(ptr noundef %1461, i64 noundef %1343, ptr noundef nonnull @.str.112, i32 noundef 3115) #14
@@ -3932,7 +3930,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1473 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @names, i64 200), align 8, !tbaa !23
   %1474 = load ptr, ptr @lengths, align 8, !tbaa !26
   %1475 = zext nneg i32 %storemerge16943043 to i64
-  %1476 = getelementptr inbounds nuw i32, ptr %1474, i64 %1475
+  %1476 = getelementptr inbounds nuw [4 x i8], ptr %1474, i64 %1475
   %1477 = load i32, ptr %1476, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %1473, i32 noundef %1477, i32 noundef %.sroa.02052.0)
   %.b.i2003 = load i1, ptr @usertime, align 4
@@ -4020,7 +4018,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1512 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @names, i64 224), align 16, !tbaa !23
   %1513 = load ptr, ptr @lengths, align 8, !tbaa !26
   %1514 = zext nneg i32 %storemerge17123047 to i64
-  %1515 = getelementptr inbounds nuw i32, ptr %1513, i64 %1514
+  %1515 = getelementptr inbounds nuw [4 x i8], ptr %1513, i64 %1514
   %1516 = load i32, ptr %1515, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %1512, i32 noundef %1516, i32 noundef %.sroa.02052.0)
   %.b.i2005 = load i1, ptr @usertime, align 4
@@ -4082,7 +4080,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1533 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @names, i64 232), align 8, !tbaa !23
   %1534 = load ptr, ptr @lengths, align 8, !tbaa !26
   %1535 = zext nneg i32 %storemerge17153051 to i64
-  %1536 = getelementptr inbounds nuw i32, ptr %1534, i64 %1535
+  %1536 = getelementptr inbounds nuw [4 x i8], ptr %1534, i64 %1535
   %1537 = load i32, ptr %1536, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %1533, i32 noundef %1537, i32 noundef %.sroa.02052.0)
   %.b.i2007 = load i1, ptr @usertime, align 4
@@ -4145,7 +4143,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1555 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @names, i64 240), align 16, !tbaa !23
   %1556 = load ptr, ptr @lengths, align 8, !tbaa !26
   %1557 = zext nneg i32 %storemerge17183054 to i64
-  %1558 = getelementptr inbounds nuw i32, ptr %1556, i64 %1557
+  %1558 = getelementptr inbounds nuw [4 x i8], ptr %1556, i64 %1557
   %1559 = load i32, ptr %1558, align 4, !tbaa !13
   call fastcc void @print_message(ptr noundef %1555, i32 noundef %1559, i32 noundef %.sroa.02052.0)
   %.b.i2009 = load i1, ptr @usertime, align 4
@@ -4187,7 +4185,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 
 1573:                                             ; preds = %.preheader4849, %1571
   %indvars.iv3735 = phi i64 [ %indvars.iv.next3736, %1571 ], [ 0, %.preheader4849 ]
-  %1574 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3735
+  %1574 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3735
   %1575 = getelementptr inbounds nuw i8, ptr %1574, i64 16
   %1576 = load ptr, ptr %1575, align 8, !tbaa !53
   %1577 = call i32 @RAND_bytes(ptr noundef %1576, i32 noundef 36) #14
@@ -4230,7 +4228,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1591 = load ptr, ptr %11, align 8, !tbaa !15
   %1592 = load i32, ptr @testnum, align 4, !tbaa !13
   %1593 = zext i32 %1592 to i64
-  %1594 = getelementptr inbounds nuw %struct.anon, ptr @speed_main.rsa_keys, i64 %1593
+  %1594 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.rsa_keys, i64 %1593
   %1595 = getelementptr inbounds nuw i8, ptr %1594, i64 12
   %1596 = load i32, ptr %1595, align 4, !tbaa !112
   %1597 = call i32 @EVP_PKEY_CTX_set_rsa_keygen_bits(ptr noundef %1591, i32 noundef %1596) #14
@@ -4261,7 +4259,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 
 1612:                                             ; preds = %1583
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
-  %1613 = getelementptr inbounds nuw %struct.anon, ptr @speed_main.rsa_keys, i64 %1580
+  %1613 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.rsa_keys, i64 %1580
   %1614 = load ptr, ptr %1613, align 16, !tbaa !114
   store ptr %1614, ptr %42, align 8, !tbaa !23
   %1615 = getelementptr inbounds nuw i8, ptr %1613, i64 8
@@ -4280,11 +4278,11 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %indvars.iv3740 = phi i64 [ %indvars.iv.next3741, %1644 ], [ 0, %.lr.ph3060.preheader ]
   %1619 = load ptr, ptr %41, align 8, !tbaa !4
   %1620 = call ptr @EVP_PKEY_CTX_new(ptr noundef %1619, ptr noundef null) #14
-  %1621 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3740
+  %1621 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3740
   %1622 = getelementptr inbounds nuw i8, ptr %1621, i64 96
   %1623 = load i32, ptr @testnum, align 4, !tbaa !13
   %1624 = zext i32 %1623 to i64
-  %1625 = getelementptr inbounds nuw ptr, ptr %1622, i64 %1624
+  %1625 = getelementptr inbounds nuw [8 x i8], ptr %1622, i64 %1624
   store ptr %1620, ptr %1625, align 8, !tbaa !15
   %1626 = getelementptr inbounds nuw i8, ptr %1621, i64 72
   %1627 = load i64, ptr %1626, align 8, !tbaa !55
@@ -4301,7 +4299,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 1633:                                             ; preds = %1630
   %1634 = load i32, ptr @testnum, align 4, !tbaa !13
   %1635 = zext i32 %1634 to i64
-  %1636 = getelementptr inbounds nuw ptr, ptr %1622, i64 %1635
+  %1636 = getelementptr inbounds nuw [8 x i8], ptr %1622, i64 %1635
   %1637 = load ptr, ptr %1636, align 8, !tbaa !15
   %1638 = getelementptr inbounds nuw i8, ptr %1621, i64 24
   %1639 = load ptr, ptr %1638, align 8, !tbaa !54
@@ -4334,7 +4332,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 .lr.ph3066.preheader:                             ; preds = %1644
   %1650 = load i32, ptr @testnum, align 4, !tbaa !13
   %1651 = zext i32 %1650 to i64
-  %1652 = getelementptr inbounds nuw %struct.anon, ptr @speed_main.rsa_keys, i64 %1651
+  %1652 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.rsa_keys, i64 %1651
   %1653 = getelementptr inbounds nuw i8, ptr %1652, i64 12
   %1654 = load i32, ptr %1653, align 4, !tbaa !112
   call fastcc void @pkey_print_message(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.184, i32 noundef %1654, i32 noundef %.sroa.27.0)
@@ -4350,7 +4348,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1661 = select i1 %.b1622, ptr @.str.185, ptr @.str.186
   %1662 = load i32, ptr @testnum, align 4, !tbaa !13
   %1663 = zext i32 %1662 to i64
-  %1664 = getelementptr inbounds nuw %struct.anon, ptr @speed_main.rsa_keys, i64 %1663
+  %1664 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.rsa_keys, i64 %1663
   %1665 = getelementptr inbounds nuw i8, ptr %1664, i64 12
   %1666 = load i32, ptr %1665, align 4, !tbaa !112
   %1667 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1660, ptr noundef nonnull %1661, i64 noundef %1658, i32 noundef %1666, double noundef %1659) #14
@@ -4358,7 +4356,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1669 = fdiv double %1668, %1659
   %1670 = load i32, ptr @testnum, align 4, !tbaa !13
   %1671 = zext i32 %1670 to i64
-  %1672 = getelementptr inbounds nuw [4 x double], ptr @rsa_results, i64 %1671
+  %1672 = getelementptr inbounds nuw [32 x i8], ptr @rsa_results, i64 %1671
   store double %1669, ptr %1672, align 16, !tbaa !86
   br label %.lr.ph3066
 
@@ -4366,11 +4364,11 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %indvars.iv3743 = phi i64 [ 0, %.lr.ph3066.preheader ], [ %indvars.iv.next3744, %1697 ]
   %1673 = load ptr, ptr %41, align 8, !tbaa !4
   %1674 = call ptr @EVP_PKEY_CTX_new(ptr noundef %1673, ptr noundef null) #14
-  %1675 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3743
+  %1675 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3743
   %1676 = getelementptr inbounds nuw i8, ptr %1675, i64 152
   %1677 = load i32, ptr @testnum, align 4, !tbaa !13
   %1678 = zext i32 %1677 to i64
-  %1679 = getelementptr inbounds nuw ptr, ptr %1676, i64 %1678
+  %1679 = getelementptr inbounds nuw [8 x i8], ptr %1676, i64 %1678
   store ptr %1674, ptr %1679, align 8, !tbaa !15
   %1680 = icmp eq ptr %1674, null
   br i1 %1680, label %.thread4049, label %1681
@@ -4383,7 +4381,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 1684:                                             ; preds = %1681
   %1685 = load i32, ptr @testnum, align 4, !tbaa !13
   %1686 = zext i32 %1685 to i64
-  %1687 = getelementptr inbounds nuw ptr, ptr %1676, i64 %1686
+  %1687 = getelementptr inbounds nuw [8 x i8], ptr %1676, i64 %1686
   %1688 = load ptr, ptr %1687, align 8, !tbaa !15
   %1689 = getelementptr inbounds nuw i8, ptr %1675, i64 24
   %1690 = load ptr, ptr %1689, align 8, !tbaa !54
@@ -4415,7 +4413,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 .lr.ph3072.preheader:                             ; preds = %1697
   %1705 = load i32, ptr @testnum, align 4, !tbaa !13
   %1706 = zext i32 %1705 to i64
-  %1707 = getelementptr inbounds nuw %struct.anon, ptr @speed_main.rsa_keys, i64 %1706
+  %1707 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.rsa_keys, i64 %1706
   %1708 = getelementptr inbounds nuw i8, ptr %1707, i64 12
   %1709 = load i32, ptr %1708, align 4, !tbaa !112
   call fastcc void @pkey_print_message(ptr noundef nonnull @.str.188, ptr noundef nonnull @.str.189, i32 noundef %1709, i32 noundef %.sroa.27.0)
@@ -4431,7 +4429,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1716 = select i1 %.b1621, ptr @.str.190, ptr @.str.191
   %1717 = load i32, ptr @testnum, align 4, !tbaa !13
   %1718 = zext i32 %1717 to i64
-  %1719 = getelementptr inbounds nuw %struct.anon, ptr @speed_main.rsa_keys, i64 %1718
+  %1719 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.rsa_keys, i64 %1718
   %1720 = getelementptr inbounds nuw i8, ptr %1719, i64 12
   %1721 = load i32, ptr %1720, align 4, !tbaa !112
   %1722 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1715, ptr noundef nonnull %1716, i64 noundef %1713, i32 noundef %1721, double noundef %1714) #14
@@ -4439,7 +4437,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1724 = fdiv double %1723, %1714
   %1725 = load i32, ptr @testnum, align 4, !tbaa !13
   %1726 = zext i32 %1725 to i64
-  %1727 = getelementptr inbounds nuw [4 x double], ptr @rsa_results, i64 %1726
+  %1727 = getelementptr inbounds nuw [32 x i8], ptr @rsa_results, i64 %1726
   %1728 = getelementptr inbounds nuw i8, ptr %1727, i64 8
   store double %1724, ptr %1728, align 8, !tbaa !86
   br label %.lr.ph3072
@@ -4448,11 +4446,11 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %indvars.iv3746 = phi i64 [ 0, %.lr.ph3072.preheader ], [ %indvars.iv.next3747, %1754 ]
   %1729 = load ptr, ptr %41, align 8, !tbaa !4
   %1730 = call ptr @EVP_PKEY_CTX_new(ptr noundef %1729, ptr noundef null) #14
-  %1731 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3746
+  %1731 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3746
   %1732 = getelementptr inbounds nuw i8, ptr %1731, i64 208
   %1733 = load i32, ptr @testnum, align 4, !tbaa !13
   %1734 = zext i32 %1733 to i64
-  %1735 = getelementptr inbounds nuw ptr, ptr %1732, i64 %1734
+  %1735 = getelementptr inbounds nuw [8 x i8], ptr %1732, i64 %1734
   store ptr %1730, ptr %1735, align 8, !tbaa !15
   %1736 = getelementptr inbounds nuw i8, ptr %1731, i64 72
   %1737 = load i64, ptr %1736, align 8, !tbaa !55
@@ -4469,7 +4467,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 1743:                                             ; preds = %1740
   %1744 = load i32, ptr @testnum, align 4, !tbaa !13
   %1745 = zext i32 %1744 to i64
-  %1746 = getelementptr inbounds nuw ptr, ptr %1732, i64 %1745
+  %1746 = getelementptr inbounds nuw [8 x i8], ptr %1732, i64 %1745
   %1747 = load ptr, ptr %1746, align 8, !tbaa !15
   %1748 = getelementptr inbounds nuw i8, ptr %1731, i64 24
   %1749 = load ptr, ptr %1748, align 8, !tbaa !54
@@ -4495,7 +4493,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 .lr.ph3078.preheader:                             ; preds = %1754
   %1759 = load i32, ptr @testnum, align 4, !tbaa !13
   %1760 = zext i32 %1759 to i64
-  %1761 = getelementptr inbounds nuw %struct.anon, ptr @speed_main.rsa_keys, i64 %1760
+  %1761 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.rsa_keys, i64 %1760
   %1762 = getelementptr inbounds nuw i8, ptr %1761, i64 12
   %1763 = load i32, ptr %1762, align 4, !tbaa !112
   call fastcc void @pkey_print_message(ptr noundef nonnull @.str.188, ptr noundef nonnull @.str.193, i32 noundef %1763, i32 noundef %.sroa.27.0)
@@ -4511,7 +4509,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1770 = select i1 %.b1620, ptr @.str.194, ptr @.str.195
   %1771 = load i32, ptr @testnum, align 4, !tbaa !13
   %1772 = zext i32 %1771 to i64
-  %1773 = getelementptr inbounds nuw %struct.anon, ptr @speed_main.rsa_keys, i64 %1772
+  %1773 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.rsa_keys, i64 %1772
   %1774 = getelementptr inbounds nuw i8, ptr %1773, i64 12
   %1775 = load i32, ptr %1774, align 4, !tbaa !112
   %1776 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1769, ptr noundef nonnull %1770, i64 noundef %1767, i32 noundef %1775, double noundef %1768) #14
@@ -4519,7 +4517,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1778 = fdiv double %1777, %1768
   %1779 = load i32, ptr @testnum, align 4, !tbaa !13
   %1780 = zext i32 %1779 to i64
-  %1781 = getelementptr inbounds nuw [4 x double], ptr @rsa_results, i64 %1780
+  %1781 = getelementptr inbounds nuw [32 x i8], ptr @rsa_results, i64 %1780
   %1782 = getelementptr inbounds nuw i8, ptr %1781, i64 16
   store double %1778, ptr %1782, align 16, !tbaa !86
   br label %.lr.ph3078
@@ -4528,11 +4526,11 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %indvars.iv3749 = phi i64 [ 0, %.lr.ph3078.preheader ], [ %indvars.iv.next3750, %1809 ]
   %1783 = load ptr, ptr %41, align 8, !tbaa !4
   %1784 = call ptr @EVP_PKEY_CTX_new(ptr noundef %1783, ptr noundef null) #14
-  %1785 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3749
+  %1785 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3749
   %1786 = getelementptr inbounds nuw i8, ptr %1785, i64 264
   %1787 = load i32, ptr @testnum, align 4, !tbaa !13
   %1788 = zext i32 %1787 to i64
-  %1789 = getelementptr inbounds nuw ptr, ptr %1786, i64 %1788
+  %1789 = getelementptr inbounds nuw [8 x i8], ptr %1786, i64 %1788
   store ptr %1784, ptr %1789, align 8, !tbaa !15
   %1790 = getelementptr inbounds nuw i8, ptr %1785, i64 72
   %1791 = load i64, ptr %1790, align 8, !tbaa !55
@@ -4548,7 +4546,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 1796:                                             ; preds = %1793
   %1797 = load i32, ptr @testnum, align 4, !tbaa !13
   %1798 = zext i32 %1797 to i64
-  %1799 = getelementptr inbounds nuw ptr, ptr %1786, i64 %1798
+  %1799 = getelementptr inbounds nuw [8 x i8], ptr %1786, i64 %1798
   %1800 = load ptr, ptr %1799, align 8, !tbaa !15
   %1801 = getelementptr inbounds nuw i8, ptr %1785, i64 16
   %1802 = load ptr, ptr %1801, align 8, !tbaa !53
@@ -4578,7 +4576,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 ._crit_edge3079:                                  ; preds = %1809
   %1814 = load i32, ptr @testnum, align 4, !tbaa !13
   %1815 = zext i32 %1814 to i64
-  %1816 = getelementptr inbounds nuw %struct.anon, ptr @speed_main.rsa_keys, i64 %1815
+  %1816 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.rsa_keys, i64 %1815
   %1817 = getelementptr inbounds nuw i8, ptr %1816, i64 12
   %1818 = load i32, ptr %1817, align 4, !tbaa !112
   call fastcc void @pkey_print_message(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.197, i32 noundef %1818, i32 noundef %.sroa.27.0)
@@ -4594,7 +4592,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1825 = select i1 %.b1619, ptr @.str.198, ptr @.str.199
   %1826 = load i32, ptr @testnum, align 4, !tbaa !13
   %1827 = zext i32 %1826 to i64
-  %1828 = getelementptr inbounds nuw %struct.anon, ptr @speed_main.rsa_keys, i64 %1827
+  %1828 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.rsa_keys, i64 %1827
   %1829 = getelementptr inbounds nuw i8, ptr %1828, i64 12
   %1830 = load i32, ptr %1829, align 4, !tbaa !112
   %1831 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1824, ptr noundef nonnull %1825, i64 noundef %1822, i32 noundef %1830, double noundef %1823) #14
@@ -4602,7 +4600,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1833 = fdiv double %1832, %1823
   %1834 = load i32, ptr @testnum, align 4, !tbaa !13
   %1835 = zext i32 %1834 to i64
-  %1836 = getelementptr inbounds nuw [4 x double], ptr @rsa_results, i64 %1835
+  %1836 = getelementptr inbounds nuw [32 x i8], ptr @rsa_results, i64 %1835
   %1837 = getelementptr inbounds nuw i8, ptr %1836, i64 24
   store double %1833, ptr %1837, align 8, !tbaa !86
   %1838 = icmp slt i32 %1821, 2
@@ -4642,7 +4640,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   br i1 %.not1778, label %1966, label %1852
 
 1852:                                             ; preds = %1848
-  %1853 = getelementptr inbounds nuw i32, ptr @speed_main.dsa_bits, i64 %1849
+  %1853 = getelementptr inbounds nuw [4 x i8], ptr @speed_main.dsa_bits, i64 %1849
   %1854 = load i32, ptr %1853, align 4, !tbaa !13
   %1855 = call ptr @get_dsa(i32 noundef %1854)
   %.not4028 = icmp eq ptr %1855, null
@@ -4651,11 +4649,11 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 .lr.ph3084:                                       ; preds = %1852, %1880
   %indvars.iv3752 = phi i64 [ %indvars.iv.next3753, %1880 ], [ 0, %1852 ]
   %1856 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %1855, ptr noundef null) #14
-  %1857 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3752
+  %1857 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3752
   %1858 = getelementptr inbounds nuw i8, ptr %1857, i64 320
   %1859 = load i32, ptr @testnum, align 4, !tbaa !13
   %1860 = zext i32 %1859 to i64
-  %1861 = getelementptr inbounds nuw ptr, ptr %1858, i64 %1860
+  %1861 = getelementptr inbounds nuw [8 x i8], ptr %1858, i64 %1860
   store ptr %1856, ptr %1861, align 8, !tbaa !15
   %1862 = getelementptr inbounds nuw i8, ptr %1857, i64 72
   %1863 = load i64, ptr %1862, align 8, !tbaa !55
@@ -4672,7 +4670,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 1869:                                             ; preds = %1866
   %1870 = load i32, ptr @testnum, align 4, !tbaa !13
   %1871 = zext i32 %1870 to i64
-  %1872 = getelementptr inbounds nuw ptr, ptr %1858, i64 %1871
+  %1872 = getelementptr inbounds nuw [8 x i8], ptr %1858, i64 %1871
   %1873 = load ptr, ptr %1872, align 8, !tbaa !15
   %1874 = getelementptr inbounds nuw i8, ptr %1857, i64 24
   %1875 = load ptr, ptr %1874, align 8, !tbaa !54
@@ -4698,7 +4696,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 .lr.ph3090.preheader:                             ; preds = %1880
   %1885 = load i32, ptr @testnum, align 4, !tbaa !13
   %1886 = zext i32 %1885 to i64
-  %1887 = getelementptr inbounds nuw i32, ptr @speed_main.dsa_bits, i64 %1886
+  %1887 = getelementptr inbounds nuw [4 x i8], ptr @speed_main.dsa_bits, i64 %1886
   %1888 = load i32, ptr %1887, align 4, !tbaa !13
   call fastcc void @pkey_print_message(ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.131, i32 noundef %1888, i32 noundef %.sroa.32.0)
   %.b.i2019 = load i1, ptr @usertime, align 4
@@ -4713,14 +4711,14 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1895 = select i1 %.b1618, ptr @.str.202, ptr @.str.203
   %1896 = load i32, ptr @testnum, align 4, !tbaa !13
   %1897 = zext i32 %1896 to i64
-  %1898 = getelementptr inbounds nuw i32, ptr @speed_main.dsa_bits, i64 %1897
+  %1898 = getelementptr inbounds nuw [4 x i8], ptr @speed_main.dsa_bits, i64 %1897
   %1899 = load i32, ptr %1898, align 4, !tbaa !13
   %1900 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1894, ptr noundef nonnull %1895, i64 noundef %1892, i32 noundef %1899, double noundef %1893) #14
   %1901 = sitofp i32 %1891 to double
   %1902 = fdiv double %1901, %1893
   %1903 = load i32, ptr @testnum, align 4, !tbaa !13
   %1904 = zext i32 %1903 to i64
-  %1905 = getelementptr inbounds nuw [2 x double], ptr @dsa_results, i64 %1904
+  %1905 = getelementptr inbounds nuw [16 x i8], ptr @dsa_results, i64 %1904
   store double %1902, ptr %1905, align 16, !tbaa !86
   %1906 = icmp slt i32 %1891, 2
   br label %.lr.ph3090
@@ -4728,11 +4726,11 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 .lr.ph3090:                                       ; preds = %.lr.ph3090.preheader, %1930
   %indvars.iv3755 = phi i64 [ 0, %.lr.ph3090.preheader ], [ %indvars.iv.next3756, %1930 ]
   %1907 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %1855, ptr noundef null) #14
-  %1908 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3755
+  %1908 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3755
   %1909 = getelementptr inbounds nuw i8, ptr %1908, i64 336
   %1910 = load i32, ptr @testnum, align 4, !tbaa !13
   %1911 = zext i32 %1910 to i64
-  %1912 = getelementptr inbounds nuw ptr, ptr %1909, i64 %1911
+  %1912 = getelementptr inbounds nuw [8 x i8], ptr %1909, i64 %1911
   store ptr %1907, ptr %1912, align 8, !tbaa !15
   %1913 = icmp eq ptr %1907, null
   br i1 %1913, label %.thread4072, label %1914
@@ -4745,7 +4743,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 1917:                                             ; preds = %1914
   %1918 = load i32, ptr @testnum, align 4, !tbaa !13
   %1919 = zext i32 %1918 to i64
-  %1920 = getelementptr inbounds nuw ptr, ptr %1909, i64 %1919
+  %1920 = getelementptr inbounds nuw [8 x i8], ptr %1909, i64 %1919
   %1921 = load ptr, ptr %1920, align 8, !tbaa !15
   %1922 = getelementptr inbounds nuw i8, ptr %1908, i64 24
   %1923 = load ptr, ptr %1922, align 8, !tbaa !54
@@ -4765,7 +4763,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 ._crit_edge3091:                                  ; preds = %1930
   %1932 = load i32, ptr @testnum, align 4, !tbaa !13
   %1933 = zext i32 %1932 to i64
-  %1934 = getelementptr inbounds nuw i32, ptr @speed_main.dsa_bits, i64 %1933
+  %1934 = getelementptr inbounds nuw [4 x i8], ptr @speed_main.dsa_bits, i64 %1933
   %1935 = load i32, ptr %1934, align 4, !tbaa !13
   call fastcc void @pkey_print_message(ptr noundef nonnull @.str.205, ptr noundef nonnull @.str.131, i32 noundef %1935, i32 noundef %.sroa.32.0)
   %.b.i2021 = load i1, ptr @usertime, align 4
@@ -4780,14 +4778,14 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %1942 = select i1 %.b1617, ptr @.str.206, ptr @.str.207
   %1943 = load i32, ptr @testnum, align 4, !tbaa !13
   %1944 = zext i32 %1943 to i64
-  %1945 = getelementptr inbounds nuw i32, ptr @speed_main.dsa_bits, i64 %1944
+  %1945 = getelementptr inbounds nuw [4 x i8], ptr @speed_main.dsa_bits, i64 %1944
   %1946 = load i32, ptr %1945, align 4, !tbaa !13
   %1947 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1941, ptr noundef nonnull %1942, i64 noundef %1939, i32 noundef %1946, double noundef %1940) #14
   %1948 = sitofp i32 %1938 to double
   %1949 = fdiv double %1948, %1940
   %1950 = load i32, ptr @testnum, align 4, !tbaa !13
   %1951 = zext i32 %1950 to i64
-  %1952 = getelementptr inbounds nuw [2 x double], ptr @dsa_results, i64 %1951
+  %1952 = getelementptr inbounds nuw [16 x i8], ptr @dsa_results, i64 %1951
   %1953 = getelementptr inbounds nuw i8, ptr %1952, i64 8
   store double %1949, ptr %1953, align 8, !tbaa !86
   br i1 %1906, label %1960, label %1965
@@ -4838,7 +4836,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   br i1 %.not1775, label %2091, label %1974
 
 1974:                                             ; preds = %1970
-  %1975 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ec_curves, i64 %1971
+  %1975 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ec_curves, i64 %1971
   %1976 = call fastcc ptr @get_ecdsa(ptr noundef nonnull %1975)
   %.not4029 = icmp eq ptr %1976, null
   br i1 %.not4029, label %.thread4084, label %.lr.ph3096
@@ -4846,11 +4844,11 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 .lr.ph3096:                                       ; preds = %1974, %2001
   %indvars.iv3758 = phi i64 [ %indvars.iv.next3759, %2001 ], [ 0, %1974 ]
   %1977 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %1976, ptr noundef null) #14
-  %1978 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3758
+  %1978 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3758
   %1979 = getelementptr inbounds nuw i8, ptr %1978, i64 352
   %1980 = load i32, ptr @testnum, align 4, !tbaa !13
   %1981 = zext i32 %1980 to i64
-  %1982 = getelementptr inbounds nuw ptr, ptr %1979, i64 %1981
+  %1982 = getelementptr inbounds nuw [8 x i8], ptr %1979, i64 %1981
   store ptr %1977, ptr %1982, align 8, !tbaa !15
   %1983 = getelementptr inbounds nuw i8, ptr %1978, i64 72
   %1984 = load i64, ptr %1983, align 8, !tbaa !55
@@ -4867,7 +4865,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 1990:                                             ; preds = %1987
   %1991 = load i32, ptr @testnum, align 4, !tbaa !13
   %1992 = zext i32 %1991 to i64
-  %1993 = getelementptr inbounds nuw ptr, ptr %1979, i64 %1992
+  %1993 = getelementptr inbounds nuw [8 x i8], ptr %1979, i64 %1992
   %1994 = load ptr, ptr %1993, align 8, !tbaa !15
   %1995 = getelementptr inbounds nuw i8, ptr %1978, i64 24
   %1996 = load ptr, ptr %1995, align 8, !tbaa !54
@@ -4893,7 +4891,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 .lr.ph3102.preheader:                             ; preds = %2001
   %2006 = load i32, ptr @testnum, align 4, !tbaa !13
   %2007 = zext i32 %2006 to i64
-  %2008 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ec_curves, i64 %2007
+  %2008 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ec_curves, i64 %2007
   %2009 = getelementptr inbounds nuw i8, ptr %2008, i64 12
   %2010 = load i32, ptr %2009, align 4, !tbaa !126
   call fastcc void @pkey_print_message(ptr noundef nonnull @.str.201, ptr noundef nonnull @.str.134, i32 noundef %2010, i32 noundef %.sroa.35.0)
@@ -4909,7 +4907,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2017 = select i1 %.b1616, ptr @.str.209, ptr @.str.210
   %2018 = load i32, ptr @testnum, align 4, !tbaa !13
   %2019 = zext i32 %2018 to i64
-  %2020 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ec_curves, i64 %2019
+  %2020 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ec_curves, i64 %2019
   %2021 = getelementptr inbounds nuw i8, ptr %2020, i64 12
   %2022 = load i32, ptr %2021, align 4, !tbaa !126
   %2023 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2016, ptr noundef nonnull %2017, i64 noundef %2014, i32 noundef %2022, double noundef %2015) #14
@@ -4917,7 +4915,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2025 = fdiv double %2024, %2015
   %2026 = load i32, ptr @testnum, align 4, !tbaa !13
   %2027 = zext i32 %2026 to i64
-  %2028 = getelementptr inbounds nuw [2 x double], ptr @ecdsa_results, i64 %2027
+  %2028 = getelementptr inbounds nuw [16 x i8], ptr @ecdsa_results, i64 %2027
   store double %2025, ptr %2028, align 16, !tbaa !86
   %2029 = icmp slt i32 %2013, 2
   br label %.lr.ph3102
@@ -4925,11 +4923,11 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 .lr.ph3102:                                       ; preds = %.lr.ph3102.preheader, %2053
   %indvars.iv3761 = phi i64 [ 0, %.lr.ph3102.preheader ], [ %indvars.iv.next3762, %2053 ]
   %2030 = call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %1976, ptr noundef null) #14
-  %2031 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3761
+  %2031 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3761
   %2032 = getelementptr inbounds nuw i8, ptr %2031, i64 528
   %2033 = load i32, ptr @testnum, align 4, !tbaa !13
   %2034 = zext i32 %2033 to i64
-  %2035 = getelementptr inbounds nuw ptr, ptr %2032, i64 %2034
+  %2035 = getelementptr inbounds nuw [8 x i8], ptr %2032, i64 %2034
   store ptr %2030, ptr %2035, align 8, !tbaa !15
   %2036 = icmp eq ptr %2030, null
   br i1 %2036, label %.thread4088, label %2037
@@ -4942,7 +4940,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 2040:                                             ; preds = %2037
   %2041 = load i32, ptr @testnum, align 4, !tbaa !13
   %2042 = zext i32 %2041 to i64
-  %2043 = getelementptr inbounds nuw ptr, ptr %2032, i64 %2042
+  %2043 = getelementptr inbounds nuw [8 x i8], ptr %2032, i64 %2042
   %2044 = load ptr, ptr %2043, align 8, !tbaa !15
   %2045 = getelementptr inbounds nuw i8, ptr %2031, i64 24
   %2046 = load ptr, ptr %2045, align 8, !tbaa !54
@@ -4962,7 +4960,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 ._crit_edge3103:                                  ; preds = %2053
   %2055 = load i32, ptr @testnum, align 4, !tbaa !13
   %2056 = zext i32 %2055 to i64
-  %2057 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ec_curves, i64 %2056
+  %2057 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ec_curves, i64 %2056
   %2058 = getelementptr inbounds nuw i8, ptr %2057, i64 12
   %2059 = load i32, ptr %2058, align 4, !tbaa !126
   call fastcc void @pkey_print_message(ptr noundef nonnull @.str.205, ptr noundef nonnull @.str.134, i32 noundef %2059, i32 noundef %.sroa.35.0)
@@ -4978,7 +4976,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2066 = select i1 %.b1615, ptr @.str.212, ptr @.str.213
   %2067 = load i32, ptr @testnum, align 4, !tbaa !13
   %2068 = zext i32 %2067 to i64
-  %2069 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ec_curves, i64 %2068
+  %2069 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ec_curves, i64 %2068
   %2070 = getelementptr inbounds nuw i8, ptr %2069, i64 12
   %2071 = load i32, ptr %2070, align 4, !tbaa !126
   %2072 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2065, ptr noundef nonnull %2066, i64 noundef %2063, i32 noundef %2071, double noundef %2064) #14
@@ -4986,7 +4984,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2074 = fdiv double %2073, %2064
   %2075 = load i32, ptr @testnum, align 4, !tbaa !13
   %2076 = zext i32 %2075 to i64
-  %2077 = getelementptr inbounds nuw [2 x double], ptr @ecdsa_results, i64 %2076
+  %2077 = getelementptr inbounds nuw [16 x i8], ptr @ecdsa_results, i64 %2076
   %2078 = getelementptr inbounds nuw i8, ptr %2077, i64 8
   store double %2074, ptr %2078, align 8, !tbaa !86
   br i1 %2029, label %2085, label %2090
@@ -5042,7 +5040,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %2099 = load i32, ptr @testnum, align 4, !tbaa !13
   %2100 = zext i32 %2099 to i64
-  %2101 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ec_curves, i64 %2100
+  %2101 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ec_curves, i64 %2100
   %2102 = call fastcc ptr @get_ecdsa(ptr noundef nonnull %2101)
   %2103 = icmp eq ptr %2102, null
   br i1 %2103, label %.thread2369, label %2104
@@ -5050,7 +5048,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 2104:                                             ; preds = %.preheader2482
   %2105 = load i32, ptr @testnum, align 4, !tbaa !13
   %2106 = zext i32 %2105 to i64
-  %2107 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ec_curves, i64 %2106
+  %2107 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ec_curves, i64 %2106
   %2108 = call fastcc ptr @get_ecdsa(ptr noundef nonnull %2107)
   %2109 = icmp eq ptr %2108, null
   br i1 %2109, label %.thread2369, label %2110
@@ -5100,7 +5098,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   br i1 %2136, label %.thread2369, label %2137
 
 2137:                                             ; preds = %2134
-  %2138 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3764
+  %2138 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3764
   %2139 = getelementptr inbounds nuw i8, ptr %2138, i64 952
   %2140 = load ptr, ptr %2139, align 8, !tbaa !57
   %2141 = call i32 @EVP_PKEY_derive(ptr noundef nonnull %2111, ptr noundef %2140, ptr noundef nonnull %43) #14
@@ -5144,11 +5142,11 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2159 = getelementptr inbounds nuw i8, ptr %2138, i64 704
   %2160 = load i32, ptr @testnum, align 4, !tbaa !13
   %2161 = zext i32 %2160 to i64
-  %2162 = getelementptr inbounds nuw ptr, ptr %2159, i64 %2161
+  %2162 = getelementptr inbounds nuw [8 x i8], ptr %2159, i64 %2161
   store ptr %2111, ptr %2162, align 8, !tbaa !15
   %2163 = load i64, ptr %43, align 8, !tbaa !28
   %2164 = getelementptr inbounds nuw i8, ptr %2138, i64 968
-  %2165 = getelementptr inbounds nuw i64, ptr %2164, i64 %2161
+  %2165 = getelementptr inbounds nuw [8 x i8], ptr %2164, i64 %2161
   store i64 %2163, ptr %2165, align 8, !tbaa !28
   call void @EVP_PKEY_free(ptr noundef nonnull %2102) #14
   call void @EVP_PKEY_free(ptr noundef nonnull %2108) #14
@@ -5162,7 +5160,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 2166:                                             ; preds = %2158
   %2167 = load i32, ptr @testnum, align 4, !tbaa !13
   %2168 = zext i32 %2167 to i64
-  %2169 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ec_curves, i64 %2168
+  %2169 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ec_curves, i64 %2168
   %2170 = getelementptr inbounds nuw i8, ptr %2169, i64 12
   %2171 = load i32, ptr %2170, align 4, !tbaa !126
   call fastcc void @pkey_print_message(ptr noundef nonnull @.str.217, ptr noundef nonnull @.str.135, i32 noundef %2171, i32 noundef %.sroa.38.0)
@@ -5178,7 +5176,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2178 = select i1 %.b1614, ptr @.str.218, ptr @.str.219
   %2179 = load i32, ptr @testnum, align 4, !tbaa !13
   %2180 = zext i32 %2179 to i64
-  %2181 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ec_curves, i64 %2180
+  %2181 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ec_curves, i64 %2180
   %2182 = getelementptr inbounds nuw i8, ptr %2181, i64 12
   %2183 = load i32, ptr %2182, align 4, !tbaa !126
   %2184 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2177, ptr noundef nonnull %2178, i64 noundef %2175, i32 noundef %2183, double noundef %2176) #14
@@ -5186,7 +5184,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2186 = fdiv double %2185, %2176
   %2187 = load i32, ptr @testnum, align 4, !tbaa !13
   %2188 = zext i32 %2187 to i64
-  %2189 = getelementptr inbounds nuw [1 x double], ptr @ecdh_results, i64 %2188
+  %2189 = getelementptr inbounds nuw [8 x i8], ptr @ecdh_results, i64 %2188
   store double %2186, ptr %2189, align 8, !tbaa !86
   %2190 = icmp slt i32 %2174, 2
   br i1 %2190, label %2191, label %2195
@@ -5223,11 +5221,11 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 .preheader2479:                                   ; preds = %2199, %2247
   %indvars.iv3769 = phi i64 [ %indvars.iv.next3770, %2247 ], [ 0, %2199 ]
   %2203 = call ptr @EVP_MD_CTX_new() #14
-  %2204 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3769
+  %2204 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3769
   %2205 = getelementptr inbounds nuw i8, ptr %2204, i64 896
   %2206 = load i32, ptr @testnum, align 4, !tbaa !13
   %2207 = zext i32 %2206 to i64
-  %2208 = getelementptr inbounds nuw ptr, ptr %2205, i64 %2207
+  %2208 = getelementptr inbounds nuw [8 x i8], ptr %2205, i64 %2207
   store ptr %2203, ptr %2208, align 8, !tbaa !132
   %2209 = icmp eq ptr %2203, null
   br i1 %2209, label %.loopexit2480, label %2210
@@ -5237,13 +5235,13 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2212 = getelementptr inbounds nuw i8, ptr %2204, i64 912
   %2213 = load i32, ptr @testnum, align 4, !tbaa !13
   %2214 = zext i32 %2213 to i64
-  %2215 = getelementptr inbounds nuw ptr, ptr %2212, i64 %2214
+  %2215 = getelementptr inbounds nuw [8 x i8], ptr %2212, i64 %2214
   store ptr %2211, ptr %2215, align 8, !tbaa !132
   %2216 = icmp eq ptr %2211, null
   br i1 %2216, label %.loopexit2480, label %2217
 
 2217:                                             ; preds = %2210
-  %2218 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ed_curves, i64 %2214
+  %2218 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ed_curves, i64 %2214
   %2219 = getelementptr inbounds nuw i8, ptr %2218, i64 8
   %2220 = load i32, ptr %2219, align 8, !tbaa !134
   %2221 = call ptr @EVP_PKEY_CTX_new_id(i32 noundef %2220, ptr noundef null) #14
@@ -5268,7 +5266,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %2221) #14
   %2231 = load i32, ptr @testnum, align 4, !tbaa !13
   %2232 = zext i32 %2231 to i64
-  %2233 = getelementptr inbounds nuw ptr, ptr %2205, i64 %2232
+  %2233 = getelementptr inbounds nuw [8 x i8], ptr %2205, i64 %2232
   %2234 = load ptr, ptr %2233, align 8, !tbaa !132
   %2235 = load ptr, ptr %45, align 8, !tbaa !4
   %2236 = call i32 @EVP_DigestSignInit(ptr noundef %2234, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %2235) #14
@@ -5283,7 +5281,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 2239:                                             ; preds = %2230
   %2240 = load i32, ptr @testnum, align 4, !tbaa !13
   %2241 = zext i32 %2240 to i64
-  %2242 = getelementptr inbounds nuw ptr, ptr %2212, i64 %2241
+  %2242 = getelementptr inbounds nuw [8 x i8], ptr %2212, i64 %2241
   %2243 = load ptr, ptr %2242, align 8, !tbaa !132
   %2244 = load ptr, ptr %45, align 8, !tbaa !4
   %2245 = call i32 @EVP_DigestVerifyInit(ptr noundef %2243, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %2244) #14
@@ -5316,14 +5314,14 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %indvars.iv3774 = phi i64 [ %indvars.iv.next3775, %.critedge ], [ 0, %2247 ]
   %2251 = load i32, ptr @testnum, align 4, !tbaa !13
   %2252 = zext i32 %2251 to i64
-  %2253 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ed_curves, i64 %2252
+  %2253 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ed_curves, i64 %2252
   %2254 = getelementptr inbounds nuw i8, ptr %2253, i64 16
   %2255 = load i64, ptr %2254, align 8, !tbaa !137
-  %2256 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3774
+  %2256 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3774
   %2257 = getelementptr inbounds nuw i8, ptr %2256, i64 80
   store i64 %2255, ptr %2257, align 8, !tbaa !56
   %2258 = getelementptr inbounds nuw i8, ptr %2256, i64 896
-  %2259 = getelementptr inbounds nuw ptr, ptr %2258, i64 %2252
+  %2259 = getelementptr inbounds nuw [8 x i8], ptr %2258, i64 %2252
   %2260 = load ptr, ptr %2259, align 8, !tbaa !132
   %2261 = getelementptr inbounds nuw i8, ptr %2256, i64 24
   %2262 = load ptr, ptr %2261, align 8, !tbaa !54
@@ -5344,7 +5342,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 2271:                                             ; preds = %.critedge
   %2272 = load i32, ptr @testnum, align 4, !tbaa !13
   %2273 = zext i32 %2272 to i64
-  %2274 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ed_curves, i64 %2273
+  %2274 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ed_curves, i64 %2273
   %2275 = load ptr, ptr %2274, align 8, !tbaa !138
   %2276 = getelementptr inbounds nuw i8, ptr %2274, i64 12
   %2277 = load i32, ptr %2276, align 4, !tbaa !126
@@ -5361,7 +5359,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2284 = select i1 %.b1613, ptr @.str.222, ptr @.str.223
   %2285 = load i32, ptr @testnum, align 4, !tbaa !13
   %2286 = zext i32 %2285 to i64
-  %2287 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ed_curves, i64 %2286
+  %2287 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ed_curves, i64 %2286
   %2288 = getelementptr inbounds nuw i8, ptr %2287, i64 12
   %2289 = load i32, ptr %2288, align 4, !tbaa !126
   %2290 = load ptr, ptr %2287, align 8, !tbaa !138
@@ -5370,7 +5368,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2293 = fdiv double %2292, %2282
   %2294 = load i32, ptr @testnum, align 4, !tbaa !13
   %2295 = zext i32 %2294 to i64
-  %2296 = getelementptr inbounds nuw [2 x double], ptr @eddsa_results, i64 %2295
+  %2296 = getelementptr inbounds nuw [16 x i8], ptr @eddsa_results, i64 %2295
   store double %2293, ptr %2296, align 16, !tbaa !86
   %2297 = icmp slt i32 %2280, 2
   br label %2298
@@ -5386,11 +5384,11 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 
 2300:                                             ; preds = %2298, %2299
   %indvars.iv3779 = phi i64 [ 0, %2298 ], [ %indvars.iv.next3780, %2299 ]
-  %2301 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3779
+  %2301 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3779
   %2302 = getelementptr inbounds nuw i8, ptr %2301, i64 912
   %2303 = load i32, ptr @testnum, align 4, !tbaa !13
   %2304 = zext i32 %2303 to i64
-  %2305 = getelementptr inbounds nuw ptr, ptr %2302, i64 %2304
+  %2305 = getelementptr inbounds nuw [8 x i8], ptr %2302, i64 %2304
   %2306 = load ptr, ptr %2305, align 8, !tbaa !132
   %2307 = getelementptr inbounds nuw i8, ptr %2301, i64 24
   %2308 = load ptr, ptr %2307, align 8, !tbaa !54
@@ -5405,7 +5403,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 2314:                                             ; preds = %2299
   %2315 = load i32, ptr @testnum, align 4, !tbaa !13
   %2316 = zext i32 %2315 to i64
-  %2317 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ed_curves, i64 %2316
+  %2317 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ed_curves, i64 %2316
   %2318 = load ptr, ptr %2317, align 8, !tbaa !138
   %2319 = getelementptr inbounds nuw i8, ptr %2317, i64 12
   %2320 = load i32, ptr %2319, align 4, !tbaa !126
@@ -5422,7 +5420,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2327 = select i1 %.b1612, ptr @.str.225, ptr @.str.226
   %2328 = load i32, ptr @testnum, align 4, !tbaa !13
   %2329 = zext i32 %2328 to i64
-  %2330 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ed_curves, i64 %2329
+  %2330 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ed_curves, i64 %2329
   %2331 = getelementptr inbounds nuw i8, ptr %2330, i64 12
   %2332 = load i32, ptr %2331, align 4, !tbaa !126
   %2333 = load ptr, ptr %2330, align 8, !tbaa !138
@@ -5431,7 +5429,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2336 = fdiv double %2335, %2325
   %2337 = load i32, ptr @testnum, align 4, !tbaa !13
   %2338 = zext i32 %2337 to i64
-  %2339 = getelementptr inbounds nuw [2 x double], ptr @eddsa_results, i64 %2338
+  %2339 = getelementptr inbounds nuw [16 x i8], ptr @eddsa_results, i64 %2338
   %2340 = getelementptr inbounds nuw i8, ptr %2339, i64 8
   store double %2336, ptr %2340, align 8, !tbaa !86
   br label %2347
@@ -5491,19 +5489,19 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 .preheader2477:                                   ; preds = %2357, %2358
   %indvars.iv3784 = phi i64 [ %indvars.iv.next3785, %2358 ], [ 0, %2357 ]
   %2359 = call ptr @EVP_MD_CTX_new() #14
-  %2360 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3784
+  %2360 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3784
   %2361 = getelementptr inbounds nuw i8, ptr %2360, i64 928
   %2362 = load i32, ptr @testnum, align 4, !tbaa !13
   %2363 = zext i32 %2362 to i64
-  %2364 = getelementptr inbounds nuw ptr, ptr %2361, i64 %2363
+  %2364 = getelementptr inbounds nuw [8 x i8], ptr %2361, i64 %2363
   store ptr %2359, ptr %2364, align 8, !tbaa !132
   %2365 = call ptr @EVP_MD_CTX_new() #14
   %2366 = getelementptr inbounds nuw i8, ptr %2360, i64 936
   %2367 = load i32, ptr @testnum, align 4, !tbaa !13
   %2368 = zext i32 %2367 to i64
-  %2369 = getelementptr inbounds nuw ptr, ptr %2366, i64 %2368
+  %2369 = getelementptr inbounds nuw [8 x i8], ptr %2366, i64 %2368
   store ptr %2365, ptr %2369, align 8, !tbaa !132
-  %2370 = getelementptr inbounds nuw ptr, ptr %2361, i64 %2368
+  %2370 = getelementptr inbounds nuw [8 x i8], ptr %2361, i64 %2368
   %2371 = load ptr, ptr %2370, align 8, !tbaa !132
   %2372 = icmp eq ptr %2371, null
   %2373 = icmp eq ptr %2365, null
@@ -5537,7 +5535,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2388 = getelementptr inbounds nuw i8, ptr %2360, i64 944
   %2389 = load i32, ptr @testnum, align 4, !tbaa !13
   %2390 = zext i32 %2389 to i64
-  %2391 = getelementptr inbounds nuw ptr, ptr %2388, i64 %2390
+  %2391 = getelementptr inbounds nuw [8 x i8], ptr %2388, i64 %2390
   store ptr %2387, ptr %2391, align 8, !tbaa !4
   %2392 = call i32 @EVP_PKEY_get_size(ptr noundef %2387) #14
   %2393 = sext i32 %2392 to i64
@@ -5555,12 +5553,12 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 2401:                                             ; preds = %2386
   %2402 = load i32, ptr @testnum, align 4, !tbaa !13
   %2403 = zext i32 %2402 to i64
-  %2404 = getelementptr inbounds nuw ptr, ptr %2361, i64 %2403
+  %2404 = getelementptr inbounds nuw [8 x i8], ptr %2361, i64 %2403
   %2405 = load ptr, ptr %2404, align 8, !tbaa !132
   call void @EVP_MD_CTX_set_pkey_ctx(ptr noundef %2405, ptr noundef nonnull %2396) #14
   %2406 = load i32, ptr @testnum, align 4, !tbaa !13
   %2407 = zext i32 %2406 to i64
-  %2408 = getelementptr inbounds nuw ptr, ptr %2366, i64 %2407
+  %2408 = getelementptr inbounds nuw [8 x i8], ptr %2366, i64 %2407
   %2409 = load ptr, ptr %2408, align 8, !tbaa !132
   call void @EVP_MD_CTX_set_pkey_ctx(ptr noundef %2409, ptr noundef nonnull %2398) #14
   %2410 = call i32 @EVP_PKEY_CTX_set1_id(ptr noundef nonnull %2396, ptr noundef nonnull @.str.227, i32 noundef 23) #14
@@ -5575,7 +5573,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 2413:                                             ; preds = %2411
   %2414 = load i32, ptr @testnum, align 4, !tbaa !13
   %2415 = zext i32 %2414 to i64
-  %2416 = getelementptr inbounds nuw ptr, ptr %2361, i64 %2415
+  %2416 = getelementptr inbounds nuw [8 x i8], ptr %2361, i64 %2415
   %2417 = load ptr, ptr %2416, align 8, !tbaa !132
   %2418 = call ptr @EVP_sm3() #14
   %2419 = load ptr, ptr %46, align 8, !tbaa !4
@@ -5586,7 +5584,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 2421:                                             ; preds = %2413
   %2422 = load i32, ptr @testnum, align 4, !tbaa !13
   %2423 = zext i32 %2422 to i64
-  %2424 = getelementptr inbounds nuw ptr, ptr %2366, i64 %2423
+  %2424 = getelementptr inbounds nuw [8 x i8], ptr %2366, i64 %2423
   %2425 = load ptr, ptr %2424, align 8, !tbaa !132
   %2426 = call ptr @EVP_sm3() #14
   %2427 = load ptr, ptr %46, align 8, !tbaa !4
@@ -5615,11 +5613,11 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 
 .critedge2459.preheader.loopexit:                 ; preds = %2358, %.critedge2459
   %indvars.iv3789 = phi i64 [ %indvars.iv.next3790, %.critedge2459 ], [ 0, %2358 ]
-  %2432 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3789
+  %2432 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3789
   %2433 = getelementptr inbounds nuw i8, ptr %2432, i64 928
   %2434 = load i32, ptr @testnum, align 4, !tbaa !13
   %2435 = zext i32 %2434 to i64
-  %2436 = getelementptr inbounds nuw ptr, ptr %2433, i64 %2435
+  %2436 = getelementptr inbounds nuw [8 x i8], ptr %2433, i64 %2435
   %2437 = load ptr, ptr %2436, align 8, !tbaa !132
   %2438 = getelementptr inbounds nuw i8, ptr %2432, i64 24
   %2439 = load ptr, ptr %2438, align 8, !tbaa !54
@@ -5655,7 +5653,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2459 = fdiv double %2458, %2454
   %2460 = load i32, ptr @testnum, align 4, !tbaa !13
   %2461 = zext i32 %2460 to i64
-  %2462 = getelementptr inbounds nuw [2 x double], ptr @sm2_results, i64 %2461
+  %2462 = getelementptr inbounds nuw [16 x i8], ptr @sm2_results, i64 %2461
   store double %2459, ptr %2462, align 16, !tbaa !86
   %2463 = icmp slt i32 %2452, 2
   br label %2464
@@ -5671,11 +5669,11 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 
 2466:                                             ; preds = %2464, %2465
   %indvars.iv3794 = phi i64 [ 0, %2464 ], [ %indvars.iv.next3795, %2465 ]
-  %2467 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3794
+  %2467 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3794
   %2468 = getelementptr inbounds nuw i8, ptr %2467, i64 936
   %2469 = load i32, ptr @testnum, align 4, !tbaa !13
   %2470 = zext i32 %2469 to i64
-  %2471 = getelementptr inbounds nuw ptr, ptr %2468, i64 %2470
+  %2471 = getelementptr inbounds nuw [8 x i8], ptr %2468, i64 %2470
   %2472 = load ptr, ptr %2471, align 8, !tbaa !132
   %2473 = getelementptr inbounds nuw i8, ptr %2467, i64 24
   %2474 = load ptr, ptr %2473, align 8, !tbaa !54
@@ -5704,7 +5702,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2490 = fdiv double %2489, %2485
   %2491 = load i32, ptr @testnum, align 4, !tbaa !13
   %2492 = zext i32 %2491 to i64
-  %2493 = getelementptr inbounds nuw [2 x double], ptr @sm2_results, i64 %2492
+  %2493 = getelementptr inbounds nuw [16 x i8], ptr @sm2_results, i64 %2492
   %2494 = getelementptr inbounds nuw i8, ptr %2493, i64 8
   store double %2490, ptr %2494, align 8, !tbaa !86
   br label %2498
@@ -5837,7 +5835,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 2541:                                             ; preds = %2534
   %2542 = load i32, ptr @testnum, align 4, !tbaa !13
   %2543 = zext i32 %2542 to i64
-  %2544 = getelementptr inbounds nuw %struct.ffdh_params_st, ptr @speed_main.ffdh_params, i64 %2543
+  %2544 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.ffdh_params, i64 %2543
   %2545 = getelementptr inbounds nuw i8, ptr %2544, i64 8
   %2546 = load i32, ptr %2545, align 8, !tbaa !146
   %2547 = call i32 @EVP_PKEY_CTX_set_dh_nid(ptr noundef nonnull %2529, i32 noundef %2546) #14
@@ -5936,7 +5934,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   br label %.thread2399
 
 2599:                                             ; preds = %2593
-  %2600 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3799
+  %2600 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3799
   %2601 = getelementptr inbounds nuw i8, ptr %2600, i64 1200
   %2602 = load ptr, ptr %2601, align 8, !tbaa !59
   %2603 = call i32 @EVP_PKEY_derive(ptr noundef nonnull %2565, ptr noundef %2602, ptr noundef nonnull %49) #14
@@ -6027,7 +6025,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2646 = getelementptr inbounds nuw i8, ptr %2600, i64 1160
   %2647 = load i32, ptr @testnum, align 4, !tbaa !13
   %2648 = zext i32 %2647 to i64
-  %2649 = getelementptr inbounds nuw ptr, ptr %2646, i64 %2648
+  %2649 = getelementptr inbounds nuw [8 x i8], ptr %2646, i64 %2648
   store ptr %2565, ptr %2649, align 8, !tbaa !15
   %2650 = load ptr, ptr %47, align 8, !tbaa !4
   call void @EVP_PKEY_free(ptr noundef %2650) #14
@@ -6047,7 +6045,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 2652:                                             ; preds = %2645
   %2653 = load i32, ptr @testnum, align 4, !tbaa !13
   %2654 = zext i32 %2653 to i64
-  %2655 = getelementptr inbounds nuw %struct.ffdh_params_st, ptr @speed_main.ffdh_params, i64 %2654
+  %2655 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.ffdh_params, i64 %2654
   %2656 = getelementptr inbounds nuw i8, ptr %2655, i64 12
   %2657 = load i32, ptr %2656, align 4, !tbaa !149
   call fastcc void @pkey_print_message(ptr noundef nonnull @.str.217, ptr noundef nonnull @.str.130, i32 noundef %2657, i32 noundef %.sroa.46.0)
@@ -6063,7 +6061,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2664 = select i1 %.b1609, ptr @.str.246, ptr @.str.247
   %2665 = load i32, ptr @testnum, align 4, !tbaa !13
   %2666 = zext i32 %2665 to i64
-  %2667 = getelementptr inbounds nuw %struct.ffdh_params_st, ptr @speed_main.ffdh_params, i64 %2666
+  %2667 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.ffdh_params, i64 %2666
   %2668 = getelementptr inbounds nuw i8, ptr %2667, i64 12
   %2669 = load i32, ptr %2668, align 4, !tbaa !149
   %2670 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2663, ptr noundef nonnull %2664, i64 noundef %2661, i32 noundef %2669, double noundef %2662) #14
@@ -6071,7 +6069,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
   %2672 = fdiv double %2671, %2662
   %2673 = load i32, ptr @testnum, align 4, !tbaa !13
   %2674 = zext i32 %2673 to i64
-  %2675 = getelementptr inbounds nuw [1 x double], ptr @ffdh_results, i64 %2674
+  %2675 = getelementptr inbounds nuw [8 x i8], ptr @ffdh_results, i64 %2674
   store double %2672, ptr %2675, align 8, !tbaa !86
   %2676 = icmp slt i32 %2660, 2
   br i1 %2676, label %2677, label %2681
@@ -6104,7 +6102,7 @@ check_block_size.exit1989.thread:                 ; preds = %check_block_size.ex
 2687:                                             ; preds = %.lr.ph3121, %2898
   %2688 = phi i32 [ 0, %.lr.ph3121 ], [ %2900, %2898 ]
   %2689 = phi i64 [ 0, %.lr.ph3121 ], [ %2901, %2898 ]
-  %2690 = getelementptr inbounds nuw ptr, ptr @kems_algname, i64 %2689
+  %2690 = getelementptr inbounds nuw [8 x i8], ptr @kems_algname, i64 %2689
   %2691 = load ptr, ptr %2690, align 8, !tbaa !23
   %2692 = getelementptr inbounds nuw i8, ptr %18, i64 %2689
   %2693 = load i8, ptr %2692, align 1, !tbaa !25
@@ -6386,34 +6384,34 @@ sub_02448:                                        ; preds = %2697, %2700
   br label %2894
 
 2828:                                             ; preds = %2822
-  %2829 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3804
+  %2829 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3804
   %2830 = getelementptr inbounds nuw i8, ptr %2829, i64 1232
   %2831 = load i32, ptr @testnum, align 4, !tbaa !13
   %2832 = zext i32 %2831 to i64
-  %2833 = getelementptr inbounds nuw ptr, ptr %2830, i64 %2832
+  %2833 = getelementptr inbounds nuw [8 x i8], ptr %2830, i64 %2832
   store ptr %2728, ptr %2833, align 8, !tbaa !15
   %2834 = getelementptr inbounds nuw i8, ptr %2829, i64 2120
-  %2835 = getelementptr inbounds nuw ptr, ptr %2834, i64 %2832
+  %2835 = getelementptr inbounds nuw [8 x i8], ptr %2834, i64 %2832
   store ptr %2749, ptr %2835, align 8, !tbaa !15
   %2836 = getelementptr inbounds nuw i8, ptr %2829, i64 3008
-  %2837 = getelementptr inbounds nuw ptr, ptr %2836, i64 %2832
+  %2837 = getelementptr inbounds nuw [8 x i8], ptr %2836, i64 %2832
   store ptr %2788, ptr %2837, align 8, !tbaa !15
   %2838 = load i64, ptr %53, align 8, !tbaa !28
   %2839 = getelementptr inbounds nuw i8, ptr %2829, i64 3896
-  %2840 = getelementptr inbounds nuw i64, ptr %2839, i64 %2832
+  %2840 = getelementptr inbounds nuw [8 x i8], ptr %2839, i64 %2832
   store i64 %2838, ptr %2840, align 8, !tbaa !28
   %2841 = load i64, ptr %52, align 8, !tbaa !28
   %2842 = getelementptr inbounds nuw i8, ptr %2829, i64 4784
-  %2843 = getelementptr inbounds nuw i64, ptr %2842, i64 %2832
+  %2843 = getelementptr inbounds nuw [8 x i8], ptr %2842, i64 %2832
   store i64 %2841, ptr %2843, align 8, !tbaa !28
   %2844 = getelementptr inbounds nuw i8, ptr %2829, i64 5672
-  %2845 = getelementptr inbounds nuw ptr, ptr %2844, i64 %2832
+  %2845 = getelementptr inbounds nuw [8 x i8], ptr %2844, i64 %2832
   store ptr %2770, ptr %2845, align 8, !tbaa !23
   %2846 = getelementptr inbounds nuw i8, ptr %2829, i64 6560
-  %2847 = getelementptr inbounds nuw ptr, ptr %2846, i64 %2832
+  %2847 = getelementptr inbounds nuw [8 x i8], ptr %2846, i64 %2832
   store ptr %2772, ptr %2847, align 8, !tbaa !23
   %2848 = getelementptr inbounds nuw i8, ptr %2829, i64 7448
-  %2849 = getelementptr inbounds nuw ptr, ptr %2848, i64 %2832
+  %2849 = getelementptr inbounds nuw [8 x i8], ptr %2848, i64 %2832
   store ptr %2810, ptr %2849, align 8, !tbaa !23
   %2850 = load ptr, ptr %51, align 8, !tbaa !4
   call void @EVP_PKEY_free(ptr noundef %2850) #14
@@ -6445,7 +6443,7 @@ sub_02448:                                        ; preds = %2697, %2700
   %2861 = fdiv double %2860, %2856
   %2862 = load i32, ptr @testnum, align 4, !tbaa !13
   %2863 = zext i32 %2862 to i64
-  %2864 = getelementptr inbounds nuw [3 x double], ptr @kems_results, i64 %2863
+  %2864 = getelementptr inbounds nuw [24 x i8], ptr @kems_results, i64 %2863
   store double %2861, ptr %2864, align 8, !tbaa !86
   call fastcc void @kskey_print_message(ptr noundef nonnull %2691, ptr noundef nonnull @.str.267, i32 noundef %.sroa.48.0)
   %.b.i2041 = load i1, ptr @usertime, align 4
@@ -6463,7 +6461,7 @@ sub_02448:                                        ; preds = %2697, %2700
   %2874 = fdiv double %2873, %2869
   %2875 = load i32, ptr @testnum, align 4, !tbaa !13
   %2876 = zext i32 %2875 to i64
-  %2877 = getelementptr inbounds nuw [3 x double], ptr @kems_results, i64 %2876
+  %2877 = getelementptr inbounds nuw [24 x i8], ptr @kems_results, i64 %2876
   %2878 = getelementptr inbounds nuw i8, ptr %2877, i64 8
   store double %2874, ptr %2878, align 8, !tbaa !86
   call fastcc void @kskey_print_message(ptr noundef nonnull %2691, ptr noundef nonnull @.str.270, i32 noundef %.sroa.48.0)
@@ -6482,7 +6480,7 @@ sub_02448:                                        ; preds = %2697, %2700
   %2888 = fdiv double %2887, %2883
   %2889 = load i32, ptr @testnum, align 4, !tbaa !13
   %2890 = zext i32 %2889 to i64
-  %2891 = getelementptr inbounds nuw [3 x double], ptr @kems_results, i64 %2890
+  %2891 = getelementptr inbounds nuw [24 x i8], ptr @kems_results, i64 %2890
   %2892 = getelementptr inbounds nuw i8, ptr %2891, i64 16
   store double %2888, ptr %2892, align 8, !tbaa !86
   %2893 = icmp slt i32 %2881, 2
@@ -6508,7 +6506,7 @@ sub_02448:                                        ; preds = %2697, %2700
 2904:                                             ; preds = %.lr.ph3123, %3081
   %2905 = phi i32 [ 0, %.lr.ph3123 ], [ %3083, %3081 ]
   %2906 = phi i64 [ 0, %.lr.ph3123 ], [ %3084, %3081 ]
-  %2907 = getelementptr inbounds nuw ptr, ptr @sigs_algname, i64 %2906
+  %2907 = getelementptr inbounds nuw [8 x i8], ptr @sigs_algname, i64 %2906
   %2908 = load ptr, ptr %2907, align 8, !tbaa !23
   %2909 = getelementptr inbounds nuw i8, ptr %19, i64 %2906
   %2910 = load i8, ptr %2909, align 1, !tbaa !25
@@ -6736,28 +6734,28 @@ sub_12453:                                        ; preds = %sub_02452
   br label %3077
 
 3015:                                             ; preds = %3007
-  %3016 = getelementptr inbounds nuw %struct.loopargs_st, ptr %615, i64 %indvars.iv3809
+  %3016 = getelementptr inbounds nuw [13664 x i8], ptr %615, i64 %indvars.iv3809
   %3017 = getelementptr inbounds nuw i8, ptr %3016, i64 8336
   %3018 = load i32, ptr @testnum, align 4, !tbaa !13
   %3019 = zext i32 %3018 to i64
-  %3020 = getelementptr inbounds nuw ptr, ptr %3017, i64 %3019
+  %3020 = getelementptr inbounds nuw [8 x i8], ptr %3017, i64 %3019
   store ptr %.112662420, ptr %3020, align 8, !tbaa !15
   %3021 = getelementptr inbounds nuw i8, ptr %3016, i64 9224
-  %3022 = getelementptr inbounds nuw ptr, ptr %3021, i64 %3019
+  %3022 = getelementptr inbounds nuw [8 x i8], ptr %3021, i64 %3019
   store ptr %2971, ptr %3022, align 8, !tbaa !15
   %3023 = getelementptr inbounds nuw i8, ptr %3016, i64 10112
-  %3024 = getelementptr inbounds nuw ptr, ptr %3023, i64 %3019
+  %3024 = getelementptr inbounds nuw [8 x i8], ptr %3023, i64 %3019
   store ptr %2994, ptr %3024, align 8, !tbaa !15
   %3025 = load i64, ptr %64, align 8, !tbaa !28
   %3026 = getelementptr inbounds nuw i8, ptr %3016, i64 11000
-  %3027 = getelementptr inbounds nuw i64, ptr %3026, i64 %3019
+  %3027 = getelementptr inbounds nuw [8 x i8], ptr %3026, i64 %3019
   store i64 %3025, ptr %3027, align 8, !tbaa !28
   %3028 = load i64, ptr %65, align 8, !tbaa !28
   %3029 = getelementptr inbounds nuw i8, ptr %3016, i64 11888
-  %3030 = getelementptr inbounds nuw i64, ptr %3029, i64 %3019
+  %3030 = getelementptr inbounds nuw [8 x i8], ptr %3029, i64 %3019
   store i64 %3028, ptr %3030, align 8, !tbaa !28
   %3031 = getelementptr inbounds nuw i8, ptr %3016, i64 12776
-  %3032 = getelementptr inbounds nuw ptr, ptr %3031, i64 %3019
+  %3032 = getelementptr inbounds nuw [8 x i8], ptr %3031, i64 %3019
   store ptr %2985, ptr %3032, align 8, !tbaa !23
   %3033 = load ptr, ptr %60, align 8, !tbaa !4
   call void @EVP_PKEY_free(ptr noundef %3033) #14
@@ -6790,7 +6788,7 @@ sub_12453:                                        ; preds = %sub_02452
   %3044 = fdiv double %3043, %3039
   %3045 = load i32, ptr @testnum, align 4, !tbaa !13
   %3046 = zext i32 %3045 to i64
-  %3047 = getelementptr inbounds nuw [3 x double], ptr @sigs_results, i64 %3046
+  %3047 = getelementptr inbounds nuw [24 x i8], ptr @sigs_results, i64 %3046
   store double %3044, ptr %3047, align 8, !tbaa !86
   call fastcc void @kskey_print_message(ptr noundef nonnull %2908, ptr noundef nonnull @.str.284, i32 noundef %.sroa.52.0)
   %.b.i2047 = load i1, ptr @usertime, align 4
@@ -6808,7 +6806,7 @@ sub_12453:                                        ; preds = %sub_02452
   %3057 = fdiv double %3056, %3052
   %3058 = load i32, ptr @testnum, align 4, !tbaa !13
   %3059 = zext i32 %3058 to i64
-  %3060 = getelementptr inbounds nuw [3 x double], ptr @sigs_results, i64 %3059
+  %3060 = getelementptr inbounds nuw [24 x i8], ptr @sigs_results, i64 %3059
   %3061 = getelementptr inbounds nuw i8, ptr %3060, i64 8
   store double %3057, ptr %3061, align 8, !tbaa !86
   call fastcc void @kskey_print_message(ptr noundef nonnull %2908, ptr noundef nonnull @.str.205, i32 noundef %.sroa.52.0)
@@ -6827,7 +6825,7 @@ sub_12453:                                        ; preds = %sub_02452
   %3071 = fdiv double %3070, %3066
   %3072 = load i32, ptr @testnum, align 4, !tbaa !13
   %3073 = zext i32 %3072 to i64
-  %3074 = getelementptr inbounds nuw [3 x double], ptr @sigs_results, i64 %3073
+  %3074 = getelementptr inbounds nuw [24 x i8], ptr @sigs_results, i64 %3073
   %3075 = getelementptr inbounds nuw i8, ptr %3074, i64 16
   store double %3071, ptr %3075, align 8, !tbaa !86
   %3076 = icmp slt i32 %3064, 2
@@ -6897,7 +6895,7 @@ sub_12453:                                        ; preds = %sub_02452
   %3099 = select i1 %.b1600, ptr @.str.295, ptr @.str.296
   %3100 = load ptr, ptr @lengths, align 8, !tbaa !26
   %3101 = zext nneg i32 %storemerge18093124 to i64
-  %3102 = getelementptr inbounds nuw i32, ptr %3100, i64 %3101
+  %3102 = getelementptr inbounds nuw [4 x i8], ptr %3100, i64 %3101
   %3103 = load i32, ptr %3102, align 4, !tbaa !13
   %3104 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %3099, i32 noundef %3103)
   %3105 = load i32, ptr @testnum, align 4, !tbaa !13
@@ -6921,7 +6919,7 @@ sub_12453:                                        ; preds = %sub_02452
   br i1 %.not1817, label %3147, label %3111
 
 3111:                                             ; preds = %3108
-  %3112 = getelementptr inbounds nuw ptr, ptr @names, i64 %indvars.iv3814
+  %3112 = getelementptr inbounds nuw [8 x i8], ptr @names, i64 %indvars.iv3814
   %3113 = load ptr, ptr %3112, align 8, !tbaa !23
   %3114 = icmp eq i64 %indvars.iv3814, 25
   br i1 %3114, label %3115, label %3125
@@ -6961,13 +6959,13 @@ sub_12453:                                        ; preds = %sub_02452
 
 .lr.ph3130:                                       ; preds = %3126, %3129
   store i32 0, ptr @testnum, align 4, !tbaa !13
-  %3131 = getelementptr inbounds nuw [6 x double], ptr @results, i64 %indvars.iv3814
+  %3131 = getelementptr inbounds nuw [48 x i8], ptr @results, i64 %indvars.iv3814
   br label %3132
 
 3132:                                             ; preds = %.lr.ph3130, %3143
   %storemerge18183128 = phi i32 [ 0, %.lr.ph3130 ], [ %3145, %3143 ]
   %3133 = zext nneg i32 %storemerge18183128 to i64
-  %3134 = getelementptr inbounds nuw double, ptr %3131, i64 %3133
+  %3134 = getelementptr inbounds nuw [8 x i8], ptr %3131, i64 %3133
   %3135 = load double, ptr %3134, align 8, !tbaa !86
   %3136 = fcmp ule double %3135, 1.000000e+04
   %.b1588 = load i1, ptr @mr, align 4
@@ -7028,10 +7026,10 @@ sub_12453:                                        ; preds = %sub_02452
   br i1 %.b1587, label %3158, label %3172
 
 3158:                                             ; preds = %3155, %3157
-  %3159 = getelementptr inbounds nuw %struct.anon, ptr @speed_main.rsa_keys, i64 %indvars.iv3818
+  %3159 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.rsa_keys, i64 %indvars.iv3818
   %3160 = getelementptr inbounds nuw i8, ptr %3159, i64 12
   %3161 = load i32, ptr %3160, align 4, !tbaa !112
-  %3162 = getelementptr inbounds nuw [4 x double], ptr @rsa_results, i64 %indvars.iv3818
+  %3162 = getelementptr inbounds nuw [32 x i8], ptr @rsa_results, i64 %indvars.iv3818
   %3163 = load double, ptr %3162, align 16, !tbaa !86
   %3164 = getelementptr inbounds nuw i8, ptr %3162, i64 8
   %3165 = load double, ptr %3164, align 8, !tbaa !86
@@ -7044,10 +7042,10 @@ sub_12453:                                        ; preds = %sub_02452
   br label %3189
 
 3172:                                             ; preds = %3155, %3157
-  %3173 = getelementptr inbounds nuw %struct.anon, ptr @speed_main.rsa_keys, i64 %indvars.iv3818
+  %3173 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.rsa_keys, i64 %indvars.iv3818
   %3174 = getelementptr inbounds nuw i8, ptr %3173, i64 12
   %3175 = load i32, ptr %3174, align 4, !tbaa !112
-  %3176 = getelementptr inbounds nuw [4 x double], ptr @rsa_results, i64 %indvars.iv3818
+  %3176 = getelementptr inbounds nuw [32 x i8], ptr @rsa_results, i64 %indvars.iv3818
   %3177 = load double, ptr %3176, align 16, !tbaa !86
   %3178 = fdiv double 1.000000e+00, %3177
   %3179 = getelementptr inbounds nuw i8, ptr %3176, i64 8
@@ -7096,9 +7094,9 @@ sub_12453:                                        ; preds = %sub_02452
   br i1 %.b1586, label %3200, label %3209
 
 3200:                                             ; preds = %3197, %3199
-  %3201 = getelementptr inbounds nuw i32, ptr @speed_main.dsa_bits, i64 %indvars.iv3822
+  %3201 = getelementptr inbounds nuw [4 x i8], ptr @speed_main.dsa_bits, i64 %indvars.iv3822
   %3202 = load i32, ptr %3201, align 4, !tbaa !13
-  %3203 = getelementptr inbounds nuw [2 x double], ptr @dsa_results, i64 %indvars.iv3822
+  %3203 = getelementptr inbounds nuw [16 x i8], ptr @dsa_results, i64 %indvars.iv3822
   %3204 = load double, ptr %3203, align 16, !tbaa !86
   %3205 = getelementptr inbounds nuw i8, ptr %3203, i64 8
   %3206 = load double, ptr %3205, align 8, !tbaa !86
@@ -7107,9 +7105,9 @@ sub_12453:                                        ; preds = %sub_02452
   br label %3219
 
 3209:                                             ; preds = %3197, %3199
-  %3210 = getelementptr inbounds nuw i32, ptr @speed_main.dsa_bits, i64 %indvars.iv3822
+  %3210 = getelementptr inbounds nuw [4 x i8], ptr @speed_main.dsa_bits, i64 %indvars.iv3822
   %3211 = load i32, ptr %3210, align 4, !tbaa !13
-  %3212 = getelementptr inbounds nuw [2 x double], ptr @dsa_results, i64 %indvars.iv3822
+  %3212 = getelementptr inbounds nuw [16 x i8], ptr @dsa_results, i64 %indvars.iv3822
   %3213 = load double, ptr %3212, align 16, !tbaa !86
   %3214 = fdiv double 1.000000e+00, %3213
   %3215 = getelementptr inbounds nuw i8, ptr %3212, i64 8
@@ -7149,10 +7147,10 @@ sub_12453:                                        ; preds = %sub_02452
   br i1 %.b1585, label %3230, label %3240
 
 3230:                                             ; preds = %3227, %3229
-  %3231 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ec_curves, i64 %indvars.iv3825
+  %3231 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ec_curves, i64 %indvars.iv3825
   %3232 = getelementptr inbounds nuw i8, ptr %3231, i64 12
   %3233 = load i32, ptr %3232, align 4, !tbaa !126
-  %3234 = getelementptr inbounds nuw [2 x double], ptr @ecdsa_results, i64 %indvars.iv3825
+  %3234 = getelementptr inbounds nuw [16 x i8], ptr @ecdsa_results, i64 %indvars.iv3825
   %3235 = load double, ptr %3234, align 16, !tbaa !86
   %3236 = getelementptr inbounds nuw i8, ptr %3234, i64 8
   %3237 = load double, ptr %3236, align 8, !tbaa !86
@@ -7161,11 +7159,11 @@ sub_12453:                                        ; preds = %sub_02452
   br label %3252
 
 3240:                                             ; preds = %3227, %3229
-  %3241 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ec_curves, i64 %indvars.iv3825
+  %3241 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ec_curves, i64 %indvars.iv3825
   %3242 = getelementptr inbounds nuw i8, ptr %3241, i64 12
   %3243 = load i32, ptr %3242, align 4, !tbaa !126
   %3244 = load ptr, ptr %3241, align 8, !tbaa !138
-  %3245 = getelementptr inbounds nuw [2 x double], ptr @ecdsa_results, i64 %indvars.iv3825
+  %3245 = getelementptr inbounds nuw [16 x i8], ptr @ecdsa_results, i64 %indvars.iv3825
   %3246 = load double, ptr %3245, align 16, !tbaa !86
   %3247 = fdiv double 1.000000e+00, %3246
   %3248 = getelementptr inbounds nuw i8, ptr %3245, i64 8
@@ -7207,10 +7205,10 @@ sub_12453:                                        ; preds = %sub_02452
   br i1 %.b1584, label %3263, label %3272
 
 3263:                                             ; preds = %3260, %3262
-  %3264 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ec_curves, i64 %indvars.iv3829
+  %3264 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ec_curves, i64 %indvars.iv3829
   %3265 = getelementptr inbounds nuw i8, ptr %3264, i64 12
   %3266 = load i32, ptr %3265, align 4, !tbaa !126
-  %3267 = getelementptr inbounds nuw [1 x double], ptr @ecdh_results, i64 %indvars.iv3829
+  %3267 = getelementptr inbounds nuw [8 x i8], ptr @ecdh_results, i64 %indvars.iv3829
   %3268 = load double, ptr %3267, align 8, !tbaa !86
   %3269 = fdiv double 1.000000e+00, %3268
   %3270 = trunc nuw nsw i64 %indvars.iv3829 to i32
@@ -7218,11 +7216,11 @@ sub_12453:                                        ; preds = %sub_02452
   br label %3281
 
 3272:                                             ; preds = %3260, %3262
-  %3273 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ec_curves, i64 %indvars.iv3829
+  %3273 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ec_curves, i64 %indvars.iv3829
   %3274 = getelementptr inbounds nuw i8, ptr %3273, i64 12
   %3275 = load i32, ptr %3274, align 4, !tbaa !126
   %3276 = load ptr, ptr %3273, align 8, !tbaa !138
-  %3277 = getelementptr inbounds nuw [1 x double], ptr @ecdh_results, i64 %indvars.iv3829
+  %3277 = getelementptr inbounds nuw [8 x i8], ptr @ecdh_results, i64 %indvars.iv3829
   %3278 = load double, ptr %3277, align 8, !tbaa !86
   %3279 = fdiv double 1.000000e+00, %3278
   %3280 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.316, i32 noundef %3275, ptr noundef %3276, double noundef %3279, double noundef %3278)
@@ -7262,11 +7260,11 @@ sub_12453:                                        ; preds = %sub_02452
   br i1 %.b1583, label %3292, label %3303
 
 3292:                                             ; preds = %3289, %3291
-  %3293 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ed_curves, i64 %indvars.iv3833
+  %3293 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ed_curves, i64 %indvars.iv3833
   %3294 = getelementptr inbounds nuw i8, ptr %3293, i64 12
   %3295 = load i32, ptr %3294, align 4, !tbaa !126
   %3296 = load ptr, ptr %3293, align 8, !tbaa !138
-  %3297 = getelementptr inbounds nuw [2 x double], ptr @eddsa_results, i64 %indvars.iv3833
+  %3297 = getelementptr inbounds nuw [16 x i8], ptr @eddsa_results, i64 %indvars.iv3833
   %3298 = load double, ptr %3297, align 16, !tbaa !86
   %3299 = getelementptr inbounds nuw i8, ptr %3297, i64 8
   %3300 = load double, ptr %3299, align 8, !tbaa !86
@@ -7275,11 +7273,11 @@ sub_12453:                                        ; preds = %sub_02452
   br label %3315
 
 3303:                                             ; preds = %3289, %3291
-  %3304 = getelementptr inbounds nuw %struct.ec_curve_st, ptr @speed_main.ed_curves, i64 %indvars.iv3833
+  %3304 = getelementptr inbounds nuw [24 x i8], ptr @speed_main.ed_curves, i64 %indvars.iv3833
   %3305 = getelementptr inbounds nuw i8, ptr %3304, i64 12
   %3306 = load i32, ptr %3305, align 4, !tbaa !126
   %3307 = load ptr, ptr %3304, align 8, !tbaa !138
-  %3308 = getelementptr inbounds nuw [2 x double], ptr @eddsa_results, i64 %indvars.iv3833
+  %3308 = getelementptr inbounds nuw [16 x i8], ptr @eddsa_results, i64 %indvars.iv3833
   %3309 = load double, ptr %3308, align 16, !tbaa !86
   %3310 = fdiv double 1.000000e+00, %3309
   %3311 = getelementptr inbounds nuw i8, ptr %3308, i64 8
@@ -7348,10 +7346,10 @@ sub_12453:                                        ; preds = %sub_02452
   br i1 %.b1581, label %3340, label %3349
 
 3340:                                             ; preds = %3337, %3339
-  %3341 = getelementptr inbounds nuw %struct.ffdh_params_st, ptr @speed_main.ffdh_params, i64 %indvars.iv3836
+  %3341 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.ffdh_params, i64 %indvars.iv3836
   %3342 = getelementptr inbounds nuw i8, ptr %3341, i64 12
   %3343 = load i32, ptr %3342, align 4, !tbaa !149
-  %3344 = getelementptr inbounds nuw [1 x double], ptr @ffdh_results, i64 %indvars.iv3836
+  %3344 = getelementptr inbounds nuw [8 x i8], ptr @ffdh_results, i64 %indvars.iv3836
   %3345 = load double, ptr %3344, align 8, !tbaa !86
   %3346 = fdiv double 1.000000e+00, %3345
   %3347 = trunc nuw nsw i64 %indvars.iv3836 to i32
@@ -7359,10 +7357,10 @@ sub_12453:                                        ; preds = %sub_02452
   br label %3357
 
 3349:                                             ; preds = %3337, %3339
-  %3350 = getelementptr inbounds nuw %struct.ffdh_params_st, ptr @speed_main.ffdh_params, i64 %indvars.iv3836
+  %3350 = getelementptr inbounds nuw [16 x i8], ptr @speed_main.ffdh_params, i64 %indvars.iv3836
   %3351 = getelementptr inbounds nuw i8, ptr %3350, i64 12
   %3352 = load i32, ptr %3351, align 4, !tbaa !149
-  %3353 = getelementptr inbounds nuw [1 x double], ptr @ffdh_results, i64 %indvars.iv3836
+  %3353 = getelementptr inbounds nuw [8 x i8], ptr @ffdh_results, i64 %indvars.iv3836
   %3354 = load double, ptr %3353, align 8, !tbaa !86
   %3355 = fdiv double 1.000000e+00, %3354
   %3356 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.323, i32 noundef %3352, double noundef %3355, double noundef %3354)
@@ -7386,7 +7384,7 @@ sub_12453:                                        ; preds = %sub_02452
 3361:                                             ; preds = %.lr.ph3147, %3393
   %3362 = phi i64 [ 0, %.lr.ph3147 ], [ %3395, %3393 ]
   %.1214303145 = phi i32 [ 0, %.lr.ph3147 ], [ %3394, %3393 ]
-  %3363 = getelementptr inbounds nuw ptr, ptr @kems_algname, i64 %3362
+  %3363 = getelementptr inbounds nuw [8 x i8], ptr @kems_algname, i64 %3362
   %3364 = load ptr, ptr %3363, align 8, !tbaa !23
   %3365 = getelementptr inbounds nuw i8, ptr %18, i64 %3362
   %3366 = load i8, ptr %3365, align 1, !tbaa !25
@@ -7411,7 +7409,7 @@ sub_12453:                                        ; preds = %sub_02452
   br i1 %.b1580, label %3374, label %3382
 
 3374:                                             ; preds = %3371, %3373
-  %3375 = getelementptr inbounds nuw [3 x double], ptr @kems_results, i64 %3362
+  %3375 = getelementptr inbounds nuw [24 x i8], ptr @kems_results, i64 %3362
   %3376 = load double, ptr %3375, align 8, !tbaa !86
   %3377 = getelementptr inbounds nuw i8, ptr %3375, i64 8
   %3378 = load double, ptr %3377, align 8, !tbaa !86
@@ -7421,7 +7419,7 @@ sub_12453:                                        ; preds = %sub_02452
   br label %3393
 
 3382:                                             ; preds = %3371, %3373
-  %3383 = getelementptr inbounds nuw [3 x double], ptr @kems_results, i64 %3362
+  %3383 = getelementptr inbounds nuw [24 x i8], ptr @kems_results, i64 %3362
   %3384 = load double, ptr %3383, align 8, !tbaa !86
   %3385 = fdiv double 1.000000e+00, %3384
   %3386 = getelementptr inbounds nuw i8, ptr %3383, i64 8
@@ -7453,7 +7451,7 @@ sub_12453:                                        ; preds = %sub_02452
 3400:                                             ; preds = %.lr.ph3151, %3432
   %3401 = phi i64 [ 0, %.lr.ph3151 ], [ %3434, %3432 ]
   %.1314313149 = phi i32 [ 0, %.lr.ph3151 ], [ %3433, %3432 ]
-  %3402 = getelementptr inbounds nuw ptr, ptr @sigs_algname, i64 %3401
+  %3402 = getelementptr inbounds nuw [8 x i8], ptr @sigs_algname, i64 %3401
   %3403 = load ptr, ptr %3402, align 8, !tbaa !23
   %3404 = getelementptr inbounds nuw i8, ptr %19, i64 %3401
   %3405 = load i8, ptr %3404, align 1, !tbaa !25
@@ -7478,7 +7476,7 @@ sub_12453:                                        ; preds = %sub_02452
   br i1 %.b1579, label %3413, label %3421
 
 3413:                                             ; preds = %3410, %3412
-  %3414 = getelementptr inbounds nuw [3 x double], ptr @sigs_results, i64 %3401
+  %3414 = getelementptr inbounds nuw [24 x i8], ptr @sigs_results, i64 %3401
   %3415 = load double, ptr %3414, align 8, !tbaa !86
   %3416 = getelementptr inbounds nuw i8, ptr %3414, i64 8
   %3417 = load double, ptr %3416, align 8, !tbaa !86
@@ -7488,7 +7486,7 @@ sub_12453:                                        ; preds = %sub_02452
   br label %3432
 
 3421:                                             ; preds = %3410, %3412
-  %3422 = getelementptr inbounds nuw [3 x double], ptr @sigs_results, i64 %3401
+  %3422 = getelementptr inbounds nuw [24 x i8], ptr @sigs_results, i64 %3401
   %3423 = load double, ptr %3422, align 8, !tbaa !86
   %3424 = fdiv double 1.000000e+00, %3423
   %3425 = getelementptr inbounds nuw i8, ptr %3422, i64 8
@@ -7539,7 +7537,7 @@ sub_12453:                                        ; preds = %sub_02452
 
 .lr.ph3165:                                       ; preds = %.lr.ph3165.preheader, %._crit_edge3162
   %indvars.iv3862 = phi i64 [ 0, %.lr.ph3165.preheader ], [ %indvars.iv.next3863, %._crit_edge3162 ]
-  %3440 = getelementptr inbounds nuw %struct.loopargs_st, ptr %.01274, i64 %indvars.iv3862
+  %3440 = getelementptr inbounds nuw [13664 x i8], ptr %.01274, i64 %indvars.iv3862
   %3441 = getelementptr inbounds nuw i8, ptr %3440, i64 32
   %3442 = load ptr, ptr %3441, align 8, !tbaa !51
   call void @CRYPTO_free(ptr noundef %3442, ptr noundef nonnull @.str.112, i32 noundef 4657) #14
@@ -7557,16 +7555,16 @@ sub_12453:                                        ; preds = %sub_02452
 
 3450:                                             ; preds = %.lr.ph3165, %3450
   %indvars.iv3840 = phi i64 [ 0, %.lr.ph3165 ], [ %indvars.iv.next3841, %3450 ]
-  %3451 = getelementptr inbounds nuw ptr, ptr %3446, i64 %indvars.iv3840
+  %3451 = getelementptr inbounds nuw [8 x i8], ptr %3446, i64 %indvars.iv3840
   %3452 = load ptr, ptr %3451, align 8, !tbaa !15
   call void @EVP_PKEY_CTX_free(ptr noundef %3452) #14
-  %3453 = getelementptr inbounds nuw ptr, ptr %3447, i64 %indvars.iv3840
+  %3453 = getelementptr inbounds nuw [8 x i8], ptr %3447, i64 %indvars.iv3840
   %3454 = load ptr, ptr %3453, align 8, !tbaa !15
   call void @EVP_PKEY_CTX_free(ptr noundef %3454) #14
-  %3455 = getelementptr inbounds nuw ptr, ptr %3448, i64 %indvars.iv3840
+  %3455 = getelementptr inbounds nuw [8 x i8], ptr %3448, i64 %indvars.iv3840
   %3456 = load ptr, ptr %3455, align 8, !tbaa !15
   call void @EVP_PKEY_CTX_free(ptr noundef %3456) #14
-  %3457 = getelementptr inbounds nuw ptr, ptr %3449, i64 %indvars.iv3840
+  %3457 = getelementptr inbounds nuw [8 x i8], ptr %3449, i64 %indvars.iv3840
   %3458 = load ptr, ptr %3457, align 8, !tbaa !15
   call void @EVP_PKEY_CTX_free(ptr noundef %3458) #14
   %indvars.iv.next3841 = add nuw nsw i64 %indvars.iv3840, 1
@@ -7602,7 +7600,7 @@ sub_12453:                                        ; preds = %sub_02452
 
 3475:                                             ; preds = %3459, %3475
   %indvars.iv3844 = phi i64 [ 0, %3459 ], [ %indvars.iv.next3845, %3475 ]
-  %3476 = getelementptr inbounds nuw ptr, ptr %3464, i64 %indvars.iv3844
+  %3476 = getelementptr inbounds nuw [8 x i8], ptr %3464, i64 %indvars.iv3844
   %3477 = load ptr, ptr %3476, align 8, !tbaa !15
   call void @EVP_PKEY_CTX_free(ptr noundef %3477) #14
   %indvars.iv.next3845 = add nuw nsw i64 %indvars.iv3844, 1
@@ -7615,10 +7613,10 @@ sub_12453:                                        ; preds = %sub_02452
 
 3479:                                             ; preds = %.preheader2466, %3479
   %indvars.iv3851 = phi i64 [ 0, %.preheader2466 ], [ %indvars.iv.next3852, %3479 ]
-  %3480 = getelementptr inbounds nuw ptr, ptr %3473, i64 %indvars.iv3851
+  %3480 = getelementptr inbounds nuw [8 x i8], ptr %3473, i64 %indvars.iv3851
   %3481 = load ptr, ptr %3480, align 8, !tbaa !15
   call void @EVP_PKEY_CTX_free(ptr noundef %3481) #14
-  %3482 = getelementptr inbounds nuw ptr, ptr %3474, i64 %indvars.iv3851
+  %3482 = getelementptr inbounds nuw [8 x i8], ptr %3474, i64 %indvars.iv3851
   %3483 = load ptr, ptr %3482, align 8, !tbaa !15
   call void @EVP_PKEY_CTX_free(ptr noundef %3483) #14
   %indvars.iv.next3852 = add nuw nsw i64 %indvars.iv3851, 1
@@ -7647,7 +7645,7 @@ sub_12453:                                        ; preds = %sub_02452
 
 3496:                                             ; preds = %.preheader2464, %3496
   %indvars.iv3855 = phi i64 [ 0, %.preheader2464 ], [ %indvars.iv.next3856, %3496 ]
-  %3497 = getelementptr inbounds nuw ptr, ptr %3478, i64 %indvars.iv3855
+  %3497 = getelementptr inbounds nuw [8 x i8], ptr %3478, i64 %indvars.iv3855
   %3498 = load ptr, ptr %3497, align 8, !tbaa !15
   call void @EVP_PKEY_CTX_free(ptr noundef %3498) #14
   %indvars.iv.next3856 = add nuw nsw i64 %indvars.iv3855, 1
@@ -7712,22 +7710,22 @@ sub_12453:                                        ; preds = %sub_02452
 3522:                                             ; preds = %.lr.ph3159, %3522
   %3523 = phi i64 [ 0, %.lr.ph3159 ], [ %3537, %3522 ]
   %.2114393158 = phi i32 [ 0, %.lr.ph3159 ], [ %3536, %3522 ]
-  %3524 = getelementptr inbounds nuw ptr, ptr %3499, i64 %3523
+  %3524 = getelementptr inbounds nuw [8 x i8], ptr %3499, i64 %3523
   %3525 = load ptr, ptr %3524, align 8, !tbaa !15
   call void @EVP_PKEY_CTX_free(ptr noundef %3525) #14
-  %3526 = getelementptr inbounds nuw ptr, ptr %3500, i64 %3523
+  %3526 = getelementptr inbounds nuw [8 x i8], ptr %3500, i64 %3523
   %3527 = load ptr, ptr %3526, align 8, !tbaa !15
   call void @EVP_PKEY_CTX_free(ptr noundef %3527) #14
-  %3528 = getelementptr inbounds nuw ptr, ptr %3501, i64 %3523
+  %3528 = getelementptr inbounds nuw [8 x i8], ptr %3501, i64 %3523
   %3529 = load ptr, ptr %3528, align 8, !tbaa !15
   call void @EVP_PKEY_CTX_free(ptr noundef %3529) #14
-  %3530 = getelementptr inbounds nuw ptr, ptr %3502, i64 %3523
+  %3530 = getelementptr inbounds nuw [8 x i8], ptr %3502, i64 %3523
   %3531 = load ptr, ptr %3530, align 8, !tbaa !23
   call void @CRYPTO_free(ptr noundef %3531, ptr noundef nonnull @.str.112, i32 noundef 4714) #14
-  %3532 = getelementptr inbounds nuw ptr, ptr %3503, i64 %3523
+  %3532 = getelementptr inbounds nuw [8 x i8], ptr %3503, i64 %3523
   %3533 = load ptr, ptr %3532, align 8, !tbaa !23
   call void @CRYPTO_free(ptr noundef %3533, ptr noundef nonnull @.str.112, i32 noundef 4715) #14
-  %3534 = getelementptr inbounds nuw ptr, ptr %3504, i64 %3523
+  %3534 = getelementptr inbounds nuw [8 x i8], ptr %3504, i64 %3523
   %3535 = load ptr, ptr %3534, align 8, !tbaa !23
   call void @CRYPTO_free(ptr noundef %3535, ptr noundef nonnull @.str.112, i32 noundef 4716) #14
   %3536 = add i32 %.2114393158, 1
@@ -7739,16 +7737,16 @@ sub_12453:                                        ; preds = %sub_02452
 3540:                                             ; preds = %.lr.ph3161, %3540
   %3541 = phi i64 [ 0, %.lr.ph3161 ], [ %3551, %3540 ]
   %.2214403160 = phi i32 [ 0, %.lr.ph3161 ], [ %3550, %3540 ]
-  %3542 = getelementptr inbounds nuw ptr, ptr %3518, i64 %3541
+  %3542 = getelementptr inbounds nuw [8 x i8], ptr %3518, i64 %3541
   %3543 = load ptr, ptr %3542, align 8, !tbaa !15
   call void @EVP_PKEY_CTX_free(ptr noundef %3543) #14
-  %3544 = getelementptr inbounds nuw ptr, ptr %3519, i64 %3541
+  %3544 = getelementptr inbounds nuw [8 x i8], ptr %3519, i64 %3541
   %3545 = load ptr, ptr %3544, align 8, !tbaa !15
   call void @EVP_PKEY_CTX_free(ptr noundef %3545) #14
-  %3546 = getelementptr inbounds nuw ptr, ptr %3520, i64 %3541
+  %3546 = getelementptr inbounds nuw [8 x i8], ptr %3520, i64 %3541
   %3547 = load ptr, ptr %3546, align 8, !tbaa !15
   call void @EVP_PKEY_CTX_free(ptr noundef %3547) #14
-  %3548 = getelementptr inbounds nuw ptr, ptr %3521, i64 %3541
+  %3548 = getelementptr inbounds nuw [8 x i8], ptr %3521, i64 %3541
   %3549 = load ptr, ptr %3548, align 8, !tbaa !23
   call void @CRYPTO_free(ptr noundef %3549, ptr noundef nonnull @.str.112, i32 noundef 4722) #14
   %3550 = add i32 %.2214403160, 1
@@ -7780,7 +7778,7 @@ sub_12453:                                        ; preds = %sub_02452
 .lr.ph3169:                                       ; preds = %._crit_edge3166, %.lr.ph3169
   %3561 = phi i64 [ %3565, %.lr.ph3169 ], [ 0, %._crit_edge3166 ]
   %.2314413167 = phi i32 [ %3564, %.lr.ph3169 ], [ 0, %._crit_edge3166 ]
-  %3562 = getelementptr inbounds nuw ptr, ptr @kems_algname, i64 %3561
+  %3562 = getelementptr inbounds nuw [8 x i8], ptr @kems_algname, i64 %3561
   %3563 = load ptr, ptr %3562, align 8, !tbaa !23
   call void @CRYPTO_free(ptr noundef %3563, ptr noundef nonnull @.str.112, i32 noundef 4730) #14
   %3564 = add i32 %.2314413167, 1
@@ -7805,7 +7803,7 @@ sub_12453:                                        ; preds = %sub_02452
 .lr.ph3173:                                       ; preds = %3569, %.lr.ph3173
   %3571 = phi i64 [ %3575, %.lr.ph3173 ], [ 0, %3569 ]
   %.2414423171 = phi i32 [ %3574, %.lr.ph3173 ], [ 0, %3569 ]
-  %3572 = getelementptr inbounds nuw ptr, ptr @sigs_algname, i64 %3571
+  %3572 = getelementptr inbounds nuw [8 x i8], ptr @sigs_algname, i64 %3571
   %3573 = load ptr, ptr %3572, align 8, !tbaa !23
   call void @CRYPTO_free(ptr noundef %3573, ptr noundef nonnull @.str.112, i32 noundef 4734) #14
   %3574 = add i32 %.2414423171, 1
@@ -7834,7 +7832,7 @@ sub_12453:                                        ; preds = %sub_02452
 
 .lr.ph3176:                                       ; preds = %.lr.ph3176.preheader, %.lr.ph3176
   %indvars.iv3867 = phi i64 [ 0, %.lr.ph3176.preheader ], [ %indvars.iv.next3868, %.lr.ph3176 ]
-  %3581 = getelementptr inbounds nuw %struct.loopargs_st, ptr %.01274, i64 %indvars.iv3867
+  %3581 = getelementptr inbounds nuw [13664 x i8], ptr %.01274, i64 %indvars.iv3867
   %3582 = getelementptr inbounds nuw i8, ptr %3581, i64 8
   %3583 = load ptr, ptr %3582, align 8, !tbaa !45
   call void @ASYNC_WAIT_CTX_free(ptr noundef %3583) #14
@@ -8236,7 +8234,7 @@ define internal fastcc range(i32 0, 2) i32 @do_multi(i32 noundef range(i32 1, 0)
   %119 = load i32, ptr %61, align 4, !tbaa !13
   %120 = call i32 @close(i32 noundef %119) #14
   %121 = load i32, ptr %54, align 4, !tbaa !13
-  %122 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv
   store i32 %121, ptr %122, align 4, !tbaa !13
   %123 = trunc nuw nsw i64 %indvars.iv to i32
   %124 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.481, i32 noundef %123)
@@ -8270,7 +8268,7 @@ define internal fastcc range(i32 0, 2) i32 @do_multi(i32 noundef range(i32 1, 0)
 138:                                              ; preds = %.lr.ph919, %._crit_edge
   %indvars.iv1010 = phi i64 [ 0, %.lr.ph919 ], [ %indvars.iv.next1011, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
-  %139 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv1010
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv1010
   %140 = load i32, ptr %139, align 4, !tbaa !13
   %141 = call noalias ptr @fdopen(i32 noundef %140, ptr noundef nonnull @.str.482) #14
   %.not105 = icmp eq ptr %141, null
@@ -8423,7 +8421,7 @@ strtoint.exit.thread:                             ; preds = %178, %176, %sstrsep
 sstrsep.exit120:                                  ; preds = %._crit_edge.i114, %192
   %.4784 = phi ptr [ %.3783, %._crit_edge.i114 ], [ %193, %192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
-  %194 = getelementptr inbounds nuw [6 x double], ptr @results, i64 %173
+  %194 = getelementptr inbounds nuw [48 x i8], ptr @results, i64 %173
   br label %.lr.ph.i122.preheader
 
 .lr.ph.i122.preheader:                            ; preds = %sstrsep.exit120, %sstrsep.exit133
@@ -8465,7 +8463,7 @@ sstrsep.exit133:                                  ; preds = %._crit_edge.i127, %
   %.6786 = phi ptr [ %.5785, %._crit_edge.i127 ], [ %206, %205 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %207 = call double @strtod(ptr noundef nonnull captures(none) %.0780914, ptr noundef null) #14
-  %208 = getelementptr inbounds nuw double, ptr %194, i64 %indvars.iv1005
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %indvars.iv1005
   %209 = load double, ptr %208, align 8, !tbaa !86
   %210 = fadd double %207, %209
   store double %210, ptr %208, align 8, !tbaa !86
@@ -8622,7 +8620,7 @@ sstrsep.exit177:                                  ; preds = %._crit_edge.i171, %
   %.12792 = phi ptr [ %.11791, %._crit_edge.i171 ], [ %259, %258 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %260 = call double @strtod(ptr noundef nonnull captures(none) %.10790, ptr noundef null) #14
-  %261 = getelementptr inbounds nuw [4 x double], ptr @rsa_results, i64 %227
+  %261 = getelementptr inbounds nuw [32 x i8], ptr @rsa_results, i64 %227
   %262 = load double, ptr %261, align 16, !tbaa !86
   %263 = fadd double %260, %262
   store double %263, ptr %261, align 16, !tbaa !86
@@ -8880,7 +8878,7 @@ sstrsep.exit260:                                  ; preds = %._crit_edge.i254, %
   %.23 = phi ptr [ %.22, %._crit_edge.i254 ], [ %356, %355 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   %357 = call double @strtod(ptr noundef nonnull captures(none) %.21, ptr noundef null) #14
-  %358 = getelementptr inbounds nuw [2 x double], ptr @dsa_results, i64 %324
+  %358 = getelementptr inbounds nuw [16 x i8], ptr @dsa_results, i64 %324
   %359 = load double, ptr %358, align 16, !tbaa !86
   %360 = fadd double %357, %359
   store double %360, ptr %358, align 16, !tbaa !86
@@ -9058,7 +9056,7 @@ sstrsep.exit317:                                  ; preds = %._crit_edge.i311, %
   %.30 = phi ptr [ %.29, %._crit_edge.i311 ], [ %421, %420 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %422 = call double @strtod(ptr noundef nonnull captures(none) %.28, ptr noundef null) #14
-  %423 = getelementptr inbounds nuw [2 x double], ptr @ecdsa_results, i64 %389
+  %423 = getelementptr inbounds nuw [16 x i8], ptr @ecdsa_results, i64 %389
   %424 = load double, ptr %423, align 16, !tbaa !86
   %425 = fadd double %422, %424
   store double %425, ptr %423, align 16, !tbaa !86
@@ -9234,7 +9232,7 @@ sstrsep.exit361:                                  ; preds = %._crit_edge.i355, %
 sstrsep.exit374:                                  ; preds = %._crit_edge.i368, %485
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %486 = call double @strtod(ptr noundef nonnull captures(none) %.35, ptr noundef null) #14
-  %487 = getelementptr inbounds nuw [1 x double], ptr @ecdh_results, i64 %454
+  %487 = getelementptr inbounds nuw [8 x i8], ptr @ecdh_results, i64 %454
   %488 = load double, ptr %487, align 8, !tbaa !86
   %489 = fadd double %486, %488
   store double %489, ptr %487, align 8, !tbaa !86
@@ -9409,7 +9407,7 @@ sstrsep.exit431:                                  ; preds = %._crit_edge.i425, %
   %.44 = phi ptr [ %.43, %._crit_edge.i425 ], [ %547, %546 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %548 = call double @strtod(ptr noundef nonnull captures(none) %.42, ptr noundef null) #14
-  %549 = getelementptr inbounds nuw [2 x double], ptr @eddsa_results, i64 %503
+  %549 = getelementptr inbounds nuw [16 x i8], ptr @eddsa_results, i64 %503
   %550 = load double, ptr %549, align 16, !tbaa !86
   %551 = fadd double %548, %550
   store double %551, ptr %549, align 16, !tbaa !86
@@ -9796,7 +9794,7 @@ sstrsep.exit545:                                  ; preds = %._crit_edge.i539, %
 sstrsep.exit558:                                  ; preds = %._crit_edge.i552, %686
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %687 = call double @strtod(ptr noundef nonnull captures(none) %.58, ptr noundef null) #14
-  %688 = getelementptr inbounds nuw [1 x double], ptr @ffdh_results, i64 %655
+  %688 = getelementptr inbounds nuw [8 x i8], ptr @ffdh_results, i64 %655
   %689 = load double, ptr %688, align 8, !tbaa !86
   %690 = fadd double %687, %689
   store double %690, ptr %688, align 8, !tbaa !86
@@ -9901,7 +9899,7 @@ sstrsep.exit589:                                  ; preds = %._crit_edge.i583, %
   %.63 = phi ptr [ %.62, %._crit_edge.i583 ], [ %724, %723 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %725 = call double @strtod(ptr noundef nonnull captures(none) %.61, ptr noundef null) #14
-  %726 = getelementptr inbounds nuw [3 x double], ptr @kems_results, i64 %704
+  %726 = getelementptr inbounds nuw [24 x i8], ptr @kems_results, i64 %704
   %727 = load double, ptr %726, align 8, !tbaa !86
   %728 = fadd double %725, %727
   store double %728, ptr %726, align 8, !tbaa !86
@@ -10089,7 +10087,7 @@ sstrsep.exit646:                                  ; preds = %._crit_edge.i640, %
   %.70 = phi ptr [ %.69, %._crit_edge.i640 ], [ %795, %794 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %796 = call double @strtod(ptr noundef nonnull captures(none) %.68, ptr noundef null) #14
-  %797 = getelementptr inbounds nuw [3 x double], ptr @sigs_results, i64 %775
+  %797 = getelementptr inbounds nuw [24 x i8], ptr @sigs_results, i64 %775
   %798 = load double, ptr %797, align 8, !tbaa !86
   %799 = fadd double %796, %798
   store double %799, ptr %797, align 8, !tbaa !86
@@ -10343,7 +10341,7 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   %.062110 = phi i32 [ 0, %.preheader98.preheader ], [ %.163, %28 ]
   %.068109 = phi i32 [ 0, %.preheader98.preheader ], [ %.169, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %15 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [13664 x i8], ptr %2, i64 %indvars.iv
   store ptr %15, ptr %8, align 8, !tbaa !189
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !45
@@ -10399,7 +10397,7 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
 .preheader95:                                     ; preds = %.lr.ph, %59
   %indvars.iv136 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next137, %59 ]
   %.055115 = phi i32 [ 0, %.lr.ph ], [ %.1, %59 ]
-  %31 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv136
+  %31 = getelementptr inbounds nuw [13664 x i8], ptr %2, i64 %indvars.iv136
   %32 = load ptr, ptr %31, align 8, !tbaa !192
   %33 = icmp eq ptr %32, null
   br i1 %33, label %59, label %34
@@ -10423,7 +10421,7 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   br label %.loopexit96
 
 45:                                               ; preds = %34
-  %46 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv136
+  %46 = getelementptr inbounds nuw [13664 x i8], ptr %2, i64 %indvars.iv136
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !45
   %49 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef %48, ptr noundef nonnull %6, ptr noundef nonnull %7) #14
@@ -10433,7 +10431,7 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   %53 = shl nuw i64 1, %52
   %54 = sdiv i32 %50, 64
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i64, ptr %9, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %9, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !28
   %58 = or i64 %53, %57
   store i64 %58, ptr %56, align 8, !tbaa !28
@@ -10481,7 +10479,7 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   %.6118 = phi i32 [ %123, %122 ], [ %.4, %64 ]
   %.466117 = phi i32 [ %.567, %122 ], [ %.264122, %64 ]
   %.573116 = phi i32 [ %.674, %122 ], [ %.270121, %64 ]
-  %74 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv139
+  %74 = getelementptr inbounds nuw [13664 x i8], ptr %2, i64 %indvars.iv139
   %75 = load ptr, ptr %74, align 8, !tbaa !192
   %76 = icmp eq ptr %75, null
   br i1 %76, label %122, label %77
@@ -10505,7 +10503,7 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   br label %.loopexit
 
 88:                                               ; preds = %77
-  %89 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv139
+  %89 = getelementptr inbounds nuw [13664 x i8], ptr %2, i64 %indvars.iv139
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !45
   %92 = call i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef %91, ptr noundef nonnull %6, ptr noundef nonnull %7) #14
@@ -10517,7 +10515,7 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   %96 = load i32, ptr %6, align 4, !tbaa !13
   %97 = sdiv i32 %96, 64
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i64, ptr %9, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %9, i64 %98
   %100 = load i64, ptr %99, align 8, !tbaa !28
   %101 = srem i32 %96, 64
   %102 = zext nneg i32 %101 to i64
@@ -10527,7 +10525,7 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   br i1 %.not82, label %122, label %105
 
 105:                                              ; preds = %95, %88
-  %106 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv139
+  %106 = getelementptr inbounds nuw [13664 x i8], ptr %2, i64 %indvars.iv139
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8, !tbaa !45
   %109 = call i32 @ASYNC_start_job(ptr noundef %106, ptr noundef %108, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %106, i64 noundef 13664) #14
@@ -10544,13 +10542,13 @@ define internal fastcc i32 @run_benchmark(i32 noundef range(i32 0, 100000) %0, p
   %.775 = add nsw i32 %113, %.573116
   %.9 = select i1 %112, i32 1, i32 %.6118
   %114 = add nsw i32 %.466117, -1
-  %115 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv139
+  %115 = getelementptr inbounds nuw [13664 x i8], ptr %2, i64 %indvars.iv139
   store ptr null, ptr %115, align 8, !tbaa !192
   br label %122
 
 116:                                              ; preds = %105, %105
   %117 = add nsw i32 %.466117, -1
-  %118 = getelementptr inbounds nuw %struct.loopargs_st, ptr %2, i64 %indvars.iv139
+  %118 = getelementptr inbounds nuw [13664 x i8], ptr %2, i64 %indvars.iv139
   store ptr null, ptr %118, align 8, !tbaa !192
   %119 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %120 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %119, ptr noundef nonnull @.str.432) #14
@@ -10615,7 +10613,7 @@ define internal fastcc void @print_result(i32 noundef %0, i32 noundef %1, i32 no
 
 7:                                                ; preds = %4
   %8 = sext i32 %0 to i64
-  %9 = getelementptr inbounds ptr, ptr @names, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr @names, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.475, ptr noundef %10) #14
   %12 = load ptr, ptr @bio_err, align 8, !tbaa !19
@@ -10627,19 +10625,19 @@ define internal fastcc void @print_result(i32 noundef %0, i32 noundef %1, i32 no
   %.b = load i1, ptr @mr, align 4
   %14 = select i1 %.b, ptr @.str.476, ptr @.str.477
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds ptr, ptr @names, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @names, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !23
   %18 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull %14, i32 noundef %2, ptr noundef %17, double noundef %3) #14
   %19 = sitofp i32 %2 to double
   %20 = fdiv double %19, %3
   %21 = load ptr, ptr @lengths, align 8, !tbaa !26
   %22 = sext i32 %1 to i64
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !13
   %25 = sitofp i32 %24 to double
   %26 = fmul double %20, %25
-  %27 = getelementptr inbounds [6 x double], ptr @results, i64 %15
-  %28 = getelementptr inbounds double, ptr %27, i64 %22
+  %27 = getelementptr inbounds [48 x i8], ptr @results, i64 %15
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %22
   store double %26, ptr %28, align 8, !tbaa !86
   br label %29
 
@@ -10756,7 +10754,7 @@ define internal fastcc range(i32 0, 2) i32 @mac_setup(ptr noundef %0, ptr nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
   %11 = load ptr, ptr %1, align 8, !tbaa !11
   %12 = tail call ptr @EVP_MAC_CTX_new(ptr noundef %11) #14
-  %13 = getelementptr inbounds nuw %struct.loopargs_st, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [13664 x i8], ptr %3, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1224
   store ptr %12, ptr %14, align 8, !tbaa !100
   %15 = icmp eq ptr %12, null
@@ -10803,7 +10801,7 @@ define internal i32 @HMAC_loop(ptr noundef readonly captures(none) %0) #0 {
   %12 = load ptr, ptr @lengths, align 8, !tbaa !26
   %13 = load i32, ptr @testnum, align 4, !tbaa !13
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !13
   %17 = sext i32 %16 to i64
   %18 = call i32 @EVP_MAC_update(ptr noundef %.val.val1, ptr noundef %.val.val, i64 noundef %17) #14
@@ -10843,7 +10841,7 @@ define internal fastcc void @mac_teardown(ptr noundef nonnull captures(none) %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = getelementptr inbounds nuw %struct.loopargs_st, ptr %1, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [13664 x i8], ptr %1, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1224
   %6 = load ptr, ptr %5, align 8, !tbaa !100
   tail call void @EVP_MAC_CTX_free(ptr noundef %6) #14
@@ -10961,7 +10959,7 @@ define internal range(i32 -1, -2147483648) i32 @EVP_Cipher_loop(ptr noundef read
   %13 = load ptr, ptr @lengths, align 8, !tbaa !26
   %14 = load i32, ptr @testnum, align 4, !tbaa !13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !13
   %18 = tail call i32 @EVP_Cipher(ptr noundef %12, ptr noundef %4, ptr noundef %4, i32 noundef %17) #14
   %19 = icmp slt i32 %18, 1
@@ -11004,7 +11002,7 @@ define internal range(i32 -1, -2147483648) i32 @GHASH_loop(ptr noundef readonly 
   %11 = load ptr, ptr @lengths, align 8, !tbaa !26
   %12 = load i32, ptr @testnum, align 4, !tbaa !13
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !13
   %16 = sext i32 %15 to i64
   %17 = tail call i32 @EVP_MAC_update(ptr noundef %6, ptr noundef %4, i64 noundef %16) #14
@@ -11042,7 +11040,7 @@ define internal range(i32 0, -2147483648) i32 @RAND_bytes_loop(ptr noundef reado
   %9 = load ptr, ptr @lengths, align 8, !tbaa !26
   %10 = load i32, ptr @testnum, align 4, !tbaa !13
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !13
   %14 = tail call i32 @RAND_bytes(ptr noundef %4, i32 noundef %13) #14
   %15 = add nuw nsw i32 %.06, 1
@@ -11067,7 +11065,7 @@ define internal fastcc void @multiblock_speed(ptr noundef %0, i32 noundef %1, i3
   %.not = icmp eq i32 %1, 0
   %spec.select = select i1 %.not, i64 5, i64 1
   %spec.select99 = select i1 %.not, ptr @multiblock_speed.mblengths_list, ptr %3
-  %7 = getelementptr i32, ptr %spec.select99, i64 %spec.select
+  %7 = getelementptr [4 x i8], ptr %spec.select99, i64 %spec.select
   %8 = getelementptr i8, ptr %7, i64 -4
   %9 = load i32, ptr %8, align 4, !tbaa !13
   %10 = sext i32 %9 to i64
@@ -11153,7 +11151,7 @@ define internal fastcc void @multiblock_speed(ptr noundef %0, i32 noundef %1, i3
   %.b.i = phi i1 [ %.b.i.pre38, %45 ], [ %.b89, %98 ]
   %indvars.iv = phi i64 [ 0, %45 ], [ %indvars.iv.next, %98 ]
   %.08111 = phi i32 [ 1, %45 ], [ %.182.lcssa, %98 ]
-  %50 = getelementptr inbounds nuw i32, ptr %spec.select99, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %spec.select99, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !13
   %52 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %53 = select i1 %.b.i, ptr @.str.469, ptr @.str.470
@@ -11268,7 +11266,7 @@ define internal fastcc void @multiblock_speed(ptr noundef %0, i32 noundef %1, i3
   %101 = load i32, ptr %50, align 4, !tbaa !13
   %102 = sitofp i32 %101 to double
   %103 = fmul double %100, %102
-  %104 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @results, i64 1200), i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @results, i64 1200), i64 %indvars.iv
   store double %103, ptr %104, align 8, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %spec.select
@@ -11285,7 +11283,7 @@ define internal fastcc void @multiblock_speed(ptr noundef %0, i32 noundef %1, i3
 109:                                              ; preds = %107, %109
   %indvars.iv28 = phi i64 [ 0, %107 ], [ %indvars.iv.next29, %109 ]
   %110 = load ptr, ptr @stdout, align 8, !tbaa !180
-  %111 = getelementptr inbounds nuw i32, ptr %spec.select99, i64 %indvars.iv28
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %spec.select99, i64 %indvars.iv28
   %112 = load i32, ptr %111, align 4, !tbaa !13
   %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %110, ptr noundef nonnull @.str.295, i32 noundef %112) #14
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
@@ -11302,7 +11300,7 @@ define internal fastcc void @multiblock_speed(ptr noundef %0, i32 noundef %1, i3
 118:                                              ; preds = %114, %118
   %indvars.iv33 = phi i64 [ 0, %114 ], [ %indvars.iv.next34, %118 ]
   %119 = load ptr, ptr @stdout, align 8, !tbaa !180
-  %120 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @results, i64 1200), i64 %indvars.iv33
+  %120 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @results, i64 1200), i64 %indvars.iv33
   %121 = load double, ptr %120, align 8, !tbaa !86
   %122 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %119, ptr noundef nonnull @.str.302, double noundef %121) #14
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
@@ -11323,7 +11321,7 @@ define internal fastcc void @multiblock_speed(ptr noundef %0, i32 noundef %1, i3
 129:                                              ; preds = %125, %129
   %indvars.iv18 = phi i64 [ 0, %125 ], [ %indvars.iv.next19, %129 ]
   %130 = load ptr, ptr @stdout, align 8, !tbaa !180
-  %131 = getelementptr inbounds nuw i32, ptr %spec.select99, i64 %indvars.iv18
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %spec.select99, i64 %indvars.iv18
   %132 = load i32, ptr %131, align 4, !tbaa !13
   %133 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef nonnull @.str.296, i32 noundef %132) #14
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
@@ -11339,7 +11337,7 @@ define internal fastcc void @multiblock_speed(ptr noundef %0, i32 noundef %1, i3
 
 138:                                              ; preds = %134, %148
   %indvars.iv23 = phi i64 [ 0, %134 ], [ %indvars.iv.next24, %148 ]
-  %139 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @results, i64 1200), i64 %indvars.iv23
+  %139 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @results, i64 1200), i64 %indvars.iv23
   %140 = load double, ptr %139, align 8, !tbaa !86
   %141 = fcmp ogt double %140, 1.000000e+04
   %142 = load ptr, ptr @stdout, align 8, !tbaa !180
@@ -11494,7 +11492,7 @@ define internal i32 @EVP_Update_loop_aead_dec(ptr noundef readonly captures(none
   %51 = load ptr, ptr @lengths, align 8, !tbaa !26
   %52 = load i32, ptr @testnum, align 4, !tbaa !13
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !13
   %56 = call i32 @EVP_DecryptUpdate(ptr noundef %12, ptr noundef null, ptr noundef nonnull %3, ptr noundef null, i32 noundef %55) #14
   %.not34 = icmp eq i32 %56, 0
@@ -11527,7 +11525,7 @@ define internal i32 @EVP_Update_loop_aead_dec(ptr noundef readonly captures(none
   %67 = load ptr, ptr @lengths, align 8, !tbaa !26
   %68 = load i32, ptr @testnum, align 4, !tbaa !13
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %67, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !13
   %72 = call i32 @EVP_DecryptUpdate(ptr noundef %12, ptr noundef %8, ptr noundef nonnull %3, ptr noundef %6, i32 noundef %71) #14
   %.not36 = icmp eq i32 %72, 0
@@ -11638,7 +11636,7 @@ define internal i32 @EVP_Update_loop_aead_enc(ptr noundef readonly captures(none
   %34 = load ptr, ptr @lengths, align 8, !tbaa !26
   %35 = load i32, ptr @testnum, align 4, !tbaa !13
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !13
   %39 = call i32 @EVP_EncryptUpdate(ptr noundef %9, ptr noundef null, ptr noundef nonnull %2, ptr noundef null, i32 noundef %38) #14
   %.not27 = icmp eq i32 %39, 0
@@ -11671,7 +11669,7 @@ define internal i32 @EVP_Update_loop_aead_enc(ptr noundef readonly captures(none
   %50 = load ptr, ptr @lengths, align 8, !tbaa !26
   %51 = load i32, ptr @testnum, align 4, !tbaa !13
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !13
   %55 = call i32 @EVP_EncryptUpdate(ptr noundef %9, ptr noundef %5, ptr noundef nonnull %2, ptr noundef %5, i32 noundef %54) #14
   %.not29 = icmp eq i32 %55, 0
@@ -11731,7 +11729,7 @@ define internal i32 @EVP_Update_loop(ptr noundef readonly captures(none) %0) #0 
   %12 = load ptr, ptr @lengths, align 8, !tbaa !26
   %13 = load i32, ptr @testnum, align 4, !tbaa !13
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !13
   %17 = call i32 @EVP_DecryptUpdate(ptr noundef %7, ptr noundef %5, ptr noundef nonnull %2, ptr noundef %5, i32 noundef %16) #14
   %.not30 = icmp eq i32 %17, 1
@@ -11758,7 +11756,7 @@ define internal i32 @EVP_Update_loop(ptr noundef readonly captures(none) %0) #0 
   %26 = load ptr, ptr @lengths, align 8, !tbaa !26
   %27 = load i32, ptr @testnum, align 4, !tbaa !13
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !13
   %31 = call i32 @EVP_EncryptUpdate(ptr noundef %7, ptr noundef %5, ptr noundef nonnull %2, ptr noundef %5, i32 noundef %30) #14
   %.not28 = icmp eq i32 %31, 1
@@ -11881,7 +11879,7 @@ define internal i32 @CMAC_loop(ptr noundef readonly captures(none) %0) #0 {
   %12 = load ptr, ptr @lengths, align 8, !tbaa !26
   %13 = load i32, ptr @testnum, align 4, !tbaa !13
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !13
   %17 = sext i32 %16 to i64
   %18 = call i32 @EVP_MAC_update(ptr noundef %.val.val1, ptr noundef %.val.val, i64 noundef %17) #14
@@ -11941,7 +11939,7 @@ define internal i32 @KMAC128_loop(ptr noundef readonly captures(none) %0) #0 {
   %12 = load ptr, ptr @lengths, align 8, !tbaa !26
   %13 = load i32, ptr @testnum, align 4, !tbaa !13
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !13
   %17 = sext i32 %16 to i64
   %18 = call i32 @EVP_MAC_update(ptr noundef %.val.val1, ptr noundef %.val.val, i64 noundef %17) #14
@@ -12001,7 +11999,7 @@ define internal i32 @KMAC256_loop(ptr noundef readonly captures(none) %0) #0 {
   %12 = load ptr, ptr @lengths, align 8, !tbaa !26
   %13 = load i32, ptr @testnum, align 4, !tbaa !13
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !13
   %17 = sext i32 %16 to i64
   %18 = call i32 @EVP_MAC_update(ptr noundef %.val.val1, ptr noundef %.val.val, i64 noundef %17) #14
@@ -12096,7 +12094,7 @@ define internal i32 @RSA_sign_loop(ptr noundef readonly captures(none) %0) #0 {
   store i64 %15, ptr %7, align 8, !tbaa !28
   %16 = load i32, ptr @testnum, align 4, !tbaa !13
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !15
   %20 = tail call i32 @EVP_PKEY_sign(ptr noundef %19, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %4, i64 noundef 36) #14
   %21 = icmp slt i32 %20, 1
@@ -12149,7 +12147,7 @@ define internal i32 @RSA_verify_loop(ptr noundef readonly captures(none) %0) #0 
 13:                                               ; preds = %.lr.ph
   %14 = load i32, ptr @testnum, align 4, !tbaa !13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %9, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !15
   %18 = tail call i32 @EVP_PKEY_verify(ptr noundef %17, ptr noundef %6, i64 noundef %8, ptr noundef %4, i64 noundef 36) #14
   %19 = icmp slt i32 %18, 1
@@ -12207,7 +12205,7 @@ define internal i32 @RSA_encrypt_loop(ptr noundef readonly captures(none) %0) #0
   store i64 %15, ptr %7, align 8, !tbaa !28
   %16 = load i32, ptr @testnum, align 4, !tbaa !13
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !15
   %20 = tail call i32 @EVP_PKEY_encrypt(ptr noundef %19, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %4, i64 noundef 36) #14
   %21 = icmp slt i32 %20, 1
@@ -12267,7 +12265,7 @@ define internal i32 @RSA_decrypt_loop(ptr noundef readonly captures(none) %0) #0
   store i64 %16, ptr %2, align 8, !tbaa !28
   %17 = load i32, ptr @testnum, align 4, !tbaa !13
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !15
   %21 = load i64, ptr %11, align 8, !tbaa !118
   %22 = call i32 @EVP_PKEY_decrypt(ptr noundef %20, ptr noundef %5, ptr noundef nonnull %2, ptr noundef %7, i64 noundef %21) #14
@@ -12325,7 +12323,7 @@ define internal i32 @DSA_sign_loop(ptr noundef readonly captures(none) %0) #0 {
   store i64 %15, ptr %7, align 8, !tbaa !28
   %16 = load i32, ptr @testnum, align 4, !tbaa !13
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !15
   %20 = tail call i32 @EVP_PKEY_sign(ptr noundef %19, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %4, i64 noundef 20) #14
   %21 = icmp slt i32 %20, 1
@@ -12374,7 +12372,7 @@ define internal i32 @DSA_verify_loop(ptr noundef readonly captures(none) %0) #0 
 13:                                               ; preds = %.lr.ph
   %14 = load i32, ptr @testnum, align 4, !tbaa !13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %9, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !15
   %18 = tail call i32 @EVP_PKEY_verify(ptr noundef %17, ptr noundef %6, i64 noundef %8, ptr noundef %4, i64 noundef 20) #14
   %19 = icmp slt i32 %18, 1
@@ -12566,7 +12564,7 @@ define internal i32 @ECDSA_sign_loop(ptr noundef readonly captures(none) %0) #0 
   store i64 %15, ptr %7, align 8, !tbaa !28
   %16 = load i32, ptr @testnum, align 4, !tbaa !13
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !15
   %20 = tail call i32 @EVP_PKEY_sign(ptr noundef %19, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %4, i64 noundef 20) #14
   %21 = icmp slt i32 %20, 1
@@ -12615,7 +12613,7 @@ define internal i32 @ECDSA_verify_loop(ptr noundef readonly captures(none) %0) #
 13:                                               ; preds = %.lr.ph
   %14 = load i32, ptr @testnum, align 4, !tbaa !13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %9, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !15
   %18 = tail call i32 @EVP_PKEY_verify(ptr noundef %17, ptr noundef %6, i64 noundef %8, ptr noundef %4, i64 noundef 20) #14
   %19 = icmp slt i32 %18, 1
@@ -12654,12 +12652,12 @@ define internal range(i32 0, -2147483648) i32 @ECDH_EVP_derive_key_loop(ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 704
   %4 = load i32, ptr @testnum, align 4, !tbaa !13
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 952
   %9 = load ptr, ptr %8, align 8, !tbaa !57
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 968
-  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %5
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %5
   %12 = load volatile i32, ptr @run, align 4, !tbaa !13
   %.not9 = icmp eq i32 %12, 0
   br i1 %.not9, label %.critedge, label %.lr.ph
@@ -12718,7 +12716,7 @@ define internal i32 @EdDSA_sign_loop(ptr noundef readonly captures(none) %0) #0 
 12:                                               ; preds = %.lr.ph
   %13 = load i32, ptr @testnum, align 4, !tbaa !13
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %5, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !132
   %17 = tail call i32 @EVP_DigestSignInit(ptr noundef %16, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #14
   %18 = icmp eq i32 %17, 0
@@ -12727,7 +12725,7 @@ define internal i32 @EdDSA_sign_loop(ptr noundef readonly captures(none) %0) #0 
 19:                                               ; preds = %12
   %20 = load i32, ptr @testnum, align 4, !tbaa !13
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %5, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !132
   %24 = tail call i32 @EVP_DigestSign(ptr noundef %23, ptr noundef %7, ptr noundef nonnull %8, ptr noundef %4, i64 noundef 20) #14
   %25 = icmp eq i32 %24, 0
@@ -12779,7 +12777,7 @@ define internal i32 @EdDSA_verify_loop(ptr noundef readonly captures(none) %0) #
 13:                                               ; preds = %.lr.ph
   %14 = load i32, ptr @testnum, align 4, !tbaa !13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !132
   %18 = tail call i32 @EVP_DigestVerifyInit(ptr noundef %17, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #14
   %19 = icmp eq i32 %18, 0
@@ -12788,7 +12786,7 @@ define internal i32 @EdDSA_verify_loop(ptr noundef readonly captures(none) %0) #
 20:                                               ; preds = %13
   %21 = load i32, ptr @testnum, align 4, !tbaa !13
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %5, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !132
   %25 = tail call i32 @EVP_DigestVerify(ptr noundef %24, ptr noundef %7, i64 noundef %9, ptr noundef %4, i64 noundef 20) #14
   %.not14 = icmp eq i32 %25, 1
@@ -12837,7 +12835,7 @@ define internal i32 @SM2_sign_loop(ptr noundef readonly captures(none) %0) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 944
   %10 = load i32, ptr @testnum, align 4, !tbaa !13
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = tail call i32 @EVP_PKEY_get_size(ptr noundef %13) #14
   %15 = sext i32 %14 to i64
@@ -12860,12 +12858,12 @@ define internal i32 @SM2_sign_loop(ptr noundef readonly captures(none) %0) #0 {
   store i64 %15, ptr %2, align 8, !tbaa !28
   %22 = load i32, ptr @testnum, align 4, !tbaa !13
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %6, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !132
   %26 = call ptr @EVP_sm3() #14
   %27 = load i32, ptr @testnum, align 4, !tbaa !13
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %9, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !4
   %31 = call i32 @EVP_DigestSignInit(ptr noundef %25, ptr noundef null, ptr noundef %26, ptr noundef null, ptr noundef %30) #14
   %.not16 = icmp eq i32 %31, 0
@@ -12874,7 +12872,7 @@ define internal i32 @SM2_sign_loop(ptr noundef readonly captures(none) %0) #0 {
 32:                                               ; preds = %21
   %33 = load i32, ptr @testnum, align 4, !tbaa !13
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %6, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !132
   %37 = call i32 @EVP_DigestSign(ptr noundef %36, ptr noundef %8, ptr noundef nonnull %2, ptr noundef %5, i64 noundef 20) #14
   %38 = icmp eq i32 %37, 0
@@ -12928,12 +12926,12 @@ define internal i32 @SM2_verify_loop(ptr noundef readonly captures(none) %0) #0 
 14:                                               ; preds = %.lr.ph
   %15 = load i32, ptr @testnum, align 4, !tbaa !13
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !132
   %19 = tail call ptr @EVP_sm3() #14
   %20 = load i32, ptr @testnum, align 4, !tbaa !13
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %10, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = tail call i32 @EVP_DigestVerifyInit(ptr noundef %18, ptr noundef null, ptr noundef %19, ptr noundef null, ptr noundef %23) #14
   %.not15 = icmp eq i32 %24, 0
@@ -12942,7 +12940,7 @@ define internal i32 @SM2_verify_loop(ptr noundef readonly captures(none) %0) #0 
 25:                                               ; preds = %14
   %26 = load i32, ptr @testnum, align 4, !tbaa !13
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %5, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !132
   %30 = tail call i32 @EVP_DigestVerify(ptr noundef %29, ptr noundef %7, i64 noundef %9, ptr noundef %4, i64 noundef 20) #14
   %.not16 = icmp eq i32 %30, 1
@@ -12981,7 +12979,7 @@ define internal range(i32 0, -2147483648) i32 @FFDH_derive_key_loop(ptr noundef 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1160
   %5 = load i32, ptr @testnum, align 4, !tbaa !13
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1200
   %10 = load ptr, ptr %9, align 8, !tbaa !59
@@ -13050,7 +13048,7 @@ define internal range(i32 -1, -2147483648) i32 @KEM_keygen_loop(ptr noundef read
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1232
   %5 = load i32, ptr @testnum, align 4, !tbaa !13
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !4
@@ -13093,23 +13091,23 @@ define internal range(i32 -1, -2147483648) i32 @KEM_encaps_loop(ptr noundef read
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2120
   %6 = load i32, ptr @testnum, align 4, !tbaa !13
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 3896
-  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %7
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %7
   %12 = load i64, ptr %11, align 8, !tbaa !28
   store i64 %12, ptr %2, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 4784
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %7
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %7
   %15 = load i64, ptr %14, align 8, !tbaa !28
   store i64 %15, ptr %3, align 8, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 5672
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %7
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %7
   %18 = load ptr, ptr %17, align 8, !tbaa !23
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 6560
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %7
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %7
   %21 = load ptr, ptr %20, align 8, !tbaa !23
   %22 = load volatile i32, ptr @run, align 4, !tbaa !13
   %.not13 = icmp eq i32 %22, 0
@@ -13147,21 +13145,21 @@ define internal range(i32 -1, -2147483648) i32 @KEM_decaps_loop(ptr noundef read
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 3008
   %5 = load i32, ptr @testnum, align 4, !tbaa !13
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 3896
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %6
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %6
   %11 = load i64, ptr %10, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4784
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %6
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %6
   %14 = load i64, ptr %13, align 8, !tbaa !28
   store i64 %14, ptr %2, align 8, !tbaa !28
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 5672
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %6
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %6
   %17 = load ptr, ptr %16, align 8, !tbaa !23
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 6560
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %6
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %6
   %20 = load ptr, ptr %19, align 8, !tbaa !23
   %21 = load volatile i32, ptr @run, align 4, !tbaa !13
   %.not14 = icmp eq i32 %21, 0
@@ -13206,7 +13204,7 @@ define internal range(i32 0, -2147483648) i32 @SIG_keygen_loop(ptr noundef reado
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8336
   %5 = load i32, ptr @testnum, align 4, !tbaa !13
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !4
@@ -13245,10 +13243,10 @@ define internal i32 @SIG_sign_loop(ptr noundef readonly captures(none) %0) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 9224
   %6 = load i32, ptr @testnum, align 4, !tbaa !13
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 11000
-  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %7
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %7
   %12 = load i64, ptr %11, align 8, !tbaa !28
   %13 = tail call ptr @app_malloc(i64 noundef %12, ptr noundef nonnull @.str.466) #14
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -13268,7 +13266,7 @@ define internal i32 @SIG_sign_loop(ptr noundef readonly captures(none) %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load i32, ptr @testnum, align 4, !tbaa !13
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i64, ptr %10, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !28
   store i64 %21, ptr %3, align 8, !tbaa !28
   %22 = call i32 @EVP_PKEY_sign(ptr noundef %9, ptr noundef %13, ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef 32) #14
@@ -13305,13 +13303,13 @@ define internal i32 @SIG_verify_loop(ptr noundef readonly captures(none) %0) #0 
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 10112
   %5 = load i32, ptr @testnum, align 4, !tbaa !13
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 11888
-  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %6
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %6
   %11 = load i64, ptr %10, align 8, !tbaa !28
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 12776
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %6
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %6
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
@@ -13469,7 +13467,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @EVP_Digest_loop(ptr nound
   %19 = load ptr, ptr @lengths, align 8, !tbaa !26
   %20 = load i32, ptr @testnum, align 4, !tbaa !13
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !13
   %24 = sext i32 %23 to i64
   %25 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %10, ptr noundef %.0.val.16.val, i64 noundef %24) #14
@@ -13498,7 +13496,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @EVP_Digest_loop(ptr nound
   %34 = load ptr, ptr @lengths, align 8, !tbaa !26
   %35 = load i32, ptr @testnum, align 4, !tbaa !13
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !13
   %39 = sext i32 %38 to i64
   %40 = load ptr, ptr %3, align 8, !tbaa !21

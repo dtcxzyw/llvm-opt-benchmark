@@ -8,24 +8,9 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { %struct.anon.1 }
 %struct.anon.1 = type { i32, [2 x i64] }
 %struct.anon = type { i32, i32 }
-%struct.H2645NAL = type { ptr, i32, i32, i32, ptr, %struct.GetBitContext, i32, i32, i32, i32, i32, i32, ptr }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
-%struct.H264RawScalingList = type { [64 x i8] }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
-%struct.H265RawSTRefPicSet = type { i8, i8, i8, i16, [16 x i8], [16 x i8], i8, i8, [16 x i16], [16 x i8], [16 x i16], [16 x i8] }
-%struct.H265RawHRDParameters = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8], [7 x i8], [7 x i16], [7 x i8], [7 x i8], [7 x %struct.H265RawSubLayerHRDParameters], [7 x %struct.H265RawSubLayerHRDParameters] }
-%struct.H265RawSubLayerHRDParameters = type { [32 x i32], [32 x i32], [32 x i32], [32 x i32], [32 x i8] }
-%struct.H266RefPicListStruct = type { i8, i8, [29 x i8], [29 x i8], [29 x i8], [29 x i8], [29 x i8], [29 x i8] }
-%struct.H266RawProfileTierLevel = type { i8, i8, i8, i8, i8, %struct.H266GeneralConstraintsInfo, [6 x i8], [6 x i8], i8, [256 x i32], i8 }
-%struct.H266GeneralConstraintsInfo = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [255 x i8], i8, i8, i8, i8, i8, i8 }
-%struct.H266DpbParameters = type { [7 x i8], [7 x i8], [7 x i8] }
-%struct.SEIMessageTypeDescriptor = type { i32, i8, i8, i64, ptr, ptr }
-%struct.anon.3 = type { i8, i32, i8 }
-%struct.anon.4 = type { i8, i32, i8, i8, i8 }
 %struct.SEIMessageState = type { i32, i32, i8 }
-%struct.SEIRawMessage = type { i32, i32, ptr, ptr, ptr, i64 }
 %struct.PutBitContext = type { i32, i32, ptr, ptr, ptr }
-%struct.H264RawSEIPicTimestamp = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32 }
 
 @ff_cbs_type_h264 = local_unnamed_addr constant { i32, [4 x i8], ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 27, [4 x i8] zeroinitializer, ptr null, i64 2384, ptr @cbs_h264_unit_types, ptr @cbs_h2645_split_fragment, ptr @cbs_h264_read_nal_unit, ptr @cbs_h264_write_nal_unit, ptr @cbs_h264_discarded_nal_unit, ptr @cbs_h2645_assemble_fragment, ptr @cbs_h264_flush, ptr @cbs_h264_close }, align 8
 @ff_cbs_type_h265 = local_unnamed_addr constant { i32, [4 x i8], ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 173, [4 x i8] zeroinitializer, ptr null, i64 848, ptr @cbs_h265_unit_types, ptr @cbs_h2645_split_fragment, ptr @cbs_h265_read_nal_unit, ptr @cbs_h265_write_nal_unit, ptr @cbs_h265_discarded_nal_unit, ptr @cbs_h2645_assemble_fragment, ptr @cbs_h265_flush, ptr @cbs_h265_close }, align 8
@@ -2198,7 +2183,7 @@ bytestream2_get_be16.exit261.thread:              ; preds = %327, %bytestream2_g
 .lr.ph43.i:                                       ; preds = %352, %389
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %389 ], [ 0, %352 ]
   %355 = load ptr, ptr %294, align 8, !tbaa !41
-  %356 = getelementptr inbounds nuw %struct.H2645NAL, ptr %355, i64 %indvars.iv.i
+  %356 = getelementptr inbounds nuw [96 x i8], ptr %355, i64 %indvars.iv.i
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
   %358 = load i32, ptr %357, align 8, !tbaa !42
   %359 = sext i32 %358 to i64
@@ -2294,7 +2279,7 @@ bytestream2_get_be16.exit261.thread:              ; preds = %327, %bytestream2_g
 .lr.ph43.i263:                                    ; preds = %405, %443
   %indvars.iv.i264 = phi i64 [ %indvars.iv.next.i270, %443 ], [ 0, %405 ]
   %409 = load ptr, ptr %398, align 8, !tbaa !41
-  %410 = getelementptr inbounds nuw %struct.H2645NAL, ptr %409, i64 %indvars.iv.i264
+  %410 = getelementptr inbounds nuw [96 x i8], ptr %409, i64 %indvars.iv.i264
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 8
   %412 = load i32, ptr %411, align 8, !tbaa !42
   %413 = sext i32 %412 to i64
@@ -2844,13 +2829,13 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_nal_unit(ptr nounde
   br i1 %274, label %275, label %279
 
 275:                                              ; preds = %273
-  %276 = getelementptr inbounds nuw %struct.H264RawScalingList, ptr %263, i64 %indvars.iv.i
+  %276 = getelementptr inbounds nuw [64 x i8], ptr %263, i64 %indvars.iv.i
   %277 = call fastcc i32 @cbs_h264_read_scaling_list(ptr noundef %0, ptr noundef nonnull %118, ptr noundef nonnull %276, i32 noundef 16)
   %278 = icmp slt i32 %277, 0
   br i1 %278, label %cbs_h264_read_sps.exit.thread, label %284
 
 279:                                              ; preds = %273
-  %280 = getelementptr %struct.H264RawScalingList, ptr %140, i64 %indvars.iv.i
+  %280 = getelementptr [64 x i8], ptr %140, i64 %indvars.iv.i
   %281 = getelementptr i8, ptr %280, i64 32
   %282 = call fastcc i32 @cbs_h264_read_scaling_list(ptr noundef %0, ptr noundef nonnull %118, ptr noundef %281, i32 noundef 64)
   %283 = icmp slt i32 %282, 0
@@ -3015,7 +3000,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_nal_unit(ptr nounde
 
 350:                                              ; preds = %345
   %351 = load i32, ptr %103, align 4, !tbaa !63
-  %352 = getelementptr inbounds nuw i32, ptr %344, i64 %indvars.iv542.i
+  %352 = getelementptr inbounds nuw [4 x i8], ptr %344, i64 %indvars.iv542.i
   store i32 %351, ptr %352, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   %indvars.iv.next543.i = add nuw nsw i64 %indvars.iv542.i, 1
@@ -3277,7 +3262,7 @@ cbs_h264_read_sps.exit:                           ; preds = %450, %453
 464:                                              ; preds = %456
   %465 = getelementptr inbounds nuw i8, ptr %458, i64 56
   %466 = zext i8 %461 to i64
-  %467 = getelementptr inbounds nuw ptr, ptr %465, i64 %466
+  %467 = getelementptr inbounds nuw [8 x i8], ptr %465, i64 %466
   %468 = load ptr, ptr %467, align 8, !tbaa !107
   %469 = getelementptr inbounds nuw i8, ptr %458, i64 2360
   %470 = load ptr, ptr %469, align 8, !tbaa !109
@@ -3491,7 +3476,7 @@ cbs_h264_read_sps.exit:                           ; preds = %450, %453
   %563 = getelementptr inbounds nuw i8, ptr %546, i64 56
   %.mask.i = and i32 %560, 255
   %564 = zext nneg i32 %.mask.i to i64
-  %565 = getelementptr inbounds nuw ptr, ptr %563, i64 %564
+  %565 = getelementptr inbounds nuw [8 x i8], ptr %563, i64 %564
   %566 = load ptr, ptr %565, align 8, !tbaa !107
   %.not.i95 = icmp eq ptr %566, null
   br i1 %.not.i95, label %567, label %569
@@ -3620,7 +3605,7 @@ cbs_h264_read_sps.exit:                           ; preds = %450, %453
 622:                                              ; preds = %617
   %623 = load i32, ptr %43, align 4, !tbaa !63
   %624 = trunc i32 %623 to i16
-  %625 = getelementptr inbounds nuw i16, ptr %616, i64 %indvars.iv466.i
+  %625 = getelementptr inbounds nuw [2 x i8], ptr %616, i64 %indvars.iv466.i
   store i16 %624, ptr %625, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %indvars.iv.next467.i = add nuw nsw i64 %indvars.iv466.i, 1
@@ -3646,7 +3631,7 @@ cbs_h264_read_sps.exit:                           ; preds = %450, %453
 633:                                              ; preds = %628
   %634 = load i32, ptr %45, align 4, !tbaa !63
   %635 = trunc i32 %634 to i16
-  %636 = getelementptr inbounds nuw i16, ptr %611, i64 %indvars.iv463.i
+  %636 = getelementptr inbounds nuw [2 x i8], ptr %611, i64 %indvars.iv463.i
   store i16 %635, ptr %636, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
@@ -3664,7 +3649,7 @@ cbs_h264_read_sps.exit:                           ; preds = %450, %453
 641:                                              ; preds = %633
   %642 = load i32, ptr %47, align 4, !tbaa !63
   %643 = trunc i32 %642 to i16
-  %644 = getelementptr inbounds nuw i16, ptr %613, i64 %indvars.iv463.i
+  %644 = getelementptr inbounds nuw [2 x i8], ptr %613, i64 %indvars.iv463.i
   store i16 %643, ptr %644, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %indvars.iv.next464.i = add nuw nsw i64 %indvars.iv463.i, 1
@@ -4012,13 +3997,13 @@ cbs_h264_read_sps.exit:                           ; preds = %450, %453
   br i1 %808, label %809, label %813
 
 809:                                              ; preds = %807
-  %810 = getelementptr inbounds nuw %struct.H264RawScalingList, ptr %797, i64 %indvars.iv469.i
+  %810 = getelementptr inbounds nuw [64 x i8], ptr %797, i64 %indvars.iv469.i
   %811 = call fastcc i32 @cbs_h264_read_scaling_list(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef nonnull %810, i32 noundef 16)
   %812 = icmp slt i32 %811, 0
   br i1 %812, label %cbs_h264_read_pps.exit.thread, label %818
 
 813:                                              ; preds = %807
-  %814 = getelementptr %struct.H264RawScalingList, ptr %544, i64 %indvars.iv469.i
+  %814 = getelementptr [64 x i8], ptr %544, i64 %indvars.iv469.i
   %815 = getelementptr i8, ptr %814, i64 105
   %816 = call fastcc i32 @cbs_h264_read_scaling_list(ptr noundef nonnull %0, ptr noundef nonnull %118, ptr noundef %815, i32 noundef 64)
   %817 = icmp slt i32 %816, 0
@@ -4099,7 +4084,7 @@ cbs_h264_read_pps.exit:                           ; preds = %.thread430.i, %832
 846:                                              ; preds = %839
   %847 = getelementptr inbounds nuw i8, ptr %840, i64 312
   %848 = zext i8 %843 to i64
-  %849 = getelementptr inbounds nuw ptr, ptr %847, i64 %848
+  %849 = getelementptr inbounds nuw [8 x i8], ptr %847, i64 %848
   %850 = load ptr, ptr %849, align 8, !tbaa !156
   %851 = getelementptr inbounds nuw i8, ptr %840, i64 2368
   %852 = load ptr, ptr %851, align 8, !tbaa !157
@@ -4218,7 +4203,7 @@ switch.early.test.i:                              ; preds = %885
   %903 = getelementptr inbounds nuw i8, ptr %864, i64 312
   %.mask.i106 = and i32 %900, 255
   %904 = zext nneg i32 %.mask.i106 to i64
-  %905 = getelementptr inbounds nuw ptr, ptr %903, i64 %904
+  %905 = getelementptr inbounds nuw [8 x i8], ptr %903, i64 %904
   %906 = load ptr, ptr %905, align 8, !tbaa !156
   %.not389.i = icmp eq ptr %906, null
   br i1 %.not389.i, label %907, label %909
@@ -4235,7 +4220,7 @@ switch.early.test.i:                              ; preds = %885
   %912 = getelementptr inbounds nuw i8, ptr %906, i64 5
   %913 = load i8, ptr %912, align 1, !tbaa !124
   %914 = zext i8 %913 to i64
-  %915 = getelementptr inbounds nuw ptr, ptr %911, i64 %914
+  %915 = getelementptr inbounds nuw [8 x i8], ptr %911, i64 %914
   %916 = load ptr, ptr %915, align 8, !tbaa !107
   %.not390.i = icmp eq ptr %916, null
   br i1 %.not390.i, label %917, label %920
@@ -5371,13 +5356,13 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_nal_unit(ptr nound
   br i1 %137, label %138, label %142
 
 138:                                              ; preds = %136
-  %139 = getelementptr inbounds nuw %struct.H264RawScalingList, ptr %126, i64 %indvars.iv.i
+  %139 = getelementptr inbounds nuw [64 x i8], ptr %126, i64 %indvars.iv.i
   %140 = call fastcc i32 @cbs_h264_write_scaling_list(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %139, i32 noundef 16)
   %141 = icmp slt i32 %140, 0
   br i1 %141, label %cbs_h264_write_sps.exit.thread, label %147
 
 142:                                              ; preds = %136
-  %143 = getelementptr %struct.H264RawScalingList, ptr %14, i64 %indvars.iv.i
+  %143 = getelementptr [64 x i8], ptr %14, i64 %indvars.iv.i
   %144 = getelementptr i8, ptr %143, i64 32
   %145 = call fastcc i32 @cbs_h264_write_scaling_list(ptr noundef %0, ptr noundef %2, ptr noundef %144, i32 noundef 64)
   %146 = icmp slt i32 %145, 0
@@ -5520,7 +5505,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_nal_unit(ptr nound
 
 224:                                              ; preds = %220, %.lr.ph.i
   %indvars.iv493.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next494.i, %220 ]
-  %225 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv493.i
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %indvars.iv493.i
   %226 = load i32, ptr %225, align 4, !tbaa !63
   store i32 1, ptr %10, align 4, !tbaa !63
   %227 = trunc nuw nsw i64 %indvars.iv493.i to i32
@@ -5685,7 +5670,7 @@ cbs_h264_write_sps.exit:                          ; preds = %314, %317
 330:                                              ; preds = %322
   %331 = getelementptr inbounds nuw i8, ptr %324, i64 56
   %332 = zext i8 %327 to i64
-  %333 = getelementptr inbounds nuw ptr, ptr %331, i64 %332
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %331, i64 %332
   %334 = load ptr, ptr %333, align 8, !tbaa !107
   %335 = getelementptr inbounds nuw i8, ptr %324, i64 2360
   %336 = load ptr, ptr %335, align 8, !tbaa !109
@@ -5839,7 +5824,7 @@ cbs_h264_write_sps.exit:                          ; preds = %314, %317
   %426 = getelementptr inbounds nuw i8, ptr %410, i64 56
   %427 = load i8, ptr %420, align 1, !tbaa !124
   %428 = zext i8 %427 to i64
-  %429 = getelementptr inbounds nuw ptr, ptr %426, i64 %428
+  %429 = getelementptr inbounds nuw [8 x i8], ptr %426, i64 %428
   %430 = load ptr, ptr %429, align 8, !tbaa !107
   %.not.i99 = icmp eq ptr %430, null
   br i1 %.not.i99, label %431, label %434
@@ -5935,7 +5920,7 @@ cbs_h264_write_sps.exit:                          ; preds = %314, %317
 
 483:                                              ; preds = %480, %.preheader390.i
   %indvars.iv419.i = phi i64 [ 0, %.preheader390.i ], [ %indvars.iv.next420.i, %480 ]
-  %484 = getelementptr inbounds nuw i16, ptr %477, i64 %indvars.iv419.i
+  %484 = getelementptr inbounds nuw [2 x i8], ptr %477, i64 %indvars.iv419.i
   %485 = load i16, ptr %484, align 2, !tbaa !129
   %486 = zext i16 %485 to i32
   store i32 1, ptr %4, align 4, !tbaa !63
@@ -5954,7 +5939,7 @@ cbs_h264_write_sps.exit:                          ; preds = %314, %317
 
 494:                                              ; preds = %490, %.lr.ph.i104
   %indvars.iv416.i = phi i64 [ 0, %.lr.ph.i104 ], [ %indvars.iv.next417.i, %490 ]
-  %495 = getelementptr inbounds nuw i16, ptr %472, i64 %indvars.iv416.i
+  %495 = getelementptr inbounds nuw [2 x i8], ptr %472, i64 %indvars.iv416.i
   %496 = load i16, ptr %495, align 2, !tbaa !129
   %497 = zext i16 %496 to i32
   store i32 1, ptr %5, align 4, !tbaa !63
@@ -5965,7 +5950,7 @@ cbs_h264_write_sps.exit:                          ; preds = %314, %317
   br i1 %500, label %501, label %cbs_h264_write_pps.exit.thread
 
 501:                                              ; preds = %494
-  %502 = getelementptr inbounds nuw i16, ptr %475, i64 %indvars.iv416.i
+  %502 = getelementptr inbounds nuw [2 x i8], ptr %475, i64 %indvars.iv416.i
   %503 = load i16, ptr %502, align 2, !tbaa !129
   %504 = zext i16 %503 to i32
   store i32 1, ptr %6, align 4, !tbaa !63
@@ -6190,13 +6175,13 @@ cbs_h264_write_sps.exit:                          ; preds = %314, %317
   br i1 %650, label %651, label %655
 
 651:                                              ; preds = %649
-  %652 = getelementptr inbounds nuw %struct.H264RawScalingList, ptr %639, i64 %indvars.iv422.i
+  %652 = getelementptr inbounds nuw [64 x i8], ptr %639, i64 %indvars.iv422.i
   %653 = call fastcc i32 @cbs_h264_write_scaling_list(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull readonly %652, i32 noundef 16)
   %654 = icmp slt i32 %653, 0
   br i1 %654, label %cbs_h264_write_pps.exit.thread, label %660
 
 655:                                              ; preds = %649
-  %656 = getelementptr %struct.H264RawScalingList, ptr %408, i64 %indvars.iv422.i
+  %656 = getelementptr [64 x i8], ptr %408, i64 %indvars.iv422.i
   %657 = getelementptr i8, ptr %656, i64 105
   %658 = call fastcc i32 @cbs_h264_write_scaling_list(ptr noundef nonnull %0, ptr noundef %2, ptr noundef readonly %657, i32 noundef 64)
   %659 = icmp slt i32 %658, 0
@@ -6289,7 +6274,7 @@ cbs_h264_write_pps.exit:                          ; preds = %.loopexit.i103, %68
 700:                                              ; preds = %693
   %701 = getelementptr inbounds nuw i8, ptr %694, i64 312
   %702 = zext i8 %697 to i64
-  %703 = getelementptr inbounds nuw ptr, ptr %701, i64 %702
+  %703 = getelementptr inbounds nuw [8 x i8], ptr %701, i64 %702
   %704 = load ptr, ptr %703, align 8, !tbaa !156
   %705 = getelementptr inbounds nuw i8, ptr %694, i64 2368
   %706 = load ptr, ptr %705, align 8, !tbaa !157
@@ -6392,7 +6377,7 @@ switch.early.test.i:                              ; preds = %741
   %756 = getelementptr inbounds nuw i8, ptr %718, i64 312
   %757 = load i8, ptr %750, align 1, !tbaa !163
   %758 = zext i8 %757 to i64
-  %759 = getelementptr inbounds nuw ptr, ptr %756, i64 %758
+  %759 = getelementptr inbounds nuw [8 x i8], ptr %756, i64 %758
   %760 = load ptr, ptr %759, align 8, !tbaa !156
   %.not450.i = icmp eq ptr %760, null
   br i1 %.not450.i, label %761, label %764
@@ -6410,7 +6395,7 @@ switch.early.test.i:                              ; preds = %741
   %767 = getelementptr inbounds nuw i8, ptr %760, i64 5
   %768 = load i8, ptr %767, align 1, !tbaa !124
   %769 = zext i8 %768 to i64
-  %770 = getelementptr inbounds nuw ptr, ptr %766, i64 %769
+  %770 = getelementptr inbounds nuw [8 x i8], ptr %766, i64 %769
   %771 = load ptr, ptr %770, align 8, !tbaa !107
   %.not451.i = icmp eq ptr %771, null
   br i1 %.not451.i, label %772, label %775
@@ -7269,7 +7254,7 @@ define internal i32 @cbs_h2645_assemble_fragment(ptr noundef readonly captures(n
 
 12:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %13 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %8, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !53
   %.not73 = icmp eq ptr %15, null
@@ -7283,7 +7268,7 @@ define internal i32 @cbs_h2645_assemble_fragment(ptr noundef readonly captures(n
 17:                                               ; preds = %.lr.ph88, %17
   %indvars.iv104 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next105, %17 ]
   %.06086 = phi i64 [ 0, %.lr.ph88 ], [ %24, %17 ]
-  %18 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %11, i64 %indvars.iv104
+  %18 = getelementptr inbounds nuw [56 x i8], ptr %11, i64 %indvars.iv104
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i64, ptr %19, align 8, !tbaa !55
   %21 = mul i64 %20, 3
@@ -7319,7 +7304,7 @@ define internal i32 @cbs_h2645_assemble_fragment(ptr noundef readonly captures(n
   %33 = phi i32 [ %27, %.lr.ph98 ], [ %93, %._crit_edge94 ]
   %.06296 = phi i64 [ 0, %.lr.ph98 ], [ %.264.lcssa, %._crit_edge94 ]
   %34 = load ptr, ptr %29, align 8, !tbaa !210
-  %35 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %34, i64 %indvars.iv109
+  %35 = getelementptr inbounds nuw [56 x i8], ptr %34, i64 %indvars.iv109
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load i64, ptr %36, align 8, !tbaa !214
   %.not71 = icmp eq i64 %37, 0
@@ -7507,7 +7492,7 @@ define internal void @cbs_h264_flush(ptr noundef readonly captures(none) %0) #0 
 
 6:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   tail call void @av_refstruct_unref(ptr noundef nonnull %7) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -7520,7 +7505,7 @@ define internal void @cbs_h264_flush(ptr noundef readonly captures(none) %0) #0 
 
 10:                                               ; preds = %.preheader, %10
   %indvars.iv17 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next18, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv17
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv17
   tail call void @av_refstruct_unref(ptr noundef nonnull %11) #12
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %exitcond20.not = icmp eq i64 %indvars.iv.next18, 256
@@ -7542,7 +7527,7 @@ define internal void @cbs_h264_close(ptr noundef readonly captures(none) %0) #0 
 
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   tail call void @av_refstruct_unref(ptr noundef nonnull %8) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -7550,7 +7535,7 @@ define internal void @cbs_h264_close(ptr noundef readonly captures(none) %0) #0 
 
 9:                                                ; preds = %.preheader, %9
   %indvars.iv14 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next15, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv14
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv14
   tail call void @av_refstruct_unref(ptr noundef nonnull %10) #12
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next15, 256
@@ -7790,7 +7775,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_nal_unit(ptr nounde
   %137 = getelementptr inbounds nuw i8, ptr %110, i64 312
   %.mask.i = and i32 %134, 255
   %138 = zext nneg i32 %.mask.i to i64
-  %139 = getelementptr inbounds nuw ptr, ptr %137, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !230
   %.not.i = icmp eq ptr %140, null
   br i1 %.not.i, label %141, label %143
@@ -7807,7 +7792,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_nal_unit(ptr nounde
   %146 = getelementptr inbounds nuw i8, ptr %140, i64 4
   %147 = load i8, ptr %146, align 4, !tbaa !236
   %148 = zext i8 %147 to i64
-  %149 = getelementptr inbounds nuw ptr, ptr %145, i64 %148
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %148
   %150 = load ptr, ptr %149, align 8, !tbaa !240
   %.not750.i = icmp eq ptr %150, null
   br i1 %.not750.i, label %151, label %154
@@ -8098,7 +8083,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_nal_unit(ptr nounde
   %295 = getelementptr inbounds nuw i8, ptr %150, i64 2148
   %.mask960.i = and i32 %292, 255
   %296 = zext nneg i32 %.mask960.i to i64
-  %297 = getelementptr inbounds nuw %struct.H265RawSTRefPicSet, ptr %295, i64 %296
+  %297 = getelementptr inbounds nuw [136 x i8], ptr %295, i64 %296
   br label %302
 
 298:                                              ; preds = %282
@@ -8424,7 +8409,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_nal_unit(ptr nounde
 
 .thread870.i:                                     ; preds = %441
   %444 = load i32, ptr %28, align 4, !tbaa !63
-  %445 = getelementptr inbounds nuw i32, ptr %388, i64 %indvars.iv1031.i
+  %445 = getelementptr inbounds nuw [4 x i8], ptr %388, i64 %indvars.iv1031.i
   store i32 %444, ptr %445, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %449
@@ -8434,7 +8419,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_nal_unit(ptr nounde
   br label %cbs_h265_read_slice_segment_header.exit.thread
 
 447:                                              ; preds = %437
-  %448 = getelementptr inbounds nuw i32, ptr %388, i64 %indvars.iv1031.i
+  %448 = getelementptr inbounds nuw [4 x i8], ptr %388, i64 %indvars.iv1031.i
   store i32 0, ptr %448, align 4, !tbaa !63
   br label %449
 
@@ -9307,7 +9292,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_nal_unit(ptr nounde
 
 863:                                              ; preds = %851
   %864 = load i32, ptr %57, align 4, !tbaa !63
-  %865 = getelementptr inbounds nuw i32, ptr %850, i64 %indvars.iv1034.i
+  %865 = getelementptr inbounds nuw [4 x i8], ptr %850, i64 %indvars.iv1034.i
   store i32 %864, ptr %865, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   %indvars.iv.next1035.i = add nuw nsw i64 %indvars.iv1034.i, 1
@@ -9714,7 +9699,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_nal_unit(ptr nound
   br i1 %114, label %115, label %cbs_h265_write_vps.exit.thread
 
 115:                                              ; preds = %107
-  %116 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv.i
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv.i
   %117 = load i32, ptr %116, align 4, !tbaa !63
   store i32 1, ptr %21, align 4, !tbaa !63
   store i32 %104, ptr %95, align 4, !tbaa !63
@@ -9733,7 +9718,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_nal_unit(ptr nound
   %121 = getelementptr inbounds nuw i8, ptr %90, i64 %99
   %122 = load i8, ptr %121, align 1, !tbaa !25
   %123 = getelementptr inbounds nuw i8, ptr %92, i64 %99
-  %124 = getelementptr inbounds nuw i32, ptr %94, i64 %99
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %99
   br label %126
 
 125:                                              ; preds = %141
@@ -9770,7 +9755,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_nal_unit(ptr nound
   br label %cbs_h265_write_vps.exit.thread
 
 141:                                              ; preds = %133
-  %142 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv442.i
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv442.i
   %143 = load i32, ptr %142, align 4, !tbaa !63
   %144 = load i32, ptr %124, align 4, !tbaa !63
   %.not363.i = icmp eq i32 %143, %144
@@ -9954,7 +9939,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_nal_unit(ptr nound
 
 240:                                              ; preds = %236, %.lr.ph414.i
   %indvars.iv456.i = phi i64 [ 0, %.lr.ph414.i ], [ %indvars.iv.next457.i, %236 ]
-  %241 = getelementptr inbounds nuw i16, ptr %231, i64 %indvars.iv456.i
+  %241 = getelementptr inbounds nuw [2 x i8], ptr %231, i64 %indvars.iv456.i
   %242 = load i16, ptr %241, align 2, !tbaa !129
   %243 = zext i16 %242 to i32
   store i32 1, ptr %23, align 4, !tbaa !63
@@ -9995,7 +9980,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_nal_unit(ptr nound
   br label %cbs_h265_write_vps.exit.thread
 
 263:                                              ; preds = %258, %252
-  %264 = getelementptr inbounds nuw %struct.H265RawHRDParameters, ptr %235, i64 %indvars.iv456.i
+  %264 = getelementptr inbounds nuw [7672 x i8], ptr %235, i64 %indvars.iv456.i
   %265 = getelementptr inbounds nuw i8, ptr %233, i64 %indvars.iv456.i
   %266 = load i8, ptr %265, align 1, !tbaa !25
   %267 = zext i8 %266 to i32
@@ -10058,7 +10043,7 @@ cbs_h265_write_vps.exit:                          ; preds = %277, %279
 293:                                              ; preds = %285
   %294 = getelementptr inbounds nuw i8, ptr %287, i64 56
   %295 = zext i8 %290 to i64
-  %296 = getelementptr inbounds nuw ptr, ptr %294, i64 %295
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %294, i64 %295
   %297 = load ptr, ptr %296, align 8, !tbaa !361
   %298 = getelementptr inbounds nuw i8, ptr %287, i64 824
   %299 = load ptr, ptr %298, align 8, !tbaa !362
@@ -10111,7 +10096,7 @@ cbs_h265_write_vps.exit:                          ; preds = %277, %279
   %321 = getelementptr inbounds nuw i8, ptr %311, i64 56
   %322 = load i8, ptr %315, align 1, !tbaa !363
   %323 = zext i8 %322 to i64
-  %324 = getelementptr inbounds nuw ptr, ptr %321, i64 %323
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %321, i64 %323
   %325 = load ptr, ptr %324, align 8, !tbaa !361
   %326 = getelementptr inbounds nuw i8, ptr %311, i64 824
   store ptr %325, ptr %326, align 8, !tbaa !362
@@ -10538,7 +10523,7 @@ cbs_h265_write_vps.exit:                          ; preds = %277, %279
   br i1 %583, label %584, label %cbs_h265_write_sps.exit.thread
 
 584:                                              ; preds = %576
-  %585 = getelementptr inbounds nuw i32, ptr %564, i64 %indvars.iv.i96
+  %585 = getelementptr inbounds nuw [4 x i8], ptr %564, i64 %indvars.iv.i96
   %586 = load i32, ptr %585, align 4, !tbaa !63
   store i32 1, ptr %16, align 4, !tbaa !63
   store i32 %573, ptr %565, align 4, !tbaa !63
@@ -10557,7 +10542,7 @@ cbs_h265_write_vps.exit:                          ; preds = %277, %279
   %590 = getelementptr inbounds nuw i8, ptr %560, i64 %568
   %591 = load i8, ptr %590, align 1, !tbaa !25
   %592 = getelementptr inbounds nuw i8, ptr %562, i64 %568
-  %593 = getelementptr inbounds nuw i32, ptr %564, i64 %568
+  %593 = getelementptr inbounds nuw [4 x i8], ptr %564, i64 %568
   br label %595
 
 594:                                              ; preds = %610
@@ -10594,7 +10579,7 @@ cbs_h265_write_vps.exit:                          ; preds = %277, %279
   br label %cbs_h265_write_sps.exit.thread
 
 610:                                              ; preds = %602
-  %611 = getelementptr inbounds nuw i32, ptr %564, i64 %indvars.iv897.i
+  %611 = getelementptr inbounds nuw [4 x i8], ptr %564, i64 %indvars.iv897.i
   %612 = load i32, ptr %611, align 4, !tbaa !63
   %613 = load i32, ptr %593, align 4, !tbaa !63
   %.not815.i = icmp eq i32 %612, %613
@@ -10877,7 +10862,7 @@ cbs_h265_write_vps.exit:                          ; preds = %277, %279
 
 799:                                              ; preds = %795, %.lr.ph870.i
   %indvars.iv900.i = phi i64 [ 0, %.lr.ph870.i ], [ %indvars.iv.next901.i, %795 ]
-  %800 = getelementptr inbounds nuw %struct.H265RawSTRefPicSet, ptr %794, i64 %indvars.iv900.i
+  %800 = getelementptr inbounds nuw [136 x i8], ptr %794, i64 %indvars.iv900.i
   %801 = trunc nuw nsw i64 %indvars.iv900.i to i32
   %802 = call fastcc i32 @cbs_h265_write_st_ref_pic_set(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %800, i32 noundef %801, ptr noundef nonnull %309)
   %803 = icmp slt i32 %802, 0
@@ -10925,7 +10910,7 @@ cbs_h265_write_vps.exit:                          ; preds = %277, %279
 
 826:                                              ; preds = %822, %.lr.ph873.i
   %indvars.iv903.i = phi i64 [ 0, %.lr.ph873.i ], [ %indvars.iv.next904.i, %822 ]
-  %827 = getelementptr inbounds nuw i16, ptr %818, i64 %indvars.iv903.i
+  %827 = getelementptr inbounds nuw [2 x i8], ptr %818, i64 %indvars.iv903.i
   %828 = load i16, ptr %827, align 2, !tbaa !129
   %829 = zext i16 %828 to i32
   %830 = load i8, ptr %619, align 2, !tbaa !260
@@ -11130,7 +11115,7 @@ cbs_h265_write_sps.exit:                          ; preds = %933, %936
 949:                                              ; preds = %942
   %950 = getelementptr inbounds nuw i8, ptr %943, i64 184
   %951 = zext i8 %946 to i64
-  %952 = getelementptr inbounds nuw ptr, ptr %950, i64 %951
+  %952 = getelementptr inbounds nuw [8 x i8], ptr %950, i64 %951
   %953 = load ptr, ptr %952, align 8, !tbaa !240
   %954 = getelementptr inbounds nuw i8, ptr %943, i64 832
   %955 = load ptr, ptr %954, align 8, !tbaa !241
@@ -11188,7 +11173,7 @@ cbs_h265_write_sps.exit:                          ; preds = %933, %936
   %983 = getelementptr inbounds nuw i8, ptr %967, i64 184
   %984 = load i8, ptr %977, align 4, !tbaa !236
   %985 = zext i8 %984 to i64
-  %986 = getelementptr inbounds nuw ptr, ptr %983, i64 %985
+  %986 = getelementptr inbounds nuw [8 x i8], ptr %983, i64 %985
   %987 = load ptr, ptr %986, align 8, !tbaa !240
   %.not.i107 = icmp eq ptr %987, null
   br i1 %.not.i107, label %988, label %991
@@ -11449,7 +11434,7 @@ cbs_h265_write_sps.exit:                          ; preds = %933, %936
 
 1159:                                             ; preds = %1151, %.lr.ph.i109
   %indvars.iv.i110 = phi i64 [ 0, %.lr.ph.i109 ], [ %indvars.iv.next.i111, %1151 ]
-  %1160 = getelementptr inbounds nuw i16, ptr %1148, i64 %indvars.iv.i110
+  %1160 = getelementptr inbounds nuw [2 x i8], ptr %1148, i64 %indvars.iv.i110
   %1161 = load i16, ptr %1160, align 2, !tbaa !129
   %1162 = zext i16 %1161 to i32
   store i32 1, ptr %12, align 4, !tbaa !63
@@ -11470,7 +11455,7 @@ cbs_h265_write_sps.exit:                          ; preds = %933, %936
 
 1172:                                             ; preds = %1168, %.lr.ph574.i
   %indvars.iv582.i = phi i64 [ 0, %.lr.ph574.i ], [ %indvars.iv.next583.i, %1168 ]
-  %1173 = getelementptr inbounds nuw i16, ptr %1156, i64 %indvars.iv582.i
+  %1173 = getelementptr inbounds nuw [2 x i8], ptr %1156, i64 %indvars.iv582.i
   %1174 = load i16, ptr %1173, align 2, !tbaa !129
   %1175 = zext i16 %1174 to i32
   store i32 1, ptr %13, align 4, !tbaa !63
@@ -11818,7 +11803,7 @@ cbs_h265_write_pps.exit:                          ; preds = %1365, %1368
 1381:                                             ; preds = %1374
   %1382 = getelementptr inbounds nuw i8, ptr %1375, i64 312
   %1383 = zext i8 %1378 to i64
-  %1384 = getelementptr inbounds nuw ptr, ptr %1382, i64 %1383
+  %1384 = getelementptr inbounds nuw [8 x i8], ptr %1382, i64 %1383
   %1385 = load ptr, ptr %1384, align 8, !tbaa !230
   %1386 = getelementptr inbounds nuw i8, ptr %1375, i64 840
   %1387 = load ptr, ptr %1386, align 8, !tbaa !232
@@ -11896,7 +11881,7 @@ cbs_h265_write_pps.exit:                          ; preds = %1365, %1368
   %1424 = getelementptr inbounds nuw i8, ptr %1399, i64 312
   %1425 = load i8, ptr %1418, align 1, !tbaa !229
   %1426 = zext i8 %1425 to i64
-  %1427 = getelementptr inbounds nuw ptr, ptr %1424, i64 %1426
+  %1427 = getelementptr inbounds nuw [8 x i8], ptr %1424, i64 %1426
   %1428 = load ptr, ptr %1427, align 8, !tbaa !230
   %.not.i117 = icmp eq ptr %1428, null
   br i1 %.not.i117, label %1429, label %1432
@@ -11914,7 +11899,7 @@ cbs_h265_write_pps.exit:                          ; preds = %1365, %1368
   %1435 = getelementptr inbounds nuw i8, ptr %1428, i64 4
   %1436 = load i8, ptr %1435, align 4, !tbaa !236
   %1437 = zext i8 %1436 to i64
-  %1438 = getelementptr inbounds nuw ptr, ptr %1434, i64 %1437
+  %1438 = getelementptr inbounds nuw [8 x i8], ptr %1434, i64 %1437
   %1439 = load ptr, ptr %1438, align 8, !tbaa !240
   %.not874.i118 = icmp eq ptr %1439, null
   br i1 %.not874.i118, label %1440, label %1443
@@ -12149,7 +12134,7 @@ cbs_h265_write_pps.exit:                          ; preds = %1365, %1368
   %1585 = getelementptr inbounds nuw i8, ptr %1439, i64 2148
   %1586 = load i8, ptr %1580, align 2, !tbaa !264
   %1587 = zext i8 %1586 to i64
-  %1588 = getelementptr inbounds nuw %struct.H265RawSTRefPicSet, ptr %1585, i64 %1587
+  %1588 = getelementptr inbounds nuw [136 x i8], ptr %1585, i64 %1587
   br label %1597
 
 1589:                                             ; preds = %1568
@@ -12431,7 +12416,7 @@ cbs_h265_write_pps.exit:                          ; preds = %1365, %1368
 1734:                                             ; preds = %1728
   %1735 = load i8, ptr %1729, align 1, !tbaa !25
   %.not895.i = icmp eq i8 %1735, 0
-  %1736 = getelementptr inbounds nuw i32, ptr %1685, i64 %indvars.iv1057.i
+  %1736 = getelementptr inbounds nuw [4 x i8], ptr %1685, i64 %indvars.iv1057.i
   %1737 = load i32, ptr %1736, align 4, !tbaa !63
   br i1 %.not895.i, label %1741, label %1738
 
@@ -13267,7 +13252,7 @@ cbs_h265_write_pps.exit:                          ; preds = %1365, %1368
 
 2219:                                             ; preds = %2215, %.lr.ph1029.i
   %indvars.iv1060.i = phi i64 [ 0, %.lr.ph1029.i ], [ %indvars.iv.next1061.i, %2215 ]
-  %2220 = getelementptr inbounds nuw i32, ptr %2213, i64 %indvars.iv1060.i
+  %2220 = getelementptr inbounds nuw [4 x i8], ptr %2213, i64 %indvars.iv1060.i
   %2221 = load i32, ptr %2220, align 4, !tbaa !63
   %2222 = load i8, ptr %2207, align 2, !tbaa !327
   %2223 = zext i8 %2222 to i32
@@ -13590,7 +13575,7 @@ define internal void @cbs_h265_flush(ptr noundef readonly captures(none) %0) #0 
 
 6:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   tail call void @av_refstruct_unref(ptr noundef nonnull %7) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -13602,7 +13587,7 @@ define internal void @cbs_h265_flush(ptr noundef readonly captures(none) %0) #0 
 
 9:                                                ; preds = %.preheader20, %9
   %indvars.iv25 = phi i64 [ 0, %.preheader20 ], [ %indvars.iv.next26, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv25
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv25
   tail call void @av_refstruct_unref(ptr noundef nonnull %10) #12
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 16
@@ -13615,7 +13600,7 @@ define internal void @cbs_h265_flush(ptr noundef readonly captures(none) %0) #0 
 
 13:                                               ; preds = %.preheader, %13
   %indvars.iv29 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next30, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv29
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv29
   tail call void @av_refstruct_unref(ptr noundef nonnull %14) #12
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, 64
@@ -13637,7 +13622,7 @@ define internal void @cbs_h265_close(ptr noundef readonly captures(none) %0) #0 
 
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   tail call void @av_refstruct_unref(ptr noundef nonnull %8) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -13649,7 +13634,7 @@ define internal void @cbs_h265_close(ptr noundef readonly captures(none) %0) #0 
 
 10:                                               ; preds = %.preheader16, %10
   %indvars.iv21 = phi i64 [ 0, %.preheader16 ], [ %indvars.iv.next22, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv21
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv21
   tail call void @av_refstruct_unref(ptr noundef nonnull %11) #12
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 16
@@ -13657,7 +13642,7 @@ define internal void @cbs_h265_close(ptr noundef readonly captures(none) %0) #0 
 
 12:                                               ; preds = %.preheader, %12
   %indvars.iv25 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next26, %12 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv25
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv25
   tail call void @av_refstruct_unref(ptr noundef nonnull %13) #12
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 64
@@ -13919,7 +13904,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h266_read_nal_unit(ptr nounde
 switch.lookup:                                    ; preds = %179
   %.mask = and i32 %180, 3
   %184 = zext nneg i32 %.mask to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.cbs_h266_write_nal_unit, i64 %184
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.cbs_h266_write_nal_unit, i64 %184
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.fold.split.i
 
@@ -14911,7 +14896,7 @@ cbs_h266_read_alf_data.exit.i:                    ; preds = %.split149.us.i
 563:                                              ; preds = %551
   %564 = load i32, ptr %73, align 4, !tbaa !63
   %565 = trunc i32 %564 to i16
-  %566 = getelementptr inbounds nuw i16, ptr %546, i64 %indvars.iv.i87.i
+  %566 = getelementptr inbounds nuw [2 x i8], ptr %546, i64 %indvars.iv.i87.i
   store i16 %565, ptr %566, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
   %.not88.i.i = icmp eq i16 %565, 0
@@ -15400,7 +15385,7 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
   %752 = getelementptr inbounds nuw i8, ptr %.0785.i, i64 5
   %753 = load i8, ptr %752, align 1, !tbaa !493
   %754 = zext i8 %753 to i64
-  %755 = getelementptr inbounds nuw ptr, ptr %751, i64 %754
+  %755 = getelementptr inbounds nuw [8 x i8], ptr %751, i64 %754
   %756 = load ptr, ptr %755, align 8, !tbaa !494
   %.not919.i = icmp eq ptr %756, null
   br i1 %.not919.i, label %757, label %760
@@ -15416,7 +15401,7 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
   %762 = getelementptr inbounds nuw i8, ptr %756, i64 5
   %763 = load i8, ptr %762, align 1, !tbaa !496
   %764 = zext i8 %763 to i64
-  %765 = getelementptr inbounds nuw ptr, ptr %761, i64 %764
+  %765 = getelementptr inbounds nuw [8 x i8], ptr %761, i64 %764
   %766 = load ptr, ptr %765, align 8, !tbaa !498
   %.not920.i = icmp eq ptr %766, null
   br i1 %.not920.i, label %767, label %770
@@ -15463,7 +15448,7 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
 
 790:                                              ; preds = %794, %780
   %indvars.iv.i = phi i64 [ 0, %780 ], [ %indvars.iv.next.i, %794 ]
-  %791 = getelementptr inbounds nuw i16, ptr %787, i64 %indvars.iv.i
+  %791 = getelementptr inbounds nuw [2 x i8], ptr %787, i64 %indvars.iv.i
   %792 = load i16, ptr %791, align 2, !tbaa !129
   %793 = icmp eq i16 %792, %782
   br i1 %793, label %795, label %794
@@ -15494,7 +15479,7 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
   %804 = phi i64 [ %798, %795 ], [ 0, %801 ]
   %805 = getelementptr inbounds nuw i8, ptr %756, i64 1994182
   %806 = getelementptr inbounds nuw i8, ptr %729, i64 18808
-  %807 = getelementptr inbounds nuw i16, ptr %805, i64 %804
+  %807 = getelementptr inbounds nuw [2 x i8], ptr %805, i64 %804
   %808 = load i16, ptr %807, align 2, !tbaa !129
   %809 = getelementptr inbounds nuw i8, ptr %756, i64 4085
   %810 = load i8, ptr %809, align 1, !tbaa !514
@@ -16172,7 +16157,7 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
 1113:                                             ; preds = %1128, %.preheader.i
   %1114 = phi i1 [ true, %.preheader.i ], [ false, %1128 ]
   %indvars.iv1224.i = phi i64 [ 0, %.preheader.i ], [ 1, %1128 ]
-  %1115 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %1094, i64 %indvars.iv1224.i
+  %1115 = getelementptr inbounds nuw [176 x i8], ptr %1094, i64 %indvars.iv1224.i
   %1116 = load i8, ptr %1115, align 2, !tbaa !554
   %1117 = icmp ugt i8 %1116, 1
   br i1 %1117, label %1118, label %1126
@@ -16244,7 +16229,7 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
   br label %1159
 
 1149:                                             ; preds = %1143
-  %1150 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %1139, i64 %indvars.iv1227.i
+  %1150 = getelementptr inbounds nuw [176 x i8], ptr %1139, i64 %indvars.iv1227.i
   %1151 = load i8, ptr %1150, align 2, !tbaa !554
   %1152 = zext i8 %1151 to i32
   %1153 = getelementptr inbounds nuw i8, ptr %1140, i64 %indvars.iv1227.i
@@ -17122,7 +17107,7 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
 .lr.ph1153.i:                                     ; preds = %.lr.ph1153.i, %.lr.ph1153.preheader.i
   %indvars.iv1233.i = phi i64 [ 0, %.lr.ph1153.preheader.i ], [ %indvars.iv.next1234.i, %.lr.ph1153.i ]
   %.08531150.i = phi i32 [ %1561, %.lr.ph1153.preheader.i ], [ %1567, %.lr.ph1153.i ]
-  %1564 = getelementptr inbounds nuw i16, ptr %805, i64 %indvars.iv1233.i
+  %1564 = getelementptr inbounds nuw [2 x i8], ptr %805, i64 %indvars.iv1233.i
   %1565 = load i16, ptr %1564, align 2, !tbaa !129
   %1566 = zext i16 %1565 to i32
   %1567 = add nuw nsw i32 %.08531150.i, %1566
@@ -17140,12 +17125,12 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
 
 1571:                                             ; preds = %._crit_edge1154.i
   %1572 = getelementptr inbounds nuw i8, ptr %766, i64 5412
-  %1573 = getelementptr inbounds nuw i16, ptr %1572, i64 %1570
+  %1573 = getelementptr inbounds nuw [2 x i8], ptr %1572, i64 %1570
   %1574 = load i16, ptr %1573, align 2, !tbaa !129
   %1575 = zext i16 %1574 to i32
   %1576 = add nuw nsw i32 %1575, 1
   %1577 = getelementptr inbounds nuw i8, ptr %766, i64 1412
-  %1578 = getelementptr inbounds nuw i16, ptr %1577, i64 %1570
+  %1578 = getelementptr inbounds nuw [2 x i8], ptr %1577, i64 %1570
   %1579 = load i16, ptr %1578, align 2, !tbaa !129
   %1580 = zext i16 %1579 to i32
   %1581 = add nuw nsw i32 %1576, %1580
@@ -17167,7 +17152,7 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
   br i1 %exitcond1242.not.i, label %.critedge.i137, label %1584
 
 1584:                                             ; preds = %1583
-  %1585 = getelementptr inbounds nuw i16, ptr %1582, i64 %indvars.iv1238.i
+  %1585 = getelementptr inbounds nuw [2 x i8], ptr %1582, i64 %indvars.iv1238.i
   %1586 = load i16, ptr %1585, align 2, !tbaa !129
   %1587 = zext i16 %1586 to i32
   %1588 = add nuw nsw i32 %.07891155.i, %1587
@@ -17201,7 +17186,7 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
   br i1 %exitcond1247.not.i, label %.critedge78.i, label %1595
 
 1595:                                             ; preds = %1594
-  %1596 = getelementptr inbounds nuw i16, ptr %1591, i64 %indvars.iv1243.i
+  %1596 = getelementptr inbounds nuw [2 x i8], ptr %1591, i64 %indvars.iv1243.i
   %1597 = load i16, ptr %1596, align 2, !tbaa !129
   %1598 = zext i16 %1597 to i32
   %1599 = add nuw nsw i32 %.17901165.i, %1598
@@ -17214,7 +17199,7 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
   %.0854.lcssa.i = phi i32 [ 0, %.critedge.i137 ], [ %1593, %1594 ], [ %1600, %1595 ]
   %.not989.i = icmp eq i8 %1557, 0
   %1602 = getelementptr inbounds nuw i8, ptr %766, i64 7412
-  %1603 = getelementptr inbounds nuw i16, ptr %1602, i64 %1570
+  %1603 = getelementptr inbounds nuw [2 x i8], ptr %1602, i64 %1570
   %1604 = load i16, ptr %1603, align 2, !tbaa !129
   %1605 = zext i16 %1604 to i32
   %1606 = add nuw nsw i32 %1605, 1
@@ -17222,7 +17207,7 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
 
 1607:                                             ; preds = %.critedge78.i
   %1608 = getelementptr inbounds nuw i8, ptr %766, i64 3412
-  %1609 = getelementptr inbounds nuw i16, ptr %1608, i64 %1570
+  %1609 = getelementptr inbounds nuw [2 x i8], ptr %1608, i64 %1570
   %1610 = load i16, ptr %1609, align 2, !tbaa !129
   %1611 = zext i16 %1610 to i32
   %1612 = add nuw nsw i32 %1606, %1611
@@ -17244,7 +17229,7 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
   br i1 %exitcond1253.not.i, label %.critedge80.i, label %1615
 
 1615:                                             ; preds = %1614
-  %1616 = getelementptr inbounds nuw i16, ptr %1613, i64 %indvars.iv1248.i
+  %1616 = getelementptr inbounds nuw [2 x i8], ptr %1613, i64 %indvars.iv1248.i
   %1617 = load i16, ptr %1616, align 2, !tbaa !129
   %1618 = zext i16 %1617 to i32
   %1619 = add nuw nsw i32 %.07831171.i, %1618
@@ -17278,7 +17263,7 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
   br i1 %exitcond1259.not.i, label %.critedge82.i, label %1626
 
 1626:                                             ; preds = %1625
-  %1627 = getelementptr inbounds nuw i16, ptr %1622, i64 %indvars.iv1254.i
+  %1627 = getelementptr inbounds nuw [2 x i8], ptr %1622, i64 %indvars.iv1254.i
   %1628 = load i16, ptr %1627, align 2, !tbaa !129
   %1629 = zext i16 %1628 to i32
   %1630 = add nuw nsw i32 %.17841180.i, %1629
@@ -17289,7 +17274,7 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
 
 1633:                                             ; preds = %._crit_edge1154.i
   %1634 = getelementptr inbounds nuw i8, ptr %756, i64 4092
-  %1635 = getelementptr inbounds nuw i16, ptr %1634, i64 %1570
+  %1635 = getelementptr inbounds nuw [2 x i8], ptr %1634, i64 %1570
   %1636 = load i16, ptr %1635, align 2, !tbaa !129
   %1637 = zext i16 %1636 to i32
   %1638 = add nuw nsw i32 %1637, 1
@@ -17298,14 +17283,14 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
 
 1639:                                             ; preds = %1633
   %1640 = getelementptr inbounds nuw i8, ptr %756, i64 1992182
-  %1641 = getelementptr inbounds nuw i16, ptr %1640, i64 %1570
+  %1641 = getelementptr inbounds nuw [2 x i8], ptr %1640, i64 %1570
   %1642 = load i16, ptr %1641, align 2, !tbaa !129
   %1643 = zext i16 %1642 to i32
   br label %.critedge82.i
 
 1644:                                             ; preds = %1633
   %1645 = getelementptr inbounds nuw i8, ptr %756, i64 6092
-  %1646 = getelementptr inbounds nuw i16, ptr %1645, i64 %1570
+  %1646 = getelementptr inbounds nuw [2 x i8], ptr %1645, i64 %1570
   %1647 = load i16, ptr %1646, align 2, !tbaa !129
   %1648 = zext i16 %1647 to i32
   %1649 = add nuw nsw i32 %1648, 1
@@ -17334,7 +17319,7 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
   %1661 = phi i32 [ 0, %1651 ], [ %1668, %1660 ]
   %1662 = udiv i32 %.07791188.i, %1658
   %1663 = zext nneg i32 %1662 to i64
-  %1664 = getelementptr inbounds nuw i16, ptr %1659, i64 %1663
+  %1664 = getelementptr inbounds nuw [2 x i8], ptr %1659, i64 %1663
   %1665 = load i16, ptr %1664, align 2, !tbaa !129
   %1666 = zext i16 %1665 to i32
   %1667 = select i1 %.not986.i, i32 1, i32 %1666
@@ -17407,7 +17392,7 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
 
 1697:                                             ; preds = %1685
   %1698 = load i32, ptr %56, align 4, !tbaa !63
-  %1699 = getelementptr inbounds nuw i32, ptr %1684, i64 %indvars.iv1262.i
+  %1699 = getelementptr inbounds nuw [4 x i8], ptr %1684, i64 %indvars.iv1262.i
   store i32 %1698, ptr %1699, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   %indvars.iv.next1263.i = add nuw nsw i64 %indvars.iv1262.i, 1
@@ -17705,7 +17690,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h266_write_nal_unit(ptr nound
 
 87:                                               ; preds = %84, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %84 ]
-  %88 = getelementptr inbounds nuw %struct.H266RawProfileTierLevel, ptr %83, i64 %indvars.iv.i
+  %88 = getelementptr inbounds nuw [1376 x i8], ptr %83, i64 %indvars.iv.i
   %89 = tail call fastcc i32 @cbs_h266_write_profile_tier_level(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %88, i32 noundef 1, i32 noundef 0)
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %cbs_h266_write_dci.exit.thread, label %84
@@ -18680,7 +18665,7 @@ thread-pre-split.i:                               ; preds = %403
   br i1 %or.cond44.i, label %548, label %573
 
 548:                                              ; preds = %542
-  %549 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv1426.i
+  %549 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %indvars.iv1426.i
   store i16 1, ptr %549, align 2, !tbaa !129
   %550 = load i8, ptr %526, align 1, !tbaa !667
   %.not960.i = icmp eq i8 %550, 0
@@ -18751,7 +18736,7 @@ thread-pre-split.i:                               ; preds = %403
   ]
 
 ..loopexit1072_crit_edge.i:                       ; preds = %573
-  %.phi.trans.insert1497.i = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv1426.i
+  %.phi.trans.insert1497.i = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %indvars.iv1426.i
   %.pre1498.i = load i16, ptr %.phi.trans.insert1497.i, align 2, !tbaa !129
   br label %.loopexit1072.i
 
@@ -18768,7 +18753,7 @@ thread-pre-split.i:                               ; preds = %403
 .loopexit1072.loopexit1271.i:                     ; preds = %573
   %580 = trunc i64 %indvars.iv1426.i to i16
   %581 = add nuw i16 %580, 1
-  %582 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv1426.i
+  %582 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %indvars.iv1426.i
   store i16 %581, ptr %582, align 2, !tbaa !129
   %583 = getelementptr inbounds nuw i8, ptr %515, i64 %indvars.iv1426.i
   %584 = load i8, ptr %583, align 1, !tbaa !25
@@ -18814,7 +18799,7 @@ thread-pre-split.i:                               ; preds = %403
 
 605:                                              ; preds = %604
   %606 = trunc i32 %.9811.i to i16
-  %607 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv1426.i
+  %607 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %indvars.iv1426.i
   store i16 %606, ptr %607, align 2, !tbaa !129
   %608 = and i32 %.9811.i, 65535
   %.not1252.i = icmp eq i32 %608, 0
@@ -18968,7 +18953,7 @@ thread-pre-split.i:                               ; preds = %403
 
 651:                                              ; preds = %647, %.preheader1065.i
   %indvars.iv1455.i = phi i64 [ 0, %.preheader1065.i ], [ %indvars.iv.next1456.i, %647 ]
-  %652 = getelementptr inbounds nuw %struct.H266RawProfileTierLevel, ptr %646, i64 %indvars.iv1455.i
+  %652 = getelementptr inbounds nuw [1376 x i8], ptr %646, i64 %indvars.iv1455.i
   %653 = getelementptr inbounds nuw i8, ptr %440, i64 %indvars.iv1455.i
   %654 = load i8, ptr %653, align 1, !tbaa !25
   %655 = zext i8 %654 to i32
@@ -19153,7 +19138,7 @@ thread-pre-split.i:                               ; preds = %403
 
 743:                                              ; preds = %737, %._crit_edge1501.i
   %744 = phi i8 [ %.pre1503.i, %._crit_edge1501.i ], [ %729, %737 ]
-  %745 = getelementptr inbounds nuw %struct.H266DpbParameters, ptr %711, i64 %indvars.iv1463.i
+  %745 = getelementptr inbounds nuw [21 x i8], ptr %711, i64 %indvars.iv1463.i
   %746 = load i8, ptr %698, align 4, !tbaa !693
   %747 = call fastcc i32 @cbs_h266_write_dpb_parameters(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %745, i8 noundef zeroext %744, i8 noundef zeroext %746)
   %748 = icmp slt i32 %747, 0
@@ -19161,7 +19146,7 @@ thread-pre-split.i:                               ; preds = %403
 
 749:                                              ; preds = %790, %.lr.ph1239.i
   %indvars.iv1468.i = phi i64 [ 0, %.lr.ph1239.i ], [ %indvars.iv.next1469.i, %790 ]
-  %750 = getelementptr inbounds nuw i16, ptr %713, i64 %indvars.iv1468.i
+  %750 = getelementptr inbounds nuw [2 x i8], ptr %713, i64 %indvars.iv1468.i
   %751 = load i16, ptr %750, align 2, !tbaa !129
   %752 = zext i16 %751 to i32
   store i32 1, ptr %58, align 4, !tbaa !63
@@ -19172,7 +19157,7 @@ thread-pre-split.i:                               ; preds = %403
   br i1 %755, label %756, label %cbs_h266_write_vps.exit.thread
 
 756:                                              ; preds = %749
-  %757 = getelementptr inbounds nuw i16, ptr %715, i64 %indvars.iv1468.i
+  %757 = getelementptr inbounds nuw [2 x i8], ptr %715, i64 %indvars.iv1468.i
   %758 = load i16, ptr %757, align 2, !tbaa !129
   %759 = zext i16 %758 to i32
   store i32 1, ptr %59, align 4, !tbaa !63
@@ -19202,7 +19187,7 @@ thread-pre-split.i:                               ; preds = %403
   br i1 %773, label %774, label %cbs_h266_write_vps.exit.thread
 
 774:                                              ; preds = %768
-  %775 = getelementptr inbounds nuw i16, ptr %722, i64 %indvars.iv1468.i
+  %775 = getelementptr inbounds nuw [2 x i8], ptr %722, i64 %indvars.iv1468.i
   %776 = load i16, ptr %775, align 2, !tbaa !129
   br i1 %or.cond1019.i, label %781, label %777
 
@@ -19535,7 +19520,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 909:                                              ; preds = %905
   %910 = getelementptr inbounds nuw i8, ptr %899, i64 56
   %911 = zext i8 %902 to i64
-  %912 = getelementptr inbounds nuw ptr, ptr %910, i64 %911
+  %912 = getelementptr inbounds nuw [8 x i8], ptr %910, i64 %911
   call void @av_refstruct_replace(ptr noundef nonnull %912, ptr noundef nonnull %907) #12
   br label %cbs_h266_write_dci.exit
 
@@ -19593,7 +19578,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   %941 = getelementptr inbounds nuw i8, ptr %925, i64 184
   %942 = load i8, ptr %935, align 1, !tbaa !496
   %943 = zext i8 %942 to i64
-  %944 = getelementptr inbounds nuw ptr, ptr %941, i64 %943
+  %944 = getelementptr inbounds nuw [8 x i8], ptr %941, i64 %943
   %945 = load ptr, ptr %944, align 8, !tbaa !498
   %.not.i150 = icmp eq ptr %945, null
   br i1 %.not.i150, label %946, label %949
@@ -20195,7 +20180,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 
 1312:                                             ; preds = %1309, %.preheader1835.i
   %indvars.iv.i153 = phi i64 [ 0, %.preheader1835.i ], [ %indvars.iv.next.i154, %1309 ]
-  %1313 = getelementptr inbounds nuw i16, ptr %1307, i64 %indvars.iv.i153
+  %1313 = getelementptr inbounds nuw [2 x i8], ptr %1307, i64 %indvars.iv.i153
   %1314 = load i16, ptr %1313, align 2, !tbaa !129
   %1315 = zext i16 %1314 to i32
   %1316 = load i8, ptr %1302, align 4, !tbaa !509
@@ -20225,7 +20210,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 .split.us.i163:                                   ; preds = %.loopexit1836.i, %.split.us.i163
   %indvars.iv2026.i = phi i64 [ %indvars.iv.next2027.i, %.split.us.i163 ], [ 0, %.loopexit1836.i ]
   %1332 = trunc nuw i64 %indvars.iv2026.i to i16
-  %1333 = getelementptr inbounds nuw i16, ptr %1331, i64 %indvars.iv2026.i
+  %1333 = getelementptr inbounds nuw [2 x i8], ptr %1331, i64 %indvars.iv2026.i
   store i16 %1332, ptr %1333, align 2, !tbaa !129
   %indvars.iv.next2027.i = add nuw nsw i64 %indvars.iv2026.i, 1
   %1334 = load i16, ptr %1326, align 8, !tbaa !511
@@ -20243,19 +20228,19 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   br i1 %.not1757.i, label %1341, label %1338
 
 1338:                                             ; preds = %1337
-  %1339 = getelementptr inbounds nuw i16, ptr %1329, i64 %indvars.iv2023.i
+  %1339 = getelementptr inbounds nuw [2 x i8], ptr %1329, i64 %indvars.iv2023.i
   %1340 = load i16, ptr %1339, align 2, !tbaa !129
   br label %1345
 
 1341:                                             ; preds = %1337
-  %1342 = getelementptr inbounds nuw i32, ptr %1330, i64 %indvars.iv2023.i
+  %1342 = getelementptr inbounds nuw [4 x i8], ptr %1330, i64 %indvars.iv2023.i
   %1343 = load i32, ptr %1342, align 4, !tbaa !63
   %1344 = trunc i32 %1343 to i16
   br label %1345
 
 1345:                                             ; preds = %1341, %1338
   %1346 = phi i16 [ %1340, %1338 ], [ %1344, %1341 ]
-  %1347 = getelementptr inbounds nuw i16, ptr %1331, i64 %indvars.iv2023.i
+  %1347 = getelementptr inbounds nuw [2 x i8], ptr %1331, i64 %indvars.iv2023.i
   store i16 %1346, ptr %1347, align 2, !tbaa !129
   %indvars.iv.next2024.i = add nuw nsw i64 %indvars.iv2023.i, 1
   %1348 = load i16, ptr %1326, align 8, !tbaa !511
@@ -20322,7 +20307,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 1390:                                             ; preds = %1399, %.preheader1833.i
   %indvars.iv2029.i = phi i64 [ 0, %.preheader1833.i ], [ %indvars.iv.next2030.i, %1399 ]
   %.014991888.i = phi i32 [ 0, %.preheader1833.i ], [ %1403, %1399 ]
-  %1391 = getelementptr inbounds nuw i16, ptr %1386, i64 %indvars.iv2029.i
+  %1391 = getelementptr inbounds nuw [2 x i8], ptr %1386, i64 %indvars.iv2029.i
   %1392 = load i16, ptr %1391, align 2, !tbaa !129
   %1393 = zext i16 %1392 to i32
   store i32 1, ptr %28, align 4, !tbaa !63
@@ -20357,7 +20342,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 1411:                                             ; preds = %1420, %.preheader1831.i
   %indvars.iv2032.i = phi i64 [ 0, %.preheader1831.i ], [ %indvars.iv.next2033.i, %1420 ]
   %.015001890.i = phi i32 [ 0, %.preheader1831.i ], [ %1424, %1420 ]
-  %1412 = getelementptr inbounds nuw i16, ptr %1388, i64 %indvars.iv2032.i
+  %1412 = getelementptr inbounds nuw [2 x i8], ptr %1388, i64 %indvars.iv2032.i
   %1413 = load i16, ptr %1412, align 2, !tbaa !129
   %1414 = zext i16 %1413 to i32
   store i32 1, ptr %29, align 4, !tbaa !63
@@ -20383,7 +20368,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 1427:                                             ; preds = %1434, %.preheader1830.i
   %indvars.iv2035.i = phi i64 [ 0, %.preheader1830.i ], [ %indvars.iv.next2036.i, %1434 ]
   %.015031892.i = phi i32 [ %1357, %.preheader1830.i ], [ %1437, %1434 ]
-  %1428 = getelementptr inbounds nuw i16, ptr %1386, i64 %indvars.iv2035.i
+  %1428 = getelementptr inbounds nuw [2 x i8], ptr %1386, i64 %indvars.iv2035.i
   %1429 = load i16, ptr %1428, align 2, !tbaa !129
   %1430 = zext i16 %1429 to i32
   %.not1706.i = icmp ugt i32 %.015031892.i, %1430
@@ -20397,7 +20382,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 
 1434:                                             ; preds = %1427
   %1435 = add i16 %1429, 1
-  %1436 = getelementptr inbounds nuw i16, ptr %1409, i64 %indvars.iv2035.i
+  %1436 = getelementptr inbounds nuw [2 x i8], ptr %1409, i64 %indvars.iv2035.i
   store i16 %1435, ptr %1436, align 2, !tbaa !129
   %.neg1707.i = xor i32 %1430, -1
   %1437 = add i32 %.015031892.i, %.neg1707.i
@@ -20416,7 +20401,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   br i1 %1441, label %1451, label %.lr.ph.split.preheader.i
 
 .lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i158
-  %1442 = getelementptr i16, ptr %923, i64 %wide.trip.count.i
+  %1442 = getelementptr [2 x i8], ptr %923, i64 %wide.trip.count.i
   %1443 = getelementptr i8, ptr %1442, i64 2042
   %1444 = load i16, ptr %1443, align 2, !tbaa !129
   %1445 = zext i16 %1444 to i32
@@ -20429,7 +20414,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   %.115041895.i = phi i32 [ %1437, %.lr.ph.split.preheader.i ], [ %1450, %.lr.ph.split.i ]
   %1447 = call i32 @llvm.umin.i32(i32 %.115041895.i, i32 %.015011896.i)
   %1448 = trunc i32 %1447 to i16
-  %1449 = getelementptr inbounds nuw i16, ptr %1409, i64 %indvars.iv2041.i
+  %1449 = getelementptr inbounds nuw [2 x i8], ptr %1409, i64 %indvars.iv2041.i
   store i16 %1448, ptr %1449, align 2, !tbaa !129
   %1450 = sub i32 %.115041895.i, %1447
   %indvars.iv.next2042.i = add nuw nsw i64 %indvars.iv2041.i, 1
@@ -20469,7 +20454,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 1463:                                             ; preds = %1470, %.preheader1829.i
   %indvars.iv2044.i = phi i64 [ 0, %.preheader1829.i ], [ %indvars.iv.next2045.i, %1470 ]
   %.215051898.i = phi i32 [ %1362, %.preheader1829.i ], [ %1473, %1470 ]
-  %1464 = getelementptr inbounds nuw i16, ptr %1388, i64 %indvars.iv2044.i
+  %1464 = getelementptr inbounds nuw [2 x i8], ptr %1388, i64 %indvars.iv2044.i
   %1465 = load i16, ptr %1464, align 2, !tbaa !129
   %1466 = zext i16 %1465 to i32
   %.not1705.i = icmp ugt i32 %.215051898.i, %1466
@@ -20483,7 +20468,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 
 1470:                                             ; preds = %1463
   %1471 = add i16 %1465, 1
-  %1472 = getelementptr inbounds nuw i16, ptr %1459, i64 %indvars.iv2044.i
+  %1472 = getelementptr inbounds nuw [2 x i8], ptr %1459, i64 %indvars.iv2044.i
   store i16 %1471, ptr %1472, align 2, !tbaa !129
   %.neg.i = xor i32 %1466, -1
   %1473 = add i32 %.215051898.i, %.neg.i
@@ -20496,7 +20481,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   br i1 %.not16681900.i, label %._crit_edge1906.i, label %.lr.ph1905.i
 
 .lr.ph1905.i:                                     ; preds = %1474
-  %1475 = getelementptr i16, ptr %923, i64 %wide.trip.count2047.i
+  %1475 = getelementptr [2 x i8], ptr %923, i64 %wide.trip.count2047.i
   %1476 = getelementptr i8, ptr %1475, i64 2102
   %1477 = load i16, ptr %1476, align 2, !tbaa !129
   %1478 = zext i16 %1477 to i32
@@ -20509,7 +20494,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   %.315061901.i = phi i32 [ %1473, %.lr.ph1905.i ], [ %1484, %1480 ]
   %1481 = call i32 @llvm.umin.i32(i32 %.315061901.i, i32 %.115021902.i)
   %1482 = trunc i32 %1481 to i16
-  %1483 = getelementptr inbounds nuw i16, ptr %1459, i64 %indvars.iv2052.i
+  %1483 = getelementptr inbounds nuw [2 x i8], ptr %1459, i64 %indvars.iv2052.i
   store i16 %1482, ptr %1483, align 2, !tbaa !129
   %1484 = sub i32 %.315061901.i, %1481
   %indvars.iv.next2053.i = add nuw nsw i64 %indvars.iv2052.i, 1
@@ -20688,7 +20673,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   %.814111944.i = phi i32 [ 0, %.lr.ph1947.i ], [ %1783, %1781 ]
   %.015181943.i = phi i16 [ 0, %.lr.ph1947.i ], [ %.11519.i, %1781 ]
   %1576 = zext nneg i32 %.814111944.i to i64
-  %1577 = getelementptr inbounds nuw i16, ptr %1561, i64 %1576
+  %1577 = getelementptr inbounds nuw [2 x i8], ptr %1561, i64 %1576
   store i16 %.015181943.i, ptr %1577, align 2, !tbaa !129
   %1578 = zext i16 %.015181943.i to i32
   %1579 = load i16, ptr %1456, align 8, !tbaa !626
@@ -20698,7 +20683,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   %1583 = zext i16 %1581 to i32
   %1584 = add nsw i32 %1580, -1
   %.not1686.i = icmp eq i32 %1584, %1583
-  %1585 = getelementptr inbounds nuw i16, ptr %1562, i64 %1576
+  %1585 = getelementptr inbounds nuw [2 x i8], ptr %1562, i64 %1576
   %1586 = load i16, ptr %1585, align 2, !tbaa !129
   br i1 %.not1686.i, label %1591, label %1587
 
@@ -20733,7 +20718,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   %1602 = icmp ne i8 %1601, 0
   %1603 = icmp eq i16 %1581, 0
   %or.cond.i160 = or i1 %1603, %1602
-  %1604 = getelementptr inbounds nuw i16, ptr %1564, i64 %1576
+  %1604 = getelementptr inbounds nuw [2 x i8], ptr %1564, i64 %1576
   %1605 = load i16, ptr %1604, align 2, !tbaa !129
   br i1 %or.cond.i160, label %1606, label %1616
 
@@ -20746,7 +20731,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   br i1 %1609, label %1623, label %.thread1789.i
 
 1610:                                             ; preds = %1595
-  %1611 = getelementptr inbounds nuw i16, ptr %1564, i64 %1576
+  %1611 = getelementptr inbounds nuw [2 x i8], ptr %1564, i64 %1576
   %1612 = load i16, ptr %1611, align 2, !tbaa !129
   %.not1690.i = icmp eq i16 %1612, 0
   br i1 %.not1690.i, label %1623, label %1613
@@ -20790,7 +20775,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 .lr.ph1911.i:                                     ; preds = %.lr.ph1911.i, %.lr.ph1911.preheader.i
   %indvars.iv2055.i = phi i64 [ 0, %.lr.ph1911.preheader.i ], [ %indvars.iv.next2056.i, %.lr.ph1911.i ]
   %.015201908.i = phi i16 [ 0, %.lr.ph1911.preheader.i ], [ %1628, %.lr.ph1911.i ]
-  %1626 = getelementptr inbounds nuw i16, ptr %1409, i64 %indvars.iv2055.i
+  %1626 = getelementptr inbounds nuw [2 x i8], ptr %1409, i64 %indvars.iv2055.i
   %1627 = load i16, ptr %1626, align 2, !tbaa !129
   %1628 = add i16 %1627, %.015201908.i
   %indvars.iv.next2056.i = add nuw nsw i64 %indvars.iv2055.i, 1
@@ -20800,7 +20785,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 .lr.ph1915.i:                                     ; preds = %.lr.ph1915.i, %.lr.ph1915.preheader.i
   %indvars.iv2057.i = phi i64 [ 0, %.lr.ph1915.preheader.i ], [ %indvars.iv.next2058.i, %.lr.ph1915.i ]
   %.015221913.i = phi i16 [ 0, %.lr.ph1915.preheader.i ], [ %1632, %.lr.ph1915.i ]
-  %1630 = getelementptr inbounds nuw i16, ptr %1459, i64 %indvars.iv2057.i
+  %1630 = getelementptr inbounds nuw [2 x i8], ptr %1459, i64 %indvars.iv2057.i
   %1631 = load i16, ptr %1630, align 2, !tbaa !129
   %1632 = add i16 %1631, %.015221913.i
   %indvars.iv.next2058.i = add nuw nsw i64 %indvars.iv2057.i, 1
@@ -20814,18 +20799,18 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   br i1 %1635, label %1636, label %.thread1773.i
 
 1636:                                             ; preds = %._crit_edge1916.i
-  %1637 = getelementptr inbounds nuw i16, ptr %1564, i64 %1576
+  %1637 = getelementptr inbounds nuw [2 x i8], ptr %1564, i64 %1576
   %1638 = load i16, ptr %1637, align 2, !tbaa !129
   %1639 = icmp eq i16 %1638, 0
   br i1 %1639, label %1640, label %.thread2304.i
 
 1640:                                             ; preds = %1636
   %1641 = zext i16 %1582 to i64
-  %1642 = getelementptr inbounds nuw i16, ptr %1459, i64 %1641
+  %1642 = getelementptr inbounds nuw [2 x i8], ptr %1459, i64 %1641
   %1643 = load i16, ptr %1642, align 2, !tbaa !129
   %1644 = zext i16 %1643 to i32
   %1645 = icmp ugt i16 %1643, 1
-  %1646 = getelementptr inbounds nuw i16, ptr %1566, i64 %1576
+  %1646 = getelementptr inbounds nuw [2 x i8], ptr %1566, i64 %1576
   %1647 = load i16, ptr %1646, align 2, !tbaa !129
   br i1 %1645, label %1648, label %1718
 
@@ -20844,18 +20829,18 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   br i1 %1655, label %.thread2302.i, label %.lr.ph1924.i
 
 .lr.ph1924.i:                                     ; preds = %1653
-  %1656 = getelementptr inbounds nuw [990 x i16], ptr %1570, i64 %1576
+  %1656 = getelementptr inbounds nuw [1980 x i8], ptr %1570, i64 %1576
   br label %1662
 
 .thread2302.i:                                    ; preds = %1653
-  %1657 = getelementptr inbounds nuw i16, ptr %1567, i64 %1576
+  %1657 = getelementptr inbounds nuw [2 x i8], ptr %1567, i64 %1576
   store i16 1, ptr %1657, align 2, !tbaa !129
   %1658 = load i16, ptr %1642, align 2, !tbaa !129
-  %1659 = getelementptr inbounds nuw i16, ptr %1568, i64 %1576
+  %1659 = getelementptr inbounds nuw [2 x i8], ptr %1568, i64 %1576
   store i16 %1658, ptr %1659, align 2, !tbaa !129
-  %1660 = getelementptr inbounds nuw i16, ptr %30, i64 %1576
+  %1660 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %1576
   store i16 %.01520.lcssa.i, ptr %1660, align 2, !tbaa !129
-  %1661 = getelementptr inbounds nuw i16, ptr %31, i64 %1576
+  %1661 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %1576
   store i16 %.01522.lcssa.i, ptr %1661, align 2, !tbaa !129
   br label %.lr.ph1940.preheader.i
 
@@ -20863,7 +20848,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   %indvars.iv2063.i = phi i64 [ 0, %.lr.ph1924.i ], [ %indvars.iv.next2064.i, %1670 ]
   %.115231922.i = phi i16 [ %.01522.lcssa.i, %.lr.ph1924.i ], [ %1678, %1670 ]
   %.015261921.i = phi i32 [ %1644, %.lr.ph1924.i ], [ %1679, %1670 ]
-  %1663 = getelementptr inbounds nuw i16, ptr %1656, i64 %indvars.iv2063.i
+  %1663 = getelementptr inbounds nuw [2 x i8], ptr %1656, i64 %indvars.iv2063.i
   %1664 = load i16, ptr %1663, align 2, !tbaa !129
   %1665 = zext i16 %1664 to i32
   store i32 2, ptr %35, align 4, !tbaa !63
@@ -20879,11 +20864,11 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   %1671 = load i16, ptr %1663, align 2, !tbaa !129
   %1672 = add i16 %1671, 1
   %1673 = add nuw nsw i64 %indvars.iv2063.i, %1576
-  %1674 = getelementptr inbounds nuw i16, ptr %1568, i64 %1673
+  %1674 = getelementptr inbounds nuw [2 x i8], ptr %1568, i64 %1673
   store i16 %1672, ptr %1674, align 2, !tbaa !129
-  %1675 = getelementptr inbounds nuw i16, ptr %30, i64 %1673
+  %1675 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %1673
   store i16 %.01520.lcssa.i, ptr %1675, align 2, !tbaa !129
-  %1676 = getelementptr inbounds nuw i16, ptr %31, i64 %1673
+  %1676 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %1673
   store i16 %.115231922.i, ptr %1676, align 2, !tbaa !129
   %1677 = zext i16 %1672 to i32
   %1678 = add i16 %1672, %.115231922.i
@@ -20895,8 +20880,8 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   br i1 %.not1693.i, label %1662, label %1682, !llvm.loop !751
 
 1682:                                             ; preds = %1670
-  %1683 = getelementptr [990 x i16], ptr %923, i64 %1576
-  %1684 = getelementptr i16, ptr %1683, i64 %indvars.iv.next2064.i
+  %1683 = getelementptr [1980 x i8], ptr %923, i64 %1576
+  %1684 = getelementptr [2 x i8], ptr %1683, i64 %indvars.iv.next2064.i
   %1685 = getelementptr i8, ptr %1684, i64 10090
   %1686 = load i16, ptr %1685, align 2, !tbaa !129
   %1687 = zext i16 %1686 to i32
@@ -20913,11 +20898,11 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   %.215241930.i = phi i16 [ %1678, %.lr.ph1933.i ], [ %1696, %1691 ]
   %.115271929.i = phi i32 [ %1679, %.lr.ph1933.i ], [ %1697, %1691 ]
   %1692 = add nuw nsw i64 %indvars.iv2065.i, %1576
-  %1693 = getelementptr inbounds nuw i16, ptr %1568, i64 %1692
+  %1693 = getelementptr inbounds nuw [2 x i8], ptr %1568, i64 %1692
   store i16 %1690, ptr %1693, align 2, !tbaa !129
-  %1694 = getelementptr inbounds nuw i16, ptr %30, i64 %1692
+  %1694 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %1692
   store i16 %.01520.lcssa.i, ptr %1694, align 2, !tbaa !129
-  %1695 = getelementptr inbounds nuw i16, ptr %31, i64 %1692
+  %1695 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %1692
   store i16 %.215241930.i, ptr %1695, align 2, !tbaa !129
   %1696 = add i16 %.215241930.i, %1690
   %1697 = sub nsw i32 %.115271929.i, %1688
@@ -20937,11 +20922,11 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   %1701 = trunc i32 %.11527.lcssa.i to i16
   %1702 = add nsw i32 %.814111944.i, %.31510.lcssa.i
   %1703 = sext i32 %1702 to i64
-  %1704 = getelementptr inbounds i16, ptr %1568, i64 %1703
+  %1704 = getelementptr inbounds [2 x i8], ptr %1568, i64 %1703
   store i16 %1701, ptr %1704, align 2, !tbaa !129
-  %1705 = getelementptr inbounds i16, ptr %30, i64 %1703
+  %1705 = getelementptr inbounds [2 x i8], ptr %30, i64 %1703
   store i16 %.01520.lcssa.i, ptr %1705, align 2, !tbaa !129
-  %1706 = getelementptr inbounds i16, ptr %31, i64 %1703
+  %1706 = getelementptr inbounds [2 x i8], ptr %31, i64 %1703
   store i16 %.21524.lcssa.i, ptr %1706, align 2, !tbaa !129
   %1707 = add nuw nsw i32 %.31510.lcssa.i, 1
   br label %1708
@@ -20949,18 +20934,18 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 1708:                                             ; preds = %1700, %._crit_edge1934.i
   %.41511.i = phi i32 [ %1707, %1700 ], [ %.31510.lcssa.i, %._crit_edge1934.i ]
   %1709 = trunc i32 %.41511.i to i16
-  %1710 = getelementptr inbounds nuw i16, ptr %1567, i64 %1576
+  %1710 = getelementptr inbounds nuw [2 x i8], ptr %1567, i64 %1576
   store i16 %1709, ptr %1710, align 2, !tbaa !129
   %.not1972.i = icmp eq i16 %1709, 0
   br i1 %.not1972.i, label %._crit_edge1941.i, label %.lr.ph1940.preheader.i
 
 .lr.ph1940.preheader.i:                           ; preds = %1708, %.thread2302.i
-  %1711 = getelementptr inbounds nuw i16, ptr %1567, i64 %1576
+  %1711 = getelementptr inbounds nuw [2 x i8], ptr %1567, i64 %1576
   br label %.lr.ph1940.i
 
 .lr.ph1940.i:                                     ; preds = %.lr.ph1940.i, %.lr.ph1940.preheader.i
   %indvars.iv2067.i = phi i64 [ 0, %.lr.ph1940.preheader.i ], [ %indvars.iv.next2068.i, %.lr.ph1940.i ]
-  %gep2353.i = getelementptr inbounds nuw i16, ptr %1577, i64 %indvars.iv2067.i
+  %gep2353.i = getelementptr inbounds nuw [2 x i8], ptr %1577, i64 %indvars.iv2067.i
   store i16 %.015181943.i, ptr %gep2353.i, align 2, !tbaa !129
   %indvars.iv.next2068.i = add nuw nsw i64 %indvars.iv2067.i, 1
   %1712 = load i16, ptr %1711, align 2, !tbaa !129
@@ -20983,19 +20968,19 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   br i1 %.not1691.i, label %1726, label %.thread1781.i
 
 .thread2304.i:                                    ; preds = %1636
-  %1719 = getelementptr inbounds nuw i16, ptr %1566, i64 %1576
+  %1719 = getelementptr inbounds nuw [2 x i8], ptr %1566, i64 %1576
   %1720 = load i16, ptr %1719, align 2, !tbaa !129
   %.not16912305.i = icmp eq i16 %1720, 0
   br i1 %.not16912305.i, label %.thread1778.i, label %.thread1781.i
 
 .thread1773.i:                                    ; preds = %._crit_edge1916.i
-  %1721 = getelementptr inbounds nuw i16, ptr %1566, i64 %1576
+  %1721 = getelementptr inbounds nuw [2 x i8], ptr %1566, i64 %1576
   %1722 = load i16, ptr %1721, align 2, !tbaa !129
   %.not16911774.i = icmp eq i16 %1722, 0
   br i1 %.not16911774.i, label %.thread1773..thread1778_crit_edge.i, label %.thread1781.i
 
 .thread1773..thread1778_crit_edge.i:              ; preds = %.thread1773.i
-  %.phi.trans.insert2104.i = getelementptr inbounds nuw i16, ptr %1564, i64 %1576
+  %.phi.trans.insert2104.i = getelementptr inbounds nuw [2 x i8], ptr %1564, i64 %1576
   %.pre2105.i = load i16, ptr %.phi.trans.insert2104.i, align 2, !tbaa !129
   br label %.thread1778.i
 
@@ -21007,7 +20992,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   br label %.thread1789.i
 
 1726:                                             ; preds = %1718
-  %1727 = getelementptr inbounds nuw i16, ptr %1567, i64 %1576
+  %1727 = getelementptr inbounds nuw [2 x i8], ptr %1567, i64 %1576
   store i16 1, ptr %1727, align 2, !tbaa !129
   br label %.thread1778.i
 
@@ -21015,13 +21000,13 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   %1728 = phi i16 [ %.pre2105.i, %.thread1773..thread1778_crit_edge.i ], [ 0, %1726 ], [ %1638, %.thread2304.i ]
   %1729 = zext i16 %1728 to i64
   %1730 = zext i16 %1582 to i64
-  %invariant.gep.i161 = getelementptr inbounds nuw i16, ptr %1459, i64 %1730
+  %invariant.gep.i161 = getelementptr inbounds nuw [2 x i8], ptr %1459, i64 %1730
   br label %1731
 
 1731:                                             ; preds = %1731, %.thread1778.i
   %indvars.iv2059.i = phi i64 [ 0, %.thread1778.i ], [ %indvars.iv.next2060.i, %1731 ]
   %.015291918.i = phi i16 [ 0, %.thread1778.i ], [ %1733, %1731 ]
-  %gep.i162 = getelementptr inbounds nuw i16, ptr %invariant.gep.i161, i64 %indvars.iv2059.i
+  %gep.i162 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep.i161, i64 %indvars.iv2059.i
   %1732 = load i16, ptr %gep.i162, align 2, !tbaa !129
   %1733 = add i16 %1732, %.015291918.i
   %indvars.iv.next2060.i = add nuw nsw i64 %indvars.iv2059.i, 1
@@ -21029,11 +21014,11 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   br i1 %exitcond2062.not.i, label %1734, label %1731, !llvm.loop !754
 
 1734:                                             ; preds = %1731
-  %1735 = getelementptr inbounds nuw i16, ptr %1568, i64 %1576
+  %1735 = getelementptr inbounds nuw [2 x i8], ptr %1568, i64 %1576
   store i16 %1733, ptr %1735, align 2, !tbaa !129
-  %1736 = getelementptr inbounds nuw i16, ptr %30, i64 %1576
+  %1736 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %1576
   store i16 %.01520.lcssa.i, ptr %1736, align 2, !tbaa !129
-  %1737 = getelementptr inbounds nuw i16, ptr %31, i64 %1576
+  %1737 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %1576
   store i16 %.01522.lcssa.i, ptr %1737, align 2, !tbaa !129
   br label %1738
 
@@ -21048,7 +21033,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   %1743 = load i8, ptr %1549, align 2, !tbaa !748
   %.not1694.i = icmp eq i8 %1743, 0
   %1744 = sext i32 %.101413.i to i64
-  %1745 = getelementptr inbounds i16, ptr %1573, i64 %1744
+  %1745 = getelementptr inbounds [2 x i8], ptr %1573, i64 %1744
   %1746 = load i16, ptr %1745, align 2, !tbaa !129
   br i1 %.not1694.i, label %1764, label %1747
 
@@ -21094,7 +21079,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   br label %.thread1789.i
 
 1768:                                             ; preds = %1764
-  %1769 = getelementptr inbounds i16, ptr %1562, i64 %1744
+  %1769 = getelementptr inbounds [2 x i8], ptr %1562, i64 %1744
   %1770 = load i16, ptr %1769, align 2, !tbaa !129
   %1771 = add i16 %.015181943.i, 1
   %1772 = add i16 %1771, %1770
@@ -21104,7 +21089,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   br i1 %1775, label %1776, label %1781
 
 1776:                                             ; preds = %1768
-  %1777 = getelementptr inbounds i16, ptr %1564, i64 %1744
+  %1777 = getelementptr inbounds [2 x i8], ptr %1564, i64 %1744
   %1778 = load i16, ptr %1777, align 2, !tbaa !129
   %1779 = mul i16 %1778, %1773
   %1780 = add i16 %1779, %1772
@@ -21130,10 +21115,10 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
   %.01518.lcssa.i227 = phi i16 [ %.11519.i, %._crit_edge1948.i ], [ 0, %1559 ]
   %1789 = phi i32 [ %1786, %._crit_edge1948.i ], [ 1, %1559 ]
   %1790 = getelementptr inbounds nuw i8, ptr %923, i64 2000222
-  %1791 = getelementptr inbounds nuw i16, ptr %1790, i64 %.81411.lcssa.i228
+  %1791 = getelementptr inbounds nuw [2 x i8], ptr %1790, i64 %.81411.lcssa.i228
   store i16 %.01518.lcssa.i227, ptr %1791, align 2, !tbaa !129
   %1792 = getelementptr inbounds nuw i8, ptr %923, i64 2002222
-  %1793 = getelementptr inbounds nuw i16, ptr %1792, i64 %.81411.lcssa.i228
+  %1793 = getelementptr inbounds nuw [2 x i8], ptr %1792, i64 %.81411.lcssa.i228
   store i16 1, ptr %1793, align 2, !tbaa !129
   %1794 = load i16, ptr %1456, align 8, !tbaa !626
   %1795 = urem i16 %.01518.lcssa.i227, %1794
@@ -21159,7 +21144,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 1799:                                             ; preds = %1799, %.lr.ph1954.i
   %indvars.iv2070.i = phi i64 [ 0, %.lr.ph1954.i ], [ %indvars.iv.next2071.i, %1799 ]
   %.115211952.i = phi i16 [ 0, %.lr.ph1954.i ], [ %1802, %1799 ]
-  %1800 = getelementptr inbounds nuw i16, ptr %1409, i64 %indvars.iv2070.i
+  %1800 = getelementptr inbounds nuw [2 x i8], ptr %1409, i64 %indvars.iv2070.i
   %1801 = load i16, ptr %1800, align 2, !tbaa !129
   %1802 = add i16 %1801, %.115211952.i
   %indvars.iv.next2071.i = add nuw nsw i64 %indvars.iv2070.i, 1
@@ -21169,7 +21154,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 .lr.ph1958.i:                                     ; preds = %.preheader1824.i, %.lr.ph1958.i
   %indvars.iv2072.i = phi i64 [ %indvars.iv.next2073.i, %.lr.ph1958.i ], [ 0, %.preheader1824.i ]
   %.315251956.i = phi i16 [ %1806, %.lr.ph1958.i ], [ 0, %.preheader1824.i ]
-  %1804 = getelementptr inbounds nuw i16, ptr %1459, i64 %indvars.iv2072.i
+  %1804 = getelementptr inbounds nuw [2 x i8], ptr %1459, i64 %indvars.iv2072.i
   %1805 = load i16, ptr %1804, align 2, !tbaa !129
   %1806 = add i16 %1805, %.315251956.i
   %indvars.iv.next2073.i = add nuw nsw i64 %indvars.iv2072.i, 1
@@ -21178,29 +21163,29 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 
 ._crit_edge1959.i:                                ; preds = %.lr.ph1958.i, %.preheader1824.i
   %.31525.lcssa.i = phi i16 [ 0, %.preheader1824.i ], [ %1806, %.lr.ph1958.i ]
-  %1808 = getelementptr inbounds nuw i16, ptr %30, i64 %.81411.lcssa.i228
+  %1808 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %.81411.lcssa.i228
   store i16 %.11521.lcssa.i, ptr %1808, align 2, !tbaa !129
-  %1809 = getelementptr inbounds nuw i16, ptr %31, i64 %.81411.lcssa.i228
+  %1809 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %.81411.lcssa.i228
   store i16 %.31525.lcssa.i, ptr %1809, align 2, !tbaa !129
   %1810 = xor i16 %1795, -1
   %1811 = add i16 %1794, %1810
   %1812 = getelementptr inbounds nuw i8, ptr %923, i64 4092
-  %1813 = getelementptr inbounds nuw i16, ptr %1812, i64 %.81411.lcssa.i228
+  %1813 = getelementptr inbounds nuw [2 x i8], ptr %1812, i64 %.81411.lcssa.i228
   store i16 %1811, ptr %1813, align 2, !tbaa !129
   %1814 = load i16, ptr %1487, align 2, !tbaa !629
   %1815 = xor i16 %1796, -1
   %1816 = add i16 %1814, %1815
   %1817 = getelementptr inbounds nuw i8, ptr %923, i64 6092
-  %1818 = getelementptr inbounds nuw i16, ptr %1817, i64 %.81411.lcssa.i228
+  %1818 = getelementptr inbounds nuw [2 x i8], ptr %1817, i64 %.81411.lcssa.i228
   store i16 %1816, ptr %1818, align 2, !tbaa !129
   %1819 = zext i16 %1816 to i64
-  %invariant.gep2354.i = getelementptr inbounds nuw i16, ptr %1459, i64 %.pre2113.i
+  %invariant.gep2354.i = getelementptr inbounds nuw [2 x i8], ptr %1459, i64 %.pre2113.i
   br label %1820
 
 1820:                                             ; preds = %1820, %._crit_edge1959.i
   %indvars.iv2074.i = phi i64 [ 0, %._crit_edge1959.i ], [ %indvars.iv.next2075.i, %1820 ]
   %.015301961.i = phi i16 [ 0, %._crit_edge1959.i ], [ %1822, %1820 ]
-  %gep2355.i = getelementptr inbounds nuw i16, ptr %invariant.gep2354.i, i64 %indvars.iv2074.i
+  %gep2355.i = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep2354.i, i64 %indvars.iv2074.i
   %1821 = load i16, ptr %gep2355.i, align 2, !tbaa !129
   %1822 = add i16 %1821, %.015301961.i
   %indvars.iv.next2075.i = add nuw nsw i64 %indvars.iv2074.i, 1
@@ -21209,10 +21194,10 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 
 1823:                                             ; preds = %1820
   %1824 = getelementptr inbounds nuw i8, ptr %923, i64 1992182
-  %1825 = getelementptr inbounds nuw i16, ptr %1824, i64 %.81411.lcssa.i228
+  %1825 = getelementptr inbounds nuw [2 x i8], ptr %1824, i64 %.81411.lcssa.i228
   store i16 %1822, ptr %1825, align 2, !tbaa !129
   %1826 = getelementptr inbounds nuw i8, ptr %923, i64 8092
-  %1827 = getelementptr inbounds nuw i16, ptr %1826, i64 %.81411.lcssa.i228
+  %1827 = getelementptr inbounds nuw [2 x i8], ptr %1826, i64 %.81411.lcssa.i228
   %1828 = load i16, ptr %1827, align 2, !tbaa !129
   %.not1678.i = icmp eq i16 %1828, 0
   br i1 %.not1678.i, label %1832, label %1829
@@ -21236,20 +21221,20 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 1839:                                             ; preds = %1870, %1832
   %indvars.iv2081.i = phi i64 [ 0, %1832 ], [ %indvars.iv.next2082.i, %1870 ]
   %.015171964.i = phi i32 [ 0, %1832 ], [ %1872, %1870 ]
-  %1840 = getelementptr inbounds nuw i16, ptr %1834, i64 %indvars.iv2081.i
+  %1840 = getelementptr inbounds nuw [2 x i8], ptr %1834, i64 %indvars.iv2081.i
   store i16 0, ptr %1840, align 2, !tbaa !129
-  %1841 = getelementptr inbounds nuw i16, ptr %1835, i64 %indvars.iv2081.i
-  %1842 = getelementptr inbounds nuw i16, ptr %1836, i64 %indvars.iv2081.i
-  %1843 = getelementptr inbounds nuw i16, ptr %1837, i64 %indvars.iv2081.i
-  %1844 = getelementptr inbounds nuw i16, ptr %1838, i64 %indvars.iv2081.i
+  %1841 = getelementptr inbounds nuw [2 x i8], ptr %1835, i64 %indvars.iv2081.i
+  %1842 = getelementptr inbounds nuw [2 x i8], ptr %1836, i64 %indvars.iv2081.i
+  %1843 = getelementptr inbounds nuw [2 x i8], ptr %1837, i64 %indvars.iv2081.i
+  %1844 = getelementptr inbounds nuw [2 x i8], ptr %1838, i64 %indvars.iv2081.i
   br label %1845
 
 1845:                                             ; preds = %1868, %1839
   %1846 = phi i16 [ 0, %1839 ], [ %1869, %1868 ]
   %indvars.iv2076.i = phi i64 [ 0, %1839 ], [ %indvars.iv.next2077.i, %1868 ]
-  %1847 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv2076.i
+  %1847 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv2076.i
   %1848 = load i16, ptr %1847, align 2, !tbaa !129
-  %1849 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv2076.i
+  %1849 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %indvars.iv2076.i
   %1850 = load i16, ptr %1849, align 2, !tbaa !129
   %1851 = load i16, ptr %1841, align 2, !tbaa !129
   %.not1682.i = icmp ult i16 %1848, %1851
@@ -21344,7 +21329,7 @@ cbs_h266_write_vps.exit:                          ; preds = %889, %891
 
 1888:                                             ; preds = %1888, %.preheader1823.i
   %indvars.iv2084.i = phi i64 [ 0, %.preheader1823.i ], [ %indvars.iv.next2085.i, %1888 ]
-  %1889 = getelementptr inbounds nuw i16, ptr %1887, i64 %indvars.iv2084.i
+  %1889 = getelementptr inbounds nuw [2 x i8], ptr %1887, i64 %indvars.iv2084.i
   store i16 1, ptr %1889, align 2, !tbaa !129
   %indvars.iv.next2085.i = add nuw nsw i64 %indvars.iv2084.i, 1
   %1890 = load i16, ptr %1326, align 8, !tbaa !511
@@ -22290,7 +22275,7 @@ cbs_h266_write_pps.exit:                          ; preds = %2398, %2400
 2417:                                             ; preds = %2413
   %2418 = getelementptr inbounds nuw i8, ptr %2407, i64 312
   %2419 = zext i8 %2410 to i64
-  %2420 = getelementptr inbounds nuw ptr, ptr %2418, i64 %2419
+  %2420 = getelementptr inbounds nuw [8 x i8], ptr %2418, i64 %2419
   call void @av_refstruct_replace(ptr noundef nonnull %2420, ptr noundef nonnull %2415) #12
   br label %cbs_h266_write_dci.exit
 
@@ -22320,7 +22305,7 @@ cbs_h266_write_pps.exit:                          ; preds = %2398, %2400
 
 switch.lookup:                                    ; preds = %2432
   %2435 = zext nneg i8 %2433 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.cbs_h266_write_nal_unit, i64 %2435
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.cbs_h266_write_nal_unit, i64 %2435
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.fold.split.i
 
@@ -23217,7 +23202,7 @@ cbs_h266_write_alf_data.exit.i:                   ; preds = %.split193.us.i
 
 2826:                                             ; preds = %2849, %.preheader.i91.i
   %indvars.iv.i92.i = phi i64 [ %2824, %.preheader.i91.i ], [ %indvars.iv.next.i93.i, %2849 ]
-  %2827 = getelementptr inbounds nuw i16, ptr %2820, i64 %indvars.iv.i92.i
+  %2827 = getelementptr inbounds nuw [2 x i8], ptr %2820, i64 %indvars.iv.i92.i
   %2828 = load i16, ptr %2827, align 2, !tbaa !129
   %2829 = zext i16 %2828 to i32
   %2830 = load i8, ptr %2808, align 2, !tbaa !477
@@ -23749,7 +23734,7 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
   %3079 = getelementptr inbounds nuw i8, ptr %.0960.i, i64 5
   %3080 = load i8, ptr %3079, align 1, !tbaa !493
   %3081 = zext i8 %3080 to i64
-  %3082 = getelementptr inbounds nuw ptr, ptr %3078, i64 %3081
+  %3082 = getelementptr inbounds nuw [8 x i8], ptr %3078, i64 %3081
   %3083 = load ptr, ptr %3082, align 8, !tbaa !494
   %.not1104.i = icmp eq ptr %3083, null
   br i1 %.not1104.i, label %3084, label %3087
@@ -23765,7 +23750,7 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
   %3089 = getelementptr inbounds nuw i8, ptr %3083, i64 5
   %3090 = load i8, ptr %3089, align 1, !tbaa !496
   %3091 = zext i8 %3090 to i64
-  %3092 = getelementptr inbounds nuw ptr, ptr %3088, i64 %3091
+  %3092 = getelementptr inbounds nuw [8 x i8], ptr %3088, i64 %3091
   %3093 = load ptr, ptr %3092, align 8, !tbaa !498
   %.not1105.i = icmp eq ptr %3093, null
   br i1 %.not1105.i, label %3094, label %3097
@@ -23806,7 +23791,7 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
 
 3117:                                             ; preds = %3121, %.preheader1264.i
   %indvars.iv.i184 = phi i64 [ 0, %.preheader1264.i ], [ %indvars.iv.next.i185, %3121 ]
-  %3118 = getelementptr inbounds nuw i16, ptr %3113, i64 %indvars.iv.i184
+  %3118 = getelementptr inbounds nuw [2 x i8], ptr %3113, i64 %indvars.iv.i184
   %3119 = load i16, ptr %3118, align 2, !tbaa !129
   %3120 = icmp eq i16 %3119, %3114
   br i1 %3120, label %3122, label %3121
@@ -23837,7 +23822,7 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
   %3131 = phi i64 [ %3125, %3122 ], [ 0, %3128 ]
   %3132 = getelementptr inbounds nuw i8, ptr %3083, i64 1994182
   %3133 = getelementptr inbounds nuw i8, ptr %3055, i64 18808
-  %3134 = getelementptr inbounds nuw i16, ptr %3132, i64 %3131
+  %3134 = getelementptr inbounds nuw [2 x i8], ptr %3132, i64 %3131
   %3135 = load i16, ptr %3134, align 2, !tbaa !129
   %3136 = getelementptr inbounds nuw i8, ptr %3083, i64 4085
   %3137 = load i8, ptr %3136, align 1, !tbaa !514
@@ -24510,7 +24495,7 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
 3507:                                             ; preds = %3523, %.preheader1257.i
   %3508 = phi i1 [ true, %.preheader1257.i ], [ false, %3523 ]
   %indvars.iv1367.i196 = phi i64 [ 0, %.preheader1257.i ], [ 1, %3523 ]
-  %3509 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %3488, i64 %indvars.iv1367.i196
+  %3509 = getelementptr inbounds nuw [176 x i8], ptr %3488, i64 %indvars.iv1367.i196
   %3510 = load i8, ptr %3509, align 2, !tbaa !554
   %3511 = icmp ugt i8 %3510, 1
   %3512 = getelementptr inbounds nuw i8, ptr %3505, i64 %indvars.iv1367.i196
@@ -24584,7 +24569,7 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
   br label %3558
 
 3548:                                             ; preds = %3542
-  %3549 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %3538, i64 %indvars.iv1370.i
+  %3549 = getelementptr inbounds nuw [176 x i8], ptr %3538, i64 %indvars.iv1370.i
   %3550 = load i8, ptr %3549, align 2, !tbaa !554
   %3551 = zext i8 %3550 to i32
   %3552 = getelementptr inbounds nuw i8, ptr %3539, i64 %indvars.iv1370.i
@@ -25528,7 +25513,7 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
 .lr.ph1288.i:                                     ; preds = %.lr.ph1288.i, %.lr.ph1288.preheader.i
   %indvars.iv1376.i = phi i64 [ 0, %.lr.ph1288.preheader.i ], [ %indvars.iv.next1377.i, %.lr.ph1288.i ]
   %.010351285.i = phi i32 [ %4077, %.lr.ph1288.preheader.i ], [ %4083, %.lr.ph1288.i ]
-  %4080 = getelementptr inbounds nuw i16, ptr %3132, i64 %indvars.iv1376.i
+  %4080 = getelementptr inbounds nuw [2 x i8], ptr %3132, i64 %indvars.iv1376.i
   %4081 = load i16, ptr %4080, align 2, !tbaa !129
   %4082 = zext i16 %4081 to i32
   %4083 = add nuw nsw i32 %.010351285.i, %4082
@@ -25546,12 +25531,12 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
 
 4087:                                             ; preds = %._crit_edge1289.i
   %4088 = getelementptr inbounds nuw i8, ptr %3093, i64 5412
-  %4089 = getelementptr inbounds nuw i16, ptr %4088, i64 %4086
+  %4089 = getelementptr inbounds nuw [2 x i8], ptr %4088, i64 %4086
   %4090 = load i16, ptr %4089, align 2, !tbaa !129
   %4091 = zext i16 %4090 to i32
   %4092 = add nuw nsw i32 %4091, 1
   %4093 = getelementptr inbounds nuw i8, ptr %3093, i64 1412
-  %4094 = getelementptr inbounds nuw i16, ptr %4093, i64 %4086
+  %4094 = getelementptr inbounds nuw [2 x i8], ptr %4093, i64 %4086
   %4095 = load i16, ptr %4094, align 2, !tbaa !129
   %4096 = zext i16 %4095 to i32
   %4097 = add nuw nsw i32 %4092, %4096
@@ -25573,7 +25558,7 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
   br i1 %exitcond1385.not.i, label %.critedge.i191, label %4100
 
 4100:                                             ; preds = %4099
-  %4101 = getelementptr inbounds nuw i16, ptr %4098, i64 %indvars.iv1381.i
+  %4101 = getelementptr inbounds nuw [2 x i8], ptr %4098, i64 %indvars.iv1381.i
   %4102 = load i16, ptr %4101, align 2, !tbaa !129
   %4103 = zext i16 %4102 to i32
   %4104 = add nuw nsw i32 %.010311290.i, %4103
@@ -25607,7 +25592,7 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
   br i1 %exitcond1390.not.i, label %.critedge78.i, label %4111
 
 4111:                                             ; preds = %4110
-  %4112 = getelementptr inbounds nuw i16, ptr %4107, i64 %indvars.iv1386.i
+  %4112 = getelementptr inbounds nuw [2 x i8], ptr %4107, i64 %indvars.iv1386.i
   %4113 = load i16, ptr %4112, align 2, !tbaa !129
   %4114 = zext i16 %4113 to i32
   %4115 = add nuw nsw i32 %.110321300.i, %4114
@@ -25620,7 +25605,7 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
   %.01036.lcssa.i = phi i32 [ 0, %.critedge.i191 ], [ %4109, %4110 ], [ %4116, %4111 ]
   %.not1223.i = icmp eq i8 %4073, 0
   %4118 = getelementptr inbounds nuw i8, ptr %3093, i64 7412
-  %4119 = getelementptr inbounds nuw i16, ptr %4118, i64 %4086
+  %4119 = getelementptr inbounds nuw [2 x i8], ptr %4118, i64 %4086
   %4120 = load i16, ptr %4119, align 2, !tbaa !129
   %4121 = zext i16 %4120 to i32
   %4122 = add nuw nsw i32 %4121, 1
@@ -25628,7 +25613,7 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
 
 4123:                                             ; preds = %.critedge78.i
   %4124 = getelementptr inbounds nuw i8, ptr %3093, i64 3412
-  %4125 = getelementptr inbounds nuw i16, ptr %4124, i64 %4086
+  %4125 = getelementptr inbounds nuw [2 x i8], ptr %4124, i64 %4086
   %4126 = load i16, ptr %4125, align 2, !tbaa !129
   %4127 = zext i16 %4126 to i32
   %4128 = add nuw nsw i32 %4122, %4127
@@ -25650,7 +25635,7 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
   br i1 %exitcond1396.not.i, label %.critedge80.i, label %4131
 
 4131:                                             ; preds = %4130
-  %4132 = getelementptr inbounds nuw i16, ptr %4129, i64 %indvars.iv1391.i
+  %4132 = getelementptr inbounds nuw [2 x i8], ptr %4129, i64 %indvars.iv1391.i
   %4133 = load i16, ptr %4132, align 2, !tbaa !129
   %4134 = zext i16 %4133 to i32
   %4135 = add nuw nsw i32 %.09661306.i, %4134
@@ -25684,7 +25669,7 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
   br i1 %exitcond1402.not.i194, label %.critedge82.i, label %4142
 
 4142:                                             ; preds = %4141
-  %4143 = getelementptr inbounds nuw i16, ptr %4138, i64 %indvars.iv1397.i
+  %4143 = getelementptr inbounds nuw [2 x i8], ptr %4138, i64 %indvars.iv1397.i
   %4144 = load i16, ptr %4143, align 2, !tbaa !129
   %4145 = zext i16 %4144 to i32
   %4146 = add nuw nsw i32 %.19671315.i, %4145
@@ -25695,7 +25680,7 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
 
 4149:                                             ; preds = %._crit_edge1289.i
   %4150 = getelementptr inbounds nuw i8, ptr %3083, i64 4092
-  %4151 = getelementptr inbounds nuw i16, ptr %4150, i64 %4086
+  %4151 = getelementptr inbounds nuw [2 x i8], ptr %4150, i64 %4086
   %4152 = load i16, ptr %4151, align 2, !tbaa !129
   %4153 = zext i16 %4152 to i32
   %4154 = add nuw nsw i32 %4153, 1
@@ -25704,14 +25689,14 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
 
 4155:                                             ; preds = %4149
   %4156 = getelementptr inbounds nuw i8, ptr %3083, i64 1992182
-  %4157 = getelementptr inbounds nuw i16, ptr %4156, i64 %4086
+  %4157 = getelementptr inbounds nuw [2 x i8], ptr %4156, i64 %4086
   %4158 = load i16, ptr %4157, align 2, !tbaa !129
   %4159 = zext i16 %4158 to i32
   br label %.critedge82.i
 
 4160:                                             ; preds = %4149
   %4161 = getelementptr inbounds nuw i8, ptr %3083, i64 6092
-  %4162 = getelementptr inbounds nuw i16, ptr %4161, i64 %4086
+  %4162 = getelementptr inbounds nuw [2 x i8], ptr %4161, i64 %4086
   %4163 = load i16, ptr %4162, align 2, !tbaa !129
   %4164 = zext i16 %4163 to i32
   %4165 = add nuw nsw i32 %4164, 1
@@ -25740,7 +25725,7 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
   %4177 = phi i32 [ 0, %4167 ], [ %4184, %4176 ]
   %4178 = udiv i32 %.09621323.i, %4174
   %4179 = zext nneg i32 %4178 to i64
-  %4180 = getelementptr inbounds nuw i16, ptr %4175, i64 %4179
+  %4180 = getelementptr inbounds nuw [2 x i8], ptr %4175, i64 %4179
   %4181 = load i16, ptr %4180, align 2, !tbaa !129
   %4182 = zext i16 %4181 to i32
   %4183 = select i1 %.not1220.i, i32 1, i32 %4182
@@ -25792,7 +25777,7 @@ cbs_h266_write_ph.exit:                           ; preds = %3036
 
 4204:                                             ; preds = %4200, %.lr.ph1325.i
   %indvars.iv1405.i = phi i64 [ 0, %.lr.ph1325.i ], [ %indvars.iv.next1406.i, %4200 ]
-  %4205 = getelementptr inbounds nuw i32, ptr %4198, i64 %indvars.iv1405.i
+  %4205 = getelementptr inbounds nuw [4 x i8], ptr %4198, i64 %indvars.iv1405.i
   %4206 = load i32, ptr %4205, align 4, !tbaa !63
   %4207 = load i8, ptr %4192, align 4, !tbaa !633
   %4208 = zext i8 %4207 to i32
@@ -25981,7 +25966,7 @@ define internal void @cbs_h266_flush(ptr noundef readonly captures(none) %0) #0 
 
 6:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   tail call void @av_refstruct_unref(ptr noundef nonnull %7) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -25993,7 +25978,7 @@ define internal void @cbs_h266_flush(ptr noundef readonly captures(none) %0) #0 
 
 9:                                                ; preds = %.preheader18, %9
   %indvars.iv23 = phi i64 [ 0, %.preheader18 ], [ %indvars.iv.next24, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv23
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv23
   tail call void @av_refstruct_unref(ptr noundef nonnull %10) #12
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 16
@@ -26006,7 +25991,7 @@ define internal void @cbs_h266_flush(ptr noundef readonly captures(none) %0) #0 
 
 13:                                               ; preds = %.preheader, %13
   %indvars.iv27 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next28, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv27
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv27
   tail call void @av_refstruct_unref(ptr noundef nonnull %14) #12
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 64
@@ -26026,7 +26011,7 @@ define internal void @cbs_h266_close(ptr noundef readonly captures(none) %0) #0 
 
 6:                                                ; preds = %6, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   tail call void @av_refstruct_unref(ptr noundef nonnull %7) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -26038,7 +26023,7 @@ define internal void @cbs_h266_close(ptr noundef readonly captures(none) %0) #0 
 
 9:                                                ; preds = %9, %.preheader18.i
   %indvars.iv23.i = phi i64 [ 0, %.preheader18.i ], [ %indvars.iv.next24.i, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv23.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv23.i
   tail call void @av_refstruct_unref(ptr noundef nonnull %10) #12
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next24.i, 16
@@ -26046,7 +26031,7 @@ define internal void @cbs_h266_close(ptr noundef readonly captures(none) %0) #0 
 
 11:                                               ; preds = %11, %.preheader.i
   %indvars.iv27.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next28.i, %11 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv27.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv27.i
   tail call void @av_refstruct_unref(ptr noundef nonnull %12) #12
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next28.i, 64
@@ -26088,7 +26073,7 @@ define ptr @ff_cbs_sei_find_type(ptr noundef readonly captures(none) %0, i32 nou
 
 11:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw %struct.SEIMessageTypeDescriptor, ptr %.014, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %.014, i64 %indvars.iv.next
   %13 = load i32, ptr %12, align 16, !tbaa !820
   %14 = icmp sgt i32 %13, -1
   br i1 %14, label %.lr.ph, label %.preheader.preheader, !llvm.loop !822
@@ -26106,13 +26091,13 @@ define ptr @ff_cbs_sei_find_type(ptr noundef readonly captures(none) %0, i32 nou
 
 .preheader:                                       ; preds = %.preheader.preheader, %17
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %17 ], [ 0, %.preheader.preheader ]
-  %18 = getelementptr inbounds nuw %struct.SEIMessageTypeDescriptor, ptr @cbs_sei_common_types, i64 %indvars.iv25
+  %18 = getelementptr inbounds nuw [32 x i8], ptr @cbs_sei_common_types, i64 %indvars.iv25
   %19 = load i32, ptr %18, align 16, !tbaa !820
   %20 = icmp eq i32 %19, %1
   br i1 %20, label %.loopexit, label %17
 
 .loopexit.loopexit22:                             ; preds = %.lr.ph
-  %21 = getelementptr inbounds nuw %struct.SEIMessageTypeDescriptor, ptr %.014, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %.014, i64 %indvars.iv
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %.preheader, %.loopexit.loopexit22, %2
@@ -26152,7 +26137,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h2645_fragment_add_nal
 10:                                               ; preds = %.lr.ph43, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next, %45 ]
   %11 = load ptr, ptr %2, align 8, !tbaa !41
-  %12 = getelementptr inbounds nuw %struct.H2645NAL, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [96 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !42
   %15 = sext i32 %14 to i64
@@ -27779,7 +27764,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h264_read_hrd_paramete
 
 46:                                               ; preds = %41
   %47 = load i32, ptr %7, align 4, !tbaa !63
-  %48 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   store i32 %47, ptr %48, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -27795,7 +27780,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h264_read_hrd_paramete
 
 52:                                               ; preds = %46
   %53 = load i32, ptr %9, align 4, !tbaa !63
-  %54 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   store i32 %53, ptr %54, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -27957,7 +27942,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h264_read_ref_pic_list
 34:                                               ; preds = %30
   %35 = load i32, ptr %5, align 4, !tbaa !63
   %36 = trunc i32 %35 to i8
-  %37 = getelementptr inbounds nuw %struct.anon.3, ptr %26, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 %indvars.iv
   store i8 %36, ptr %37, align 4, !tbaa !873
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %38 = icmp eq i8 %36, 3
@@ -28067,7 +28052,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h264_read_ref_pic_list
 85:                                               ; preds = %81
   %86 = load i32, ptr %9, align 4, !tbaa !63
   %87 = trunc i32 %86 to i8
-  %88 = getelementptr inbounds nuw %struct.anon.3, ptr %77, i64 %indvars.iv157
+  %88 = getelementptr inbounds nuw [12 x i8], ptr %77, i64 %indvars.iv157
   store i8 %87, ptr %88, align 4, !tbaa !873
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %89 = icmp eq i8 %87, 3
@@ -28621,7 +28606,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h264_read_dec_ref_pic_
 43:                                               ; preds = %39
   %44 = load i32, ptr %8, align 4, !tbaa !63
   %45 = trunc i32 %44 to i8
-  %46 = getelementptr inbounds nuw %struct.anon.4, ptr %37, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [12 x i8], ptr %37, i64 %indvars.iv
   store i8 %45, ptr %46, align 4, !tbaa !889
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   switch i8 %45, label %83 [
@@ -28904,7 +28889,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_sei_read_message_list(
 
 98:                                               ; preds = %94
   %99 = load ptr, ptr %2, align 8, !tbaa !898
-  %100 = getelementptr inbounds nuw %struct.SEIRawMessage, ptr %99, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [40 x i8], ptr %99, i64 %indvars.iv
   store i32 %52, ptr %100, align 8, !tbaa !901
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   store i32 %77, ptr %101, align 4, !tbaa !903
@@ -28934,7 +28919,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_sei_read_message_list(
 
 109:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %110 = getelementptr inbounds nuw %struct.SEIMessageTypeDescriptor, ptr %.014.i.i, i64 %indvars.iv.next.i.i
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %.014.i.i, i64 %indvars.iv.next.i.i
   %111 = load i32, ptr %110, align 16, !tbaa !820
   %112 = icmp sgt i32 %111, -1
   br i1 %112, label %.lr.ph.i.i, label %.preheader.i.i.preheader, !llvm.loop !822
@@ -28952,13 +28937,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_sei_read_message_list(
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %115
   %indvars.iv25.i.i = phi i64 [ %indvars.iv.next26.i.i, %115 ], [ 0, %.preheader.i.i.preheader ]
-  %116 = getelementptr inbounds nuw %struct.SEIMessageTypeDescriptor, ptr @cbs_sei_common_types, i64 %indvars.iv25.i.i
+  %116 = getelementptr inbounds nuw [32 x i8], ptr @cbs_sei_common_types, i64 %indvars.iv25.i.i
   %117 = load i32, ptr %116, align 16, !tbaa !820
   %118 = icmp eq i32 %117, %52
   br i1 %118, label %ff_cbs_sei_find_type.exit.i, label %115
 
 .loopexit.loopexit22.i.i:                         ; preds = %.lr.ph.i.i
-  %119 = getelementptr inbounds nuw %struct.SEIMessageTypeDescriptor, ptr %.014.i.i, i64 %indvars.iv.i.i
+  %119 = getelementptr inbounds nuw [32 x i8], ptr %.014.i.i, i64 %indvars.iv.i.i
   br label %ff_cbs_sei_find_type.exit.i
 
 ff_cbs_sei_find_type.exit.i:                      ; preds = %.preheader.i.i, %.loopexit.loopexit22.i.i
@@ -31186,7 +31171,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h264_write_hrd_paramet
 
 32:                                               ; preds = %.preheader, %29
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %29 ]
-  %33 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !63
   store i32 1, ptr %4, align 4, !tbaa !63
   %35 = trunc nuw nsw i64 %indvars.iv to i32
@@ -31196,7 +31181,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h264_write_hrd_paramet
   br i1 %37, label %38, label %.loopexit
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !63
   store i32 1, ptr %5, align 4, !tbaa !63
   store i32 %35, ptr %26, align 4, !tbaa !63
@@ -31287,7 +31272,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h264_write_ref_pic_lis
 
 23:                                               ; preds = %.preheader126, %56
   %indvars.iv = phi i64 [ 0, %.preheader126 ], [ %indvars.iv.next, %56 ]
-  %24 = getelementptr inbounds nuw %struct.anon.3, ptr %19, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [12 x i8], ptr %19, i64 %indvars.iv
   %25 = load i8, ptr %24, align 4, !tbaa !873
   %26 = zext i8 %25 to i32
   %27 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.181, ptr noundef null, i32 noundef %26, i32 noundef 0, i32 noundef 3)
@@ -31365,7 +31350,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h264_write_ref_pic_lis
 
 72:                                               ; preds = %.preheader, %105
   %indvars.iv135 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next136, %105 ]
-  %73 = getelementptr inbounds nuw %struct.anon.3, ptr %68, i64 %indvars.iv135
+  %73 = getelementptr inbounds nuw [12 x i8], ptr %68, i64 %indvars.iv135
   %74 = load i8, ptr %73, align 4, !tbaa !873
   %75 = zext i8 %74 to i32
   %76 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.181, ptr noundef null, i32 noundef %75, i32 noundef 0, i32 noundef 3)
@@ -31857,7 +31842,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h264_write_dec_ref_pic
 
 31:                                               ; preds = %.preheader, %.thread108
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.thread108 ]
-  %32 = getelementptr inbounds nuw %struct.anon.4, ptr %29, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %indvars.iv
   %33 = load i8, ptr %32, align 4, !tbaa !889
   %34 = zext i8 %33 to i32
   %35 = tail call fastcc i32 @cbs_write_ue_golomb(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.202, ptr noundef null, i32 noundef %34, i32 noundef 0, i32 noundef 6)
@@ -31969,7 +31954,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_sei_write_message_list
   %indvars.iv = phi i64 [ 0, %.lr.ph139 ], [ %indvars.iv.next, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %20 = load ptr, ptr %2, align 8, !tbaa !898
-  %21 = getelementptr inbounds nuw %struct.SEIRawMessage, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %indvars.iv
   store i32 0, ptr %10, align 4, !tbaa !827
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !tbaa.struct !935
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -32060,7 +32045,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_sei_write_message_list
 
 58:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %59 = getelementptr inbounds nuw %struct.SEIMessageTypeDescriptor, ptr %.014.i.i, i64 %indvars.iv.next.i.i
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %.014.i.i, i64 %indvars.iv.next.i.i
   %60 = load i32, ptr %59, align 16, !tbaa !820
   %61 = icmp sgt i32 %60, -1
   br i1 %61, label %.lr.ph.i.i, label %.preheader.i.i.preheader, !llvm.loop !822
@@ -32078,13 +32063,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_sei_write_message_list
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %64
   %indvars.iv25.i.i = phi i64 [ %indvars.iv.next26.i.i, %64 ], [ 0, %.preheader.i.i.preheader ]
-  %65 = getelementptr inbounds nuw %struct.SEIMessageTypeDescriptor, ptr @cbs_sei_common_types, i64 %indvars.iv25.i.i
+  %65 = getelementptr inbounds nuw [32 x i8], ptr @cbs_sei_common_types, i64 %indvars.iv25.i.i
   %66 = load i32, ptr %65, align 16, !tbaa !820
   %67 = icmp eq i32 %66, %50
   br i1 %67, label %ff_cbs_sei_find_type.exit.i, label %64
 
 .loopexit.loopexit22.i.i:                         ; preds = %.lr.ph.i.i
-  %68 = getelementptr inbounds nuw %struct.SEIMessageTypeDescriptor, ptr %.014.i.i, i64 %indvars.iv.i.i
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %.014.i.i, i64 %indvars.iv.i.i
   br label %ff_cbs_sei_find_type.exit.i
 
 ff_cbs_sei_find_type.exit.i:                      ; preds = %.preheader.i.i, %.loopexit.loopexit22.i.i
@@ -32519,7 +32504,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_vps(ptr noun
 
 124:                                              ; preds = %117
   %125 = load i32, ptr %16, align 4, !tbaa !63
-  %126 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %indvars.iv
   store i32 %125, ptr %126, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -32542,7 +32527,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_vps(ptr noun
   %133 = getelementptr inbounds nuw i8, ptr %2, i64 439
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 %131
   %135 = getelementptr inbounds nuw i8, ptr %2, i64 448
-  %136 = getelementptr inbounds nuw i32, ptr %135, i64 %131
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %131
   %wide.trip.count = zext i8 %127 to i64
   br label %137
 
@@ -32555,7 +32540,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_vps(ptr noun
   %141 = getelementptr inbounds nuw i8, ptr %133, i64 %indvars.iv436
   store i8 %140, ptr %141, align 1, !tbaa !25
   %142 = load i32, ptr %136, align 4, !tbaa !63
-  %143 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv436
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %indvars.iv436
   store i32 %142, ptr %143, align 4, !tbaa !63
   %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next437, %wide.trip.count
@@ -32805,7 +32790,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_vps(ptr noun
 245:                                              ; preds = %236
   %246 = load i32, ptr %28, align 4, !tbaa !63
   %247 = trunc i32 %246 to i16
-  %248 = getelementptr inbounds nuw i16, ptr %228, i64 %indvars.iv450
+  %248 = getelementptr inbounds nuw [2 x i8], ptr %228, i64 %indvars.iv450
   store i16 %247, ptr %248, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %.not319 = icmp eq i64 %indvars.iv450, 0
@@ -32838,7 +32823,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_vps(ptr noun
 
 258:                                              ; preds = %.thread374, %257
   %259 = phi i32 [ %255, %.thread374 ], [ 1, %257 ]
-  %260 = getelementptr inbounds nuw %struct.H265RawHRDParameters, ptr %231, i64 %indvars.iv450
+  %260 = getelementptr inbounds nuw [7672 x i8], ptr %231, i64 %indvars.iv450
   %261 = load i8, ptr %69, align 1, !tbaa !343
   %262 = zext i8 %261 to i32
   %263 = call fastcc i32 @cbs_h265_read_hrd_parameters(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %260, i32 noundef %259, i32 noundef %262)
@@ -32898,7 +32883,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_replace_vps(ptr n
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %13 = zext i8 %8 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !361
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 824
   %17 = load ptr, ptr %16, align 8, !tbaa !362
@@ -33014,7 +32999,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_sps(ptr noun
   %76 = getelementptr inbounds nuw i8, ptr %66, i64 56
   %.mask = and i32 %73, 255
   %77 = zext nneg i32 %.mask to i64
-  %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !361
   %80 = getelementptr inbounds nuw i8, ptr %66, i64 824
   store ptr %79, ptr %80, align 8, !tbaa !362
@@ -33519,7 +33504,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_sps(ptr noun
 
 309:                                              ; preds = %302
   %310 = load i32, ptr %29, align 4, !tbaa !63
-  %311 = getelementptr inbounds nuw i32, ptr %288, i64 %indvars.iv
+  %311 = getelementptr inbounds nuw [4 x i8], ptr %288, i64 %indvars.iv
   store i32 %310, ptr %311, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -33542,7 +33527,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_sps(ptr noun
   %318 = getelementptr inbounds nuw i8, ptr %2, i64 459
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 %316
   %320 = getelementptr inbounds nuw i8, ptr %2, i64 468
-  %321 = getelementptr inbounds nuw i32, ptr %320, i64 %316
+  %321 = getelementptr inbounds nuw [4 x i8], ptr %320, i64 %316
   %wide.trip.count = zext i8 %312 to i64
   br label %322
 
@@ -33555,7 +33540,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_sps(ptr noun
   %326 = getelementptr inbounds nuw i8, ptr %318, i64 %indvars.iv925
   store i8 %325, ptr %326, align 1, !tbaa !25
   %327 = load i32, ptr %321, align 4, !tbaa !63
-  %328 = getelementptr inbounds nuw i32, ptr %320, i64 %indvars.iv925
+  %328 = getelementptr inbounds nuw [4 x i8], ptr %320, i64 %indvars.iv925
   store i32 %327, ptr %328, align 4, !tbaa !63
   %indvars.iv.next926 = add nuw nsw i64 %indvars.iv925, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next926, %wide.trip.count
@@ -33948,7 +33933,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_sps(ptr noun
 
 514:                                              ; preds = %.lr.ph900, %510
   %indvars.iv928 = phi i64 [ 0, %.lr.ph900 ], [ %indvars.iv.next929, %510 ]
-  %515 = getelementptr inbounds nuw %struct.H265RawSTRefPicSet, ptr %509, i64 %indvars.iv928
+  %515 = getelementptr inbounds nuw [136 x i8], ptr %509, i64 %indvars.iv928
   %516 = trunc nuw nsw i64 %indvars.iv928 to i32
   %517 = call fastcc i32 @cbs_h265_read_st_ref_pic_set(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %515, i32 noundef %516, ptr noundef nonnull %2)
   %518 = icmp slt i32 %517, 0
@@ -34024,7 +34009,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_sps(ptr noun
 550:                                              ; preds = %538
   %551 = load i32, ptr %52, align 4, !tbaa !63
   %552 = trunc i32 %551 to i16
-  %553 = getelementptr inbounds nuw i16, ptr %535, i64 %indvars.iv931
+  %553 = getelementptr inbounds nuw [2 x i8], ptr %535, i64 %indvars.iv931
   store i16 %552, ptr %553, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
@@ -34327,7 +34312,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_replace_sps(ptr n
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %13 = zext i8 %8 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !240
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 832
   %17 = load ptr, ptr %16, align 8, !tbaa !241
@@ -34443,7 +34428,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pps(ptr noun
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 184
   %.mask = and i32 %65, 255
   %69 = zext nneg i32 %.mask to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !240
   %.not = icmp eq ptr %71, null
   br i1 %.not, label %72, label %74
@@ -34870,7 +34855,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pps(ptr noun
 264:                                              ; preds = %257
   %265 = load i32, ptr %29, align 4, !tbaa !63
   %266 = trunc i32 %265 to i16
-  %267 = getelementptr inbounds nuw i16, ptr %252, i64 %indvars.iv
+  %267 = getelementptr inbounds nuw [2 x i8], ptr %252, i64 %indvars.iv
   store i16 %266, ptr %267, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -34898,7 +34883,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pps(ptr noun
 278:                                              ; preds = %271
   %279 = load i32, ptr %31, align 4, !tbaa !63
   %280 = trunc i32 %279 to i16
-  %281 = getelementptr inbounds nuw i16, ptr %256, i64 %indvars.iv631
+  %281 = getelementptr inbounds nuw [2 x i8], ptr %256, i64 %indvars.iv631
   store i16 %280, ptr %281, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %indvars.iv.next632 = add nuw nsw i64 %indvars.iv631, 1
@@ -35299,7 +35284,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_replace_pps(ptr n
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 312
   %13 = zext i8 %8 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !230
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 840
   %17 = load ptr, ptr %16, align 8, !tbaa !232
@@ -37304,7 +37289,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_hrd_paramete
 .thread304:                                       ; preds = %160
   %164 = load i32, ptr %23, align 4, !tbaa !63
   %165 = trunc i32 %164 to i16
-  %166 = getelementptr inbounds nuw i16, ptr %134, i64 %indvars.iv
+  %166 = getelementptr inbounds nuw [2 x i8], ptr %134, i64 %indvars.iv
   store i16 %165, ptr %166, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %167 = getelementptr inbounds nuw i8, ptr %135, i64 %indvars.iv
@@ -37549,7 +37534,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_sub_layer_hr
   %16 = sext i32 %4 to i64
   %.055.v.v = select i1 %.not, i64 3864, i64 56
   %.055.v = getelementptr inbounds nuw i8, ptr %2, i64 %.055.v.v
-  %.055 = getelementptr inbounds %struct.H265RawSubLayerHRDParameters, ptr %.055.v, i64 %16
+  %.055 = getelementptr inbounds [544 x i8], ptr %.055.v, i64 %16
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 49
   %18 = getelementptr inbounds i8, ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -37580,7 +37565,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_sub_layer_hr
 
 34:                                               ; preds = %29
   %35 = load i32, ptr %6, align 4, !tbaa !63
-  %36 = getelementptr inbounds nuw i32, ptr %.055, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.055, i64 %indvars.iv
   store i32 %35, ptr %36, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -37596,7 +37581,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_sub_layer_hr
 
 40:                                               ; preds = %34
   %41 = load i32, ptr %8, align 4, !tbaa !63
-  %42 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   store i32 %41, ptr %42, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %43 = load i8, ptr %22, align 2, !tbaa !1001
@@ -37617,7 +37602,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_sub_layer_hr
 
 48:                                               ; preds = %44
   %49 = load i32, ptr %10, align 4, !tbaa !63
-  %50 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   store i32 %49, ptr %50, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -37629,7 +37614,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_sub_layer_hr
 
 .thread76:                                        ; preds = %48
   %53 = load i32, ptr %12, align 4, !tbaa !63
-  %54 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   store i32 %53, ptr %54, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %56
@@ -37700,8 +37685,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_scaling_list
   %27 = call i32 @llvm.umin.i32(i32 %26, i32 64)
   %28 = icmp samesign ugt i64 %indvars.iv104, 1
   %29 = add nsw i64 %indvars.iv104, -2
-  %30 = getelementptr inbounds nuw [6 x i16], ptr %16, i64 %29
-  %31 = getelementptr inbounds nuw [6 x [64 x i8]], ptr %20, i64 %indvars.iv104
+  %30 = getelementptr inbounds nuw [12 x i8], ptr %16, i64 %29
+  %31 = getelementptr inbounds nuw [384 x i8], ptr %20, i64 %indvars.iv104
   %32 = icmp eq i64 %indvars.iv104, 3
   %33 = getelementptr inbounds nuw [6 x i8], ptr %23, i64 %indvars.iv104
   %34 = select i1 %32, i64 3, i64 1
@@ -37773,7 +37758,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_scaling_list
 .thread77:                                        ; preds = %56
   %59 = load i32, ptr %8, align 4, !tbaa !63
   %60 = trunc i32 %59 to i16
-  %61 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv101
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv101
   store i16 %60, ptr %61, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %63
@@ -37918,7 +37903,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
   %54 = add i32 %3, %.neg
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 2148
   %56 = zext i32 %54 to i64
-  %57 = getelementptr inbounds nuw %struct.H265RawSTRefPicSet, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [136 x i8], ptr %55, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 38
   %59 = load i8, ptr %58, align 2, !tbaa !265
   %60 = zext i8 %59 to i32
@@ -38070,12 +38055,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
 123:                                              ; preds = %.lr.ph, %123
   %indvars.iv437 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next438, %123 ]
   %.0371 = phi i32 [ 0, %.lr.ph ], [ %127, %123 ]
-  %124 = getelementptr inbounds nuw i16, ptr %118, i64 %indvars.iv437
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %118, i64 %indvars.iv437
   %125 = load i16, ptr %124, align 2, !tbaa !129
   %126 = zext i16 %125 to i32
   %.neg314 = xor i32 %126, -1
   %127 = add i32 %.0371, %.neg314
-  %128 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv437
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv437
   store i32 %127, ptr %128, align 4, !tbaa !63
   %indvars.iv.next438 = add nuw nsw i64 %indvars.iv437, 1
   %exitcond441.not = icmp eq i64 %indvars.iv.next438, %wide.trip.count440
@@ -38089,12 +38074,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
 131:                                              ; preds = %.lr.ph374, %131
   %indvars.iv442 = phi i64 [ 0, %.lr.ph374 ], [ %indvars.iv.next443, %131 ]
   %.1373 = phi i32 [ 0, %.lr.ph374 ], [ %136, %131 ]
-  %132 = getelementptr inbounds nuw i16, ptr %122, i64 %indvars.iv442
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %122, i64 %indvars.iv442
   %133 = load i16, ptr %132, align 2, !tbaa !129
   %134 = zext i16 %133 to i32
   %135 = add nuw nsw i32 %.1373, 1
   %136 = add nuw nsw i32 %135, %134
-  %137 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv442
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv442
   store i32 %136, ptr %137, align 4, !tbaa !63
   %indvars.iv.next443 = add nuw nsw i64 %indvars.iv442, 1
   %exitcond446.not = icmp eq i64 %indvars.iv.next443, %wide.trip.count445
@@ -38104,7 +38089,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
   %indvars.iv447 = phi i64 [ %129, %.lr.ph379 ], [ %indvars.iv.next448, %154 ]
   %.2253377 = phi i32 [ 0, %.lr.ph379 ], [ %.3254, %154 ]
   %indvars.iv.next448 = add nsw i64 %indvars.iv447, -1
-  %139 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next448
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.next448
   %140 = load i32, ptr %139, align 4, !tbaa !63
   %141 = add nsw i32 %140, %88
   %142 = icmp slt i32 %141, 0
@@ -38119,7 +38104,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
 
 147:                                              ; preds = %143
   %148 = sext i32 %.2253377 to i64
-  %149 = getelementptr inbounds i32, ptr %9, i64 %148
+  %149 = getelementptr inbounds [4 x i8], ptr %9, i64 %148
   store i32 %141, ptr %149, align 4, !tbaa !63
   %150 = getelementptr inbounds nuw i8, ptr %90, i64 %144
   %151 = load i8, ptr %150, align 1, !tbaa !25
@@ -38147,7 +38132,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
 
 161:                                              ; preds = %157
   %162 = sext i32 %.2253.lcssa to i64
-  %163 = getelementptr inbounds i32, ptr %9, i64 %162
+  %163 = getelementptr inbounds [4 x i8], ptr %9, i64 %162
   store i32 %88, ptr %163, align 4, !tbaa !63
   %164 = getelementptr inbounds nuw i8, ptr %90, i64 %158
   %165 = load i8, ptr %164, align 1, !tbaa !25
@@ -38167,7 +38152,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
 169:                                              ; preds = %.lr.ph384, %184
   %indvars.iv450 = phi i64 [ 0, %.lr.ph384 ], [ %indvars.iv.next451, %184 ]
   %.5256382 = phi i32 [ %.4255, %.lr.ph384 ], [ %.6257, %184 ]
-  %170 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv450
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv450
   %171 = load i32, ptr %170, align 4, !tbaa !63
   %172 = add nsw i32 %171, %88
   %173 = icmp slt i32 %172, 0
@@ -38181,7 +38166,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
 
 177:                                              ; preds = %174
   %178 = sext i32 %.5256382 to i64
-  %179 = getelementptr inbounds i32, ptr %9, i64 %178
+  %179 = getelementptr inbounds [4 x i8], ptr %9, i64 %178
   store i32 %172, ptr %179, align 4, !tbaa !63
   %180 = getelementptr inbounds nuw i8, ptr %90, i64 %indvars.iv450
   %181 = load i8, ptr %180, align 1, !tbaa !25
@@ -38213,7 +38198,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
 
 190:                                              ; preds = %.lr.ph389, %197
   %indvars.iv455 = phi i64 [ 0, %.lr.ph389 ], [ %indvars.iv.next456, %197 ]
-  %191 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv455
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv455
   %192 = load i32, ptr %191, align 4, !tbaa !63
   %193 = icmp eq i64 %indvars.iv455, 0
   br i1 %193, label %197, label %194
@@ -38228,7 +38213,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
   %199 = xor i32 %192, -1
   %200 = add i32 %198, %199
   %201 = trunc i32 %200 to i16
-  %202 = getelementptr inbounds nuw i16, ptr %188, i64 %indvars.iv455
+  %202 = getelementptr inbounds nuw [2 x i8], ptr %188, i64 %indvars.iv455
   store i16 %201, ptr %202, align 2, !tbaa !129
   %203 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv455
   %204 = load i8, ptr %203, align 1, !tbaa !25
@@ -38251,7 +38236,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
   %indvars.iv460 = phi i64 [ %207, %.lr.ph395 ], [ %indvars.iv.next461, %223 ]
   %.8259392 = phi i32 [ 0, %.lr.ph395 ], [ %.9260, %223 ]
   %indvars.iv.next461 = add nsw i64 %indvars.iv460, -1
-  %209 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next461
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.next461
   %210 = load i32, ptr %209, align 4, !tbaa !63
   %211 = add nsw i32 %210, %88
   %212 = icmp sgt i32 %211, 0
@@ -38265,7 +38250,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
 
 216:                                              ; preds = %213
   %217 = sext i32 %.8259392 to i64
-  %218 = getelementptr inbounds i32, ptr %10, i64 %217
+  %218 = getelementptr inbounds [4 x i8], ptr %10, i64 %217
   store i32 %211, ptr %218, align 4, !tbaa !63
   %219 = getelementptr inbounds nuw i8, ptr %90, i64 %indvars.iv.next461
   %220 = load i8, ptr %219, align 1, !tbaa !25
@@ -38293,7 +38278,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
 
 230:                                              ; preds = %226
   %231 = sext i32 %.8259.lcssa to i64
-  %232 = getelementptr inbounds i32, ptr %10, i64 %231
+  %232 = getelementptr inbounds [4 x i8], ptr %10, i64 %231
   store i32 %88, ptr %232, align 4, !tbaa !63
   %233 = getelementptr inbounds nuw i8, ptr %90, i64 %227
   %234 = load i8, ptr %233, align 1, !tbaa !25
@@ -38316,7 +38301,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
 240:                                              ; preds = %.lr.ph401, %256
   %indvars.iv463 = phi i64 [ 0, %.lr.ph401 ], [ %indvars.iv.next464, %256 ]
   %.11262399 = phi i32 [ %.10261, %.lr.ph401 ], [ %.12263, %256 ]
-  %241 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv463
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv463
   %242 = load i32, ptr %241, align 4, !tbaa !63
   %243 = add nsw i32 %242, %88
   %244 = icmp sgt i32 %243, 0
@@ -38331,7 +38316,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
 
 249:                                              ; preds = %245
   %250 = sext i32 %.11262399 to i64
-  %251 = getelementptr inbounds i32, ptr %10, i64 %250
+  %251 = getelementptr inbounds [4 x i8], ptr %10, i64 %250
   store i32 %243, ptr %251, align 4, !tbaa !63
   %252 = getelementptr inbounds nuw i8, ptr %90, i64 %246
   %253 = load i8, ptr %252, align 1, !tbaa !25
@@ -38363,7 +38348,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
 
 262:                                              ; preds = %.lr.ph406, %270
   %indvars.iv468 = phi i64 [ 0, %.lr.ph406 ], [ %indvars.iv.next469, %270 ]
-  %263 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv468
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv468
   %264 = load i32, ptr %263, align 4, !tbaa !63
   %265 = icmp eq i64 %indvars.iv468, 0
   br i1 %265, label %270, label %266
@@ -38378,7 +38363,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
   %271 = phi i32 [ %269, %266 ], [ -1, %262 ]
   %272 = add i32 %271, %264
   %273 = trunc i32 %272 to i16
-  %274 = getelementptr inbounds nuw i16, ptr %260, i64 %indvars.iv468
+  %274 = getelementptr inbounds nuw [2 x i8], ptr %260, i64 %indvars.iv468
   store i16 %273, ptr %274, align 2, !tbaa !129
   %275 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv468
   %276 = load i8, ptr %275, align 1, !tbaa !25
@@ -38484,7 +38469,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
 309:                                              ; preds = %304
   %310 = load i32, ptr %22, align 4, !tbaa !63
   %311 = trunc i32 %310 to i16
-  %312 = getelementptr inbounds nuw i16, ptr %296, i64 %indvars.iv473
+  %312 = getelementptr inbounds nuw [2 x i8], ptr %296, i64 %indvars.iv473
   store i16 %311, ptr %312, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -38527,7 +38512,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_st_ref_pic_s
 328:                                              ; preds = %323
   %329 = load i32, ptr %26, align 4, !tbaa !63
   %330 = trunc i32 %329 to i16
-  %331 = getelementptr inbounds nuw i16, ptr %301, i64 %indvars.iv476
+  %331 = getelementptr inbounds nuw [2 x i8], ptr %301, i64 %indvars.iv476
   store i16 %330, ptr %331, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -39590,7 +39575,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_sps_scc_exte
   %notmask = shl nsw i64 -1, %63
   %64 = trunc i64 %notmask to i32
   %65 = xor i32 %64, -1
-  %66 = getelementptr inbounds nuw [128 x i16], ptr %59, i64 %indvars.iv130
+  %66 = getelementptr inbounds nuw [256 x i8], ptr %59, i64 %indvars.iv130
   %67 = trunc nuw nsw i64 %indvars.iv130 to i32
   br label %68
 
@@ -39608,7 +39593,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_sps_scc_exte
 72:                                               ; preds = %68
   %73 = load i32, ptr %10, align 4, !tbaa !63
   %74 = trunc i32 %73 to i16
-  %75 = getelementptr inbounds nuw i16, ptr %66, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %indvars.iv
   store i16 %74, ptr %75, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -40092,7 +40077,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pps_multilay
   %134 = trunc i32 %133 to i16
   %.mask = and i32 %117, 255
   %135 = zext nneg i32 %.mask to i64
-  %136 = getelementptr inbounds nuw i16, ptr %84, i64 %135
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %84, i64 %135
   store i16 %134, ptr %136, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -40109,7 +40094,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pps_multilay
 140:                                              ; preds = %132
   %141 = load i32, ptr %14, align 4, !tbaa !63
   %142 = trunc i32 %141 to i16
-  %143 = getelementptr inbounds nuw i16, ptr %86, i64 %135
+  %143 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %135
   store i16 %142, ptr %143, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -40126,7 +40111,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pps_multilay
 147:                                              ; preds = %140
   %148 = load i32, ptr %16, align 4, !tbaa !63
   %149 = trunc i32 %148 to i16
-  %150 = getelementptr inbounds nuw i16, ptr %88, i64 %135
+  %150 = getelementptr inbounds nuw [2 x i8], ptr %88, i64 %135
   store i16 %149, ptr %150, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -40139,7 +40124,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pps_multilay
 .thread293:                                       ; preds = %147
   %153 = load i32, ptr %18, align 4, !tbaa !63
   %154 = trunc i32 %153 to i16
-  %155 = getelementptr inbounds nuw i16, ptr %90, i64 %135
+  %155 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %135
   store i16 %154, ptr %155, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %163
@@ -40151,13 +40136,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pps_multilay
 157:                                              ; preds = %124
   %.mask504 = and i32 %117, 255
   %158 = zext nneg i32 %.mask504 to i64
-  %159 = getelementptr inbounds nuw i16, ptr %84, i64 %158
+  %159 = getelementptr inbounds nuw [2 x i8], ptr %84, i64 %158
   store i16 0, ptr %159, align 2, !tbaa !129
-  %160 = getelementptr inbounds nuw i16, ptr %86, i64 %158
+  %160 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %158
   store i16 0, ptr %160, align 2, !tbaa !129
-  %161 = getelementptr inbounds nuw i16, ptr %88, i64 %158
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %88, i64 %158
   store i16 0, ptr %161, align 2, !tbaa !129
-  %162 = getelementptr inbounds nuw i16, ptr %90, i64 %158
+  %162 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %158
   store i16 0, ptr %162, align 2, !tbaa !129
   br label %163
 
@@ -40199,7 +40184,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pps_multilay
   %177 = trunc i32 %176 to i16
   %.mask505 = and i32 %117, 255
   %178 = zext nneg i32 %.mask505 to i64
-  %179 = getelementptr inbounds nuw i16, ptr %94, i64 %178
+  %179 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %178
   store i16 %177, ptr %179, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -40216,7 +40201,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pps_multilay
 183:                                              ; preds = %175
   %184 = load i32, ptr %24, align 4, !tbaa !63
   %185 = trunc i32 %184 to i16
-  %186 = getelementptr inbounds nuw i16, ptr %96, i64 %178
+  %186 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %178
   store i16 %185, ptr %186, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
@@ -40233,7 +40218,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pps_multilay
 190:                                              ; preds = %183
   %191 = load i32, ptr %26, align 4, !tbaa !63
   %192 = trunc i32 %191 to i16
-  %193 = getelementptr inbounds nuw i16, ptr %98, i64 %178
+  %193 = getelementptr inbounds nuw [2 x i8], ptr %98, i64 %178
   store i16 %192, ptr %193, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
@@ -40246,7 +40231,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pps_multilay
 .thread307:                                       ; preds = %190
   %196 = load i32, ptr %28, align 4, !tbaa !63
   %197 = trunc i32 %196 to i16
-  %198 = getelementptr inbounds nuw i16, ptr %100, i64 %178
+  %198 = getelementptr inbounds nuw [2 x i8], ptr %100, i64 %178
   store i16 %197, ptr %198, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %206
@@ -40258,13 +40243,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pps_multilay
 200:                                              ; preds = %167
   %.mask506 = and i32 %117, 255
   %201 = zext nneg i32 %.mask506 to i64
-  %202 = getelementptr inbounds nuw i16, ptr %94, i64 %201
+  %202 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %201
   store i16 0, ptr %202, align 2, !tbaa !129
-  %203 = getelementptr inbounds nuw i16, ptr %96, i64 %201
+  %203 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %201
   store i16 0, ptr %203, align 2, !tbaa !129
-  %204 = getelementptr inbounds nuw i16, ptr %98, i64 %201
+  %204 = getelementptr inbounds nuw [2 x i8], ptr %98, i64 %201
   store i16 0, ptr %204, align 2, !tbaa !129
-  %205 = getelementptr inbounds nuw i16, ptr %100, i64 %201
+  %205 = getelementptr inbounds nuw [2 x i8], ptr %100, i64 %201
   store i16 0, ptr %205, align 2, !tbaa !129
   br label %206
 
@@ -40643,7 +40628,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pps_scc_exte
   %notmask = shl nsw i64 -1, %107
   %108 = trunc i64 %notmask to i32
   %109 = xor i32 %108, -1
-  %110 = getelementptr inbounds nuw [128 x i16], ptr %102, i64 %indvars.iv176
+  %110 = getelementptr inbounds nuw [256 x i8], ptr %102, i64 %indvars.iv176
   %111 = trunc nuw nsw i64 %indvars.iv176 to i32
   br label %112
 
@@ -40665,7 +40650,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pps_scc_exte
 116:                                              ; preds = %112
   %117 = load i32, ptr %15, align 4, !tbaa !63
   %118 = trunc i32 %117 to i16
-  %119 = getelementptr inbounds nuw i16, ptr %110, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %indvars.iv
   store i16 %118, ptr %119, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -41005,7 +40990,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_colour_mappi
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 4208
   %50 = zext i32 %5 to i64
-  %invariant.gep = getelementptr [2 x [4 x i8]], ptr %49, i64 %50
+  %invariant.gep = getelementptr [8 x i8], ptr %49, i64 %50
   %51 = zext i32 %6 to i64
   %invariant.gep270 = getelementptr [4 x i8], ptr %invariant.gep, i64 %51
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -41014,8 +40999,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_colour_mappi
   %55 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 4400
-  %invariant.gep275 = getelementptr [2 x [4 x [3 x i8]]], ptr %57, i64 %50
-  %invariant.gep276 = getelementptr [4 x [3 x i8]], ptr %invariant.gep275, i64 %51
+  %invariant.gep275 = getelementptr [24 x i8], ptr %57, i64 %50
+  %invariant.gep276 = getelementptr [12 x i8], ptr %invariant.gep275, i64 %51
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 4196
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 4198
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 4200
@@ -41026,11 +41011,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_colour_mappi
   %65 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %66 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 7280
-  %invariant.gep278 = getelementptr [2 x [4 x [3 x i8]]], ptr %67, i64 %50
-  %invariant.gep279 = getelementptr [4 x [3 x i8]], ptr %invariant.gep278, i64 %51
+  %invariant.gep278 = getelementptr [24 x i8], ptr %67, i64 %50
+  %invariant.gep279 = getelementptr [12 x i8], ptr %invariant.gep278, i64 %51
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 4976
-  %invariant.gep290 = getelementptr [2 x [4 x [3 x i32]]], ptr %68, i64 %50
-  %invariant.gep291 = getelementptr [4 x [3 x i32]], ptr %invariant.gep290, i64 %51
+  %invariant.gep290 = getelementptr [96 x i8], ptr %68, i64 %50
+  %invariant.gep291 = getelementptr [48 x i8], ptr %invariant.gep290, i64 %51
   %smax = call i32 @llvm.smax.i32(i32 %21, i32 1)
   br label %82
 
@@ -41076,10 +41061,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_colour_mappi
   %86 = shl i32 %.0188269, %85
   %87 = add i32 %86, %4
   %88 = sext i32 %87 to i64
-  %gep271 = getelementptr [2 x [2 x [4 x i8]]], ptr %invariant.gep270, i64 %88
-  %gep277 = getelementptr [2 x [2 x [4 x [3 x i8]]]], ptr %invariant.gep276, i64 %88
-  %gep280 = getelementptr [2 x [2 x [4 x [3 x i8]]]], ptr %invariant.gep279, i64 %88
-  %gep292 = getelementptr [2 x [2 x [4 x [3 x i32]]]], ptr %invariant.gep291, i64 %88
+  %gep271 = getelementptr [16 x i8], ptr %invariant.gep270, i64 %88
+  %gep277 = getelementptr [48 x i8], ptr %invariant.gep276, i64 %88
+  %gep280 = getelementptr [48 x i8], ptr %invariant.gep279, i64 %88
+  %gep292 = getelementptr [192 x i8], ptr %invariant.gep291, i64 %88
   br label %89
 
 89:                                               ; preds = %82, %.loopexit
@@ -41108,7 +41093,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_colour_mappi
   %.not211 = icmp eq i8 %95, 0
   %97 = getelementptr inbounds nuw [3 x i8], ptr %gep277, i64 %indvars.iv328
   %98 = getelementptr inbounds nuw [3 x i8], ptr %gep280, i64 %indvars.iv328
-  %99 = getelementptr inbounds nuw [3 x i32], ptr %gep292, i64 %indvars.iv328
+  %99 = getelementptr inbounds nuw [12 x i8], ptr %gep292, i64 %indvars.iv328
   br i1 %.not211, label %.preheader, label %.preheader245
 
 .preheader245:                                    ; preds = %93, %139
@@ -41197,7 +41182,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_colour_mappi
 
 .thread231:                                       ; preds = %132
   %135 = load i32, ptr %17, align 4, !tbaa !63
-  %136 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %indvars.iv
   store i32 %135, ptr %136, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %139
@@ -41207,7 +41192,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_colour_mappi
   br label %.thread221
 
 .thread346:                                       ; preds = %126, %.thread342
-  %138 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %indvars.iv
   store i32 0, ptr %138, align 4, !tbaa !63
   br label %139
 
@@ -41222,7 +41207,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_colour_mappi
   store i8 0, ptr %140, align 1, !tbaa !25
   %141 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv324
   store i8 0, ptr %141, align 1, !tbaa !25
-  %142 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv324
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %indvars.iv324
   store i32 0, ptr %142, align 4, !tbaa !63
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
   %exitcond327.not = icmp eq i64 %indvars.iv.next325, 3
@@ -41586,7 +41571,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pred_weight_
 .thread257:                                       ; preds = %107
   %118 = load i32, ptr %12, align 4, !tbaa !63
   %119 = trunc i32 %118 to i16
-  %120 = getelementptr inbounds nuw i16, ptr %90, i64 %indvars.iv358
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %indvars.iv358
   store i16 %119, ptr %120, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %125
@@ -41598,7 +41583,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pred_weight_
 122:                                              ; preds = %99
   %123 = getelementptr inbounds nuw i8, ptr %87, i64 %indvars.iv358
   store i8 0, ptr %123, align 1, !tbaa !25
-  %124 = getelementptr inbounds nuw i16, ptr %90, i64 %indvars.iv358
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %indvars.iv358
   store i16 0, ptr %124, align 2, !tbaa !129
   br label %125
 
@@ -41607,7 +41592,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pred_weight_
   %127 = load i8, ptr %126, align 1, !tbaa !25
   %.not246 = icmp eq i8 %127, 0
   %128 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %indvars.iv358
-  %129 = getelementptr inbounds nuw [2 x i16], ptr %98, i64 %indvars.iv358
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv358
   br i1 %.not246, label %.preheader288, label %.preheader290
 
 .preheader290:                                    ; preds = %125
@@ -41656,7 +41641,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pred_weight_
 149:                                              ; preds = %137
   %150 = load i32, ptr %16, align 4, !tbaa !63
   %151 = trunc i32 %150 to i16
-  %152 = getelementptr inbounds nuw i16, ptr %129, i64 %indvars.iv352
+  %152 = getelementptr inbounds nuw [2 x i8], ptr %129, i64 %indvars.iv352
   store i16 %151, ptr %152, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %132, label %131, label %.loopexit289, !llvm.loop !1127
@@ -41804,7 +41789,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pred_weight_
 .thread274:                                       ; preds = %208
   %219 = load i32, ptr %24, align 4, !tbaa !63
   %220 = trunc i32 %219 to i16
-  %221 = getelementptr inbounds nuw i16, ptr %192, i64 %indvars.iv373
+  %221 = getelementptr inbounds nuw [2 x i8], ptr %192, i64 %indvars.iv373
   store i16 %220, ptr %221, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %226
@@ -41816,7 +41801,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pred_weight_
 223:                                              ; preds = %200
   %224 = getelementptr inbounds nuw i8, ptr %190, i64 %indvars.iv373
   store i8 0, ptr %224, align 1, !tbaa !25
-  %225 = getelementptr inbounds nuw i16, ptr %192, i64 %indvars.iv373
+  %225 = getelementptr inbounds nuw [2 x i8], ptr %192, i64 %indvars.iv373
   store i16 0, ptr %225, align 2, !tbaa !129
   br label %226
 
@@ -41825,7 +41810,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pred_weight_
   %228 = load i8, ptr %227, align 1, !tbaa !25
   %.not244 = icmp eq i8 %228, 0
   %229 = getelementptr inbounds nuw [2 x i8], ptr %196, i64 %indvars.iv373
-  %230 = getelementptr inbounds nuw [2 x i16], ptr %199, i64 %indvars.iv373
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %indvars.iv373
   br i1 %.not244, label %.preheader, label %.preheader282
 
 .preheader282:                                    ; preds = %226
@@ -41874,7 +41859,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_read_pred_weight_
 250:                                              ; preds = %238
   %251 = load i32, ptr %28, align 4, !tbaa !63
   %252 = trunc i32 %251 to i16
-  %253 = getelementptr inbounds nuw i16, ptr %230, i64 %indvars.iv367
+  %253 = getelementptr inbounds nuw [2 x i8], ptr %230, i64 %indvars.iv367
   store i16 %252, ptr %253, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br i1 %233, label %232, label %.loopexit, !llvm.loop !1131
@@ -43216,7 +43201,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_hrd_paramet
   br i1 %153, label %165, label %.thread
 
 .thread:                                          ; preds = %148, %152
-  %154 = getelementptr inbounds nuw i16, ptr %125, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw [2 x i8], ptr %125, i64 %indvars.iv
   %155 = load i16, ptr %154, align 2, !tbaa !129
   %156 = zext i16 %155 to i32
   store i32 1, ptr %8, align 4, !tbaa !63
@@ -43376,7 +43361,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_sub_layer_h
   %11 = sext i32 %4 to i64
   %.059.v.v = select i1 %.not, i64 3864, i64 56
   %.059.v = getelementptr inbounds nuw i8, ptr %2, i64 %.059.v.v
-  %.059 = getelementptr inbounds %struct.H265RawSubLayerHRDParameters, ptr %.059.v, i64 %11
+  %.059 = getelementptr inbounds [544 x i8], ptr %.059.v, i64 %11
   %12 = getelementptr inbounds nuw i8, ptr %.059, i64 128
   %13 = getelementptr inbounds nuw i8, ptr %.059, i64 256
   %14 = getelementptr inbounds nuw i8, ptr %.059, i64 384
@@ -43400,7 +43385,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_sub_layer_h
 
 27:                                               ; preds = %5, %24
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %24 ]
-  %28 = getelementptr inbounds nuw i32, ptr %.059, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.059, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !63
   store i32 1, ptr %6, align 4, !tbaa !63
   %30 = trunc nuw nsw i64 %indvars.iv to i32
@@ -43410,7 +43395,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_sub_layer_h
   br i1 %32, label %33, label %56
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !63
   store i32 1, ptr %7, align 4, !tbaa !63
   store i32 %30, ptr %18, align 4, !tbaa !63
@@ -43424,7 +43409,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_sub_layer_h
   br i1 %.not72, label %50, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !63
   store i32 1, ptr %8, align 4, !tbaa !63
   store i32 %30, ptr %20, align 4, !tbaa !63
@@ -43433,7 +43418,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_sub_layer_h
   br i1 %44, label %45, label %56
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4, !tbaa !63
   store i32 1, ptr %9, align 4, !tbaa !63
   store i32 %30, ptr %21, align 4, !tbaa !63
@@ -43485,8 +43470,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_scaling_lis
   %23 = call i32 @llvm.umin.i32(i32 %22, i32 64)
   %24 = icmp samesign ugt i64 %indvars.iv90, 1
   %25 = add nsw i64 %indvars.iv90, -2
-  %26 = getelementptr inbounds nuw [6 x i16], ptr %10, i64 %25
-  %27 = getelementptr inbounds nuw [6 x [64 x i8]], ptr %13, i64 %indvars.iv90
+  %26 = getelementptr inbounds nuw [12 x i8], ptr %10, i64 %25
+  %27 = getelementptr inbounds nuw [384 x i8], ptr %13, i64 %indvars.iv90
   %28 = getelementptr inbounds nuw [6 x i8], ptr %17, i64 %indvars.iv90
   %29 = icmp eq i64 %indvars.iv90, 3
   %30 = select i1 %29, i64 3, i64 1
@@ -43531,7 +43516,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_scaling_lis
   br i1 %24, label %51, label %57
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv87
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %indvars.iv87
   %53 = load i16, ptr %52, align 2, !tbaa !129
   %54 = sext i16 %53 to i32
   store i32 2, ptr %6, align 4, !tbaa !63
@@ -43661,7 +43646,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
   %47 = add i32 %3, %.neg
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 2148
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw %struct.H265RawSTRefPicSet, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [136 x i8], ptr %48, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 38
   %52 = load i8, ptr %51, align 2, !tbaa !265
   %53 = zext i8 %52 to i32
@@ -43793,12 +43778,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
 116:                                              ; preds = %.lr.ph, %116
   %indvars.iv508 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next509, %116 ]
   %.0328422 = phi i32 [ 0, %.lr.ph ], [ %120, %116 ]
-  %117 = getelementptr inbounds nuw i16, ptr %111, i64 %indvars.iv508
+  %117 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %indvars.iv508
   %118 = load i16, ptr %117, align 2, !tbaa !129
   %119 = zext i16 %118 to i32
   %.neg367 = xor i32 %119, -1
   %120 = add i32 %.0328422, %.neg367
-  %121 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv508
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv508
   store i32 %120, ptr %121, align 4, !tbaa !63
   %indvars.iv.next509 = add nuw nsw i64 %indvars.iv508, 1
   %exitcond512.not = icmp eq i64 %indvars.iv.next509, %wide.trip.count511
@@ -43812,12 +43797,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
 124:                                              ; preds = %.lr.ph426, %124
   %indvars.iv513 = phi i64 [ 0, %.lr.ph426 ], [ %indvars.iv.next514, %124 ]
   %.1329424 = phi i32 [ 0, %.lr.ph426 ], [ %129, %124 ]
-  %125 = getelementptr inbounds nuw i16, ptr %115, i64 %indvars.iv513
+  %125 = getelementptr inbounds nuw [2 x i8], ptr %115, i64 %indvars.iv513
   %126 = load i16, ptr %125, align 2, !tbaa !129
   %127 = zext i16 %126 to i32
   %128 = add nuw nsw i32 %.1329424, 1
   %129 = add nuw nsw i32 %128, %127
-  %130 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv513
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv513
   store i32 %129, ptr %130, align 4, !tbaa !63
   %indvars.iv.next514 = add nuw nsw i64 %indvars.iv513, 1
   %exitcond517.not = icmp eq i64 %indvars.iv.next514, %wide.trip.count516
@@ -43827,7 +43812,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
   %indvars.iv518 = phi i64 [ %122, %.lr.ph431 ], [ %indvars.iv.next519, %147 ]
   %.2294429 = phi i32 [ 0, %.lr.ph431 ], [ %.3295, %147 ]
   %indvars.iv.next519 = add nsw i64 %indvars.iv518, -1
-  %132 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next519
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.next519
   %133 = load i32, ptr %132, align 4, !tbaa !63
   %134 = add nsw i32 %133, %80
   %135 = icmp slt i32 %134, 0
@@ -43842,7 +43827,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
 
 140:                                              ; preds = %136
   %141 = sext i32 %.2294429 to i64
-  %142 = getelementptr inbounds i32, ptr %8, i64 %141
+  %142 = getelementptr inbounds [4 x i8], ptr %8, i64 %141
   store i32 %134, ptr %142, align 4, !tbaa !63
   %143 = getelementptr inbounds nuw i8, ptr %81, i64 %137
   %144 = load i8, ptr %143, align 1, !tbaa !25
@@ -43870,7 +43855,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
 
 154:                                              ; preds = %150
   %155 = sext i32 %.2294.lcssa to i64
-  %156 = getelementptr inbounds i32, ptr %8, i64 %155
+  %156 = getelementptr inbounds [4 x i8], ptr %8, i64 %155
   store i32 %80, ptr %156, align 4, !tbaa !63
   %157 = getelementptr inbounds nuw i8, ptr %81, i64 %151
   %158 = load i8, ptr %157, align 1, !tbaa !25
@@ -43890,7 +43875,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
 162:                                              ; preds = %.lr.ph436, %177
   %indvars.iv521 = phi i64 [ 0, %.lr.ph436 ], [ %indvars.iv.next522, %177 ]
   %.5297434 = phi i32 [ %.4296, %.lr.ph436 ], [ %.6298, %177 ]
-  %163 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv521
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv521
   %164 = load i32, ptr %163, align 4, !tbaa !63
   %165 = add nsw i32 %164, %80
   %166 = icmp slt i32 %165, 0
@@ -43904,7 +43889,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
 
 170:                                              ; preds = %167
   %171 = sext i32 %.5297434 to i64
-  %172 = getelementptr inbounds i32, ptr %8, i64 %171
+  %172 = getelementptr inbounds [4 x i8], ptr %8, i64 %171
   store i32 %165, ptr %172, align 4, !tbaa !63
   %173 = getelementptr inbounds nuw i8, ptr %81, i64 %indvars.iv521
   %174 = load i8, ptr %173, align 1, !tbaa !25
@@ -43958,10 +43943,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
 
 189:                                              ; preds = %.lr.ph440, %187
   %indvars.iv526 = phi i64 [ 0, %.lr.ph440 ], [ %indvars.iv.next527, %187 ]
-  %190 = getelementptr inbounds nuw i16, ptr %181, i64 %indvars.iv526
+  %190 = getelementptr inbounds nuw [2 x i8], ptr %181, i64 %indvars.iv526
   %191 = load i16, ptr %190, align 2, !tbaa !129
   %192 = zext i16 %191 to i32
-  %193 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv526
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv526
   %194 = load i32, ptr %193, align 4, !tbaa !63
   %195 = icmp eq i64 %indvars.iv526, 0
   br i1 %195, label %196, label %.thread375
@@ -44008,7 +43993,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
   %indvars.iv531 = phi i64 [ %188, %.lr.ph444 ], [ %indvars.iv.next532, %232 ]
   %.8300442 = phi i32 [ 0, %.lr.ph444 ], [ %.9301, %232 ]
   %indvars.iv.next532 = add nsw i64 %indvars.iv531, -1
-  %218 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next532
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.next532
   %219 = load i32, ptr %218, align 4, !tbaa !63
   %220 = add nsw i32 %219, %80
   %221 = icmp sgt i32 %220, 0
@@ -44022,7 +44007,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
 
 225:                                              ; preds = %222
   %226 = sext i32 %.8300442 to i64
-  %227 = getelementptr inbounds i32, ptr %9, i64 %226
+  %227 = getelementptr inbounds [4 x i8], ptr %9, i64 %226
   store i32 %220, ptr %227, align 4, !tbaa !63
   %228 = getelementptr inbounds nuw i8, ptr %81, i64 %indvars.iv.next532
   %229 = load i8, ptr %228, align 1, !tbaa !25
@@ -44050,7 +44035,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
 
 239:                                              ; preds = %235
   %240 = sext i32 %.8300.lcssa to i64
-  %241 = getelementptr inbounds i32, ptr %9, i64 %240
+  %241 = getelementptr inbounds [4 x i8], ptr %9, i64 %240
   store i32 %80, ptr %241, align 4, !tbaa !63
   %242 = getelementptr inbounds nuw i8, ptr %81, i64 %236
   %243 = load i8, ptr %242, align 1, !tbaa !25
@@ -44071,7 +44056,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
 248:                                              ; preds = %.lr.ph450, %264
   %indvars.iv534 = phi i64 [ 0, %.lr.ph450 ], [ %indvars.iv.next535, %264 ]
   %.11303448 = phi i32 [ %.10302, %.lr.ph450 ], [ %.12304, %264 ]
-  %249 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv534
+  %249 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv534
   %250 = load i32, ptr %249, align 4, !tbaa !63
   %251 = add nsw i32 %250, %80
   %252 = icmp sgt i32 %251, 0
@@ -44086,7 +44071,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
 
 257:                                              ; preds = %253
   %258 = sext i32 %.11303448 to i64
-  %259 = getelementptr inbounds i32, ptr %9, i64 %258
+  %259 = getelementptr inbounds [4 x i8], ptr %9, i64 %258
   store i32 %251, ptr %259, align 4, !tbaa !63
   %260 = getelementptr inbounds nuw i8, ptr %81, i64 %254
   %261 = load i8, ptr %260, align 1, !tbaa !25
@@ -44133,10 +44118,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
 
 275:                                              ; preds = %.lr.ph454, %274
   %indvars.iv539 = phi i64 [ 0, %.lr.ph454 ], [ %indvars.iv.next540, %274 ]
-  %276 = getelementptr inbounds nuw i16, ptr %268, i64 %indvars.iv539
+  %276 = getelementptr inbounds nuw [2 x i8], ptr %268, i64 %indvars.iv539
   %277 = load i16, ptr %276, align 2, !tbaa !129
   %278 = zext i16 %277 to i32
-  %279 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv539
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv539
   %280 = load i32, ptr %279, align 4, !tbaa !63
   %281 = icmp eq i64 %indvars.iv539, 0
   br i1 %281, label %282, label %.thread378
@@ -44248,7 +44233,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
 
 328:                                              ; preds = %.lr.ph457, %319
   %indvars.iv544 = phi i64 [ 0, %.lr.ph457 ], [ %indvars.iv.next545, %319 ]
-  %329 = getelementptr inbounds nuw i16, ptr %315, i64 %indvars.iv544
+  %329 = getelementptr inbounds nuw [2 x i8], ptr %315, i64 %indvars.iv544
   %330 = load i16, ptr %329, align 2, !tbaa !129
   %331 = zext i16 %330 to i32
   store i32 1, ptr %14, align 4, !tbaa !63
@@ -44277,7 +44262,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_st_ref_pic_
 
 345:                                              ; preds = %.lr.ph459, %341
   %indvars.iv547 = phi i64 [ 0, %.lr.ph459 ], [ %indvars.iv.next548, %341 ]
-  %346 = getelementptr inbounds nuw i16, ptr %323, i64 %indvars.iv547
+  %346 = getelementptr inbounds nuw [2 x i8], ptr %323, i64 %indvars.iv547
   %347 = load i16, ptr %346, align 2, !tbaa !129
   %348 = zext i16 %347 to i32
   store i32 1, ptr %16, align 4, !tbaa !63
@@ -45228,7 +45213,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_sps_scc_ext
   %.in.in = load i8, ptr %.in.in.in, align 1, !tbaa !25
   %.in = zext i8 %.in.in to i32
   %50 = add nuw nsw i32 %.in, 8
-  %51 = getelementptr inbounds nuw [128 x i16], ptr %45, i64 %indvars.iv120
+  %51 = getelementptr inbounds nuw [256 x i8], ptr %45, i64 %indvars.iv120
   %52 = zext nneg i32 %50 to i64
   %notmask = shl nsw i64 -1, %52
   %53 = trunc i64 %notmask to i32
@@ -45245,7 +45230,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_sps_scc_ext
 
 59:                                               ; preds = %48, %56
   %indvars.iv = phi i64 [ 0, %48 ], [ %indvars.iv.next, %56 ]
-  %60 = getelementptr inbounds nuw i16, ptr %51, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %51, i64 %indvars.iv
   %61 = load i16, ptr %60, align 2, !tbaa !129
   %62 = zext i16 %61 to i32
   store i32 2, ptr %4, align 4, !tbaa !63
@@ -45552,7 +45537,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pps_multila
   %104 = load i8, ptr %98, align 1, !tbaa !25
   %.not322 = icmp eq i8 %104, 0
   %105 = zext i8 %96 to i64
-  %106 = getelementptr inbounds nuw i16, ptr %60, i64 %105
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !129
   br i1 %.not322, label %130, label %108
 
@@ -45565,7 +45550,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pps_multila
   br i1 %111, label %112, label %.loopexit
 
 112:                                              ; preds = %108
-  %113 = getelementptr inbounds nuw i16, ptr %62, i64 %105
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %105
   %114 = load i16, ptr %113, align 2, !tbaa !129
   %115 = sext i16 %114 to i32
   store i32 1, ptr %7, align 4, !tbaa !63
@@ -45575,7 +45560,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pps_multila
   br i1 %117, label %118, label %.loopexit
 
 118:                                              ; preds = %112
-  %119 = getelementptr inbounds nuw i16, ptr %64, i64 %105
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %105
   %120 = load i16, ptr %119, align 2, !tbaa !129
   %121 = sext i16 %120 to i32
   store i32 1, ptr %8, align 4, !tbaa !63
@@ -45585,7 +45570,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pps_multila
   br i1 %123, label %124, label %.loopexit
 
 124:                                              ; preds = %118
-  %125 = getelementptr inbounds nuw i16, ptr %66, i64 %105
+  %125 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %105
   %126 = load i16, ptr %125, align 2, !tbaa !129
   %127 = sext i16 %126 to i32
   store i32 1, ptr %9, align 4, !tbaa !63
@@ -45605,7 +45590,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pps_multila
   br label %.loopexit
 
 134:                                              ; preds = %130
-  %135 = getelementptr inbounds nuw i16, ptr %62, i64 %105
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %105
   %136 = load i16, ptr %135, align 2, !tbaa !129
   %.not324 = icmp eq i16 %136, 0
   br i1 %.not324, label %140, label %137
@@ -45617,7 +45602,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pps_multila
   br label %.loopexit
 
 140:                                              ; preds = %134
-  %141 = getelementptr inbounds nuw i16, ptr %64, i64 %105
+  %141 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %105
   %142 = load i16, ptr %141, align 2, !tbaa !129
   %.not325 = icmp eq i16 %142, 0
   br i1 %.not325, label %146, label %143
@@ -45629,7 +45614,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pps_multila
   br label %.loopexit
 
 146:                                              ; preds = %140
-  %147 = getelementptr inbounds nuw i16, ptr %66, i64 %105
+  %147 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %105
   %148 = load i16, ptr %147, align 2, !tbaa !129
   %.not326 = icmp eq i16 %148, 0
   br i1 %.not326, label %152, label %149
@@ -45654,7 +45639,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pps_multila
   %159 = load i8, ptr %153, align 1, !tbaa !25
   %.not327 = icmp eq i8 %159, 0
   %160 = zext i8 %96 to i64
-  %161 = getelementptr inbounds nuw i16, ptr %70, i64 %160
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %160
   %162 = load i16, ptr %161, align 2, !tbaa !129
   br i1 %.not327, label %185, label %163
 
@@ -45667,7 +45652,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pps_multila
   br i1 %166, label %167, label %.loopexit
 
 167:                                              ; preds = %163
-  %168 = getelementptr inbounds nuw i16, ptr %72, i64 %160
+  %168 = getelementptr inbounds nuw [2 x i8], ptr %72, i64 %160
   %169 = load i16, ptr %168, align 2, !tbaa !129
   %170 = sext i16 %169 to i32
   store i32 1, ptr %12, align 4, !tbaa !63
@@ -45677,7 +45662,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pps_multila
   br i1 %172, label %173, label %.loopexit
 
 173:                                              ; preds = %167
-  %174 = getelementptr inbounds nuw i16, ptr %74, i64 %160
+  %174 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %160
   %175 = load i16, ptr %174, align 2, !tbaa !129
   %176 = sext i16 %175 to i32
   store i32 1, ptr %13, align 4, !tbaa !63
@@ -45687,7 +45672,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pps_multila
   br i1 %178, label %179, label %.loopexit
 
 179:                                              ; preds = %173
-  %180 = getelementptr inbounds nuw i16, ptr %76, i64 %160
+  %180 = getelementptr inbounds nuw [2 x i8], ptr %76, i64 %160
   %181 = load i16, ptr %180, align 2, !tbaa !129
   %182 = sext i16 %181 to i32
   store i32 1, ptr %14, align 4, !tbaa !63
@@ -45707,7 +45692,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pps_multila
   br label %.loopexit
 
 189:                                              ; preds = %185
-  %190 = getelementptr inbounds nuw i16, ptr %72, i64 %160
+  %190 = getelementptr inbounds nuw [2 x i8], ptr %72, i64 %160
   %191 = load i16, ptr %190, align 2, !tbaa !129
   %.not329 = icmp eq i16 %191, 0
   br i1 %.not329, label %195, label %192
@@ -45719,7 +45704,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pps_multila
   br label %.loopexit
 
 195:                                              ; preds = %189
-  %196 = getelementptr inbounds nuw i16, ptr %74, i64 %160
+  %196 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %160
   %197 = load i16, ptr %196, align 2, !tbaa !129
   %.not330 = icmp eq i16 %197, 0
   br i1 %.not330, label %201, label %198
@@ -45731,7 +45716,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pps_multila
   br label %.loopexit
 
 201:                                              ; preds = %195
-  %202 = getelementptr inbounds nuw i16, ptr %76, i64 %160
+  %202 = getelementptr inbounds nuw [2 x i8], ptr %76, i64 %160
   %203 = load i16, ptr %202, align 2, !tbaa !129
   %.not331 = icmp eq i16 %203, 0
   br i1 %.not331, label %207, label %204
@@ -46041,7 +46026,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pps_scc_ext
   br i1 %.not161164.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %105
-  %109 = getelementptr inbounds nuw [128 x i16], ptr %102, i64 %indvars.iv171
+  %109 = getelementptr inbounds nuw [256 x i8], ptr %102, i64 %indvars.iv171
   %110 = zext nneg i32 %108 to i64
   %notmask = shl nsw i64 -1, %110
   %111 = trunc i64 %notmask to i32
@@ -46058,7 +46043,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pps_scc_ext
 
 117:                                              ; preds = %.lr.ph, %114
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %114 ]
-  %118 = getelementptr inbounds nuw i16, ptr %109, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %indvars.iv
   %119 = load i16, ptr %118, align 2, !tbaa !129
   %120 = zext i16 %119 to i32
   store i32 2, ptr %4, align 4, !tbaa !63
@@ -46308,7 +46293,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_colour_mapp
 .lr.ph:                                           ; preds = %.preheader295
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 4208
   %42 = zext i32 %5 to i64
-  %invariant.gep = getelementptr [2 x [4 x i8]], ptr %41, i64 %42
+  %invariant.gep = getelementptr [8 x i8], ptr %41, i64 %42
   %43 = zext i32 %6 to i64
   %invariant.gep334 = getelementptr [4 x i8], ptr %invariant.gep, i64 %43
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -46316,8 +46301,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_colour_mapp
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 4400
-  %invariant.gep336 = getelementptr [2 x [4 x [3 x i8]]], ptr %48, i64 %42
-  %invariant.gep337 = getelementptr [4 x [3 x i8]], ptr %invariant.gep336, i64 %43
+  %invariant.gep336 = getelementptr [24 x i8], ptr %48, i64 %42
+  %invariant.gep337 = getelementptr [12 x i8], ptr %invariant.gep336, i64 %43
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 12
@@ -46328,16 +46313,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_colour_mapp
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 4200
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 4201
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 7280
-  %invariant.gep339 = getelementptr [2 x [4 x [3 x i8]]], ptr %58, i64 %42
-  %invariant.gep340 = getelementptr [4 x [3 x i8]], ptr %invariant.gep339, i64 %43
+  %invariant.gep339 = getelementptr [24 x i8], ptr %58, i64 %42
+  %invariant.gep340 = getelementptr [12 x i8], ptr %invariant.gep339, i64 %43
   %59 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 4976
-  %invariant.gep348 = getelementptr [2 x [4 x [3 x i32]]], ptr %64, i64 %42
-  %invariant.gep349 = getelementptr [4 x [3 x i32]], ptr %invariant.gep348, i64 %43
+  %invariant.gep348 = getelementptr [96 x i8], ptr %64, i64 %42
+  %invariant.gep349 = getelementptr [48 x i8], ptr %invariant.gep348, i64 %43
   %smax = call i32 @llvm.smax.i32(i32 %16, i32 1)
   br label %78
 
@@ -46383,10 +46368,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_colour_mapp
   %82 = shl i32 %.0247332, %81
   %83 = add i32 %82, %4
   %84 = sext i32 %83 to i64
-  %gep335 = getelementptr [2 x [2 x [4 x i8]]], ptr %invariant.gep334, i64 %84
-  %gep338 = getelementptr [2 x [2 x [4 x [3 x i8]]]], ptr %invariant.gep337, i64 %84
-  %gep341 = getelementptr [2 x [2 x [4 x [3 x i8]]]], ptr %invariant.gep340, i64 %84
-  %gep350 = getelementptr [2 x [2 x [4 x [3 x i32]]]], ptr %invariant.gep349, i64 %84
+  %gep335 = getelementptr [16 x i8], ptr %invariant.gep334, i64 %84
+  %gep338 = getelementptr [48 x i8], ptr %invariant.gep337, i64 %84
+  %gep341 = getelementptr [48 x i8], ptr %invariant.gep340, i64 %84
+  %gep350 = getelementptr [192 x i8], ptr %invariant.gep349, i64 %84
   br label %85
 
 85:                                               ; preds = %78, %.loopexit
@@ -46409,7 +46394,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_colour_mapp
   %.not260 = icmp eq i8 %93, 0
   %94 = getelementptr inbounds nuw [3 x i8], ptr %gep338, i64 %indvars.iv396
   %95 = getelementptr inbounds nuw [3 x i8], ptr %gep341, i64 %indvars.iv396
-  %96 = getelementptr inbounds nuw [3 x i32], ptr %gep350, i64 %indvars.iv396
+  %96 = getelementptr inbounds nuw [12 x i8], ptr %gep350, i64 %indvars.iv396
   br i1 %.not260, label %.preheader, label %.preheader292
 
 .preheader292:                                    ; preds = %92, %144
@@ -46485,14 +46470,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_colour_mapp
   br i1 %.not267, label %138, label %133
 
 133:                                              ; preds = %128, %130
-  %134 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv
   %135 = load i32, ptr %134, align 4, !tbaa !63
   %136 = call i32 @ff_cbs_write_simple_unsigned(ptr noundef %0, ptr noundef %1, i32 noundef 1, ptr noundef nonnull @.str.532, i32 noundef %135) #12
   %137 = icmp sgt i32 %136, -1
   br i1 %137, label %144, label %.thread285
 
 138:                                              ; preds = %130
-  %139 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv
   %140 = load i32, ptr %139, align 4, !tbaa !63
   %.not268 = icmp eq i32 %140, 0
   br i1 %.not268, label %144, label %141
@@ -46539,7 +46524,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_colour_mapp
   br label %.thread285
 
 157:                                              ; preds = %151
-  %158 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv392
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv392
   %159 = load i32, ptr %158, align 4, !tbaa !63
   %.not263 = icmp eq i32 %159, 0
   br i1 %.not263, label %145, label %160
@@ -46823,7 +46808,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pred_weight
   br i1 %97, label %98, label %.loopexit303
 
 98:                                               ; preds = %93
-  %99 = getelementptr inbounds nuw i16, ptr %77, i64 %indvars.iv397
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %77, i64 %indvars.iv397
   %100 = load i16, ptr %99, align 2, !tbaa !129
   %101 = sext i16 %100 to i32
   store i32 1, ptr %7, align 4, !tbaa !63
@@ -46848,7 +46833,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pred_weight
   br label %.loopexit303
 
 113:                                              ; preds = %109
-  %114 = getelementptr inbounds nuw i16, ptr %77, i64 %indvars.iv397
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %77, i64 %indvars.iv397
   %115 = load i16, ptr %114, align 2, !tbaa !129
   %.not295 = icmp eq i16 %115, 0
   br i1 %.not295, label %119, label %116
@@ -46864,7 +46849,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pred_weight
   %121 = load i8, ptr %120, align 1, !tbaa !25
   %.not296 = icmp eq i8 %121, 0
   %122 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %indvars.iv397
-  %123 = getelementptr inbounds nuw [2 x i16], ptr %84, i64 %indvars.iv397
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv397
   br i1 %.not296, label %.preheader311, label %.preheader313
 
 .preheader313:                                    ; preds = %119
@@ -46889,7 +46874,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pred_weight
   br i1 %133, label %134, label %.loopexit303
 
 134:                                              ; preds = %126
-  %135 = getelementptr inbounds nuw i16, ptr %123, i64 %indvars.iv391
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %123, i64 %indvars.iv391
   %136 = load i16, ptr %135, align 2, !tbaa !129
   %137 = sext i16 %136 to i32
   store i32 2, ptr %9, align 4, !tbaa !63
@@ -46922,7 +46907,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pred_weight
   br label %.loopexit303
 
 152:                                              ; preds = %.preheader311
-  %153 = getelementptr inbounds nuw i16, ptr %123, i64 %indvars.iv394
+  %153 = getelementptr inbounds nuw [2 x i8], ptr %123, i64 %indvars.iv394
   %154 = load i16, ptr %153, align 2, !tbaa !129
   %.not298 = icmp eq i16 %154, 0
   br i1 %.not298, label %145, label %155
@@ -47031,7 +47016,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pred_weight
   br i1 %210, label %211, label %.loopexit303
 
 211:                                              ; preds = %206
-  %212 = getelementptr inbounds nuw i16, ptr %192, i64 %indvars.iv412
+  %212 = getelementptr inbounds nuw [2 x i8], ptr %192, i64 %indvars.iv412
   %213 = load i16, ptr %212, align 2, !tbaa !129
   %214 = sext i16 %213 to i32
   store i32 1, ptr %13, align 4, !tbaa !63
@@ -47056,7 +47041,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pred_weight
   br label %.loopexit303
 
 226:                                              ; preds = %222
-  %227 = getelementptr inbounds nuw i16, ptr %192, i64 %indvars.iv412
+  %227 = getelementptr inbounds nuw [2 x i8], ptr %192, i64 %indvars.iv412
   %228 = load i16, ptr %227, align 2, !tbaa !129
   %.not289 = icmp eq i16 %228, 0
   br i1 %.not289, label %232, label %229
@@ -47072,7 +47057,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pred_weight
   %234 = load i8, ptr %233, align 1, !tbaa !25
   %.not290 = icmp eq i8 %234, 0
   %235 = getelementptr inbounds nuw [2 x i8], ptr %195, i64 %indvars.iv412
-  %236 = getelementptr inbounds nuw [2 x i16], ptr %198, i64 %indvars.iv412
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %198, i64 %indvars.iv412
   br i1 %.not290, label %.preheader, label %.preheader301
 
 .preheader301:                                    ; preds = %232
@@ -47097,7 +47082,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pred_weight
   br i1 %246, label %247, label %.loopexit303
 
 247:                                              ; preds = %239
-  %248 = getelementptr inbounds nuw i16, ptr %236, i64 %indvars.iv406
+  %248 = getelementptr inbounds nuw [2 x i8], ptr %236, i64 %indvars.iv406
   %249 = load i16, ptr %248, align 2, !tbaa !129
   %250 = sext i16 %249 to i32
   store i32 2, ptr %15, align 4, !tbaa !63
@@ -47130,7 +47115,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h265_write_pred_weight
   br label %.loopexit303
 
 265:                                              ; preds = %.preheader
-  %266 = getelementptr inbounds nuw i16, ptr %236, i64 %indvars.iv409
+  %266 = getelementptr inbounds nuw [2 x i8], ptr %236, i64 %indvars.iv409
   %267 = load i16, ptr %266, align 2, !tbaa !129
   %.not292 = icmp eq i16 %267, 0
   br i1 %.not292, label %258, label %268
@@ -47238,7 +47223,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_dci(ptr noun
 
 28:                                               ; preds = %20, %25
   %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %25 ]
-  %29 = getelementptr inbounds nuw %struct.H266RawProfileTierLevel, ptr %24, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [1376 x i8], ptr %24, i64 %indvars.iv
   %30 = call fastcc i32 @cbs_h266_read_profile_tier_level(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %29, i32 noundef 1, i32 noundef 0)
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %cbs_h266_read_rbsp_trailing_bits.exit, label %25
@@ -48295,7 +48280,7 @@ thread-pre-split:                                 ; preds = %232
   br i1 %.1762, label %368, label %393
 
 368:                                              ; preds = %362
-  %369 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv1363
+  %369 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv1363
   store i16 1, ptr %369, align 2, !tbaa !129
   %370 = load i8, ptr %344, align 1, !tbaa !667
   %.not851 = icmp eq i8 %370, 0
@@ -48366,7 +48351,7 @@ thread-pre-split:                                 ; preds = %232
   ]
 
 ..loopexit1013_crit_edge:                         ; preds = %393
-  %.phi.trans.insert = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv1363
+  %.phi.trans.insert = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv1363
   %.pre1426 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !129
   br label %.loopexit1013
 
@@ -48383,7 +48368,7 @@ thread-pre-split:                                 ; preds = %232
 .loopexit1013.loopexit1200:                       ; preds = %393
   %400 = trunc i64 %indvars.iv1363 to i16
   %401 = add nuw i16 %400, 1
-  %402 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv1363
+  %402 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv1363
   store i16 %401, ptr %402, align 2, !tbaa !129
   %403 = getelementptr inbounds nuw i8, ptr %335, i64 %indvars.iv1363
   %404 = load i8, ptr %403, align 1, !tbaa !25
@@ -48429,7 +48414,7 @@ thread-pre-split:                                 ; preds = %232
 
 425:                                              ; preds = %424
   %426 = trunc i32 %.9713 to i16
-  %427 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv1363
+  %427 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv1363
   store i16 %426, ptr %427, align 2, !tbaa !129
   %428 = and i32 %.9713, 65535
   %.not1186 = icmp eq i32 %428, 0
@@ -48585,7 +48570,7 @@ thread-pre-split:                                 ; preds = %232
 
 473:                                              ; preds = %.preheader1006, %469
   %indvars.iv1392 = phi i64 [ 0, %.preheader1006 ], [ %indvars.iv.next1393, %469 ]
-  %474 = getelementptr inbounds nuw %struct.H266RawProfileTierLevel, ptr %468, i64 %indvars.iv1392
+  %474 = getelementptr inbounds nuw [1376 x i8], ptr %468, i64 %indvars.iv1392
   %475 = getelementptr inbounds nuw i8, ptr %263, i64 %indvars.iv1392
   %476 = load i8, ptr %475, align 1, !tbaa !25
   %477 = zext i8 %476 to i32
@@ -48777,7 +48762,7 @@ thread-pre-split:                                 ; preds = %232
 
 559:                                              ; preds = %.thread959, %556
   %560 = phi i8 [ %553, %.thread959 ], [ %557, %556 ]
-  %561 = getelementptr inbounds nuw %struct.H266DpbParameters, ptr %528, i64 %indvars.iv1400
+  %561 = getelementptr inbounds nuw [21 x i8], ptr %528, i64 %indvars.iv1400
   %562 = load i8, ptr %529, align 4, !tbaa !693
   %563 = call fastcc i32 @cbs_h266_read_dpb_parameters(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %561, i8 noundef zeroext %560, i8 noundef zeroext %562)
   %564 = icmp slt i32 %563, 0
@@ -48800,7 +48785,7 @@ thread-pre-split:                                 ; preds = %232
 570:                                              ; preds = %565
   %571 = load i32, ptr %43, align 4, !tbaa !63
   %572 = trunc i32 %571 to i16
-  %573 = getelementptr inbounds nuw i16, ptr %532, i64 %indvars.iv1405
+  %573 = getelementptr inbounds nuw [2 x i8], ptr %532, i64 %indvars.iv1405
   store i16 %572, ptr %573, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
@@ -48817,7 +48802,7 @@ thread-pre-split:                                 ; preds = %232
 577:                                              ; preds = %570
   %578 = load i32, ptr %45, align 4, !tbaa !63
   %579 = trunc i32 %578 to i16
-  %580 = getelementptr inbounds nuw i16, ptr %534, i64 %indvars.iv1405
+  %580 = getelementptr inbounds nuw [2 x i8], ptr %534, i64 %indvars.iv1405
   store i16 %579, ptr %580, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
@@ -48867,7 +48852,7 @@ thread-pre-split:                                 ; preds = %232
 .thread973:                                       ; preds = %595
   %598 = load i32, ptr %51, align 4, !tbaa !63
   %599 = trunc i32 %598 to i16
-  %600 = getelementptr inbounds nuw i16, ptr %542, i64 %indvars.iv1405
+  %600 = getelementptr inbounds nuw [2 x i8], ptr %542, i64 %indvars.iv1405
   store i16 %599, ptr %600, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %608
@@ -48880,13 +48865,13 @@ thread-pre-split:                                 ; preds = %232
   br i1 %543, label %603, label %605
 
 603:                                              ; preds = %602
-  %604 = getelementptr inbounds nuw i16, ptr %542, i64 %indvars.iv1405
+  %604 = getelementptr inbounds nuw [2 x i8], ptr %542, i64 %indvars.iv1405
   store i16 0, ptr %604, align 2, !tbaa !129
   br label %608
 
 605:                                              ; preds = %602
   %606 = trunc i64 %indvars.iv1405 to i16
-  %607 = getelementptr inbounds nuw i16, ptr %542, i64 %indvars.iv1405
+  %607 = getelementptr inbounds nuw [2 x i8], ptr %542, i64 %indvars.iv1405
   store i16 %606, ptr %607, align 2, !tbaa !129
   br label %608
 
@@ -49161,7 +49146,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_replace_vps(ptr n
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = zext i8 %8 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   tail call void @av_refstruct_replace(ptr noundef nonnull %18, ptr noundef nonnull %13) #12
   br label %19
 
@@ -49956,13 +49941,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sps(ptr noun
   %485 = sub nsw i32 0, %479
   %486 = ashr i32 %485, %229
   %487 = ashr i32 %.neg2812, %229
-  %488 = getelementptr inbounds nuw i16, ptr %396, i64 %indvars.iv
+  %488 = getelementptr inbounds nuw [2 x i8], ptr %396, i64 %indvars.iv
   %489 = load i16, ptr %488, align 2, !tbaa !129
   %490 = zext i16 %489 to i32
   %491 = add nsw i32 %484, %490
   %492 = sub nsw i32 0, %491
   %spec.select1959 = call i32 @llvm.smax.i32(i32 %492, i32 0)
-  %493 = getelementptr inbounds nuw i16, ptr %397, i64 %indvars.iv
+  %493 = getelementptr inbounds nuw [2 x i8], ptr %397, i64 %indvars.iv
   %494 = load i16, ptr %493, align 2, !tbaa !129
   %495 = zext i16 %494 to i32
   %496 = add nsw i32 %486, %495
@@ -50067,7 +50052,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sps(ptr noun
 .thread2044:                                      ; preds = %541
   %545 = load i32, ptr %36, align 4, !tbaa !63
   %546 = trunc i32 %545 to i16
-  %547 = getelementptr inbounds nuw i16, ptr %450, i64 %indvars.iv
+  %547 = getelementptr inbounds nuw [2 x i8], ptr %450, i64 %indvars.iv
   store i16 %546, ptr %547, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %.pre2545 = load i16, ptr %359, align 8, !tbaa !511
@@ -50080,7 +50065,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sps(ptr noun
 
 549:                                              ; preds = %527, %537
   %550 = trunc i32 %532 to i16
-  %551 = getelementptr inbounds nuw i16, ptr %450, i64 %indvars.iv
+  %551 = getelementptr inbounds nuw [2 x i8], ptr %450, i64 %indvars.iv
   store i16 %550, ptr %551, align 2, !tbaa !129
   br label %552
 
@@ -50107,14 +50092,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sps(ptr noun
 .thread2053:                                      ; preds = %558
   %562 = load i32, ptr %38, align 4, !tbaa !63
   %563 = trunc i32 %562 to i16
-  %564 = getelementptr inbounds nuw i16, ptr %451, i64 %indvars.iv
+  %564 = getelementptr inbounds nuw [2 x i8], ptr %451, i64 %indvars.iv
   store i16 %563, ptr %564, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %600
 
 .thread2050:                                      ; preds = %554, %552
   %565 = trunc i32 %533 to i16
-  %566 = getelementptr inbounds nuw i16, ptr %451, i64 %indvars.iv
+  %566 = getelementptr inbounds nuw [2 x i8], ptr %451, i64 %indvars.iv
   store i16 %565, ptr %566, align 2, !tbaa !129
   br label %600
 
@@ -50151,7 +50136,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sps(ptr noun
   %585 = srem i32 %584, %572
   %586 = mul nuw nsw i32 %585, %571
   %587 = trunc i32 %586 to i16
-  %588 = getelementptr inbounds nuw i16, ptr %396, i64 %indvars.iv
+  %588 = getelementptr inbounds nuw [2 x i8], ptr %396, i64 %indvars.iv
   store i16 %587, ptr %588, align 2, !tbaa !129
   %589 = sdiv i32 %584, %572
   %590 = load i16, ptr %451, align 4, !tbaa !129
@@ -50159,13 +50144,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sps(ptr noun
   %592 = add nuw nsw i32 %591, 1
   %593 = mul nsw i32 %592, %589
   %594 = trunc i32 %593 to i16
-  %595 = getelementptr inbounds nuw i16, ptr %397, i64 %indvars.iv
+  %595 = getelementptr inbounds nuw [2 x i8], ptr %397, i64 %indvars.iv
   store i16 %594, ptr %595, align 2, !tbaa !129
   %596 = load i16, ptr %450, align 4, !tbaa !129
-  %597 = getelementptr inbounds nuw i16, ptr %450, i64 %indvars.iv
+  %597 = getelementptr inbounds nuw [2 x i8], ptr %450, i64 %indvars.iv
   store i16 %596, ptr %597, align 2, !tbaa !129
   %598 = load i16, ptr %451, align 4, !tbaa !129
-  %599 = getelementptr inbounds nuw i16, ptr %451, i64 %indvars.iv
+  %599 = getelementptr inbounds nuw [2 x i8], ptr %451, i64 %indvars.iv
   store i16 %598, ptr %599, align 2, !tbaa !129
   br label %600
 
@@ -50333,7 +50318,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sps(ptr noun
 
 672:                                              ; preds = %660
   %673 = load i32, ptr %47, align 4, !tbaa !63
-  %674 = getelementptr inbounds nuw i32, ptr %659, i64 %indvars.iv2509
+  %674 = getelementptr inbounds nuw [4 x i8], ptr %659, i64 %indvars.iv2509
   store i32 %673, ptr %674, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   %indvars.iv.next2510 = add nuw nsw i64 %indvars.iv2509, 1
@@ -51448,7 +51433,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sps(ptr noun
   br i1 %.not2461, label %._crit_edge2445, label %.lr.ph2444
 
 .lr.ph2444:                                       ; preds = %1166
-  %1170 = getelementptr inbounds nuw [64 x %struct.H266RefPicListStruct], ptr %1160, i64 %indvars.iv2527
+  %1170 = getelementptr inbounds nuw [11264 x i8], ptr %1160, i64 %indvars.iv2527
   %1171 = trunc nuw nsw i64 %indvars.iv2527 to i8
   br label %1176
 
@@ -51461,7 +51446,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sps(ptr noun
 
 1176:                                             ; preds = %.lr.ph2444, %1172
   %indvars.iv2524 = phi i64 [ 0, %.lr.ph2444 ], [ %indvars.iv.next2525, %1172 ]
-  %1177 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %1170, i64 %indvars.iv2524
+  %1177 = getelementptr inbounds nuw [176 x i8], ptr %1170, i64 %indvars.iv2524
   %1178 = trunc nuw i64 %indvars.iv2524 to i8
   %1179 = call fastcc i32 @cbs_h266_read_ref_pic_list_struct(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %1177, i8 noundef zeroext %1171, i8 noundef zeroext %1178, ptr noundef nonnull %2)
   %1180 = icmp slt i32 %1179, 0
@@ -51490,8 +51475,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sps(ptr noun
 
 1188:                                             ; preds = %.lr.ph2450, %1188
   %indvars.iv2530 = phi i64 [ 0, %.lr.ph2450 ], [ %indvars.iv.next2531, %1188 ]
-  %1189 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %1187, i64 %indvars.iv2530
-  %1190 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %1160, i64 %indvars.iv2530
+  %1189 = getelementptr inbounds nuw [176 x i8], ptr %1187, i64 %indvars.iv2530
+  %1190 = getelementptr inbounds nuw [176 x i8], ptr %1160, i64 %indvars.iv2530
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(176) %1189, ptr noundef nonnull align 1 dereferenceable(176) %1190, i64 176, i1 false)
   %indvars.iv.next2531 = add nuw nsw i64 %indvars.iv2530, 1
   %exitcond2534.not = icmp eq i64 %indvars.iv.next2531, %wide.trip.count2533
@@ -52288,7 +52273,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sps(ptr noun
 1535:                                             ; preds = %1524
   %1536 = load i32, ptr %147, align 4, !tbaa !63
   %1537 = trunc i32 %1536 to i16
-  %1538 = getelementptr inbounds nuw i16, ptr %1518, i64 %indvars.iv2535
+  %1538 = getelementptr inbounds nuw [2 x i8], ptr %1518, i64 %indvars.iv2535
   store i16 %1537, ptr %1538, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %147)
   %indvars.iv.next2536 = add nuw nsw i64 %indvars.iv2535, 1
@@ -52508,7 +52493,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sps(ptr noun
 1631:                                             ; preds = %1621
   %1632 = load i32, ptr %158, align 4, !tbaa !63
   %1633 = trunc i32 %1632 to i16
-  %1634 = getelementptr inbounds nuw i16, ptr %1620, i64 %indvars.iv2538
+  %1634 = getelementptr inbounds nuw [2 x i8], ptr %1620, i64 %indvars.iv2538
   store i16 %1633, ptr %1634, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %158)
   %indvars.iv.next2539 = add nuw nsw i64 %indvars.iv2538, 1
@@ -52567,7 +52552,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sps(ptr noun
 1660:                                             ; preds = %1650
   %1661 = load i32, ptr %161, align 4, !tbaa !63
   %1662 = trunc i32 %1661 to i16
-  %1663 = getelementptr inbounds nuw i16, ptr %1649, i64 %indvars.iv2541
+  %1663 = getelementptr inbounds nuw [2 x i8], ptr %1649, i64 %indvars.iv2541
   store i16 %1662, ptr %1663, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %161)
   %indvars.iv.next2542 = add nuw nsw i64 %indvars.iv2541, 1
@@ -52882,7 +52867,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_replace_sps(ptr n
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 184
   %17 = zext i8 %8 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !498
   %.not30 = icmp eq ptr %19, null
   br i1 %.not30, label %.loopexit, label %20
@@ -52898,7 +52883,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_replace_sps(ptr n
 
 22:                                               ; preds = %.preheader, %30
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %30 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !494
   %.not32 = icmp eq ptr %24, null
   br i1 %.not32, label %30, label %25
@@ -53060,7 +53045,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   %111 = getelementptr inbounds nuw i8, ptr %94, i64 184
   %.mask = and i32 %108, 255
   %112 = zext nneg i32 %.mask to i64
-  %113 = getelementptr inbounds nuw ptr, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !498
   %.not = icmp eq ptr %114, null
   br i1 %.not, label %115, label %117
@@ -53665,7 +53650,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 427:                                              ; preds = %415
   %428 = load i32, ptr %24, align 4, !tbaa !63
   %429 = trunc i32 %428 to i16
-  %430 = getelementptr inbounds nuw i16, ptr %414, i64 %indvars.iv
+  %430 = getelementptr inbounds nuw [2 x i8], ptr %414, i64 %indvars.iv
   store i16 %429, ptr %430, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -53687,7 +53672,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 .split.us:                                        ; preds = %.loopexit1735, %.split.us
   %indvars.iv1927 = phi i64 [ %indvars.iv.next1928, %.split.us ], [ 0, %.loopexit1735 ]
   %439 = trunc nuw i64 %indvars.iv1927 to i16
-  %440 = getelementptr inbounds nuw i16, ptr %438, i64 %indvars.iv1927
+  %440 = getelementptr inbounds nuw [2 x i8], ptr %438, i64 %indvars.iv1927
   store i16 %439, ptr %440, align 2, !tbaa !129
   %indvars.iv.next1928 = add nuw nsw i64 %indvars.iv1927, 1
   %441 = load i16, ptr %433, align 8, !tbaa !511
@@ -53705,19 +53690,19 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   br i1 %.not1476, label %448, label %445
 
 445:                                              ; preds = %444
-  %446 = getelementptr inbounds nuw i16, ptr %436, i64 %indvars.iv1924
+  %446 = getelementptr inbounds nuw [2 x i8], ptr %436, i64 %indvars.iv1924
   %447 = load i16, ptr %446, align 2, !tbaa !129
   br label %452
 
 448:                                              ; preds = %444
-  %449 = getelementptr inbounds nuw i32, ptr %437, i64 %indvars.iv1924
+  %449 = getelementptr inbounds nuw [4 x i8], ptr %437, i64 %indvars.iv1924
   %450 = load i32, ptr %449, align 4, !tbaa !63
   %451 = trunc i32 %450 to i16
   br label %452
 
 452:                                              ; preds = %448, %445
   %453 = phi i16 [ %447, %445 ], [ %451, %448 ]
-  %454 = getelementptr inbounds nuw i16, ptr %438, i64 %indvars.iv1924
+  %454 = getelementptr inbounds nuw [2 x i8], ptr %438, i64 %indvars.iv1924
   store i16 %453, ptr %454, align 2, !tbaa !129
   %indvars.iv.next1925 = add nuw nsw i64 %indvars.iv1924, 1
   %455 = load i16, ptr %433, align 8, !tbaa !511
@@ -53822,7 +53807,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 507:                                              ; preds = %500
   %508 = load i32, ptr %29, align 4, !tbaa !63
   %509 = trunc i32 %508 to i16
-  %510 = getelementptr inbounds nuw i16, ptr %497, i64 %indvars.iv1930
+  %510 = getelementptr inbounds nuw [2 x i8], ptr %497, i64 %indvars.iv1930
   store i16 %509, ptr %510, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %511 = and i32 %508, 65535
@@ -53863,7 +53848,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 528:                                              ; preds = %521
   %529 = load i32, ptr %31, align 4, !tbaa !63
   %530 = trunc i32 %529 to i16
-  %531 = getelementptr inbounds nuw i16, ptr %499, i64 %indvars.iv1933
+  %531 = getelementptr inbounds nuw [2 x i8], ptr %499, i64 %indvars.iv1933
   store i16 %530, ptr %531, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   %532 = and i32 %529, 65535
@@ -53879,7 +53864,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   %indvars.iv1939 = phi i64 [ 1, %.preheader1733 ], [ %indvars.iv.next1940, %544 ]
   %indvars.iv1936 = phi i64 [ 0, %.preheader1733 ], [ %indvars.iv.next1937, %544 ]
   %.012101792 = phi i32 [ %464, %.preheader1733 ], [ %547, %544 ]
-  %538 = getelementptr inbounds nuw i16, ptr %497, i64 %indvars.iv1936
+  %538 = getelementptr inbounds nuw [2 x i8], ptr %497, i64 %indvars.iv1936
   %539 = load i16, ptr %538, align 2, !tbaa !129
   %540 = zext i16 %539 to i32
   %.not1457 = icmp ugt i32 %.012101792, %540
@@ -53893,7 +53878,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 
 544:                                              ; preds = %537
   %545 = add i16 %539, 1
-  %546 = getelementptr inbounds nuw i16, ptr %519, i64 %indvars.iv1936
+  %546 = getelementptr inbounds nuw [2 x i8], ptr %519, i64 %indvars.iv1936
   store i16 %545, ptr %546, align 2, !tbaa !129
   %.neg1458 = xor i32 %540, -1
   %547 = add i32 %.012101792, %.neg1458
@@ -53913,7 +53898,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   br i1 %551, label %561, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %552 = getelementptr i16, ptr %2, i64 %wide.trip.count
+  %552 = getelementptr [2 x i8], ptr %2, i64 %wide.trip.count
   %553 = getelementptr i8, ptr %552, i64 2042
   %554 = load i16, ptr %553, align 2, !tbaa !129
   %555 = zext i16 %554 to i32
@@ -53926,7 +53911,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   %.012141795 = phi i32 [ %556, %.lr.ph.split.preheader ], [ %557, %.lr.ph.split ]
   %557 = call i32 @llvm.umin.i32(i32 %.112111796, i32 %.012141795)
   %558 = trunc i32 %557 to i16
-  %559 = getelementptr inbounds nuw i16, ptr %519, i64 %indvars.iv1942
+  %559 = getelementptr inbounds nuw [2 x i8], ptr %519, i64 %indvars.iv1942
   store i16 %558, ptr %559, align 2, !tbaa !129
   %560 = sub i32 %.112111796, %557
   %indvars.iv.next1943 = add nuw nsw i64 %indvars.iv1942, 1
@@ -53967,7 +53952,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   %indvars.iv1950 = phi i64 [ 1, %.preheader1732 ], [ %indvars.iv.next1951, %580 ]
   %indvars.iv1945 = phi i64 [ 0, %.preheader1732 ], [ %indvars.iv.next1946, %580 ]
   %.212121798 = phi i32 [ %469, %.preheader1732 ], [ %583, %580 ]
-  %574 = getelementptr inbounds nuw i16, ptr %499, i64 %indvars.iv1945
+  %574 = getelementptr inbounds nuw [2 x i8], ptr %499, i64 %indvars.iv1945
   %575 = load i16, ptr %574, align 2, !tbaa !129
   %576 = zext i16 %575 to i32
   %.not1456 = icmp ugt i32 %.212121798, %576
@@ -53981,7 +53966,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 
 580:                                              ; preds = %573
   %581 = add i16 %575, 1
-  %582 = getelementptr inbounds nuw i16, ptr %569, i64 %indvars.iv1945
+  %582 = getelementptr inbounds nuw [2 x i8], ptr %569, i64 %indvars.iv1945
   store i16 %581, ptr %582, align 2, !tbaa !129
   %.neg = xor i32 %576, -1
   %583 = add i32 %.212121798, %.neg
@@ -53995,7 +53980,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   br i1 %.not14321799, label %._crit_edge1805, label %.lr.ph1804
 
 .lr.ph1804:                                       ; preds = %584
-  %585 = getelementptr i16, ptr %2, i64 %wide.trip.count1948
+  %585 = getelementptr [2 x i8], ptr %2, i64 %wide.trip.count1948
   %586 = getelementptr i8, ptr %585, i64 2102
   %587 = load i16, ptr %586, align 2, !tbaa !129
   %588 = zext i16 %587 to i32
@@ -54008,7 +53993,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   %.112151801 = phi i32 [ %589, %.lr.ph1804 ], [ %591, %590 ]
   %591 = call i32 @llvm.umin.i32(i32 %.312131802, i32 %.112151801)
   %592 = trunc i32 %591 to i16
-  %593 = getelementptr inbounds nuw i16, ptr %569, i64 %indvars.iv1953
+  %593 = getelementptr inbounds nuw [2 x i8], ptr %569, i64 %indvars.iv1953
   store i16 %592, ptr %593, align 2, !tbaa !129
   %594 = sub i32 %.312131802, %591
   %indvars.iv.next1954 = add nuw nsw i64 %indvars.iv1953, 1
@@ -54186,7 +54171,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   %.011971844 = phi i16 [ 0, %.lr.ph1846 ], [ %.11198, %864 ]
   %.813061842 = phi i32 [ 0, %.lr.ph1846 ], [ %865, %864 ]
   %674 = zext nneg i32 %.813061842 to i64
-  %675 = getelementptr inbounds nuw i16, ptr %658, i64 %674
+  %675 = getelementptr inbounds nuw [2 x i8], ptr %658, i64 %674
   store i16 %.011971844, ptr %675, align 2, !tbaa !129
   %676 = zext i16 %.011971844 to i32
   %677 = load i16, ptr %566, align 8, !tbaa !626
@@ -54209,7 +54194,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 .thread1565:                                      ; preds = %683
   %686 = load i32, ptr %40, align 4, !tbaa !63
   %687 = trunc i32 %686 to i16
-  %688 = getelementptr inbounds nuw i16, ptr %660, i64 %674
+  %688 = getelementptr inbounds nuw [2 x i8], ptr %660, i64 %674
   store i16 %687, ptr %688, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %692
@@ -54219,7 +54204,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   br label %.thread1590
 
 690:                                              ; preds = %673
-  %691 = getelementptr inbounds nuw i16, ptr %660, i64 %674
+  %691 = getelementptr inbounds nuw [2 x i8], ptr %660, i64 %674
   store i16 0, ptr %691, align 2, !tbaa !129
   br label %692
 
@@ -54249,7 +54234,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 .thread1567:                                      ; preds = %701
   %704 = load i32, ptr %42, align 4, !tbaa !63
   %705 = trunc i32 %704 to i16
-  %706 = getelementptr inbounds nuw i16, ptr %662, i64 %674
+  %706 = getelementptr inbounds nuw [2 x i8], ptr %662, i64 %674
   store i16 %705, ptr %706, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   br label %713
@@ -54259,12 +54244,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   br label %.thread1590
 
 708:                                              ; preds = %692
-  %709 = getelementptr inbounds nuw i16, ptr %662, i64 %674
+  %709 = getelementptr inbounds nuw [2 x i8], ptr %662, i64 %674
   store i16 0, ptr %709, align 2, !tbaa !129
   br label %713
 
 .thread2122:                                      ; preds = %697
-  %710 = getelementptr i16, ptr %662, i64 %674
+  %710 = getelementptr [2 x i8], ptr %662, i64 %674
   %711 = getelementptr i8, ptr %710, i64 -2
   %712 = load i16, ptr %711, align 2, !tbaa !129
   store i16 %712, ptr %710, align 2, !tbaa !129
@@ -54293,7 +54278,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 .lr.ph1810:                                       ; preds = %.lr.ph1810.preheader, %.lr.ph1810
   %indvars.iv1956 = phi i64 [ 0, %.lr.ph1810.preheader ], [ %indvars.iv.next1957, %.lr.ph1810 ]
   %.011951808 = phi i16 [ 0, %.lr.ph1810.preheader ], [ %721, %.lr.ph1810 ]
-  %719 = getelementptr inbounds nuw i16, ptr %519, i64 %indvars.iv1956
+  %719 = getelementptr inbounds nuw [2 x i8], ptr %519, i64 %indvars.iv1956
   %720 = load i16, ptr %719, align 2, !tbaa !129
   %721 = add i16 %720, %.011951808
   %indvars.iv.next1957 = add nuw nsw i64 %indvars.iv1956, 1
@@ -54303,7 +54288,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 .lr.ph1814:                                       ; preds = %.lr.ph1814.preheader, %.lr.ph1814
   %indvars.iv1958 = phi i64 [ 0, %.lr.ph1814.preheader ], [ %indvars.iv.next1959, %.lr.ph1814 ]
   %.011911813 = phi i16 [ 0, %.lr.ph1814.preheader ], [ %725, %.lr.ph1814 ]
-  %723 = getelementptr inbounds nuw i16, ptr %569, i64 %indvars.iv1958
+  %723 = getelementptr inbounds nuw [2 x i8], ptr %569, i64 %indvars.iv1958
   %724 = load i16, ptr %723, align 2, !tbaa !129
   %725 = add i16 %724, %.011911813
   %indvars.iv.next1959 = add nuw nsw i64 %indvars.iv1958, 1
@@ -54312,7 +54297,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 
 ._crit_edge1815:                                  ; preds = %.lr.ph1814, %.preheader1731
   %.01191.lcssa = phi i16 [ 0, %.preheader1731 ], [ %725, %.lr.ph1814 ]
-  %727 = getelementptr inbounds nuw i16, ptr %660, i64 %674
+  %727 = getelementptr inbounds nuw [2 x i8], ptr %660, i64 %674
   %728 = load i16, ptr %727, align 2, !tbaa !129
   %729 = icmp eq i16 %728, 0
   %730 = icmp eq i16 %717, 0
@@ -54321,7 +54306,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 
 731:                                              ; preds = %._crit_edge1815
   %732 = zext i16 %680 to i64
-  %733 = getelementptr inbounds nuw i16, ptr %569, i64 %732
+  %733 = getelementptr inbounds nuw [2 x i8], ptr %569, i64 %732
   %734 = load i16, ptr %733, align 2, !tbaa !129
   %735 = zext i16 %734 to i32
   %736 = icmp ugt i16 %734, 1
@@ -54343,25 +54328,25 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 742:                                              ; preds = %737
   %743 = load i32, ptr %44, align 4, !tbaa !63
   %744 = trunc i32 %743 to i16
-  %745 = getelementptr inbounds nuw i16, ptr %664, i64 %674
+  %745 = getelementptr inbounds nuw [2 x i8], ptr %664, i64 %674
   store i16 %744, ptr %745, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %746 = icmp eq i16 %744, 0
   br i1 %746, label %.thread2124, label %.lr.ph1823
 
 .lr.ph1823:                                       ; preds = %742
-  %747 = getelementptr inbounds nuw [990 x i16], ptr %670, i64 %674
+  %747 = getelementptr inbounds nuw [1980 x i8], ptr %670, i64 %674
   br label %753
 
 .thread2124:                                      ; preds = %742
-  %748 = getelementptr inbounds nuw i16, ptr %665, i64 %674
+  %748 = getelementptr inbounds nuw [2 x i8], ptr %665, i64 %674
   store i16 1, ptr %748, align 2, !tbaa !129
   %749 = load i16, ptr %733, align 2, !tbaa !129
-  %750 = getelementptr inbounds nuw i16, ptr %666, i64 %674
+  %750 = getelementptr inbounds nuw [2 x i8], ptr %666, i64 %674
   store i16 %749, ptr %750, align 2, !tbaa !129
-  %751 = getelementptr inbounds nuw i16, ptr %36, i64 %674
+  %751 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %674
   store i16 %.01195.lcssa, ptr %751, align 2, !tbaa !129
-  %752 = getelementptr inbounds nuw i16, ptr %37, i64 %674
+  %752 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %674
   store i16 %.01191.lcssa, ptr %752, align 2, !tbaa !129
   br label %.lr.ph1839.preheader
 
@@ -54386,16 +54371,16 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 758:                                              ; preds = %753
   %759 = load i32, ptr %46, align 4, !tbaa !63
   %760 = trunc i32 %759 to i16
-  %761 = getelementptr inbounds nuw i16, ptr %747, i64 %indvars.iv1964
+  %761 = getelementptr inbounds nuw [2 x i8], ptr %747, i64 %indvars.iv1964
   store i16 %760, ptr %761, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %762 = add i16 %760, 1
   %763 = add nuw nsw i64 %indvars.iv1964, %674
-  %764 = getelementptr inbounds nuw i16, ptr %666, i64 %763
+  %764 = getelementptr inbounds nuw [2 x i8], ptr %666, i64 %763
   store i16 %762, ptr %764, align 2, !tbaa !129
-  %765 = getelementptr inbounds nuw i16, ptr %36, i64 %763
+  %765 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %763
   store i16 %.01195.lcssa, ptr %765, align 2, !tbaa !129
-  %766 = getelementptr inbounds nuw i16, ptr %37, i64 %763
+  %766 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %763
   store i16 %.111921821, ptr %766, align 2, !tbaa !129
   %767 = zext i16 %762 to i32
   %768 = add i16 %762, %.111921821
@@ -54407,8 +54392,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   br i1 %.not1448, label %753, label %772, !llvm.loop !1344
 
 772:                                              ; preds = %758
-  %773 = getelementptr [990 x i16], ptr %2, i64 %674
-  %774 = getelementptr i16, ptr %773, i64 %indvars.iv.next1965
+  %773 = getelementptr [1980 x i8], ptr %2, i64 %674
+  %774 = getelementptr [2 x i8], ptr %773, i64 %indvars.iv.next1965
   %775 = getelementptr i8, ptr %774, i64 10090
   %776 = load i16, ptr %775, align 2, !tbaa !129
   %777 = zext i16 %776 to i32
@@ -54425,11 +54410,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   %.111901830 = phi i32 [ %769, %.lr.ph1832 ], [ %787, %781 ]
   %.211931829 = phi i16 [ %768, %.lr.ph1832 ], [ %786, %781 ]
   %782 = add nuw nsw i64 %indvars.iv1966, %674
-  %783 = getelementptr inbounds nuw i16, ptr %666, i64 %782
+  %783 = getelementptr inbounds nuw [2 x i8], ptr %666, i64 %782
   store i16 %780, ptr %783, align 2, !tbaa !129
-  %784 = getelementptr inbounds nuw i16, ptr %36, i64 %782
+  %784 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %782
   store i16 %.01195.lcssa, ptr %784, align 2, !tbaa !129
-  %785 = getelementptr inbounds nuw i16, ptr %37, i64 %782
+  %785 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %782
   store i16 %.211931829, ptr %785, align 2, !tbaa !129
   %786 = add i16 %.211931829, %780
   %787 = sub nsw i32 %.111901830, %778
@@ -54449,11 +54434,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   %791 = trunc i32 %.11190.lcssa to i16
   %792 = add nsw i32 %.813061842, %.31203.lcssa
   %793 = sext i32 %792 to i64
-  %794 = getelementptr inbounds i16, ptr %666, i64 %793
+  %794 = getelementptr inbounds [2 x i8], ptr %666, i64 %793
   store i16 %791, ptr %794, align 2, !tbaa !129
-  %795 = getelementptr inbounds i16, ptr %36, i64 %793
+  %795 = getelementptr inbounds [2 x i8], ptr %36, i64 %793
   store i16 %.01195.lcssa, ptr %795, align 2, !tbaa !129
-  %796 = getelementptr inbounds i16, ptr %37, i64 %793
+  %796 = getelementptr inbounds [2 x i8], ptr %37, i64 %793
   store i16 %.21193.lcssa, ptr %796, align 2, !tbaa !129
   %797 = add nuw nsw i32 %.31203.lcssa, 1
   br label %798
@@ -54461,19 +54446,19 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 798:                                              ; preds = %790, %._crit_edge1833
   %.41204 = phi i32 [ %797, %790 ], [ %.31203.lcssa, %._crit_edge1833 ]
   %799 = trunc i32 %.41204 to i16
-  %800 = getelementptr inbounds nuw i16, ptr %665, i64 %674
+  %800 = getelementptr inbounds nuw [2 x i8], ptr %665, i64 %674
   store i16 %799, ptr %800, align 2, !tbaa !129
   %.not1871 = icmp eq i16 %799, 0
   br i1 %.not1871, label %._crit_edge1840, label %.lr.ph1839.preheader
 
 .lr.ph1839.preheader:                             ; preds = %.thread2124, %798
-  %801 = getelementptr inbounds nuw i16, ptr %665, i64 %674
-  %invariant.gep2178 = getelementptr inbounds nuw i16, ptr %658, i64 %674
+  %801 = getelementptr inbounds nuw [2 x i8], ptr %665, i64 %674
+  %invariant.gep2178 = getelementptr inbounds nuw [2 x i8], ptr %658, i64 %674
   br label %.lr.ph1839
 
 .lr.ph1839:                                       ; preds = %.lr.ph1839.preheader, %.lr.ph1839
   %indvars.iv1968 = phi i64 [ 0, %.lr.ph1839.preheader ], [ %indvars.iv.next1969, %.lr.ph1839 ]
-  %gep2179 = getelementptr inbounds nuw i16, ptr %invariant.gep2178, i64 %indvars.iv1968
+  %gep2179 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep2178, i64 %indvars.iv1968
   store i16 %.011971844, ptr %gep2179, align 2, !tbaa !129
   %indvars.iv.next1969 = add nuw nsw i64 %indvars.iv1968, 1
   %802 = load i16, ptr %801, align 2, !tbaa !129
@@ -54492,7 +54477,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   br label %823
 
 808:                                              ; preds = %731
-  %809 = getelementptr inbounds nuw i16, ptr %664, i64 %674
+  %809 = getelementptr inbounds nuw [2 x i8], ptr %664, i64 %674
   store i16 0, ptr %809, align 2, !tbaa !129
   br label %810
 
@@ -54500,17 +54485,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   %811 = phi i64 [ 8092, %._crit_edge1815 ], [ 2002222, %808 ]
   %.sink = phi i16 [ 0, %._crit_edge1815 ], [ 1, %808 ]
   %812 = getelementptr inbounds nuw i8, ptr %2, i64 %811
-  %813 = getelementptr inbounds nuw i16, ptr %812, i64 %674
+  %813 = getelementptr inbounds nuw [2 x i8], ptr %812, i64 %674
   store i16 %.sink, ptr %813, align 2, !tbaa !129
   %814 = zext i16 %717 to i64
   %815 = zext i16 %680 to i64
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %569, i64 %815
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %569, i64 %815
   br label %816
 
 816:                                              ; preds = %810, %816
   %indvars.iv1960 = phi i64 [ 0, %810 ], [ %indvars.iv.next1961, %816 ]
   %.011861818 = phi i16 [ 0, %810 ], [ %818, %816 ]
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv1960
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv1960
   %817 = load i16, ptr %gep, align 2, !tbaa !129
   %818 = add i16 %817, %.011861818
   %indvars.iv.next1961 = add nuw nsw i64 %indvars.iv1960, 1
@@ -54518,11 +54503,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   br i1 %exitcond1963.not, label %819, label %816, !llvm.loop !1347
 
 819:                                              ; preds = %816
-  %820 = getelementptr inbounds nuw i16, ptr %666, i64 %674
+  %820 = getelementptr inbounds nuw [2 x i8], ptr %666, i64 %674
   store i16 %818, ptr %820, align 2, !tbaa !129
-  %821 = getelementptr inbounds nuw i16, ptr %36, i64 %674
+  %821 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %674
   store i16 %.01195.lcssa, ptr %821, align 2, !tbaa !129
-  %822 = getelementptr inbounds nuw i16, ptr %37, i64 %674
+  %822 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %674
   store i16 %.01191.lcssa, ptr %822, align 2, !tbaa !129
   br label %823
 
@@ -54559,7 +54544,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   %839 = load i32, ptr %48, align 4, !tbaa !63
   %840 = trunc i32 %839 to i16
   %841 = sext i32 %.101308 to i64
-  %842 = getelementptr inbounds i16, ptr %672, i64 %841
+  %842 = getelementptr inbounds [2 x i8], ptr %672, i64 %841
   store i16 %840, ptr %842, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %843 = icmp eq i16 %840, 0
@@ -54578,9 +54563,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 
 849:                                              ; preds = %827
   %850 = sext i32 %.101308 to i64
-  %851 = getelementptr inbounds i16, ptr %672, i64 %850
+  %851 = getelementptr inbounds [2 x i8], ptr %672, i64 %850
   store i16 0, ptr %851, align 2, !tbaa !129
-  %852 = getelementptr inbounds i16, ptr %660, i64 %850
+  %852 = getelementptr inbounds [2 x i8], ptr %660, i64 %850
   %853 = load i16, ptr %852, align 2, !tbaa !129
   %854 = add i16 %.011971844, 1
   %855 = add i16 %854, %853
@@ -54590,7 +54575,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
   br i1 %858, label %859, label %864
 
 859:                                              ; preds = %849
-  %860 = getelementptr inbounds i16, ptr %662, i64 %850
+  %860 = getelementptr inbounds [2 x i8], ptr %662, i64 %850
   %861 = load i16, ptr %860, align 2, !tbaa !129
   %862 = mul i16 %861, %856
   %863 = add i16 %862, %855
@@ -54614,10 +54599,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 870:                                              ; preds = %._crit_edge1847
   %871 = getelementptr inbounds nuw i8, ptr %2, i64 2000222
   %872 = zext nneg i32 %.81306.lcssa to i64
-  %873 = getelementptr inbounds nuw i16, ptr %871, i64 %872
+  %873 = getelementptr inbounds nuw [2 x i8], ptr %871, i64 %872
   store i16 %.01197.lcssa, ptr %873, align 2, !tbaa !129
   %874 = getelementptr inbounds nuw i8, ptr %2, i64 2002222
-  %875 = getelementptr inbounds nuw i16, ptr %874, i64 %872
+  %875 = getelementptr inbounds nuw [2 x i8], ptr %874, i64 %872
   store i16 1, ptr %875, align 2, !tbaa !129
   %876 = load i16, ptr %566, align 8, !tbaa !626
   %877 = urem i16 %.01197.lcssa, %876
@@ -54643,7 +54628,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 881:                                              ; preds = %.lr.ph1853, %881
   %indvars.iv1971 = phi i64 [ 0, %.lr.ph1853 ], [ %indvars.iv.next1972, %881 ]
   %.111961852 = phi i16 [ 0, %.lr.ph1853 ], [ %884, %881 ]
-  %882 = getelementptr inbounds nuw i16, ptr %519, i64 %indvars.iv1971
+  %882 = getelementptr inbounds nuw [2 x i8], ptr %519, i64 %indvars.iv1971
   %883 = load i16, ptr %882, align 2, !tbaa !129
   %884 = add i16 %883, %.111961852
   %indvars.iv.next1972 = add nuw nsw i64 %indvars.iv1971, 1
@@ -54653,7 +54638,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 .lr.ph1857:                                       ; preds = %.preheader1728, %.lr.ph1857
   %indvars.iv1973 = phi i64 [ %indvars.iv.next1974, %.lr.ph1857 ], [ 0, %.preheader1728 ]
   %.311941856 = phi i16 [ %888, %.lr.ph1857 ], [ 0, %.preheader1728 ]
-  %886 = getelementptr inbounds nuw i16, ptr %569, i64 %indvars.iv1973
+  %886 = getelementptr inbounds nuw [2 x i8], ptr %569, i64 %indvars.iv1973
   %887 = load i16, ptr %886, align 2, !tbaa !129
   %888 = add i16 %887, %.311941856
   %indvars.iv.next1974 = add nuw nsw i64 %indvars.iv1973, 1
@@ -54662,29 +54647,29 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 
 ._crit_edge1858:                                  ; preds = %.lr.ph1857, %.preheader1728
   %.31194.lcssa = phi i16 [ 0, %.preheader1728 ], [ %888, %.lr.ph1857 ]
-  %890 = getelementptr inbounds nuw i16, ptr %36, i64 %872
+  %890 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %872
   store i16 %.11196.lcssa, ptr %890, align 2, !tbaa !129
-  %891 = getelementptr inbounds nuw i16, ptr %37, i64 %872
+  %891 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %872
   store i16 %.31194.lcssa, ptr %891, align 2, !tbaa !129
   %892 = xor i16 %877, -1
   %893 = add i16 %876, %892
   %894 = getelementptr inbounds nuw i8, ptr %2, i64 4092
-  %895 = getelementptr inbounds nuw i16, ptr %894, i64 %872
+  %895 = getelementptr inbounds nuw [2 x i8], ptr %894, i64 %872
   store i16 %893, ptr %895, align 2, !tbaa !129
   %896 = load i16, ptr %597, align 2, !tbaa !629
   %897 = xor i16 %878, -1
   %898 = add i16 %896, %897
   %899 = getelementptr inbounds nuw i8, ptr %2, i64 6092
-  %900 = getelementptr inbounds nuw i16, ptr %899, i64 %872
+  %900 = getelementptr inbounds nuw [2 x i8], ptr %899, i64 %872
   store i16 %898, ptr %900, align 2, !tbaa !129
   %901 = zext i16 %898 to i64
-  %invariant.gep2180 = getelementptr inbounds nuw i16, ptr %569, i64 %.pre2003
+  %invariant.gep2180 = getelementptr inbounds nuw [2 x i8], ptr %569, i64 %.pre2003
   br label %902
 
 902:                                              ; preds = %._crit_edge1858, %902
   %indvars.iv1975 = phi i64 [ 0, %._crit_edge1858 ], [ %indvars.iv.next1976, %902 ]
   %.01861 = phi i16 [ 0, %._crit_edge1858 ], [ %904, %902 ]
-  %gep2181 = getelementptr inbounds nuw i16, ptr %invariant.gep2180, i64 %indvars.iv1975
+  %gep2181 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep2180, i64 %indvars.iv1975
   %903 = load i16, ptr %gep2181, align 2, !tbaa !129
   %904 = add i16 %903, %.01861
   %indvars.iv.next1976 = add nuw nsw i64 %indvars.iv1975, 1
@@ -54693,10 +54678,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 
 905:                                              ; preds = %902
   %906 = getelementptr inbounds nuw i8, ptr %2, i64 1992182
-  %907 = getelementptr inbounds nuw i16, ptr %906, i64 %872
+  %907 = getelementptr inbounds nuw [2 x i8], ptr %906, i64 %872
   store i16 %904, ptr %907, align 2, !tbaa !129
   %908 = getelementptr inbounds nuw i8, ptr %2, i64 8092
-  %909 = getelementptr inbounds nuw i16, ptr %908, i64 %872
+  %909 = getelementptr inbounds nuw [2 x i8], ptr %908, i64 %872
   store i16 0, ptr %909, align 2, !tbaa !129
   br label %910
 
@@ -54713,20 +54698,20 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 917:                                              ; preds = %910, %948
   %indvars.iv1982 = phi i64 [ 0, %910 ], [ %indvars.iv.next1983, %948 ]
   %.011991864 = phi i32 [ 0, %910 ], [ %950, %948 ]
-  %918 = getelementptr inbounds nuw i16, ptr %911, i64 %indvars.iv1982
+  %918 = getelementptr inbounds nuw [2 x i8], ptr %911, i64 %indvars.iv1982
   store i16 0, ptr %918, align 2, !tbaa !129
-  %919 = getelementptr inbounds nuw i16, ptr %912, i64 %indvars.iv1982
-  %920 = getelementptr inbounds nuw i16, ptr %913, i64 %indvars.iv1982
-  %921 = getelementptr inbounds nuw i16, ptr %914, i64 %indvars.iv1982
-  %922 = getelementptr inbounds nuw i16, ptr %915, i64 %indvars.iv1982
+  %919 = getelementptr inbounds nuw [2 x i8], ptr %912, i64 %indvars.iv1982
+  %920 = getelementptr inbounds nuw [2 x i8], ptr %913, i64 %indvars.iv1982
+  %921 = getelementptr inbounds nuw [2 x i8], ptr %914, i64 %indvars.iv1982
+  %922 = getelementptr inbounds nuw [2 x i8], ptr %915, i64 %indvars.iv1982
   br label %923
 
 923:                                              ; preds = %917, %946
   %924 = phi i16 [ 0, %917 ], [ %947, %946 ]
   %indvars.iv1977 = phi i64 [ 0, %917 ], [ %indvars.iv.next1978, %946 ]
-  %925 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv1977
+  %925 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %indvars.iv1977
   %926 = load i16, ptr %925, align 2, !tbaa !129
-  %927 = getelementptr inbounds nuw i16, ptr %37, i64 %indvars.iv1977
+  %927 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %indvars.iv1977
   %928 = load i16, ptr %927, align 2, !tbaa !129
   %929 = load i16, ptr %919, align 2, !tbaa !129
   %.not1441 = icmp ult i16 %926, %929
@@ -54820,7 +54805,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pps(ptr noun
 
 964:                                              ; preds = %.preheader, %964
   %indvars.iv1985 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next1986, %964 ]
-  %965 = getelementptr inbounds nuw i16, ptr %963, i64 %indvars.iv1985
+  %965 = getelementptr inbounds nuw [2 x i8], ptr %963, i64 %indvars.iv1985
   store i16 1, ptr %965, align 2, !tbaa !129
   %indvars.iv.next1986 = add nuw nsw i64 %indvars.iv1985, 1
   %966 = load i16, ptr %433, align 8, !tbaa !511
@@ -55695,7 +55680,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_replace_pps(ptr n
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 312
   %17 = zext i8 %8 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   tail call void @av_refstruct_replace(ptr noundef nonnull %18, ptr noundef nonnull %13) #12
   br label %19
 
@@ -57474,7 +57459,7 @@ cbs_h266_read_general_constraints_info.exit:      ; preds = %674
 
 736:                                              ; preds = %731
   %737 = load i32, ptr %94, align 4, !tbaa !63
-  %738 = getelementptr inbounds nuw i32, ptr %730, i64 %indvars.iv175
+  %738 = getelementptr inbounds nuw [4 x i8], ptr %730, i64 %indvars.iv175
   store i32 %737, ptr %738, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
@@ -58019,7 +58004,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_ols_timing_h
 51:                                               ; preds = %47
   %52 = load i32, ptr %11, align 4, !tbaa !63
   %53 = trunc i32 %52 to i16
-  %54 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv
   store i16 %53, ptr %54, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %55 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv
@@ -58112,20 +58097,20 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sublayer_hrd
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = zext nneg i32 %3 to i64
-  %20 = getelementptr inbounds nuw [32 x i32], ptr %2, i64 %19
+  %20 = getelementptr inbounds nuw [128 x i8], ptr %2, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 896
-  %24 = getelementptr inbounds nuw [32 x i32], ptr %23, i64 %19
+  %24 = getelementptr inbounds nuw [128 x i8], ptr %23, i64 %19
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 11
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 1792
-  %29 = getelementptr inbounds nuw [32 x i32], ptr %28, i64 %19
+  %29 = getelementptr inbounds nuw [128 x i8], ptr %28, i64 %19
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 2688
-  %33 = getelementptr inbounds nuw [32 x i32], ptr %32, i64 %19
+  %33 = getelementptr inbounds nuw [128 x i8], ptr %32, i64 %19
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 3584
@@ -58149,7 +58134,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sublayer_hrd
 
 43:                                               ; preds = %38
   %44 = load i32, ptr %6, align 4, !tbaa !63
-  %45 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   store i32 %44, ptr %45, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -58166,7 +58151,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sublayer_hrd
 
 49:                                               ; preds = %43
   %50 = load i32, ptr %8, align 4, !tbaa !63
-  %51 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   store i32 %50, ptr %51, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %52 = load i8, ptr %25, align 1, !tbaa !1457
@@ -58188,7 +58173,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sublayer_hrd
 
 57:                                               ; preds = %53
   %58 = load i32, ptr %10, align 4, !tbaa !63
-  %59 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   store i32 %58, ptr %59, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -58201,7 +58186,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_sublayer_hrd
 
 .thread78:                                        ; preds = %57
   %62 = load i32, ptr %12, align 4, !tbaa !63
-  %63 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   store i32 %62, ptr %63, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %65
@@ -58262,7 +58247,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_ref_pic_list
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %25 = load i8, ptr %24, align 1, !tbaa !1213
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !1214
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %34, label %.preheader206
@@ -59513,7 +59498,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_picture_head
   %130 = getelementptr inbounds nuw i8, ptr %82, i64 312
   %.mask = and i32 %127, 255
   %131 = zext nneg i32 %.mask to i64
-  %132 = getelementptr inbounds nuw ptr, ptr %130, i64 %131
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !494
   %.not944 = icmp eq ptr %133, null
   br i1 %.not944, label %134, label %136
@@ -59528,7 +59513,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_picture_head
   %138 = getelementptr inbounds nuw i8, ptr %133, i64 5
   %139 = load i8, ptr %138, align 1, !tbaa !496
   %140 = zext i8 %139 to i64
-  %141 = getelementptr inbounds nuw ptr, ptr %137, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !498
   %.not945 = icmp eq ptr %142, null
   br i1 %.not945, label %143, label %146
@@ -59544,7 +59529,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_picture_head
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 5
   %149 = load i8, ptr %148, align 1, !tbaa !1213
   %150 = zext i8 %149 to i64
-  %151 = getelementptr inbounds nuw ptr, ptr %147, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !1214
   %.not946 = icmp eq ptr %152, null
   br i1 %.not946, label %153, label %156
@@ -60139,7 +60124,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_picture_head
 414:                                              ; preds = %404
   %415 = load i32, ptr %34, align 4, !tbaa !63
   %416 = trunc i32 %415 to i16
-  %417 = getelementptr inbounds nuw i16, ptr %403, i64 %indvars.iv1236
+  %417 = getelementptr inbounds nuw [2 x i8], ptr %403, i64 %indvars.iv1236
   store i16 %416, ptr %417, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %indvars.iv.next1237 = add nuw nsw i64 %indvars.iv1236, 1
@@ -60199,7 +60184,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_picture_head
 444:                                              ; preds = %434
   %445 = load i32, ptr %37, align 4, !tbaa !63
   %446 = trunc i32 %445 to i16
-  %447 = getelementptr inbounds nuw i16, ptr %433, i64 %indvars.iv1239
+  %447 = getelementptr inbounds nuw [2 x i8], ptr %433, i64 %indvars.iv1239
   store i16 %446, ptr %447, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   %indvars.iv.next1240 = add nuw nsw i64 %indvars.iv1239, 1
@@ -60865,7 +60850,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_picture_head
 796:                                              ; preds = %793, %790
   %.not9881334 = phi i64 [ 1, %793 ], [ 0, %790 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
-  %797 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %777, i64 %.not9881334
+  %797 = getelementptr inbounds nuw [176 x i8], ptr %777, i64 %.not9881334
   %798 = load i8, ptr %797, align 2, !tbaa !554
   %799 = zext i8 %798 to i32
   %800 = add nsw i32 %799, -1
@@ -61637,15 +61622,15 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_ref_pic_list
 
 89:                                               ; preds = %.thread155, %82, %.thread158.thread
   %90 = phi i8 [ %77, %.thread155 ], [ 0, %82 ], [ %.pre196, %.thread158.thread ]
-  %91 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %23, i64 %indvars.iv192
-  %92 = getelementptr inbounds nuw [64 x %struct.H266RefPicListStruct], ptr %24, i64 %indvars.iv192
+  %91 = getelementptr inbounds nuw [176 x i8], ptr %23, i64 %indvars.iv192
+  %92 = getelementptr inbounds nuw [11264 x i8], ptr %24, i64 %indvars.iv192
   %93 = zext i8 %90 to i64
-  %94 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [176 x i8], ptr %92, i64 %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(176) %91, ptr noundef nonnull align 1 dereferenceable(176) %94, i64 176, i1 false)
   br label %101
 
 95:                                               ; preds = %54
-  %96 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %23, i64 %indvars.iv192
+  %96 = getelementptr inbounds nuw [176 x i8], ptr %23, i64 %indvars.iv192
   %97 = trunc nuw nsw i64 %indvars.iv192 to i8
   %98 = load i8, ptr %37, align 1, !tbaa !25
   %99 = call fastcc i32 @cbs_h266_read_ref_pic_list_struct(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %96, i8 noundef zeroext %97, i8 noundef zeroext %98, ptr noundef nonnull %2)
@@ -61653,7 +61638,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_ref_pic_list
   br i1 %100, label %.loopexit, label %101
 
 101:                                              ; preds = %95, %89
-  %102 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %23, i64 %indvars.iv192
+  %102 = getelementptr inbounds nuw [176 x i8], ptr %23, i64 %indvars.iv192
   %103 = load i8, ptr %102, align 1, !tbaa !554
   %.not179 = icmp eq i8 %103, 0
   br i1 %.not179, label %._crit_edge, label %.lr.ph
@@ -61670,9 +61655,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_ref_pic_list
 
 .lr.ph174:                                        ; preds = %.preheader
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 1
-  %108 = getelementptr inbounds nuw [29 x i16], ptr %28, i64 %indvars.iv192
+  %108 = getelementptr inbounds nuw [58 x i8], ptr %28, i64 %indvars.iv192
   %109 = getelementptr inbounds nuw [29 x i8], ptr %31, i64 %indvars.iv192
-  %110 = getelementptr inbounds nuw [29 x i16], ptr %34, i64 %indvars.iv192
+  %110 = getelementptr inbounds nuw [58 x i8], ptr %34, i64 %indvars.iv192
   %wide.trip.count190 = zext nneg i32 %.1136 to i64
   %111 = trunc nuw nsw i64 %indvars.iv192 to i32
   %.pre198 = trunc nuw nsw i64 %indvars.iv192 to i32
@@ -61730,7 +61715,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_ref_pic_list
 .thread159:                                       ; preds = %122
   %133 = load i32, ptr %10, align 4, !tbaa !63
   %134 = trunc i32 %133 to i16
-  %135 = getelementptr inbounds nuw i16, ptr %108, i64 %indvars.iv187
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %108, i64 %indvars.iv187
   store i16 %134, ptr %135, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %137
@@ -61779,7 +61764,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_ref_pic_list
 .thread164:                                       ; preds = %145
   %152 = load i32, ptr %14, align 4, !tbaa !63
   %153 = trunc i32 %152 to i16
-  %154 = getelementptr inbounds nuw i16, ptr %110, i64 %indvars.iv187
+  %154 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %indvars.iv187
   store i16 %153, ptr %154, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %156
@@ -62063,7 +62048,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pred_weight_
 
 .preheader301:                                    ; preds = %136
   %139 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %indvars.iv378
-  %140 = getelementptr inbounds nuw [2 x i16], ptr %114, i64 %indvars.iv378
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv378
   %141 = trunc nuw nsw i64 %indvars.iv378 to i32
   br label %142
 
@@ -62104,7 +62089,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pred_weight_
 155:                                              ; preds = %148
   %156 = load i32, ptr %21, align 4, !tbaa !63
   %157 = trunc i32 %156 to i16
-  %158 = getelementptr inbounds nuw i16, ptr %140, i64 %indvars.iv375
+  %158 = getelementptr inbounds nuw [2 x i8], ptr %140, i64 %indvars.iv375
   store i16 %157, ptr %158, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br i1 %143, label %142, label %.loopexit302, !llvm.loop !1539
@@ -62325,7 +62310,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pred_weight_
 
 .preheader:                                       ; preds = %250
   %253 = getelementptr inbounds nuw [2 x i8], ptr %225, i64 %indvars.iv390
-  %254 = getelementptr inbounds nuw [2 x i16], ptr %228, i64 %indvars.iv390
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %228, i64 %indvars.iv390
   %255 = trunc nuw nsw i64 %indvars.iv390 to i32
   br label %256
 
@@ -62366,7 +62351,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_pred_weight_
 269:                                              ; preds = %262
   %270 = load i32, ptr %34, align 4, !tbaa !63
   %271 = trunc i32 %270 to i16
-  %272 = getelementptr inbounds nuw i16, ptr %254, i64 %indvars.iv387
+  %272 = getelementptr inbounds nuw [2 x i8], ptr %254, i64 %indvars.iv387
   store i16 %271, ptr %272, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   br i1 %257, label %256, label %.loopexit, !llvm.loop !1545
@@ -62982,13 +62967,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sps(ptr nou
   %371 = sub nsw i32 0, %365
   %372 = ashr i32 %371, %82
   %373 = ashr i32 %.neg3079, %82
-  %374 = getelementptr inbounds nuw i16, ptr %265, i64 %indvars.iv
+  %374 = getelementptr inbounds nuw [2 x i8], ptr %265, i64 %indvars.iv
   %375 = load i16, ptr %374, align 2, !tbaa !129
   %376 = zext i16 %375 to i32
   %377 = add nsw i32 %370, %376
   %378 = sub nsw i32 0, %377
   %spec.select = call i32 @llvm.smax.i32(i32 %378, i32 0)
-  %379 = getelementptr inbounds nuw i16, ptr %271, i64 %indvars.iv
+  %379 = getelementptr inbounds nuw [2 x i8], ptr %271, i64 %indvars.iv
   %380 = load i16, ptr %379, align 2, !tbaa !129
   %381 = zext i16 %380 to i32
   %382 = add nsw i32 %372, %381
@@ -63077,7 +63062,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sps(ptr nou
   br i1 %427, label %428, label %435
 
 428:                                              ; preds = %424
-  %429 = getelementptr inbounds nuw i16, ptr %336, i64 %indvars.iv
+  %429 = getelementptr inbounds nuw [2 x i8], ptr %336, i64 %indvars.iv
   %430 = load i16, ptr %429, align 2, !tbaa !129
   %431 = zext i16 %430 to i32
   store i32 1, ptr %10, align 4, !tbaa !63
@@ -63093,7 +63078,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sps(ptr nou
   br label %443
 
 435:                                              ; preds = %414, %424
-  %436 = getelementptr inbounds nuw i16, ptr %336, i64 %indvars.iv
+  %436 = getelementptr inbounds nuw [2 x i8], ptr %336, i64 %indvars.iv
   %437 = load i16, ptr %436, align 2, !tbaa !129
   %438 = zext i16 %437 to i32
   %.not2272 = icmp eq i32 %419, %438
@@ -63118,7 +63103,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sps(ptr nou
   br i1 %448, label %457, label %449
 
 449:                                              ; preds = %443, %445
-  %450 = getelementptr inbounds nuw i16, ptr %337, i64 %indvars.iv
+  %450 = getelementptr inbounds nuw [2 x i8], ptr %337, i64 %indvars.iv
   %451 = load i16, ptr %450, align 2, !tbaa !129
   %452 = zext i16 %451 to i32
   %.not2273 = icmp eq i32 %420, %452
@@ -63132,7 +63117,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sps(ptr nou
   br label %.thread
 
 457:                                              ; preds = %445
-  %458 = getelementptr inbounds nuw i16, ptr %337, i64 %indvars.iv
+  %458 = getelementptr inbounds nuw [2 x i8], ptr %337, i64 %indvars.iv
   %459 = load i16, ptr %458, align 2, !tbaa !129
   %460 = zext i16 %459 to i32
   store i32 1, ptr %11, align 4, !tbaa !63
@@ -63167,7 +63152,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sps(ptr nou
   br i1 %.not2276, label %479, label %.thread
 
 479:                                              ; preds = %472
-  %480 = getelementptr inbounds nuw i16, ptr %265, i64 %indvars.iv
+  %480 = getelementptr inbounds nuw [2 x i8], ptr %265, i64 %indvars.iv
   %481 = load i16, ptr %480, align 2, !tbaa !129
   %482 = zext i16 %481 to i32
   %483 = trunc nuw nsw i64 %indvars.iv to i32
@@ -63185,7 +63170,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sps(ptr nou
   br label %.thread
 
 491:                                              ; preds = %479
-  %492 = getelementptr inbounds nuw i16, ptr %271, i64 %indvars.iv
+  %492 = getelementptr inbounds nuw [2 x i8], ptr %271, i64 %indvars.iv
   %493 = load i16, ptr %492, align 2, !tbaa !129
   %494 = zext i16 %493 to i32
   %495 = mul nsw i32 %485, %476
@@ -63200,7 +63185,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sps(ptr nou
   br label %.thread
 
 500:                                              ; preds = %491
-  %501 = getelementptr inbounds nuw i16, ptr %336, i64 %indvars.iv
+  %501 = getelementptr inbounds nuw [2 x i8], ptr %336, i64 %indvars.iv
   %502 = load i16, ptr %501, align 2, !tbaa !129
   %.not2279 = icmp eq i16 %502, %465
   br i1 %.not2279, label %507, label %503
@@ -63213,7 +63198,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sps(ptr nou
   br label %.thread
 
 507:                                              ; preds = %500
-  %508 = getelementptr inbounds nuw i16, ptr %337, i64 %indvars.iv
+  %508 = getelementptr inbounds nuw [2 x i8], ptr %337, i64 %indvars.iv
   %509 = load i16, ptr %508, align 2, !tbaa !129
   %.not2280 = icmp eq i16 %509, %474
   br i1 %.not2280, label %.thread2416, label %510
@@ -63394,7 +63379,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sps(ptr nou
 
 602:                                              ; preds = %.preheader2465, %599
   %indvars.iv2624 = phi i64 [ 0, %.preheader2465 ], [ %indvars.iv.next2625, %599 ]
-  %603 = getelementptr inbounds nuw i32, ptr %597, i64 %indvars.iv2624
+  %603 = getelementptr inbounds nuw [4 x i8], ptr %597, i64 %indvars.iv2624
   %604 = load i32, ptr %603, align 4, !tbaa !63
   %605 = load i8, ptr %568, align 4, !tbaa !509
   %606 = zext i8 %605 to i32
@@ -64348,7 +64333,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sps(ptr nou
   br i1 %.not2549, label %._crit_edge2534, label %.lr.ph2533
 
 .lr.ph2533:                                       ; preds = %.preheader2451
-  %1170 = getelementptr inbounds nuw [64 x %struct.H266RefPicListStruct], ptr %1160, i64 %indvars.iv2642
+  %1170 = getelementptr inbounds nuw [11264 x i8], ptr %1160, i64 %indvars.iv2642
   %1171 = trunc nuw nsw i64 %indvars.iv2642 to i8
   br label %1176
 
@@ -64361,7 +64346,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sps(ptr nou
 
 1176:                                             ; preds = %.lr.ph2533, %1172
   %indvars.iv2639 = phi i64 [ 0, %.lr.ph2533 ], [ %indvars.iv.next2640, %1172 ]
-  %1177 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %1170, i64 %indvars.iv2639
+  %1177 = getelementptr inbounds nuw [176 x i8], ptr %1170, i64 %indvars.iv2639
   %1178 = trunc nuw i64 %indvars.iv2639 to i8
   %1179 = call fastcc i32 @cbs_h266_write_ref_pic_list_struct(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1177, i8 noundef zeroext %1171, i8 noundef zeroext %1178, ptr noundef nonnull %2)
   %1180 = icmp slt i32 %1179, 0
@@ -64390,8 +64375,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sps(ptr nou
 
 1188:                                             ; preds = %.lr.ph2540, %1188
   %indvars.iv2645 = phi i64 [ 0, %.lr.ph2540 ], [ %indvars.iv.next2646, %1188 ]
-  %1189 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %1187, i64 %indvars.iv2645
-  %1190 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %1160, i64 %indvars.iv2645
+  %1189 = getelementptr inbounds nuw [176 x i8], ptr %1187, i64 %indvars.iv2645
+  %1190 = getelementptr inbounds nuw [176 x i8], ptr %1160, i64 %indvars.iv2645
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(176) %1189, ptr noundef nonnull align 1 dereferenceable(176) %1190, i64 176, i1 false)
   %indvars.iv.next2646 = add nuw nsw i64 %indvars.iv2645, 1
   %exitcond2649.not = icmp eq i64 %indvars.iv.next2646, %wide.trip.count2648
@@ -64988,7 +64973,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sps(ptr nou
   br i1 %1551, label %1552, label %.thread
 
 1552:                                             ; preds = %1545
-  %1553 = getelementptr inbounds nuw i16, ptr %1540, i64 %indvars.iv2650
+  %1553 = getelementptr inbounds nuw [2 x i8], ptr %1540, i64 %indvars.iv2650
   %1554 = load i16, ptr %1553, align 2, !tbaa !129
   %1555 = zext i16 %1554 to i32
   store i32 1, ptr %23, align 4, !tbaa !63
@@ -65143,7 +65128,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sps(ptr nou
 
 1645:                                             ; preds = %.lr.ph2543, %1641
   %indvars.iv2653 = phi i64 [ 0, %.lr.ph2543 ], [ %indvars.iv.next2654, %1641 ]
-  %1646 = getelementptr inbounds nuw i16, ptr %1639, i64 %indvars.iv2653
+  %1646 = getelementptr inbounds nuw [2 x i8], ptr %1639, i64 %indvars.iv2653
   %1647 = load i16, ptr %1646, align 2, !tbaa !129
   %1648 = zext i16 %1647 to i32
   store i32 1, ptr %24, align 4, !tbaa !63
@@ -65188,7 +65173,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sps(ptr nou
 
 1672:                                             ; preds = %.lr.ph2546, %1668
   %indvars.iv2656 = phi i64 [ 0, %.lr.ph2546 ], [ %indvars.iv.next2657, %1668 ]
-  %1673 = getelementptr inbounds nuw i16, ptr %1666, i64 %indvars.iv2656
+  %1673 = getelementptr inbounds nuw [2 x i8], ptr %1666, i64 %indvars.iv2656
   %1674 = load i16, ptr %1673, align 2, !tbaa !129
   %1675 = zext i16 %1674 to i32
   store i32 1, ptr %25, align 4, !tbaa !63
@@ -66486,7 +66471,7 @@ cbs_h266_write_general_constraints_info.exit:     ; preds = %526
 
 587:                                              ; preds = %.lr.ph146, %583
   %indvars.iv166 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next167, %583 ]
-  %588 = getelementptr inbounds nuw i32, ptr %580, i64 %indvars.iv166
+  %588 = getelementptr inbounds nuw [4 x i8], ptr %580, i64 %indvars.iv166
   %589 = load i32, ptr %588, align 4, !tbaa !63
   store i32 1, ptr %9, align 4, !tbaa !63
   %590 = trunc nuw nsw i64 %indvars.iv166 to i32
@@ -66815,7 +66800,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_ols_timing_
   br i1 %44, label %56, label %.thread
 
 .thread:                                          ; preds = %39, %43
-  %45 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv
   %46 = load i16, ptr %45, align 2, !tbaa !129
   %47 = zext i16 %46 to i32
   store i32 1, ptr %9, align 4, !tbaa !63
@@ -66911,13 +66896,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sublayer_hr
   %9 = alloca [3 x i32], align 4
   %10 = alloca [3 x i32], align 4
   %11 = zext nneg i32 %3 to i64
-  %12 = getelementptr inbounds nuw [32 x i32], ptr %2, i64 %11
+  %12 = getelementptr inbounds nuw [128 x i8], ptr %2, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 896
-  %14 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 %11
+  %14 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 %11
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 1792
-  %16 = getelementptr inbounds nuw [32 x i32], ptr %15, i64 %11
+  %16 = getelementptr inbounds nuw [128 x i8], ptr %15, i64 %11
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 2688
-  %18 = getelementptr inbounds nuw [32 x i32], ptr %17, i64 %11
+  %18 = getelementptr inbounds nuw [128 x i8], ptr %17, i64 %11
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -66943,7 +66928,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sublayer_hr
 
 36:                                               ; preds = %5, %33
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %33 ]
-  %37 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !63
   store i32 2, ptr %6, align 4, !tbaa !63
   store i32 %3, ptr %20, align 4, !tbaa !63
@@ -66954,7 +66939,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sublayer_hr
   br i1 %41, label %42, label %65
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4, !tbaa !63
   store i32 2, ptr %7, align 4, !tbaa !63
   store i32 %3, ptr %22, align 4, !tbaa !63
@@ -66969,7 +66954,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sublayer_hr
   br i1 %.not74, label %59, label %49
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !63
   store i32 2, ptr %8, align 4, !tbaa !63
   store i32 %3, ptr %25, align 4, !tbaa !63
@@ -66979,7 +66964,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_sublayer_hr
   br i1 %53, label %54, label %65
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4, !tbaa !63
   store i32 2, ptr %9, align 4, !tbaa !63
   store i32 %3, ptr %27, align 4, !tbaa !63
@@ -67018,7 +67003,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_ref_pic_lis
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %17 = load i8, ptr %16, align 1, !tbaa !1213
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !1214
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %26, label %.preheader209
@@ -68049,7 +68034,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_picture_hea
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 312
   %60 = load i8, ptr %53, align 1, !tbaa !493
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %59, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !494
   %.not1171 = icmp eq ptr %63, null
   br i1 %.not1171, label %64, label %67
@@ -68065,7 +68050,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_picture_hea
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 5
   %70 = load i8, ptr %69, align 1, !tbaa !496
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %68, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !498
   %.not1172 = icmp eq ptr %73, null
   br i1 %.not1172, label %74, label %77
@@ -68081,7 +68066,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_picture_hea
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 5
   %80 = load i8, ptr %79, align 1, !tbaa !1213
   %81 = zext i8 %80 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %78, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !1214
   %.not1173 = icmp eq ptr %83, null
   br i1 %.not1173, label %84, label %87
@@ -68546,7 +68531,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_picture_hea
 
 348:                                              ; preds = %.lr.ph1325, %344
   %indvars.iv1352 = phi i64 [ 0, %.lr.ph1325 ], [ %indvars.iv.next1353, %344 ]
-  %349 = getelementptr inbounds nuw i16, ptr %342, i64 %indvars.iv1352
+  %349 = getelementptr inbounds nuw [2 x i8], ptr %342, i64 %indvars.iv1352
   %350 = load i16, ptr %349, align 2, !tbaa !129
   %351 = zext i16 %350 to i32
   store i32 1, ptr %6, align 4, !tbaa !63
@@ -68592,7 +68577,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_picture_hea
 
 376:                                              ; preds = %.lr.ph1328, %372
   %indvars.iv1355 = phi i64 [ 0, %.lr.ph1328 ], [ %indvars.iv.next1356, %372 ]
-  %377 = getelementptr inbounds nuw i16, ptr %370, i64 %indvars.iv1355
+  %377 = getelementptr inbounds nuw [2 x i8], ptr %370, i64 %indvars.iv1355
   %378 = load i16, ptr %377, align 2, !tbaa !129
   %379 = zext i16 %378 to i32
   store i32 1, ptr %7, align 4, !tbaa !63
@@ -69304,7 +69289,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_picture_hea
   %817 = getelementptr inbounds nuw i8, ptr %2, i64 733
   %818 = load i8, ptr %817, align 1, !tbaa !565
   %819 = zext i8 %818 to i32
-  %820 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %796, i64 %.not12471534
+  %820 = getelementptr inbounds nuw [176 x i8], ptr %796, i64 %.not12471534
   %821 = load i8, ptr %820, align 2, !tbaa !554
   %822 = zext i8 %821 to i32
   %823 = add nsw i32 %822, -1
@@ -70097,17 +70082,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_ref_pic_lis
   br label %.loopexit
 
 100:                                              ; preds = %84, %.thread175.thread, %66
-  %101 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %18, i64 %indvars.iv205
-  %102 = getelementptr inbounds nuw [64 x %struct.H266RefPicListStruct], ptr %19, i64 %indvars.iv205
+  %101 = getelementptr inbounds nuw [176 x i8], ptr %18, i64 %indvars.iv205
+  %102 = getelementptr inbounds nuw [11264 x i8], ptr %19, i64 %indvars.iv205
   %103 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv205
   %104 = load i8, ptr %103, align 1, !tbaa !25
   %105 = zext i8 %104 to i64
-  %106 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %102, i64 %105
+  %106 = getelementptr inbounds nuw [176 x i8], ptr %102, i64 %105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(176) %101, ptr noundef nonnull align 1 dereferenceable(176) %106, i64 176, i1 false)
   br label %113
 
 107:                                              ; preds = %57
-  %108 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %18, i64 %indvars.iv205
+  %108 = getelementptr inbounds nuw [176 x i8], ptr %18, i64 %indvars.iv205
   %109 = trunc nuw nsw i64 %indvars.iv205 to i8
   %110 = load i8, ptr %32, align 1, !tbaa !25
   %111 = call fastcc i32 @cbs_h266_write_ref_pic_list_struct(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %108, i8 noundef zeroext %109, i8 noundef zeroext %110, ptr noundef nonnull %2)
@@ -70115,7 +70100,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_ref_pic_lis
   br i1 %112, label %.loopexit, label %113
 
 113:                                              ; preds = %107, %100
-  %114 = getelementptr inbounds nuw %struct.H266RefPicListStruct, ptr %18, i64 %indvars.iv205
+  %114 = getelementptr inbounds nuw [176 x i8], ptr %18, i64 %indvars.iv205
   %115 = load i8, ptr %114, align 1, !tbaa !554
   %.not191 = icmp eq i8 %115, 0
   br i1 %.not191, label %._crit_edge, label %.lr.ph
@@ -70132,9 +70117,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_ref_pic_lis
 
 .lr.ph186:                                        ; preds = %.preheader
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 1
-  %120 = getelementptr inbounds nuw [29 x i16], ptr %20, i64 %indvars.iv205
+  %120 = getelementptr inbounds nuw [58 x i8], ptr %20, i64 %indvars.iv205
   %121 = getelementptr inbounds nuw [29 x i8], ptr %24, i64 %indvars.iv205
-  %122 = getelementptr inbounds nuw [29 x i16], ptr %27, i64 %indvars.iv205
+  %122 = getelementptr inbounds nuw [58 x i8], ptr %27, i64 %indvars.iv205
   %wide.trip.count203 = zext nneg i32 %.1150 to i64
   %123 = trunc nuw nsw i64 %indvars.iv205 to i32
   %.pre210 = trunc nuw nsw i64 %indvars.iv205 to i32
@@ -70173,7 +70158,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_ref_pic_lis
   br label %148
 
 134:                                              ; preds = %132
-  %135 = getelementptr inbounds nuw i16, ptr %120, i64 %indvars.iv200
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %120, i64 %indvars.iv200
   %136 = load i16, ptr %135, align 2, !tbaa !129
   %137 = zext i16 %136 to i32
   %138 = load i8, ptr %21, align 1, !tbaa !1226
@@ -70214,7 +70199,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_ref_pic_lis
   %158 = zext i8 %157 to i32
   %159 = sub nsw i32 28, %158
   %160 = shl nuw nsw i32 1, %159
-  %161 = getelementptr inbounds nuw i16, ptr %122, i64 %indvars.iv200
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %122, i64 %indvars.iv200
   %162 = load i16, ptr %161, align 2, !tbaa !129
   %163 = zext i16 %162 to i32
   store i32 2, ptr %10, align 4, !tbaa !63
@@ -70472,7 +70457,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_pred_weight
 
 .preheader317:                                    ; preds = %137
   %140 = getelementptr inbounds nuw [2 x i8], ptr %105, i64 %indvars.iv398
-  %141 = getelementptr inbounds nuw [2 x i16], ptr %108, i64 %indvars.iv398
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %indvars.iv398
   %142 = trunc nuw nsw i64 %indvars.iv398 to i32
   br label %144
 
@@ -70494,7 +70479,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_pred_weight
   br i1 %151, label %152, label %.loopexit310
 
 152:                                              ; preds = %144
-  %153 = getelementptr inbounds nuw i16, ptr %141, i64 %indvars.iv395
+  %153 = getelementptr inbounds nuw [2 x i8], ptr %141, i64 %indvars.iv395
   %154 = load i16, ptr %153, align 2, !tbaa !129
   %155 = sext i16 %154 to i32
   store i32 2, ptr %13, align 4, !tbaa !63
@@ -70726,7 +70711,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_pred_weight
 
 .preheader:                                       ; preds = %269
   %272 = getelementptr inbounds nuw [2 x i8], ptr %237, i64 %indvars.iv410
-  %273 = getelementptr inbounds nuw [2 x i16], ptr %240, i64 %indvars.iv410
+  %273 = getelementptr inbounds nuw [4 x i8], ptr %240, i64 %indvars.iv410
   %274 = trunc nuw nsw i64 %indvars.iv410 to i32
   br label %276
 
@@ -70748,7 +70733,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_pred_weight
   br i1 %283, label %284, label %.loopexit310
 
 284:                                              ; preds = %276
-  %285 = getelementptr inbounds nuw i16, ptr %273, i64 %indvars.iv407
+  %285 = getelementptr inbounds nuw [2 x i8], ptr %273, i64 %indvars.iv407
   %286 = load i16, ptr %285, align 2, !tbaa !129
   %287 = sext i16 %286 to i32
   store i32 2, ptr %19, align 4, !tbaa !63
@@ -70828,7 +70813,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_sei_buffering_perio
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %.mask.i = and i32 %19, 255
   %22 = zext nneg i32 %.mask.i to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !107
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %25, label %27
@@ -70878,7 +70863,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_sei_buffering_perio
 
 48:                                               ; preds = %37
   %49 = load i32, ptr %6, align 4, !tbaa !63
-  %50 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i
   store i32 %49, ptr %50, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -70894,7 +70879,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_sei_buffering_perio
 
 54:                                               ; preds = %48
   %55 = load i32, ptr %8, align 4, !tbaa !63
-  %56 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.i
   store i32 %55, ptr %56, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -70941,7 +70926,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_sei_buffering_perio
 
 78:                                               ; preds = %67
   %79 = load i32, ptr %10, align 4, !tbaa !63
-  %80 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv31.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv31.i
   store i32 %79, ptr %80, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -70957,7 +70942,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_sei_buffering_perio
 
 84:                                               ; preds = %78
   %85 = load i32, ptr %12, align 4, !tbaa !63
-  %86 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv31.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv31.i
   store i32 %85, ptr %86, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
@@ -71002,7 +70987,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_sei_buffering_peri
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %17 = load i8, ptr %2, align 4, !tbaa !1592
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !107
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %21, label %24
@@ -71042,7 +71027,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_sei_buffering_peri
   %38 = load i8, ptr %29, align 4, !tbaa !1596
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 1
-  %41 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i
   %42 = load i32, ptr %41, align 4, !tbaa !63
   store i32 1, ptr %5, align 4, !tbaa !63
   %43 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -71056,7 +71041,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_sei_buffering_peri
   br i1 %48, label %49, label %cbs_h264_write_sei_buffering_period.exit
 
 49:                                               ; preds = %37
-  %50 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.i
   %51 = load i32, ptr %50, align 4, !tbaa !63
   store i32 1, ptr %6, align 4, !tbaa !63
   store i32 %43, ptr %33, align 4, !tbaa !63
@@ -71091,7 +71076,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_sei_buffering_peri
   %66 = load i8, ptr %56, align 4, !tbaa !1600
   %67 = zext i8 %66 to i32
   %68 = add nuw nsw i32 %67, 1
-  %69 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv10.i
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv10.i
   %70 = load i32, ptr %69, align 4, !tbaa !63
   store i32 1, ptr %7, align 4, !tbaa !63
   %71 = trunc nuw nsw i64 %indvars.iv10.i to i32
@@ -71105,7 +71090,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_sei_buffering_peri
   br i1 %76, label %77, label %cbs_h264_write_sei_buffering_period.exit
 
 77:                                               ; preds = %65
-  %78 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv10.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv10.i
   %79 = load i32, ptr %78, align 4, !tbaa !63
   store i32 1, ptr %8, align 4, !tbaa !63
   store i32 %71, ptr %61, align 4, !tbaa !63
@@ -71162,7 +71147,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_sei_pic_timing_inte
 32:                                               ; preds = %38, %.preheader30.i
   %indvars.iv.i = phi i64 [ 0, %.preheader30.i ], [ %indvars.iv.next.i, %38 ]
   %.073176.i = phi i32 [ -1, %.preheader30.i ], [ %.275.i, %38 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i
   %34 = load ptr, ptr %33, align 8, !tbaa !107
   %.not91.i = icmp eq ptr %34, null
   br i1 %.not91.i, label %38, label %35
@@ -71184,7 +71169,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_sei_pic_timing_inte
 
 41:                                               ; preds = %39
   %42 = zext nneg i32 %.275.i to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %31, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !107
   %.not92.i = icmp eq ptr %44, null
   br i1 %.not92.i, label %.thread2.i, label %.thread7.i
@@ -71303,7 +71288,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_sei_pic_timing_inte
   br i1 %.not98.i, label %cbs_h264_read_sei_pic_timestamp.exit.i, label %95
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds nuw %struct.H264RawSEIPicTimestamp, ptr %84, i64 %indvars.iv324.i
+  %96 = getelementptr inbounds nuw [20 x i8], ptr %84, i64 %indvars.iv324.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %97 = call i32 @ff_cbs_read_unsigned(ptr noundef %0, ptr noundef %1, i32 noundef 2, ptr noundef nonnull @.str.1204, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 2) #12
   %98 = icmp sgt i32 %97, -1
@@ -71647,7 +71632,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_sei_pic_timing_int
 11:                                               ; preds = %17, %.preheader22.i
   %indvars.iv.i = phi i64 [ 0, %.preheader22.i ], [ %indvars.iv.next.i, %17 ]
   %.08624.i = phi i32 [ -1, %.preheader22.i ], [ %.288.i, %17 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !107
   %.not95.i = icmp eq ptr %13, null
   br i1 %.not95.i, label %17, label %14
@@ -71669,7 +71654,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_sei_pic_timing_int
 
 20:                                               ; preds = %18
   %21 = zext nneg i32 %.288.i to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %10, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !107
   %.not96.i = icmp eq ptr %23, null
   br i1 %.not96.i, label %.thread2.i, label %.thread7.i
@@ -71759,7 +71744,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_sei_pic_timing_int
   br i1 %.not102.i, label %cbs_h264_write_sei_pic_timestamp.exit.i, label %73
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds nuw %struct.H264RawSEIPicTimestamp, ptr %62, i64 %indvars.iv64.i
+  %74 = getelementptr inbounds nuw [20 x i8], ptr %62, i64 %indvars.iv64.i
   %75 = load i8, ptr %74, align 4, !tbaa !1611
   %76 = zext i8 %75 to i32
   %77 = call i32 @ff_cbs_write_unsigned(ptr noundef %0, ptr noundef %1, i32 noundef 2, ptr noundef nonnull @.str.1204, ptr noundef null, i32 noundef %76, i32 noundef 0, i32 noundef 2) #12
@@ -72054,7 +72039,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_sei_pan_scan_rect_i
 
 48:                                               ; preds = %43
   %49 = load i32, ptr %8, align 4, !tbaa !63
-  %50 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.i
   store i32 %49, ptr %50, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -72070,7 +72055,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_sei_pan_scan_rect_i
 
 54:                                               ; preds = %48
   %55 = load i32, ptr %10, align 4, !tbaa !63
-  %56 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv.i
   store i32 %55, ptr %56, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -72086,7 +72071,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_sei_pan_scan_rect_i
 
 60:                                               ; preds = %54
   %61 = load i32, ptr %12, align 4, !tbaa !63
-  %62 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i
   store i32 %61, ptr %62, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -72102,7 +72087,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_sei_pan_scan_rect_i
 
 66:                                               ; preds = %60
   %67 = load i32, ptr %14, align 4, !tbaa !63
-  %68 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.i
   store i32 %67, ptr %68, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -72199,7 +72184,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_sei_pan_scan_rect_
 
 37:                                               ; preds = %34, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %34 ]
-  %38 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv.i
   %39 = load i32, ptr %38, align 4, !tbaa !63
   store i32 1, ptr %5, align 4, !tbaa !63
   %40 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -72209,7 +72194,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_sei_pan_scan_rect_
   br i1 %42, label %43, label %cbs_h264_write_sei_pan_scan_rect.exit
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i
   %45 = load i32, ptr %44, align 4, !tbaa !63
   store i32 1, ptr %6, align 4, !tbaa !63
   store i32 %40, ptr %29, align 4, !tbaa !63
@@ -72218,7 +72203,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_sei_pan_scan_rect_
   br i1 %47, label %48, label %cbs_h264_write_sei_pan_scan_rect.exit
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4, !tbaa !63
   store i32 1, ptr %7, align 4, !tbaa !63
   store i32 %40, ptr %31, align 4, !tbaa !63
@@ -72227,7 +72212,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_sei_pan_scan_rect_
   br i1 %52, label %53, label %cbs_h264_write_sei_pan_scan_rect.exit
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4, !tbaa !63
   store i32 1, ptr %8, align 4, !tbaa !63
   store i32 %40, ptr %33, align 4, !tbaa !63
@@ -72414,7 +72399,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_film_grain_characte
 35:                                               ; preds = %41, %.preheader51.i
   %indvars.iv.i = phi i64 [ 0, %.preheader51.i ], [ %indvars.iv.next.i, %41 ]
   %.019769.i = phi i32 [ -1, %.preheader51.i ], [ %.2199.i, %41 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8, !tbaa !107
   %.not245.i = icmp eq ptr %37, null
   br i1 %.not245.i, label %41, label %38
@@ -72436,7 +72421,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_film_grain_characte
 
 44:                                               ; preds = %42
   %45 = zext nneg i32 %.2199.i to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %34, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !107
   br label %.thread.i
 
@@ -72753,8 +72738,8 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_film_grain_characte
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %197 = getelementptr inbounds nuw [256 x i8], ptr %162, i64 %indvars.iv104.i
   %198 = getelementptr inbounds nuw [256 x i8], ptr %165, i64 %indvars.iv104.i
-  %199 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv104.i
-  %200 = getelementptr inbounds nuw [256 x [6 x i16]], ptr %169, i64 %indvars.iv104.i
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv104.i
+  %200 = getelementptr inbounds nuw [3072 x i8], ptr %169, i64 %indvars.iv104.i
   br label %201
 
 201:                                              ; preds = %236, %193
@@ -72800,7 +72785,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_film_grain_characte
   %217 = add nsw i32 %216, -1
   %notmask.i = shl nsw i32 -1, %216
   %218 = xor i32 %notmask.i, -1
-  %219 = getelementptr inbounds nuw [6 x i16], ptr %200, i64 %indvars.iv101.i
+  %219 = getelementptr inbounds nuw [12 x i8], ptr %200, i64 %indvars.iv101.i
   br label %220
 
 220:                                              ; preds = %230, %212
@@ -72827,7 +72812,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_read_film_grain_characte
 230:                                              ; preds = %220
   %231 = load i32, ptr %27, align 4, !tbaa !63
   %232 = trunc i32 %231 to i16
-  %233 = getelementptr inbounds nuw i16, ptr %219, i64 %indvars.iv98.i
+  %233 = getelementptr inbounds nuw [2 x i8], ptr %219, i64 %indvars.iv98.i
   store i16 %232, ptr %233, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
@@ -72918,7 +72903,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_film_grain_charact
 17:                                               ; preds = %23, %.preheader12.i
   %indvars.iv.i = phi i64 [ 0, %.preheader12.i ], [ %indvars.iv.next.i, %23 ]
   %.024015.i = phi i32 [ -1, %.preheader12.i ], [ %.2242.i, %23 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !107
   %.not280.i = icmp eq ptr %19, null
   br i1 %.not280.i, label %23, label %20
@@ -72940,7 +72925,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_film_grain_charact
 
 26:                                               ; preds = %24
   %27 = zext nneg i32 %.2242.i to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %16, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !107
   br label %.thread.i
 
@@ -73228,8 +73213,8 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_film_grain_charact
 .preheader5.i:                                    ; preds = %197
   %203 = getelementptr inbounds nuw [256 x i8], ptr %170, i64 %indvars.iv39.i
   %204 = getelementptr inbounds nuw [256 x i8], ptr %173, i64 %indvars.iv39.i
-  %205 = getelementptr inbounds nuw [256 x [6 x i16]], ptr %176, i64 %indvars.iv39.i
-  %206 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv39.i
+  %205 = getelementptr inbounds nuw [3072 x i8], ptr %176, i64 %indvars.iv39.i
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv39.i
   br label %207
 
 207:                                              ; preds = %239, %.preheader5.i
@@ -73257,7 +73242,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_film_grain_charact
   br i1 %219, label %.preheader.i, label %.thread2.i
 
 .preheader.i:                                     ; preds = %214
-  %220 = getelementptr inbounds nuw [6 x i16], ptr %205, i64 %indvars.iv36.i
+  %220 = getelementptr inbounds nuw [12 x i8], ptr %205, i64 %indvars.iv36.i
   %221 = load i32, ptr %206, align 4, !tbaa !63
   %222 = add nsw i32 %221, -1
   %notmask.i = shl nsw i32 -1, %221
@@ -73273,7 +73258,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h264_write_film_grain_charact
 
 227:                                              ; preds = %224, %.preheader.i
   %indvars.iv33.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next34.i, %224 ]
-  %228 = getelementptr inbounds nuw i16, ptr %220, i64 %indvars.iv33.i
+  %228 = getelementptr inbounds nuw [2 x i8], ptr %220, i64 %indvars.iv33.i
   %229 = load i16, ptr %228, align 2, !tbaa !129
   %230 = sext i16 %229 to i32
   store i32 3, ptr %11, align 4, !tbaa !63
@@ -74025,7 +74010,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_buffering_perio
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 184
   %.mask.i = and i32 %34, 255
   %37 = zext nneg i32 %.mask.i to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !240
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %40, label %42
@@ -74223,7 +74208,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_buffering_perio
 
 137:                                              ; preds = %126
   %138 = load i32, ptr %11, align 4, !tbaa !63
-  %139 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv.i
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %indvars.iv.i
   store i32 %138, ptr %139, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -74239,7 +74224,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_buffering_perio
 
 143:                                              ; preds = %137
   %144 = load i32, ptr %13, align 4, !tbaa !63
-  %145 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv.i
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv.i
   store i32 %144, ptr %145, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %146 = load i8, ptr %60, align 2, !tbaa !1001
@@ -74265,7 +74250,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_buffering_perio
 
 153:                                              ; preds = %149
   %154 = load i32, ptr %15, align 4, !tbaa !63
-  %155 = getelementptr inbounds nuw i32, ptr %123, i64 %indvars.iv.i
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %indvars.iv.i
   store i32 %154, ptr %155, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -74277,7 +74262,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_buffering_perio
 
 .thread254.i:                                     ; preds = %153
   %158 = load i32, ptr %17, align 4, !tbaa !63
-  %159 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv.i
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %indvars.iv.i
   store i32 %158, ptr %159, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %161
@@ -74335,7 +74320,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_buffering_perio
 
 187:                                              ; preds = %176
   %188 = load i32, ptr %19, align 4, !tbaa !63
-  %189 = getelementptr inbounds nuw i32, ptr %169, i64 %indvars.iv316.i
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %indvars.iv316.i
   store i32 %188, ptr %189, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -74351,7 +74336,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_buffering_perio
 
 193:                                              ; preds = %187
   %194 = load i32, ptr %21, align 4, !tbaa !63
-  %195 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv316.i
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %indvars.iv316.i
   store i32 %194, ptr %195, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %196 = load i8, ptr %60, align 2, !tbaa !1001
@@ -74377,7 +74362,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_buffering_perio
 
 203:                                              ; preds = %199
   %204 = load i32, ptr %23, align 4, !tbaa !63
-  %205 = getelementptr inbounds nuw i32, ptr %173, i64 %indvars.iv316.i
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %indvars.iv316.i
   store i32 %204, ptr %205, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
@@ -74389,7 +74374,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_buffering_perio
 
 .thread265.i:                                     ; preds = %203
   %208 = load i32, ptr %25, align 4, !tbaa !63
-  %209 = getelementptr inbounds nuw i32, ptr %175, i64 %indvars.iv316.i
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %indvars.iv316.i
   store i32 %208, ptr %209, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %211
@@ -74485,7 +74470,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_buffering_peri
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 184
   %21 = load i8, ptr %2, align 4, !tbaa !1693
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !240
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %25, label %28
@@ -74649,7 +74634,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_buffering_peri
   %117 = load i8, ptr %107, align 2, !tbaa !1009
   %118 = zext i8 %117 to i32
   %119 = add nuw nsw i32 %118, 1
-  %120 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv.i
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %indvars.iv.i
   %121 = load i32, ptr %120, align 4, !tbaa !63
   store i32 1, ptr %5, align 4, !tbaa !63
   %122 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -74663,7 +74648,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_buffering_peri
   br i1 %127, label %128, label %cbs_h265_write_sei_buffering_period.exit
 
 128:                                              ; preds = %116
-  %129 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv.i
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv.i
   %130 = load i32, ptr %129, align 4, !tbaa !63
   store i32 1, ptr %6, align 4, !tbaa !63
   store i32 %122, ptr %111, align 4, !tbaa !63
@@ -74682,7 +74667,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_buffering_peri
   br i1 %.not253.i, label %147, label %137
 
 137:                                              ; preds = %135, %133
-  %138 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv.i
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv.i
   %139 = load i32, ptr %138, align 4, !tbaa !63
   store i32 1, ptr %7, align 4, !tbaa !63
   store i32 %122, ptr %113, align 4, !tbaa !63
@@ -74691,7 +74676,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_buffering_peri
   br i1 %141, label %142, label %cbs_h265_write_sei_buffering_period.exit
 
 142:                                              ; preds = %137
-  %143 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv.i
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv.i
   %144 = load i32, ptr %143, align 4, !tbaa !63
   store i32 1, ptr %8, align 4, !tbaa !63
   store i32 %122, ptr %115, align 4, !tbaa !63
@@ -74730,7 +74715,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_buffering_peri
   %163 = load i8, ptr %153, align 2, !tbaa !1009
   %164 = zext i8 %163 to i32
   %165 = add nuw nsw i32 %164, 1
-  %166 = getelementptr inbounds nuw i32, ptr %154, i64 %indvars.iv264.i
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 %indvars.iv264.i
   %167 = load i32, ptr %166, align 4, !tbaa !63
   store i32 1, ptr %9, align 4, !tbaa !63
   %168 = trunc nuw nsw i64 %indvars.iv264.i to i32
@@ -74744,7 +74729,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_buffering_peri
   br i1 %173, label %174, label %cbs_h265_write_sei_buffering_period.exit
 
 174:                                              ; preds = %162
-  %175 = getelementptr inbounds nuw i32, ptr %156, i64 %indvars.iv264.i
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %indvars.iv264.i
   %176 = load i32, ptr %175, align 4, !tbaa !63
   store i32 1, ptr %10, align 4, !tbaa !63
   store i32 %168, ptr %157, align 4, !tbaa !63
@@ -74763,7 +74748,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_buffering_peri
   br i1 %.not250.i, label %193, label %183
 
 183:                                              ; preds = %181, %179
-  %184 = getelementptr inbounds nuw i32, ptr %158, i64 %indvars.iv264.i
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %158, i64 %indvars.iv264.i
   %185 = load i32, ptr %184, align 4, !tbaa !63
   store i32 1, ptr %11, align 4, !tbaa !63
   store i32 %168, ptr %159, align 4, !tbaa !63
@@ -74772,7 +74757,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_buffering_peri
   br i1 %187, label %188, label %cbs_h265_write_sei_buffering_period.exit
 
 188:                                              ; preds = %183
-  %189 = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv264.i
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %indvars.iv264.i
   %190 = load i32, ptr %189, align 4, !tbaa !63
   store i32 1, ptr %12, align 4, !tbaa !63
   store i32 %168, ptr %161, align 4, !tbaa !63
@@ -75103,7 +75088,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_pic_timing_inte
 150:                                              ; preds = %145
   %151 = load i32, ptr %14, align 4, !tbaa !63
   %152 = trunc i32 %151 to i16
-  %153 = getelementptr inbounds nuw i16, ptr %139, i64 %indvars.iv.i
+  %153 = getelementptr inbounds nuw [2 x i8], ptr %139, i64 %indvars.iv.i
   store i16 %152, ptr %153, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %154 = load i8, ptr %126, align 2, !tbaa !1717
@@ -75124,7 +75109,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_pic_timing_inte
 
 .thread29.i:                                      ; preds = %157
   %160 = load i32, ptr %16, align 4, !tbaa !63
-  %161 = getelementptr inbounds nuw i32, ptr %144, i64 %indvars.iv.i
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %indvars.iv.i
   store i32 %160, ptr %161, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.pre.i = load i16, ptr %119, align 4, !tbaa !1716
@@ -75369,7 +75354,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_pic_timing_int
 
 141:                                              ; preds = %157, %133
   %indvars.iv.i = phi i64 [ 0, %133 ], [ %indvars.iv.next.i, %157 ]
-  %142 = getelementptr inbounds nuw i16, ptr %134, i64 %indvars.iv.i
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %134, i64 %indvars.iv.i
   %143 = load i16, ptr %142, align 2, !tbaa !129
   %144 = zext i16 %143 to i32
   store i32 1, ptr %5, align 4, !tbaa !63
@@ -75389,7 +75374,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_pic_timing_int
   br i1 %or.cond.i, label %152, label %157
 
 152:                                              ; preds = %148
-  %153 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv.i
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %indvars.iv.i
   %154 = load i32, ptr %153, align 4, !tbaa !63
   store i32 1, ptr %6, align 4, !tbaa !63
   store i32 %145, ptr %137, align 4, !tbaa !63
@@ -75503,7 +75488,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_pan_scan_rect_i
 
 48:                                               ; preds = %43
   %49 = load i32, ptr %8, align 4, !tbaa !63
-  %50 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.i
   store i32 %49, ptr %50, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -75519,7 +75504,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_pan_scan_rect_i
 
 54:                                               ; preds = %48
   %55 = load i32, ptr %10, align 4, !tbaa !63
-  %56 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv.i
   store i32 %55, ptr %56, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -75535,7 +75520,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_pan_scan_rect_i
 
 60:                                               ; preds = %54
   %61 = load i32, ptr %12, align 4, !tbaa !63
-  %62 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i
   store i32 %61, ptr %62, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -75551,7 +75536,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_pan_scan_rect_i
 
 66:                                               ; preds = %60
   %67 = load i32, ptr %14, align 4, !tbaa !63
-  %68 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.i
   store i32 %67, ptr %68, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -75648,7 +75633,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_pan_scan_rect_
 
 37:                                               ; preds = %34, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %34 ]
-  %38 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv.i
   %39 = load i32, ptr %38, align 4, !tbaa !63
   store i32 1, ptr %5, align 4, !tbaa !63
   %40 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -75658,7 +75643,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_pan_scan_rect_
   br i1 %42, label %43, label %cbs_h265_write_sei_pan_scan_rect.exit
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i
   %45 = load i32, ptr %44, align 4, !tbaa !63
   store i32 1, ptr %6, align 4, !tbaa !63
   store i32 %40, ptr %29, align 4, !tbaa !63
@@ -75667,7 +75652,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_pan_scan_rect_
   br i1 %47, label %48, label %cbs_h265_write_sei_pan_scan_rect.exit
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4, !tbaa !63
   store i32 1, ptr %7, align 4, !tbaa !63
   store i32 %40, ptr %31, align 4, !tbaa !63
@@ -75676,7 +75661,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_pan_scan_rect_
   br i1 %52, label %53, label %cbs_h265_write_sei_pan_scan_rect.exit
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4, !tbaa !63
   store i32 1, ptr %8, align 4, !tbaa !63
   store i32 %40, ptr %33, align 4, !tbaa !63
@@ -76140,8 +76125,8 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_film_grain_characte
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %183 = getelementptr inbounds nuw [256 x i8], ptr %148, i64 %indvars.iv94.i
   %184 = getelementptr inbounds nuw [256 x i8], ptr %151, i64 %indvars.iv94.i
-  %185 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv94.i
-  %186 = getelementptr inbounds nuw [256 x [6 x i16]], ptr %155, i64 %indvars.iv94.i
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv94.i
+  %186 = getelementptr inbounds nuw [3072 x i8], ptr %155, i64 %indvars.iv94.i
   br label %187
 
 187:                                              ; preds = %222, %179
@@ -76187,7 +76172,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_film_grain_characte
   %203 = add nsw i32 %202, -1
   %notmask.i = shl nsw i32 -1, %202
   %204 = xor i32 %notmask.i, -1
-  %205 = getelementptr inbounds nuw [6 x i16], ptr %186, i64 %indvars.iv91.i
+  %205 = getelementptr inbounds nuw [12 x i8], ptr %186, i64 %indvars.iv91.i
   br label %206
 
 206:                                              ; preds = %216, %198
@@ -76214,7 +76199,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_film_grain_characte
 216:                                              ; preds = %206
   %217 = load i32, ptr %27, align 4, !tbaa !63
   %218 = trunc i32 %217 to i16
-  %219 = getelementptr inbounds nuw i16, ptr %205, i64 %indvars.iv88.i
+  %219 = getelementptr inbounds nuw [2 x i8], ptr %205, i64 %indvars.iv88.i
   store i16 %218, ptr %219, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
@@ -76577,8 +76562,8 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_film_grain_charact
 .preheader3.i:                                    ; preds = %183
   %189 = getelementptr inbounds nuw [256 x i8], ptr %156, i64 %indvars.iv29.i
   %190 = getelementptr inbounds nuw [256 x i8], ptr %159, i64 %indvars.iv29.i
-  %191 = getelementptr inbounds nuw [256 x [6 x i16]], ptr %162, i64 %indvars.iv29.i
-  %192 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv29.i
+  %191 = getelementptr inbounds nuw [3072 x i8], ptr %162, i64 %indvars.iv29.i
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv29.i
   br label %193
 
 193:                                              ; preds = %225, %.preheader3.i
@@ -76606,7 +76591,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_film_grain_charact
   br i1 %205, label %.preheader.i, label %.thread.i
 
 .preheader.i:                                     ; preds = %200
-  %206 = getelementptr inbounds nuw [6 x i16], ptr %191, i64 %indvars.iv26.i
+  %206 = getelementptr inbounds nuw [12 x i8], ptr %191, i64 %indvars.iv26.i
   %207 = load i32, ptr %192, align 4, !tbaa !63
   %208 = add nsw i32 %207, -1
   %notmask.i = shl nsw i32 -1, %207
@@ -76622,7 +76607,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_film_grain_charact
 
 213:                                              ; preds = %210, %.preheader.i
   %indvars.iv23.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next24.i, %210 ]
-  %214 = getelementptr inbounds nuw i16, ptr %206, i64 %indvars.iv23.i
+  %214 = getelementptr inbounds nuw [2 x i8], ptr %206, i64 %indvars.iv23.i
   %215 = load i16, ptr %214, align 2, !tbaa !129
   %216 = sext i16 %215 to i32
   store i32 3, ptr %11, align 4, !tbaa !63
@@ -76854,7 +76839,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_active_paramete
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %.mask.i = and i32 %18, 255
   %21 = zext nneg i32 %.mask.i to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !361
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %24, label %26
@@ -76990,7 +76975,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_active_paramete
   %86 = getelementptr inbounds nuw i8, ptr %49, i64 %85
   %87 = load i8, ptr %86, align 1, !tbaa !25
   %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %68, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !240
   store ptr %90, ptr %69, align 8, !tbaa !241
   br label %91
@@ -77033,7 +77018,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_active_paramet
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %15 = load i8, ptr %2, align 1, !tbaa !1763
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !361
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %19, label %22
@@ -77135,7 +77120,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_active_paramet
   %77 = getelementptr inbounds nuw i8, ptr %41, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !25
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %60, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !240
   store ptr %81, ptr %61, align 8, !tbaa !241
   br label %82
@@ -77252,7 +77237,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_decoded_picture
 .thread3.i:                                       ; preds = %45
   %49 = load i32, ptr %8, align 4, !tbaa !63
   %50 = trunc i32 %49 to i16
-  %51 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv16.i
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv16.i
   store i16 %50, ptr %51, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit.i
@@ -77272,7 +77257,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_decoded_picture
 
 .thread5.i:                                       ; preds = %53
   %57 = load i32, ptr %10, align 4, !tbaa !63
-  %58 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv16.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv16.i
   store i32 %57, ptr %58, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit.i
@@ -77373,7 +77358,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_decoded_pictur
   br i1 %38, label %31, label %cbs_h265_write_sei_decoded_picture_hash.exit
 
 39:                                               ; preds = %27
-  %40 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv9.i
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv9.i
   %41 = load i16, ptr %40, align 2, !tbaa !129
   %42 = zext i16 %41 to i32
   store i32 1, ptr %6, align 4, !tbaa !63
@@ -77384,7 +77369,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_decoded_pictur
   br i1 %45, label %.loopexit.i, label %cbs_h265_write_sei_decoded_picture_hash.exit
 
 46:                                               ; preds = %27
-  %47 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv9.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv9.i
   %48 = load i32, ptr %47, align 4, !tbaa !63
   store i32 1, ptr %7, align 4, !tbaa !63
   %49 = trunc nuw nsw i64 %indvars.iv9.i to i32
@@ -77640,7 +77625,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_time_code_inter
 129:                                              ; preds = %122
   %130 = load i32, ptr %18, align 4, !tbaa !63
   %131 = trunc i32 %130 to i16
-  %132 = getelementptr inbounds nuw i16, ptr %61, i64 %indvars.iv.i
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %61, i64 %indvars.iv.i
   store i16 %131, ptr %132, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %133 = load i8, ptr %111, align 1, !tbaa !25
@@ -77856,7 +77841,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_time_code_inter
 
 .thread49.i:                                      ; preds = %208
   %218 = load i32, ptr %40, align 4, !tbaa !63
-  %219 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.i
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv.i
   store i32 %218, ptr %219, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %223
@@ -77866,7 +77851,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_time_code_inter
   br label %cbs_h265_read_sei_time_code.exit
 
 221:                                              ; preds = %204
-  %222 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.i
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv.i
   store i32 0, ptr %222, align 4, !tbaa !63
   br label %223
 
@@ -78058,7 +78043,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_time_code_inte
   br i1 %99, label %100, label %cbs_h265_write_sei_time_code.exit
 
 100:                                              ; preds = %94
-  %101 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv.i
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %indvars.iv.i
   %102 = load i16, ptr %101, align 2, !tbaa !129
   %103 = zext i16 %102 to i32
   store i32 1, ptr %11, align 4, !tbaa !63
@@ -78194,7 +78179,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_time_code_inte
 
 176:                                              ; preds = %174
   %177 = zext i8 %175 to i32
-  %178 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.i
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i
   %179 = load i32, ptr %178, align 4, !tbaa !63
   store i32 1, ptr %22, align 4, !tbaa !63
   store i32 %65, ptr %60, align 4, !tbaa !63
@@ -78210,7 +78195,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_time_code_inte
   br i1 %188, label %195, label %cbs_h265_write_sei_time_code.exit
 
 189:                                              ; preds = %174
-  %190 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.i
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i
   %191 = load i32, ptr %190, align 4, !tbaa !63
   %.not258.i = icmp eq i32 %191, 0
   br i1 %.not258.i, label %195, label %192
@@ -78657,7 +78642,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_3d_reference_di
 74:                                               ; preds = %69
   %75 = load i32, ptr %9, align 4, !tbaa !63
   %76 = trunc i32 %75 to i16
-  %77 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %indvars.iv.i
   store i16 %76, ptr %77, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -78674,7 +78659,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_3d_reference_di
 81:                                               ; preds = %74
   %82 = load i32, ptr %11, align 4, !tbaa !63
   %83 = trunc i32 %82 to i16
-  %84 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %indvars.iv.i
   store i16 %83, ptr %84, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -78873,7 +78858,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_read_sei_3d_reference_di
 .thread42.i:                                      ; preds = %166
   %169 = load i32, ptr %23, align 4, !tbaa !63
   %170 = trunc i32 %169 to i16
-  %171 = getelementptr inbounds nuw i16, ptr %68, i64 %indvars.iv.i
+  %171 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %indvars.iv.i
   store i16 %170, ptr %171, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %173
@@ -79000,7 +78985,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_3d_reference_d
 
 54:                                               ; preds = %161, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %161 ]
-  %55 = getelementptr inbounds nuw i16, ptr %37, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %indvars.iv.i
   %56 = load i16, ptr %55, align 2, !tbaa !129
   %57 = zext i16 %56 to i32
   store i32 1, ptr %5, align 4, !tbaa !63
@@ -79011,7 +78996,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_3d_reference_d
   br i1 %60, label %61, label %cbs_h265_write_sei_3d_reference_displays_info.exit
 
 61:                                               ; preds = %54
-  %62 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %indvars.iv.i
   %63 = load i16, ptr %62, align 2, !tbaa !129
   %64 = zext i16 %63 to i32
   store i32 1, ptr %6, align 4, !tbaa !63
@@ -79183,7 +79168,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_h265_write_sei_3d_reference_d
   br i1 %.not209.i, label %161, label %155
 
 155:                                              ; preds = %153
-  %156 = getelementptr inbounds nuw i16, ptr %52, i64 %indvars.iv.i
+  %156 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %indvars.iv.i
   %157 = load i16, ptr %156, align 2, !tbaa !129
   %158 = zext i16 %157 to i32
   store i32 1, ptr %12, align 4, !tbaa !63
@@ -80214,7 +80199,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_sei_read_decoded_picture_hash
 .thread8.i:                                       ; preds = %52
   %56 = load i32, ptr %10, align 4, !tbaa !63
   %57 = trunc i32 %56 to i16
-  %58 = getelementptr inbounds nuw i16, ptr %35, i64 %indvars.iv22.i
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %indvars.iv22.i
   store i16 %57, ptr %58, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit.i
@@ -80234,7 +80219,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_sei_read_decoded_picture_hash
 
 .thread10.i:                                      ; preds = %60
   %64 = load i32, ptr %12, align 4, !tbaa !63
-  %65 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv22.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv22.i
   store i32 %64, ptr %65, align 4, !tbaa !63
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit.i
@@ -80337,7 +80322,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_sei_write_decoded_picture_has
   br i1 %42, label %35, label %cbs_sei_write_decoded_picture_hash.exit
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv10.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %indvars.iv10.i
   %45 = load i16, ptr %44, align 2, !tbaa !129
   %46 = zext i16 %45 to i32
   store i32 1, ptr %6, align 4, !tbaa !63
@@ -80348,7 +80333,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_sei_write_decoded_picture_has
   br i1 %49, label %.loopexit.i, label %cbs_sei_write_decoded_picture_hash.exit
 
 50:                                               ; preds = %31
-  %51 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv10.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv10.i
   %52 = load i32, ptr %51, align 4, !tbaa !63
   store i32 1, ptr %7, align 4, !tbaa !63
   %53 = trunc nuw nsw i64 %indvars.iv10.i to i32
@@ -80408,7 +80393,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_sei_read_mastering_display_co
 21:                                               ; preds = %16
   %22 = load i32, ptr %5, align 4, !tbaa !63
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv.i
   store i16 %23, ptr %24, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -80425,7 +80410,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_sei_read_mastering_display_co
 28:                                               ; preds = %21
   %29 = load i32, ptr %7, align 4, !tbaa !63
   %30 = trunc i32 %29 to i16
-  %31 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv.i
   store i16 %30, ptr %31, align 2, !tbaa !129
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -80519,7 +80504,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_sei_write_mastering_display_c
 
 11:                                               ; preds = %10, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %10 ]
-  %12 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2, !tbaa !129
   %14 = zext i16 %13 to i32
   store i32 1, ptr %5, align 4, !tbaa !63
@@ -80530,7 +80515,7 @@ define internal range(i32 -2147483648, 1) i32 @cbs_sei_write_mastering_display_c
   br i1 %17, label %18, label %cbs_sei_write_mastering_display_colour_volume.exit
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv.i
   %20 = load i16, ptr %19, align 2, !tbaa !129
   %21 = zext i16 %20 to i32
   store i32 1, ptr %6, align 4, !tbaa !63

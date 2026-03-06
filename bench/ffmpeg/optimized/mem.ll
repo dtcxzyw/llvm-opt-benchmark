@@ -574,7 +574,7 @@ av_realloc.exit:                                  ; preds = %11
 18:                                               ; preds = %17
   %19 = load i32, ptr %1, align 4, !tbaa !9
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %.022, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %.022, i64 %20
   store ptr %2, ptr %21, align 8, !tbaa !4
   store ptr %.022, ptr %0, align 1
   %22 = load i32, ptr %1, align 4, !tbaa !9
@@ -625,7 +625,7 @@ av_realloc.exit:                                  ; preds = %11
 18:                                               ; preds = %17
   %19 = load i32, ptr %1, align 4, !tbaa !9
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %.0, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %.0, i64 %20
   store ptr %2, ptr %21, align 8, !tbaa !4
   store ptr %.0, ptr %0, align 1
   %22 = load i32, ptr %1, align 4, !tbaa !9

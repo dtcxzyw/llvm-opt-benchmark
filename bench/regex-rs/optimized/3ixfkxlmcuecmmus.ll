@@ -434,7 +434,7 @@ define hidden { ptr, ptr } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
   %4 = load ptr, ptr %3, align 8, !alias.scope !81, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !81, !noundef !4
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %4, i64 %6
   %8 = insertvalue { ptr, ptr } poison, ptr %4, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %7, 1
   ret { ptr, ptr } %9
@@ -680,8 +680,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 9:                                                ; preds = %6
   %10 = add nuw i64 %7, 1
   store i64 %10, ptr %2, align 8, !alias.scope !108
-  %11 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %.val4.i.i, i64 %7
-  %12 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %.val.i.i, i64 %7
+  %11 = getelementptr inbounds [8 x i8], ptr %.val4.i.i, i64 %7
+  %12 = getelementptr inbounds [8 x i8], ptr %.val.i.i, i64 %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
@@ -879,8 +879,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 
 6:                                                ; preds = %.preheader
   %7 = add i64 %5, 1
-  %8 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %0, i64 %5
-  %9 = getelementptr inbounds { i32, i8, i8, [2 x i8] }, ptr %2, i64 %5
+  %8 = getelementptr inbounds [8 x i8], ptr %0, i64 %5
+  %9 = getelementptr inbounds [8 x i8], ptr %2, i64 %5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
@@ -1644,7 +1644,7 @@ define void @_ZN14regex_automata4meta8strategy3new17h42779e947a72af4fE(ptr noali
   br i1 %100, label %.thread, label %103
 
 103:                                              ; preds = %91
-  %104 = getelementptr inbounds { { { i64, ptr }, i64 }, i8, [7 x i8] }, ptr %..val.i.i, i64 %..val2.i.i
+  %104 = getelementptr inbounds [32 x i8], ptr %..val.i.i, i64 %..val2.i.i
   br label %105
 
 105:                                              ; preds = %108, %103
@@ -3034,7 +3034,7 @@ common.resume:                                    ; preds = %.body, %210, %.body
   %488 = load ptr, ptr %487, align 8, !noalias !668, !nonnull !4, !noundef !4
   %489 = getelementptr inbounds nuw i8, ptr %.val.i9.i, i64 16
   %490 = load i64, ptr %489, align 8, !noalias !668, !noundef !4
-  %491 = getelementptr inbounds { { { i64, ptr }, i64 }, i8, [7 x i8] }, ptr %.val.i9.i, i64 %484
+  %491 = getelementptr inbounds [32 x i8], ptr %.val.i9.i, i64 %484
   %492 = ptrtoint ptr %491 to i64
   %493 = getelementptr inbounds i8, ptr %488, i64 %490
   br label %494
@@ -3055,7 +3055,7 @@ common.resume:                                    ; preds = %.body, %210, %.body
   %499 = sub nuw i64 %492, %498
   %500 = lshr exact i64 %499, 5
   %.not.i.i48.not.i.i = icmp samesign ult i64 %.sroa.10.0.i.i, %500
-  %501 = getelementptr inbounds nuw { { { i64, ptr }, i64 }, i8, [7 x i8] }, ptr %.sroa.0.057.i.i, i64 %.sroa.10.0.i.i
+  %501 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.057.i.i, i64 %.sroa.10.0.i.i
   br i1 %.not.i.i48.not.i.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f907779186d7323E.exit.thread61.i.i", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f907779186d7323E.exit.thread.i.i"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f907779186d7323E.exit.thread.i.i": ; preds = %497, %495
@@ -4173,7 +4173,7 @@ _ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16max_haystack_len
   br i1 %99, label %101, label %_ZN14regex_automata4util8captures8Captures9get_match17ha78de418f05c3052E.exit
 
 101:                                              ; preds = %95
-  %102 = getelementptr inbounds nuw i64, ptr %100, i64 %.061.i.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.061.i.i
   %103 = load i64, ptr %102, align 8, !noalias !907, !noundef !4
   %104 = icmp ne i64 %103, 0
   %105 = icmp ult i64 %.0.i.i, %98
@@ -4181,7 +4181,7 @@ _ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16max_haystack_len
   br i1 %or.cond.i.i, label %106, label %_ZN14regex_automata4util8captures8Captures9get_match17ha78de418f05c3052E.exit
 
 106:                                              ; preds = %101
-  %107 = getelementptr inbounds nuw i64, ptr %100, i64 %.0.i.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.0.i.i
   %108 = load i64, ptr %107, align 8, !noalias !907, !noundef !4
   %109 = icmp eq i64 %108, 0
   br i1 %109, label %_ZN14regex_automata4util8captures8Captures9get_match17ha78de418f05c3052E.exit, label %110
@@ -5073,7 +5073,7 @@ _ZN14regex_automata4meta8wrappers23BoundedBacktrackerCache5reset17hcbcbc2d4d281d
   %.not.i.i.i.i = icmp eq i64 %31, 0
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %33 = load ptr, ptr %32, align 8, !alias.scope !1173, !noalias !1176, !nonnull !4
-  %34 = getelementptr { i32, i32 }, ptr %33, i64 %31
+  %34 = getelementptr [8 x i8], ptr %33, i64 %31
   %35 = getelementptr i8, ptr %34, i64 -8
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %35
   %36 = tail call noundef i32 @"_ZN4core6option15Option$LT$T$GT$6map_or17hdc2ed9ca1d6a9a6eE.llvm.16507365577459693613"(ptr noalias noundef readonly align 4 dereferenceable_or_null(8) %.0.i.i.i.i, i32 noundef 0), !noalias !1177
@@ -5157,7 +5157,7 @@ define noundef i64 @"_ZN97_$LT$regex_automata..meta..strategy..Core$u20$as$u20$r
   %5 = load ptr, ptr %4, align 8, !noalias !1207, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %7 = load i64, ptr %6, align 8, !noalias !1207, !noundef !4
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   %9 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17haba1f5f7c79c1747E.llvm.8347807780687254574"(ptr noundef nonnull %5, ptr noundef nonnull %8, i64 noundef 0), !noalias !1201
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1816
   %11 = load i8, ptr %10, align 8, !range !91, !noundef !4
@@ -5954,7 +5954,7 @@ common.resume:                                    ; preds = %112, %46
   br i1 %.not111, label %83, label %86
 
 83:                                               ; preds = %78
-  %84 = getelementptr inbounds nuw i64, ptr %3, i64 %81
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %81
   %85 = add i64 %.sroa.039.sroa.0.0.copyload, 1
   store i64 %85, ptr %84, align 8, !alias.scope !1463, !noalias !1466
   br label %86
@@ -5964,7 +5964,7 @@ common.resume:                                    ; preds = %112, %46
   br i1 %.not112, label %87, label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit
 
 87:                                               ; preds = %86
-  %88 = getelementptr inbounds nuw i64, ptr %3, i64 %82
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %82
   %89 = add i64 %.sroa.039.sroa.4.0.copyload, 1
   store i64 %89, ptr %88, align 8, !alias.scope !1463, !noalias !1466
   br label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit
@@ -6475,7 +6475,7 @@ _ZN14regex_automata4meta8wrappers23BoundedBacktrackerCache5reset17hcbcbc2d4d281d
   %.not.i.i.i.i = icmp eq i64 %31, 0
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %33 = load ptr, ptr %32, align 8, !alias.scope !1634, !noalias !1637, !nonnull !4
-  %34 = getelementptr { i32, i32 }, ptr %33, i64 %31
+  %34 = getelementptr [8 x i8], ptr %33, i64 %31
   %35 = getelementptr i8, ptr %34, i64 -8
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %35
   %36 = tail call noundef i32 @"_ZN4core6option15Option$LT$T$GT$6map_or17hdc2ed9ca1d6a9a6eE.llvm.16507365577459693613"(ptr noalias noundef readonly align 4 dereferenceable_or_null(8) %.0.i.i.i.i, i32 noundef 0), !noalias !1638
@@ -8081,7 +8081,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   br i1 %.not138, label %155, label %158
 
 155:                                              ; preds = %150
-  %156 = getelementptr inbounds nuw i64, ptr %3, i64 %153
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %153
   %157 = add i64 %.sroa.039.i.sroa.0.0.copyload, 1
   store i64 %157, ptr %156, align 8, !alias.scope !2215, !noalias !2218
   br label %158
@@ -8091,7 +8091,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine10try_search17h193669afcaf9eb3aE.
   br i1 %.not139, label %159, label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit
 
 159:                                              ; preds = %158
-  %160 = getelementptr inbounds nuw i64, ptr %3, i64 %154
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %154
   %161 = add i64 %.sroa.039.i.sroa.4.0.copyload, 1
   store i64 %161, ptr %160, align 8, !alias.scope !2215, !noalias !2218
   br label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit
@@ -8344,7 +8344,7 @@ _ZN14regex_automata4util6search5Match3new17hddca06fb22a4a48cE.exit: ; preds = %2
   br i1 %.not, label %246, label %249
 
 246:                                              ; preds = %_ZN14regex_automata4util6search5Match3new17hddca06fb22a4a48cE.exit
-  %247 = getelementptr inbounds nuw i64, ptr %3, i64 %244
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %244
   %248 = add i64 %.sroa.6.0.copyload158, 1
   store i64 %248, ptr %247, align 8, !alias.scope !2289, !noalias !2292
   br label %249
@@ -8354,7 +8354,7 @@ _ZN14regex_automata4util6search5Match3new17hddca06fb22a4a48cE.exit: ; preds = %2
   br i1 %.not137, label %250, label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit33
 
 250:                                              ; preds = %249
-  %251 = getelementptr inbounds nuw i64, ptr %3, i64 %245
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %245
   %252 = add i64 %43, 1
   store i64 %252, ptr %251, align 8, !alias.scope !2289, !noalias !2292
   br label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit33
@@ -8725,7 +8725,7 @@ _ZN14regex_automata4meta8wrappers23BoundedBacktrackerCache5reset17hcbcbc2d4d281d
   %.not.i.i.i.i = icmp eq i64 %31, 0
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %33 = load ptr, ptr %32, align 8, !alias.scope !2414, !noalias !2417, !nonnull !4
-  %34 = getelementptr { i32, i32 }, ptr %33, i64 %31
+  %34 = getelementptr [8 x i8], ptr %33, i64 %31
   %35 = getelementptr i8, ptr %34, i64 -8
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %35
   %36 = tail call noundef i32 @"_ZN4core6option15Option$LT$T$GT$6map_or17hdc2ed9ca1d6a9a6eE.llvm.16507365577459693613"(ptr noalias noundef readonly align 4 dereferenceable_or_null(8) %.0.i.i.i.i, i32 noundef 0), !noalias !2418
@@ -11009,7 +11009,7 @@ common.resume:                                    ; preds = %305, %159, %103
   br i1 %.not378, label %130, label %133
 
 130:                                              ; preds = %125
-  %131 = getelementptr inbounds nuw i64, ptr %3, i64 %128
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %128
   %132 = add i64 %.sroa.039.i43.sroa.0.0.copyload, 1
   store i64 %132, ptr %131, align 8, !alias.scope !3089, !noalias !3092
   br label %133
@@ -11019,7 +11019,7 @@ common.resume:                                    ; preds = %305, %159, %103
   br i1 %.not379, label %134, label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit
 
 134:                                              ; preds = %133
-  %135 = getelementptr inbounds nuw i64, ptr %3, i64 %129
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %129
   %136 = add i64 %.sroa.039.i43.sroa.4.0.copyload, 1
   store i64 %136, ptr %135, align 8, !alias.scope !3089, !noalias !3092
   br label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit
@@ -11958,7 +11958,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine27try_search_half_rev_limited17he
   br i1 %.not, label %417, label %420
 
 417:                                              ; preds = %412
-  %418 = getelementptr inbounds nuw i64, ptr %3, i64 %415
+  %418 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %415
   %419 = add i64 %.sroa.036.sroa.0.0.copyload, 1
   store i64 %419, ptr %418, align 8, !alias.scope !3333, !noalias !3336
   br label %420
@@ -11968,7 +11968,7 @@ _ZN14regex_automata4meta8wrappers12HybridEngine27try_search_half_rev_limited17he
   br i1 %.not375, label %421, label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit109
 
 421:                                              ; preds = %420
-  %422 = getelementptr inbounds nuw i64, ptr %3, i64 %416
+  %422 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %416
   %423 = add i64 %.sroa.036.sroa.4.0.copyload, 1
   store i64 %423, ptr %422, align 8, !alias.scope !3333, !noalias !3336
   br label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit109
@@ -12136,7 +12136,7 @@ default.unreachable.i:                            ; preds = %_ZN14regex_automata
   br i1 %.not376, label %473, label %476
 
 473:                                              ; preds = %468
-  %474 = getelementptr inbounds nuw i64, ptr %3, i64 %471
+  %474 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %471
   %475 = add i64 %.sroa.039.i.sroa.0.0.copyload, 1
   store i64 %475, ptr %474, align 8, !alias.scope !3384, !noalias !3387
   br label %476
@@ -12146,7 +12146,7 @@ default.unreachable.i:                            ; preds = %_ZN14regex_automata
   br i1 %.not377, label %477, label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit104
 
 477:                                              ; preds = %476
-  %478 = getelementptr inbounds nuw i64, ptr %3, i64 %472
+  %478 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %472
   %479 = add i64 %.sroa.039.i.sroa.4.0.copyload, 1
   store i64 %479, ptr %478, align 8, !alias.scope !3384, !noalias !3387
   br label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit104
@@ -12623,7 +12623,7 @@ _ZN14regex_automata4meta8wrappers23BoundedBacktrackerCache5reset17hcbcbc2d4d281d
   %.not.i.i.i.i = icmp eq i64 %32, 0
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %34 = load ptr, ptr %33, align 8, !alias.scope !3534, !noalias !3537, !nonnull !4
-  %35 = getelementptr { i32, i32 }, ptr %34, i64 %32
+  %35 = getelementptr [8 x i8], ptr %34, i64 %32
   %36 = getelementptr i8, ptr %35, i64 -8
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, ptr null, ptr %36
   %37 = tail call noundef i32 @"_ZN4core6option15Option$LT$T$GT$6map_or17hdc2ed9ca1d6a9a6eE.llvm.16507365577459693613"(ptr noalias noundef readonly align 4 dereferenceable_or_null(8) %.0.i.i.i.i, i32 noundef 0), !noalias !3538
@@ -15057,7 +15057,7 @@ common.resume:                                    ; preds = %163, %107
   br i1 %.not429, label %134, label %137
 
 134:                                              ; preds = %129
-  %135 = getelementptr inbounds nuw i64, ptr %3, i64 %132
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %132
   %136 = add i64 %.sroa.039.i48.sroa.0.0.copyload, 1
   store i64 %136, ptr %135, align 8, !alias.scope !4200, !noalias !4203
   br label %137
@@ -15067,7 +15067,7 @@ common.resume:                                    ; preds = %163, %107
   br i1 %.not430, label %138, label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit
 
 138:                                              ; preds = %137
-  %139 = getelementptr inbounds nuw i64, ptr %3, i64 %133
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %133
   %140 = add i64 %.sroa.039.i48.sroa.4.0.copyload, 1
   store i64 %140, ptr %139, align 8, !alias.scope !4200, !noalias !4203
   br label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit
@@ -16107,7 +16107,7 @@ _ZN14regex_automata4meta8strategy12ReverseInner15try_search_full17hc17ef0ea170e6
   br i1 %.not, label %449, label %452
 
 449:                                              ; preds = %444
-  %450 = getelementptr inbounds nuw i64, ptr %3, i64 %447
+  %450 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %447
   %451 = add i64 %.sroa.041.sroa.0.0.copyload, 1
   store i64 %451, ptr %450, align 8, !alias.scope !4441, !noalias !4444
   br label %452
@@ -16117,7 +16117,7 @@ _ZN14regex_automata4meta8strategy12ReverseInner15try_search_full17hc17ef0ea170e6
   br i1 %.not425, label %453, label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit112
 
 453:                                              ; preds = %452
-  %454 = getelementptr inbounds nuw i64, ptr %3, i64 %448
+  %454 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %448
   %455 = add i64 %.sroa.041.sroa.4.0.copyload, 1
   store i64 %455, ptr %454, align 8, !alias.scope !4441, !noalias !4444
   br label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit112
@@ -16297,7 +16297,7 @@ default.unreachable.i:                            ; preds = %_ZN14regex_automata
   br i1 %.not427, label %508, label %511
 
 508:                                              ; preds = %503
-  %509 = getelementptr inbounds nuw i64, ptr %3, i64 %506
+  %509 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %506
   %510 = add i64 %.sroa.039.i.sroa.0.0.copyload, 1
   store i64 %510, ptr %509, align 8, !alias.scope !4493, !noalias !4496
   br label %511
@@ -16307,7 +16307,7 @@ default.unreachable.i:                            ; preds = %_ZN14regex_automata
   br i1 %.not428, label %512, label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit107
 
 512:                                              ; preds = %511
-  %513 = getelementptr inbounds nuw i64, ptr %3, i64 %507
+  %513 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %507
   %514 = add i64 %.sroa.039.i.sroa.4.0.copyload, 1
   store i64 %514, ptr %513, align 8, !alias.scope !4493, !noalias !4496
   br label %_ZN14regex_automata4meta8strategy19copy_match_to_slots17h523f3de087dd8b6bE.exit107
@@ -16996,7 +16996,7 @@ define hidden { ptr, ptr } @"_ZN14regex_automata3nfa8thompson3nfa5Inner12set_cap
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds { ptr, i64 }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %4, i64 %6
   %8 = insertvalue { ptr, ptr } poison, ptr %4, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %7, 1
   ret { ptr, ptr } %9

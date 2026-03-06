@@ -110,11 +110,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<std::vector<Luau::CodeGen::FunctionBytecodeSummary>, std::allocator<std::vector<Luau::CodeGen::FunctionBytecodeSummary>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<Luau::CodeGen::FunctionBytecodeSummary>, std::allocator<std::vector<Luau::CodeGen::FunctionBytecodeSummary>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<Luau::CodeGen::FunctionBytecodeSummary>, std::allocator<std::vector<Luau::CodeGen::FunctionBytecodeSummary>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::vector<Luau::CodeGen::FunctionBytecodeSummary>, std::allocator<std::vector<Luau::CodeGen::FunctionBytecodeSummary>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.Luau::CodeGen::FunctionBytecodeSummary" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, %"class.std::vector.119" }
-%"class.std::vector.119" = type { %"struct.std::_Vector_base.120" }
-%"struct.std::_Vector_base.120" = type { %"struct.std::_Vector_base<std::vector<unsigned int>, std::allocator<std::vector<unsigned int>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::vector<unsigned int>, std::allocator<std::vector<unsigned int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<unsigned int>, std::allocator<std::vector<unsigned int>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::vector<unsigned int>, std::allocator<std::vector<unsigned int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN4Luau7AstRttiINS_7AstAttrEE5valueE = comdat any
 
@@ -2070,7 +2065,7 @@ sub_0.lr.ph.i:                                    ; preds = %.noexc.i
 
 sub_0.i:                                          ; preds = %.noexc28, %sub_0.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %sub_0.lr.ph.i ], [ %indvars.iv.next.i, %.noexc28 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8, !tbaa !19
   %23 = load i8, ptr %22, align 1
   %.not.i = icmp eq i8 %23, 45
@@ -2253,7 +2248,7 @@ _ZNSt12_Vector_baseISt6vectorIN4Luau7CodeGen23FunctionBytecodeSummaryESaIS3_EESa
   %91 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %90, ptr %13, align 8, !tbaa !31
   store ptr %90, ptr %91, align 8, !tbaa !34
-  %92 = getelementptr inbounds nuw %"class.std::vector.8", ptr %90, i64 %84
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %84
   store ptr %92, ptr %88, align 8, !tbaa !35
   %93 = ptrtoint ptr %92 to i64
   br label %_ZNSt6vectorIS_IN4Luau7CodeGen23FunctionBytecodeSummaryESaIS2_EESaIS4_EE7reserveEm.exit
@@ -2302,9 +2297,9 @@ _ZNSt6vectorIS_IN4Luau7CodeGen23FunctionBytecodeSummaryESaIS2_EESaIS4_EE7reserve
 119:                                              ; preds = %.lr.ph, %113
   %.0107 = phi i64 [ 0, %.lr.ph ], [ %114, %113 ]
   %120 = load ptr, ptr %12, align 8, !tbaa !30
-  %121 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %120, i64 %.0107
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %120, i64 %.0107
   %122 = load ptr, ptr %121, align 8, !tbaa !15
-  %123 = getelementptr inbounds nuw %"class.std::vector.8", ptr %95, i64 %.0107
+  %123 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.0107
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %96, ptr %5, align 8, !tbaa !10
@@ -2790,8 +2785,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 289:                                              ; preds = %_ZL22serializeScriptSummaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIN4Luau7CodeGen23FunctionBytecodeSummaryESaISA_EEP8_IO_FILE.exit.i, %.lr.ph.i35
   %.024.i = phi i64 [ 0, %.lr.ph.i35 ], [ %422, %_ZL22serializeScriptSummaryRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIN4Luau7CodeGen23FunctionBytecodeSummaryESaISA_EEP8_IO_FILE.exit.i ]
   %290 = load ptr, ptr %12, align 8, !tbaa !30
-  %291 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %290, i64 %.024.i
-  %292 = getelementptr inbounds nuw %"class.std::vector.8", ptr %95, i64 %.024.i
+  %291 = getelementptr inbounds nuw [32 x i8], ptr %290, i64 %.024.i
+  %292 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.024.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
   store ptr %286, ptr %2, align 8, !tbaa !10, !alias.scope !79
@@ -3002,7 +2997,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 374:                                              ; preds = %412, %.lr.ph.i.i
   %.020.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %418, %412 ]
   %375 = load ptr, ptr %292, align 8, !tbaa !72
-  %376 = getelementptr inbounds nuw %"class.Luau::CodeGen::FunctionBytecodeSummary", ptr %375, i64 %.020.i.i
+  %376 = getelementptr inbounds nuw [96 x i8], ptr %375, i64 %.020.i.i
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 68
   %378 = load i32, ptr %377, align 4, !tbaa !82
   %379 = call i64 @fwrite(ptr nonnull @.str.112, i64 10, i64 1, ptr nonnull %277)
@@ -3024,7 +3019,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %392 = call i64 @fwrite(ptr nonnull @.str.118, i64 18, i64 1, ptr nonnull %277)
   %393 = zext i32 %.03137.i.i.i to i64
   %394 = load ptr, ptr %390, align 8, !tbaa !90
-  %395 = getelementptr inbounds nuw %"class.std::vector.20", ptr %394, i64 %393
+  %395 = getelementptr inbounds nuw [24 x i8], ptr %394, i64 %393
   %396 = load ptr, ptr %395, align 8, !tbaa !91
   %397 = load i32, ptr %396, align 4, !tbaa !4
   %398 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %277, ptr noundef nonnull @.str.119, i32 noundef %397) #26
@@ -3040,9 +3035,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %402 = call i64 @fwrite(ptr nonnull @.str.120, i64 2, i64 1, ptr nonnull %277)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i19.i.i, 1
   %403 = load ptr, ptr %390, align 8, !tbaa !90
-  %404 = getelementptr inbounds nuw %"class.std::vector.20", ptr %403, i64 %393
+  %404 = getelementptr inbounds nuw [24 x i8], ptr %403, i64 %393
   %405 = load ptr, ptr %404, align 8, !tbaa !91
-  %406 = getelementptr inbounds nuw i32, ptr %405, i64 %indvars.iv.next.i.i.i
+  %406 = getelementptr inbounds nuw [4 x i8], ptr %405, i64 %indvars.iv.next.i.i.i
   %407 = load i32, ptr %406, align 4, !tbaa !4
   %408 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %277, ptr noundef nonnull @.str.119, i32 noundef %407) #26
   %.not35.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 82

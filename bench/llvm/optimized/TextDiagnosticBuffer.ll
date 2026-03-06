@@ -13,14 +13,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.std::pair" = type { i32, i64 }
 %"class.llvm::StringRef" = type { ptr, i64 }
 %"class.clang::DiagnosticIDs::CustomDiagDesc" = type { i16, i32, %"class.std::__cxx11::basic_string" }
 %class.anon = type { ptr, ptr }
 %"class.clang::DiagnosticBuilder" = type <{ %"class.clang::StreamingDiagnostic", ptr, %"class.clang::SourceLocation", i32, %"class.std::__cxx11::basic_string", i8, i8, [6 x i8] }>
 %"class.clang::StreamingDiagnostic" = type { ptr, ptr }
 %"class.clang::SourceLocation" = type { i32 }
-%"struct.std::pair.8" = type { %"class.clang::SourceLocation", %"class.std::__cxx11::basic_string" }
 
 $_ZN5clang20TextDiagnosticBufferD2Ev = comdat any
 
@@ -157,7 +155,7 @@ _ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE17_M_realloc_insertIJRS3_mEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %53, %_ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit23.i.i
   store ptr %47, ptr %16, align 8, !tbaa !23
   store ptr %52, ptr %17, align 8, !tbaa !11
-  %54 = getelementptr inbounds nuw %"struct.std::pair", ptr %47, i64 %45
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %45
   store ptr %54, ptr %19, align 8, !tbaa !14
   br label %_ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE12emplace_backIJRS3_mEEERS4_DpOT_.exit
 
@@ -344,7 +342,7 @@ _ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE17_M_realloc_insertIJRS3_mEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i20: ; preds = %127, %_ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit23.i.i17
   store ptr %121, ptr %16, align 8, !tbaa !23
   store ptr %126, ptr %17, align 8, !tbaa !11
-  %128 = getelementptr inbounds nuw %"struct.std::pair", ptr %121, i64 %119
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %121, i64 %119
   store ptr %128, ptr %19, align 8, !tbaa !14
   br label %_ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE12emplace_backIJRS3_mEEERS4_DpOT_.exit21
 
@@ -531,7 +529,7 @@ _ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE17_M_realloc_insertIJRS3_mEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i45: ; preds = %201, %_ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit23.i.i42
   store ptr %195, ptr %16, align 8, !tbaa !23
   store ptr %200, ptr %17, align 8, !tbaa !11
-  %202 = getelementptr inbounds nuw %"struct.std::pair", ptr %195, i64 %193
+  %202 = getelementptr inbounds nuw [16 x i8], ptr %195, i64 %193
   store ptr %202, ptr %19, align 8, !tbaa !14
   br label %_ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE12emplace_backIJRS3_mEEERS4_DpOT_.exit46
 
@@ -718,7 +716,7 @@ _ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE17_M_realloc_insertIJRS3_mEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i70: ; preds = %275, %_ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit23.i.i67
   store ptr %269, ptr %16, align 8, !tbaa !23
   store ptr %274, ptr %17, align 8, !tbaa !11
-  %276 = getelementptr inbounds nuw %"struct.std::pair", ptr %269, i64 %267
+  %276 = getelementptr inbounds nuw [16 x i8], ptr %269, i64 %267
   store ptr %276, ptr %19, align 8, !tbaa !14
   br label %_ZNSt6vectorISt4pairIN5clang17DiagnosticsEngine5LevelEmESaIS4_EE12emplace_backIJRS3_mEEERS4_DpOT_.exit71
 
@@ -946,7 +944,7 @@ _ZN5clang17DiagnosticsEngine15getCustomDiagIDILj3EEEjNS0_5LevelERAT__Kc.exit: ; 
 43:                                               ; preds = %_ZN5clang17DiagnosticsEngine15getCustomDiagIDILj3EEEjNS0_5LevelERAT__Kc.exit, %42, %41, %40
   %.sink28.in = phi ptr [ %17, %42 ], [ %18, %41 ], [ %19, %40 ], [ %20, %_ZN5clang17DiagnosticsEngine15getCustomDiagIDILj3EEEjNS0_5LevelERAT__Kc.exit ]
   %.sink28 = load ptr, ptr %.sink28.in, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %.sink28, i64 %38
+  %44 = getelementptr inbounds nuw [40 x i8], ptr %.sink28, i64 %38
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !37
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -1257,7 +1255,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !94
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !96
   br label %43
 
@@ -1551,7 +1549,7 @@ _ZNSt6vectorISt4pairIN5clang14SourceLocationENSt7__cxx1112basic_stringIcSt11char
 _ZNSt12_Vector_baseISt4pairIN5clang14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorISt4pairIN5clang14SourceLocationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit27, %76
   store ptr %21, ptr %0, align 8, !tbaa !18
   store ptr %.0.lcssa.i.i.i26, ptr %5, align 8, !tbaa !15
-  %80 = getelementptr inbounds nuw %"struct.std::pair.8", ptr %21, i64 %17
+  %80 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %17
   store ptr %80, ptr %75, align 8, !tbaa !41
   ret void
 }
@@ -2100,7 +2098,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
   %29 = add i32 %11, -1
   store i32 %29, ptr %10, align 8, !tbaa !94
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !96
   store i8 0, ptr %32, align 8, !tbaa !123
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 424
@@ -2208,7 +2206,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %73 = add i8 %72, 1
   store i8 %73, ptr %70, align 8, !tbaa !123
   %74 = zext i8 %72 to i64
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %71, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !37
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %78 = icmp eq ptr %76, %77

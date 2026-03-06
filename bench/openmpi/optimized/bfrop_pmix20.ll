@@ -2462,7 +2462,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   %3 = phi i32 [ %1, %pmix_pointer_array_get_item.exit.preheader ], [ %35, %34 ]
   %4 = phi ptr [ %.pre14, %pmix_pointer_array_get_item.exit.preheader ], [ %36, %34 ]
   %indvars.iv = phi i64 [ 0, %pmix_pointer_array_get_item.exit.preheader ], [ %indvars.iv.next, %34 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %34, label %7
@@ -3143,7 +3143,7 @@ define internal ptr @data_type_string(i16 noundef zeroext %0) #2 {
 pmix_pointer_array_get_item.exit:                 ; preds = %1
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8, !tbaa !35
   %5 = zext i16 %0 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !19
   %8 = icmp eq ptr %7, null
   br i1 %8, label %pmix_pointer_array_get_item.exit.thread, label %9

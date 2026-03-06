@@ -914,7 +914,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._err_stackitem = type { ptr, ptr }
 %struct.PyModuleDef = type { %struct.PyModuleDef_Base, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr }
 %struct.PyModuleDef_Base = type { %struct._object, ptr, i64, ptr }
-%struct._ffi_type = type { i64, i16, i16, ptr }
 
 @PyExc_TypeError = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [32 x i8] c"ctypes state is not initialized\00", align 1
@@ -1517,7 +1516,7 @@ Py_DECREF.exit285:                                ; preds = %113, %115, %118
 164:                                              ; preds = %.lr.ph, %207
   %.0177472 = phi i32 [ 0, %.lr.ph ], [ %188, %207 ]
   %.0202471 = phi i64 [ 0, %.lr.ph ], [ %208, %207 ]
-  %165 = getelementptr ptr, ptr %161, i64 %.0202471
+  %165 = getelementptr [8 x i8], ptr %161, i64 %.0202471
   %166 = load ptr, ptr %165, align 8, !tbaa !36
   %167 = getelementptr i8, ptr %166, i64 8
   %.val291 = load ptr, ptr %167, align 8, !tbaa !27
@@ -1569,8 +1568,8 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %PyObject_TypeCheck.
   %189 = load ptr, ptr %6, align 8, !tbaa !53
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
   %191 = load ptr, ptr %120, align 8, !tbaa !3
-  %192 = getelementptr ptr, ptr %191, i64 %.0176
-  %193 = getelementptr ptr, ptr %192, i64 %.0202471
+  %192 = getelementptr [8 x i8], ptr %191, i64 %.0176
+  %193 = getelementptr [8 x i8], ptr %192, i64 %.0202471
   store ptr %190, ptr %193, align 8, !tbaa !54
   %194 = getelementptr inbounds nuw i8, ptr %189, i64 128
   %195 = load i32, ptr %194, align 8, !tbaa !43
@@ -1635,7 +1634,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %PyObject_TypeCheck.
   %.0179475 = phi i64 [ 0, %.lr.ph476 ], [ %242, %241 ]
   %.0203474 = phi i64 [ 0, %.lr.ph476 ], [ %.2205.ph, %241 ]
   %.0208473 = phi i64 [ 0, %.lr.ph476 ], [ %.2210.ph, %241 ]
-  %221 = getelementptr ptr, ptr %218, i64 %.0179475
+  %221 = getelementptr [8 x i8], ptr %218, i64 %.0179475
   %222 = load ptr, ptr %221, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 40
@@ -1709,9 +1708,9 @@ PyObject_TypeCheck.exit302.thread:                ; preds = %220, %PyObject_Type
   br label %.thread422
 
 256:                                              ; preds = %._crit_edge477
-  %257 = getelementptr ptr, ptr %252, i64 %215
+  %257 = getelementptr [8 x i8], ptr %252, i64 %215
   %258 = getelementptr i8, ptr %257, i64 8
-  %259 = getelementptr ptr, ptr %258, i64 %.0208.lcssa
+  %259 = getelementptr [8 x i8], ptr %258, i64 %.0208.lcssa
   %260 = icmp sgt i64 %.0203.lcssa, 0
   br i1 %260, label %261, label %262
 
@@ -1745,7 +1744,7 @@ PyObject_TypeCheck.exit302.thread:                ; preds = %220, %PyObject_Type
   %.0180488 = phi i64 [ 0, %.lr.ph491 ], [ %.1181.ph, %.thread381 ]
   %.0184487 = phi i64 [ 0, %.lr.ph491 ], [ %.1185.ph, %.thread381 ]
   %.0189486 = phi i64 [ %.0176, %.lr.ph491 ], [ %.2191.ph, %.thread381 ]
-  %273 = getelementptr ptr, ptr %270, i64 %.0175489
+  %273 = getelementptr [8 x i8], ptr %270, i64 %.0175489
   %274 = load ptr, ptr %273, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 40
@@ -1766,7 +1765,7 @@ PyObject_TypeCheck.exit304:                       ; preds = %272
 281:                                              ; preds = %PyObject_TypeCheck.exit304
   %282 = load ptr, ptr %9, align 8, !tbaa !53
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 32
-  %284 = getelementptr ptr, ptr %252, i64 %.0189486
+  %284 = getelementptr [8 x i8], ptr %252, i64 %.0189486
   store ptr %283, ptr %284, align 8, !tbaa !54
   br label %.thread381
 
@@ -1783,8 +1782,8 @@ PyObject_TypeCheck.exit304.thread:                ; preds = %272, %PyObject_Type
   br i1 %.not270, label %311, label %291
 
 291:                                              ; preds = %PyObject_TypeCheck.exit304.thread
-  %292 = getelementptr %struct._ffi_type, ptr %259, i64 %.0180488
-  %293 = getelementptr ptr, ptr %252, i64 %.0189486
+  %292 = getelementptr [24 x i8], ptr %259, i64 %.0180488
+  %293 = getelementptr [8 x i8], ptr %252, i64 %.0189486
   store ptr %292, ptr %293, align 8, !tbaa !54
   %294 = getelementptr inbounds nuw i8, ptr %290, i64 32
   %295 = load i64, ptr %294, align 8, !tbaa !59
@@ -1796,7 +1795,7 @@ PyObject_TypeCheck.exit304.thread:                ; preds = %272, %PyObject_Type
   store i16 %298, ptr %299, align 8, !tbaa !64
   %300 = getelementptr inbounds nuw i8, ptr %292, i64 10
   store i16 13, ptr %300, align 2, !tbaa !65
-  %301 = getelementptr ptr, ptr %258, i64 %.0184487
+  %301 = getelementptr [8 x i8], ptr %258, i64 %.0184487
   %302 = getelementptr inbounds nuw i8, ptr %292, i64 16
   store ptr %301, ptr %302, align 8, !tbaa !66
   %303 = add i64 %.0180488, 1
@@ -1810,7 +1809,7 @@ PyObject_TypeCheck.exit304.thread:                ; preds = %272, %PyObject_Type
 .lr.ph483:                                        ; preds = %.lr.ph483.preheader, %.lr.ph483
   %.4188480 = phi i64 [ %306, %.lr.ph483 ], [ %.0184487, %.lr.ph483.preheader ]
   %306 = add i64 %.4188480, 1
-  %307 = getelementptr ptr, ptr %258, i64 %.4188480
+  %307 = getelementptr [8 x i8], ptr %258, i64 %.4188480
   store ptr %294, ptr %307, align 8, !tbaa !54
   %exitcond509.not = icmp eq i64 %306, %305
   br i1 %exitcond509.not, label %._crit_edge484, label %.lr.ph483, !llvm.loop !67
@@ -1818,7 +1817,7 @@ PyObject_TypeCheck.exit304.thread:                ; preds = %272, %PyObject_Type
 ._crit_edge484:                                   ; preds = %.lr.ph483, %291
   %.4188.lcssa = phi i64 [ %.0184487, %291 ], [ %305, %.lr.ph483 ]
   %308 = add i64 %.4188.lcssa, 1
-  %309 = getelementptr ptr, ptr %258, i64 %.4188.lcssa
+  %309 = getelementptr [8 x i8], ptr %258, i64 %.4188.lcssa
   store ptr null, ptr %309, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread381
@@ -1842,7 +1841,7 @@ PyObject_TypeCheck.exit304.thread:                ; preds = %272, %PyObject_Type
 
 ._crit_edge492:                                   ; preds = %.thread381, %269
   %.0189.lcssa = phi i64 [ %.0176, %269 ], [ %.2191.ph, %.thread381 ]
-  %314 = getelementptr ptr, ptr %252, i64 %.0189.lcssa
+  %314 = getelementptr [8 x i8], ptr %252, i64 %.0189.lcssa
   store ptr null, ptr %314, align 8, !tbaa !54
   %315 = load ptr, ptr %120, align 8, !tbaa !3
   call void @PyMem_Free(ptr noundef %315) #8
@@ -2044,7 +2043,7 @@ Py_DECREF.exit53:                                 ; preds = %8, %12, %15
 
 32:                                               ; preds = %30, %.thread68
   %.pn = phi ptr [ %31, %.thread68 ], [ %25, %30 ]
-  %.in = getelementptr ptr, ptr %.pn, i64 %.033
+  %.in = getelementptr [8 x i8], ptr %.pn, i64 %.033
   %33 = load ptr, ptr %.in, align 8, !tbaa !36
   %34 = call ptr @PyObject_GetAttr(ptr noundef %0, ptr noundef %33) #8
   %35 = icmp eq ptr %34, null
@@ -2253,7 +2252,7 @@ Py_DECREF.exit99:                                 ; preds = %12, %15, %18
 
 36:                                               ; preds = %34, %.thread121
   %.pn = phi ptr [ %35, %.thread121 ], [ %28, %34 ]
-  %.in = getelementptr ptr, ptr %.pn, i64 %.063
+  %.in = getelementptr [8 x i8], ptr %.pn, i64 %.063
   %37 = load ptr, ptr %.in, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

@@ -3434,7 +3434,7 @@ _ZN5serde2de9MapAccess10next_value17h2261539c17d81005E.exit: ; preds = %759
   br label %.loopexit2952
 
 766:                                              ; preds = %_ZN5serde2de9MapAccess10next_value17h2261539c17d81005E.exit
-  %767 = getelementptr inbounds nuw i64, ptr @anon.b7d8905d1a68f1b4ac5fecc34b867cbd.46, i64 %.pr2772
+  %767 = getelementptr inbounds nuw [8 x i8], ptr @anon.b7d8905d1a68f1b4ac5fecc34b867cbd.46, i64 %.pr2772
   %768 = load i64, ptr %767, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %65, ptr nonnull align 8 %64, i64 %768, i1 false)
   %.0..0..0..0..pr = load i64, ptr %65, align 8
@@ -3457,7 +3457,7 @@ _ZN5serde2de9MapAccess10next_value17h2261539c17d81005E.exit: ; preds = %759
   br label %1101
 
 771:                                              ; preds = %766
-  %772 = getelementptr inbounds nuw i64, ptr @anon.b7d8905d1a68f1b4ac5fecc34b867cbd.46, i64 %.0..0..0..0..pr
+  %772 = getelementptr inbounds nuw [8 x i8], ptr @anon.b7d8905d1a68f1b4ac5fecc34b867cbd.46, i64 %.0..0..0..0..pr
   %773 = load i64, ptr %772, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %66, ptr nonnull align 8 %65, i64 %773, i1 false)
   %774 = load i64, ptr %101, align 8, !range !25, !alias.scope !445, !noundef !4
@@ -4586,11 +4586,11 @@ _ZN5serde2de9MapAccess10next_value17hea3aca470ff5cb86E.exit2238: ; preds = %960
 
 1061:                                             ; preds = %1059
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
-  %1062 = getelementptr inbounds nuw i64, ptr @anon.b7d8905d1a68f1b4ac5fecc34b867cbd.46, i64 %1060
+  %1062 = getelementptr inbounds nuw [8 x i8], ptr @anon.b7d8905d1a68f1b4ac5fecc34b867cbd.46, i64 %1060
   %1063 = load i64, ptr %1062, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %52, ptr nonnull align 8 %101, i64 %1063, i1 false)
   %.0..0..0..0.1669 = load i64, ptr %52, align 8
-  %1064 = getelementptr inbounds nuw i64, ptr @anon.b7d8905d1a68f1b4ac5fecc34b867cbd.46, i64 %.0..0..0..0.1669
+  %1064 = getelementptr inbounds nuw [8 x i8], ptr @anon.b7d8905d1a68f1b4ac5fecc34b867cbd.46, i64 %.0..0..0..0.1669
   %1065 = load i64, ptr %1064, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 8 %52, i64 %1065, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
@@ -4718,7 +4718,7 @@ _ZN5serde2de9MapAccess10next_value17hea3aca470ff5cb86E.exit2238: ; preds = %960
 1098:                                             ; preds = %1093, %1096
   %.sroa.01618.0 = phi ptr [ %.sroa.01618.0.copyload, %1096 ], [ null, %1093 ]
   %.0..0..0. = load i64, ptr %53, align 8
-  %1099 = getelementptr inbounds nuw i64, ptr @anon.b7d8905d1a68f1b4ac5fecc34b867cbd.46, i64 %.0..0..0.
+  %1099 = getelementptr inbounds nuw [8 x i8], ptr @anon.b7d8905d1a68f1b4ac5fecc34b867cbd.46, i64 %.0..0..0.
   %1100 = load i64, ptr %1099, align 8, !noundef !4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 8 %53, i64 %1100, i1 false)
   %.sroa.01267.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -5975,7 +5975,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %6 = load i64, ptr %5, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !602
   call void @_ZN4core3fmt9Formatter10debug_list17h707f9a0a1c7e66ccE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !606
-  %7 = getelementptr inbounds nuw { { i32, i32 }, i8, i8, [2 x i8] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %6
   %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h560991970f7feee4E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 4 %4, ptr noundef nonnull readonly %7)
   %9 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17ha93605e0e88ab8f4E(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !602
@@ -6223,7 +6223,7 @@ define hidden void @"_ZN94_$LT$serde..__private..de..FlatMapDeserializer$LT$E$GT
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !4
-  %12 = getelementptr inbounds nuw { i8, [63 x i8] }, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %9, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 40

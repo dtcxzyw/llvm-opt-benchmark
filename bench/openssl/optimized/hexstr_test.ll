@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/hexstr_test.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.testdata = type { ptr, ptr, i64, i8 }
-
 @.str = private unnamed_addr constant [24 x i8] c"test_hexstr_sep_to_from\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"test_hexstr_to_from\00", align 1
 @.str.2 = private unnamed_addr constant [23 x i8] c"test_hexstr_ex_to_from\00", align 1
@@ -49,7 +47,7 @@ define internal range(i32 0, 2) i32 @test_hexstr_sep_to_from(i32 noundef %0) #0 
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !4
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.testdata, ptr @tbl_testdata, i64 %3
+  %4 = getelementptr inbounds [32 x i8], ptr @tbl_testdata, i64 %3
   %5 = load ptr, ptr %4, align 16, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load i8, ptr %6, align 8, !tbaa !12
@@ -96,7 +94,7 @@ define internal range(i32 0, 2) i32 @test_hexstr_to_from(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !4
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.testdata, ptr @tbl_testdata, i64 %3
+  %4 = getelementptr inbounds [32 x i8], ptr @tbl_testdata, i64 %3
   %5 = and i32 %0, -2
   %.not = icmp eq i32 %5, 2
   %6 = load ptr, ptr %4, align 16, !tbaa !8
@@ -167,7 +165,7 @@ define internal range(i32 0, 2) i32 @test_hexstr_ex_to_from(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.testdata, ptr @tbl_testdata, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr @tbl_testdata, i64 %5
   %7 = load ptr, ptr %6, align 16, !tbaa !8
   %8 = call i32 @OPENSSL_hexstr2buf_ex(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull %2, ptr noundef %7, i8 noundef signext 58) #4
   %9 = icmp ne i32 %8, 0

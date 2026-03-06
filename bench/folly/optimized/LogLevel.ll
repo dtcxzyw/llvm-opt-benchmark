@@ -1702,7 +1702,7 @@ define void @_ZN5folly16logLevelToStringB5cxx11ENS_8LogLevelE(ptr dead_on_unwind
 
 50:                                               ; preds = %54, %.critedge
   %.08.i4.i.i.i.i.i.i.i = phi i64 [ 0, %.critedge ], [ %55, %54 ]
-  %51 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i.i.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i.i.i
   %52 = load i64, ptr %51, align 8, !tbaa !38, !noalias !84
   %53 = icmp ugt i64 %52, %49
   br i1 %53, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i.i.i, label %54, !prof !21
@@ -1792,7 +1792,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 74:                                               ; preds = %78, %69
   %.08.i4.i.i.i.i.i.i.i63 = phi i64 [ 0, %69 ], [ %79, %78 ]
-  %75 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i.i.i63
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i.i.i63
   %76 = load i64, ptr %75, align 8, !tbaa !38, !noalias !89
   %77 = icmp ugt i64 %76, %73
   br i1 %77, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i.i.i71, label %78, !prof !21
@@ -1880,7 +1880,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9ena
 
 17:                                               ; preds = %21, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr12IsSomeStringIT_EE5valueEvE4typeENS_5RangeIPKcEEPS8_.exit
   %.08.i.i4.i.i.i.i = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXsr12IsSomeStringIT_EE5valueEvE4typeENS_5RangeIPKcEEPS8_.exit ], [ %22, %21 ]
-  %18 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i
   %19 = load i64, ptr %18, align 8, !tbaa !38
   %20 = icmp ugt i64 %19, %16
   br i1 %20, label %.loopexit.i.i.i.i, label %21, !prof !21
@@ -1905,7 +1905,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9ena
   %26 = add i64 %.014.i5.i.i.i.i, -2
   %27 = udiv i64 %.0.i6.i.i.i.i, 100
   %28 = urem i64 %.0.i6.i.i.i.i, 100
-  %29 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !93
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 %26
   store i16 %30, ptr %31, align 1
@@ -1916,7 +1916,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9ena
   %33 = phi i64 [ %23, %.loopexit.i.i.i.i ], [ %25, %.lr.ph.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i = phi i64 [ %23, %.loopexit.i.i.i.i ], [ %26, %.lr.ph.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i = phi i64 [ %16, %.loopexit.i.i.i.i ], [ %27, %.lr.ph.i.i.i.i ]
-  %34 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
+  %34 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
   %35 = load i16, ptr %34, align 2, !tbaa !93
   %36 = icmp eq i64 %.014.i.lcssa.i.i.i.i, 2
   br i1 %36, label %37, label %38, !prof !21
@@ -1971,7 +1971,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
 
 16:                                               ; preds = %20, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit
   %.08.i.i4.i.i.i.i = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit ], [ %21, %20 ]
-  %17 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i
   %18 = load i64, ptr %17, align 8, !tbaa !38
   %19 = icmp ugt i64 %18, %15
   br i1 %19, label %.loopexit.i.i.i.i, label %20, !prof !21
@@ -1996,7 +1996,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
   %25 = add i64 %.014.i5.i.i.i.i, -2
   %26 = udiv i64 %.0.i6.i.i.i.i, 100
   %27 = urem i64 %.0.i6.i.i.i.i, 100
-  %28 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !93
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 %25
   store i16 %29, ptr %30, align 1
@@ -2007,7 +2007,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
   %32 = phi i64 [ %22, %.loopexit.i.i.i.i ], [ %24, %.lr.ph.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i = phi i64 [ %22, %.loopexit.i.i.i.i ], [ %25, %.lr.ph.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i = phi i64 [ %15, %.loopexit.i.i.i.i ], [ %26, %.lr.ph.i.i.i.i ]
-  %33 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
+  %33 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
   %34 = load i16, ptr %33, align 2, !tbaa !93
   %35 = icmp eq i64 %.014.i.lcssa.i.i.i.i, 2
   br i1 %35, label %36, label %37, !prof !21

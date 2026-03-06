@@ -338,7 +338,7 @@ _ZN5ZXing13GenericGFPolyD2Ev.exit:                ; preds = %_ZNSt6vectorIiSaIiE
   unreachable
 
 52:                                               ; preds = %36
-  %53 = getelementptr inbounds nuw i16, ptr %46, i64 %43
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %46, i64 %43
   %54 = load i16, ptr %53, align 2, !tbaa !43
   %55 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
           to label %56 unwind label %96
@@ -545,7 +545,7 @@ _ZNSt6vectorIiSaIiEE7reserveEm.exit.i.i:          ; preds = %_ZNSt12_Vector_base
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %19, ptr %3, align 8, !tbaa !27
   store ptr %19, ptr %20, align 8, !tbaa !28
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %.sroa.speculated.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.sroa.speculated.i.i
   store ptr %21, ptr %10, align 8, !tbaa !29
   br label %_ZN5ZXing13GenericGFPoly12Coefficients7reserveEm.exit.i
 
@@ -630,7 +630,7 @@ define void @_ZN5ZXing18ReedSolomonEncoder6encodeERSt6vectorIiSaIiEEi(ptr nounde
   %22 = load ptr, ptr %0, align 8, !tbaa !3
   %23 = sext i32 %2 to i64
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds i32, ptr %9, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %9, i64 %24
   %26 = ptrtoint ptr %25 to i64
   %27 = sub i64 %26, %12
   %28 = icmp ugt i64 %27, 9223372036854775804
@@ -734,7 +734,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   %67 = trunc i64 %66 to i32
   %68 = sub nsw i32 %2, %67
   %69 = load ptr, ptr %8, align 8, !tbaa !48
-  %70 = getelementptr i32, ptr %69, i64 %24
+  %70 = getelementptr [4 x i8], ptr %69, i64 %24
   %71 = icmp slt i32 %68, 1
   br i1 %71, label %_ZSt6fill_nIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiiET_S7_T0_RKT1_.exit, label %_ZSt6fill_nIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiiET_S7_T0_RKT1_.exit.loopexit
 
@@ -750,7 +750,7 @@ _ZSt6fill_nIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiiET_S7_T0_RKT1_
 
 73:                                               ; preds = %_ZSt6fill_nIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiiET_S7_T0_RKT1_.exit
   %74 = sext i32 %68 to i64
-  %75 = getelementptr inbounds i32, ptr %70, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %70, i64 %74
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %75, ptr align 4 %62, i64 %65, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit
 

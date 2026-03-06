@@ -134,7 +134,7 @@ define weak_odr void @_ZNK7mitsuba15DepthIntegratorIfN5drjit6MatrixINS_8Spectrum
 
 13:                                               ; preds = %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i, %8
   %.012.i.i = phi i64 [ 0, %8 ], [ %22, %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i ]
-  %14 = getelementptr inbounds nuw float, ptr %10, i64 %.012.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.012.i.i
   %15 = load float, ptr %14, align 4
   %16 = insertelement <4 x float> poison, float %15, i64 0
   %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
@@ -142,14 +142,14 @@ define weak_odr void @_ZNK7mitsuba15DepthIntegratorIfN5drjit6MatrixINS_8Spectrum
 
 18:                                               ; preds = %18, %13
   %.05.i.i.i.i = phi i64 [ 0, %13 ], [ %20, %18 ]
-  %19 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %9, i64 %.05.i.i.i.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.05.i.i.i.i
   store <4 x float> %17, ptr %19, align 16
   %20 = add nuw nsw i64 %.05.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %20, 4
   br i1 %exitcond.not.i.i.i.i, label %_ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i, label %18, !llvm.loop !4
 
 _ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb0ES4_iEEIfTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES8_.exit.i.i: ; preds = %18
-  %21 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %0, i64 %.012.i.i
+  %21 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %.012.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %21, ptr noundef nonnull align 16 dereferenceable(64) %9, i64 64, i1 false)
   %22 = add nuw nsw i64 %.012.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %22, 4
@@ -165,8 +165,8 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
 
 27:                                               ; preds = %27, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i
   %.019.i = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i ], [ %30, %27 ]
-  %28 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %0, i64 %.019.i
-  %29 = getelementptr inbounds nuw %"struct.mitsuba::Spectrum", ptr %28, i64 %.019.i
+  %28 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %.019.i
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.019.i
   store <4 x float> %26, ptr %29, align 16
   %30 = add nuw nsw i64 %.019.i, 1
   %exitcond.not.i = icmp eq i64 %30, 4

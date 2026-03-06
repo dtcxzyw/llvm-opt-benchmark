@@ -3,8 +3,8 @@ source_filename = "bench/bullet3/original/btBoxShape.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%class.btVector3 = type { [4 x float] }
 %class.btVector4 = type { %class.btVector3 }
+%class.btVector3 = type { [4 x float] }
 
 $_ZN10btBoxShapeD0Ev = comdat any
 
@@ -109,7 +109,7 @@ define dso_local void @_ZN10btBoxShapeC2ERK9btVector3(ptr noundef nonnull align 
   %27 = fcmp olt float %..i.i, %26
   %28 = zext i1 %25 to i64
   %29 = select i1 %27, i64 %28, i64 2
-  %30 = getelementptr inbounds nuw float, ptr %1, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %29
   %31 = load float, ptr %30, align 4, !tbaa !17
   %32 = fmul float %31, 0x3FB99999A0000000
   %33 = fcmp olt float %32, %4
@@ -471,9 +471,9 @@ define linkonce_odr dso_local noundef ptr @_ZNK21btConvexInternalShape9serialize
 
 7:                                                ; preds = %7, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %9 = load float, ptr %8, align 4, !tbaa !17
-  %10 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   store float %9, ptr %10, align 4, !tbaa !17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -486,9 +486,9 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %7
 
 13:                                               ; preds = %13, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit
   %indvars.iv.i8 = phi i64 [ 0, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit ], [ %indvars.iv.next.i9, %13 ]
-  %14 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i8
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i8
   %15 = load float, ptr %14, align 4, !tbaa !17
-  %16 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i8
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i8
   store float %15, ptr %16, align 4, !tbaa !17
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 4
@@ -600,8 +600,8 @@ define linkonce_odr dso_local void @_ZNK10btBoxShape49batchedUnitVectorGetSuppor
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv
-  %11 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %12 = load float, ptr %10, align 4, !tbaa !17
   %13 = load float, ptr %5, align 8, !tbaa !17
   %14 = fneg float %13
@@ -645,13 +645,13 @@ define linkonce_odr dso_local void @_ZNK10btBoxShape32getPreferredPenetrationDir
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table._ZNK10btBoxShape32getPreferredPenetrationDirectionEiR9btVector3, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10btBoxShape32getPreferredPenetrationDirectionEiR9btVector3, i64 %5
   %switch.load = load float, ptr %switch.gep, align 4
   %6 = zext nneg i32 %1 to i64
-  %switch.gep27 = getelementptr inbounds nuw float, ptr @switch.table._ZNK10btBoxShape32getPreferredPenetrationDirectionEiR9btVector3.1, i64 %6
+  %switch.gep27 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10btBoxShape32getPreferredPenetrationDirectionEiR9btVector3.1, i64 %6
   %switch.load28 = load float, ptr %switch.gep27, align 4
   %7 = zext nneg i32 %1 to i64
-  %switch.gep29 = getelementptr inbounds nuw float, ptr @switch.table._ZNK10btBoxShape32getPreferredPenetrationDirectionEiR9btVector3.2, i64 %7
+  %switch.gep29 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10btBoxShape32getPreferredPenetrationDirectionEiR9btVector3.2, i64 %7
   %switch.load30 = load float, ptr %switch.gep29, align 4
   store float %switch.load, ptr %2, align 4, !tbaa !17
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -687,10 +687,10 @@ define linkonce_odr dso_local void @_ZNK10btBoxShape7getEdgeEiR9btVector3S1_(ptr
 
 switch.lookup:                                    ; preds = %4
   %6 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10btBoxShape7getEdgeEiR9btVector3S1_, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10btBoxShape7getEdgeEiR9btVector3S1_, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = zext nneg i32 %1 to i64
-  %switch.gep6 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK10btBoxShape7getEdgeEiR9btVector3S1_.3, i64 %7
+  %switch.gep6 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK10btBoxShape7getEdgeEiR9btVector3S1_.3, i64 %7
   %switch.load7 = load i32, ptr %switch.gep6, align 4
   br label %8
 

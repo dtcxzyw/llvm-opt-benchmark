@@ -228,7 +228,7 @@ define hidden i32 @mbedtls_ssl_tls13_derive_secret(i32 noundef %0, ptr noundef %
 
 switch.lookup:                                    ; preds = %14
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %17
 
@@ -300,7 +300,7 @@ define hidden i32 @mbedtls_ssl_tls13_evolve_secret(i32 noundef %0, ptr noundef %
 
 switch.lookup:                                    ; preds = %16
   %18 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_evolve_secret.11, i64 %18
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_evolve_secret.11, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %19
 
@@ -320,7 +320,7 @@ switch.lookup:                                    ; preds = %16
 
 switch.lookup98:                                  ; preds = %21
   %23 = zext nneg i8 %switch.tableidx97 to i64
-  %switch.gep99 = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %23
+  %switch.gep99 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %23
   %switch.load100 = load i64, ptr %switch.gep99, align 8
   br label %24
 
@@ -378,7 +378,7 @@ mbedtls_ssl_tls13_derive_secret.exit:             ; preds = %28, %..thread_crit_
 
 switch.lookup102:                                 ; preds = %40
   %42 = zext nneg i8 %switch.tableidx101 to i64
-  %switch.gep103 = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_evolve_secret.11, i64 %42
+  %switch.gep103 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_evolve_secret.11, i64 %42
   %switch.load104 = load i64, ptr %switch.gep103, align 8
   br label %43
 
@@ -423,7 +423,7 @@ define hidden i32 @mbedtls_ssl_tls13_derive_early_secrets(i32 noundef %0, ptr no
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %10
 
@@ -474,7 +474,7 @@ define hidden i32 @mbedtls_ssl_tls13_derive_handshake_secrets(i32 noundef %0, pt
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %10
 
@@ -525,7 +525,7 @@ define hidden i32 @mbedtls_ssl_tls13_derive_application_secrets(i32 noundef %0, 
 
 switch.lookup:                                    ; preds = %5
   %10 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %11
 
@@ -583,7 +583,7 @@ define hidden i32 @mbedtls_ssl_tls13_derive_resumption_master_secret(i32 noundef
 
 switch.lookup:                                    ; preds = %5
   %8 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %9
 
@@ -634,7 +634,7 @@ define hidden i32 @mbedtls_ssl_tls13_calculate_verify_data(ptr noundef %0, ptr n
 
 switch.lookup:                                    ; preds = %5
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %18
 
@@ -702,7 +702,7 @@ define internal fastcc i32 @ssl_tls13_calc_finished_core(i32 noundef %0, ptr nou
 
 switch.lookup:                                    ; preds = %5
   %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %12
 
@@ -781,7 +781,7 @@ define hidden i32 @mbedtls_ssl_tls13_create_psk_binder(ptr noundef %0, i32 nound
 
 switch.lookup:                                    ; preds = %7
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %17
 
@@ -816,7 +816,7 @@ switch.lookup:                                    ; preds = %7
 
 switch.lookup74:                                  ; preds = %27
   %28 = zext nneg i8 %switch.tableidx73 to i64
-  %switch.gep75 = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %28
+  %switch.gep75 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %28
   %switch.load76 = load i64, ptr %switch.gep75, align 8
   br label %29
 
@@ -850,7 +850,7 @@ mbedtls_ssl_tls13_derive_secret.exit:             ; preds = %33, %..thread_crit_
 
 switch.lookup78:                                  ; preds = %35
   %36 = zext nneg i8 %switch.tableidx73 to i64
-  %switch.gep79 = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %36
+  %switch.gep79 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %36
   %switch.load80 = load i64, ptr %switch.gep79, align 8
   br label %37
 
@@ -1094,7 +1094,7 @@ define hidden i32 @mbedtls_ssl_tls13_key_schedule_stage_early(ptr noundef %0) lo
 
 switch.lookup:                                    ; preds = %25
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %27
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %27
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %28
 
@@ -1254,7 +1254,7 @@ mbedtls_ssl_tls13_named_group_is_ecdhe.exit83.thread.i: ; preds = %24, %20
 
 switch.lookup:                                    ; preds = %60
   %62 = zext nneg i32 %switch.tableidx55 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %62
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %62
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %63
 
@@ -1347,7 +1347,7 @@ ssl_tls13_get_cipher_key_info.exit.i:             ; preds = %69
 
 switch.lookup57:                                  ; preds = %84
   %90 = zext nneg i32 %switch.tableidx56 to i64
-  %switch.gep58 = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %90
+  %switch.gep58 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %90
   %switch.load59 = load i64, ptr %switch.gep58, align 8
   br label %91
 
@@ -1500,7 +1500,7 @@ define hidden i32 @mbedtls_ssl_tls13_compute_resumption_master_secret(ptr nounde
 
 switch.lookup:                                    ; preds = %13
   %20 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %20
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %20
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %21
 
@@ -1532,7 +1532,7 @@ mbedtls_ssl_tls13_derive_resumption_master_secret.exit: ; preds = %21
 
 switch.lookup51:                                  ; preds = %26
   %30 = zext nneg i32 %switch.tableidx50 to i64
-  %switch.gep52 = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %30
+  %switch.gep52 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %30
   %switch.load53 = load i64, ptr %switch.gep52, align 8
   br label %31
 
@@ -1583,7 +1583,7 @@ define hidden i32 @mbedtls_ssl_tls13_compute_application_transform(ptr noundef %
 
 switch.lookup:                                    ; preds = %18
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %21
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %21
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %22
 
@@ -1649,7 +1649,7 @@ ssl_tls13_get_cipher_key_info.exit.i:             ; preds = %22
 
 switch.lookup46:                                  ; preds = %40
   %47 = zext nneg i32 %switch.tableidx45 to i64
-  %switch.gep47 = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %47
+  %switch.gep47 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ssl_tls13_compute_application_transform.16, i64 %47
   %switch.load48 = load i64, ptr %switch.gep47, align 8
   br label %48
 

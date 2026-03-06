@@ -480,7 +480,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %232 = fmul nsz double %111, %230
   %233 = fmul nsz double %114, %231
   %234 = sext i32 %145 to i64
-  %235 = getelementptr inbounds double, ptr %50, i64 %234
+  %235 = getelementptr inbounds [8 x i8], ptr %50, i64 %234
   store double %232, ptr %235, align 8, !tbaa !72
   %236 = getelementptr i8, ptr %235, i64 8
   store double %233, ptr %236, align 8, !tbaa !72
@@ -490,7 +490,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %238 = add i32 %120, %145
   %239 = srem i32 %238, %40
   %240 = sext i32 %239 to i64
-  %241 = getelementptr inbounds double, ptr %50, i64 %240
+  %241 = getelementptr inbounds [8 x i8], ptr %50, i64 %240
   %242 = load double, ptr %241, align 8, !tbaa !72
   br label %250
 
@@ -501,7 +501,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %245 = add i32 %118, %145
   %246 = srem i32 %245, %40
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds double, ptr %50, i64 %247
+  %248 = getelementptr inbounds [8 x i8], ptr %50, i64 %247
   %249 = load double, ptr %248, align 8, !tbaa !72
   br label %250
 

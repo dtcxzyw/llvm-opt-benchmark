@@ -504,7 +504,7 @@ if.end.i261:                                      ; preds = %_ZN4node11Environme
   %values_.i262 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %17 = load ptr, ptr %values_.i262, align 8
   %idx.ext.i263 = zext nneg i32 %offset to i64
-  %add.ptr.i264 = getelementptr inbounds nuw i64, ptr %17, i64 %idx.ext.i263
+  %add.ptr.i264 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %idx.ext.i263
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit269
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit269: ; preds = %if.end.i261, %if.then.i266
@@ -530,7 +530,7 @@ if.end.i243:                                      ; preds = %_ZNK2v820FunctionCa
   %values_.i244 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %23 = load ptr, ptr %values_.i244, align 8
   %idx.ext.i245 = zext nneg i32 %add to i64
-  %add.ptr.i246 = getelementptr inbounds nuw i64, ptr %23, i64 %idx.ext.i245
+  %add.ptr.i246 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %idx.ext.i245
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit251
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit251: ; preds = %if.end.i243, %if.then.i248
@@ -685,7 +685,7 @@ if.end.i225:                                      ; preds = %cond.end33
   %values_.i226 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %45 = load ptr, ptr %values_.i226, align 8
   %idx.ext.i227 = zext nneg i32 %add37 to i64
-  %add.ptr.i228 = getelementptr inbounds nuw i64, ptr %45, i64 %idx.ext.i227
+  %add.ptr.i228 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %idx.ext.i227
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit233
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit233: ; preds = %if.end.i225, %if.then.i230
@@ -719,7 +719,7 @@ if.end.i207:                                      ; preds = %do.body51
   %values_.i208 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %51 = load ptr, ptr %values_.i208, align 8
   %idx.ext.i209 = zext nneg i32 %add53 to i64
-  %add.ptr.i210 = getelementptr inbounds nuw i64, ptr %51, i64 %idx.ext.i209
+  %add.ptr.i210 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %idx.ext.i209
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit215
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit215: ; preds = %if.end.i207, %if.then.i212
@@ -753,7 +753,7 @@ if.end.i189:                                      ; preds = %do.body68
   %values_.i190 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %57 = load ptr, ptr %values_.i190, align 8
   %idx.ext.i191 = zext nneg i32 %add70 to i64
-  %add.ptr.i192 = getelementptr inbounds nuw i64, ptr %57, i64 %idx.ext.i191
+  %add.ptr.i192 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %idx.ext.i191
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit197
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit197: ; preds = %if.end.i189, %if.then.i194
@@ -796,7 +796,7 @@ if.end.i171:                                      ; preds = %do.end84
   %values_.i172 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %67 = load ptr, ptr %values_.i172, align 8
   %idx.ext.i173 = zext nneg i32 %add37 to i64
-  %add.ptr.i174 = getelementptr inbounds nuw i64, ptr %67, i64 %idx.ext.i173
+  %add.ptr.i174 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %idx.ext.i173
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit179
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit179: ; preds = %if.end.i171, %if.then.i176
@@ -834,7 +834,7 @@ if.end.i153:                                      ; preds = %if.end103
   %values_.i154 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %74 = load ptr, ptr %values_.i154, align 8
   %idx.ext.i155 = zext nneg i32 %add53 to i64
-  %add.ptr.i156 = getelementptr inbounds nuw i64, ptr %74, i64 %idx.ext.i155
+  %add.ptr.i156 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %idx.ext.i155
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit161
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit161: ; preds = %if.end.i153, %if.then.i158
@@ -866,7 +866,7 @@ if.end122:                                        ; preds = %_ZNK2v820FunctionCa
   %values_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %81 = load ptr, ptr %values_.i, align 8
   %idx.ext.i = zext nneg i32 %add70 to i64
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %81, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %idx.ext.i
   %retval.i.sroa.0.0 = select i1 %or.cond65, ptr %add.ptr.i, ptr %80
   call void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048) %name, ptr noundef %77, ptr %retval.i.sroa.0.0) #17
   %buf_.i = getelementptr inbounds nuw i8, ptr %name, i64 16

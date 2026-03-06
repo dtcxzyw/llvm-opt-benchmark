@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.icache_entry_t = type { i64, ptr, %struct.insn_fetch_t }
 %struct.insn_fetch_t = type { ptr, %class.insn_t }
 %class.insn_t = type { i64 }
-%struct.tlb_entry_t = type { ptr, i64 }
 %"struct.std::pair" = type { i64, %struct.float128_t }
 %struct.float128_t = type { [2 x i64] }
 
@@ -572,7 +571,7 @@ _ZL26commit_log_stash_privilegeP11processor_t.exit.i: ; preds = %150, %148, %_ZL
   %200 = load i64, ptr %48, align 8, !tbaa !179
   %201 = urem i64 %.167181, %200
   %202 = load ptr, ptr %47, align 8, !tbaa !180
-  %203 = getelementptr inbounds nuw ptr, ptr %202, i64 %201
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %201
   %204 = load ptr, ptr %203, align 8, !tbaa !181
   %.not.i.i.i.i.i.i = icmp eq ptr %204, null
   br i1 %.not.i.i.i.i.i.i, label %.loopexit.i.i.i.i, label %205
@@ -700,7 +699,7 @@ _ZN11processor_t9slow_pathEv.exit:                ; preds = %.invoke, %234
   %.571179 = phi i64 [ %56, %.preheader ], [ %255, %311 ]
   %247 = lshr i64 %.571179, 1
   %248 = and i64 %247, 1023
-  %249 = getelementptr inbounds nuw %struct.icache_entry_t, ptr %80, i64 %248
+  %249 = getelementptr inbounds nuw [32 x i8], ptr %80, i64 %248
   %250 = load i64, ptr %249, align 8, !tbaa !190
   %251 = icmp eq i64 %250, %.571179
   br i1 %251, label %_ZN5mmu_t13access_icacheEm.exit.preheader, label %252, !prof !147
@@ -1066,14 +1065,14 @@ define linkonce_odr noundef ptr @_ZN5mmu_t13refill_icacheEmP14icache_entry_t(ptr
   %10 = lshr i64 %1, 12
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 37008
   %12 = and i64 %10, 255
-  %13 = getelementptr inbounds nuw i64, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !160
   %15 = icmp eq i64 %14, %10
   br i1 %15, label %16, label %21, !prof !147
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %18 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %17, i64 %12
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %12
   %.sroa.0.0.copyload.i = load ptr, ptr %18, align 8, !tbaa !225
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !160
@@ -1107,7 +1106,7 @@ _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %16, %21
   %33 = add i64 %1, 2
   %34 = lshr i64 %33, 12
   %35 = and i64 %34, 255
-  %36 = getelementptr inbounds nuw i64, ptr %11, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !160
   %38 = icmp eq i64 %37, %34
   br i1 %.not38.not, label %85, label %56, !prof !227
@@ -1116,14 +1115,14 @@ _ZN5mmu_t19translate_insn_addrEm.exit:            ; preds = %16, %21
   %39 = add i64 %1, 2
   %40 = lshr i64 %39, 12
   %41 = and i64 %40, 255
-  %42 = getelementptr inbounds nuw i64, ptr %11, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !160
   %44 = icmp eq i64 %43, %40
   br i1 %44, label %45, label %48, !prof !147
 
 45:                                               ; preds = %.thread
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %47 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %46, i64 %41
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %41
   %.sroa.0.0.copyload.i.i = load ptr, ptr %47, align 8, !tbaa !225
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit
 
@@ -1146,7 +1145,7 @@ _ZN5mmu_t27translate_insn_addr_to_hostEm.exit:    ; preds = %45, %48
 
 57:                                               ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %59 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %58, i64 %35
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %35
   %.sroa.0.0.copyload.i.i40 = load ptr, ptr %59, align 8, !tbaa !225
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit41
 
@@ -1164,14 +1163,14 @@ _ZN5mmu_t27translate_insn_addr_to_hostEm.exit41:  ; preds = %57, %60
   %67 = add i64 %1, 4
   %68 = lshr i64 %67, 12
   %69 = and i64 %68, 255
-  %70 = getelementptr inbounds nuw i64, ptr %11, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !160
   %72 = icmp eq i64 %71, %68
   br i1 %72, label %73, label %76, !prof !147
 
 73:                                               ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit41
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %75 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %74, i64 %69
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %69
   %.sroa.0.0.copyload.i.i43 = load ptr, ptr %75, align 8, !tbaa !225
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit44
 
@@ -1195,7 +1194,7 @@ _ZN5mmu_t27translate_insn_addr_to_hostEm.exit44:  ; preds = %73, %76
 
 86:                                               ; preds = %85
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %88 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %87, i64 %35
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 %35
   %.sroa.0.0.copyload.i.i46 = load ptr, ptr %88, align 8, !tbaa !225
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit47
 
@@ -1213,14 +1212,14 @@ _ZN5mmu_t27translate_insn_addr_to_hostEm.exit47:  ; preds = %86, %89
   %96 = add i64 %1, 4
   %97 = lshr i64 %96, 12
   %98 = and i64 %97, 255
-  %99 = getelementptr inbounds nuw i64, ptr %11, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %98
   %100 = load i64, ptr %99, align 8, !tbaa !160
   %101 = icmp eq i64 %100, %97
   br i1 %101, label %102, label %105, !prof !147
 
 102:                                              ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit47
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %104 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %103, i64 %98
+  %104 = getelementptr inbounds nuw [16 x i8], ptr %103, i64 %98
   %.sroa.0.0.copyload.i.i49 = load ptr, ptr %104, align 8, !tbaa !225
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit50
 
@@ -1238,14 +1237,14 @@ _ZN5mmu_t27translate_insn_addr_to_hostEm.exit50:  ; preds = %102, %105
   %112 = add i64 %1, 6
   %113 = lshr i64 %112, 12
   %114 = and i64 %113, 255
-  %115 = getelementptr inbounds nuw i64, ptr %11, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %114
   %116 = load i64, ptr %115, align 8, !tbaa !160
   %117 = icmp eq i64 %116, %113
   br i1 %117, label %118, label %121, !prof !147
 
 118:                                              ; preds = %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit50
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %120 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %119, i64 %114
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %119, i64 %114
   %.sroa.0.0.copyload.i.i52 = load ptr, ptr %120, align 8, !tbaa !225
   br label %_ZN5mmu_t27translate_insn_addr_to_hostEm.exit53
 
@@ -1276,7 +1275,7 @@ _ZN5mmu_t27translate_insn_addr_to_hostEm.exit53:  ; preds = %118, %121
   %136 = add i64 %131, %1
   %137 = lshr i64 %136, 1
   %138 = and i64 %137, 1023
-  %139 = getelementptr inbounds nuw %struct.icache_entry_t, ptr %135, i64 %138
+  %139 = getelementptr inbounds nuw [32 x i8], ptr %135, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %139, ptr %140, align 8, !tbaa !195
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1642,7 +1641,7 @@ define internal fastcc void @_ZL22commit_log_print_valueP8_IO_FILEiPKv(ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %27, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %28 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.next
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next
   %29 = load i64, ptr %28, align 8, !tbaa !160
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, i64 noundef %29) #23
   %31 = icmp samesign ugt i64 %indvars.iv, 1
@@ -1716,7 +1715,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
 31:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !180
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !181
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -1742,7 +1741,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   %44 = load i64, ptr %9, align 8, !tbaa !179
   %45 = load i64, ptr %43, align 8, !tbaa !160
   %46 = urem i64 %45, %44
-  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %46
   store ptr %3, ptr %47, align 8, !tbaa !181
   br label %48
 
@@ -1815,7 +1814,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !160
   %19 = urem i64 %18, %1
-  %20 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !181
   %.not27 = icmp eq ptr %21, null
   br i1 %.not27, label %22, label %27
@@ -1830,7 +1829,7 @@ _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4
   br i1 %.not28, label %30, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %26, align 8, !tbaa !181
   br label %30
 

@@ -189,13 +189,13 @@ define void @_ZN6icu_7717CollationSettings18copyReorderingFromERKS0_R10UErrorCod
   %66 = phi i32 [ %44, %45 ], [ %50, %63 ]
   %.024.i = phi ptr [ %47, %45 ], [ %54, %63 ]
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i32, ptr %.024.i, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %.024.i, i64 %67
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %68, ptr noundef nonnull readonly align 1 dereferenceable(256) %8, i64 256, i1 false)
   %69 = shl nsw i32 %38, 2
   %70 = sext i32 %69 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.024.i, ptr readonly align 4 %36, i64 %70, i1 false)
   %71 = sext i32 %38 to i64
-  %72 = getelementptr inbounds i32, ptr %.024.i, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %.024.i, i64 %71
   %73 = shl nsw i32 %41, 2
   %74 = sext i32 %73 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %72, ptr readonly align 4 %40, i64 %74, i1 false)
@@ -203,7 +203,7 @@ define void @_ZN6icu_7717CollationSettings18copyReorderingFromERKS0_R10UErrorCod
   %76 = load ptr, ptr %75, align 8, !tbaa !28
   %77 = load i32, ptr %43, align 4, !tbaa !27
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i32, ptr %76, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %76, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %79, ptr %80, align 8, !tbaa !19
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -320,9 +320,9 @@ define noundef zeroext i1 @_ZNK6icu_7717CollationSettingseqERKS0_(ptr noundef no
 
 24:                                               ; preds = %24, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !29
-  %27 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !29
   %.not16 = icmp eq i32 %26, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -365,7 +365,7 @@ define noundef i32 @_ZNK6icu_7717CollationSettings8hashCodeEv(ptr noundef nonnul
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.19 = phi i32 [ %12, %.lr.ph ], [ %21, %16 ]
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !29
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = shl i32 %18, %19
@@ -426,7 +426,7 @@ define void @_ZN6icu_7717CollationSettings15aliasReorderingERKNS_13CollationData
 
 24:                                               ; preds = %20
   %25 = zext nneg i32 %5 to i64
-  %26 = getelementptr i32, ptr %4, i64 %25
+  %26 = getelementptr [4 x i8], ptr %4, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -4
   %28 = load i32, ptr %27, align 4, !tbaa !29
   %29 = and i32 %28, 65535
@@ -462,7 +462,7 @@ _ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit.thread: ; pred
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
-  %40 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !29
   %42 = and i32 %41, 16711680
   %43 = icmp eq i32 %42, 0
@@ -493,14 +493,14 @@ _ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit.thread: ; pred
 
 50:                                               ; preds = %.critedge
   %51 = sext i32 %5 to i64
-  %52 = getelementptr i32, ptr %4, i64 %51
+  %52 = getelementptr [4 x i8], ptr %4, i64 %51
   %53 = getelementptr i8, ptr %52, i64 -4
   %54 = load i32, ptr %53, align 4, !tbaa !29
   %55 = and i32 %54, -65536
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %55, ptr %56, align 8, !tbaa !20
   %57 = zext nneg i32 %.0.lcssa to i64
-  %58 = getelementptr inbounds nuw i32, ptr %4, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %58, ptr %59, align 8, !tbaa !21
   %60 = sub nsw i32 %5, %.0.lcssa
@@ -604,7 +604,7 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !38
   %37 = sext i32 %27 to i64
-  %38 = getelementptr i32, ptr %36, i64 %37
+  %38 = getelementptr [4 x i8], ptr %36, i64 %37
   %39 = getelementptr i8, ptr %38, i64 -4
   %40 = load i32, ptr %39, align 4, !tbaa !29
   %41 = and i32 %40, -65536
@@ -632,7 +632,7 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   %indvars.iv72 = phi i64 [ 0, %.lr.ph65.preheader ], [ %indvars.iv.next73, %62 ]
   %.04862 = phi i32 [ -1, %.lr.ph65.preheader ], [ %.1, %62 ]
   %.04961 = phi i32 [ 0, %.lr.ph65.preheader ], [ %.2, %62 ]
-  %46 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv72
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv72
   %47 = load i32, ptr %46, align 4, !tbaa !29
   %48 = lshr i32 %47, 24
   %49 = icmp slt i32 %.04961, %48
@@ -694,7 +694,7 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   %.052 = select i1 %67, i32 0, i32 %68
   %narrow = call i32 @llvm.smax.i32(i32 %.048.lcssa87, i32 0)
   %.051.idx = zext nneg i32 %narrow to i64
-  %.051 = getelementptr inbounds nuw i32, ptr %36, i64 %.051.idx
+  %.051 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %.051.idx
   %69 = add nsw i32 %.052, %3
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %71 = load i32, ptr %70, align 4, !tbaa !27
@@ -751,13 +751,13 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   %92 = phi i32 [ %71, %72 ], [ %77, %.noexc59 ]
   %.024.i = phi ptr [ %74, %72 ], [ %81, %.noexc59 ]
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i32, ptr %.024.i, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr %.024.i, i64 %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %94, ptr noundef nonnull readonly align 16 dereferenceable(256) %7, i64 256, i1 false)
   %95 = shl nsw i32 %3, 2
   %96 = sext i32 %95 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.024.i, ptr readonly align 4 %2, i64 %96, i1 false)
   %97 = sext i32 %3 to i64
-  %98 = getelementptr inbounds i32, ptr %.024.i, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %.024.i, i64 %97
   %99 = shl nsw i32 %.052, 2
   %100 = sext i32 %99 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %98, ptr readonly align 4 %.051, i64 %100, i1 false)
@@ -765,7 +765,7 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   %102 = load ptr, ptr %101, align 8, !tbaa !28
   %103 = load i32, ptr %70, align 4, !tbaa !27
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds i32, ptr %102, i64 %104
+  %105 = getelementptr inbounds [4 x i8], ptr %102, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %105, ptr %106, align 8, !tbaa !19
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -866,13 +866,13 @@ define void @_ZN6icu_7717CollationSettings16setReorderArraysEPKiiPKjiPKhR10UErro
   %36 = phi i32 [ %13, %14 ], [ %19, %33 ]
   %.024 = phi ptr [ %16, %14 ], [ %23, %33 ]
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i32, ptr %.024, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %.024, i64 %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(256) %38, ptr noundef nonnull align 1 dereferenceable(256) %5, i64 256, i1 false)
   %39 = shl nsw i32 %2, 2
   %40 = sext i32 %39 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.024, ptr align 4 %1, i64 %40, i1 false)
   %41 = sext i32 %2 to i64
-  %42 = getelementptr inbounds i32, ptr %.024, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %.024, i64 %41
   %43 = shl nsw i32 %4, 2
   %44 = sext i32 %43 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %42, ptr align 4 %3, i64 %44, i1 false)
@@ -880,7 +880,7 @@ define void @_ZN6icu_7717CollationSettings16setReorderArraysEPKiiPKjiPKhR10UErro
   %46 = load ptr, ptr %45, align 8, !tbaa !28
   %47 = load i32, ptr %12, align 4, !tbaa !27
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr %46, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %46, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %49, ptr %50, align 8, !tbaa !19
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 72

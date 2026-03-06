@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ref_iterator_vtable = type { ptr, ptr, ptr }
-%struct.cache_ref_iterator_level = type { ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [17 x i8] c"refs/ref-cache.c\00", align 1
 @.str.1 = private unnamed_addr constant [51 x i8] c"incomplete ref_store without fill_ref_dir function\00", align 1
@@ -58,7 +57,7 @@ st_mult.exit:                                     ; preds = %6
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %0, align 8, !tbaa !4
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds ptr, ptr %18, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %21
   store ptr %1, ptr %22, align 8, !tbaa !14
   %23 = icmp eq i32 %19, 0
   br i1 %23, label %35, label %24
@@ -260,7 +259,7 @@ define internal fastcc void @free_ref_entry(ptr noundef captures(none) %0) unnam
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %8, align 8, !tbaa !13
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   tail call fastcc void @free_ref_entry(ptr noundef %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -382,7 +381,7 @@ sane_qsort.exit:                                  ; preds = %6, %9
   %.030 = phi i32 [ %.1, %37 ], [ 0, %sane_qsort.exit ]
   %.01829 = phi ptr [ %.119, %37 ], [ null, %sane_qsort.exit ]
   %15 = load ptr, ptr %7, align 8, !tbaa !13
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %.not = icmp eq ptr %.01829, null
   br i1 %.not, label %is_dup_ref.exit.thread, label %18
@@ -430,7 +429,7 @@ sane_qsort.exit:                                  ; preds = %6, %9
 is_dup_ref.exit.thread:                           ; preds = %18, %.lr.ph
   %34 = add nsw i32 %.030, 1
   %35 = sext i32 %.030 to i64
-  %36 = getelementptr inbounds ptr, ptr %15, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %15, i64 %35
   store ptr %17, ptr %36, align 8, !tbaa !14
   br label %37
 
@@ -790,7 +789,7 @@ define internal fastcc void @prime_ref_dir(ptr noundef readonly captures(none) %
   %6 = phi i32 [ %26, %overlaps_prefix.exit.thread22.us ], [ %3, %.lr.ph ]
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %overlaps_prefix.exit.thread22.us ], [ 0, %.lr.ph ]
   %7 = load ptr, ptr %5, align 8, !tbaa !13
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv29
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv29
   %9 = load ptr, ptr %8, align 8, !tbaa !14
   %10 = load i8, ptr %9, align 8, !tbaa !17
   %11 = and i8 %10, 16
@@ -836,7 +835,7 @@ overlaps_prefix.exit.thread22.us:                 ; preds = %get_ref_dir.exit.us
 .lr.ph.split:                                     ; preds = %.lr.ph, %overlaps_prefix.exit.thread22
   %indvars.iv = phi i64 [ %indvars.iv.next, %overlaps_prefix.exit.thread22 ], [ 0, %.lr.ph ]
   %29 = load ptr, ptr %5, align 8, !tbaa !13
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !14
   %32 = load i8, ptr %31, align 8, !tbaa !17
   %33 = and i8 %32, 16
@@ -984,7 +983,7 @@ define internal i32 @cache_ref_iterator_advance(ptr noundef %0) #0 {
 overlaps_prefix.exit.thread58:                    ; preds = %overlaps_prefix.exit.thread58.backedge, %1
   %6 = load ptr, ptr %2, align 8, !tbaa !40
   %7 = load i64, ptr %3, align 8, !tbaa !41
-  %8 = getelementptr %struct.cache_ref_iterator_level, ptr %6, i64 %7
+  %8 = getelementptr [16 x i8], ptr %6, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -16
   %10 = load ptr, ptr %9, align 8, !tbaa !45
   %11 = getelementptr i8, ptr %8, i64 -4
@@ -1022,7 +1021,7 @@ overlaps_prefix.exit.thread58:                    ; preds = %overlaps_prefix.exi
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !13
   %30 = sext i32 %18 to i64
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !14
   %33 = getelementptr i8, ptr %8, i64 -8
   %34 = load i32, ptr %33, align 8, !tbaa !47
@@ -1112,7 +1111,7 @@ st_mult.exit:                                     ; preds = %56
   %65 = phi i64 [ %52, %._crit_edge ], [ %.pre73, %st_mult.exit ]
   %66 = phi ptr [ %.pre72, %._crit_edge ], [ %63, %st_mult.exit ]
   store i64 %.pre-phi, ptr %3, align 8, !tbaa !41
-  %67 = getelementptr inbounds nuw %struct.cache_ref_iterator_level, ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %65
   %68 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %69 = load i8, ptr %32, align 8, !tbaa !17
   %70 = and i8 %69, 32

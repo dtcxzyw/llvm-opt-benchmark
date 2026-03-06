@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.nghttp2_extpri = type { i32, i32 }
-%struct.nghttp2_nv = type { ptr, ptr, i64, i64, i8 }
 %struct.sfparse_parser = type { ptr, ptr, i32 }
 %struct.sfparse_vec = type { ptr, i64 }
 %struct.sfparse_value = type { i32, i32, %union.anon }
@@ -1184,7 +1183,7 @@ define hidden void @nghttp2_http_record_request_method(ptr noundef captures(none
 
 .lr.ph:                                           ; preds = %6, %31
   %.02330 = phi i64 [ %32, %31 ], [ 0, %6 ]
-  %9 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %.0, i64 %.02330
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %.0, i64 %.02330
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !61
   %12 = icmp eq i64 %11, 7

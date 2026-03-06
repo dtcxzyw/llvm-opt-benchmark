@@ -355,7 +355,7 @@ define hidden noundef i32 @_ZN4cvc58internal13preprocessing6passes12BvEagerAtoms
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %20 = load ptr, ptr %9, align 8, !tbaa !234
-  %21 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !235
   store ptr %22, ptr %5, align 8, !tbaa !238
   %23 = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -824,7 +824,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %21, %
   %34 = icmp eq i32 %33, 2
   %spec.select.i.i = select i1 %34, i64 2, i64 1
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %spec.select.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %spec.select.i.i
   %37 = load ptr, ptr %36, align 8, !tbaa !252, !noalias !253
   store ptr %37, ptr %9, align 8, !tbaa !235, !alias.scope !253
   %38 = load i64, ptr %37, align 8, !noalias !253
@@ -870,7 +870,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %49, %43, %51
   %61 = icmp eq i32 %60, 2
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %63 = zext i1 %61 to i64
-  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !252, !noalias !256
   store ptr %65, ptr %10, align 8, !tbaa !235, !alias.scope !256
   %66 = load i64, ptr %65, align 8, !noalias !256
@@ -1050,7 +1050,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %130, %124, %132
   %142 = icmp eq i32 %141, 2
   %spec.select.i.i33 = select i1 %142, i64 2, i64 1
   %143 = getelementptr inbounds nuw i8, ptr %134, i64 24
-  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %spec.select.i.i33
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %spec.select.i.i33
   %145 = load ptr, ptr %144, align 8, !tbaa !252, !noalias !265
   store ptr %145, ptr %14, align 8, !tbaa !235, !alias.scope !265
   %146 = load i64, ptr %145, align 8, !noalias !265

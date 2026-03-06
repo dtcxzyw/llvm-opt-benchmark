@@ -162,10 +162,10 @@ define hidden i32 @mlib_ImageAffine_alltypes(ptr noundef %0, ptr noundef %1, ptr
 
 switch.lookup:                                    ; preds = %10
   %14 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mlib_ImageAffine_alltypes, i64 %14
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mlib_ImageAffine_alltypes, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   %15 = zext nneg i32 %3 to i64
-  %switch.gep120 = getelementptr inbounds nuw i32, ptr @switch.table.mlib_ImageAffine_alltypes.4, i64 %15
+  %switch.gep120 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mlib_ImageAffine_alltypes.4, i64 %15
   %switch.load121 = load i32, ptr %switch.gep120, align 4
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %16, align 8
@@ -264,7 +264,7 @@ switch.lookup:                                    ; preds = %10
   %62 = add nsw i32 %.val98.sink, -1
   %63 = add nsw i32 %62, %61
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr %mlib_AffineFunArr_bc.sink, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %mlib_AffineFunArr_bc.sink, i64 %64
   %66 = load ptr, ptr %65, align 8
   %67 = call i32 %66(ptr noundef nonnull %6) #2
   %.not90 = icmp eq i32 %67, 0

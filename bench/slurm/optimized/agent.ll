@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.__atomic_wide_counter = type { i64 }
 %struct.slurmctld_lock_t = type { i32, i32, i32, i32, i32 }
 %union.pthread_attr_t = type { i64, [48 x i8] }
-%struct.thd_t = type { i64, i32, i64, i64, ptr, ptr, ptr, ptr }
 %struct.slurm_msg = type { %struct.sockaddr_storage, ptr, i32, i32, i32, i8, i32, i8, i32, ptr, ptr, i32, ptr, ptr, i16, i8, i16, i16, %struct.forward, ptr, %struct.sockaddr_storage, ptr }
 %struct.forward = type { %struct.slurm_node_alias_addrs_t, i16, i16, ptr, i32, i16, i16 }
 %struct.slurm_node_alias_addrs_t = type { i64, ptr, ptr, i32, ptr }
@@ -673,7 +672,7 @@ _reboot_from_ctld.exit:                           ; preds = %88, %94, %120
   br label %.sink.split.i
 
 214:                                              ; preds = %.lr.ph.i
-  %215 = getelementptr inbounds nuw %struct.thd_t, ptr %139, i64 %indvars.iv.i
+  %215 = getelementptr inbounds nuw [64 x i8], ptr %139, i64 %indvars.iv.i
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   store i32 0, ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %215, i64 32
@@ -870,7 +869,7 @@ _make_agent_info.exit:                            ; preds = %131, %.sink.split.i
   store ptr %304, ptr %308, align 8
   %309 = getelementptr inbounds nuw i8, ptr %.lcssa182, i64 104
   %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr inbounds nuw %struct.thd_t, ptr %310, i64 %indvars.iv
+  %311 = getelementptr inbounds nuw [64 x i8], ptr %310, i64 %indvars.iv
   %312 = getelementptr inbounds nuw i8, ptr %305, i64 24
   store ptr %311, ptr %312, align 8
   %313 = getelementptr inbounds nuw i8, ptr %.lcssa182, i64 112
@@ -932,7 +931,7 @@ _make_agent_info.exit:                            ; preds = %131, %.sink.split.i
   br label %345
 
 345:                                              ; preds = %342, %340
-  %346 = getelementptr inbounds nuw %struct.thd_t, ptr %235, i64 %indvars.iv
+  %346 = getelementptr inbounds nuw [64 x i8], ptr %235, i64 %indvars.iv
   %347 = call i32 @pthread_create(ptr noundef %346, ptr noundef nonnull %7, ptr noundef nonnull @_thread_per_group_rpc, ptr noundef nonnull %305) #15
   %.not143 = icmp eq i32 %347, 0
   br i1 %.not143, label %350, label %348
@@ -1057,7 +1056,7 @@ _make_agent_info.exit:                            ; preds = %131, %.sink.split.i
 
 .lr.ph193:                                        ; preds = %.preheader, %.thread162
   %indvars.iv216 = phi i64 [ %indvars.iv.next217, %.thread162 ], [ 0, %.preheader ]
-  %403 = getelementptr inbounds nuw %struct.thd_t, ptr %235, i64 %indvars.iv216
+  %403 = getelementptr inbounds nuw [64 x i8], ptr %235, i64 %indvars.iv216
   %404 = load i64, ptr %403, align 8
   %.not136 = icmp eq i64 %404, 0
   br i1 %.not136, label %.thread162, label %405
@@ -1344,7 +1343,7 @@ define internal noalias noundef ptr @_wdog(ptr noundef %0) #0 {
   %.sroa.25.1121 = phi i32 [ %.sroa.25.3, %_update_wdog_state.exit ], [ %.sroa.25.0, %.preheader ]
   %.sroa.13.0119 = phi i32 [ %.sroa.13.2, %_update_wdog_state.exit ], [ 0, %.preheader ]
   %.sroa.19.0118 = phi i32 [ %.sroa.19.2, %_update_wdog_state.exit ], [ 0, %.preheader ]
-  %21 = getelementptr inbounds nuw %struct.thd_t, ptr %4, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load ptr, ptr %22, align 8
   %.not75 = icmp eq ptr %23, null
@@ -1706,7 +1705,7 @@ _notify_slurmctld_jobs.exit:                      ; preds = %99, %99, %99, %99, 
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %243 ], [ 0, %157 ]
   %.06284.i.i = phi i32 [ %.2.i.i, %243 ], [ 0, %157 ]
   %.06383.i.i = phi i32 [ %.265.i.i, %243 ], [ %.sroa.19.0.lcssa175, %157 ]
-  %173 = getelementptr inbounds nuw %struct.thd_t, ptr %158, i64 %indvars.iv.i.i
+  %173 = getelementptr inbounds nuw [64 x i8], ptr %158, i64 %indvars.iv.i.i
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 56
   %175 = load ptr, ptr %174, align 8
   %.not.i.i83 = icmp eq ptr %175, null
@@ -1957,7 +1956,7 @@ _queue_agent_retry.exit.i:                        ; preds = %273, %248
   %.05494.i = phi ptr [ %.3.i, %347 ], [ null, %278 ]
   %.05793.i = phi ptr [ %.259.i, %347 ], [ null, %278 ]
   %.06092.i = phi i8 [ %.363.i, %347 ], [ 0, %278 ]
-  %280 = getelementptr inbounds nuw %struct.thd_t, ptr %143, i64 %indvars.iv.i
+  %280 = getelementptr inbounds nuw [64 x i8], ptr %143, i64 %indvars.iv.i
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 56
   %282 = load ptr, ptr %281, align 8
   %.not75.i = icmp eq ptr %282, null
@@ -2169,7 +2168,7 @@ _notify_slurmctld_nodes.exit:                     ; preds = %356, %354, %_notify
 
 .lr.ph131:                                        ; preds = %_notify_slurmctld_nodes.exit, %362
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %362 ], [ 0, %_notify_slurmctld_nodes.exit ]
-  %358 = getelementptr inbounds nuw %struct.thd_t, ptr %4, i64 %indvars.iv145
+  %358 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %indvars.iv145
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 56
   %360 = load ptr, ptr %359, align 8
   %.not74 = icmp eq ptr %360, null
@@ -3655,7 +3654,7 @@ _agent_defer.exit:                                ; preds = %._crit_edge.thread.
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 36
   %174 = load i32, ptr %173, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %175 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   store i32 %174, ptr %175, align 4
   %176 = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %176, label %177, label %169, !llvm.loop !29
@@ -4451,7 +4450,7 @@ define dso_local void @agent_pack_pending_rpc_stats(ptr noundef %0) local_unname
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %14 ]
   %15 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 80, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 1713, ptr noundef nonnull @__func__.agent_pack_pending_rpc_stats) #15
   %16 = load ptr, ptr @rpc_host_list, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   store ptr %15, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
@@ -4496,12 +4495,12 @@ define dso_local void @agent_pack_pending_rpc_stats(ptr noundef %0) local_unname
   %35 = load i32, ptr %34, align 4
   %36 = load ptr, ptr @rpc_type_list, align 8
   %37 = zext nneg i32 %31 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %37
   store i32 %35, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr @rpc_host_list, align 8
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %37
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %37
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i64 @hostlist_ranged_string(ptr noundef %40, i64 noundef 80, ptr noundef %43) #15
   %45 = load i32, ptr @rpc_count, align 4
@@ -4521,13 +4520,13 @@ define dso_local void @agent_pack_pending_rpc_stats(ptr noundef %0) local_unname
 
 51:                                               ; preds = %47, %50
   %indvars.iv48 = phi i64 [ 0, %47 ], [ %indvars.iv.next49, %50 ]
-  %52 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv48
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv48
   %53 = load i32, ptr %52, align 4
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv48
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv48
   %57 = load i32, ptr %49, align 4
   store i32 %57, ptr %56, align 4
   %58 = load i32, ptr @stat_type_count, align 4
@@ -4542,7 +4541,7 @@ define dso_local void @agent_pack_pending_rpc_stats(ptr noundef %0) local_unname
 
 .loopexit36:                                      ; preds = %60, %55
   %62 = load ptr, ptr @rpc_stat_counts, align 8
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv48
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv48
   %64 = load i32, ptr %63, align 4
   %65 = add i32 %64, 1
   store i32 %65, ptr %63, align 4
@@ -5222,7 +5221,7 @@ define dso_local void @agent_purge() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %44, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %44 ]
   %46 = load ptr, ptr @rpc_host_list, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %47) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
@@ -5371,7 +5370,7 @@ define dso_local void @mail_job_info(ptr noundef %0, i16 noundef zeroext %1) loc
 
 switch.lookup:                                    ; preds = %.split.i.i
   %45 = zext nneg i16 %43 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.mail_job_info.6, i64 %45
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mail_job_info.6, i64 %45
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_build_mail_env.exit
 
@@ -5662,7 +5661,7 @@ _set_job_term_info.exit:                          ; preds = %_set_job_time.exit,
 
 switch.lookup83:                                  ; preds = %.split.i
   %198 = zext nneg i16 %196 to i64
-  %switch.gep84 = getelementptr inbounds nuw ptr, ptr @switch.table.mail_job_info.6, i64 %198
+  %switch.gep84 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mail_job_info.6, i64 %198
   %switch.load85 = load ptr, ptr %switch.gep84, align 8
   br label %_mail_type_str.exit
 
@@ -5693,7 +5692,7 @@ _mail_type_str.exit:                              ; preds = %189, %.split.i, %sw
 
 switch.lookup86:                                  ; preds = %.split.i64
   %212 = zext nneg i16 %210 to i64
-  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table.mail_job_info.6, i64 %212
+  %switch.gep87 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mail_job_info.6, i64 %212
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   br label %_mail_type_str.exit65
 
@@ -5716,7 +5715,7 @@ _mail_type_str.exit65:                            ; preds = %203, %.split.i64, %
 
 switch.lookup89:                                  ; preds = %.split.i67
   %221 = zext nneg i16 %219 to i64
-  %switch.gep90 = getelementptr inbounds nuw ptr, ptr @switch.table.mail_job_info.6, i64 %221
+  %switch.gep90 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mail_job_info.6, i64 %221
   %switch.load91 = load ptr, ptr %switch.gep90, align 8
   br label %_mail_type_str.exit68
 

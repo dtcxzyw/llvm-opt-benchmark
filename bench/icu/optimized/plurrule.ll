@@ -1425,7 +1425,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_Z
   %126 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %127 = load ptr, ptr %126, align 8, !tbaa !73
   %128 = sext i32 %125 to i64
-  %129 = getelementptr inbounds i32, ptr %127, i64 %128
+  %129 = getelementptr inbounds [4 x i8], ptr %127, i64 %128
   store i32 -1, ptr %129, align 4, !tbaa !12
   %130 = load i32, ptr %118, align 8, !tbaa !70
   %131 = add nsw i32 %130, 1
@@ -1460,7 +1460,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i114: ; preds = 
   %143 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %144 = load ptr, ptr %143, align 8, !tbaa !73
   %145 = sext i32 %142 to i64
-  %146 = getelementptr inbounds i32, ptr %144, i64 %145
+  %146 = getelementptr inbounds [4 x i8], ptr %144, i64 %145
   store i32 -1, ptr %146, align 4, !tbaa !12
   %147 = load i32, ptr %135, align 8, !tbaa !70
   %148 = add nsw i32 %147, 1
@@ -1547,7 +1547,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %184
   %190 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %191 = load ptr, ptr %190, align 8, !tbaa !73
   %192 = zext nneg i32 %185 to i64
-  %193 = getelementptr inbounds nuw i32, ptr %191, i64 %192
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %192
   %194 = load i32, ptr %193, align 4, !tbaa !12
   %195 = icmp eq i32 %194, -1
   br i1 %195, label %196, label %_ZNK6icu_779UVector3210elementAtiEi.exit.thread
@@ -1602,7 +1602,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit.thread:  ; preds = %184, %_ZNK6icu_779U
   %224 = getelementptr inbounds nuw i8, ptr %217, i64 24
   %225 = load ptr, ptr %224, align 8, !tbaa !73
   %226 = zext nneg i32 %218 to i64
-  %227 = getelementptr inbounds nuw i32, ptr %225, i64 %226
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %225, i64 %226
   %228 = load i32, ptr %227, align 4, !tbaa !12
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit124
 
@@ -1618,7 +1618,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit124:      ; preds = %210, %223
   %234 = getelementptr inbounds nuw i8, ptr %217, i64 24
   %235 = load ptr, ptr %234, align 8, !tbaa !73
   %236 = zext nneg i32 %230 to i64
-  %237 = getelementptr inbounds nuw i32, ptr %235, i64 %236
+  %237 = getelementptr inbounds nuw [4 x i8], ptr %235, i64 %236
   %238 = load i32, ptr %237, align 4, !tbaa !12
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit126
 
@@ -1664,7 +1664,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i129: ; preds = 
   %257 = getelementptr inbounds nuw i8, ptr %246, i64 24
   %258 = load ptr, ptr %257, align 8, !tbaa !73
   %259 = sext i32 %256 to i64
-  %260 = getelementptr inbounds i32, ptr %258, i64 %259
+  %260 = getelementptr inbounds [4 x i8], ptr %258, i64 %259
   store i32 -1, ptr %260, align 4, !tbaa !12
   %261 = load i32, ptr %249, align 8, !tbaa !70
   %262 = add nsw i32 %261, 1
@@ -1700,7 +1700,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i137: ; preds = 
   %274 = getelementptr inbounds nuw i8, ptr %265, i64 24
   %275 = load ptr, ptr %274, align 8, !tbaa !73
   %276 = sext i32 %273 to i64
-  %277 = getelementptr inbounds i32, ptr %275, i64 %276
+  %277 = getelementptr inbounds [4 x i8], ptr %275, i64 %276
   store i32 -1, ptr %277, align 4, !tbaa !12
   %278 = load i32, ptr %266, align 8, !tbaa !70
   %279 = add nsw i32 %278, 1
@@ -3015,7 +3015,7 @@ define linkonce_odr void @_ZN6icu_7713UnicodeStringC2IA9_DsvEERKT_(ptr noundef n
 
 4:                                                ; preds = %4, %2
   %.0.i.i.i = phi i64 [ 0, %2 ], [ %8, %4 ]
-  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.0.i.i.i
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.0.i.i.i
   %6 = load i16, ptr %5, align 2, !tbaa !106
   %7 = icmp eq i16 %6, 0
   %8 = add i64 %.0.i.i.i, 1
@@ -3809,7 +3809,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDs.exit:       ; preds = %49
 71:                                               ; preds = %69, %64
   %72 = add nsw i32 %.072, 1
   %73 = sext i32 %.072 to i64
-  %74 = getelementptr inbounds double, ptr %1, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %1, i64 %73
   store double %63, ptr %74, align 8, !tbaa !134
   br label %90
 
@@ -3837,7 +3837,7 @@ _ZNK6icu_7713UnicodeString7indexOfEDs.exit:       ; preds = %49
 83:                                               ; preds = %61
   %84 = add nsw i32 %.072, 1
   %85 = sext i32 %.072 to i64
-  %86 = getelementptr inbounds %"class.icu_77::number::impl::DecimalQuantity", ptr %2, i64 %85
+  %86 = getelementptr inbounds [72 x i8], ptr %2, i64 %85
   %87 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %86, ptr noundef nonnull align 8 dereferenceable(66) %7)
           to label %90 unwind label %88
 
@@ -4004,7 +4004,7 @@ _ZNK6icu_7713UnicodeString20tempSubStringBetweenEii.exit131: ; preds = %94
 145:                                              ; preds = %143, %.lr.ph.split.us
   %146 = add nsw i32 %.6133.us, 1
   %147 = sext i32 %.6133.us to i64
-  %148 = getelementptr inbounds double, ptr %1, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %1, i64 %147
   store double %.071134.us, ptr %148, align 8, !tbaa !134
   br label %149
 
@@ -4107,7 +4107,7 @@ _ZN6icu_776number4impl6DecNumD2Ev.exit.us:        ; preds = %167, %165
   %indvars.iv = phi i64 [ %137, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZN6icu_776number4impl6DecNumD2Ev.exit ]
   %.071134 = phi double [ %131, %.lr.ph.split.preheader ], [ %206, %_ZN6icu_776number4impl6DecNumD2Ev.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %175 = getelementptr inbounds %"class.icu_77::number::impl::DecimalQuantity", ptr %2, i64 %indvars.iv
+  %175 = getelementptr inbounds [72 x i8], ptr %2, i64 %indvars.iv
   %176 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %175, ptr noundef nonnull align 8 dereferenceable(66) %14)
           to label %193 unwind label %.loopexit.split
 
@@ -4887,7 +4887,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %23
   %.not.i.i.i = icmp eq i16 %28, 0
   %29 = load ptr, ptr %20, align 8
   %30 = select i1 %.not.i.i.i, ptr %29, ptr %19
-  %31 = getelementptr inbounds i16, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds [2 x i8], ptr %30, i64 %indvars.iv
   %32 = load i16, ptr %31, align 2, !tbaa !106
   %33 = add i16 %32, -48
   %or.cond.i = icmp ult i16 %33, 10
@@ -5051,7 +5051,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit39:       ; preds = %91
   %97 = load ptr, ptr %96, align 8
   %98 = select i1 %.not.i.i.i38, ptr %97, ptr %95
   %99 = sext i32 %92 to i64
-  %100 = getelementptr inbounds i16, ptr %98, i64 %99
+  %100 = getelementptr inbounds [2 x i8], ptr %98, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !106
   %102 = icmp eq i16 %101, 61
   br i1 %102, label %103, label %_ZNK6icu_7713UnicodeString6charAtEi.exit39.thread
@@ -5072,7 +5072,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit42:       ; preds = %.preheader, %_ZN6ic
   %.not.i.i.i41 = icmp eq i16 %107, 0
   %108 = load ptr, ptr %77, align 8
   %109 = select i1 %.not.i.i.i41, ptr %108, ptr %76
-  %110 = getelementptr inbounds i16, ptr %109, i64 %indvars.iv.next202265
+  %110 = getelementptr inbounds [2 x i8], ptr %109, i64 %indvars.iv.next202265
   %111 = load i16, ptr %110, align 2, !tbaa !106
   %112 = add i16 %111, -97
   %or.cond241 = icmp ult i16 %112, 26
@@ -5107,7 +5107,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit49:       ; preds = %.preheader94, %_ZN6
   %.not.i.i.i48 = icmp eq i16 %125, 0
   %126 = load ptr, ptr %64, align 8
   %127 = select i1 %.not.i.i.i48, ptr %126, ptr %63
-  %128 = getelementptr inbounds i16, ptr %127, i64 %indvars.iv.next199261
+  %128 = getelementptr inbounds [2 x i8], ptr %127, i64 %indvars.iv.next199261
   %129 = load i16, ptr %128, align 2, !tbaa !106
   %130 = add i16 %129, -48
   %or.cond.i50 = icmp ult i16 %130, 10
@@ -5149,7 +5149,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit56:       ; preds = %141
   %147 = load ptr, ptr %146, align 8
   %148 = select i1 %.not.i.i.i55, ptr %147, ptr %145
   %149 = sext i32 %142 to i64
-  %150 = getelementptr inbounds i16, ptr %148, i64 %149
+  %150 = getelementptr inbounds [2 x i8], ptr %148, i64 %149
   %151 = load i16, ptr %150, align 2, !tbaa !106
   %.not34 = icmp eq i16 %151, 46
   br i1 %.not34, label %152, label %_ZNK6icu_7713UnicodeString6charAtEi.exit56.thread
@@ -5163,7 +5163,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit56:       ; preds = %141
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit59:       ; preds = %152
   %155 = sext i32 %153 to i64
-  %156 = getelementptr inbounds i16, ptr %148, i64 %155
+  %156 = getelementptr inbounds [2 x i8], ptr %148, i64 %155
   %157 = load i16, ptr %156, align 2, !tbaa !106
   %.not36 = icmp eq i16 %157, 46
   br i1 %.not36, label %158, label %_ZNK6icu_7713UnicodeString6charAtEi.exit59.thread
@@ -5822,7 +5822,7 @@ _ZN6icu_7713UnicodeStringpLERKS0_.exit124:        ; preds = %137
 
 164:                                              ; preds = %164, %160
   %.0.i.i.i.i = phi i64 [ 0, %160 ], [ %168, %164 ]
-  %165 = getelementptr inbounds nuw i16, ptr %6, i64 %.0.i.i.i.i
+  %165 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %.0.i.i.i.i
   %166 = load i16, ptr %165, align 2, !tbaa !106
   %167 = icmp eq i16 %166, 0
   %168 = add i64 %.0.i.i.i.i, 1
@@ -5920,7 +5920,7 @@ _ZN6icu_7713UnicodeStringpLERKS0_.exit127:        ; preds = %195
 
 207:                                              ; preds = %207, %_ZN6icu_7713UnicodeStringpLERKS0_.exit127
   %.0.i.i.i.i128 = phi i64 [ 0, %_ZN6icu_7713UnicodeStringpLERKS0_.exit127 ], [ %211, %207 ]
-  %208 = getelementptr inbounds nuw i16, ptr %6, i64 %.0.i.i.i.i128
+  %208 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %.0.i.i.i.i128
   %209 = load i16, ptr %208, align 2, !tbaa !106
   %210 = icmp eq i16 %209, 0
   %211 = add i64 %.0.i.i.i.i128, 1
@@ -6026,7 +6026,7 @@ _ZN6icu_7713UnicodeStringpLERKS0_.exit132:        ; preds = %240
 
 252:                                              ; preds = %252, %_ZN6icu_7713UnicodeStringpLERKS0_.exit132
   %.0.i.i.i.i133 = phi i64 [ 0, %_ZN6icu_7713UnicodeStringpLERKS0_.exit132 ], [ %256, %252 ]
-  %253 = getelementptr inbounds nuw i16, ptr %6, i64 %.0.i.i.i.i133
+  %253 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %.0.i.i.i.i133
   %254 = load i16, ptr %253, align 2, !tbaa !106
   %255 = icmp eq i16 %254, 0
   %256 = add i64 %.0.i.i.i.i133, 1
@@ -6113,7 +6113,7 @@ _ZN6icu_7713UnicodeStringpLERKS0_.exit137:        ; preds = %276
 
 288:                                              ; preds = %288, %_ZN6icu_7713UnicodeStringpLERKS0_.exit137
   %.0.i.i.i.i138 = phi i64 [ 0, %_ZN6icu_7713UnicodeStringpLERKS0_.exit137 ], [ %292, %288 ]
-  %289 = getelementptr inbounds nuw i16, ptr %6, i64 %.0.i.i.i.i138
+  %289 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %.0.i.i.i.i138
   %290 = load i16, ptr %289, align 2, !tbaa !106
   %291 = icmp eq i16 %290, 0
   %292 = add i64 %.0.i.i.i.i138, 1
@@ -6358,7 +6358,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %380, %470
   %386 = phi ptr [ %472, %470 ], [ %381, %380 ]
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 24
   %388 = load ptr, ptr %387, align 8, !tbaa !73
-  %389 = getelementptr inbounds nuw i32, ptr %388, i64 %indvars.iv
+  %389 = getelementptr inbounds nuw [4 x i8], ptr %388, i64 %indvars.iv
   %390 = load i32, ptr %389, align 4, !tbaa !12
   %391 = or disjoint i64 %indvars.iv, 1
   %392 = sext i32 %385 to i64
@@ -6366,7 +6366,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %380, %470
   br i1 %393, label %394, label %_ZNK6icu_779UVector3210elementAtiEi.exit146
 
 394:                                              ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit
-  %395 = getelementptr inbounds nuw i32, ptr %388, i64 %391
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %388, i64 %391
   %396 = load i32, ptr %395, align 4, !tbaa !12
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit146
 
@@ -6380,7 +6380,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit146:      ; preds = %_ZNK6icu_779UVector
 
 399:                                              ; preds = %399, %_ZNK6icu_779UVector3210elementAtiEi.exit146
   %.0.i.i.i.i147 = phi i64 [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit146 ], [ %403, %399 ]
-  %400 = getelementptr inbounds nuw i16, ptr %6, i64 %.0.i.i.i.i147
+  %400 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %.0.i.i.i.i147
   %401 = load i16, ptr %400, align 2, !tbaa !106
   %402 = icmp eq i16 %401, 0
   %403 = add i64 %.0.i.i.i.i147, 1
@@ -6437,7 +6437,7 @@ _ZN6icu_7713UnicodeStringpLERKS0_.exit151:        ; preds = %414
 
 424:                                              ; preds = %424, %_ZN6icu_7713UnicodeStringpLERKS0_.exit151
   %.0.i.i.i.i152 = phi i64 [ 0, %_ZN6icu_7713UnicodeStringpLERKS0_.exit151 ], [ %428, %424 ]
-  %425 = getelementptr inbounds nuw i16, ptr %6, i64 %.0.i.i.i.i152
+  %425 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %.0.i.i.i.i152
   %426 = load i16, ptr %425, align 2, !tbaa !106
   %427 = icmp eq i16 %426, 0
   %428 = add i64 %.0.i.i.i.i152, 1
@@ -6978,7 +6978,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph:   ; preds = %.preheader
 
 _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph ], [ %indvars.iv.next, %59 ]
-  %46 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4, !tbaa !12
   %48 = sitofp i32 %47 to double
   %49 = fcmp ult double %.015, %48
@@ -6990,7 +6990,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %_ZNK6icu_779UVector
   br i1 %52, label %53, label %_ZNK6icu_779UVector3210elementAtiEi.exit22
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds nuw i32, ptr %37, i64 %51
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %51
   %55 = load i32, ptr %54, align 4, !tbaa !12
   %56 = sitofp i32 %55 to double
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit22
@@ -7032,7 +7032,7 @@ define noundef range(i32 0, 7) i32 @_ZN6icu_7724tokenTypeToPluralOperandENS_9tok
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_7724tokenTypeToPluralOperandENS_9tokenTypeE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6icu_7724tokenTypeToPluralOperandENS_9tokenTypeE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -7274,7 +7274,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph.i: ; preds = %.preheader.i
 
 _ZNK6icu_779UVector3210elementAtiEi.exit.i:       ; preds = %61, %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit.lr.ph.i ], [ %indvars.iv.next.i, %61 ]
-  %48 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4, !tbaa !12
   %50 = sitofp i32 %49 to double
   %51 = fcmp ult double %.015.i, %50
@@ -7286,7 +7286,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit.i:       ; preds = %61, %_ZNK6icu_779UV
   br i1 %54, label %55, label %_ZNK6icu_779UVector3210elementAtiEi.exit22.i
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds nuw i32, ptr %39, i64 %53
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %53
   %57 = load i32, ptr %56, align 4, !tbaa !12
   %58 = sitofp i32 %57 to double
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit22.i
@@ -7654,7 +7654,7 @@ tailrecurse:                                      ; preds = %12, %4
   %14 = add nsw i32 %10, 1
   store i32 %14, ptr %3, align 4, !tbaa !12
   %15 = sext i32 %10 to i64
-  %16 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %2, i64 %15
+  %16 = getelementptr inbounds [64 x i8], ptr %2, i64 %15
   %17 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %13)
   %18 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
   %19 = load ptr, ptr %18, align 8, !tbaa !80
@@ -9141,7 +9141,7 @@ define void @_ZN6icu_7712FixedDecimal4initEd(ptr noundef nonnull align 8 capture
 
 5:                                                ; preds = %12, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %12 ]
-  %6 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L3p10E, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6icu_77L3p10E, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 4, !tbaa !12
   %8 = sitofp i32 %7 to double
   %9 = fmul double %4, %8
@@ -10068,7 +10068,7 @@ define noundef i32 @_ZN6icu_7712FixedDecimal8decimalsEd(double noundef %0) local
 
 4:                                                ; preds = %1, %11
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %11 ]
-  %5 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L3p10E, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6icu_77L3p10E, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !12
   %7 = sitofp i32 %6 to double
   %8 = fmul double %3, %7
@@ -10132,7 +10132,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712FixedDecimal9quickInitEd(p
 
 4:                                                ; preds = %2, %11
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
-  %5 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L3p10E, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6icu_77L3p10E, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !12
   %7 = sitofp i32 %6 to double
   %8 = fmul double %3, %7

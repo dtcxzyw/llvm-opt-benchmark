@@ -167,7 +167,7 @@ define internal fastcc range(i32 -2, 1034) i32 @sbc_parse_header(ptr noundef wri
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 356
   store i32 %36, ptr %52, align 4, !tbaa !38
   %53 = zext nneg i32 %24 to i64
-  %54 = getelementptr inbounds nuw i32, ptr @sbc_parse_header.sample_rates, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr @sbc_parse_header.sample_rates, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !9
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 344
   store i32 %55, ptr %56, align 8, !tbaa !39

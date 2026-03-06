@@ -9028,7 +9028,7 @@ common.ret:                                       ; preds = %842, %844
   %.val.i.i.i = load ptr, ptr %109, align 8, !noalias !1331, !nonnull !5, !noundef !5
   %119 = getelementptr i8, ptr %1, i64 112
   %.val86.i.i.i = load i64, ptr %119, align 8, !noalias !1331, !noundef !5
-  %120 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %.val.i.i.i, i64 %.val86.i.i.i
+  %120 = getelementptr inbounds [32 x i8], ptr %.val.i.i.i, i64 %.val86.i.i.i
   br label %121
 
 121:                                              ; preds = %.noexc87.i.i.i, %118

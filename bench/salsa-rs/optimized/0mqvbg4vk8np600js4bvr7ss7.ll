@@ -184,7 +184,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 "_ZN64_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hf79e2a6d1a0773d4E.exit": ; preds = %8, %13
   %.sink13.i.i = phi ptr [ %10, %8 ], [ %14, %13 ]
   %.sink12.i.i = phi i64 [ %12, %8 ], [ %6, %13 ]
-  %15 = getelementptr inbounds nuw i64, ptr %.sink13.i.i, i64 %.sink12.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.sink13.i.i, i64 %.sink12.i.i
   %16 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h0b0b55d7fecd6eaeE(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %.sink13.i.i, ptr noundef nonnull %15)
   %17 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h7a7cb238ea66350dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !12
@@ -421,7 +421,7 @@ define hidden void @"_ZN9hashbrown5table22HashTable$LT$T$C$A$GT$6retain17h9c4c88
   %27 = zext nneg i16 %26 to i64
   %28 = and i16 %25, %.lcssa.i
   %29 = sub nsw i64 0, %27
-  %30 = getelementptr inbounds i64, ptr %.sroa.07.1, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %.sroa.07.1, i64 %29
   %31 = add i64 %.sroa.14.015, -1
   %32 = getelementptr inbounds i8, ptr %30, i64 -8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
@@ -545,7 +545,7 @@ define hidden noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15Dependenc
   %21 = add i64 %.sroa.01.0.i.i.i, %20
   %22 = and i64 %21, %10
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds { i64, { i64, ptr } }, ptr %11, i64 %23
+  %24 = getelementptr inbounds [24 x i8], ptr %11, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -24
   %26 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h89c7f51f041015eaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25), !noalias !78
   br i1 %26, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h4603cea926058de7E.exit", label %30, !prof !81
@@ -678,7 +678,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edg
   %40 = phi i64 [ %.pre.i, %37 ], [ %35, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hd69648bfe4da8d3cE.exit.i" ]
   %.sroa.04.0.i = phi ptr [ %39, %37 ], [ %.sink12.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hd69648bfe4da8d3cE.exit.i" ]
   %.sroa.0.0.i1 = phi ptr [ %31, %37 ], [ %.sink11.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17hd69648bfe4da8d3cE.exit.i" ]
-  %41 = getelementptr inbounds nuw i64, ptr %.sroa.04.0.i, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.04.0.i, i64 %40
   store i64 %1, ptr %41, align 8
   %42 = load i64, ptr %.sroa.0.0.i1, align 8, !alias.scope !93, !noundef !6
   %43 = add i64 %42, 1
@@ -753,7 +753,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph27unbloc
   %19 = icmp ugt i64 %18, 4
   %20 = load ptr, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8, !nonnull !6
   %.sink13.i = select i1 %19, ptr %20, ptr %.sroa.0.sroa.4.0..sroa_idx
-  %21 = getelementptr inbounds nuw i64, ptr %.sink13.i, i64 %16
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.sink13.i, i64 %16
   %22 = load i64, ptr %21, align 8, !range !82, !noundef !6
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %22, ptr %5, align 8, !noalias !100

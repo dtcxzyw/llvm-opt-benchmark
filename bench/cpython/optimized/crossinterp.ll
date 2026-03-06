@@ -913,7 +913,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.5 = type { i32 }
 %struct._err_stackitem = type { ptr, ptr }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i16 }
-%struct._sharednsitem = type { ptr, ptr }
 %struct._PyXIData_lookup_context_t = type { ptr, ptr, ptr }
 %struct.PyStatus = type { i32, ptr, ptr, i32 }
 
@@ -3893,7 +3892,7 @@ define dso_local void @_PyXI_FreeNamespace(ptr noundef %0) local_unnamed_addr #0
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %_sharednsitem_clear.exit.i.i
   %.09.i.i = phi i64 [ %16, %_sharednsitem_clear.exit.i.i ], [ 0, %.preheader.i.i ]
   %12 = load ptr, ptr %3, align 8, !tbaa !149
-  %13 = getelementptr %struct._sharednsitem, ptr %12, i64 %.09.i.i
+  %13 = getelementptr [16 x i8], ptr %12, i64 %.09.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !150
   %.not.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i, label %_sharednsitem_clear.exit.i.i, label %15
@@ -3917,7 +3916,7 @@ _sharednsitem_clear.exit.i.i:                     ; preds = %15, %.lr.ph.i.i
 .lr.ph.i.i10:                                     ; preds = %.preheader.i.i8, %_sharednsitem_clear.exit.i.i13
   %.09.i.i11 = phi i64 [ %24, %_sharednsitem_clear.exit.i.i13 ], [ 0, %.preheader.i.i8 ]
   %20 = load ptr, ptr %3, align 8, !tbaa !149
-  %21 = getelementptr %struct._sharednsitem, ptr %20, i64 %.09.i.i11
+  %21 = getelementptr [16 x i8], ptr %20, i64 %.09.i.i11
   %22 = load ptr, ptr %21, align 8, !tbaa !150
   %.not.i.i.i12 = icmp eq ptr %22, null
   br i1 %.not.i.i.i12, label %_sharednsitem_clear.exit.i.i13, label %23
@@ -4055,7 +4054,7 @@ define internal fastcc range(i32 -1, 1) i32 @_sharedns_init(ptr noundef nonnull 
   br label %.thread65.sink.split
 
 24:                                               ; preds = %.lr.ph73
-  %25 = getelementptr %struct._sharednsitem, ptr %18, i64 %.04372
+  %25 = getelementptr [16 x i8], ptr %18, i64 %.04372
   %26 = load ptr, ptr %4, align 8, !tbaa !94
   %27 = call fastcc i32 @_sharednsitem_init(ptr noundef %25, ptr noundef %26)
   %28 = icmp sgt i32 %27, -1
@@ -4079,7 +4078,7 @@ define internal fastcc range(i32 -1, 1) i32 @_sharedns_init(ptr noundef nonnull 
   br i1 %34, label %.thread65, label %35
 
 35:                                               ; preds = %.lr.ph
-  %36 = getelementptr %struct._sharednsitem, ptr %18, i64 %.24571
+  %36 = getelementptr [16 x i8], ptr %18, i64 %.24571
   %37 = tail call fastcc i32 @_sharednsitem_init(ptr noundef %36, ptr noundef nonnull %33)
   %38 = load i32, ptr %33, align 8, !tbaa !110
   %.not.i = icmp sgt i32 %38, -1
@@ -4130,7 +4129,7 @@ Py_DECREF.exit:                                   ; preds = %35, %39, %42
 
 .lr.ph75:                                         ; preds = %.thread65, %_sharednsitem_clear.exit
   %.074 = phi i64 [ %51, %_sharednsitem_clear.exit ], [ 0, %.thread65 ]
-  %48 = getelementptr %struct._sharednsitem, ptr %18, i64 %.074
+  %48 = getelementptr [16 x i8], ptr %18, i64 %.074
   %49 = load ptr, ptr %48, align 8, !tbaa !150
   %.not.i58 = icmp eq ptr %49, null
   br i1 %.not.i58, label %_sharednsitem_clear.exit, label %50
@@ -4171,7 +4170,7 @@ define dso_local range(i32 -1, 1) i32 @_PyXI_FillNamespaceFromDict(ptr noundef r
 8:                                                ; preds = %.lr.ph, %.critedge
   %.01836 = phi i64 [ 0, %.lr.ph ], [ %99, %.critedge ]
   %9 = load ptr, ptr %7, align 8, !tbaa !149
-  %10 = getelementptr %struct._sharednsitem, ptr %9, i64 %.01836
+  %10 = getelementptr [16 x i8], ptr %9, i64 %.01836
   %11 = load ptr, ptr %10, align 8, !tbaa !150
   %12 = tail call ptr @PyDict_GetItemString(ptr noundef %1, ptr noundef %11) #11
   %13 = icmp eq ptr %12, null
@@ -4247,7 +4246,7 @@ _propagate_not_shareable_error.exit:              ; preds = %_sharednsitem_copy_
 .lr.ph38:                                         ; preds = %_propagate_not_shareable_error.exit, %_sharednsitem_clear_value.exit
   %.037 = phi i64 [ %98, %_sharednsitem_clear_value.exit ], [ 0, %_propagate_not_shareable_error.exit ]
   %40 = load ptr, ptr %7, align 8, !tbaa !149
-  %41 = getelementptr %struct._sharednsitem, ptr %40, i64 %.037
+  %41 = getelementptr [16 x i8], ptr %40, i64 %.037
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !153
   %.not.i20 = icmp eq ptr %43, null
@@ -4481,7 +4480,7 @@ define dso_local range(i32 -1, 1) i32 @_PyXI_ApplyNamespace(ptr noundef readonly
 .lr.ph:                                           ; preds = %3, %7
   %.0813 = phi i64 [ %8, %7 ], [ 0, %3 ]
   %11 = load ptr, ptr %4, align 8, !tbaa !149
-  %12 = getelementptr %struct._sharednsitem, ptr %11, i64 %.0813
+  %12 = getelementptr [16 x i8], ptr %11, i64 %.0813
   %13 = load ptr, ptr %12, align 8, !tbaa !150
   %14 = tail call ptr @PyUnicode_FromString(ptr noundef %13) #11
   %15 = icmp eq ptr %14, null
@@ -4657,7 +4656,7 @@ _sharedns_new.exit.thread.i:                      ; preds = %11
 30:                                               ; preds = %_sharednsitem_clear.exit.i.i.i, %.lr.ph.i.i.i
   %.09.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %35, %_sharednsitem_clear.exit.i.i.i ]
   %31 = load ptr, ptr %27, align 8, !tbaa !149
-  %32 = getelementptr %struct._sharednsitem, ptr %31, i64 %.09.i.i.i
+  %32 = getelementptr [16 x i8], ptr %31, i64 %.09.i.i.i
   %33 = load ptr, ptr %32, align 8, !tbaa !150
   %.not.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i.i, label %_sharednsitem_clear.exit.i.i.i, label %34
@@ -6676,7 +6675,7 @@ _PyXIData_New.exit.thread:                        ; preds = %30
   br label %62
 
 _PyXIData_New.exit:                               ; preds = %30
-  %34 = getelementptr ptr, ptr %26, i64 %.03650
+  %34 = getelementptr [8 x i8], ptr %26, i64 %.03650
   %35 = load ptr, ptr %34, align 8, !tbaa !94
   %36 = load i32, ptr %27, align 4, !tbaa !283
   %37 = add i32 %36, -1
@@ -6703,7 +6702,7 @@ _Py_EnterRecursiveCallTstate.exit.thread:         ; preds = %_PyXIData_New.exit,
 
 43:                                               ; preds = %_Py_EnterRecursiveCallTstate.exit.thread
   %44 = load ptr, ptr %22, align 8, !tbaa !282
-  %45 = getelementptr ptr, ptr %44, i64 %.03650
+  %45 = getelementptr [8 x i8], ptr %44, i64 %.03650
   store ptr %31, ptr %45, align 8, !tbaa !284
   %46 = add nuw nsw i64 %.03650, 1
   %47 = load i64, ptr %16, align 8, !tbaa !279
@@ -6754,7 +6753,7 @@ _PyXIData_Init.exit:                              ; preds = %56, %57
   %65 = phi i64 [ %77, %76 ], [ %63, %62 ]
   %66 = phi ptr [ %78, %76 ], [ %.pre.i, %62 ]
   %.014.i = phi i64 [ %79, %76 ], [ 0, %62 ]
-  %67 = getelementptr ptr, ptr %66, i64 %.014.i
+  %67 = getelementptr [8 x i8], ptr %66, i64 %.014.i
   %68 = load ptr, ptr %67, align 8, !tbaa !284
   %.not.i41 = icmp eq ptr %68, null
   br i1 %.not.i41, label %76, label %69
@@ -6762,11 +6761,11 @@ _PyXIData_Init.exit:                              ; preds = %56, %57
 69:                                               ; preds = %.lr.ph.i
   %70 = tail call fastcc range(i32 -1, 1) i32 @_xidata_release(ptr noundef nonnull %68, i32 noundef 0)
   %71 = load ptr, ptr %22, align 8, !tbaa !282
-  %72 = getelementptr ptr, ptr %71, i64 %.014.i
+  %72 = getelementptr [8 x i8], ptr %71, i64 %.014.i
   %73 = load ptr, ptr %72, align 8, !tbaa !284
   tail call void @PyMem_RawFree(ptr noundef %73) #11
   %74 = load ptr, ptr %22, align 8, !tbaa !282
-  %75 = getelementptr ptr, ptr %74, i64 %.014.i
+  %75 = getelementptr [8 x i8], ptr %74, i64 %.014.i
   store ptr null, ptr %75, align 8, !tbaa !284
   %.pre15.i = load i64, ptr %16, align 8, !tbaa !279
   br label %76
@@ -6888,7 +6887,7 @@ define internal ptr @_new_tuple_object(ptr noundef readonly captures(none) %0) #
 9:                                                ; preds = %.lr.ph, %22
   %.01724 = phi i64 [ 0, %.lr.ph ], [ %24, %22 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !282
-  %11 = getelementptr ptr, ptr %10, i64 %.01724
+  %11 = getelementptr [8 x i8], ptr %10, i64 %.01724
   %12 = load ptr, ptr %11, align 8, !tbaa !284
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !126
@@ -6912,7 +6911,7 @@ define internal ptr @_new_tuple_object(ptr noundef readonly captures(none) %0) #
   br label %Py_DECREF.exit.thread
 
 22:                                               ; preds = %9
-  %23 = getelementptr ptr, ptr %8, i64 %.01724
+  %23 = getelementptr [8 x i8], ptr %8, i64 %.01724
   store ptr %15, ptr %23, align 8, !tbaa !94
   %24 = add nuw nsw i64 %.01724, 1
   %25 = load i64, ptr %2, align 8, !tbaa !279
@@ -6942,7 +6941,7 @@ define internal void @_tuple_shared_free(ptr noundef %0) #0 {
   %6 = phi i64 [ %18, %17 ], [ %2, %1 ]
   %7 = phi ptr [ %19, %17 ], [ %.pre, %1 ]
   %.014 = phi i64 [ %20, %17 ], [ 0, %1 ]
-  %8 = getelementptr ptr, ptr %7, i64 %.014
+  %8 = getelementptr [8 x i8], ptr %7, i64 %.014
   %9 = load ptr, ptr %8, align 8, !tbaa !284
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %17, label %10
@@ -6950,11 +6949,11 @@ define internal void @_tuple_shared_free(ptr noundef %0) #0 {
 10:                                               ; preds = %.lr.ph
   %11 = tail call fastcc range(i32 -1, 1) i32 @_xidata_release(ptr noundef nonnull %9, i32 noundef 0)
   %12 = load ptr, ptr %4, align 8, !tbaa !282
-  %13 = getelementptr ptr, ptr %12, i64 %.014
+  %13 = getelementptr [8 x i8], ptr %12, i64 %.014
   %14 = load ptr, ptr %13, align 8, !tbaa !284
   tail call void @PyMem_RawFree(ptr noundef %14) #11
   %15 = load ptr, ptr %4, align 8, !tbaa !282
-  %16 = getelementptr ptr, ptr %15, i64 %.014
+  %16 = getelementptr [8 x i8], ptr %15, i64 %.014
   store ptr null, ptr %16, align 8, !tbaa !284
   %.pre15 = load i64, ptr %0, align 8, !tbaa !279
   br label %17

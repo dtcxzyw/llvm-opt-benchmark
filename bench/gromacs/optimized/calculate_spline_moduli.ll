@@ -141,12 +141,12 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPdmdET_
   %28 = sub nuw nsw i64 %indvars.iv, %indvars.iv.next79
   %29 = trunc nuw nsw i64 %28 to i32
   %30 = sitofp i32 %29 to double
-  %31 = getelementptr double, ptr %13, i64 %indvars.iv78
+  %31 = getelementptr [8 x i8], ptr %13, i64 %indvars.iv78
   %32 = getelementptr i8, ptr %31, i64 -16
   %33 = load double, ptr %32, align 8, !tbaa !4
   %34 = trunc nuw nsw i64 %indvars.iv78 to i32
   %35 = uitofp nneg i32 %34 to double
-  %36 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.next79
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.next79
   %37 = load double, ptr %36, align 8, !tbaa !4
   %38 = fmul double %37, %35
   %39 = tail call double @llvm.fmuladd.f64(double %30, double %33, double %38)
@@ -277,7 +277,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   %7 = shl nuw nsw i64 %5, 2
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #21
   store ptr %8, ptr %0, align 8, !tbaa !11
-  %9 = getelementptr inbounds nuw float, ptr %8, i64 %5
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8, !tbaa !16
   store float 0.000000e+00, ptr %8, align 4, !tbaa !17
@@ -330,7 +330,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc37
   %25 = uitofp nneg i32 %24 to double
   %26 = fmul double %22, %25
   %27 = fdiv double %26, %18
-  %28 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %29 = load double, ptr %28, align 8, !tbaa !4
   %30 = tail call double @cos(double noundef %27) #23, !tbaa !19
   %31 = tail call double @llvm.fmuladd.f64(double %29, double %30, double %.03042.us)
@@ -343,7 +343,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc37
   %34 = fmul double %33, %33
   %35 = tail call double @llvm.fmuladd.f64(double %31, double %31, double %34)
   %36 = fptrunc double %35 to float
-  %37 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv52
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv52
   store float %36, ptr %37, align 4, !tbaa !17
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count56
@@ -360,7 +360,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc37
 42:                                               ; preds = %._crit_edge47
   %43 = lshr exact i32 %3, 1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr float, ptr %38, i64 %44
+  %45 = getelementptr [4 x i8], ptr %38, i64 %44
   %46 = load float, ptr %45, align 4, !tbaa !17
   %47 = fcmp olt float %46, 0x3CB0000000000000
   br i1 %47, label %49, label %48
@@ -603,7 +603,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %19
   %22 = shl nuw nsw i64 %20, 2
   %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #21
   store ptr %23, ptr %0, align 8, !tbaa !11
-  %24 = getelementptr inbounds nuw float, ptr %23, i64 %20
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %24, ptr %25, align 8, !tbaa !16
   store float 0.000000e+00, ptr %23, align 4, !tbaa !17
@@ -630,7 +630,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %_ZNSt6vectorI
   %36 = sitofp i32 %2 to double
   %37 = fmul nnan double %36, -2.000000e+00
   %38 = sext i32 %35 to i64
-  %invariant.gep = getelementptr float, ptr %23, i64 %20
+  %invariant.gep = getelementptr [4 x i8], ptr %23, i64 %20
   br label %39
 
 39:                                               ; preds = %.lr.ph, %39
@@ -645,7 +645,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %_ZNSt6vectorI
   %47 = tail call double @pow(double noundef %46, double noundef %37) #23, !tbaa !19
   %48 = fmul double %45, %47
   %49 = fptrunc double %48 to float
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %49, ptr %gep, align 4, !tbaa !17
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 0
@@ -675,7 +675,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %_ZNSt6vectorI
   %61 = tail call double @pow(double noundef %60, double noundef %52) #23, !tbaa !19
   %62 = fmul double %59, %61
   %63 = fptrunc double %62 to float
-  %64 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv62
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv62
   store float %63, ptr %64, align 4, !tbaa !17
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65

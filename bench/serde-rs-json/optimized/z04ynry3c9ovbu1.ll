@@ -117,7 +117,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %11 = getelementptr inbounds i8, ptr %0, i64 %.0.i
   %.val20.i = load i8, ptr %11, align 1, !noalias !5, !noundef !4
   %12 = zext i8 %.val20.i to i64
-  %13 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.8.0.copyload, i64 %10
+  %13 = getelementptr inbounds [32 x i8], ptr %.sroa.8.0.copyload, i64 %10
   store i8 2, ptr %13, align 8, !noalias !8
   %.sroa.0.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %.sroa.0.sroa.5.0..sroa_idx.i.i, align 8, !noalias !8
@@ -576,7 +576,7 @@ common.resume.i:                                  ; preds = %51, %25
   %.sroa.28.0.copyload.i.i.i = load i64, ptr %.sroa.28.0..sroa_idx.i.i.i, align 8, !noalias !84
   %48 = icmp ult i64 %.sroa.28.0.copyload.i.i.i, 11
   call void @llvm.assume(i1 %48)
-  %49 = getelementptr inbounds nuw { [4 x i64] }, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.28.0.copyload.i.i.i
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.28.0.copyload.i.i.i
   br label %50
 
 50:                                               ; preds = %47, %.noexc.i.i
@@ -602,7 +602,7 @@ common.resume.i:                                  ; preds = %51, %25
   %57 = getelementptr inbounds nuw i8, ptr %.010, i64 24
   %.val8.i.i = load i64, ptr %57, align 8, !alias.scope !74, !noalias !75, !noundef !4
   %58 = icmp ult i64 %.fca.1.extract.i.i, %.val8.i.i
-  %59 = getelementptr inbounds { i8, [31 x i8] }, ptr %.val.i.i, i64 %.fca.1.extract.i.i
+  %59 = getelementptr inbounds [32 x i8], ptr %.val.i.i, i64 %.fca.1.extract.i.i
   %.0.i9.i.i = select i1 %58, ptr %59, ptr null
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hd3a7603bb84cf785E.exit.i.i"
 
@@ -745,7 +745,7 @@ common.resume.i:                                  ; preds = %48, %25
   %trunc.i.i.i = trunc nuw i64 %46 to i1
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %15, align 8, !noalias !129, !nonnull !4
   %.sroa.27.0.copyload.i.i.i = load i64, ptr %.sroa.27.0..sroa_idx.i.i.i, align 8, !noalias !129
-  %47 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.27.0.copyload.i.i.i
+  %47 = getelementptr inbounds [32 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.27.0.copyload.i.i.i
   %.1.i.i.i = select i1 %trunc.i.i.i, ptr null, ptr %47
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !129
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h652503905436b9c7E.exit.i.i"
@@ -768,7 +768,7 @@ common.resume.i:                                  ; preds = %48, %25
   %54 = getelementptr inbounds nuw i8, ptr %.010, i64 24
   %.val8.i.i = load i64, ptr %54, align 8, !alias.scope !119, !noalias !120, !noundef !4
   %55 = icmp ult i64 %.fca.1.extract.i.i, %.val8.i.i
-  %56 = getelementptr inbounds { i8, [31 x i8] }, ptr %.val.i.i, i64 %.fca.1.extract.i.i
+  %56 = getelementptr inbounds [32 x i8], ptr %.val.i.i, i64 %.fca.1.extract.i.i
   %.0.i9.i.i = select i1 %55, ptr %56, ptr null
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h652503905436b9c7E.exit.i.i"
 
@@ -1387,7 +1387,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   %17 = zext i8 %.val20 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !219)
-  %18 = getelementptr inbounds { i8, [31 x i8] }, ptr %10, i64 %15
+  %18 = getelementptr inbounds [32 x i8], ptr %10, i64 %15
   store i8 2, ptr %18, align 8, !noalias !206
   %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 0, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !noalias !206

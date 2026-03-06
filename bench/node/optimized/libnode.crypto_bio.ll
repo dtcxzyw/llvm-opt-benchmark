@@ -608,14 +608,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %read_pos_ = getelementptr inbounds nuw i8, ptr %pos.022, i64 8
   %2 = load i64, ptr %read_pos_, align 8
   %sub = sub i64 %1, %2
-  %arrayidx = getelementptr inbounds i64, ptr %size, i64 %i.021
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %size, i64 %i.021
   store i64 %sub, ptr %arrayidx, align 8
   %add = add i64 %sub, %total.020
   %data_ = getelementptr inbounds nuw i8, ptr %pos.022, i64 40
   %3 = load ptr, ptr %data_, align 8
   %4 = load i64, ptr %read_pos_, align 8
   %add.ptr = getelementptr inbounds i8, ptr %3, i64 %4
-  %arrayidx4 = getelementptr inbounds ptr, ptr %out, i64 %i.021
+  %arrayidx4 = getelementptr inbounds [8 x i8], ptr %out, i64 %i.021
   store ptr %add.ptr, ptr %arrayidx4, align 8
   %5 = load ptr, ptr %write_head_, align 8
   %cmp5 = icmp eq ptr %pos.022, %5

@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogOutputList = type <{ [6 x ptr], i32, [4 x i8] }>
 %class.LogDecorators = type { i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"struct.metaspace::InUseChunkStats" = type { i32, i64, i64, i64, i64, i64 }
 
 $_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz = comdat any
 
@@ -821,7 +820,7 @@ define hidden void @_ZNK9metaspace14MetaspaceArena17add_to_statisticsEPNS_10Aren
   %4 = getelementptr inbounds nuw i8, ptr %.024, i64 24
   %5 = load i8, ptr %4, align 8
   %6 = sext i8 %5 to i64
-  %7 = getelementptr inbounds %"struct.metaspace::InUseChunkStats", ptr %1, i64 %6
+  %7 = getelementptr inbounds [48 x i8], ptr %1, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = add nsw i32 %8, 1
   store i32 %9, ptr %7, align 8

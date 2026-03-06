@@ -6,17 +6,13 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SDL_GUID = type { [16 x i8] }
 %union.SDL_Event = type { %struct.SDL_MouseWheelEvent, [72 x i8] }
 %struct.SDL_MouseWheelEvent = type { i32, i32, i64, i32, i32, float, float, i32, float, float, i32, i32 }
+%struct.SDL_GamepadMapping = type { %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping }
+%struct.SDL_InputMapping = type { i32, i8, i8, i8, i8 }
 %struct.SDL_GamepadBinding = type { i32, %union.anon, i32, %union.anon.1 }
 %union.anon = type { %struct.anon }
 %struct.anon = type { i32, i32, i32 }
 %union.anon.1 = type { %struct.anon.2 }
 %struct.anon.2 = type { i32, i32, i32 }
-%struct.SDL_GamepadMapping = type { %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping, %struct.SDL_InputMapping }
-%struct.SDL_InputMapping = type { i32, i8, i8, i8, i8 }
-%struct.SDL_JoystickAxisInfo = type { i16, i16, i16, i8, i8, i8, i8 }
-%struct.SDL_JoystickTouchpadInfo = type { i32, ptr }
-%struct.SDL_JoystickTouchpadFingerInfo = type { i8, float, float, float }
-%struct.SDL_JoystickSensorInfo = type { i32, i8, float, [3 x float] }
 
 @SDL_gamepads_initialized = internal unnamed_addr global i1 false, align 1
 @SDL_gamepads = internal unnamed_addr global ptr null, align 8
@@ -693,17 +689,17 @@ define hidden void @SDL_GamepadSensorWatcher(i64 noundef %0, i32 noundef %1, i64
 
 17:                                               ; preds = %27, %15
   %indvars.iv16.i = phi i64 [ 0, %15 ], [ %indvars.iv.next17.i, %27 ]
-  %18 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv16.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv16.i
   store float 0.000000e+00, ptr %18, align 4
-  %19 = getelementptr inbounds nuw [3 x float], ptr %16, i64 %indvars.iv16.i
+  %19 = getelementptr inbounds nuw [12 x i8], ptr %16, i64 %indvars.iv16.i
   br label %20
 
 20:                                               ; preds = %20, %17
   %indvars.iv.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i, %20 ]
   %21 = phi float [ 0.000000e+00, %17 ], [ %26, %20 ]
-  %22 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i
   %23 = load float, ptr %22, align 4
-  %24 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   %25 = load float, ptr %24, align 4
   %26 = call float @llvm.fmuladd.f32(float %23, float %25, float %21)
   store float %26, ptr %18, align 4
@@ -744,17 +740,17 @@ AdjustSensorOrientation.exit:                     ; preds = %27
 
 39:                                               ; preds = %49, %37
   %indvars.iv16.i19 = phi i64 [ 0, %37 ], [ %indvars.iv.next17.i23, %49 ]
-  %40 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv16.i19
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv16.i19
   store float 0.000000e+00, ptr %40, align 4
-  %41 = getelementptr inbounds nuw [3 x float], ptr %38, i64 %indvars.iv16.i19
+  %41 = getelementptr inbounds nuw [12 x i8], ptr %38, i64 %indvars.iv16.i19
   br label %42
 
 42:                                               ; preds = %42, %39
   %indvars.iv.i20 = phi i64 [ 0, %39 ], [ %indvars.iv.next.i21, %42 ]
   %43 = phi float [ 0.000000e+00, %39 ], [ %48, %42 ]
-  %44 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv.i20
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv.i20
   %45 = load float, ptr %44, align 4
-  %46 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i20
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i20
   %47 = load float, ptr %46, align 4
   %48 = call float @llvm.fmuladd.f32(float %45, float %47, float %43)
   store float %48, ptr %40, align 4
@@ -813,7 +809,7 @@ define hidden range(i32 0, 12) i32 @SDL_GetGamepadTypeFromString_REAL(ptr nounde
 
 7:                                                ; preds = %6, %12
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %12 ]
-  %8 = getelementptr inbounds nuw ptr, ptr @map_StringForGamepadType, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @map_StringForGamepadType, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.010, ptr noundef %9) #10
   %11 = icmp eq i32 %10, 0
@@ -843,7 +839,7 @@ define hidden ptr @SDL_GetGamepadStringForType_REAL(i32 noundef %0) local_unname
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @map_StringForGamepadType, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @map_StringForGamepadType, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -875,7 +871,7 @@ define hidden range(i32 -1, 6) i32 @SDL_GetGamepadAxisFromString_REAL(ptr nounde
 
 7:                                                ; preds = %6, %12
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %12 ]
-  %8 = getelementptr inbounds nuw ptr, ptr @map_StringForGamepadAxis, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @map_StringForGamepadAxis, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.010, ptr noundef %9) #10
   %11 = icmp eq i32 %10, 0
@@ -902,7 +898,7 @@ define hidden ptr @SDL_GetGamepadStringForAxis_REAL(i32 noundef %0) local_unname
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @map_StringForGamepadAxis, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @map_StringForGamepadAxis, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -923,7 +919,7 @@ define hidden i32 @SDL_GetGamepadButtonFromString_REAL(ptr noundef %0) local_unn
 
 .preheader.i:                                     ; preds = %2, %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw ptr, ptr @map_StringForGamepadButton, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @map_StringForGamepadButton, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %0, ptr noundef %6) #10
   %8 = icmp eq i32 %7, 0
@@ -950,7 +946,7 @@ define hidden ptr @SDL_GetGamepadStringForButton_REAL(i32 noundef %0) local_unna
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @map_StringForGamepadButton, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @map_StringForGamepadButton, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -1108,7 +1104,7 @@ define internal fastcc void @PushMappingChangeTracking() unnamed_addr #0 {
 .lr.ph:                                           ; preds = %14, %SDL_PrivateGetGamepadMappingForNameAndGUID.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %SDL_PrivateGetGamepadMappingForNameAndGUID.exit ], [ 0, %14 ]
   %21 = load ptr, ptr %10, align 8
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   call void @SDL_AssertJoysticksLocked() #10
   %24 = call ptr @SDL_GetJoystickNameForID_REAL(i32 noundef %23) #10
@@ -1139,7 +1135,7 @@ SDL_PrivateGetGamepadMappingForNameAndGUID.exit:  ; preds = %.lr.ph, %31, %33
   %35 = load ptr, ptr @s_pDefaultMapping, align 8
   %spec.select.i = select i1 %.not.i, ptr %35, ptr %.0.i
   %36 = load ptr, ptr %18, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   store ptr %spec.select.i, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %2, align 4
@@ -1243,7 +1239,7 @@ SDL_GetGamepadFromID_REAL.exit:                   ; preds = %.lr.ph.i, %25, %20
 
 30:                                               ; preds = %SDL_GetGamepadFromID_REAL.exit
   %31 = load ptr, ptr %11, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   br label %33
 
 33:                                               ; preds = %30, %28
@@ -1310,7 +1306,7 @@ SDL_PrivateGamepadAdded.exit:                     ; preds = %37, %42
 
 58:                                               ; preds = %57, %.lr.ph.i44
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i44 ], [ %indvars.iv.next.i, %57 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, %27
   br i1 %61, label %HasMappingChangeTracking.exit, label %57
@@ -1345,7 +1341,7 @@ SDL_PrivateGamepadRemapped.exit:                  ; preds = %63, %64, %66
 HasMappingChangeTracking.exit.thread:             ; preds = %57, %53, %47, %SDL_PrivateGamepadRemapped.exit, %SDL_PrivateGamepadAdded.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = load ptr, ptr %8, align 8
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv.next
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv.next
   %70 = load i32, ptr %69, align 4
   %.not41 = icmp eq i32 %70, 0
   br i1 %.not41, label %.loopexit, label %20, !llvm.loop !17
@@ -1405,7 +1401,7 @@ define hidden noundef zeroext i1 @SDL_ReloadGamepadMappings_REAL() local_unnamed
 12:                                               ; preds = %.lr.ph
   store ptr %11, ptr %6, align 8
   %13 = sext i32 %5 to i64
-  %14 = getelementptr inbounds ptr, ptr %11, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %11, i64 %13
   store ptr %2, ptr %14, align 8
   store i32 %8, ptr %4, align 8
   br label %AddMappingChangeTracking.exit
@@ -1476,7 +1472,7 @@ define hidden noundef zeroext i1 @SDL_InitGamepadMappings() local_unnamed_addr #
   %.08 = phi ptr [ @.str.119, %0 ], [ %5, %2 ]
   %3 = tail call fastcc i32 @SDL_PrivateAddGamepadMapping(ptr noundef nonnull %.08, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = getelementptr inbounds nuw ptr, ptr @s_GamepadMappings, i64 %indvars.iv.next
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @s_GamepadMappings, i64 %indvars.iv.next
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq i64 %indvars.iv.next, 316
   br i1 %.not, label %6, label %2, !llvm.loop !20
@@ -1920,7 +1916,7 @@ define hidden ptr @SDL_GetGamepadMappings_REAL(ptr noundef writeonly captures(ad
 18:                                               ; preds = %13
   %19 = add nsw i32 %.05998, 1
   %20 = sext i32 %.05998 to i64
-  %21 = getelementptr inbounds ptr, ptr %6, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %6, i64 %20
   store ptr %17, ptr %21, align 8
   %22 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %17) #10
   %23 = add i64 %.16597, 9
@@ -1948,14 +1944,14 @@ define hidden ptr @SDL_GetGamepadMappings_REAL(ptr noundef writeonly captures(ad
   br i1 %.not113, label %._crit_edge108, label %.lr.ph107.preheader
 
 .lr.ph107.preheader:                              ; preds = %28
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %5
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %5
   %31 = shl nuw nsw i64 %29, 3
   %.neg = xor i64 %31, -1
   %32 = add i64 %.165.lcssa, %.neg
   br label %.lr.ph107
 
 ._crit_edge108:                                   ; preds = %.lr.ph107, %28
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   store ptr null, ptr %33, align 8
   br i1 %.not, label %42, label %41
 
@@ -1963,9 +1959,9 @@ define hidden ptr @SDL_GetGamepadMappings_REAL(ptr noundef writeonly captures(ad
   %indvars.iv = phi i64 [ 0, %.lr.ph107.preheader ], [ %indvars.iv.next, %.lr.ph107 ]
   %.055104 = phi ptr [ %30, %.lr.ph107.preheader ], [ %40, %.lr.ph107 ]
   %.5103 = phi i64 [ %32, %.lr.ph107.preheader ], [ %39, %.lr.ph107 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store ptr %.055104, ptr %34, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i64 @SDL_strlcpy_REAL(ptr noundef %.055104, ptr noundef %36, i64 noundef %.5103) #10
   %38 = add i64 %37, 1
@@ -1998,7 +1994,7 @@ define hidden ptr @SDL_GetGamepadMappings_REAL(ptr noundef writeonly captures(ad
 
 .lr.ph111:                                        ; preds = %.lr.ph111.preheader, %.lr.ph111
   %indvars.iv116 = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next117, %.lr.ph111 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv116
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv116
   %44 = load ptr, ptr %43, align 8
   tail call void @SDL_free_REAL(ptr noundef %44) #10
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
@@ -2736,7 +2732,7 @@ SDL_PrivateGetGamepadMappingFromMappingString.exit.thread: ; preds = %25, %21
 99:                                               ; preds = %89
   store ptr %98, ptr %93, align 8
   %100 = sext i32 %92 to i64
-  %101 = getelementptr inbounds ptr, ptr %98, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %98, i64 %100
   store ptr %77, ptr %101, align 8
   store i32 %95, ptr %91, align 8
   br label %AddMappingChangeTracking.exit
@@ -2838,7 +2834,7 @@ define hidden noundef zeroext i1 @SDL_InitGamepads() local_unnamed_addr #0 {
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %.b.i = load i1, ptr @SDL_gamepads_initialized, align 1
@@ -2857,7 +2853,7 @@ SDL_PrivateGamepadAdded.exit:                     ; preds = %10, %13
 
 15:                                               ; preds = %7, %SDL_PrivateGamepadAdded.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next
   %17 = load i32, ptr %16, align 4
   %.not10 = icmp eq i32 %17, 0
   br i1 %.not10, label %._crit_edge, label %7, !llvm.loop !32
@@ -2921,7 +2917,7 @@ define internal noundef zeroext i1 @SDL_GamepadEventWatcher(ptr readnone capture
   %27 = getelementptr inbounds nuw i8, ptr %.071, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = zext i8 %22 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %.071, i64 40
   %33 = load i32, ptr %32, align 8
@@ -2936,7 +2932,7 @@ define internal noundef zeroext i1 @SDL_GamepadEventWatcher(ptr readnone capture
 
 37:                                               ; preds = %53, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %53 ]
-  %38 = getelementptr inbounds nuw %struct.SDL_GamepadBinding, ptr %36, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %indvars.iv.i
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 2
   br i1 %40, label %41, label %53
@@ -3147,7 +3143,7 @@ SDL_SendGamepadButton.exit.i:                     ; preds = %134, %132, %130, %1
 
 HandleJoystickAxis.exit:                          ; preds = %65, %89, %92, %SDL_SendGamepadButton.exit.i
   %143 = load ptr, ptr %27, align 8
-  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %29
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %29
   store ptr %.1.i, ptr %144, align 8
   br label %HandleJoystickButton.exit
 
@@ -3198,7 +3194,7 @@ HandleJoystickAxis.exit:                          ; preds = %65, %89, %92, %SDL_
 
 168:                                              ; preds = %SDL_SendGamepadAxis.exit.i, %.lr.ph.i34
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.i34 ], [ %indvars.iv.next.i37, %SDL_SendGamepadAxis.exit.i ]
-  %169 = getelementptr inbounds nuw %struct.SDL_GamepadBinding, ptr %167, i64 %indvars.iv.i36
+  %169 = getelementptr inbounds nuw [32 x i8], ptr %167, i64 %indvars.iv.i36
   %170 = load i32, ptr %169, align 4
   %171 = icmp eq i32 %170, 1
   br i1 %171, label %172, label %SDL_SendGamepadAxis.exit.i
@@ -3377,7 +3373,7 @@ SDL_SendGamepadAxis.exit.i:                       ; preds = %172, %168
 265:                                              ; preds = %SDL_SendGamepadAxis.exit.i44, %.lr.ph.i42
   %indvars.iv.i43 = phi i64 [ 0, %.lr.ph.i42 ], [ %indvars.iv.next.i45, %SDL_SendGamepadAxis.exit.i44 ]
   %266 = load ptr, ptr %254, align 8
-  %267 = getelementptr inbounds nuw %struct.SDL_GamepadBinding, ptr %266, i64 %indvars.iv.i43
+  %267 = getelementptr inbounds nuw [32 x i8], ptr %266, i64 %indvars.iv.i43
   %268 = load i32, ptr %267, align 4
   %269 = icmp eq i32 %268, 3
   br i1 %269, label %270, label %SDL_SendGamepadAxis.exit.i44
@@ -3606,7 +3602,7 @@ define hidden zeroext i1 @SDL_HasGamepad_REAL() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %6, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next
   %8 = load i32, ptr %7, align 4
   %9 = call zeroext i1 @SDL_IsGamepad_REAL(i32 noundef %8)
   %10 = icmp samesign ult i64 %indvars.iv, 2
@@ -3646,7 +3642,7 @@ define hidden ptr @SDL_GetGamepads_REAL(ptr noundef writeonly captures(address_i
   %indvars.iv = phi i64 [ %7, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
   %.119 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %18 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %8 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next
   %9 = load i32, ptr %8, align 4
   %10 = call zeroext i1 @SDL_IsGamepad_REAL(i32 noundef %9)
   br i1 %10, label %11, label %13
@@ -3656,7 +3652,7 @@ define hidden ptr @SDL_GetGamepads_REAL(ptr noundef writeonly captures(address_i
   br label %18
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %15 = add nsw i32 %.119, 1
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 2
@@ -3955,7 +3951,7 @@ define hidden i32 @SDL_GetGamepadTypeForID_REAL(i32 noundef %0) local_unnamed_ad
 
 16:                                               ; preds = %21, %15
   %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %21 ]
-  %17 = getelementptr inbounds nuw ptr, ptr @map_StringForGamepadType, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @map_StringForGamepadType, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.010.i, ptr noundef %18) #10
   %20 = icmp eq i32 %19, 0
@@ -4390,7 +4386,7 @@ define internal fastcc void @SDL_PrivateLoadButtonMapping(ptr noundef nonnull ca
 
 34:                                               ; preds = %39, %33
   %indvars.iv.i.i = phi i64 [ 0, %33 ], [ %indvars.iv.next.i.i, %39 ]
-  %35 = getelementptr inbounds nuw ptr, ptr @map_StringForGamepadType, i64 %indvars.iv.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @map_StringForGamepadType, i64 %indvars.iv.i.i
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.010.i.i, ptr noundef %36) #10
   %38 = icmp eq i32 %37, 0
@@ -4429,7 +4425,7 @@ SDL_GetGamepadTypeFromString_REAL.exit.i:         ; preds = %39, %.loopexit.loop
 
 46:                                               ; preds = %51, %45
   %indvars.iv.i19.i = phi i64 [ 0, %45 ], [ %indvars.iv.next.i20.i, %51 ]
-  %47 = getelementptr inbounds nuw ptr, ptr @map_StringForGamepadType, i64 %indvars.iv.i19.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr @map_StringForGamepadType, i64 %indvars.iv.i19.i
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.010.i18.i, ptr noundef %48) #10
   %50 = icmp eq i32 %49, 0
@@ -4600,7 +4596,7 @@ thread-pre-split.i37:                             ; preds = %SDL_GetGamepadFaceS
 
 switch.lookup:                                    ; preds = %119
   %122 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_PrivateLoadButtonMapping, i64 %122
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SDL_PrivateLoadButtonMapping, i64 %122
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread33.sink.split.i
 
@@ -4717,7 +4713,7 @@ SDL_PrivateParseGamepadConfigString.exit:         ; preds = %SDL_UpdateGamepadFa
 
 160:                                              ; preds = %176, %.lr.ph.i40
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i40 ], [ %indvars.iv.next.i, %176 ]
-  %161 = getelementptr inbounds nuw %struct.SDL_GamepadBinding, ptr %159, i64 %indvars.iv.i
+  %161 = getelementptr inbounds nuw [32 x i8], ptr %159, i64 %indvars.iv.i
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %163 = load i32, ptr %162, align 4
   %164 = icmp eq i32 %163, 1
@@ -4748,7 +4744,7 @@ SDL_PrivateParseGamepadConfigString.exit:         ; preds = %SDL_UpdateGamepadFa
 .lr.ph46.i:                                       ; preds = %172, %206
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %206 ], [ 0, %172 ]
   %177 = load ptr, ptr %158, align 8
-  %178 = getelementptr inbounds nuw %struct.SDL_GamepadBinding, ptr %177, i64 %indvars.iv51.i
+  %178 = getelementptr inbounds nuw [32 x i8], ptr %177, i64 %indvars.iv51.i
   %179 = load i32, ptr %178, align 4
   %180 = icmp eq i32 %179, 1
   br i1 %180, label %181, label %206
@@ -4832,7 +4828,7 @@ SDL_FixupHIDAPIMapping.exit:                      ; preds = %176, %206, %172, %1
   %214 = phi i32 [ %210, %.lr.ph ], [ %251, %250 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %250 ]
   %215 = load ptr, ptr %212, align 8
-  %216 = getelementptr inbounds nuw %struct.SDL_GamepadBinding, ptr %215, i64 %indvars.iv
+  %216 = getelementptr inbounds nuw [32 x i8], ptr %215, i64 %indvars.iv
   %217 = load i32, ptr %216, align 4
   %218 = icmp eq i32 %217, 2
   br i1 %218, label %219, label %250
@@ -4866,7 +4862,7 @@ SDL_FixupHIDAPIMapping.exit:                      ; preds = %176, %206, %172, %1
   %238 = getelementptr inbounds nuw i8, ptr %230, i64 72
   %239 = load ptr, ptr %238, align 8
   %240 = sext i32 %229 to i64
-  %241 = getelementptr inbounds %struct.SDL_JoystickAxisInfo, ptr %239, i64 %240
+  %241 = getelementptr inbounds [10 x i8], ptr %239, i64 %240
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
   store i16 %237, ptr %242, align 2
   %243 = load ptr, ptr %0, align 8
@@ -4874,7 +4870,7 @@ SDL_FixupHIDAPIMapping.exit:                      ; preds = %176, %206, %172, %1
   %245 = load ptr, ptr %244, align 8
   %246 = load i32, ptr %228, align 4
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds %struct.SDL_JoystickAxisInfo, ptr %245, i64 %247
+  %248 = getelementptr inbounds [10 x i8], ptr %245, i64 %247
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 2
   store i16 %237, ptr %249, align 2
   %.pre53 = load i32, ptr %8, align 8
@@ -4924,7 +4920,7 @@ define hidden noundef zeroext i1 @SDL_GamepadHasAxis_REAL(ptr noundef %0, i32 no
 
 12:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %13 = getelementptr inbounds nuw %struct.SDL_GamepadBinding, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 2
@@ -4976,7 +4972,7 @@ define hidden signext i16 @SDL_GetGamepadAxis_REAL(ptr noundef %0, i32 noundef %
   %12 = phi i32 [ %8, %.lr.ph ], [ %86, %.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds nuw %struct.SDL_GamepadBinding, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 2
@@ -5156,7 +5152,7 @@ define hidden noundef zeroext i1 @SDL_GamepadHasButton_REAL(ptr noundef %0, i32 
 
 12:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %13 = getelementptr inbounds nuw %struct.SDL_GamepadBinding, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 1
@@ -5208,7 +5204,7 @@ define hidden zeroext i1 @SDL_GetGamepadButton_REAL(ptr noundef %0, i32 noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
   %.14762 = phi i1 [ false, %.lr.ph ], [ %.2, %64 ]
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds nuw %struct.SDL_GamepadBinding, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 1
@@ -5337,13 +5333,13 @@ SDL_GetGamepadFaceStyleForGamepadType.exit:       ; preds = %2, %2, %2
 
 switch.lookup:                                    ; preds = %5
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetGamepadButtonLabel_REAL, i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SDL_GetGamepadButtonLabel_REAL, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
 switch.lookup8:                                   ; preds = %6
   %8 = zext nneg i32 %1 to i64
-  %switch.gep9 = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetGamepadButtonLabel_REAL.2, i64 %8
+  %switch.gep9 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SDL_GetGamepadButtonLabel_REAL.2, i64 %8
   %switch.load10 = load i32, ptr %switch.gep9, align 4
   br label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
@@ -5401,13 +5397,13 @@ define hidden range(i32 0, 9) i32 @SDL_GetGamepadButtonLabel_REAL(ptr noundef %0
 
 switch.lookup:                                    ; preds = %14
   %20 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetGamepadButtonLabel_REAL, i64 %20
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SDL_GetGamepadButtonLabel_REAL, i64 %20
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
 switch.lookup5:                                   ; preds = %16
   %21 = zext nneg i32 %1 to i64
-  %switch.gep6 = getelementptr inbounds nuw i32, ptr @switch.table.SDL_GetGamepadButtonLabel_REAL.2, i64 %21
+  %switch.gep6 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SDL_GetGamepadButtonLabel_REAL.2, i64 %21
   %switch.load7 = load i32, ptr %switch.gep6, align 4
   br label %SDL_GetGamepadButtonLabelForFaceStyle.exit
 
@@ -5513,7 +5509,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %7, %9
   %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 136
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds nuw %struct.SDL_JoystickTouchpadInfo, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 8
   br label %23
 
@@ -5560,7 +5556,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %9
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 136
   %22 = load ptr, ptr %21, align 8
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr inbounds nuw %struct.SDL_JoystickTouchpadInfo, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   %25 = icmp sgt i32 %2, -1
   br i1 %25, label %26, label %48
 
@@ -5573,7 +5569,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %9
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = zext nneg i32 %2 to i64
-  %33 = getelementptr inbounds nuw %struct.SDL_JoystickTouchpadFingerInfo, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %32
   %.not31 = icmp eq ptr %3, null
   br i1 %.not31, label %36, label %34
 
@@ -5663,7 +5659,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %4
 
 14:                                               ; preds = %14, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw %struct.SDL_JoystickSensorInfo, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5720,7 +5716,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %6
 
 16:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %17 = getelementptr inbounds nuw %struct.SDL_JoystickSensorInfo, ptr %14, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %.not60 = icmp eq i32 %18, %1
   br i1 %.not60, label %19, label %15
@@ -5921,7 +5917,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %4
 
 15:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %16 = getelementptr inbounds nuw %struct.SDL_JoystickSensorInfo, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, %1
   br i1 %18, label %19, label %14
@@ -5980,7 +5976,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %4
 
 15:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %16 = getelementptr inbounds nuw %struct.SDL_JoystickSensorInfo, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, %1
   br i1 %18, label %19, label %14
@@ -6038,7 +6034,7 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %6
 
 16:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %17 = getelementptr inbounds nuw %struct.SDL_JoystickSensorInfo, ptr %14, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %.not25 = icmp eq i32 %18, %1
   br i1 %.not25, label %.critedge, label %15
@@ -6759,9 +6755,9 @@ define hidden ptr @SDL_GetGamepadBindings_REAL(ptr noundef %0, ptr noundef write
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %.02732 = phi ptr [ %24, %.lr.ph ], [ %30, %27 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   store ptr %.02732, ptr %28, align 8
-  %29 = getelementptr inbounds nuw %struct.SDL_GamepadBinding, ptr %26, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.02732, ptr noundef nonnull align 4 dereferenceable(32) %29, i64 32, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = getelementptr inbounds nuw i8, ptr %.02732, i64 32
@@ -6774,7 +6770,7 @@ define hidden ptr @SDL_GetGamepadBindings_REAL(ptr noundef %0, ptr noundef write
 
 ._crit_edge:                                      ; preds = %21, %._crit_edge.loopexit
   %.0.lcssa = phi i64 [ %31, %._crit_edge.loopexit ], [ 0, %21 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %20, i64 %.0.lcssa
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0.lcssa
   store ptr null, ptr %32, align 8
   br i1 %.not, label %34, label %33
 
@@ -7044,7 +7040,7 @@ define hidden void @SDL_SetGamepadEventsEnabled_REAL(i1 noundef zeroext %0) loca
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw i32, ptr @SDL_gamepad_event_list, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [4 x i8], ptr @SDL_gamepad_event_list, i64 %indvars.iv
   %4 = load i32, ptr %3, align 4
   tail call void @SDL_SetEventEnabled_REAL(i32 noundef %4, i1 noundef zeroext %0) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7063,7 +7059,7 @@ define hidden zeroext i1 @SDL_GamepadEventsEnabled_REAL() local_unnamed_addr #0 
 
 1:                                                ; preds = %1, %0
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr inbounds nuw i32, ptr @SDL_gamepad_event_list, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [4 x i8], ptr @SDL_gamepad_event_list, i64 %indvars.iv
   %3 = load i32, ptr %2, align 4
   %4 = tail call zeroext i1 @SDL_EventEnabled_REAL(i32 noundef %3) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7665,7 +7661,7 @@ define internal fastcc void @SDL_PrivateParseGamepadElement(ptr noundef nonnull 
 
 23:                                               ; preds = %28, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %28 ]
-  %24 = getelementptr inbounds nuw ptr, ptr @map_StringForGamepadAxis, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @map_StringForGamepadAxis, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.010.i, ptr noundef %25) #10
   %27 = icmp eq i32 %26, 0
@@ -7688,7 +7684,7 @@ SDL_GetGamepadAxisFromString_REAL.exit:           ; preds = %28, %.loopexit.loop
 
 .preheader.i:                                     ; preds = %SDL_GetGamepadAxisFromString_REAL.exit, %42
   %indvars.iv.i81 = phi i64 [ %indvars.iv.next.i82, %42 ], [ 0, %SDL_GetGamepadAxisFromString_REAL.exit ]
-  %31 = getelementptr inbounds nuw ptr, ptr @map_StringForGamepadButton, i64 %indvars.iv.i81
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @map_StringForGamepadButton, i64 %indvars.iv.i81
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @SDL_strcasecmp_REAL(ptr noundef nonnull %.057, ptr noundef %32) #10
   %34 = icmp eq i32 %33, 0
@@ -7721,7 +7717,7 @@ SDL_GetGamepadAxisFromString_REAL.exit:           ; preds = %28, %.loopexit.loop
   br i1 %exitcond.not.i83, label %SDL_PrivateGetGamepadButtonFromString.exit, label %.preheader.i, !llvm.loop !12
 
 switch.lookup:                                    ; preds = %39
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_PrivateParseGamepadElement, i64 %indvars.iv.i81
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SDL_PrivateParseGamepadElement, i64 %indvars.iv.i81
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %SDL_PrivateGetGamepadButtonFromString.exit
 
@@ -7928,7 +7924,7 @@ thread-pre-split:                                 ; preds = %72
 130:                                              ; preds = %.lr.ph, %126
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %126 ]
   %131 = load ptr, ptr %125, align 8
-  %132 = getelementptr inbounds nuw %struct.SDL_GamepadBinding, ptr %131, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [32 x i8], ptr %131, i64 %indvars.iv
   %133 = call i32 @SDL_memcmp_REAL(ptr noundef %132, ptr noundef nonnull %4, i64 noundef 32) #10
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %.thread, label %126
@@ -7956,7 +7952,7 @@ thread-pre-split:                                 ; preds = %72
   store ptr %140, ptr %136, align 8
   %144 = load i32, ptr %122, align 8
   %145 = sext i32 %144 to i64
-  %146 = getelementptr %struct.SDL_GamepadBinding, ptr %140, i64 %145
+  %146 = getelementptr [32 x i8], ptr %140, i64 %145
   %147 = getelementptr i8, ptr %146, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %147, ptr noundef nonnull align 4 dereferenceable(32) %4, i64 32, i1 false)
   br label %.thread

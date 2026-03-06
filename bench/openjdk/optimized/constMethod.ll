@@ -443,10 +443,10 @@ define hidden void @_ZN11ConstMethod25set_inlined_tables_lengthEP16InlineTableSi
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %94 = load i32, ptr %93, align 8
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i64, ptr %0, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %0, i64 %95
   %97 = zext nneg i32 %.3.i.i to i64
   %98 = sub nsw i64 0, %97
-  %99 = getelementptr inbounds ptr, ptr %96, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %96, i64 %98
   %100 = getelementptr inbounds i8, ptr %99, i64 -2
   store i16 %83, ptr %100, align 2
   br label %101
@@ -476,10 +476,10 @@ define hidden void @_ZN11ConstMethod25set_inlined_tables_lengthEP16InlineTableSi
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %117 = load i32, ptr %116, align 8
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i64, ptr %0, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr %0, i64 %118
   %120 = zext nneg i32 %.3.i4.i to i64
   %121 = sub nsw i64 0, %120
-  %122 = getelementptr inbounds ptr, ptr %119, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %119, i64 %121
   %..i = select i1 %.not.i, i64 -2, i64 -4
   %123 = getelementptr inbounds i8, ptr %122, i64 %..i
   store i16 %105, ptr %123, align 2
@@ -512,10 +512,10 @@ define hidden void @_ZN11ConstMethod25set_inlined_tables_lengthEP16InlineTableSi
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %141 = load i32, ptr %140, align 8
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds i64, ptr %0, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %0, i64 %142
   %144 = zext nneg i32 %.3.i5.i to i64
   %145 = sub nsw i64 0, %144
-  %146 = getelementptr inbounds ptr, ptr %143, i64 %145
+  %146 = getelementptr inbounds [8 x i8], ptr %143, i64 %145
   br i1 %.not.i22, label %153, label %147
 
 147:                                              ; preds = %127
@@ -573,10 +573,10 @@ _ZNK11ConstMethod30checked_exceptions_length_addrEv.exit: ; preds = %147, %154, 
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %176 = load i32, ptr %175, align 8
   %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds i64, ptr %0, i64 %177
+  %178 = getelementptr inbounds [8 x i8], ptr %0, i64 %177
   %179 = zext nneg i32 %.3.i6.i to i64
   %180 = sub nsw i64 0, %179
-  %181 = getelementptr inbounds ptr, ptr %178, i64 %180
+  %181 = getelementptr inbounds [8 x i8], ptr %178, i64 %180
   br i1 %.not.i23, label %199, label %182
 
 182:                                              ; preds = %161
@@ -608,7 +608,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i: ; preds = %192, %190, %183
   %194 = load i16, ptr %.0.i.i.i, align 2
   %195 = zext i16 %194 to i64
   %196 = sub nsw i64 0, %195
-  %197 = getelementptr inbounds i16, ptr %.0.i.i.i, i64 %196
+  %197 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i, i64 %196
   %198 = getelementptr inbounds i8, ptr %197, i64 -2
   br label %_ZNK11ConstMethod27exception_table_length_addrEv.exit
 
@@ -672,10 +672,10 @@ _ZNK11ConstMethod27exception_table_length_addrEv.exit: ; preds = %_ZNK11ConstMet
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %230 = load i32, ptr %229, align 8
   %231 = sext i32 %230 to i64
-  %232 = getelementptr inbounds i64, ptr %0, i64 %231
+  %232 = getelementptr inbounds [8 x i8], ptr %0, i64 %231
   %233 = zext nneg i32 %.3.i11.i to i64
   %234 = sub nsw i64 0, %233
-  %235 = getelementptr inbounds ptr, ptr %232, i64 %234
+  %235 = getelementptr inbounds [8 x i8], ptr %232, i64 %234
   br i1 %.not.i27, label %270, label %236
 
 236:                                              ; preds = %214
@@ -710,7 +710,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i: ; preds = %247, %245, 
   %249 = load i16, ptr %.0.i.i.i.i.i, align 2
   %250 = zext i16 %249 to i64
   %251 = sub nsw i64 0, %250
-  %252 = getelementptr inbounds i16, ptr %.0.i.i.i.i.i, i64 %251
+  %252 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i.i.i, i64 %251
   %253 = getelementptr inbounds i8, ptr %252, i64 -2
   br label %_ZNK11ConstMethod21exception_table_startEv.exit.i
 
@@ -779,7 +779,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i33: ; preds = %281, %279, %2
   %283 = load i16, ptr %.0.i.i5.i, align 2
   %284 = zext i16 %283 to i64
   %285 = sub nsw i64 0, %284
-  %286 = getelementptr inbounds i16, ptr %.0.i.i5.i, i64 %285
+  %286 = getelementptr inbounds [2 x i8], ptr %.0.i.i5.i, i64 %285
   %287 = getelementptr inbounds i8, ptr %286, i64 -2
   br label %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit
 
@@ -911,7 +911,7 @@ _ZNK11ConstMethod18method_annotationsEv.exit:     ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i64, ptr %0, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 -8
   %19 = load ptr, ptr %18, align 8
   %.not.i7 = icmp eq ptr %19, null
@@ -941,8 +941,8 @@ _ZNK11ConstMethod21parameter_annotationsEv.exit:  ; preds = %_ZN15MetadataFactor
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i32, ptr %29, align 8
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i64, ptr %0, i64 %31
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %spec.select.i.i
+  %32 = getelementptr inbounds [8 x i8], ptr %0, i64 %31
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %spec.select.i.i
   %34 = load ptr, ptr %33, align 8
   %.not.i11 = icmp eq ptr %34, null
   br i1 %.not.i11, label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit13, label %35
@@ -974,10 +974,10 @@ _ZNK11ConstMethod16type_annotationsEv.exit:       ; preds = %_ZN15MetadataFactor
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load i32, ptr %46, align 8
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i64, ptr %0, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %0, i64 %48
   %50 = zext nneg i32 %.1.i.i to i64
   %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds ptr, ptr %49, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %49, i64 %51
   %53 = load ptr, ptr %52, align 8
   %.not.i17 = icmp eq ptr %53, null
   br i1 %.not.i17, label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit19, label %54
@@ -1012,10 +1012,10 @@ _ZNK11ConstMethod19default_annotationsEv.exit:    ; preds = %_ZN15MetadataFactor
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %68 = load i32, ptr %67, align 8
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i64, ptr %0, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %0, i64 %69
   %71 = zext nneg i32 %.2.i.i to i64
   %72 = sub nsw i64 0, %71
-  %73 = getelementptr inbounds ptr, ptr %70, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %70, i64 %72
   %74 = load ptr, ptr %73, align 8
   %.not.i24 = icmp eq ptr %74, null
   br i1 %.not.i24, label %_ZN15MetadataFactory10free_arrayIhEEvP15ClassLoaderDataP5ArrayIT_E.exit26, label %75
@@ -1077,10 +1077,10 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod15last_u2_elementEv(ptr noun
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %0, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %0, i64 %13
   %15 = zext nneg i32 %.3 to i64
   %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %14, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 -2
   ret ptr %18
 }
@@ -1103,10 +1103,10 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod28generic_signature_index_ad
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %0, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %0, i64 %13
   %15 = zext nneg i32 %.3.i to i64
   %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %14, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 -2
   ret ptr %18
 }
@@ -1131,10 +1131,10 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod29method_parameters_length_a
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i64, ptr %0, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %0, i64 %14
   %16 = zext nneg i32 %.3.i4 to i64
   %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds ptr, ptr %15, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %15, i64 %17
   %. = select i1 %.not, i64 -2, i64 -4
   %19 = getelementptr inbounds i8, ptr %18, i64 %.
   ret ptr %19
@@ -1162,10 +1162,10 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod30checked_exceptions_length_
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i64, ptr %0, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %0, i64 %15
   %17 = zext nneg i32 %.3.i5 to i64
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %16, i64 %18
   br i1 %.not, label %26, label %20
 
 20:                                               ; preds = %1
@@ -1214,10 +1214,10 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod23method_parameters_startEv(
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i64, ptr %0, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %0, i64 %14
   %16 = zext nneg i32 %.3.i4.i to i64
   %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds ptr, ptr %15, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %15, i64 %17
   %..i = select i1 %.not.i, i64 -2, i64 -4
   %19 = getelementptr inbounds i8, ptr %18, i64 %..i
   %20 = load i16, ptr %19, align 2
@@ -1251,10 +1251,10 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod27exception_table_length_add
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i64, ptr %0, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %16
   %18 = zext nneg i32 %.3.i6 to i64
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %17, i64 %19
   br i1 %.not, label %38, label %21
 
 21:                                               ; preds = %1
@@ -1286,7 +1286,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit: ; preds = %22, %29, %31
   %33 = load i16, ptr %.0.i.i, align 2
   %34 = zext i16 %33 to i64
   %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds i16, ptr %.0.i.i, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %.0.i.i, i64 %35
   %37 = getelementptr inbounds i8, ptr %36, i64 -2
   br label %50
 
@@ -1341,10 +1341,10 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod24checked_exceptions_startEv
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i64, ptr %0, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %0, i64 %15
   %17 = zext nneg i32 %.3.i5.i to i64
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %16, i64 %18
   br i1 %.not.i, label %26, label %20
 
 20:                                               ; preds = %1
@@ -1373,7 +1373,7 @@ _ZNK11ConstMethod30checked_exceptions_length_addrEv.exit: ; preds = %20, %27, %2
   %31 = load i16, ptr %.0.i, align 2
   %32 = zext i16 %31 to i64
   %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds i16, ptr %.0.i, i64 %33
+  %34 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %33
   ret ptr %34
 }
 
@@ -1403,10 +1403,10 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod31localvariable_table_length
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i64, ptr %0, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %0, i64 %17
   %19 = zext nneg i32 %.3.i11 to i64
   %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %18, i64 %20
   br i1 %.not, label %56, label %22
 
 22:                                               ; preds = %1
@@ -1441,7 +1441,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i: ; preds = %33, %31, %24
   %35 = load i16, ptr %.0.i.i.i.i, align 2
   %36 = zext i16 %35 to i64
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds i16, ptr %.0.i.i.i.i, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i.i, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 -2
   br label %_ZNK11ConstMethod21exception_table_startEv.exit
 
@@ -1510,7 +1510,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit: ; preds = %58, %65, %67
   %69 = load i16, ptr %.0.i.i5, align 2
   %70 = zext i16 %69 to i64
   %71 = sub nsw i64 0, %70
-  %72 = getelementptr inbounds i16, ptr %.0.i.i5, i64 %71
+  %72 = getelementptr inbounds [2 x i8], ptr %.0.i.i5, i64 %71
   %73 = getelementptr inbounds i8, ptr %72, i64 -2
   br label %86
 
@@ -1567,10 +1567,10 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod21exception_table_startEv(pt
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i64, ptr %0, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %16
   %18 = zext nneg i32 %.3.i6.i to i64
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %17, i64 %19
   br i1 %.not.i, label %38, label %21
 
 21:                                               ; preds = %1
@@ -1602,7 +1602,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i: ; preds = %31, %29, %22
   %33 = load i16, ptr %.0.i.i.i, align 2
   %34 = zext i16 %33 to i64
   %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds i16, ptr %.0.i.i.i, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i, i64 %35
   %37 = getelementptr inbounds i8, ptr %36, i64 -2
   br label %_ZNK11ConstMethod27exception_table_length_addrEv.exit
 
@@ -1664,10 +1664,10 @@ define hidden noundef range(i32 -1, 65536) i32 @_ZNK11ConstMethod24method_parame
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i64, ptr %0, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %16
   %18 = zext nneg i32 %.3.i4.i to i64
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %17, i64 %19
   %..i = select i1 %.not.i, i64 -2, i64 -4
   %21 = getelementptr inbounds i8, ptr %20, i64 %..i
   %22 = load i16, ptr %21, align 2
@@ -1706,10 +1706,10 @@ define hidden noundef zeroext i16 @_ZNK11ConstMethod25checked_exceptions_lengthE
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i64, ptr %0, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %0, i64 %17
   %19 = zext nneg i32 %.3.i5.i to i64
   %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %18, i64 %20
   br i1 %.not.i, label %28, label %22
 
 22:                                               ; preds = %5
@@ -1774,10 +1774,10 @@ define hidden noundef zeroext i16 @_ZNK11ConstMethod26localvariable_table_length
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i64, ptr %0, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %0, i64 %19
   %21 = zext nneg i32 %.3.i11.i to i64
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds ptr, ptr %20, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %20, i64 %22
   br i1 %.not.i, label %58, label %24
 
 24:                                               ; preds = %5
@@ -1812,7 +1812,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i: ; preds = %35, %33, %2
   %37 = load i16, ptr %.0.i.i.i.i.i, align 2
   %38 = zext i16 %37 to i64
   %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds i16, ptr %.0.i.i.i.i.i, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i.i.i, i64 %39
   %41 = getelementptr inbounds i8, ptr %40, i64 -2
   br label %_ZNK11ConstMethod21exception_table_startEv.exit.i
 
@@ -1881,7 +1881,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i: ; preds = %69, %67, %60
   %71 = load i16, ptr %.0.i.i5.i, align 2
   %72 = zext i16 %71 to i64
   %73 = sub nsw i64 0, %72
-  %74 = getelementptr inbounds i16, ptr %.0.i.i5.i, i64 %73
+  %74 = getelementptr inbounds [2 x i8], ptr %.0.i.i5.i, i64 %73
   %75 = getelementptr inbounds i8, ptr %74, i64 -2
   br label %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit
 
@@ -1945,10 +1945,10 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod25localvariable_table_startE
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i64, ptr %0, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %0, i64 %17
   %19 = zext nneg i32 %.3.i11.i to i64
   %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %18, i64 %20
   br i1 %.not.i, label %56, label %22
 
 22:                                               ; preds = %1
@@ -1983,7 +1983,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i: ; preds = %33, %31, %2
   %35 = load i16, ptr %.0.i.i.i.i.i, align 2
   %36 = zext i16 %35 to i64
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds i16, ptr %.0.i.i.i.i.i, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i.i.i, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 -2
   br label %_ZNK11ConstMethod21exception_table_startEv.exit.i
 
@@ -2052,7 +2052,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i: ; preds = %67, %65, %58
   %69 = load i16, ptr %.0.i.i5.i, align 2
   %70 = zext i16 %69 to i64
   %71 = sub nsw i64 0, %70
-  %72 = getelementptr inbounds i16, ptr %.0.i.i5.i, i64 %71
+  %72 = getelementptr inbounds [2 x i8], ptr %.0.i.i5.i, i64 %71
   %73 = getelementptr inbounds i8, ptr %72, i64 -2
   br label %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit
 
@@ -2118,10 +2118,10 @@ define hidden noundef zeroext i16 @_ZNK11ConstMethod22exception_table_lengthEv(p
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i64, ptr %0, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %0, i64 %18
   %20 = zext nneg i32 %.3.i6.i to i64
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %19, i64 %21
   br i1 %.not.i, label %40, label %23
 
 23:                                               ; preds = %5
@@ -2153,7 +2153,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i: ; preds = %33, %31, %24
   %35 = load i16, ptr %.0.i.i.i, align 2
   %36 = zext i16 %35 to i64
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds i16, ptr %.0.i.i.i, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 -2
   br label %_ZNK11ConstMethod27exception_table_length_addrEv.exit
 
@@ -2196,7 +2196,7 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod23method_annotations_addrEv(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i64, ptr %0, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 -8
   ret ptr %6
 }
@@ -2211,8 +2211,8 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod26parameter_annotations_addr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds i64, ptr %0, i64 %7
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %spec.select
+  %8 = getelementptr inbounds [8 x i8], ptr %0, i64 %7
+  %9 = getelementptr inbounds [8 x i8], ptr %8, i64 %spec.select
   ret ptr %9
 }
 
@@ -2229,10 +2229,10 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod21type_annotations_addrEv(pt
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i64, ptr %0, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %11 = zext nneg i32 %.1 to i64
   %12 = sub nsw i64 0, %11
-  %13 = getelementptr inbounds ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %10, i64 %12
   ret ptr %13
 }
 
@@ -2252,10 +2252,10 @@ define hidden noundef nonnull ptr @_ZNK11ConstMethod24default_annotations_addrEv
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i64, ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %13 = zext nneg i32 %.2 to i64
   %14 = sub nsw i64 0, %13
-  %15 = getelementptr inbounds ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %12, i64 %14
   ret ptr %15
 }
 
@@ -2271,7 +2271,7 @@ _ZNK11ConstMethod18method_annotationsEv.exit:     ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i64, ptr %2, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %2, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 4
@@ -2318,7 +2318,7 @@ _ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit: ; preds = %
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load i32, ptr %30, align 8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i64, ptr %0, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %0, i64 %32
   %34 = getelementptr inbounds i8, ptr %33, i64 -8
   store ptr %18, ptr %34, align 8
   %.pre = load i32, ptr %5, align 4
@@ -2337,8 +2337,8 @@ _ZNK11ConstMethod21parameter_annotationsEv.exit:  ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %40 = load i32, ptr %39, align 8
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i64, ptr %2, i64 %41
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %spec.select.i.i
+  %42 = getelementptr inbounds [8 x i8], ptr %2, i64 %41
+  %43 = getelementptr inbounds [8 x i8], ptr %42, i64 %spec.select.i.i
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %44, align 4
   %46 = tail call i32 @llvm.smax.i32(i32 %45, i32 1)
@@ -2389,8 +2389,8 @@ _ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit37: ; preds =
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %65 = load i32, ptr %64, align 8
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i64, ptr %0, i64 %66
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %spec.select.i.i39
+  %67 = getelementptr inbounds [8 x i8], ptr %0, i64 %66
+  %68 = getelementptr inbounds [8 x i8], ptr %67, i64 %spec.select.i.i39
   store ptr %49, ptr %68, align 8
   %.pre88 = load i32, ptr %5, align 4
   br label %69
@@ -2411,10 +2411,10 @@ _ZNK11ConstMethod16type_annotationsEv.exit:       ; preds = %69
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %76 = load i32, ptr %75, align 8
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i64, ptr %2, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %2, i64 %77
   %79 = zext nneg i32 %.1.i.i to i64
   %80 = sub nsw i64 0, %79
-  %81 = getelementptr inbounds ptr, ptr %78, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %78, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = load i32, ptr %82, align 4
   %84 = tail call i32 @llvm.smax.i32(i32 %83, i32 1)
@@ -2468,10 +2468,10 @@ _ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit52: ; preds =
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %105 = load i32, ptr %104, align 8
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i64, ptr %0, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %0, i64 %106
   %108 = zext nneg i32 %.1.i.i55 to i64
   %109 = sub nsw i64 0, %108
-  %110 = getelementptr inbounds ptr, ptr %107, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %107, i64 %109
   store ptr %87, ptr %110, align 8
   %.pre89 = load i32, ptr %5, align 4
   br label %111
@@ -2495,10 +2495,10 @@ _ZNK11ConstMethod19default_annotationsEv.exit:    ; preds = %111
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %120 = load i32, ptr %119, align 8
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds i64, ptr %2, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %2, i64 %121
   %123 = zext nneg i32 %.2.i.i to i64
   %124 = sub nsw i64 0, %123
-  %125 = getelementptr inbounds ptr, ptr %122, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %122, i64 %124
   %126 = load ptr, ptr %125, align 8
   %127 = load i32, ptr %126, align 4
   %128 = tail call i32 @llvm.smax.i32(i32 %127, i32 1)
@@ -2555,10 +2555,10 @@ _ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit69: ; preds =
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %151 = load i32, ptr %150, align 8
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds i64, ptr %0, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %0, i64 %152
   %154 = zext nneg i32 %.2.i.i73 to i64
   %155 = sub nsw i64 0, %154
-  %156 = getelementptr inbounds ptr, ptr %153, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr %153, i64 %155
   store ptr %131, ptr %156, align 8
   br label %_ZL16copy_annotationsP15ClassLoaderDataP5ArrayIhEP10JavaThread.exit.thread
 
@@ -2624,7 +2624,7 @@ define hidden void @_ZN11ConstMethod21metaspace_pointers_doEP16MetaspaceClosure(
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load i32, ptr %36, align 8
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i64, ptr %0, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %0, i64 %38
   %40 = getelementptr inbounds i8, ptr %39, i64 -8
   %41 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -2651,8 +2651,8 @@ define hidden void @_ZN11ConstMethod21metaspace_pointers_doEP16MetaspaceClosure(
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load i32, ptr %50, align 8
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i64, ptr %0, i64 %52
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %spec.select.i
+  %53 = getelementptr inbounds [8 x i8], ptr %0, i64 %52
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %spec.select.i
   %55 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 2, ptr %56, align 8
@@ -2681,10 +2681,10 @@ define hidden void @_ZN11ConstMethod21metaspace_pointers_doEP16MetaspaceClosure(
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = load i32, ptr %66, align 8
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i64, ptr %0, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %0, i64 %68
   %70 = zext nneg i32 %.1.i to i64
   %71 = sub nsw i64 0, %70
-  %72 = getelementptr inbounds ptr, ptr %69, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %69, i64 %71
   %73 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i32 2, ptr %74, align 8
@@ -2716,10 +2716,10 @@ define hidden void @_ZN11ConstMethod21metaspace_pointers_doEP16MetaspaceClosure(
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %87 = load i32, ptr %86, align 8
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i64, ptr %0, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %0, i64 %88
   %90 = zext nneg i32 %.2.i to i64
   %91 = sub nsw i64 0, %90
-  %92 = getelementptr inbounds ptr, ptr %89, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %89, i64 %91
   %93 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #13
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i32 2, ptr %94, align 8
@@ -2983,10 +2983,10 @@ define hidden void @_ZN11ConstMethod9verify_onEP12outputStream(ptr noundef nonnu
   %.3.i4.i = add nuw nsw i32 %.2.i3.i, %71
   %72 = load i32, ptr %26, align 8
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i64, ptr %0, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %0, i64 %73
   %75 = zext nneg i32 %.3.i4.i to i64
   %76 = sub nsw i64 0, %75
-  %77 = getelementptr inbounds ptr, ptr %74, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %74, i64 %76
   %..i = select i1 %.not.i, i64 -2, i64 -4
   %78 = getelementptr inbounds i8, ptr %77, i64 %..i
   %79 = load i16, ptr %78, align 2
@@ -3024,10 +3024,10 @@ define hidden void @_ZN11ConstMethod9verify_onEP12outputStream(ptr noundef nonnu
   %.3.i5.i = add nuw nsw i32 %.2.i4.i, %93
   %94 = load i32, ptr %26, align 8
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i64, ptr %0, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %0, i64 %95
   %97 = zext nneg i32 %.3.i5.i to i64
   %98 = sub nsw i64 0, %97
-  %99 = getelementptr inbounds ptr, ptr %96, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %96, i64 %98
   br i1 %.not92, label %106, label %100
 
 100:                                              ; preds = %85
@@ -3088,10 +3088,10 @@ _ZNK11ConstMethod30checked_exceptions_length_addrEv.exit: ; preds = %100, %107, 
   %.3.i6.i = add nuw nsw i32 %.2.i5.i, %125
   %126 = load i32, ptr %26, align 8
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds i64, ptr %0, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %0, i64 %127
   %129 = zext nneg i32 %.3.i6.i to i64
   %130 = sub nsw i64 0, %129
-  %131 = getelementptr inbounds ptr, ptr %128, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %128, i64 %130
   br i1 %.not94, label %149, label %132
 
 132:                                              ; preds = %117
@@ -3123,7 +3123,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i: ; preds = %142, %140, %133
   %144 = load i16, ptr %.0.i.i.i, align 2
   %145 = zext i16 %144 to i64
   %146 = sub nsw i64 0, %145
-  %147 = getelementptr inbounds i16, ptr %.0.i.i.i, i64 %146
+  %147 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i, i64 %146
   %148 = getelementptr inbounds i8, ptr %147, i64 -2
   br label %_ZNK11ConstMethod27exception_table_length_addrEv.exit
 
@@ -3179,8 +3179,8 @@ _ZNK11ConstMethod27exception_table_length_addrEv.exit: ; preds = %_ZNK11ConstMet
 
 168:                                              ; preds = %165
   %.not14.i = icmp eq i32 %118, 0
-  %169 = getelementptr inbounds i64, ptr %0, i64 %127
-  %170 = getelementptr inbounds ptr, ptr %169, i64 %130
+  %169 = getelementptr inbounds [8 x i8], ptr %0, i64 %127
+  %170 = getelementptr inbounds [8 x i8], ptr %169, i64 %130
   br i1 %.not94, label %188, label %171
 
 171:                                              ; preds = %168
@@ -3212,7 +3212,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i: ; preds = %181, %179, 
   %183 = load i16, ptr %.0.i.i.i.i.i, align 2
   %184 = zext i16 %183 to i64
   %185 = sub nsw i64 0, %184
-  %186 = getelementptr inbounds i16, ptr %.0.i.i.i.i.i, i64 %185
+  %186 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i.i.i, i64 %185
   %187 = getelementptr inbounds i8, ptr %186, i64 -2
   br label %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit.thread
 
@@ -3258,8 +3258,8 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i: ; preds = %181, %179, 
   %.pre122 = zext nneg i32 %.pre119 to i64
   %.pre124 = sub nsw i64 0, %.pre122
   %.not14.i131 = icmp eq i32 %.pre101, 0
-  %201 = getelementptr inbounds i64, ptr %0, i64 %.pre120
-  %202 = getelementptr inbounds ptr, ptr %201, i64 %.pre124
+  %201 = getelementptr inbounds [8 x i8], ptr %0, i64 %.pre120
+  %202 = getelementptr inbounds [8 x i8], ptr %201, i64 %.pre124
   br i1 %.not94, label %220, label %203
 
 203:                                              ; preds = %200
@@ -3291,7 +3291,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i71: ; preds = %213, %211, %2
   %215 = load i16, ptr %.0.i.i5.i, align 2
   %216 = zext i16 %215 to i64
   %217 = sub nsw i64 0, %216
-  %218 = getelementptr inbounds i16, ptr %.0.i.i5.i, i64 %217
+  %218 = getelementptr inbounds [2 x i8], ptr %.0.i.i5.i, i64 %217
   %219 = getelementptr inbounds i8, ptr %218, i64 -2
   br label %_ZNK11ConstMethod31localvariable_table_length_addrEv.exit
 
@@ -3383,7 +3383,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i.i.i: ; preds = %252, %250
   %254 = load i16, ptr %.0.i.i.i.i.i.i, align 2
   %255 = zext i16 %254 to i64
   %256 = sub nsw i64 0, %255
-  %257 = getelementptr inbounds i16, ptr %.0.i.i.i.i.i.i, i64 %256
+  %257 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i.i.i.i, i64 %256
   %258 = getelementptr inbounds i8, ptr %257, i64 -2
   br label %_ZNK11ConstMethod21exception_table_startEv.exit.i.i
 
@@ -3452,7 +3452,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i: ; preds = %286, %284, %2
   %288 = load i16, ptr %.0.i.i5.i.i, align 2
   %289 = zext i16 %288 to i64
   %290 = sub nsw i64 0, %289
-  %291 = getelementptr inbounds i16, ptr %.0.i.i5.i.i, i64 %290
+  %291 = getelementptr inbounds [2 x i8], ptr %.0.i.i5.i.i, i64 %290
   %292 = getelementptr inbounds i8, ptr %291, i64 -2
   br label %_ZNK11ConstMethod25localvariable_table_startEv.exit
 
@@ -3520,7 +3520,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit.i.i76: ; preds = %319, %317, 
   %321 = load i16, ptr %.0.i.i.i.i77, align 2
   %322 = zext i16 %321 to i64
   %323 = sub nsw i64 0, %322
-  %324 = getelementptr inbounds i16, ptr %.0.i.i.i.i77, i64 %323
+  %324 = getelementptr inbounds [2 x i8], ptr %.0.i.i.i.i77, i64 %323
   %325 = getelementptr inbounds i8, ptr %324, i64 -2
   br label %_ZNK11ConstMethod21exception_table_startEv.exit
 
@@ -3575,10 +3575,10 @@ _ZNK11ConstMethod21exception_table_startEv.exit:  ; preds = %_ZNK11ConstMethod24
   %.3.i5.i.i = add nuw nsw i32 %.2.i4.i.i, %349
   %350 = load i32, ptr %26, align 8
   %351 = sext i32 %350 to i64
-  %352 = getelementptr inbounds i64, ptr %0, i64 %351
+  %352 = getelementptr inbounds [8 x i8], ptr %0, i64 %351
   %353 = zext nneg i32 %.3.i5.i.i to i64
   %354 = sub nsw i64 0, %353
-  %355 = getelementptr inbounds ptr, ptr %352, i64 %354
+  %355 = getelementptr inbounds [8 x i8], ptr %352, i64 %354
   br i1 %.not92, label %362, label %356
 
 356:                                              ; preds = %341
@@ -3607,7 +3607,7 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit: ; preds = %356, %363, %365
   %367 = load i16, ptr %.0.i.i85, align 2
   %368 = zext i16 %367 to i64
   %369 = sub nsw i64 0, %368
-  %370 = getelementptr inbounds i16, ptr %.0.i.i85, i64 %369
+  %370 = getelementptr inbounds [2 x i8], ptr %.0.i.i85, i64 %369
   br label %391
 
 371:                                              ; preds = %.thread89
@@ -3629,10 +3629,10 @@ _ZNK11ConstMethod24checked_exceptions_startEv.exit: ; preds = %356, %363, %365
   %.3.i4.i.i = add nuw nsw i32 %.2.i3.i.i, %380
   %381 = load i32, ptr %26, align 8
   %382 = sext i32 %381 to i64
-  %383 = getelementptr inbounds i64, ptr %0, i64 %382
+  %383 = getelementptr inbounds [8 x i8], ptr %0, i64 %382
   %384 = zext nneg i32 %.3.i4.i.i to i64
   %385 = sub nsw i64 0, %384
-  %386 = getelementptr inbounds ptr, ptr %383, i64 %385
+  %386 = getelementptr inbounds [8 x i8], ptr %383, i64 %385
   %..i.i = select i1 %.not.i.i86, i64 -2, i64 -4
   %387 = getelementptr inbounds i8, ptr %386, i64 %..i.i
   %388 = load i16, ptr %387, align 2

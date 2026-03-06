@@ -24,7 +24,7 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h60ec890491667151E(
   br label %12
 
 9:                                                ; preds = %.lr.ph13
-  %10 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %6
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 4
   %11 = load i64, ptr %10, align 4
   store i64 %11, ptr %0, align 4
@@ -50,8 +50,8 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h60ec890491667151E(
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %16
-  %22 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %18
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %16
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %18
   %23 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %21, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %22)
   %.lobit = lshr i8 %23, 7
   %24 = zext nneg i8 %.lobit to i64
@@ -60,8 +60,8 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h60ec890491667151E(
 
 26:                                               ; preds = %20, %.lr.ph
   %.sroa.04.0.i = phi i64 [ %25, %20 ], [ %16, %.lr.ph ]
-  %27 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %.sroa.0.0.i9
-  %28 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %.sroa.04.0.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.0.i9
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.04.0.i
   %29 = tail call noundef i8 @"_ZN63_$LT$pingora_ketama..Point$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5c38746bd0971f05E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %28)
   %30 = icmp slt i8 %29, 0
   br i1 %30, label %31, label %_ZN4core5slice4sort8unstable8heapsort9sift_down17h0c91461f0b14baf2E.exit

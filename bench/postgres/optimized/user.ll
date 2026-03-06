@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.GrantRoleOptions = type { i32, i8, i8, i8 }
-%union.ListCell = type { ptr }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 
@@ -175,7 +174,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr noundef readonly captures(n
   %.02305301346 = phi ptr [ %.1231, %98 ], [ null, %.lr.ph ]
   %indvars.iv1345 = phi i64 [ %indvars.iv.next, %98 ], [ 0, %.lr.ph ]
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv1345
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv1345
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
@@ -875,7 +874,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr noundef readonly captures(n
 338:                                              ; preds = %.lr.ph560, %338
   %indvars.iv577 = phi i64 [ 0, %.lr.ph560 ], [ %indvars.iv.next578, %338 ]
   %339 = load ptr, ptr %337, align 8
-  %340 = getelementptr inbounds nuw %union.ListCell, ptr %339, i64 %indvars.iv577
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %indvars.iv577
   %341 = load ptr, ptr %340, align 8
   %342 = call ptr @get_rolespec_tuple(ptr noundef %341) #11
   %343 = getelementptr i8, ptr %342, i64 16
@@ -951,7 +950,7 @@ define dso_local i32 @CreateRole(ptr noundef %0, ptr noundef readonly captures(n
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph19.i ], [ 0, %.lr.ph.i ]
   %.01317.i = phi ptr [ %380, %.lr.ph19.i ], [ null, %.lr.ph.i ]
   %376 = load ptr, ptr %373, align 8
-  %377 = getelementptr inbounds nuw %union.ListCell, ptr %376, i64 %indvars.iv.i
+  %377 = getelementptr inbounds nuw [8 x i8], ptr %376, i64 %indvars.iv.i
   %378 = load ptr, ptr %377, align 8
   %379 = call i32 @get_rolespec_oid(ptr noundef %378, i1 noundef zeroext false) #11
   %380 = call ptr @lappend_oid(ptr noundef %.01317.i, i32 noundef %379) #11
@@ -981,7 +980,7 @@ roleSpecsToIds.exit:                              ; preds = %.lr.ph19.i, %370, %
   %indvars.iv.i302 = phi i64 [ %indvars.iv.next.i304, %.lr.ph19.i301 ], [ 0, %.lr.ph.i299 ]
   %.01317.i303 = phi ptr [ %393, %.lr.ph19.i301 ], [ null, %.lr.ph.i299 ]
   %389 = load ptr, ptr %386, align 8
-  %390 = getelementptr inbounds nuw %union.ListCell, ptr %389, i64 %indvars.iv.i302
+  %390 = getelementptr inbounds nuw [8 x i8], ptr %389, i64 %indvars.iv.i302
   %391 = load ptr, ptr %390, align 8
   %392 = call i32 @get_rolespec_oid(ptr noundef %391, i1 noundef zeroext false) #11
   %393 = call ptr @lappend_oid(ptr noundef %.01317.i303, i32 noundef %392) #11
@@ -1178,7 +1177,7 @@ define internal fastcc void @AddRoleMems(i32 noundef %0, ptr noundef %1, i32 nou
 
 22:                                               ; preds = %.split.split
   %23 = load ptr, ptr %16, align 8
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   br label %25
 
 25:                                               ; preds = %.split.split, %22
@@ -1206,7 +1205,7 @@ define internal fastcc void @AddRoleMems(i32 noundef %0, ptr noundef %1, i32 nou
   br i1 %or.cond, label %55, label %.thread._crit_edge
 
 40:                                               ; preds = %30
-  %41 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %42 = load ptr, ptr %26, align 8
   %43 = load i32, ptr %41, align 8
   %44 = icmp eq i32 %43, 6171
@@ -1250,7 +1249,7 @@ define internal fastcc void @AddRoleMems(i32 noundef %0, ptr noundef %1, i32 nou
 
 .lr.ph.i:                                         ; preds = %60, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %60 ]
-  %66 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv.i
   store i32 0, ptr %66, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %67 = load i32, ptr %57, align 8
@@ -1274,7 +1273,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %55, %60
   %75 = phi i32 [ %108, %plan_member_revoke.exit ], [ %70, %.lr.ph ]
   %indvars.iv202 = phi i64 [ %indvars.iv.next203, %plan_member_revoke.exit ], [ 0, %.lr.ph ]
   %76 = load ptr, ptr %18, align 8
-  %77 = getelementptr inbounds nuw %union.ListCell, ptr %76, i64 %indvars.iv202
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv202
   %78 = load i32, ptr %77, align 8
   %79 = icmp eq i32 %78, 10
   br i1 %79, label %.split193, label %86
@@ -1304,7 +1303,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %55, %60
   %88 = phi i32 [ %103, %102 ], [ %75, %86 ]
   %89 = phi i32 [ %104, %102 ], [ %75, %86 ]
   %indvars.iv.i159 = phi i64 [ %indvars.iv.next.i160, %102 ], [ 0, %86 ]
-  %90 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv.i159
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv.i159
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr i8, ptr %91, i64 80
   %.val.i = load ptr, ptr %92, align 8
@@ -1345,7 +1344,7 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
 
 111:                                              ; preds = %.lr.ph197, %130
   %indvars.iv205 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next206, %130 ]
-  %112 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv205
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv205
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr i8, ptr %113, i64 80
   %.val157 = load ptr, ptr %114, align 8
@@ -1353,7 +1352,7 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
   %116 = load i8, ptr %115, align 2
   %117 = zext i8 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr %.val157, i64 %117
-  %119 = getelementptr inbounds nuw i32, ptr %.08.i, i64 %indvars.iv205
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %.08.i, i64 %indvars.iv205
   %120 = load i32, ptr %119, align 4
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %122, label %130
@@ -1413,7 +1412,7 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
 
 151:                                              ; preds = %147
   %152 = load ptr, ptr %16, align 8
-  %153 = getelementptr inbounds nuw %union.ListCell, ptr %152, i64 %indvars.iv208
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv208
   br label %154
 
 154:                                              ; preds = %.split198, %147, %151
@@ -1435,7 +1434,7 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
   ret void
 
 164:                                              ; preds = %159
-  %165 = getelementptr inbounds nuw %union.ListCell, ptr %160, i64 %indvars.iv208
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv208
   %166 = load ptr, ptr %155, align 8
   %167 = load i32, ptr %165, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1626,7 +1625,7 @@ define dso_local ptr @roleSpecsToIds(ptr noundef readonly captures(address_is_nu
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph19 ], [ 0, %.lr.ph ]
   %.01317 = phi ptr [ %10, %.lr.ph19 ], [ null, %.lr.ph ]
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @get_rolespec_oid(ptr noundef %8, i1 noundef zeroext false) #11
   %10 = tail call ptr @lappend_oid(ptr noundef %.01317, i32 noundef %9) #11
@@ -1697,7 +1696,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr noundef readonly captures(no
   %.0187417845 = phi ptr [ %.1188, %84 ], [ null, %.lr.ph855.preheader ]
   %.0186418844 = phi ptr [ %.1, %84 ], [ null, %.lr.ph855.preheader ]
   %indvars.iv843 = phi i64 [ %indvars.iv.next, %84 ], [ 0, %.lr.ph855.preheader ]
-  %19 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv843
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv843
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
@@ -2388,7 +2387,7 @@ define dso_local i32 @AlterRole(ptr noundef %0, ptr noundef readonly captures(no
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph19.i ], [ 0, %.lr.ph.i ]
   %.01317.i = phi ptr [ %345, %.lr.ph19.i ], [ null, %.lr.ph.i ]
   %341 = load ptr, ptr %338, align 8
-  %342 = getelementptr inbounds nuw %union.ListCell, ptr %341, i64 %indvars.iv.i
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %341, i64 %indvars.iv.i
   %343 = load ptr, ptr %342, align 8
   %344 = call i32 @get_rolespec_oid(ptr noundef %343, i1 noundef zeroext false) #11
   %345 = call ptr @lappend_oid(ptr noundef %.01317.i, i32 noundef %344) #11
@@ -2418,7 +2417,7 @@ roleSpecsToIds.exit:                              ; preds = %.lr.ph19.i, %336, %
   %indvars.iv.i246 = phi i64 [ %indvars.iv.next.i248, %.lr.ph19.i245 ], [ 0, %.lr.ph.i243 ]
   %.01317.i247 = phi ptr [ %358, %.lr.ph19.i245 ], [ null, %.lr.ph.i243 ]
   %354 = load ptr, ptr %351, align 8
-  %355 = getelementptr inbounds nuw %union.ListCell, ptr %354, i64 %indvars.iv.i246
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %354, i64 %indvars.iv.i246
   %356 = load ptr, ptr %355, align 8
   %357 = call i32 @get_rolespec_oid(ptr noundef %356, i1 noundef zeroext false) #11
   %358 = call ptr @lappend_oid(ptr noundef %.01317.i247, i32 noundef %357) #11
@@ -2486,7 +2485,7 @@ define internal fastcc void @DelRoleMems(i32 noundef %0, ptr noundef %1, i32 nou
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %21 ]
-  %27 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv.i
   store i32 0, ptr %27, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = load i32, ptr %18, align 8
@@ -2517,7 +2516,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
 40:                                               ; preds = %37
   %41 = load ptr, ptr %32, align 8
   %42 = sext i32 %.sroa.10.0 to i64
-  %43 = getelementptr inbounds %union.ListCell, ptr %41, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %41, i64 %42
   br label %44
 
 44:                                               ; preds = %36, %37, %40
@@ -2552,7 +2551,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
 
 62:                                               ; preds = %49
   %63 = sext i32 %.sroa.10.0 to i64
-  %64 = getelementptr inbounds %union.ListCell, ptr %50, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %50, i64 %63
   %65 = load ptr, ptr %45, align 8
   %66 = load i32, ptr %64, align 8
   %67 = load i32, ptr %18, align 8
@@ -2565,7 +2564,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
 
 69:                                               ; preds = %96, %.lr.ph.i61
   %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.i61 ], [ %indvars.iv.next.i63, %96 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i62
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i62
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr i8, ptr %71, i64 80
   %.val.i = load ptr, ptr %72, align 8
@@ -2592,7 +2591,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
   br i1 %.not.i, label %90, label %88
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds nuw i32, ptr %.08.i, i64 %indvars.iv.i62
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.08.i, i64 %indvars.iv.i62
   store i32 2, ptr %89, align 4
   br label %plan_single_revoke.exit.thread
 
@@ -2602,7 +2601,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
   br i1 %.not25.i, label %94, label %92
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds nuw i32, ptr %.08.i, i64 %indvars.iv.i62
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.08.i, i64 %indvars.iv.i62
   store i32 3, ptr %93, align 4
   br label %plan_single_revoke.exit.thread
 
@@ -2633,13 +2632,13 @@ plan_single_revoke.exit.thread:                   ; preds = %92, %88, %94, %plan
 
 103:                                              ; preds = %.lr.ph, %130
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %130 ]
-  %104 = getelementptr inbounds nuw i32, ptr %.08.i, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.08.i, i64 %indvars.iv
   %105 = load i32, ptr %104, align 4
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %130, label %107
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 64
   %111 = icmp eq i32 %105, 4
@@ -2880,7 +2879,7 @@ define dso_local void @DropRole(ptr noundef readonly captures(none) %0) local_un
   %.064112200 = phi ptr [ %.165, %126 ], [ null, %.lr.ph114 ]
   %indvars.iv199 = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.lr.ph114 ]
   %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv199
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv199
   %24 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -3088,7 +3087,7 @@ define dso_local void @DropRole(ptr noundef readonly captures(none) %0) local_un
 .lr.ph125:                                        ; preds = %.lr.ph118, %152
   %indvars.iv143 = phi i64 [ %indvars.iv.next144, %152 ], [ 0, %.lr.ph118 ]
   %130 = load ptr, ptr %28, align 8
-  %131 = getelementptr inbounds nuw %union.ListCell, ptr %130, i64 %indvars.iv143
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv143
   %132 = load i32, ptr %131, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3502,7 +3501,7 @@ define dso_local void @GrantRole(ptr noundef %0, ptr noundef readonly captures(n
 .lr.ph82:                                         ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = call ptr @defGetString(ptr noundef %16) #11
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -3601,7 +3600,7 @@ define dso_local void @GrantRole(ptr noundef %0, ptr noundef readonly captures(n
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph19.i ], [ 0, %.lr.ph.i ]
   %.01317.i = phi ptr [ %75, %.lr.ph19.i ], [ null, %.lr.ph.i ]
   %71 = load ptr, ptr %68, align 8
-  %72 = getelementptr inbounds nuw %union.ListCell, ptr %71, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv.i
   %73 = load ptr, ptr %72, align 8
   %74 = call i32 @get_rolespec_oid(ptr noundef %73, i1 noundef zeroext false) #11
   %75 = call ptr @lappend_oid(ptr noundef %.01317.i, i32 noundef %74) #11
@@ -3631,7 +3630,7 @@ roleSpecsToIds.exit:                              ; preds = %.lr.ph19.i, %64, %.
 .lr.ph89:                                         ; preds = %.lr.ph84, %110
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %110 ], [ 0, %.lr.ph84 ]
   %88 = load ptr, ptr %83, align 8
-  %89 = getelementptr inbounds nuw %union.ListCell, ptr %88, i64 %indvars.iv97
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv97
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8
@@ -3709,7 +3708,7 @@ define dso_local void @DropOwnedObjects(ptr noundef readonly captures(none) %0) 
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph19.i ], [ 0, %.lr.ph.i ]
   %.01317.i = phi ptr [ %12, %.lr.ph19.i ], [ null, %.lr.ph.i ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @get_rolespec_oid(ptr noundef %10, i1 noundef zeroext false) #11
   %12 = tail call ptr @lappend_oid(ptr noundef %.01317.i, i32 noundef %11) #11
@@ -3740,7 +3739,7 @@ roleSpecsToIds.exit:                              ; preds = %.lr.ph19.i
 .lr.ph16:                                         ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.lr.ph ]
   %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load i32, ptr %25, align 8
   %27 = tail call i32 @GetUserId() #11
   %28 = tail call zeroext i1 @has_privs_of_role(i32 noundef %27, i32 noundef %26) #11
@@ -3787,7 +3786,7 @@ define dso_local void @ReassignOwnedObjects(ptr noundef readonly captures(none) 
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph19.i ], [ 0, %.lr.ph.i ]
   %.01317.i = phi ptr [ %12, %.lr.ph19.i ], [ null, %.lr.ph.i ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @get_rolespec_oid(ptr noundef %10, i1 noundef zeroext false) #11
   %12 = tail call ptr @lappend_oid(ptr noundef %.01317.i, i32 noundef %11) #11
@@ -3818,7 +3817,7 @@ roleSpecsToIds.exit:                              ; preds = %.lr.ph19.i
 .lr.ph19:                                         ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.lr.ph ]
   %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load i32, ptr %25, align 8
   %27 = tail call i32 @GetUserId() #11
   %28 = tail call zeroext i1 @has_privs_of_role(i32 noundef %27, i32 noundef %26) #11
@@ -3896,7 +3895,7 @@ define dso_local noundef zeroext i1 @check_createrole_self_grant(ptr noundef rea
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.lr.ph ]
   %.0234451 = phi i32 [ %28, %27 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = call i32 @pg_strcasecmp(ptr noundef %21, ptr noundef nonnull @.str.72) #11
   %23 = icmp eq i32 %22, 0
@@ -4077,7 +4076,7 @@ declare i32 @select_best_admin(i32 noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds i32, ptr %1, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %1, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 4
   %10 = icmp eq i32 %8, 1
@@ -4087,7 +4086,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %6
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %6
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 80
   %.val50 = load ptr, ptr %15, align 8
@@ -4138,7 +4137,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
 
 39:                                               ; preds = %53, %.lr.ph60.split.us
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %53 ], [ 0, %.lr.ph60.split.us ]
-  %40 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv67
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv67
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 80
   %.val.us = load ptr, ptr %42, align 8
@@ -4152,7 +4151,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %39
-  %51 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv67
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv67
   %52 = load i32, ptr %51, align 4
   %.not.us = icmp eq i32 %52, 4
   br i1 %.not.us, label %53, label %.split.us
@@ -4164,7 +4163,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
 
 55:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr i8, ptr %57, i64 80
   %.val49 = load ptr, ptr %58, align 8
@@ -4184,7 +4183,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %.thread54, label %74
@@ -4197,7 +4196,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
 .lr.ph60.split:                                   ; preds = %.lr.ph60, %96
   %75 = phi i32 [ %97, %96 ], [ %31, %.lr.ph60 ]
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %96 ], [ 0, %.lr.ph60 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv64
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv64
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr i8, ptr %77, i64 80
   %.val = load ptr, ptr %78, align 8
@@ -4212,7 +4211,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
   br i1 %86, label %87, label %96
 
 87:                                               ; preds = %.lr.ph60.split
-  %88 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv64
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv64
   %89 = load i32, ptr %88, align 4
   %.not = icmp eq i32 %89, 4
   br i1 %.not, label %96, label %90

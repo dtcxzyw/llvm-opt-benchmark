@@ -134,7 +134,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
   %32 = load ptr, ptr @cipher_list, align 8, !tbaa !9
   %33 = add nsw i32 %.01625.i, 1
   %34 = sext i32 %.01625.i to i64
-  %35 = getelementptr inbounds ptr, ptr %32, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %32, i64 %34
   store ptr %31, ptr %35, align 8, !tbaa !4
   br label %36
 
@@ -198,7 +198,7 @@ define internal range(i32 0, 2) i32 @test_ssl_corrupt(i32 noundef %0) #1 {
   store i1 false, ptr @docorrupt, align 4
   %6 = load ptr, ptr @cipher_list, align 8, !tbaa !9
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 195, ptr noundef nonnull @.str.25, i32 noundef %0, ptr noundef %9) #4
   %10 = tail call ptr @TLS_server_method() #4
@@ -224,7 +224,7 @@ define internal range(i32 0, 2) i32 @test_ssl_corrupt(i32 noundef %0) #1 {
 24:                                               ; preds = %18
   %25 = load ptr, ptr %3, align 8, !tbaa !13
   %26 = load ptr, ptr @cipher_list, align 8, !tbaa !9
-  %27 = getelementptr inbounds ptr, ptr %26, i64 %7
+  %27 = getelementptr inbounds [8 x i8], ptr %26, i64 %7
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = call i32 @SSL_CTX_set_cipher_list(ptr noundef %25, ptr noundef %28) #4
   %30 = icmp ne i32 %29, 0

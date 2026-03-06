@@ -2347,7 +2347,7 @@ declare void @lean_free_object(ptr noundef) local_unnamed_addr #3
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 8) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -10904,7 +10904,7 @@ lean_dec.exit84:                                  ; preds = %52, %51, %49, %lean
   tail call void @lean_free_object(ptr noundef nonnull %9) #6
   %54 = lshr i64 %29, 1
   %55 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8, !tbaa !4
   %58 = ptrtoint ptr %57 to i64
   %59 = trunc i64 %58 to i1
@@ -11202,7 +11202,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit77
 170:                                              ; preds = %144, %lean_dec.exit79
   %171 = lshr i64 %142, 1
   %172 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %171
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %171
   %174 = load ptr, ptr %173, align 8, !tbaa !4
   %175 = ptrtoint ptr %174 to i64
   %176 = trunc i64 %175 to i1

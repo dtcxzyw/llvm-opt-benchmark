@@ -474,7 +474,7 @@ _ZNSt12_Vector_baseIPKN8facebook5velox4exec17FunctionSignatureESaIS5_EE13_M_deal
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i.i.i3.i, ptr %agg.result, align 8
   store ptr %call5.i.i.i.i.i3.i, ptr %_M_finish.i.i.i.i, align 8
-  %add.ptr21.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i3.i, i64 %1
+  %add.ptr21.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i3.i, i64 %1
   store ptr %add.ptr21.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZNSt6vectorIPKN8facebook5velox4exec17FunctionSignatureESaIS5_EE7reserveEm.exit.i.i
 
@@ -547,7 +547,7 @@ if.then.i18.i.i.i.i:                              ; preds = %_ZNSt6vectorIPKN8fa
 _ZNSt6vectorIPKN8facebook5velox4exec17FunctionSignatureESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i: ; preds = %if.then.i18.i.i.i.i, %_ZNSt6vectorIPKN8facebook5velox4exec17FunctionSignatureESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit17.i.i.i.i
   store ptr %call5.i.i.i.i.i.i5.i, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i5.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i5.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8
   br label %_ZNSt6vectorIPKN8facebook5velox4exec17FunctionSignatureESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.i.i
 
@@ -1326,7 +1326,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i.i.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #20
   store ptr null, ptr %constantArguments_, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -1773,7 +1773,7 @@ if.then.i:                                        ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %idx.neg.i = sub nsw i64 0, %sub.ptr.div.i
-  %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i) #20
   store ptr null, ptr %this, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2215,7 +2215,7 @@ if.end:                                           ; preds = %_ZNSt10_HashtableIN
   %add.ptr = getelementptr inbounds nuw i8, ptr %__node, i64 96
   store i64 %__code, ptr %add.ptr, align 8
   %12 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %__bkt.addr.0
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %__bkt.addr.0
   %13 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -2224,7 +2224,7 @@ if.then.i:                                        ; preds = %if.end
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %__node, align 8
   %15 = load ptr, ptr %this, align 8
-  %arrayidx6.i = getelementptr inbounds ptr, ptr %15, i64 %__bkt.addr.0
+  %arrayidx6.i = getelementptr inbounds [8 x i8], ptr %15, i64 %__bkt.addr.0
   %16 = load ptr, ptr %arrayidx6.i, align 8
   store ptr %__node, ptr %16, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St13unordered_mapIN8facebook5velox4exec17FunctionSignatureESt10unique_ptrIKNSB_13FunctionEntryESt14default_deleteISF_EESt4hashISC_ESt8equal_toISC_ESaIS6_IKSC_SI_EEEESaISR_ENSt8__detail10_Select1stESL_IS5_ESJ_IS5_ENST_18_Mod_range_hashingENST_20_Default_ranged_hashENST_20_Prime_rehash_policyENST_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNST_10_Hash_nodeISR_Lb1EEE.exit
@@ -2244,13 +2244,13 @@ if.then14.i:                                      ; preds = %if.else.i
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 96
   %21 = load i64, ptr %add.ptr.i.i.i, align 8
   %rem.i.i.i.i = urem i64 %21, %20
-  %arrayidx17.i = getelementptr inbounds ptr, ptr %19, i64 %rem.i.i.i.i
+  %arrayidx17.i = getelementptr inbounds [8 x i8], ptr %19, i64 %rem.i.i.i.i
   store ptr %__node, ptr %arrayidx17.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then14.i, %if.else.i
   %22 = load ptr, ptr %this, align 8
-  %arrayidx20.i = getelementptr inbounds ptr, ptr %22, i64 %__bkt.addr.0
+  %arrayidx20.i = getelementptr inbounds [8 x i8], ptr %22, i64 %__bkt.addr.0
   store ptr %_M_before_begin.i, ptr %arrayidx20.i, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St13unordered_mapIN8facebook5velox4exec17FunctionSignatureESt10unique_ptrIKNSB_13FunctionEntryESt14default_deleteISF_EESt4hashISC_ESt8equal_toISC_ESaIS6_IKSC_SI_EEEESaISR_ENSt8__detail10_Select1stESL_IS5_ESJ_IS5_ENST_18_Mod_range_hashingENST_20_Default_ranged_hashENST_20_Prime_rehash_policyENST_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNST_10_Hash_nodeISR_Lb1EEE.exit
 
@@ -2297,7 +2297,7 @@ declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 nounde
 define linkonce_odr noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St13unordered_mapIN8facebook5velox4exec17FunctionSignatureESt10unique_ptrIKNSB_13FunctionEntryESt14default_deleteISF_EESt4hashISC_ESt8equal_toISC_ESaIS6_IKSC_SI_EEEESaISR_ENSt8__detail10_Select1stESL_IS5_ESJ_IS5_ENST_18_Mod_range_hashingENST_20_Default_ranged_hashENST_20_Prime_rehash_policyENST_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, ptr noundef nonnull align 8 dereferenceable(32) %__k, i64 noundef %__code) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %__bkt
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %0, i64 %__bkt
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2421,7 +2421,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIN
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %__p.022, i64 96
   %2 = load i64, ptr %add.ptr.i, align 8
   %rem.i.i = urem i64 %2, %__bkt_count
-  %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %rem.i.i
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.then, label %if.else
@@ -2436,7 +2436,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 
@@ -2768,7 +2768,7 @@ define linkonce_odr noundef ptr @_ZNKSt10_HashtableIN8facebook5velox4exec17Funct
 entry:
   %typeSignatureHasher.i.i.i.i = alloca %"struct.std::hash.111", align 1
   %0 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %__bkt
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %0, i64 %__bkt
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %for.cond.preheader
@@ -2914,7 +2914,7 @@ for.body.i.i:                                     ; preds = %for.cond.loopexit.i
   %3 = load i64, ptr %add.ptr.i.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %3, %2
   %4 = load ptr, ptr %variables_2, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %4, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %4, i64 %rem.i.i.i.i.i
   %5 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.not.i.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.not.i.not.i, label %land.end, label %if.end11.i.i
@@ -3460,12 +3460,12 @@ if.then.i:                                        ; preds = %entry
 
 call5.i.i.i.i.noexc:                              ; preds = %if.then.i
   %div1.i.i = lshr i64 %sub.i.i.i, 6
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i4, i64 %div1.i.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i4, i64 %div1.i.i
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i.i.i, align 8
   store ptr %call5.i.i.i.i4, ptr %this, align 8
   store i32 0, ptr %_M_offset.i.i.i.i.i, align 8
   %div.i.i.i.i = sdiv i64 %add.i.i, 64
-  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i4, i64 %div.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [8 x i8], ptr %call5.i.i.i.i4, i64 %div.i.i.i.i
   %4 = and i64 %add.i.i, -9223372036854775745
   %cmp.i.i.i.i = icmp ugt i64 %4, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %cmp.i.i.i.i, i64 -8, i64 0
@@ -3626,7 +3626,7 @@ invoke.cont13:                                    ; preds = %if.end5
   %6 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %7 = load i64, ptr %add.ptr10, align 8
   %rem.i.i.i.i.i = urem i64 %7, %6
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %5, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i18, ptr %arrayidx.i.i, align 8
   %__ht_n.023 = load ptr, ptr %2, align 8
   %tobool15.not24 = icmp eq ptr %__ht_n.023, null
@@ -3649,7 +3649,7 @@ invoke.cont19:                                    ; preds = %for.body
   %10 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i = urem i64 %9, %10
   %11 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %11, i64 %rem.i.i.i
   %12 = load ptr, ptr %arrayidx, align 8
   %tobool28.not = icmp eq ptr %12, null
   br i1 %tobool28.not, label %if.then29, label %if.end32
@@ -3961,7 +3961,7 @@ entry:
   %variablesHasher.i.i.i.i = alloca %"struct.std::hash.110", align 1
   %typeSignatureHasher.i.i.i.i = alloca %"struct.std::hash.111", align 1
   %0 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %__bkt
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %0, i64 %__bkt
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -3970,7 +3970,7 @@ if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %1, align 8
   store ptr %2, ptr %__node, align 8
   %3 = load ptr, ptr %this, align 8
-  %arrayidx6 = getelementptr inbounds ptr, ptr %3, i64 %__bkt
+  %arrayidx6 = getelementptr inbounds [8 x i8], ptr %3, i64 %__bkt
   %4 = load ptr, ptr %arrayidx6, align 8
   store ptr %__node, ptr %4, align 8
   br label %if.end21
@@ -4044,13 +4044,13 @@ _ZNKSt10_HashtableIN8facebook5velox4exec17FunctionSignatureESt4pairIKS3_St10uniq
   call void @llvm.lifetime.end.p0(ptr nonnull %variablesHasher.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %typeSignatureHasher.i.i.i.i)
   %rem.i.i.i = urem i64 %add40.i.i.i.i, %8
-  %arrayidx17 = getelementptr inbounds ptr, ptr %7, i64 %rem.i.i.i
+  %arrayidx17 = getelementptr inbounds [8 x i8], ptr %7, i64 %rem.i.i.i
   store ptr %__node, ptr %arrayidx17, align 8
   br label %if.end
 
 if.end:                                           ; preds = %_ZNKSt10_HashtableIN8facebook5velox4exec17FunctionSignatureESt4pairIKS3_St10unique_ptrIKNS2_13FunctionEntryESt14default_deleteIS8_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNSE_16_Hash_node_valueISC_Lb0EEE.exit, %if.else
   %15 = load ptr, ptr %this, align 8
-  %arrayidx20 = getelementptr inbounds ptr, ptr %15, i64 %__bkt
+  %arrayidx20 = getelementptr inbounds [8 x i8], ptr %15, i64 %__bkt
   store ptr %_M_before_begin, ptr %arrayidx20, align 8
   br label %if.end21
 
@@ -4185,7 +4185,7 @@ _ZNKSt8__detail15_Hash_code_baseIN8facebook5velox4exec17FunctionSignatureESt4pai
   %add40.i.i.i = add i64 %mul37.i.i.i, %conv.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %typeSignatureHasher.i.i.i)
   %rem.i.i = urem i64 %add40.i.i.i, %__bkt_count
-  %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %rem.i.i
   %12 = load ptr, ptr %arrayidx, align 8
   %tobool5.not = icmp eq ptr %12, null
   br i1 %tobool5.not, label %if.then, label %if.else
@@ -4200,7 +4200,7 @@ if.then:                                          ; preds = %_ZNKSt8__detail15_H
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 

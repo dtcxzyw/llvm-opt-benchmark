@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.HASH_SEQ_STATUS = type { ptr, i32, ptr, i8, i32 }
 
@@ -119,7 +118,7 @@ list_length.exit.i:                               ; preds = %.critedge.i
 .lr.ph:                                           ; preds = %.lr.ph.i, %154
   %indvars.iv.i58 = phi i64 [ %indvars.iv.next.i, %154 ], [ 0, %.lr.ph.i ]
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw %union.ListCell, ptr %50, i64 %indvars.iv.i58
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i58
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
   %54 = call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %53) #7
@@ -329,14 +328,14 @@ heap_getattr.exit.i:                              ; preds = %124, %123, %118, %1
   unreachable
 
 154:                                              ; preds = %148, %144
-  %155 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i58
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.i58
   store i32 %52, ptr %155, align 4
   %156 = call signext i8 @get_rel_relkind(i32 noundef %52) #7
   %157 = icmp ne i8 %156, 112
   %158 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv.i58
   %159 = zext i1 %157 to i8
   store i8 %159, ptr %158, align 1
-  %160 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.i58
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i58
   store ptr %.2125160.i, ptr %160, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i58, 1
   %161 = load i32, ptr %40, align 4
@@ -404,13 +403,13 @@ list_length.exit.thread._crit_edge.thread.i:      ; preds = %.critedge.i, %list_
 .lr.ph218.i:                                      ; preds = %178, %.lr.ph218.i
   %indvars.iv260.i = phi i64 [ %indvars.iv.next261.i, %.lr.ph218.i ], [ 0, %178 ]
   %192 = load ptr, ptr %5, align 8
-  %193 = getelementptr inbounds nuw i32, ptr %192, i64 %indvars.iv260.i
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %indvars.iv260.i
   %194 = load i32, ptr %193, align 4
-  %195 = getelementptr inbounds nuw i32, ptr %.1114281287.i, i64 %indvars.iv260.i
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %.1114281287.i, i64 %indvars.iv260.i
   %196 = load i32, ptr %195, align 4
   %197 = load ptr, ptr %188, align 8
   %198 = sext i32 %194 to i64
-  %199 = getelementptr inbounds i32, ptr %197, i64 %198
+  %199 = getelementptr inbounds [4 x i8], ptr %197, i64 %198
   store i32 %196, ptr %199, align 4
   %200 = getelementptr inbounds nuw i8, ptr %.1116279288.i, i64 %indvars.iv260.i
   %201 = load i8, ptr %200, align 1, !range !4, !noundef !5
@@ -624,7 +623,7 @@ define dso_local i32 @get_default_oid_from_partdesc(ptr noundef readonly capture
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %7 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   br label %14
 

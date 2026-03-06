@@ -186,7 +186,7 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
 
 21:                                               ; preds = %21, %18
   %22 = phi i64 [ 1, %18 ], [ %29, %21 ]
-  %23 = getelementptr %struct.anon.3, ptr @maxes_table, i64 %22
+  %23 = getelementptr [8 x i8], ptr @maxes_table, i64 %22
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %24 to i64
   %26 = icmp sgt i64 %20, %25
@@ -196,7 +196,7 @@ define dso_local noundef range(i32 -22, 1) i32 @agp_add_bridge(ptr noundef %0) #
   br i1 %28, label %21, label %30, !llvm.loop !7
 
 30:                                               ; preds = %21
-  %31 = getelementptr %struct.anon.3, ptr @maxes_table, i64 %22
+  %31 = getelementptr [8 x i8], ptr @maxes_table, i64 %22
   %32 = getelementptr i8, ptr %31, i64 -8
   %33 = getelementptr i8, ptr %31, i64 -4
   %34 = load i32, ptr %33, align 4

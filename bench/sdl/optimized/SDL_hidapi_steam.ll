@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.SteamControllerPacketAssembler = type { [145 x i8], i32, i8 }
-%struct.ControllerAttribute = type <{ i8, i32 }>
 
 @.str = private unnamed_addr constant [26 x i8] c"SDL_JOYSTICK_HIDAPI_STEAM\00", align 1
 @SDL_HIDAPI_DriverSteam = hidden local_unnamed_addr global { ptr, i8, [7 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { ptr @.str, i8 1, [7 x i8] zeroinitializer, ptr @HIDAPI_DriverSteam_RegisterHints, ptr @HIDAPI_DriverSteam_UnregisterHints, ptr @HIDAPI_DriverSteam_IsEnabled, ptr @HIDAPI_DriverSteam_IsSupportedDevice, ptr @HIDAPI_DriverSteam_InitDevice, ptr @HIDAPI_DriverSteam_GetDevicePlayerIndex, ptr @HIDAPI_DriverSteam_SetDevicePlayerIndex, ptr @HIDAPI_DriverSteam_UpdateDevice, ptr @HIDAPI_DriverSteam_OpenJoystick, ptr @HIDAPI_DriverSteam_RumbleJoystick, ptr @HIDAPI_DriverSteam_RumbleJoystickTriggers, ptr @HIDAPI_DriverSteam_GetJoystickCapabilities, ptr @HIDAPI_DriverSteam_SetJoystickLED, ptr @HIDAPI_DriverSteam_SendJoystickEffect, ptr @HIDAPI_DriverSteam_SetSensorsEnabled, ptr @HIDAPI_DriverSteam_CloseJoystick, ptr @HIDAPI_DriverSteam_FreeDevice }, align 8
@@ -1286,7 +1285,7 @@ ReadResponse.exit.i:                              ; preds = %GetFeatureReport.ex
 91:                                               ; preds = %97, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %97 ]
   %.058119.i = phi i32 [ 9000, %.lr.ph.i ], [ %.1.i, %97 ]
-  %92 = getelementptr inbounds nuw %struct.ControllerAttribute, ptr %90, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw [5 x i8], ptr %90, i64 %indvars.iv.i
   %93 = load i8, ptr %92, align 1
   %cond.i = icmp eq i8 %93, 11
   br i1 %cond.i, label %94, label %97

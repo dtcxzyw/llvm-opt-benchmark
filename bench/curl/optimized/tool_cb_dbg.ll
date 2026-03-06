@@ -309,7 +309,7 @@ log_line_start.exit:                              ; preds = %96, %94, %88
   %.not10.i98 = icmp eq i8 %123, 0
   %or.cond105 = select i1 %.not.i97, i1 %.not10.i98, i1 false
   %124 = zext nneg i32 %1 to i64
-  %125 = getelementptr inbounds nuw ptr, ptr @log_line_start.s_infotype, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr @log_line_start.s_infotype, i64 %124
   %126 = load ptr, ptr %125, align 8, !tbaa !44
   br i1 %or.cond105, label %129, label %127
 
@@ -370,7 +370,7 @@ log_line_start.exit99:                            ; preds = %129, %127, %118
   %.not10.i101 = icmp eq i8 %153, 0
   %or.cond106 = select i1 %.not.i100, i1 %.not10.i101, i1 false
   %154 = zext nneg i32 %1 to i64
-  %155 = getelementptr inbounds nuw ptr, ptr @log_line_start.s_infotype, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr @log_line_start.s_infotype, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !44
   br i1 %or.cond106, label %159, label %157
 
@@ -626,14 +626,14 @@ define internal fastcc void @log_line_start(ptr noundef nonnull %0, ptr noundef 
 
 8:                                                ; preds = %6, %4
   %9 = zext i32 %3 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr @log_line_start.s_infotype, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @log_line_start.s_infotype, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !44
   %12 = tail call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %11) #5
   br label %18
 
 13:                                               ; preds = %6
   %14 = zext i32 %3 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @log_line_start.s_infotype, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @log_line_start.s_infotype, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !44
   %17 = tail call i32 @fputs(ptr noundef %16, ptr noundef nonnull %0)
   br label %18

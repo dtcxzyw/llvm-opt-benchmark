@@ -218,7 +218,7 @@ $_ZTV18LogMessageTemplateILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EE =
 define hidden void @_ZN10JfrJavaLog19subscribe_log_levelEP8_jobjectiP10JavaThread(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN14JfrJavaSupport17global_jni_handleEP8_jobjectP10JavaThread(ptr noundef %0, ptr noundef %2) #6
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.jfrLogSubscriber, ptr @_ZL12log_tag_sets, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr @_ZL12log_tag_sets, i64 %5
   store ptr %4, ptr %6, align 16
   %.b = load i1, ptr @_ZZN10JfrJavaLog19subscribe_log_levelEP8_jobjectiP10JavaThreadE18subscribed_updates, align 1
   br i1 %.b, label %8, label %7
@@ -262,7 +262,7 @@ define internal fastcc void @_ZL26log_config_change_internalbP10JavaThread(i1 no
 
 4:                                                ; preds = %.preheader293, %7
   %.08.i = phi i64 [ %8, %7 ], [ 0, %.preheader293 ]
-  %5 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i
   %6 = load volatile ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %.split.loop.exit6.i
@@ -290,7 +290,7 @@ _ZL13highest_levelRK9LogTagSet.exit:              ; preds = %7, %.split.loop.exi
 
 11:                                               ; preds = %.preheader291, %14
   %.08.i95 = phi i64 [ %15, %14 ], [ 0, %.preheader291 ]
-  %12 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i95
+  %12 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i95
   %13 = load volatile ptr, ptr %12, align 8
   %.not.i96 = icmp eq ptr %13, null
   br i1 %.not.i96, label %14, label %.split.loop.exit6.i97
@@ -318,7 +318,7 @@ _ZL13highest_levelRK9LogTagSet.exit100:           ; preds = %14, %.split.loop.ex
 
 18:                                               ; preds = %.preheader289, %21
   %.08.i101 = phi i64 [ %22, %21 ], [ 0, %.preheader289 ]
-  %19 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i101
+  %19 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_41ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i101
   %20 = load volatile ptr, ptr %19, align 8
   %.not.i102 = icmp eq ptr %20, null
   br i1 %.not.i102, label %21, label %.split.loop.exit6.i103
@@ -346,7 +346,7 @@ _ZL13highest_levelRK9LogTagSet.exit106:           ; preds = %21, %.split.loop.ex
 
 25:                                               ; preds = %.preheader287, %28
   %.08.i107 = phi i64 [ %29, %28 ], [ 0, %.preheader287 ]
-  %26 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_136ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i107
+  %26 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_136ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i107
   %27 = load volatile ptr, ptr %26, align 8
   %.not.i108 = icmp eq ptr %27, null
   br i1 %.not.i108, label %28, label %.split.loop.exit6.i109
@@ -374,7 +374,7 @@ _ZL13highest_levelRK9LogTagSet.exit112:           ; preds = %28, %.split.loop.ex
 
 32:                                               ; preds = %.preheader285, %35
   %.08.i113 = phi i64 [ %36, %35 ], [ 0, %.preheader285 ]
-  %33 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_12ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i113
+  %33 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_12ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i113
   %34 = load volatile ptr, ptr %33, align 8
   %.not.i114 = icmp eq ptr %34, null
   br i1 %.not.i114, label %35, label %.split.loop.exit6.i115
@@ -402,7 +402,7 @@ _ZL13highest_levelRK9LogTagSet.exit118:           ; preds = %35, %.split.loop.ex
 
 39:                                               ; preds = %.preheader283, %42
   %.08.i119 = phi i64 [ %43, %42 ], [ 0, %.preheader283 ]
-  %40 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_109ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i119
+  %40 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_109ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i119
   %41 = load volatile ptr, ptr %40, align 8
   %.not.i120 = icmp eq ptr %41, null
   br i1 %.not.i120, label %42, label %.split.loop.exit6.i121
@@ -430,7 +430,7 @@ _ZL13highest_levelRK9LogTagSet.exit124:           ; preds = %42, %.split.loop.ex
 
 46:                                               ; preds = %.preheader281, %49
   %.08.i125 = phi i64 [ %50, %49 ], [ 0, %.preheader281 ]
-  %47 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_83ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i125
+  %47 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_83ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i125
   %48 = load volatile ptr, ptr %47, align 8
   %.not.i126 = icmp eq ptr %48, null
   br i1 %.not.i126, label %49, label %.split.loop.exit6.i127
@@ -458,7 +458,7 @@ _ZL13highest_levelRK9LogTagSet.exit130:           ; preds = %49, %.split.loop.ex
 
 53:                                               ; preds = %.preheader279, %56
   %.08.i131 = phi i64 [ %57, %56 ], [ 0, %.preheader279 ]
-  %54 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_147ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i131
+  %54 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_147ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i131
   %55 = load volatile ptr, ptr %54, align 8
   %.not.i132 = icmp eq ptr %55, null
   br i1 %.not.i132, label %56, label %.split.loop.exit6.i133
@@ -486,7 +486,7 @@ _ZL13highest_levelRK9LogTagSet.exit136:           ; preds = %56, %.split.loop.ex
 
 60:                                               ; preds = %.preheader277, %63
   %.08.i137 = phi i64 [ %64, %63 ], [ 0, %.preheader277 ]
-  %61 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i137
+  %61 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i137
   %62 = load volatile ptr, ptr %61, align 8
   %.not.i138 = icmp eq ptr %62, null
   br i1 %.not.i138, label %63, label %.split.loop.exit6.i139
@@ -514,7 +514,7 @@ _ZL13highest_levelRK9LogTagSet.exit142:           ; preds = %63, %.split.loop.ex
 
 67:                                               ; preds = %.preheader275, %70
   %.08.i143 = phi i64 [ %71, %70 ], [ 0, %.preheader275 ]
-  %68 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_113ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i143
+  %68 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_113ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i143
   %69 = load volatile ptr, ptr %68, align 8
   %.not.i144 = icmp eq ptr %69, null
   br i1 %.not.i144, label %70, label %.split.loop.exit6.i145
@@ -542,7 +542,7 @@ _ZL13highest_levelRK9LogTagSet.exit148:           ; preds = %70, %.split.loop.ex
 
 74:                                               ; preds = %.preheader273, %77
   %.08.i149 = phi i64 [ %78, %77 ], [ 0, %.preheader273 ]
-  %75 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_113ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i149
+  %75 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_113ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i149
   %76 = load volatile ptr, ptr %75, align 8
   %.not.i150 = icmp eq ptr %76, null
   br i1 %.not.i150, label %77, label %.split.loop.exit6.i151
@@ -570,7 +570,7 @@ _ZL13highest_levelRK9LogTagSet.exit154:           ; preds = %77, %.split.loop.ex
 
 81:                                               ; preds = %.preheader271, %84
   %.08.i155 = phi i64 [ %85, %84 ], [ 0, %.preheader271 ]
-  %82 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_83ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i155
+  %82 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_83ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i155
   %83 = load volatile ptr, ptr %82, align 8
   %.not.i156 = icmp eq ptr %83, null
   br i1 %.not.i156, label %84, label %.split.loop.exit6.i157
@@ -598,7 +598,7 @@ _ZL13highest_levelRK9LogTagSet.exit160:           ; preds = %84, %.split.loop.ex
 
 88:                                               ; preds = %.preheader269, %91
   %.08.i161 = phi i64 [ %92, %91 ], [ 0, %.preheader269 ]
-  %89 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_41ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i161
+  %89 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_41ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i161
   %90 = load volatile ptr, ptr %89, align 8
   %.not.i162 = icmp eq ptr %90, null
   br i1 %.not.i162, label %91, label %.split.loop.exit6.i163
@@ -626,7 +626,7 @@ _ZL13highest_levelRK9LogTagSet.exit166:           ; preds = %91, %.split.loop.ex
 
 95:                                               ; preds = %.preheader267, %98
   %.08.i167 = phi i64 [ %99, %98 ], [ 0, %.preheader267 ]
-  %96 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_136ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i167
+  %96 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_136ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i167
   %97 = load volatile ptr, ptr %96, align 8
   %.not.i168 = icmp eq ptr %97, null
   br i1 %.not.i168, label %98, label %.split.loop.exit6.i169
@@ -654,7 +654,7 @@ _ZL13highest_levelRK9LogTagSet.exit172:           ; preds = %98, %.split.loop.ex
 
 102:                                              ; preds = %.preheader265, %105
   %.08.i173 = phi i64 [ %106, %105 ], [ 0, %.preheader265 ]
-  %103 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_32ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i173
+  %103 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_32ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i173
   %104 = load volatile ptr, ptr %103, align 8
   %.not.i174 = icmp eq ptr %104, null
   br i1 %.not.i174, label %105, label %.split.loop.exit6.i175
@@ -682,7 +682,7 @@ _ZL13highest_levelRK9LogTagSet.exit178:           ; preds = %105, %.split.loop.e
 
 109:                                              ; preds = %.preheader, %112
   %.08.i179 = phi i64 [ %113, %112 ], [ 0, %.preheader ]
-  %110 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_142ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i179
+  %110 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_142ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 40), i64 %.08.i179
   %111 = load volatile ptr, ptr %110, align 8
   %.not.i180 = icmp eq ptr %111, null
   br i1 %.not.i180, label %112, label %.split.loop.exit6.i181
@@ -902,7 +902,7 @@ define hidden void @_ZN10JfrJavaLog3logEiiP8_jstringP10JavaThread(i32 noundef %0
 
 25:                                               ; preds = %11
   %26 = zext nneg i32 %0 to i64
-  %27 = getelementptr inbounds nuw %struct.jfrLogSubscriber, ptr @_ZL12log_tag_sets, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr @_ZL12log_tag_sets, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void @_ZN9LogTagSet3logEN8LogLevel4typeEPKc(ptr noundef nonnull align 8 dereferenceable(112) %29, i32 noundef %1, ptr noundef %22) #6
@@ -1351,7 +1351,7 @@ define internal fastcc void @_ZL14log_cfg_updateN8LogLevel4typeE16JfrLogTagSetTy
   %4 = alloca %class.JavaValue, align 8
   %5 = alloca %class.JfrJavaArguments, align 8
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.jfrLogSubscriber, ptr @_ZL12log_tag_sets, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @_ZL12log_tag_sets, i64 %6
   %8 = load ptr, ptr %7, align 16
   %9 = icmp eq ptr %8, null
   br i1 %9, label %13, label %10
@@ -1421,7 +1421,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal15RuntimeDispatchILm2
 _ZN14AccessInternal15BarrierResolverILm2383942EPFP7oopDescS2_lELNS_11BarrierTypeE3EE15resolve_barrierEv.exit: ; preds = %12, %9
   %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1.sink = phi ptr [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l, %9 ], [ @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1, %12 ]
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep5 = getelementptr inbounds nuw ptr, ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1.sink, i64 %15
+  %switch.gep5 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1.sink, i64 %15
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
   store ptr %switch.load6, ptr @_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %16 = tail call noundef ptr %switch.load6(ptr noundef %0, i64 noundef %1) #6
@@ -1729,7 +1729,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 5:                                                ; preds = %2
   %6 = lshr i64 %1, 12
   %7 = and i64 %6, 15
-  %8 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = zext nneg i32 %9 to i64
   %11 = lshr i64 %1, %10
@@ -1743,7 +1743,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
 15:                                               ; preds = %12
   %16 = lshr i64 %1, 12
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %1, %20
@@ -1783,7 +1783,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZBarrier35load_barrier_on_oop_field_
   %41 = lshr i64 %40, 21
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
   %45 = load volatile ptr, ptr %44, align 8
   %.not.i6.i.i = icmp eq ptr %45, null
   %46 = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -1809,7 +1809,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %50 = load i64, ptr @ZPointerLoadGoodMask, align 8
   %51 = lshr i64 %50, 12
   %52 = and i64 %51, 15
-  %53 = getelementptr inbounds nuw i32, ptr @_ZL22ZPointerLoadShiftTable, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr @_ZL22ZPointerLoadShiftTable, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = zext nneg i32 %54 to i64
   %56 = shl i64 %47, %55

@@ -521,7 +521,7 @@ _ZN2cv11JpegDecoder5closeEv.exit:                 ; preds = %6, %9
   %45 = mul nsw i32 %44, %42
   %46 = sext i32 %45 to i64
   %47 = zext nneg i32 %38 to i64
-  %48 = getelementptr i64, ptr %36, i64 %47
+  %48 = getelementptr [8 x i8], ptr %36, i64 %47
   %49 = getelementptr i8, ptr %48, i64 -8
   %50 = load i64, ptr %49, align 8, !tbaa !125
   %51 = mul i64 %50, %46
@@ -1302,7 +1302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %70, %
   %.0142310 = phi i32 [ 0, %.lr.ph ], [ %.1143204212226237, %.thread229 ]
   %.0144309 = phi i32 [ 0, %.lr.ph ], [ %.1145197203213225238, %.thread229 ]
   %.0146308 = phi i32 [ 95, %.lr.ph ], [ %.2148214224239, %.thread229 ]
-  %106 = getelementptr inbounds nuw i32, ptr %105, i64 %.0132315
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %.0132315
   %107 = load i32, ptr %106, align 4, !tbaa !201
   switch i32 %107, label %.thread229 [
     i32 1, label %.thread

@@ -54,8 +54,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.tinyformat::detail::FormatListN" = type { %"class.tinyformat::FormatList.base", [1 x %"class.tinyformat::detail::FormatArg"] }
 %"class.tinyformat::FormatList.base" = type <{ ptr, i32 }>
 %"class.tinyformat::detail::FormatArg" = type { ptr, ptr, ptr }
-%"struct.drjit::Array" = type { %"struct.drjit::StaticArrayImpl.1" }
-%"struct.drjit::StaticArrayImpl.1" = type { <4 x float> }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 $_ZN7mitsuba11ConstVolumeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC5ERKNS_10PropertiesE = comdat any
@@ -1959,7 +1957,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 67:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKc.exit
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %2, i64 %68
   %70 = load i8, ptr %8, align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %77, label %72
@@ -2517,7 +2515,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %153 = add nsw i32 %150, 1
   store i32 %153, ptr %5, align 4
   %154 = sext i32 %150 to i64
-  %155 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %154
+  %155 = getelementptr inbounds [24 x i8], ptr %4, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %155, align 8
@@ -2610,7 +2608,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %206 = add nsw i32 %203, 1
   store i32 %206, ptr %5, align 4
   %207 = sext i32 %203 to i64
-  %208 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %207
+  %208 = getelementptr inbounds [24 x i8], ptr %4, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %208, align 8
@@ -3290,14 +3288,14 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %4, %10
   store i8 91, ptr %24, align 1
   %26 = load ptr, ptr %5, align 8
   store i8 0, ptr %26, align 1
-  %invariant.gep = getelementptr float, ptr %1, i64 %3
+  %invariant.gep = getelementptr [4 x i8], ptr %1, i64 %3
   %27 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %52
   %.014 = phi i64 [ %31, %52 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
-  %gep = getelementptr %"struct.drjit::Array", ptr %invariant.gep, i64 %.014
+  %gep = getelementptr [16 x i8], ptr %invariant.gep, i64 %.014
   %28 = load float, ptr %gep, align 4
   %29 = fpext float %28 to double
   %30 = tail call noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5drjit12StringBuffer3fmtEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.18, double noundef %29)

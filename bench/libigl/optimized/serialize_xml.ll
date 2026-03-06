@@ -179,7 +179,7 @@ _ZNSt6vectorIPN3igl3xml19XMLSerializableBaseESaIS3_EE5clearEv.exit: ; preds = %1
   %27 = phi ptr [ %37, %.lr.ph ], [ %23, %19 ]
   %28 = phi i64 [ %35, %.lr.ph ], [ 0, %19 ]
   %.05 = phi i32 [ %34, %.lr.ph ], [ 0, %19 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -253,7 +253,7 @@ _ZNSt6vectorIPN3igl3xml19XMLSerializableBaseESaIS3_EE5clearEv.exit: ; preds = %1
   %27 = phi ptr [ %37, %.lr.ph ], [ %23, %19 ]
   %28 = phi i64 [ %35, %.lr.ph ], [ 0, %19 ]
   %.05 = phi i32 [ %34, %.lr.ph ], [ 0, %19 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -327,7 +327,7 @@ _ZNSt6vectorIPN3igl3xml19XMLSerializableBaseESaIS3_EE5clearEv.exit: ; preds = %1
   %28 = phi ptr [ %38, %.lr.ph ], [ %24, %20 ]
   %29 = phi i64 [ %36, %.lr.ph ], [ 0, %20 ]
   %.06 = phi i32 [ %35, %.lr.ph ], [ 0, %20 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !24
   %32 = load ptr, ptr %31, align 8, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
@@ -401,7 +401,7 @@ _ZNSt6vectorIPN3igl3xml19XMLSerializableBaseESaIS3_EE5clearEv.exit: ; preds = %1
   %28 = phi ptr [ %38, %.lr.ph ], [ %24, %20 ]
   %29 = phi i64 [ %36, %.lr.ph ], [ 0, %20 ]
   %.06 = phi i32 [ %35, %.lr.ph ], [ 0, %20 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !24
   %32 = load ptr, ptr %31, align 8, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -1813,7 +1813,7 @@ define dso_local void @_ZN3igl3xml17serialization_xml13base64_decodeERKNSt7__cxx
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv
   %22 = load i8, ptr %21, align 1, !tbaa !39
   %23 = sext i8 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %5, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %5, i64 %23
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %25, ptr %24, align 4, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1854,7 +1854,7 @@ define dso_local void @_ZN3igl3xml17serialization_xml13base64_decodeERKNSt7__cxx
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv73
   %43 = load i8, ptr %42, align 1, !tbaa !39
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %5, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !74
   %47 = trunc i32 %46 to i8
   store i8 %47, ptr %42, align 1, !tbaa !39
@@ -3374,7 +3374,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZNSt7_
 
 _ZNSolsEj.exit:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %105 = load ptr, ptr %0, align 8, !tbaa !105
-  %106 = getelementptr inbounds nuw float, ptr %105, i64 %92
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %92
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
@@ -4066,7 +4066,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br i1 %114, label %115, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i
 
 115:                                              ; preds = %113
-  %116 = getelementptr inbounds nuw float, ptr %105, i64 %.0.copyload.i42
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %.0.copyload.i42
   %.not.i.i.i = icmp eq ptr %104, %116
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit.i, label %_ZSt8_DestroyIPffEvT_S1_RSaIT0_E.exit.i.i.i
 
@@ -4180,7 +4180,7 @@ _ZNK8tinyxml210XMLElement17UnsignedAttributeEPKc.exit: ; preds = %14, %16
   br i1 %30, label %31, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw float, ptr %21, i64 %19
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %19
   %.not.i.i27 = icmp eq ptr %20, %32
   br i1 %.not.i.i27, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %_ZSt8_DestroyIPffEvT_S1_RSaIT0_E.exit.i.i28
 
@@ -4294,7 +4294,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZNSt7_
 
 _ZNSolsEj.exit:                                   ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %79 = load ptr, ptr %0, align 8, !tbaa !105
-  %80 = getelementptr inbounds nuw float, ptr %79, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !131)
   call void @llvm.experimental.noalias.scope.decl(metadata !134)
@@ -4520,9 +4520,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !105
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !114
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !108
   br label %41
 

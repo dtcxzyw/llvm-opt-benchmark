@@ -229,7 +229,7 @@ define internal noundef i32 @_ZL8costatusP9lua_State(ptr noundef %0) #0 {
 4:                                                ; preds = %1
   %5 = tail call noundef i32 @_Z12lua_costatusP9lua_StateS0_(ptr noundef %0, ptr noundef nonnull %2)
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr @_ZL9statnames, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr @_ZL9statnames, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !37
   tail call void @_Z14lua_pushstringP9lua_StatePKc(ptr noundef %0, ptr noundef %8)
   ret i32 1
@@ -286,7 +286,7 @@ define internal noundef range(i32 1, 3) i32 @_ZL7cocloseP9lua_State(ptr noundef 
 
 6:                                                ; preds = %4
   %7 = sext i32 %5 to i64
-  %8 = getelementptr inbounds ptr, ptr @_ZL9statnames, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr @_ZL9statnames, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !37
   tail call void (ptr, ptr, ...) @_Z11luaL_errorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %9) #3
   unreachable
@@ -512,7 +512,7 @@ define internal fastcc noundef i32 @_ZL9auxresumeP9lua_StateS0_i(ptr noundef %0,
 
 8:                                                ; preds = %6
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds ptr, ptr @_ZL9statnames, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr @_ZL9statnames, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !37
   %12 = tail call noundef ptr (ptr, ptr, ...) @_Z16lua_pushfstringLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %11)
   br label %52

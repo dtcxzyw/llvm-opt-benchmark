@@ -324,7 +324,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %result.0.lcssa = phi double [ 0.000000e+00, %for.cond.preheader ], [ %5, %for.body ]
   %conv11 = sext i16 %0 to i64
-  %6 = getelementptr double, ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 %conv11
+  %6 = getelementptr [8 x i8], ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 %conv11
   %arrayidx13 = getelementptr i8, ptr %6, i64 48
   %7 = load double, ptr %arrayidx13, align 8
   %mul = fmul double %result.0.lcssa, %7
@@ -427,7 +427,7 @@ land.rhs.us:                                      ; preds = %land.lhs.true.us
   %conv.us = trunc i32 %call.us to i8
   %1 = lshr i8 %conv.us, 5
   %idxprom.i.us = zext nneg i8 %1 to i64
-  %arrayidx.i.us = getelementptr inbounds nuw i32, ptr %mCharBitmap, i64 %idxprom.i.us
+  %arrayidx.i.us = getelementptr inbounds nuw [4 x i8], ptr %mCharBitmap, i64 %idxprom.i.us
   %2 = load i32, ptr %arrayidx.i.us, align 4
   %and.i.us = and i32 %call.us, 31
   %shl.i.us = shl nuw i32 1, %and.i.us
@@ -460,7 +460,7 @@ land.rhs.us46:                                    ; preds = %land.lhs.true.us43
   %conv.us47 = trunc i32 %call.us44 to i8
   %7 = lshr i8 %conv.us47, 5
   %idxprom.i.us48 = zext nneg i8 %7 to i64
-  %arrayidx.i.us49 = getelementptr inbounds nuw i32, ptr %mCharBitmap, i64 %idxprom.i.us48
+  %arrayidx.i.us49 = getelementptr inbounds nuw [4 x i8], ptr %mCharBitmap, i64 %idxprom.i.us48
   %8 = load i32, ptr %arrayidx.i.us49, align 4
   %and.i.us50 = and i32 %call.us44, 31
   %shl.i.us51 = shl nuw i32 1, %and.i.us50
@@ -564,7 +564,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   %22 = lshr i32 %call, 5
   %23 = and i32 %22, 7
   %idxprom.i = zext nneg i32 %23 to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr %mCharBitmap, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %mCharBitmap, i64 %idxprom.i
   %24 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %call, 31
   %shl.i = shl nuw i32 1, %and.i
@@ -619,7 +619,7 @@ land.rhs:                                         ; preds = %land.lhs.true
 if.then.i:                                        ; preds = %land.rhs
   %1 = lshr i16 %conv, 5
   %idxprom.i = zext nneg i16 %1 to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr %mCharBitmap, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %mCharBitmap, i64 %idxprom.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %call, 31
   %shl.i = shl nuw i32 1, %and.i
@@ -715,7 +715,7 @@ land.rhs:                                         ; preds = %land.lhs.true
 if.then.i:                                        ; preds = %land.rhs
   %shr.i = lshr i32 %call, 5
   %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr %mCharBitmap, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %mCharBitmap, i64 %idxprom.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %call, 31
   %shl.i = shl nuw i32 1, %and.i
@@ -1087,7 +1087,7 @@ if.end96:                                         ; preds = %if.end36, %if.end96
 
 switch.lookup:                                    ; preds = %if.end96
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDiE10VscanfCoreES6_SD_S4_PKDiP13__va_list_tag, i64 %29
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDiE10VscanfCoreES6_SD_S4_PKDiP13__va_list_tag, i64 %29
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sw.epilog119
 
@@ -1929,7 +1929,7 @@ if.end96:                                         ; preds = %if.end36, %if.end96
 
 switch.lookup:                                    ; preds = %if.end96
   %32 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDiE10VscanfCoreES6_SD_S4_PKDiP13__va_list_tag, i64 %32
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDiE10VscanfCoreES6_SD_S4_PKDiP13__va_list_tag, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sw.epilog119
 
@@ -2766,7 +2766,7 @@ if.end92:                                         ; preds = %if.end34, %if.end92
 
 switch.lookup:                                    ; preds = %if.end92
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDiE10VscanfCoreES6_SD_S4_PKDiP13__va_list_tag, i64 %28
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDiE10VscanfCoreES6_SD_S4_PKDiP13__va_list_tag, i64 %28
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %sw.epilog115
 
@@ -3600,7 +3600,7 @@ while.body:                                       ; preds = %while.cond
   %shl.i = shl nuw i32 1, %and.i67
   %24 = lshr i8 %c.6, 5
   %idxprom.i68 = zext nneg i8 %24 to i64
-  %arrayidx.i69 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %idxprom.i68
+  %arrayidx.i69 = getelementptr inbounds nuw [4 x i8], ptr %mCharBitmap.i, i64 %idxprom.i68
   %25 = load i32, ptr %arrayidx.i69, align 4
   %or.i70 = or i32 %25, %shl.i
   store i32 %or.i70, ptr %arrayidx.i69, align 4
@@ -3629,7 +3629,7 @@ while.body257:                                    ; preds = %while.cond252.prehe
   %shl.i72 = shl nuw i32 1, %and.i71
   %29 = lshr i8 %inc90, 5
   %idxprom.i73 = zext nneg i8 %29 to i64
-  %arrayidx.i74 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %idxprom.i73
+  %arrayidx.i74 = getelementptr inbounds nuw [4 x i8], ptr %mCharBitmap.i, i64 %idxprom.i73
   %30 = load i32, ptr %arrayidx.i74, align 4
   %or.i75 = or i32 %30, %shl.i72
   store i32 %or.i75, ptr %arrayidx.i74, align 4
@@ -3647,7 +3647,7 @@ if.then264:                                       ; preds = %while.cond
 
 for.body.i:                                       ; preds = %if.then264, %for.body.i
   %i.04.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then264 ]
-  %arrayidx.i76 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %i.04.i
+  %arrayidx.i76 = getelementptr inbounds nuw [4 x i8], ptr %mCharBitmap.i, i64 %i.04.i
   %32 = load i32, ptr %arrayidx.i76, align 4
   %not.i = xor i32 %32, -1
   store i32 %not.i, ptr %arrayidx.i76, align 4
@@ -4518,7 +4518,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
   %result.0.lcssa.i = phi double [ 0.000000e+00, %for.cond.preheader.i ], [ %61, %for.body.i ]
   %conv11.i = sext i16 %conv275 to i64
-  %62 = getelementptr double, ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 %conv11.i
+  %62 = getelementptr [8 x i8], ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 %conv11.i
   %arrayidx13.i = getelementptr i8, ptr %62, i64 48
   %63 = load double, ptr %arrayidx13.i, align 8
   %mul.i = fmul double %result.0.lcssa.i, %63
@@ -4940,7 +4940,7 @@ if.then.i:                                        ; preds = %while.body
   %shl.i = shl nuw i32 1, %and.i
   %22 = lshr i16 %c.6, 5
   %idxprom.i = zext nneg i16 %22 to i64
-  %arrayidx.i66 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %idxprom.i
+  %arrayidx.i66 = getelementptr inbounds nuw [4 x i8], ptr %mCharBitmap.i, i64 %idxprom.i
   %23 = load i32, ptr %arrayidx.i66, align 4
   %or.i67 = or i32 %23, %shl.i
   store i32 %or.i67, ptr %arrayidx.i66, align 4
@@ -4977,7 +4977,7 @@ if.then.i69:                                      ; preds = %while.body257
   %shl.i71 = shl nuw i32 1, %and.i70
   %28 = lshr i16 %inc90, 5
   %idxprom.i72 = zext nneg i16 %28 to i64
-  %arrayidx.i73 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %idxprom.i72
+  %arrayidx.i73 = getelementptr inbounds nuw [4 x i8], ptr %mCharBitmap.i, i64 %idxprom.i72
   %29 = load i32, ptr %arrayidx.i73, align 4
   %or.i74 = or i32 %29, %shl.i71
   store i32 %or.i74, ptr %arrayidx.i73, align 4
@@ -4999,7 +4999,7 @@ if.then264:                                       ; preds = %while.cond
 
 for.body.i:                                       ; preds = %if.then264, %for.body.i
   %i.04.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then264 ]
-  %arrayidx.i76 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %i.04.i
+  %arrayidx.i76 = getelementptr inbounds nuw [4 x i8], ptr %mCharBitmap.i, i64 %i.04.i
   %31 = load i32, ptr %arrayidx.i76, align 4
   %not.i = xor i32 %31, -1
   store i32 %not.i, ptr %arrayidx.i76, align 4
@@ -5909,7 +5909,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
   %result.0.lcssa.i = phi double [ 0.000000e+00, %for.cond.preheader.i ], [ %50, %for.body.i ]
   %conv11.i = sext i16 %conv275 to i64
-  %51 = getelementptr double, ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 %conv11.i
+  %51 = getelementptr [8 x i8], ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 %conv11.i
   %arrayidx13.i = getelementptr i8, ptr %51, i64 48
   %52 = load double, ptr %arrayidx13.i, align 8
   %mul.i = fmul double %result.0.lcssa.i, %52
@@ -6322,7 +6322,7 @@ if.then.i:                                        ; preds = %while.body
   %shl.i = shl nuw i32 1, %and.i
   %shr.i = lshr i32 %c.6, 5
   %idxprom.i = zext nneg i32 %shr.i to i64
-  %arrayidx.i70 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %idxprom.i
+  %arrayidx.i70 = getelementptr inbounds nuw [4 x i8], ptr %mCharBitmap.i, i64 %idxprom.i
   %21 = load i32, ptr %arrayidx.i70, align 4
   %or.i71 = or i32 %21, %shl.i
   store i32 %or.i71, ptr %arrayidx.i70, align 4
@@ -6358,7 +6358,7 @@ if.then.i73:                                      ; preds = %while.body229
   %shl.i75 = shl nuw i32 1, %and.i74
   %shr.i76 = lshr i32 %inc95, 5
   %idxprom.i77 = zext nneg i32 %shr.i76 to i64
-  %arrayidx.i78 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %idxprom.i77
+  %arrayidx.i78 = getelementptr inbounds nuw [4 x i8], ptr %mCharBitmap.i, i64 %idxprom.i77
   %25 = load i32, ptr %arrayidx.i78, align 4
   %or.i79 = or i32 %25, %shl.i75
   store i32 %or.i79, ptr %arrayidx.i78, align 4
@@ -6380,7 +6380,7 @@ if.then236:                                       ; preds = %while.cond
 
 for.body.i:                                       ; preds = %if.then236, %for.body.i
   %i.04.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then236 ]
-  %arrayidx.i81 = getelementptr inbounds nuw i32, ptr %mCharBitmap.i, i64 %i.04.i
+  %arrayidx.i81 = getelementptr inbounds nuw [4 x i8], ptr %mCharBitmap.i, i64 %i.04.i
   %27 = load i32, ptr %arrayidx.i81, align 4
   %not.i = xor i32 %27, -1
   store i32 %not.i, ptr %arrayidx.i81, align 4
@@ -7268,7 +7268,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 for.end.i:                                        ; preds = %for.body.i, %for.cond.preheader.i
   %result.0.lcssa.i = phi double [ 0.000000e+00, %for.cond.preheader.i ], [ %45, %for.body.i ]
   %conv11.i = sext i16 %conv260 to i64
-  %46 = getelementptr double, ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 %conv11.i
+  %46 = getelementptr [8 x i8], ptr @_ZN2EA4StdC10ScanfLocalL10powerTableE, i64 %conv11.i
   %arrayidx13.i = getelementptr i8, ptr %46, i64 48
   %47 = load double, ptr %arrayidx13.i, align 8
   %mul.i = fmul double %result.0.lcssa.i, %47

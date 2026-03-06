@@ -6,18 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.cpuinfo_x86 = type { i8, i8, i8, i8, i32, [5 x i32], i8, i8, i8, i32, i32, %union.anon.29, [16 x i8], [64 x i8], %struct.cpuinfo_topology, i32, i32, i32, i32, i32, i32, i64, i64, i16, i16, i16, i16, i8, i32, i8, i8 }
 %union.anon.29 = type { i64, [88 x i8] }
 %struct.cpuinfo_topology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.pgd_t = type { i64 }
-%struct.p4d_t = type { i64 }
-%struct.pud_t = type { i64 }
-%struct.pmd_t = type { i64 }
-%struct.page = type { i64, %union.anon.20, %union.anon.28, %struct.atomic_t, [8 x i8] }
-%union.anon.20 = type { %struct.anon.21 }
-%struct.anon.21 = type { %union.anon.22, ptr, %union.anon.24, i64 }
-%union.anon.22 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.24 = type { i64 }
-%union.anon.28 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
 %struct.page_vma_mapped_walk = type { i64, i64, i64, ptr, i64, ptr, ptr, ptr, i32 }
 
 @pgdir_shift = external dso_local local_unnamed_addr global i32, align 4
@@ -164,7 +152,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %89 = zext nneg i32 %88 to i64
   %90 = lshr i64 %87, %89
   %91 = and i64 %90, 511
-  %92 = getelementptr %struct.pgd_t, ptr %86, i64 %91
+  %92 = getelementptr [8 x i8], ptr %86, i64 %91
   %93 = load i64, ptr %92, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #6
           to label %94 [label %94, label %.critedge], !srcloc !7
@@ -200,7 +188,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %114 = add i32 %113, -1
   %115 = zext i32 %114 to i64
   %116 = and i64 %112, %115
-  %117 = getelementptr %struct.p4d_t, ptr %111, i64 %116
+  %117 = getelementptr [8 x i8], ptr %111, i64 %116
   br label %118
 
 118:                                              ; preds = %106, %.critedge
@@ -223,7 +211,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %131 = inttoptr i64 %130 to ptr
   %132 = lshr i64 %123, 30
   %133 = and i64 %132, 511
-  %134 = getelementptr %struct.pud_t, ptr %131, i64 %133
+  %134 = getelementptr [8 x i8], ptr %131, i64 %133
   %135 = load i64, ptr %134, align 8
   %136 = and i64 %135, 1
   %137 = icmp eq i64 %136, 0
@@ -243,7 +231,7 @@ define dso_local noundef zeroext i1 @page_vma_mapped_walk(ptr noundef %0) local_
   %147 = inttoptr i64 %146 to ptr
   %148 = lshr i64 %123, 21
   %149 = and i64 %148, 511
-  %150 = getelementptr %struct.pmd_t, ptr %147, i64 %149
+  %150 = getelementptr [8 x i8], ptr %147, i64 %149
   store ptr %150, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %151 = load volatile i64, ptr %150, align 8
@@ -531,7 +519,7 @@ define internal fastcc noundef ptr @huge_pte_lock(i32 %.40.val, ptr noundef %0, 
   %14 = select i1 %10, i64 %11, i64 %13
   %15 = add i64 %9, %14
   %16 = lshr i64 %15, 12
-  %.split = getelementptr %struct.page, ptr %6, i64 %16
+  %.split = getelementptr [64 x i8], ptr %6, i64 %16
   %17 = getelementptr i8, ptr %.split, i64 40
   br label %20
 

@@ -627,7 +627,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %62, %67
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = sext i32 %75 to i64
-  %80 = getelementptr inbounds ptr, ptr %78, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %78, i64 %79
   store ptr %.0.i.i.i, ptr %80, align 8
   ret void
 }
@@ -731,7 +731,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %43, %48
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = sext i32 %56 to i64
-  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   store ptr %.0.i.i.i, ptr %61, align 8
   ret void
 }
@@ -846,7 +846,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %47, %52
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = sext i32 %60 to i64
-  %65 = getelementptr inbounds ptr, ptr %63, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %63, i64 %64
   store ptr %.0.i.i.i, ptr %65, align 8
   ret void
 }
@@ -966,7 +966,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %51, %56
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = sext i32 %64 to i64
-  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %67, i64 %68
   store ptr %.0.i.i.i, ptr %69, align 8
   ret void
 }
@@ -1091,7 +1091,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %51, %56
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = sext i32 %64 to i64
-  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %67, i64 %68
   store ptr %.0.i.i.i, ptr %69, align 8
   ret void
 }
@@ -1200,7 +1200,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %47, %52
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = sext i32 %60 to i64
-  %65 = getelementptr inbounds ptr, ptr %63, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %63, i64 %64
   store ptr %.0.i.i.i, ptr %65, align 8
   ret void
 }
@@ -1301,7 +1301,7 @@ _ZN8LIR_List6appendEP6LIR_Op.exit:                ; preds = %38, %43
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = sext i32 %51 to i64
-  %56 = getelementptr inbounds ptr, ptr %54, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %54, i64 %55
   store ptr %.0.i.i.i, ptr %56, align 8
   ret void
 }
@@ -1428,9 +1428,9 @@ _ZN13GrowableArrayIP6LIR_OpE8allocateEv.exit:     ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1447,7 +1447,7 @@ _ZN13GrowableArrayIP6LIR_OpE8allocateEv.exit:     ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

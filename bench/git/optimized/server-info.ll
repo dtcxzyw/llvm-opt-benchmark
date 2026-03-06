@@ -87,7 +87,7 @@ st_mult.exit.i.i:                                 ; preds = %20
   %30 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #14
   %31 = load ptr, ptr @info, align 8, !tbaa !8
   %32 = sext i32 %16 to i64
-  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %32
   store ptr %30, ptr %33, align 8, !tbaa !11
   store ptr %.02738.i.i, ptr %30, align 8, !tbaa !13
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -166,7 +166,7 @@ st_mult.exit.i.i:                                 ; preds = %20
 .lr.ph.i.i.i.i.i:                                 ; preds = %55, %59
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %59 ], [ 0, %55 ]
   %63 = load ptr, ptr @info, align 8, !tbaa !8
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv.i.i.i.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv.i.i.i.i.i
   %65 = load ptr, ptr %64, align 8, !tbaa !11
   %66 = load ptr, ptr %65, align 8, !tbaa !13
   %67 = call ptr @pack_basename(ptr noundef %66) #14
@@ -176,7 +176,7 @@ st_mult.exit.i.i:                                 ; preds = %20
 
 find_pack_by_name.exit.i.i.i.i:                   ; preds = %.lr.ph.i.i.i.i.i
   %69 = load ptr, ptr @info, align 8, !tbaa !8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv.i.i.i.i.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv.i.i.i.i.i
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %.not.i15.i.i.i = icmp eq ptr %71, null
   br i1 %.not.i15.i.i.i, label %.loopexit.i, label %72
@@ -232,7 +232,7 @@ skip_prefix.exit.i.i.i:                           ; preds = %50
 
 .lr.ph42.split.i.i:                               ; preds = %.lr.ph42.split.i.i, %.lr.ph42.split.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph42.split.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph42.split.i.i ]
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv.i.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv.i.i
   %90 = load ptr, ptr %89, align 8, !tbaa !11
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i32 -1, ptr %91, align 8, !tbaa !16
@@ -264,7 +264,7 @@ sane_qsort.exit.i.i:                              ; preds = %94, %._crit_edge43.
 
 100:                                              ; preds = %100, %.lr.ph45.i.i
   %indvars.iv51.i.i = phi i64 [ 0, %.lr.ph45.i.i ], [ %indvars.iv.next52.i.i, %100 ]
-  %101 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv51.i.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv51.i.i
   %102 = load ptr, ptr %101, align 8, !tbaa !11
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 12
   %104 = trunc nuw nsw i64 %indvars.iv51.i.i to i32
@@ -286,7 +286,7 @@ init_pack_info.exit.i:                            ; preds = %100, %sane_qsort.ex
 
 108:                                              ; preds = %108, %.lr.ph.i10.i
   %indvars.iv.i12.i = phi i64 [ 0, %.lr.ph.i10.i ], [ %indvars.iv.next.i13.i, %108 ]
-  %109 = getelementptr inbounds nuw ptr, ptr %.pre.i8.i, i64 %indvars.iv.i12.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i8.i, i64 %indvars.iv.i12.i
   %110 = load ptr, ptr %109, align 8, !tbaa !11
   call void @free(ptr noundef %110) #14
   %indvars.iv.next.i13.i = add nuw nsw i64 %indvars.iv.i12.i, 1
@@ -660,7 +660,7 @@ define internal range(i32 -1, 1) i32 @write_pack_info_file(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %1, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %4 ], [ 0, %1 ]
   %8 = load ptr, ptr @info, align 8, !tbaa !8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !11
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = tail call ptr @pack_basename(ptr noundef %11) #14

@@ -66,7 +66,7 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hb
   %28 = load i64, ptr %27, align 8, !noundef !4
   %29 = add i64 %28, -1
   %30 = and i64 %29, %21
-  %31 = getelementptr inbounds { ptr, ptr }, ptr %26, i64 %30
+  %31 = getelementptr inbounds [16 x i8], ptr %26, i64 %30
   %32 = load volatile { [2 x i64] }, ptr %31, align 8
   %.fca.0.0.extract = extractvalue { [2 x i64] } %32, 0, 0
   %.fca.0.1.extract = extractvalue { [2 x i64] } %32, 0, 1
@@ -105,7 +105,7 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hb
   %51 = load i64, ptr %50, align 8, !noundef !4
   %52 = add i64 %51, -1
   %53 = and i64 %52, %14
-  %54 = getelementptr inbounds { ptr, ptr }, ptr %49, i64 %53
+  %54 = getelementptr inbounds [16 x i8], ptr %49, i64 %53
   %55 = load volatile { [2 x i64] }, ptr %54, align 8
   %.fca.0.0.extract17 = extractvalue { [2 x i64] } %55, 0, 0
   %.fca.0.1.extract18 = extractvalue { [2 x i64] } %55, 0, 1
@@ -170,7 +170,7 @@ define hidden void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$4push17h67342eec
   %.sroa.02.0 = load ptr, ptr %16, align 8, !noundef !4
   %17 = add i64 %.sroa.03.0, -1
   %18 = and i64 %17, %6
-  %19 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.02.0, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %.sroa.02.0, i64 %18
   store volatile ptr %1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store volatile ptr %2, ptr %20, align 8
@@ -227,9 +227,9 @@ define internal fastcc void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize
 23:                                               ; preds = %.lr.ph, %23
   %.sroa.0.08 = phi i64 [ %8, %.lr.ph ], [ %28, %23 ]
   %24 = and i64 %.sroa.0.08, %15
-  %25 = getelementptr inbounds { ptr, ptr }, ptr %10, i64 %24
+  %25 = getelementptr inbounds [16 x i8], ptr %10, i64 %24
   %26 = and i64 %.sroa.0.08, %16
-  %27 = getelementptr inbounds { ptr, ptr }, ptr %14, i64 %26
+  %27 = getelementptr inbounds [16 x i8], ptr %14, i64 %26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)
   %28 = add i64 %.sroa.0.08, 1
   %.not = icmp eq i64 %28, %6
@@ -557,7 +557,7 @@ _ZN15crossbeam_epoch7default11with_handle17h6404104a7c561578E.exit: ; preds = %"
   %35 = load i64, ptr %34, align 8, !noundef !4
   %36 = add i64 %35, -1
   %37 = and i64 %36, %6
-  %38 = getelementptr inbounds { ptr, ptr }, ptr %33, i64 %37
+  %38 = getelementptr inbounds [16 x i8], ptr %33, i64 %37
   %39 = load volatile { [2 x i64] }, ptr %38, align 8
   %.fca.0.0.extract = extractvalue { [2 x i64] } %39, 0, 0
   %.fca.0.1.extract = extractvalue { [2 x i64] } %39, 0, 1

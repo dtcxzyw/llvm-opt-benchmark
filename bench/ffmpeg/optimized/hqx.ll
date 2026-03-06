@@ -8,9 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.1 = type { %struct.anon }
 %struct.anon = type { i16, i16 }
 %struct.VLCInitState = type { ptr, i32 }
-%struct.HQXAC = type { i32, ptr }
-%struct.HQXSlice = type { %struct.GetBitContext, [16 x [64 x i16]] }
-%struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"hqx\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"Canopus HQX\00", align 1
@@ -193,7 +190,7 @@ define internal i32 @hqx_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %81 = load i8, ptr %80, align 1, !tbaa !30
   %82 = zext i8 %81 to i32
   %83 = or disjoint i32 %79, %82
-  %84 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv
   store i32 %83, ptr %84, align 4, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 17
@@ -216,7 +213,7 @@ define internal i32 @hqx_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 
 90:                                               ; preds = %85
   %91 = zext nneg i8 %86 to i64
-  %92 = getelementptr ptr, ptr @dc_vlc, i64 %91
+  %92 = getelementptr [8 x i8], ptr @dc_vlc, i64 %91
   %93 = getelementptr i8, ptr %92, i64 -8
   br label %94
 
@@ -281,10 +278,10 @@ define internal i32 @hqx_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 
 switch.lookup:                                    ; preds = %129
   %133 = zext nneg i32 %130 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.hqx_decode_frame, i64 %133
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.hqx_decode_frame, i64 %133
   %switch.load = load i32, ptr %switch.gep, align 4
   %134 = zext nneg i32 %130 to i64
-  %switch.gep119 = getelementptr inbounds nuw ptr, ptr @switch.table.hqx_decode_frame.2, i64 %134
+  %switch.gep119 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hqx_decode_frame.2, i64 %134
   %switch.load120 = load ptr, ptr %switch.gep119, align 8
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %switch.load, ptr %135, align 8, !tbaa !55
@@ -344,9 +341,9 @@ define internal void @hqx_init_static() #0 {
   %.03136 = phi ptr [ @hqx_ac_run_level, %0 ], [ %20, %._crit_edge ]
   %7 = load ptr, ptr %1, align 8, !tbaa !58
   %8 = load i32, ptr %4, align 8, !tbaa !60
-  %9 = getelementptr inbounds nuw %struct.HQXAC, ptr @hqx_ac, i64 %indvars.iv39
+  %9 = getelementptr inbounds nuw [16 x i8], ptr @hqx_ac, i64 %indvars.iv39
   %10 = load i32, ptr %9, align 16, !tbaa !61
-  %11 = getelementptr inbounds nuw i16, ptr @hqx_ac_nb_elems, i64 %indvars.iv39
+  %11 = getelementptr inbounds nuw [2 x i8], ptr @hqx_ac_nb_elems, i64 %indvars.iv39
   %12 = load i16, ptr %11, align 2, !tbaa !63
   %13 = zext i16 %12 to i32
   %14 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef %10, i32 noundef %13, ptr noundef %.03037, i32 noundef 1, ptr noundef %.03136, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0) #8
@@ -364,14 +361,14 @@ define internal void @hqx_init_static() #0 {
 ._crit_edge:                                      ; preds = %31, %6
   %18 = zext i16 %12 to i64
   %19 = getelementptr inbounds nuw i8, ptr %.03037, i64 %18
-  %20 = getelementptr inbounds nuw i16, ptr %.03136, i64 %18
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %.03136, i64 %18
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next40, 6
   br i1 %exitcond42.not, label %5, label %6, !llvm.loop !66
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %31 ]
-  %21 = getelementptr inbounds nuw %struct.VLCElem, ptr %7, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %22 = load i16, ptr %21, align 2, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %24 = load i16, ptr %23, align 2, !tbaa !30
@@ -414,7 +411,7 @@ define internal noundef i32 @hqx_decode_422(ptr noundef %0, i32 noundef %1, i32 
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.HQXSlice, ptr %6, i64 %7
+  %8 = getelementptr inbounds [2080 x i8], ptr %6, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %9, i8 0, i64 1024, i1 false)
@@ -468,7 +465,7 @@ define internal noundef i32 @hqx_decode_422(ptr noundef %0, i32 noundef %1, i32 
   %41 = tail call i32 @llvm.umin.i32(i32 %29, i32 %40)
   store i32 %41, ptr %31, align 8, !tbaa !68
   %42 = zext nneg i32 %39 to i64
-  %43 = getelementptr inbounds nuw [4 x i32], ptr @hqx_quants, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr @hqx_quants, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 33416
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 33316
   br label %46
@@ -488,7 +485,7 @@ define internal noundef i32 @hqx_decode_422(ptr noundef %0, i32 noundef %1, i32 
 50:                                               ; preds = %46, %49
   %51 = load ptr, ptr %44, align 8, !tbaa !47
   %52 = load i32, ptr %45, align 4, !tbaa !48
-  %53 = getelementptr inbounds nuw [64 x i16], ptr %9, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %indvars.iv
   call fastcc void @decode_block(ptr noundef nonnull %8, ptr noundef %51, ptr noundef nonnull %43, i32 noundef %52, ptr noundef nonnull %53, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -591,7 +588,7 @@ define internal noundef i32 @hqx_decode_444(ptr noundef %0, i32 noundef %1, i32 
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.HQXSlice, ptr %6, i64 %7
+  %8 = getelementptr inbounds [2080 x i8], ptr %6, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1536) %9, i8 0, i64 1536, i1 false)
@@ -645,7 +642,7 @@ define internal noundef i32 @hqx_decode_444(ptr noundef %0, i32 noundef %1, i32 
   %41 = tail call i32 @llvm.umin.i32(i32 %29, i32 %40)
   store i32 %41, ptr %31, align 8, !tbaa !68
   %42 = zext nneg i32 %39 to i64
-  %43 = getelementptr inbounds nuw [4 x i32], ptr @hqx_quants, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr @hqx_quants, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 33416
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 33316
   br label %46
@@ -663,7 +660,7 @@ define internal noundef i32 @hqx_decode_444(ptr noundef %0, i32 noundef %1, i32 
 49:                                               ; preds = %48, %46
   %50 = load ptr, ptr %44, align 8, !tbaa !47
   %51 = load i32, ptr %45, align 4, !tbaa !48
-  %52 = getelementptr inbounds nuw [64 x i16], ptr %9, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %indvars.iv
   call fastcc void @decode_block(ptr noundef nonnull %8, ptr noundef %50, ptr noundef nonnull %43, i32 noundef %51, ptr noundef nonnull %52, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
@@ -804,7 +801,7 @@ define internal noundef i32 @hqx_decode_422a(ptr noundef %0, i32 noundef %1, i32
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.HQXSlice, ptr %6, i64 %7
+  %8 = getelementptr inbounds [2080 x i8], ptr %6, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1536) %9, i8 0, i64 1536, i1 false)
@@ -812,7 +809,7 @@ define internal noundef i32 @hqx_decode_422a(ptr noundef %0, i32 noundef %1, i32
 
 10:                                               ; preds = %4, %10
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [64 x i16], ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %indvars.iv
   store i16 -2048, ptr %11, align 16, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
@@ -833,7 +830,7 @@ define internal noundef i32 @hqx_decode_422a(ptr noundef %0, i32 noundef %1, i32
   %24 = shl i32 %22, %23
   %25 = lshr i32 %24, 27
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_hq_cbp_vlc, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @ff_hq_cbp_vlc, i64 %26
   %28 = load i16, ptr %27, align 4, !tbaa !30
   %29 = sext i16 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 2
@@ -883,7 +880,7 @@ define internal noundef i32 @hqx_decode_422a(ptr noundef %0, i32 noundef %1, i32
   %61 = tail call i32 @llvm.umin.i32(i32 %16, i32 %60)
   store i32 %61, ptr %13, align 8, !tbaa !68
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds nuw [4 x i32], ptr @hqx_quants, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr @hqx_quants, i64 %62
   %64 = and i16 %28, 3
   %.not85 = icmp eq i16 %64, 0
   %65 = or i32 %29, 1280
@@ -919,7 +916,7 @@ define internal noundef i32 @hqx_decode_422a(ptr noundef %0, i32 noundef %1, i32
 79:                                               ; preds = %76
   %80 = load ptr, ptr %68, align 8, !tbaa !47
   %81 = load i32, ptr %69, align 4, !tbaa !48
-  %82 = getelementptr inbounds nuw [64 x i16], ptr %9, i64 %indvars.iv97
+  %82 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %indvars.iv97
   call fastcc void @decode_block(ptr noundef nonnull %8, ptr noundef %80, ptr noundef nonnull %63, i32 noundef %81, ptr noundef nonnull %82, ptr noundef %5)
   br label %83
 
@@ -1066,7 +1063,7 @@ define internal noundef i32 @hqx_decode_444a(ptr noundef %0, i32 noundef %1, i32
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.HQXSlice, ptr %6, i64 %7
+  %8 = getelementptr inbounds [2080 x i8], ptr %6, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %9, i8 0, i64 2048, i1 false)
@@ -1074,7 +1071,7 @@ define internal noundef i32 @hqx_decode_444a(ptr noundef %0, i32 noundef %1, i32
 
 10:                                               ; preds = %4, %10
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw [64 x i16], ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %indvars.iv
   store i16 -2048, ptr %11, align 16, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -1095,7 +1092,7 @@ define internal noundef i32 @hqx_decode_444a(ptr noundef %0, i32 noundef %1, i32
   %24 = shl i32 %22, %23
   %25 = lshr i32 %24, 27
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_hq_cbp_vlc, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @ff_hq_cbp_vlc, i64 %26
   %28 = load i16, ptr %27, align 4, !tbaa !30
   %29 = sext i16 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 2
@@ -1145,7 +1142,7 @@ define internal noundef i32 @hqx_decode_444a(ptr noundef %0, i32 noundef %1, i32
   %61 = tail call i32 @llvm.umin.i32(i32 %16, i32 %60)
   store i32 %61, ptr %13, align 8, !tbaa !68
   %62 = zext nneg i32 %59 to i64
-  %63 = getelementptr inbounds nuw [4 x i32], ptr @hqx_quants, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr @hqx_quants, i64 %62
   %64 = shl nsw i32 %29, 8
   %65 = or i32 %64, %29
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 33416
@@ -1172,7 +1169,7 @@ define internal noundef i32 @hqx_decode_444a(ptr noundef %0, i32 noundef %1, i32
 75:                                               ; preds = %72
   %76 = load ptr, ptr %66, align 8, !tbaa !47
   %77 = load i32, ptr %67, align 4, !tbaa !48
-  %78 = getelementptr inbounds nuw [64 x i16], ptr %9, i64 %indvars.iv97
+  %78 = getelementptr inbounds nuw [128 x i8], ptr %9, i64 %indvars.iv97
   call fastcc void @decode_block(ptr noundef nonnull %8, ptr noundef %76, ptr noundef nonnull %63, i32 noundef %77, ptr noundef nonnull %78, ptr noundef %5)
   br label %79
 
@@ -1360,7 +1357,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_slice_thread(ptr noundef %
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 33348
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !43
   %11 = icmp ult i32 %10, 59
   br i1 %11, label %19, label %12
@@ -1385,7 +1382,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_slice_thread(ptr noundef %
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %24 = getelementptr inbounds %struct.HQXSlice, ptr %23, i64 %8
+  %24 = getelementptr inbounds [2080 x i8], ptr %23, i64 %8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 33336
   %26 = load ptr, ptr %25, align 8, !tbaa !37
   %27 = zext i32 %10 to i64
@@ -1475,7 +1472,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_slice_thread(ptr noundef %
   %78 = add nsw i32 %.090106.i, %2
   %79 = and i32 %78, 15
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw i32, ptr @shuffle_16, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr @shuffle_16, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !43
   %83 = mul nsw i32 %82, %59
   %84 = add nsw i32 %77, %83
@@ -1536,7 +1533,7 @@ define internal fastcc void @decode_block(ptr noundef captures(none) %0, ptr nou
   %18 = shl i32 %16, %17
   %19 = lshr i32 %18, 23
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.VLCElem, ptr %1, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !30
   %23 = sext i16 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 2
@@ -1559,7 +1556,7 @@ define internal fastcc void @decode_block(ptr noundef captures(none) %0, ptr nou
   %39 = lshr i32 %37, %38
   %40 = add i32 %39, %23
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw %struct.VLCElem, ptr %1, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !30
   %44 = sext i16 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 2
@@ -1597,11 +1594,11 @@ get_vlc2.exit:                                    ; preds = %6, %28
   %68 = tail call i32 @llvm.umin.i32(i32 %58, i32 %67)
   store i32 %68, ptr %7, align 8, !tbaa !68
   %69 = zext nneg i32 %66 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %2, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !43
   %72 = lshr i32 %71, 29
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw %struct.HQXAC, ptr @hqx_ac, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr @hqx_ac, i64 %73
   %.val = load i32, ptr %74, align 16, !tbaa !61
   %75 = getelementptr i8, ptr %74, i64 8
   %.val18 = load ptr, ptr %75, align 8, !tbaa !65
@@ -1620,7 +1617,7 @@ get_vlc2.exit:                                    ; preds = %6, %28
   %85 = shl i32 %83, %84
   %86 = lshr i32 %85, %76
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw %struct.VLCElem, ptr %.val18, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.val18, i64 %87
   %89 = load i16, ptr %88, align 2, !tbaa !30
   %90 = sext i16 %89 to i32
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 2
@@ -1637,7 +1634,7 @@ get_vlc2.exit:                                    ; preds = %6, %28
   %99 = lshr i32 %96, %98
   %100 = add i32 %99, %90
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw %struct.VLCElem, ptr %.val18, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %.val18, i64 %101
   %103 = load i16, ptr %102, align 2, !tbaa !30
   %104 = zext i16 %103 to i32
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 2
@@ -1650,7 +1647,7 @@ hqx_get_ac.exit:                                  ; preds = %77, %95
   %.045.i = phi i32 [ %..i, %95 ], [ %78, %77 ]
   %.044.i = phi i32 [ %107, %95 ], [ %93, %77 ]
   %.043.i = phi i32 [ %104, %95 ], [ %90, %77 ]
-  %108 = getelementptr inbounds nuw %struct.VLCElem, ptr %.val18, i64 %.pre-phi.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.val18, i64 %.pre-phi.i
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 3
   %110 = load i8, ptr %109, align 1, !tbaa !30
   %111 = zext i8 %110 to i32
@@ -1668,7 +1665,7 @@ hqx_get_ac.exit:                                  ; preds = %77, %95
   %120 = getelementptr inbounds nuw i8, ptr @ff_zigzag_direct, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !30
   %122 = zext i8 %121 to i64
-  %123 = getelementptr inbounds nuw i16, ptr %4, i64 %122
+  %123 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %122
   store i16 %118, ptr %123, align 2, !tbaa !63
   %.not = icmp eq i32 %114, 63
   br i1 %.not, label %124, label %77, !llvm.loop !84

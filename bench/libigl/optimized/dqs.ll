@@ -10,28 +10,21 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<Eigen::Quaternion<double>, std::allocator<Eigen::Quaternion<double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<Eigen::Quaternion<double>, std::allocator<Eigen::Quaternion<double>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<Eigen::Quaternion<double>, std::allocator<Eigen::Quaternion<double>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.anon = type { ptr, ptr, ptr, ptr, ptr }
-%"class.Eigen::Quaternion" = type { %"class.Eigen::Matrix" }
-%"class.Eigen::Matrix" = type { %"class.Eigen::PlainObjectBase.5" }
-%"class.Eigen::PlainObjectBase.5" = type { %"class.Eigen::DenseStorage.12" }
-%"class.Eigen::DenseStorage.12" = type { %"struct.Eigen::internal::plain_array" }
-%"struct.Eigen::internal::plain_array" = type { [4 x double] }
-%"class.Eigen::Matrix.18" = type { %"class.Eigen::PlainObjectBase.19" }
-%"class.Eigen::PlainObjectBase.19" = type { %"class.Eigen::DenseStorage.26" }
-%"class.Eigen::DenseStorage.26" = type { %"struct.Eigen::internal::plain_array.27" }
-%"struct.Eigen::internal::plain_array.27" = type { [3 x double] }
 %class.anon.36 = type { ptr }
 %"class.std::vector.37" = type { %"struct.std::_Vector_base.38" }
 %"struct.std::_Vector_base.38" = type { %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::thread, std::allocator<std::thread>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::thread" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.258" }
 %"struct.std::_Head_base.258" = type { ptr }
+%"class.Eigen::Matrix.18" = type { %"class.Eigen::PlainObjectBase.19" }
+%"class.Eigen::PlainObjectBase.19" = type { %"class.Eigen::DenseStorage.26" }
+%"class.Eigen::DenseStorage.26" = type { %"struct.Eigen::internal::plain_array.27" }
+%"struct.Eigen::internal::plain_array.27" = type { [3 x double] }
 
 $_ZN3igl3dqsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEES3_NS1_10QuaternionIdLi0EEENS1_17aligned_allocatorIS5_EENS2_IdLi3ELi1ELi0ELi3ELi1EEES3_EEvRKNS1_10MatrixBaseIT_EERKNS9_IT0_EERKSt6vectorIT1_T2_ERKSI_IT3_SaISO_EERNS1_15PlainObjectBaseIT4_EE = comdat any
 
@@ -166,8 +159,8 @@ _ZNSt15__new_allocatorIN5Eigen10QuaternionIdLi0EEEE8allocateEmPKv.exit.i.i.i.i: 
 
 46:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %47 = getelementptr inbounds nuw %"class.Eigen::Quaternion", ptr %24, i64 %indvars.iv
-  %48 = getelementptr inbounds nuw %"class.Eigen::Matrix.18", ptr %38, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %indvars.iv
   %49 = load double, ptr %48, align 8, !tbaa !34
   %50 = load double, ptr %47, align 8, !tbaa !34
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -178,7 +171,7 @@ _ZNSt15__new_allocatorIN5Eigen10QuaternionIdLi0EEEE8allocateEmPKv.exit.i.i.i.i: 
   %56 = load double, ptr %55, align 8, !tbaa !34
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %58 = load double, ptr %57, align 8, !tbaa !34
-  %59 = getelementptr inbounds nuw %"class.Eigen::Quaternion", ptr %31, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = fmul double %52, %54
   %62 = tail call double @llvm.fmuladd.f64(double %49, double %50, double %61)
@@ -408,7 +401,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i: ; preds = %13
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i
   store ptr %31, ptr %8, align 8, !tbaa !44
   store ptr %31, ptr %29, align 8, !tbaa !47
-  %32 = getelementptr inbounds nuw %"class.std::thread", ptr %31, i64 %15
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %15
   store ptr %32, ptr %28, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !39
@@ -780,7 +773,7 @@ define linkonce_odr dso_local void @_ZZN3igl3dqsIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %13 = load ptr, ptr %8, align 8, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !4
-  %16 = getelementptr double, ptr %13, i64 %12
+  %16 = getelementptr [8 x i8], ptr %13, i64 %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !65
   %19 = load ptr, ptr %18, align 8, !tbaa !17
@@ -813,13 +806,13 @@ define linkonce_odr dso_local void @_ZZN3igl3dqsIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !67
   %35 = load ptr, ptr %34, align 8, !tbaa !38, !noalias !68
-  %36 = getelementptr inbounds double, ptr %35, i64 %12
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %12
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !4
   %39 = load double, ptr %36, align 8, !tbaa !34
   store double %39, ptr %3, align 16, !tbaa !34
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %41 = getelementptr inbounds double, ptr %36, i64 %38
+  %41 = getelementptr inbounds [8 x i8], ptr %36, i64 %38
   %42 = load double, ptr %41, align 8, !tbaa !34
   store double %42, ptr %40, align 8, !tbaa !34
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -896,7 +889,7 @@ define linkonce_odr dso_local void @_ZZN3igl3dqsIN5Eigen6MatrixIdLin1ELin1ELi0EL
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %90 = load ptr, ptr %89, align 8, !tbaa !78
   %91 = load ptr, ptr %90, align 8, !tbaa !38, !noalias !79
-  %92 = getelementptr inbounds double, ptr %91, i64 %12
+  %92 = getelementptr inbounds [8 x i8], ptr %91, i64 %12
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %94 = load i64, ptr %93, align 8, !tbaa !11, !noalias !79
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 8
@@ -907,21 +900,21 @@ define linkonce_odr dso_local void @_ZZN3igl3dqsIN5Eigen6MatrixIdLin1ELin1ELi0EL
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %._crit_edge, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi i64 [ %118, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ 0, %._crit_edge ]
   %98 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i.i, %96
-  %99 = getelementptr inbounds double, ptr %92, i64 %98
-  %100 = getelementptr inbounds nuw double, ptr %3, i64 %.05.i.i.i.i.i.i.i.i.i.i
-  %101 = getelementptr inbounds nuw double, ptr %6, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %99 = getelementptr inbounds [8 x i8], ptr %92, i64 %98
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %102 = load double, ptr %101, align 8, !tbaa !34
   %103 = fmul double %102, 2.000000e+00
   %104 = load double, ptr %100, align 8, !tbaa !34
   %105 = fadd double %104, %103
-  %106 = getelementptr inbounds nuw double, ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %107 = load double, ptr %106, align 8, !tbaa !34
   %108 = fmul double %.sroa.6.24.vec.extract, %107
-  %109 = getelementptr inbounds nuw double, ptr %4, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %110 = load double, ptr %109, align 8, !tbaa !34
   %111 = fmul double %.sroa.6134.24.vec.extract, %110
   %112 = fsub double %108, %111
-  %113 = getelementptr inbounds nuw double, ptr %7, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %114 = load double, ptr %113, align 8, !tbaa !34
   %115 = fadd double %114, %112
   %116 = fmul double %115, 2.000000e+00
@@ -946,9 +939,9 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
   %.sroa.7113.0139 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %153, %119 ]
   %.sroa.0111.0138 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %149, %119 ]
   %120 = mul nsw i64 %15, %indvars.iv
-  %121 = getelementptr double, ptr %16, i64 %120
+  %121 = getelementptr [8 x i8], ptr %16, i64 %120
   %122 = load double, ptr %121, align 8, !tbaa !34
-  %123 = getelementptr inbounds nuw %"class.Eigen::Quaternion", ptr %19, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %indvars.iv
   %124 = load <2 x double>, ptr %123, align 16, !tbaa !71
   %125 = fmul <2 x double> %.sroa.0119.0140, %124
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 16
@@ -978,7 +971,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEaSINS_13Cwis
   %142 = fadd <2 x double> %.sroa.10124.0141, %141
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.2102)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.299)
-  %143 = getelementptr inbounds nuw %"class.Eigen::Quaternion", ptr %22, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %indvars.iv
   store double %.0129, ptr %.sroa.299, align 16, !tbaa !83, !alias.scope !90
   store ptr %143, ptr %.sroa.299.8..sroa_idx, align 8, !tbaa !88, !alias.scope !90
   %.sroa.299.0..sroa.299.0..sroa.299.0..sroa.299.16. = load <2 x double>, ptr %.sroa.299, align 16
@@ -1131,7 +1124,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !44
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !47
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !48
   ret void
 
@@ -1340,7 +1333,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit35, %55
   store ptr %24, ptr %0, align 8, !tbaa !44
   store ptr %.0.lcssa.i.i.i34, ptr %8, align 8, !tbaa !47
-  %59 = getelementptr inbounds nuw %"class.std::thread", ptr %24, i64 %20
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %20
   store ptr %59, ptr %54, align 8, !tbaa !48
   ret void
 

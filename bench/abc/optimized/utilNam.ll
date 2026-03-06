@@ -170,7 +170,7 @@ Vec_IntPush.exit29:                               ; preds = %.Vec_IntGrow.exit10
   %71 = add nsw i32 %46, 1
   store i32 %71, ptr %45, align 4, !tbaa !20
   %72 = sext i32 %46 to i64
-  %73 = getelementptr inbounds i32, ptr %70, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %70, i64 %72
   store i32 -1, ptr %73, align 4, !tbaa !21
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 4, ptr %74, align 4, !tbaa !22
@@ -300,7 +300,7 @@ define void @Abc_NamPrint(ptr noundef readonly captures(none) %0, ptr noundef %1
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.val17 = load ptr, ptr %12, align 8, !tbaa !18
-  %17 = getelementptr inbounds nuw i32, ptr %.val17, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.val17, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !21
   %.val18 = load ptr, ptr %13, align 8, !tbaa !13
   %19 = sext i32 %18 to i64
@@ -362,7 +362,7 @@ define void @Abc_NamSave(ptr noundef readonly captures(none) %0, ptr noundef %1)
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.val12 = load ptr, ptr %7, align 8, !tbaa !18
-  %12 = getelementptr inbounds nuw i32, ptr %.val12, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.val12, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !21
   %.val13 = load ptr, ptr %8, align 8, !tbaa !13
   %14 = sext i32 %13 to i64
@@ -458,7 +458,7 @@ define i32 @Abc_NamStrFindOrAdd(ptr noundef captures(none) %0, ptr noundef reado
 12:                                               ; preds = %.lr.ph42.i.i
   %13 = and i32 %.12840.i.i, 127
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !21
   %17 = mul i32 %.341.i.i, %11
   %18 = mul i32 %17, %16
@@ -467,7 +467,7 @@ define i32 @Abc_NamStrFindOrAdd(ptr noundef captures(none) %0, ptr noundef reado
 19:                                               ; preds = %.lr.ph42.i.i
   %20 = and i32 %.12840.i.i, 126
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %21
   %23 = load i32, ptr %22, align 8, !tbaa !21
   %24 = mul nsw i32 %23, %11
   %25 = xor i32 %24, %.341.i.i
@@ -486,7 +486,7 @@ Abc_NamStrHash.exit.i:                            ; preds = %26, %3
   %.2.i.i = phi i32 [ 0, %3 ], [ %.4.i.i, %26 ]
   %31 = urem i32 %.2.i.i, %8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i32, ptr %6, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %6, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !21
   %.not.i = icmp eq i32 %34, 0
   br i1 %.not.i, label %Abc_NamStrHashFind.exit.thread, label %35
@@ -507,7 +507,7 @@ Abc_NamStrHash.exit.i:                            ; preds = %26, %3
   %39 = phi i32 [ %34, %.lr.ph.i ], [ %46, %Abc_NamStrcmp.exit.thread.us.i ]
   %.040.us.i = phi ptr [ %33, %.lr.ph.i ], [ %45, %Abc_NamStrcmp.exit.thread.us.i ]
   %.pn63 = sext i32 %39 to i64
-  %.pn.in.in = getelementptr inbounds i32, ptr %.val23.i, i64 %.pn63
+  %.pn.in.in = getelementptr inbounds [4 x i8], ptr %.val23.i, i64 %.pn63
   %.pn.in = load i32, ptr %.pn.in.in, align 4, !tbaa !21
   %.pn = sext i32 %.pn.in to i64
   %.01739.us.i = getelementptr inbounds i8, ptr %.val.i, i64 %.pn
@@ -529,7 +529,7 @@ Abc_NamStrHash.exit.i:                            ; preds = %26, %3
 
 Abc_NamStrcmp.exit.thread.us.i:                   ; preds = %41, %Abc_NamStrcmp.exit.loopexit.us.i
   %.val26.us.i = load ptr, ptr %38, align 8, !tbaa !18
-  %45 = getelementptr inbounds i32, ptr %.val26.us.i, i64 %.pn63
+  %45 = getelementptr inbounds [4 x i8], ptr %.val26.us.i, i64 %.pn63
   %46 = load i32, ptr %45, align 4, !tbaa !21
   %.not22.us.i = icmp eq i32 %46, 0
   br i1 %.not22.us.i, label %Abc_NamStrHashFind.exit.thread, label %.preheader.i28.preheader.us.i, !llvm.loop !35
@@ -672,7 +672,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %107 = add nsw i32 %106, 1
   store i32 %107, ptr %74, align 4, !tbaa !20
   %108 = sext i32 %106 to i64
-  %109 = getelementptr inbounds i32, ptr %105, i64 %108
+  %109 = getelementptr inbounds [4 x i8], ptr %105, i64 %108
   store i32 %79, ptr %109, align 4, !tbaa !21
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -739,7 +739,7 @@ Vec_IntPush.exit58:                               ; preds = %.Vec_IntGrow.exit10
   %139 = add nsw i32 %138, 1
   store i32 %139, ptr %111, align 4, !tbaa !20
   %140 = sext i32 %138 to i64
-  %141 = getelementptr inbounds i32, ptr %137, i64 %140
+  %141 = getelementptr inbounds [4 x i8], ptr %137, i64 %140
   store i32 0, ptr %141, align 4, !tbaa !21
   store i32 %56, ptr %51, align 4, !tbaa !22
   %.val49 = load i32, ptr %74, align 4, !tbaa !20
@@ -878,7 +878,7 @@ define range(i32 0, -1) i32 @Abc_NamStrHash(ptr noundef readonly captures(addres
 10:                                               ; preds = %.lr.ph
   %11 = and i32 %.02737, 127
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !21
   %15 = mul i32 %.038, %9
   %16 = mul i32 %15, %14
@@ -887,7 +887,7 @@ define range(i32 0, -1) i32 @Abc_NamStrHash(ptr noundef readonly captures(addres
 17:                                               ; preds = %.lr.ph
   %18 = and i32 %.02737, 126
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %19
   %21 = load i32, ptr %20, align 8, !tbaa !21
   %22 = mul nsw i32 %21, %9
   %23 = xor i32 %22, %.038
@@ -913,7 +913,7 @@ define range(i32 0, -1) i32 @Abc_NamStrHash(ptr noundef readonly captures(addres
 32:                                               ; preds = %.lr.ph42
   %33 = and i32 %.12840, 127
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !21
   %37 = mul i32 %.341, %31
   %38 = mul i32 %37, %36
@@ -922,7 +922,7 @@ define range(i32 0, -1) i32 @Abc_NamStrHash(ptr noundef readonly captures(addres
 39:                                               ; preds = %.lr.ph42
   %40 = and i32 %.12840, 126
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %41
   %43 = load i32, ptr %42, align 8, !tbaa !21
   %44 = mul nsw i32 %43, %31
   %45 = xor i32 %44, %.341
@@ -1102,7 +1102,7 @@ Vec_IntPush.exit36:                               ; preds = %Abc_PrimeCudd.exit,
   %36 = add nsw i32 %34, 1
   store i32 %36, ptr %23, align 4, !tbaa !20
   %37 = sext i32 %34 to i64
-  %38 = getelementptr inbounds i32, ptr %35, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %35, i64 %37
   store i32 -1, ptr %38, align 4, !tbaa !21
   %39 = icmp sgt i32 %.sroa.4.0.copyload, 1
   br i1 %39, label %.lr.ph, label %.critedge
@@ -1116,7 +1116,7 @@ Vec_IntPush.exit36:                               ; preds = %Abc_PrimeCudd.exit,
 42:                                               ; preds = %.lr.ph, %Vec_IntPush.exit52
   %.val26.us.i = phi ptr [ %35, %.lr.ph ], [ %135, %Vec_IntPush.exit52 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %Vec_IntPush.exit52 ]
-  %43 = getelementptr inbounds nuw i32, ptr %.sroa.7.0.copyload, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.7.0.copyload, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4, !tbaa !21
   %.val28 = load ptr, ptr %40, align 8, !tbaa !13
   %45 = sext i32 %44 to i64
@@ -1139,7 +1139,7 @@ Vec_IntPush.exit36:                               ; preds = %Abc_PrimeCudd.exit,
 53:                                               ; preds = %.lr.ph42.i.i
   %54 = and i32 %.12840.i.i, 127
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !21
   %58 = mul i32 %.341.i.i, %52
   %59 = mul i32 %58, %57
@@ -1148,7 +1148,7 @@ Vec_IntPush.exit36:                               ; preds = %Abc_PrimeCudd.exit,
 60:                                               ; preds = %.lr.ph42.i.i
   %61 = and i32 %.12840.i.i, 126
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %62
   %64 = load i32, ptr %63, align 8, !tbaa !21
   %65 = mul nsw i32 %64, %52
   %66 = xor i32 %65, %.341.i.i
@@ -1167,7 +1167,7 @@ Abc_NamStrHash.exit.i:                            ; preds = %67, %42
   %.2.i.i = phi i32 [ 0, %42 ], [ %.4.i.i, %67 ]
   %72 = urem i32 %.2.i.i, %48
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i32, ptr %47, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %47, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !21
   %.not.i37 = icmp eq i32 %75, 0
   br i1 %.not.i37, label %Abc_NamStrHashFind.exit, label %.lr.ph.i38
@@ -1180,7 +1180,7 @@ Abc_NamStrHash.exit.i:                            ; preds = %67, %42
   %76 = phi i32 [ %75, %.lr.ph.i38 ], [ %83, %Abc_NamStrcmp.exit.thread.us.i ]
   %.040.us.i = phi ptr [ %74, %.lr.ph.i38 ], [ %82, %Abc_NamStrcmp.exit.thread.us.i ]
   %.pn54 = sext i32 %76 to i64
-  %.pn.in.in = getelementptr inbounds i32, ptr %.val23.i, i64 %.pn54
+  %.pn.in.in = getelementptr inbounds [4 x i8], ptr %.val23.i, i64 %.pn54
   %.pn.in = load i32, ptr %.pn.in.in, align 4, !tbaa !21
   %.pn = sext i32 %.pn.in to i64
   %.01739.us.i = getelementptr inbounds i8, ptr %.val28, i64 %.pn
@@ -1201,7 +1201,7 @@ Abc_NamStrHash.exit.i:                            ; preds = %67, %42
   br i1 %.not15.i.us.i, label %.preheader.i28.us.i, label %Abc_NamStrcmp.exit.thread.us.i, !llvm.loop !34
 
 Abc_NamStrcmp.exit.thread.us.i:                   ; preds = %78, %Abc_NamStrcmp.exit.loopexit.us.i
-  %82 = getelementptr inbounds i32, ptr %.val26.us.i, i64 %.pn54
+  %82 = getelementptr inbounds [4 x i8], ptr %.val26.us.i, i64 %.pn54
   %83 = load i32, ptr %82, align 4, !tbaa !21
   %.not22.us.i = icmp eq i32 %83, 0
   br i1 %.not22.us.i, label %Abc_NamStrHashFind.exit, label %.preheader.i28.preheader.us.i, !llvm.loop !35
@@ -1274,7 +1274,7 @@ Vec_IntPush.exit45:                               ; preds = %.Vec_IntGrow.exit10
   %109 = add nsw i32 %108, 1
   store i32 %109, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !20
   %110 = sext i32 %108 to i64
-  %111 = getelementptr inbounds i32, ptr %107, i64 %110
+  %111 = getelementptr inbounds [4 x i8], ptr %107, i64 %110
   store i32 %44, ptr %111, align 4, !tbaa !21
   %112 = load i32, ptr %23, align 4, !tbaa !20
   %113 = load i32, ptr %22, align 8, !tbaa !19
@@ -1336,7 +1336,7 @@ Vec_IntPush.exit52:                               ; preds = %.Vec_IntGrow.exit10
   %137 = add nsw i32 %136, 1
   store i32 %137, ptr %23, align 4, !tbaa !20
   %138 = sext i32 %136 to i64
-  %139 = getelementptr inbounds i32, ptr %135, i64 %138
+  %139 = getelementptr inbounds [4 x i8], ptr %135, i64 %138
   store i32 0, ptr %139, align 4, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1393,7 +1393,7 @@ define internal fastcc noundef ptr @Abc_NamStrHashFind(ptr noundef readonly capt
 14:                                               ; preds = %.lr.ph.i
   %15 = and i32 %.02737.i, 127
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !21
   %19 = mul i32 %.038.i, %13
   %20 = mul i32 %19, %18
@@ -1402,7 +1402,7 @@ define internal fastcc noundef ptr @Abc_NamStrHashFind(ptr noundef readonly capt
 21:                                               ; preds = %.lr.ph.i
   %22 = and i32 %.02737.i, 126
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %23
   %25 = load i32, ptr %24, align 8, !tbaa !21
   %26 = mul nsw i32 %25, %13
   %27 = xor i32 %26, %.038.i
@@ -1428,7 +1428,7 @@ define internal fastcc noundef ptr @Abc_NamStrHashFind(ptr noundef readonly capt
 36:                                               ; preds = %.lr.ph42.i
   %37 = and i32 %.12840.i, 127
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !21
   %41 = mul i32 %.341.i, %35
   %42 = mul i32 %41, %40
@@ -1437,7 +1437,7 @@ define internal fastcc noundef ptr @Abc_NamStrHashFind(ptr noundef readonly capt
 43:                                               ; preds = %.lr.ph42.i
   %44 = and i32 %.12840.i, 126
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %45
   %47 = load i32, ptr %46, align 8, !tbaa !21
   %48 = mul nsw i32 %47, %35
   %49 = xor i32 %48, %.341.i
@@ -1456,7 +1456,7 @@ Abc_NamStrHash.exit:                              ; preds = %28, %50, %.preheade
   %.2.i = phi i32 [ %.4.i, %50 ], [ 0, %.preheader.i ], [ 0, %.preheader35.i ], [ %.1.i, %28 ]
   %55 = urem i32 %.2.i, %7
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i32, ptr %5, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %5, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !21
   %.not = icmp eq i32 %58, 0
   br i1 %.not, label %Abc_NamStrcmp.exit._crit_edge, label %59
@@ -1471,7 +1471,7 @@ Abc_NamStrHash.exit:                              ; preds = %28, %50, %.preheade
   %61 = getelementptr i8, ptr %0, i64 24
   %.val23 = load ptr, ptr %61, align 8, !tbaa !18
   %62 = sext i32 %58 to i64
-  %63 = getelementptr inbounds i32, ptr %.val23, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %.val23, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !21
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i8, ptr %.val, i64 %65
@@ -1503,7 +1503,7 @@ Abc_NamStrHash.exit:                              ; preds = %28, %50, %.preheade
 Abc_NamStrcmp.exit.thread.us:                     ; preds = %72, %Abc_NamStrcmp.exit.loopexit.us
   %.val26.us = load ptr, ptr %67, align 8, !tbaa !18
   %76 = sext i32 %70 to i64
-  %77 = getelementptr inbounds i32, ptr %.val26.us, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %.val26.us, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !21
   %.not22.us = icmp eq i32 %78, 0
   br i1 %.not22.us, label %Abc_NamStrcmp.exit._crit_edge, label %79
@@ -1512,7 +1512,7 @@ Abc_NamStrcmp.exit.thread.us:                     ; preds = %72, %Abc_NamStrcmp.
   %.val24.us = load ptr, ptr %68, align 8, !tbaa !13
   %.val25.us = load ptr, ptr %69, align 8, !tbaa !18
   %80 = sext i32 %78 to i64
-  %81 = getelementptr inbounds i32, ptr %.val25.us, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %.val25.us, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !21
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds i8, ptr %.val24.us, i64 %83
@@ -1552,7 +1552,7 @@ Abc_NamStrcmp.exit.loopexit33:                    ; preds = %.preheader17.i
 Abc_NamStrcmp.exit.thread:                        ; preds = %88, %Abc_NamStrcmp.exit.loopexit33
   %.val26 = load ptr, ptr %67, align 8, !tbaa !18
   %94 = sext i32 %86 to i64
-  %95 = getelementptr inbounds i32, ptr %.val26, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %.val26, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !21
   %.not22 = icmp eq i32 %96, 0
   br i1 %.not22, label %Abc_NamStrcmp.exit._crit_edge, label %97
@@ -1561,7 +1561,7 @@ Abc_NamStrcmp.exit.thread:                        ; preds = %88, %Abc_NamStrcmp.
   %.val24 = load ptr, ptr %68, align 8, !tbaa !13
   %.val25 = load ptr, ptr %69, align 8, !tbaa !18
   %98 = sext i32 %96 to i64
-  %99 = getelementptr inbounds i32, ptr %.val25, i64 %98
+  %99 = getelementptr inbounds [4 x i8], ptr %.val25, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !21
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds i8, ptr %.val24, i64 %101
@@ -1595,7 +1595,7 @@ define i32 @Abc_NamStrFind(ptr noundef readonly captures(none) %0, ptr noundef r
 11:                                               ; preds = %.lr.ph42.i.i
   %12 = and i32 %.12840.i.i, 127
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !21
   %16 = mul i32 %.341.i.i, %10
   %17 = mul i32 %16, %15
@@ -1604,7 +1604,7 @@ define i32 @Abc_NamStrFind(ptr noundef readonly captures(none) %0, ptr noundef r
 18:                                               ; preds = %.lr.ph42.i.i
   %19 = and i32 %.12840.i.i, 126
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %20
   %22 = load i32, ptr %21, align 8, !tbaa !21
   %23 = mul nsw i32 %22, %10
   %24 = xor i32 %23, %.341.i.i
@@ -1623,7 +1623,7 @@ Abc_NamStrHash.exit.i:                            ; preds = %25, %2
   %.2.i.i = phi i32 [ 0, %2 ], [ %.4.i.i, %25 ]
   %30 = urem i32 %.2.i.i, %6
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i32, ptr %4, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %4, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !21
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %Abc_NamStrHashFind.exit, label %34
@@ -1643,7 +1643,7 @@ Abc_NamStrHash.exit.i:                            ; preds = %25, %2
 .preheader.i28.preheader.us.i:                    ; preds = %Abc_NamStrcmp.exit.thread.us.i, %.lr.ph.i
   %38 = phi i32 [ %33, %.lr.ph.i ], [ %45, %Abc_NamStrcmp.exit.thread.us.i ]
   %.pn2 = sext i32 %38 to i64
-  %.pn.in.in = getelementptr inbounds i32, ptr %.val23.i, i64 %.pn2
+  %.pn.in.in = getelementptr inbounds [4 x i8], ptr %.val23.i, i64 %.pn2
   %.pn.in = load i32, ptr %.pn.in.in, align 4, !tbaa !21
   %.pn = sext i32 %.pn.in to i64
   %.01739.us.i = getelementptr inbounds i8, ptr %.val.i, i64 %.pn
@@ -1665,7 +1665,7 @@ Abc_NamStrHash.exit.i:                            ; preds = %25, %2
 
 Abc_NamStrcmp.exit.thread.us.i:                   ; preds = %40, %Abc_NamStrcmp.exit.loopexit.us.i
   %.val26.us.i = load ptr, ptr %37, align 8, !tbaa !18
-  %44 = getelementptr inbounds i32, ptr %.val26.us.i, i64 %.pn2
+  %44 = getelementptr inbounds [4 x i8], ptr %.val26.us.i, i64 %.pn2
   %45 = load i32, ptr %44, align 4, !tbaa !21
   %.not22.us.i = icmp eq i32 %45, 0
   br i1 %.not22.us.i, label %Abc_NamStrHashFind.exit, label %.preheader.i28.preheader.us.i, !llvm.loop !35
@@ -1833,7 +1833,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %71 = add nsw i32 %70, 1
   store i32 %71, ptr %37, align 4, !tbaa !20
   %72 = sext i32 %70 to i64
-  %73 = getelementptr inbounds i32, ptr %69, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %69, i64 %72
   store i32 %43, ptr %73, align 4, !tbaa !21
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -1900,7 +1900,7 @@ Vec_IntPush.exit57:                               ; preds = %.Vec_IntGrow.exit10
   %103 = add nsw i32 %102, 1
   store i32 %103, ptr %75, align 4, !tbaa !20
   %104 = sext i32 %102 to i64
-  %105 = getelementptr inbounds i32, ptr %101, i64 %104
+  %105 = getelementptr inbounds [4 x i8], ptr %101, i64 %104
   store i32 0, ptr %105, align 4, !tbaa !21
   store i32 %19, ptr %12, align 4, !tbaa !22
   %.val48 = load i32, ptr %37, align 4, !tbaa !20
@@ -2046,7 +2046,7 @@ define ptr @Abc_NamStr(ptr noundef readonly captures(none) %0, i32 noundef %1) l
   %6 = getelementptr i8, ptr %0, i64 24
   %.val2 = load ptr, ptr %6, align 8, !tbaa !18
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %.val2, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %.val2, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !21
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %.val, i64 %10
@@ -2102,7 +2102,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %9, %8
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %16 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i
   %17 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %17, ptr %16, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2156,7 +2156,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 37:                                               ; preds = %.lr.ph, %Abc_NamStrHashFind.exit
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %Abc_NamStrHashFind.exit ]
-  %38 = getelementptr inbounds nuw i32, ptr %.val20, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.val20, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !21
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %.val21, i64 %40
@@ -2176,7 +2176,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 46:                                               ; preds = %.lr.ph42.i.i
   %47 = and i32 %.12840.i.i, 127
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !21
   %51 = mul i32 %.341.i.i, %45
   %52 = mul i32 %51, %50
@@ -2185,7 +2185,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 53:                                               ; preds = %.lr.ph42.i.i
   %54 = and i32 %.12840.i.i, 126
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %55
   %57 = load i32, ptr %56, align 8, !tbaa !21
   %58 = mul nsw i32 %57, %45
   %59 = xor i32 %58, %.341.i.i
@@ -2204,7 +2204,7 @@ Abc_NamStrHash.exit.i:                            ; preds = %60, %37
   %.2.i.i = phi i32 [ 0, %37 ], [ %.4.i.i, %60 ]
   %65 = urem i32 %.2.i.i, %.pre
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i32, ptr %31, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %31, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !21
   %.not.i28 = icmp eq i32 %68, 0
   br i1 %.not.i28, label %Abc_NamStrHashFind.exit, label %69
@@ -2221,7 +2221,7 @@ Abc_NamStrHash.exit.i:                            ; preds = %60, %37
 .preheader.i28.preheader.us.i:                    ; preds = %Abc_NamStrcmp.exit.thread.us.i, %.lr.ph.i30
   %70 = phi i32 [ %68, %.lr.ph.i30 ], [ %77, %Abc_NamStrcmp.exit.thread.us.i ]
   %.pn31 = sext i32 %70 to i64
-  %.pn.in.in = getelementptr inbounds i32, ptr %.val23.i, i64 %.pn31
+  %.pn.in.in = getelementptr inbounds [4 x i8], ptr %.val23.i, i64 %.pn31
   %.pn.in = load i32, ptr %.pn.in.in, align 4, !tbaa !21
   %.pn = sext i32 %.pn.in to i64
   %.01739.us.i = getelementptr inbounds i8, ptr %.val.i29, i64 %.pn
@@ -2243,7 +2243,7 @@ Abc_NamStrHash.exit.i:                            ; preds = %60, %37
 
 Abc_NamStrcmp.exit.thread.us.i:                   ; preds = %72, %Abc_NamStrcmp.exit.loopexit.us.i
   %.val26.us.i = load ptr, ptr %35, align 8, !tbaa !18
-  %76 = getelementptr inbounds i32, ptr %.val26.us.i, i64 %.pn31
+  %76 = getelementptr inbounds [4 x i8], ptr %.val26.us.i, i64 %.pn31
   %77 = load i32, ptr %76, align 4, !tbaa !21
   %.not22.us.i = icmp eq i32 %77, 0
   br i1 %.not22.us.i, label %Abc_NamStrHashFind.exit, label %.preheader.i28.preheader.us.i, !llvm.loop !35
@@ -2255,7 +2255,7 @@ Abc_NamStrcmp.exit.loopexit.us.i:                 ; preds = %.preheader.i28.us.i
 
 Abc_NamStrHashFind.exit:                          ; preds = %Abc_NamStrcmp.exit.thread.us.i, %Abc_NamStrcmp.exit.loopexit.us.i, %Abc_NamStrHash.exit.i, %69
   %79 = phi i32 [ %68, %69 ], [ 0, %Abc_NamStrHash.exit.i ], [ %70, %Abc_NamStrcmp.exit.loopexit.us.i ], [ 0, %Abc_NamStrcmp.exit.thread.us.i ]
-  %80 = getelementptr inbounds nuw i32, ptr %.val22, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %.val22, i64 %indvars.iv
   store i32 %79, ptr %80, align 4, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = icmp samesign ult i64 %indvars.iv.next, %36
@@ -2290,7 +2290,7 @@ define i32 @Abc_NamReportCommon(ptr noundef readonly captures(none) %0, ptr noun
 16:                                               ; preds = %.lr.ph, %Abc_NamStrFind.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_NamStrFind.exit ]
   %.013 = phi i32 [ 0, %.lr.ph ], [ %67, %Abc_NamStrFind.exit ]
-  %17 = getelementptr inbounds nuw i32, ptr %.val10, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.val10, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !21
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %Abc_NamStr.exit
@@ -2299,7 +2299,7 @@ define i32 @Abc_NamReportCommon(ptr noundef readonly captures(none) %0, ptr noun
   %.val.i = load ptr, ptr %7, align 8, !tbaa !13
   %.val2.i = load ptr, ptr %8, align 8, !tbaa !18
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %.val2.i, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val2.i, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !21
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %.val.i, i64 %24
@@ -2323,7 +2323,7 @@ Abc_NamStr.exit:                                  ; preds = %16, %20
 31:                                               ; preds = %.lr.ph42.i.i.i
   %32 = and i32 %.12840.i.i.i, 127
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !21
   %36 = mul i32 %.341.i.i.i, %30
   %37 = mul i32 %36, %35
@@ -2332,7 +2332,7 @@ Abc_NamStr.exit:                                  ; preds = %16, %20
 38:                                               ; preds = %.lr.ph42.i.i.i
   %39 = and i32 %.12840.i.i.i, 126
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %40
   %42 = load i32, ptr %41, align 8, !tbaa !21
   %43 = mul nsw i32 %42, %30
   %44 = xor i32 %43, %.341.i.i.i
@@ -2351,7 +2351,7 @@ Abc_NamStrHash.exit.i.i:                          ; preds = %45, %Abc_NamStr.exi
   %.2.i.i.i = phi i32 [ 0, %Abc_NamStr.exit ], [ %.4.i.i.i, %45 ]
   %50 = urem i32 %.2.i.i.i, %12
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %10, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %10, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !21
   %.not.i.i = icmp eq i32 %53, 0
   br i1 %.not.i.i, label %Abc_NamStrFind.exit, label %54
@@ -2368,7 +2368,7 @@ Abc_NamStrHash.exit.i.i:                          ; preds = %45, %Abc_NamStr.exi
 .preheader.i28.preheader.us.i.i:                  ; preds = %Abc_NamStrcmp.exit.thread.us.i.i, %.lr.ph.i.i
   %55 = phi i32 [ %53, %.lr.ph.i.i ], [ %62, %Abc_NamStrcmp.exit.thread.us.i.i ]
   %.pn2.i = sext i32 %55 to i64
-  %.pn.in.in.i = getelementptr inbounds i32, ptr %.val23.i.i, i64 %.pn2.i
+  %.pn.in.in.i = getelementptr inbounds [4 x i8], ptr %.val23.i.i, i64 %.pn2.i
   %.pn.in.i = load i32, ptr %.pn.in.in.i, align 4, !tbaa !21
   %.pn.i = sext i32 %.pn.in.i to i64
   %.01739.us.i.i = getelementptr inbounds i8, ptr %.val.i.i, i64 %.pn.i
@@ -2390,7 +2390,7 @@ Abc_NamStrHash.exit.i.i:                          ; preds = %45, %Abc_NamStr.exi
 
 Abc_NamStrcmp.exit.thread.us.i.i:                 ; preds = %57, %Abc_NamStrcmp.exit.loopexit.us.i.i
   %.val26.us.i.i = load ptr, ptr %15, align 8, !tbaa !18
-  %61 = getelementptr inbounds i32, ptr %.val26.us.i.i, i64 %.pn2.i
+  %61 = getelementptr inbounds [4 x i8], ptr %.val26.us.i.i, i64 %.pn2.i
   %62 = load i32, ptr %61, align 4, !tbaa !21
   %.not22.us.i.i = icmp eq i32 %62, 0
   br i1 %.not22.us.i.i, label %Abc_NamStrFind.exit, label %.preheader.i28.preheader.us.i.i, !llvm.loop !35
@@ -2438,7 +2438,7 @@ define ptr @Abc_NamReportUnique(ptr noundef readonly captures(none) %0, ptr noun
 
 16:                                               ; preds = %.lr.ph, %Abc_NamStrFind.exit.thread15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_NamStrFind.exit.thread15 ]
-  %17 = getelementptr inbounds nuw i32, ptr %.val11, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.val11, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !21
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %Abc_NamStr.exit
@@ -2447,7 +2447,7 @@ define ptr @Abc_NamReportUnique(ptr noundef readonly captures(none) %0, ptr noun
   %.val.i = load ptr, ptr %7, align 8, !tbaa !13
   %.val2.i = load ptr, ptr %8, align 8, !tbaa !18
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %.val2.i, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val2.i, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !21
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %.val.i, i64 %24
@@ -2471,7 +2471,7 @@ Abc_NamStr.exit:                                  ; preds = %16, %20
 31:                                               ; preds = %.lr.ph42.i.i.i
   %32 = and i32 %.12840.i.i.i, 127
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !21
   %36 = mul i32 %.341.i.i.i, %30
   %37 = mul i32 %36, %35
@@ -2480,7 +2480,7 @@ Abc_NamStr.exit:                                  ; preds = %16, %20
 38:                                               ; preds = %.lr.ph42.i.i.i
   %39 = and i32 %.12840.i.i.i, 126
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr @Abc_NamStrHash.s_FPrimes, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr @Abc_NamStrHash.s_FPrimes, i64 %40
   %42 = load i32, ptr %41, align 8, !tbaa !21
   %43 = mul nsw i32 %42, %30
   %44 = xor i32 %43, %.341.i.i.i
@@ -2499,7 +2499,7 @@ Abc_NamStrHash.exit.i.i:                          ; preds = %45, %Abc_NamStr.exi
   %.2.i.i.i = phi i32 [ 0, %Abc_NamStr.exit ], [ %.4.i.i.i, %45 ]
   %50 = urem i32 %.2.i.i.i, %12
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %10, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %10, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !21
   %.not.i.i = icmp eq i32 %53, 0
   br i1 %.not.i.i, label %Abc_NamStrFind.exit.thread, label %54
@@ -2516,7 +2516,7 @@ Abc_NamStrHash.exit.i.i:                          ; preds = %45, %Abc_NamStr.exi
 .preheader.i28.preheader.us.i.i:                  ; preds = %Abc_NamStrcmp.exit.thread.us.i.i, %.lr.ph.i.i
   %55 = phi i32 [ %53, %.lr.ph.i.i ], [ %62, %Abc_NamStrcmp.exit.thread.us.i.i ]
   %.pn2.i = sext i32 %55 to i64
-  %.pn.in.in.i = getelementptr inbounds i32, ptr %.val23.i.i, i64 %.pn2.i
+  %.pn.in.in.i = getelementptr inbounds [4 x i8], ptr %.val23.i.i, i64 %.pn2.i
   %.pn.in.i = load i32, ptr %.pn.in.in.i, align 4, !tbaa !21
   %.pn.i = sext i32 %.pn.in.i to i64
   %.01739.us.i.i = getelementptr inbounds i8, ptr %.val.i.i, i64 %.pn.i
@@ -2538,7 +2538,7 @@ Abc_NamStrHash.exit.i.i:                          ; preds = %45, %Abc_NamStr.exi
 
 Abc_NamStrcmp.exit.thread.us.i.i:                 ; preds = %57, %Abc_NamStrcmp.exit.loopexit.us.i.i
   %.val26.us.i.i = load ptr, ptr %15, align 8, !tbaa !18
-  %61 = getelementptr inbounds i32, ptr %.val26.us.i.i, i64 %.pn2.i
+  %61 = getelementptr inbounds [4 x i8], ptr %.val26.us.i.i, i64 %.pn2.i
   %62 = load i32, ptr %61, align 4, !tbaa !21
   %.not22.us.i.i = icmp eq i32 %62, 0
   br i1 %.not22.us.i.i, label %Abc_NamStrFind.exit.thread, label %.preheader.i28.preheader.us.i.i, !llvm.loop !35
@@ -2555,7 +2555,7 @@ Abc_NamStrFind.exit.thread:                       ; preds = %Abc_NamStrHash.exit
   %.val.i12 = load ptr, ptr %7, align 8, !tbaa !13
   %.val2.i13 = load ptr, ptr %8, align 8, !tbaa !18
   %65 = zext nneg i32 %18 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %.val2.i13, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %.val2.i13, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !21
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i8, ptr %.val.i12, i64 %68

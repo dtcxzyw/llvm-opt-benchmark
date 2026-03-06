@@ -214,11 +214,11 @@ define internal range(i32 -1, -2147483648) i32 @H5D__none_idx_iterate(ptr nounde
 42:                                               ; preds = %.lr.ph.us, %49
   %.02326.us = phi i32 [ %24, %.lr.ph.us ], [ %50, %49 ]
   %43 = zext nneg i32 %.02326.us to i64
-  %44 = getelementptr inbounds nuw i64, ptr %4, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !23
   %46 = add i64 %45, 1
   store i64 %46, ptr %44, align 8, !tbaa !23
-  %47 = getelementptr inbounds nuw i64, ptr %41, i64 %43
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %43
   %48 = load i64, ptr %47, align 8, !tbaa !23
   %.not.us = icmp ult i64 %46, %48
   br i1 %.not.us, label %._crit_edge.us, label %49

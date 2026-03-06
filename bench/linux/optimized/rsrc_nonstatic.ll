@@ -21,7 +21,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.device_attribute = type { %struct.attribute, ptr, ptr }
 %struct.attribute = type { ptr, i16 }
 %struct.pcmcia_align_data = type { i64, i64, ptr }
-%struct.io_window_t = type { i32, i32, ptr }
 %struct.pccard_mem_map = type { i8, i8, i16, i64, i32, ptr }
 
 @__param_str_probe_mem = internal constant [22 x i8] c"pcmcia_rsrc.probe_mem\00", align 16
@@ -162,7 +161,7 @@ define internal range(i32 -22, 1) i32 @nonstatic_find_io(ptr noundef captures(no
 39:                                               ; preds = %.thread14, %11
   %40 = phi i1 [ true, %11 ], [ false, %.thread14 ]
   %41 = phi i64 [ 0, %11 ], [ 1, %.thread14 ]
-  %42 = getelementptr %struct.io_window_t, ptr %8, i64 %41
+  %42 = getelementptr [16 x i8], ptr %8, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
@@ -515,7 +514,7 @@ define internal noundef range(i32 -12, 1) i32 @nonstatic_init(ptr noundef %0) #0
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 80
-  %29 = getelementptr ptr, ptr %28, i64 %23
+  %29 = getelementptr [8 x i8], ptr %28, i64 %23
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %adjust_memory.exit.thread, label %32

@@ -216,13 +216,13 @@ define i64 @If_ManSat6Truth(i64 noundef %0, i64 noundef %1, ptr noundef readonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !3
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i64, ptr @s_Truths6, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @s_Truths6, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store i64 %17, ptr %18, align 8, !tbaa !10
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader62, label %.lr.ph, !llvm.loop !12
@@ -230,13 +230,13 @@ define i64 @If_ManSat6Truth(i64 noundef %0, i64 noundef %1, ptr noundef readonly
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
   %indvars.iv90 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next91, %.lr.ph68 ]
   %indvars.iv88 = phi i64 [ %12, %.lr.ph68.preheader ], [ %indvars.iv.next89, %.lr.ph68 ]
-  %19 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv90
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv90
   %20 = load i32, ptr %19, align 4, !tbaa !3
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i64, ptr @s_Truths6, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr @s_Truths6, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !10
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %24 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv88
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv88
   store i64 %23, ptr %24, align 8, !tbaa !10
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count95
@@ -277,7 +277,7 @@ define i64 @If_ManSat6Truth(i64 noundef %0, i64 noundef %1, ptr noundef readonly
   %32 = shl nuw i32 1, %31
   %33 = and i32 %32, %.01924.us.i
   %.not21.us.i = icmp eq i32 %33, 0
-  %34 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %35 = load i64, ptr %34, align 8, !tbaa !10
   %36 = sext i1 %.not21.us.i to i64
   %37 = xor i64 %35, %36
@@ -333,13 +333,13 @@ If_ManSat6ComposeLut4.exit:                       ; preds = %39, %.lr.ph28.split
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
   %indvars.iv99 = phi i64 [ 0, %.lr.ph72.preheader ], [ %indvars.iv.next100, %.lr.ph72 ]
   %indvars.iv97 = phi i64 [ 1, %.lr.ph72.preheader ], [ %indvars.iv.next98, %.lr.ph72 ]
-  %48 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv99
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv99
   %49 = load i32, ptr %48, align 4, !tbaa !3
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i64, ptr @s_Truths6, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr @s_Truths6, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !10
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %53 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv97
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv97
   store i64 %52, ptr %53, align 8, !tbaa !10
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count104
@@ -348,13 +348,13 @@ If_ManSat6ComposeLut4.exit:                       ; preds = %39, %.lr.ph28.split
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
   %indvars.iv108 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next109, %.lr.ph76 ]
   %indvars.iv106 = phi i64 [ %47, %.lr.ph76.preheader ], [ %indvars.iv.next107, %.lr.ph76 ]
-  %54 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv108
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv108
   %55 = load i32, ptr %54, align 4, !tbaa !3
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i64, ptr @s_Truths6, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr @s_Truths6, i64 %56
   %58 = load i64, ptr %57, align 8, !tbaa !10
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %59 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv106
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv106
   store i64 %58, ptr %59, align 8, !tbaa !10
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count113
@@ -392,7 +392,7 @@ If_ManSat6ComposeLut4.exit:                       ; preds = %39, %.lr.ph28.split
   %67 = shl nuw i32 1, %66
   %68 = and i32 %67, %.01924.us.i49
   %.not21.us.i54 = icmp eq i32 %68, 0
-  %69 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i52
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i52
   %70 = load i64, ptr %69, align 8, !tbaa !10
   %71 = sext i1 %.not21.us.i54 to i64
   %72 = xor i64 %70, %71
@@ -535,7 +535,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
   %48 = or i32 %47, %45
   %49 = or i32 %48, %.0102151.us
   %50 = sext i32 %.0112147.us to i64
-  %51 = getelementptr inbounds i32, ptr %12, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %12, i64 %50
   store i32 %.0107149.us, ptr %51, align 4, !tbaa !3
   br label %52
 
@@ -555,7 +555,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
   %59 = shl nuw i32 1, %58
   %60 = or i32 %59, %.0102151.us
   %61 = sext i32 %.0110148.us to i64
-  %62 = getelementptr inbounds i32, ptr %10, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %10, i64 %61
   store i32 %.0107149.us, ptr %62, align 4, !tbaa !3
   br label %63
 
@@ -575,7 +575,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
   %69 = shl nuw i32 1, %.reass.us
   %70 = or i32 %69, %.0102151.us
   %71 = sext i32 %.0114146.us to i64
-  %72 = getelementptr inbounds i32, ptr %14, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %14, i64 %71
   store i32 %.0107149.us, ptr %72, align 4, !tbaa !3
   br label %73
 
@@ -596,7 +596,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
 ._crit_edge.us:                                   ; preds = %75
   %77 = lshr i32 %.0103152.us, 6
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw i64, ptr %2, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !10
   %81 = and i32 %.0103152.us, 63
   %82 = zext nneg i32 %81 to i64
@@ -605,7 +605,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
   %85 = and i32 %84, 1
   %.val.us = load ptr, ptr %35, align 8, !tbaa !22
   %86 = sext i32 %.4.us to i64
-  %87 = getelementptr inbounds i32, ptr %.val.us, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %.val.us, i64 %86
   store i32 %85, ptr %87, align 4, !tbaa !3
   %88 = add nuw nsw i32 %.0103152.us, 1
   %exitcond172.not = icmp eq i32 %88, %smax171
@@ -620,7 +620,7 @@ default.unreachable:                              ; preds = %37
   %89 = add nsw i32 %smax, -1
   %90 = lshr i32 %89, 6
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw i64, ptr %2, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %91
   %93 = load i64, ptr %92, align 8, !tbaa !10
   %94 = and i32 %89, 63
   %95 = zext nneg i32 %94 to i64
@@ -649,7 +649,7 @@ default.unreachable:                              ; preds = %37
   %.val129185 = phi i32 [ %.val129158, %.lr.ph ], [ %.val129, %115 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %115 ]
   %.1108159 = phi i32 [ 0, %.lr.ph ], [ %.2109, %115 ]
-  %103 = getelementptr inbounds nuw i32, ptr %.val131, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %.val131, i64 %indvars.iv
   %104 = load i32, ptr %103, align 4, !tbaa !3
   %105 = icmp sgt i32 %104, -1
   br i1 %105, label %106, label %115
@@ -663,7 +663,7 @@ default.unreachable:                              ; preds = %37
   %111 = shl nsw i32 %110, 1
   %112 = or disjoint i32 %111, %108
   %113 = sext i32 %.1108159 to i64
-  %114 = getelementptr inbounds i32, ptr %.val131, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %.val131, i64 %113
   store i32 %112, ptr %114, align 4, !tbaa !3
   %.val129.pre = load i32, ptr %32, align 4, !tbaa !23
   br label %115
@@ -680,7 +680,7 @@ default.unreachable:                              ; preds = %37
   %.1108.lcssa = phi i32 [ 0, %.preheader ], [ %.2109, %115 ]
   store i32 %.1108.lcssa, ptr %32, align 4, !tbaa !23
   %118 = sext i32 %.1108.lcssa to i64
-  %119 = getelementptr inbounds i32, ptr %.val131, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr %.val131, i64 %118
   %120 = call i32 @sat_solver_solve(ptr noundef %0, ptr noundef %.val131, ptr noundef %119, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #10
   %.not = icmp eq i32 %120, 1
   br i1 %.not, label %121, label %213
@@ -708,7 +708,7 @@ default.unreachable:                              ; preds = %37
 
 130:                                              ; preds = %.lr.ph162, %141
   %indvars.iv174 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next175, %141 ]
-  %131 = getelementptr inbounds nuw i32, ptr %.val134, i64 %indvars.iv174
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %.val134, i64 %indvars.iv174
   %132 = load i32, ptr %131, align 4, !tbaa !3
   %.not143 = icmp eq i32 %132, 1
   br i1 %.not143, label %133, label %141
@@ -718,7 +718,7 @@ default.unreachable:                              ; preds = %37
   %135 = shl nuw i64 1, %134
   %136 = lshr i64 %indvars.iv174, 6
   %137 = and i64 %136, 67108863
-  %138 = getelementptr inbounds nuw i64, ptr %5, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %137
   %139 = load i64, ptr %138, align 8, !tbaa !10
   %140 = or i64 %139, %135
   store i64 %140, ptr %138, align 8, !tbaa !10
@@ -773,12 +773,12 @@ default.unreachable:                              ; preds = %37
   %.val135 = load ptr, ptr %166, align 8, !tbaa !27
   %167 = sext i32 %16 to i64
   %wide.trip.count183 = zext nneg i32 %165 to i64
-  %invariant.gep = getelementptr i32, ptr %.val135, i64 %167
+  %invariant.gep = getelementptr [4 x i8], ptr %.val135, i64 %167
   br label %168
 
 168:                                              ; preds = %.lr.ph165, %178
   %indvars.iv179 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next180, %178 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv179
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv179
   %169 = load i32, ptr %gep, align 4, !tbaa !3
   %.not142 = icmp eq i32 %169, 1
   br i1 %.not142, label %170, label %178
@@ -788,7 +788,7 @@ default.unreachable:                              ; preds = %37
   %172 = shl nuw i64 1, %171
   %173 = lshr i64 %indvars.iv179, 6
   %174 = and i64 %173, 67108863
-  %175 = getelementptr inbounds nuw i64, ptr %6, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %174
   %176 = load i64, ptr %175, align 8, !tbaa !10
   %177 = or i64 %176, %172
   store i64 %177, ptr %175, align 8, !tbaa !10
@@ -1070,7 +1070,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 75:                                               ; preds = %70, %74
   %indvars.iv1158 = phi i64 [ 0, %70 ], [ %indvars.iv.next1159, %74 ]
-  %76 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1158
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1158
   %77 = load i32, ptr %76, align 4, !tbaa !3
   %78 = shl nsw i32 %77, 1
   %79 = shl i32 3, %78
@@ -1232,7 +1232,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 134:                                              ; preds = %129, %133
   %indvars.iv1133 = phi i64 [ 0, %129 ], [ %indvars.iv.next1134, %133 ]
-  %135 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1133
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1133
   %136 = load i32, ptr %135, align 4, !tbaa !3
   %137 = shl nsw i32 %136, 1
   %138 = shl i32 3, %137
@@ -1334,7 +1334,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %168, label %.lr.ph842, label %.loopexit466
 
 .lr.ph842:                                        ; preds = %167
-  %169 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1147
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1147
   %170 = load i32, ptr %169, align 4, !tbaa !3
   %171 = shl nsw i32 %170, 1
   %172 = shl i32 3, %171
@@ -1348,7 +1348,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 174:                                              ; preds = %.lr.ph842, %173
   %indvars.iv1143 = phi i64 [ %indvars.iv1141, %.lr.ph842 ], [ %indvars.iv.next1144, %173 ]
-  %175 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1143
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1143
   %176 = load i32, ptr %175, align 4, !tbaa !3
   %177 = shl nsw i32 %176, 1
   %178 = shl i32 3, %177
@@ -1549,7 +1549,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 246:                                              ; preds = %241, %245
   %indvars.iv1085 = phi i64 [ 0, %241 ], [ %indvars.iv.next1086, %245 ]
-  %247 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1085
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1085
   %248 = load i32, ptr %247, align 4, !tbaa !3
   %249 = shl nsw i32 %248, 1
   %250 = shl i32 3, %249
@@ -1670,7 +1670,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %288, label %.lr.ph760, label %.loopexit489
 
 .lr.ph760:                                        ; preds = %287
-  %289 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1099
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1099
   %290 = load i32, ptr %289, align 4, !tbaa !3
   %291 = shl nsw i32 %290, 1
   %292 = shl i32 3, %291
@@ -1684,7 +1684,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 294:                                              ; preds = %.lr.ph760, %293
   %indvars.iv1095 = phi i64 [ %indvars.iv1093, %.lr.ph760 ], [ %indvars.iv.next1096, %293 ]
-  %295 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1095
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1095
   %296 = load i32, ptr %295, align 4, !tbaa !3
   %297 = shl nsw i32 %296, 1
   %298 = shl i32 3, %297
@@ -1804,7 +1804,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %336, label %.lr.ph785, label %.loopexit482
 
 .lr.ph785:                                        ; preds = %335
-  %337 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1121
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1121
   br label %338
 
 .loopexit481:                                     ; preds = %348, %338
@@ -1823,7 +1823,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   %340 = load i32, ptr %337, align 4, !tbaa !3
   %341 = shl nsw i32 %340, 1
   %342 = shl i32 3, %341
-  %343 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1117
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1117
   %344 = load i32, ptr %343, align 4, !tbaa !3
   %345 = shl nsw i32 %344, 1
   %346 = shl i32 3, %345
@@ -1838,7 +1838,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 349:                                              ; preds = %.lr.ph782, %348
   %indvars.iv1111 = phi i64 [ %indvars.iv1109, %.lr.ph782 ], [ %indvars.iv.next1112, %348 ]
-  %350 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1111
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1111
   %351 = load i32, ptr %350, align 4, !tbaa !3
   %352 = shl nsw i32 %351, 1
   %353 = shl i32 3, %352
@@ -2084,7 +2084,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 439:                                              ; preds = %434, %438
   %indvars.iv = phi i64 [ 0, %434 ], [ %indvars.iv.next, %438 ]
-  %440 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %440 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %441 = load i32, ptr %440, align 4, !tbaa !3
   %442 = shl nsw i32 %441, 1
   %443 = shl i32 3, %442
@@ -2229,7 +2229,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %490, label %.lr.ph629, label %.loopexit524
 
 .lr.ph629:                                        ; preds = %489
-  %491 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1025
+  %491 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1025
   %492 = load i32, ptr %491, align 4, !tbaa !3
   %493 = shl nsw i32 %492, 1
   %494 = shl i32 3, %493
@@ -2243,7 +2243,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 496:                                              ; preds = %.lr.ph629, %495
   %indvars.iv1021 = phi i64 [ %indvars.iv1019, %.lr.ph629 ], [ %indvars.iv.next1022, %495 ]
-  %497 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1021
+  %497 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1021
   %498 = load i32, ptr %497, align 4, !tbaa !3
   %499 = shl nsw i32 %498, 1
   %500 = shl i32 3, %499
@@ -2391,7 +2391,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %547, label %.lr.ph657, label %.loopexit517
 
 .lr.ph657:                                        ; preds = %546
-  %548 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1047
+  %548 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1047
   br label %549
 
 .loopexit516:                                     ; preds = %559, %549
@@ -2410,7 +2410,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   %551 = load i32, ptr %548, align 4, !tbaa !3
   %552 = shl nsw i32 %551, 1
   %553 = shl i32 3, %552
-  %554 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1043
+  %554 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1043
   %555 = load i32, ptr %554, align 4, !tbaa !3
   %556 = shl nsw i32 %555, 1
   %557 = shl i32 3, %556
@@ -2425,7 +2425,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 560:                                              ; preds = %.lr.ph654, %559
   %indvars.iv1037 = phi i64 [ %indvars.iv1035, %.lr.ph654 ], [ %indvars.iv.next1038, %559 ]
-  %561 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1037
+  %561 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1037
   %562 = load i32, ptr %561, align 4, !tbaa !3
   %563 = shl nsw i32 %562, 1
   %564 = shl i32 3, %563
@@ -2572,7 +2572,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %610, label %.lr.ph691, label %.loopexit508
 
 .lr.ph691:                                        ; preds = %609
-  %611 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1073
+  %611 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1073
   br label %612
 
 .loopexit507:                                     ; preds = %._crit_edge683.us, %612
@@ -2588,7 +2588,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %613, label %.preheader506.lr.ph, label %.loopexit507
 
 .preheader506.lr.ph:                              ; preds = %612
-  %614 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1069
+  %614 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1069
   %615 = load i32, ptr %611, align 4, !tbaa !3
   %616 = shl nsw i32 %615, 1
   %617 = shl i32 3, %616
@@ -2601,7 +2601,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .preheader506.us:                                 ; preds = %._crit_edge683.us, %.preheader506.lr.ph
   %indvars.iv1063 = phi i64 [ %indvars.iv.next1064, %._crit_edge683.us ], [ %indvars.iv1057, %.preheader506.lr.ph ]
-  %622 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1063
+  %622 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1063
   %623 = load i32, ptr %622, align 4, !tbaa !3
   %624 = shl nsw i32 %623, 1
   %625 = shl i32 3, %624
@@ -2615,7 +2615,7 @@ define i32 @If_ManSatCheckXYall_int(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 627:                                              ; preds = %.preheader506.us, %626
   %indvars.iv1059 = phi i64 [ %indvars.iv1057, %.preheader506.us ], [ %indvars.iv.next1060, %626 ]
-  %628 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv1059
+  %628 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv1059
   %629 = load i32, ptr %628, align 4, !tbaa !3
   %630 = shl nsw i32 %629, 1
   %631 = shl i32 3, %630

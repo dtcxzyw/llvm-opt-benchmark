@@ -530,7 +530,7 @@ define void @"_ZN114_$LT$ruff_options_metadata..OptionSet..collect_fields..Field
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0cdf6b467b6911efE.exit": ; preds = %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h0f0ec3ad9e5ddc64E.exit", %21
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !69, !noalias !72, !nonnull !4, !noundef !4
-  %28 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [4 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } } }, ptr %27, i64 %18
+  %28 = getelementptr inbounds nuw [144 x i8], ptr %27, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %28, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
   %29 = add i64 %18, 1
   store i64 %29, ptr %17, align 8, !alias.scope !69, !noalias !72

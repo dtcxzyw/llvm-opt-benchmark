@@ -4392,7 +4392,7 @@ if.then.i41.i.i.i98:                              ; preds = %_ZNSt6vectorIN3irr4
 
 _ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i99: ; preds = %if.then.i41.i.i.i98, %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i94
   store ptr %incdec.ptr.i.i.i96, ptr %_M_finish.i.i65, align 8, !tbaa !45
-  %add.ptr19.i.i.i100 = getelementptr inbounds nuw %"class.irr::core::aabbox3d", ptr %call5.i.i.i.i.i.i104, i64 %cond.i.i.i.i80
+  %add.ptr19.i.i.i100 = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i.i.i.i104, i64 %cond.i.i.i.i80
   store ptr %add.ptr19.i.i.i100, ptr %_M_end_of_storage.i.i66, align 8, !tbaa !46
   br label %invoke.cont28
 
@@ -6249,7 +6249,7 @@ for.body106:                                      ; preds = %for.body106, %for.c
   %elem_index.2153 = phi i32 [ %elem_index.1156, %for.cond101.preheader ], [ %inc, %for.body106 ]
   %add110 = add i32 %x.0154, %reass.mul
   %idxprom = zext i32 %add110 to i64
-  %arrayidx = getelementptr inbounds nuw float, ptr %data, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %data, i64 %idxprom
   %6 = load float, ptr %arrayidx, align 4, !tbaa !30
   %conv111 = fpext float %6 to double
   tail call void @lua_pushnumber(ptr noundef %L, double noundef %conv111)
@@ -6558,7 +6558,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i31, ptr %this, align 8, !tbaa !129
   store ptr %__cur.0.lcssa.i.i.i46, ptr %_M_finish.i.i, align 8, !tbaa !56
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i31, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [32 x i8], ptr %cond.i31, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !54
   ret void
 }

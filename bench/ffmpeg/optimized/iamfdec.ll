@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVChannelLayout = type { i32, i32, %union.anon.0, ptr }
 %union.anon.0 = type { i64 }
-%struct.IAMFLayer = type { i32, i32 }
-%struct.IAMFSubStream = type { i32, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"iamf\00", align 1
 @.str.1 = private unnamed_addr constant [38 x i8] c"Raw Immersive Audio Model and Formats\00", align 1
@@ -116,7 +114,7 @@ define internal range(i32 -2147483648, 1) i32 @iamf_read_header(ptr noundef %0) 
 15:                                               ; preds = %.lr.ph257, %._crit_edge.thread
   %indvars.iv290 = phi i64 [ 0, %.lr.ph257 ], [ %indvars.iv.next291, %._crit_edge.thread ]
   %16 = load ptr, ptr %11, align 8, !tbaa !36
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv290
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv290
   %18 = load ptr, ptr %17, align 8, !tbaa !37
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !39
@@ -126,7 +124,7 @@ define internal range(i32 -2147483648, 1) i32 @iamf_read_header(ptr noundef %0) 
   %24 = load i32, ptr %23, align 8, !tbaa !48
   %25 = add i32 %24, -1
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %22, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !49
   %29 = call ptr @avformat_stream_group_create(ptr noundef %0, i32 noundef 1, ptr noundef null) #5
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 40
@@ -138,7 +136,7 @@ define internal range(i32 -2147483648, 1) i32 @iamf_read_header(ptr noundef %0) 
   %33 = load i32, ptr %23, align 8, !tbaa !48
   %34 = add i32 %33, -1
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %struct.IAMFLayer, ptr %32, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !52
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -168,7 +166,7 @@ define internal range(i32 -2147483648, 1) i32 @iamf_read_header(ptr noundef %0) 
   %.0168250 = phi i32 [ -1, %.lr.ph ], [ %.3171, %87 ]
   %.0173248 = phi i32 [ 0, %.lr.ph ], [ %95, %87 ]
   %50 = load ptr, ptr %47, align 8, !tbaa !58
-  %51 = getelementptr inbounds nuw %struct.IAMFSubStream, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %indvars.iv
   %52 = call ptr @avformat_new_stream(ptr noundef %0, ptr noundef null) #5
   %.not182 = icmp eq ptr %52, null
   br i1 %.not182, label %.thread203, label %53
@@ -270,14 +268,14 @@ define internal range(i32 -2147483648, 1) i32 @iamf_read_header(ptr noundef %0) 
   %104 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %105 = load ptr, ptr %104, align 8, !tbaa !58
   %106 = zext nneg i32 %.3171 to i64
-  %107 = getelementptr inbounds nuw %struct.IAMFSubStream, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %106
   %108 = zext nneg i32 %.3167 to i64
-  %109 = getelementptr inbounds nuw %struct.IAMFSubStream, ptr %105, i64 %108
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %111 = load ptr, ptr %110, align 8, !tbaa !80
-  %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %106
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %106
   %113 = load ptr, ptr %112, align 8, !tbaa !81
-  %114 = getelementptr inbounds nuw ptr, ptr %111, i64 %108
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %108
   %115 = load ptr, ptr %114, align 8, !tbaa !81
   %116 = load i32, ptr %109, align 8, !tbaa !70
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 12
@@ -309,7 +307,7 @@ define internal range(i32 -2147483648, 1) i32 @iamf_read_header(ptr noundef %0) 
 128:                                              ; preds = %.lr.ph277, %._crit_edge275
   %indvars.iv305 = phi i64 [ 0, %.lr.ph277 ], [ %indvars.iv.next306, %._crit_edge275 ]
   %129 = load ptr, ptr %125, align 8, !tbaa !85
-  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv305
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %indvars.iv305
   %131 = load ptr, ptr %130, align 8, !tbaa !86
   %132 = call ptr @avformat_stream_group_create(ptr noundef %0, i32 noundef 2, ptr noundef null) #5
   %133 = load ptr, ptr %131, align 8, !tbaa !88
@@ -341,7 +339,7 @@ define internal range(i32 -2147483648, 1) i32 @iamf_read_header(ptr noundef %0) 
   %146 = phi i32 [ %143, %.lr.ph274 ], [ %190, %._crit_edge271 ]
   %indvars.iv302 = phi i64 [ 0, %.lr.ph274 ], [ %indvars.iv.next303, %._crit_edge271 ]
   %147 = load ptr, ptr %144, align 8, !tbaa !97
-  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv302
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %indvars.iv302
   %149 = load ptr, ptr %148, align 8, !tbaa !98
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = load i32, ptr %150, align 8, !tbaa !100
@@ -361,7 +359,7 @@ define internal range(i32 -2147483648, 1) i32 @iamf_read_header(ptr noundef %0) 
 
 .lr.ph261:                                        ; preds = %153
   %156 = load ptr, ptr %152, align 8, !tbaa !105
-  %157 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv299
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv299
   %158 = load ptr, ptr %157, align 8, !tbaa !106
   %159 = load ptr, ptr %127, align 8, !tbaa !108
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
@@ -370,7 +368,7 @@ define internal range(i32 -2147483648, 1) i32 @iamf_read_header(ptr noundef %0) 
 
 161:                                              ; preds = %.lr.ph261, %176
   %indvars.iv293 = phi i64 [ 0, %.lr.ph261 ], [ %indvars.iv.next294, %176 ]
-  %162 = getelementptr inbounds nuw ptr, ptr %159, i64 %indvars.iv293
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %indvars.iv293
   %163 = load ptr, ptr %162, align 8, !tbaa !109
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 32
   %165 = load i32, ptr %164, align 8, !tbaa !111
@@ -415,7 +413,7 @@ define internal range(i32 -2147483648, 1) i32 @iamf_read_header(ptr noundef %0) 
 180:                                              ; preds = %.lr.ph266, %177
   %indvars.iv296 = phi i64 [ 0, %.lr.ph266 ], [ %indvars.iv.next297, %177 ]
   %181 = load ptr, ptr %175, align 8, !tbaa !80
-  %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv296
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %indvars.iv296
   %183 = load ptr, ptr %182, align 8, !tbaa !81
   %184 = call i32 @avformat_stream_group_add_stream(ptr noundef nonnull %132, ptr noundef %183) #5
   %185 = icmp slt i32 %184, 0

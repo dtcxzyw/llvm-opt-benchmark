@@ -304,7 +304,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
   %80 = mul nsw i32 %79, %77
   %81 = add nsw i32 %80, %.0103
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i16, ptr %78, i64 %82
+  %83 = getelementptr inbounds [2 x i8], ptr %78, i64 %82
   store ptr %22, ptr %7, align 8, !tbaa !4, !alias.scope !32
   store i64 0, ptr %23, align 8, !tbaa !13, !alias.scope !32
   store i8 0, ptr %22, align 8, !tbaa !16, !alias.scope !32
@@ -573,9 +573,9 @@ define dso_local noundef ptr @_ZN4pbrt33ComputeRadicalInversePermutationsEjN4pst
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %2 ]
-  %24 = getelementptr inbounds nuw %"class.pbrt::DigitPermutation", ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %9, align 8, !tbaa !46
-  %26 = getelementptr inbounds nuw %"class.pbrt::DigitPermutation", ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !49
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %27 = load i64, ptr %10, align 8, !tbaa !42
@@ -592,7 +592,7 @@ _ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7r
 .lr.ph.i:                                         ; preds = %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i, %.lr.ph.i
   %.015.i = phi i64 [ %32, %.lr.ph.i ], [ %.pre16.i, %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE7reserveEm.exit.i ]
   %30 = load ptr, ptr %9, align 8, !tbaa !46
-  %31 = getelementptr inbounds nuw %"class.pbrt::DigitPermutation", ptr %30, i64 %.015.i
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %.015.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %32 = add nuw i64 %.015.i, 1
   %exitcond.not.i = icmp eq i64 %32, 1000
@@ -608,11 +608,11 @@ _ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6r
 34:                                               ; preds = %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6resizeEm.exit, %34
   %indvars.iv = phi i64 [ 0, %_ZN4pstd6vectorIN4pbrt16DigitPermutationENS_3pmr21polymorphic_allocatorIS2_EEE6resizeEm.exit ], [ %indvars.iv.next, %34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %35 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt6PrimesE, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4pbrt6PrimesE, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !18
   call void @_ZN4pbrt16DigitPermutationC2EijN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %36, i32 noundef %0, ptr nonnull %1)
   %37 = load ptr, ptr %9, align 8, !tbaa !46
-  %38 = getelementptr inbounds nuw %"class.pbrt::DigitPermutation", ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !49
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -735,7 +735,7 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectItEEPT_m.exit: ; pr
   %67 = lshr i32 %63, 27
   %68 = or i32 %67, 1
   %69 = mul i32 %68, 1765145193
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %.0.i.i.i, i64 %62
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %.0.i.i.i, i64 %62
   br label %70
 
 70:                                               ; preds = %.lr.ph31.us, %_ZN4pbrt18PermutationElementEjjj.exit.us
@@ -780,7 +780,7 @@ _ZN4pbrt18PermutationElementEjjj.exit.us:         ; preds = %72
   %101 = add i32 %100, %63
   %102 = urem i32 %101, %1
   %103 = trunc nuw i32 %102 to i16
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i16 %103, ptr %gep, align 2, !tbaa !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.sroa.0.0.insert.ext.i

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ASN1_ITEM_st = type opaque
-%struct.pbe_suite = type { i32, ptr, ptr, ptr, i32 }
 %struct.cbs_st = type { ptr, i64 }
 %struct.cbb_st = type { ptr, ptr, i64, i8, i8, i8 }
 %struct.pkcs12_context = type { ptr, ptr, ptr, i64 }
@@ -89,7 +88,7 @@ define internal fastcc range(i32 0, 2) i32 @pass_to_pass_raw(i32 noundef %0, ptr
 
 17:                                               ; preds = %16, %15
   %indvars.iv.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i, %16 ]
-  %18 = getelementptr inbounds nuw %struct.pbe_suite, ptr @kBuiltinPBE, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [40 x i8], ptr @kBuiltinPBE, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 8, !tbaa !23
   %20 = icmp eq i32 %19, %0
   br i1 %20, label %get_pbe_suite.exit, label %16
@@ -2113,7 +2112,7 @@ define internal fastcc range(i32 0, 2) i32 @pbe_crypt(ptr noundef readonly captu
 
 17:                                               ; preds = %16, %8
   %indvars.iv.i.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i.i, %16 ]
-  %18 = getelementptr inbounds nuw %struct.pbe_suite, ptr @kBuiltinPBE, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw [40 x i8], ptr @kBuiltinPBE, i64 %indvars.iv.i.i
   %19 = load i32, ptr %18, align 8, !tbaa !23
   %20 = icmp eq i32 %19, %15
   br i1 %20, label %get_pbe_suite.exit.i, label %16

@@ -21,10 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sigaction = type { %union.anon.16, %struct.__sigset_t, i32, ptr }
 %union.anon.16 = type { ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord" = type { double, ptr, %class.FormatStringLogMessage }
-%class.FormatStringLogMessage = type { %class.FormatBuffer }
-%class.FormatBuffer = type { %class.FormatBufferBase, [256 x i8] }
-%class.FormatBufferBase = type { ptr }
 %class.SuspendedThreadTaskContext = type { ptr, ptr }
 %class.stringStream = type <{ %class.outputStream, ptr, i64, i64, i8, [48 x i8], [7 x i8] }>
 %class.outputStream = type { ptr, i32, i8, i32, i64, %class.TimeStamp, ptr, i64 }
@@ -298,7 +294,7 @@ define linkonce_odr hidden void @_ZN19SavedSignalHandlersD2Ev(ptr noundef nonnul
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %4) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -325,7 +321,7 @@ define hidden void @_ZN2os13signal_notifyEi(i32 noundef %0) local_unnamed_addr #
 
 3:                                                ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds i32, ptr @_ZL15pending_signals, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @_ZL15pending_signals, i64 %4
   %6 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %5) #20, !srcloc !8
   %7 = load ptr, ptr @_ZL13sig_semaphore, align 8
   tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 1) #20
@@ -342,7 +338,7 @@ define hidden noundef range(i32 -2147483648, 66) i32 @_ZN2os11signal_waitEv() lo
 
 2:                                                ; preds = %.backedge, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.i.be, %.backedge ]
-  %3 = getelementptr inbounds nuw i32, ptr @_ZL15pending_signals, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw [4 x i8], ptr @_ZL15pending_signals, i64 %indvars.iv.i
   %4 = load volatile i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %10
@@ -397,7 +393,7 @@ define hidden noundef zeroext i1 @_ZN12PosixSignals15chained_handlerEiP9siginfo_
 
 _ZL25get_chained_signal_actioni.exit:             ; preds = %.thread.i
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @_ZL16chained_handlers, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZL16chained_handlers, i64 %14
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %_ZL25get_chained_signal_actioni.exit.thread, label %_ZL25get_chained_signal_actioni.exit.thread9
@@ -679,7 +675,7 @@ define internal void @_ZL11UserHandleriP9siginfo_tPv(i32 noundef %0, ptr readnon
 
 14:                                               ; preds = %.split
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds i32, ptr @_ZL15pending_signals, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr @_ZL15pending_signals, i64 %15
   %17 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %16) #20, !srcloc !8
   br label %_ZN2os13signal_notifyEi.exit.sink.split
 
@@ -823,7 +819,7 @@ define internal fastcc noundef zeroext i1 @_ZL20check_signal_handleri(i32 nounde
 
 13:                                               ; preds = %10
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @_ZL11vm_handlers, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZL11vm_handlers, i64 %14
   %16 = load ptr, ptr %15, align 8
   br label %_ZNK19SavedSignalHandlers3getEi.exit
 
@@ -996,7 +992,7 @@ define hidden void @_ZN2os13print_siginfoEP12outputStreamPKv(ptr noundef nonnull
 
 10:                                               ; preds = %19, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %19 ]
-  %11 = getelementptr inbounds nuw %struct.anon.22, ptr @__const._ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.t1, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @__const._ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.t1, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, %8
   br i1 %13, label %14, label %19
@@ -1031,12 +1027,12 @@ define hidden void @_ZN2os13print_siginfoEP12outputStreamPKv(ptr noundef nonnull
   %indvars.iv44.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next45.i, %24 ]
   %25 = phi ptr [ @.str.116, %.preheader.i ], [ %31, %24 ]
   %.22639.i = phi ptr [ null, %.preheader.i ], [ %spec.select51, %24 ]
-  %26 = getelementptr inbounds nuw %struct.anon.23, ptr @__const._ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.t2, i64 %indvars.iv44.i
+  %26 = getelementptr inbounds nuw [24 x i8], ptr @__const._ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.t2, i64 %indvars.iv44.i
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, %23
   %spec.select51 = select i1 %28, ptr %25, ptr %.22639.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %29 = getelementptr inbounds nuw %struct.anon.23, ptr @__const._ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.t2, i64 %indvars.iv.next45.i
+  %29 = getelementptr inbounds nuw [24 x i8], ptr @__const._ZL27get_signal_code_descriptionPK9siginfo_tP19enum_sigcode_desc_t.t2, i64 %indvars.iv.next45.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not31.i = icmp eq i64 %indvars.iv.next45.i, 9
@@ -1170,7 +1166,7 @@ define internal fastcc noundef ptr @_ZL15get_signal_nameiPcm(i32 noundef %0, ptr
 
 .preheader:                                       ; preds = %18, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %18 ]
-  %21 = getelementptr inbounds nuw %struct.anon.17, ptr @_ZL13g_signal_info, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [16 x i8], ptr @_ZL13g_signal_info, i64 %indvars.iv
   %22 = load i32, ptr %21, align 16
   %23 = icmp eq i32 %22, %0
   br i1 %23, label %24, label %20
@@ -1298,14 +1294,14 @@ _ZN11MutexLockerD2Ev.exit.i:                      ; preds = %21, %11
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %15 to i64
-  %27 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %25, i64 %26
+  %27 = getelementptr inbounds [280 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %0, ptr %28, align 8
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %29, i64 %26
+  %30 = getelementptr inbounds [280 x i8], ptr %29, i64 %26
   store double %12, ptr %30, align 8
   %31 = load ptr, ptr %24, align 8
-  %32 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %31, i64 %26
+  %32 = getelementptr inbounds [280 x i8], ptr %31, i64 %26
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @jio_vsnprintf(ptr noundef %34, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %3) #20
@@ -1394,7 +1390,7 @@ define hidden noundef i32 @_ZN2os17get_signal_numberEPKc(ptr noundef %0) local_u
 
 14:                                               ; preds = %12, %13
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %13 ]
-  %15 = getelementptr inbounds nuw %struct.anon.17, ptr @_ZL13g_signal_info, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i8], ptr @_ZL13g_signal_info, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %.010) #23
@@ -1466,7 +1462,7 @@ _ZN2os14exception_nameEiPcm.exit:                 ; preds = %_ZL15is_valid_signa
 
 _ZNK19SavedSignalHandlers3getEi.exit:             ; preds = %27
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr @_ZL11vm_handlers, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @_ZL11vm_handlers, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not28 = icmp eq ptr %32, null
   br i1 %.not28, label %_ZNK19SavedSignalHandlers3getEi.exit.thread, label %33
@@ -1512,7 +1508,7 @@ _ZNK19SavedSignalHandlers3getEi.exit.thread:      ; preds = %27, %33, %44, %36, 
 
 _ZL25get_chained_signal_actioni.exit:             ; preds = %.thread.i
   %49 = zext nneg i32 %1 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr @_ZL16chained_handlers, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @_ZL16chained_handlers, i64 %49
   %51 = load ptr, ptr %50, align 8
   %.not29 = icmp eq ptr %51, null
   br i1 %.not29, label %_ZL25get_chained_signal_actioni.exit.thread, label %_ZL25get_chained_signal_actioni.exit.thread39
@@ -1602,7 +1598,7 @@ _ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit: ; preds = %25
   %.03143.i.i = phi ptr [ %5, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit ], [ %.1.i.i, %43 ]
   %.03242.i.i = phi i64 [ 256, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit ], [ %.133.i.i, %43 ]
   %.03540.i.i = phi i1 [ true, %_ZL22print_signal_set_shortP12outputStreamPK10__sigset_t.exit ], [ %.2.i.i, %43 ]
-  %33 = getelementptr inbounds nuw %struct.anon.24, ptr @__const._ZL17describe_sa_flagsiPcm.flaginfo, i64 %indvars.iv.i.i16
+  %33 = getelementptr inbounds nuw [16 x i8], ptr @__const._ZL17describe_sa_flagsiPcm.flaginfo, i64 %indvars.iv.i.i16
   %34 = load i32, ptr %33, align 16
   %35 = and i32 %30, %34
   %.not39.i.i = icmp eq i32 %35, 0
@@ -2020,7 +2016,7 @@ _ZL13parse_integerIiEbPKcPT_.exit.i:              ; preds = %58, %45
 83:                                               ; preds = %79
   %84 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 152, i8 noundef zeroext 9, i32 noundef 0) #20
   %85 = zext nneg i32 %80 to i64
-  %86 = getelementptr inbounds nuw ptr, ptr @_ZL11vm_handlers, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr @_ZL11vm_handlers, i64 %85
   store ptr %84, ptr %86, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %84, ptr noundef nonnull align 8 dereferenceable(152) %7, i64 152, i1 false)
   %.pre.i = load i32, ptr @_ZN12PosixSignals9SR_signumE, align 4
@@ -2646,7 +2642,7 @@ define internal fastcc void @_ZL18set_signal_handleri(i32 noundef range(i32 4, 2
 _ZN19SavedSignalHandlers3setEiPK9sigaction.exit:  ; preds = %10
   %13 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 152, i8 noundef zeroext 9, i32 noundef 0) #20
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @_ZL16chained_handlers, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZL16chained_handlers, i64 %14
   store ptr %13, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %13, ptr noundef nonnull align 8 dereferenceable(152) %2, i64 152, i1 false)
   br label %_ZN19SavedSignalHandlers3setEiPK9sigaction.exit18
@@ -2672,7 +2668,7 @@ _ZN19SavedSignalHandlers3setEiPK9sigaction.exit18: ; preds = %._ZN19SavedSignalH
   store i32 268435460, ptr %25, align 8
   %26 = call noundef i32 @sigaction(i32 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2) #20
   %27 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 152, i8 noundef zeroext 9, i32 noundef 0) #20
-  %28 = getelementptr inbounds nuw ptr, ptr @_ZL11vm_handlers, i64 %.pre-phi
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @_ZL11vm_handlers, i64 %.pre-phi
   store ptr %27, ptr %28, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %27, ptr noundef nonnull align 8 dereferenceable(152) %3, i64 152, i1 false)
   %29 = icmp ne i32 %0, 13

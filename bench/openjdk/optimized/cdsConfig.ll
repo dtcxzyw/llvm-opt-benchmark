@@ -255,7 +255,7 @@ define hidden void @_ZN9CDSConfig25init_shared_archive_pathsEv() local_unnamed_a
 
 11:                                               ; preds = %10, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %10 ]
-  %12 = getelementptr inbounds nuw ptr, ptr @_ZZL34find_any_unsupported_module_optionvE29unsupported_module_properties, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL34find_any_unsupported_module_optionvE29unsupported_module_properties, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %13) #10
   %15 = icmp eq i32 %14, 0
@@ -268,7 +268,7 @@ define hidden void @_ZN9CDSConfig25init_shared_archive_pathsEv() local_unnamed_a
   br i1 %.not.i.i, label %_ZL34find_any_unsupported_module_optionv.exit.thread.i, label %.preheader.i.i, !llvm.loop !8
 
 _ZL34find_any_unsupported_module_optionv.exit.i:  ; preds = %11
-  %18 = getelementptr inbounds nuw ptr, ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 %indvars.iv.i.i
   %19 = load ptr, ptr %18, align 8
   tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.22, ptr noundef nonnull %19) #9
   br label %_ZL34find_any_unsupported_module_optionv.exit.thread.i
@@ -669,7 +669,7 @@ define hidden void @_ZN9CDSConfig40check_unsupported_dumping_module_optionsEv() 
 
 4:                                                ; preds = %3, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %3 ]
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZL34find_any_unsupported_module_optionvE29unsupported_module_properties, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL34find_any_unsupported_module_optionvE29unsupported_module_properties, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %6) #10
   %8 = icmp eq i32 %7, 0
@@ -682,7 +682,7 @@ define hidden void @_ZN9CDSConfig40check_unsupported_dumping_module_optionsEv() 
   br i1 %.not.i, label %_ZL34find_any_unsupported_module_optionv.exit.thread, label %.preheader.i, !llvm.loop !8
 
 _ZL34find_any_unsupported_module_optionv.exit:    ; preds = %4
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.22, ptr noundef nonnull %12) #9
   br label %_ZL34find_any_unsupported_module_optionv.exit.thread
@@ -871,7 +871,7 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig38has_unsupported_runtime_module_
 
 5:                                                ; preds = %4, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %4 ]
-  %6 = getelementptr inbounds nuw ptr, ptr @_ZZL34find_any_unsupported_module_optionvE29unsupported_module_properties, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL34find_any_unsupported_module_optionvE29unsupported_module_properties, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %7) #10
   %9 = icmp eq i32 %8, 0
@@ -884,7 +884,7 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig38has_unsupported_runtime_module_
   br i1 %.not.i, label %_ZL34find_any_unsupported_module_optionv.exit.thread, label %.preheader.i, !llvm.loop !8
 
 _ZL34find_any_unsupported_module_optionv.exit:    ; preds = %5
-  %12 = getelementptr inbounds nuw ptr, ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   %14 = load i8, ptr @RequireSharedSpaces, align 1
   %15 = trunc i8 %14 to i1
@@ -1029,7 +1029,7 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig25check_vm_args_consistencyEbb(i1
 
 50:                                               ; preds = %49, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %49 ]
-  %51 = getelementptr inbounds nuw ptr, ptr @_ZZL34find_any_unsupported_module_optionvE29unsupported_module_properties, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL34find_any_unsupported_module_optionvE29unsupported_module_properties, i64 %indvars.iv.i.i
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %52) #10
   %54 = icmp eq i32 %53, 0
@@ -1042,7 +1042,7 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig25check_vm_args_consistencyEbb(i1
   br i1 %.not.i.i, label %_ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit, label %.preheader.i.i, !llvm.loop !8
 
 _ZL34find_any_unsupported_module_optionv.exit.i:  ; preds = %50
-  %57 = getelementptr inbounds nuw ptr, ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 %indvars.iv.i.i
   %58 = load ptr, ptr %57, align 8
   %59 = load i8, ptr @RequireSharedSpaces, align 1
   %60 = trunc i8 %59 to i1

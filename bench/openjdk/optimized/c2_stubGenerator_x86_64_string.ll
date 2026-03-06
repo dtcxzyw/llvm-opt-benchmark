@@ -212,7 +212,7 @@ define internal fastcc void @_ZL29generate_string_indexof_stubsP13StubGeneratorP
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8
   %125 = zext nneg i32 %2 to i64
-  %126 = getelementptr inbounds nuw ptr, ptr %1, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %125
   store ptr %124, ptr %126, align 8
   call void @_ZN14MacroAssembler5enterEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #6
   call void @_ZN9Assembler4cmpqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 1, i32 noundef 0) #6
@@ -594,7 +594,7 @@ _ZL28highly_optimized_short_casesN16StrIntrinsicNode11ArgEncodingE8RegisterS1_S1
   %247 = load ptr, ptr %121, align 8
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   store ptr %249, ptr %250, align 8
   %251 = and i64 %indvars.iv.i, 1
   %.not109.not.i = icmp eq i64 %251, 0
@@ -623,7 +623,7 @@ _ZL28highly_optimized_short_casesN16StrIntrinsicNode11ArgEncodingE8RegisterS1_S1
   %257 = load ptr, ptr %121, align 8
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %259 = load ptr, ptr %258, align 8
-  %260 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv117.i
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv117.i
   store ptr %259, ptr %260, align 8
   %261 = and i64 %indvars.iv117.i, 1
   %.not108.not.i = icmp eq i64 %261, 0
@@ -659,7 +659,7 @@ _ZL28highly_optimized_short_casesN16StrIntrinsicNode11ArgEncodingE8RegisterS1_S1
 
 270:                                              ; preds = %270, %266
   %indvars.iv121.i = phi i64 [ 0, %266 ], [ %indvars.iv.next122.i, %270 ]
-  %271 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv121.i
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv121.i
   %272 = load ptr, ptr %271, align 8
   %273 = load ptr, ptr %121, align 8
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 16
@@ -680,7 +680,7 @@ _ZL28highly_optimized_short_casesN16StrIntrinsicNode11ArgEncodingE8RegisterS1_S1
 
 282:                                              ; preds = %282, %278
   %indvars.iv125.i = phi i64 [ 0, %278 ], [ %indvars.iv.next126.i, %282 ]
-  %283 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv125.i
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv125.i
   %284 = load ptr, ptr %283, align 8
   %285 = load ptr, ptr %121, align 8
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 16

@@ -6,14 +6,12 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.strvec = type { ptr, i64, i64 }
 %struct.strbuf = type { i64, i64, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.wt_status_state = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, %struct.object_id, %struct.object_id, %struct.object_id }
 %struct.object_id = type { [32 x i8], i32 }
 %struct.tracking = type { %struct.refspec_item, ptr, ptr, i32 }
 %struct.refspec_item = type { i8, ptr, ptr, ptr }
 %struct.find_tracked_branch_cb = type { ptr, %struct.string_list }
 %struct.submodule_entry_list = type { ptr, i32, i32 }
-%struct.submodule_tree_entry = type { ptr, ptr, ptr }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
 
 @strbuf_slopbuf = external global [0 x i8], align 1
@@ -248,7 +246,7 @@ strbuf_setlen.exit:                               ; preds = %45, %48
 .lr.ph123.preheader:                              ; preds = %53
   %55 = load ptr, ptr %3, align 8, !tbaa !13
   %56 = load i64, ptr %14, align 8, !tbaa !8
-  %57 = getelementptr inbounds nuw %struct.string_list_item, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %56
   %58 = icmp ult ptr %54, %57
   br i1 %58, label %.lr.ph164, label %.critedge2
 
@@ -256,7 +254,7 @@ strbuf_setlen.exit:                               ; preds = %45, %48
   %59 = getelementptr inbounds nuw i8, ptr %.1122163, i64 16
   %60 = load ptr, ptr %3, align 8, !tbaa !13
   %61 = load i64, ptr %14, align 8, !tbaa !8
-  %62 = getelementptr inbounds nuw %struct.string_list_item, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %61
   %63 = icmp ult ptr %59, %62
   br i1 %63, label %.lr.ph164, label %.critedge2
 
@@ -342,7 +340,7 @@ skip_prefix.exit92.us:                            ; preds = %83, %82
   %89 = getelementptr inbounds nuw i8, ptr %.2126.us130, i64 16
   %90 = load ptr, ptr %3, align 8, !tbaa !13
   %91 = load i64, ptr %14, align 8, !tbaa !8
-  %92 = getelementptr inbounds nuw %struct.string_list_item, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [16 x i8], ptr %90, i64 %91
   %93 = icmp ult ptr %89, %92
   br i1 %93, label %.lr.ph131, label %.critedge4
 
@@ -378,7 +376,7 @@ skip_prefix.exit92:                               ; preds = %95, %96
   %103 = getelementptr inbounds nuw i8, ptr %.2126128, i64 16
   %104 = load ptr, ptr %3, align 8, !tbaa !13
   %105 = load i64, ptr %14, align 8, !tbaa !8
-  %106 = getelementptr inbounds nuw %struct.string_list_item, ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %105
   %107 = icmp ult ptr %103, %106
   br i1 %107, label %.lr.ph129, label %.critedge4
 
@@ -424,7 +422,7 @@ _.exit101:                                        ; preds = %.critedge4.thread, 
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %123 = load ptr, ptr %7, align 8, !tbaa !13
   %124 = load i64, ptr %122, align 8, !tbaa !8
-  %125 = getelementptr inbounds nuw %struct.string_list_item, ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw [16 x i8], ptr %123, i64 %124
   %126 = icmp ult ptr %121, %125
   br i1 %126, label %.lr.ph166, label %.critedge6
 
@@ -435,7 +433,7 @@ _.exit101:                                        ; preds = %.critedge4.thread, 
   %129 = getelementptr inbounds nuw i8, ptr %.3134165, i64 16
   %130 = load ptr, ptr %7, align 8, !tbaa !13
   %131 = load i64, ptr %122, align 8, !tbaa !8
-  %132 = getelementptr inbounds nuw %struct.string_list_item, ptr %130, i64 %131
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %130, i64 %131
   %133 = icmp ult ptr %129, %132
   br i1 %133, label %.lr.ph166, label %.critedge6
 
@@ -490,7 +488,7 @@ _.exit107:                                        ; preds = %_.exit104, %139
 .lr.ph139.preheader:                              ; preds = %148
   %150 = load ptr, ptr %3, align 8, !tbaa !13
   %151 = load i64, ptr %14, align 8, !tbaa !8
-  %152 = getelementptr inbounds nuw %struct.string_list_item, ptr %150, i64 %151
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %150, i64 %151
   %153 = icmp ult ptr %149, %152
   br i1 %153, label %.lr.ph139, label %.critedge8
 
@@ -501,7 +499,7 @@ _.exit107:                                        ; preds = %_.exit104, %139
   %155 = getelementptr inbounds nuw i8, ptr %.4138167, i64 16
   %156 = load ptr, ptr %3, align 8, !tbaa !13
   %157 = load i64, ptr %14, align 8, !tbaa !8
-  %158 = getelementptr inbounds nuw %struct.string_list_item, ptr %156, i64 %157
+  %158 = getelementptr inbounds nuw [16 x i8], ptr %156, i64 %157
   %159 = icmp ult ptr %155, %158
   br i1 %159, label %.lr.ph139, label %.critedge8
 
@@ -750,7 +748,7 @@ define dso_local ptr @branch_checked_out(ptr noundef %0) local_unnamed_addr #0 {
   %66 = getelementptr inbounds nuw i8, ptr %.038.i1, i64 16
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !13
   %67 = load i64, ptr %16, align 8, !tbaa !8
-  %68 = getelementptr inbounds nuw %struct.string_list_item, ptr %.pre.i, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %.pre.i, i64 %67
   %69 = icmp ult ptr %66, %68
   br i1 %69, label %.lr.ph, label %.critedge.i, !llvm.loop !37
 
@@ -761,7 +759,7 @@ define dso_local ptr @branch_checked_out(ptr noundef %0) local_unnamed_addr #0 {
 70:                                               ; preds = %.critedge.i, %55, %17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %71 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next.i
   %72 = load ptr, ptr %71, align 8, !tbaa !27
   %.not.i = icmp eq ptr %72, null
   br i1 %.not.i, label %._crit_edge.i, label %17
@@ -1187,7 +1185,7 @@ skip_prefix.exit.i:                               ; preds = %22, %21
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
   %45 = load ptr, ptr %17, align 8, !tbaa !46
   %46 = load ptr, ptr %37, align 8, !tbaa !54
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i
   %48 = load ptr, ptr %47, align 8, !tbaa !26
   %49 = call ptr @string_list_append(ptr noundef %45, ptr noundef %48) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1246,7 +1244,7 @@ _.exit:                                           ; preds = %58, %60
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %67 = load ptr, ptr %12, align 8, !tbaa !58
   %68 = load i64, ptr %66, align 8, !tbaa !59
-  %69 = getelementptr inbounds nuw %struct.string_list_item, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %68
   %70 = icmp ult ptr %65, %69
   br i1 %70, label %.lr.ph49, label %.critedge
 
@@ -1267,7 +1265,7 @@ _.exit29:                                         ; preds = %.lr.ph49, %72
   %75 = getelementptr inbounds nuw i8, ptr %.0184248, i64 16
   %76 = load ptr, ptr %12, align 8, !tbaa !58
   %77 = load i64, ptr %66, align 8, !tbaa !59
-  %78 = getelementptr inbounds nuw %struct.string_list_item, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %77
   %79 = icmp ult ptr %75, %78
   br i1 %79, label %.lr.ph49, label %.critedge
 
@@ -1400,7 +1398,7 @@ define dso_local void @create_branches_recursively(ptr noundef %0, ptr noundef %
 .lr.ph:                                           ; preds = %9, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %9 ]
   %21 = load ptr, ptr %12, align 8, !tbaa !64
-  %22 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !65
   %.not53 = icmp eq ptr %24, null
@@ -1419,7 +1417,7 @@ define dso_local void @create_branches_recursively(ptr noundef %0, ptr noundef %
 _.exit:                                           ; preds = %25, %27
   %29 = phi ptr [ %.pre, %27 ], [ %21, %25 ]
   %.0.i = phi ptr [ %28, %27 ], [ @.str.11, %25 ]
-  %30 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !69
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -1462,7 +1460,7 @@ _.exit59:                                         ; preds = %37, %39
 50:                                               ; preds = %43
   %51 = call fastcc ptr @_(ptr noundef nonnull @.str.13)
   %52 = load ptr, ptr %12, align 8, !tbaa !64
-  %53 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %52, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !69
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -1498,7 +1496,7 @@ _.exit59:                                         ; preds = %37, %39
 .lr.ph68:                                         ; preds = %60, %63
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %63 ], [ 0, %60 ]
   %67 = load ptr, ptr %12, align 8, !tbaa !64
-  %68 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %67, i64 %indvars.iv74
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %indvars.iv74
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !65
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 16
@@ -1514,7 +1512,7 @@ _.exit59:                                         ; preds = %37, %39
 77:                                               ; preds = %.lr.ph68
   %78 = call fastcc ptr @_(ptr noundef nonnull @.str.13)
   %79 = load ptr, ptr %12, align 8, !tbaa !64
-  %80 = getelementptr inbounds nuw %struct.submodule_tree_entry, ptr %79, i64 %indvars.iv74
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %79, i64 %indvars.iv74
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8, !tbaa !69
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -1731,7 +1729,7 @@ define dso_local void @die_if_checked_out(ptr noundef %0, i32 noundef %1) local_
 .lr.ph18:                                         ; preds = %.lr.ph.split.us, %7
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %7 ], [ 0, %.lr.ph.split.us ]
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
-  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next27
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next27
   %10 = load ptr, ptr %9, align 8, !tbaa !27
   %.not.us = icmp eq ptr %10, null
   br i1 %.not.us, label %._crit_edge, label %7, !llvm.loop !98
@@ -1755,7 +1753,7 @@ define dso_local void @die_if_checked_out(ptr noundef %0, i32 noundef %1) local_
 
 .split.us:                                        ; preds = %14, %7, %.lr.ph.split.us
   %.us-phi = phi i64 [ %indvars.iv.next27, %7 ], [ 0, %.lr.ph.split.us ], [ %indvars.iv, %14 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %4, i64 %.us-phi
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.us-phi
   call fastcc void @skip_prefix(ptr noundef %0, ptr noundef %3)
   %17 = tail call fastcc ptr @_(ptr noundef nonnull @.str.19)
   %18 = load ptr, ptr %3, align 8, !tbaa !26
@@ -1767,7 +1765,7 @@ define dso_local void @die_if_checked_out(ptr noundef %0, i32 noundef %1) local_
 
 22:                                               ; preds = %14, %.lr.ph.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next
   %24 = load ptr, ptr %23, align 8, !tbaa !27
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !98

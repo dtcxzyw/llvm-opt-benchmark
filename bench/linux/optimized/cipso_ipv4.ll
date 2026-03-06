@@ -15,7 +15,6 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.0 = type { %struct.atomic_t }
 %struct.atomic_t = type { i32 }
 %struct.list_head = type { ptr, ptr }
-%struct.cipso_v4_map_cache_bkt = type { %struct.spinlock, i32, %struct.list_head }
 
 @cipso_v4_cache_enabled = dso_local global i32 1, align 4
 @cipso_v4_cache_bucketsize = dso_local global i32 10, align 4
@@ -42,10 +41,10 @@ define dso_local void @cipso_v4_cache_invalidate() local_unnamed_addr #0 align 1
 1:                                                ; preds = %.loopexit, %0
   %2 = phi i64 [ 0, %0 ], [ %40, %.loopexit ]
   %3 = load ptr, ptr @cipso_v4_cache, align 8
-  %4 = getelementptr %struct.cipso_v4_map_cache_bkt, ptr %3, i64 %2
+  %4 = getelementptr [24 x i8], ptr %3, i64 %2
   tail call void @_raw_spin_lock_bh(ptr noundef %4) #15
   %5 = load ptr, ptr @cipso_v4_cache, align 8
-  %.split = getelementptr %struct.cipso_v4_map_cache_bkt, ptr %5, i64 %2
+  %.split = getelementptr [24 x i8], ptr %5, i64 %2
   %6 = getelementptr i8, ptr %.split, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %6
@@ -103,7 +102,7 @@ define dso_local void @cipso_v4_cache_invalidate() local_unnamed_addr #0 align 1
   tail call void @kfree(ptr noundef %33) #15
   tail call void @kfree(ptr noundef %10) #15
   %34 = load ptr, ptr @cipso_v4_cache, align 8
-  %35 = getelementptr %struct.cipso_v4_map_cache_bkt, ptr %34, i64 %2
+  %35 = getelementptr [24 x i8], ptr %34, i64 %2
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = icmp eq ptr %11, %36
   br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !8
@@ -177,10 +176,10 @@ define dso_local noundef range(i32 -12, 1) i32 @cipso_v4_cache_add(ptr noundef %
   %37 = and i32 %36, 127
   %38 = load ptr, ptr @cipso_v4_cache, align 8
   %39 = zext nneg i32 %37 to i64
-  %40 = getelementptr %struct.cipso_v4_map_cache_bkt, ptr %38, i64 %39
+  %40 = getelementptr [24 x i8], ptr %38, i64 %39
   tail call void @_raw_spin_lock_bh(ptr noundef %40) #15
   %41 = load ptr, ptr @cipso_v4_cache, align 8
-  %42 = getelementptr %struct.cipso_v4_map_cache_bkt, ptr %41, i64 %39
+  %42 = getelementptr [24 x i8], ptr %41, i64 %39
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = icmp ult i32 %44, %3
@@ -267,7 +266,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cipso_v4_cache_add(ptr noundef %
 
 86:                                               ; preds = %.thread, %46
   %87 = phi ptr [ %.pre, %.thread ], [ %41, %46 ]
-  %88 = getelementptr %struct.cipso_v4_map_cache_bkt, ptr %87, i64 %39
+  %88 = getelementptr [24 x i8], ptr %87, i64 %39
   tail call void @_raw_spin_unlock_bh(ptr noundef %88) #15
   br label %108
 
@@ -1190,7 +1189,7 @@ define dso_local range(i32 0, 256) i32 @cipso_v4_validate(ptr noundef readonly c
 77:                                               ; preds = %71
   %78 = load ptr, ptr %73, align 8
   %79 = zext i8 %69 to i64
-  %80 = getelementptr i32, ptr %78, i64 %79
+  %80 = getelementptr [4 x i8], ptr %78, i64 %79
   %81 = load i32, ptr %80, align 4
   %82 = icmp sgt i32 %81, -1
   br i1 %82, label %85, label %83
@@ -1242,7 +1241,7 @@ define dso_local range(i32 0, 256) i32 @cipso_v4_validate(ptr noundef readonly c
 108:                                              ; preds = %102
   %109 = load ptr, ptr %104, align 8
   %110 = zext i8 %100 to i64
-  %111 = getelementptr i32, ptr %109, i64 %110
+  %111 = getelementptr [4 x i8], ptr %109, i64 %110
   %112 = load i32, ptr %111, align 4
   %113 = icmp sgt i32 %112, -1
   br i1 %113, label %116, label %114
@@ -1319,7 +1318,7 @@ define dso_local range(i32 0, 256) i32 @cipso_v4_validate(ptr noundef readonly c
 155:                                              ; preds = %149
   %156 = load ptr, ptr %151, align 8
   %157 = zext i8 %147 to i64
-  %158 = getelementptr i32, ptr %156, i64 %157
+  %158 = getelementptr [4 x i8], ptr %156, i64 %157
   %159 = load i32, ptr %158, align 4
   %160 = icmp sgt i32 %159, -1
   br i1 %160, label %163, label %161
@@ -1453,7 +1452,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @cipso_v4_map_cat_rbm_valid
 
 21:                                               ; preds = %19
   %22 = zext nneg i32 %17 to i64
-  %23 = getelementptr i32, ptr %13, i64 %22
+  %23 = getelementptr [4 x i8], ptr %13, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %.loopexit, label %14, !llvm.loop !27
@@ -1676,7 +1675,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = zext i32 %25 to i64
-  %36 = getelementptr i32, ptr %34, i64 %35
+  %36 = getelementptr [4 x i8], ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = tail call i32 @llvm.smax.i32(i32 %37, i32 0)
   %39 = icmp sgt i32 %37, -1
@@ -1727,7 +1726,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
 
 63:                                               ; preds = %61
   %64 = zext nneg i32 %56 to i64
-  %65 = getelementptr i32, ptr %52, i64 %64
+  %65 = getelementptr [4 x i8], ptr %52, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = icmp slt i32 %66, 0
   br i1 %67, label %.thread, label %68
@@ -1800,7 +1799,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
   %108 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = zext i32 %100 to i64
-  %111 = getelementptr i32, ptr %109, i64 %110
+  %111 = getelementptr [4 x i8], ptr %109, i64 %110
   %112 = load i32, ptr %111, align 4
   %113 = icmp sgt i32 %112, -1
   br i1 %113, label %.thread38, label %.thread
@@ -1874,7 +1873,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
   %152 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %153 = load ptr, ptr %152, align 8
   %154 = zext i32 %144 to i64
-  %155 = getelementptr i32, ptr %153, i64 %154
+  %155 = getelementptr [4 x i8], ptr %153, i64 %154
   %156 = load i32, ptr %155, align 4
   %157 = icmp sgt i32 %156, -1
   br i1 %157, label %.thread45, label %.thread
@@ -1911,7 +1910,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
   %175 = trunc i32 %167 to i16
   %176 = or disjoint i32 %169, 1
   %177 = zext i32 %169 to i64
-  %178 = getelementptr i16, ptr %4, i64 %177
+  %178 = getelementptr [2 x i8], ptr %4, i64 %177
   store i16 %175, ptr %178, align 4
   %179 = load ptr, ptr %14, align 8
   %180 = tail call i32 @netlbl_catmap_walkrng(ptr noundef %179, i32 noundef %167) #15
@@ -1927,7 +1926,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
   %186 = trunc i32 %180 to i16
   %187 = add i32 %169, 2
   %188 = zext i32 %176 to i64
-  %189 = getelementptr i16, ptr %4, i64 %188
+  %189 = getelementptr [2 x i8], ptr %4, i64 %188
   store i16 %186, ptr %189, align 2
   %190 = load ptr, ptr %14, align 8
   %191 = add nuw i32 %180, 1
@@ -1940,7 +1939,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
   %195 = phi i32 [ %215, %214 ], [ 0, %165 ]
   %196 = add i32 %194, -1
   %197 = zext i32 %196 to i64
-  %198 = getelementptr i16, ptr %4, i64 %197
+  %198 = getelementptr [2 x i8], ptr %4, i64 %197
   %199 = load i16, ptr %198, align 2
   %200 = tail call i16 @llvm.bswap.i16(i16 %199)
   %201 = sext i32 %195 to i64
@@ -1949,7 +1948,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
   %203 = add i32 %195, 2
   %204 = add i32 %194, -2
   %205 = zext i32 %204 to i64
-  %206 = getelementptr i16, ptr %4, i64 %205
+  %206 = getelementptr [2 x i8], ptr %4, i64 %205
   %207 = load i16, ptr %206, align 2
   %208 = icmp eq i16 %207, 0
   br i1 %208, label %214, label %209
@@ -2287,10 +2286,10 @@ define dso_local i32 @cipso_v4_getattr(ptr noundef %0, ptr noundef %1) local_unn
   %10 = and i32 %9, 127
   %11 = load ptr, ptr @cipso_v4_cache, align 8
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr %struct.cipso_v4_map_cache_bkt, ptr %11, i64 %12
+  %13 = getelementptr [24 x i8], ptr %11, i64 %12
   tail call void @_raw_spin_lock_bh(ptr noundef %13) #15
   %14 = load ptr, ptr @cipso_v4_cache, align 8
-  %.split = getelementptr %struct.cipso_v4_map_cache_bkt, ptr %14, i64 %12
+  %.split = getelementptr [24 x i8], ptr %14, i64 %12
   %15 = getelementptr i8, ptr %.split, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %15
@@ -2357,7 +2356,7 @@ define dso_local i32 @cipso_v4_getattr(ptr noundef %0, ptr noundef %1) local_unn
 
 56:                                               ; preds = %49
   %57 = load ptr, ptr @cipso_v4_cache, align 8
-  %58 = getelementptr %struct.cipso_v4_map_cache_bkt, ptr %57, i64 %12
+  %58 = getelementptr [24 x i8], ptr %57, i64 %12
   tail call void @_raw_spin_unlock_bh(ptr noundef %58) #15
   br label %302
 
@@ -2399,7 +2398,7 @@ define dso_local i32 @cipso_v4_getattr(ptr noundef %0, ptr noundef %1) local_unn
 
 80:                                               ; preds = %72, %65
   %81 = load ptr, ptr @cipso_v4_cache, align 8
-  %82 = getelementptr %struct.cipso_v4_map_cache_bkt, ptr %81, i64 %12
+  %82 = getelementptr [24 x i8], ptr %81, i64 %12
   tail call void @_raw_spin_unlock_bh(ptr noundef %82) #15
   br label %302
 
@@ -2478,7 +2477,7 @@ define dso_local i32 @cipso_v4_getattr(ptr noundef %0, ptr noundef %1) local_unn
 123:                                              ; preds = %117
   %124 = load ptr, ptr %119, align 8
   %125 = zext i8 %113 to i64
-  %126 = getelementptr i32, ptr %124, i64 %125
+  %126 = getelementptr [4 x i8], ptr %124, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = icmp sgt i32 %127, -1
   br i1 %128, label %.thread34, label %.thread
@@ -2545,7 +2544,7 @@ define dso_local i32 @cipso_v4_getattr(ptr noundef %0, ptr noundef %1) local_unn
 
 165:                                              ; preds = %163
   %166 = zext nneg i32 %156 to i64
-  %167 = getelementptr i32, ptr %151, i64 %166
+  %167 = getelementptr [4 x i8], ptr %151, i64 %166
   %168 = load i32, ptr %167, align 4
   %169 = icmp slt i32 %168, 0
   br i1 %169, label %select.unfold, label %170
@@ -2599,7 +2598,7 @@ select.unfold:                                    ; preds = %163, %165, %170, %1
 197:                                              ; preds = %191
   %198 = load ptr, ptr %193, align 8
   %199 = zext i8 %187 to i64
-  %200 = getelementptr i32, ptr %198, i64 %199
+  %200 = getelementptr [4 x i8], ptr %198, i64 %199
   %201 = load i32, ptr %200, align 4
   %202 = icmp sgt i32 %201, -1
   br i1 %202, label %.thread41, label %.thread
@@ -2674,7 +2673,7 @@ select.unfold:                                    ; preds = %163, %165, %170, %1
 246:                                              ; preds = %240
   %247 = load ptr, ptr %242, align 8
   %248 = zext i8 %236 to i64
-  %249 = getelementptr i32, ptr %247, i64 %248
+  %249 = getelementptr [4 x i8], ptr %247, i64 %248
   %250 = load i32, ptr %249, align 4
   %251 = icmp sgt i32 %250, -1
   br i1 %251, label %.thread46, label %.thread
@@ -3125,7 +3124,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @cipso_v4_cache_init() unna
 
 .preheader:                                       ; preds = %0, %.preheader
   %4 = phi i64 [ %9, %.preheader ], [ 0, %0 ]
-  %5 = getelementptr %struct.cipso_v4_map_cache_bkt, ptr %2, i64 %4
+  %5 = getelementptr [24 x i8], ptr %2, i64 %4
   store i32 0, ptr %5, align 8
   %6 = getelementptr i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4

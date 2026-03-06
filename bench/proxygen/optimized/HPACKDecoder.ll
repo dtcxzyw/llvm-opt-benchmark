@@ -20,9 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"class.std::basic_string_view" = type { i64, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.8 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.8 = type { i64, [8 x i8] }
 
 $_ZN8proxygen15HPACKHeaderNameaSERKS0_ = comdat any
 
@@ -1118,7 +1115,7 @@ lpad:                                             ; preds = %if.then
 if.else:                                          ; preds = %entry
   %call.i4 = tail call noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 1)
   %idx.ext.i = zext i8 %call3 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call.i4, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %call.i4, i64 %idx.ext.i
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %invoke.cont

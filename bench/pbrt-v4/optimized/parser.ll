@@ -51,7 +51,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pstd::pmr::polymorphic_allocator.39" = type { ptr }
 %union.anon.40 = type { [8 x ptr] }
 %"class.std::function.75" = type { %"class.std::_Function_base", ptr }
-%"struct.std::pair" = type { ptr, ptr }
 %"class.std::allocator" = type { i8 }
 %class.anon.165 = type { ptr, ptr, ptr }
 %"class.pbrt::ParameterDictionary" = type <{ %"class.pbrt::InlinedVector", ptr, i32, [4 x i8] }>
@@ -88,8 +87,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.114" = type { %"struct.std::_Vector_base<pbrt::Point3<float>, std::allocator<pbrt::Point3<float>>>::_Vector_impl" }
 %"struct.std::_Vector_base<pbrt::Point3<float>, std::allocator<pbrt::Point3<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<pbrt::Point3<float>, std::allocator<pbrt::Point3<float>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<pbrt::Point3<float>, std::allocator<pbrt::Point3<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.pbrt::Point2" = type { %"class.pbrt::Tuple2" }
-%"class.pbrt::Tuple2" = type { float, float }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -864,8 +861,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i: ; p
 
 .lr.ph.i.i:                                       ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i ]
-  %38 = getelementptr inbounds nuw float, ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i
-  %39 = getelementptr inbounds nuw float, ptr %.pre.i.i, i64 %indvars.iv.i.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %indvars.iv.i.i
   %40 = load float, ptr %39, align 4, !tbaa !22
   store float %40, ptr %38, align 4, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -876,7 +873,7 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE9push_backERKf.exit: ; preds
   %41 = phi i64 [ %.pre2.i, %_ZN4pstd3pmr21polymorphic_allocatorIfE17deallocate_objectIfEEvPT_m.exit.i.i ], [ %16, %20 ], [ %18, %13 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %43 = load ptr, ptr %42, align 8, !tbaa !21
-  %44 = getelementptr inbounds nuw float, ptr %43, i64 %41
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %41
   store float %1, ptr %44, align 4, !tbaa !22
   %45 = add i64 %41, 1
   store i64 %45, ptr %17, align 8, !tbaa !17
@@ -1018,8 +1015,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIiE17deallocate_objectIiEEvPT_m.exit.i.i: ; p
 
 .lr.ph.i.i:                                       ; preds = %_ZN4pstd3pmr21polymorphic_allocatorIiE15allocate_objectIiEEPT_m.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorIiE15allocate_objectIiEEPT_m.exit.i.i ]
-  %38 = getelementptr inbounds nuw i32, ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i
-  %39 = getelementptr inbounds nuw i32, ptr %.pre.i.i, i64 %indvars.iv.i.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %indvars.iv.i.i
   %40 = load i32, ptr %39, align 4, !tbaa !39
   store i32 %40, ptr %38, align 4, !tbaa !39
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1030,7 +1027,7 @@ _ZN4pstd6vectorIiNS_3pmr21polymorphic_allocatorIiEEE9push_backERKi.exit: ; preds
   %41 = phi i64 [ %.pre2.i, %_ZN4pstd3pmr21polymorphic_allocatorIiE17deallocate_objectIiEEvPT_m.exit.i.i ], [ %16, %20 ], [ %18, %13 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %43 = load ptr, ptr %42, align 8, !tbaa !38
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %41
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %41
   store i32 %1, ptr %44, align 4, !tbaa !39
   %45 = add i64 %41, 1
   store i64 %45, ptr %17, align 8, !tbaa !4
@@ -1177,7 +1174,7 @@ define dso_local void @_ZN4pbrt15ParsedParameter9AddStringESt17basic_string_view
   %40 = phi i64 [ %.pre.i, %.noexc4 ], [ %33, %26 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %42 = load ptr, ptr %41, align 8, !tbaa !51
-  %43 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %42, i64 %40
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %40
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %44, ptr %43, align 8, !tbaa !26
   %45 = load ptr, ptr %5, align 8, !tbaa !35
@@ -6883,7 +6880,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit648:     ; preds = %520
 
 _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit651:     ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit648
   %525 = fptrunc double %524 to float
-  %526 = getelementptr inbounds nuw float, ptr %127, i64 %indvars.iv6364
+  %526 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv6364
   store float %525, ptr %526, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
   %indvars.iv.next6365 = add nuw nsw i64 %indvars.iv6364, 1
@@ -8624,7 +8621,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit993: ; preds = %.b
 _ZNSt6vectorISt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit985: ; preds = %_ZNSt6vectorISt10unique_ptrIN4pbrt9TokenizerESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i2203, %991
   store ptr %984, ptr %109, align 8, !tbaa !148
   store ptr %990, ptr %260, align 8, !tbaa !151
-  %1014 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %984, i64 %982
+  %1014 = getelementptr inbounds nuw [8 x i8], ptr %984, i64 %982
   store ptr %1014, ptr %261, align 8, !tbaa !152
   %.pr = load ptr, ptr %145, align 8, !tbaa !115
   %.not.i994 = icmp eq ptr %.pr, null
@@ -9522,7 +9519,7 @@ _ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EE11_S_
   br label %_ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i
 
 _ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i: ; preds = %1285, %_ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i
-  %1286 = getelementptr inbounds nuw %"struct.std::pair", ptr %1280, i64 %1278
+  %1286 = getelementptr inbounds nuw [16 x i8], ptr %1280, i64 %1278
   br label %_ZNSt6vectorISt4pairIPN4pbrt8AsyncJobIiEEPNS1_17BasicSceneBuilderEESaIS7_EE9push_backEOS7_.exit
 
 1287:                                             ; preds = %.noexc.i.i.i.i.i.i.i
@@ -9739,7 +9736,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1164:    ; preds = %1331
 
 _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1167:    ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1164
   %1336 = fptrunc double %1335 to float
-  %1337 = getelementptr inbounds nuw float, ptr %159, i64 %indvars.iv6360
+  %1337 = getelementptr inbounds nuw [4 x i8], ptr %159, i64 %indvars.iv6360
   store float %1336, ptr %1337, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %160)
   %indvars.iv.next6361 = add nuw nsw i64 %indvars.iv6360, 1
@@ -11916,7 +11913,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1684:    ; preds = %1914
 
 _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1687:    ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1684
   %1919 = fptrunc double %1918 to float
-  %1920 = getelementptr inbounds nuw float, ptr %182, i64 %indvars.iv6356
+  %1920 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %indvars.iv6356
   store float %1919, ptr %1920, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %183)
   %indvars.iv.next6357 = add nuw nsw i64 %indvars.iv6356, 1
@@ -12129,7 +12126,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1746:    ; preds = %1968
 
 _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1749:    ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1746
   %1973 = fptrunc double %1972 to float
-  %1974 = getelementptr inbounds nuw float, ptr %186, i64 %indvars.iv6352
+  %1974 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %indvars.iv6352
   store float %1973, ptr %1974, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %187)
   %indvars.iv.next6353 = add nuw nsw i64 %indvars.iv6352, 1
@@ -12538,7 +12535,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1854:    ; preds = %2065
 
 _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1857:    ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1854
   %2070 = fptrunc double %2069 to float
-  %2071 = getelementptr inbounds nuw float, ptr %191, i64 %indvars.iv6348
+  %2071 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %indvars.iv6348
   store float %2070, ptr %2071, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %192)
   %indvars.iv.next6349 = add nuw nsw i64 %indvars.iv6348, 1
@@ -12803,7 +12800,7 @@ _ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1912:    ; preds = %2122
 
 _ZN4pstd8optionalIN4pbrt5TokenEED2Ev.exit1915:    ; preds = %_ZN4pstd8optionalIN4pbrt5TokenEEdeEv.exit1912
   %2127 = fptrunc double %2126 to float
-  %2128 = getelementptr inbounds nuw float, ptr %194, i64 %indvars.iv6345
+  %2128 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %indvars.iv6345
   store float %2127, ptr %2128, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %195)
   %indvars.iv.next6346 = add nuw nsw i64 %indvars.iv6345, 1
@@ -15890,7 +15887,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %243 = phi i64 [ %.pre426, %.lr.ph.i141 ], [ %251, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS7_EEvPT_.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i141 ], [ %indvars.iv.next.i, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS7_EEvPT_.exit.i ]
   %244 = load ptr, ptr %241, align 8, !tbaa !51
-  %245 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %244, i64 %indvars.iv.i
+  %245 = getelementptr inbounds nuw [32 x i8], ptr %244, i64 %indvars.iv.i
   %246 = load ptr, ptr %245, align 8, !tbaa !35
   %247 = getelementptr inbounds nuw i8, ptr %245, i64 16
   %248 = icmp eq ptr %246, %247
@@ -16216,8 +16213,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIPN4pbrt15ParsedParameterEE17deallocate_objec
 
 388:                                              ; preds = %388, %.lr.ph.i.i171
   %indvars.iv.i.i172 = phi i64 [ 0, %.lr.ph.i.i171 ], [ %indvars.iv.next.i.i173, %388 ]
-  %389 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i14.i, i64 %indvars.iv.i.i172
-  %390 = getelementptr inbounds nuw ptr, ptr %381, i64 %indvars.iv.i.i172
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i14.i, i64 %indvars.iv.i.i172
+  %390 = getelementptr inbounds nuw [8 x i8], ptr %381, i64 %indvars.iv.i.i172
   %391 = load ptr, ptr %390, align 8, !tbaa !507
   store ptr %391, ptr %389, align 8, !tbaa !507
   %indvars.iv.next.i.i173 = add nuw nsw i64 %indvars.iv.i.i172, 1
@@ -16228,7 +16225,7 @@ _ZN4pstd3pmr21polymorphic_allocatorIPN4pbrt15ParsedParameterEE17deallocate_objec
   %392 = phi ptr [ %.0.i.i.i.i14.i, %_ZN4pstd3pmr21polymorphic_allocatorIPN4pbrt15ParsedParameterEE17deallocate_objectIS4_EEvPT_m.exit.i.i ], [ %367, %371 ], [ %367, %365 ]
   %.not.i4.i = icmp eq ptr %392, null
   %393 = select i1 %.not.i4.i, ptr %38, ptr %392
-  %394 = getelementptr inbounds nuw ptr, ptr %393, i64 %366
+  %394 = getelementptr inbounds nuw [8 x i8], ptr %393, i64 %366
   %395 = load ptr, ptr %12, align 8, !tbaa !507
   store ptr %395, ptr %394, align 8, !tbaa !507
   %396 = add i64 %366, 1
@@ -17938,7 +17935,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %.bo
 
 53:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN4pbrt6PrintfIJRfEEEvPKcDpOT_.exit
   %indvars.iv = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %indvars.iv.next, %_ZN4pbrt6PrintfIJRfEEEvPKcDpOT_.exit ]
-  %54 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %31, ptr %4, align 8, !tbaa !26, !alias.scope !648
   store i64 0, ptr %32, align 8, !tbaa !32, !alias.scope !648
@@ -18110,7 +18107,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %.bo
 
 53:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZN4pbrt6PrintfIJRfEEEvPKcDpOT_.exit
   %indvars.iv = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %indvars.iv.next, %_ZN4pbrt6PrintfIJRfEEEvPKcDpOT_.exit ]
-  %54 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %31, ptr %4, align 8, !tbaa !26, !alias.scope !661
   store i64 0, ptr %32, align 8, !tbaa !32, !alias.scope !661
@@ -23221,8 +23218,8 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
 
 35:                                               ; preds = %35, %.lr.ph.i
   %.011.i = phi i64 [ 0, %.lr.ph.i ], [ %39, %35 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %30, i64 %.011.i
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %.011.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.011.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.011.i
   %38 = load ptr, ptr %37, align 8, !tbaa !507
   store ptr %38, ptr %36, align 8, !tbaa !507
   %39 = add nuw i64 %.011.i, 1
@@ -23916,8 +23913,8 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
 
 35:                                               ; preds = %35, %.lr.ph.i
   %.011.i = phi i64 [ 0, %.lr.ph.i ], [ %39, %35 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %30, i64 %.011.i
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %.011.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.011.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.011.i
   %38 = load ptr, ptr %37, align 8, !tbaa !507
   store ptr %38, ptr %36, align 8, !tbaa !507
   %39 = add nuw i64 %.011.i, 1
@@ -24727,8 +24724,8 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i.thread386:
 
 .lr.ph.i.i:                                       ; preds = %213, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %213 ]
-  %219 = getelementptr inbounds nuw float, ptr %218, i64 %indvars.iv.i.i
-  %220 = getelementptr inbounds nuw float, ptr %.pre.i.i, i64 %indvars.iv.i.i
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %indvars.iv.i.i
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %indvars.iv.i.i
   %221 = load float, ptr %220, align 4, !tbaa !22
   store float %221, ptr %219, align 4, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -24838,8 +24835,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIPN4pbrt15ParsedParameterEE17deallocate_objec
 
 262:                                              ; preds = %262, %.lr.ph.i.i159
   %indvars.iv.i.i160 = phi i64 [ 0, %.lr.ph.i.i159 ], [ %indvars.iv.next.i.i161, %262 ]
-  %263 = getelementptr inbounds nuw ptr, ptr %252, i64 %indvars.iv.i.i160
-  %264 = getelementptr inbounds nuw ptr, ptr %254, i64 %indvars.iv.i.i160
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %indvars.iv.i.i160
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %indvars.iv.i.i160
   %265 = load ptr, ptr %264, align 8, !tbaa !507
   store ptr %265, ptr %263, align 8, !tbaa !507
   %indvars.iv.next.i.i161 = add nuw nsw i64 %indvars.iv.i.i160, 1
@@ -24865,8 +24862,8 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
 
 274:                                              ; preds = %274, %.lr.ph.i157
   %.011.i = phi i64 [ 0, %.lr.ph.i157 ], [ %278, %274 ]
-  %275 = getelementptr inbounds nuw ptr, ptr %269, i64 %.011.i
-  %276 = getelementptr inbounds nuw ptr, ptr %273, i64 %.011.i
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %269, i64 %.011.i
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %.011.i
   %277 = load ptr, ptr %276, align 8, !tbaa !507
   store ptr %277, ptr %275, align 8, !tbaa !507
   %278 = add nuw i64 %.011.i, 1
@@ -31589,8 +31586,8 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
 
 36:                                               ; preds = %36, %.lr.ph.i
   %.011.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %36 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %31, i64 %.011.i
-  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %.011.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.011.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.011.i
   %39 = load ptr, ptr %38, align 8, !tbaa !507
   store ptr %39, ptr %37, align 8, !tbaa !507
   %40 = add nuw i64 %.011.i, 1
@@ -32123,8 +32120,8 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
 
 47:                                               ; preds = %47, %.lr.ph.i
   %.011.i = phi i64 [ 0, %.lr.ph.i ], [ %51, %47 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %.011.i
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %.011.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.011.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.011.i
   %50 = load ptr, ptr %49, align 8, !tbaa !507
   store ptr %50, ptr %48, align 8, !tbaa !507
   %51 = add nuw i64 %.011.i, 1
@@ -33702,8 +33699,8 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
 
 54:                                               ; preds = %54, %.lr.ph.i
   %.011.i = phi i64 [ 0, %.lr.ph.i ], [ %58, %54 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %49, i64 %.011.i
-  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %.011.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.011.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.011.i
   %57 = load ptr, ptr %56, align 8, !tbaa !507
   store ptr %57, ptr %55, align 8, !tbaa !507
   %58 = add nuw i64 %.011.i, 1
@@ -35426,8 +35423,8 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
 
 43:                                               ; preds = %43, %.lr.ph.i
   %.011.i = phi i64 [ 0, %.lr.ph.i ], [ %47, %43 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %38, i64 %.011.i
-  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %.011.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.011.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.011.i
   %46 = load ptr, ptr %45, align 8, !tbaa !507
   store ptr %46, ptr %44, align 8, !tbaa !507
   %47 = add nuw i64 %.011.i, 1
@@ -36218,8 +36215,8 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
 
 80:                                               ; preds = %80, %.lr.ph.i
   %.011.i = phi i64 [ 0, %.lr.ph.i ], [ %84, %80 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %75, i64 %.011.i
-  %82 = getelementptr inbounds nuw ptr, ptr %79, i64 %.011.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.011.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %.011.i
   %83 = load ptr, ptr %82, align 8, !tbaa !507
   store ptr %83, ptr %81, align 8, !tbaa !507
   %84 = add nuw i64 %.011.i, 1
@@ -36499,7 +36496,7 @@ _ZN4pbrt12StringPrintfIJRPKciEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
 
 .preheader.i.i:                                   ; preds = %190, %_ZN4pbrt12StringPrintfIJRPKciEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_DpOT_.exit
   %indvars.iv12.i.i = phi i64 [ 0, %_ZN4pbrt12StringPrintfIJRPKciEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_DpOT_.exit ], [ %indvars.iv.next13.i.i, %190 ]
-  %189 = getelementptr inbounds nuw [4 x float], ptr %27, i64 %indvars.iv12.i.i
+  %189 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %indvars.iv12.i.i
   br label %191
 
 190:                                              ; preds = %191
@@ -36511,7 +36508,7 @@ _ZN4pbrt12StringPrintfIJRPKciEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %indvars.iv.i.i185 = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i186, %191 ]
   %192 = icmp eq i64 %indvars.iv12.i.i, %indvars.iv.i.i185
   %193 = uitofp i1 %192 to float
-  %194 = getelementptr inbounds nuw float, ptr %189, i64 %indvars.iv.i.i185
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %189, i64 %indvars.iv.i.i185
   store float %193, ptr %194, align 4, !tbaa !22
   %indvars.iv.next.i.i186 = add nuw nsw i64 %indvars.iv.i.i185, 1
   %exitcond.not.i.i187 = icmp eq i64 %indvars.iv.next.i.i186, 4
@@ -36523,7 +36520,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %190
 
 .preheader.i1.i:                                  ; preds = %197, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i
   %indvars.iv12.i2.i = phi i64 [ 0, %_ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i ], [ %indvars.iv.next13.i6.i, %197 ]
-  %196 = getelementptr inbounds nuw [4 x float], ptr %195, i64 %indvars.iv12.i2.i
+  %196 = getelementptr inbounds nuw [16 x i8], ptr %195, i64 %indvars.iv12.i2.i
   br label %198
 
 197:                                              ; preds = %198
@@ -36535,7 +36532,7 @@ _ZN4pbrt12SquareMatrixILi4EEC2Ev.exit.i:          ; preds = %190
   %indvars.iv.i3.i = phi i64 [ 0, %.preheader.i1.i ], [ %indvars.iv.next.i4.i, %198 ]
   %199 = icmp eq i64 %indvars.iv12.i2.i, %indvars.iv.i3.i
   %200 = uitofp i1 %199 to float
-  %201 = getelementptr inbounds nuw float, ptr %196, i64 %indvars.iv.i3.i
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %196, i64 %indvars.iv.i3.i
   store float %200, ptr %201, align 4, !tbaa !22
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4
@@ -38240,7 +38237,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit65.i: ; preds = %8
   %828 = phi ptr [ %809, %.lr.ph.i441 ], [ %882, %880 ]
   %.0128.i = phi i64 [ 0, %.lr.ph.i441 ], [ %846, %880 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1152
-  %829 = getelementptr inbounds nuw %"class.pbrt::Point2", ptr %828, i64 %.0128.i
+  %829 = getelementptr inbounds nuw [8 x i8], ptr %828, i64 %.0128.i
   %830 = getelementptr inbounds nuw i8, ptr %829, i64 4
   store ptr %810, ptr %10, align 8, !tbaa !26, !alias.scope !1168, !noalias !1152
   store i64 0, ptr %811, align 8, !tbaa !32, !alias.scope !1168, !noalias !1152
@@ -46040,8 +46037,8 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(96) ptr @_
 
 26:                                               ; preds = %.preheader, %26
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
-  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !507
   store ptr %29, ptr %27, align 8, !tbaa !507
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -46105,8 +46102,8 @@ _ZN4pstd3pmr21polymorphic_allocatorIPN4pbrt15ParsedParameterEE17deallocate_objec
 
 54:                                               ; preds = %54, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %54 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i
-  %56 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i
   %57 = load ptr, ptr %56, align 8, !tbaa !507
   store ptr %57, ptr %55, align 8, !tbaa !507
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -46136,8 +46133,8 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
 
 66:                                               ; preds = %.lr.ph, %66
   %.029 = phi i64 [ 0, %.lr.ph ], [ %70, %66 ]
-  %67 = getelementptr inbounds nuw ptr, ptr %61, i64 %.029
-  %68 = getelementptr inbounds nuw ptr, ptr %65, i64 %.029
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.029
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.029
   %69 = load ptr, ptr %68, align 8, !tbaa !507
   store ptr %69, ptr %67, align 8, !tbaa !507
   %70 = add nuw i64 %.029, 1
@@ -46291,7 +46288,7 @@ _ZNSt12_Vector_baseIN4pbrt6Point2IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; pre
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %54, ptr %6, align 8, !tbaa !1167
   store ptr %54, ptr %55, align 8, !tbaa !1165
-  %56 = getelementptr inbounds nuw %"class.pbrt::Point2", ptr %54, i64 %48
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %48
   store ptr %56, ptr %52, align 8, !tbaa !1176
   br label %_ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE7reserveEm.exit
 
@@ -46429,7 +46426,7 @@ _ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i:
 _ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %101, %_ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %95, ptr %6, align 8, !tbaa !1167
   store ptr %100, ptr %58, align 8, !tbaa !1165
-  %102 = getelementptr inbounds nuw %"class.pbrt::Point2", ptr %95, i64 %93
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %93
   store ptr %102, ptr %52, align 8, !tbaa !1176
   br label %_ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE9push_backEOS2_.exit
 
@@ -48974,9 +48971,9 @@ _ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 26:                                               ; preds = %.lr.ph, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS7_EEvPT_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS7_EEvPT_.exit ]
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.0.i.i.i, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %.0.i.i.i, i64 %indvars.iv
   %28 = load ptr, ptr %16, align 8, !tbaa !51
-  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %30, ptr %27, align 8, !tbaa !26
   %31 = load ptr, ptr %29, align 8, !tbaa !35
@@ -49008,7 +49005,7 @@ _ZN4pstd3pmr21polymorphic_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIc
   store i64 0, ptr %40, align 8, !tbaa !32
   store i8 0, ptr %32, align 8, !tbaa !34
   %43 = load ptr, ptr %16, align 8, !tbaa !51
-  %44 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !35
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %47 = icmp eq ptr %45, %46

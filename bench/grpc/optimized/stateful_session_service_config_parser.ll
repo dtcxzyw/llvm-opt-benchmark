@@ -35,17 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.96" = type { %"struct.std::_Tuple_impl.97" }
 %"struct.std::_Tuple_impl.97" = type { %"struct.std::_Head_base.100" }
 %"struct.std::_Head_base.100" = type { ptr }
-%"struct.grpc_core::StatefulSessionMethodParsedConfig::CookieConfig" = type { %"class.std::optional", %"class.std::__cxx11::basic_string", %"class.grpc_core::Duration" }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
-%"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.grpc_core::Duration" = type { i64 }
 
 $_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev = comdat any
 
@@ -728,7 +717,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !44
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !41
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !45
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -1341,7 +1330,7 @@ _ZNSt6vectorIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigESaIS2_
 _ZNSt12_Vector_baseIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core33StatefulSessionMethodParsedConfig12CookieConfigESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, %114
   store ptr %19, ptr %0, align 8, !tbaa !61
   store ptr %.0.lcssa.i.i.i26, ptr %3, align 8, !tbaa !54
-  %118 = getelementptr inbounds nuw %"struct.grpc_core::StatefulSessionMethodParsedConfig::CookieConfig", ptr %19, i64 %15
+  %118 = getelementptr inbounds nuw [80 x i8], ptr %19, i64 %15
   store ptr %118, ptr %113, align 8, !tbaa !57
   ret void
 }

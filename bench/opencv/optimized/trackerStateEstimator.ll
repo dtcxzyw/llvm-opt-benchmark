@@ -29,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cv::Ptr.34" = type { %"class.std::shared_ptr.35" }
 %"class.std::shared_ptr.35" = type { %"class.std::__shared_ptr.36" }
 %"class.std::__shared_ptr.36" = type { ptr, %"class.std::__shared_count" }
-%"struct.std::pair" = type <{ %"struct.cv::Ptr.25", float, [4 x i8] }>
 %"class.std::vector.11" = type { %"struct.std::_Vector_base.12" }
 %"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<std::pair<cv::Ptr<cv::detail::tracking::TrackerTargetState>, float>, std::allocator<std::pair<cv::Ptr<cv::detail::tracking::TrackerTargetState>, float>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<cv::Ptr<cv::detail::tracking::TrackerTargetState>, float>, std::allocator<std::pair<cv::Ptr<cv::detail::tracking::TrackerTargetState>, float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<cv::Ptr<cv::detail::tracking::TrackerTargetState>, float>, std::allocator<std::pair<cv::Ptr<cv::detail::tracking::TrackerTargetState>, float>>>::_Vector_impl_data" }
@@ -1513,7 +1512,7 @@ define void @_ZN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting12estimateI
   %22 = phi ptr [ %9, %.lr.ph ], [ %65, %_ZNSt12__shared_ptrIN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTargetStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %.0822 = phi i64 [ 0, %.lr.ph ], [ %63, %_ZNSt12__shared_ptrIN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTargetStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %23 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %.0822
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %.0822
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %24 = load ptr, ptr %23, align 8, !tbaa !76, !noalias !95
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -1661,7 +1660,7 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29Trac
   unreachable
 
 86:                                               ; preds = %76
-  %87 = getelementptr inbounds nuw %"struct.std::pair", ptr %80, i64 %78
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %80, i64 %78
   %88 = load ptr, ptr %87, align 8, !tbaa !76
   store ptr %88, ptr %0, align 8, !tbaa !76
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2094,7 +2093,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %133, %138
   br i1 %153, label %154, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 154:                                              ; preds = %152
-  %155 = getelementptr inbounds nuw i32, ptr %135, i64 %144
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %144
   %.not.i.i49 = icmp eq ptr %139, %155
   br i1 %.not.i.i49, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, label %156
 
@@ -2136,7 +2135,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit51:              ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %171, label %172, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit54
 
 172:                                              ; preds = %170
-  %173 = getelementptr inbounds nuw i32, ptr %158, i64 %144
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %158, i64 %144
   %.not.i.i52 = icmp eq ptr %162, %173
   br i1 %.not.i.i52, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit54, label %174
 
@@ -2254,7 +2253,7 @@ _ZNSt6vectorISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7
   %210 = phi ptr [ %140, %.lr.ph ], [ %361, %_ZNSt12__shared_ptrIN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTargetStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit77 ]
   %.03098 = phi i64 [ 0, %.lr.ph ], [ %359, %_ZNSt12__shared_ptrIN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTargetStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit77 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %211 = getelementptr inbounds nuw %"struct.std::pair", ptr %210, i64 %.03098
+  %211 = getelementptr inbounds nuw [24 x i8], ptr %210, i64 %.03098
   call void @llvm.experimental.noalias.scope.decl(metadata !112)
   %212 = load ptr, ptr %211, align 8, !tbaa !76, !noalias !115
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 8
@@ -2305,7 +2304,7 @@ _ZNK2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTar
 
 233:                                              ; preds = %230
   %234 = load ptr, ptr %134, align 8, !tbaa !54
-  %235 = getelementptr inbounds nuw i32, ptr %234, i64 %.03098
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %234, i64 %.03098
   store i32 %232, ptr %235, align 4, !tbaa !53
   %236 = load ptr, ptr %130, align 8, !tbaa !91
   %237 = invoke noundef i32 @_ZNK2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection20getSwappedClassifierEv(ptr noundef nonnull align 8 dereferenceable(192) %236)
@@ -2313,10 +2312,10 @@ _ZNK2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTar
 
 238:                                              ; preds = %233
   %239 = load ptr, ptr %157, align 8, !tbaa !54
-  %240 = getelementptr inbounds nuw i32, ptr %239, i64 %.03098
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %239, i64 %.03098
   store i32 %237, ptr %240, align 4, !tbaa !53
   %241 = load ptr, ptr %134, align 8, !tbaa !54
-  %242 = getelementptr inbounds nuw i32, ptr %241, i64 %.03098
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %241, i64 %.03098
   %243 = load i32, ptr %242, align 4, !tbaa !53
   %244 = or i32 %243, %237
   %or.cond = icmp sgt i32 %244, -1
@@ -2339,10 +2338,10 @@ _ZNK2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTar
 
 251:                                              ; preds = %229
   %252 = load ptr, ptr %134, align 8, !tbaa !54
-  %253 = getelementptr inbounds nuw i32, ptr %252, i64 %.03098
+  %253 = getelementptr inbounds nuw [4 x i8], ptr %252, i64 %.03098
   store i32 -1, ptr %253, align 4, !tbaa !53
   %254 = load ptr, ptr %157, align 8, !tbaa !54
-  %255 = getelementptr inbounds nuw i32, ptr %254, i64 %.03098
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %254, i64 %.03098
   store i32 -1, ptr %255, align 4, !tbaa !53
   br label %256
 
@@ -2369,7 +2368,7 @@ _ZNK2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTar
   unreachable
 
 267:                                              ; preds = %256
-  %268 = getelementptr inbounds nuw %"struct.std::pair", ptr %258, i64 %265
+  %268 = getelementptr inbounds nuw [24 x i8], ptr %258, i64 %265
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %269 = load ptr, ptr %268, align 8, !tbaa !76, !noalias !121
   %270 = getelementptr inbounds nuw i8, ptr %268, i64 8
@@ -2425,7 +2424,7 @@ _ZNK2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTar
 
 292:                                              ; preds = %289
   %293 = load ptr, ptr %134, align 8, !tbaa !54
-  %294 = getelementptr inbounds nuw i32, ptr %293, i64 %265
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %293, i64 %265
   store i32 %291, ptr %294, align 4, !tbaa !53
   %295 = load ptr, ptr %130, align 8, !tbaa !91
   %296 = invoke noundef i32 @_ZNK2cv6detail8tracking15online_boosting31StrongClassifierDirectSelection20getSwappedClassifierEv(ptr noundef nonnull align 8 dereferenceable(192) %295)
@@ -2433,10 +2432,10 @@ _ZNK2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTar
 
 297:                                              ; preds = %292
   %298 = load ptr, ptr %157, align 8, !tbaa !54
-  %299 = getelementptr inbounds nuw i32, ptr %298, i64 %265
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %298, i64 %265
   store i32 %296, ptr %299, align 4, !tbaa !53
   %300 = load ptr, ptr %134, align 8, !tbaa !54
-  %301 = getelementptr inbounds nuw i32, ptr %300, i64 %265
+  %301 = getelementptr inbounds nuw [4 x i8], ptr %300, i64 %265
   %302 = load i32, ptr %301, align 4, !tbaa !53
   %303 = or i32 %302, %296
   %or.cond79 = icmp sgt i32 %303, -1
@@ -2460,10 +2459,10 @@ _ZNK2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29TrackerAdaBoostingTar
 
 310:                                              ; preds = %288
   %311 = load ptr, ptr %134, align 8, !tbaa !54
-  %312 = getelementptr inbounds nuw i32, ptr %311, i64 %265
+  %312 = getelementptr inbounds nuw [4 x i8], ptr %311, i64 %265
   store i32 -1, ptr %312, align 4, !tbaa !53
   %313 = load ptr, ptr %157, align 8, !tbaa !54
-  %314 = getelementptr inbounds nuw i32, ptr %313, i64 %265
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %313, i64 %265
   store i32 -1, ptr %314, align 4, !tbaa !53
   br label %315
 
@@ -2947,7 +2946,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !106
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !101
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !104
   ret void
 }
@@ -3038,7 +3037,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !89
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, label %26
@@ -3047,7 +3046,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit
 
@@ -3158,7 +3157,7 @@ _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -3179,7 +3178,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !54
   store ptr %72, ptr %8, align 8, !tbaa !89
-  %74 = getelementptr inbounds nuw i32, ptr %62, i64 %55
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %74, ptr %6, align 8, !tbaa !90
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 

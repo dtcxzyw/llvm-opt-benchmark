@@ -1430,7 +1430,7 @@ define hidden noundef ptr @_ZN5sqlez9statement9Statement17current_statement17hb3
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %5
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %5
   %12 = load ptr, ptr %11, align 8, !noundef !5
   ret ptr %12
 }
@@ -1544,7 +1544,7 @@ define void @_ZN5sqlez9statement9Statement11column_blob17hd7f618a1b9514487E(ptr 
 _ZN5sqlez9statement9Statement17current_statement17hb3c6bf614fc4def5E.llvm.16744547508767205241.exit: ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !170, !nonnull !5, !noundef !5
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %20
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %20
   %26 = load ptr, ptr %25, align 8, !noalias !170, !noundef !5
   %27 = tail call noundef ptr @sqlite3_column_blob(ptr noundef %26, i32 noundef %2) #21
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1728,7 +1728,7 @@ define void @_ZN5sqlez9statement9Statement13column_double17h8af4d6389df0c2f3E(pt
 _ZN5sqlez9statement9Statement17current_statement17hb3c6bf614fc4def5E.llvm.16744547508767205241.exit: ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !202, !nonnull !5, !noundef !5
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %14
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %14
   %20 = load ptr, ptr %19, align 8, !noalias !202, !noundef !5
   %21 = tail call noundef double @sqlite3_column_double(ptr noundef %20, i32 noundef %2) #21
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1841,7 +1841,7 @@ define void @_ZN5sqlez9statement9Statement10column_int17h71f23d7e316b4444E(ptr d
 _ZN5sqlez9statement9Statement17current_statement17hb3c6bf614fc4def5E.llvm.16744547508767205241.exit: ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !218, !nonnull !5, !noundef !5
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %14
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %14
   %20 = load ptr, ptr %19, align 8, !noalias !218, !noundef !5
   %21 = tail call noundef i32 @sqlite3_column_int(ptr noundef %20, i32 noundef %2) #21
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1954,7 +1954,7 @@ define { i64, ptr } @_ZN5sqlez9statement9Statement12column_int6417h9fcf111e6ac08
 _ZN5sqlez9statement9Statement17current_statement17hb3c6bf614fc4def5E.llvm.16744547508767205241.exit: ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !234, !nonnull !5, !noundef !5
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %13
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %13
   %19 = load ptr, ptr %18, align 8, !noalias !234, !noundef !5
   %20 = tail call noundef i64 @sqlite3_column_int64(ptr noundef %19, i32 noundef %1) #21
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2100,7 +2100,7 @@ define void @_ZN5sqlez9statement9Statement11column_text17h022b51c70d93dc37E(ptr 
 _ZN5sqlez9statement9Statement17current_statement17hb3c6bf614fc4def5E.llvm.16744547508767205241.exit: ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !250, !nonnull !5, !noundef !5
-  %27 = getelementptr inbounds ptr, ptr %26, i64 %22
+  %27 = getelementptr inbounds [8 x i8], ptr %26, i64 %22
   %28 = load ptr, ptr %27, align 8, !noalias !250, !noundef !5
   %29 = tail call noundef ptr @sqlite3_column_text(ptr noundef %28, i32 noundef %2) #21
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2288,7 +2288,7 @@ define void @_ZN5sqlez9statement9Statement11column_type17h0e6b33d2698d1cb5E(ptr 
 _ZN5sqlez9statement9Statement17current_statement17hb3c6bf614fc4def5E.llvm.16744547508767205241.exit: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !282, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %8
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %8
   %14 = load ptr, ptr %13, align 8, !noalias !282, !noundef !5
   %15 = tail call noundef i32 @sqlite3_column_type(ptr noundef %14, i32 noundef %2) #21
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2384,7 +2384,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 _ZN5sqlez9statement9Statement17current_statement17hb3c6bf614fc4def5E.llvm.16744547508767205241.exit: ; preds = %_ZN5sqlez9statement9Statement17current_statement17hb3c6bf614fc4def5E.llvm.16744547508767205241.exit.lr.ph, %tailrecurse
   %13 = phi i64 [ %.promoted, %_ZN5sqlez9statement9Statement17current_statement17hb3c6bf614fc4def5E.llvm.16744547508767205241.exit.lr.ph ], [ %33, %tailrecurse ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !285)
-  %14 = getelementptr inbounds ptr, ptr %11, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8, !noalias !285, !noundef !5
   %16 = tail call noundef i32 @sqlite3_step(ptr noundef %15) #21
   switch i32 %16, label %17 [

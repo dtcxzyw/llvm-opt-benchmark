@@ -86,7 +86,7 @@ define dso_local void @posixtimer_rearm(ptr noundef captures(none) %0) local_unn
   %15 = mul i32 %14, 1640531527
   %16 = lshr i32 %15, 23
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr %struct.hlist_head, ptr @posix_timers_hashtable, i64 %17
+  %18 = getelementptr [8 x i8], ptr @posix_timers_hashtable, i64 %17
   %19 = load volatile ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %21 = getelementptr i8, ptr %19, i64 -16
@@ -200,7 +200,7 @@ define internal fastcc ptr @__lock_timer(i32 noundef %0, ptr noundef writeonly c
   %14 = mul i32 %13, 1640531527
   %15 = lshr i32 %14, 23
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr %struct.hlist_head, ptr @posix_timers_hashtable, i64 %16
+  %17 = getelementptr [8 x i8], ptr @posix_timers_hashtable, i64 %16
   %18 = load volatile ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %20 = getelementptr i8, ptr %18, i64 -16
@@ -526,7 +526,7 @@ define internal fastcc range(i64 -22, 1) i64 @__se_sys_timer_gettime(i64 noundef
   %16 = mul i64 %15, 1640531527
   %17 = lshr i64 %16, 23
   %18 = and i64 %17, 511
-  %19 = getelementptr %struct.hlist_head, ptr @posix_timers_hashtable, i64 %18
+  %19 = getelementptr [8 x i8], ptr @posix_timers_hashtable, i64 %18
   %20 = load volatile ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   %22 = getelementptr i8, ptr %20, i64 -16
@@ -652,7 +652,7 @@ define internal fastcc range(i64 -22, 1) i64 @__se_sys_timer_gettime32(i64 nound
   %16 = mul i64 %15, 1640531527
   %17 = lshr i64 %16, 23
   %18 = and i64 %17, 511
-  %19 = getelementptr %struct.hlist_head, ptr @posix_timers_hashtable, i64 %18
+  %19 = getelementptr [8 x i8], ptr @posix_timers_hashtable, i64 %18
   %20 = load volatile ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   %22 = getelementptr i8, ptr %20, i64 -16
@@ -767,7 +767,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_timer_getover
   %15 = mul i64 %14, 1640531527
   %16 = lshr i64 %15, 23
   %17 = and i64 %16, 511
-  %18 = getelementptr %struct.hlist_head, ptr @posix_timers_hashtable, i64 %17
+  %18 = getelementptr [8 x i8], ptr @posix_timers_hashtable, i64 %17
   %19 = load volatile ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %21 = getelementptr i8, ptr %19, i64 -16
@@ -850,7 +850,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_timer_getove
   %15 = mul i64 %14, 1640531527
   %16 = lshr i64 %15, 23
   %17 = and i64 %16, 511
-  %18 = getelementptr %struct.hlist_head, ptr @posix_timers_hashtable, i64 %17
+  %18 = getelementptr [8 x i8], ptr @posix_timers_hashtable, i64 %17
   %19 = load volatile ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %21 = getelementptr i8, ptr %19, i64 -16
@@ -1351,7 +1351,7 @@ define internal fastcc noundef range(i64 -22, 1) i64 @__se_sys_timer_delete(i64 
   %14 = mul i64 %13, 1640531527
   %15 = lshr i64 %14, 23
   %16 = and i64 %15, 511
-  %17 = getelementptr %struct.hlist_head, ptr @posix_timers_hashtable, i64 %16
+  %17 = getelementptr [8 x i8], ptr @posix_timers_hashtable, i64 %16
   %18 = load volatile ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %20 = getelementptr i8, ptr %18, i64 -16
@@ -1597,7 +1597,7 @@ define dso_local void @exit_itimers(ptr noundef readonly captures(none) %0) loca
   %56 = mul i32 %55, 1640531527
   %57 = lshr i32 %56, 23
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr %struct.hlist_head, ptr @posix_timers_hashtable, i64 %58
+  %59 = getelementptr [8 x i8], ptr @posix_timers_hashtable, i64 %58
   %60 = load volatile ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   %62 = getelementptr i8, ptr %60, i64 -16
@@ -1742,7 +1742,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_settime
   %16 = and i64 %4, 15
   %17 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %16) #8, !srcloc !28
   %18 = and i64 %17, %16
-  %19 = getelementptr ptr, ptr @posix_clocks, i64 %18
+  %19 = getelementptr [8 x i8], ptr @posix_clocks, i64 %18
   %20 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
@@ -1806,7 +1806,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_settim
 17:                                               ; preds = %15
   %18 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %5) #8, !srcloc !28
   %19 = and i64 %18, %5
-  %20 = getelementptr ptr, ptr @posix_clocks, i64 %19
+  %20 = getelementptr [8 x i8], ptr @posix_clocks, i64 %19
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
@@ -1869,7 +1869,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_gettime
   %16 = and i64 %4, 15
   %17 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %16) #8, !srcloc !28
   %18 = and i64 %17, %16
-  %19 = getelementptr ptr, ptr @posix_clocks, i64 %18
+  %19 = getelementptr [8 x i8], ptr @posix_clocks, i64 %18
   %20 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
@@ -1934,7 +1934,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_gettim
 17:                                               ; preds = %15
   %18 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %5) #8, !srcloc !28
   %19 = and i64 %18, %5
-  %20 = getelementptr ptr, ptr @posix_clocks, i64 %19
+  %20 = getelementptr [8 x i8], ptr @posix_clocks, i64 %19
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
@@ -1987,7 +1987,7 @@ define dso_local i32 @do_clock_adjtime(i32 noundef %0, ptr noundef %1) local_unn
   %12 = trunc i64 %11 to i32
   %13 = and i32 %0, %12
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr ptr, ptr @posix_clocks, i64 %14
+  %15 = getelementptr [8 x i8], ptr @posix_clocks, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq i32 %13, 10
   br i1 %17, label %.thread, label %18
@@ -2041,7 +2041,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_adjtime
   %19 = and i64 %4, 15
   %20 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %19) #8, !srcloc !28
   %21 = and i64 %20, %19
-  %22 = getelementptr ptr, ptr @posix_clocks, i64 %21
+  %22 = getelementptr [8 x i8], ptr @posix_clocks, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq i64 %21, 10
   br i1 %24, label %.thread4, label %25
@@ -2108,7 +2108,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_adjtim
 20:                                               ; preds = %18
   %21 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %5) #8, !srcloc !28
   %22 = and i64 %21, %5
-  %23 = getelementptr ptr, ptr @posix_clocks, i64 %22
+  %23 = getelementptr [8 x i8], ptr @posix_clocks, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq i64 %22, 10
   br i1 %25, label %.thread4, label %26
@@ -2173,7 +2173,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_getres(
   %16 = and i64 %4, 15
   %17 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %16) #8, !srcloc !28
   %18 = and i64 %17, %16
-  %19 = getelementptr ptr, ptr @posix_clocks, i64 %18
+  %19 = getelementptr [8 x i8], ptr @posix_clocks, i64 %18
   %20 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
@@ -2239,7 +2239,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_getres
 17:                                               ; preds = %15
   %18 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %5) #8, !srcloc !28
   %19 = and i64 %18, %5
-  %20 = getelementptr ptr, ptr @posix_clocks, i64 %19
+  %20 = getelementptr [8 x i8], ptr @posix_clocks, i64 %19
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
@@ -2304,7 +2304,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_settime
   %16 = and i64 %4, 15
   %17 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %16) #8, !srcloc !28
   %18 = and i64 %17, %16
-  %19 = getelementptr ptr, ptr @posix_clocks, i64 %18
+  %19 = getelementptr [8 x i8], ptr @posix_clocks, i64 %18
   %20 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
@@ -2368,7 +2368,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_settim
 17:                                               ; preds = %15
   %18 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %5) #8, !srcloc !28
   %19 = and i64 %18, %5
-  %20 = getelementptr ptr, ptr @posix_clocks, i64 %19
+  %20 = getelementptr [8 x i8], ptr @posix_clocks, i64 %19
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
@@ -2431,7 +2431,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_gettime
   %16 = and i64 %4, 15
   %17 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %16) #8, !srcloc !28
   %18 = and i64 %17, %16
-  %19 = getelementptr ptr, ptr @posix_clocks, i64 %18
+  %19 = getelementptr [8 x i8], ptr @posix_clocks, i64 %18
   %20 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
@@ -2496,7 +2496,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_gettim
 17:                                               ; preds = %15
   %18 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %5) #8, !srcloc !28
   %19 = and i64 %18, %5
-  %20 = getelementptr ptr, ptr @posix_clocks, i64 %19
+  %20 = getelementptr [8 x i8], ptr @posix_clocks, i64 %19
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
@@ -2565,7 +2565,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_adjtime
   %21 = and i64 %4, 15
   %22 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %21) #8, !srcloc !28
   %23 = and i64 %22, %21
-  %24 = getelementptr ptr, ptr @posix_clocks, i64 %23
+  %24 = getelementptr [8 x i8], ptr @posix_clocks, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq i64 %23, 10
   br i1 %26, label %.thread5, label %27
@@ -2636,7 +2636,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_adjtim
 22:                                               ; preds = %20
   %23 = call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %5) #8, !srcloc !28
   %24 = and i64 %23, %5
-  %25 = getelementptr ptr, ptr @posix_clocks, i64 %24
+  %25 = getelementptr [8 x i8], ptr @posix_clocks, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq i64 %24, 10
   br i1 %27, label %.thread5, label %28
@@ -2701,7 +2701,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_getres_
   %16 = and i64 %4, 15
   %17 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %16) #8, !srcloc !28
   %18 = and i64 %17, %16
-  %19 = getelementptr ptr, ptr @posix_clocks, i64 %18
+  %19 = getelementptr [8 x i8], ptr @posix_clocks, i64 %18
   %20 = load ptr, ptr %19, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
@@ -2765,7 +2765,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_getres
 17:                                               ; preds = %15
   %18 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %5) #8, !srcloc !28
   %19 = and i64 %18, %5
-  %20 = getelementptr ptr, ptr @posix_clocks, i64 %19
+  %20 = getelementptr [8 x i8], ptr @posix_clocks, i64 %19
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
@@ -2834,7 +2834,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_nanosle
   %22 = and i64 %4, 15
   %23 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %22) #8, !srcloc !28
   %24 = and i64 %23, %22
-  %25 = getelementptr ptr, ptr @posix_clocks, i64 %24
+  %25 = getelementptr [8 x i8], ptr @posix_clocks, i64 %24
   %26 = load ptr, ptr %25, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
@@ -2927,7 +2927,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_nanosl
 24:                                               ; preds = %22
   %25 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %5) #8, !srcloc !28
   %26 = and i64 %25, %5
-  %27 = getelementptr ptr, ptr @posix_clocks, i64 %26
+  %27 = getelementptr [8 x i8], ptr @posix_clocks, i64 %26
   %28 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
@@ -3018,7 +3018,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_clock_nanosle
   %22 = and i64 %4, 15
   %23 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %22) #8, !srcloc !28
   %24 = and i64 %23, %22
-  %25 = getelementptr ptr, ptr @posix_clocks, i64 %24
+  %25 = getelementptr [8 x i8], ptr @posix_clocks, i64 %24
   %26 = load ptr, ptr %25, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
@@ -3111,7 +3111,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_clock_nanosl
 24:                                               ; preds = %22
   %25 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 12, i64 %5) #8, !srcloc !28
   %26 = and i64 %25, %5
-  %27 = getelementptr ptr, ptr @posix_clocks, i64 %26
+  %27 = getelementptr [8 x i8], ptr @posix_clocks, i64 %26
   %28 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !9
@@ -3197,7 +3197,7 @@ define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly
   %14 = trunc i64 %13 to i32
   %15 = and i32 %0, %14
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr ptr, ptr @posix_clocks, i64 %16
+  %17 = getelementptr [8 x i8], ptr @posix_clocks, i64 %16
   %18 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = icmp eq i32 %15, 10
@@ -3255,7 +3255,7 @@ define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly
   %53 = mul i32 %52, 1640531527
   %54 = lshr i32 %53, 23
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr %struct.hlist_head, ptr @posix_timers_hashtable, i64 %55
+  %56 = getelementptr [8 x i8], ptr @posix_timers_hashtable, i64 %55
   %57 = load volatile ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   %59 = getelementptr i8, ptr %57, i64 -16
@@ -3287,7 +3287,7 @@ define internal fastcc i32 @do_timer_create(i32 noundef %0, ptr noundef readonly
 
 .loopexit:                                        ; preds = %47, %70
   %77 = phi i1 [ false, %70 ], [ %58, %47 ]
-  %78 = getelementptr %struct.hlist_head, ptr @posix_timers_hashtable, i64 %55
+  %78 = getelementptr [8 x i8], ptr @posix_timers_hashtable, i64 %55
   %79 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %57, ptr %79, align 8
   %80 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -3648,7 +3648,7 @@ define internal fastcc range(i32 2, 1) i32 @do_timer_settime(i32 noundef %0, i32
   %34 = mul i32 %33, 1640531527
   %35 = lshr i32 %34, 23
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr %struct.hlist_head, ptr @posix_timers_hashtable, i64 %36
+  %37 = getelementptr [8 x i8], ptr @posix_timers_hashtable, i64 %36
   %38 = load volatile ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   %40 = getelementptr i8, ptr %38, i64 -16
@@ -3764,7 +3764,7 @@ __lock_timer.exit:                                ; preds = %58
   %98 = mul i32 %97, 1640531527
   %99 = lshr i32 %98, 23
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr %struct.hlist_head, ptr @posix_timers_hashtable, i64 %100
+  %101 = getelementptr [8 x i8], ptr @posix_timers_hashtable, i64 %100
   %102 = load volatile ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
   %104 = getelementptr i8, ptr %102, i64 -16

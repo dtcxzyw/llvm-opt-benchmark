@@ -26,7 +26,7 @@ define void @ff_dovi_ctx_unref(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   tail call void @av_refstruct_unref(ptr noundef nonnull %9) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -72,7 +72,7 @@ define void @ff_dovi_ctx_flush(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   tail call void @av_refstruct_unref(ptr noundef nonnull %8) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -114,8 +114,8 @@ define void @ff_dovi_ctx_replace(ptr noundef initializes((0, 8), (12, 21), (22, 
 
 23:                                               ; preds = %2, %23
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
-  %25 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   tail call void @av_refstruct_replace(ptr noundef nonnull %24, ptr noundef %26) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

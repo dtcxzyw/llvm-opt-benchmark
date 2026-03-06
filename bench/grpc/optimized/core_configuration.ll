@@ -1211,7 +1211,7 @@ _ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_S_rel
   br label %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %20, %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
-  %21 = getelementptr inbounds nuw ptr, ptr %16, i64 %14
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %14
   br label %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE9push_backERKS3_.exit
 
 _ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIPN9grpc_core17CoreConfiguration17RegisteredBuilderESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %3
@@ -2014,7 +2014,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !104
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !101
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !105
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 

@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_attr_t = type { i64, [48 x i8] }
 %struct.openapi_resp_single_t = type { ptr, ptr, ptr, ptr }
 %struct.data_parser_dump_cli_ctxt_t = type { i32, i32, ptr, ptr, ptr }
-%struct.node_info = type { ptr, ptr, i16, i64, ptr, i16, i16, i32, i32, i64, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i32, ptr, ptr, i32, ptr, i32, ptr, i16, i64, i16, ptr, ptr, ptr, i64, i32, i64, ptr, ptr, i64, i16, i16, i32, i32, ptr, ptr }
 
 @__const.main.opts = private unnamed_addr constant { i32, i32, i32, i8, i8, i8, i8, i32 } { i32 3, i32 0, i32 0, i8 1, i8 0, i8 0, i8 0, i32 0 }, align 8
 @params = dso_local global %struct.sinfo_parameters zeroinitializer, align 8
@@ -428,7 +427,7 @@ thread-pre-split:                                 ; preds = %28, %20
   br label %81
 
 81:                                               ; preds = %78, %76
-  %82 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i
   %83 = call i32 @pthread_create(ptr noundef %82, ptr noundef nonnull %7, ptr noundef nonnull @_load_job_prio_thread, ptr noundef nonnull %64) #13
   %.not50.i = icmp eq i32 %83, 0
   br i1 %.not50.i, label %86, label %84
@@ -466,7 +465,7 @@ thread-pre-split:                                 ; preds = %28, %20
 
 .lr.ph66.i:                                       ; preds = %.outer._crit_edge.i, %.thread.i55
   %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %.thread.i55 ], [ 0, %.outer._crit_edge.i ]
-  %94 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv80.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv80.i
   %95 = load i64, ptr %94, align 8
   %.not45.i = icmp eq i64 %95, 0
   br i1 %.not45.i, label %.thread.i55, label %96
@@ -843,7 +842,7 @@ define dso_local noalias noundef ptr @_build_part_info(ptr noundef %0) #4 {
   %25 = phi ptr [ %19, %.preheader.lr.ph ], [ %49, %._crit_edge ]
   %indvars.iv53 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next54, %._crit_edge ]
   %26 = phi i32 [ %20, %.preheader.lr.ph ], [ %51, %._crit_edge ]
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv53
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv53
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %.not4347 = icmp sgt i32 %26, %29
@@ -864,7 +863,7 @@ define dso_local noalias noundef ptr @_build_part_info(ptr noundef %0) #4 {
 
 35:                                               ; preds = %.lr.ph
   %36 = load ptr, ptr %24, align 8
-  %37 = getelementptr inbounds nuw %struct.node_info, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [368 x i8], ptr %36, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 176
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
@@ -879,7 +878,7 @@ define dso_local noalias noundef ptr @_build_part_info(ptr noundef %0) #4 {
   %43 = phi ptr [ %31, %35 ], [ %.pre, %41 ]
   %44 = phi ptr [ %32, %35 ], [ %.pre, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv53
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv53
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = trunc nuw i64 %indvars.iv to i32
@@ -889,7 +888,7 @@ define dso_local noalias noundef ptr @_build_part_info(ptr noundef %0) #4 {
 ._crit_edge:                                      ; preds = %42, %.lr.ph, %.preheader
   %49 = phi ptr [ %25, %.preheader ], [ %43, %42 ], [ %31, %.lr.ph ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 2
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.next54
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.next54
   %51 = load i32, ptr %50, align 4
   %52 = icmp sgt i32 %51, -1
   br i1 %52, label %.preheader, label %._crit_edge51, !llvm.loop !17
@@ -2055,7 +2054,7 @@ define internal fastcc void @_build_sinfo_data(ptr noundef %0, ptr noundef reado
 43:                                               ; preds = %.lr.ph125, %_filter_out.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph125 ], [ %indvars.iv.next, %_filter_out.exit ]
   %44 = load ptr, ptr %42, align 8
-  %45 = getelementptr inbounds nuw %struct.node_info, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [368 x i8], ptr %44, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 176
   %47 = load ptr, ptr %46, align 8
   %.not99 = icmp eq ptr %47, null

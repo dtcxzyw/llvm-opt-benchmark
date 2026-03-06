@@ -852,7 +852,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7d541fa7ff09d58bE
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8, !noalias !133, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } } }, ptr %12, i64 %5
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %5
   %14 = getelementptr i8, ptr %13, i64 16
   %.val15.i = load i64, ptr %14, align 8, !noalias !133, !noundef !4
   %.not.i.i.i = icmp eq i64 %.val15.i, 7
@@ -883,7 +883,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7d541fa7ff09d58bE
 25:                                               ; preds = %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.i"
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %27 = load ptr, ptr %26, align 8, !noalias !133, !nonnull !4, !noundef !4
-  %28 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } } }, ptr %27, i64 %19
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %19
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !noalias !133, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -963,7 +963,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hab5d3e5b2fce1c50E
   %14 = load ptr, ptr %13, align 8, !noalias !162, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i64, ptr %15, align 8, !noalias !162, !noundef !4
-  %17 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [24 x i8], ptr %14, i64 %16
   store ptr %14, ptr %4, align 8, !noalias !162
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %17, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !162
@@ -5732,7 +5732,7 @@ define { ptr, ptr } @_ZN6uucore7args_os17h498ede4b6c12c81dE() unnamed_addr #3 {
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [24 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8

@@ -2573,7 +2573,7 @@ if.then.i22.i670:                                 ; preds = %_ZNSt6vectorIN5boos
 invoke.cont248:                                   ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib17BoundaryConditionINS2_11FdmLinearOpEEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit21.i666, %if.then.i22.i670
   store ptr %call5.i.i.i.i677, ptr %boundaries, align 8, !tbaa !166
   store ptr %incdec.ptr.i656, ptr %_M_finish.i.i280, align 8, !tbaa !168
-  %add.ptr19.i673 = getelementptr inbounds nuw %"class.boost::shared_ptr.79", ptr %call5.i.i.i.i677, i64 %cond.i.i637
+  %add.ptr19.i673 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i677, i64 %cond.i.i637
   store ptr %add.ptr19.i673, ptr %_M_end_of_storage.i.i281, align 8, !tbaa !169
   %.pr712 = load ptr, ptr %pn.i266, align 8, !tbaa !37
   %cmp.not.i.i291 = icmp eq ptr %.pr712, null

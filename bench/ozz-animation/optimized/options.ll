@@ -563,7 +563,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %34, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !55
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !4
@@ -655,10 +655,10 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i9: ; preds = %_ZStlsISt11char_t
 ._crit_edge:                                      ; preds = %44, %_ZSt5countIPPN3ozz7options6OptionES3_ENSt15iterator_traitsIT_E15difference_typeES6_S6_RKT0_.exit.thread.thread, %.preheader
   %98 = add nsw i32 %5, 1
   store i32 %98, ptr %4, align 8, !tbaa !22
-  %99 = getelementptr inbounds ptr, ptr %0, i64 %8
+  %99 = getelementptr inbounds [8 x i8], ptr %0, i64 %8
   store ptr %1, ptr %99, align 8, !tbaa !55
   %100 = sext i32 %98 to i64
-  %101 = getelementptr inbounds ptr, ptr %0, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %0, i64 %100
   %102 = getelementptr inbounds i8, ptr %101, i64 -8
   tail call void @_ZSt15__inplace_mergeIPPN3ozz7options6OptionEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_SB_T0_(ptr noundef nonnull %0, ptr noundef nonnull %102, ptr noundef nonnull %101, ptr nonnull @_ZN3ozz7options12_GLOBAL__N_112sort_optionsEPNS0_6OptionES3_)
   br label %103
@@ -2025,7 +2025,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3ozz7options11TypedOptionIbE9Pa
 
 .preheader.i:                                     ; preds = %.preheader49.i, %17
   %.02953.i = phi i64 [ %18, %17 ], [ 0, %.preheader49.i ]
-  %19 = getelementptr inbounds nuw ptr, ptr @__const._ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pb.true_options, i64 %.02953.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pb.true_options, i64 %.02953.i
   %20 = load ptr, ptr %19, align 8, !tbaa !77
   br label %21
 
@@ -2057,7 +2057,7 @@ _ZN3ozz7options12_GLOBAL__N_17StrICmpEPKcS3_.exit.i: ; preds = %21
 
 .critedge.preheader.i:                            ; preds = %17, %.critedge.i
   %.054.i = phi i64 [ %35, %.critedge.i ], [ 0, %17 ]
-  %36 = getelementptr inbounds nuw ptr, ptr @__const._ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pb.false_options, i64 %.054.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN3ozz7options12_GLOBAL__N_15ParseEPKcS3_Pb.false_options, i64 %.054.i
   %37 = load ptr, ptr %36, align 8, !tbaa !77
   br label %38
 
@@ -3256,7 +3256,7 @@ sub_0.preheader:                                  ; preds = %19
 
 sub_0:                                            ; preds = %sub_0.preheader, %.tail.thread
   %indvars.iv = phi i64 [ 0, %sub_0.preheader ], [ %indvars.iv.next, %.tail.thread ]
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !77
   %26 = load i8, ptr %25, align 1
   %.not145 = icmp eq i8 %26, 45
@@ -3301,7 +3301,7 @@ sub_1:                                            ; preds = %sub_0
 
 .lr.ph:                                           ; preds = %.critedge, %.lr.ph
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.lr.ph ], [ 0, %.critedge ]
-  %38 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv156
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv156
   %39 = load ptr, ptr %38, align 8, !tbaa !55
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 25
   store i8 0, ptr %40, align 1, !tbaa !13
@@ -3319,7 +3319,7 @@ sub_1:                                            ; preds = %sub_0
   %47 = phi i32 [ %36, %.lr.ph138.preheader ], [ %98, %97 ]
   %48 = phi i32 [ %36, %.lr.ph138.preheader ], [ %99, %97 ]
   %indvars.iv162 = phi i64 [ 0, %.lr.ph138.preheader ], [ %indvars.iv.next163, %97 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv162
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv162
   %50 = load ptr, ptr %49, align 8, !tbaa !77
   %51 = load i8, ptr %50, align 1, !tbaa !54
   %52 = icmp eq i8 %51, 0
@@ -3331,7 +3331,7 @@ sub_1:                                            ; preds = %sub_0
 
 .lr.ph135:                                        ; preds = %.preheader120, %66
   %indvars.iv159 = phi i64 [ %indvars.iv.next160, %66 ], [ 0, %.preheader120 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv159
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv159
   %55 = load ptr, ptr %54, align 8, !tbaa !55
   %56 = load ptr, ptr %55, align 8, !tbaa !18
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
@@ -3540,7 +3540,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i77: ; preds = %_ZStlsISt11char_
 
 .lr.ph142:                                        ; preds = %.lr.ph142.preheader, %153
   %indvars.iv167 = phi i64 [ 0, %.lr.ph142.preheader ], [ %indvars.iv.next168, %153 ]
-  %154 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv167
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv167
   %155 = load ptr, ptr %154, align 8, !tbaa !55
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 25
   %157 = load i8, ptr %156, align 1, !tbaa !13, !range !73, !noundef !74
@@ -3553,7 +3553,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i77: ; preds = %_ZStlsISt11char_
   br i1 %163, label %153, label %164
 
 164:                                              ; preds = %.lr.ph142
-  %165 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv167
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv167
   %166 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.13, i64 noundef 17)
   %167 = load ptr, ptr %165, align 8, !tbaa !55
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
@@ -3620,7 +3620,7 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i82: ; preds = %_ZStlsISt11char_
 .lr.ph144:                                        ; preds = %153, %_ZN3ozz7options6Option8ValidateEi.exit75.thread
   %201 = phi i32 [ %207, %_ZN3ozz7options6Option8ValidateEi.exit75.thread ], [ %117, %153 ]
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %_ZN3ozz7options6Option8ValidateEi.exit75.thread ], [ 0, %153 ]
-  %202 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv172
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv172
   %203 = load ptr, ptr %202, align 8, !tbaa !55
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 32
   %205 = load ptr, ptr %204, align 8, !tbaa !14
@@ -4693,7 +4693,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit141: ; preds = %1
 
 .lr.ph:                                           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40, %270
   %indvars.iv = phi i64 [ %indvars.iv.next, %270 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40 ]
-  %216 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %217 = load ptr, ptr %216, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 32, ptr %4, align 1, !tbaa !54
@@ -4846,7 +4846,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit146: ; preds = %2
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96
   %indvars.iv271 = phi i64 [ 0, %._crit_edge.i.i.lr.ph ], [ %indvars.iv.next272, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96 ]
-  %294 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv271
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv271
   %295 = load ptr, ptr %294, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -5708,7 +5708,7 @@ define linkonce_odr dso_local void @_ZSt22__merge_without_bufferIPPN3ozz7options
 
 _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit: ; preds = %20
   %23 = sdiv i64 %.tr6878, 2
-  %24 = getelementptr inbounds ptr, ptr %.tr74, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %.tr74, i64 %23
   %25 = sub i64 %9, %22
   %26 = ashr exact i64 %25, 3
   %27 = icmp sgt i64 %26, 0
@@ -5718,7 +5718,7 @@ _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPP
   %.017.i = phi ptr [ %.1.i, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i ], [ %.tr6676, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
   %.01116.i = phi i64 [ %.112.i, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i ], [ %26, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
   %28 = lshr i64 %.01116.i, 1
-  %29 = getelementptr inbounds nuw ptr, ptr %.017.i, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.017.i, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !55
   %31 = load ptr, ptr %24, align 8, !tbaa !55
   %32 = tail call noundef zeroext i1 %5(ptr noundef %30, ptr noundef %31)
@@ -5743,7 +5743,7 @@ _ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valI
 
 _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit44: ; preds = %20
   %39 = sdiv i64 %.tr6979, 2
-  %40 = getelementptr inbounds ptr, ptr %.tr6676, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %.tr6676, i64 %39
   %41 = ptrtoint ptr %.tr74 to i64
   %42 = sub i64 %22, %41
   %43 = ashr exact i64 %42, 3
@@ -5754,7 +5754,7 @@ _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i46: ; preds = %_ZSt7advanceI
   %.017.i47 = phi ptr [ %.1.i52, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i46 ], [ %.tr74, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit44 ]
   %.01116.i48 = phi i64 [ %.112.i51, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i46 ], [ %43, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit44 ]
   %45 = lshr i64 %.01116.i48, 1
-  %46 = getelementptr inbounds nuw ptr, ptr %.017.i47, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.017.i47, i64 %45
   %47 = load ptr, ptr %40, align 8, !tbaa !55
   %48 = load ptr, ptr %46, align 8, !tbaa !55
   %49 = tail call noundef zeroext i1 %5(ptr noundef %47, ptr noundef %48)
@@ -5930,7 +5930,7 @@ _ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.sink.split.i: ; 
   %54 = sub i64 %52, %53
   %55 = ashr exact i64 %54, 3
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %.lcssa.sink.i, i64 %56
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %57, ptr align 8 %5, i64 %54, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPPN3ozz7options6OptionES4_S4_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS3_S3_EEEEvT_SB_T0_SC_T1_T2_.exit
 
@@ -5940,7 +5940,7 @@ _ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.sink.split.i: ; 
 
 _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit: ; preds = %58
   %60 = sdiv i64 %.tr106125, 2
-  %61 = getelementptr inbounds ptr, ptr %.tr121, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %.tr121, i64 %60
   %62 = sub i64 %10, %59
   %63 = ashr exact i64 %62, 3
   %64 = icmp sgt i64 %63, 0
@@ -5950,7 +5950,7 @@ _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i: ; preds = %_ZSt7advanceIPP
   %.017.i = phi ptr [ %.1.i74, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i ], [ %.tr104123, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
   %.01116.i = phi i64 [ %.112.i, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i ], [ %63, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit ]
   %65 = lshr i64 %.01116.i, 1
-  %66 = getelementptr inbounds nuw ptr, ptr %.017.i, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %.017.i, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !55
   %68 = load ptr, ptr %61, align 8, !tbaa !55
   %69 = tail call noundef zeroext i1 %9(ptr noundef %67, ptr noundef %68)
@@ -5975,7 +5975,7 @@ _ZSt13__lower_boundIPPN3ozz7options6OptionES3_N9__gnu_cxx5__ops14_Iter_comp_valI
 
 _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit78: ; preds = %58
   %76 = sdiv i64 %.tr107126, 2
-  %77 = getelementptr inbounds ptr, ptr %.tr104123, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %.tr104123, i64 %76
   %78 = ptrtoint ptr %.tr121 to i64
   %79 = sub i64 %59, %78
   %80 = ashr exact i64 %79, 3
@@ -5986,7 +5986,7 @@ _ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i81: ; preds = %_ZSt7advanceI
   %.017.i82 = phi ptr [ %.1.i87, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i81 ], [ %.tr121, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit78 ]
   %.01116.i83 = phi i64 [ %.112.i86, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit.i81 ], [ %80, %_ZSt7advanceIPPN3ozz7options6OptionElEvRT_T0_.exit78 ]
   %82 = lshr i64 %.01116.i83, 1
-  %83 = getelementptr inbounds nuw ptr, ptr %.017.i82, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %.017.i82, i64 %82
   %84 = load ptr, ptr %77, align 8, !tbaa !55
   %85 = load ptr, ptr %83, align 8, !tbaa !55
   %86 = tail call noundef zeroext i1 %9(ptr noundef %84, ptr noundef %85)
@@ -6044,7 +6044,7 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i89: ; preds = %101, %97
   %104 = sub i64 %99, %103
   %105 = ashr exact i64 %104, 3
   %106 = sub nsw i64 0, %105
-  %107 = getelementptr inbounds ptr, ptr %.0100, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %.0100, i64 %106
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %107, ptr align 8 %.0101, i64 %104, i1 false)
   br label %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit.i
 
@@ -6094,13 +6094,13 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit42.i: ; preds = %117, %_ZSt
 120:                                              ; preds = %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit42.i
   %121 = ashr exact i64 %115, 3
   %122 = sub nsw i64 0, %121
-  %123 = getelementptr inbounds ptr, ptr %.0100, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %.0100, i64 %122
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %123, ptr align 8 %5, i64 %115, i1 false)
   br label %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit45.i
 
 _ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit45.i: ; preds = %120, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit42.i
   %.pre-phi.i.i.i.i.i44.i = phi i64 [ %122, %120 ], [ 0, %_ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit42.i ]
-  %124 = getelementptr inbounds ptr, ptr %.0100, i64 %.pre-phi.i.i.i.i.i44.i
+  %124 = getelementptr inbounds [8 x i8], ptr %.0100, i64 %.pre-phi.i.i.i.i.i44.i
   br label %_ZSt17__rotate_adaptiveIPPN3ozz7options6OptionES4_lET_S5_S5_S5_T1_S6_T0_S6_.exit
 
 125:                                              ; preds = %110
@@ -6196,7 +6196,7 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %29, %32
   br i1 %36, label %.lr.ph110.preheader, label %._crit_edge111
 
 .lr.ph110.preheader:                              ; preds = %35
-  %37 = getelementptr inbounds ptr, ptr %.058, i64 %.083
+  %37 = getelementptr inbounds [8 x i8], ptr %.058, i64 %.083
   br label %.lr.ph110
 
 ._crit_edge111:                                   ; preds = %.lr.ph110, %35
@@ -6239,7 +6239,7 @@ _ZSt4moveIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %29, %32
   %53 = add nsw i64 %.idx, -8
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds ptr, ptr %49, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %49, i64 %55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr nonnull align 8 %.058, i64 %53, i1 false)
   br label %_ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit
 
@@ -6248,9 +6248,9 @@ _ZSt13move_backwardIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit: ; preds = %48, 
   br label %_ZSt11swap_rangesIPPN3ozz7options6OptionES4_ET0_T_S6_S5_.exit
 
 57:                                               ; preds = %46
-  %58 = getelementptr inbounds ptr, ptr %.058, i64 %.086
+  %58 = getelementptr inbounds [8 x i8], ptr %.058, i64 %.086
   %59 = sub i64 0, %25
-  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %58, i64 %59
   %61 = icmp sgt i64 %.083, 0
   br i1 %61, label %.lr.ph, label %._crit_edge
 

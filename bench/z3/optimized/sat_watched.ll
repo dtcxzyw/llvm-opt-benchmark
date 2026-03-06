@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.sat::watched" = type <{ i64, i32, [4 x i8] }>
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -278,7 +277,7 @@ define hidden void @_ZN3sat16conflict_cleanupEPNS_7watchedES1_R6vectorIS0_Lb1EjE
 
 _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit:       ; preds = %3, %6
   %.0.i.i = phi i64 [ %9, %6 ], [ 0, %3 ]
-  %10 = getelementptr inbounds nuw %"class.sat::watched", ptr %4, i64 %.0.i.i
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.0.i.i
   %.not10 = icmp eq ptr %0, %10
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 

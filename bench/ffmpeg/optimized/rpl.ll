@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVRational = type { i32, i32 }
-%struct.AVIndexEntry = type { i64, i64, i32, i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"rpl\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"RPL / ARMovie\00", align 1
@@ -1737,7 +1736,7 @@ define internal i32 @rpl_read_packet(ptr noundef readonly captures(none) %0, ptr
   %19 = phi i64 [ 0, %15 ], [ %14, %._crit_edge ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !60
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %19
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %19
   %23 = load ptr, ptr %22, align 8, !tbaa !61
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 328
@@ -1749,7 +1748,7 @@ define internal i32 @rpl_read_packet(ptr noundef readonly captures(none) %0, ptr
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 320
   %29 = load ptr, ptr %28, align 8, !tbaa !75
   %30 = zext i32 %18 to i64
-  %31 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %33 = load i32, ptr %32, align 4, !tbaa !76
   %34 = icmp eq i32 %33, 0

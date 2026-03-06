@@ -11,8 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.llvm::MachO::Target" = type { i8, i32, %"class.llvm::VersionTuple" }
-%"class.llvm::VersionTuple" = type { i64, i64 }
 %"struct.llvm::MachO::SimpleSymbol" = type <{ %"class.llvm::StringRef", i8, i8, [6 x i8] }>
 %"class.llvm::StringRef" = type { ptr, i64 }
 
@@ -67,7 +65,7 @@ define linkonce_odr void @_ZN4llvm17make_filter_rangeIRKNS_11SmallVectorINS_5Mac
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !14
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"class.llvm::MachO::Target", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %16 = load ptr, ptr %15, align 8, !tbaa !11
@@ -190,7 +188,7 @@ _ZN4llvm20filter_iterator_implIPKNS_5MachO6TargetESt8functionIFbRS3_EESt26bidire
   %64 = load ptr, ptr %1, align 8, !tbaa !12
   %65 = load i32, ptr %11, align 8, !tbaa !14
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %"class.llvm::MachO::Target", ptr %64, i64 %66
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %64, i64 %66
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %68 = load ptr, ptr %15, align 8, !tbaa !11
   %.not.i.i.not.i4 = icmp eq ptr %68, null

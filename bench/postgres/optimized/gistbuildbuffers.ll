@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.GISTENTRY = type { i64, ptr, ptr, i16, i8 }
 %struct.GISTNodeBuffer = type { i32, i32, i32, ptr, i8, i8, i32 }
-%union.ListCell = type { ptr }
-%struct.RelocationBufferInfo = type { [32 x %struct.GISTENTRY], [32 x i8], ptr, ptr }
 
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [17 x i8] c"gistbuildbuffers\00", align 1
@@ -125,7 +123,7 @@ define dso_local ptr @gistGetNodeBuffer(ptr noundef captures(none) %0, ptr readn
   %.031 = phi i32 [ %34, %.lr.ph ], [ %30, %23 ]
   %31 = load ptr, ptr %24, align 8
   %32 = sext i32 %.031 to i64
-  %33 = getelementptr inbounds ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %32
   store ptr null, ptr %33, align 8
   %34 = add i32 %.031, 1
   %.not29 = icmp sgt i32 %34, %3
@@ -139,11 +137,11 @@ define dso_local ptr @gistGetNodeBuffer(ptr noundef captures(none) %0, ptr readn
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %3 to i64
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = call ptr @lcons(ptr noundef nonnull %9, ptr noundef %40) #5
   %42 = load ptr, ptr %36, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %38
+  %43 = getelementptr inbounds [8 x i8], ptr %42, i64 %38
   store ptr %41, ptr %43, align 8
   store ptr %14, ptr @CurrentMemoryContext, align 8
   br label %44
@@ -178,7 +176,7 @@ define dso_local void @gistUnloadNodeBuffers(ptr noundef captures(none) %0) loca
   %11 = phi i32 [ %3, %.lr.ph ], [ %39, %gistUnloadNodeBuffer.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %gistUnloadNodeBuffer.exit ]
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
@@ -195,7 +193,7 @@ define dso_local void @gistUnloadNodeBuffers(ptr noundef captures(none) %0) loca
   %22 = add nsw i32 %18, -1
   store i32 %22, ptr %6, align 8
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw i64, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %23
   %25 = load i64, ptr %24, align 8
   br label %gistBuffersGetFreeBlock.exit.i
 
@@ -295,7 +293,7 @@ define dso_local void @gistPushItupToNodeBuffer(ptr noundef captures(none) %0, p
   %29 = phi i32 [ %18, %._crit_edge.i ], [ %.pre11.i, %21 ]
   %30 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %27, %21 ]
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %30, i64 %31
   store ptr %1, ptr %32, align 8
   %33 = load i32, ptr %17, align 8
   %34 = add i32 %33, 1
@@ -338,7 +336,7 @@ gistAddLoadedBuffer.exit:                         ; preds = %28, %9, %3
   %54 = add nsw i32 %49, -1
   store i32 %54, ptr %48, align 8
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i64, ptr %53, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %55
   %57 = load i64, ptr %56, align 8
   br label %gistBuffersGetFreeBlock.exit
 
@@ -494,7 +492,7 @@ gistBuffersReleaseBlock.exit:                     ; preds = %._crit_edge.i, %27
   %36 = add i32 %35, 1
   store i32 %36, ptr %23, align 8
   %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds i64, ptr %34, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %34, i64 %37
   store i64 %22, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %40 = load i8, ptr %39, align 1, !range !4, !noundef !5
@@ -530,7 +528,7 @@ gistBuffersReleaseBlock.exit:                     ; preds = %._crit_edge.i, %27
   %55 = phi i32 [ %44, %._crit_edge.i14 ], [ %.pre11.i, %47 ]
   %56 = phi ptr [ %.pre.i16, %._crit_edge.i14 ], [ %53, %47 ]
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds ptr, ptr %56, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %56, i64 %57
   store ptr %1, ptr %58, align 8
   %59 = load i32, ptr %43, align 8
   %60 = add i32 %59, 1
@@ -643,7 +641,7 @@ gistBuffersReleaseBlock.exit:                     ; preds = %._crit_edge.i, %46
   %55 = add i32 %54, 1
   store i32 %55, ptr %42, align 8
   %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds i64, ptr %53, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %53, i64 %56
   store i64 %37, ptr %57, align 8
   br label %59
 
@@ -738,11 +736,11 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
 .lr.ph119:                                        ; preds = %.lr.ph, %.lr.ph119
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph119 ], [ 0, %.lr.ph ]
   %44 = load ptr, ptr %41, align 8
-  %45 = getelementptr inbounds nuw %union.ListCell, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw %struct.RelocationBufferInfo, ptr %39, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [1072 x i8], ptr %39, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1024
   call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef %48, ptr noundef null, i16 noundef zeroext 0, ptr noundef %49, ptr noundef nonnull %50) #5
   %51 = load i32, ptr %46, align 8
@@ -786,7 +784,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
 65:                                               ; preds = %.lr.ph129.us, %.thread109.us
   %indvars.iv143 = phi i64 [ 0, %.lr.ph129.us ], [ %indvars.iv.next144, %.thread109.us ]
   %.090127.us = phi i32 [ 0, %.lr.ph129.us ], [ %.292115.us, %.thread109.us ]
-  %66 = getelementptr inbounds nuw %struct.RelocationBufferInfo, ptr %39, i64 %indvars.iv143
+  %66 = getelementptr inbounds nuw [1072 x i8], ptr %39, i64 %indvars.iv143
   %67 = load ptr, ptr %63, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 10
   %69 = load i16, ptr %68, align 2
@@ -799,7 +797,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
 ._crit_edge130.us:                                ; preds = %65, %.thread109.us, %._crit_edge.us
   %.191.us = phi i32 [ %.5.ph.us, %._crit_edge.us ], [ %.292115.us, %.thread109.us ], [ %.090127.us, %65 ]
   %71 = sext i32 %.191.us to i64
-  %72 = getelementptr inbounds %struct.RelocationBufferInfo, ptr %39, i64 %71
+  %72 = getelementptr inbounds [1072 x i8], ptr %39, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1064
   %74 = load ptr, ptr %73, align 8
   call void @gistPushItupToNodeBuffer(ptr noundef nonnull %0, ptr noundef %74, ptr noundef %64)
@@ -828,11 +826,11 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
   %indvars.iv141 = phi i64 [ 0, %.lr.ph123.us ], [ %indvars.iv.next142, %114 ]
   %.086121.us = phi i1 [ true, %.lr.ph123.us ], [ %.2.us, %114 ]
   %.292120.us = phi i32 [ %.090127.us, %.lr.ph123.us ], [ %.5.ph.us, %114 ]
-  %87 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %66, i64 %indvars.iv141
+  %87 = getelementptr inbounds nuw [32 x i8], ptr %66, i64 %indvars.iv141
   %88 = getelementptr inbounds nuw i8, ptr %117, i64 %indvars.iv141
   %89 = load i8, ptr %88, align 1, !range !4, !noundef !5
   %90 = trunc nuw i8 %89 to i1
-  %91 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %10, i64 %indvars.iv141
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv141
   %92 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv141
   %93 = load i8, ptr %92, align 1, !range !4, !noundef !5
   %94 = trunc nuw i8 %93 to i1
@@ -840,7 +838,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
   %96 = call float @gistpenalty(ptr noundef %1, i32 noundef %95, ptr noundef %87, i1 noundef zeroext %90, ptr noundef nonnull %91, i1 noundef zeroext %94) #5
   %97 = fcmp ule float %96, 0.000000e+00
   %.2.us = select i1 %97, i1 %.086121.us, i1 false
-  %98 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv141
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv141
   %99 = load float, ptr %98, align 4
   %100 = fcmp olt float %99, 0.000000e+00
   %101 = fcmp olt float %96, %99

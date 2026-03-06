@@ -184,7 +184,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h4c387f456af71e22E.exit: ; preds = %4
 
 53:                                               ; preds = %"_ZN15crossbeam_queue9seg_queue14Block$LT$T$GT$9wait_next17hecbe74d03158b762E.exit", %50
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.012.0, i64 8
-  %55 = getelementptr inbounds nuw { { { [4 x i64] } }, { i64 } }, ptr %54, i64 %9
+  %55 = getelementptr inbounds nuw [40 x i8], ptr %54, i64 %9
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = load atomic i64, ptr %56 acquire, align 8
   %58 = and i64 %57, 1
@@ -278,7 +278,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit.i33: ; pred
 .lr.ph.i39:                                       ; preds = %"_ZN15crossbeam_queue9seg_queue13Slot$LT$T$GT$10wait_write17he9c363fd17ebb97eE.exit", %97
   %.sroa.0.04.i = phi i64 [ %87, %97 ], [ 0, %"_ZN15crossbeam_queue9seg_queue13Slot$LT$T$GT$10wait_write17he9c363fd17ebb97eE.exit" ]
   %87 = add nuw nsw i64 %.sroa.0.04.i, 1
-  %88 = getelementptr inbounds nuw { { { [4 x i64] } }, { i64 } }, ptr %.sroa.012.0, i64 %.sroa.0.04.i
+  %88 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.012.0, i64 %.sroa.0.04.i
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %90 = load atomic i64, ptr %89 acquire, align 8
   %91 = and i64 %90, 2
@@ -302,7 +302,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h711eb9f39cdff2f8E.exit.i33: ; pred
 .lr.ph.i43:                                       ; preds = %98, %110
   %.sroa.0.04.i44 = phi i64 [ %100, %110 ], [ %51, %98 ]
   %100 = add nuw nsw i64 %.sroa.0.04.i44, 1
-  %101 = getelementptr inbounds nuw { { { [4 x i64] } }, { i64 } }, ptr %.sroa.012.0, i64 %.sroa.0.04.i44
+  %101 = getelementptr inbounds nuw [40 x i8], ptr %.sroa.012.0, i64 %.sroa.0.04.i44
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 40
   %103 = load atomic i64, ptr %102 acquire, align 8
   %104 = and i64 %103, 2
@@ -458,7 +458,7 @@ define hidden void @"_ZN15crossbeam_queue9seg_queue17SegQueue$LT$T$GT$4push17haa
 
 43:                                               ; preds = %52, %42
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.010.1, i64 8
-  %45 = getelementptr inbounds nuw { { { [4 x i64] } }, { i64 } }, ptr %44, i64 %.lcssa
+  %45 = getelementptr inbounds nuw [40 x i8], ptr %44, i64 %.lcssa
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = atomicrmw or ptr %46, i64 1 release, align 8
@@ -2737,7 +2737,7 @@ define hidden void @_ZN6quiche2h35qpack7huffman20encode_output_length17h03d5ac7f
   %11 = load i8, ptr %.sroa.08.010, align 1, !noundef !4
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.08.010, i64 1
-  %14 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %12
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = add i64 %15, %.sroa.02.09
   %17 = icmp eq ptr %13, %4
@@ -2775,7 +2775,7 @@ define hidden void @_ZN6quiche2h35qpack7huffman20encode_output_length17h7e27ec95
   %10 = select i1 %9, i8 32, i8 0
   %.sroa.08.0 = or i8 %10, %7
   %11 = zext i8 %.sroa.08.0 to i64
-  %12 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %11
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = add i64 %13, %.sroa.02.010
   %15 = icmp eq ptr %6, %4
@@ -2824,7 +2824,7 @@ define hidden noundef range(i8 0, 7) i8 @_ZN6quiche2h35qpack7huffman6encode17h7a
   %10 = select i1 %9, i8 32, i8 0
   %.sroa.039.0 = or i8 %10, %7
   %11 = zext i8 %.sroa.039.0 to i64
-  %12 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %11
   %13 = load i64, ptr %12, align 8, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !4
@@ -2930,7 +2930,7 @@ define hidden noundef range(i8 0, 7) i8 @_ZN6quiche2h35qpack7huffman6encode17hc6
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.039.047, i64 1
   %7 = load i8, ptr %.sroa.039.047, align 1, !noundef !4
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw { i64, i64 }, ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr @_ZN6quiche2h35qpack7huffman5table12ENCODE_TABLE17h319d92e9a8fbbbf4E, i64 %8
   %10 = load i64, ptr %9, align 8, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !4

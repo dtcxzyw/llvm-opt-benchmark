@@ -480,7 +480,7 @@ dca_find_frame_end.exit:                          ; preds = %157, %.loopexit.i
 
 240:                                              ; preds = %237
   %241 = zext nneg i32 %238 to i64
-  %242 = getelementptr inbounds nuw i32, ptr @ff_dca_sampling_freqs, i64 %241
+  %242 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_sampling_freqs, i64 %241
   %243 = load i32, ptr %242, align 4, !tbaa !21
   %244 = getelementptr inbounds nuw i8, ptr @ff_dca_freq_ranges, i64 %241
   %245 = load i8, ptr %244, align 1, !tbaa !26
@@ -604,7 +604,7 @@ dca_find_frame_end.exit:                          ; preds = %157, %.loopexit.i
   %339 = getelementptr inbounds nuw i8, ptr %7, i64 7
   %340 = load i8, ptr %339, align 1, !tbaa !42
   %341 = zext i8 %340 to i64
-  %342 = getelementptr inbounds nuw i32, ptr @ff_dca_sample_rates, i64 %341
+  %342 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_sample_rates, i64 %341
   %343 = load i32, ptr %342, align 4, !tbaa !21
   %344 = load i32, ptr %179, align 4, !tbaa !21
   %.not.i26 = icmp eq i32 %344, -99

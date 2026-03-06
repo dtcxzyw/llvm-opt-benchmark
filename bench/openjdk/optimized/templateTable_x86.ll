@@ -11009,7 +11009,7 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit3: ; preds = 
 
 switch.lookup:                                    ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit3
   %17 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13TemplateTable7if_acmpENS_9ConditionE, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN13TemplateTable7if_acmpENS_9ConditionE, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(33) %2, i1 noundef zeroext true) #8
   call void @_ZN13TemplateTable6branchEbb(i1 noundef zeroext false, i1 noundef zeroext false)
@@ -11094,7 +11094,7 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit5: ; preds = 
 
 switch.lookup:                                    ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit5
   %21 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13TemplateTable7if_acmpENS_9ConditionE, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN13TemplateTable7if_acmpENS_9ConditionE, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %14, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(33) %2, i1 noundef zeroext true) #8
   call void @_ZN13TemplateTable6branchEbb(i1 noundef zeroext false, i1 noundef zeroext false)
@@ -11168,7 +11168,7 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit3: ; preds = 
 
 switch.lookup:                                    ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit3
   %17 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13TemplateTable7if_acmpENS_9ConditionE, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN13TemplateTable7if_acmpENS_9ConditionE, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(33) %2, i1 noundef zeroext true) #8
   call void @_ZN13TemplateTable6branchEbb(i1 noundef zeroext false, i1 noundef zeroext false)
@@ -11251,7 +11251,7 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit5: ; preds = 
 
 switch.lookup:                                    ; preds = %_ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit5
   %21 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13TemplateTable7if_acmpENS_9ConditionE, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN13TemplateTable7if_acmpENS_9ConditionE, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @_ZN9Assembler3jccENS_9ConditionER5Labelb(ptr noundef nonnull align 8 dereferenceable(40) %14, i32 noundef %switch.load, ptr noundef nonnull align 8 dereferenceable(33) %2, i1 noundef zeroext true) #8
   call void @_ZN13TemplateTable6branchEbb(i1 noundef zeroext false, i1 noundef zeroext false)

@@ -68,7 +68,7 @@ define ptr @redisReaderCreateWithFunctions(ptr noundef %0) local_unnamed_addr #0
   %19 = load ptr, ptr %12, align 8, !tbaa !17
   %20 = load i32, ptr %14, align 8, !tbaa !18
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %19, i64 %21
   store ptr %18, ptr %22, align 8, !tbaa !19
   %23 = icmp eq ptr %18, null
   br i1 %23, label %.loopexit, label %24
@@ -137,7 +137,7 @@ define ptr @redisReaderCreateWithFunctions(ptr noundef %0) local_unnamed_addr #0
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %48 = load ptr, ptr %41, align 8, !tbaa !17
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv.i
   %50 = load ptr, ptr %49, align 8, !tbaa !19
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !28
   tail call void %51(ptr noundef %50) #12
@@ -213,7 +213,7 @@ define void @redisReaderFree(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %21 = load ptr, ptr %14, align 8, !tbaa !17
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !19
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !28
   tail call void %24(ptr noundef %23) #12
@@ -534,7 +534,7 @@ define range(i32 -1, 1) i32 @redisReaderGetReply(ptr noundef %0, ptr noundef wri
   %40 = phi i32 [ %30, %.lr.ph ], [ %.pr283, %processItem.exit ]
   %41 = load ptr, ptr %31, align 8, !tbaa !17
   %42 = zext nneg i32 %40 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !19
   %45 = load i32, ptr %44, align 8, !tbaa !38
   %46 = icmp slt i32 %45, 0
@@ -644,7 +644,7 @@ readBytes.exit.i:                                 ; preds = %47
   %75 = tail call ptr @__ctype_b_loc() #13
   %76 = load ptr, ptr %75, align 8, !tbaa !44
   %77 = sext i8 %54 to i64
-  %78 = getelementptr inbounds i16, ptr %76, i64 %77
+  %78 = getelementptr inbounds [2 x i8], ptr %76, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !32
   %80 = and i16 %79, 16384
   %.not.i.i44 = icmp eq i16 %80, 0
@@ -1373,7 +1373,7 @@ __redisReaderSetErrorOOM.exit.i.i:                ; preds = %323, %320, %318, %3
 332:                                              ; preds = %346, %.lr.ph213.i.i
   %333 = phi i32 [ %327, %.lr.ph213.i.i ], [ %347, %346 ]
   %334 = zext nneg i32 %333 to i64
-  %335 = getelementptr inbounds nuw ptr, ptr %331, i64 %334
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %331, i64 %334
   %336 = load ptr, ptr %335, align 8, !tbaa !19
   %337 = getelementptr i8, ptr %335, i64 -8
   %338 = load ptr, ptr %337, align 8, !tbaa !19
@@ -1775,7 +1775,7 @@ __redisReaderSetErrorOOM.exit.i48.i:              ; preds = %478, %475, %473, %4
 489:                                              ; preds = %503, %.lr.ph.i43.i
   %490 = phi i32 [ %482, %.lr.ph.i43.i ], [ %504, %503 ]
   %491 = zext nneg i32 %490 to i64
-  %492 = getelementptr inbounds nuw ptr, ptr %488, i64 %491
+  %492 = getelementptr inbounds nuw [8 x i8], ptr %488, i64 %491
   %493 = load ptr, ptr %492, align 8, !tbaa !19
   %494 = getelementptr i8, ptr %492, i64 -8
   %495 = load ptr, ptr %494, align 8, !tbaa !19
@@ -1835,7 +1835,7 @@ __redisReaderSetErrorOOM.exit.i48.i:              ; preds = %478, %475, %473, %4
   %525 = load ptr, ptr %31, align 8, !tbaa !17
   %526 = load i32, ptr %34, align 8, !tbaa !18
   %527 = sext i32 %526 to i64
-  %528 = getelementptr inbounds ptr, ptr %525, i64 %527
+  %528 = getelementptr inbounds [8 x i8], ptr %525, i64 %527
   store ptr %524, ptr %528, align 8, !tbaa !19
   %529 = icmp eq ptr %524, null
   br i1 %529, label %.loopexit15.i.i.i, label %530
@@ -2174,7 +2174,7 @@ __redisReaderSetError.exit68.i.i:                 ; preds = %623, %620, %618, %6
   store i32 %659, ptr %15, align 4, !tbaa !24
   %660 = load ptr, ptr %31, align 8, !tbaa !17
   %661 = sext i32 %659 to i64
-  %662 = getelementptr inbounds ptr, ptr %660, i64 %661
+  %662 = getelementptr inbounds [8 x i8], ptr %660, i64 %661
   %663 = load ptr, ptr %662, align 8, !tbaa !19
   store i32 -1, ptr %663, align 8, !tbaa !38
   %664 = getelementptr inbounds nuw i8, ptr %663, i64 8
@@ -2402,7 +2402,7 @@ define internal fastcc void @moveToNextTask(ptr noundef captures(none) %0) unnam
 .lr.ph25:                                         ; preds = %.lr.ph25.preheader, %20
   %7 = phi i32 [ %21, %20 ], [ %.promoted, %.lr.ph25.preheader ]
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   %11 = getelementptr i8, ptr %9, i64 -8
   %12 = load ptr, ptr %11, align 8, !tbaa !19

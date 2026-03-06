@@ -252,7 +252,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5
   %60 = sub i64 %59, %42
   %61 = ashr exact i64 %60, 3
   %62 = sub nsw i64 0, %61
-  %63 = getelementptr inbounds ptr, ptr %58, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %58, i64 %62
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %63, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.085.0.i, i64 %60, i1 false)
   store ptr %57, ptr %.sroa.085.0.i, align 8, !tbaa !16
   br label %65
@@ -758,7 +758,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11.i:             ; preds = %285, %283
 
 292:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit11.i
   call fastcc void @_ZL17printProfileTableRN4llvm11raw_ostreamENS_8ArrayRefIPKNS_6RecordEEEb(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %289, i64 %290, i1 noundef zeroext false)
-  %293 = getelementptr inbounds nuw ptr, ptr %289, i64 %290
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %289, i64 %290
   %294 = ptrtoint ptr %293 to i64
   %295 = lshr i64 %290, 2
   %.not.i.i9 = icmp eq i64 %295, 0
@@ -2053,7 +2053,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5
   %866 = sub i64 %865, %848
   %867 = ashr exact i64 %866, 3
   %868 = sub nsw i64 0, %867
-  %869 = getelementptr inbounds ptr, ptr %864, i64 %868
+  %869 = getelementptr inbounds [8 x i8], ptr %864, i64 %868
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %869, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.059.0.i, i64 %866, i1 false)
   store ptr %863, ptr %.sroa.059.0.i, align 8, !tbaa !16
   br label %871
@@ -2781,7 +2781,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 16:                                               ; preds = %16, %13
   %.09.i.i.i = phi i64 [ %15, %13 ], [ %19, %16 ]
-  %17 = getelementptr inbounds ptr, ptr %0, i64 %.09.i.i.i
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %.09.i.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !16
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZL19emitRISCVExtensionsRKNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_SL_T1_T2_"(ptr %0, i64 noundef %.09.i.i.i, i64 noundef %11, ptr noundef %18)
   %.not.i.i.i = icmp eq i64 %.09.i.i.i, 0
@@ -2804,7 +2804,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 27:                                               ; preds = %10
   %28 = add nsw i64 %.023, -1
   %29 = lshr i64 %11, 1
-  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %29
   %31 = getelementptr inbounds i8, ptr %storemerge22, i64 -8
   %32 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19emitRISCVExtensionsRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESJ_EEbT_T0_"(ptr nonnull %9, ptr %30)
   br i1 %32, label %33, label %45
@@ -3117,14 +3117,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.034 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %8 = shl i64 %.034, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL19emitRISCVExtensionsRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESJ_EEbT_T0_"(ptr %10, ptr nonnull %12)
   %spec.select = select i1 %13, i64 %11, i64 %9
-  %14 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %14 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select
   %15 = load ptr, ptr %14, align 8, !tbaa !16
-  %16 = getelementptr inbounds ptr, ptr %0, i64 %.034
+  %16 = getelementptr inbounds [8 x i8], ptr %0, i64 %.034
   store ptr %15, ptr %16, align 8, !tbaa !16
   %17 = icmp slt i64 %spec.select, %6
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !116
@@ -3144,9 +3144,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 24:                                               ; preds = %20
   %25 = shl nsw i64 %.0.lcssa, 1
   %26 = or disjoint i64 %25, 1
-  %27 = getelementptr inbounds ptr, ptr %0, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %0, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !16
-  %29 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %29 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   store ptr %28, ptr %29, align 8, !tbaa !16
   br label %30
 
@@ -3159,7 +3159,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.012.i = phi i64 [ %.0913.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL19emitRISCVExtensionsRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.thread8.i" ], [ %.1, %30 ]
   %.0913.in.i = add nsw i64 %.012.i, -1
   %.0913.i = sdiv i64 %.0913.in.i, 2
-  %32 = getelementptr inbounds ptr, ptr %0, i64 %.0913.i
+  %32 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0913.i
   %33 = load ptr, ptr %32, align 8, !tbaa !16
   %34 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %33, ptr nonnull @.str.25, i64 4) #15
   %35 = extractvalue { ptr, i64 } %34, 0
@@ -3222,14 +3222,14 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZL16getExt
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL19emitRISCVExtensionsRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.thread8.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL19emitRISCVExtensionsRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.i", %.thread.i.i.i.i.i
   %53 = load ptr, ptr %32, align 8, !tbaa !16
-  %54 = getelementptr inbounds ptr, ptr %0, i64 %.012.i
+  %54 = getelementptr inbounds [8 x i8], ptr %0, i64 %.012.i
   store ptr %53, ptr %54, align 8, !tbaa !16
   %55 = icmp sgt i64 %.0913.i, %1
   br i1 %55, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZL19emitRISCVExtensionsRKNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_SL_T1_RT2_.exit", !llvm.loop !117
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZL19emitRISCVExtensionsRKNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_SL_T1_RT2_.exit": ; preds = %.thread.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL19emitRISCVExtensionsRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL19emitRISCVExtensionsRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.thread8.i", %30
   %.0.lcssa.i = phi i64 [ %.1, %30 ], [ %.012.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL19emitRISCVExtensionsRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.i" ], [ %.0913.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL19emitRISCVExtensionsRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.thread8.i" ], [ %.012.i, %.thread.i.i.i.i.i ]
-  %56 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i
+  %56 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i
   store ptr %3, ptr %56, align 8, !tbaa !16
   ret void
 }
@@ -4239,7 +4239,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 16:                                               ; preds = %16, %13
   %.09.i.i.i = phi i64 [ %15, %13 ], [ %19, %16 ]
-  %17 = getelementptr inbounds ptr, ptr %0, i64 %.09.i.i.i
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %.09.i.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !16
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZL25emitRISCVExtensionBitmaskRKNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_SL_T1_T2_"(ptr %0, i64 noundef %.09.i.i.i, i64 noundef %11, ptr noundef %18)
   %.not.i.i.i = icmp eq i64 %.09.i.i.i, 0
@@ -4262,7 +4262,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 27:                                               ; preds = %10
   %28 = add nsw i64 %.023, -1
   %29 = lshr i64 %11, 1
-  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %29
   %31 = getelementptr inbounds i8, ptr %storemerge22, i64 -8
   %32 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL25emitRISCVExtensionBitmaskRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESJ_EEbT_T0_"(ptr nonnull %9, ptr %30)
   br i1 %32, label %33, label %45
@@ -4575,14 +4575,14 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.034 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %8 = shl i64 %.034, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %13 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL25emitRISCVExtensionBitmaskRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESJ_EEbT_T0_"(ptr %10, ptr nonnull %12)
   %spec.select = select i1 %13, i64 %11, i64 %9
-  %14 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %14 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select
   %15 = load ptr, ptr %14, align 8, !tbaa !16
-  %16 = getelementptr inbounds ptr, ptr %0, i64 %.034
+  %16 = getelementptr inbounds [8 x i8], ptr %0, i64 %.034
   store ptr %15, ptr %16, align 8, !tbaa !16
   %17 = icmp slt i64 %spec.select, %6
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !154
@@ -4602,9 +4602,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 24:                                               ; preds = %20
   %25 = shl nsw i64 %.0.lcssa, 1
   %26 = or disjoint i64 %25, 1
-  %27 = getelementptr inbounds ptr, ptr %0, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %0, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !16
-  %29 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %29 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   store ptr %28, ptr %29, align 8, !tbaa !16
   br label %30
 
@@ -4617,7 +4617,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.012.i = phi i64 [ %.0913.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL25emitRISCVExtensionBitmaskRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.thread8.i" ], [ %.1, %30 ]
   %.0913.in.i = add nsw i64 %.012.i, -1
   %.0913.i = sdiv i64 %.0913.in.i, 2
-  %32 = getelementptr inbounds ptr, ptr %0, i64 %.0913.i
+  %32 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0913.i
   %33 = load ptr, ptr %32, align 8, !tbaa !16
   %34 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %33, ptr nonnull @.str.25, i64 4) #15
   %35 = extractvalue { ptr, i64 } %34, 0
@@ -4680,14 +4680,14 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZL16getExt
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL25emitRISCVExtensionBitmaskRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.thread8.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL25emitRISCVExtensionBitmaskRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.i", %.thread.i.i.i.i.i
   %53 = load ptr, ptr %32, align 8, !tbaa !16
-  %54 = getelementptr inbounds ptr, ptr %0, i64 %.012.i
+  %54 = getelementptr inbounds [8 x i8], ptr %0, i64 %.012.i
   store ptr %53, ptr %54, align 8, !tbaa !16
   %55 = icmp sgt i64 %.0913.i, %1
   br i1 %55, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZL25emitRISCVExtensionBitmaskRKNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_SL_T1_RT2_.exit", !llvm.loop !155
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPPKN4llvm6RecordESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops14_Iter_comp_valIZL25emitRISCVExtensionBitmaskRKNS2_12RecordKeeperERNS2_11raw_ostreamEE3$_0EEEvT_T0_SL_T1_RT2_.exit": ; preds = %.thread.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL25emitRISCVExtensionBitmaskRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL25emitRISCVExtensionBitmaskRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.thread8.i", %30
   %.0.lcssa.i = phi i64 [ %.1, %30 ], [ %.012.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL25emitRISCVExtensionBitmaskRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.i" ], [ %.0913.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL25emitRISCVExtensionBitmaskRKN4llvm12RecordKeeperERNS2_11raw_ostreamEE3$_0EclINS_17__normal_iteratorIPPKNS2_6RecordESt6vectorISE_SaISE_EEEESE_EEbT_RT0_.exit.thread8.i" ], [ %.012.i, %.thread.i.i.i.i.i ]
-  %56 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i
+  %56 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i
   store ptr %3, ptr %56, align 8, !tbaa !16
   ret void
 }

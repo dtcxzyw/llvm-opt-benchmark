@@ -44,7 +44,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.20" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::function.13" = type { %"class.std::_Function_base", ptr }
 
 $_ZN8QuantLib28GaussianOrthogonalPolynomialD2Ev = comdat any
 
@@ -186,7 +185,7 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorISt8fun
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %add, 5
   %call5.i.i.i.i2.i.i36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #22
   store ptr %call5.i.i.i.i2.i.i36, ptr %agg.result, align 8, !tbaa !3
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::function", ptr %call5.i.i.i.i2.i.i36, i64 %add
+  %add.ptr.i.i.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i2.i.i36, i64 %add
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i36, i8 0, i64 %mul.i.i.i.i.i.i, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i36, i64 %mul.i.i.i.i.i.i
   br label %invoke.cont
@@ -240,7 +239,7 @@ invoke.cont.split:                                ; preds = %invoke.cont
 
 for.body.us:                                      ; preds = %invoke.cont.split, %_ZNSt8functionIFddEEaSIN8QuantLib12_GLOBAL__N_111MonomialFctEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOS7_.exit.us
   %i.0157.us = phi i64 [ %inc.us, %_ZNSt8functionIFddEEaSIN8QuantLib12_GLOBAL__N_111MonomialFctEEENSt9enable_ifIXsr9_CallableIT_EE5valueERS1_E4typeEOS7_.exit.us ], [ 0, %invoke.cont.split ]
-  %add.ptr.i.us = getelementptr inbounds nuw %"class.std::function", ptr %0, i64 %i.0157.us
+  %add.ptr.i.us = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %i.0157.us
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i64 0, ptr %8, align 8
   store i64 %i.0157.us, ptr %ref.tmp.i, align 8, !tbaa !10
@@ -291,7 +290,7 @@ invoke.cont7.us:                                  ; preds = %for.body.us159
           to label %call.i.i3.i.i.noexc.us unwind label %lpad10.split.us
 
 call.i.i3.i.i.noexc.us:                           ; preds = %invoke.cont7.us
-  %add.ptr.i38.us = getelementptr inbounds nuw %"class.std::function", ptr %0, i64 %i.0157.us160
+  %add.ptr.i38.us = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %i.0157.us160
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib23GaussLaguerrePolynomialE, i64 16), ptr %call.i.i3.i.i49.us, align 8, !tbaa !21
   %s_.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %call.i.i3.i.i49.us, i64 8
   store double %13, ptr %s_.i.i.i.i.i.i.us, align 8, !tbaa !17
@@ -356,7 +355,7 @@ invoke.cont16.us:                                 ; preds = %for.body.us168
           to label %call.i.i3.i.i.noexc61.us unwind label %lpad19.split.us
 
 call.i.i3.i.i.noexc61.us:                         ; preds = %invoke.cont16.us
-  %add.ptr.i50.us = getelementptr inbounds nuw %"class.std::function", ptr %0, i64 %i.0157.us169
+  %add.ptr.i50.us = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %i.0157.us169
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib22GaussHermitePolynomialE, i64 16), ptr %call.i.i3.i.i62.us, align 8, !tbaa !21
   %mu_.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %call.i.i3.i.i62.us, i64 8
   store double %21, ptr %mu_.i.i.i.i.i.i.us, align 8, !tbaa !25
@@ -415,7 +414,7 @@ for.body.us177:                                   ; preds = %invoke.cont.split, 
           to label %call.i.i2.i.i.noexc.us unwind label %lpad30.split.us
 
 call.i.i2.i.i.noexc.us:                           ; preds = %for.body.us177
-  %add.ptr.i63.us = getelementptr inbounds nuw %"class.std::function", ptr %0, i64 %i.0157.us178
+  %add.ptr.i63.us = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %i.0157.us178
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib25GaussHyperbolicPolynomialE, i64 16), ptr %call.i.i2.i.i74.us, align 8, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i74.us, i64 8
   store i64 %i.0157.us178, ptr %29, align 8, !tbaa !29
@@ -471,7 +470,7 @@ invoke.cont40.us:                                 ; preds = %for.body.us185
           to label %call.i.i2.i.i.noexc86.us unwind label %lpad43.split.us
 
 call.i.i2.i.i.noexc86.us:                         ; preds = %invoke.cont40.us
-  %add.ptr.i75.us = getelementptr inbounds nuw %"class.std::function", ptr %0, i64 %i.0157.us186
+  %add.ptr.i75.us = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %i.0157.us186
   %alpha_.i.i.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i87.us, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alpha_.i.i.i.i.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(16) %alpha_2.i.i, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib23GaussLegendrePolynomialE, i64 16), ptr %call.i.i2.i.i87.us, align 8, !tbaa !21
@@ -535,7 +534,7 @@ invoke.cont53.us:                                 ; preds = %for.body.us194
           to label %call.i.i2.i.i.noexc103.us unwind label %lpad56.split.us
 
 call.i.i2.i.i.noexc103.us:                        ; preds = %invoke.cont53.us
-  %add.ptr.i90.us = getelementptr inbounds nuw %"class.std::function", ptr %0, i64 %i.0157.us195
+  %add.ptr.i90.us = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %i.0157.us195
   %alpha_.i.i.i.i.i.i.i95.us = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i104.us, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alpha_.i.i.i.i.i.i.i95.us, ptr noundef nonnull align 8 dereferenceable(16) %alpha_2.i.i89, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib24GaussChebyshevPolynomialE, i64 16), ptr %call.i.i2.i.i104.us, align 8, !tbaa !21
@@ -619,7 +618,7 @@ invoke.cont66:                                    ; preds = %for.body
           to label %call.i.i2.i.i.noexc120 unwind label %lpad69
 
 call.i.i2.i.i.noexc120:                           ; preds = %invoke.cont66
-  %add.ptr.i107 = getelementptr inbounds nuw %"class.std::function", ptr %0, i64 %i.0157
+  %add.ptr.i107 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %i.0157
   %alpha_.i.i.i.i.i.i.i112 = getelementptr inbounds nuw i8, ptr %call.i.i2.i.i121, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %alpha_.i.i.i.i.i.i.i112, ptr noundef nonnull align 8 dereferenceable(16) %alpha_2.i.i106, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib27GaussChebyshev2ndPolynomialE, i64 16), ptr %call.i.i2.i.i121, align 8, !tbaa !21
@@ -1367,7 +1366,7 @@ _ZNSt6vectorISt8functionIFddEESaIS2_EED2Ev.exit:  ; preds = %invoke.cont.i63, %i
 
 call5.i.i.i.i2.i.i.noexc79:                       ; preds = %_ZNSt6vectorISt8functionIFddEESaIS2_EED2Ev.exit
   store ptr %call5.i.i.i.i2.i.i80, ptr %ref.tmp41, align 8, !tbaa !53
-  %add.ptr.i.i.i73 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i80, i64 %dim
+  %add.ptr.i.i.i73 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i80, i64 %dim
   %_M_end_of_storage.i.i.i74 = getelementptr inbounds nuw i8, ptr %ref.tmp41, i64 16
   store ptr %add.ptr.i.i.i73, ptr %_M_end_of_storage.i.i.i74, align 8, !tbaa !55
   store i64 0, ptr %call5.i.i.i.i2.i.i80, align 8, !tbaa !10
@@ -1996,7 +1995,7 @@ _ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds
   %98 = phi ptr [ %36, %_ZN8QuantLib12_GLOBAL__N_112check_tuplesERKSt6vectorIS1_ImSaImEESaIS3_EEmm.exit.i ], [ %.pre95.i, %for.cond.cleanup.i ], [ %.pre95.i, %_ZNSt16allocator_traitsISaISt6vectorImSaImEEEE8allocateERS3_m.exit.i.i.i.i ], [ %36, %_ZN8QuantLib12_GLOBAL__N_112check_tuplesERKSt6vectorIS1_ImSaImEESaIS3_EEmm.exit.i.thread ]
   %__n.0.lcssa.i.i58.i.i.i = phi i64 [ 0, %_ZN8QuantLib12_GLOBAL__N_112check_tuplesERKSt6vectorIS1_ImSaImEESaIS3_EEmm.exit.i ], [ 0, %for.cond.cleanup.i ], [ %inc.i.i.i.i.i, %_ZNSt16allocator_traitsISaISt6vectorImSaImEEEE8allocateERS3_m.exit.i.i.i.i ], [ 0, %_ZN8QuantLib12_GLOBAL__N_112check_tuplesERKSt6vectorIS1_ImSaImEESaIS3_EEmm.exit.i.thread ]
   %cond.i.i.i.i192 = phi ptr [ null, %_ZN8QuantLib12_GLOBAL__N_112check_tuplesERKSt6vectorIS1_ImSaImEESaIS3_EEmm.exit.i ], [ null, %for.cond.cleanup.i ], [ %call5.i.i.i.i1.i.i, %_ZNSt16allocator_traitsISaISt6vectorImSaImEEEE8allocateERS3_m.exit.i.i.i.i ], [ null, %_ZN8QuantLib12_GLOBAL__N_112check_tuplesERKSt6vectorIS1_ImSaImEESaIS3_EEmm.exit.i.thread ]
-  %add.ptr.i.i19.i = getelementptr inbounds nuw %"class.std::vector.19", ptr %cond.i.i.i.i192, i64 %__n.0.lcssa.i.i58.i.i.i
+  %add.ptr.i.i19.i = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i.i.i192, i64 %__n.0.lcssa.i.i58.i.i.i
   %call.i.i.i2.i2.i.i = invoke noundef ptr @_ZSt16__do_uninit_copyISt23_Rb_tree_const_iteratorISt6vectorImSaImEEEPS3_ET0_T_S7_S6_(ptr %98, ptr nonnull %36, ptr noundef %cond.i.i.i.i192)
           to label %invoke.cont36.i unwind label %lpad.i15.i, !noalias !58
 
@@ -2127,7 +2126,7 @@ if.end69.i.i:                                     ; preds = %if.then.i.i.i.i.i.i
   %x.i.sroa.0.2 = phi ptr [ %call5.i.i.i.i.i29.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i ], [ %x.i.sroa.0.1, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i.i ], [ %x.i.sroa.0.1, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %x.i.sroa.0.1, %if.then27.i.i ], [ %x.i.sroa.0.1, %if.then.i.i.i.i.i.i.i187 ]
   %x.i.sroa.16.2 = phi ptr [ %add.ptr.i.i, %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i.i ], [ %x.i.sroa.16.1, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i.i ], [ %x.i.sroa.16.1, %if.then.i.i.i.i.i.i.i.i.i.i ], [ %x.i.sroa.16.1, %if.then27.i.i ], [ %x.i.sroa.16.1, %if.then.i.i.i.i.i.i.i187 ]
   %add.ptr72.i.i = getelementptr inbounds nuw i8, ptr %x.i.sroa.0.2, i64 %sub.ptr.sub.i.i27.i
-  %add.ptr.i30.i = getelementptr inbounds nuw i64, ptr %x.i.sroa.0.2, i64 %i.089.i
+  %add.ptr.i30.i = getelementptr inbounds nuw [8 x i8], ptr %x.i.sroa.0.2, i64 %i.089.i
   %103 = load i64, ptr %add.ptr.i30.i, align 8, !tbaa !10, !noalias !58
   %add.i = add i64 %103, 1
   store i64 %add.i, ptr %add.ptr.i30.i, align 8, !tbaa !10, !noalias !58
@@ -2606,11 +2605,11 @@ if.then.i.i.i248:                                 ; preds = %lpad10.i246.body
 for.body71:                                       ; preds = %for.cond68.preheader, %for.inc
   %k.0639 = phi i64 [ 0, %for.cond68.preheader ], [ %inc, %for.inc ]
   %147 = load ptr, ptr %__begin2.sroa.0.0641, align 8, !tbaa !53
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %147, i64 %k.0639
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %k.0639
   %148 = load i64, ptr %add.ptr.i, align 8, !tbaa !10
   %149 = load ptr, ptr %pathBasis, align 8, !tbaa !3
-  %add.ptr.i259 = getelementptr inbounds nuw %"class.std::function", ptr %149, i64 %148
-  %add.ptr.i260 = getelementptr inbounds nuw %"class.std::function", ptr %call5.i.i.i.i2.i.i45, i64 %k.0639
+  %add.ptr.i259 = getelementptr inbounds nuw [32 x i8], ptr %149, i64 %148
+  %add.ptr.i260 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i2.i.i45, i64 %k.0639
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i259, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
@@ -3147,7 +3146,7 @@ unreachable.i:                                    ; preds = %invoke.cont19.i
 _ZNSt6vectorISt8functionIFdN8QuantLib5ArrayEEESaIS4_EE17_M_realloc_insertIJNS1_12_GLOBAL__N_111MultiDimFctEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt8functionIFdN8QuantLib5ArrayEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i, %if.then.i34.i
   store ptr %cond.i17.i, ptr %this, align 8, !tbaa !82
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8, !tbaa !80
-  %add.ptr26.i = getelementptr inbounds nuw %"class.std::function.13", ptr %cond.i17.i, i64 %cond.i.i
+  %add.ptr26.i = getelementptr inbounds nuw [32 x i8], ptr %cond.i17.i, i64 %cond.i.i
   store ptr %add.ptr26.i, ptr %_M_end_of_storage, align 8, !tbaa !84
   br label %if.end
 
@@ -4377,9 +4376,9 @@ for.body.i.i.i:                                   ; preds = %_ZNKSt8functionIFdd
   %7 = phi ptr [ %13, %_ZNKSt8functionIFddEEclEd.exit12.i.i.i ], [ %6, %_ZNKSt8functionIFddEEclEd.exit.i.i.i ]
   %i.020.i.i.i = phi i64 [ %inc.i.i.i, %_ZNKSt8functionIFddEEclEd.exit12.i.i.i ], [ 1, %_ZNKSt8functionIFddEEclEd.exit.i.i.i ]
   %ret.019.i.i.i = phi double [ %mul.i.i.i, %_ZNKSt8functionIFddEEclEd.exit12.i.i.i ], [ %call2.i.i.i.i, %_ZNKSt8functionIFddEEclEd.exit.i.i.i ]
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.std::function", ptr %7, i64 %i.020.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %i.020.i.i.i
   %8 = load ptr, ptr %__args, align 8, !tbaa !14
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw double, ptr %8, i64 %i.020.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %i.020.i.i.i
   %9 = load double, ptr %arrayidx.i.i.i.i, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i6.i.i.i)
   store double %9, ptr %__args.addr.i6.i.i.i, align 8, !tbaa !98

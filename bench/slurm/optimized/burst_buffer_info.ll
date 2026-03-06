@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.slurm_node_alias_addrs_t = type { i64, ptr, ptr, i32, ptr }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 %struct.bb_status_req_msg = type { i32, ptr }
-%struct.burst_buffer_pool_t = type { i64, ptr, i64, i64, i64 }
 
 @working_cluster_rec = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [38 x i8] c"No burst buffer information available\00", align 1
@@ -272,7 +271,7 @@ define dso_local void @slurm_print_burst_buffer_record(ptr noundef captures(none
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #9
   %37 = load ptr, ptr %35, align 8
-  %38 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -280,21 +279,21 @@ define dso_local void @slurm_print_burst_buffer_record(ptr noundef captures(none
   %43 = sub i64 %40, %42
   call fastcc void @_get_size_str(ptr noundef %13, i64 noundef %43)
   %44 = load ptr, ptr %35, align 8
-  %45 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [40 x i8], ptr %44, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8
   call fastcc void @_get_size_str(ptr noundef %14, i64 noundef %46)
   %47 = load ptr, ptr %35, align 8
-  %48 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [40 x i8], ptr %47, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i64, ptr %49, align 8
   call fastcc void @_get_size_str(ptr noundef %15, i64 noundef %50)
   %51 = load ptr, ptr %35, align 8
-  %52 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [40 x i8], ptr %51, i64 %indvars.iv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load i64, ptr %53, align 8
   call fastcc void @_get_size_str(ptr noundef %16, i64 noundef %54)
   %55 = load ptr, ptr %35, align 8
-  %56 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [40 x i8], ptr %55, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = trunc nuw nsw i64 %indvars.iv to i32

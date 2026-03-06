@@ -21308,7 +21308,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr132dro
 150:                                              ; preds = %.noexc30, %145
   %151 = phi i64 [ %.pre.i.i, %.noexc30 ], [ %139, %145 ]
   %.val.i.i = load ptr, ptr %138, align 8, !alias.scope !2489, !noalias !2492, !nonnull !5, !noundef !5
-  %152 = getelementptr inbounds { { i64, i32, [1 x i32] }, { i64, i32, [1 x i32] }, i8, [7 x i8] }, ptr %.val.i.i, i64 %151
+  %152 = getelementptr inbounds [40 x i8], ptr %.val.i.i, i64 %151
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %152, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.047, i64 32, i1 false)
   %.sroa.557.0..sroa_idx = getelementptr inbounds nuw i8, ptr %152, i64 32
   store i8 %.sroa.648.0.copyload50, ptr %.sroa.557.0..sroa_idx, align 8
@@ -26233,7 +26233,7 @@ default.unreachable38:                            ; preds = %2
   %.val = load ptr, ptr %18, align 8, !nonnull !5, !noundef !5
   %19 = getelementptr i8, ptr %0, i64 56
   %.val21 = load i64, ptr %19, align 8, !noundef !5
-  %20 = getelementptr inbounds i64, ptr %.val, i64 %.val21
+  %20 = getelementptr inbounds [8 x i8], ptr %.val, i64 %.val21
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h33077953a4b7e90fE.llvm.1464196868864806666"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noundef nonnull %.val, ptr noundef nonnull %20)
           to label %23 unwind label %21
 
@@ -26538,7 +26538,7 @@ default.unreachable27:                            ; preds = %20, %2
   %.val.i = load ptr, ptr %30, align 8, !noalias !3348, !nonnull !5, !noundef !5
   %31 = getelementptr i8, ptr %0, i64 464
   %.val9.i = load i64, ptr %31, align 8, !noalias !3348, !noundef !5
-  %32 = getelementptr inbounds { i64, { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} } } }, ptr %.val.i, i64 %.val9.i
+  %32 = getelementptr inbounds [40 x i8], ptr %.val.i, i64 %.val9.i
   %33 = ptrtoint ptr %29 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.918.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3348
@@ -27956,7 +27956,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr67drop
   %.val85 = load ptr, ptr %81, align 8, !nonnull !5, !noundef !5
   %82 = getelementptr i8, ptr %0, i64 208
   %.val86 = load i64, ptr %82, align 8, !noundef !5
-  %83 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } }, { i32, [1 x i32] }, { i32, [1 x i32] } }, { { { { i64, i32, [1 x i32] } } }, i64, i64, i8, i8, i8, [5 x i8] } }, ptr %.val85, i64 %.val86
+  %83 = getelementptr inbounds [80 x i8], ptr %.val85, i64 %.val86
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hefa82665d745754fE.llvm.1464196868864806666"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %25, ptr noundef nonnull %.val85, ptr noundef nonnull %83)
           to label %_ZN4core4iter6traits8iterator8Iterator7collect17h6207ea6c384a453aE.exit unwind label %84
 
@@ -28376,7 +28376,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h6207ea6c384a453aE.exit: ; preds
   %.idx = mul nsw i64 %.sroa.6.0.copyload, 80
   %232 = getelementptr inbounds i8, ptr %.sroa.5182.0.copyload, i64 %.idx
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.9177.0355) ]
-  %233 = getelementptr inbounds { i64, [2 x i64] }, ptr %.sroa.9177.0355, i64 %229
+  %233 = getelementptr inbounds [24 x i8], ptr %.sroa.9177.0355, i64 %229
   %.sroa.9197.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9197.0..sroa_idx, i8 0, i64 24, i1 false)

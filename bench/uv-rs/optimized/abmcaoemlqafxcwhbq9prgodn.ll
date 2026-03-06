@@ -3600,7 +3600,7 @@ common.resume:                                    ; preds = %32, %17
 "_ZN90_$LT$winnow..error..ErrMode$LT$E$GT$$u20$as$u20$winnow..error..AddContext$LT$I$C$C$GT$$GT$11add_context28_$u7b$$u7b$closure$u7d$$u7d$17h57044dfd67819d6bE.exit": ; preds = %11, %16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !766, !noalias !773, !nonnull !8, !noundef !8
-  %23 = getelementptr inbounds { i32, [5 x i32] }, ptr %22, i64 %13
+  %23 = getelementptr inbounds [24 x i8], ptr %22, i64 %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 24, i1 false), !noalias !780
   %24 = add i64 %13, 1
   store i64 %24, ptr %12, align 8, !alias.scope !766, !noalias !773
@@ -3637,7 +3637,7 @@ common.resume:                                    ; preds = %32, %17
 "_ZN90_$LT$winnow..error..ErrMode$LT$E$GT$$u20$as$u20$winnow..error..AddContext$LT$I$C$C$GT$$GT$11add_context28_$u7b$$u7b$closure$u7d$$u7d$17h57044dfd67819d6bE.exit1": ; preds = %26, %31
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %37 = load ptr, ptr %36, align 8, !alias.scope !781, !noalias !788, !nonnull !8, !noundef !8
-  %38 = getelementptr inbounds { i32, [5 x i32] }, ptr %37, i64 %28
+  %38 = getelementptr inbounds [24 x i8], ptr %37, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 24, i1 false), !noalias !795
   %39 = add i64 %28, 1
   store i64 %39, ptr %27, align 8, !alias.scope !781, !noalias !788

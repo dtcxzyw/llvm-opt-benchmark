@@ -11355,7 +11355,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
 
 "_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka..sync_base..invalidator..GetOrRemoveEntry$LT$K$C$V$GT$$u20$for$u20$alloc..sync..Arc$LT$moka..sync_base..base_cache..Inner$LT$K$C$V$C$S$GT$$GT$$GT$15get_value_entry17h979fc4bcd3a07132E.exit.i.i": ; preds = %58
   %74 = load ptr, ptr %49, align 8, !noalias !1558, !nonnull !9, !align !22, !noundef !9
-  %75 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %74, i64 %.0.i.i.i.i.i
+  %75 = getelementptr inbounds [16 x i8], ptr %74, i64 %.0.i.i.i.i.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %75, ptr %5, align 8, !alias.scope !1555, !noalias !1552
   store ptr %50, ptr %51, align 8, !alias.scope !1555, !noalias !1552
@@ -11551,7 +11551,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator25ScanTask$LT$K$C$V$C$S$GT$7
 .thread.i:                                        ; preds = %._crit_edge.i.i, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hbffa00eb73853504E.exit.i"
   %139 = phi i64 [ %.pre.i18.i, %._crit_edge.i.i ], [ %131, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hbffa00eb73853504E.exit.i" ]
   %140 = load ptr, ptr %39, align 8, !alias.scope !1595, !noalias !1527, !nonnull !9, !noundef !9
-  %141 = getelementptr inbounds { ptr, ptr }, ptr %140, i64 %139
+  %141 = getelementptr inbounds [16 x i8], ptr %140, i64 %139
   store ptr %.val.i, ptr %141, align 8, !noalias !1529
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   store ptr %124, ptr %142, align 8, !noalias !1529
@@ -12555,7 +12555,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$G
   br i1 %33, label %"_ZN4core3ptr153drop_in_place$LT$$u5b$moka..sync_base..invalidator..Predicate$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$u5d$$GT$17ha04f10e8941795b9E.exit", label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 }, ptr %30, i64 %.0.i
+  %35 = getelementptr inbounds [48 x i8], ptr %30, i64 %.0.i
   %36 = add i64 %.0.i, 1
   invoke void @"_ZN4core3ptr143drop_in_place$LT$moka..sync_base..invalidator..Predicate$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$17h117a180a4e25ab7cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %35)
           to label %32 unwind label %39
@@ -12571,7 +12571,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$G
   br label %37
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 }, ptr %30, i64 %.1.i
+  %42 = getelementptr inbounds [48 x i8], ptr %30, i64 %.1.i
   %43 = add i64 %.1.i, 1
   invoke void @"_ZN4core3ptr143drop_in_place$LT$moka..sync_base..invalidator..Predicate$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$GT$$GT$17h117a180a4e25ab7cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %42) #36
           to label %37 unwind label %44
@@ -12610,9 +12610,9 @@ define hidden void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$G
   store i64 %56, ptr %52, align 8, !alias.scope !1760, !noalias !1763
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %59 = load ptr, ptr %58, align 8, !alias.scope !1760, !noalias !1763, !nonnull !9, !noundef !9
-  %60 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 }, ptr %59, i64 %56
+  %60 = getelementptr inbounds [48 x i8], ptr %59, i64 %56
   %61 = sub i64 %53, %57
-  %62 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 }, ptr %59, i64 %57
+  %62 = getelementptr inbounds [48 x i8], ptr %59, i64 %57
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1765
   store i64 0, ptr %8, align 8, !alias.scope !1770, !noalias !1765
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -12737,7 +12737,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$G
 90:                                               ; preds = %._crit_edge.i.i.i.i.i, %72
   %91 = phi i64 [ %.pre.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %73, %72 ]
   %92 = load ptr, ptr %65, align 8, !alias.scope !1792, !noalias !1797, !nonnull !9, !noundef !9
-  %93 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 }, ptr %92, i64 %91
+  %93 = getelementptr inbounds [48 x i8], ptr %92, i64 %91
   store i64 %.sroa.011.0.copyload.i.i, ptr %93, align 8, !noalias !1791
   %.sroa.0.sroa.7.0..sroa_idx19.i.i = getelementptr inbounds nuw i8, ptr %93, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.7.0..sroa_idx19.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.7.i.i, i64 32, i1 false), !noalias !1791
@@ -12752,7 +12752,7 @@ define hidden void @"_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$G
 96:                                               ; preds = %._crit_edge.i.i2.i.i.i, %81
   %97 = phi i64 [ %.pre.i.i3.i.i.i, %._crit_edge.i.i2.i.i.i ], [ %82, %81 ]
   %98 = load ptr, ptr %63, align 8, !alias.scope !1805, !noalias !1810, !nonnull !9, !noundef !9
-  %99 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { ptr, ptr }, i64 }, ptr %98, i64 %97
+  %99 = getelementptr inbounds [48 x i8], ptr %98, i64 %97
   store i64 %.sroa.011.0.copyload.i.i, ptr %99, align 8, !noalias !1791
   %.sroa.0.sroa.7.0..sroa_idx17.i.i = getelementptr inbounds nuw i8, ptr %99, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.7.0..sroa_idx17.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.7.i.i, i64 32, i1 false), !noalias !1791
@@ -14558,7 +14558,7 @@ define noalias noundef nonnull ptr @_ZN13mini_lsm_mvcc4mvcc12LsmMvccInner7new_tx
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.sroa.21.0.copyload.i.i = load i64, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !alias.scope !1936, !noalias !1933
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 96
-  %34 = getelementptr inbounds i64, ptr %33, i64 %.sroa.21.0.copyload.i.i
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %.sroa.21.0.copyload.i.i
   br label %39
 
 .body32:                                          ; preds = %91, %.body, %55, %37

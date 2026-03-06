@@ -31,7 +31,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin10getOptionsEPKNS_13CollationD
 
 20:                                               ; preds = %13
   %21 = zext nneg i32 %19 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %6, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !25
   %24 = zext i16 %23 to i32
   br label %25
@@ -145,7 +145,7 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit124: ; preds = %63, %68
   %75 = load i16, ptr %6, align 2, !tbaa !25
   %76 = and i16 %75, 255
   %77 = zext nneg i16 %76 to i64
-  %78 = getelementptr inbounds nuw i16, ptr %6, i64 %77
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %77
   br label %81
 
 79:                                               ; preds = %81
@@ -157,7 +157,7 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit124: ; preds = %63, %68
 
 81:                                               ; preds = %74, %81
   %indvars.iv = phi i64 [ 0, %74 ], [ %indvars.iv.next, %81 ]
-  %82 = getelementptr inbounds nuw i16, ptr %78, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %indvars.iv
   %83 = load i16, ptr %82, align 2, !tbaa !25
   %84 = icmp ugt i16 %83, 4095
   %85 = and i16 %83, -1024
@@ -166,7 +166,7 @@ _ZNK6icu_7717CollationSettings7reorderEj.exit124: ; preds = %63, %68
   %88 = and i16 %83, 4088
   %spec.select121 = select i1 %87, i16 %88, i16 0
   %.070 = select i1 %84, i16 %85, i16 %spec.select121
-  %89 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   store i16 %.070, ptr %89, align 2, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next, 384
@@ -200,7 +200,7 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin12compareUTF1
   %12 = load i16, ptr %0, align 2, !tbaa !25
   %13 = and i16 %12, 255
   %14 = zext nneg i16 %13 to i64
-  %15 = getelementptr inbounds nuw i16, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %14
   %16 = lshr i32 %2, 16
   %17 = and i32 %2, 65535
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -227,7 +227,7 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin12compareUTF1
   %24 = add nsw i32 %20, 1
   store i32 %24, ptr %10, align 4, !tbaa !32
   %25 = sext i32 %20 to i64
-  %26 = getelementptr inbounds i16, ptr %3, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %3, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !33
   %28 = zext i16 %27 to i32
   %29 = icmp ult i16 %27, 384
@@ -235,7 +235,7 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin12compareUTF1
 
 30:                                               ; preds = %23
   %31 = zext nneg i16 %27 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %1, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !25
   %.not = icmp eq i16 %33, 0
   br i1 %.not, label %36, label %34
@@ -251,7 +251,7 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin12compareUTF1
   br i1 %or.cond427, label %38, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread556
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i16, ptr %15, i64 %31
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %31
   %40 = load i16, ptr %39, align 2, !tbaa !25
   %41 = zext i16 %40 to i32
   br label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit
@@ -263,7 +263,7 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin12compareUTF1
 
 44:                                               ; preds = %42
   %45 = zext nneg i16 %27 to i64
-  %46 = getelementptr i16, ptr %15, i64 %45
+  %46 = getelementptr [2 x i8], ptr %15, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -15616
   %48 = load i16, ptr %47, align 2, !tbaa !25
   %49 = zext i16 %48 to i32
@@ -276,7 +276,7 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin12compareUTF1
 
 52:                                               ; preds = %50
   %53 = zext i16 %27 to i64
-  %54 = getelementptr i16, ptr %15, i64 %53
+  %54 = getelementptr [2 x i8], ptr %15, i64 %53
   %55 = getelementptr i8, ptr %54, i64 -15616
   %56 = load i16, ptr %55, align 2, !tbaa !25
   %57 = zext i16 %56 to i32
@@ -353,7 +353,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_
   %85 = add nsw i32 %81, 1
   store i32 %85, ptr %11, align 4, !tbaa !32
   %86 = sext i32 %81 to i64
-  %87 = getelementptr inbounds i16, ptr %5, i64 %86
+  %87 = getelementptr inbounds [2 x i8], ptr %5, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !33
   %89 = zext i16 %88 to i32
   %90 = icmp ult i16 %88, 384
@@ -361,7 +361,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_
 
 91:                                               ; preds = %84
   %92 = zext nneg i16 %88 to i64
-  %93 = getelementptr inbounds nuw i16, ptr %1, i64 %92
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %92
   %94 = load i16, ptr %93, align 2, !tbaa !25
   %.not417 = icmp eq i16 %94, 0
   br i1 %.not417, label %97, label %95
@@ -377,7 +377,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_
   br i1 %or.cond428, label %99, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread556
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds nuw i16, ptr %15, i64 %92
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %92
   %101 = load i16, ptr %100, align 2, !tbaa !25
   %102 = zext i16 %101 to i32
   br label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit438
@@ -389,7 +389,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_
 
 105:                                              ; preds = %103
   %106 = zext nneg i16 %88 to i64
-  %107 = getelementptr i16, ptr %15, i64 %106
+  %107 = getelementptr [2 x i8], ptr %15, i64 %106
   %108 = getelementptr i8, ptr %107, i64 -15616
   %109 = load i16, ptr %108, align 2, !tbaa !25
   %110 = zext i16 %109 to i32
@@ -402,7 +402,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_
 
 113:                                              ; preds = %111
   %114 = zext i16 %88 to i64
-  %115 = getelementptr i16, ptr %15, i64 %114
+  %115 = getelementptr [2 x i8], ptr %15, i64 %114
   %116 = getelementptr i8, ptr %115, i64 -15616
   %117 = load i16, ptr %116, align 2, !tbaa !25
   %118 = zext i16 %117 to i32
@@ -524,7 +524,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit441.thread: ; preds = %_ZN6i
   %160 = add nsw i32 %156, 1
   store i32 %160, ptr %10, align 4, !tbaa !32
   %161 = sext i32 %156 to i64
-  %162 = getelementptr inbounds i16, ptr %3, i64 %161
+  %162 = getelementptr inbounds [2 x i8], ptr %3, i64 %161
   %163 = load i16, ptr %162, align 2, !tbaa !33
   %164 = zext i16 %163 to i32
   %165 = icmp ult i16 %163, 384
@@ -532,7 +532,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit441.thread: ; preds = %_ZN6i
 
 166:                                              ; preds = %159
   %167 = zext nneg i16 %163 to i64
-  %168 = getelementptr inbounds nuw i16, ptr %15, i64 %167
+  %168 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %167
   %169 = load i16, ptr %168, align 2, !tbaa !25
   %170 = zext i16 %169 to i32
   br label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit448
@@ -544,7 +544,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit441.thread: ; preds = %_ZN6i
 
 173:                                              ; preds = %171
   %174 = zext nneg i16 %163 to i64
-  %175 = getelementptr i16, ptr %15, i64 %174
+  %175 = getelementptr [2 x i8], ptr %15, i64 %174
   %176 = getelementptr i8, ptr %175, i64 -15616
   %177 = load i16, ptr %176, align 2, !tbaa !25
   %178 = zext i16 %177 to i32
@@ -557,7 +557,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit441.thread: ; preds = %_ZN6i
 
 181:                                              ; preds = %179
   %182 = zext i16 %163 to i64
-  %183 = getelementptr i16, ptr %15, i64 %182
+  %183 = getelementptr [2 x i8], ptr %15, i64 %182
   %184 = getelementptr i8, ptr %183, i64 -15616
   %185 = load i16, ptr %184, align 2, !tbaa !25
   %186 = zext i16 %185 to i32
@@ -647,7 +647,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread: ; preds = %_ZN6ic
   %223 = add nsw i32 %219, 1
   store i32 %223, ptr %11, align 4, !tbaa !32
   %224 = sext i32 %219 to i64
-  %225 = getelementptr inbounds i16, ptr %5, i64 %224
+  %225 = getelementptr inbounds [2 x i8], ptr %5, i64 %224
   %226 = load i16, ptr %225, align 2, !tbaa !33
   %227 = zext i16 %226 to i32
   %228 = icmp ult i16 %226, 384
@@ -655,7 +655,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread: ; preds = %_ZN6ic
 
 229:                                              ; preds = %222
   %230 = zext nneg i16 %226 to i64
-  %231 = getelementptr inbounds nuw i16, ptr %15, i64 %230
+  %231 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %230
   %232 = load i16, ptr %231, align 2, !tbaa !25
   %233 = zext i16 %232 to i32
   br label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit458
@@ -667,7 +667,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread: ; preds = %_ZN6ic
 
 236:                                              ; preds = %234
   %237 = zext nneg i16 %226 to i64
-  %238 = getelementptr i16, ptr %15, i64 %237
+  %238 = getelementptr [2 x i8], ptr %15, i64 %237
   %239 = getelementptr i8, ptr %238, i64 -15616
   %240 = load i16, ptr %239, align 2, !tbaa !25
   %241 = zext i16 %240 to i32
@@ -680,7 +680,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread: ; preds = %_ZN6ic
 
 244:                                              ; preds = %242
   %245 = zext i16 %226 to i64
-  %246 = getelementptr i16, ptr %15, i64 %245
+  %246 = getelementptr [2 x i8], ptr %15, i64 %245
   %247 = getelementptr i8, ptr %246, i64 -15616
   %248 = load i16, ptr %247, align 2, !tbaa !25
   %249 = zext i16 %248 to i32
@@ -820,7 +820,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465.thread: ; preds = %_ZN
   %304 = add nsw i32 %300, 1
   store i32 %304, ptr %10, align 4, !tbaa !32
   %305 = sext i32 %300 to i64
-  %306 = getelementptr inbounds i16, ptr %3, i64 %305
+  %306 = getelementptr inbounds [2 x i8], ptr %3, i64 %305
   %307 = load i16, ptr %306, align 2, !tbaa !33
   %308 = zext i16 %307 to i32
   %309 = icmp ult i16 %307, 384
@@ -828,7 +828,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465.thread: ; preds = %_ZN
 
 310:                                              ; preds = %303
   %311 = zext nneg i16 %307 to i64
-  %312 = getelementptr inbounds nuw i16, ptr %15, i64 %311
+  %312 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %311
   %313 = load i16, ptr %312, align 2, !tbaa !25
   %314 = zext i16 %313 to i32
   br label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit472
@@ -840,7 +840,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit465.thread: ; preds = %_ZN
 
 317:                                              ; preds = %315
   %318 = zext i16 %307 to i64
-  %319 = getelementptr i16, ptr %15, i64 %318
+  %319 = getelementptr [2 x i8], ptr %15, i64 %318
   %320 = getelementptr i8, ptr %319, i64 -15616
   %321 = load i16, ptr %320, align 2, !tbaa !25
   %322 = zext i16 %321 to i32
@@ -930,7 +930,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %336, %330, %347, %3
   %356 = add nsw i32 %352, 1
   store i32 %356, ptr %11, align 4, !tbaa !32
   %357 = sext i32 %352 to i64
-  %358 = getelementptr inbounds i16, ptr %5, i64 %357
+  %358 = getelementptr inbounds [2 x i8], ptr %5, i64 %357
   %359 = load i16, ptr %358, align 2, !tbaa !33
   %360 = zext i16 %359 to i32
   %361 = icmp ult i16 %359, 384
@@ -938,7 +938,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %336, %330, %347, %3
 
 362:                                              ; preds = %355
   %363 = zext nneg i16 %359 to i64
-  %364 = getelementptr inbounds nuw i16, ptr %15, i64 %363
+  %364 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %363
   %365 = load i16, ptr %364, align 2, !tbaa !25
   %366 = zext i16 %365 to i32
   br label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit484
@@ -950,7 +950,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %336, %330, %347, %3
 
 369:                                              ; preds = %367
   %370 = zext i16 %359 to i64
-  %371 = getelementptr i16, ptr %15, i64 %370
+  %371 = getelementptr [2 x i8], ptr %15, i64 %370
   %372 = getelementptr i8, ptr %371, i64 -15616
   %373 = load i16, ptr %372, align 2, !tbaa !25
   %374 = zext i16 %373 to i32
@@ -1098,7 +1098,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit492: ; preds = %388, %382, %399,
   %430 = add nsw i32 %426, 1
   store i32 %430, ptr %10, align 4, !tbaa !32
   %431 = sext i32 %426 to i64
-  %432 = getelementptr inbounds i16, ptr %3, i64 %431
+  %432 = getelementptr inbounds [2 x i8], ptr %3, i64 %431
   %433 = load i16, ptr %432, align 2, !tbaa !33
   %434 = zext i16 %433 to i32
   %435 = icmp ult i16 %433, 384
@@ -1106,7 +1106,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit492: ; preds = %388, %382, %399,
 
 436:                                              ; preds = %429
   %437 = zext nneg i16 %433 to i64
-  %438 = getelementptr inbounds nuw i16, ptr %15, i64 %437
+  %438 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %437
   %439 = load i16, ptr %438, align 2, !tbaa !25
   %440 = zext i16 %439 to i32
   br label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit499
@@ -1118,7 +1118,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit492: ; preds = %388, %382, %399,
 
 443:                                              ; preds = %441
   %444 = zext i16 %433 to i64
-  %445 = getelementptr i16, ptr %15, i64 %444
+  %445 = getelementptr [2 x i8], ptr %15, i64 %444
   %446 = getelementptr i8, ptr %445, i64 -15616
   %447 = load i16, ptr %446, align 2, !tbaa !25
   %448 = zext i16 %447 to i32
@@ -1216,7 +1216,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit: ; preds = %467, %474
   %484 = add nsw i32 %480, 1
   store i32 %484, ptr %11, align 4, !tbaa !32
   %485 = sext i32 %480 to i64
-  %486 = getelementptr inbounds i16, ptr %5, i64 %485
+  %486 = getelementptr inbounds [2 x i8], ptr %5, i64 %485
   %487 = load i16, ptr %486, align 2, !tbaa !33
   %488 = zext i16 %487 to i32
   %489 = icmp ult i16 %487, 384
@@ -1224,7 +1224,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit: ; preds = %467, %474
 
 490:                                              ; preds = %483
   %491 = zext nneg i16 %487 to i64
-  %492 = getelementptr inbounds nuw i16, ptr %15, i64 %491
+  %492 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %491
   %493 = load i16, ptr %492, align 2, !tbaa !25
   %494 = zext i16 %493 to i32
   br label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit508
@@ -1236,7 +1236,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit: ; preds = %467, %474
 
 497:                                              ; preds = %495
   %498 = zext i16 %487 to i64
-  %499 = getelementptr i16, ptr %15, i64 %498
+  %499 = getelementptr [2 x i8], ptr %15, i64 %498
   %500 = getelementptr i8, ptr %499, i64 -15616
   %501 = load i16, ptr %500, align 2, !tbaa !25
   %502 = zext i16 %501 to i32
@@ -1394,7 +1394,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit525: ; preds = %521, %528
   %560 = add nsw i32 %556, 1
   store i32 %560, ptr %10, align 4, !tbaa !32
   %561 = sext i32 %556 to i64
-  %562 = getelementptr inbounds i16, ptr %3, i64 %561
+  %562 = getelementptr inbounds [2 x i8], ptr %3, i64 %561
   %563 = load i16, ptr %562, align 2, !tbaa !33
   %564 = zext i16 %563 to i32
   %565 = icmp ult i16 %563, 384
@@ -1402,7 +1402,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit525: ; preds = %521, %528
 
 566:                                              ; preds = %559
   %567 = zext nneg i16 %563 to i64
-  %568 = getelementptr inbounds nuw i16, ptr %15, i64 %567
+  %568 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %567
   %569 = load i16, ptr %568, align 2, !tbaa !25
   %570 = zext i16 %569 to i32
   br label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit532
@@ -1414,7 +1414,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit525: ; preds = %521, %528
 
 573:                                              ; preds = %571
   %574 = zext i16 %563 to i64
-  %575 = getelementptr i16, ptr %15, i64 %574
+  %575 = getelementptr [2 x i8], ptr %15, i64 %574
   %576 = getelementptr i8, ptr %575, i64 -15616
   %577 = load i16, ptr %576, align 2, !tbaa !25
   %578 = zext i16 %577 to i32
@@ -1484,7 +1484,7 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit: ; preds = %594, %591
   %604 = add nsw i32 %600, 1
   store i32 %604, ptr %11, align 4, !tbaa !32
   %605 = sext i32 %600 to i64
-  %606 = getelementptr inbounds i16, ptr %5, i64 %605
+  %606 = getelementptr inbounds [2 x i8], ptr %5, i64 %605
   %607 = load i16, ptr %606, align 2, !tbaa !33
   %608 = zext i16 %607 to i32
   %609 = icmp ult i16 %607, 384
@@ -1492,7 +1492,7 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit: ; preds = %594, %591
 
 610:                                              ; preds = %603
   %611 = zext nneg i16 %607 to i64
-  %612 = getelementptr inbounds nuw i16, ptr %15, i64 %611
+  %612 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %611
   %613 = load i16, ptr %612, align 2, !tbaa !25
   %614 = zext i16 %613 to i32
   br label %_ZN6icu_7718CollationFastLatin6lookupEPKti.exit543
@@ -1504,7 +1504,7 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit: ; preds = %594, %591
 
 617:                                              ; preds = %615
   %618 = zext i16 %607 to i64
-  %619 = getelementptr i16, ptr %15, i64 %618
+  %619 = getelementptr [2 x i8], ptr %15, i64 %618
   %620 = getelementptr i8, ptr %619, i64 -15616
   %621 = load i16, ptr %620, align 2, !tbaa !25
   %622 = zext i16 %621 to i32
@@ -1608,7 +1608,7 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin6lookupEPK
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr i16, ptr %0, i64 %5
+  %6 = getelementptr [2 x i8], ptr %0, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -15616
   %8 = load i16, ptr %7, align 2, !tbaa !25
   %9 = zext i16 %8 to i32
@@ -1639,7 +1639,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
 11:                                               ; preds = %9
   %12 = and i32 %2, 1023
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %13
   %15 = getelementptr i8, ptr %14, i64 896
   %16 = load i32, ptr %15, align 2
   br label %.critedge144
@@ -1671,7 +1671,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   br i1 %.not138, label %41, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i16, ptr %3, i64 %30
+  %32 = getelementptr inbounds [2 x i8], ptr %3, i64 %30
   %33 = load i16, ptr %32, align 2, !tbaa !33
   %34 = zext i16 %33 to i32
   %35 = icmp ugt i16 %33, 383
@@ -1784,7 +1784,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   %.0115148 = phi i32 [ %29, %88 ], [ %29, %38 ], [ %29, %86 ], [ %57, %52 ], [ %85, %84 ], [ %29, %40 ]
   %.5124 = phi i32 [ -1, %88 ], [ %39, %38 ], [ %.0119, %86 ], [ %56, %52 ], [ %.3122, %84 ], [ -1, %40 ]
   %89 = zext nneg i32 %26 to i64
-  %90 = getelementptr inbounds nuw i16, ptr %0, i64 %89
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %89
   %91 = load i16, ptr %90, align 2, !tbaa !25
   %92 = zext i16 %91 to i32
   br label %93
@@ -1795,7 +1795,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
   %94 = lshr i32 %.0107, 9
   %95 = add nuw nsw i32 %94, %.0108
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw i16, ptr %0, i64 %96
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !25
   %99 = zext i16 %98 to i32
   %100 = and i32 %99, 511
@@ -1813,7 +1813,7 @@ define noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(pt
 .critedge:                                        ; preds = %104, %102, %24
   %.0109 = phi i32 [ %26, %24 ], [ %95, %104 ], [ %26, %102 ]
   %105 = sext i32 %.0109 to i64
-  %106 = getelementptr inbounds i16, ptr %0, i64 %105
+  %106 = getelementptr inbounds [2 x i8], ptr %0, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !25
   %108 = lshr i16 %107, 9
   %109 = icmp eq i16 %108, 1
@@ -2057,7 +2057,7 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8
   %12 = load i16, ptr %0, align 2, !tbaa !25
   %13 = and i16 %12, 255
   %14 = zext nneg i16 %13 to i64
-  %15 = getelementptr inbounds nuw i16, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %14
   %16 = lshr i32 %2, 16
   %17 = and i32 %2, 65535
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -2092,7 +2092,7 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8
 
 30:                                               ; preds = %23
   %31 = zext nneg i8 %27 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %1, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !25
   %.not451 = icmp eq i16 %33, 0
   br i1 %.not451, label %36, label %34
@@ -2108,7 +2108,7 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8
   br i1 %or.cond465, label %38, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread568
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i16, ptr %15, i64 %31
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %31
   %40 = load i16, ptr %39, align 2, !tbaa !25
   %41 = zext i16 %40 to i32
   br label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit
@@ -2135,7 +2135,7 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8
   %52 = add nsw i32 %51, -12416
   %53 = add nuw nsw i32 %52, %49
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw i16, ptr %1, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !25
   %.not450 = icmp eq i16 %56, 0
   br i1 %.not450, label %59, label %57
@@ -2145,7 +2145,7 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread
 
 59:                                               ; preds = %48
-  %60 = getelementptr inbounds nuw i16, ptr %15, i64 %54
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %54
   %61 = load i16, ptr %60, align 2, !tbaa !25
   %62 = zext i16 %61 to i32
   br label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit
@@ -2175,7 +2175,7 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8
 
 78:                                               ; preds = %67
   %79 = zext i8 %73 to i64
-  %80 = getelementptr inbounds nuw i16, ptr %15, i64 %79
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 512
   %82 = load i16, ptr %81, align 2, !tbaa !25
   %83 = zext i16 %82 to i32
@@ -2268,7 +2268,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_
 
 120:                                              ; preds = %113
   %121 = zext nneg i8 %117 to i64
-  %122 = getelementptr inbounds nuw i16, ptr %1, i64 %121
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %121
   %123 = load i16, ptr %122, align 2, !tbaa !25
   %.not455 = icmp eq i16 %123, 0
   br i1 %.not455, label %126, label %124
@@ -2284,7 +2284,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_
   br i1 %or.cond467, label %128, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread568
 
 128:                                              ; preds = %126
-  %129 = getelementptr inbounds nuw i16, ptr %15, i64 %121
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %121
   %130 = load i16, ptr %129, align 2, !tbaa !25
   %131 = zext i16 %130 to i32
   br label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit480
@@ -2311,7 +2311,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_
   %142 = add nsw i32 %141, -12416
   %143 = add nuw nsw i32 %142, %139
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw i16, ptr %1, i64 %144
+  %145 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %144
   %146 = load i16, ptr %145, align 2, !tbaa !25
   %.not454 = icmp eq i16 %146, 0
   br i1 %.not454, label %149, label %147
@@ -2321,7 +2321,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit483.thread
 
 149:                                              ; preds = %138
-  %150 = getelementptr inbounds nuw i16, ptr %15, i64 %144
+  %150 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %144
   %151 = load i16, ptr %150, align 2, !tbaa !25
   %152 = zext i16 %151 to i32
   br label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit480
@@ -2351,7 +2351,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_
 
 168:                                              ; preds = %157
   %169 = zext i8 %163 to i64
-  %170 = getelementptr inbounds nuw i16, ptr %15, i64 %169
+  %170 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %169
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 512
   %172 = load i16, ptr %171, align 2, !tbaa !25
   %173 = zext i16 %172 to i32
@@ -2489,7 +2489,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit483.thread: ; preds = %_ZN6i
 
 224:                                              ; preds = %217
   %225 = zext nneg i8 %221 to i64
-  %226 = getelementptr inbounds nuw i16, ptr %15, i64 %225
+  %226 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %225
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit
 
 227:                                              ; preds = %217
@@ -2507,7 +2507,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit483.thread: ; preds = %_ZN6i
   %236 = zext i8 %235 to i32
   %237 = add nsw i32 %231, %236
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds i16, ptr %15, i64 %238
+  %239 = getelementptr inbounds [2 x i8], ptr %15, i64 %238
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit
 
 240:                                              ; preds = %227
@@ -2522,7 +2522,7 @@ _ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit483.thread: ; preds = %_ZN6i
 
 247:                                              ; preds = %240
   %248 = zext i8 %244 to i64
-  %249 = getelementptr inbounds nuw i16, ptr %15, i64 %248
+  %249 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %248
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 512
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit
 
@@ -2619,7 +2619,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread: ; preds = %_ZN6ic
 
 293:                                              ; preds = %286
   %294 = zext nneg i8 %290 to i64
-  %295 = getelementptr inbounds nuw i16, ptr %15, i64 %294
+  %295 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %294
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit492
 
 296:                                              ; preds = %286
@@ -2637,7 +2637,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread: ; preds = %_ZN6ic
   %305 = zext i8 %304 to i32
   %306 = add nsw i32 %300, %305
   %307 = sext i32 %306 to i64
-  %308 = getelementptr inbounds i16, ptr %15, i64 %307
+  %308 = getelementptr inbounds [2 x i8], ptr %15, i64 %307
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit492
 
 309:                                              ; preds = %296
@@ -2652,7 +2652,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread: ; preds = %_ZN6ic
 
 316:                                              ; preds = %309
   %317 = zext i8 %313 to i64
-  %318 = getelementptr inbounds nuw i16, ptr %15, i64 %317
+  %318 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %317
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 512
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit492
 
@@ -2799,7 +2799,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499.thread: ; preds = %_ZN
 
 380:                                              ; preds = %373
   %381 = zext nneg i8 %377 to i64
-  %382 = getelementptr inbounds nuw i16, ptr %15, i64 %381
+  %382 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %381
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit502
 
 383:                                              ; preds = %373
@@ -2817,7 +2817,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499.thread: ; preds = %_ZN
   %392 = zext i8 %391 to i32
   %393 = add nsw i32 %387, %392
   %394 = sext i32 %393 to i64
-  %395 = getelementptr inbounds i16, ptr %15, i64 %394
+  %395 = getelementptr inbounds [2 x i8], ptr %15, i64 %394
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit502
 
 396:                                              ; preds = %383
@@ -2832,7 +2832,7 @@ _ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit499.thread: ; preds = %_ZN
 
 403:                                              ; preds = %396
   %404 = zext i8 %400 to i64
-  %405 = getelementptr inbounds nuw i16, ptr %15, i64 %404
+  %405 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %404
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 512
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit502
 
@@ -2928,7 +2928,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %420, %.thread624.th
 
 446:                                              ; preds = %439
   %447 = zext nneg i8 %443 to i64
-  %448 = getelementptr inbounds nuw i16, ptr %15, i64 %447
+  %448 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %447
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit510
 
 449:                                              ; preds = %439
@@ -2946,7 +2946,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %420, %.thread624.th
   %458 = zext i8 %457 to i32
   %459 = add nsw i32 %453, %458
   %460 = sext i32 %459 to i64
-  %461 = getelementptr inbounds i16, ptr %15, i64 %460
+  %461 = getelementptr inbounds [2 x i8], ptr %15, i64 %460
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit510
 
 462:                                              ; preds = %449
@@ -2961,7 +2961,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %420, %.thread624.th
 
 469:                                              ; preds = %462
   %470 = zext i8 %466 to i64
-  %471 = getelementptr inbounds nuw i16, ptr %15, i64 %470
+  %471 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %470
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 512
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit510
 
@@ -3115,7 +3115,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit518: ; preds = %486, %.thread630
 
 534:                                              ; preds = %527
   %535 = zext nneg i8 %531 to i64
-  %536 = getelementptr inbounds nuw i16, ptr %15, i64 %535
+  %536 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %535
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit521
 
 537:                                              ; preds = %527
@@ -3133,7 +3133,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit518: ; preds = %486, %.thread630
   %546 = zext i8 %545 to i32
   %547 = add nsw i32 %541, %546
   %548 = sext i32 %547 to i64
-  %549 = getelementptr inbounds i16, ptr %15, i64 %548
+  %549 = getelementptr inbounds [2 x i8], ptr %15, i64 %548
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit521
 
 550:                                              ; preds = %537
@@ -3148,7 +3148,7 @@ _ZN6icu_7718CollationFastLatin8getCasesEjaj.exit518: ; preds = %486, %.thread630
 
 557:                                              ; preds = %550
   %558 = zext i8 %554 to i64
-  %559 = getelementptr inbounds nuw i16, ptr %15, i64 %558
+  %559 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %558
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 512
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit521
 
@@ -3253,7 +3253,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit: ; preds = %579, %586
 
 602:                                              ; preds = %595
   %603 = zext nneg i8 %599 to i64
-  %604 = getelementptr inbounds nuw i16, ptr %15, i64 %603
+  %604 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %603
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit526
 
 605:                                              ; preds = %595
@@ -3271,7 +3271,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit: ; preds = %579, %586
   %614 = zext i8 %613 to i32
   %615 = add nsw i32 %609, %614
   %616 = sext i32 %615 to i64
-  %617 = getelementptr inbounds i16, ptr %15, i64 %616
+  %617 = getelementptr inbounds [2 x i8], ptr %15, i64 %616
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit526
 
 618:                                              ; preds = %605
@@ -3286,7 +3286,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit: ; preds = %579, %586
 
 625:                                              ; preds = %618
   %626 = zext i8 %622 to i64
-  %627 = getelementptr inbounds nuw i16, ptr %15, i64 %626
+  %627 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %626
   %628 = getelementptr inbounds nuw i8, ptr %627, i64 512
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit526
 
@@ -3451,7 +3451,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit543: ; preds = %647, %654
 
 692:                                              ; preds = %685
   %693 = zext nneg i8 %689 to i64
-  %694 = getelementptr inbounds nuw i16, ptr %15, i64 %693
+  %694 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %693
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit546
 
 695:                                              ; preds = %685
@@ -3469,7 +3469,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit543: ; preds = %647, %654
   %704 = zext i8 %703 to i32
   %705 = add nsw i32 %699, %704
   %706 = sext i32 %705 to i64
-  %707 = getelementptr inbounds i16, ptr %15, i64 %706
+  %707 = getelementptr inbounds [2 x i8], ptr %15, i64 %706
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit546
 
 708:                                              ; preds = %695
@@ -3484,7 +3484,7 @@ _ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit543: ; preds = %647, %654
 
 715:                                              ; preds = %708
   %716 = zext i8 %712 to i64
-  %717 = getelementptr inbounds nuw i16, ptr %15, i64 %716
+  %717 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %716
   %718 = getelementptr inbounds nuw i8, ptr %717, i64 512
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit546
 
@@ -3561,7 +3561,7 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit: ; preds = %734, %731
 
 750:                                              ; preds = %743
   %751 = zext nneg i8 %747 to i64
-  %752 = getelementptr inbounds nuw i16, ptr %15, i64 %751
+  %752 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %751
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit553
 
 753:                                              ; preds = %743
@@ -3579,7 +3579,7 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit: ; preds = %734, %731
   %762 = zext i8 %761 to i32
   %763 = add nsw i32 %757, %762
   %764 = sext i32 %763 to i64
-  %765 = getelementptr inbounds i16, ptr %15, i64 %764
+  %765 = getelementptr inbounds [2 x i8], ptr %15, i64 %764
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit553
 
 766:                                              ; preds = %753
@@ -3594,7 +3594,7 @@ _ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit: ; preds = %734, %731
 
 773:                                              ; preds = %766
   %774 = zext i8 %770 to i64
-  %775 = getelementptr inbounds nuw i16, ptr %15, i64 %774
+  %775 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %774
   %776 = getelementptr inbounds nuw i8, ptr %775, i64 512
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit553
 
@@ -3716,7 +3716,7 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin10lookupUT
 
 21:                                               ; preds = %10
   %22 = zext i8 %16 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 512
   %25 = load i16, ptr %24, align 2, !tbaa !25
   %26 = zext i16 %25 to i32
@@ -3757,7 +3757,7 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin16lookupUT
   %14 = zext i8 %13 to i32
   %15 = add nsw i32 %8, %14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i16, ptr %0, i64 %16
+  %17 = getelementptr inbounds [2 x i8], ptr %0, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !25
   %19 = zext i16 %18 to i32
   br label %36
@@ -3775,7 +3775,7 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin16lookupUT
 
 28:                                               ; preds = %20
   %29 = zext i8 %25 to i64
-  %30 = getelementptr inbounds nuw i16, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 512
   %32 = load i16, ptr %31, align 2, !tbaa !25
   %33 = zext i16 %32 to i32

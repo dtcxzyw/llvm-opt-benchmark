@@ -1008,7 +1008,7 @@ define void @_ZN8uu_cksum6uu_app17haf5e585804148673E(ptr noalias noundef sret({ 
   %201 = phi i64 [ %.pre.i.i, %.noexc.i73 ], [ %192, %189 ]
   %202 = getelementptr inbounds nuw i8, ptr %38, i64 136
   %203 = load ptr, ptr %202, align 8, !alias.scope !253, !noalias !258, !nonnull !98, !noundef !98
-  %204 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %203, i64 %201
+  %204 = getelementptr inbounds [16 x i8], ptr %203, i64 %201
   store ptr @anon.ed64ec15ac7ce5460f2b94d2670740dd.44, ptr %204, align 8, !noalias !258
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store i64 3, ptr %205, align 8, !noalias !263
@@ -1631,7 +1631,7 @@ define void @_ZN8uu_cksum6uu_app17haf5e585804148673E(ptr noalias noundef sret({ 
   %365 = phi i64 [ %.pre.i.i151, %.noexc.i150 ], [ %356, %353 ]
   %366 = getelementptr inbounds nuw i8, ptr %28, i64 112
   %367 = load ptr, ptr %366, align 8, !alias.scope !498, !noalias !503, !nonnull !98, !noundef !98
-  %368 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %367, i64 %365
+  %368 = getelementptr inbounds [16 x i8], ptr %367, i64 %365
   store ptr @anon.ed64ec15ac7ce5460f2b94d2670740dd.49, ptr %368, align 8, !noalias !503
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 8
   store i64 3, ptr %369, align 8, !noalias !508

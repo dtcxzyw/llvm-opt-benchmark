@@ -186,7 +186,7 @@ arc4_seed_getrandom.exit.i:                       ; preds = %10, %35
 
 .preheader.i.i:                                   ; preds = %arc4_seed_getrandom.exit.i, %38
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %38 ], [ 0, %arc4_seed_getrandom.exit.i ]
-  %39 = getelementptr inbounds nuw ptr, ptr @arc4_seed_urandom.filenames, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @arc4_seed_urandom.filenames, i64 %indvars.iv.i.i
   %40 = load ptr, ptr %39, align 8
   %41 = call fastcc i32 @arc4_seed_urandom_helper_(ptr noundef %40)
   %42 = icmp eq i32 %41, 0

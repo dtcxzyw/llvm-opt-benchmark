@@ -1794,7 +1794,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0235387 = phi ptr [ %2, %.lr.ph.preheader ], [ %92, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %90 = getelementptr inbounds nuw i16, ptr %.0202, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %.0202, i64 %indvars.iv
   %91 = load i16, ptr %90, align 2, !tbaa !28
   %92 = getelementptr inbounds nuw i8, ptr %.0235387, i64 2
   store i16 %91, ptr %.0235387, align 2, !tbaa !28
@@ -1839,7 +1839,7 @@ _ZN6icu_778internal16LocalOpenPointerI12UEnumerationXadL_Z14uenum_close_77EEED2E
   %99 = sub nsw i32 %3, %.1198415
   %100 = icmp sgt i32 %99, 0
   %101 = sext i32 %.1198415 to i64
-  %102 = getelementptr inbounds i16, ptr %2, i64 %101
+  %102 = getelementptr inbounds [2 x i8], ptr %2, i64 %101
   %.4239 = select i1 %100, ptr %102, ptr %.3238407
   %.0203 = call i32 @llvm.smax.i32(i32 %99, i32 0)
   %103 = icmp eq i32 %.0213413, %.0274
@@ -2031,7 +2031,7 @@ uloc_getDisplayKeyword_77.exit:                   ; preds = %162
 
 166:                                              ; preds = %164
   %167 = sext i32 %163 to i64
-  %168 = getelementptr inbounds i16, ptr %.4239, i64 %167
+  %168 = getelementptr inbounds [2 x i8], ptr %.4239, i64 %167
   store i16 61, ptr %168, align 2, !tbaa !28
   br label %169
 
@@ -2044,7 +2044,7 @@ uloc_getDisplayKeyword_77.exit:                   ; preds = %162
 
 173:                                              ; preds = %169
   %174 = sext i32 %170 to i64
-  %175 = getelementptr inbounds i16, ptr %.4239, i64 %174
+  %175 = getelementptr inbounds [2 x i8], ptr %.4239, i64 %174
   br label %176
 
 176:                                              ; preds = %uloc_getDisplayKeyword_77.exit.thread, %169, %173, %uloc_getDisplayKeyword_77.exit
@@ -2145,7 +2145,7 @@ _ZL30uloc_getDisplayScriptInContextPKcS0_PDsiP10UErrorCode.exit: ; preds = %192,
 .lr.ph395:                                        ; preds = %.lr.ph395.preheader, %.lr.ph395
   %indvars.iv423 = phi i64 [ 0, %.lr.ph395.preheader ], [ %indvars.iv.next424, %.lr.ph395 ]
   %.12393 = phi ptr [ %208, %.lr.ph395.preheader ], [ %212, %.lr.ph395 ]
-  %210 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv423
+  %210 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %indvars.iv423
   %211 = load i16, ptr %210, align 2, !tbaa !28
   %212 = getelementptr inbounds nuw i8, ptr %.12393, i64 2
   store i16 %211, ptr %.12393, align 2, !tbaa !28
@@ -2224,7 +2224,7 @@ _ZL30uloc_getDisplayScriptInContextPKcS0_PDsiP10UErrorCode.exit: ; preds = %192,
 
 237:                                              ; preds = %230
   %238 = sext i32 %.3 to i64
-  %239 = getelementptr inbounds i16, ptr %2, i64 %238
+  %239 = getelementptr inbounds [2 x i8], ptr %2, i64 %238
   %240 = icmp sgt i32 %235, 0
   br i1 %240, label %.lr.ph400.preheader, label %.loopexit
 
@@ -2237,7 +2237,7 @@ _ZL30uloc_getDisplayScriptInContextPKcS0_PDsiP10UErrorCode.exit: ; preds = %192,
   %.0399 = phi i32 [ 0, %.lr.ph400.preheader ], [ %245, %.lr.ph400 ]
   %.15397 = phi ptr [ %239, %.lr.ph400.preheader ], [ %244, %.lr.ph400 ]
   %indvars.iv.next429 = add nsw i64 %indvars.iv428, 1
-  %242 = getelementptr inbounds i16, ptr %.0202, i64 %indvars.iv428
+  %242 = getelementptr inbounds [2 x i8], ptr %.0202, i64 %indvars.iv428
   %243 = load i16, ptr %242, align 2, !tbaa !28
   %244 = getelementptr inbounds nuw i8, ptr %.15397, i64 2
   store i16 %243, ptr %.15397, align 2, !tbaa !28
@@ -2267,7 +2267,7 @@ _ZL30uloc_getDisplayScriptInContextPKcS0_PDsiP10UErrorCode.exit: ; preds = %192,
 255:                                              ; preds = %253
   %256 = select i1 %228, i32 %.2223, i32 %.1216
   %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds i16, ptr %2, i64 %257
+  %258 = getelementptr inbounds [2 x i8], ptr %2, i64 %257
   %259 = invoke ptr @u_memmove_77(ptr noundef nonnull %2, ptr noundef nonnull %258, i32 noundef %251)
           to label %.loopexit unwind label %111
 

@@ -156,7 +156,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator6reduce17h4417a1ef682b
   %.016.i = phi ptr [ %0, %8 ], [ %15, %13 ]
   %.015.i = phi i64 [ 0, %8 ], [ %16, %13 ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.016.i) ]
-  %14 = getelementptr inbounds { { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] }, ptr %6, i64 %.015.i
+  %14 = getelementptr inbounds [24 x i8], ptr %6, i64 %.015.i
   %15 = call align 8 ptr @"_ZN4core4iter6traits8iterator8Iterator6max_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha76b6aca2a798e45E"(ptr nonnull align 1 %3, ptr nonnull align 8 %.016.i, ptr nonnull align 8 %14)
   %16 = add nuw i64 %.015.i, 1
   %17 = icmp eq i64 %16, %12
@@ -558,14 +558,14 @@ define { ptr, ptr } @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIt
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define nonnull align 8 ptr @"_ZN72_$LT$I$u20$as$u20$core..iter..adapters..zip..SpecTrustedRandomAccess$GT$17try_get_unchecked17hce425504d6ed23b3E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %4 = getelementptr inbounds i64, ptr %3, i64 %1
+  %4 = getelementptr inbounds [8 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define nonnull align 16 ptr @"_ZN72_$LT$I$u20$as$u20$core..iter..adapters..zip..SpecTrustedRandomAccess$GT$17try_get_unchecked17hf02115e8cc17c176E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %4 = getelementptr inbounds { i64, [5 x i64] }, ptr %3, i64 %1
+  %4 = getelementptr inbounds [48 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
@@ -589,56 +589,56 @@ define i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..t
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define nonnull align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h1fd12d7db1a97962E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %4 = getelementptr inbounds i16, ptr %3, i64 %1
+  %4 = getelementptr inbounds [2 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define nonnull align 16 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h64b693490b910f91E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %4 = getelementptr inbounds { i64, [5 x i64] }, ptr %3, i64 %1
+  %4 = getelementptr inbounds [48 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define nonnull align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h66c4caf95fc37d40E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %4 = getelementptr inbounds i64, ptr %3, i64 %1
+  %4 = getelementptr inbounds [8 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define nonnull align 16 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h9f0fab6336d57ac8E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %4 = getelementptr inbounds { i64, [15 x i64] }, ptr %3, i64 %1
+  %4 = getelementptr inbounds [128 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define nonnull align 2 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17hdb6a25734d7665a4E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %4 = getelementptr inbounds { i16, [1 x i16] }, ptr %3, i64 %1
+  %4 = getelementptr inbounds [4 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define nonnull align 16 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17hee0d985fb4d2d2bcE"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %4 = getelementptr inbounds { i64, [5 x i64] }, ptr %3, i64 %1
+  %4 = getelementptr inbounds [48 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define nonnull align 16 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17hf35858f51e3463b3E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %4 = getelementptr inbounds { i64, [15 x i64] }, ptr %3, i64 %1
+  %4 = getelementptr inbounds [128 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define nonnull align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17hf9005c8bc18d3b87E"(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %4 = getelementptr inbounds { i64, i64, i64 }, ptr %3, i64 %1
+  %4 = getelementptr inbounds [24 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
@@ -800,7 +800,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 12:                                               ; preds = %14, %5
   %.0 = phi i64 [ 0, %5 ], [ %15, %14 ]
-  %13 = getelementptr inbounds { i64, i64, i64 }, ptr %0, i64 %.0
+  %13 = getelementptr inbounds [24 x i8], ptr %0, i64 %.0
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha7e23a6ea8991e56E"(ptr align 8 %2, ptr nonnull align 8 %13)
           to label %14 unwind label %10
 
@@ -845,7 +845,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 12:                                               ; preds = %14, %5
   %.0 = phi i64 [ 0, %5 ], [ %15, %14 ]
-  %13 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %0, i64 %.0
+  %13 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hbe01813570c9ff88E"(ptr align 8 %2, ptr nonnull align 8 %13)
           to label %14 unwind label %10
 
@@ -890,7 +890,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 12:                                               ; preds = %14, %5
   %.0 = phi i64 [ 0, %5 ], [ %15, %14 ]
-  %13 = getelementptr inbounds { i64, [5 x i64] }, ptr %0, i64 %.0
+  %13 = getelementptr inbounds [48 x i8], ptr %0, i64 %.0
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h94e46469b00430b9E"(ptr align 8 %2, ptr nonnull align 16 %13)
           to label %14 unwind label %10
 
@@ -935,7 +935,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 12:                                               ; preds = %14, %5
   %.0 = phi i64 [ 0, %5 ], [ %15, %14 ]
-  %13 = getelementptr inbounds { i64, [15 x i64] }, ptr %0, i64 %.0
+  %13 = getelementptr inbounds [128 x i8], ptr %0, i64 %.0
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd865730868fcc2e0E"(ptr align 8 %2, ptr nonnull align 16 %13)
           to label %14 unwind label %10
 
@@ -980,7 +980,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 12:                                               ; preds = %14, %5
   %.0 = phi i64 [ 0, %5 ], [ %15, %14 ]
-  %13 = getelementptr inbounds { i64, [11 x i64] }, ptr %0, i64 %.0
+  %13 = getelementptr inbounds [96 x i8], ptr %0, i64 %.0
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he89070bff6067ed3E"(ptr align 8 %2, ptr nonnull align 8 %13)
           to label %14 unwind label %10
 
@@ -1019,7 +1019,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 10:                                               ; preds = %10, %5
   %.0 = phi i64 [ 0, %5 ], [ %12, %10 ]
-  %11 = getelementptr inbounds i64, ptr %0, i64 %.0
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0
   tail call void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h5c959b8848425e84E"(ptr align 8 %2, ptr nonnull align 8 %11)
   %12 = add nuw i64 %.0, 1
   %13 = icmp eq i64 %12, %9
@@ -1048,7 +1048,7 @@ define i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..t
 12:                                               ; preds = %12, %7
   %.016 = phi i64 [ %2, %7 ], [ %14, %12 ]
   %.015 = phi i64 [ 0, %7 ], [ %15, %12 ]
-  %13 = getelementptr inbounds i64, ptr %0, i64 %.015
+  %13 = getelementptr inbounds [8 x i8], ptr %0, i64 %.015
   %14 = call i64 @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb580dbb321304963E"(ptr nonnull align 8 %5, i64 %.016, ptr nonnull align 8 %13)
   %15 = add nuw i64 %.015, 1
   %16 = icmp eq i64 %15, %11
@@ -1081,7 +1081,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 12:                                               ; preds = %14, %5
   %.0 = phi i64 [ 0, %5 ], [ %15, %14 ]
-  %13 = getelementptr inbounds { i64, [15 x i64] }, ptr %0, i64 %.0
+  %13 = getelementptr inbounds [128 x i8], ptr %0, i64 %.0
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd8eeb0e3d53ef782E"(ptr align 8 %2, ptr nonnull align 16 %13)
           to label %14 unwind label %10
 
@@ -1126,7 +1126,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 12:                                               ; preds = %14, %5
   %.0 = phi i64 [ 0, %5 ], [ %15, %14 ]
-  %13 = getelementptr inbounds { { i64, i64, i64, i64 }, { i64, i64, i64, i64 } }, ptr %0, i64 %.0
+  %13 = getelementptr inbounds [64 x i8], ptr %0, i64 %.0
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hd42f89fd851eb9f1E"(ptr align 8 %2, ptr nonnull align 8 %13)
           to label %14 unwind label %10
 
@@ -1171,7 +1171,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 12:                                               ; preds = %14, %5
   %.0 = phi i64 [ 0, %5 ], [ %15, %14 ]
-  %13 = getelementptr inbounds i64, ptr %0, i64 %.0
+  %13 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h61af07e1be84173cE"(ptr align 8 %2, ptr nonnull align 8 %13)
           to label %14 unwind label %10
 
@@ -1216,7 +1216,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 12:                                               ; preds = %14, %5
   %.0 = phi i64 [ 0, %5 ], [ %15, %14 ]
-  %13 = getelementptr inbounds i64, ptr %0, i64 %.0
+  %13 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2b77c42f60cbdf4bE"(ptr align 8 %2, ptr nonnull align 8 %13)
           to label %14 unwind label %10
 
@@ -1261,7 +1261,7 @@ define void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..
 
 12:                                               ; preds = %14, %5
   %.0 = phi i64 [ 0, %5 ], [ %15, %14 ]
-  %13 = getelementptr inbounds { { i64, i64, i64, i64 }, { i64, i64, i64, i64 } }, ptr %0, i64 %.0
+  %13 = getelementptr inbounds [64 x i8], ptr %0, i64 %.0
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2d00a7e2b96b0f19E"(ptr align 8 %2, ptr nonnull align 8 %13)
           to label %14 unwind label %10
 
@@ -1303,7 +1303,7 @@ define nonnull align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   %.016 = phi ptr [ %2, %6 ], [ %13, %11 ]
   %.015 = phi i64 [ 0, %6 ], [ %14, %11 ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.016) ]
-  %12 = getelementptr inbounds { { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] }, ptr %0, i64 %.015
+  %12 = getelementptr inbounds [24 x i8], ptr %0, i64 %.015
   %13 = call align 8 ptr @"_ZN4core4iter6traits8iterator8Iterator6max_by4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha76b6aca2a798e45E"(ptr nonnull align 1 %4, ptr nonnull align 8 %.016, ptr nonnull align 8 %12)
   %14 = add nuw i64 %.015, 1
   %15 = icmp eq i64 %14, %10

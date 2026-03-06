@@ -97070,7 +97070,7 @@ define internal void @_ZN12_GLOBAL__N_134stringtest_safe_strtou32_base_Test8Test
 13:                                               ; preds = %1, %139
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %139 ]
   %14 = phi ptr [ @.str.457, %1 ], [ %141, %139 ]
-  %15 = getelementptr inbounds nuw %"struct.absl::strings_internal::uint32_test_case", ptr @_ZZN4absl16strings_internal22strtouint32_test_casesEvE10test_cases, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [24 x i8], ptr @_ZZN4absl16strings_internal22strtouint32_test_casesEvE10test_cases, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -97413,7 +97413,7 @@ _ZN7testing15AssertionResultD2Ev.exit57:          ; preds = %131, %_ZNKSt14defau
 139:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit57, %_ZN7testing15AssertionResultD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %140 = getelementptr inbounds nuw %"struct.absl::strings_internal::uint32_test_case", ptr @_ZZN4absl16strings_internal22strtouint32_test_casesEvE10test_cases, i64 %indvars.iv.next
+  %140 = getelementptr inbounds nuw [24 x i8], ptr @_ZZN4absl16strings_internal22strtouint32_test_casesEvE10test_cases, i64 %indvars.iv.next
   %141 = load ptr, ptr %140, align 8, !tbaa !1432
   %.not = icmp eq i64 %indvars.iv.next, 26
   br i1 %.not, label %12, label %13, !llvm.loop !1433
@@ -97672,7 +97672,7 @@ define internal void @_ZN12_GLOBAL__N_151stringtest_safe_strtou32_base_length_de
 17:                                               ; preds = %1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %18 = phi ptr [ @.str.457, %1 ], [ %174, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %19 = getelementptr inbounds nuw %"struct.absl::strings_internal::uint32_test_case", ptr @_ZZN4absl16strings_internal22strtouint32_test_casesEvE10test_cases, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [24 x i8], ptr @_ZZN4absl16strings_internal22strtouint32_test_casesEvE10test_cases, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %12, ptr %3, align 8, !tbaa !93
   %20 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #35
@@ -98115,7 +98115,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %173 = getelementptr inbounds nuw %"struct.absl::strings_internal::uint32_test_case", ptr @_ZZN4absl16strings_internal22strtouint32_test_casesEvE10test_cases, i64 %indvars.iv.next
+  %173 = getelementptr inbounds nuw [24 x i8], ptr @_ZZN4absl16strings_internal22strtouint32_test_casesEvE10test_cases, i64 %indvars.iv.next
   %174 = load ptr, ptr %173, align 8, !tbaa !1432
   %.not = icmp eq i64 %indvars.iv.next, 26
   br i1 %.not, label %16, label %17, !llvm.loop !1451
@@ -98192,7 +98192,7 @@ define internal void @_ZN12_GLOBAL__N_134stringtest_safe_strtou64_base_Test8Test
 13:                                               ; preds = %1, %132
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %132 ]
   %14 = phi ptr [ @.str.400, %1 ], [ %134, %132 ]
-  %15 = getelementptr inbounds nuw %"struct.absl::strings_internal::uint64_test_case", ptr @_ZZN4absl16strings_internal22strtouint64_test_casesEvE10test_cases, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [24 x i8], ptr @_ZZN4absl16strings_internal22strtouint64_test_casesEvE10test_cases, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -98522,7 +98522,7 @@ _ZN7testing15AssertionResultD2Ev.exit57:          ; preds = %124, %_ZNKSt14defau
 132:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit57, %_ZN7testing15AssertionResultD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %133 = getelementptr inbounds nuw %"struct.absl::strings_internal::uint64_test_case", ptr @_ZZN4absl16strings_internal22strtouint64_test_casesEvE10test_cases, i64 %indvars.iv.next
+  %133 = getelementptr inbounds nuw [24 x i8], ptr @_ZZN4absl16strings_internal22strtouint64_test_casesEvE10test_cases, i64 %indvars.iv.next
   %134 = load ptr, ptr %133, align 8, !tbaa !1464
   %.not = icmp eq i64 %indvars.iv.next, 33
   br i1 %.not, label %12, label %13, !llvm.loop !1465
@@ -98587,7 +98587,7 @@ define internal void @_ZN12_GLOBAL__N_151stringtest_safe_strtou64_base_length_de
 17:                                               ; preds = %1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %18 = phi ptr [ @.str.400, %1 ], [ %167, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %19 = getelementptr inbounds nuw %"struct.absl::strings_internal::uint64_test_case", ptr @_ZZN4absl16strings_internal22strtouint64_test_casesEvE10test_cases, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [24 x i8], ptr @_ZZN4absl16strings_internal22strtouint64_test_casesEvE10test_cases, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %12, ptr %3, align 8, !tbaa !93
   %20 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #35
@@ -99017,7 +99017,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %161, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %166 = getelementptr inbounds nuw %"struct.absl::strings_internal::uint64_test_case", ptr @_ZZN4absl16strings_internal22strtouint64_test_casesEvE10test_cases, i64 %indvars.iv.next
+  %166 = getelementptr inbounds nuw [24 x i8], ptr @_ZZN4absl16strings_internal22strtouint64_test_casesEvE10test_cases, i64 %indvars.iv.next
   %167 = load ptr, ptr %166, align 8, !tbaa !1464
   %.not = icmp eq i64 %indvars.iv.next, 33
   br i1 %.not, label %16, label %17, !llvm.loop !1476
@@ -99956,7 +99956,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %302, %_ZNKSt14defau
   %326 = icmp ugt i64 %.057172, 100
   %327 = add nsw i64 %324, -1
   %spec.select = select i1 %326, i64 %327, i64 %.057172
-  %328 = getelementptr inbounds nuw double, ptr %325, i64 %spec.select
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %325, i64 %spec.select
   %329 = load double, ptr %328, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %18, i8 0, i64 16, i1 false)
@@ -100510,7 +100510,7 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %42 ], [ %17, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i ]
   store ptr %37, ptr %17, align 8, !tbaa !1497
   store ptr %41, ptr %18, align 8, !tbaa !1500
-  %43 = getelementptr inbounds nuw double, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %20, align 8, !tbaa !1505
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre6 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !1500
@@ -112990,9 +112990,9 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImEC
   %.022.i.i = phi i64 [ 60, %2 ], [ %26, %9 ]
   %10 = add nsw i64 %.022.i.i, -4
   %11 = lshr exact i64 %10, 1
-  %12 = getelementptr i32, ptr %3, i64 %.022.i.i
+  %12 = getelementptr [4 x i8], ptr %3, i64 %.022.i.i
   %13 = getelementptr i8, ptr %12, i64 -20
-  %14 = getelementptr i32, ptr %3, i64 %11
+  %14 = getelementptr [4 x i8], ptr %3, i64 %11
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load i32, ptr %13, align 4, !tbaa !49
   %17 = load i32, ptr %15, align 4, !tbaa !49
@@ -113011,7 +113011,7 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImEC
   store i32 %25, ptr %22, align 4, !tbaa !49
   store i32 %24, ptr %23, align 4, !tbaa !49
   %26 = add nsw i64 %.022.i.i, -8
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %26
   %28 = getelementptr i8, ptr %14, i64 -16
   %29 = load i32, ptr %27, align 16, !tbaa !49
   %30 = load i32, ptr %28, align 8, !tbaa !49
@@ -113085,7 +113085,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   %22 = load i64, ptr %11, align 8, !tbaa !1888
   %23 = add i64 %22, 1
   store i64 %23, ptr %11, align 8, !tbaa !1888
-  %24 = getelementptr inbounds nuw i64, ptr %10, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !118
   %26 = add i32 %7, 1
   %27 = and i32 %26, %7
@@ -113220,7 +113220,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   %18 = load i64, ptr %7, align 8, !tbaa !1888
   %19 = add i64 %18, 1
   store i64 %19, ptr %7, align 8, !tbaa !1888
-  %20 = getelementptr inbounds nuw i64, ptr %6, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %21 = load i64, ptr %20, align 8, !tbaa !118
   %22 = add i64 %.sroa.2.0.copyload.i, 1
   %23 = and i64 %22, %.sroa.2.0.copyload.i
@@ -113298,7 +113298,7 @@ _ZN4absl15random_internal15FastUniformBitsIjE8GenerateINS0_17NonsecureURBGBaseIN
   %17 = load i64, ptr %6, align 8, !tbaa !1888
   %18 = add i64 %17, 1
   store i64 %18, ptr %6, align 8, !tbaa !1888
-  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %17
   %20 = load i64, ptr %19, align 8, !tbaa !118
   %21 = trunc i64 %20 to i32
   ret i32 %21
@@ -113342,7 +113342,7 @@ _ZN4absl15random_internal15FastUniformBitsImE8GenerateINS0_17NonsecureURBGBaseIN
   %17 = load i64, ptr %6, align 8, !tbaa !1888
   %18 = add i64 %17, 1
   store i64 %18, ptr %6, align 8, !tbaa !1888
-  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %17
   %20 = load i64, ptr %19, align 8, !tbaa !118
   ret i64 %20
 }

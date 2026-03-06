@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
-%struct.FFResourceDefinition = type { i32, ptr, ptr, ptr }
 
 @resman_ctx = global ptr null, align 8
 @mutex = internal global %union.pthread_mutex_t zeroinitializer, align 8
@@ -102,7 +101,7 @@ get_resman_context.exit:                          ; preds = %1, %9
 12:                                               ; preds = %get_resman_context.exit, %11
   %13 = phi i1 [ true, %get_resman_context.exit ], [ false, %11 ]
   %indvars.iv = phi i64 [ 0, %get_resman_context.exit ], [ 1, %11 ]
-  %14 = getelementptr inbounds nuw %struct.FFResourceDefinition, ptr @resource_definitions, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [32 x i8], ptr @resource_definitions, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %14, align 16, !tbaa !16
   %.not40 = icmp eq i32 %.sroa.0.0.copyload, %0
   br i1 %.not40, label %.loopexit, label %11

@@ -24,8 +24,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_cpuidle_get_
 %struct.static_call_key = type { ptr, %union.anon.4 }
 %union.anon.4 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
-%struct.cpuidle_state = type { [16 x i8], [32 x i8], i64, i64, i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.cpuidle_state_usage = type { i64, i64, i64, i64, i64, i64, i64, i64 }
 
 @cpuidle_driver_lock = dso_local global %struct.spinlock zeroinitializer, align 4
 @param_governor = external dso_local local_unnamed_addr global [0 x i8], align 1
@@ -84,7 +82,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpuidle_register_driver(ptr noun
 
 21:                                               ; preds = %63, %18
   %22 = phi i64 [ 0, %18 ], [ %64, %63 ]
-  %23 = getelementptr %struct.cpuidle_state, ptr %19, i64 %22
+  %23 = getelementptr [104 x i8], ptr %19, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 4
@@ -397,7 +395,7 @@ define dso_local void @cpuidle_driver_state_disabled(ptr noundef captures(none) 
 
 18:                                               ; preds = %14
   %19 = and i64 %15, 63
-  %20 = getelementptr i64, ptr @__per_cpu_offset, i64 %19
+  %20 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, ptrtoint (ptr @cpuidle_devices to i64)
   %23 = inttoptr i64 %22 to ptr
@@ -407,7 +405,7 @@ define dso_local void @cpuidle_driver_state_disabled(ptr noundef captures(none) 
 
 26:                                               ; preds = %18
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %28 = getelementptr %struct.cpuidle_state_usage, ptr %27, i64 %7
+  %28 = getelementptr [64 x i8], ptr %27, i64 %7
   %29 = load i64, ptr %28, align 8
   %30 = or i64 %29, 2
   store i64 %30, ptr %28, align 8
@@ -445,7 +443,7 @@ define dso_local void @cpuidle_driver_state_disabled(ptr noundef captures(none) 
 
 50:                                               ; preds = %46
   %51 = and i64 %47, 63
-  %52 = getelementptr i64, ptr @__per_cpu_offset, i64 %51
+  %52 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %53, ptrtoint (ptr @cpuidle_devices to i64)
   %55 = inttoptr i64 %54 to ptr
@@ -455,7 +453,7 @@ define dso_local void @cpuidle_driver_state_disabled(ptr noundef captures(none) 
 
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %60 = getelementptr %struct.cpuidle_state_usage, ptr %59, i64 %7
+  %60 = getelementptr [64 x i8], ptr %59, i64 %7
   %61 = load i64, ptr %60, align 8
   %62 = and i64 %61, -3
   store i64 %62, ptr %60, align 8

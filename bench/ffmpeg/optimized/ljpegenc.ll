@@ -247,7 +247,7 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   %115 = phi i32 [ %246, %182 ], [ %.pre168.i, %.preheader133.us.i ]
   %indvars.iv157.i = phi i64 [ %indvars.iv.next158.i, %182 ], [ 0, %.preheader133.us.i ]
   %116 = icmp eq i32 %115, 3
-  %117 = getelementptr inbounds nuw [4 x i16], ptr %80, i64 %indvars.iv157.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv157.i
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 2
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 4
   br i1 %116, label %153, label %120
@@ -347,11 +347,11 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   ]
 
 184:                                              ; preds = %183
-  %185 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv154.i
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv154.i
   %186 = load i32, ptr %185, align 4, !tbaa !31
-  %187 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv154.i
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv154.i
   %188 = load i32, ptr %187, align 4, !tbaa !31
-  %189 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv154.i
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv154.i
   %190 = load i32, ptr %189, align 4, !tbaa !31
   %191 = sub nsw i32 %188, %190
   %192 = ashr i32 %191, 1
@@ -359,11 +359,11 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   br label %229
 
 194:                                              ; preds = %183
-  %195 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv154.i
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv154.i
   %196 = load i32, ptr %195, align 4, !tbaa !31
-  %197 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv154.i
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv154.i
   %198 = load i32, ptr %197, align 4, !tbaa !31
-  %199 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv154.i
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv154.i
   %200 = load i32, ptr %199, align 4, !tbaa !31
   %201 = sub nsw i32 %198, %200
   %202 = ashr i32 %201, 1
@@ -371,35 +371,35 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
   br label %229
 
 204:                                              ; preds = %183
-  %205 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv154.i
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv154.i
   %206 = load i32, ptr %205, align 4, !tbaa !31
-  %207 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv154.i
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv154.i
   %208 = load i32, ptr %207, align 4, !tbaa !31
   %209 = add nsw i32 %208, %206
-  %210 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv154.i
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv154.i
   %211 = load i32, ptr %210, align 4, !tbaa !31
   %212 = sub i32 %209, %211
   br label %229
 
 213:                                              ; preds = %183
-  %214 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv154.i
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv154.i
   %215 = load i32, ptr %214, align 4, !tbaa !31
   br label %229
 
 216:                                              ; preds = %183
-  %217 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv154.i
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv154.i
   %218 = load i32, ptr %217, align 4, !tbaa !31
   br label %229
 
 219:                                              ; preds = %183
-  %220 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv154.i
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv154.i
   %221 = load i32, ptr %220, align 4, !tbaa !31
   br label %229
 
 222:                                              ; preds = %183
-  %223 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv154.i
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv154.i
   %224 = load i32, ptr %223, align 4, !tbaa !31
-  %225 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv154.i
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv154.i
   %226 = load i32, ptr %225, align 4, !tbaa !31
   %227 = add nsw i32 %226, %224
   %228 = ashr i32 %227, 1
@@ -407,18 +407,18 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
 
 229:                                              ; preds = %222, %219, %216, %213, %204, %194, %184, %183
   %.0118.us.i = phi i32 [ %228, %222 ], [ %193, %184 ], [ %221, %219 ], [ %218, %216 ], [ %215, %213 ], [ %212, %204 ], [ %203, %194 ], [ %100, %183 ]
-  %230 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv154.i
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv154.i
   %231 = load i32, ptr %230, align 4, !tbaa !31
-  %232 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv154.i
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv154.i
   store i32 %231, ptr %232, align 4, !tbaa !31
-  %233 = getelementptr inbounds nuw i16, ptr %181, i64 %indvars.iv154.i
+  %233 = getelementptr inbounds nuw [2 x i8], ptr %181, i64 %indvars.iv154.i
   %234 = load i16, ptr %233, align 2, !tbaa !52
   %235 = zext i16 %234 to i32
   store i32 %235, ptr %230, align 4, !tbaa !31
-  %236 = getelementptr inbounds nuw i16, ptr %117, i64 %indvars.iv154.i
+  %236 = getelementptr inbounds nuw [2 x i8], ptr %117, i64 %indvars.iv154.i
   %237 = load i16, ptr %236, align 2, !tbaa !52
   %238 = zext i16 %237 to i32
-  %239 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv154.i
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv154.i
   store i32 %238, ptr %239, align 4, !tbaa !31
   %240 = sub nsw i32 %238, %.0118.us.i
   %sext.us.i = shl i32 %240, 23
@@ -447,14 +447,14 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
 
 .preheader133.us.i:                               ; preds = %99, %.preheader133.us.i
   %indvars.iv150.i = phi i64 [ %indvars.iv.next151.i, %.preheader133.us.i ], [ 0, %99 ]
-  %250 = getelementptr inbounds nuw i16, ptr %80, i64 %indvars.iv150.i
+  %250 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %indvars.iv150.i
   %251 = load i16, ptr %250, align 2, !tbaa !52
   %252 = zext i16 %251 to i32
-  %253 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv150.i
+  %253 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv150.i
   store i32 %252, ptr %253, align 4, !tbaa !31
-  %254 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv150.i
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv150.i
   store i32 %252, ptr %254, align 4, !tbaa !31
-  %255 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv150.i
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv150.i
   store i32 %252, ptr %255, align 4, !tbaa !31
   %indvars.iv.next151.i = add nuw nsw i64 %indvars.iv150.i, 1
   %exitcond153.not.i = icmp eq i64 %indvars.iv.next151.i, 4
@@ -467,7 +467,7 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
 
 256:                                              ; preds = %256, %72
   %indvars.iv.i = phi i64 [ 0, %72 ], [ %indvars.iv.next.i, %256 ]
-  %257 = getelementptr inbounds nuw i16, ptr %80, i64 %indvars.iv.i
+  %257 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %indvars.iv.i
   store i16 256, ptr %257, align 2, !tbaa !52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -484,14 +484,14 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
 
 .preheader133.i:                                  ; preds = %.lr.ph140.split.i, %.preheader133.i
   %indvars.iv145.i = phi i64 [ %indvars.iv.next146.i, %.preheader133.i ], [ 0, %.lr.ph140.split.i ]
-  %259 = getelementptr inbounds nuw i16, ptr %80, i64 %indvars.iv145.i
+  %259 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %indvars.iv145.i
   %260 = load i16, ptr %259, align 2, !tbaa !52
   %261 = zext i16 %260 to i32
-  %262 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv145.i
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv145.i
   store i32 %261, ptr %262, align 4, !tbaa !31
-  %263 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv145.i
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv145.i
   store i32 %261, ptr %263, align 4, !tbaa !31
-  %264 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv145.i
+  %264 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv145.i
   store i32 %261, ptr %264, align 4, !tbaa !31
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %exitcond148.not.i = icmp eq i64 %indvars.iv.next146.i, 4
@@ -554,18 +554,18 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
 
 .preheader148.i.us.i:                             ; preds = %303, %._crit_edge152.i.us.i
   %indvars.iv194.i.us.i = phi i64 [ %indvars.iv.next195.i.us.i, %._crit_edge152.i.us.i ], [ 0, %303 ]
-  %306 = getelementptr inbounds nuw i32, ptr %267, i64 %indvars.iv194.i.us.i
+  %306 = getelementptr inbounds nuw [4 x i8], ptr %267, i64 %indvars.iv194.i.us.i
   %307 = load i32, ptr %306, align 4, !tbaa !31
-  %308 = getelementptr inbounds nuw i32, ptr %273, i64 %indvars.iv194.i.us.i
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %273, i64 %indvars.iv194.i.us.i
   %309 = load i32, ptr %308, align 4, !tbaa !31
-  %310 = getelementptr inbounds nuw i32, ptr %282, i64 %indvars.iv194.i.us.i
+  %310 = getelementptr inbounds nuw [4 x i8], ptr %282, i64 %indvars.iv194.i.us.i
   %311 = load i32, ptr %310, align 4, !tbaa !31
   %312 = icmp sgt i32 %309, 0
   br i1 %312, label %.preheader147.lr.ph.i.us.i, label %._crit_edge152.i.us.i
 
 .preheader147.lr.ph.i.us.i:                       ; preds = %.preheader148.i.us.i
   %313 = icmp sgt i32 %307, 0
-  %314 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv194.i.us.i
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv194.i.us.i
   %315 = sub nsw i32 0, %311
   %316 = sext i32 %315 to i64
   %317 = xor i32 %311, -1
@@ -810,18 +810,18 @@ define internal range(i32 -2147483648, 1) i32 @ljpeg_encode_frame(ptr noundef %0
 
 .preheader146.i.us.i:                             ; preds = %303, %._crit_edge161.i.us.i
   %indvars.iv218.i.us.i = phi i64 [ %indvars.iv.next219.i.us.i, %._crit_edge161.i.us.i ], [ 0, %303 ]
-  %465 = getelementptr inbounds nuw i32, ptr %267, i64 %indvars.iv218.i.us.i
+  %465 = getelementptr inbounds nuw [4 x i8], ptr %267, i64 %indvars.iv218.i.us.i
   %466 = load i32, ptr %465, align 4, !tbaa !31
-  %467 = getelementptr inbounds nuw i32, ptr %273, i64 %indvars.iv218.i.us.i
+  %467 = getelementptr inbounds nuw [4 x i8], ptr %273, i64 %indvars.iv218.i.us.i
   %468 = load i32, ptr %467, align 4, !tbaa !31
-  %469 = getelementptr inbounds nuw i32, ptr %282, i64 %indvars.iv218.i.us.i
+  %469 = getelementptr inbounds nuw [4 x i8], ptr %282, i64 %indvars.iv218.i.us.i
   %470 = load i32, ptr %469, align 4, !tbaa !31
   %471 = icmp sgt i32 %468, 0
   br i1 %471, label %.preheader.lr.ph.i.us.i, label %._crit_edge161.i.us.i
 
 .preheader.lr.ph.i.us.i:                          ; preds = %.preheader146.i.us.i
   %472 = icmp sgt i32 %466, 0
-  %473 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv218.i.us.i
+  %473 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv218.i.us.i
   %474 = sub nsw i32 0, %470
   %475 = sext i32 %474 to i64
   %476 = xor i32 %470, -1

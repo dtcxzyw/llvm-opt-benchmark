@@ -594,7 +594,7 @@ define dso_local zeroext i1 @fsnotify_prepare_user_wait(ptr noundef readonly cap
 2:                                                ; preds = %40, %1
   %3 = phi i64 [ 0, %1 ], [ %41, %40 ]
   %4 = phi i1 [ false, %1 ], [ %42, %40 ]
-  %5 = getelementptr ptr, ptr %0, i64 %3
+  %5 = getelementptr [8 x i8], ptr %0, i64 %3
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %40, label %8
@@ -687,7 +687,7 @@ define dso_local zeroext i1 @fsnotify_prepare_user_wait(ptr noundef readonly cap
 .preheader:                                       ; preds = %.loopexit7, %69
   %50 = phi i64 [ %51, %69 ], [ %38, %.loopexit7 ]
   %51 = add nsw i64 %50, -1
-  %52 = getelementptr ptr, ptr %0, i64 %51
+  %52 = getelementptr [8 x i8], ptr %0, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %69, label %55
@@ -732,7 +732,7 @@ define dso_local void @fsnotify_finish_user_wait(ptr noundef captures(none) init
 
 4:                                                ; preds = %23, %1
   %5 = phi i64 [ 0, %1 ], [ %24, %23 ]
-  %6 = getelementptr ptr, ptr %0, i64 %5
+  %6 = getelementptr [8 x i8], ptr %0, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %23, label %9

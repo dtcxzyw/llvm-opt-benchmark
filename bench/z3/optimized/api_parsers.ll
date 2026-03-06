@@ -1568,7 +1568,7 @@ _ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_
   %.sink = phi ptr [ %138, %145 ], [ %136, %161 ], [ %.sink.ph, %_ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.sink.split ]
   %168 = getelementptr inbounds i8, ptr %.sink125, i64 -4
   %169 = zext i32 %.sink124 to i64
-  %170 = getelementptr inbounds nuw ptr, ptr %.sink125, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %.sink125, i64 %169
   store ptr %.sink, ptr %170, align 8, !tbaa !298
   %171 = add i32 %.sink124, 1
   store i32 %171, ptr %168, align 4, !tbaa !266
@@ -2018,10 +2018,10 @@ define internal fastcc noundef ptr @_ZL20parse_smtlib2_streambP11_Z3_contextRSij
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
   %32 = load ptr, ptr %9, align 8, !tbaa !161
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %33 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !300
   store ptr %34, ptr %10, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !302
   invoke void @_ZN11cmd_context6insertERK6symbolP9func_decl(ptr noundef nonnull align 8 dereferenceable(896) %32, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %36)
           to label %37 unwind label %38
@@ -2046,10 +2046,10 @@ define internal fastcc noundef ptr @_ZL20parse_smtlib2_streambP11_Z3_contextRSij
 .lr.ph38:                                         ; preds = %.lr.ph38.preheader, %45
   %indvars.iv41 = phi i64 [ 0, %.lr.ph38.preheader ], [ %indvars.iv.next42, %45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %41 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv41
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv41
   %42 = load ptr, ptr %41, align 8, !tbaa !300
   store ptr %42, ptr %11, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv41
   %44 = load ptr, ptr %43, align 8, !tbaa !306
   invoke fastcc void @_ZL11insert_sortR11ast_managerR10scoped_ptrI11cmd_contextERK6symbolP4sort(ptr noundef nonnull align 8 dereferenceable(976) %14, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %44)
           to label %45 unwind label %46

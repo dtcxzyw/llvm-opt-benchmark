@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/varsup.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.XidCacheStatus = type { i8, i8 }
-
 @TransamVariables = dso_local local_unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [17 x i8] c"TransamVariables\00", align 1
 @IsUnderPostmaster = external local_unnamed_addr global i8, align 1
@@ -89,7 +87,7 @@ define dso_local i64 @GetNewTransactionId(i1 noundef zeroext %0) local_unnamed_a
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %14, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %14, i64 %17
   store i32 1, ptr %18, align 4
   br label %133
 
@@ -244,7 +242,7 @@ FullTransactionIdAdvance.exit:                    ; preds = %80, %24
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 64
   %105 = load i32, ptr %104, align 8
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i32, ptr %103, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %103, i64 %106
   store i32 %.0, ptr %107, align 4
   br label %130
 
@@ -256,7 +254,7 @@ FullTransactionIdAdvance.exit:                    ; preds = %80, %24
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 64
   %114 = load i32, ptr %113, align 8
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds %struct.XidCacheStatus, ptr %111, i64 %115
+  %116 = getelementptr inbounds [2 x i8], ptr %111, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 440
   %118 = load i8, ptr %117, align 8
   %119 = icmp ult i8 %118, 64
@@ -265,7 +263,7 @@ FullTransactionIdAdvance.exit:                    ; preds = %80, %24
 120:                                              ; preds = %108
   %121 = getelementptr inbounds nuw i8, ptr %112, i64 444
   %122 = zext nneg i8 %118 to i64
-  %123 = getelementptr inbounds nuw i32, ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %122
   store i32 %.0, ptr %123, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
   %narrow = add nuw nsw i8 %118, 1

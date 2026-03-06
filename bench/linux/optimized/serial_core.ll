@@ -45,29 +45,11 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_uart_get_rs4
 %struct.attribute = type { ptr, i16 }
 %struct.static_call_key = type { ptr, %union.anon.22 }
 %union.anon.22 = type { i64 }
-%struct.uart_port = type { %struct.spinlock, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i64, i32, i32, i8, i8, i8, i8, i32, i32, ptr, %struct.uart_icount, ptr, i64, i32, i8, i32, i32, i32, ptr, i32, i32, i32, i64, i64, ptr, ptr, i64, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, %struct.serial_rs485, %struct.serial_rs485, ptr, ptr, %struct.serial_iso7816, ptr }
-%struct.spinlock = type { %union.anon }
-%union.anon = type { %struct.raw_spinlock }
-%struct.uart_icount = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
+%struct.uart_match = type { ptr, ptr }
+%struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.serial_rs485 = type { i32, i32, i32, %union.anon.2 }
 %union.anon.2 = type { [5 x i32] }
 %struct.serial_iso7816 = type { i32, i32, i32, i32, i32, [5 x i32] }
-%struct.uart_match = type { ptr, ptr }
-%struct.uart_state = type { %struct.tty_port, i32, %struct.circ_buf, %struct.atomic_t, %struct.wait_queue_head, ptr }
-%struct.tty_port = type { %struct.tty_bufhead, ptr, ptr, ptr, ptr, %struct.spinlock, i32, i32, %struct.wait_queue_head, %struct.wait_queue_head, i64, i64, i8, %struct.mutex, %struct.mutex, ptr, %struct.anon.5, i32, i32, i32, %struct.kref, ptr }
-%struct.tty_bufhead = type { ptr, %struct.work_struct, %struct.mutex, %struct.atomic_t, %struct.tty_buffer, %struct.llist_head, %struct.atomic_t, i32, ptr }
-%struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
-%struct.tty_buffer = type { %union.anon.4, i32, i32, i32, i32, i32, i8, [3 x i8], [0 x i8] }
-%union.anon.4 = type { ptr }
-%struct.llist_head = type { ptr }
-%struct.anon.5 = type { %union.anon.6, [0 x i8] }
-%union.anon.6 = type { %struct.__kfifo }
-%struct.__kfifo = type { i32, i32, i32, i32, ptr }
-%struct.kref = type { %struct.refcount_struct }
-%struct.refcount_struct = type { %struct.atomic_t }
-%struct.circ_buf = type { ptr, i32, i32 }
-%struct.wait_queue_head = type { %struct.spinlock, %struct.list_head }
-%struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 
 @.str = private unnamed_addr constant [33 x i8] c"drivers/tty/serial/serial_core.c\00", align 1
 @__UNIQUE_ID___addressable_uart_write_wakeup431 = internal global ptr @uart_write_wakeup, section ".discard.addressable", align 8
@@ -419,7 +401,7 @@ define dso_local ptr @uart_get_console(ptr noundef readonly captures(ret: addres
 
 10:                                               ; preds = %3
   %11 = zext nneg i32 %6 to i64
-  %12 = getelementptr %struct.uart_port, ptr %0, i64 %11
+  %12 = getelementptr [528 x i8], ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
@@ -441,7 +423,7 @@ define dso_local ptr @uart_get_console(ptr noundef readonly captures(ret: addres
 
 .preheader:                                       ; preds = %.preheader.preheader, %31
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %31 ]
-  %23 = getelementptr %struct.uart_port, ptr %0, i64 %indvars.iv
+  %23 = getelementptr [528 x i8], ptr %0, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = icmp eq i64 %25, 0
@@ -471,7 +453,7 @@ define dso_local ptr @uart_get_console(ptr noundef readonly captures(ret: addres
   %36 = trunc i32 %35 to i16
   store i16 %36, ptr %4, align 2
   %37 = sext i32 %35 to i64
-  %38 = getelementptr %struct.uart_port, ptr %0, i64 %37
+  %38 = getelementptr [528 x i8], ptr %0, i64 %37
   ret ptr %38
 }
 
@@ -746,7 +728,7 @@ define dso_local noundef i32 @uart_suspend_port(ptr noundef %0, ptr noundef %1) 
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 316
   %7 = load i32, ptr %6, align 4
   %8 = zext i32 %7 to i64
-  %9 = getelementptr %struct.uart_state, ptr %5, i64 %8
+  %9 = getelementptr [440 x i8], ptr %5, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -993,7 +975,7 @@ define dso_local noundef i32 @uart_resume_port(ptr noundef %0, ptr noundef %1) #
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 316
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr %struct.uart_state, ptr %6, i64 %9
+  %10 = getelementptr [440 x i8], ptr %6, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %1, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1707,7 +1689,7 @@ define dso_local i32 @uart_register_driver(ptr noundef %0) #0 align 16 {
 .preheader3:                                      ; preds = %23, %.preheader3
   %47 = phi i64 [ %51, %.preheader3 ], [ 0, %23 ]
   %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr %struct.uart_state, ptr %48, i64 %47
+  %49 = getelementptr [440 x i8], ptr %48, i64 %47
   tail call void @tty_port_init(ptr noundef %49) #20
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 152
   store ptr @uart_port_ops, ptr %50, align 8
@@ -1730,7 +1712,7 @@ define dso_local i32 @uart_register_driver(ptr noundef %0) #0 align 16 {
 .preheader:                                       ; preds = %57, %.preheader
   %60 = phi i64 [ %63, %.preheader ], [ 0, %57 ]
   %61 = load ptr, ptr %2, align 8
-  %62 = getelementptr %struct.uart_state, ptr %61, i64 %60
+  %62 = getelementptr [440 x i8], ptr %61, i64 %60
   tail call void @tty_port_destroy(ptr noundef %62) #20
   %63 = add nuw nsw i64 %60, 1
   %64 = load i32, ptr %7, align 8
@@ -1789,7 +1771,7 @@ define dso_local void @uart_unregister_driver(ptr noundef captures(none) %0) #0 
 9:                                                ; preds = %9, %7
   %10 = phi i64 [ 0, %7 ], [ %13, %9 ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr %struct.uart_state, ptr %11, i64 %10
+  %12 = getelementptr [440 x i8], ptr %11, i64 %10
   tail call void @tty_port_destroy(ptr noundef %12) #20
   %13 = add nuw nsw i64 %10, 1
   %14 = load i32, ptr %4, align 8
@@ -1904,7 +1886,7 @@ define dso_local i32 @serial_core_register_port(ptr noundef readonly captures(no
 
 18:                                               ; preds = %35, %14
   %19 = phi i64 [ 0, %14 ], [ %36, %35 ]
-  %.split = getelementptr %struct.uart_state, ptr %16, i64 %19
+  %.split = getelementptr [440 x i8], ptr %16, i64 %19
   %20 = getelementptr i8, ptr %.split, i64 432
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
@@ -1978,7 +1960,7 @@ define dso_local i32 @serial_core_register_port(ptr noundef readonly captures(no
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %64 = load ptr, ptr %63, align 8
   %65 = zext i32 %59 to i64
-  %66 = getelementptr %struct.uart_state, ptr %64, i64 %65
+  %66 = getelementptr [440 x i8], ptr %64, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 256
   tail call void @mutex_lock(ptr noundef nonnull %67) #20
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 432
@@ -2434,7 +2416,7 @@ define dso_local void @serial_core_unregister_port(ptr noundef readonly captures
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 316
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
-  %20 = getelementptr %struct.uart_state, ptr %16, i64 %19
+  %20 = getelementptr [440 x i8], ptr %16, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 256
   tail call void @mutex_lock(ptr noundef nonnull %21) #20
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 432
@@ -2573,7 +2555,7 @@ define dso_local void @serial_core_unregister_port(ptr noundef readonly captures
 
 91:                                               ; preds = %112, %88
   %92 = phi i64 [ 0, %88 ], [ %113, %112 ]
-  %.split = getelementptr %struct.uart_state, ptr %89, i64 %92
+  %.split = getelementptr [440 x i8], ptr %89, i64 %92
   %93 = getelementptr i8, ptr %.split, i64 432
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %94, null
@@ -3300,7 +3282,7 @@ define internal i32 @uart_install(ptr noundef %0, ptr noundef initializes((584, 
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr %struct.uart_state, ptr %6, i64 %9
+  %10 = getelementptr [440 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 584
   store ptr %10, ptr %11, align 8
   %12 = tail call i32 @tty_standard_install(ptr noundef %0, ptr noundef %1) #20
@@ -3333,7 +3315,7 @@ define internal void @uart_close(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr %struct.uart_state, ptr %12, i64 %15
+  %16 = getelementptr [440 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 168
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %17) #20
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 176
@@ -5742,7 +5724,7 @@ define internal noundef i32 @uart_proc_show(ptr noundef %0, ptr readnone capture
 14:                                               ; preds = %164, %11
   %15 = phi i64 [ 0, %11 ], [ %165, %164 ]
   %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr %struct.uart_state, ptr %16, i64 %15
+  %17 = getelementptr [440 x i8], ptr %16, i64 %15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !20
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 256
@@ -6273,7 +6255,7 @@ define internal fastcc i32 @uart_set_iso7816_config(ptr noundef nonnull %0, ptr 
 
 15:                                               ; preds = %12, %10
   %16 = phi i64 [ 0, %10 ], [ %13, %12 ]
-  %17 = getelementptr i32, ptr %11, i64 %16
+  %17 = getelementptr [4 x i8], ptr %11, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %12, label %.loopexit

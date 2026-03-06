@@ -16,9 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.88" = type { %"struct.std::_Tuple_impl.89" }
 %"struct.std::_Tuple_impl.89" = type { %"struct.std::_Head_base.92" }
 %"struct.std::_Head_base.92" = type { ptr }
-%struct.t_complex = type { float, float }
-%"struct.std::array" = type { [3 x %struct.t_complex] }
-%"class.gmx::BasicVector" = type { [3 x float] }
 
 $_ZNSt10filesystem7__cxx114pathC2IA121_cS1_EERKT_NS1_6formatE = comdat any
 
@@ -229,10 +226,10 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:  ; preds = %34, %60
 
 85:                                               ; preds = %_ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit, %85
   %indvars.iv = phi i64 [ 0, %_ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit ], [ %indvars.iv.next, %85 ]
-  %86 = getelementptr inbounds nuw [3 x float], ptr %21, i64 %indvars.iv
-  %87 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [12 x i8], ptr %21, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv
   %88 = load float, ptr %87, align 4, !tbaa !134
-  %89 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   store float %88, ptr %89, align 4, !tbaa !134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -240,7 +237,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:  ; preds = %34, %60
 
 .lr.ph:                                           ; preds = %64, %.lr.ph
   %indvars.iv352 = phi i64 [ %indvars.iv.next353, %.lr.ph ], [ 0, %64 ]
-  %90 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv352
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv352
   %91 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 182, i64 noundef range(i64 -2147483648, 2147483648) %84, i64 noundef 24)
   store ptr %91, ptr %90, align 8, !tbaa !137
   %indvars.iv.next353 = add nuw nsw i64 %indvars.iv352, 1
@@ -271,7 +268,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:  ; preds = %34, %60
   br i1 %107, label %108, label %_ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds nuw %struct.t_complex, ptr %98, i64 %84
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %84
   %.not.i.i = icmp eq ptr %97, %109
   br i1 %.not.i.i, label %_ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit, label %110
 
@@ -301,7 +298,7 @@ _ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit:    ; preds = %104, %106, %108, %1
   br i1 %123, label %124, label %_ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit240
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds nuw %struct.t_complex, ptr %114, i64 %84
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %84
   %.not.i.i239 = icmp eq ptr %113, %125
   br i1 %.not.i.i239, label %_ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit240, label %126
 
@@ -352,7 +349,7 @@ _ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit240: ; preds = %120, %122, %124, %1
 .preheader53.us.i:                                ; preds = %._crit_edge.us.i, %.preheader53.us.preheader.i
   %indvars.iv88.i = phi i64 [ 0, %.preheader53.us.preheader.i ], [ %indvars.iv.next89.i, %._crit_edge.us.i ]
   %144 = load ptr, ptr %81, align 8, !tbaa !137
-  %145 = getelementptr inbounds nuw %"struct.std::array", ptr %144, i64 %indvars.iv88.i
+  %145 = getelementptr inbounds nuw [24 x i8], ptr %144, i64 %indvars.iv88.i
   br label %174
 
 146:                                              ; preds = %147
@@ -363,12 +360,12 @@ _ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit240: ; preds = %120, %122, %124, %1
 147:                                              ; preds = %.preheader.us.i, %147
   %indvars.iv79.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next80.i, %147 ]
   %148 = load ptr, ptr %178, align 8, !tbaa !137
-  %149 = getelementptr inbounds nuw %"struct.std::array", ptr %148, i64 %indvars.iv88.i
-  %150 = getelementptr inbounds nuw %struct.t_complex, ptr %149, i64 %indvars.iv79.i
+  %149 = getelementptr inbounds nuw [24 x i8], ptr %148, i64 %indvars.iv88.i
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %indvars.iv79.i
   %.sroa.01.0.copyload.us.i = load <2 x float>, ptr %150, align 4
   %151 = load ptr, ptr %141, align 8, !tbaa !137
-  %152 = getelementptr inbounds nuw %"struct.std::array", ptr %151, i64 %indvars.iv88.i
-  %153 = getelementptr inbounds nuw %struct.t_complex, ptr %152, i64 %indvars.iv79.i
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %151, i64 %indvars.iv88.i
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv79.i
   %.sroa.0.0.copyload.us.i = load <2 x float>, ptr %153, align 4
   %.sroa.05.0.vec.extract.i.us.i = extractelement <2 x float> %.sroa.01.0.copyload.us.i, i64 0
   %.sroa.0.0.vec.extract.i.us.i = extractelement <2 x float> %.sroa.0.0.copyload.us.i, i64 0
@@ -382,8 +379,8 @@ _ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit240: ; preds = %120, %122, %124, %1
   %158 = tail call float @llvm.fmuladd.f32(float %.sroa.05.0.vec.extract.i.us.i, float %.sroa.0.4.vec.extract.i.us.i, float %157)
   %.sroa.010.4.vec.insert.i.us.i = insertelement <2 x float> %.sroa.010.0.vec.insert.i.us.i, float %158, i64 1
   %159 = load ptr, ptr %177, align 8, !tbaa !137
-  %160 = getelementptr inbounds nuw %"struct.std::array", ptr %159, i64 %indvars.iv88.i
-  %161 = getelementptr inbounds nuw %struct.t_complex, ptr %160, i64 %indvars.iv79.i
+  %160 = getelementptr inbounds nuw [24 x i8], ptr %159, i64 %indvars.iv88.i
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv79.i
   store <2 x float> %.sroa.010.4.vec.insert.i.us.i, ptr %161, align 4
   %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
   %exitcond82.not.i = icmp eq i64 %indvars.iv.next80.i, 3
@@ -391,13 +388,13 @@ _ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit240: ; preds = %120, %122, %124, %1
 
 162:                                              ; preds = %.preheader52.us.i, %162
   %indvars.iv75.i = phi i64 [ 0, %.preheader52.us.i ], [ %indvars.iv.next76.i, %162 ]
-  %163 = getelementptr inbounds nuw float, ptr %179, i64 %indvars.iv75.i
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %179, i64 %indvars.iv75.i
   %164 = load float, ptr %163, align 4, !tbaa !134
-  %165 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv75.i
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv75.i
   %166 = load float, ptr %165, align 4, !tbaa !134
   %167 = fmul float %164, %166
   %168 = tail call noundef float @cosf(float noundef %167) #23, !tbaa !143
-  %169 = getelementptr inbounds nuw %struct.t_complex, ptr %181, i64 %indvars.iv75.i
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %indvars.iv75.i
   store float %168, ptr %169, align 4, !tbaa !144
   %170 = load float, ptr %163, align 4, !tbaa !134
   %171 = fmul float %166, %170
@@ -410,7 +407,7 @@ _ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit240: ; preds = %120, %122, %124, %1
 
 174:                                              ; preds = %174, %.preheader53.us.i
   %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %174 ], [ 0, %.preheader53.us.i ]
-  %175 = getelementptr inbounds nuw %struct.t_complex, ptr %145, i64 %indvars.iv71.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %indvars.iv71.i
   store float 1.000000e+00, ptr %175, align 4, !tbaa !144
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 4
   store float 0.000000e+00, ptr %176, align 4, !tbaa !146
@@ -420,14 +417,14 @@ _ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit240: ; preds = %120, %122, %124, %1
 
 .preheader.us.i:                                  ; preds = %162, %146
   %indvars.iv83.i = phi i64 [ %indvars.iv.next84.i, %146 ], [ 2, %162 ]
-  %177 = getelementptr ptr, ptr %81, i64 %indvars.iv83.i
+  %177 = getelementptr [8 x i8], ptr %81, i64 %indvars.iv83.i
   %178 = getelementptr i8, ptr %177, i64 -8
   br label %147
 
 .preheader52.us.i:                                ; preds = %174
-  %179 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %4, i64 %indvars.iv88.i
+  %179 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %indvars.iv88.i
   %180 = load ptr, ptr %141, align 8, !tbaa !137
-  %181 = getelementptr inbounds nuw %"struct.std::array", ptr %180, i64 %indvars.iv88.i
+  %181 = getelementptr inbounds nuw [24 x i8], ptr %180, i64 %indvars.iv88.i
   br label %162
 
 ._crit_edge.us.i:                                 ; preds = %146
@@ -442,17 +439,17 @@ _ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit240: ; preds = %120, %122, %124, %1
 
 .preheader53.i:                                   ; preds = %.preheader51.i, %.preheader53.preheader.i
   %indvars.iv67.i = phi i64 [ 0, %.preheader53.preheader.i ], [ %indvars.iv.next68.i, %.preheader51.i ]
-  %184 = getelementptr inbounds nuw %"struct.std::array", ptr %.pre.i, i64 %indvars.iv67.i
+  %184 = getelementptr inbounds nuw [24 x i8], ptr %.pre.i, i64 %indvars.iv67.i
   br label %187
 
 .preheader52.i:                                   ; preds = %187
-  %185 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %4, i64 %indvars.iv67.i
-  %186 = getelementptr inbounds nuw %"struct.std::array", ptr %143, i64 %indvars.iv67.i
+  %185 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %indvars.iv67.i
+  %186 = getelementptr inbounds nuw [24 x i8], ptr %143, i64 %indvars.iv67.i
   br label %190
 
 187:                                              ; preds = %187, %.preheader53.i
   %indvars.iv.i = phi i64 [ 0, %.preheader53.i ], [ %indvars.iv.next.i, %187 ]
-  %188 = getelementptr inbounds nuw %struct.t_complex, ptr %184, i64 %indvars.iv.i
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %indvars.iv.i
   store float 1.000000e+00, ptr %188, align 4, !tbaa !144
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
   store float 0.000000e+00, ptr %189, align 4, !tbaa !146
@@ -467,13 +464,13 @@ _ZNSt6vectorI9t_complexSaIS0_EE6resizeEm.exit240: ; preds = %120, %122, %124, %1
 
 190:                                              ; preds = %190, %.preheader52.i
   %indvars.iv63.i = phi i64 [ 0, %.preheader52.i ], [ %indvars.iv.next64.i, %190 ]
-  %191 = getelementptr inbounds nuw float, ptr %185, i64 %indvars.iv63.i
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %185, i64 %indvars.iv63.i
   %192 = load float, ptr %191, align 4, !tbaa !134
-  %193 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv63.i
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv63.i
   %194 = load float, ptr %193, align 4, !tbaa !134
   %195 = fmul float %192, %194
   %196 = tail call noundef float @cosf(float noundef %195) #23, !tbaa !143
-  %197 = getelementptr inbounds nuw %struct.t_complex, ptr %186, i64 %indvars.iv63.i
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %indvars.iv63.i
   store float %196, ptr %197, align 4, !tbaa !144
   %198 = load float, ptr %191, align 4, !tbaa !134
   %199 = fmul float %194, %198
@@ -536,7 +533,7 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   br i1 %224, label %.lr.ph332, label %386
 
 .lr.ph332:                                        ; preds = %218
-  %225 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv384
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv384
   %226 = fneg float %223
   br label %227
 
@@ -555,7 +552,7 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
 .lr.ph303:                                        ; preds = %.preheader297
   %231 = sub nsw i32 0, %.0226328
   %232 = zext nneg i32 %231 to i64
-  %233 = getelementptr inbounds nuw ptr, ptr %81, i64 %232
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %232
   br label %249
 
 .preheader295:                                    ; preds = %227
@@ -563,16 +560,16 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
 
 .lr.ph305:                                        ; preds = %.preheader295
   %234 = zext nneg i32 %.0226328 to i64
-  %235 = getelementptr inbounds nuw ptr, ptr %81, i64 %234
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %234
   br label %236
 
 236:                                              ; preds = %.lr.ph305, %236
   %indvars.iv359 = phi i64 [ 0, %.lr.ph305 ], [ %indvars.iv.next360, %236 ]
   %237 = load ptr, ptr %225, align 8, !tbaa !137
-  %238 = getelementptr inbounds nuw %"struct.std::array", ptr %237, i64 %indvars.iv359
+  %238 = getelementptr inbounds nuw [24 x i8], ptr %237, i64 %indvars.iv359
   %.sroa.014.0.copyload = load <2 x float>, ptr %238, align 4
   %239 = load ptr, ptr %235, align 8, !tbaa !137
-  %240 = getelementptr inbounds nuw %"struct.std::array", ptr %239, i64 %indvars.iv359
+  %240 = getelementptr inbounds nuw [24 x i8], ptr %239, i64 %indvars.iv359
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %.sroa.013.0.copyload = load <2 x float>, ptr %241, align 4
   %.sroa.05.0.vec.extract.i = extractelement <2 x float> %.sroa.014.0.copyload, i64 0
@@ -587,7 +584,7 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   %246 = tail call float @llvm.fmuladd.f32(float %.sroa.05.0.vec.extract.i, float %.sroa.0.4.vec.extract.i, float %245)
   %.sroa.010.4.vec.insert.i = insertelement <2 x float> %.sroa.010.0.vec.insert.i, float %246, i64 1
   %247 = load ptr, ptr %95, align 8, !tbaa !114
-  %248 = getelementptr inbounds nuw %struct.t_complex, ptr %247, i64 %indvars.iv359
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %indvars.iv359
   store <2 x float> %.sroa.010.4.vec.insert.i, ptr %248, align 4
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
   %exitcond363.not = icmp eq i64 %indvars.iv.next360, %wide.trip.count362
@@ -596,10 +593,10 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
 249:                                              ; preds = %.lr.ph303, %249
   %indvars.iv355 = phi i64 [ 0, %.lr.ph303 ], [ %indvars.iv.next356, %249 ]
   %250 = load ptr, ptr %225, align 8, !tbaa !137
-  %251 = getelementptr inbounds nuw %"struct.std::array", ptr %250, i64 %indvars.iv355
+  %251 = getelementptr inbounds nuw [24 x i8], ptr %250, i64 %indvars.iv355
   %.sroa.011.0.copyload = load <2 x float>, ptr %251, align 4
   %252 = load ptr, ptr %233, align 8, !tbaa !137
-  %253 = getelementptr inbounds nuw %"struct.std::array", ptr %252, i64 %indvars.iv355
+  %253 = getelementptr inbounds nuw [24 x i8], ptr %252, i64 %indvars.iv355
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %.sroa.09.0.copyload = load <2 x float>, ptr %254, align 4
   %.sroa.0.4.vec.extract.i241 = extractelement <2 x float> %.sroa.09.0.copyload, i64 1
@@ -614,7 +611,7 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   %259 = tail call float @llvm.fmuladd.f32(float %.sroa.05.0.vec.extract.i242, float %255, float %258)
   %.sroa.010.4.vec.insert.i247 = insertelement <2 x float> %.sroa.010.0.vec.insert.i246, float %259, i64 1
   %260 = load ptr, ptr %95, align 8, !tbaa !114
-  %261 = getelementptr inbounds nuw %struct.t_complex, ptr %260, i64 %indvars.iv355
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %indvars.iv355
   store <2 x float> %.sroa.010.4.vec.insert.i247, ptr %261, align 4
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %exitcond358.not = icmp eq i64 %indvars.iv.next356, %wide.trip.count
@@ -656,7 +653,7 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
 .lr.ph307:                                        ; preds = %.preheader293
   %283 = sub nsw i32 0, %.0227321
   %284 = zext nneg i32 %283 to i64
-  %285 = getelementptr inbounds nuw ptr, ptr %81, i64 %284
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %284
   br label %305
 
 .preheader:                                       ; preds = %267
@@ -664,18 +661,18 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
 
 .lr.ph309:                                        ; preds = %.preheader
   %286 = zext nneg i32 %.0227321 to i64
-  %287 = getelementptr inbounds nuw ptr, ptr %81, i64 %286
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %286
   br label %288
 
 288:                                              ; preds = %.lr.ph309, %288
   %indvars.iv369 = phi i64 [ 0, %.lr.ph309 ], [ %indvars.iv.next370, %288 ]
-  %289 = getelementptr inbounds nuw float, ptr %217, i64 %indvars.iv369
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %217, i64 %indvars.iv369
   %290 = load float, ptr %289, align 4, !tbaa !134
   %291 = load ptr, ptr %95, align 8, !tbaa !114
-  %292 = getelementptr inbounds nuw %struct.t_complex, ptr %291, i64 %indvars.iv369
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %291, i64 %indvars.iv369
   %.sroa.06.0.copyload = load <2 x float>, ptr %292, align 4
   %293 = load ptr, ptr %287, align 8, !tbaa !137
-  %294 = getelementptr inbounds nuw %"struct.std::array", ptr %293, i64 %indvars.iv369
+  %294 = getelementptr inbounds nuw [24 x i8], ptr %293, i64 %indvars.iv369
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 16
   %.sroa.05.0.copyload = load <2 x float>, ptr %295, align 4
   %.sroa.05.0.vec.extract.i248 = extractelement <2 x float> %.sroa.06.0.copyload, i64 0
@@ -692,7 +689,7 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   %302 = fmul float %290, %300
   %.sroa.02.4.vec.insert.i = insertelement <2 x float> %.sroa.02.0.vec.insert.i, float %302, i64 1
   %303 = load ptr, ptr %111, align 8, !tbaa !114
-  %304 = getelementptr inbounds nuw %struct.t_complex, ptr %303, i64 %indvars.iv369
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %303, i64 %indvars.iv369
   store <2 x float> %.sroa.02.4.vec.insert.i, ptr %304, align 4
   %indvars.iv.next370 = add nuw nsw i64 %indvars.iv369, 1
   %exitcond373.not = icmp eq i64 %indvars.iv.next370, %wide.trip.count372
@@ -700,13 +697,13 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
 
 305:                                              ; preds = %.lr.ph307, %305
   %indvars.iv364 = phi i64 [ 0, %.lr.ph307 ], [ %indvars.iv.next365, %305 ]
-  %306 = getelementptr inbounds nuw float, ptr %217, i64 %indvars.iv364
+  %306 = getelementptr inbounds nuw [4 x i8], ptr %217, i64 %indvars.iv364
   %307 = load float, ptr %306, align 4, !tbaa !134
   %308 = load ptr, ptr %95, align 8, !tbaa !114
-  %309 = getelementptr inbounds nuw %struct.t_complex, ptr %308, i64 %indvars.iv364
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %308, i64 %indvars.iv364
   %.sroa.02.0.copyload = load <2 x float>, ptr %309, align 4
   %310 = load ptr, ptr %285, align 8, !tbaa !137
-  %311 = getelementptr inbounds nuw %"struct.std::array", ptr %310, i64 %indvars.iv364
+  %311 = getelementptr inbounds nuw [24 x i8], ptr %310, i64 %indvars.iv364
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 16
   %.sroa.0.0.copyload = load <2 x float>, ptr %312, align 4
   %.sroa.0.4.vec.extract.i256 = extractelement <2 x float> %.sroa.0.0.copyload, i64 1
@@ -723,7 +720,7 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   %319 = fmul float %307, %317
   %.sroa.02.4.vec.insert.i267 = insertelement <2 x float> %.sroa.02.0.vec.insert.i265, float %319, i64 1
   %320 = load ptr, ptr %111, align 8, !tbaa !114
-  %321 = getelementptr inbounds nuw %struct.t_complex, ptr %320, i64 %indvars.iv364
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %320, i64 %indvars.iv364
   store <2 x float> %.sroa.02.4.vec.insert.i267, ptr %321, align 4
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %exitcond368.not = icmp eq i64 %indvars.iv.next365, %wide.trip.count367
@@ -737,7 +734,7 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   %indvars.iv374 = phi i64 [ 0, %.lr.ph314 ], [ %indvars.iv.next375, %323 ]
   %.0232311 = phi float [ 0.000000e+00, %.lr.ph314 ], [ %326, %323 ]
   %.0233310 = phi float [ 0.000000e+00, %.lr.ph314 ], [ %329, %323 ]
-  %324 = getelementptr inbounds nuw %struct.t_complex, ptr %322, i64 %indvars.iv374
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %322, i64 %indvars.iv374
   %325 = load float, ptr %324, align 4, !tbaa !144
   %326 = fadd float %.0232311, %325
   %327 = getelementptr inbounds nuw i8, ptr %324, i64 4
@@ -786,7 +783,7 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
 
 353:                                              ; preds = %.lr.ph319, %353
   %indvars.iv379 = phi i64 [ 0, %.lr.ph319 ], [ %indvars.iv.next380, %353 ]
-  %354 = getelementptr inbounds nuw %struct.t_complex, ptr %352, i64 %indvars.iv379
+  %354 = getelementptr inbounds nuw [8 x i8], ptr %352, i64 %indvars.iv379
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 4
   %356 = load float, ptr %355, align 4, !tbaa !146
   %357 = load float, ptr %354, align 4, !tbaa !144
@@ -796,7 +793,7 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   %361 = fmul float %351, %360
   %362 = fmul float %223, %361
   %363 = fmul float %362, 2.000000e+00
-  %364 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %6, i64 %indvars.iv379
+  %364 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %indvars.iv379
   %365 = load float, ptr %364, align 4, !tbaa !134
   %366 = tail call float @llvm.fmuladd.f32(float %363, float %77, float %365)
   store float %366, ptr %364, align 4, !tbaa !134
@@ -1176,9 +1173,9 @@ _ZNSt6vectorI9t_complexSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZS
 
 _ZNSt12_Vector_baseI9t_complexSaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds = %_ZNSt6vectorI9t_complexSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %44
   store ptr %33, ptr %0, align 8, !tbaa !114
-  %46 = getelementptr inbounds nuw %struct.t_complex, ptr %34, i64 %1
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %1
   store ptr %46, ptr %4, align 8, !tbaa !140
-  %47 = getelementptr inbounds nuw %struct.t_complex, ptr %33, i64 %31
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %47, ptr %11, align 8, !tbaa !115
   br label %48
 
@@ -1265,8 +1262,8 @@ define noundef float @_Z23ewald_charge_correctionPK9t_commrecffN3gmx8ArrayRefIKd
 
 51:                                               ; preds = %17, %51
   %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr inbounds nuw [3 x float], ptr %8, i64 %indvars.iv
-  %53 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [12 x i8], ptr %8, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   %54 = load float, ptr %53, align 4, !tbaa !134
   %55 = fadd float %45, %54
   store float %55, ptr %53, align 4, !tbaa !134

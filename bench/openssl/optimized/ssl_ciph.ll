@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ssl_cipher_table = type { i32, i32 }
 %struct.ssl_comp_st = type { i32, ptr, ptr }
-%struct.cipher_order_st = type { ptr, i32, i32, ptr, ptr }
-%struct.ssl_cipher_st = type { i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 @ssl_cipher_table_cipher = internal unnamed_addr constant [24 x %struct.ssl_cipher_table] [%struct.ssl_cipher_table { i32 1, i32 31 }, %struct.ssl_cipher_table { i32 2, i32 44 }, %struct.ssl_cipher_table { i32 4, i32 5 }, %struct.ssl_cipher_table { i32 8, i32 37 }, %struct.ssl_cipher_table { i32 16, i32 34 }, %struct.ssl_cipher_table { i32 32, i32 0 }, %struct.ssl_cipher_table { i32 64, i32 419 }, %struct.ssl_cipher_table { i32 128, i32 427 }, %struct.ssl_cipher_table { i32 256, i32 751 }, %struct.ssl_cipher_table { i32 512, i32 753 }, %struct.ssl_cipher_table { i32 1024, i32 814 }, %struct.ssl_cipher_table { i32 2048, i32 777 }, %struct.ssl_cipher_table { i32 4096, i32 895 }, %struct.ssl_cipher_table { i32 8192, i32 901 }, %struct.ssl_cipher_table { i32 16384, i32 896 }, %struct.ssl_cipher_table { i32 32768, i32 902 }, %struct.ssl_cipher_table { i32 65536, i32 896 }, %struct.ssl_cipher_table { i32 131072, i32 902 }, %struct.ssl_cipher_table { i32 262144, i32 975 }, %struct.ssl_cipher_table { i32 524288, i32 1018 }, %struct.ssl_cipher_table { i32 1048576, i32 1123 }, %struct.ssl_cipher_table { i32 2097152, i32 1125 }, %struct.ssl_cipher_table { i32 4194304, i32 1174 }, %struct.ssl_cipher_table { i32 8388608, i32 1177 }], align 16
 @ssl_cipher_table_mac = internal unnamed_addr constant [14 x %struct.ssl_cipher_table] [%struct.ssl_cipher_table { i32 1, i32 4 }, %struct.ssl_cipher_table { i32 2, i32 64 }, %struct.ssl_cipher_table { i32 4, i32 809 }, %struct.ssl_cipher_table { i32 8, i32 815 }, %struct.ssl_cipher_table { i32 16, i32 672 }, %struct.ssl_cipher_table { i32 32, i32 673 }, %struct.ssl_cipher_table { i32 128, i32 982 }, %struct.ssl_cipher_table { i32 256, i32 976 }, %struct.ssl_cipher_table { i32 512, i32 983 }, %struct.ssl_cipher_table { i32 0, i32 114 }, %struct.ssl_cipher_table { i32 0, i32 675 }, %struct.ssl_cipher_table { i32 0, i32 674 }, %struct.ssl_cipher_table { i32 1024, i32 1192 }, %struct.ssl_cipher_table { i32 2048, i32 1017 }], align 16
@@ -191,7 +189,7 @@ define range(i32 0, 2) i32 @ssl_load_ciphers(ptr noundef captures(none) initiali
   %23 = load ptr, ptr %0, align 8, !tbaa !45
   %24 = load ptr, ptr %17, align 8, !tbaa !46
   %25 = tail call ptr @ssl_evp_cipher_fetch(ptr noundef %23, i32 noundef %21, ptr noundef %24) #14
-  %26 = getelementptr inbounds nuw ptr, ptr %18, i64 %.083116
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.083116
   store ptr %25, ptr %26, align 8, !tbaa !47
   %27 = icmp eq ptr %25, null
   br i1 %27, label %28, label %32
@@ -224,7 +222,7 @@ define range(i32 0, 2) i32 @ssl_load_ciphers(ptr noundef captures(none) initiali
   %42 = load i32, ptr %41, align 4, !tbaa !43
   %43 = load ptr, ptr %17, align 8, !tbaa !46
   %44 = tail call ptr @ssl_evp_md_fetch(ptr noundef %40, i32 noundef %42, ptr noundef %43) #14
-  %45 = getelementptr inbounds nuw ptr, ptr %37, i64 %.184118
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.184118
   store ptr %44, ptr %45, align 8, !tbaa !53
   %46 = icmp eq ptr %44, null
   br i1 %46, label %47, label %51
@@ -243,7 +241,7 @@ define range(i32 0, 2) i32 @ssl_load_ciphers(ptr noundef captures(none) initiali
 
 54:                                               ; preds = %51
   %55 = zext nneg i32 %52 to i64
-  %56 = getelementptr inbounds nuw i64, ptr %38, i64 %.184118
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.184118
   store i64 %55, ptr %56, align 8, !tbaa !55
   br label %.critedge102
 
@@ -743,7 +741,7 @@ ssl_cipher_info_find.exit:                        ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   %sext = shl i64 %.011.i, 32
   %17 = ashr exact i64 %sext, 32
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !53
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.critedge, label %21
@@ -760,7 +758,7 @@ ssl_cipher_info_find.exit:                        ; preds = %8
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1160
-  %26 = getelementptr inbounds i32, ptr %25, i64 %17
+  %26 = getelementptr inbounds [4 x i8], ptr %25, i64 %17
   %27 = load i32, ptr %26, align 4, !tbaa !60
   store i32 %27, ptr %3, align 4, !tbaa !60
   br label %28
@@ -771,7 +769,7 @@ ssl_cipher_info_find.exit:                        ; preds = %8
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1520
-  %31 = getelementptr inbounds i64, ptr %30, i64 %17
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %17
   %32 = load i64, ptr %31, align 8, !tbaa !55
   br label %.critedge.sink.split
 
@@ -930,7 +928,7 @@ ssl_cipher_info_find.exit.i94:                    ; preds = %57
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   %sext.i95 = shl i64 %.011.i.i89, 32
   %65 = ashr exact i64 %sext.i95, 32
-  %66 = getelementptr inbounds ptr, ptr %64, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %64, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !53
   %68 = icmp eq ptr %67, null
   br i1 %68, label %ssl_cipher_get_evp_md_mac.exit, label %69
@@ -951,7 +949,7 @@ ssl_cipher_info_find.exit.i94:                    ; preds = %57
 
 72:                                               ; preds = %71
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 1160
-  %74 = getelementptr inbounds i32, ptr %73, i64 %65
+  %74 = getelementptr inbounds [4 x i8], ptr %73, i64 %65
   %75 = load i32, ptr %74, align 4, !tbaa !60
   store i32 %75, ptr %4, align 4, !tbaa !60
   br label %76
@@ -962,7 +960,7 @@ ssl_cipher_info_find.exit.i94:                    ; preds = %57
 
 77:                                               ; preds = %76
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 1520
-  %79 = getelementptr inbounds i64, ptr %78, i64 %65
+  %79 = getelementptr inbounds [8 x i8], ptr %78, i64 %65
   %80 = load i64, ptr %79, align 8, !tbaa !55
   br label %.critedge.sink.split.i
 
@@ -1105,7 +1103,7 @@ define ptr @ssl_md(ptr noundef readonly captures(none) %0, i32 noundef %1) local
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !53
   br label %10
 
@@ -1126,7 +1124,7 @@ define ptr @ssl_handshake_md(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 1408
   %9 = and i64 %4, 255
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !53
   br label %ssl_md.exit
 
@@ -1151,7 +1149,7 @@ define ptr @ssl_prf_md(ptr noundef %0) local_unnamed_addr #0 {
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 1408
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !53
   br label %ssl_md.exit
 
@@ -1274,7 +1272,7 @@ define internal fastcc range(i32 0, 2) i32 @update_cipher_list(ptr noundef reado
   %30 = load i32, ptr %29, align 8, !tbaa !121
   %31 = and i32 %30, 255
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw %struct.ssl_cipher_table, ptr @ssl_cipher_table_mac, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr @ssl_cipher_table_mac, i64 %32
   %34 = load i32, ptr %33, align 8, !tbaa !49
   %35 = load i32, ptr %20, align 4, !tbaa !52
   %36 = and i32 %35, %34
@@ -1558,7 +1556,7 @@ check_suiteb_cipher_list.exit:                    ; preds = %33
 
 .thread.i114:                                     ; preds = %95, %91
   %99 = sext i32 %.05565.i to i64
-  %100 = getelementptr inbounds %struct.cipher_order_st, ptr %59, i64 %99
+  %100 = getelementptr inbounds [32 x i8], ptr %59, i64 %99
   store ptr %65, ptr %100, align 8, !tbaa !142
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -1597,12 +1595,12 @@ check_suiteb_cipher_list.exit:                    ; preds = %33
 
 .lr.ph69.i:                                       ; preds = %.lr.ph69.i, %.lr.ph69.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph69.preheader.i ], [ %indvars.iv.next.i, %.lr.ph69.i ]
-  %114 = getelementptr %struct.cipher_order_st, ptr %59, i64 %indvars.iv.i
+  %114 = getelementptr [32 x i8], ptr %59, i64 %indvars.iv.i
   %115 = getelementptr i8, ptr %114, i64 -32
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 24
   store ptr %115, ptr %116, align 8, !tbaa !147
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %117 = getelementptr inbounds nuw %struct.cipher_order_st, ptr %59, i64 %indvars.iv.next.i
+  %117 = getelementptr inbounds nuw [32 x i8], ptr %59, i64 %indvars.iv.next.i
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store ptr %117, ptr %118, align 8, !tbaa !148
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1611,9 +1609,9 @@ check_suiteb_cipher_list.exit:                    ; preds = %33
 ._crit_edge70.i:                                  ; preds = %.lr.ph69.i, %109
   %.pre-phi76.i = phi i64 [ 1, %109 ], [ %wide.trip.count.i, %.lr.ph69.i ]
   %119 = zext nneg i32 %.156.i to i64
-  %120 = getelementptr %struct.cipher_order_st, ptr %59, i64 %119
+  %120 = getelementptr [32 x i8], ptr %59, i64 %119
   %121 = getelementptr i8, ptr %120, i64 -64
-  %122 = getelementptr inbounds nuw %struct.cipher_order_st, ptr %59, i64 %.pre-phi76.i
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %59, i64 %.pre-phi76.i
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
   store ptr %121, ptr %123, align 8, !tbaa !147
   br label %ssl_cipher_collect_ciphers.exit
@@ -1626,7 +1624,7 @@ ssl_cipher_apply_rule.exit319.thread:             ; preds = %43, %._crit_edge.i
 
 ssl_cipher_collect_ciphers.exit:                  ; preds = %107, %._crit_edge70.i
   %.pre-phi.i = phi i64 [ %119, %._crit_edge70.i ], [ 1, %107 ]
-  %124 = getelementptr %struct.cipher_order_st, ptr %59, i64 %.pre-phi.i
+  %124 = getelementptr [32 x i8], ptr %59, i64 %.pre-phi.i
   %125 = getelementptr i8, ptr %124, i64 -32
   %126 = getelementptr i8, ptr %124, i64 -16
   store ptr null, ptr %126, align 8, !tbaa !148
@@ -2874,7 +2872,7 @@ ssl_cipher_apply_rule.exit439:                    ; preds = %.backedge.i432, %ss
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %581
   %indvars.iv.i442 = phi i64 [ %indvars.iv.next.i444, %581 ], [ 0, %.preheader.i.preheader ]
   %.154.i = phi ptr [ %.2.i, %581 ], [ %.154.i.ph, %.preheader.i.preheader ]
-  %559 = getelementptr inbounds nuw %struct.ssl_cipher_st, ptr @cipher_aliases, i64 %indvars.iv.i442
+  %559 = getelementptr inbounds nuw [80 x i8], ptr @cipher_aliases, i64 %indvars.iv.i442
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 28
   %561 = load i32, ptr %560, align 4, !tbaa !139
   %562 = getelementptr inbounds nuw i8, ptr %559, i64 36
@@ -2994,7 +2992,7 @@ ssl_cipher_collect_aliases.exit:                  ; preds = %581
   %607 = load i32, ptr %606, align 8, !tbaa !121
   %608 = and i32 %607, 255
   %609 = zext nneg i32 %608 to i64
-  %610 = getelementptr inbounds nuw %struct.ssl_cipher_table, ptr @ssl_cipher_table_mac, i64 %609
+  %610 = getelementptr inbounds nuw [8 x i8], ptr @ssl_cipher_table_mac, i64 %609
   %611 = load i32, ptr %610, align 8, !tbaa !49
   %612 = load i32, ptr %50, align 4, !tbaa !52
   %613 = and i32 %612, %611
@@ -3513,7 +3511,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_strength_sort(ptr noundef
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 68
   %22 = load i32, ptr %21, align 4, !tbaa !156
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %14, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %14, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !60
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 4, !tbaa !60
@@ -3527,7 +3525,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_cipher_strength_sort(ptr noundef
 
 .lr.ph44:                                         ; preds = %.lr.ph44.preheader, %59
   %indvars.iv = phi i64 [ %16, %.lr.ph44.preheader ], [ %indvars.iv.next, %59 ]
-  %29 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !60
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %32, label %59
@@ -3800,7 +3798,7 @@ switch.early.test:                                ; preds = %25
 
 58:                                               ; preds = %54, %51, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next
   %60 = load ptr, ptr %59, align 8, !tbaa !151
   %.not = icmp eq ptr %60, null
   br i1 %.not, label %.critedge284, label %38, !llvm.loop !165
@@ -4181,7 +4179,7 @@ define ptr @SSL_CIPHER_description(ptr noundef readonly captures(none) %0, ptr n
 
 switch.lookup:                                    ; preds = %.split
   %48 = zext nneg i32 %46 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SSL_CIPHER_description, i64 %48
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SSL_CIPHER_description, i64 %48
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %49
 
@@ -4198,7 +4196,7 @@ switch.lookup:                                    ; preds = %.split
 
 switch.lookup34:                                  ; preds = %.split1
   %54 = zext nneg i32 %52 to i64
-  %switch.gep35 = getelementptr inbounds nuw ptr, ptr @switch.table.SSL_CIPHER_description.2, i64 %54
+  %switch.gep35 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SSL_CIPHER_description.2, i64 %54
   %switch.load36 = load ptr, ptr %switch.gep35, align 8
   br label %55
 
@@ -4645,7 +4643,7 @@ define range(i32 -1, 14) i32 @ssl_get_md_idx(i32 noundef %0) local_unnamed_addr 
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw %struct.ssl_cipher_table, ptr @ssl_cipher_table_mac, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @ssl_cipher_table_mac, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !43
   %6 = icmp eq i32 %0, %5
@@ -4675,7 +4673,7 @@ define ptr @SSL_CIPHER_get_handshake_digest(ptr noundef readonly captures(none) 
 
 6:                                                ; preds = %1
   %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr inbounds nuw %struct.ssl_cipher_table, ptr @ssl_cipher_table_mac, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @ssl_cipher_table_mac, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !43
   %11 = tail call ptr @OBJ_nid2sn(i32 noundef %10) #14

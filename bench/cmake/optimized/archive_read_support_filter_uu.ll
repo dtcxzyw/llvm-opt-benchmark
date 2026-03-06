@@ -1145,11 +1145,11 @@ ensure_in_buff_size.exit308:                      ; preds = %107
   br i1 %.not284, label %.thread361, label %287
 
 287:                                              ; preds = %281
-  %288 = getelementptr inbounds nuw i32, ptr @base64num, i64 %278
+  %288 = getelementptr inbounds nuw [4 x i8], ptr @base64num, i64 %278
   %289 = load i32, ptr %288, align 4, !tbaa !40
   %290 = shl i32 %289, 18
   %291 = getelementptr inbounds nuw i8, ptr %.4221559, i64 2
-  %292 = getelementptr inbounds nuw i32, ptr @base64num, i64 %284
+  %292 = getelementptr inbounds nuw [4 x i8], ptr @base64num, i64 %284
   %293 = load i32, ptr %292, align 4, !tbaa !40
   %294 = shl i32 %293, 12
   %295 = or i32 %294, %290
@@ -1173,7 +1173,7 @@ ensure_in_buff_size.exit308:                      ; preds = %107
   br i1 %.not285, label %.thread361.thread, label %307
 
 307:                                              ; preds = %303
-  %308 = getelementptr inbounds nuw i32, ptr @base64num, i64 %304
+  %308 = getelementptr inbounds nuw [4 x i8], ptr @base64num, i64 %304
   %309 = load i32, ptr %308, align 4, !tbaa !40
   %310 = shl i32 %309, 6
   %311 = or i32 %310, %294
@@ -1199,7 +1199,7 @@ ensure_in_buff_size.exit308:                      ; preds = %107
 
 .thread348:                                       ; preds = %319
   %323 = getelementptr inbounds nuw i8, ptr %.4221559, i64 4
-  %324 = getelementptr inbounds nuw i32, ptr @base64num, i64 %320
+  %324 = getelementptr inbounds nuw [4 x i8], ptr @base64num, i64 %320
   %325 = load i32, ptr %324, align 4, !tbaa !40
   %326 = or i32 %325, %310
   %327 = trunc i32 %326 to i8

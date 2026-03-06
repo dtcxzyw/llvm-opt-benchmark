@@ -119,7 +119,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %2, %15
   %19 = phi i32 [ %12, %2 ], [ %.pre.i.i.i, %15 ]
   %20 = load ptr, ptr %10, align 8, !tbaa !17
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   store i32 %9, ptr %22, align 1
   %23 = load i32, ptr %11, align 8, !tbaa !19
   %24 = add i32 %23, 1
@@ -185,7 +185,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit17: ; preds = %_ZNK5
   %46 = phi i32 [ %24, %_ZNK5clang8QualType5splitEv.exit ], [ %.pre.i.i.i16, %42 ]
   %47 = load ptr, ptr %10, align 8, !tbaa !17
   %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %48
   store i32 %40, ptr %49, align 1
   %50 = load i32, ptr %11, align 8, !tbaa !19
   %51 = add i32 %50, 1
@@ -237,7 +237,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %66, %64
   %70 = phi i32 [ %24, %64 ], [ %.pre.i.i.i.i.i, %66 ]
   %71 = load ptr, ptr %10, align 8, !tbaa !17
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %72
   store i32 0, ptr %73, align 1
   %74 = load i32, ptr %11, align 8, !tbaa !19
   %75 = add i32 %74, 1
@@ -258,7 +258,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   %81 = phi i32 [ %75, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i ], [ %.pre.i.i3.i.i.i, %77 ]
   %82 = load ptr, ptr %10, align 8, !tbaa !17
   %83 = zext i32 %81 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %83
   store i32 0, ptr %84, align 1
   %85 = load i32, ptr %11, align 8, !tbaa !19
   %86 = add i32 %85, 1
@@ -371,7 +371,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit23: ; preds = %_ZNK5
   %131 = phi i32 [ %24, %_ZNK5clang8QualType5splitEv.exit31 ], [ %.pre.i.i.i22, %127 ]
   %132 = load ptr, ptr %10, align 8, !tbaa !17
   %133 = zext i32 %131 to i64
-  %134 = getelementptr inbounds nuw i32, ptr %132, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %133
   store i32 %125, ptr %134, align 1
   %135 = load i32, ptr %11, align 8, !tbaa !19
   %136 = add i32 %135, 1
@@ -406,7 +406,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %143, 
   %147 = phi i32 [ %138, %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit11 ], [ %.pre.i.i.i.i, %143 ]
   %148 = load ptr, ptr %10, align 8, !tbaa !17
   %149 = zext i32 %147 to i64
-  %150 = getelementptr inbounds nuw i32, ptr %148, i64 %149
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %149
   store i32 %141, ptr %150, align 1
   %151 = load i32, ptr %11, align 8, !tbaa !19
   %152 = add i32 %151, 1
@@ -457,7 +457,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit14: ; preds = %160, 
   %168 = phi i32 [ %24, %160 ], [ %.pre.i.i.i13, %164 ]
   %169 = load ptr, ptr %10, align 8, !tbaa !17
   %170 = zext i32 %168 to i64
-  %171 = getelementptr inbounds nuw i32, ptr %169, i64 %170
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %170
   store i32 %162, ptr %171, align 1
   %172 = load i32, ptr %11, align 8, !tbaa !19
   %173 = add i32 %172, 1
@@ -536,7 +536,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %_ZNK5cl
   %26 = phi i32 [ %19, %_ZNK5clang8QualType5splitEv.exit ], [ %.pre.i.i.i, %22 ]
   %27 = load ptr, ptr %17, align 8, !tbaa !17
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   store i32 %16, ptr %29, align 1
   %30 = load i32, ptr %18, align 8, !tbaa !19
   %31 = add i32 %30, 1
@@ -1173,7 +1173,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %56, %
   %60 = phi i32 [ %53, %_ZNK5clang8QualType5splitEv.exit.i ], [ %.pre.i.i.i.i4, %56 ]
   %61 = load ptr, ptr %51, align 8, !tbaa !17
   %62 = zext i32 %60 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %62
   store i32 %50, ptr %63, align 1
   %64 = load i32, ptr %52, align 8, !tbaa !19
   %65 = add i32 %64, 1
@@ -1212,7 +1212,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %_ZN12_G
   %80 = phi i32 [ %73, %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit ], [ %.pre.i.i.i, %76 ]
   %81 = load ptr, ptr %71, align 8, !tbaa !17
   %82 = zext i32 %80 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %82
   store i32 %70, ptr %83, align 1
   %84 = load i32, ptr %72, align 8, !tbaa !19
   %85 = add i32 %84, 1
@@ -1241,7 +1241,7 @@ _ZN12_GLOBAL__N_117TypeVisitorHelper15VisitQualifiersEN5clang10QualifiersE.exit:
   %98 = and i32 %97, 7
   %99 = load ptr, ptr %87, align 8, !tbaa !17
   %100 = zext i32 %96 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %100
   store i32 %98, ptr %101, align 1
   %102 = load i32, ptr %88, align 8, !tbaa !19
   %103 = add i32 %102, 1
@@ -1277,7 +1277,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %2, %14
   %18 = phi i32 [ %11, %2 ], [ %.pre.i.i.i, %14 ]
   %19 = load ptr, ptr %9, align 8, !tbaa !17
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   store i32 %8, ptr %21, align 1
   %22 = load i32, ptr %10, align 8, !tbaa !19
   %23 = add i32 %22, 1
@@ -1335,7 +1335,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %44, %
   %48 = phi i32 [ %41, %_ZNK5clang8QualType5splitEv.exit.i ], [ %.pre.i.i.i.i, %44 ]
   %49 = load ptr, ptr %39, align 8, !tbaa !17
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %50
   store i32 %38, ptr %51, align 1
   %52 = load i32, ptr %40, align 8, !tbaa !19
   %53 = add i32 %52, 1
@@ -1376,7 +1376,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %0, %6
   %12 = and i32 %11, 511
   %13 = load ptr, ptr %1, align 8, !tbaa !17
   %14 = zext i32 %10 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   store i32 %12, ptr %15, align 1
   %16 = load i32, ptr %2, align 8, !tbaa !19
   %17 = add i32 %16, 1
@@ -1445,7 +1445,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %27, %
   %31 = phi i32 [ %24, %_ZNK5clang8QualType5splitEv.exit.i ], [ %.pre.i.i.i.i, %27 ]
   %32 = load ptr, ptr %22, align 8, !tbaa !17
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %33
   store i32 %21, ptr %34, align 1
   %35 = load i32, ptr %23, align 8, !tbaa !19
   %36 = add i32 %35, 1
@@ -1492,7 +1492,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %2, %16
   %20 = phi i32 [ %13, %2 ], [ %.pre.i.i.i, %16 ]
   %21 = load ptr, ptr %11, align 8, !tbaa !17
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 %10, ptr %23, align 1
   %24 = load i32, ptr %12, align 8, !tbaa !19
   %25 = add i32 %24, 1
@@ -1567,7 +1567,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %51, %
   %55 = phi i32 [ %48, %_ZNK5clang8QualType5splitEv.exit.i ], [ %.pre.i.i.i.i, %51 ]
   %56 = load ptr, ptr %46, align 8, !tbaa !17
   %57 = zext i32 %55 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %57
   store i32 %45, ptr %58, align 1
   %59 = load i32, ptr %47, align 8, !tbaa !19
   %60 = add i32 %59, 1
@@ -1643,7 +1643,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %26, %
   %30 = phi i32 [ %23, %_ZNK5clang8QualType5splitEv.exit.i ], [ %.pre.i.i.i.i, %26 ]
   %31 = load ptr, ptr %21, align 8, !tbaa !17
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   store i32 %20, ptr %33, align 1
   %34 = load i32, ptr %22, align 8, !tbaa !19
   %35 = add i32 %34, 1
@@ -1694,7 +1694,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %43, %49
   %53 = phi i32 [ %46, %43 ], [ %.pre.i.i.i, %49 ]
   %54 = load ptr, ptr %44, align 8, !tbaa !17
   %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %55
   store i32 0, ptr %56, align 1
   %57 = load i32, ptr %45, align 8, !tbaa !19
   %58 = add i32 %57, 1
@@ -1753,7 +1753,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %16, %22
   %26 = phi i32 [ %19, %16 ], [ %.pre.i.i.i, %22 ]
   %27 = load ptr, ptr %17, align 8, !tbaa !17
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   store i32 0, ptr %29, align 1
   %30 = load i32, ptr %18, align 8, !tbaa !19
   %31 = add i32 %30, 1
@@ -1817,7 +1817,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %17, %23
   %27 = phi i32 [ %20, %17 ], [ %.pre.i.i.i, %23 ]
   %28 = load ptr, ptr %18, align 8, !tbaa !17
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   store i32 0, ptr %30, align 1
   %31 = load i32, ptr %19, align 8, !tbaa !19
   %32 = add i32 %31, 1
@@ -1884,7 +1884,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %56, %
   %60 = phi i32 [ %53, %_ZNK5clang8QualType5splitEv.exit.i ], [ %.pre.i.i.i.i, %56 ]
   %61 = load ptr, ptr %51, align 8, !tbaa !17
   %62 = zext i32 %60 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %62
   store i32 %50, ptr %63, align 1
   %64 = load i32, ptr %52, align 8, !tbaa !19
   %65 = add i32 %64, 1
@@ -1928,7 +1928,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %2, %13
   %17 = phi i32 [ %10, %2 ], [ %.pre.i.i.i, %13 ]
   %18 = load ptr, ptr %8, align 8, !tbaa !17
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   store i32 %7, ptr %20, align 1
   %21 = load i32, ptr %9, align 8, !tbaa !19
   %22 = add i32 %21, 1
@@ -1985,7 +1985,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %2, %15
   %19 = phi i32 [ %12, %2 ], [ %.pre.i.i.i, %15 ]
   %20 = load ptr, ptr %10, align 8, !tbaa !17
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   store i32 %9, ptr %22, align 1
   %23 = load i32, ptr %11, align 8, !tbaa !19
   %24 = add i32 %23, 1
@@ -2014,7 +2014,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit6: ; preds = %_ZN12_
   %38 = phi i32 [ %31, %_ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit ], [ %.pre.i.i.i5, %34 ]
   %39 = load ptr, ptr %29, align 8, !tbaa !17
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %40
   store i32 %28, ptr %41, align 1
   %42 = load i32, ptr %30, align 8, !tbaa !19
   %43 = add i32 %42, 1
@@ -2044,7 +2044,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit9: ; preds = %_ZN12_
   %58 = and i32 %57, 1
   %59 = load ptr, ptr %46, align 8, !tbaa !17
   %60 = zext i32 %55 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %60
   store i32 %58, ptr %61, align 1
   %62 = load i32, ptr %47, align 8, !tbaa !19
   %63 = add i32 %62, 1
@@ -2110,7 +2110,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %26, %
   %30 = phi i32 [ %23, %_ZNK5clang8QualType5splitEv.exit.i ], [ %.pre.i.i.i.i, %26 ]
   %31 = load ptr, ptr %21, align 8, !tbaa !17
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   store i32 %20, ptr %33, align 1
   %34 = load i32, ptr %22, align 8, !tbaa !19
   %35 = add i32 %34, 1
@@ -2178,7 +2178,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i17: ; preds = %57,
   %61 = phi i32 [ %54, %_ZNK5clang8QualType5splitEv.exit.i10 ], [ %.pre.i.i.i.i16, %57 ]
   %62 = load ptr, ptr %52, align 8, !tbaa !17
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %63
   store i32 %51, ptr %64, align 1
   %65 = load i32, ptr %53, align 8, !tbaa !19
   %66 = add i32 %65, 1
@@ -2252,7 +2252,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %25, %
   %29 = phi i32 [ %22, %_ZNK5clang8QualType5splitEv.exit.i ], [ %.pre.i.i.i.i, %25 ]
   %30 = load ptr, ptr %20, align 8, !tbaa !17
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   store i32 %19, ptr %32, align 1
   %33 = load i32, ptr %21, align 8, !tbaa !19
   %34 = add i32 %33, 1
@@ -2290,7 +2290,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %_ZN12_G
   %48 = phi i32 [ %41, %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit ], [ %.pre.i.i.i, %44 ]
   %49 = load ptr, ptr %39, align 8, !tbaa !17
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %50
   store i32 %38, ptr %51, align 1
   %52 = load i32, ptr %40, align 8, !tbaa !19
   %53 = add i32 %52, 1
@@ -2320,7 +2320,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit6: ; preds = %_ZN12_
   %68 = and i32 %67, 15
   %69 = load ptr, ptr %57, align 8, !tbaa !17
   %70 = zext i32 %66 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %70
   store i32 %68, ptr %71, align 1
   %72 = load i32, ptr %58, align 8, !tbaa !19
   %73 = add i32 %72, 1
@@ -2387,7 +2387,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %25, %
   %29 = phi i32 [ %22, %_ZNK5clang8QualType5splitEv.exit.i ], [ %.pre.i.i.i.i6, %25 ]
   %30 = load ptr, ptr %20, align 8, !tbaa !17
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   store i32 %19, ptr %32, align 1
   %33 = load i32, ptr %21, align 8, !tbaa !19
   %34 = add i32 %33, 1
@@ -2427,7 +2427,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %_ZN12_G
   %50 = phi i32 [ %43, %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit ], [ %.pre.i.i.i, %46 ]
   %51 = load ptr, ptr %41, align 8, !tbaa !17
   %52 = zext i32 %50 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %52
   store i32 %40, ptr %53, align 1
   %54 = load i32, ptr %42, align 8, !tbaa !19
   %55 = add i32 %54, 1
@@ -2456,7 +2456,7 @@ _ZN12_GLOBAL__N_117TypeVisitorHelper15VisitQualifiersEN5clang10QualifiersE.exit:
   %68 = and i32 %67, 7
   %69 = load ptr, ptr %57, align 8, !tbaa !17
   %70 = zext i32 %66 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %70
   store i32 %68, ptr %71, align 1
   %72 = load i32, ptr %58, align 8, !tbaa !19
   %73 = add i32 %72, 1
@@ -2528,7 +2528,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %25, %
   %29 = phi i32 [ %22, %_ZNK5clang8QualType5splitEv.exit.i ], [ %.pre.i.i.i.i, %25 ]
   %30 = load ptr, ptr %20, align 8, !tbaa !17
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   store i32 %19, ptr %32, align 1
   %33 = load i32, ptr %21, align 8, !tbaa !19
   %34 = add i32 %33, 1
@@ -2566,7 +2566,7 @@ _ZNK5clang12FunctionType7ExtInfo7ProfileERN4llvm16FoldingSetNodeIDE.exit: ; pred
   %49 = phi i32 [ %42, %_ZN12_GLOBAL__N_122TemplateArgumentHasher11AddQualTypeEN5clang8QualTypeE.exit ], [ %.pre.i.i.i, %45 ]
   %50 = load ptr, ptr %40, align 8, !tbaa !17
   %51 = zext i32 %49 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %51
   store i32 %39, ptr %52, align 1
   %53 = load i32, ptr %41, align 8, !tbaa !19
   %54 = add i32 %53, 1
@@ -2621,7 +2621,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %_ZNK5cl
   %79 = phi i32 [ %72, %_ZNK5clang12FunctionType7isConstEv.exit ], [ %.pre.i.i.i7, %75 ]
   %80 = load ptr, ptr %70, align 8, !tbaa !17
   %81 = zext i32 %79 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %81
   store i32 %.sroa.0.0.i.i, ptr %82, align 1
   %83 = load i32, ptr %71, align 8, !tbaa !19
   %84 = add i32 %83, 1
@@ -2676,7 +2676,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit16: ; preds = %_ZNK5
   %109 = phi i32 [ %102, %_ZNK5clang12FunctionType10isVolatileEv.exit ], [ %.pre.i.i.i15, %105 ]
   %110 = load ptr, ptr %100, align 8, !tbaa !17
   %111 = zext i32 %109 to i64
-  %112 = getelementptr inbounds nuw i32, ptr %110, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %111
   store i32 %.sroa.0.0.i.i10, ptr %112, align 1
   %113 = load i32, ptr %101, align 8, !tbaa !19
   %114 = add i32 %113, 1
@@ -2731,7 +2731,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit25: ; preds = %_ZNK5
   %139 = phi i32 [ %132, %_ZNK5clang12FunctionType10isRestrictEv.exit ], [ %.pre.i.i.i24, %135 ]
   %140 = load ptr, ptr %130, align 8, !tbaa !17
   %141 = zext i32 %139 to i64
-  %142 = getelementptr inbounds nuw i32, ptr %140, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %141
   store i32 %.sroa.0.0.i.i19, ptr %142, align 1
   %143 = load i32, ptr %131, align 8, !tbaa !19
   %144 = add i32 %143, 1
@@ -2787,7 +2787,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %14, %20
   %24 = phi i32 [ %17, %14 ], [ %.pre.i.i.i, %20 ]
   %25 = load ptr, ptr %15, align 8, !tbaa !17
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 0, ptr %27, align 1
   %28 = load i32, ptr %16, align 8, !tbaa !19
   %29 = add i32 %28, 1
@@ -2849,7 +2849,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %15, %21
   %25 = phi i32 [ %18, %15 ], [ %.pre.i.i.i, %21 ]
   %26 = load ptr, ptr %16, align 8, !tbaa !17
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 0, ptr %28, align 1
   %29 = load i32, ptr %17, align 8, !tbaa !19
   %30 = add i32 %29, 1
@@ -2975,7 +2975,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i: ; preds = %43, %
   %47 = phi i32 [ %40, %_ZNK5clang8QualType5splitEv.exit.i ], [ %.pre.i.i.i.i, %43 ]
   %48 = load ptr, ptr %38, align 8, !tbaa !17
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %49
   store i32 %37, ptr %50, align 1
   %51 = load i32, ptr %39, align 8, !tbaa !19
   %52 = add i32 %51, 1
@@ -3021,7 +3021,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit: ; preds = %_ZNK5cl
   %70 = phi i32 [ %63, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit ], [ %.pre.i.i.i, %66 ]
   %71 = load ptr, ptr %61, align 8, !tbaa !17
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %72
   store i32 %.0.i7, ptr %73, align 1
   %74 = load i32, ptr %62, align 8, !tbaa !19
   %75 = add i32 %74, 1
@@ -3105,7 +3105,7 @@ _ZN12_GLOBAL__N_122TemplateArgumentHasher10AddIntegerEj.exit.i83: ; preds = %108
   %112 = phi i32 [ %105, %_ZNK5clang8QualType5splitEv.exit.i78 ], [ %.pre.i.i.i.i82, %108 ]
   %113 = load ptr, ptr %103, align 8, !tbaa !17
   %114 = zext i32 %112 to i64
-  %115 = getelementptr inbounds nuw i32, ptr %113, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %114
   store i32 %102, ptr %115, align 1
   %116 = load i32, ptr %104, align 8, !tbaa !19
   %117 = add i32 %116, 1

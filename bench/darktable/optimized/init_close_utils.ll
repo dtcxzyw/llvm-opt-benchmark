@@ -3,8 +3,6 @@ source_filename = "bench/darktable/original/init_close_utils.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.libraw_afinfo_item_t = type { i32, i16, i32, i32, ptr }
-
 $_ZN13libraw_memmgrD2Ev = comdat any
 
 $__clang_call_terminate = comdat any
@@ -31,7 +29,7 @@ define void @_ZN6LibRawC2Ej(ptr noundef nonnull align 8 dereferenceable(767680) 
 
 7:                                                ; preds = %7, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %8, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -187,7 +185,7 @@ define linkonce_odr void @_ZN13libraw_memmgrD2Ev(ptr noundef nonnull align 8 der
 2:                                                ; preds = %9, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %9 ]
   %3 = load ptr, ptr %0, align 8, !tbaa !14
-  %4 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8, !tbaa !122
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %9, label %6
@@ -195,7 +193,7 @@ define linkonce_odr void @_ZN13libraw_memmgrD2Ev(ptr noundef nonnull align 8 der
 6:                                                ; preds = %2
   tail call void @free(ptr noundef nonnull %5) #12
   %7 = load ptr, ptr %0, align 8, !tbaa !14
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   store ptr null, ptr %8, align 8, !tbaa !122
   br label %9
 
@@ -233,7 +231,7 @@ define void @_ZN6LibRawD2Ev(ptr noundef nonnull align 8 dereferenceable(767680) 
 9:                                                ; preds = %16, %7
   %indvars.iv.i.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i.i, %16 ]
   %10 = load ptr, ptr %8, align 8, !tbaa !14
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i
   %12 = load ptr, ptr %11, align 8, !tbaa !122
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %16, label %13
@@ -241,7 +239,7 @@ define void @_ZN6LibRawD2Ev(ptr noundef nonnull align 8 dereferenceable(767680) 
 13:                                               ; preds = %9
   tail call void @free(ptr noundef nonnull %12) #12
   %14 = load ptr, ptr %8, align 8, !tbaa !14
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i
   store ptr null, ptr %15, align 8, !tbaa !122
   br label %16
 
@@ -287,7 +285,7 @@ define void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(76
 
 8:                                                ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw %struct.libraw_afinfo_item_t, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4912
   %11 = load ptr, ptr %10, align 8, !tbaa !126
   %.not43 = icmp eq ptr %11, null
@@ -419,7 +417,7 @@ define void @_ZN6LibRaw7recycleEv(ptr noundef nonnull align 8 dereferenceable(76
 
 58:                                               ; preds = %58, %50
   %indvars.iv.i = phi i64 [ 0, %50 ], [ %indvars.iv.next.i, %58 ]
-  %59 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.i
   store float 0.000000e+00, ptr %59, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -506,7 +504,7 @@ _ZL8cleargpsP17libraw_gps_info_t.exit:            ; preds = %58
 
 98:                                               ; preds = %_ZL8cleargpsP17libraw_gps_info_t.exit, %98
   %indvars.iv53 = phi i64 [ 0, %_ZL8cleargpsP17libraw_gps_info_t.exit ], [ %indvars.iv.next54, %98 ]
-  %99 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv53
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv53
   store float 1.000000e+00, ptr %99, align 4, !tbaa !15
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 4
@@ -586,9 +584,9 @@ _ZL8cleargpsP17libraw_gps_info_t.exit:            ; preds = %58
 
 136:                                              ; preds = %68, %136
   %indvars.iv60 = phi i64 [ 0, %68 ], [ %indvars.iv.next61, %136 ]
-  %137 = getelementptr inbounds nuw i16, ptr %96, i64 %indvars.iv60
+  %137 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %indvars.iv60
   store i16 -32768, ptr %137, align 2, !tbaa !158
-  %138 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv60
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %indvars.iv60
   store i32 -1, ptr %138, align 4, !tbaa !82
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 3
@@ -597,7 +595,7 @@ _ZL8cleargpsP17libraw_gps_info_t.exit:            ; preds = %58
 139:                                              ; preds = %146, %100
   %indvars.iv.i44 = phi i64 [ 0, %100 ], [ %indvars.iv.next.i45, %146 ]
   %140 = load ptr, ptr %135, align 8, !tbaa !14
-  %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv.i44
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %indvars.iv.i44
   %142 = load ptr, ptr %141, align 8, !tbaa !122
   %.not.i = icmp eq ptr %142, null
   br i1 %.not.i, label %146, label %143
@@ -605,7 +603,7 @@ _ZL8cleargpsP17libraw_gps_info_t.exit:            ; preds = %58
 143:                                              ; preds = %139
   tail call void @free(ptr noundef nonnull %142) #12
   %144 = load ptr, ptr %135, align 8, !tbaa !14
-  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv.i44
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv.i44
   store ptr null, ptr %145, align 8, !tbaa !122
   br label %146
 

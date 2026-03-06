@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/scd.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SCDTrackHeader = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [4 x i8] c"scd\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"Square Enix SCD\00", align 1
 @ff_scd_demuxer = local_unnamed_addr constant { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr }, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr @.str, ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null, ptr null }, i32 0, i32 104, i32 1, [4 x i8] zeroinitializer, ptr @scd_probe, ptr @scd_read_header, ptr @scd_read_packet, ptr @scd_read_close, ptr @scd_seek, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -196,7 +194,7 @@ scd_read_offsets.exit:                            ; preds = %86
 107:                                              ; preds = %.lr.ph, %208
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %208 ]
   %108 = load ptr, ptr %96, align 8, !tbaa !48
-  %109 = getelementptr inbounds nuw %struct.SCDTrackHeader, ptr %108, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [40 x i8], ptr %108, i64 %indvars.iv
   %110 = load ptr, ptr %5, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %111 = load i32, ptr %99, align 8, !tbaa !49
@@ -210,7 +208,7 @@ scd_read_offsets.exit:                            ; preds = %86
 114:                                              ; preds = %107
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 48
   %116 = load ptr, ptr %115, align 8, !tbaa !50
-  %117 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv
   %118 = load i32, ptr %117, align 4, !tbaa !51
   %119 = load ptr, ptr %7, align 8, !tbaa !27
   %120 = zext i32 %118 to i64
@@ -429,9 +427,9 @@ define internal i32 @scd_read_packet(ptr noundef readonly captures(none) %0, ptr
   store i32 %16, ptr %8, align 8, !tbaa !94
   %17 = load ptr, ptr %9, align 8, !tbaa !48
   %18 = sext i32 %16 to i64
-  %19 = getelementptr inbounds %struct.SCDTrackHeader, ptr %17, i64 %18
+  %19 = getelementptr inbounds [40 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %10, align 8, !tbaa !95
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %18
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %18
   %22 = load ptr, ptr %21, align 8, !tbaa !96
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !63
@@ -574,7 +572,7 @@ define internal range(i32 -22, 1) i32 @scd_seek(ptr noundef readonly captures(no
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw %struct.SCDTrackHeader, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 36
   store i32 0, ptr %13, align 4, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -653,7 +651,7 @@ define internal fastcc i32 @scd_read_table(ptr noundef %0, ptr noundef captures(
 
 33:                                               ; preds = %.lr.ph, %33
   %.02731 = phi i64 [ 0, %.lr.ph ], [ %37, %33 ]
-  %34 = getelementptr inbounds nuw i32, ptr %29, i64 %.02731
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.02731
   %35 = load i32, ptr %34, align 1, !tbaa !11
   %36 = tail call i32 @llvm.bswap.i32(i32 %35)
   store i32 %36, ptr %34, align 4, !tbaa !51
@@ -664,7 +662,7 @@ define internal fastcc i32 @scd_read_table(ptr noundef %0, ptr noundef captures(
 .lr.ph34:                                         ; preds = %._crit_edge, %.lr.ph34
   %.032 = phi i64 [ %41, %.lr.ph34 ], [ 0, %._crit_edge ]
   %38 = load ptr, ptr %16, align 8, !tbaa !106
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %.032
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.032
   %40 = load i32, ptr %39, align 4, !tbaa !51
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 56, ptr noundef nonnull @.str.4, i64 noundef %.032, i32 noundef %40) #6
   %41 = add nuw nsw i64 %.032, 1

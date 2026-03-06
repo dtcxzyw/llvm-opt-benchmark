@@ -1893,7 +1893,7 @@ define internal i32 @dissect_acdr_ssh(ptr noundef %0, ptr noundef %1, ptr nounde
 
 switch.lookup:                                    ; preds = %4
   %10 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_acdr_ssh, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_acdr_ssh, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %acdr_ssh_protocol.exit
 
@@ -2296,7 +2296,7 @@ switch.hole_check:                                ; preds = %dissect_signaling_p
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %43 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_acdr_signaling, i64 %43
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_acdr_signaling, i64 %43
   %switch.load = load ptr, ptr %switch.gep, align 8
   %44 = load ptr, ptr %38, align 8
   call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %44, i32 noundef 25, ptr noundef nonnull %switch.load)

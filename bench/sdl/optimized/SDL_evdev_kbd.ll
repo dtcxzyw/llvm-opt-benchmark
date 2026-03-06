@@ -129,7 +129,7 @@ define hidden noundef ptr @SDL_EVDEV_kbd_init() local_unnamed_addr #0 {
 
 48:                                               ; preds = %47
   %49 = sext i32 %44 to i64
-  %50 = getelementptr inbounds %struct.sigaction, ptr @old_sigaction, i64 %49
+  %50 = getelementptr inbounds [152 x i8], ptr @old_sigaction, i64 %49
   %51 = call i32 @sigaction(i32 noundef %44, ptr noundef nonnull %50, ptr noundef null) #13
   store i32 0, ptr @vt_release_signal, align 4
   %.pre.i = load i32, ptr @vt_acquire_signal, align 4
@@ -142,7 +142,7 @@ define hidden noundef ptr @SDL_EVDEV_kbd_init() local_unnamed_addr #0 {
 
 54:                                               ; preds = %52
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds %struct.sigaction, ptr @old_sigaction, i64 %55
+  %56 = getelementptr inbounds [152 x i8], ptr @old_sigaction, i64 %55
   %57 = call i32 @sigaction(i32 noundef %53, ptr noundef nonnull %56, ptr noundef null) #13
   store i32 0, ptr @vt_acquire_signal, align 4
   br label %kbd_vt_quit.exit.i
@@ -173,7 +173,7 @@ kbd_vt_quit.exit.i:                               ; preds = %54, %52
 
 68:                                               ; preds = %66
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.sigaction, ptr @old_sigaction, i64 %69
+  %70 = getelementptr inbounds [152 x i8], ptr @old_sigaction, i64 %69
   %71 = call i32 @sigaction(i32 noundef %67, ptr noundef nonnull %70, ptr noundef null) #13
   store i32 0, ptr @vt_release_signal, align 4
   br label %72
@@ -185,7 +185,7 @@ kbd_vt_quit.exit.i:                               ; preds = %54, %52
 
 74:                                               ; preds = %72
   %75 = sext i32 %73 to i64
-  %76 = getelementptr inbounds %struct.sigaction, ptr @old_sigaction, i64 %75
+  %76 = getelementptr inbounds [152 x i8], ptr @old_sigaction, i64 %75
   %77 = call i32 @sigaction(i32 noundef %73, ptr noundef nonnull %76, ptr noundef null) #13
   store i32 0, ptr @vt_acquire_signal, align 4
   br label %kbd_vt_quit.exit6.i
@@ -273,10 +273,10 @@ define hidden void @SDL_EVDEV_kbd_set_muted(ptr noundef %0, i1 noundef zeroext %
 24:                                               ; preds = %38, %22
   %indvars.iv.i = phi i64 [ 0, %22 ], [ %indvars.iv.next.i, %38 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %25 = getelementptr inbounds nuw i32, ptr @fatal_signals, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @fatal_signals, i64 %indvars.iv.i
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %struct.sigaction, ptr @old_sigaction, i64 %27
+  %28 = getelementptr inbounds [152 x i8], ptr @old_sigaction, i64 %27
   %29 = call i32 @sigaction(i32 noundef %26, ptr noundef null, ptr noundef nonnull %28) #13
   %.not15.i = icmp eq i32 %29, 0
   br i1 %.not15.i, label %30, label %38
@@ -321,10 +321,10 @@ define hidden void @SDL_EVDEV_kbd_set_muted(ptr noundef %0, i1 noundef zeroext %
 42:                                               ; preds = %56, %40
   %indvars.iv.i10 = phi i64 [ 0, %40 ], [ %indvars.iv.next.i12, %56 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %43 = getelementptr inbounds nuw i32, ptr @fatal_signals, i64 %indvars.iv.i10
+  %43 = getelementptr inbounds nuw [4 x i8], ptr @fatal_signals, i64 %indvars.iv.i10
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds %struct.sigaction, ptr @old_sigaction, i64 %45
+  %46 = getelementptr inbounds [152 x i8], ptr @old_sigaction, i64 %45
   %47 = call i32 @sigaction(i32 noundef %44, ptr noundef null, ptr noundef nonnull %3) #13
   %.not.i11 = icmp eq i32 %47, 0
   br i1 %.not.i11, label %48, label %56
@@ -455,10 +455,10 @@ define hidden void @SDL_EVDEV_kbd_quit(ptr noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %26, %10
   %indvars.iv.i10.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i12.i, %26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %13 = getelementptr inbounds nuw i32, ptr @fatal_signals, i64 %indvars.iv.i10.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @fatal_signals, i64 %indvars.iv.i10.i
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.sigaction, ptr @old_sigaction, i64 %15
+  %16 = getelementptr inbounds [152 x i8], ptr @old_sigaction, i64 %15
   %17 = call i32 @sigaction(i32 noundef %14, ptr noundef null, ptr noundef nonnull %3) #13
   %.not.i11.i = icmp eq i32 %17, 0
   br i1 %.not.i11.i, label %18, label %26
@@ -499,7 +499,7 @@ SDL_EVDEV_kbd_set_muted.exit:                     ; preds = %5, %kbd_unregister_
 
 33:                                               ; preds = %SDL_EVDEV_kbd_set_muted.exit
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.sigaction, ptr @old_sigaction, i64 %34
+  %35 = getelementptr inbounds [152 x i8], ptr @old_sigaction, i64 %34
   %36 = call i32 @sigaction(i32 noundef %32, ptr noundef nonnull %35, ptr noundef null) #13
   store i32 0, ptr @vt_release_signal, align 4
   br label %37
@@ -511,7 +511,7 @@ SDL_EVDEV_kbd_set_muted.exit:                     ; preds = %5, %kbd_unregister_
 
 39:                                               ; preds = %37
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds %struct.sigaction, ptr @old_sigaction, i64 %40
+  %41 = getelementptr inbounds [152 x i8], ptr @old_sigaction, i64 %40
   %42 = call i32 @sigaction(i32 noundef %38, ptr noundef nonnull %41, ptr noundef null) #13
   store i32 0, ptr @vt_acquire_signal, align 4
   br label %kbd_vt_quit.exit
@@ -540,7 +540,7 @@ kbd_vt_quit.exit:                                 ; preds = %37, %39
 .preheader:                                       ; preds = %48, %55
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %48 ]
   %51 = load ptr, ptr %49, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8
   %.not20 = icmp eq ptr %53, null
   br i1 %.not20, label %55, label %54
@@ -592,7 +592,7 @@ define hidden void @SDL_EVDEV_kbd_keycode(ptr noundef %0, i32 noundef %1, i32 no
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = zext i8 %17 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %.not56 = icmp eq ptr %22, null
   br i1 %.not56, label %23, label %24
@@ -614,7 +614,7 @@ define hidden void @SDL_EVDEV_kbd_keycode(ptr noundef %0, i32 noundef %1, i32 no
 
 29:                                               ; preds = %26
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw i16, ptr %22, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %30
   %32 = load i16, ptr %31, align 2
   br label %41
 
@@ -664,7 +664,7 @@ define hidden void @SDL_EVDEV_kbd_keycode(ptr noundef %0, i32 noundef %1, i32 no
   %55 = xor i8 %17, 1
   %56 = load ptr, ptr %18, align 8
   %57 = zext i8 %55 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %.not57 = icmp eq ptr %59, null
   br i1 %.not57, label %74, label %60
@@ -676,7 +676,7 @@ define hidden void @SDL_EVDEV_kbd_keycode(ptr noundef %0, i32 noundef %1, i32 no
 
 63:                                               ; preds = %60
   %64 = zext nneg i32 %1 to i64
-  %65 = getelementptr inbounds nuw i16, ptr %59, i64 %64
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %64
   %66 = load i16, ptr %65, align 2
   br label %74
 
@@ -698,7 +698,7 @@ define hidden void @SDL_EVDEV_kbd_keycode(ptr noundef %0, i32 noundef %1, i32 no
   %.049 = phi i8 [ 0, %63 ], [ 0, %67 ], [ 0, %54 ], [ 0, %51 ], [ %49, %46 ]
   %.2 = phi i16 [ %66, %63 ], [ %.3, %67 ], [ %.1, %54 ], [ %.1, %51 ], [ %.1, %46 ]
   %75 = zext nneg i8 %.049 to i64
-  %76 = getelementptr inbounds nuw ptr, ptr @k_handler, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr @k_handler, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = trunc i16 %.2 to i8
   %.not58 = icmp eq i32 %2, 0
@@ -931,7 +931,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @find_free_signal
 11:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %12 = getelementptr inbounds %struct.sigaction, ptr @old_sigaction, i64 %indvars.iv
+  %12 = getelementptr inbounds [152 x i8], ptr @old_sigaction, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %8, i8 0, i64 144, i1 false)
   store ptr %0, ptr %4, align 8
   store i32 268435456, ptr %9, align 8
@@ -1076,10 +1076,10 @@ kbd_cleanup.exit:                                 ; preds = %0, %3
 10:                                               ; preds = %24, %8
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %11 = getelementptr inbounds nuw i32, ptr @fatal_signals, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @fatal_signals, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.sigaction, ptr @old_sigaction, i64 %13
+  %14 = getelementptr inbounds [152 x i8], ptr @old_sigaction, i64 %13
   %15 = call i32 @sigaction(i32 noundef %12, ptr noundef null, ptr noundef nonnull %1) #13
   %.not.i1 = icmp eq i32 %15, 0
   br i1 %.not.i1, label %16, label %24
@@ -1111,7 +1111,7 @@ kbd_unregister_emerg_cleanup.exit:                ; preds = %24, %kbd_cleanup.ex
 define internal void @kbd_cleanup_signal_action(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.__sigset_t, align 8
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.sigaction, ptr @old_sigaction, i64 %5
+  %6 = getelementptr inbounds [152 x i8], ptr @old_sigaction, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %6, ptr noundef null) #13
   %8 = call i32 @sigemptyset(ptr noundef nonnull %4) #13
@@ -1191,7 +1191,7 @@ define internal void @k_self(ptr noundef captures(none) %0, i8 noundef zeroext %
 
 20:                                               ; preds = %33, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
-  %21 = getelementptr inbounds nuw %struct.kbdiacr, ptr %19, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [3 x i8], ptr %19, i64 %indvars.iv.i
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = icmp eq i32 %6, %23
@@ -1271,7 +1271,7 @@ define internal void @k_spec(ptr noundef %0, i8 noundef zeroext %1, i8 noundef s
   br i1 %.not.not, label %10, label %13
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw ptr, ptr @fn_handler, i64 %7
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @fn_handler, i64 %7
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef %0) #13
   br label %13
@@ -1355,7 +1355,7 @@ define internal void @k_dead(ptr noundef captures(none) %0, i8 noundef zeroext %
 
 23:                                               ; preds = %36, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %36 ]
-  %24 = getelementptr inbounds nuw %struct.kbdiacr, ptr %22, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [3 x i8], ptr %22, i64 %indvars.iv.i.i
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = icmp eq i32 %10, %26
@@ -1663,7 +1663,7 @@ k_shift.exit:                                     ; preds = %3, %31, %42, %45
   %59 = load i8, ptr %58, align 1
   %60 = xor i8 %59, %55
   %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %57, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %61
   %63 = load ptr, ptr %62, align 8
   %.not12 = icmp eq ptr %63, null
   br i1 %.not12, label %64, label %65
@@ -1714,7 +1714,7 @@ define internal void @k_dead2(ptr noundef captures(none) %0, i8 noundef zeroext 
 
 20:                                               ; preds = %33, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %33 ]
-  %21 = getelementptr inbounds nuw %struct.kbdiacr, ptr %19, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [3 x i8], ptr %19, i64 %indvars.iv.i.i
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = icmp eq i32 %7, %23

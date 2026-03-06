@@ -3,9 +3,6 @@ source_filename = "bench/openexr/original/internal_pxr24.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.exr_coding_channel_info_t = type { ptr, i32, i32, i32, i32, i8, i8, i16, i16, i16, i32, i32, %union.anon }
-%union.anon = type { ptr }
-
 ; Function Attrs: nounwind uwtable
 define hidden i32 @internal_exr_apply_pxr24(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
@@ -52,7 +49,7 @@ define hidden i32 @internal_exr_apply_pxr24(ptr noundef %0) local_unnamed_addr #
   %.2147254.i = phi i64 [ %.4149.i, %.loopexit.i ], [ %.0145262.i, %17 ]
   %.1158253.i = phi ptr [ %.3160.i, %.loopexit.i ], [ %.0157261.i, %17 ]
   %23 = load ptr, ptr %16, align 8, !tbaa !19
-  %24 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %23, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %indvars.iv.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !20
   %27 = sext i32 %26 to i64
@@ -368,7 +365,7 @@ define hidden i32 @internal_exr_undo_pxr24(ptr noundef %0, ptr noundef %1, i64 n
   %.1143243.i = phi i64 [ %.3145.i, %126 ], [ %.0142254.i, %24 ]
   %.1151242.i = phi ptr [ %.3153.i, %126 ], [ %.0150253.i, %24 ]
   %32 = load ptr, ptr %23, align 8, !tbaa !46
-  %33 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %32, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [48 x i8], ptr %32, i64 %indvars.iv.i
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !20
   %36 = sext i32 %35 to i64

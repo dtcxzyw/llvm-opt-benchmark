@@ -31,7 +31,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.attribute_group = type { ptr, ptr, ptr, ptr, ptr }
 %struct.device_attribute = type { %struct.attribute, ptr, ptr }
 %struct.attribute = type { ptr, i16 }
-%struct.snd_pcm_str = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr }
 %struct.snd_pcm_status64 = type { i32, [4 x i8], i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, i64, i32, [20 x i8] }
 
 @__UNIQUE_ID_author347 = internal constant [90 x i8] c"snd_pcm.author=Jaroslav Kysela <perex@perex.cz>, Abramo Bagnara <abramo@alsa-project.org>\00", section ".modinfo", align 1
@@ -218,7 +217,7 @@ define dso_local ptr @snd_pcm_format_name(i32 noundef %0) #0 align 16 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr ptr, ptr @snd_pcm_format_names, i64 %4
+  %5 = getelementptr [8 x i8], ptr @snd_pcm_format_names, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -233,7 +232,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new_stream(ptr noundef %
   %5 = alloca [16 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = sext i32 %1 to i64
-  %8 = getelementptr %struct.snd_pcm_str, ptr %6, i64 %7
+  %8 = getelementptr [56 x i8], ptr %6, i64 %7
   store i32 %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %0, ptr %9, align 8
@@ -691,7 +690,7 @@ define dso_local noundef range(i32 -77, 1) i32 @snd_pcm_attach_substream(ptr nou
   store ptr null, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr %struct.snd_pcm_str, ptr %11, i64 %12
+  %13 = getelementptr [56 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
@@ -1175,7 +1174,7 @@ define internal i32 @snd_pcm_control_ioctl(ptr noundef readonly captures(address
 
 94:                                               ; preds = %91
   %95 = getelementptr i8, ptr %80, i64 176
-  %96 = getelementptr %struct.snd_pcm_str, ptr %95, i64 %67
+  %96 = getelementptr [56 x i8], ptr %95, i64 %67
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load i32, ptr %97, align 8
   %99 = icmp eq i32 %98, 0
@@ -1340,7 +1339,7 @@ define internal fastcc void @snd_pcm_proc_info_read(ptr noundef %0, ptr noundef 
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr ptr, ptr @snd_pcm_stream_names, i64 %24
+  %25 = getelementptr [8 x i8], ptr @snd_pcm_stream_names, i64 %24
   %26 = load ptr, ptr %25, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %21, ptr noundef nonnull @.str.67, ptr noundef %26) #13
   %27 = load ptr, ptr %1, align 8
@@ -1426,7 +1425,7 @@ define internal void @snd_pcm_substream_proc_hw_params_read(ptr noundef readonly
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
-  %21 = getelementptr ptr, ptr @snd_pcm_access_names, i64 %20
+  %21 = getelementptr [8 x i8], ptr @snd_pcm_access_names, i64 %20
   %22 = load ptr, ptr %21, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %15, ptr noundef nonnull @.str.84, ptr noundef %22) #13
   %23 = load ptr, ptr %1, align 8
@@ -1437,7 +1436,7 @@ define internal void @snd_pcm_substream_proc_hw_params_read(ptr noundef readonly
 
 27:                                               ; preds = %17
   %28 = zext nneg i32 %25 to i64
-  %29 = getelementptr ptr, ptr @snd_pcm_format_names, i64 %28
+  %29 = getelementptr [8 x i8], ptr @snd_pcm_format_names, i64 %28
   %30 = load ptr, ptr %29, align 8
   br label %31
 
@@ -1448,7 +1447,7 @@ define internal void @snd_pcm_substream_proc_hw_params_read(ptr noundef readonly
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %35 = load i32, ptr %34, align 8
   %36 = sext i32 %35 to i64
-  %37 = getelementptr ptr, ptr @snd_pcm_subformat_names, i64 %36
+  %37 = getelementptr [8 x i8], ptr @snd_pcm_subformat_names, i64 %36
   %38 = load ptr, ptr %37, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %33, ptr noundef nonnull @.str.86, ptr noundef %38) #13
   %39 = load ptr, ptr %1, align 8
@@ -1511,7 +1510,7 @@ define internal void @snd_pcm_substream_proc_sw_params_read(ptr noundef readonly
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 184
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
-  %21 = getelementptr ptr, ptr @snd_pcm_tstamp_mode_names, i64 %20
+  %21 = getelementptr [8 x i8], ptr @snd_pcm_tstamp_mode_names, i64 %20
   %22 = load ptr, ptr %21, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %15, ptr noundef nonnull @.str.100, ptr noundef %22) #13
   %23 = load ptr, ptr %1, align 8
@@ -1587,7 +1586,7 @@ define internal void @snd_pcm_substream_proc_status_read(ptr noundef readonly ca
 18:                                               ; preds = %13
   %19 = load i32, ptr %3, align 8
   %20 = sext i32 %19 to i64
-  %21 = getelementptr ptr, ptr @snd_pcm_state_names, i64 %20
+  %21 = getelementptr [8 x i8], ptr @snd_pcm_state_names, i64 %20
   %22 = load ptr, ptr %21, align 8
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %16, ptr noundef nonnull @.str.110, ptr noundef %22) #13
   %23 = load ptr, ptr %1, align 8
@@ -1866,7 +1865,7 @@ define internal i32 @snd_pcm_dev_register(ptr noundef readonly captures(address_
   %54 = phi i1 [ true, %47 ], [ false, %.loopexit ]
   %55 = phi i64 [ 0, %47 ], [ 1, %.loopexit ]
   %56 = phi i32 [ 0, %47 ], [ %79, %.loopexit ]
-  %57 = getelementptr %struct.snd_pcm_str, ptr %48, i64 %55
+  %57 = getelementptr [56 x i8], ptr %48, i64 %55
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
@@ -1875,7 +1874,7 @@ define internal i32 @snd_pcm_dev_register(ptr noundef readonly captures(address_
 61:                                               ; preds = %52
   %62 = load ptr, ptr %5, align 8
   %63 = load i32, ptr %49, align 8
-  %64 = getelementptr %struct.file_operations, ptr @snd_pcm_f_ops, i64 %55
+  %64 = getelementptr [264 x i8], ptr @snd_pcm_f_ops, i64 %55
   %65 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %66 = load ptr, ptr %65, align 8
   %67 = tail call i32 @snd_register_device(i32 noundef %53, ptr noundef %62, i32 noundef %63, ptr noundef %64, ptr noundef nonnull %5, ptr noundef %66) #13
@@ -2022,7 +2021,7 @@ define internal noundef i32 @snd_pcm_dev_disconnect(ptr noundef readonly capture
 .preheader:                                       ; preds = %.loopexit, %68
   %51 = phi i1 [ false, %68 ], [ true, %.loopexit ]
   %52 = phi i64 [ 1, %68 ], [ 0, %.loopexit ]
-  %53 = getelementptr %struct.snd_pcm_str, ptr %12, i64 %52
+  %53 = getelementptr [56 x i8], ptr %12, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
@@ -2122,7 +2121,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pcm_class_show(ptr nound
 
 11:                                               ; preds = %3
   %12 = zext nneg i16 %9 to i64
-  %13 = getelementptr ptr, ptr @pcm_class_show.strs, i64 %12
+  %13 = getelementptr [8 x i8], ptr @pcm_class_show.strs, i64 %12
   %14 = load ptr, ptr %13, align 8
   br label %15
 

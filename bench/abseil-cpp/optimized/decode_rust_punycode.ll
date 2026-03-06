@@ -219,7 +219,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   %notmask.i = shl nsw i64 -1, %100
   %101 = xor i64 %notmask.i, -1
   %102 = zext nneg i32 %97 to i64
-  %103 = getelementptr inbounds nuw i64, ptr %2, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %102
   %104 = load i64, ptr %103, align 8, !tbaa !16
   %105 = and i64 %104, %101
   %106 = call range(i64 0, 63) i64 @llvm.ctpop.i64(i64 %105)
@@ -244,7 +244,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   %indvars.iv.i54 = phi i64 [ %indvars.iv.next.i55, %.lr.ph.i53 ], [ %102, %96 ]
   %.04044.i = phi i32 [ %120, %.lr.ph.i53 ], [ %110, %96 ]
   %.04143.i = phi i32 [ %116, %.lr.ph.i53 ], [ %107, %96 ]
-  %111 = getelementptr i64, ptr %2, i64 %indvars.iv.i54
+  %111 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv.i54
   %112 = getelementptr i8, ptr %111, i64 -8
   %113 = load i64, ptr %112, align 8, !tbaa !16
   %114 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %113)
@@ -266,9 +266,9 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
 .lr.ph48.i:                                       ; preds = %.lr.ph48.i, %.lr.ph48.preheader.i
   %122 = phi i64 [ %.pre.i, %.lr.ph48.preheader.i ], [ %125, %.lr.ph48.i ]
   %indvars.iv51.i = phi i64 [ 7, %.lr.ph48.preheader.i ], [ %indvars.iv.next52.i, %.lr.ph48.i ]
-  %123 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv51.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv51.i
   %indvars.iv.next52.i = add nsw i64 %indvars.iv51.i, -1
-  %124 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.next52.i
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next52.i
   %125 = load i64, ptr %124, align 8, !tbaa !16
   %126 = call i64 @llvm.fshl.i64(i64 %122, i64 %125, i64 2)
   store i64 %126, ptr %123, align 8, !tbaa !16

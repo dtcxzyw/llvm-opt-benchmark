@@ -154,7 +154,7 @@ _ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEmm.exit: ; preds = %47
 _ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit24: ; preds = %_ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit24.preheader, %_ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit24
   %.026 = phi i64 [ %58, %_ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit24 ], [ 0, %_ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit24.preheader ]
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds nuw i64, ptr %55, i64 %.026
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.026
   %57 = load i64, ptr %56, align 8
   tail call void @_ZN5o3dgc12BinaryStream14WriteUIntASCIIEm(ptr noundef nonnull align 8 dereferenceable(28) %1, i64 noundef %57)
   %58 = add nuw i64 %.026, 1
@@ -456,7 +456,7 @@ _ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEmm.exit: ; preds = %47
 _ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit24: ; preds = %_ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit24.preheader, %_ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit24
   %.026 = phi i64 [ %60, %_ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit24 ], [ 0, %_ZN5o3dgc12BinaryStream16WriteUInt32ASCIIEm.exit24.preheader ]
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds nuw i64, ptr %55, i64 %.026
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.026
   %57 = load i64, ptr %56, align 8
   %58 = shl nsw i64 %57, 1
   %.lobit.i.i = ashr i64 %57, 63
@@ -659,7 +659,7 @@ _ZN5o3dgc12BinaryStream15WriteUCharASCIIEh.exit:  ; preds = %._crit_edge.i.i36, 
   %.045 = phi i64 [ 0, %.preheader ], [ %79, %73 ]
   %.144 = phi i64 [ %.02146, %.preheader ], [ %78, %73 ]
   %.02243 = phi i64 [ 0, %.preheader ], [ %77, %73 ]
-  %74 = getelementptr inbounds nuw i64, ptr %45, i64 %.144
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.144
   %75 = load i64, ptr %74, align 8
   %76 = shl i64 %75, %.045
   %77 = add nsw i64 %76, %.02243
@@ -702,7 +702,7 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans10SaveUIntACERKNS_6V
 19:                                               ; preds = %.preheader55, %19
   %.03857 = phi i64 [ 2147483647, %.preheader55 ], [ %spec.select, %19 ]
   %.04656 = phi i64 [ 0, %.preheader55 ], [ %22, %19 ]
-  %20 = getelementptr inbounds nuw i64, ptr %13, i64 %.04656
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.04656
   %21 = load i64, ptr %20, align 8
   %spec.select = tail call i64 @llvm.smin.i64(i64 %.03857, i64 %21)
   %22 = add nuw i64 %.04656, 1
@@ -761,7 +761,7 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans10SaveUIntACERKNS_6V
 .preheader:                                       ; preds = %34, %48
   %.03958 = phi i64 [ %49, %48 ], [ 0, %34 ]
   %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %.03958
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.03958
   %45 = load i64, ptr %44, align 8
   %46 = sub nsw i64 %45, %spec.select
   %47 = trunc i64 %46 to i32
@@ -1349,7 +1349,7 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans9SaveBinACERKNS_6Vec
 .preheader:                                       ; preds = %28, %39
   %.02738 = phi i64 [ %40, %39 ], [ 0, %28 ]
   %35 = load ptr, ptr %1, align 8
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %.02738
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.02738
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
   invoke void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_18Adaptive_Bit_ModelE(ptr noundef nonnull align 8 dereferenceable(44) %4, i32 noundef %38, ptr noundef nonnull align 4 dereferenceable(20) %5)
@@ -1526,7 +1526,7 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans12SaveIntACEGCERKNS_
 22:                                               ; preds = %.preheader74, %22
   %.04477 = phi i64 [ 0, %.preheader74 ], [ %spec.select, %22 ]
   %.04676 = phi i64 [ 0, %.preheader74 ], [ %25, %22 ]
-  %23 = getelementptr inbounds nuw i64, ptr %15, i64 %.04676
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.04676
   %24 = load i64, ptr %23, align 8
   %spec.select = tail call i64 @llvm.smin.i64(i64 %.04477, i64 %24)
   %25 = add nuw i64 %.04676, 1
@@ -1605,7 +1605,7 @@ define hidden noundef i32 @_ZN5o3dgc22CompressedTriangleFans12SaveIntACEGCERKNS_
 .preheader:                                       ; preds = %41, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombEncodeEjiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit
   %.04578 = phi i64 [ %70, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombEncodeEjiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit ], [ 0, %41 ]
   %52 = load ptr, ptr %1, align 8
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %.04578
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.04578
   %54 = load i64, ptr %53, align 8
   %55 = sub nsw i64 %54, %spec.select
   %56 = icmp ult i64 %55, %2
@@ -2007,7 +2007,7 @@ _ZN5o3dgc6VectorIlE8PushBackERKl.exit:            ; preds = %._crit_edge.i, %65
   %67 = phi ptr [ %.pre.i19, %._crit_edge.i ], [ %59, %65 ]
   %68 = add i64 %66, 1
   store i64 %68, ptr %32, align 8
-  %69 = getelementptr inbounds nuw i64, ptr %67, i64 %66
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %66
   store i64 %.09.i, ptr %69, align 8
   %70 = add nuw i64 %.024, 1
   %exitcond.not = icmp eq i64 %70, %12
@@ -2168,7 +2168,7 @@ _ZN5o3dgc6VectorIlE8PushBackERKl.exit:            ; preds = %._crit_edge.i, %71
   %73 = phi ptr [ %.pre.i18, %._crit_edge.i ], [ %65, %71 ]
   %74 = add i64 %72, 1
   store i64 %74, ptr %32, align 8
-  %75 = getelementptr inbounds nuw i64, ptr %73, i64 %72
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %72
   store i64 %56, ptr %75, align 8
   %76 = add nuw i64 %.023, 1
   %exitcond.not = icmp eq i64 %76, %12
@@ -2307,7 +2307,7 @@ _ZN5o3dgc6VectorIlE8PushBackERKl.exit:            ; preds = %._crit_edge.i, %57
   %59 = phi ptr [ %.pre.i24, %._crit_edge.i ], [ %51, %57 ]
   %60 = add i64 %58, 1
   store i64 %60, ptr %32, align 8
-  %61 = getelementptr inbounds nuw i64, ptr %59, i64 %58
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %58
   store i64 %42, ptr %61, align 8
   %62 = lshr i64 %.01728, 1
   %63 = add i64 %.129, 1
@@ -2663,7 +2663,7 @@ _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %_ZNK5o3dgc12BinaryS
   %229 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %220, %226 ]
   %230 = add i64 %228, 1
   store i64 %230, ptr %201, align 8
-  %231 = getelementptr inbounds nuw i64, ptr %229, i64 %228
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %228
   store i64 %211, ptr %231, align 8
   %232 = add nuw i64 %.034, 1
   %exitcond.not = icmp eq i64 %232, %.0.i29
@@ -3129,7 +3129,7 @@ _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %_ZNK5o3dgc12BinaryS
   %253 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %244, %250 ]
   %254 = add i64 %252, 1
   store i64 %254, ptr %206, align 8
-  %255 = getelementptr inbounds nuw i64, ptr %253, i64 %252
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %253, i64 %252
   store i64 %235, ptr %255, align 8
   %256 = add nuw i64 %.055, 1
   %exitcond.not = icmp eq i64 %256, %.0.i42
@@ -3440,7 +3440,7 @@ _ZN5o3dgc6VectorIlE8AllocateEm.exit:              ; preds = %120, %139
   %170 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %161, %167 ]
   %171 = add i64 %169, 1
   store i64 %171, ptr %143, align 8
-  %172 = getelementptr inbounds nuw i64, ptr %170, i64 %169
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %169
   store i64 %152, ptr %172, align 8
   %173 = add nuw i64 %.028, 1
   %exitcond.not = icmp eq i64 %173, %.0.i25

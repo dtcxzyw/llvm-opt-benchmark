@@ -92,7 +92,7 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw ptr, ptr @file_names, i64 %37
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @file_names, i64 %37
   %41 = load ptr, ptr %40, align 8, !tbaa !20
   br label %42
 
@@ -138,7 +138,7 @@ define hidden void @file_mdump(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %62
-  %72 = getelementptr inbounds nuw ptr, ptr @file_names, i64 %69
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @file_names, i64 %69
   %73 = load ptr, ptr %72, align 8, !tbaa !20
   br label %74
 

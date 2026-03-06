@@ -23,7 +23,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.anon.38 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.fsnotify_ops = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.path = type { ptr, ptr }
-%struct.audit_node = type { %struct.list_head, ptr, i32 }
 
 @hash_lock = internal global %struct.spinlock zeroinitializer, section ".data..cacheline_aligned", align 64
 @prune_list = internal global %struct.list_head { ptr @prune_list, ptr @prune_list }, align 8
@@ -120,7 +119,7 @@ define dso_local ptr @audit_tree_lookup(ptr noundef %0) local_unnamed_addr #1 al
   %3 = ptrtoint ptr %2 to i64
   %4 = lshr i64 %3, 6
   %5 = and i64 %4, 127
-  %6 = getelementptr %struct.list_head, ptr @chunk_hash_heads, i64 %5
+  %6 = getelementptr [16 x i8], ptr @chunk_hash_heads, i64 %5
   br label %7
 
 7:                                                ; preds = %11, %1
@@ -330,7 +329,7 @@ define dso_local void @audit_trim_trees() local_unnamed_addr #1 align 16 {
   %36 = and i32 %35, 2147483647
   %37 = zext nneg i32 %36 to i64
   %38 = sub nsw i64 0, %37
-  %39 = getelementptr %struct.audit_node, ptr %33, i64 %38
+  %39 = getelementptr [32 x i8], ptr %33, i64 %38
   %40 = or i32 %35, -2147483648
   store i32 %40, ptr %34, align 8
   %41 = getelementptr i8, ptr %39, i64 -64
@@ -1219,7 +1218,7 @@ define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr noundef readonly ca
   %156 = phi i64 [ %.pre, %154 ], [ %152, %149 ]
   %157 = lshr i64 %156, 6
   %158 = and i64 %157, 127
-  %159 = getelementptr %struct.list_head, ptr @chunk_hash_heads, i64 %158
+  %159 = getelementptr [16 x i8], ptr @chunk_hash_heads, i64 %158
   %160 = load ptr, ptr %159, align 16
   store ptr %160, ptr %27, align 8
   store ptr %159, ptr %47, align 8
@@ -1342,7 +1341,7 @@ define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr noundef readonly ca
 
 231:                                              ; preds = %231, %228
   %232 = phi i64 [ 0, %228 ], [ %237, %231 ]
-  %233 = getelementptr %struct.audit_node, ptr %229, i64 %232
+  %233 = getelementptr [32 x i8], ptr %229, i64 %232
   store volatile ptr %233, ptr %233, align 8
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 8
   store volatile ptr %233, ptr %234, align 8
@@ -1419,7 +1418,7 @@ define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr noundef readonly ca
   %278 = load i32, ptr %225, align 8
   %279 = add i32 %278, -1
   %280 = sext i32 %279 to i64
-  %281 = getelementptr %struct.audit_node, ptr %277, i64 %280
+  %281 = getelementptr [32 x i8], ptr %277, i64 %280
   %282 = or i32 %279, -2147483648
   %283 = getelementptr inbounds nuw i8, ptr %281, i64 24
   store i32 %282, ptr %283, align 8
@@ -2001,7 +2000,7 @@ define internal noundef i32 @audit_tree_init() #7 section ".init.text" align 16 
 
 5:                                                ; preds = %.preheader, %5
   %6 = phi i64 [ %9, %5 ], [ 0, %.preheader ]
-  %7 = getelementptr %struct.list_head, ptr @chunk_hash_heads, i64 %6
+  %7 = getelementptr [16 x i8], ptr @chunk_hash_heads, i64 %6
   store volatile ptr %7, ptr %7, align 16
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store volatile ptr %7, ptr %8, align 8
@@ -2053,7 +2052,7 @@ define internal fastcc void @prune_tree_chunks(ptr noundef %0, i1 noundef zeroex
   %13 = and i32 %11, 2147483647
   %14 = zext nneg i32 %13 to i64
   %15 = sub nsw i64 0, %14
-  %16 = getelementptr %struct.audit_node, ptr %9, i64 %15
+  %16 = getelementptr [32 x i8], ptr %9, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -80
   %18 = getelementptr i8, ptr %16, i64 -56
   %19 = load ptr, ptr %18, align 8
@@ -2163,7 +2162,7 @@ define internal fastcc void @prune_tree_chunks(ptr noundef %0, i1 noundef zeroex
 75:                                               ; preds = %75, %73
   %76 = phi i64 [ 0, %73 ], [ %83, %75 ]
   %77 = phi i32 [ 0, %73 ], [ %82, %75 ]
-  %.split = getelementptr %struct.audit_node, ptr %16, i64 %76
+  %.split = getelementptr [32 x i8], ptr %16, i64 %76
   %78 = getelementptr i8, ptr %.split, i64 16
   %79 = load ptr, ptr %78, align 8
   %80 = icmp ne ptr %79, null
@@ -2277,7 +2276,7 @@ define internal fastcc void @prune_tree_chunks(ptr noundef %0, i1 noundef zeroex
 
 140:                                              ; preds = %140, %137
   %141 = phi i64 [ 0, %137 ], [ %146, %140 ]
-  %142 = getelementptr %struct.audit_node, ptr %138, i64 %141
+  %142 = getelementptr [32 x i8], ptr %138, i64 %141
   store volatile ptr %142, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store volatile ptr %142, ptr %143, align 8
@@ -2419,7 +2418,7 @@ define internal fastcc void @replace_chunk(ptr noundef nonnull initializes((16, 
   %30 = phi i32 [ %20, %22 ], [ %63, %62 ]
   %31 = phi i64 [ 0, %22 ], [ %65, %62 ]
   %32 = phi i32 [ 0, %22 ], [ %64, %62 ]
-  %33 = getelementptr %struct.audit_node, ptr %23, i64 %31
+  %33 = getelementptr [32 x i8], ptr %23, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
@@ -2427,7 +2426,7 @@ define internal fastcc void @replace_chunk(ptr noundef nonnull initializes((16, 
 
 37:                                               ; preds = %29
   %38 = sext i32 %32 to i64
-  %39 = getelementptr %struct.audit_node, ptr %24, i64 %38
+  %39 = getelementptr [32 x i8], ptr %24, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %35, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 24
@@ -2909,7 +2908,7 @@ define internal void @audit_tree_freeing_mark(ptr noundef %0, ptr readnone captu
 
 98:                                               ; preds = %98, %96
   %99 = phi i64 [ 0, %96 ], [ %105, %98 ]
-  %100 = getelementptr %struct.audit_node, ptr %97, i64 %99
+  %100 = getelementptr [32 x i8], ptr %97, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = load ptr, ptr %100, align 8

@@ -188,7 +188,7 @@ define dso_local noundef i32 @crypto_aead_aes256gcm_beforenm(ptr noundef nonnull
 161:                                              ; preds = %161, %2
   %.02.i = phi i64 [ 1, %2 ], [ %165, %161 ]
   %.0101.i = phi <2 x i64> [ %.val, %2 ], [ %164, %161 ]
-  %162 = getelementptr <2 x i64>, ptr %0, i64 %.02.i
+  %162 = getelementptr [16 x i8], ptr %0, i64 %.02.i
   %163 = load <2 x i64>, ptr %162, align 16
   %164 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.0101.i, <2 x i64> %163)
   %165 = add nuw nsw i64 %.02.i, 1
@@ -226,7 +226,7 @@ encrypt.exit:                                     ; preds = %161
 
 189:                                              ; preds = %189, %encrypt.exit
   %.016.i.i = phi i64 [ 2, %encrypt.exit ], [ %222, %189 ]
-  %190 = getelementptr <2 x i64>, ptr %167, i64 %.016.i.i
+  %190 = getelementptr [16 x i8], ptr %167, i64 %.016.i.i
   %191 = getelementptr i8, ptr %190, i64 -16
   %192 = load <2 x i64>, ptr %191, align 16
   %193 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %192, <2 x i64> %178, i8 17)
@@ -247,7 +247,7 @@ encrypt.exit:                                     ; preds = %161
   %208 = xor <2 x i64> %207, %205
   store <2 x i64> %208, ptr %190, align 16
   %209 = lshr exact i64 %.016.i.i, 1
-  %210 = getelementptr <2 x i64>, ptr %167, i64 %209
+  %210 = getelementptr [16 x i8], ptr %167, i64 %209
   %211 = load <2 x i64>, ptr %210, align 16
   %212 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %211, <2 x i64> %211, i8 0)
   %213 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %211, <2 x i64> %211, i8 17)
@@ -375,7 +375,7 @@ required_blocks.exit.thread:                      ; preds = %21, %27
   %.089.i.i = phi i64 [ %70, %.preheader520.i ], [ 0, %62 ]
   %66 = bitcast <2 x i64> %.010.i.i to <16 x i8>
   %67 = shufflevector <16 x i8> %66, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %68 = getelementptr <2 x i64>, ptr %17, i64 %.089.i.i
+  %68 = getelementptr [16 x i8], ptr %17, i64 %.089.i.i
   store <16 x i8> %67, ptr %68, align 16
   %69 = add <2 x i64> %.010.i.i, <i64 1, i64 0>
   %70 = add nuw nsw i64 %.089.i.i, 1
@@ -389,10 +389,10 @@ incr_counters.exit.i:                             ; preds = %.preheader520.i
 
 72:                                               ; preds = %72, %incr_counters.exit.i
   %.032.i.i = phi i64 [ 0, %incr_counters.exit.i ], [ %77, %72 ]
-  %73 = getelementptr <2 x i64>, ptr %17, i64 %.032.i.i
+  %73 = getelementptr [16 x i8], ptr %17, i64 %.032.i.i
   %74 = load <2 x i64>, ptr %73, align 16
   %75 = xor <2 x i64> %74, %71
-  %76 = getelementptr <2 x i64>, ptr %15, i64 %.032.i.i
+  %76 = getelementptr [16 x i8], ptr %15, i64 %.032.i.i
   store <2 x i64> %75, ptr %76, align 16
   %77 = add nuw nsw i64 %.032.i.i, 1
   %exitcond.not.i281.i = icmp eq i64 %77, 7
@@ -400,7 +400,7 @@ incr_counters.exit.i:                             ; preds = %.preheader520.i
 
 .preheader30.i.i:                                 ; preds = %72, %87
   %.02834.i.i = phi i64 [ %88, %87 ], [ 1, %72 ]
-  %78 = getelementptr <2 x i64>, ptr %9, i64 %.02834.i.i
+  %78 = getelementptr [16 x i8], ptr %9, i64 %.02834.i.i
   %79 = load <2 x i64>, ptr %78, align 16
   br label %82
 
@@ -411,7 +411,7 @@ incr_counters.exit.i:                             ; preds = %.preheader520.i
 
 82:                                               ; preds = %82, %.preheader30.i.i
   %.133.i.i = phi i64 [ 0, %.preheader30.i.i ], [ %86, %82 ]
-  %83 = getelementptr <2 x i64>, ptr %15, i64 %.133.i.i
+  %83 = getelementptr [16 x i8], ptr %15, i64 %.133.i.i
   %84 = load <2 x i64>, ptr %83, align 16
   %85 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %84, <2 x i64> %79)
   store <2 x i64> %85, ptr %83, align 16
@@ -426,7 +426,7 @@ incr_counters.exit.i:                             ; preds = %.preheader520.i
 
 89:                                               ; preds = %89, %.preheader29.i.i
   %.235.i.i = phi i64 [ 0, %.preheader29.i.i ], [ %97, %89 ]
-  %90 = getelementptr <2 x i64>, ptr %15, i64 %.235.i.i
+  %90 = getelementptr [16 x i8], ptr %15, i64 %.235.i.i
   %91 = load <2 x i64>, ptr %90, align 16
   %92 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %91, <2 x i64> %81)
   %93 = shl nuw nsw i64 %.235.i.i, 4
@@ -466,7 +466,7 @@ encrypt_xor_wide.exit.._crit_edge_crit_edge.i:    ; preds = %encrypt_xor_wide.ex
   %.089.i283.i = phi i64 [ %107, %102 ], [ 0, %.preheader519.i ]
   %103 = bitcast <2 x i64> %.010.i282.i to <16 x i8>
   %104 = shufflevector <16 x i8> %103, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %105 = getelementptr <2 x i64>, ptr %17, i64 %.089.i283.i
+  %105 = getelementptr [16 x i8], ptr %17, i64 %.089.i283.i
   store <16 x i8> %104, ptr %105, align 16
   %106 = add <2 x i64> %.010.i282.i, <i64 1, i64 0>
   %107 = add nuw nsw i64 %.089.i283.i, 1
@@ -480,10 +480,10 @@ incr_counters.exit285.i:                          ; preds = %102
 
 109:                                              ; preds = %109, %incr_counters.exit285.i
   %.032.i286.i = phi i64 [ 0, %incr_counters.exit285.i ], [ %114, %109 ]
-  %110 = getelementptr <2 x i64>, ptr %17, i64 %.032.i286.i
+  %110 = getelementptr [16 x i8], ptr %17, i64 %.032.i286.i
   %111 = load <2 x i64>, ptr %110, align 16
   %112 = xor <2 x i64> %111, %108
-  %113 = getelementptr <2 x i64>, ptr %14, i64 %.032.i286.i
+  %113 = getelementptr [16 x i8], ptr %14, i64 %.032.i286.i
   store <2 x i64> %112, ptr %113, align 16
   %114 = add nuw nsw i64 %.032.i286.i, 1
   %exitcond.not.i287.i = icmp eq i64 %114, 7
@@ -491,7 +491,7 @@ incr_counters.exit285.i:                          ; preds = %102
 
 .preheader30.i288.i:                              ; preds = %109, %124
   %.02834.i289.i = phi i64 [ %125, %124 ], [ 1, %109 ]
-  %115 = getelementptr <2 x i64>, ptr %9, i64 %.02834.i289.i
+  %115 = getelementptr [16 x i8], ptr %9, i64 %.02834.i289.i
   %116 = load <2 x i64>, ptr %115, align 16
   br label %119
 
@@ -502,7 +502,7 @@ incr_counters.exit285.i:                          ; preds = %102
 
 119:                                              ; preds = %119, %.preheader30.i288.i
   %.133.i290.i = phi i64 [ 0, %.preheader30.i288.i ], [ %123, %119 ]
-  %120 = getelementptr <2 x i64>, ptr %14, i64 %.133.i290.i
+  %120 = getelementptr [16 x i8], ptr %14, i64 %.133.i290.i
   %121 = load <2 x i64>, ptr %120, align 16
   %122 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %121, <2 x i64> %116)
   store <2 x i64> %122, ptr %120, align 16
@@ -517,7 +517,7 @@ incr_counters.exit285.i:                          ; preds = %102
 
 126:                                              ; preds = %126, %.preheader29.i293.i
   %.235.i294.i = phi i64 [ 0, %.preheader29.i293.i ], [ %134, %126 ]
-  %127 = getelementptr <2 x i64>, ptr %14, i64 %.235.i294.i
+  %127 = getelementptr [16 x i8], ptr %14, i64 %.235.i294.i
   %128 = load <2 x i64>, ptr %127, align 16
   %129 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %128, <2 x i64> %118)
   %130 = shl nuw nsw i64 %.235.i294.i, 4
@@ -558,7 +558,7 @@ encrypt_xor_wide.exit296.i:                       ; preds = %126
   %149 = shl nuw nsw i64 %.0535.i, 4
   %150 = getelementptr i8, ptr %138, i64 %149
   %151 = sub nuw nsw i64 13, %.0535.i
-  %152 = getelementptr <2 x i64>, ptr %98, i64 %151
+  %152 = getelementptr [16 x i8], ptr %98, i64 %151
   %153 = load <2 x i64>, ptr %152, align 16
   %.val274500.i = load <16 x i8>, ptr %150, align 1
   %154 = shufflevector <16 x i8> %.val274500.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -580,7 +580,7 @@ encrypt_xor_wide.exit296.i:                       ; preds = %126
   %.089.i298.i = phi i64 [ %169, %.preheader518.i ], [ 0, %148 ]
   %165 = bitcast <2 x i64> %.010.i297.i to <16 x i8>
   %166 = shufflevector <16 x i8> %165, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %167 = getelementptr <2 x i64>, ptr %17, i64 %.089.i298.i
+  %167 = getelementptr [16 x i8], ptr %17, i64 %.089.i298.i
   store <16 x i8> %166, ptr %167, align 16
   %168 = add <2 x i64> %.010.i297.i, <i64 1, i64 0>
   %169 = add nuw nsw i64 %.089.i298.i, 1
@@ -594,10 +594,10 @@ incr_counters.exit300.i:                          ; preds = %.preheader518.i
 
 171:                                              ; preds = %171, %incr_counters.exit300.i
   %.032.i301.i = phi i64 [ 0, %incr_counters.exit300.i ], [ %176, %171 ]
-  %172 = getelementptr <2 x i64>, ptr %17, i64 %.032.i301.i
+  %172 = getelementptr [16 x i8], ptr %17, i64 %.032.i301.i
   %173 = load <2 x i64>, ptr %172, align 16
   %174 = xor <2 x i64> %173, %170
-  %175 = getelementptr <2 x i64>, ptr %13, i64 %.032.i301.i
+  %175 = getelementptr [16 x i8], ptr %13, i64 %.032.i301.i
   store <2 x i64> %174, ptr %175, align 16
   %176 = add nuw nsw i64 %.032.i301.i, 1
   %exitcond.not.i302.i = icmp eq i64 %176, 7
@@ -605,7 +605,7 @@ incr_counters.exit300.i:                          ; preds = %.preheader518.i
 
 .preheader30.i303.i:                              ; preds = %171, %185
   %.02834.i304.i = phi i64 [ %186, %185 ], [ 1, %171 ]
-  %177 = getelementptr <2 x i64>, ptr %9, i64 %.02834.i304.i
+  %177 = getelementptr [16 x i8], ptr %9, i64 %.02834.i304.i
   %178 = load <2 x i64>, ptr %177, align 16
   br label %180
 
@@ -615,7 +615,7 @@ incr_counters.exit300.i:                          ; preds = %.preheader518.i
 
 180:                                              ; preds = %180, %.preheader30.i303.i
   %.133.i305.i = phi i64 [ 0, %.preheader30.i303.i ], [ %184, %180 ]
-  %181 = getelementptr <2 x i64>, ptr %13, i64 %.133.i305.i
+  %181 = getelementptr [16 x i8], ptr %13, i64 %.133.i305.i
   %182 = load <2 x i64>, ptr %181, align 16
   %183 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %182, <2 x i64> %178)
   store <2 x i64> %183, ptr %181, align 16
@@ -630,7 +630,7 @@ incr_counters.exit300.i:                          ; preds = %.preheader518.i
 
 187:                                              ; preds = %187, %.preheader29.i308.i
   %.235.i309.i = phi i64 [ 0, %.preheader29.i308.i ], [ %195, %187 ]
-  %188 = getelementptr <2 x i64>, ptr %13, i64 %.235.i309.i
+  %188 = getelementptr [16 x i8], ptr %13, i64 %.235.i309.i
   %189 = load <2 x i64>, ptr %188, align 16
   %190 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %189, <2 x i64> %179)
   %191 = shl nuw nsw i64 %.235.i309.i, 4
@@ -660,7 +660,7 @@ encrypt_xor_wide.exit311.i:                       ; preds = %187
   %200 = shl nuw nsw i64 %.1539.i, 4
   %201 = getelementptr i8, ptr %135, i64 %200
   %202 = sub nuw nsw i64 6, %.1539.i
-  %203 = getelementptr <2 x i64>, ptr %98, i64 %202
+  %203 = getelementptr [16 x i8], ptr %98, i64 %202
   %204 = load <2 x i64>, ptr %203, align 16
   %.val275499.i = load <16 x i8>, ptr %201, align 1
   %205 = shufflevector <16 x i8> %.val275499.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -721,7 +721,7 @@ encrypt_xor_wide.exit311.i:                       ; preds = %187
   %243 = shl nuw nsw i64 %.2547.i, 4
   %244 = getelementptr i8, ptr %230, i64 %243
   %245 = sub nuw nsw i64 6, %.2547.i
-  %246 = getelementptr <2 x i64>, ptr %231, i64 %245
+  %246 = getelementptr [16 x i8], ptr %231, i64 %245
   %247 = load <2 x i64>, ptr %246, align 16
   %.val276510.i = load <16 x i8>, ptr %244, align 1
   %248 = shufflevector <16 x i8> %.val276510.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -765,7 +765,7 @@ encrypt_xor_wide.exit311.i:                       ; preds = %187
   %.089.i313.i = phi i64 [ %278, %.preheader517.i ], [ 0, %271 ]
   %274 = bitcast <2 x i64> %.010.i312.i to <16 x i8>
   %275 = shufflevector <16 x i8> %274, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %276 = getelementptr <2 x i64>, ptr %17, i64 %.089.i313.i
+  %276 = getelementptr [16 x i8], ptr %17, i64 %.089.i313.i
   store <16 x i8> %275, ptr %276, align 16
   %277 = add <2 x i64> %.010.i312.i, <i64 1, i64 0>
   %278 = add nuw nsw i64 %.089.i313.i, 1
@@ -779,10 +779,10 @@ incr_counters.exit315.i:                          ; preds = %.preheader517.i
 
 280:                                              ; preds = %280, %incr_counters.exit315.i
   %.032.i316.i = phi i64 [ 0, %incr_counters.exit315.i ], [ %285, %280 ]
-  %281 = getelementptr <2 x i64>, ptr %17, i64 %.032.i316.i
+  %281 = getelementptr [16 x i8], ptr %17, i64 %.032.i316.i
   %282 = load <2 x i64>, ptr %281, align 16
   %283 = xor <2 x i64> %282, %279
-  %284 = getelementptr <2 x i64>, ptr %12, i64 %.032.i316.i
+  %284 = getelementptr [16 x i8], ptr %12, i64 %.032.i316.i
   store <2 x i64> %283, ptr %284, align 16
   %285 = add nuw nsw i64 %.032.i316.i, 1
   %exitcond.not.i317.i = icmp eq i64 %285, 7
@@ -790,7 +790,7 @@ incr_counters.exit315.i:                          ; preds = %.preheader517.i
 
 .preheader30.i318.i:                              ; preds = %280, %296
   %.02834.i319.i = phi i64 [ %297, %296 ], [ 1, %280 ]
-  %286 = getelementptr <2 x i64>, ptr %9, i64 %.02834.i319.i
+  %286 = getelementptr [16 x i8], ptr %9, i64 %.02834.i319.i
   %287 = load <2 x i64>, ptr %286, align 16
   br label %291
 
@@ -802,7 +802,7 @@ incr_counters.exit315.i:                          ; preds = %.preheader517.i
 
 291:                                              ; preds = %291, %.preheader30.i318.i
   %.133.i320.i = phi i64 [ 0, %.preheader30.i318.i ], [ %295, %291 ]
-  %292 = getelementptr <2 x i64>, ptr %12, i64 %.133.i320.i
+  %292 = getelementptr [16 x i8], ptr %12, i64 %.133.i320.i
   %293 = load <2 x i64>, ptr %292, align 16
   %294 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %293, <2 x i64> %287)
   store <2 x i64> %294, ptr %292, align 16
@@ -817,7 +817,7 @@ incr_counters.exit315.i:                          ; preds = %.preheader517.i
 
 298:                                              ; preds = %298, %.preheader29.i323.i
   %.235.i324.i = phi i64 [ 0, %.preheader29.i323.i ], [ %306, %298 ]
-  %299 = getelementptr <2 x i64>, ptr %12, i64 %.235.i324.i
+  %299 = getelementptr [16 x i8], ptr %12, i64 %.235.i324.i
   %300 = load <2 x i64>, ptr %299, align 16
   %301 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %300, <2 x i64> %290)
   %302 = shl nuw nsw i64 %.235.i324.i, 4
@@ -861,7 +861,7 @@ encrypt_xor_wide.exit326.._crit_edge555_crit_edge.i: ; preds = %encrypt_xor_wide
   %.089.i328.i = phi i64 [ %318, %313 ], [ 0, %.preheader516.i ]
   %314 = bitcast <2 x i64> %.010.i327.i to <16 x i8>
   %315 = shufflevector <16 x i8> %314, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %316 = getelementptr <2 x i64>, ptr %17, i64 %.089.i328.i
+  %316 = getelementptr [16 x i8], ptr %17, i64 %.089.i328.i
   store <16 x i8> %315, ptr %316, align 16
   %317 = add <2 x i64> %.010.i327.i, <i64 1, i64 0>
   %318 = add nuw nsw i64 %.089.i328.i, 1
@@ -875,10 +875,10 @@ incr_counters.exit330.i:                          ; preds = %313
 
 320:                                              ; preds = %320, %incr_counters.exit330.i
   %.032.i331.i = phi i64 [ 0, %incr_counters.exit330.i ], [ %325, %320 ]
-  %321 = getelementptr <2 x i64>, ptr %17, i64 %.032.i331.i
+  %321 = getelementptr [16 x i8], ptr %17, i64 %.032.i331.i
   %322 = load <2 x i64>, ptr %321, align 16
   %323 = xor <2 x i64> %322, %319
-  %324 = getelementptr <2 x i64>, ptr %11, i64 %.032.i331.i
+  %324 = getelementptr [16 x i8], ptr %11, i64 %.032.i331.i
   store <2 x i64> %323, ptr %324, align 16
   %325 = add nuw nsw i64 %.032.i331.i, 1
   %exitcond.not.i332.i = icmp eq i64 %325, 7
@@ -886,7 +886,7 @@ incr_counters.exit330.i:                          ; preds = %313
 
 .preheader30.i333.i:                              ; preds = %320, %335
   %.02834.i334.i = phi i64 [ %336, %335 ], [ 1, %320 ]
-  %326 = getelementptr <2 x i64>, ptr %9, i64 %.02834.i334.i
+  %326 = getelementptr [16 x i8], ptr %9, i64 %.02834.i334.i
   %327 = load <2 x i64>, ptr %326, align 16
   br label %330
 
@@ -897,7 +897,7 @@ incr_counters.exit330.i:                          ; preds = %313
 
 330:                                              ; preds = %330, %.preheader30.i333.i
   %.133.i335.i = phi i64 [ 0, %.preheader30.i333.i ], [ %334, %330 ]
-  %331 = getelementptr <2 x i64>, ptr %11, i64 %.133.i335.i
+  %331 = getelementptr [16 x i8], ptr %11, i64 %.133.i335.i
   %332 = load <2 x i64>, ptr %331, align 16
   %333 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %332, <2 x i64> %327)
   store <2 x i64> %333, ptr %331, align 16
@@ -912,7 +912,7 @@ incr_counters.exit330.i:                          ; preds = %313
 
 337:                                              ; preds = %337, %.preheader29.i338.i
   %.235.i339.i = phi i64 [ 0, %.preheader29.i338.i ], [ %345, %337 ]
-  %338 = getelementptr <2 x i64>, ptr %11, i64 %.235.i339.i
+  %338 = getelementptr [16 x i8], ptr %11, i64 %.235.i339.i
   %339 = load <2 x i64>, ptr %338, align 16
   %340 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %339, <2 x i64> %329)
   %341 = shl nuw nsw i64 %.235.i339.i, 4
@@ -949,7 +949,7 @@ encrypt_xor_wide.exit341.i:                       ; preds = %337
   %358 = shl nuw nsw i64 %.3551.i, 4
   %359 = getelementptr i8, ptr %347, i64 %358
   %360 = sub nuw nsw i64 6, %.3551.i
-  %361 = getelementptr <2 x i64>, ptr %310, i64 %360
+  %361 = getelementptr [16 x i8], ptr %310, i64 %360
   %362 = load <2 x i64>, ptr %361, align 16
   %.val277503.i = load <16 x i8>, ptr %359, align 1
   %363 = shufflevector <16 x i8> %.val277503.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -1009,7 +1009,7 @@ encrypt_xor_wide.exit341.i:                       ; preds = %337
   %400 = shl nuw nsw i64 %.4561.i, 4
   %401 = getelementptr i8, ptr %389, i64 %400
   %402 = sub nuw nsw i64 6, %.4561.i
-  %403 = getelementptr <2 x i64>, ptr %390, i64 %402
+  %403 = getelementptr [16 x i8], ptr %390, i64 %402
   %404 = load <2 x i64>, ptr %403, align 16
   %.val278509.i = load <16 x i8>, ptr %401, align 1
   %405 = shufflevector <16 x i8> %.val278509.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -1085,7 +1085,7 @@ encrypt_xor_wide.exit341.i:                       ; preds = %337
   %.089.i343.i = phi i64 [ %444, %439 ], [ 0, %.preheader515.i ]
   %440 = bitcast <2 x i64> %.010.i342.i to <16 x i8>
   %441 = shufflevector <16 x i8> %440, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %442 = getelementptr <2 x i64>, ptr %17, i64 %.089.i343.i
+  %442 = getelementptr [16 x i8], ptr %17, i64 %.089.i343.i
   store <16 x i8> %441, ptr %442, align 16
   %443 = add <2 x i64> %.010.i342.i, <i64 1, i64 0>
   %444 = add nuw nsw i64 %.089.i343.i, 1
@@ -1099,7 +1099,7 @@ incr_counters.exit345.preheader.i:                ; preds = %439
 
 447:                                              ; preds = %encrypt_xor_block.exit.i, %incr_counters.exit345.preheader.i
   %.5562.i = phi i64 [ 0, %incr_counters.exit345.preheader.i ], [ %464, %encrypt_xor_block.exit.i ]
-  %448 = getelementptr <2 x i64>, ptr %17, i64 %.5562.i
+  %448 = getelementptr [16 x i8], ptr %17, i64 %.5562.i
   %449 = load <2 x i64>, ptr %448, align 16
   %450 = load <2 x i64>, ptr %9, align 16
   %451 = xor <2 x i64> %450, %449
@@ -1108,7 +1108,7 @@ incr_counters.exit345.preheader.i:                ; preds = %439
 452:                                              ; preds = %452, %447
   %.015.i.i = phi i64 [ 1, %447 ], [ %456, %452 ]
   %.01314.i.i = phi <2 x i64> [ %451, %447 ], [ %455, %452 ]
-  %453 = getelementptr <2 x i64>, ptr %9, i64 %.015.i.i
+  %453 = getelementptr [16 x i8], ptr %9, i64 %.015.i.i
   %454 = load <2 x i64>, ptr %453, align 16
   %455 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i.i, <2 x i64> %454)
   %456 = add nuw nsw i64 %.015.i.i, 1
@@ -1149,7 +1149,7 @@ encrypt_xor_block.exit.i:                         ; preds = %452
   %476 = shl nuw nsw i64 %.6566.i, 4
   %477 = getelementptr i8, ptr %445, i64 %476
   %478 = sub nuw nsw i64 3, %.6566.i
-  %479 = getelementptr <2 x i64>, ptr %431, i64 %478
+  %479 = getelementptr [16 x i8], ptr %431, i64 %478
   %480 = load <2 x i64>, ptr %479, align 16
   %.val279506.i = load <16 x i8>, ptr %477, align 1
   %481 = shufflevector <16 x i8> %.val279506.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -1211,7 +1211,7 @@ encrypt_xor_block.exit.i:                         ; preds = %452
   %.089.i348.i = phi i64 [ %516, %511 ], [ 0, %.preheader513.i ]
   %512 = bitcast <2 x i64> %.010.i347.i to <16 x i8>
   %513 = shufflevector <16 x i8> %512, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %514 = getelementptr <2 x i64>, ptr %17, i64 %.089.i348.i
+  %514 = getelementptr [16 x i8], ptr %17, i64 %.089.i348.i
   store <16 x i8> %513, ptr %514, align 16
   %515 = add <2 x i64> %.010.i347.i, <i64 1, i64 0>
   %516 = add nuw nsw i64 %.089.i348.i, 1
@@ -1235,7 +1235,7 @@ incr_counters.exit350.preheader.i:                ; preds = %511
 524:                                              ; preds = %524, %519
   %.015.i351.i = phi i64 [ 1, %519 ], [ %528, %524 ]
   %.01314.i352.i = phi <2 x i64> [ %523, %519 ], [ %527, %524 ]
-  %525 = getelementptr <2 x i64>, ptr %9, i64 %.015.i351.i
+  %525 = getelementptr [16 x i8], ptr %9, i64 %.015.i351.i
   %526 = load <2 x i64>, ptr %525, align 16
   %527 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i352.i, <2 x i64> %526)
   %528 = add nuw nsw i64 %.015.i351.i, 1
@@ -1306,7 +1306,7 @@ encrypt_xor_block.exit354.i:                      ; preds = %524
 575:                                              ; preds = %575, %567
   %.015.i355.i = phi i64 [ 1, %567 ], [ %579, %575 ]
   %.01314.i356.i = phi <2 x i64> [ %574, %567 ], [ %578, %575 ]
-  %576 = getelementptr <2 x i64>, ptr %9, i64 %.015.i355.i
+  %576 = getelementptr [16 x i8], ptr %9, i64 %.015.i355.i
   %577 = load <2 x i64>, ptr %576, align 16
   %578 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i356.i, <2 x i64> %577)
   %579 = add nuw nsw i64 %.015.i355.i, 1
@@ -1363,7 +1363,7 @@ encrypt_xor_block.exit358.i:                      ; preds = %575
 613:                                              ; preds = %613, %._crit_edge583.i
   %.02.i.i = phi i64 [ 1, %._crit_edge583.i ], [ %617, %613 ]
   %.0101.i.i = phi <2 x i64> [ %612, %._crit_edge583.i ], [ %616, %613 ]
-  %614 = getelementptr <2 x i64>, ptr %9, i64 %.02.i.i
+  %614 = getelementptr [16 x i8], ptr %9, i64 %.02.i.i
   %615 = load <2 x i64>, ptr %614, align 16
   %616 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.0101.i.i, <2 x i64> %615)
   %617 = add nuw nsw i64 %.02.i.i, 1
@@ -1400,7 +1400,7 @@ encrypt.exit.i:                                   ; preds = %613
 635:                                              ; preds = %635, %._crit_edge588.i
   %.015.i360.i = phi i64 [ 1, %._crit_edge588.i ], [ %639, %635 ]
   %.01314.i361.i = phi <2 x i64> [ %634, %._crit_edge588.i ], [ %638, %635 ]
-  %636 = getelementptr <2 x i64>, ptr %9, i64 %.015.i360.i
+  %636 = getelementptr [16 x i8], ptr %9, i64 %.015.i360.i
   %637 = load <2 x i64>, ptr %636, align 16
   %638 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i361.i, <2 x i64> %637)
   %639 = add nuw nsw i64 %.015.i360.i, 1
@@ -1709,7 +1709,7 @@ required_blocks.exit.i:                           ; preds = %29
 93:                                               ; preds = %93, %89
   %.02.i.i = phi i64 [ 1, %89 ], [ %97, %93 ]
   %.0101.i.i = phi <2 x i64> [ %92, %89 ], [ %96, %93 ]
-  %94 = getelementptr <2 x i64>, ptr %8, i64 %.02.i.i
+  %94 = getelementptr [16 x i8], ptr %8, i64 %.02.i.i
   %95 = load <2 x i64>, ptr %94, align 16
   %96 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.0101.i.i, <2 x i64> %95)
   %97 = add nuw nsw i64 %.02.i.i, 1
@@ -1873,7 +1873,7 @@ required_blocks.exit:                             ; preds = %134
   %.089.i.i = phi i64 [ %186, %181 ], [ 0, %.preheader403.i ]
   %182 = bitcast <2 x i64> %.010.i.i to <16 x i8>
   %183 = shufflevector <16 x i8> %182, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %184 = getelementptr <2 x i64>, ptr %14, i64 %.089.i.i
+  %184 = getelementptr [16 x i8], ptr %14, i64 %.089.i.i
   store <16 x i8> %183, ptr %184, align 16
   %185 = add <2 x i64> %.010.i.i, <i64 1, i64 0>
   %186 = add nuw nsw i64 %.089.i.i, 1
@@ -1902,7 +1902,7 @@ incr_counters.exit.i:                             ; preds = %181
   %198 = shl nuw nsw i64 %.0416.i, 4
   %199 = getelementptr i8, ptr %187, i64 %198
   %200 = sub nuw nsw i64 13, %.0416.i
-  %201 = getelementptr <2 x i64>, ptr %172, i64 %200
+  %201 = getelementptr [16 x i8], ptr %172, i64 %200
   %202 = load <2 x i64>, ptr %201, align 16
   %.val210386.i = load <16 x i8>, ptr %199, align 1
   %203 = shufflevector <16 x i8> %.val210386.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -1926,10 +1926,10 @@ incr_counters.exit.i:                             ; preds = %181
 
 216:                                              ; preds = %216, %214
   %.032.i.i = phi i64 [ 0, %214 ], [ %221, %216 ]
-  %217 = getelementptr <2 x i64>, ptr %14, i64 %.032.i.i
+  %217 = getelementptr [16 x i8], ptr %14, i64 %.032.i.i
   %218 = load <2 x i64>, ptr %217, align 16
   %219 = xor <2 x i64> %218, %215
-  %220 = getelementptr <2 x i64>, ptr %12, i64 %.032.i.i
+  %220 = getelementptr [16 x i8], ptr %12, i64 %.032.i.i
   store <2 x i64> %219, ptr %220, align 16
   %221 = add nuw nsw i64 %.032.i.i, 1
   %exitcond.not.i215.i = icmp eq i64 %221, 7
@@ -1937,7 +1937,7 @@ incr_counters.exit.i:                             ; preds = %181
 
 .preheader30.i.i:                                 ; preds = %216, %230
   %.02834.i.i = phi i64 [ %231, %230 ], [ 1, %216 ]
-  %222 = getelementptr <2 x i64>, ptr %8, i64 %.02834.i.i
+  %222 = getelementptr [16 x i8], ptr %8, i64 %.02834.i.i
   %223 = load <2 x i64>, ptr %222, align 16
   br label %225
 
@@ -1947,7 +1947,7 @@ incr_counters.exit.i:                             ; preds = %181
 
 225:                                              ; preds = %225, %.preheader30.i.i
   %.133.i.i = phi i64 [ 0, %.preheader30.i.i ], [ %229, %225 ]
-  %226 = getelementptr <2 x i64>, ptr %12, i64 %.133.i.i
+  %226 = getelementptr [16 x i8], ptr %12, i64 %.133.i.i
   %227 = load <2 x i64>, ptr %226, align 16
   %228 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %227, <2 x i64> %223)
   store <2 x i64> %228, ptr %226, align 16
@@ -1962,7 +1962,7 @@ incr_counters.exit.i:                             ; preds = %181
 
 232:                                              ; preds = %232, %.preheader29.i.i
   %.235.i.i = phi i64 [ 0, %.preheader29.i.i ], [ %240, %232 ]
-  %233 = getelementptr <2 x i64>, ptr %12, i64 %.235.i.i
+  %233 = getelementptr [16 x i8], ptr %12, i64 %.235.i.i
   %234 = load <2 x i64>, ptr %233, align 16
   %235 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %234, <2 x i64> %224)
   %236 = shl nuw nsw i64 %.235.i.i, 4
@@ -1985,7 +1985,7 @@ encrypt_xor_wide.exit.i:                          ; preds = %232
   %.089.i217.i = phi i64 [ 0, %encrypt_xor_wide.exit.i ], [ %247, %242 ]
   %243 = bitcast <2 x i64> %.010.i216.i to <16 x i8>
   %244 = shufflevector <16 x i8> %243, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %245 = getelementptr <2 x i64>, ptr %14, i64 %.089.i217.i
+  %245 = getelementptr [16 x i8], ptr %14, i64 %.089.i217.i
   store <16 x i8> %244, ptr %245, align 16
   %246 = add <2 x i64> %.010.i216.i, <i64 1, i64 0>
   %247 = add nuw nsw i64 %.089.i217.i, 1
@@ -2005,7 +2005,7 @@ incr_counters.exit219.i:                          ; preds = %242
   %251 = shl nuw nsw i64 %.1420.i, 4
   %252 = getelementptr i8, ptr %249, i64 %251
   %253 = sub nuw nsw i64 6, %.1420.i
-  %254 = getelementptr <2 x i64>, ptr %172, i64 %253
+  %254 = getelementptr [16 x i8], ptr %172, i64 %253
   %255 = load <2 x i64>, ptr %254, align 16
   %.val211385.i = load <16 x i8>, ptr %252, align 1
   %256 = shufflevector <16 x i8> %.val211385.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -2029,10 +2029,10 @@ incr_counters.exit219.i:                          ; preds = %242
 
 269:                                              ; preds = %269, %267
   %.032.i220.i = phi i64 [ 0, %267 ], [ %274, %269 ]
-  %270 = getelementptr <2 x i64>, ptr %14, i64 %.032.i220.i
+  %270 = getelementptr [16 x i8], ptr %14, i64 %.032.i220.i
   %271 = load <2 x i64>, ptr %270, align 16
   %272 = xor <2 x i64> %271, %268
-  %273 = getelementptr <2 x i64>, ptr %11, i64 %.032.i220.i
+  %273 = getelementptr [16 x i8], ptr %11, i64 %.032.i220.i
   store <2 x i64> %272, ptr %273, align 16
   %274 = add nuw nsw i64 %.032.i220.i, 1
   %exitcond.not.i221.i = icmp eq i64 %274, 7
@@ -2040,7 +2040,7 @@ incr_counters.exit219.i:                          ; preds = %242
 
 .preheader30.i222.i:                              ; preds = %269, %283
   %.02834.i223.i = phi i64 [ %284, %283 ], [ 1, %269 ]
-  %275 = getelementptr <2 x i64>, ptr %8, i64 %.02834.i223.i
+  %275 = getelementptr [16 x i8], ptr %8, i64 %.02834.i223.i
   %276 = load <2 x i64>, ptr %275, align 16
   br label %278
 
@@ -2050,7 +2050,7 @@ incr_counters.exit219.i:                          ; preds = %242
 
 278:                                              ; preds = %278, %.preheader30.i222.i
   %.133.i224.i = phi i64 [ 0, %.preheader30.i222.i ], [ %282, %278 ]
-  %279 = getelementptr <2 x i64>, ptr %11, i64 %.133.i224.i
+  %279 = getelementptr [16 x i8], ptr %11, i64 %.133.i224.i
   %280 = load <2 x i64>, ptr %279, align 16
   %281 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %280, <2 x i64> %276)
   store <2 x i64> %281, ptr %279, align 16
@@ -2065,7 +2065,7 @@ incr_counters.exit219.i:                          ; preds = %242
 
 285:                                              ; preds = %285, %.preheader29.i227.i
   %.235.i228.i = phi i64 [ 0, %.preheader29.i227.i ], [ %293, %285 ]
-  %286 = getelementptr <2 x i64>, ptr %11, i64 %.235.i228.i
+  %286 = getelementptr [16 x i8], ptr %11, i64 %.235.i228.i
   %287 = load <2 x i64>, ptr %286, align 16
   %288 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %287, <2 x i64> %277)
   %289 = shl nuw nsw i64 %.235.i228.i, 4
@@ -2126,7 +2126,7 @@ encrypt_xor_wide.exit230.i:                       ; preds = %285
   %.089.i232.i = phi i64 [ %318, %313 ], [ 0, %.preheader401.i ]
   %314 = bitcast <2 x i64> %.010.i231.i to <16 x i8>
   %315 = shufflevector <16 x i8> %314, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %316 = getelementptr <2 x i64>, ptr %14, i64 %.089.i232.i
+  %316 = getelementptr [16 x i8], ptr %14, i64 %.089.i232.i
   store <16 x i8> %315, ptr %316, align 16
   %317 = add <2 x i64> %.010.i231.i, <i64 1, i64 0>
   %318 = add nuw nsw i64 %.089.i232.i, 1
@@ -2155,7 +2155,7 @@ incr_counters.exit234.i:                          ; preds = %313
   %330 = shl nuw nsw i64 %.2428.i, 4
   %331 = getelementptr i8, ptr %319, i64 %330
   %332 = sub nuw nsw i64 6, %.2428.i
-  %333 = getelementptr <2 x i64>, ptr %178, i64 %332
+  %333 = getelementptr [16 x i8], ptr %178, i64 %332
   %334 = load <2 x i64>, ptr %333, align 16
   %.val212388.i = load <16 x i8>, ptr %331, align 1
   %335 = shufflevector <16 x i8> %.val212388.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -2179,10 +2179,10 @@ incr_counters.exit234.i:                          ; preds = %313
 
 348:                                              ; preds = %348, %346
   %.032.i235.i = phi i64 [ 0, %346 ], [ %353, %348 ]
-  %349 = getelementptr <2 x i64>, ptr %14, i64 %.032.i235.i
+  %349 = getelementptr [16 x i8], ptr %14, i64 %.032.i235.i
   %350 = load <2 x i64>, ptr %349, align 16
   %351 = xor <2 x i64> %350, %347
-  %352 = getelementptr <2 x i64>, ptr %10, i64 %.032.i235.i
+  %352 = getelementptr [16 x i8], ptr %10, i64 %.032.i235.i
   store <2 x i64> %351, ptr %352, align 16
   %353 = add nuw nsw i64 %.032.i235.i, 1
   %exitcond.not.i236.i = icmp eq i64 %353, 7
@@ -2190,7 +2190,7 @@ incr_counters.exit234.i:                          ; preds = %313
 
 .preheader30.i237.i:                              ; preds = %348, %362
   %.02834.i238.i = phi i64 [ %363, %362 ], [ 1, %348 ]
-  %354 = getelementptr <2 x i64>, ptr %8, i64 %.02834.i238.i
+  %354 = getelementptr [16 x i8], ptr %8, i64 %.02834.i238.i
   %355 = load <2 x i64>, ptr %354, align 16
   br label %357
 
@@ -2200,7 +2200,7 @@ incr_counters.exit234.i:                          ; preds = %313
 
 357:                                              ; preds = %357, %.preheader30.i237.i
   %.133.i239.i = phi i64 [ 0, %.preheader30.i237.i ], [ %361, %357 ]
-  %358 = getelementptr <2 x i64>, ptr %10, i64 %.133.i239.i
+  %358 = getelementptr [16 x i8], ptr %10, i64 %.133.i239.i
   %359 = load <2 x i64>, ptr %358, align 16
   %360 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %359, <2 x i64> %355)
   store <2 x i64> %360, ptr %358, align 16
@@ -2215,7 +2215,7 @@ incr_counters.exit234.i:                          ; preds = %313
 
 364:                                              ; preds = %364, %.preheader29.i242.i
   %.235.i243.i = phi i64 [ 0, %.preheader29.i242.i ], [ %372, %364 ]
-  %365 = getelementptr <2 x i64>, ptr %10, i64 %.235.i243.i
+  %365 = getelementptr [16 x i8], ptr %10, i64 %.235.i243.i
   %366 = load <2 x i64>, ptr %365, align 16
   %367 = call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %366, <2 x i64> %356)
   %368 = shl nuw nsw i64 %.235.i243.i, 4
@@ -2292,7 +2292,7 @@ encrypt_xor_wide.exit245.i:                       ; preds = %364
   %.089.i247.i = phi i64 [ %409, %404 ], [ 0, %.preheader399.i ]
   %405 = bitcast <2 x i64> %.010.i246.i to <16 x i8>
   %406 = shufflevector <16 x i8> %405, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %407 = getelementptr <2 x i64>, ptr %14, i64 %.089.i247.i
+  %407 = getelementptr [16 x i8], ptr %14, i64 %.089.i247.i
   store <16 x i8> %406, ptr %407, align 16
   %408 = add <2 x i64> %.010.i246.i, <i64 1, i64 0>
   %409 = add nuw nsw i64 %.089.i247.i, 1
@@ -2321,7 +2321,7 @@ incr_counters.exit249.i:                          ; preds = %404
   %421 = shl nuw nsw i64 %.3437.i, 4
   %422 = getelementptr i8, ptr %410, i64 %421
   %423 = sub nuw nsw i64 3, %.3437.i
-  %424 = getelementptr <2 x i64>, ptr %310, i64 %423
+  %424 = getelementptr [16 x i8], ptr %310, i64 %423
   %425 = load <2 x i64>, ptr %424, align 16
   %.val213390.i = load <16 x i8>, ptr %422, align 1
   %426 = shufflevector <16 x i8> %.val213390.i, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -2344,7 +2344,7 @@ incr_counters.exit249.i:                          ; preds = %404
 
 439:                                              ; preds = %encrypt_xor_block.exit.i, %437
   %.4438.i = phi i64 [ 0, %437 ], [ %456, %encrypt_xor_block.exit.i ]
-  %440 = getelementptr <2 x i64>, ptr %14, i64 %.4438.i
+  %440 = getelementptr [16 x i8], ptr %14, i64 %.4438.i
   %441 = load <2 x i64>, ptr %440, align 16
   %442 = load <2 x i64>, ptr %8, align 16
   %443 = xor <2 x i64> %442, %441
@@ -2353,7 +2353,7 @@ incr_counters.exit249.i:                          ; preds = %404
 444:                                              ; preds = %444, %439
   %.015.i.i = phi i64 [ 1, %439 ], [ %448, %444 ]
   %.01314.i.i = phi <2 x i64> [ %443, %439 ], [ %447, %444 ]
-  %445 = getelementptr <2 x i64>, ptr %8, i64 %.015.i.i
+  %445 = getelementptr [16 x i8], ptr %8, i64 %.015.i.i
   %446 = load <2 x i64>, ptr %445, align 16
   %447 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i.i, <2 x i64> %446)
   %448 = add nuw nsw i64 %.015.i.i, 1
@@ -2436,7 +2436,7 @@ encrypt_xor_block.exit.i:                         ; preds = %444
   %.089.i252.i = phi i64 [ %496, %491 ], [ 0, %.preheader396.i ]
   %492 = bitcast <2 x i64> %.010.i251.i to <16 x i8>
   %493 = shufflevector <16 x i8> %492, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %494 = getelementptr <2 x i64>, ptr %14, i64 %.089.i252.i
+  %494 = getelementptr [16 x i8], ptr %14, i64 %.089.i252.i
   store <16 x i8> %493, ptr %494, align 16
   %495 = add <2 x i64> %.010.i251.i, <i64 1, i64 0>
   %496 = add nuw nsw i64 %.089.i252.i, 1
@@ -2465,7 +2465,7 @@ incr_counters.exit254.i:                          ; preds = %491
 507:                                              ; preds = %507, %502
   %.015.i255.i = phi i64 [ 1, %502 ], [ %511, %507 ]
   %.01314.i256.i = phi <2 x i64> [ %506, %502 ], [ %510, %507 ]
-  %508 = getelementptr <2 x i64>, ptr %8, i64 %.015.i255.i
+  %508 = getelementptr [16 x i8], ptr %8, i64 %.015.i255.i
   %509 = load <2 x i64>, ptr %508, align 16
   %510 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i256.i, <2 x i64> %509)
   %511 = add nuw nsw i64 %.015.i255.i, 1
@@ -2501,7 +2501,7 @@ encrypt_xor_block.exit258.i:                      ; preds = %507
 529:                                              ; preds = %529, %518
   %.015.i259.i = phi i64 [ 1, %518 ], [ %533, %529 ]
   %.01314.i260.i = phi <2 x i64> [ %527, %518 ], [ %532, %529 ]
-  %530 = getelementptr <2 x i64>, ptr %8, i64 %.015.i259.i
+  %530 = getelementptr [16 x i8], ptr %8, i64 %.015.i259.i
   %531 = load <2 x i64>, ptr %530, align 16
   %532 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i260.i, <2 x i64> %531)
   %533 = add nuw nsw i64 %.015.i259.i, 1
@@ -2554,7 +2554,7 @@ encrypt_xor_block.exit262.i:                      ; preds = %529
 563:                                              ; preds = %563, %._crit_edge.i
   %.02.i.i33 = phi i64 [ 1, %._crit_edge.i ], [ %567, %563 ]
   %.0101.i.i34 = phi <2 x i64> [ %562, %._crit_edge.i ], [ %566, %563 ]
-  %564 = getelementptr <2 x i64>, ptr %8, i64 %.02.i.i33
+  %564 = getelementptr [16 x i8], ptr %8, i64 %.02.i.i33
   %565 = load <2 x i64>, ptr %564, align 16
   %566 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.0101.i.i34, <2 x i64> %565)
   %567 = add nuw nsw i64 %.02.i.i33, 1
@@ -2633,7 +2633,7 @@ encrypt.exit.i:                                   ; preds = %563
 615:                                              ; preds = %615, %.preheader.i277.thread.i
   %.015.i294.i = phi i64 [ 1, %.preheader.i277.thread.i ], [ %619, %615 ]
   %.01314.i295.i = phi <2 x i64> [ %614, %.preheader.i277.thread.i ], [ %618, %615 ]
-  %616 = getelementptr <2 x i64>, ptr %8, i64 %.015.i294.i
+  %616 = getelementptr [16 x i8], ptr %8, i64 %.015.i294.i
   %617 = load <2 x i64>, ptr %616, align 16
   %618 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.01314.i295.i, <2 x i64> %617)
   %619 = add nuw nsw i64 %.015.i294.i, 1
@@ -2855,7 +2855,7 @@ define internal fastcc void @gh_ad_blocks(ptr noundef nonnull readonly captures(
   %23 = shl nuw nsw i64 %.068128, 4
   %24 = getelementptr i8, ptr %12, i64 %23
   %25 = sub nuw nsw i64 13, %.068128
-  %26 = getelementptr <2 x i64>, ptr %5, i64 %25
+  %26 = getelementptr [16 x i8], ptr %5, i64 %25
   %27 = load <2 x i64>, ptr %26, align 16
   %.val87115 = load <16 x i8>, ptr %24, align 1
   %28 = shufflevector <16 x i8> %.val87115, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -2926,7 +2926,7 @@ define internal fastcc void @gh_ad_blocks(ptr noundef nonnull readonly captures(
   %68 = shl nuw nsw i64 %.067134, 4
   %69 = getelementptr i8, ptr %57, i64 %68
   %70 = sub nuw nsw i64 6, %.067134
-  %71 = getelementptr <2 x i64>, ptr %8, i64 %70
+  %71 = getelementptr [16 x i8], ptr %8, i64 %70
   %72 = load <2 x i64>, ptr %71, align 16
   %.val88117 = load <16 x i8>, ptr %69, align 1
   %73 = shufflevector <16 x i8> %.val88117, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -2997,7 +2997,7 @@ define internal fastcc void @gh_ad_blocks(ptr noundef nonnull readonly captures(
   %113 = shl nuw nsw i64 %.066142, 4
   %114 = getelementptr i8, ptr %102, i64 %113
   %115 = sub nuw nsw i64 3, %.066142
-  %116 = getelementptr <2 x i64>, ptr %53, i64 %115
+  %116 = getelementptr [16 x i8], ptr %53, i64 %115
   %117 = load <2 x i64>, ptr %116, align 16
   %.val89119 = load <16 x i8>, ptr %114, align 1
   %118 = shufflevector <16 x i8> %.val89119, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>

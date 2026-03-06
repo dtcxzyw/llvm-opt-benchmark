@@ -773,7 +773,7 @@ define dso_local range(i32 -1, 1) i32 @xcgroup_cpuset_init(ptr noundef %0) local
 34:                                               ; preds = %33, %68
   %.not32 = phi i1 [ true, %33 ], [ false, %68 ]
   %indvars.iv = phi i64 [ 0, %33 ], [ 1, %68 ]
-  %35 = getelementptr inbounds nuw ptr, ptr @__const.xcgroup_cpuset_init.cpuset_metafiles, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @__const.xcgroup_cpuset_init.cpuset_metafiles, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 @common_cgroup_get_param(ptr noundef nonnull %4, ptr noundef %36, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %.not24 = icmp eq i32 %37, 0

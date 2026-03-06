@@ -683,14 +683,14 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN15ContourScan
   %65 = add nuw nsw i8 %.0.i, 7
   %66 = and i8 %65, 7
   %67 = zext nneg i8 %66 to i64
-  %68 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL15chainCodeDeltasE, i64 %67
   %.sroa.0.0.copyload.i.i = load i32, ptr %68, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %68, i64 4
   %.sroa.4.0.copyload.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !tbaa !17
   %69 = mul nsw i32 %.sroa.4.0.copyload.i.i, %63
   %70 = add nsw i32 %69, %.sroa.0.0.copyload.i.i
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %58, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %58, i64 %71
   %.val67.i = load i32, ptr %72, align 4, !tbaa !17
   %73 = xor i32 %.val67.i, %.val68.i
   %74 = and i32 %73, 1073741823
@@ -700,7 +700,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN15ContourScan
   br i1 %.not61.i, label %77, label %64, !llvm.loop !79
 
 77:                                               ; preds = %64
-  %78 = getelementptr inbounds i32, ptr %58, i64 %71
+  %78 = getelementptr inbounds [4 x i8], ptr %58, i64 %71
   %79 = trunc i32 %46 to i8
   %80 = and i8 %79, 127
   %.sroa.0110.0.extract.trunc.i = trunc i64 %59 to i32
@@ -784,7 +784,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ;
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %113, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %107, ptr %86, align 8, !tbaa !67
   store ptr %112, ptr %87, align 8, !tbaa !82
-  %114 = getelementptr inbounds nuw %"class.cv::Point_", ptr %107, i64 %105
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %105
   store ptr %114, ptr %89, align 8, !tbaa !83
   br label %_ZN12_GLOBAL__N_117icvFetchContourExIiEEvRN2cv3MatERKNS1_6Point_IiEET_RNS1_7ContourEb.exit
 
@@ -816,14 +816,14 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   %125 = add nuw nsw i8 %.2.i, 1
   %.urem = and i8 %125, 7
   %126 = zext nneg i8 %.urem to i64
-  %127 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL15chainCodeDeltasE, i64 %126
   %.sroa.4.0..sroa_idx.i76.i = getelementptr inbounds nuw i8, ptr %127, i64 4
   %.sroa.4.0.copyload.i77.i = load i32, ptr %.sroa.4.0..sroa_idx.i76.i, align 4, !tbaa !17
   %128 = mul nsw i32 %.sroa.4.0.copyload.i77.i, %63
   %.sroa.0.0.copyload.i75.i = load i32, ptr %127, align 8, !tbaa !17
   %129 = add nsw i32 %128, %.sroa.0.0.copyload.i75.i
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i32, ptr %.053.i, i64 %130
+  %131 = getelementptr inbounds [4 x i8], ptr %.053.i, i64 %130
   %.val69.i = load i32, ptr %131, align 4, !tbaa !17
   %132 = xor i32 %.val69.i, %.val72.i
   %133 = and i32 %132, 1073741823
@@ -833,7 +833,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   br i1 %or.cond4.not.i, label %136, label %124, !llvm.loop !90
 
 136:                                              ; preds = %124
-  %137 = getelementptr inbounds i32, ptr %.053.i, i64 %130
+  %137 = getelementptr inbounds [4 x i8], ptr %.053.i, i64 %130
   %138 = and i8 %125, 7
   %139 = zext nneg i8 %138 to i32
   %140 = add nsw i32 %139, -1
@@ -1009,7 +1009,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i90.i:
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i93.i: ; preds = %206, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i90.i
   store ptr %200, ptr %117, align 8, !tbaa !67
   store ptr %205, ptr %118, align 8, !tbaa !82
-  %207 = getelementptr inbounds nuw %"class.cv::Point_", ptr %200, i64 %198
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %198
   store ptr %207, ptr %119, align 8, !tbaa !83
   br label %_ZNSt6vectorIaSaIaEE9push_backERKa.exit.i
 
@@ -1041,7 +1041,7 @@ _ZNSt6vectorIaSaIaEE9push_backERKa.exit.i:        ; preds = %_ZNSt6vectorIN2cv6P
 
 215:                                              ; preds = %212
   %216 = zext nneg i8 %138 to i64
-  %217 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %216
+  %217 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL15chainCodeDeltasE, i64 %216
   %218 = getelementptr i8, ptr %217, i64 4
   %.val66.i = load i32, ptr %218, align 4, !tbaa !71
   %219 = add nsw i32 %.val66.i, %.sroa.12126.0.i
@@ -1095,7 +1095,7 @@ _ZN12_GLOBAL__N_117icvFetchContourExIiEEvRN2cv3MatERKNS1_6Point_IiEET_RNS1_7Cont
   store i32 %236, ptr %235, align 4, !tbaa !100
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %238 = sext i8 %.039 to i64
-  %239 = getelementptr inbounds nuw i32, ptr %237, i64 %238
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %237, i64 %238
   %240 = load i32, ptr %239, align 4, !tbaa !17
   %241 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i32 %240, ptr %241, align 4, !tbaa !103
@@ -1304,7 +1304,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117icvFetchContourExIaEEvRN2cv3MatE
   %31 = add nuw nsw i8 %.0, 7
   %32 = and i8 %31, 7
   %33 = zext nneg i8 %32 to i64
-  %34 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL15chainCodeDeltasE, i64 %33
   %.sroa.0.0.copyload.i = load i32, ptr %34, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 4
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !17
@@ -1402,7 +1402,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; p
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %76, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %70, ptr %49, align 8, !tbaa !67
   store ptr %75, ptr %50, align 8, !tbaa !82
-  %77 = getelementptr inbounds nuw %"class.cv::Point_", ptr %70, i64 %68
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %68
   store ptr %77, ptr %52, align 8, !tbaa !83
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit
 
@@ -1434,7 +1434,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   %87 = add nuw nsw i8 %.2, 1
   %88 = srem i8 %87, 8
   %89 = sext i8 %88 to i64
-  %90 = getelementptr inbounds %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr @_ZN2cvL15chainCodeDeltasE, i64 %89
   %.sroa.4.0..sroa_idx.i70 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %.sroa.4.0.copyload.i71 = load i32, ptr %.sroa.4.0..sroa_idx.i70, align 4, !tbaa !17
   %91 = mul nsw i32 %.sroa.4.0.copyload.i71, %29
@@ -1616,7 +1616,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i84: ;
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i87: ; preds = %162, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i84
   store ptr %156, ptr %80, align 8, !tbaa !67
   store ptr %161, ptr %81, align 8, !tbaa !82
-  %163 = getelementptr inbounds nuw %"class.cv::Point_", ptr %156, i64 %154
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %154
   store ptr %163, ptr %82, align 8, !tbaa !83
   br label %_ZNSt6vectorIaSaIaEE9push_backERKa.exit
 
@@ -1648,7 +1648,7 @@ _ZNSt6vectorIaSaIaEE9push_backERKa.exit:          ; preds = %_ZNSt6vectorIN2cv6P
 
 171:                                              ; preds = %168
   %172 = zext nneg i8 %99 to i64
-  %173 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %172
+  %173 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL15chainCodeDeltasE, i64 %172
   %174 = getelementptr i8, ptr %173, i64 4
   %.val68 = load i32, ptr %174, align 4, !tbaa !71
   %175 = add nsw i32 %.val68, %.sroa.12120.0152
@@ -1776,7 +1776,7 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_11contourScanEiRiRN2cv6Poi
   %57 = mul i64 %55, %56
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 %57
   %59 = zext nneg i32 %47 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !17
   %62 = and i32 %61, 127
   br label %79
@@ -1806,7 +1806,7 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_11contourScanEiRiRN2cv6Poi
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %82 = sext i32 %80 to i64
   %83 = load ptr, ptr %81, align 8, !tbaa !64
-  %84 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %83, i64 %82
+  %84 = getelementptr inbounds nuw [104 x i8], ptr %83, i64 %82
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 96
   %86 = load i8, ptr %85, align 8, !tbaa !60, !range !77, !noundef !78
   %87 = zext i1 %.0567186889396 to i8
@@ -1817,7 +1817,7 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_11contourScanEiRiRN2cv6Poi
   %. = select i1 %.not62, i32 0, i32 %90
   %.1 = select i1 %88, i32 %., i32 %80
   %91 = sext i32 %.1 to i64
-  %92 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %83, i64 %91
+  %92 = getelementptr inbounds nuw [104 x i8], ptr %83, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 96
   %94 = load i8, ptr %93, align 8, !tbaa !60, !range !77, !noundef !78
   %.not63 = icmp eq i8 %94, %87
@@ -1871,9 +1871,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %97, %
   %111 = load i32, ptr %105, align 8, !tbaa !46
   %112 = sext i32 %.058 to i64
   %113 = load ptr, ptr %110, align 8, !tbaa !64
-  %114 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %113, i64 %112
+  %114 = getelementptr inbounds nuw [104 x i8], ptr %113, i64 %112
   %115 = sext i32 %111 to i64
-  %116 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [104 x i8], ptr %113, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %118 = load i32, ptr %117, align 8, !tbaa !117
   %.not.i = icmp eq i32 %118, -1
@@ -1881,7 +1881,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %97, %
 
 119:                                              ; preds = %109
   %120 = sext i32 %118 to i64
-  %121 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %113, i64 %120
+  %121 = getelementptr inbounds nuw [104 x i8], ptr %113, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 12
   store i32 %111, ptr %122, align 4, !tbaa !118
   %123 = getelementptr inbounds nuw i8, ptr %116, i64 16
@@ -1921,7 +1921,7 @@ _ZN2cv4TreeINS_7ContourEE8addChildEii.exit:       ; preds = %109, %119
 define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv6Point_IiEEiii(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %7
   %.02595 = load i32, ptr %8, align 4, !tbaa !17
   %.not96 = icmp eq i32 %.02595, -1
   br i1 %.not96, label %.thread66, label %.lr.ph
@@ -1942,7 +1942,7 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   %.02397 = phi i32 [ %4, %.lr.ph ], [ %.2, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59 ]
   %18 = sext i32 %.02598 to i64
   %19 = load ptr, ptr %10, align 8, !tbaa !64
-  %20 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [104 x i8], ptr %19, i64 %18
   %21 = load i32, ptr %1, align 4, !tbaa !70
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !99
@@ -1968,7 +1968,7 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
 
 37:                                               ; preds = %36
   %38 = sext i32 %.02397 to i64
-  %39 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %19, i64 %38
+  %39 = getelementptr inbounds nuw [104 x i8], ptr %19, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %41 = load i64, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 96
@@ -2007,14 +2007,14 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   %68 = add nuw nsw i8 %.063.i, 7
   %69 = and i8 %68, 7
   %70 = zext nneg i8 %69 to i64
-  %71 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL15chainCodeDeltasE, i64 %70
   %.sroa.0.0.copyload.i.i = load i32, ptr %71, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %71, i64 4
   %.sroa.4.0.copyload.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !tbaa !17
   %72 = mul nsw i32 %.sroa.4.0.copyload.i.i, %65
   %73 = add nsw i32 %72, %.sroa.0.0.copyload.i.i
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i32, ptr %62, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %62, i64 %74
   %.val.i = load i32, ptr %75, align 4, !tbaa !17
   %76 = xor i32 %.val.i, %.val75.i
   %77 = and i32 %76, 1073741823
@@ -2024,7 +2024,7 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   br i1 %.not71.i, label %80, label %67, !llvm.loop !124
 
 80:                                               ; preds = %67
-  %81 = getelementptr inbounds i32, ptr %62, i64 %74
+  %81 = getelementptr inbounds [4 x i8], ptr %62, i64 %74
   %82 = mul i64 %48, %15
   %83 = getelementptr inbounds nuw i8, ptr %46, i64 %82
   %84 = mul i64 %50, %16
@@ -2047,14 +2047,14 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   %.cmp.i = icmp samesign ult i8 %.265.i, 7
   %90 = select i1 %.cmp.i, i8 %89, i8 %.urem.i
   %91 = sext i8 %90 to i64
-  %92 = getelementptr inbounds %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr @_ZN2cvL15chainCodeDeltasE, i64 %91
   %.sroa.0.0.copyload.i79.i = load i32, ptr %92, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i80.i = getelementptr inbounds nuw i8, ptr %92, i64 4
   %.sroa.4.0.copyload.i81.i = load i32, ptr %.sroa.4.0..sroa_idx.i80.i, align 4, !tbaa !17
   %93 = mul nsw i32 %.sroa.4.0.copyload.i81.i, %65
   %94 = add nsw i32 %93, %.sroa.0.0.copyload.i79.i
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i32, ptr %.067.i, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %.067.i, i64 %95
   %.val76.i = load i32, ptr %96, align 4, !tbaa !17
   %97 = xor i32 %.val76.i, %.val75.i
   %98 = and i32 %97, 1073741823
@@ -2064,7 +2064,7 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   br i1 %or.cond.not.i, label %101, label %88, !llvm.loop !125
 
 101:                                              ; preds = %88
-  %102 = getelementptr inbounds i32, ptr %.067.i, i64 %95
+  %102 = getelementptr inbounds [4 x i8], ptr %.067.i, i64 %95
   %103 = icmp eq ptr %.067.i, %85
   br i1 %103, label %104, label %.critedge.i
 
@@ -2079,14 +2079,14 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   %107 = add nuw nsw i8 %.0.i, 7
   %108 = and i8 %107, 7
   %109 = zext nneg i8 %108 to i64
-  %110 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL15chainCodeDeltasE, i64 %109
   %.sroa.0.0.copyload.i82.i = load i32, ptr %110, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i83.i = getelementptr inbounds nuw i8, ptr %110, i64 4
   %.sroa.4.0.copyload.i84.i = load i32, ptr %.sroa.4.0..sroa_idx.i83.i, align 4, !tbaa !17
   %111 = mul nsw i32 %.sroa.4.0.copyload.i84.i, %65
   %112 = add nsw i32 %111, %.sroa.0.0.copyload.i82.i
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i32, ptr %.067.i, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %.067.i, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !17
   %.not.not.i = icmp eq i32 %115, 0
   br i1 %.not.not.i, label %116, label %.critedge.i
@@ -2115,7 +2115,7 @@ _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; p
   %124 = add nuw nsw i8 %.063.i33, 7
   %125 = and i8 %124, 7
   %126 = zext nneg i8 %125 to i64
-  %127 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL15chainCodeDeltasE, i64 %126
   %.sroa.0.0.copyload.i.i34 = load i32, ptr %127, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i.i35 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %.sroa.4.0.copyload.i.i36 = load i32, ptr %.sroa.4.0..sroa_idx.i.i35, align 4, !tbaa !17
@@ -2149,7 +2149,7 @@ _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; p
   %.cmp.i41 = icmp samesign ult i8 %.265.i39, 7
   %142 = select i1 %.cmp.i41, i8 %141, i8 %.urem.i40
   %143 = sext i8 %142 to i64
-  %144 = getelementptr inbounds %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr @_ZN2cvL15chainCodeDeltasE, i64 %143
   %.sroa.0.0.copyload.i76.i = load i32, ptr %144, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i77.i = getelementptr inbounds nuw i8, ptr %144, i64 4
   %.sroa.4.0.copyload.i78.i = load i32, ptr %.sroa.4.0..sroa_idx.i77.i, align 4, !tbaa !17
@@ -2178,7 +2178,7 @@ _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; p
   %156 = add nuw nsw i8 %.0.i49, 7
   %157 = and i8 %156, 7
   %158 = zext nneg i8 %157 to i64
-  %159 = getelementptr inbounds nuw %"class.cv::Point_", ptr @_ZN2cvL15chainCodeDeltasE, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL15chainCodeDeltasE, i64 %158
   %.sroa.0.0.copyload.i79.i50 = load i32, ptr %159, align 8, !tbaa !17
   %.sroa.4.0..sroa_idx.i80.i51 = getelementptr inbounds nuw i8, ptr %159, i64 4
   %.sroa.4.0.copyload.i81.i52 = load i32, ptr %.sroa.4.0..sroa_idx.i80.i51, align 4, !tbaa !17
@@ -2266,7 +2266,7 @@ define hidden noundef i32 @_ZN15ContourScanner_9findNextXEiiRiS0_(ptr noundef no
 
 33:                                               ; preds = %.lr.ph31, %.critedge2
   %indvars.iv38 = phi i64 [ %32, %.lr.ph31 ], [ %indvars.iv.next39, %.critedge2 ]
-  %34 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv38
+  %34 = getelementptr inbounds [4 x i8], ptr %31, i64 %indvars.iv38
   %35 = load i32, ptr %34, align 4, !tbaa !17
   store i32 %35, ptr %4, align 4, !tbaa !17
   %36 = load i32, ptr %3, align 4, !tbaa !17
@@ -2349,7 +2349,7 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_8findNextEv(ptr noundef no
   br i1 %19, label %29, label %33
 
 29:                                               ; preds = %1
-  %30 = getelementptr i32, ptr %27, i64 %28
+  %30 = getelementptr [4 x i8], ptr %27, i64 %28
   %31 = getelementptr i8, ptr %30, i64 -4
   %32 = load i32, ptr %31, align 4, !tbaa !17
   br label %38
@@ -2426,7 +2426,7 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_8findNextEv(ptr noundef no
 69:                                               ; preds = %.critedge2.i, %.lr.ph31.i
   %.2 = phi i32 [ %.155, %.lr.ph31.i ], [ %71, %.critedge2.i ]
   %indvars.iv38.i = phi i64 [ %68, %.lr.ph31.i ], [ %indvars.iv.next39.i, %.critedge2.i ]
-  %70 = getelementptr inbounds i32, ptr %67, i64 %indvars.iv38.i
+  %70 = getelementptr inbounds [4 x i8], ptr %67, i64 %indvars.iv38.i
   %71 = load i32, ptr %70, align 4, !tbaa !17
   %72 = icmp eq i32 %71, %.2
   br i1 %72, label %.critedge2.i, label %73
@@ -3742,7 +3742,7 @@ _ZNSt12_Vector_baseIN2cv8TreeNodeINS0_7ContourEEESaIS3_EE13_M_deallocateEPS3_m.e
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !64
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !63
-  %98 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %20, i64 %16
+  %98 = getelementptr inbounds nuw [104 x i8], ptr %20, i64 %16
   store ptr %98, ptr %97, align 8, !tbaa !65
   ret void
 }

@@ -16,10 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %class.anon.18 = type { %"class.std::__cxx11::basic_string", %"class.std::vector.0", ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.clang::CharSourceRange" = type <{ %"class.clang::SourceRange", i8, [3 x i8] }>
 %"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
 %"class.clang::SourceLocation" = type { i32 }
@@ -56,12 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<clang::tooling::Replacement, clang::tooling::Replacement, std::_Identity<clang::tooling::Replacement>, std::less<clang::tooling::Replacement>>::_Alloc_node" = type { ptr }
 %"struct.std::vector<std::__cxx11::basic_string<char>>::_Temporary_value" = type { ptr, %"union.std::vector<std::__cxx11::basic_string<char>>::_Temporary_value::_Storage" }
 %"union.std::vector<std::__cxx11::basic_string<char>>::_Temporary_value::_Storage" = type { %"class.std::__cxx11::basic_string" }
-%"struct.clang::format::UnwrappedLine" = type <{ %"class.std::__cxx11::list", i32, i32, i8, i8, i8, i8, i32, i8, i8, i8, [5 x i8], i64, i64, i32, [4 x i8] }>
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<clang::format::UnwrappedLineNode, std::allocator<clang::format::UnwrappedLineNode>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<clang::format::UnwrappedLineNode, std::allocator<clang::format::UnwrappedLineNode>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"class.clang::format::LeftRightQualifierAlignmentFixer" = type { %"class.clang::format::TokenAnalyzer.base", %"class.std::__cxx11::basic_string", i8, %"class.llvm::SmallVector.161", %"class.std::vector.0" }
 %"class.clang::format::TokenAnalyzer.base" = type <{ %"class.clang::format::UnwrappedLineConsumer", %"struct.clang::format::FormatStyle", %"class.clang::LangOptions", ptr, %"class.clang::format::AffectedRangeManager", %"class.llvm::SmallVector.156", i32 }>
 %"class.clang::format::UnwrappedLineConsumer" = type { ptr }
@@ -319,7 +309,7 @@ _ZNSt6vectorIN5clang3tok9TokenKindESaIS2_EEC2ERKS4_.exit: ; preds = %_ZNSt12_Vec
 73:                                               ; preds = %_ZNSt6vectorIN5clang3tok9TokenKindESaIS2_EEC2ERKS4_.exit
   %74 = zext i32 %70 to i64
   %75 = load ptr, ptr %1, align 8, !tbaa !29
-  %76 = getelementptr inbounds nuw %"class.std::function", ptr %75, i64 %74
+  %76 = getelementptr inbounds nuw [32 x i8], ptr %75, i64 %74
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, i8 0, i64 32, i1 false)
   %77 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
@@ -599,7 +589,7 @@ _ZNSt6vectorIN5clang3tok9TokenKindESaIS2_EEC2ERKS4_.exit32: ; preds = %_ZNSt12_V
 176:                                              ; preds = %_ZNSt6vectorIN5clang3tok9TokenKindESaIS2_EEC2ERKS4_.exit32
   %177 = zext i32 %173 to i64
   %178 = load ptr, ptr %1, align 8, !tbaa !29
-  %179 = getelementptr inbounds nuw %"class.std::function", ptr %178, i64 %177
+  %179 = getelementptr inbounds nuw [32 x i8], ptr %178, i64 %177
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %179, i8 0, i64 32, i1 false)
   %180 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -785,7 +775,7 @@ _ZNSt6vectorIN5clang3tok9TokenKindESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i
 _ZNSt6vectorIN5clang3tok9TokenKindESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %41, %_ZNSt6vectorIN5clang3tok9TokenKindESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %36, ptr %3, align 8, !tbaa !8
   store ptr %40, ptr %9, align 8, !tbaa !21
-  %42 = getelementptr inbounds nuw i16, ptr %36, i64 %34
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %34
   store ptr %42, ptr %10, align 8, !tbaa !19
   br label %_ZNSt6vectorIN5clang3tok9TokenKindESaIS2_EE9push_backERKS2_.exit
 
@@ -3929,7 +3919,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4l
   %29 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -1160
   %30 = load i32, ptr %29, align 8, !tbaa !24
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %28, i64 %31
+  %32 = getelementptr inbounds nuw [72 x i8], ptr %28, i64 %31
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format13UnwrappedLineELb0EE13destroy_rangeEPS3_S5_(ptr noundef %28, ptr noundef %32)
   %33 = load ptr, ptr %27, align 8, !tbaa !29
   %34 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -1152
@@ -5803,7 +5793,7 @@ _ZNSt7__cxx1110_List_baseIN5clang6format17UnwrappedLineNodeESaIS3_EED2Ev.exit.lo
   %8 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !24
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [72 x i8], ptr %7, i64 %10
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format13UnwrappedLineELb0EE13destroy_rangeEPS3_S5_(ptr noundef %7, ptr noundef %11)
   %12 = load ptr, ptr %6, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 40
@@ -5992,7 +5982,7 @@ define internal fastcc void @"_ZN4llvm23SmallVectorTemplateBaseISt8functionIFSt4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !24
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.std::function", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %11 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -6331,7 +6321,7 @@ define internal fastcc void @"_ZN4llvm23SmallVectorTemplateBaseISt8functionIFSt4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !24
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.std::function", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %11 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -7066,7 +7056,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %73
   store ptr %23, ptr %0, align 8, !tbaa !40
   store ptr %.0.lcssa.i.i.i25, ptr %5, align 8, !tbaa !42
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !45
   ret void
 }

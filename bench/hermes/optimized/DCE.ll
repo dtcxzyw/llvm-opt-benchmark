@@ -16,8 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage" = type { [16 x %"struct.llvh::AlignedCharArrayUnion"] }
 %"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
 %"struct.llvh::AlignedCharArray" = type { [8 x i8] }
-%"struct.llvh::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { ptr, ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -175,7 +173,7 @@ if.end.i.i.i:                                     ; preds = %for.body17
   %sub.i.i.i = add i32 %11, -1
   %BucketNo.019.i.i.i = and i32 %sub.i.i.i, %xor.i.i.i.i.i
   %idx.ext20.i.i.i = zext nneg i32 %BucketNo.019.i.i.i to i64
-  %add.ptr21.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %10, i64 %idx.ext20.i.i.i
+  %add.ptr21.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %idx.ext20.i.i.i
   %13 = load ptr, ptr %add.ptr21.i.i.i, align 8
   %cmp.i22.i.i.i = icmp eq ptr %__begin2.sroa.0.070, %13
   br i1 %cmp.i22.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i, label %if.end9.i.i.i
@@ -192,20 +190,20 @@ if.end13.i.i.i:                                   ; preds = %if.end9.i.i.i
   %add.i.i.i = add i32 %ProbeAmt.024.i.i.i, %BucketNo.025.i.i.i
   %BucketNo.0.i.i.i = and i32 %add.i.i.i, %sub.i.i.i
   %idx.ext.i.i.i = zext i32 %BucketNo.0.i.i.i to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %10, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %idx.ext.i.i.i
   %15 = load ptr, ptr %add.ptr.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %__begin2.sroa.0.070, %15
   br i1 %cmp.i.i.i.i, label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i, label %if.end9.i.i.i, !llvm.loop !6
 
 if.end.i.i:                                       ; preds = %if.end9.i.i.i, %for.body17
   %idx.ext.i.i.i.i = zext i32 %11 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %10, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %idx.ext.i.i.i.i
   br label %_ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i
 
 _ZNK4llvh12DenseMapBaseINS_8DenseMapIPN6hermes8FunctionEPNS2_6Module9CJSModuleENS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findEPKS3_.exit.i: ; preds = %if.end13.i.i.i, %if.end.i.i, %if.end.i.i.i
   %cond.sink.i.ph.pn.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.end.i.i ], [ %add.ptr21.i.i.i, %if.end.i.i.i ], [ %add.ptr.i.i.i, %if.end13.i.i.i ]
   %idx.ext.i.i2.i = zext i32 %11 to i64
-  %add.ptr.i.i3.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %10, i64 %idx.ext.i.i2.i
+  %add.ptr.i.i3.i = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %idx.ext.i.i2.i
   %cmp.i.i = icmp eq ptr %cond.sink.i.ph.pn.i.i, %add.ptr.i.i3.i
   br i1 %cmp.i.i, label %if.end, label %_ZNK6hermes6Module13findCJSModuleEPNS_8FunctionE.exit
 
@@ -249,7 +247,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes8FunctionELb1EE9push_backERKS3_.exit:
   %22 = phi i32 [ %.pre.i30, %if.then.i ], [ %20, %if.then26 ]
   %23 = load ptr, ptr %toRemove, align 8
   %conv.i3.i = zext i32 %22 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %23, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %conv.i3.i
   %24 = ptrtoint ptr %__begin2.sroa.0.070 to i64
   store i64 %24, ptr %add.ptr.i.i, align 1
   %25 = load i32, ptr %Size.i.i.i.i.i21, align 8
@@ -269,7 +267,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes8FunctionELb1EE9push_backERKS3_.exit4
   %28 = phi i32 [ %.pre.i37, %if.then.i35 ], [ %26, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes8FunctionELb1EE9push_backERKS3_.exit ]
   %29 = load ptr, ptr %toDestroy, align 8
   %conv.i3.i39 = zext i32 %28 to i64
-  %add.ptr.i.i40 = getelementptr inbounds nuw ptr, ptr %29, i64 %conv.i3.i39
+  %add.ptr.i.i40 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %conv.i3.i39
   store i64 %24, ptr %add.ptr.i.i40, align 1
   %30 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i41 = add i32 %30, 1

@@ -60,7 +60,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4i18n12pho
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !11
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i32, ptr %16, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %16, i64 %19
   %21 = ptrtoint ptr %16 to i64
   %22 = icmp sgt i32 %18, 0
   br i1 %22, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i, label %_ZSt11lower_boundIPKiiET_S2_S2_RKT0_.exit
@@ -69,7 +69,7 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i:               ; preds = %15, %_ZSt7advanceIP
   %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i ], [ %16, %15 ]
   %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i ], [ %19, %15 ]
   %23 = lshr i64 %.01116.i.i, 1
-  %24 = getelementptr inbounds nuw i32, ptr %.017.i.i, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !20
   %26 = icmp slt i32 %25, %1
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -466,7 +466,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_119ConstructFullLocaleERKNSt7__cxx1112basic_s
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_119ConstructFullLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_PS7_.exit: ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_119ConstructFullLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_PS7_.exit.preheader, %41
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %_ZN4i18n12phonenumbers12_GLOBAL__N_119ConstructFullLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_PS7_.exit.preheader ]
-  %42 = getelementptr inbounds nuw %"struct.i18n::phonenumbers::(anonymous namespace)::NormalizedLocale", ptr @_ZN4i18n12phonenumbers12_GLOBAL__N_118kNormalizedLocalesE, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4i18n12phonenumbers12_GLOBAL__N_118kNormalizedLocalesE, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 16, !tbaa !46
   %44 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %43) #13
   %45 = icmp eq i32 %44, 0
@@ -485,7 +485,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_119ConstructFullLocaleERKNSt7__cxx1112basic_s
   %49 = getelementptr i8, ptr %1, i64 8
   %.val53 = load i32, ptr %49, align 8, !tbaa !23
   %50 = sext i32 %.val53 to i64
-  %51 = getelementptr inbounds ptr, ptr %.val, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %.val, i64 %50
   %52 = icmp sgt i32 %.val53, 0
   br i1 %52, label %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIPPKcS1_PFbS1_S1_EET_S5_S5_RKT0_T1_.exit.i
 
@@ -493,7 +493,7 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i:            ; preds = %._crit_edge.i.i, %_
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i ], [ %.val, %._crit_edge.i.i ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i ], [ %50, %._crit_edge.i.i ]
   %53 = lshr i64 %.01116.i.i.i, 1
-  %54 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !49
   %56 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %55, ptr noundef nonnull readonly dereferenceable(1) %46) #15
   %57 = icmp slt i32 %56, 0
@@ -559,7 +559,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_119GetNormalizedLocaleERKNSt7__cxx1112basic_s
   %.val55 = phi ptr [ %.val55.pre, %_ZN4i18n12phonenumbers12_GLOBAL__N_119GetNormalizedLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.loopexit ], [ %.val, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86 ]
   %74 = getelementptr i8, ptr %1, i64 8
   %.val57 = load ptr, ptr %9, align 8, !tbaa !18
-  %75 = getelementptr inbounds ptr, ptr %.val55, i64 %.pre-phi
+  %75 = getelementptr inbounds [8 x i8], ptr %.val55, i64 %.pre-phi
   %76 = icmp sgt i32 %.val56, 0
   br i1 %76, label %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i90, label %_ZSt11lower_boundIPPKcS1_PFbS1_S1_EET_S5_S5_RKT0_T1_.exit.i87
 
@@ -567,7 +567,7 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i90:          ; preds = %_ZN4i18n12phonenumb
   %.017.i.i.i91 = phi ptr [ %.1.i.i.i96, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i90 ], [ %.val55, %_ZN4i18n12phonenumbers12_GLOBAL__N_119GetNormalizedLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
   %.01116.i.i.i92 = phi i64 [ %.112.i.i.i95, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i90 ], [ %.pre-phi, %_ZN4i18n12phonenumbers12_GLOBAL__N_119GetNormalizedLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
   %77 = lshr i64 %.01116.i.i.i92, 1
-  %78 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i91, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i91, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !49
   %80 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %79, ptr noundef nonnull readonly dereferenceable(1) %.val57) #15
   %81 = icmp slt i32 %80, 0
@@ -610,7 +610,7 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i101:         ; preds = %95, %_ZSt7advanceIP
   %.017.i.i.i102 = phi ptr [ %.1.i.i.i107, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i101 ], [ %.val55, %95 ]
   %.01116.i.i.i103 = phi i64 [ %.112.i.i.i106, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i101 ], [ %.pre-phi, %95 ]
   %96 = lshr i64 %.01116.i.i.i103, 1
-  %97 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i102, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i102, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !49
   %99 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %98, ptr noundef nonnull readonly dereferenceable(1) %.val60) #15
   %100 = icmp slt i32 %99, 0
@@ -719,7 +719,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds
   %.val62 = load i32, ptr %74, align 8, !tbaa !23
   %.val63 = load ptr, ptr %11, align 8, !tbaa !18
   %135 = sext i32 %.val62 to i64
-  %136 = getelementptr inbounds ptr, ptr %.val61, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %.val61, i64 %135
   %137 = icmp sgt i32 %.val62, 0
   br i1 %137, label %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i120, label %_ZSt11lower_boundIPPKcS1_PFbS1_S1_EET_S5_S5_RKT0_T1_.exit.i117
 
@@ -727,7 +727,7 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i120:         ; preds = %_ZNSt7__cxx1112basi
   %.017.i.i.i121 = phi ptr [ %.1.i.i.i126, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i120 ], [ %.val61, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit ]
   %.01116.i.i.i122 = phi i64 [ %.112.i.i.i125, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i120 ], [ %135, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit ]
   %138 = lshr i64 %.01116.i.i.i122, 1
-  %139 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i121, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i121, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !49
   %141 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %140, ptr noundef nonnull readonly dereferenceable(1) %.val63) #15
   %142 = icmp slt i32 %141, 0
@@ -882,7 +882,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit148: ; pr
   %.val65 = load i32, ptr %74, align 8, !tbaa !23
   %.val66 = load ptr, ptr %12, align 8, !tbaa !18
   %191 = sext i32 %.val65 to i64
-  %192 = getelementptr inbounds ptr, ptr %.val64, i64 %191
+  %192 = getelementptr inbounds [8 x i8], ptr %.val64, i64 %191
   %193 = icmp sgt i32 %.val65, 0
   br i1 %193, label %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i152, label %_ZSt11lower_boundIPPKcS1_PFbS1_S1_EET_S5_S5_RKT0_T1_.exit.i149
 
@@ -890,7 +890,7 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i152:         ; preds = %_ZNSt7__cxx1112basi
   %.017.i.i.i153 = phi ptr [ %.1.i.i.i158, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i152 ], [ %.val64, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit148 ]
   %.01116.i.i.i154 = phi i64 [ %.112.i.i.i157, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i152 ], [ %191, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit148 ]
   %194 = lshr i64 %.01116.i.i.i154, 1
-  %195 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i153, i64 %194
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i153, i64 %194
   %196 = load ptr, ptr %195, align 8, !tbaa !49
   %197 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %196, ptr noundef nonnull readonly dereferenceable(1) %.val66) #15
   %198 = icmp slt i32 %197, 0
@@ -943,7 +943,7 @@ _ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i166:         ; preds = %_ZN4i18n12phonenumb
   %.017.i.i.i167 = phi ptr [ %.1.i.i.i172, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i166 ], [ %.val64, %_ZN4i18n12phonenumbers12_GLOBAL__N_111HasLanguageEPKNS0_16CountryLanguagesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit159.thread ]
   %.01116.i.i.i168 = phi i64 [ %.112.i.i.i171, %_ZSt7advanceIPPKclEvRT_T0_.exit.i.i.i166 ], [ %191, %_ZN4i18n12phonenumbers12_GLOBAL__N_111HasLanguageEPKNS0_16CountryLanguagesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit159.thread ]
   %215 = lshr i64 %.01116.i.i.i168, 1
-  %216 = getelementptr inbounds nuw ptr, ptr %.017.i.i.i167, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i167, i64 %215
   %217 = load ptr, ptr %216, align 8, !tbaa !49
   %218 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %217, ptr noundef nonnull readonly dereferenceable(1) %.val69) #15
   %219 = icmp slt i32 %218, 0

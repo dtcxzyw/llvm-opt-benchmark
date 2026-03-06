@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.uv__queue = type { ptr, ptr }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.uv_stdio_container_s = type { i32, %union.anon.5 }
-%union.anon.5 = type { ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"/dev/null\00", align 1
 @environ = external local_unnamed_addr global ptr, align 8
@@ -257,8 +255,8 @@ define dso_local i32 @uv_spawn(ptr noundef %0, ptr noundef initializes((8, 20), 
 36:                                               ; preds = %.lr.ph, %.loopexit113
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit113 ]
   %37 = load ptr, ptr %35, align 8
-  %38 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %37, i64 %indvars.iv
-  %39 = getelementptr inbounds nuw [2 x i32], ptr %.079154, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.079154, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 65536, ptr %9, align 4
   %40 = load i32, ptr %38, align 8
@@ -528,8 +526,8 @@ uv__spawn_and_init_child.exit:                    ; preds = %uv__spawn_and_init_
   %152 = phi i32 [ %148, %.lr.ph124 ], [ %185, %uv__process_open_stream.exit.thread ]
   %indvars.iv135 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next136, %uv__process_open_stream.exit.thread ]
   %153 = load ptr, ptr %150, align 8
-  %154 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %153, i64 %indvars.iv135
-  %155 = getelementptr inbounds nuw [2 x i32], ptr %.079154, i64 %indvars.iv135
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %indvars.iv135
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %.079154, i64 %indvars.iv135
   %156 = load i32, ptr %154, align 8
   %157 = and i32 %156, 1
   %.not.i94 = icmp eq i32 %157, 0
@@ -580,7 +578,7 @@ uv__process_open_stream.exit.uv__process_open_stream.exit.thread_crit_edge: ; pr
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %uv__process_close_stream.exit ], [ %indvars.iv135, %.preheader ]
   %indvars.iv.next141 = add nsw i64 %indvars.iv140, -1
   %177 = load ptr, ptr %150, align 8
-  %178 = getelementptr inbounds %struct.uv_stdio_container_s, ptr %177, i64 %indvars.iv.next141
+  %178 = getelementptr inbounds [16 x i8], ptr %177, i64 %indvars.iv.next141
   %179 = load i32, ptr %178, align 8
   %180 = and i32 %179, 1
   %.not.i96 = icmp eq i32 %180, 0
@@ -621,14 +619,14 @@ uv__process_open_stream.exit.thread:              ; preds = %uv__process_open_st
 
 193:                                              ; preds = %189
   %194 = load ptr, ptr %188, align 8
-  %195 = getelementptr inbounds nuw %struct.uv_stdio_container_s, ptr %194, i64 %indvars.iv143
+  %195 = getelementptr inbounds nuw [16 x i8], ptr %194, i64 %indvars.iv143
   %196 = load i32, ptr %195, align 8
   %197 = and i32 %196, 6
   %.not89 = icmp eq i32 %197, 0
   br i1 %.not89, label %198, label %208
 
 198:                                              ; preds = %193, %189
-  %199 = getelementptr inbounds nuw [2 x i32], ptr %.079154, i64 %indvars.iv143
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %.079154, i64 %indvars.iv143
   %200 = load i32, ptr %199, align 4
   %.not90 = icmp eq i32 %200, -1
   br i1 %.not90, label %203, label %201
@@ -876,7 +874,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %55 ]
-  %38 = getelementptr inbounds nuw [2 x i32], ptr %2, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
@@ -919,7 +917,7 @@ define internal fastcc void @uv__process_child_init(ptr noundef readonly capture
 .lr.ph143:                                        ; preds = %55, %110
   %.1142 = phi i32 [ %111, %110 ], [ 0, %55 ]
   %56 = sext i32 %.1142 to i64
-  %57 = getelementptr inbounds [2 x i32], ptr %2, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %2, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = icmp slt i32 %59, 0

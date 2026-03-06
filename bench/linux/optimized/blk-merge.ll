@@ -19,14 +19,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_blk_mq_sched
 %struct.static_call_key = type { ptr, %union.anon.11 }
 %union.anon.11 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
-%struct.bio_vec = type { ptr, i32, i32 }
-%struct.page = type { i64, %union.anon.12, %union.anon.20, %struct.atomic_t, [8 x i8] }
-%union.anon.12 = type { %struct.anon.13 }
-%struct.anon.13 = type { %union.anon.14, ptr, %union.anon.16, i64 }
-%union.anon.14 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.16 = type { i64 }
-%union.anon.20 = type { %struct.atomic_t }
 
 @__UNIQUE_ID___addressable_bio_split_rw771 = internal global ptr @bio_split_rw, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_bio_split_to_limits772 = internal global ptr @bio_split_to_limits, section ".discard.addressable", align 8
@@ -98,7 +90,7 @@ define dso_local ptr @bio_split_rw(ptr noundef %0, ptr noundef readonly captures
   %27 = phi i32 [ %13, %9 ], [ %123, %122 ]
   %28 = phi i32 [ %7, %9 ], [ %125, %122 ]
   %29 = zext i32 %27 to i64
-  %30 = getelementptr %struct.bio_vec, ptr %15, i64 %29
+  %30 = getelementptr [16 x i8], ptr %15, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8
@@ -614,7 +606,7 @@ define dso_local i32 @blk_recalc_rq_segments(ptr noundef readonly captures(none)
   %42 = phi i32 [ %26, %28 ], [ %110, %107 ]
   %43 = phi i32 [ %24, %28 ], [ %99, %107 ]
   %44 = zext i32 %41 to i64
-  %45 = getelementptr %struct.bio_vec, ptr %34, i64 %44
+  %45 = getelementptr [16 x i8], ptr %34, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = sub i32 %47, %40
@@ -809,7 +801,7 @@ define dso_local i32 @__blk_rq_map_sg(ptr noundef readonly captures(none) %0, pt
   %69 = phi i32 [ %51, %53 ], [ %204, %201 ]
   %70 = load ptr, ptr %58, align 8
   %71 = zext i32 %68 to i64
-  %72 = getelementptr %struct.bio_vec, ptr %70, i64 %71
+  %72 = getelementptr [16 x i8], ptr %70, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %75 = load i32, ptr %74, align 8
@@ -934,7 +926,7 @@ define dso_local i32 @__blk_rq_map_sg(ptr noundef readonly captures(none) %0, pt
   %158 = tail call i32 @llvm.umin.i32(i32 %157, i32 %140)
   %159 = lshr i32 %143, 12
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr %struct.page, ptr %73, i64 %160
+  %161 = getelementptr [64 x i8], ptr %73, i64 %160
   %162 = and i32 %143, 4095
   %163 = load ptr, ptr %3, align 8
   %164 = icmp eq ptr %163, null
@@ -994,7 +986,7 @@ define dso_local i32 @__blk_rq_map_sg(ptr noundef readonly captures(none) %0, pt
 192:                                              ; preds = %188
   %193 = load ptr, ptr %58, align 8
   %194 = add i32 %77, %67
-  %.split = getelementptr %struct.bio_vec, ptr %193, i64 %71
+  %.split = getelementptr [16 x i8], ptr %193, i64 %71
   %195 = getelementptr i8, ptr %.split, i64 8
   %196 = load i32, ptr %195, align 8
   %197 = icmp eq i32 %194, %196
@@ -2139,7 +2131,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_back_merge(ptr n
   %103 = and i32 %100, 1
   %104 = select i1 %102, i32 2, i32 %103
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr i64, ptr %99, i64 %105
+  %106 = getelementptr [8 x i8], ptr %99, i64 %105
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %106, ptr elementtype(i64) %106) #14, !srcloc !52
   %107 = load ptr, ptr %95, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 49
@@ -2161,7 +2153,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_back_merge(ptr n
   %122 = and i32 %119, 1
   %123 = select i1 %121, i32 2, i32 %122
   %124 = zext nneg i32 %123 to i64
-  %125 = getelementptr i64, ptr %118, i64 %124
+  %125 = getelementptr [8 x i8], ptr %118, i64 %124
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %125, ptr elementtype(i64) %125) #14, !srcloc !53
   br label %126
 
@@ -2523,7 +2515,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_front_merge(ptr 
   %203 = and i32 %200, 1
   %204 = select i1 %202, i32 2, i32 %203
   %205 = zext nneg i32 %204 to i64
-  %206 = getelementptr i64, ptr %199, i64 %205
+  %206 = getelementptr [8 x i8], ptr %199, i64 %205
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %206, ptr elementtype(i64) %206) #14, !srcloc !52
   %207 = load ptr, ptr %195, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 49
@@ -2545,7 +2537,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_front_merge(ptr 
   %222 = and i32 %219, 1
   %223 = select i1 %221, i32 2, i32 %222
   %224 = zext nneg i32 %223 to i64
-  %225 = getelementptr i64, ptr %218, i64 %224
+  %225 = getelementptr [8 x i8], ptr %218, i64 %224
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %225, ptr elementtype(i64) %225) #14, !srcloc !53
   br label %226
 
@@ -2723,7 +2715,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_discard_merge(pt
   %98 = and i32 %95, 1
   %99 = select i1 %97, i32 2, i32 %98
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr i64, ptr %94, i64 %100
+  %101 = getelementptr [8 x i8], ptr %94, i64 %100
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %101, ptr elementtype(i64) %101) #14, !srcloc !52
   %102 = load ptr, ptr %90, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 49
@@ -2745,7 +2737,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @bio_attempt_discard_merge(pt
   %117 = and i32 %114, 1
   %118 = select i1 %116, i32 2, i32 %117
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr i64, ptr %113, i64 %119
+  %120 = getelementptr [8 x i8], ptr %113, i64 %119
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %120, ptr elementtype(i64) %120) #14, !srcloc !53
   br label %121
 
@@ -2845,7 +2837,7 @@ define internal fastcc zeroext i1 @bio_will_gap(ptr noundef readonly captures(no
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %31 = load i32, ptr %30, align 8
-  %.split = getelementptr %struct.bio_vec, ptr %26, i64 %29
+  %.split = getelementptr [16 x i8], ptr %26, i64 %29
   %32 = getelementptr i8, ptr %.split, i64 12
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, %31
@@ -2862,7 +2854,7 @@ define internal fastcc zeroext i1 @bio_will_gap(ptr noundef readonly captures(no
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %44 = load ptr, ptr %43, align 8
   %45 = zext i32 %40 to i64
-  %46 = getelementptr %struct.bio_vec, ptr %44, i64 %45
+  %46 = getelementptr [16 x i8], ptr %44, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 8
   %49 = sub i32 %48, %42
@@ -2888,7 +2880,7 @@ define internal fastcc zeroext i1 @bio_will_gap(ptr noundef readonly captures(no
   %59 = phi i32 [ %66, %65 ], [ %57, %56 ]
   %60 = phi i32 [ %67, %65 ], [ %40, %56 ]
   %61 = zext i32 %60 to i64
-  %.split11 = getelementptr %struct.bio_vec, ptr %44, i64 %61
+  %.split11 = getelementptr [16 x i8], ptr %44, i64 %61
   %62 = getelementptr i8, ptr %.split11, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = icmp ult i32 %59, %63
@@ -2907,7 +2899,7 @@ define internal fastcc zeroext i1 @bio_will_gap(ptr noundef readonly captures(no
   %72 = sext i1 %71 to i32
   %73 = add i32 %69, %72
   %74 = sext i32 %73 to i64
-  %75 = getelementptr %struct.bio_vec, ptr %44, i64 %74
+  %75 = getelementptr [16 x i8], ptr %44, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 12
@@ -2925,7 +2917,7 @@ define internal fastcc zeroext i1 @bio_will_gap(ptr noundef readonly captures(no
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %89 = load i32, ptr %88, align 4
   %90 = zext i32 %89 to i64
-  %91 = getelementptr %struct.bio_vec, ptr %87, i64 %90
+  %91 = getelementptr [16 x i8], ptr %87, i64 %90
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %94 = load i32, ptr %93, align 8
@@ -3288,7 +3280,7 @@ define internal fastcc void @blk_account_io_merge_request(ptr noundef readonly c
   %20 = and i32 %17, 1
   %21 = select i1 %19, i32 2, i32 %20
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr i64, ptr %16, i64 %22
+  %23 = getelementptr [8 x i8], ptr %16, i64 %22
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %23, ptr elementtype(i64) %23) #14, !srcloc !62
   %24 = load ptr, ptr %12, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 49
@@ -3310,7 +3302,7 @@ define internal fastcc void @blk_account_io_merge_request(ptr noundef readonly c
   %39 = and i32 %36, 1
   %40 = select i1 %38, i32 2, i32 %39
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr i64, ptr %35, i64 %41
+  %42 = getelementptr [8 x i8], ptr %35, i64 %41
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %42, ptr elementtype(i64) %42) #14, !srcloc !63
   br label %43
 

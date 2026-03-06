@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ieee_802_11be = type { i8, i8, i8, i8, [4 x %struct.ieee_802_11be_user_info] }
 %struct.ieee_802_11be_user_info = type { i32 }
 %struct.mcs_vht_valid = type { [4 x [8 x i8]] }
-%struct.mcs_info = type { ptr, ptr, float }
 
 @ieee80211_ht_Dbps = local_unnamed_addr constant [77 x i16] [i16 26, i16 52, i16 78, i16 104, i16 156, i16 208, i16 234, i16 260, i16 52, i16 104, i16 156, i16 208, i16 312, i16 416, i16 468, i16 520, i16 78, i16 156, i16 234, i16 312, i16 468, i16 624, i16 702, i16 780, i16 104, i16 208, i16 312, i16 416, i16 624, i16 832, i16 936, i16 1040, i16 12, i16 156, i16 208, i16 260, i16 234, i16 312, i16 390, i16 208, i16 260, i16 260, i16 312, i16 364, i16 364, i16 416, i16 312, i16 390, i16 390, i16 468, i16 546, i16 546, i16 624, i16 260, i16 312, i16 364, i16 312, i16 364, i16 416, i16 468, i16 416, i16 468, i16 520, i16 520, i16 572, i16 390, i16 468, i16 546, i16 468, i16 546, i16 624, i16 702, i16 624, i16 702, i16 780, i16 780, i16 858], align 16
 @proto_register_ieee80211_radio.hf_wlan_radio = internal global [55 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_wlan_radio_phy, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 7, i32 1, ptr @phy_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11_fhss_hop_set, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11_fhss_hop_pattern, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11_fhss_hop_index, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 4, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11a_channel_type, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 7, i32 1, ptr @channel_type_11a_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11a_turbo_type, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 7, i32 1, ptr @turbo_type_11a_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11g_mode, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 7, i32 1, ptr @mode_11g_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_mcs_index, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 7, i32 1, ptr null, i64 0, ptr @.str.16, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_bandwidth, %struct._header_field_info { ptr @.str.17, ptr @.str.18, i32 7, i32 1, ptr @bandwidth_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_short_gi, %struct._header_field_info { ptr @.str.19, ptr @.str.20, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_greenfield, %struct._header_field_info { ptr @.str.21, ptr @.str.22, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_fec, %struct._header_field_info { ptr @.str.23, ptr @.str.24, i32 7, i32 1, ptr @fec_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_stbc_streams, %struct._header_field_info { ptr @.str.25, ptr @.str.26, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11n_ness, %struct._header_field_info { ptr @.str.27, ptr @.str.28, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_stbc, %struct._header_field_info { ptr @.str.29, ptr @.str.30, i32 2, i32 0, ptr @tfs_on_off, i64 0, ptr @.str.31, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_txop_ps_not_allowed, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 2, i32 0, ptr null, i64 0, ptr @.str.34, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_short_gi, %struct._header_field_info { ptr @.str.19, ptr @.str.35, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_short_gi_nsym_disambig, %struct._header_field_info { ptr @.str.36, ptr @.str.37, i32 2, i32 0, ptr null, i64 0, ptr @.str.38, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_ldpc_extra_ofdm_symbol, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_beamformed, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_bandwidth, %struct._header_field_info { ptr @.str.17, ptr @.str.43, i32 7, i32 1, ptr @bandwidth_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_user, %struct._header_field_info { ptr @.str.44, ptr @.str.45, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_nsts, %struct._header_field_info { ptr @.str.46, ptr @.str.47, i32 7, i32 1, ptr null, i64 0, ptr @.str.48, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_mcs, %struct._header_field_info { ptr @.str.14, ptr @.str.49, i32 7, i32 1, ptr null, i64 0, ptr @.str.16, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_nss, %struct._header_field_info { ptr @.str.50, ptr @.str.51, i32 7, i32 1, ptr null, i64 0, ptr @.str.52, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_fec, %struct._header_field_info { ptr @.str.23, ptr @.str.53, i32 7, i32 1, ptr @fec_vals, i64 0, ptr @.str.54, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_gid, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11ac_p_aid, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 5, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11be_user, %struct._header_field_info { ptr @.str.44, ptr @.str.59, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11be_sta_id, %struct._header_field_info { ptr @.str.60, ptr @.str.61, i32 7, i32 1, ptr null, i64 0, ptr @.str.62, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11be_nsts, %struct._header_field_info { ptr @.str.46, ptr @.str.63, i32 7, i32 1, ptr null, i64 0, ptr @.str.48, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_11be_mcs, %struct._header_field_info { ptr @.str.14, ptr @.str.64, i32 7, i32 1, ptr null, i64 0, ptr @.str.16, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_data_rate, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 22, i32 0, ptr null, i64 0, ptr @.str.67, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_channel, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 7, i32 1, ptr null, i64 0, ptr @.str.70, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_frequency, %struct._header_field_info { ptr @.str.71, ptr @.str.72, i32 5, i32 4097, ptr @units_mhz, i64 0, ptr @.str.73, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_short_preamble, %struct._header_field_info { ptr @.str.74, ptr @.str.75, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_signal_percent, %struct._header_field_info { ptr @.str.76, ptr @.str.77, i32 7, i32 4097, ptr @units_percent, i64 0, ptr @.str.78, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_signal_db, %struct._header_field_info { ptr @.str.79, ptr @.str.80, i32 4, i32 4097, ptr @units_decibels, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_signal_dbm, %struct._header_field_info { ptr @.str.81, ptr @.str.82, i32 12, i32 4097, ptr @units_dbm, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_noise_percent, %struct._header_field_info { ptr @.str.83, ptr @.str.84, i32 7, i32 4097, ptr @units_percent, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_noise_db, %struct._header_field_info { ptr @.str.85, ptr @.str.86, i32 4, i32 4097, ptr @units_decibels, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_noise_dbm, %struct._header_field_info { ptr @.str.87, ptr @.str.88, i32 12, i32 4097, ptr @units_dbm, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_snr, %struct._header_field_info { ptr @.str.89, ptr @.str.90, i32 15, i32 4097, ptr @units_decibels, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_timestamp, %struct._header_field_info { ptr @.str.91, ptr @.str.92, i32 11, i32 1, ptr null, i64 0, ptr @.str.93, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_last_part_of_a_mpdu, %struct._header_field_info { ptr @.str.94, ptr @.str.95, i32 2, i32 32, ptr null, i64 1, ptr @.str.96, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_a_mpdu_delim_crc_error, %struct._header_field_info { ptr @.str.97, ptr @.str.98, i32 2, i32 32, ptr null, i64 2, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_a_mpdu_aggregate_id, %struct._header_field_info { ptr @.str.99, ptr @.str.100, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_duration, %struct._header_field_info { ptr @.str.101, ptr @.str.102, i32 7, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.103, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_preamble, %struct._header_field_info { ptr @.str.104, ptr @.str.105, i32 7, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.106, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_aggregate, %struct._header_field_info { ptr @.str.107, ptr @.str.108, i32 0, i32 0, ptr null, i64 0, ptr @.str.109, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_ifs, %struct._header_field_info { ptr @.str.110, ptr @.str.111, i32 19, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.112, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_start_tsf, %struct._header_field_info { ptr @.str.113, ptr @.str.114, i32 11, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.115, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_end_tsf, %struct._header_field_info { ptr @.str.116, ptr @.str.117, i32 11, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.118, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_radio_aggregate_duration, %struct._header_field_info { ptr @.str.119, ptr @.str.120, i32 7, i32 4097, ptr @units_microseconds, i64 0, ptr @.str.121, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_wlan_zero_length_psdu_type, %struct._header_field_info { ptr @.str.122, ptr @.str.123, i32 4, i32 2, ptr @zero_length_psdu_vals, i64 0, ptr @.str.124, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -356,7 +355,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
 define hidden float @ieee80211_htrate(i32 noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = sext i32 %0 to i64
-  %5 = getelementptr i16, ptr @ieee80211_ht_Dbps, i64 %4
+  %5 = getelementptr [2 x i8], ptr @ieee80211_ht_Dbps, i64 %4
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i32
   %8 = select i1 %1, i32 108, i32 52
@@ -888,7 +887,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %205 = load i8, ptr %204, align 4
   %206 = trunc i8 %205 to i1
   %207 = zext nneg i16 %198 to i64
-  %208 = getelementptr i16, ptr @ieee80211_ht_Dbps, i64 %207
+  %208 = getelementptr [2 x i8], ptr @ieee80211_ht_Dbps, i64 %207
   %209 = load i16, ptr %208, align 2
   %210 = zext i16 %209 to i32
   %211 = select i1 %203, i32 108, i32 52
@@ -1049,7 +1048,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 303:                                              ; preds = %295
   %304 = zext nneg i8 %301 to i64
-  %305 = getelementptr i32, ptr @ieee80211_vht_bw2rate_index, i64 %304
+  %305 = getelementptr [4 x i8], ptr @ieee80211_vht_bw2rate_index, i64 %304
   %306 = load i32, ptr %305, align 4
   %307 = zext i32 %306 to i64
   br label %308
@@ -1134,7 +1133,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %invariant.gep = getelementptr [8 x i8], ptr @ieee80211_vhtvalid, i64 %.0658
   %354 = getelementptr inbounds nuw i8, ptr %.1718, i64 3
   %355 = getelementptr inbounds nuw i8, ptr %.1718, i64 11
-  %356 = getelementptr i32, ptr @subcarriers, i64 %.0658
+  %356 = getelementptr [4 x i8], ptr @subcarriers, i64 %.0658
   br label %357
 
 357:                                              ; preds = %352, %439
@@ -1170,7 +1169,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 376:                                              ; preds = %360
   %377 = zext nneg i8 %373 to i64
-  %378 = getelementptr %struct.mcs_info, ptr @ieee80211_mcsinfo, i64 %377
+  %378 = getelementptr [24 x i8], ptr @ieee80211_mcsinfo, i64 %377
   %379 = load ptr, ptr %378, align 8
   %380 = getelementptr inbounds nuw i8, ptr %378, i64 8
   %381 = load ptr, ptr %380, align 8
@@ -1230,7 +1229,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 414:                                              ; preds = %411
   %415 = zext nneg i8 %412 to i64
   %416 = zext nneg i8 %409 to i64
-  %gep = getelementptr %struct.mcs_vht_valid, ptr %invariant.gep, i64 %416
+  %gep = getelementptr [32 x i8], ptr %invariant.gep, i64 %416
   %417 = getelementptr i8, ptr %gep, i64 %415
   %418 = getelementptr i8, ptr %417, i64 -1
   %419 = load i8, ptr %418, align 1, !range !6, !noundef !7
@@ -1241,7 +1240,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %422 = load i16, ptr %.1718, align 4
   %423 = and i16 %422, 4096
   %.not954 = icmp eq i16 %423, 0
-  %424 = getelementptr %struct.mcs_info, ptr @ieee80211_mcsinfo, i64 %416
+  %424 = getelementptr [24 x i8], ptr @ieee80211_mcsinfo, i64 %416
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 16
   %426 = load float, ptr %425, align 8
   %427 = load i32, ptr %356, align 4
@@ -1325,11 +1324,11 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 476:                                              ; preds = %474
   %477 = zext nneg i32 %471 to i64
-  %478 = getelementptr [12 x [4 x [3 x float]]], ptr @he_ofdm_tab, i64 %477
+  %478 = getelementptr [576 x i8], ptr @he_ofdm_tab, i64 %477
   %479 = zext nneg i32 %468 to i64
-  %480 = getelementptr [4 x [3 x float]], ptr %478, i64 %479
+  %480 = getelementptr [48 x i8], ptr %478, i64 %479
   %481 = zext nneg i32 %463 to i64
-  %482 = getelementptr [3 x float], ptr %480, i64 %481
+  %482 = getelementptr [12 x i8], ptr %480, i64 %481
   br label %ieee80211_he_ofdm_rate.exit
 
 483:                                              ; preds = %461
@@ -1343,18 +1342,18 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
 
 487:                                              ; preds = %484
   %488 = zext nneg i32 %471 to i64
-  %489 = getelementptr [12 x [6 x [3 x float]]], ptr @he_mu_ofdma_tab, i64 %488
+  %489 = getelementptr [864 x i8], ptr @he_mu_ofdma_tab, i64 %488
   %490 = zext nneg i32 %468 to i64
-  %491 = getelementptr [6 x [3 x float]], ptr %489, i64 %490
+  %491 = getelementptr [72 x i8], ptr %489, i64 %490
   %492 = zext nneg i32 %463 to i64
-  %493 = getelementptr [3 x float], ptr %491, i64 %492
+  %493 = getelementptr [12 x i8], ptr %491, i64 %492
   %494 = getelementptr i8, ptr %493, i64 -48
   br label %ieee80211_he_ofdm_rate.exit
 
 ieee80211_he_ofdm_rate.exit:                      ; preds = %487, %476
   %.sink1057 = phi ptr [ %494, %487 ], [ %482, %476 ]
   %495 = zext nneg i32 %470 to i64
-  %496 = getelementptr float, ptr %.sink1057, i64 %495
+  %496 = getelementptr [4 x i8], ptr %.sink1057, i64 %495
   %.7 = load float, ptr %496, align 4
   %497 = fcmp une float %.7, 0.000000e+00
   br i1 %497, label %.thread897, label %ieee80211_he_ofdm_rate.exit.thread
@@ -1371,7 +1370,7 @@ ieee80211_he_ofdm_rate.exit:                      ; preds = %487, %476
   br i1 %.not750, label %.thread897, label %584
 
 501:                                              ; preds = %498
-  %502 = getelementptr %struct.ieee_802_11be_user_info, ptr %126, i64 %indvars.iv
+  %502 = getelementptr [4 x i8], ptr %126, i64 %indvars.iv
   %503 = load i32, ptr %502, align 4
   %504 = lshr i32 %503, 24
   %505 = and i32 %504, 15
@@ -1449,7 +1448,7 @@ ieee80211_he_ofdm_rate.exit:                      ; preds = %487, %476
   %543 = lshr i32 %542, 20
   %544 = and i32 %543, 15
   %545 = zext nneg i32 %544 to i64
-  %546 = getelementptr %struct.mcs_info, ptr @ieee80211_mcsinfo, i64 %545
+  %546 = getelementptr [24 x i8], ptr @ieee80211_mcsinfo, i64 %545
   %547 = load ptr, ptr %546, align 8
   %548 = getelementptr inbounds nuw i8, ptr %546, i64 8
   %549 = load ptr, ptr %548, align 8
@@ -1476,11 +1475,11 @@ ieee80211_eht_rate.exit:                          ; preds = %553
   %561 = lshr i32 %560, 20
   %562 = and i32 %561, 15
   %563 = zext nneg i32 %562 to i64
-  %564 = getelementptr [8 x [3 x float]], ptr @eht_mcs_tab, i64 %563
+  %564 = getelementptr [96 x i8], ptr @eht_mcs_tab, i64 %563
   %565 = zext nneg i32 %.0701 to i64
-  %566 = getelementptr [3 x float], ptr %564, i64 %565
+  %566 = getelementptr [12 x i8], ptr %564, i64 %565
   %567 = zext nneg i8 %556 to i64
-  %568 = getelementptr float, ptr %566, i64 %567
+  %568 = getelementptr [4 x i8], ptr %566, i64 %567
   %569 = load float, ptr %568, align 4
   %570 = uitofp nneg i32 %505 to float
   %571 = fmul float %569, %570
@@ -1881,11 +1880,11 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %ieee80211_eht_rate.
 
 799:                                              ; preds = %792
   %800 = zext nneg i32 %797 to i64
-  %801 = getelementptr i32, ptr @dissect_wlan_radio_phdr.Nhtdltf, i64 %800
+  %801 = getelementptr [4 x i8], ptr @dissect_wlan_radio_phdr.Nhtdltf, i64 %800
   %802 = getelementptr i8, ptr %801, i64 -4
   %803 = load i32, ptr %802, align 4
   %804 = zext nneg i32 %.0665 to i64
-  %805 = getelementptr i32, ptr @dissect_wlan_radio_phdr.Nhteltf, i64 %804
+  %805 = getelementptr [4 x i8], ptr @dissect_wlan_radio_phdr.Nhteltf, i64 %804
   %806 = load i32, ptr %805, align 4
   %807 = add i32 %806, %803
   %808 = shl i32 %807, 2
@@ -2506,7 +2505,7 @@ define internal fastcc range(i32 0, 429496730) i32 @calculate_11n_duration(i32 n
   %12 = mul nuw nsw i32 %11, 6
   %13 = add i32 %5, %12
   %.not = icmp ne i32 %2, 0
-  %14 = getelementptr i16, ptr @ieee80211_ht_Dbps, i64 %8
+  %14 = getelementptr [2 x i8], ptr @ieee80211_ht_Dbps, i64 %8
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 4

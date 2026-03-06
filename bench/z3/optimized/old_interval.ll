@@ -7208,7 +7208,7 @@ _ZN6vectorIPN18dependency_managerIN25scoped_dependency_managerIPvE6configEE10dep
   %21 = phi ptr [ %.pre.i.i.i, %.noexc ], [ %11, %13 ]
   %22 = getelementptr inbounds i8, ptr %21, i64 -4
   %23 = zext i32 %20 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %23
   store ptr %5, ptr %24, align 8, !tbaa !50
   %25 = add i32 %20, 1
   store i32 %25, ptr %22, align 4, !tbaa !21
@@ -7264,7 +7264,7 @@ _ZN6vectorIPN18dependency_managerIN25scoped_dependency_managerIPvE6configEE10dep
   %46 = phi ptr [ %.pre.i.i.i15, %.noexc18 ], [ %36, %38 ]
   %47 = getelementptr inbounds i8, ptr %46, i64 -4
   %48 = zext i32 %45 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   store ptr %30, ptr %49, align 8, !tbaa !50
   %50 = add i32 %45, 1
   store i32 %50, ptr %47, align 4, !tbaa !21
@@ -7791,7 +7791,7 @@ _ZNK6vectorIPN18dependency_managerIN25scoped_dependency_managerIPvE6configEE10de
   br i1 %11, label %12, label %_ZN6vectorIPN18dependency_managerIN25scoped_dependency_managerIPvE6configEE10dependencyELb0EjE3endEv.exit
 
 12:                                               ; preds = %_ZNK6vectorIPN18dependency_managerIN25scoped_dependency_managerIPvE6configEE10dependencyELb0EjE4sizeEv.exit.thread
-  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv41
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv41
   %14 = load ptr, ptr %13, align 8, !tbaa !50
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %15 = load i32, ptr %14, align 4
@@ -7823,7 +7823,7 @@ _ZN6vectorIPvLb0EjE9push_backERKS0_.exit:         ; preds = %21, %27
   %28 = phi i32 [ %.pre2.i, %27 ], [ %23, %21 ]
   %29 = phi ptr [ %.pre.i, %27 ], [ %19, %21 ]
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %17, align 8, !tbaa !55
   store ptr %32, ptr %31, align 8, !tbaa !55
   %33 = load ptr, ptr %1, align 8, !tbaa !52
@@ -7836,7 +7836,7 @@ _ZN6vectorIPvLb0EjE9push_backERKS0_.exit:         ; preds = %21, %27
 .preheader:                                       ; preds = %12, %103
   %37 = phi i1 [ false, %103 ], [ true, %12 ]
   %indvars.iv = phi i64 [ 1, %103 ], [ 0, %12 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !50
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 1073741824
@@ -7977,7 +7977,7 @@ _ZN6vectorIPN18dependency_managerIN25scoped_dependency_managerIPvE6configEE10dep
   %96 = phi ptr [ %.pre.i22, %_ZN6vectorIPN18dependency_managerIN25scoped_dependency_managerIPvE6configEE10dependencyELb0EjE13expand_vectorEv.exit ], [ %43, %45 ]
   %97 = getelementptr inbounds i8, ptr %96, i64 -4
   %98 = zext i32 %95 to i64
-  %99 = getelementptr inbounds nuw ptr, ptr %96, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %98
   store ptr %39, ptr %99, align 8, !tbaa !50
   %100 = add i32 %95, 1
   store i32 %100, ptr %97, align 4, !tbaa !21

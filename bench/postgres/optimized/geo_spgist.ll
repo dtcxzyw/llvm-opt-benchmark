@@ -3,9 +3,6 @@ source_filename = "bench/postgres/original/geo_spgist.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [26 x i8] c"unrecognized strategy: %d\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"geo_spgist.c\00", align 1
 @__func__.spg_box_quad_inner_consistent = private unnamed_addr constant [30 x i8] c"spg_box_quad_inner_consistent\00", align 1
@@ -125,23 +122,23 @@ define dso_local noundef i64 @spg_box_quad_picksplit(ptr noundef readonly captur
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8
   %31 = inttoptr i64 %30 to ptr
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load double, ptr %32, align 8
-  %34 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store double %33, ptr %34, align 8
   %35 = load double, ptr %31, align 8
-  %36 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store double %35, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %38 = load double, ptr %37, align 8
-  %39 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   store double %38, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %41 = load double, ptr %40, align 8
-  %42 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   store double %41, ptr %42, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %4, align 8
@@ -165,18 +162,18 @@ define dso_local noundef i64 @spg_box_quad_picksplit(ptr noundef readonly captur
   %53 = sdiv i32 %52, 2
   %54 = tail call ptr @palloc(i64 noundef 32) #7
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds double, ptr %11, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %11, i64 %55
   %57 = load double, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store double %57, ptr %58, align 8
-  %59 = getelementptr inbounds double, ptr %15, i64 %55
+  %59 = getelementptr inbounds [8 x i8], ptr %15, i64 %55
   %60 = load double, ptr %59, align 8
   store double %60, ptr %54, align 8
-  %61 = getelementptr inbounds double, ptr %19, i64 %55
+  %61 = getelementptr inbounds [8 x i8], ptr %19, i64 %55
   %62 = load double, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store double %62, ptr %63, align 8
-  %64 = getelementptr inbounds double, ptr %23, i64 %55
+  %64 = getelementptr inbounds [8 x i8], ptr %23, i64 %55
   %65 = load double, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store double %65, ptr %66, align 8
@@ -211,7 +208,7 @@ define dso_local noundef i64 @spg_box_quad_picksplit(ptr noundef readonly captur
 84:                                               ; preds = %.lr.ph69, %84
   %indvars.iv73 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next74, %84 ]
   %85 = load ptr, ptr %83, align 8
-  %86 = getelementptr inbounds nuw i64, ptr %85, i64 %indvars.iv73
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv73
   %87 = load i64, ptr %86, align 8
   %88 = inttoptr i64 %87 to ptr
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
@@ -237,11 +234,11 @@ define dso_local noundef i64 @spg_box_quad_picksplit(ptr noundef readonly captur
   %106 = zext i1 %105 to i8
   %.3.i = or disjoint i8 %.2.i, %106
   %107 = load ptr, ptr %80, align 8
-  %108 = getelementptr inbounds nuw i64, ptr %107, i64 %indvars.iv73
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv73
   store i64 %87, ptr %108, align 8
   %109 = zext nneg i8 %.3.i to i32
   %110 = load ptr, ptr %75, align 8
-  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv73
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv73
   store i32 %109, ptr %111, align 4
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %112 = load i32, ptr %4, align 8
@@ -323,7 +320,7 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr noundef readonly
 .lr.ph177:                                        ; preds = %23, %.lr.ph177
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %.lr.ph177 ], [ 0, %23 ]
   %32 = load ptr, ptr %29, align 8
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv199
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv199
   %34 = trunc nuw nsw i64 %indvars.iv199 to i32
   store i32 %34, ptr %33, align 4
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
@@ -358,7 +355,7 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr noundef readonly
 52:                                               ; preds = %.lr.ph181, %pointToRectBoxDistance.exit
   %indvars.iv202 = phi i64 [ 0, %.lr.ph181 ], [ %indvars.iv.next203, %pointToRectBoxDistance.exit ]
   %53 = load ptr, ptr %48, align 8
-  %54 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %53, i64 %indvars.iv202
+  %54 = getelementptr inbounds nuw [72 x i8], ptr %53, i64 %indvars.iv202
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 64
   %56 = load i64, ptr %55, align 8
   %57 = inttoptr i64 %56 to ptr
@@ -404,7 +401,7 @@ define dso_local noundef i64 @spg_box_quad_inner_consistent(ptr noundef readonly
 pointToRectBoxDistance.exit:                      ; preds = %73, %75, %78
   %.0.i = phi double [ %74, %73 ], [ %79, %78 ], [ 0.000000e+00, %75 ]
   %80 = tail call double @pg_hypot(double noundef %.018.i, double noundef %.0.i) #7
-  %81 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv202
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv202
   store double %80, ptr %81, align 8
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %82 = load i32, ptr %39, align 4
@@ -431,10 +428,10 @@ pointToRectBoxDistance.exit:                      ; preds = %73, %75, %78
   %94 = shl nsw i64 %93, 3
   %95 = tail call ptr @palloc(i64 noundef %94) #7
   %96 = load ptr, ptr %89, align 8
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv205
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv205
   store ptr %95, ptr %97, align 8
   %98 = load ptr, ptr %89, align 8
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv205
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv205
   %100 = load ptr, ptr %99, align 8
   %101 = load i32, ptr %39, align 4
   %102 = sext i32 %101 to i64
@@ -477,7 +474,7 @@ pointToRectBoxDistance.exit:                      ; preds = %73, %75, %78
 .lr.ph:                                           ; preds = %107, %spg_box_quad_get_scankey_bbox.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %spg_box_quad_get_scankey_bbox.exit ], [ 0, %107 ]
   %129 = load ptr, ptr %4, align 8
-  %130 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %129, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw [72 x i8], ptr %129, i64 %indvars.iv
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load i32, ptr %131, align 8
   switch i32 %132, label %143 [
@@ -524,7 +521,7 @@ spg_box_quad_get_scankey_bbox.exit:               ; preds = %133, %137
   %157 = load double, ptr %156, align 8
   %158 = getelementptr inbounds nuw i8, ptr %148, i64 24
   store double %157, ptr %158, align 8
-  %159 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv
   store ptr %148, ptr %159, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %160 = load i32, ptr %122, align 8
@@ -631,7 +628,7 @@ nextRectBox.exit:                                 ; preds = %196, %197
 
 218:                                              ; preds = %.lr.ph166, %393
   %indvars.iv193 = phi i64 [ 0, %.lr.ph166 ], [ %indvars.iv.next194, %393 ]
-  %219 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %210, i64 %indvars.iv193
+  %219 = getelementptr inbounds nuw [72 x i8], ptr %210, i64 %indvars.iv193
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 6
   %221 = load i16, ptr %220, align 2
   switch i16 %221, label %384 [
@@ -650,7 +647,7 @@ nextRectBox.exit:                                 ; preds = %196, %197
   ]
 
 222:                                              ; preds = %218
-  %223 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv193
   %224 = load ptr, ptr %223, align 8
   %225 = load double, ptr %216, align 8
   %226 = load double, ptr %224, align 8
@@ -675,7 +672,7 @@ overlap2D.exit.i:                                 ; preds = %222
   br i1 %239, label %overlap4D.exit.thread, label %overlap4D.exit
 
 240:                                              ; preds = %218
-  %241 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv193
   %242 = load ptr, ptr %241, align 8
   %243 = load double, ptr %216, align 8
   %244 = getelementptr inbounds nuw i8, ptr %242, i64 8
@@ -708,7 +705,7 @@ contain2D.exit.i:                                 ; preds = %240
   br i1 %263, label %overlap4D.exit.thread, label %393
 
 264:                                              ; preds = %218, %218
-  %265 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv193
   %266 = load ptr, ptr %265, align 8
   %267 = load double, ptr %193, align 8
   %268 = getelementptr inbounds nuw i8, ptr %266, i64 8
@@ -763,7 +760,7 @@ contained2D.exit.i:                               ; preds = %277
   br i1 %301, label %overlap4D.exit.thread, label %393
 
 302:                                              ; preds = %218
-  %303 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv193
   %304 = load ptr, ptr %303, align 8
   %.val = load double, ptr %304, align 8
   %305 = load double, ptr %193, align 8
@@ -778,7 +775,7 @@ contained2D.exit.i:                               ; preds = %277
   br i1 %311, label %393, label %overlap4D.exit.thread
 
 312:                                              ; preds = %218
-  %313 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv193
   %314 = load ptr, ptr %313, align 8
   %315 = getelementptr i8, ptr %314, i64 8
   %.val145 = load double, ptr %315, align 8
@@ -793,7 +790,7 @@ contained2D.exit.i:                               ; preds = %277
   br i1 %321, label %overlap4D.exit.thread, label %393
 
 322:                                              ; preds = %218
-  %323 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv193
   %324 = load ptr, ptr %323, align 8
   %325 = getelementptr i8, ptr %324, i64 8
   %.val146 = load double, ptr %325, align 8
@@ -808,7 +805,7 @@ contained2D.exit.i:                               ; preds = %277
   br i1 %331, label %393, label %overlap4D.exit.thread
 
 332:                                              ; preds = %218
-  %333 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv193
   %334 = load ptr, ptr %333, align 8
   %.val147 = load double, ptr %334, align 8
   %335 = load double, ptr %215, align 8
@@ -823,7 +820,7 @@ contained2D.exit.i:                               ; preds = %277
   br i1 %341, label %overlap4D.exit.thread, label %393
 
 342:                                              ; preds = %218
-  %343 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv193
   %344 = load ptr, ptr %343, align 8
   %345 = getelementptr i8, ptr %344, i64 24
   %.val148 = load double, ptr %345, align 8
@@ -838,7 +835,7 @@ contained2D.exit.i:                               ; preds = %277
   br i1 %351, label %393, label %overlap4D.exit.thread
 
 352:                                              ; preds = %218
-  %353 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv193
   %354 = load ptr, ptr %353, align 8
   %355 = getelementptr i8, ptr %354, i64 16
   %.val149 = load double, ptr %355, align 8
@@ -854,7 +851,7 @@ contained2D.exit.i:                               ; preds = %277
   br i1 %362, label %overlap4D.exit.thread, label %393
 
 363:                                              ; preds = %218
-  %364 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %364 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv193
   %365 = load ptr, ptr %364, align 8
   %366 = getelementptr i8, ptr %365, i64 16
   %.val150 = load double, ptr %366, align 8
@@ -870,7 +867,7 @@ contained2D.exit.i:                               ; preds = %277
   br i1 %373, label %393, label %overlap4D.exit.thread
 
 374:                                              ; preds = %218
-  %375 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv193
+  %375 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv193
   %376 = load ptr, ptr %375, align 8
   %377 = getelementptr i8, ptr %376, i64 24
   %.val151 = load double, ptr %377, align 8
@@ -908,12 +905,12 @@ overlap4D.exit:                                   ; preds = %234
   %394 = load ptr, ptr %173, align 8
   %395 = load i32, ptr %7, align 8
   %396 = sext i32 %395 to i64
-  %397 = getelementptr inbounds ptr, ptr %394, i64 %396
+  %397 = getelementptr inbounds [8 x i8], ptr %394, i64 %396
   store ptr %193, ptr %397, align 8
   %398 = load ptr, ptr %168, align 8
   %399 = load i32, ptr %7, align 8
   %400 = sext i32 %399 to i64
-  %401 = getelementptr inbounds i32, ptr %398, i64 %400
+  %401 = getelementptr inbounds [4 x i8], ptr %398, i64 %400
   store i32 %192, ptr %401, align 4
   %402 = load i32, ptr %174, align 4
   %403 = icmp sgt i32 %402, 0
@@ -926,7 +923,7 @@ overlap4D.exit:                                   ; preds = %234
   %408 = load ptr, ptr %189, align 8
   %409 = load i32, ptr %7, align 8
   %410 = sext i32 %409 to i64
-  %411 = getelementptr inbounds ptr, ptr %408, i64 %410
+  %411 = getelementptr inbounds [8 x i8], ptr %408, i64 %410
   store ptr %407, ptr %411, align 8
   %412 = load i32, ptr %174, align 4
   %413 = icmp sgt i32 %412, 0
@@ -941,7 +938,7 @@ overlap4D.exit:                                   ; preds = %234
 417:                                              ; preds = %.lr.ph170, %pointToRectBoxDistance.exit155
   %indvars.iv196 = phi i64 [ 0, %.lr.ph170 ], [ %indvars.iv.next197, %pointToRectBoxDistance.exit155 ]
   %418 = load ptr, ptr %190, align 8
-  %419 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %418, i64 %indvars.iv196
+  %419 = getelementptr inbounds nuw [72 x i8], ptr %418, i64 %indvars.iv196
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 64
   %421 = load i64, ptr %420, align 8
   %422 = inttoptr i64 %421 to ptr
@@ -987,7 +984,7 @@ overlap4D.exit:                                   ; preds = %234
 pointToRectBoxDistance.exit155:                   ; preds = %438, %440, %443
   %.0.i154 = phi double [ %439, %438 ], [ %444, %443 ], [ 0.000000e+00, %440 ]
   %445 = tail call double @pg_hypot(double noundef %.018.i153, double noundef %.0.i154) #7
-  %446 = getelementptr inbounds nuw double, ptr %407, i64 %indvars.iv196
+  %446 = getelementptr inbounds nuw [8 x i8], ptr %407, i64 %indvars.iv196
   store double %445, ptr %446, align 8
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %447 = load i32, ptr %174, align 4
@@ -1062,7 +1059,7 @@ define dso_local range(i64 0, 2) i64 @spg_box_quad_leaf_consistent(ptr noundef r
 .lr.ph:                                           ; preds = %15, %68
   %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %15 ]
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [72 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 6
   %22 = load i16, ptr %21, align 2
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8

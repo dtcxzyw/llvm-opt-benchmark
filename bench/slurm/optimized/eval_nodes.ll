@@ -75,7 +75,7 @@ define dso_local noundef zeroext i1 @eval_nodes_gres(ptr noundef %0, ptr noundef
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = sext i32 %5 to i64
-  %36 = getelementptr inbounds ptr, ptr %34, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -124,7 +124,7 @@ define dso_local noundef zeroext i1 @eval_nodes_gres(ptr noundef %0, ptr noundef
   %65 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = sext i32 %6 to i64
-  %68 = getelementptr inbounds i16, ptr %66, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %66, i64 %67
   %69 = load i16, ptr %68, align 2
   %70 = zext i16 %69 to i64
   br label %71
@@ -150,7 +150,7 @@ define dso_local noundef zeroext i1 @eval_nodes_gres(ptr noundef %0, ptr noundef
   %85 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %86 = load ptr, ptr %85, align 8
   %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds ptr, ptr %87, i64 %35
+  %88 = getelementptr inbounds [8 x i8], ptr %87, i64 %35
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %91 = load ptr, ptr %90, align 8
@@ -199,9 +199,9 @@ define dso_local noundef zeroext i1 @eval_nodes_gres(ptr noundef %0, ptr noundef
   %112 = trunc nuw nsw i64 %109 to i32
   %113 = tail call i32 @bit_set_count_range(ptr noundef %89, i32 noundef %112, i32 noundef %111) #8
   %114 = trunc i32 %113 to i16
-  %115 = getelementptr inbounds nuw i16, ptr %97, i64 %indvars.iv.i.i
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %97, i64 %indvars.iv.i.i
   store i16 %114, ptr %115, align 2
-  %116 = getelementptr inbounds nuw i16, ptr %91, i64 %indvars.iv.i.i
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %indvars.iv.i.i
   %117 = load i16, ptr %116, align 2
   %118 = zext i16 %117 to i32
   %119 = add i32 %.0165.i.i, %118
@@ -282,7 +282,7 @@ define dso_local noundef zeroext i1 @eval_nodes_gres(ptr noundef %0, ptr noundef
   br i1 %.not150.i.i, label %225, label %153, !llvm.loop !11
 
 153:                                              ; preds = %150
-  %154 = getelementptr inbounds ptr, ptr %152, i64 %35
+  %154 = getelementptr inbounds [8 x i8], ptr %152, i64 %35
   %155 = load ptr, ptr %154, align 8
   %.not151.i.i = icmp eq ptr %155, null
   br i1 %.not151.i.i, label %225, label %156, !llvm.loop !11
@@ -336,14 +336,14 @@ define dso_local noundef zeroext i1 @eval_nodes_gres(ptr noundef %0, ptr noundef
   %177 = add i16 %.1120166.i.i, -1
   %178 = udiv i32 %173, %102
   %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds nuw i16, ptr %169, i64 %179
+  %180 = getelementptr inbounds nuw [2 x i8], ptr %169, i64 %179
   %181 = load i16, ptr %180, align 2
   %182 = add i16 %181, -1
   store i16 %182, ptr %180, align 2
   %183 = load ptr, ptr %8, align 8
-  %184 = getelementptr inbounds nuw i16, ptr %183, i64 %179
+  %184 = getelementptr inbounds nuw [2 x i8], ptr %183, i64 %179
   %185 = load i16, ptr %184, align 2
-  %186 = getelementptr inbounds nuw i16, ptr %91, i64 %179
+  %186 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %179
   %187 = load i16, ptr %186, align 2
   %188 = icmp ult i16 %185, %187
   br i1 %188, label %189, label %198
@@ -486,10 +486,10 @@ _reduce_res_core_by_task_cnt.exit:                ; preds = %71, %_reduce_res_co
 
 243:                                              ; preds = %236
   %244 = load ptr, ptr %0, align 8
-  %245 = getelementptr inbounds ptr, ptr %244, i64 %35
+  %245 = getelementptr inbounds [8 x i8], ptr %244, i64 %35
   %246 = load ptr, ptr %245, align 8
   %247 = load ptr, ptr %33, align 8
-  %248 = getelementptr inbounds ptr, ptr %247, i64 %35
+  %248 = getelementptr inbounds [8 x i8], ptr %247, i64 %35
   %249 = load ptr, ptr %248, align 8
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %251 = load ptr, ptr %250, align 8
@@ -529,7 +529,7 @@ _reduce_res_core_by_task_cnt.exit:                ; preds = %71, %_reduce_res_co
   %273 = phi i16 [ 0, %.thread75 ], [ %.pre, %268 ]
   %274 = phi i1 [ false, %.thread75 ], [ true, %268 ]
   %275 = load ptr, ptr %33, align 8
-  %276 = getelementptr inbounds ptr, ptr %275, i64 %35
+  %276 = getelementptr inbounds [8 x i8], ptr %275, i64 %35
   %277 = load ptr, ptr %276, align 8
   store i16 %273, ptr %277, align 8
   %278 = zext i32 %.064 to i64
@@ -611,10 +611,10 @@ define dso_local void @eval_nodes_clip_socket_cores(ptr noundef readonly capture
   %14 = load ptr, ptr %0, align 8
   %15 = load i32, ptr %2, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %11, align 8
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %16
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %16
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
@@ -649,7 +649,7 @@ define dso_local void @eval_nodes_clip_socket_cores(ptr noundef readonly capture
   %36 = add nuw nsw i32 %35, %33
   %37 = call i32 @bit_set_count_range(ptr noundef %18, i32 noundef %35, i32 noundef %36) #8
   %38 = load i16, ptr %26, align 2
-  %39 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv
   %.not51 = icmp eq i16 %38, 0
   br i1 %.not51, label %._crit_edge, label %.lr.ph.preheader
 
@@ -950,7 +950,7 @@ eval_nodes_set_max_tasks.exit.i:                  ; preds = %124, %122, %113, %9
   %144 = phi i16 [ %.pre.i, %139 ], [ %137, %.lr.ph.i ]
   %145 = load i32, ptr %19, align 4
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds i16, ptr %130, i64 %146
+  %147 = getelementptr inbounds [2 x i8], ptr %130, i64 %146
   store i16 %144, ptr %147, align 2
   %148 = load i32, ptr %19, align 4
   %149 = add nsw i32 %148, 1
@@ -1006,9 +1006,9 @@ eval_nodes_set_max_tasks.exit.i:                  ; preds = %124, %122, %113, %9
 
 170:                                              ; preds = %163
   %171 = load ptr, ptr @node_record_table_ptr, align 8
-  %172 = getelementptr inbounds ptr, ptr %171, i64 %167
+  %172 = getelementptr inbounds [8 x i8], ptr %171, i64 %167
   %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds ptr, ptr %65, i64 %167
+  %174 = getelementptr inbounds [8 x i8], ptr %65, i64 %167
   %175 = load ptr, ptr %174, align 8
   %.not129.i = icmp eq ptr %175, null
   br i1 %.not129.i, label %178, label %176
@@ -1050,7 +1050,7 @@ eval_nodes_set_max_tasks.exit.i:                  ; preds = %124, %122, %113, %9
   br label %.thread.thread.i
 
 194:                                              ; preds = %184
-  %195 = getelementptr inbounds i16, ptr %133, i64 %167
+  %195 = getelementptr inbounds [2 x i8], ptr %133, i64 %167
   store i16 %77, ptr %195, align 2
   %196 = load i32, ptr %21, align 4
   %197 = add nsw i32 %196, -1
@@ -1152,9 +1152,9 @@ eval_nodes_set_max_tasks.exit.i:                  ; preds = %124, %122, %113, %9
   %.4153.i = phi i1 [ %.6.i, %249 ], [ true, %.lr.ph154.preheader.i ]
   %236 = load i32, ptr %19, align 4
   %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds i16, ptr %.pre165.i, i64 %237
+  %238 = getelementptr inbounds [2 x i8], ptr %.pre165.i, i64 %237
   %239 = load i16, ptr %238, align 2
-  %240 = getelementptr inbounds i16, ptr %.pre166.i, i64 %237
+  %240 = getelementptr inbounds [2 x i8], ptr %.pre166.i, i64 %237
   %241 = load i16, ptr %240, align 2
   %.not127.i = icmp ult i16 %239, %241
   br i1 %.not127.i, label %242, label %249
@@ -1235,7 +1235,7 @@ eval_nodes_set_max_tasks.exit.i:                  ; preds = %124, %122, %113, %9
 269:                                              ; preds = %295, %.lr.ph161.i
   %270 = load i32, ptr %19, align 4
   %271 = sext i32 %270 to i64
-  %272 = getelementptr inbounds i16, ptr %.pre170.i, i64 %271
+  %272 = getelementptr inbounds [2 x i8], ptr %.pre170.i, i64 %271
   %273 = load i16, ptr %272, align 2
   %274 = zext i16 %273 to i32
   %275 = load i32, ptr %268, align 8
@@ -1504,9 +1504,9 @@ eval_nodes_set_max_tasks.exit.i61:                ; preds = %380, %378, %369, %3
 
 400:                                              ; preds = %.lr.ph.i62
   %401 = load ptr, ptr @node_record_table_ptr, align 8
-  %402 = getelementptr inbounds ptr, ptr %401, i64 %indvars.iv.i
+  %402 = getelementptr inbounds [8 x i8], ptr %401, i64 %indvars.iv.i
   %403 = load ptr, ptr %402, align 8
-  %404 = getelementptr inbounds ptr, ptr %330, i64 %indvars.iv.i
+  %404 = getelementptr inbounds [8 x i8], ptr %330, i64 %indvars.iv.i
   %405 = load ptr, ptr %404, align 8
   %.not218.i = icmp eq ptr %405, null
   br i1 %.not218.i, label %408, label %406
@@ -1706,7 +1706,7 @@ eval_nodes_set_max_tasks.exit.i61:                ; preds = %380, %378, %369, %3
   %.6167284.i = phi i32 [ %.5166316.i, %.preheader.i65 ], [ %.7168.i, %eval_nodes_cpus_to_use.exit.thread.i ]
   %.5174283.i = phi i32 [ %.4173315.i, %.preheader.i65 ], [ %.6175.i, %eval_nodes_cpus_to_use.exit.thread.i ]
   %.5190281.i = phi i64 [ %.4189313.i, %.preheader.i65 ], [ %.6191.i, %eval_nodes_cpus_to_use.exit.thread.i ]
-  %481 = getelementptr inbounds ptr, ptr %330, i64 %indvars.iv356.i
+  %481 = getelementptr inbounds [8 x i8], ptr %330, i64 %indvars.iv356.i
   %482 = load ptr, ptr %481, align 8
   %.not211.i = icmp eq ptr %482, null
   br i1 %.not211.i, label %eval_nodes_cpus_to_use.exit.thread.i, label %483
@@ -1747,7 +1747,7 @@ eval_nodes_set_max_tasks.exit.i61:                ; preds = %380, %378, %369, %3
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 216
   %500 = load ptr, ptr %499, align 8
   %501 = load ptr, ptr %329, align 8
-  %502 = getelementptr inbounds ptr, ptr %501, i64 %indvars.iv356.i
+  %502 = getelementptr inbounds [8 x i8], ptr %501, i64 %indvars.iv356.i
   %503 = load ptr, ptr %502, align 8
   %504 = getelementptr inbounds nuw i8, ptr %500, i64 480
   %505 = load i8, ptr %504, align 8
@@ -1768,7 +1768,7 @@ eval_nodes_set_max_tasks.exit.i61:                ; preds = %380, %378, %369, %3
 
 515:                                              ; preds = %507
   %516 = load ptr, ptr @node_record_table_ptr, align 8
-  %517 = getelementptr inbounds ptr, ptr %516, i64 %indvars.iv356.i
+  %517 = getelementptr inbounds [8 x i8], ptr %516, i64 %indvars.iv356.i
   %518 = load ptr, ptr %517, align 8
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 82
   %520 = load i16, ptr %519, align 2
@@ -1841,7 +1841,7 @@ eval_nodes_set_max_tasks.exit.i61:                ; preds = %380, %378, %369, %3
 
 554:                                              ; preds = %552
   %555 = load ptr, ptr @node_record_table_ptr, align 8
-  %556 = getelementptr inbounds ptr, ptr %555, i64 %indvars.iv356.i
+  %556 = getelementptr inbounds [8 x i8], ptr %555, i64 %indvars.iv356.i
   %557 = load ptr, ptr %556, align 8
   %558 = call zeroext i1 @eval_nodes_gres(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull %498, ptr noundef %557, i32 noundef %.5174283.i, i32 noundef %497, i32 noundef 0)
   br label %eval_nodes_cpus_to_use.exit.i
@@ -2134,9 +2134,9 @@ eval_nodes_set_max_tasks.exit.i78:                ; preds = %662, %660, %651, %6
 
 682:                                              ; preds = %.lr.ph.i81
   %683 = load ptr, ptr @node_record_table_ptr, align 8
-  %684 = getelementptr inbounds ptr, ptr %683, i64 %indvars.iv.i82
+  %684 = getelementptr inbounds [8 x i8], ptr %683, i64 %indvars.iv.i82
   %685 = load ptr, ptr %684, align 8
-  %686 = getelementptr inbounds ptr, ptr %612, i64 %indvars.iv.i82
+  %686 = getelementptr inbounds [8 x i8], ptr %612, i64 %indvars.iv.i82
   %687 = load ptr, ptr %686, align 8
   %.not247.i = icmp eq ptr %687, null
   br i1 %.not247.i, label %690, label %688
@@ -2337,7 +2337,7 @@ eval_nodes_set_max_tasks.exit.i78:                ; preds = %662, %660, %651, %6
   br i1 %.not242.i, label %768, label %854
 
 768:                                              ; preds = %765
-  %769 = getelementptr inbounds ptr, ptr %612, i64 %indvars.iv350.i
+  %769 = getelementptr inbounds [8 x i8], ptr %612, i64 %indvars.iv350.i
   %770 = load ptr, ptr %769, align 8
   %.not243.i = icmp eq ptr %770, null
   br i1 %.not243.i, label %854, label %771
@@ -2354,7 +2354,7 @@ eval_nodes_set_max_tasks.exit.i78:                ; preds = %662, %660, %651, %6
   %776 = getelementptr inbounds nuw i8, ptr %775, i64 216
   %777 = load ptr, ptr %776, align 8
   %778 = load ptr, ptr %611, align 8
-  %779 = getelementptr inbounds ptr, ptr %778, i64 %indvars.iv350.i
+  %779 = getelementptr inbounds [8 x i8], ptr %778, i64 %indvars.iv350.i
   %780 = load ptr, ptr %779, align 8
   %781 = getelementptr inbounds nuw i8, ptr %777, i64 480
   %782 = load i8, ptr %781, align 8
@@ -2373,7 +2373,7 @@ eval_nodes_set_max_tasks.exit.i78:                ; preds = %662, %660, %651, %6
 
 790:                                              ; preds = %784
   %791 = load ptr, ptr @node_record_table_ptr, align 8
-  %792 = getelementptr inbounds ptr, ptr %791, i64 %indvars.iv350.i
+  %792 = getelementptr inbounds [8 x i8], ptr %791, i64 %indvars.iv350.i
   %793 = load ptr, ptr %792, align 8
   %794 = getelementptr inbounds nuw i8, ptr %793, i64 82
   %795 = load i16, ptr %794, align 2
@@ -2452,13 +2452,13 @@ eval_nodes_cpus_to_use.exit.i97:                  ; preds = %818, %773
 
 828:                                              ; preds = %826
   %829 = sext i32 %.0174321.i to i64
-  %830 = getelementptr inbounds ptr, ptr %612, i64 %829
+  %830 = getelementptr inbounds [8 x i8], ptr %612, i64 %829
   %831 = load ptr, ptr %830, align 8
   %832 = getelementptr inbounds nuw i8, ptr %831, i64 24
   %833 = load i16, ptr %832, align 8
   %834 = zext i16 %833 to i32
   %835 = load ptr, ptr @node_record_table_ptr, align 8
-  %836 = getelementptr inbounds ptr, ptr %835, i64 %indvars.iv350.i
+  %836 = getelementptr inbounds [8 x i8], ptr %835, i64 %indvars.iv350.i
   %837 = load ptr, ptr %836, align 8
   %838 = getelementptr inbounds nuw i8, ptr %837, i64 112
   %839 = load i16, ptr %838, align 8
@@ -2467,7 +2467,7 @@ eval_nodes_cpus_to_use.exit.i97:                  ; preds = %818, %773
   %842 = getelementptr inbounds nuw i8, ptr %.pre.i98, i64 24
   %843 = load i16, ptr %842, align 8
   %844 = zext i16 %843 to i32
-  %845 = getelementptr inbounds ptr, ptr %835, i64 %829
+  %845 = getelementptr inbounds [8 x i8], ptr %835, i64 %829
   %846 = load ptr, ptr %845, align 8
   %847 = getelementptr inbounds nuw i8, ptr %846, i64 112
   %848 = load i16, ptr %847, align 8
@@ -2510,7 +2510,7 @@ eval_nodes_cpus_to_use.exit.i97:                  ; preds = %818, %773
 859:                                              ; preds = %857
   %860 = load ptr, ptr @node_record_table_ptr, align 8
   %861 = sext i32 %.1175.i to i64
-  %862 = getelementptr inbounds ptr, ptr %860, i64 %861
+  %862 = getelementptr inbounds [8 x i8], ptr %860, i64 %861
   %863 = load ptr, ptr %862, align 8
   %864 = call zeroext i1 @eval_nodes_gres(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef nonnull %59, ptr noundef %863, i32 noundef %.4207.i174.ph, i32 noundef %.1175.i, i32 noundef 0)
   br i1 %864, label %._crit_edge356.i, label %.lr.ph324.i, !llvm.loop !30
@@ -2522,7 +2522,7 @@ eval_nodes_cpus_to_use.exit.i97:                  ; preds = %818, %773
 865:                                              ; preds = %._crit_edge356.i, %._crit_edge359.i
   %.pre-phi361.i = phi i64 [ %.pre360.i, %._crit_edge359.i ], [ %861, %._crit_edge356.i ]
   %866 = phi i16 [ %.1.i92, %._crit_edge359.i ], [ %.pre357.i, %._crit_edge356.i ]
-  %867 = getelementptr inbounds ptr, ptr %612, i64 %.pre-phi361.i
+  %867 = getelementptr inbounds [8 x i8], ptr %612, i64 %.pre-phi361.i
   %868 = load ptr, ptr %867, align 8
   %869 = getelementptr inbounds nuw i8, ptr %868, i64 24
   %870 = load i16, ptr %869, align 8
@@ -2802,7 +2802,7 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
 995:                                              ; preds = %993
   %996 = add nsw i32 %.0349622.i, 1
   %997 = sext i32 %.0349622.i to i64
-  %998 = getelementptr inbounds i16, ptr %986, i64 %997
+  %998 = getelementptr inbounds [2 x i8], ptr %986, i64 %997
   %999 = load i16, ptr %998, align 2
   %1000 = zext i16 %999 to i32
   %1001 = load i16, ptr %988, align 8
@@ -2845,12 +2845,12 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
   store i16 %1020, ptr %930, align 8
   %1021 = load i32, ptr %2, align 4
   %1022 = sext i32 %1021 to i64
-  %1023 = getelementptr inbounds ptr, ptr %922, i64 %1022
+  %1023 = getelementptr inbounds [8 x i8], ptr %922, i64 %1022
   %1024 = load ptr, ptr %1023, align 8
   store i16 %1020, ptr %1024, align 8
   %1025 = load i32, ptr %2, align 4
   %1026 = sext i32 %1025 to i64
-  %1027 = getelementptr inbounds ptr, ptr %922, i64 %1026
+  %1027 = getelementptr inbounds [8 x i8], ptr %922, i64 %1026
   %1028 = load ptr, ptr %1027, align 8
   %1029 = load i16, ptr %1028, align 8
   %1030 = getelementptr inbounds nuw i8, ptr %1028, i64 2
@@ -2891,7 +2891,7 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
 1050:                                             ; preds = %1041
   %1051 = load i32, ptr %2, align 4
   %1052 = sext i32 %1051 to i64
-  %1053 = getelementptr inbounds i16, ptr %939, i64 %1052
+  %1053 = getelementptr inbounds [2 x i8], ptr %939, i64 %1052
   store i16 %1042, ptr %1053, align 2
   %1054 = load i16, ptr %930, align 8
   %1055 = zext i16 %1054 to i32
@@ -2996,7 +2996,7 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
   %1106 = load ptr, ptr @node_record_table_ptr, align 8
   %1107 = load i32, ptr %2, align 4
   %1108 = sext i32 %1107 to i64
-  %1109 = getelementptr inbounds ptr, ptr %1106, i64 %1108
+  %1109 = getelementptr inbounds [8 x i8], ptr %1106, i64 %1108
   %1110 = load ptr, ptr %1109, align 8
   br i1 %.0376.i, label %1123, label %1111
 
@@ -3019,7 +3019,7 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
   %.1352.i = phi ptr [ null, %1114 ], [ %1110, %1111 ]
   %1120 = load i32, ptr %2, align 4
   %1121 = sext i32 %1120 to i64
-  %1122 = getelementptr inbounds i16, ptr %939, i64 %1121
+  %1122 = getelementptr inbounds [2 x i8], ptr %939, i64 %1121
   store i16 %1119, ptr %1122, align 2
   br label %1123
 
@@ -3041,7 +3041,7 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
 1127:                                             ; preds = %1125
   %1128 = load ptr, ptr %9, align 8
   %1129 = sext i32 %.0353635.i to i64
-  %1130 = getelementptr inbounds i64, ptr %1128, i64 %1129
+  %1130 = getelementptr inbounds [8 x i8], ptr %1128, i64 %1129
   %1131 = load i64, ptr %1130, align 8
   %.not506.i = icmp eq i64 %1131, -2
   br i1 %.not506.i, label %1150, label %1132
@@ -3054,25 +3054,25 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
 
 1135:                                             ; preds = %1132
   %1136 = load ptr, ptr %5, align 8
-  %1137 = getelementptr inbounds i32, ptr %1136, i64 %1129
+  %1137 = getelementptr inbounds [4 x i8], ptr %1136, i64 %1129
   %1138 = load i32, ptr %1137, align 4
   %1139 = icmp eq i32 %1138, 0
   br i1 %1139, label %1140, label %1143
 
 1140:                                             ; preds = %1135
   %1141 = load ptr, ptr %8, align 8
-  %1142 = getelementptr inbounds i32, ptr %1141, i64 %1129
+  %1142 = getelementptr inbounds [4 x i8], ptr %1141, i64 %1129
   store i32 -1, ptr %1142, align 4
   br label %1150
 
 1143:                                             ; preds = %1135
   %1144 = add nsw i32 %1124, -1
   %1145 = load ptr, ptr %7, align 8
-  %1146 = getelementptr inbounds i32, ptr %1145, i64 %1129
+  %1146 = getelementptr inbounds [4 x i8], ptr %1145, i64 %1129
   store i32 %1144, ptr %1146, align 4
   %1147 = load ptr, ptr %8, align 8
   %1148 = sext i32 %1080 to i64
-  %1149 = getelementptr inbounds i32, ptr %1147, i64 %1148
+  %1149 = getelementptr inbounds [4 x i8], ptr %1147, i64 %1148
   store i32 -1, ptr %1149, align 4
   br label %1150
 
@@ -3080,7 +3080,7 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
   %.pre-phi843.i = phi i64 [ %.pre842.i, %._crit_edge833.i ], [ %1129, %1140 ], [ %1148, %1143 ], [ %1129, %1132 ], [ %1129, %1127 ]
   %.1354.ph.i = phi i32 [ %.0353635.i, %._crit_edge833.i ], [ %.0353635.i, %1140 ], [ %1080, %1143 ], [ %.0353635.i, %1132 ], [ %.0353635.i, %1127 ]
   %1151 = load ptr, ptr %5, align 8
-  %1152 = getelementptr inbounds i32, ptr %1151, i64 %.pre-phi843.i
+  %1152 = getelementptr inbounds [4 x i8], ptr %1151, i64 %.pre-phi843.i
   %1153 = load i32, ptr %1152, align 4
   %1154 = icmp eq i32 %1153, 0
   br i1 %1154, label %1155, label %1159
@@ -3088,7 +3088,7 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
 1155:                                             ; preds = %1150
   %1156 = load i32, ptr %2, align 4
   %1157 = load ptr, ptr %6, align 8
-  %1158 = getelementptr inbounds i32, ptr %1157, i64 %.pre-phi843.i
+  %1158 = getelementptr inbounds [4 x i8], ptr %1157, i64 %.pre-phi843.i
   store i32 %1156, ptr %1158, align 4
   br label %1159
 
@@ -3097,7 +3097,7 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
 
 1160:                                             ; preds = %1159
   %1161 = load ptr, ptr %8, align 8
-  %1162 = getelementptr inbounds i32, ptr %1161, i64 %.pre-phi843.i
+  %1162 = getelementptr inbounds [4 x i8], ptr %1161, i64 %.pre-phi843.i
   %1163 = load i32, ptr %1162, align 4
   %1164 = icmp eq i32 %1163, -1
   br i1 %1164, label %1165, label %1218
@@ -3115,12 +3115,12 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
   %1171 = load i16, ptr %930, align 8
   %1172 = zext i16 %1171 to i32
   %1173 = load ptr, ptr %3, align 8
-  %1174 = getelementptr inbounds i32, ptr %1173, i64 %.pre-phi843.i
+  %1174 = getelementptr inbounds [4 x i8], ptr %1173, i64 %.pre-phi843.i
   %1175 = load i32, ptr %1174, align 4
   %1176 = add nsw i32 %1175, %1172
   store i32 %1176, ptr %1174, align 4
   %1177 = load ptr, ptr %5, align 8
-  %1178 = getelementptr inbounds i32, ptr %1177, i64 %.pre-phi843.i
+  %1178 = getelementptr inbounds [4 x i8], ptr %1177, i64 %.pre-phi843.i
   %1179 = load i32, ptr %1178, align 4
   %1180 = add nsw i32 %1179, 1
   store i32 %1180, ptr %1178, align 4
@@ -3130,11 +3130,11 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
 
 1183:                                             ; preds = %1167
   %1184 = load ptr, ptr %4, align 8
-  %1185 = getelementptr inbounds ptr, ptr %1184, i64 %.pre-phi843.i
+  %1185 = getelementptr inbounds [8 x i8], ptr %1184, i64 %.pre-phi843.i
   %1186 = load ptr, ptr %942, align 8
   %1187 = load i32, ptr %2, align 4
   %1188 = sext i32 %1187 to i64
-  %1189 = getelementptr inbounds ptr, ptr %922, i64 %1188
+  %1189 = getelementptr inbounds [8 x i8], ptr %922, i64 %1188
   %1190 = load ptr, ptr %1189, align 8
   %1191 = getelementptr inbounds nuw i8, ptr %1190, i64 32
   %1192 = load ptr, ptr %1191, align 8
@@ -3145,24 +3145,24 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
   %1194 = getelementptr inbounds nuw i8, ptr %.0351.i, i64 440
   %1195 = load i64, ptr %1194, align 8
   %1196 = load ptr, ptr %9, align 8
-  %1197 = getelementptr inbounds i64, ptr %1196, i64 %.pre-phi843.i
+  %1197 = getelementptr inbounds [8 x i8], ptr %1196, i64 %.pre-phi843.i
   store i64 %1195, ptr %1197, align 8
   br label %1218
 
 .thread525.i:                                     ; preds = %1123, %1100
   %1198 = load ptr, ptr %5, align 8
   %1199 = sext i32 %.0353635.i to i64
-  %1200 = getelementptr inbounds i32, ptr %1198, i64 %1199
+  %1200 = getelementptr inbounds [4 x i8], ptr %1198, i64 %1199
   %1201 = load i32, ptr %1200, align 4
   %1202 = icmp eq i32 %1201, 0
   br i1 %1202, label %1203, label %1208
 
 1203:                                             ; preds = %.thread525.i
   %1204 = load ptr, ptr %8, align 8
-  %1205 = getelementptr inbounds i32, ptr %1204, i64 %1199
+  %1205 = getelementptr inbounds [4 x i8], ptr %1204, i64 %1199
   store i32 -1, ptr %1205, align 4
   %1206 = load ptr, ptr %9, align 8
-  %1207 = getelementptr inbounds i64, ptr %1206, i64 %1199
+  %1207 = getelementptr inbounds [8 x i8], ptr %1206, i64 %1199
   store i64 -2, ptr %1207, align 8
   br label %1218
 
@@ -3170,14 +3170,14 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
   %1209 = load i32, ptr %2, align 4
   %1210 = add nsw i32 %1209, -1
   %1211 = load ptr, ptr %7, align 8
-  %1212 = getelementptr inbounds i32, ptr %1211, i64 %1199
+  %1212 = getelementptr inbounds [4 x i8], ptr %1211, i64 %1199
   store i32 %1210, ptr %1212, align 4
   %1213 = load ptr, ptr %8, align 8
   %1214 = sext i32 %1080 to i64
-  %1215 = getelementptr inbounds i32, ptr %1213, i64 %1214
+  %1215 = getelementptr inbounds [4 x i8], ptr %1213, i64 %1214
   store i32 -1, ptr %1215, align 4
   %1216 = load ptr, ptr %9, align 8
-  %1217 = getelementptr inbounds i64, ptr %1216, i64 %1214
+  %1217 = getelementptr inbounds [8 x i8], ptr %1216, i64 %1214
   store i64 -2, ptr %1217, align 8
   br label %1218
 
@@ -3195,7 +3195,7 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
   %.0353.lcssa.i = phi i32 [ 0, %1076 ], [ %.2355.i, %1218 ]
   %1222 = load ptr, ptr %5, align 8
   %1223 = sext i32 %.0353.lcssa.i to i64
-  %1224 = getelementptr inbounds i32, ptr %1222, i64 %1223
+  %1224 = getelementptr inbounds [4 x i8], ptr %1222, i64 %1223
   %1225 = load i32, ptr %1224, align 4
   %.not464.i = icmp eq i32 %1225, 0
   br i1 %.not464.i, label %1232, label %1226
@@ -3205,7 +3205,7 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
   %1228 = add nsw i32 %1227, -1
   %1229 = load ptr, ptr %7, align 8
   %1230 = add nsw i32 %.0353.lcssa.i, 1
-  %1231 = getelementptr inbounds i32, ptr %1229, i64 %1223
+  %1231 = getelementptr inbounds [4 x i8], ptr %1229, i64 %1223
   store i32 %1228, ptr %1231, align 4
   br label %1232
 
@@ -3247,7 +3247,7 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
 1245:                                             ; preds = %.lr.ph641.i
   %1246 = load ptr, ptr %4, align 8
   %1247 = sext i32 %storemerge466639.i to i64
-  %1248 = getelementptr inbounds ptr, ptr %1246, i64 %1247
+  %1248 = getelementptr inbounds [8 x i8], ptr %1246, i64 %1247
   %1249 = load ptr, ptr %1248, align 8
   %1250 = call ptr @gres_sched_str(ptr noundef %1249) #8
   store ptr %1250, ptr %12, align 8
@@ -3268,11 +3268,11 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
   %1257 = load ptr, ptr %6, align 8
   %1258 = load i32, ptr %2, align 4
   %1259 = sext i32 %1258 to i64
-  %1260 = getelementptr inbounds i32, ptr %1257, i64 %1259
+  %1260 = getelementptr inbounds [4 x i8], ptr %1257, i64 %1259
   %1261 = load i32, ptr %1260, align 4
   %1262 = sext i32 %1261 to i64
   %1263 = load ptr, ptr %7, align 8
-  %1264 = getelementptr inbounds i32, ptr %1263, i64 %1259
+  %1264 = getelementptr inbounds [4 x i8], ptr %1263, i64 %1259
   %1265 = load i32, ptr %1264, align 4
   %1266 = sext i32 %1265 to i64
   call void @bit_nset(ptr noundef %1256, i64 noundef %1262, i64 noundef %1266) #8
@@ -3287,23 +3287,23 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
   %1272 = load i32, ptr %2, align 4
   %1273 = load ptr, ptr %3, align 8
   %1274 = sext i32 %1272 to i64
-  %1275 = getelementptr inbounds i32, ptr %1273, i64 %1274
+  %1275 = getelementptr inbounds [4 x i8], ptr %1273, i64 %1274
   %1276 = load i32, ptr %1275, align 4
   %1277 = load ptr, ptr %5, align 8
-  %1278 = getelementptr inbounds i32, ptr %1277, i64 %1274
+  %1278 = getelementptr inbounds [4 x i8], ptr %1277, i64 %1274
   %1279 = load i32, ptr %1278, align 4
   %1280 = load ptr, ptr %14, align 8
   %1281 = load ptr, ptr %6, align 8
-  %1282 = getelementptr inbounds i32, ptr %1281, i64 %1274
+  %1282 = getelementptr inbounds [4 x i8], ptr %1281, i64 %1274
   %1283 = load i32, ptr %1282, align 4
   %1284 = load ptr, ptr %7, align 8
-  %1285 = getelementptr inbounds i32, ptr %1284, i64 %1274
+  %1285 = getelementptr inbounds [4 x i8], ptr %1284, i64 %1274
   %1286 = load i32, ptr %1285, align 4
   %1287 = load ptr, ptr %8, align 8
-  %1288 = getelementptr inbounds i32, ptr %1287, i64 %1274
+  %1288 = getelementptr inbounds [4 x i8], ptr %1287, i64 %1274
   %1289 = load i32, ptr %1288, align 4
   %1290 = load ptr, ptr %9, align 8
-  %1291 = getelementptr inbounds i64, ptr %1290, i64 %1274
+  %1291 = getelementptr inbounds [8 x i8], ptr %1290, i64 %1274
   %1292 = load i64, ptr %1291, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.11, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._eval_nodes_consec, i32 noundef %1272, i32 noundef %1276, i32 noundef %1279, ptr noundef %1280, ptr noundef %.0341.i, i32 noundef %1283, i32 noundef %1286, i32 noundef %1289, i64 noundef %1292) #8
   br label %1293
@@ -3383,7 +3383,7 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
   %storemerge470642.i.us = phi i32 [ 0, %.preheader587.i.us ], [ %1388, %.loopexit.i.us ]
   %1311 = load ptr, ptr %5, align 8
   %1312 = sext i32 %storemerge470642.i.us to i64
-  %1313 = getelementptr inbounds i32, ptr %1311, i64 %1312
+  %1313 = getelementptr inbounds [4 x i8], ptr %1311, i64 %1312
   %1314 = load i32, ptr %1313, align 4
   %1315 = icmp eq i32 %1314, 0
   br i1 %1315, label %.loopexit.i.us, label %1316
@@ -3400,14 +3400,14 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
 
 1320:                                             ; preds = %1318
   %1321 = load ptr, ptr %8, align 8
-  %1322 = getelementptr inbounds i32, ptr %1321, i64 %1312
+  %1322 = getelementptr inbounds [4 x i8], ptr %1321, i64 %1312
   %1323 = load i32, ptr %1322, align 4
   %1324 = icmp eq i32 %1323, -1
   br i1 %1324, label %.loopexit.i.us, label %1325
 
 1325:                                             ; preds = %1320, %1318, %1316
   %1326 = load ptr, ptr %3, align 8
-  %1327 = getelementptr inbounds i32, ptr %1326, i64 %1312
+  %1327 = getelementptr inbounds [4 x i8], ptr %1326, i64 %1312
   %1328 = load i32, ptr %1327, align 4
   %.not473.i.us = icmp slt i32 %1328, %.2363772.i194.us
   %.not579.i.us = icmp slt i32 %1314, %.0.i518.i.us
@@ -3422,7 +3422,7 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
 1332:                                             ; preds = %1329
   %1333 = load ptr, ptr %942, align 8
   %1334 = load ptr, ptr %4, align 8
-  %1335 = getelementptr inbounds ptr, ptr %1334, i64 %1312
+  %1335 = getelementptr inbounds [8 x i8], ptr %1334, i64 %1312
   %1336 = load ptr, ptr %1335, align 8
   %1337 = call zeroext i1 @gres_sched_sufficient(ptr noundef %1333, ptr noundef %1336) #8
   %.pre805.pre.i.us = load i32, ptr %2, align 4
@@ -3446,7 +3446,7 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
 1341:                                             ; preds = %1339
   %1342 = load ptr, ptr %8, align 8
   %1343 = sext i32 %.pre805.i.us to i64
-  %1344 = getelementptr inbounds i32, ptr %1342, i64 %1343
+  %1344 = getelementptr inbounds [4 x i8], ptr %1342, i64 %1343
   %1345 = load i32, ptr %1344, align 4
   %.not474.i.us = icmp eq i32 %1345, -1
   br i1 %.not474.i.us, label %1346, label %.thread545.i.us
@@ -3454,7 +3454,7 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
 1346:                                             ; preds = %1341, %._crit_edge834.i.us
   %.pre-phi841.i.us = phi i64 [ %.pre840.i.us, %._crit_edge834.i.us ], [ %1343, %1341 ]
   %1347 = load ptr, ptr %9, align 8
-  %1348 = getelementptr inbounds i64, ptr %1347, i64 %.pre-phi841.i.us
+  %1348 = getelementptr inbounds [8 x i8], ptr %1347, i64 %.pre-phi841.i.us
   %1349 = load i64, ptr %1348, align 8
   %1350 = icmp ult i64 %1349, %.1398648.i.us
   br i1 %1350, label %.thread545.i.us, label %1351
@@ -3470,7 +3470,7 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
 
 1355:                                             ; preds = %1353
   %1356 = load ptr, ptr %3, align 8
-  %1357 = getelementptr inbounds i32, ptr %1356, i64 %.pre-phi841.i.us
+  %1357 = getelementptr inbounds [4 x i8], ptr %1356, i64 %.pre-phi841.i.us
   %1358 = load i32, ptr %1357, align 4
   br i1 %.0360.in.i.us, label %1360, label %.critedge511.i.us
 
@@ -3499,16 +3499,16 @@ eval_nodes_set_max_tasks.exit.i121:               ; preds = %980, %978, %969, %9
 .thread545.i.us:                                  ; preds = %.thread537..thread545_crit_edge.i.us, %1363, %1360, %.critedge511.i.us, %1353, %1346, %1341
   %.pre-phi839.i.us = phi i64 [ %.pre838.i.us, %.thread537..thread545_crit_edge.i.us ], [ %.pre-phi841.i.us, %1346 ], [ %1343, %1341 ], [ %.pre-phi841.i.us, %1353 ], [ %.pre-phi841.i.us, %.critedge511.i.us ], [ %.pre-phi841.i.us, %1360 ], [ %.pre-phi841.i.us, %1363 ]
   %1365 = load ptr, ptr %3, align 8
-  %1366 = getelementptr inbounds i32, ptr %1365, i64 %.pre-phi839.i.us
+  %1366 = getelementptr inbounds [4 x i8], ptr %1365, i64 %.pre-phi839.i.us
   %1367 = load i32, ptr %1366, align 4
   %1368 = load ptr, ptr %5, align 8
-  %1369 = getelementptr inbounds i32, ptr %1368, i64 %.pre-phi839.i.us
+  %1369 = getelementptr inbounds [4 x i8], ptr %1368, i64 %.pre-phi839.i.us
   %1370 = load i32, ptr %1369, align 4
   %1371 = load ptr, ptr %8, align 8
-  %1372 = getelementptr inbounds i32, ptr %1371, i64 %.pre-phi839.i.us
+  %1372 = getelementptr inbounds [4 x i8], ptr %1371, i64 %.pre-phi839.i.us
   %1373 = load i32, ptr %1372, align 4
   %1374 = load ptr, ptr %9, align 8
-  %1375 = getelementptr inbounds i64, ptr %1374, i64 %.pre-phi839.i.us
+  %1375 = getelementptr inbounds [8 x i8], ptr %1374, i64 %.pre-phi839.i.us
   %1376 = load i64, ptr %1375, align 8
   %.pr.pre.i.us = load i16, ptr %1304, align 8
   br label %thread-pre-split.i.us
@@ -3541,7 +3541,7 @@ thread-pre-split.i.us:                            ; preds = %.thread545.i.us, %1
   br i1 %.not479.i.us, label %1384, label %.loopexit.i.us
 
 1384:                                             ; preds = %1383
-  %1385 = getelementptr inbounds i32, ptr %1381, i64 %indvars.iv.next.i129.us
+  %1385 = getelementptr inbounds [4 x i8], ptr %1381, i64 %indvars.iv.next.i129.us
   %1386 = load i32, ptr %1385, align 4
   %.not477.i.us = icmp eq i32 %1386, -1
   br i1 %.not477.i.us, label %1383, label %.critedge3.i, !llvm.loop !34
@@ -3578,7 +3578,7 @@ thread-pre-split.i.us:                            ; preds = %.thread545.i.us, %1
   %1396 = sext i32 %.3408.i.us to i64
   store i32 %.2416.i.us, ptr %2, align 4
   %1397 = load ptr, ptr %7, align 8
-  %1398 = getelementptr inbounds i32, ptr %1397, i64 %1396
+  %1398 = getelementptr inbounds [4 x i8], ptr %1397, i64 %1396
   %1399 = load i32, ptr %1398, align 4
   %.not493656.i.us = icmp sgt i32 %.2416.i.us, %1399
   br i1 %.not493656.i.us, label %._crit_edge663.i.us, label %.lr.ph662.i.us
@@ -3625,7 +3625,7 @@ thread-pre-split.i.us:                            ; preds = %.thread545.i.us, %1
 
 1418:                                             ; preds = %1413
   %1419 = sext i32 %.pre812.i.us to i64
-  %1420 = getelementptr inbounds i16, ptr %939, i64 %1419
+  %1420 = getelementptr inbounds [2 x i8], ptr %939, i64 %1419
   %1421 = load i16, ptr %1420, align 2
   %1422 = icmp eq i16 %1421, 0
   br i1 %1422, label %1437, label %1423
@@ -3662,7 +3662,7 @@ thread-pre-split.i.us:                            ; preds = %.thread545.i.us, %1
   %1439 = add nsw i32 %1438, 1
   store i32 %1439, ptr %2, align 4
   %1440 = load ptr, ptr %7, align 8
-  %1441 = getelementptr inbounds i32, ptr %1440, i64 %1396
+  %1441 = getelementptr inbounds [4 x i8], ptr %1440, i64 %1396
   %1442 = load i32, ptr %1441, align 4
   %.not493.not.i.us = icmp slt i32 %1438, %1442
   br i1 %.not493.not.i.us, label %.lr.ph662.i.us, label %._crit_edge663.i.us, !llvm.loop !36
@@ -3675,7 +3675,7 @@ thread-pre-split.i.us:                            ; preds = %.thread545.i.us, %1
   %storemerge495691.i.us = add nsw i32 %.2416.i.us, -1
   store i32 %storemerge495691.i.us, ptr %2, align 4
   %1443 = load ptr, ptr %6, align 8
-  %1444 = getelementptr inbounds i32, ptr %1443, i64 %1396
+  %1444 = getelementptr inbounds [4 x i8], ptr %1443, i64 %1396
   %1445 = load i32, ptr %1444, align 4
   %.not496.not692.i.us = icmp sgt i32 %.2416.i.us, %1445
   br i1 %.not496.not692.i.us, label %.lr.ph699.i.us, label %.loopexit581.i.us
@@ -3722,7 +3722,7 @@ thread-pre-split.i.us:                            ; preds = %.thread545.i.us, %1
 
 1464:                                             ; preds = %1459
   %1465 = sext i32 %.pre817.i.us to i64
-  %1466 = getelementptr inbounds i16, ptr %939, i64 %1465
+  %1466 = getelementptr inbounds [2 x i8], ptr %939, i64 %1465
   %1467 = load i16, ptr %1466, align 2
   %1468 = icmp eq i16 %1467, 0
   br i1 %1468, label %1483, label %1469
@@ -3759,7 +3759,7 @@ thread-pre-split.i.us:                            ; preds = %.thread545.i.us, %1
   %storemerge495.i.us = add nsw i32 %1484, -1
   store i32 %storemerge495.i.us, ptr %2, align 4
   %1485 = load ptr, ptr %6, align 8
-  %1486 = getelementptr inbounds i32, ptr %1485, i64 %1396
+  %1486 = getelementptr inbounds [4 x i8], ptr %1485, i64 %1396
   %1487 = load i32, ptr %1486, align 4
   %.not496.not.i.us = icmp sgt i32 %1484, %1487
   br i1 %.not496.not.i.us, label %.lr.ph699.i.us, label %.loopexit581.i.us, !llvm.loop !37
@@ -3767,10 +3767,10 @@ thread-pre-split.i.us:                            ; preds = %.thread545.i.us, %1
 1488:                                             ; preds = %1395
   %1489 = load ptr, ptr %6, align 8
   %1490 = sext i32 %.3408.i.us to i64
-  %1491 = getelementptr inbounds i32, ptr %1489, i64 %1490
+  %1491 = getelementptr inbounds [4 x i8], ptr %1489, i64 %1490
   %1492 = load i32, ptr %1491, align 4
   %1493 = load ptr, ptr %7, align 8
-  %1494 = getelementptr inbounds i32, ptr %1493, i64 %1490
+  %1494 = getelementptr inbounds [4 x i8], ptr %1493, i64 %1490
   %1495 = load i32, ptr %1494, align 4
   %1496 = icmp slt i32 %.3368771.i195.us, 2
   br i1 %1496, label %.preheader584.i.us, label %.loopexit583.i.us
@@ -3793,13 +3793,13 @@ thread-pre-split.i.us:                            ; preds = %.thread545.i.us, %1
 
 1500:                                             ; preds = %.lr.ph727.i.us
   %1501 = sext i32 %.pre821.i.us to i64
-  %1502 = getelementptr inbounds ptr, ptr %922, i64 %1501
+  %1502 = getelementptr inbounds [8 x i8], ptr %922, i64 %1501
   %1503 = load ptr, ptr %1502, align 8
   %.not483.i.us = icmp eq ptr %1503, null
   br i1 %.not483.i.us, label %._crit_edge819.i.us, label %1504
 
 1504:                                             ; preds = %1500
-  %1505 = getelementptr inbounds i16, ptr %939, i64 %1501
+  %1505 = getelementptr inbounds [2 x i8], ptr %939, i64 %1501
   %1506 = load i16, ptr %1505, align 2
   %1507 = zext i16 %1506 to i32
   %1508 = icmp sgt i32 %.2363772.i194.us, %1507
@@ -3826,7 +3826,7 @@ thread-pre-split.i.us:                            ; preds = %.thread545.i.us, %1
   %.pre836.i.us.pre-phi = phi i64 [ %.pre255, %._crit_edge254 ], [ %1501, %1509 ]
   %.pre818.i.us = phi i32 [ %.pre818.pre.i.us, %._crit_edge254 ], [ %.pre821.i.us, %1509 ]
   %1518 = icmp eq i32 %.0337725.i.us, -1
-  %.phi.trans.insert = getelementptr inbounds i16, ptr %939, i64 %.pre836.i.us.pre-phi
+  %.phi.trans.insert = getelementptr inbounds [2 x i8], ptr %939, i64 %.pre836.i.us.pre-phi
   %.pre252 = load i16, ptr %.phi.trans.insert, align 2
   %.pre253 = zext i16 %.pre252 to i32
   %1519 = icmp samesign ugt i32 %.0335726.i.us, %.pre253
@@ -3862,7 +3862,7 @@ thread-pre-split.i.us:                            ; preds = %.thread545.i.us, %1
 
 1524:                                             ; preds = %.lr.ph734.i.us
   %1525 = sext i32 %storemerge485733.i.us to i64
-  %1526 = getelementptr inbounds i16, ptr %939, i64 %1525
+  %1526 = getelementptr inbounds [2 x i8], ptr %939, i64 %1525
   store i16 0, ptr %1526, align 2
   %.pre822.i.us = load i32, ptr %2, align 4
   br label %1527
@@ -3921,13 +3921,13 @@ thread-pre-split.i.us:                            ; preds = %.thread545.i.us, %1
 
 1548:                                             ; preds = %1543
   %1549 = sext i32 %.pre827.i.us to i64
-  %1550 = getelementptr inbounds ptr, ptr %922, i64 %1549
+  %1550 = getelementptr inbounds [8 x i8], ptr %922, i64 %1549
   %1551 = load ptr, ptr %1550, align 8
   %.not489.i.us = icmp eq ptr %1551, null
   br i1 %.not489.i.us, label %1575, label %1552
 
 1552:                                             ; preds = %1548
-  %1553 = getelementptr inbounds i16, ptr %939, i64 %1549
+  %1553 = getelementptr inbounds [2 x i8], ptr %939, i64 %1549
   %1554 = load i16, ptr %1553, align 2
   store i16 %1554, ptr %930, align 8
   %1555 = icmp eq i16 %1554, 0
@@ -3993,10 +3993,10 @@ thread-pre-split.i.us:                            ; preds = %.thread545.i.us, %1
 1584:                                             ; preds = %1580, %.loopexit581.i.us
   %1585 = load ptr, ptr %3, align 8
   %1586 = sext i32 %.3408.i.us to i64
-  %1587 = getelementptr inbounds i32, ptr %1585, i64 %1586
+  %1587 = getelementptr inbounds [4 x i8], ptr %1585, i64 %1586
   store i32 0, ptr %1587, align 4
   %1588 = load ptr, ptr %5, align 8
-  %1589 = getelementptr inbounds i32, ptr %1588, i64 %1586
+  %1589 = getelementptr inbounds [4 x i8], ptr %1588, i64 %1586
   store i32 0, ptr %1589, align 4
   %1590 = load i32, ptr %963, align 8
   %.not469.i.us = icmp eq i32 %1590, 0
@@ -4067,7 +4067,7 @@ thread-pre-split.i.us:                            ; preds = %.thread545.i.us, %1
   %storemerge498785.i = phi i32 [ %1618, %1614 ], [ 0, %.preheader.i126 ]
   %1609 = load ptr, ptr %4, align 8
   %1610 = sext i32 %storemerge498785.i to i64
-  %1611 = getelementptr inbounds ptr, ptr %1609, i64 %1610
+  %1611 = getelementptr inbounds [8 x i8], ptr %1609, i64 %1610
   %1612 = load ptr, ptr %1611, align 8
   %.not499.i = icmp eq ptr %1612, null
   br i1 %.not499.i, label %1614, label %1613
@@ -4083,7 +4083,7 @@ thread-pre-split.i.us:                            ; preds = %.thread545.i.us, %1
   %.pre-phi.i127 = phi i64 [ %.pre832.i, %1613 ], [ %1610, %.lr.ph786.i ]
   %1615 = phi i32 [ %.pre829.i, %1613 ], [ %storemerge498785.i, %.lr.ph786.i ]
   %1616 = phi ptr [ %.pre828.i, %1613 ], [ %1609, %.lr.ph786.i ]
-  %1617 = getelementptr inbounds ptr, ptr %1616, i64 %.pre-phi.i127
+  %1617 = getelementptr inbounds [8 x i8], ptr %1616, i64 %.pre-phi.i127
   store ptr null, ptr %1617, align 8
   %1618 = add nsw i32 %1615, 1
   store i32 %1618, ptr %2, align 4
@@ -4280,9 +4280,9 @@ eval_nodes_set_max_tasks.exit:                    ; preds = %37, %54, %63, %65
 
 85:                                               ; preds = %.lr.ph
   %86 = load ptr, ptr @node_record_table_ptr, align 8
-  %87 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds [8 x i8], ptr %86, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %89 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8
   %.not207 = icmp eq ptr %90, null
   br i1 %.not207, label %93, label %91
@@ -4466,7 +4466,7 @@ eval_nodes_set_max_tasks.exit:                    ; preds = %37, %54, %63, %65
   br i1 %.not201, label %.critedge3, label %164
 
 164:                                              ; preds = %.preheader
-  %165 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv335
+  %165 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv335
   %166 = load ptr, ptr %165, align 8
   %.not202 = icmp eq ptr %166, null
   br i1 %.not202, label %199, label %167
@@ -4606,7 +4606,7 @@ define dso_local noundef zeroext i1 @eval_nodes_cpus_to_use(ptr noundef %0, i32 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 480
   %17 = load i8, ptr %16, align 8
@@ -4628,7 +4628,7 @@ define dso_local noundef zeroext i1 @eval_nodes_cpus_to_use(ptr noundef %0, i32 
 
 28:                                               ; preds = %19
   %29 = load ptr, ptr @node_record_table_ptr, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %13
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %13
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 82
   %33 = load i16, ptr %32, align 2
@@ -4707,7 +4707,7 @@ define dso_local noundef zeroext i1 @eval_nodes_cpus_to_use(ptr noundef %0, i32 
 
 71:                                               ; preds = %68
   %72 = load ptr, ptr @node_record_table_ptr, align 8
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %13
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %13
   %74 = load ptr, ptr %73, align 8
   %75 = tail call zeroext i1 @eval_nodes_gres(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %8, ptr noundef %74, i32 noundef %3, i32 noundef %1, i32 noundef 0)
   br label %76
@@ -4748,7 +4748,7 @@ define dso_local void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) 
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr @node_record_table_ptr, align 8
   %26 = sext i32 %1 to i64
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -4914,7 +4914,7 @@ define dso_local void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) 
   br i1 %.not120, label %106, label %.thread._crit_edge
 
 .thread._crit_edge:                               ; preds = %.thread
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %10, i64 %26
+  %.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %10, i64 %26
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.pre127 = load i16, ptr %.pre, align 8
   br label %122
@@ -4923,7 +4923,7 @@ define dso_local void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) 
   %107 = phi i32 [ %102, %.thread ], [ %.sink, %100 ]
   %108 = phi i32 [ %103, %.thread ], [ %101, %100 ]
   %109 = phi i1 [ true, %.thread ], [ false, %100 ]
-  %110 = getelementptr inbounds ptr, ptr %10, i64 %26
+  %110 = getelementptr inbounds [8 x i8], ptr %10, i64 %26
   %111 = load ptr, ptr %110, align 8
   %112 = load i16, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %22, i64 10
@@ -4949,7 +4949,7 @@ define dso_local void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) 
   %123 = phi i32 [ 0, %118 ], [ %116, %121 ], [ %107, %119 ], [ %102, %.thread._crit_edge ]
   %124 = phi i16 [ %112, %118 ], [ %112, %121 ], [ %112, %119 ], [ %.pre127, %.thread._crit_edge ]
   %125 = phi i1 [ %109, %118 ], [ %109, %121 ], [ %109, %119 ], [ true, %.thread._crit_edge ]
-  %126 = getelementptr inbounds ptr, ptr %10, i64 %26
+  %126 = getelementptr inbounds [8 x i8], ptr %10, i64 %26
   store i16 %124, ptr %8, align 2
   %127 = getelementptr inbounds nuw i8, ptr %20, i64 296
   %128 = load ptr, ptr %127, align 8
@@ -4966,7 +4966,7 @@ define dso_local void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) 
   %136 = load i16, ptr %135, align 2
   %137 = getelementptr inbounds nuw i8, ptr %28, i64 528
   %138 = load i16, ptr %137, align 8
-  %139 = getelementptr inbounds ptr, ptr %7, i64 %26
+  %139 = getelementptr inbounds [8 x i8], ptr %7, i64 %26
   %140 = load ptr, ptr %139, align 8
   %141 = load ptr, ptr %27, align 8
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 272
@@ -5010,7 +5010,7 @@ define dso_local void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) 
   br i1 %163, label %164, label %169
 
 164:                                              ; preds = %160
-  %165 = getelementptr inbounds ptr, ptr %7, i64 %26
+  %165 = getelementptr inbounds [8 x i8], ptr %7, i64 %26
   %166 = load ptr, ptr %165, align 8
   %167 = call i32 @bit_set_count(ptr noundef %166) #8
   %168 = trunc i32 %167 to i16
@@ -5274,7 +5274,7 @@ define internal range(i32 0, 2) i32 @_add_nodes_by_weight_spread(ptr noundef rea
 17:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %64 ]
   %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %.not34 = icmp eq ptr %20, null
   br i1 %.not34, label %64, label %21
@@ -5298,7 +5298,7 @@ define internal range(i32 0, 2) i32 @_add_nodes_by_weight_spread(ptr noundef rea
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %1, align 8
-  %31 = getelementptr inbounds i16, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds [2 x i8], ptr %30, i64 %indvars.iv
   %32 = load i16, ptr %31, align 2
   %.not38 = icmp eq i16 %32, 0
   br i1 %.not38, label %64, label %33
@@ -5309,7 +5309,7 @@ define internal range(i32 0, 2) i32 @_add_nodes_by_weight_spread(ptr noundef rea
   %35 = load i32, ptr %9, align 8
   %36 = trunc i32 %35 to i16
   %37 = load ptr, ptr %10, align 8
-  %38 = getelementptr inbounds i16, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds [2 x i8], ptr %37, i64 %indvars.iv
   store i16 %36, ptr %38, align 2
   %39 = load ptr, ptr %11, align 8
   %40 = load i32, ptr %39, align 4

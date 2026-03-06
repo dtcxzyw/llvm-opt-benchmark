@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%struct.opj_image_comp = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i16 }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -57,7 +56,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__uniq_ptr_impl.20" = type { %"class.std::tuple.21" }
 %"class.std::tuple.21" = type { %"struct.std::_Tuple_impl.22" }
 %"struct.std::_Tuple_impl.22" = type { %"struct.std::_Head_base.17" }
-%struct.opj_image_comptparm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 $_ZNSt10unique_ptrIPvN2cv6detail16OpjStreamDeleterEED2Ev = comdat any
 
@@ -322,7 +320,7 @@ define hidden noundef zeroext i1 @_ZN2cv6detail20Jpeg2KOpjDecoderBase10readHeade
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %25 = load ptr, ptr %24, align 8, !tbaa !78
   %26 = zext nneg i32 %21 to i64
-  %27 = getelementptr i64, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %28 = getelementptr i8, ptr %27, i64 -8
   %29 = load i64, ptr %28, align 8, !tbaa !79
   br label %_ZN2cv6detail15OpjMemoryBufferC2ERNS_3MatE.exit
@@ -537,7 +535,7 @@ _ZNSt10unique_ptrI9opj_imageN2cv6detail15OpjImageDeleterEE5resetEPS0_.exit: ; pr
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %147 ]
   %109 = phi i32 [ %.promoted, %.lr.ph ], [ %153, %147 ]
   %.03667 = phi i1 [ false, %.lr.ph ], [ %151, %147 ]
-  %110 = getelementptr inbounds nuw %struct.opj_image_comp, ptr %104, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [64 x i8], ptr %104, i64 %indvars.iv
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %112 = load i32, ptr %111, align 8, !tbaa !99
   %.not41 = icmp eq i32 %112, 0
@@ -1596,7 +1594,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %17
 
 188:                                              ; preds = %.lr.ph, %179
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %179 ]
-  %189 = getelementptr inbounds nuw %struct.opj_image_comp, ptr %164, i64 %indvars.iv
+  %189 = getelementptr inbounds nuw [64 x i8], ptr %164, i64 %indvars.iv
   %190 = load i32, ptr %189, align 8, !tbaa !151
   %191 = icmp eq i32 %190, 1
   br i1 %191, label %193, label %192
@@ -1882,14 +1880,14 @@ _ZNSt6vectorIPKiSaIS1_EED2Ev.exit75:              ; preds = %54
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %77 = load ptr, ptr %76, align 8, !tbaa !98
   %78 = zext nneg i32 %75 to i64
-  %79 = getelementptr inbounds nuw %struct.opj_image_comp, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [64 x i8], ptr %77, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = load ptr, ptr %80, align 8, !tbaa !157
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 112
   %83 = load ptr, ptr %82, align 8, !tbaa !157
   %84 = xor i32 %75, 2
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw %struct.opj_image_comp, ptr %77, i64 %85
+  %86 = getelementptr inbounds nuw [64 x i8], ptr %77, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %88 = load ptr, ptr %87, align 8, !tbaa !157
   %89 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
@@ -2179,7 +2177,7 @@ define internal noundef zeroext i1 @_ZN2cv12_GLOBAL__N_119decodeGrayscaleDataERK
 .noexc:                                           ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr %21, ptr %5, align 8, !tbaa !158
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %17
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %23, ptr %24, align 8, !tbaa !161
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 %20
@@ -3365,7 +3363,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %70,
   %100 = phi ptr [ %76, %.lr.ph.i ], [ %159, %156 ]
   %.02041.i = phi i1 [ false, %.lr.ph.i ], [ %.121.i, %156 ]
   %.02240.i = phi i64 [ 0, %.lr.ph.i ], [ %157, %156 ]
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %.02240.i
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %.02240.i
   %102 = load i32, ptr %101, align 4, !tbaa !104
   %cond.i = icmp eq i32 %102, 272
   br i1 %cond.i, label %103, label %108
@@ -3399,7 +3397,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %70,
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i: ; preds = %114
   %116 = load ptr, ptr %2, align 8, !tbaa !218, !noalias !219
-  %117 = getelementptr inbounds nuw i32, ptr %116, i64 %.02240.i
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %.02240.i
   %118 = load i32, ptr %117, align 4, !tbaa !104
   %119 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %77, i32 noundef %118)
           to label %120 unwind label %149
@@ -3591,7 +3589,7 @@ _ZNSt6vectorI19opj_image_comptparmSaIS0_EEC2EmRKS1_.exit: ; preds = %.lr.ph.i.i.
 
 190:                                              ; preds = %_ZNSt6vectorI19opj_image_comptparmSaIS0_EEC2EmRKS1_.exit, %190
   %indvars.iv = phi i64 [ 0, %_ZNSt6vectorI19opj_image_comptparmSaIS0_EEC2EmRKS1_.exit ], [ %indvars.iv.next, %190 ]
-  %191 = getelementptr inbounds nuw %struct.opj_image_comptparm, ptr %171, i64 %indvars.iv
+  %191 = getelementptr inbounds nuw [36 x i8], ptr %171, i64 %indvars.iv
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
   store i32 %.0.i, ptr %192, align 4, !tbaa !243
   %193 = getelementptr inbounds nuw i8, ptr %191, i64 28
@@ -3666,7 +3664,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116: ; preds = %20
 214:                                              ; preds = %213, %213
   %215 = getelementptr inbounds nuw i8, ptr %187, i64 24
   %216 = load ptr, ptr %215, align 8, !tbaa !98
-  %217 = getelementptr %struct.opj_image_comp, ptr %216, i64 %169
+  %217 = getelementptr [64 x i8], ptr %216, i64 %169
   %218 = getelementptr i8, ptr %217, i64 -8
   store i16 1, ptr %218, align 8, !tbaa !102
   br label %219
@@ -3812,7 +3810,7 @@ _ZNSt6vectorIPiSaIS0_EE6assignESt16initializer_listIS0_E.exit126: ; preds = %.no
 .lr.ph.i.i.i.i.i.preheader.us.us.us.i.i:          ; preds = %_ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsIhEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i, %.lr.ph.us.us.i.i
   %.0222.us.us.us.i.i = phi i64 [ 0, %.lr.ph.us.us.i.i ], [ %295, %_ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsIhEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i ]
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 %.0222.us.us.us.i.i
-  %287 = getelementptr inbounds nuw ptr, ptr %233, i64 %.0222.us.us.us.i.i
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %.0222.us.us.us.i.i
   %288 = load ptr, ptr %287, align 8, !tbaa !170
   br label %.lr.ph.i.i.i.i.i.us.us.us.i.i
 
@@ -3880,8 +3878,8 @@ _ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsIhEEEEPiET0_T_
 
 .lr.ph.i.i.i.i.i.preheader.us.us.us.i24.i:        ; preds = %_ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsItEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i, %.lr.ph.us.us.i22.i
   %.0222.us.us.us.i25.i = phi i64 [ 0, %.lr.ph.us.us.i22.i ], [ %324, %_ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsItEEEEPiET0_T_S8_S7_.exit.loopexit.us.us.us.i.i ]
-  %315 = getelementptr inbounds nuw i16, ptr %314, i64 %.0222.us.us.us.i25.i
-  %316 = getelementptr inbounds nuw ptr, ptr %233, i64 %.0222.us.us.us.i25.i
+  %315 = getelementptr inbounds nuw [2 x i8], ptr %314, i64 %.0222.us.us.us.i25.i
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %.0222.us.us.us.i25.i
   %317 = load ptr, ptr %316, align 8, !tbaa !170
   br label %.lr.ph.i.i.i.i.i.us.us.us.i26.i
 
@@ -3892,7 +3890,7 @@ _ZSt4copyIN2cv12_GLOBAL__N_116ChannelsIteratorINS1_13ConstItTraitsIhEEEEPiET0_T_
   %318 = load i16, ptr %.sroa.08.09.i.i.i.i.i.us.us.us.i29.i, align 2, !tbaa !255
   %319 = zext i16 %318 to i32
   store i32 %319, ptr %.0410.i.i.i.i.i.us.us.us.i28.i, align 4, !tbaa !104
-  %320 = getelementptr inbounds nuw i16, ptr %.sroa.08.09.i.i.i.i.i.us.us.us.i29.i, i64 %169
+  %320 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.08.09.i.i.i.i.i.us.us.us.i29.i, i64 %169
   %321 = getelementptr inbounds nuw i8, ptr %.0410.i.i.i.i.i.us.us.us.i28.i, i64 4
   %322 = add nsw i64 %.011.i.i.i.i.i.us.us.us.i27.i, -1
   %323 = icmp samesign ugt i64 %.011.i.i.i.i.i.us.us.us.i27.i, 1
@@ -5292,9 +5290,9 @@ define internal fastcc void @_ZN2cv12_GLOBAL__N_19copyToMatIiEEvOSt6vectorIPKT_S
 
 _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.us.us.us.i: ; preds = %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.us.us.us.i, %.lr.ph.us.us.i
   %.05267.us.us.us.i = phi i64 [ 0, %.lr.ph.us.us.i ], [ %31, %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.us.us.us.i ]
-  %28 = getelementptr inbounds nuw ptr, ptr %18, i64 %.05267.us.us.us.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.05267.us.us.us.i
   %29 = load ptr, ptr %28, align 8, !tbaa !170
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %26
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %26
   store ptr %30, ptr %28, align 8, !tbaa !170
   %31 = add nuw i64 %.05267.us.us.us.i, 1
   %exitcond91.not.i = icmp eq i64 %31, %22
@@ -5318,7 +5316,7 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhE
 .lr.ph.i.us.i:                                    ; preds = %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.loopexit.us.i, %.lr.ph.us.i
   %39 = phi ptr [ %33, %.lr.ph.us.i ], [ %50, %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.loopexit.us.i ]
   %.05267.us70.i = phi i64 [ 0, %.lr.ph.us.i ], [ %54, %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.loopexit.us.i ]
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %.05267.us70.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.05267.us70.i
   %41 = load ptr, ptr %40, align 8, !tbaa !170
   %42 = getelementptr inbounds i8, ptr %41, i64 %.idx.i
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 %.05267.us70.i
@@ -5338,9 +5336,9 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhE
 
 _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.loopexit.us.i: ; preds = %44
   %50 = load ptr, ptr %0, align 8, !tbaa !158
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.05267.us70.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.05267.us70.i
   %52 = load ptr, ptr %51, align 8, !tbaa !170
-  %53 = getelementptr inbounds i32, ptr %52, i64 %26
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %26
   store ptr %53, ptr %51, align 8, !tbaa !170
   %54 = add nuw i64 %.05267.us70.i, 1
   %exitcond.not.i = icmp eq i64 %54, %22
@@ -5376,9 +5374,9 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhE
 
 _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.us.us.us.i: ; preds = %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.us.us.us.i, %.lr.ph.us77.us.i
   %.05473.us.us.us.i = phi i64 [ 0, %.lr.ph.us77.us.i ], [ %61, %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.us.us.us.i ]
-  %58 = getelementptr inbounds nuw ptr, ptr %18, i64 %.05473.us.us.us.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.05473.us.us.us.i
   %59 = load ptr, ptr %58, align 8, !tbaa !170
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %57
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %57
   store ptr %60, ptr %58, align 8, !tbaa !170
   %61 = add nuw i64 %.05473.us.us.us.i, 1
   %exitcond101.not.i = icmp eq i64 %61, %22
@@ -5402,7 +5400,7 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhE
 .lr.ph.i57.preheader.us.i:                        ; preds = %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.loopexit.us.i, %.lr.ph.us77.i
   %69 = phi ptr [ %63, %.lr.ph.us77.i ], [ %78, %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.loopexit.us.i ]
   %.05473.us76.i = phi i64 [ 0, %.lr.ph.us77.i ], [ %82, %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.loopexit.us.i ]
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %.05473.us76.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %.05473.us76.i
   %71 = load ptr, ptr %70, align 8, !tbaa !170
   %72 = getelementptr inbounds i8, ptr %71, i64 %.idx64.i
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 %.05473.us76.i
@@ -5421,9 +5419,9 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhE
 
 _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhEEEEZNS3_13copyToMatImplIhS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.loopexit.us.i: ; preds = %.lr.ph.i57.us.i
   %78 = load ptr, ptr %0, align 8, !tbaa !158
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %.05473.us76.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %.05473.us76.i
   %80 = load ptr, ptr %79, align 8, !tbaa !170
-  %81 = getelementptr inbounds i32, ptr %80, i64 %57
+  %81 = getelementptr inbounds [4 x i8], ptr %80, i64 %57
   store ptr %81, ptr %79, align 8, !tbaa !170
   %82 = add nuw i64 %.05473.us76.i, 1
   %exitcond94.not.i = icmp eq i64 %82, %22
@@ -5485,7 +5483,7 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsIhE
 
 _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.us.us.us.i: ; preds = %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.us.us.us.i, %.lr.ph.us.us.i26
   %.0527.us.us.us.i = phi i64 [ 0, %.lr.ph.us.us.i26 ], [ %107, %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.us.us.us.i ]
-  %104 = getelementptr inbounds nuw ptr, ptr %.val, i64 %.0527.us.us.us.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %.0527.us.us.us.i
   %105 = load ptr, ptr %104, align 8, !tbaa !170
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx.i14
   store ptr %106, ptr %104, align 8, !tbaa !170
@@ -5506,10 +5504,10 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItE
 
 .lr.ph.i.us.i20:                                  ; preds = %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.loopexit.us.i, %.lr.ph.us.i18
   %.0527.us10.i = phi i64 [ 0, %.lr.ph.us.i18 ], [ %121, %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.loopexit.us.i ]
-  %111 = getelementptr inbounds nuw ptr, ptr %.val, i64 %.0527.us10.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %.0527.us10.i
   %112 = load ptr, ptr %111, align 8, !tbaa !170
   %113 = getelementptr inbounds i8, ptr %112, i64 %.idx.i14
-  %114 = getelementptr inbounds nuw i16, ptr %110, i64 %.0527.us10.i
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %.0527.us10.i
   br label %115
 
 115:                                              ; preds = %115, %.lr.ph.i.us.i20
@@ -5520,7 +5518,7 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItE
   %118 = trunc i32 %117 to i16
   store i16 %118, ptr %.sroa.05.08.i.us.i22, align 2, !tbaa !255
   %119 = getelementptr inbounds nuw i8, ptr %.09.i.us.i21, i64 4
-  %120 = getelementptr inbounds nuw i16, ptr %.sroa.05.08.i.us.i22, i64 %95
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.05.08.i.us.i22, i64 %95
   %.not.i.us.i23 = icmp eq ptr %119, %113
   br i1 %.not.i.us.i23, label %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE_ESA_T_SI_SA_T1_.exit.loopexit.us.i, label %115, !llvm.loop !283
 
@@ -5563,7 +5561,7 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItE
 
 _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.us.us.us.i: ; preds = %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.us.us.us.i, %.lr.ph.us17.us.i
   %.05413.us.us.us.i = phi i64 [ 0, %.lr.ph.us17.us.i ], [ %131, %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.us.us.us.i ]
-  %128 = getelementptr inbounds nuw ptr, ptr %.val, i64 %.05413.us.us.us.i
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %.05413.us.us.us.i
   %129 = load ptr, ptr %128, align 8, !tbaa !170
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 %.idx4.i
   store ptr %130, ptr %128, align 8, !tbaa !170
@@ -5584,10 +5582,10 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItE
 
 .lr.ph.i57.preheader.us.i30:                      ; preds = %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.loopexit.us.i, %.lr.ph.us17.i
   %.05413.us16.i = phi i64 [ 0, %.lr.ph.us17.i ], [ %143, %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.loopexit.us.i ]
-  %135 = getelementptr inbounds nuw ptr, ptr %.val, i64 %.05413.us16.i
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %.05413.us16.i
   %136 = load ptr, ptr %135, align 8, !tbaa !170
   %137 = getelementptr inbounds i8, ptr %136, i64 %.idx4.i
-  %138 = getelementptr inbounds nuw i16, ptr %134, i64 %.05413.us16.i
+  %138 = getelementptr inbounds nuw [2 x i8], ptr %134, i64 %.05413.us16.i
   br label %.lr.ph.i57.us.i31
 
 .lr.ph.i57.us.i31:                                ; preds = %.lr.ph.i57.us.i31, %.lr.ph.i57.preheader.us.i30
@@ -5597,7 +5595,7 @@ _ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItE
   %140 = trunc i32 %139 to i16
   store i16 %140, ptr %.sroa.0.06.i.us.i33, align 2, !tbaa !255
   %141 = getelementptr inbounds nuw i8, ptr %.07.i.us.i32, i64 4
-  %142 = getelementptr inbounds nuw i16, ptr %.sroa.0.06.i.us.i33, i64 %95
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.06.i.us.i33, i64 %95
   %.not.i58.us.i34 = icmp eq ptr %141, %137
   br i1 %.not.i58.us.i34, label %_ZSt9transformIPKiN2cv12_GLOBAL__N_116ChannelsIteratorINS3_16NonConstItTraitsItEEEEZNS3_13copyToMatImplItS0_EEvOSt6vectorIPT0_SaISB_EERNS2_3MatEhEUliE0_ESA_T_SI_SA_T1_.exit.loopexit.us.i, label %.lr.ph.i57.us.i31, !llvm.loop !286
 

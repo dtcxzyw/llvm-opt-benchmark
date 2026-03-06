@@ -7,9 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogOutputList = type <{ [6 x ptr], i32, [4 x i8] }>
 %class.LogDecorators = type { i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%class.XMarkStripe = type { %class.XStackList, [56 x i8], %class.XStackList, [56 x i8] }
-%class.XStackList = type { ptr }
-%class.XMarkStackEntry = type { i64 }
 
 $_ZN7LogImplILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz = comdat any
 
@@ -100,7 +97,7 @@ define hidden noundef zeroext i1 @_ZNK14XMarkStripeSet8is_emptyEv(ptr noundef no
 
 8:                                                ; preds = %.lr.ph, %6
   %.05 = phi i64 [ 0, %.lr.ph ], [ %7, %6 ]
-  %9 = getelementptr inbounds %class.XMarkStripe, ptr %4, i64 %.05
+  %9 = getelementptr inbounds [128 x i8], ptr %4, i64 %.05
   %10 = load volatile ptr, ptr %9, align 64
   %11 = ptrtoint ptr %10 to i64
   %12 = lshr i64 %11, 32
@@ -155,7 +152,7 @@ define hidden noundef nonnull ptr @_ZN14XMarkStripeSet17stripe_for_workerEjj(ptr
 22:                                               ; preds = %14, %10
   %.0 = phi i64 [ %13, %10 ], [ %21, %14 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = getelementptr inbounds %class.XMarkStripe, ptr %23, i64 %.0
+  %24 = getelementptr inbounds [128 x i8], ptr %23, i64 %.0
   ret ptr %24
 }
 
@@ -174,7 +171,7 @@ define hidden noundef zeroext i1 @_ZNK22XMarkThreadLocalStacks8is_emptyEPK14XMar
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.067 = phi i64 [ %8, %.lr.ph ], [ 0, %2 ]
-  %6 = getelementptr inbounds ptr, ptr %3, i64 %.067
+  %6 = getelementptr inbounds [8 x i8], ptr %3, i64 %.067
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   %8 = add nuw i64 %.067, 1
@@ -209,7 +206,7 @@ _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE3popERS2_.exit.thread: ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = add i64 %10, -1
   store i64 %12, ptr %9, align 8
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   br label %15
 
@@ -249,7 +246,7 @@ _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread: ; preds = %.
   %7 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
   %8 = add i64 %5, 1
   store i64 %8, ptr %.pr, align 8
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %5
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %5
   store ptr %2, ptr %9, align 8
   br label %10
 
@@ -291,7 +288,7 @@ _ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit.us: ; pr
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %20 = add i64 %18, -1
   store i64 %20, ptr %17, align 8
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %3, align 8
   %23 = icmp eq ptr %22, null
@@ -377,7 +374,7 @@ _ZN22XMarkThreadLocalStacks14allocate_stackEP19XMarkStackAllocator.exit: ; preds
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = add i64 %54, -1
   store i64 %56, ptr %53, align 8
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr %3, align 8
   %59 = icmp eq ptr %58, null
@@ -395,7 +392,7 @@ _ZN6XStackI15XMarkStackEntryLm254EE4pushES0_.exit.thread: ; preds = %60, %24
   %62 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
   %63 = add i64 %.us-phi18, 1
   store i64 %63, ptr %.us-phi, align 8
-  %64 = getelementptr inbounds %class.XMarkStackEntry, ptr %62, i64 %.us-phi18
+  %64 = getelementptr inbounds [8 x i8], ptr %62, i64 %.us-phi18
   store i64 %4, ptr %64, align 8
   br label %.loopexit
 
@@ -534,7 +531,7 @@ _ZN6XStackI15XMarkStackEntryLm254EE3popERS0_.exit.thread: ; preds = %62
   %64 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %65 = add i64 %63, -1
   store i64 %65, ptr %.1, align 8
-  %66 = getelementptr inbounds %class.XMarkStackEntry, ptr %64, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %64, i64 %65
   %67 = load i64, ptr %66, align 8
   store i64 %67, ptr %4, align 8
   br label %74
@@ -562,7 +559,7 @@ _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i: ; preds = 
   %71 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
   %72 = add i64 %69, 1
   store i64 %72, ptr %.pr.i, align 8
-  %73 = getelementptr inbounds ptr, ptr %71, i64 %69
+  %73 = getelementptr inbounds [8 x i8], ptr %71, i64 %69
   store ptr %.1, ptr %73, align 8
   br label %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit
 
@@ -590,8 +587,8 @@ define hidden noundef zeroext i1 @_ZN22XMarkThreadLocalStacks5flushEP19XMarkStac
   %8 = phi i64 [ %4, %.lr.ph ], [ %44, %43 ]
   %.018 = phi i1 [ false, %.lr.ph ], [ %.1, %43 ]
   %.01517 = phi i64 [ 0, %.lr.ph ], [ %45, %43 ]
-  %9 = getelementptr inbounds %class.XMarkStripe, ptr %5, i64 %.01517
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %.01517
+  %9 = getelementptr inbounds [128 x i8], ptr %5, i64 %.01517
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %.01517
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %43, label %13
@@ -624,7 +621,7 @@ _ZN6XStackIPS_I15XMarkStackEntryLm254EELm15EE4pushES2_.exit.thread.i: ; preds = 
   %20 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 16
   %21 = add i64 %18, 1
   store i64 %21, ptr %.pr.i, align 8
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %18
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %18
   store ptr %11, ptr %22, align 8
   br label %_ZN22XMarkThreadLocalStacks10free_stackEP19XMarkStackAllocatorP6XStackI15XMarkStackEntryLm254EE.exit
 

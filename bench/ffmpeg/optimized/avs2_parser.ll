@@ -347,7 +347,7 @@ define internal fastcc void @parse_avs2_seq_header(ptr noundef writeonly capture
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i32 %103, ptr %104, align 4, !tbaa !28
   %105 = zext nneg i32 %87 to i64
-  %106 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_avs2_frame_rate_tab, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr @ff_avs2_frame_rate_tab, i64 %105
   %107 = load i32, ptr %106, align 8, !tbaa !29
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 100
   store i32 %107, ptr %108, align 4, !tbaa !31

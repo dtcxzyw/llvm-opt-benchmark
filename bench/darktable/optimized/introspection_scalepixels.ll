@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
 %struct.dt_iop_roi_t = type { i32, i32, i32, i32, float }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [24 x i8] c"modulename\04scale pixels\00", align 1
 @.str.1 = private unnamed_addr constant [96 x i8] c"module for setting pixel aspect ratio\0A\0Auseful for certain sensor types and anamorphic desqueeze\00", align 1
@@ -114,7 +111,7 @@ define noundef i32 @distort_transform(ptr noundef %0, ptr noundef %1, ptr nounde
 20:                                               ; preds = %.lr.ph, %20
   %.011 = phi i64 [ 0, %.lr.ph ], [ %29, %20 ]
   %21 = load float, ptr %18, align 4, !tbaa !42
-  %22 = getelementptr inbounds nuw float, ptr %2, i64 %.011
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.011
   %23 = load float, ptr %22, align 4, !tbaa !44
   %24 = fdiv reassoc nsz arcp contract afn float %23, %21
   store float %24, ptr %22, align 4, !tbaa !44
@@ -164,7 +161,7 @@ define noundef i32 @distort_backtransform(ptr noundef %0, ptr noundef %1, ptr no
 20:                                               ; preds = %.lr.ph, %20
   %.011 = phi i64 [ 0, %.lr.ph ], [ %29, %20 ]
   %21 = load float, ptr %18, align 4, !tbaa !42
-  %22 = getelementptr inbounds nuw float, ptr %2, i64 %.011
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.011
   %23 = load float, ptr %22, align 4, !tbaa !44
   %24 = fmul reassoc nsz arcp contract afn float %23, %21
   store float %24, ptr %22, align 4, !tbaa !44
@@ -373,7 +370,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %27 = shl nuw nsw i64 %indvars.iv, 2
   %28 = zext nneg i32 %25 to i64
   %29 = mul i64 %27, %28
-  %30 = getelementptr inbounds nuw float, ptr %3, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %29
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = uitofp nneg i32 %31 to float
   br label %37
@@ -502,7 +499,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

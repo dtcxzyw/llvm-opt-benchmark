@@ -19,12 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::allocator.6" = type { i8 }
-%"class.boost::shared_ptr.37" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.boost::detail::shared_count" = type { ptr }
-%"class.std::vector.43" = type { %"struct.std::_Vector_base.44" }
-%"struct.std::_Vector_base.44" = type { %"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl" }
-%"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -840,7 +834,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i
   store ptr %call5.i.i.i.i.i177, ptr %paymentTimes_, align 8, !tbaa !20
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i70, align 8, !tbaa !18
-  %add.ptr19.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i177, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i177, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i.i.i72, align 8, !tbaa !21
   br label %invoke.cont47
 
@@ -2045,8 +2039,8 @@ if.then:                                          ; preds = %land.lhs.true
   %12 = load i64, ptr %currentIndex_, align 8, !tbaa !59
   %13 = load i64, ptr %period_, align 8, !tbaa !28
   %14 = load ptr, ptr %rateTimes_, align 8, !tbaa !20
-  %15 = getelementptr double, ptr %14, i64 %12
-  %add.ptr.i = getelementptr double, ptr %15, i64 %13
+  %15 = getelementptr [8 x i8], ptr %14, i64 %12
+  %add.ptr.i = getelementptr [8 x i8], ptr %15, i64 %13
   %16 = load double, ptr %add.ptr.i, align 8, !tbaa !51
   %17 = load double, ptr %15, align 8, !tbaa !51
   %sub21 = fsub double %16, %17
@@ -2057,7 +2051,7 @@ if.then:                                          ; preds = %land.lhs.true
   %productIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 328
   %18 = load i64, ptr %productIndex_, align 8, !tbaa !60
   %19 = load ptr, ptr %forwardPayOffs_, align 8, !tbaa !24
-  %add.ptr.i24 = getelementptr inbounds nuw %"class.boost::shared_ptr.37", ptr %19, i64 %18
+  %add.ptr.i24 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %18
   %20 = load ptr, ptr %add.ptr.i24, align 8, !tbaa !61
   %cmp.not.i = icmp eq ptr %20, null
   br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEEdeEv.exit, !prof !22
@@ -2088,11 +2082,11 @@ _ZNK5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEEdeEv.exit: ; preds = %if.t
 
 if.then38:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEEdeEv.exit
   %26 = load ptr, ptr %numberCashFlowsThisStep, align 8, !tbaa !55
-  %add.ptr.i25 = getelementptr inbounds nuw i64, ptr %26, i64 %.pre
+  %add.ptr.i25 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.pre
   store i64 1, ptr %add.ptr.i25, align 8, !tbaa !8
   %27 = load i64, ptr %productIndex_, align 8, !tbaa !60
   %28 = load ptr, ptr %genCashFlows, align 8, !tbaa !63
-  %add.ptr.i26 = getelementptr inbounds nuw %"class.std::vector.43", ptr %28, i64 %27
+  %add.ptr.i26 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %27
   %29 = load ptr, ptr %add.ptr.i26, align 8, !tbaa !65
   %amount = getelementptr inbounds nuw i8, ptr %29, i64 8
   store double %mul36, ptr %amount, align 8, !tbaa !67
@@ -2122,7 +2116,7 @@ for.cond.cleanup61:                               ; preds = %for.body62, %if.end
   %swapPayOffs_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   %35 = load i64, ptr %productIndex_, align 8, !tbaa !60
   %36 = load ptr, ptr %swapPayOffs_, align 8, !tbaa !24
-  %add.ptr.i30 = getelementptr inbounds nuw %"class.boost::shared_ptr.37", ptr %36, i64 %35
+  %add.ptr.i30 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %35
   %37 = load ptr, ptr %add.ptr.i30, align 8, !tbaa !61
   %cmp.not.i31 = icmp eq ptr %37, null
   br i1 %cmp.not.i31, label %cond.false.i32, label %_ZNK5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEEdeEv.exit34, !prof !22
@@ -2152,11 +2146,11 @@ for.body62:                                       ; preds = %if.end, %for.body62
   %mul68 = mul i64 %41, %add66
   %add69 = add i64 %mul68, %40
   %42 = load ptr, ptr %rateTimes_, align 8, !tbaa !20
-  %add.ptr.i35 = getelementptr inbounds nuw double, ptr %42, i64 %add69
+  %add.ptr.i35 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %add69
   %43 = load double, ptr %add.ptr.i35, align 8, !tbaa !51
   %mul74 = mul i64 %41, %i58.047
-  %44 = getelementptr double, ptr %42, i64 %40
-  %add.ptr.i36 = getelementptr double, ptr %44, i64 %mul74
+  %44 = getelementptr [8 x i8], ptr %42, i64 %40
+  %add.ptr.i36 = getelementptr [8 x i8], ptr %44, i64 %mul74
   %45 = load double, ptr %add.ptr.i36, align 8, !tbaa !51
   %sub77 = fsub double %43, %45
   %vtable84 = load ptr, ptr %currentState, align 8, !tbaa !14
@@ -2170,14 +2164,14 @@ for.body62:                                       ; preds = %if.end, %for.body62
 if.then100:                                       ; preds = %_ZNK5boost10shared_ptrIN8QuantLib17StrikedTypePayoffEEdeEv.exit34
   %48 = load i64, ptr %numberBigFRAs_, align 8, !tbaa !50
   %49 = load ptr, ptr %numberCashFlowsThisStep, align 8, !tbaa !55
-  %50 = getelementptr i64, ptr %49, i64 %.pre49
-  %add.ptr.i37 = getelementptr i64, ptr %50, i64 %48
+  %50 = getelementptr [8 x i8], ptr %49, i64 %.pre49
+  %add.ptr.i37 = getelementptr [8 x i8], ptr %50, i64 %48
   store i64 1, ptr %add.ptr.i37, align 8, !tbaa !8
   %51 = load i64, ptr %productIndex_, align 8, !tbaa !60
   %52 = load i64, ptr %numberBigFRAs_, align 8, !tbaa !50
   %add107 = add i64 %52, %51
   %53 = load ptr, ptr %genCashFlows, align 8, !tbaa !63
-  %add.ptr.i38 = getelementptr inbounds nuw %"class.std::vector.43", ptr %53, i64 %add107
+  %add.ptr.i38 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %add107
   %54 = load ptr, ptr %add.ptr.i38, align 8, !tbaa !65
   %amount110 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store double %mul98, ptr %amount110, align 8, !tbaa !67

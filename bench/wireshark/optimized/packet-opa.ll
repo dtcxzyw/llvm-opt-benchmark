@@ -728,7 +728,7 @@ define internal i32 @dissect_opa_9b(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 146:                                              ; preds = %146, %104
   %indvars.iv.i.i = phi i64 [ 0, %104 ], [ %indvars.iv.next.i.i, %146 ]
-  %147 = getelementptr i32, ptr @opCode_PAYLD, i64 %indvars.iv.i.i
+  %147 = getelementptr [4 x i8], ptr @opCode_PAYLD, i64 %indvars.iv.i.i
   %148 = load i32, ptr %147, align 4
   %149 = icmp eq i32 %148, %115
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -741,7 +741,7 @@ contains.exit.i:                                  ; preds = %146
 
 .preheader102.i:                                  ; preds = %contains.exit.i, %.preheader102.i
   %indvars.iv.i26.i = phi i64 [ %indvars.iv.next.i27.i, %.preheader102.i ], [ 0, %contains.exit.i ]
-  %150 = getelementptr i32, ptr @opCode_IMMDT_PAYLD, i64 %indvars.iv.i26.i
+  %150 = getelementptr [4 x i8], ptr @opCode_IMMDT_PAYLD, i64 %indvars.iv.i26.i
   %151 = load i32, ptr %150, align 4
   %152 = icmp eq i32 %151, %115
   %indvars.iv.next.i27.i = add nuw nsw i64 %indvars.iv.i26.i, 1
@@ -754,7 +754,7 @@ contains.exit30.i:                                ; preds = %.preheader102.i
 
 .preheader101.i:                                  ; preds = %contains.exit30.i, %.preheader101.i
   %indvars.iv.i31.i = phi i64 [ %indvars.iv.next.i32.i, %.preheader101.i ], [ 0, %contains.exit30.i ]
-  %153 = getelementptr i32, ptr @opCode_RDETH_DETH_PAYLD, i64 %indvars.iv.i31.i
+  %153 = getelementptr [4 x i8], ptr @opCode_RDETH_DETH_PAYLD, i64 %indvars.iv.i31.i
   %154 = load i32, ptr %153, align 4
   %155 = icmp eq i32 %154, %115
   %indvars.iv.next.i32.i = add nuw nsw i64 %indvars.iv.i31.i, 1
@@ -767,7 +767,7 @@ contains.exit35.i:                                ; preds = %.preheader101.i
 
 .preheader100.i:                                  ; preds = %contains.exit35.i, %.preheader100.i
   %indvars.iv.i36.i = phi i64 [ %indvars.iv.next.i37.i, %.preheader100.i ], [ 0, %contains.exit35.i ]
-  %156 = getelementptr i32, ptr @opCode_RETH_PAYLD, i64 %indvars.iv.i36.i
+  %156 = getelementptr [4 x i8], ptr @opCode_RETH_PAYLD, i64 %indvars.iv.i36.i
   %157 = load i32, ptr %156, align 4
   %158 = icmp eq i32 %157, %115
   %indvars.iv.next.i37.i = add nuw nsw i64 %indvars.iv.i36.i, 1
@@ -780,7 +780,7 @@ contains.exit40.i:                                ; preds = %.preheader100.i
 
 .preheader99.i:                                   ; preds = %contains.exit40.i, %.preheader99.i
   %indvars.iv.i41.i = phi i64 [ %indvars.iv.next.i42.i, %.preheader99.i ], [ 0, %contains.exit40.i ]
-  %159 = getelementptr i32, ptr @opCode_RDETH_AETH_PAYLD, i64 %indvars.iv.i41.i
+  %159 = getelementptr [4 x i8], ptr @opCode_RDETH_AETH_PAYLD, i64 %indvars.iv.i41.i
   %160 = load i32, ptr %159, align 4
   %161 = icmp eq i32 %160, %115
   %indvars.iv.next.i42.i = add nuw nsw i64 %indvars.iv.i41.i, 1
@@ -793,7 +793,7 @@ contains.exit45.i:                                ; preds = %.preheader99.i
 
 .preheader98.i:                                   ; preds = %contains.exit45.i, %.preheader98.i
   %indvars.iv.i46.i = phi i64 [ %indvars.iv.next.i47.i, %.preheader98.i ], [ 0, %contains.exit45.i ]
-  %162 = getelementptr i32, ptr @opCode_AETH_PAYLD, i64 %indvars.iv.i46.i
+  %162 = getelementptr [4 x i8], ptr @opCode_AETH_PAYLD, i64 %indvars.iv.i46.i
   %163 = load i32, ptr %162, align 4
   %164 = icmp eq i32 %163, %115
   %indvars.iv.next.i47.i = add nuw nsw i64 %indvars.iv.i46.i, 1
@@ -806,7 +806,7 @@ contains.exit50.i:                                ; preds = %.preheader98.i
 
 .preheader97.i:                                   ; preds = %contains.exit50.i, %.preheader97.i
   %indvars.iv.i51.i = phi i64 [ %indvars.iv.next.i52.i, %.preheader97.i ], [ 0, %contains.exit50.i ]
-  %165 = getelementptr i32, ptr @opCode_RDETH_DETH_IMMDT_PAYLD, i64 %indvars.iv.i51.i
+  %165 = getelementptr [4 x i8], ptr @opCode_RDETH_DETH_IMMDT_PAYLD, i64 %indvars.iv.i51.i
   %166 = load i32, ptr %165, align 4
   %167 = icmp eq i32 %166, %115
   %indvars.iv.next.i52.i = add nuw nsw i64 %indvars.iv.i51.i, 1
@@ -819,7 +819,7 @@ contains.exit55.i:                                ; preds = %.preheader97.i
 
 .preheader96.i:                                   ; preds = %contains.exit55.i, %.preheader96.i
   %indvars.iv.i56.i = phi i64 [ %indvars.iv.next.i57.i, %.preheader96.i ], [ 0, %contains.exit55.i ]
-  %168 = getelementptr i32, ptr @opCode_RETH_IMMDT_PAYLD, i64 %indvars.iv.i56.i
+  %168 = getelementptr [4 x i8], ptr @opCode_RETH_IMMDT_PAYLD, i64 %indvars.iv.i56.i
   %169 = load i32, ptr %168, align 4
   %170 = icmp eq i32 %169, %115
   %indvars.iv.next.i57.i = add nuw nsw i64 %indvars.iv.i56.i, 1
@@ -832,7 +832,7 @@ contains.exit60.i:                                ; preds = %.preheader96.i
 
 .preheader95.i:                                   ; preds = %contains.exit60.i, %.preheader95.i
   %indvars.iv.i61.i = phi i64 [ %indvars.iv.next.i62.i, %.preheader95.i ], [ 0, %contains.exit60.i ]
-  %171 = getelementptr i32, ptr @opCode_RDETH_DETH_RETH_PAYLD, i64 %indvars.iv.i61.i
+  %171 = getelementptr [4 x i8], ptr @opCode_RDETH_DETH_RETH_PAYLD, i64 %indvars.iv.i61.i
   %172 = load i32, ptr %171, align 4
   %173 = icmp eq i32 %172, %115
   %indvars.iv.next.i62.i = add nuw nsw i64 %indvars.iv.i61.i, 1
@@ -845,7 +845,7 @@ contains.exit65.i:                                ; preds = %.preheader95.i
 
 .preheader94.i:                                   ; preds = %contains.exit65.i, %.preheader94.i
   %indvars.iv.i66.i = phi i64 [ %indvars.iv.next.i67.i, %.preheader94.i ], [ 0, %contains.exit65.i ]
-  %174 = getelementptr i32, ptr @opCode_ATOMICETH, i64 %indvars.iv.i66.i
+  %174 = getelementptr [4 x i8], ptr @opCode_ATOMICETH, i64 %indvars.iv.i66.i
   %175 = load i32, ptr %174, align 4
   %176 = icmp eq i32 %175, %115
   %indvars.iv.next.i67.i = add nuw nsw i64 %indvars.iv.i66.i, 1
@@ -858,7 +858,7 @@ contains.exit70.i:                                ; preds = %.preheader94.i
 
 .preheader93.i:                                   ; preds = %contains.exit70.i, %.preheader93.i
   %indvars.iv.i71.i = phi i64 [ %indvars.iv.next.i72.i, %.preheader93.i ], [ 0, %contains.exit70.i ]
-  %177 = getelementptr i32, ptr @opCode_IETH_PAYLD, i64 %indvars.iv.i71.i
+  %177 = getelementptr [4 x i8], ptr @opCode_IETH_PAYLD, i64 %indvars.iv.i71.i
   %178 = load i32, ptr %177, align 4
   %179 = icmp eq i32 %178, %115
   %indvars.iv.next.i72.i = add nuw nsw i64 %indvars.iv.i71.i, 1
@@ -871,7 +871,7 @@ contains.exit75.i:                                ; preds = %.preheader93.i
 
 .preheader92.i:                                   ; preds = %contains.exit75.i, %.preheader92.i
   %indvars.iv.i76.i = phi i64 [ %indvars.iv.next.i77.i, %.preheader92.i ], [ 0, %contains.exit75.i ]
-  %180 = getelementptr i32, ptr @opCode_RDETH_DETH_ATOMICETH, i64 %indvars.iv.i76.i
+  %180 = getelementptr [4 x i8], ptr @opCode_RDETH_DETH_ATOMICETH, i64 %indvars.iv.i76.i
   %181 = load i32, ptr %180, align 4
   %182 = icmp eq i32 %181, %115
   %indvars.iv.next.i77.i = add nuw nsw i64 %indvars.iv.i76.i, 1
@@ -884,7 +884,7 @@ contains.exit80.i:                                ; preds = %.preheader92.i
 
 .preheader91.i:                                   ; preds = %contains.exit80.i, %.preheader91.i
   %indvars.iv.i81.i = phi i64 [ %indvars.iv.next.i82.i, %.preheader91.i ], [ 0, %contains.exit80.i ]
-  %183 = getelementptr i32, ptr @opCode_PSM, i64 %indvars.iv.i81.i
+  %183 = getelementptr [4 x i8], ptr @opCode_PSM, i64 %indvars.iv.i81.i
   %184 = load i32, ptr %183, align 4
   %185 = icmp eq i32 %184, %115
   %indvars.iv.next.i82.i = add nuw nsw i64 %indvars.iv.i81.i, 1
@@ -897,7 +897,7 @@ contains.exit85.i:                                ; preds = %.preheader91.i
 
 .preheader.i:                                     ; preds = %contains.exit85.i, %.preheader.i
   %indvars.iv.i86.i = phi i64 [ %indvars.iv.next.i87.i, %.preheader.i ], [ 0, %contains.exit85.i ]
-  %186 = getelementptr i32, ptr @opCode_TIDRDMA, i64 %indvars.iv.i86.i
+  %186 = getelementptr [4 x i8], ptr @opCode_TIDRDMA, i64 %indvars.iv.i86.i
   %187 = load i32, ptr %186, align 4
   %188 = icmp eq i32 %187, %115
   %indvars.iv.next.i87.i = add nuw nsw i64 %indvars.iv.i86.i, 1

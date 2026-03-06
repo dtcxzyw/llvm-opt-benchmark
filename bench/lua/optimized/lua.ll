@@ -227,7 +227,7 @@ define internal range(i32 0, 2) i32 @pmain(ptr noundef %0) #0 {
 42:                                               ; preds = %38
   %43 = add nsw i32 %.062.i, 1
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %4, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %4, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !4
   %47 = icmp eq ptr %46, null
   br i1 %47, label %collectargs.exit, label %48
@@ -242,7 +242,7 @@ define internal range(i32 0, 2) i32 @pmain(ptr noundef %0) #0 {
   %.1.i = phi i32 [ %.062.i, %24 ], [ %.062.i, %26 ], [ %.062.i, %34 ], [ %43, %48 ], [ %.062.i, %38 ]
   %52 = add nsw i32 %.1.i, 1
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds ptr, ptr %4, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %4, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !4
   %.not45.i = icmp eq ptr %55, null
   br i1 %.not45.i, label %collectargs.exit, label %.lr.ph.i
@@ -261,7 +261,7 @@ collectargs.exit:                                 ; preds = %51, %.lr.ph.i, %21,
 
 59:                                               ; preds = %collectargs.exit
   %60 = sext i32 %.061 to i64
-  %61 = getelementptr inbounds ptr, ptr %4, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %4, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !4
   tail call fastcc void @print_usage(ptr noundef %62)
   br label %runargs.exit.thread
@@ -301,7 +301,7 @@ collectargs.exit:                                 ; preds = %51, %.lr.ph.i, %21,
 
 .lr.ph.i40:                                       ; preds = %.lr.ph.i40, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i40 ]
-  %77 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %78 = load ptr, ptr %77, align 8, !tbaa !4
   %79 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef %78) #10
   %80 = sub nsw i64 %indvars.iv.i, %76
@@ -331,7 +331,7 @@ createargtable.exit:                              ; preds = %.lr.ph.i40, %72
 
 .lr.ph.i44:                                       ; preds = %.lr.ph.i44, %.lr.ph.preheader.i42
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.preheader.i42 ], [ %indvars.iv.next.i46, %.lr.ph.i44 ]
-  %87 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i45
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i45
   %88 = load ptr, ptr %87, align 8, !tbaa !4
   %89 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef %88) #10
   %90 = sub nsw i64 %indvars.iv.i45, %86
@@ -392,7 +392,7 @@ handle_luainit.exit.thread:                       ; preds = %104, %95, %createar
 .lr.ph.i49:                                       ; preds = %handle_luainit.exit.thread, %146
   %.02431.i = phi i32 [ %147, %146 ], [ 1, %handle_luainit.exit.thread ]
   %111 = sext i32 %.02431.i to i64
-  %112 = getelementptr inbounds ptr, ptr %4, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %4, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !4
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 1
   %115 = load i8, ptr %114, align 1, !tbaa !11
@@ -411,7 +411,7 @@ handle_luainit.exit.thread:                       ; preds = %104, %95, %createar
 120:                                              ; preds = %116
   %121 = add nsw i32 %.02431.i, 1
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds ptr, ptr %4, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %4, i64 %122
   %124 = load ptr, ptr %123, align 8, !tbaa !4
   br label %125
 
@@ -485,7 +485,7 @@ runargs.exit:                                     ; preds = %146, %handle_luaini
 
 149:                                              ; preds = %runargs.exit
   %150 = zext nneg i32 %.061 to i64
-  %151 = getelementptr inbounds nuw ptr, ptr %4, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !4
   %153 = load i8, ptr %152, align 1
   %.not21.i = icmp eq i8 %153, 45

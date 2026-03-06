@@ -55,7 +55,7 @@ define i64 @mbrtowc(ptr noundef writeonly captures(address_is_null) %0, ptr noun
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %26 = zext nneg i32 %22 to i64
-  %27 = getelementptr inbounds nuw i32, ptr @g_bittab, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @g_bittab, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = add i64 %2, -1
   %.not = icmp eq i64 %29, 0

@@ -42,7 +42,7 @@ define hidden noundef range(i32 0, 14) i32 @_ZN13LogDecorators11from_stringEPKc(
 
 2:                                                ; preds = %1, %12
   %.0814 = phi i64 [ 0, %1 ], [ %13, %12 ]
-  %3 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN13LogDecorators5_nameE, i64 %.0814
+  %3 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13LogDecorators5_nameE, i64 %.0814
   %4 = load ptr, ptr %3, align 16
   %5 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %4) #5
   %6 = icmp eq i32 %5, 0
@@ -119,7 +119,7 @@ define hidden noundef zeroext i1 @_ZN13LogDecorators5parseEPKcP12outputStream(pt
 
 17:                                               ; preds = %.preheader, %27
   %.0814.i = phi i64 [ %28, %27 ], [ 0, %.preheader ]
-  %18 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN13LogDecorators5_nameE, i64 %.0814.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @_ZN13LogDecorators5_nameE, i64 %.0814.i
   %19 = load ptr, ptr %18, align 16
   %20 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %.023, ptr noundef %19) #5
   %21 = icmp eq i32 %20, 0

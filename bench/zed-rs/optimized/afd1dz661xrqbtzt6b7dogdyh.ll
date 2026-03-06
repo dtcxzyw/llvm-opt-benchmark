@@ -1204,7 +1204,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   %47 = and i64 %46, %37
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 8), align 8, !noalias !228, !nonnull !7, !noundef !7
   %49 = sub nsw i64 0, %47
-  %50 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { { { ptr, ptr } }, {} }, {} } }, ptr %48, i64 %49
+  %50 = getelementptr inbounds [32 x i8], ptr %48, i64 %49
   %51 = getelementptr inbounds i8, ptr %50, i64 -32
   %.val3.i.i.i = load ptr, ptr %51, align 8, !alias.scope !231, !noalias !238, !nonnull !7, !noundef !7
   %52 = getelementptr i8, ptr %50, i64 -24
@@ -1394,7 +1394,7 @@ common.resume:                                    ; preds = %.noexc60, %.thread,
   %127 = and i64 %126, %117
   %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 8), align 8, !noalias !278, !nonnull !7, !noundef !7
   %129 = sub nsw i64 0, %127
-  %130 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { { { ptr, ptr } }, {} }, {} } }, ptr %128, i64 %129
+  %130 = getelementptr inbounds [32 x i8], ptr %128, i64 %129
   %131 = getelementptr inbounds i8, ptr %130, i64 -32
   %.val3.i.i.i49 = load ptr, ptr %131, align 8, !alias.scope !281, !noalias !288, !nonnull !7, !noundef !7
   %132 = getelementptr i8, ptr %130, i64 -24
@@ -1738,7 +1738,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   %47 = and i64 %46, %37
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 8), align 8, !noalias !334, !nonnull !7, !noundef !7
   %49 = sub nsw i64 0, %47
-  %50 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { { { ptr, ptr } }, {} }, {} } }, ptr %48, i64 %49
+  %50 = getelementptr inbounds [32 x i8], ptr %48, i64 %49
   %51 = getelementptr inbounds i8, ptr %50, i64 -32
   %.val3.i.i.i = load ptr, ptr %51, align 8, !alias.scope !337, !noalias !344, !nonnull !7, !noundef !7
   %52 = getelementptr i8, ptr %50, i64 -24
@@ -1928,7 +1928,7 @@ common.resume:                                    ; preds = %.noexc60, %.thread,
   %127 = and i64 %126, %117
   %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 8), align 8, !noalias !384, !nonnull !7, !noundef !7
   %129 = sub nsw i64 0, %127
-  %130 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { { { ptr, ptr } }, {} }, {} } }, ptr %128, i64 %129
+  %130 = getelementptr inbounds [32 x i8], ptr %128, i64 %129
   %131 = getelementptr inbounds i8, ptr %130, i64 -32
   %.val3.i.i.i49 = load ptr, ptr %131, align 8, !alias.scope !387, !noalias !394, !nonnull !7, !noundef !7
   %132 = getelementptr i8, ptr %130, i64 -24
@@ -2255,7 +2255,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   %43 = and i64 %42, %33
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 8), align 8, !noalias !440, !nonnull !7, !noundef !7
   %45 = sub nsw i64 0, %43
-  %46 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { { { ptr, ptr } }, {} }, {} } }, ptr %44, i64 %45
+  %46 = getelementptr inbounds [32 x i8], ptr %44, i64 %45
   %47 = getelementptr inbounds i8, ptr %46, i64 -32
   %.val3.i.i.i = load ptr, ptr %47, align 8, !alias.scope !443, !noalias !450, !nonnull !7, !noundef !7
   %48 = getelementptr i8, ptr %46, i64 -24
@@ -2311,7 +2311,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h0ee9adcdaae05334E.exit": ; preds = %.noexc13
   %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 8), align 8, !noalias !434, !nonnull !7
-  %65 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { { { ptr, ptr } }, {} }, {} } }, ptr %64, i64 %45
+  %65 = getelementptr inbounds [32 x i8], ptr %64, i64 %45
   %66 = getelementptr inbounds i8, ptr %65, i64 -16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 1, ptr %4, align 8
@@ -2579,7 +2579,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hed3c6b9d1d5ffc7fE
   %43 = and i64 %42, %33
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 8), align 8, !noalias !495, !nonnull !7, !noundef !7
   %45 = sub nsw i64 0, %43
-  %46 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { { { ptr, ptr } }, {} }, {} } }, ptr %44, i64 %45
+  %46 = getelementptr inbounds [32 x i8], ptr %44, i64 %45
   %47 = getelementptr inbounds i8, ptr %46, i64 -32
   %.val3.i.i.i = load ptr, ptr %47, align 8, !alias.scope !498, !noalias !505, !nonnull !7, !noundef !7
   %48 = getelementptr i8, ptr %46, i64 -24
@@ -2635,7 +2635,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %2
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h0ee9adcdaae05334E.exit": ; preds = %.noexc13
   %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5sqlez22thread_safe_connection6QUEUES17h8291f37f9c29fe06E, i64 8), align 8, !noalias !489, !nonnull !7
-  %65 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, { { { { ptr, ptr } }, {} }, {} } }, ptr %64, i64 %45
+  %65 = getelementptr inbounds [32 x i8], ptr %64, i64 %45
   %66 = getelementptr inbounds i8, ptr %65, i64 -16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 1, ptr %4, align 8

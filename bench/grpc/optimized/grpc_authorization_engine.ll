@@ -489,7 +489,7 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_d
 _ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN9grpc_core12experimental11AuditLoggerESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %128
   store ptr %122, ptr %30, align 8, !tbaa !73
   store ptr %127, ptr %44, align 8, !tbaa !69
-  %129 = getelementptr inbounds nuw %"class.std::unique_ptr.54", ptr %122, i64 %120
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %120
   store ptr %129, ptr %45, align 8, !tbaa !70
   %.pr50 = load ptr, ptr %5, align 8, !tbaa !71
   %.not.i31 = icmp eq ptr %.pr50, null
@@ -1824,7 +1824,7 @@ _ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE11_S_relocateEP
 _ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26, %78
   store ptr %22, ptr %0, align 8, !tbaa !82
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !64
-  %82 = getelementptr inbounds nuw %"struct.grpc_core::GrpcAuthorizationEngine::Policy", ptr %22, i64 %16
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %82, ptr %77, align 8, !tbaa !65
   ret void
 }

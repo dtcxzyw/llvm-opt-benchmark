@@ -7,10 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::ArrayRef" = type { ptr, i64 }
 %"class.llvm::ArrayRef.0" = type { ptr, i64 }
 %"class.llvm::ArrayRef.1" = type { ptr, i64 }
-%"struct.llvm::SubtargetSubTypeKV" = type { ptr, %"class.llvm::FeatureBitArray", %"class.llvm::FeatureBitArray", ptr }
-%"class.llvm::FeatureBitArray" = type { %"class.llvm::FeatureBitset" }
-%"class.llvm::FeatureBitset" = type { %"struct.std::array" }
-%"struct.std::array" = type { [5 x i64] }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -282,7 +278,7 @@ _ZSt7advanceIPKN4llvm18SubtargetSubTypeKVElEvRT_T0_.exit.i.i.i: ; preds = %3, %_
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ], [ %5, %3 ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ], [ %7, %3 ]
   %8 = lshr i64 %.01116.i.i.i, 1
-  %9 = getelementptr inbounds nuw %"struct.llvm::SubtargetSubTypeKV", ptr %.017.i.i.i, i64 %8
+  %9 = getelementptr inbounds nuw [96 x i8], ptr %.017.i.i.i, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !49
   %.not.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i, label %11
@@ -327,7 +323,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9String
 
 _ZN4llvm11lower_boundIRKNS_8ArrayRefINS_18SubtargetSubTypeKVEEERNS_9StringRefEEEDaOT_OT0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i, %3
   %.0.lcssa.i.i.i = phi ptr [ %5, %3 ], [ %.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ]
-  %25 = getelementptr inbounds nuw %"struct.llvm::SubtargetSubTypeKV", ptr %5, i64 %7
+  %25 = getelementptr inbounds nuw [96 x i8], ptr %5, i64 %7
   %.not = icmp eq ptr %.0.lcssa.i.i.i, %25
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %26
 

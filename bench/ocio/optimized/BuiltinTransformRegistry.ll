@@ -1154,7 +1154,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev28BuiltinTransformRegistryIm
   resume { ptr, i32 } %15
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::BuiltinTransformRegistryImpl::BuiltinData", ptr %6, i64 %1
+  %17 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %1
   %18 = load ptr, ptr %17, align 8, !tbaa !39
   ret ptr %18
 }
@@ -1200,7 +1200,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev28BuiltinTransformRegistryIm
   resume { ptr, i32 } %15
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::BuiltinTransformRegistryImpl::BuiltinData", ptr %6, i64 %1
+  %17 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %1
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !39
   ret ptr %19
@@ -1235,7 +1235,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev28BuiltinTransformRegistryImpl9crea
   resume { ptr, i32 } %16
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::BuiltinTransformRegistryImpl::BuiltinData", ptr %7, i64 %1
+  %18 = getelementptr inbounds nuw [96 x i8], ptr %7, i64 %1
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load ptr, ptr %19, align 8, !tbaa !37
   %.not.i.i = icmp eq ptr %20, null
@@ -1459,7 +1459,7 @@ common.resume:                                    ; preds = %39, %.body, %83
   br label %common.resume
 
 85:                                               ; preds = %71
-  %86 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::BuiltinTransformRegistryImpl::BuiltinData", ptr %75, i64 %1
+  %86 = getelementptr inbounds nuw [96 x i8], ptr %75, i64 %1
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 80
   %88 = load ptr, ptr %87, align 8, !tbaa !37
   %.not.i.i.i24 = icmp eq ptr %88, null
@@ -1509,7 +1509,7 @@ _ZNK19OpenColorIO_v2_5dev28BuiltinTransformRegistryImpl9createOpsEmRNS_10OpRcPtr
   br label %.body
 
 107:                                              ; preds = %93
-  %108 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::BuiltinTransformRegistryImpl::BuiltinData", ptr %97, i64 %1
+  %108 = getelementptr inbounds nuw [96 x i8], ptr %97, i64 %1
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 80
   %110 = load ptr, ptr %109, align 8, !tbaa !37
   %.not.i.i.i26 = icmp eq ptr %110, null
@@ -2209,7 +2209,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev28BuiltinTransformRegistryImpl11BuiltinDataES
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit43, %100
   store ptr %20, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i.i42, ptr %4, align 8, !tbaa !36
-  %104 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::BuiltinTransformRegistryImpl::BuiltinData", ptr %20, i64 %16
+  %104 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %104, ptr %99, align 8, !tbaa !48
   ret void
 
@@ -2756,7 +2756,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev28BuiltinTransformRegistryImpl11BuiltinDataES
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev28BuiltinTransformRegistryImpl11BuiltinDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, %139
   store ptr %22, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i.i32, ptr %4, align 8, !tbaa !36
-  %143 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::BuiltinTransformRegistryImpl::BuiltinData", ptr %22, i64 %16
+  %143 = getelementptr inbounds nuw [96 x i8], ptr %22, i64 %16
   store ptr %143, ptr %138, align 8, !tbaa !48
   ret void
 }

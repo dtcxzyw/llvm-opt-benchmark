@@ -471,7 +471,7 @@ ssl_prepare_client_hello.exit.thread86:           ; preds = %125, %127, %ssl_pre
   %.1.i = phi i32 [ %230, %229 ], [ %.0194.i, %.lr.ph.i.i ]
   %.248.ph.i.i = phi ptr [ %233, %229 ], [ %.04674.i.i, %.lr.ph.i.i ]
   %235 = add i64 %.05273.i.i, 1
-  %236 = getelementptr inbounds nuw i32, ptr %206, i64 %235
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %235
   %237 = load i32, ptr %236, align 4, !tbaa !64
   %.not54.i.i = icmp eq i32 %237, 0
   br i1 %.not54.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !67

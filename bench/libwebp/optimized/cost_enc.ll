@@ -29,24 +29,24 @@ define hidden void @VP8CalculateLevelCosts(ptr noundef %0) local_unnamed_addr #0
 
 .preheader56:                                     ; preds = %.preheader57, %59
   %indvars.iv81 = phi i64 [ 0, %.preheader57 ], [ %indvars.iv.next82, %59 ]
-  %7 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %4, i64 %indvars.iv81
-  %8 = getelementptr inbounds nuw [8 x [3 x [68 x i16]]], ptr %5, i64 %indvars.iv81
+  %7 = getelementptr inbounds nuw [264 x i8], ptr %4, i64 %indvars.iv81
+  %8 = getelementptr inbounds nuw [3264 x i8], ptr %5, i64 %indvars.iv81
   br label %.preheader54
 
 .preheader55:                                     ; preds = %49
-  %9 = getelementptr inbounds nuw [16 x [3 x ptr]], ptr %6, i64 %indvars.iv81
+  %9 = getelementptr inbounds nuw [384 x i8], ptr %6, i64 %indvars.iv81
   br label %.preheader
 
 .preheader54:                                     ; preds = %.preheader56, %49
   %indvars.iv69 = phi i64 [ 0, %.preheader56 ], [ %indvars.iv.next70, %49 ]
-  %10 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %7, i64 %indvars.iv69
-  %11 = getelementptr inbounds nuw [3 x [68 x i16]], ptr %8, i64 %indvars.iv69
+  %10 = getelementptr inbounds nuw [33 x i8], ptr %7, i64 %indvars.iv69
+  %11 = getelementptr inbounds nuw [408 x i8], ptr %8, i64 %indvars.iv69
   br label %12
 
 12:                                               ; preds = %.preheader54, %48
   %indvars.iv65 = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next66, %48 ]
   %13 = getelementptr inbounds nuw [11 x i8], ptr %10, i64 %indvars.iv65
-  %14 = getelementptr inbounds nuw [68 x i16], ptr %11, i64 %indvars.iv65
+  %14 = getelementptr inbounds nuw [136 x i8], ptr %11, i64 %indvars.iv65
   %.not45 = icmp eq i64 %indvars.iv65, 0
   br i1 %.not45, label %18, label %15
 
@@ -54,7 +54,7 @@ define hidden void @VP8CalculateLevelCosts(ptr noundef %0) local_unnamed_addr #0
   %16 = load i8, ptr %13, align 1, !tbaa !8
   %.pn.in.i = xor i8 %16, -1
   %.pn.i = zext i8 %.pn.in.i to i64
-  %.in.in.i = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i
+  %.in.in.i = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i
   %.in.i = load i16, ptr %.in.in.i, align 2, !tbaa !9
   %17 = zext i16 %.in.i to i32
   br label %18
@@ -65,12 +65,12 @@ define hidden void @VP8CalculateLevelCosts(ptr noundef %0) local_unnamed_addr #0
   %21 = load i8, ptr %20, align 1, !tbaa !8
   %.pn.in.i46 = xor i8 %21, -1
   %.pn.i47 = zext i8 %.pn.in.i46 to i64
-  %.in.in.i48 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i47
+  %.in.in.i48 = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i47
   %.in.i49 = load i16, ptr %.in.in.i48, align 2, !tbaa !9
   %22 = zext i16 %.in.i49 to i32
   %23 = add nuw nsw i32 %19, %22
   %.pn.i51 = zext i8 %21 to i64
-  %.in.in.i52 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i51
+  %.in.in.i52 = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i51
   %.in.i53 = load i16, ptr %.in.in.i52, align 2, !tbaa !9
   %24 = trunc nuw i32 %19 to i16
   %25 = add i16 %.in.i53, %24
@@ -79,7 +79,7 @@ define hidden void @VP8CalculateLevelCosts(ptr noundef %0) local_unnamed_addr #0
 
 26:                                               ; preds = %18, %VariableLevelCost.exit
   %indvars.iv = phi i64 [ 1, %18 ], [ %indvars.iv.next, %VariableLevelCost.exit ]
-  %27 = getelementptr [2 x i16], ptr @VP8LevelCodes, i64 %indvars.iv
+  %27 = getelementptr [4 x i8], ptr @VP8LevelCodes, i64 %indvars.iv
   %28 = getelementptr i8, ptr %27, i64 -4
   %29 = load i16, ptr %28, align 4, !tbaa !9
   %.not15.i = icmp eq i16 %29, 0
@@ -108,7 +108,7 @@ define hidden void @VP8CalculateLevelCosts(ptr noundef %0) local_unnamed_addr #0
   %39 = sub nsw i8 0, %38
   %.pn.in.i.i = xor i8 %36, %39
   %.pn.i.i = zext i8 %.pn.in.i.i to i64
-  %.in.in.i.i = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i.i
+  %.in.in.i.i = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i.i
   %.in.i.i = load i16, ptr %.in.in.i.i, align 2, !tbaa !9
   %40 = zext i16 %.in.i.i to i32
   %41 = add nsw i32 %.01118.i, %40
@@ -126,7 +126,7 @@ VariableLevelCost.exit:                           ; preds = %42, %26
   %.011.lcssa.i = phi i32 [ 0, %26 ], [ %.1.i, %42 ]
   %45 = add nsw i32 %23, %.011.lcssa.i
   %46 = trunc i32 %45 to i16
-  %47 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %indvars.iv
   store i16 %46, ptr %47, align 2, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 68
@@ -147,14 +147,14 @@ VariableLevelCost.exit:                           ; preds = %42, %26
   %50 = getelementptr inbounds nuw i8, ptr @VP8EncBands, i64 %indvars.iv77
   %51 = load i8, ptr %50, align 1, !tbaa !8
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw [3 x [68 x i16]], ptr %8, i64 %52
-  %54 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 %indvars.iv77
+  %53 = getelementptr inbounds nuw [408 x i8], ptr %8, i64 %52
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv77
   br label %55
 
 55:                                               ; preds = %.preheader, %55
   %indvars.iv73 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next74, %55 ]
-  %56 = getelementptr inbounds nuw [68 x i16], ptr %53, i64 %indvars.iv73
-  %57 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv73
+  %56 = getelementptr inbounds nuw [136 x i8], ptr %53, i64 %indvars.iv73
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv73
   store ptr %56, ptr %57, align 8, !tbaa !16
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 3
@@ -184,15 +184,15 @@ define hidden void @VP8InitResidual(i32 noundef %0, i32 noundef %1, ptr noundef 
   store i32 %1, ptr %5, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 3620
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [8 x [3 x [11 x i8]]], ptr %6, i64 %7
+  %8 = getelementptr inbounds [264 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %8, ptr %9, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4676
-  %11 = getelementptr inbounds [8 x [3 x [11 x i32]]], ptr %10, i64 %7
+  %11 = getelementptr inbounds [1056 x i8], ptr %10, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %11, ptr %12, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 21960
-  %14 = getelementptr inbounds [16 x [3 x ptr]], ptr %13, i64 %7
+  %14 = getelementptr inbounds [384 x i8], ptr %13, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %14, ptr %15, align 8, !tbaa !29
   store i32 %0, ptr %3, align 8, !tbaa !30
@@ -223,11 +223,11 @@ define hidden i32 @VP8GetCostLuma4(ptr noundef readonly captures(none) %0, ptr n
   store i32 0, ptr %3, align 8, !tbaa !30
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %18 = zext nneg i32 %6 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !38
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %22 = sext i32 %7 to i64
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !38
   %25 = add nsw i32 %24, %20
   %26 = load ptr, ptr @VP8SetResidualCoeffs, align 8, !tbaa !39
@@ -284,7 +284,7 @@ define hidden i32 @VP8GetCostLuma16(ptr noundef %0, ptr noundef %1) local_unname
 .preheader:                                       ; preds = %2, %42
   %indvars.iv32 = phi i64 [ 0, %2 ], [ %indvars.iv.next33, %42 ]
   %.02530 = phi i32 [ %26, %2 ], [ %38, %42 ]
-  %29 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv32
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv32
   %.idx = shl nuw nsw i64 %indvars.iv32, 7
   %invariant.gep = getelementptr inbounds nuw i8, ptr %27, i64 %.idx
   br label %30
@@ -292,12 +292,12 @@ define hidden i32 @VP8GetCostLuma16(ptr noundef %0, ptr noundef %1) local_unname
 30:                                               ; preds = %.preheader, %30
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %30 ]
   %.127 = phi i32 [ %.02530, %.preheader ], [ %38, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !38
   %33 = load i32, ptr %29, align 4, !tbaa !38
   %34 = add nsw i32 %33, %32
   %35 = load ptr, ptr @VP8SetResidualCoeffs, align 8, !tbaa !39
-  %gep = getelementptr inbounds nuw [16 x i16], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep, i64 %indvars.iv
   call void %35(ptr noundef nonnull %gep, ptr noundef nonnull %3) #8
   %36 = load ptr, ptr @VP8GetResidualCost, align 8, !tbaa !39
   %37 = call i32 %36(i32 noundef %34, ptr noundef nonnull %3) #8
@@ -353,15 +353,15 @@ define hidden i32 @VP8GetCostUV(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %indvars.iv41 = phi i64 [ 0, %2 ], [ 2, %34 ]
   %.02735 = phi i32 [ 0, %2 ], [ %29, %34 ]
   %18 = or disjoint i64 %indvars.iv41, 4
-  %invariant.gep46 = getelementptr inbounds nuw i32, ptr %14, i64 %18
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %13, i64 %18
+  %invariant.gep46 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %18
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %18
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader30, %33
   %19 = phi i1 [ true, %.preheader30 ], [ false, %33 ]
   %indvars.iv38 = phi i64 [ 0, %.preheader30 ], [ 1, %33 ]
   %.134 = phi i32 [ %.02735, %.preheader30 ], [ %29, %33 ]
-  %gep47 = getelementptr inbounds nuw i32, ptr %invariant.gep46, i64 %indvars.iv38
+  %gep47 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep46, i64 %indvars.iv38
   %20 = or disjoint i64 %indvars.iv38, %indvars.iv41
   %.idx = shl nuw nsw i64 %20, 6
   %invariant.gep44 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
@@ -371,12 +371,12 @@ define hidden i32 @VP8GetCostUV(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %22 = phi i1 [ true, %.preheader ], [ false, %21 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %21 ]
   %.232 = phi i32 [ %.134, %.preheader ], [ %29, %21 ]
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %23 = load i32, ptr %gep, align 4, !tbaa !38
   %24 = load i32, ptr %gep47, align 4, !tbaa !38
   %25 = add nsw i32 %24, %23
   %26 = load ptr, ptr @VP8SetResidualCoeffs, align 8, !tbaa !39
-  %gep45 = getelementptr inbounds nuw [16 x i16], ptr %invariant.gep44, i64 %indvars.iv
+  %gep45 = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep44, i64 %indvars.iv
   call void %26(ptr noundef nonnull %gep45, ptr noundef nonnull %3) #8
   %27 = load ptr, ptr @VP8GetResidualCost, align 8, !tbaa !39
   %28 = call i32 %27(i32 noundef %25, ptr noundef nonnull %3) #8
@@ -405,9 +405,9 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr noundef r
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !28
   %6 = sext i32 %3 to i64
-  %7 = getelementptr inbounds [3 x [11 x i32]], ptr %5, i64 %6
+  %7 = getelementptr inbounds [132 x i8], ptr %5, i64 %6
   %8 = sext i32 %0 to i64
-  %9 = getelementptr inbounds [11 x i32], ptr %7, i64 %8
+  %9 = getelementptr inbounds [44 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !40
   %12 = icmp slt i32 %11, 0
@@ -446,7 +446,7 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr noundef r
   store i32 %28, ptr %.03863, align 4, !tbaa !38
   %29 = add i32 %.03764, 1
   %30 = sext i32 %.03764 to i64
-  %31 = getelementptr inbounds i16, ptr %14, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %14, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !9
   %33 = icmp eq i16 %32, 0
   br i1 %33, label %.lr.ph.preheader, label %._crit_edge
@@ -470,9 +470,9 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr noundef r
   %42 = getelementptr inbounds i8, ptr @VP8EncBands, i64 %indvars.iv
   %43 = load i8, ptr %42, align 1, !tbaa !8
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %5, i64 %44
+  %45 = getelementptr inbounds nuw [132 x i8], ptr %5, i64 %44
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %46 = getelementptr inbounds i16, ptr %14, i64 %indvars.iv
+  %46 = getelementptr inbounds [2 x i8], ptr %14, i64 %indvars.iv
   %47 = load i16, ptr %46, align 2, !tbaa !9
   %48 = icmp eq i16 %47, 0
   br i1 %48, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !47
@@ -513,7 +513,7 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr noundef r
   %69 = tail call i32 @llvm.abs.i32(i32 %50, i1 true)
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %69, i32 67)
   %70 = zext nneg i32 %spec.store.select to i64
-  %71 = getelementptr [2 x i16], ptr @VP8LevelCodes, i64 %70
+  %71 = getelementptr [4 x i8], ptr @VP8LevelCodes, i64 %70
   %72 = getelementptr i8, ptr %71, i64 -4
   %73 = getelementptr i8, ptr %71, i64 -2
   %74 = load i16, ptr %73, align 2, !tbaa !9
@@ -541,7 +541,7 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr noundef r
   %85 = shl i32 2, %84
   %86 = and i32 %85, %75
   %.not69 = icmp eq i32 %86, 0
-  %87 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv73
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv73
   %88 = load i32, ptr %87, align 4, !tbaa !38
   %89 = icmp ugt i32 %88, -131073
   %90 = add nsw i32 %88, 1
@@ -565,7 +565,7 @@ define hidden range(i32 0, 2) i32 @VP8RecordCoeffs(i32 noundef %0, ptr noundef r
   %98 = getelementptr inbounds i8, ptr @VP8EncBands, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !8
   %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %5, i64 %100
+  %101 = getelementptr inbounds nuw [132 x i8], ptr %5, i64 %100
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 %.sink83
   %103 = load i32, ptr %10, align 4, !tbaa !40
   %.not = icmp sgt i32 %.lcssa51, %103

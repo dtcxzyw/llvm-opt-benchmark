@@ -79,7 +79,7 @@ define noundef zeroext i1 @_Z12MergeArchiveR7ArchiveP11ComprDataIObw(ptr noundef
 
 48:                                               ; preds = %48, %47
   %indvars.iv.i.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.i, %48 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i.i
   store ptr @.str, ptr %49, align 8, !tbaa !64
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -298,7 +298,7 @@ _ZL12DllVolChangeP11CommandDataPwm.exit:          ; preds = %.thread41.i, %134
 
 141:                                              ; preds = %141, %.thread112
   %indvars.iv.i.i97 = phi i64 [ 0, %.thread112 ], [ %indvars.iv.next.i.i98, %141 ]
-  %142 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i97
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i97
   store ptr @.str, ptr %142, align 8, !tbaa !64
   %indvars.iv.next.i.i98 = add nuw nsw i64 %indvars.iv.i.i97, 1
   %exitcond.not.i.i99 = icmp eq i64 %indvars.iv.next.i.i98, 8
@@ -376,7 +376,7 @@ _ZL12DllVolNotifyP11CommandDataPw.exit.thread:    ; preds = %171, %156, %162
 
 176:                                              ; preds = %176, %175
   %indvars.iv.i.i102 = phi i64 [ 0, %175 ], [ %indvars.iv.next.i.i103, %176 ]
-  %177 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i102
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i102
   store ptr @.str, ptr %177, align 8, !tbaa !64
   %indvars.iv.next.i.i103 = add nuw nsw i64 %indvars.iv.i.i102, 1
   %exitcond.not.i.i104 = icmp eq i64 %indvars.iv.next.i.i103, 8

@@ -259,7 +259,7 @@ define hidden { ptr, i64 } @_ZN4llvh3DOT14getColorStringEj(i32 noundef %ColorNum
 entry:
   %rem = urem i32 %ColorNumber, 20
   %idxprom = zext nneg i32 %rem to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZZN4llvh3DOT14getColorStringEjE6Colors, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvh3DOT14getColorStringEjE6Colors, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %0, 0
@@ -595,7 +595,7 @@ _ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit328: ; preds = %_ZN4ll
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i.i275) #19
   %args26.sroa.11.2 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i311, i64 48
   %6 = zext nneg i32 %program to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call.i171 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #17
   store ptr %switch.load, ptr %args26.sroa.11.2, align 8
@@ -648,7 +648,7 @@ if.end50:                                         ; preds = %_ZN4llvh9StringRefC
 
 switch.lookup:                                    ; preds = %if.end50, %_ZN4llvh9StringRefC2EPKc.exit192
   %10 = zext nneg i32 %program to i64
-  %switch.gep1091 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvh12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 %10
+  %switch.gep1091 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvh12DisplayGraphENS_9StringRefEbNS_12GraphProgram4NameE.2, i64 %10
   %switch.load1092 = load ptr, ptr %switch.gep1091, align 8
   %call.i201 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load1092) #17
   %call5581 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112GraphSession14TryFindProgramEN4llvh9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %S, ptr nonnull %switch.load1092, i64 %call.i201, ptr noundef nonnull align 8 dereferenceable(32) %GeneratorPath)
@@ -799,7 +799,7 @@ for.body.i.i.i.i.i.i627:                          ; preds = %_ZNKSt6vectorIN4llv
 _ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i638: ; preds = %for.body.i.i.i.i.i.i627, %_ZNKSt6vectorIN4llvh9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i616
   %__cur.0.lcssa.i.i.i.i.i.i634 = phi ptr [ %call5.i.i.i.i.i.i624, %_ZNKSt6vectorIN4llvh9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i616 ], [ %incdec.ptr1.i.i.i.i.i.i631, %for.body.i.i.i.i.i.i627 ]
   call void @_ZdlPv(ptr noundef nonnull %args59.sroa.0.7) #19
-  %add.ptr19.i.i.i639 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %call5.i.i.i.i.i.i624, i64 %cond.i.i.i.i621
+  %add.ptr19.i.i.i639 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i624, i64 %cond.i.i.i.i621
   br label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit641
 
 _ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit641: ; preds = %if.then.i.i609, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i638
@@ -905,7 +905,7 @@ _ZNKSt6vectorIN4llvh9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i687: ; pred
   %ref.tmp80.sroa.3.0.add.ptr.i.i.i696.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i696, i64 8
   store i64 %call2.i429, ptr %ref.tmp80.sroa.3.0.add.ptr.i.i.i696.sroa_idx, align 8
   call void @_ZdlPv(ptr noundef nonnull %args59.sroa.0.8) #19
-  %add.ptr19.i.i.i710 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %call5.i.i.i.i.i.i695, i64 %cond.i.i.i.i692
+  %add.ptr19.i.i.i710 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i695, i64 %cond.i.i.i.i692
   br label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit712
 
 _ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit712: ; preds = %if.then.i.i680, %_ZNKSt6vectorIN4llvh9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i687
@@ -1025,7 +1025,7 @@ _ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17_
   %__cur.0.lcssa.i.i.i.i.i.i777 = phi ptr [ %call5.i.i.i.i.i.i767, %_ZNKSt6vectorIN4llvh9StringRefESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i759 ], [ %incdec.ptr1.i.i.i.i.i.i774, %for.body.i.i.i.i.i.i770 ]
   %incdec.ptr.i.i.i778 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i.i777, i64 16
   call void @_ZdlPv(ptr noundef nonnull %args59.sroa.0.9) #19
-  %add.ptr19.i.i.i782 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %call5.i.i.i.i.i.i767, i64 %cond.i.i.i.i764
+  %add.ptr19.i.i.i782 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i767, i64 %cond.i.i.i.i764
   br label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit784
 
 _ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit784: ; preds = %if.then.i.i752, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i781

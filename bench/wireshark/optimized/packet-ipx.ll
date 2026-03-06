@@ -613,7 +613,7 @@ define internal i32 @dissect_ipx(ptr noundef %0, ptr noundef initializes((160, 2
   %spec.store.select = select i1 %7, i32 0, i32 %6
   store i32 %spec.store.select, ptr @dissect_ipx.ipx_current, align 4
   %8 = sext i32 %spec.store.select to i64
-  %9 = getelementptr %struct._ipxhdr_t, ptr @dissect_ipx.ipxh_arr, i64 %8
+  %9 = getelementptr [56 x i8], ptr @dissect_ipx.ipxh_arr, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 35, ptr noundef nonnull @.str.114)

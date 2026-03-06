@@ -127,7 +127,7 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   %.0129 = phi ptr [ %4, %.thread ], [ %38, %32 ]
   %33 = load i8, ptr %.0129, align 1
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i16, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 8192
   %.not144 = icmp eq i16 %37, 0
@@ -148,7 +148,7 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   %.2131 = phi ptr [ %spec.select, %39 ], [ %50, %44 ]
   %45 = load i8, ptr %.2131, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw i16, ptr %31, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, 8192
   %.not145 = icmp eq i16 %49, 0
@@ -192,7 +192,7 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   %.4133 = phi ptr [ %.3132, %65 ], [ %72, %66 ]
   %67 = load i8, ptr %.4133, align 1
   %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw i16, ptr %31, i64 %68
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %68
   %70 = load i16, ptr %69, align 2
   %71 = and i16 %70, 8192
   %.not146 = icmp eq i16 %71, 0
@@ -210,7 +210,7 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   %.6 = phi ptr [ %spec.select155, %73 ], [ %82, %76 ]
   %77 = load i8, ptr %.6, align 1
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw i16, ptr %31, i64 %78
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = and i16 %80, 8192
   %.not147 = icmp eq i16 %81, 0
@@ -229,7 +229,7 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   %.7206 = phi ptr [ %119, %118 ], [ %.6, %.preheader189 ]
   %.0205 = phi i64 [ %.3, %118 ], [ 0, %.preheader189 ]
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw i16, ptr %31, i64 %84
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %84
   %86 = load i16, ptr %85, align 2
   %87 = and i16 %86, 2048
   %.not149 = icmp eq i16 %87, 0
@@ -358,7 +358,7 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   %.9 = phi ptr [ %149, %143 ], [ %.7199, %.preheader188 ]
   %144 = load i8, ptr %.9, align 1
   %145 = zext i8 %144 to i64
-  %146 = getelementptr inbounds nuw i16, ptr %31, i64 %145
+  %146 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %145
   %147 = load i16, ptr %146, align 2
   %148 = and i16 %147, 2048
   %.not151 = icmp eq i16 %148, 0
@@ -374,7 +374,7 @@ define dso_local i64 @cash_in(ptr noundef readonly captures(none) %0) local_unna
   %.1124217 = phi i64 [ %.2125, %173 ], [ %.0123, %.preheader ]
   %.10216 = phi ptr [ %174, %173 ], [ %.9, %.preheader ]
   %151 = zext i8 %150 to i64
-  %152 = getelementptr inbounds nuw i16, ptr %31, i64 %151
+  %152 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %151
   %153 = load i16, ptr %152, align 2
   %154 = and i16 %153, 8192
   %.not153 = icmp ne i16 %154, 0
@@ -1639,7 +1639,7 @@ define internal fastcc void @append_num_word(ptr noundef nonnull %0, i64 noundef
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw ptr, ptr @append_num_word.small, i64 %1
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @append_num_word.small, i64 %1
   %8 = load ptr, ptr %7, align 8
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef %8) #13
   br label %67
@@ -1651,7 +1651,7 @@ define internal fastcc void @append_num_word(ptr noundef nonnull %0, i64 noundef
 10:                                               ; preds = %9
   %11 = udiv i16 %.lhs.trunc, 100
   %.zext39 = zext nneg i16 %11 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @append_num_word.small, i64 %.zext39
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @append_num_word.small, i64 %.zext39
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.53, ptr noundef %13) #13
   br label %67
@@ -1670,12 +1670,12 @@ define internal fastcc void @append_num_word(ptr noundef nonnull %0, i64 noundef
 20:                                               ; preds = %16
   %21 = udiv i16 %.lhs.trunc, 100
   %.zext43 = zext nneg i16 %21 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr @append_num_word.small, i64 %.zext43
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @append_num_word.small, i64 %.zext43
   %23 = load ptr, ptr %22, align 8
   %.lhs.trunc44 = trunc nuw nsw i16 %3 to i8
   %24 = udiv i8 %.lhs.trunc44, 10
   %25 = zext nneg i8 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @append_num_word.small, i64 144), i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @append_num_word.small, i64 144), i64 %25
   %27 = load ptr, ptr %26, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.54, ptr noundef %23, ptr noundef %27) #13
   br label %67
@@ -1683,12 +1683,12 @@ define internal fastcc void @append_num_word(ptr noundef nonnull %0, i64 noundef
 28:                                               ; preds = %16
   %29 = icmp samesign ult i16 %3, 20
   %.zext47 = zext nneg i16 %4 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr @append_num_word.small, i64 %.zext47
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @append_num_word.small, i64 %.zext47
   %31 = load ptr, ptr %30, align 8
   br i1 %29, label %32, label %35
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw ptr, ptr @append_num_word.small, i64 %.zext
+  %33 = getelementptr inbounds nuw [8 x i8], ptr @append_num_word.small, i64 %.zext
   %34 = load ptr, ptr %33, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.55, ptr noundef %31, ptr noundef %34) #13
   br label %67
@@ -1697,11 +1697,11 @@ define internal fastcc void @append_num_word(ptr noundef nonnull %0, i64 noundef
   %.lhs.trunc50 = trunc nuw nsw i16 %3 to i8
   %36 = udiv i8 %.lhs.trunc50, 10
   %37 = zext nneg i8 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @append_num_word.small, i64 144), i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @append_num_word.small, i64 144), i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = urem i8 %.lhs.trunc50, 10
   %41 = zext nneg i8 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr @append_num_word.small, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @append_num_word.small, i64 %41
   %43 = load ptr, ptr %42, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.56, ptr noundef %31, ptr noundef %39, ptr noundef %43) #13
   br label %67
@@ -1718,7 +1718,7 @@ define internal fastcc void @append_num_word(ptr noundef nonnull %0, i64 noundef
   %.lhs.trunc56 = trunc nuw nsw i16 %3 to i8
   %49 = udiv i8 %.lhs.trunc56, 10
   %50 = zext nneg i8 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @append_num_word.small, i64 144), i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @append_num_word.small, i64 144), i64 %50
   %52 = load ptr, ptr %51, align 8
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef %52) #13
   br label %67
@@ -1728,7 +1728,7 @@ define internal fastcc void @append_num_word(ptr noundef nonnull %0, i64 noundef
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw ptr, ptr @append_num_word.small, i64 %.zext
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @append_num_word.small, i64 %.zext
   %57 = load ptr, ptr %56, align 8
   tail call void @appendStringInfoString(ptr noundef nonnull %0, ptr noundef %57) #13
   br label %67
@@ -1737,11 +1737,11 @@ define internal fastcc void @append_num_word(ptr noundef nonnull %0, i64 noundef
   %.lhs.trunc58 = trunc nuw nsw i16 %3 to i8
   %59 = udiv i8 %.lhs.trunc58, 10
   %60 = zext nneg i8 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @append_num_word.small, i64 144), i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @append_num_word.small, i64 144), i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = urem i8 %.lhs.trunc58, 10
   %64 = zext nneg i8 %63 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr @append_num_word.small, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr @append_num_word.small, i64 %64
   %66 = load ptr, ptr %65, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.57, ptr noundef %62, ptr noundef %66) #13
   br label %67

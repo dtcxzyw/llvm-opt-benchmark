@@ -7,14 +7,12 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.forbidden_frame_type = type { i64, i64, i64 }
 %struct.QUIC_STATELESS_RESET_TOKEN = type { [16 x i8] }
 %struct.timeval = type { i64, i64 }
-%struct.script_op = type { i32, ptr, i64, ptr, ptr, i64, ptr, ptr, ptr }
 %struct.in_addr = type { i32 }
 %struct.quic_tserver_args_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 %union.BIO_sock_info_u = type { ptr }
 %struct.helper = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, %struct.OSSL_TIME, ptr, %struct.OSSL_TIME, ptr, i32, i32, i32, i32, i32, ptr, ptr, ptr, i64, i64, i64, i64, i64, %struct.anon, i32 }
 %struct.OSSL_TIME = type { i64 }
 %struct.anon = type { ptr, ptr, ptr, i32, i32 }
-%struct.child_thread_args = type { ptr, ptr, ptr, i32, ptr, ptr, i32, i32, i32 }
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
 %struct.stream_info = type { ptr, ptr, i64 }
 %struct.helper_local = type { ptr, ptr, i32, ptr, i32 }
@@ -497,14 +495,14 @@ define internal range(i32 0, 2) i32 @test_dyn_frame_types(i32 noundef %0) #1 {
   %2 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.forbidden_frame_type, ptr @forbidden_frame_types, i64 %3
+  %4 = getelementptr inbounds [24 x i8], ptr @forbidden_frame_types, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %7
 
 7:                                                ; preds = %1, %14
   %.016 = phi i64 [ 0, %1 ], [ %15, %14 ]
-  %8 = getelementptr inbounds nuw %struct.script_op, ptr @dyn_frame_types_script, i64 %.016
+  %8 = getelementptr inbounds nuw [72 x i8], ptr @dyn_frame_types_script, i64 %.016
   %9 = load i32, ptr %8, align 8, !tbaa !9
   switch i32 %9, label %14 [
     i32 43, label %10
@@ -554,7 +552,7 @@ define internal range(i32 0, 2) i32 @test_script(i32 noundef %0) #1 {
   %11 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %2, i64 noundef 64, ptr noundef nonnull @.str.161, i32 noundef %10) #15
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 5912, ptr noundef nonnull @.str.162, i32 noundef %10, i32 noundef %3, i32 noundef %5) #15
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds ptr, ptr @scripts, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr @scripts, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !20
   %15 = call fastcc i32 @run_script(ptr noundef %14, ptr noundef %2, i32 noundef %3, i32 noundef %5)
   br label %16
@@ -962,7 +960,7 @@ helper_init.exit:                                 ; preds = %200, %204
 .lr.ph.i:                                         ; preds = %209, %223
   %.019.i = phi i64 [ %225, %223 ], [ 0, %209 ]
   %.01518.i = phi i32 [ %.1.i, %223 ], [ 1, %209 ]
-  %214 = getelementptr inbounds nuw %struct.child_thread_args, ptr %211, i64 %.019.i
+  %214 = getelementptr inbounds nuw [64 x i8], ptr %211, i64 %.019.i
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 32
   %216 = load ptr, ptr %215, align 8, !tbaa !78
   %.not.i7 = icmp eq ptr %216, null
@@ -1208,7 +1206,7 @@ helper_local_init.exit:                           ; preds = %4, %46, %50
 81:                                               ; preds = %78
   %82 = load ptr, ptr %54, align 8, !tbaa !76
   %83 = zext nneg i32 %.val to i64
-  %84 = getelementptr inbounds nuw %struct.child_thread_args, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [64 x i8], ptr %82, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 56
   br label %s_checked_out_p.exit.i
 
@@ -1258,7 +1256,7 @@ s_unlock.exit:                                    ; preds = %s_checked_out_p.exi
   br label %.thread1082
 
 101:                                              ; preds = %96
-  %102 = getelementptr inbounds nuw %struct.script_op, ptr %1, i64 %.2547
+  %102 = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %.2547
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %104 = load ptr, ptr %103, align 8, !tbaa !91
   %.not613 = icmp eq ptr %104, null
@@ -1475,7 +1473,7 @@ thread-pre-split:                                 ; preds = %139, %144
   %.35661205 = phi i32 [ %.4567, %186 ], [ 0, %.preheader ]
   %.05751204 = phi i64 [ %187, %186 ], [ 0, %.preheader ]
   %155 = load ptr, ptr %54, align 8, !tbaa !76
-  %156 = getelementptr inbounds nuw %struct.child_thread_args, ptr %155, i64 %.05751204
+  %156 = getelementptr inbounds nuw [64 x i8], ptr %155, i64 %.05751204
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 40
   %158 = load ptr, ptr %157, align 8, !tbaa !96
   %159 = icmp eq ptr %158, null
@@ -1484,7 +1482,7 @@ thread-pre-split:                                 ; preds = %139, %144
 160:                                              ; preds = %.lr.ph1206
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %158) #15
   %161 = load ptr, ptr %54, align 8, !tbaa !76
-  %162 = getelementptr inbounds nuw %struct.child_thread_args, ptr %161, i64 %.05751204
+  %162 = getelementptr inbounds nuw [64 x i8], ptr %161, i64 %.05751204
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 52
   %164 = load i32, ptr %163, align 4, !tbaa !97
   %165 = getelementptr inbounds nuw i8, ptr %162, i64 40
@@ -1509,7 +1507,7 @@ thread-pre-split:                                 ; preds = %139, %144
 172:                                              ; preds = %169
   %173 = load ptr, ptr %54, align 8, !tbaa !76
   %174 = zext nneg i32 %170 to i64
-  %175 = getelementptr inbounds nuw %struct.child_thread_args, ptr %173, i64 %174
+  %175 = getelementptr inbounds nuw [64 x i8], ptr %173, i64 %174
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 56
   br label %s_checked_out_p.exit.i819
 
@@ -1561,12 +1559,12 @@ s_lock.exit:                                      ; preds = %s_checked_out_p.exi
 
 196:                                              ; preds = %192
   %197 = add i64 %.2547, 1
-  %198 = getelementptr inbounds nuw i64, ptr %12, i64 %.1570
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.1570
   store i64 %197, ptr %198, align 8, !tbaa !16
-  %199 = getelementptr inbounds nuw i64, ptr %13, i64 %.1570
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.1570
   store i64 0, ptr %199, align 8, !tbaa !16
   %200 = load i64, ptr %193, align 8, !tbaa !15
-  %201 = getelementptr inbounds nuw i64, ptr %14, i64 %.1570
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.1570
   store i64 %200, ptr %201, align 8, !tbaa !16
   %202 = add i64 %.1570, 1
   br label %.loopexit1108
@@ -1599,17 +1597,17 @@ s_lock.exit:                                      ; preds = %s_checked_out_p.exi
 
 216:                                              ; preds = %214
   %217 = add i64 %.1570, -1
-  %218 = getelementptr inbounds nuw i64, ptr %13, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %217
   %219 = load i64, ptr %218, align 8, !tbaa !16
   %220 = add i64 %219, 1
   store i64 %220, ptr %218, align 8, !tbaa !16
-  %221 = getelementptr inbounds nuw i64, ptr %14, i64 %217
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %217
   %222 = load i64, ptr %221, align 8, !tbaa !16
   %223 = icmp eq i64 %220, %222
   br i1 %223, label %.loopexit1108, label %224
 
 224:                                              ; preds = %216
-  %225 = getelementptr inbounds nuw i64, ptr %12, i64 %217
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %217
   %226 = load i64, ptr %225, align 8, !tbaa !16
   br label %.thread974
 
@@ -1635,7 +1633,7 @@ s_lock.exit:                                      ; preds = %s_checked_out_p.exi
 236:                                              ; preds = %233
   %237 = load ptr, ptr %54, align 8, !tbaa !76
   %238 = zext nneg i32 %234 to i64
-  %239 = getelementptr inbounds nuw %struct.child_thread_args, ptr %237, i64 %238
+  %239 = getelementptr inbounds nuw [64 x i8], ptr %237, i64 %238
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 56
   br label %s_checked_out_p.exit.i822
 
@@ -1834,7 +1832,7 @@ s_checked_out_p.exit.i822:                        ; preds = %233, %236
 334:                                              ; preds = %331
   %335 = load ptr, ptr %54, align 8, !tbaa !76
   %336 = zext nneg i32 %332 to i64
-  %337 = getelementptr inbounds nuw %struct.child_thread_args, ptr %335, i64 %336
+  %337 = getelementptr inbounds nuw [64 x i8], ptr %335, i64 %336
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 56
   br label %s_checked_out_p.exit.i827
 
@@ -1906,7 +1904,7 @@ s_lock.exit831:                                   ; preds = %344, %346
 370:                                              ; preds = %367
   %371 = load ptr, ptr %54, align 8, !tbaa !76
   %372 = zext nneg i32 %368 to i64
-  %373 = getelementptr inbounds nuw %struct.child_thread_args, ptr %371, i64 %372
+  %373 = getelementptr inbounds nuw [64 x i8], ptr %371, i64 %372
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 56
   br label %s_checked_out_p.exit.i832
 
@@ -2085,7 +2083,7 @@ s_lock.exit836:                                   ; preds = %380, %382
 438:                                              ; preds = %435
   %439 = load ptr, ptr %54, align 8, !tbaa !76
   %440 = zext nneg i32 %436 to i64
-  %441 = getelementptr inbounds nuw %struct.child_thread_args, ptr %439, i64 %440
+  %441 = getelementptr inbounds nuw [64 x i8], ptr %439, i64 %440
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 56
   br label %s_checked_out_p.exit.i837
 
@@ -2138,7 +2136,7 @@ s_lock.exit841:                                   ; preds = %448, %450
 466:                                              ; preds = %463
   %467 = load ptr, ptr %54, align 8, !tbaa !76
   %468 = zext nneg i32 %464 to i64
-  %469 = getelementptr inbounds nuw %struct.child_thread_args, ptr %467, i64 %468
+  %469 = getelementptr inbounds nuw [64 x i8], ptr %467, i64 %468
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 56
   br label %s_checked_out_p.exit.i842
 
@@ -2260,7 +2258,7 @@ s_lock.exit846:                                   ; preds = %s_checked_out_p.exi
 513:                                              ; preds = %510
   %514 = load ptr, ptr %54, align 8, !tbaa !76
   %515 = zext nneg i32 %511 to i64
-  %516 = getelementptr inbounds nuw %struct.child_thread_args, ptr %514, i64 %515
+  %516 = getelementptr inbounds nuw [64 x i8], ptr %514, i64 %515
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 56
   br label %s_checked_out_p.exit.i847
 
@@ -2300,7 +2298,7 @@ s_lock.exit851:                                   ; preds = %523, %525
 531:                                              ; preds = %528
   %532 = load ptr, ptr %54, align 8, !tbaa !76
   %533 = zext nneg i32 %529 to i64
-  %534 = getelementptr inbounds nuw %struct.child_thread_args, ptr %532, i64 %533
+  %534 = getelementptr inbounds nuw [64 x i8], ptr %532, i64 %533
   %535 = getelementptr inbounds nuw i8, ptr %534, i64 56
   br label %s_checked_out_p.exit.i852
 
@@ -2595,7 +2593,7 @@ helper_local_set_c_stream.exit875:                ; preds = %get_stream_info.exi
 657:                                              ; preds = %654
   %658 = load ptr, ptr %54, align 8, !tbaa !76
   %659 = zext nneg i32 %655 to i64
-  %660 = getelementptr inbounds nuw %struct.child_thread_args, ptr %658, i64 %659
+  %660 = getelementptr inbounds nuw [64 x i8], ptr %658, i64 %659
   %661 = getelementptr inbounds nuw i8, ptr %660, i64 56
   br label %s_checked_out_p.exit.i876
 
@@ -2754,7 +2752,7 @@ get_stream_info.exit.thread.i885:                 ; preds = %710, %705, %702
 729:                                              ; preds = %726
   %730 = load ptr, ptr %54, align 8, !tbaa !76
   %731 = zext nneg i32 %727 to i64
-  %732 = getelementptr inbounds nuw %struct.child_thread_args, ptr %730, i64 %731
+  %732 = getelementptr inbounds nuw [64 x i8], ptr %730, i64 %731
   %733 = getelementptr inbounds nuw i8, ptr %732, i64 56
   br label %s_checked_out_p.exit.i887
 
@@ -2794,7 +2792,7 @@ s_lock.exit891:                                   ; preds = %739, %741
 748:                                              ; preds = %745
   %749 = load ptr, ptr %54, align 8, !tbaa !76
   %750 = zext nneg i32 %746 to i64
-  %751 = getelementptr inbounds nuw %struct.child_thread_args, ptr %749, i64 %750
+  %751 = getelementptr inbounds nuw [64 x i8], ptr %749, i64 %750
   %752 = getelementptr inbounds nuw i8, ptr %751, i64 56
   br label %s_checked_out_p.exit.i892
 
@@ -2997,7 +2995,7 @@ helper_local_set_c_stream.exit902:                ; preds = %get_stream_info.exi
 839:                                              ; preds = %836
   %840 = load ptr, ptr %54, align 8, !tbaa !76
   %841 = zext nneg i32 %837 to i64
-  %842 = getelementptr inbounds nuw %struct.child_thread_args, ptr %840, i64 %841
+  %842 = getelementptr inbounds nuw [64 x i8], ptr %840, i64 %841
   %843 = getelementptr inbounds nuw i8, ptr %842, i64 56
   br label %s_checked_out_p.exit.i903
 
@@ -3126,7 +3124,7 @@ s_lock.exit907:                                   ; preds = %849, %851
 905:                                              ; preds = %894
   %906 = load ptr, ptr %54, align 8, !tbaa !76
   %907 = zext nneg i32 %903 to i64
-  %908 = getelementptr inbounds nuw %struct.child_thread_args, ptr %906, i64 %907
+  %908 = getelementptr inbounds nuw [64 x i8], ptr %906, i64 %907
   %909 = getelementptr inbounds nuw i8, ptr %908, i64 56
   br label %s_checked_out_p.exit.i908
 
@@ -3166,7 +3164,7 @@ s_lock.exit912:                                   ; preds = %915, %917
 923:                                              ; preds = %922
   %924 = load ptr, ptr %54, align 8, !tbaa !76
   %925 = zext nneg i32 %920 to i64
-  %926 = getelementptr inbounds nuw %struct.child_thread_args, ptr %924, i64 %925
+  %926 = getelementptr inbounds nuw [64 x i8], ptr %924, i64 %925
   %927 = getelementptr inbounds nuw i8, ptr %926, i64 56
   br label %s_checked_out_p.exit.i913
 
@@ -3202,7 +3200,7 @@ s_lock.exit917:                                   ; preds = %933, %935
 940:                                              ; preds = %s_lock.exit917
   %941 = load ptr, ptr %54, align 8, !tbaa !76
   %942 = zext nneg i32 %938 to i64
-  %943 = getelementptr inbounds nuw %struct.child_thread_args, ptr %941, i64 %942
+  %943 = getelementptr inbounds nuw [64 x i8], ptr %941, i64 %942
   %944 = getelementptr inbounds nuw i8, ptr %943, i64 56
   br label %s_checked_out_p.exit.i918
 
@@ -3235,7 +3233,7 @@ s_lock.exit922:                                   ; preds = %s_checked_out_p.exi
 955:                                              ; preds = %954
   %956 = load ptr, ptr %54, align 8, !tbaa !76
   %957 = zext nneg i32 %920 to i64
-  %958 = getelementptr inbounds nuw %struct.child_thread_args, ptr %956, i64 %957
+  %958 = getelementptr inbounds nuw [64 x i8], ptr %956, i64 %957
   %959 = getelementptr inbounds nuw i8, ptr %958, i64 56
   br label %s_checked_out_p.exit.i923
 
@@ -3374,7 +3372,7 @@ s_lock.exit927:                                   ; preds = %965, %967
 1020:                                             ; preds = %1017
   %1021 = load ptr, ptr %54, align 8, !tbaa !76
   %1022 = zext nneg i32 %1018 to i64
-  %1023 = getelementptr inbounds nuw %struct.child_thread_args, ptr %1021, i64 %1022
+  %1023 = getelementptr inbounds nuw [64 x i8], ptr %1021, i64 %1022
   %1024 = getelementptr inbounds nuw i8, ptr %1023, i64 56
   br label %s_checked_out_p.exit.i928
 
@@ -3507,7 +3505,7 @@ s_checked_out_p.exit.i928:                        ; preds = %1017, %1020
 1069:                                             ; preds = %1066
   %1070 = load ptr, ptr %54, align 8, !tbaa !76
   %1071 = zext nneg i32 %1067 to i64
-  %1072 = getelementptr inbounds nuw %struct.child_thread_args, ptr %1070, i64 %1071
+  %1072 = getelementptr inbounds nuw [64 x i8], ptr %1070, i64 %1071
   %1073 = getelementptr inbounds nuw i8, ptr %1072, i64 56
   br label %s_checked_out_p.exit.i933
 
@@ -3632,7 +3630,7 @@ s_lock.exit937:                                   ; preds = %1079, %1081
 1128:                                             ; preds = %.lr.ph, %1124
   %.05321203 = phi i64 [ 0, %.lr.ph ], [ %1125, %1124 ]
   %1129 = load ptr, ptr %54, align 8, !tbaa !76
-  %1130 = getelementptr inbounds nuw %struct.child_thread_args, ptr %1129, i64 %.05321203
+  %1130 = getelementptr inbounds nuw [64 x i8], ptr %1129, i64 %.05321203
   store ptr %0, ptr %1130, align 8, !tbaa !116
   %1131 = load ptr, ptr %1123, align 8, !tbaa !102
   %1132 = getelementptr inbounds nuw i8, ptr %1130, i64 8
@@ -3644,7 +3642,7 @@ s_lock.exit937:                                   ; preds = %1079, %1081
   store i32 %1134, ptr %1135, align 8, !tbaa !119
   %1136 = call ptr @ossl_crypto_mutex_new() #15
   %1137 = load ptr, ptr %54, align 8, !tbaa !76
-  %1138 = getelementptr inbounds nuw %struct.child_thread_args, ptr %1137, i64 %.05321203
+  %1138 = getelementptr inbounds nuw [64 x i8], ptr %1137, i64 %.05321203
   %1139 = getelementptr inbounds nuw i8, ptr %1138, i64 40
   store ptr %1136, ptr %1139, align 8, !tbaa !96
   %1140 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1890, ptr noundef nonnull @.str.134, ptr noundef %1136) #15
@@ -3653,10 +3651,10 @@ s_lock.exit937:                                   ; preds = %1079, %1081
 
 1141:                                             ; preds = %1128
   %1142 = load ptr, ptr %54, align 8, !tbaa !76
-  %1143 = getelementptr inbounds nuw %struct.child_thread_args, ptr %1142, i64 %.05321203
+  %1143 = getelementptr inbounds nuw [64 x i8], ptr %1142, i64 %.05321203
   %1144 = call ptr @ossl_crypto_thread_native_start(ptr noundef nonnull @run_script_child_thread, ptr noundef %1143, i32 noundef 1) #15
   %1145 = load ptr, ptr %54, align 8, !tbaa !76
-  %1146 = getelementptr inbounds nuw %struct.child_thread_args, ptr %1145, i64 %.05321203
+  %1146 = getelementptr inbounds nuw [64 x i8], ptr %1145, i64 %.05321203
   %1147 = getelementptr inbounds nuw i8, ptr %1146, i64 32
   store ptr %1144, ptr %1147, align 8, !tbaa !78
   %1148 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 1896, ptr noundef nonnull @.str.135, ptr noundef %1144) #15
@@ -3769,7 +3767,7 @@ s_lock.exit937:                                   ; preds = %1079, %1081
 1211:                                             ; preds = %1208
   %1212 = load ptr, ptr %54, align 8, !tbaa !76
   %1213 = zext nneg i32 %1209 to i64
-  %1214 = getelementptr inbounds nuw %struct.child_thread_args, ptr %1212, i64 %1213
+  %1214 = getelementptr inbounds nuw [64 x i8], ptr %1212, i64 %1213
   %1215 = getelementptr inbounds nuw i8, ptr %1214, i64 56
   br label %s_checked_out_p.exit.i943
 
@@ -3833,7 +3831,7 @@ s_lock.exit947:                                   ; preds = %s_checked_out_p.exi
 1246:                                             ; preds = %1243
   %1247 = load ptr, ptr %54, align 8, !tbaa !76
   %1248 = zext nneg i32 %1244 to i64
-  %1249 = getelementptr inbounds nuw %struct.child_thread_args, ptr %1247, i64 %1248
+  %1249 = getelementptr inbounds nuw [64 x i8], ptr %1247, i64 %1248
   %1250 = getelementptr inbounds nuw i8, ptr %1249, i64 56
   br label %s_checked_out_p.exit.i948
 
@@ -3908,7 +3906,7 @@ s_lock.exit952:                                   ; preds = %1256, %1258
   %1270 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1271 = load ptr, ptr %1270, align 8, !tbaa !76
   %1272 = zext nneg i32 %.val809 to i64
-  %1273 = getelementptr inbounds nuw %struct.child_thread_args, ptr %1271, i64 %1272
+  %1273 = getelementptr inbounds nuw [64 x i8], ptr %1271, i64 %1272
   %1274 = getelementptr inbounds nuw i8, ptr %1273, i64 56
   br label %s_checked_out_p.exit.i953
 
@@ -3942,11 +3940,11 @@ s_unlock.exit955:                                 ; preds = %s_checked_out_p.exi
 
 .lr.ph1208:                                       ; preds = %1283, %.lr.ph1208
   %.05301207 = phi i64 [ %1291, %.lr.ph1208 ], [ 0, %1283 ]
-  %1285 = getelementptr inbounds nuw i64, ptr %13, i64 %.05301207
+  %1285 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.05301207
   %1286 = load i64, ptr %1285, align 8, !tbaa !16
-  %1287 = getelementptr inbounds nuw i64, ptr %14, i64 %.05301207
+  %1287 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.05301207
   %1288 = load i64, ptr %1287, align 8, !tbaa !16
-  %1289 = getelementptr inbounds nuw i64, ptr %12, i64 %.05301207
+  %1289 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.05301207
   %1290 = load i64, ptr %1289, align 8, !tbaa !16
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 2029, ptr noundef nonnull @.str.146, i64 noundef %1286, i64 noundef %1288, i64 noundef %1290) #15
   %1291 = add nuw i64 %.05301207, 1
@@ -4079,7 +4077,7 @@ define internal fastcc void @helper_cleanup(ptr noundef nonnull %0) unnamed_addr
 
 .lr.ph.i:                                         ; preds = %1, %15
   %.019.i = phi i64 [ %17, %15 ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw %struct.child_thread_args, ptr %5, i64 %.019.i
+  %8 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %.019.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !78
   %.not.i = icmp eq ptr %10, null
@@ -4862,7 +4860,7 @@ define internal range(i32 0, 2) i32 @check_rejected(ptr noundef captures(none) %
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8, !tbaa !76
   %14 = zext nneg i32 %8 to i64
-  %15 = getelementptr inbounds nuw %struct.child_thread_args, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   br label %s_checked_out_p.exit.i
 
@@ -4911,7 +4909,7 @@ s_lock.exit:                                      ; preds = %23, %26
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %37 = load ptr, ptr %36, align 8, !tbaa !76
   %38 = zext nneg i32 %32 to i64
-  %39 = getelementptr inbounds nuw %struct.child_thread_args, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [64 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
   br label %s_checked_out_p.exit.i9
 
@@ -4982,7 +4980,7 @@ define internal i32 @check_stream_reset(ptr noundef captures(none) %0, ptr nound
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load ptr, ptr %13, align 8, !tbaa !76
   %15 = zext nneg i32 %9 to i64
-  %16 = getelementptr inbounds nuw %struct.child_thread_args, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [64 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   br label %s_checked_out_p.exit.i
 
@@ -5053,7 +5051,7 @@ define internal range(i32 0, 2) i32 @check_stream_stopped(ptr noundef captures(n
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8, !tbaa !76
   %14 = zext nneg i32 %8 to i64
-  %15 = getelementptr inbounds nuw %struct.child_thread_args, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   br label %s_checked_out_p.exit.i
 
@@ -6037,7 +6035,7 @@ define internal noundef i32 @script_41_setup(ptr noundef %0, ptr noundef readonl
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8, !tbaa !76
   %12 = zext nneg i32 %6 to i64
-  %13 = getelementptr inbounds nuw %struct.child_thread_args, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   br label %s_checked_out_p.exit.i
 
@@ -6356,7 +6354,7 @@ define internal range(i32 0, 2) i32 @force_ping(ptr noundef captures(none) %0, p
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8, !tbaa !76
   %12 = zext nneg i32 %6 to i64
-  %13 = getelementptr inbounds nuw %struct.child_thread_args, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   br label %s_checked_out_p.exit.i
 
@@ -6409,7 +6407,7 @@ s_lock.exit:                                      ; preds = %21, %24
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %39 = load ptr, ptr %38, align 8, !tbaa !76
   %40 = zext nneg i32 %34 to i64
-  %41 = getelementptr inbounds nuw %struct.child_thread_args, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [64 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
   br label %s_checked_out_p.exit.i6
 
@@ -6468,7 +6466,7 @@ define internal range(i32 0, 2) i32 @wait_incoming_acks_increased(ptr noundef ca
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8, !tbaa !76
   %12 = zext nneg i32 %6 to i64
-  %13 = getelementptr inbounds nuw %struct.child_thread_args, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   br label %s_checked_out_p.exit.i
 
@@ -7032,7 +7030,7 @@ define internal range(i32 0, 2) i32 @check_shutdown_reason(ptr noundef captures(
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8, !tbaa !76
   %12 = zext nneg i32 %6 to i64
-  %13 = getelementptr inbounds nuw %struct.child_thread_args, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   br label %s_checked_out_p.exit.i
 
@@ -7425,7 +7423,7 @@ define internal range(i32 0, 2) i32 @set_max_early_data(ptr noundef captures(non
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8, !tbaa !76
   %12 = zext nneg i32 %6 to i64
-  %13 = getelementptr inbounds nuw %struct.child_thread_args, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   br label %s_checked_out_p.exit.i
 
@@ -7686,7 +7684,7 @@ define internal range(i32 0, 2) i32 @trigger_late_session_ticket(ptr noundef cap
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8, !tbaa !76
   %12 = zext nneg i32 %6 to i64
-  %13 = getelementptr inbounds nuw %struct.child_thread_args, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   br label %s_checked_out_p.exit.i
 
@@ -8312,10 +8310,10 @@ define internal range(i32 0, 2) i32 @script_85_poll(ptr noundef readonly capture
 47:                                               ; preds = %45, %55
   %.168 = phi i32 [ %.054, %45 ], [ %.2, %55 ]
   %.05667 = phi i64 [ 0, %45 ], [ %56, %55 ]
-  %48 = getelementptr inbounds nuw %struct.ssl_poll_item_st, ptr %4, i64 %.05667
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %.05667
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i64, ptr %49, align 8, !tbaa !165
-  %51 = getelementptr inbounds nuw i64, ptr %5, i64 %.05667
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.05667
   %52 = load i64, ptr %51, align 8, !tbaa !16
   %53 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.14, i32 noundef 5626, ptr noundef nonnull @.str.390, ptr noundef nonnull @.str.391, i64 noundef %50, i64 noundef %52) #15
   %.not62 = icmp eq i32 %53, 0

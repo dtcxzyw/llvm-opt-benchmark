@@ -269,7 +269,7 @@ if.end36:                                         ; preds = %if.then24, %if.end1
 cond.true:                                        ; preds = %if.end36
   %yy_buffer_stack_top = getelementptr inbounds nuw i8, ptr %this, i64 632
   %3 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %3
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %2, i64 %3
   %4 = load ptr, ptr %arrayidx, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %if.end8.i, label %if.end47
@@ -323,7 +323,7 @@ if.then19.i:                                      ; preds = %if.then11.i
 if.end22.i:                                       ; preds = %if.then19.i, %if.then11.i
   %10 = phi ptr [ %.pre.i, %if.then19.i ], [ %call.i6.i, %if.then11.i ]
   %11 = load i64, ptr %yy_buffer_stack_max10.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %10, i64 %11
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i, i8 0, i64 64, i1 false)
   store i64 %add.i, ptr %yy_buffer_stack_max10.i, align 8
   br label %_ZN16veloxtpFlexLexer21yyensure_buffer_stackEv.exit
@@ -336,11 +336,11 @@ _ZN16veloxtpFlexLexer21yyensure_buffer_stackEv.exit: ; preds = %if.end.i, %if.en
   %13 = load ptr, ptr %yy_buffer_stack, align 8
   %yy_buffer_stack_top45 = getelementptr inbounds nuw i8, ptr %this, i64 632
   %14 = load i64, ptr %yy_buffer_stack_top45, align 8
-  %arrayidx46 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %arrayidx46 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   store ptr %call43, ptr %arrayidx46, align 8
   %.pre = load ptr, ptr %yy_buffer_stack, align 8
   %.pre229 = load i64, ptr %yy_buffer_stack_top45, align 8
-  %arrayidx.i.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %.pre229
+  %arrayidx.i.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pre, i64 %.pre229
   %.pre230 = load ptr, ptr %arrayidx.i.phi.trans.insert, align 8
   br label %if.end47
 
@@ -348,7 +348,7 @@ if.end47:                                         ; preds = %_ZN16veloxtpFlexLex
   %15 = phi ptr [ %.pre230, %_ZN16veloxtpFlexLexer21yyensure_buffer_stackEv.exit ], [ %4, %cond.true ]
   %16 = phi i64 [ %.pre229, %_ZN16veloxtpFlexLexer21yyensure_buffer_stackEv.exit ], [ %3, %cond.true ]
   %17 = phi ptr [ %.pre, %_ZN16veloxtpFlexLexer21yyensure_buffer_stackEv.exit ], [ %2, %cond.true ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %17, i64 %16
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %17, i64 %16
   %yy_n_chars.i = getelementptr inbounds nuw i8, ptr %15, i64 28
   %18 = load i32, ptr %yy_n_chars.i, align 4
   %yy_n_chars2.i = getelementptr inbounds nuw i8, ptr %this, i64 604
@@ -401,9 +401,9 @@ yy_match:                                         ; preds = %yy_match.backedge, 
   %yy_bp.0 = phi ptr [ %25, %while.body ], [ %yy_bp.0.be, %yy_match.backedge ]
   %yy_current_state.0 = phi i32 [ %27, %while.body ], [ %yy_current_state.0.be, %yy_match.backedge ]
   %idxprom180 = sext i32 %yy_current_state.0 to i64
-  %arrayidx51181 = getelementptr inbounds [128 x i16], ptr @_ZL6yy_nxt, i64 %idxprom180
+  %arrayidx51181 = getelementptr inbounds [256 x i8], ptr @_ZL6yy_nxt, i64 %idxprom180
   %idxprom52182 = zext i8 %28 to i64
-  %arrayidx53183 = getelementptr inbounds nuw i16, ptr %arrayidx51181, i64 %idxprom52182
+  %arrayidx53183 = getelementptr inbounds nuw [2 x i8], ptr %arrayidx51181, i64 %idxprom52182
   %29 = load i16, ptr %arrayidx53183, align 2
   %conv184 = sext i16 %29 to i32
   %cmp185 = icmp sgt i16 %29, 0
@@ -424,10 +424,10 @@ if.then58:                                        ; preds = %while.body54
 if.end59:                                         ; preds = %if.then58, %while.body54
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %yy_cp.1186, i64 1
   %idxprom = zext nneg i32 %conv187 to i64
-  %arrayidx51 = getelementptr inbounds nuw [128 x i16], ptr @_ZL6yy_nxt, i64 %idxprom
+  %arrayidx51 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6yy_nxt, i64 %idxprom
   %32 = load i8, ptr %incdec.ptr, align 1
   %idxprom52 = zext i8 %32 to i64
-  %arrayidx53 = getelementptr inbounds nuw i16, ptr %arrayidx51, i64 %idxprom52
+  %arrayidx53 = getelementptr inbounds nuw [2 x i8], ptr %arrayidx51, i64 %idxprom52
   %33 = load i16, ptr %arrayidx53, align 2
   %conv = sext i16 %33 to i32
   %cmp = icmp sgt i16 %33, 0
@@ -450,7 +450,7 @@ yy_find_action:                                   ; preds = %yy_find_action.oute
   %yy_cp.2 = phi ptr [ %add.ptr68, %sw.bb ], [ %yy_cp.2.ph, %yy_find_action.outer ]
   %yy_current_state.2 = phi i32 [ %38, %sw.bb ], [ %yy_current_state.2.ph, %yy_find_action.outer ]
   %idxprom60 = sext i32 %yy_current_state.2 to i64
-  %arrayidx61 = getelementptr inbounds i16, ptr @_ZL9yy_accept, i64 %idxprom60
+  %arrayidx61 = getelementptr inbounds [2 x i8], ptr @_ZL9yy_accept, i64 %idxprom60
   %34 = load i16, ptr %arrayidx61, align 2
   %conv62 = sext i16 %34 to i32
   store ptr %yy_bp.1.ph, ptr %yytext, align 8
@@ -677,7 +677,7 @@ sw.bb117:                                         ; preds = %do_action
   store i8 %53, ptr %yy_cp.2, align 1
   %54 = load ptr, ptr %yy_buffer_stack125, align 8
   %55 = load i64, ptr %yy_buffer_stack_top126, align 8
-  %arrayidx127 = getelementptr inbounds ptr, ptr %54, i64 %55
+  %arrayidx127 = getelementptr inbounds [8 x i8], ptr %54, i64 %55
   %56 = load ptr, ptr %arrayidx127, align 8
   %yy_buffer_status = getelementptr inbounds nuw i8, ptr %56, i64 56
   %57 = load i32, ptr %yy_buffer_status, align 8
@@ -695,18 +695,18 @@ if.then129:                                       ; preds = %sw.bb117
   %call139 = tail call noundef ptr @_ZNKSt9basic_iosIcSt11char_traitsIcEE5rdbufEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr138)
   %59 = load ptr, ptr %yy_buffer_stack125, align 8
   %60 = load i64, ptr %yy_buffer_stack_top126, align 8
-  %arrayidx142 = getelementptr inbounds ptr, ptr %59, i64 %60
+  %arrayidx142 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   %61 = load ptr, ptr %arrayidx142, align 8
   store ptr %call139, ptr %61, align 8
   %62 = load ptr, ptr %yy_buffer_stack125, align 8
   %63 = load i64, ptr %yy_buffer_stack_top126, align 8
-  %arrayidx145 = getelementptr inbounds ptr, ptr %62, i64 %63
+  %arrayidx145 = getelementptr inbounds [8 x i8], ptr %62, i64 %63
   %64 = load ptr, ptr %arrayidx145, align 8
   %yy_buffer_status146 = getelementptr inbounds nuw i8, ptr %64, i64 56
   store i32 1, ptr %yy_buffer_status146, align 8
   %.pre232 = load ptr, ptr %yy_buffer_stack125, align 8
   %.pre233 = load i64, ptr %yy_buffer_stack_top126, align 8
-  %arrayidx151.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre232, i64 %.pre233
+  %arrayidx151.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pre232, i64 %.pre233
   %.pre234 = load ptr, ptr %arrayidx151.phi.trans.insert, align 8
   br label %if.end147
 
@@ -744,15 +744,15 @@ for.body.i:                                       ; preds = %if.then156, %for.in
   br i1 %tobool.not.i75, label %if.else.i, label %if.then.i76
 
 if.then.i76:                                      ; preds = %for.body.i
-  %arrayidx.i77 = getelementptr inbounds [128 x i16], ptr @_ZL6yy_nxt, i64 %idxprom4.i
+  %arrayidx.i77 = getelementptr inbounds [256 x i8], ptr @_ZL6yy_nxt, i64 %idxprom4.i
   %idxprom2.i = zext i8 %71 to i64
-  %arrayidx3.i = getelementptr inbounds nuw i16, ptr %arrayidx.i77, i64 %idxprom2.i
+  %arrayidx3.i = getelementptr inbounds nuw [2 x i8], ptr %arrayidx.i77, i64 %idxprom2.i
   %72 = load i16, ptr %arrayidx3.i, align 2
   %conv.i = sext i16 %72 to i32
   br label %if.end.i78
 
 if.else.i:                                        ; preds = %for.body.i
-  %arrayidx5.i = getelementptr inbounds i32, ptr @_ZL12yy_NUL_trans, i64 %idxprom4.i
+  %arrayidx5.i = getelementptr inbounds [4 x i8], ptr @_ZL12yy_NUL_trans, i64 %idxprom4.i
   %73 = load i32, ptr %arrayidx5.i, align 4
   br label %if.end.i78
 
@@ -787,7 +787,7 @@ yy_find_action.outer.backedge:                    ; preds = %for.inc.i132, %_ZN1
 
 if.then165:                                       ; preds = %_ZN16veloxtpFlexLexer21yy_get_previous_stateEv.exit
   %idxprom.i.le = zext nneg i32 %yy_current_state.0.lcssa.i to i64
-  %arrayidx.i79.le = getelementptr inbounds nuw i32, ptr @_ZL12yy_NUL_trans, i64 %idxprom.i.le
+  %arrayidx.i79.le = getelementptr inbounds nuw [4 x i8], ptr @_ZL12yy_NUL_trans, i64 %idxprom.i.le
   %75 = load i32, ptr %arrayidx.i79.le, align 4
   store i32 %75, ptr %yy_last_accepting_state69, align 8
   store ptr %add.ptr158, ptr %yy_last_accepting_cpos67, align 8
@@ -856,15 +856,15 @@ for.body.i93:                                     ; preds = %sw.bb192, %for.inc.
   br i1 %tobool.not.i96, label %if.else.i109, label %if.then.i98
 
 if.then.i98:                                      ; preds = %for.body.i93
-  %arrayidx.i99 = getelementptr inbounds [128 x i16], ptr @_ZL6yy_nxt, i64 %idxprom4.i97
+  %arrayidx.i99 = getelementptr inbounds [256 x i8], ptr @_ZL6yy_nxt, i64 %idxprom4.i97
   %idxprom2.i100 = zext i8 %82 to i64
-  %arrayidx3.i101 = getelementptr inbounds nuw i16, ptr %arrayidx.i99, i64 %idxprom2.i100
+  %arrayidx3.i101 = getelementptr inbounds nuw [2 x i8], ptr %arrayidx.i99, i64 %idxprom2.i100
   %83 = load i16, ptr %arrayidx3.i101, align 2
   %conv.i102 = sext i16 %83 to i32
   br label %if.end.i103
 
 if.else.i109:                                     ; preds = %for.body.i93
-  %arrayidx5.i110 = getelementptr inbounds i32, ptr @_ZL12yy_NUL_trans, i64 %idxprom4.i97
+  %arrayidx5.i110 = getelementptr inbounds [4 x i8], ptr @_ZL12yy_NUL_trans, i64 %idxprom4.i97
   %84 = load i32, ptr %arrayidx5.i110, align 4
   br label %if.end.i103
 
@@ -888,7 +888,7 @@ for.inc.i105:                                     ; preds = %if.then9.i108, %if.
 sw.bb201:                                         ; preds = %if.else169
   %85 = load ptr, ptr %yy_buffer_stack125, align 8
   %86 = load i64, ptr %yy_buffer_stack_top126, align 8
-  %arrayidx204 = getelementptr inbounds ptr, ptr %85, i64 %86
+  %arrayidx204 = getelementptr inbounds [8 x i8], ptr %85, i64 %86
   %87 = load ptr, ptr %arrayidx204, align 8
   %yy_ch_buf205 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %88 = load ptr, ptr %yy_ch_buf205, align 8
@@ -910,15 +910,15 @@ for.body.i120:                                    ; preds = %sw.bb201, %for.inc.
   br i1 %tobool.not.i123, label %if.else.i136, label %if.then.i125
 
 if.then.i125:                                     ; preds = %for.body.i120
-  %arrayidx.i126 = getelementptr inbounds [128 x i16], ptr @_ZL6yy_nxt, i64 %idxprom4.i124
+  %arrayidx.i126 = getelementptr inbounds [256 x i8], ptr @_ZL6yy_nxt, i64 %idxprom4.i124
   %idxprom2.i127 = zext i8 %92 to i64
-  %arrayidx3.i128 = getelementptr inbounds nuw i16, ptr %arrayidx.i126, i64 %idxprom2.i127
+  %arrayidx3.i128 = getelementptr inbounds nuw [2 x i8], ptr %arrayidx.i126, i64 %idxprom2.i127
   %93 = load i16, ptr %arrayidx3.i128, align 2
   %conv.i129 = sext i16 %93 to i32
   br label %if.end.i130
 
 if.else.i136:                                     ; preds = %for.body.i120
-  %arrayidx5.i137 = getelementptr inbounds i32, ptr @_ZL12yy_NUL_trans, i64 %idxprom4.i124
+  %arrayidx5.i137 = getelementptr inbounds [4 x i8], ptr @_ZL12yy_NUL_trans, i64 %idxprom4.i124
   %94 = load i32, ptr %arrayidx5.i137, align 4
   br label %if.end.i130
 
@@ -1048,7 +1048,7 @@ if.then19:                                        ; preds = %if.then11
 if.end22:                                         ; preds = %if.then19, %if.then11
   %6 = phi ptr [ %.pre, %if.then19 ], [ %call.i6, %if.then11 ]
   %7 = load i64, ptr %yy_buffer_stack_max10, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %6, i64 %7
+  %add.ptr = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr, i8 0, i64 64, i1 false)
   store i64 %add, ptr %yy_buffer_stack_max10, align 8
   br label %if.end27
@@ -1064,7 +1064,7 @@ entry:
   %0 = load ptr, ptr %yy_buffer_stack, align 8
   %yy_buffer_stack_top = getelementptr inbounds nuw i8, ptr %this, i64 632
   %1 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %1
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %0, i64 %1
   %2 = load ptr, ptr %arrayidx, align 8
   %yy_n_chars = getelementptr inbounds nuw i8, ptr %2, i64 28
   %3 = load i32, ptr %yy_n_chars, align 4
@@ -1199,15 +1199,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %for.body
-  %arrayidx = getelementptr inbounds [128 x i16], ptr @_ZL6yy_nxt, i64 %idxprom4
+  %arrayidx = getelementptr inbounds [256 x i8], ptr @_ZL6yy_nxt, i64 %idxprom4
   %idxprom2 = zext i8 %3 to i64
-  %arrayidx3 = getelementptr inbounds nuw i16, ptr %arrayidx, i64 %idxprom2
+  %arrayidx3 = getelementptr inbounds nuw [2 x i8], ptr %arrayidx, i64 %idxprom2
   %4 = load i16, ptr %arrayidx3, align 2
   %conv = sext i16 %4 to i32
   br label %if.end
 
 if.else:                                          ; preds = %for.body
-  %arrayidx5 = getelementptr inbounds i32, ptr @_ZL12yy_NUL_trans, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds [4 x i8], ptr @_ZL12yy_NUL_trans, i64 %idxprom4
   %5 = load i32, ptr %arrayidx5, align 4
   br label %if.end
 
@@ -1237,7 +1237,7 @@ for.end:                                          ; preds = %for.inc, %entry
 define noundef i32 @_ZN16veloxtpFlexLexer16yy_try_NUL_transEi(ptr noundef nonnull align 8 captures(none) dereferenceable(732) %this, i32 noundef %yy_current_state) local_unnamed_addr #6 align 2 {
 entry:
   %idxprom = sext i32 %yy_current_state to i64
-  %arrayidx = getelementptr inbounds i32, ptr @_ZL12yy_NUL_trans, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x i8], ptr @_ZL12yy_NUL_trans, i64 %idxprom
   %0 = load i32, ptr %arrayidx, align 4
   %1 = add i32 %yy_current_state, -3
   %cmp = icmp ult i32 %1, -2
@@ -1263,7 +1263,7 @@ entry:
   %0 = load ptr, ptr %yy_buffer_stack, align 8
   %yy_buffer_stack_top = getelementptr inbounds nuw i8, ptr %this, i64 632
   %1 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %1
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %0, i64 %1
   %2 = load ptr, ptr %arrayidx, align 8
   %yy_ch_buf = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %yy_ch_buf, align 8
@@ -1286,7 +1286,7 @@ if.then:                                          ; preds = %entry
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(732) %this, ptr noundef nonnull @.str.2)
   %.pre = load ptr, ptr %yy_buffer_stack, align 8
   %.pre40 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx9.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %.pre40
+  %arrayidx9.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pre, i64 %.pre40
   %.pre41 = load ptr, ptr %arrayidx9.phi.trans.insert, align 8
   br label %if.end
 
@@ -1331,7 +1331,7 @@ for.body:                                         ; preds = %if.end16, %for.body
 for.end.loopexit:                                 ; preds = %for.body
   %.pre42 = load ptr, ptr %yy_buffer_stack, align 8
   %.pre43 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx27.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre42, i64 %.pre43
+  %arrayidx27.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pre42, i64 %.pre43
   %.pre44 = load ptr, ptr %arrayidx27.phi.trans.insert, align 8
   br label %for.end
 
@@ -1345,7 +1345,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %cmp28, label %if.then29, label %if.else35
 
 if.then29:                                        ; preds = %for.end
-  %arrayidx27 = getelementptr inbounds ptr, ptr %20, i64 %19
+  %arrayidx27 = getelementptr inbounds [8 x i8], ptr %20, i64 %19
   store i32 0, ptr %yy_n_chars, align 4
   br label %if.end109
 
@@ -1411,7 +1411,7 @@ if.end75:                                         ; preds = %if.then72, %if.then
   store ptr %arrayidx78, ptr %yy_c_buf_p, align 8
   %30 = load ptr, ptr %yy_buffer_stack, align 8
   %31 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx82 = getelementptr inbounds ptr, ptr %30, i64 %31
+  %arrayidx82 = getelementptr inbounds [8 x i8], ptr %30, i64 %31
   %32 = load ptr, ptr %arrayidx82, align 8
   %.pn.in = getelementptr inbounds nuw i8, ptr %32, i64 24
   %.pn = load i32, ptr %.pn.in, align 8
@@ -1448,7 +1448,7 @@ if.end103:                                        ; preds = %if.then100, %while.
   %38 = phi i32 [ %.pre47, %if.then100 ], [ %call97, %while.end ]
   %39 = load ptr, ptr %yy_buffer_stack, align 8
   %40 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx107 = getelementptr inbounds ptr, ptr %39, i64 %40
+  %arrayidx107 = getelementptr inbounds [8 x i8], ptr %39, i64 %40
   br label %if.end109
 
 if.end109:                                        ; preds = %if.end103, %if.then29
@@ -1476,7 +1476,7 @@ if.then114:                                       ; preds = %if.then112
 if.else117:                                       ; preds = %if.then112
   %43 = load ptr, ptr %yy_buffer_stack, align 8
   %44 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx120 = getelementptr inbounds ptr, ptr %43, i64 %44
+  %arrayidx120 = getelementptr inbounds [8 x i8], ptr %43, i64 %44
   %45 = load ptr, ptr %arrayidx120, align 8
   %yy_buffer_status121 = getelementptr inbounds nuw i8, ptr %45, i64 56
   store i32 2, ptr %yy_buffer_status121, align 8
@@ -1488,7 +1488,7 @@ if.end124:                                        ; preds = %if.end109, %if.then
   %add126 = add nsw i32 %46, %conv
   %47 = load ptr, ptr %yy_buffer_stack, align 8
   %48 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx129 = getelementptr inbounds ptr, ptr %47, i64 %48
+  %arrayidx129 = getelementptr inbounds [8 x i8], ptr %47, i64 %48
   %49 = load ptr, ptr %arrayidx129, align 8
   %yy_buf_size130 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %50 = load i32, ptr %yy_buf_size130, align 8
@@ -1504,13 +1504,13 @@ if.then132:                                       ; preds = %if.end124
   %call.i25 = tail call noalias noundef ptr @realloc(ptr noundef %51, i64 noundef %conv142) #35
   %52 = load ptr, ptr %yy_buffer_stack, align 8
   %53 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx146 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %arrayidx146 = getelementptr inbounds [8 x i8], ptr %52, i64 %53
   %54 = load ptr, ptr %arrayidx146, align 8
   %yy_ch_buf147 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %call.i25, ptr %yy_ch_buf147, align 8
   %55 = load ptr, ptr %yy_buffer_stack, align 8
   %56 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx150 = getelementptr inbounds ptr, ptr %55, i64 %56
+  %arrayidx150 = getelementptr inbounds [8 x i8], ptr %55, i64 %56
   %57 = load ptr, ptr %arrayidx150, align 8
   %yy_ch_buf151 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %58 = load ptr, ptr %yy_ch_buf151, align 8
@@ -1524,7 +1524,7 @@ if.then153:                                       ; preds = %if.then132
   tail call void %59(ptr noundef nonnull align 8 dereferenceable(732) %this, ptr noundef nonnull @.str.5)
   %.pre48 = load ptr, ptr %yy_buffer_stack, align 8
   %.pre49 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx160.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre48, i64 %.pre49
+  %arrayidx160.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pre48, i64 %.pre49
   %.pre50 = load ptr, ptr %arrayidx160.phi.trans.insert, align 8
   br label %if.end156
 
@@ -1544,7 +1544,7 @@ if.end162:                                        ; preds = %if.end156, %if.end1
   %61 = phi i64 [ %.pre53, %if.end156 ], [ %48, %if.end124 ]
   %62 = phi ptr [ %.pre52, %if.end156 ], [ %47, %if.end124 ]
   store i32 %add164.pre-phi, ptr %yy_n_chars, align 4
-  %arrayidx167 = getelementptr inbounds ptr, ptr %62, i64 %61
+  %arrayidx167 = getelementptr inbounds [8 x i8], ptr %62, i64 %61
   %63 = load ptr, ptr %arrayidx167, align 8
   %yy_ch_buf168 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %64 = load ptr, ptr %yy_ch_buf168, align 8
@@ -1553,7 +1553,7 @@ if.end162:                                        ; preds = %if.end156, %if.end1
   store i8 0, ptr %arrayidx171, align 1
   %65 = load ptr, ptr %yy_buffer_stack, align 8
   %66 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx174 = getelementptr inbounds ptr, ptr %65, i64 %66
+  %arrayidx174 = getelementptr inbounds [8 x i8], ptr %65, i64 %66
   %67 = load ptr, ptr %arrayidx174, align 8
   %yy_ch_buf175 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %68 = load ptr, ptr %yy_ch_buf175, align 8
@@ -1564,7 +1564,7 @@ if.end162:                                        ; preds = %if.end156, %if.end1
   store i8 0, ptr %arrayidx179, align 1
   %72 = load ptr, ptr %yy_buffer_stack, align 8
   %73 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx182 = getelementptr inbounds ptr, ptr %72, i64 %73
+  %arrayidx182 = getelementptr inbounds [8 x i8], ptr %72, i64 %73
   %74 = load ptr, ptr %arrayidx182, align 8
   %yy_ch_buf183 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %75 = load ptr, ptr %yy_ch_buf183, align 8
@@ -1747,7 +1747,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 cond.true:                                        ; preds = %delete.end
   %yy_buffer_stack_top = getelementptr inbounds nuw i8, ptr %this, i64 632
   %3 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %3
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %2, i64 %3
   %4 = load ptr, ptr %arrayidx, align 8
   br label %cond.end
 
@@ -1820,7 +1820,7 @@ entry:
 cond.true:                                        ; preds = %entry
   %yy_buffer_stack_top = getelementptr inbounds nuw i8, ptr %this, i64 632
   %1 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %1
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %0, i64 %1
   %2 = load ptr, ptr %arrayidx, align 8
   br label %cond.end
 
@@ -1947,7 +1947,7 @@ entry:
   %2 = load ptr, ptr %yy_buffer_stack, align 8
   %yy_buffer_stack_top = getelementptr inbounds nuw i8, ptr %this, i64 632
   %3 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %3
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %2, i64 %3
   %4 = load ptr, ptr %arrayidx, align 8
   %yy_ch_buf = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %yy_ch_buf, align 8
@@ -1978,7 +1978,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   store i8 %12, ptr %incdec.ptr22, align 1
   %13 = load ptr, ptr %yy_buffer_stack, align 8
   %14 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx19 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %arrayidx19 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %15 = load ptr, ptr %arrayidx19, align 8
   %yy_ch_buf20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %16 = load ptr, ptr %yy_ch_buf20, align 8
@@ -1996,7 +1996,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   %.lcssa13 = phi ptr [ %2, %if.then ], [ %13, %while.end.loopexit ]
   %dest.0.lcssa = phi ptr [ %arrayidx10, %if.then ], [ %incdec.ptr22, %while.end.loopexit ]
   %source.0.lcssa = phi ptr [ %arrayidx16, %if.then ], [ %incdec.ptr, %while.end.loopexit ]
-  %arrayidx19.le = getelementptr inbounds ptr, ptr %.lcssa13, i64 %.lcssa14
+  %arrayidx19.le = getelementptr inbounds [8 x i8], ptr %.lcssa13, i64 %.lcssa14
   %sub.ptr.lhs.cast = ptrtoint ptr %dest.0.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %source.0.lcssa to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -2010,7 +2010,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   store i32 %17, ptr %yy_n_chars38, align 4
   %19 = load ptr, ptr %yy_buffer_stack, align 8
   %20 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx41 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %arrayidx41 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   %21 = load ptr, ptr %arrayidx41, align 8
   %yy_ch_buf42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %22 = load ptr, ptr %yy_ch_buf42, align 8
@@ -2065,7 +2065,7 @@ if.then:                                          ; preds = %if.then.lr.ph, %if.
   %4 = phi ptr [ %2, %if.then.lr.ph ], [ %17, %if.end21 ]
   %5 = load ptr, ptr %yy_buffer_stack, align 8
   %6 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %5, i64 %6
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %7 = load ptr, ptr %arrayidx, align 8
   %yy_ch_buf = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %yy_ch_buf, align 8
@@ -2169,7 +2169,7 @@ entry:
 cond.true:                                        ; preds = %entry
   %yy_buffer_stack_top = getelementptr inbounds nuw i8, ptr %this, i64 632
   %1 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %1
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %0, i64 %1
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %if.end8.i, label %cond.true9
@@ -2223,7 +2223,7 @@ if.then19.i:                                      ; preds = %if.then11.i
 if.end22.i:                                       ; preds = %if.then19.i, %if.then11.i
   %8 = phi ptr [ %.pre.i, %if.then19.i ], [ %call.i6.i, %if.then11.i ]
   %9 = load i64, ptr %yy_buffer_stack_max10.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %8, i64 %9
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i, i8 0, i64 64, i1 false)
   store i64 %add.i, ptr %yy_buffer_stack_max10.i, align 8
   br label %if.end
@@ -2237,7 +2237,7 @@ if.end:                                           ; preds = %if.end22.i, %if.end
   %11 = load ptr, ptr %yy_buffer_stack, align 8
   %yy_buffer_stack_top5 = getelementptr inbounds nuw i8, ptr %this, i64 632
   %12 = load i64, ptr %yy_buffer_stack_top5, align 8
-  %arrayidx6 = getelementptr inbounds ptr, ptr %11, i64 %12
+  %arrayidx6 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   store ptr %call, ptr %arrayidx6, align 8
   %.pre = load ptr, ptr %yy_buffer_stack, align 8
   %tobool8.not = icmp eq ptr %.pre, null
@@ -2247,7 +2247,7 @@ cond.true9:                                       ; preds = %cond.true, %if.end
   %13 = phi ptr [ %.pre, %if.end ], [ %0, %cond.true ]
   %yy_buffer_stack_top11 = getelementptr inbounds nuw i8, ptr %this, i64 632
   %14 = load i64, ptr %yy_buffer_stack_top11, align 8
-  %arrayidx12 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %arrayidx12 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %15 = load ptr, ptr %arrayidx12, align 8
   br label %cond.end14
 
@@ -2257,7 +2257,7 @@ cond.end14:                                       ; preds = %if.end, %cond.true9
   %16 = load ptr, ptr %yy_buffer_stack, align 8
   %yy_buffer_stack_top.i3 = getelementptr inbounds nuw i8, ptr %this, i64 632
   %17 = load i64, ptr %yy_buffer_stack_top.i3, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %16, i64 %17
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %18 = load ptr, ptr %arrayidx.i, align 8
   %yy_n_chars.i = getelementptr inbounds nuw i8, ptr %18, i64 28
   %19 = load i32, ptr %yy_n_chars.i, align 4
@@ -2317,7 +2317,7 @@ if.end.i:                                         ; preds = %entry
 cond.true.i:                                      ; preds = %if.end.i
   %yy_buffer_stack_top.i = getelementptr inbounds nuw i8, ptr %this, i64 632
   %5 = load i64, ptr %yy_buffer_stack_top.i, align 8
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %4, i64 %5
+  %arrayidx8.i = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %6 = load ptr, ptr %arrayidx8.i, align 8
   %7 = icmp eq ptr %b, %6
   br i1 %7, label %if.then9.i, label %_ZN16veloxtpFlexLexer15yy_flush_bufferEP15yy_buffer_state.exit
@@ -2365,7 +2365,7 @@ _ZN16veloxtpFlexLexer15yy_flush_bufferEP15yy_buffer_state.exit: ; preds = %entry
 cond.true:                                        ; preds = %_ZN16veloxtpFlexLexer15yy_flush_bufferEP15yy_buffer_state.exit
   %yy_buffer_stack_top = getelementptr inbounds nuw i8, ptr %this, i64 632
   %16 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %15, i64 %16
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   %17 = load ptr, ptr %arrayidx, align 8
   %18 = icmp eq ptr %b, %17
   br i1 %18, label %if.end, label %if.then
@@ -2456,7 +2456,7 @@ if.then19.i:                                      ; preds = %if.then11.i
 if.end22.i:                                       ; preds = %if.then19.i, %if.then11.i
   %6 = phi ptr [ %.pre.i, %if.then19.i ], [ %call.i6.i, %if.then11.i ]
   %7 = load i64, ptr %yy_buffer_stack_max10.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %6, i64 %7
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i, i8 0, i64 64, i1 false)
   store i64 %add.i, ptr %yy_buffer_stack_max10.i, align 8
   br label %_ZN16veloxtpFlexLexer21yyensure_buffer_stackEv.exit
@@ -2474,7 +2474,7 @@ cond.end:                                         ; preds = %_ZN16veloxtpFlexLex
 cond.end.thread:                                  ; preds = %_ZN16veloxtpFlexLexer21yyensure_buffer_stackEv.exit
   %yy_buffer_stack_top = getelementptr inbounds nuw i8, ptr %this, i64 632
   %9 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %9
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %10 = load ptr, ptr %arrayidx, align 8
   %cmp8 = icmp eq ptr %10, %new_buffer
   br i1 %cmp8, label %return, label %cond.true5
@@ -2492,7 +2492,7 @@ if.then13:                                        ; preds = %cond.true5
   %14 = load ptr, ptr %yy_c_buf_p, align 8
   %15 = load ptr, ptr %yy_buffer_stack.i, align 8
   %16 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %arrayidx17 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   %17 = load ptr, ptr %arrayidx17, align 8
   %yy_buf_pos = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %14, ptr %yy_buf_pos, align 8
@@ -2500,7 +2500,7 @@ if.then13:                                        ; preds = %cond.true5
   %18 = load i32, ptr %yy_n_chars, align 4
   %19 = load ptr, ptr %yy_buffer_stack.i, align 8
   %20 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx20 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %arrayidx20 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   %21 = load ptr, ptr %arrayidx20, align 8
   %yy_n_chars21 = getelementptr inbounds nuw i8, ptr %21, i64 28
   store i32 %18, ptr %yy_n_chars21, align 4
@@ -2511,11 +2511,11 @@ if.end22:                                         ; preds = %if.then13, %cond.tr
   %22 = phi ptr [ %8, %cond.true5 ], [ %.pre, %if.then13 ]
   %yy_buffer_stack_top24 = getelementptr inbounds nuw i8, ptr %this, i64 632
   %23 = load i64, ptr %yy_buffer_stack_top24, align 8
-  %arrayidx25 = getelementptr inbounds ptr, ptr %22, i64 %23
+  %arrayidx25 = getelementptr inbounds [8 x i8], ptr %22, i64 %23
   store ptr %new_buffer, ptr %arrayidx25, align 8
   %24 = load ptr, ptr %yy_buffer_stack.i, align 8
   %25 = load i64, ptr %yy_buffer_stack_top24, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %24, i64 %25
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %24, i64 %25
   %26 = load ptr, ptr %arrayidx.i, align 8
   %yy_n_chars.i = getelementptr inbounds nuw i8, ptr %26, i64 28
   %27 = load i32, ptr %yy_n_chars.i, align 4
@@ -2619,7 +2619,7 @@ if.end:                                           ; preds = %entry
 cond.true:                                        ; preds = %if.end
   %yy_buffer_stack_top = getelementptr inbounds nuw i8, ptr %this, i64 632
   %1 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %1
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %0, i64 %1
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = icmp eq ptr %b, %2
   br i1 %3, label %if.then4, label %if.end8
@@ -2681,7 +2681,7 @@ if.end:                                           ; preds = %entry
 cond.true:                                        ; preds = %if.end
   %yy_buffer_stack_top = getelementptr inbounds nuw i8, ptr %this, i64 632
   %4 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx8 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %arrayidx8 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %5 = load ptr, ptr %arrayidx8, align 8
   %6 = icmp eq ptr %b, %5
   br i1 %6, label %if.then9, label %if.end10
@@ -2779,7 +2779,7 @@ if.then19.i:                                      ; preds = %if.then11.i
 if.end22.i:                                       ; preds = %if.then19.i, %if.then11.i
   %6 = phi ptr [ %.pre.i, %if.then19.i ], [ %call.i6.i, %if.then11.i ]
   %7 = load i64, ptr %yy_buffer_stack_max10.i, align 8
-  %add.ptr.i = getelementptr inbounds ptr, ptr %6, i64 %7
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i, i8 0, i64 64, i1 false)
   store i64 %add.i, ptr %yy_buffer_stack_max10.i, align 8
   %.pre = load i64, ptr %yy_buffer_stack_top9.i, align 8
@@ -2789,7 +2789,7 @@ _ZN16veloxtpFlexLexer21yyensure_buffer_stackEv.exit: ; preds = %if.end.i, %if.en
   %8 = phi i64 [ 0, %if.end.i ], [ %3, %if.end8.i ], [ %.pre, %if.end22.i ]
   %9 = load ptr, ptr %yy_buffer_stack.i, align 8, !nonnull !25, !noundef !25
   %yy_buffer_stack_top = getelementptr inbounds nuw i8, ptr %this, i64 632
-  %arrayidx = getelementptr inbounds ptr, ptr %9, i64 %8
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %9, i64 %8
   %10 = load ptr, ptr %arrayidx, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %if.end26, label %if.end13
@@ -2803,7 +2803,7 @@ if.end13:                                         ; preds = %_ZN16veloxtpFlexLex
   %14 = load ptr, ptr %yy_c_buf_p, align 8
   %15 = load ptr, ptr %yy_buffer_stack.i, align 8
   %16 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx8 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %arrayidx8 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   %17 = load ptr, ptr %arrayidx8, align 8
   %yy_buf_pos = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %14, ptr %yy_buf_pos, align 8
@@ -2811,13 +2811,13 @@ if.end13:                                         ; preds = %_ZN16veloxtpFlexLex
   %18 = load i32, ptr %yy_n_chars, align 4
   %19 = load ptr, ptr %yy_buffer_stack.i, align 8
   %20 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx11 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %arrayidx11 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   %21 = load ptr, ptr %arrayidx11, align 8
   %yy_n_chars12 = getelementptr inbounds nuw i8, ptr %21, i64 28
   store i32 %18, ptr %yy_n_chars12, align 4
   %.pr.pre = load ptr, ptr %yy_buffer_stack.i, align 8
   %.pre9 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx19.phi.trans.insert = getelementptr inbounds ptr, ptr %.pr.pre, i64 %.pre9
+  %arrayidx19.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pr.pre, i64 %.pre9
   %.pre10 = load ptr, ptr %arrayidx19.phi.trans.insert, align 8
   %22 = icmp eq ptr %.pre10, null
   br i1 %22, label %if.end26, label %if.then24
@@ -2830,11 +2830,11 @@ if.then24:                                        ; preds = %if.end13
 if.end26:                                         ; preds = %_ZN16veloxtpFlexLexer21yyensure_buffer_stackEv.exit, %if.then24, %if.end13
   %.pr13 = phi ptr [ %.pr.pre, %if.then24 ], [ %.pr.pre, %if.end13 ], [ %9, %_ZN16veloxtpFlexLexer21yyensure_buffer_stackEv.exit ]
   %23 = phi i64 [ %inc, %if.then24 ], [ %.pre9, %if.end13 ], [ %8, %_ZN16veloxtpFlexLexer21yyensure_buffer_stackEv.exit ]
-  %arrayidx29 = getelementptr inbounds ptr, ptr %.pr13, i64 %23
+  %arrayidx29 = getelementptr inbounds [8 x i8], ptr %.pr13, i64 %23
   store ptr %new_buffer, ptr %arrayidx29, align 8
   %24 = load ptr, ptr %yy_buffer_stack.i, align 8
   %25 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %24, i64 %25
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %24, i64 %25
   %26 = load ptr, ptr %arrayidx.i, align 8
   %yy_n_chars.i = getelementptr inbounds nuw i8, ptr %26, i64 28
   %27 = load i32, ptr %yy_n_chars.i, align 4
@@ -2878,7 +2878,7 @@ entry:
 cond.true:                                        ; preds = %entry
   %yy_buffer_stack_top = getelementptr inbounds nuw i8, ptr %this, i64 632
   %1 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %1
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %0, i64 %1
   %2 = load ptr, ptr %arrayidx, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %if.end31, label %cond.end11
@@ -2890,7 +2890,7 @@ cond.end11:                                       ; preds = %cond.true
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(732) %this, ptr noundef nonnull %2)
   %5 = load ptr, ptr %yy_buffer_stack, align 8
   %6 = load i64, ptr %yy_buffer_stack_top, align 8
-  %arrayidx15 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %arrayidx15 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   store ptr null, ptr %arrayidx15, align 8
   %7 = load i64, ptr %yy_buffer_stack_top, align 8
   %cmp.not = icmp eq i64 %7, 0
@@ -2908,7 +2908,7 @@ if.end19:                                         ; preds = %if.then17, %cond.en
   br i1 %tobool21.not, label %if.end31, label %cond.true22
 
 cond.true22:                                      ; preds = %if.end19
-  %arrayidx25 = getelementptr inbounds ptr, ptr %9, i64 %8
+  %arrayidx25 = getelementptr inbounds [8 x i8], ptr %9, i64 %8
   %10 = load ptr, ptr %arrayidx25, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %if.end31, label %if.then30
@@ -3000,7 +3000,7 @@ if.end13:                                         ; preds = %if.end, %if.then11,
   %inc = add nsw i32 %6, 1
   store i32 %inc, ptr %yy_start_stack_ptr, align 4
   %idxprom = sext i32 %6 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %5, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x i8], ptr %5, i64 %idxprom
   store i32 %div, ptr %arrayidx, align 4
   %mul16 = shl nsw i32 %_new_state, 1
   %add17 = or disjoint i32 %mul16, 1
@@ -3031,7 +3031,7 @@ if.end:                                           ; preds = %if.then, %entry
   %yy_start_stack = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load ptr, ptr %yy_start_stack, align 8
   %idxprom = sext i32 %2 to i64
-  %arrayidx = getelementptr inbounds i32, ptr %3, i64 %idxprom
+  %arrayidx = getelementptr inbounds [4 x i8], ptr %3, i64 %idxprom
   %4 = load i32, ptr %arrayidx, align 4
   %mul = shl nsw i32 %4, 1
   %add = or disjoint i32 %mul, 1
@@ -3048,7 +3048,7 @@ entry:
   %yy_start_stack_ptr = getelementptr inbounds nuw i8, ptr %this, i64 28
   %1 = load i32, ptr %yy_start_stack_ptr, align 4
   %2 = sext i32 %1 to i64
-  %3 = getelementptr i32, ptr %0, i64 %2
+  %3 = getelementptr [4 x i8], ptr %0, i64 %2
   %arrayidx = getelementptr i8, ptr %3, i64 -4
   %4 = load i32, ptr %arrayidx, align 4
   ret i32 %4

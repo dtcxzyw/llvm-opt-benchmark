@@ -35,7 +35,7 @@ define ptr @cs_etree(ptr noundef readonly captures(address_is_null) %0, i32 noun
 
 22:                                               ; preds = %7
   %23 = sext i32 %11 to i64
-  %24 = getelementptr i32, ptr %19, i64 %23
+  %24 = getelementptr [4 x i8], ptr %19, i64 %23
   %25 = icmp sgt i32 %9, 0
   %or.cond81 = select i1 %.not69, i1 %25, i1 false
   br i1 %or.cond81, label %.lr.ph.preheader, label %.loopexit70
@@ -56,14 +56,14 @@ define ptr @cs_etree(ptr noundef readonly captures(address_is_null) %0, i32 noun
 
 .lr.ph79.split.us:                                ; preds = %.lr.ph79, %.loopexit.us
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.loopexit.us ], [ 0, %.lr.ph79 ]
-  %29 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv85
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv85
   store i32 -1, ptr %29, align 4, !tbaa !15
-  %30 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv85
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv85
   store i32 -1, ptr %30, align 4, !tbaa !15
-  %31 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv85
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv85
   %32 = load i32, ptr %31, align 4, !tbaa !15
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %33 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next86
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.next86
   %34 = load i32, ptr %33, align 4, !tbaa !15
   %35 = icmp slt i32 %32, %34
   br i1 %35, label %.lr.ph76.us.preheader, label %.loopexit.us
@@ -80,7 +80,7 @@ define ptr @cs_etree(ptr noundef readonly captures(address_is_null) %0, i32 noun
 .lr.ph76.us:                                      ; preds = %.lr.ph76.us.preheader, %._crit_edge.us.us
   %38 = phi i32 [ %34, %.lr.ph76.us.preheader ], [ %45, %._crit_edge.us.us ]
   %indvars.iv = phi i64 [ %36, %.lr.ph76.us.preheader ], [ %indvars.iv.next, %._crit_edge.us.us ]
-  %39 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %39 = getelementptr inbounds [4 x i8], ptr %15, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !15
   %41 = icmp ne i32 %40, -1
   %42 = sext i32 %40 to i64
@@ -102,14 +102,14 @@ define ptr @cs_etree(ptr noundef readonly captures(address_is_null) %0, i32 noun
 .lr.ph73.us.us:                                   ; preds = %.lr.ph76.us, %53
   %.172.us.us = phi i32 [ %50, %53 ], [ %40, %.lr.ph76.us ]
   %48 = sext i32 %.172.us.us to i64
-  %49 = getelementptr inbounds i32, ptr %19, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %19, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !15
   store i32 %37, ptr %49, align 4, !tbaa !15
   %51 = icmp eq i32 %50, -1
   br i1 %51, label %.thread, label %53
 
 .thread:                                          ; preds = %.lr.ph73.us.us
-  %52 = getelementptr inbounds i32, ptr %16, i64 %48
+  %52 = getelementptr inbounds [4 x i8], ptr %16, i64 %48
   store i32 %37, ptr %52, align 4, !tbaa !15
   br label %._crit_edge.us.us.loopexit
 
@@ -124,14 +124,14 @@ define ptr @cs_etree(ptr noundef readonly captures(address_is_null) %0, i32 noun
 
 .lr.ph79.split:                                   ; preds = %.lr.ph79, %.loopexit
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %.loopexit ], [ 0, %.lr.ph79 ]
-  %56 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv91
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv91
   store i32 -1, ptr %56, align 4, !tbaa !15
-  %57 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv91
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv91
   store i32 -1, ptr %57, align 4, !tbaa !15
-  %58 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv91
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv91
   %59 = load i32, ptr %58, align 4, !tbaa !15
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
-  %60 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next92
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.next92
   %61 = load i32, ptr %60, align 4, !tbaa !15
   %62 = icmp slt i32 %59, %61
   br i1 %62, label %.lr.ph76.preheader, label %.loopexit
@@ -144,10 +144,10 @@ define ptr @cs_etree(ptr noundef readonly captures(address_is_null) %0, i32 noun
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %._crit_edge
   %indvars.iv88 = phi i64 [ %63, %.lr.ph76.preheader ], [ %indvars.iv.next89, %._crit_edge ]
-  %65 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv88
+  %65 = getelementptr inbounds [4 x i8], ptr %15, i64 %indvars.iv88
   %66 = load i32, ptr %65, align 4, !tbaa !15
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i32, ptr %24, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %24, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !15
   %70 = icmp ne i32 %69, -1
   %71 = sext i32 %69 to i64
@@ -158,14 +158,14 @@ define ptr @cs_etree(ptr noundef readonly captures(address_is_null) %0, i32 noun
 .lr.ph73:                                         ; preds = %.lr.ph76, %79
   %.172 = phi i32 [ %76, %79 ], [ %69, %.lr.ph76 ]
   %74 = sext i32 %.172 to i64
-  %75 = getelementptr inbounds i32, ptr %19, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %19, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !15
   store i32 %64, ptr %75, align 4, !tbaa !15
   %77 = icmp eq i32 %76, -1
   br i1 %77, label %.thread112, label %79
 
 .thread112:                                       ; preds = %.lr.ph73
-  %78 = getelementptr inbounds i32, ptr %16, i64 %74
+  %78 = getelementptr inbounds [4 x i8], ptr %16, i64 %74
   store i32 %64, ptr %78, align 4, !tbaa !15
   br label %._crit_edge.loopexit
 
@@ -182,7 +182,7 @@ define ptr @cs_etree(ptr noundef readonly captures(address_is_null) %0, i32 noun
 ._crit_edge:                                      ; preds = %.lr.ph76, %._crit_edge.loopexit
   %.pre-phi99 = phi i32 [ %64, %._crit_edge.loopexit ], [ %.pre98, %.lr.ph76 ]
   %.pre-phi = phi i64 [ %.pre97, %._crit_edge.loopexit ], [ %67, %.lr.ph76 ]
-  %82 = getelementptr inbounds i32, ptr %24, i64 %.pre-phi
+  %82 = getelementptr inbounds [4 x i8], ptr %24, i64 %.pre-phi
   store i32 %.pre-phi99, ptr %82, align 4, !tbaa !15
   %indvars.iv.next89 = add nsw i64 %indvars.iv88, 1
   %83 = load i32, ptr %60, align 4, !tbaa !15

@@ -1347,7 +1347,7 @@ _ZNSt12_Vector_baseIN7rocksdb13PinnableSliceESaIS1_EE13_M_deallocateEPS1_m.exit:
   store ptr %19, ptr %0, align 8, !tbaa !48
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 %18
   store ptr %36, ptr %15, align 8, !tbaa !51
-  %37 = getelementptr inbounds nuw %"class.rocksdb::PinnableSlice", ptr %19, i64 %1
+  %37 = getelementptr inbounds nuw [96 x i8], ptr %19, i64 %1
   store ptr %37, ptr %6, align 8, !tbaa !52
   br label %38
 
@@ -1586,7 +1586,7 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i: ; pred
   br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.thread.i.i, label %.lr.ph.i.i.i.i.preheader.i.i
 
 _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i
-  %12 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr null, i64 %10
+  %12 = getelementptr inbounds nuw [16 x i8], ptr null, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8, !tbaa !60
   br label %.loopexit
@@ -1595,7 +1595,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EE11_M_allocateEm.exit.thread.i.i: ; p
   %14 = shl nuw nsw i64 %10, 4
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #19
   store ptr %15, ptr %0, align 8, !tbaa !63
-  %16 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %15, i64 %10
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %16, ptr %17, align 8, !tbaa !60
   br label %.lr.ph.i.i.i.i.i.i
@@ -2020,7 +2020,7 @@ _ZSt8_DestroyIPN7rocksdb13PinnableSliceES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt
 _ZNSt12_Vector_baseIN7rocksdb13PinnableSliceESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN7rocksdb13PinnableSliceES1_EvT_S3_RSaIT0_E.exit, %60
   store ptr %22, ptr %0, align 8, !tbaa !48
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %4, align 8, !tbaa !51
-  %64 = getelementptr inbounds nuw %"class.rocksdb::PinnableSlice", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [96 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !52
   ret void
 

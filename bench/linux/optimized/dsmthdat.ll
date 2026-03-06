@@ -3,9 +3,6 @@ source_filename = "bench/linux/original/dsmthdat.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.acpi_namespace_node = type { ptr, i8, i8, i16, %union.acpi_name_union, ptr, ptr, ptr, i16 }
-%union.acpi_name_union = type { i32 }
-
 @_acpi_module_name = internal constant [9 x i8] c"dsmthdat\00", align 1
 @.str.2 = private unnamed_addr constant [35 x i8] c"Local index %u is invalid (max %u)\00", align 1
 @.str.3 = private unnamed_addr constant [33 x i8] c"Arg index %u is invalid (max %u)\00", align 1
@@ -25,7 +22,7 @@ define dso_local void @acpi_ds_method_data_init(ptr noundef writeonly captures(n
 
 5:                                                ; preds = %5, %1
   %6 = phi i64 [ 0, %1 ], [ %15, %5 ]
-  %7 = getelementptr %struct.acpi_namespace_node, ptr %2, i64 %6
+  %7 = getelementptr [48 x i8], ptr %2, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %9 = trunc i64 %6 to i32
   %10 = shl i32 %9, 24
@@ -43,7 +40,7 @@ define dso_local void @acpi_ds_method_data_init(ptr noundef writeonly captures(n
 
 17:                                               ; preds = %17, %3
   %18 = phi i64 [ 0, %3 ], [ %27, %17 ]
-  %19 = getelementptr %struct.acpi_namespace_node, ptr %4, i64 %18
+  %19 = getelementptr [48 x i8], ptr %4, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %21 = trunc i64 %18 to i32
   %22 = shl i32 %21, 24
@@ -74,7 +71,7 @@ define dso_local void @acpi_ds_method_data_delete_all(ptr noundef %0) local_unna
 
 5:                                                ; preds = %11, %1
   %6 = phi i64 [ 0, %1 ], [ %12, %11 ]
-  %7 = getelementptr %struct.acpi_namespace_node, ptr %2, i64 %6
+  %7 = getelementptr [48 x i8], ptr %2, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
@@ -90,7 +87,7 @@ define dso_local void @acpi_ds_method_data_delete_all(ptr noundef %0) local_unna
 
 14:                                               ; preds = %20, %3
   %15 = phi i64 [ 0, %3 ], [ %21, %20 ]
-  %16 = getelementptr %struct.acpi_namespace_node, ptr %4, i64 %15
+  %16 = getelementptr [48 x i8], ptr %4, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %20, label %19
@@ -126,13 +123,13 @@ define dso_local noundef i32 @acpi_ds_method_data_init_args(ptr noundef readonly
 
 11:                                               ; preds = %16, %7
   %12 = phi i64 [ 0, %7 ], [ %18, %16 ]
-  %13 = getelementptr ptr, ptr %0, i64 %12
+  %13 = getelementptr [8 x i8], ptr %0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr %struct.acpi_namespace_node, ptr %9, i64 %12
+  %17 = getelementptr [48 x i8], ptr %9, i64 %12
   tail call void @acpi_ut_add_reference(ptr noundef nonnull %14) #5
   store ptr %14, ptr %17, align 8
   %18 = add nuw nsw i64 %12, 1
@@ -175,7 +172,7 @@ define dso_local noundef range(i32 0, 12313) i32 @acpi_ds_method_data_get_node(i
   %.sink2 = phi i64 [ 488, %5 ], [ 152, %8 ]
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink2
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr %struct.acpi_namespace_node, ptr %14, i64 %15
+  %16 = getelementptr [48 x i8], ptr %14, i64 %15
   store ptr %16, ptr %3, align 8
   br label %17
 
@@ -227,7 +224,7 @@ define dso_local noundef range(i32 0, 12313) i32 @acpi_ds_method_data_get_value(
   %.sink8 = phi i64 [ 488, %8 ], [ 152, %11 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink8
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr %struct.acpi_namespace_node, ptr %17, i64 %18
+  %19 = getelementptr [48 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %32
@@ -309,7 +306,7 @@ define dso_local i32 @acpi_ds_store_object_to_local(i8 noundef zeroext %0, i32 n
   %.sink21 = phi i64 [ 488, %8 ], [ 152, %11 ]
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink21
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr %struct.acpi_namespace_node, ptr %17, i64 %18
+  %19 = getelementptr [48 x i8], ptr %17, i64 %18
   %20 = tail call ptr @acpi_ns_get_attached_object(ptr noundef %19) #5
   %21 = icmp eq ptr %20, %2
   br i1 %21, label %.thread, label %22
@@ -373,7 +370,7 @@ define dso_local i32 @acpi_ds_store_object_to_local(i8 noundef zeroext %0, i32 n
   %.sink23 = phi i64 [ 488, %31 ], [ 152, %52 ]
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink23
   %56 = zext nneg i32 %1 to i64
-  %57 = getelementptr %struct.acpi_namespace_node, ptr %55, i64 %56
+  %57 = getelementptr [48 x i8], ptr %55, i64 %56
   %58 = call ptr @acpi_ns_get_attached_object(ptr noundef %57) #5
   store ptr null, ptr %57, align 8
   %59 = icmp eq ptr %58, null
@@ -406,7 +403,7 @@ define dso_local i32 @acpi_ds_store_object_to_local(i8 noundef zeroext %0, i32 n
   %.sink25 = phi i64 [ 488, %.critedge ], [ 152, %67 ]
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink25
   %72 = zext nneg i32 %1 to i64
-  %73 = getelementptr %struct.acpi_namespace_node, ptr %71, i64 %72
+  %73 = getelementptr [48 x i8], ptr %71, i64 %72
   call void @acpi_ut_add_reference(ptr noundef %65) #5
   store ptr %65, ptr %73, align 8
   br label %74

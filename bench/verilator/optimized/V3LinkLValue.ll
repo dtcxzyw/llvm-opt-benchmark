@@ -4215,7 +4215,7 @@ _ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZN17LinkLValueVisitor5visitEP13As
 
 41:                                               ; preds = %_ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZN17LinkLValueVisitor5visitEP13AstNodeAssignEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit, %41
   %indvars.iv = phi i64 [ -2, %_ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZN17LinkLValueVisitor5visitEP13AstNodeAssignEUlPKS1_E_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds ptr, ptr %.ptr73, i64 %indvars.iv
+  %42 = getelementptr inbounds [8 x i8], ptr %.ptr73, i64 %indvars.iv
   store ptr %0, ptr %42, align 8, !tbaa !160
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %43 = icmp eq i64 %indvars.iv.next, 0
@@ -4450,7 +4450,7 @@ define linkonce_odr dso_local void @_ZZN7AstNode13predicateImplI13AstNodeVarRefL
   br i1 %21, label %22, label %_ZNSt6vectorIP7AstNodeSaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw ptr, ptr %12, i64 %1
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %1
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIP7AstNodeSaIS1_EE6resizeEm.exit, label %24
 
@@ -4470,7 +4470,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EE6resizeEm.exit:     ; preds = %18, %20, %22, %24
   %32 = getelementptr inbounds i8, ptr %31, i64 %30
   store ptr %32, ptr %25, align 8, !tbaa !152
   %33 = load ptr, ptr %26, align 8, !tbaa !152
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %1
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %1
   %35 = getelementptr inbounds i8, ptr %34, i64 -40
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !173
@@ -4577,9 +4577,9 @@ _ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt
 
 _ZNSt12_Vector_baseIP7AstNodeSaIS1_EE13_M_deallocateEPS1_m.exit36: ; preds = %_ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !19
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !165
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !23
   br label %41
 
@@ -4749,7 +4749,7 @@ _ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZN17LinkLValueVisitor5visitEP13As
 
 39:                                               ; preds = %_ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZN17LinkLValueVisitor5visitEP13AstNodeAssignEUlPKS1_E0_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit, %39
   %indvars.iv = phi i64 [ -2, %_ZZN7AstNode13predicateImplI13AstNodeVarRefLb0EZN17LinkLValueVisitor5visitEP13AstNodeAssignEUlPKS1_E0_EEbPNSt11conditionalIXsr3std8is_constIT_EE5valueEKS_S_E4typeERKT1_ENKUlmE_clEm.exit ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds ptr, ptr %.ptr70, i64 %indvars.iv
+  %40 = getelementptr inbounds [8 x i8], ptr %.ptr70, i64 %indvars.iv
   store ptr %0, ptr %40, align 8, !tbaa !160
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %41 = icmp eq i64 %indvars.iv.next, 0
@@ -4978,7 +4978,7 @@ define linkonce_odr dso_local void @_ZZN7AstNode13predicateImplI13AstNodeVarRefL
   br i1 %21, label %22, label %_ZNSt6vectorIP7AstNodeSaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw ptr, ptr %12, i64 %1
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %1
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIP7AstNodeSaIS1_EE6resizeEm.exit, label %24
 
@@ -4998,7 +4998,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EE6resizeEm.exit:     ; preds = %18, %20, %22, %24
   %32 = getelementptr inbounds i8, ptr %31, i64 %30
   store ptr %32, ptr %25, align 8, !tbaa !152
   %33 = load ptr, ptr %26, align 8, !tbaa !152
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %1
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %1
   %35 = getelementptr inbounds i8, ptr %34, i64 -40
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !180

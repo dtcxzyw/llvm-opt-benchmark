@@ -6323,7 +6323,7 @@ _ZNSt6vectorISt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EESa
   %1404 = shl nuw nsw i64 %1402, 3
   %1405 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %1404) #26
   store ptr %1405, ptr %17, align 8, !tbaa !66
-  %1406 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %1405, i64 %1402
+  %1406 = getelementptr inbounds nuw [8 x i8], ptr %1405, i64 %1402
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %1405, i8 0, i64 %1404, i1 false), !tbaa !69
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %1405, i64 %1404
   br label %_ZNSt12_Vector_baseISt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EESaIS6_EEC2EmRKS7_.exit.thread.i.i
@@ -6387,7 +6387,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_genera
           to label %1437 unwind label %1447
 
 1437:                                             ; preds = %1432
-  %1438 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %1407, i64 %indvars.iv.i148
+  %1438 = getelementptr inbounds nuw [8 x i8], ptr %1407, i64 %indvars.iv.i148
   %1439 = load ptr, ptr %18, align 8, !tbaa !51
   store ptr null, ptr %18, align 8, !tbaa !51
   %1440 = load ptr, ptr %1438, align 8, !tbaa !51
@@ -6437,7 +6437,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_genera
 1454:                                             ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEPFbRKS8_SF_EEvT_SI_T0_.exit.i, %.lr.ph.i
   %1455 = phi ptr [ %1407, %.lr.ph.i ], [ %1535, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEPFbRKS8_SF_EEvT_SI_T0_.exit.i ]
   %.070654.i = phi i64 [ 0, %.lr.ph.i ], [ %1533, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEPFbRKS8_SF_EEvT_SI_T0_.exit.i ]
-  %1456 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %1455, i64 %.070654.i
+  %1456 = getelementptr inbounds nuw [8 x i8], ptr %1455, i64 %.070654.i
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void @_ZN11flatbuffers11NumToStringImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %19, i64 noundef %.070654.i)
           to label %._crit_edge.i.i.i unwind label %1541
@@ -15217,7 +15217,7 @@ define internal fastcc void @_ZN19grpc_java_generator12_GLOBAL__N_123GrpcWriteDo
           to label %22 unwind label %37
 
 22:                                               ; preds = %._crit_edge.i.i
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %.02128
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %.02128
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %23)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %37
 
@@ -15235,7 +15235,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %28 = load ptr, ptr %2, align 8, !tbaa !103
-  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %.02128
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %.02128
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !10
   %32 = icmp eq i64 %31, 0
@@ -16489,7 +16489,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !103
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !105
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !107
   ret void
 }
@@ -17001,7 +17001,7 @@ common.ret22:                                     ; preds = %9, %common.ret
 
 9:                                                ; preds = %3
   %10 = lshr i64 %7, 1
-  %11 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_(ptr %0, ptr %11, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_(ptr %11, ptr %1, ptr %2)
   %12 = ptrtoint ptr %11 to i64
@@ -17019,7 +17019,7 @@ define linkonce_odr dso_local void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__
   %9 = ashr exact i64 %8, 3
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -17288,7 +17288,7 @@ define linkonce_odr dso_local void @_ZSt22__merge_without_bufferIN9__gnu_cxx17__
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit: ; preds = %18
   %21 = sdiv i64 %.tr7485, 2
-  %22 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %.tr81, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %.tr81, i64 %21
   %23 = sub i64 %9, %20
   %24 = ashr exact i64 %23, 3
   %25 = icmp sgt i64 %24, 0
@@ -17298,7 +17298,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6M
   %.014.i = phi i64 [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i ], [ %24, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit ]
   %.sroa.012.013.i = phi ptr [ %.sroa.012.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i ], [ %.tr7283, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit ]
   %26 = lshr i64 %.014.i, 1
-  %27 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %.sroa.012.013.i, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.012.013.i, i64 %26
   %28 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %22)
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = xor i64 %26, -1
@@ -17321,7 +17321,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_gene
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit55: ; preds = %18
   %35 = sdiv i64 %.tr7586, 2
-  %36 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %.tr7283, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %.tr7283, i64 %35
   %37 = ptrtoint ptr %.tr81 to i64
   %38 = sub i64 %20, %37
   %39 = ashr exact i64 %38, 3
@@ -17332,7 +17332,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6M
   %.014.i58 = phi i64 [ %.1.i63, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i57 ], [ %39, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit55 ]
   %.sroa.012.013.i59 = phi ptr [ %.sroa.012.1.i62, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i57 ], [ %.tr81, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit55 ]
   %41 = lshr i64 %.014.i58, 1
-  %42 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %.sroa.012.013.i59, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.012.013.i59, i64 %41
   %43 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %42)
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = xor i64 %41, -1
@@ -17407,7 +17407,7 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_gene
   br i1 %75, label %.lr.ph66.preheader.i.i, label %._crit_edge67.i.i
 
 .lr.ph66.preheader.i.i:                           ; preds = %74
-  %76 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %.sroa.026.0.i.i, i64 %.0.i.i
+  %76 = getelementptr inbounds [8 x i8], ptr %.sroa.026.0.i.i, i64 %.0.i.i
   br label %.lr.ph66.i.i
 
 ._crit_edge67.i.i:                                ; preds = %.lr.ph66.i.i, %74
@@ -17435,9 +17435,9 @@ _ZSt13__upper_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_gene
   br label %.backedge
 
 85:                                               ; preds = %71
-  %86 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %.sroa.026.0.i.i, i64 %.056.i.i
+  %86 = getelementptr inbounds [8 x i8], ptr %.sroa.026.0.i.i, i64 %.056.i.i
   %87 = sub i64 0, %72
-  %88 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %86, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %86, i64 %87
   %89 = icmp sgt i64 %.0.i.i, 0
   br i1 %89, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -17668,7 +17668,7 @@ _ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_
   %.0.lcssa.i = phi ptr [ %2, %14 ], [ %.08.lcssa.i.i.i.i.i12.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_NS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit ]
   %.lcssa.i = phi i64 [ %8, %14 ], [ %66, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_NS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.059, i64 %.lcssa.i)
-  %67 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %.sroa.022.0.lcssa.i, i64 %.sroa.speculated.i
+  %67 = getelementptr inbounds [8 x i8], ptr %.sroa.022.0.lcssa.i, i64 %.sroa.speculated.i
   %68 = tail call noundef ptr @_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_NS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEET0_T_SM_SM_SM_SL_T1_(ptr %.sroa.022.0.lcssa.i, ptr %67, ptr %67, ptr %1, ptr noundef %.0.lcssa.i, ptr %3)
   %69 = shl nsw i64 %.059, 2
   %.not28.i = icmp slt i64 %8, %69
@@ -17833,7 +17833,7 @@ _ZSt17__merge_sort_loopIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_de
   %.sroa.021.0.lcssa.i = phi ptr [ %0, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_lNS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_T1_T2_.exit ], [ %126, %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit ]
   %.lcssa.i24 = phi i64 [ %8, %_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEES9_lNS0_5__ops15_Iter_comp_iterIPFbRKS8_SH_EEEEvT_SL_T0_T1_T2_.exit ], [ %128, %_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_.exit ]
   %.sroa.speculated.i25 = tail call i64 @llvm.smin.i64(i64 %15, i64 %.lcssa.i24)
-  %129 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %.0.lcssa.i23, i64 %.sroa.speculated.i25
+  %129 = getelementptr inbounds [8 x i8], ptr %.0.lcssa.i23, i64 %.sroa.speculated.i25
   %130 = tail call ptr @_ZSt12__move_mergeIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEENS8_5__ops15_Iter_comp_iterIPFbRKS6_SH_EEEET0_T_SM_SM_SM_SL_T1_(ptr noundef %.0.lcssa.i23, ptr noundef %129, ptr noundef %129, ptr noundef %9, ptr %.sroa.021.0.lcssa.i, ptr %3)
   %131 = icmp slt i64 %69, %8
   br i1 %131, label %14, label %._crit_edge, !llvm.loop !243
@@ -18029,7 +18029,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6Meth
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit: ; preds = %72
   %73 = sdiv i64 %.tr112132, 2
-  %74 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %.tr128, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %.tr128, i64 %73
   %75 = sub i64 %10, %58
   %76 = ashr exact i64 %75, 3
   %77 = icmp sgt i64 %76, 0
@@ -18039,7 +18039,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6M
   %.014.i = phi i64 [ %.1.i88, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i ], [ %76, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit ]
   %.sroa.012.013.i = phi ptr [ %.sroa.012.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i ], [ %.tr110130, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit ]
   %78 = lshr i64 %.014.i, 1
-  %79 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %.sroa.012.013.i, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.012.013.i, i64 %78
   %80 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull align 8 dereferenceable(8) %74)
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = xor i64 %78, -1
@@ -18062,7 +18062,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_gene
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit92: ; preds = %72
   %87 = sdiv i64 %.tr113133, 2
-  %88 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %.tr110130, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %.tr110130, i64 %87
   %89 = ptrtoint ptr %.tr128 to i64
   %90 = sub i64 %58, %89
   %91 = ashr exact i64 %90, 3
@@ -18073,7 +18073,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6M
   %.014.i95 = phi i64 [ %.1.i100, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i94 ], [ %91, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit92 ]
   %.sroa.012.013.i96 = phi ptr [ %.sroa.012.1.i99, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i94 ], [ %.tr128, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit92 ]
   %93 = lshr i64 %.014.i95, 1
-  %94 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %.sroa.012.013.i96, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.012.013.i96, i64 %93
   %95 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull align 8 dereferenceable(8) %94)
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %97 = xor i64 %93, -1
@@ -18821,7 +18821,7 @@ _ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_delete
   br i1 %125, label %.lr.ph66.preheader.i.i, label %._crit_edge67.i.i
 
 .lr.ph66.preheader.i.i:                           ; preds = %124
-  %126 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %.sroa.026.0.i.i, i64 %.0.i.i
+  %126 = getelementptr inbounds [8 x i8], ptr %.sroa.026.0.i.i, i64 %.0.i.i
   br label %.lr.ph66.i.i
 
 ._crit_edge67.i.i:                                ; preds = %.lr.ph66.i.i, %124
@@ -18849,9 +18849,9 @@ _ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_delete
   br label %.backedge
 
 135:                                              ; preds = %121
-  %136 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %.sroa.026.0.i.i, i64 %.056.i.i
+  %136 = getelementptr inbounds [8 x i8], ptr %.sroa.026.0.i.i, i64 %.056.i.i
   %137 = sub i64 0, %122
-  %138 = getelementptr inbounds %"class.std::unique_ptr.12", ptr %136, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %136, i64 %137
   %139 = icmp sgt i64 %.0.i.i, 0
   br i1 %139, label %.lr.ph.i.i, label %._crit_edge.i.i
 

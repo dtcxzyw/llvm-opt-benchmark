@@ -2718,7 +2718,7 @@ switch.lookup:                                    ; preds = %73
   %78 = add nsw i32 %76, -4
   %79 = add i32 %4, 8
   %80 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.parse_value.3, i64 %80
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.parse_value.3, i64 %80
   %switch.load = load ptr, ptr %switch.gep, align 8
   %81 = load i32, ptr %switch.load, align 4
   %82 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %81, ptr noundef %2, i32 noundef %79, i32 noundef %78, i32 noundef 0)
@@ -2807,7 +2807,7 @@ add_cql_uuid.exit:                                ; preds = %114
 
 switch.lookup334:                                 ; preds = %127
   %130 = zext nneg i32 %switch.tableidx333 to i64
-  %switch.gep335 = getelementptr inbounds nuw ptr, ptr @switch.table.parse_value.3, i64 %130
+  %switch.gep335 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.parse_value.3, i64 %130
   %switch.load336 = load ptr, ptr %switch.gep335, align 8
   %131 = load i32, ptr %switch.load336, align 4
   %132 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %131, ptr noundef %2, i32 noundef %20, i32 noundef %128, i32 noundef 0)

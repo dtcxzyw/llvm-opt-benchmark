@@ -1552,12 +1552,12 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
 
 122:                                              ; preds = %.preheader, %122
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %122 ]
-  %123 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %124 = load i32, ptr %123, align 4, !tbaa !4
-  %125 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv
   %126 = load i32, ptr %125, align 4, !tbaa !4
   %127 = xor i32 %126, %124
-  %128 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   store i32 %127, ptr %128, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 80
@@ -1567,7 +1567,7 @@ define internal fastcc void @sha1_process(ptr noundef initializes((120, 140)) %0
   %130 = getelementptr inbounds nuw i8, ptr %116, i64 12
   %131 = load i32, ptr %130, align 4, !tbaa !24
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds [5 x i32], ptr %20, i64 %132
+  %133 = getelementptr inbounds [20 x i8], ptr %20, i64 %132
   switch i32 %131, label %1725 [
     i32 58, label %134
     i32 65, label %931
@@ -3256,7 +3256,7 @@ sha1_recompression_step.exit:                     ; preds = %134, %931
 1767:                                             ; preds = %115, %1742, %1740
   %1768 = add i32 %.054754, 1
   %1769 = zext i32 %1768 to i64
-  %1770 = getelementptr inbounds nuw %struct.dv_info_t, ptr @sha1_dvs, i64 %1769
+  %1770 = getelementptr inbounds nuw [344 x i8], ptr @sha1_dvs, i64 %1769
   %1771 = load i32, ptr %1770, align 4, !tbaa !20
   %.not57 = icmp eq i32 %1771, 0
   br i1 %.not57, label %.loopexit, label %115, !llvm.loop !25

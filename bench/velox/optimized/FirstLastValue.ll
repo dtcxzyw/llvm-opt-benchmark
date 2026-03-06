@@ -1901,7 +1901,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i.i.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #27
   store ptr null, ptr %constantArguments_, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -2235,7 +2235,7 @@ declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 nounde
 define linkonce_odr noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox4exec17SignatureVariableEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS7_m(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, ptr noundef nonnull align 8 dereferenceable(32) %__k, i64 noundef %__code) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %__bkt
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %0, i64 %__bkt
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2454,7 +2454,7 @@ if.end:                                           ; preds = %_ZNSt10_HashtableIN
   %add.ptr = getelementptr inbounds nuw i8, ptr %__node, i64 112
   store i64 %__code, ptr %add.ptr, align 8
   %12 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %__bkt.addr.0
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %__bkt.addr.0
   %13 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -2463,7 +2463,7 @@ if.then.i:                                        ; preds = %if.end
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %__node, align 8
   %15 = load ptr, ptr %this, align 8
-  %arrayidx6.i = getelementptr inbounds ptr, ptr %15, i64 %__bkt.addr.0
+  %arrayidx6.i = getelementptr inbounds [8 x i8], ptr %15, i64 %__bkt.addr.0
   %16 = load ptr, ptr %arrayidx6.i, align 8
   store ptr %__node, ptr %16, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox4exec17SignatureVariableEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSE_10_Hash_nodeISC_Lb1EEE.exit
@@ -2483,13 +2483,13 @@ if.then14.i:                                      ; preds = %if.else.i
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 112
   %21 = load i64, ptr %add.ptr.i.i.i, align 8
   %rem.i.i.i.i = urem i64 %21, %20
-  %arrayidx17.i = getelementptr inbounds ptr, ptr %19, i64 %rem.i.i.i.i
+  %arrayidx17.i = getelementptr inbounds [8 x i8], ptr %19, i64 %rem.i.i.i.i
   store ptr %__node, ptr %arrayidx17.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then14.i, %if.else.i
   %22 = load ptr, ptr %this, align 8
-  %arrayidx20.i = getelementptr inbounds ptr, ptr %22, i64 %__bkt.addr.0
+  %arrayidx20.i = getelementptr inbounds [8 x i8], ptr %22, i64 %__bkt.addr.0
   store ptr %_M_before_begin.i, ptr %arrayidx20.i, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8facebook5velox4exec17SignatureVariableEESaISC_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSE_10_Hash_nodeISC_Lb1EEE.exit
 
@@ -2667,7 +2667,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIN
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %__p.022, i64 112
   %2 = load i64, ptr %add.ptr.i, align 8
   %rem.i.i = urem i64 %2, %__bkt_count
-  %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %rem.i.i
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.then, label %if.else
@@ -2682,7 +2682,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 
@@ -3458,7 +3458,7 @@ _ZNSt12_Vector_baseIN8facebook5velox4exec13TypeSignatureESaIS3_EE13_M_deallocate
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i19, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i34, ptr %_M_finish.i.i, align 8
-  %add.ptr29 = getelementptr inbounds nuw %"class.facebook::velox::exec::TypeSignature", ptr %cond.i19, i64 %cond.i
+  %add.ptr29 = getelementptr inbounds nuw [96 x i8], ptr %cond.i19, i64 %cond.i
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8
   ret void
 
@@ -3588,7 +3588,7 @@ for.body.i.i.i.i.i.preheader:                     ; preds = %if.then
   %3 = trunc i64 %add.i.i.i to i32
   %conv4.i.i.i = and i32 %3, 63
   %div.i.i.i104105 = lshr i64 %add.i.i.i, 6
-  %add.ptr.i.i.i = getelementptr inbounds nuw i64, ptr %0, i64 %div.i.i.i104105
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %div.i.i.i104105
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.preheader, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
@@ -3849,13 +3849,13 @@ if.then.i85:                                      ; preds = %_ZSt4copyISt13_Bit_
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %idx.neg.i = sub nsw i64 0, %sub.ptr.div.i
-  %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i) #27
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %if.then.i85
   %div1.i = lshr i64 %sub.i.i, 6
-  %add.ptr = getelementptr inbounds nuw i64, ptr %call5.i.i.i, i64 %div1.i
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %div1.i
   store ptr %add.ptr, ptr %_M_end_of_storage.i, align 8
   store ptr %call5.i.i.i, ptr %this, align 8
   %__start.sroa.3.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4305,7 +4305,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %5, i64 %div8
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %div8
   %tobool.not.i.i = icmp eq ptr %4, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %invoke.cont.i.i
 
@@ -4507,7 +4507,7 @@ if.then26.i.i.i.i.i:                              ; preds = %for.end.i.i.i.i.i
   %sh_prom.i37.i.i.i.i.i = zext nneg i32 %sub28.i.i.i.i.i to i64
   %notmask.i38.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i37.i.i.i.i.i
   %idxprom.i40.i.i.i.i.i = zext nneg i32 %div27.i.i.i.i.i to i64
-  %arrayidx.i41.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %37, i64 %idxprom.i40.i.i.i.i.i
+  %arrayidx.i41.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %idxprom.i40.i.i.i.i.i
   %42 = load i64, ptr %arrayidx.i41.i.i.i.i.i, align 8
   %.demorgan.i.i.i = or i64 %42, %notmask.i38.i.i.i.i.i
   %cmp.i42.i.i.i.i.i = icmp eq i64 %.demorgan.i.i.i, -1
@@ -4538,16 +4538,16 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i11.i
 
 for.body.i12.i:                                   ; preds = %for.body.i12.i, %for.body.lr.ph.i.i
   %indvars.iv.i13.i = phi i64 [ %48, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i15.i, %for.body.i12.i ]
-  %arrayidx.i.i14.i = getelementptr inbounds i32, ptr %30, i64 %indvars.iv.i13.i
+  %arrayidx.i.i14.i = getelementptr inbounds [4 x i8], ptr %30, i64 %indvars.iv.i13.i
   %49 = load i32, ptr %arrayidx.i.i14.i, align 4
-  %arrayidx3.i.i.i = getelementptr inbounds i32, ptr %32, i64 %indvars.iv.i13.i
+  %arrayidx3.i.i.i = getelementptr inbounds [4 x i8], ptr %32, i64 %indvars.iv.i13.i
   %50 = load i32, ptr %arrayidx3.i.i.i, align 4
   %sub.i.i.i = sub nsw i32 %49, %extractNullsResult.sroa.0.0.extract.trunc.i
   %reass.sub127 = sub i32 %50, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i.i.i = add i32 %reass.sub127, 1
   %call.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i.i, i32 noundef %add.i.i.i)
   %51 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.i13.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %51, i64 %indvars.iv.i13.i
   store i32 %call.i.i.i, ptr %add.ptr.i.i.i.i, align 4
   %indvars.iv.next.i15.i = add nsw i64 %indvars.iv.i13.i, 1
   %52 = load i32, ptr %end_.i, align 8
@@ -4585,7 +4585,7 @@ if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i4.i.i
   %shl.i.i.i.i.i.i = shl i64 %sub.i.i.i.i.i.i.i, %sh_prom.i24.i.i.i.i.i
   %and7.i.i.i.i.i = and i64 %shl.i.i.i.i.i.i, %sub.i22.i.i.i.i.i
   %idxprom.i.i.i.i.i.i = sext i32 %div.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i64, ptr %54, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %54, i64 %idxprom.i.i.i.i.i.i
   %59 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i = and i64 %and7.i.i.i.i.i, %59
   %tobool4.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
@@ -4597,16 +4597,16 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i,
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %60 to i32
   %add.i26.i.i.i.i.i = or disjoint i32 %58, %cast.i.i.i.i.i.i
   %idxprom.i.i.i.i.i.i.i = sext i32 %add.i26.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %30, i64 %idxprom.i.i.i.i.i.i.i
   %61 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i.i.i.i.i.i
+  %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %32, i64 %idxprom.i.i.i.i.i.i.i
   %62 = load i32, ptr %arrayidx3.i.i.i.i.i.i.i, align 4
   %sub.i.i27.i.i.i.i.i = sub nsw i32 %61, %extractNullsResult.sroa.0.0.extract.trunc.i
   %reass.sub126 = sub i32 %62, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i.i.i.i.i.i.i = add i32 %reass.sub126, 1
   %call.i.i.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i27.i.i.i.i.i, i32 noundef %add.i.i.i.i.i.i.i)
   %63 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %63, i64 %idxprom.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %63, i64 %idxprom.i.i.i.i.i.i.i
   store i32 %call.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i, align 4
   %sub.i28.i.i.i.i.i = add nsw i64 %word.0.i.i.i.i.i.i, -1
   %and6.i.i.i.i.i.i = and i64 %sub.i28.i.i.i.i.i, %word.0.i.i.i.i.i.i
@@ -4627,7 +4627,7 @@ if.then10.i.i.i.i.i:                              ; preds = %if.end8.i.i.i.i.i
   %sh_prom.i33.i.i.i.i.i = zext nneg i32 %sub.i32.i.i.i.i.i to i64
   %shl.i34.i.i.i.i.i = shl i64 %sub.i.i31.i.i.i.i.i, %sh_prom.i33.i.i.i.i.i
   %idxprom.i35.i.i.i.i.i = sext i32 %div11.i.i.i.i.i to i64
-  %arrayidx.i36.i.i.i.i.i = getelementptr inbounds i64, ptr %54, i64 %idxprom.i35.i.i.i.i.i
+  %arrayidx.i36.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %54, i64 %idxprom.i35.i.i.i.i.i
   %64 = load i64, ptr %arrayidx.i36.i.i.i.i.i, align 8
   %and.i39.i.i.i.i.i = and i64 %64, %shl.i34.i.i.i.i.i
   %tobool4.not.i40.i.i.i.i.i = icmp eq i64 %and.i39.i.i.i.i.i, 0
@@ -4643,16 +4643,16 @@ while.body.i43.i.i.i.i.i:                         ; preds = %while.body.i43.i.i.
   %cast.i45.i.i.i.i.i = trunc nuw nsw i64 %65 to i32
   %add.i46.i.i.i.i.i = or disjoint i32 %mul.i42.i.i.i.i.i, %cast.i45.i.i.i.i.i
   %idxprom.i.i47.i.i.i.i.i = sext i32 %add.i46.i.i.i.i.i to i64
-  %arrayidx.i.i48.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i47.i.i.i.i.i
+  %arrayidx.i.i48.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %30, i64 %idxprom.i.i47.i.i.i.i.i
   %66 = load i32, ptr %arrayidx.i.i48.i.i.i.i.i, align 4
-  %arrayidx3.i.i49.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i47.i.i.i.i.i
+  %arrayidx3.i.i49.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %32, i64 %idxprom.i.i47.i.i.i.i.i
   %67 = load i32, ptr %arrayidx3.i.i49.i.i.i.i.i, align 4
   %sub.i.i50.i.i.i.i.i = sub nsw i32 %66, %extractNullsResult.sroa.0.0.extract.trunc.i
   %reass.sub = sub i32 %67, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i.i52.i.i.i.i.i = add i32 %reass.sub, 1
   %call.i.i53.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i50.i.i.i.i.i, i32 noundef %add.i.i52.i.i.i.i.i)
   %68 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i55.i.i.i.i.i = getelementptr inbounds i32, ptr %68, i64 %idxprom.i.i47.i.i.i.i.i
+  %add.ptr.i.i.i55.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %68, i64 %idxprom.i.i47.i.i.i.i.i
   store i32 %call.i.i53.i.i.i.i.i, ptr %add.ptr.i.i.i55.i.i.i.i.i, align 4
   %sub.i56.i.i.i.i.i = add i64 %word.0.i44.i.i.i.i.i, -1
   %and6.i57.i.i.i.i.i = and i64 %sub.i56.i.i.i.i.i, %word.0.i44.i.i.i.i.i
@@ -4669,7 +4669,7 @@ for.body.i.i.i5.i.i:                              ; preds = %if.end14.i.i.i.i.i,
   %i.0116.i.i.i.i.i = phi i32 [ %add117.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i, %if.end14.i.i.i.i.i ]
   %div16.i.i.i.i.i = sdiv i32 %i.0116.i.i.i.i.i, 64
   %idxprom.i60.i.i.i.i.i = sext i32 %div16.i.i.i.i.i to i64
-  %arrayidx.i61.i.i.i.i.i = getelementptr inbounds i64, ptr %54, i64 %idxprom.i60.i.i.i.i.i
+  %arrayidx.i61.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %54, i64 %idxprom.i60.i.i.i.i.i
   %69 = load i64, ptr %arrayidx.i61.i.i.i.i.i, align 8
   switch i64 %69, label %while.body.lr.ph.i.i.i.i.i.i [
     i64 -1, label %if.then.i.i.i.i.i.i
@@ -4694,16 +4694,16 @@ for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i
   %row.022.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %arrayidx.i.i65.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %row.022.i.i.i.i.i.i
+  %arrayidx.i.i65.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %30, i64 %row.022.i.i.i.i.i.i
   %70 = load i32, ptr %arrayidx.i.i65.i.i.i.i.i, align 4
-  %arrayidx2.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %row.022.i.i.i.i.i.i
+  %arrayidx2.i.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %32, i64 %row.022.i.i.i.i.i.i
   %71 = load i32, ptr %arrayidx2.i.i.i.i.i.i.i, align 4
   %sub.i.i66.i.i.i.i.i = sub nsw i32 %70, %extractNullsResult.sroa.0.0.extract.trunc.i
   %reass.sub124 = sub i32 %71, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i.i67.i.i.i.i.i = add i32 %reass.sub124, 1
   %call.i.i68.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i66.i.i.i.i.i, i32 noundef %add.i.i67.i.i.i.i.i)
   %72 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i70.i.i.i.i.i = getelementptr inbounds i32, ptr %72, i64 %row.022.i.i.i.i.i.i
+  %add.ptr.i.i.i70.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %72, i64 %row.022.i.i.i.i.i.i
   store i32 %call.i.i68.i.i.i.i.i, ptr %add.ptr.i.i.i70.i.i.i.i.i, align 4
   %inc.i.i.i.i.i.i = add nuw i64 %row.022.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i.i, %conv5.i.i.i.i.i.i
@@ -4715,9 +4715,9 @@ while.body.i71.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox4
   %cast.i72.i.i.i.i.i = trunc nuw nsw i64 %73 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i72.i.i.i.i.i
   %idxprom.i.i73.i.i.i.i.i = sext i32 %add9.i.i.i.i.i.i to i64
-  %arrayidx.i11.i.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i73.i.i.i.i.i
+  %arrayidx.i11.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %30, i64 %idxprom.i.i73.i.i.i.i.i
   %74 = load i32, ptr %arrayidx.i11.i.i.i.i.i.i, align 4
-  %arrayidx3.i.i74.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i73.i.i.i.i.i
+  %arrayidx3.i.i74.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %32, i64 %idxprom.i.i73.i.i.i.i.i
   %75 = load i32, ptr %arrayidx3.i.i74.i.i.i.i.i, align 4
   %sub.i12.i.i.i.i.i.i = sub nsw i32 %74, %extractNullsResult.sroa.0.0.extract.trunc.i
   %reass.sub40.i = sub i32 %75, %extractNullsResult.sroa.0.0.extract.trunc.i
@@ -4748,7 +4748,7 @@ if.then3.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   %shl.i.i.i.i.i.i.i.i = shl i64 %sub.i.i.i.i.i.i.i.i.i, %sh_prom.i24.i.i.i.i.i.i.i
   %and7.i.i.i.i.i.i.i = and i64 %shl.i.i.i.i.i.i.i.i, %sub.i22.i.i.i.i.i.i.i
   %idxprom.i.i.i.i.i.i.i.i = sext i32 %div.i.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idxprom.i.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %28, i64 %idxprom.i.i.i.i.i.i.i.i
   %78 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i.i.i = and i64 %and7.i.i.i.i.i.i.i, %78
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i, 0
@@ -4771,7 +4771,7 @@ if.then11.i.i.i.i.i.i.i:                          ; preds = %if.end9.i.i.i.i.i.i
   %sh_prom.i31.i.i.i.i.i.i.i = zext nneg i32 %sub.i30.i.i.i.i.i.i.i to i64
   %shl.i32.i.i.i.i.i.i.i = shl i64 %sub.i.i29.i.i.i.i.i.i.i, %sh_prom.i31.i.i.i.i.i.i.i
   %idxprom.i33.i.i.i.i.i.i.i = sext i32 %div12.i.i.i.i.i.i.i to i64
-  %arrayidx.i34.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idxprom.i33.i.i.i.i.i.i.i
+  %arrayidx.i34.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %28, i64 %idxprom.i33.i.i.i.i.i.i.i
   %79 = load i64, ptr %arrayidx.i34.i.i.i.i.i.i.i, align 8
   %and.i35.i.i.i.i.i.i.i = and i64 %79, %shl.i32.i.i.i.i.i.i.i
   %tobool.not.i36.i.i.i.i.i.i.i = icmp eq i64 %and.i35.i.i.i.i.i.i.i, 0
@@ -4790,7 +4790,7 @@ for.cond.i.i.i.i.i.i.i:                           ; preds = %for.cond.i.i.i.i.i.
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.cond.i.i.i.i.i.i.i
   %div20.i.i.i.i.i.i.i = sdiv i32 %i.0.i.i.i.i.i.i.i, 64
   %idxprom.i42.i.i.i.i.i.i.i = sext i32 %div20.i.i.i.i.i.i.i to i64
-  %arrayidx.i43.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idxprom.i42.i.i.i.i.i.i.i
+  %arrayidx.i43.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %28, i64 %idxprom.i42.i.i.i.i.i.i.i
   %80 = load i64, ptr %arrayidx.i43.i.i.i.i.i.i.i, align 8
   %tobool.not.i44.i.i.i.i.i.i.i = icmp eq i64 %80, 0
   br i1 %tobool.not.i44.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i.i.i.i.i.i.i, !llvm.loop !43
@@ -4810,7 +4810,7 @@ if.then26.i.i.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i.i
   %notmask.i50.i.i.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i49.i.i.i.i.i.i.i
   %sub.i51.i.i.i.i.i.i.i = xor i64 %notmask.i50.i.i.i.i.i.i.i, -1
   %idxprom.i52.i.i.i.i.i.i.i = sext i32 %div27.i.i.i.i.i.i.i to i64
-  %arrayidx.i53.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idxprom.i52.i.i.i.i.i.i.i
+  %arrayidx.i53.i.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %28, i64 %idxprom.i52.i.i.i.i.i.i.i
   %81 = load i64, ptr %arrayidx.i53.i.i.i.i.i.i.i, align 8
   %and.i54.i.i.i.i.i.i.i = and i64 %81, %sub.i51.i.i.i.i.i.i.i
   %tobool.not.i55.i.i.i.i.i.i.i = icmp eq i64 %and.i54.i.i.i.i.i.i.i, 0
@@ -4827,7 +4827,7 @@ return.sink.split.i.i.i.i.i.i.i:                  ; preds = %if.then26.i.i.i.i.i
 _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i.i.i.i.i: ; preds = %return.sink.split.i.i.i.i.i.i.i, %if.then26.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i, %while.body.i71.i.i.i.i.i
   %found.0.i.i.i.i.i.i = phi i32 [ -1, %if.then3.i.i.i.i.i.i.i ], [ %add.i59.i.i.i.i.i.i.i, %return.sink.split.i.i.i.i.i.i.i ], [ -1, %for.end.i.i.i.i.i.i.i ], [ -1, %if.then26.i.i.i.i.i.i.i ], [ -1, %while.body.i71.i.i.i.i.i ]
   %83 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i16.i.i.i.i.i.i = getelementptr inbounds i32, ptr %83, i64 %idxprom.i.i73.i.i.i.i.i
+  %add.ptr.i.i16.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %83, i64 %idxprom.i.i73.i.i.i.i.i
   store i32 %found.0.i.i.i.i.i.i, ptr %add.ptr.i.i16.i.i.i.i.i.i, align 4
   %sub.i76.i.i.i.i.i = add i64 %word.020.i.i.i.i.i.i, -1
   %and.i77.i.i.i.i.i = and i64 %sub.i76.i.i.i.i.i, %word.020.i.i.i.i.i.i
@@ -4850,7 +4850,7 @@ if.then19.i.i.i.i.i:                              ; preds = %for.end.i.i.i6.i.i
   %notmask.i79.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i78.i.i.i.i.i
   %sub.i80.i.i.i.i.i = xor i64 %notmask.i79.i.i.i.i.i, -1
   %idxprom.i81.i.i.i.i.i = sext i32 %div20.i.i.i.i.i to i64
-  %arrayidx.i82.i.i.i.i.i = getelementptr inbounds i64, ptr %54, i64 %idxprom.i81.i.i.i.i.i
+  %arrayidx.i82.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %54, i64 %idxprom.i81.i.i.i.i.i
   %84 = load i64, ptr %arrayidx.i82.i.i.i.i.i, align 8
   %and.i85.i.i.i.i.i = and i64 %84, %sub.i80.i.i.i.i.i
   %tobool4.not.i86.i.i.i.i.i = icmp eq i64 %and.i85.i.i.i.i.i, 0
@@ -4862,16 +4862,16 @@ while.body.i89.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
   %cast.i91.i.i.i.i.i = trunc nuw nsw i64 %85 to i32
   %add.i92.i.i.i.i.i = or disjoint i32 %58, %cast.i91.i.i.i.i.i
   %idxprom.i.i93.i.i.i.i.i = sext i32 %add.i92.i.i.i.i.i to i64
-  %arrayidx.i.i94.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i93.i.i.i.i.i
+  %arrayidx.i.i94.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %30, i64 %idxprom.i.i93.i.i.i.i.i
   %86 = load i32, ptr %arrayidx.i.i94.i.i.i.i.i, align 4
-  %arrayidx3.i.i95.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i93.i.i.i.i.i
+  %arrayidx3.i.i95.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %32, i64 %idxprom.i.i93.i.i.i.i.i
   %87 = load i32, ptr %arrayidx3.i.i95.i.i.i.i.i, align 4
   %sub.i.i96.i.i.i.i.i = sub nsw i32 %86, %extractNullsResult.sroa.0.0.extract.trunc.i
   %reass.sub125 = sub i32 %87, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i.i98.i.i.i.i.i = add i32 %reass.sub125, 1
   %call.i.i99.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i96.i.i.i.i.i, i32 noundef %add.i.i98.i.i.i.i.i)
   %88 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i101.i.i.i.i.i = getelementptr inbounds i32, ptr %88, i64 %idxprom.i.i93.i.i.i.i.i
+  %add.ptr.i.i.i101.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %88, i64 %idxprom.i.i93.i.i.i.i.i
   store i32 %call.i.i99.i.i.i.i.i, ptr %add.ptr.i.i.i101.i.i.i.i.i, align 4
   %sub.i102.i.i.i.i.i = add nsw i64 %word.0.i90.i.i.i.i.i, -1
   %and6.i103.i.i.i.i.i = and i64 %sub.i102.i.i.i.i.i, %word.0.i90.i.i.i.i.i
@@ -4941,7 +4941,7 @@ if.then26.i.i.i.i:                                ; preds = %for.end.i.i.i.i
   %sh_prom.i37.i.i.i.i = zext nneg i32 %sub28.i.i.i.i to i64
   %notmask.i38.i.i.i.i = shl nsw i64 -1, %sh_prom.i37.i.i.i.i
   %idxprom.i40.i.i.i.i = zext nneg i32 %div27.i.i.i.i to i64
-  %arrayidx.i41.i.i.i.i = getelementptr inbounds nuw i64, ptr %94, i64 %idxprom.i40.i.i.i.i
+  %arrayidx.i41.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %idxprom.i40.i.i.i.i
   %99 = load i64, ptr %arrayidx.i41.i.i.i.i, align 8
   %.demorgan.i.i = or i64 %99, %notmask.i38.i.i.i.i
   %cmp.i42.i.i.i.i = icmp eq i64 %.demorgan.i.i, -1
@@ -4990,7 +4990,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i13
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %105, i64 %conv.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %105, i64 %conv.i.i.i
   %tobool.not.i.i.i.i = icmp eq ptr %104, %add.ptr.i.i.i
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i, label %invoke.cont.i.i.i.i
 
@@ -5075,7 +5075,7 @@ if.then26.i.i.i.i.i97:                            ; preds = %for.end.i.i.i.i.i95
   %sh_prom.i37.i.i.i.i.i100 = zext nneg i32 %sub28.i.i.i.i.i99 to i64
   %notmask.i38.i.i.i.i.i101 = shl nsw i64 -1, %sh_prom.i37.i.i.i.i.i100
   %idxprom.i40.i.i.i.i.i102 = zext nneg i32 %div27.i.i.i.i.i98 to i64
-  %arrayidx.i41.i.i.i.i.i103 = getelementptr inbounds nuw i64, ptr %114, i64 %idxprom.i40.i.i.i.i.i102
+  %arrayidx.i41.i.i.i.i.i103 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %idxprom.i40.i.i.i.i.i102
   %119 = load i64, ptr %arrayidx.i41.i.i.i.i.i103, align 8
   %.demorgan.i.i.i104 = or i64 %119, %notmask.i38.i.i.i.i.i101
   %cmp.i42.i.i.i.i.i105 = icmp eq i64 %.demorgan.i.i.i104, -1
@@ -5107,7 +5107,7 @@ for.body.lr.ph.i.i83:                             ; preds = %if.then.i.i82
 for.body.i.i84:                                   ; preds = %for.body.i.i84, %for.body.lr.ph.i.i83
   %indvars.iv.i13.i85 = phi i64 [ %125, %for.body.lr.ph.i.i83 ], [ %indvars.iv.next.i14.i, %for.body.i.i84 ]
   %func.val.val.i.i = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i.i86 = getelementptr inbounds i32, ptr %func.val.val.i.i, i64 %indvars.iv.i13.i85
+  %add.ptr.i.i.i.i86 = getelementptr inbounds [4 x i8], ptr %func.val.val.i.i, i64 %indvars.iv.i13.i85
   store i32 -1, ptr %add.ptr.i.i.i.i86, align 4
   %indvars.iv.next.i14.i = add nsw i64 %indvars.iv.i13.i85, 1
   %126 = load i32, ptr %end_.i6.i, align 8
@@ -5145,7 +5145,7 @@ if.then3.i.i.i.i.i56:                             ; preds = %if.end.i.i.i3.i.i
   %shl.i.i.i.i.i.i68 = shl i64 %sub.i.i.i.i.i.i.i65, %sh_prom.i24.i.i.i.i.i67
   %and7.i.i.i.i.i69 = and i64 %shl.i.i.i.i.i.i68, %sub.i22.i.i.i.i.i61
   %idxprom.i.i.i.i.i.i70 = sext i32 %div.i.i.i.i.i57 to i64
-  %arrayidx.i.i.i.i.i.i71 = getelementptr inbounds i64, ptr %128, i64 %idxprom.i.i.i.i.i.i70
+  %arrayidx.i.i.i.i.i.i71 = getelementptr inbounds [8 x i8], ptr %128, i64 %idxprom.i.i.i.i.i.i70
   %133 = load i64, ptr %arrayidx.i.i.i.i.i.i71, align 8
   %and.i.i.i.i.i.i72 = and i64 %and7.i.i.i.i.i69, %133
   %tobool4.not.i.i.i.i.i.i73 = icmp eq i64 %and.i.i.i.i.i.i72, 0
@@ -5158,7 +5158,7 @@ while.body.i.i.i.i.i.i75:                         ; preds = %if.then3.i.i.i.i.i5
   %add.i26.i.i.i.i.i78 = or disjoint i32 %132, %cast.i.i.i.i.i.i77
   %.val.val.i.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
   %conv.i.i.i.i.i.i.i = sext i32 %add.i26.i.i.i.i.i78 to i64
-  %add.ptr.i.i.i.i.i.i.i.i79 = getelementptr inbounds i32, ptr %.val.val.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i79 = getelementptr inbounds [4 x i8], ptr %.val.val.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i
   store i32 -1, ptr %add.ptr.i.i.i.i.i.i.i.i79, align 4
   %sub.i27.i.i.i.i.i = add nsw i64 %word.0.i.i.i.i.i.i76, -1
   %and6.i.i.i.i.i.i80 = and i64 %sub.i27.i.i.i.i.i, %word.0.i.i.i.i.i.i76
@@ -5179,7 +5179,7 @@ if.then10.i.i.i.i.i30:                            ; preds = %if.end8.i.i.i.i.i28
   %sh_prom.i32.i.i.i.i.i = zext nneg i32 %sub.i31.i.i.i.i.i to i64
   %shl.i33.i.i.i.i.i = shl i64 %sub.i.i30.i.i.i.i.i, %sh_prom.i32.i.i.i.i.i
   %idxprom.i34.i.i.i.i.i = sext i32 %div11.i.i.i.i.i31 to i64
-  %arrayidx.i35.i.i.i4.i.i = getelementptr inbounds i64, ptr %128, i64 %idxprom.i34.i.i.i.i.i
+  %arrayidx.i35.i.i.i4.i.i = getelementptr inbounds [8 x i8], ptr %128, i64 %idxprom.i34.i.i.i.i.i
   %135 = load i64, ptr %arrayidx.i35.i.i.i4.i.i, align 8
   %and.i38.i.i.i.i.i = and i64 %135, %shl.i33.i.i.i.i.i
   %tobool4.not.i39.i.i.i.i.i = icmp eq i64 %and.i38.i.i.i.i.i, 0
@@ -5196,7 +5196,7 @@ while.body.i42.i.i.i.i.i:                         ; preds = %while.body.i42.i.i.
   %add.i45.i.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i.i, %cast.i44.i.i.i.i.i
   %.val.val.i47.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
   %conv.i.i48.i.i.i.i.i = sext i32 %add.i45.i.i.i.i.i to i64
-  %add.ptr.i.i.i49.i.i.i.i.i = getelementptr inbounds i32, ptr %.val.val.i47.i.i.i.i.i, i64 %conv.i.i48.i.i.i.i.i
+  %add.ptr.i.i.i49.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val.val.i47.i.i.i.i.i, i64 %conv.i.i48.i.i.i.i.i
   store i32 -1, ptr %add.ptr.i.i.i49.i.i.i.i.i, align 4
   %sub.i50.i.i.i.i.i = add i64 %word.0.i43.i.i.i.i.i, -1
   %and6.i51.i.i.i.i.i = and i64 %sub.i50.i.i.i.i.i, %word.0.i43.i.i.i.i.i
@@ -5213,7 +5213,7 @@ for.body.i.i.i5.i.i35:                            ; preds = %if.end14.i.i.i.i.i3
   %i.094.i.i.i.i.i = phi i32 [ %add95.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorEEUlT_E_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i26, %if.end14.i.i.i.i.i33 ]
   %div16.i.i.i.i.i36 = sdiv i32 %i.094.i.i.i.i.i, 64
   %idxprom.i54.i.i.i.i.i = sext i32 %div16.i.i.i.i.i36 to i64
-  %arrayidx.i55.i.i.i.i.i = getelementptr inbounds i64, ptr %128, i64 %idxprom.i54.i.i.i.i.i
+  %arrayidx.i55.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %128, i64 %idxprom.i54.i.i.i.i.i
   %137 = load i64, ptr %arrayidx.i55.i.i.i.i.i, align 8
   switch i64 %137, label %while.body.lr.ph.i.i.i.i.i.i52 [
     i64 -1, label %if.then.i.i.i.i.i.i44
@@ -5239,7 +5239,7 @@ for.body.lr.ph.i.i.i.i.i.i48:                     ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i10.i:                           ; preds = %for.body.i.i.i.i.i10.i, %for.body.lr.ph.i.i.i.i.i.i48
   %row.017.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i49, %for.body.lr.ph.i.i.i.i.i.i48 ], [ %inc.i.i.i.i.i.i50, %for.body.i.i.i.i.i10.i ]
   %.val11.val.i.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i59.i.i.i.i.i = getelementptr inbounds i32, ptr %.val11.val.i.i.i.i.i.i, i64 %row.017.i.i.i.i.i.i
+  %add.ptr.i.i.i59.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val11.val.i.i.i.i.i.i, i64 %row.017.i.i.i.i.i.i
   store i32 -1, ptr %add.ptr.i.i.i59.i.i.i.i.i, align 4
   %inc.i.i.i.i.i.i50 = add nuw i64 %row.017.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i.i51 = icmp ult i64 %inc.i.i.i.i.i.i50, %conv5.i.i.i.i.i.i46
@@ -5252,7 +5252,7 @@ while.body.i60.i.i.i.i.i:                         ; preds = %while.body.i60.i.i.
   %add9.i.i.i.i.i.i54 = or disjoint i32 %mul8.i.i.i.i.i.i53, %cast.i61.i.i.i.i.i
   %.val.val.i63.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
   %conv.i.i64.i.i.i.i.i = sext i32 %add9.i.i.i.i.i.i54 to i64
-  %add.ptr.i.i12.i.i.i.i.i.i = getelementptr inbounds i32, ptr %.val.val.i63.i.i.i.i.i, i64 %conv.i.i64.i.i.i.i.i
+  %add.ptr.i.i12.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val.val.i63.i.i.i.i.i, i64 %conv.i.i64.i.i.i.i.i
   store i32 -1, ptr %add.ptr.i.i12.i.i.i.i.i.i, align 4
   %sub.i65.i.i.i.i.i = add i64 %word.015.i.i.i.i.i.i, -1
   %and.i66.i.i.i.i.i = and i64 %sub.i65.i.i.i.i.i, %word.015.i.i.i.i.i.i
@@ -5275,7 +5275,7 @@ if.then19.i.i.i.i.i41:                            ; preds = %for.end.i.i.i6.i.i3
   %notmask.i68.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i67.i.i.i.i.i
   %sub.i69.i.i.i.i.i = xor i64 %notmask.i68.i.i.i.i.i, -1
   %idxprom.i70.i.i.i.i.i = sext i32 %div20.i.i.i.i.i42 to i64
-  %arrayidx.i71.i.i.i.i.i = getelementptr inbounds i64, ptr %128, i64 %idxprom.i70.i.i.i.i.i
+  %arrayidx.i71.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %128, i64 %idxprom.i70.i.i.i.i.i
   %139 = load i64, ptr %arrayidx.i71.i.i.i.i.i, align 8
   %and.i74.i.i.i.i.i = and i64 %139, %sub.i69.i.i.i.i.i
   %tobool4.not.i75.i.i.i.i.i = icmp eq i64 %and.i74.i.i.i.i.i, 0
@@ -5288,7 +5288,7 @@ while.body.i78.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
   %add.i81.i.i.i.i.i = or disjoint i32 %132, %cast.i80.i.i.i.i.i
   %.val.val.i83.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
   %conv.i.i84.i.i.i.i.i = sext i32 %add.i81.i.i.i.i.i to i64
-  %add.ptr.i.i.i85.i.i.i.i.i = getelementptr inbounds i32, ptr %.val.val.i83.i.i.i.i.i, i64 %conv.i.i84.i.i.i.i.i
+  %add.ptr.i.i.i85.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val.val.i83.i.i.i.i.i, i64 %conv.i.i84.i.i.i.i.i
   store i32 -1, ptr %add.ptr.i.i.i85.i.i.i.i.i, align 4
   %sub.i86.i.i.i.i.i = add nsw i64 %word.0.i79.i.i.i.i.i, -1
   %and6.i87.i.i.i.i.i = and i64 %sub.i86.i.i.i.i.i, %word.0.i79.i.i.i.i.i
@@ -5297,7 +5297,7 @@ while.body.i78.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
 
 _ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit: ; preds = %while.body.i78.i.i.i.i.i, %while.body.i.i.i.i.i.i75, %for.body.i.i84, %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i, %if.then.i.i82, %if.else.i.i23, %if.then3.i.i.i.i.i56, %for.end.i.i.i6.i.i39, %if.then19.i.i.i.i.i41
   %141 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i116 = getelementptr inbounds nuw i32, ptr %141, i64 %div8
+  %add.ptr.i116 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %div8
   %partition_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %142 = load ptr, ptr %partition_, align 8
   %valueIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 84
@@ -5660,7 +5660,7 @@ if.then26.i.i.i.i:                                ; preds = %for.end.i.i.i.i
   %sh_prom.i37.i.i.i.i = zext nneg i32 %sub28.i.i.i.i to i64
   %notmask.i38.i.i.i.i = shl nsw i64 -1, %sh_prom.i37.i.i.i.i
   %idxprom.i40.i.i.i.i = zext nneg i32 %div27.i.i.i.i to i64
-  %arrayidx.i41.i.i.i.i = getelementptr inbounds nuw i64, ptr %4, i64 %idxprom.i40.i.i.i.i
+  %arrayidx.i41.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %idxprom.i40.i.i.i.i
   %9 = load i64, ptr %arrayidx.i41.i.i.i.i, align 8
   %.demorgan.i.i = or i64 %9, %notmask.i38.i.i.i.i
   %cmp.i42.i.i.i.i = icmp eq i64 %.demorgan.i.i, -1
@@ -5695,9 +5695,9 @@ for.body.lr.ph.i:                                 ; preds = %if.then.i
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ %16, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %func.val.val.i = load ptr, ptr %15, align 8
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %frameStarts.0.val.16.val, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %frameStarts.0.val.16.val, i64 %indvars.iv.i
   %17 = load i32, ptr %arrayidx.i.i, align 4
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %func.val.val.i, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %func.val.val.i, i64 %indvars.iv.i
   store i32 %17, ptr %add.ptr.i.i.i, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %18 = load i32, ptr %end_.i, align 8
@@ -5737,7 +5737,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.end.i.i.i4.i
   %shl.i.i.i.i.i = shl i64 %sub.i.i.i.i.i.i, %sh_prom.i24.i.i.i.i
   %and7.i.i.i.i = and i64 %shl.i.i.i.i.i, %sub.i22.i.i.i.i
   %idxprom.i.i.i.i.i = sext i32 %div.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i64, ptr %20, i64 %idxprom.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %20, i64 %idxprom.i.i.i.i.i
   %25 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %and.i.i.i.i.i = and i64 %and7.i.i.i.i, %25
   %tobool4.not.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
@@ -5754,9 +5754,9 @@ while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   %add.i26.i.i.i.i = or disjoint i32 %24, %cast.i.i.i.i.i
   %.val.val.i.i.i.i.i = load ptr, ptr %26, align 8
   %idxprom.i.i.i.i.i.i = sext i32 %add.i26.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i32, ptr %frameStarts.0.val.16.val, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %frameStarts.0.val.16.val, i64 %idxprom.i.i.i.i.i.i
   %28 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %.val.val.i.i.i.i.i, i64 %idxprom.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val.val.i.i.i.i.i, i64 %idxprom.i.i.i.i.i.i
   store i32 %28, ptr %add.ptr.i.i.i.i.i.i.i, align 4
   %sub.i27.i.i.i.i = add nsw i64 %word.0.i.i.i.i.i, -1
   %and6.i.i.i.i.i = and i64 %sub.i27.i.i.i.i, %word.0.i.i.i.i.i
@@ -5777,7 +5777,7 @@ if.then10.i.i.i.i:                                ; preds = %if.end8.i.i.i.i
   %sh_prom.i32.i.i.i.i = zext nneg i32 %sub.i31.i.i.i.i to i64
   %shl.i33.i.i.i.i = shl i64 %sub.i.i30.i.i.i.i, %sh_prom.i32.i.i.i.i
   %idxprom.i34.i.i.i.i = sext i32 %div11.i.i.i.i to i64
-  %arrayidx.i35.i.i.i5.i = getelementptr inbounds i64, ptr %20, i64 %idxprom.i34.i.i.i.i
+  %arrayidx.i35.i.i.i5.i = getelementptr inbounds [8 x i8], ptr %20, i64 %idxprom.i34.i.i.i.i
   %29 = load i64, ptr %arrayidx.i35.i.i.i5.i, align 8
   %and.i38.i.i.i.i = and i64 %29, %shl.i33.i.i.i.i
   %tobool4.not.i39.i.i.i.i = icmp eq i64 %and.i38.i.i.i.i, 0
@@ -5795,9 +5795,9 @@ while.body.i42.i.i.i.i:                           ; preds = %while.body.i42.i.i.
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i, %cast.i44.i.i.i.i
   %.val.val.i48.i.i.i.i = load ptr, ptr %30, align 8
   %idxprom.i.i50.i.i.i.i = sext i32 %add.i45.i.i.i.i to i64
-  %arrayidx.i.i51.i.i.i.i = getelementptr inbounds i32, ptr %frameStarts.0.val.16.val, i64 %idxprom.i.i50.i.i.i.i
+  %arrayidx.i.i51.i.i.i.i = getelementptr inbounds [4 x i8], ptr %frameStarts.0.val.16.val, i64 %idxprom.i.i50.i.i.i.i
   %32 = load i32, ptr %arrayidx.i.i51.i.i.i.i, align 4
-  %add.ptr.i.i.i52.i.i.i.i = getelementptr inbounds i32, ptr %.val.val.i48.i.i.i.i, i64 %idxprom.i.i50.i.i.i.i
+  %add.ptr.i.i.i52.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val.val.i48.i.i.i.i, i64 %idxprom.i.i50.i.i.i.i
   store i32 %32, ptr %add.ptr.i.i.i52.i.i.i.i, align 4
   %sub.i53.i.i.i.i = add i64 %word.0.i43.i.i.i.i, -1
   %and6.i54.i.i.i.i = and i64 %sub.i53.i.i.i.i, %word.0.i43.i.i.i.i
@@ -5818,7 +5818,7 @@ for.body.i.i.i6.i:                                ; preds = %_ZZN8facebook5velox
   %i.0101.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %for.body.lr.ph.i.i.i.i ], [ %add102.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE25setRowNumbersRespectNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i ]
   %div16.i.i.i.i = sdiv i32 %i.0101.i.i.i.i, 64
   %idxprom.i57.i.i.i.i = sext i32 %div16.i.i.i.i to i64
-  %arrayidx.i58.i.i.i.i = getelementptr inbounds i64, ptr %20, i64 %idxprom.i57.i.i.i.i
+  %arrayidx.i58.i.i.i.i = getelementptr inbounds [8 x i8], ptr %20, i64 %idxprom.i57.i.i.i.i
   %34 = load i64, ptr %arrayidx.i58.i.i.i.i, align 8
   switch i64 %34, label %while.body.lr.ph.i.i.i.i.i [
     i64 -1, label %if.then.i.i.i.i.i
@@ -5844,9 +5844,9 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i
   %row.020.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %.val12.val.i.i.i.i.i = load ptr, ptr %33, align 8
-  %arrayidx.i.i62.i.i.i.i = getelementptr inbounds i32, ptr %frameStarts.0.val.16.val, i64 %row.020.i.i.i.i.i
+  %arrayidx.i.i62.i.i.i.i = getelementptr inbounds [4 x i8], ptr %frameStarts.0.val.16.val, i64 %row.020.i.i.i.i.i
   %35 = load i32, ptr %arrayidx.i.i62.i.i.i.i, align 4
-  %add.ptr.i.i.i63.i.i.i.i = getelementptr inbounds i32, ptr %.val12.val.i.i.i.i.i, i64 %row.020.i.i.i.i.i
+  %add.ptr.i.i.i63.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val12.val.i.i.i.i.i, i64 %row.020.i.i.i.i.i
   store i32 %35, ptr %add.ptr.i.i.i63.i.i.i.i, align 4
   %inc.i.i.i.i.i = add nuw i64 %row.020.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i, %conv5.i.i.i.i.i
@@ -5859,9 +5859,9 @@ while.body.i64.i.i.i.i:                           ; preds = %while.body.i64.i.i.
   %add9.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i, %cast.i65.i.i.i.i
   %.val.val.i67.i.i.i.i = load ptr, ptr %33, align 8
   %idxprom.i.i68.i.i.i.i = sext i32 %add9.i.i.i.i.i to i64
-  %arrayidx.i14.i.i.i.i.i = getelementptr inbounds i32, ptr %frameStarts.0.val.16.val, i64 %idxprom.i.i68.i.i.i.i
+  %arrayidx.i14.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %frameStarts.0.val.16.val, i64 %idxprom.i.i68.i.i.i.i
   %37 = load i32, ptr %arrayidx.i14.i.i.i.i.i, align 4
-  %add.ptr.i.i15.i.i.i.i.i = getelementptr inbounds i32, ptr %.val.val.i67.i.i.i.i, i64 %idxprom.i.i68.i.i.i.i
+  %add.ptr.i.i15.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val.val.i67.i.i.i.i, i64 %idxprom.i.i68.i.i.i.i
   store i32 %37, ptr %add.ptr.i.i15.i.i.i.i.i, align 4
   %sub.i69.i.i.i.i = add i64 %word.018.i.i.i.i.i, -1
   %and.i70.i.i.i.i = and i64 %sub.i69.i.i.i.i, %word.018.i.i.i.i.i
@@ -5884,7 +5884,7 @@ if.then19.i.i.i.i:                                ; preds = %for.end.i.i.i7.i
   %notmask.i72.i.i.i.i = shl nsw i64 -1, %sh_prom.i71.i.i.i.i
   %sub.i73.i.i.i.i = xor i64 %notmask.i72.i.i.i.i, -1
   %idxprom.i74.i.i.i.i = sext i32 %div20.i.i.i.i to i64
-  %arrayidx.i75.i.i.i.i = getelementptr inbounds i64, ptr %20, i64 %idxprom.i74.i.i.i.i
+  %arrayidx.i75.i.i.i.i = getelementptr inbounds [8 x i8], ptr %20, i64 %idxprom.i74.i.i.i.i
   %38 = load i64, ptr %arrayidx.i75.i.i.i.i, align 8
   %and.i78.i.i.i.i = and i64 %38, %sub.i73.i.i.i.i
   %tobool4.not.i79.i.i.i.i = icmp eq i64 %and.i78.i.i.i.i, 0
@@ -5901,9 +5901,9 @@ while.body.i82.i.i.i.i:                           ; preds = %while.body.i82.i.i.
   %add.i85.i.i.i.i = or disjoint i32 %24, %cast.i84.i.i.i.i
   %.val.val.i88.i.i.i.i = load ptr, ptr %39, align 8
   %idxprom.i.i90.i.i.i.i = sext i32 %add.i85.i.i.i.i to i64
-  %arrayidx.i.i91.i.i.i.i = getelementptr inbounds i32, ptr %frameStarts.0.val.16.val, i64 %idxprom.i.i90.i.i.i.i
+  %arrayidx.i.i91.i.i.i.i = getelementptr inbounds [4 x i8], ptr %frameStarts.0.val.16.val, i64 %idxprom.i.i90.i.i.i.i
   %41 = load i32, ptr %arrayidx.i.i91.i.i.i.i, align 4
-  %add.ptr.i.i.i92.i.i.i.i = getelementptr inbounds i32, ptr %.val.val.i88.i.i.i.i, i64 %idxprom.i.i90.i.i.i.i
+  %add.ptr.i.i.i92.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val.val.i88.i.i.i.i, i64 %idxprom.i.i90.i.i.i.i
   store i32 %41, ptr %add.ptr.i.i.i92.i.i.i.i, align 4
   %sub.i93.i.i.i.i = add nsw i64 %word.0.i83.i.i.i.i, -1
   %and6.i94.i.i.i.i = and i64 %sub.i93.i.i.i.i, %word.0.i83.i.i.i.i
@@ -6005,9 +6005,9 @@ if.then.i34:                                      ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %if.then.i34
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds nuw i32, ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -6046,7 +6046,7 @@ if.then3.i:                                       ; preds = %if.end.i
   %shl.i.i = shl i64 %sub.i.i.i, %sh_prom.i24.i
   %and7.i = and i64 %shl.i.i, %sub.i22.i
   %idxprom.i.i = sext i32 %div.i to i64
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %bits, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %bits, i64 %idxprom.i.i
   %2 = load i64, ptr %arrayidx.i.i, align 8
   %and.i.i = and i64 %and7.i, %2
   %tobool.not.i.i = icmp eq i64 %and.i.i, 0
@@ -6069,7 +6069,7 @@ if.then11.i:                                      ; preds = %if.end9.i
   %sh_prom.i31.i = zext nneg i32 %sub.i30.i to i64
   %shl.i32.i = shl i64 %sub.i.i29.i, %sh_prom.i31.i
   %idxprom.i33.i = sext i32 %div12.i to i64
-  %arrayidx.i34.i = getelementptr inbounds i64, ptr %bits, i64 %idxprom.i33.i
+  %arrayidx.i34.i = getelementptr inbounds [8 x i8], ptr %bits, i64 %idxprom.i33.i
   %3 = load i64, ptr %arrayidx.i34.i, align 8
   %and.i35.i = and i64 %3, %shl.i32.i
   %tobool.not.i36.i = icmp eq i64 %and.i35.i, 0
@@ -6088,7 +6088,7 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 for.body.i:                                       ; preds = %for.cond.i
   %div20.i = sdiv i32 %i.0.i, 64
   %idxprom.i42.i = sext i32 %div20.i to i64
-  %arrayidx.i43.i = getelementptr inbounds i64, ptr %bits, i64 %idxprom.i42.i
+  %arrayidx.i43.i = getelementptr inbounds [8 x i8], ptr %bits, i64 %idxprom.i42.i
   %4 = load i64, ptr %arrayidx.i43.i, align 8
   %tobool.not.i44.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i44.i, label %for.cond.i, label %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i, !llvm.loop !43
@@ -6108,7 +6108,7 @@ if.then26.i:                                      ; preds = %for.end.i
   %notmask.i50.i = shl nsw i64 -1, %sh_prom.i49.i
   %sub.i51.i = xor i64 %notmask.i50.i, -1
   %idxprom.i52.i = sext i32 %div27.i to i64
-  %arrayidx.i53.i = getelementptr inbounds i64, ptr %bits, i64 %idxprom.i52.i
+  %arrayidx.i53.i = getelementptr inbounds [8 x i8], ptr %bits, i64 %idxprom.i52.i
   %5 = load i64, ptr %arrayidx.i53.i, align 8
   %and.i54.i = and i64 %5, %sub.i51.i
   %tobool.not.i55.i = icmp eq i64 %and.i54.i, 0
@@ -6197,7 +6197,7 @@ if.then26.i.i.i:                                  ; preds = %for.end.i.i.i
   %notmask.i50.i.i.i = shl nsw i64 -1, %sh_prom.i49.i.i.i
   %sub.i51.i.i.i = xor i64 %notmask.i50.i.i.i, -1
   %idxprom.i52.i.i.i = zext nneg i32 %div27.i.i.i to i64
-  %arrayidx.i53.i.i.i = getelementptr inbounds nuw i64, ptr %9, i64 %idxprom.i52.i.i.i
+  %arrayidx.i53.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %idxprom.i52.i.i.i
   %15 = load i64, ptr %arrayidx.i53.i.i.i, align 8
   %and.i54.i.i.i = and i64 %15, %sub.i51.i.i.i
   %tobool.not.i55.i.i.i = icmp eq i64 %and.i54.i.i.i, 0
@@ -6344,9 +6344,9 @@ if.then.i34:                                      ; preds = %_ZNSt6vectorImSaImE
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit35: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %if.then.i34
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds nuw i64, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds nuw i64, ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 
@@ -6384,17 +6384,17 @@ if.then3:                                         ; preds = %if.end
   %and7 = and i64 %shl.i, %sub.i22
   %2 = load ptr, ptr %partialWordFunc, align 8
   %idxprom.i = sext i32 %div to i64
-  %arrayidx.i = getelementptr inbounds i64, ptr %2, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %2, i64 %idxprom.i
   %3 = load i64, ptr %arrayidx.i, align 8
   %not.i = xor i64 %and7, -1
   %and.i = and i64 %3, %not.i
   %4 = getelementptr inbounds nuw i8, ptr %partialWordFunc, i64 8
   %5 = load ptr, ptr %4, align 8
-  %arrayidx3.i = getelementptr inbounds i64, ptr %5, i64 %idxprom.i
+  %arrayidx3.i = getelementptr inbounds [8 x i8], ptr %5, i64 %idxprom.i
   %6 = load i64, ptr %arrayidx3.i, align 8
   %7 = getelementptr inbounds nuw i8, ptr %partialWordFunc, i64 16
   %8 = load ptr, ptr %7, align 8
-  %arrayidx6.i = getelementptr inbounds i64, ptr %8, i64 %idxprom.i
+  %arrayidx6.i = getelementptr inbounds [8 x i8], ptr %8, i64 %idxprom.i
   %9 = load i64, ptr %arrayidx6.i, align 8
   %not7.i = xor i64 %9, -1
   %10 = and i64 %6, %not7.i
@@ -6418,17 +6418,17 @@ if.then10:                                        ; preds = %if.end8
   %shl.i30 = shl i64 %sub.i.i27, %sh_prom.i29
   %11 = load ptr, ptr %partialWordFunc, align 8
   %idxprom.i31 = sext i32 %div11 to i64
-  %arrayidx.i32 = getelementptr inbounds i64, ptr %11, i64 %idxprom.i31
+  %arrayidx.i32 = getelementptr inbounds [8 x i8], ptr %11, i64 %idxprom.i31
   %12 = load i64, ptr %arrayidx.i32, align 8
   %not.i33 = xor i64 %shl.i30, -1
   %and.i34 = and i64 %12, %not.i33
   %13 = getelementptr inbounds nuw i8, ptr %partialWordFunc, i64 8
   %14 = load ptr, ptr %13, align 8
-  %arrayidx3.i35 = getelementptr inbounds i64, ptr %14, i64 %idxprom.i31
+  %arrayidx3.i35 = getelementptr inbounds [8 x i8], ptr %14, i64 %idxprom.i31
   %15 = load i64, ptr %arrayidx3.i35, align 8
   %16 = getelementptr inbounds nuw i8, ptr %partialWordFunc, i64 16
   %17 = load ptr, ptr %16, align 8
-  %arrayidx6.i36 = getelementptr inbounds i64, ptr %17, i64 %idxprom.i31
+  %arrayidx6.i36 = getelementptr inbounds [8 x i8], ptr %17, i64 %idxprom.i31
   %18 = load i64, ptr %arrayidx6.i36, align 8
   %not7.i37 = xor i64 %18, -1
   %19 = and i64 %15, %not7.i37
@@ -6455,13 +6455,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.059 = phi i32 [ %mul.i, %for.body.lr.ph ], [ %add60, %for.body ]
   %div16 = sdiv i32 %i.059, 64
   %idxprom.i40 = sext i32 %div16 to i64
-  %arrayidx.i41 = getelementptr inbounds i64, ptr %21, i64 %idxprom.i40
+  %arrayidx.i41 = getelementptr inbounds [8 x i8], ptr %21, i64 %idxprom.i40
   %25 = load i64, ptr %arrayidx.i41, align 8
-  %arrayidx3.i42 = getelementptr inbounds i64, ptr %23, i64 %idxprom.i40
+  %arrayidx3.i42 = getelementptr inbounds [8 x i8], ptr %23, i64 %idxprom.i40
   %26 = load i64, ptr %arrayidx3.i42, align 8
   %not.i43 = xor i64 %26, -1
   %and.i44 = and i64 %25, %not.i43
-  %arrayidx5.i = getelementptr inbounds i64, ptr %24, i64 %idxprom.i40
+  %arrayidx5.i = getelementptr inbounds [8 x i8], ptr %24, i64 %idxprom.i40
   store i64 %and.i44, ptr %arrayidx5.i, align 8
   %add = add nsw i32 %add60, 64
   %cmp15.not = icmp sgt i32 %add, %1
@@ -6478,16 +6478,16 @@ if.then19:                                        ; preds = %for.end
   %notmask.i46 = shl nsw i64 -1, %sh_prom.i45
   %27 = load ptr, ptr %partialWordFunc, align 8
   %idxprom.i48 = sext i32 %div20 to i64
-  %arrayidx.i49 = getelementptr inbounds i64, ptr %27, i64 %idxprom.i48
+  %arrayidx.i49 = getelementptr inbounds [8 x i8], ptr %27, i64 %idxprom.i48
   %28 = load i64, ptr %arrayidx.i49, align 8
   %and.i51 = and i64 %28, %notmask.i46
   %29 = getelementptr inbounds nuw i8, ptr %partialWordFunc, i64 8
   %30 = load ptr, ptr %29, align 8
-  %arrayidx3.i52 = getelementptr inbounds i64, ptr %30, i64 %idxprom.i48
+  %arrayidx3.i52 = getelementptr inbounds [8 x i8], ptr %30, i64 %idxprom.i48
   %31 = load i64, ptr %arrayidx3.i52, align 8
   %32 = getelementptr inbounds nuw i8, ptr %partialWordFunc, i64 16
   %33 = load ptr, ptr %32, align 8
-  %arrayidx6.i53 = getelementptr inbounds i64, ptr %33, i64 %idxprom.i48
+  %arrayidx6.i53 = getelementptr inbounds [8 x i8], ptr %33, i64 %idxprom.i48
   %34 = load i64, ptr %arrayidx6.i53, align 8
   %35 = or i64 %34, %notmask.i46
   %36 = xor i64 %35, -1
@@ -6532,7 +6532,7 @@ if.then3:                                         ; preds = %if.end
   %3 = load i8, ptr %2, align 8
   %4 = load ptr, ptr %partialWordFunc, align 8
   %idxprom.i = sext i32 %div to i64
-  %arrayidx.i = getelementptr inbounds i64, ptr %4, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %4, i64 %idxprom.i
   %5 = load i64, ptr %arrayidx.i, align 8
   %6 = and i8 %3, 1
   %7 = xor i8 %6, 1
@@ -6564,7 +6564,7 @@ if.then11:                                        ; preds = %if.end9
   %11 = load i8, ptr %10, align 8
   %12 = load ptr, ptr %partialWordFunc, align 8
   %idxprom.i31 = sext i32 %div12 to i64
-  %arrayidx.i32 = getelementptr inbounds i64, ptr %12, i64 %idxprom.i31
+  %arrayidx.i32 = getelementptr inbounds [8 x i8], ptr %12, i64 %idxprom.i31
   %13 = load i64, ptr %arrayidx.i32, align 8
   %14 = and i8 %11, 1
   %15 = xor i8 %14, 1
@@ -6601,7 +6601,7 @@ for.cond:                                         ; preds = %for.body, %if.end18
 for.body:                                         ; preds = %for.cond
   %div21 = ashr exact i32 %i.0, 6
   %idxprom.i43 = sext i32 %div21 to i64
-  %arrayidx.i44 = getelementptr inbounds i64, ptr %20, i64 %idxprom.i43
+  %arrayidx.i44 = getelementptr inbounds [8 x i8], ptr %20, i64 %idxprom.i43
   %24 = load i64, ptr %arrayidx.i44, align 8
   %tobool4.not.i46 = icmp eq i64 %24, %not.i45
   br i1 %tobool4.not.i46, label %for.cond, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread
@@ -6631,7 +6631,7 @@ if.then27:                                        ; preds = %for.end
   %28 = load i8, ptr %27, align 8
   %29 = load ptr, ptr %partialWordFunc, align 8
   %idxprom.i59 = sext i32 %div28 to i64
-  %arrayidx.i60 = getelementptr inbounds i64, ptr %29, i64 %idxprom.i59
+  %arrayidx.i60 = getelementptr inbounds [8 x i8], ptr %29, i64 %idxprom.i59
   %30 = load i64, ptr %arrayidx.i60, align 8
   %31 = and i8 %28, 1
   %32 = xor i8 %31, 1
@@ -7073,7 +7073,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %5, i64 %div8
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %div8
   %tobool.not.i.i = icmp eq ptr %4, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %invoke.cont.i.i
 
@@ -7275,7 +7275,7 @@ if.then26.i.i.i.i.i:                              ; preds = %for.end.i.i.i.i.i
   %sh_prom.i37.i.i.i.i.i = zext nneg i32 %sub28.i.i.i.i.i to i64
   %notmask.i38.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i37.i.i.i.i.i
   %idxprom.i40.i.i.i.i.i = zext nneg i32 %div27.i.i.i.i.i to i64
-  %arrayidx.i41.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %37, i64 %idxprom.i40.i.i.i.i.i
+  %arrayidx.i41.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %idxprom.i40.i.i.i.i.i
   %42 = load i64, ptr %arrayidx.i41.i.i.i.i.i, align 8
   %.demorgan.i.i.i = or i64 %42, %notmask.i38.i.i.i.i.i
   %cmp.i42.i.i.i.i.i = icmp eq i64 %.demorgan.i.i.i, -1
@@ -7310,9 +7310,9 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i11.i
 
 for.body.i12.i:                                   ; preds = %for.body.i12.i, %for.body.lr.ph.i.i
   %indvars.iv.i13.i = phi i64 [ %52, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i15.i, %for.body.i12.i ]
-  %arrayidx.i.i14.i = getelementptr inbounds i32, ptr %30, i64 %indvars.iv.i13.i
+  %arrayidx.i.i14.i = getelementptr inbounds [4 x i8], ptr %30, i64 %indvars.iv.i13.i
   %53 = load i32, ptr %arrayidx.i.i14.i, align 4
-  %arrayidx3.i.i.i = getelementptr inbounds i32, ptr %32, i64 %indvars.iv.i13.i
+  %arrayidx3.i.i.i = getelementptr inbounds [4 x i8], ptr %32, i64 %indvars.iv.i13.i
   %54 = load i32, ptr %arrayidx3.i.i.i, align 4
   %sub.i.i.i = sub nsw i32 %53, %extractNullsResult.sroa.0.0.extract.trunc.i
   %reass.sub129 = sub i32 %54, %extractNullsResult.sroa.0.0.extract.trunc.i
@@ -7333,7 +7333,7 @@ for.body.i12.i:                                   ; preds = %for.body.i12.i, %fo
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i.i.i.i)
   %56 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %56, i64 %indvars.iv.i13.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv.i13.i
   store i32 %55, ptr %add.ptr.i.i.i.i, align 4
   %indvars.iv.next.i15.i = add nsw i64 %indvars.iv.i13.i, 1
   %57 = load i32, ptr %end_.i, align 8
@@ -7371,7 +7371,7 @@ if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i4.i.i
   %shl.i.i.i.i.i.i = shl i64 %sub.i.i.i.i.i.i.i, %sh_prom.i24.i.i.i.i.i
   %and7.i.i.i.i.i = and i64 %shl.i.i.i.i.i.i, %sub.i22.i.i.i.i.i
   %idxprom.i.i.i.i.i.i = sext i32 %div.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i64, ptr %59, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %59, i64 %idxprom.i.i.i.i.i.i
   %64 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i = and i64 %and7.i.i.i.i.i, %64
   %tobool4.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
@@ -7390,9 +7390,9 @@ while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %69 to i32
   %add.i26.i.i.i.i.i = or disjoint i32 %63, %cast.i.i.i.i.i.i
   %idxprom.i.i.i.i.i.i.i = sext i32 %add.i26.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %30, i64 %idxprom.i.i.i.i.i.i.i
   %70 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i.i.i.i.i.i
+  %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %32, i64 %idxprom.i.i.i.i.i.i.i
   %71 = load i32, ptr %arrayidx3.i.i.i.i.i.i.i, align 4
   %sub.i.i27.i.i.i.i.i = sub nsw i32 %70, %extractNullsResult.sroa.0.0.extract.trunc.i
   %reass.sub128 = sub i32 %71, %extractNullsResult.sroa.0.0.extract.trunc.i
@@ -7413,7 +7413,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i.i.i.i.i.i.i.i)
   %73 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %73, i64 %idxprom.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %73, i64 %idxprom.i.i.i.i.i.i.i
   store i32 %72, ptr %add.ptr.i.i.i.i.i.i.i.i, align 4
   %sub.i28.i.i.i.i.i = add nsw i64 %word.0.i.i.i.i.i.i, -1
   %and6.i.i.i.i.i.i = and i64 %sub.i28.i.i.i.i.i, %word.0.i.i.i.i.i.i
@@ -7434,7 +7434,7 @@ if.then10.i.i.i.i.i:                              ; preds = %if.end8.i.i.i.i.i
   %sh_prom.i33.i.i.i.i.i = zext nneg i32 %sub.i32.i.i.i.i.i to i64
   %shl.i34.i.i.i.i.i = shl i64 %sub.i.i31.i.i.i.i.i, %sh_prom.i33.i.i.i.i.i
   %idxprom.i38.i.i.i.i.i = sext i32 %div11.i.i.i.i.i to i64
-  %arrayidx.i39.i.i.i.i.i = getelementptr inbounds i64, ptr %59, i64 %idxprom.i38.i.i.i.i.i
+  %arrayidx.i39.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %59, i64 %idxprom.i38.i.i.i.i.i
   %74 = load i64, ptr %arrayidx.i39.i.i.i.i.i, align 8
   %and.i42.i.i.i.i.i = and i64 %74, %shl.i34.i.i.i.i.i
   %tobool4.not.i43.i.i.i.i.i = icmp eq i64 %and.i42.i.i.i.i.i, 0
@@ -7454,9 +7454,9 @@ while.body.i46.i.i.i.i.i:                         ; preds = %while.body.i46.i.i.
   %cast.i48.i.i.i.i.i = trunc nuw nsw i64 %79 to i32
   %add.i49.i.i.i.i.i = or disjoint i32 %mul.i45.i.i.i.i.i, %cast.i48.i.i.i.i.i
   %idxprom.i.i50.i.i.i.i.i = sext i32 %add.i49.i.i.i.i.i to i64
-  %arrayidx.i.i51.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i50.i.i.i.i.i
+  %arrayidx.i.i51.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %30, i64 %idxprom.i.i50.i.i.i.i.i
   %80 = load i32, ptr %arrayidx.i.i51.i.i.i.i.i, align 4
-  %arrayidx3.i.i52.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i50.i.i.i.i.i
+  %arrayidx3.i.i52.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %32, i64 %idxprom.i.i50.i.i.i.i.i
   %81 = load i32, ptr %arrayidx3.i.i52.i.i.i.i.i, align 4
   %sub.i.i53.i.i.i.i.i = sub nsw i32 %80, %extractNullsResult.sroa.0.0.extract.trunc.i
   %reass.sub = sub i32 %81, %extractNullsResult.sroa.0.0.extract.trunc.i
@@ -7477,7 +7477,7 @@ while.body.i46.i.i.i.i.i:                         ; preds = %while.body.i46.i.i.
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i36.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i.i.i37.i.i.i.i.i)
   %83 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i58.i.i.i.i.i = getelementptr inbounds i32, ptr %83, i64 %idxprom.i.i50.i.i.i.i.i
+  %add.ptr.i.i.i58.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %83, i64 %idxprom.i.i50.i.i.i.i.i
   store i32 %82, ptr %add.ptr.i.i.i58.i.i.i.i.i, align 4
   %sub.i59.i.i.i.i.i = add i64 %word.0.i47.i.i.i.i.i, -1
   %and6.i60.i.i.i.i.i = and i64 %sub.i59.i.i.i.i.i, %word.0.i47.i.i.i.i.i
@@ -7501,7 +7501,7 @@ for.body.i.i.i5.i.i:                              ; preds = %_ZZN8facebook5velox
   %i.0140.i.i.i.i.i = phi i32 [ %mul.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %add141.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE1EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i ]
   %div16.i.i.i.i.i = sdiv i32 %i.0140.i.i.i.i.i, 64
   %idxprom.i66.i.i.i.i.i = sext i32 %div16.i.i.i.i.i to i64
-  %arrayidx.i67.i.i.i.i.i = getelementptr inbounds i64, ptr %59, i64 %idxprom.i66.i.i.i.i.i
+  %arrayidx.i67.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %59, i64 %idxprom.i66.i.i.i.i.i
   %88 = load i64, ptr %arrayidx.i67.i.i.i.i.i, align 8
   switch i64 %88, label %while.body.lr.ph.i.i.i.i.i.i [
     i64 -1, label %if.then.i.i.i.i.i.i
@@ -7526,9 +7526,9 @@ for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i
   %row.025.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %arrayidx.i.i71.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %row.025.i.i.i.i.i.i
+  %arrayidx.i.i71.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %30, i64 %row.025.i.i.i.i.i.i
   %89 = load i32, ptr %arrayidx.i.i71.i.i.i.i.i, align 4
-  %arrayidx2.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %row.025.i.i.i.i.i.i
+  %arrayidx2.i.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %32, i64 %row.025.i.i.i.i.i.i
   %90 = load i32, ptr %arrayidx2.i.i.i.i.i.i.i, align 4
   %sub.i.i72.i.i.i.i.i = sub nsw i32 %89, %extractNullsResult.sroa.0.0.extract.trunc.i
   %reass.sub126 = sub i32 %90, %extractNullsResult.sroa.0.0.extract.trunc.i
@@ -7549,7 +7549,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i64.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i.i.i65.i.i.i.i.i)
   %92 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i76.i.i.i.i.i = getelementptr inbounds i32, ptr %92, i64 %row.025.i.i.i.i.i.i
+  %add.ptr.i.i.i76.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %92, i64 %row.025.i.i.i.i.i.i
   store i32 %91, ptr %add.ptr.i.i.i76.i.i.i.i.i, align 4
   %inc.i.i.i.i.i.i = add nuw i64 %row.025.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i.i, %conv5.i.i.i.i.i.i
@@ -7561,9 +7561,9 @@ while.body.i77.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox4
   %cast.i78.i.i.i.i.i = trunc nuw nsw i64 %93 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i78.i.i.i.i.i
   %idxprom.i.i79.i.i.i.i.i = sext i32 %add9.i.i.i.i.i.i to i64
-  %arrayidx.i14.i.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i79.i.i.i.i.i
+  %arrayidx.i14.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %30, i64 %idxprom.i.i79.i.i.i.i.i
   %94 = load i32, ptr %arrayidx.i14.i.i.i.i.i.i, align 4
-  %arrayidx3.i.i80.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i79.i.i.i.i.i
+  %arrayidx3.i.i80.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %32, i64 %idxprom.i.i79.i.i.i.i.i
   %95 = load i32, ptr %arrayidx3.i.i80.i.i.i.i.i, align 4
   %sub.i15.i.i.i.i.i.i = sub nsw i32 %94, %extractNullsResult.sroa.0.0.extract.trunc.i
   %reass.sub41.i = sub i32 %95, %extractNullsResult.sroa.0.0.extract.trunc.i
@@ -7594,7 +7594,7 @@ if.then3.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   %shl.i.i.i.i.i.i.i = shl i64 %sub.i.i.i.i.i.i.i.i, %sh_prom.i24.i.i.i.i.i.i
   %and7.i.i.i.i.i.i = and i64 %shl.i.i.i.i.i.i.i, %sub.i22.i.i.i.i.i.i
   %idxprom.i.i122.i.i.i.i.i = sext i32 %div.i.i.i.i.i.i to i64
-  %arrayidx.i.i123.i.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idxprom.i.i122.i.i.i.i.i
+  %arrayidx.i.i123.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %28, i64 %idxprom.i.i122.i.i.i.i.i
   %98 = load i64, ptr %arrayidx.i.i123.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i.i = and i64 %and7.i.i.i.i.i.i, %98
   %tobool4.not.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i, 0
@@ -7621,7 +7621,7 @@ if.then11.i.i.i.i.i.i:                            ; preds = %if.end9.i.i.i.i.i.i
   %notmask.i29.i.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i28.i.i.i.i.i.i
   %sub.i30.i.i.i.i.i.i = xor i64 %notmask.i29.i.i.i.i.i.i, -1
   %idxprom.i31.i.i.i.i.i.i = sext i32 %div12.i.i.i.i.i.i to i64
-  %arrayidx.i32.i.i.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idxprom.i31.i.i.i.i.i.i
+  %arrayidx.i32.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %28, i64 %idxprom.i31.i.i.i.i.i.i
   %100 = load i64, ptr %arrayidx.i32.i.i.i.i.i.i, align 8
   %and.i35.i.i.i.i.i.i = and i64 %100, %sub.i30.i.i.i.i.i.i
   %tobool4.not.i36.i.i.i.i.i.i = icmp eq i64 %and.i35.i.i.i.i.i.i, 0
@@ -7643,7 +7643,7 @@ for.cond.i.i.i.i.i.i:                             ; preds = %for.cond.i.i.i.i.i.
 for.body.i118.i.i.i.i.i:                          ; preds = %for.cond.i.i.i.i.i.i
   %div21.i.i.i.i.i.i = ashr exact i32 %i.0.i.i.i.i.i.i, 6
   %idxprom.i43.i.i.i.i.i.i = sext i32 %div21.i.i.i.i.i.i to i64
-  %arrayidx.i44.i.i.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idxprom.i43.i.i.i.i.i.i
+  %arrayidx.i44.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %28, i64 %idxprom.i43.i.i.i.i.i.i
   %102 = load i64, ptr %arrayidx.i44.i.i.i.i.i.i, align 8
   %tobool4.not.i46.i.i.i.i.i.i = icmp eq i64 %102, 0
   br i1 %tobool4.not.i46.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i.i.i.i.i.i
@@ -7669,7 +7669,7 @@ if.then27.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i.i.i.i
   %sh_prom.i57.i.i.i.i.i.i = zext nneg i32 %sub.i56.i.i.i.i.i.i to i64
   %shl.i58.i.i.i.i.i.i = shl i64 %sub.i.i55.i.i.i.i.i.i, %sh_prom.i57.i.i.i.i.i.i
   %idxprom.i59.i.i.i.i.i.i = sext i32 %div28.i.i.i.i.i.i to i64
-  %arrayidx.i60.i.i.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idxprom.i59.i.i.i.i.i.i
+  %arrayidx.i60.i.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %28, i64 %idxprom.i59.i.i.i.i.i.i
   %105 = load i64, ptr %arrayidx.i60.i.i.i.i.i.i, align 8
   %and.i63.i.i.i.i.i.i = and i64 %105, %shl.i58.i.i.i.i.i.i
   %tobool4.not.i64.i.i.i.i.i.i = icmp eq i64 %and.i63.i.i.i.i.i.i, 0
@@ -7686,7 +7686,7 @@ if.then.i65.i.i.i.i.i.i:                          ; preds = %if.then27.i.i.i.i.i
 _ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_.exit.i.i.i.i.i: ; preds = %if.then.i65.i.i.i.i.i.i, %if.then27.i.i.i.i.i.i, %for.end.i.i.i.i.i.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i.i.i.i.i.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i, %while.body.i77.i.i.i.i.i
   %found.i.i11.i.0.i.i.i.i.i = phi i32 [ -1, %if.then3.i.i.i.i.i.i ], [ -1, %while.body.i77.i.i.i.i.i ], [ -1, %for.end.i.i.i.i.i.i ], [ -1, %if.then27.i.i.i.i.i.i ], [ %sub.i69.i.i.i.i.i.i, %if.then.i65.i.i.i.i.i.i ], [ %sub.i52.i.i.i.i.i.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i.i.i.i.i.i ], [ %sub.i41.i.i.i.i.i.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i.i.i.i.i.i ], [ %sub.i27.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ]
   %107 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i19.i.i.i.i.i.i = getelementptr inbounds i32, ptr %107, i64 %idxprom.i.i79.i.i.i.i.i
+  %add.ptr.i.i19.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %107, i64 %idxprom.i.i79.i.i.i.i.i
   store i32 %found.i.i11.i.0.i.i.i.i.i, ptr %add.ptr.i.i19.i.i.i.i.i.i, align 4
   %sub.i82.i.i.i.i.i = add i64 %word.023.i.i.i.i.i.i, -1
   %and.i83.i.i.i.i.i = and i64 %sub.i82.i.i.i.i.i, %word.023.i.i.i.i.i.i
@@ -7709,7 +7709,7 @@ if.then19.i.i.i.i.i:                              ; preds = %for.end.i.i.i6.i.i
   %notmask.i85.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i84.i.i.i.i.i
   %sub.i86.i.i.i.i.i = xor i64 %notmask.i85.i.i.i.i.i, -1
   %idxprom.i90.i.i.i.i.i = sext i32 %div20.i.i.i.i.i to i64
-  %arrayidx.i91.i.i.i.i.i = getelementptr inbounds i64, ptr %59, i64 %idxprom.i90.i.i.i.i.i
+  %arrayidx.i91.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %59, i64 %idxprom.i90.i.i.i.i.i
   %108 = load i64, ptr %arrayidx.i91.i.i.i.i.i, align 8
   %and.i94.i.i.i.i.i = and i64 %108, %sub.i86.i.i.i.i.i
   %tobool4.not.i95.i.i.i.i.i = icmp eq i64 %and.i94.i.i.i.i.i, 0
@@ -7728,9 +7728,9 @@ while.body.i98.i.i.i.i.i:                         ; preds = %while.body.i98.i.i.
   %cast.i100.i.i.i.i.i = trunc nuw nsw i64 %113 to i32
   %add.i101.i.i.i.i.i = or disjoint i32 %63, %cast.i100.i.i.i.i.i
   %idxprom.i.i102.i.i.i.i.i = sext i32 %add.i101.i.i.i.i.i to i64
-  %arrayidx.i.i103.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i102.i.i.i.i.i
+  %arrayidx.i.i103.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %30, i64 %idxprom.i.i102.i.i.i.i.i
   %114 = load i32, ptr %arrayidx.i.i103.i.i.i.i.i, align 4
-  %arrayidx3.i.i104.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i102.i.i.i.i.i
+  %arrayidx3.i.i104.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %32, i64 %idxprom.i.i102.i.i.i.i.i
   %115 = load i32, ptr %arrayidx3.i.i104.i.i.i.i.i, align 4
   %sub.i.i105.i.i.i.i.i = sub nsw i32 %114, %extractNullsResult.sroa.0.0.extract.trunc.i
   %reass.sub127 = sub i32 %115, %extractNullsResult.sroa.0.0.extract.trunc.i
@@ -7751,7 +7751,7 @@ while.body.i98.i.i.i.i.i:                         ; preds = %while.body.i98.i.i.
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i88.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp2.i.i.i89.i.i.i.i.i)
   %117 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i110.i.i.i.i.i = getelementptr inbounds i32, ptr %117, i64 %idxprom.i.i102.i.i.i.i.i
+  %add.ptr.i.i.i110.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %117, i64 %idxprom.i.i102.i.i.i.i.i
   store i32 %116, ptr %add.ptr.i.i.i110.i.i.i.i.i, align 4
   %sub.i111.i.i.i.i.i = add nsw i64 %word.0.i99.i.i.i.i.i, -1
   %and6.i112.i.i.i.i.i = and i64 %sub.i111.i.i.i.i.i, %word.0.i99.i.i.i.i.i
@@ -7821,7 +7821,7 @@ if.then26.i.i.i.i:                                ; preds = %for.end.i.i.i.i
   %sh_prom.i37.i.i.i.i = zext nneg i32 %sub28.i.i.i.i to i64
   %notmask.i38.i.i.i.i = shl nsw i64 -1, %sh_prom.i37.i.i.i.i
   %idxprom.i40.i.i.i.i = zext nneg i32 %div27.i.i.i.i to i64
-  %arrayidx.i41.i.i.i.i = getelementptr inbounds nuw i64, ptr %123, i64 %idxprom.i40.i.i.i.i
+  %arrayidx.i41.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %idxprom.i40.i.i.i.i
   %128 = load i64, ptr %arrayidx.i41.i.i.i.i, align 8
   %.demorgan.i.i = or i64 %128, %notmask.i38.i.i.i.i
   %cmp.i42.i.i.i.i = icmp eq i64 %.demorgan.i.i, -1
@@ -7870,7 +7870,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i13
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %134, i64 %conv.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %134, i64 %conv.i.i.i
   %tobool.not.i.i.i.i = icmp eq ptr %133, %add.ptr.i.i.i
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i, label %invoke.cont.i.i.i.i
 
@@ -7955,7 +7955,7 @@ if.then26.i.i.i.i.i98:                            ; preds = %for.end.i.i.i.i.i96
   %sh_prom.i37.i.i.i.i.i101 = zext nneg i32 %sub28.i.i.i.i.i100 to i64
   %notmask.i38.i.i.i.i.i102 = shl nsw i64 -1, %sh_prom.i37.i.i.i.i.i101
   %idxprom.i40.i.i.i.i.i103 = zext nneg i32 %div27.i.i.i.i.i99 to i64
-  %arrayidx.i41.i.i.i.i.i104 = getelementptr inbounds nuw i64, ptr %143, i64 %idxprom.i40.i.i.i.i.i103
+  %arrayidx.i41.i.i.i.i.i104 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %idxprom.i40.i.i.i.i.i103
   %148 = load i64, ptr %arrayidx.i41.i.i.i.i.i104, align 8
   %.demorgan.i.i.i105 = or i64 %148, %notmask.i38.i.i.i.i.i102
   %cmp.i42.i.i.i.i.i106 = icmp eq i64 %.demorgan.i.i.i105, -1
@@ -7987,7 +7987,7 @@ for.body.lr.ph.i.i84:                             ; preds = %if.then.i.i83
 for.body.i.i85:                                   ; preds = %for.body.i.i85, %for.body.lr.ph.i.i84
   %indvars.iv.i13.i86 = phi i64 [ %154, %for.body.lr.ph.i.i84 ], [ %indvars.iv.next.i14.i, %for.body.i.i85 ]
   %func.val.val.i.i = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i.i87 = getelementptr inbounds i32, ptr %func.val.val.i.i, i64 %indvars.iv.i13.i86
+  %add.ptr.i.i.i.i87 = getelementptr inbounds [4 x i8], ptr %func.val.val.i.i, i64 %indvars.iv.i13.i86
   store i32 -1, ptr %add.ptr.i.i.i.i87, align 4
   %indvars.iv.next.i14.i = add nsw i64 %indvars.iv.i13.i86, 1
   %155 = load i32, ptr %end_.i6.i, align 8
@@ -8025,7 +8025,7 @@ if.then3.i.i.i.i.i57:                             ; preds = %if.end.i.i.i3.i.i
   %shl.i.i.i.i.i.i69 = shl i64 %sub.i.i.i.i.i.i.i66, %sh_prom.i24.i.i.i.i.i68
   %and7.i.i.i.i.i70 = and i64 %shl.i.i.i.i.i.i69, %sub.i22.i.i.i.i.i62
   %idxprom.i.i.i.i.i.i71 = sext i32 %div.i.i.i.i.i58 to i64
-  %arrayidx.i.i.i.i.i.i72 = getelementptr inbounds i64, ptr %157, i64 %idxprom.i.i.i.i.i.i71
+  %arrayidx.i.i.i.i.i.i72 = getelementptr inbounds [8 x i8], ptr %157, i64 %idxprom.i.i.i.i.i.i71
   %162 = load i64, ptr %arrayidx.i.i.i.i.i.i72, align 8
   %and.i.i.i.i.i.i73 = and i64 %and7.i.i.i.i.i70, %162
   %tobool4.not.i.i.i.i.i.i74 = icmp eq i64 %and.i.i.i.i.i.i73, 0
@@ -8038,7 +8038,7 @@ while.body.i.i.i.i.i.i76:                         ; preds = %if.then3.i.i.i.i.i5
   %add.i26.i.i.i.i.i79 = or disjoint i32 %161, %cast.i.i.i.i.i.i78
   %.val.val.i.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
   %conv.i.i.i.i.i.i.i = sext i32 %add.i26.i.i.i.i.i79 to i64
-  %add.ptr.i.i.i.i.i.i.i.i80 = getelementptr inbounds i32, ptr %.val.val.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i80 = getelementptr inbounds [4 x i8], ptr %.val.val.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i
   store i32 -1, ptr %add.ptr.i.i.i.i.i.i.i.i80, align 4
   %sub.i27.i.i.i.i.i = add nsw i64 %word.0.i.i.i.i.i.i77, -1
   %and6.i.i.i.i.i.i81 = and i64 %sub.i27.i.i.i.i.i, %word.0.i.i.i.i.i.i77
@@ -8059,7 +8059,7 @@ if.then10.i.i.i.i.i30:                            ; preds = %if.end8.i.i.i.i.i28
   %sh_prom.i32.i.i.i.i.i = zext nneg i32 %sub.i31.i.i.i.i.i to i64
   %shl.i33.i.i.i.i.i = shl i64 %sub.i.i30.i.i.i.i.i, %sh_prom.i32.i.i.i.i.i
   %idxprom.i34.i.i.i.i.i = sext i32 %div11.i.i.i.i.i31 to i64
-  %arrayidx.i35.i.i.i4.i.i = getelementptr inbounds i64, ptr %157, i64 %idxprom.i34.i.i.i.i.i
+  %arrayidx.i35.i.i.i4.i.i = getelementptr inbounds [8 x i8], ptr %157, i64 %idxprom.i34.i.i.i.i.i
   %164 = load i64, ptr %arrayidx.i35.i.i.i4.i.i, align 8
   %and.i38.i.i.i.i.i = and i64 %164, %shl.i33.i.i.i.i.i
   %tobool4.not.i39.i.i.i.i.i = icmp eq i64 %and.i38.i.i.i.i.i, 0
@@ -8076,7 +8076,7 @@ while.body.i42.i.i.i.i.i:                         ; preds = %while.body.i42.i.i.
   %add.i45.i.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i.i, %cast.i44.i.i.i.i.i
   %.val.val.i47.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
   %conv.i.i48.i.i.i.i.i = sext i32 %add.i45.i.i.i.i.i to i64
-  %add.ptr.i.i.i49.i.i.i.i.i = getelementptr inbounds i32, ptr %.val.val.i47.i.i.i.i.i, i64 %conv.i.i48.i.i.i.i.i
+  %add.ptr.i.i.i49.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val.val.i47.i.i.i.i.i, i64 %conv.i.i48.i.i.i.i.i
   store i32 -1, ptr %add.ptr.i.i.i49.i.i.i.i.i, align 4
   %sub.i50.i.i.i.i.i = add i64 %word.0.i43.i.i.i.i.i, -1
   %and6.i51.i.i.i.i.i = and i64 %sub.i50.i.i.i.i.i, %word.0.i43.i.i.i.i.i
@@ -8093,7 +8093,7 @@ for.body.i.i.i5.i.i35:                            ; preds = %if.end14.i.i.i.i.i3
   %i.094.i.i.i.i.i = phi i32 [ %add95.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorEEUlT_E_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i26, %if.end14.i.i.i.i.i33 ]
   %div16.i.i.i.i.i36 = sdiv i32 %i.094.i.i.i.i.i, 64
   %idxprom.i54.i.i.i.i.i = sext i32 %div16.i.i.i.i.i36 to i64
-  %arrayidx.i55.i.i.i.i.i = getelementptr inbounds i64, ptr %157, i64 %idxprom.i54.i.i.i.i.i
+  %arrayidx.i55.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %157, i64 %idxprom.i54.i.i.i.i.i
   %166 = load i64, ptr %arrayidx.i55.i.i.i.i.i, align 8
   switch i64 %166, label %while.body.lr.ph.i.i.i.i.i.i53 [
     i64 -1, label %if.then.i.i.i.i.i.i45
@@ -8119,7 +8119,7 @@ for.body.lr.ph.i.i.i.i.i.i49:                     ; preds = %if.then.i.i.i.i.i.i
 for.body.i.i.i.i.i10.i:                           ; preds = %for.body.i.i.i.i.i10.i, %for.body.lr.ph.i.i.i.i.i.i49
   %row.017.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i50, %for.body.lr.ph.i.i.i.i.i.i49 ], [ %inc.i.i.i.i.i.i51, %for.body.i.i.i.i.i10.i ]
   %.val11.val.i.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i59.i.i.i.i.i = getelementptr inbounds i32, ptr %.val11.val.i.i.i.i.i.i, i64 %row.017.i.i.i.i.i.i
+  %add.ptr.i.i.i59.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val11.val.i.i.i.i.i.i, i64 %row.017.i.i.i.i.i.i
   store i32 -1, ptr %add.ptr.i.i.i59.i.i.i.i.i, align 4
   %inc.i.i.i.i.i.i51 = add nuw i64 %row.017.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i.i52 = icmp ult i64 %inc.i.i.i.i.i.i51, %conv5.i.i.i.i.i.i47
@@ -8132,7 +8132,7 @@ while.body.i60.i.i.i.i.i:                         ; preds = %while.body.i60.i.i.
   %add9.i.i.i.i.i.i55 = or disjoint i32 %mul8.i.i.i.i.i.i54, %cast.i61.i.i.i.i.i
   %.val.val.i63.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
   %conv.i.i64.i.i.i.i.i = sext i32 %add9.i.i.i.i.i.i55 to i64
-  %add.ptr.i.i12.i.i.i.i.i.i = getelementptr inbounds i32, ptr %.val.val.i63.i.i.i.i.i, i64 %conv.i.i64.i.i.i.i.i
+  %add.ptr.i.i12.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val.val.i63.i.i.i.i.i, i64 %conv.i.i64.i.i.i.i.i
   store i32 -1, ptr %add.ptr.i.i12.i.i.i.i.i.i, align 4
   %sub.i65.i.i.i.i.i = add i64 %word.015.i.i.i.i.i.i, -1
   %and.i66.i.i.i.i.i = and i64 %sub.i65.i.i.i.i.i, %word.015.i.i.i.i.i.i
@@ -8155,7 +8155,7 @@ if.then19.i.i.i.i.i41:                            ; preds = %for.end.i.i.i6.i.i3
   %notmask.i68.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i67.i.i.i.i.i
   %sub.i69.i.i.i.i.i = xor i64 %notmask.i68.i.i.i.i.i, -1
   %idxprom.i70.i.i.i.i.i = sext i32 %div20.i.i.i.i.i42 to i64
-  %arrayidx.i71.i.i.i.i.i = getelementptr inbounds i64, ptr %157, i64 %idxprom.i70.i.i.i.i.i
+  %arrayidx.i71.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %157, i64 %idxprom.i70.i.i.i.i.i
   %168 = load i64, ptr %arrayidx.i71.i.i.i.i.i, align 8
   %and.i74.i.i.i.i.i = and i64 %168, %sub.i69.i.i.i.i.i
   %tobool4.not.i75.i.i.i.i.i = icmp eq i64 %and.i74.i.i.i.i.i, 0
@@ -8168,7 +8168,7 @@ while.body.i78.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
   %add.i81.i.i.i.i.i = or disjoint i32 %161, %cast.i80.i.i.i.i.i
   %.val.val.i83.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
   %conv.i.i84.i.i.i.i.i = sext i32 %add.i81.i.i.i.i.i to i64
-  %add.ptr.i.i.i85.i.i.i.i.i = getelementptr inbounds i32, ptr %.val.val.i83.i.i.i.i.i, i64 %conv.i.i84.i.i.i.i.i
+  %add.ptr.i.i.i85.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val.val.i83.i.i.i.i.i, i64 %conv.i.i84.i.i.i.i.i
   store i32 -1, ptr %add.ptr.i.i.i85.i.i.i.i.i, align 4
   %sub.i86.i.i.i.i.i44 = add nsw i64 %word.0.i79.i.i.i.i.i, -1
   %and6.i87.i.i.i.i.i = and i64 %sub.i86.i.i.i.i.i44, %word.0.i79.i.i.i.i.i
@@ -8177,7 +8177,7 @@ while.body.i78.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
 
 _ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit: ; preds = %while.body.i78.i.i.i.i.i, %while.body.i.i.i.i.i.i76, %for.body.i.i85, %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i, %if.then.i.i83, %if.else.i.i23, %if.then3.i.i.i.i.i57, %for.end.i.i.i6.i.i39, %if.then19.i.i.i.i.i41
   %170 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i117 = getelementptr inbounds nuw i32, ptr %170, i64 %div8
+  %add.ptr.i117 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %div8
   %partition_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %171 = load ptr, ptr %partition_, align 8
   %valueIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 84
@@ -8246,7 +8246,7 @@ if.then26.i.i.i.i:                                ; preds = %for.end.i.i.i.i
   %sh_prom.i37.i.i.i.i = zext nneg i32 %sub28.i.i.i.i to i64
   %notmask.i38.i.i.i.i = shl nsw i64 -1, %sh_prom.i37.i.i.i.i
   %idxprom.i40.i.i.i.i = zext nneg i32 %div27.i.i.i.i to i64
-  %arrayidx.i41.i.i.i.i = getelementptr inbounds nuw i64, ptr %4, i64 %idxprom.i40.i.i.i.i
+  %arrayidx.i41.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %idxprom.i40.i.i.i.i
   %9 = load i64, ptr %arrayidx.i41.i.i.i.i, align 8
   %.demorgan.i.i = or i64 %9, %notmask.i38.i.i.i.i
   %cmp.i42.i.i.i.i = icmp eq i64 %.demorgan.i.i, -1
@@ -8281,9 +8281,9 @@ for.body.lr.ph.i:                                 ; preds = %if.then.i
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ %16, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %func.val.val.i = load ptr, ptr %15, align 8
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %frameEnds.0.val.16.val, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %frameEnds.0.val.16.val, i64 %indvars.iv.i
   %17 = load i32, ptr %arrayidx.i.i, align 4
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %func.val.val.i, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %func.val.val.i, i64 %indvars.iv.i
   store i32 %17, ptr %add.ptr.i.i.i, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %18 = load i32, ptr %end_.i, align 8
@@ -8323,7 +8323,7 @@ if.then3.i.i.i.i:                                 ; preds = %if.end.i.i.i4.i
   %shl.i.i.i.i.i = shl i64 %sub.i.i.i.i.i.i, %sh_prom.i24.i.i.i.i
   %and7.i.i.i.i = and i64 %shl.i.i.i.i.i, %sub.i22.i.i.i.i
   %idxprom.i.i.i.i.i = sext i32 %div.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds i64, ptr %20, i64 %idxprom.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %20, i64 %idxprom.i.i.i.i.i
   %25 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
   %and.i.i.i.i.i = and i64 %and7.i.i.i.i, %25
   %tobool4.not.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i, 0
@@ -8340,9 +8340,9 @@ while.body.i.i.i.i.i:                             ; preds = %while.body.i.i.i.i.
   %add.i26.i.i.i.i = or disjoint i32 %24, %cast.i.i.i.i.i
   %.val.val.i.i.i.i.i = load ptr, ptr %26, align 8
   %idxprom.i.i.i.i.i.i = sext i32 %add.i26.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i32, ptr %frameEnds.0.val.16.val, i64 %idxprom.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %frameEnds.0.val.16.val, i64 %idxprom.i.i.i.i.i.i
   %28 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %.val.val.i.i.i.i.i, i64 %idxprom.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val.val.i.i.i.i.i, i64 %idxprom.i.i.i.i.i.i
   store i32 %28, ptr %add.ptr.i.i.i.i.i.i.i, align 4
   %sub.i27.i.i.i.i = add nsw i64 %word.0.i.i.i.i.i, -1
   %and6.i.i.i.i.i = and i64 %sub.i27.i.i.i.i, %word.0.i.i.i.i.i
@@ -8363,7 +8363,7 @@ if.then10.i.i.i.i:                                ; preds = %if.end8.i.i.i.i
   %sh_prom.i32.i.i.i.i = zext nneg i32 %sub.i31.i.i.i.i to i64
   %shl.i33.i.i.i.i = shl i64 %sub.i.i30.i.i.i.i, %sh_prom.i32.i.i.i.i
   %idxprom.i34.i.i.i.i = sext i32 %div11.i.i.i.i to i64
-  %arrayidx.i35.i.i.i5.i = getelementptr inbounds i64, ptr %20, i64 %idxprom.i34.i.i.i.i
+  %arrayidx.i35.i.i.i5.i = getelementptr inbounds [8 x i8], ptr %20, i64 %idxprom.i34.i.i.i.i
   %29 = load i64, ptr %arrayidx.i35.i.i.i5.i, align 8
   %and.i38.i.i.i.i = and i64 %29, %shl.i33.i.i.i.i
   %tobool4.not.i39.i.i.i.i = icmp eq i64 %and.i38.i.i.i.i, 0
@@ -8381,9 +8381,9 @@ while.body.i42.i.i.i.i:                           ; preds = %while.body.i42.i.i.
   %add.i45.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i, %cast.i44.i.i.i.i
   %.val.val.i48.i.i.i.i = load ptr, ptr %30, align 8
   %idxprom.i.i50.i.i.i.i = sext i32 %add.i45.i.i.i.i to i64
-  %arrayidx.i.i51.i.i.i.i = getelementptr inbounds i32, ptr %frameEnds.0.val.16.val, i64 %idxprom.i.i50.i.i.i.i
+  %arrayidx.i.i51.i.i.i.i = getelementptr inbounds [4 x i8], ptr %frameEnds.0.val.16.val, i64 %idxprom.i.i50.i.i.i.i
   %32 = load i32, ptr %arrayidx.i.i51.i.i.i.i, align 4
-  %add.ptr.i.i.i52.i.i.i.i = getelementptr inbounds i32, ptr %.val.val.i48.i.i.i.i, i64 %idxprom.i.i50.i.i.i.i
+  %add.ptr.i.i.i52.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val.val.i48.i.i.i.i, i64 %idxprom.i.i50.i.i.i.i
   store i32 %32, ptr %add.ptr.i.i.i52.i.i.i.i, align 4
   %sub.i53.i.i.i.i = add i64 %word.0.i43.i.i.i.i, -1
   %and6.i54.i.i.i.i = and i64 %sub.i53.i.i.i.i, %word.0.i43.i.i.i.i
@@ -8404,7 +8404,7 @@ for.body.i.i.i6.i:                                ; preds = %_ZZN8facebook5velox
   %i.0101.i.i.i.i = phi i32 [ %mul.i.i.i.i.i, %for.body.lr.ph.i.i.i.i ], [ %add102.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE1EE25setRowNumbersRespectNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i ]
   %div16.i.i.i.i = sdiv i32 %i.0101.i.i.i.i, 64
   %idxprom.i57.i.i.i.i = sext i32 %div16.i.i.i.i to i64
-  %arrayidx.i58.i.i.i.i = getelementptr inbounds i64, ptr %20, i64 %idxprom.i57.i.i.i.i
+  %arrayidx.i58.i.i.i.i = getelementptr inbounds [8 x i8], ptr %20, i64 %idxprom.i57.i.i.i.i
   %34 = load i64, ptr %arrayidx.i58.i.i.i.i, align 8
   switch i64 %34, label %while.body.lr.ph.i.i.i.i.i [
     i64 -1, label %if.then.i.i.i.i.i
@@ -8430,9 +8430,9 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i
   %row.020.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %inc.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %.val12.val.i.i.i.i.i = load ptr, ptr %33, align 8
-  %arrayidx.i.i62.i.i.i.i = getelementptr inbounds i32, ptr %frameEnds.0.val.16.val, i64 %row.020.i.i.i.i.i
+  %arrayidx.i.i62.i.i.i.i = getelementptr inbounds [4 x i8], ptr %frameEnds.0.val.16.val, i64 %row.020.i.i.i.i.i
   %35 = load i32, ptr %arrayidx.i.i62.i.i.i.i, align 4
-  %add.ptr.i.i.i63.i.i.i.i = getelementptr inbounds i32, ptr %.val12.val.i.i.i.i.i, i64 %row.020.i.i.i.i.i
+  %add.ptr.i.i.i63.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val12.val.i.i.i.i.i, i64 %row.020.i.i.i.i.i
   store i32 %35, ptr %add.ptr.i.i.i63.i.i.i.i, align 4
   %inc.i.i.i.i.i = add nuw i64 %row.020.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i, %conv5.i.i.i.i.i
@@ -8445,9 +8445,9 @@ while.body.i64.i.i.i.i:                           ; preds = %while.body.i64.i.i.
   %add9.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i, %cast.i65.i.i.i.i
   %.val.val.i67.i.i.i.i = load ptr, ptr %33, align 8
   %idxprom.i.i68.i.i.i.i = sext i32 %add9.i.i.i.i.i to i64
-  %arrayidx.i14.i.i.i.i.i = getelementptr inbounds i32, ptr %frameEnds.0.val.16.val, i64 %idxprom.i.i68.i.i.i.i
+  %arrayidx.i14.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %frameEnds.0.val.16.val, i64 %idxprom.i.i68.i.i.i.i
   %37 = load i32, ptr %arrayidx.i14.i.i.i.i.i, align 4
-  %add.ptr.i.i15.i.i.i.i.i = getelementptr inbounds i32, ptr %.val.val.i67.i.i.i.i, i64 %idxprom.i.i68.i.i.i.i
+  %add.ptr.i.i15.i.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val.val.i67.i.i.i.i, i64 %idxprom.i.i68.i.i.i.i
   store i32 %37, ptr %add.ptr.i.i15.i.i.i.i.i, align 4
   %sub.i69.i.i.i.i = add i64 %word.018.i.i.i.i.i, -1
   %and.i70.i.i.i.i = and i64 %sub.i69.i.i.i.i, %word.018.i.i.i.i.i
@@ -8470,7 +8470,7 @@ if.then19.i.i.i.i:                                ; preds = %for.end.i.i.i7.i
   %notmask.i72.i.i.i.i = shl nsw i64 -1, %sh_prom.i71.i.i.i.i
   %sub.i73.i.i.i.i = xor i64 %notmask.i72.i.i.i.i, -1
   %idxprom.i74.i.i.i.i = sext i32 %div20.i.i.i.i to i64
-  %arrayidx.i75.i.i.i.i = getelementptr inbounds i64, ptr %20, i64 %idxprom.i74.i.i.i.i
+  %arrayidx.i75.i.i.i.i = getelementptr inbounds [8 x i8], ptr %20, i64 %idxprom.i74.i.i.i.i
   %38 = load i64, ptr %arrayidx.i75.i.i.i.i, align 8
   %and.i78.i.i.i.i = and i64 %38, %sub.i73.i.i.i.i
   %tobool4.not.i79.i.i.i.i = icmp eq i64 %and.i78.i.i.i.i, 0
@@ -8487,9 +8487,9 @@ while.body.i82.i.i.i.i:                           ; preds = %while.body.i82.i.i.
   %add.i85.i.i.i.i = or disjoint i32 %24, %cast.i84.i.i.i.i
   %.val.val.i88.i.i.i.i = load ptr, ptr %39, align 8
   %idxprom.i.i90.i.i.i.i = sext i32 %add.i85.i.i.i.i to i64
-  %arrayidx.i.i91.i.i.i.i = getelementptr inbounds i32, ptr %frameEnds.0.val.16.val, i64 %idxprom.i.i90.i.i.i.i
+  %arrayidx.i.i91.i.i.i.i = getelementptr inbounds [4 x i8], ptr %frameEnds.0.val.16.val, i64 %idxprom.i.i90.i.i.i.i
   %41 = load i32, ptr %arrayidx.i.i91.i.i.i.i, align 4
-  %add.ptr.i.i.i92.i.i.i.i = getelementptr inbounds i32, ptr %.val.val.i88.i.i.i.i, i64 %idxprom.i.i90.i.i.i.i
+  %add.ptr.i.i.i92.i.i.i.i = getelementptr inbounds [4 x i8], ptr %.val.val.i88.i.i.i.i, i64 %idxprom.i.i90.i.i.i.i
   store i32 %41, ptr %add.ptr.i.i.i92.i.i.i.i, align 4
   %sub.i93.i.i.i.i = add nsw i64 %word.0.i83.i.i.i.i, -1
   %and6.i94.i.i.i.i = and i64 %sub.i93.i.i.i.i, %word.0.i83.i.i.i.i

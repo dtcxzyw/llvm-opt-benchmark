@@ -930,8 +930,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.823 = type { %struct.PyGC_Head, %struct.PyVarObject, [1 x ptr] }
 %struct.anon.824 = type { %struct.PyGC_Head, %struct.PyVarObject, [1 x ptr] }
 %struct.Py_buffer = type { ptr, ptr, i64, i64, i32, i32, ptr, ptr, ptr, ptr, ptr }
-%struct.anon.808 = type { i64, ptr }
-%struct.anon.809 = type { ptr, i32 }
 %struct.SRE_STATE = type { ptr, ptr, ptr, ptr, ptr, %struct.Py_buffer, i64, i64, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, i64, i64, ptr, ptr, ptr, i32 }
 
 @sremodule = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 552977039360 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str, ptr null, i64 40, ptr @_functions, ptr @sre_slots, ptr @sre_traverse, ptr @sre_clear, ptr @sre_free }, align 8
@@ -1482,7 +1480,7 @@ Py_DECREF.exit.thread:                            ; preds = %29, %Py_DECREF.exit
 69:                                               ; preds = %82, %.lr.ph.i
   %.0488.i = phi i64 [ 0, %.lr.ph.i ], [ %83, %82 ]
   %70 = load ptr, ptr %67, align 8, !tbaa !37
-  %71 = getelementptr ptr, ptr %70, i64 %.0488.i
+  %71 = getelementptr [8 x i8], ptr %70, i64 %.0488.i
   %72 = load ptr, ptr %71, align 8, !tbaa !21
   %73 = call i64 @PyLong_AsUnsignedLong(ptr noundef %72) #14
   %74 = icmp eq i64 %73, -1
@@ -1494,13 +1492,13 @@ Py_DECREF.exit.thread:                            ; preds = %29, %Py_DECREF.exit
   br i1 %.not54.i, label %.thread.i, label %.thread2.i
 
 .thread.i:                                        ; preds = %75
-  %77 = getelementptr i32, ptr %68, i64 %.0488.i
+  %77 = getelementptr [4 x i8], ptr %68, i64 %.0488.i
   store i32 -1, ptr %77, align 4, !tbaa !40
   br label %.loopexit.i
 
 78:                                               ; preds = %69
   %79 = trunc i64 %73 to i32
-  %80 = getelementptr i32, ptr %68, i64 %.0488.i
+  %80 = getelementptr [4 x i8], ptr %68, i64 %.0488.i
   store i32 %79, ptr %80, align 4, !tbaa !40
   %.not55.i = icmp ult i64 %73, 4294967296
   br i1 %.not55.i, label %82, label %.loopexit.i
@@ -1646,7 +1644,7 @@ _Py_NewRef.exit71.i:                              ; preds = %125, %122
 127:                                              ; preds = %_Py_NewRef.exit71.i, %_Py_NewRef.exit70.i, %_Py_NewRef.exit.i
   %128 = getelementptr inbounds nuw i8, ptr %59, i64 88
   %129 = load i64, ptr %65, align 8, !tbaa !36
-  %130 = getelementptr i32, ptr %128, i64 %129
+  %130 = getelementptr [4 x i8], ptr %128, i64 %129
   %131 = load i64, ptr %112, align 8, !tbaa !49
   %132 = icmp ult i64 %131, 1073741824
   %.not.i.i.i = icmp ult ptr %128, %130
@@ -1765,7 +1763,7 @@ _Py_NewRef.exit.i:                                ; preds = %32, %25
   %.04419.i = phi i64 [ 0, %.lr.ph.i ], [ %80, %78 ]
   %37 = load ptr, ptr %27, align 8, !tbaa !37
   %38 = shl nuw i64 %.04419.i, 1
-  %39 = getelementptr ptr, ptr %37, i64 %38
+  %39 = getelementptr [8 x i8], ptr %37, i64 %38
   %40 = getelementptr i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !21
   %42 = tail call i64 @PyLong_AsSsize_t(ptr noundef %41) #14
@@ -1799,10 +1797,10 @@ _Py_NewRef.exit.i:                                ; preds = %32, %25
   br i1 %54, label %.thread.i, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr %struct.anon.808, ptr %35, i64 %.04419.i
+  %56 = getelementptr [16 x i8], ptr %35, i64 %.04419.i
   store i64 %42, ptr %56, align 8, !tbaa !59
   %57 = load ptr, ptr %27, align 8, !tbaa !37
-  %58 = getelementptr ptr, ptr %57, i64 %38
+  %58 = getelementptr [8 x i8], ptr %57, i64 %38
   %59 = getelementptr i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !21
   %61 = getelementptr i8, ptr %60, i64 8
@@ -1900,7 +1898,7 @@ define internal ptr @_sre_ascii_iscased(ptr readnone captures(none) %0, ptr noun
 
 6:                                                ; preds = %.split
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr i32, ptr @_Py_ctype_table, i64 %7
+  %8 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !40
   %10 = and i32 %9, 3
   %11 = icmp ne i32 %10, 0
@@ -2239,7 +2237,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
 
 33:                                               ; preds = %26
   %34 = getelementptr i8, ptr %.0272453, i64 8
-  %35 = getelementptr i32, ptr %34, i64 %28
+  %35 = getelementptr [4 x i8], ptr %34, i64 %28
   %36 = getelementptr i8, ptr %35, i64 -8
   %37 = tail call fastcc i32 @_validate_charset(ptr noundef %34, ptr noundef %36)
   %.not403 = icmp eq i32 %37, 0
@@ -2248,7 +2246,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
 38:                                               ; preds = %33
   %39 = add i32 %27, -2
   %40 = zext i32 %39 to i64
-  %41 = getelementptr i32, ptr %34, i64 %40
+  %41 = getelementptr [4 x i8], ptr %34, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !40
   %.not404 = icmp eq i32 %42, 0
   br i1 %.not404, label %43, label %.thread417
@@ -2256,7 +2254,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
 43:                                               ; preds = %38
   %44 = add i32 %27, -1
   %45 = zext i32 %44 to i64
-  %46 = getelementptr i32, ptr %34, i64 %45
+  %46 = getelementptr [4 x i8], ptr %34, i64 %45
   br label %275
 
 47:                                               ; preds = %10
@@ -2343,13 +2341,13 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
 
 .lr.ph452:                                        ; preds = %.preheader, %81
   %indvars.iv = phi i64 [ %indvars.iv.next, %81 ], [ 0, %.preheader ]
-  %82 = getelementptr i32, ptr %78, i64 %indvars.iv
+  %82 = getelementptr [4 x i8], ptr %78, i64 %indvars.iv
   %83 = load i32, ptr %82, align 4, !tbaa !40
   %.not397 = icmp ult i32 %83, %71
   br i1 %.not397, label %81, label %.thread417
 
 ._crit_edge:                                      ; preds = %81, %.preheader
-  %84 = getelementptr i32, ptr %78, i64 %73
+  %84 = getelementptr [4 x i8], ptr %78, i64 %73
   br label %85
 
 85:                                               ; preds = %._crit_edge, %67
@@ -2388,7 +2386,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
   br i1 %100, label %126, label %101
 
 101:                                              ; preds = %98
-  %102 = getelementptr i32, ptr %99, i64 %93
+  %102 = getelementptr [4 x i8], ptr %99, i64 %93
   %103 = getelementptr i8, ptr %102, i64 -12
   %104 = tail call fastcc i32 @_validate_inner(ptr noundef %99, ptr noundef %103, i64 noundef %2)
   %.not379 = icmp eq i32 %104, 0
@@ -2397,7 +2395,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
 105:                                              ; preds = %101
   %106 = add i32 %92, -3
   %107 = zext i32 %106 to i64
-  %108 = getelementptr i32, ptr %99, i64 %107
+  %108 = getelementptr [4 x i8], ptr %99, i64 %107
   %.not380 = icmp ult ptr %108, %1
   br i1 %.not380, label %109, label %.thread417
 
@@ -2421,7 +2419,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
 119:                                              ; preds = %112
   %120 = getelementptr i8, ptr %108, i64 8
   %121 = icmp eq ptr %.0282443, null
-  %122 = getelementptr i32, ptr %120, i64 %114
+  %122 = getelementptr [4 x i8], ptr %120, i64 %114
   %123 = getelementptr i8, ptr %122, i64 -4
   br i1 %121, label %125, label %124
 
@@ -2469,7 +2467,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
   br i1 %143, label %.thread417, label %144
 
 144:                                              ; preds = %139
-  %145 = getelementptr i32, ptr %141, i64 %130
+  %145 = getelementptr [4 x i8], ptr %141, i64 %130
   %146 = getelementptr i8, ptr %145, i64 -16
   %147 = tail call fastcc i32 @_validate_inner(ptr noundef %141, ptr noundef %146, i64 noundef %2)
   %.not375 = icmp eq i32 %147, 0
@@ -2478,7 +2476,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
 148:                                              ; preds = %144
   %149 = add i32 %129, -4
   %150 = zext i32 %149 to i64
-  %151 = getelementptr i32, ptr %141, i64 %150
+  %151 = getelementptr [4 x i8], ptr %141, i64 %150
   %.not376 = icmp ult ptr %151, %1
   br i1 %.not376, label %152, label %.thread417
 
@@ -2519,7 +2517,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
   br i1 %171, label %.thread417, label %172
 
 172:                                              ; preds = %167
-  %173 = getelementptr i32, ptr %169, i64 %158
+  %173 = getelementptr [4 x i8], ptr %169, i64 %158
   %174 = getelementptr i8, ptr %173, i64 -12
   %175 = tail call fastcc i32 @_validate_inner(ptr noundef %169, ptr noundef %174, i64 noundef %2)
   %.not369 = icmp eq i32 %175, 0
@@ -2528,7 +2526,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
 176:                                              ; preds = %172
   %177 = add i32 %157, -3
   %178 = zext i32 %177 to i64
-  %179 = getelementptr i32, ptr %169, i64 %178
+  %179 = getelementptr [4 x i8], ptr %169, i64 %178
   %.not370 = icmp ult ptr %179, %1
   br i1 %.not370, label %180, label %.thread417
 
@@ -2562,7 +2560,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
 
 195:                                              ; preds = %188
   %196 = getelementptr i8, ptr %.0272453, i64 8
-  %197 = getelementptr i32, ptr %196, i64 %190
+  %197 = getelementptr [4 x i8], ptr %196, i64 %190
   %198 = getelementptr i8, ptr %197, i64 -8
   %199 = tail call fastcc i32 @_validate_inner(ptr noundef %196, ptr noundef %198, i64 noundef %2)
   %.not363 = icmp eq i32 %199, 0
@@ -2571,7 +2569,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
 200:                                              ; preds = %195
   %201 = add i32 %189, -2
   %202 = zext i32 %201 to i64
-  %203 = getelementptr i32, ptr %196, i64 %202
+  %203 = getelementptr [4 x i8], ptr %196, i64 %202
   %.not364 = icmp ult ptr %203, %1
   br i1 %.not364, label %204, label %.thread417
 
@@ -2617,7 +2615,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
 224:                                              ; preds = %216
   %225 = getelementptr i8, ptr %.0272453, i64 12
   %226 = zext i32 %217 to i64
-  %227 = getelementptr i32, ptr %213, i64 %226
+  %227 = getelementptr [4 x i8], ptr %213, i64 %226
   %228 = getelementptr i8, ptr %227, i64 -4
   %229 = tail call fastcc i32 @_validate_inner(ptr noundef %225, ptr noundef %228, i64 noundef %2)
   %230 = icmp eq i32 %229, 1
@@ -2626,7 +2624,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
 231:                                              ; preds = %224
   %232 = add i32 %217, -2
   %233 = zext i32 %232 to i64
-  %234 = getelementptr i32, ptr %213, i64 %233
+  %234 = getelementptr [4 x i8], ptr %213, i64 %233
   %.not358 = icmp ult ptr %234, %1
   br i1 %.not358, label %235, label %.thread417
 
@@ -2641,7 +2639,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
 
 242:                                              ; preds = %235
   %243 = getelementptr i8, ptr %234, i64 4
-  %244 = getelementptr i32, ptr %243, i64 %237
+  %244 = getelementptr [4 x i8], ptr %243, i64 %237
   %245 = getelementptr i8, ptr %244, i64 -4
   %246 = tail call fastcc i32 @_validate_inner(ptr noundef %243, ptr noundef %245, i64 noundef %2)
   br label %247
@@ -2656,7 +2654,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
 248:                                              ; preds = %247
   %249 = add i32 %.0281, -1
   %250 = zext i32 %249 to i64
-  %251 = getelementptr i32, ptr %.10, i64 %250
+  %251 = getelementptr [4 x i8], ptr %.10, i64 %250
   br label %275
 
 252:                                              ; preds = %10, %10
@@ -2677,7 +2675,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
 
 261:                                              ; preds = %253
   %262 = getelementptr i8, ptr %.0272453, i64 12
-  %263 = getelementptr i32, ptr %260, i64 %255
+  %263 = getelementptr [4 x i8], ptr %260, i64 %255
   %264 = getelementptr i8, ptr %263, i64 -8
   %265 = tail call fastcc i32 @_validate_inner(ptr noundef %262, ptr noundef %264, i64 noundef %2)
   %.not352 = icmp eq i32 %265, 0
@@ -2686,7 +2684,7 @@ define internal fastcc range(i32 -1, 2) i32 @_validate_inner(ptr noundef %0, ptr
 266:                                              ; preds = %261
   %267 = add i32 %254, -2
   %268 = zext i32 %267 to i64
-  %269 = getelementptr i32, ptr %260, i64 %268
+  %269 = getelementptr [4 x i8], ptr %260, i64 %268
   %.not353 = icmp ult ptr %269, %1
   br i1 %.not353, label %270, label %.thread417
 
@@ -2800,7 +2798,7 @@ define internal fastcc range(i32 -1, 1) i32 @_validate_charset(ptr noundef %0, p
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %32
-  %41 = getelementptr i32, ptr %33, i64 %35
+  %41 = getelementptr [4 x i8], ptr %33, i64 %35
   br label %46
 
 42:                                               ; preds = %5
@@ -3032,7 +3030,7 @@ define internal ptr @pattern_repr(ptr noundef readonly captures(none) %0) #0 {
 .preheader:                                       ; preds = %.preheader.preheader, %34
   %.04185 = phi i64 [ %35, %34 ], [ 0, %.preheader.preheader ]
   %.14384 = phi i32 [ %.3, %34 ], [ %.042, %.preheader.preheader ]
-  %11 = getelementptr %struct.anon.809, ptr @pattern_repr.flag_names, i64 %.04185
+  %11 = getelementptr [16 x i8], ptr @pattern_repr.flag_names, i64 %.04185
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !74
   %14 = and i32 %13, %.14384
@@ -4411,7 +4409,7 @@ getslice.exit.i:                                  ; preds = %115, %111
   br label %Py_DECREF.exit54.thread.i
 
 Py_DECREF.exit54.i:                               ; preds = %124
-  %133 = getelementptr ptr, ptr %123, i64 %.03868.i
+  %133 = getelementptr [8 x i8], ptr %123, i64 %.03868.i
   store ptr %126, ptr %133, align 8, !tbaa !21
   %134 = load i64, ptr %62, align 8, !tbaa !49
   %135 = icmp slt i64 %125, %134
@@ -4741,13 +4739,13 @@ Py_DECREF.exit54.us.i:                            ; preds = %108, %105, %state_g
 
 118:                                              ; preds = %112
   %119 = load ptr, ptr %51, align 8, !tbaa !94
-  %120 = getelementptr ptr, ptr %119, i64 %115
+  %120 = getelementptr [8 x i8], ptr %119, i64 %115
   %121 = load ptr, ptr %120, align 8, !tbaa !95
   %.not32.i.i = icmp eq ptr %121, null
   br i1 %.not32.i.i, label %state_getslice.exit.thread.i, label %122
 
 122:                                              ; preds = %118
-  %123 = getelementptr ptr, ptr %119, i64 %114
+  %123 = getelementptr [8 x i8], ptr %119, i64 %114
   %124 = getelementptr i8, ptr %123, i64 -8
   %125 = load ptr, ptr %124, align 8, !tbaa !95
   %.not33.i.i = icmp eq ptr %125, null
@@ -5663,7 +5661,7 @@ _Py_NewRef.exit:                                  ; preds = %Py_INCREF.exit, %24
 
 55:                                               ; preds = %54
   %56 = load ptr, ptr %53, align 8, !tbaa !94
-  %57 = getelementptr ptr, ptr %56, i64 %.06472
+  %57 = getelementptr [8 x i8], ptr %56, i64 %.06472
   %58 = load ptr, ptr %57, align 8, !tbaa !95
   %.not70 = icmp eq ptr %58, null
   br i1 %.not70, label %80, label %59
@@ -5678,7 +5676,7 @@ _Py_NewRef.exit:                                  ; preds = %Py_INCREF.exit, %24
   %63 = ptrtoint ptr %58 to i64
   %64 = sub i64 %63, %38
   %65 = sdiv i64 %64, %40
-  %66 = getelementptr i64, ptr %42, i64 %.06472
+  %66 = getelementptr [8 x i8], ptr %42, i64 %.06472
   %67 = getelementptr i8, ptr %66, i64 16
   store i64 %65, ptr %67, align 8, !tbaa !66
   %68 = ptrtoint ptr %61 to i64
@@ -5707,7 +5705,7 @@ _Py_NewRef.exit:                                  ; preds = %Py_INCREF.exit, %24
   br label %Py_DECREF.exit
 
 80:                                               ; preds = %59, %55, %54
-  %81 = getelementptr i64, ptr %42, i64 %.06472
+  %81 = getelementptr [8 x i8], ptr %42, i64 %.06472
   %82 = getelementptr i8, ptr %81, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 -1, i64 16, i1 false)
   br label %83
@@ -5876,7 +5874,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   %60 = load i32, ptr %59, align 4, !tbaa !40
   %61 = add i32 %60, 1
   %62 = zext i32 %61 to i64
-  %63 = getelementptr i32, ptr %.01478, i64 %62
+  %63 = getelementptr [4 x i8], ptr %.01478, i64 %62
   br label %64
 
 64:                                               ; preds = %58, %.backedge1905
@@ -5921,7 +5919,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 .lr.ph2169:                                       ; preds = %.lr.ph2169.preheader, %.lr.ph2169
   %indvars.iv = phi i64 [ %81, %.lr.ph2169.preheader ], [ %indvars.iv.next, %.lr.ph2169 ]
   %82 = load ptr, ptr %39, align 8, !tbaa !94
-  %83 = getelementptr ptr, ptr %82, i64 %indvars.iv
+  %83 = getelementptr [8 x i8], ptr %82, i64 %indvars.iv
   store ptr null, ptr %83, align 8, !tbaa !95
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -5935,7 +5933,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 84:                                               ; preds = %._crit_edge2170, %76
   %85 = load ptr, ptr %39, align 8, !tbaa !94
   %86 = sext i32 %71 to i64
-  %87 = getelementptr ptr, ptr %85, i64 %86
+  %87 = getelementptr [8 x i8], ptr %85, i64 %86
   store ptr %.01520, ptr %87, align 8, !tbaa !95
   %88 = getelementptr i8, ptr %.2, i64 4
   %89 = add i32 %.21494, 1
@@ -6122,7 +6120,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 
 178:                                              ; preds = %174
   %179 = zext nneg i8 %176 to i64
-  %180 = getelementptr i32, ptr @_Py_ctype_table, i64 %179
+  %180 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %179
   %181 = load i32, ptr %180, align 4, !tbaa !40
   %182 = and i32 %181, 7
   %.not98.i = icmp eq i32 %182, 0
@@ -6146,7 +6144,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 
 193:                                              ; preds = %190
   %194 = zext nneg i8 %191 to i64
-  %195 = getelementptr i32, ptr @_Py_ctype_table, i64 %194
+  %195 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %194
   %196 = load i32, ptr %195, align 4, !tbaa !40
   %197 = and i32 %196, 7
   %.not99.i = icmp eq i32 %197, 0
@@ -6175,7 +6173,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 
 210:                                              ; preds = %206
   %211 = zext nneg i8 %208 to i64
-  %212 = getelementptr i32, ptr @_Py_ctype_table, i64 %211
+  %212 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %211
   %213 = load i32, ptr %212, align 4, !tbaa !40
   %214 = and i32 %213, 7
   %.not96.i = icmp eq i32 %214, 0
@@ -6199,7 +6197,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 
 225:                                              ; preds = %222
   %226 = zext nneg i8 %223 to i64
-  %227 = getelementptr i32, ptr @_Py_ctype_table, i64 %226
+  %227 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %226
   %228 = load i32, ptr %227, align 4, !tbaa !40
   %229 = and i32 %228, 7
   %.not97.i = icmp eq i32 %229, 0
@@ -6226,7 +6224,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   %242 = tail call ptr @__ctype_b_loc() #15
   %243 = load ptr, ptr %242, align 8, !tbaa !129
   %244 = zext i8 %241 to i64
-  %245 = getelementptr i16, ptr %243, i64 %244
+  %245 = getelementptr [2 x i8], ptr %243, i64 %244
   %246 = load i16, ptr %245, align 2, !tbaa !131
   %247 = and i16 %246, 8
   %.not94.i = icmp eq i16 %247, 0
@@ -6248,7 +6246,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   %257 = tail call ptr @__ctype_b_loc() #15
   %258 = load ptr, ptr %257, align 8, !tbaa !129
   %259 = zext i8 %256 to i64
-  %260 = getelementptr i16, ptr %258, i64 %259
+  %260 = getelementptr [2 x i8], ptr %258, i64 %259
   %261 = load i16, ptr %260, align 2, !tbaa !131
   %262 = and i16 %261, 8
   %.not95.i = icmp eq i16 %262, 0
@@ -6275,7 +6273,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   %274 = tail call ptr @__ctype_b_loc() #15
   %275 = load ptr, ptr %274, align 8, !tbaa !129
   %276 = zext i8 %273 to i64
-  %277 = getelementptr i16, ptr %275, i64 %276
+  %277 = getelementptr [2 x i8], ptr %275, i64 %276
   %278 = load i16, ptr %277, align 2, !tbaa !131
   %279 = and i16 %278, 8
   %.not92.i = icmp eq i16 %279, 0
@@ -6297,7 +6295,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   %289 = tail call ptr @__ctype_b_loc() #15
   %290 = load ptr, ptr %289, align 8, !tbaa !129
   %291 = zext i8 %288 to i64
-  %292 = getelementptr i16, ptr %290, i64 %291
+  %292 = getelementptr [2 x i8], ptr %290, i64 %291
   %293 = load i16, ptr %292, align 2, !tbaa !131
   %294 = and i16 %293, 8
   %.not93.i = icmp eq i16 %294, 0
@@ -6573,7 +6571,7 @@ sre_ucs1_at.exit.thread:                          ; preds = %Py_UNICODE_ISALNUM.
 429:                                              ; preds = %424
   %430 = load i32, ptr %.2, align 4, !tbaa !40
   %431 = zext i32 %430 to i64
-  %432 = getelementptr i32, ptr %.2, i64 %431
+  %432 = getelementptr [4 x i8], ptr %.2, i64 %431
   %433 = getelementptr i8, ptr %.01520, i64 1
   %434 = add i32 %.21494, 1
   %435 = and i32 %434, 4095
@@ -6675,7 +6673,7 @@ sre_lower_ascii.exit:                             ; preds = %443, %446
   %487 = tail call ptr @__ctype_tolower_loc() #15
   %488 = load ptr, ptr %487, align 8, !tbaa !132
   %489 = zext i8 %483 to i64
-  %490 = getelementptr i32, ptr %488, i64 %489
+  %490 = getelementptr [4 x i8], ptr %488, i64 %489
   %.0.i.i.i = load i32, ptr %490, align 4, !tbaa !40
   %491 = icmp eq i32 %.0.i.i.i, %482
   br i1 %491, label %char_loc_ignore.exit.thread, label %char_loc_ignore.exit
@@ -6683,7 +6681,7 @@ sre_lower_ascii.exit:                             ; preds = %443, %446
 char_loc_ignore.exit:                             ; preds = %486
   %492 = tail call ptr @__ctype_toupper_loc() #15
   %493 = load ptr, ptr %492, align 8, !tbaa !132
-  %494 = getelementptr i32, ptr %493, i64 %489
+  %494 = getelementptr [4 x i8], ptr %493, i64 %489
   %.0.i.i7.i = load i32, ptr %494, align 4, !tbaa !40
   %.not1877 = icmp eq i32 %.0.i.i7.i, %482
   br i1 %.not1877, label %char_loc_ignore.exit.thread, label %.critedge1899
@@ -6791,7 +6789,7 @@ sre_lower_ascii.exit1813:                         ; preds = %506, %509
   %552 = tail call ptr @__ctype_tolower_loc() #15
   %553 = load ptr, ptr %552, align 8, !tbaa !132
   %554 = zext i8 %548 to i64
-  %555 = getelementptr i32, ptr %553, i64 %554
+  %555 = getelementptr [4 x i8], ptr %553, i64 %554
   %.0.i.i.i1814 = load i32, ptr %555, align 4, !tbaa !40
   %556 = icmp eq i32 %.0.i.i.i1814, %547
   br i1 %556, label %.critedge1899, label %char_loc_ignore.exit1816
@@ -6799,7 +6797,7 @@ sre_lower_ascii.exit1813:                         ; preds = %506, %509
 char_loc_ignore.exit1816:                         ; preds = %551
   %557 = tail call ptr @__ctype_toupper_loc() #15
   %558 = load ptr, ptr %557, align 8, !tbaa !132
-  %559 = getelementptr i32, ptr %558, i64 %554
+  %559 = getelementptr [4 x i8], ptr %558, i64 %554
   %.0.i.i7.i1815 = load i32, ptr %559, align 4, !tbaa !40
   %.not1889 = icmp eq i32 %.0.i.i7.i1815, %547
   br i1 %.not1889, label %.critedge1899, label %560
@@ -6848,7 +6846,7 @@ sre_lower_ascii.exit1817:                         ; preds = %572, %576
 582:                                              ; preds = %sre_lower_ascii.exit1817
   %583 = load i32, ptr %.2, align 4, !tbaa !40
   %584 = zext i32 %583 to i64
-  %585 = getelementptr i32, ptr %.2, i64 %584
+  %585 = getelementptr [4 x i8], ptr %.2, i64 %584
   %586 = getelementptr i8, ptr %.01520, i64 1
   %587 = add i32 %.21494, 1
   %588 = and i32 %587, 4095
@@ -6881,7 +6879,7 @@ sre_lower_ascii.exit1817:                         ; preds = %572, %576
 602:                                              ; preds = %596
   %603 = load i32, ptr %.2, align 4, !tbaa !40
   %604 = zext i32 %603 to i64
-  %605 = getelementptr i32, ptr %.2, i64 %604
+  %605 = getelementptr [4 x i8], ptr %.2, i64 %604
   %606 = getelementptr i8, ptr %.01520, i64 1
   %607 = add i32 %.21494, 1
   %608 = and i32 %607, 4095
@@ -6908,7 +6906,7 @@ sre_lower_ascii.exit1817:                         ; preds = %572, %576
   %619 = tail call ptr @__ctype_tolower_loc() #15
   %620 = load ptr, ptr %619, align 8, !tbaa !132
   %621 = zext i8 %618 to i64
-  %622 = getelementptr i32, ptr %620, i64 %621
+  %622 = getelementptr [4 x i8], ptr %620, i64 %621
   %.0.i.i.i1818 = load i32, ptr %622, align 4, !tbaa !40
   %623 = tail call fastcc i32 @sre_ucs1_charset(ptr noundef readonly %617, i32 noundef %.0.i.i.i1818)
   %.not.i1819 = icmp eq i32 %623, 0
@@ -6917,7 +6915,7 @@ sre_lower_ascii.exit1817:                         ; preds = %572, %576
 624:                                              ; preds = %616
   %625 = tail call ptr @__ctype_toupper_loc() #15
   %626 = load ptr, ptr %625, align 8, !tbaa !132
-  %627 = getelementptr i32, ptr %626, i64 %621
+  %627 = getelementptr [4 x i8], ptr %626, i64 %621
   %.0.i.i12.i = load i32, ptr %627, align 4, !tbaa !40
   %.not11.i = icmp eq i32 %.0.i.i12.i, %.0.i.i.i1818
   br i1 %.not11.i, label %.critedge1899, label %sre_ucs1_charset_loc_ignore.exit
@@ -6930,7 +6928,7 @@ sre_ucs1_charset_loc_ignore.exit:                 ; preds = %624
 sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %616, %sre_ucs1_charset_loc_ignore.exit
   %629 = load i32, ptr %.2, align 4, !tbaa !40
   %630 = zext i32 %629 to i64
-  %631 = getelementptr i32, ptr %.2, i64 %630
+  %631 = getelementptr [4 x i8], ptr %.2, i64 %630
   %632 = getelementptr i8, ptr %.01520, i64 1
   %633 = add i32 %.21494, 1
   %634 = and i32 %633, 4095
@@ -6950,7 +6948,7 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %616, %sre_ucs1_char
 641:                                              ; preds = %.backedge
   %642 = load i32, ptr %.2, align 4, !tbaa !40
   %643 = zext i32 %642 to i64
-  %644 = getelementptr i32, ptr %.2, i64 %643
+  %644 = getelementptr [4 x i8], ptr %.2, i64 %643
   %645 = add i32 %.21494, 1
   %646 = and i32 %645, 4095
   %647 = icmp eq i32 %646, 0
@@ -7199,7 +7197,7 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %616, %sre_ucs1_char
   %.4 = phi ptr [ %2318, %754 ], [ %.3, %687 ], [ %.3, %688 ], [ %.3, %694 ], [ %.3, %693 ]
   %760 = load i32, ptr %.4, align 4, !tbaa !40
   %761 = zext i32 %760 to i64
-  %762 = getelementptr i32, ptr %.4, i64 %761
+  %762 = getelementptr [4 x i8], ptr %.4, i64 %761
   br label %682, !llvm.loop !137
 
 763:                                              ; preds = %682
@@ -7254,7 +7252,7 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %616, %sre_ucs1_char
 796:                                              ; preds = %789
   %797 = load i32, ptr %.2, align 4, !tbaa !40
   %798 = zext i32 %797 to i64
-  %799 = getelementptr i32, ptr %.2, i64 %798
+  %799 = getelementptr [4 x i8], ptr %.2, i64 %798
   %800 = load i32, ptr %799, align 4, !tbaa !40
   %801 = icmp eq i32 %800, 1
   br i1 %801, label %802, label %814
@@ -7339,7 +7337,7 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %616, %sre_ucs1_char
   %.71512 = phi ptr [ %.81513, %836 ], [ %791, %814 ]
   %844 = load i32, ptr %.2, align 4, !tbaa !40
   %845 = zext i32 %844 to i64
-  %846 = getelementptr i32, ptr %.2, i64 %845
+  %846 = getelementptr [4 x i8], ptr %.2, i64 %845
   %847 = load i32, ptr %846, align 4, !tbaa !40
   %848 = icmp eq i32 %847, 16
   br i1 %848, label %849, label %._crit_edge2458
@@ -7351,7 +7349,7 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %616, %sre_ucs1_char
 849:                                              ; preds = %843
   %850 = add i32 %844, 1
   %851 = zext i32 %850 to i64
-  %852 = getelementptr i32, ptr %.2, i64 %851
+  %852 = getelementptr [4 x i8], ptr %.2, i64 %851
   %853 = load i32, ptr %852, align 4, !tbaa !40
   %854 = getelementptr inbounds nuw i8, ptr %.71512, i64 8
   store i32 %853, ptr %854, align 8, !tbaa !20
@@ -7436,7 +7434,7 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %616, %sre_ucs1_char
   store i64 %885, ptr %8, align 8, !tbaa !122
   %886 = load i32, ptr %.5, align 4, !tbaa !40
   %887 = zext i32 %886 to i64
-  %888 = getelementptr i32, ptr %.5, i64 %887
+  %888 = getelementptr [4 x i8], ptr %.5, i64 %887
   %889 = getelementptr inbounds nuw i8, ptr %883, i64 24
   store ptr %888, ptr %889, align 8, !tbaa !135
   %890 = getelementptr inbounds nuw i8, ptr %.101515, i64 40
@@ -7449,7 +7447,7 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %616, %sre_ucs1_char
   store i64 %.41483, ptr %894, align 8, !tbaa !124
   %895 = load i32, ptr %.5, align 4, !tbaa !40
   %896 = zext i32 %895 to i64
-  %897 = getelementptr i32, ptr %.5, i64 %896
+  %897 = getelementptr [4 x i8], ptr %.5, i64 %896
   br label %.backedge1905.backedge
 
 898:                                              ; preds = %2352
@@ -7567,7 +7565,7 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %616, %sre_ucs1_char
   store i64 %957, ptr %8, align 8, !tbaa !122
   %958 = load i32, ptr %.6, align 4, !tbaa !40
   %959 = zext i32 %958 to i64
-  %960 = getelementptr i32, ptr %.6, i64 %959
+  %960 = getelementptr [4 x i8], ptr %.6, i64 %959
   %961 = getelementptr inbounds nuw i8, ptr %955, i64 24
   store ptr %960, ptr %961, align 8, !tbaa !135
   %962 = getelementptr inbounds nuw i8, ptr %.121517, i64 40
@@ -7580,7 +7578,7 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %616, %sre_ucs1_char
   store i64 %.51484, ptr %966, align 8, !tbaa !124
   %967 = load i32, ptr %.6, align 4, !tbaa !40
   %968 = zext i32 %967 to i64
-  %969 = getelementptr i32, ptr %.6, i64 %968
+  %969 = getelementptr [4 x i8], ptr %.6, i64 %968
   br label %.backedge1905.backedge
 
 970:                                              ; preds = %2358
@@ -7698,7 +7696,7 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %616, %sre_ucs1_char
   %.141519 = phi ptr [ %.21507, %1021 ], [ %1028, %1032 ]
   %1035 = load i32, ptr %.2, align 4, !tbaa !40
   %1036 = zext i32 %1035 to i64
-  %1037 = getelementptr i32, ptr %.2, i64 %1036
+  %1037 = getelementptr [4 x i8], ptr %.2, i64 %1036
   %1038 = load i32, ptr %1037, align 4, !tbaa !40
   %1039 = icmp eq i32 %1038, 1
   br i1 %1039, label %1040, label %1053
@@ -7846,7 +7844,7 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %616, %sre_ucs1_char
   store i64 %1106, ptr %8, align 8, !tbaa !122
   %1107 = load i32, ptr %.7, align 4, !tbaa !40
   %1108 = zext i32 %1107 to i64
-  %1109 = getelementptr i32, ptr %.7, i64 %1108
+  %1109 = getelementptr [4 x i8], ptr %.7, i64 %1108
   %1110 = getelementptr inbounds nuw i8, ptr %1104, i64 24
   store ptr %1109, ptr %1110, align 8, !tbaa !135
   %1111 = getelementptr inbounds nuw i8, ptr %.18, i64 40
@@ -7859,7 +7857,7 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %616, %sre_ucs1_char
   store i64 %.61485, ptr %1115, align 8, !tbaa !124
   %1116 = load i32, ptr %.7, align 4, !tbaa !40
   %1117 = zext i32 %1116 to i64
-  %1118 = getelementptr i32, ptr %.7, i64 %1117
+  %1118 = getelementptr [4 x i8], ptr %.7, i64 %1117
   br label %.backedge1905.backedge
 
 1119:                                             ; preds = %2364
@@ -7978,7 +7976,7 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %616, %sre_ucs1_char
 1190:                                             ; preds = %1183
   %1191 = load i32, ptr %.2, align 4, !tbaa !40
   %1192 = zext i32 %1191 to i64
-  %1193 = getelementptr i32, ptr %.2, i64 %1192
+  %1193 = getelementptr [4 x i8], ptr %.2, i64 %1192
   %1194 = load i32, ptr %1193, align 4, !tbaa !40
   %1195 = icmp eq i32 %1194, 1
   br i1 %1195, label %1196, label %1208
@@ -8089,7 +8087,7 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %616, %sre_ucs1_char
   store i64 %1246, ptr %8, align 8, !tbaa !122
   %1247 = load i32, ptr %.2, align 4, !tbaa !40
   %1248 = zext i32 %1247 to i64
-  %1249 = getelementptr i32, ptr %.2, i64 %1248
+  %1249 = getelementptr [4 x i8], ptr %.2, i64 %1248
   %1250 = getelementptr inbounds nuw i8, ptr %1244, i64 24
   store ptr %1249, ptr %1250, align 8, !tbaa !135
   %1251 = getelementptr inbounds nuw i8, ptr %.19, i64 40
@@ -8102,7 +8100,7 @@ sre_ucs1_charset_loc_ignore.exit.thread1864:      ; preds = %616, %sre_ucs1_char
   store i64 %.11480.ph, ptr %1255, align 8, !tbaa !124
   %1256 = load i32, ptr %.2, align 4, !tbaa !40
   %1257 = zext i32 %1256 to i64
-  %1258 = getelementptr i32, ptr %.2, i64 %1257
+  %1258 = getelementptr [4 x i8], ptr %.2, i64 %1257
   br label %.backedge1905.backedge
 
 1259:                                             ; preds = %repeat_pool_free.exit1855
@@ -9290,7 +9288,7 @@ repeat_pool_free.exit1849:                        ; preds = %1868, %1869
   %1872 = load i32, ptr %.11, align 4, !tbaa !40
   %1873 = add i32 %1872, 1
   %1874 = zext i32 %1873 to i64
-  %1875 = getelementptr i32, ptr %.11, i64 %1874
+  %1875 = getelementptr [4 x i8], ptr %.11, i64 %1874
   %1876 = load ptr, ptr %0, align 8, !tbaa !81
   %1877 = add i32 %.13, 1
   %1878 = and i32 %1877, 4095
@@ -9355,7 +9353,7 @@ repeat_pool_free.exit1849:                        ; preds = %1868, %1869
   %1909 = load ptr, ptr %1908, align 8, !tbaa !135
   %1910 = load i32, ptr %1909, align 4, !tbaa !40
   %1911 = zext i32 %1910 to i64
-  %1912 = getelementptr i32, ptr %1909, i64 %1911
+  %1912 = getelementptr [4 x i8], ptr %1909, i64 %1911
   %1913 = load ptr, ptr %0, align 8, !tbaa !81
   %1914 = add i32 %.11493, 1
   %1915 = and i32 %1914, 4095
@@ -9387,7 +9385,7 @@ repeat_pool_free.exit1849:                        ; preds = %1868, %1869
 1924:                                             ; preds = %1920
   %1925 = load ptr, ptr %39, align 8, !tbaa !94
   %1926 = sext i32 %1922 to i64
-  %1927 = getelementptr ptr, ptr %1925, i64 %1926
+  %1927 = getelementptr [8 x i8], ptr %1925, i64 %1926
   %1928 = load ptr, ptr %1927, align 8, !tbaa !95
   %1929 = ptrtoint ptr %1928 to i64
   %1930 = getelementptr i8, ptr %1927, i64 8
@@ -9455,7 +9453,7 @@ repeat_pool_free.exit1849:                        ; preds = %1868, %1869
 1958:                                             ; preds = %1954
   %1959 = load ptr, ptr %39, align 8, !tbaa !94
   %1960 = sext i32 %1956 to i64
-  %1961 = getelementptr ptr, ptr %1959, i64 %1960
+  %1961 = getelementptr [8 x i8], ptr %1959, i64 %1960
   %1962 = load ptr, ptr %1961, align 8, !tbaa !95
   %1963 = ptrtoint ptr %1962 to i64
   %1964 = getelementptr i8, ptr %1961, i64 8
@@ -9545,7 +9543,7 @@ sre_lower_ascii.exit1851:                         ; preds = %sre_lower_ascii.exi
 2002:                                             ; preds = %1998
   %2003 = load ptr, ptr %39, align 8, !tbaa !94
   %2004 = sext i32 %2000 to i64
-  %2005 = getelementptr ptr, ptr %2003, i64 %2004
+  %2005 = getelementptr [8 x i8], ptr %2003, i64 %2004
   %2006 = load ptr, ptr %2005, align 8, !tbaa !95
   %2007 = getelementptr i8, ptr %2005, i64 8
   %2008 = load ptr, ptr %2007, align 8, !tbaa !95
@@ -9610,7 +9608,7 @@ sre_lower_ascii.exit1851:                         ; preds = %sre_lower_ascii.exi
 2037:                                             ; preds = %2033
   %2038 = load ptr, ptr %39, align 8, !tbaa !94
   %2039 = sext i32 %2035 to i64
-  %2040 = getelementptr ptr, ptr %2038, i64 %2039
+  %2040 = getelementptr [8 x i8], ptr %2038, i64 %2039
   %2041 = load ptr, ptr %2040, align 8, !tbaa !95
   %2042 = ptrtoint ptr %2041 to i64
   %2043 = getelementptr i8, ptr %2040, i64 8
@@ -9643,11 +9641,11 @@ sre_lower_ascii.exit1851:                         ; preds = %sre_lower_ascii.exi
   %2054 = tail call ptr @__ctype_tolower_loc() #15
   %2055 = load ptr, ptr %2054, align 8, !tbaa !132
   %2056 = zext i8 %2053 to i64
-  %2057 = getelementptr i32, ptr %2055, i64 %2056
+  %2057 = getelementptr [4 x i8], ptr %2055, i64 %2056
   %.0.i.i = load i32, ptr %2057, align 4, !tbaa !40
   %2058 = load i8, ptr %.015372155, align 1, !tbaa !20
   %2059 = zext i8 %2058 to i64
-  %2060 = getelementptr i32, ptr %2055, i64 %2059
+  %2060 = getelementptr [4 x i8], ptr %2055, i64 %2059
   %.0.i.i1852 = load i32, ptr %2060, align 4, !tbaa !40
   %.not1669 = icmp eq i32 %.0.i.i, %.0.i.i1852
   br i1 %.not1669, label %2061, label %.critedge1899.loopexit3185
@@ -9687,7 +9685,7 @@ sre_lower_ascii.exit1851:                         ; preds = %sre_lower_ascii.exi
   %2078 = getelementptr i8, ptr %.2, i64 4
   %2079 = load i32, ptr %2078, align 4, !tbaa !40
   %2080 = zext i32 %2079 to i64
-  %2081 = getelementptr i32, ptr %.2, i64 %2080
+  %2081 = getelementptr [4 x i8], ptr %.2, i64 %2080
   %2082 = add i32 %.21494, 1
   %2083 = and i32 %2082, 4095
   %2084 = icmp eq i32 %2083, 0
@@ -9706,7 +9704,7 @@ sre_lower_ascii.exit1851:                         ; preds = %sre_lower_ascii.exi
 2090:                                             ; preds = %2073
   %2091 = load ptr, ptr %39, align 8, !tbaa !94
   %2092 = sext i32 %2075 to i64
-  %2093 = getelementptr ptr, ptr %2091, i64 %2092
+  %2093 = getelementptr [8 x i8], ptr %2091, i64 %2092
   %2094 = load ptr, ptr %2093, align 8, !tbaa !95
   %2095 = getelementptr i8, ptr %2093, i64 8
   %2096 = load ptr, ptr %2095, align 8, !tbaa !95
@@ -9721,7 +9719,7 @@ sre_lower_ascii.exit1851:                         ; preds = %sre_lower_ascii.exi
   %2102 = getelementptr i8, ptr %.2, i64 4
   %2103 = load i32, ptr %2102, align 4, !tbaa !40
   %2104 = zext i32 %2103 to i64
-  %2105 = getelementptr i32, ptr %.2, i64 %2104
+  %2105 = getelementptr [4 x i8], ptr %.2, i64 %2104
   %2106 = add i32 %.21494, 1
   %2107 = and i32 %2106, 4095
   %2108 = icmp eq i32 %2107, 0
@@ -9814,7 +9812,7 @@ sre_lower_ascii.exit1851:                         ; preds = %sre_lower_ascii.exi
   %2159 = load ptr, ptr %2158, align 8, !tbaa !135
   %2160 = load i32, ptr %2159, align 4, !tbaa !40
   %2161 = zext i32 %2160 to i64
-  %2162 = getelementptr i32, ptr %2159, i64 %2161
+  %2162 = getelementptr [4 x i8], ptr %2159, i64 %2161
   %2163 = add i32 %.11493, 1
   %2164 = and i32 %2163, 4095
   %2165 = icmp eq i32 %2164, 0
@@ -9993,7 +9991,7 @@ sre_lower_ascii.exit1851:                         ; preds = %sre_lower_ascii.exi
   %.12 = phi ptr [ %.2, %2168 ], [ %2376, %2253 ]
   %2259 = load i32, ptr %.12, align 4, !tbaa !40
   %2260 = zext i32 %2259 to i64
-  %2261 = getelementptr i32, ptr %.12, i64 %2260
+  %2261 = getelementptr [4 x i8], ptr %.12, i64 %2260
   %2262 = add i32 %.14, 1
   %2263 = and i32 %2262, 4095
   %2264 = icmp eq i32 %2263, 0
@@ -10233,7 +10231,7 @@ repeat_pool_free.exit1855:                        ; preds = %2348, %2349
   %.21494 = phi i32 [ %.21494.ph, %.preheader1904 ], [ %.21494.be, %.backedge.backedge ]
   %.2 = phi ptr [ %1919, %.preheader1904 ], [ %.2.be, %.backedge.backedge ]
   %2380 = zext i32 %.sink2911.sink to i64
-  %2381 = getelementptr ptr, ptr @sre_ucs1_match.sre_targets, i64 %2380
+  %2381 = getelementptr [8 x i8], ptr @sre_ucs1_match.sre_targets, i64 %2380
   %2382 = load ptr, ptr %2381, align 8, !tbaa !95
   indirectbr ptr %2382, [label %.critedge1899, label %130, label %398, label %412, label %2124, label %2168, label %143, label %653, label %381, label %.loopexit, label %527, label %1920, label %2073, label %423, label %641, label %463, label %97, label %70, label %1260, label %1477, label %113, label %595, label %1998, label %1217, label %775, label %545, label %1012, label %1882, label %1689, label %1170, label %1954, label %571, label %442, label %505, label %2033, label %615, label %480]
 }
@@ -10342,7 +10340,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   %62 = load i32, ptr %61, align 4, !tbaa !40
   %63 = add i32 %62, 1
   %64 = zext i32 %63 to i64
-  %65 = getelementptr i32, ptr %.01478, i64 %64
+  %65 = getelementptr [4 x i8], ptr %.01478, i64 %64
   br label %66
 
 66:                                               ; preds = %60, %.backedge1884
@@ -10387,7 +10385,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 .lr.ph2150:                                       ; preds = %.lr.ph2150.preheader, %.lr.ph2150
   %indvars.iv = phi i64 [ %83, %.lr.ph2150.preheader ], [ %indvars.iv.next, %.lr.ph2150 ]
   %84 = load ptr, ptr %39, align 8, !tbaa !94
-  %85 = getelementptr ptr, ptr %84, i64 %indvars.iv
+  %85 = getelementptr [8 x i8], ptr %84, i64 %indvars.iv
   store ptr null, ptr %85, align 8, !tbaa !95
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -10401,7 +10399,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 86:                                               ; preds = %._crit_edge2151, %78
   %87 = load ptr, ptr %39, align 8, !tbaa !94
   %88 = sext i32 %73 to i64
-  %89 = getelementptr ptr, ptr %87, i64 %88
+  %89 = getelementptr [8 x i8], ptr %87, i64 %88
   store ptr %.01520, ptr %89, align 8, !tbaa !95
   %90 = getelementptr i8, ptr %.2, i64 4
   %91 = add i32 %.21494, 1
@@ -10588,7 +10586,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 
 180:                                              ; preds = %176
   %181 = zext nneg i16 %178 to i64
-  %182 = getelementptr i32, ptr @_Py_ctype_table, i64 %181
+  %182 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %181
   %183 = load i32, ptr %182, align 4, !tbaa !40
   %184 = and i32 %183, 7
   %.not98.i = icmp eq i32 %184, 0
@@ -10612,7 +10610,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 
 195:                                              ; preds = %192
   %196 = zext nneg i16 %193 to i64
-  %197 = getelementptr i32, ptr @_Py_ctype_table, i64 %196
+  %197 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %196
   %198 = load i32, ptr %197, align 4, !tbaa !40
   %199 = and i32 %198, 7
   %.not99.i = icmp eq i32 %199, 0
@@ -10641,7 +10639,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 
 212:                                              ; preds = %208
   %213 = zext nneg i16 %210 to i64
-  %214 = getelementptr i32, ptr @_Py_ctype_table, i64 %213
+  %214 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %213
   %215 = load i32, ptr %214, align 4, !tbaa !40
   %216 = and i32 %215, 7
   %.not96.i = icmp eq i32 %216, 0
@@ -10665,7 +10663,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 
 227:                                              ; preds = %224
   %228 = zext nneg i16 %225 to i64
-  %229 = getelementptr i32, ptr @_Py_ctype_table, i64 %228
+  %229 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %228
   %230 = load i32, ptr %229, align 4, !tbaa !40
   %231 = and i32 %230, 7
   %.not97.i = icmp eq i32 %231, 0
@@ -10696,7 +10694,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   %246 = tail call ptr @__ctype_b_loc() #15
   %247 = load ptr, ptr %246, align 8, !tbaa !129
   %248 = zext nneg i16 %243 to i64
-  %249 = getelementptr i16, ptr %247, i64 %248
+  %249 = getelementptr [2 x i8], ptr %247, i64 %248
   %250 = load i16, ptr %249, align 2, !tbaa !131
   %251 = and i16 %250, 8
   %.not94.i = icmp eq i16 %251, 0
@@ -10722,7 +10720,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   %263 = tail call ptr @__ctype_b_loc() #15
   %264 = load ptr, ptr %263, align 8, !tbaa !129
   %265 = zext nneg i16 %260 to i64
-  %266 = getelementptr i16, ptr %264, i64 %265
+  %266 = getelementptr [2 x i8], ptr %264, i64 %265
   %267 = load i16, ptr %266, align 2, !tbaa !131
   %268 = and i16 %267, 8
   %.not95.i = icmp eq i16 %268, 0
@@ -10753,7 +10751,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   %282 = tail call ptr @__ctype_b_loc() #15
   %283 = load ptr, ptr %282, align 8, !tbaa !129
   %284 = zext nneg i16 %279 to i64
-  %285 = getelementptr i16, ptr %283, i64 %284
+  %285 = getelementptr [2 x i8], ptr %283, i64 %284
   %286 = load i16, ptr %285, align 2, !tbaa !131
   %287 = and i16 %286, 8
   %.not92.i = icmp eq i16 %287, 0
@@ -10779,7 +10777,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   %299 = tail call ptr @__ctype_b_loc() #15
   %300 = load ptr, ptr %299, align 8, !tbaa !129
   %301 = zext nneg i16 %296 to i64
-  %302 = getelementptr i16, ptr %300, i64 %301
+  %302 = getelementptr [2 x i8], ptr %300, i64 %301
   %303 = load i16, ptr %302, align 2, !tbaa !131
   %304 = and i16 %303, 8
   %.not93.i = icmp eq i16 %304, 0
@@ -11055,7 +11053,7 @@ sre_ucs2_at.exit.thread:                          ; preds = %Py_UNICODE_ISALNUM.
 439:                                              ; preds = %434
   %440 = load i32, ptr %.2, align 4, !tbaa !40
   %441 = zext i32 %440 to i64
-  %442 = getelementptr i32, ptr %.2, i64 %441
+  %442 = getelementptr [4 x i8], ptr %.2, i64 %441
   %443 = getelementptr i8, ptr %.01520, i64 2
   %444 = add i32 %.21494, 1
   %445 = and i32 %444, 4095
@@ -11162,7 +11160,7 @@ sre_lower_locale.exit.i:                          ; preds = %498
   %500 = tail call ptr @__ctype_tolower_loc() #15
   %501 = load ptr, ptr %500, align 8, !tbaa !132
   %502 = zext nneg i16 %495 to i64
-  %503 = getelementptr i32, ptr %501, i64 %502
+  %503 = getelementptr [4 x i8], ptr %501, i64 %502
   %.0.i.i.i = load i32, ptr %503, align 4, !tbaa !40
   %504 = icmp eq i32 %.0.i.i.i, %494
   br i1 %504, label %char_loc_ignore.exit.thread, label %char_loc_ignore.exit
@@ -11170,7 +11168,7 @@ sre_lower_locale.exit.i:                          ; preds = %498
 char_loc_ignore.exit:                             ; preds = %sre_lower_locale.exit.i
   %505 = tail call ptr @__ctype_toupper_loc() #15
   %506 = load ptr, ptr %505, align 8, !tbaa !132
-  %507 = getelementptr i32, ptr %506, i64 %502
+  %507 = getelementptr [4 x i8], ptr %506, i64 %502
   %.0.i.i7.i = load i32, ptr %507, align 4, !tbaa !40
   %.not1861 = icmp eq i32 %.0.i.i7.i, %494
   br i1 %.not1861, label %char_loc_ignore.exit.thread, label %.critedge1878
@@ -11283,7 +11281,7 @@ sre_lower_locale.exit.i1809:                      ; preds = %566
   %568 = tail call ptr @__ctype_tolower_loc() #15
   %569 = load ptr, ptr %568, align 8, !tbaa !132
   %570 = zext nneg i16 %563 to i64
-  %571 = getelementptr i32, ptr %569, i64 %570
+  %571 = getelementptr [4 x i8], ptr %569, i64 %570
   %.0.i.i.i1810 = load i32, ptr %571, align 4, !tbaa !40
   %572 = icmp eq i32 %.0.i.i.i1810, %562
   br i1 %572, label %.critedge1878, label %char_loc_ignore.exit1812
@@ -11291,7 +11289,7 @@ sre_lower_locale.exit.i1809:                      ; preds = %566
 char_loc_ignore.exit1812:                         ; preds = %sre_lower_locale.exit.i1809
   %573 = tail call ptr @__ctype_toupper_loc() #15
   %574 = load ptr, ptr %573, align 8, !tbaa !132
-  %575 = getelementptr i32, ptr %574, i64 %570
+  %575 = getelementptr [4 x i8], ptr %574, i64 %570
   %.0.i.i7.i1811 = load i32, ptr %575, align 4, !tbaa !40
   %.not1868 = icmp eq i32 %.0.i.i7.i1811, %562
   br i1 %.not1868, label %.critedge1878, label %char_loc_ignore.exit1812.thread1847
@@ -11341,7 +11339,7 @@ sre_lower_ascii.exit1813:                         ; preds = %587, %592
 599:                                              ; preds = %sre_lower_ascii.exit1813
   %600 = load i32, ptr %.2, align 4, !tbaa !40
   %601 = zext i32 %600 to i64
-  %602 = getelementptr i32, ptr %.2, i64 %601
+  %602 = getelementptr [4 x i8], ptr %.2, i64 %601
   %603 = getelementptr i8, ptr %.01520, i64 2
   %604 = add i32 %.21494, 1
   %605 = and i32 %604, 4095
@@ -11374,7 +11372,7 @@ sre_lower_ascii.exit1813:                         ; preds = %587, %592
 619:                                              ; preds = %613
   %620 = load i32, ptr %.2, align 4, !tbaa !40
   %621 = zext i32 %620 to i64
-  %622 = getelementptr i32, ptr %.2, i64 %621
+  %622 = getelementptr [4 x i8], ptr %.2, i64 %621
   %623 = getelementptr i8, ptr %.01520, i64 2
   %624 = add i32 %.21494, 1
   %625 = and i32 %624, 4095
@@ -11406,7 +11404,7 @@ sre_lower_locale.exit.i1815:                      ; preds = %633
   %638 = tail call ptr @__ctype_tolower_loc() #15
   %639 = load ptr, ptr %638, align 8, !tbaa !132
   %640 = zext nneg i16 %635 to i64
-  %641 = getelementptr i32, ptr %639, i64 %640
+  %641 = getelementptr [4 x i8], ptr %639, i64 %640
   %.0.i.i.i1816 = load i32, ptr %641, align 4, !tbaa !40
   %642 = tail call fastcc i32 @sre_ucs2_charset(ptr noundef readonly %634, i32 noundef %.0.i.i.i1816)
   %.not.i1817 = icmp eq i32 %642, 0
@@ -11415,7 +11413,7 @@ sre_lower_locale.exit.i1815:                      ; preds = %633
 sre_upper_locale.exit.i:                          ; preds = %sre_lower_locale.exit.i1815
   %643 = tail call ptr @__ctype_toupper_loc() #15
   %644 = load ptr, ptr %643, align 8, !tbaa !132
-  %645 = getelementptr i32, ptr %644, i64 %640
+  %645 = getelementptr [4 x i8], ptr %644, i64 %640
   %.0.i.i12.i = load i32, ptr %645, align 4, !tbaa !40
   %.not11.i = icmp eq i32 %.0.i.i12.i, %.0.i.i.i1816
   br i1 %.not11.i, label %.critedge1878, label %sre_ucs2_charset_loc_ignore.exit
@@ -11429,7 +11427,7 @@ sre_ucs2_charset_loc_ignore.exit:                 ; preds = %633, %sre_upper_loc
 sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.exit.i1815, %sre_ucs2_charset_loc_ignore.exit
   %647 = load i32, ptr %.2, align 4, !tbaa !40
   %648 = zext i32 %647 to i64
-  %649 = getelementptr i32, ptr %.2, i64 %648
+  %649 = getelementptr [4 x i8], ptr %.2, i64 %648
   %650 = getelementptr i8, ptr %.01520, i64 2
   %651 = add i32 %.21494, 1
   %652 = and i32 %651, 4095
@@ -11449,7 +11447,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
 659:                                              ; preds = %.backedge
   %660 = load i32, ptr %.2, align 4, !tbaa !40
   %661 = zext i32 %660 to i64
-  %662 = getelementptr i32, ptr %.2, i64 %661
+  %662 = getelementptr [4 x i8], ptr %.2, i64 %661
   %663 = add i32 %.21494, 1
   %664 = and i32 %663, 4095
   %665 = icmp eq i32 %664, 0
@@ -11698,7 +11696,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.4 = phi ptr [ %2329, %772 ], [ %.3, %705 ], [ %.3, %706 ], [ %.3, %712 ], [ %.3, %711 ]
   %778 = load i32, ptr %.4, align 4, !tbaa !40
   %779 = zext i32 %778 to i64
-  %780 = getelementptr i32, ptr %.4, i64 %779
+  %780 = getelementptr [4 x i8], ptr %.4, i64 %779
   br label %700, !llvm.loop !162
 
 781:                                              ; preds = %700
@@ -11745,7 +11743,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %809 = load ptr, ptr %30, align 8, !tbaa !88
   %810 = getelementptr i8, ptr %809, i64 %.11480.ph
   store i64 %806, ptr %810, align 8, !tbaa !163
-  %811 = getelementptr i16, ptr %.01520, i64 %806
+  %811 = getelementptr [2 x i8], ptr %.01520, i64 %806
   %812 = load i32, ptr %794, align 4, !tbaa !40
   %813 = zext i32 %812 to i64
   %814 = icmp samesign ult i64 %806, %813
@@ -11754,7 +11752,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
 815:                                              ; preds = %808
   %816 = load i32, ptr %.2, align 4, !tbaa !40
   %817 = zext i32 %816 to i64
-  %818 = getelementptr i32, ptr %.2, i64 %817
+  %818 = getelementptr [4 x i8], ptr %.2, i64 %817
   %819 = load i32, ptr %818, align 4, !tbaa !40
   %820 = icmp eq i32 %819, 1
   br i1 %820, label %821, label %833
@@ -11839,7 +11837,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.71512 = phi ptr [ %.81513, %855 ], [ %810, %833 ]
   %863 = load i32, ptr %.2, align 4, !tbaa !40
   %864 = zext i32 %863 to i64
-  %865 = getelementptr i32, ptr %.2, i64 %864
+  %865 = getelementptr [4 x i8], ptr %.2, i64 %864
   %866 = load i32, ptr %865, align 4, !tbaa !40
   %867 = icmp eq i32 %866, 16
   br i1 %867, label %868, label %._crit_edge2461
@@ -11851,7 +11849,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
 868:                                              ; preds = %862
   %869 = add i32 %863, 1
   %870 = zext i32 %869 to i64
-  %871 = getelementptr i32, ptr %.2, i64 %870
+  %871 = getelementptr [4 x i8], ptr %.2, i64 %870
   %872 = load i32, ptr %871, align 4, !tbaa !40
   %873 = getelementptr inbounds nuw i8, ptr %.71512, i64 8
   store i32 %872, ptr %873, align 8, !tbaa !20
@@ -11936,7 +11934,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   store i64 %904, ptr %8, align 8, !tbaa !122
   %905 = load i32, ptr %.5, align 4, !tbaa !40
   %906 = zext i32 %905 to i64
-  %907 = getelementptr i32, ptr %.5, i64 %906
+  %907 = getelementptr [4 x i8], ptr %.5, i64 %906
   %908 = getelementptr inbounds nuw i8, ptr %902, i64 24
   store ptr %907, ptr %908, align 8, !tbaa !160
   %909 = getelementptr inbounds nuw i8, ptr %.101515, i64 40
@@ -11949,7 +11947,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   store i64 %.41483, ptr %913, align 8, !tbaa !153
   %914 = load i32, ptr %.5, align 4, !tbaa !40
   %915 = zext i32 %914 to i64
-  %916 = getelementptr i32, ptr %.5, i64 %915
+  %916 = getelementptr [4 x i8], ptr %.5, i64 %915
   br label %.backedge1884.backedge
 
 917:                                              ; preds = %2363
@@ -12067,7 +12065,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   store i64 %976, ptr %8, align 8, !tbaa !122
   %977 = load i32, ptr %.6, align 4, !tbaa !40
   %978 = zext i32 %977 to i64
-  %979 = getelementptr i32, ptr %.6, i64 %978
+  %979 = getelementptr [4 x i8], ptr %.6, i64 %978
   %980 = getelementptr inbounds nuw i8, ptr %974, i64 24
   store ptr %979, ptr %980, align 8, !tbaa !160
   %981 = getelementptr inbounds nuw i8, ptr %.121517, i64 40
@@ -12080,7 +12078,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   store i64 %.51484, ptr %985, align 8, !tbaa !153
   %986 = load i32, ptr %.6, align 4, !tbaa !40
   %987 = zext i32 %986 to i64
-  %988 = getelementptr i32, ptr %.6, i64 %987
+  %988 = getelementptr [4 x i8], ptr %.6, i64 %987
   br label %.backedge1884.backedge
 
 989:                                              ; preds = %2369
@@ -12191,7 +12189,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
 
 1052:                                             ; preds = %1046
   store i64 %1044, ptr %1048, align 8, !tbaa !163
-  %1053 = getelementptr i16, ptr %.01520, i64 %1044
+  %1053 = getelementptr [2 x i8], ptr %.01520, i64 %1044
   br label %1054
 
 1054:                                             ; preds = %1052, %1041
@@ -12199,7 +12197,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.141519 = phi ptr [ %.21507, %1041 ], [ %1048, %1052 ]
   %1055 = load i32, ptr %.2, align 4, !tbaa !40
   %1056 = zext i32 %1055 to i64
-  %1057 = getelementptr i32, ptr %.2, i64 %1056
+  %1057 = getelementptr [4 x i8], ptr %.2, i64 %1056
   %1058 = load i32, ptr %1057, align 4, !tbaa !40
   %1059 = icmp eq i32 %1058, 1
   br i1 %1059, label %1060, label %1073
@@ -12347,7 +12345,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   store i64 %1126, ptr %8, align 8, !tbaa !122
   %1127 = load i32, ptr %.7, align 4, !tbaa !40
   %1128 = zext i32 %1127 to i64
-  %1129 = getelementptr i32, ptr %.7, i64 %1128
+  %1129 = getelementptr [4 x i8], ptr %.7, i64 %1128
   %1130 = getelementptr inbounds nuw i8, ptr %1124, i64 24
   store ptr %1129, ptr %1130, align 8, !tbaa !160
   %1131 = getelementptr inbounds nuw i8, ptr %.18, i64 40
@@ -12360,7 +12358,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   store i64 %.61485, ptr %1135, align 8, !tbaa !153
   %1136 = load i32, ptr %.7, align 4, !tbaa !40
   %1137 = zext i32 %1136 to i64
-  %1138 = getelementptr i32, ptr %.7, i64 %1137
+  %1138 = getelementptr [4 x i8], ptr %.7, i64 %1137
   br label %.backedge1884.backedge
 
 1139:                                             ; preds = %2375
@@ -12452,7 +12450,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %1191 = getelementptr i8, ptr %.2, i64 4
   %1192 = load i32, ptr %1191, align 4, !tbaa !40
   %1193 = zext i32 %1192 to i64
-  %1194 = getelementptr i16, ptr %.01520, i64 %1193
+  %1194 = getelementptr [2 x i8], ptr %.01520, i64 %1193
   %1195 = icmp ugt ptr %1194, %5
   br i1 %1195, label %.critedge1878, label %1196
 
@@ -12470,7 +12468,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %1204 = load ptr, ptr %30, align 8, !tbaa !88
   %1205 = getelementptr i8, ptr %1204, i64 %.11480.ph
   store i64 %1201, ptr %1205, align 8, !tbaa !163
-  %1206 = getelementptr i16, ptr %.01520, i64 %1201
+  %1206 = getelementptr [2 x i8], ptr %.01520, i64 %1201
   %1207 = load i32, ptr %1191, align 4, !tbaa !40
   %1208 = zext i32 %1207 to i64
   %1209 = icmp samesign ult i64 %1201, %1208
@@ -12479,7 +12477,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
 1210:                                             ; preds = %1203
   %1211 = load i32, ptr %.2, align 4, !tbaa !40
   %1212 = zext i32 %1211 to i64
-  %1213 = getelementptr i32, ptr %.2, i64 %1212
+  %1213 = getelementptr [4 x i8], ptr %.2, i64 %1212
   %1214 = load i32, ptr %1213, align 4, !tbaa !40
   %1215 = icmp eq i32 %1214, 1
   br i1 %1215, label %1216, label %1228
@@ -12590,7 +12588,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   store i64 %1266, ptr %8, align 8, !tbaa !122
   %1267 = load i32, ptr %.2, align 4, !tbaa !40
   %1268 = zext i32 %1267 to i64
-  %1269 = getelementptr i32, ptr %.2, i64 %1268
+  %1269 = getelementptr [4 x i8], ptr %.2, i64 %1268
   %1270 = getelementptr inbounds nuw i8, ptr %1264, i64 24
   store ptr %1269, ptr %1270, align 8, !tbaa !160
   %1271 = getelementptr inbounds nuw i8, ptr %.19, i64 40
@@ -12603,7 +12601,7 @@ sre_ucs2_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   store i64 %.11480.ph, ptr %1275, align 8, !tbaa !153
   %1276 = load i32, ptr %.2, align 4, !tbaa !40
   %1277 = zext i32 %1276 to i64
-  %1278 = getelementptr i32, ptr %.2, i64 %1277
+  %1278 = getelementptr [4 x i8], ptr %.2, i64 %1277
   br label %.backedge1884.backedge
 
 1279:                                             ; preds = %repeat_pool_free.exit1838
@@ -13717,7 +13715,7 @@ repeat_pool_free.exit1831:                        ; preds = %1866, %1867
   %1870 = load i32, ptr %.11, align 4, !tbaa !40
   %1871 = add i32 %1870, 1
   %1872 = zext i32 %1871 to i64
-  %1873 = getelementptr i32, ptr %.11, i64 %1872
+  %1873 = getelementptr [4 x i8], ptr %.11, i64 %1872
   %1874 = load ptr, ptr %0, align 8, !tbaa !81
   %1875 = add i32 %.13, 1
   %1876 = and i32 %1875, 4095
@@ -13782,7 +13780,7 @@ repeat_pool_free.exit1831:                        ; preds = %1866, %1867
   %1907 = load ptr, ptr %1906, align 8, !tbaa !160
   %1908 = load i32, ptr %1907, align 4, !tbaa !40
   %1909 = zext i32 %1908 to i64
-  %1910 = getelementptr i32, ptr %1907, i64 %1909
+  %1910 = getelementptr [4 x i8], ptr %1907, i64 %1909
   %1911 = load ptr, ptr %0, align 8, !tbaa !81
   %1912 = add i32 %.11493, 1
   %1913 = and i32 %1912, 4095
@@ -13814,7 +13812,7 @@ repeat_pool_free.exit1831:                        ; preds = %1866, %1867
 1922:                                             ; preds = %1918
   %1923 = load ptr, ptr %39, align 8, !tbaa !94
   %1924 = sext i32 %1920 to i64
-  %1925 = getelementptr ptr, ptr %1923, i64 %1924
+  %1925 = getelementptr [8 x i8], ptr %1923, i64 %1924
   %1926 = load ptr, ptr %1925, align 8, !tbaa !95
   %1927 = getelementptr i8, ptr %1925, i64 8
   %1928 = load ptr, ptr %1927, align 8, !tbaa !95
@@ -13875,7 +13873,7 @@ repeat_pool_free.exit1831:                        ; preds = %1866, %1867
 1954:                                             ; preds = %1950
   %1955 = load ptr, ptr %39, align 8, !tbaa !94
   %1956 = sext i32 %1952 to i64
-  %1957 = getelementptr ptr, ptr %1955, i64 %1956
+  %1957 = getelementptr [8 x i8], ptr %1955, i64 %1956
   %1958 = load ptr, ptr %1957, align 8, !tbaa !95
   %1959 = getelementptr i8, ptr %1957, i64 8
   %1960 = load ptr, ptr %1959, align 8, !tbaa !95
@@ -13962,7 +13960,7 @@ sre_lower_ascii.exit1833:                         ; preds = %sre_lower_ascii.exi
 2002:                                             ; preds = %1998
   %2003 = load ptr, ptr %39, align 8, !tbaa !94
   %2004 = sext i32 %2000 to i64
-  %2005 = getelementptr ptr, ptr %2003, i64 %2004
+  %2005 = getelementptr [8 x i8], ptr %2003, i64 %2004
   %2006 = load ptr, ptr %2005, align 8, !tbaa !95
   %2007 = getelementptr i8, ptr %2005, i64 8
   %2008 = load ptr, ptr %2007, align 8, !tbaa !95
@@ -14027,7 +14025,7 @@ sre_lower_ascii.exit1833:                         ; preds = %sre_lower_ascii.exi
 2038:                                             ; preds = %2034
   %2039 = load ptr, ptr %39, align 8, !tbaa !94
   %2040 = sext i32 %2036 to i64
-  %2041 = getelementptr ptr, ptr %2039, i64 %2040
+  %2041 = getelementptr [8 x i8], ptr %2039, i64 %2040
   %2042 = load ptr, ptr %2041, align 8, !tbaa !95
   %2043 = getelementptr i8, ptr %2041, i64 8
   %2044 = load ptr, ptr %2043, align 8, !tbaa !95
@@ -14058,7 +14056,7 @@ sre_lower_ascii.exit1833:                         ; preds = %sre_lower_ascii.exi
   %2055 = tail call ptr @__ctype_tolower_loc() #15
   %2056 = load ptr, ptr %2055, align 8, !tbaa !132
   %2057 = zext nneg i16 %2051 to i64
-  %2058 = getelementptr i32, ptr %2056, i64 %2057
+  %2058 = getelementptr [4 x i8], ptr %2056, i64 %2057
   %.0.i.i = load i32, ptr %2058, align 4, !tbaa !40
   br label %sre_lower_locale.exit
 
@@ -14073,7 +14071,7 @@ sre_lower_locale.exit:                            ; preds = %2050, %2054
   %2064 = tail call ptr @__ctype_tolower_loc() #15
   %2065 = load ptr, ptr %2064, align 8, !tbaa !132
   %2066 = zext nneg i16 %2060 to i64
-  %2067 = getelementptr i32, ptr %2065, i64 %2066
+  %2067 = getelementptr [4 x i8], ptr %2065, i64 %2066
   %.0.i.i1834 = load i32, ptr %2067, align 4, !tbaa !40
   br label %sre_lower_locale.exit1835
 
@@ -14117,7 +14115,7 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
   %2087 = getelementptr i8, ptr %.2, i64 4
   %2088 = load i32, ptr %2087, align 4, !tbaa !40
   %2089 = zext i32 %2088 to i64
-  %2090 = getelementptr i32, ptr %.2, i64 %2089
+  %2090 = getelementptr [4 x i8], ptr %.2, i64 %2089
   %2091 = add i32 %.21494, 1
   %2092 = and i32 %2091, 4095
   %2093 = icmp eq i32 %2092, 0
@@ -14136,7 +14134,7 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
 2099:                                             ; preds = %2082
   %2100 = load ptr, ptr %39, align 8, !tbaa !94
   %2101 = sext i32 %2084 to i64
-  %2102 = getelementptr ptr, ptr %2100, i64 %2101
+  %2102 = getelementptr [8 x i8], ptr %2100, i64 %2101
   %2103 = load ptr, ptr %2102, align 8, !tbaa !95
   %2104 = getelementptr i8, ptr %2102, i64 8
   %2105 = load ptr, ptr %2104, align 8, !tbaa !95
@@ -14151,7 +14149,7 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
   %2111 = getelementptr i8, ptr %.2, i64 4
   %2112 = load i32, ptr %2111, align 4, !tbaa !40
   %2113 = zext i32 %2112 to i64
-  %2114 = getelementptr i32, ptr %.2, i64 %2113
+  %2114 = getelementptr [4 x i8], ptr %.2, i64 %2113
   %2115 = add i32 %.21494, 1
   %2116 = and i32 %2115, 4095
   %2117 = icmp eq i32 %2116, 0
@@ -14198,7 +14196,7 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
 
 2143:                                             ; preds = %2133
   %2144 = sub nsw i64 0, %2141
-  %2145 = getelementptr i16, ptr %.01520, i64 %2144
+  %2145 = getelementptr [2 x i8], ptr %.01520, i64 %2144
   store ptr %2145, ptr %0, align 8, !tbaa !81
   %2146 = getelementptr inbounds nuw i8, ptr %.21507, i64 24
   store ptr %.2, ptr %2146, align 8, !tbaa !160
@@ -14245,7 +14243,7 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
   %2169 = load ptr, ptr %2168, align 8, !tbaa !160
   %2170 = load i32, ptr %2169, align 4, !tbaa !40
   %2171 = zext i32 %2170 to i64
-  %2172 = getelementptr i32, ptr %2169, i64 %2171
+  %2172 = getelementptr [4 x i8], ptr %2169, i64 %2171
   %2173 = add i32 %.11493, 1
   %2174 = and i32 %2173, 4095
   %2175 = icmp eq i32 %2174, 0
@@ -14270,7 +14268,7 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
 
 2187:                                             ; preds = %2178
   %2188 = sub nsw i64 0, %2186
-  %2189 = getelementptr i16, ptr %.01520, i64 %2188
+  %2189 = getelementptr [2 x i8], ptr %.01520, i64 %2188
   store ptr %2189, ptr %0, align 8, !tbaa !81
   %2190 = load i32, ptr %38, align 4, !tbaa !85
   %2191 = getelementptr inbounds nuw i8, ptr %.21507, i64 16
@@ -14425,7 +14423,7 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
   %.12 = phi ptr [ %.2, %2178 ], [ %2387, %2264 ]
   %2270 = load i32, ptr %.12, align 4, !tbaa !40
   %2271 = zext i32 %2270 to i64
-  %2272 = getelementptr i32, ptr %.12, i64 %2271
+  %2272 = getelementptr [4 x i8], ptr %.12, i64 %2271
   %2273 = add i32 %.14, 1
   %2274 = and i32 %2273, 4095
   %2275 = icmp eq i32 %2274, 0
@@ -14665,7 +14663,7 @@ repeat_pool_free.exit1838:                        ; preds = %2359, %2360
   %.21494 = phi i32 [ %.21494.ph, %.preheader1883 ], [ %.21494.be, %.backedge.backedge ]
   %.2 = phi ptr [ %1917, %.preheader1883 ], [ %.2.be, %.backedge.backedge ]
   %2391 = zext i32 %.sink2888.sink to i64
-  %2392 = getelementptr ptr, ptr @sre_ucs2_match.sre_targets, i64 %2391
+  %2392 = getelementptr [8 x i8], ptr @sre_ucs2_match.sre_targets, i64 %2391
   %2393 = load ptr, ptr %2392, align 8, !tbaa !95
   indirectbr ptr %2393, [label %.critedge1878, label %132, label %408, label %422, label %2133, label %2178, label %145, label %671, label %391, label %.loopexit, label %542, label %1918, label %2082, label %433, label %659, label %475, label %99, label %72, label %1280, label %1497, label %115, label %612, label %1998, label %1237, label %793, label %560, label %1031, label %1880, label %1709, label %1190, label %1950, label %586, label %452, label %518, label %2034, label %632, label %492]
 }
@@ -14774,7 +14772,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   %62 = load i32, ptr %61, align 4, !tbaa !40
   %63 = add i32 %62, 1
   %64 = zext i32 %63 to i64
-  %65 = getelementptr i32, ptr %.01478, i64 %64
+  %65 = getelementptr [4 x i8], ptr %.01478, i64 %64
   br label %66
 
 66:                                               ; preds = %60, %.backedge1884
@@ -14819,7 +14817,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 .lr.ph2150:                                       ; preds = %.lr.ph2150.preheader, %.lr.ph2150
   %indvars.iv = phi i64 [ %83, %.lr.ph2150.preheader ], [ %indvars.iv.next, %.lr.ph2150 ]
   %84 = load ptr, ptr %39, align 8, !tbaa !94
-  %85 = getelementptr ptr, ptr %84, i64 %indvars.iv
+  %85 = getelementptr [8 x i8], ptr %84, i64 %indvars.iv
   store ptr null, ptr %85, align 8, !tbaa !95
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -14833,7 +14831,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 86:                                               ; preds = %._crit_edge2151, %78
   %87 = load ptr, ptr %39, align 8, !tbaa !94
   %88 = sext i32 %73 to i64
-  %89 = getelementptr ptr, ptr %87, i64 %88
+  %89 = getelementptr [8 x i8], ptr %87, i64 %88
   store ptr %.01520, ptr %89, align 8, !tbaa !95
   %90 = getelementptr i8, ptr %.2, i64 4
   %91 = add i32 %.21494, 1
@@ -15019,7 +15017,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 178:                                              ; preds = %174
   %179 = and i32 %176, 255
   %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr i32, ptr @_Py_ctype_table, i64 %180
+  %181 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %180
   %182 = load i32, ptr %181, align 4, !tbaa !40
   %183 = and i32 %182, 7
   %.not102.i = icmp eq i32 %183, 0
@@ -15044,7 +15042,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 194:                                              ; preds = %191
   %195 = and i32 %192, 255
   %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr i32, ptr @_Py_ctype_table, i64 %196
+  %197 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %196
   %198 = load i32, ptr %197, align 4, !tbaa !40
   %199 = and i32 %198, 7
   %.not103.i = icmp eq i32 %199, 0
@@ -15074,7 +15072,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 212:                                              ; preds = %208
   %213 = and i32 %210, 255
   %214 = zext nneg i32 %213 to i64
-  %215 = getelementptr i32, ptr @_Py_ctype_table, i64 %214
+  %215 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %214
   %216 = load i32, ptr %215, align 4, !tbaa !40
   %217 = and i32 %216, 7
   %.not100.i = icmp eq i32 %217, 0
@@ -15099,7 +15097,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
 228:                                              ; preds = %225
   %229 = and i32 %226, 255
   %230 = zext nneg i32 %229 to i64
-  %231 = getelementptr i32, ptr @_Py_ctype_table, i64 %230
+  %231 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %230
   %232 = load i32, ptr %231, align 4, !tbaa !40
   %233 = and i32 %232, 7
   %.not101.i = icmp eq i32 %233, 0
@@ -15130,7 +15128,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   %247 = tail call ptr @__ctype_b_loc() #15
   %248 = load ptr, ptr %247, align 8, !tbaa !129
   %249 = zext nneg i32 %245 to i64
-  %250 = getelementptr i16, ptr %248, i64 %249
+  %250 = getelementptr [2 x i8], ptr %248, i64 %249
   %251 = load i16, ptr %250, align 2, !tbaa !131
   %252 = and i16 %251, 8
   %.not97.i = icmp eq i16 %252, 0
@@ -15156,7 +15154,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   %263 = tail call ptr @__ctype_b_loc() #15
   %264 = load ptr, ptr %263, align 8, !tbaa !129
   %265 = zext nneg i32 %261 to i64
-  %266 = getelementptr i16, ptr %264, i64 %265
+  %266 = getelementptr [2 x i8], ptr %264, i64 %265
   %267 = load i16, ptr %266, align 2, !tbaa !131
   %268 = and i16 %267, 8
   %.not99.i = icmp eq i16 %268, 0
@@ -15187,7 +15185,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   %281 = tail call ptr @__ctype_b_loc() #15
   %282 = load ptr, ptr %281, align 8, !tbaa !129
   %283 = zext nneg i32 %279 to i64
-  %284 = getelementptr i16, ptr %282, i64 %283
+  %284 = getelementptr [2 x i8], ptr %282, i64 %283
   %285 = load i16, ptr %284, align 2, !tbaa !131
   %286 = and i16 %285, 8
   %.not93.i = icmp eq i16 %286, 0
@@ -15213,7 +15211,7 @@ data_stack_grow.exit.thread:                      ; preds = %14, %27, %3
   %297 = tail call ptr @__ctype_b_loc() #15
   %298 = load ptr, ptr %297, align 8, !tbaa !129
   %299 = zext nneg i32 %295 to i64
-  %300 = getelementptr i16, ptr %298, i64 %299
+  %300 = getelementptr [2 x i8], ptr %298, i64 %299
   %301 = load i16, ptr %300, align 2, !tbaa !131
   %302 = and i16 %301, 8
   %.not95.i = icmp eq i16 %302, 0
@@ -15483,7 +15481,7 @@ sre_ucs4_at.exit.thread:                          ; preds = %Py_UNICODE_ISALNUM.
 431:                                              ; preds = %427
   %432 = load i32, ptr %.2, align 4, !tbaa !40
   %433 = zext i32 %432 to i64
-  %434 = getelementptr i32, ptr %.2, i64 %433
+  %434 = getelementptr [4 x i8], ptr %.2, i64 %433
   %435 = getelementptr i8, ptr %.01520, i64 4
   %436 = add i32 %.21494, 1
   %437 = and i32 %436, 4095
@@ -15587,7 +15585,7 @@ sre_lower_locale.exit.i:                          ; preds = %487
   %489 = tail call ptr @__ctype_tolower_loc() #15
   %490 = load ptr, ptr %489, align 8, !tbaa !132
   %491 = zext nneg i32 %485 to i64
-  %492 = getelementptr i32, ptr %490, i64 %491
+  %492 = getelementptr [4 x i8], ptr %490, i64 %491
   %.0.i.i.i = load i32, ptr %492, align 4, !tbaa !40
   %493 = icmp eq i32 %.0.i.i.i, %484
   br i1 %493, label %char_loc_ignore.exit.thread, label %char_loc_ignore.exit
@@ -15595,7 +15593,7 @@ sre_lower_locale.exit.i:                          ; preds = %487
 char_loc_ignore.exit:                             ; preds = %sre_lower_locale.exit.i
   %494 = tail call ptr @__ctype_toupper_loc() #15
   %495 = load ptr, ptr %494, align 8, !tbaa !132
-  %496 = getelementptr i32, ptr %495, i64 %491
+  %496 = getelementptr [4 x i8], ptr %495, i64 %491
   %.0.i.i7.i = load i32, ptr %496, align 4, !tbaa !40
   %.not1861 = icmp eq i32 %.0.i.i7.i, %484
   br i1 %.not1861, label %char_loc_ignore.exit.thread, label %.critedge1878
@@ -15705,7 +15703,7 @@ sre_lower_locale.exit.i1809:                      ; preds = %552
   %554 = tail call ptr @__ctype_tolower_loc() #15
   %555 = load ptr, ptr %554, align 8, !tbaa !132
   %556 = zext nneg i32 %550 to i64
-  %557 = getelementptr i32, ptr %555, i64 %556
+  %557 = getelementptr [4 x i8], ptr %555, i64 %556
   %.0.i.i.i1810 = load i32, ptr %557, align 4, !tbaa !40
   %558 = icmp eq i32 %.0.i.i.i1810, %549
   br i1 %558, label %.critedge1878, label %char_loc_ignore.exit1812
@@ -15713,7 +15711,7 @@ sre_lower_locale.exit.i1809:                      ; preds = %552
 char_loc_ignore.exit1812:                         ; preds = %sre_lower_locale.exit.i1809
   %559 = tail call ptr @__ctype_toupper_loc() #15
   %560 = load ptr, ptr %559, align 8, !tbaa !132
-  %561 = getelementptr i32, ptr %560, i64 %556
+  %561 = getelementptr [4 x i8], ptr %560, i64 %556
   %.0.i.i7.i1811 = load i32, ptr %561, align 4, !tbaa !40
   %.not1868 = icmp eq i32 %.0.i.i7.i1811, %549
   br i1 %.not1868, label %.critedge1878, label %char_loc_ignore.exit1812.thread1847
@@ -15762,7 +15760,7 @@ sre_lower_ascii.exit1813:                         ; preds = %573, %577
 584:                                              ; preds = %sre_lower_ascii.exit1813
   %585 = load i32, ptr %.2, align 4, !tbaa !40
   %586 = zext i32 %585 to i64
-  %587 = getelementptr i32, ptr %.2, i64 %586
+  %587 = getelementptr [4 x i8], ptr %.2, i64 %586
   %588 = getelementptr i8, ptr %.01520, i64 4
   %589 = add i32 %.21494, 1
   %590 = and i32 %589, 4095
@@ -15794,7 +15792,7 @@ sre_lower_ascii.exit1813:                         ; preds = %573, %577
 603:                                              ; preds = %598
   %604 = load i32, ptr %.2, align 4, !tbaa !40
   %605 = zext i32 %604 to i64
-  %606 = getelementptr i32, ptr %.2, i64 %605
+  %606 = getelementptr [4 x i8], ptr %.2, i64 %605
   %607 = getelementptr i8, ptr %.01520, i64 4
   %608 = add i32 %.21494, 1
   %609 = and i32 %608, 4095
@@ -15825,7 +15823,7 @@ sre_lower_locale.exit.i1815:                      ; preds = %617
   %621 = tail call ptr @__ctype_tolower_loc() #15
   %622 = load ptr, ptr %621, align 8, !tbaa !132
   %623 = zext nneg i32 %619 to i64
-  %624 = getelementptr i32, ptr %622, i64 %623
+  %624 = getelementptr [4 x i8], ptr %622, i64 %623
   %.0.i.i.i1816 = load i32, ptr %624, align 4, !tbaa !40
   %625 = tail call fastcc i32 @sre_ucs4_charset(ptr noundef readonly %618, i32 noundef %.0.i.i.i1816)
   %.not.i1817 = icmp eq i32 %625, 0
@@ -15834,7 +15832,7 @@ sre_lower_locale.exit.i1815:                      ; preds = %617
 sre_upper_locale.exit.i:                          ; preds = %sre_lower_locale.exit.i1815
   %626 = tail call ptr @__ctype_toupper_loc() #15
   %627 = load ptr, ptr %626, align 8, !tbaa !132
-  %628 = getelementptr i32, ptr %627, i64 %623
+  %628 = getelementptr [4 x i8], ptr %627, i64 %623
   %.0.i.i12.i = load i32, ptr %628, align 4, !tbaa !40
   %.not11.i = icmp eq i32 %.0.i.i12.i, %.0.i.i.i1816
   br i1 %.not11.i, label %.critedge1878, label %sre_ucs4_charset_loc_ignore.exit
@@ -15848,7 +15846,7 @@ sre_ucs4_charset_loc_ignore.exit:                 ; preds = %617, %sre_upper_loc
 sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.exit.i1815, %sre_ucs4_charset_loc_ignore.exit
   %630 = load i32, ptr %.2, align 4, !tbaa !40
   %631 = zext i32 %630 to i64
-  %632 = getelementptr i32, ptr %.2, i64 %631
+  %632 = getelementptr [4 x i8], ptr %.2, i64 %631
   %633 = getelementptr i8, ptr %.01520, i64 4
   %634 = add i32 %.21494, 1
   %635 = and i32 %634, 4095
@@ -15868,7 +15866,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
 642:                                              ; preds = %.backedge
   %643 = load i32, ptr %.2, align 4, !tbaa !40
   %644 = zext i32 %643 to i64
-  %645 = getelementptr i32, ptr %.2, i64 %644
+  %645 = getelementptr [4 x i8], ptr %.2, i64 %644
   %646 = add i32 %.21494, 1
   %647 = and i32 %646, 4095
   %648 = icmp eq i32 %647, 0
@@ -16115,7 +16113,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.4 = phi ptr [ %2303, %753 ], [ %.3, %688 ], [ %.3, %689 ], [ %.3, %694 ], [ %.3, %693 ]
   %759 = load i32, ptr %.4, align 4, !tbaa !40
   %760 = zext i32 %759 to i64
-  %761 = getelementptr i32, ptr %.4, i64 %760
+  %761 = getelementptr [4 x i8], ptr %.4, i64 %760
   br label %683, !llvm.loop !182
 
 762:                                              ; preds = %683
@@ -16162,7 +16160,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %790 = load ptr, ptr %30, align 8, !tbaa !88
   %791 = getelementptr i8, ptr %790, i64 %.11480.ph
   store i64 %787, ptr %791, align 8, !tbaa !183
-  %792 = getelementptr i32, ptr %.01520, i64 %787
+  %792 = getelementptr [4 x i8], ptr %.01520, i64 %787
   %793 = load i32, ptr %775, align 4, !tbaa !40
   %794 = zext i32 %793 to i64
   %795 = icmp samesign ult i64 %787, %794
@@ -16171,7 +16169,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
 796:                                              ; preds = %789
   %797 = load i32, ptr %.2, align 4, !tbaa !40
   %798 = zext i32 %797 to i64
-  %799 = getelementptr i32, ptr %.2, i64 %798
+  %799 = getelementptr [4 x i8], ptr %.2, i64 %798
   %800 = load i32, ptr %799, align 4, !tbaa !40
   %801 = icmp eq i32 %800, 1
   br i1 %801, label %802, label %814
@@ -16256,7 +16254,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.71512 = phi ptr [ %.81513, %836 ], [ %791, %814 ]
   %844 = load i32, ptr %.2, align 4, !tbaa !40
   %845 = zext i32 %844 to i64
-  %846 = getelementptr i32, ptr %.2, i64 %845
+  %846 = getelementptr [4 x i8], ptr %.2, i64 %845
   %847 = load i32, ptr %846, align 4, !tbaa !40
   %848 = icmp eq i32 %847, 16
   br i1 %848, label %849, label %._crit_edge2461
@@ -16268,7 +16266,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
 849:                                              ; preds = %843
   %850 = add i32 %844, 1
   %851 = zext i32 %850 to i64
-  %852 = getelementptr i32, ptr %.2, i64 %851
+  %852 = getelementptr [4 x i8], ptr %.2, i64 %851
   %853 = load i32, ptr %852, align 4, !tbaa !40
   %854 = getelementptr inbounds nuw i8, ptr %.71512, i64 8
   store i32 %853, ptr %854, align 8, !tbaa !20
@@ -16352,7 +16350,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   store i64 %884, ptr %8, align 8, !tbaa !122
   %885 = load i32, ptr %.5, align 4, !tbaa !40
   %886 = zext i32 %885 to i64
-  %887 = getelementptr i32, ptr %.5, i64 %886
+  %887 = getelementptr [4 x i8], ptr %.5, i64 %886
   %888 = getelementptr inbounds nuw i8, ptr %882, i64 24
   store ptr %887, ptr %888, align 8, !tbaa !180
   %889 = getelementptr inbounds nuw i8, ptr %.101515, i64 40
@@ -16365,7 +16363,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   store i64 %.41483, ptr %893, align 8, !tbaa !173
   %894 = load i32, ptr %.5, align 4, !tbaa !40
   %895 = zext i32 %894 to i64
-  %896 = getelementptr i32, ptr %.5, i64 %895
+  %896 = getelementptr [4 x i8], ptr %.5, i64 %895
   br label %.backedge1884.backedge
 
 897:                                              ; preds = %2337
@@ -16483,7 +16481,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   store i64 %956, ptr %8, align 8, !tbaa !122
   %957 = load i32, ptr %.6, align 4, !tbaa !40
   %958 = zext i32 %957 to i64
-  %959 = getelementptr i32, ptr %.6, i64 %958
+  %959 = getelementptr [4 x i8], ptr %.6, i64 %958
   %960 = getelementptr inbounds nuw i8, ptr %954, i64 24
   store ptr %959, ptr %960, align 8, !tbaa !180
   %961 = getelementptr inbounds nuw i8, ptr %.121517, i64 40
@@ -16496,7 +16494,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   store i64 %.51484, ptr %965, align 8, !tbaa !173
   %966 = load i32, ptr %.6, align 4, !tbaa !40
   %967 = zext i32 %966 to i64
-  %968 = getelementptr i32, ptr %.6, i64 %967
+  %968 = getelementptr [4 x i8], ptr %.6, i64 %967
   br label %.backedge1884.backedge
 
 969:                                              ; preds = %2343
@@ -16607,7 +16605,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
 
 1032:                                             ; preds = %1026
   store i64 %1024, ptr %1028, align 8, !tbaa !183
-  %1033 = getelementptr i32, ptr %.01520, i64 %1024
+  %1033 = getelementptr [4 x i8], ptr %.01520, i64 %1024
   br label %1034
 
 1034:                                             ; preds = %1032, %1021
@@ -16615,7 +16613,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %.141519 = phi ptr [ %.21507, %1021 ], [ %1028, %1032 ]
   %1035 = load i32, ptr %.2, align 4, !tbaa !40
   %1036 = zext i32 %1035 to i64
-  %1037 = getelementptr i32, ptr %.2, i64 %1036
+  %1037 = getelementptr [4 x i8], ptr %.2, i64 %1036
   %1038 = load i32, ptr %1037, align 4, !tbaa !40
   %1039 = icmp eq i32 %1038, 1
   br i1 %1039, label %1040, label %1053
@@ -16763,7 +16761,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   store i64 %1106, ptr %8, align 8, !tbaa !122
   %1107 = load i32, ptr %.7, align 4, !tbaa !40
   %1108 = zext i32 %1107 to i64
-  %1109 = getelementptr i32, ptr %.7, i64 %1108
+  %1109 = getelementptr [4 x i8], ptr %.7, i64 %1108
   %1110 = getelementptr inbounds nuw i8, ptr %1104, i64 24
   store ptr %1109, ptr %1110, align 8, !tbaa !180
   %1111 = getelementptr inbounds nuw i8, ptr %.18, i64 40
@@ -16776,7 +16774,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   store i64 %.61485, ptr %1115, align 8, !tbaa !173
   %1116 = load i32, ptr %.7, align 4, !tbaa !40
   %1117 = zext i32 %1116 to i64
-  %1118 = getelementptr i32, ptr %.7, i64 %1117
+  %1118 = getelementptr [4 x i8], ptr %.7, i64 %1117
   br label %.backedge1884.backedge
 
 1119:                                             ; preds = %2349
@@ -16868,7 +16866,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %1171 = getelementptr i8, ptr %.2, i64 4
   %1172 = load i32, ptr %1171, align 4, !tbaa !40
   %1173 = zext i32 %1172 to i64
-  %1174 = getelementptr i32, ptr %.01520, i64 %1173
+  %1174 = getelementptr [4 x i8], ptr %.01520, i64 %1173
   %1175 = icmp ugt ptr %1174, %5
   br i1 %1175, label %.critedge1878, label %1176
 
@@ -16886,7 +16884,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   %1184 = load ptr, ptr %30, align 8, !tbaa !88
   %1185 = getelementptr i8, ptr %1184, i64 %.11480.ph
   store i64 %1181, ptr %1185, align 8, !tbaa !183
-  %1186 = getelementptr i32, ptr %.01520, i64 %1181
+  %1186 = getelementptr [4 x i8], ptr %.01520, i64 %1181
   %1187 = load i32, ptr %1171, align 4, !tbaa !40
   %1188 = zext i32 %1187 to i64
   %1189 = icmp samesign ult i64 %1181, %1188
@@ -16895,7 +16893,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
 1190:                                             ; preds = %1183
   %1191 = load i32, ptr %.2, align 4, !tbaa !40
   %1192 = zext i32 %1191 to i64
-  %1193 = getelementptr i32, ptr %.2, i64 %1192
+  %1193 = getelementptr [4 x i8], ptr %.2, i64 %1192
   %1194 = load i32, ptr %1193, align 4, !tbaa !40
   %1195 = icmp eq i32 %1194, 1
   br i1 %1195, label %1196, label %1208
@@ -17006,7 +17004,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   store i64 %1246, ptr %8, align 8, !tbaa !122
   %1247 = load i32, ptr %.2, align 4, !tbaa !40
   %1248 = zext i32 %1247 to i64
-  %1249 = getelementptr i32, ptr %.2, i64 %1248
+  %1249 = getelementptr [4 x i8], ptr %.2, i64 %1248
   %1250 = getelementptr inbounds nuw i8, ptr %1244, i64 24
   store ptr %1249, ptr %1250, align 8, !tbaa !180
   %1251 = getelementptr inbounds nuw i8, ptr %.19, i64 40
@@ -17019,7 +17017,7 @@ sre_ucs4_charset_loc_ignore.exit.thread1851:      ; preds = %sre_lower_locale.ex
   store i64 %.11480.ph, ptr %1255, align 8, !tbaa !173
   %1256 = load i32, ptr %.2, align 4, !tbaa !40
   %1257 = zext i32 %1256 to i64
-  %1258 = getelementptr i32, ptr %.2, i64 %1257
+  %1258 = getelementptr [4 x i8], ptr %.2, i64 %1257
   br label %.backedge1884.backedge
 
 1259:                                             ; preds = %repeat_pool_free.exit1838
@@ -18133,7 +18131,7 @@ repeat_pool_free.exit1831:                        ; preds = %1846, %1847
   %1850 = load i32, ptr %.11, align 4, !tbaa !40
   %1851 = add i32 %1850, 1
   %1852 = zext i32 %1851 to i64
-  %1853 = getelementptr i32, ptr %.11, i64 %1852
+  %1853 = getelementptr [4 x i8], ptr %.11, i64 %1852
   %1854 = load ptr, ptr %0, align 8, !tbaa !81
   %1855 = add i32 %.13, 1
   %1856 = and i32 %1855, 4095
@@ -18198,7 +18196,7 @@ repeat_pool_free.exit1831:                        ; preds = %1846, %1847
   %1887 = load ptr, ptr %1886, align 8, !tbaa !180
   %1888 = load i32, ptr %1887, align 4, !tbaa !40
   %1889 = zext i32 %1888 to i64
-  %1890 = getelementptr i32, ptr %1887, i64 %1889
+  %1890 = getelementptr [4 x i8], ptr %1887, i64 %1889
   %1891 = load ptr, ptr %0, align 8, !tbaa !81
   %1892 = add i32 %.11493, 1
   %1893 = and i32 %1892, 4095
@@ -18230,7 +18228,7 @@ repeat_pool_free.exit1831:                        ; preds = %1846, %1847
 1902:                                             ; preds = %1898
   %1903 = load ptr, ptr %39, align 8, !tbaa !94
   %1904 = sext i32 %1900 to i64
-  %1905 = getelementptr ptr, ptr %1903, i64 %1904
+  %1905 = getelementptr [8 x i8], ptr %1903, i64 %1904
   %1906 = load ptr, ptr %1905, align 8, !tbaa !95
   %1907 = getelementptr i8, ptr %1905, i64 8
   %1908 = load ptr, ptr %1907, align 8, !tbaa !95
@@ -18291,7 +18289,7 @@ repeat_pool_free.exit1831:                        ; preds = %1846, %1847
 1934:                                             ; preds = %1930
   %1935 = load ptr, ptr %39, align 8, !tbaa !94
   %1936 = sext i32 %1932 to i64
-  %1937 = getelementptr ptr, ptr %1935, i64 %1936
+  %1937 = getelementptr [8 x i8], ptr %1935, i64 %1936
   %1938 = load ptr, ptr %1937, align 8, !tbaa !95
   %1939 = getelementptr i8, ptr %1937, i64 8
   %1940 = load ptr, ptr %1939, align 8, !tbaa !95
@@ -18376,7 +18374,7 @@ sre_lower_ascii.exit1833:                         ; preds = %sre_lower_ascii.exi
 1980:                                             ; preds = %1976
   %1981 = load ptr, ptr %39, align 8, !tbaa !94
   %1982 = sext i32 %1978 to i64
-  %1983 = getelementptr ptr, ptr %1981, i64 %1982
+  %1983 = getelementptr [8 x i8], ptr %1981, i64 %1982
   %1984 = load ptr, ptr %1983, align 8, !tbaa !95
   %1985 = getelementptr i8, ptr %1983, i64 8
   %1986 = load ptr, ptr %1985, align 8, !tbaa !95
@@ -18439,7 +18437,7 @@ sre_lower_ascii.exit1833:                         ; preds = %sre_lower_ascii.exi
 2014:                                             ; preds = %2010
   %2015 = load ptr, ptr %39, align 8, !tbaa !94
   %2016 = sext i32 %2012 to i64
-  %2017 = getelementptr ptr, ptr %2015, i64 %2016
+  %2017 = getelementptr [8 x i8], ptr %2015, i64 %2016
   %2018 = load ptr, ptr %2017, align 8, !tbaa !95
   %2019 = getelementptr i8, ptr %2017, i64 8
   %2020 = load ptr, ptr %2019, align 8, !tbaa !95
@@ -18469,7 +18467,7 @@ sre_lower_ascii.exit1833:                         ; preds = %sre_lower_ascii.exi
   %2030 = tail call ptr @__ctype_tolower_loc() #15
   %2031 = load ptr, ptr %2030, align 8, !tbaa !132
   %2032 = zext nneg i32 %2027 to i64
-  %2033 = getelementptr i32, ptr %2031, i64 %2032
+  %2033 = getelementptr [4 x i8], ptr %2031, i64 %2032
   %.0.i.i = load i32, ptr %2033, align 4, !tbaa !40
   br label %sre_lower_locale.exit
 
@@ -18483,7 +18481,7 @@ sre_lower_locale.exit:                            ; preds = %2026, %2029
   %2038 = tail call ptr @__ctype_tolower_loc() #15
   %2039 = load ptr, ptr %2038, align 8, !tbaa !132
   %2040 = zext nneg i32 %2035 to i64
-  %2041 = getelementptr i32, ptr %2039, i64 %2040
+  %2041 = getelementptr [4 x i8], ptr %2039, i64 %2040
   %.0.i.i1834 = load i32, ptr %2041, align 4, !tbaa !40
   br label %sre_lower_locale.exit1835
 
@@ -18527,7 +18525,7 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
   %2061 = getelementptr i8, ptr %.2, i64 4
   %2062 = load i32, ptr %2061, align 4, !tbaa !40
   %2063 = zext i32 %2062 to i64
-  %2064 = getelementptr i32, ptr %.2, i64 %2063
+  %2064 = getelementptr [4 x i8], ptr %.2, i64 %2063
   %2065 = add i32 %.21494, 1
   %2066 = and i32 %2065, 4095
   %2067 = icmp eq i32 %2066, 0
@@ -18546,7 +18544,7 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
 2073:                                             ; preds = %2056
   %2074 = load ptr, ptr %39, align 8, !tbaa !94
   %2075 = sext i32 %2058 to i64
-  %2076 = getelementptr ptr, ptr %2074, i64 %2075
+  %2076 = getelementptr [8 x i8], ptr %2074, i64 %2075
   %2077 = load ptr, ptr %2076, align 8, !tbaa !95
   %2078 = getelementptr i8, ptr %2076, i64 8
   %2079 = load ptr, ptr %2078, align 8, !tbaa !95
@@ -18561,7 +18559,7 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
   %2085 = getelementptr i8, ptr %.2, i64 4
   %2086 = load i32, ptr %2085, align 4, !tbaa !40
   %2087 = zext i32 %2086 to i64
-  %2088 = getelementptr i32, ptr %.2, i64 %2087
+  %2088 = getelementptr [4 x i8], ptr %.2, i64 %2087
   %2089 = add i32 %.21494, 1
   %2090 = and i32 %2089, 4095
   %2091 = icmp eq i32 %2090, 0
@@ -18608,7 +18606,7 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
 
 2117:                                             ; preds = %2107
   %2118 = sub nsw i64 0, %2115
-  %2119 = getelementptr i32, ptr %.01520, i64 %2118
+  %2119 = getelementptr [4 x i8], ptr %.01520, i64 %2118
   store ptr %2119, ptr %0, align 8, !tbaa !81
   %2120 = getelementptr inbounds nuw i8, ptr %.21507, i64 24
   store ptr %.2, ptr %2120, align 8, !tbaa !180
@@ -18655,7 +18653,7 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
   %2143 = load ptr, ptr %2142, align 8, !tbaa !180
   %2144 = load i32, ptr %2143, align 4, !tbaa !40
   %2145 = zext i32 %2144 to i64
-  %2146 = getelementptr i32, ptr %2143, i64 %2145
+  %2146 = getelementptr [4 x i8], ptr %2143, i64 %2145
   %2147 = add i32 %.11493, 1
   %2148 = and i32 %2147, 4095
   %2149 = icmp eq i32 %2148, 0
@@ -18680,7 +18678,7 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
 
 2161:                                             ; preds = %2152
   %2162 = sub nsw i64 0, %2160
-  %2163 = getelementptr i32, ptr %.01520, i64 %2162
+  %2163 = getelementptr [4 x i8], ptr %.01520, i64 %2162
   store ptr %2163, ptr %0, align 8, !tbaa !81
   %2164 = load i32, ptr %38, align 4, !tbaa !85
   %2165 = getelementptr inbounds nuw i8, ptr %.21507, i64 16
@@ -18835,7 +18833,7 @@ sre_lower_locale.exit1835:                        ; preds = %sre_lower_locale.ex
   %.12 = phi ptr [ %.2, %2152 ], [ %2361, %2238 ]
   %2244 = load i32, ptr %.12, align 4, !tbaa !40
   %2245 = zext i32 %2244 to i64
-  %2246 = getelementptr i32, ptr %.12, i64 %2245
+  %2246 = getelementptr [4 x i8], ptr %.12, i64 %2245
   %2247 = add i32 %.14, 1
   %2248 = and i32 %2247, 4095
   %2249 = icmp eq i32 %2248, 0
@@ -19075,7 +19073,7 @@ repeat_pool_free.exit1838:                        ; preds = %2333, %2334
   %.21494 = phi i32 [ %.21494.ph, %.preheader1883 ], [ %.21494.be, %.backedge.backedge ]
   %.2 = phi ptr [ %1897, %.preheader1883 ], [ %.2.be, %.backedge.backedge ]
   %2365 = zext i32 %.sink2896.sink to i64
-  %2366 = getelementptr ptr, ptr @sre_ucs4_match.sre_targets, i64 %2365
+  %2366 = getelementptr [8 x i8], ptr @sre_ucs4_match.sre_targets, i64 %2365
   %2367 = load ptr, ptr %2366, align 8, !tbaa !95
   indirectbr ptr %2367, [label %.critedge1878, label %130, label %401, label %415, label %2107, label %2152, label %143, label %654, label %385, label %.loopexit, label %530, label %1898, label %2056, label %426, label %642, label %466, label %99, label %72, label %1260, label %1477, label %114, label %597, label %1976, label %1217, label %774, label %547, label %1011, label %1860, label %1689, label %1170, label %1930, label %572, label %444, label %507, label %2010, label %616, label %482]
 }
@@ -19155,7 +19153,7 @@ define internal fastcc i32 @sre_category(i32 noundef %0, i32 noundef %1) unnamed
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr i32, ptr @_Py_ctype_table, i64 %6
+  %7 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !40
   %9 = lshr i32 %8, 2
   %.lobit49 = and i32 %9, 1
@@ -19167,7 +19165,7 @@ define internal fastcc i32 @sre_category(i32 noundef %0, i32 noundef %1) unnamed
 
 12:                                               ; preds = %10
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr i32, ptr @_Py_ctype_table, i64 %13
+  %14 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !40
   %16 = lshr i32 %15, 2
   %.lobit48 = and i32 %16, 1
@@ -19180,7 +19178,7 @@ define internal fastcc i32 @sre_category(i32 noundef %0, i32 noundef %1) unnamed
 
 20:                                               ; preds = %18
   %21 = zext nneg i32 %1 to i64
-  %22 = getelementptr i32, ptr @_Py_ctype_table, i64 %21
+  %22 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !40
   %24 = lshr i32 %23, 3
   %.lobit47 = and i32 %24, 1
@@ -19192,7 +19190,7 @@ define internal fastcc i32 @sre_category(i32 noundef %0, i32 noundef %1) unnamed
 
 27:                                               ; preds = %25
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr i32, ptr @_Py_ctype_table, i64 %28
+  %29 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !40
   %31 = lshr i32 %30, 3
   %.lobit = and i32 %31, 1
@@ -19205,7 +19203,7 @@ define internal fastcc i32 @sre_category(i32 noundef %0, i32 noundef %1) unnamed
 
 35:                                               ; preds = %33
   %36 = zext nneg i32 %1 to i64
-  %37 = getelementptr i32, ptr @_Py_ctype_table, i64 %36
+  %37 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !40
   %39 = and i32 %38, 7
   %40 = icmp ne i32 %39, 0
@@ -19220,7 +19218,7 @@ define internal fastcc i32 @sre_category(i32 noundef %0, i32 noundef %1) unnamed
 
 46:                                               ; preds = %44
   %47 = zext nneg i32 %1 to i64
-  %48 = getelementptr i32, ptr @_Py_ctype_table, i64 %47
+  %48 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !40
   %50 = and i32 %49, 7
   %51 = icmp eq i32 %50, 0
@@ -19247,7 +19245,7 @@ define internal fastcc i32 @sre_category(i32 noundef %0, i32 noundef %1) unnamed
   %62 = tail call ptr @__ctype_b_loc() #15
   %63 = load ptr, ptr %62, align 8, !tbaa !129
   %64 = zext nneg i32 %1 to i64
-  %65 = getelementptr i16, ptr %63, i64 %64
+  %65 = getelementptr [2 x i8], ptr %63, i64 %64
   %66 = load i16, ptr %65, align 2, !tbaa !131
   %67 = and i16 %66, 8
   %.not43 = icmp eq i16 %67, 0
@@ -19266,7 +19264,7 @@ define internal fastcc i32 @sre_category(i32 noundef %0, i32 noundef %1) unnamed
   %73 = tail call ptr @__ctype_b_loc() #15
   %74 = load ptr, ptr %73, align 8, !tbaa !129
   %75 = zext nneg i32 %1 to i64
-  %76 = getelementptr i16, ptr %74, i64 %75
+  %76 = getelementptr [2 x i8], ptr %74, i64 %75
   %77 = load i16, ptr %76, align 2, !tbaa !131
   %78 = and i16 %77, 8
   %.not41 = icmp eq i16 %78, 0
@@ -19498,7 +19496,7 @@ define internal fastcc range(i32 0, 2) i32 @sre_ucs1_charset(ptr noundef readonl
   br i1 %10, label %53, label %57
 
 53:                                               ; preds = %52
-  %54 = getelementptr i32, ptr %13, i64 %12
+  %54 = getelementptr [4 x i8], ptr %13, i64 %12
   %55 = load i32, ptr %54, align 4, !tbaa !40
   %56 = and i32 %55, %9
   %.not72.us = icmp eq i32 %56, 0
@@ -19823,7 +19821,7 @@ sre_lower_ascii.exit:                             ; preds = %.lr.ph170, %45
   %73 = tail call ptr @__ctype_tolower_loc() #15
   %74 = load ptr, ptr %73, align 8, !tbaa !132
   %75 = zext i8 %69 to i64
-  %76 = getelementptr i32, ptr %74, i64 %75
+  %76 = getelementptr [4 x i8], ptr %74, i64 %75
   %.0.i.i.i = load i32, ptr %76, align 4, !tbaa !40
   %77 = icmp eq i32 %.0.i.i.i, %66
   br i1 %77, label %char_loc_ignore.exit.thread, label %char_loc_ignore.exit
@@ -19831,7 +19829,7 @@ sre_lower_ascii.exit:                             ; preds = %.lr.ph170, %45
 char_loc_ignore.exit:                             ; preds = %72
   %78 = tail call ptr @__ctype_toupper_loc() #15
   %79 = load ptr, ptr %78, align 8, !tbaa !132
-  %80 = getelementptr i32, ptr %79, i64 %75
+  %80 = getelementptr [4 x i8], ptr %79, i64 %75
   %.0.i.i7.i = load i32, ptr %80, align 4, !tbaa !40
   %.not125 = icmp eq i32 %.0.i.i7.i, %66
   br i1 %.not125, label %char_loc_ignore.exit.thread, label %.critedge
@@ -19948,7 +19946,7 @@ sre_lower_ascii.exit119:                          ; preds = %.lr.ph152, %99
   %125 = tail call ptr @__ctype_tolower_loc() #15
   %126 = load ptr, ptr %125, align 8, !tbaa !132
   %127 = zext i8 %121 to i64
-  %128 = getelementptr i32, ptr %126, i64 %127
+  %128 = getelementptr [4 x i8], ptr %126, i64 %127
   %.0.i.i.i120 = load i32, ptr %128, align 4, !tbaa !40
   %129 = icmp eq i32 %.0.i.i.i120, %118
   br i1 %129, label %.critedge, label %char_loc_ignore.exit122
@@ -19956,7 +19954,7 @@ sre_lower_ascii.exit119:                          ; preds = %.lr.ph152, %99
 char_loc_ignore.exit122:                          ; preds = %124
   %130 = tail call ptr @__ctype_toupper_loc() #15
   %131 = load ptr, ptr %130, align 8, !tbaa !132
-  %132 = getelementptr i32, ptr %131, i64 %127
+  %132 = getelementptr [4 x i8], ptr %131, i64 %127
   %.0.i.i7.i121 = load i32, ptr %132, align 4, !tbaa !40
   %.not = icmp eq i32 %.0.i.i7.i121, %118
   br i1 %.not, label %.critedge, label %133
@@ -20175,7 +20173,7 @@ define internal fastcc range(i32 0, 2) i32 @sre_ucs2_charset(ptr noundef readonl
   br i1 %10, label %53, label %57
 
 53:                                               ; preds = %52
-  %54 = getelementptr i32, ptr %13, i64 %12
+  %54 = getelementptr [4 x i8], ptr %13, i64 %12
   %55 = load i32, ptr %54, align 4, !tbaa !40
   %56 = and i32 %55, %9
   %.not72.us = icmp eq i32 %56, 0
@@ -20332,7 +20330,7 @@ define internal fastcc range(i64 -9223372036854775808, 4611686018427387904) i64 
   %11 = icmp slt i64 %2, %10
   %12 = icmp ne i64 %2, 4294967295
   %or.cond = and i1 %12, %11
-  %13 = getelementptr i16, ptr %4, i64 %2
+  %13 = getelementptr [2 x i8], ptr %4, i64 %2
   %spec.select = select i1 %or.cond, ptr %13, ptr %6
   %14 = load i32, ptr %1, align 4, !tbaa !40
   switch i32 %14, label %.preheader [
@@ -20475,7 +20473,7 @@ sre_lower_locale.exit.i:                          ; preds = %74
   %76 = tail call ptr @__ctype_tolower_loc() #15
   %77 = load ptr, ptr %76, align 8, !tbaa !132
   %78 = zext nneg i16 %71 to i64
-  %79 = getelementptr i32, ptr %77, i64 %78
+  %79 = getelementptr [4 x i8], ptr %77, i64 %78
   %.0.i.i.i = load i32, ptr %79, align 4, !tbaa !40
   %80 = icmp eq i32 %.0.i.i.i, %69
   br i1 %80, label %char_loc_ignore.exit.thread, label %char_loc_ignore.exit
@@ -20483,7 +20481,7 @@ sre_lower_locale.exit.i:                          ; preds = %74
 char_loc_ignore.exit:                             ; preds = %sre_lower_locale.exit.i
   %81 = tail call ptr @__ctype_toupper_loc() #15
   %82 = load ptr, ptr %81, align 8, !tbaa !132
-  %83 = getelementptr i32, ptr %82, i64 %78
+  %83 = getelementptr [4 x i8], ptr %82, i64 %78
   %.0.i.i7.i = load i32, ptr %83, align 4, !tbaa !40
   %.not130 = icmp eq i32 %.0.i.i7.i, %69
   br i1 %.not130, label %char_loc_ignore.exit.thread, label %.critedge
@@ -20588,7 +20586,7 @@ sre_lower_locale.exit.i120:                       ; preds = %129
   %131 = tail call ptr @__ctype_tolower_loc() #15
   %132 = load ptr, ptr %131, align 8, !tbaa !132
   %133 = zext nneg i16 %126 to i64
-  %134 = getelementptr i32, ptr %132, i64 %133
+  %134 = getelementptr [4 x i8], ptr %132, i64 %133
   %.0.i.i.i121 = load i32, ptr %134, align 4, !tbaa !40
   %135 = icmp eq i32 %.0.i.i.i121, %124
   br i1 %135, label %.critedge, label %char_loc_ignore.exit123
@@ -20596,7 +20594,7 @@ sre_lower_locale.exit.i120:                       ; preds = %129
 char_loc_ignore.exit123:                          ; preds = %sre_lower_locale.exit.i120
   %136 = tail call ptr @__ctype_toupper_loc() #15
   %137 = load ptr, ptr %136, align 8, !tbaa !132
-  %138 = getelementptr i32, ptr %137, i64 %133
+  %138 = getelementptr [4 x i8], ptr %137, i64 %133
   %.0.i.i7.i122 = load i32, ptr %138, align 4, !tbaa !40
   %.not = icmp eq i32 %.0.i.i7.i122, %124
   br i1 %.not, label %.critedge, label %char_loc_ignore.exit123.thread128
@@ -20751,7 +20749,7 @@ define internal fastcc range(i32 0, 2) i32 @sre_ucs4_charset(ptr noundef readonl
   br i1 %10, label %53, label %57
 
 53:                                               ; preds = %52
-  %54 = getelementptr i32, ptr %13, i64 %12
+  %54 = getelementptr [4 x i8], ptr %13, i64 %12
   %55 = load i32, ptr %54, align 4, !tbaa !40
   %56 = and i32 %55, %9
   %.not72.us = icmp eq i32 %56, 0
@@ -20908,7 +20906,7 @@ define internal fastcc range(i64 -9223372036854775808, 2305843009213693952) i64 
   %11 = icmp slt i64 %2, %10
   %12 = icmp ne i64 %2, 4294967295
   %or.cond = and i1 %12, %11
-  %13 = getelementptr i32, ptr %4, i64 %2
+  %13 = getelementptr [4 x i8], ptr %4, i64 %2
   %spec.select = select i1 %or.cond, ptr %13, ptr %6
   %14 = load i32, ptr %1, align 4, !tbaa !40
   switch i32 %14, label %.preheader [
@@ -21041,7 +21039,7 @@ sre_lower_locale.exit.i:                          ; preds = %68
   %70 = tail call ptr @__ctype_tolower_loc() #15
   %71 = load ptr, ptr %70, align 8, !tbaa !132
   %72 = zext nneg i32 %66 to i64
-  %73 = getelementptr i32, ptr %71, i64 %72
+  %73 = getelementptr [4 x i8], ptr %71, i64 %72
   %.0.i.i.i = load i32, ptr %73, align 4, !tbaa !40
   %74 = icmp eq i32 %.0.i.i.i, %64
   br i1 %74, label %char_loc_ignore.exit.thread, label %char_loc_ignore.exit
@@ -21049,7 +21047,7 @@ sre_lower_locale.exit.i:                          ; preds = %68
 char_loc_ignore.exit:                             ; preds = %sre_lower_locale.exit.i
   %75 = tail call ptr @__ctype_toupper_loc() #15
   %76 = load ptr, ptr %75, align 8, !tbaa !132
-  %77 = getelementptr i32, ptr %76, i64 %72
+  %77 = getelementptr [4 x i8], ptr %76, i64 %72
   %.0.i.i7.i = load i32, ptr %77, align 4, !tbaa !40
   %.not123 = icmp eq i32 %.0.i.i7.i, %64
   br i1 %.not123, label %char_loc_ignore.exit.thread, label %.critedge
@@ -21143,7 +21141,7 @@ sre_lower_locale.exit.i113:                       ; preds = %118
   %120 = tail call ptr @__ctype_tolower_loc() #15
   %121 = load ptr, ptr %120, align 8, !tbaa !132
   %122 = zext nneg i32 %116 to i64
-  %123 = getelementptr i32, ptr %121, i64 %122
+  %123 = getelementptr [4 x i8], ptr %121, i64 %122
   %.0.i.i.i114 = load i32, ptr %123, align 4, !tbaa !40
   %124 = icmp eq i32 %.0.i.i.i114, %114
   br i1 %124, label %.critedge, label %char_loc_ignore.exit116
@@ -21151,7 +21149,7 @@ sre_lower_locale.exit.i113:                       ; preds = %118
 char_loc_ignore.exit116:                          ; preds = %sre_lower_locale.exit.i113
   %125 = tail call ptr @__ctype_toupper_loc() #15
   %126 = load ptr, ptr %125, align 8, !tbaa !132
-  %127 = getelementptr i32, ptr %126, i64 %122
+  %127 = getelementptr [4 x i8], ptr %126, i64 %122
   %.0.i.i7.i115 = load i32, ptr %127, align 4, !tbaa !40
   %.not = icmp eq i32 %.0.i.i7.i115, %114
   br i1 %.not, label %.critedge, label %char_loc_ignore.exit116.thread121
@@ -21282,13 +21280,13 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %36 = load i32, ptr %35, align 4, !tbaa !40
   %37 = zext i32 %36 to i64
   %38 = getelementptr i8, ptr %1, i64 28
-  %39 = getelementptr i32, ptr %38, i64 %34
+  %39 = getelementptr [4 x i8], ptr %38, i64 %34
   %40 = getelementptr i8, ptr %39, i64 -4
   %41 = getelementptr i8, ptr %1, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !40
   %43 = add i32 %42, 1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr i32, ptr %1, i64 %44
+  %45 = getelementptr [4 x i8], ptr %1, i64 %44
   %46 = and i32 %.fr.i, 2
   %47 = icmp eq i32 %46, 0
   switch i32 %33, label %70 [
@@ -21414,7 +21412,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %.5.us.us.i = phi ptr [ %83, %.split.us.us.i ], [ %.7.us.us.i, %108 ]
   %.1149.us.us.i = phi i64 [ 1, %.split.us.us.i ], [ %.3151.us.us.i, %108 ]
   %88 = load i8, ptr %.5.us.us.i, align 1, !tbaa !20
-  %89 = getelementptr i32, ptr %38, i64 %.1149.us.us.i
+  %89 = getelementptr [4 x i8], ptr %38, i64 %.1149.us.us.i
   %90 = load i32, ptr %89, align 4, !tbaa !40
   %91 = trunc i32 %90 to i8
   %92 = icmp eq i8 %88, %91
@@ -21452,7 +21450,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 104:                                              ; preds = %103, %87
   %.6.us.us.i = phi ptr [ %102, %103 ], [ %.5.us.us.i, %87 ]
   %.2150.us.us.i = phi i64 [ %34, %103 ], [ %.1149.us.us.i, %87 ]
-  %105 = getelementptr i32, ptr %40, i64 %.2150.us.us.i
+  %105 = getelementptr [4 x i8], ptr %40, i64 %.2150.us.us.i
   %106 = load i32, ptr %105, align 4, !tbaa !40
   %107 = zext i32 %106 to i64
   br label %108
@@ -21469,7 +21467,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 
 .lr.ph.i:                                         ; preds = %70, %72
   %.0148299.i = phi i64 [ %73, %72 ], [ 0, %70 ]
-  %110 = getelementptr i32, ptr %38, i64 %.0148299.i
+  %110 = getelementptr [4 x i8], ptr %38, i64 %.0148299.i
   %111 = load i32, ptr %110, align 4, !tbaa !40
   %.not213.i = icmp ult i32 %111, 256
   br i1 %.not213.i, label %72, label %sre_ucs1_search.exit
@@ -21502,7 +21500,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %.5.i = phi ptr [ %115, %.split.i ], [ %.7.i, %136 ]
   %.1149.i = phi i64 [ 1, %.split.i ], [ %.3151.i, %136 ]
   %120 = load i8, ptr %.5.i, align 1, !tbaa !20
-  %121 = getelementptr i32, ptr %38, i64 %.1149.i
+  %121 = getelementptr [4 x i8], ptr %38, i64 %.1149.i
   %122 = load i32, ptr %121, align 4, !tbaa !40
   %123 = trunc i32 %122 to i8
   %124 = icmp eq i8 %120, %123
@@ -21526,7 +21524,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   br label %sre_ucs1_search.exit
 
 132:                                              ; preds = %119
-  %133 = getelementptr i32, ptr %40, i64 %.1149.i
+  %133 = getelementptr [4 x i8], ptr %40, i64 %.1149.i
   %134 = load i32, ptr %133, align 4, !tbaa !40
   %135 = zext i32 %134 to i64
   br label %136
@@ -21549,7 +21547,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %142 = load i32, ptr %141, align 4, !tbaa !40
   %143 = add i32 %142, 1
   %144 = zext i32 %143 to i64
-  %145 = getelementptr i32, ptr %1, i64 %144
+  %145 = getelementptr [4 x i8], ptr %1, i64 %144
   %.not199276.i = icmp eq ptr %140, null
   %.not199.i = or i1 %.not199276.i, %.not198.i
   br i1 %.not199.i, label %.thread271.i, label %146
@@ -21677,7 +21675,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %200 = add i32 %190, -1
   %201 = zext i32 %200 to i64
   %202 = sub nsw i64 0, %201
-  %203 = getelementptr i16, ptr %8, i64 %202
+  %203 = getelementptr [2 x i8], ptr %8, i64 %202
   %.not196.i11 = icmp ugt ptr %203, %6
   %spec.select.i12 = select i1 %.not196.i11, ptr %203, ptr %6
   %.1168.i13 = select i1 %199, ptr %spec.select.i12, ptr %8
@@ -21693,13 +21691,13 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %210 = load i32, ptr %209, align 4, !tbaa !40
   %211 = zext i32 %210 to i64
   %212 = getelementptr i8, ptr %1, i64 28
-  %213 = getelementptr i32, ptr %212, i64 %208
+  %213 = getelementptr [4 x i8], ptr %212, i64 %208
   %214 = getelementptr i8, ptr %213, i64 -4
   %215 = getelementptr i8, ptr %1, i64 4
   %216 = load i32, ptr %215, align 4, !tbaa !40
   %217 = add i32 %216, 1
   %218 = zext i32 %217 to i64
-  %219 = getelementptr i32, ptr %1, i64 %218
+  %219 = getelementptr [4 x i8], ptr %1, i64 %218
   %220 = and i32 %.fr.i10, 2
   %221 = icmp eq i32 %220, 0
   switch i32 %207, label %244 [
@@ -21743,7 +21741,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 
 234:                                              ; preds = %.preheader282.us.i
   store ptr %.1170.us.i19, ptr %5, align 8, !tbaa !78
-  %235 = getelementptr i16, ptr %.1170.us.i19, i64 %211
+  %235 = getelementptr [2 x i8], ptr %.1170.us.i19, i64 %211
   store ptr %235, ptr %0, align 8, !tbaa !81
   %236 = tail call fastcc i64 @sre_ucs2_match(ptr noundef nonnull %0, ptr noundef %228, i32 noundef 0)
   %.not218.us.i22 = icmp eq i64 %236, 0
@@ -21769,7 +21767,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 
 ..critedge.loopexit284_crit_edge293.i:            ; preds = %.preheader282.i
   store ptr %.1170.i17, ptr %5, align 8, !tbaa !78
-  %243 = getelementptr i16, ptr %.1170.i17, i64 %211
+  %243 = getelementptr [2 x i8], ptr %.1170.i17, i64 %211
   store ptr %243, ptr %0, align 8, !tbaa !81
   br label %sre_ucs1_search.exit
 
@@ -21829,7 +21827,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %.5.us.us.i47 = phi ptr [ %261, %.split.us.us.i46 ], [ %.7.us.us.i51, %286 ]
   %.1149.us.us.i48 = phi i64 [ 1, %.split.us.us.i46 ], [ %.3151.us.us.i52, %286 ]
   %266 = load i16, ptr %.5.us.us.i47, align 2, !tbaa !131
-  %267 = getelementptr i32, ptr %212, i64 %.1149.us.us.i48
+  %267 = getelementptr [4 x i8], ptr %212, i64 %.1149.us.us.i48
   %268 = load i32, ptr %267, align 4, !tbaa !40
   %269 = trunc i32 %268 to i16
   %270 = icmp eq i16 %266, %269
@@ -21846,9 +21844,9 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   br i1 %.not210.us.us.i55, label %286, label %sre_ucs1_search.exit
 
 275:                                              ; preds = %271
-  %276 = getelementptr i16, ptr %.5.us.us.i47, i64 %254
+  %276 = getelementptr [2 x i8], ptr %.5.us.us.i47, i64 %254
   store ptr %276, ptr %5, align 8, !tbaa !78
-  %277 = getelementptr i16, ptr %.5.us.us.i47, i64 %.neg206.reass.i28
+  %277 = getelementptr [2 x i8], ptr %.5.us.us.i47, i64 %.neg206.reass.i28
   store ptr %277, ptr %0, align 8, !tbaa !81
   %278 = tail call fastcc i64 @sre_ucs2_match(ptr noundef nonnull %0, ptr noundef %255, i32 noundef 0)
   %.not208.us.us.i56 = icmp eq i64 %278, 0
@@ -21867,7 +21865,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 282:                                              ; preds = %281, %265
   %.6.us.us.i49 = phi ptr [ %280, %281 ], [ %.5.us.us.i47, %265 ]
   %.2150.us.us.i50 = phi i64 [ %208, %281 ], [ %.1149.us.us.i48, %265 ]
-  %283 = getelementptr i32, ptr %214, i64 %.2150.us.us.i50
+  %283 = getelementptr [4 x i8], ptr %214, i64 %.2150.us.us.i50
   %284 = load i32, ptr %283, align 4, !tbaa !40
   %285 = zext i32 %284 to i64
   br label %286
@@ -21884,7 +21882,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 
 .lr.ph.i23:                                       ; preds = %244, %250
   %.0148296.i = phi i64 [ %251, %250 ], [ 0, %244 ]
-  %288 = getelementptr i32, ptr %212, i64 %.0148296.i
+  %288 = getelementptr [4 x i8], ptr %212, i64 %.0148296.i
   %289 = load i32, ptr %288, align 4, !tbaa !40
   %.not213.i24 = icmp ult i32 %289, 65536
   br i1 %.not213.i24, label %250, label %sre_ucs1_search.exit
@@ -21917,7 +21915,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %.5.i35 = phi ptr [ %293, %.split.i34 ], [ %.7.i37, %314 ]
   %.1149.i36 = phi i64 [ 1, %.split.i34 ], [ %.3151.i38, %314 ]
   %298 = load i16, ptr %.5.i35, align 2, !tbaa !131
-  %299 = getelementptr i32, ptr %212, i64 %.1149.i36
+  %299 = getelementptr [4 x i8], ptr %212, i64 %.1149.i36
   %300 = load i32, ptr %299, align 4, !tbaa !40
   %301 = trunc i32 %300 to i16
   %302 = icmp eq i16 %298, %301
@@ -21934,14 +21932,14 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   br i1 %.not210.i41, label %314, label %sre_ucs1_search.exit
 
 307:                                              ; preds = %303
-  %308 = getelementptr i16, ptr %.5.i35, i64 %254
+  %308 = getelementptr [2 x i8], ptr %.5.i35, i64 %254
   store ptr %308, ptr %5, align 8, !tbaa !78
-  %309 = getelementptr i16, ptr %.5.i35, i64 %.neg206.reass.i28
+  %309 = getelementptr [2 x i8], ptr %.5.i35, i64 %.neg206.reass.i28
   store ptr %309, ptr %0, align 8, !tbaa !81
   br label %sre_ucs1_search.exit
 
 310:                                              ; preds = %297
-  %311 = getelementptr i32, ptr %214, i64 %.1149.i36
+  %311 = getelementptr [4 x i8], ptr %214, i64 %.1149.i36
   %312 = load i32, ptr %311, align 4, !tbaa !40
   %313 = zext i32 %312 to i64
   br label %314
@@ -21964,7 +21962,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %320 = load i32, ptr %319, align 4, !tbaa !40
   %321 = add i32 %320, 1
   %322 = zext i32 %321 to i64
-  %323 = getelementptr i32, ptr %1, i64 %322
+  %323 = getelementptr [4 x i8], ptr %1, i64 %322
   %.not199273.i = icmp eq ptr %318, null
   %.not199.i59 = or i1 %.not199273.i, %.not198.i58
   br i1 %.not199.i59, label %.thread267.i, label %324
@@ -22092,7 +22090,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %378 = add i32 %368, -1
   %379 = zext i32 %378 to i64
   %380 = sub nsw i64 0, %379
-  %381 = getelementptr i32, ptr %8, i64 %380
+  %381 = getelementptr [4 x i8], ptr %8, i64 %380
   %.not185.i = icmp ugt ptr %381, %6
   %spec.select.i65 = select i1 %.not185.i, ptr %381, ptr %6
   %.1158.i = select i1 %377, ptr %spec.select.i65, ptr %8
@@ -22108,13 +22106,13 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %388 = load i32, ptr %387, align 4, !tbaa !40
   %389 = zext i32 %388 to i64
   %390 = getelementptr i8, ptr %1, i64 28
-  %391 = getelementptr i32, ptr %390, i64 %386
+  %391 = getelementptr [4 x i8], ptr %390, i64 %386
   %392 = getelementptr i8, ptr %391, i64 -4
   %393 = getelementptr i8, ptr %1, i64 4
   %394 = load i32, ptr %393, align 4, !tbaa !40
   %395 = add i32 %394, 1
   %396 = zext i32 %395 to i64
-  %397 = getelementptr i32, ptr %1, i64 %396
+  %397 = getelementptr [4 x i8], ptr %1, i64 %396
   %398 = and i32 %.fr.i63, 2
   %399 = icmp eq i32 %398, 0
   switch i32 %385, label %420 [
@@ -22153,7 +22151,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 
 410:                                              ; preds = %.preheader267.us.i
   store ptr %.1160.us.i, ptr %5, align 8, !tbaa !78
-  %411 = getelementptr i32, ptr %.1160.us.i, i64 %389
+  %411 = getelementptr [4 x i8], ptr %.1160.us.i, i64 %389
   store ptr %411, ptr %0, align 8, !tbaa !81
   %412 = tail call fastcc i64 @sre_ucs4_match(ptr noundef nonnull %0, ptr noundef %404, i32 noundef 0)
   %.not205.us.i = icmp eq i64 %412, 0
@@ -22179,7 +22177,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 
 ..critedge.loopexit269_crit_edge278.i:            ; preds = %.preheader267.i
   store ptr %.1160.i, ptr %5, align 8, !tbaa !78
-  %419 = getelementptr i32, ptr %.1160.i, i64 %389
+  %419 = getelementptr [4 x i8], ptr %.1160.i, i64 %389
   store ptr %419, ptr %0, align 8, !tbaa !81
   br label %sre_ucs1_search.exit
 
@@ -22231,7 +22229,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %.5.us.us.i76 = phi ptr [ %434, %.split.us.us.i75 ], [ %.7.us.us.i78, %458 ]
   %.0139.us.us.i = phi i64 [ 1, %.split.us.us.i75 ], [ %.2141.us.us.i, %458 ]
   %439 = load i32, ptr %.5.us.us.i76, align 4, !tbaa !40
-  %440 = getelementptr i32, ptr %390, i64 %.0139.us.us.i
+  %440 = getelementptr [4 x i8], ptr %390, i64 %.0139.us.us.i
   %441 = load i32, ptr %440, align 4, !tbaa !40
   %442 = icmp eq i32 %439, %441
   br i1 %442, label %443, label %454
@@ -22247,9 +22245,9 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   br i1 %.not199.us.us.i, label %458, label %sre_ucs1_search.exit
 
 447:                                              ; preds = %443
-  %448 = getelementptr i32, ptr %.5.us.us.i76, i64 %428
+  %448 = getelementptr [4 x i8], ptr %.5.us.us.i76, i64 %428
   store ptr %448, ptr %5, align 8, !tbaa !78
-  %449 = getelementptr i32, ptr %.5.us.us.i76, i64 %.neg195.reass.i
+  %449 = getelementptr [4 x i8], ptr %.5.us.us.i76, i64 %.neg195.reass.i
   store ptr %449, ptr %0, align 8, !tbaa !81
   %450 = tail call fastcc i64 @sre_ucs4_match(ptr noundef nonnull %0, ptr noundef %429, i32 noundef 0)
   %.not197.us.us.i = icmp eq i64 %450, 0
@@ -22268,7 +22266,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
 454:                                              ; preds = %453, %438
   %.6.us.us.i77 = phi ptr [ %452, %453 ], [ %.5.us.us.i76, %438 ]
   %.1140.us.us.i = phi i64 [ %386, %453 ], [ %.0139.us.us.i, %438 ]
-  %455 = getelementptr i32, ptr %392, i64 %.1140.us.us.i
+  %455 = getelementptr [4 x i8], ptr %392, i64 %.1140.us.us.i
   %456 = load i32, ptr %455, align 4, !tbaa !40
   %457 = zext i32 %456 to i64
   br label %458
@@ -22310,7 +22308,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %.5.i71 = phi ptr [ %462, %.split.i70 ], [ %.7.i72, %482 ]
   %.0139.i = phi i64 [ 1, %.split.i70 ], [ %.2141.i, %482 ]
   %467 = load i32, ptr %.5.i71, align 4, !tbaa !40
-  %468 = getelementptr i32, ptr %390, i64 %.0139.i
+  %468 = getelementptr [4 x i8], ptr %390, i64 %.0139.i
   %469 = load i32, ptr %468, align 4, !tbaa !40
   %470 = icmp eq i32 %467, %469
   br i1 %470, label %471, label %478
@@ -22326,14 +22324,14 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   br i1 %.not199.i74, label %482, label %sre_ucs1_search.exit
 
 475:                                              ; preds = %471
-  %476 = getelementptr i32, ptr %.5.i71, i64 %428
+  %476 = getelementptr [4 x i8], ptr %.5.i71, i64 %428
   store ptr %476, ptr %5, align 8, !tbaa !78
-  %477 = getelementptr i32, ptr %.5.i71, i64 %.neg195.reass.i
+  %477 = getelementptr [4 x i8], ptr %.5.i71, i64 %.neg195.reass.i
   store ptr %477, ptr %0, align 8, !tbaa !81
   br label %sre_ucs1_search.exit
 
 478:                                              ; preds = %466
-  %479 = getelementptr i32, ptr %392, i64 %.0139.i
+  %479 = getelementptr [4 x i8], ptr %392, i64 %.0139.i
   %480 = load i32, ptr %479, align 4, !tbaa !40
   %481 = zext i32 %480 to i64
   br label %482
@@ -22356,7 +22354,7 @@ define internal fastcc range(i64 -9223372036854775808, 2) i64 @sre_search(ptr no
   %488 = load i32, ptr %487, align 4, !tbaa !40
   %489 = add i32 %488, 1
   %490 = zext i32 %489 to i64
-  %491 = getelementptr i32, ptr %1, i64 %490
+  %491 = getelementptr [4 x i8], ptr %1, i64 %490
   %.not188260.i = icmp eq ptr %486, null
   %.not188.i = or i1 %.not188260.i, %.not187.i
   br i1 %.not188.i, label %.thread254.i, label %492
@@ -23358,7 +23356,7 @@ _Py_NewRef.exit83:                                ; preds = %28, %33
 38:                                               ; preds = %.lr.ph, %71
   %.049105 = phi i64 [ 1, %.lr.ph ], [ %.2.ph, %71 ]
   %.051104 = phi i64 [ 0, %.lr.ph ], [ %72, %71 ]
-  %39 = getelementptr %struct.anon.808, ptr %36, i64 %.051104
+  %39 = getelementptr [16 x i8], ptr %36, i64 %.051104
   %40 = load i64, ptr %39, align 8, !tbaa !59
   %41 = load i64, ptr %37, align 8, !tbaa !116
   %.not64 = icmp slt i64 %40, %41
@@ -23400,7 +23398,7 @@ _Py_NewRef.exit83:                                ; preds = %28, %33
   br label %_Py_NewRef.exit84
 
 _Py_NewRef.exit84:                                ; preds = %.split58, %54
-  %56 = getelementptr ptr, ptr %.056, i64 %.049105
+  %56 = getelementptr [8 x i8], ptr %.056, i64 %.049105
   store ptr %45, ptr %56, align 8, !tbaa !21
   %57 = add i64 %.049105, 1
   %58 = load i32, ptr %45, align 8, !tbaa !20
@@ -23438,7 +23436,7 @@ Py_DECREF.exit70:                                 ; preds = %Py_DECREF.exit70.si
 
 _Py_NewRef.exit85:                                ; preds = %64, %67
   %69 = add i64 %.4, 1
-  %70 = getelementptr ptr, ptr %.056, i64 %.4
+  %70 = getelementptr [8 x i8], ptr %.056, i64 %.4
   store ptr %63, ptr %70, align 8, !tbaa !21
   br label %71
 
@@ -23498,7 +23496,7 @@ _Py_NewRef.exit85:                                ; preds = %64, %67
 
 .lr.ph107:                                        ; preds = %.preheader, %Py_DECREF.exit72
   %.0106 = phi i64 [ %96, %Py_DECREF.exit72 ], [ 0, %.preheader ]
-  %89 = getelementptr ptr, ptr %.056, i64 %.0106
+  %89 = getelementptr [8 x i8], ptr %.056, i64 %.0106
   %90 = load ptr, ptr %89, align 8, !tbaa !21
   %91 = load i32, ptr %90, align 8, !tbaa !20
   %.not.i71 = icmp sgt i32 %91, -1
@@ -23673,13 +23671,13 @@ define internal fastcc ptr @state_getslice(ptr noundef nonnull readonly captures
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %14 = load ptr, ptr %13, align 8, !tbaa !94
-  %15 = getelementptr ptr, ptr %14, i64 %6
+  %15 = getelementptr [8 x i8], ptr %14, i64 %6
   %16 = load ptr, ptr %15, align 8, !tbaa !95
   %.not32 = icmp eq ptr %16, null
   br i1 %.not32, label %21, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr ptr, ptr %14, i64 %5
+  %18 = getelementptr [8 x i8], ptr %14, i64 %5
   %19 = getelementptr i8, ptr %18, i64 -8
   %20 = load ptr, ptr %19, align 8, !tbaa !95
   %.not33 = icmp eq ptr %20, null
@@ -24136,7 +24134,7 @@ define internal ptr @match_group(ptr noundef readonly captures(none) %0, ptr nou
 
 21:                                               ; preds = %.lr.ph, %32
   %.02336 = phi i64 [ 0, %.lr.ph ], [ %34, %32 ]
-  %22 = getelementptr ptr, ptr %19, i64 %.02336
+  %22 = getelementptr [8 x i8], ptr %19, i64 %.02336
   %23 = load ptr, ptr %22, align 8, !tbaa !21
   %24 = tail call fastcc i64 @match_getindex(ptr noundef readonly %0, ptr noundef %23)
   %25 = icmp slt i64 %24, 0
@@ -24163,7 +24161,7 @@ match_getslice.exit30.thread:                     ; preds = %21, %match_getslice
   br label %match_getslice.exit
 
 32:                                               ; preds = %match_getslice.exit30
-  %33 = getelementptr ptr, ptr %20, i64 %.02336
+  %33 = getelementptr [8 x i8], ptr %20, i64 %.02336
   store ptr %26, ptr %33, align 8, !tbaa !21
   %34 = add nuw nsw i64 %.02336, 1
   %exitcond.not = icmp eq i64 %34, %.val
@@ -24415,7 +24413,7 @@ define internal ptr @_sre_SRE_Match_groups(ptr noundef readonly captures(none) %
   br label %_sre_SRE_Match_groups_impl.exit
 
 34:                                               ; preds = %26
-  %35 = getelementptr ptr, ptr %25, i64 %.01620.i
+  %35 = getelementptr [8 x i8], ptr %25, i64 %.01620.i
   store ptr %27, ptr %35, align 8, !tbaa !21
   %36 = add nuw nsw i64 %.01620.i, 1
   %37 = load i64, ptr %19, align 8, !tbaa !116
@@ -24816,7 +24814,7 @@ define internal noundef ptr @match_lastgroup_get(ptr noundef readonly captures(n
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %16 = getelementptr ptr, ptr %15, i64 %9
+  %16 = getelementptr [8 x i8], ptr %15, i64 %9
   %17 = load ptr, ptr %16, align 8, !tbaa !21
   %18 = load i32, ptr %17, align 8, !tbaa !20
   %19 = icmp slt i32 %18, 0
@@ -24922,7 +24920,7 @@ define internal ptr @match_regs_get(ptr noundef captures(none) %0, ptr readnone 
 40:                                               ; preds = %26
   %41 = getelementptr i8, ptr %23, i64 32
   store ptr %28, ptr %41, align 8, !tbaa !21
-  %42 = getelementptr ptr, ptr %17, i64 %.025.i
+  %42 = getelementptr [8 x i8], ptr %17, i64 %.025.i
   store ptr %23, ptr %42, align 8, !tbaa !21
   %43 = add nuw nsw i64 %.025.i, 1
   %44 = load i64, ptr %11, align 8, !tbaa !116
@@ -25324,7 +25322,7 @@ Py_DECREF.exit19.i:                               ; preds = %10, %7, %5, %1
 
 .lr.ph.i:                                         ; preds = %Py_DECREF.exit19.i, %Py_DECREF.exit.i
   %.021.i = phi i64 [ %22, %Py_DECREF.exit.i ], [ 0, %Py_DECREF.exit19.i ]
-  %13 = getelementptr %struct.anon.808, ptr %0, i64 %.021.i
+  %13 = getelementptr [16 x i8], ptr %0, i64 %.021.i
   %14 = getelementptr i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !21
   %.not17.i = icmp eq ptr %15, null
@@ -25404,7 +25402,7 @@ define internal i32 @template_traverse(ptr noundef readonly captures(none) %0, p
 
 .lr.ph:                                           ; preds = %12, %19
   %.03649 = phi i64 [ %20, %19 ], [ 0, %12 ]
-  %14 = getelementptr %struct.anon.808, ptr %0, i64 %.03649
+  %14 = getelementptr [16 x i8], ptr %0, i64 %.03649
   %15 = getelementptr i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   %.not43 = icmp eq ptr %16, null
@@ -25459,7 +25457,7 @@ Py_DECREF.exit19:                                 ; preds = %9, %6, %4, %1
 
 .lr.ph:                                           ; preds = %Py_DECREF.exit19, %Py_DECREF.exit
   %.021 = phi i64 [ %21, %Py_DECREF.exit ], [ 0, %Py_DECREF.exit19 ]
-  %12 = getelementptr %struct.anon.808, ptr %0, i64 %.021
+  %12 = getelementptr [16 x i8], ptr %0, i64 %.021
   %13 = getelementptr i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8, !tbaa !21
   %.not17 = icmp eq ptr %14, null

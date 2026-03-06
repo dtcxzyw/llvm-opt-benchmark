@@ -1389,7 +1389,7 @@ define internal noundef i32 @zend_implement_traversable(ptr readnone captures(no
 
 17:                                               ; preds = %9, %16
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %16 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !93
   %20 = icmp eq ptr %19, %14
   %21 = icmp eq ptr %19, %15

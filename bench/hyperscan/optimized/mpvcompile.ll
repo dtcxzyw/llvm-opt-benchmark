@@ -20,8 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"struct.ue2::raw_puff" = type { i32, i8, i8, i8, i32, %"class.ue2::CharReach" }
-%struct.mpv_counter_info = type { i64, i32, i32, i32, i32 }
-%struct.mpv_puffette = type { i32, i8, i8, i32 }
 
 $_ZN3ue212bytecode_ptrI3NFAED2Ev = comdat any
 
@@ -174,7 +172,7 @@ _ZNSt6vectorIN3ue28raw_puffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ;
 _ZNSt6vectorIN3ue28raw_puffESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %67, %_ZNSt6vectorIN3ue28raw_puffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %62, ptr %42, align 8
   store ptr %66, ptr %43, align 8
-  %68 = getelementptr inbounds nuw %"struct.ue2::raw_puff", ptr %62, i64 %60
+  %68 = getelementptr inbounds nuw [48 x i8], ptr %62, i64 %60
   store ptr %68, ptr %45, align 8
   br label %_ZNSt6vectorIN3ue28raw_puffESaIS1_EE9push_backERKS1_.exit.i
 
@@ -273,7 +271,7 @@ _ZNSt6vectorIN3ue28raw_puffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i33.i:
 _ZNSt6vectorIN3ue28raw_puffESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i36.i: ; preds = %100, %_ZNSt6vectorIN3ue28raw_puffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i33.i
   store ptr %95, ptr %75, align 8
   store ptr %99, ptr %76, align 8
-  %101 = getelementptr inbounds nuw %"struct.ue2::raw_puff", ptr %95, i64 %93
+  %101 = getelementptr inbounds nuw [48 x i8], ptr %95, i64 %93
   store ptr %101, ptr %78, align 8
   br label %_ZNSt6vectorIN3ue28raw_puffESaIS1_EE9push_backERKS1_.exit37.i
 
@@ -476,7 +474,7 @@ _ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   br label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i: ; preds = %163, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i.i
-  %164 = getelementptr inbounds nuw %struct.mpv_counter_info, ptr %159, i64 %157
+  %164 = getelementptr inbounds nuw [24 x i8], ptr %159, i64 %157
   br label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE9push_backEOS0_.exit.i
 
 _ZNSt6vectorI16mpv_counter_infoSaIS0_EE9push_backEOS0_.exit.i: ; preds = %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i, %146
@@ -641,7 +639,7 @@ _ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   br label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i50.i
 
 _ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i50.i: ; preds = %211, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i48.i
-  %212 = getelementptr inbounds nuw %struct.mpv_counter_info, ptr %207, i64 %205
+  %212 = getelementptr inbounds nuw [24 x i8], ptr %207, i64 %205
   br label %_ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit.i58.i
 
 _ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit.i58.i: ; preds = %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i50.i, %194
@@ -786,7 +784,7 @@ _ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   br label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i85.i
 
 _ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i85.i: ; preds = %254, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i83.i
-  %255 = getelementptr inbounds nuw %struct.mpv_counter_info, ptr %250, i64 %248
+  %255 = getelementptr inbounds nuw [24 x i8], ptr %250, i64 %248
   br label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE9push_backEOS0_.exit86.i
 
 _ZNSt6vectorI16mpv_counter_infoSaIS0_EE9push_backEOS0_.exit86.i: ; preds = %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i85.i, %237
@@ -1165,7 +1163,7 @@ _ZN3ue2L11findCounterERKSt6vectorI16mpv_counter_infoSaIS1_EEj.exit: ; preds = %3
 
 392:                                              ; preds = %390, %_ZN3ue2L11findCounterERKSt6vectorI16mpv_counter_infoSaIS1_EEj.exit
   %.0811.i.i.i = phi i64 [ 0, %_ZN3ue2L11findCounterERKSt6vectorI16mpv_counter_infoSaIS1_EEj.exit ], [ %391, %390 ]
-  %393 = getelementptr inbounds nuw i64, ptr %385, i64 %.0811.i.i.i
+  %393 = getelementptr inbounds nuw [8 x i8], ptr %385, i64 %.0811.i.i.i
   %394 = load i64, ptr %393, align 8
   %.not.i.i.i133 = icmp eq i64 %394, -1
   br i1 %.not.i.i.i133, label %390, label %_ZNK3ue29CharReach3allEv.exit.thread.loopexit.i
@@ -1224,7 +1222,7 @@ _ZNK3ue29CharReach3allEv.exit.thread.i:           ; preds = %_ZNK3ue29CharReach3
 
 _ZNK3ue29CharReachcoEv.exit.i:                    ; preds = %415, %420
   %.0712.i.i.i = phi i64 [ %421, %420 ], [ 0, %415 ]
-  %418 = getelementptr inbounds nuw i64, ptr %5, i64 %.0712.i.i.i
+  %418 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0712.i.i.i
   %419 = load i64, ptr %418, align 8
   %.not.i.i46.i = icmp eq i64 %419, 0
   br i1 %.not.i.i46.i, label %420, label %422
@@ -1255,7 +1253,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %420, %422
 
 431:                                              ; preds = %434, %429
   %.0712.i.i48.i = phi i64 [ 0, %429 ], [ %435, %434 ]
-  %432 = getelementptr inbounds nuw i64, ptr %385, i64 %.0712.i.i48.i
+  %432 = getelementptr inbounds nuw [8 x i8], ptr %385, i64 %.0712.i.i48.i
   %433 = load i64, ptr %432, align 8
   %.not.i.i49.i = icmp eq i64 %433, 0
   br i1 %.not.i.i49.i, label %434, label %436
@@ -1399,7 +1397,7 @@ _ZN3ue210verify_u32IlEEjT_.exit.i:                ; preds = %_ZN3ue210verify_u32
 
 ._crit_edge.i136:                                 ; preds = %.noexc146, %_ZN3ue210verify_u32IlEEjT_.exit.i
   %.lcssa.i = phi i64 [ 0, %_ZN3ue210verify_u32IlEEjT_.exit.i ], [ %514, %.noexc146 ]
-  %481 = getelementptr inbounds nuw %struct.mpv_puffette, ptr %.0211267, i64 %.lcssa.i
+  %481 = getelementptr inbounds nuw [12 x i8], ptr %.0211267, i64 %.lcssa.i
   store i64 0, ptr %481, align 4
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 8
   store i32 -1, ptr %482, align 4
@@ -1430,8 +1428,8 @@ _ZN3ue210verify_u32IlEEjT_.exit.i:                ; preds = %_ZN3ue210verify_u32
 .lr.ph.i134:                                      ; preds = %_ZN3ue210verify_u32IlEEjT_.exit.i, %.noexc146
   %494 = phi ptr [ %510, %.noexc146 ], [ %480, %_ZN3ue210verify_u32IlEEjT_.exit.i ]
   %.08.i135 = phi i64 [ %508, %.noexc146 ], [ 0, %_ZN3ue210verify_u32IlEEjT_.exit.i ]
-  %495 = getelementptr inbounds nuw %struct.mpv_puffette, ptr %.0211267, i64 %.08.i135
-  %496 = getelementptr inbounds nuw %"struct.ue2::raw_puff", ptr %494, i64 %.08.i135
+  %495 = getelementptr inbounds nuw [12 x i8], ptr %.0211267, i64 %.08.i135
+  %496 = getelementptr inbounds nuw [48 x i8], ptr %494, i64 %.08.i135
   %497 = load i32, ptr %496, align 8
   store i32 %497, ptr %495, align 4
   %498 = getelementptr inbounds nuw i8, ptr %496, i64 4
@@ -2216,7 +2214,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 30:                                               ; preds = %30, %26
   %.08.i.i.i = phi i64 [ %29, %26 ], [ %32, %30 ]
-  %31 = getelementptr inbounds %"struct.ue2::raw_puff", ptr %0, i64 %.08.i.i.i
+  %31 = getelementptr inbounds [48 x i8], ptr %0, i64 %.08.i.i.i
   tail call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3ue28raw_puffESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_15pcompEEEEvT_T0_SF_T1_T2_(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %27, ptr noundef nonnull byval(%"struct.ue2::raw_puff") align 8 %31)
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
   %32 = add nsw i64 %.08.i.i.i, -1
@@ -2239,7 +2237,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 38:                                               ; preds = %23
   %39 = add nsw i64 %.023, -1
   %40 = udiv i64 %24, 96
-  %41 = getelementptr inbounds nuw %"struct.ue2::raw_puff", ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %40
   %42 = getelementptr inbounds i8, ptr %storemerge22, i64 -48
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 6
@@ -2604,9 +2602,9 @@ define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorI
   %.057 = phi i64 [ %39, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread55 ], [ %1, %4 ]
   %8 = shl i64 %.057, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"struct.ue2::raw_puff", ptr %0, i64 %9
+  %10 = getelementptr inbounds [48 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"struct.ue2::raw_puff", ptr %0, i64 %11
+  %12 = getelementptr inbounds [48 x i8], ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2654,8 +2652,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread55: ; preds = %28, %34, %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread
   %39 = phi i64 [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit ], [ %9, %22 ], [ %9, %34 ], [ %9, %28 ]
-  %40 = getelementptr inbounds %"struct.ue2::raw_puff", ptr %0, i64 %39
-  %41 = getelementptr inbounds %"struct.ue2::raw_puff", ptr %0, i64 %.057
+  %40 = getelementptr inbounds [48 x i8], ptr %0, i64 %39
+  %41 = getelementptr inbounds [48 x i8], ptr %0, i64 %.057
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(48) %40, i64 48, i1 false)
   %42 = icmp slt i64 %39, %6
   br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !64
@@ -2675,8 +2673,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal
 49:                                               ; preds = %45
   %50 = shl nsw i64 %.0.lcssa, 1
   %51 = or disjoint i64 %50, 1
-  %52 = getelementptr inbounds %"struct.ue2::raw_puff", ptr %0, i64 %51
-  %53 = getelementptr inbounds %"struct.ue2::raw_puff", ptr %0, i64 %.0.lcssa
+  %52 = getelementptr inbounds [48 x i8], ptr %0, i64 %51
+  %53 = getelementptr inbounds [48 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr noundef nonnull align 8 dereferenceable(48) %52, i64 48, i1 false)
   br label %54
 
@@ -2700,7 +2698,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal
   %.011.i = phi i64 [ %.0912.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i ], [ %.1, %54 ]
   %.0912.in.i = add nsw i64 %.011.i, -1
   %.0912.i = sdiv i64 %.0912.in.i, 2
-  %56 = getelementptr inbounds %"struct.ue2::raw_puff", ptr %0, i64 %.0912.i
+  %56 = getelementptr inbounds [48 x i8], ptr %0, i64 %.0912.i
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 6
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -2736,7 +2734,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_
   br i1 %75, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3ue28raw_puffESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_12_GLOBAL__N_15pcompEEEEvT_T0_SF_T1_RT2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i, %69, %64, %.lr.ph.i
-  %76 = getelementptr inbounds %"struct.ue2::raw_puff", ptr %0, i64 %.011.i
+  %76 = getelementptr inbounds [48 x i8], ptr %0, i64 %.011.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %76, ptr noundef nonnull align 8 dereferenceable(48) %56, i64 48, i1 false)
   %77 = icmp sgt i64 %.0912.i, %1
   br i1 %77, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3ue28raw_puffESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_12_GLOBAL__N_15pcompEEEEvT_T0_SF_T1_RT2_.exit, !llvm.loop !65
@@ -2744,7 +2742,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN3ue28raw_puffESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valINS2_12_GLOBAL__N_15pcompEEEEvT_T0_SF_T1_RT2_.exit: ; preds = %62, %67, %72, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i, %54
   %.0.lcssa.i = phi i64 [ %.1, %54 ], [ %.011.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i ], [ %.0912.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN3ue212_GLOBAL__N_15pcompEEclINS_17__normal_iteratorIPNS2_8raw_puffESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i ], [ %.011.i, %62 ], [ %.011.i, %72 ], [ %.011.i, %67 ]
   %.sroa.752.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %78 = getelementptr inbounds %"struct.ue2::raw_puff", ptr %0, i64 %.0.lcssa.i
+  %78 = getelementptr inbounds [48 x i8], ptr %0, i64 %.0.lcssa.i
   store i32 %.sroa.049.0.copyload, ptr %78, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i8 %.sroa.2.0.copyload, ptr %.sroa.5.0..sroa_idx, align 4
@@ -2835,7 +2833,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3ue28raw_puffESt6vectorIS3_
   %34 = ptrtoint ptr %.sroa.0.021 to i64
   %35 = sub i64 %34, %8
   %.neg.i.i.i.i.i = sdiv exact i64 %35, -48
-  %36 = getelementptr inbounds %"struct.ue2::raw_puff", ptr %33, i64 %.neg.i.i.i.i.i
+  %36 = getelementptr inbounds [48 x i8], ptr %33, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %36, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %35, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

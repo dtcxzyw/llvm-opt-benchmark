@@ -1198,7 +1198,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 452:                                              ; preds = %450, %.lr.ph653.i
   %.2430.i = phi i32 [ %.1429652.i, %.lr.ph653.i ], [ 1, %450 ]
   %453 = add i64 %.1436651.i, 1
-  %454 = getelementptr inbounds nuw i32, ptr %437, i64 %453
+  %454 = getelementptr inbounds nuw [4 x i8], ptr %437, i64 %453
   %455 = load i32, ptr %454, align 4, !tbaa !77
   %.not530.i = icmp eq i32 %455, 0
   br i1 %.not530.i, label %._crit_edge654.i, label %.lr.ph653.i, !llvm.loop !78
@@ -1212,7 +1212,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 .preheader595.i:                                  ; preds = %.preheader598.i, %471
   %.4432648.i = phi i32 [ %.6434.i, %471 ], [ 0, %.preheader598.i ]
   %.3438647.i = phi i64 [ %472, %471 ], [ 0, %.preheader598.i ]
-  %458 = getelementptr inbounds nuw i32, ptr %437, i64 %.3438647.i
+  %458 = getelementptr inbounds nuw [4 x i8], ptr %437, i64 %.3438647.i
   br label %459
 
 459:                                              ; preds = %467, %.preheader595.i
@@ -1245,7 +1245,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 
 471:                                              ; preds = %467
   %472 = add i64 %.3438647.i, 1
-  %473 = getelementptr inbounds nuw i32, ptr %437, i64 %472
+  %473 = getelementptr inbounds nuw [4 x i8], ptr %437, i64 %472
   %474 = load i32, ptr %473, align 4, !tbaa !77
   %.not525.i = icmp eq i32 %474, 0
   br i1 %.not525.i, label %.loopexit594.i, label %.preheader595.i, !llvm.loop !82
@@ -1271,7 +1271,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 8
   %480 = load ptr, ptr %479, align 8, !tbaa !83
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1656, ptr noundef nonnull @.str.53, ptr noundef %480) #12
-  %481 = getelementptr inbounds nuw i32, ptr %437, i64 %.2437.i
+  %481 = getelementptr inbounds nuw [4 x i8], ptr %437, i64 %.2437.i
   %482 = load i32, ptr %481, align 4, !tbaa !77
   %483 = load ptr, ptr %216, align 8, !tbaa !60
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 16

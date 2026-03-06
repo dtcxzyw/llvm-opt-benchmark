@@ -67,7 +67,7 @@ _ZNK13LogOutputList4findEPK9LogOutput.exit:       ; preds = %.lr.ph.i
 
 12:                                               ; preds = %18, %10
   %indvars.iv.i = phi i64 [ 1, %10 ], [ %indvars.iv.next.i, %18 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %.010.i
   br i1 %15, label %16, label %18
@@ -127,7 +127,7 @@ _ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE.exit: ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 %2, ptr %31, align 8
   %32 = zext i32 %2 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %32
   %34 = load volatile ptr, ptr %33, align 8
   store volatile ptr %34, ptr %30, align 8
   %35 = load volatile ptr, ptr %30, align 8
@@ -161,7 +161,7 @@ _ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE.exit: ; preds = %26
 
 .lr.ph42.i:                                       ; preds = %54, %.lr.ph42.preheader.i
   %indvars.iv.i18 = phi i64 [ 5, %.lr.ph42.preheader.i ], [ %indvars.iv.next.i19, %54 ]
-  %46 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i18
+  %46 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv.i18
   %47 = load volatile ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %53, label %49
@@ -248,7 +248,7 @@ define hidden void @_ZN13LogOutputList13remove_outputEPNS_13LogOutputNodeE(ptr n
 
 4:                                                ; preds = %2, %10
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %10 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load volatile ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1
   br i1 %7, label %8, label %10
@@ -317,7 +317,7 @@ define hidden void @_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE(p
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %2, ptr %6, align 8
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %7
   %9 = load volatile ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store volatile ptr %9, ptr %10, align 8
@@ -352,7 +352,7 @@ define hidden void @_ZN13LogOutputList10add_outputEP9LogOutputN8LogLevel4typeE(p
 
 .lr.ph42:                                         ; preds = %.lr.ph42.preheader, %30
   %indvars.iv = phi i64 [ 5, %.lr.ph42.preheader ], [ %indvars.iv.next, %30 ]
-  %22 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %22 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv
   %23 = load volatile ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %29, label %25
@@ -415,7 +415,7 @@ define hidden void @_ZN13LogOutputList19update_output_levelEPNS_13LogOutputNodeE
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %2, ptr %7, align 8
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %8
   %10 = load volatile ptr, ptr %9, align 8
   store volatile ptr %10, ptr %6, align 8
   %11 = load volatile ptr, ptr %6, align 8
@@ -449,7 +449,7 @@ define hidden void @_ZN13LogOutputList19update_output_levelEPNS_13LogOutputNodeE
 
 .lr.ph42.i:                                       ; preds = %30, %.lr.ph42.preheader.i
   %indvars.iv.i = phi i64 [ 5, %.lr.ph42.preheader.i ], [ %indvars.iv.next.i, %30 ]
-  %22 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv.i
   %23 = load volatile ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %29, label %25
@@ -516,7 +516,7 @@ _ZNK13LogOutputList21wait_until_no_readersEv.exit: ; preds = %42
 
 45:                                               ; preds = %51, %_ZNK13LogOutputList21wait_until_no_readersEv.exit
   %indvars.iv.i4 = phi i64 [ 1, %_ZNK13LogOutputList21wait_until_no_readersEv.exit ], [ %indvars.iv.next.i5, %51 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i4
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i4
   %47 = load volatile ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, %1
   br i1 %48, label %49, label %51
@@ -572,7 +572,7 @@ define hidden void @_ZN13LogOutputList5clearEv(ptr noundef nonnull align 8 deref
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store volatile ptr null, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6

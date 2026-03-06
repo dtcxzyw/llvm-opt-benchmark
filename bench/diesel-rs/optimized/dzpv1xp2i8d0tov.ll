@@ -602,7 +602,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h01af9c87b1d0b48dE.ll
   %12 = phi i64 [ %.pre, %._crit_edge ], [ %7, %3 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
-  %15 = getelementptr inbounds { ptr, ptr }, ptr %14, i64 %12
+  %15 = getelementptr inbounds [16 x i8], ptr %14, i64 %12
   store ptr %1, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %2, ptr %16, align 8
@@ -979,7 +979,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.7703597881123482540.ex
   %38 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %29, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.7703597881123482540.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !138, !noalias !143, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds { ptr, ptr }, ptr %40, i64 %38
+  %41 = getelementptr inbounds [16 x i8], ptr %40, i64 %38
   store ptr %24, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr @anon.5ac1f453113cc57c5a07e5ce111b1ed9.10.llvm.7703597881123482540, ptr %42, align 8
@@ -1100,7 +1100,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.7703597881123482540.ex
   %38 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %29, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.7703597881123482540.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !147, !noalias !152, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds { ptr, ptr }, ptr %40, i64 %38
+  %41 = getelementptr inbounds [16 x i8], ptr %40, i64 %38
   store ptr %24, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr @anon.5ac1f453113cc57c5a07e5ce111b1ed9.11.llvm.7703597881123482540, ptr %42, align 8
@@ -1221,7 +1221,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.7703597881123482540.ex
   %38 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %29, %_ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.7703597881123482540.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !156, !noalias !161, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds { ptr, ptr }, ptr %40, i64 %38
+  %41 = getelementptr inbounds [16 x i8], ptr %40, i64 %38
   store ptr %24, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr @anon.5ac1f453113cc57c5a07e5ce111b1ed9.12.llvm.7703597881123482540, ptr %42, align 8

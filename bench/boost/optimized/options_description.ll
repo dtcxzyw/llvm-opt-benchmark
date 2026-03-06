@@ -3967,7 +3967,7 @@ _ZN5boost10shared_ptrINS_15program_options19options_descriptionEED2Ev.exit: ; pr
 65:                                               ; preds = %.lr.ph, %117
   %66 = phi ptr [ %34, %.lr.ph ], [ %130, %117 ]
   %.023 = phi i64 [ 0, %.lr.ph ], [ %128, %117 ]
-  %67 = getelementptr inbounds nuw %"class.boost::shared_ptr.7", ptr %66, i64 %.023
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %.023
   %68 = load ptr, ptr %67, align 8, !tbaa !73
   store ptr %68, ptr %4, align 8, !tbaa !73
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -4087,7 +4087,7 @@ _ZN5boost15program_options19options_description3addENS_10shared_ptrINS0_18option
   %118 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %119 = add nsw i64 %118, -1
   %120 = sdiv i64 %119, 64
-  %121 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %120
   %122 = and i64 %119, -9223372036854775745
   %123 = icmp ugt i64 %122, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %123, i64 -8, i64 0
@@ -4503,7 +4503,7 @@ define noundef ptr @_ZNK5boost15program_options19options_description12find_nothr
   %28 = phi i64 [ 0, %.lr.ph ], [ %159, %_ZN5boost10shared_ptrINS_15program_options18option_descriptionEEaSERKS3_.exit ]
   %.02164 = phi i1 [ false, %.lr.ph ], [ %.122, %_ZN5boost10shared_ptrINS_15program_options18option_descriptionEEaSERKS3_.exit ]
   %.02463 = phi i32 [ 0, %.lr.ph ], [ %158, %_ZN5boost10shared_ptrINS_15program_options18option_descriptionEEaSERKS3_.exit ]
-  %29 = getelementptr inbounds nuw %"class.boost::shared_ptr.7", ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !73
   %31 = invoke noundef i32 @_ZNK5boost15program_options18option_description5matchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbb(ptr noundef nonnull align 8 dereferenceable(112) %30, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4)
           to label %32 unwind label %33
@@ -4521,7 +4521,7 @@ define noundef ptr @_ZNK5boost15program_options19options_description12find_nothr
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %13, align 8, !tbaa !105
-  %37 = getelementptr inbounds nuw %"class.boost::shared_ptr.7", ptr %36, i64 %28
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %28
   %38 = load ptr, ptr %37, align 8, !tbaa !73
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %40 = load ptr, ptr %39, align 8, !tbaa !45
@@ -4603,7 +4603,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i, %68
   %69 = load ptr, ptr %13, align 8, !tbaa !105
-  %70 = getelementptr inbounds nuw %"class.boost::shared_ptr.7", ptr %69, i64 %28
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %28
   %71 = load ptr, ptr %70, align 8, !tbaa !73
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !17
@@ -4657,7 +4657,7 @@ _ZN5boost10shared_ptrINS_15program_options18option_descriptionEEC2ERKS3_.exit.i:
 
 96:                                               ; preds = %32
   %97 = load ptr, ptr %13, align 8, !tbaa !105
-  %98 = getelementptr inbounds nuw %"class.boost::shared_ptr.7", ptr %97, i64 %28
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %97, i64 %28
   %99 = load ptr, ptr %98, align 8, !tbaa !73
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 40
   %101 = load ptr, ptr %100, align 8, !tbaa !45
@@ -4742,7 +4742,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 130:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit44
   %131 = load ptr, ptr %13, align 8, !tbaa !105
-  %132 = getelementptr inbounds nuw %"class.boost::shared_ptr.7", ptr %131, i64 %28
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %131, i64 %28
   %133 = load ptr, ptr %132, align 8, !tbaa !73
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !17
@@ -5519,7 +5519,7 @@ define void @_ZNK5boost15program_options19options_description5printERSoj(ptr nou
   %29 = load ptr, ptr %19, align 8, !tbaa !80
   %30 = lshr i32 %.01722, 6
   %.zext = zext nneg i32 %30 to i64
-  %31 = getelementptr inbounds nuw i64, ptr %29, i64 %.zext
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.zext
   %32 = and i64 %28, 63
   %33 = shl nuw i64 1, %32
   %34 = load i64, ptr %31, align 8, !tbaa !30
@@ -5528,7 +5528,7 @@ define void @_ZNK5boost15program_options19options_description5printERSoj(ptr nou
   br i1 %.not21, label %36, label %41
 
 36:                                               ; preds = %25
-  %37 = getelementptr inbounds nuw %"class.boost::shared_ptr.7", ptr %26, i64 %28
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %28
   %38 = load ptr, ptr %37, align 8, !tbaa !73
   %39 = load i32, ptr %20, align 8, !tbaa !86
   tail call fastcc void @_ZN5boost15program_options12_GLOBAL__N_110format_oneERSoRKNS0_18option_descriptionEjj(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(112) %38, i32 noundef %.016, i32 noundef %39)
@@ -5557,7 +5557,7 @@ define void @_ZNK5boost15program_options19options_description5printERSoj(ptr nou
   %.023 = phi i32 [ %56, %.lr.ph24 ], [ 0, %.preheader ]
   %52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.8, i64 noundef 1)
   %53 = load ptr, ptr %21, align 8, !tbaa !108
-  %54 = getelementptr inbounds nuw %"class.boost::shared_ptr.23", ptr %53, i64 %51
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %51
   %55 = load ptr, ptr %54, align 8, !tbaa !99
   tail call void @_ZNK5boost15program_options19options_description5printERSoj(ptr noundef nonnull align 8 dereferenceable(128) %55, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.016)
   %56 = add i32 %.023, 1
@@ -5626,7 +5626,7 @@ define noundef i32 @_ZNK5boost15program_options19options_description23get_option
   %40 = phi i64 [ 0, %.lr.ph ], [ %112, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
   %.074 = phi i32 [ 0, %.lr.ph ], [ %111, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
   %.05973 = phi i32 [ 23, %.lr.ph ], [ %.sroa.speculated50, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
-  %41 = getelementptr inbounds nuw %"class.boost::shared_ptr.7", ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
@@ -5910,7 +5910,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %134
   %148 = phi i64 [ %153, %.lr.ph77 ], [ 0, %.preheader ]
   %.01176 = phi i32 [ %152, %.lr.ph77 ], [ 0, %.preheader ]
   %.175 = phi i32 [ %.sroa.speculated46, %.lr.ph77 ], [ %.059.lcssa, %.preheader ]
-  %149 = getelementptr inbounds nuw %"class.boost::shared_ptr.23", ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw [16 x i8], ptr %147, i64 %148
   %150 = load ptr, ptr %149, align 8, !tbaa !99
   %151 = call noundef i32 @_ZNK5boost15program_options19options_description23get_option_column_widthEv(ptr noundef nonnull align 8 dereferenceable(128) %150)
   %.sroa.speculated46 = call i32 @llvm.umax.i32(i32 %.175, i32 %151)
@@ -7307,12 +7307,12 @@ define linkonce_odr hidden void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnul
 
 .noexc:                                           ; preds = %18
   %23 = lshr i64 %19, 6
-  %24 = getelementptr inbounds nuw i64, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   store ptr %24, ptr %6, align 8, !tbaa !82
   store ptr %22, ptr %0, align 8
   store i32 0, ptr %3, align 8
   %25 = sdiv i64 %17, 64
-  %26 = getelementptr inbounds i64, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = and i64 %17, -9223372036854775745
   %28 = icmp ugt i64 %27, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %28, i64 -8, i64 0
@@ -7418,7 +7418,7 @@ define linkonce_odr hidden void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef non
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   tail call void @_ZdlPvm(ptr noundef %11, i64 noundef %8) #33
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9568,7 +9568,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !25
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !27
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !37
   ret void
 
@@ -9744,7 +9744,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_15program_options18option_descriptionEEESaI
 _ZNSt12_Vector_baseIN5boost10shared_ptrINS0_15program_options18option_descriptionEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrINS0_15program_options18option_descriptionEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %43
   store ptr %20, ptr %0, align 8, !tbaa !105
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !77
-  %47 = getelementptr inbounds nuw %"class.boost::shared_ptr.7", ptr %20, i64 %16
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %47, ptr %42, align 8, !tbaa !79
   ret void
 }
@@ -9777,7 +9777,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %12
   %22 = trunc i64 %21 to i32
   %23 = and i32 %22, 63
   %24 = lshr i64 %21, 6
-  %25 = getelementptr inbounds nuw i64, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %24
   br label %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i
 
 _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i:          ; preds = %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
@@ -10029,13 +10029,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
 136:                                              ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
   %137 = ashr exact i64 %60, 3
   %138 = sub nsw i64 0, %137
-  %139 = getelementptr inbounds i64, ptr %8, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %8, i64 %138
   tail call void @_ZdlPvm(ptr noundef %139, i64 noundef %60) #33
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %136
   %140 = lshr i64 %70, 6
-  %141 = getelementptr inbounds nuw i64, ptr %73, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %140
   store ptr %141, ptr %7, align 8, !tbaa !82
   store ptr %73, ptr %0, align 8
   %.sroa.588.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10176,7 +10176,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_15program_options19options_descriptionEEESa
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 3
   %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds i64, ptr %38, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %38, i64 %43
   tail call void @_ZdlPvm(ptr noundef %44, i64 noundef %41) #33
   store ptr null, ptr %34, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -10378,7 +10378,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_15program_options19options_descriptionEEESa
 _ZNSt12_Vector_baseIN5boost10shared_ptrINS0_15program_options19options_descriptionEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrINS0_15program_options19options_descriptionEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %43
   store ptr %20, ptr %0, align 8, !tbaa !108
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !103
-  %47 = getelementptr inbounds nuw %"class.boost::shared_ptr.23", ptr %20, i64 %16
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %47, ptr %42, align 8, !tbaa !104
   ret void
 }

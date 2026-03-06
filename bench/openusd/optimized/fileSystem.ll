@@ -1449,7 +1449,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13ArchMemAdviseEPKvmNS_13ArchM
   %17 = sub i64 %13, %15
   %18 = add i64 %17, %1
   %19 = zext i32 %2 to i64
-  %20 = getelementptr inbounds nuw i32, ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__14ArchFileAdviseEP8_IO_FILElmNS_14ArchFileAdviceE.adviceMap, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__14ArchFileAdviseEP8_IO_FILElmNS_14ArchFileAdviceE.adviceMap, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = tail call i32 @posix_madvise(ptr noundef %16, i64 noundef %18, i32 noundef %21) #23
   %.not12 = icmp eq i32 %22, 0
@@ -1727,7 +1727,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14ArchFileAdviseEP8_IO_FILElmN
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = tail call i32 @fileno(ptr noundef %0) #23
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds nuw i32, ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__14ArchFileAdviseEP8_IO_FILElmNS_14ArchFileAdviceE.adviceMap, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__14ArchFileAdviseEP8_IO_FILElmNS_14ArchFileAdviceE.adviceMap, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 @posix_fadvise(i32 noundef %6, i64 noundef %1, i64 noundef %2, i32 noundef %9) #23
   %.not = icmp eq i32 %10, 0

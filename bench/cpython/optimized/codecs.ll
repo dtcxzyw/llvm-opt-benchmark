@@ -914,8 +914,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.5 = type { i32 }
 %struct._err_stackitem = type { ptr, ptr }
 %struct.PyStatus = type { i32, ptr, ptr, i32 }
-%struct.anon.806 = type { ptr, %struct.PyMethodDef }
-%struct.PyMethodDef = type { ptr, ptr, i32, ptr }
 
 @.str = private unnamed_addr constant [17 x i8] c"0123456789abcdef\00", align 1
 @Py_hexdigits = dso_local local_unnamed_addr global ptr @.str, align 8
@@ -2380,7 +2378,7 @@ define hidden i32 @_PyCodec_UnregisterError(ptr noundef %0) local_unnamed_addr #
 
 4:                                                ; preds = %1, %2
   %.0911 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr ptr, ptr @codecs_builtin_error_handlers, i64 %.0911
+  %5 = getelementptr [8 x i8], ptr @codecs_builtin_error_handlers, i64 %.0911
   %6 = load ptr, ptr %5, align 8, !tbaa !112
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #11
   %8 = icmp eq i32 %7, 0
@@ -2683,7 +2681,7 @@ _PyUnicode_DATA.exit37:                           ; preds = %44, %46
 
 .lr.ph:                                           ; preds = %_PyUnicode_DATA.exit37, %.lr.ph
   %.043 = phi i64 [ %53, %.lr.ph ], [ 0, %_PyUnicode_DATA.exit37 ]
-  %52 = getelementptr i16, ptr %.0.i35, i64 %.043
+  %52 = getelementptr [2 x i8], ptr %.0.i35, i64 %.043
   store i16 -3, ptr %52, align 2, !tbaa !114
   %53 = add nuw nsw i64 %.043, 1
   %exitcond.not = icmp eq i64 %53, %48
@@ -2797,7 +2795,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %1, %PyObject_TypeCh
   ]
 
 _PyUnicode_DATA.exit17.i.us:                      ; preds = %.lr.ph.split.us
-  %34 = getelementptr i16, ptr %.val4.i24.i.us, i64 %.05389.us
+  %34 = getelementptr [2 x i8], ptr %.val4.i24.i.us, i64 %.05389.us
   %35 = load i16, ptr %34, align 2, !tbaa !114
   %36 = zext i16 %35 to i32
   br label %PyUnicode_READ_CHAR.exit.us
@@ -2809,7 +2807,7 @@ _PyUnicode_DATA.exit.i.us:                        ; preds = %.lr.ph.split.us
   br label %PyUnicode_READ_CHAR.exit.us
 
 _PyUnicode_DATA.exit25.i.us:                      ; preds = %.lr.ph.split.us
-  %40 = getelementptr i32, ptr %.val4.i24.i.us, i64 %.05389.us
+  %40 = getelementptr [4 x i8], ptr %.val4.i24.i.us, i64 %.05389.us
   %41 = load i32, ptr %40, align 4, !tbaa !116
   br label %PyUnicode_READ_CHAR.exit.us
 
@@ -2867,13 +2865,13 @@ _PyUnicode_DATA.exit.i:                           ; preds = %.lr.ph.split
   br label %PyUnicode_READ_CHAR.exit
 
 _PyUnicode_DATA.exit17.i:                         ; preds = %.lr.ph.split
-  %61 = getelementptr i16, ptr %.0.i.i14.i, i64 %.05389
+  %61 = getelementptr [2 x i8], ptr %.0.i.i14.i, i64 %.05389
   %62 = load i16, ptr %61, align 2, !tbaa !114
   %63 = zext i16 %62 to i32
   br label %PyUnicode_READ_CHAR.exit
 
 _PyUnicode_DATA.exit25.i:                         ; preds = %.lr.ph.split
-  %64 = getelementptr i32, ptr %.0.i.i14.i, i64 %.05389
+  %64 = getelementptr [4 x i8], ptr %.0.i.i14.i, i64 %.05389
   %65 = load i32, ptr %64, align 4, !tbaa !116
   br label %PyUnicode_READ_CHAR.exit
 
@@ -3015,7 +3013,7 @@ _PyUnicode_DATA.exit.i77:                         ; preds = %110, %108
 
 _PyUnicode_DATA.exit17.i70:                       ; preds = %118, %116
   %.0.i15.i71 = phi ptr [ %.0.i.i14.i69, %116 ], [ %.val4.i16.i73, %118 ]
-  %120 = getelementptr i16, ptr %.0.i15.i71, i64 %.04896
+  %120 = getelementptr [2 x i8], ptr %.0.i15.i71, i64 %.04896
   %121 = load i16, ptr %120, align 2, !tbaa !114
   %122 = zext i16 %121 to i32
   br label %PyUnicode_READ_CHAR.exit86
@@ -3037,7 +3035,7 @@ _PyUnicode_DATA.exit17.i70:                       ; preds = %118, %116
 
 _PyUnicode_DATA.exit25.i83:                       ; preds = %126, %124
   %.0.i23.i84 = phi ptr [ %.0.i.i22.i82, %124 ], [ %.val4.i24.i85, %126 ]
-  %128 = getelementptr i32, ptr %.0.i23.i84, i64 %.04896
+  %128 = getelementptr [4 x i8], ptr %.0.i23.i84, i64 %.04896
   %129 = load i32, ptr %128, align 4, !tbaa !116
   br label %PyUnicode_READ_CHAR.exit86
 
@@ -3343,7 +3341,7 @@ PyUnicode_READ_CHAR.exit.thread.thread.us.preheader: ; preds = %.lr.ph
 _PyUnicode_DATA.exit17.i.us.us:                   ; preds = %_PyUnicode_DATA.exit17.i.us.us, %.lr.ph.split.us139.split.us
   %.065136.us140.us = phi i64 [ %.pre, %.lr.ph.split.us139.split.us ], [ %99, %_PyUnicode_DATA.exit17.i.us.us ]
   %.066135.us141.us = phi i64 [ 0, %.lr.ph.split.us139.split.us ], [ %.167.us147.us, %_PyUnicode_DATA.exit17.i.us.us ]
-  %96 = getelementptr i16, ptr %.val4.i16.i.us.us, i64 %.065136.us140.us
+  %96 = getelementptr [2 x i8], ptr %.val4.i16.i.us.us, i64 %.065136.us140.us
   %97 = load i16, ptr %96, align 2, !tbaa !114
   %98 = icmp ugt i16 %97, 255
   %.167.us147.us.v = select i1 %98, i64 6, i64 4
@@ -3355,7 +3353,7 @@ _PyUnicode_DATA.exit17.i.us.us:                   ; preds = %_PyUnicode_DATA.exi
 _PyUnicode_DATA.exit17.i.us:                      ; preds = %.lr.ph.split.us139, %_PyUnicode_DATA.exit17.i.us
   %.065136.us140 = phi i64 [ %103, %_PyUnicode_DATA.exit17.i.us ], [ %.pre, %.lr.ph.split.us139 ]
   %.066135.us141 = phi i64 [ %.167.us147, %_PyUnicode_DATA.exit17.i.us ], [ 0, %.lr.ph.split.us139 ]
-  %100 = getelementptr i16, ptr %.0.i.i14.i, i64 %.065136.us140
+  %100 = getelementptr [2 x i8], ptr %.0.i.i14.i, i64 %.065136.us140
   %101 = load i16, ptr %100, align 2, !tbaa !114
   %102 = icmp ugt i16 %101, 255
   %.167.us147.v = select i1 %102, i64 6, i64 4
@@ -3374,7 +3372,7 @@ _PyUnicode_DATA.exit17.i.us:                      ; preds = %.lr.ph.split.us139,
 PyUnicode_READ_CHAR.exit.us:                      ; preds = %PyUnicode_READ_CHAR.exit.us, %.lr.ph.split.split.us
   %.065136.us150 = phi i64 [ %.pre, %.lr.ph.split.split.us ], [ %109, %PyUnicode_READ_CHAR.exit.us ]
   %.066135.us151 = phi i64 [ 0, %.lr.ph.split.split.us ], [ %108, %PyUnicode_READ_CHAR.exit.us ]
-  %104 = getelementptr i32, ptr %.val4.i24.i.us, i64 %.065136.us150
+  %104 = getelementptr [4 x i8], ptr %.val4.i24.i.us, i64 %.065136.us150
   %105 = load i32, ptr %104, align 4, !tbaa !116
   %106 = icmp ugt i32 %105, 65535
   %107 = icmp samesign ugt i32 %105, 255
@@ -3394,7 +3392,7 @@ PyUnicode_READ_CHAR.exit.us:                      ; preds = %PyUnicode_READ_CHAR
 PyUnicode_READ_CHAR.exit:                         ; preds = %.lr.ph.split, %PyUnicode_READ_CHAR.exit
   %.065136 = phi i64 [ %117, %PyUnicode_READ_CHAR.exit ], [ %.pre, %.lr.ph.split ]
   %.066135 = phi i64 [ %116, %PyUnicode_READ_CHAR.exit ], [ 0, %.lr.ph.split ]
-  %112 = getelementptr i32, ptr %.0.i.i14.i, i64 %.065136
+  %112 = getelementptr [4 x i8], ptr %.0.i.i14.i, i64 %.065136
   %113 = load i32, ptr %112, align 4, !tbaa !116
   %114 = icmp ugt i32 %113, 65535
   %115 = icmp samesign ugt i32 %113, 255
@@ -3521,7 +3519,7 @@ _PyUnicode_DATA.exit.i114:                        ; preds = %151, %149
 
 _PyUnicode_DATA.exit17.i107:                      ; preds = %159, %157
   %.0.i15.i108 = phi ptr [ %.0.i.i14.i106, %157 ], [ %.val4.i16.i110, %159 ]
-  %161 = getelementptr i16, ptr %.0.i15.i108, i64 %.061157
+  %161 = getelementptr [2 x i8], ptr %.0.i15.i108, i64 %.061157
   %162 = load i16, ptr %161, align 2, !tbaa !114
   %163 = zext i16 %162 to i32
   br label %PyUnicode_READ_CHAR.exit123.thread
@@ -3549,7 +3547,7 @@ PyUnicode_READ_CHAR.exit123.thread:               ; preds = %_PyUnicode_DATA.exi
 
 PyUnicode_READ_CHAR.exit123:                      ; preds = %165, %167
   %.0.i23.i121 = phi ptr [ %.0.i.i22.i119, %165 ], [ %.val4.i24.i122, %167 ]
-  %170 = getelementptr i32, ptr %.0.i23.i121, i64 %.061157
+  %170 = getelementptr [4 x i8], ptr %.0.i23.i121, i64 %.061157
   %171 = load i32, ptr %170, align 4, !tbaa !116
   %172 = getelementptr i8, ptr %.062156, i64 1
   store i8 92, ptr %.062156, align 1, !tbaa !99
@@ -3770,7 +3768,7 @@ _PyUnicode_DATA.exit.i:                           ; preds = %29, %27
 
 _PyUnicode_DATA.exit17.i:                         ; preds = %36, %34
   %.0.i15.i = phi ptr [ %.0.i.i14.i, %34 ], [ %.val4.i16.i, %36 ]
-  %37 = getelementptr i16, ptr %.0.i15.i, i64 %.067108
+  %37 = getelementptr [2 x i8], ptr %.0.i15.i, i64 %.067108
   %38 = load i16, ptr %37, align 2, !tbaa !114
   %39 = zext i16 %38 to i32
   br label %PyUnicode_READ_CHAR.exit
@@ -3791,7 +3789,7 @@ _PyUnicode_DATA.exit17.i:                         ; preds = %36, %34
 
 _PyUnicode_DATA.exit25.i:                         ; preds = %43, %41
   %.0.i23.i = phi ptr [ %.0.i.i22.i, %41 ], [ %.val4.i24.i, %43 ]
-  %44 = getelementptr i32, ptr %.0.i23.i, i64 %.067108
+  %44 = getelementptr [4 x i8], ptr %.0.i23.i, i64 %.067108
   %45 = load i32, ptr %44, align 4, !tbaa !116
   br label %PyUnicode_READ_CHAR.exit
 
@@ -3919,7 +3917,7 @@ _PyUnicode_DATA.exit.i96:                         ; preds = %85, %83
 
 _PyUnicode_DATA.exit17.i89:                       ; preds = %92, %90
   %.0.i15.i90 = phi ptr [ %.0.i.i14.i88, %90 ], [ %.val4.i16.i92, %92 ]
-  %93 = getelementptr i16, ptr %.0.i15.i90, i64 %.168114
+  %93 = getelementptr [2 x i8], ptr %.0.i15.i90, i64 %.168114
   %94 = load i16, ptr %93, align 2, !tbaa !114
   %95 = zext i16 %94 to i32
   br label %PyUnicode_READ_CHAR.exit105
@@ -3940,7 +3938,7 @@ _PyUnicode_DATA.exit17.i89:                       ; preds = %92, %90
 
 _PyUnicode_DATA.exit25.i102:                      ; preds = %99, %97
   %.0.i23.i103 = phi ptr [ %.0.i.i22.i101, %97 ], [ %.val4.i24.i104, %99 ]
-  %100 = getelementptr i32, ptr %.0.i23.i103, i64 %.168114
+  %100 = getelementptr [4 x i8], ptr %.0.i23.i103, i64 %.168114
   %101 = load i32, ptr %100, align 4, !tbaa !116
   br label %PyUnicode_READ_CHAR.exit105
 
@@ -4164,7 +4162,7 @@ define hidden void @_PyCodec_InitRegistry(ptr dead_on_unwind noalias writable sr
 
 .preheader:                                       ; preds = %12, %17
   %.028 = phi i64 [ %18, %17 ], [ 0, %12 ]
-  %19 = getelementptr %struct.anon.806, ptr @_PyCodec_InitRegistry.methods, i64 %.028
+  %19 = getelementptr [40 x i8], ptr @_PyCodec_InitRegistry.methods, i64 %.028
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = tail call ptr @PyCMethod_New(ptr noundef nonnull %20, ptr noundef null, ptr noundef null, ptr noundef null) #10
   %22 = icmp eq ptr %21, null
@@ -4511,7 +4509,7 @@ _PyUnicode_DATA.exit.i.i:                         ; preds = %82, %80
 
 _PyUnicode_DATA.exit17.i.i:                       ; preds = %89, %87
   %.0.i15.i.i = phi ptr [ %.0.i.i14.i.i, %87 ], [ %.val4.i16.i.i, %89 ]
-  %90 = getelementptr i16, ptr %.0.i15.i.i, i64 %.0113205.i
+  %90 = getelementptr [2 x i8], ptr %.0.i15.i.i, i64 %.0113205.i
   %91 = load i16, ptr %90, align 2, !tbaa !114
   %92 = zext i16 %91 to i32
   br label %PyUnicode_READ_CHAR.exit.i
@@ -4532,7 +4530,7 @@ _PyUnicode_DATA.exit17.i.i:                       ; preds = %89, %87
 
 _PyUnicode_DATA.exit25.i.i:                       ; preds = %96, %94
   %.0.i23.i.i = phi ptr [ %.0.i.i22.i.i, %94 ], [ %.val4.i24.i.i, %96 ]
-  %97 = getelementptr i32, ptr %.0.i23.i.i, i64 %.0113205.i
+  %97 = getelementptr [4 x i8], ptr %.0.i23.i.i, i64 %.0113205.i
   %98 = load i32, ptr %97, align 4, !tbaa !116
   br label %PyUnicode_READ_CHAR.exit.i
 
@@ -5059,7 +5057,7 @@ _PyUnicode_DATA.exit.i.i:                         ; preds = %39, %37
 
 _PyUnicode_DATA.exit17.i.i:                       ; preds = %46, %44
   %.0.i15.i.i = phi ptr [ %.0.i.i14.i.i, %44 ], [ %.val4.i16.i.i, %46 ]
-  %47 = getelementptr i16, ptr %.0.i15.i.i, i64 %.04897.i
+  %47 = getelementptr [2 x i8], ptr %.0.i15.i.i, i64 %.04897.i
   %48 = load i16, ptr %47, align 2, !tbaa !114
   %49 = zext i16 %48 to i32
   br label %PyUnicode_READ_CHAR.exit.i
@@ -5080,7 +5078,7 @@ _PyUnicode_DATA.exit17.i.i:                       ; preds = %46, %44
 
 _PyUnicode_DATA.exit25.i.i:                       ; preds = %53, %51
   %.0.i23.i.i = phi ptr [ %.0.i.i22.i.i, %51 ], [ %.val4.i24.i.i, %53 ]
-  %54 = getelementptr i32, ptr %.0.i23.i.i, i64 %.04897.i
+  %54 = getelementptr [4 x i8], ptr %.0.i23.i.i, i64 %.04897.i
   %55 = load i32, ptr %54, align 4, !tbaa !116
   br label %PyUnicode_READ_CHAR.exit.i
 
@@ -5214,7 +5212,7 @@ PyObject_TypeCheck.exit89.thread.i:               ; preds = %PyObject_TypeCheck.
 105:                                              ; preds = %101
   %106 = zext i8 %103 to i16
   %107 = or disjoint i16 %106, -9216
-  %108 = getelementptr i16, ptr %5, i64 %indvars.iv.i
+  %108 = getelementptr [2 x i8], ptr %5, i64 %indvars.iv.i
   store i16 %107, ptr %108, align 2, !tbaa !114
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond100.not.i = icmp eq i64 %indvars.iv.next.i, 4

@@ -28,8 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timespec = type { i64, i64 }
 %struct.fmt_merge_msg_opts = type { i8, i32, ptr }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
-%struct.strategy = type { ptr, i32 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.pretty_print_context = type { i32, i32, ptr, i32, %struct.date_mode, i8, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, %struct.string_list, i32 }
 %struct.tree_desc = type { ptr, ptr, %struct.name_entry, i32, i32 }
 %struct.name_entry = type { %struct.object_id, ptr, i32, i32 }
@@ -1037,7 +1035,7 @@ merging_a_throwaway_tag.exit.thread:              ; preds = %264, %261, %259
 
 307:                                              ; preds = %.lr.ph411, %317
   %indvars.iv = phi i64 [ 0, %.lr.ph411 ], [ %indvars.iv.next, %317 ]
-  %308 = getelementptr inbounds nuw ptr, ptr %306, i64 %indvars.iv
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %306, i64 %indvars.iv
   %309 = load ptr, ptr %308, align 8, !tbaa !59
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
   %311 = load i32, ptr %310, align 8, !tbaa !61
@@ -1378,7 +1376,7 @@ thread-pre-split365:                              ; preds = %438, %346, %338, %4
 
 462:                                              ; preds = %464, %458
   %.0811.i.i = phi i64 [ 0, %458 ], [ %465, %464 ]
-  %463 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %463 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %461, %463
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %464
 
@@ -1449,7 +1447,7 @@ _.exit315:                                        ; preds = %475, %477
 _.exit318:                                        ; preds = %482, %484
   %.0.i317 = phi ptr [ %485, %484 ], [ @.str.47, %482 ]
   %486 = load ptr, ptr @use_strategies, align 8, !tbaa !56
-  %487 = getelementptr inbounds nuw ptr, ptr %486, i64 %indvars.iv432
+  %487 = getelementptr inbounds nuw [8 x i8], ptr %486, i64 %indvars.iv432
   %488 = load ptr, ptr %487, align 8, !tbaa !59
   %489 = load ptr, ptr %488, align 8, !tbaa !68
   %490 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.0.i317, ptr noundef %489)
@@ -1457,7 +1455,7 @@ _.exit318:                                        ; preds = %482, %484
 
 491:                                              ; preds = %_.exit318, %480
   %492 = load ptr, ptr @use_strategies, align 8, !tbaa !56
-  %493 = getelementptr inbounds nuw ptr, ptr %492, i64 %indvars.iv432
+  %493 = getelementptr inbounds nuw [8 x i8], ptr %492, i64 %indvars.iv432
   %494 = load ptr, ptr %493, align 8, !tbaa !59
   %495 = load ptr, ptr %494, align 8, !tbaa !68
   %496 = load ptr, ptr %15, align 8, !tbaa !9
@@ -1503,7 +1501,7 @@ _.exit318:                                        ; preds = %482, %484
 514:                                              ; preds = %514, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %514 ]
   %.07.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i, %514 ]
-  %515 = getelementptr inbounds nuw ptr, ptr %513, i64 %indvars.iv.i.i
+  %515 = getelementptr inbounds nuw [8 x i8], ptr %513, i64 %indvars.iv.i.i
   %516 = load ptr, ptr %515, align 8, !tbaa !126
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 56
   %518 = load i32, ptr %517, align 8, !tbaa !38
@@ -2128,7 +2126,7 @@ st_add.exit:                                      ; preds = %10
 
 23:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !143
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !145
@@ -2138,7 +2136,7 @@ st_add.exit:                                      ; preds = %10
 28:                                               ; preds = %23
   %29 = tail call fastcc ptr @_(ptr noundef nonnull @.str.147)
   %30 = load ptr, ptr %21, align 8, !tbaa !142
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !143
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !147
@@ -2147,7 +2145,7 @@ st_add.exit:                                      ; preds = %10
   unreachable
 
 36:                                               ; preds = %23
-  %37 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   store ptr %27, ptr %37, align 8, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2156,7 +2154,7 @@ st_add.exit:                                      ; preds = %10
 ._crit_edge:                                      ; preds = %36, %st_add.exit
   %.0.lcssa = phi i32 [ 0, %st_add.exit ], [ %19, %36 ]
   %38 = zext nneg i32 %.0.lcssa to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %18, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %38
   store ptr null, ptr %39, align 8, !tbaa !34
   store ptr %18, ptr %0, align 8, !tbaa !4
   ret i32 %.0.lcssa
@@ -2394,14 +2392,14 @@ handle_fetch_head.exit:                           ; preds = %._crit_edge.i, %94
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %114
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %114 ]
   %.181 = phi ptr [ %.033, %.lr.ph.preheader ], [ %116, %114 ]
-  %107 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %108 = load ptr, ptr %107, align 8, !tbaa !34
   %109 = call ptr @get_merge_parent(ptr noundef %108) #17
   %.not42 = icmp eq ptr %109, null
   br i1 %.not42, label %110, label %114
 
 110:                                              ; preds = %.lr.ph
-  %111 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %112 = load ptr, ptr %111, align 8, !tbaa !34
   %113 = call fastcc ptr @_(ptr noundef nonnull @.str.150)
   call void @help_unknown_ref(ptr noundef %112, ptr noundef nonnull @.str.15, ptr noundef %113) #19
@@ -2493,7 +2491,7 @@ reduce_parents.exit55.thread:                     ; preds = %._crit_edge
 
 139:                                              ; preds = %141, %131
   %.0811.i.i.i = phi i64 [ 0, %131 ], [ %142, %141 ]
-  %140 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
+  %140 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %138, %140
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %141
 
@@ -2867,7 +2865,7 @@ st_mult.exit:                                     ; preds = %6
   %16 = phi i64 [ %2, %._crit_edge ], [ %.pre3, %st_mult.exit ]
   %17 = phi ptr [ %.pre, %._crit_edge ], [ %14, %st_mult.exit ]
   store i64 %.pre-phi, ptr @use_strategies_nr, align 8, !tbaa !58
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   store ptr %0, ptr %18, align 8, !tbaa !59
   ret void
 }
@@ -2905,7 +2903,7 @@ define internal fastcc ptr @get_strategy(ptr noundef %0) unnamed_addr #0 {
 
 11:                                               ; preds = %9, %10
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw %struct.strategy, ptr @all_strategy, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [16 x i8], ptr @all_strategy, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 16, !tbaa !68
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.036, ptr noundef nonnull dereferenceable(1) %13) #18
   %.not50 = icmp eq i32 %14, 0
@@ -2927,14 +2925,14 @@ define internal fastcc ptr @get_strategy(ptr noundef %0) unnamed_addr #0 {
 .lr.ph:                                           ; preds = %16, %34
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %34 ], [ 0, %16 ]
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @get_strategy.main_cmds, i64 8), align 8, !tbaa !165
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv72
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv72
   %21 = load ptr, ptr %20, align 8, !tbaa !166
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %23
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv69 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next70, %23 ]
-  %24 = getelementptr inbounds nuw %struct.strategy, ptr @all_strategy, i64 %indvars.iv69
+  %24 = getelementptr inbounds nuw [16 x i8], ptr @all_strategy, i64 %indvars.iv69
   %25 = load ptr, ptr %24, align 16, !tbaa !68
   %26 = load i64, ptr %21, align 8, !tbaa !58
   %27 = call i32 @xstrncmpz(ptr noundef %25, ptr noundef nonnull %22, i64 noundef %26) #17
@@ -3009,7 +3007,7 @@ _.exit53:                                         ; preds = %_.exit, %50
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.lr.ph62 ], [ 0, %_.exit53 ]
   %55 = load ptr, ptr @stderr, align 8, !tbaa !130
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @get_strategy.main_cmds, i64 8), align 8, !tbaa !165
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv75
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv75
   %58 = load ptr, ptr %57, align 8, !tbaa !166
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.33, ptr noundef nonnull %59) #20
@@ -3047,7 +3045,7 @@ _.exit56:                                         ; preds = %67, %70
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.lr.ph65 ], [ 0, %_.exit56 ]
   %75 = load ptr, ptr @stderr, align 8, !tbaa !130
   %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @get_strategy.other_cmds, i64 8), align 8, !tbaa !165
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv78
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv78
   %78 = load ptr, ptr %77, align 8, !tbaa !166
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.33, ptr noundef nonnull %79) #20
@@ -3102,7 +3100,7 @@ define internal fastcc void @add_strategies(ptr noundef %0, i32 noundef range(i3
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %3, align 8, !tbaa !172
   %10 = load i64, ptr %8, align 8, !tbaa !173
-  %11 = getelementptr inbounds nuw %struct.string_list_item, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %10
   %12 = icmp ult ptr %7, %11
   br i1 %12, label %.lr.ph35, label %.critedge
 
@@ -3147,12 +3145,12 @@ append_strategy.exit:                             ; preds = %._crit_edge.i, %st_
   %28 = phi i64 [ %15, %._crit_edge.i ], [ %.pre3.i, %st_mult.exit.i ]
   %29 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %27, %st_mult.exit.i ]
   store i64 %.pre-phi.i, ptr @use_strategies_nr, align 8, !tbaa !58
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   store ptr %14, ptr %30, align 8, !tbaa !59
   %31 = getelementptr inbounds nuw i8, ptr %.02434, i64 16
   %32 = load ptr, ptr %3, align 8, !tbaa !172
   %33 = load i64, ptr %8, align 8, !tbaa !173
-  %34 = getelementptr inbounds nuw %struct.string_list_item, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %33
   %35 = icmp ult ptr %31, %34
   br i1 %35, label %.lr.ph35, label %.critedge
 
@@ -3163,7 +3161,7 @@ append_strategy.exit:                             ; preds = %._crit_edge.i, %st_
 
 .preheader:                                       ; preds = %2, %57
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %2 ]
-  %36 = getelementptr inbounds nuw %struct.strategy, ptr @all_strategy, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [16 x i8], ptr @all_strategy, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i32, ptr %37, align 8, !tbaa !61
   %39 = and i32 %38, %1
@@ -3208,7 +3206,7 @@ append_strategy.exit22:                           ; preds = %._crit_edge.i15, %s
   %54 = phi i64 [ %41, %._crit_edge.i15 ], [ %.pre3.i20, %st_mult.exit.i19 ]
   %55 = phi ptr [ %.pre.i16, %._crit_edge.i15 ], [ %53, %st_mult.exit.i19 ]
   store i64 %.pre-phi.i17, ptr @use_strategies_nr, align 8, !tbaa !58
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %54
   store ptr %36, ptr %56, align 8, !tbaa !59
   br label %57
 
@@ -3576,10 +3574,10 @@ define internal fastcc range(i32 -1, 1) i32 @read_tree_trivial(ptr noundef %0, p
 
 30:                                               ; preds = %24, %30
   %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !202
   %33 = call i32 @parse_tree_gently(ptr noundef %32, i32 noundef 0) #17
-  %34 = getelementptr inbounds nuw %struct.tree_desc, ptr %5, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %indvars.iv
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %37 = load ptr, ptr %36, align 8, !tbaa !205
@@ -3968,7 +3966,7 @@ _.exit:                                           ; preds = %23, %25
 .lr.ph:                                           ; preds = %38, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %38 ]
   %45 = load ptr, ptr @xopts, align 8, !tbaa !217
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !34
   %48 = call i32 @parse_merge_opt(ptr noundef nonnull %8, ptr noundef %47) #17
   %.not39 = icmp eq i32 %48, 0
@@ -3977,7 +3975,7 @@ _.exit:                                           ; preds = %23, %25
 49:                                               ; preds = %.lr.ph
   %50 = call fastcc ptr @_(ptr noundef nonnull @.str.223)
   %51 = load ptr, ptr @xopts, align 8, !tbaa !217
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !34
   call void (ptr, ...) @die(ptr noundef %50, ptr noundef %53) #19
   unreachable
@@ -4266,7 +4264,7 @@ append_strategy.exit:                             ; preds = %._crit_edge.i, %st_
   %19 = phi i64 [ %6, %._crit_edge.i ], [ %.pre3.i, %st_mult.exit.i ]
   %20 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %18, %st_mult.exit.i ]
   store i64 %.pre-phi.i, ptr @use_strategies_nr, align 8, !tbaa !58
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   store ptr %5, ptr %21, align 8, !tbaa !59
   br label %22
 

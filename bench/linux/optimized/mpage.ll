@@ -30,13 +30,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mpage_writep
 %struct.mpage_data = type { ptr, i64, ptr }
 %struct.blk_plug = type { ptr, ptr, i16, i16, i8, i8, %struct.list_head }
 %struct.folio_iter = type { ptr, i64, i64, ptr, i64, i32 }
-%struct.page = type { i64, %union.anon.8, %union.anon.16, %struct.atomic_t, [8 x i8] }
-%union.anon.8 = type { %struct.anon.9 }
-%struct.anon.9 = type { %union.anon.10, ptr, %union.anon.12, i64 }
-%union.anon.10 = type { %struct.list_head }
-%union.anon.12 = type { i64 }
-%union.anon.16 = type { %struct.atomic_t }
-%struct.bio_vec = type { ptr, i32, i32 }
 
 @__UNIQUE_ID___addressable_mpage_readahead436 = internal global ptr @mpage_readahead, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_mpage_read_folio437 = internal global ptr @mpage_read_folio, section ".discard.addressable", align 8
@@ -1449,7 +1442,7 @@ define internal void @mpage_read_end_io(ptr noundef %0) #0 align 16 {
 
 82:                                               ; preds = %69, %78
   %83 = phi i64 [ %81, %78 ], [ 1, %69 ]
-  %84 = getelementptr %struct.page, ptr %49, i64 %83
+  %84 = getelementptr [64 x i8], ptr %49, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -1542,7 +1535,7 @@ define internal fastcc void @bio_next_folio(ptr noundef captures(none) initializ
 
 31:                                               ; preds = %27, %20
   %32 = phi i64 [ %30, %27 ], [ 1, %20 ]
-  %33 = getelementptr %struct.page, ptr %11, i64 %32
+  %33 = getelementptr [64 x i8], ptr %11, i64 %32
   store ptr %33, ptr %10, align 8
   br label %119
 
@@ -1577,7 +1570,7 @@ define internal fastcc void @bio_next_folio(ptr noundef captures(none) initializ
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %51 = load ptr, ptr %50, align 8
   %52 = sext i32 %37 to i64
-  %53 = getelementptr %struct.bio_vec, ptr %51, i64 %52
+  %53 = getelementptr [16 x i8], ptr %51, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load volatile i64, ptr %55, align 8
@@ -1670,7 +1663,7 @@ define internal fastcc void @bio_next_folio(ptr noundef captures(none) initializ
 
 115:                                              ; preds = %111, %103
   %116 = phi i64 [ %114, %111 ], [ 1, %103 ]
-  %117 = getelementptr %struct.page, ptr %83, i64 %116
+  %117 = getelementptr [64 x i8], ptr %83, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %117, ptr %118, align 8
   store i32 %37, ptr %35, align 8
@@ -1830,7 +1823,7 @@ define internal void @mpage_write_end_io(ptr noundef %0) #0 align 16 {
 
 82:                                               ; preds = %69, %78
   %83 = phi i64 [ %81, %78 ], [ 1, %69 ]
-  %84 = getelementptr %struct.page, ptr %49, i64 %83
+  %84 = getelementptr [64 x i8], ptr %49, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %84, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 40

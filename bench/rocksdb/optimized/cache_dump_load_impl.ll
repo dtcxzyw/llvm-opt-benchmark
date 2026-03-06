@@ -373,7 +373,7 @@ define void @_ZN7rocksdb15CacheDumperImpl13SetDumpFilterESt6vectorIPNS_2DBESaIS3
   store float 1.000000e+00, ptr %19, align 8, !tbaa !66
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.01085
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.01085
   %52 = load ptr, ptr %51, align 8, !tbaa !67
   %53 = load ptr, ptr %52, align 8, !tbaa !69
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 1096

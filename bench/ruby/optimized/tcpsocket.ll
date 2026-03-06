@@ -141,7 +141,7 @@ rbimpl_intern_const.exit40:                       ; preds = %.lr.ph.i38, %rbimpl
 
 23:                                               ; preds = %17
   %24 = zext nneg i32 %0 to i64
-  %25 = getelementptr i64, ptr %1, i64 %24
+  %25 = getelementptr [8 x i8], ptr %1, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -8
   %27 = load i64, ptr %26, align 8, !tbaa !6
   %28 = call i32 @rb_keyword_given_p() #6
@@ -168,7 +168,7 @@ rbimpl_intern_const.exit40:                       ; preds = %.lr.ph.i38, %rbimpl
   br i1 %.not105.i, label %38, label %35
 
 35:                                               ; preds = %.preheader56
-  %36 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8, !tbaa !6
   store i64 %37, ptr %34, align 8, !tbaa !6
   br label %38
@@ -181,7 +181,7 @@ rbimpl_intern_const.exit40:                       ; preds = %.lr.ph.i38, %rbimpl
   %39 = phi i1 [ false, %52 ], [ true, %38 ]
   %.185.i64 = phi i32 [ %.286.i, %52 ], [ 2, %38 ]
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
-  %40 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv77
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv77
   %41 = load ptr, ptr %40, align 8, !tbaa !12
   %42 = icmp slt i32 %.185.i64, %.0.i
   %.not104.i = icmp eq ptr %41, null
@@ -192,7 +192,7 @@ rbimpl_intern_const.exit40:                       ; preds = %.lr.ph.i38, %rbimpl
 
 44:                                               ; preds = %43
   %45 = sext i32 %.185.i64 to i64
-  %46 = getelementptr inbounds i64, ptr %1, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %1, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !6
   store i64 %47, ptr %41, align 8, !tbaa !6
   br label %48

@@ -255,13 +255,13 @@ mpeg4_get_intra_dc_vlc_thr.exit:                  ; preds = %96, %103, %104, %10
 
 151:                                              ; preds = %.lr.ph, %151
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %151 ]
-  %152 = getelementptr inbounds nuw [2 x i16], ptr %150, i64 %indvars.iv
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %indvars.iv
   %153 = load i16, ptr %152, align 4, !tbaa !95
-  %154 = getelementptr inbounds nuw i16, ptr %.sroa.31.0..sroa_idx, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.31.0..sroa_idx, i64 %indvars.iv
   store i16 %153, ptr %154, align 2, !tbaa !95
   %155 = getelementptr inbounds nuw i8, ptr %152, i64 2
   %156 = load i16, ptr %155, align 2, !tbaa !95
-  %157 = getelementptr inbounds nuw i16, ptr %.sroa.32.0..sroa_idx, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.32.0..sroa_idx, i64 %indvars.iv
   store i16 %156, ptr %157, align 2, !tbaa !95
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -327,12 +327,12 @@ mpeg4_get_intra_dc_vlc_thr.exit:                  ; preds = %96, %103, %104, %10
   %189 = getelementptr inbounds nuw i8, ptr %180, i64 %188
   %190 = load i8, ptr %189, align 1, !tbaa !97
   %191 = zext i8 %190 to i64
-  %192 = getelementptr inbounds nuw i16, ptr %181, i64 %191
+  %192 = getelementptr inbounds nuw [2 x i8], ptr %181, i64 %191
   %193 = load i16, ptr %192, align 2, !tbaa !95
   %194 = trunc i16 %193 to i8
   %195 = getelementptr inbounds nuw i8, ptr %182, i64 %indvars.iv107
   store i8 %194, ptr %195, align 1, !tbaa !97
-  %196 = getelementptr inbounds nuw i16, ptr %183, i64 %191
+  %196 = getelementptr inbounds nuw [2 x i8], ptr %183, i64 %191
   %197 = load i16, ptr %196, align 2, !tbaa !95
   %198 = trunc i16 %197 to i8
   %199 = getelementptr inbounds nuw i8, ptr %184, i64 %indvars.iv107

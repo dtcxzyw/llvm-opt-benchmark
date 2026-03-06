@@ -1325,7 +1325,7 @@ define linkonce_odr void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE14_M_fi
 
 _ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !45
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_.exit, label %26
@@ -1334,7 +1334,7 @@ _ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 3
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds ptr, ptr %9, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_.exit
 
@@ -1445,7 +1445,7 @@ _ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_R
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw ptr, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -1467,7 +1467,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET
 _ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !46
   store ptr %72, ptr %8, align 8, !tbaa !45
-  %75 = getelementptr inbounds nuw ptr, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !200
   br label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit
 
@@ -2229,7 +2229,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEED2Ev.exit: ; preds = %13, %16
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %10, align 8, !tbaa !251
-  %26 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store double 1.000000e-09, ptr %26, align 8, !tbaa !49
   %27 = load ptr, ptr %5, align 8, !tbaa !35
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 224
@@ -2268,7 +2268,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit:  ; preds = %.noexc
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %10, align 8, !tbaa !251
-  %47 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   store double -1.000000e-09, ptr %47, align 8, !tbaa !49
   %48 = load ptr, ptr %5, align 8, !tbaa !35
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 224
@@ -2301,10 +2301,10 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31: ; preds = %.noexc29
 _ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit: ; preds = %57
   %62 = fsub double %37, %58
   %63 = load ptr, ptr %10, align 8, !tbaa !251
-  %64 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   store double 0.000000e+00, ptr %64, align 8, !tbaa !49
   %65 = load ptr, ptr %11, align 8, !tbaa !197, !noalias !257
-  %66 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv
   %67 = fmul double %62, 0x41BDCD64FFFFFFFF
   store double %67, ptr %66, align 8, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2388,7 +2388,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEED2Ev.exit: ; preds = %14, %17
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %11, align 8, !tbaa !251
-  %27 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   store double 1.000000e-09, ptr %27, align 8, !tbaa !49
   %28 = load ptr, ptr %6, align 8, !tbaa !35
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 224
@@ -2427,7 +2427,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit:  ; preds = %.noexc
 
 46:                                               ; preds = %42
   %47 = load ptr, ptr %11, align 8, !tbaa !251
-  %48 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   store double -1.000000e-09, ptr %48, align 8, !tbaa !49
   %49 = load ptr, ptr %6, align 8, !tbaa !35
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 224
@@ -2460,10 +2460,10 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31: ; preds = %.noexc29
 _ZN3g2o5ceres8internal10FixedArrayIdLm6ESaIdEE4fillERKd.exit: ; preds = %58
   %63 = fsub double %38, %59
   %64 = load ptr, ptr %11, align 8, !tbaa !251
-  %65 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
   store double 0.000000e+00, ptr %65, align 8, !tbaa !49
   %66 = load ptr, ptr %12, align 8, !tbaa !197, !noalias !261
-  %67 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv
   %68 = fmul double %63, 0x41BDCD64FFFFFFFF
   store double %68, ptr %67, align 8, !tbaa !49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

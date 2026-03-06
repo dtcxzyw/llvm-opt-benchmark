@@ -2876,7 +2876,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 96
   %16 = load i64, ptr %15, align 8, !tbaa !89
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !91
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -2891,7 +2891,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !91
   br label %28
 
@@ -2961,7 +2961,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %12 = load i64, ptr %11, align 8, !tbaa !48
   %13 = urem i64 %7, %12
   %14 = load ptr, ptr %0, align 8, !tbaa !43
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !91
   %.not.i.i = icmp eq ptr %16, null
   %.pre = load ptr, ptr %1, align 8, !tbaa !22
@@ -3146,7 +3146,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i64 %2, ptr %32, align 8, !tbaa !89
   %33 = load ptr, ptr %0, align 8, !tbaa !43
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !91
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -3172,7 +3172,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %46 = load i64, ptr %45, align 8, !tbaa !89
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !91
   br label %49
 
@@ -3540,7 +3540,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !48
   %31 = urem i64 %26, %30
-  %32 = getelementptr inbounds nuw ptr, ptr %28, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %31
   store ptr %27, ptr %32, align 8, !tbaa !91
   %.02833 = load ptr, ptr %19, align 8, !tbaa !71
   %.not3034 = icmp eq ptr %.02833, null
@@ -3562,7 +3562,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %39 = load i64, ptr %29, align 8, !tbaa !48
   %40 = urem i64 %38, %39
   %41 = load ptr, ptr %0, align 8, !tbaa !43
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8, !tbaa !91
   %.not32 = icmp eq ptr %43, null
   br i1 %.not32, label %44, label %49
@@ -3980,7 +3980,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap12Deserializer11deseri
   br i1 %21, label %22, label %_ZNSt6vectorIN3dap3anyESaIS1_EE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw %"class.dap::any", ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIN3dap3anyESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -4246,9 +4246,9 @@ _ZNSt6vectorIN3dap3anyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZS
 
 _ZNSt12_Vector_baseIN3dap3anyESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorIN3dap3anyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %80
   store ptr %26, ptr %0, align 8, !tbaa !54
-  %84 = getelementptr inbounds nuw %"class.dap::any", ptr %27, i64 %1
+  %84 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %1
   store ptr %84, ptr %4, align 8, !tbaa !57
-  %85 = getelementptr inbounds nuw %"class.dap::any", ptr %26, i64 %24
+  %85 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %24
   store ptr %85, ptr %11, align 8, !tbaa !59
   br label %86
 
@@ -4270,7 +4270,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbPN3
   %9 = add i64 %8, 1
   store i64 %9, ptr %7, align 8, !tbaa !53
   %10 = load ptr, ptr %5, align 8, !tbaa !54
-  %11 = getelementptr inbounds nuw %"class.dap::any", ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %8
   %12 = load ptr, ptr %3, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8

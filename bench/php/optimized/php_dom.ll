@@ -22980,7 +22980,7 @@ zend_string_alloc.exit:                           ; preds = %20
 36:                                               ; preds = %32
   %37 = load i8, ptr %21, align 1, !tbaa !44
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @zend_one_char_string, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !125
   br label %zend_string_init_fast.exit
 

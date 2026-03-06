@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.unit_name_string = type { ptr, ptr }
 %struct.expert_field = type { i32, i32 }
 %struct._address = type { i32, i32, ptr, ptr }
-%struct._value_string = type { i32, ptr }
 
 @rtcp_handle = internal unnamed_addr global ptr null, align 8
 @proto_rtcp = internal unnamed_addr global i32 0, align 4
@@ -1892,7 +1891,7 @@ add_entries_for_rtcp_rtpfb_dissector_table.exit:  ; preds = %11
 
 16:                                               ; preds = %0, %16
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr %struct._value_string, ptr @rtcp_ms_profile_extension_vals, i64 %indvars.iv
+  %17 = getelementptr [16 x i8], ptr @rtcp_ms_profile_extension_vals, i64 %indvars.iv
   %18 = load i32, ptr %17, align 16
   %19 = load ptr, ptr @ms_pse_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.671, i32 noundef %18, ptr noundef %19)
@@ -2106,7 +2105,7 @@ define internal fastcc i32 @dissect_rtcp_common(ptr noundef %0, ptr noundef %1, 
 
 switch.lookup:                                    ; preds = %94
   %107 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_rtcp_common, i64 %107
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_rtcp_common, i64 %107
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %rtcp_packet_type_to_tree.exit
 
@@ -3106,7 +3105,7 @@ dissect_rtcp_sdes.exit:                           ; preds = %353, %285
 655:                                              ; preds = %655, %650
   %indvars.iv.i.i = phi i64 [ 0, %650 ], [ %indvars.iv.next.i.i, %655 ]
   %.0316373.i.i = phi i8 [ 0, %650 ], [ %spec.select.i.i, %655 ]
-  %656 = getelementptr i32, ptr @hf_rtcp_app_poc1_conn_content, i64 %indvars.iv.i.i
+  %656 = getelementptr [4 x i8], ptr @hf_rtcp_app_poc1_conn_content, i64 %indvars.iv.i.i
   %657 = load i32, ptr %656, align 4
   %658 = call ptr @proto_tree_add_item(ptr noundef %652, i32 noundef %657, ptr noundef %0, i32 noundef %450, i32 noundef 2, i32 noundef 0)
   %659 = trunc i64 %indvars.iv.i.i to i32
@@ -3146,7 +3145,7 @@ dissect_rtcp_sdes.exit:                           ; preds = %353, %285
   %680 = add i32 %.8376.i.i, 1
   %681 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %680)
   %682 = zext i8 %681 to i32
-  %683 = getelementptr i32, ptr @hf_rtcp_app_poc1_conn_sdes_items, i64 %indvars.iv377.i.i
+  %683 = getelementptr [4 x i8], ptr @hf_rtcp_app_poc1_conn_sdes_items, i64 %indvars.iv377.i.i
   %684 = load i32, ptr %683, align 4
   %685 = call ptr @proto_tree_add_item(ptr noundef %457, i32 noundef %684, ptr noundef %0, i32 noundef %680, i32 noundef 1, i32 noundef 0)
   %686 = add i32 %.8376.i.i, 2
@@ -6378,7 +6377,7 @@ define internal range(i32 4, -2147483648) i32 @dissect_rtcp_rtpfb_transport_cc(p
   store i8 1, ptr %82, align 1
   %83 = add i32 %.3240333.i, 1
   %84 = trunc i32 %.3240333.i to i16
-  %85 = getelementptr i16, ptr %48, i64 %81
+  %85 = getelementptr [2 x i8], ptr %48, i64 %81
   store i16 %84, ptr %85, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond360.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -6408,7 +6407,7 @@ define internal range(i32 4, -2147483648) i32 @dissect_rtcp_rtpfb_transport_cc(p
   store i8 2, ptr %95, align 1
   %96 = add i32 %.4241335.i, 1
   %97 = trunc i32 %.4241335.i to i16
-  %98 = getelementptr i16, ptr %48, i64 %94
+  %98 = getelementptr [2 x i8], ptr %48, i64 %94
   store i16 %97, ptr %98, align 2
   %indvars.iv.next362.i = add nuw nsw i64 %indvars.iv361.i, 1
   %exitcond365.not.i = icmp eq i64 %indvars.iv.next362.i, %wide.trip.count364.i
@@ -6463,7 +6462,7 @@ define internal range(i32 4, -2147483648) i32 @dissect_rtcp_rtpfb_transport_cc(p
   store i8 1, ptr %120, align 1
   %121 = add i32 %.7244331.i, 1
   %122 = trunc i32 %.7244331.i to i16
-  %123 = getelementptr i16, ptr %48, i64 %119
+  %123 = getelementptr [2 x i8], ptr %48, i64 %119
   store i16 %122, ptr %123, align 2
   %124 = add nuw i32 %.5253330.i, 1
   br label %125
@@ -6522,7 +6521,7 @@ define internal range(i32 4, -2147483648) i32 @dissect_rtcp_rtpfb_transport_cc(p
   store i8 1, ptr %144, align 1
   %145 = add i32 %.11328.i, 1
   %146 = trunc i32 %.11328.i to i16
-  %147 = getelementptr i16, ptr %48, i64 %143
+  %147 = getelementptr [2 x i8], ptr %48, i64 %143
   store i16 %146, ptr %147, align 2
   %148 = add nuw i32 %.9257327.i, 1
   br label %160
@@ -6539,7 +6538,7 @@ define internal range(i32 4, -2147483648) i32 @dissect_rtcp_rtpfb_transport_cc(p
   store i8 2, ptr %153, align 1
   %154 = add i32 %.11328.i, 1
   %155 = trunc i32 %.11328.i to i16
-  %156 = getelementptr i16, ptr %48, i64 %152
+  %156 = getelementptr [2 x i8], ptr %48, i64 %152
   store i16 %155, ptr %156, align 2
   %157 = add nuw i32 %.9257327.i, 1
   br label %160
@@ -6600,7 +6599,7 @@ define internal range(i32 4, -2147483648) i32 @dissect_rtcp_rtpfb_transport_cc(p
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %173 = load i32, ptr @hf_rtcp_rtpfb_transport_cc_fci_recv_delta_1_byte, align 4
   %174 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %168, i32 noundef %173, ptr noundef %0, i32 noundef %.8217342.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8)
-  %175 = getelementptr i16, ptr %48, i64 %indvars.iv366.i
+  %175 = getelementptr [2 x i8], ptr %48, i64 %indvars.iv366.i
   %176 = load i16, ptr %175, align 2
   %177 = zext i16 %176 to i32
   %178 = load i32, ptr %8, align 4
@@ -6620,7 +6619,7 @@ define internal range(i32 4, -2147483648) i32 @dissect_rtcp_rtpfb_transport_cc(p
   br i1 %187, label %188, label %195
 
 188:                                              ; preds = %183
-  %189 = getelementptr i16, ptr %48, i64 %indvars.iv366.i
+  %189 = getelementptr [2 x i8], ptr %48, i64 %indvars.iv366.i
   %190 = load i16, ptr %189, align 2
   %191 = zext i16 %190 to i32
   %192 = sitofp i16 %186 to double
@@ -6631,7 +6630,7 @@ define internal range(i32 4, -2147483648) i32 @dissect_rtcp_rtpfb_transport_cc(p
 
 195:                                              ; preds = %183
   %196 = zext nneg i16 %186 to i32
-  %197 = getelementptr i16, ptr %48, i64 %indvars.iv366.i
+  %197 = getelementptr [2 x i8], ptr %48, i64 %indvars.iv366.i
   %198 = load i16, ptr %197, align 2
   %199 = zext i16 %198 to i32
   %200 = mul nuw nsw i32 %196, 250

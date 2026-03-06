@@ -25,7 +25,7 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4Sk
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %5
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %5
   %.062 = load ptr, ptr %9, align 8, !tbaa !10
   %10 = load i64, ptr %.062, align 8, !tbaa !12
   %.not63 = icmp ult i64 %1, %10
@@ -70,7 +70,7 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4Sk
 
 23:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.next
+  %24 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv.next
   %25 = load ptr, ptr %24, align 8, !tbaa !7
   %26 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next
   %27 = load i8, ptr %26, align 1, !tbaa !4
@@ -91,7 +91,7 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4Sk
   %.134.lcssa = phi ptr [ %.03367, %14 ], [ %25, %._crit_edge.loopexit ]
   %.lcssa = phi i64 [ %17, %14 ], [ %29, %._crit_edge.loopexit ]
   %35 = getelementptr inbounds nuw i8, ptr %.134.lcssa, i64 16
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.lcssa
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.lcssa
   %.0 = load ptr, ptr %36, align 8, !tbaa !10
   %37 = load i64, ptr %.0, align 8, !tbaa !12
   %.not = icmp ult i64 %16, %37
@@ -113,13 +113,13 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4Sk
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv103
   store i8 %39, ptr %40, align 1, !tbaa !4
   %indvars.iv.next104 = add nsw i64 %indvars.iv103, -1
-  %41 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.next104
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next104
   store ptr %.187, ptr %41, align 8, !tbaa !7
   %42 = getelementptr inbounds nuw i8, ptr %.187, i64 14
   %43 = load i8, ptr %42, align 1, !tbaa !4
   %44 = zext i8 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr %.187, i64 16
-  %.2.in74 = getelementptr inbounds nuw ptr, ptr %45, i64 %44
+  %.2.in74 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %44
   %.275 = load ptr, ptr %.2.in74, align 8, !tbaa !10
   %46 = load i64, ptr %.275, align 8, !tbaa !12
   %.not4876 = icmp ult i64 %.14284, %46
@@ -131,7 +131,7 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4Sk
   %.24377 = phi i64 [ %48, %.lr.ph80 ], [ %.14284, %.lr.ph88 ]
   %48 = sub nuw i64 %.24377, %47
   %49 = add i64 %.378, 1
-  %.2.in = getelementptr inbounds nuw ptr, ptr %45, i64 %49
+  %.2.in = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %49
   %.2 = load ptr, ptr %.2.in, align 8, !tbaa !10
   %50 = load i64, ptr %.2, align 8, !tbaa !12
   %.not48 = icmp ult i64 %48, %50
@@ -162,7 +162,7 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4Re
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %7
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %7
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = load i64, ptr %12, align 8, !tbaa !12
   %14 = icmp ult i64 %4, %13
@@ -339,7 +339,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit: ; preds = %_ZN4ab
 
 99:                                               ; preds = %.lr.ph.split.us
   %indvars.iv.next196 = add nsw i64 %indvars.iv195, 1
-  %100 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.next196
+  %100 = getelementptr inbounds [8 x i8], ptr %8, i64 %indvars.iv.next196
   %101 = load ptr, ptr %100, align 8, !tbaa !7
   %102 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.next196
   %103 = load i8, ptr %102, align 1, !tbaa !4
@@ -406,7 +406,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %119
   store i8 1, ptr %134, align 1, !tbaa !4
   %135 = getelementptr inbounds nuw i8, ptr %120, i64 16
   store ptr %.184131, ptr %135, align 8, !tbaa !10
-  %136 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv.next
+  %136 = getelementptr inbounds [8 x i8], ptr %8, i64 %indvars.iv.next
   %137 = load ptr, ptr %136, align 8, !tbaa !7
   %138 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.next
   %139 = load i8, ptr %138, align 1, !tbaa !4
@@ -433,7 +433,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %119
   %.1.lcssa = phi i64 [ %.0, %82 ], [ %.0, %._crit_edge.loopexit ], [ 1, %._crit_edge.loopexit171 ]
   %.lcssa = phi i64 [ %85, %82 ], [ %105, %._crit_edge.loopexit ], [ %141, %._crit_edge.loopexit171 ]
   %148 = getelementptr inbounds nuw i8, ptr %.193.lcssa, i64 16
-  %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %.lcssa
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %.lcssa
   %150 = load ptr, ptr %149, align 8, !tbaa !10
   %151 = load i64, ptr %150, align 8, !tbaa !12
   %.not = icmp ult i64 %84, %151
@@ -447,7 +447,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %119
   %156 = atomicrmw add ptr %155, i32 2 monotonic, align 4
   %157 = getelementptr inbounds nuw i8, ptr %.184.lcssa, i64 16
   %158 = add i64 %.1.lcssa, 1
-  %159 = getelementptr inbounds nuw ptr, ptr %157, i64 %.1.lcssa
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %.1.lcssa
   store ptr %150, ptr %159, align 8, !tbaa !10
   %.pre202 = load i64, ptr %150, align 8, !tbaa !12
   br label %160
@@ -480,13 +480,13 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %119
   %168 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv199
   store i8 %167, ptr %168, align 1, !tbaa !4
   %indvars.iv.next200 = add nsw i64 %indvars.iv199, -1
-  %169 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next200
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next200
   store ptr %.189158, ptr %169, align 8, !tbaa !7
   %170 = getelementptr inbounds nuw i8, ptr %.189158, i64 14
   %171 = load i8, ptr %170, align 1, !tbaa !4
   %172 = zext i8 %171 to i64
   %173 = getelementptr inbounds nuw i8, ptr %.189158, i64 16
-  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %172
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %172
   %175 = load ptr, ptr %174, align 8, !tbaa !10
   %.not117 = icmp eq i64 %.1100156, 0
   br i1 %.not117, label %.loopexit, label %176
@@ -506,7 +506,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %119
   store i8 0, ptr %183, align 1, !tbaa !4
   store i64 %.1100156, ptr %177, align 8, !tbaa !12
   %184 = getelementptr inbounds nuw i8, ptr %.386159, i64 16
-  %185 = getelementptr inbounds nuw ptr, ptr %184, i64 %.4160
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %.4160
   store ptr %177, ptr %185, align 8, !tbaa !10
   %186 = trunc i64 %.4160 to i8
   %187 = add i8 %186, 1
@@ -529,11 +529,11 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %119
   %193 = getelementptr inbounds nuw i8, ptr %.391147, i64 8
   %194 = atomicrmw add ptr %193, i32 2 monotonic, align 4
   %195 = add i64 %.6148, 1
-  %196 = getelementptr inbounds nuw ptr, ptr %190, i64 %.6148
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %.6148
   store ptr %.391147, ptr %196, align 8, !tbaa !10
   %197 = sub nuw i64 %.3102145, %192
   %198 = add i64 %.498146, 1
-  %199 = getelementptr inbounds nuw ptr, ptr %173, i64 %198
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %198
   %200 = load ptr, ptr %199, align 8, !tbaa !10
   %201 = load i64, ptr %200, align 8, !tbaa !12
   %.not118 = icmp ult i64 %197, %201
@@ -561,7 +561,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %119
   %204 = tail call fastcc noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_19SubstringEPNS0_7CordRepEmm(ptr noundef %.189.lcssa, i64 noundef 0, i64 noundef %.1100.lcssa)
   %205 = getelementptr inbounds nuw i8, ptr %.386.lcssa, i64 16
   %206 = add i64 %.4.lcssa, 1
-  %207 = getelementptr inbounds nuw ptr, ptr %205, i64 %.4.lcssa
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %.4.lcssa
   store ptr %204, ptr %207, align 8, !tbaa !10
   br label %208
 

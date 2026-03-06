@@ -77,29 +77,17 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.entity_id = type { i32 }
-%"struct.entt::internal::dense_map_node" = type { i64, %"struct.std::pair.73" }
-%"struct.std::pair.73" = type { i32, %"class.std::shared_ptr" }
+%"class.entt::basic_any" = type <{ %union.anon.92, ptr, ptr, i8, [7 x i8] }>
+%union.anon.92 = type { ptr, [8 x i8] }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.entt::delegate" = type { ptr, ptr }
-%"class.entt::basic_any" = type <{ %union.anon.92, ptr, ptr, i8, [7 x i8] }>
-%union.anon.92 = type { ptr, [8 x i8] }
 %"class.std::tuple.110" = type { %"struct.std::_Tuple_impl.111" }
 %"struct.std::_Tuple_impl.111" = type { %"struct.std::_Head_base.112" }
 %"struct.std::_Head_base.112" = type { ptr }
 %"class.std::tuple.113" = type { %"struct.std::_Tuple_impl.114" }
 %"struct.std::_Tuple_impl.114" = type { %"struct.std::_Head_base.115" }
 %"struct.std::_Head_base.115" = type { ptr }
-%"struct.entt::internal::dense_map_node.118" = type { i64, %"struct.std::pair.119" }
-%"struct.std::pair.119" = type { i32, [4 x i8], %"class.entt::basic_any.121" }
-%"class.entt::basic_any.121" = type <{ %union.anon.122, ptr, ptr, i8, [7 x i8] }>
-%union.anon.122 = type { ptr }
-%"struct.entt::internal::dense_map_node.124" = type { i64, %"struct.std::pair.125" }
-%"struct.std::pair.125" = type { i32, %"class.std::shared_ptr.127" }
-%"class.std::shared_ptr.127" = type { %"class.std::__shared_ptr.128" }
-%"class.std::__shared_ptr.128" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -860,14 +848,14 @@ _ZN4entt14basic_registryI9entity_idSaIS1_EE6createEv.exit: ; preds = %109
   br i1 %123, label %124, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE5validES1_.exit201.thread
 
 124:                                              ; preds = %_ZN4entt14basic_registryI9entity_idSaIS1_EE6createEv.exit
-  %125 = getelementptr inbounds nuw ptr, ptr %118, i64 %116
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %116
   %126 = load ptr, ptr %125, align 8, !tbaa !24
   %.not.i.i.i.i198 = icmp eq ptr %126, null
   br i1 %.not.i.i.i.i198, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE5validES1_.exit201.thread, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i.i199
 
 _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i.i199: ; preds = %124
   %127 = and i64 %115, 4095
-  %128 = getelementptr inbounds nuw %struct.entity_id, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %127
   %129 = and i32 %113, -1048576
   %.sroa.0.0.copyload.i.i.i200 = load i32, ptr %128, align 4, !tbaa !26
   %130 = xor i32 %.sroa.0.0.copyload.i.i.i200, %129
@@ -1329,7 +1317,7 @@ _ZN7testing7MessageD2Ev.exit262:                  ; preds = %_ZNKSt14default_del
   %284 = and i64 %283, 2515107422
   %285 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %286 = load ptr, ptr %285, align 8, !tbaa !61
-  %287 = getelementptr inbounds nuw i64, ptr %278, i64 %284
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %278, i64 %284
   br label %288
 
 288:                                              ; preds = %289, %274
@@ -1339,7 +1327,7 @@ _ZN7testing7MessageD2Ev.exit262:                  ; preds = %_ZNKSt14default_del
   br i1 %.not.i.i.i.i.i, label %_ZN4entt14basic_registryI9entity_idSaIS1_EE7try_getIJiEEEDaS1_.exit.thread, label %289
 
 289:                                              ; preds = %288
-  %290 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %286, i64 %.sroa.5.0.i.i.i.i.i
+  %290 = getelementptr inbounds [32 x i8], ptr %286, i64 %.sroa.5.0.i.i.i.i.i
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 8
   %292 = load i32, ptr %291, align 4, !tbaa !26
   %293 = icmp eq i32 %292, -1779859874
@@ -1370,13 +1358,13 @@ _ZNK4entt14basic_registryI9entity_idSaIS1_EE6assureIiEEPKDaj.exit.i.i: ; preds =
   br i1 %306, label %307, label %_ZN4entt14basic_registryI9entity_idSaIS1_EE7try_getIJiEEEDaS1_.exit.thread
 
 307:                                              ; preds = %297
-  %308 = getelementptr inbounds nuw ptr, ptr %301, i64 %116
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %301, i64 %116
   %309 = load ptr, ptr %308, align 8, !tbaa !24
   %.not.i.i.i.i269 = icmp eq ptr %309, null
   br i1 %.not.i.i.i.i269, label %_ZN4entt14basic_registryI9entity_idSaIS1_EE7try_getIJiEEEDaS1_.exit.thread, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i.i270
 
 _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i.i270: ; preds = %307
-  %310 = getelementptr inbounds nuw %struct.entity_id, ptr %309, i64 %127
+  %310 = getelementptr inbounds nuw [4 x i8], ptr %309, i64 %127
   %.sroa.0.0.copyload.i.i.i271 = load i32, ptr %310, align 4, !tbaa !26
   %311 = xor i32 %.sroa.0.0.copyload.i.i.i271, %129
   %312 = icmp ult i32 %311, 1048575
@@ -1394,10 +1382,10 @@ _ZN4entt14basic_registryI9entity_idSaIS1_EE7try_getIJiEEEDaS1_.exit: ; preds = %
   %315 = getelementptr inbounds nuw i8, ptr %296, i64 80
   %316 = lshr i64 %314, 10
   %317 = load ptr, ptr %315, align 8, !tbaa !75
-  %318 = getelementptr inbounds nuw ptr, ptr %317, i64 %316
+  %318 = getelementptr inbounds nuw [8 x i8], ptr %317, i64 %316
   %319 = load ptr, ptr %318, align 8, !tbaa !71
   %320 = and i64 %314, 1023
-  %321 = getelementptr inbounds nuw i32, ptr %319, i64 %320
+  %321 = getelementptr inbounds nuw [4 x i8], ptr %319, i64 %320
   store ptr %321, ptr %21, align 8, !tbaa !71
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr null, ptr %22, align 8, !tbaa !73
@@ -1586,7 +1574,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.06.i.i.i = phi i64 [ %382, %.noexc292 ], [ %381, %.lr.ph.preheader.i.i.i ]
   %382 = add i64 %.06.i.i.i, -1
   %383 = load ptr, ptr %372, align 8, !tbaa !94
-  %384 = getelementptr inbounds nuw %"class.entt::delegate", ptr %383, i64 %382
+  %384 = getelementptr inbounds nuw [16 x i8], ptr %383, i64 %382
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 8
   %386 = load ptr, ptr %385, align 8, !tbaa !95
   %387 = load ptr, ptr %384, align 8, !tbaa !97
@@ -1772,19 +1760,19 @@ _ZN7testing7MessageD2Ev.exit309:                  ; preds = %_ZNKSt14default_del
 438:                                              ; preds = %436
   %439 = getelementptr inbounds nuw i8, ptr %437, i64 8
   %440 = load ptr, ptr %439, align 8, !tbaa !23
-  %441 = getelementptr inbounds nuw ptr, ptr %440, i64 %116
+  %441 = getelementptr inbounds nuw [8 x i8], ptr %440, i64 %116
   %442 = load ptr, ptr %441, align 8, !tbaa !24
-  %443 = getelementptr inbounds nuw %struct.entity_id, ptr %442, i64 %127
+  %443 = getelementptr inbounds nuw [4 x i8], ptr %442, i64 %127
   %.sroa.01.0.copyload.i.i.i.i = load i32, ptr %443, align 4, !tbaa !26
   %444 = and i32 %.sroa.01.0.copyload.i.i.i.i, 1048575
   %445 = zext nneg i32 %444 to i64
   %446 = getelementptr inbounds nuw i8, ptr %437, i64 80
   %447 = lshr i64 %445, 10
   %448 = load ptr, ptr %446, align 8, !tbaa !75
-  %449 = getelementptr inbounds nuw ptr, ptr %448, i64 %447
+  %449 = getelementptr inbounds nuw [8 x i8], ptr %448, i64 %447
   %450 = load ptr, ptr %449, align 8, !tbaa !71
   %451 = and i64 %445, 1023
-  %452 = getelementptr inbounds nuw i32, ptr %450, i64 %451
+  %452 = getelementptr inbounds nuw [4 x i8], ptr %450, i64 %451
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i32 2, ptr %31, align 4, !tbaa !26
   %453 = load i32, ptr %452, align 4, !tbaa !26, !noalias !99
@@ -1961,13 +1949,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %512, label %513, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE5validES1_.exit340.thread
 
 513:                                              ; preds = %505
-  %514 = getelementptr inbounds nuw ptr, ptr %507, i64 %116
+  %514 = getelementptr inbounds nuw [8 x i8], ptr %507, i64 %116
   %515 = load ptr, ptr %514, align 8, !tbaa !24
   %.not.i.i.i.i337 = icmp eq ptr %515, null
   br i1 %.not.i.i.i.i337, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE5validES1_.exit340.thread, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i.i338
 
 _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i.i338: ; preds = %513
-  %516 = getelementptr inbounds nuw %struct.entity_id, ptr %515, i64 %127
+  %516 = getelementptr inbounds nuw [4 x i8], ptr %515, i64 %127
   %.sroa.0.0.copyload.i.i.i339 = load i32, ptr %516, align 4, !tbaa !26
   %517 = xor i32 %.sroa.0.0.copyload.i.i.i339, %129
   %518 = icmp ult i32 %517, 1048575
@@ -2149,14 +2137,14 @@ _ZN4entt14basic_registryI9entity_idSaIS1_EE6createEv.exit386: ; preds = %569
   br i1 %581, label %582, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE5validES1_.exit391.thread
 
 582:                                              ; preds = %_ZN4entt14basic_registryI9entity_idSaIS1_EE6createEv.exit386
-  %583 = getelementptr inbounds nuw ptr, ptr %576, i64 %574
+  %583 = getelementptr inbounds nuw [8 x i8], ptr %576, i64 %574
   %584 = load ptr, ptr %583, align 8, !tbaa !24
   %.not.i.i.i.i388 = icmp eq ptr %584, null
   br i1 %.not.i.i.i.i388, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE5validES1_.exit391.thread, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i.i389
 
 _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i.i389: ; preds = %582
   %585 = and i64 %573, 4095
-  %586 = getelementptr inbounds nuw %struct.entity_id, ptr %584, i64 %585
+  %586 = getelementptr inbounds nuw [4 x i8], ptr %584, i64 %585
   %587 = and i32 %571, -1048576
   %.sroa.0.0.copyload.i.i.i390 = load i32, ptr %586, align 4, !tbaa !26
   %588 = xor i32 %.sroa.0.0.copyload.i.i.i390, %587
@@ -2523,7 +2511,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt14basic_registryI9entity
   %12 = and i64 %11, 2515107422
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8, !tbaa !61
-  %15 = getelementptr inbounds nuw i64, ptr %6, i64 %12
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %12
   br label %16
 
 16:                                               ; preds = %17, %2
@@ -2533,7 +2521,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt14basic_registryI9entity
   br i1 %.not.i.i.i.i, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJcEEEbS1_.exit, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %14, i64 %.sroa.5.0.i.i.i.i
+  %18 = getelementptr inbounds [32 x i8], ptr %14, i64 %.sroa.5.0.i.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 4, !tbaa !26
   %21 = icmp eq i32 %20, -1779859874
@@ -2567,14 +2555,14 @@ _ZNK4entt14basic_registryI9entity_idSaIS1_EE6assureIiEEPKDaj.exit.i: ; preds = %
   br i1 %37, label %38, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJcEEEbS1_.exit
 
 38:                                               ; preds = %25
-  %39 = getelementptr inbounds nuw ptr, ptr %32, i64 %28
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %28
   %40 = load ptr, ptr %39, align 8, !tbaa !24
   %.not.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.i, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJcEEEbS1_.exit, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJiEEEbS1_.exit
 
 _ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJiEEEbS1_.exit: ; preds = %38
   %41 = and i64 %27, 4095
-  %42 = getelementptr inbounds nuw %struct.entity_id, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   %43 = and i32 %1, -1048576
   %.sroa.0.0.copyload.i.i = load i32, ptr %42, align 4, !tbaa !26
   %44 = xor i32 %.sroa.0.0.copyload.i.i, %43
@@ -2583,7 +2571,7 @@ _ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJiEEEbS1_.exit: ; preds = %3
 
 46:                                               ; preds = %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJiEEEbS1_.exit
   %47 = and i64 %11, 2823553821
-  %48 = getelementptr inbounds nuw i64, ptr %6, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %47
   br label %49
 
 49:                                               ; preds = %50, %46
@@ -2593,7 +2581,7 @@ _ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJiEEEbS1_.exit: ; preds = %3
   br i1 %.not.i.i.i.i6, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJcEEEbS1_.exit, label %50
 
 50:                                               ; preds = %49
-  %51 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %14, i64 %.sroa.5.0.i.i.i.i5
+  %51 = getelementptr inbounds [32 x i8], ptr %14, i64 %.sroa.5.0.i.i.i.i5
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 4, !tbaa !26
   %54 = icmp eq i32 %53, -1471413475
@@ -2622,13 +2610,13 @@ _ZNK4entt14basic_registryI9entity_idSaIS1_EE6assureIcEEPKDaj.exit.i: ; preds = %
   br i1 %67, label %68, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJcEEEbS1_.exit
 
 68:                                               ; preds = %58
-  %69 = getelementptr inbounds nuw ptr, ptr %62, i64 %28
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %28
   %70 = load ptr, ptr %69, align 8, !tbaa !24
   %.not.i.i.i11 = icmp eq ptr %70, null
   br i1 %.not.i.i.i11, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJcEEEbS1_.exit, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE10sparse_ptrES1_.exit.i.i12
 
 _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE10sparse_ptrES1_.exit.i.i12: ; preds = %68
-  %71 = getelementptr inbounds nuw %struct.entity_id, ptr %70, i64 %41
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %41
   %.sroa.0.0.copyload.i.i13 = load i32, ptr %71, align 4, !tbaa !26
   %72 = xor i32 %.sroa.0.0.copyload.i.i13, %43
   %73 = icmp ult i32 %72, 1048575
@@ -2653,7 +2641,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt14basic_registryI9entity
   %12 = and i64 %11, 2515107422
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8, !tbaa !61
-  %15 = getelementptr inbounds nuw i64, ptr %6, i64 %12
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %12
   br label %16
 
 16:                                               ; preds = %17, %2
@@ -2663,7 +2651,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4entt14basic_registryI9entity
   br i1 %.not.i.i.i.i, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJiEEEbS1_.exit.thread, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %14, i64 %.sroa.5.0.i.i.i.i
+  %18 = getelementptr inbounds [32 x i8], ptr %14, i64 %.sroa.5.0.i.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 4, !tbaa !26
   %21 = icmp eq i32 %20, -1779859874
@@ -2697,14 +2685,14 @@ _ZNK4entt14basic_registryI9entity_idSaIS1_EE6assureIiEEPKDaj.exit.i: ; preds = %
   br i1 %37, label %38, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJiEEEbS1_.exit.thread
 
 38:                                               ; preds = %25
-  %39 = getelementptr inbounds nuw ptr, ptr %32, i64 %28
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %28
   %40 = load ptr, ptr %39, align 8, !tbaa !24
   %.not.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.i, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJiEEEbS1_.exit.thread, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJiEEEbS1_.exit
 
 _ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJiEEEbS1_.exit: ; preds = %38
   %41 = and i64 %27, 4095
-  %42 = getelementptr inbounds nuw %struct.entity_id, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   %43 = and i32 %1, -1048576
   %.sroa.0.0.copyload.i.i = load i32, ptr %42, align 4, !tbaa !26
   %44 = xor i32 %.sroa.0.0.copyload.i.i, %43
@@ -2713,7 +2701,7 @@ _ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJiEEEbS1_.exit: ; preds = %3
 
 _ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJiEEEbS1_.exit.thread: ; preds = %16, %_ZNK4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setI9entity_idSaIS3_EEEENS_8identityESt8equal_toIvESaISt4pairIKjS6_EEE4findERSB_.exit.i.i, %25, %38, %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6assureIiEEPKDaj.exit.i, %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJiEEEbS1_.exit
   %46 = and i64 %11, 2823553821
-  %47 = getelementptr inbounds nuw i64, ptr %6, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %46
   br label %48
 
 48:                                               ; preds = %49, %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJiEEEbS1_.exit.thread
@@ -2723,7 +2711,7 @@ _ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJiEEEbS1_.exit.thread: ; pre
   br i1 %.not.i.i.i.i6, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJcEEEbS1_.exit, label %49
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %14, i64 %.sroa.5.0.i.i.i.i5
+  %50 = getelementptr inbounds [32 x i8], ptr %14, i64 %.sroa.5.0.i.i.i.i5
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i32, ptr %51, align 4, !tbaa !26
   %53 = icmp eq i32 %52, -1471413475
@@ -2757,14 +2745,14 @@ _ZNK4entt14basic_registryI9entity_idSaIS1_EE6assureIcEEPKDaj.exit.i: ; preds = %
   br i1 %69, label %70, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJcEEEbS1_.exit
 
 70:                                               ; preds = %57
-  %71 = getelementptr inbounds nuw ptr, ptr %64, i64 %60
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %60
   %72 = load ptr, ptr %71, align 8, !tbaa !24
   %.not.i.i.i11 = icmp eq ptr %72, null
   br i1 %.not.i.i.i11, label %_ZNK4entt14basic_registryI9entity_idSaIS1_EE6all_ofIJcEEEbS1_.exit, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE10sparse_ptrES1_.exit.i.i12
 
 _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE10sparse_ptrES1_.exit.i.i12: ; preds = %70
   %73 = and i64 %59, 4095
-  %74 = getelementptr inbounds nuw %struct.entity_id, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %73
   %75 = and i32 %1, -1048576
   %.sroa.0.0.copyload.i.i13 = load i32, ptr %74, align 4, !tbaa !26
   %76 = xor i32 %.sroa.0.0.copyload.i.i13, %75
@@ -2811,9 +2799,9 @@ define linkonce_odr hidden noundef zeroext i16 @_ZN4entt14basic_registryI9entity
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %19 = load ptr, ptr %18, align 8, !tbaa !23
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.pre-phi14
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.pre-phi14
   %21 = load ptr, ptr %20, align 8, !tbaa !24
-  %22 = getelementptr inbounds nuw %struct.entity_id, ptr %21, i64 %.pre-phi16
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.pre-phi16
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %22, align 4, !tbaa !26
   %23 = and i32 %.sroa.01.0.copyload.i.i.i, 1048575
   %narrow.i.i = add nuw nsw i32 %23, 1
@@ -2834,13 +2822,13 @@ define linkonce_odr hidden noundef zeroext i16 @_ZN4entt14basic_registryI9entity
   br i1 %36, label %37, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE7currentES1_.exit
 
 37:                                               ; preds = %._crit_edge
-  %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %.pre-phi14
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.pre-phi14
   %39 = load ptr, ptr %38, align 8, !tbaa !24
   %.not.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE7currentES1_.exit, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE10sparse_ptrES1_.exit.i
 
 _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE10sparse_ptrES1_.exit.i: ; preds = %37
-  %40 = getelementptr inbounds nuw %struct.entity_id, ptr %39, i64 %.pre-phi16
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.pre-phi16
   %.sroa.0.0.copyload.i = load i32, ptr %40, align 4, !tbaa !26
   %41 = lshr i32 %.sroa.0.0.copyload.i, 20
   %42 = trunc nuw nsw i32 %41 to i16
@@ -2854,7 +2842,7 @@ _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE7currentES1_.exit: ; preds = %._cr
   %.010 = phi i64 [ %10, %.lr.ph ], [ %46, %_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE6removeES1_.exit ]
   %45 = load ptr, ptr %3, align 8, !tbaa !61
   %46 = add i64 %.010, -1
-  %47 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %45, i64 %46
+  %47 = getelementptr inbounds [32 x i8], ptr %45, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !66
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -2869,13 +2857,13 @@ _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE7currentES1_.exit: ; preds = %._cr
   br i1 %58, label %59, label %_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE6removeES1_.exit
 
 59:                                               ; preds = %44
-  %60 = getelementptr inbounds nuw ptr, ptr %53, i64 %13
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %13
   %61 = load ptr, ptr %60, align 8, !tbaa !24
   %.not.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i, label %_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE6removeES1_.exit, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i
 
 _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i: ; preds = %59
-  %62 = getelementptr inbounds nuw %struct.entity_id, ptr %61, i64 %14
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %14
   %.sroa.0.0.copyload.i.i = load i32, ptr %62, align 4, !tbaa !26
   %63 = xor i32 %.sroa.0.0.copyload.i.i, %15
   %64 = icmp ult i32 %63, 1048575
@@ -3058,7 +3046,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(184) ptr @_ZN
   %16 = and i64 %15, %7
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = load ptr, ptr %17, align 8, !tbaa !61
-  %19 = getelementptr inbounds nuw i64, ptr %10, i64 %16
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %16
   br label %20
 
 20:                                               ; preds = %21, %2
@@ -3068,7 +3056,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(184) ptr @_ZN
   br i1 %.not.i.i, label %_ZN4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setI9entity_idSaIS3_EEEENS_8identityESt8equal_toIvESaISt4pairIKjS6_EEE4findERSB_.exit.thread, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %18, i64 %.sroa.5.0.i.i
+  %22 = getelementptr inbounds [32 x i8], ptr %18, i64 %.sroa.5.0.i.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 4, !tbaa !26
   %25 = icmp eq i32 %24, %1
@@ -3469,10 +3457,10 @@ define linkonce_odr hidden noundef ptr @_ZNK4entt13basic_storageIi9entity_idSaIi
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = lshr i64 %1, 10
   %5 = load ptr, ptr %3, align 8, !tbaa !75
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8, !tbaa !71
   %8 = and i64 %1, 1023
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %8
   ret ptr %9
 }
 
@@ -3481,15 +3469,15 @@ define linkonce_odr hidden void @_ZN4entt13basic_storageIi9entity_idSaIiEvE12swa
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = lshr i64 %1, 10
   %6 = load ptr, ptr %4, align 8, !tbaa !75
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %5
   %8 = load ptr, ptr %7, align 8, !tbaa !71
   %9 = and i64 %1, 1023
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %9
   %11 = lshr i64 %2, 10
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !71
   %14 = and i64 %2, 1023
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %10, align 4, !tbaa !26
   %17 = load i32, ptr %15, align 4, !tbaa !26
   store i32 %17, ptr %10, align 4, !tbaa !26
@@ -3539,43 +3527,43 @@ define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageIi
 27:                                               ; preds = %27, %.lr.ph.i
   %28 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %63, %27 ]
   %.sroa.3.011.i = phi i64 [ %2, %.lr.ph.i ], [ %76, %27 ]
-  %29 = getelementptr %struct.entity_id, ptr %18, i64 %.sroa.3.011.i
+  %29 = getelementptr [4 x i8], ptr %18, i64 %.sroa.3.011.i
   %30 = getelementptr i8, ptr %29, i64 -4
   %.sroa.02.0.copyload.i = load i32, ptr %30, align 4, !tbaa !26
   %31 = and i32 %.sroa.02.0.copyload.i, 1048575
   %32 = zext nneg i32 %31 to i64
   %33 = lshr i64 %32, 12
-  %34 = getelementptr inbounds nuw ptr, ptr %20, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !24
   %36 = and i64 %32, 4095
-  %37 = getelementptr inbounds nuw %struct.entity_id, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   %.sroa.01.0.copyload.i.i = load i32, ptr %37, align 4, !tbaa !26
   %38 = and i32 %.sroa.01.0.copyload.i.i, 1048575
   %39 = zext nneg i32 %38 to i64
   %40 = lshr i64 %39, 10
-  %41 = getelementptr inbounds nuw ptr, ptr %22, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !71
   %43 = and i64 %39, 1023
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   %45 = ptrtoint ptr %28 to i64
   %46 = sub i64 %45, %26
   %47 = ashr exact i64 %46, 2
   %48 = add nsw i64 %47, -1
   %49 = lshr i64 %48, 10
-  %50 = getelementptr inbounds nuw ptr, ptr %22, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !71
   %52 = and i64 %48, 1023
-  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !26
   store i32 %54, ptr %44, align 4, !tbaa !26
   %.sroa.06.0.copyload.i.i = load i32, ptr %30, align 4, !tbaa !26
   %55 = and i32 %.sroa.06.0.copyload.i.i, 1048575
   %56 = zext nneg i32 %55 to i64
   %57 = lshr i64 %56, 12
-  %58 = getelementptr inbounds nuw ptr, ptr %20, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !24
   %60 = and i64 %56, 4095
-  %61 = getelementptr inbounds nuw %struct.entity_id, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %60
   %.sroa.04.0.copyload.i.i = load i32, ptr %61, align 4, !tbaa !26
   %62 = and i32 %.sroa.04.0.copyload.i.i, 1048575
   %63 = getelementptr inbounds i8, ptr %28, i64 -4
@@ -3585,13 +3573,13 @@ define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageIi
   %66 = and i32 %.sroa.02.0.copyload.i.i, 1048575
   %67 = zext nneg i32 %66 to i64
   %68 = lshr i64 %67, 12
-  %69 = getelementptr inbounds nuw ptr, ptr %20, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !24
   %71 = and i64 %67, 4095
-  %72 = getelementptr inbounds nuw %struct.entity_id, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %71
   store i32 %65, ptr %72, align 4, !tbaa !26
   %73 = zext nneg i32 %62 to i64
-  %74 = getelementptr inbounds nuw %struct.entity_id, ptr %25, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %73
   %75 = load i32, ptr %63, align 4, !tbaa !26
   store i32 %75, ptr %74, align 4, !tbaa !26
   store i32 -1, ptr %61, align 4, !tbaa !26
@@ -3603,7 +3591,7 @@ define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageIi
 77:                                               ; preds = %.lr.ph, %.lr.ph.i15
   %.sroa.3.033 = phi i64 [ %2, %.lr.ph ], [ %164, %.lr.ph.i15 ]
   %78 = load ptr, ptr %1, align 8, !tbaa !143
-  %79 = getelementptr %struct.entity_id, ptr %78, i64 %.sroa.3.033
+  %79 = getelementptr [4 x i8], ptr %78, i64 %.sroa.3.033
   %80 = getelementptr i8, ptr %79, i64 -4
   %.sroa.05.0.copyload = load i32, ptr %80, align 4, !tbaa !26
   %81 = load ptr, ptr %10, align 8, !tbaa !93
@@ -3622,7 +3610,7 @@ define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageIi
   %.06.i = phi i64 [ %87, %.lr.ph.i12 ], [ %86, %.lr.ph.preheader.i ]
   %87 = add i64 %.06.i, -1
   %88 = load ptr, ptr %8, align 8, !tbaa !94
-  %89 = getelementptr inbounds nuw %"class.entt::delegate", ptr %88, i64 %87
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %87
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !95
   %92 = load ptr, ptr %89, align 8, !tbaa !97
@@ -3644,14 +3632,14 @@ _ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S
   br i1 %102, label %103, label %.lr.ph.i15
 
 103:                                              ; preds = %_ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S2_.exit
-  %104 = getelementptr inbounds nuw ptr, ptr %97, i64 %95
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %95
   %105 = load ptr, ptr %104, align 8, !tbaa !24
   %.not.i.i.i = icmp eq ptr %105, null
   br i1 %.not.i.i.i, label %.lr.ph.i15, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i
 
 _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i: ; preds = %103
   %106 = and i64 %94, 4095
-  %107 = getelementptr inbounds nuw %struct.entity_id, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %106
   %108 = and i32 %.sroa.05.0.copyload, -1048576
   %.sroa.0.0.copyload.i.i = load i32, ptr %107, align 4, !tbaa !26
   %109 = xor i32 %.sroa.0.0.copyload.i.i, %108
@@ -3670,43 +3658,43 @@ _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i: ; preds = %1
   %115 = load ptr, ptr %15, align 8, !tbaa !75
   %116 = ptrtoint ptr %114 to i64
   %.promoted.i16 = load ptr, ptr %16, align 8, !tbaa !144
-  %117 = getelementptr %struct.entity_id, ptr %114, i64 %.pn7.i
+  %117 = getelementptr [4 x i8], ptr %114, i64 %.pn7.i
   %118 = getelementptr i8, ptr %117, i64 -4
   %.sroa.02.0.copyload.i18 = load i32, ptr %118, align 4, !tbaa !26
   %119 = and i32 %.sroa.02.0.copyload.i18, 1048575
   %120 = zext nneg i32 %119 to i64
   %121 = lshr i64 %120, 12
-  %122 = getelementptr inbounds nuw ptr, ptr %97, i64 %121
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !24
   %124 = and i64 %120, 4095
-  %125 = getelementptr inbounds nuw %struct.entity_id, ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %124
   %.sroa.01.0.copyload.i.i19 = load i32, ptr %125, align 4, !tbaa !26
   %126 = and i32 %.sroa.01.0.copyload.i.i19, 1048575
   %127 = zext nneg i32 %126 to i64
   %128 = lshr i64 %127, 10
-  %129 = getelementptr inbounds nuw ptr, ptr %115, i64 %128
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !71
   %131 = and i64 %127, 1023
-  %132 = getelementptr inbounds nuw i32, ptr %130, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %131
   %133 = ptrtoint ptr %.promoted.i16 to i64
   %134 = sub i64 %133, %116
   %135 = ashr exact i64 %134, 2
   %136 = add nsw i64 %135, -1
   %137 = lshr i64 %136, 10
-  %138 = getelementptr inbounds nuw ptr, ptr %115, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %137
   %139 = load ptr, ptr %138, align 8, !tbaa !71
   %140 = and i64 %136, 1023
-  %141 = getelementptr inbounds nuw i32, ptr %139, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !26
   store i32 %142, ptr %132, align 4, !tbaa !26
   %.sroa.06.0.copyload.i.i20 = load i32, ptr %118, align 4, !tbaa !26
   %143 = and i32 %.sroa.06.0.copyload.i.i20, 1048575
   %144 = zext nneg i32 %143 to i64
   %145 = lshr i64 %144, 12
-  %146 = getelementptr inbounds nuw ptr, ptr %97, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %145
   %147 = load ptr, ptr %146, align 8, !tbaa !24
   %148 = and i64 %144, 4095
-  %149 = getelementptr inbounds nuw %struct.entity_id, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %148
   %.sroa.04.0.copyload.i.i21 = load i32, ptr %149, align 4, !tbaa !26
   %150 = and i32 %.sroa.04.0.copyload.i.i21, 1048575
   %151 = getelementptr inbounds i8, ptr %.promoted.i16, i64 -4
@@ -3716,13 +3704,13 @@ _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i: ; preds = %1
   %154 = and i32 %.sroa.02.0.copyload.i.i22, 1048575
   %155 = zext nneg i32 %154 to i64
   %156 = lshr i64 %155, 12
-  %157 = getelementptr inbounds nuw ptr, ptr %97, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !24
   %159 = and i64 %155, 4095
-  %160 = getelementptr inbounds nuw %struct.entity_id, ptr %158, i64 %159
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %158, i64 %159
   store i32 %153, ptr %160, align 4, !tbaa !26
   %161 = zext nneg i32 %150 to i64
-  %162 = getelementptr inbounds nuw %struct.entity_id, ptr %114, i64 %161
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %161
   %163 = load i32, ptr %151, align 4, !tbaa !26
   store i32 %163, ptr %162, align 4, !tbaa !26
   store i32 -1, ptr %149, align 4, !tbaa !26
@@ -3764,7 +3752,7 @@ define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageIi
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S2_.exit
   %.sroa.4.012 = phi i64 [ %33, %_ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S2_.exit ], [ %17, %.lr.ph.split.preheader ]
   %18 = load ptr, ptr %10, align 8, !tbaa !143
-  %19 = getelementptr %struct.entity_id, ptr %18, i64 %.sroa.4.012
+  %19 = getelementptr [4 x i8], ptr %18, i64 %.sroa.4.012
   %20 = getelementptr i8, ptr %19, i64 -4
   %.sroa.01.0.copyload = load i32, ptr %20, align 4, !tbaa !26
   %21 = load ptr, ptr %6, align 8, !tbaa !93
@@ -3783,7 +3771,7 @@ define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageIi
   %.06.i = phi i64 [ %27, %.lr.ph.i ], [ %26, %.lr.ph.preheader.i ]
   %27 = add i64 %.06.i, -1
   %28 = load ptr, ptr %4, align 8, !tbaa !94
-  %29 = getelementptr inbounds nuw %"class.entt::delegate", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !95
   %32 = load ptr, ptr %29, align 8, !tbaa !97
@@ -3817,16 +3805,16 @@ _ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S
   %.sroa.4.05.i = phi i64 [ %41, %.lr.ph.i7 ], [ %47, %45 ]
   %46 = phi ptr [ %36, %.lr.ph.i7 ], [ %58, %45 ]
   %47 = add nsw i64 %.sroa.4.05.i, -1
-  %48 = getelementptr %struct.entity_id, ptr %37, i64 %.sroa.4.05.i
+  %48 = getelementptr [4 x i8], ptr %37, i64 %.sroa.4.05.i
   %49 = getelementptr i8, ptr %48, i64 -4
   %.sroa.06.0.copyload.i.i = load i32, ptr %49, align 4, !tbaa !26
   %50 = and i32 %.sroa.06.0.copyload.i.i, 1048575
   %51 = zext nneg i32 %50 to i64
   %52 = lshr i64 %51, 12
-  %53 = getelementptr inbounds nuw ptr, ptr %44, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !24
   %55 = and i64 %51, 4095
-  %56 = getelementptr inbounds nuw %struct.entity_id, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %55
   %.sroa.04.0.copyload.i.i = load i32, ptr %56, align 4, !tbaa !26
   %57 = and i32 %.sroa.04.0.copyload.i.i, 1048575
   %58 = getelementptr inbounds i8, ptr %46, i64 -4
@@ -3836,13 +3824,13 @@ _ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ESaIiEE7publishES5_S
   %61 = and i32 %.sroa.02.0.copyload.i.i, 1048575
   %62 = zext nneg i32 %61 to i64
   %63 = lshr i64 %62, 12
-  %64 = getelementptr inbounds nuw ptr, ptr %44, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !24
   %66 = and i64 %62, 4095
-  %67 = getelementptr inbounds nuw %struct.entity_id, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %66
   store i32 %60, ptr %67, align 4, !tbaa !26
   %68 = zext nneg i32 %57 to i64
-  %69 = getelementptr inbounds nuw %struct.entity_id, ptr %37, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %68
   %70 = load i32, ptr %58, align 4, !tbaa !26
   store i32 %70, ptr %69, align 4, !tbaa !26
   store i32 -1, ptr %56, align 4, !tbaa !26
@@ -3879,7 +3867,7 @@ _ZN4entt13basic_storageIi9entity_idSaIiEvE11try_emplaceES1_bPKv.exit: ; preds = 
   %13 = extractvalue { ptr, i64 } %.pn.i, 0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %15 = load ptr, ptr %13, align 8, !tbaa !143
-  %16 = getelementptr %struct.entity_id, ptr %15, i64 %9
+  %16 = getelementptr [4 x i8], ptr %15, i64 %9
   %17 = getelementptr i8, ptr %16, i64 -4
   %.sroa.0.0.copyload = load i32, ptr %17, align 4, !tbaa !26
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -3899,7 +3887,7 @@ _ZN4entt13basic_storageIi9entity_idSaIiEvE11try_emplaceES1_bPKv.exit: ; preds = 
   %.06.i = phi i64 [ %25, %.lr.ph.i ], [ %24, %.lr.ph.preheader.i ]
   %25 = add i64 %.06.i, -1
   %26 = load ptr, ptr %14, align 8, !tbaa !94
-  %27 = getelementptr inbounds nuw %"class.entt::delegate", ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %25
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !95
   %30 = load ptr, ptr %27, align 8, !tbaa !97
@@ -4140,7 +4128,7 @@ _ZNSt12_Vector_baseI9entity_idSaIS0_EE13_M_deallocateEPS0_m.exit.i.i: ; preds = 
   store ptr %21, ptr %4, align 8, !tbaa !143
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   store ptr %26, ptr %16, align 8, !tbaa !144
-  %27 = getelementptr inbounds nuw %struct.entity_id, ptr %21, i64 %1
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %1
   store ptr %27, ptr %8, align 8, !tbaa !151
   br label %_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE7reserveEm.exit
 
@@ -4217,7 +4205,7 @@ define linkonce_odr hidden void @_ZN4entt13basic_storageIi9entity_idSaIiEvE13shr
   br i1 %27, label %28, label %_ZNSt6vectorIPiSaIS0_EE6resizeEm.exit.i
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %21, i64 %11
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %11
   %.not.i.i.i = icmp eq ptr %22, %29
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPiSaIS0_EE6resizeEm.exit.i, label %30
 
@@ -4228,7 +4216,7 @@ define linkonce_odr hidden void @_ZN4entt13basic_storageIi9entity_idSaIiEvE13shr
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.01618.i = phi i64 [ %34, %.lr.ph.i ], [ %11, %1 ]
   %31 = load ptr, ptr %12, align 8, !tbaa !75
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.01618.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.01618.i
   %33 = load ptr, ptr %32, align 8, !tbaa !71
   tail call void @_ZdlPvm(ptr noundef %33, i64 noundef 4096) #22
   %34 = add i64 %.01618.i, 1
@@ -4274,43 +4262,43 @@ define linkonce_odr hidden void @_ZN4entt13basic_storageIi9entity_idSaIiEvE3popE
 15:                                               ; preds = %.lr.ph, %15
   %16 = phi ptr [ %.promoted, %.lr.ph ], [ %51, %15 ]
   %.sroa.3.011 = phi i64 [ %2, %.lr.ph ], [ %64, %15 ]
-  %17 = getelementptr %struct.entity_id, ptr %6, i64 %.sroa.3.011
+  %17 = getelementptr [4 x i8], ptr %6, i64 %.sroa.3.011
   %18 = getelementptr i8, ptr %17, i64 -4
   %.sroa.02.0.copyload = load i32, ptr %18, align 4, !tbaa !26
   %19 = and i32 %.sroa.02.0.copyload, 1048575
   %20 = zext nneg i32 %19 to i64
   %21 = lshr i64 %20, 12
-  %22 = getelementptr inbounds nuw ptr, ptr %8, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !24
   %24 = and i64 %20, 4095
-  %25 = getelementptr inbounds nuw %struct.entity_id, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %24
   %.sroa.01.0.copyload.i = load i32, ptr %25, align 4, !tbaa !26
   %26 = and i32 %.sroa.01.0.copyload.i, 1048575
   %27 = zext nneg i32 %26 to i64
   %28 = lshr i64 %27, 10
-  %29 = getelementptr inbounds nuw ptr, ptr %10, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !71
   %31 = and i64 %27, 1023
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   %33 = ptrtoint ptr %16 to i64
   %34 = sub i64 %33, %14
   %35 = ashr exact i64 %34, 2
   %36 = add nsw i64 %35, -1
   %37 = lshr i64 %36, 10
-  %38 = getelementptr inbounds nuw ptr, ptr %10, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !71
   %40 = and i64 %36, 1023
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !26
   store i32 %42, ptr %32, align 4, !tbaa !26
   %.sroa.06.0.copyload.i = load i32, ptr %18, align 4, !tbaa !26
   %43 = and i32 %.sroa.06.0.copyload.i, 1048575
   %44 = zext nneg i32 %43 to i64
   %45 = lshr i64 %44, 12
-  %46 = getelementptr inbounds nuw ptr, ptr %8, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !24
   %48 = and i64 %44, 4095
-  %49 = getelementptr inbounds nuw %struct.entity_id, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %48
   %.sroa.04.0.copyload.i = load i32, ptr %49, align 4, !tbaa !26
   %50 = and i32 %.sroa.04.0.copyload.i, 1048575
   %51 = getelementptr inbounds i8, ptr %16, i64 -4
@@ -4320,13 +4308,13 @@ define linkonce_odr hidden void @_ZN4entt13basic_storageIi9entity_idSaIiEvE3popE
   %54 = and i32 %.sroa.02.0.copyload.i, 1048575
   %55 = zext nneg i32 %54 to i64
   %56 = lshr i64 %55, 12
-  %57 = getelementptr inbounds nuw ptr, ptr %8, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !24
   %59 = and i64 %55, 4095
-  %60 = getelementptr inbounds nuw %struct.entity_id, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %59
   store i32 %53, ptr %60, align 4, !tbaa !26
   %61 = zext nneg i32 %50 to i64
-  %62 = getelementptr inbounds nuw %struct.entity_id, ptr %13, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %61
   %63 = load i32, ptr %51, align 4, !tbaa !26
   store i32 %63, ptr %62, align 4, !tbaa !26
   store i32 -1, ptr %49, align 4, !tbaa !26
@@ -4361,16 +4349,16 @@ define linkonce_odr hidden void @_ZN4entt13basic_storageIi9entity_idSaIiEvE7pop_
   %.sroa.4.05 = phi i64 [ %9, %.lr.ph ], [ %15, %13 ]
   %14 = phi ptr [ %4, %.lr.ph ], [ %26, %13 ]
   %15 = add nsw i64 %.sroa.4.05, -1
-  %16 = getelementptr %struct.entity_id, ptr %5, i64 %.sroa.4.05
+  %16 = getelementptr [4 x i8], ptr %5, i64 %.sroa.4.05
   %17 = getelementptr i8, ptr %16, i64 -4
   %.sroa.06.0.copyload.i = load i32, ptr %17, align 4, !tbaa !26
   %18 = and i32 %.sroa.06.0.copyload.i, 1048575
   %19 = zext nneg i32 %18 to i64
   %20 = lshr i64 %19, 12
-  %21 = getelementptr inbounds nuw ptr, ptr %12, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = and i64 %19, 4095
-  %24 = getelementptr inbounds nuw %struct.entity_id, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   %.sroa.04.0.copyload.i = load i32, ptr %24, align 4, !tbaa !26
   %25 = and i32 %.sroa.04.0.copyload.i, 1048575
   %26 = getelementptr inbounds i8, ptr %14, i64 -4
@@ -4380,13 +4368,13 @@ define linkonce_odr hidden void @_ZN4entt13basic_storageIi9entity_idSaIiEvE7pop_
   %29 = and i32 %.sroa.02.0.copyload.i, 1048575
   %30 = zext nneg i32 %29 to i64
   %31 = lshr i64 %30, 12
-  %32 = getelementptr inbounds nuw ptr, ptr %12, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !24
   %34 = and i64 %30, 4095
-  %35 = getelementptr inbounds nuw %struct.entity_id, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %34
   store i32 %28, ptr %35, align 4, !tbaa !26
   %36 = zext nneg i32 %25 to i64
-  %37 = getelementptr inbounds nuw %struct.entity_id, ptr %5, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %36
   %38 = load i32, ptr %26, align 4, !tbaa !26
   store i32 %38, ptr %37, align 4, !tbaa !26
   store i32 -1, ptr %24, align 4, !tbaa !26
@@ -4445,7 +4433,7 @@ define linkonce_odr hidden void @_ZN4entt13basic_storageIi9entity_idSaIiEvED2Ev(
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.01618.i = phi i64 [ %14, %.lr.ph.i ], [ 0, %1 ]
   %11 = load ptr, ptr %2, align 8, !tbaa !75
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.01618.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.01618.i
   %13 = load ptr, ptr %12, align 8, !tbaa !71
   tail call void @_ZdlPvm(ptr noundef %13, i64 noundef 4096) #22
   %14 = add i64 %.01618.i, 1
@@ -4647,16 +4635,16 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE3p
 27:                                               ; preds = %.lr.ph32, %27
   %28 = phi ptr [ %.promoted33, %.lr.ph32 ], [ %39, %27 ]
   %.sroa.4.031 = phi i64 [ %2, %.lr.ph32 ], [ %52, %27 ]
-  %29 = getelementptr %struct.entity_id, ptr %21, i64 %.sroa.4.031
+  %29 = getelementptr [4 x i8], ptr %21, i64 %.sroa.4.031
   %30 = getelementptr i8, ptr %29, i64 -4
   %.sroa.06.0.copyload.i = load i32, ptr %30, align 4, !tbaa !26
   %31 = and i32 %.sroa.06.0.copyload.i, 1048575
   %32 = zext nneg i32 %31 to i64
   %33 = lshr i64 %32, 12
-  %34 = getelementptr inbounds nuw ptr, ptr %23, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !24
   %36 = and i64 %32, 4095
-  %37 = getelementptr inbounds nuw %struct.entity_id, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   %.sroa.04.0.copyload.i = load i32, ptr %37, align 4, !tbaa !26
   %38 = and i32 %.sroa.04.0.copyload.i, 1048575
   %39 = getelementptr inbounds i8, ptr %28, i64 -4
@@ -4666,13 +4654,13 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE3p
   %42 = and i32 %.sroa.02.0.copyload.i, 1048575
   %43 = zext nneg i32 %42 to i64
   %44 = lshr i64 %43, 12
-  %45 = getelementptr inbounds nuw ptr, ptr %23, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !24
   %47 = and i64 %43, 4095
-  %48 = getelementptr inbounds nuw %struct.entity_id, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   store i32 %41, ptr %48, align 4, !tbaa !26
   %49 = zext nneg i32 %38 to i64
-  %50 = getelementptr inbounds nuw %struct.entity_id, ptr %26, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %49
   %51 = load i32, ptr %39, align 4, !tbaa !26
   store i32 %51, ptr %50, align 4, !tbaa !26
   store i32 -1, ptr %37, align 4, !tbaa !26
@@ -4684,22 +4672,22 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE3p
 53:                                               ; preds = %.lr.ph27, %53
   %54 = phi i32 [ %20, %.lr.ph27 ], [ %64, %53 ]
   %.sroa.4.126 = phi i64 [ %2, %.lr.ph27 ], [ %68, %53 ]
-  %55 = getelementptr %struct.entity_id, ptr %14, i64 %.sroa.4.126
+  %55 = getelementptr [4 x i8], ptr %14, i64 %.sroa.4.126
   %56 = getelementptr i8, ptr %55, i64 -4
   %.sroa.01.0.copyload.i = load i32, ptr %56, align 4, !tbaa !26
   %57 = and i32 %.sroa.01.0.copyload.i, 1048575
   %58 = zext nneg i32 %57 to i64
   %59 = lshr i64 %58, 12
-  %60 = getelementptr inbounds nuw ptr, ptr %16, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !24
   %62 = and i64 %58, 4095
-  %63 = getelementptr inbounds nuw %struct.entity_id, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %62
   %.sroa.03.0.copyload.i.i.i = load i32, ptr %63, align 4, !tbaa !26
   store i32 -1, ptr %63, align 4, !tbaa !26
   %64 = and i32 %.sroa.03.0.copyload.i.i.i, 1048575
   %65 = zext nneg i32 %64 to i64
   %66 = or i32 %54, -1048576
-  %67 = getelementptr inbounds nuw %struct.entity_id, ptr %19, i64 %65
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %65
   store i32 %66, ptr %67, align 4, !tbaa !26
   %68 = add nsw i64 %.sroa.4.126, -1
   %.not17 = icmp eq i64 %68, %4
@@ -4708,16 +4696,16 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE3p
 69:                                               ; preds = %.lr.ph, %69
   %70 = phi i64 [ %.promoted, %.lr.ph ], [ %90, %69 ]
   %.sroa.4.224 = phi i64 [ %2, %.lr.ph ], [ %105, %69 ]
-  %71 = getelementptr %struct.entity_id, ptr %8, i64 %.sroa.4.224
+  %71 = getelementptr [4 x i8], ptr %8, i64 %.sroa.4.224
   %72 = getelementptr i8, ptr %71, i64 -4
   %.sroa.02.0.copyload.i5 = load i32, ptr %72, align 4, !tbaa !26
   %73 = and i32 %.sroa.02.0.copyload.i5, 1048575
   %74 = zext nneg i32 %73 to i64
   %75 = lshr i64 %74, 12
-  %76 = getelementptr inbounds nuw ptr, ptr %10, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !24
   %78 = and i64 %74, 4095
-  %79 = getelementptr inbounds nuw %struct.entity_id, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %78
   %.sroa.01.0.copyload.i.i = load i32, ptr %79, align 4, !tbaa !26
   %80 = and i32 %.sroa.01.0.copyload.i.i, 1048575
   %81 = zext nneg i32 %80 to i64
@@ -4727,12 +4715,12 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE3p
   %85 = shl i32 %83, 20
   %86 = select i1 %84, i32 0, i32 %85
   %87 = or disjoint i32 %86, %73
-  %88 = getelementptr inbounds nuw %struct.entity_id, ptr %12, i64 %81
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %81
   store i32 %87, ptr %88, align 4, !tbaa !26
   %89 = icmp ugt i64 %70, %81
   %.neg.i = sext i1 %89 to i64
   %90 = add i64 %70, %.neg.i
-  %91 = getelementptr inbounds nuw %struct.entity_id, ptr %12, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %90
   %92 = trunc i64 %90 to i32
   %93 = and i32 %92, 1048575
   %94 = or disjoint i32 %93, %86
@@ -4743,10 +4731,10 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE3p
   %97 = and i32 %.sroa.01.0.copyload.i4.i, 1048575
   %98 = zext nneg i32 %97 to i64
   %99 = lshr i64 %98, 12
-  %100 = getelementptr inbounds nuw ptr, ptr %10, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !24
   %102 = and i64 %98, 4095
-  %103 = getelementptr inbounds nuw %struct.entity_id, ptr %101, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %102
   store i32 %96, ptr %103, align 4, !tbaa !26
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %88, align 4, !tbaa !26
   %104 = load i32, ptr %91, align 4, !tbaa !26
@@ -4807,10 +4795,10 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE7p
   %17 = and i32 %.sroa.06.0.copyload, 1048575
   %18 = zext nneg i32 %17 to i64
   %19 = lshr i64 %18, 12
-  %20 = getelementptr inbounds nuw ptr, ptr %13, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !24
   %22 = and i64 %18, 4095
-  %23 = getelementptr inbounds nuw %struct.entity_id, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 -1, ptr %23, align 4, !tbaa !26
   br label %24
 
@@ -4838,10 +4826,10 @@ define linkonce_odr hidden void @_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE7p
   %34 = and i32 %.sroa.0.0.copyload, 1048575
   %35 = zext nneg i32 %34 to i64
   %36 = lshr i64 %35, 12
-  %37 = getelementptr inbounds nuw ptr, ptr %32, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = and i64 %35, 4095
-  %40 = getelementptr inbounds nuw %struct.entity_id, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %39
   store i32 -1, ptr %40, align 4, !tbaa !26
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.012.025, i64 4
   %.not20 = icmp eq ptr %41, %30
@@ -4911,7 +4899,7 @@ _ZNSt6vectorIP9entity_idSaIS1_EE6resizeEmRKS1_.exit.i: ; preds = %4
 
 20:                                               ; preds = %_ZNSt6vectorIP9entity_idSaIS1_EE6resizeEmRKS1_.exit.i, %4
   %21 = phi ptr [ %.pre.i, %_ZNSt6vectorIP9entity_idSaIS1_EE6resizeEmRKS1_.exit.i ], [ %12, %4 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %8
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %8
   %23 = load ptr, ptr %22, align 8, !tbaa !24
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %.lr.ph.preheader.i.i.i.i, label %_ZN4entt16basic_sparse_setI9entity_idSaIS1_EE15assure_at_leastES1_.exit
@@ -4925,7 +4913,7 @@ _ZNSt6vectorIP9entity_idSaIS1_EE6resizeEmRKS1_.exit.i: ; preds = %4
 _ZN4entt16basic_sparse_setI9entity_idSaIS1_EE15assure_at_leastES1_.exit: ; preds = %20, %.lr.ph.preheader.i.i.i.i
   %25 = phi ptr [ %24, %.lr.ph.preheader.i.i.i.i ], [ %23, %20 ]
   %26 = and i64 %7, 4095
-  %27 = getelementptr inbounds nuw %struct.entity_id, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !144
@@ -4955,7 +4943,7 @@ _ZN4entt16basic_sparse_setI9entity_idSaIS1_EE15assure_at_leastES1_.exit: ; preds
   %45 = and i32 %1, -1048576
   %46 = or disjoint i32 %44, %45
   store i32 %46, ptr %27, align 4, !tbaa !26
-  %47 = getelementptr inbounds nuw %struct.entity_id, ptr %31, i64 %40
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %40
   %.sroa.0.0.copyload.i.i = load i32, ptr %47, align 4, !tbaa !26
   store i32 %1, ptr %47, align 4, !tbaa !26
   %48 = and i32 %.sroa.0.0.copyload.i.i, 1048575
@@ -5023,7 +5011,7 @@ _ZNSt6vectorI9entity_idSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; preds 
 _ZNSt6vectorI9entity_idSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %69, %_ZNSt6vectorI9entity_idSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
   store ptr %63, ptr %28, align 8, !tbaa !143
   store ptr %68, ptr %29, align 8, !tbaa !144
-  %70 = getelementptr inbounds nuw %struct.entity_id, ptr %63, i64 %61
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %61
   store ptr %70, ptr %51, align 8, !tbaa !151
   %.pre55 = ptrtoint ptr %63 to i64
   br label %_ZNSt6vectorI9entity_idSaIS0_EE9push_backERKS0_.exit
@@ -5110,7 +5098,7 @@ _ZNSt6vectorI9entity_idSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__norm
   %.pre.pre = phi ptr [ %.pre.pre.pre, %102 ], [ %21, %_ZNSt6vectorI9entity_idSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i32 ]
   store ptr %96, ptr %28, align 8, !tbaa !143
   store ptr %101, ptr %29, align 8, !tbaa !144
-  %103 = getelementptr inbounds nuw %struct.entity_id, ptr %96, i64 %94
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %94
   store ptr %103, ptr %84, align 8, !tbaa !151
   %.pre56 = ptrtoint ptr %96 to i64
   br label %_ZNSt6vectorI9entity_idSaIS0_EE9push_backERKS0_.exit36
@@ -5136,7 +5124,7 @@ _ZNSt6vectorI9entity_idSaIS0_EE9push_backERKS0_.exit36: ; preds = %86, %_ZNSt6ve
   %116 = or disjoint i32 %81, %115
   store i32 %116, ptr %27, align 4, !tbaa !26
   %117 = zext nneg i32 %81 to i64
-  %118 = getelementptr inbounds nuw %struct.entity_id, ptr %31, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %117
   store i32 %1, ptr %118, align 4, !tbaa !26
   %.sroa.0.0.copyload.pre = load i32, ptr %27, align 4, !tbaa !26
   %119 = and i32 %.sroa.0.0.copyload.pre, 1048575
@@ -5151,8 +5139,8 @@ _ZNSt6vectorI9entity_idSaIS0_EE9push_backERKS0_.exit36: ; preds = %86, %_ZNSt6ve
   %125 = add i64 %124, 1
   store i64 %125, ptr %123, align 8, !tbaa !27
   %126 = zext nneg i32 %.sroa.0.0.copyload to i64
-  %127 = getelementptr inbounds nuw %struct.entity_id, ptr %122, i64 %126
-  %128 = getelementptr inbounds nuw %struct.entity_id, ptr %122, i64 %124
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %126
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %124
   %129 = trunc i64 %124 to i32
   %.sroa.04.0.copyload.i = load i32, ptr %127, align 4, !tbaa !26
   %130 = and i32 %129, 1048575
@@ -5161,10 +5149,10 @@ _ZNSt6vectorI9entity_idSaIS0_EE9push_backERKS0_.exit36: ; preds = %86, %_ZNSt6ve
   %133 = and i32 %.sroa.04.0.copyload.i, 1048575
   %134 = zext nneg i32 %133 to i64
   %135 = lshr i64 %134, 12
-  %136 = getelementptr inbounds nuw ptr, ptr %121, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %135
   %137 = load ptr, ptr %136, align 8, !tbaa !24
   %138 = and i64 %134, 4095
-  %139 = getelementptr inbounds nuw %struct.entity_id, ptr %137, i64 %138
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %138
   store i32 %132, ptr %139, align 4, !tbaa !26
   %.sroa.01.0.copyload.i = load i32, ptr %128, align 4, !tbaa !26
   %140 = and i32 %.sroa.01.0.copyload.i, -1048576
@@ -5172,10 +5160,10 @@ _ZNSt6vectorI9entity_idSaIS0_EE9push_backERKS0_.exit36: ; preds = %86, %_ZNSt6ve
   %142 = and i32 %.sroa.01.0.copyload.i, 1048575
   %143 = zext nneg i32 %142 to i64
   %144 = lshr i64 %143, 12
-  %145 = getelementptr inbounds nuw ptr, ptr %121, i64 %144
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %144
   %146 = load ptr, ptr %145, align 8, !tbaa !24
   %147 = and i64 %143, 4095
-  %148 = getelementptr inbounds nuw %struct.entity_id, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %147
   store i32 %141, ptr %148, align 4, !tbaa !26
   %.sroa.0.0.copyload.i.i37 = load i32, ptr %127, align 4, !tbaa !26
   %149 = load i32, ptr %128, align 4, !tbaa !26
@@ -5306,7 +5294,7 @@ _ZNSt12_Vector_baseI9entity_idSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %2
   store ptr %20, ptr %3, align 8, !tbaa !143
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   store ptr %25, ptr %15, align 8, !tbaa !144
-  %26 = getelementptr inbounds nuw %struct.entity_id, ptr %20, i64 %1
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %1
   store ptr %26, ptr %7, align 8, !tbaa !151
   br label %_ZNSt6vectorI9entity_idSaIS0_EE7reserveEm.exit
 
@@ -5390,7 +5378,7 @@ _ZNSt6vectorIP9entity_idSaIS1_EE7reserveEm.exit:  ; preds = %_ZNSt12_Vector_base
   %31 = lshr i32 %.sroa.07.0.copyload, 12
   %32 = and i32 %31, 255
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %28, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !24
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %.thread43, label %36
@@ -5421,10 +5409,10 @@ _ZNSt6vectorIP9entity_idSaIS1_EE6resizeEmRKS1_.exit: ; preds = %42
 45:                                               ; preds = %36, %_ZNSt6vectorIP9entity_idSaIS1_EE6resizeEmRKS1_.exit
   %46 = phi ptr [ %25, %36 ], [ %.pre54, %_ZNSt6vectorIP9entity_idSaIS1_EE6resizeEmRKS1_.exit ]
   %47 = phi ptr [ %26, %36 ], [ %.pre, %_ZNSt6vectorIP9entity_idSaIS1_EE6resizeEmRKS1_.exit ]
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %33
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %33
   %49 = load ptr, ptr %48, align 8, !tbaa !24
   store ptr null, ptr %48, align 8, !tbaa !24
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %33
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %33
   store ptr %49, ptr %50, align 8, !tbaa !24
   %51 = add i64 %.052, 1
   %52 = icmp ne i64 %51, %11
@@ -5587,7 +5575,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIP9entity_idSaIS1_EE14_M_fill_inser
 
 _ZSt22__uninitialized_move_aIPP9entity_idS2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !20
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPP9entity_idS2_ET0_T_S4_S3_.exit, label %26
@@ -5596,7 +5584,7 @@ _ZSt22__uninitialized_move_aIPP9entity_idS2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; pred
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 3
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds ptr, ptr %9, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPP9entity_idS2_ET0_T_S4_S3_.exit
 
@@ -5707,7 +5695,7 @@ _ZSt24__uninitialized_fill_n_aIPP9entity_idmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit80:
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPP9entity_idS2_SaIS1_EET0_T_S5_S4_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPP9entity_idS2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPP9entity_idmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw ptr, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -5729,7 +5717,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPP9entity_idS2_SaIS1_EET0_T_S5_S4_RT1_.
 _ZNSt12_Vector_baseIP9entity_idSaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !23
   store ptr %72, ptr %8, align 8, !tbaa !20
-  %75 = getelementptr inbounds nuw ptr, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !162
   br label %_ZSt4fillIPP9entity_idS1_EvT_S3_RKT0_.exit
 
@@ -6022,7 +6010,7 @@ _ZNSt6vectorIPiSaIS0_EE6resizeEmRKS0_.exit:       ; preds = %2
           to label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit unwind label %26
 
 _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit: ; preds = %.lr.ph
-  %24 = getelementptr inbounds nuw ptr, ptr %17, i64 %.019
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.019
   store ptr %23, ptr %24, align 8, !tbaa !71
   %25 = add i64 %.019, 1
   %exitcond.not = icmp eq i64 %25, %21
@@ -6051,10 +6039,10 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit: ; preds = %.lr.ph
 
 .loopexit:                                        ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit, %_ZNSt6vectorIPiSaIS0_EE6resizeEmRKS0_.exit, %2
   %34 = phi ptr [ %8, %2 ], [ %17, %_ZNSt6vectorIPiSaIS0_EE6resizeEmRKS0_.exit ], [ %17, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit ]
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %4
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %4
   %36 = load ptr, ptr %35, align 8, !tbaa !71
   %37 = and i64 %1, 1023
-  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %37
   ret ptr %38
 
 39:                                               ; preds = %31
@@ -6090,7 +6078,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPiSaIS0_EE6resizeEm(ptr noundef
   br i1 %14, label %15, label %_ZNSt6vectorIPiSaIS0_EE15_M_erase_at_endEPS0_.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw ptr, ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIPiSaIS0_EE15_M_erase_at_endEPS0_.exit, label %17
 
@@ -6142,7 +6130,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPiSaIS0_EE14_M_fill_insertEN9__
 
 _ZSt22__uninitialized_move_aIPPiS1_SaIS0_EET0_T_S4_S3_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !158
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPPiS1_ET0_T_S3_S2_.exit, label %26
@@ -6151,7 +6139,7 @@ _ZSt22__uninitialized_move_aIPPiS1_SaIS0_EET0_T_S4_S3_RT1_.exit: ; preds = %23, 
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 3
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds ptr, ptr %9, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPPiS1_ET0_T_S3_S2_.exit
 
@@ -6262,7 +6250,7 @@ _ZSt24__uninitialized_fill_n_aIPPimS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit80: ; preds 
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPPiS1_SaIS0_EET0_T_S4_S3_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPPiS1_SaIS0_EET0_T_S4_S3_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPPimS0_S0_ET_S2_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw ptr, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -6284,7 +6272,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPPiS1_SaIS0_EET0_T_S4_S3_RT1_.exit: ; p
 _ZNSt12_Vector_baseIPiSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !75
   store ptr %72, ptr %8, align 8, !tbaa !158
-  %75 = getelementptr inbounds nuw ptr, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !160
   br label %_ZSt4fillIPPiS0_EvT_S2_RKT0_.exit
 
@@ -6381,9 +6369,9 @@ _ZNSt6vectorIPiSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt27__uni
 
 _ZNSt12_Vector_baseIPiSaIS0_EE13_M_deallocateEPS0_m.exit36: ; preds = %_ZNSt6vectorIPiSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !75
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !158
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !160
   br label %41
 
@@ -6664,7 +6652,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjSt10shared_ptrINS_16
   %16 = and i64 %15, %7
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !61
-  %19 = getelementptr inbounds nuw i64, ptr %10, i64 %16
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %16
   br label %20
 
 20:                                               ; preds = %21, %3
@@ -6674,7 +6662,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjSt10shared_ptrINS_16
   br i1 %.not.i, label %_ZN4entt9dense_mapIjSt10shared_ptrINS_16basic_sparse_setI9entity_idSaIS3_EEEENS_8identityESt8equal_toIvESaISt4pairIKjS6_EEE16constrained_findIjEEDaRKT_m.exit.thread, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %18, i64 %.sroa.5.0.i
+  %22 = getelementptr inbounds [32 x i8], ptr %18, i64 %.sroa.5.0.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 4, !tbaa !26
   %25 = icmp eq i32 %24, %6
@@ -6757,7 +6745,7 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS0_16basic_sparse_
   %57 = ashr exact i64 %56, 5
   %58 = add nsw i64 %57, -1
   %59 = load ptr, ptr %0, align 8, !tbaa !60
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %16
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %16
   store i64 %58, ptr %60, align 8, !tbaa !63
   %61 = load ptr, ptr %8, align 8, !tbaa !57
   %62 = ptrtoint ptr %61 to i64
@@ -6932,7 +6920,7 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS0_16basic_sparse_
 _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS0_16basic_sparse_setI9entity_idSaIS5_EEEEEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS0_16basic_sparse_setI9entity_idSaIS5_EEEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit35, %71
   store ptr %23, ptr %0, align 8, !tbaa !106
   store ptr %.0.lcssa.i.i.i34, ptr %7, align 8, !tbaa !104
-  %75 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %23, i64 %19
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %19
   store ptr %75, ptr %70, align 8, !tbaa !197
   ret void
 }
@@ -6996,7 +6984,7 @@ _ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4ty
   br i1 %38, label %39, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i64, ptr %28, i64 %25
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %25
   %.not.i.i = icmp eq ptr %27, %40
   br i1 %.not.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %41
 
@@ -7038,12 +7026,12 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
 
 58:                                               ; preds = %.lr.ph26, %58
   %.024 = phi i64 [ 0, %.lr.ph26 ], [ %66, %58 ]
-  %59 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %50, i64 %.024
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %.024
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 4, !tbaa !26
   %62 = zext i32 %61 to i64
   %63 = and i64 %57, %62
-  %64 = getelementptr inbounds nuw i64, ptr %43, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !63
   store i64 %.024, ptr %64, align 8, !tbaa !63
   store i64 %65, ptr %59, align 8, !tbaa !198
@@ -7144,9 +7132,9 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !60
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !57
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !118
   br label %41
 
@@ -8651,7 +8639,7 @@ define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageI9
 16:                                               ; preds = %.lr.ph, %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE4findES1_.exit
   %.sroa.3.019 = phi i64 [ %2, %.lr.ph ], [ %54, %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE4findES1_.exit ]
   %17 = load ptr, ptr %1, align 8, !tbaa !143
-  %18 = getelementptr %struct.entity_id, ptr %17, i64 %.sroa.3.019
+  %18 = getelementptr [4 x i8], ptr %17, i64 %.sroa.3.019
   %19 = getelementptr i8, ptr %18, i64 -4
   %.sroa.05.0.copyload = load i32, ptr %19, align 4, !tbaa !26
   %20 = load ptr, ptr %10, align 8, !tbaa !93
@@ -8670,7 +8658,7 @@ define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageI9
   %.06.i = phi i64 [ %26, %.lr.ph.i ], [ %25, %.lr.ph.preheader.i ]
   %26 = add i64 %.06.i, -1
   %27 = load ptr, ptr %8, align 8, !tbaa !94
-  %28 = getelementptr inbounds nuw %"class.entt::delegate", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !95
   %31 = load ptr, ptr %28, align 8, !tbaa !97
@@ -8692,14 +8680,14 @@ _ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ES3_E7publishES5_S2_
   br i1 %41, label %42, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE4findES1_.exit
 
 42:                                               ; preds = %_ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ES3_E7publishES5_S2_.exit
-  %43 = getelementptr inbounds nuw ptr, ptr %36, i64 %34
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %34
   %44 = load ptr, ptr %43, align 8, !tbaa !24
   %.not.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE4findES1_.exit, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i
 
 _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i: ; preds = %42
   %45 = and i64 %33, 4095
-  %46 = getelementptr inbounds nuw %struct.entity_id, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   %47 = and i32 %.sroa.05.0.copyload, -1048576
   %.sroa.0.0.copyload.i.i = load i32, ptr %46, align 4, !tbaa !26
   %48 = xor i32 %.sroa.0.0.copyload.i.i, %47
@@ -8748,7 +8736,7 @@ define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageI9
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ES3_E7publishES5_S2_.exit
   %.06 = phi i64 [ %27, %_ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ES3_E7publishES5_S2_.exit ], [ 0, %.lr.ph.split.preheader ]
   %13 = load ptr, ptr %12, align 8, !tbaa !143
-  %14 = getelementptr inbounds nuw %struct.entity_id, ptr %13, i64 %.06
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.06
   %.sroa.0.0.copyload.i = load i32, ptr %14, align 4, !tbaa !26
   %15 = load ptr, ptr %6, align 8, !tbaa !93
   %16 = load ptr, ptr %4, align 8, !tbaa !94
@@ -8766,7 +8754,7 @@ define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageI9
   %.06.i = phi i64 [ %21, %.lr.ph.i ], [ %20, %.lr.ph.preheader.i ]
   %21 = add i64 %.06.i, -1
   %22 = load ptr, ptr %4, align 8, !tbaa !94
-  %23 = getelementptr inbounds nuw %"class.entt::delegate", ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !95
   %26 = load ptr, ptr %23, align 8, !tbaa !97
@@ -8817,10 +8805,10 @@ _ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ES3_E7publishES5_S2_
   %43 = and i32 %.sroa.06.0.copyload.i.i, 1048575
   %44 = zext nneg i32 %43 to i64
   %45 = lshr i64 %44, 12
-  %46 = getelementptr inbounds nuw ptr, ptr %39, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !24
   %48 = and i64 %44, 4095
-  %49 = getelementptr inbounds nuw %struct.entity_id, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %48
   store i32 -1, ptr %49, align 4, !tbaa !26
   br label %50
 
@@ -8848,10 +8836,10 @@ _ZNK4entt4sighIFvRNS_14basic_registryI9entity_idSaIS2_EEES2_ES3_E7publishES5_S2_
   %60 = and i32 %.sroa.0.0.copyload.i.i, 1048575
   %61 = zext nneg i32 %60 to i64
   %62 = lshr i64 %61, 12
-  %63 = getelementptr inbounds nuw ptr, ptr %58, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !24
   %65 = and i64 %61, 4095
-  %66 = getelementptr inbounds nuw %struct.entity_id, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %65
   store i32 -1, ptr %66, align 4, !tbaa !26
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.012.025.i.i, i64 4
   %.not20.i.i = icmp eq ptr %67, %56
@@ -8912,14 +8900,14 @@ define linkonce_odr hidden { ptr, i64 } @_ZN4entt16basic_sigh_mixinINS_13basic_s
   br i1 %17, label %18, label %_ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE11try_emplaceES1_bPKv.exit.thread
 
 18:                                               ; preds = %4
-  %19 = getelementptr inbounds nuw ptr, ptr %12, i64 %8
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %8
   %20 = load ptr, ptr %19, align 8, !tbaa !24
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %_ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE11try_emplaceES1_bPKv.exit.thread, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i.i
 
 _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE8containsES1_.exit.i.i: ; preds = %18
   %21 = and i64 %7, 4095
-  %22 = getelementptr inbounds nuw %struct.entity_id, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   %23 = and i32 %5, -1048576
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %22, align 4, !tbaa !26
   %24 = xor i32 %.sroa.0.0.copyload.i.i.i, %23
@@ -8939,7 +8927,7 @@ _ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE11try_emplaceES1_bPKv.exit: ; pred
   %29 = load ptr, ptr %28, align 8, !tbaa !251
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %31 = load ptr, ptr %.pn9.i.i, align 8, !tbaa !143
-  %32 = getelementptr %struct.entity_id, ptr %31, i64 %27
+  %32 = getelementptr [4 x i8], ptr %31, i64 %27
   %33 = getelementptr i8, ptr %32, i64 -4
   %.sroa.0.0.copyload = load i32, ptr %33, align 4, !tbaa !26
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -8959,7 +8947,7 @@ _ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE11try_emplaceES1_bPKv.exit: ; pred
   %.06.i = phi i64 [ %41, %.lr.ph.i ], [ %40, %.lr.ph.preheader.i ]
   %41 = add i64 %.06.i, -1
   %42 = load ptr, ptr %30, align 8, !tbaa !94
-  %43 = getelementptr inbounds nuw %"class.entt::delegate", ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %41
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !95
   %46 = load ptr, ptr %43, align 8, !tbaa !97
@@ -9136,14 +9124,14 @@ define linkonce_odr hidden i32 @_ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE8g
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds nuw ptr, ptr %12, i64 %8
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %8
   %20 = load ptr, ptr %19, align 8, !tbaa !24
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %.critedge, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE10sparse_ptrES1_.exit.i
 
 _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE10sparse_ptrES1_.exit.i: ; preds = %18
   %21 = and i64 %7, 4095
-  %22 = getelementptr inbounds nuw %struct.entity_id, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   %.sroa.0.0.copyload.i = load i32, ptr %22, align 4, !tbaa !26
   %23 = icmp ugt i32 %.sroa.0.0.copyload.i, -1048577
   br i1 %23, label %.critedge, label %24
@@ -9195,14 +9183,14 @@ _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE10sparse_ptrES1_.exit.i: ; preds =
   %60 = phi i64 [ %72, %66 ], [ %56, %40 ]
   %.sroa.04.09.i.i = phi i32 [ %68, %66 ], [ %44, %40 ]
   %storemerge8.i.i = phi i64 [ %71, %66 ], [ %47, %40 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %51, i64 %59
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %59
   %62 = load ptr, ptr %61, align 8, !tbaa !24
   %.not.i.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i.i.i, label %_ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE4nextEv.exit.i, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE7currentES1_.exit.i.i
 
 _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE7currentES1_.exit.i.i: ; preds = %.lr.ph.i.i
   %63 = and i64 %60, 4095
-  %64 = getelementptr inbounds nuw %struct.entity_id, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %63
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %64, align 4, !tbaa !26
   %.not.i.i16 = icmp ult i32 %.sroa.0.0.copyload.i.i.i, -1048576
   %65 = icmp ne i32 %.sroa.04.09.i.i, 1048575
@@ -9227,7 +9215,7 @@ _ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE4nextEv.exit.i: ; preds = %66, %_Z
   br label %.critedge
 
 75:                                               ; preds = %.thread
-  %76 = getelementptr inbounds nuw %struct.entity_id, ptr %34, i64 %30
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %30
   %.sroa.01.0.copyload.i15 = load i32, ptr %76, align 4, !tbaa !26
   br label %.critedge
 
@@ -9237,7 +9225,7 @@ _ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE4nextEv.exit.i: ; preds = %66, %_Z
   %78 = extractvalue { ptr, i64 } %77, 0
   %79 = extractvalue { ptr, i64 } %77, 1
   %80 = load ptr, ptr %78, align 8, !tbaa !143
-  %81 = getelementptr %struct.entity_id, ptr %80, i64 %79
+  %81 = getelementptr [4 x i8], ptr %80, i64 %79
   %.sroa.014.1.in = getelementptr i8, ptr %81, i64 -4
   %.sroa.014.1 = load i32, ptr %.sroa.014.1.in, align 4, !tbaa !26
   ret i32 %.sroa.014.1
@@ -9510,7 +9498,7 @@ _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS0_16basic_
   store ptr %20, ptr %3, align 8, !tbaa !106
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   store ptr %34, ptr %15, align 8, !tbaa !104
-  %35 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %20, i64 %1
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %1
   store ptr %35, ptr %7, align 8, !tbaa !197
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt10shared_ptrINS0_16basic_sparse_setI9entity_idSaIS5_EEEEEESaIS9_EE7reserveEm.exit
 
@@ -9584,7 +9572,7 @@ _ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4ty
   br i1 %38, label %39, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i64, ptr %28, i64 %25
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %25
   %.not.i.i = icmp eq ptr %27, %40
   br i1 %.not.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %41
 
@@ -9626,12 +9614,12 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
 
 58:                                               ; preds = %.lr.ph26, %58
   %.024 = phi i64 [ 0, %.lr.ph26 ], [ %66, %58 ]
-  %59 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node.118", ptr %50, i64 %.024
+  %59 = getelementptr inbounds nuw [48 x i8], ptr %50, i64 %.024
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 4, !tbaa !26
   %62 = zext i32 %61 to i64
   %63 = and i64 %57, %62
-  %64 = getelementptr inbounds nuw i64, ptr %43, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !63
   store i64 %.024, ptr %64, align 8, !tbaa !63
   store i64 %65, ptr %59, align 8, !tbaa !274
@@ -9702,7 +9690,7 @@ _ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4ty
   br i1 %38, label %39, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i64, ptr %28, i64 %25
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %25
   %.not.i.i = icmp eq ptr %27, %40
   br i1 %.not.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %41
 
@@ -9744,12 +9732,12 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
 
 58:                                               ; preds = %.lr.ph26, %58
   %.024 = phi i64 [ 0, %.lr.ph26 ], [ %66, %58 ]
-  %59 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node.124", ptr %50, i64 %.024
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %.024
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 4, !tbaa !26
   %62 = zext i32 %61 to i64
   %63 = and i64 %57, %62
-  %64 = getelementptr inbounds nuw i64, ptr %43, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !63
   store i64 %.024, ptr %64, align 8, !tbaa !63
   store i64 %65, ptr %59, align 8, !tbaa !278
@@ -9808,14 +9796,14 @@ define linkonce_odr hidden i32 @_ZN4entt16basic_sigh_mixinINS_13basic_storageI9e
   %33 = phi i64 [ %45, %39 ], [ %29, %13 ]
   %.sroa.04.09.i.i = phi i32 [ %41, %39 ], [ %17, %13 ]
   %storemerge8.i.i = phi i64 [ %44, %39 ], [ %20, %13 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %24, i64 %32
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %32
   %35 = load ptr, ptr %34, align 8, !tbaa !24
   %.not.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i, label %_ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE4nextEv.exit.i, label %_ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE7currentES1_.exit.i.i
 
 _ZNK4entt16basic_sparse_setI9entity_idSaIS1_EE7currentES1_.exit.i.i: ; preds = %.lr.ph.i.i
   %36 = and i64 %33, 4095
-  %37 = getelementptr inbounds nuw %struct.entity_id, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %37, align 4, !tbaa !26
   %.not.i.i = icmp ult i32 %.sroa.0.0.copyload.i.i.i, -1048576
   %38 = icmp ne i32 %.sroa.04.09.i.i, 1048575
@@ -9840,7 +9828,7 @@ _ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE4nextEv.exit.i: ; preds = %39, %_Z
   br label %_ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE8generateEv.exit
 
 48:                                               ; preds = %1
-  %49 = getelementptr inbounds nuw %struct.entity_id, ptr %7, i64 %3
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %3
   %.sroa.01.0.copyload.i = load i32, ptr %49, align 4, !tbaa !26
   br label %_ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE8generateEv.exit
 
@@ -9850,7 +9838,7 @@ _ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE8generateEv.exit: ; preds = %_ZN4e
   %51 = extractvalue { ptr, i64 } %50, 0
   %52 = extractvalue { ptr, i64 } %50, 1
   %53 = load ptr, ptr %51, align 8, !tbaa !143
-  %54 = getelementptr %struct.entity_id, ptr %53, i64 %52
+  %54 = getelementptr [4 x i8], ptr %53, i64 %52
   %55 = getelementptr i8, ptr %54, i64 -4
   %.sroa.03.0.copyload.i = load i32, ptr %55, align 4, !tbaa !26
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -9873,7 +9861,7 @@ _ZN4entt13basic_storageI9entity_idS1_SaIS1_EvE8generateEv.exit: ; preds = %_ZN4e
   %.06.i = phi i64 [ %66, %.lr.ph.i ], [ %65, %.lr.ph.preheader.i ]
   %66 = add i64 %.06.i, -1
   %67 = load ptr, ptr %56, align 8, !tbaa !94
-  %68 = getelementptr inbounds nuw %"class.entt::delegate", ptr %67, i64 %66
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %66
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !95
   %71 = load ptr, ptr %68, align 8, !tbaa !97

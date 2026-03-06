@@ -679,7 +679,7 @@ x942kdf_set_buffer.exit99.thread:                 ; preds = %95, %101, %x942kdf_
 
 115:                                              ; preds = %111
   %116 = load i64, ptr %3, align 8, !tbaa !31
-  %117 = getelementptr inbounds nuw %struct.anon, ptr @kek_algs, i64 %116
+  %117 = getelementptr inbounds nuw [32 x i8], ptr @kek_algs, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load ptr, ptr %118, align 8, !tbaa !37
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1141,7 +1141,7 @@ define internal fastcc range(i32 0, 2) i32 @find_alg_id(ptr noundef %0, ptr noun
 
 .preheader:                                       ; preds = %4, %10
   %.01115 = phi i64 [ %11, %10 ], [ 0, %4 ]
-  %6 = getelementptr inbounds nuw %struct.anon, ptr @kek_algs, i64 %.01115
+  %6 = getelementptr inbounds nuw [32 x i8], ptr @kek_algs, i64 %.01115
   %7 = load ptr, ptr %6, align 16, !tbaa !42
   %8 = tail call i32 @EVP_CIPHER_is_a(ptr noundef nonnull %5, ptr noundef %7) #7
   %.not13 = icmp eq i32 %8, 0

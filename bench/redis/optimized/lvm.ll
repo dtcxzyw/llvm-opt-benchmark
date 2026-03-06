@@ -854,7 +854,7 @@ define hidden void @luaV_concat(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %.0 = phi i32 [ %1, %3 ], [ %78, %luaV_tostring.exit74 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !37
   %11 = sext i32 %.062 to i64
-  %12 = getelementptr inbounds %struct.lua_TValue, ptr %10, i64 %11
+  %12 = getelementptr inbounds [16 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds i8, ptr %12, i64 -16
   %15 = getelementptr inbounds i8, ptr %12, i64 -8
@@ -926,7 +926,7 @@ luaV_tostring.exit.thread:                        ; preds = %17, %9
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %54 ]
   %.06581 = phi i64 [ %29, %.lr.ph.preheader ], [ %55, %54 ]
   %40 = sub nsw i64 0, %indvars.iv
-  %41 = getelementptr inbounds %struct.lua_TValue, ptr %13, i64 %40
+  %41 = getelementptr inbounds [16 x i8], ptr %13, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -16
   %43 = getelementptr inbounds i8, ptr %41, i64 -8
   %44 = load i32, ptr %43, align 8, !tbaa !4
@@ -981,7 +981,7 @@ luaV_tostring.exit76:                             ; preds = %.lr.ph
   %indvars.iv90 = phi i64 [ %60, %.critedge ], [ %indvars.iv.next91, %61 ]
   %.16687 = phi i64 [ 0, %.critedge ], [ %69, %61 ]
   %62 = sub nsw i64 0, %indvars.iv90
-  %63 = getelementptr inbounds %struct.lua_TValue, ptr %13, i64 %62
+  %63 = getelementptr inbounds [16 x i8], ptr %13, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !9
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load i64, ptr %65, align 8, !tbaa !9
@@ -996,7 +996,7 @@ luaV_tostring.exit76:                             ; preds = %.lr.ph
 
 72:                                               ; preds = %61
   %73 = sub nsw i64 0, %60
-  %74 = getelementptr inbounds %struct.lua_TValue, ptr %13, i64 %73
+  %74 = getelementptr inbounds [16 x i8], ptr %13, i64 %73
   %75 = call ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef %59, i64 noundef %69) #9
   store ptr %75, ptr %74, align 8, !tbaa !9
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -1220,7 +1220,7 @@ define hidden void @luaV_execute(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 .thread.i:                                        ; preds = %54
   %73 = sext i32 %68 to i64
-  %74 = getelementptr inbounds i32, ptr %70, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %70, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !53
   %76 = icmp ne i32 %68, 0
   %.not2932.i = icmp ugt ptr %33, %52
@@ -1233,7 +1233,7 @@ define hidden void @luaV_execute(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %80 = shl i64 %79, 30
   %sext.i = add i64 %80, -4294967296
   %81 = ashr i64 %sext.i, 32
-  %82 = getelementptr inbounds i32, ptr %70, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %70, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !53
   %.not31.i = icmp eq i32 %75, %83
   br i1 %.not31.i, label %traceexec.exit, label %84
@@ -1261,7 +1261,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %92 = lshr i32 %34, 6
   %93 = and i32 %92, 255
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %94
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %94
   %96 = and i32 %34, 63
   switch i32 %96, label %.critedge.backedge [
     i32 0, label %97
@@ -1307,7 +1307,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
 97:                                               ; preds = %91
   %98 = lshr i32 %34, 23
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %99
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %99
   %101 = load i64, ptr %100, align 8, !tbaa !9
   store i64 %101, ptr %95, align 8, !tbaa !9
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -1319,7 +1319,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
 105:                                              ; preds = %91
   %106 = lshr i32 %34, 14
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %107
+  %108 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %107
   %109 = load i64, ptr %108, align 8, !tbaa !9
   store i64 %109, ptr %95, align 8, !tbaa !9
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
@@ -1342,7 +1342,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
 118:                                              ; preds = %91
   %119 = lshr i32 %34, 23
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %120
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %120
   br label %122
 
 122:                                              ; preds = %122, %118
@@ -1356,7 +1356,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
 125:                                              ; preds = %91
   %126 = lshr i32 %34, 23
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw ptr, ptr %32, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %127
   %129 = load ptr, ptr %128, align 8, !tbaa !61
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 8, !tbaa !63
@@ -1372,7 +1372,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %137 = lshr i32 %34, 14
   %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %138
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %138
   %140 = load ptr, ptr %31, align 8, !tbaa !65
   store ptr %140, ptr %6, align 8, !tbaa !9
   store i32 5, ptr %20, align 8, !tbaa !4
@@ -1386,14 +1386,14 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   store ptr %33, ptr %8, align 8, !tbaa !41
   %143 = lshr i32 %34, 23
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %144
+  %145 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %144
   %146 = lshr i32 %34, 14
   %147 = and i32 %34, 4194304
   %.not803 = icmp eq i32 %147, 0
   %148 = and i32 %146, 255
   %149 = zext nneg i32 %148 to i64
   %.v852 = select i1 %.not803, ptr %.1713, ptr %30
-  %150 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v852, i64 %149
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %.v852, i64 %149
   call void @luaV_gettable(ptr noundef nonnull %0, ptr noundef %145, ptr noundef %150, ptr noundef %95)
   %151 = load ptr, ptr %10, align 8, !tbaa !37
   br label %.critedge.backedge
@@ -1406,7 +1406,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   store ptr %33, ptr %8, align 8, !tbaa !41
   %154 = lshr i32 %34, 14
   %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %155
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %155
   call void @luaV_settable(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %156, ptr noundef %95)
   %157 = load ptr, ptr %10, align 8, !tbaa !37
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1415,7 +1415,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
 158:                                              ; preds = %91
   %159 = lshr i32 %34, 23
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw ptr, ptr %32, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %160
   %162 = load ptr, ptr %161, align 8, !tbaa !61
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %164 = load ptr, ptr %163, align 8, !tbaa !63
@@ -1452,9 +1452,9 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %181 = lshr i32 %34, 23
   %182 = and i32 %181, 255
   %183 = zext nneg i32 %182 to i64
-  %184 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %183
+  %184 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %183
   %185 = zext nneg i32 %181 to i64
-  %186 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %185
+  %186 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %185
   %.not799850 = icmp slt i32 %34, 0
   %187 = select i1 %.not799850, ptr %184, ptr %186
   %188 = lshr i32 %34, 14
@@ -1463,7 +1463,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %190 = and i32 %188, 255
   %191 = zext nneg i32 %190 to i64
   %.v851 = select i1 %.not800, ptr %.1713, ptr %30
-  %192 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v851, i64 %191
+  %192 = getelementptr inbounds nuw [16 x i8], ptr %.v851, i64 %191
   call void @luaV_settable(ptr noundef nonnull %0, ptr noundef %95, ptr noundef %187, ptr noundef %192)
   %193 = load ptr, ptr %10, align 8, !tbaa !37
   br label %.critedge.backedge
@@ -1498,7 +1498,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
 210:                                              ; preds = %91
   %211 = lshr i32 %34, 23
   %212 = zext nneg i32 %211 to i64
-  %213 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %212
+  %213 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %212
   %214 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %215 = load i64, ptr %213, align 8, !tbaa !9
   store i64 %215, ptr %214, align 8, !tbaa !9
@@ -1513,7 +1513,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %221 = and i32 %219, 255
   %222 = zext nneg i32 %221 to i64
   %.v849 = select i1 %.not797, ptr %.1713, ptr %30
-  %223 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v849, i64 %222
+  %223 = getelementptr inbounds nuw [16 x i8], ptr %.v849, i64 %222
   call void @luaV_gettable(ptr noundef nonnull %0, ptr noundef nonnull %213, ptr noundef %223, ptr noundef %95)
   %224 = load ptr, ptr %10, align 8, !tbaa !37
   br label %.critedge.backedge
@@ -1522,9 +1522,9 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %226 = lshr i32 %34, 23
   %227 = and i32 %226, 255
   %228 = zext nneg i32 %227 to i64
-  %229 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %228
+  %229 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %228
   %230 = zext nneg i32 %226 to i64
-  %231 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %230
+  %231 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %230
   %.not795847 = icmp slt i32 %34, 0
   %232 = select i1 %.not795847, ptr %229, ptr %231
   %233 = lshr i32 %34, 14
@@ -1533,7 +1533,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %235 = and i32 %233, 255
   %236 = zext nneg i32 %235 to i64
   %.v848 = select i1 %.not796, ptr %.1713, ptr %30
-  %237 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v848, i64 %236
+  %237 = getelementptr inbounds nuw [16 x i8], ptr %.v848, i64 %236
   %238 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %239 = load i32, ptr %238, align 8, !tbaa !4
   %240 = icmp eq i32 %239, 3
@@ -1564,9 +1564,9 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %253 = lshr i32 %34, 23
   %254 = and i32 %253, 255
   %255 = zext nneg i32 %254 to i64
-  %256 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %255
+  %256 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %255
   %257 = zext nneg i32 %253 to i64
-  %258 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %257
+  %258 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %257
   %.not793845 = icmp slt i32 %34, 0
   %259 = select i1 %.not793845, ptr %256, ptr %258
   %260 = lshr i32 %34, 14
@@ -1575,7 +1575,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %262 = and i32 %260, 255
   %263 = zext nneg i32 %262 to i64
   %.v846 = select i1 %.not794, ptr %.1713, ptr %30
-  %264 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v846, i64 %263
+  %264 = getelementptr inbounds nuw [16 x i8], ptr %.v846, i64 %263
   %265 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %266 = load i32, ptr %265, align 8, !tbaa !4
   %267 = icmp eq i32 %266, 3
@@ -1606,9 +1606,9 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %280 = lshr i32 %34, 23
   %281 = and i32 %280, 255
   %282 = zext nneg i32 %281 to i64
-  %283 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %282
+  %283 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %282
   %284 = zext nneg i32 %280 to i64
-  %285 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %284
+  %285 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %284
   %.not791843 = icmp slt i32 %34, 0
   %286 = select i1 %.not791843, ptr %283, ptr %285
   %287 = lshr i32 %34, 14
@@ -1617,7 +1617,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %289 = and i32 %287, 255
   %290 = zext nneg i32 %289 to i64
   %.v844 = select i1 %.not792, ptr %.1713, ptr %30
-  %291 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v844, i64 %290
+  %291 = getelementptr inbounds nuw [16 x i8], ptr %.v844, i64 %290
   %292 = getelementptr inbounds nuw i8, ptr %286, i64 8
   %293 = load i32, ptr %292, align 8, !tbaa !4
   %294 = icmp eq i32 %293, 3
@@ -1648,9 +1648,9 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %307 = lshr i32 %34, 23
   %308 = and i32 %307, 255
   %309 = zext nneg i32 %308 to i64
-  %310 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %309
+  %310 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %309
   %311 = zext nneg i32 %307 to i64
-  %312 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %311
+  %312 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %311
   %.not789841 = icmp slt i32 %34, 0
   %313 = select i1 %.not789841, ptr %310, ptr %312
   %314 = lshr i32 %34, 14
@@ -1659,7 +1659,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %316 = and i32 %314, 255
   %317 = zext nneg i32 %316 to i64
   %.v842 = select i1 %.not790, ptr %.1713, ptr %30
-  %318 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v842, i64 %317
+  %318 = getelementptr inbounds nuw [16 x i8], ptr %.v842, i64 %317
   %319 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %320 = load i32, ptr %319, align 8, !tbaa !4
   %321 = icmp eq i32 %320, 3
@@ -1690,9 +1690,9 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %334 = lshr i32 %34, 23
   %335 = and i32 %334, 255
   %336 = zext nneg i32 %335 to i64
-  %337 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %336
+  %337 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %336
   %338 = zext nneg i32 %334 to i64
-  %339 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %338
+  %339 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %338
   %.not787839 = icmp slt i32 %34, 0
   %340 = select i1 %.not787839, ptr %337, ptr %339
   %341 = lshr i32 %34, 14
@@ -1701,7 +1701,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %343 = and i32 %341, 255
   %344 = zext nneg i32 %343 to i64
   %.v840 = select i1 %.not788, ptr %.1713, ptr %30
-  %345 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v840, i64 %344
+  %345 = getelementptr inbounds nuw [16 x i8], ptr %.v840, i64 %344
   %346 = getelementptr inbounds nuw i8, ptr %340, i64 8
   %347 = load i32, ptr %346, align 8, !tbaa !4
   %348 = icmp eq i32 %347, 3
@@ -1735,9 +1735,9 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %364 = lshr i32 %34, 23
   %365 = and i32 %364, 255
   %366 = zext nneg i32 %365 to i64
-  %367 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %366
+  %367 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %366
   %368 = zext nneg i32 %364 to i64
-  %369 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %368
+  %369 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %368
   %.not785837 = icmp slt i32 %34, 0
   %370 = select i1 %.not785837, ptr %367, ptr %369
   %371 = lshr i32 %34, 14
@@ -1746,7 +1746,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %373 = and i32 %371, 255
   %374 = zext nneg i32 %373 to i64
   %.v838 = select i1 %.not786, ptr %.1713, ptr %30
-  %375 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v838, i64 %374
+  %375 = getelementptr inbounds nuw [16 x i8], ptr %.v838, i64 %374
   %376 = getelementptr inbounds nuw i8, ptr %370, i64 8
   %377 = load i32, ptr %376, align 8, !tbaa !4
   %378 = icmp eq i32 %377, 3
@@ -1776,7 +1776,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
 390:                                              ; preds = %91
   %391 = lshr i32 %34, 23
   %392 = zext nneg i32 %391 to i64
-  %393 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %392
+  %393 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %392
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 8
   %395 = load i32, ptr %394, align 8, !tbaa !4
   %396 = icmp eq i32 %395, 3
@@ -1799,7 +1799,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
 403:                                              ; preds = %91
   %404 = lshr i32 %34, 23
   %405 = zext nneg i32 %404 to i64
-  %406 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %405
+  %406 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %405
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 8
   %408 = load i32, ptr %407, align 8, !tbaa !4
   switch i32 %408, label %.fold.split [
@@ -1826,7 +1826,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
 416:                                              ; preds = %91
   %417 = lshr i32 %34, 23
   %418 = zext nneg i32 %417 to i64
-  %419 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %418
+  %419 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %418
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 8
   %421 = load i32, ptr %420, align 8, !tbaa !4
   switch i32 %421, label %433 [
@@ -1890,8 +1890,8 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
 449:                                              ; preds = %448, %438
   %450 = load ptr, ptr %10, align 8, !tbaa !37
   %451 = zext nneg i32 %439 to i64
-  %452 = getelementptr inbounds nuw %struct.lua_TValue, ptr %450, i64 %451
-  %453 = getelementptr inbounds nuw %struct.lua_TValue, ptr %450, i64 %94
+  %452 = getelementptr inbounds nuw [16 x i8], ptr %450, i64 %451
+  %453 = getelementptr inbounds nuw [16 x i8], ptr %450, i64 %94
   %454 = load i64, ptr %452, align 8, !tbaa !9
   store i64 %454, ptr %453, align 8, !tbaa !9
   %455 = getelementptr inbounds nuw i8, ptr %452, i64 8
@@ -1903,7 +1903,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
 458:                                              ; preds = %91
   %459 = lshr i32 %34, 14
   %460 = zext nneg i32 %459 to i64
-  %461 = getelementptr i32, ptr %33, i64 %460
+  %461 = getelementptr [4 x i8], ptr %33, i64 %460
   %462 = getelementptr i8, ptr %461, i64 -524284
   br label %.critedge.backedge
 
@@ -1911,9 +1911,9 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %464 = lshr i32 %34, 23
   %465 = and i32 %464, 255
   %466 = zext nneg i32 %465 to i64
-  %467 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %466
+  %467 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %466
   %468 = zext nneg i32 %464 to i64
-  %469 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %468
+  %469 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %468
   %.not781835 = icmp slt i32 %34, 0
   %470 = select i1 %.not781835, ptr %467, ptr %469
   %471 = lshr i32 %34, 14
@@ -1922,7 +1922,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %473 = and i32 %471, 255
   %474 = zext nneg i32 %473 to i64
   %.v836 = select i1 %.not782, ptr %.1713, ptr %30
-  %475 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v836, i64 %474
+  %475 = getelementptr inbounds nuw [16 x i8], ptr %.v836, i64 %474
   store ptr %33, ptr %8, align 8, !tbaa !41
   %476 = getelementptr inbounds nuw i8, ptr %470, i64 8
   %477 = load i32, ptr %476, align 8, !tbaa !4
@@ -1944,7 +1944,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %487 = load i32, ptr %33, align 4, !tbaa !53
   %488 = lshr i32 %487, 14
   %489 = zext nneg i32 %488 to i64
-  %490 = getelementptr i32, ptr %33, i64 %489
+  %490 = getelementptr [4 x i8], ptr %33, i64 %489
   %491 = getelementptr i8, ptr %490, i64 -524284
   br label %492
 
@@ -1959,9 +1959,9 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %496 = lshr i32 %34, 23
   %497 = and i32 %496, 255
   %498 = zext nneg i32 %497 to i64
-  %499 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %498
+  %499 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %498
   %500 = zext nneg i32 %496 to i64
-  %501 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %500
+  %501 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %500
   %.not779833 = icmp slt i32 %34, 0
   %502 = select i1 %.not779833, ptr %499, ptr %501
   %503 = lshr i32 %34, 14
@@ -1970,7 +1970,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %505 = and i32 %503, 255
   %506 = zext nneg i32 %505 to i64
   %.v834 = select i1 %.not780, ptr %.1713, ptr %30
-  %507 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v834, i64 %506
+  %507 = getelementptr inbounds nuw [16 x i8], ptr %.v834, i64 %506
   %508 = call i32 @luaV_lessthan(ptr noundef nonnull %0, ptr noundef %502, ptr noundef %507)
   %509 = icmp eq i32 %508, %93
   br i1 %509, label %510, label %516
@@ -1979,7 +1979,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %511 = load i32, ptr %33, align 4, !tbaa !53
   %512 = lshr i32 %511, 14
   %513 = zext nneg i32 %512 to i64
-  %514 = getelementptr i32, ptr %33, i64 %513
+  %514 = getelementptr [4 x i8], ptr %33, i64 %513
   %515 = getelementptr i8, ptr %514, i64 -524284
   br label %516
 
@@ -1994,9 +1994,9 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %520 = lshr i32 %34, 23
   %521 = and i32 %520, 255
   %522 = zext nneg i32 %521 to i64
-  %523 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %522
+  %523 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %522
   %524 = zext nneg i32 %520 to i64
-  %525 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %524
+  %525 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %524
   %.not777832 = icmp slt i32 %34, 0
   %526 = select i1 %.not777832, ptr %523, ptr %525
   %527 = lshr i32 %34, 14
@@ -2005,7 +2005,7 @@ traceexec.exit:                                   ; preds = %.thread820, %71, %7
   %529 = and i32 %527, 255
   %530 = zext nneg i32 %529 to i64
   %.v = select i1 %.not778, ptr %.1713, ptr %30
-  %531 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.v, i64 %530
+  %531 = getelementptr inbounds nuw [16 x i8], ptr %.v, i64 %530
   %532 = getelementptr inbounds nuw i8, ptr %526, i64 8
   %533 = load i32, ptr %532, align 8, !tbaa !4
   %534 = getelementptr inbounds nuw i8, ptr %531, i64 8
@@ -2108,7 +2108,7 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
   %580 = load i32, ptr %33, align 4, !tbaa !53
   %581 = lshr i32 %580, 14
   %582 = zext nneg i32 %581 to i64
-  %583 = getelementptr i32, ptr %33, i64 %582
+  %583 = getelementptr [4 x i8], ptr %33, i64 %582
   %584 = getelementptr i8, ptr %583, i64 -524284
   br label %585
 
@@ -2146,7 +2146,7 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
   %600 = load i32, ptr %33, align 4, !tbaa !53
   %601 = lshr i32 %600, 14
   %602 = zext nneg i32 %601 to i64
-  %603 = getelementptr i32, ptr %33, i64 %602
+  %603 = getelementptr [4 x i8], ptr %33, i64 %602
   %604 = getelementptr i8, ptr %603, i64 -524284
   br label %605
 
@@ -2158,7 +2158,7 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
 607:                                              ; preds = %91
   %608 = lshr i32 %34, 23
   %609 = zext nneg i32 %608 to i64
-  %610 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %609
+  %610 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %609
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 8
   %612 = load i32, ptr %611, align 8, !tbaa !4
   switch i32 %612, label %.fold.split807 [
@@ -2190,7 +2190,7 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
   %624 = load i32, ptr %33, align 4, !tbaa !53
   %625 = lshr i32 %624, 14
   %626 = zext nneg i32 %625 to i64
-  %627 = getelementptr i32, ptr %33, i64 %626
+  %627 = getelementptr [4 x i8], ptr %33, i64 %626
   %628 = getelementptr i8, ptr %627, i64 -524284
   br label %629
 
@@ -2209,7 +2209,7 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
 
 636:                                              ; preds = %631
   %637 = zext nneg i32 %632 to i64
-  %638 = getelementptr inbounds nuw %struct.lua_TValue, ptr %95, i64 %637
+  %638 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %637
   store ptr %638, ptr %16, align 8, !tbaa !33
   br label %639
 
@@ -2251,7 +2251,7 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
 
 652:                                              ; preds = %650
   %653 = zext nneg i32 %651 to i64
-  %654 = getelementptr inbounds nuw %struct.lua_TValue, ptr %95, i64 %653
+  %654 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %653
   store ptr %654, ptr %16, align 8, !tbaa !33
   br label %655
 
@@ -2295,8 +2295,8 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
 
 .lr.ph874:                                        ; preds = %667, %.lr.ph874
   %indvars.iv895 = phi i64 [ %indvars.iv.next896, %.lr.ph874 ], [ 0, %667 ]
-  %676 = getelementptr inbounds nuw %struct.lua_TValue, ptr %663, i64 %indvars.iv895
-  %677 = getelementptr inbounds nuw %struct.lua_TValue, ptr %661, i64 %indvars.iv895
+  %676 = getelementptr inbounds nuw [16 x i8], ptr %663, i64 %indvars.iv895
+  %677 = getelementptr inbounds nuw [16 x i8], ptr %661, i64 %indvars.iv895
   %678 = load i64, ptr %676, align 8, !tbaa !9
   store i64 %678, ptr %677, align 8, !tbaa !9
   %679 = getelementptr inbounds nuw i8, ptr %676, i64 8
@@ -2304,14 +2304,14 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
   %681 = getelementptr inbounds nuw i8, ptr %677, i64 8
   store i32 %680, ptr %681, align 8, !tbaa !4
   %indvars.iv.next896 = add nuw nsw i64 %indvars.iv895, 1
-  %682 = getelementptr inbounds nuw %struct.lua_TValue, ptr %663, i64 %indvars.iv.next896
+  %682 = getelementptr inbounds nuw [16 x i8], ptr %663, i64 %indvars.iv.next896
   %683 = load ptr, ptr %16, align 8, !tbaa !33
   %684 = icmp ult ptr %682, %683
   br i1 %684, label %.lr.ph874, label %._crit_edge875, !llvm.loop !77
 
 ._crit_edge875:                                   ; preds = %.lr.ph874, %667
   %.lcssa855 = phi i64 [ 0, %667 ], [ %indvars.iv.next896, %.lr.ph874 ]
-  %685 = getelementptr inbounds nuw %struct.lua_TValue, ptr %661, i64 %.lcssa855
+  %685 = getelementptr inbounds nuw [16 x i8], ptr %661, i64 %.lcssa855
   store ptr %685, ptr %16, align 8, !tbaa !33
   %686 = getelementptr inbounds i8, ptr %658, i64 -24
   store ptr %685, ptr %686, align 8, !tbaa !74
@@ -2338,7 +2338,7 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
 
 698:                                              ; preds = %696
   %699 = zext nneg i32 %697 to i64
-  %700 = getelementptr inbounds nuw %struct.lua_TValue, ptr %95, i64 %699
+  %700 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %699
   %701 = getelementptr inbounds i8, ptr %700, i64 -16
   store ptr %701, ptr %16, align 8, !tbaa !33
   br label %702
@@ -2391,7 +2391,7 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
 726:                                              ; preds = %724, %722
   %727 = lshr i32 %34, 14
   %728 = zext nneg i32 %727 to i64
-  %729 = getelementptr i32, ptr %33, i64 %728
+  %729 = getelementptr [4 x i8], ptr %33, i64 %728
   %730 = getelementptr i8, ptr %729, i64 -524284
   store double %718, ptr %95, align 8, !tbaa !9
   %731 = getelementptr inbounds nuw i8, ptr %95, i64 8
@@ -2503,7 +2503,7 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
   store i32 3, ptr %737, align 8, !tbaa !4
   %773 = lshr i32 %34, 14
   %774 = zext nneg i32 %773 to i64
-  %775 = getelementptr i32, ptr %33, i64 %774
+  %775 = getelementptr [4 x i8], ptr %33, i64 %774
   %776 = getelementptr i8, ptr %775, i64 -524284
   br label %.critedge.backedge
 
@@ -2542,7 +2542,7 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
   %800 = getelementptr inbounds nuw i8, ptr %799, i64 16
   %801 = load ptr, ptr %800, align 8, !tbaa !74
   store ptr %801, ptr %16, align 8, !tbaa !33
-  %802 = getelementptr inbounds nuw %struct.lua_TValue, ptr %798, i64 %94
+  %802 = getelementptr inbounds nuw [16 x i8], ptr %798, i64 %94
   %803 = getelementptr inbounds nuw i8, ptr %802, i64 56
   %804 = load i32, ptr %803, align 8, !tbaa !4
   %805 = icmp eq i32 %804, 0
@@ -2558,7 +2558,7 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
   %811 = load i32, ptr %33, align 4, !tbaa !53
   %812 = lshr i32 %811, 14
   %813 = zext nneg i32 %812 to i64
-  %814 = getelementptr i32, ptr %33, i64 %813
+  %814 = getelementptr [4 x i8], ptr %33, i64 %813
   %815 = getelementptr i8, ptr %814, i64 -524284
   br label %816
 
@@ -2632,7 +2632,7 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
 855:                                              ; preds = %.lr.ph871, %873
   %indvars.iv892 = phi i64 [ %854, %.lr.ph871 ], [ %indvars.iv.next893, %873 ]
   %.0741869 = phi i32 [ %846, %.lr.ph871 ], [ %857, %873 ]
-  %856 = getelementptr inbounds nuw %struct.lua_TValue, ptr %95, i64 %indvars.iv892
+  %856 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %indvars.iv892
   %857 = add nsw i32 %.0741869, -1
   %858 = call ptr @luaH_setnum(ptr noundef %0, ptr noundef %843, i32 noundef %.0741869) #9
   %859 = load i64, ptr %856, align 8, !tbaa !9
@@ -2677,7 +2677,7 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
   %879 = load ptr, ptr %878, align 8, !tbaa !82
   %880 = lshr i32 %34, 14
   %881 = zext nneg i32 %880 to i64
-  %882 = getelementptr inbounds nuw ptr, ptr %879, i64 %881
+  %882 = getelementptr inbounds nuw [8 x i8], ptr %879, i64 %881
   %883 = load ptr, ptr %882, align 8, !tbaa !83
   %884 = getelementptr inbounds nuw i8, ptr %883, i64 112
   %885 = load i8, ptr %884, align 8, !tbaa !84
@@ -2702,16 +2702,16 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
   %894 = icmp eq i32 %893, 4
   %895 = lshr i32 %892, 23
   %896 = zext nneg i32 %895 to i64
-  %897 = getelementptr inbounds nuw ptr, ptr %890, i64 %indvars.iv887
+  %897 = getelementptr inbounds nuw [8 x i8], ptr %890, i64 %indvars.iv887
   br i1 %894, label %898, label %901
 
 898:                                              ; preds = %891
-  %899 = getelementptr inbounds nuw ptr, ptr %32, i64 %896
+  %899 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %896
   %900 = load ptr, ptr %899, align 8, !tbaa !61
   br label %904
 
 901:                                              ; preds = %891
-  %902 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.1713, i64 %896
+  %902 = getelementptr inbounds nuw [16 x i8], ptr %.1713, i64 %896
   %903 = call ptr @luaF_findupval(ptr noundef %0, ptr noundef %902) #9
   br label %904
 
@@ -2784,9 +2784,9 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
 
 943:                                              ; preds = %934, %942
   %944 = load ptr, ptr %10, align 8, !tbaa !37
-  %945 = getelementptr inbounds nuw %struct.lua_TValue, ptr %944, i64 %94
+  %945 = getelementptr inbounds nuw [16 x i8], ptr %944, i64 %94
   %946 = sext i32 %932 to i64
-  %947 = getelementptr inbounds %struct.lua_TValue, ptr %945, i64 %946
+  %947 = getelementptr inbounds [16 x i8], ptr %945, i64 %946
   store ptr %947, ptr %16, align 8, !tbaa !33
   br label %948
 
@@ -2815,9 +2815,9 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
 
 954:                                              ; preds = %952
   %955 = load ptr, ptr %918, align 8, !tbaa !76
-  %956 = getelementptr inbounds %struct.lua_TValue, ptr %955, i64 %951
-  %957 = getelementptr inbounds nuw %struct.lua_TValue, ptr %956, i64 %indvars.iv
-  %958 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.0729, i64 %indvars.iv
+  %956 = getelementptr inbounds [16 x i8], ptr %955, i64 %951
+  %957 = getelementptr inbounds nuw [16 x i8], ptr %956, i64 %indvars.iv
+  %958 = getelementptr inbounds nuw [16 x i8], ptr %.0729, i64 %indvars.iv
   %959 = load i64, ptr %957, align 8, !tbaa !9
   store i64 %959, ptr %958, align 8, !tbaa !9
   %960 = getelementptr inbounds nuw i8, ptr %957, i64 8
@@ -2826,7 +2826,7 @@ luaV_tonumber.exit818.thread:                     ; preds = %763
 
 962:                                              ; preds = %952, %954
   %.sink957 = phi i32 [ %961, %954 ], [ 0, %952 ]
-  %963 = getelementptr inbounds nuw %struct.lua_TValue, ptr %.0729, i64 %indvars.iv
+  %963 = getelementptr inbounds nuw [16 x i8], ptr %.0729, i64 %indvars.iv
   %964 = getelementptr inbounds nuw i8, ptr %963, i64 8
   store i32 %.sink957, ptr %964, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -863,7 +863,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   br i1 %292, label %293, label %.invoke.i, !prof !13
 
 293:                                              ; preds = %.noexc59.i
-  %294 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %290, i64 %289
+  %294 = getelementptr inbounds [24 x i8], ptr %290, i64 %289
   store ptr %294, ptr %82, align 8, !noalias !6
   %295 = load ptr, ptr %245, align 8, !noalias !6, !nonnull !9, !noundef !9
   %296 = load i64, ptr %246, align 8, !noalias !6, !noundef !9
@@ -920,7 +920,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   %303 = load ptr, ptr %302, align 8, !noalias !6, !nonnull !9, !noundef !9
   %304 = getelementptr inbounds nuw i8, ptr %274, i64 16
   %305 = load i64, ptr %304, align 8, !noalias !6, !noundef !9
-  %306 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %303, i64 %305
+  %306 = getelementptr inbounds [48 x i8], ptr %303, i64 %305
   store ptr %303, ptr %77, align 8, !noalias !6
   store ptr %306, ptr %251, align 8, !noalias !6
   %307 = invoke zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0b6128cccbd3fe42E"(ptr nonnull align 8 %77)
@@ -1008,7 +1008,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   br i1 %323, label %324, label %.invoke.i, !prof !13
 
 324:                                              ; preds = %.noexc77.i
-  %325 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %290, i64 %322
+  %325 = getelementptr inbounds [24 x i8], ptr %290, i64 %322
   store ptr %325, ptr %69, align 8, !noalias !6
   %326 = getelementptr inbounds nuw i8, ptr %319, i64 16
   %327 = load i64, ptr %326, align 8, !noalias !6, !noundef !9
@@ -1090,7 +1090,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   br i1 %345, label %346, label %.invoke.i, !prof !13
 
 346:                                              ; preds = %.noexc90.i
-  %347 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %290, i64 %344
+  %347 = getelementptr inbounds [24 x i8], ptr %290, i64 %344
   store ptr %347, ptr %63, align 8, !noalias !6
   %348 = getelementptr inbounds nuw i8, ptr %338, i64 16
   %349 = load i64, ptr %348, align 8, !noalias !6, !noundef !9
@@ -1104,7 +1104,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
 
 353:                                              ; preds = %.noexc91.i
   %354 = load ptr, ptr %259, align 8, !noalias !6, !nonnull !9, !noundef !9
-  %355 = getelementptr inbounds { i64, [9 x i64] }, ptr %354, i64 %350
+  %355 = getelementptr inbounds [80 x i8], ptr %354, i64 %350
   %356 = invoke { ptr, i64 } @_ZN14cranelift_isle4sema4Type4name17ha1c7cd4aff672dacE(ptr nonnull align 8 %355, ptr nonnull align 8 %.val.i)
           to label %.noexc93.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !6
 
@@ -1231,7 +1231,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !6
   %366 = load ptr, ptr %112, align 8, !noalias !6, !nonnull !9, !align !10, !noundef !9
   %367 = load i64, ptr %113, align 8, !noalias !6, !noundef !9
-  %368 = getelementptr inbounds { i64, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, ptr %366, i64 %367
+  %368 = getelementptr inbounds [104 x i8], ptr %366, i64 %367
   store ptr %366, ptr %57, align 8, !noalias !6
   %369 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %368, ptr %369, align 8, !noalias !6
@@ -1350,7 +1350,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
 432:                                              ; preds = %428
   %433 = getelementptr inbounds nuw i8, ptr %425, i64 8
   %434 = load ptr, ptr %433, align 8, !noalias !6, !nonnull !9, !noundef !9
-  %435 = getelementptr inbounds { { i64, [19 x i64] }, { i64, i64, i64, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %434, i64 %426
+  %435 = getelementptr inbounds [240 x i8], ptr %434, i64 %426
   %436 = load ptr, ptr %110, align 8, !noalias !6, !nonnull !9, !align !10, !noundef !9
   %437 = getelementptr inbounds nuw i8, ptr %435, i64 224
   %438 = load i64, ptr %437, align 16, !noalias !6, !noundef !9
@@ -1379,7 +1379,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   br i1 %449, label %450, label %.invoke.i.i, !prof !13
 
 450:                                              ; preds = %444
-  %451 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %446, i64 %439
+  %451 = getelementptr inbounds [24 x i8], ptr %446, i64 %439
   store ptr %451, ptr %54, align 8, !noalias !6
   %452 = load ptr, ptr %371, align 8, !noalias !6, !nonnull !9, !align !10, !noundef !9
   store ptr @anon.792701b81ad76444630bbc03b8bdde37.59, ptr %53, align 8, !noalias !6
@@ -1479,7 +1479,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
 475:                                              ; preds = %474
   %476 = load ptr, ptr %383, align 8, !noalias !6, !nonnull !9, !noundef !9
   %477 = load i64, ptr %384, align 8, !noalias !6, !noundef !9
-  %478 = getelementptr inbounds i64, ptr %476, i64 %477
+  %478 = getelementptr inbounds [8 x i8], ptr %476, i64 %477
   store ptr %476, ptr %41, align 8, !noalias !6
   store ptr %478, ptr %.sroa.221.0..sroa_idx.i.i, align 8, !noalias !6
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !6
@@ -1539,7 +1539,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
 505:                                              ; preds = %.noexc171.i.i
   %506 = getelementptr inbounds nuw i8, ptr %497, i64 80
   %507 = load ptr, ptr %506, align 8, !noalias !6, !nonnull !9, !noundef !9
-  %508 = getelementptr inbounds { i64, [9 x i64] }, ptr %507, i64 %498
+  %508 = getelementptr inbounds [80 x i8], ptr %507, i64 %498
   %509 = load i64, ptr %508, align 8, !range !12, !noalias !6, !noundef !9
   %.not181.i.i = icmp eq i64 %509, -9223372036854775808
   %.sroa.3.0.in.v.i168.i.i = select i1 %.not181.i.i, i64 48, i64 24
@@ -1553,7 +1553,7 @@ define void @_ZN14cranelift_isle7codegen7codegen17ha1a259c7ca05a221E(ptr writeon
   br i1 %512, label %513, label %.invoke615.i.i, !prof !13
 
 513:                                              ; preds = %511
-  %514 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %446, i64 %510
+  %514 = getelementptr inbounds [24 x i8], ptr %446, i64 %510
   store ptr %514, ptr %30, align 8, !noalias !6
   %515 = load i8, ptr %401, align 8, !range !15, !noalias !6, !noundef !9
   %516 = icmp eq i8 %515, 2
@@ -1683,7 +1683,7 @@ default.unreachable:                              ; preds = %527
   %551 = load i8, ptr %401, align 8, !range !15, !noalias !6, !noundef !9
   %552 = load i64, ptr %412, align 8, !noalias !6, !noundef !9
   %553 = load ptr, ptr %413, align 8, !noalias !6, !nonnull !9
-  %554 = getelementptr { { { i64, ptr, {} }, i64 }, { i16, [19 x i16] } }, ptr %553, i64 %552
+  %554 = getelementptr [64 x i8], ptr %553, i64 %552
   %555 = icmp eq i8 %551, 2
   br i1 %555, label %556, label %558
 
@@ -1818,7 +1818,7 @@ default.unreachable:                              ; preds = %527
 597:                                              ; preds = %.noexc166.i.i
   %598 = getelementptr inbounds nuw i8, ptr %489, i64 80
   %599 = load ptr, ptr %598, align 8, !noalias !6, !nonnull !9, !noundef !9
-  %600 = getelementptr inbounds { i64, [9 x i64] }, ptr %599, i64 %490
+  %600 = getelementptr inbounds [80 x i8], ptr %599, i64 %490
   %601 = load i64, ptr %600, align 8, !range !12, !noalias !6, !noundef !9
   %.not180.i.i = icmp eq i64 %601, -9223372036854775808
   %.sroa.3.0.in.v.i.i.i = select i1 %.not180.i.i, i64 48, i64 24
@@ -1855,7 +1855,7 @@ default.unreachable:                              ; preds = %527
   br i1 %610, label %611, label %.invoke615.i.i, !prof !13
 
 611:                                              ; preds = %609
-  %612 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %446, i64 %608
+  %612 = getelementptr inbounds [24 x i8], ptr %446, i64 %608
   store ptr %612, ptr %33, align 8, !noalias !6
   store ptr %34, ptr %35, align 8, !noalias !6
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h46b5357b9e5169a6E", ptr %389, align 8, !noalias !6
@@ -2101,7 +2101,7 @@ define internal fastcc void @_ZN14cranelift_isle7codegen7Codegen18generate_trait
   store i64 %spec.select3, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %40 = load ptr, ptr %39, align 8, !nonnull !9, !noundef !9
-  %41 = getelementptr inbounds i64, ptr %40, i64 %37
+  %41 = getelementptr inbounds [8 x i8], ptr %40, i64 %37
   store ptr %40, ptr %26, align 8
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %41, ptr %42, align 8
@@ -2262,7 +2262,7 @@ default.unreachable2:                             ; preds = %68
   %93 = load ptr, ptr %92, align 8, !nonnull !9, !noundef !9
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %95 = load i64, ptr %94, align 8, !noundef !9
-  %96 = getelementptr inbounds i64, ptr %93, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %93, i64 %95
   store ptr %93, ptr %11, align 8
   %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %96, ptr %.sroa.222.0..sroa_idx, align 8
@@ -2425,7 +2425,7 @@ define hidden void @_ZN14cranelift_isle7codegen7Codegen9type_name17h4f5388863d61
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %15 = load ptr, ptr %14, align 8, !nonnull !9, !noundef !9
-  %16 = getelementptr inbounds { i64, [9 x i64] }, ptr %15, i64 %9
+  %16 = getelementptr inbounds [80 x i8], ptr %15, i64 %9
   %17 = load i64, ptr %16, align 8, !range !12, !noundef !9
   %18 = icmp eq i64 %17, -9223372036854775808
   br i1 %18, label %20, label %27
@@ -2460,7 +2460,7 @@ define hidden void @_ZN14cranelift_isle7codegen7Codegen9type_name17h4f5388863d61
 35:                                               ; preds = %20
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %37 = load ptr, ptr %36, align 8, !nonnull !9, !noundef !9
-  %38 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %37, i64 %23
+  %38 = getelementptr inbounds [24 x i8], ptr %37, i64 %23
   tail call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nonnull align 8 %38)
   br label %40
 
@@ -2474,7 +2474,7 @@ define hidden void @_ZN14cranelift_isle7codegen7Codegen9type_name17h4f5388863d61
 41:                                               ; preds = %27
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %43 = load ptr, ptr %42, align 8, !nonnull !9, !noundef !9
-  %44 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %43, i64 %31
+  %44 = getelementptr inbounds [24 x i8], ptr %43, i64 %31
   store ptr %7, ptr %5, align 8
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h46b5357b9e5169a6E", ptr %45, align 8
@@ -2503,7 +2503,7 @@ define hidden { i1, i64 } @_ZN14cranelift_isle7codegen7Codegen2ty17h0dba03be4379
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %10 = load ptr, ptr %9, align 8, !nonnull !9, !noundef !9
-  %11 = getelementptr inbounds { i64, [9 x i64] }, ptr %10, i64 %4
+  %11 = getelementptr inbounds [80 x i8], ptr %10, i64 %4
   %12 = load i64, ptr %11, align 8, !range !12, !noundef !9
   %13 = icmp ne i64 %12, -9223372036854775808
   %.sroa.3.0.in.v = select i1 %13, i64 24, i64 48

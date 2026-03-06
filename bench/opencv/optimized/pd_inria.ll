@@ -32,9 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::_InputOutputArray" = type { %"class.cv::_OutputArray" }
-%"struct.cv::Ptr.8" = type { %"class.std::shared_ptr.9" }
-%"class.std::shared_ptr.9" = type { %"class.std::__shared_ptr.10" }
-%"class.std::__shared_ptr.10" = type { ptr, %"class.std::__shared_count" }
 
 $_ZNSt12__shared_ptrIN2cv8datasets8PD_inriaELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -660,7 +657,7 @@ _ZNSolsEPFRSoS_E.exit212.preheader:               ; preds = %.noexc309
 
 232:                                              ; preds = %229
   %233 = load ptr, ptr %231, align 8, !tbaa !35
-  %234 = getelementptr inbounds nuw %"struct.cv::Ptr.8", ptr %233, i64 %.082453
+  %234 = getelementptr inbounds nuw [16 x i8], ptr %233, i64 %.082453
   %235 = load ptr, ptr %234, align 8, !tbaa !57
   %236 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.10, i64 noundef 21)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit214 unwind label %.loopexit420
@@ -1004,7 +1001,7 @@ _ZNSolsEPFRSoS_E.exit239:                         ; preds = %.noexc375
   %.179452 = phi i32 [ %.280, %482 ], [ %.078454, %.preheader ]
   %.081451 = phi i64 [ %483, %482 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %374 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %373, i64 %.081451
+  %374 = getelementptr inbounds nuw [16 x i8], ptr %373, i64 %.081451
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %374, i64 16, i1 false), !tbaa.struct !72
   %375 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.16, i64 noundef 18)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit241 unwind label %.loopexit

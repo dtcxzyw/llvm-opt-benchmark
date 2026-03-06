@@ -921,7 +921,7 @@ define hidden noundef zeroext i1 @dissect_eap_identity_3gpp(ptr noundef %0, ptr 
   %81 = load i32, ptr %9, align 4
   %82 = add i32 %81, -5
   %83 = zext i32 %82 to i64
-  %84 = getelementptr ptr, ptr %78, i64 %83
+  %84 = getelementptr [8 x i8], ptr %78, i64 %83
   %85 = load ptr, ptr %84, align 8
   %86 = load i32, ptr @hf_eap_identity_full, align 4
   %87 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %86, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0)
@@ -1038,11 +1038,11 @@ define hidden noundef zeroext i1 @dissect_eap_identity_3gpp(ptr noundef %0, ptr 
   %.0137 = phi i32 [ %3, %152 ], [ %3, %106 ], [ %3, %113 ], [ %3, %121 ], [ %3, %129 ], [ %3, %137 ], [ %3, %143 ], [ %49, %._crit_edge168 ]
   %160 = add i32 %159, -4
   %161 = zext i32 %160 to i64
-  %162 = getelementptr ptr, ptr %.3, i64 %161
+  %162 = getelementptr [8 x i8], ptr %.3, i64 %161
   %163 = load ptr, ptr %162, align 8
   %164 = add i32 %159, -3
   %165 = zext i32 %164 to i64
-  %166 = getelementptr ptr, ptr %.3, i64 %165
+  %166 = getelementptr [8 x i8], ptr %.3, i64 %165
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr i8, ptr %163, i64 3
   %169 = call zeroext i1 @ws_strtou(ptr noundef %168, ptr noundef null, ptr noundef nonnull %6)
@@ -1107,7 +1107,7 @@ define hidden noundef zeroext i1 @dissect_eap_identity_3gpp(ptr noundef %0, ptr 
   %206 = add i32 %205, %204
   %207 = add i32 %.0167, 1
   %208 = sext i32 %207 to i64
-  %209 = getelementptr ptr, ptr %.3, i64 %208
+  %209 = getelementptr [8 x i8], ptr %.3, i64 %208
   %210 = load ptr, ptr %209, align 8
   %.not161 = icmp eq ptr %210, %163
   br i1 %.not161, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -1181,7 +1181,7 @@ define internal fastcc zeroext i1 @realm_is_3gpp(ptr noundef %0, ptr noundef wri
 7:                                                ; preds = %5
   %8 = add i32 %3, -4
   %9 = zext i32 %8 to i64
-  %10 = getelementptr ptr, ptr %0, i64 %9
+  %10 = getelementptr [8 x i8], ptr %0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @g_ascii_strncasecmp(ptr noundef %11, ptr noundef nonnull @.str.427, i64 noundef 3)
   %.not15 = icmp eq i32 %12, 0
@@ -1190,7 +1190,7 @@ define internal fastcc zeroext i1 @realm_is_3gpp(ptr noundef %0, ptr noundef wri
 13:                                               ; preds = %7
   %14 = add i32 %3, -3
   %15 = zext i32 %14 to i64
-  %16 = getelementptr ptr, ptr %0, i64 %15
+  %16 = getelementptr [8 x i8], ptr %0, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @g_ascii_strncasecmp(ptr noundef %17, ptr noundef nonnull @.str.428, i64 noundef 3)
   %.not16 = icmp eq i32 %18, 0
@@ -1199,7 +1199,7 @@ define internal fastcc zeroext i1 @realm_is_3gpp(ptr noundef %0, ptr noundef wri
 19:                                               ; preds = %13
   %20 = add i32 %3, -2
   %21 = zext i32 %20 to i64
-  %22 = getelementptr ptr, ptr %0, i64 %21
+  %22 = getelementptr [8 x i8], ptr %0, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @g_ascii_strncasecmp(ptr noundef %23, ptr noundef nonnull @.str.429, i64 noundef 11)
   %.not17 = icmp eq i32 %24, 0
@@ -1208,7 +1208,7 @@ define internal fastcc zeroext i1 @realm_is_3gpp(ptr noundef %0, ptr noundef wri
 25:                                               ; preds = %19
   %26 = add i32 %3, -1
   %27 = zext i32 %26 to i64
-  %28 = getelementptr ptr, ptr %0, i64 %27
+  %28 = getelementptr [8 x i8], ptr %0, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @g_ascii_strncasecmp(ptr noundef %29, ptr noundef nonnull @.str.430, i64 noundef 3)
   %.not18 = icmp eq i32 %30, 0
@@ -1967,7 +1967,7 @@ proto_item_set_generated.exit:                    ; preds = %320, %317, %314, %3
 
 switch.lookup:                                    ; preds = %367
   %371 = zext nneg i32 %369 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_eap, i64 %371
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_eap, i64 %371
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %372
 
@@ -1992,7 +1992,7 @@ switch.lookup:                                    ; preds = %367
 
 switch.lookup573:                                 ; preds = %377
   %381 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep574 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_eap.2, i64 %381
+  %switch.gep574 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_eap.2, i64 %381
   %switch.load575 = load ptr, ptr %switch.gep574, align 8
   br label %382
 

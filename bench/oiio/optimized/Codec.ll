@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.dpx::ImageElement" = type { i32, i32, float, i32, float, i8, i8, i8, i8, i16, i16, i32, i32, i32, [32 x i8] }
 
 $_ZN3dpx14ReadImageBlockINS_17ElementReadStreamEEEbRKNS_6HeaderEPjPT_iRKNS_5BlockEPvNS_8DataSizeE = comdat any
 
@@ -214,7 +213,7 @@ define hidden noundef zeroext i1 @_ZN3dpx5Codec4ReadERKNS_6HeaderEPNS_17ElementR
 
 13:                                               ; preds = %11
   %14 = zext nneg i32 %3 to i64
-  %15 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %1, i64 %14
+  %15 = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 803
   %17 = load i8, ptr %16, align 1, !tbaa !11
   %18 = zext i8 %17 to i32
@@ -294,7 +293,7 @@ _ZNK3dpx13GenericHeader12ImagePackingEi.exit.thread: ; preds = %6
 
 _ZNK3dpx13GenericHeader12ImagePackingEi.exit:     ; preds = %6
   %8 = zext nneg i32 %3 to i64
-  %9 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 803
   %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = tail call noundef i32 @_ZNK3dpx13GenericHeader17ComponentDataSizeEi(ptr noundef nonnull align 4 dereferenceable(1664) %0, i32 noundef %3)
@@ -388,7 +387,7 @@ _ZNK3dpx13GenericHeader12ImagePackingEi.exit.thread: ; preds = %6
 
 _ZNK3dpx13GenericHeader12ImagePackingEi.exit:     ; preds = %6
   %8 = zext nneg i32 %3 to i64
-  %9 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 803
   %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = tail call noundef i32 @_ZNK3dpx13GenericHeader17ComponentDataSizeEi(ptr noundef nonnull align 4 dereferenceable(1664) %0, i32 noundef %3)
@@ -482,7 +481,7 @@ _ZNK3dpx13GenericHeader12ImagePackingEi.exit.thread: ; preds = %6
 
 _ZNK3dpx13GenericHeader12ImagePackingEi.exit:     ; preds = %6
   %8 = zext nneg i32 %3 to i64
-  %9 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 803
   %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = tail call noundef i32 @_ZNK3dpx13GenericHeader17ComponentDataSizeEi(ptr noundef nonnull align 4 dereferenceable(1664) %0, i32 noundef %3)
@@ -576,7 +575,7 @@ _ZNK3dpx13GenericHeader12ImagePackingEi.exit.thread: ; preds = %6
 
 _ZNK3dpx13GenericHeader12ImagePackingEi.exit:     ; preds = %6
   %8 = zext nneg i32 %3 to i64
-  %9 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 803
   %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = tail call noundef i32 @_ZNK3dpx13GenericHeader17ComponentDataSizeEi(ptr noundef nonnull align 4 dereferenceable(1664) %0, i32 noundef %3)
@@ -670,7 +669,7 @@ _ZNK3dpx13GenericHeader12ImagePackingEi.exit.thread: ; preds = %6
 
 _ZNK3dpx13GenericHeader12ImagePackingEi.exit:     ; preds = %6
   %8 = zext nneg i32 %3 to i64
-  %9 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 803
   %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = tail call noundef i32 @_ZNK3dpx13GenericHeader17ComponentDataSizeEi(ptr noundef nonnull align 4 dereferenceable(1664) %0, i32 noundef %3)
@@ -775,7 +774,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx22Read12bitFilledMethodBIN
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -829,7 +828,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
 
 51:                                               ; preds = %.lr.ph.us, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %53 = load i16, ptr %52, align 2, !tbaa !23
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %54 = lshr i16 %53, 4
@@ -887,7 +886,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -942,7 +941,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %54 = load i16, ptr %53, align 2, !tbaa !23
   %55 = lshr i16 %54, 8
@@ -999,7 +998,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -1069,7 +1068,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -1124,7 +1123,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !31
   %55 = lshr i32 %54, 24
@@ -1182,7 +1181,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -1237,7 +1236,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %54 = load float, ptr %53, align 4, !tbaa !34
   %55 = fptoui float %54 to i8
@@ -1294,7 +1293,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -1349,7 +1348,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv
   %54 = load double, ptr %53, align 8, !tbaa !37
   %55 = fptoui double %54 to i8
@@ -1398,7 +1397,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx15Read10bitFilledINS_17Ele
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -1486,7 +1485,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %70 = trunc i64 %69 to i32
   %71 = sdiv i32 %70, 3
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %1, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %1, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !31
   %75 = srem i32 %70, 3
   %76 = sub nsw i32 2, %75
@@ -1512,7 +1511,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %83 = trunc nuw nsw i64 %indvars.iv71 to i32
   %84 = sdiv i32 %83, 3
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i32, ptr %1, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %1, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !31
   %88 = srem i32 %83, 3
   %89 = sub nsw i32 2, %88
@@ -1554,7 +1553,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx15Read10bitFilledINS_17Ele
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -1642,7 +1641,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %70 = trunc i64 %69 to i32
   %71 = sdiv i32 %70, 3
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %1, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %1, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !31
   %75 = srem i32 %70, 3
   %76 = sub nsw i32 2, %75
@@ -1667,7 +1666,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %82 = trunc nuw nsw i64 %indvars.iv71 to i32
   %83 = sdiv i32 %82, 3
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i32, ptr %1, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr %1, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !31
   %87 = srem i32 %82, 3
   %88 = sub nsw i32 2, %87
@@ -1708,7 +1707,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx10ReadPackedINS_17ElementR
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -1874,7 +1873,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx10ReadPackedINS_17ElementR
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -2050,7 +2049,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx22Read12bitFilledMethodBIN
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -2099,17 +2098,17 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %1, i64 noundef %28)
   %50 = mul nuw nsw i64 %indvars.iv50, %33
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %5, i64 %50
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %50
   br label %51
 
 51:                                               ; preds = %.lr.ph.us, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %53 = load i16, ptr %52, align 2, !tbaa !23
   %54 = shl i16 %53, 4
   %55 = lshr i16 %53, 8
   %56 = or i16 %54, %55
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i16 %56, ptr %gep, align 2, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next, %33
@@ -2162,7 +2161,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -2202,7 +2201,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %43 = sext i32 %41 to i64
   %44 = add nsw i64 %42, %43
   %45 = mul nsw i64 %indvars.iv, %31
-  %46 = getelementptr inbounds i16, ptr %5, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %5, i64 %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8
@@ -2232,7 +2231,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -2282,13 +2281,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
   %51 = mul nuw nsw i64 %indvars.iv54, %34
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %5, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %54 = load i8, ptr %53, align 1, !tbaa !24
   %55 = zext i8 %54 to i16
   %56 = shl nuw i16 %55, 8
@@ -2346,7 +2345,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -2396,13 +2395,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
   %51 = mul nuw nsw i64 %indvars.iv54, %34
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %5, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !31
   %55 = lshr i32 %54, 16
   %56 = trunc nuw i32 %55 to i16
@@ -2459,7 +2458,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -2509,13 +2508,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
   %51 = mul nuw nsw i64 %indvars.iv54, %34
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %5, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %54 = load float, ptr %53, align 4, !tbaa !34
   %55 = fptoui float %54 to i16
   store i16 %55, ptr %gep, align 2, !tbaa !23
@@ -2571,7 +2570,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -2621,13 +2620,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
   %51 = mul nuw nsw i64 %indvars.iv54, %34
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %5, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   %54 = load double, ptr %53, align 8, !tbaa !37
   %55 = fptoui double %54 to i16
   store i16 %55, ptr %gep, align 2, !tbaa !23
@@ -2675,7 +2674,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx15Read10bitFilledINS_17Ele
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -2738,7 +2737,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %1, i64 noundef %53)
-  %58 = getelementptr inbounds i16, ptr %5, i64 %52
+  %58 = getelementptr inbounds [2 x i8], ptr %5, i64 %52
   %59 = load i32, ptr %4, align 4, !tbaa !19
   %60 = sext i32 %59 to i64
   %61 = shl nsw i64 %60, 2
@@ -2765,7 +2764,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %70 = trunc i64 %69 to i32
   %71 = sdiv i32 %70, 3
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %1, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %1, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !31
   %75 = srem i32 %70, 3
   %76 = sub nsw i32 2, %75
@@ -2777,7 +2776,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %82 = shl nuw i16 %81, 6
   %83 = lshr i16 %81, 4
   %84 = or disjoint i16 %82, %83
-  %85 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %indvars.iv
   store i16 %84, ptr %85, align 2, !tbaa !23
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
@@ -2794,7 +2793,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %86 = trunc nuw nsw i64 %indvars.iv71 to i32
   %87 = sdiv i32 %86, 3
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %1, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %1, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !31
   %91 = srem i32 %86, 3
   %92 = sub nsw i32 2, %91
@@ -2806,14 +2805,14 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %98 = shl nuw i16 %97, 6
   %99 = lshr i16 %97, 4
   %100 = or disjoint i16 %98, %99
-  %101 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv71
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %indvars.iv71
   store i16 %100, ptr %101, align 2, !tbaa !23
   %102 = urem i32 %86, 3
   %103 = icmp eq i32 %102, 0
   br i1 %103, label %104, label %108
 
 104:                                              ; preds = %.lr.ph.split
-  %105 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv73
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %indvars.iv73
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 2
   %107 = load i16, ptr %106, align 2, !tbaa !23
   store i16 %107, ptr %101, align 2, !tbaa !23
@@ -2839,7 +2838,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx15Read10bitFilledINS_17Ele
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -2902,7 +2901,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %1, i64 noundef %53)
-  %58 = getelementptr inbounds i16, ptr %5, i64 %52
+  %58 = getelementptr inbounds [2 x i8], ptr %5, i64 %52
   %59 = load i32, ptr %4, align 4, !tbaa !19
   %60 = sext i32 %59 to i64
   %61 = shl nsw i64 %60, 2
@@ -2929,7 +2928,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %70 = trunc i64 %69 to i32
   %71 = sdiv i32 %70, 3
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %1, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %1, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !31
   %75 = srem i32 %70, 3
   %76 = sub nsw i32 2, %75
@@ -2940,7 +2939,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %81 = shl nuw i16 %80, 6
   %82 = lshr i16 %80, 4
   %83 = or disjoint i16 %81, %82
-  %84 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %indvars.iv
   store i16 %83, ptr %84, align 2, !tbaa !23
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
@@ -2957,7 +2956,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %85 = trunc nuw nsw i64 %indvars.iv71 to i32
   %86 = sdiv i32 %85, 3
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i32, ptr %1, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %1, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !31
   %90 = srem i32 %85, 3
   %91 = sub nsw i32 2, %90
@@ -2968,14 +2967,14 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %96 = shl nuw i16 %95, 6
   %97 = lshr i16 %95, 4
   %98 = or disjoint i16 %96, %97
-  %99 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv71
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %indvars.iv71
   store i16 %98, ptr %99, align 2, !tbaa !23
   %100 = urem i32 %85, 3
   %101 = icmp eq i32 %100, 0
   br i1 %101, label %102, label %106
 
 102:                                              ; preds = %.lr.ph.split
-  %103 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv73
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %indvars.iv73
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 2
   %105 = load i16, ptr %104, align 2, !tbaa !23
   store i16 %105, ptr %99, align 2, !tbaa !23
@@ -3001,7 +3000,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx10ReadPackedINS_17ElementR
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -3076,7 +3075,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %65 = sub i32 %64, %63
   %66 = mul nsw i32 %65, %11
   %67 = sext i32 %56 to i64
-  %68 = getelementptr inbounds i16, ptr %5, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %5, i64 %67
   %69 = icmp sgt i32 %66, 0
   br i1 %69, label %.lr.ph.i, label %_ZN3dpx12UnPackPackedItLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit
 
@@ -3104,7 +3103,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %80 = lshr i16 %79, 10
   %81 = and i16 %79, -64
   %82 = or disjoint i16 %81, %80
-  %83 = getelementptr inbounds nuw i16, ptr %68, i64 %indvars.iv27.i
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %indvars.iv27.i
   store i16 %82, ptr %83, align 2, !tbaa !23
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
   %.not36.i = icmp eq i64 %indvars.iv27.i, 0
@@ -3127,7 +3126,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %94 = and i16 %93, 16368
   %95 = lshr i16 %92, 14
   %96 = or disjoint i16 %94, %95
-  %97 = getelementptr inbounds nuw i16, ptr %68, i64 %indvars.iv.i
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %indvars.iv.i
   store i16 %96, ptr %97, align 2, !tbaa !23
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not35.i = icmp eq i64 %indvars.iv.i, 0
@@ -3147,7 +3146,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %105 = xor i16 %.not.i, 6
   %106 = shl i16 %103, %105
   %107 = and i16 %106, -64
-  %108 = getelementptr inbounds nuw i16, ptr %68, i64 %indvars.iv30.i
+  %108 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %indvars.iv30.i
   store i16 %107, ptr %108, align 2, !tbaa !23
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
   %.not37.i = icmp eq i64 %indvars.iv30.i, 0
@@ -3171,7 +3170,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx10ReadPackedINS_17ElementR
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -3246,7 +3245,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %65 = sub i32 %64, %63
   %66 = mul nsw i32 %65, %11
   %67 = sext i32 %56 to i64
-  %68 = getelementptr inbounds i16, ptr %5, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %5, i64 %67
   %69 = icmp sgt i32 %66, 0
   br i1 %69, label %.lr.ph.i, label %_ZN3dpx12UnPackPackedItLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit
 
@@ -3275,7 +3274,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %82 = and i16 %81, -64
   %83 = lshr i16 %80, 8
   %84 = or i16 %82, %83
-  %85 = getelementptr inbounds nuw i16, ptr %68, i64 %indvars.iv27.i
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %indvars.iv27.i
   store i16 %84, ptr %85, align 2, !tbaa !23
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
   %.not36.i = icmp eq i64 %indvars.iv27.i, 0
@@ -3297,7 +3296,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %96 = lshr i16 %95, 12
   %97 = and i16 %95, -16
   %98 = or disjoint i16 %97, %96
-  %99 = getelementptr inbounds nuw i16, ptr %68, i64 %indvars.iv.i
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %indvars.iv.i
   store i16 %98, ptr %99, align 2, !tbaa !23
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not35.i = icmp eq i64 %indvars.iv.i, 0
@@ -3317,7 +3316,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %108 = xor i16 %.not.i, 4
   %109 = shl i16 %105, %108
   %110 = and i16 %109, -16
-  %111 = getelementptr inbounds nuw i16, ptr %68, i64 %indvars.iv30.i
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %indvars.iv30.i
   store i16 %110, ptr %111, align 2, !tbaa !23
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
   %.not37.i = icmp eq i64 %indvars.iv30.i, 0
@@ -3349,7 +3348,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx22Read12bitFilledMethodBIN
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -3398,17 +3397,17 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %1, i64 noundef %28)
   %50 = mul nuw nsw i64 %indvars.iv50, %33
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %5, i64 %50
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %50
   br label %51
 
 51:                                               ; preds = %.lr.ph.us, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %53 = load i16, ptr %52, align 2, !tbaa !23
   %54 = shl i16 %53, 4
   %55 = lshr i16 %53, 8
   %56 = or i16 %54, %55
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %57 = zext i16 %56 to i32
   %58 = mul nuw i32 %57, 65537
   store i32 %58, ptr %gep, align 4, !tbaa !31
@@ -3464,7 +3463,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -3514,13 +3513,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
   %51 = mul nuw nsw i64 %indvars.iv54, %34
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %5, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %54 = load i16, ptr %53, align 2, !tbaa !23
   %55 = zext i16 %54 to i32
   %56 = shl nuw i32 %55, 16
@@ -3578,7 +3577,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -3628,13 +3627,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
   %51 = mul nuw nsw i64 %indvars.iv54, %34
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %5, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %54 = load i8, ptr %53, align 1, !tbaa !24
   %55 = zext i8 %54 to i32
   %56 = shl nuw i32 %55, 24
@@ -3695,7 +3694,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -3735,7 +3734,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %43 = sext i32 %41 to i64
   %44 = add nsw i64 %42, %43
   %45 = mul nsw i64 %indvars.iv, %31
-  %46 = getelementptr inbounds i32, ptr %5, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %5, i64 %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8
@@ -3765,7 +3764,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -3815,13 +3814,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
   %51 = mul nuw nsw i64 %indvars.iv54, %34
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %5, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %54 = load float, ptr %53, align 4, !tbaa !34
   %55 = fptoui float %54 to i32
   store i32 %55, ptr %gep, align 4, !tbaa !31
@@ -3877,7 +3876,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -3927,13 +3926,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
   %51 = mul nuw nsw i64 %indvars.iv54, %34
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %5, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %54 = load double, ptr %53, align 8, !tbaa !37
   %55 = fptoui double %54 to i32
   store i32 %55, ptr %gep, align 4, !tbaa !31
@@ -3981,7 +3980,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx15Read10bitFilledINS_17Ele
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -4042,7 +4041,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %44, ptr noundef %1, i64 noundef %53)
-  %58 = getelementptr inbounds i32, ptr %5, i64 %52
+  %58 = getelementptr inbounds [4 x i8], ptr %5, i64 %52
   %59 = load i32, ptr %4, align 4, !tbaa !19
   %60 = sext i32 %59 to i64
   %61 = shl nsw i64 %60, 2
@@ -4069,7 +4068,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %70 = trunc i64 %69 to i32
   %71 = sdiv i32 %70, 3
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %1, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %1, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !31
   %75 = srem i32 %70, 3
   %76 = sub nsw i32 2, %75
@@ -4081,7 +4080,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %82 = shl nuw i16 %81, 6
   %83 = lshr i16 %81, 4
   %84 = or disjoint i16 %82, %83
-  %85 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv
   %86 = zext i16 %84 to i32
   %87 = mul nuw i32 %86, 65537
   store i32 %87, ptr %85, align 4, !tbaa !31
@@ -4100,7 +4099,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %88 = trunc nuw nsw i64 %indvars.iv71 to i32
   %89 = sdiv i32 %88, 3
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i32, ptr %1, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %1, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !31
   %93 = srem i32 %88, 3
   %94 = sub nsw i32 2, %93
@@ -4112,7 +4111,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %100 = shl nuw i16 %99, 6
   %101 = lshr i16 %99, 4
   %102 = or disjoint i16 %100, %101
-  %103 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv71
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv71
   %104 = zext i16 %102 to i32
   %105 = mul nuw i32 %104, 65537
   store i32 %105, ptr %103, align 4, !tbaa !31
@@ -4121,7 +4120,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   br i1 %107, label %108, label %112
 
 108:                                              ; preds = %.lr.ph.split
-  %109 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv73
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv73
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %111 = load i32, ptr %110, align 4, !tbaa !31
   store i32 %111, ptr %103, align 4, !tbaa !31
@@ -4147,7 +4146,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx15Read10bitFilledINS_17Ele
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -4208,7 +4207,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %44, ptr noundef %1, i64 noundef %53)
-  %58 = getelementptr inbounds i32, ptr %5, i64 %52
+  %58 = getelementptr inbounds [4 x i8], ptr %5, i64 %52
   %59 = load i32, ptr %4, align 4, !tbaa !19
   %60 = sext i32 %59 to i64
   %61 = shl nsw i64 %60, 2
@@ -4235,7 +4234,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %70 = trunc i64 %69 to i32
   %71 = sdiv i32 %70, 3
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %1, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %1, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !31
   %75 = srem i32 %70, 3
   %76 = sub nsw i32 2, %75
@@ -4246,7 +4245,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %81 = shl nuw i16 %80, 6
   %82 = lshr i16 %80, 4
   %83 = or disjoint i16 %81, %82
-  %84 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv
   %85 = zext i16 %83 to i32
   %86 = mul nuw i32 %85, 65537
   store i32 %86, ptr %84, align 4, !tbaa !31
@@ -4265,7 +4264,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %87 = trunc nuw nsw i64 %indvars.iv71 to i32
   %88 = sdiv i32 %87, 3
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i32, ptr %1, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %1, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !31
   %92 = srem i32 %87, 3
   %93 = sub nsw i32 2, %92
@@ -4276,7 +4275,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %98 = shl nuw i16 %97, 6
   %99 = lshr i16 %97, 4
   %100 = or disjoint i16 %98, %99
-  %101 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv71
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv71
   %102 = zext i16 %100 to i32
   %103 = mul nuw i32 %102, 65537
   store i32 %103, ptr %101, align 4, !tbaa !31
@@ -4285,7 +4284,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   br i1 %105, label %106, label %110
 
 106:                                              ; preds = %.lr.ph.split
-  %107 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv73
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv73
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4, !tbaa !31
   store i32 %109, ptr %101, align 4, !tbaa !31
@@ -4311,7 +4310,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx10ReadPackedINS_17ElementR
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -4384,7 +4383,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %65 = sub i32 %64, %63
   %66 = mul nsw i32 %65, %11
   %67 = sext i32 %56 to i64
-  %68 = getelementptr inbounds i32, ptr %5, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %5, i64 %67
   %69 = icmp sgt i32 %66, 0
   br i1 %69, label %.lr.ph.i, label %_ZN3dpx12UnPackPackedIjLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit
 
@@ -4412,7 +4411,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %80 = lshr i16 %79, 10
   %81 = and i16 %79, -64
   %82 = or disjoint i16 %81, %80
-  %83 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv27.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv27.i
   %84 = zext i16 %82 to i32
   %85 = mul nuw i32 %84, 65537
   store i32 %85, ptr %83, align 4, !tbaa !31
@@ -4437,7 +4436,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %96 = and i16 %95, 16368
   %97 = lshr i16 %94, 14
   %98 = or disjoint i16 %96, %97
-  %99 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv.i
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv.i
   %100 = zext nneg i16 %98 to i32
   %101 = mul nuw nsw i32 %100, 65537
   store i32 %101, ptr %99, align 4, !tbaa !31
@@ -4459,7 +4458,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %110 = xor i32 %.not.i, 6
   %111 = shl nuw nsw i32 %108, %110
   %112 = and i32 %111, 65472
-  %113 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv30.i
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv30.i
   %114 = mul nuw i32 %112, 65537
   store i32 %114, ptr %113, align 4, !tbaa !31
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
@@ -4484,7 +4483,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx10ReadPackedINS_17ElementR
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -4557,7 +4556,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %65 = sub i32 %64, %63
   %66 = mul nsw i32 %65, %11
   %67 = sext i32 %56 to i64
-  %68 = getelementptr inbounds i32, ptr %5, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %5, i64 %67
   %69 = icmp sgt i32 %66, 0
   br i1 %69, label %.lr.ph.i, label %_ZN3dpx12UnPackPackedIjLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit
 
@@ -4586,7 +4585,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %82 = and i16 %81, -64
   %83 = lshr i16 %80, 8
   %84 = or i16 %82, %83
-  %85 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv27.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv27.i
   %86 = zext i16 %84 to i32
   %87 = mul nuw i32 %86, 65537
   store i32 %87, ptr %85, align 4, !tbaa !31
@@ -4610,7 +4609,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %98 = lshr i16 %97, 12
   %99 = and i16 %97, -16
   %100 = or disjoint i16 %99, %98
-  %101 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv.i
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv.i
   %102 = zext i16 %100 to i32
   %103 = mul nuw i32 %102, 65537
   store i32 %103, ptr %101, align 4, !tbaa !31
@@ -4632,7 +4631,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %112 = xor i32 %.not.i, 4
   %113 = shl nuw nsw i32 %110, %112
   %114 = and i32 %113, 65520
-  %115 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv30.i
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv30.i
   %116 = mul nuw i32 %114, 65537
   store i32 %116, ptr %115, align 4, !tbaa !31
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
@@ -4665,7 +4664,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx22Read12bitFilledMethodBIN
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -4714,17 +4713,17 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %1, i64 noundef %28)
   %50 = mul nuw nsw i64 %indvars.iv50, %33
-  %invariant.gep = getelementptr inbounds nuw float, ptr %5, i64 %50
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %50
   br label %51
 
 51:                                               ; preds = %.lr.ph.us, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %53 = load i16, ptr %52, align 2, !tbaa !23
   %54 = shl i16 %53, 4
   %55 = lshr i16 %53, 8
   %56 = or i16 %54, %55
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %57 = uitofp i16 %56 to float
   store float %57, ptr %gep, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4779,7 +4778,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -4829,13 +4828,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
   %51 = mul nuw nsw i64 %indvars.iv54, %34
-  %invariant.gep = getelementptr inbounds nuw float, ptr %5, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %54 = load i16, ptr %53, align 2, !tbaa !23
   %55 = uitofp i16 %54 to float
   store float %55, ptr %gep, align 4, !tbaa !34
@@ -4891,7 +4890,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -4941,13 +4940,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
   %51 = mul nuw nsw i64 %indvars.iv54, %34
-  %invariant.gep = getelementptr inbounds nuw float, ptr %5, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %54 = load i8, ptr %53, align 1, !tbaa !24
   %55 = uitofp i8 %54 to float
   store float %55, ptr %gep, align 4, !tbaa !34
@@ -5003,7 +5002,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -5053,13 +5052,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
   %51 = mul nuw nsw i64 %indvars.iv54, %34
-  %invariant.gep = getelementptr inbounds nuw float, ptr %5, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !31
   %55 = uitofp i32 %54 to float
   store float %55, ptr %gep, align 4, !tbaa !34
@@ -5114,7 +5113,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -5154,7 +5153,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %43 = sext i32 %41 to i64
   %44 = add nsw i64 %42, %43
   %45 = mul nsw i64 %indvars.iv, %31
-  %46 = getelementptr inbounds float, ptr %5, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %5, i64 %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8
@@ -5184,7 +5183,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -5234,13 +5233,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
   %51 = mul nuw nsw i64 %indvars.iv54, %34
-  %invariant.gep = getelementptr inbounds nuw float, ptr %5, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %54 = load double, ptr %53, align 8, !tbaa !37
   %55 = fptrunc double %54 to float
   store float %55, ptr %gep, align 4, !tbaa !34
@@ -5288,7 +5287,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx15Read10bitFilledINS_17Ele
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -5351,7 +5350,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %1, i64 noundef %53)
-  %58 = getelementptr inbounds float, ptr %5, i64 %52
+  %58 = getelementptr inbounds [4 x i8], ptr %5, i64 %52
   %59 = load i32, ptr %4, align 4, !tbaa !19
   %60 = sext i32 %59 to i64
   %61 = shl nsw i64 %60, 2
@@ -5378,7 +5377,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %70 = trunc i64 %69 to i32
   %71 = sdiv i32 %70, 3
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %1, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %1, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !31
   %75 = srem i32 %70, 3
   %76 = sub nsw i32 2, %75
@@ -5390,7 +5389,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %82 = shl nuw i16 %81, 6
   %83 = lshr i16 %81, 4
   %84 = or disjoint i16 %82, %83
-  %85 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv
   %86 = uitofp i16 %84 to float
   store float %86, ptr %85, align 4, !tbaa !34
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -5408,7 +5407,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %87 = trunc nuw nsw i64 %indvars.iv71 to i32
   %88 = sdiv i32 %87, 3
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i32, ptr %1, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %1, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !31
   %92 = srem i32 %87, 3
   %93 = sub nsw i32 2, %92
@@ -5420,7 +5419,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %99 = shl nuw i16 %98, 6
   %100 = lshr i16 %98, 4
   %101 = or disjoint i16 %99, %100
-  %102 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv71
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv71
   %103 = uitofp i16 %101 to float
   store float %103, ptr %102, align 4, !tbaa !34
   %104 = urem i32 %87, 3
@@ -5428,7 +5427,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   br i1 %105, label %106, label %110
 
 106:                                              ; preds = %.lr.ph.split
-  %107 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv73
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv73
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load float, ptr %108, align 4, !tbaa !34
   store float %109, ptr %102, align 4, !tbaa !34
@@ -5454,7 +5453,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx15Read10bitFilledINS_17Ele
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -5517,7 +5516,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %1, i64 noundef %53)
-  %58 = getelementptr inbounds float, ptr %5, i64 %52
+  %58 = getelementptr inbounds [4 x i8], ptr %5, i64 %52
   %59 = load i32, ptr %4, align 4, !tbaa !19
   %60 = sext i32 %59 to i64
   %61 = shl nsw i64 %60, 2
@@ -5544,7 +5543,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %70 = trunc i64 %69 to i32
   %71 = sdiv i32 %70, 3
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %1, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %1, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !31
   %75 = srem i32 %70, 3
   %76 = sub nsw i32 2, %75
@@ -5555,7 +5554,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %81 = shl nuw i16 %80, 6
   %82 = lshr i16 %80, 4
   %83 = or disjoint i16 %81, %82
-  %84 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv
   %85 = uitofp i16 %83 to float
   store float %85, ptr %84, align 4, !tbaa !34
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -5573,7 +5572,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %86 = trunc nuw nsw i64 %indvars.iv71 to i32
   %87 = sdiv i32 %86, 3
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %1, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %1, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !31
   %91 = srem i32 %86, 3
   %92 = sub nsw i32 2, %91
@@ -5584,7 +5583,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %97 = shl nuw i16 %96, 6
   %98 = lshr i16 %96, 4
   %99 = or disjoint i16 %97, %98
-  %100 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv71
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv71
   %101 = uitofp i16 %99 to float
   store float %101, ptr %100, align 4, !tbaa !34
   %102 = urem i32 %86, 3
@@ -5592,7 +5591,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   br i1 %103, label %104, label %108
 
 104:                                              ; preds = %.lr.ph.split
-  %105 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv73
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv73
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = load float, ptr %106, align 4, !tbaa !34
   store float %107, ptr %100, align 4, !tbaa !34
@@ -5618,7 +5617,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx10ReadPackedINS_17ElementR
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -5693,7 +5692,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %65 = sub i32 %64, %63
   %66 = mul nsw i32 %65, %11
   %67 = sext i32 %56 to i64
-  %68 = getelementptr inbounds float, ptr %5, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %5, i64 %67
   %69 = icmp sgt i32 %66, 0
   br i1 %69, label %.lr.ph.i, label %_ZN3dpx12UnPackPackedIfLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit
 
@@ -5721,7 +5720,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %80 = lshr i16 %79, 10
   %81 = and i16 %79, -64
   %82 = or disjoint i16 %81, %80
-  %83 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv27.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv27.i
   %84 = uitofp i16 %82 to float
   store float %84, ptr %83, align 4, !tbaa !34
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
@@ -5745,7 +5744,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %95 = and i16 %94, 16368
   %96 = lshr i16 %93, 14
   %97 = or disjoint i16 %95, %96
-  %98 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv.i
   %99 = uitofp nneg i16 %97 to float
   store float %99, ptr %98, align 4, !tbaa !34
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -5766,7 +5765,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %107 = xor i16 %.not.i, 6
   %108 = shl i16 %105, %107
   %109 = and i16 %108, -64
-  %110 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv30.i
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv30.i
   %111 = uitofp i16 %109 to float
   store float %111, ptr %110, align 4, !tbaa !34
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
@@ -5791,7 +5790,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx10ReadPackedINS_17ElementR
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -5866,7 +5865,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %65 = sub i32 %64, %63
   %66 = mul nsw i32 %65, %11
   %67 = sext i32 %56 to i64
-  %68 = getelementptr inbounds float, ptr %5, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %5, i64 %67
   %69 = icmp sgt i32 %66, 0
   br i1 %69, label %.lr.ph.i, label %_ZN3dpx12UnPackPackedIfLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit
 
@@ -5895,7 +5894,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %82 = and i16 %81, -64
   %83 = lshr i16 %80, 8
   %84 = or i16 %82, %83
-  %85 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv27.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv27.i
   %86 = uitofp i16 %84 to float
   store float %86, ptr %85, align 4, !tbaa !34
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
@@ -5918,7 +5917,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %97 = lshr i16 %96, 12
   %98 = and i16 %96, -16
   %99 = or disjoint i16 %98, %97
-  %100 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv.i
   %101 = uitofp i16 %99 to float
   store float %101, ptr %100, align 4, !tbaa !34
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -5939,7 +5938,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %110 = xor i16 %.not.i, 4
   %111 = shl i16 %107, %110
   %112 = and i16 %111, -16
-  %113 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv30.i
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv30.i
   %114 = uitofp i16 %112 to float
   store float %114, ptr %113, align 4, !tbaa !34
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
@@ -5972,7 +5971,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx22Read12bitFilledMethodBIN
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -6021,17 +6020,17 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %1, i64 noundef %28)
   %50 = mul nuw nsw i64 %indvars.iv50, %33
-  %invariant.gep = getelementptr inbounds nuw double, ptr %5, i64 %50
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %50
   br label %51
 
 51:                                               ; preds = %.lr.ph.us, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %53 = load i16, ptr %52, align 2, !tbaa !23
   %54 = shl i16 %53, 4
   %55 = lshr i16 %53, 8
   %56 = or i16 %54, %55
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %57 = uitofp i16 %56 to double
   store double %57, ptr %gep, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6086,7 +6085,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -6136,13 +6135,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
   %51 = mul nuw nsw i64 %indvars.iv54, %34
-  %invariant.gep = getelementptr inbounds nuw double, ptr %5, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %54 = load i16, ptr %53, align 2, !tbaa !23
   %55 = uitofp i16 %54 to double
   store double %55, ptr %gep, align 8, !tbaa !37
@@ -6198,7 +6197,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -6248,13 +6247,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
   %51 = mul nuw nsw i64 %indvars.iv54, %34
-  %invariant.gep = getelementptr inbounds nuw double, ptr %5, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %54 = load i8, ptr %53, align 1, !tbaa !24
   %55 = uitofp i8 %54 to double
   store double %55, ptr %gep, align 8, !tbaa !37
@@ -6310,7 +6309,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -6360,13 +6359,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
   %51 = mul nuw nsw i64 %indvars.iv54, %34
-  %invariant.gep = getelementptr inbounds nuw double, ptr %5, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !31
   %55 = uitofp i32 %54 to double
   store double %55, ptr %gep, align 8, !tbaa !37
@@ -6422,7 +6421,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -6472,13 +6471,13 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %46, ptr noundef %1, i64 noundef %29)
   %51 = mul nuw nsw i64 %indvars.iv54, %34
-  %invariant.gep = getelementptr inbounds nuw double, ptr %5, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %51
   br label %52
 
 52:                                               ; preds = %.lr.ph.us, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %54 = load float, ptr %53, align 4, !tbaa !34
   %55 = fpext float %54 to double
   store double %55, ptr %gep, align 8, !tbaa !37
@@ -6533,7 +6532,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx14ReadBlockTypesINS_17Elem
 
 19:                                               ; preds = %6
   %20 = zext nneg i32 %3 to i64
-  %21 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 812
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = icmp eq i32 %23, -1
@@ -6573,7 +6572,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %19, %6
   %43 = sext i32 %41 to i64
   %44 = add nsw i64 %42, %43
   %45 = mul nsw i64 %indvars.iv, %31
-  %46 = getelementptr inbounds double, ptr %5, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %5, i64 %45
   %47 = load ptr, ptr %2, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8
@@ -6595,7 +6594,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx15Read10bitFilledINS_17Ele
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -6658,7 +6657,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %1, i64 noundef %53)
-  %58 = getelementptr inbounds double, ptr %5, i64 %52
+  %58 = getelementptr inbounds [8 x i8], ptr %5, i64 %52
   %59 = load i32, ptr %4, align 4, !tbaa !19
   %60 = sext i32 %59 to i64
   %61 = shl nsw i64 %60, 2
@@ -6685,7 +6684,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %70 = trunc i64 %69 to i32
   %71 = sdiv i32 %70, 3
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %1, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %1, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !31
   %75 = srem i32 %70, 3
   %76 = sub nsw i32 2, %75
@@ -6697,7 +6696,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %82 = shl nuw i16 %81, 6
   %83 = lshr i16 %81, 4
   %84 = or disjoint i16 %82, %83
-  %85 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   %86 = uitofp i16 %84 to double
   store double %86, ptr %85, align 8, !tbaa !37
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -6715,7 +6714,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %87 = trunc nuw nsw i64 %indvars.iv71 to i32
   %88 = sdiv i32 %87, 3
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i32, ptr %1, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %1, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !31
   %92 = srem i32 %87, 3
   %93 = sub nsw i32 2, %92
@@ -6727,7 +6726,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %99 = shl nuw i16 %98, 6
   %100 = lshr i16 %98, 4
   %101 = or disjoint i16 %99, %100
-  %102 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv71
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv71
   %103 = uitofp i16 %101 to double
   store double %103, ptr %102, align 8, !tbaa !37
   %104 = urem i32 %87, 3
@@ -6735,7 +6734,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   br i1 %105, label %106, label %110
 
 106:                                              ; preds = %.lr.ph.split
-  %107 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv73
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv73
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load double, ptr %108, align 8, !tbaa !37
   store double %109, ptr %102, align 8, !tbaa !37
@@ -6761,7 +6760,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx15Read10bitFilledINS_17Ele
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -6824,7 +6823,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(2049) %0, i32 noundef %3, i64 noundef %45, ptr noundef %1, i64 noundef %53)
-  %58 = getelementptr inbounds double, ptr %5, i64 %52
+  %58 = getelementptr inbounds [8 x i8], ptr %5, i64 %52
   %59 = load i32, ptr %4, align 4, !tbaa !19
   %60 = sext i32 %59 to i64
   %61 = shl nsw i64 %60, 2
@@ -6851,7 +6850,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %70 = trunc i64 %69 to i32
   %71 = sdiv i32 %70, 3
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %1, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %1, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !31
   %75 = srem i32 %70, 3
   %76 = sub nsw i32 2, %75
@@ -6862,7 +6861,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %81 = shl nuw i16 %80, 6
   %82 = lshr i16 %80, 4
   %83 = or disjoint i16 %81, %82
-  %84 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   %85 = uitofp i16 %83 to double
   store double %85, ptr %84, align 8, !tbaa !37
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -6880,7 +6879,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %86 = trunc nuw nsw i64 %indvars.iv71 to i32
   %87 = sdiv i32 %86, 3
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %1, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %1, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !31
   %91 = srem i32 %86, 3
   %92 = sub nsw i32 2, %91
@@ -6891,7 +6890,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   %97 = shl nuw i16 %96, 6
   %98 = lshr i16 %96, 4
   %99 = or disjoint i16 %97, %98
-  %100 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv71
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv71
   %101 = uitofp i16 %99 to double
   store double %101, ptr %100, align 8, !tbaa !37
   %102 = urem i32 %86, 3
@@ -6899,7 +6898,7 @@ _ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %6, %12
   br i1 %103, label %104, label %108
 
 104:                                              ; preds = %.lr.ph.split
-  %105 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv73
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv73
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load double, ptr %106, align 8, !tbaa !37
   store double %107, ptr %100, align 8, !tbaa !37
@@ -6925,7 +6924,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx10ReadPackedINS_17ElementR
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -7000,7 +6999,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %65 = sub i32 %64, %63
   %66 = mul nsw i32 %65, %11
   %67 = sext i32 %56 to i64
-  %68 = getelementptr inbounds double, ptr %5, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %5, i64 %67
   %69 = icmp sgt i32 %66, 0
   br i1 %69, label %.lr.ph.i, label %_ZN3dpx12UnPackPackedIdLj65472ELi2ELi4ELi6EEEvPjiPT_ii.exit
 
@@ -7028,7 +7027,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %80 = lshr i16 %79, 10
   %81 = and i16 %79, -64
   %82 = or disjoint i16 %81, %80
-  %83 = getelementptr inbounds nuw double, ptr %68, i64 %indvars.iv27.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv27.i
   %84 = uitofp i16 %82 to double
   store double %84, ptr %83, align 8, !tbaa !37
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
@@ -7052,7 +7051,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %95 = and i16 %94, 16368
   %96 = lshr i16 %93, 14
   %97 = or disjoint i16 %95, %96
-  %98 = getelementptr inbounds nuw double, ptr %68, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i
   %99 = uitofp nneg i16 %97 to double
   store double %99, ptr %98, align 8, !tbaa !37
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -7073,7 +7072,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %107 = xor i16 %.not.i, 6
   %108 = shl i16 %105, %107
   %109 = and i16 %108, -64
-  %110 = getelementptr inbounds nuw double, ptr %68, i64 %indvars.iv30.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv30.i
   %111 = uitofp i16 %109 to double
   store double %111, ptr %110, align 8, !tbaa !37
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1
@@ -7098,7 +7097,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3dpx10ReadPackedINS_17ElementR
 
 12:                                               ; preds = %6
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 812
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = icmp eq i32 %16, -1
@@ -7173,7 +7172,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %65 = sub i32 %64, %63
   %66 = mul nsw i32 %65, %11
   %67 = sext i32 %56 to i64
-  %68 = getelementptr inbounds double, ptr %5, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %5, i64 %67
   %69 = icmp sgt i32 %66, 0
   br i1 %69, label %.lr.ph.i, label %_ZN3dpx12UnPackPackedIdLj65520ELi4ELi2ELi4EEEvPjiPT_ii.exit
 
@@ -7202,7 +7201,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %82 = and i16 %81, -64
   %83 = lshr i16 %80, 8
   %84 = or i16 %82, %83
-  %85 = getelementptr inbounds nuw double, ptr %68, i64 %indvars.iv27.i
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv27.i
   %86 = uitofp i16 %84 to double
   store double %86, ptr %85, align 8, !tbaa !37
   %indvars.iv.next28.i = add nsw i64 %indvars.iv27.i, -1
@@ -7225,7 +7224,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %97 = lshr i16 %96, 12
   %98 = and i16 %96, -16
   %99 = or disjoint i16 %98, %97
-  %100 = getelementptr inbounds nuw double, ptr %68, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i
   %101 = uitofp i16 %99 to double
   store double %101, ptr %100, align 8, !tbaa !37
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -7246,7 +7245,7 @@ _ZNK3dpx13GenericHeader8BitDepthEi.exit:          ; preds = %6, %12
   %110 = xor i16 %.not.i, 4
   %111 = shl i16 %107, %110
   %112 = and i16 %111, -16
-  %113 = getelementptr inbounds nuw double, ptr %68, i64 %indvars.iv30.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv30.i
   %114 = uitofp i16 %112 to double
   store double %114, ptr %113, align 8, !tbaa !37
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, -1

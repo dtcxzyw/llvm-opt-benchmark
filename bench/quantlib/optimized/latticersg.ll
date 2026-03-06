@@ -47,7 +47,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i2, i64 %dimensionality
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i2, i64 %dimensionality
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i2, align 8, !tbaa !20
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i2, i64 8
   %sub.i.i.i.i.i = add nsw i64 %dimensionality, -1
@@ -134,12 +134,12 @@ for.cond.cleanup:                                 ; preds = %for.body, %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %j.06 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %1, i64 %j.06
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %j.06
   %4 = load double, ptr %add.ptr.i, align 8, !tbaa !20
   %mul = fmul double %4, %conv
   %div = fdiv double %mul, %conv2
   %call3 = tail call double @fmod(double noundef %div, double noundef 1.000000e+00) #11, !tbaa !22
-  %add.ptr.i4 = getelementptr inbounds nuw double, ptr %3, i64 %j.06
+  %add.ptr.i4 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %j.06
   store double %call3, ptr %add.ptr.i4, align 8, !tbaa !20
   %inc = add nuw i64 %j.06, 1
   %exitcond.not = icmp eq i64 %inc, %0

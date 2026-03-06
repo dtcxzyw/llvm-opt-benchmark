@@ -3485,7 +3485,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE11_S_reloc
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %37, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
-  %38 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %30
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %19
@@ -3661,7 +3661,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_11UsdTimeCodeES2_.exit.i.i.i.i.i: ;
 
 .lr.ph97:                                         ; preds = %.preheader, %86
   %.096 = phi i64 [ %87, %86 ], [ 0, %.preheader ]
-  %88 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", ptr %.sroa.038.1.lcssa, i64 %.096
+  %88 = getelementptr inbounds [8 x i8], ptr %.sroa.038.1.lcssa, i64 %.096
   %89 = load double, ptr %88, align 8
   %90 = fcmp uno double %89, 0.000000e+00
   br i1 %90, label %91, label %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit
@@ -3677,7 +3677,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__eqERKNS_11UsdTimeCodeES2_.exit.i.i.i.i.i: ;
 _ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit: ; preds = %.noexc26, %.lr.ph97
   %92 = phi double [ %.pre.i25, %.noexc26 ], [ %89, %.lr.ph97 ]
   %93 = load ptr, ptr %1, align 8
-  %94 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", ptr %93, i64 %.096
+  %94 = getelementptr inbounds [8 x i8], ptr %93, i64 %.096
   %95 = load double, ptr %94, align 8
   %96 = fcmp uno double %95, 0.000000e+00
   br i1 %96, label %97, label %_ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit29

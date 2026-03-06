@@ -6889,7 +6889,7 @@ _ZN5eastl10VectorBaseINS_3anyENS_9allocatorEE6DoFreeEPS1_m.exit: ; preds = %_ZN5
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.lcssa.i.i.i, i64 40
   store ptr %retval.0.i, ptr %this, align 8
   store ptr %incdec.ptr, ptr %mpEnd, align 8
-  %add.ptr = getelementptr inbounds %"class.eastl::any", ptr %retval.0.i, i64 %cond.i
+  %add.ptr = getelementptr inbounds [40 x i8], ptr %retval.0.i, i64 %cond.i
   store ptr %add.ptr, ptr %mCapacityAllocator.i, align 8
   ret void
 }

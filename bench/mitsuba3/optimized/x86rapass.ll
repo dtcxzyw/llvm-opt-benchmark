@@ -22,9 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.asmjit::_abi_1_10::Imm" = type { %"class.asmjit::_abi_1_10::Operand" }
 %"class.asmjit::_abi_1_10::x86::Mem" = type { %"class.asmjit::_abi_1_10::BaseMem" }
 %"class.asmjit::_abi_1_10::BaseMem" = type { %"class.asmjit::_abi_1_10::Operand" }
-%"struct.asmjit::_abi_1_10::FuncValuePack" = type { [4 x %"struct.asmjit::_abi_1_10::FuncValue"] }
-%"struct.asmjit::_abi_1_10::FuncValue" = type { i32 }
-%"struct.asmjit::_abi_1_10::InvokeNode::OperandPack" = type { [4 x %"struct.asmjit::_abi_1_10::Operand_"] }
 %"class.asmjit::_abi_1_10::x86::Vec" = type { %"class.asmjit::_abi_1_10::x86::Reg" }
 %"class.asmjit::_abi_1_10::x86::RACFGBuilder" = type <{ %"class.asmjit::_abi_1_10::RACFGBuilderT", i8, i8, i8, [5 x i8] }>
 %"class.asmjit::_abi_1_10::RACFGBuilderT" = type { ptr, ptr, ptr, ptr, ptr, %"class.asmjit::_abi_1_10::RARegsStats", i32, %"class.asmjit::_abi_1_10::ZoneVector", i8, ptr, ptr, %"class.asmjit::_abi_1_10::FormatOptions", %"class.asmjit::_abi_1_10::StringTmp" }
@@ -118,7 +115,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
 
 25:                                               ; preds = %15
   %26 = zext nneg i32 %13 to i64
-  %27 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::InstInfo", ptr @_ZN6asmjit9_abi_1_103x866InstDB14_instInfoTableE, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB14_instInfoTableE, i64 %26
   %28 = load i32, ptr %6, align 8, !tbaa !27
   %29 = and i32 %28, -2
   %30 = load i32, ptr %3, align 8, !tbaa !34
@@ -132,7 +129,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %35 = lshr i32 %34, 14
   %36 = and i32 %35, 1023
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::CommonInfo", ptr @_ZN6asmjit9_abi_1_103x866InstDB16_commonInfoTableE, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB16_commonInfoTableE, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !35
   %40 = and i32 %39, 8388608
   %41 = icmp eq i32 %40, 0
@@ -200,7 +197,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %84 = phi i32 [ -1, %66 ], [ %524, %523 ]
   %.idx = shl nuw nsw i64 %78, 4
   %85 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
-  %86 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OpRWInfo", ptr %68, i64 %78
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %68, i64 %78
   %87 = load i32, ptr %85, align 4, !tbaa !37
   %88 = and i32 %87, 7
   %89 = shl nuw nsw i32 1, %88
@@ -214,7 +211,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %92 = load i32, ptr %86, align 8, !tbaa !40
   %93 = and i32 %92, 7
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x86L24raUseOutFlagsFromRWFlagsENS0_9OpRWFlagsEE3map, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x86L24raUseOutFlagsFromRWFlagsENS0_9OpRWFlagsEE3map, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !38
   %97 = and i32 %87, -16777216
   %98 = icmp ne i32 %97, 16777216
@@ -260,7 +257,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %127 = getelementptr inbounds nuw i8, ptr %122, i64 456
   %128 = zext i32 %117 to i64
   %129 = load ptr, ptr %127, align 8, !tbaa !51
-  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %128
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %128
   %131 = load ptr, ptr %130, align 8, !tbaa !52
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 40
   %133 = load ptr, ptr %132, align 8, !tbaa !53
@@ -315,7 +312,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %169 = lshr i32 %164, 6
   %170 = and i32 %164, 63
   %171 = zext nneg i32 %169 to i64
-  %172 = getelementptr inbounds nuw i64, ptr %168, i64 %171
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %171
   %173 = load i64, ptr %172, align 8, !tbaa !84
   %174 = zext nneg i32 %170 to i64
   %175 = shl nuw i64 1, %174
@@ -335,7 +332,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %187 = zext nneg i32 %186 to i64
   %188 = load ptr, ptr %0, align 8, !tbaa !46
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 280
-  %190 = getelementptr inbounds nuw i32, ptr %189, i64 %187
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %189, i64 %187
   %191 = load i32, ptr %190, align 4, !tbaa !85
   %192 = and i32 %191, %113
   %193 = getelementptr inbounds nuw i8, ptr %86, i64 6
@@ -359,7 +356,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %205 = or i32 %204, %181
   %206 = load i32, ptr %182, align 8, !tbaa !87
   %207 = zext i8 %194 to i64
-  %208 = getelementptr inbounds nuw i32, ptr @_ZN6asmjit9_abi_1_103x86L37raConsecutiveLeadCountToRegMaskFilterE, i64 %207
+  %208 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6asmjit9_abi_1_103x86L37raConsecutiveLeadCountToRegMaskFilterE, i64 %207
   %209 = load i32, ptr %208, align 4, !tbaa !85
   %210 = and i32 %181, 4
   %211 = icmp eq i32 %210, 0
@@ -514,7 +511,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %309 = getelementptr inbounds nuw i8, ptr %304, i64 456
   %310 = zext i32 %302 to i64
   %311 = load ptr, ptr %309, align 8, !tbaa !51
-  %312 = getelementptr inbounds nuw ptr, ptr %311, i64 %310
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %310
   %313 = load ptr, ptr %312, align 8, !tbaa !52
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 40
   %315 = load ptr, ptr %314, align 8, !tbaa !53
@@ -588,7 +585,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %360 = getelementptr inbounds nuw i8, ptr %355, i64 456
   %361 = zext i32 %350 to i64
   %362 = load ptr, ptr %360, align 8, !tbaa !51
-  %363 = getelementptr inbounds nuw ptr, ptr %362, i64 %361
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %362, i64 %361
   %364 = load ptr, ptr %363, align 8, !tbaa !52
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 40
   %366 = load ptr, ptr %365, align 8, !tbaa !53
@@ -613,7 +610,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %378 = lshr i32 %377, 12
   %379 = and i32 %378, 3
   %380 = zext nneg i32 %379 to i64
-  %381 = getelementptr inbounds nuw i32, ptr @_ZZN6asmjit9_abi_1_103x86L24raUseOutFlagsFromRWFlagsENS0_9OpRWFlagsEE3map, i64 %380
+  %381 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN6asmjit9_abi_1_103x86L24raUseOutFlagsFromRWFlagsENS0_9OpRWFlagsEE3map, i64 %380
   %382 = load i32, ptr %381, align 4, !tbaa !38
   %383 = getelementptr inbounds nuw i8, ptr %376, i64 32
   %384 = load i32, ptr %383, align 4, !tbaa !37
@@ -621,7 +618,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %386 = and i32 %385, 15
   %387 = zext nneg i32 %386 to i64
   %388 = getelementptr inbounds nuw i8, ptr %375, i64 280
-  %389 = getelementptr inbounds nuw i32, ptr %388, i64 %387
+  %389 = getelementptr inbounds nuw [4 x i8], ptr %388, i64 %387
   %390 = load i32, ptr %389, align 4, !tbaa !85
   %391 = shl nuw nsw i64 1, %380
   %392 = and i64 %391, 5
@@ -699,7 +696,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %438 = getelementptr inbounds nuw i8, ptr %433, i64 456
   %439 = zext i32 %428 to i64
   %440 = load ptr, ptr %438, align 8, !tbaa !51
-  %441 = getelementptr inbounds nuw ptr, ptr %440, i64 %439
+  %441 = getelementptr inbounds nuw [8 x i8], ptr %440, i64 %439
   %442 = load ptr, ptr %441, align 8, !tbaa !52
   %443 = getelementptr inbounds nuw i8, ptr %442, i64 40
   %444 = load ptr, ptr %443, align 8, !tbaa !53
@@ -730,7 +727,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %462 = and i32 %461, 15
   %463 = zext nneg i32 %462 to i64
   %464 = getelementptr inbounds nuw i8, ptr %453, i64 280
-  %465 = getelementptr inbounds nuw i32, ptr %464, i64 %463
+  %465 = getelementptr inbounds nuw [4 x i8], ptr %464, i64 %463
   %466 = load i32, ptr %465, align 4, !tbaa !85
   %467 = and i32 %466, %67
   %468 = shl nuw nsw i64 1, %458
@@ -868,7 +865,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %553 = getelementptr inbounds nuw i8, ptr %548, i64 456
   %554 = zext i32 %543 to i64
   %555 = load ptr, ptr %553, align 8, !tbaa !51
-  %556 = getelementptr inbounds nuw ptr, ptr %555, i64 %554
+  %556 = getelementptr inbounds nuw [8 x i8], ptr %555, i64 %554
   %557 = load ptr, ptr %556, align 8, !tbaa !52
   %558 = getelementptr inbounds nuw i8, ptr %557, i64 40
   %559 = load ptr, ptr %558, align 8, !tbaa !53
@@ -896,7 +893,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %574 = and i8 %573, 15
   %575 = getelementptr inbounds nuw i8, ptr %568, i64 280
   %576 = zext nneg i8 %574 to i64
-  %577 = getelementptr inbounds nuw i32, ptr %575, i64 %576
+  %577 = getelementptr inbounds nuw [4 x i8], ptr %575, i64 %576
   %578 = load i32, ptr %577, align 4, !tbaa !85
   %579 = icmp eq i8 %574, 2
   br i1 %579, label %580, label %583
@@ -977,7 +974,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %624 = getelementptr inbounds nuw i8, ptr %623, i64 456
   %625 = zext i32 %619 to i64
   %626 = load ptr, ptr %624, align 8, !tbaa !51
-  %627 = getelementptr inbounds nuw ptr, ptr %626, i64 %625
+  %627 = getelementptr inbounds nuw [8 x i8], ptr %626, i64 %625
   %628 = load ptr, ptr %627, align 8, !tbaa !52
   %629 = getelementptr inbounds nuw i8, ptr %628, i64 40
   %630 = load ptr, ptr %629, align 8, !tbaa !53
@@ -1101,7 +1098,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %710 = lshr i32 %709, 14
   %711 = and i32 %710, 1023
   %712 = zext nneg i32 %711 to i64
-  %.split = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::CommonInfo", ptr @_ZN6asmjit9_abi_1_103x866InstDB16_commonInfoTableE, i64 %712
+  %.split = getelementptr inbounds nuw [8 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB16_commonInfoTableE, i64 %712
   %713 = getelementptr inbounds nuw i8, ptr %.split, i64 4
   %714 = load i32, ptr %713, align 4
   %715 = lshr i32 %714, 30
@@ -1125,7 +1122,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %727 = getelementptr inbounds nuw i8, ptr %725, i64 320
   %728 = zext i32 %726 to i64
   %729 = load ptr, ptr %727, align 8, !tbaa !51
-  %730 = getelementptr inbounds nuw ptr, ptr %729, i64 %728
+  %730 = getelementptr inbounds nuw [8 x i8], ptr %729, i64 %728
   %731 = load ptr, ptr %730, align 8, !tbaa !52
   %732 = getelementptr inbounds nuw i8, ptr %731, i64 32
   %733 = load i32, ptr %732, align 8, !tbaa !85
@@ -1161,7 +1158,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
 746:                                              ; preds = %742
   %747 = call noundef i32 @llvm.cttz.i32(i32 %738, i1 true), !range !117
   %748 = zext nneg i32 %747 to i64
-  %749 = getelementptr inbounds nuw i64, ptr @_ZZN6asmjit9_abi_1_103x86L17raImmMaskFromSizeEjE5masks, i64 %748
+  %749 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN6asmjit9_abi_1_103x86L17raImmMaskFromSizeEjE5masks, i64 %748
   %750 = load i64, ptr %749, align 8, !tbaa !84
   %751 = icmp eq i64 %744, %750
   br i1 %751, label %752, label %753
@@ -1218,7 +1215,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %783 = lshr i32 %782, 14
   %784 = and i32 %783, 1023
   %785 = zext nneg i32 %784 to i64
-  %.split36 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::CommonInfo", ptr @_ZN6asmjit9_abi_1_103x866InstDB16_commonInfoTableE, i64 %785
+  %.split36 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6asmjit9_abi_1_103x866InstDB16_commonInfoTableE, i64 %785
   %786 = getelementptr inbounds nuw i8, ptr %.split36, i64 4
   %787 = load i32, ptr %786, align 4
   %788 = lshr i32 %787, 27
@@ -1257,7 +1254,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RAInstBuilder3addE
   %26 = shl nuw i32 1, %4
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %28 = zext nneg i8 %16 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !85
   %31 = or i32 %30, %26
   store i32 %31, ptr %29, align 4, !tbaa !85
@@ -1273,7 +1270,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RAInstBuilder3addE
   %37 = shl nuw i32 1, %7
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %39 = zext nneg i8 %16 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !85
   %42 = or i32 %41, %37
   store i32 %42, ptr %40, align 4, !tbaa !85
@@ -1441,20 +1438,20 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
 
 27:                                               ; preds = %140, %23
   %28 = phi i64 [ 0, %23 ], [ %141, %140 ]
-  %29 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::FuncValuePack", ptr %24, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %28
   br label %30
 
 30:                                               ; preds = %137, %27
   %31 = phi i64 [ 0, %27 ], [ %138, %137 ]
-  %32 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::FuncValue", ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !137
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %140, label %35
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr %25, align 8, !tbaa !139
-  %37 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::InvokeNode::OperandPack", ptr %36, i64 %28
-  %38 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %37, i64 %31
+  %37 = getelementptr inbounds nuw [64 x i8], ptr %36, i64 %28
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %31
   %39 = load i32, ptr %38, align 4, !tbaa !37
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %137, label %41
@@ -1483,7 +1480,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 456
   %55 = zext i32 %47 to i64
   %56 = load ptr, ptr %54, align 8, !tbaa !51
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %55
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %55
   %58 = load ptr, ptr %57, align 8, !tbaa !52
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load ptr, ptr %59, align 8, !tbaa !53
@@ -1528,8 +1525,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
   store <4 x i32> <i32 1, i32 255, i32 0, i32 0>, ptr %4, align 16, !tbaa !85
   %83 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrEPNS0_10InvokeNodeERKNS0_9FuncValueERKNS1_3VecEPNS0_7BaseRegE(ptr noundef nonnull align 8 dereferenceable(659) %0, ptr noundef nonnull %1, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull align 4 dereferenceable(16) %38, ptr noundef nonnull %4) #17
   %84 = load ptr, ptr %25, align 8, !tbaa !139
-  %85 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::InvokeNode::OperandPack", ptr %84, i64 %28
-  %86 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %85, i64 %31
+  %85 = getelementptr inbounds nuw [64 x i8], ptr %84, i64 %28
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %86, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %117
@@ -1537,7 +1534,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
 87:                                               ; preds = %73
   %88 = lshr i32 %68, 24
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OperandSignature", ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !37
   %92 = load ptr, ptr %3, align 8, !tbaa !52
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
@@ -1599,8 +1596,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
 
 124:                                              ; preds = %121
   %125 = load ptr, ptr %25, align 8, !tbaa !139
-  %126 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::InvokeNode::OperandPack", ptr %125, i64 %28
-  %127 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %126, i64 %31
+  %126 = getelementptr inbounds nuw [64 x i8], ptr %125, i64 %28
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %126, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %127, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %137
@@ -1706,13 +1703,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
 
 178:                                              ; preds = %290, %172
   %179 = phi i64 [ 0, %172 ], [ %291, %290 ]
-  %180 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::FuncValue", ptr %169, i64 %179
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %179
   %181 = load i32, ptr %180, align 4, !tbaa !137
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %.loopexit, label %183
 
 183:                                              ; preds = %178
-  %184 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %173, i64 %179
+  %184 = getelementptr inbounds nuw [16 x i8], ptr %173, i64 %179
   %185 = load i32, ptr %184, align 4, !tbaa !37
   %186 = and i32 %185, 7
   %187 = icmp eq i32 %186, 1
@@ -1735,7 +1732,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
   %199 = getelementptr inbounds nuw i8, ptr %194, i64 456
   %200 = zext i32 %192 to i64
   %201 = load ptr, ptr %199, align 8, !tbaa !51
-  %202 = getelementptr inbounds nuw ptr, ptr %201, i64 %200
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %200
   %203 = load ptr, ptr %202, align 8, !tbaa !52
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 40
   %205 = load ptr, ptr %204, align 8, !tbaa !53
@@ -1872,7 +1869,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder14onBeforeInvok
 
 282:                                              ; preds = %216
   %283 = zext nneg i32 %217 to i64
-  %284 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OperandSignature", ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %283
+  %284 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %283
   %285 = load i32, ptr %284, align 4, !tbaa !37
   %286 = xor i32 %285, %221
   %287 = and i32 %286, 3840
@@ -2029,7 +2026,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrE
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 80
   %65 = load i32, ptr %64, align 4, !tbaa !37
   %66 = lshr i32 %65, 3
-  %.split = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::ArchTraits", ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 %63
+  %.split = getelementptr inbounds nuw [216 x i8], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 %63
   %67 = getelementptr inbounds nuw i8, ptr %.split, i64 148
   %68 = and i32 %66, 31
   %69 = zext nneg i32 %68 to i64
@@ -2050,7 +2047,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder12moveVecToPtrE
   %80 = add i32 %78, -256
   %81 = zext i32 %80 to i64
   %82 = load ptr, ptr %79, align 8, !tbaa !51
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %81
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %81
   %84 = load ptr, ptr %83, align 8, !tbaa !52
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 14
   store i8 80, ptr %85, align 2, !tbaa !188
@@ -2179,7 +2176,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveRegToStac
   %28 = add i32 %26, -256
   %29 = zext i32 %28 to i64
   %30 = load ptr, ptr %27, align 8, !tbaa !51
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %29
   %32 = load ptr, ptr %31, align 8, !tbaa !52
   %33 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %34 = load i8, ptr %33, align 8, !tbaa !187
@@ -2638,7 +2635,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder15moveImmToRegA
   %63 = add i32 %61, -256
   %64 = zext i32 %63 to i64
   %65 = load ptr, ptr %62, align 8, !tbaa !51
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %64
   %67 = load ptr, ptr %66, align 8, !tbaa !52
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 14
   store i8 80, ptr %68, align 2, !tbaa !188
@@ -2793,7 +2790,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder17moveImmToStac
 77:                                               ; preds = %84, %74
   %78 = phi i64 [ 0, %74 ], [ %89, %84 ]
   %79 = load ptr, ptr %76, align 8, !tbaa !69
-  %80 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::Imm", ptr %6, i64 %78
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %78
   %81 = invoke noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter6_emitIEjRKNS0_8Operand_ES4_(ptr noundef nonnull align 8 dereferenceable(144) %79, i32 noundef 418, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %80)
           to label %82 unwind label %92
 
@@ -2851,20 +2848,20 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
 18:                                               ; preds = %196, %9
   %19 = phi i64 [ 0, %9 ], [ %197, %196 ]
   %20 = phi i1 [ true, %9 ], [ %198, %196 ]
-  %21 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::FuncValuePack", ptr %10, i64 %19
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %19
   br label %22
 
 22:                                               ; preds = %193, %18
   %23 = phi i64 [ 0, %18 ], [ %194, %193 ]
-  %24 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::FuncValue", ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !137
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %193, label %27
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %11, align 8, !tbaa !139
-  %29 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::InvokeNode::OperandPack", ptr %28, i64 %19
-  %30 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %29, i64 %23
+  %29 = getelementptr inbounds nuw [64 x i8], ptr %28, i64 %19
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %23
   %31 = load i32, ptr %30, align 4, !tbaa !37
   %32 = and i32 %31, 7
   %33 = icmp eq i32 %32, 1
@@ -2887,7 +2884,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 456
   %46 = zext i32 %38 to i64
   %47 = load ptr, ptr %45, align 8, !tbaa !51
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %46
   %49 = load ptr, ptr %48, align 8, !tbaa !52
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %51 = load ptr, ptr %50, align 8, !tbaa !53
@@ -3012,7 +3009,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
   %124 = load i32, ptr %123, align 4, !tbaa !37
   %125 = lshr i32 %59, 24
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OperandSignature", ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !37
   %129 = xor i32 %128, %124
   %130 = and i32 %129, 3840
@@ -3029,7 +3026,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
   %139 = load i32, ptr %12, align 4, !tbaa !38
   %140 = or i32 %139, 69
   store i32 %140, ptr %12, align 4, !tbaa !38
-  %141 = getelementptr inbounds nuw i32, ptr %13, i64 %137
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %137
   %142 = load i32, ptr %141, align 4, !tbaa !85
   %143 = or i32 %142, %138
   store i32 %143, ptr %141, align 4, !tbaa !85
@@ -3143,13 +3140,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
 
 207:                                              ; preds = %309, %.loopexit
   %208 = phi i64 [ 0, %.loopexit ], [ %310, %309 ]
-  %209 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::FuncValue", ptr %200, i64 %208
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %208
   %210 = load i32, ptr %209, align 4, !tbaa !137
   %211 = icmp eq i32 %210, 0
   br i1 %211, label %314, label %212
 
 212:                                              ; preds = %207
-  %213 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::Operand_", ptr %201, i64 %208
+  %213 = getelementptr inbounds nuw [16 x i8], ptr %201, i64 %208
   %214 = and i32 %210, -16777216
   %215 = icmp eq i32 %214, 369098752
   br i1 %215, label %309, label %216
@@ -3177,7 +3174,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
   %231 = getelementptr inbounds nuw i8, ptr %226, i64 456
   %232 = zext i32 %224 to i64
   %233 = load ptr, ptr %231, align 8, !tbaa !51
-  %234 = getelementptr inbounds nuw ptr, ptr %233, i64 %232
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %232
   %235 = load ptr, ptr %234, align 8, !tbaa !52
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 40
   %237 = load ptr, ptr %236, align 8, !tbaa !53
@@ -3206,7 +3203,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
   %251 = load i32, ptr %250, align 4, !tbaa !37
   %252 = lshr i32 %245, 24
   %253 = zext nneg i32 %252 to i64
-  %254 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OperandSignature", ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %253
+  %254 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %253
   %255 = load i32, ptr %254, align 4, !tbaa !37
   %256 = xor i32 %255, %251
   %257 = and i32 %256, 3840
@@ -3223,7 +3220,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder8onInvokeEPNS0_
   %266 = load i32, ptr %202, align 4, !tbaa !38
   %267 = or i32 %266, 138
   store i32 %267, ptr %202, align 4, !tbaa !38
-  %268 = getelementptr inbounds nuw i32, ptr %203, i64 %264
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %264
   %269 = load i32, ptr %268, align 4, !tbaa !85
   %270 = or i32 %269, %265
   store i32 %270, ptr %268, align 4, !tbaa !85
@@ -3389,8 +3386,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
 
 24:                                               ; preds = %125, %17
   %25 = phi i64 [ 0, %17 ], [ %126, %125 ]
-  %26 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::Operand", ptr %9, i64 %25
-  %27 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::FuncValue", ptr %18, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %25
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %25
   %28 = load i32, ptr %26, align 4, !tbaa !37
   %29 = and i32 %28, 7
   %30 = icmp eq i32 %29, 1
@@ -3423,7 +3420,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder11onBeforeRetEP
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 456
   %49 = zext i32 %38 to i64
   %50 = load ptr, ptr %48, align 8, !tbaa !51
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %49
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %49
   %52 = load ptr, ptr %51, align 8, !tbaa !52
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %54 = load ptr, ptr %53, align 8, !tbaa !53
@@ -3590,13 +3587,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder5onRetEPNS0_11F
 
 15:                                               ; preds = %78, %9
   %16 = phi i64 [ 0, %9 ], [ %79, %78 ]
-  %17 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::Operand", ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !37
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %78, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::FuncValue", ptr %13, i64 %16
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %16
   %22 = load i32, ptr %21, align 4, !tbaa !137
   %23 = and i32 %22, 256
   %24 = icmp eq i32 %23, 0
@@ -3633,7 +3630,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder5onRetEPNS0_11F
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 456
   %45 = zext i32 %34 to i64
   %46 = load ptr, ptr %44, align 8, !tbaa !51
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   %48 = load ptr, ptr %47, align 8, !tbaa !52
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
   %50 = load ptr, ptr %49, align 8, !tbaa !53
@@ -3662,7 +3659,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder5onRetEPNS0_11F
   %66 = and i32 %65, 15
   %67 = zext nneg i32 %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 280
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %67
   %70 = load i32, ptr %69, align 4, !tbaa !85
   %71 = lshr i32 %60, 16
   %72 = and i32 %71, 255
@@ -3758,7 +3755,7 @@ define hidden void @_ZN6asmjit9_abi_1_103x869X86RAPass6onInitEv(ptr noundef nonn
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 961
   store i8 %19, ptr %25, align 1, !tbaa !222
   %26 = zext i8 %5 to i64
-  %27 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::ArchTraits", ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 %26
+  %27 = getelementptr inbounds nuw [216 x i8], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %27, ptr %28, align 8, !tbaa !223
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -4219,7 +4216,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %214 = load i32, ptr %213, align 4, !tbaa !102
   %215 = zext i32 %214 to i64
   %216 = load ptr, ptr %209, align 8, !tbaa !51
-  %217 = getelementptr inbounds nuw ptr, ptr %216, i64 %215
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %215
   %218 = load ptr, ptr %217, align 8, !tbaa !52
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 32
   %220 = load i32, ptr %219, align 4, !tbaa !37
@@ -4340,11 +4337,11 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 
 301:                                              ; preds = %356, %295
   %302 = phi i64 [ 0, %295 ], [ %357, %356 ]
-  %303 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::RATiedReg", ptr %80, i64 %302
+  %303 = getelementptr inbounds nuw [32 x i8], ptr %80, i64 %302
   %304 = load i32, ptr %303, align 8, !tbaa !102
   %305 = zext i32 %304 to i64
   %306 = load ptr, ptr %296, align 8, !tbaa !51
-  %307 = getelementptr inbounds nuw ptr, ptr %306, i64 %305
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %306, i64 %305
   %308 = load ptr, ptr %307, align 8, !tbaa !52
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 16
   store ptr null, ptr %309, align 8, !tbaa !95
@@ -4366,7 +4363,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %322 = zext nneg i8 %321 to i32
   %323 = shl nuw i32 1, %322
   %324 = zext nneg i8 %314 to i64
-  %325 = getelementptr inbounds nuw i32, ptr %298, i64 %324
+  %325 = getelementptr inbounds nuw [4 x i8], ptr %298, i64 %324
   %326 = load i32, ptr %325, align 4, !tbaa !85
   %327 = or i32 %323, %326
   store i32 %327, ptr %325, align 4, !tbaa !85
@@ -4391,7 +4388,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %339 = add i8 %338, 1
   store i8 %339, ptr %337, align 1, !tbaa !11
   %340 = zext i8 %338 to i64
-  %341 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::RATiedReg", ptr %299, i64 %340
+  %341 = getelementptr inbounds nuw [32 x i8], ptr %299, i64 %340
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %341, ptr noundef nonnull align 8 dereferenceable(32) %303, i64 32, i1 false), !tbaa.struct !254
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 8
   %343 = load i32, ptr %342, align 4, !tbaa !38
@@ -4404,7 +4401,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   br i1 %348, label %349, label %356
 
 349:                                              ; preds = %335
-  %350 = getelementptr inbounds nuw i32, ptr %95, i64 %336
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %336
   %351 = load i32, ptr %350, align 4, !tbaa !85
   %352 = xor i32 %351, -1
   %353 = getelementptr inbounds nuw i8, ptr %341, i64 16
@@ -4462,7 +4459,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %385 = getelementptr inbounds nuw i8, ptr %161, i64 64
   %386 = add nuw nsw i64 %384, 4294967295
   %387 = and i64 %386, 4294967295
-  %388 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::Operand", ptr %385, i64 %387
+  %388 = getelementptr inbounds nuw [16 x i8], ptr %385, i64 %387
   %389 = load i32, ptr %388, align 4, !tbaa !37
   %390 = and i32 %389, 7
   %391 = icmp eq i32 %390, 4
@@ -4530,7 +4527,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %429 = getelementptr inbounds nuw i8, ptr %420, i64 24
   %430 = load i32, ptr %429, align 8, !tbaa !49
   %431 = zext i32 %430 to i64
-  %432 = getelementptr inbounds nuw i32, ptr %428, i64 %431
+  %432 = getelementptr inbounds nuw [4 x i8], ptr %428, i64 %431
   %433 = icmp eq i32 %430, 0
   br i1 %433, label %463, label %.preheader54
 
@@ -4608,7 +4605,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 477:                                              ; preds = %475, %468
   %478 = phi ptr [ %476, %475 ], [ null, %468 ]
   %479 = zext i32 %466 to i64
-  %480 = getelementptr inbounds nuw ptr, ptr %474, i64 %479
+  %480 = getelementptr inbounds nuw [8 x i8], ptr %474, i64 %479
   br label %481
 
 481:                                              ; preds = %517, %477
@@ -4631,7 +4628,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 492:                                              ; preds = %491
   %493 = zext i32 %488 to i64
   %494 = load ptr, ptr %103, align 8, !tbaa !51
-  %495 = getelementptr inbounds nuw i32, ptr %494, i64 %493
+  %495 = getelementptr inbounds nuw [4 x i8], ptr %494, i64 %493
   store i32 %483, ptr %495, align 4, !tbaa !85
   br label %517
 
@@ -4659,7 +4656,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %509 = phi i32 [ %507, %506 ], [ %498, %497 ]
   %510 = load ptr, ptr %103, align 8, !tbaa !51
   %511 = zext i32 %509 to i64
-  %512 = getelementptr inbounds nuw i32, ptr %510, i64 %511
+  %512 = getelementptr inbounds nuw [4 x i8], ptr %510, i64 %511
   store i32 %498, ptr %512, align 4
   %513 = load i32, ptr %104, align 8, !tbaa !49
   %514 = add i32 %513, 1
@@ -4698,7 +4695,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %533 = phi i32 [ %531, %530 ], [ %522, %521 ]
   %534 = load ptr, ptr %4, align 8, !tbaa !51
   %535 = zext i32 %533 to i64
-  %536 = getelementptr inbounds nuw ptr, ptr %534, i64 %535
+  %536 = getelementptr inbounds nuw [8 x i8], ptr %534, i64 %535
   %537 = load i64, ptr %71, align 8
   store i64 %537, ptr %536, align 8
   %538 = load i32, ptr %99, align 8, !tbaa !49
@@ -5155,7 +5152,7 @@ _ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_3x8612RACFGBuilderEE31shareAssignmentAcr
   %830 = load ptr, ptr %4, align 8, !tbaa !51
   %831 = load i32, ptr %99, align 8, !tbaa !49
   %832 = zext i32 %831 to i64
-  %833 = getelementptr inbounds nuw ptr, ptr %830, i64 %832
+  %833 = getelementptr inbounds nuw [8 x i8], ptr %830, i64 %832
   %834 = icmp eq i32 %831, 0
   br i1 %834, label %837, label %.preheader
 
@@ -5256,7 +5253,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8Bas
 39:                                               ; preds = %73, %36
   %40 = phi i64 [ 0, %36 ], [ %75, %73 ]
   %41 = phi i32 [ 0, %36 ], [ %74, %73 ]
-  %42 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::RATiedReg", ptr %32, i64 %40
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %40
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load i32, ptr %43, align 4, !tbaa !108
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 14
@@ -5271,7 +5268,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8Bas
   %51 = add i32 %49, -1
   %52 = and i32 %51, %49
   %53 = zext nneg i32 %50 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %37, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %53
   store i32 %47, ptr %54, align 4, !tbaa !85
   %55 = icmp eq i32 %52, 0
   br i1 %55, label %.loopexit13, label %.preheader12, !llvm.loop !272
@@ -5296,7 +5293,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8Bas
   %67 = add i32 %65, -1
   %68 = and i32 %67, %65
   %69 = zext nneg i32 %66 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %37, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %69
   store i32 %63, ptr %70, align 4, !tbaa !85
   %71 = icmp eq i32 %68, 0
   br i1 %71, label %.loopexit, label %.preheader, !llvm.loop !273
@@ -5481,7 +5478,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8Bas
 
 160:                                              ; preds = %191, %156
   %161 = phi i64 [ 0, %156 ], [ %192, %191 ]
-  %162 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::Operand", ptr %27, i64 %161
+  %162 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %161
   %163 = load i32, ptr %162, align 4, !tbaa !37
   %164 = and i32 %163, 8199
   %165 = icmp eq i32 %164, 8194
@@ -5497,7 +5494,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8_rewriteEPNS0_8Bas
 171:                                              ; preds = %166
   %172 = zext i32 %169 to i64
   %173 = load ptr, ptr %158, align 8, !tbaa !51
-  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %172
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %172
   %175 = load ptr, ptr %174, align 8, !tbaa !52
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 40
   %177 = load ptr, ptr %176, align 8, !tbaa !53
@@ -5546,7 +5543,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitMoveEjjj(ptr n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %8 = zext i32 %1 to i64
   %9 = load ptr, ptr %7, align 8, !tbaa !51
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -5624,10 +5621,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitSwapEjjjj(ptr 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %9 = zext i32 %1 to i64
   %10 = load ptr, ptr %8, align 8, !tbaa !51
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %9
   %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = zext i32 %3 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !52
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !91
@@ -5721,7 +5718,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitLoadEjj(ptr no
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %7 = zext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !51
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -5782,7 +5779,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitLoadEjj(ptr no
 48:                                               ; preds = %34
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %50 = load ptr, ptr %6, align 8, !tbaa !51
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %7
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %7
   %52 = load ptr, ptr %51, align 8, !tbaa !52
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !91
@@ -5832,7 +5829,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitSaveEjj(ptr no
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %7 = zext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !51
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !291)
@@ -5893,7 +5890,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass8emitSaveEjj(ptr no
 48:                                               ; preds = %29
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %50 = load ptr, ptr %6, align 8, !tbaa !51
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %7
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %7
   %52 = load ptr, ptr %51, align 8, !tbaa !52
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !91
@@ -6016,7 +6013,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
 41:                                               ; preds = %108, %36
   %42 = phi i64 [ 0, %36 ], [ %110, %108 ]
   %43 = phi i32 [ 0, %36 ], [ %109, %108 ]
-  %44 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::FuncValuePack", ptr %37, i64 %42
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %42
   %45 = load i32, ptr %44, align 4, !tbaa !137
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %108, label %47
@@ -6029,7 +6026,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
 50:                                               ; preds = %47
   %51 = lshr i32 %45, 24
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OperandSignature", ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !37
   %55 = and i32 %54, 3840
   %56 = icmp eq i32 %55, 256
@@ -6052,7 +6049,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
 67:                                               ; preds = %64
   %68 = lshr i32 %62, 24
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OperandSignature", ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !37
   %72 = and i32 %71, 3840
   %73 = icmp eq i32 %72, 256
@@ -6075,7 +6072,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
 84:                                               ; preds = %81
   %85 = lshr i32 %79, 24
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OperandSignature", ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !37
   %89 = and i32 %88, 3840
   %90 = icmp eq i32 %89, 256
@@ -6094,7 +6091,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
 99:                                               ; preds = %93
   %100 = lshr i32 %96, 24
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OperandSignature", ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !37
   %104 = and i32 %103, 3840
   %105 = icmp eq i32 %104, 256
@@ -6135,7 +6132,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
 
 123:                                              ; preds = %227, %23
   %124 = phi i64 [ 0, %23 ], [ %228, %227 ]
-  %125 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::FuncValuePack", ptr %24, i64 %124
+  %125 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %25, i64 %124
   %127 = load i32, ptr %125, align 4, !tbaa !137
   %128 = icmp eq i32 %127, 0
@@ -6149,7 +6146,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
 132:                                              ; preds = %129
   %133 = lshr i32 %127, 24
   %134 = zext nneg i32 %133 to i64
-  %135 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OperandSignature", ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !37
   %137 = and i32 %136, 3840
   %138 = icmp eq i32 %137, 256
@@ -6197,7 +6194,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
 158:                                              ; preds = %155
   %159 = lshr i32 %153, 24
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OperandSignature", ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %160
+  %161 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %160
   %162 = load i32, ptr %161, align 4, !tbaa !37
   %163 = and i32 %162, 3840
   %164 = icmp eq i32 %163, 256
@@ -6245,7 +6242,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
 184:                                              ; preds = %181
   %185 = lshr i32 %179, 24
   %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OperandSignature", ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %186
+  %187 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !37
   %189 = and i32 %188, 3840
   %190 = icmp eq i32 %189, 256
@@ -6289,7 +6286,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x869X86RAPass11emitPreCallEPNS0_
 208:                                              ; preds = %203
   %209 = lshr i32 %205, 24
   %210 = zext nneg i32 %209 to i64
-  %211 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::OperandSignature", ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %210
+  %211 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 236), i64 %210
   %212 = load i32, ptr %211, align 4, !tbaa !37
   %213 = and i32 %212, 3840
   %214 = icmp eq i32 %213, 256
@@ -6424,7 +6421,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %30 = phi i32 [ %28, %27 ], [ %19, %12 ]
   %31 = load ptr, ptr %17, align 8, !tbaa !51
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = ptrtoint ptr %9 to i64
   store i64 %34, ptr %33, align 8
   %35 = load i32, ptr %18, align 8, !tbaa !49
@@ -6556,7 +6553,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass12addExi
   %19 = phi i32 [ %17, %16 ], [ %8, %2 ]
   %20 = load ptr, ptr %6, align 8, !tbaa !51
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = ptrtoint ptr %1 to i64
   store i64 %23, ptr %22, align 8
   %24 = load i32, ptr %7, align 8, !tbaa !49
@@ -6614,7 +6611,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 30:                                               ; preds = %28, %22
   %31 = phi ptr [ %29, %28 ], [ null, %22 ]
   %32 = zext i32 %20 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -6640,7 +6637,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 48:                                               ; preds = %47
   %49 = zext i32 %44 to i64
   %50 = load ptr, ptr %34, align 8, !tbaa !51
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %49
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %49
   store i32 %39, ptr %51, align 4, !tbaa !85
   br label %73
 
@@ -6668,7 +6665,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
   %65 = phi i32 [ %63, %62 ], [ %54, %53 ]
   %66 = load ptr, ptr %34, align 8, !tbaa !51
   %67 = zext i32 %65 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %67
   store i32 %54, ptr %68, align 4
   %69 = load i32, ptr %35, align 8, !tbaa !49
   %70 = add i32 %69, 1
@@ -6693,7 +6690,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1013RACFGBuilderTINS0_
 .preheader:                                       ; preds = %16, %90
   %78 = phi i64 [ %91, %90 ], [ 1, %16 ]
   %79 = load ptr, ptr %4, align 8, !tbaa !51
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %78
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %78
   %81 = load ptr, ptr %80, align 8, !tbaa !52
   %82 = icmp eq ptr %81, %17
   br i1 %82, label %90, label %83

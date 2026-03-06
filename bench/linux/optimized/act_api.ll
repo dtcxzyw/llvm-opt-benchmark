@@ -1548,7 +1548,7 @@ define dso_local range(i32 7, 6) i32 @tcf_action_exec(ptr noundef %0, ptr nounde
   %21 = phi i64 [ 0, %16 ], [ %68, %select.unfold5 ]
   %22 = phi i32 [ %17, %16 ], [ %.ph11, %select.unfold5 ]
   %23 = phi i32 [ %19, %16 ], [ %.ph, %select.unfold5 ]
-  %24 = getelementptr ptr, ptr %1, i64 %21
+  %24 = getelementptr [8 x i8], ptr %1, i64 %21
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq i32 %22, 0
   br i1 %26, label %29, label %27
@@ -1659,7 +1659,7 @@ define dso_local noundef range(i32 -1, 2) i32 @tcf_action_destroy(ptr noundef ca
 .preheader.split.us:                              ; preds = %.preheader, %30
   %6 = phi ptr [ %32, %30 ], [ %3, %.preheader ]
   %7 = phi i64 [ %28, %30 ], [ 0, %.preheader ]
-  %8 = getelementptr ptr, ptr %0, i64 %7
+  %8 = getelementptr [8 x i8], ptr %0, i64 %7
   store ptr null, ptr %8, align 8
   %9 = load ptr, ptr %6, align 16
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -1694,13 +1694,13 @@ define dso_local noundef range(i32 -1, 2) i32 @tcf_action_destroy(ptr noundef ca
   br i1 %29, label %.thread8, label %30, !llvm.loop !49
 
 30:                                               ; preds = %26
-  %31 = getelementptr ptr, ptr %0, i64 %28
+  %31 = getelementptr [8 x i8], ptr %0, i64 %28
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.thread8, label %.preheader.split.us, !llvm.loop !49
 
 34:                                               ; preds = %55
-  %35 = getelementptr ptr, ptr %0, i64 %57
+  %35 = getelementptr [8 x i8], ptr %0, i64 %57
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.thread8, label %.thread, !llvm.loop !49
@@ -1708,7 +1708,7 @@ define dso_local noundef range(i32 -1, 2) i32 @tcf_action_destroy(ptr noundef ca
 .thread:                                          ; preds = %.preheader, %34
   %38 = phi ptr [ %36, %34 ], [ %3, %.preheader ]
   %39 = phi i64 [ %57, %34 ], [ 0, %.preheader ]
-  %40 = getelementptr ptr, ptr %0, i64 %39
+  %40 = getelementptr [8 x i8], ptr %0, i64 %39
   store ptr null, ptr %40, align 8
   %41 = load ptr, ptr %38, align 16
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -1991,7 +1991,7 @@ define dso_local range(i32 -22, 1) i32 @tcf_action_dump(ptr noundef %0, ptr noun
 
 .split.us:                                        ; preds = %5, %26
   %8 = phi i64 [ %13, %26 ], [ 0, %5 ]
-  %9 = getelementptr ptr, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %12
@@ -2029,7 +2029,7 @@ define dso_local range(i32 -22, 1) i32 @tcf_action_dump(ptr noundef %0, ptr noun
 
 .split:                                           ; preds = %5, %54
   %36 = phi i64 [ %41, %54 ], [ 0, %5 ]
-  %37 = getelementptr ptr, ptr %1, i64 %36
+  %37 = getelementptr [8 x i8], ptr %1, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread, label %40
@@ -2099,13 +2099,13 @@ define dso_local void @tcf_idr_insert_many(ptr noundef readonly captures(none) %
 
 3:                                                ; preds = %20, %2
   %4 = phi i64 [ 0, %2 ], [ %21, %20 ]
-  %5 = getelementptr ptr, ptr %0, i64 %4
+  %5 = getelementptr [8 x i8], ptr %0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %23, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr i32, ptr %1, i64 %4
+  %9 = getelementptr [4 x i8], ptr %1, i64 %4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %20, label %12
@@ -2522,7 +2522,7 @@ define dso_local i32 @tcf_action_init(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .preheader:                                       ; preds = %10, %29
   %19 = phi i64 [ %32, %29 ], [ 1, %10 ]
-  %20 = getelementptr ptr, ptr %12, i64 %19
+  %20 = getelementptr [8 x i8], ptr %12, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %34, label %23
@@ -2538,7 +2538,7 @@ define dso_local i32 @tcf_action_init(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %136
 
 29:                                               ; preds = %23
-  %30 = getelementptr ptr, ptr %11, i64 %19
+  %30 = getelementptr [8 x i8], ptr %11, i64 %19
   %31 = getelementptr i8, ptr %30, i64 -8
   store ptr %24, ptr %31, align 8
   %32 = add nuw nsw i64 %19, 1
@@ -2557,16 +2557,16 @@ define dso_local i32 @tcf_action_init(ptr noundef %0, ptr noundef %1, ptr nounde
 41:                                               ; preds = %104, %34
   %42 = phi i64 [ 1, %34 ], [ %105, %104 ]
   %43 = phi i64 [ 0, %34 ], [ %79, %104 ]
-  %44 = getelementptr ptr, ptr %12, i64 %42
+  %44 = getelementptr [8 x i8], ptr %12, i64 %42
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %107, label %47
 
 47:                                               ; preds = %41
   %48 = add nsw i64 %42, -1
-  %49 = getelementptr ptr, ptr %11, i64 %48
+  %49 = getelementptr [8 x i8], ptr %11, i64 %48
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr i32, ptr %5, i64 %48
+  %51 = getelementptr [4 x i8], ptr %5, i64 %48
   %52 = call ptr @tcf_action_init_1(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %45, ptr noundef %3, ptr noundef %50, ptr noundef %51, i32 noundef %7, ptr noundef %9)
   %53 = icmp ugt ptr %52, inttoptr (i64 -4096 to ptr)
   br i1 %53, label %54, label %57
@@ -2609,7 +2609,7 @@ define dso_local i32 @tcf_action_init(ptr noundef %0, ptr noundef %1, ptr nounde
 77:                                               ; preds = %74, %68
   %78 = phi i64 [ %76, %74 ], [ %69, %68 ]
   %79 = add i64 %78, %43
-  %80 = getelementptr ptr, ptr %4, i64 %48
+  %80 = getelementptr [8 x i8], ptr %4, i64 %48
   store ptr %52, ptr %80, align 8
   br i1 %36, label %96, label %81
 
@@ -2667,13 +2667,13 @@ define dso_local i32 @tcf_action_init(ptr noundef %0, ptr noundef %1, ptr nounde
 
 112:                                              ; preds = %129, %.loopexit21
   %113 = phi i64 [ 0, %.loopexit21 ], [ %130, %129 ]
-  %114 = getelementptr ptr, ptr %4, i64 %113
+  %114 = getelementptr [8 x i8], ptr %4, i64 %113
   %115 = load ptr, ptr %114, align 8
   %116 = icmp eq ptr %115, null
   br i1 %116, label %132, label %117
 
 117:                                              ; preds = %112
-  %118 = getelementptr i32, ptr %5, i64 %113
+  %118 = getelementptr [4 x i8], ptr %5, i64 %113
   %119 = load i32, ptr %118, align 4
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %129, label %121
@@ -2711,7 +2711,7 @@ define dso_local i32 @tcf_action_init(ptr noundef %0, ptr noundef %1, ptr nounde
 
 138:                                              ; preds = %143, %136
   %139 = phi i64 [ 0, %136 ], [ %146, %143 ]
-  %140 = getelementptr ptr, ptr %11, i64 %139
+  %140 = getelementptr [8 x i8], ptr %11, i64 %139
   %141 = load ptr, ptr %140, align 8
   %142 = icmp eq ptr %141, null
   br i1 %142, label %.loopexit, label %143
@@ -2942,7 +2942,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tcf_action_reoffload_cb(ptr noun
   call void @__rcu_read_lock() #14
   %28 = load volatile ptr, ptr %23, align 8
   %29 = zext i32 %27 to i64
-  %30 = getelementptr ptr, ptr %28, i64 %29
+  %30 = getelementptr [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   call void @__rcu_read_unlock() #14
   %32 = icmp eq ptr %31, null
@@ -3002,7 +3002,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tcf_action_reoffload_cb(ptr noun
   call void @__rcu_read_lock() #14
   %59 = load volatile ptr, ptr %23, align 8
   %60 = zext i32 %58 to i64
-  %61 = getelementptr ptr, ptr %59, i64 %60
+  %61 = getelementptr [8 x i8], ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8
   call void @__rcu_read_unlock() #14
   %63 = icmp eq ptr %62, null
@@ -3636,7 +3636,7 @@ define internal fastcc i32 @tca_get_fill(ptr noundef nonnull %0, ptr noundef rea
 
 .split.i:                                         ; preds = %41, %68
   %50 = phi i64 [ %55, %68 ], [ 0, %41 ]
-  %51 = getelementptr ptr, ptr %1, i64 %50
+  %51 = getelementptr [8 x i8], ptr %1, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %tcf_action_dump.exit, label %54
@@ -3924,14 +3924,14 @@ define internal i32 @tc_ctl_action(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 90:                                               ; preds = %113, %.thread16
   %91 = phi i64 [ 0, %.thread16 ], [ %114, %113 ]
-  %92 = getelementptr ptr, ptr %5, i64 %91
+  %92 = getelementptr [8 x i8], ptr %5, i64 %91
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %.thread13, label %95
 
 95:                                               ; preds = %90
   %96 = load ptr, ptr %93, align 16
-  %97 = getelementptr i32, ptr %6, i64 %91
+  %97 = getelementptr [4 x i8], ptr %6, i64 %91
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %98, 1
   br i1 %99, label %113, label %100
@@ -4213,7 +4213,7 @@ define internal i32 @tc_dump_action(ptr noundef %0, ptr noundef %1) #0 align 16 
   %141 = getelementptr inbounds nuw i8, ptr %10, i64 2536
   %142 = load volatile ptr, ptr %141, align 8
   %143 = zext i32 %140 to i64
-  %144 = getelementptr ptr, ptr %142, i64 %143
+  %144 = getelementptr [8 x i8], ptr %142, i64 %143
   %145 = load ptr, ptr %144, align 8
   call void @__rcu_read_unlock() #14
   %146 = getelementptr inbounds nuw i8, ptr %64, i64 96
@@ -4529,7 +4529,7 @@ define internal fastcc i32 @tca_action_gd(ptr noundef %0, ptr noundef nonnull %1
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %103 = load volatile ptr, ptr %102, align 8
   %104 = zext i32 %101 to i64
-  %105 = getelementptr ptr, ptr %103, i64 %104
+  %105 = getelementptr [8 x i8], ptr %103, i64 %104
   %106 = load ptr, ptr %105, align 8
   call void @__rcu_read_unlock() #14
   %107 = getelementptr inbounds nuw i8, ptr %53, i64 96
@@ -4649,7 +4649,7 @@ define internal fastcc i32 @tca_action_gd(ptr noundef %0, ptr noundef nonnull %1
 172:                                              ; preds = %282, %167
   %173 = phi i64 [ 1, %167 ], [ %287, %282 ]
   %174 = phi i64 [ 0, %167 ], [ %284, %282 ]
-  %175 = getelementptr ptr, ptr %11, i64 %173
+  %175 = getelementptr [8 x i8], ptr %11, i64 %173
   %176 = load ptr, ptr %175, align 8
   %177 = icmp eq ptr %176, null
   br i1 %177, label %289, label %178
@@ -4738,7 +4738,7 @@ define internal fastcc i32 @tca_action_gd(ptr noundef %0, ptr noundef nonnull %1
   call void @__rcu_read_lock() #14
   %218 = load volatile ptr, ptr %170, align 8
   %219 = zext i32 %217 to i64
-  %220 = getelementptr ptr, ptr %218, i64 %219
+  %220 = getelementptr [8 x i8], ptr %218, i64 %219
   %221 = load ptr, ptr %220, align 8
   call void @__rcu_read_unlock() #14
   %222 = getelementptr inbounds nuw i8, ptr %202, i64 80
@@ -4858,7 +4858,7 @@ tcf_idr_search.exit:                              ; preds = %215
 282:                                              ; preds = %279, %273
   %283 = phi i64 [ %281, %279 ], [ %274, %273 ]
   %284 = add i64 %283, %174
-  %285 = getelementptr ptr, ptr %12, i64 %173
+  %285 = getelementptr [8 x i8], ptr %12, i64 %173
   %286 = getelementptr i8, ptr %285, i64 -8
   store ptr %257, ptr %286, align 8
   %287 = add nuw nsw i64 %173, 1
@@ -4960,7 +4960,7 @@ tcf_idr_search.exit:                              ; preds = %215
 
 339:                                              ; preds = %336, %334
   %340 = phi i64 [ 0, %334 ], [ %337, %336 ]
-  %341 = getelementptr ptr, ptr %12, i64 %340
+  %341 = getelementptr [8 x i8], ptr %12, i64 %340
   %342 = load ptr, ptr %341, align 8
   %343 = icmp eq ptr %342, null
   br i1 %343, label %386, label %344
@@ -5080,7 +5080,7 @@ tcf_idr_search.exit:                              ; preds = %215
 
 398:                                              ; preds = %417, %396
   %399 = phi i64 [ 0, %396 ], [ %418, %417 ]
-  %400 = getelementptr ptr, ptr %12, i64 %399
+  %400 = getelementptr [8 x i8], ptr %12, i64 %399
   %401 = load ptr, ptr %400, align 8
   %402 = icmp eq ptr %401, null
   br i1 %402, label %.thread59, label %403

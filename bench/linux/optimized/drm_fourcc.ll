@@ -174,7 +174,7 @@ define dso_local noundef ptr @__drm_format_info(i32 noundef %0) local_unnamed_ad
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.drm_format_info, ptr @__drm_format_info.formats, i64 %6
+  %7 = getelementptr [24 x i8], ptr @__drm_format_info.formats, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %2
@@ -195,7 +195,7 @@ define dso_local noundef ptr @drm_format_info(i32 noundef %0) #3 align 16 {
 
 5:                                                ; preds = %2, %1
   %6 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %7 = getelementptr %struct.drm_format_info, ptr @__drm_format_info.formats, i64 %6
+  %7 = getelementptr [24 x i8], ptr @__drm_format_info.formats, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %0
   br i1 %9, label %10, label %2
@@ -241,7 +241,7 @@ define dso_local ptr @drm_get_format_info(ptr noundef readonly captures(none) %0
 
 16:                                               ; preds = %13, %.thread
   %17 = phi i64 [ 0, %.thread ], [ %14, %13 ]
-  %18 = getelementptr %struct.drm_format_info, ptr @__drm_format_info.formats, i64 %17
+  %18 = getelementptr [24 x i8], ptr @__drm_format_info.formats, i64 %17
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, %12
   br i1 %20, label %21, label %13

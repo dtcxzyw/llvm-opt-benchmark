@@ -180,7 +180,7 @@ define hidden i32 @zend_shared_alloc_startup(i64 noundef %0, i64 noundef %1) loc
   %28 = phi i32 [ %40, %39 ], [ %26, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %39 ], [ 0, %.preheader.i ]
   %29 = load ptr, ptr %19, align 8, !tbaa !38
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i
   %31 = load ptr, ptr %30, align 8, !tbaa !39
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !41
@@ -264,7 +264,7 @@ zend_shared_alloc_try.exit.thread92:              ; preds = %18, %44, %9, %2
   %59 = phi i32 [ %71, %70 ], [ %57, %.preheader.i73 ]
   %indvars.iv.i76 = phi i64 [ %indvars.iv.next.i80, %70 ], [ 0, %.preheader.i73 ]
   %60 = load ptr, ptr %50, align 8, !tbaa !38
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i76
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.i76
   %62 = load ptr, ptr %61, align 8, !tbaa !39
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !41
@@ -341,7 +341,7 @@ zend_shared_alloc_try.exit84.thread97:            ; preds = %zend_shared_alloc_t
 
 91:                                               ; preds = %.lr.ph, %91
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %91 ]
-  %92 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv
   %93 = load ptr, ptr %92, align 8, !tbaa !39
   %94 = load i64, ptr %93, align 8, !tbaa !45
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
@@ -406,7 +406,7 @@ zend_shared_alloc_try.exit84.thread97:            ; preds = %zend_shared_alloc_t
   %indvars.iv.i88 = phi i64 [ 0, %.lr.ph.i87 ], [ %indvars.iv.next.i89, %127 ]
   %.01619.i = phi ptr [ %115, %.lr.ph.i87 ], [ %130, %127 ]
   %.01718.i = phi ptr [ %125, %.lr.ph.i87 ], [ %129, %127 ]
-  %128 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv.i88
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv.i88
   store ptr %.01718.i, ptr %128, align 8, !tbaa !39
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01718.i, ptr align 1 %.01619.i, i64 %126, i1 false)
   %129 = getelementptr inbounds i8, ptr %.01718.i, i64 %126
@@ -446,7 +446,7 @@ copy_shared_segments.exit:                        ; preds = %127, %112
   %144 = load i32, ptr %143, align 8, !tbaa !35
   %145 = load ptr, ptr %138, align 8, !tbaa !34
   %146 = sext i32 %144 to i64
-  %147 = getelementptr ptr, ptr %145, i64 %146
+  %147 = getelementptr [8 x i8], ptr %145, i64 %146
   %148 = getelementptr i8, ptr %147, i64 -8
   %149 = load ptr, ptr %148, align 8, !tbaa !39
   %150 = load i64, ptr %149, align 8, !tbaa !45
@@ -527,7 +527,7 @@ define hidden ptr @zend_shared_alloc(i64 noundef %0) local_unnamed_addr #0 {
 18:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
   %.0810.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i, %18 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8, !tbaa !39
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !46
@@ -555,7 +555,7 @@ zend_shared_alloc_get_largest_free_block.exit.thread: ; preds = %12, %zend_share
 
 29:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !39
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8, !tbaa !46
@@ -592,7 +592,7 @@ zend_shared_alloc_get_largest_free_block.exit.thread: ; preds = %12, %zend_share
 49:                                               ; preds = %49, %.lr.ph.i20
   %indvars.iv.i22 = phi i64 [ 0, %.lr.ph.i20 ], [ %indvars.iv.next.i25, %49 ]
   %.0810.i23 = phi i64 [ 0, %.lr.ph.i20 ], [ %spec.select.i24, %49 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i22
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv.i22
   %51 = load ptr, ptr %50, align 8, !tbaa !39
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !46
@@ -678,7 +678,7 @@ define hidden void @zend_shared_alloc_shutdown() local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
   %.01619.i = phi ptr [ %19, %.lr.ph.i ], [ %34, %31 ]
   %.01718.i = phi ptr [ %29, %.lr.ph.i ], [ %33, %31 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %.07, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.07, i64 %indvars.iv.i
   store ptr %.01718.i, ptr %32, align 8, !tbaa !39
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01718.i, ptr align 1 %.01619.i, i64 %30, i1 false)
   %33 = getelementptr inbounds i8, ptr %.01718.i, i64 %30
@@ -702,7 +702,7 @@ copy_shared_segments.exit:                        ; preds = %31, %16
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !43
   %43 = load ptr, ptr %39, align 8, !tbaa !34
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !39
   %46 = call i32 %42(ptr noundef %45) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1100,11 +1100,11 @@ define hidden void @zend_shared_alloc_save_state() local_unnamed_addr #15 {
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !54
-  %13 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store i64 %12, ptr %13, align 8, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1135,9 +1135,9 @@ define hidden void @zend_shared_alloc_restore_state() local_unnamed_addr #15 {
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8, !tbaa !50
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !39
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %10, ptr %13, align 8, !tbaa !54
@@ -1180,7 +1180,7 @@ define hidden void @zend_accel_shared_protect(i1 noundef zeroext %0) local_unnam
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %8 = phi ptr [ %17, %.lr.ph ], [ %2, %3 ]
   %9 = load ptr, ptr %8, align 8, !tbaa !34
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !41
@@ -1221,7 +1221,7 @@ define hidden noundef zeroext i1 @zend_accel_in_shm(ptr noundef readnone capture
 
 7:                                                ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !41

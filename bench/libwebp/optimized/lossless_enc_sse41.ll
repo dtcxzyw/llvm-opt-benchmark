@@ -49,7 +49,7 @@ define internal i32 @ExtraCost_SSE41(ptr noundef readonly captures(none) %0, i32
   %18 = trunc i64 %indvars.iv27 to i32
   %19 = add i32 %18, -2
   %20 = ashr exact i32 %19, 1
-  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv27
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv27
   %22 = load <4 x i32>, ptr %21, align 1, !tbaa !9
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load <4 x i32>, ptr %23, align 1, !tbaa !9
@@ -123,14 +123,14 @@ define internal i32 @ExtraCostCombined_SSE41(ptr noalias noundef readonly captur
   %34 = trunc i64 %indvars.iv38 to i32
   %35 = add i32 %34, -2
   %36 = ashr exact i32 %35, 1
-  %37 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv38
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv38
   %38 = load <4 x i32>, ptr %37, align 1, !tbaa !9
   %39 = or disjoint i64 %indvars.iv38, 4
-  %40 = getelementptr inbounds nuw i32, ptr %0, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %39
   %41 = load <4 x i32>, ptr %40, align 1, !tbaa !9
-  %42 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv38
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv38
   %43 = load <4 x i32>, ptr %42, align 1, !tbaa !9
-  %44 = getelementptr inbounds nuw i32, ptr %1, i64 %39
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %39
   %45 = load <4 x i32>, ptr %44, align 1, !tbaa !9
   %46 = add nsw i32 %36, 3
   %47 = add nsw i32 %36, 2
@@ -171,7 +171,7 @@ define internal void @SubtractGreenFromBlueAndRed_SSE41(ptr noundef %0, i32 noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv22 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next23, %.lr.ph ]
   %indvars.iv = phi i64 [ 4, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv22
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv22
   %5 = load <16 x i8>, ptr %4, align 1, !tbaa !9
   %6 = shufflevector <16 x i8> %5, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 1, i32 16, i32 1, i32 16, i32 5, i32 16, i32 5, i32 16, i32 9, i32 16, i32 9, i32 16, i32 13, i32 16, i32 13, i32 16>
   %7 = sub <16 x i8> %5, %6
@@ -192,7 +192,7 @@ define internal void @SubtractGreenFromBlueAndRed_SSE41(ptr noundef %0, i32 noun
 
 9:                                                ; preds = %._crit_edge
   %10 = zext nneg i32 %.0.lcssa to i64
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %10
   %12 = sub nsw i32 %1, %.0.lcssa
   tail call void @VP8LSubtractGreenFromBlueAndRed_C(ptr noundef %11, i32 noundef %12) #5
   br label %13
@@ -240,7 +240,7 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noalias noundef %0, i
 .lr.ph68.split.us:                                ; preds = %.lr.ph68.split.us.preheader, %.lr.ph68.split.us
   %indvars.iv78 = phi i64 [ 0, %.lr.ph68.split.us.preheader ], [ %indvars.iv.next79, %.lr.ph68.split.us ]
   %24 = mul nsw i64 %indvars.iv78, %23
-  %25 = getelementptr inbounds i32, ptr %0, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %0, i64 %24
   %26 = load <2 x i64>, ptr %25, align 1, !tbaa !9
   %27 = bitcast <2 x i64> %26 to <16 x i8>
   %28 = shufflevector <16 x i8> %27, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 16, i32 1, i32 16, i32 2, i32 16, i32 5, i32 16, i32 6, i32 16, i32 9, i32 16, i32 10, i32 16, i32 13, i32 16, i32 14>
@@ -255,25 +255,25 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noalias noundef %0, i
   %37 = bitcast <8 x i16> %36 to <16 x i8>
   %38 = extractelement <16 x i8> %37, i64 0
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %6, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !7
   %42 = add i32 %41, 1
   store i32 %42, ptr %40, align 4, !tbaa !7
   %43 = extractelement <16 x i8> %37, i64 4
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %6, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !7
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4, !tbaa !7
   %48 = extractelement <16 x i8> %37, i64 8
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %6, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !7
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 4, !tbaa !7
   %53 = extractelement <16 x i8> %37, i64 12
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %6, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !7
   %57 = add i32 %56, 1
   store i32 %57, ptr %55, align 4, !tbaa !7
@@ -284,7 +284,7 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noalias noundef %0, i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge
   %indvars.iv75 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next76, %._crit_edge ]
   %58 = mul nsw i64 %indvars.iv75, %22
-  %59 = getelementptr inbounds i32, ptr %0, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %0, i64 %58
   %60 = load <2 x i64>, ptr %59, align 1, !tbaa !9
   %61 = bitcast <2 x i64> %60 to <16 x i8>
   %62 = shufflevector <16 x i8> %61, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 16, i32 1, i32 16, i32 2, i32 16, i32 5, i32 16, i32 6, i32 16, i32 9, i32 16, i32 10, i32 16, i32 13, i32 16, i32 14>
@@ -302,12 +302,12 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noalias noundef %0, i
   %indvars.iv70 = phi i64 [ 4, %.lr.ph ], [ %indvars.iv.next71, %71 ]
   %indvars.iv = phi i64 [ 8, %.lr.ph ], [ %indvars.iv.next, %71 ]
   %.057.in66 = phi <8 x i16> [ %70, %.lr.ph ], [ %104, %71 ]
-  %72 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv70
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv70
   %73 = load <2 x i64>, ptr %72, align 1, !tbaa !9
   %74 = bitcast <8 x i16> %.057.in66 to <16 x i8>
   %75 = extractelement <16 x i8> %74, i64 0
   %76 = zext i8 %75 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %6, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !7
   %79 = add i32 %78, 1
   store i32 %79, ptr %77, align 4, !tbaa !7
@@ -315,7 +315,7 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noalias noundef %0, i
   %81 = shufflevector <16 x i8> %80, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 16, i32 1, i32 16, i32 2, i32 16, i32 5, i32 16, i32 6, i32 16, i32 9, i32 16, i32 10, i32 16, i32 13, i32 16, i32 14>
   %82 = extractelement <16 x i8> %74, i64 4
   %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %6, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !7
   %86 = add i32 %85, 1
   store i32 %86, ptr %84, align 4, !tbaa !7
@@ -323,7 +323,7 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noalias noundef %0, i
   %88 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %87, <8 x i16> %20)
   %89 = extractelement <16 x i8> %74, i64 8
   %90 = zext i8 %89 to i64
-  %91 = getelementptr inbounds nuw i32, ptr %6, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !7
   %93 = add i32 %92, 1
   store i32 %93, ptr %91, align 4, !tbaa !7
@@ -331,7 +331,7 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noalias noundef %0, i
   %95 = sub <8 x i16> %94, %88
   %96 = extractelement <16 x i8> %74, i64 12
   %97 = zext i8 %96 to i64
-  %98 = getelementptr inbounds nuw i32, ptr %6, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !7
   %100 = add i32 %99, 1
   store i32 %100, ptr %98, align 4, !tbaa !7
@@ -348,25 +348,25 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noalias noundef %0, i
   %105 = bitcast <8 x i16> %104 to <16 x i8>
   %106 = extractelement <16 x i8> %105, i64 0
   %107 = zext i8 %106 to i64
-  %108 = getelementptr inbounds nuw i32, ptr %6, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !7
   %110 = add i32 %109, 1
   store i32 %110, ptr %108, align 4, !tbaa !7
   %111 = extractelement <16 x i8> %105, i64 4
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %6, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !7
   %115 = add i32 %114, 1
   store i32 %115, ptr %113, align 4, !tbaa !7
   %116 = extractelement <16 x i8> %105, i64 8
   %117 = zext i8 %116 to i64
-  %118 = getelementptr inbounds nuw i32, ptr %6, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !7
   %120 = add i32 %119, 1
   store i32 %120, ptr %118, align 4, !tbaa !7
   %121 = extractelement <16 x i8> %105, i64 12
   %122 = zext i8 %121 to i64
-  %123 = getelementptr inbounds nuw i32, ptr %6, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !7
   %125 = add i32 %124, 1
   store i32 %125, ptr %123, align 4, !tbaa !7
@@ -381,10 +381,10 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noalias noundef %0, i
 
 127:                                              ; preds = %.loopexit
   %128 = sext i32 %2 to i64
-  %129 = getelementptr inbounds i32, ptr %0, i64 %128
+  %129 = getelementptr inbounds [4 x i8], ptr %0, i64 %128
   %130 = zext nneg i32 %126 to i64
   %131 = sub nsw i64 0, %130
-  %132 = getelementptr inbounds i32, ptr %129, i64 %131
+  %132 = getelementptr inbounds [4 x i8], ptr %129, i64 %131
   tail call void @VP8LCollectColorBlueTransforms_C(ptr noundef nonnull %132, i32 noundef %1, i32 noundef %126, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) #5
   br label %133
 
@@ -424,7 +424,7 @@ define internal void @CollectColorRedTransforms_SSE41(ptr noalias noundef %0, i3
 .lr.ph61.split.us:                                ; preds = %.lr.ph61.split.us.preheader, %.lr.ph61.split.us
   %indvars.iv71 = phi i64 [ 0, %.lr.ph61.split.us.preheader ], [ %indvars.iv.next72, %.lr.ph61.split.us ]
   %18 = mul nsw i64 %indvars.iv71, %17
-  %19 = getelementptr inbounds i32, ptr %0, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %0, i64 %18
   %20 = load <8 x i16>, ptr %19, align 1, !tbaa !9
   %21 = and <8 x i16> %20, <i16 -256, i16 0, i16 -256, i16 0, i16 -256, i16 0, i16 -256, i16 0>
   %22 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %21, <8 x i16> %14)
@@ -433,25 +433,25 @@ define internal void @CollectColorRedTransforms_SSE41(ptr noalias noundef %0, i3
   %25 = bitcast <8 x i16> %24 to <16 x i8>
   %26 = extractelement <16 x i8> %25, i64 2
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %5, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !7
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 4, !tbaa !7
   %31 = extractelement <16 x i8> %25, i64 6
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %5, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !7
   %35 = add i32 %34, 1
   store i32 %35, ptr %33, align 4, !tbaa !7
   %36 = extractelement <16 x i8> %25, i64 10
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %5, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !7
   %40 = add i32 %39, 1
   store i32 %40, ptr %38, align 4, !tbaa !7
   %41 = extractelement <16 x i8> %25, i64 14
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %5, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !7
   %45 = add i32 %44, 1
   store i32 %45, ptr %43, align 4, !tbaa !7
@@ -462,7 +462,7 @@ define internal void @CollectColorRedTransforms_SSE41(ptr noalias noundef %0, i3
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %._crit_edge
   %indvars.iv68 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next69, %._crit_edge ]
   %46 = mul nsw i64 %indvars.iv68, %16
-  %47 = getelementptr inbounds i32, ptr %0, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %0, i64 %46
   %48 = load <8 x i16>, ptr %47, align 1, !tbaa !9
   %49 = and <8 x i16> %48, <i16 -256, i16 0, i16 -256, i16 0, i16 -256, i16 0, i16 -256, i16 0>
   %50 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %49, <8 x i16> %14)
@@ -474,18 +474,18 @@ define internal void @CollectColorRedTransforms_SSE41(ptr noalias noundef %0, i3
   %indvars.iv63 = phi i64 [ 4, %.lr.ph ], [ %indvars.iv.next64, %53 ]
   %indvars.iv = phi i64 [ 8, %.lr.ph ], [ %indvars.iv.next, %53 ]
   %.051.in59 = phi <8 x i16> [ %52, %.lr.ph ], [ %80, %53 ]
-  %54 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv63
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv63
   %55 = load <8 x i16>, ptr %54, align 1, !tbaa !9
   %56 = bitcast <8 x i16> %.051.in59 to <16 x i8>
   %57 = extractelement <16 x i8> %56, i64 2
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %5, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !7
   %61 = add i32 %60, 1
   store i32 %61, ptr %59, align 4, !tbaa !7
   %62 = extractelement <16 x i8> %56, i64 6
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %5, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !7
   %66 = add i32 %65, 1
   store i32 %66, ptr %64, align 4, !tbaa !7
@@ -493,13 +493,13 @@ define internal void @CollectColorRedTransforms_SSE41(ptr noalias noundef %0, i3
   %68 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %67, <8 x i16> %14)
   %69 = extractelement <16 x i8> %56, i64 10
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %5, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !7
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 4, !tbaa !7
   %74 = extractelement <16 x i8> %56, i64 14
   %75 = zext i8 %74 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %5, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !7
   %78 = add i32 %77, 1
   store i32 %78, ptr %76, align 4, !tbaa !7
@@ -514,25 +514,25 @@ define internal void @CollectColorRedTransforms_SSE41(ptr noalias noundef %0, i3
   %81 = bitcast <8 x i16> %80 to <16 x i8>
   %82 = extractelement <16 x i8> %81, i64 2
   %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %5, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !7
   %86 = add i32 %85, 1
   store i32 %86, ptr %84, align 4, !tbaa !7
   %87 = extractelement <16 x i8> %81, i64 6
   %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %5, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !7
   %91 = add i32 %90, 1
   store i32 %91, ptr %89, align 4, !tbaa !7
   %92 = extractelement <16 x i8> %81, i64 10
   %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds nuw i32, ptr %5, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !7
   %96 = add i32 %95, 1
   store i32 %96, ptr %94, align 4, !tbaa !7
   %97 = extractelement <16 x i8> %81, i64 14
   %98 = zext i8 %97 to i64
-  %99 = getelementptr inbounds nuw i32, ptr %5, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !7
   %101 = add i32 %100, 1
   store i32 %101, ptr %99, align 4, !tbaa !7
@@ -547,10 +547,10 @@ define internal void @CollectColorRedTransforms_SSE41(ptr noalias noundef %0, i3
 
 103:                                              ; preds = %.loopexit
   %104 = sext i32 %2 to i64
-  %105 = getelementptr inbounds i32, ptr %0, i64 %104
+  %105 = getelementptr inbounds [4 x i8], ptr %0, i64 %104
   %106 = zext nneg i32 %102 to i64
   %107 = sub nsw i64 0, %106
-  %108 = getelementptr inbounds i32, ptr %105, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %105, i64 %107
   tail call void @VP8LCollectColorRedTransforms_C(ptr noundef nonnull %108, i32 noundef %1, i32 noundef %102, i32 noundef %3, i32 noundef %4, ptr noundef %5) #5
   br label %109
 

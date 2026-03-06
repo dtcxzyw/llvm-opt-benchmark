@@ -173,7 +173,7 @@ define hidden noundef ptr @_Z12opt_filenameP7OPTARGS(ptr noundef readonly captur
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8, !tbaa !15
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !16
   br label %17
 
@@ -271,7 +271,7 @@ thread-pre-split:                                 ; preds = %16
   %36 = add nsw i32 %32, 1
   store i32 %36, ptr %31, align 8, !tbaa !15
   %37 = sext i32 %32 to i64
-  %38 = getelementptr inbounds ptr, ptr %35, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %35, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !16
   %.not34 = icmp eq i32 %1, 0
   %.str..str.1 = select i1 %.not34, ptr @.str.1, ptr @.str
@@ -315,7 +315,7 @@ define hidden noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %0, ptr noundef 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = icmp ult ptr %9, %10
@@ -371,7 +371,7 @@ define internal fastcc noundef range(i32 -128, 256) i32 @_ZL11opt_ordinalP7OPTAR
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %17 = sext i8 %6 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !16
   %20 = icmp eq ptr %19, null
   %. = select i1 %20, i32 0, i32 %7
@@ -379,7 +379,7 @@ define internal fastcc noundef range(i32 -128, 256) i32 @_ZL11opt_ordinalP7OPTAR
 
 .preheader.split:                                 ; preds = %.preheader, %52
   %indvars.iv = phi i64 [ %indvars.iv.next, %52 ], [ 0, %.preheader ]
-  %21 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !16
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.thread73.split, label %24
@@ -420,7 +420,7 @@ define internal fastcc noundef range(i32 -128, 256) i32 @_ZL11opt_ordinalP7OPTAR
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %46 = load i8, ptr %22, align 1, !tbaa !23
   %47 = sext i8 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !16
   %50 = icmp eq ptr %49, null
   %51 = sext i8 %46 to i32
@@ -440,7 +440,7 @@ define internal fastcc noundef range(i32 -128, 256) i32 @_ZL11opt_ordinalP7OPTAR
 
 .thread73.split.split:                            ; preds = %.thread73.split, %87
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %87 ], [ 0, %.thread73.split ]
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv97
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv97
   %57 = load ptr, ptr %56, align 8, !tbaa !16
   %58 = icmp eq ptr %57, null
   br i1 %58, label %.thread77, label %59
@@ -481,7 +481,7 @@ define internal fastcc noundef range(i32 -128, 256) i32 @_ZL11opt_ordinalP7OPTAR
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %81 = load i8, ptr %57, align 1, !tbaa !23
   %82 = sext i8 %81 to i64
-  %83 = getelementptr inbounds ptr, ptr %80, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %80, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !16
   %85 = icmp eq ptr %84, null
   %86 = sext i8 %81 to i32
@@ -507,7 +507,7 @@ define hidden noundef ptr @_Z7opt_argP7OPTARGSPKc(ptr noundef readonly captures(
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   br label %10
 
@@ -585,7 +585,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %33 = load i8, ptr %32, align 1, !tbaa !23
   %34 = sext i8 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr %26, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %26, i64 %34
   store ptr %25, ptr %35, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -596,7 +596,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv407
   %38 = load i8, ptr %37, align 1, !tbaa !23
   %39 = sext i8 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %30, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %30, i64 %39
   store ptr %14, ptr %40, align 8, !tbaa !16
   %indvars.iv.next408 = add nuw nsw i64 %indvars.iv407, 1
   %exitcond411.not = icmp eq i64 %indvars.iv.next408, %wide.trip.count410
@@ -644,7 +644,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 
 58:                                               ; preds = %50, %47, %.lr.ph337
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
-  %59 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next413
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next413
   %60 = load ptr, ptr %59, align 8, !tbaa !16
   %.not246 = icmp eq ptr %60, null
   br i1 %.not246, label %.critedge, label %.lr.ph337
@@ -687,7 +687,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 
 76:                                               ; preds = %68, %65, %.lr.ph350
   %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415, 1
-  %77 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.next416
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next416
   %78 = load ptr, ptr %77, align 8, !tbaa !16
   %.not248 = icmp eq ptr %78, null
   br i1 %.not248, label %.critedge2, label %.lr.ph350
@@ -715,10 +715,10 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
   br label %262
 
 85:                                               ; preds = %.lr.ph359
-  %86 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv418
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv418
   store ptr %79, ptr %86, align 8, !tbaa !16
   %indvars.iv.next419 = add nuw nsw i64 %indvars.iv418, 1
-  %87 = getelementptr ptr, ptr %4, i64 %indvars.iv.next419
+  %87 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.next419
   %88 = getelementptr i8, ptr %87, i64 -1024
   %89 = load ptr, ptr %88, align 8, !tbaa !16
   %.not249 = icmp eq ptr %89, null
@@ -745,10 +745,10 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
   br label %262
 
 95:                                               ; preds = %.lr.ph367
-  %96 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv421
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv421
   store ptr %14, ptr %96, align 8, !tbaa !16
   %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1
-  %97 = getelementptr ptr, ptr %5, i64 %indvars.iv.next422
+  %97 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.next422
   %98 = getelementptr i8, ptr %97, i64 -1536
   %99 = load ptr, ptr %98, align 8, !tbaa !16
   %.not250 = icmp eq ptr %99, null
@@ -777,7 +777,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 108:                                              ; preds = %.lr.ph376, %.loopexit
   %.6221375 = phi i32 [ 1, %.lr.ph376 ], [ %207, %.loopexit ]
   %109 = sext i32 %.6221375 to i64
-  %110 = getelementptr inbounds ptr, ptr %1, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %1, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !16
   %112 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #27
   %113 = trunc i64 %112 to i32
@@ -841,7 +841,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 138:                                              ; preds = %.thread
   store i8 61, ptr %129, align 1, !tbaa !23
   %139 = sext i32 %133 to i64
-  %140 = getelementptr inbounds ptr, ptr %106, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr %106, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !16
   %142 = icmp ult ptr %141, %79
   %143 = icmp ugt ptr %141, %107
@@ -861,7 +861,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 
 149:                                              ; preds = %130
   %150 = sext i32 %131 to i64
-  %151 = getelementptr inbounds ptr, ptr %106, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %106, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !16
   %153 = icmp ult ptr %152, %79
   %154 = icmp ugt ptr %152, %107
@@ -875,7 +875,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 
 158:                                              ; preds = %155
   %159 = sext i32 %156 to i64
-  %160 = getelementptr inbounds ptr, ptr %1, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr %1, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !16
   %162 = load i8, ptr %161, align 1, !tbaa !23
   switch i8 %162, label %166 [
@@ -904,7 +904,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 
 171:                                              ; preds = %123
   %172 = sext i8 %125 to i64
-  %173 = getelementptr inbounds ptr, ptr %106, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %106, i64 %172
   %174 = load ptr, ptr %173, align 8, !tbaa !16
   %175 = icmp eq ptr %174, null
   br i1 %175, label %176, label %179
@@ -943,7 +943,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 
 193:                                              ; preds = %190
   %194 = sext i32 %191 to i64
-  %195 = getelementptr inbounds ptr, ptr %1, i64 %194
+  %195 = getelementptr inbounds [8 x i8], ptr %1, i64 %194
   %196 = load ptr, ptr %195, align 8, !tbaa !16
   %197 = load i8, ptr %196, align 1, !tbaa !23
   switch i8 %197, label %201 [
@@ -991,7 +991,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 ._crit_edge377:                                   ; preds = %.loopexit, %108
   %.6221.lcssa = phi i32 [ %.6221375, %108 ], [ %207, %.loopexit ]
   %209 = sext i32 %.6221.lcssa to i64
-  %210 = getelementptr inbounds ptr, ptr %1, i64 %209
+  %210 = getelementptr inbounds [8 x i8], ptr %1, i64 %209
   %211 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %210, ptr %211, align 8, !tbaa !33
   %wide.trip.count432 = zext nneg i32 %0 to i64
@@ -1009,7 +1009,7 @@ define hidden noundef ptr @_Z9opt_parseiPPcPKcS2_PS2_S3_(i32 noundef %0, ptr nou
 
 sub_0:                                            ; preds = %._crit_edge377, %230
   %indvars.iv429 = phi i64 [ 1, %._crit_edge377 ], [ %indvars.iv.next430, %230 ]
-  %215 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv429
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv429
   %216 = load ptr, ptr %215, align 8, !tbaa !16
   %217 = load i8, ptr %216, align 1
   %218 = zext i8 %217 to i32
@@ -1059,7 +1059,7 @@ sub_2:                                            ; preds = %sub_1
 
 239:                                              ; preds = %231
   %240 = and i64 %indvars.iv429, 4294967295
-  %241 = getelementptr inbounds nuw ptr, ptr %1, i64 %240
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %240
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %243 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %242, ptr %243, align 8, !tbaa !14
@@ -1067,7 +1067,7 @@ sub_2:                                            ; preds = %sub_1
 
 244:                                              ; preds = %.lr.ph383, %251
   %indvars.iv434 = phi i64 [ %212, %.lr.ph383 ], [ %indvars.iv.next435, %251 ]
-  %245 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv434
+  %245 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv434
   %246 = load ptr, ptr %245, align 8, !tbaa !16
   %247 = load i8, ptr %246, align 1, !tbaa !23
   switch i8 %247, label %._crit_edge384.loopexit [
@@ -1109,7 +1109,7 @@ sub_2:                                            ; preds = %sub_1
 
 258:                                              ; preds = %._crit_edge384
   %259 = sext i32 %.13.lcssa to i64
-  %260 = getelementptr inbounds ptr, ptr %1, i64 %259
+  %260 = getelementptr inbounds [8 x i8], ptr %1, i64 %259
   %261 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %260, ptr %261, align 8, !tbaa !14
   br label %262
@@ -1193,7 +1193,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %42 = sext i32 %38 to i64
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !16
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %46 = icmp ult ptr %44, %45
@@ -1238,7 +1238,7 @@ _Z9opt_givenP7OPTARGSPKc.exit:                    ; preds = %37, %49, %55
 68:                                               ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %70 = sext i32 %66 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %69, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !16
   %73 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %74 = icmp ult ptr %72, %73
@@ -1283,7 +1283,7 @@ _Z9opt_givenP7OPTARGSPKc.exit61.thread:           ; preds = %_Z9opt_givenP7OPTAR
 94:                                               ; preds = %_Z9opt_givenP7OPTARGSPKc.exit58.thread
   %95 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %96 = sext i32 %92 to i64
-  %97 = getelementptr inbounds ptr, ptr %95, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %95, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !16
   %99 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %100 = icmp ult ptr %98, %99
@@ -1319,7 +1319,7 @@ _Z9opt_givenP7OPTARGSPKc.exit61:                  ; preds = %94
 116:                                              ; preds = %113
   %117 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %118 = sext i32 %114 to i64
-  %119 = getelementptr inbounds ptr, ptr %117, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr %117, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !16
   %121 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %122 = icmp ult ptr %120, %121
@@ -1359,7 +1359,7 @@ _Z9opt_givenP7OPTARGSPKc.exit64:                  ; preds = %113, %125, %130
 141:                                              ; preds = %137
   %142 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %143 = sext i32 %139 to i64
-  %144 = getelementptr inbounds ptr, ptr %142, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %142, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !16
   %146 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %147 = icmp ult ptr %145, %146
@@ -1390,7 +1390,7 @@ _Z9opt_givenP7OPTARGSPKc.exit67:                  ; preds = %141
 
 162:                                              ; preds = %159
   %163 = sext i32 %160 to i64
-  %164 = getelementptr inbounds ptr, ptr %142, i64 %163
+  %164 = getelementptr inbounds [8 x i8], ptr %142, i64 %163
   %165 = load ptr, ptr %164, align 8, !tbaa !16
   br label %_Z7opt_argP7OPTARGSPKc.exit
 
@@ -1416,7 +1416,7 @@ _Z9opt_givenP7OPTARGSPKc.exit67.thread:           ; preds = %_Z9opt_givenP7OPTAR
 175:                                              ; preds = %169
   %176 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %177 = sext i32 %173 to i64
-  %178 = getelementptr inbounds ptr, ptr %176, i64 %177
+  %178 = getelementptr inbounds [8 x i8], ptr %176, i64 %177
   %179 = load ptr, ptr %178, align 8, !tbaa !16
   br label %_Z7opt_argP7OPTARGSPKc.exit70
 
@@ -1434,7 +1434,7 @@ _Z7opt_argP7OPTARGSPKc.exit70:                    ; preds = %169, %175
 184:                                              ; preds = %181
   %185 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %186 = sext i32 %182 to i64
-  %187 = getelementptr inbounds ptr, ptr %185, i64 %186
+  %187 = getelementptr inbounds [8 x i8], ptr %185, i64 %186
   %188 = load ptr, ptr %187, align 8, !tbaa !16
   %189 = getelementptr inbounds nuw i8, ptr %35, i64 72
   %190 = icmp ult ptr %188, %189
@@ -1465,7 +1465,7 @@ _Z9opt_givenP7OPTARGSPKc.exit73:                  ; preds = %184
 203:                                              ; preds = %203, %202
   %indvars.iv.i = phi i64 [ 0, %202 ], [ %indvars.iv.next.i, %203 ]
   %204 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL1T, i64 30224), align 8, !tbaa !50
-  %205 = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_16lookupE, i64 %indvars.iv.i
+  %205 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_16lookupE, i64 %indvars.iv.i
   %206 = load ptr, ptr %205, align 16, !tbaa !51
   %207 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %208 = load i32, ptr %207, align 8, !tbaa !53
@@ -1571,7 +1571,7 @@ _ZL11ffio_createPKPKcmm.exit:                     ; preds = %222
 245:                                              ; preds = %.lr.ph, %255
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %255 ]
   %246 = load ptr, ptr %234, align 8, !tbaa !14
-  %247 = getelementptr inbounds nuw ptr, ptr %246, i64 %indvars.iv
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %indvars.iv
   %248 = load ptr, ptr %247, align 8, !tbaa !16
   %249 = call noalias ptr @fopen(ptr noundef %248, ptr noundef nonnull @.str.1)
   %.not55 = icmp eq ptr %249, null
@@ -1580,7 +1580,7 @@ _ZL11ffio_createPKPKcmm.exit:                     ; preds = %222
 .thread:                                          ; preds = %245
   %250 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL1T, i64 30224), align 8, !tbaa !50
   %251 = load ptr, ptr %234, align 8, !tbaa !14
-  %252 = getelementptr inbounds nuw ptr, ptr %251, i64 %indvars.iv
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %indvars.iv
   %253 = load ptr, ptr %252, align 8, !tbaa !16
   %254 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %250, ptr noundef nonnull @.str.31, ptr noundef nonnull @_ZL5delim, ptr noundef %253) #25
   br label %_ZL14list_err_codesv.exit
@@ -1596,7 +1596,7 @@ _ZL11ffio_createPKPKcmm.exit:                     ; preds = %222
 260:                                              ; preds = %.lr.ph151, %_ZL12process_filePKc.exit
   %indvars.iv211 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next212, %_ZL12process_filePKc.exit ]
   %261 = load ptr, ptr %241, align 8, !tbaa !14
-  %262 = getelementptr inbounds nuw ptr, ptr %261, i64 %indvars.iv211
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %indvars.iv211
   %263 = load ptr, ptr %262, align 8, !tbaa !16
   %264 = load ptr, ptr @F, align 8, !tbaa !62
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 72
@@ -1721,7 +1721,7 @@ _ZL21at_decorative_elementP4ffio.exit.i.i:        ; preds = %313, %305
 
 322:                                              ; preds = %320, %.lr.ph.i.i.i
   %.011.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %321, %320 ]
-  %323 = getelementptr inbounds nuw ptr, ptr %319, i64 %.011.i.i.i
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %319, i64 %.011.i.i.i
   %324 = load ptr, ptr %323, align 8, !tbaa !16
   %325 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %324) #27
   %326 = call i32 @strncmp(ptr noundef nonnull %310, ptr noundef nonnull %324, i64 noundef %325) #27
@@ -1840,7 +1840,7 @@ _ZL21at_decorative_elementP4ffio.exit.i.i:        ; preds = %313, %305
 
 388:                                              ; preds = %386, %.lr.ph.i.i.i.i
   %.011.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %387, %386 ]
-  %389 = getelementptr inbounds nuw ptr, ptr %385, i64 %.011.i.i.i.i
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %385, i64 %.011.i.i.i.i
   %390 = load ptr, ptr %389, align 8, !tbaa !16
   %391 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %390) #27
   %392 = call i32 @strncmp(ptr noundef %.pre.i.i, ptr noundef nonnull %390, i64 noundef %391) #27
@@ -1891,7 +1891,7 @@ _ZL21at_decorative_elementP4ffio.exit.i.i:        ; preds = %313, %305
 
 414:                                              ; preds = %412, %.lr.ph.i17.i.i.i
   %.011.i18.i.i.i = phi i64 [ 0, %.lr.ph.i17.i.i.i ], [ %413, %412 ]
-  %415 = getelementptr inbounds nuw ptr, ptr %411, i64 %.011.i18.i.i.i
+  %415 = getelementptr inbounds nuw [8 x i8], ptr %411, i64 %.011.i18.i.i.i
   %416 = load ptr, ptr %415, align 8, !tbaa !16
   %417 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %416) #27
   %418 = call i32 @strncmp(ptr noundef %.pre132.i.i, ptr noundef nonnull %416, i64 noundef %417) #27
@@ -1952,7 +1952,7 @@ tailrecurse.i.i.i:                                ; preds = %431
 
 443:                                              ; preds = %441, %.lr.ph.i51.i.i
   %.011.i52.i.i = phi i64 [ 0, %.lr.ph.i51.i.i ], [ %442, %441 ]
-  %444 = getelementptr inbounds nuw ptr, ptr %421, i64 %.011.i52.i.i
+  %444 = getelementptr inbounds nuw [8 x i8], ptr %421, i64 %.011.i52.i.i
   %445 = load ptr, ptr %444, align 8, !tbaa !16
   %446 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %445) #27
   %447 = call i32 @strncmp(ptr noundef %422, ptr noundef nonnull %445, i64 noundef %446) #27
@@ -2033,7 +2033,7 @@ _ZL6at_tagP4ffio.exit56.i.i:                      ; preds = %443
 
 480:                                              ; preds = %478, %.lr.ph.i.i62.i.i
   %.011.i.i63.i.i = phi i64 [ 0, %.lr.ph.i.i62.i.i ], [ %479, %478 ]
-  %481 = getelementptr inbounds nuw ptr, ptr %477, i64 %.011.i.i63.i.i
+  %481 = getelementptr inbounds nuw [8 x i8], ptr %477, i64 %.011.i.i63.i.i
   %482 = load ptr, ptr %481, align 8, !tbaa !16
   %483 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %482) #27
   %484 = call i32 @strncmp(ptr noundef %468, ptr noundef nonnull %482, i64 noundef %483) #27
@@ -2127,7 +2127,7 @@ _ZL25finish_previous_operationPKc.exit.i.i.i:     ; preds = %513, %509, %507
   %.0.i.i.i.i = phi ptr [ @.str.66, %521 ], [ %530, %524 ]
   %525 = load i8, ptr %.0.i.i.i.i, align 1, !tbaa !23
   %526 = sext i8 %525 to i64
-  %527 = getelementptr inbounds i16, ptr %523, i64 %526
+  %527 = getelementptr inbounds [2 x i8], ptr %523, i64 %526
   %528 = load i16, ptr %527, align 2, !tbaa !91
   %529 = and i16 %528, 8192
   %.not.i1.i.i.i = icmp eq i16 %529, 0
@@ -2164,7 +2164,7 @@ _ZL9directionPKc.exit.i.i.i:                      ; preds = %533, %531
   %.2.i.i.i.i.i = phi ptr [ %543, %537 ], [ @.str.68, %_ZL9directionPKc.exit.i.i.i ]
   %538 = load i8, ptr %.2.i.i.i.i.i, align 1, !tbaa !23
   %539 = sext i8 %538 to i64
-  %540 = getelementptr inbounds i16, ptr %536, i64 %539
+  %540 = getelementptr inbounds [2 x i8], ptr %536, i64 %539
   %541 = load i16, ptr %540, align 2, !tbaa !91
   %542 = and i16 %541, 8192
   %.not.i.i.i.i.i = icmp eq i16 %542, 0
@@ -2306,7 +2306,7 @@ _ZL6acceptPKc.exit.i:                             ; preds = %584, %581
   %.2.i.i.i = phi ptr [ %603, %597 ], [ %.01424.i.i.i, %.preheader19.i.i.i ]
   %598 = load i8, ptr %.2.i.i.i, align 1, !tbaa !23
   %599 = sext i8 %598 to i64
-  %600 = getelementptr inbounds i16, ptr %595, i64 %599
+  %600 = getelementptr inbounds [2 x i8], ptr %595, i64 %599
   %601 = load i16, ptr %600, align 2, !tbaa !91
   %602 = and i16 %601, 8192
   %.not.i.i36.i = icmp eq i16 %602, 0
@@ -2328,7 +2328,7 @@ _ZL6acceptPKc.exit.i:                             ; preds = %584, %581
   %605 = phi i8 [ %612, %610 ], [ %598, %.preheader.i.i37.i ]
   %.321.i.i.i = phi ptr [ %611, %610 ], [ %.2.i.i.i, %.preheader.i.i37.i ]
   %606 = sext i8 %605 to i64
-  %607 = getelementptr inbounds i16, ptr %595, i64 %606
+  %607 = getelementptr inbounds [2 x i8], ptr %595, i64 %606
   %608 = load i16, ptr %607, align 2, !tbaa !91
   %609 = and i16 %608, 8192
   %.not18.i.i.i = icmp eq i16 %609, 0
@@ -2354,7 +2354,7 @@ _ZL6columnPKci.exit.i.i:                          ; preds = %604
   %.2.i90.i.i = phi ptr [ %621, %615 ], [ %.01424.i89.i.i, %.preheader19.i87.i.i ]
   %616 = load i8, ptr %.2.i90.i.i, align 1, !tbaa !23
   %617 = sext i8 %616 to i64
-  %618 = getelementptr inbounds i16, ptr %595, i64 %617
+  %618 = getelementptr inbounds [2 x i8], ptr %595, i64 %617
   %619 = load i16, ptr %618, align 2, !tbaa !91
   %620 = and i16 %619, 8192
   %.not.i91.i.i = icmp eq i16 %620, 0
@@ -2373,7 +2373,7 @@ _ZL6columnPKci.exit.i.i:                          ; preds = %604
   %624 = phi i8 [ %631, %629 ], [ %616, %.preheader.i92.i.i ]
   %.321.i95.i.i = phi ptr [ %630, %629 ], [ %.2.i90.i.i, %.preheader.i92.i.i ]
   %625 = sext i8 %624 to i64
-  %626 = getelementptr inbounds i16, ptr %595, i64 %625
+  %626 = getelementptr inbounds [2 x i8], ptr %595, i64 %625
   %627 = load i16, ptr %626, align 2, !tbaa !91
   %628 = and i16 %627, 8192
   %.not18.i96.i.i = icmp eq i16 %628, 0
@@ -2499,7 +2499,7 @@ _ZL6columnPKci.exit100.i.i:                       ; preds = %622
 
 692:                                              ; preds = %690, %672
   %.056.i.i.i.i = phi i64 [ 0, %672 ], [ %691, %690 ]
-  %693 = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_16lookupE, i64 %.056.i.i.i.i
+  %693 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_16lookupE, i64 %.056.i.i.i.i
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 8
   %695 = load i32, ptr %694, align 8, !tbaa !53
   %696 = icmp eq i32 %652, %695
@@ -2523,7 +2523,7 @@ _ZL20err_const_from_errnoi.exit.i.i.i:            ; preds = %690, %697
 
 704:                                              ; preds = %702, %_ZL20err_const_from_errnoi.exit.i.i.i
   %.056.i9.i.i.i = phi i64 [ 0, %_ZL20err_const_from_errnoi.exit.i.i.i ], [ %703, %702 ]
-  %705 = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_16lookupE, i64 %.056.i9.i.i.i
+  %705 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_16lookupE, i64 %.056.i9.i.i.i
   %706 = getelementptr inbounds nuw i8, ptr %705, i64 8
   %707 = load i32, ptr %706, align 8, !tbaa !53
   %708 = icmp eq i32 %.0.i20.i, %707
@@ -2583,7 +2583,7 @@ _ZL20err_const_from_errnoi.exit12.i.i.i:          ; preds = %702, %709
 
 737:                                              ; preds = %735, %723
   %.056.i.i.i = phi i64 [ 0, %723 ], [ %736, %735 ]
-  %738 = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_16lookupE, i64 %.056.i.i.i
+  %738 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_16lookupE, i64 %.056.i.i.i
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 8
   %740 = load i32, ptr %739, align 8, !tbaa !53
   %741 = icmp eq i32 %734, %740
@@ -2648,7 +2648,7 @@ _ZL20err_const_from_errnoi.exit.i.i:              ; preds = %735, %742
   br i1 %.not.i105.i.i, label %777, label %773
 
 773:                                              ; preds = %.lr.ph.i104.i.i
-  %774 = getelementptr inbounds nuw double, ptr %13, i64 %.01.i.i24.i
+  %774 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.01.i.i24.i
   %775 = load double, ptr %774, align 8
   %776 = call double @proj_torad(double noundef %775), !noalias !128
   store double %776, ptr %774, align 8
@@ -2734,7 +2734,7 @@ _ZL18expect_trans_n_dimRK8PJ_COORD.exit.i.i:      ; preds = %785, %784, %783
 
 808:                                              ; preds = %806, %799
   %.056.i108.i.i = phi i64 [ 0, %799 ], [ %807, %806 ]
-  %809 = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_16lookupE, i64 %.056.i108.i.i
+  %809 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_16lookupE, i64 %.056.i108.i.i
   %810 = getelementptr inbounds nuw i8, ptr %809, i64 8
   %811 = load i32, ptr %810, align 8, !tbaa !53
   %812 = icmp eq i32 %805, %811
@@ -2936,7 +2936,7 @@ _ZL20err_const_from_errnoi.exit111.i.i:           ; preds = %806, %813
   br i1 %.not.i124.i.i, label %937, label %933
 
 933:                                              ; preds = %.lr.ph.i121.i.i
-  %934 = getelementptr inbounds nuw double, ptr %8, i64 %.01.i122.i.i
+  %934 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.01.i122.i.i
   %935 = load double, ptr %934, align 8, !tbaa !23, !noalias !138
   %936 = call double @proj_torad(double noundef %935), !noalias !138
   store double %936, ptr %934, align 8, !tbaa !23, !noalias !138
@@ -3011,7 +3011,7 @@ _ZL11torad_coordP8PJconsts12PJ_DIRECTION8PJ_COORD.exit126.i.i: ; preds = %937, %
   br i1 %.not.i133.i.i, label %966, label %962
 
 962:                                              ; preds = %.lr.ph.i130.i.i
-  %963 = getelementptr inbounds nuw double, ptr %7, i64 %.01.i131.i.i
+  %963 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.01.i131.i.i
   %964 = load double, ptr %963, align 8, !tbaa !23, !noalias !141
   %965 = call double @proj_torad(double noundef %964), !noalias !141
   store double %965, ptr %963, align 8, !tbaa !23, !noalias !141
@@ -3116,7 +3116,7 @@ _ZL18expect_trans_n_dimRK8PJ_COORD.exit136.i.i:   ; preds = %985, %984, %983
   br i1 %.not.i143.i.i, label %1008, label %1004
 
 1004:                                             ; preds = %.lr.ph.i140.i.i
-  %1005 = getelementptr inbounds nuw double, ptr %6, i64 %.01.i141.i.i
+  %1005 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01.i141.i.i
   %1006 = load double, ptr %1005, align 8, !tbaa !23, !noalias !147
   %1007 = call double @proj_todeg(double noundef %1006), !noalias !147
   store double %1007, ptr %1005, align 8, !tbaa !23, !noalias !147
@@ -3432,7 +3432,7 @@ _ZL6expectPKc.exit.i:                             ; preds = %1094, %1086, %1031,
   br i1 %.not.i.i17.i, label %1168, label %1164
 
 1164:                                             ; preds = %.lr.ph.i.i16.i
-  %1165 = getelementptr inbounds nuw double, ptr %28, i64 %.01.i.i.i
+  %1165 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.01.i.i.i
   %1166 = load double, ptr %1165, align 8
   %1167 = call double @proj_torad(double noundef %1166), !noalias !151
   store double %1167, ptr %1165, align 8
@@ -3873,7 +3873,7 @@ define internal fastcc void @_ZL11append_argsP4ffio(ptr noundef captures(none) %
 
 14:                                               ; preds = %12, %.lr.ph.i
   %.011.i = phi i64 [ 0, %.lr.ph.i ], [ %13, %12 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %.011.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.011.i
   %16 = load ptr, ptr %15, align 8, !tbaa !16
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #27
   %18 = tail call i32 @strncmp(ptr noundef nonnull %3, ptr noundef nonnull %16, i64 noundef %17) #27
@@ -4099,7 +4099,7 @@ define internal fastcc void @_ZL9directionPKc(ptr noundef readonly captures(none
   %.0 = phi ptr [ %0, %1 ], [ %10, %4 ]
   %5 = load i8, ptr %.0, align 1, !tbaa !23
   %6 = sext i8 %5 to i64
-  %7 = getelementptr inbounds i16, ptr %3, i64 %6
+  %7 = getelementptr inbounds [2 x i8], ptr %3, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !91
   %9 = and i16 %8, 8192
   %.not = icmp eq i16 %9, 0
@@ -4139,7 +4139,7 @@ define internal fastcc void @_ZL6ignorePKc(ptr noundef %0) unnamed_addr #10 {
   %.2.i = phi ptr [ %9, %3 ], [ %0, %.preheader19.i ]
   %4 = load i8, ptr %.2.i, align 1, !tbaa !23
   %5 = sext i8 %4 to i64
-  %6 = getelementptr inbounds i16, ptr %2, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr %2, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !91
   %8 = and i16 %7, 8192
   %.not.i = icmp eq i16 %8, 0
@@ -4164,7 +4164,7 @@ define internal fastcc void @_ZL12require_gridPKc(ptr noundef %0) unnamed_addr #
   %.2.i = phi ptr [ %10, %4 ], [ %0, %.preheader19.i ]
   %5 = load i8, ptr %.2.i, align 1, !tbaa !23
   %6 = sext i8 %5 to i64
-  %7 = getelementptr inbounds i16, ptr %3, i64 %6
+  %7 = getelementptr inbounds [2 x i8], ptr %3, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !91
   %9 = and i16 %8, 8192
   %.not.i = icmp eq i16 %9, 0
@@ -4270,7 +4270,7 @@ _ZL25finish_previous_operationPKc.exit:           ; preds = %11, %13, %17
   %.0.i = phi ptr [ @.str.66, %26 ], [ %35, %29 ]
   %30 = load i8, ptr %.0.i, align 1, !tbaa !23
   %31 = sext i8 %30 to i64
-  %32 = getelementptr inbounds i16, ptr %28, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %28, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !91
   %34 = and i16 %33, 8192
   %.not.i1 = icmp eq i16 %34, 0
@@ -4307,7 +4307,7 @@ _ZL9directionPKc.exit:                            ; preds = %36, %38
   %.2.i.i = phi ptr [ %48, %42 ], [ @.str.68, %_ZL9directionPKc.exit ]
   %43 = load i8, ptr %.2.i.i, align 1, !tbaa !23
   %44 = sext i8 %43 to i64
-  %45 = getelementptr inbounds i16, ptr %41, i64 %44
+  %45 = getelementptr inbounds [2 x i8], ptr %41, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !91
   %47 = and i16 %46, 8192
   %.not.i.i = icmp eq i16 %47, 0
@@ -4371,7 +4371,7 @@ define internal fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias nonn
   %10 = phi i8 [ %6, %.lr.ph ], [ %17, %15 ]
   %.12747 = phi ptr [ %.02650, %.lr.ph ], [ %16, %15 ]
   %11 = sext i8 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %8, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %8, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !91
   %14 = and i16 %13, 8192
   %.not35 = icmp eq i16 %14, 0
@@ -4411,7 +4411,7 @@ define internal fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias nonn
   %27 = tail call ptr @__ctype_b_loc() #30
   %28 = load ptr, ptr %27, align 8, !tbaa !89
   %29 = sext i8 %25 to i64
-  %30 = getelementptr inbounds i16, ptr %28, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %28, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !91
   %32 = and i16 %31, 8192
   %.not37 = icmp eq i16 %32, 0
@@ -4472,7 +4472,7 @@ define internal fastcc void @_ZL11parse_coordPKc(ptr dead_on_unwind noalias nonn
   br label %.thread43
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store double %.1, ptr %58, align 8, !tbaa !23
   %59 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL1T, i64 30176), align 8, !tbaa !98
   %60 = add i64 %59, 1
@@ -4524,7 +4524,7 @@ define internal fastcc noundef i32 @_ZL20errno_from_err_constPKc(ptr noundef %0)
   %8 = tail call ptr @__ctype_b_loc() #30
   %9 = load ptr, ptr %8, align 8, !tbaa !89
   %10 = sext i8 %5 to i64
-  %11 = getelementptr inbounds i16, ptr %9, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %9, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !91
   %13 = and i16 %12, 8192
   %.not = icmp eq i16 %13, 0
@@ -4533,7 +4533,7 @@ define internal fastcc noundef i32 @_ZL20errno_from_err_constPKc(ptr noundef %0)
 tolower.exit:                                     ; preds = %7
   %14 = tail call ptr @__ctype_tolower_loc() #30
   %15 = load ptr, ptr %14, align 8, !tbaa !162
-  %16 = getelementptr inbounds i32, ptr %15, i64 %10
+  %16 = getelementptr inbounds [4 x i8], ptr %15, i64 %10
   %17 = load i32, ptr %16, align 4, !tbaa !101
   %18 = trunc i32 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 %.01923
@@ -4562,7 +4562,7 @@ tolower.exit:                                     ; preds = %7
 
 29:                                               ; preds = %25, %27
   %.124 = phi i64 [ 0, %25 ], [ %28, %27 ]
-  %30 = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_16lookupE, i64 %.124
+  %30 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_16lookupE, i64 %.124
   %31 = load ptr, ptr %30, align 16, !tbaa !51
   %32 = tail call i32 @strncmp(ptr noundef %31, ptr noundef nonnull %0, i64 noundef %26) #27
   %33 = icmp eq i32 %32, 0
@@ -4647,7 +4647,7 @@ define internal fastcc noundef double @_ZL13strtod_scaledPKcd(ptr noundef %0) un
   %.2.i = phi ptr [ %16, %10 ], [ %.01424.i, %.preheader19.i ]
   %11 = load i8, ptr %.2.i, align 1, !tbaa !23
   %12 = sext i8 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %8, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %8, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !91
   %15 = and i16 %14, 8192
   %.not.i = icmp eq i16 %15, 0
@@ -4669,7 +4669,7 @@ define internal fastcc noundef double @_ZL13strtod_scaledPKcd(ptr noundef %0) un
   %18 = phi i8 [ %25, %23 ], [ %11, %.preheader.i ]
   %.321.i = phi ptr [ %24, %23 ], [ %.2.i, %.preheader.i ]
   %19 = sext i8 %18 to i64
-  %20 = getelementptr inbounds i16, ptr %8, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %8, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !91
   %22 = and i16 %21, 8192
   %.not18.i = icmp eq i16 %22, 0

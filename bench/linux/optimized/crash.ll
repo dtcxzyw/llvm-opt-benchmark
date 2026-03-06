@@ -8,9 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { %struct.anon, [16 x i8] }
 %struct.anon = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
-%struct.kexec_segment = type { %union.anon.0, i64, i64, i64 }
-%union.anon.0 = type { ptr }
-%struct.range = type { i64, i64 }
 
 @crash_smp_send_stop.cpus_stopped = internal unnamed_addr global i1 false, align 4
 @smp_ops = external dso_local local_unnamed_addr global %struct.smp_ops, align 8
@@ -244,7 +241,7 @@ define dso_local void @arch_crash_handle_hotplug_event(ptr noundef %0) local_unn
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %58 = load i32, ptr %57, align 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr %struct.kexec_segment, ptr %56, i64 %59
+  %60 = getelementptr [32 x i8], ptr %56, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load i64, ptr %61, align 8
   %63 = load i64, ptr %4, align 8
@@ -304,7 +301,7 @@ define internal noundef i32 @prepare_elf64_ram_headers_callback(ptr noundef read
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
-  %8 = getelementptr %struct.range, ptr %4, i64 %7
+  %8 = getelementptr [16 x i8], ptr %4, i64 %7
   store i64 %3, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8

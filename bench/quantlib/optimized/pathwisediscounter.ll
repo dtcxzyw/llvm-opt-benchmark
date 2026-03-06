@@ -35,7 +35,7 @@ while.body.i.i:                                   ; preds = %invoke.cont, %while
   %__len.08.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i, %invoke.cont ]
   %__first.sroa.0.07.i.i = phi ptr [ %__first.sroa.0.1.i.i, %while.body.i.i ], [ %1, %invoke.cont ]
   %shr.i.i = lshr i64 %__len.08.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
   %2 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !16
   %cmp.i.i.i = fcmp olt double %2, %paymentTime
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -57,7 +57,7 @@ invoke.cont9:                                     ; preds = %invoke.cont9.loopex
   %sub18 = add nsw i64 %sub.ptr.div.i, -2
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %sub.ptr.div.i21, i64 %sub18)
   store i64 %spec.store.select, ptr %this, align 8
-  %add.ptr.i = getelementptr double, ptr %1, i64 %spec.store.select
+  %add.ptr.i = getelementptr [8 x i8], ptr %1, i64 %spec.store.select
   %4 = load double, ptr %add.ptr.i, align 8, !tbaa !16
   %sub24 = fsub double %paymentTime, %4
   %add.ptr.i32 = getelementptr i8, ptr %add.ptr.i, i64 8
@@ -101,7 +101,7 @@ if.else.i:                                        ; preds = %invoke.cont9
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i34 = getelementptr inbounds nuw double, ptr %7, i64 %sub
+  %add.ptr.i34 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %sub
   %tobool.not.i.i = icmp eq ptr %6, %add.ptr.i34
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %invoke.cont.i.i
 
@@ -125,12 +125,12 @@ for.cond.cleanup:                                 ; preds = %for.body, %_ZNSt6ve
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.043 = phi i64 [ 0, %for.body.lr.ph ], [ %add38, %for.body ]
   %add38 = add nuw i64 %i.043, 1
-  %add.ptr.i35 = getelementptr inbounds nuw double, ptr %11, i64 %add38
+  %add.ptr.i35 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %add38
   %13 = load double, ptr %add.ptr.i35, align 8, !tbaa !16
-  %add.ptr.i36 = getelementptr inbounds nuw double, ptr %11, i64 %i.043
+  %add.ptr.i36 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %i.043
   %14 = load double, ptr %add.ptr.i36, align 8, !tbaa !16
   %sub41 = fsub double %13, %14
-  %add.ptr.i37 = getelementptr inbounds nuw double, ptr %12, i64 %i.043
+  %add.ptr.i37 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %i.043
   store double %sub41, ptr %add.ptr.i37, align 8, !tbaa !16
   %exitcond.not = icmp eq i64 %add38, %10
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !21
@@ -159,12 +159,12 @@ entry:
   %columns_.i.i = getelementptr inbounds nuw i8, ptr %Discounts, i64 16
   %2 = load i64, ptr %columns_.i.i, align 8, !tbaa !24
   %mul.i.i = mul i64 %2, %currentStep
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %1, i64 %mul.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %mul.i.i
   %3 = load i64, ptr %this, align 8, !tbaa !32
-  %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %3
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %3
   %4 = load double, ptr %arrayidx, align 8, !tbaa !16
   %add = add i64 %3, 1
-  %arrayidx4 = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %add
+  %arrayidx4 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %add
   %5 = load double, ptr %arrayidx4, align 8, !tbaa !16
   %numberRates_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load i64, ptr %numberRates_, align 8, !tbaa !9
@@ -201,23 +201,23 @@ for.body16.lr.ph:                                 ; preds = %if.then
   br label %for.body16
 
 for.cond.cleanup15:                               ; preds = %for.body16, %if.then
-  %add.ptr.i39 = getelementptr inbounds nuw double, ptr %14, i64 %add
+  %add.ptr.i39 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %add
   store double 0.000000e+00, ptr %add.ptr.i39, align 8, !tbaa !16
   br label %cleanup
 
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.body16
   %i11.062 = phi i64 [ 0, %for.body16.lr.ph ], [ %add19, %for.body16 ]
-  %add.ptr.i40 = getelementptr inbounds nuw double, ptr %15, i64 %i11.062
+  %add.ptr.i40 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %i11.062
   %16 = load double, ptr %add.ptr.i40, align 8, !tbaa !16
   %mul = fmul double %16, %fneg
   %add19 = add nuw i64 %i11.062, 1
-  %arrayidx20 = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %add19
+  %arrayidx20 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %add19
   %17 = load double, ptr %arrayidx20, align 8, !tbaa !16
   %mul21 = fmul double %mul, %17
-  %arrayidx23 = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %i11.062
+  %arrayidx23 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %i11.062
   %18 = load double, ptr %arrayidx23, align 8, !tbaa !16
   %div = fdiv double %mul21, %18
-  %add.ptr.i47 = getelementptr inbounds nuw double, ptr %14, i64 %add19
+  %add.ptr.i47 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %add19
   store double %div, ptr %add.ptr.i47, align 8, !tbaa !16
   %exitcond63.not = icmp eq i64 %add19, %3
   br i1 %exitcond63.not, label %for.cond.cleanup15, label %for.body16, !llvm.loop !33
@@ -236,7 +236,7 @@ if.end:                                           ; preds = %for.cond.cleanup
 
 for.cond.cleanup41:                               ; preds = %for.body42
   %21 = load double, ptr %postWeight_, align 8, !tbaa !20
-  %add.ptr.i49 = getelementptr inbounds nuw double, ptr %19, i64 %add
+  %add.ptr.i49 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %add
   %22 = load double, ptr %add.ptr.i49, align 8, !tbaa !16
   %mul63 = fmul double %21, %22
   store double %mul63, ptr %add.ptr.i49, align 8, !tbaa !16
@@ -244,17 +244,17 @@ for.cond.cleanup41:                               ; preds = %for.body42
 
 for.body42:                                       ; preds = %if.end, %for.body42
   %i37.060 = phi i64 [ 0, %if.end ], [ %add48, %for.body42 ]
-  %add.ptr.i50 = getelementptr inbounds nuw double, ptr %20, i64 %i37.060
+  %add.ptr.i50 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %i37.060
   %23 = load double, ptr %add.ptr.i50, align 8, !tbaa !16
   %mul46 = fmul double %23, %fneg43
   %add48 = add nuw i64 %i37.060, 1
-  %arrayidx49 = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %add48
+  %arrayidx49 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %add48
   %24 = load double, ptr %arrayidx49, align 8, !tbaa !16
   %mul50 = fmul double %mul46, %24
-  %arrayidx52 = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %i37.060
+  %arrayidx52 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %i37.060
   %25 = load double, ptr %arrayidx52, align 8, !tbaa !16
   %div53 = fdiv double %mul50, %25
-  %add.ptr.i57 = getelementptr inbounds nuw double, ptr %19, i64 %add48
+  %add.ptr.i57 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %add48
   store double %div53, ptr %add.ptr.i57, align 8, !tbaa !16
   %exitcond = icmp eq i64 %add48, %umax
   br i1 %exitcond, label %for.cond.cleanup41, label %for.body42, !llvm.loop !36
@@ -359,9 +359,9 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit37: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %if.then.i35
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !8
-  %add.ptr37 = getelementptr inbounds nuw double, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !3
-  %add.ptr40 = getelementptr inbounds nuw double, ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !22
   br label %if.end44
 

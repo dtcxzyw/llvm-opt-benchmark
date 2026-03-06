@@ -1728,7 +1728,7 @@ _time_compare_at_zoom.exit151.thread170.i:        ; preds = %_block_get_bar_widt
 
 _time_compare_at_zoom.exit165.thread.i:           ; preds = %357, %350, %348, %341, %337
   %359 = load ptr, ptr %270, align 8, !tbaa !117
-  %360 = getelementptr inbounds nuw i32, ptr %359, i64 %indvars.iv.i
+  %360 = getelementptr inbounds nuw [4 x i8], ptr %359, i64 %indvars.iv.i
   %361 = load i32, ptr %360, align 4, !tbaa !63
   %362 = add nsw i32 %361, 1
   store i32 %362, ptr %360, align 4, !tbaa !63
@@ -1737,7 +1737,7 @@ _time_compare_at_zoom.exit165.thread.i:           ; preds = %357, %350, %348, %3
 
 364:                                              ; preds = %_time_compare_at_zoom.exit165.thread.i
   %365 = load ptr, ptr %271, align 8, !tbaa !118
-  %366 = getelementptr inbounds nuw i32, ptr %365, i64 %indvars.iv.i
+  %366 = getelementptr inbounds nuw [4 x i8], ptr %365, i64 %indvars.iv.i
   %367 = load i32, ptr %366, align 4, !tbaa !63
   %368 = add nsw i32 %367, 1
   store i32 %368, ptr %366, align 4, !tbaa !63
@@ -2308,7 +2308,7 @@ _block_get_at_zoom.exit:                          ; preds = %139, %566
 
 switch.lookup:                                    ; preds = %_block_get_at_zoom.exit
   %576 = zext nneg i32 %574 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._lib_timeline_draw_callback, i64 %576
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._lib_timeline_draw_callback, i64 %576
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_block_get_bar_width.exit
 
@@ -2411,7 +2411,7 @@ _block_get_bar_width.exit:                        ; preds = %_block_get_at_zoom.
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %634 ]
   call void @dt_gui_gtk_set_source_rgba(ptr noundef %591, i32 noundef 23, float noundef 5.000000e-01) #18
   %635 = load ptr, ptr %629, align 8, !tbaa !117
-  %636 = getelementptr inbounds nuw i32, ptr %635, i64 %indvars.iv
+  %636 = getelementptr inbounds nuw [4 x i8], ptr %635, i64 %indvars.iv
   %637 = load i32, ptr %636, align 4, !tbaa !63
   %638 = sitofp i32 %637 to double
   %639 = fadd reassoc nsz arcp contract afn double %638, 4.000000e+00
@@ -2433,7 +2433,7 @@ _block_get_bar_width.exit:                        ; preds = %_block_get_at_zoom.
   call void @cairo_fill(ptr noundef %591) #18
   call void @dt_gui_gtk_set_source_rgba(ptr noundef %591, i32 noundef 23, float noundef 1.000000e+00) #18
   %654 = load ptr, ptr %630, align 8, !tbaa !118
-  %655 = getelementptr inbounds nuw i32, ptr %654, i64 %indvars.iv
+  %655 = getelementptr inbounds nuw [4 x i8], ptr %654, i64 %indvars.iv
   %656 = load i32, ptr %655, align 4, !tbaa !63
   %657 = sitofp i32 %656 to double
   %658 = fadd reassoc nsz arcp contract afn double %657, 4.000000e+00

@@ -51,7 +51,7 @@ define range(i32 0, 2) i32 @ff_get_qtpalette(i32 noundef %0, ptr noundef %1, ptr
   %25 = or i32 %24, %23
   %26 = or i32 %25, %.08294
   %27 = or i32 %26, -16777216
-  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv105
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv105
   store i32 %27, ptr %28, align 4, !tbaa !4
   %29 = sub nsw i32 %.08294, %21
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %29, i32 0)
@@ -69,7 +69,7 @@ define range(i32 0, 2) i32 @ff_get_qtpalette(i32 noundef %0, ptr noundef %1, ptr
 
 switch.lookup:                                    ; preds = %31
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ff_get_qtpalette, i64 %33
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_get_qtpalette, i64 %33
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %34
 
@@ -94,7 +94,7 @@ switch.lookup:                                    ; preds = %31
   %48 = or disjoint i32 %46, %47
   %49 = or disjoint i32 %48, %45
   %50 = or disjoint i32 %49, -16777216
-  %51 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv102
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv102
   store i32 %50, ptr %51, align 4, !tbaa !4
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %52 = trunc nuw nsw i64 %indvars.iv.next103 to i32
@@ -132,7 +132,7 @@ switch.lookup:                                    ; preds = %31
   %71 = or i32 %69, %70
   %72 = or i32 %71, %67
   %73 = or i32 %72, -16777216
-  %74 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %73, ptr %74, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32

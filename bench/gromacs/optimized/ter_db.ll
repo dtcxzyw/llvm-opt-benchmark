@@ -54,29 +54,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::filesystem::__cxx11::path, std::allocator<std::filesystem::__cxx11::path>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::filesystem::__cxx11::path, std::allocator<std::filesystem::__cxx11::path>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::filesystem::__cxx11::path, std::allocator<std::filesystem::__cxx11::path>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::filesystem::__cxx11::path, std::allocator<std::filesystem::__cxx11::path>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.MoleculePatch = type { i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector.20", i32, i32, i32, %"struct.std::array.25", i8, i8, [3 x float] }
-%"class.std::vector.20" = type { %"struct.std::_Vector_base.21" }
-%"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<t_atom, std::allocator<t_atom>>::_Vector_impl" }
-%"struct.std::_Vector_base<t_atom, std::allocator<t_atom>>::_Vector_impl" = type { %"struct.std::_Vector_base<t_atom, std::allocator<t_atom>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<t_atom, std::allocator<t_atom>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array.25" = type { [4 x %"class.std::__cxx11::basic_string"] }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
-%struct.BondedInteractionList = type { i32, %"class.std::vector.15" }
-%"class.std::vector.15" = type { %"struct.std::_Vector_base.16" }
-%"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<BondedInteraction, std::allocator<BondedInteraction>>::_Vector_impl" }
-%"struct.std::_Vector_base<BondedInteraction, std::allocator<BondedInteraction>>::_Vector_impl" = type { %"struct.std::_Vector_base<BondedInteraction, std::allocator<BondedInteraction>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<BondedInteraction, std::allocator<BondedInteraction>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::tuple.43" = type { %"struct.std::_Tuple_impl.44" }
 %"struct.std::_Tuple_impl.44" = type { %"struct.std::_Head_base.45" }
 %"struct.std::_Head_base.45" = type { ptr }
 %"class.std::tuple.46" = type { i8 }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, BondedTypes>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, BondedTypes>>, gmx::StringCompare>::_Auto_node" = type { ptr, ptr }
-%struct.MoleculePatchDatabase = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector.10", %"struct.gmx::EnumerationArray" }
-%"class.std::vector.10" = type { %"struct.std::_Vector_base.11" }
-%"struct.std::_Vector_base.11" = type { %"struct.std::_Vector_base<MoleculePatch, std::allocator<MoleculePatch>>::_Vector_impl" }
-%"struct.std::_Vector_base<MoleculePatch, std::allocator<MoleculePatch>>::_Vector_impl" = type { %"struct.std::_Vector_base<MoleculePatch, std::allocator<MoleculePatch>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<MoleculePatch, std::allocator<MoleculePatch>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx::EnumerationArray" = type { [6 x %struct.BondedInteractionList] }
 %"class.std::unique_ptr.99" = type { %"struct.std::__uniq_ptr_data.100" }
 %"struct.std::__uniq_ptr_data.100" = type { %"class.std::__uniq_ptr_impl.101" }
 %"class.std::__uniq_ptr_impl.101" = type { %"class.std::tuple.102" }
@@ -84,8 +66,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.103" = type { %"struct.std::_Head_base.106" }
 %"struct.std::_Head_base.106" = type { ptr }
 %"struct.std::type_index" = type { ptr }
-%struct.BondedInteraction = type <{ %"struct.std::array", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%"struct.std::array" = type { [6 x %"class.std::__cxx11::basic_string"] }
 %"class.std::vector.132" = type { %"struct.std::_Vector_base.133" }
 %"struct.std::_Vector_base.133" = type { %"struct.std::_Vector_base<MoleculePatchDatabase *, std::allocator<MoleculePatchDatabase *>>::_Vector_impl" }
 %"struct.std::_Vector_base<MoleculePatchDatabase *, std::allocator<MoleculePatchDatabase *>>::_Vector_impl" = type { %"struct.std::_Vector_base<MoleculePatchDatabase *, std::allocator<MoleculePatchDatabase *>>::_Vector_impl_data" }
@@ -751,7 +731,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i: ; preds = %
 220:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24.i.i.i, %219
   %indvars.iv.i.i.i = phi i64 [ 0, %219 ], [ %indvars.iv.next.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %221 = getelementptr inbounds nuw ptr, ptr @__const._ZL17enumValueToString11ReplaceType.replaceTypeNames, i64 %indvars.iv.i.i.i
+  %221 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL17enumValueToString11ReplaceType.replaceTypeNames, i64 %indvars.iv.i.i.i
   %222 = load ptr, ptr %221, align 8, !tbaa !45
   store ptr %80, ptr %27, align 8, !tbaa !22
   %223 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %222) #23
@@ -2142,8 +2122,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit9.i.i147: ; pre
 
 697:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i149, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit9.i.i147
   %698 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit9.i.i147 ], [ %714, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i149 ]
-  %699 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %695, i64 %698
-  %700 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %696, i64 %698
+  %699 = getelementptr inbounds nuw [32 x i8], ptr %695, i64 %698
+  %700 = getelementptr inbounds nuw [32 x i8], ptr %696, i64 %698
   %701 = getelementptr inbounds nuw i8, ptr %699, i64 16
   store ptr %701, ptr %699, align 8, !tbaa !22
   %702 = load ptr, ptr %700, align 8, !tbaa !4
@@ -2261,7 +2241,7 @@ _ZNSt6vectorI13MoleculePatchSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds =
 ._ZNSt6vectorI13MoleculePatchSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit_crit_edge.i: ; preds = %742, %_ZNSt6vectorI13MoleculePatchSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   store ptr %637, ptr %624, align 8, !tbaa !92
   store ptr %741, ptr %602, align 8, !tbaa !75
-  %746 = getelementptr inbounds nuw %struct.MoleculePatch, ptr %637, i64 %635
+  %746 = getelementptr inbounds nuw [256 x i8], ptr %637, i64 %635
   store ptr %746, ptr %604, align 8, !tbaa !78
   br label %_ZNSt6vectorI13MoleculePatchSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit.i
 
@@ -2464,7 +2444,7 @@ _ZNSt6vectorI6t_atomSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i: ; preds =
 _ZNSt6vectorI6t_atomSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %815, %_ZNSt6vectorI6t_atomSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit15.i.i.i
   store ptr %810, ptr %789, align 8, !tbaa !94
   store ptr %814, ptr %790, align 8, !tbaa !95
-  %816 = getelementptr inbounds nuw %struct.t_atom, ptr %810, i64 %808
+  %816 = getelementptr inbounds nuw [36 x i8], ptr %810, i64 %808
   store ptr %816, ptr %792, align 8, !tbaa !96
   br label %_ZNSt6vectorI6t_atomSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit.i
 
@@ -2842,7 +2822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.i: ; preds = 
 
 942:                                              ; preds = %941
   %943 = zext nneg i32 %.sroa.0224.0.i to i64
-  %944 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %.064.i, i64 %943
+  %944 = getelementptr inbounds nuw [32 x i8], ptr %.064.i, i64 %943
   %945 = getelementptr inbounds nuw i8, ptr %944, i64 104
   %946 = load ptr, ptr %945, align 8, !tbaa !114
   %947 = getelementptr inbounds nuw i8, ptr %944, i64 112
@@ -2939,7 +2919,7 @@ _ZNSt6vectorI17BondedInteractionSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit.i: ; p
   br i1 %986, label %987, label %995
 
 987:                                              ; preds = %984
-  %988 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %963, i64 %indvars.iv.i
+  %988 = getelementptr inbounds nuw [32 x i8], ptr %963, i64 %indvars.iv.i
   %989 = getelementptr inbounds nuw i8, ptr %988, i64 8
   %990 = load i64, ptr %989, align 8, !tbaa !23
   %991 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #23
@@ -3732,7 +3712,7 @@ _ZL10print_atomP8_IO_FILERK6t_atomP22PreprocessingAtomTypes.exit118.i: ; preds =
 
 .thread26.i:                                      ; preds = %.thread26.i.preheader, %.loopexit.i28
   %indvars.iv65.i = phi i64 [ %indvars.iv.next66.i, %.loopexit.i28 ], [ 0, %.thread26.i.preheader ]
-  %1278 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %.sroa.020.060.i, i64 %indvars.iv65.i
+  %1278 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.020.060.i, i64 %indvars.iv65.i
   %1279 = getelementptr inbounds nuw i8, ptr %1278, i64 96
   %1280 = load ptr, ptr %1279, align 8, !tbaa !119
   %1281 = getelementptr inbounds nuw i8, ptr %1278, i64 104
@@ -3785,7 +3765,7 @@ _ZL10print_atomP8_IO_FILERK6t_atomP22PreprocessingAtomTypes.exit118.i: ; preds =
 1304:                                             ; preds = %1295
   %.not.i32 = icmp eq i64 %indvars.iv.i27, 0
   %1305 = select i1 %.not.i32, ptr @.str.9, ptr @.str.34
-  %1306 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.01.057.i, i64 %indvars.iv.i27
+  %1306 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.01.057.i, i64 %indvars.iv.i27
   %1307 = load ptr, ptr %1306, align 8, !tbaa !4
   %1308 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1049, ptr noundef nonnull @.str.33, ptr noundef nonnull %1305, ptr noundef %1307) #23
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i27, 1
@@ -5727,7 +5707,7 @@ _ZNSt16allocator_traitsISaI21MoleculePatchDatabaseEE9constructIS0_JEEEvRS1_PT_Dp
 _ZNSt12_Vector_baseI21MoleculePatchDatabaseSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt16allocator_traitsISaI21MoleculePatchDatabaseEE9constructIS0_JEEEvRS1_PT_DpOT0_.exit, %36
   store ptr %21, ptr %0, align 8, !tbaa !12
   store ptr %34, ptr %3, align 8, !tbaa !15
-  %40 = getelementptr inbounds nuw %struct.MoleculePatchDatabase, ptr %21, i64 %15
+  %40 = getelementptr inbounds nuw [280 x i8], ptr %21, i64 %15
   store ptr %40, ptr %35, align 8, !tbaa !57
   ret void
 }
@@ -5830,8 +5810,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit6.i.i.i.i.i.i: 
 
 44:                                               ; preds = %44, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit6.i.i.i.i.i.i
   %45 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit6.i.i.i.i.i.i ], [ %58, %44 ]
-  %46 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %42, i64 %45
-  %47 = getelementptr inbounds nuw %struct.BondedInteractionList, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %45
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %45
   %48 = load i32, ptr %47, align 8, !tbaa !58, !alias.scope !162, !noalias !159
   store i32 %48, ptr %46, align 8, !tbaa !58, !alias.scope !159, !noalias !162
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -6234,8 +6214,8 @@ _ZNSt16allocator_traitsISaI17BondedInteractionEE9constructIS0_JEEEvRS1_PT_DpOT0_
 
 29:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i
   %30 = phi i64 [ 0, %.lr.ph.i.i.i ], [ %46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i ]
-  %31 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.012.i.i.i, i64 %30
-  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.0911.i.i.i, i64 %30
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %.012.i.i.i, i64 %30
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %.0911.i.i.i, i64 %30
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %33, ptr %31, align 8, !tbaa !22, !alias.scope !189, !noalias !192
   %34 = load ptr, ptr %32, align 8, !tbaa !4, !alias.scope !192, !noalias !189
@@ -6352,8 +6332,8 @@ _ZNSt6vectorI17BondedInteractionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; pre
 
 78:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i22, %.lr.ph.i.i.i16
   %79 = phi i64 [ 0, %.lr.ph.i.i.i16 ], [ %95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i22 ]
-  %80 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.012.i.i.i17, i64 %79
-  %81 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.0911.i.i.i18, i64 %79
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %.012.i.i.i17, i64 %79
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %.0911.i.i.i18, i64 %79
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store ptr %82, ptr %80, align 8, !tbaa !22, !alias.scope !196, !noalias !199
   %83 = load ptr, ptr %81, align 8, !tbaa !4, !alias.scope !199, !noalias !196
@@ -6471,7 +6451,7 @@ _ZNSt6vectorI17BondedInteractionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit34: ; p
 _ZNSt12_Vector_baseI17BondedInteractionSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI17BondedInteractionSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit34, %127
   store ptr %19, ptr %0, align 8, !tbaa !137
   store ptr %.0.lcssa.i.i.i32, ptr %3, align 8, !tbaa !114
-  %131 = getelementptr inbounds nuw %struct.BondedInteraction, ptr %19, i64 %15
+  %131 = getelementptr inbounds nuw [232 x i8], ptr %19, i64 %15
   store ptr %131, ptr %126, align 8, !tbaa !115
   ret void
 }
@@ -6811,7 +6791,7 @@ _ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16
 
 _ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %84, %_ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %83, ptr %15, align 8, !tbaa !202
-  %85 = getelementptr inbounds nuw ptr, ptr %79, i64 %77
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %77
   store ptr %85, ptr %16, align 8, !tbaa !206
   br label %_ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE9push_backEOS1_.exit.thread
 
@@ -7136,7 +7116,7 @@ _ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16
 
 _ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i93: ; preds = %183, %_ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i91
   store ptr %182, ptr %19, align 8, !tbaa !202
-  %184 = getelementptr inbounds nuw ptr, ptr %178, i64 %176
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %176
   store ptr %184, ptr %20, align 8, !tbaa !206
   br label %_ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE9push_backEOS1_.exit96
 
@@ -7221,7 +7201,7 @@ _ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16
 _ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i104: ; preds = %211, %_ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i102
   store ptr %206, ptr %0, align 8, !tbaa !211
   store ptr %210, ptr %190, align 8, !tbaa !202
-  %212 = getelementptr inbounds nuw ptr, ptr %206, i64 %204
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %204
   store ptr %212, ptr %191, align 8, !tbaa !206
   br label %_ZNSt6vectorIP21MoleculePatchDatabaseSaIS1_EE9push_backEOS1_.exit107
 
@@ -7305,7 +7285,7 @@ define noundef ptr @_Z10choose_terN3gmx8ArrayRefIP21MoleculePatchDatabaseEEPKc(p
   br i1 %or.cond19, label %25, label %.critedge, !llvm.loop !212
 
 25:                                               ; preds = %.critedge
-  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %24
   %27 = load ptr, ptr %26, align 8, !tbaa !66
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %27

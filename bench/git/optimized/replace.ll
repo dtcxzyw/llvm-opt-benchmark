@@ -1275,14 +1275,14 @@ _.exit31:                                         ; preds = %24, %26
   %indvars.iv.i = phi i64 [ 0, %.lr.ph38.preheader.i ], [ %indvars.iv.next.i, %75 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %53 = load ptr, ptr @the_repository, align 8, !tbaa !22
-  %54 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i
   %55 = load ptr, ptr %54, align 8, !tbaa !8
   %56 = call i32 @repo_get_oid(ptr noundef %53, ptr noundef %55, ptr noundef nonnull %7) #16
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %65
 
 58:                                               ; preds = %.lr.ph38.i
-  %59 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i
   call void @strbuf_release(ptr noundef nonnull %6) #16
   %60 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
   %.not4.i.i = icmp eq i32 %60, 0
@@ -1305,7 +1305,7 @@ _.exit.i:                                         ; preds = %61, %58
   br i1 %.not28.i, label %68, label %75
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i
   call void @strbuf_release(ptr noundef nonnull %6) #16
   %70 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
   %.not4.i29.i = icmp eq i32 %70, 0
@@ -1648,7 +1648,7 @@ _.exit:                                           ; preds = %13, %15
 
 28:                                               ; preds = %30, %24
   %.0811.i.i = phi i64 [ 0, %24 ], [ %31, %30 ]
-  %29 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %29 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %27, %29
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %30
 
@@ -1849,7 +1849,7 @@ _.exit27:                                         ; preds = %30, %32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %40 = load ptr, ptr %6, align 8, !tbaa !72
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !8
   %43 = call i32 @repo_get_oid(ptr noundef %39, ptr noundef %42, ptr noundef nonnull %5) #16
   %44 = icmp slt i32 %43, 0
@@ -1867,7 +1867,7 @@ _.exit27:                                         ; preds = %30, %32
 .thread:                                          ; preds = %47, %45
   %.0.i29 = phi ptr [ %48, %47 ], [ @.str.44, %45 ]
   %49 = load ptr, ptr %6, align 8, !tbaa !72
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !8
   %52 = call i32 (ptr, ...) @error(ptr noundef %.0.i29, ptr noundef %51) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -1974,7 +1974,7 @@ _ZN6google12Check_GEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 28:                                               ; preds = %_ZN6google12Check_GEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, %_ZN6google12Check_GEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
   %29 = phi i64 [ %20, %_ZN6google12Check_GEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread ], [ %21, %_ZN6google12Check_GEImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %30 = getelementptr inbounds nuw %"class.folly::Range", ptr @_ZN5folly12_GLOBAL__N_18kCcNamesE, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5folly12_GLOBAL__N_18kCcNamesE, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !149
   store i8 1, ptr %31, align 8, !tbaa !151

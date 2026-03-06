@@ -1100,7 +1100,7 @@ define noundef i32 @ssl_print_groups(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %16
 
 16:                                               ; preds = %14, %13
-  %17 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !22
   %19 = tail call ptr @SSL_group_to_name(ptr noundef %1, i32 noundef %18) #6
   %20 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef %19) #6

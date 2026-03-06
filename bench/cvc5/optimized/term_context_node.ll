@@ -785,7 +785,7 @@ define hidden void @_ZN4cvc58internal8TCtxNode17decomposeNodeHashENS0_12NodeTemp
   %47 = icmp eq i32 %46, 2
   %spec.select.i.i = select i1 %47, i64 2, i64 1
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %spec.select.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %spec.select.i.i
   %50 = load ptr, ptr %49, align 8, !tbaa !21, !noalias !34
   store ptr %50, ptr %4, align 8, !tbaa !3, !alias.scope !34
   %51 = load i64, ptr %50, align 8, !noalias !34
@@ -1001,7 +1001,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit35:             ; preds = %122
   %134 = icmp eq i32 %133, 2
   %135 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %136 = zext i1 %134 to i64
-  %137 = getelementptr inbounds nuw ptr, ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !21, !noalias !43
   store ptr %138, ptr %0, align 8, !tbaa !3, !alias.scope !43
   %139 = load i64, ptr %138, align 8, !noalias !43

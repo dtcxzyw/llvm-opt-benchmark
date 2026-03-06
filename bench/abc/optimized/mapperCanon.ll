@@ -35,7 +35,7 @@ define i32 @Map_CanonComputeSlow(ptr noundef readonly captures(none) %0, i32 nou
   br i1 %.not.i.us, label %22, label %13
 
 13:                                               ; preds = %.lr.ph.i.us
-  %14 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv.i.us
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i.us
   %15 = load i32, ptr %14, align 4, !tbaa !3
   %16 = xor i32 %15, -1
   %17 = and i32 %.01516.i.us, %16
@@ -160,7 +160,7 @@ Map_CanonComputePhase.exit:                       ; preds = %.lr.ph70, %51
   br i1 %66, label %67, label %.sink.split.i
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv.i58
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i58
   %69 = load i32, ptr %68, align 4, !tbaa !3
   %70 = xor i32 %69, -1
   %71 = and i32 %63, %70
@@ -278,7 +278,7 @@ define i32 @Map_CanonComputeFast(ptr noundef readonly captures(none) %0, i32 nou
   br i1 %21, label %22, label %.sink.split.i.i
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 %indvars.iv.i58.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i58.i
   %24 = load i32, ptr %23, align 4, !tbaa !3
   %25 = xor i32 %24, -1
   %26 = and i32 %18, %25
@@ -359,7 +359,7 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   %67 = load ptr, ptr %66, align 8, !tbaa !13
   %68 = zext nneg i32 %64 to i64
-  %69 = getelementptr inbounds nuw i16, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %68
   %70 = load i16, ptr %69, align 2, !tbaa !29
   %71 = zext i16 %70 to i32
   %72 = shl nuw i32 %71, 16
@@ -369,7 +369,7 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   store i32 %73, ptr %74, align 4, !tbaa !3
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %76 = load ptr, ptr %75, align 8, !tbaa !31
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %68
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %68
   %78 = load ptr, ptr %77, align 8, !tbaa !32
   %79 = load i8, ptr %78, align 1, !tbaa !9
   br label %Map_CanonComputeSlow.exit.sink.split
@@ -383,7 +383,7 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   %85 = load ptr, ptr %84, align 8, !tbaa !13
   %86 = zext nneg i32 %64 to i64
-  %87 = getelementptr inbounds nuw i16, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %85, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !29
   %89 = zext i16 %88 to i32
   store i32 %89, ptr %5, align 4, !tbaa !3
@@ -406,7 +406,7 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 97:                                               ; preds = %.lr.ph160, %97
   %indvars.iv168 = phi i64 [ 0, %.lr.ph160 ], [ %indvars.iv.next169, %97 ]
   %98 = load ptr, ptr %96, align 8, !tbaa !31
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %86
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %86
   %100 = load ptr, ptr %99, align 8, !tbaa !32
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 %indvars.iv168
   %102 = load i8, ptr %101, align 1, !tbaa !9
@@ -424,7 +424,7 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 
 108:                                              ; preds = %104
   %109 = zext nneg i32 %81 to i64
-  %110 = getelementptr inbounds nuw i16, ptr %107, i64 %109
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %107, i64 %109
   %111 = load i16, ptr %110, align 2, !tbaa !29
   %112 = zext i16 %111 to i32
   store i32 %112, ptr %5, align 4, !tbaa !3
@@ -447,7 +447,7 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 120:                                              ; preds = %.lr.ph157, %120
   %indvars.iv165 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next166, %120 ]
   %121 = load ptr, ptr %119, align 8, !tbaa !31
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %109
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %109
   %123 = load ptr, ptr %122, align 8, !tbaa !32
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 %indvars.iv165
   %125 = load i8, ptr %124, align 1, !tbaa !9
@@ -460,11 +460,11 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 
 128:                                              ; preds = %104
   %129 = zext nneg i32 %64 to i64
-  %130 = getelementptr inbounds nuw i16, ptr %107, i64 %129
+  %130 = getelementptr inbounds nuw [2 x i8], ptr %107, i64 %129
   %131 = load i16, ptr %130, align 2, !tbaa !29
   %132 = zext i16 %131 to i32
   %133 = zext nneg i32 %81 to i64
-  %134 = getelementptr inbounds nuw i16, ptr %107, i64 %133
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %107, i64 %133
   %135 = load i16, ptr %134, align 2, !tbaa !29
   %136 = zext i16 %135 to i32
   %.not = icmp ult i16 %131, %135
@@ -497,7 +497,7 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   %.0117145 = phi i8 [ 16, %.lr.ph ], [ %.1118, %162 ]
   %.0121144 = phi i32 [ -1, %.lr.ph ], [ %.1122, %162 ]
   %148 = load ptr, ptr %142, align 8, !tbaa !31
-  %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %133
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %133
   %150 = load ptr, ptr %149, align 8, !tbaa !32
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 %indvars.iv
   %152 = load i8, ptr %151, align 1, !tbaa !9
@@ -508,7 +508,7 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 
 156:                                              ; preds = %147
   %157 = load ptr, ptr %142, align 8, !tbaa !31
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %133
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %133
   %159 = load ptr, ptr %158, align 8, !tbaa !32
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 %indvars.iv
   %161 = load i8, ptr %160, align 1, !tbaa !9
@@ -540,7 +540,7 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
   %.2119149 = phi i8 [ 16, %.lr.ph151 ], [ %.3120, %186 ]
   %.2123148 = phi i32 [ -1, %.lr.ph151 ], [ %.3124, %186 ]
   %172 = load ptr, ptr %146, align 8, !tbaa !31
-  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %129
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %129
   %174 = load ptr, ptr %173, align 8, !tbaa !32
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 %indvars.iv163
   %176 = load i8, ptr %175, align 1, !tbaa !9
@@ -551,7 +551,7 @@ Map_CanonComputePhase6.exit.i:                    ; preds = %.sink.split.i.i, %1
 
 180:                                              ; preds = %171
   %181 = load ptr, ptr %146, align 8, !tbaa !31
-  %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %129
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %129
   %183 = load ptr, ptr %182, align 8, !tbaa !32
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 %indvars.iv163
   %185 = load i8, ptr %184, align 1, !tbaa !9

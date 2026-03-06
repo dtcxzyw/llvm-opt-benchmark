@@ -46,7 +46,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::debian2::optional_internal::optional_data_base.3" = type { %"class.absl::debian2::optional_internal::optional_data_dtor_base.4" }
 %"class.absl::debian2::optional_internal::optional_data_dtor_base.4" = type { i8, %union.anon.5 }
 %union.anon.5 = type { %"struct.open_spiel::chess_common::Square" }
-%struct.anon = type { %"class.absl::debian2::optional.1", %"class.absl::debian2::optional.1" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -57,6 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.open_spiel::chess::ChessBoard" = type { i32, i8, i8, %"struct.std::array", i8, %"struct.open_spiel::chess_common::Square", i32, i32, [2 x %struct.anon], i64 }
 %"struct.std::array" = type { [64 x %"struct.open_spiel::chess::Piece"] }
+%struct.anon = type { %"class.absl::debian2::optional.1", %"class.absl::debian2::optional.1" }
 %"class.absl::debian2::optional.12" = type { %"class.absl::debian2::optional_internal::optional_data.13" }
 %"class.absl::debian2::optional_internal::optional_data.13" = type { %"class.absl::debian2::optional_internal::optional_data_base.14" }
 %"class.absl::debian2::optional_internal::optional_data_base.14" = type { %"class.absl::debian2::optional_internal::optional_data_dtor_base.15" }
@@ -69,23 +69,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::debian2::strings_internal::Splitter" = type <{ %"class.absl::debian2::string_view", %"class.absl::debian2::ByChar", [7 x i8] }>
 %"class.absl::debian2::ByChar" = type { i8 }
-%"class.open_spiel::chess_common::ZobristTable.63" = type { %"class.std::vector.64" }
-%"class.std::vector.64" = type { %"struct.std::_Vector_base.65" }
-%"struct.std::_Vector_base.65" = type { %"struct.std::_Vector_base<open_spiel::chess_common::ZobristTable<unsigned long, 7>, std::allocator<open_spiel::chess_common::ZobristTable<unsigned long, 7>>>::_Vector_impl" }
-%"struct.std::_Vector_base<open_spiel::chess_common::ZobristTable<unsigned long, 7>, std::allocator<open_spiel::chess_common::ZobristTable<unsigned long, 7>>>::_Vector_impl" = type { %"struct.std::_Vector_base<open_spiel::chess_common::ZobristTable<unsigned long, 7>, std::allocator<open_spiel::chess_common::ZobristTable<unsigned long, 7>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<open_spiel::chess_common::ZobristTable<unsigned long, 7>, std::allocator<open_spiel::chess_common::ZobristTable<unsigned long, 7>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.open_spiel::chess_common::ZobristTable.69" = type { %"class.std::vector.70" }
 %"class.std::set" = type { %"class.std::_Rb_tree" }
 %"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<open_spiel::chess_common::Square, open_spiel::chess_common::Square, std::_Identity<open_spiel::chess_common::Square>, std::less<open_spiel::chess_common::Square>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<open_spiel::chess_common::Square, open_spiel::chess_common::Square, std::_Identity<open_spiel::chess_common::Square>, std::less<open_spiel::chess_common::Square>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.open_spiel::chess_common::ZobristTable.81" = type { %"class.std::vector.82" }
-%"class.std::vector.82" = type { %"struct.std::_Vector_base.83" }
-%"struct.std::_Vector_base.83" = type { %"struct.std::_Vector_base<open_spiel::chess_common::ZobristTable<unsigned long, 2>, std::allocator<open_spiel::chess_common::ZobristTable<unsigned long, 2>>>::_Vector_impl" }
-%"struct.std::_Vector_base<open_spiel::chess_common::ZobristTable<unsigned long, 2>, std::allocator<open_spiel::chess_common::ZobristTable<unsigned long, 2>>>::_Vector_impl" = type { %"struct.std::_Vector_base<open_spiel::chess_common::ZobristTable<unsigned long, 2>, std::allocator<open_spiel::chess_common::ZobristTable<unsigned long, 2>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<open_spiel::chess_common::ZobristTable<unsigned long, 2>, std::allocator<open_spiel::chess_common::ZobristTable<unsigned long, 2>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.open_spiel::chess_common::ZobristTable.99" = type { %"class.std::vector.70" }
 %class.anon.23 = type { ptr, ptr, ptr, ptr }
 %class.anon.24 = type { ptr, ptr, ptr, ptr }
 %class.anon.25 = type { ptr, ptr, ptr, ptr }
@@ -2247,13 +2235,13 @@ define void @_ZNK10open_spiel5chess4Move5ToLANB5cxx11EbPKNS0_10ChessBoardE(ptr d
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 148
   %36 = icmp eq i8 %33, 1
   %37 = zext i1 %36 to i64
-  %38 = getelementptr inbounds nuw %struct.anon, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [6 x i8], ptr %35, i64 %37
   br label %_ZNK10open_spiel5chess10ChessBoard23MaybeCastlingRookSquareENS0_5ColorENS0_17CastlingDirectionE.exit
 
 39:                                               ; preds = %31
   %40 = icmp eq i8 %33, 1
   %41 = zext i1 %40 to i64
-  %42 = getelementptr %struct.anon, ptr %3, i64 %41
+  %42 = getelementptr [6 x i8], ptr %3, i64 %41
   %43 = getelementptr i8, ptr %42, i64 151
   br label %_ZNK10open_spiel5chess10ChessBoard23MaybeCastlingRookSquareENS0_5ColorENS0_17CastlingDirectionE.exit
 
@@ -2527,13 +2515,13 @@ define i24 @_ZNK10open_spiel5chess10ChessBoard23MaybeCastlingRookSquareENS0_5Col
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %8 = icmp eq i8 %1, 1
   %9 = zext i1 %8 to i64
-  %10 = getelementptr inbounds nuw %struct.anon, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [6 x i8], ptr %7, i64 %9
   br label %24
 
 11:                                               ; preds = %3
   %12 = icmp eq i8 %1, 1
   %13 = zext i1 %12 to i64
-  %14 = getelementptr %struct.anon, ptr %0, i64 %13
+  %14 = getelementptr [6 x i8], ptr %0, i64 %13
   %15 = getelementptr i8, ptr %14, i64 151
   br label %24
 
@@ -2659,7 +2647,7 @@ define void @_ZNK10open_spiel5chess4Move5ToSANB5cxx11ERKNS0_10ChessBoardE(ptr de
   %32 = ashr exact i32 %sext1.i.i, 24
   %33 = add nsw i32 %31, %32
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %28, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %28, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2915,7 +2903,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %124 = ashr exact i32 %sext1.i.i33, 24
   %125 = add nsw i32 %123, %124
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %28, i64 %126
+  %127 = getelementptr inbounds [2 x i8], ptr %28, i64 %126
   %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %127, i64 1
   %.sroa.1.0.copyload = load i8, ptr %.sroa.1.0..sroa_idx, align 1
   %.not21 = icmp eq i8 %.sroa.1.0.copyload, 0
@@ -3071,7 +3059,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %181 = sext i8 %.019.us.i.i to i32
   %182 = add nsw i32 %179, %181
   %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %177, i64 %183
+  %184 = getelementptr inbounds [2 x i8], ptr %177, i64 %183
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 1
   %186 = load i8, ptr %185, align 1
   %187 = icmp eq i8 %186, 1
@@ -3368,7 +3356,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %2, %29, %39, %49, %
   %73 = ashr exact i32 %sext1.i.i, 24
   %74 = add nsw i32 %72, %73
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %69, i64 %75
+  %76 = getelementptr inbounds [2 x i8], ptr %69, i64 %75
   %.sroa.072.0.copyload = load i16, ptr %76, align 2
   %77 = lshr i16 %.sroa.072.0.copyload, 8
   %78 = trunc nuw i16 %77 to i8
@@ -3384,7 +3372,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %2, %29, %39, %49, %
   %82 = ashr exact i32 %sext1.i.i121, 24
   %83 = add nsw i32 %81, %82
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %69, i64 %84
+  %85 = getelementptr inbounds [2 x i8], ptr %69, i64 %84
   %.sroa.067.0.copyload = load i8, ptr %85, align 2
   %.sroa.268.0..sroa_idx = getelementptr inbounds nuw i8, ptr %85, i64 1
   %.sroa.268.0.copyload = load i8, ptr %.sroa.268.0..sroa_idx, align 1
@@ -3423,7 +3411,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %2, %29, %39, %49, %
   %102 = load i8, ptr %101, align 2
   %103 = icmp eq i8 %102, 1
   %104 = zext i1 %103 to i64
-  %105 = getelementptr inbounds nuw %struct.anon, ptr %100, i64 %104
+  %105 = getelementptr inbounds nuw [6 x i8], ptr %100, i64 %104
   %106 = load i8, ptr %105, align 2
   %107 = trunc i8 %106 to i1
   br i1 %107, label %_ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit, label %117
@@ -3473,7 +3461,7 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit122: ; p
   %135 = load i8, ptr %134, align 2
   %136 = icmp ne i8 %135, 1
   %137 = zext i1 %136 to i64
-  %138 = getelementptr inbounds nuw %struct.anon, ptr %133, i64 %137
+  %138 = getelementptr inbounds nuw [6 x i8], ptr %133, i64 %137
   %139 = load i8, ptr %138, align 2
   %140 = trunc i8 %139 to i1
   br i1 %140, label %_ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit123, label %151
@@ -3559,7 +3547,7 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit124: ; p
 186:                                              ; preds = %175
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %188 = zext i1 %178 to i64
-  %189 = getelementptr inbounds nuw %struct.anon, ptr %187, i64 %188
+  %189 = getelementptr inbounds nuw [6 x i8], ptr %187, i64 %188
   %190 = load i8, ptr %189, align 2
   %191 = trunc i8 %190 to i1
   br i1 %191, label %_ZNKR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit, label %192
@@ -3590,7 +3578,7 @@ _ZNKR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit: ; pre
 
 200:                                              ; preds = %197
   %201 = zext i1 %178 to i64
-  %202 = getelementptr %struct.anon, ptr %0, i64 %201
+  %202 = getelementptr [6 x i8], ptr %0, i64 %201
   %203 = getelementptr i8, ptr %202, i64 151
   %204 = load i8, ptr %203, align 1
   %205 = trunc i8 %204 to i1
@@ -3768,7 +3756,7 @@ _ZNKR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit125: ; 
   %269 = sext i8 %234 to i32
   %270 = add nsw i32 %268, %269
   %271 = sext i32 %270 to i64
-  %272 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %69, i64 %271
+  %272 = getelementptr inbounds [2 x i8], ptr %69, i64 %271
   %273 = load i16, ptr %272, align 2
   store i16 %273, ptr %17, align 2
   %274 = icmp ne i8 %264, 1
@@ -3829,7 +3817,7 @@ _ZNKR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit125: ; 
   %298 = ashr exact i32 %sext1.i.i135, 24
   %299 = add nsw i32 %297, %298
   %300 = sext i32 %299 to i64
-  %301 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %69, i64 %300
+  %301 = getelementptr inbounds [2 x i8], ptr %69, i64 %300
   %302 = load i8, ptr %301, align 2
   %303 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %304 = load i8, ptr %303, align 2
@@ -4144,7 +4132,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit111: ;
   %89 = add i32 %2, %88
   %90 = sext i32 %89 to i64
   %91 = load ptr, ptr %17, align 8
-  %92 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %91, i64 %90
+  %92 = getelementptr inbounds [32 x i8], ptr %91, i64 %90
   %93 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %92) #34
   %94 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %92) #34
   %.not200213 = icmp eq ptr %93, %94
@@ -4432,7 +4420,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit122: ;
   %190 = sext i8 %.019.us.i to i32
   %191 = add nsw i32 %188, %190
   %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %175, i64 %192
+  %193 = getelementptr inbounds [2 x i8], ptr %175, i64 %192
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 1
   %195 = load i8, ptr %194, align 1
   %196 = icmp eq i8 %195, 1
@@ -4487,7 +4475,7 @@ _ZNK10open_spiel5chess10ChessBoard4findERKNS0_5PieceE.exit: ; preds = %._crit_ed
   %221 = ashr exact i32 %sext1.i.i, 24
   %222 = add nsw i32 %220, %221
   %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %175, i64 %223
+  %224 = getelementptr inbounds [2 x i8], ptr %175, i64 %223
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 1
   %226 = load i8, ptr %225, align 1
   %.not95 = icmp eq i8 %226, 3
@@ -4865,18 +4853,18 @@ define void @_ZN10open_spiel5chess10ChessBoard10set_squareENS_12chess_common6Squ
   %16 = add nsw i32 %14, %15
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %19 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %18, i64 %17
+  %19 = getelementptr inbounds [2 x i8], ptr %18, i64 %17
   %.sroa.01.0.copyload = load i8, ptr %19, align 2
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 1
   %.sroa.2.0.copyload = load i8, ptr %.sroa.2.0..sroa_idx, align 1
   %20 = load ptr, ptr @_ZZN10open_spiel5chess10ChessBoard10set_squareENS_12chess_common6SquareENS0_5PieceEE14kZobristValues, align 8
-  %21 = getelementptr inbounds %"class.open_spiel::chess_common::ZobristTable.63", ptr %20, i64 %17
+  %21 = getelementptr inbounds [24 x i8], ptr %20, i64 %17
   %22 = sext i8 %.sroa.01.0.copyload to i64
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds %"class.open_spiel::chess_common::ZobristTable.69", ptr %23, i64 %22
+  %24 = getelementptr inbounds [24 x i8], ptr %23, i64 %22
   %25 = sext i8 %.sroa.2.0.copyload to i64
   %26 = load ptr, ptr %24, align 8
-  %27 = getelementptr inbounds i64, ptr %26, i64 %25
+  %27 = getelementptr inbounds [8 x i8], ptr %26, i64 %25
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %30 = load i64, ptr %29, align 8
@@ -4885,7 +4873,7 @@ define void @_ZN10open_spiel5chess10ChessBoard10set_squareENS_12chess_common6Squ
   %sext = shl i64 %.sroa.07.0.extract.trunc, 56
   %32 = ashr exact i64 %sext, 56
   %33 = load ptr, ptr %21, align 8
-  %34 = getelementptr inbounds %"class.open_spiel::chess_common::ZobristTable.69", ptr %33, i64 %32
+  %34 = getelementptr inbounds [24 x i8], ptr %33, i64 %32
   %sext10 = shl nuw i64 %.sroa.3.0.extract.trunc, 56
   %35 = load ptr, ptr %34, align 8
   %36 = ashr exact i64 %sext10, 53
@@ -4929,7 +4917,7 @@ define void @_ZN10open_spiel5chess10ChessBoard9SetToPlayENS0_5ColorE(ptr noundef
   %13 = icmp eq i8 %12, 1
   %14 = zext i1 %13 to i64
   %15 = load ptr, ptr @_ZZN10open_spiel5chess10ChessBoard9SetToPlayENS0_5ColorEE14kZobristValues, align 8
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %19 = load i64, ptr %18, align 8
@@ -4937,7 +4925,7 @@ define void @_ZN10open_spiel5chess10ChessBoard9SetToPlayENS0_5ColorE(ptr noundef
   store i64 %20, ptr %18, align 8
   %21 = icmp eq i8 %1, 1
   %22 = zext i1 %21 to i64
-  %23 = getelementptr inbounds nuw i64, ptr %15, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = xor i64 %24, %20
   store i64 %25, ptr %18, align 8
@@ -4981,7 +4969,7 @@ define i16 @_ZNK10open_spiel5chess10ChessBoard19FindRookForCastlingENS0_5ColorEN
   %16 = sext i8 %.019.us.i to i32
   %17 = add nsw i32 %14, %16
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %12, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %12, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 1
@@ -5025,7 +5013,7 @@ _ZNK10open_spiel5chess10ChessBoard4findERKNS0_5PieceE.exit: ; preds = %._crit_ed
   %44 = sext i8 %40 to i32
   %45 = add nsw i32 %43, %44
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %41, i64 %46
+  %47 = getelementptr inbounds [2 x i8], ptr %41, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 3
@@ -5081,7 +5069,7 @@ _ZNK10open_spiel5chess10ChessBoard4findERKNS0_5PieceE.exit: ; preds = %._crit_ed
   %71 = ashr exact i32 %sext1.i29, 24
   %72 = add nsw i32 %70, %71
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %41, i64 %73
+  %74 = getelementptr inbounds [2 x i8], ptr %41, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %76 = load i8, ptr %75, align 1
   %77 = icmp eq i8 %76, 3
@@ -5210,13 +5198,13 @@ define void @_ZN10open_spiel5chess10ChessBoard16SetCastlingRightENS0_5ColorENS0_
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %17 = icmp eq i8 %1, 1
   %18 = zext i1 %17 to i64
-  %19 = getelementptr inbounds nuw %struct.anon, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [6 x i8], ptr %16, i64 %18
   br label %_ZN10open_spiel5chess5ToIntENS0_17CastlingDirectionE.exit20
 
 20:                                               ; preds = %14
   %21 = icmp eq i8 %1, 1
   %22 = zext i1 %21 to i64
-  %23 = getelementptr %struct.anon, ptr %0, i64 %22
+  %23 = getelementptr [6 x i8], ptr %0, i64 %22
   %24 = getelementptr i8, ptr %23, i64 151
   br label %_ZN10open_spiel5chess5ToIntENS0_17CastlingDirectionE.exit20
 
@@ -5259,25 +5247,25 @@ _ZN10open_spiel5chess5ToIntENS0_17CastlingDirectionE.exit20: ; preds = %15, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = load ptr, ptr @_ZZN10open_spiel5chess10ChessBoard16SetCastlingRightENS0_5ColorENS0_17CastlingDirectionEN4absl7debian28optionalINS_12chess_common6SquareEEEE14kZobristValues, align 8
-  %34 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.81", ptr %33, i64 %.pre-phi
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %.pre-phi
   %35 = zext nneg i32 %2 to i64
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.87", ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %35
   %38 = and i24 %.sroa.0.0.i, 1
   %39 = zext nneg i24 %38 to i64
   %40 = load ptr, ptr %37, align 8
-  %41 = getelementptr inbounds nuw i64, ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %39
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %44 = load i64, ptr %43, align 8
   %45 = xor i64 %44, %42
   store i64 %45, ptr %43, align 8
   %46 = load ptr, ptr %34, align 8
-  %47 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.87", ptr %46, i64 %35
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %35
   %48 = and i24 %3, 1
   %49 = zext nneg i24 %48 to i64
   %50 = load ptr, ptr %47, align 8
-  %51 = getelementptr inbounds nuw i64, ptr %50, i64 %49
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %49
   %52 = load i64, ptr %51, align 8
   %53 = xor i64 %52, %45
   store i64 %53, ptr %43, align 8
@@ -5292,14 +5280,14 @@ _ZN10open_spiel5chess5ToIntENS0_17CastlingDirectionE.exit20: ; preds = %15, %20
 
 57:                                               ; preds = %_ZN10open_spiel5chess5ToIntENS0_17CastlingDirectionE.exit20
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %59 = getelementptr inbounds nuw %struct.anon, ptr %58, i64 %.pre-phi
+  %59 = getelementptr inbounds nuw [6 x i8], ptr %58, i64 %.pre-phi
   store i8 %.sroa.021.0.extract.trunc, ptr %59, align 2
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 1
   store i16 %.sroa.4.0.extract.trunc, ptr %.sroa.4.0..sroa_idx, align 1
   br label %63
 
 60:                                               ; preds = %_ZN10open_spiel5chess5ToIntENS0_17CastlingDirectionE.exit20
-  %61 = getelementptr %struct.anon, ptr %0, i64 %.pre-phi
+  %61 = getelementptr [6 x i8], ptr %0, i64 %.pre-phi
   %62 = getelementptr i8, ptr %61, i64 151
   store i8 %.sroa.021.0.extract.trunc, ptr %62, align 1
   %.sroa.4.0..sroa_idx23 = getelementptr i8, ptr %61, i64 152
@@ -5334,7 +5322,7 @@ define i16 @_ZNK10open_spiel5chess10ChessBoard4findERKNS0_5PieceE(ptr noundef no
   %12 = sext i8 %.019.us to i32
   %13 = add nsw i32 %10, %12
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %5, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %5, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, %7
@@ -5491,7 +5479,7 @@ define void @_ZN10open_spiel5chess10ChessBoard11SetEpSquareENS_12chess_common6Sq
   %sext = shl i64 %.sroa.01.0.extract.trunc, 56
   %16 = ashr exact i64 %sext, 56
   %17 = load ptr, ptr @_ZZN10open_spiel5chess10ChessBoard11SetEpSquareENS_12chess_common6SquareEE14kZobristValues, align 8
-  %18 = getelementptr inbounds %"class.open_spiel::chess_common::ZobristTable.99", ptr %17, i64 %16
+  %18 = getelementptr inbounds [24 x i8], ptr %17, i64 %16
   %.sroa.1.0.extract.trunc = zext nneg i16 %.sroa.2.0.extract.shift to i64
   %sext3 = shl nuw i64 %.sroa.1.0.extract.trunc, 56
   %19 = load ptr, ptr %18, align 8
@@ -5519,7 +5507,7 @@ define void @_ZN10open_spiel5chess10ChessBoard11SetEpSquareENS_12chess_common6Sq
 31:                                               ; preds = %28
   %32 = sext i8 %.sroa.07.0.extract.trunc to i64
   %33 = load ptr, ptr @_ZZN10open_spiel5chess10ChessBoard11SetEpSquareENS_12chess_common6SquareEE14kZobristValues, align 8
-  %34 = getelementptr inbounds %"class.open_spiel::chess_common::ZobristTable.99", ptr %33, i64 %32
+  %34 = getelementptr inbounds [24 x i8], ptr %33, i64 %32
   %sext11 = shl nuw i64 %.sroa.4.0.extract.trunc, 56
   %35 = load ptr, ptr %34, align 8
   %36 = ashr exact i64 %sext11, 53
@@ -5620,7 +5608,7 @@ define void @_ZNK10open_spiel5chess10ChessBoard18GenerateLegalMovesERKSt8functio
   %17 = sext i8 %.019.us.i to i32
   %18 = add nsw i32 %15, %17
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %13, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %13, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 1
@@ -5792,10 +5780,10 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit: ; preds = %22
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %69 = zext i1 %38 to i64
-  %70 = getelementptr inbounds nuw %struct.anon, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [6 x i8], ptr %68, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %72 = icmp eq i32 %3, 0
-  %73 = getelementptr %struct.anon, ptr %0, i64 %69
+  %73 = getelementptr [6 x i8], ptr %0, i64 %69
   %74 = getelementptr i8, ptr %73, i64 151
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -5832,7 +5820,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit: ; preds = %22
   %91 = ashr exact i32 %sext1.i.i, 24
   %92 = add nsw i32 %90, %91
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %33, i64 %93
+  %94 = getelementptr inbounds [2 x i8], ptr %33, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 1
   %96 = load i8, ptr %95, align 1
   %.not = icmp eq i8 %96, 0
@@ -5886,7 +5874,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit: ; preds = %22
   %117 = mul nsw i32 %111, %114
   %118 = add nuw nsw i32 %117, %110
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %33, i64 %119
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %119
   %121 = load i8, ptr %120, align 2
   %.not17.i = icmp eq i8 %121, %2
   br i1 %.not17.i, label %_ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit.thread.i, label %122
@@ -6136,7 +6124,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit6.i25.i: ; preds = %16
   %191 = mul nsw i32 %185, %188
   %192 = add nuw nsw i32 %191, %184
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %33, i64 %193
+  %194 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %193
   %195 = load i8, ptr %194, align 2
   %.not17.i69 = icmp eq i8 %195, %2
   br i1 %.not17.i69, label %_ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit.thread.i64, label %196
@@ -6213,14 +6201,14 @@ _ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit
   %216 = mul nsw i32 %88, %213
   %217 = add nuw nsw i32 %216, %209
   %218 = zext nneg i32 %217 to i64
-  %219 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %218
+  %219 = getelementptr [2 x i8], ptr %0, i64 %218
   %220 = getelementptr i8, ptr %219, i64 7
   %221 = load i8, ptr %220, align 1
   %222 = icmp eq i8 %221, 0
   br i1 %222, label %227, label %223
 
 223:                                              ; preds = %215
-  %224 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %33, i64 %218
+  %224 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %218
   %225 = load i8, ptr %224, align 2
   %226 = icmp ne i8 %225, %2
   %or.cond.i77 = and i1 %40, %226
@@ -6250,14 +6238,14 @@ _ZNK10open_spiel5chess10ChessBoard18IsPawnStartingRankERKNS_12chess_common6Squar
   %235 = shl nsw i32 %234, 3
   %236 = add nsw i32 %235, %209
   %237 = sext i32 %236 to i64
-  %238 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %237
+  %238 = getelementptr [2 x i8], ptr %0, i64 %237
   %239 = getelementptr i8, ptr %238, i64 7
   %240 = load i8, ptr %239, align 1
   %241 = icmp eq i8 %240, 0
   br i1 %241, label %246, label %242
 
 242:                                              ; preds = %_ZNK10open_spiel5chess10ChessBoard18IsPawnStartingRankERKNS_12chess_common6SquareENS0_5ColorE.exit.thread.i
-  %243 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %33, i64 %237
+  %243 = getelementptr inbounds [2 x i8], ptr %33, i64 %237
   %244 = load i8, ptr %243, align 2
   %245 = icmp ne i8 %244, %2
   %or.cond3.i78 = and i1 %40, %245
@@ -6305,7 +6293,7 @@ _ZNK10open_spiel5chess10ChessBoard18IsPawnStartingRankERKNS_12chess_common6Squar
   %260 = mul nsw i32 %253, %257
   %261 = add nuw nsw i32 %260, %252
   %262 = zext nneg i32 %261 to i64
-  %263 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %33, i64 %262
+  %263 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %262
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 1
   %265 = load i8, ptr %264, align 1
   %.not.i.i87 = icmp ne i8 %265, 0
@@ -6357,7 +6345,7 @@ _ZNK10open_spiel5chess10ChessBoard18IsPawnStartingRankERKNS_12chess_common6Squar
   %287 = mul nsw i32 %280, %284
   %288 = add nuw nsw i32 %287, %279
   %289 = zext nneg i32 %288 to i64
-  %290 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %33, i64 %289
+  %290 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %289
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 1
   %292 = load i8, ptr %291, align 1
   %.not.i35.i = icmp ne i8 %292, 0
@@ -6453,7 +6441,7 @@ define void @_ZNK10open_spiel5chess10ChessBoard25GenerateLegalPawnCapturesERKSt8
   %17 = sext i8 %.019.us.i to i32
   %18 = add nsw i32 %15, %17
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %13, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %13, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 1
@@ -6597,7 +6585,7 @@ define void @_ZNK10open_spiel5chess10ChessBoard31GeneratePseudoLegalPawnCaptures
   %32 = ashr exact i32 %sext1.i.i, 24
   %33 = add nsw i32 %31, %32
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %12, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %12, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 6
@@ -6643,7 +6631,7 @@ define void @_ZNK10open_spiel5chess10ChessBoard31GeneratePseudoLegalPawnCaptures
   %55 = mul nsw i32 %29, %52
   %56 = add nuw nsw i32 %55, %48
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %12, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %60 = load i8, ptr %59, align 1
   %.not.i.i = icmp ne i8 %60, 0
@@ -6696,7 +6684,7 @@ define void @_ZNK10open_spiel5chess10ChessBoard31GeneratePseudoLegalPawnCaptures
   %81 = mul nsw i32 %.pre.pre23, %78
   %82 = add nuw nsw i32 %81, %74
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %12, i64 %83
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 1
   %86 = load i8, ptr %85, align 1
   %.not.i35.i = icmp ne i8 %86, 0
@@ -6858,7 +6846,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 
 43:                                               ; preds = %.lr.ph.i.split.i
   %44 = add nuw nsw i64 %indvars.iv, %42
-  %45 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %44
+  %45 = getelementptr [2 x i8], ptr %0, i64 %44
   %46 = getelementptr i8, ptr %45, i64 7
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 0
@@ -6875,7 +6863,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 
 52:                                               ; preds = %43
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %54 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %53, i64 %44
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %44
   %55 = load i8, ptr %54, align 2
   %.not.i.i = icmp eq i8 %55, %.sroa.39.0.extract.trunc
   br i1 %.not.i.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i", label %56
@@ -6916,7 +6904,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 68:                                               ; preds = %.lr.ph.i27.split.i
   %69 = add nuw nsw i32 %64, %66
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %70
+  %71 = getelementptr [2 x i8], ptr %0, i64 %70
   %72 = getelementptr i8, ptr %71, i64 7
   %73 = load i8, ptr %72, align 1
   %74 = icmp eq i8 %73, 0
@@ -6932,7 +6920,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 
 78:                                               ; preds = %68
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %80 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %79, i64 %70
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %79, i64 %70
   %81 = load i8, ptr %80, align 2
   %.not.i34.i = icmp eq i8 %81, %.sroa.39.0.extract.trunc
   br i1 %.not.i34.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i", label %82
@@ -6976,7 +6964,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   %95 = mul nsw i32 %indvars.iv198, %94
   %96 = add nuw nsw i32 %95, %85
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %97
+  %98 = getelementptr [2 x i8], ptr %0, i64 %97
   %99 = getelementptr i8, ptr %98, i64 7
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 0
@@ -6998,7 +6986,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 
 107:                                              ; preds = %.lr.ph.i
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %109 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %108, i64 %97
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %108, i64 %97
   %110 = load i8, ptr %109, align 2
   %.not.i53.i = icmp eq i8 %110, %.sroa.39.0.extract.trunc
   br i1 %.not.i53.i, label %.lr.ph.i65.i, label %111
@@ -7032,7 +7020,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   %120 = mul nsw i32 %119, %118
   %121 = add nuw nsw i32 %120, %85
   %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %122
+  %123 = getelementptr [2 x i8], ptr %0, i64 %122
   %124 = getelementptr i8, ptr %123, i64 7
   %125 = load i8, ptr %124, align 1
   %126 = icmp eq i8 %125, 0
@@ -7054,7 +7042,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 
 132:                                              ; preds = %.lr.ph99.i
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %134 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %133, i64 %122
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %133, i64 %122
   %135 = load i8, ptr %134, align 2
   %.not.i72.i = icmp eq i8 %135, %.sroa.39.0.extract.trunc
   br i1 %.not.i72.i, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit", label %136
@@ -7101,7 +7089,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   %150 = mul nsw i32 %141, %147
   %151 = add nuw nsw i32 %150, %indvars.iv.i61
   %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %152
+  %153 = getelementptr [2 x i8], ptr %0, i64 %152
   %154 = getelementptr i8, ptr %153, i64 7
   %155 = load i8, ptr %154, align 1
   %156 = icmp eq i8 %155, 0
@@ -7119,7 +7107,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 
 161:                                              ; preds = %149
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %163 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %162, i64 %152
+  %163 = getelementptr inbounds nuw [2 x i8], ptr %162, i64 %152
   %164 = load i8, ptr %163, align 2
   %.not.i.i63 = icmp eq i8 %164, %.sroa.39.0.extract.trunc
   br i1 %.not.i.i63, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit.i19", label %165
@@ -7160,7 +7148,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   %178 = mul nsw i32 %170, %175
   %179 = add nuw nsw i32 %178, %172
   %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %180
+  %181 = getelementptr [2 x i8], ptr %0, i64 %180
   %182 = getelementptr i8, ptr %181, i64 7
   %183 = load i8, ptr %182, align 1
   %184 = icmp eq i8 %183, 0
@@ -7177,7 +7165,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 
 189:                                              ; preds = %177
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %191 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %190, i64 %180
+  %191 = getelementptr inbounds nuw [2 x i8], ptr %190, i64 %180
   %192 = load i8, ptr %191, align 2
   %.not.i34.i52 = icmp eq i8 %192, %.sroa.39.0.extract.trunc
   br i1 %.not.i34.i52, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit44.i21", label %193
@@ -7220,7 +7208,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   %209 = mul nsw i32 %197, %206
   %210 = add nuw nsw i32 %209, %indvars.iv24.i
   %211 = zext nneg i32 %210 to i64
-  %212 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %211
+  %212 = getelementptr [2 x i8], ptr %0, i64 %211
   %213 = getelementptr i8, ptr %212, i64 7
   %214 = load i8, ptr %213, align 1
   %215 = icmp eq i8 %214, 0
@@ -7239,7 +7227,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 
 220:                                              ; preds = %208
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %222 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %221, i64 %211
+  %222 = getelementptr inbounds nuw [2 x i8], ptr %221, i64 %211
   %223 = load i8, ptr %222, align 2
   %.not.i53.i41 = icmp eq i8 %223, %.sroa.39.0.extract.trunc
   br i1 %.not.i53.i41, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsENS5_6OffsetERKT_.exit63.i22", label %224
@@ -7278,7 +7266,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
   %235 = mul nsw i32 %228, %232
   %236 = add nuw nsw i32 %235, %229
   %237 = zext nneg i32 %236 to i64
-  %238 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %237
+  %238 = getelementptr [2 x i8], ptr %0, i64 %237
   %239 = getelementptr i8, ptr %238, i64 7
   %240 = load i8, ptr %239, align 1
   %241 = icmp eq i8 %240, 0
@@ -7295,7 +7283,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 
 246:                                              ; preds = %234
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %248 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %247, i64 %237
+  %248 = getelementptr inbounds nuw [2 x i8], ptr %247, i64 %237
   %249 = load i8, ptr %248, align 2
   %.not.i72.i29 = icmp eq i8 %249, %.sroa.39.0.extract.trunc
   br i1 %.not.i72.i29, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_15IsBreachingMoveENS0_4MoveEE3$_0EEvNS_12chess_common6SquareENS0_5ColorENS0_23PseudoLegalMoveSettingsERKT_.exit", label %250
@@ -7369,7 +7357,7 @@ define void @_ZNK10open_spiel5chess10ChessBoard26BreachingMoveToCaptureMoveEPNS0
   %30 = sext i8 %.sroa.0.0 to i32
   %31 = add nsw i32 %29, %30
   %32 = sext i32 %31 to i64
-  %33 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %32
+  %33 = getelementptr [2 x i8], ptr %0, i64 %32
   %34 = getelementptr i8, ptr %33, i64 7
   %35 = load i8, ptr %34, align 1
   %.not11 = icmp eq i8 %35, 0
@@ -7464,7 +7452,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard21HasSufficientMate
   %17 = sext i8 %.03744.us to i32
   %18 = add nsw i32 %14, %17
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %11, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %11, i64 %19
   %21 = load i8, ptr %20, align 2
   %.not.us = icmp eq i8 %21, 2
   br i1 %.not.us, label %42, label %22
@@ -7482,7 +7470,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard21HasSufficientMate
 
 .thread.us:                                       ; preds = %22
   %25 = sext i8 %21 to i64
-  %26 = getelementptr inbounds i32, ptr %2, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %2, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %26, align 4
@@ -7496,14 +7484,14 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard21HasSufficientMate
   br i1 %32, label %38, label %34
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i32, ptr %4, i64 %33
+  %35 = getelementptr inbounds [4 x i8], ptr %4, i64 %33
   %36 = load i32, ptr %35, align 4
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %35, align 4
   br label %42
 
 38:                                               ; preds = %29
-  %39 = getelementptr inbounds i32, ptr %3, i64 %33
+  %39 = getelementptr inbounds [4 x i8], ptr %3, i64 %33
   %40 = load i32, ptr %39, align 4
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %39, align 4
@@ -7825,7 +7813,7 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit: ; pred
   %115 = ashr exact i32 %sext1.i.i, 24
   %116 = add nsw i32 %114, %115
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %111, i64 %117
+  %118 = getelementptr inbounds [2 x i8], ptr %111, i64 %117
   %119 = load i8, ptr %6, align 4
   %120 = trunc i8 %119 to i1
   br i1 %120, label %_ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit57, label %121
@@ -7848,7 +7836,7 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit57: ; pr
   %126 = ashr exact i32 %sext1.i.i62, 24
   %127 = add nsw i32 %125, %126
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %111, i64 %128
+  %129 = getelementptr inbounds [2 x i8], ptr %111, i64 %128
   %130 = load i8, ptr %129, align 2
   %131 = icmp eq i8 %122, %130
   br i1 %131, label %_ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit63, label %214
@@ -7917,7 +7905,7 @@ _ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit: ; preds = %_ZNK10open_s
   %156 = ashr exact i32 %sext1.i.i80, 24
   %157 = add nsw i32 %155, %156
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %111, i64 %158
+  %159 = getelementptr inbounds [2 x i8], ptr %111, i64 %158
   %160 = load i8, ptr %159, align 2
   %161 = load ptr, ptr %11, align 8
   %162 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -9412,7 +9400,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %23 = sext i8 %.01428 to i32
   %24 = add nsw i32 %22, %23
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %10, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %10, i64 %25
   invoke void @_ZNK10open_spiel5chess5Piece9ToUnicodeB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 1 dereferenceable(2) %26)
           to label %27 unwind label %.loopexit.split-lp.loopexit
 
@@ -9711,7 +9699,7 @@ define noundef zeroext i1 @_ZN10open_spiel5chess10ChessBoard13TestApplyMoveERKNS
   %12 = sext i8 %.019.us.i to i32
   %13 = add nsw i32 %10, %12
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %8, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %8, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 1
@@ -9813,7 +9801,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %37 = mul nsw i32 %22, %34
   %38 = add nuw nsw i32 %37, %31
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %21, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %39
   %41 = load i8, ptr %40, align 2
   %.not17.i = icmp eq i8 %41, %2
   br i1 %.not17.i, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_0clES5_.exit.i", label %42
@@ -9866,7 +9854,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
 
 57:                                               ; preds = %.lr.ph.i.split.i
   %58 = add nuw nsw i64 %indvars.iv, %56
-  %59 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %58
+  %59 = getelementptr [2 x i8], ptr %0, i64 %58
   %60 = getelementptr i8, ptr %59, i64 7
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 0
@@ -9879,7 +9867,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br i1 %64, label %.lr.ph.i.split.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i", !llvm.loop !53
 
 65:                                               ; preds = %57
-  %66 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %21, i64 %58
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %58
   %67 = load i8, ptr %66, align 2
   %.not.i.i = icmp eq i8 %67, %2
   br i1 %.not.i.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i", label %68
@@ -9922,7 +9910,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
 83:                                               ; preds = %.lr.ph.i27.split.i
   %84 = add nuw nsw i32 %80, %81
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %85
+  %86 = getelementptr [2 x i8], ptr %0, i64 %85
   %87 = getelementptr i8, ptr %86, i64 7
   %88 = load i8, ptr %87, align 1
   %89 = icmp eq i8 %88, 0
@@ -9934,7 +9922,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br i1 %91, label %.lr.ph.i27.split.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i", !llvm.loop !53
 
 92:                                               ; preds = %83
-  %93 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %21, i64 %85
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %85
   %94 = load i8, ptr %93, align 2
   %.not.i34.i = icmp eq i8 %94, %2
   br i1 %.not.i34.i, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i", label %95
@@ -9972,7 +9960,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %107 = mul nsw i32 %indvars.iv232, %106
   %108 = add nuw nsw i32 %107, %101
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %109
+  %110 = getelementptr [2 x i8], ptr %0, i64 %109
   %111 = getelementptr i8, ptr %110, i64 7
   %112 = load i8, ptr %111, align 1
   %113 = icmp eq i8 %112, 0
@@ -9982,7 +9970,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %114 = mul nsw i32 %indvars.iv232, %22
   %115 = add nsw i32 %114, %101
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %21, i64 %116
+  %117 = getelementptr inbounds [2 x i8], ptr %21, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 1
   %119 = load i8, ptr %118, align 1
   %120 = load i8, ptr %117, align 2
@@ -10002,7 +9990,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br i1 %or.cond47.i48.i, label %.lr.ph.i, label %.lr.ph.i57.i, !llvm.loop !53
 
 128:                                              ; preds = %.lr.ph.i
-  %129 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %21, i64 %109
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %109
   %130 = load i8, ptr %129, align 2
   %.not.i49.i = icmp eq i8 %130, %2
   br i1 %.not.i49.i, label %.lr.ph.i57.i, label %131
@@ -10011,7 +9999,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %132 = mul nsw i32 %indvars.iv232, %22
   %133 = add nsw i32 %132, %101
   %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %21, i64 %134
+  %135 = getelementptr inbounds [2 x i8], ptr %21, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 1
   %137 = load i8, ptr %136, align 1
   %138 = load i8, ptr %135, align 2
@@ -10040,7 +10028,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %147 = mul nsw i32 %146, %145
   %148 = add nuw nsw i32 %147, %101
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %149
+  %150 = getelementptr [2 x i8], ptr %0, i64 %149
   %151 = getelementptr i8, ptr %150, i64 7
   %152 = load i8, ptr %151, align 1
   %153 = icmp eq i8 %152, 0
@@ -10050,7 +10038,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %154 = mul nsw i32 %146, %22
   %155 = add nuw nsw i32 %154, %101
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %21, i64 %156
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 1
   %159 = load i8, ptr %158, align 1
   %160 = load i8, ptr %157, align 2
@@ -10070,7 +10058,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br i1 %or.cond47.i63.i, label %.lr.ph93.i, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit", !llvm.loop !53
 
 168:                                              ; preds = %.lr.ph93.i
-  %169 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %21, i64 %149
+  %169 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %149
   %170 = load i8, ptr %169, align 2
   %.not.i64.i = icmp eq i8 %170, %2
   br i1 %.not.i64.i, label %"_ZNK10open_spiel5chess10ChessBoard25GenerateRookDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_1EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit", label %171
@@ -10079,7 +10067,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %172 = mul nsw i32 %146, %22
   %173 = add nuw nsw i32 %172, %101
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %21, i64 %174
+  %175 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %174
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 1
   %177 = load i8, ptr %176, align 1
   %178 = load i8, ptr %175, align 2
@@ -10117,7 +10105,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %191 = mul nsw i32 %22, %188
   %192 = add nuw nsw i32 %191, %indvars.iv.i56
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %193
+  %194 = getelementptr [2 x i8], ptr %0, i64 %193
   %195 = getelementptr i8, ptr %194, i64 7
   %196 = load i8, ptr %195, align 1
   %197 = icmp eq i8 %196, 0
@@ -10130,7 +10118,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br i1 %199, label %185, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i", !llvm.loop !54
 
 200:                                              ; preds = %190
-  %201 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %21, i64 %193
+  %201 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %193
   %202 = load i8, ptr %201, align 2
   %.not.i.i58 = icmp eq i8 %202, %2
   br i1 %.not.i.i58, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit.i", label %203
@@ -10165,7 +10153,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %214 = mul nsw i32 %22, %211
   %215 = add nuw nsw i32 %214, %208
   %216 = zext nneg i32 %215 to i64
-  %217 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %216
+  %217 = getelementptr [2 x i8], ptr %0, i64 %216
   %218 = getelementptr i8, ptr %217, i64 7
   %219 = load i8, ptr %218, align 1
   %220 = icmp eq i8 %219, 0
@@ -10177,7 +10165,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br i1 %222, label %.lr.ph.i27.i43, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i", !llvm.loop !54
 
 223:                                              ; preds = %213
-  %224 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %21, i64 %216
+  %224 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %216
   %225 = load i8, ptr %224, align 2
   %.not.i34.i48 = icmp eq i8 %225, %2
   br i1 %.not.i34.i48, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit40.i", label %226
@@ -10218,7 +10206,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %241 = mul nsw i32 %22, %238
   %242 = add nuw nsw i32 %241, %indvars.iv110.i
   %243 = zext nneg i32 %242 to i64
-  %244 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %243
+  %244 = getelementptr [2 x i8], ptr %0, i64 %243
   %245 = getelementptr i8, ptr %244, i64 7
   %246 = load i8, ptr %245, align 1
   %247 = icmp eq i8 %246, 0
@@ -10232,7 +10220,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br i1 %249, label %234, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i", !llvm.loop !54
 
 250:                                              ; preds = %240
-  %251 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %21, i64 %243
+  %251 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %243
   %252 = load i8, ptr %251, align 2
   %.not.i49.i38 = icmp eq i8 %252, %2
   br i1 %.not.i49.i38, label %"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsENS3_6OffsetERKT_.exit55.i", label %253
@@ -10267,7 +10255,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %264 = mul nsw i32 %22, %261
   %265 = add nuw nsw i32 %264, %258
   %266 = zext nneg i32 %265 to i64
-  %267 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %266
+  %267 = getelementptr [2 x i8], ptr %0, i64 %266
   %268 = getelementptr i8, ptr %267, i64 7
   %269 = load i8, ptr %268, align 1
   %270 = icmp eq i8 %269, 0
@@ -10279,7 +10267,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   br i1 %272, label %.lr.ph.i57.i21, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit", !llvm.loop !54
 
 273:                                              ; preds = %263
-  %274 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %21, i64 %266
+  %274 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %266
   %275 = load i8, ptr %274, align 2
   %.not.i64.i27 = icmp eq i8 %275, %2
   br i1 %.not.i64.i27, label %"_ZNK10open_spiel5chess10ChessBoard27GenerateBishopDestinations_IZNKS1_11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEE3$_2EEvS4_S7_NS0_23PseudoLegalMoveSettingsERKT_.exit", label %276
@@ -10327,7 +10315,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %295 = mul nsw i32 %22, %292
   %296 = add nuw nsw i32 %295, %289
   %297 = zext nneg i32 %296 to i64
-  %298 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %21, i64 %297
+  %298 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %297
   %299 = load i8, ptr %298, align 2
   %.not17.i73 = icmp eq i8 %299, %2
   br i1 %.not17.i73, label %"_ZZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_12chess_common6SquareENS0_5ColorEENK3$_3clES5_.exit.i", label %300
@@ -10371,7 +10359,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %318 = mul nsw i32 %22, %315
   %319 = add nuw nsw i32 %318, %312
   %320 = zext nneg i32 %319 to i64
-  %321 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %21, i64 %320
+  %321 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %320
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 1
   %323 = load i8, ptr %322, align 1
   %.not.i.i75 = icmp ne i8 %323, 0
@@ -10405,7 +10393,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard11UnderAttackERKNS_
   %337 = mul nsw i32 %22, %334
   %338 = add nuw nsw i32 %337, %331
   %339 = zext nneg i32 %338 to i64
-  %340 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %21, i64 %339
+  %340 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %339
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 1
   %342 = load i8, ptr %341, align 1
   %.not.i35.i = icmp ne i8 %342, 0
@@ -10646,7 +10634,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   %104 = sext i8 %.017123 to i32
   %105 = add nsw i32 %103, %104
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %84, i64 %106
+  %107 = getelementptr inbounds [2 x i8], ptr %84, i64 %106
   invoke void @_ZNK10open_spiel5chess5Piece8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 1 dereferenceable(2) %107)
           to label %108 unwind label %.loopexit.split-lp.loopexit
 
@@ -11350,7 +11338,7 @@ define void @_ZNK10open_spiel5chess10ChessBoard5ToFENB5cxx11Eb(ptr dead_on_unwin
   %41 = sext i8 %.03486 to i32
   %42 = add nsw i32 %40, %41
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %28, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %28, i64 %43
   %45 = load i16, ptr %44, align 2
   store i16 %45, ptr %4, align 2
   %46 = icmp eq i16 %45, 2
@@ -11823,7 +11811,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard16CanCastleBetweenE
   %12 = ashr exact i32 %sext1.i.i, 24
   %13 = add nsw i32 %11, %12
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %8, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %8, i64 %14
   %.sroa.speculated65 = tail call i8 @llvm.smin.i8(i8 %.sroa.051.0.extract.trunc, i8 %.sroa.073.0.extract.trunc)
   %16 = sext i8 %.sroa.speculated65 to i32
   %.sroa.speculated = tail call i8 @llvm.smax.i8(i8 %.sroa.073.0.extract.trunc, i8 %.sroa.051.0.extract.trunc)
@@ -11854,7 +11842,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard16CanCastleBetweenE
   br i1 %24, label %30, label %._crit_edge116
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %8, i64 %29
+  %31 = getelementptr inbounds [2 x i8], ptr %8, i64 %29
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %33 = load i8, ptr %32, align 1
   %.not.i = icmp ne i8 %33, 0
@@ -11864,7 +11852,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard16CanCastleBetweenE
   br i1 %36, label %.loopexit, label %._crit_edge116
 
 ._crit_edge116:                                   ; preds = %23, %30
-  %37 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %8, i64 %29
+  %37 = getelementptr inbounds [2 x i8], ptr %8, i64 %29
   %38 = load i8, ptr %37, align 2
   %39 = icmp eq i8 %38, %.pre
   br i1 %39, label %.loopexit, label %40
@@ -11914,7 +11902,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard16CanCastleBetweenE
   %54 = ashr exact i32 %sext1.i.i40.us, 24
   %55 = add nsw i32 %53, %54
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %8, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %8, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
   %59 = load i8, ptr %58, align 1
   %.not.i41.us = icmp ne i8 %59, 0
@@ -11936,7 +11924,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard16CanCastleBetweenE
   %69 = mul nsw i32 %52, %50
   %70 = add nsw i32 %69, %54
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %8, i64 %71
+  %72 = getelementptr inbounds [2 x i8], ptr %8, i64 %71
   %73 = load i8, ptr %72, align 2
   %74 = icmp eq i8 %73, %.pre112114
   br i1 %74, label %.loopexit, label %75
@@ -11982,7 +11970,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard16CanCastleBetweenE
   %91 = ashr exact i32 %sext1.i.i48.us85, 24
   %92 = add nsw i32 %90, %91
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %8, i64 %93
+  %94 = getelementptr inbounds [2 x i8], ptr %8, i64 %93
   %95 = load i8, ptr %94, align 2
   %96 = icmp eq i8 %95, %87
   br i1 %96, label %.loopexit, label %97
@@ -12018,7 +12006,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard16CanCastleBetweenE
   %107 = ashr exact i32 %sext1.i.i48.us96, 24
   %108 = add nsw i32 %106, %107
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %8, i64 %109
+  %110 = getelementptr inbounds [2 x i8], ptr %8, i64 %109
   %111 = load i8, ptr %110, align 2
   %112 = icmp eq i8 %111, %104
   br i1 %112, label %.loopexit, label %113
@@ -12053,7 +12041,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5chess10ChessBoard16CanCastleBetweenE
   %124 = ashr exact i32 %sext1.i.i48, 24
   %125 = add nsw i32 %123, %124
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %8, i64 %126
+  %127 = getelementptr inbounds [2 x i8], ptr %8, i64 %126
   %128 = load i8, ptr %127, align 2
   %129 = icmp eq i8 %128, %121
   br i1 %129, label %.loopexit, label %130
@@ -12225,13 +12213,13 @@ define noundef signext i8 @_ZNK10open_spiel5chess10ChessBoard25ShredderCastlingR
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %10 = icmp eq i8 %1, 1
   %11 = zext i1 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.anon, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [6 x i8], ptr %9, i64 %11
   br label %_ZNK10open_spiel5chess10ChessBoard23MaybeCastlingRookSquareENS0_5ColorENS0_17CastlingDirectionE.exit
 
 13:                                               ; preds = %3
   %14 = icmp eq i8 %1, 1
   %15 = zext i1 %14 to i64
-  %16 = getelementptr %struct.anon, ptr %0, i64 %15
+  %16 = getelementptr [6 x i8], ptr %0, i64 %15
   %17 = getelementptr i8, ptr %16, i64 151
   br label %_ZNK10open_spiel5chess10ChessBoard23MaybeCastlingRookSquareENS0_5ColorENS0_17CastlingDirectionE.exit
 
@@ -12564,7 +12552,7 @@ _ZNSt7__cxx119to_stringEi.exit:                   ; preds = %93, %101
           to label %192 unwind label %.loopexit
 
 112:                                              ; preds = %.lr.ph
-  %113 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %34, i64 %46
+  %113 = getelementptr inbounds [2 x i8], ptr %34, i64 %46
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 1
   %115 = load i8, ptr %114, align 1
   %116 = icmp eq i8 %115, 0
@@ -12965,7 +12953,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit97: ; 
   %264 = ashr exact i32 %sext1.i.i102, 24
   %265 = add nsw i32 %263, %264
   %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %260, i64 %266
+  %267 = getelementptr inbounds [2 x i8], ptr %260, i64 %266
   %.sroa.08.0.copyload = load i8, ptr %267, align 2
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %267, i64 1
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
@@ -13022,7 +13010,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit97: ; 
   %282 = ashr exact i32 %sext1.i.i112, 24
   %283 = add nsw i32 %263, %282
   %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds %"struct.open_spiel::chess::Piece", ptr %260, i64 %284
+  %285 = getelementptr inbounds [2 x i8], ptr %260, i64 %284
   %.sroa.08.0.copyload10 = load i8, ptr %285, align 2
   %.sroa.4.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %285, i64 1
   %.sroa.4.0.copyload12 = load i8, ptr %.sroa.4.0..sroa_idx11, align 1
@@ -13145,7 +13133,7 @@ define linkonce_odr void @_ZN10open_spiel12chess_common12ZobristTableImLm64EJLm3
 5:                                                ; preds = %5, %2
   %store_forwarded = phi i64 [ %1, %2 ], [ %10, %5 ]
   %.011.i.i = phi i64 [ 1, %2 ], [ %11, %5 ]
-  %6 = getelementptr i64, ptr %3, i64 %.011.i.i
+  %6 = getelementptr [8 x i8], ptr %3, i64 %.011.i.i
   %7 = lshr i64 %store_forwarded, 62
   %8 = xor i64 %7, %store_forwarded
   %9 = mul i64 %8, 6364136223846793005
@@ -13335,7 +13323,7 @@ define linkonce_odr void @_ZN10open_spiel12chess_common12ZobristTableImLm2EJLm2E
 5:                                                ; preds = %5, %2
   %store_forwarded = phi i64 [ %1, %2 ], [ %10, %5 ]
   %.011.i.i = phi i64 [ 1, %2 ], [ %11, %5 ]
-  %6 = getelementptr i64, ptr %3, i64 %.011.i.i
+  %6 = getelementptr [8 x i8], ptr %3, i64 %.011.i.i
   %7 = lshr i64 %store_forwarded, 62
   %8 = xor i64 %7, %store_forwarded
   %9 = mul i64 %8, 6364136223846793005
@@ -13570,7 +13558,7 @@ define linkonce_odr void @_ZN10open_spiel12chess_common12ZobristTableImLm2EJEEC2
 8:                                                ; preds = %8, %2
   %store_forwarded = phi i64 [ %1, %2 ], [ %13, %8 ]
   %.011.i.i = phi i64 [ 1, %2 ], [ %14, %8 ]
-  %9 = getelementptr i64, ptr %3, i64 %.011.i.i
+  %9 = getelementptr [8 x i8], ptr %3, i64 %.011.i.i
   %10 = lshr i64 %store_forwarded, 62
   %11 = xor i64 %10, %store_forwarded
   %12 = mul i64 %11, 6364136223846793005
@@ -13649,7 +13637,7 @@ define linkonce_odr void @_ZN10open_spiel12chess_common12ZobristTableImLm8EJLm8E
 5:                                                ; preds = %5, %2
   %store_forwarded = phi i64 [ %1, %2 ], [ %10, %5 ]
   %.011.i.i = phi i64 [ 1, %2 ], [ %11, %5 ]
-  %6 = getelementptr i64, ptr %3, i64 %.011.i.i
+  %6 = getelementptr [8 x i8], ptr %3, i64 %.011.i.i
   %7 = lshr i64 %store_forwarded, 62
   %8 = xor i64 %7, %store_forwarded
   %9 = mul i64 %8, 6364136223846793005
@@ -14544,7 +14532,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i
   %17 = phi ptr [ null, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i.i ], [ %16, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i ]
   store ptr %17, ptr %0, align 8
-  %18 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %17, i64 %12
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %18, ptr %19, align 8
   %20 = invoke noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN4absl7debian211string_viewESt6vectorIS4_SaIS4_EEEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET0_T_SJ_SI_(ptr %6, ptr %8, ptr noundef %17)
@@ -14695,7 +14683,7 @@ _ZNSt6vectorIN4absl7debian211string_viewESaIS2_EE6insertIPZNKS1_16strings_intern
   %40 = phi i64 [ %64, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ], [ %.pre17, %.preheader.preheader ]
   %41 = phi ptr [ %57, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %69, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %42 = getelementptr inbounds nuw %struct.raw_view, ptr %4, i64 %.0
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.0
   store ptr %41, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 %40, ptr %43, align 8
@@ -14769,7 +14757,7 @@ _ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_
 .critedge:                                        ; preds = %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit.thread
   %71 = phi i64 [ %45, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit.thread ], [ %69, %_ZN4absl7debian216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11string_viewEEEEppEv.exit ]
   %72 = load ptr, ptr %36, align 8
-  %73 = getelementptr inbounds nuw %struct.raw_view, ptr %4, i64 %71
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %71
   %74 = load ptr, ptr %0, align 8
   %75 = ptrtoint ptr %72 to i64
   %76 = ptrtoint ptr %74 to i64
@@ -14870,7 +14858,7 @@ _ZSt22__uninitialized_move_aIPN4absl7debian211string_viewES3_SaIS2_EET0_T_S6_S5_
   %30 = sub i64 %29, %18
   %31 = ashr exact i64 %30, 4
   %32 = sub nsw i64 0, %31
-  %33 = getelementptr inbounds %"class.absl::debian2::string_view", ptr %13, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %13, i64 %32
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %33, ptr align 8 %1, i64 %30, i1 false)
   br label %_ZSt13move_backwardIPN4absl7debian211string_viewES3_ET0_T_S5_S4_.exit
 
@@ -14936,7 +14924,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl7debian216strings_internal8SplitterINS1_6B
 _ZSt22__uninitialized_copy_aIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewPS6_S6_ET0_T_SJ_SI_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewPS6_S6_ET0_T_SJ_SI_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewmEvRT_T0_.exit
   %54 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewPS6_S6_ET0_T_SJ_SI_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewmEvRT_T0_.exit ]
   %55 = sub nuw nsw i64 %9, %20
-  %56 = getelementptr inbounds %"class.absl::debian2::string_view", ptr %54, i64 %55
+  %56 = getelementptr inbounds [16 x i8], ptr %54, i64 %55
   store ptr %56, ptr %12, align 8
   %.not11.i.i.i.i.i58 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i58, label %_ZSt22__uninitialized_move_aIPN4absl7debian211string_viewES3_SaIS2_EET0_T_S6_S5_RT1_.exit64, label %.lr.ph.i.i.i.i.i59
@@ -15081,7 +15069,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN4absl7debian211string_viewES3_SaIS2_E
 _ZNSt12_Vector_baseIN4absl7debian211string_viewESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4absl7debian211string_viewES3_SaIS2_EET0_T_S6_S5_RT1_.exit92, %101
   store ptr %87, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i91, ptr %12, align 8
-  %105 = getelementptr inbounds nuw %"class.absl::debian2::string_view", ptr %87, i64 %83
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 %83
   store ptr %105, ptr %10, align 8
   br label %_ZSt4copyIPZNK4absl7debian216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyENS1_11string_viewEE18ConvertToContainerISt6vectorIS6_SaIS6_EES6_Lb0EEclERKS7_E8raw_viewN9__gnu_cxx17__normal_iteratorIPS6_SB_EEET0_T_SM_SL_.exit
 
@@ -15207,7 +15195,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %9 = ashr exact i32 %sext1.i.i.i.i.i, 24
   %10 = add nsw i32 %8, %9
   %11 = sext i32 %10 to i64
-  %12 = getelementptr %"struct.open_spiel::chess::Piece", ptr %5, i64 %11
+  %12 = getelementptr [2 x i8], ptr %5, i64 %11
   %13 = getelementptr i8, ptr %12, i64 7
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 1
@@ -15337,7 +15325,7 @@ define internal fastcc void @"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDes
   %33 = mul nsw i32 %27, %30
   %34 = add nuw nsw i32 %33, %26
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %35
+  %36 = getelementptr [2 x i8], ptr %0, i64 %35
   %37 = getelementptr i8, ptr %36, i64 7
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 0
@@ -15380,7 +15368,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i: ; preds = %40
   br label %71
 
 54:                                               ; preds = %32
-  %55 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %12, i64 %35
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %35
   %56 = load i8, ptr %55, align 2
   %.not = icmp eq i8 %56, %2
   br i1 %.not, label %_ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit.thread, label %57
@@ -15483,7 +15471,7 @@ define internal fastcc void @"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDes
   %33 = mul nsw i32 %27, %30
   %34 = add nuw nsw i32 %33, %26
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %35
+  %36 = getelementptr [2 x i8], ptr %0, i64 %35
   %37 = getelementptr i8, ptr %36, i64 7
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 0
@@ -15526,7 +15514,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i: ; preds = %40
   br label %71
 
 54:                                               ; preds = %32
-  %55 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %12, i64 %35
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %35
   %56 = load i8, ptr %55, align 2
   %.not = icmp eq i8 %56, %2
   br i1 %.not, label %_ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit.thread, label %57
@@ -15629,7 +15617,7 @@ define internal fastcc void @"_ZNK10open_spiel5chess10ChessBoard24GenerateRayDes
   %33 = mul nsw i32 %27, %30
   %34 = add nuw nsw i32 %33, %26
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr %"struct.open_spiel::chess::Piece", ptr %0, i64 %35
+  %36 = getelementptr [2 x i8], ptr %0, i64 %35
   %37 = getelementptr i8, ptr %36, i64 7
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 0
@@ -15672,7 +15660,7 @@ _ZNKSt8functionIFbRKN10open_spiel5chess4MoveEEEclES4_.exit.i: ; preds = %40
   br label %71
 
 54:                                               ; preds = %32
-  %55 = getelementptr inbounds nuw %"struct.open_spiel::chess::Piece", ptr %12, i64 %35
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %35
   %56 = load i8, ptr %55, align 2
   %.not = icmp eq i8 %56, %2
   br i1 %.not, label %_ZNK10open_spiel5chess10ChessBoard11InBoardAreaERKNS_12chess_common6SquareE.exit.thread, label %57
@@ -16143,7 +16131,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %9 = ashr exact i32 %sext1.i.i.i.i.i, 24
   %10 = add nsw i32 %8, %9
   %11 = sext i32 %10 to i64
-  %12 = getelementptr %"struct.open_spiel::chess::Piece", ptr %5, i64 %11
+  %12 = getelementptr [2 x i8], ptr %5, i64 %11
   %13 = getelementptr i8, ptr %12, i64 7
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 1
@@ -16497,7 +16485,7 @@ _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit2
 _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %35, %_ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i.i
   store ptr %30, ptr %.val, align 8
   store ptr %34, ptr %10, align 8
-  %36 = getelementptr inbounds nuw %"struct.open_spiel::chess::Move", ptr %30, i64 %28
+  %36 = getelementptr inbounds nuw [12 x i8], ptr %30, i64 %28
   store ptr %36, ptr %12, align 8
   br label %"_ZSt10__invoke_rIbRZNK10open_spiel5chess10ChessBoard12ParseSANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
@@ -16607,7 +16595,7 @@ _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit2
 _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %35, %_ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i.i
   store ptr %30, ptr %.val, align 8
   store ptr %34, ptr %10, align 8
-  %36 = getelementptr inbounds nuw %"struct.open_spiel::chess::Move", ptr %30, i64 %28
+  %36 = getelementptr inbounds nuw [12 x i8], ptr %30, i64 %28
   store ptr %36, ptr %12, align 8
   br label %"_ZSt10__invoke_rIbRZNK10open_spiel5chess10ChessBoard12ParseSANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
@@ -16657,7 +16645,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN10open_spiel5
   %8 = ashr exact i32 %sext1.i.i.i.i.i, 24
   %9 = add nsw i32 %7, %8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %"struct.open_spiel::chess::Piece", ptr %4, i64 %10
+  %11 = getelementptr [2 x i8], ptr %4, i64 %10
   %12 = getelementptr i8, ptr %11, i64 7
   %13 = load i8, ptr %12, align 1
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -16779,7 +16767,7 @@ _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit2
 _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %80, %_ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i.i
   store ptr %75, ptr %54, align 8
   store ptr %79, ptr %55, align 8
-  %81 = getelementptr inbounds nuw %"struct.open_spiel::chess::Move", ptr %75, i64 %73
+  %81 = getelementptr inbounds nuw [12 x i8], ptr %75, i64 %73
   store ptr %81, ptr %57, align 8
   br label %"_ZSt10__invoke_rIbRZNK10open_spiel5chess10ChessBoard12ParseSANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
@@ -16920,7 +16908,7 @@ _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit2
 _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %46, %_ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i.i
   store ptr %41, ptr %.val2, align 8
   store ptr %45, ptr %21, align 8
-  %47 = getelementptr inbounds nuw %"struct.open_spiel::chess::Move", ptr %41, i64 %39
+  %47 = getelementptr inbounds nuw [12 x i8], ptr %41, i64 %39
   store ptr %47, ptr %23, align 8
   br label %"_ZSt10__invoke_rIbRZNK10open_spiel5chess10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_0JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
@@ -17084,7 +17072,7 @@ _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit2
 _ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %72, %_ZNSt6vectorIN10open_spiel5chess4MoveESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i.i
   store ptr %67, ptr %46, align 8
   store ptr %71, ptr %47, align 8
-  %73 = getelementptr inbounds nuw %"struct.open_spiel::chess::Move", ptr %67, i64 %65
+  %73 = getelementptr inbounds nuw [12 x i8], ptr %67, i64 %65
   store ptr %73, ptr %49, align 8
   br label %"_ZSt10__invoke_rIbRZNK10open_spiel5chess10ChessBoard12ParseLANMoveERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbE3$_1JRKNS1_4MoveEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"
 
@@ -17274,7 +17262,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 11:                                               ; preds = %11, %9
   %store_forwarded = phi i64 [ %10, %9 ], [ %16, %11 ]
   %.011.i.i.i.i.i = phi i64 [ 1, %9 ], [ %17, %11 ]
-  %12 = getelementptr i64, ptr %3, i64 %.011.i.i.i.i.i
+  %12 = getelementptr [8 x i8], ptr %3, i64 %.011.i.i.i.i.i
   %13 = lshr i64 %store_forwarded, 62
   %14 = xor i64 %13, %store_forwarded
   %15 = mul i64 %14, 6364136223846793005
@@ -17389,7 +17377,7 @@ _ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE12_
 25:                                               ; preds = %25, %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE12_M_check_lenEmPKc.exit
   %store_forwarded = phi i64 [ %24, %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE12_M_check_lenEmPKc.exit ], [ %30, %25 ]
   %.011.i.i.i.i.i = phi i64 [ 1, %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE12_M_check_lenEmPKc.exit ], [ %31, %25 ]
-  %26 = getelementptr i64, ptr %4, i64 %.011.i.i.i.i.i
+  %26 = getelementptr [8 x i8], ptr %4, i64 %.011.i.i.i.i.i
   %27 = lshr i64 %store_forwarded, 62
   %28 = xor i64 %27, %store_forwarded
   %29 = mul i64 %28, 6364136223846793005
@@ -17509,7 +17497,7 @@ _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S
 _ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm3EJLm7EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, %63
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %6, align 8
-  %67 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.63", ptr %22, i64 %18
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %18
   store ptr %67, ptr %62, align 8
   ret void
 
@@ -17570,7 +17558,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 14:                                               ; preds = %14, %8
   %store_forwarded = phi i64 [ %9, %8 ], [ %19, %14 ]
   %.011.i.i.i.i.i = phi i64 [ 1, %8 ], [ %20, %14 ]
-  %15 = getelementptr i64, ptr %3, i64 %.011.i.i.i.i.i
+  %15 = getelementptr [8 x i8], ptr %3, i64 %.011.i.i.i.i.i
   %16 = lshr i64 %store_forwarded, 62
   %17 = xor i64 %16, %store_forwarded
   %18 = mul i64 %17, 6364136223846793005
@@ -17683,7 +17671,7 @@ _ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE12_M_ch
 28:                                               ; preds = %28, %.noexc
   %store_forwarded = phi i64 [ %23, %.noexc ], [ %33, %28 ]
   %.011.i.i.i.i.i = phi i64 [ 1, %.noexc ], [ %34, %28 ]
-  %29 = getelementptr i64, ptr %4, i64 %.011.i.i.i.i.i
+  %29 = getelementptr [8 x i8], ptr %4, i64 %.011.i.i.i.i.i
   %30 = lshr i64 %store_forwarded, 62
   %31 = xor i64 %30, %store_forwarded
   %32 = mul i64 %31, 6364136223846793005
@@ -17794,7 +17782,7 @@ _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE11_S_rel
 _ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm7EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, %68
   store ptr %21, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8
-  %72 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.69", ptr %21, i64 %17
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %17
   store ptr %72, ptr %67, align 8
   ret void
 
@@ -17845,10 +17833,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -17872,10 +17860,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 156, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -17913,7 +17901,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8
   %55 = lshr i64 %54, 29
   %56 = and i64 %55, 22906492245
@@ -17951,7 +17939,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 11:                                               ; preds = %11, %9
   %store_forwarded = phi i64 [ %10, %9 ], [ %16, %11 ]
   %.011.i.i.i.i.i = phi i64 [ 1, %9 ], [ %17, %11 ]
-  %12 = getelementptr i64, ptr %3, i64 %.011.i.i.i.i.i
+  %12 = getelementptr [8 x i8], ptr %3, i64 %.011.i.i.i.i.i
   %13 = lshr i64 %store_forwarded, 62
   %14 = xor i64 %13, %store_forwarded
   %15 = mul i64 %14, 6364136223846793005
@@ -18064,7 +18052,7 @@ _ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE12_
 25:                                               ; preds = %25, %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE12_M_check_lenEmPKc.exit
   %store_forwarded = phi i64 [ %24, %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE12_M_check_lenEmPKc.exit ], [ %30, %25 ]
   %.011.i.i.i.i.i = phi i64 [ 1, %_ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE12_M_check_lenEmPKc.exit ], [ %31, %25 ]
-  %26 = getelementptr i64, ptr %4, i64 %.011.i.i.i.i.i
+  %26 = getelementptr [8 x i8], ptr %4, i64 %.011.i.i.i.i.i
   %27 = lshr i64 %store_forwarded, 62
   %28 = xor i64 %27, %store_forwarded
   %29 = mul i64 %28, 6364136223846793005
@@ -18182,7 +18170,7 @@ _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S
 _ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJLm2EEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, %63
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %6, align 8
-  %67 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.81", ptr %22, i64 %18
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %18
   store ptr %67, ptr %62, align 8
   ret void
 
@@ -18243,7 +18231,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 14:                                               ; preds = %14, %8
   %store_forwarded = phi i64 [ %9, %8 ], [ %19, %14 ]
   %.011.i.i.i.i.i = phi i64 [ 1, %8 ], [ %20, %14 ]
-  %15 = getelementptr i64, ptr %3, i64 %.011.i.i.i.i.i
+  %15 = getelementptr [8 x i8], ptr %3, i64 %.011.i.i.i.i.i
   %16 = lshr i64 %store_forwarded, 62
   %17 = xor i64 %16, %store_forwarded
   %18 = mul i64 %17, 6364136223846793005
@@ -18356,7 +18344,7 @@ _ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE12_M_ch
 28:                                               ; preds = %28, %.noexc
   %store_forwarded = phi i64 [ %23, %.noexc ], [ %33, %28 ]
   %.011.i.i.i.i.i = phi i64 [ 1, %.noexc ], [ %34, %28 ]
-  %29 = getelementptr i64, ptr %4, i64 %.011.i.i.i.i.i
+  %29 = getelementptr [8 x i8], ptr %4, i64 %.011.i.i.i.i.i
   %30 = lshr i64 %store_forwarded, 62
   %31 = xor i64 %30, %store_forwarded
   %32 = mul i64 %31, 6364136223846793005
@@ -18467,7 +18455,7 @@ _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_rel
 _ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm2EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, %68
   store ptr %21, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8
-  %72 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.87", ptr %21, i64 %17
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %17
   store ptr %72, ptr %67, align 8
   ret void
 
@@ -18642,7 +18630,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 14:                                               ; preds = %14, %8
   %store_forwarded = phi i64 [ %9, %8 ], [ %19, %14 ]
   %.011.i.i.i.i.i = phi i64 [ 1, %8 ], [ %20, %14 ]
-  %15 = getelementptr i64, ptr %3, i64 %.011.i.i.i.i.i
+  %15 = getelementptr [8 x i8], ptr %3, i64 %.011.i.i.i.i.i
   %16 = lshr i64 %store_forwarded, 62
   %17 = xor i64 %16, %store_forwarded
   %18 = mul i64 %17, 6364136223846793005
@@ -18755,7 +18743,7 @@ _ZNKSt6vectorIN10open_spiel12chess_common12ZobristTableImLm8EJEEESaIS3_EE12_M_ch
 28:                                               ; preds = %28, %.noexc
   %store_forwarded = phi i64 [ %23, %.noexc ], [ %33, %28 ]
   %.011.i.i.i.i.i = phi i64 [ 1, %.noexc ], [ %34, %28 ]
-  %29 = getelementptr i64, ptr %4, i64 %.011.i.i.i.i.i
+  %29 = getelementptr [8 x i8], ptr %4, i64 %.011.i.i.i.i.i
   %30 = lshr i64 %store_forwarded, 62
   %31 = xor i64 %30, %store_forwarded
   %32 = mul i64 %31, 6364136223846793005
@@ -18866,7 +18854,7 @@ _ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm8EJEEESaIS3_EE11_S_rel
 _ZNSt12_Vector_baseIN10open_spiel12chess_common12ZobristTableImLm8EJEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN10open_spiel12chess_common12ZobristTableImLm8EJEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, %68
   store ptr %21, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8
-  %72 = getelementptr inbounds nuw %"class.open_spiel::chess_common::ZobristTable.99", ptr %21, i64 %17
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %17
   store ptr %72, ptr %67, align 8
   ret void
 

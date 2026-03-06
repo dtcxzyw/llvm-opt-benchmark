@@ -51,7 +51,7 @@ if.then9:                                         ; preds = %entry
   %3 = load ptr, ptr %ResultPtr, align 8
   store ptr %3, ptr %targetStart, align 8
   %add.ptr12 = getelementptr inbounds i8, ptr %Source.coerce0, i64 %Source.coerce1
-  %add.ptr14 = getelementptr inbounds i16, ptr %3, i64 %Source.coerce1
+  %add.ptr14 = getelementptr inbounds [2 x i8], ptr %3, i64 %Source.coerce1
   %call15 = call noundef i32 @_ZN4llvh18ConvertUTF8toUTF16EPPKhS1_PPtS3_NS_15ConversionFlagsE(ptr noundef nonnull %sourceStart, ptr noundef %add.ptr12, ptr noundef nonnull %targetStart, ptr noundef %add.ptr14, i32 noundef 0) #12
   %cmp16 = icmp eq i32 %call15, 0
   br i1 %cmp16, label %if.then17, label %if.else18
@@ -71,7 +71,7 @@ if.then22:                                        ; preds = %entry
   %6 = load ptr, ptr %ResultPtr, align 8
   store ptr %6, ptr %targetStart25, align 8
   %add.ptr28 = getelementptr inbounds i8, ptr %Source.coerce0, i64 %Source.coerce1
-  %add.ptr30 = getelementptr inbounds i32, ptr %6, i64 %Source.coerce1
+  %add.ptr30 = getelementptr inbounds [4 x i8], ptr %6, i64 %Source.coerce1
   %call31 = call noundef i32 @_ZN4llvh18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef nonnull %sourceStart23, ptr noundef %add.ptr28, ptr noundef nonnull %targetStart25, ptr noundef %add.ptr30, i32 noundef 0) #12
   %cmp32 = icmp eq i32 %call31, 0
   br i1 %cmp32, label %if.then33, label %if.else34
@@ -197,7 +197,7 @@ for.body.preheader:                               ; preds = %if.then6
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %5 = load ptr, ptr %ByteSwapped, align 8
-  %add.ptr.i15 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
+  %add.ptr.i15 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv
   %6 = load i16, ptr %add.ptr.i15, align 2
   %rev.i = call noundef i16 @llvm.bswap.i16(i16 %6)
   store i16 %rev.i, ptr %add.ptr.i15, align 2
@@ -325,7 +325,7 @@ _ZN4llvh23SmallVectorTemplateBaseItLb1EE9push_backERKt.exit: ; preds = %if.then,
   %2 = phi i32 [ %.pre.i, %if.then.i ], [ %0, %if.then ]
   %3 = load ptr, ptr %DstUTF16, align 8
   %conv.i3.i = zext i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i16, ptr %3, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %conv.i3.i
   store i16 0, ptr %add.ptr.i.i, align 1
   br label %return
 
@@ -364,7 +364,7 @@ if.end.i:                                         ; preds = %if.then9.i, %if.the
 
 for.body.preheader.i:                             ; preds = %if.end.i
   %6 = load ptr, ptr %DstUTF16, align 8
-  %add.ptr.i.i14 = getelementptr i16, ptr %6, i64 %conv.i17.pre-phi.i
+  %add.ptr.i.i14 = getelementptr [2 x i8], ptr %6, i64 %conv.i17.pre-phi.i
   %7 = sub i64 %add, %conv.i17.pre-phi.i
   %8 = shl i64 %7, 1
   tail call void @llvm.memset.p0.i64(ptr align 2 %add.ptr.i.i14, i8 0, i64 %8, i1 false)
@@ -380,7 +380,7 @@ _ZN4llvh15SmallVectorImplItE6resizeEm.exit:       ; preds = %if.else.i, %if.end1
   %conv.i.pre-phi = phi i64 [ %conv.i.i, %if.else.i ], [ %.pre, %if.end15.sink.split.i ]
   %9 = load ptr, ptr %DstUTF16, align 8
   store ptr %9, ptr %Dst, align 8
-  %add.ptr = getelementptr inbounds nuw i16, ptr %9, i64 %conv.i.pre-phi
+  %add.ptr = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %conv.i.pre-phi
   %call6 = call noundef i32 @_ZN4llvh18ConvertUTF8toUTF16EPPKhS1_PPtS3_NS_15ConversionFlagsE(ptr noundef nonnull %Src, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %Dst, ptr noundef %add.ptr, i32 noundef 0) #12
   %cmp.not = icmp eq i32 %call6, 0
   br i1 %cmp.not, label %if.end8, label %if.then7
@@ -426,7 +426,7 @@ if.end.i27:                                       ; preds = %if.then9.i34, %if.t
 
 for.body.preheader.i30:                           ; preds = %if.end.i27
   %14 = load ptr, ptr %DstUTF16, align 8
-  %add.ptr.i.i31 = getelementptr i16, ptr %14, i64 %conv.i17.pre-phi.i28
+  %add.ptr.i.i31 = getelementptr [2 x i8], ptr %14, i64 %conv.i17.pre-phi.i28
   %15 = sub nsw i64 %sub.ptr.div, %conv.i17.pre-phi.i28
   %16 = shl i64 %15, 1
   call void @llvm.memset.p0.i64(ptr align 2 %add.ptr.i.i31, i8 0, i64 %16, i1 false)
@@ -454,7 +454,7 @@ _ZN4llvh23SmallVectorTemplateBaseItLb1EE9push_backERKt.exit49: ; preds = %_ZN4ll
   %19 = phi i32 [ %.pre.i44, %if.then.i42 ], [ %17, %_ZN4llvh15SmallVectorImplItE6resizeEm.exit38 ]
   %20 = load ptr, ptr %DstUTF16, align 8
   %conv.i3.i46 = zext i32 %19 to i64
-  %add.ptr.i.i47 = getelementptr inbounds nuw i16, ptr %20, i64 %conv.i3.i46
+  %add.ptr.i.i47 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %conv.i3.i46
   store i16 0, ptr %add.ptr.i.i47, align 1
   br label %return
 
@@ -476,7 +476,7 @@ entry:
   store ptr %Source.coerce0, ptr %sourceStart23.i.i, align 8
   store ptr %call1.i, ptr %targetStart25.i.i, align 8
   %add.ptr28.i.i = getelementptr inbounds i8, ptr %Source.coerce0, i64 %Source.coerce1
-  %add.ptr30.i.i = getelementptr inbounds i32, ptr %call1.i, i64 %Source.coerce1
+  %add.ptr30.i.i = getelementptr inbounds [4 x i8], ptr %call1.i, i64 %Source.coerce1
   %call31.i.i = call noundef i32 @_ZN4llvh18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef nonnull %sourceStart23.i.i, ptr noundef %add.ptr28.i.i, ptr noundef nonnull %targetStart25.i.i, ptr noundef nonnull %add.ptr30.i.i, i32 noundef 0) #12
   %cmp32.i.i = icmp eq i32 %call31.i.i, 0
   br i1 %cmp32.i.i, label %if.end.i, label %if.then.i
@@ -535,7 +535,7 @@ entry:
   store ptr %call, ptr %Start, align 8
   %call1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %Source) #12
   %call2 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %Source) #12
-  %add.ptr = getelementptr inbounds i32, ptr %call1, i64 %call2
+  %add.ptr = getelementptr inbounds [4 x i8], ptr %call1, i64 %call2
   %call3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %Source) #12
   %mul = shl i64 %call3, 2
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %Result, i64 noundef %mul) #12
@@ -620,7 +620,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then11
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 1
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i16, ptr %1, i64 %idx.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [2 x i8], ptr %1, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %add.ptr.i.i.i.i.i, ptr align 2 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZSt4copyIPKtN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEET0_T_SA_S9_.exit
 
@@ -643,7 +643,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZSt7advanceIPKtmEv
 _ZSt22__uninitialized_copy_aIPKtPttET0_T_S4_S3_RSaIT1_E.exit: ; preds = %_ZSt7advanceIPKtmEvRT_T0_.exit, %if.then.i.i.i.i.i.i.i.i
   %3 = phi ptr [ %1, %_ZSt7advanceIPKtmEvRT_T0_.exit ], [ %.pre, %if.then.i.i.i.i.i.i.i.i ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i, %sub.ptr.div.i
-  %add.ptr36 = getelementptr inbounds i16, ptr %3, i64 %sub
+  %add.ptr36 = getelementptr inbounds [2 x i8], ptr %3, i64 %sub
   store ptr %add.ptr36, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i40 = icmp eq ptr %1, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i40, label %_ZSt22__uninitialized_move_aIPtS0_SaItEET0_T_S3_S2_RT1_.exit43, label %if.then.i.i.i.i.i.i.i.i.i41
@@ -726,7 +726,7 @@ if.then.i76:                                      ; preds = %_ZSt34__uninitializ
 _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPtS0_SaItEET0_T_S3_S2_RT1_.exit75, %if.then.i76
   store ptr %cond.i55, ptr %this, align 8
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i74, ptr %_M_finish, align 8
-  %add.ptr76 = getelementptr inbounds nuw i16, ptr %cond.i55, i64 %cond.i
+  %add.ptr76 = getelementptr inbounds nuw [2 x i8], ptr %cond.i55, i64 %cond.i
   store ptr %add.ptr76, ptr %_M_end_of_storage, align 8
   br label %if.end80
 

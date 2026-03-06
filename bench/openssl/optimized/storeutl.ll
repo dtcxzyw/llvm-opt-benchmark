@@ -188,7 +188,7 @@ define dso_local i32 @storeutl_main(i32 noundef %0, ptr noundef %1) local_unname
 
 .preheader:                                       ; preds = %21, %28
   %.082438 = phi i64 [ %29, %28 ], [ 0, %21 ]
-  %25 = getelementptr inbounds nuw %struct.anon, ptr @storeutl_main.map, i64 %.082438
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @storeutl_main.map, i64 %.082438
   %26 = load i32, ptr %25, align 8, !tbaa !13
   %27 = icmp eq i32 %10, %26
   br i1 %27, label %30, label %28
@@ -199,7 +199,7 @@ define dso_local i32 @storeutl_main(i32 noundef %0, ptr noundef %1) local_unname
   br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !16
 
 30:                                               ; preds = %.preheader
-  %31 = getelementptr inbounds nuw %struct.anon, ptr @storeutl_main.map, i64 %.082438
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @storeutl_main.map, i64 %.082438
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !18
   br label %.backedge

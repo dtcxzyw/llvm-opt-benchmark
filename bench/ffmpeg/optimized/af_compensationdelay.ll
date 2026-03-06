@@ -150,11 +150,11 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv60 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next61, %._crit_edge.us ]
-  %44 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv60
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv60
   %45 = load ptr, ptr %44, align 8, !tbaa !55
-  %46 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv60
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv60
   %47 = load ptr, ptr %46, align 8, !tbaa !55
-  %48 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv60
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv60
   %49 = load ptr, ptr %48, align 8, !tbaa !55
   br label %50
 
@@ -163,17 +163,17 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.pn52.us = phi i32 [ %41, %.lr.ph.us ], [ %63, %50 ]
   %.151.us = phi i32 [ %39, %.lr.ph.us ], [ %62, %50 ]
   %.044.us = and i32 %.pn52.us, %14
-  %51 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %52 = load double, ptr %51, align 8, !tbaa !56
   %53 = zext i32 %.151.us to i64
-  %54 = getelementptr inbounds nuw double, ptr %49, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %53
   store double %52, ptr %54, align 8, !tbaa !56
   %55 = zext i32 %.044.us to i64
-  %56 = getelementptr inbounds nuw double, ptr %49, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %55
   %57 = load double, ptr %56, align 8, !tbaa !56
   %58 = fmul nsz double %20, %57
   %59 = tail call nsz double @llvm.fmuladd.f64(double %18, double %52, double %58)
-  %60 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   store double %59, ptr %60, align 8, !tbaa !56
   %61 = add i32 %.151.us, 1
   %62 = and i32 %61, %14

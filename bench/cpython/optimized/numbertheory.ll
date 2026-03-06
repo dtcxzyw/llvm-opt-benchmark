@@ -9,9 +9,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define hidden i64 @_mpd_getkernel(i64 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr i64, ptr @mpd_moduli, i64 %4
+  %5 = getelementptr [8 x i8], ptr @mpd_moduli, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !3
-  %7 = getelementptr i64, ptr @mpd_roots, i64 %4
+  %7 = getelementptr [8 x i8], ptr @mpd_roots, i64 %4
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = add i64 %6, -1
   %10 = udiv i64 %9, %0
@@ -234,9 +234,9 @@ define hidden ptr @_mpd_init_fnt_params(i64 noundef %0, i32 noundef %1, i32 noun
 
 7:                                                ; preds = %3
   %8 = sext i32 %2 to i64
-  %9 = getelementptr i64, ptr @mpd_moduli, i64 %8
+  %9 = getelementptr [8 x i8], ptr @mpd_moduli, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !3
-  %11 = getelementptr i64, ptr @mpd_roots, i64 %8
+  %11 = getelementptr [8 x i8], ptr @mpd_roots, i64 %8
   %12 = load i64, ptr %11, align 8, !tbaa !3
   %13 = add i64 %10, -1
   %14 = udiv i64 %13, %0
@@ -267,7 +267,7 @@ define hidden ptr @_mpd_init_fnt_params(i64 noundef %0, i32 noundef %1, i32 noun
 x64_mulmod.exit.us.us:                            ; preds = %.lr.ph.split.us, %x64_mulmod.exit.us.us
   %.02127.us.us = phi i64 [ %54, %x64_mulmod.exit.us.us ], [ 0, %.lr.ph.split.us ]
   %.02226.us.us = phi i64 [ %spec.select108.i.us.us, %x64_mulmod.exit.us.us ], [ 1, %.lr.ph.split.us ]
-  %24 = getelementptr i64, ptr %20, i64 %.02127.us.us
+  %24 = getelementptr [8 x i8], ptr %20, i64 %.02127.us.us
   store i64 %.02226.us.us, ptr %24, align 8, !tbaa !3
   %25 = zext i64 %.02226.us.us to i128
   %26 = mul nuw i128 %25, %21
@@ -315,7 +315,7 @@ x64_mulmod.exit.us.us:                            ; preds = %.lr.ph.split.us, %x
 x64_mulmod.exit.us:                               ; preds = %.lr.ph.split.us, %x64_mulmod.exit.us
   %.02127.us = phi i64 [ %85, %x64_mulmod.exit.us ], [ 0, %.lr.ph.split.us ]
   %.02226.us = phi i64 [ %spec.select108.i.us, %x64_mulmod.exit.us ], [ 1, %.lr.ph.split.us ]
-  %55 = getelementptr i64, ptr %20, i64 %.02127.us
+  %55 = getelementptr [8 x i8], ptr %20, i64 %.02127.us
   store i64 %.02226.us, ptr %55, align 8, !tbaa !3
   %56 = zext i64 %.02226.us to i128
   %57 = mul nuw i128 %56, %21
@@ -363,7 +363,7 @@ x64_mulmod.exit.us:                               ; preds = %.lr.ph.split.us, %x
 x64_mulmod.exit:                                  ; preds = %.lr.ph, %x64_mulmod.exit
   %.02127 = phi i64 [ %108, %x64_mulmod.exit ], [ 0, %.lr.ph ]
   %.02226 = phi i64 [ %spec.select108.i, %x64_mulmod.exit ], [ 1, %.lr.ph ]
-  %86 = getelementptr i64, ptr %20, i64 %.02127
+  %86 = getelementptr [8 x i8], ptr %20, i64 %.02127
   store i64 %.02226, ptr %86, align 8, !tbaa !3
   %87 = zext i64 %.02226 to i128
   %88 = mul nuw i128 %87, %21
@@ -407,9 +407,9 @@ declare hidden ptr @mpd_sh_alloc(i64 noundef, i64 noundef, i64 noundef) local_un
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden void @_mpd_init_w3table(ptr noundef writeonly captures(none) initializes((0, 24)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr i64, ptr @mpd_moduli, i64 %4
+  %5 = getelementptr [8 x i8], ptr @mpd_moduli, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !3
-  %7 = getelementptr i64, ptr @mpd_roots, i64 %4
+  %7 = getelementptr [8 x i8], ptr @mpd_roots, i64 %4
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = add i64 %6, -1
   %10 = udiv i64 %9, 3

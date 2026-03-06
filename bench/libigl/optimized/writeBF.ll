@@ -140,21 +140,21 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit: ; preds = %.si
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !19
-  %42 = getelementptr double, ptr %30, i64 %indvars.iv
+  %42 = getelementptr [8 x i8], ptr %30, i64 %indvars.iv
   %43 = sitofp i32 %41 to double
   store double %43, ptr %42, align 8, !tbaa !21
-  %44 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !19
-  %46 = getelementptr double, ptr %42, i64 %17
+  %46 = getelementptr [8 x i8], ptr %42, i64 %17
   %47 = sitofp i32 %45 to double
   store double %47, ptr %46, align 8, !tbaa !21
-  %48 = getelementptr double, ptr %34, i64 %indvars.iv
+  %48 = getelementptr [8 x i8], ptr %34, i64 %indvars.iv
   %49 = load double, ptr %48, align 8, !tbaa !21
   %50 = getelementptr i8, ptr %42, i64 %36
   store double %49, ptr %50, align 8, !tbaa !21
-  %51 = getelementptr double, ptr %48, i64 %37
+  %51 = getelementptr [8 x i8], ptr %48, i64 %37
   %52 = load double, ptr %51, align 8, !tbaa !21
   %53 = getelementptr i8, ptr %42, i64 %.idx
   store double %52, ptr %53, align 8, !tbaa !21
@@ -1701,8 +1701,8 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev.exit: ; preds = 
   %117 = load ptr, ptr %1, align 8, !tbaa !13
   %118 = load i64, ptr %6, align 8, !tbaa !16
   %119 = mul nsw i64 %118, %.078165
-  %120 = getelementptr double, ptr %117, i64 %.077163
-  %121 = getelementptr double, ptr %120, i64 %119
+  %120 = getelementptr [8 x i8], ptr %117, i64 %.077163
+  %121 = getelementptr [8 x i8], ptr %120, i64 %119
   %122 = load double, ptr %121, align 8, !tbaa !21
   %123 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %47, double noundef %122)
           to label %_ZNSolsEd.exit unwind label %157
@@ -1972,7 +1972,7 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc.exit: ; preds = %216, %_ZNKSt9basic_
 
 242:                                              ; preds = %_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc.exit, %212
   %243 = load ptr, ptr %1, align 8, !tbaa !13
-  %244 = getelementptr double, ptr %243, i64 %.072171
+  %244 = getelementptr [8 x i8], ptr %243, i64 %.072171
   %245 = load double, ptr %244, align 8, !tbaa !21
   %246 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %245)
   %247 = load i64, ptr %8, align 8, !tbaa !17
@@ -1990,8 +1990,8 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc.exit: ; preds = %216, %_ZNKSt9basic_
   %252 = load ptr, ptr %1, align 8, !tbaa !13
   %253 = load i64, ptr %6, align 8, !tbaa !16
   %254 = mul nsw i64 %253, %.0167.us
-  %255 = getelementptr double, ptr %252, i64 %.072171
-  %256 = getelementptr double, ptr %255, i64 %254
+  %255 = getelementptr [8 x i8], ptr %252, i64 %.072171
+  %256 = getelementptr [8 x i8], ptr %255, i64 %254
   %257 = load double, ptr %256, align 8, !tbaa !21
   %258 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %257)
   %259 = add nuw nsw i64 %.0167.us, 1
@@ -2065,8 +2065,8 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc.exit95: ; preds = %.lr.ph169.split, 
   %296 = load ptr, ptr %1, align 8, !tbaa !13
   %297 = load i64, ptr %6, align 8, !tbaa !16
   %298 = mul nsw i64 %297, %.0167
-  %299 = getelementptr double, ptr %296, i64 %.072171
-  %300 = getelementptr double, ptr %299, i64 %298
+  %299 = getelementptr [8 x i8], ptr %296, i64 %.072171
+  %300 = getelementptr [8 x i8], ptr %299, i64 %298
   %301 = load double, ptr %300, align 8, !tbaa !21
   %302 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %301)
   %303 = add nuw nsw i64 %.0167, 1

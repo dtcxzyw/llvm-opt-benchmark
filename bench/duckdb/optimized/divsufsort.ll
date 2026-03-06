@@ -37,10 +37,10 @@ define noundef range(i32 -2, 1) i32 @_ZN11duckdb_zstd10divsufsortEPKhPiii(ptr no
   %14 = icmp ult i8 %11, %13
   %15 = xor i1 %14, true
   %16 = zext i1 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %16
   store i32 0, ptr %17, align 4, !tbaa !3
   %18 = zext i1 %14 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %18
   store i32 1, ptr %19, align 4, !tbaa !3
   br label %136
 
@@ -65,12 +65,12 @@ define noundef range(i32 -2, 1) i32 @_ZN11duckdb_zstd10divsufsortEPKhPiii(ptr no
   %30 = shl i32 %indvars112.i, 8
   %31 = or i32 %30, %29
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i32, ptr %22, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %22, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !3
   %35 = sext i32 %34 to i64
   %.idx.i = shl nsw i64 %35, 2
   %36 = getelementptr inbounds i8, ptr %1, i64 %.idx.i
-  %37 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !3
   %40 = sext i32 %39 to i64
@@ -128,17 +128,17 @@ define noundef range(i32 -2, 1) i32 @_ZN11duckdb_zstd10divsufsortEPKhPiii(ptr no
   %65 = trunc i64 %64 to i32
   %66 = or i32 %.0101.i, %30
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i32, ptr %22, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %22, i64 %67
   store i32 %65, ptr %68, align 4, !tbaa !3
   br label %69
 
 69:                                               ; preds = %61, %59
   %70 = or disjoint i32 %30, %50
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %22, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %22, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !3
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i32, ptr %1, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %1, i64 %74
   br label %76
 
 76:                                               ; preds = %69, %58
@@ -166,10 +166,10 @@ define noundef range(i32 -2, 1) i32 @_ZN11duckdb_zstd10divsufsortEPKhPiii(ptr no
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !7
   %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %21, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !3
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i32, ptr %1, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %1, i64 %86
   %88 = zext nneg i32 %2 to i64
   %89 = getelementptr i8, ptr %0, i64 %88
   %90 = getelementptr i8, ptr %89, i64 -2
@@ -224,13 +224,13 @@ define noundef range(i32 -2, 1) i32 @_ZN11duckdb_zstd10divsufsortEPKhPiii(ptr no
   %120 = lshr exact i64 %119, 2
   %121 = trunc i64 %120 to i32
   %122 = zext nneg i32 %.3106.i to i64
-  %123 = getelementptr inbounds nuw i32, ptr %21, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %122
   store i32 %121, ptr %123, align 4, !tbaa !3
   %124 = zext i8 %105 to i64
-  %125 = getelementptr inbounds nuw i32, ptr %21, i64 %124
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !3
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds i32, ptr %1, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %1, i64 %127
   br label %129
 
 129:                                              ; preds = %117, %116
@@ -290,7 +290,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   %indvars.iv = phi i64 [ %11, %.preheader337 ], [ %18, %17 ]
   %.1241 = phi i32 [ %.0240426, %.preheader337 ], [ %21, %17 ]
   %13 = zext nneg i32 %.1241 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !3
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 4, !tbaa !3
@@ -311,13 +311,13 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   %25 = shl nuw nsw i32 %21, 8
   %26 = or i32 %25, %.1241
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %3, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !3
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %28, align 4, !tbaa !3
   %31 = add nsw i32 %.0260424, -1
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i32, ptr %1, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %1, i64 %32
   store i32 %24, ptr %33, align 4, !tbaa !3
   %34 = icmp sgt i32 %23, 1
   br i1 %34, label %.lr.ph.preheader, label %.loopexit826
@@ -340,7 +340,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   %41 = shl nuw nsw i32 %.0419, 8
   %42 = or disjoint i32 %41, %39
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !3
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %44, align 4, !tbaa !3
@@ -364,15 +364,15 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   %indvars.iv574 = phi i64 [ 1, %.loopexit826 ], [ %indvars.iv.next575, %.loopexit336 ]
   %.6252433 = phi i32 [ 0, %.loopexit826 ], [ %.7253.lcssa, %.loopexit336 ]
   %.0265432 = phi i32 [ 0, %.loopexit826 ], [ %.1266.lcssa, %.loopexit336 ]
-  %50 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv579
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv579
   %51 = load i32, ptr %50, align 4, !tbaa !3
   %52 = add nsw i32 %51, %.6252433
   %53 = add nsw i32 %.6252433, %.0265432
   store i32 %53, ptr %50, align 4, !tbaa !3
   %54 = shl i64 %indvars.iv579, 8
   %55 = and i64 %54, 4294967040
-  %56 = getelementptr inbounds nuw i32, ptr %3, i64 %55
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv579
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %55
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv579
   %58 = load i32, ptr %57, align 4, !tbaa !3
   %59 = add nsw i32 %52, %58
   %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
@@ -382,14 +382,14 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
 .lr.ph430.preheader:                              ; preds = %49
   %.idx805 = shl nuw nsw i64 %indvars.iv579, 10
   %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 %.idx805
-  %invariant.gep916 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv579
+  %invariant.gep916 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv579
   br label %.lr.ph430
 
 .lr.ph430:                                        ; preds = %.lr.ph430.preheader, %.lr.ph430
   %indvars.iv576 = phi i64 [ %indvars.iv574, %.lr.ph430.preheader ], [ %indvars.iv.next577, %.lr.ph430 ]
   %.7253428 = phi i32 [ %59, %.lr.ph430.preheader ], [ %64, %.lr.ph430 ]
   %.1266427 = phi i32 [ %.0265432, %.lr.ph430.preheader ], [ %62, %.lr.ph430 ]
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv576
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv576
   %61 = load i32, ptr %gep, align 4, !tbaa !3
   %62 = add nsw i32 %61, %.1266427
   store i32 %62, ptr %gep, align 4, !tbaa !3
@@ -408,11 +408,11 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
 
 68:                                               ; preds = %65
   %69 = zext nneg i32 %4 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %1, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %69
   %71 = zext nneg i32 %66 to i64
   %72 = sub nsw i64 0, %71
-  %73 = getelementptr inbounds i32, ptr %70, i64 %72
-  %74 = getelementptr inbounds nuw i32, ptr %1, i64 %71
+  %73 = getelementptr inbounds [4 x i8], ptr %70, i64 %72
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %71
   %.not478 = icmp eq i32 %66, 1
   br i1 %.not478, label %.preheader335.lr.ph, label %.lr.ph436.preheader
 
@@ -423,7 +423,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
 
 .lr.ph436:                                        ; preds = %.lr.ph436.preheader, %.lr.ph436
   %indvars.iv583 = phi i64 [ %76, %.lr.ph436.preheader ], [ %indvars.iv.next584, %.lr.ph436 ]
-  %77 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv583
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv583
   %78 = load i32, ptr %77, align 4, !tbaa !3
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds i8, ptr %0, i64 %79
@@ -434,12 +434,12 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   %85 = zext i8 %84 to i64
   %.idx288 = shl nuw nsw i64 %82, 10
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx288
-  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %85
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %85
   %88 = load i32, ptr %87, align 4, !tbaa !3
   %89 = add nsw i32 %88, -1
   store i32 %89, ptr %87, align 4, !tbaa !3
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i32, ptr %1, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %1, i64 %90
   %92 = trunc nuw nsw i64 %indvars.iv583 to i32
   store i32 %92, ptr %91, align 4, !tbaa !3
   %indvars.iv.next584 = add nsw i64 %indvars.iv583, -1
@@ -449,7 +449,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
 .preheader335.lr.ph:                              ; preds = %.lr.ph436, %68
   %93 = add nsw i32 %66, -1
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw i32, ptr %73, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !3
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds i8, ptr %0, i64 %97
@@ -460,12 +460,12 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   %103 = zext i8 %102 to i64
   %.idx = shl nuw nsw i64 %100, 10
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %103
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %103
   %106 = load i32, ptr %105, align 4, !tbaa !3
   %107 = add nsw i32 %106, -1
   store i32 %107, ptr %105, align 4, !tbaa !3
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i32, ptr %1, i64 %108
+  %109 = getelementptr inbounds [4 x i8], ptr %1, i64 %108
   store i32 %93, ptr %109, align 4, !tbaa !3
   %110 = shl nuw nsw i32 %66, 1
   %111 = sub nsw i32 %4, %110
@@ -487,7 +487,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   %.3268437 = phi i32 [ %.2267442, %.lr.ph439 ], [ %121, %_ZN11duckdb_zstdL6sssortEPKhPKiPiS4_S4_iiii.exit ]
   %118 = or i32 %.2438, %116
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i32, ptr %3, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %3, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !3
   %122 = sub nsw i32 %.3268437, %121
   %123 = icmp sgt i32 %122, 1
@@ -534,7 +534,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
 144:                                              ; preds = %142
   %145 = lshr i64 %135, 24
   %146 = and i64 %145, 255
-  %147 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %146
+  %147 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !3
   %149 = add nsw i32 %148, 24
   br label %167
@@ -542,7 +542,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
 150:                                              ; preds = %142
   %151 = lshr i64 %135, 16
   %152 = and i64 %151, 32767
-  %153 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %152
+  %153 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !3
   %155 = add nsw i32 %154, 16
   br label %167
@@ -554,14 +554,14 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
 157:                                              ; preds = %156
   %158 = lshr i64 %135, 8
   %159 = and i64 %158, 255
-  %160 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %159
+  %160 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %159
   %161 = load i32, ptr %160, align 4, !tbaa !3
   %162 = add nsw i32 %161, 8
   br label %167
 
 163:                                              ; preds = %156
   %164 = and i64 %135, 255
-  %165 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %164
+  %165 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %164
   %166 = load i32, ptr %165, align 4, !tbaa !3
   br label %167
 
@@ -575,7 +575,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   %172 = add nsw i32 %171, -6
   %173 = ashr i32 %138, %172
   %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds i32, ptr @_ZN11duckdb_zstdL9sqq_tableE, i64 %174
+  %175 = getelementptr inbounds [4 x i8], ptr @_ZN11duckdb_zstdL9sqq_tableE, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !3
   %177 = lshr i32 %168, 1
   %178 = add nsw i32 %177, -7
@@ -607,7 +607,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   %195 = add nsw i32 %194, -6
   %196 = ashr i32 %138, %195
   %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds i32, ptr @_ZN11duckdb_zstdL9sqq_tableE, i64 %197
+  %198 = getelementptr inbounds [4 x i8], ptr @_ZN11duckdb_zstdL9sqq_tableE, i64 %197
   %199 = load i32, ptr %198, align 4, !tbaa !3
   %200 = lshr i32 %168, 1
   %201 = sub nuw nsw i32 7, %200
@@ -618,7 +618,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
 204:                                              ; preds = %191
   %sext.i = shl i64 %134, 30
   %205 = ashr i64 %sext.i, 32
-  %206 = getelementptr inbounds i32, ptr @_ZN11duckdb_zstdL9sqq_tableE, i64 %205
+  %206 = getelementptr inbounds [4 x i8], ptr @_ZN11duckdb_zstdL9sqq_tableE, i64 %205
   %207 = load i32, ptr %206, align 4, !tbaa !3
   %208 = ashr i32 %207, 4
   br label %_ZN11duckdb_zstdL8ss_isqrtEi.exit.i
@@ -641,7 +641,7 @@ _ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i:       ; preds = %_ZN11duckdb_zstdL8s
   %spec.store.select.i = tail call i32 @llvm.smin.i32(i32 %.0.i131.i, i32 1024)
   %215 = sext i32 %spec.store.select.i to i64
   %216 = sub nsw i64 0, %215
-  %217 = getelementptr inbounds i32, ptr %128, i64 %216
+  %217 = getelementptr inbounds [4 x i8], ptr %128, i64 %216
   %218 = icmp eq i32 %.0.i131.i, 0
   br label %219
 
@@ -686,8 +686,8 @@ _ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i:       ; preds = %_ZN11duckdb_zstdL8s
   %.0106155.i = phi ptr [ %233, %.lr.ph.i ], [ %.0107158.i, %224 ]
   %231 = sext i32 %.0101157.i to i64
   %232 = sub nsw i64 0, %231
-  %233 = getelementptr inbounds i32, ptr %.0106155.i, i64 %232
-  %234 = getelementptr inbounds i32, ptr %.0106155.i, i64 %231
+  %233 = getelementptr inbounds [4 x i8], ptr %.0106155.i, i64 %232
+  %234 = getelementptr inbounds [4 x i8], ptr %.0106155.i, i64 %231
   tail call fastcc void @_ZN11duckdb_zstdL12ss_swapmergeEPKhPKiPiS4_S4_S4_ii(ptr noundef nonnull %0, ptr noundef nonnull %73, ptr noundef %233, ptr noundef %.0106155.i, ptr noundef %234, ptr noundef %spec.select122.i, i32 noundef %spec.select123.i)
   %235 = shl i32 %.0101157.i, 1
   %236 = lshr i32 %.0103156.i, 1
@@ -716,7 +716,7 @@ _ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i:       ; preds = %_ZN11duckdb_zstdL8s
 242:                                              ; preds = %.lr.ph169.i
   %243 = sext i32 %.1102166.i to i64
   %244 = sub nsw i64 0, %243
-  %245 = getelementptr inbounds i32, ptr %.1108165.i, i64 %244
+  %245 = getelementptr inbounds [4 x i8], ptr %.1108165.i, i64 %244
   tail call fastcc void @_ZN11duckdb_zstdL12ss_swapmergeEPKhPKiPiS4_S4_S4_ii(ptr noundef nonnull %0, ptr noundef nonnull %73, ptr noundef %245, ptr noundef %.1108165.i, ptr noundef %.0105.i, ptr noundef %.0110.i, i32 noundef %.0111.i)
   br label %246
 
@@ -751,7 +751,7 @@ _ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i:       ; preds = %_ZN11duckdb_zstdL8s
   %.lobit.i.i = ashr i32 %252, 31
   %.pn.in.i.i = xor i32 %.lobit.i.i, %252
   %.pn.i.i = zext i32 %.pn.in.i.i to i64
-  %.054.i.i = getelementptr inbounds nuw i32, ptr %73, i64 %.pn.i.i
+  %.054.i.i = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.pn.i.i
   %.054.val.i.i = load i32, ptr %.054.i.i, align 4, !tbaa !3
   %259 = getelementptr i8, ptr %.054.i.i, i64 4
   %.054.val61.i.i = load i32, ptr %259, align 4, !tbaa !3
@@ -769,12 +769,12 @@ _ZN11duckdb_zstdL8ss_isqrtEi.exit.thread.i:       ; preds = %_ZN11duckdb_zstdL8s
   %.05279.i.i = phi ptr [ %spec.select.i, %.lr.ph.i.i ], [ %.153.i.i, %_ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.i.i ]
   %.04782.i.i = lshr i32 %.04980.i.i, 1
   %267 = zext nneg i32 %.04782.i.i to i64
-  %268 = getelementptr inbounds nuw i32, ptr %.05279.i.i, i64 %267
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %.05279.i.i, i64 %267
   %269 = load i32, ptr %268, align 4, !tbaa !3
   %.lobit63.i.i = ashr i32 %269, 31
   %270 = xor i32 %.lobit63.i.i, %269
   %271 = zext nneg i32 %270 to i64
-  %272 = getelementptr inbounds nuw i32, ptr %73, i64 %271
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %271
   %.val.i.i = load i32, ptr %272, align 4, !tbaa !3
   %273 = getelementptr i8, ptr %272, i64 4
   %.val60.i.i = load i32, ptr %273, align 4, !tbaa !3
@@ -981,7 +981,7 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.i.i: ; preds = %294, %.thread.i.i.
 _ZN11duckdb_zstdL9ss_rotateEPiS0_S0_.exit.i.i:    ; preds = %.loopexit.i.i.i, %.lr.ph.i.i.i.i, %.thread.i.i
   %356 = ashr exact i64 %311, 2
   %357 = sub nsw i64 0, %356
-  %358 = getelementptr inbounds i32, ptr %.050.i.i, i64 %357
+  %358 = getelementptr inbounds [4 x i8], ptr %.050.i.i, i64 %357
   %359 = icmp eq ptr %spec.select.i, %.052.lcssa113117.i.i
   br i1 %359, label %_ZN11duckdb_zstdL15ss_inplacemergeEPKhPKiPiS4_S4_i.exit.i, label %360
 
@@ -1009,7 +1009,7 @@ _ZN11duckdb_zstdL15ss_inplacemergeEPKhPKiPiS4_S4_i.exit.i: ; preds = %.loopexit.
 .lr.ph173.i:                                      ; preds = %_ZN11duckdb_zstdL15ss_inplacemergeEPKhPKiPiS4_S4_i.exit.i
   %366 = load i32, ptr %126, align 4, !tbaa !3
   %367 = sext i32 %366 to i64
-  %368 = getelementptr inbounds i32, ptr %73, i64 %367
+  %368 = getelementptr inbounds [4 x i8], ptr %73, i64 %367
   %369 = load i32, ptr %368, align 4, !tbaa !3
   %370 = sext i32 %369 to i64
   %371 = getelementptr inbounds i8, ptr %114, i64 %370
@@ -1038,7 +1038,7 @@ _ZN11duckdb_zstdL15ss_inplacemergeEPKhPKiPiS4_S4_i.exit.i: ; preds = %.loopexit.
 
 380:                                              ; preds = %.lr.ph173.split.i
   %381 = zext nneg i32 %378 to i64
-  %382 = getelementptr inbounds nuw i32, ptr %73, i64 %381
+  %382 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %381
   %.val125.i = load i32, ptr %382, align 4, !tbaa !3
   %383 = getelementptr i8, ptr %382, i64 4
   %.val126.i = load i32, ptr %383, align 4, !tbaa !3
@@ -1112,7 +1112,7 @@ _ZN11duckdb_zstdL6sssortEPKhPKiPiS4_S4_iiii.exit: ; preds = %.critedge.i, %_ZN11
 .lr.ph447:                                        ; preds = %._crit_edge440, %439
   %.9255446 = phi i32 [ %443, %439 ], [ %93, %._crit_edge440 ]
   %410 = zext i32 %.9255446 to i64
-  %411 = getelementptr inbounds nuw i32, ptr %1, i64 %410
+  %411 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %410
   %412 = load i32, ptr %411, align 4, !tbaa !3
   %413 = icmp sgt i32 %412, -1
   br i1 %413, label %.preheader328, label %428
@@ -1121,7 +1121,7 @@ _ZN11duckdb_zstdL6sssortEPKhPKiPiS4_S4_iiii.exit: ; preds = %.critedge.i, %_ZN11
   %414 = phi i32 [ %422, %419 ], [ %412, %.lr.ph447 ]
   %indvars.iv588 = phi i64 [ %420, %419 ], [ %410, %.lr.ph447 ]
   %415 = zext nneg i32 %414 to i64
-  %416 = getelementptr inbounds nuw i32, ptr %74, i64 %415
+  %416 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %415
   %417 = trunc nuw i64 %indvars.iv588 to i32
   store i32 %417, ptr %416, align 4, !tbaa !3
   %.not316 = icmp eq i64 %indvars.iv588, 0
@@ -1134,13 +1134,13 @@ _ZN11duckdb_zstdL6sssortEPKhPKiPiS4_S4_iiii.exit: ; preds = %.critedge.i, %_ZN11
 
 419:                                              ; preds = %.preheader328
   %420 = add nsw i64 %indvars.iv588, -1
-  %421 = getelementptr inbounds nuw i32, ptr %1, i64 %420
+  %421 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %420
   %422 = load i32, ptr %421, align 4, !tbaa !3
   %423 = icmp sgt i32 %422, -1
   br i1 %423, label %.preheader328, label %.critedge4, !llvm.loop !32
 
 .critedge4:                                       ; preds = %419
-  %424 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv588
+  %424 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv588
   %425 = trunc i64 %420 to i32
   %426 = sub nsw i32 %425, %.9255446
   store i32 %426, ptr %424, align 4, !tbaa !3
@@ -1150,21 +1150,21 @@ _ZN11duckdb_zstdL6sssortEPKhPKiPiS4_S4_iiii.exit: ; preds = %.critedge.i, %_ZN11
 428:                                              ; preds = %.critedge4, %.lr.ph447
   %.10256 = phi i32 [ %425, %.critedge4 ], [ %.9255446, %.lr.ph447 ]
   %429 = sext i32 %.10256 to i64
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %1, i64 %429
+  %.phi.trans.insert = getelementptr inbounds [4 x i8], ptr %1, i64 %429
   %.pre612 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !3
   br label %430
 
 430:                                              ; preds = %430, %428
   %431 = phi i32 [ %437, %430 ], [ %.pre612, %428 ]
   %indvars.iv591 = phi i64 [ %indvars.iv.next592, %430 ], [ %429, %428 ]
-  %432 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv591
+  %432 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv591
   %433 = xor i32 %431, -1
   store i32 %433, ptr %432, align 4, !tbaa !3
   %434 = sext i32 %433 to i64
-  %435 = getelementptr inbounds i32, ptr %74, i64 %434
+  %435 = getelementptr inbounds [4 x i8], ptr %74, i64 %434
   store i32 %.10256, ptr %435, align 4, !tbaa !3
   %indvars.iv.next592 = add nsw i64 %indvars.iv591, -1
-  %436 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next592
+  %436 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv.next592
   %437 = load i32, ptr %436, align 4, !tbaa !3
   %438 = icmp slt i32 %437, 0
   br i1 %438, label %430, label %439, !llvm.loop !33
@@ -1172,7 +1172,7 @@ _ZN11duckdb_zstdL6sssortEPKhPKiPiS4_S4_iiii.exit: ; preds = %.critedge.i, %_ZN11
 439:                                              ; preds = %430
   %440 = trunc nsw i64 %indvars.iv591 to i32
   %441 = zext nneg i32 %437 to i64
-  %442 = getelementptr inbounds nuw i32, ptr %74, i64 %441
+  %442 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %441
   store i32 %.10256, ptr %442, align 4, !tbaa !3
   %443 = add nsw i32 %440, -2
   %444 = icmp sgt i64 %indvars.iv591, 1
@@ -1189,7 +1189,7 @@ _ZN11duckdb_zstdL6sssortEPKhPKiPiS4_S4_iiii.exit: ; preds = %.critedge.i, %_ZN11
 446:                                              ; preds = %445
   %447 = lshr i32 %66, 24
   %448 = zext nneg i32 %447 to i64
-  %449 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %448
+  %449 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %448
   %450 = load i32, ptr %449, align 4, !tbaa !3
   %451 = add nsw i32 %450, 24
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit.i
@@ -1197,7 +1197,7 @@ _ZN11duckdb_zstdL6sssortEPKhPKiPiS4_S4_iiii.exit: ; preds = %.critedge.i, %_ZN11
 452:                                              ; preds = %445
   %453 = lshr i32 %66, 16
   %454 = zext nneg i32 %453 to i64
-  %455 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %454
+  %455 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %454
   %456 = load i32, ptr %455, align 4, !tbaa !3
   %457 = add nsw i32 %456, 16
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit.i
@@ -1209,13 +1209,13 @@ _ZN11duckdb_zstdL6sssortEPKhPKiPiS4_S4_iiii.exit: ; preds = %.critedge.i, %_ZN11
 459:                                              ; preds = %458
   %460 = lshr i32 %66, 8
   %461 = zext nneg i32 %460 to i64
-  %462 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %461
+  %462 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %461
   %463 = load i32, ptr %462, align 4, !tbaa !3
   %464 = add nsw i32 %463, 8
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit.i
 
 465:                                              ; preds = %458
-  %466 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %71
+  %466 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %71
   %467 = load i32, ptr %466, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit.i
 
@@ -1269,7 +1269,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
 485:                                              ; preds = %482
   %486 = sext i32 %483 to i64
   %487 = sub nsw i64 0, %486
-  %488 = getelementptr inbounds nuw i32, ptr %.046.i, i64 %487
+  %488 = getelementptr inbounds nuw [4 x i8], ptr %.046.i, i64 %487
   %489 = add nsw i32 %.042.i, %483
   br label %2056
 
@@ -1279,13 +1279,13 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
 
 491:                                              ; preds = %490
   %492 = sext i32 %.042.i to i64
-  %493 = getelementptr inbounds i32, ptr %.046.i, i64 %492
+  %493 = getelementptr inbounds [4 x i8], ptr %.046.i, i64 %492
   store i32 %.042.i, ptr %493, align 4, !tbaa !3
   br label %494
 
 494:                                              ; preds = %491, %490
   %495 = zext nneg i32 %483 to i64
-  %496 = getelementptr inbounds nuw i32, ptr %74, i64 %495
+  %496 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %495
   %497 = load i32, ptr %496, align 4, !tbaa !3
   %498 = sext i32 %497 to i64
   %.idx.i = shl nsw i64 %498, 2
@@ -1311,7 +1311,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
 509:                                              ; preds = %508
   %510 = lshr i64 %503, 26
   %511 = and i64 %510, 255
-  %512 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %511
+  %512 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %511
   %513 = load i32, ptr %512, align 4, !tbaa !3
   %514 = add nsw i32 %513, 24
   br label %.outer.i.i.preheader
@@ -1319,7 +1319,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
 515:                                              ; preds = %508
   %516 = lshr i64 %503, 18
   %517 = and i64 %516, 65535
-  %518 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %517
+  %518 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %517
   %519 = load i32, ptr %518, align 4, !tbaa !3
   %520 = add nsw i32 %519, 16
   br label %.outer.i.i.preheader
@@ -1331,14 +1331,14 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
 522:                                              ; preds = %521
   %523 = lshr i64 %503, 10
   %524 = and i64 %523, 16777215
-  %525 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %524
+  %525 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %524
   %526 = load i32, ptr %525, align 4, !tbaa !3
   %527 = add nsw i32 %526, 8
   br label %.outer.i.i.preheader
 
 528:                                              ; preds = %521
   %529 = and i64 %506, 255
-  %530 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %529
+  %530 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %529
   %531 = load i32, ptr %530, align 4, !tbaa !3
   br label %.outer.i.i.preheader
 
@@ -1371,9 +1371,9 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
   %541 = add nsw i32 %538, -1
   %542 = sdiv i32 %541, 2
   %543 = sext i32 %542 to i64
-  %544 = getelementptr inbounds i32, ptr %.0455.ph.i.i, i64 %543
+  %544 = getelementptr inbounds [4 x i8], ptr %.0455.ph.i.i, i64 %543
   %545 = sext i32 %541 to i64
-  %546 = getelementptr inbounds i32, ptr %.0455.ph.i.i, i64 %545
+  %546 = getelementptr inbounds [4 x i8], ptr %.0455.ph.i.i, i64 %545
   %547 = getelementptr inbounds i8, ptr %.0463.ph.i.i, i64 -4
   %548 = icmp ult ptr %.0455.ph.i.i, %547
   br i1 %537, label %.lr.ph646.split.us.i.i, label %.lr.ph646.split.i.i
@@ -1388,11 +1388,11 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
   %.pn36.i.us.us.us.i.i = phi ptr [ %.037.i.us.us.us.i.i, %580 ], [ %.0455.ph.i.i, %.lr.ph646.split.us.i.i ]
   %550 = load i32, ptr %.037.i.us.us.us.i.i, align 4, !tbaa !3
   %551 = sext i32 %550 to i64
-  %552 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %551
+  %552 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %551
   %553 = load i32, ptr %552, align 4, !tbaa !3
   %554 = load i32, ptr %.pn36.i.us.us.us.i.i, align 4, !tbaa !3
   %555 = sext i32 %554 to i64
-  %556 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %555
+  %556 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %555
   %557 = load i32, ptr %556, align 4, !tbaa !3
   %558 = icmp slt i32 %553, %557
   br i1 %558, label %.preheader.i562.us.us.us.i.i, label %.critedge.thread.i.us.us.us.i.i
@@ -1421,7 +1421,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
 .critedge.loopexit.i.us.us.us.i.i:                ; preds = %566
   %569 = load i32, ptr %552, align 4, !tbaa !3
   %570 = zext nneg i32 %567 to i64
-  %571 = getelementptr inbounds nuw i32, ptr %.0452.ph.i.i, i64 %570
+  %571 = getelementptr inbounds nuw [4 x i8], ptr %.0452.ph.i.i, i64 %570
   %572 = load i32, ptr %571, align 4, !tbaa !3
   %573 = icmp slt i32 %569, %572
   br i1 %573, label %.preheader.i562.us.us.us.i.i, label %.critedge.thread.i.us.us.us.i.i, !llvm.loop !35
@@ -1460,7 +1460,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
   ]
 
 584:                                              ; preds = %._crit_edge.i.i305
-  %585 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %481
+  %585 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %481
   %586 = ptrtoint ptr %.0463.ph.i.i to i64
   %587 = sub i64 %586, %476
   %588 = lshr exact i64 %587, 2
@@ -1478,7 +1478,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
 595:                                              ; preds = %592
   %596 = load i32, ptr %593, align 4, !tbaa !3
   %597 = sext i32 %596 to i64
-  %598 = getelementptr inbounds i32, ptr %585, i64 %597
+  %598 = getelementptr inbounds [4 x i8], ptr %585, i64 %597
   %599 = load i32, ptr %598, align 4, !tbaa !3
   %600 = icmp eq i32 %599, %590
   br i1 %600, label %592, label %.critedge.i115.i, !llvm.loop !38
@@ -1497,7 +1497,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
   %.1160217.i118.i = phi ptr [ %.2161.i120.i, %614 ], [ %593, %.preheader206.i116.i ]
   %605 = load i32, ptr %604, align 4, !tbaa !3
   %606 = sext i32 %605 to i64
-  %607 = getelementptr inbounds i32, ptr %585, i64 %606
+  %607 = getelementptr inbounds [4 x i8], ptr %585, i64 %606
   %608 = load i32, ptr %607, align 4, !tbaa !3
   %.not.i119.i = icmp sgt i32 %608, %590
   br i1 %.not.i119.i, label %.critedge2.i62.i, label %609
@@ -1533,7 +1533,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
 620:                                              ; preds = %617
   %621 = load i32, ptr %618, align 4, !tbaa !3
   %622 = sext i32 %621 to i64
-  %623 = getelementptr inbounds i32, ptr %585, i64 %622
+  %623 = getelementptr inbounds [4 x i8], ptr %585, i64 %622
   %624 = load i32, ptr %623, align 4, !tbaa !3
   %625 = icmp eq i32 %624, %590
   br i1 %625, label %617, label %.critedge4.i109.i, !llvm.loop !40
@@ -1552,7 +1552,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
   %.1144222.i112.i = phi ptr [ %.2145.i114.i, %639 ], [ %618, %.preheader.i110.i ]
   %630 = load i32, ptr %629, align 4, !tbaa !3
   %631 = sext i32 %630 to i64
-  %632 = getelementptr inbounds i32, ptr %585, i64 %631
+  %632 = getelementptr inbounds [4 x i8], ptr %585, i64 %631
   %633 = load i32, ptr %632, align 4, !tbaa !3
   %.not197.i113.i = icmp slt i32 %633, %590
   br i1 %.not197.i113.i, label %.critedge6.i66.i, label %634
@@ -1598,7 +1598,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
   %.4163229.i106.i = phi ptr [ %.5164.i108.i, %657 ], [ %.3162243.i94.i, %.lr.ph247.i90.i ]
   %648 = load i32, ptr %647, align 4, !tbaa !3
   %649 = sext i32 %648 to i64
-  %650 = getelementptr inbounds i32, ptr %585, i64 %649
+  %650 = getelementptr inbounds [4 x i8], ptr %585, i64 %649
   %651 = load i32, ptr %650, align 4, !tbaa !3
   %.not199.i107.i = icmp sgt i32 %651, %590
   br i1 %.not199.i107.i, label %.critedge8.i95.i, label %652
@@ -1632,7 +1632,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
   %.4147236.i102.i = phi ptr [ %.5148.i104.i, %672 ], [ %.3146246.i91.i, %.critedge8.i95.i ]
   %663 = load i32, ptr %662, align 4, !tbaa !3
   %664 = sext i32 %663 to i64
-  %665 = getelementptr inbounds i32, ptr %585, i64 %664
+  %665 = getelementptr inbounds [4 x i8], ptr %585, i64 %664
   %666 = load i32, ptr %665, align 4, !tbaa !3
   %.not200.i103.i = icmp slt i32 %666, %590
   br i1 %.not200.i103.i, label %.critedge10.i98.i, label %667
@@ -1685,7 +1685,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
 .lr.ph255.preheader.i85.i:                        ; preds = %676
   %688 = zext nneg i32 %spec.select.i74.i to i64
   %689 = sub nsw i64 0, %688
-  %690 = getelementptr inbounds i32, ptr %.3157.lcssa.i71.i, i64 %689
+  %690 = getelementptr inbounds [4 x i8], ptr %.3157.lcssa.i71.i, i64 %689
   br label %.lr.ph255.i86.i
 
 .lr.ph255.i86.i:                                  ; preds = %.lr.ph255.i86.i, %.lr.ph255.preheader.i85.i
@@ -1719,7 +1719,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
 .lr.ph261.preheader.i80.i:                        ; preds = %._crit_edge256.i75.i
   %707 = zext nneg i32 %spec.select202.i76.i to i64
   %708 = sub nsw i64 0, %707
-  %709 = getelementptr inbounds i32, ptr %.0463.ph.i.i, i64 %708
+  %709 = getelementptr inbounds [4 x i8], ptr %.0463.ph.i.i, i64 %708
   br label %.lr.ph261.i81.i
 
 .lr.ph261.i81.i:                                  ; preds = %.lr.ph261.i81.i, %.lr.ph261.preheader.i80.i
@@ -1739,7 +1739,7 @@ thread-pre-split.i:                               ; preds = %.thread.i, %2056
 ._crit_edge262.i77.i:                             ; preds = %.lr.ph261.i81.i, %._crit_edge256.i75.i
   %716 = getelementptr inbounds i8, ptr %.0455.ph.i.i, i64 %684
   %717 = sub nsw i64 0, %700
-  %718 = getelementptr inbounds i32, ptr %.0463.ph.i.i, i64 %717
+  %718 = getelementptr inbounds [4 x i8], ptr %.0463.ph.i.i, i64 %717
   br label %_ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit121.i
 
 _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit121.i: ; preds = %._crit_edge262.i77.i, %._crit_edge.i69.i
@@ -1761,7 +1761,7 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit121.i: ; preds = %._crit
   %.0459675.i.i = phi ptr [ %730, %.lr.ph677.i.i ], [ %.0455.ph.i.i, %720 ]
   %727 = load i32, ptr %.0459675.i.i, align 4, !tbaa !3
   %728 = sext i32 %727 to i64
-  %729 = getelementptr inbounds i32, ptr %74, i64 %728
+  %729 = getelementptr inbounds [4 x i8], ptr %74, i64 %728
   store i32 %725, ptr %729, align 4, !tbaa !3
   %730 = getelementptr inbounds nuw i8, ptr %.0459675.i.i, i64 4
   %731 = icmp ult ptr %730, %.0165.i79.i
@@ -1784,7 +1784,7 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit121.i: ; preds = %._crit
   %.1460678.i.i = phi ptr [ %743, %.lr.ph680.i.i ], [ %.0165.i79.i, %734 ]
   %740 = load i32, ptr %.1460678.i.i, align 4, !tbaa !3
   %741 = sext i32 %740 to i64
-  %742 = getelementptr inbounds i32, ptr %74, i64 %741
+  %742 = getelementptr inbounds [4 x i8], ptr %74, i64 %741
   store i32 %738, ptr %742, align 4, !tbaa !3
   %743 = getelementptr inbounds nuw i8, ptr %.1460678.i.i, i64 4
   %744 = icmp ult ptr %743, %.0166.i78.i
@@ -1798,7 +1798,7 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit121.i: ; preds = %._crit
 
 748:                                              ; preds = %.loopexit594.i.i
   %749 = sext i32 %.0445.ph.i.i to i64
-  %750 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %749
+  %750 = getelementptr inbounds [32 x i8], ptr %5, i64 %749
   store ptr null, ptr %750, align 16, !tbaa !49
   %751 = getelementptr inbounds nuw i8, ptr %750, i64 8
   store ptr %.0165.i79.i, ptr %751, align 8, !tbaa !53
@@ -1838,7 +1838,7 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit121.i: ; preds = %._crit
 
 769:                                              ; preds = %767
   %770 = sext i32 %.1446.i.i to i64
-  %771 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %770
+  %771 = getelementptr inbounds [32 x i8], ptr %5, i64 %770
   store ptr %.0452.ph.i.i, ptr %771, align 16, !tbaa !49
   %772 = getelementptr inbounds nuw i8, ptr %771, i64 8
   store ptr %.0166.i78.i, ptr %772, align 8, !tbaa !53
@@ -1856,7 +1856,7 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit121.i: ; preds = %._crit
 777:                                              ; preds = %776
   %778 = lshr i64 %765, 26
   %779 = and i64 %778, 255
-  %780 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %779
+  %780 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %779
   %781 = load i32, ptr %780, align 4, !tbaa !3
   %782 = add nsw i32 %781, 24
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i
@@ -1864,7 +1864,7 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit121.i: ; preds = %._crit
 783:                                              ; preds = %776
   %784 = lshr i64 %765, 18
   %785 = and i64 %784, 65535
-  %786 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %785
+  %786 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %785
   %787 = load i32, ptr %786, align 4, !tbaa !3
   %788 = add nsw i32 %787, 16
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i
@@ -1876,14 +1876,14 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit121.i: ; preds = %._crit
 790:                                              ; preds = %789
   %791 = lshr i64 %765, 10
   %792 = and i64 %791, 16777215
-  %793 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %792
+  %793 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %792
   %794 = load i32, ptr %793, align 4, !tbaa !3
   %795 = add nsw i32 %794, 8
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i
 
 796:                                              ; preds = %789
   %797 = and i64 %774, 255
-  %798 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %797
+  %798 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %797
   %799 = load i32, ptr %798, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i
 
@@ -1906,7 +1906,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i:           ; preds = %796, %790, %783, %7
 807:                                              ; preds = %806
   %808 = lshr i64 %763, 26
   %809 = and i64 %808, 255
-  %810 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %809
+  %810 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %809
   %811 = load i32, ptr %810, align 4, !tbaa !3
   %812 = add nsw i32 %811, 24
   br label %.outer.i.i.backedge
@@ -1914,7 +1914,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i:           ; preds = %796, %790, %783, %7
 813:                                              ; preds = %806
   %814 = lshr i64 %763, 18
   %815 = and i64 %814, 65535
-  %816 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %815
+  %816 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %815
   %817 = load i32, ptr %816, align 4, !tbaa !3
   %818 = add nsw i32 %817, 16
   br label %.outer.i.i.backedge
@@ -1926,14 +1926,14 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i:           ; preds = %796, %790, %783, %7
 820:                                              ; preds = %819
   %821 = lshr i64 %763, 10
   %822 = and i64 %821, 16777215
-  %823 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %822
+  %823 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %822
   %824 = load i32, ptr %823, align 4, !tbaa !3
   %825 = add nsw i32 %824, 8
   br label %.outer.i.i.backedge
 
 826:                                              ; preds = %819
   %827 = and i64 %804, 255
-  %828 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %827
+  %828 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %827
   %829 = load i32, ptr %828, align 4, !tbaa !3
   br label %.outer.i.i.backedge
 
@@ -1953,7 +1953,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i:           ; preds = %796, %790, %783, %7
 835:                                              ; preds = %834
   %836 = lshr i64 %766, 24
   %837 = and i64 %836, 255
-  %838 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %837
+  %838 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %837
   %839 = load i32, ptr %838, align 4, !tbaa !3
   %840 = add nsw i32 %839, 24
   br label %.outer.i.i.backedge
@@ -1961,7 +1961,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i:           ; preds = %796, %790, %783, %7
 841:                                              ; preds = %834
   %842 = lshr i64 %766, 16
   %843 = and i64 %842, 255
-  %844 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %843
+  %844 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %843
   %845 = load i32, ptr %844, align 4, !tbaa !3
   %846 = add nsw i32 %845, 16
   br label %.outer.i.i.backedge
@@ -1973,14 +1973,14 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i:           ; preds = %796, %790, %783, %7
 848:                                              ; preds = %847
   %849 = lshr i64 %766, 8
   %850 = and i64 %849, 255
-  %851 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %850
+  %851 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %850
   %852 = load i32, ptr %851, align 4, !tbaa !3
   %853 = add nsw i32 %852, 8
   br label %.outer.i.i.backedge
 
 854:                                              ; preds = %847
   %855 = and i64 %766, 255
-  %856 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %855
+  %856 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %855
   %857 = load i32, ptr %856, align 4, !tbaa !3
   br label %.outer.i.i.backedge
 
@@ -1991,7 +1991,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i:           ; preds = %796, %790, %783, %7
 860:                                              ; preds = %858
   %861 = add nsw i32 %.1446.i.i, -1
   %862 = sext i32 %861 to i64
-  %863 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %862
+  %863 = getelementptr inbounds [32 x i8], ptr %5, i64 %862
   %864 = load ptr, ptr %863, align 16, !tbaa !49
   %865 = getelementptr inbounds nuw i8, ptr %863, i64 8
   %866 = load ptr, ptr %865, align 8, !tbaa !53
@@ -2009,7 +2009,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i:           ; preds = %796, %790, %783, %7
 
 875:                                              ; preds = %873
   %876 = sext i32 %.1446.i.i to i64
-  %877 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %876
+  %877 = getelementptr inbounds [32 x i8], ptr %5, i64 %876
   store ptr %.0452.ph.i.i, ptr %877, align 16, !tbaa !49
   %878 = getelementptr inbounds nuw i8, ptr %877, i64 8
   store ptr %.0455.ph.i.i, ptr %878, align 8, !tbaa !53
@@ -2027,7 +2027,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i:           ; preds = %796, %790, %783, %7
 883:                                              ; preds = %882
   %884 = lshr i64 %763, 26
   %885 = and i64 %884, 255
-  %886 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %885
+  %886 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %885
   %887 = load i32, ptr %886, align 4, !tbaa !3
   %888 = add nsw i32 %887, 24
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i
@@ -2035,7 +2035,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i:           ; preds = %796, %790, %783, %7
 889:                                              ; preds = %882
   %890 = lshr i64 %763, 18
   %891 = and i64 %890, 65535
-  %892 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %891
+  %892 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %891
   %893 = load i32, ptr %892, align 4, !tbaa !3
   %894 = add nsw i32 %893, 16
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i
@@ -2047,14 +2047,14 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit528.i.i:           ; preds = %796, %790, %783, %7
 896:                                              ; preds = %895
   %897 = lshr i64 %763, 10
   %898 = and i64 %897, 16777215
-  %899 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %898
+  %899 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %898
   %900 = load i32, ptr %899, align 4, !tbaa !3
   %901 = add nsw i32 %900, 8
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i
 
 902:                                              ; preds = %895
   %903 = and i64 %880, 255
-  %904 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %903
+  %904 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %903
   %905 = load i32, ptr %904, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i
 
@@ -2077,7 +2077,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %8
 913:                                              ; preds = %912
   %914 = lshr i64 %765, 26
   %915 = and i64 %914, 255
-  %916 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %915
+  %916 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %915
   %917 = load i32, ptr %916, align 4, !tbaa !3
   %918 = add nsw i32 %917, 24
   br label %.outer.i.i.backedge
@@ -2085,7 +2085,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %8
 919:                                              ; preds = %912
   %920 = lshr i64 %765, 18
   %921 = and i64 %920, 65535
-  %922 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %921
+  %922 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %921
   %923 = load i32, ptr %922, align 4, !tbaa !3
   %924 = add nsw i32 %923, 16
   br label %.outer.i.i.backedge
@@ -2097,14 +2097,14 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %8
 926:                                              ; preds = %925
   %927 = lshr i64 %765, 10
   %928 = and i64 %927, 16777215
-  %929 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %928
+  %929 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %928
   %930 = load i32, ptr %929, align 4, !tbaa !3
   %931 = add nsw i32 %930, 8
   br label %.outer.i.i.backedge
 
 932:                                              ; preds = %925
   %933 = and i64 %910, 255
-  %934 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %933
+  %934 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %933
   %935 = load i32, ptr %934, align 4, !tbaa !3
   br label %.outer.i.i.backedge
 
@@ -2124,7 +2124,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %8
 941:                                              ; preds = %940
   %942 = lshr i64 %764, 24
   %943 = and i64 %942, 255
-  %944 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %943
+  %944 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %943
   %945 = load i32, ptr %944, align 4, !tbaa !3
   %946 = add nsw i32 %945, 24
   br label %.outer.i.i.backedge
@@ -2132,7 +2132,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %8
 947:                                              ; preds = %940
   %948 = lshr i64 %764, 16
   %949 = and i64 %948, 255
-  %950 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %949
+  %950 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %949
   %951 = load i32, ptr %950, align 4, !tbaa !3
   %952 = add nsw i32 %951, 16
   br label %.outer.i.i.backedge
@@ -2144,14 +2144,14 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %8
 954:                                              ; preds = %953
   %955 = lshr i64 %764, 8
   %956 = and i64 %955, 255
-  %957 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %956
+  %957 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %956
   %958 = load i32, ptr %957, align 4, !tbaa !3
   %959 = add nsw i32 %958, 8
   br label %.outer.i.i.backedge
 
 960:                                              ; preds = %953
   %961 = and i64 %764, 255
-  %962 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %961
+  %962 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %961
   %963 = load i32, ptr %962, align 4, !tbaa !3
   br label %.outer.i.i.backedge
 
@@ -2162,7 +2162,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %8
 966:                                              ; preds = %964
   %967 = add nsw i32 %.1446.i.i, -1
   %968 = sext i32 %967 to i64
-  %969 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %968
+  %969 = getelementptr inbounds [32 x i8], ptr %5, i64 %968
   %970 = load ptr, ptr %969, align 16, !tbaa !49
   %971 = getelementptr inbounds nuw i8, ptr %969, i64 8
   %972 = load ptr, ptr %971, align 8, !tbaa !53
@@ -2177,7 +2177,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %8
 979:                                              ; preds = %._crit_edge.i.i305
   %980 = add nsw i32 %.0445.ph.i.i, -1
   %981 = sext i32 %980 to i64
-  %982 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %981
+  %982 = getelementptr inbounds [32 x i8], ptr %5, i64 %981
   %983 = getelementptr inbounds nuw i8, ptr %982, i64 8
   %984 = load ptr, ptr %983, align 8, !tbaa !53
   %985 = getelementptr inbounds nuw i8, ptr %982, i64 16
@@ -2211,7 +2211,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %8
 
 1004:                                             ; preds = %.lr.ph.i.i.i309
   %1005 = zext nneg i32 %1002 to i64
-  %1006 = getelementptr inbounds nuw i32, ptr %74, i64 %1005
+  %1006 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %1005
   %1007 = load i32, ptr %1006, align 4, !tbaa !3
   %1008 = icmp eq i32 %1007, %999
   br i1 %1008, label %1009, label %1015
@@ -2249,7 +2249,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %8
 
 1022:                                             ; preds = %.lr.ph45.i.i.i
   %1023 = zext nneg i32 %1020 to i64
-  %1024 = getelementptr inbounds nuw i32, ptr %74, i64 %1023
+  %1024 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %1023
   %1025 = load i32, ptr %1024, align 4, !tbaa !3
   %1026 = icmp eq i32 %1025, %999
   br i1 %1026, label %1027, label %1033
@@ -2275,7 +2275,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %8
 
 1037:                                             ; preds = %1035
   %1038 = zext nneg i32 %.0.ph.i.i to i64
-  %1039 = getelementptr inbounds nuw %struct.anon.1, ptr %5, i64 %1038
+  %1039 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %1038
   %1040 = getelementptr inbounds nuw i8, ptr %1039, i64 24
   store i32 -1, ptr %1040, align 8, !tbaa !55
   br label %1041
@@ -2312,7 +2312,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %8
 
 1055:                                             ; preds = %.lr.ph.i550.i.i
   %1056 = zext nneg i32 %1053 to i64
-  %1057 = getelementptr inbounds nuw i32, ptr %74, i64 %1056
+  %1057 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %1056
   %1058 = load i32, ptr %1057, align 4, !tbaa !3
   %1059 = icmp eq i32 %1058, %1050
   br i1 %1059, label %1060, label %1069
@@ -2321,7 +2321,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %8
   %1061 = getelementptr inbounds nuw i8, ptr %.07590.i.i.i, i64 4
   store i32 %1053, ptr %1061, align 4, !tbaa !3
   %1062 = sext i32 %1052 to i64
-  %1063 = getelementptr inbounds i32, ptr %74, i64 %1062
+  %1063 = getelementptr inbounds [4 x i8], ptr %74, i64 %1062
   %1064 = load i32, ptr %1063, align 4, !tbaa !3
   %.not88.i.i.i = icmp eq i32 %.06492.i.i.i, %1064
   %1065 = ptrtoint ptr %1061 to i64
@@ -2346,7 +2346,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %8
   %.07496.i.i.i = phi ptr [ %1081, %1080 ], [ %.075.lcssa.i.i.i, %.preheader.i.i.i ]
   %1071 = load i32, ptr %.07496.i.i.i, align 4, !tbaa !3
   %1072 = sext i32 %1071 to i64
-  %1073 = getelementptr inbounds i32, ptr %74, i64 %1072
+  %1073 = getelementptr inbounds [4 x i8], ptr %74, i64 %1072
   %1074 = load i32, ptr %1073, align 4, !tbaa !3
   %.not86.i.i.i = icmp eq i32 %.36797.i.i.i, %1074
   %1075 = ptrtoint ptr %.07496.i.i.i to i64
@@ -2385,7 +2385,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %8
 
 1087:                                             ; preds = %.lr.ph107.i.i.i
   %1088 = zext nneg i32 %1085 to i64
-  %1089 = getelementptr inbounds nuw i32, ptr %74, i64 %1088
+  %1089 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %1088
   %1090 = load i32, ptr %1089, align 4, !tbaa !3
   %1091 = icmp eq i32 %1090, %1050
   br i1 %1091, label %1092, label %1101
@@ -2394,7 +2394,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit540.i.i:           ; preds = %902, %896, %889, %8
   %1093 = getelementptr inbounds i8, ptr %.277102.i.i.i, i64 -4
   store i32 %1085, ptr %1093, align 4, !tbaa !3
   %1094 = sext i32 %1084 to i64
-  %1095 = getelementptr inbounds i32, ptr %74, i64 %1094
+  %1095 = getelementptr inbounds [4 x i8], ptr %74, i64 %1094
   %1096 = load i32, ptr %1095, align 4, !tbaa !3
   %.not85.i.i.i = icmp eq i32 %.569103.i.i.i, %1096
   %1097 = ptrtoint ptr %1093 to i64
@@ -2419,7 +2419,7 @@ _ZN11duckdb_zstdL7tr_copyEPiPKiS0_S0_S0_S0_i.exit.i.i: ; preds = %1101, %1033, %
 1104:                                             ; preds = %_ZN11duckdb_zstdL7tr_copyEPiPKiS0_S0_S0_S0_i.exit.i.i
   %1105 = add nsw i32 %.0445.ph.i.i, -2
   %1106 = sext i32 %1105 to i64
-  %1107 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1106
+  %1107 = getelementptr inbounds [32 x i8], ptr %5, i64 %1106
   %1108 = load ptr, ptr %1107, align 16, !tbaa !49
   %1109 = getelementptr inbounds nuw i8, ptr %1107, i64 8
   %1110 = load ptr, ptr %1109, align 8, !tbaa !53
@@ -2444,7 +2444,7 @@ _ZN11duckdb_zstdL7tr_copyEPiPKiS0_S0_S0_S0_i.exit.i.i: ; preds = %1101, %1033, %
   %1123 = lshr exact i64 %1122, 2
   %1124 = trunc i64 %1123 to i32
   %1125 = zext nneg i32 %1119 to i64
-  %1126 = getelementptr inbounds nuw i32, ptr %74, i64 %1125
+  %1126 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %1125
   store i32 %1124, ptr %1126, align 4, !tbaa !3
   %1127 = getelementptr inbounds nuw i8, ptr %1120, i64 4
   %1128 = icmp ult ptr %1127, %.0463.ph.i.i
@@ -2476,9 +2476,9 @@ _ZN11duckdb_zstdL7tr_copyEPiPKiS0_S0_S0_S0_i.exit.i.i: ; preds = %1101, %1033, %
 
 1141:                                             ; preds = %1134
   %1142 = zext nneg i32 %1139 to i64
-  %1143 = getelementptr inbounds nuw i32, ptr %74, i64 %1142
+  %1143 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %1142
   %1144 = load i32, ptr %1143, align 4, !tbaa !3
-  %1145 = getelementptr inbounds nuw i32, ptr %.0452.ph.i.i, i64 %1142
+  %1145 = getelementptr inbounds nuw [4 x i8], ptr %.0452.ph.i.i, i64 %1142
   %1146 = load i32, ptr %1145, align 4, !tbaa !3
   %.not517.i.i = icmp eq i32 %1144, %1146
   br i1 %.not517.i.i, label %_ZN11duckdb_zstdL6tr_ilgEi.exit556.i.i, label %1147
@@ -2500,7 +2500,7 @@ _ZN11duckdb_zstdL7tr_copyEPiPKiS0_S0_S0_S0_i.exit.i.i: ; preds = %1101, %1033, %
 1155:                                             ; preds = %1154
   %1156 = lshr i32 %1153, 24
   %1157 = zext nneg i32 %1156 to i64
-  %1158 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1157
+  %1158 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1157
   %1159 = load i32, ptr %1158, align 4, !tbaa !3
   %1160 = add nsw i32 %1159, 24
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit556.i.i
@@ -2508,7 +2508,7 @@ _ZN11duckdb_zstdL7tr_copyEPiPKiS0_S0_S0_S0_i.exit.i.i: ; preds = %1101, %1033, %
 1161:                                             ; preds = %1154
   %1162 = lshr i32 %1153, 16
   %1163 = zext nneg i32 %1162 to i64
-  %1164 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1163
+  %1164 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1163
   %1165 = load i32, ptr %1164, align 4, !tbaa !3
   %1166 = add nsw i32 %1165, 16
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit556.i.i
@@ -2520,14 +2520,14 @@ _ZN11duckdb_zstdL7tr_copyEPiPKiS0_S0_S0_S0_i.exit.i.i: ; preds = %1101, %1033, %
 1168:                                             ; preds = %1167
   %1169 = lshr i32 %1153, 8
   %1170 = zext nneg i32 %1169 to i64
-  %1171 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1170
+  %1171 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1170
   %1172 = load i32, ptr %1171, align 4, !tbaa !3
   %1173 = add nsw i32 %1172, 8
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit556.i.i
 
 1174:                                             ; preds = %1167
   %1175 = zext nneg i32 %1153 to i64
-  %1176 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1175
+  %1176 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1175
   %1177 = load i32, ptr %1176, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit556.i.i
 
@@ -2550,7 +2550,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit556.i.i:           ; preds = %1174, %1168, %1161,
   %1188 = phi ptr [ %1192, %.lr.ph689.i.i ], [ %.2457.i.i, %1182 ]
   %1189 = load i32, ptr %1188, align 4, !tbaa !3
   %1190 = sext i32 %1189 to i64
-  %1191 = getelementptr inbounds i32, ptr %74, i64 %1190
+  %1191 = getelementptr inbounds [4 x i8], ptr %74, i64 %1190
   store i32 %1186, ptr %1191, align 4, !tbaa !3
   %1192 = getelementptr inbounds nuw i8, ptr %1188, i64 4
   %1193 = icmp ult ptr %1192, %1179
@@ -2584,7 +2584,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit556._crit_edge.i.i: ; preds = %.lr.ph689.i.i, %11
 
 1206:                                             ; preds = %1203
   %1207 = sext i32 %.0445.ph.i.i to i64
-  %1208 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1207
+  %1208 = getelementptr inbounds [32 x i8], ptr %5, i64 %1207
   store ptr %.0452.ph.i.i, ptr %1208, align 16, !tbaa !49
   %1209 = getelementptr inbounds nuw i8, ptr %1208, i64 8
   store ptr %1179, ptr %1209, align 8, !tbaa !53
@@ -2595,17 +2595,17 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit556._crit_edge.i.i: ; preds = %.lr.ph689.i.i, %11
   %1212 = add nsw i32 %.0445.ph.i.i, 1
   %1213 = getelementptr inbounds nuw i8, ptr %1208, i64 28
   store i32 %.0.ph.i.i, ptr %1213, align 4, !tbaa !56
-  %1214 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %480
+  %1214 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %480
   br label %.outer.i.i.backedge
 
 1215:                                             ; preds = %1203
   %1216 = icmp sgt i64 %1205, 4
-  %1217 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %480
+  %1217 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %480
   br i1 %1216, label %1218, label %.outer.i.i.backedge
 
 1218:                                             ; preds = %1215
   %1219 = sext i32 %.0445.ph.i.i to i64
-  %1220 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1219
+  %1220 = getelementptr inbounds [32 x i8], ptr %5, i64 %1219
   store ptr %1217, ptr %1220, align 16, !tbaa !49
   %1221 = getelementptr inbounds nuw i8, ptr %1220, i64 8
   store ptr %.2457.i.i, ptr %1221, align 8, !tbaa !53
@@ -2625,7 +2625,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit556._crit_edge.i.i: ; preds = %.lr.ph689.i.i, %11
 
 1229:                                             ; preds = %1226
   %1230 = zext nneg i32 %.0.ph.i.i to i64
-  %1231 = getelementptr inbounds nuw %struct.anon.1, ptr %5, i64 %1230
+  %1231 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %1230
   %1232 = getelementptr inbounds nuw i8, ptr %1231, i64 24
   store i32 -1, ptr %1232, align 8, !tbaa !55
   br label %1233
@@ -2643,7 +2643,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit556._crit_edge.i.i: ; preds = %.lr.ph689.i.i, %11
 1239:                                             ; preds = %1237
   %1240 = add nsw i32 %.0445.ph.i.i, -1
   %1241 = sext i32 %1240 to i64
-  %1242 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1241
+  %1242 = getelementptr inbounds [32 x i8], ptr %5, i64 %1241
   %1243 = load ptr, ptr %1242, align 16, !tbaa !49
   %1244 = getelementptr inbounds nuw i8, ptr %1242, i64 8
   %1245 = load ptr, ptr %1244, align 8, !tbaa !53
@@ -2662,7 +2662,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit556._crit_edge.i.i: ; preds = %.lr.ph689.i.i, %11
 1254:                                             ; preds = %1252
   %1255 = add nsw i32 %.0445.ph.i.i, -1
   %1256 = sext i32 %1255 to i64
-  %1257 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1256
+  %1257 = getelementptr inbounds [32 x i8], ptr %5, i64 %1256
   %1258 = load ptr, ptr %1257, align 16, !tbaa !49
   %1259 = getelementptr inbounds nuw i8, ptr %1257, i64 8
   %1260 = load ptr, ptr %1259, align 8, !tbaa !53
@@ -2680,11 +2680,11 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit556._crit_edge.i.i: ; preds = %.lr.ph689.i.i, %11
 1267:                                             ; preds = %.lr.ph650.i.i
   %1268 = load i32, ptr %544, align 4, !tbaa !3
   %1269 = sext i32 %1268 to i64
-  %1270 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1269
+  %1270 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1269
   %1271 = load i32, ptr %1270, align 4, !tbaa !3
   %1272 = load i32, ptr %546, align 4, !tbaa !3
   %1273 = sext i32 %1272 to i64
-  %1274 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1273
+  %1274 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1273
   %1275 = load i32, ptr %1274, align 4, !tbaa !3
   %1276 = icmp slt i32 %1271, %1275
   br i1 %1276, label %1277, label %._crit_edge72.i.i.i
@@ -2708,10 +2708,10 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit556._crit_edge.i.i: ; preds = %.lr.ph689.i.i, %11
 .lr.ph.i568.i.i:                                  ; preds = %_ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %1280, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit.i.i.i ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
-  %1282 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %indvars.iv.next.i.i.i
+  %1282 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %indvars.iv.next.i.i.i
   %1283 = load i32, ptr %1282, align 4, !tbaa !3
   %1284 = sext i32 %1283 to i64
-  %1285 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1284
+  %1285 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1284
   %1286 = load i32, ptr %1285, align 4, !tbaa !3
   %1287 = shl nuw nsw i64 %indvars.iv.next.i.i.i, 1
   %1288 = or disjoint i64 %1287, 1
@@ -2730,16 +2730,16 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit556._crit_edge.i.i: ; preds = %.lr.ph689.i.i, %11
   %.030.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %1308 ], [ %1290, %.lr.ph.i.preheader.i.i.i ]
   %1295 = add nuw nsw i32 %1294, 2
   %1296 = zext nneg i32 %1293 to i64
-  %1297 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %1296
+  %1297 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %1296
   %1298 = load i32, ptr %1297, align 4, !tbaa !3
   %1299 = sext i32 %1298 to i64
-  %1300 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1299
+  %1300 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1299
   %1301 = load i32, ptr %1300, align 4, !tbaa !3
   %1302 = zext nneg i32 %1295 to i64
-  %1303 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %1302
+  %1303 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %1302
   %1304 = load i32, ptr %1303, align 4, !tbaa !3
   %1305 = sext i32 %1304 to i64
-  %1306 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1305
+  %1306 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1305
   %1307 = load i32, ptr %1306, align 4, !tbaa !3
   %spec.select29.i.i.i.i = tail call i32 @llvm.smax.i32(i32 %1301, i32 %1307)
   %.not.i.i.i.i = icmp sgt i32 %spec.select29.i.i.i.i, %1286
@@ -2749,10 +2749,10 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit556._crit_edge.i.i: ; preds = %.lr.ph689.i.i, %11
   %1309 = icmp slt i32 %1301, %1307
   %spec.select.i.i.i.i = select i1 %1309, i32 %1295, i32 %1293
   %1310 = zext nneg i32 %spec.select.i.i.i.i to i64
-  %1311 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %1310
+  %1311 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %1310
   %1312 = load i32, ptr %1311, align 4, !tbaa !3
   %1313 = zext nneg i32 %.030.i.i.i.i to i64
-  %1314 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %1313
+  %1314 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %1313
   store i32 %1312, ptr %1314, align 4, !tbaa !3
   %1315 = shl nuw nsw i32 %spec.select.i.i.i.i, 1
   %1316 = or disjoint i32 %1315, 1
@@ -2762,7 +2762,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit556._crit_edge.i.i: ; preds = %.lr.ph689.i.i, %11
 _ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit.i.i.i: ; preds = %1308, %.lr.ph.i.i.i.i304, %.lr.ph.i568.i.i
   %.0.lcssa.i.i.i.i = phi i32 [ %1290, %.lr.ph.i568.i.i ], [ %.030.i.i.i.i, %.lr.ph.i.i.i.i304 ], [ %spec.select.i.i.i.i, %1308 ]
   %1318 = zext nneg i32 %.0.lcssa.i.i.i.i to i64
-  %1319 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %1318
+  %1319 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %1318
   store i32 %1283, ptr %1319, align 4, !tbaa !3
   %1320 = icmp sgt i64 %indvars.iv.i.i.i, 1
   br i1 %1320, label %.lr.ph.i568.i.i, label %._crit_edge.i566.i.i, !llvm.loop !66
@@ -2773,13 +2773,13 @@ _ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit.i.i.i: ; preds = %1308, %.lr.ph.i.i.i
 1321:                                             ; preds = %._crit_edge.i566.i.i
   %1322 = load i32, ptr %.0455.ph.i.i, align 4, !tbaa !3
   %1323 = sext i32 %.0.i565.i.i to i64
-  %1324 = getelementptr inbounds i32, ptr %.0455.ph.i.i, i64 %1323
+  %1324 = getelementptr inbounds [4 x i8], ptr %.0455.ph.i.i, i64 %1323
   %1325 = load i32, ptr %1324, align 4, !tbaa !3
   store i32 %1325, ptr %.0455.ph.i.i, align 4, !tbaa !3
   store i32 %1322, ptr %1324, align 4, !tbaa !3
   %1326 = load i32, ptr %.0455.ph.i.i, align 4, !tbaa !3
   %1327 = sext i32 %1326 to i64
-  %1328 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1327
+  %1328 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1327
   %1329 = load i32, ptr %1328, align 4, !tbaa !3
   br i1 %1278, label %.lr.ph.i50.i.i.i, label %_ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit55.i.i.i
 
@@ -2789,16 +2789,16 @@ _ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit.i.i.i: ; preds = %1308, %.lr.ph.i.i.i
   %.030.i51.i.i.i = phi i32 [ %spec.select.i54.i.i.i, %1345 ], [ 0, %1321 ]
   %1332 = add nuw nsw i32 %1331, 2
   %1333 = zext nneg i32 %1330 to i64
-  %1334 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %1333
+  %1334 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %1333
   %1335 = load i32, ptr %1334, align 4, !tbaa !3
   %1336 = sext i32 %1335 to i64
-  %1337 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1336
+  %1337 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1336
   %1338 = load i32, ptr %1337, align 4, !tbaa !3
   %1339 = zext nneg i32 %1332 to i64
-  %1340 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %1339
+  %1340 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %1339
   %1341 = load i32, ptr %1340, align 4, !tbaa !3
   %1342 = sext i32 %1341 to i64
-  %1343 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1342
+  %1343 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1342
   %1344 = load i32, ptr %1343, align 4, !tbaa !3
   %spec.select29.i52.i.i.i = tail call i32 @llvm.smax.i32(i32 %1338, i32 %1344)
   %.not.i53.i.i.i = icmp sgt i32 %spec.select29.i52.i.i.i, %1329
@@ -2812,10 +2812,10 @@ _ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit.i.i.i: ; preds = %1308, %.lr.ph.i.i.i
   %1346 = icmp slt i32 %1338, %1344
   %spec.select.i54.i.i.i = select i1 %1346, i32 %1332, i32 %1330
   %1347 = zext nneg i32 %spec.select.i54.i.i.i to i64
-  %1348 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %1347
+  %1348 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %1347
   %1349 = load i32, ptr %1348, align 4, !tbaa !3
   %1350 = zext nneg i32 %.030.i51.i.i.i to i64
-  %1351 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %1350
+  %1351 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %1350
   store i32 %1349, ptr %1351, align 4, !tbaa !3
   %1352 = shl nuw nsw i32 %spec.select.i54.i.i.i, 1
   %1353 = or disjoint i32 %1352, 1
@@ -2824,7 +2824,7 @@ _ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit.i.i.i: ; preds = %1308, %.lr.ph.i.i.i
 
 _ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit55.i.i.i: ; preds = %1345, %.lr.ph.i50.i._ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit55.loopexit.i_crit_edge.i.i, %1321
   %.0.lcssa.i49.i.i.i = phi i64 [ 0, %1321 ], [ %.pre713.i.i, %.lr.ph.i50.i._ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit55.loopexit.i_crit_edge.i.i ], [ %1347, %1345 ]
-  %1355 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %.0.lcssa.i49.i.i.i
+  %1355 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %.0.lcssa.i49.i.i.i
   store i32 %1326, ptr %1355, align 4, !tbaa !3
   br label %1356
 
@@ -2835,7 +2835,7 @@ _ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit55.i.i.i: ; preds = %1345, %.lr.ph.i50
   %1357 = zext nneg i32 %.0.i565.i.i to i64
   %indvars.iv.next70.i621.i.i = add nsw i64 %1357, -1
   %1358 = load i32, ptr %.0455.ph.i.i, align 4, !tbaa !3
-  %1359 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %indvars.iv.next70.i621.i.i
+  %1359 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %indvars.iv.next70.i621.i.i
   %1360 = load i32, ptr %1359, align 4, !tbaa !3
   store i32 %1360, ptr %.0455.ph.i.i, align 4, !tbaa !3
   %.not.i567622.i.i = icmp eq i32 %.0.i565.i.i, 2
@@ -2847,7 +2847,7 @@ _ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit55.i.i.i: ; preds = %1345, %.lr.ph.i50
   %1363 = phi i32 [ %1392, %_ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit62.i.i.i ], [ %1358, %.lr.ph66.preheader.i.i.i ]
   %indvars.iv.next70.i623.i.i = phi i64 [ %indvars.iv.next70.i.i.i, %_ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit62.i.i.i ], [ %indvars.iv.next70.i621.i.i, %.lr.ph66.preheader.i.i.i ]
   %.pn.i.i303 = sext i32 %1361 to i64
-  %.in.i.i = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %.pn.i.i303
+  %.in.i.i = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %.pn.i.i303
   %1364 = load i32, ptr %.in.i.i, align 4, !tbaa !3
   br label %.lr.ph.i57.i.i.i
 
@@ -2863,16 +2863,16 @@ _ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit62.thread.i.i.i: ; preds = %_ZN11duckd
   %.030.i58.i.i.i = phi i32 [ %spec.select.i61.i.i.i, %1380 ], [ 0, %.lr.ph.i57.i.preheader.i.i ]
   %1367 = add nuw nsw i32 %1366, 2
   %1368 = zext nneg i32 %1365 to i64
-  %1369 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %1368
+  %1369 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %1368
   %1370 = load i32, ptr %1369, align 4, !tbaa !3
   %1371 = sext i32 %1370 to i64
-  %1372 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1371
+  %1372 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1371
   %1373 = load i32, ptr %1372, align 4, !tbaa !3
   %1374 = zext nneg i32 %1367 to i64
-  %1375 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %1374
+  %1375 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %1374
   %1376 = load i32, ptr %1375, align 4, !tbaa !3
   %1377 = sext i32 %1376 to i64
-  %1378 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1377
+  %1378 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1377
   %1379 = load i32, ptr %1378, align 4, !tbaa !3
   %spec.select29.i59.i.i.i = tail call i32 @llvm.smax.i32(i32 %1373, i32 %1379)
   %.not.i60.i.i.i = icmp sgt i32 %spec.select29.i59.i.i.i, %1364
@@ -2886,10 +2886,10 @@ _ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit62.thread.i.i.i: ; preds = %_ZN11duckd
   %1381 = icmp slt i32 %1373, %1379
   %spec.select.i61.i.i.i = select i1 %1381, i32 %1367, i32 %1365
   %1382 = zext nneg i32 %spec.select.i61.i.i.i to i64
-  %1383 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %1382
+  %1383 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %1382
   %1384 = load i32, ptr %1383, align 4, !tbaa !3
   %1385 = zext nneg i32 %.030.i58.i.i.i to i64
-  %1386 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %1385
+  %1386 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %1385
   store i32 %1384, ptr %1386, align 4, !tbaa !3
   %1387 = shl nuw nsw i32 %spec.select.i61.i.i.i, 1
   %1388 = or disjoint i32 %1387, 1
@@ -2899,12 +2899,12 @@ _ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit62.thread.i.i.i: ; preds = %_ZN11duckd
 
 _ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit62.i.i.i: ; preds = %1380, %.lr.ph.i57.i._ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit62.i_crit_edge.i.i
   %.pre-phi716.i.i = phi i64 [ %.pre715.i.i, %.lr.ph.i57.i._ZN11duckdb_zstdL10tr_fixdownEPKiPiii.exit62.i_crit_edge.i.i ], [ %1382, %1380 ]
-  %1391 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %.pre-phi716.i.i
+  %1391 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %.pre-phi716.i.i
   store i32 %1361, ptr %1391, align 4, !tbaa !3
   store i32 %1363, ptr %1362, align 4, !tbaa !3
   %indvars.iv.next70.i.i.i = add nsw i64 %indvars.iv.next70.i623.i.i, -1
   %1392 = load i32, ptr %.0455.ph.i.i, align 4, !tbaa !3
-  %1393 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %indvars.iv.next70.i.i.i
+  %1393 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %indvars.iv.next70.i.i.i
   %1394 = load i32, ptr %1393, align 4, !tbaa !3
   store i32 %1394, ptr %.0455.ph.i.i, align 4, !tbaa !3
   %.not.i567.i.i = icmp eq i64 %indvars.iv.next70.i623.i.i, 2
@@ -2920,7 +2920,7 @@ _ZN11duckdb_zstdL11tr_heapsortEPKiPii.exit.i.i:   ; preds = %_ZN11duckdb_zstdL10
   %storemerge635.i.i = phi ptr [ %547, %.lr.ph636.i.i ], [ %storemerge515.lcssa625.i.i, %.critedge2.i.i ]
   %1396 = load i32, ptr %storemerge635.i.i, align 4, !tbaa !3
   %1397 = sext i32 %1396 to i64
-  %1398 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1397
+  %1398 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1397
   %1399 = load i32, ptr %1398, align 4, !tbaa !3
   %storemerge515626.i.i = getelementptr inbounds i8, ptr %storemerge635.i.i, i64 -4
   %.not516627.i.i = icmp ugt ptr %.0455.ph.i.i, %storemerge515626.i.i
@@ -2930,7 +2930,7 @@ _ZN11duckdb_zstdL11tr_heapsortEPKiPii.exit.i.i:   ; preds = %_ZN11duckdb_zstdL10
   %storemerge515628.i.i = phi ptr [ %storemerge515.i.i, %1405 ], [ %storemerge515626.i.i, %1395 ]
   %1400 = load i32, ptr %storemerge515628.i.i, align 4, !tbaa !3
   %1401 = sext i32 %1400 to i64
-  %1402 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1401
+  %1402 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1401
   %1403 = load i32, ptr %1402, align 4, !tbaa !3
   %1404 = icmp eq i32 %1403, %1399
   br i1 %1404, label %1405, label %.critedge2.i.i
@@ -2953,7 +2953,7 @@ _ZN11duckdb_zstdL11tr_heapsortEPKiPii.exit.i.i:   ; preds = %_ZN11duckdb_zstdL10
   %1411 = trunc i64 %1410 to i32
   %1412 = sdiv i32 %1411, 2
   %1413 = sext i32 %1412 to i64
-  %1414 = getelementptr inbounds i32, ptr %.0455.ph.i.i, i64 %1413
+  %1414 = getelementptr inbounds [4 x i8], ptr %.0455.ph.i.i, i64 %1413
   %1415 = icmp slt i32 %1411, 513
   br i1 %1415, label %1416, label %1503
 
@@ -2964,21 +2964,21 @@ _ZN11duckdb_zstdL11tr_heapsortEPKiPii.exit.i.i:   ; preds = %_ZN11duckdb_zstdL10
 1418:                                             ; preds = %1416
   %1419 = load i32, ptr %.0455.ph.i.i, align 4, !tbaa !3
   %1420 = sext i32 %1419 to i64
-  %1421 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1420
+  %1421 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1420
   %1422 = load i32, ptr %1421, align 4, !tbaa !3
   %1423 = load i32, ptr %1414, align 4, !tbaa !3
   %1424 = sext i32 %1423 to i64
-  %1425 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1424
+  %1425 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1424
   %1426 = load i32, ptr %1425, align 4, !tbaa !3
   %1427 = icmp sgt i32 %1422, %1426
   %1428 = select i1 %1427, i32 %1419, i32 %1423
   %spec.select.i.i570.i.i = select i1 %1427, ptr %.0455.ph.i.i, ptr %1414
   %1429 = sext i32 %1428 to i64
-  %1430 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1429
+  %1430 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1429
   %1431 = load i32, ptr %1430, align 4, !tbaa !3
   %1432 = load i32, ptr %547, align 4, !tbaa !3
   %1433 = sext i32 %1432 to i64
-  %1434 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1433
+  %1434 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1433
   %1435 = load i32, ptr %1434, align 4, !tbaa !3
   %1436 = icmp sgt i32 %1431, %1435
   br i1 %1436, label %1437, label %_ZN11duckdb_zstdL8tr_pivotEPKiPiS2_.exit.i.i
@@ -2987,7 +2987,7 @@ _ZN11duckdb_zstdL11tr_heapsortEPKiPii.exit.i.i:   ; preds = %_ZN11duckdb_zstdL10
   %1438 = select i1 %1427, i32 %1423, i32 %1419
   %spec.select22.i.i.i.i = select i1 %1427, ptr %1414, ptr %.0455.ph.i.i
   %1439 = sext i32 %1438 to i64
-  %1440 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1439
+  %1440 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1439
   %1441 = load i32, ptr %1440, align 4, !tbaa !3
   %1442 = icmp sgt i32 %1441, %1435
   %spec.select22..i.i.i.i = select i1 %1442, ptr %spec.select22.i.i.i.i, ptr %547
@@ -2996,16 +2996,16 @@ _ZN11duckdb_zstdL11tr_heapsortEPKiPii.exit.i.i:   ; preds = %_ZN11duckdb_zstdL10
 1443:                                             ; preds = %1416
   %1444 = lshr i64 %535, 4
   %1445 = and i64 %1444, 1073741823
-  %1446 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %1445
+  %1446 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %1445
   %1447 = sub nsw i64 0, %1445
-  %1448 = getelementptr inbounds i32, ptr %547, i64 %1447
+  %1448 = getelementptr inbounds [4 x i8], ptr %547, i64 %1447
   %1449 = load i32, ptr %1446, align 4, !tbaa !3
   %1450 = sext i32 %1449 to i64
-  %1451 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1450
+  %1451 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1450
   %1452 = load i32, ptr %1451, align 4, !tbaa !3
   %1453 = load i32, ptr %1414, align 4, !tbaa !3
   %1454 = sext i32 %1453 to i64
-  %1455 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1454
+  %1455 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1454
   %1456 = load i32, ptr %1455, align 4, !tbaa !3
   %1457 = icmp sgt i32 %1452, %1456
   %1458 = select i1 %1457, i32 %1453, i32 %1449
@@ -3013,21 +3013,21 @@ _ZN11duckdb_zstdL11tr_heapsortEPKiPii.exit.i.i:   ; preds = %_ZN11duckdb_zstdL10
   %spec.select56.i.i.i.i = select i1 %1457, ptr %1446, ptr %1414
   %1459 = load i32, ptr %1448, align 4, !tbaa !3
   %1460 = sext i32 %1459 to i64
-  %1461 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1460
+  %1461 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1460
   %1462 = load i32, ptr %1461, align 4, !tbaa !3
   %1463 = load i32, ptr %547, align 4, !tbaa !3
   %1464 = sext i32 %1463 to i64
-  %1465 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1464
+  %1465 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1464
   %1466 = load i32, ptr %1465, align 4, !tbaa !3
   %1467 = icmp sgt i32 %1462, %1466
   %1468 = select i1 %1467, i32 %1463, i32 %1459
   %.048.i.i.i.i = select i1 %1467, ptr %547, ptr %1448
   %.0.i44.i.i.i = select i1 %1467, ptr %1448, ptr %547
   %1469 = sext i32 %1458 to i64
-  %1470 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1469
+  %1470 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1469
   %1471 = load i32, ptr %1470, align 4, !tbaa !3
   %1472 = sext i32 %1468 to i64
-  %1473 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1472
+  %1473 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1472
   %1474 = load i32, ptr %1473, align 4, !tbaa !3
   %1475 = icmp sgt i32 %1471, %1474
   %.151.i.i.i.i = select i1 %1475, ptr %.0.i44.i.i.i, ptr %spec.select56.i.i.i.i
@@ -3035,33 +3035,33 @@ _ZN11duckdb_zstdL11tr_heapsortEPKiPii.exit.i.i:   ; preds = %_ZN11duckdb_zstdL10
   %.1.i.i.i.i = select i1 %1475, ptr %spec.select56.i.i.i.i, ptr %.0.i44.i.i.i
   %1476 = load i32, ptr %.0455.ph.i.i, align 4, !tbaa !3
   %1477 = sext i32 %1476 to i64
-  %1478 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1477
+  %1478 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1477
   %1479 = load i32, ptr %1478, align 4, !tbaa !3
   %1480 = load i32, ptr %.151.i.i.i.i, align 4, !tbaa !3
   %1481 = sext i32 %1480 to i64
-  %1482 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1481
+  %1482 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1481
   %1483 = load i32, ptr %1482, align 4, !tbaa !3
   %1484 = icmp sgt i32 %1479, %1483
   %1485 = select i1 %1484, i32 %1480, i32 %1476
   %.054.i.i.i.i = select i1 %1484, ptr %.151.i.i.i.i, ptr %.0455.ph.i.i
   %.252.i.i.i.i = select i1 %1484, ptr %.0455.ph.i.i, ptr %.151.i.i.i.i
   %1486 = sext i32 %1485 to i64
-  %1487 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1486
+  %1487 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1486
   %1488 = load i32, ptr %1487, align 4, !tbaa !3
   %1489 = load i32, ptr %.149.i.i.i.i, align 4, !tbaa !3
   %1490 = sext i32 %1489 to i64
-  %1491 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1490
+  %1491 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1490
   %1492 = load i32, ptr %1491, align 4, !tbaa !3
   %1493 = icmp sgt i32 %1488, %1492
   %.3.i.i.i.i = select i1 %1493, ptr %.1.i.i.i.i, ptr %.252.i.i.i.i
   %.2.i.i.i.i = select i1 %1493, ptr %.054.i.i.i.i, ptr %.149.i.i.i.i
   %1494 = load i32, ptr %.3.i.i.i.i, align 4, !tbaa !3
   %1495 = sext i32 %1494 to i64
-  %1496 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1495
+  %1496 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1495
   %1497 = load i32, ptr %1496, align 4, !tbaa !3
   %1498 = load i32, ptr %.2.i.i.i.i, align 4, !tbaa !3
   %1499 = sext i32 %1498 to i64
-  %1500 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1499
+  %1500 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1499
   %1501 = load i32, ptr %1500, align 4, !tbaa !3
   %1502 = icmp sgt i32 %1497, %1501
   %.055.i.i.i.i = select i1 %1502, ptr %.2.i.i.i.i, ptr %.3.i.i.i.i
@@ -3070,27 +3070,27 @@ _ZN11duckdb_zstdL11tr_heapsortEPKiPii.exit.i.i:   ; preds = %_ZN11duckdb_zstdL10
 1503:                                             ; preds = %1408
   %1504 = lshr i32 %1411, 3
   %1505 = zext nneg i32 %1504 to i64
-  %1506 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %1505
+  %1506 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %1505
   %1507 = shl nuw nsw i32 %1504, 1
   %1508 = zext nneg i32 %1507 to i64
-  %1509 = getelementptr inbounds nuw i32, ptr %.0455.ph.i.i, i64 %1508
+  %1509 = getelementptr inbounds nuw [4 x i8], ptr %.0455.ph.i.i, i64 %1508
   %1510 = load i32, ptr %.0455.ph.i.i, align 4, !tbaa !3
   %1511 = sext i32 %1510 to i64
-  %1512 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1511
+  %1512 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1511
   %1513 = load i32, ptr %1512, align 4, !tbaa !3
   %1514 = load i32, ptr %1506, align 4, !tbaa !3
   %1515 = sext i32 %1514 to i64
-  %1516 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1515
+  %1516 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1515
   %1517 = load i32, ptr %1516, align 4, !tbaa !3
   %1518 = icmp sgt i32 %1513, %1517
   %1519 = select i1 %1518, i32 %1510, i32 %1514
   %spec.select.i45.i.i.i = select i1 %1518, ptr %.0455.ph.i.i, ptr %1506
   %1520 = sext i32 %1519 to i64
-  %1521 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1520
+  %1521 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1520
   %1522 = load i32, ptr %1521, align 4, !tbaa !3
   %1523 = load i32, ptr %1509, align 4, !tbaa !3
   %1524 = sext i32 %1523 to i64
-  %1525 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1524
+  %1525 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1524
   %1526 = load i32, ptr %1525, align 4, !tbaa !3
   %1527 = icmp sgt i32 %1522, %1526
   br i1 %1527, label %1528, label %_ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit49.i.i.i
@@ -3099,7 +3099,7 @@ _ZN11duckdb_zstdL11tr_heapsortEPKiPii.exit.i.i:   ; preds = %_ZN11duckdb_zstdL10
   %1529 = select i1 %1518, i32 %1514, i32 %1510
   %spec.select22.i47.i.i.i = select i1 %1518, ptr %1506, ptr %.0455.ph.i.i
   %1530 = sext i32 %1529 to i64
-  %1531 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1530
+  %1531 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1530
   %1532 = load i32, ptr %1531, align 4, !tbaa !3
   %1533 = icmp sgt i32 %1532, %1526
   %spec.select22..i48.i.i.i = select i1 %1533, ptr %spec.select22.i47.i.i.i, ptr %1509
@@ -3108,25 +3108,25 @@ _ZN11duckdb_zstdL11tr_heapsortEPKiPii.exit.i.i:   ; preds = %_ZN11duckdb_zstdL10
 _ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit49.i.i.i: ; preds = %1528, %1503
   %.0.i46.i.i.i = phi ptr [ %spec.select22..i48.i.i.i, %1528 ], [ %spec.select.i45.i.i.i, %1503 ]
   %1534 = sub nsw i64 0, %1505
-  %1535 = getelementptr inbounds i32, ptr %1414, i64 %1534
-  %1536 = getelementptr inbounds nuw i32, ptr %1414, i64 %1505
+  %1535 = getelementptr inbounds [4 x i8], ptr %1414, i64 %1534
+  %1536 = getelementptr inbounds nuw [4 x i8], ptr %1414, i64 %1505
   %1537 = load i32, ptr %1535, align 4, !tbaa !3
   %1538 = sext i32 %1537 to i64
-  %1539 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1538
+  %1539 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1538
   %1540 = load i32, ptr %1539, align 4, !tbaa !3
   %1541 = load i32, ptr %1414, align 4, !tbaa !3
   %1542 = sext i32 %1541 to i64
-  %1543 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1542
+  %1543 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1542
   %1544 = load i32, ptr %1543, align 4, !tbaa !3
   %1545 = icmp sgt i32 %1540, %1544
   %1546 = select i1 %1545, i32 %1537, i32 %1541
   %spec.select.i50.i.i.i = select i1 %1545, ptr %1535, ptr %1414
   %1547 = sext i32 %1546 to i64
-  %1548 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1547
+  %1548 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1547
   %1549 = load i32, ptr %1548, align 4, !tbaa !3
   %1550 = load i32, ptr %1536, align 4, !tbaa !3
   %1551 = sext i32 %1550 to i64
-  %1552 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1551
+  %1552 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1551
   %1553 = load i32, ptr %1552, align 4, !tbaa !3
   %1554 = icmp sgt i32 %1549, %1553
   br i1 %1554, label %1555, label %_ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit54.i.i.i
@@ -3135,7 +3135,7 @@ _ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit49.i.i.i: ; preds = %1528, %1503
   %1556 = select i1 %1545, i32 %1541, i32 %1537
   %spec.select22.i52.i.i.i = select i1 %1545, ptr %1414, ptr %1535
   %1557 = sext i32 %1556 to i64
-  %1558 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1557
+  %1558 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1557
   %1559 = load i32, ptr %1558, align 4, !tbaa !3
   %1560 = icmp sgt i32 %1559, %1553
   %spec.select22..i53.i.i.i = select i1 %1560, ptr %spec.select22.i52.i.i.i, ptr %1536
@@ -3144,25 +3144,25 @@ _ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit49.i.i.i: ; preds = %1528, %1503
 _ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit54.i.i.i: ; preds = %1555, %_ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit49.i.i.i
   %.0.i51.i.i.i = phi ptr [ %spec.select22..i53.i.i.i, %1555 ], [ %spec.select.i50.i.i.i, %_ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit49.i.i.i ]
   %1561 = sub nsw i64 0, %1508
-  %1562 = getelementptr inbounds i32, ptr %547, i64 %1561
-  %1563 = getelementptr inbounds i32, ptr %547, i64 %1534
+  %1562 = getelementptr inbounds [4 x i8], ptr %547, i64 %1561
+  %1563 = getelementptr inbounds [4 x i8], ptr %547, i64 %1534
   %1564 = load i32, ptr %1562, align 4, !tbaa !3
   %1565 = sext i32 %1564 to i64
-  %1566 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1565
+  %1566 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1565
   %1567 = load i32, ptr %1566, align 4, !tbaa !3
   %1568 = load i32, ptr %1563, align 4, !tbaa !3
   %1569 = sext i32 %1568 to i64
-  %1570 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1569
+  %1570 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1569
   %1571 = load i32, ptr %1570, align 4, !tbaa !3
   %1572 = icmp sgt i32 %1567, %1571
   %1573 = select i1 %1572, i32 %1564, i32 %1568
   %spec.select.i55.i.i.i = select i1 %1572, ptr %1562, ptr %1563
   %1574 = sext i32 %1573 to i64
-  %1575 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1574
+  %1575 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1574
   %1576 = load i32, ptr %1575, align 4, !tbaa !3
   %1577 = load i32, ptr %547, align 4, !tbaa !3
   %1578 = sext i32 %1577 to i64
-  %1579 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1578
+  %1579 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1578
   %1580 = load i32, ptr %1579, align 4, !tbaa !3
   %1581 = icmp sgt i32 %1576, %1580
   br i1 %1581, label %1582, label %_ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit59.i.i.i
@@ -3171,13 +3171,13 @@ _ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit54.i.i.i: ; preds = %1555, %_ZN11d
   %1583 = select i1 %1572, i32 %1568, i32 %1564
   %spec.select22.i57.i.i.i = select i1 %1572, ptr %1563, ptr %1562
   %1584 = sext i32 %1583 to i64
-  %1585 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1584
+  %1585 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1584
   %1586 = load i32, ptr %1585, align 4, !tbaa !3
   %1587 = icmp sgt i32 %1586, %1580
   %spec.select22..i58.i.i.i = select i1 %1587, ptr %spec.select22.i57.i.i.i, ptr %547
   %.pre.i.i.i = load i32, ptr %spec.select22..i58.i.i.i, align 4, !tbaa !3
   %.pre65.i.i.i = sext i32 %.pre.i.i.i to i64
-  %.phi.trans.insert.i.i.i = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %.pre65.i.i.i
+  %.phi.trans.insert.i.i.i = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %.pre65.i.i.i
   %.pre66.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit59.i.i.i
 
@@ -3186,17 +3186,17 @@ _ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit59.i.i.i: ; preds = %1582, %_ZN11d
   %.0.i56.i.i.i = phi ptr [ %spec.select.i55.i.i.i, %_ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit54.i.i.i ], [ %spec.select22..i58.i.i.i, %1582 ]
   %1589 = load i32, ptr %.0.i46.i.i.i, align 4, !tbaa !3
   %1590 = sext i32 %1589 to i64
-  %1591 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1590
+  %1591 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1590
   %1592 = load i32, ptr %1591, align 4, !tbaa !3
   %1593 = load i32, ptr %.0.i51.i.i.i, align 4, !tbaa !3
   %1594 = sext i32 %1593 to i64
-  %1595 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1594
+  %1595 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1594
   %1596 = load i32, ptr %1595, align 4, !tbaa !3
   %1597 = icmp sgt i32 %1592, %1596
   %1598 = select i1 %1597, i32 %1589, i32 %1593
   %spec.select.i60.i.i.i = select i1 %1597, ptr %.0.i46.i.i.i, ptr %.0.i51.i.i.i
   %1599 = sext i32 %1598 to i64
-  %1600 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1599
+  %1600 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1599
   %1601 = load i32, ptr %1600, align 4, !tbaa !3
   %1602 = icmp sgt i32 %1601, %1588
   br i1 %1602, label %1603, label %_ZN11duckdb_zstdL8tr_pivotEPKiPiS2_.exit.i.i
@@ -3205,7 +3205,7 @@ _ZN11duckdb_zstdL10tr_median3EPKiPiS2_S2_.exit59.i.i.i: ; preds = %1582, %_ZN11d
   %1604 = select i1 %1597, i32 %1593, i32 %1589
   %spec.select22.i62.i.i.i = select i1 %1597, ptr %.0.i51.i.i.i, ptr %.0.i46.i.i.i
   %1605 = sext i32 %1604 to i64
-  %1606 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1605
+  %1606 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1605
   %1607 = load i32, ptr %1606, align 4, !tbaa !3
   %1608 = icmp sgt i32 %1607, %1588
   %spec.select22..i63.i.i.i = select i1 %1608, ptr %spec.select22.i62.i.i.i, ptr %.0.i56.i.i.i
@@ -3219,7 +3219,7 @@ _ZN11duckdb_zstdL8tr_pivotEPKiPiS2_.exit.i.i:     ; preds = %1603, %_ZN11duckdb_
   store i32 %1609, ptr %.0.i569.i.i, align 4, !tbaa !3
   %1611 = load i32, ptr %.0455.ph.i.i, align 4, !tbaa !3
   %1612 = sext i32 %1611 to i64
-  %1613 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1612
+  %1613 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1612
   %1614 = load i32, ptr %1613, align 4, !tbaa !3
   br label %1615
 
@@ -3232,7 +3232,7 @@ _ZN11duckdb_zstdL8tr_pivotEPKiPiS2_.exit.i.i:     ; preds = %1603, %_ZN11duckdb_
 1618:                                             ; preds = %1615
   %1619 = load i32, ptr %1616, align 4, !tbaa !3
   %1620 = sext i32 %1619 to i64
-  %1621 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1620
+  %1621 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1620
   %1622 = load i32, ptr %1621, align 4, !tbaa !3
   %1623 = icmp eq i32 %1622, %1614
   br i1 %1623, label %1615, label %.critedge.i58.i, !llvm.loop !38
@@ -3251,7 +3251,7 @@ _ZN11duckdb_zstdL8tr_pivotEPKiPiS2_.exit.i.i:     ; preds = %1603, %_ZN11duckdb_
   %.1160217.i.i = phi ptr [ %.2161.i.i, %1637 ], [ %1616, %.preheader206.i.i ]
   %1628 = load i32, ptr %1627, align 4, !tbaa !3
   %1629 = sext i32 %1628 to i64
-  %1630 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1629
+  %1630 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1629
   %1631 = load i32, ptr %1630, align 4, !tbaa !3
   %.not.i60.i = icmp sgt i32 %1631, %1614
   br i1 %.not.i60.i, label %.critedge2.i55.i, label %1632
@@ -3287,7 +3287,7 @@ _ZN11duckdb_zstdL8tr_pivotEPKiPiS2_.exit.i.i:     ; preds = %1603, %_ZN11duckdb_
 1643:                                             ; preds = %1640
   %1644 = load i32, ptr %1641, align 4, !tbaa !3
   %1645 = sext i32 %1644 to i64
-  %1646 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1645
+  %1646 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1645
   %1647 = load i32, ptr %1646, align 4, !tbaa !3
   %1648 = icmp eq i32 %1647, %1614
   br i1 %1648, label %1640, label %.critedge4.i.i, !llvm.loop !40
@@ -3306,7 +3306,7 @@ _ZN11duckdb_zstdL8tr_pivotEPKiPiS2_.exit.i.i:     ; preds = %1603, %_ZN11duckdb_
   %.1144222.i.i = phi ptr [ %.2145.i.i, %1662 ], [ %1641, %.preheader.i.i298 ]
   %1653 = load i32, ptr %1652, align 4, !tbaa !3
   %1654 = sext i32 %1653 to i64
-  %1655 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1654
+  %1655 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1654
   %1656 = load i32, ptr %1655, align 4, !tbaa !3
   %.not197.i.i = icmp slt i32 %1656, %1614
   br i1 %.not197.i.i, label %.critedge6.i.i, label %1657
@@ -3352,7 +3352,7 @@ _ZN11duckdb_zstdL8tr_pivotEPKiPiS2_.exit.i.i:     ; preds = %1603, %_ZN11duckdb_
   %.4163229.i.i = phi ptr [ %.5164.i.i, %1680 ], [ %.3162243.i.i, %.lr.ph247.i.i ]
   %1671 = load i32, ptr %1670, align 4, !tbaa !3
   %1672 = sext i32 %1671 to i64
-  %1673 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1672
+  %1673 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1672
   %1674 = load i32, ptr %1673, align 4, !tbaa !3
   %.not199.i.i = icmp sgt i32 %1674, %1614
   br i1 %.not199.i.i, label %.critedge8.i.i, label %1675
@@ -3386,7 +3386,7 @@ _ZN11duckdb_zstdL8tr_pivotEPKiPiS2_.exit.i.i:     ; preds = %1603, %_ZN11duckdb_
   %.4147236.i.i = phi ptr [ %.5148.i.i, %1695 ], [ %.3146246.i.i, %.critedge8.i.i ]
   %1686 = load i32, ptr %1685, align 4, !tbaa !3
   %1687 = sext i32 %1686 to i64
-  %1688 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %1687
+  %1688 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %1687
   %1689 = load i32, ptr %1688, align 4, !tbaa !3
   %.not200.i.i = icmp slt i32 %1689, %1614
   br i1 %.not200.i.i, label %.critedge10.i.i, label %1690
@@ -3438,7 +3438,7 @@ _ZN11duckdb_zstdL8tr_pivotEPKiPiS2_.exit.i.i:     ; preds = %1603, %_ZN11duckdb_
 .lr.ph255.preheader.i.i:                          ; preds = %1699
   %1710 = zext nneg i32 %spec.select.i.i to i64
   %1711 = sub nsw i64 0, %1710
-  %1712 = getelementptr inbounds i32, ptr %.3157.lcssa.i.i, i64 %1711
+  %1712 = getelementptr inbounds [4 x i8], ptr %.3157.lcssa.i.i, i64 %1711
   br label %.lr.ph255.i.i
 
 .lr.ph255.i.i:                                    ; preds = %.lr.ph255.i.i, %.lr.ph255.preheader.i.i
@@ -3472,7 +3472,7 @@ _ZN11duckdb_zstdL8tr_pivotEPKiPiS2_.exit.i.i:     ; preds = %1603, %_ZN11duckdb_
 .lr.ph261.preheader.i.i:                          ; preds = %._crit_edge256.i.i
   %1729 = zext nneg i32 %spec.select202.i.i to i64
   %1730 = sub nsw i64 0, %1729
-  %1731 = getelementptr inbounds i32, ptr %.0463.ph.i.i, i64 %1730
+  %1731 = getelementptr inbounds [4 x i8], ptr %.0463.ph.i.i, i64 %1730
   br label %.lr.ph261.i.i
 
 .lr.ph261.i.i:                                    ; preds = %.lr.ph261.i.i, %.lr.ph261.preheader.i.i
@@ -3503,7 +3503,7 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit.i: ; preds = %.lr.ph261
 1740:                                             ; preds = %_ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit.i
   %1741 = load i32, ptr %1738, align 4, !tbaa !3
   %1742 = sext i32 %1741 to i64
-  %1743 = getelementptr inbounds i32, ptr %74, i64 %1742
+  %1743 = getelementptr inbounds [4 x i8], ptr %74, i64 %1742
   %1744 = load i32, ptr %1743, align 4, !tbaa !3
   %.not495.i.i = icmp eq i32 %1744, %1614
   br i1 %.not495.i.i, label %_ZN11duckdb_zstdL6tr_ilgEi.exit574.i.i, label %1745
@@ -3520,7 +3520,7 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit.i: ; preds = %.lr.ph261
 1748:                                             ; preds = %1747
   %1749 = lshr i64 %.pre267.i, 24
   %1750 = and i64 %1749, 255
-  %1751 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1750
+  %1751 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1750
   %1752 = load i32, ptr %1751, align 4, !tbaa !3
   %1753 = add nsw i32 %1752, 24
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit574.i.i
@@ -3528,7 +3528,7 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit.i: ; preds = %.lr.ph261
 1754:                                             ; preds = %1747
   %1755 = lshr i64 %.pre267.i, 16
   %1756 = and i64 %1755, 255
-  %1757 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1756
+  %1757 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1756
   %1758 = load i32, ptr %1757, align 4, !tbaa !3
   %1759 = add nsw i32 %1758, 16
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit574.i.i
@@ -3540,14 +3540,14 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit.i: ; preds = %.lr.ph261
 1761:                                             ; preds = %1760
   %1762 = lshr i64 %.pre267.i, 8
   %1763 = and i64 %1762, 255
-  %1764 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1763
+  %1764 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1763
   %1765 = load i32, ptr %1764, align 4, !tbaa !3
   %1766 = add nsw i32 %1765, 8
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit574.i.i
 
 1767:                                             ; preds = %1760
   %1768 = and i64 %.pre267.i, 255
-  %1769 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1768
+  %1769 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1768
   %1770 = load i32, ptr %1769, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit574.i.i
 
@@ -3564,7 +3564,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit574.i.i:           ; preds = %1767, %1761, %1754,
   %.2461669.i.i = phi ptr [ %1780, %.lr.ph670.i.i ], [ %.0455.ph.i.i, %_ZN11duckdb_zstdL6tr_ilgEi.exit574.i.i ]
   %1777 = load i32, ptr %.2461669.i.i, align 4, !tbaa !3
   %1778 = sext i32 %1777 to i64
-  %1779 = getelementptr inbounds i32, ptr %74, i64 %1778
+  %1779 = getelementptr inbounds [4 x i8], ptr %74, i64 %1778
   store i32 %1775, ptr %1779, align 4, !tbaa !3
   %1780 = getelementptr inbounds nuw i8, ptr %.2461669.i.i, i64 4
   %1781 = icmp ult ptr %1780, %1738
@@ -3586,7 +3586,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit574.i.i:           ; preds = %1767, %1761, %1754,
   %.3462672.i.i = phi ptr [ %1792, %.lr.ph674.i.i ], [ %1738, %1783 ]
   %1789 = load i32, ptr %.3462672.i.i, align 4, !tbaa !3
   %1790 = sext i32 %1789 to i64
-  %1791 = getelementptr inbounds i32, ptr %74, i64 %1790
+  %1791 = getelementptr inbounds [4 x i8], ptr %74, i64 %1790
   store i32 %1787, ptr %1791, align 4, !tbaa !3
   %1792 = getelementptr inbounds nuw i8, ptr %.3462672.i.i, i64 4
   %1793 = icmp ult ptr %1792, %1739
@@ -3632,9 +3632,9 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
   br i1 %1808, label %1809, label %1823
 
 1809:                                             ; preds = %1807
-  %1810 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %480
+  %1810 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %480
   %1811 = sext i32 %.0445.ph.i.i to i64
-  %1812 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1811
+  %1812 = getelementptr inbounds [32 x i8], ptr %5, i64 %1811
   store ptr %1810, ptr %1812, align 16, !tbaa !49
   %1813 = getelementptr inbounds nuw i8, ptr %1812, i64 8
   store ptr %1738, ptr %1813, align 8, !tbaa !53
@@ -3659,12 +3659,12 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
 
 1823:                                             ; preds = %1807
   %1824 = icmp sgt i64 %1805, 1
-  %1825 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %480
+  %1825 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %480
   br i1 %1824, label %1826, label %.outer.i.i.backedge
 
 1826:                                             ; preds = %1823
   %1827 = sext i32 %.0445.ph.i.i to i64
-  %1828 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1827
+  %1828 = getelementptr inbounds [32 x i8], ptr %5, i64 %1827
   store ptr %1825, ptr %1828, align 16, !tbaa !49
   %1829 = getelementptr inbounds nuw i8, ptr %1828, i64 8
   store ptr %1738, ptr %1829, align 8, !tbaa !53
@@ -3684,7 +3684,7 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
 1835:                                             ; preds = %1834
   %1836 = icmp sgt i64 %1804, 1
   %1837 = sext i32 %.0445.ph.i.i to i64
-  %1838 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1837
+  %1838 = getelementptr inbounds [32 x i8], ptr %5, i64 %1837
   store ptr %.0452.ph.i.i, ptr %1838, align 16, !tbaa !49
   %1839 = getelementptr inbounds nuw i8, ptr %1838, i64 8
   store ptr %1739, ptr %1839, align 8, !tbaa !53
@@ -3697,7 +3697,7 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
 1842:                                             ; preds = %1835
   %1843 = getelementptr inbounds nuw i8, ptr %1838, i64 28
   store i32 %.0.ph.i.i, ptr %1843, align 4, !tbaa !56
-  %1844 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %480
+  %1844 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %480
   %1845 = getelementptr i8, ptr %1838, i64 32
   store ptr %1844, ptr %1845, align 16, !tbaa !49
   %1846 = getelementptr i8, ptr %1838, i64 40
@@ -3715,12 +3715,12 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
   %1852 = add nsw i32 %.0445.ph.i.i, 1
   %1853 = getelementptr inbounds nuw i8, ptr %1838, i64 28
   store i32 %.0.ph.i.i, ptr %1853, align 4, !tbaa !56
-  %1854 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %480
+  %1854 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %480
   br label %.outer.i.i.backedge
 
 1855:                                             ; preds = %1834
   %1856 = sext i32 %.0445.ph.i.i to i64
-  %1857 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1856
+  %1857 = getelementptr inbounds [32 x i8], ptr %5, i64 %1856
   store ptr %.0452.ph.i.i, ptr %1857, align 16, !tbaa !49
   %1858 = getelementptr inbounds nuw i8, ptr %1857, i64 8
   store ptr %1739, ptr %1858, align 8, !tbaa !53
@@ -3741,7 +3741,7 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
   %1866 = add nsw i32 %.0445.ph.i.i, 2
   %1867 = getelementptr i8, ptr %1857, i64 60
   store i32 %.0.ph.i.i, ptr %1867, align 4, !tbaa !56
-  %1868 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %480
+  %1868 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %480
   br label %.outer.i.i.backedge
 
 1869:                                             ; preds = %1803
@@ -3753,9 +3753,9 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
   br i1 %1871, label %1872, label %1886
 
 1872:                                             ; preds = %1870
-  %1873 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %480
+  %1873 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %480
   %1874 = sext i32 %.0445.ph.i.i to i64
-  %1875 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1874
+  %1875 = getelementptr inbounds [32 x i8], ptr %5, i64 %1874
   store ptr %1873, ptr %1875, align 16, !tbaa !49
   %1876 = getelementptr inbounds nuw i8, ptr %1875, i64 8
   store ptr %1738, ptr %1876, align 8, !tbaa !53
@@ -3780,12 +3780,12 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
 
 1886:                                             ; preds = %1870
   %1887 = icmp sgt i64 %1804, 1
-  %1888 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %480
+  %1888 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %480
   br i1 %1887, label %1889, label %.outer.i.i.backedge
 
 1889:                                             ; preds = %1886
   %1890 = sext i32 %.0445.ph.i.i to i64
-  %1891 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1890
+  %1891 = getelementptr inbounds [32 x i8], ptr %5, i64 %1890
   store ptr %1888, ptr %1891, align 16, !tbaa !49
   %1892 = getelementptr inbounds nuw i8, ptr %1891, i64 8
   store ptr %1738, ptr %1892, align 8, !tbaa !53
@@ -3805,7 +3805,7 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
 1898:                                             ; preds = %1897
   %1899 = icmp sgt i64 %1805, 1
   %1900 = sext i32 %.0445.ph.i.i to i64
-  %1901 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1900
+  %1901 = getelementptr inbounds [32 x i8], ptr %5, i64 %1900
   store ptr %.0452.ph.i.i, ptr %1901, align 16, !tbaa !49
   %1902 = getelementptr inbounds nuw i8, ptr %1901, i64 8
   store ptr %.0455.ph.i.i, ptr %1902, align 8, !tbaa !53
@@ -3818,7 +3818,7 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
 1905:                                             ; preds = %1898
   %1906 = getelementptr inbounds nuw i8, ptr %1901, i64 28
   store i32 %.0.ph.i.i, ptr %1906, align 4, !tbaa !56
-  %1907 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %480
+  %1907 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %480
   %1908 = getelementptr i8, ptr %1901, i64 32
   store ptr %1907, ptr %1908, align 16, !tbaa !49
   %1909 = getelementptr i8, ptr %1901, i64 40
@@ -3836,12 +3836,12 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
   %1915 = add nsw i32 %.0445.ph.i.i, 1
   %1916 = getelementptr inbounds nuw i8, ptr %1901, i64 28
   store i32 %.0.ph.i.i, ptr %1916, align 4, !tbaa !56
-  %1917 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %480
+  %1917 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %480
   br label %.outer.i.i.backedge
 
 1918:                                             ; preds = %1897
   %1919 = sext i32 %.0445.ph.i.i to i64
-  %1920 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1919
+  %1920 = getelementptr inbounds [32 x i8], ptr %5, i64 %1919
   store ptr %.0452.ph.i.i, ptr %1920, align 16, !tbaa !49
   %1921 = getelementptr inbounds nuw i8, ptr %1920, i64 8
   store ptr %.0455.ph.i.i, ptr %1921, align 8, !tbaa !53
@@ -3862,7 +3862,7 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
   %1929 = add nsw i32 %.0445.ph.i.i, 2
   %1930 = getelementptr i8, ptr %1920, i64 60
   store i32 %.0.ph.i.i, ptr %1930, align 4, !tbaa !56
-  %1931 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %480
+  %1931 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %480
   br label %.outer.i.i.backedge
 
 1932:                                             ; preds = %_ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i, %.loopexit598.i.i
@@ -3874,7 +3874,7 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
 
 1935:                                             ; preds = %1932
   %1936 = zext nneg i32 %.0.ph.i.i to i64
-  %1937 = getelementptr inbounds nuw %struct.anon.1, ptr %5, i64 %1936
+  %1937 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %1936
   %1938 = getelementptr inbounds nuw i8, ptr %1937, i64 24
   store i32 -1, ptr %1938, align 8, !tbaa !55
   br label %1939
@@ -3891,7 +3891,7 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
 
 1944:                                             ; preds = %1942
   %1945 = sext i32 %.0445.ph.i.i to i64
-  %1946 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1945
+  %1946 = getelementptr inbounds [32 x i8], ptr %5, i64 %1945
   store ptr %.0452.ph.i.i, ptr %1946, align 16, !tbaa !49
   %1947 = getelementptr inbounds nuw i8, ptr %1946, i64 8
   store ptr %1739, ptr %1947, align 8, !tbaa !53
@@ -3915,7 +3915,7 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
 1956:                                             ; preds = %1954
   %1957 = add nsw i32 %.0445.ph.i.i, -1
   %1958 = sext i32 %1957 to i64
-  %1959 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1958
+  %1959 = getelementptr inbounds [32 x i8], ptr %5, i64 %1958
   %1960 = load ptr, ptr %1959, align 16, !tbaa !49
   %1961 = getelementptr inbounds nuw i8, ptr %1959, i64 8
   %1962 = load ptr, ptr %1961, align 8, !tbaa !53
@@ -3933,7 +3933,7 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
 
 1971:                                             ; preds = %1969
   %1972 = sext i32 %.0445.ph.i.i to i64
-  %1973 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1972
+  %1973 = getelementptr inbounds [32 x i8], ptr %5, i64 %1972
   store ptr %.0452.ph.i.i, ptr %1973, align 16, !tbaa !49
   %1974 = getelementptr inbounds nuw i8, ptr %1973, i64 8
   store ptr %.0455.ph.i.i, ptr %1974, align 8, !tbaa !53
@@ -3957,7 +3957,7 @@ _ZN11duckdb_zstdL14trbudget_checkEPNS_11_trbudget_tEi.exit577.i.i: ; preds = %17
 1983:                                             ; preds = %1981
   %1984 = add nsw i32 %.0445.ph.i.i, -1
   %1985 = sext i32 %1984 to i64
-  %1986 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %1985
+  %1986 = getelementptr inbounds [32 x i8], ptr %5, i64 %1985
   %1987 = load ptr, ptr %1986, align 16, !tbaa !49
   %1988 = getelementptr inbounds nuw i8, ptr %1986, i64 8
   %1989 = load ptr, ptr %1988, align 8, !tbaa !53
@@ -3996,7 +3996,7 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit.thread.i: ; preds = %_Z
 2003:                                             ; preds = %2002
   %2004 = lshr i64 %536, 24
   %2005 = and i64 %2004, 255
-  %2006 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %2005
+  %2006 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %2005
   %2007 = load i32, ptr %2006, align 4, !tbaa !3
   %2008 = add nsw i32 %2007, 24
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i
@@ -4004,7 +4004,7 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit.thread.i: ; preds = %_Z
 2009:                                             ; preds = %2002
   %2010 = lshr i64 %536, 16
   %2011 = and i64 %2010, 255
-  %2012 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %2011
+  %2012 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %2011
   %2013 = load i32, ptr %2012, align 4, !tbaa !3
   %2014 = add nsw i32 %2013, 16
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i
@@ -4016,20 +4016,20 @@ _ZN11duckdb_zstdL12tr_partitionEPKiPiS2_S2_PS2_S3_i.exit.thread.i: ; preds = %_Z
 2016:                                             ; preds = %2015
   %2017 = lshr i64 %536, 8
   %2018 = and i64 %2017, 255
-  %2019 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %2018
+  %2019 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %2018
   %2020 = load i32, ptr %2019, align 4, !tbaa !3
   %2021 = add nsw i32 %2020, 8
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i
 
 2022:                                             ; preds = %2015
   %2023 = and i64 %536, 255
-  %2024 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %2023
+  %2024 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %2023
   %2025 = load i32, ptr %2024, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i
 
 _ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i:           ; preds = %2022, %2016, %2009, %2003
   %2026 = phi i32 [ %2014, %2009 ], [ %2008, %2003 ], [ %2021, %2016 ], [ %2025, %2022 ]
-  %2027 = getelementptr inbounds i32, ptr %.0452.ph.i.i, i64 %480
+  %2027 = getelementptr inbounds [4 x i8], ptr %.0452.ph.i.i, i64 %480
   br label %.outer.i.i.backedge
 
 2028:                                             ; preds = %1996
@@ -4039,7 +4039,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i:           ; preds = %2022, %2016, %2009,
 
 2031:                                             ; preds = %2028
   %2032 = zext nneg i32 %.0.ph.i.i to i64
-  %2033 = getelementptr inbounds nuw %struct.anon.1, ptr %5, i64 %2032
+  %2033 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %2032
   %2034 = getelementptr inbounds nuw i8, ptr %2033, i64 24
   store i32 -1, ptr %2034, align 8, !tbaa !55
   br label %2035
@@ -4051,7 +4051,7 @@ _ZN11duckdb_zstdL6tr_ilgEi.exit584.i.i:           ; preds = %2022, %2016, %2009,
 2037:                                             ; preds = %2035
   %2038 = add nsw i32 %.0445.ph.i.i, -1
   %2039 = sext i32 %2038 to i64
-  %2040 = getelementptr inbounds %struct.anon.1, ptr %5, i64 %2039
+  %2040 = getelementptr inbounds [32 x i8], ptr %5, i64 %2039
   %2041 = load ptr, ptr %2040, align 16, !tbaa !49
   %2042 = getelementptr inbounds nuw i8, ptr %2040, i64 8
   %2043 = load ptr, ptr %2042, align 8, !tbaa !53
@@ -4112,7 +4112,7 @@ _ZN11duckdb_zstdL12tr_introsortEPiPKiS0_S0_S0_PNS_11_trbudget_tE.exit.i: ; preds
 
 2061:                                             ; preds = %2060
   %2062 = sext i32 %.3.i to i64
-  %2063 = getelementptr inbounds i32, ptr %.147.i, i64 %2062
+  %2063 = getelementptr inbounds [4 x i8], ptr %.147.i, i64 %2062
   store i32 %.3.i, ptr %2063, align 4, !tbaa !3
   br label %.thread158.i
 
@@ -4188,10 +4188,10 @@ _ZN11duckdb_zstdL6trsortEPiS0_ii.exit:            ; preds = %.thread158.i, %2065
   %2094 = select i1 %or.cond, i32 %2080, i32 %2093
   %2095 = add nsw i32 %.4269457, -1
   %2096 = sext i32 %2095 to i64
-  %2097 = getelementptr inbounds i32, ptr %74, i64 %2096
+  %2097 = getelementptr inbounds [4 x i8], ptr %74, i64 %2096
   %2098 = load i32, ptr %2097, align 4, !tbaa !3
   %2099 = sext i32 %2098 to i64
-  %2100 = getelementptr inbounds i32, ptr %1, i64 %2099
+  %2100 = getelementptr inbounds [4 x i8], ptr %1, i64 %2099
   store i32 %2094, ptr %2100, align 4, !tbaa !3
   %2101 = icmp sgt i32 %.16.lcssa, -1
   br i1 %2101, label %.preheader, label %.critedge6.thread, !llvm.loop !75
@@ -4206,11 +4206,11 @@ _ZN11duckdb_zstdL6trsortEPiS0_ii.exit:            ; preds = %.thread158.i, %2065
   %.0262476 = phi i32 [ %93, %.critedge6.thread ], [ %.2264.lcssa, %._crit_edge473 ]
   %indvars611 = trunc i64 %indvars.iv609 to i32
   %2103 = add nuw nsw i32 %indvars611, 1
-  %2104 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv609
+  %2104 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv609
   %2105 = getelementptr inbounds nuw i8, ptr %2104, i64 4
   %2106 = load i32, ptr %2105, align 4, !tbaa !3
   %2107 = add nsw i32 %2106, -1
-  %invariant.gep918 = getelementptr i32, ptr %3, i64 %indvars.iv609
+  %invariant.gep918 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv609
   %indvars.iv609.tr = trunc i64 %indvars.iv609 to i32
   %2108 = shl i32 %indvars.iv609.tr, 8
   br label %2109
@@ -4227,7 +4227,7 @@ _ZN11duckdb_zstdL6trsortEPiS0_ii.exit:            ; preds = %.thread158.i, %2065
   %2112 = trunc nuw nsw i64 %indvars.iv606 to i32
   %2113 = or i32 %2108, %2112
   %2114 = sext i32 %2113 to i64
-  %2115 = getelementptr inbounds i32, ptr %3, i64 %2114
+  %2115 = getelementptr inbounds [4 x i8], ptr %3, i64 %2114
   %2116 = load i32, ptr %2115, align 4, !tbaa !3
   %.not460 = icmp sgt i32 %2116, %.1263468
   br i1 %.not460, label %._crit_edge465, label %.lr.ph464.preheader
@@ -4241,9 +4241,9 @@ _ZN11duckdb_zstdL6trsortEPiS0_ii.exit:            ; preds = %.thread158.i, %2065
 .lr.ph464:                                        ; preds = %.lr.ph464.preheader, %.lr.ph464
   %indvars.iv601 = phi i64 [ %2118, %.lr.ph464.preheader ], [ %indvars.iv.next602, %.lr.ph464 ]
   %indvars.iv599 = phi i64 [ %2117, %.lr.ph464.preheader ], [ %indvars.iv.next600, %.lr.ph464 ]
-  %2120 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv601
+  %2120 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv601
   %2121 = load i32, ptr %2120, align 4, !tbaa !3
-  %2122 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv599
+  %2122 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv599
   store i32 %2121, ptr %2122, align 4, !tbaa !3
   %indvars.iv.next600 = add nsw i64 %indvars.iv599, -1
   %indvars.iv.next602 = add nsw i64 %indvars.iv601, -1
@@ -4266,13 +4266,13 @@ _ZN11duckdb_zstdL6trsortEPiS0_ii.exit:            ; preds = %.thread158.i, %2065
   %2126 = shl i32 %indvars611, 8
   %2127 = or i32 %2126, %indvars611
   %2128 = sext i32 %2127 to i64
-  %2129 = getelementptr inbounds i32, ptr %3, i64 %2128
+  %2129 = getelementptr inbounds [4 x i8], ptr %3, i64 %2128
   %2130 = load i32, ptr %2129, align 4, !tbaa !3
   %2131 = add i32 %.18.lcssa, 1
   %2132 = sub i32 %2131, %2130
   %2133 = or i32 %2108, %2103
   %2134 = sext i32 %2133 to i64
-  %2135 = getelementptr inbounds i32, ptr %3, i64 %2134
+  %2135 = getelementptr inbounds [4 x i8], ptr %3, i64 %2134
   store i32 %2132, ptr %2135, align 4, !tbaa !3
   store i32 %.18.lcssa, ptr %2129, align 4, !tbaa !3
   %indvars.iv.next610 = add nsw i64 %indvars.iv609, -1
@@ -4349,12 +4349,12 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN11duckdb_zstd6divbwtE
   %38 = shl i32 %indvars131.i, 8
   %39 = or i32 %38, %37
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i32, ptr %26, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %26, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !3
   %43 = sext i32 %42 to i64
   %.idx.i = shl nsw i64 %43, 2
   %44 = getelementptr inbounds i8, ptr %.071, i64 %.idx.i
-  %45 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv.i
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !3
   %48 = sext i32 %47 to i64
@@ -4412,17 +4412,17 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN11duckdb_zstd6divbwtE
   %73 = trunc i64 %72 to i32
   %74 = or i32 %.0119.i, %38
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i32, ptr %26, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %26, i64 %75
   store i32 %73, ptr %76, align 4, !tbaa !3
   br label %77
 
 77:                                               ; preds = %69, %67
   %78 = or disjoint i32 %38, %57
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i32, ptr %26, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr %26, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !3
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i32, ptr %.071, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %.071, i64 %82
   br label %84
 
 84:                                               ; preds = %77, %66
@@ -4459,10 +4459,10 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN11duckdb_zstd6divbwtE
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !7
   %94 = zext i8 %93 to i64
-  %95 = getelementptr inbounds nuw i32, ptr %25, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !3
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i32, ptr %.071, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %.071, i64 %97
   %99 = zext nneg i32 %3 to i64
   %100 = getelementptr i8, ptr %0, i64 %99
   %101 = getelementptr i8, ptr %100, i64 -2
@@ -4521,13 +4521,13 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN11duckdb_zstd6divbwtE
   %132 = lshr exact i64 %131, 2
   %133 = trunc i64 %132 to i32
   %134 = zext nneg i32 %.3125.i to i64
-  %135 = getelementptr inbounds nuw i32, ptr %25, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %134
   store i32 %133, ptr %135, align 4, !tbaa !3
   %136 = zext i8 %117 to i64
-  %137 = getelementptr inbounds nuw i32, ptr %25, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %136
   %138 = load i32, ptr %137, align 4, !tbaa !3
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds i32, ptr %.071, i64 %139
+  %140 = getelementptr inbounds [4 x i8], ptr %.071, i64 %139
   br label %141
 
 141:                                              ; preds = %129, %128
@@ -4586,12 +4586,12 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN11duckdb_zstd6divbwtE
   %170 = shl i32 %indvars172.i, 8
   %171 = or i32 %170, %169
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds i32, ptr %26, i64 %172
+  %173 = getelementptr inbounds [4 x i8], ptr %26, i64 %172
   %174 = load i32, ptr %173, align 4, !tbaa !3
   %175 = sext i32 %174 to i64
   %.idx.i86 = shl nsw i64 %175, 2
   %176 = getelementptr inbounds i8, ptr %.071, i64 %.idx.i86
-  %177 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i84
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv.i84
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
   %179 = load i32, ptr %178, align 4, !tbaa !3
   %180 = sext i32 %179 to i64
@@ -4624,7 +4624,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN11duckdb_zstd6divbwtE
   %191 = trunc i64 %190 to i32
   %192 = udiv i32 %182, %163
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr i32, ptr %5, i64 %193
+  %194 = getelementptr [4 x i8], ptr %5, i64 %193
   %195 = getelementptr i8, ptr %194, i64 -4
   store i32 %191, ptr %195, align 4, !tbaa !3
   br label %196
@@ -4666,17 +4666,17 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN11duckdb_zstd6divbwtE
   %217 = trunc i64 %216 to i32
   %218 = or i32 %.0160.i, %170
   %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds i32, ptr %26, i64 %219
+  %220 = getelementptr inbounds [4 x i8], ptr %26, i64 %219
   store i32 %217, ptr %220, align 4, !tbaa !3
   br label %221
 
 221:                                              ; preds = %213, %211
   %222 = or disjoint i32 %170, %201
   %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds i32, ptr %26, i64 %223
+  %224 = getelementptr inbounds [4 x i8], ptr %26, i64 %223
   %225 = load i32, ptr %224, align 4, !tbaa !3
   %226 = sext i32 %225 to i64
-  %227 = getelementptr inbounds i32, ptr %.071, i64 %226
+  %227 = getelementptr inbounds [4 x i8], ptr %.071, i64 %226
   br label %228
 
 228:                                              ; preds = %221, %210
@@ -4713,10 +4713,10 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN11duckdb_zstd6divbwtE
   %236 = load i8, ptr %235, align 1, !tbaa !7
   %237 = zext i8 %236 to i32
   %238 = zext i8 %236 to i64
-  %239 = getelementptr inbounds nuw i32, ptr %25, i64 %238
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %238
   %240 = load i32, ptr %239, align 4, !tbaa !3
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds i32, ptr %.071, i64 %241
+  %242 = getelementptr inbounds [4 x i8], ptr %.071, i64 %241
   %243 = zext nneg i32 %3 to i64
   %244 = getelementptr i8, ptr %0, i64 %243
   %245 = getelementptr i8, ptr %244, i64 -2
@@ -4731,7 +4731,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN11duckdb_zstd6divbwtE
 
 251:                                              ; preds = %248
   %252 = zext nneg i32 %164 to i64
-  %253 = getelementptr i32, ptr %5, i64 %252
+  %253 = getelementptr [4 x i8], ptr %5, i64 %252
   %254 = getelementptr i8, ptr %253, i64 -4
   store i32 %240, ptr %254, align 4, !tbaa !3
   %.pre.i = load i8, ptr %245, align 1, !tbaa !7
@@ -4773,7 +4773,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN11duckdb_zstd6divbwtE
   %271 = trunc i64 %270 to i32
   %272 = udiv i32 %262, %163
   %273 = zext nneg i32 %272 to i64
-  %274 = getelementptr i32, ptr %5, i64 %273
+  %274 = getelementptr [4 x i8], ptr %5, i64 %273
   %275 = getelementptr i8, ptr %274, i64 -4
   store i32 %271, ptr %275, align 4, !tbaa !3
   br label %276
@@ -4794,13 +4794,13 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN11duckdb_zstd6divbwtE
   %285 = lshr exact i64 %284, 2
   %286 = trunc i64 %285 to i32
   %287 = zext nneg i32 %.3166.i to i64
-  %288 = getelementptr inbounds nuw i32, ptr %25, i64 %287
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %287
   store i32 %286, ptr %288, align 4, !tbaa !3
   %289 = zext i8 %280 to i64
-  %290 = getelementptr inbounds nuw i32, ptr %25, i64 %289
+  %290 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %289
   %291 = load i32, ptr %290, align 4, !tbaa !3
   %292 = sext i32 %291 to i64
-  %293 = getelementptr inbounds i32, ptr %.071, i64 %292
+  %293 = getelementptr inbounds [4 x i8], ptr %.071, i64 %292
   br label %294
 
 294:                                              ; preds = %282, %276
@@ -4829,7 +4829,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN11duckdb_zstd6divbwtE
   %308 = trunc i64 %307 to i32
   %309 = udiv i32 %277, %163
   %310 = zext nneg i32 %309 to i64
-  %311 = getelementptr i32, ptr %5, i64 %310
+  %311 = getelementptr [4 x i8], ptr %5, i64 %310
   %312 = getelementptr i8, ptr %311, i64 -4
   store i32 %308, ptr %312, align 4, !tbaa !3
   %.pre173.i = load i8, ptr %298, align 1, !tbaa !7
@@ -4897,7 +4897,7 @@ _ZN11duckdb_zstdL13construct_BWTEPKhPiS2_S2_ii.exit: ; preds = %323, %146
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %334 = getelementptr inbounds nuw i32, ptr %.071, i64 %indvars.iv
+  %334 = getelementptr inbounds nuw [4 x i8], ptr %.071, i64 %indvars.iv
   %335 = load i32, ptr %334, align 4, !tbaa !3
   %336 = trunc i32 %335 to i8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4908,7 +4908,7 @@ _ZN11duckdb_zstdL13construct_BWTEPKhPiS2_S2_ii.exit: ; preds = %323, %146
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
   %indvars.iv99 = phi i64 [ %333, %.lr.ph97.preheader ], [ %indvars.iv.next100, %.lr.ph97 ]
-  %338 = getelementptr inbounds nuw i32, ptr %.071, i64 %indvars.iv99
+  %338 = getelementptr inbounds nuw [4 x i8], ptr %.071, i64 %indvars.iv99
   %339 = load i32, ptr %338, align 4, !tbaa !3
   %340 = trunc i32 %339 to i8
   %341 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv99
@@ -4951,7 +4951,7 @@ define internal fastcc void @_ZN11duckdb_zstdL13ss_mintrosortEPKhPKiPiS4_i(ptr n
 10:                                               ; preds = %4
   %11 = lshr i64 %8, 10
   %12 = and i64 %11, 255
-  %13 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !3
   %15 = add nsw i32 %14, 8
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit.preheader
@@ -4959,7 +4959,7 @@ define internal fastcc void @_ZN11duckdb_zstdL13ss_mintrosortEPKhPKiPiS4_i(ptr n
 16:                                               ; preds = %4
   %17 = lshr exact i64 %8, 2
   %18 = and i64 %17, 255
-  %19 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit.preheader
 
@@ -4999,7 +4999,7 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit:                  ; preds = %_ZN11duckdb_zstdL6s
   %33 = load i32, ptr %.044.i, align 4, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %.044.i, i64 4
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds i32, ptr %1, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %1, i64 %35
   %37 = getelementptr i8, ptr %36, i64 4
   %.pre.i = load i32, ptr %34, align 4, !tbaa !3
   br label %.critedge.i
@@ -5011,7 +5011,7 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit:                  ; preds = %_ZN11duckdb_zstdL6s
   %38 = phi i32 [ %.pre.i, %32 ], [ %77, %.critedge.loopexit.i ]
   %.023.i = phi ptr [ %34, %32 ], [ %74, %.critedge.loopexit.i ]
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i32, ptr %1, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %1, i64 %39
   %.val.i = load i32, ptr %36, align 4, !tbaa !3
   %.val28.i = load i32, ptr %37, align 4, !tbaa !3
   %.val29.i = load i32, ptr %40, align 4, !tbaa !3
@@ -5124,7 +5124,7 @@ _ZN11duckdb_zstdL16ss_insertionsortEPKhPKiPiS4_i.exit: ; preds = %.critedge.thre
 87:                                               ; preds = %_ZN11duckdb_zstdL16ss_insertionsortEPKhPKiPiS4_i.exit
   %88 = add nsw i32 %.0392, -1
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds %struct.anon, ptr %5, i64 %89
+  %90 = getelementptr inbounds [24 x i8], ptr %5, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !89
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !91
@@ -5151,19 +5151,19 @@ _ZN11duckdb_zstdL16ss_insertionsortEPKhPKiPiS4_i.exit: ; preds = %.critedge.thre
   %108 = add nsw i32 %104, -1
   %109 = sdiv i32 %108, 2
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds i32, ptr %.0426, i64 %110
+  %111 = getelementptr inbounds [4 x i8], ptr %.0426, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !3
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i32, ptr %1, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %1, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !3
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds i8, ptr %100, i64 %116
   %118 = load i8, ptr %117, align 1, !tbaa !7
   %119 = sext i32 %108 to i64
-  %120 = getelementptr inbounds i32, ptr %.0426, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %.0426, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !3
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i32, ptr %1, i64 %122
+  %123 = getelementptr inbounds [4 x i8], ptr %1, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !3
   %125 = sext i32 %124 to i64
   %126 = getelementptr inbounds i8, ptr %100, i64 %125
@@ -5190,10 +5190,10 @@ _ZN11duckdb_zstdL16ss_insertionsortEPKhPKiPiS4_i.exit: ; preds = %.critedge.thre
 .lr.ph.i502:                                      ; preds = %_ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %132, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %134 = getelementptr inbounds nuw i32, ptr %.0426, i64 %indvars.iv.next.i
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %indvars.iv.next.i
   %135 = load i32, ptr %134, align 4, !tbaa !3
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i32, ptr %1, i64 %136
+  %137 = getelementptr inbounds [4 x i8], ptr %1, i64 %136
   %138 = load i32, ptr %137, align 4, !tbaa !3
   %139 = sext i32 %138 to i64
   %140 = getelementptr inbounds i8, ptr %100, i64 %139
@@ -5215,19 +5215,19 @@ _ZN11duckdb_zstdL16ss_insertionsortEPKhPKiPiS4_i.exit: ; preds = %.critedge.thre
   %.033.i.i = phi i32 [ %spec.select.i.i, %169 ], [ %145, %.lr.ph.i.preheader.i ]
   %150 = add nuw nsw i32 %149, 2
   %151 = zext nneg i32 %148 to i64
-  %152 = getelementptr inbounds nuw i32, ptr %.0426, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !3
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds i32, ptr %1, i64 %154
+  %155 = getelementptr inbounds [4 x i8], ptr %1, i64 %154
   %156 = load i32, ptr %155, align 4, !tbaa !3
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds i8, ptr %100, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !7
   %160 = zext nneg i32 %150 to i64
-  %161 = getelementptr inbounds nuw i32, ptr %.0426, i64 %160
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %160
   %162 = load i32, ptr %161, align 4, !tbaa !3
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds i32, ptr %1, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %1, i64 %163
   %165 = load i32, ptr %164, align 4, !tbaa !3
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds i8, ptr %100, i64 %166
@@ -5240,10 +5240,10 @@ _ZN11duckdb_zstdL16ss_insertionsortEPKhPKiPiS4_i.exit: ; preds = %.critedge.thre
   %170 = icmp ult i8 %159, %168
   %spec.select.i.i = select i1 %170, i32 %150, i32 %148
   %171 = zext nneg i32 %spec.select.i.i to i64
-  %172 = getelementptr inbounds nuw i32, ptr %.0426, i64 %171
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %171
   %173 = load i32, ptr %172, align 4, !tbaa !3
   %174 = zext nneg i32 %.033.i.i to i64
-  %175 = getelementptr inbounds nuw i32, ptr %.0426, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %174
   store i32 %173, ptr %175, align 4, !tbaa !3
   %176 = shl nuw nsw i32 %spec.select.i.i, 1
   %177 = or disjoint i32 %176, 1
@@ -5253,7 +5253,7 @@ _ZN11duckdb_zstdL16ss_insertionsortEPKhPKiPiS4_i.exit: ; preds = %.critedge.thre
 _ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit.i:  ; preds = %169, %.lr.ph.i.i504, %.lr.ph.i502
   %.0.lcssa.i.i503 = phi i32 [ %145, %.lr.ph.i502 ], [ %.033.i.i, %.lr.ph.i.i504 ], [ %spec.select.i.i, %169 ]
   %179 = zext nneg i32 %.0.lcssa.i.i503 to i64
-  %180 = getelementptr inbounds nuw i32, ptr %.0426, i64 %179
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %179
   store i32 %135, ptr %180, align 4, !tbaa !3
   %181 = icmp sgt i64 %indvars.iv.i, 1
   br i1 %181, label %.lr.ph.i502, label %._crit_edge.i, !llvm.loop !95
@@ -5264,13 +5264,13 @@ _ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit.i:  ; preds = %169, %.lr.ph.i.i504
 182:                                              ; preds = %._crit_edge.i
   %183 = load i32, ptr %.0426, align 4, !tbaa !3
   %184 = sext i32 %.0.i to i64
-  %185 = getelementptr inbounds i32, ptr %.0426, i64 %184
+  %185 = getelementptr inbounds [4 x i8], ptr %.0426, i64 %184
   %186 = load i32, ptr %185, align 4, !tbaa !3
   store i32 %186, ptr %.0426, align 4, !tbaa !3
   store i32 %183, ptr %185, align 4, !tbaa !3
   %187 = load i32, ptr %.0426, align 4, !tbaa !3
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds i32, ptr %1, i64 %188
+  %189 = getelementptr inbounds [4 x i8], ptr %1, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !3
   %191 = sext i32 %190 to i64
   %192 = getelementptr inbounds i8, ptr %100, i64 %191
@@ -5283,19 +5283,19 @@ _ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit.i:  ; preds = %169, %.lr.ph.i.i504
   %.033.i56.i = phi i32 [ %spec.select.i59.i, %215 ], [ 0, %182 ]
   %196 = add nuw nsw i32 %195, 2
   %197 = zext nneg i32 %194 to i64
-  %198 = getelementptr inbounds nuw i32, ptr %.0426, i64 %197
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %197
   %199 = load i32, ptr %198, align 4, !tbaa !3
   %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds i32, ptr %1, i64 %200
+  %201 = getelementptr inbounds [4 x i8], ptr %1, i64 %200
   %202 = load i32, ptr %201, align 4, !tbaa !3
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds i8, ptr %100, i64 %203
   %205 = load i8, ptr %204, align 1, !tbaa !7
   %206 = zext nneg i32 %196 to i64
-  %207 = getelementptr inbounds nuw i32, ptr %.0426, i64 %206
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %206
   %208 = load i32, ptr %207, align 4, !tbaa !3
   %209 = sext i32 %208 to i64
-  %210 = getelementptr inbounds i32, ptr %1, i64 %209
+  %210 = getelementptr inbounds [4 x i8], ptr %1, i64 %209
   %211 = load i32, ptr %210, align 4, !tbaa !3
   %212 = sext i32 %211 to i64
   %213 = getelementptr inbounds i8, ptr %100, i64 %212
@@ -5312,10 +5312,10 @@ _ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit.i:  ; preds = %169, %.lr.ph.i.i504
   %216 = icmp ult i8 %205, %214
   %spec.select.i59.i = select i1 %216, i32 %196, i32 %194
   %217 = zext nneg i32 %spec.select.i59.i to i64
-  %218 = getelementptr inbounds nuw i32, ptr %.0426, i64 %217
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %217
   %219 = load i32, ptr %218, align 4, !tbaa !3
   %220 = zext nneg i32 %.033.i56.i to i64
-  %221 = getelementptr inbounds nuw i32, ptr %.0426, i64 %220
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %220
   store i32 %219, ptr %221, align 4, !tbaa !3
   %222 = shl nuw nsw i32 %spec.select.i59.i, 1
   %223 = or disjoint i32 %222, 1
@@ -5324,7 +5324,7 @@ _ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit.i:  ; preds = %169, %.lr.ph.i.i504
 
 _ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit60.i: ; preds = %215, %.lr.ph.i55.i._ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit60.loopexit.i_crit_edge, %182
   %.0.lcssa.i54.i = phi i64 [ 0, %182 ], [ %.pre702, %.lr.ph.i55.i._ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit60.loopexit.i_crit_edge ], [ %217, %215 ]
-  %225 = getelementptr inbounds nuw i32, ptr %.0426, i64 %.0.lcssa.i54.i
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %.0.lcssa.i54.i
   store i32 %187, ptr %225, align 4, !tbaa !3
   br label %226
 
@@ -5335,7 +5335,7 @@ _ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit60.i: ; preds = %215, %.lr.ph.i55.i
   %227 = zext nneg i32 %.0.i to i64
   %indvars.iv.next75.i596 = add nsw i64 %227, -1
   %228 = load i32, ptr %.0426, align 4, !tbaa !3
-  %229 = getelementptr inbounds nuw i32, ptr %.0426, i64 %indvars.iv.next75.i596
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %indvars.iv.next75.i596
   %230 = load i32, ptr %229, align 4, !tbaa !3
   store i32 %230, ptr %.0426, align 4, !tbaa !3
   %.not.i501597 = icmp eq i32 %.0.i, 2
@@ -5347,7 +5347,7 @@ _ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit60.i: ; preds = %215, %.lr.ph.i55.i
   %233 = phi i32 [ %268, %_ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit67.i ], [ %228, %.lr.ph71.preheader.i ]
   %indvars.iv.next75.i598 = phi i64 [ %indvars.iv.next75.i, %_ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit67.i ], [ %indvars.iv.next75.i596, %.lr.ph71.preheader.i ]
   %.pn661 = sext i32 %231 to i64
-  %.pn.in.in = getelementptr inbounds i32, ptr %1, i64 %.pn661
+  %.pn.in.in = getelementptr inbounds [4 x i8], ptr %1, i64 %.pn661
   %.pn.in = load i32, ptr %.pn.in.in, align 4, !tbaa !3
   %.pn = sext i32 %.pn.in to i64
   %.in = getelementptr inbounds i8, ptr %100, i64 %.pn
@@ -5366,19 +5366,19 @@ _ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit67.thread.i: ; preds = %_ZN11duckdb
   %.033.i63.i = phi i32 [ %spec.select.i66.i, %256 ], [ 0, %.lr.ph.i62.i.preheader ]
   %237 = add nuw nsw i32 %236, 2
   %238 = zext nneg i32 %235 to i64
-  %239 = getelementptr inbounds nuw i32, ptr %.0426, i64 %238
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %238
   %240 = load i32, ptr %239, align 4, !tbaa !3
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds i32, ptr %1, i64 %241
+  %242 = getelementptr inbounds [4 x i8], ptr %1, i64 %241
   %243 = load i32, ptr %242, align 4, !tbaa !3
   %244 = sext i32 %243 to i64
   %245 = getelementptr inbounds i8, ptr %100, i64 %244
   %246 = load i8, ptr %245, align 1, !tbaa !7
   %247 = zext nneg i32 %237 to i64
-  %248 = getelementptr inbounds nuw i32, ptr %.0426, i64 %247
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %247
   %249 = load i32, ptr %248, align 4, !tbaa !3
   %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds i32, ptr %1, i64 %250
+  %251 = getelementptr inbounds [4 x i8], ptr %1, i64 %250
   %252 = load i32, ptr %251, align 4, !tbaa !3
   %253 = sext i32 %252 to i64
   %254 = getelementptr inbounds i8, ptr %100, i64 %253
@@ -5395,10 +5395,10 @@ _ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit67.thread.i: ; preds = %_ZN11duckdb
   %257 = icmp ult i8 %246, %255
   %spec.select.i66.i = select i1 %257, i32 %237, i32 %235
   %258 = zext nneg i32 %spec.select.i66.i to i64
-  %259 = getelementptr inbounds nuw i32, ptr %.0426, i64 %258
+  %259 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %258
   %260 = load i32, ptr %259, align 4, !tbaa !3
   %261 = zext nneg i32 %.033.i63.i to i64
-  %262 = getelementptr inbounds nuw i32, ptr %.0426, i64 %261
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %261
   store i32 %260, ptr %262, align 4, !tbaa !3
   %263 = shl nuw nsw i32 %spec.select.i66.i, 1
   %264 = or disjoint i32 %263, 1
@@ -5408,12 +5408,12 @@ _ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit67.thread.i: ; preds = %_ZN11duckdb
 
 _ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit67.i: ; preds = %256, %.lr.ph.i62.i._ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit67.i_crit_edge
   %.pre-phi705 = phi i64 [ %.pre704, %.lr.ph.i62.i._ZN11duckdb_zstdL10ss_fixdownEPKhPKiPiii.exit67.i_crit_edge ], [ %258, %256 ]
-  %267 = getelementptr inbounds nuw i32, ptr %.0426, i64 %.pre-phi705
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %.pre-phi705
   store i32 %231, ptr %267, align 4, !tbaa !3
   store i32 %233, ptr %232, align 4, !tbaa !3
   %indvars.iv.next75.i = add nsw i64 %indvars.iv.next75.i598, -1
   %268 = load i32, ptr %.0426, align 4, !tbaa !3
-  %269 = getelementptr inbounds nuw i32, ptr %.0426, i64 %indvars.iv.next75.i
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %indvars.iv.next75.i
   %270 = load i32, ptr %269, align 4, !tbaa !3
   store i32 %270, ptr %.0426, align 4, !tbaa !3
   %.not.i501 = icmp eq i64 %indvars.iv.next75.i598, 2
@@ -5426,7 +5426,7 @@ _ZN11duckdb_zstdL11ss_heapsortEPKhPKiPii.exit:    ; preds = %_ZN11duckdb_zstdL10
 272:                                              ; preds = %_ZN11duckdb_zstdL11ss_heapsortEPKhPKiPii.exit
   %273 = load i32, ptr %.0426, align 4, !tbaa !3
   %274 = sext i32 %273 to i64
-  %275 = getelementptr inbounds i32, ptr %1, i64 %274
+  %275 = getelementptr inbounds [4 x i8], ptr %1, i64 %274
   %276 = load i32, ptr %275, align 4, !tbaa !3
   %277 = sext i32 %276 to i64
   %278 = getelementptr inbounds i8, ptr %100, i64 %277
@@ -5442,7 +5442,7 @@ _ZN11duckdb_zstdL11ss_heapsortEPKhPKiPii.exit:    ; preds = %_ZN11duckdb_zstdL10
   %.1427648 = phi ptr [ %.2428, %295 ], [ %.0426, %272 ]
   %282 = load i32, ptr %.0419650, align 4, !tbaa !3
   %283 = sext i32 %282 to i64
-  %284 = getelementptr inbounds i32, ptr %1, i64 %283
+  %284 = getelementptr inbounds [4 x i8], ptr %1, i64 %283
   %285 = load i32, ptr %284, align 4, !tbaa !3
   %286 = sext i32 %285 to i64
   %287 = getelementptr inbounds i8, ptr %100, i64 %286
@@ -5471,7 +5471,7 @@ _ZN11duckdb_zstdL11ss_heapsortEPKhPKiPii.exit:    ; preds = %_ZN11duckdb_zstdL10
   %.0419.lcssa.ph = phi ptr [ %.0419, %295 ], [ %.0419650, %290 ]
   %.pre = load i32, ptr %.1427.lcssa.ph, align 4, !tbaa !3
   %.phi.trans.insert = sext i32 %.pre to i64
-  %.phi.trans.insert697 = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert
+  %.phi.trans.insert697 = getelementptr inbounds [4 x i8], ptr %1, i64 %.phi.trans.insert
   %.pre698 = load i32, ptr %.phi.trans.insert697, align 4, !tbaa !3
   %.pre700 = sext i32 %.pre698 to i64
   br label %._crit_edge653
@@ -5503,7 +5503,7 @@ _ZN11duckdb_zstdL11ss_heapsortEPKhPKiPii.exit:    ; preds = %_ZN11duckdb_zstdL10
   %307 = phi ptr [ %317, %315 ], [ %305, %304 ]
   %308 = load i32, ptr %307, align 4, !tbaa !3
   %309 = sext i32 %308 to i64
-  %310 = getelementptr inbounds i32, ptr %1, i64 %309
+  %310 = getelementptr inbounds [4 x i8], ptr %1, i64 %309
   %311 = load i32, ptr %310, align 4, !tbaa !3
   %312 = add nsw i32 %311, %.0433
   %313 = getelementptr i8, ptr %310, i64 4
@@ -5531,7 +5531,7 @@ _ZN11duckdb_zstdL11ss_heapsortEPKhPKiPii.exit:    ; preds = %_ZN11duckdb_zstdL10
 322:                                              ; preds = %319
   %323 = load i32, ptr %320, align 4, !tbaa !3
   %324 = sext i32 %323 to i64
-  %325 = getelementptr inbounds i32, ptr %1, i64 %324
+  %325 = getelementptr inbounds [4 x i8], ptr %1, i64 %324
   %326 = load i32, ptr %325, align 4, !tbaa !3
   %327 = add nsw i32 %326, %.0433
   %328 = getelementptr i8, ptr %325, i64 4
@@ -5573,7 +5573,7 @@ _ZN11duckdb_zstdL12ss_partitionEPKiPiS2_i.exit:   ; preds = %334, %.critedge2.i,
 
 345:                                              ; preds = %343
   %346 = sext i32 %.0392 to i64
-  %347 = getelementptr inbounds %struct.anon, ptr %5, i64 %346
+  %347 = getelementptr inbounds [24 x i8], ptr %5, i64 %346
   store ptr %.0419.lcssa, ptr %347, align 8, !tbaa !89
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 8
   store ptr %.0436, ptr %348, align 8, !tbaa !91
@@ -5590,14 +5590,14 @@ _ZN11duckdb_zstdL12ss_partitionEPKiPiS2_i.exit:   ; preds = %334, %.critedge2.i,
 354:                                              ; preds = %345
   %355 = lshr i64 %340, 8
   %356 = and i64 %355, 255
-  %357 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %356
+  %357 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %356
   %358 = load i32, ptr %357, align 4, !tbaa !3
   %359 = add nsw i32 %358, 8
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit.backedge
 
 360:                                              ; preds = %345
   %361 = and i64 %340, 255
-  %362 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %361
+  %362 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %361
   %363 = load i32, ptr %362, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit.backedge
 
@@ -5607,7 +5607,7 @@ _ZN11duckdb_zstdL12ss_partitionEPKiPiS2_i.exit:   ; preds = %334, %.critedge2.i,
 
 366:                                              ; preds = %364
   %367 = sext i32 %.0392 to i64
-  %368 = getelementptr inbounds %struct.anon, ptr %5, i64 %367
+  %368 = getelementptr inbounds [24 x i8], ptr %5, i64 %367
   store ptr %.3429, ptr %368, align 8, !tbaa !89
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 8
   store ptr %.0419.lcssa, ptr %369, align 8, !tbaa !91
@@ -5621,14 +5621,14 @@ _ZN11duckdb_zstdL12ss_partitionEPKiPiS2_i.exit:   ; preds = %334, %.critedge2.i,
 373:                                              ; preds = %366
   %374 = lshr i64 %340, 8
   %375 = and i64 %374, 255
-  %376 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %375
+  %376 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %375
   %377 = load i32, ptr %376, align 4, !tbaa !3
   %378 = add nsw i32 %377, 8
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit512
 
 379:                                              ; preds = %366
   %380 = and i64 %340, 255
-  %381 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %380
+  %381 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %380
   %382 = load i32, ptr %381, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit512
 
@@ -5648,14 +5648,14 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit512:               ; preds = %373, %379
 389:                                              ; preds = %386
   %390 = lshr i64 %340, 8
   %391 = and i64 %390, 255
-  %392 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %391
+  %392 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %391
   %393 = load i32, ptr %392, align 4, !tbaa !3
   %394 = add nsw i32 %393, 8
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit.backedge
 
 395:                                              ; preds = %386
   %396 = and i64 %340, 255
-  %397 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %396
+  %397 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %396
   %398 = load i32, ptr %397, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit.backedge
 
@@ -5664,7 +5664,7 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit512:               ; preds = %373, %379
   %401 = trunc i64 %400 to i32
   %402 = sdiv i32 %401, 2
   %403 = sext i32 %402 to i64
-  %404 = getelementptr inbounds i32, ptr %.0426, i64 %403
+  %404 = getelementptr inbounds [4 x i8], ptr %.0426, i64 %403
   %405 = icmp slt i32 %401, 513
   br i1 %405, label %406, label %546
 
@@ -5676,14 +5676,14 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit512:               ; preds = %373, %379
   %409 = getelementptr inbounds i8, ptr %.0436, i64 -4
   %410 = load i32, ptr %.0426, align 4, !tbaa !3
   %411 = sext i32 %410 to i64
-  %412 = getelementptr inbounds i32, ptr %1, i64 %411
+  %412 = getelementptr inbounds [4 x i8], ptr %1, i64 %411
   %413 = load i32, ptr %412, align 4, !tbaa !3
   %414 = sext i32 %413 to i64
   %415 = getelementptr inbounds i8, ptr %100, i64 %414
   %416 = load i8, ptr %415, align 1, !tbaa !7
   %417 = load i32, ptr %404, align 4, !tbaa !3
   %418 = sext i32 %417 to i64
-  %419 = getelementptr inbounds i32, ptr %1, i64 %418
+  %419 = getelementptr inbounds [4 x i8], ptr %1, i64 %418
   %420 = load i32, ptr %419, align 4, !tbaa !3
   %421 = sext i32 %420 to i64
   %422 = getelementptr inbounds i8, ptr %100, i64 %421
@@ -5692,14 +5692,14 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit512:               ; preds = %373, %379
   %425 = select i1 %424, i32 %410, i32 %417
   %spec.select.i.i518 = select i1 %424, ptr %.0426, ptr %404
   %426 = sext i32 %425 to i64
-  %427 = getelementptr inbounds i32, ptr %1, i64 %426
+  %427 = getelementptr inbounds [4 x i8], ptr %1, i64 %426
   %428 = load i32, ptr %427, align 4, !tbaa !3
   %429 = sext i32 %428 to i64
   %430 = getelementptr inbounds i8, ptr %100, i64 %429
   %431 = load i8, ptr %430, align 1, !tbaa !7
   %432 = load i32, ptr %409, align 4, !tbaa !3
   %433 = sext i32 %432 to i64
-  %434 = getelementptr inbounds i32, ptr %1, i64 %433
+  %434 = getelementptr inbounds [4 x i8], ptr %1, i64 %433
   %435 = load i32, ptr %434, align 4, !tbaa !3
   %436 = sext i32 %435 to i64
   %437 = getelementptr inbounds i8, ptr %100, i64 %436
@@ -5711,7 +5711,7 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit512:               ; preds = %373, %379
   %441 = select i1 %424, i32 %417, i32 %410
   %spec.select28.i.i = select i1 %424, ptr %404, ptr %.0426
   %442 = sext i32 %441 to i64
-  %443 = getelementptr inbounds i32, ptr %1, i64 %442
+  %443 = getelementptr inbounds [4 x i8], ptr %1, i64 %442
   %444 = load i32, ptr %443, align 4, !tbaa !3
   %445 = sext i32 %444 to i64
   %446 = getelementptr inbounds i8, ptr %100, i64 %445
@@ -5723,20 +5723,20 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit512:               ; preds = %373, %379
 449:                                              ; preds = %406
   %450 = lshr i64 %23, 4
   %451 = and i64 %450, 1073741823
-  %452 = getelementptr inbounds nuw i32, ptr %.0426, i64 %451
+  %452 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %451
   %453 = getelementptr inbounds i8, ptr %.0436, i64 -4
   %454 = sub nsw i64 0, %451
-  %455 = getelementptr inbounds i32, ptr %453, i64 %454
+  %455 = getelementptr inbounds [4 x i8], ptr %453, i64 %454
   %456 = load i32, ptr %452, align 4, !tbaa !3
   %457 = sext i32 %456 to i64
-  %458 = getelementptr inbounds i32, ptr %1, i64 %457
+  %458 = getelementptr inbounds [4 x i8], ptr %1, i64 %457
   %459 = load i32, ptr %458, align 4, !tbaa !3
   %460 = sext i32 %459 to i64
   %461 = getelementptr inbounds i8, ptr %100, i64 %460
   %462 = load i8, ptr %461, align 1, !tbaa !7
   %463 = load i32, ptr %404, align 4, !tbaa !3
   %464 = sext i32 %463 to i64
-  %465 = getelementptr inbounds i32, ptr %1, i64 %464
+  %465 = getelementptr inbounds [4 x i8], ptr %1, i64 %464
   %466 = load i32, ptr %465, align 4, !tbaa !3
   %467 = sext i32 %466 to i64
   %468 = getelementptr inbounds i8, ptr %100, i64 %467
@@ -5747,14 +5747,14 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit512:               ; preds = %373, %379
   %spec.select68.i.i = select i1 %470, ptr %452, ptr %404
   %472 = load i32, ptr %455, align 4, !tbaa !3
   %473 = sext i32 %472 to i64
-  %474 = getelementptr inbounds i32, ptr %1, i64 %473
+  %474 = getelementptr inbounds [4 x i8], ptr %1, i64 %473
   %475 = load i32, ptr %474, align 4, !tbaa !3
   %476 = sext i32 %475 to i64
   %477 = getelementptr inbounds i8, ptr %100, i64 %476
   %478 = load i8, ptr %477, align 1, !tbaa !7
   %479 = load i32, ptr %453, align 4, !tbaa !3
   %480 = sext i32 %479 to i64
-  %481 = getelementptr inbounds i32, ptr %1, i64 %480
+  %481 = getelementptr inbounds [4 x i8], ptr %1, i64 %480
   %482 = load i32, ptr %481, align 4, !tbaa !3
   %483 = sext i32 %482 to i64
   %484 = getelementptr inbounds i8, ptr %100, i64 %483
@@ -5764,13 +5764,13 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit512:               ; preds = %373, %379
   %.060.i.i = select i1 %486, ptr %453, ptr %455
   %.0.i50.i = select i1 %486, ptr %455, ptr %453
   %488 = sext i32 %471 to i64
-  %489 = getelementptr inbounds i32, ptr %1, i64 %488
+  %489 = getelementptr inbounds [4 x i8], ptr %1, i64 %488
   %490 = load i32, ptr %489, align 4, !tbaa !3
   %491 = sext i32 %490 to i64
   %492 = getelementptr inbounds i8, ptr %100, i64 %491
   %493 = load i8, ptr %492, align 1, !tbaa !7
   %494 = sext i32 %487 to i64
-  %495 = getelementptr inbounds i32, ptr %1, i64 %494
+  %495 = getelementptr inbounds [4 x i8], ptr %1, i64 %494
   %496 = load i32, ptr %495, align 4, !tbaa !3
   %497 = sext i32 %496 to i64
   %498 = getelementptr inbounds i8, ptr %100, i64 %497
@@ -5781,14 +5781,14 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit512:               ; preds = %373, %379
   %.1.i.i = select i1 %500, ptr %spec.select68.i.i, ptr %.0.i50.i
   %501 = load i32, ptr %.0426, align 4, !tbaa !3
   %502 = sext i32 %501 to i64
-  %503 = getelementptr inbounds i32, ptr %1, i64 %502
+  %503 = getelementptr inbounds [4 x i8], ptr %1, i64 %502
   %504 = load i32, ptr %503, align 4, !tbaa !3
   %505 = sext i32 %504 to i64
   %506 = getelementptr inbounds i8, ptr %100, i64 %505
   %507 = load i8, ptr %506, align 1, !tbaa !7
   %508 = load i32, ptr %.163.i.i, align 4, !tbaa !3
   %509 = sext i32 %508 to i64
-  %510 = getelementptr inbounds i32, ptr %1, i64 %509
+  %510 = getelementptr inbounds [4 x i8], ptr %1, i64 %509
   %511 = load i32, ptr %510, align 4, !tbaa !3
   %512 = sext i32 %511 to i64
   %513 = getelementptr inbounds i8, ptr %100, i64 %512
@@ -5798,14 +5798,14 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit512:               ; preds = %373, %379
   %.066.i.i = select i1 %515, ptr %.163.i.i, ptr %.0426
   %.264.i.i = select i1 %515, ptr %.0426, ptr %.163.i.i
   %517 = sext i32 %516 to i64
-  %518 = getelementptr inbounds i32, ptr %1, i64 %517
+  %518 = getelementptr inbounds [4 x i8], ptr %1, i64 %517
   %519 = load i32, ptr %518, align 4, !tbaa !3
   %520 = sext i32 %519 to i64
   %521 = getelementptr inbounds i8, ptr %100, i64 %520
   %522 = load i8, ptr %521, align 1, !tbaa !7
   %523 = load i32, ptr %.161.i.i, align 4, !tbaa !3
   %524 = sext i32 %523 to i64
-  %525 = getelementptr inbounds i32, ptr %1, i64 %524
+  %525 = getelementptr inbounds [4 x i8], ptr %1, i64 %524
   %526 = load i32, ptr %525, align 4, !tbaa !3
   %527 = sext i32 %526 to i64
   %528 = getelementptr inbounds i8, ptr %100, i64 %527
@@ -5815,14 +5815,14 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit512:               ; preds = %373, %379
   %.2.i.i = select i1 %530, ptr %.066.i.i, ptr %.161.i.i
   %531 = load i32, ptr %.3.i.i, align 4, !tbaa !3
   %532 = sext i32 %531 to i64
-  %533 = getelementptr inbounds i32, ptr %1, i64 %532
+  %533 = getelementptr inbounds [4 x i8], ptr %1, i64 %532
   %534 = load i32, ptr %533, align 4, !tbaa !3
   %535 = sext i32 %534 to i64
   %536 = getelementptr inbounds i8, ptr %100, i64 %535
   %537 = load i8, ptr %536, align 1, !tbaa !7
   %538 = load i32, ptr %.2.i.i, align 4, !tbaa !3
   %539 = sext i32 %538 to i64
-  %540 = getelementptr inbounds i32, ptr %1, i64 %539
+  %540 = getelementptr inbounds [4 x i8], ptr %1, i64 %539
   %541 = load i32, ptr %540, align 4, !tbaa !3
   %542 = sext i32 %541 to i64
   %543 = getelementptr inbounds i8, ptr %100, i64 %542
@@ -5834,20 +5834,20 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit512:               ; preds = %373, %379
 546:                                              ; preds = %399
   %547 = lshr i32 %401, 3
   %548 = zext nneg i32 %547 to i64
-  %549 = getelementptr inbounds nuw i32, ptr %.0426, i64 %548
+  %549 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %548
   %550 = shl nuw nsw i32 %547, 1
   %551 = zext nneg i32 %550 to i64
-  %552 = getelementptr inbounds nuw i32, ptr %.0426, i64 %551
+  %552 = getelementptr inbounds nuw [4 x i8], ptr %.0426, i64 %551
   %553 = load i32, ptr %.0426, align 4, !tbaa !3
   %554 = sext i32 %553 to i64
-  %555 = getelementptr inbounds i32, ptr %1, i64 %554
+  %555 = getelementptr inbounds [4 x i8], ptr %1, i64 %554
   %556 = load i32, ptr %555, align 4, !tbaa !3
   %557 = sext i32 %556 to i64
   %558 = getelementptr inbounds i8, ptr %100, i64 %557
   %559 = load i8, ptr %558, align 1, !tbaa !7
   %560 = load i32, ptr %549, align 4, !tbaa !3
   %561 = sext i32 %560 to i64
-  %562 = getelementptr inbounds i32, ptr %1, i64 %561
+  %562 = getelementptr inbounds [4 x i8], ptr %1, i64 %561
   %563 = load i32, ptr %562, align 4, !tbaa !3
   %564 = sext i32 %563 to i64
   %565 = getelementptr inbounds i8, ptr %100, i64 %564
@@ -5856,14 +5856,14 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit512:               ; preds = %373, %379
   %568 = select i1 %567, i32 %553, i32 %560
   %spec.select.i51.i = select i1 %567, ptr %.0426, ptr %549
   %569 = sext i32 %568 to i64
-  %570 = getelementptr inbounds i32, ptr %1, i64 %569
+  %570 = getelementptr inbounds [4 x i8], ptr %1, i64 %569
   %571 = load i32, ptr %570, align 4, !tbaa !3
   %572 = sext i32 %571 to i64
   %573 = getelementptr inbounds i8, ptr %100, i64 %572
   %574 = load i8, ptr %573, align 1, !tbaa !7
   %575 = load i32, ptr %552, align 4, !tbaa !3
   %576 = sext i32 %575 to i64
-  %577 = getelementptr inbounds i32, ptr %1, i64 %576
+  %577 = getelementptr inbounds [4 x i8], ptr %1, i64 %576
   %578 = load i32, ptr %577, align 4, !tbaa !3
   %579 = sext i32 %578 to i64
   %580 = getelementptr inbounds i8, ptr %100, i64 %579
@@ -5875,7 +5875,7 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit512:               ; preds = %373, %379
   %584 = select i1 %567, i32 %560, i32 %553
   %spec.select28.i53.i = select i1 %567, ptr %549, ptr %.0426
   %585 = sext i32 %584 to i64
-  %586 = getelementptr inbounds i32, ptr %1, i64 %585
+  %586 = getelementptr inbounds [4 x i8], ptr %1, i64 %585
   %587 = load i32, ptr %586, align 4, !tbaa !3
   %588 = sext i32 %587 to i64
   %589 = getelementptr inbounds i8, ptr %100, i64 %588
@@ -5887,18 +5887,18 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit512:               ; preds = %373, %379
 _ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit55.i: ; preds = %583, %546
   %.0.i52.i = phi ptr [ %spec.select28..i54.i, %583 ], [ %spec.select.i51.i, %546 ]
   %592 = sub nsw i64 0, %548
-  %593 = getelementptr inbounds i32, ptr %404, i64 %592
-  %594 = getelementptr inbounds nuw i32, ptr %404, i64 %548
+  %593 = getelementptr inbounds [4 x i8], ptr %404, i64 %592
+  %594 = getelementptr inbounds nuw [4 x i8], ptr %404, i64 %548
   %595 = load i32, ptr %593, align 4, !tbaa !3
   %596 = sext i32 %595 to i64
-  %597 = getelementptr inbounds i32, ptr %1, i64 %596
+  %597 = getelementptr inbounds [4 x i8], ptr %1, i64 %596
   %598 = load i32, ptr %597, align 4, !tbaa !3
   %599 = sext i32 %598 to i64
   %600 = getelementptr inbounds i8, ptr %100, i64 %599
   %601 = load i8, ptr %600, align 1, !tbaa !7
   %602 = load i32, ptr %404, align 4, !tbaa !3
   %603 = sext i32 %602 to i64
-  %604 = getelementptr inbounds i32, ptr %1, i64 %603
+  %604 = getelementptr inbounds [4 x i8], ptr %1, i64 %603
   %605 = load i32, ptr %604, align 4, !tbaa !3
   %606 = sext i32 %605 to i64
   %607 = getelementptr inbounds i8, ptr %100, i64 %606
@@ -5907,14 +5907,14 @@ _ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit55.i: ; preds = %583, %546
   %610 = select i1 %609, i32 %595, i32 %602
   %spec.select.i56.i = select i1 %609, ptr %593, ptr %404
   %611 = sext i32 %610 to i64
-  %612 = getelementptr inbounds i32, ptr %1, i64 %611
+  %612 = getelementptr inbounds [4 x i8], ptr %1, i64 %611
   %613 = load i32, ptr %612, align 4, !tbaa !3
   %614 = sext i32 %613 to i64
   %615 = getelementptr inbounds i8, ptr %100, i64 %614
   %616 = load i8, ptr %615, align 1, !tbaa !7
   %617 = load i32, ptr %594, align 4, !tbaa !3
   %618 = sext i32 %617 to i64
-  %619 = getelementptr inbounds i32, ptr %1, i64 %618
+  %619 = getelementptr inbounds [4 x i8], ptr %1, i64 %618
   %620 = load i32, ptr %619, align 4, !tbaa !3
   %621 = sext i32 %620 to i64
   %622 = getelementptr inbounds i8, ptr %100, i64 %621
@@ -5926,7 +5926,7 @@ _ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit55.i: ; preds = %583, %546
   %626 = select i1 %609, i32 %602, i32 %595
   %spec.select28.i58.i = select i1 %609, ptr %404, ptr %593
   %627 = sext i32 %626 to i64
-  %628 = getelementptr inbounds i32, ptr %1, i64 %627
+  %628 = getelementptr inbounds [4 x i8], ptr %1, i64 %627
   %629 = load i32, ptr %628, align 4, !tbaa !3
   %630 = sext i32 %629 to i64
   %631 = getelementptr inbounds i8, ptr %100, i64 %630
@@ -5939,18 +5939,18 @@ _ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit60.i: ; preds = %625, %_ZN11duc
   %.0.i57.i = phi ptr [ %spec.select28..i59.i, %625 ], [ %spec.select.i56.i, %_ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit55.i ]
   %634 = getelementptr inbounds i8, ptr %.0436, i64 -4
   %635 = sub nsw i64 0, %551
-  %636 = getelementptr inbounds i32, ptr %634, i64 %635
-  %637 = getelementptr inbounds i32, ptr %634, i64 %592
+  %636 = getelementptr inbounds [4 x i8], ptr %634, i64 %635
+  %637 = getelementptr inbounds [4 x i8], ptr %634, i64 %592
   %638 = load i32, ptr %636, align 4, !tbaa !3
   %639 = sext i32 %638 to i64
-  %640 = getelementptr inbounds i32, ptr %1, i64 %639
+  %640 = getelementptr inbounds [4 x i8], ptr %1, i64 %639
   %641 = load i32, ptr %640, align 4, !tbaa !3
   %642 = sext i32 %641 to i64
   %643 = getelementptr inbounds i8, ptr %100, i64 %642
   %644 = load i8, ptr %643, align 1, !tbaa !7
   %645 = load i32, ptr %637, align 4, !tbaa !3
   %646 = sext i32 %645 to i64
-  %647 = getelementptr inbounds i32, ptr %1, i64 %646
+  %647 = getelementptr inbounds [4 x i8], ptr %1, i64 %646
   %648 = load i32, ptr %647, align 4, !tbaa !3
   %649 = sext i32 %648 to i64
   %650 = getelementptr inbounds i8, ptr %100, i64 %649
@@ -5959,14 +5959,14 @@ _ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit60.i: ; preds = %625, %_ZN11duc
   %653 = select i1 %652, i32 %638, i32 %645
   %spec.select.i61.i = select i1 %652, ptr %636, ptr %637
   %654 = sext i32 %653 to i64
-  %655 = getelementptr inbounds i32, ptr %1, i64 %654
+  %655 = getelementptr inbounds [4 x i8], ptr %1, i64 %654
   %656 = load i32, ptr %655, align 4, !tbaa !3
   %657 = sext i32 %656 to i64
   %658 = getelementptr inbounds i8, ptr %100, i64 %657
   %659 = load i8, ptr %658, align 1, !tbaa !7
   %660 = load i32, ptr %634, align 4, !tbaa !3
   %661 = sext i32 %660 to i64
-  %662 = getelementptr inbounds i32, ptr %1, i64 %661
+  %662 = getelementptr inbounds [4 x i8], ptr %1, i64 %661
   %663 = load i32, ptr %662, align 4, !tbaa !3
   %664 = sext i32 %663 to i64
   %665 = getelementptr inbounds i8, ptr %100, i64 %664
@@ -5978,7 +5978,7 @@ _ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit60.i: ; preds = %625, %_ZN11duc
   %669 = select i1 %652, i32 %645, i32 %638
   %spec.select28.i63.i = select i1 %652, ptr %637, ptr %636
   %670 = sext i32 %669 to i64
-  %671 = getelementptr inbounds i32, ptr %1, i64 %670
+  %671 = getelementptr inbounds [4 x i8], ptr %1, i64 %670
   %672 = load i32, ptr %671, align 4, !tbaa !3
   %673 = sext i32 %672 to i64
   %674 = getelementptr inbounds i8, ptr %100, i64 %673
@@ -5987,7 +5987,7 @@ _ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit60.i: ; preds = %625, %_ZN11duc
   %spec.select28..i64.i = select i1 %676, ptr %spec.select28.i63.i, ptr %634
   %.pre.i517 = load i32, ptr %spec.select28..i64.i, align 4, !tbaa !3
   %.pre71.i = sext i32 %.pre.i517 to i64
-  %.phi.trans.insert.i = getelementptr inbounds i32, ptr %1, i64 %.pre71.i
+  %.phi.trans.insert.i = getelementptr inbounds [4 x i8], ptr %1, i64 %.pre71.i
   %.pre72.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !3
   %.phi.trans.insert73.i = sext i32 %.pre72.i to i64
   %.phi.trans.insert74.i = getelementptr inbounds i8, ptr %100, i64 %.phi.trans.insert73.i
@@ -5999,14 +5999,14 @@ _ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit65.i: ; preds = %668, %_ZN11duc
   %.0.i62.i = phi ptr [ %spec.select.i61.i, %_ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit60.i ], [ %spec.select28..i64.i, %668 ]
   %678 = load i32, ptr %.0.i52.i, align 4, !tbaa !3
   %679 = sext i32 %678 to i64
-  %680 = getelementptr inbounds i32, ptr %1, i64 %679
+  %680 = getelementptr inbounds [4 x i8], ptr %1, i64 %679
   %681 = load i32, ptr %680, align 4, !tbaa !3
   %682 = sext i32 %681 to i64
   %683 = getelementptr inbounds i8, ptr %100, i64 %682
   %684 = load i8, ptr %683, align 1, !tbaa !7
   %685 = load i32, ptr %.0.i57.i, align 4, !tbaa !3
   %686 = sext i32 %685 to i64
-  %687 = getelementptr inbounds i32, ptr %1, i64 %686
+  %687 = getelementptr inbounds [4 x i8], ptr %1, i64 %686
   %688 = load i32, ptr %687, align 4, !tbaa !3
   %689 = sext i32 %688 to i64
   %690 = getelementptr inbounds i8, ptr %100, i64 %689
@@ -6015,7 +6015,7 @@ _ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit65.i: ; preds = %668, %_ZN11duc
   %693 = select i1 %692, i32 %678, i32 %685
   %spec.select.i66.i515 = select i1 %692, ptr %.0.i52.i, ptr %.0.i57.i
   %694 = sext i32 %693 to i64
-  %695 = getelementptr inbounds i32, ptr %1, i64 %694
+  %695 = getelementptr inbounds [4 x i8], ptr %1, i64 %694
   %696 = load i32, ptr %695, align 4, !tbaa !3
   %697 = sext i32 %696 to i64
   %698 = getelementptr inbounds i8, ptr %100, i64 %697
@@ -6027,7 +6027,7 @@ _ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit65.i: ; preds = %668, %_ZN11duc
   %702 = select i1 %692, i32 %685, i32 %678
   %spec.select28.i68.i = select i1 %692, ptr %.0.i57.i, ptr %.0.i52.i
   %703 = sext i32 %702 to i64
-  %704 = getelementptr inbounds i32, ptr %1, i64 %703
+  %704 = getelementptr inbounds [4 x i8], ptr %1, i64 %703
   %705 = load i32, ptr %704, align 4, !tbaa !3
   %706 = sext i32 %705 to i64
   %707 = getelementptr inbounds i8, ptr %100, i64 %706
@@ -6041,7 +6041,7 @@ _ZN11duckdb_zstdL8ss_pivotEPKhPKiPiS4_.exit:      ; preds = %408, %440, %449, %_
   %.0.i516 = phi ptr [ %spec.select.i.i518, %408 ], [ %.067.i.i, %449 ], [ %spec.select28..i.i, %440 ], [ %spec.select28..i69.i, %701 ], [ %spec.select.i66.i515, %_ZN11duckdb_zstdL10ss_median3EPKhPKiPiS4_S4_.exit65.i ]
   %711 = load i32, ptr %.0.i516, align 4, !tbaa !3
   %712 = sext i32 %711 to i64
-  %713 = getelementptr inbounds i32, ptr %1, i64 %712
+  %713 = getelementptr inbounds [4 x i8], ptr %1, i64 %712
   %714 = load i32, ptr %713, align 4, !tbaa !3
   %715 = sext i32 %714 to i64
   %716 = getelementptr inbounds i8, ptr %100, i64 %715
@@ -6059,7 +6059,7 @@ _ZN11duckdb_zstdL8ss_pivotEPKhPKiPiS4_.exit:      ; preds = %408, %440, %449, %_
 721:                                              ; preds = %718
   %722 = load i32, ptr %719, align 4, !tbaa !3
   %723 = sext i32 %722 to i64
-  %724 = getelementptr inbounds i32, ptr %1, i64 %723
+  %724 = getelementptr inbounds [4 x i8], ptr %1, i64 %723
   %725 = load i32, ptr %724, align 4, !tbaa !3
   %726 = sext i32 %725 to i64
   %727 = getelementptr inbounds i8, ptr %100, i64 %726
@@ -6081,7 +6081,7 @@ _ZN11duckdb_zstdL8ss_pivotEPKhPKiPiS4_.exit:      ; preds = %408, %440, %449, %_
   %.2421600 = phi ptr [ %.3422, %746 ], [ %719, %.preheader558 ]
   %734 = load i32, ptr %733, align 4, !tbaa !3
   %735 = sext i32 %734 to i64
-  %736 = getelementptr inbounds i32, ptr %1, i64 %735
+  %736 = getelementptr inbounds [4 x i8], ptr %1, i64 %735
   %737 = load i32, ptr %736, align 4, !tbaa !3
   %738 = sext i32 %737 to i64
   %739 = getelementptr inbounds i8, ptr %100, i64 %738
@@ -6120,7 +6120,7 @@ _ZN11duckdb_zstdL8ss_pivotEPKhPKiPiS4_.exit:      ; preds = %408, %440, %449, %_
 752:                                              ; preds = %749
   %753 = load i32, ptr %750, align 4, !tbaa !3
   %754 = sext i32 %753 to i64
-  %755 = getelementptr inbounds i32, ptr %1, i64 %754
+  %755 = getelementptr inbounds [4 x i8], ptr %1, i64 %754
   %756 = load i32, ptr %755, align 4, !tbaa !3
   %757 = sext i32 %756 to i64
   %758 = getelementptr inbounds i8, ptr %100, i64 %757
@@ -6142,7 +6142,7 @@ _ZN11duckdb_zstdL8ss_pivotEPKhPKiPiS4_.exit:      ; preds = %408, %440, %449, %_
   %.1404606 = phi ptr [ %.2405, %777 ], [ %750, %.preheader ]
   %765 = load i32, ptr %764, align 4, !tbaa !3
   %766 = sext i32 %765 to i64
-  %767 = getelementptr inbounds i32, ptr %1, i64 %766
+  %767 = getelementptr inbounds [4 x i8], ptr %1, i64 %766
   %768 = load i32, ptr %767, align 4, !tbaa !3
   %769 = sext i32 %768 to i64
   %770 = getelementptr inbounds i8, ptr %100, i64 %769
@@ -6191,7 +6191,7 @@ _ZN11duckdb_zstdL8ss_pivotEPKhPKiPiS4_.exit:      ; preds = %408, %440, %449, %_
   %.5424613 = phi ptr [ %.6425, %798 ], [ %.4423627, %.lr.ph631 ]
   %786 = load i32, ptr %785, align 4, !tbaa !3
   %787 = sext i32 %786 to i64
-  %788 = getelementptr inbounds i32, ptr %1, i64 %787
+  %788 = getelementptr inbounds [4 x i8], ptr %1, i64 %787
   %789 = load i32, ptr %788, align 4, !tbaa !3
   %790 = sext i32 %789 to i64
   %791 = getelementptr inbounds i8, ptr %100, i64 %790
@@ -6228,7 +6228,7 @@ _ZN11duckdb_zstdL8ss_pivotEPKhPKiPiS4_.exit:      ; preds = %408, %440, %449, %_
   %.4407620 = phi ptr [ %.5408, %816 ], [ %.3406630, %.critedge8 ]
   %804 = load i32, ptr %803, align 4, !tbaa !3
   %805 = sext i32 %804 to i64
-  %806 = getelementptr inbounds i32, ptr %1, i64 %805
+  %806 = getelementptr inbounds [4 x i8], ptr %1, i64 %805
   %807 = load i32, ptr %806, align 4, !tbaa !3
   %808 = sext i32 %807 to i64
   %809 = getelementptr inbounds i8, ptr %100, i64 %808
@@ -6283,7 +6283,7 @@ _ZN11duckdb_zstdL8ss_pivotEPKhPKiPiS4_.exit:      ; preds = %408, %440, %449, %_
 .lr.ph639.preheader:                              ; preds = %820
   %831 = zext nneg i32 %spec.select to i64
   %832 = sub nsw i64 0, %831
-  %833 = getelementptr inbounds i32, ptr %.3417.lcssa, i64 %832
+  %833 = getelementptr inbounds [4 x i8], ptr %.3417.lcssa, i64 %832
   br label %.lr.ph639
 
 .lr.ph639:                                        ; preds = %.lr.ph639.preheader, %.lr.ph639
@@ -6317,7 +6317,7 @@ _ZN11duckdb_zstdL8ss_pivotEPKhPKiPiS4_.exit:      ; preds = %408, %440, %449, %_
 .lr.ph645.preheader:                              ; preds = %._crit_edge640
   %850 = zext nneg i32 %spec.select499 to i64
   %851 = sub nsw i64 0, %850
-  %852 = getelementptr inbounds i32, ptr %.0436, i64 %851
+  %852 = getelementptr inbounds [4 x i8], ptr %.0436, i64 %851
   br label %.lr.ph645
 
 .lr.ph645:                                        ; preds = %.lr.ph645.preheader, %.lr.ph645
@@ -6337,10 +6337,10 @@ _ZN11duckdb_zstdL8ss_pivotEPKhPKiPiS4_.exit:      ; preds = %408, %440, %449, %_
 ._crit_edge646:                                   ; preds = %.lr.ph645, %._crit_edge640
   %859 = getelementptr inbounds i8, ptr %.0426, i64 %827
   %860 = sub nsw i64 0, %843
-  %861 = getelementptr inbounds i32, ptr %.0436, i64 %860
+  %861 = getelementptr inbounds [4 x i8], ptr %.0436, i64 %860
   %862 = load i32, ptr %859, align 4, !tbaa !3
   %863 = sext i32 %862 to i64
-  %864 = getelementptr inbounds i32, ptr %1, i64 %863
+  %864 = getelementptr inbounds [4 x i8], ptr %1, i64 %863
   %865 = load i32, ptr %864, align 4, !tbaa !3
   %866 = sext i32 %865 to i64
   %867 = getelementptr i8, ptr %100, i64 %866
@@ -6364,7 +6364,7 @@ _ZN11duckdb_zstdL8ss_pivotEPKhPKiPiS4_.exit:      ; preds = %408, %440, %449, %_
   %875 = phi ptr [ %885, %883 ], [ %873, %872 ]
   %876 = load i32, ptr %875, align 4, !tbaa !3
   %877 = sext i32 %876 to i64
-  %878 = getelementptr inbounds i32, ptr %1, i64 %877
+  %878 = getelementptr inbounds [4 x i8], ptr %1, i64 %877
   %879 = load i32, ptr %878, align 4, !tbaa !3
   %880 = add nsw i32 %879, %.0433
   %881 = getelementptr i8, ptr %878, i64 4
@@ -6392,7 +6392,7 @@ _ZN11duckdb_zstdL8ss_pivotEPKhPKiPiS4_.exit:      ; preds = %408, %440, %449, %_
 890:                                              ; preds = %887
   %891 = load i32, ptr %888, align 4, !tbaa !3
   %892 = sext i32 %891 to i64
-  %893 = getelementptr inbounds i32, ptr %1, i64 %892
+  %893 = getelementptr inbounds [4 x i8], ptr %1, i64 %892
   %894 = load i32, ptr %893, align 4, !tbaa !3
   %895 = add nsw i32 %894, %.0433
   %896 = getelementptr i8, ptr %893, i64 4
@@ -6433,7 +6433,7 @@ _ZN11duckdb_zstdL12ss_partitionEPKiPiS2_i.exit528: ; preds = %902, %.critedge2.i
 
 912:                                              ; preds = %911
   %913 = sext i32 %.0392 to i64
-  %914 = getelementptr inbounds %struct.anon, ptr %5, i64 %913
+  %914 = getelementptr inbounds [24 x i8], ptr %5, i64 %913
   store ptr %905, ptr %914, align 8, !tbaa !89
   %915 = getelementptr inbounds nuw i8, ptr %914, i64 8
   store ptr %861, ptr %915, align 8, !tbaa !91
@@ -6447,14 +6447,14 @@ _ZN11duckdb_zstdL12ss_partitionEPKiPiS2_i.exit528: ; preds = %902, %.critedge2.i
 919:                                              ; preds = %912
   %920 = lshr i64 %910, 8
   %921 = and i64 %920, 255
-  %922 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %921
+  %922 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %921
   %923 = load i32, ptr %922, align 4, !tbaa !3
   %924 = add nsw i32 %923, 8
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit530
 
 925:                                              ; preds = %912
   %926 = and i64 %910, 255
-  %927 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %926
+  %927 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %926
   %928 = load i32, ptr %927, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit530
 
@@ -6476,7 +6476,7 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit530:               ; preds = %919, %925
 936:                                              ; preds = %911
   %.not493 = icmp sgt i64 %906, %910
   %937 = sext i32 %.0392 to i64
-  %938 = getelementptr inbounds %struct.anon, ptr %5, i64 %937
+  %938 = getelementptr inbounds [24 x i8], ptr %5, i64 %937
   store ptr %861, ptr %938, align 8, !tbaa !89
   %939 = getelementptr inbounds nuw i8, ptr %938, i64 8
   store ptr %.0436, ptr %939, align 8, !tbaa !91
@@ -6501,14 +6501,14 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit530:               ; preds = %919, %925
 948:                                              ; preds = %944
   %949 = lshr i64 %910, 8
   %950 = and i64 %949, 255
-  %951 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %950
+  %951 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %950
   %952 = load i32, ptr %951, align 4, !tbaa !3
   %953 = add nsw i32 %952, 8
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit532
 
 954:                                              ; preds = %944
   %955 = and i64 %910, 255
-  %956 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %955
+  %956 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %955
   %957 = load i32, ptr %956, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit532
 
@@ -6535,14 +6535,14 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit532:               ; preds = %948, %954
 967:                                              ; preds = %961
   %968 = lshr i64 %910, 8
   %969 = and i64 %968, 255
-  %970 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %969
+  %970 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %969
   %971 = load i32, ptr %970, align 4, !tbaa !3
   %972 = add nsw i32 %971, 8
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit.backedge
 
 973:                                              ; preds = %961
   %974 = and i64 %910, 255
-  %975 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %974
+  %975 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %974
   %976 = load i32, ptr %975, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit.backedge
 
@@ -6552,7 +6552,7 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit532:               ; preds = %948, %954
 
 978:                                              ; preds = %977
   %979 = sext i32 %.0392 to i64
-  %980 = getelementptr inbounds %struct.anon, ptr %5, i64 %979
+  %980 = getelementptr inbounds [24 x i8], ptr %5, i64 %979
   store ptr %905, ptr %980, align 8, !tbaa !89
   %981 = getelementptr inbounds nuw i8, ptr %980, i64 8
   store ptr %861, ptr %981, align 8, !tbaa !91
@@ -6566,14 +6566,14 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit532:               ; preds = %948, %954
 985:                                              ; preds = %978
   %986 = lshr i64 %910, 8
   %987 = and i64 %986, 255
-  %988 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %987
+  %988 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %987
   %989 = load i32, ptr %988, align 4, !tbaa !3
   %990 = add nsw i32 %989, 8
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit536
 
 991:                                              ; preds = %978
   %992 = and i64 %910, 255
-  %993 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %992
+  %993 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %992
   %994 = load i32, ptr %993, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit536
 
@@ -6595,7 +6595,7 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit536:               ; preds = %985, %991
 1002:                                             ; preds = %977
   %.not491 = icmp sgt i64 %843, %910
   %1003 = sext i32 %.0392 to i64
-  %1004 = getelementptr inbounds %struct.anon, ptr %5, i64 %1003
+  %1004 = getelementptr inbounds [24 x i8], ptr %5, i64 %1003
   store ptr %.0426, ptr %1004, align 8, !tbaa !89
   %1005 = getelementptr inbounds nuw i8, ptr %1004, i64 8
   store ptr %859, ptr %1005, align 8, !tbaa !91
@@ -6620,14 +6620,14 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit536:               ; preds = %985, %991
 1014:                                             ; preds = %1010
   %1015 = lshr i64 %910, 8
   %1016 = and i64 %1015, 255
-  %1017 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1016
+  %1017 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1016
   %1018 = load i32, ptr %1017, align 4, !tbaa !3
   %1019 = add nsw i32 %1018, 8
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit538
 
 1020:                                             ; preds = %1010
   %1021 = and i64 %910, 255
-  %1022 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1021
+  %1022 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1021
   %1023 = load i32, ptr %1022, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit538
 
@@ -6654,21 +6654,21 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit538:               ; preds = %1014, %1020
 1033:                                             ; preds = %1027
   %1034 = lshr i64 %910, 8
   %1035 = and i64 %1034, 255
-  %1036 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1035
+  %1036 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1035
   %1037 = load i32, ptr %1036, align 4, !tbaa !3
   %1038 = add nsw i32 %1037, 8
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit.backedge
 
 1039:                                             ; preds = %1027
   %1040 = and i64 %910, 255
-  %1041 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1040
+  %1041 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1040
   %1042 = load i32, ptr %1041, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit.backedge
 
 1043:                                             ; preds = %._crit_edge
   %1044 = load i32, ptr %.0426, align 4, !tbaa !3
   %1045 = sext i32 %1044 to i64
-  %1046 = getelementptr inbounds i32, ptr %1, i64 %1045
+  %1046 = getelementptr inbounds [4 x i8], ptr %1, i64 %1045
   %1047 = load i32, ptr %1046, align 4, !tbaa !3
   %1048 = sext i32 %1047 to i64
   %1049 = getelementptr i8, ptr %100, i64 %1048
@@ -6692,7 +6692,7 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit538:               ; preds = %1014, %1020
   %1058 = phi ptr [ %1068, %1066 ], [ %1056, %1055 ]
   %1059 = load i32, ptr %1058, align 4, !tbaa !3
   %1060 = sext i32 %1059 to i64
-  %1061 = getelementptr inbounds i32, ptr %1, i64 %1060
+  %1061 = getelementptr inbounds [4 x i8], ptr %1, i64 %1060
   %1062 = load i32, ptr %1061, align 4, !tbaa !3
   %1063 = add nsw i32 %1062, %.0433
   %1064 = getelementptr i8, ptr %1061, i64 4
@@ -6720,7 +6720,7 @@ _ZN11duckdb_zstdL6ss_ilgEi.exit538:               ; preds = %1014, %1020
 1073:                                             ; preds = %1070
   %1074 = load i32, ptr %1071, align 4, !tbaa !3
   %1075 = sext i32 %1074 to i64
-  %1076 = getelementptr inbounds i32, ptr %1, i64 %1075
+  %1076 = getelementptr inbounds [4 x i8], ptr %1, i64 %1075
   %1077 = load i32, ptr %1076, align 4, !tbaa !3
   %1078 = add nsw i32 %1077, %.0433
   %1079 = getelementptr i8, ptr %1076, i64 4
@@ -6755,7 +6755,7 @@ _ZN11duckdb_zstdL12ss_partitionEPKiPiS2_i.exit550: ; preds = %.critedge2.i546, %
 1091:                                             ; preds = %_ZN11duckdb_zstdL12ss_partitionEPKiPiS2_i.exit550
   %1092 = lshr i64 %1089, 10
   %1093 = and i64 %1092, 255
-  %1094 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1093
+  %1094 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1093
   %1095 = load i32, ptr %1094, align 4, !tbaa !3
   %1096 = add nsw i32 %1095, 8
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit552
@@ -6763,7 +6763,7 @@ _ZN11duckdb_zstdL12ss_partitionEPKiPiS2_i.exit550: ; preds = %.critedge2.i546, %
 1097:                                             ; preds = %_ZN11duckdb_zstdL12ss_partitionEPKiPiS2_i.exit550
   %1098 = lshr exact i64 %1089, 2
   %1099 = and i64 %1098, 255
-  %1100 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1099
+  %1100 = getelementptr inbounds nuw [4 x i8], ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %1099
   %1101 = load i32, ptr %1100, align 4, !tbaa !3
   br label %_ZN11duckdb_zstdL6ss_ilgEi.exit552
 
@@ -6844,7 +6844,7 @@ _ZN11duckdb_zstdL12ss_blockswapEPiS0_i.exit.i:    ; preds = %.lr.ph.i.i, %18
   %.pn.in.i = xor i32 %.lobit.i, %30
   %.lobit186.i = lshr i32 %30, 31
   %.pn.i = zext i32 %.pn.in.i to i64
-  %.0127.i = getelementptr inbounds nuw i32, ptr %1, i64 %.pn.i
+  %.0127.i = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.pn.i
   %31 = getelementptr inbounds i8, ptr %.0226, i64 -4
   %32 = load i32, ptr %31, align 4, !tbaa !3
   %.lobit187.i = ashr i32 %32, 31
@@ -6853,7 +6853,7 @@ _ZN11duckdb_zstdL12ss_blockswapEPiS0_i.exit.i:    ; preds = %.lr.ph.i.i, %18
   %34 = and i32 %33, 2
   %.1.i = or disjoint i32 %34, %.lobit186.i
   %.pn175.i = zext i32 %.pn175.in.i to i64
-  %.0131.i = getelementptr inbounds nuw i32, ptr %1, i64 %.pn175.i
+  %.0131.i = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.pn175.i
   %35 = getelementptr inbounds i8, ptr %.0233.ph, i64 -4
   %36 = load i32, ptr %35, align 4, !tbaa !3
   br label %.outer
@@ -6981,7 +6981,7 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.thread._crit_edge.i: ; preds = %75
 84:                                               ; preds = %79
   %85 = xor i32 %82, -1
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %1, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %86
   %88 = or disjoint i32 %.3.i, 1
   br label %.outer.backedge
 
@@ -6996,7 +6996,7 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.thread._crit_edge.i: ; preds = %75
 
 89:                                               ; preds = %79
   %90 = zext nneg i32 %82 to i64
-  %91 = getelementptr inbounds nuw i32, ptr %1, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %90
   br label %.outer.backedge
 
 92:                                               ; preds = %_ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.i, %_ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.thread185.i
@@ -7064,7 +7064,7 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.thread._crit_edge.i: ; preds = %75
   %.pn.in = select i1 %117, i32 %118, i32 %116
   %.2.i.be = select i1 %117, i32 %119, i32 %.5.i
   %.pn = zext i32 %.pn.in to i64
-  %.1132.i.be = getelementptr inbounds nuw i32, ptr %1, i64 %.pn
+  %.1132.i.be = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.pn
   br label %38, !llvm.loop !111
 
 120:                                              ; preds = %92
@@ -7159,7 +7159,7 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.thread._crit_edge.i: ; preds = %75
   %156 = lshr i32 %155, 31
   %.8.i = or i32 %156, %.7.i
   %.pn178.i = zext i32 %.pn178.in.i to i64
-  %.3130.i = getelementptr inbounds nuw i32, ptr %1, i64 %.pn178.i
+  %.3130.i = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.pn178.i
   %157 = load i32, ptr %146, align 4, !tbaa !3
   %158 = icmp slt i32 %157, 0
   br i1 %158, label %159, label %164
@@ -7167,13 +7167,13 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.thread._crit_edge.i: ; preds = %75
 159:                                              ; preds = %154
   %160 = xor i32 %157, -1
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw i32, ptr %1, i64 %161
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %161
   %163 = or disjoint i32 %.8.i, 2
   br label %.outer.backedge
 
 164:                                              ; preds = %154
   %165 = zext nneg i32 %157 to i64
-  %166 = getelementptr inbounds nuw i32, ptr %1, i64 %165
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %165
   br label %.outer.backedge
 
 .sink.split.i:                                    ; preds = %.lr.ph.i, %.lr.ph218.i, %.preheader189.i, %.preheader.i
@@ -7208,10 +7208,10 @@ _ZN11duckdb_zstdL16ss_mergebackwardEPKhPKiPiS4_S4_S4_i.exit: ; preds = %_ZN11duc
   %.lobit = ashr i32 %174, 31
   %175 = xor i32 %.lobit, %174
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw i32, ptr %1, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %176
   %178 = load i32, ptr %.0224, align 4, !tbaa !3
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds i32, ptr %1, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %1, i64 %179
   %.val = load i32, ptr %177, align 4, !tbaa !3
   %181 = getelementptr i8, ptr %177, i64 4
   %.val271 = load i32, ptr %181, align 4, !tbaa !3
@@ -7298,10 +7298,10 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit.thread: ; preds = %203, %213, %_ZN
   %.lobit429 = ashr i32 %219, 31
   %220 = xor i32 %.lobit429, %219
   %221 = zext nneg i32 %220 to i64
-  %222 = getelementptr inbounds nuw i32, ptr %1, i64 %221
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %221
   %223 = load i32, ptr %.0233.ph, align 4, !tbaa !3
   %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds i32, ptr %1, i64 %224
+  %225 = getelementptr inbounds [4 x i8], ptr %1, i64 %224
   %.val274 = load i32, ptr %222, align 4, !tbaa !3
   %226 = getelementptr i8, ptr %222, i64 4
   %.val275 = load i32, ptr %226, align 4, !tbaa !3
@@ -7383,7 +7383,7 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit316.thread: ; preds = %248, %_ZN11d
 261:                                              ; preds = %_ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit316.thread
   %262 = add nsw i32 %.0217, -1
   %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds %struct.anon.0, ptr %8, i64 %263
+  %264 = getelementptr inbounds [32 x i8], ptr %8, i64 %263
   %265 = load ptr, ptr %264, align 16, !tbaa !117
   %266 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %267 = load ptr, ptr %266, align 8, !tbaa !119
@@ -7444,10 +7444,10 @@ _ZN11duckdb_zstdL12ss_blockswapEPiS0_i.exit.i317: ; preds = %.lr.ph.i.i339, %278
   %.0.i = phi ptr [ %.0224, %_ZN11duckdb_zstdL12ss_blockswapEPiS0_i.exit.i317 ], [ %.2.i329, %.loopexit.i ]
   %292 = load i32, ptr %.071.i, align 4, !tbaa !3
   %293 = sext i32 %292 to i64
-  %294 = getelementptr inbounds i32, ptr %1, i64 %293
+  %294 = getelementptr inbounds [4 x i8], ptr %1, i64 %293
   %295 = load i32, ptr %.077.i, align 4, !tbaa !3
   %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds i32, ptr %1, i64 %296
+  %297 = getelementptr inbounds [4 x i8], ptr %1, i64 %296
   %.val.i = load i32, ptr %294, align 4, !tbaa !3
   %298 = getelementptr i8, ptr %294, i64 4
   %.val91.i = load i32, ptr %298, align 4, !tbaa !3
@@ -7684,10 +7684,10 @@ _ZN11duckdb_zstdL15ss_mergeforwardEPKhPKiPiS4_S4_S4_i.exit._crit_edge: ; preds =
   %.lobit430 = ashr i32 %383, 31
   %384 = xor i32 %.lobit430, %383
   %385 = zext nneg i32 %384 to i64
-  %386 = getelementptr inbounds nuw i32, ptr %1, i64 %385
+  %386 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %385
   %387 = load i32, ptr %.0224, align 4, !tbaa !3
   %388 = sext i32 %387 to i64
-  %389 = getelementptr inbounds i32, ptr %1, i64 %388
+  %389 = getelementptr inbounds [4 x i8], ptr %1, i64 %388
   %.val278 = load i32, ptr %386, align 4, !tbaa !3
   %390 = getelementptr i8, ptr %386, i64 4
   %.val279 = load i32, ptr %390, align 4, !tbaa !3
@@ -7774,10 +7774,10 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit356.thread: ; preds = %412, %422, %
   %.lobit431 = ashr i32 %428, 31
   %429 = xor i32 %.lobit431, %428
   %430 = zext nneg i32 %429 to i64
-  %431 = getelementptr inbounds nuw i32, ptr %1, i64 %430
+  %431 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %430
   %432 = load i32, ptr %.0233.ph, align 4, !tbaa !3
   %433 = sext i32 %432 to i64
-  %434 = getelementptr inbounds i32, ptr %1, i64 %433
+  %434 = getelementptr inbounds [4 x i8], ptr %1, i64 %433
   %.val282 = load i32, ptr %431, align 4, !tbaa !3
   %435 = getelementptr i8, ptr %431, i64 4
   %.val283 = load i32, ptr %435, align 4, !tbaa !3
@@ -7859,7 +7859,7 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit370.thread: ; preds = %457, %_ZN11d
 470:                                              ; preds = %_ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit370.thread
   %471 = add nsw i32 %.0217, -1
   %472 = sext i32 %471 to i64
-  %473 = getelementptr inbounds %struct.anon.0, ptr %8, i64 %472
+  %473 = getelementptr inbounds [32 x i8], ptr %8, i64 %472
   %474 = load ptr, ptr %473, align 16, !tbaa !117
   %475 = getelementptr inbounds nuw i8, ptr %473, i64 8
   %476 = load ptr, ptr %475, align 8, !tbaa !119
@@ -7880,24 +7880,24 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit370.thread: ; preds = %457, %_ZN11d
   %.0222545 = phi i32 [ %.1223, %_ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit384.thread ], [ 0, %481 ]
   %.0219547 = lshr i32 %.0221546, 1
   %484 = sext i32 %.0222545 to i64
-  %485 = getelementptr inbounds i32, ptr %.0226, i64 %484
+  %485 = getelementptr inbounds [4 x i8], ptr %.0226, i64 %484
   %486 = zext nneg i32 %.0219547 to i64
-  %487 = getelementptr inbounds nuw i32, ptr %485, i64 %486
+  %487 = getelementptr inbounds nuw [4 x i8], ptr %485, i64 %486
   %488 = load i32, ptr %487, align 4, !tbaa !3
   %.lobit435 = ashr i32 %488, 31
   %489 = xor i32 %.lobit435, %488
   %490 = zext nneg i32 %489 to i64
-  %491 = getelementptr inbounds nuw i32, ptr %1, i64 %490
+  %491 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %490
   %492 = sub nsw i64 0, %484
-  %493 = getelementptr inbounds i32, ptr %.0226, i64 %492
+  %493 = getelementptr inbounds [4 x i8], ptr %.0226, i64 %492
   %494 = sub nsw i64 0, %486
-  %495 = getelementptr inbounds i32, ptr %493, i64 %494
+  %495 = getelementptr inbounds [4 x i8], ptr %493, i64 %494
   %496 = getelementptr inbounds i8, ptr %495, i64 -4
   %497 = load i32, ptr %496, align 4, !tbaa !3
   %.lobit436 = ashr i32 %497, 31
   %498 = xor i32 %.lobit436, %497
   %499 = zext nneg i32 %498 to i64
-  %500 = getelementptr inbounds nuw i32, ptr %1, i64 %499
+  %500 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %499
   %.val286 = load i32, ptr %491, align 4, !tbaa !3
   %501 = getelementptr i8, ptr %491, i64 4
   %.val287 = load i32, ptr %501, align 4, !tbaa !3
@@ -7980,7 +7980,7 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit384.thread: ; preds = %.thread.i377
 535:                                              ; preds = %._crit_edge
   %536 = zext nneg i32 %.1223 to i64
   %537 = sub nsw i64 0, %536
-  %538 = getelementptr inbounds i32, ptr %.0226, i64 %537
+  %538 = getelementptr inbounds [4 x i8], ptr %.0226, i64 %537
   br label %.lr.ph.i386
 
 .lr.ph.i386:                                      ; preds = %535, %.lr.ph.i386
@@ -7998,7 +7998,7 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit384.thread: ; preds = %.thread.i377
   br i1 %544, label %.lr.ph.i386, label %_ZN11duckdb_zstdL12ss_blockswapEPiS0_i.exit, !llvm.loop !23
 
 _ZN11duckdb_zstdL12ss_blockswapEPiS0_i.exit:      ; preds = %.lr.ph.i386
-  %545 = getelementptr inbounds nuw i32, ptr %.0226, i64 %536
+  %545 = getelementptr inbounds nuw [4 x i8], ptr %.0226, i64 %536
   %546 = icmp ult ptr %545, %.0233.ph
   br i1 %546, label %547, label %.loopexit
 
@@ -8053,7 +8053,7 @@ _ZN11duckdb_zstdL12ss_blockswapEPiS0_i.exit:      ; preds = %.lr.ph.i386
 
 562:                                              ; preds = %.loopexit
   %563 = sext i32 %.0217 to i64
-  %564 = getelementptr inbounds %struct.anon.0, ptr %8, i64 %563
+  %564 = getelementptr inbounds [32 x i8], ptr %8, i64 %563
   store ptr %.0228, ptr %564, align 16, !tbaa !117
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 8
   store ptr %545, ptr %565, align 8, !tbaa !119
@@ -8077,7 +8077,7 @@ _ZN11duckdb_zstdL12ss_blockswapEPiS0_i.exit:      ; preds = %.lr.ph.i386
   %577 = xor i32 %.0, 6
   %.2 = select i1 %or.cond270, i32 %577, i32 %.0
   %578 = sext i32 %.0217 to i64
-  %579 = getelementptr inbounds %struct.anon.0, ptr %8, i64 %578
+  %579 = getelementptr inbounds [32 x i8], ptr %8, i64 %578
   store ptr %.0224, ptr %579, align 16, !tbaa !117
   %580 = getelementptr inbounds nuw i8, ptr %579, i64 8
   store ptr %538, ptr %580, align 8, !tbaa !119
@@ -8099,10 +8099,10 @@ _ZN11duckdb_zstdL12ss_blockswapEPiS0_i.exit:      ; preds = %.lr.ph.i386
   %.lobit432 = ashr i32 %590, 31
   %591 = xor i32 %.lobit432, %590
   %592 = zext nneg i32 %591 to i64
-  %593 = getelementptr inbounds nuw i32, ptr %1, i64 %592
+  %593 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %592
   %594 = load i32, ptr %.0226, align 4, !tbaa !3
   %595 = sext i32 %594 to i64
-  %596 = getelementptr inbounds i32, ptr %1, i64 %595
+  %596 = getelementptr inbounds [4 x i8], ptr %1, i64 %595
   %.val290 = load i32, ptr %593, align 4, !tbaa !3
   %597 = getelementptr i8, ptr %593, i64 4
   %.val291 = load i32, ptr %597, align 4, !tbaa !3
@@ -8197,10 +8197,10 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit400.thread._crit_edge: ; preds = %_
   %.lobit433 = ashr i32 %636, 31
   %637 = xor i32 %.lobit433, %636
   %638 = zext nneg i32 %637 to i64
-  %639 = getelementptr inbounds nuw i32, ptr %1, i64 %638
+  %639 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %638
   %640 = load i32, ptr %.0224, align 4, !tbaa !3
   %641 = sext i32 %640 to i64
-  %642 = getelementptr inbounds i32, ptr %1, i64 %641
+  %642 = getelementptr inbounds [4 x i8], ptr %1, i64 %641
   %.val294 = load i32, ptr %639, align 4, !tbaa !3
   %643 = getelementptr i8, ptr %639, i64 4
   %.val295 = load i32, ptr %643, align 4, !tbaa !3
@@ -8287,10 +8287,10 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit414.thread: ; preds = %665, %675, %
   %.lobit434 = ashr i32 %681, 31
   %682 = xor i32 %.lobit434, %681
   %683 = zext nneg i32 %682 to i64
-  %684 = getelementptr inbounds nuw i32, ptr %1, i64 %683
+  %684 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %683
   %685 = load i32, ptr %.0233.ph, align 4, !tbaa !3
   %686 = sext i32 %685 to i64
-  %687 = getelementptr inbounds i32, ptr %1, i64 %686
+  %687 = getelementptr inbounds [4 x i8], ptr %1, i64 %686
   %.val298 = load i32, ptr %684, align 4, !tbaa !3
   %688 = getelementptr i8, ptr %684, i64 4
   %.val299 = load i32, ptr %688, align 4, !tbaa !3
@@ -8372,7 +8372,7 @@ _ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit428.thread: ; preds = %710, %_ZN11d
 723:                                              ; preds = %_ZN11duckdb_zstdL10ss_compareEPKhPKiS3_i.exit428.thread
   %724 = add nsw i32 %.0217, -1
   %725 = sext i32 %724 to i64
-  %726 = getelementptr inbounds %struct.anon.0, ptr %8, i64 %725
+  %726 = getelementptr inbounds [32 x i8], ptr %8, i64 %725
   %727 = load ptr, ptr %726, align 16, !tbaa !117
   %728 = getelementptr inbounds nuw i8, ptr %726, i64 8
   %729 = load ptr, ptr %728, align 8, !tbaa !119

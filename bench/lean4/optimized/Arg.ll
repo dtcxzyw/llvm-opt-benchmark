@@ -50,7 +50,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_Elab_Term_add
 
 9:                                                ; preds = %.lr.ph, %7
   %.01933 = phi i64 [ %2, %.lr.ph ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01933
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01933
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i1
@@ -1474,7 +1474,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Term_expandArgs___spec__3(p
   %.0223512 = phi i64 [ %1, %.lr.ph ], [ %.8231, %560 ]
   %.0232511 = phi ptr [ %3, %.lr.ph ], [ %.5237, %560 ]
   %.0238510 = phi ptr [ %8, %.lr.ph ], [ %.6244, %560 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0223512
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0223512
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = ptrtoint ptr %13 to i64
   %15 = trunc i64 %14 to i1
@@ -2937,7 +2937,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %17, %15
 22:                                               ; preds = %lean_ensure_exclusive_array.exit.i
   %23 = add i64 %20, -1
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   store i64 %23, ptr %19, align 8, !tbaa !12
   %26 = load ptr, ptr %25, align 8, !tbaa !4
   %27 = ptrtoint ptr %26 to i64

@@ -139,7 +139,7 @@ define hidden void @_ZN16ArchivePtrMarker21initialize_rw_ro_mapsEP11CHeapBitMapS
   %30 = load ptr, ptr @_ZN16ArchivePtrMarker7_ptrmapE, align 8
   %31 = load ptr, ptr %30, align 8
   %32 = lshr i64 %.01516, 6
-  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %.01516, 63
   %36 = shl nuw i64 1, %35
@@ -160,7 +160,7 @@ define hidden void @_ZN16ArchivePtrMarker21initialize_rw_ro_mapsEP11CHeapBitMapS
   %46 = sub nuw i64 %.017, %16
   %47 = load ptr, ptr %44, align 8
   %48 = lshr i64 %.017, 6
-  %49 = getelementptr inbounds nuw i64, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %.017, 63
   %52 = shl nuw i64 1, %51
@@ -223,7 +223,7 @@ define hidden void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef %0) loca
   %25 = shl nuw i64 1, %24
   %26 = load ptr, ptr %23, align 8
   %27 = lshr i64 %15, 6
-  %28 = getelementptr inbounds nuw i64, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = or i64 %29, %25
   store i64 %30, ptr %28, align 8
@@ -250,7 +250,7 @@ define hidden void @_ZN16ArchivePtrMarker13clear_pointerEPPh(ptr noundef %0) loc
   %12 = xor i64 %11, -1
   %13 = load ptr, ptr %9, align 8
   %14 = lshr i64 %8, 6
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, %12
   store i64 %17, ptr %15, align 8
@@ -289,7 +289,7 @@ define hidden void @_ZN16ArchivePtrMarker7compactEPhS0_(ptr noundef %0, ptr noun
   %.0917.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %42, %38 ]
   %18 = lshr i64 %.0917.i.i.i, 6
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %.0917.i.i.i, 63
   %23 = lshr i64 %21, %22
@@ -308,7 +308,7 @@ define hidden void @_ZN16ArchivePtrMarker7compactEPhS0_(ptr noundef %0, ptr noun
   br i1 %28, label %29, label %_ZNK6BitMap7iterateI23ArchivePtrBitmapCleanerEEbPT_.exit
 
 29:                                               ; preds = %.preheader.i.i.i
-  %30 = getelementptr inbounds nuw i64, ptr %19, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %27
   %31 = load i64, ptr %30, align 8
   %.not36.i.i.i.i.i = icmp eq i64 %31, 0
   br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %32, !llvm.loop !9
@@ -576,7 +576,7 @@ define hidden void @_ZN10DumpRegion15append_intptr_tElb(ptr noundef nonnull alig
   %30 = shl nuw i64 1, %29
   %31 = load ptr, ptr %28, align 8
   %32 = lshr i64 %20, 6
-  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = or i64 %34, %30
   store i64 %35, ptr %33, align 8
@@ -962,7 +962,7 @@ _ZN15ClassListWriterC2Ev.exit:                    ; preds = %17, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %50 = load ptr, ptr @_ZN15ClassListWriter15_classlist_fileE, align 8
   %51 = load ptr, ptr %48, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef nonnull @.str.14, ptr noundef %53) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1146,7 +1146,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE14ELS1_0ELS
 define linkonce_odr hidden noundef zeroext i1 @_ZN23ArchivePtrBitmapCleaner6do_bitEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %4, i64 %1
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -1169,7 +1169,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN23ArchivePtrBitmapCleaner6do_b
   %17 = xor i64 %16, -1
   %18 = load ptr, ptr %14, align 8
   %19 = lshr i64 %1, 6
-  %20 = getelementptr inbounds nuw i64, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, %17
   store i64 %22, ptr %20, align 8

@@ -207,7 +207,7 @@ define void @dt_thumbtable_set_overlays_mode(ptr noundef captures(address_is_nul
 
 switch.lookup:                                    ; preds = %12
   %18 = zext nneg i32 %16 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dt_thumbtable_set_overlays_mode.2, i64 %18
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dt_thumbtable_set_overlays_mode.2, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_thumbs_get_overlays_class.exit
 
@@ -219,7 +219,7 @@ _thumbs_get_overlays_class.exit:                  ; preds = %12, %switch.lookup
 
 switch.lookup61:                                  ; preds = %_thumbs_get_overlays_class.exit
   %21 = zext nneg i32 %1 to i64
-  %switch.gep62 = getelementptr inbounds nuw ptr, ptr @switch.table.dt_thumbtable_set_overlays_mode.2, i64 %21
+  %switch.gep62 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dt_thumbtable_set_overlays_mode.2, i64 %21
   %switch.load63 = load ptr, ptr %switch.gep62, align 8
   br label %_thumbs_get_overlays_class.exit54
 
@@ -1470,7 +1470,7 @@ define internal void @_event_dnd_get(ptr readnone captures(none) %0, ptr readnon
 
 33:                                               ; preds = %.lr.ph88
   %34 = sext i32 %.16085 to i64
-  %35 = getelementptr inbounds i32, ptr %19, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %19, i64 %34
   store i32 %31, ptr %35, align 4, !tbaa !35
   %36 = add nsw i32 %.16085, 1
   %.not77 = icmp slt i32 %36, %16
@@ -5435,7 +5435,7 @@ define internal fastcc void @_thumbs_update_overlays_mode(ptr noundef captures(a
 
 5:                                                ; preds = %8, %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %1 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8, !tbaa !90
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_thumbs_get_prefs_size.exit, label %8

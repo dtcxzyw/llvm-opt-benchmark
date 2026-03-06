@@ -107,7 +107,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h9915a77cd82ec8b4E"(ptr noalias noundef readonly align 2 captures(none) dereferenceable(2) %0, ptr noalias noundef nonnull readonly align 2 captures(address) %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i16, ptr %1, i64 %2
+  %4 = getelementptr inbounds [2 x i8], ptr %1, i64 %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %5 = load i16, ptr %0, align 2, !range !15, !alias.scope !12, !noalias !16
   br label %6
@@ -196,7 +196,7 @@ define hidden noundef range(i16 0, 273) i16 @_ZN6parser5input5Input4kind17h4ea4d
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !26
-  %8 = getelementptr inbounds i16, ptr %7, i64 %1
+  %8 = getelementptr inbounds [2 x i8], ptr %7, i64 %1
   %9 = load i16, ptr %8, align 2, !range !15, !noundef !26
   br label %10
 
@@ -215,7 +215,7 @@ define hidden noundef range(i16 0, 273) i16 @_ZN6parser5input5Input15contextual_
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8, !nonnull !26
-  %8 = getelementptr inbounds i16, ptr %7, i64 %1
+  %8 = getelementptr inbounds [2 x i8], ptr %7, i64 %1
   %9 = load i16, ptr %8, align 2, !range !15, !noundef !26
   br label %10
 
@@ -236,7 +236,7 @@ define hidden noundef zeroext i1 @_ZN6parser5input5Input8is_joint17hb0a3d6423dc3
   %8 = and i64 %1, 63
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !nonnull !26, !noundef !26
-  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %3
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %3
   %12 = load i64, ptr %11, align 8, !noundef !26
   %13 = shl nuw i64 1, %8
   %14 = and i64 %12, %13
@@ -328,7 +328,7 @@ default.unreachable12:                            ; preds = %3
 
 _ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E.exit.i: ; preds = %23
   %28 = load ptr, ptr %17, align 8, !alias.scope !57, !noalias !47, !nonnull !26, !noundef !26
-  %29 = getelementptr inbounds i16, ptr %28, i64 %25
+  %29 = getelementptr inbounds [2 x i8], ptr %28, i64 %25
   %30 = load i16, ptr %29, align 2, !range !15, !noalias !60, !noundef !26
   %31 = add nsw i16 %30, -125
   %switch.and.i = and i16 %31, -3
@@ -452,7 +452,7 @@ default.unreachable9:                             ; preds = %2
 
 _ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E.exit.i: ; preds = %21
   %26 = load ptr, ptr %15, align 8, !alias.scope !71, !noalias !65, !nonnull !26, !noundef !26
-  %27 = getelementptr inbounds i16, ptr %26, i64 %23
+  %27 = getelementptr inbounds [2 x i8], ptr %26, i64 %23
   %28 = load i16, ptr %27, align 2, !range !15, !noalias !74, !noundef !26
   %29 = add nsw i16 %28, -125
   %switch.and.i = and i16 %29, -3
@@ -569,7 +569,7 @@ default.unreachable17:                            ; preds = %2
 
 "_ZN6parser9shortcuts7Builder5enter28_$u7b$$u7b$closure$u7d$$u7d$17hee2cccdcba164754E.exit.i.i.i.i": ; preds = %31
   %34 = load ptr, ptr %24, align 8, !alias.scope !82, !noalias !94, !nonnull !26, !noundef !26
-  %35 = getelementptr inbounds i16, ptr %34, i64 %27
+  %35 = getelementptr inbounds [2 x i8], ptr %34, i64 %27
   %36 = load i16, ptr %35, align 2, !range !15, !noalias !85, !noundef !26
   %37 = add nsw i16 %36, -125
   %switch.and.i.i.i.i.i = and i16 %37, -3
@@ -699,7 +699,7 @@ define hidden void @_ZN6parser9shortcuts7Builder11eat_trivias17hbd61413dc3adee8f
 
 _ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E.exit: ; preds = %15
   %20 = load ptr, ptr %9, align 8, !alias.scope !98, !nonnull !26, !noundef !26
-  %21 = getelementptr inbounds i16, ptr %20, i64 %17
+  %21 = getelementptr inbounds [2 x i8], ptr %20, i64 %17
   %22 = load i16, ptr %21, align 2, !range !15, !noalias !98, !noundef !26
   %23 = add nsw i16 %22, -125
   %switch.and = and i16 %23, -3
@@ -780,7 +780,7 @@ define internal fastcc void @_ZN6parser9shortcuts7Builder13eat_n_trivias17h8d412
 
 _ZN6parser9lexed_str8LexedStr4kind17h4b0f0d8337e99de9E.exit: ; preds = %20
   %23 = load ptr, ptr %7, align 8, !alias.scope !104, !nonnull !26, !noundef !26
-  %24 = getelementptr inbounds i16, ptr %23, i64 %14
+  %24 = getelementptr inbounds [2 x i8], ptr %23, i64 %14
   %25 = load i16, ptr %24, align 2, !range !15, !noalias !104, !noundef !26
   %26 = add nsw i16 %25, -125
   %switch.and = and i16 %26, -3

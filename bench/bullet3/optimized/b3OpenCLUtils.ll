@@ -283,7 +283,7 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %8, %9
 
 22:                                               ; preds = %14
   %23 = zext i32 %0 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %17, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !12
   call void @free(ptr noundef %17) #13
   br label %26
@@ -435,7 +435,7 @@ define dso_local ptr @b3OpenCLUtils_createContextFromPlatform(ptr noundef %0, i6
 .lr.ph:                                           ; preds = %23, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %23 ]
   %28 = load ptr, ptr @__clewCreateContext, align 8, !tbaa !8
-  %29 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %30 = call ptr %28(ptr noundef %21, i32 noundef 1, ptr noundef nonnull %29, ptr noundef null, ptr noundef null, ptr noundef nonnull %8)
   %31 = load i32, ptr %8, align 4, !tbaa !4
   %32 = icmp eq i32 %31, 0
@@ -450,7 +450,7 @@ define dso_local ptr @b3OpenCLUtils_createContextFromPlatform(ptr noundef %0, i6
 36:                                               ; preds = %33
   %37 = load ptr, ptr @__clewCreateContext, align 8, !tbaa !8
   %38 = zext nneg i32 %5 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %9, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %38
   %40 = call ptr %37(ptr noundef %21, i32 noundef 1, ptr noundef nonnull %39, ptr noundef null, ptr noundef null, ptr noundef nonnull %8)
   br label %.loopexit
 
@@ -554,7 +554,7 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %15, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %32 = load ptr, ptr @__clewGetPlatformInfo, align 8, !tbaa !8
-  %33 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !12
   %35 = call i32 %32(ptr noundef %34, i32 noundef 2307, i64 noundef 128, ptr noundef nonnull %9, ptr noundef null)
   %.not76.us = icmp eq i32 %35, 0
@@ -596,7 +596,7 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %15, %16
   %indvars.iv120 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next121, %61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %47 = load ptr, ptr @__clewGetPlatformInfo, align 8, !tbaa !8
-  %48 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv120
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv120
   %49 = load ptr, ptr %48, align 8, !tbaa !12
   %50 = call i32 %47(ptr noundef %49, i32 noundef 2307, i64 noundef 128, ptr noundef nonnull %9, ptr noundef null)
   %.not76 = icmp eq i32 %50, 0
@@ -662,7 +662,7 @@ _Z22b3OpenCLUtils_clewInitv.exit:                 ; preds = %15, %16
 
 .lr.ph103:                                        ; preds = %.loopexit95, %66
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %66 ], [ 0, %.loopexit95 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv123
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv123
   %71 = load ptr, ptr %70, align 8, !tbaa !12
   %72 = call ptr @b3OpenCLUtils_createContextFromPlatform(ptr noundef %71, i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr poison, i32 noundef %4, i32 poison)
   %.not79 = icmp eq ptr %72, null
@@ -744,7 +744,7 @@ define dso_local ptr @b3OpenCLUtils_getDevice(ptr noundef %0, i32 noundef %1) lo
   %12 = load ptr, ptr @__clewGetContextInfo, align 8, !tbaa !8
   %13 = call i32 %12(ptr noundef %0, i32 noundef 4225, i64 noundef %6, ptr noundef %11, ptr noundef null)
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !21
   call void @free(ptr noundef %11) #13
   br label %17
@@ -1227,7 +1227,7 @@ _ZL6strip2PKcS0_.exit131:                         ; preds = %.lr.ph.i128, %_ZL6s
 .preheader:                                       ; preds = %79, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %79 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %81 = getelementptr inbounds nuw ptr, ptr @__const.b3OpenCLUtils_compileCLProgramFromString.prefix, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr @__const.b3OpenCLUtils_compileCLProgramFromString.prefix, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8, !tbaa !10
   %83 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.72, ptr noundef %82, ptr noundef nonnull %5) #13
   %84 = call noalias ptr @fopen(ptr noundef nonnull %18, ptr noundef nonnull @.str.63)

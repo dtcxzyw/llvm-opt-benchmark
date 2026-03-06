@@ -718,7 +718,7 @@ define dso_local i32 @unicode_from_utf8(ptr noundef %0, i32 noundef %1, ptr noun
 
 switch.lookup:                                    ; preds = %9
   %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.unicode_from_utf8, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.unicode_from_utf8, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = add i32 %1, -1
   %13 = icmp sgt i32 %switch.load, %12
@@ -754,7 +754,7 @@ switch.lookup:                                    ; preds = %9
   br i1 %exitcond.not, label %31, label %22, !llvm.loop !25
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds nuw i32, ptr @utf8_min_code, i64 %16
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @utf8_min_code, i64 %16
   %33 = load i32, ptr %32, align 4, !tbaa !26
   %34 = icmp ult i32 %29, %33
   br i1 %34, label %.loopexit, label %.loopexit.sink.split

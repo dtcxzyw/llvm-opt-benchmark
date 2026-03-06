@@ -2141,7 +2141,7 @@ switch.lookup:                                    ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8, !tbaa !56
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5boost6locale8impl_icu13calendar_impl12adjust_valueENS0_6period5marks11period_markENS0_17abstract_calendar11update_typeEi.1, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5boost6locale8impl_icu13calendar_impl12adjust_valueENS0_6period5marks11period_markENS0_17abstract_calendar11update_typeEi.1, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void @_ZN6icu_708Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(610) %11, i32 noundef %switch.load, i32 noundef %2)
   ret void
@@ -2817,7 +2817,7 @@ common.resume:                                    ; preds = %18, %11
   %.sink16.in = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sink16 = load ptr, ptr %.sink16.in, align 8, !tbaa !56
   %20 = zext nneg i32 %switch.tableidx7.sink to i64
-  %switch.gep9 = getelementptr inbounds nuw i32, ptr %switch.table._ZN5boost6locale8impl_icu13calendar_impl12adjust_valueENS0_6period5marks11period_markENS0_17abstract_calendar11update_typeEi.1.sink, i64 %20
+  %switch.gep9 = getelementptr inbounds nuw [4 x i8], ptr %switch.table._ZN5boost6locale8impl_icu13calendar_impl12adjust_valueENS0_6period5marks11period_markENS0_17abstract_calendar11update_typeEi.1.sink, i64 %20
   %switch.load10 = load i32, ptr %switch.gep9, align 4
   %21 = load ptr, ptr %.sink16, align 8, !tbaa !20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink15
@@ -2886,7 +2886,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6locale8impl_icu13calendar_imp
 
 switch.lookup:                                    ; preds = %16
   %33 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5boost6locale8impl_icu13calendar_impl10differenceERKNS0_17abstract_calendarENS0_6period5marks11period_markE, i64 %33
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK5boost6locale8impl_icu13calendar_impl10differenceERKNS0_17abstract_calendarENS0_6period5marks11period_markE, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   %34 = load ptr, ptr %26, align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 88

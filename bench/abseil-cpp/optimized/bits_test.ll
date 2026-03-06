@@ -6580,9 +6580,9 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImEC
   %.022.i.i = phi i64 [ 60, %2 ], [ %26, %9 ]
   %10 = add nsw i64 %.022.i.i, -4
   %11 = lshr exact i64 %10, 1
-  %12 = getelementptr i32, ptr %3, i64 %.022.i.i
+  %12 = getelementptr [4 x i8], ptr %3, i64 %.022.i.i
   %13 = getelementptr i8, ptr %12, i64 -20
-  %14 = getelementptr i32, ptr %3, i64 %11
+  %14 = getelementptr [4 x i8], ptr %3, i64 %11
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load i32, ptr %13, align 4, !tbaa !69
   %17 = load i32, ptr %15, align 4, !tbaa !69
@@ -6601,7 +6601,7 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImEC
   store i32 %25, ptr %22, align 4, !tbaa !69
   store i32 %24, ptr %23, align 4, !tbaa !69
   %26 = add nsw i64 %.022.i.i, -8
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %26
   %28 = getelementptr i8, ptr %14, i64 -16
   %29 = load i32, ptr %27, align 16, !tbaa !69
   %30 = load i32, ptr %28, align 8, !tbaa !69
@@ -6671,7 +6671,7 @@ _ZN4absl15random_internal15FastUniformBitsIhEclINS0_17NonsecureURBGBaseINS0_13ra
   %19 = load i64, ptr %8, align 8, !tbaa !101
   %20 = add i64 %19, 1
   store i64 %20, ptr %8, align 8, !tbaa !101
-  %21 = getelementptr inbounds nuw i64, ptr %7, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %19
   %22 = load i64, ptr %21, align 8, !tbaa !77
   %23 = add i8 %2, 1
   %24 = and i8 %23, %2
@@ -6751,7 +6751,7 @@ _ZN4absl15random_internal15FastUniformBitsIhE8GenerateINS0_17NonsecureURBGBaseIN
   %17 = load i64, ptr %6, align 8, !tbaa !101
   %18 = add i64 %17, 1
   store i64 %18, ptr %6, align 8, !tbaa !101
-  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %17
   %20 = load i64, ptr %19, align 8, !tbaa !77
   %21 = trunc i64 %20 to i8
   ret i8 %21
@@ -6801,7 +6801,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   %25 = load i64, ptr %14, align 8, !tbaa !101
   %26 = add i64 %25, 1
   store i64 %26, ptr %14, align 8, !tbaa !101
-  %27 = getelementptr inbounds nuw i64, ptr %13, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %25
   %28 = load i64, ptr %27, align 8, !tbaa !77
   %29 = add i32 %10, 1
   %30 = and i32 %29, %10
@@ -6878,7 +6878,7 @@ _ZN4absl15random_internal15FastUniformBitsIjE8GenerateINS0_17NonsecureURBGBaseIN
   %17 = load i64, ptr %6, align 8, !tbaa !101
   %18 = add i64 %17, 1
   store i64 %18, ptr %6, align 8, !tbaa !101
-  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %17
   %20 = load i64, ptr %19, align 8, !tbaa !77
   %21 = trunc i64 %20 to i32
   ret i32 %21
@@ -6917,7 +6917,7 @@ _ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13ra
   %19 = load i64, ptr %8, align 8, !tbaa !101
   %20 = add i64 %19, 1
   store i64 %20, ptr %8, align 8, !tbaa !101
-  %21 = getelementptr inbounds nuw i64, ptr %7, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %19
   %22 = load i64, ptr %21, align 8, !tbaa !77
   %23 = add i16 %2, 1
   %24 = zext i16 %23 to i32
@@ -6997,7 +6997,7 @@ _ZN4absl15random_internal15FastUniformBitsItE8GenerateINS0_17NonsecureURBGBaseIN
   %17 = load i64, ptr %6, align 8, !tbaa !101
   %18 = add i64 %17, 1
   store i64 %18, ptr %6, align 8, !tbaa !101
-  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %17
   %20 = load i64, ptr %19, align 8, !tbaa !77
   %21 = trunc i64 %20 to i16
   ret i16 %21
@@ -7043,7 +7043,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   %25 = load i64, ptr %14, align 8, !tbaa !101
   %26 = add i64 %25, 1
   store i64 %26, ptr %14, align 8, !tbaa !101
-  %27 = getelementptr inbounds nuw i64, ptr %13, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %25
   %28 = load i64, ptr %27, align 8, !tbaa !77
   %29 = add i32 %10, 1
   %30 = and i32 %29, %10
@@ -7125,7 +7125,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   %18 = load i64, ptr %7, align 8, !tbaa !101
   %19 = add i64 %18, 1
   store i64 %19, ptr %7, align 8, !tbaa !101
-  %20 = getelementptr inbounds nuw i64, ptr %6, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %21 = load i64, ptr %20, align 8, !tbaa !77
   %22 = add i64 %.sroa.2.0.copyload.i, 1
   %23 = and i64 %22, %.sroa.2.0.copyload.i
@@ -7203,7 +7203,7 @@ _ZN4absl15random_internal15FastUniformBitsImE8GenerateINS0_17NonsecureURBGBaseIN
   %17 = load i64, ptr %6, align 8, !tbaa !101
   %18 = add i64 %17, 1
   store i64 %18, ptr %6, align 8, !tbaa !101
-  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %17
   %20 = load i64, ptr %19, align 8, !tbaa !77
   ret i64 %20
 }
@@ -14210,7 +14210,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   %47 = load i64, ptr %27, align 8, !tbaa !101
   %48 = add i64 %47, 1
   store i64 %48, ptr %27, align 8, !tbaa !101
-  %49 = getelementptr inbounds nuw i64, ptr %26, i64 %47
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %47
   %50 = load i64, ptr %49, align 8, !tbaa !77
   %51 = and i64 %50, 4294967295
   %.not.i.i.i.i.i.i = icmp eq i64 %51, %39
@@ -14423,7 +14423,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   %119 = load i64, ptr %27, align 8, !tbaa !101
   %120 = add i64 %119, 1
   store i64 %120, ptr %27, align 8, !tbaa !101
-  %121 = getelementptr inbounds nuw i64, ptr %26, i64 %119
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %119
   %122 = load i64, ptr %121, align 8, !tbaa !77
   %123 = and i64 %122, 4294967295
   %.not.i.i.i.i.i.i46 = icmp eq i64 %123, %111
@@ -14636,7 +14636,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   %190 = load i64, ptr %27, align 8, !tbaa !101
   %191 = add i64 %190, 1
   store i64 %191, ptr %27, align 8, !tbaa !101
-  %192 = getelementptr inbounds nuw i64, ptr %26, i64 %190
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %190
   %193 = load i64, ptr %192, align 8, !tbaa !77
   %194 = and i64 %193, 4294967295
   %.not.i.i.i.i.i.i74 = icmp eq i64 %194, %182
@@ -14846,7 +14846,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   %259 = load i64, ptr %27, align 8, !tbaa !101
   %260 = add i64 %259, 1
   store i64 %260, ptr %27, align 8, !tbaa !101
-  %261 = getelementptr inbounds nuw i64, ptr %26, i64 %259
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %259
   %262 = load i64, ptr %261, align 8, !tbaa !77
   %263 = and i64 %262, 4294967295
   %.not.i.i.i.i.i.i100 = icmp eq i64 %263, %251
@@ -23569,7 +23569,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !10
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !19
   ret void
 }

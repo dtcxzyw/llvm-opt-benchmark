@@ -4742,7 +4742,7 @@ define void @_ZN9uu_mktemp6uu_app17hdac5ed957c9d4d19E(ptr noalias noundef writeo
   %362 = phi i64 [ %.pre.i.i, %.noexc.i162 ], [ %353, %349 ]
   %363 = getelementptr inbounds nuw i8, ptr %42, i64 136
   %364 = load ptr, ptr %363, align 8, !alias.scope !1078, !noalias !1082, !nonnull !5, !noundef !5
-  %365 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %364, i64 %362
+  %365 = getelementptr inbounds [16 x i8], ptr %364, i64 %362
   store ptr @anon.9fd4be8228f29cc0ab08323cdb596bb9.68, ptr %365, align 8, !noalias !1082
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 8
   store i64 1, ptr %366, align 8, !noalias !1075

@@ -945,7 +945,7 @@ define { i64, i8 } @_ZN3net18ReliableQuicStream10WritevDataEPK5iovecibPNS_24Quic
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
   %.010.i = phi i64 [ %19, %.lr.ph.i ], [ 0, %12 ]
   %.19.i = phi i64 [ %18, %.lr.ph.i ], [ 0, %12 ]
-  %15 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.010.i
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.010.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !290
   %18 = add i64 %17, %.19.i

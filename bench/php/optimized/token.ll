@@ -80,7 +80,7 @@ define hidden ptr @lxb_css_syntax_token(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %4, align 8, !tbaa !19
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %3
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %3
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   br label %18
 
@@ -120,7 +120,7 @@ define hidden void @lxb_css_syntax_token_consume(ptr noundef captures(none) %0) 
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %4, align 8, !tbaa !19
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %3
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %3
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = load i8, ptr %16, align 8, !tbaa !22, !range !24, !noundef !25
@@ -221,7 +221,7 @@ define hidden void @lxb_css_syntax_token_consume_n(ptr noundef captures(none) %0
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %12, align 8, !tbaa !19
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %13
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %13
   %24 = load ptr, ptr %23, align 8, !tbaa !20
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load i8, ptr %25, align 8, !tbaa !22, !range !24, !noundef !25
@@ -417,7 +417,7 @@ define hidden noundef nonnull ptr @lxb_css_syntax_token_type_name_by_id(i32 noun
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.lxb_css_syntax_token_type_name_noi, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.lxb_css_syntax_token_type_name_noi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1856,7 +1856,7 @@ define hidden noundef nonnull ptr @lxb_css_syntax_token_type_name_noi(ptr nounde
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.lxb_css_syntax_token_type_name_noi, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.lxb_css_syntax_token_type_name_noi, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %lxb_css_syntax_token_type_name.exit
 

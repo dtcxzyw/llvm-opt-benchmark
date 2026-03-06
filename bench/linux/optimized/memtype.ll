@@ -38,13 +38,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.seq_operations = type { ptr, ptr, ptr, ptr }
 %struct.pagerange_state = type { i64, i32, i32 }
-%struct.page = type { i64, %union.anon.22, %union.anon.30, %struct.atomic_t, [8 x i8] }
-%union.anon.22 = type { %struct.anon.23 }
-%struct.anon.23 = type { %union.anon.24, ptr, %union.anon.26, i64 }
-%union.anon.24 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.26 = type { i64 }
-%union.anon.30 = type { %struct.atomic_t }
 %struct.pgprot = type { i64 }
 
 @__setup_str_nopat = internal constant [6 x i8] c"nopat\00", section ".init.rodata", align 1
@@ -495,7 +488,7 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
 
 69:                                               ; preds = %.critedge, %64
   %70 = phi i64 [ %43, %64 ], [ %67, %.critedge ]
-  %71 = getelementptr %struct.page, ptr %66, i64 %70
+  %71 = getelementptr [64 x i8], ptr %66, i64 %70
   %72 = load i64, ptr %71, align 16
   %73 = and i64 %72, 4202496
   switch i64 %73, label %.unreachabledefault [
@@ -537,7 +530,7 @@ define dso_local i32 @memtype_reserve(i64 noundef %0, i64 noundef %1, i32 nounde
   %79 = phi i64 [ %103, %.loopexit ], [ %43, %78 ]
   %80 = load i64, ptr @vmemmap_base, align 8
   %81 = inttoptr i64 %80 to ptr
-  %82 = getelementptr %struct.page, ptr %81, i64 %79
+  %82 = getelementptr [64 x i8], ptr %81, i64 %79
   switch i32 %61, label %85 [
     i32 1, label %86
     i32 2, label %83
@@ -737,7 +730,7 @@ define dso_local noundef range(i32 -22, 1) i32 @memtype_free(i64 noundef %0, i64
   %27 = phi i64 [ %44, %.loopexit ], [ %11, %24 ]
   %28 = load i64, ptr @vmemmap_base, align 8
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr %struct.page, ptr %29, i64 %27
+  %30 = getelementptr [64 x i8], ptr %29, i64 %27
   %31 = load volatile i64, ptr %30, align 16
   %32 = and i64 %31, -4202497
   %33 = call { i8, i64 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %30, i64 %32, ptr elementtype(i64) %30, i64 %31) #17, !srcloc !22
@@ -853,7 +846,7 @@ define internal fastcc i32 @lookup_memtype(i64 noundef %0) unnamed_addr #3 align
 21:                                               ; preds = %20, %18
   %22 = load i64, ptr @vmemmap_base, align 8
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr %struct.page, ptr %23, i64 %7
+  %24 = getelementptr [64 x i8], ptr %23, i64 %7
   %25 = load i64, ptr %24, align 16
   %26 = and i64 %25, 4202496
   switch i64 %26, label %.unreachabledefault [

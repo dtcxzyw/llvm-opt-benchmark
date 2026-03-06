@@ -146,13 +146,13 @@ define void @ff_vp9_loopfilter_sb(ptr noundef readonly captures(none) %0, ptr no
   %112 = and i32 %.0163.i97, %111
   %113 = icmp ne i32 %112, 0
   %114 = zext i1 %113 to i64
-  %115 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %31, i64 %114
+  %115 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %114
   %116 = load i8, ptr %53, align 1, !tbaa !56
   %117 = zext i8 %116 to i32
   %118 = and i32 %.0163.i97, %117
   %119 = icmp ne i32 %118, 0
   %120 = zext i1 %119 to i64
-  %121 = getelementptr inbounds nuw [2 x ptr], ptr %115, i64 %120
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %120
   %122 = load ptr, ptr %121, align 8, !tbaa !57
   tail call void %122(ptr noundef %.0164.i96, i64 noundef range(i64 -2147483648, 2147483648) %15, i32 noundef %104, i32 noundef %109, i32 noundef %98) #1
   br label %153
@@ -163,7 +163,7 @@ define void @ff_vp9_loopfilter_sb(ptr noundef readonly captures(none) %0, ptr no
   %126 = and i32 %.0163.i97, %125
   %127 = icmp ne i32 %126, 0
   %128 = zext i1 %127 to i64
-  %129 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 %128
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !57
   tail call void %130(ptr noundef %.0164.i96, i64 noundef range(i64 -2147483648, 2147483648) %15, i32 noundef %75, i32 noundef %78, i32 noundef %71) #1
   br label %153
@@ -190,7 +190,7 @@ define void @ff_vp9_loopfilter_sb(ptr noundef readonly captures(none) %0, ptr no
   %147 = and i32 %.0163.i97, %146
   %148 = icmp ne i32 %147, 0
   %149 = zext i1 %148 to i64
-  %150 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 %149
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %149
   %151 = load ptr, ptr %150, align 8, !tbaa !57
   %152 = getelementptr inbounds i8, ptr %.0164.i96, i64 %33
   tail call void %151(ptr noundef %152, i64 noundef range(i64 -2147483648, 2147483648) %15, i32 noundef %141, i32 noundef %144, i32 noundef %137) #1
@@ -302,7 +302,7 @@ filter_plane_rows.exit.preheader:                 ; preds = %._crit_edge107
   %227 = sext i32 %17 to i64
   %228 = or i8 %22, %20
   %229 = zext i8 %228 to i64
-  %230 = getelementptr inbounds nuw [2 x [8 x [4 x i8]]], ptr %18, i64 %229
+  %230 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 %229
   %231 = shl nsw i64 %227, 3
   %232 = shl nsw i64 %227, 4
   %233 = getelementptr inbounds nuw i8, ptr %230, i64 32
@@ -406,11 +406,11 @@ filter_plane_rows.exit.preheader:                 ; preds = %._crit_edge107
   %296 = and i32 %.0161.i61104, %295
   %297 = icmp ne i32 %296, 0
   %298 = zext i1 %297 to i64
-  %299 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %8, i64 %298
+  %299 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %298
   %300 = and i32 %267, %295
   %301 = icmp ne i32 %300, 0
   %302 = zext i1 %301 to i64
-  %303 = getelementptr inbounds nuw [2 x ptr], ptr %299, i64 %302
+  %303 = getelementptr inbounds nuw [16 x i8], ptr %299, i64 %302
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 1376
   %305 = load ptr, ptr %304, align 8, !tbaa !57
   tail call void %305(ptr noundef %.0162.i60103, i64 noundef range(i64 -2147483648, 2147483648) %15, i32 noundef %288, i32 noundef %293, i32 noundef %282) #1
@@ -422,7 +422,7 @@ filter_plane_rows.exit.preheader:                 ; preds = %._crit_edge107
   %309 = and i32 %.0161.i61104, %308
   %310 = icmp ne i32 %309, 0
   %311 = zext i1 %310 to i64
-  %312 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 %311
+  %312 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %311
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 1312
   %314 = load ptr, ptr %313, align 8, !tbaa !57
   tail call void %314(ptr noundef %.0162.i60103, i64 noundef range(i64 -2147483648, 2147483648) %15, i32 noundef %260, i32 noundef %263, i32 noundef %256) #1
@@ -451,7 +451,7 @@ filter_plane_rows.exit.preheader:                 ; preds = %._crit_edge107
   %332 = and i32 %316, %331
   %333 = icmp ne i32 %332, 0
   %334 = zext i1 %333 to i64
-  %335 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 %334
+  %335 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %334
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 1312
   %337 = load ptr, ptr %336, align 8, !tbaa !57
   %338 = getelementptr inbounds nuw i8, ptr %.0162.i60103, i64 %221
@@ -553,7 +553,7 @@ filter_plane_rows.exit.loopexit:                  ; preds = %._crit_edge129
 402:                                              ; preds = %filter_plane_rows.exit.preheader, %filter_plane_rows.exit.loopexit
   %403 = phi i1 [ true, %filter_plane_rows.exit.preheader ], [ false, %filter_plane_rows.exit.loopexit ]
   %indvars.iv145 = phi i64 [ 0, %filter_plane_rows.exit.preheader ], [ 1, %filter_plane_rows.exit.loopexit ]
-  %404 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv145
+  %404 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv145
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 8
   %406 = load ptr, ptr %405, align 8, !tbaa !33
   %407 = getelementptr inbounds i8, ptr %406, i64 %5
@@ -688,13 +688,13 @@ filter_plane_rows.exit.loopexit:                  ; preds = %._crit_edge129
   %502 = and i32 %.0163.i46115, %501
   %503 = icmp ne i32 %502, 0
   %504 = zext i1 %503 to i64
-  %505 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %31, i64 %504
+  %505 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %504
   %506 = load i8, ptr %443, align 1, !tbaa !56
   %507 = zext i8 %506 to i32
   %508 = and i32 %.0163.i46115, %507
   %509 = icmp ne i32 %508, 0
   %510 = zext i1 %509 to i64
-  %511 = getelementptr inbounds nuw [2 x ptr], ptr %505, i64 %510
+  %511 = getelementptr inbounds nuw [16 x i8], ptr %505, i64 %510
   %512 = load ptr, ptr %511, align 8, !tbaa !57
   tail call void %512(ptr noundef %.0164.i45113, i64 noundef range(i64 -2147483648, 2147483648) %227, i32 noundef %494, i32 noundef %499, i32 noundef %488) #1
   br label %543
@@ -705,7 +705,7 @@ filter_plane_rows.exit.loopexit:                  ; preds = %._crit_edge129
   %516 = and i32 %.0163.i46115, %515
   %517 = icmp ne i32 %516, 0
   %518 = zext i1 %517 to i64
-  %519 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 %518
+  %519 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %518
   %520 = load ptr, ptr %519, align 8, !tbaa !57
   tail call void %520(ptr noundef %.0164.i45113, i64 noundef range(i64 -2147483648, 2147483648) %227, i32 noundef %465, i32 noundef %468, i32 noundef %461) #1
   br label %543
@@ -732,7 +732,7 @@ filter_plane_rows.exit.loopexit:                  ; preds = %._crit_edge129
   %537 = and i32 %.0163.i46115, %536
   %538 = icmp ne i32 %537, 0
   %539 = zext i1 %538 to i64
-  %540 = getelementptr inbounds nuw [2 x ptr], ptr %32, i64 %539
+  %540 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %539
   %541 = load ptr, ptr %540, align 8, !tbaa !57
   %542 = getelementptr inbounds i8, ptr %.0164.i45113, i64 %231
   tail call void %541(ptr noundef %542, i64 noundef range(i64 -2147483648, 2147483648) %227, i32 noundef %531, i32 noundef %534, i32 noundef %527) #1
@@ -951,11 +951,11 @@ filter_plane_cols.exit57:                         ; preds = %._crit_edge119
   %684 = and i32 %.0161.i77126, %683
   %685 = icmp ne i32 %684, 0
   %686 = zext i1 %685 to i64
-  %687 = getelementptr inbounds nuw [2 x [2 x ptr]], ptr %8, i64 %686
+  %687 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %686
   %688 = and i32 %655, %683
   %689 = icmp ne i32 %688, 0
   %690 = zext i1 %689 to i64
-  %691 = getelementptr inbounds nuw [2 x ptr], ptr %687, i64 %690
+  %691 = getelementptr inbounds nuw [16 x i8], ptr %687, i64 %690
   %692 = getelementptr inbounds nuw i8, ptr %691, i64 1376
   %693 = load ptr, ptr %692, align 8, !tbaa !57
   tail call void %693(ptr noundef %.0162.i76125, i64 noundef range(i64 -2147483648, 2147483648) %227, i32 noundef %676, i32 noundef %681, i32 noundef %670) #1
@@ -967,7 +967,7 @@ filter_plane_cols.exit57:                         ; preds = %._crit_edge119
   %697 = and i32 %.0161.i77126, %696
   %698 = icmp ne i32 %697, 0
   %699 = zext i1 %698 to i64
-  %700 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 %699
+  %700 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %699
   %701 = getelementptr inbounds nuw i8, ptr %700, i64 1312
   %702 = load ptr, ptr %701, align 8, !tbaa !57
   tail call void %702(ptr noundef %.0162.i76125, i64 noundef range(i64 -2147483648, 2147483648) %227, i32 noundef %648, i32 noundef %651, i32 noundef %644) #1
@@ -996,7 +996,7 @@ filter_plane_cols.exit57:                         ; preds = %._crit_edge119
   %720 = and i32 %704, %719
   %721 = icmp ne i32 %720, 0
   %722 = zext i1 %721 to i64
-  %723 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 %722
+  %723 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %722
   %724 = getelementptr inbounds nuw i8, ptr %723, i64 1312
   %725 = load ptr, ptr %724, align 8, !tbaa !57
   %726 = getelementptr inbounds nuw i8, ptr %.0162.i76125, i64 %616

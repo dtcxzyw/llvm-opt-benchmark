@@ -52,8 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.46" = type { %"struct.std::_Tuple_impl.47" }
 %"struct.std::_Tuple_impl.47" = type { %"struct.std::_Head_base.48" }
 %"struct.std::_Head_base.48" = type { ptr }
-%class.aiVector3t = type { float, float, float }
-%struct.aiFace = type { i32, ptr }
 %struct.aiString = type { i32, [1024 x i8] }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_ = comdat any
@@ -1662,7 +1660,7 @@ _ZNSt3mapIPK6aiNode12aiMatrix4x4tIfESt4lessIS2_ESaISt4pairIKS2_S4_EEEixERS8_.exi
   %137 = phi ptr [ %142, %.lr.ph ], [ %134, %_ZNSt3mapIPK6aiNode12aiMatrix4x4tIfESt4lessIS2_ESaISt4pairIKS2_S4_EEEixERS8_.exit19 ]
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 1112
   %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds nuw ptr, ptr %139, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %indvars.iv
   %141 = load ptr, ptr %140, align 8
   call fastcc void @_ZN6Assimp12_GLOBAL__N_113CollectTrafosEPK6aiNodeRSt3mapIS3_12aiMatrix4x4tIfESt4lessIS3_ESaISt4pairIKS3_S6_EEE(ptr noundef %141, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1701,7 +1699,7 @@ define internal fastcc void @_ZN6Assimp12_GLOBAL__N_113CollectMeshesEPK6aiNodeRS
 12:                                               ; preds = %.lr.ph, %_ZNSt8multimapIPK6aiNodejSt4lessIS2_ESaISt4pairIKS2_jEEE6insertIS5_IS2_jEEENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeEOSD_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt8multimapIPK6aiNodejSt4lessIS2_ESaISt4pairIKS2_jEEE6insertIS5_IS2_jEEENSt9enable_ifIXsr16is_constructibleIS7_T_EE5valueESt17_Rb_tree_iteratorIS7_EE4typeEOSD_.exit ]
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -1747,7 +1745,7 @@ _ZNSt8multimapIPK6aiNodejSt4lessIS2_ESaISt4pairIKS2_jEEE6insertIS5_IS2_jEEENSt9e
 30:                                               ; preds = %.lr.ph14, %30
   %indvars.iv17 = phi i64 [ 0, %.lr.ph14 ], [ %indvars.iv.next18, %30 ]
   %31 = load ptr, ptr %11, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv17
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv17
   %33 = load ptr, ptr %32, align 8
   tail call fastcc void @_ZN6Assimp12_GLOBAL__N_113CollectMeshesEPK6aiNodeRSt8multimapIS3_jSt4lessIS3_ESaISt4pairIKS3_jEEE(ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
@@ -1849,7 +1847,7 @@ _ZN6Assimp12_GLOBAL__N_111ChunkWriterC2ERNS_12StreamWriterILb0ELb0EEEt.exit: ; p
   %56 = load ptr, ptr %0, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8
   %61 = add i64 %54, 6
   %62 = load ptr, ptr %16, align 8
@@ -2921,7 +2919,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit.i222: ; preds = %.noexc226, %484
 
 switch.lookup:                                    ; preds = %508
   %521 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN6Assimp19Discreet3DSExporter14WriteMaterialsEv, i64 %521
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN6Assimp19Discreet3DSExporter14WriteMaterialsEv, i64 %521
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %522
 
@@ -3519,7 +3517,7 @@ define hidden void @_ZN6Assimp19Discreet3DSExporter11WriteMeshesEv(ptr noundef n
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %22 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %20, ptr %4, align 8
@@ -4004,7 +4002,7 @@ _ZN6Assimp12_GLOBAL__N_111ChunkWriterD2Ev.exit:   ; preds = %._crit_edge, %.noex
   %229 = phi i64 [ %196, %.lr.ph ], [ %365, %360 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %360 ]
   %230 = load ptr, ptr %198, align 8
-  %231 = getelementptr inbounds nuw %class.aiVector3t, ptr %230, i64 %indvars.iv
+  %231 = getelementptr inbounds nuw [12 x i8], ptr %230, i64 %indvars.iv
   %232 = load float, ptr %231, align 4
   %233 = add i64 %229, 4
   %234 = load ptr, ptr %14, align 8
@@ -4491,7 +4489,7 @@ _ZN6Assimp12_GLOBAL__N_111ChunkWriterD2Ev.exit182: ; preds = %._crit_edge897, %.
   %432 = phi i64 [ %523, %518 ], [ %408, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit177 ]
   %indvars.iv1184 = phi i64 [ %indvars.iv.next1185, %518 ], [ 0, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit177 ]
   %433 = load ptr, ptr %215, align 8
-  %434 = getelementptr inbounds nuw %class.aiVector3t, ptr %433, i64 %indvars.iv1184
+  %434 = getelementptr inbounds nuw [12 x i8], ptr %433, i64 %indvars.iv1184
   %435 = load float, ptr %434, align 4
   %436 = add i64 %432, 4
   %437 = load ptr, ptr %14, align 8
@@ -4843,7 +4841,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit207: ; preds = %._crit_edge901, %
 575:                                              ; preds = %.lr.ph900, %575
   %indvars.iv1187 = phi i64 [ 0, %.lr.ph900 ], [ %indvars.iv.next1188, %575 ]
   %.064898 = phi i16 [ 0, %.lr.ph900 ], [ %.165, %575 ]
-  %576 = getelementptr inbounds nuw %struct.aiFace, ptr %558, i64 %indvars.iv1187
+  %576 = getelementptr inbounds nuw [16 x i8], ptr %558, i64 %indvars.iv1187
   %577 = load i32, ptr %576, align 8
   %578 = icmp ugt i32 %577, 2
   %579 = zext i1 %578 to i16
@@ -4866,7 +4864,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutU2Et.exit207: ; preds = %._crit_edge901, %
   %584 = phi i64 [ %570, %.lr.ph904 ], [ %686, %684 ]
   %indvars.iv1193 = phi i64 [ 0, %.lr.ph904 ], [ %indvars.iv.next1194, %684 ]
   %585 = load ptr, ptr %572, align 8
-  %586 = getelementptr inbounds nuw %struct.aiFace, ptr %585, i64 %indvars.iv1193
+  %586 = getelementptr inbounds nuw [16 x i8], ptr %585, i64 %indvars.iv1193
   %587 = load i32, ptr %586, align 8
   %588 = icmp ult i32 %587, 3
   br i1 %588, label %684, label %.preheader429
@@ -4995,7 +4993,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE5PutI2Es.exit:  ; preds = %590, %.noexc211
   %635 = phi i64 [ %584, %.preheader429 ], [ %683, %678 ]
   %indvars.iv1189 = phi i64 [ 0, %.preheader429 ], [ %indvars.iv.next1190, %678 ]
   %636 = load ptr, ptr %589, align 8
-  %637 = getelementptr inbounds nuw i32, ptr %636, i64 %indvars.iv1189
+  %637 = getelementptr inbounds nuw [4 x i8], ptr %636, i64 %indvars.iv1189
   %638 = load i32, ptr %637, align 4
   %639 = trunc i32 %638 to i16
   %640 = add i64 %635, 2
@@ -5275,7 +5273,7 @@ default.unreachable:                              ; preds = %.preheader435, %739
 
 _ZNK12aiMatrix4x4tIfEixEj.exit:                   ; preds = %739, %741, %742
   %.0.i = phi ptr [ %730, %742 ], [ %731, %741 ], [ %39, %739 ]
-  %743 = getelementptr inbounds nuw float, ptr %.0.i, i64 %indvars.iv1196
+  %743 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv1196
   %744 = load float, ptr %743, align 4
   %745 = add i64 %740, 4
   %746 = load ptr, ptr %14, align 8
@@ -6205,7 +6203,7 @@ _ZN6Assimp12_GLOBAL__N_111ChunkWriterD2Ev.exit97: ; preds = %_ZN6Assimp12_GLOBAL
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %168 ]
   %.0202 = phi i32 [ %154, %.lr.ph ], [ %174, %168 ]
   %169 = load ptr, ptr %157, align 8
-  %170 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %indvars.iv
   %171 = load ptr, ptr %170, align 8
   %172 = icmp eq i64 %indvars.iv, 0
   %173 = select i1 %172, i32 -1, i32 %154
@@ -6229,13 +6227,13 @@ _ZN6Assimp12_GLOBAL__N_111ChunkWriterD2Ev.exit97: ; preds = %_ZN6Assimp12_GLOBAL
   %182 = or i32 %180, %181
   %183 = icmp eq i32 %182, 0
   %184 = load ptr, ptr %160, align 8
-  %185 = getelementptr inbounds nuw i32, ptr %184, i64 %indvars.iv233
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %indvars.iv233
   %186 = load i32, ptr %185, align 4
   %187 = load ptr, ptr %0, align 8
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 24
   %189 = load ptr, ptr %188, align 8
   %190 = zext i32 %186 to i64
-  %191 = getelementptr inbounds nuw ptr, ptr %189, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %190
   %192 = load ptr, ptr %191, align 8
   %193 = add i64 %179, 2
   %194 = load ptr, ptr %11, align 8
@@ -8550,7 +8548,7 @@ _ZN6Assimp12_GLOBAL__N_111ChunkWriterC2ERNS_12StreamWriterILb0ELb0EEEt.exit: ; p
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %37
   %39 = load ptr, ptr %38, align 8
   invoke fastcc void @_ZN6Assimp12_GLOBAL__N_115GetMaterialNameB5cxx11ERK10aiMaterialj(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef %36)
           to label %40 unwind label %115

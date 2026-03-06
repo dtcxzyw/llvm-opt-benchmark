@@ -16,7 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.tlb_context = type { i64, i64 }
 %struct.mmu_gather = type { ptr, ptr, i64, i64, i16, i32, ptr, %struct.mmu_gather_batch, [8 x ptr] }
 %struct.mmu_gather_batch = type { ptr, i32, i32, [0 x ptr] }
-%struct.pgd_t = type { i64 }
 %struct.user_desc = type { i32, i32, i32, i8 }
 
 @boot_cpu_data = external dso_local global %struct.cpuinfo_x86, align 8
@@ -114,7 +113,7 @@ define internal fastcc void @native_set_ldt(ptr noundef %0, i32 noundef %1) unna
   %20 = lshr i64 %7, 32
   %21 = trunc nuw i64 %20 to i32
   %22 = zext i32 %6 to i64
-  %23 = getelementptr i64, ptr @__per_cpu_offset, i64 %22
+  %23 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, ptrtoint (ptr @gdt_page to i64)
   %26 = inttoptr i64 %25 to ptr
@@ -360,7 +359,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @map_ldt_struct(ptr noundef
   %19 = zext nneg i32 %18 to i64
   %20 = lshr i64 -1, %19
   %21 = and i64 %20, 272
-  %22 = getelementptr %struct.pgd_t, ptr %17, i64 %21
+  %22 = getelementptr [8 x i8], ptr %17, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %23, 0
   %25 = ptrtoint ptr %22 to i64
@@ -528,7 +527,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @map_ldt_struct(ptr noundef
   %128 = zext nneg i32 %127 to i64
   %129 = lshr i64 -1, %128
   %130 = and i64 %129, 272
-  %131 = getelementptr %struct.pgd_t, ptr %126, i64 %130
+  %131 = getelementptr [8 x i8], ptr %126, i64 %130
   %132 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
   %133 = and i64 %132, 8796093022208
   %134 = icmp eq i64 %133, 0
@@ -1043,7 +1042,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @write_ldt(ptr noundef %0, 
 128:                                              ; preds = %125
   %129 = load i32, ptr %4, align 4
   %130 = zext i32 %129 to i64
-  %131 = getelementptr %struct.desc_struct, ptr %122, i64 %130
+  %131 = getelementptr [8 x i8], ptr %122, i64 %130
   store i64 %91, ptr %131, align 1
   %132 = call fastcc i32 @map_ldt_struct(ptr noundef %8, ptr noundef nonnull %110, i32 noundef 0)
   %133 = icmp eq i32 %132, 0
@@ -1056,7 +1055,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @write_ldt(ptr noundef %0, 
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %122, ptr align 1 %134, i64 %136, i1 false)
   %137 = load i32, ptr %4, align 4
   %138 = zext i32 %137 to i64
-  %139 = getelementptr %struct.desc_struct, ptr %122, i64 %138
+  %139 = getelementptr [8 x i8], ptr %122, i64 %138
   store i64 %91, ptr %139, align 1
   %140 = getelementptr inbounds nuw i8, ptr %97, i64 12
   %141 = load i32, ptr %140, align 4

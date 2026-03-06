@@ -147,9 +147,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfPlane3SetERKNS_7GfVec4dE(pt
 
 3:                                                ; preds = %2, %3
   %.09 = phi i64 [ 0, %2 ], [ %7, %3 ]
-  %4 = getelementptr inbounds nuw double, ptr %1, i64 %.09
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.09
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds nuw double, ptr %0, i64 %.09
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.09
   store double %5, ptr %6, align 8
   %7 = add nuw nsw i64 %.09, 1
   %exitcond.not = icmp eq i64 %7, 3
@@ -330,11 +330,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit: ; preds = %7
 .preheader:                                       ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit ]
   %.01415 = phi double [ %22, %.preheader ], [ 0.000000e+00, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit ]
-  %18 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %19 = load double, ptr %18, align 8
   %20 = fcmp ult double %19, 0.000000e+00
   %.in.v = select i1 %20, ptr %1, ptr %4
-  %.in = getelementptr inbounds nuw double, ptr %.in.v, i64 %indvars.iv
+  %.in = getelementptr inbounds nuw [8 x i8], ptr %.in.v, i64 %indvars.iv
   %21 = load double, ptr %.in, align 8
   %22 = tail call double @llvm.fmuladd.f64(double %19, double %21, double %.01415)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

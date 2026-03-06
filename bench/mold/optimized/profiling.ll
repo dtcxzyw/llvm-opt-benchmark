@@ -155,7 +155,7 @@ _ZN3tbb6detail2r1L16ITT_init_domainsEv.exit.i:    ; preds = %13, %11, %.thread7.
 
 .split.us.i.i:                                    ; preds = %_ZN3tbb6detail2r1L16ITT_init_domainsEv.exit.i, %.split.us.i.i
   %.05.us.i.i = phi i64 [ %20, %.split.us.i.i ], [ 0, %_ZN3tbb6detail2r1L16ITT_init_domainsEv.exit.i ]
-  %18 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %.05.us.i.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %.05.us.i.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr null, ptr %19, align 8, !tbaa !15
   %20 = add nuw nsw i64 %.05.us.i.i, 1
@@ -169,7 +169,7 @@ _ZN3tbb6detail2r1L16ITT_init_domainsEv.exit.i:    ; preds = %13, %11, %.thread7.
   br i1 %.not.i1.i, label %26, label %22
 
 22:                                               ; preds = %.split.i.i
-  %23 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %.05.i.i
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %.05.i.i
   %24 = load ptr, ptr %23, align 16, !tbaa !20
   %25 = tail call ptr %21(ptr noundef %24)
   %.pre.i.i = load ptr, ptr @__itt_string_handle_create_ptr__3_0, align 8, !tbaa !7
@@ -178,7 +178,7 @@ _ZN3tbb6detail2r1L16ITT_init_domainsEv.exit.i:    ; preds = %13, %11, %.thread7.
 26:                                               ; preds = %22, %.split.i.i
   %27 = phi ptr [ %.pre.i.i, %22 ], [ null, %.split.i.i ]
   %28 = phi ptr [ %25, %22 ], [ null, %.split.i.i ]
-  %29 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %.05.i.i
+  %29 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %.05.i.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %28, ptr %30, align 8, !tbaa !15
   %31 = add nuw nsw i64 %.05.i.i, 1
@@ -335,7 +335,7 @@ define void @_ZN3tbb6detail2r119itt_make_task_groupENS0_2d115itt_domain_enumEPvy
   %9 = alloca %struct.___itt_id, align 8
   %10 = alloca %struct.___itt_id, align 8
   %11 = zext i32 %0 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
@@ -429,7 +429,7 @@ _ZN3tbb6detail2r1L13itt_id_createEPK13___itt_domain9___itt_id.exit: ; preds = %_
   br i1 %41, label %42, label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
 
 42:                                               ; preds = %_ZN3tbb6detail2r1L13itt_id_createEPK13___itt_domain9___itt_id.exit
-  %43 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %5
+  %43 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %5
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !15
   br label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
@@ -466,7 +466,7 @@ define void @_ZN3tbb6detail2r120itt_metadata_str_addENS0_2d115itt_domain_enumEPv
   %6 = alloca i8, align 1
   %7 = alloca %struct.___itt_id, align 8
   %8 = zext i32 %0 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
@@ -538,7 +538,7 @@ _ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread: ; pred
   br i1 %32, label %33, label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
 
 33:                                               ; preds = %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
-  %34 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %3
+  %34 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %3
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !15
   br label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
@@ -574,7 +574,7 @@ define void @_ZN3tbb6detail2r120itt_metadata_ptr_addENS0_2d115itt_domain_enumEPv
   %6 = alloca i8, align 1
   %7 = alloca %struct.___itt_id, align 8
   %8 = zext i32 %0 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
@@ -646,7 +646,7 @@ _ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread: ; pred
   br i1 %32, label %33, label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
 
 33:                                               ; preds = %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
-  %34 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %3
+  %34 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %3
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !15
   br label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
@@ -679,7 +679,7 @@ define void @_ZN3tbb6detail2r116itt_relation_addENS0_2d115itt_domain_enumEPvyNS0
   %8 = alloca %struct.___itt_id, align 8
   %9 = alloca %struct.___itt_id, align 8
   %10 = zext i32 %0 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
@@ -779,7 +779,7 @@ define void @_ZN3tbb6detail2r114itt_task_beginENS0_2d115itt_domain_enumEPvyS4_yN
   %8 = alloca %struct.___itt_id, align 8
   %9 = alloca %struct.___itt_id, align 8
   %10 = zext i32 %0 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
@@ -856,7 +856,7 @@ _ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread: ; pred
   br i1 %35, label %36, label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
 
 36:                                               ; preds = %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
-  %37 = getelementptr inbounds nuw %"struct.tbb::detail::r1::resource_string", ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %5
+  %37 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3tbb6detail2r1L15strings_for_ittE, i64 %5
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !15
   br label %_ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit
@@ -892,7 +892,7 @@ _ZN3tbb6detail2r1L21ITT_get_string_handleEm.exit: ; preds = %_ZN3tbb6detail2r1L1
 define void @_ZN3tbb6detail2r112itt_task_endENS0_2d115itt_domain_enumE(i32 noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca i8, align 1
   %3 = zext i32 %0 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
@@ -980,7 +980,7 @@ define void @_ZN3tbb6detail2r116itt_region_beginENS0_2d115itt_domain_enumEPvyS4_
   %8 = alloca %struct.___itt_id, align 8
   %9 = alloca %struct.___itt_id, align 8
   %10 = zext i32 %0 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread
@@ -1081,7 +1081,7 @@ define void @_ZN3tbb6detail2r114itt_region_endENS0_2d115itt_domain_enumEPvy(i32 
   %4 = alloca i8, align 1
   %5 = alloca %struct.___itt_id, align 8
   %6 = zext i32 %0 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3tbb6detail2r1L11tbb_domainsE, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %_ZN3tbb6detail2r1L14get_itt_domainENS0_2d115itt_domain_enumE.exit.thread

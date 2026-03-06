@@ -59,12 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Rb_tree.173" = type { %"struct.std::_Rb_tree<clang::tooling::Replacement, clang::tooling::Replacement, std::_Identity<clang::tooling::Replacement>, std::less<clang::tooling::Replacement>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<clang::tooling::Replacement, clang::tooling::Replacement, std::_Identity<clang::tooling::Replacement>, std::less<clang::tooling::Replacement>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree<clang::tooling::Replacement, clang::tooling::Replacement, std::_Identity<clang::tooling::Replacement>, std::less<clang::tooling::Replacement>>::_Alloc_node" = type { ptr }
-%"struct.clang::format::UnwrappedLine" = type <{ %"class.std::__cxx11::list", i32, i32, i8, i8, i8, i8, i32, i8, i8, i8, [5 x i8], i64, i64, i32, [4 x i8] }>
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<clang::format::UnwrappedLineNode, std::allocator<clang::format::UnwrappedLineNode>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<clang::format::UnwrappedLineNode, std::allocator<clang::format::UnwrappedLineNode>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 
 $_ZN5clang11LangOptionsD2Ev = comdat any
 
@@ -341,7 +335,7 @@ _ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i:  ; preds = %95, %92
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i
   %.pre-phi.i.i = zext i32 %.pre-phi.i.i.in to i64
   %96 = load ptr, ptr %7, align 8, !tbaa !65
-  %97 = getelementptr i32, ptr %96, i64 %.pre-phi.i.i
+  %97 = getelementptr [4 x i8], ptr %96, i64 %.pre-phi.i.i
   %98 = sub nsw i64 %88, %.pre-phi.i.i
   %99 = shl nsw i64 %98, 2
   call void @llvm.memset.p0.i64(ptr align 4 %97, i8 0, i64 %99, i1 false), !tbaa !22
@@ -354,7 +348,7 @@ _ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i:  ; preds = %95, %92
 _ZN4llvm15SmallVectorImplIiE6resizeEm.exit:       ; preds = %.sink.split.i.i, %86, %78
   %100 = add nsw i32 %.065141, 1
   %101 = load ptr, ptr %7, align 8, !tbaa !65
-  %102 = getelementptr inbounds nuw i32, ptr %101, i64 %84
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %84
   store i32 %.065141, ptr %102, align 4, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr %.sroa.032.0.copyload, ptr %11, align 8, !tbaa !69
@@ -369,7 +363,7 @@ _ZN4llvm15SmallVectorImplIiE6resizeEm.exit:       ; preds = %.sink.split.i.i, %8
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format17ObjCPropertyEntryELb1EE9push_backERKS3_.exit, label %107, !prof !79
 
 107:                                              ; preds = %_ZN4llvm15SmallVectorImplIiE6resizeEm.exit
-  %108 = getelementptr inbounds nuw %"struct.clang::format::ObjCPropertyEntry", ptr %.pre3.i, i64 %104
+  %108 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %104
   %109 = icmp uge ptr %11, %.pre3.i
   %110 = icmp ult ptr %11, %108
   %spec.select.i.i.i.i.i = and i1 %109, %110
@@ -393,7 +387,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format17ObjCPropertyEntryELb1EE9push_b
   %.016.i.i.i = phi ptr [ %11, %_ZN4llvm15SmallVectorImplIiE6resizeEm.exit ], [ %115, %111 ], [ %11, %.critedge.i.i.i ]
   %117 = load i32, ptr %33, align 8, !tbaa !66
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw %"struct.clang::format::ObjCPropertyEntry", ptr %116, i64 %118
+  %119 = getelementptr inbounds nuw [32 x i8], ptr %116, i64 %118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %119, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i, i64 32, i1 false)
   %120 = load i32, ptr %33, align 8, !tbaa !66
   %121 = add i32 %120, 1
@@ -447,7 +441,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format17ObjCPropertyEntryELb1EE9push_b
   %131 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0144, i64 32
   %132 = load i32, ptr %131, align 4, !tbaa !22
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw i32, ptr %129, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !22
   %.not89 = icmp slt i32 %135, %.078145
   br i1 %.not89, label %.loopexit, label %136
@@ -543,11 +537,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %162
   %168 = phi i64 [ %.pre159, %.lr.ph153 ], [ %.pre158, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ]
   %169 = zext i32 %161 to i64
   %170 = load ptr, ptr %7, align 8, !tbaa !65
-  %171 = getelementptr inbounds nuw i32, ptr %170, i64 %169
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %169
   %172 = load i32, ptr %171, align 4, !tbaa !22
   %173 = sext i32 %172 to i64
   %174 = load ptr, ptr %8, align 8, !tbaa !65
-  %175 = getelementptr inbounds nuw %"struct.clang::format::ObjCPropertyEntry", ptr %174, i64 %173
+  %175 = getelementptr inbounds nuw [32 x i8], ptr %174, i64 %173
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %175, i64 8
   %.sroa.29.0.copyload = load i64, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !70
   %176 = sub i64 4611686018427387903, %168
@@ -1638,7 +1632,7 @@ define linkonce_odr hidden void @_ZN5clang6format31ObjCPropertyAttributeOrderFix
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %16 ]
   %10 = load ptr, ptr %2, align 8, !tbaa !285
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %magicptr.i = ptrtoint ptr %12 to i64
   switch i64 %magicptr.i, label %13 [
@@ -1681,7 +1675,7 @@ _ZN4llvm9StringMapIjNS_15MallocAllocatorEED2Ev.exit: ; preds = %16, %1, %6
   %26 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -1160
   %27 = load i32, ptr %26, align 8, !tbaa !66
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [72 x i8], ptr %25, i64 %28
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format13UnwrappedLineELb0EE13destroy_rangeEPS3_S5_(ptr noundef %25, ptr noundef %29)
   %30 = load ptr, ptr %24, align 8, !tbaa !65
   %31 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -1152
@@ -2961,7 +2955,7 @@ _ZNSt7__cxx1110_List_baseIN5clang6format17UnwrappedLineNodeESaIS3_EED2Ev.exit.lo
   %8 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !66
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [72 x i8], ptr %7, i64 %10
   tail call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang6format13UnwrappedLineELb0EE13destroy_rangeEPS3_S5_(ptr noundef %7, ptr noundef %11)
   %12 = load ptr, ptr %6, align 8, !tbaa !65
   %13 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 40
@@ -3142,7 +3136,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocator
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #14
   %6 = load ptr, ptr %0, align 8, !tbaa !285
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -3196,7 +3190,7 @@ _ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #14
   %27 = load ptr, ptr %0, align 8, !tbaa !285
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit
@@ -3233,7 +3227,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIjNS_15MallocAllocator
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #14
   %7 = load ptr, ptr %0, align 8, !tbaa !285
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !20
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -3288,7 +3282,7 @@ _ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJjEEEPS1_NS_9StringRefER
   %28 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #14
   %29 = load ptr, ptr %0, align 8, !tbaa !285
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryIjE6createINS_15MallocAllocatorEJjEEEPS1_NS_9StringRefERT_DpOT0_.exit

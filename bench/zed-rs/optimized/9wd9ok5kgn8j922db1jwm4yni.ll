@@ -479,8 +479,8 @@ define { ptr, i64 } @_ZN7open_ai5Model2id17h2666e9c2b410420eE(ptr noalias nounde
   %4 = icmp ult i64 %3, 7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7open_ai5Model12display_name17h622d2259d29c1e98E, i64 %3
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7open_ai5Model12display_name17h622d2259d29c1e98E.14, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7open_ai5Model12display_name17h622d2259d29c1e98E, i64 %3
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7open_ai5Model12display_name17h622d2259d29c1e98E.14, i64 %3
   %.sroa.9.0.in = select i1 %4, ptr %switch.gep, ptr %6
   %.sroa.0.0.in = select i1 %4, ptr %switch.gep1, ptr %5
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8
@@ -501,8 +501,8 @@ define { ptr, i64 } @_ZN7open_ai5Model12display_name17h622d2259d29c1e98E(ptr noa
   %. = select i1 %7, ptr %0, ptr %5
   %8 = getelementptr inbounds nuw i8, ptr %., i64 8
   %9 = getelementptr inbounds nuw i8, ptr %., i64 16
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7open_ai5Model12display_name17h622d2259d29c1e98E, i64 %3
-  %switch.gep4 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7open_ai5Model12display_name17h622d2259d29c1e98E.14, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7open_ai5Model12display_name17h622d2259d29c1e98E, i64 %3
+  %switch.gep4 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7open_ai5Model12display_name17h622d2259d29c1e98E.14, i64 %3
   %.sroa.9.0.in = select i1 %4, ptr %switch.gep, ptr %9
   %.sroa.0.0.in = select i1 %4, ptr %switch.gep4, ptr %8
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8
@@ -518,7 +518,7 @@ define noundef i64 @_ZN7open_ai5Model15max_token_count17h38cc0eecfcca23cbE(ptr n
   %3 = xor i64 %2, -9223372036854775808
   %4 = icmp ult i64 %3, 7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7open_ai5Model15max_token_count17h38cc0eecfcca23cbE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7open_ai5Model15max_token_count17h38cc0eecfcca23cbE, i64 %3
   %.sroa.0.0.in = select i1 %4, ptr %switch.gep, ptr %5
   %.sroa.0.0 = load i64, ptr %.sroa.0.0.in, align 8
   ret i64 %.sroa.0.0
@@ -582,7 +582,7 @@ define void @_ZN7open_ai24adapt_response_to_stream17h576beda85e9a12b3E(ptr dead_
   %.sroa.46.0.copyload = load ptr, ptr %.sroa.46.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.sroa.57.0.copyload = load i64, ptr %.sroa.57.0..sroa_idx, align 8
-  %12 = getelementptr inbounds { { i64, [6 x i64] }, { i64, [2 x i64] }, i32, [1 x i32] }, ptr %.sroa.46.0.copyload, i64 %.sroa.57.0.copyload
+  %12 = getelementptr inbounds [88 x i8], ptr %.sroa.46.0.copyload, i64 %.sroa.57.0.copyload
   store ptr %.sroa.46.0.copyload, ptr %5, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.sroa.46.0.copyload, ptr %.sroa.44.0..sroa_idx, align 8

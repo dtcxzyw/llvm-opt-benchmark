@@ -12,22 +12,16 @@ target triple = "x86_64-pc-linux-gnu"
 %class.btReducedVector = type { %class.btAlignedObjectArray.0, %class.btAlignedObjectArray.2, i32, [4 x i8] }
 %class.btAlignedObjectArray.0 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btAlignedObjectArray.2 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btVector3 = type { [4 x float] }
 %class.CProfileSample = type { i8 }
-%"struct.btSoftBody::Node" = type <{ %"struct.btSoftBody::Feature", %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, float, float, ptr, i32, i8, [3 x i8], i32, %class.btVector3, %class.btMatrix3x3, %class.btMatrix3x3, [4 x i8] }>
-%"struct.btSoftBody::Feature" = type { %"struct.btSoftBody::Element", ptr }
-%"struct.btSoftBody::Element" = type { ptr }
-%class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%struct.LagrangeMultiplier = type { i32, i32, [3 x float], [3 x %class.btVector3], [3 x i32] }
 %"class.btSoftBody::DeformableNodeRigidContact" = type { %"class.btSoftBody::DeformableRigidContact", ptr }
 %"class.btSoftBody::DeformableRigidContact" = type { %"struct.btSoftBody::sCti", %class.btMatrix3x3, %class.btVector3, float, float, float, %class.btMatrix3x3, [4 x i8], %struct.btMultiBodyJacobianData, %struct.btMultiBodyJacobianData, %struct.btMultiBodyJacobianData, %class.btVector3, %class.btVector3 }
 %"struct.btSoftBody::sCti" = type <{ ptr, %class.btVector3, %class.btVector3, float, %class.btVector3, [4 x i8] }>
+%class.btMatrix3x3 = type { [3 x %class.btVector3] }
 %struct.btMultiBodyJacobianData = type <{ %class.btAlignedObjectArray.34, %class.btAlignedObjectArray.34, %class.btAlignedObjectArray.34, %class.btAlignedObjectArray.34, %class.btAlignedObjectArray.2, %class.btAlignedObjectArray.80, ptr, i32, [4 x i8] }>
 %class.btAlignedObjectArray.34 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btAlignedObjectArray.80 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
+%class.btVector3 = type { [4 x float] }
 %"class.btSoftBody::DeformableFaceRigidContact" = type { %"class.btSoftBody::DeformableRigidContact", ptr, %class.btVector3, %class.btVector3, %class.btVector3 }
-%"struct.btSoftBody::DeformableFaceNodeContact" = type { ptr, ptr, %class.btVector3, %class.btVector3, %class.btVector3, float, float, float, float, ptr }
-%"class.btSoftBody::DeformableNodeRigidAnchor" = type { %"class.btSoftBody::DeformableNodeRigidContact", %class.btVector3 }
 %struct.btS = type { i32, i32, i32, i32, ptr }
 %struct.btDbvtAabbMm = type { %class.btVector3, %class.btVector3 }
 %class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
@@ -449,9 +443,9 @@ _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjec
 
 37:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
-  %38 = getelementptr inbounds nuw %class.btReducedVector, ptr %34, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [72 x i8], ptr %34, i64 %indvars.iv.i
   %39 = load ptr, ptr %36, align 8, !tbaa !13
-  %40 = getelementptr inbounds nuw %class.btReducedVector, ptr %39, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [72 x i8], ptr %39, i64 %indvars.iv.i
   call void @_ZN15btReducedVectorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(68) %38, ptr noundef nonnull align 8 dereferenceable(68) %40)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %41 = icmp eq i64 %indvars.iv.next.i, %zext
@@ -485,7 +479,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI15btReducedVectorE
 9:                                                ; preds = %.preheader, %_ZN15btReducedVectorD2Ev.exit
   %indvars.iv26 = phi i64 [ %8, %.preheader ], [ %indvars.iv.next27, %_ZN15btReducedVectorD2Ev.exit ]
   %10 = load ptr, ptr %7, align 8, !tbaa !13
-  %11 = getelementptr inbounds %class.btReducedVector, ptr %10, i64 %indvars.iv26
+  %11 = getelementptr inbounds [72 x i8], ptr %10, i64 %indvars.iv26
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %.not.i.i.i.i = icmp ne ptr %13, null
@@ -558,7 +552,7 @@ _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjec
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %39 = load ptr, ptr %36, align 8, !tbaa !13
-  %40 = getelementptr inbounds %class.btReducedVector, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds [72 x i8], ptr %39, i64 %indvars.iv
   tail call void @_ZN15btReducedVectorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(68) %40, ptr noundef nonnull align 8 dereferenceable(68) %2)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -751,7 +745,7 @@ _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjec
   %indvars.iv49 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next50, %_ZN15btReducedVectorD2Ev.exit39 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %63 = load ptr, ptr %35, align 8, !tbaa !13
-  %64 = getelementptr inbounds nuw %class.btReducedVector, ptr %63, i64 %indvars.iv49
+  %64 = getelementptr inbounds nuw [72 x i8], ptr %63, i64 %indvars.iv49
   call void @_ZN15btReducedVectorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(68) %3, ptr noundef nonnull align 8 dereferenceable(68) %64)
   %.not = icmp eq i64 %indvars.iv49, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -765,7 +759,7 @@ _ZN15btReducedVectorD2Ev.exit:                    ; preds = %_ZN20btAlignedObjec
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %65 = load ptr, ptr %36, align 8, !tbaa !13
-  %66 = getelementptr inbounds nuw %class.btReducedVector, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [72 x i8], ptr %65, i64 %indvars.iv
   invoke void @_ZNK15btReducedVector4projERKS_(ptr dead_on_unwind nonnull writable sret(%class.btReducedVector) align 8 %5, ptr noundef nonnull align 8 dereferenceable(68) %3, ptr noundef nonnull align 8 dereferenceable(68) %66)
           to label %67 unwind label %157
 
@@ -821,8 +815,8 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i.i: ; preds = %.noexc41, %76
 
 84:                                               ; preds = %84, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %84 ]
-  %85 = getelementptr inbounds nuw i32, ptr %.0.i.i.i.i, i64 %indvars.iv.i.i.i.i
-  %86 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.i.i.i.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv.i.i.i.i
   %87 = load i32, ptr %86, align 4, !tbaa !37
   store i32 %87, ptr %85, align 4, !tbaa !37
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -875,8 +869,8 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i:  ; preds = %.lr.ph.i.i, %._ZN20
 
 99:                                               ; preds = %99, %.lr.ph.i4.i
   %indvars.iv.i6.i = phi i64 [ 0, %.lr.ph.i4.i ], [ %indvars.iv.next.i7.i, %99 ]
-  %100 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv.i6.i
-  %101 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv.i6.i
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv.i6.i
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv.i6.i
   %102 = load i32, ptr %101, align 4, !tbaa !37
   store i32 %102, ptr %100, align 4, !tbaa !37
   %indvars.iv.next.i7.i = add nuw nsw i64 %indvars.iv.i6.i, 1
@@ -922,9 +916,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i: ; preds = %.noexc
 
 115:                                              ; preds = %115, %.lr.ph.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %115 ]
-  %116 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i
   %117 = load ptr, ptr %47, align 8, !tbaa !29
-  %118 = getelementptr inbounds nuw %class.btVector3, ptr %117, i64 %indvars.iv.i.i.i.i.i
+  %118 = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %indvars.iv.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %116, ptr noundef nonnull align 4 dereferenceable(16) %118, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
@@ -960,9 +954,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i: ; preds = %.noexc.
 
 125:                                              ; preds = %125, %.lr.ph.i4.i.i
   %indvars.iv.i6.i.i = phi i64 [ 0, %.lr.ph.i4.i.i ], [ %indvars.iv.next.i7.i.i, %125 ]
-  %126 = getelementptr inbounds nuw %class.btVector3, ptr %123, i64 %indvars.iv.i6.i.i
+  %126 = getelementptr inbounds nuw [16 x i8], ptr %123, i64 %indvars.iv.i6.i.i
   %127 = load ptr, ptr %49, align 8, !tbaa !29
-  %128 = getelementptr inbounds nuw %class.btVector3, ptr %127, i64 %indvars.iv.i6.i.i
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %127, i64 %indvars.iv.i6.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %126, ptr noundef nonnull align 4 dereferenceable(16) %128, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i = add nuw nsw i64 %indvars.iv.i6.i.i, 1
   %exitcond.not.i8.i.i = icmp eq i64 %indvars.iv.next.i7.i.i, %wide.trip.count.i5.i.i
@@ -1092,7 +1086,7 @@ _ZN15btReducedVectorD2Ev.exit33:                  ; preds = %_ZN20btAlignedObjec
 
 165:                                              ; preds = %._crit_edge
   %166 = load ptr, ptr %36, align 8, !tbaa !13
-  %167 = getelementptr inbounds nuw %class.btReducedVector, ptr %166, i64 %indvars.iv49
+  %167 = getelementptr inbounds nuw [72 x i8], ptr %166, i64 %indvars.iv49
   %168 = invoke noundef nonnull align 8 dereferenceable(68) ptr @_ZN15btReducedVectoraSERKS_(ptr noundef nonnull align 8 dereferenceable(68) %167, ptr noundef nonnull align 8 dereferenceable(68) %3)
           to label %169 unwind label %187
 
@@ -1192,8 +1186,8 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i.i: ; preds = %2
 
 15:                                               ; preds = %15, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %15 ]
-  %16 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i.i
-  %17 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i.i.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i.i.i.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i.i.i.i
   %18 = load i32, ptr %17, align 4, !tbaa !37
   store i32 %18, ptr %16, align 4, !tbaa !37
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -1232,8 +1226,8 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i:  ; preds = %2
 
 24:                                               ; preds = %24, %.lr.ph.i.i
   %indvars.iv.i6.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i7.i, %24 ]
-  %25 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i6.i
-  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.i6.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i6.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.i6.i
   %27 = load i32, ptr %26, align 4, !tbaa !37
   store i32 %27, ptr %25, align 4, !tbaa !37
   %indvars.iv.next.i7.i = add nuw nsw i64 %indvars.iv.i6.i, 1
@@ -1271,9 +1265,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i: ; preds = %_ZN20btA
 
 39:                                               ; preds = %39, %.lr.ph.i.i.i.i11
   %indvars.iv.i.i.i.i13 = phi i64 [ 0, %.lr.ph.i.i.i.i11 ], [ %indvars.iv.next.i.i.i.i14, %39 ]
-  %40 = getelementptr inbounds nuw %class.btVector3, ptr %37, i64 %indvars.iv.i.i.i.i13
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv.i.i.i.i13
   %41 = load ptr, ptr %29, align 8, !tbaa !29
-  %42 = getelementptr inbounds nuw %class.btVector3, ptr %41, i64 %indvars.iv.i.i.i.i13
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %indvars.iv.i.i.i.i13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i14 = add nuw nsw i64 %indvars.iv.i.i.i.i13, 1
   %exitcond.not.i.i.i.i15 = icmp eq i64 %indvars.iv.next.i.i.i.i14, %wide.trip.count.i.i.i.i12
@@ -1305,9 +1299,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i: ; preds = %_ZN20btAl
 
 48:                                               ; preds = %48, %.lr.ph.i.i7
   %indvars.iv.i6.i8 = phi i64 [ 0, %.lr.ph.i.i7 ], [ %indvars.iv.next.i7.i9, %48 ]
-  %49 = getelementptr inbounds nuw %class.btVector3, ptr %37, i64 %indvars.iv.i6.i8
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv.i6.i8
   %50 = load ptr, ptr %47, align 8, !tbaa !29
-  %51 = getelementptr inbounds nuw %class.btVector3, ptr %50, i64 %indvars.iv.i6.i8
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %indvars.iv.i6.i8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %49, ptr noundef nonnull align 4 dereferenceable(16) %51, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i9 = add nuw nsw i64 %indvars.iv.i6.i8, 1
   %exitcond.not.i8.i10 = icmp eq i64 %indvars.iv.next.i7.i9, %35
@@ -1384,11 +1378,11 @@ define linkonce_odr dso_local void @_ZN15btReducedVectormiERKS_(ptr dead_on_unwi
   %.040237 = phi i32 [ 0, %.lr.ph ], [ %.141, %257 ]
   %32 = load ptr, ptr %21, align 8, !tbaa !25
   %33 = sext i32 %.040237 to i64
-  %34 = getelementptr inbounds i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %32, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !37
   %36 = load ptr, ptr %22, align 8, !tbaa !25
   %37 = sext i32 %.039238 to i64
-  %38 = getelementptr inbounds i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !37
   %40 = icmp slt i32 %35, %39
   br i1 %40, label %41, label %104
@@ -1433,8 +1427,8 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %.noexc, %49
 
 57:                                               ; preds = %57, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %57 ]
-  %58 = getelementptr inbounds nuw i32, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i.i.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.i.i.i
   %60 = load i32, ptr %59, align 4, !tbaa !37
   store i32 %60, ptr %58, align 4, !tbaa !37
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1471,13 +1465,13 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %.noexc44, %_ZNK2
   %66 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i ], [ %42, %45 ], [ %42, %41 ]
   %67 = load ptr, ptr %7, align 8, !tbaa !25
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds i32, ptr %67, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %67, i64 %68
   store i32 %65, ptr %69, align 4, !tbaa !37
   %70 = load i32, ptr %8, align 4, !tbaa !26
   %71 = add nsw i32 %70, 1
   store i32 %71, ptr %8, align 4, !tbaa !26
   %72 = load ptr, ptr %23, align 8, !tbaa !29
-  %73 = getelementptr inbounds %class.btVector3, ptr %72, i64 %33
+  %73 = getelementptr inbounds [16 x i8], ptr %72, i64 %33
   %74 = load i32, ptr %12, align 4, !tbaa !30
   %75 = load i32, ptr %13, align 8, !tbaa !31
   %76 = icmp eq i32 %74, %75
@@ -1516,9 +1510,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i: ; preds = %.noexc56, 
 
 88:                                               ; preds = %88, %.lr.ph.i.i.i51
   %indvars.iv.i.i.i53 = phi i64 [ 0, %.lr.ph.i.i.i51 ], [ %indvars.iv.next.i.i.i54, %88 ]
-  %89 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i48, i64 %indvars.iv.i.i.i53
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i48, i64 %indvars.iv.i.i.i53
   %90 = load ptr, ptr %11, align 8, !tbaa !29
-  %91 = getelementptr inbounds nuw %class.btVector3, ptr %90, i64 %indvars.iv.i.i.i53
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %90, i64 %indvars.iv.i.i.i53
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %89, ptr noundef nonnull align 4 dereferenceable(16) %91, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i54 = add nuw nsw i64 %indvars.iv.i.i.i53, 1
   %exitcond.not.i.i.i55 = icmp eq i64 %indvars.iv.next.i.i.i54, %wide.trip.count.i.i.i52
@@ -1547,7 +1541,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %95, %_Z
   %97 = phi i32 [ %.pre2.i50, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i ], [ %74, %77 ], [ %74, %64 ]
   %98 = load ptr, ptr %11, align 8, !tbaa !29
   %99 = sext i32 %97 to i64
-  %100 = getelementptr inbounds %class.btVector3, ptr %98, i64 %99
+  %100 = getelementptr inbounds [16 x i8], ptr %98, i64 %99
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %100, ptr noundef nonnull align 4 dereferenceable(16) %73, i64 16, i1 false), !tbaa.struct !40
   %101 = load i32, ptr %12, align 4, !tbaa !30
   %102 = add nsw i32 %101, 1
@@ -1619,8 +1613,8 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i61: ; preds = %.noexc74, %114
 
 122:                                              ; preds = %122, %.lr.ph.i.i.i69
   %indvars.iv.i.i.i71 = phi i64 [ 0, %.lr.ph.i.i.i69 ], [ %indvars.iv.next.i.i.i72, %122 ]
-  %123 = getelementptr inbounds nuw i32, ptr %.0.i.i.i62, i64 %indvars.iv.i.i.i71
-  %124 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv.i.i.i71
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i62, i64 %indvars.iv.i.i.i71
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv.i.i.i71
   %125 = load i32, ptr %124, align 4, !tbaa !37
   store i32 %125, ptr %123, align 4, !tbaa !37
   %indvars.iv.next.i.i.i72 = add nuw nsw i64 %indvars.iv.i.i.i71, 1
@@ -1657,13 +1651,13 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i67: ; preds = %.noexc75, %_ZN
   %131 = phi i32 [ %.pre2.i68, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i67 ], [ %106, %110 ], [ %106, %109 ]
   %132 = load ptr, ptr %7, align 8, !tbaa !25
   %133 = sext i32 %131 to i64
-  %134 = getelementptr inbounds i32, ptr %132, i64 %133
+  %134 = getelementptr inbounds [4 x i8], ptr %132, i64 %133
   store i32 %130, ptr %134, align 4, !tbaa !37
   %135 = load i32, ptr %8, align 4, !tbaa !26
   %136 = add nsw i32 %135, 1
   store i32 %136, ptr %8, align 4, !tbaa !26
   %137 = load ptr, ptr %24, align 8, !tbaa !29
-  %138 = getelementptr inbounds %class.btVector3, ptr %137, i64 %37
+  %138 = getelementptr inbounds [16 x i8], ptr %137, i64 %37
   %139 = load float, ptr %138, align 4, !tbaa !45
   %140 = fneg float %139
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 4
@@ -1713,9 +1707,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i80: ; preds = %.noexc92
 
 161:                                              ; preds = %161, %.lr.ph.i.i.i87
   %indvars.iv.i.i.i89 = phi i64 [ 0, %.lr.ph.i.i.i87 ], [ %indvars.iv.next.i.i.i90, %161 ]
-  %162 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i81, i64 %indvars.iv.i.i.i89
+  %162 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i81, i64 %indvars.iv.i.i.i89
   %163 = load ptr, ptr %11, align 8, !tbaa !29
-  %164 = getelementptr inbounds nuw %class.btVector3, ptr %163, i64 %indvars.iv.i.i.i89
+  %164 = getelementptr inbounds nuw [16 x i8], ptr %163, i64 %indvars.iv.i.i.i89
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %162, ptr noundef nonnull align 4 dereferenceable(16) %164, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i90 = add nuw nsw i64 %indvars.iv.i.i.i89, 1
   %exitcond.not.i.i.i91 = icmp eq i64 %indvars.iv.next.i.i.i90, %wide.trip.count.i.i.i88
@@ -1744,7 +1738,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i85: ; preds = %168, 
   %170 = phi i32 [ %.pre2.i86, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i85 ], [ %147, %150 ], [ %147, %129 ]
   %171 = load ptr, ptr %11, align 8, !tbaa !29
   %172 = sext i32 %170 to i64
-  %173 = getelementptr inbounds %class.btVector3, ptr %171, i64 %172
+  %173 = getelementptr inbounds [16 x i8], ptr %171, i64 %172
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %173, align 4
   %.sroa.5219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %173, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.5219.0..sroa_idx, align 4, !tbaa !41
@@ -1796,8 +1790,8 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i98: ; preds = %.noexc111, %184
 
 192:                                              ; preds = %192, %.lr.ph.i.i.i106
   %indvars.iv.i.i.i108 = phi i64 [ 0, %.lr.ph.i.i.i106 ], [ %indvars.iv.next.i.i.i109, %192 ]
-  %193 = getelementptr inbounds nuw i32, ptr %.0.i.i.i99, i64 %indvars.iv.i.i.i108
-  %194 = getelementptr inbounds nuw i32, ptr %191, i64 %indvars.iv.i.i.i108
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i99, i64 %indvars.iv.i.i.i108
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %indvars.iv.i.i.i108
   %195 = load i32, ptr %194, align 4, !tbaa !37
   store i32 %195, ptr %193, align 4, !tbaa !37
   %indvars.iv.next.i.i.i109 = add nuw nsw i64 %indvars.iv.i.i.i108, 1
@@ -1834,15 +1828,15 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i104: ; preds = %.noexc112, %_
   %201 = phi i32 [ %.pre2.i105, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i104 ], [ %106, %180 ], [ %106, %179 ]
   %202 = load ptr, ptr %7, align 8, !tbaa !25
   %203 = sext i32 %201 to i64
-  %204 = getelementptr inbounds i32, ptr %202, i64 %203
+  %204 = getelementptr inbounds [4 x i8], ptr %202, i64 %203
   store i32 %200, ptr %204, align 4, !tbaa !37
   %205 = load i32, ptr %8, align 4, !tbaa !26
   %206 = add nsw i32 %205, 1
   store i32 %206, ptr %8, align 4, !tbaa !26
   %207 = load ptr, ptr %23, align 8, !tbaa !29
-  %208 = getelementptr inbounds %class.btVector3, ptr %207, i64 %33
+  %208 = getelementptr inbounds [16 x i8], ptr %207, i64 %33
   %209 = load ptr, ptr %24, align 8, !tbaa !29
-  %210 = getelementptr inbounds %class.btVector3, ptr %209, i64 %37
+  %210 = getelementptr inbounds [16 x i8], ptr %209, i64 %37
   %211 = load float, ptr %208, align 4, !tbaa !45
   %212 = load float, ptr %210, align 4, !tbaa !45
   %213 = fsub float %211, %212
@@ -1897,9 +1891,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i122: ; preds = %.noexc1
 
 238:                                              ; preds = %238, %.lr.ph.i.i.i129
   %indvars.iv.i.i.i131 = phi i64 [ 0, %.lr.ph.i.i.i129 ], [ %indvars.iv.next.i.i.i132, %238 ]
-  %239 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i123, i64 %indvars.iv.i.i.i131
+  %239 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i123, i64 %indvars.iv.i.i.i131
   %240 = load ptr, ptr %11, align 8, !tbaa !29
-  %241 = getelementptr inbounds nuw %class.btVector3, ptr %240, i64 %indvars.iv.i.i.i131
+  %241 = getelementptr inbounds nuw [16 x i8], ptr %240, i64 %indvars.iv.i.i.i131
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %239, ptr noundef nonnull align 4 dereferenceable(16) %241, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i132 = add nuw nsw i64 %indvars.iv.i.i.i131, 1
   %exitcond.not.i.i.i133 = icmp eq i64 %indvars.iv.next.i.i.i132, %wide.trip.count.i.i.i130
@@ -1928,7 +1922,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i127: ; preds = %245,
   %247 = phi i32 [ %.pre2.i128, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i127 ], [ %224, %227 ], [ %224, %199 ]
   %248 = load ptr, ptr %11, align 8, !tbaa !29
   %249 = sext i32 %247 to i64
-  %250 = getelementptr inbounds %class.btVector3, ptr %248, i64 %249
+  %250 = getelementptr inbounds [16 x i8], ptr %248, i64 %249
   store <2 x float> %.sroa.0.4.vec.insert.i115, ptr %250, align 4
   %.sroa.5217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %250, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i116, ptr %.sroa.5217.0..sroa_idx, align 4, !tbaa !41
@@ -1972,7 +1966,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i127: ; preds = %245,
 267:                                              ; preds = %.lr.ph241, %.critedge
   %indvars.iv = phi i64 [ %30, %.lr.ph241 ], [ %indvars.iv.next, %.critedge ]
   %268 = load ptr, ptr %28, align 8, !tbaa !25
-  %269 = getelementptr inbounds i32, ptr %268, i64 %indvars.iv
+  %269 = getelementptr inbounds [4 x i8], ptr %268, i64 %indvars.iv
   %270 = load i32, ptr %8, align 4, !tbaa !26
   %271 = load i32, ptr %9, align 8, !tbaa !27
   %272 = icmp eq i32 %270, %271
@@ -2012,8 +2006,8 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i140: ; preds = %.noexc153, %277
 
 285:                                              ; preds = %285, %.lr.ph.i.i.i148
   %indvars.iv.i.i.i150 = phi i64 [ 0, %.lr.ph.i.i.i148 ], [ %indvars.iv.next.i.i.i151, %285 ]
-  %286 = getelementptr inbounds nuw i32, ptr %.0.i.i.i141, i64 %indvars.iv.i.i.i150
-  %287 = getelementptr inbounds nuw i32, ptr %284, i64 %indvars.iv.i.i.i150
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i141, i64 %indvars.iv.i.i.i150
+  %287 = getelementptr inbounds nuw [4 x i8], ptr %284, i64 %indvars.iv.i.i.i150
   %288 = load i32, ptr %287, align 4, !tbaa !37
   store i32 %288, ptr %286, align 4, !tbaa !37
   %indvars.iv.next.i.i.i151 = add nuw nsw i64 %indvars.iv.i.i.i150, 1
@@ -2048,14 +2042,14 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i146: ; preds = %.noexc154, %_
   %293 = phi i32 [ %.pre2.i147, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i146 ], [ %270, %273 ], [ %270, %267 ]
   %294 = load ptr, ptr %7, align 8, !tbaa !25
   %295 = sext i32 %293 to i64
-  %296 = getelementptr inbounds i32, ptr %294, i64 %295
+  %296 = getelementptr inbounds [4 x i8], ptr %294, i64 %295
   %297 = load i32, ptr %269, align 4, !tbaa !37
   store i32 %297, ptr %296, align 4, !tbaa !37
   %298 = load i32, ptr %8, align 4, !tbaa !26
   %299 = add nsw i32 %298, 1
   store i32 %299, ptr %8, align 4, !tbaa !26
   %300 = load ptr, ptr %29, align 8, !tbaa !29
-  %301 = getelementptr inbounds %class.btVector3, ptr %300, i64 %indvars.iv
+  %301 = getelementptr inbounds [16 x i8], ptr %300, i64 %indvars.iv
   %302 = load i32, ptr %12, align 4, !tbaa !30
   %303 = load i32, ptr %13, align 8, !tbaa !31
   %304 = icmp eq i32 %302, %303
@@ -2094,9 +2088,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i159: ; preds = %.noexc1
 
 316:                                              ; preds = %316, %.lr.ph.i.i.i166
   %indvars.iv.i.i.i168 = phi i64 [ 0, %.lr.ph.i.i.i166 ], [ %indvars.iv.next.i.i.i169, %316 ]
-  %317 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i160, i64 %indvars.iv.i.i.i168
+  %317 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i160, i64 %indvars.iv.i.i.i168
   %318 = load ptr, ptr %11, align 8, !tbaa !29
-  %319 = getelementptr inbounds nuw %class.btVector3, ptr %318, i64 %indvars.iv.i.i.i168
+  %319 = getelementptr inbounds nuw [16 x i8], ptr %318, i64 %indvars.iv.i.i.i168
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %317, ptr noundef nonnull align 4 dereferenceable(16) %319, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i169 = add nuw nsw i64 %indvars.iv.i.i.i168, 1
   %exitcond.not.i.i.i170 = icmp eq i64 %indvars.iv.next.i.i.i169, %wide.trip.count.i.i.i167
@@ -2125,7 +2119,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i164: ; preds = %323,
   %324 = phi i32 [ %.pre2.i165, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i164 ], [ %302, %305 ], [ %302, %292 ]
   %325 = load ptr, ptr %11, align 8, !tbaa !29
   %326 = sext i32 %324 to i64
-  %327 = getelementptr inbounds %class.btVector3, ptr %325, i64 %326
+  %327 = getelementptr inbounds [16 x i8], ptr %325, i64 %326
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %327, ptr noundef nonnull align 4 dereferenceable(16) %301, i64 16, i1 false), !tbaa.struct !40
   %328 = load i32, ptr %12, align 4, !tbaa !30
   %329 = add nsw i32 %328, 1
@@ -2139,7 +2133,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i164: ; preds = %323,
 333:                                              ; preds = %.lr.ph243, %398
   %indvars.iv245 = phi i64 [ %266, %.lr.ph243 ], [ %indvars.iv.next246, %398 ]
   %334 = load ptr, ptr %264, align 8, !tbaa !25
-  %335 = getelementptr inbounds i32, ptr %334, i64 %indvars.iv245
+  %335 = getelementptr inbounds [4 x i8], ptr %334, i64 %indvars.iv245
   %336 = load i32, ptr %8, align 4, !tbaa !26
   %337 = load i32, ptr %9, align 8, !tbaa !27
   %338 = icmp eq i32 %336, %337
@@ -2179,8 +2173,8 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i177: ; preds = %.noexc190, %343
 
 351:                                              ; preds = %351, %.lr.ph.i.i.i185
   %indvars.iv.i.i.i187 = phi i64 [ 0, %.lr.ph.i.i.i185 ], [ %indvars.iv.next.i.i.i188, %351 ]
-  %352 = getelementptr inbounds nuw i32, ptr %.0.i.i.i178, i64 %indvars.iv.i.i.i187
-  %353 = getelementptr inbounds nuw i32, ptr %350, i64 %indvars.iv.i.i.i187
+  %352 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i178, i64 %indvars.iv.i.i.i187
+  %353 = getelementptr inbounds nuw [4 x i8], ptr %350, i64 %indvars.iv.i.i.i187
   %354 = load i32, ptr %353, align 4, !tbaa !37
   store i32 %354, ptr %352, align 4, !tbaa !37
   %indvars.iv.next.i.i.i188 = add nuw nsw i64 %indvars.iv.i.i.i187, 1
@@ -2215,14 +2209,14 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i183: ; preds = %.noexc191, %_
   %359 = phi i32 [ %.pre2.i184, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i183 ], [ %336, %339 ], [ %336, %333 ]
   %360 = load ptr, ptr %7, align 8, !tbaa !25
   %361 = sext i32 %359 to i64
-  %362 = getelementptr inbounds i32, ptr %360, i64 %361
+  %362 = getelementptr inbounds [4 x i8], ptr %360, i64 %361
   %363 = load i32, ptr %335, align 4, !tbaa !37
   store i32 %363, ptr %362, align 4, !tbaa !37
   %364 = load i32, ptr %8, align 4, !tbaa !26
   %365 = add nsw i32 %364, 1
   store i32 %365, ptr %8, align 4, !tbaa !26
   %366 = load ptr, ptr %265, align 8, !tbaa !29
-  %367 = getelementptr inbounds %class.btVector3, ptr %366, i64 %indvars.iv245
+  %367 = getelementptr inbounds [16 x i8], ptr %366, i64 %indvars.iv245
   %368 = load float, ptr %367, align 4, !tbaa !45
   %369 = fneg float %368
   %370 = getelementptr inbounds nuw i8, ptr %367, i64 4
@@ -2272,9 +2266,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i201: ; preds = %.noexc2
 
 390:                                              ; preds = %390, %.lr.ph.i.i.i208
   %indvars.iv.i.i.i210 = phi i64 [ 0, %.lr.ph.i.i.i208 ], [ %indvars.iv.next.i.i.i211, %390 ]
-  %391 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i202, i64 %indvars.iv.i.i.i210
+  %391 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i202, i64 %indvars.iv.i.i.i210
   %392 = load ptr, ptr %11, align 8, !tbaa !29
-  %393 = getelementptr inbounds nuw %class.btVector3, ptr %392, i64 %indvars.iv.i.i.i210
+  %393 = getelementptr inbounds nuw [16 x i8], ptr %392, i64 %indvars.iv.i.i.i210
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %391, ptr noundef nonnull align 4 dereferenceable(16) %393, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i211 = add nuw nsw i64 %indvars.iv.i.i.i210, 1
   %exitcond.not.i.i.i212 = icmp eq i64 %indvars.iv.next.i.i.i211, %wide.trip.count.i.i.i209
@@ -2303,7 +2297,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i206: ; preds = %397,
   %399 = phi i32 [ %.pre2.i207, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i206 ], [ %376, %379 ], [ %376, %358 ]
   %400 = load ptr, ptr %11, align 8, !tbaa !29
   %401 = sext i32 %399 to i64
-  %402 = getelementptr inbounds %class.btVector3, ptr %400, i64 %401
+  %402 = getelementptr inbounds [16 x i8], ptr %400, i64 %401
   store <2 x float> %.sroa.0.4.vec.insert.i194, ptr %402, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %402, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i195, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !41
@@ -2384,9 +2378,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i: ; preds = %18, %17
 
 25:                                               ; preds = %25, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %25 ]
-  %26 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %27 = load ptr, ptr %24, align 8, !tbaa !29
-  %28 = getelementptr inbounds nuw %class.btVector3, ptr %27, i64 %indvars.iv.i.i.i.i
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %indvars.iv.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
@@ -2426,9 +2420,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i: ; preds = %_ZN20btAl
 
 39:                                               ; preds = %39, %.lr.ph.i4.i
   %indvars.iv.i6.i = phi i64 [ 0, %.lr.ph.i4.i ], [ %indvars.iv.next.i7.i, %39 ]
-  %40 = getelementptr inbounds nuw %class.btVector3, ptr %36, i64 %indvars.iv.i6.i
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv.i6.i
   %41 = load ptr, ptr %38, align 8, !tbaa !29
-  %42 = getelementptr inbounds nuw %class.btVector3, ptr %41, i64 %indvars.iv.i6.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %indvars.iv.i6.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i = add nuw nsw i64 %indvars.iv.i6.i, 1
   %exitcond.not.i8.i = icmp eq i64 %indvars.iv.next.i7.i, %wide.trip.count.i5.i
@@ -2502,7 +2496,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %12, 
 29:                                               ; preds = %.lr.ph, %_ZNK15btReducedVector5printEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK15btReducedVector5printEv.exit ]
   %30 = load ptr, ptr %25, align 8, !tbaa !13
-  %31 = getelementptr inbounds nuw %class.btReducedVector, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [72 x i8], ptr %30, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !26
   %34 = icmp sgt i32 %33, 0
@@ -2516,10 +2510,10 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %12, 
 37:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
   %38 = load ptr, ptr %35, align 8, !tbaa !25
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv.i
   %40 = load i32, ptr %39, align 4, !tbaa !37
   %41 = load ptr, ptr %36, align 8, !tbaa !29
-  %42 = getelementptr inbounds nuw %class.btVector3, ptr %41, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %indvars.iv.i
   %43 = load float, ptr %42, align 4, !tbaa !45
   %44 = fpext float %43 to double
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 4
@@ -2554,7 +2548,7 @@ _ZNK15btReducedVector5printEv.exit:               ; preds = %37, %29
 60:                                               ; preds = %.lr.ph105, %_ZNK15btReducedVector5printEv.exit33
   %indvars.iv117 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next118, %_ZNK15btReducedVector5printEv.exit33 ]
   %61 = load ptr, ptr %28, align 8, !tbaa !13
-  %62 = getelementptr inbounds nuw %class.btReducedVector, ptr %61, i64 %indvars.iv117
+  %62 = getelementptr inbounds nuw [72 x i8], ptr %61, i64 %indvars.iv117
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !26
   %65 = icmp sgt i32 %64, 0
@@ -2568,10 +2562,10 @@ _ZNK15btReducedVector5printEv.exit:               ; preds = %37, %29
 68:                                               ; preds = %68, %.lr.ph.i30
   %indvars.iv.i31 = phi i64 [ 0, %.lr.ph.i30 ], [ %indvars.iv.next.i32, %68 ]
   %69 = load ptr, ptr %66, align 8, !tbaa !25
-  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i31
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i31
   %71 = load i32, ptr %70, align 4, !tbaa !37
   %72 = load ptr, ptr %67, align 8, !tbaa !29
-  %73 = getelementptr inbounds nuw %class.btVector3, ptr %72, i64 %indvars.iv.i31
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %indvars.iv.i31
   %74 = load float, ptr %73, align 4, !tbaa !45
   %75 = fpext float %74 to double
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 4
@@ -2624,7 +2618,7 @@ _ZNK15btReducedVector5printEv.exit33:             ; preds = %68, %60
   %indvars.iv120 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next121, %_ZNK15btReducedVector3dotERKS_.exit74.thread ]
   %96 = icmp eq i64 %indvars.iv123, %indvars.iv120
   %97 = load ptr, ptr %59, align 8, !tbaa !13
-  %98 = getelementptr inbounds nuw %class.btReducedVector, ptr %97, i64 %indvars.iv123
+  %98 = getelementptr inbounds nuw [72 x i8], ptr %97, i64 %indvars.iv123
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %100 = load i32, ptr %99, align 4, !tbaa !26
   %101 = icmp sgt i32 %100, 0
@@ -2649,14 +2643,14 @@ _ZNK15btReducedVector5printEv.exit33:             ; preds = %68, %60
   br i1 %107, label %.lr.ph.i34, label %.critedge.i
 
 .lr.ph.i34:                                       ; preds = %.preheader.i
-  %108 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv31.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv31.i
   %109 = load i32, ptr %108, align 4, !tbaa !37
   %110 = sext i32 %.01825.i to i64
   br label %111
 
 111:                                              ; preds = %115, %.lr.ph.i34
   %indvars.iv.i35 = phi i64 [ %110, %.lr.ph.i34 ], [ %indvars.iv.next.i36, %115 ]
-  %112 = getelementptr inbounds i32, ptr %104, i64 %indvars.iv.i35
+  %112 = getelementptr inbounds [4 x i8], ptr %104, i64 %indvars.iv.i35
   %113 = load i32, ptr %112, align 4, !tbaa !37
   %114 = icmp slt i32 %113, %109
   br i1 %114, label %115, label %116
@@ -2671,14 +2665,14 @@ _ZNK15btReducedVector5printEv.exit33:             ; preds = %68, %60
   %117 = trunc nsw i64 %indvars.iv.i35 to i32
   %sext.i = shl i64 %indvars.iv.i35, 32
   %118 = ashr exact i64 %sext.i, 32
-  %119 = getelementptr inbounds i32, ptr %104, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr %104, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !37
   %121 = icmp eq i32 %120, %109
   br i1 %121, label %122, label %.critedge.i
 
 122:                                              ; preds = %116
-  %123 = getelementptr inbounds nuw %class.btVector3, ptr %106, i64 %indvars.iv31.i
-  %124 = getelementptr inbounds %class.btVector3, ptr %106, i64 %118
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %106, i64 %indvars.iv31.i
+  %124 = getelementptr inbounds [16 x i8], ptr %106, i64 %118
   %125 = load float, ptr %123, align 4, !tbaa !45
   %126 = load float, ptr %124, align 4, !tbaa !45
   %127 = getelementptr inbounds nuw i8, ptr %123, i64 4
@@ -2717,14 +2711,14 @@ _ZNK15btReducedVector3dotERKS_.exit:              ; preds = %.critedge.i
   br i1 %143, label %.lr.ph.i49, label %.critedge.i44
 
 .lr.ph.i49:                                       ; preds = %.preheader.i40
-  %144 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv31.i41
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv31.i41
   %145 = load i32, ptr %144, align 4, !tbaa !37
   %146 = sext i32 %.01825.i42 to i64
   br label %147
 
 147:                                              ; preds = %151, %.lr.ph.i49
   %indvars.iv.i50 = phi i64 [ %146, %.lr.ph.i49 ], [ %indvars.iv.next.i52, %151 ]
-  %148 = getelementptr inbounds i32, ptr %104, i64 %indvars.iv.i50
+  %148 = getelementptr inbounds [4 x i8], ptr %104, i64 %indvars.iv.i50
   %149 = load i32, ptr %148, align 4, !tbaa !37
   %150 = icmp slt i32 %149, %145
   br i1 %150, label %151, label %152
@@ -2739,14 +2733,14 @@ _ZNK15btReducedVector3dotERKS_.exit:              ; preds = %.critedge.i
   %153 = trunc nsw i64 %indvars.iv.i50 to i32
   %sext.i51 = shl i64 %indvars.iv.i50, 32
   %154 = ashr exact i64 %sext.i51, 32
-  %155 = getelementptr inbounds i32, ptr %104, i64 %154
+  %155 = getelementptr inbounds [4 x i8], ptr %104, i64 %154
   %156 = load i32, ptr %155, align 4, !tbaa !37
   %157 = icmp eq i32 %156, %145
   br i1 %157, label %158, label %.critedge.i44
 
 158:                                              ; preds = %152
-  %159 = getelementptr inbounds nuw %class.btVector3, ptr %106, i64 %indvars.iv31.i41
-  %160 = getelementptr inbounds %class.btVector3, ptr %106, i64 %154
+  %159 = getelementptr inbounds nuw [16 x i8], ptr %106, i64 %indvars.iv31.i41
+  %160 = getelementptr inbounds [16 x i8], ptr %106, i64 %154
   %161 = load float, ptr %159, align 4, !tbaa !45
   %162 = load float, ptr %160, align 4, !tbaa !45
   %163 = getelementptr inbounds nuw i8, ptr %159, i64 4
@@ -2783,7 +2777,7 @@ _ZNK15btReducedVector3dotERKS_.exit55:            ; preds = %_ZNK15btReducedVect
   br i1 %101, label %.preheader.lr.ph.i57, label %_ZNK15btReducedVector3dotERKS_.exit74.thread
 
 .preheader.lr.ph.i57:                             ; preds = %177
-  %178 = getelementptr inbounds nuw %class.btReducedVector, ptr %97, i64 %indvars.iv120
+  %178 = getelementptr inbounds nuw [72 x i8], ptr %97, i64 %indvars.iv120
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 4
   %180 = load i32, ptr %179, align 4, !tbaa !26
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 16
@@ -2805,14 +2799,14 @@ _ZNK15btReducedVector3dotERKS_.exit55:            ; preds = %_ZNK15btReducedVect
   br i1 %189, label %.lr.ph.i68, label %.critedge.i63
 
 .lr.ph.i68:                                       ; preds = %.preheader.i59
-  %190 = getelementptr inbounds nuw i32, ptr %184, i64 %indvars.iv31.i60
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %indvars.iv31.i60
   %191 = load i32, ptr %190, align 4, !tbaa !37
   %192 = sext i32 %.01825.i61 to i64
   br label %193
 
 193:                                              ; preds = %197, %.lr.ph.i68
   %indvars.iv.i69 = phi i64 [ %192, %.lr.ph.i68 ], [ %indvars.iv.next.i71, %197 ]
-  %194 = getelementptr inbounds i32, ptr %182, i64 %indvars.iv.i69
+  %194 = getelementptr inbounds [4 x i8], ptr %182, i64 %indvars.iv.i69
   %195 = load i32, ptr %194, align 4, !tbaa !37
   %196 = icmp slt i32 %195, %191
   br i1 %196, label %197, label %198
@@ -2827,14 +2821,14 @@ _ZNK15btReducedVector3dotERKS_.exit55:            ; preds = %_ZNK15btReducedVect
   %199 = trunc nsw i64 %indvars.iv.i69 to i32
   %sext.i70 = shl i64 %indvars.iv.i69, 32
   %200 = ashr exact i64 %sext.i70, 32
-  %201 = getelementptr inbounds i32, ptr %182, i64 %200
+  %201 = getelementptr inbounds [4 x i8], ptr %182, i64 %200
   %202 = load i32, ptr %201, align 4, !tbaa !37
   %203 = icmp eq i32 %202, %191
   br i1 %203, label %204, label %.critedge.i63
 
 204:                                              ; preds = %198
-  %205 = getelementptr inbounds nuw %class.btVector3, ptr %186, i64 %indvars.iv31.i60
-  %206 = getelementptr inbounds %class.btVector3, ptr %188, i64 %200
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %186, i64 %indvars.iv31.i60
+  %206 = getelementptr inbounds [16 x i8], ptr %188, i64 %200
   %207 = load float, ptr %205, align 4, !tbaa !45
   %208 = load float, ptr %206, align 4, !tbaa !45
   %209 = getelementptr inbounds nuw i8, ptr %205, i64 4
@@ -2871,14 +2865,14 @@ _ZNK15btReducedVector3dotERKS_.exit74:            ; preds = %.critedge.i63
   br i1 %223, label %.lr.ph.i87, label %.critedge.i82
 
 .lr.ph.i87:                                       ; preds = %.preheader.i78
-  %224 = getelementptr inbounds nuw i32, ptr %184, i64 %indvars.iv31.i79
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %indvars.iv31.i79
   %225 = load i32, ptr %224, align 4, !tbaa !37
   %226 = sext i32 %.01825.i80 to i64
   br label %227
 
 227:                                              ; preds = %231, %.lr.ph.i87
   %indvars.iv.i88 = phi i64 [ %226, %.lr.ph.i87 ], [ %indvars.iv.next.i90, %231 ]
-  %228 = getelementptr inbounds i32, ptr %182, i64 %indvars.iv.i88
+  %228 = getelementptr inbounds [4 x i8], ptr %182, i64 %indvars.iv.i88
   %229 = load i32, ptr %228, align 4, !tbaa !37
   %230 = icmp slt i32 %229, %225
   br i1 %230, label %231, label %232
@@ -2893,14 +2887,14 @@ _ZNK15btReducedVector3dotERKS_.exit74:            ; preds = %.critedge.i63
   %233 = trunc nsw i64 %indvars.iv.i88 to i32
   %sext.i89 = shl i64 %indvars.iv.i88, 32
   %234 = ashr exact i64 %sext.i89, 32
-  %235 = getelementptr inbounds i32, ptr %182, i64 %234
+  %235 = getelementptr inbounds [4 x i8], ptr %182, i64 %234
   %236 = load i32, ptr %235, align 4, !tbaa !37
   %237 = icmp eq i32 %236, %225
   br i1 %237, label %238, label %.critedge.i82
 
 238:                                              ; preds = %232
-  %239 = getelementptr inbounds nuw %class.btVector3, ptr %186, i64 %indvars.iv31.i79
-  %240 = getelementptr inbounds %class.btVector3, ptr %188, i64 %234
+  %239 = getelementptr inbounds nuw [16 x i8], ptr %186, i64 %indvars.iv31.i79
+  %240 = getelementptr inbounds [16 x i8], ptr %188, i64 %234
   %241 = load float, ptr %239, align 4, !tbaa !45
   %242 = load float, ptr %240, align 4, !tbaa !45
   %243 = getelementptr inbounds nuw i8, ptr %239, i64 4
@@ -3880,9 +3874,9 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit80: ; preds = %_ZN20btAlignedObjec
 98:                                               ; preds = %.lr.ph, %98
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %98 ]
   %99 = load ptr, ptr %54, align 8, !tbaa !29
-  %100 = getelementptr inbounds nuw %class.btVector3, ptr %99, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %indvars.iv
   %101 = load ptr, ptr %81, align 8, !tbaa !29
-  %102 = getelementptr inbounds nuw %class.btVector3, ptr %101, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %101, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %102, ptr noundef nonnull align 4 dereferenceable(16) %100, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %103 = load i32, ptr %78, align 4, !tbaa !30
@@ -3915,7 +3909,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit80: ; preds = %_ZN20btAlignedObjec
   %indvars.iv173 = phi i64 [ %indvars.iv.next174, %._crit_edge149 ], [ 0, %.preheader ]
   %.061151 = phi i32 [ %.162.lcssa, %._crit_edge149 ], [ 0, %.preheader ]
   %113 = load ptr, ptr %13, align 8, !tbaa !95
-  %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %indvars.iv173
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %indvars.iv173
   %115 = load ptr, ptr %114, align 8, !tbaa !149
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 932
   %117 = load i32, ptr %116, align 4, !tbaa !151
@@ -3945,7 +3939,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit80: ; preds = %_ZN20btAlignedObjec
   %indvars.iv168 = phi i64 [ 0, %.lr.ph148 ], [ %indvars.iv.next169, %146 ]
   %indvars.iv166 = phi i64 [ %120, %.lr.ph148 ], [ %indvars.iv.next167, %146 ]
   %127 = load ptr, ptr %119, align 8, !tbaa !156
-  %128 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %127, i64 %indvars.iv168
+  %128 = getelementptr inbounds nuw [256 x i8], ptr %127, i64 %indvars.iv168
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 112
   %130 = load float, ptr %129, align 8, !tbaa !157
   %131 = fcmp ogt float %130, 0.000000e+00
@@ -3954,7 +3948,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit80: ; preds = %_ZN20btAlignedObjec
 132:                                              ; preds = %125
   %133 = fdiv float -1.000000e+00, %130
   %134 = load ptr, ptr %14, align 8, !tbaa !29
-  %135 = getelementptr inbounds %class.btVector3, ptr %134, i64 %indvars.iv166
+  %135 = getelementptr inbounds [16 x i8], ptr %134, i64 %indvars.iv166
   %136 = load float, ptr %135, align 4, !tbaa !45
   %137 = fmul float %133, %136
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 4
@@ -3967,7 +3961,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit80: ; preds = %_ZN20btAlignedObjec
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %140, i64 1
   %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %143, i64 0
   %144 = load ptr, ptr %15, align 8, !tbaa !29
-  %145 = getelementptr inbounds %class.btVector3, ptr %144, i64 %indvars.iv166
+  %145 = getelementptr inbounds [16 x i8], ptr %144, i64 %indvars.iv166
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %145, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %145, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !41
@@ -4032,7 +4026,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit80: ; preds = %_ZN20btAlignedObjec
 174:                                              ; preds = %._crit_edge.i, %.lr.ph20.i
   %indvars.iv24.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next25.i, %._crit_edge.i ]
   %.018.i = phi float [ 0.000000e+00, %.lr.ph20.i ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %175 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv24.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %indvars.iv24.i
   %176 = load ptr, ptr %175, align 8, !tbaa !149
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 932
   %178 = load i32, ptr %177, align 4, !tbaa !151
@@ -4054,7 +4048,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit80: ; preds = %_ZN20btAlignedObjec
 182:                                              ; preds = %207, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %207 ]
   %.116.i = phi float [ %.018.i, %.lr.ph.i ], [ %.2.i, %207 ]
-  %183 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %181, i64 %indvars.iv.i
+  %183 = getelementptr inbounds nuw [256 x i8], ptr %181, i64 %indvars.iv.i
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 112
   %185 = load float, ptr %184, align 8, !tbaa !157
   %186 = fcmp ogt float %185, 0.000000e+00
@@ -4064,7 +4058,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit80: ; preds = %_ZN20btAlignedObjec
   %188 = getelementptr inbounds nuw i8, ptr %183, i64 136
   %189 = load i32, ptr %188, align 8, !tbaa !167
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds %class.btVector3, ptr %173, i64 %190
+  %191 = getelementptr inbounds [16 x i8], ptr %173, i64 %190
   %192 = load float, ptr %191, align 4, !tbaa !45
   %193 = getelementptr inbounds nuw i8, ptr %191, i64 4
   %194 = load float, ptr %193, align 4, !tbaa !45
@@ -4125,9 +4119,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i: ; preds = %.noexc85
 
 221:                                              ; preds = %221, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %221 ]
-  %222 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %222 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %223 = load ptr, ptr %29, align 8, !tbaa !29
-  %224 = getelementptr inbounds nuw %class.btVector3, ptr %223, i64 %indvars.iv.i.i.i.i
+  %224 = getelementptr inbounds nuw [16 x i8], ptr %223, i64 %indvars.iv.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %222, ptr noundef nonnull align 4 dereferenceable(16) %224, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
@@ -4159,9 +4153,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i: ; preds = %_ZN20btAl
 .lr.ph.i82:                                       ; preds = %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i, %.lr.ph.i82
   %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i84, %.lr.ph.i82 ], [ 0, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i ]
   %230 = load ptr, ptr %14, align 8, !tbaa !29
-  %231 = getelementptr inbounds nuw %class.btVector3, ptr %230, i64 %indvars.iv.i83
+  %231 = getelementptr inbounds nuw [16 x i8], ptr %230, i64 %indvars.iv.i83
   %232 = load ptr, ptr %29, align 8, !tbaa !29
-  %233 = getelementptr inbounds nuw %class.btVector3, ptr %232, i64 %indvars.iv.i83
+  %233 = getelementptr inbounds nuw [16 x i8], ptr %232, i64 %indvars.iv.i83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %233, ptr noundef nonnull align 4 dereferenceable(16) %231, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
   %234 = load i32, ptr %27, align 4, !tbaa !30
@@ -4211,9 +4205,9 @@ _ZN22btDeformableBodySolver8backupDvEv.exit:      ; preds = %_ZN22btDeformableBo
 .lr.ph.i88:                                       ; preds = %244, %.lr.ph.i88
   %indvars.iv.i89 = phi i64 [ %indvars.iv.next.i93, %.lr.ph.i88 ], [ 0, %244 ]
   %247 = load ptr, ptr %29, align 8, !tbaa !29
-  %248 = getelementptr inbounds nuw %class.btVector3, ptr %247, i64 %indvars.iv.i89
+  %248 = getelementptr inbounds nuw [16 x i8], ptr %247, i64 %indvars.iv.i89
   %249 = load ptr, ptr %25, align 8, !tbaa !29
-  %250 = getelementptr inbounds nuw %class.btVector3, ptr %249, i64 %indvars.iv.i89
+  %250 = getelementptr inbounds nuw [16 x i8], ptr %249, i64 %indvars.iv.i89
   %251 = load float, ptr %250, align 4, !tbaa !45
   %252 = fmul float %237, %251
   %253 = getelementptr inbounds nuw i8, ptr %250, i64 4
@@ -4234,7 +4228,7 @@ _ZN22btDeformableBodySolver8backupDvEv.exit:      ; preds = %_ZN22btDeformableBo
   %.sroa.0.4.vec.insert.i.i91 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i90, float %263, i64 1
   %.sroa.3.12.vec.insert.i.i92 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %266, i64 0
   %267 = load ptr, ptr %14, align 8, !tbaa !29
-  %268 = getelementptr inbounds nuw %class.btVector3, ptr %267, i64 %indvars.iv.i89
+  %268 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %indvars.iv.i89
   store <2 x float> %.sroa.0.4.vec.insert.i.i91, ptr %268, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %268, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i92, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !41
@@ -4263,7 +4257,7 @@ _ZN22btDeformableBodySolver12updateEnergyEf.exit: ; preds = %._crit_edge.i87
 279:                                              ; preds = %._crit_edge.i100, %.lr.ph20.i96
   %indvars.iv24.i98 = phi i64 [ 0, %.lr.ph20.i96 ], [ %indvars.iv.next25.i102, %._crit_edge.i100 ]
   %.018.i99 = phi float [ 0.000000e+00, %.lr.ph20.i96 ], [ %.1.lcssa.i101, %._crit_edge.i100 ]
-  %280 = getelementptr inbounds nuw ptr, ptr %277, i64 %indvars.iv24.i98
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %indvars.iv24.i98
   %281 = load ptr, ptr %280, align 8, !tbaa !149
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 932
   %283 = load i32, ptr %282, align 4, !tbaa !151
@@ -4285,7 +4279,7 @@ _ZN22btDeformableBodySolver12updateEnergyEf.exit: ; preds = %._crit_edge.i87
 287:                                              ; preds = %312, %.lr.ph.i104
   %indvars.iv.i106 = phi i64 [ 0, %.lr.ph.i104 ], [ %indvars.iv.next.i109, %312 ]
   %.116.i107 = phi float [ %.018.i99, %.lr.ph.i104 ], [ %.2.i108, %312 ]
-  %288 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %286, i64 %indvars.iv.i106
+  %288 = getelementptr inbounds nuw [256 x i8], ptr %286, i64 %indvars.iv.i106
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 112
   %290 = load float, ptr %289, align 8, !tbaa !157
   %291 = fcmp ogt float %290, 0.000000e+00
@@ -4295,7 +4289,7 @@ _ZN22btDeformableBodySolver12updateEnergyEf.exit: ; preds = %._crit_edge.i87
   %293 = getelementptr inbounds nuw i8, ptr %288, i64 136
   %294 = load i32, ptr %293, align 8, !tbaa !167
   %295 = sext i32 %294 to i64
-  %296 = getelementptr inbounds %class.btVector3, ptr %278, i64 %295
+  %296 = getelementptr inbounds [16 x i8], ptr %278, i64 %295
   %297 = load float, ptr %296, align 4, !tbaa !45
   %298 = getelementptr inbounds nuw i8, ptr %296, i64 4
   %299 = load float, ptr %298, align 4, !tbaa !45
@@ -4336,9 +4330,9 @@ _ZN22btDeformableBodySolver13kineticEnergyEv.exit111: ; preds = %._crit_edge.i10
 .lr.ph.i113:                                      ; preds = %318, %.lr.ph.i113
   %indvars.iv.i114 = phi i64 [ %indvars.iv.next.i115, %.lr.ph.i113 ], [ 0, %318 ]
   %321 = load ptr, ptr %29, align 8, !tbaa !29
-  %322 = getelementptr inbounds nuw %class.btVector3, ptr %321, i64 %indvars.iv.i114
+  %322 = getelementptr inbounds nuw [16 x i8], ptr %321, i64 %indvars.iv.i114
   %323 = load ptr, ptr %14, align 8, !tbaa !29
-  %324 = getelementptr inbounds nuw %class.btVector3, ptr %323, i64 %indvars.iv.i114
+  %324 = getelementptr inbounds nuw [16 x i8], ptr %323, i64 %indvars.iv.i114
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %324, ptr noundef nonnull align 4 dereferenceable(16) %322, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i115 = add nuw nsw i64 %indvars.iv.i114, 1
   %325 = load i32, ptr %27, align 4, !tbaa !30
@@ -4359,7 +4353,7 @@ _ZN22btDeformableBodySolver8revertDvEv.exit:      ; preds = %.lr.ph.i113, %318
 
 332:                                              ; preds = %332, %.lr.ph.i117
   %indvars.iv.i119 = phi i64 [ 0, %.lr.ph.i117 ], [ %indvars.iv.next.i120, %332 ]
-  %333 = getelementptr inbounds nuw %class.btVector3, ptr %330, i64 %indvars.iv.i119
+  %333 = getelementptr inbounds nuw [16 x i8], ptr %330, i64 %indvars.iv.i119
   %334 = load float, ptr %333, align 4, !tbaa !45
   %335 = fmul float %237, %334
   %336 = getelementptr inbounds nuw i8, ptr %333, i64 4
@@ -4368,7 +4362,7 @@ _ZN22btDeformableBodySolver8revertDvEv.exit:      ; preds = %.lr.ph.i113, %318
   %339 = getelementptr inbounds nuw i8, ptr %333, i64 8
   %340 = load float, ptr %339, align 4, !tbaa !45
   %341 = fmul float %237, %340
-  %342 = getelementptr inbounds nuw %class.btVector3, ptr %331, i64 %indvars.iv.i119
+  %342 = getelementptr inbounds nuw [16 x i8], ptr %331, i64 %indvars.iv.i119
   %343 = load float, ptr %342, align 4, !tbaa !45
   %344 = fadd float %335, %343
   store float %344, ptr %342, align 4, !tbaa !45
@@ -4411,13 +4405,13 @@ _ZN22btDeformableBodySolver11computeStepER20btAlignedObjectArrayI9btVector3ERKS2
 
 363:                                              ; preds = %363, %.lr.ph.i126
   %indvars.iv.i128 = phi i64 [ 0, %.lr.ph.i126 ], [ %indvars.iv.next.i129, %363 ]
-  %364 = getelementptr inbounds nuw %class.btVector3, ptr %361, i64 %indvars.iv.i128
+  %364 = getelementptr inbounds nuw [16 x i8], ptr %361, i64 %indvars.iv.i128
   %365 = load float, ptr %364, align 4, !tbaa !45
   %366 = getelementptr inbounds nuw i8, ptr %364, i64 4
   %367 = load float, ptr %366, align 4, !tbaa !45
   %368 = getelementptr inbounds nuw i8, ptr %364, i64 8
   %369 = load float, ptr %368, align 4, !tbaa !45
-  %370 = getelementptr inbounds nuw %class.btVector3, ptr %362, i64 %indvars.iv.i128
+  %370 = getelementptr inbounds nuw [16 x i8], ptr %362, i64 %indvars.iv.i128
   %371 = load float, ptr %370, align 4, !tbaa !45
   %372 = fadd float %365, %371
   store float %372, ptr %370, align 4, !tbaa !45
@@ -4439,10 +4433,10 @@ _ZN22btDeformableBodySolver11computeStepER20btAlignedObjectArrayI9btVector3ERKS2
 .lr.ph155:                                        ; preds = %.lr.ph155.preheader, %.lr.ph155
   %indvars.iv176 = phi i64 [ %indvars.iv.next177, %.lr.ph155 ], [ 0, %.lr.ph155.preheader ]
   %379 = load ptr, ptr %25, align 8, !tbaa !29
-  %380 = getelementptr inbounds nuw %class.btVector3, ptr %379, i64 %indvars.iv176
+  %380 = getelementptr inbounds nuw [16 x i8], ptr %379, i64 %indvars.iv176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %380, i8 0, i64 16, i1 false)
   %381 = load ptr, ptr %15, align 8, !tbaa !29
-  %382 = getelementptr inbounds nuw %class.btVector3, ptr %381, i64 %indvars.iv176
+  %382 = getelementptr inbounds nuw [16 x i8], ptr %381, i64 %indvars.iv176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %382, i8 0, i64 16, i1 false)
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %383 = load i32, ptr %24, align 4, !tbaa !85
@@ -4543,9 +4537,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i: ; preds = %18, %17
 
 25:                                               ; preds = %25, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %25 ]
-  %26 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %27 = load ptr, ptr %24, align 8, !tbaa !29
-  %28 = getelementptr inbounds nuw %class.btVector3, ptr %27, i64 %indvars.iv.i.i.i
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -4598,9 +4592,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %13, %_ZN20b
 45:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %46 = load ptr, ptr %37, align 8, !tbaa !29
-  %47 = getelementptr inbounds nuw %class.btVector3, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %38, align 8, !tbaa !29
-  %49 = getelementptr inbounds nuw %class.btVector3, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %49, ptr noundef nonnull align 4 dereferenceable(16) %47, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %5, align 4, !tbaa !30
@@ -4614,10 +4608,10 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %13, %_ZN20b
 53:                                               ; preds = %.lr.ph43, %._crit_edge41
   %indvars.iv55 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next56, %._crit_edge41 ]
   %54 = load ptr, ptr %41, align 8, !tbaa !178
-  %55 = getelementptr inbounds nuw %struct.LagrangeMultiplier, ptr %54, i64 %indvars.iv55
+  %55 = getelementptr inbounds nuw [80 x i8], ptr %54, i64 %indvars.iv55
   %56 = add nsw i64 %indvars.iv55, %44
   %57 = load ptr, ptr %42, align 8, !tbaa !29
-  %58 = getelementptr inbounds %class.btVector3, ptr %57, i64 %56
+  %58 = getelementptr inbounds [16 x i8], ptr %57, i64 %56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %58, i8 0, i64 16, i1 false)
   %59 = load i32, ptr %55, align 4, !tbaa !179
   %60 = icmp sgt i32 %59, 0
@@ -4632,7 +4626,7 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %13, %_ZN20b
   %66 = load ptr, ptr %43, align 8
   %67 = getelementptr inbounds nuw i8, ptr %55, i64 20
   %68 = load ptr, ptr %42, align 8
-  %69 = getelementptr inbounds %class.btVector3, ptr %68, i64 %56
+  %69 = getelementptr inbounds [16 x i8], ptr %68, i64 %56
   br i1 %63, label %.preheader.us.preheader, label %._crit_edge41
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
@@ -4642,22 +4636,22 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %13, %_ZN20b
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv50 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next51, %._crit_edge.us ]
-  %70 = getelementptr inbounds nuw %class.btVector3, ptr %67, i64 %indvars.iv50
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %indvars.iv50
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %73 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv50
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv50
   %.pre = load float, ptr %73, align 4, !tbaa !45
   br label %74
 
 74:                                               ; preds = %.preheader.us, %74
   %75 = phi float [ %.pre, %.preheader.us ], [ %93, %74 ]
   %indvars.iv47 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next48, %74 ]
-  %76 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv47
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv47
   %77 = load float, ptr %76, align 4, !tbaa !45
-  %78 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv47
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv47
   %79 = load i32, ptr %78, align 4, !tbaa !37
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds %class.btVector3, ptr %66, i64 %80
+  %81 = getelementptr inbounds [16 x i8], ptr %66, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !45
   %83 = load float, ptr %70, align 4, !tbaa !45
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
@@ -4730,9 +4724,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i: ; preds = %17, %16
 
 24:                                               ; preds = %24, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %24 ]
-  %25 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %26 = load ptr, ptr %23, align 8, !tbaa !29
-  %27 = getelementptr inbounds nuw %class.btVector3, ptr %26, i64 %indvars.iv.i.i.i
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -4783,9 +4777,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %12, %_ZN20b
 42:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %43 = load ptr, ptr %36, align 8, !tbaa !29
-  %44 = getelementptr inbounds nuw %class.btVector3, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %37, align 8, !tbaa !29
-  %46 = getelementptr inbounds nuw %class.btVector3, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = load i32, ptr %4, align 4, !tbaa !30
@@ -4799,8 +4793,8 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %12, %_ZN20b
 50:                                               ; preds = %.lr.ph18, %50
   %indvars.iv21 = phi i64 [ 0, %.lr.ph18 ], [ %indvars.iv.next22, %50 ]
   %51 = load ptr, ptr %40, align 8, !tbaa !29
-  %52 = getelementptr %class.btVector3, ptr %51, i64 %indvars.iv21
-  %53 = getelementptr %class.btVector3, ptr %52, i64 %41
+  %52 = getelementptr [16 x i8], ptr %51, i64 %indvars.iv21
+  %53 = getelementptr [16 x i8], ptr %52, i64 %41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %54 = load i32, ptr %6, align 4, !tbaa !176
@@ -4834,7 +4828,7 @@ define dso_local void @_ZN22btDeformableBodySolver14updateVelocityEv(ptr noundef
   %indvars.iv52 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next53, %.loopexit ]
   %.045 = phi i32 [ 0, %.lr.ph46 ], [ %.1, %.loopexit ]
   %11 = load ptr, ptr %5, align 8, !tbaa !95
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv52
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv52
   %13 = load ptr, ptr %12, align 8, !tbaa !149
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1784
   store float 0.000000e+00, ptr %14, align 8, !tbaa !187
@@ -4865,7 +4859,7 @@ _ZNK17btCollisionObject8isActiveEv.exit.preheader: ; preds = %9
   %indvars.iv47 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next48, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %indvars.iv = phi i64 [ %21, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %25 = load ptr, ptr %6, align 8, !tbaa !29
-  %26 = getelementptr inbounds %class.btVector3, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds [16 x i8], ptr %25, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %28 = load float, ptr %27, align 4, !tbaa !45
   %29 = fcmp ord float %28, 0.000000e+00
@@ -4896,9 +4890,9 @@ _ZNK9btVector3neERKS_.exit.thread:                ; preds = %24, %30, %34, %_ZNK
   %41 = load i8, ptr %7, align 8, !tbaa !106, !range !32, !noundef !39
   %42 = trunc nuw i8 %41 to i1
   %43 = load ptr, ptr %8, align 8, !tbaa !29
-  %44 = getelementptr inbounds %class.btVector3, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds [16 x i8], ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %6, align 8, !tbaa !29
-  %46 = getelementptr inbounds %class.btVector3, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds [16 x i8], ptr %45, i64 %indvars.iv
   %47 = load float, ptr %44, align 4, !tbaa !45
   %48 = load float, ptr %46, align 4, !tbaa !45
   %49 = fadd float %47, %48
@@ -4919,12 +4913,12 @@ _ZNK9btVector3neERKS_.exit.thread:                ; preds = %24, %30, %34, %_ZNK
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %54, i64 1
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %59, i64 0
   %61 = load ptr, ptr %20, align 8, !tbaa !156
-  %62 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %61, i64 %indvars.iv47
+  %62 = getelementptr inbounds nuw [256 x i8], ptr %61, i64 %indvars.iv47
   br label %_ZNK17btCollisionObject8isActiveEv.exit
 
 63:                                               ; preds = %40
   %64 = load ptr, ptr %20, align 8, !tbaa !156
-  %65 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %64, i64 %indvars.iv47
+  %65 = getelementptr inbounds nuw [256 x i8], ptr %64, i64 %indvars.iv47
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 140
   %67 = load float, ptr %66, align 4, !tbaa !45
   %68 = fsub float %49, %67
@@ -4948,7 +4942,7 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %63, %60
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink56, i64 56
   store <2 x float> %.sroa.3.12.vec.insert.i39.sink, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !41
   %76 = load ptr, ptr %20, align 8, !tbaa !156
-  %77 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %76, i64 %indvars.iv47
+  %77 = getelementptr inbounds nuw [256 x i8], ptr %76, i64 %indvars.iv47
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %79 = load float, ptr %78, align 4, !tbaa !45
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 52
@@ -5000,7 +4994,7 @@ define dso_local void @_ZN22btDeformableBodySolver11updateStateEv(ptr noundef no
   %8 = phi i32 [ %3, %.lr.ph32.i ], [ %53, %52 ]
   %indvars.iv34.i = phi i64 [ 0, %.lr.ph32.i ], [ %indvars.iv.next35.i, %52 ]
   %9 = load ptr, ptr %5, align 8, !tbaa !95
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv34.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv34.i
   %11 = load ptr, ptr %10, align 8, !tbaa !149
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 240
   %13 = load i32, ptr %12, align 8, !tbaa !274
@@ -5028,7 +5022,7 @@ _ZNK17btCollisionObject8isActiveEv.exit._crit_edge.i: ; preds = %_ZNK17btCollisi
 _ZNK17btCollisionObject8isActiveEv.exit.i:        ; preds = %_ZNK17btCollisionObject8isActiveEv.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK17btCollisionObject8isActiveEv.exit.i ]
   %18 = load ptr, ptr %17, align 8, !tbaa !156
-  %19 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %18, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [256 x i8], ptr %18, i64 %indvars.iv.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 140
@@ -5106,8 +5100,8 @@ define dso_local noundef float @_ZN22btDeformableBodySolver18computeDescentStepE
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
   %.089.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %33, %17 ]
-  %18 = getelementptr inbounds nuw %class.btVector3, ptr %14, i64 %indvars.iv.i
-  %19 = getelementptr inbounds nuw %class.btVector3, ptr %16, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv.i
   %20 = load float, ptr %18, align 4, !tbaa !45
   %21 = load float, ptr %19, align 4, !tbaa !45
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -5201,7 +5195,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %57, 
 73:                                               ; preds = %.lr.ph39, %73
   %indvars.iv42 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next43, %73 ]
   %74 = load ptr, ptr %71, align 8, !tbaa !29
-  %75 = getelementptr inbounds nuw %class.btVector3, ptr %74, i64 %indvars.iv42
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %indvars.iv42
   %76 = load float, ptr %75, align 4, !tbaa !45
   %77 = fneg float %76
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 4
@@ -5291,7 +5285,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit34: ; preds = %10
 123:                                              ; preds = %.lr.ph, %123
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %123 ]
   %124 = load ptr, ptr %119, align 8, !tbaa !29
-  %125 = getelementptr inbounds nuw %class.btVector3, ptr %124, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %indvars.iv
   %126 = load float, ptr %125, align 4, !tbaa !45
   %127 = fmul float %115, %126
   %128 = getelementptr inbounds nuw i8, ptr %125, i64 4
@@ -5304,7 +5298,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit34: ; preds = %10
   %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i, float %130, i64 1
   %.sroa.3.12.vec.insert.i.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %133, i64 0
   %134 = load ptr, ptr %120, align 8, !tbaa !29
-  %135 = getelementptr inbounds nuw %class.btVector3, ptr %134, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %indvars.iv
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %135, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %135, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !41
@@ -5343,7 +5337,7 @@ define dso_local noundef float @_ZN22btDeformableBodySolver13kineticEnergyEv(ptr
 9:                                                ; preds = %.lr.ph20, %._crit_edge
   %indvars.iv24 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next25, %._crit_edge ]
   %.018 = phi float [ 0.000000e+00, %.lr.ph20 ], [ %.1.lcssa, %._crit_edge ]
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv24
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv24
   %11 = load ptr, ptr %10, align 8, !tbaa !149
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 932
   %13 = load i32, ptr %12, align 4, !tbaa !151
@@ -5365,7 +5359,7 @@ define dso_local noundef float @_ZN22btDeformableBodySolver13kineticEnergyEv(ptr
 17:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %.116 = phi float [ %.018, %.lr.ph ], [ %.2, %42 ]
-  %18 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [256 x i8], ptr %16, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %20 = load float, ptr %19, align 8, !tbaa !157
   %21 = fcmp ogt float %20, 0.000000e+00
@@ -5375,7 +5369,7 @@ define dso_local noundef float @_ZN22btDeformableBodySolver13kineticEnergyEv(ptr
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 136
   %24 = load i32, ptr %23, align 8, !tbaa !167
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %class.btVector3, ptr %8, i64 %25
+  %26 = getelementptr inbounds [16 x i8], ptr %8, i64 %25
   %27 = load float, ptr %26, align 4, !tbaa !45
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %29 = load float, ptr %28, align 4, !tbaa !45
@@ -5439,9 +5433,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i: ; preds = %12, %11
 
 19:                                               ; preds = %19, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %19 ]
-  %20 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %21 = load ptr, ptr %18, align 8, !tbaa !29
-  %22 = getelementptr inbounds nuw %class.btVector3, ptr %21, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -5483,9 +5477,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit: ; preds = %7, %_ZN20bt
 32:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %33 = load ptr, ptr %30, align 8, !tbaa !29
-  %34 = getelementptr inbounds nuw %class.btVector3, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %31, align 8, !tbaa !29
-  %36 = getelementptr inbounds nuw %class.btVector3, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %4, align 4, !tbaa !30
@@ -5514,9 +5508,9 @@ define dso_local void @_ZN22btDeformableBodySolver12updateEnergyEf(ptr noundef n
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %6, align 8, !tbaa !29
-  %11 = getelementptr inbounds nuw %class.btVector3, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %7, align 8, !tbaa !29
-  %13 = getelementptr inbounds nuw %class.btVector3, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !45
   %15 = fmul float %1, %14
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -5537,7 +5531,7 @@ define dso_local void @_ZN22btDeformableBodySolver12updateEnergyEf(ptr noundef n
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %26, i64 1
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %29, i64 0
   %30 = load ptr, ptr %8, align 8, !tbaa !29
-  %31 = getelementptr inbounds nuw %class.btVector3, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %indvars.iv
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %31, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !41
@@ -5569,9 +5563,9 @@ define dso_local void @_ZN22btDeformableBodySolver8revertDvEv(ptr noundef nonnul
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !29
-  %9 = getelementptr inbounds nuw %class.btVector3, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %6, align 8, !tbaa !29
-  %11 = getelementptr inbounds nuw %class.btVector3, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %2, align 4, !tbaa !30
@@ -5600,7 +5594,7 @@ define dso_local void @_ZN22btDeformableBodySolver8updateDvEf(ptr noundef nonnul
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %class.btVector3, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !45
   %13 = fmul float %1, %12
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -5609,7 +5603,7 @@ define dso_local void @_ZN22btDeformableBodySolver8updateDvEf(ptr noundef nonnul
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %18 = load float, ptr %17, align 4, !tbaa !45
   %19 = fmul float %1, %18
-  %20 = getelementptr inbounds nuw %class.btVector3, ptr %9, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %21 = load float, ptr %20, align 4, !tbaa !45
   %22 = fadd float %13, %21
   store float %22, ptr %20, align 4, !tbaa !45
@@ -5688,9 +5682,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i: ; preds = %.noexc
 
 35:                                               ; preds = %35, %.lr.ph.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %35 ]
-  %36 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i
   %37 = load ptr, ptr %34, align 8, !tbaa !29
-  %38 = getelementptr inbounds nuw %class.btVector3, ptr %37, i64 %indvars.iv.i.i.i.i.i
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
@@ -5730,9 +5724,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i: ; preds = %_ZN20bt
 
 49:                                               ; preds = %49, %.lr.ph.i4.i.i
   %indvars.iv.i6.i.i = phi i64 [ 0, %.lr.ph.i4.i.i ], [ %indvars.iv.next.i7.i.i, %49 ]
-  %50 = getelementptr inbounds nuw %class.btVector3, ptr %46, i64 %indvars.iv.i6.i.i
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %indvars.iv.i6.i.i
   %51 = load ptr, ptr %48, align 8, !tbaa !29
-  %52 = getelementptr inbounds nuw %class.btVector3, ptr %51, i64 %indvars.iv.i6.i.i
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %indvars.iv.i6.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %50, ptr noundef nonnull align 4 dereferenceable(16) %52, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i = add nuw nsw i64 %indvars.iv.i6.i.i, 1
   %exitcond.not.i8.i.i = icmp eq i64 %indvars.iv.next.i7.i.i, %wide.trip.count.i5.i.i
@@ -5798,9 +5792,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i90: ; preds = %.noe
 
 74:                                               ; preds = %74, %.lr.ph.i.i.i.i.i96
   %indvars.iv.i.i.i.i.i98 = phi i64 [ 0, %.lr.ph.i.i.i.i.i96 ], [ %indvars.iv.next.i.i.i.i.i99, %74 ]
-  %75 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i91, i64 %indvars.iv.i.i.i.i.i98
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i91, i64 %indvars.iv.i.i.i.i.i98
   %76 = load ptr, ptr %73, align 8, !tbaa !29
-  %77 = getelementptr inbounds nuw %class.btVector3, ptr %76, i64 %indvars.iv.i.i.i.i.i98
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %indvars.iv.i.i.i.i.i98
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %75, ptr noundef nonnull align 4 dereferenceable(16) %77, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i99 = add nuw nsw i64 %indvars.iv.i.i.i.i.i98, 1
   %exitcond.not.i.i.i.i.i100 = icmp eq i64 %indvars.iv.next.i.i.i.i.i99, %wide.trip.count.i.i.i.i.i97
@@ -5839,9 +5833,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i82: ; preds = %_ZN20
 
 87:                                               ; preds = %87, %.lr.ph.i4.i.i83
   %indvars.iv.i6.i.i85 = phi i64 [ 0, %.lr.ph.i4.i.i83 ], [ %indvars.iv.next.i7.i.i86, %87 ]
-  %88 = getelementptr inbounds nuw %class.btVector3, ptr %85, i64 %indvars.iv.i6.i.i85
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %indvars.iv.i6.i.i85
   %89 = load ptr, ptr %45, align 8, !tbaa !29
-  %90 = getelementptr inbounds nuw %class.btVector3, ptr %89, i64 %indvars.iv.i6.i.i85
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %indvars.iv.i6.i.i85
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %88, ptr noundef nonnull align 4 dereferenceable(16) %90, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i86 = add nuw nsw i64 %indvars.iv.i6.i.i85, 1
   %exitcond.not.i8.i.i87 = icmp eq i64 %indvars.iv.next.i7.i.i86, %wide.trip.count.i5.i.i84
@@ -5919,9 +5913,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i113: ; preds = %.no
 
 125:                                              ; preds = %125, %.lr.ph.i.i.i.i.i119
   %indvars.iv.i.i.i.i.i121 = phi i64 [ 0, %.lr.ph.i.i.i.i.i119 ], [ %indvars.iv.next.i.i.i.i.i122, %125 ]
-  %126 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i114, i64 %indvars.iv.i.i.i.i.i121
+  %126 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i114, i64 %indvars.iv.i.i.i.i.i121
   %127 = load ptr, ptr %124, align 8, !tbaa !29
-  %128 = getelementptr inbounds nuw %class.btVector3, ptr %127, i64 %indvars.iv.i.i.i.i.i121
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %127, i64 %indvars.iv.i.i.i.i.i121
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %126, ptr noundef nonnull align 4 dereferenceable(16) %128, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i122 = add nuw nsw i64 %indvars.iv.i.i.i.i.i121, 1
   %exitcond.not.i.i.i.i.i123 = icmp eq i64 %indvars.iv.next.i.i.i.i.i122, %wide.trip.count.i.i.i.i.i120
@@ -5961,9 +5955,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i105: ; preds = %_ZN2
 
 139:                                              ; preds = %139, %.lr.ph.i4.i.i106
   %indvars.iv.i6.i.i108 = phi i64 [ 0, %.lr.ph.i4.i.i106 ], [ %indvars.iv.next.i7.i.i109, %139 ]
-  %140 = getelementptr inbounds nuw %class.btVector3, ptr %136, i64 %indvars.iv.i6.i.i108
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %136, i64 %indvars.iv.i6.i.i108
   %141 = load ptr, ptr %138, align 8, !tbaa !29
-  %142 = getelementptr inbounds nuw %class.btVector3, ptr %141, i64 %indvars.iv.i6.i.i108
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %141, i64 %indvars.iv.i6.i.i108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %140, ptr noundef nonnull align 4 dereferenceable(16) %142, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i109 = add nuw nsw i64 %indvars.iv.i6.i.i108, 1
   %exitcond.not.i8.i.i110 = icmp eq i64 %indvars.iv.next.i7.i.i109, %wide.trip.count.i5.i.i107
@@ -6223,9 +6217,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i152: ; preds = %.no
 
 239:                                              ; preds = %239, %.lr.ph.i.i.i.i.i158
   %indvars.iv.i.i.i.i.i160 = phi i64 [ 0, %.lr.ph.i.i.i.i.i158 ], [ %indvars.iv.next.i.i.i.i.i161, %239 ]
-  %240 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i153, i64 %indvars.iv.i.i.i.i.i160
+  %240 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i153, i64 %indvars.iv.i.i.i.i.i160
   %241 = load ptr, ptr %84, align 8, !tbaa !29
-  %242 = getelementptr inbounds nuw %class.btVector3, ptr %241, i64 %indvars.iv.i.i.i.i.i160
+  %242 = getelementptr inbounds nuw [16 x i8], ptr %241, i64 %indvars.iv.i.i.i.i.i160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %240, ptr noundef nonnull align 4 dereferenceable(16) %242, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i161 = add nuw nsw i64 %indvars.iv.i.i.i.i.i160, 1
   %exitcond.not.i.i.i.i.i162 = icmp eq i64 %indvars.iv.next.i.i.i.i.i161, %wide.trip.count.i.i.i.i.i159
@@ -6263,9 +6257,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i144: ; preds = %_ZN2
 
 251:                                              ; preds = %251, %.lr.ph.i4.i.i145
   %indvars.iv.i6.i.i147 = phi i64 [ 0, %.lr.ph.i4.i.i145 ], [ %indvars.iv.next.i7.i.i148, %251 ]
-  %252 = getelementptr inbounds nuw %class.btVector3, ptr %248, i64 %indvars.iv.i6.i.i147
+  %252 = getelementptr inbounds nuw [16 x i8], ptr %248, i64 %indvars.iv.i6.i.i147
   %253 = load ptr, ptr %250, align 8, !tbaa !29
-  %254 = getelementptr inbounds nuw %class.btVector3, ptr %253, i64 %indvars.iv.i6.i.i147
+  %254 = getelementptr inbounds nuw [16 x i8], ptr %253, i64 %indvars.iv.i6.i.i147
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %252, ptr noundef nonnull align 4 dereferenceable(16) %254, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i148 = add nuw nsw i64 %indvars.iv.i6.i.i147, 1
   %exitcond.not.i8.i.i149 = icmp eq i64 %indvars.iv.next.i7.i.i148, %wide.trip.count.i5.i.i146
@@ -6429,9 +6423,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i182: ; preds = %.no
 
 313:                                              ; preds = %313, %.lr.ph.i.i.i.i.i188
   %indvars.iv.i.i.i.i.i190 = phi i64 [ 0, %.lr.ph.i.i.i.i.i188 ], [ %indvars.iv.next.i.i.i.i.i191, %313 ]
-  %314 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i183, i64 %indvars.iv.i.i.i.i.i190
+  %314 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i183, i64 %indvars.iv.i.i.i.i.i190
   %315 = load ptr, ptr %312, align 8, !tbaa !29
-  %316 = getelementptr inbounds nuw %class.btVector3, ptr %315, i64 %indvars.iv.i.i.i.i.i190
+  %316 = getelementptr inbounds nuw [16 x i8], ptr %315, i64 %indvars.iv.i.i.i.i.i190
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %314, ptr noundef nonnull align 4 dereferenceable(16) %316, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i191 = add nuw nsw i64 %indvars.iv.i.i.i.i.i190, 1
   %exitcond.not.i.i.i.i.i192 = icmp eq i64 %indvars.iv.next.i.i.i.i.i191, %wide.trip.count.i.i.i.i.i189
@@ -6471,9 +6465,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i174: ; preds = %_ZN2
 
 327:                                              ; preds = %327, %.lr.ph.i4.i.i175
   %indvars.iv.i6.i.i177 = phi i64 [ 0, %.lr.ph.i4.i.i175 ], [ %indvars.iv.next.i7.i.i178, %327 ]
-  %328 = getelementptr inbounds nuw %class.btVector3, ptr %324, i64 %indvars.iv.i6.i.i177
+  %328 = getelementptr inbounds nuw [16 x i8], ptr %324, i64 %indvars.iv.i6.i.i177
   %329 = load ptr, ptr %326, align 8, !tbaa !29
-  %330 = getelementptr inbounds nuw %class.btVector3, ptr %329, i64 %indvars.iv.i6.i.i177
+  %330 = getelementptr inbounds nuw [16 x i8], ptr %329, i64 %indvars.iv.i6.i.i177
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %328, ptr noundef nonnull align 4 dereferenceable(16) %330, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i178 = add nuw nsw i64 %indvars.iv.i6.i.i177, 1
   %exitcond.not.i8.i.i179 = icmp eq i64 %indvars.iv.next.i7.i.i178, %wide.trip.count.i5.i.i176
@@ -6648,9 +6642,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i214: ; preds = %.no
 
 403:                                              ; preds = %403, %.lr.ph.i.i.i.i.i220
   %indvars.iv.i.i.i.i.i222 = phi i64 [ 0, %.lr.ph.i.i.i.i.i220 ], [ %indvars.iv.next.i.i.i.i.i223, %403 ]
-  %404 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i215, i64 %indvars.iv.i.i.i.i.i222
+  %404 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i215, i64 %indvars.iv.i.i.i.i.i222
   %405 = load ptr, ptr %84, align 8, !tbaa !29
-  %406 = getelementptr inbounds nuw %class.btVector3, ptr %405, i64 %indvars.iv.i.i.i.i.i222
+  %406 = getelementptr inbounds nuw [16 x i8], ptr %405, i64 %indvars.iv.i.i.i.i.i222
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %404, ptr noundef nonnull align 4 dereferenceable(16) %406, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i223 = add nuw nsw i64 %indvars.iv.i.i.i.i.i222, 1
   %exitcond.not.i.i.i.i.i224 = icmp eq i64 %indvars.iv.next.i.i.i.i.i223, %wide.trip.count.i.i.i.i.i221
@@ -6686,9 +6680,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i206: ; preds = %._ZN
 
 413:                                              ; preds = %413, %.lr.ph.i4.i.i207
   %indvars.iv.i6.i.i209 = phi i64 [ 0, %.lr.ph.i4.i.i207 ], [ %indvars.iv.next.i7.i.i210, %413 ]
-  %414 = getelementptr inbounds nuw %class.btVector3, ptr %411, i64 %indvars.iv.i6.i.i209
+  %414 = getelementptr inbounds nuw [16 x i8], ptr %411, i64 %indvars.iv.i6.i.i209
   %415 = load ptr, ptr %260, align 8, !tbaa !29
-  %416 = getelementptr inbounds nuw %class.btVector3, ptr %415, i64 %indvars.iv.i6.i.i209
+  %416 = getelementptr inbounds nuw [16 x i8], ptr %415, i64 %indvars.iv.i6.i.i209
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %414, ptr noundef nonnull align 4 dereferenceable(16) %416, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i210 = add nuw nsw i64 %indvars.iv.i6.i.i209, 1
   %exitcond.not.i8.i.i211 = icmp eq i64 %indvars.iv.next.i7.i.i210, %wide.trip.count.i5.i.i208
@@ -6851,8 +6845,8 @@ define linkonce_odr dso_local noundef float @_ZN14btKrylovSolverI34btDeformableB
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.089 = phi float [ 0.000000e+00, %.lr.ph ], [ %27, %11 ]
-  %12 = getelementptr inbounds nuw %class.btVector3, ptr %8, i64 %indvars.iv
-  %13 = getelementptr inbounds nuw %class.btVector3, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %14 = load float, ptr %12, align 4, !tbaa !45
   %15 = load float, ptr %13, align 4, !tbaa !45
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -6891,7 +6885,7 @@ define dso_local void @_ZN22btDeformableBodySolver18updateTempPositionEv(ptr nou
   %8 = phi i32 [ %3, %.lr.ph32 ], [ %53, %52 ]
   %indvars.iv34 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next35, %52 ]
   %9 = load ptr, ptr %5, align 8, !tbaa !95
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv34
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv34
   %11 = load ptr, ptr %10, align 8, !tbaa !149
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 240
   %13 = load i32, ptr %12, align 8, !tbaa !274
@@ -6919,7 +6913,7 @@ _ZNK17btCollisionObject8isActiveEv.exit._crit_edge: ; preds = %_ZNK17btCollision
 _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %.lr.ph, %_ZNK17btCollisionObject8isActiveEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %18 = load ptr, ptr %17, align 8, !tbaa !156
-  %19 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [256 x i8], ptr %18, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 140
@@ -7038,9 +7032,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i: ; preds = %.noexc
 
 38:                                               ; preds = %38, %.lr.ph.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %38 ]
-  %39 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i
   %40 = load ptr, ptr %37, align 8, !tbaa !29
-  %41 = getelementptr inbounds nuw %class.btVector3, ptr %40, i64 %indvars.iv.i.i.i.i.i
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %indvars.iv.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %wide.trip.count.i.i.i.i.i
@@ -7080,9 +7074,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i: ; preds = %_ZN20bt
 
 52:                                               ; preds = %52, %.lr.ph.i4.i.i
   %indvars.iv.i6.i.i = phi i64 [ 0, %.lr.ph.i4.i.i ], [ %indvars.iv.next.i7.i.i, %52 ]
-  %53 = getelementptr inbounds nuw %class.btVector3, ptr %49, i64 %indvars.iv.i6.i.i
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %indvars.iv.i6.i.i
   %54 = load ptr, ptr %51, align 8, !tbaa !29
-  %55 = getelementptr inbounds nuw %class.btVector3, ptr %54, i64 %indvars.iv.i6.i.i
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %indvars.iv.i6.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %53, ptr noundef nonnull align 4 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i = add nuw nsw i64 %indvars.iv.i6.i.i, 1
   %exitcond.not.i8.i.i = icmp eq i64 %indvars.iv.next.i7.i.i, %wide.trip.count.i5.i.i
@@ -7158,9 +7152,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i77: ; preds = %.noe
 
 85:                                               ; preds = %85, %.lr.ph.i.i.i.i.i83
   %indvars.iv.i.i.i.i.i85 = phi i64 [ 0, %.lr.ph.i.i.i.i.i83 ], [ %indvars.iv.next.i.i.i.i.i86, %85 ]
-  %86 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i78, i64 %indvars.iv.i.i.i.i.i85
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i78, i64 %indvars.iv.i.i.i.i.i85
   %87 = load ptr, ptr %48, align 8, !tbaa !29
-  %88 = getelementptr inbounds nuw %class.btVector3, ptr %87, i64 %indvars.iv.i.i.i.i.i85
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 %indvars.iv.i.i.i.i.i85
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %86, ptr noundef nonnull align 4 dereferenceable(16) %88, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i86 = add nuw nsw i64 %indvars.iv.i.i.i.i.i85, 1
   %exitcond.not.i.i.i.i.i87 = icmp eq i64 %indvars.iv.next.i.i.i.i.i86, %wide.trip.count.i.i.i.i.i84
@@ -7198,9 +7192,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i69: ; preds = %_ZN20
 
 97:                                               ; preds = %97, %.lr.ph.i4.i.i70
   %indvars.iv.i6.i.i72 = phi i64 [ 0, %.lr.ph.i4.i.i70 ], [ %indvars.iv.next.i7.i.i73, %97 ]
-  %98 = getelementptr inbounds nuw %class.btVector3, ptr %94, i64 %indvars.iv.i6.i.i72
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %indvars.iv.i6.i.i72
   %99 = load ptr, ptr %96, align 8, !tbaa !29
-  %100 = getelementptr inbounds nuw %class.btVector3, ptr %99, i64 %indvars.iv.i6.i.i72
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %indvars.iv.i6.i.i72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %98, ptr noundef nonnull align 4 dereferenceable(16) %100, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i73 = add nuw nsw i64 %indvars.iv.i6.i.i72, 1
   %exitcond.not.i8.i.i74 = icmp eq i64 %indvars.iv.next.i7.i.i73, %wide.trip.count.i5.i.i71
@@ -7286,9 +7280,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i99: ; preds = %.noe
 
 136:                                              ; preds = %136, %.lr.ph.i.i.i.i.i105
   %indvars.iv.i.i.i.i.i107 = phi i64 [ 0, %.lr.ph.i.i.i.i.i105 ], [ %indvars.iv.next.i.i.i.i.i108, %136 ]
-  %137 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i100, i64 %indvars.iv.i.i.i.i.i107
+  %137 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i100, i64 %indvars.iv.i.i.i.i.i107
   %138 = load ptr, ptr %135, align 8, !tbaa !29
-  %139 = getelementptr inbounds nuw %class.btVector3, ptr %138, i64 %indvars.iv.i.i.i.i.i107
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %138, i64 %indvars.iv.i.i.i.i.i107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %137, ptr noundef nonnull align 4 dereferenceable(16) %139, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i108 = add nuw nsw i64 %indvars.iv.i.i.i.i.i107, 1
   %exitcond.not.i.i.i.i.i109 = icmp eq i64 %indvars.iv.next.i.i.i.i.i108, %wide.trip.count.i.i.i.i.i106
@@ -7327,9 +7321,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i91: ; preds = %_ZN20
 
 149:                                              ; preds = %149, %.lr.ph.i4.i.i92
   %indvars.iv.i6.i.i94 = phi i64 [ 0, %.lr.ph.i4.i.i92 ], [ %indvars.iv.next.i7.i.i95, %149 ]
-  %150 = getelementptr inbounds nuw %class.btVector3, ptr %147, i64 %indvars.iv.i6.i.i94
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %147, i64 %indvars.iv.i6.i.i94
   %151 = load ptr, ptr %48, align 8, !tbaa !29
-  %152 = getelementptr inbounds nuw %class.btVector3, ptr %151, i64 %indvars.iv.i6.i.i94
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %151, i64 %indvars.iv.i6.i.i94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %150, ptr noundef nonnull align 4 dereferenceable(16) %152, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i95 = add nuw nsw i64 %indvars.iv.i6.i.i94, 1
   %exitcond.not.i8.i.i96 = icmp eq i64 %indvars.iv.next.i7.i.i95, %wide.trip.count.i5.i.i93
@@ -7381,9 +7375,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i121: ; preds = %.no
 
 172:                                              ; preds = %172, %.lr.ph.i.i.i.i.i127
   %indvars.iv.i.i.i.i.i129 = phi i64 [ 0, %.lr.ph.i.i.i.i.i127 ], [ %indvars.iv.next.i.i.i.i.i130, %172 ]
-  %173 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i122, i64 %indvars.iv.i.i.i.i.i129
+  %173 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i122, i64 %indvars.iv.i.i.i.i.i129
   %174 = load ptr, ptr %171, align 8, !tbaa !29
-  %175 = getelementptr inbounds nuw %class.btVector3, ptr %174, i64 %indvars.iv.i.i.i.i.i129
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %174, i64 %indvars.iv.i.i.i.i.i129
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %173, ptr noundef nonnull align 4 dereferenceable(16) %175, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i130 = add nuw nsw i64 %indvars.iv.i.i.i.i.i129, 1
   %exitcond.not.i.i.i.i.i131 = icmp eq i64 %indvars.iv.next.i.i.i.i.i130, %wide.trip.count.i.i.i.i.i128
@@ -7423,9 +7417,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i113: ; preds = %_ZN2
 
 186:                                              ; preds = %186, %.lr.ph.i4.i.i114
   %indvars.iv.i6.i.i116 = phi i64 [ 0, %.lr.ph.i4.i.i114 ], [ %indvars.iv.next.i7.i.i117, %186 ]
-  %187 = getelementptr inbounds nuw %class.btVector3, ptr %183, i64 %indvars.iv.i6.i.i116
+  %187 = getelementptr inbounds nuw [16 x i8], ptr %183, i64 %indvars.iv.i6.i.i116
   %188 = load ptr, ptr %185, align 8, !tbaa !29
-  %189 = getelementptr inbounds nuw %class.btVector3, ptr %188, i64 %indvars.iv.i6.i.i116
+  %189 = getelementptr inbounds nuw [16 x i8], ptr %188, i64 %indvars.iv.i6.i.i116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %187, ptr noundef nonnull align 4 dereferenceable(16) %189, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i117 = add nuw nsw i64 %indvars.iv.i6.i.i116, 1
   %exitcond.not.i8.i.i118 = icmp eq i64 %indvars.iv.next.i7.i.i117, %wide.trip.count.i5.i.i115
@@ -7553,9 +7547,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i145: ; preds = %.no
 
 255:                                              ; preds = %255, %.lr.ph.i.i.i.i.i151
   %indvars.iv.i.i.i.i.i153 = phi i64 [ 0, %.lr.ph.i.i.i.i.i151 ], [ %indvars.iv.next.i.i.i.i.i154, %255 ]
-  %256 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i146, i64 %indvars.iv.i.i.i.i.i153
+  %256 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i146, i64 %indvars.iv.i.i.i.i.i153
   %257 = load ptr, ptr %200, align 8, !tbaa !29
-  %258 = getelementptr inbounds nuw %class.btVector3, ptr %257, i64 %indvars.iv.i.i.i.i.i153
+  %258 = getelementptr inbounds nuw [16 x i8], ptr %257, i64 %indvars.iv.i.i.i.i.i153
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %256, ptr noundef nonnull align 4 dereferenceable(16) %258, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i154 = add nuw nsw i64 %indvars.iv.i.i.i.i.i153, 1
   %exitcond.not.i.i.i.i.i155 = icmp eq i64 %indvars.iv.next.i.i.i.i.i154, %wide.trip.count.i.i.i.i.i152
@@ -7591,9 +7585,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i137: ; preds = %._ZN
 
 265:                                              ; preds = %265, %.lr.ph.i4.i.i138
   %indvars.iv.i6.i.i140 = phi i64 [ 0, %.lr.ph.i4.i.i138 ], [ %indvars.iv.next.i7.i.i141, %265 ]
-  %266 = getelementptr inbounds nuw %class.btVector3, ptr %263, i64 %indvars.iv.i6.i.i140
+  %266 = getelementptr inbounds nuw [16 x i8], ptr %263, i64 %indvars.iv.i6.i.i140
   %267 = load ptr, ptr %202, align 8, !tbaa !29
-  %268 = getelementptr inbounds nuw %class.btVector3, ptr %267, i64 %indvars.iv.i6.i.i140
+  %268 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %indvars.iv.i6.i.i140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %266, ptr noundef nonnull align 4 dereferenceable(16) %268, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i141 = add nuw nsw i64 %indvars.iv.i6.i.i140, 1
   %exitcond.not.i8.i.i142 = icmp eq i64 %indvars.iv.next.i7.i.i141, %wide.trip.count.i5.i.i139
@@ -7679,9 +7673,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i167: ; preds = %.no
 
 301:                                              ; preds = %301, %.lr.ph.i.i.i.i.i173
   %indvars.iv.i.i.i.i.i175 = phi i64 [ 0, %.lr.ph.i.i.i.i.i173 ], [ %indvars.iv.next.i.i.i.i.i176, %301 ]
-  %302 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i168, i64 %indvars.iv.i.i.i.i.i175
+  %302 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i168, i64 %indvars.iv.i.i.i.i.i175
   %303 = load ptr, ptr %146, align 8, !tbaa !29
-  %304 = getelementptr inbounds nuw %class.btVector3, ptr %303, i64 %indvars.iv.i.i.i.i.i175
+  %304 = getelementptr inbounds nuw [16 x i8], ptr %303, i64 %indvars.iv.i.i.i.i.i175
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %302, ptr noundef nonnull align 4 dereferenceable(16) %304, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i176 = add nuw nsw i64 %indvars.iv.i.i.i.i.i175, 1
   %exitcond.not.i.i.i.i.i177 = icmp eq i64 %indvars.iv.next.i.i.i.i.i176, %wide.trip.count.i.i.i.i.i174
@@ -7717,9 +7711,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i159: ; preds = %._ZN
 
 311:                                              ; preds = %311, %.lr.ph.i4.i.i160
   %indvars.iv.i6.i.i162 = phi i64 [ 0, %.lr.ph.i4.i.i160 ], [ %indvars.iv.next.i7.i.i163, %311 ]
-  %312 = getelementptr inbounds nuw %class.btVector3, ptr %309, i64 %indvars.iv.i6.i.i162
+  %312 = getelementptr inbounds nuw [16 x i8], ptr %309, i64 %indvars.iv.i6.i.i162
   %313 = load ptr, ptr %206, align 8, !tbaa !29
-  %314 = getelementptr inbounds nuw %class.btVector3, ptr %313, i64 %indvars.iv.i6.i.i162
+  %314 = getelementptr inbounds nuw [16 x i8], ptr %313, i64 %indvars.iv.i6.i.i162
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %312, ptr noundef nonnull align 4 dereferenceable(16) %314, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i163 = add nuw nsw i64 %indvars.iv.i6.i.i162, 1
   %exitcond.not.i8.i.i164 = icmp eq i64 %indvars.iv.next.i7.i.i163, %wide.trip.count.i5.i.i161
@@ -7792,9 +7786,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i192: ; preds = %.no
 
 338:                                              ; preds = %338, %.lr.ph.i.i.i.i.i198
   %indvars.iv.i.i.i.i.i200 = phi i64 [ 0, %.lr.ph.i.i.i.i.i198 ], [ %indvars.iv.next.i.i.i.i.i201, %338 ]
-  %339 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i193, i64 %indvars.iv.i.i.i.i.i200
+  %339 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i193, i64 %indvars.iv.i.i.i.i.i200
   %340 = load ptr, ptr %210, align 8, !tbaa !29
-  %341 = getelementptr inbounds nuw %class.btVector3, ptr %340, i64 %indvars.iv.i.i.i.i.i200
+  %341 = getelementptr inbounds nuw [16 x i8], ptr %340, i64 %indvars.iv.i.i.i.i.i200
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %339, ptr noundef nonnull align 4 dereferenceable(16) %341, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i201 = add nuw nsw i64 %indvars.iv.i.i.i.i.i200, 1
   %exitcond.not.i.i.i.i.i202 = icmp eq i64 %indvars.iv.next.i.i.i.i.i201, %wide.trip.count.i.i.i.i.i199
@@ -7830,9 +7824,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i184: ; preds = %._ZN
 
 348:                                              ; preds = %348, %.lr.ph.i4.i.i185
   %indvars.iv.i6.i.i187 = phi i64 [ 0, %.lr.ph.i4.i.i185 ], [ %indvars.iv.next.i7.i.i188, %348 ]
-  %349 = getelementptr inbounds nuw %class.btVector3, ptr %346, i64 %indvars.iv.i6.i.i187
+  %349 = getelementptr inbounds nuw [16 x i8], ptr %346, i64 %indvars.iv.i6.i.i187
   %350 = load ptr, ptr %212, align 8, !tbaa !29
-  %351 = getelementptr inbounds nuw %class.btVector3, ptr %350, i64 %indvars.iv.i6.i.i187
+  %351 = getelementptr inbounds nuw [16 x i8], ptr %350, i64 %indvars.iv.i6.i.i187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %349, ptr noundef nonnull align 4 dereferenceable(16) %351, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i188 = add nuw nsw i64 %indvars.iv.i6.i.i187, 1
   %exitcond.not.i8.i.i189 = icmp eq i64 %indvars.iv.next.i7.i.i188, %wide.trip.count.i5.i.i186
@@ -7999,9 +7993,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i220: ; preds = %.no
 
 414:                                              ; preds = %414, %.lr.ph.i.i.i.i.i226
   %indvars.iv.i.i.i.i.i228 = phi i64 [ 0, %.lr.ph.i.i.i.i.i226 ], [ %indvars.iv.next.i.i.i.i.i229, %414 ]
-  %415 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i221, i64 %indvars.iv.i.i.i.i.i228
+  %415 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i221, i64 %indvars.iv.i.i.i.i.i228
   %416 = load ptr, ptr %413, align 8, !tbaa !29
-  %417 = getelementptr inbounds nuw %class.btVector3, ptr %416, i64 %indvars.iv.i.i.i.i.i228
+  %417 = getelementptr inbounds nuw [16 x i8], ptr %416, i64 %indvars.iv.i.i.i.i.i228
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %415, ptr noundef nonnull align 4 dereferenceable(16) %417, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i229 = add nuw nsw i64 %indvars.iv.i.i.i.i.i228, 1
   %exitcond.not.i.i.i.i.i230 = icmp eq i64 %indvars.iv.next.i.i.i.i.i229, %wide.trip.count.i.i.i.i.i227
@@ -8041,9 +8035,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i212: ; preds = %_ZN2
 
 428:                                              ; preds = %428, %.lr.ph.i4.i.i213
   %indvars.iv.i6.i.i215 = phi i64 [ 0, %.lr.ph.i4.i.i213 ], [ %indvars.iv.next.i7.i.i216, %428 ]
-  %429 = getelementptr inbounds nuw %class.btVector3, ptr %425, i64 %indvars.iv.i6.i.i215
+  %429 = getelementptr inbounds nuw [16 x i8], ptr %425, i64 %indvars.iv.i6.i.i215
   %430 = load ptr, ptr %427, align 8, !tbaa !29
-  %431 = getelementptr inbounds nuw %class.btVector3, ptr %430, i64 %indvars.iv.i6.i.i215
+  %431 = getelementptr inbounds nuw [16 x i8], ptr %430, i64 %indvars.iv.i6.i.i215
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %429, ptr noundef nonnull align 4 dereferenceable(16) %431, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i216 = add nuw nsw i64 %indvars.iv.i6.i.i215, 1
   %exitcond.not.i8.i.i217 = icmp eq i64 %indvars.iv.next.i7.i.i216, %wide.trip.count.i5.i.i214
@@ -8091,7 +8085,7 @@ define dso_local void @_ZN22btDeformableBodySolver12reinitializeERK20btAlignedOb
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %.079.i = phi i32 [ 0, %.lr.ph.i ], [ %17, %12 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !149
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 932
   %16 = load i32, ptr %15, align 4, !tbaa !151
@@ -8137,9 +8131,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i: ; preds = %27, %26
 
 34:                                               ; preds = %34, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %34 ]
-  %35 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %36 = load ptr, ptr %33, align 8, !tbaa !29
-  %37 = getelementptr inbounds nuw %class.btVector3, ptr %36, i64 %indvars.iv.i.i.i
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %35, ptr noundef nonnull align 4 dereferenceable(16) %37, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -8174,7 +8168,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i: ; preds = %43, %_Z
 46:                                               ; preds = %46, %.lr.ph.i12
   %indvars.iv.i14 = phi i64 [ %45, %.lr.ph.i12 ], [ %indvars.iv.next.i15, %46 ]
   %47 = load ptr, ptr %44, align 8, !tbaa !29
-  %48 = getelementptr inbounds %class.btVector3, ptr %47, i64 %indvars.iv.i14
+  %48 = getelementptr inbounds [16 x i8], ptr %47, i64 %indvars.iv.i14
   %indvars.iv.next.i15 = add nsw i64 %indvars.iv.i14, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, %wide.trip.count.i13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %48, i8 0, i64 16, i1 false)
@@ -8222,9 +8216,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i24: ; preds = %58, %57
 
 65:                                               ; preds = %65, %.lr.ph.i.i.i30
   %indvars.iv.i.i.i32 = phi i64 [ 0, %.lr.ph.i.i.i30 ], [ %indvars.iv.next.i.i.i33, %65 ]
-  %66 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i25, i64 %indvars.iv.i.i.i32
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i25, i64 %indvars.iv.i.i.i32
   %67 = load ptr, ptr %64, align 8, !tbaa !29
-  %68 = getelementptr inbounds nuw %class.btVector3, ptr %67, i64 %indvars.iv.i.i.i32
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %indvars.iv.i.i.i32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %66, ptr noundef nonnull align 4 dereferenceable(16) %68, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i33 = add nuw nsw i64 %indvars.iv.i.i.i32, 1
   %exitcond.not.i.i.i34 = icmp eq i64 %indvars.iv.next.i.i.i33, %wide.trip.count.i.i.i31
@@ -8259,7 +8253,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i29: ; preds = %74, %
 77:                                               ; preds = %77, %.lr.ph.i17
   %indvars.iv.i19 = phi i64 [ %76, %.lr.ph.i17 ], [ %indvars.iv.next.i20, %77 ]
   %78 = load ptr, ptr %75, align 8, !tbaa !29
-  %79 = getelementptr inbounds %class.btVector3, ptr %78, i64 %indvars.iv.i19
+  %79 = getelementptr inbounds [16 x i8], ptr %78, i64 %indvars.iv.i19
   %indvars.iv.next.i20 = add nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %wide.trip.count.i18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %79, i8 0, i64 16, i1 false)
@@ -8307,9 +8301,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i43: ; preds = %89, %88
 
 96:                                               ; preds = %96, %.lr.ph.i.i.i49
   %indvars.iv.i.i.i51 = phi i64 [ 0, %.lr.ph.i.i.i49 ], [ %indvars.iv.next.i.i.i52, %96 ]
-  %97 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i44, i64 %indvars.iv.i.i.i51
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i44, i64 %indvars.iv.i.i.i51
   %98 = load ptr, ptr %95, align 8, !tbaa !29
-  %99 = getelementptr inbounds nuw %class.btVector3, ptr %98, i64 %indvars.iv.i.i.i51
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %98, i64 %indvars.iv.i.i.i51
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %97, ptr noundef nonnull align 4 dereferenceable(16) %99, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i52 = add nuw nsw i64 %indvars.iv.i.i.i51, 1
   %exitcond.not.i.i.i53 = icmp eq i64 %indvars.iv.next.i.i.i52, %wide.trip.count.i.i.i50
@@ -8344,7 +8338,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i48: ; preds = %105, 
 108:                                              ; preds = %108, %.lr.ph.i36
   %indvars.iv.i38 = phi i64 [ %107, %.lr.ph.i36 ], [ %indvars.iv.next.i39, %108 ]
   %109 = load ptr, ptr %106, align 8, !tbaa !29
-  %110 = getelementptr inbounds %class.btVector3, ptr %109, i64 %indvars.iv.i38
+  %110 = getelementptr inbounds [16 x i8], ptr %109, i64 %indvars.iv.i38
   %indvars.iv.next.i39 = add nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %110, i8 0, i64 16, i1 false)
@@ -8392,9 +8386,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i62: ; preds = %120, %11
 
 127:                                              ; preds = %127, %.lr.ph.i.i.i68
   %indvars.iv.i.i.i70 = phi i64 [ 0, %.lr.ph.i.i.i68 ], [ %indvars.iv.next.i.i.i71, %127 ]
-  %128 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i63, i64 %indvars.iv.i.i.i70
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i63, i64 %indvars.iv.i.i.i70
   %129 = load ptr, ptr %126, align 8, !tbaa !29
-  %130 = getelementptr inbounds nuw %class.btVector3, ptr %129, i64 %indvars.iv.i.i.i70
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %indvars.iv.i.i.i70
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %128, ptr noundef nonnull align 4 dereferenceable(16) %130, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i71 = add nuw nsw i64 %indvars.iv.i.i.i70, 1
   %exitcond.not.i.i.i72 = icmp eq i64 %indvars.iv.next.i.i.i71, %wide.trip.count.i.i.i69
@@ -8429,7 +8423,7 @@ _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i67: ; preds = %136, 
 139:                                              ; preds = %139, %.lr.ph.i55
   %indvars.iv.i57 = phi i64 [ %138, %.lr.ph.i55 ], [ %indvars.iv.next.i58, %139 ]
   %140 = load ptr, ptr %137, align 8, !tbaa !29
-  %141 = getelementptr inbounds %class.btVector3, ptr %140, i64 %indvars.iv.i57
+  %141 = getelementptr inbounds [16 x i8], ptr %140, i64 %indvars.iv.i57
   %indvars.iv.next.i58 = add nsw i64 %indvars.iv.i57, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, %wide.trip.count.i56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %141, i8 0, i64 16, i1 false)
@@ -8462,13 +8456,13 @@ _ZN22btDeformableBodySolver11updateNodesEv.exit:  ; preds = %._crit_edge.i, %_ZN
 148:                                              ; preds = %.lr.ph, %148
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %148 ]
   %149 = load ptr, ptr %144, align 8, !tbaa !29
-  %150 = getelementptr inbounds nuw %class.btVector3, ptr %149, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %150, i8 0, i64 16, i1 false)
   %151 = load ptr, ptr %145, align 8, !tbaa !29
-  %152 = getelementptr inbounds nuw %class.btVector3, ptr %151, i64 %indvars.iv
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %151, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %152, i8 0, i64 16, i1 false)
   %153 = load ptr, ptr %146, align 8, !tbaa !29
-  %154 = getelementptr inbounds nuw %class.btVector3, ptr %153, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %154, i8 0, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %155 = load i32, ptr %10, align 4, !tbaa !85
@@ -8542,8 +8536,8 @@ _ZN20btAlignedObjectArrayIP10btSoftBodyE8allocateEi.exit.i.i: ; preds = %13, %12
 
 21:                                               ; preds = %21, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %21 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !149
   store ptr %24, ptr %22, align 8, !tbaa !149
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -8600,8 +8594,8 @@ _ZN20btAlignedObjectArrayIP10btSoftBodyE6resizeEiRKS1_.exit: ; preds = %._ZN20bt
 
 39:                                               ; preds = %39, %.lr.ph.i4
   %indvars.iv.i6 = phi i64 [ 0, %.lr.ph.i4 ], [ %indvars.iv.next.i7, %39 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i6
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i6
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i6
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i6
   %42 = load ptr, ptr %41, align 8, !tbaa !149
   store ptr %42, ptr %40, align 8, !tbaa !149
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
@@ -8635,7 +8629,7 @@ define dso_local noundef zeroext i1 @_ZN22btDeformableBodySolver11updateNodesEv(
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %.079 = phi i32 [ 0, %.lr.ph ], [ %14, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !149
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 932
   %13 = load i32, ptr %12, align 4, !tbaa !151
@@ -8727,7 +8721,7 @@ define dso_local void @_ZN22btDeformableBodySolver14backupVelocityEv(ptr noundef
   %indvars.iv23 = phi i64 [ 0, %.lr.ph16 ], [ %indvars.iv.next24, %._crit_edge ]
   %.0914 = phi i32 [ 0, %.lr.ph16 ], [ %.1.lcssa, %._crit_edge ]
   %9 = load ptr, ptr %5, align 8, !tbaa !95
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv23
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv23
   %11 = load ptr, ptr %10, align 8, !tbaa !149
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 932
   %13 = load i32, ptr %12, align 4, !tbaa !151
@@ -8756,11 +8750,11 @@ define dso_local void @_ZN22btDeformableBodySolver14backupVelocityEv(ptr noundef
   %indvars.iv18 = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next19, %21 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %22 = load ptr, ptr %15, align 8, !tbaa !156
-  %23 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [256 x i8], ptr %22, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %indvars.iv.next19 = add nsw i64 %indvars.iv18, 1
   %25 = load ptr, ptr %6, align 8, !tbaa !29
-  %26 = getelementptr inbounds %class.btVector3, ptr %25, i64 %indvars.iv18
+  %26 = getelementptr inbounds [16 x i8], ptr %25, i64 %indvars.iv18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %12, align 4, !tbaa !151
@@ -8787,7 +8781,7 @@ define dso_local void @_ZN22btDeformableBodySolver20setupDeformableSolveEb(ptr n
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.loopexit.us ], [ 0, %.lr.ph50 ]
   %.049.us = phi i32 [ %.1.us, %.loopexit.us ], [ 0, %.lr.ph50 ]
   %10 = load ptr, ptr %6, align 8, !tbaa !95
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv68
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv68
   %12 = load ptr, ptr %11, align 8, !tbaa !149
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 240
   %14 = load i32, ptr %13, align 8, !tbaa !274
@@ -8829,10 +8823,10 @@ _ZNK17btCollisionObject8isActiveEv.exit.preheader.us: ; preds = %.lr.ph50.split.
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %_ZNK17btCollisionObject8isActiveEv.exit.us.us ], [ 0, %.lr.ph.us ]
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %_ZNK17btCollisionObject8isActiveEv.exit.us.us ], [ %25, %.lr.ph.us ]
   %27 = load ptr, ptr %24, align 8, !tbaa !156
-  %28 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %27, i64 %indvars.iv63
+  %28 = getelementptr inbounds nuw [256 x i8], ptr %27, i64 %indvars.iv63
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load ptr, ptr %7, align 8, !tbaa !29
-  %31 = getelementptr inbounds %class.btVector3, ptr %30, i64 %indvars.iv61
+  %31 = getelementptr inbounds [16 x i8], ptr %30, i64 %indvars.iv61
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 60
   %33 = load float, ptr %32, align 4, !tbaa !45
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 12
@@ -8879,7 +8873,7 @@ _ZNK9btVector3eqERKS_.exit.thread.us.us:          ; preds = %26, %_ZNK9btVector3
   %.sroa.0.4.vec.insert.i.us.us = insertelement <2 x float> %.sroa.0.0.vec.insert.i.us.us, float %60, i64 1
   %.sroa.3.12.vec.insert.i.us.us = insertelement <2 x float> <float poison, float 0.000000e+00>, float %63, i64 0
   %64 = load ptr, ptr %8, align 8, !tbaa !29
-  %65 = getelementptr inbounds %class.btVector3, ptr %64, i64 %indvars.iv61
+  %65 = getelementptr inbounds [16 x i8], ptr %64, i64 %indvars.iv61
   store <2 x float> %.sroa.0.4.vec.insert.i.us.us, ptr %65, align 4
   %.sroa.42.0..sroa_idx.us.us = getelementptr inbounds nuw i8, ptr %65, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.us.us, ptr %.sroa.42.0..sroa_idx.us.us, align 4, !tbaa !41
@@ -8887,21 +8881,21 @@ _ZNK9btVector3eqERKS_.exit.thread.us.us:          ; preds = %26, %_ZNK9btVector3
 
 66:                                               ; preds = %_ZNK9btVector3eqERKS_.exit.us.us
   %67 = load ptr, ptr %8, align 8, !tbaa !29
-  %68 = getelementptr inbounds %class.btVector3, ptr %67, i64 %indvars.iv61
+  %68 = getelementptr inbounds [16 x i8], ptr %67, i64 %indvars.iv61
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %68, i8 0, i64 16, i1 false)
   br label %_ZNK17btCollisionObject8isActiveEv.exit.us.us
 
 _ZNK17btCollisionObject8isActiveEv.exit.us.us:    ; preds = %66, %_ZNK9btVector3eqERKS_.exit.thread.us.us
   %69 = load ptr, ptr %24, align 8, !tbaa !156
-  %70 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %69, i64 %indvars.iv63
+  %70 = getelementptr inbounds nuw [256 x i8], ptr %69, i64 %indvars.iv63
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 64
   %72 = load ptr, ptr %7, align 8, !tbaa !29
-  %73 = getelementptr inbounds %class.btVector3, ptr %72, i64 %indvars.iv61
+  %73 = getelementptr inbounds [16 x i8], ptr %72, i64 %indvars.iv61
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false), !tbaa.struct !40
   %74 = load ptr, ptr %7, align 8, !tbaa !29
-  %75 = getelementptr inbounds %class.btVector3, ptr %74, i64 %indvars.iv61
+  %75 = getelementptr inbounds [16 x i8], ptr %74, i64 %indvars.iv61
   %76 = load ptr, ptr %24, align 8, !tbaa !156
-  %77 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %76, i64 %indvars.iv63
+  %77 = getelementptr inbounds nuw [256 x i8], ptr %76, i64 %indvars.iv63
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 4 dereferenceable(16) %75, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next62 = add nsw i64 %indvars.iv61, 1
@@ -8919,7 +8913,7 @@ _ZNK17btCollisionObject8isActiveEv.exit.us.us:    ; preds = %66, %_ZNK9btVector3
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.loopexit ], [ 0, %.lr.ph50 ]
   %.049 = phi i32 [ %.1, %.loopexit ], [ 0, %.lr.ph50 ]
   %83 = load ptr, ptr %6, align 8, !tbaa !95
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv58
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv58
   %85 = load ptr, ptr %84, align 8, !tbaa !149
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 240
   %87 = load i32, ptr %86, align 8, !tbaa !274
@@ -8948,7 +8942,7 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %.lr.ph, %_ZNK17btCo
   %indvars.iv53 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next54, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %indvars.iv = phi i64 [ %92, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %95 = load ptr, ptr %91, align 8, !tbaa !156
-  %96 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %95, i64 %indvars.iv53
+  %96 = getelementptr inbounds nuw [256 x i8], ptr %95, i64 %indvars.iv53
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 140
   %99 = load float, ptr %97, align 4, !tbaa !45
@@ -8965,7 +8959,7 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %.lr.ph, %_ZNK17btCo
   %110 = load float, ptr %109, align 4, !tbaa !45
   %111 = fadd float %108, %110
   %112 = load ptr, ptr %7, align 8, !tbaa !29
-  %113 = getelementptr inbounds %class.btVector3, ptr %112, i64 %indvars.iv
+  %113 = getelementptr inbounds [16 x i8], ptr %112, i64 %indvars.iv
   %114 = load float, ptr %113, align 4, !tbaa !45
   %115 = fsub float %101, %114
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 4
@@ -8978,14 +8972,14 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %.lr.ph, %_ZNK17btCo
   %.sroa.0.4.vec.insert.i42 = insertelement <2 x float> %.sroa.0.0.vec.insert.i41, float %118, i64 1
   %.sroa.3.12.vec.insert.i43 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %121, i64 0
   %122 = load ptr, ptr %8, align 8, !tbaa !29
-  %123 = getelementptr inbounds %class.btVector3, ptr %122, i64 %indvars.iv
+  %123 = getelementptr inbounds [16 x i8], ptr %122, i64 %indvars.iv
   store <2 x float> %.sroa.0.4.vec.insert.i42, ptr %123, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %123, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i43, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !41
   %124 = load ptr, ptr %7, align 8, !tbaa !29
-  %125 = getelementptr inbounds %class.btVector3, ptr %124, i64 %indvars.iv
+  %125 = getelementptr inbounds [16 x i8], ptr %124, i64 %indvars.iv
   %126 = load ptr, ptr %91, align 8, !tbaa !156
-  %127 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %126, i64 %indvars.iv53
+  %127 = getelementptr inbounds nuw [256 x i8], ptr %126, i64 %indvars.iv53
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 4 dereferenceable(16) %125, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -9029,7 +9023,7 @@ define dso_local void @_ZN22btDeformableBodySolver14revertVelocityEv(ptr noundef
   %indvars.iv23 = phi i64 [ 0, %.lr.ph16 ], [ %indvars.iv.next24, %._crit_edge ]
   %.0914 = phi i32 [ 0, %.lr.ph16 ], [ %.1.lcssa, %._crit_edge ]
   %9 = load ptr, ptr %5, align 8, !tbaa !95
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv23
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv23
   %11 = load ptr, ptr %10, align 8, !tbaa !149
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 932
   %13 = load i32, ptr %12, align 4, !tbaa !151
@@ -9059,9 +9053,9 @@ define dso_local void @_ZN22btDeformableBodySolver14revertVelocityEv(ptr noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %indvars.iv.next19 = add nsw i64 %indvars.iv18, 1
   %22 = load ptr, ptr %6, align 8, !tbaa !29
-  %23 = getelementptr inbounds %class.btVector3, ptr %22, i64 %indvars.iv18
+  %23 = getelementptr inbounds [16 x i8], ptr %22, i64 %indvars.iv18
   %24 = load ptr, ptr %15, align 8, !tbaa !156
-  %25 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [256 x i8], ptr %24, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9094,7 +9088,7 @@ define dso_local void @_ZN22btDeformableBodySolver13predictMotionEf(ptr noundef 
   %13 = phi i32 [ %9, %.lr.ph52 ], [ %47, %_ZNK17btCollisionObject8isActiveEv.exit.thread ]
   %indvars.iv56 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next57, %_ZNK17btCollisionObject8isActiveEv.exit.thread ]
   %14 = load ptr, ptr %11, align 8, !tbaa !95
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv56
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv56
   %16 = load ptr, ptr %15, align 8, !tbaa !149
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 240
   %18 = load i32, ptr %17, align 8, !tbaa !274
@@ -9117,7 +9111,7 @@ _ZNK17btCollisionObject8isActiveEv.exit.preheader: ; preds = %12
 _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %.lr.ph, %_ZNK17btCollisionObject8isActiveEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %23 = load ptr, ptr %22, align 8, !tbaa !156
-  %24 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [256 x i8], ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %27 = load float, ptr %26, align 4, !tbaa !45
@@ -9258,7 +9252,7 @@ _ZNK17btCollisionObject8isActiveEv.exit.thread:   ; preds = %_ZNK17btCollisionOb
 135:                                              ; preds = %.lr.ph54, %_ZNK17btCollisionObject8isActiveEv.exit34
   %indvars.iv59 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next60, %_ZNK17btCollisionObject8isActiveEv.exit34 ]
   %136 = load ptr, ptr %56, align 8, !tbaa !95
-  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv59
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv59
   %138 = load ptr, ptr %137, align 8, !tbaa !149
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 240
   %140 = load i32, ptr %139, align 8, !tbaa !274
@@ -9402,7 +9396,7 @@ _ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocate
 161:                                              ; preds = %161, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %160, %.lr.ph.i ], [ %indvars.iv.next.i, %161 ]
   %162 = load ptr, ptr %159, align 8, !tbaa !307
-  %163 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %162, i64 %indvars.iv.i
+  %163 = getelementptr inbounds [88 x i8], ptr %162, i64 %indvars.iv.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %163, i8 0, i64 88, i1 false)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 0
@@ -9449,7 +9443,7 @@ _ZN20btAlignedObjectArrayIN10btSoftBody25DeformableFaceNodeContactEE10deallocate
 179:                                              ; preds = %179, %.lr.ph.i35
   %indvars.iv.i36 = phi i64 [ %178, %.lr.ph.i35 ], [ %indvars.iv.next.i37, %179 ]
   %180 = load ptr, ptr %177, align 8, !tbaa !307
-  %181 = getelementptr inbounds %"struct.btSoftBody::DeformableFaceNodeContact", ptr %180, i64 %indvars.iv.i36
+  %181 = getelementptr inbounds [88 x i8], ptr %180, i64 %indvars.iv.i36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %181, i8 0, i64 88, i1 false)
   %indvars.iv.next.i37 = add nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, 0
@@ -9501,7 +9495,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIN10btSoftBody26Def
 9:                                                ; preds = %.preheader, %9
   %indvars.iv34 = phi i64 [ %8, %.preheader ], [ %indvars.iv.next35, %9 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !312
-  %11 = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidContact", ptr %10, i64 %indvars.iv34
+  %11 = getelementptr inbounds [856 x i8], ptr %10, i64 %indvars.iv34
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 608
   tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %12) #28
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 400
@@ -9538,7 +9532,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIN10btSoftBody26Def
 31:                                               ; preds = %.lr.ph, %_ZN10btSoftBody26DeformableNodeRigidContactC2ERKS0_.exit
   %indvars.iv = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %_ZN10btSoftBody26DeformableNodeRigidContactC2ERKS0_.exit ]
   %32 = load ptr, ptr %17, align 8, !tbaa !312
-  %33 = getelementptr inbounds %"class.btSoftBody::DeformableNodeRigidContact", ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds [856 x i8], ptr %32, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %33, ptr noundef nonnull align 8 dereferenceable(856) %2, i64 64, i1 false), !tbaa.struct !314
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(48) %18, i64 16, i1 false), !tbaa.struct !40
@@ -9615,7 +9609,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIN10btSoftBody26Def
 9:                                                ; preds = %.preheader, %9
   %indvars.iv34 = phi i64 [ %8, %.preheader ], [ %indvars.iv.next35, %9 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !325
-  %11 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %10, i64 %indvars.iv34
+  %11 = getelementptr inbounds [904 x i8], ptr %10, i64 %indvars.iv34
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 608
   tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %12) #28
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 400
@@ -9652,7 +9646,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIN10btSoftBody26Def
 31:                                               ; preds = %.lr.ph, %_ZN10btSoftBody26DeformableFaceRigidContactC2ERKS0_.exit
   %indvars.iv = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %_ZN10btSoftBody26DeformableFaceRigidContactC2ERKS0_.exit ]
   %32 = load ptr, ptr %17, align 8, !tbaa !325
-  %33 = getelementptr inbounds %"class.btSoftBody::DeformableFaceRigidContact", ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds [904 x i8], ptr %32, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(904) %33, ptr noundef nonnull align 8 dereferenceable(904) %2, i64 64, i1 false), !tbaa.struct !314
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(48) %18, i64 16, i1 false), !tbaa.struct !40
@@ -9822,7 +9816,7 @@ define dso_local void @_ZN22btDeformableBodySolver23predictDeformableMotionEP10b
 63:                                               ; preds = %.lr.ph, %119
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %119 ]
   %64 = load ptr, ptr %60, align 8, !tbaa !156
-  %65 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [256 x i8], ptr %64, i64 %indvars.iv
   %66 = load float, ptr %61, align 8, !tbaa !337
   %67 = fsub float 1.000000e+00, %66
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 48
@@ -9995,7 +9989,7 @@ define dso_local void @_ZN22btDeformableBodySolver16updateSoftBodiesEv(ptr nound
   %8 = phi i32 [ %4, %.lr.ph ], [ %17, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %9 = load ptr, ptr %6, align 8, !tbaa !95
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !149
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 240
   %13 = load i32, ptr %12, align 8, !tbaa !274
@@ -10179,7 +10173,7 @@ define dso_local void @_ZN22btDeformableBodySolver15applyTransformsEf(ptr nounde
 108:                                              ; preds = %.lr.ph460, %._crit_edge
   %indvars.iv477 = phi i64 [ 0, %.lr.ph460 ], [ %indvars.iv.next478, %._crit_edge ]
   %109 = load ptr, ptr %14, align 8, !tbaa !95
-  %110 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv477
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv477
   %111 = load ptr, ptr %110, align 8, !tbaa !149
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 932
   %113 = load i32, ptr %112, align 4, !tbaa !151
@@ -10205,7 +10199,7 @@ define dso_local void @_ZN22btDeformableBodySolver15applyTransformsEf(ptr nounde
 122:                                              ; preds = %.lr.ph, %131
   %indvars.iv471 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next472, %131 ]
   %123 = load ptr, ptr %115, align 8, !tbaa !156
-  %124 = getelementptr inbounds nuw %"struct.btSoftBody::Node", ptr %123, i64 %indvars.iv471
+  %124 = getelementptr inbounds nuw [256 x i8], ptr %123, i64 %indvars.iv471
   %125 = load ptr, ptr %116, align 8, !tbaa !346
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 12
   %127 = load float, ptr %126, align 4, !tbaa !347
@@ -10258,7 +10252,7 @@ define dso_local void @_ZN22btDeformableBodySolver15applyTransformsEf(ptr nounde
 
 163:                                              ; preds = %122, %171
   %indvars.iv = phi i64 [ 0, %122 ], [ %indvars.iv.next, %171 ]
-  %164 = getelementptr inbounds nuw float, ptr %129, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %indvars.iv
   %165 = load float, ptr %164, align 4, !tbaa !45
   %166 = fcmp ogt float %165, %128
   %167 = select i1 %166, float %128, float %165
@@ -10287,7 +10281,7 @@ define dso_local void @_ZN22btDeformableBodySolver15applyTransformsEf(ptr nounde
 175:                                              ; preds = %.lr.ph457, %987
   %indvars.iv474 = phi i64 [ 0, %.lr.ph457 ], [ %indvars.iv.next475, %987 ]
   %176 = load ptr, ptr %120, align 8, !tbaa !358
-  %177 = getelementptr inbounds nuw %"class.btSoftBody::DeformableNodeRigidAnchor", ptr %176, i64 %indvars.iv474
+  %177 = getelementptr inbounds nuw [872 x i8], ptr %176, i64 %indvars.iv474
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 848
   %179 = load ptr, ptr %178, align 8, !tbaa !317
   %180 = load ptr, ptr %177, align 8, !tbaa !359
@@ -10621,9 +10615,9 @@ define dso_local void @_ZN22btDeformableBodySolver15applyTransformsEf(ptr nounde
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.089.i.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %362, %.lr.ph.i.i ]
-  %358 = getelementptr inbounds nuw float, ptr %335, i64 %indvars.iv.i.i
+  %358 = getelementptr inbounds nuw [4 x i8], ptr %335, i64 %indvars.iv.i.i
   %359 = load float, ptr %358, align 4, !tbaa !45, !noalias !380
-  %360 = getelementptr inbounds nuw float, ptr %338, i64 %indvars.iv.i.i
+  %360 = getelementptr inbounds nuw [4 x i8], ptr %338, i64 %indvars.iv.i.i
   %361 = load float, ptr %360, align 4, !tbaa !45, !noalias !380
   %362 = call float @llvm.fmuladd.f32(float %359, float %361, float %.089.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -10633,9 +10627,9 @@ define dso_local void @_ZN22btDeformableBodySolver15applyTransformsEf(ptr nounde
 .lr.ph.i29.i:                                     ; preds = %.lr.ph.i.i, %.lr.ph.i29.i
   %indvars.iv.i30.i = phi i64 [ %indvars.iv.next.i32.i, %.lr.ph.i29.i ], [ 0, %.lr.ph.i.i ]
   %.089.i31.i = phi float [ %367, %.lr.ph.i29.i ], [ 0.000000e+00, %.lr.ph.i.i ]
-  %363 = getelementptr inbounds nuw float, ptr %335, i64 %indvars.iv.i30.i
+  %363 = getelementptr inbounds nuw [4 x i8], ptr %335, i64 %indvars.iv.i30.i
   %364 = load float, ptr %363, align 4, !tbaa !45, !noalias !380
-  %365 = getelementptr inbounds nuw float, ptr %339, i64 %indvars.iv.i30.i
+  %365 = getelementptr inbounds nuw [4 x i8], ptr %339, i64 %indvars.iv.i30.i
   %366 = load float, ptr %365, align 4, !tbaa !45, !noalias !380
   %367 = call float @llvm.fmuladd.f32(float %364, float %366, float %.089.i31.i)
   %indvars.iv.next.i32.i = add nuw nsw i64 %indvars.iv.i30.i, 1
@@ -10645,9 +10639,9 @@ define dso_local void @_ZN22btDeformableBodySolver15applyTransformsEf(ptr nounde
 .lr.ph.i38.i:                                     ; preds = %.lr.ph.i29.i, %.lr.ph.i38.i
   %indvars.iv.i39.i = phi i64 [ %indvars.iv.next.i41.i, %.lr.ph.i38.i ], [ 0, %.lr.ph.i29.i ]
   %.089.i40.i = phi float [ %372, %.lr.ph.i38.i ], [ 0.000000e+00, %.lr.ph.i29.i ]
-  %368 = getelementptr inbounds nuw float, ptr %335, i64 %indvars.iv.i39.i
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %335, i64 %indvars.iv.i39.i
   %369 = load float, ptr %368, align 4, !tbaa !45, !noalias !380
-  %370 = getelementptr inbounds nuw float, ptr %340, i64 %indvars.iv.i39.i
+  %370 = getelementptr inbounds nuw [4 x i8], ptr %340, i64 %indvars.iv.i39.i
   %371 = load float, ptr %370, align 4, !tbaa !45, !noalias !380
   %372 = call float @llvm.fmuladd.f32(float %369, float %371, float %.089.i40.i)
   %indvars.iv.next.i41.i = add nuw nsw i64 %indvars.iv.i39.i, 1
@@ -10657,9 +10651,9 @@ define dso_local void @_ZN22btDeformableBodySolver15applyTransformsEf(ptr nounde
 .lr.ph.i47.i:                                     ; preds = %.lr.ph.i38.i, %.lr.ph.i47.i
   %indvars.iv.i48.i = phi i64 [ %indvars.iv.next.i50.i, %.lr.ph.i47.i ], [ 0, %.lr.ph.i38.i ]
   %.089.i49.i = phi float [ %377, %.lr.ph.i47.i ], [ 0.000000e+00, %.lr.ph.i38.i ]
-  %373 = getelementptr inbounds nuw float, ptr %336, i64 %indvars.iv.i48.i
+  %373 = getelementptr inbounds nuw [4 x i8], ptr %336, i64 %indvars.iv.i48.i
   %374 = load float, ptr %373, align 4, !tbaa !45, !noalias !380
-  %375 = getelementptr inbounds nuw float, ptr %338, i64 %indvars.iv.i48.i
+  %375 = getelementptr inbounds nuw [4 x i8], ptr %338, i64 %indvars.iv.i48.i
   %376 = load float, ptr %375, align 4, !tbaa !45, !noalias !380
   %377 = call float @llvm.fmuladd.f32(float %374, float %376, float %.089.i49.i)
   %indvars.iv.next.i50.i = add nuw nsw i64 %indvars.iv.i48.i, 1
@@ -10669,9 +10663,9 @@ define dso_local void @_ZN22btDeformableBodySolver15applyTransformsEf(ptr nounde
 .lr.ph.i56.i:                                     ; preds = %.lr.ph.i47.i, %.lr.ph.i56.i
   %indvars.iv.i57.i = phi i64 [ %indvars.iv.next.i59.i, %.lr.ph.i56.i ], [ 0, %.lr.ph.i47.i ]
   %.089.i58.i = phi float [ %382, %.lr.ph.i56.i ], [ 0.000000e+00, %.lr.ph.i47.i ]
-  %378 = getelementptr inbounds nuw float, ptr %336, i64 %indvars.iv.i57.i
+  %378 = getelementptr inbounds nuw [4 x i8], ptr %336, i64 %indvars.iv.i57.i
   %379 = load float, ptr %378, align 4, !tbaa !45, !noalias !380
-  %380 = getelementptr inbounds nuw float, ptr %339, i64 %indvars.iv.i57.i
+  %380 = getelementptr inbounds nuw [4 x i8], ptr %339, i64 %indvars.iv.i57.i
   %381 = load float, ptr %380, align 4, !tbaa !45, !noalias !380
   %382 = call float @llvm.fmuladd.f32(float %379, float %381, float %.089.i58.i)
   %indvars.iv.next.i59.i = add nuw nsw i64 %indvars.iv.i57.i, 1
@@ -10681,9 +10675,9 @@ define dso_local void @_ZN22btDeformableBodySolver15applyTransformsEf(ptr nounde
 .lr.ph.i65.i:                                     ; preds = %.lr.ph.i56.i, %.lr.ph.i65.i
   %indvars.iv.i66.i = phi i64 [ %indvars.iv.next.i68.i, %.lr.ph.i65.i ], [ 0, %.lr.ph.i56.i ]
   %.089.i67.i = phi float [ %387, %.lr.ph.i65.i ], [ 0.000000e+00, %.lr.ph.i56.i ]
-  %383 = getelementptr inbounds nuw float, ptr %336, i64 %indvars.iv.i66.i
+  %383 = getelementptr inbounds nuw [4 x i8], ptr %336, i64 %indvars.iv.i66.i
   %384 = load float, ptr %383, align 4, !tbaa !45, !noalias !380
-  %385 = getelementptr inbounds nuw float, ptr %340, i64 %indvars.iv.i66.i
+  %385 = getelementptr inbounds nuw [4 x i8], ptr %340, i64 %indvars.iv.i66.i
   %386 = load float, ptr %385, align 4, !tbaa !45, !noalias !380
   %387 = call float @llvm.fmuladd.f32(float %384, float %386, float %.089.i67.i)
   %indvars.iv.next.i68.i = add nuw nsw i64 %indvars.iv.i66.i, 1
@@ -10693,9 +10687,9 @@ define dso_local void @_ZN22btDeformableBodySolver15applyTransformsEf(ptr nounde
 .lr.ph.i74.i:                                     ; preds = %.lr.ph.i65.i, %.lr.ph.i74.i
   %indvars.iv.i75.i = phi i64 [ %indvars.iv.next.i77.i, %.lr.ph.i74.i ], [ 0, %.lr.ph.i65.i ]
   %.089.i76.i = phi float [ %392, %.lr.ph.i74.i ], [ 0.000000e+00, %.lr.ph.i65.i ]
-  %388 = getelementptr inbounds nuw float, ptr %337, i64 %indvars.iv.i75.i
+  %388 = getelementptr inbounds nuw [4 x i8], ptr %337, i64 %indvars.iv.i75.i
   %389 = load float, ptr %388, align 4, !tbaa !45, !noalias !380
-  %390 = getelementptr inbounds nuw float, ptr %338, i64 %indvars.iv.i75.i
+  %390 = getelementptr inbounds nuw [4 x i8], ptr %338, i64 %indvars.iv.i75.i
   %391 = load float, ptr %390, align 4, !tbaa !45, !noalias !380
   %392 = call float @llvm.fmuladd.f32(float %389, float %391, float %.089.i76.i)
   %indvars.iv.next.i77.i = add nuw nsw i64 %indvars.iv.i75.i, 1
@@ -10705,9 +10699,9 @@ define dso_local void @_ZN22btDeformableBodySolver15applyTransformsEf(ptr nounde
 .lr.ph.i83.i:                                     ; preds = %.lr.ph.i74.i, %.lr.ph.i83.i
   %indvars.iv.i84.i = phi i64 [ %indvars.iv.next.i86.i, %.lr.ph.i83.i ], [ 0, %.lr.ph.i74.i ]
   %.089.i85.i = phi float [ %397, %.lr.ph.i83.i ], [ 0.000000e+00, %.lr.ph.i74.i ]
-  %393 = getelementptr inbounds nuw float, ptr %337, i64 %indvars.iv.i84.i
+  %393 = getelementptr inbounds nuw [4 x i8], ptr %337, i64 %indvars.iv.i84.i
   %394 = load float, ptr %393, align 4, !tbaa !45, !noalias !380
-  %395 = getelementptr inbounds nuw float, ptr %339, i64 %indvars.iv.i84.i
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %339, i64 %indvars.iv.i84.i
   %396 = load float, ptr %395, align 4, !tbaa !45, !noalias !380
   %397 = call float @llvm.fmuladd.f32(float %394, float %396, float %.089.i85.i)
   %indvars.iv.next.i86.i = add nuw nsw i64 %indvars.iv.i84.i, 1
@@ -10717,9 +10711,9 @@ define dso_local void @_ZN22btDeformableBodySolver15applyTransformsEf(ptr nounde
 .lr.ph.i92.i:                                     ; preds = %.lr.ph.i83.i, %.lr.ph.i92.i
   %indvars.iv.i93.i = phi i64 [ %indvars.iv.next.i95.i, %.lr.ph.i92.i ], [ 0, %.lr.ph.i83.i ]
   %.089.i94.i = phi float [ %402, %.lr.ph.i92.i ], [ 0.000000e+00, %.lr.ph.i83.i ]
-  %398 = getelementptr inbounds nuw float, ptr %337, i64 %indvars.iv.i93.i
+  %398 = getelementptr inbounds nuw [4 x i8], ptr %337, i64 %indvars.iv.i93.i
   %399 = load float, ptr %398, align 4, !tbaa !45, !noalias !380
-  %400 = getelementptr inbounds nuw float, ptr %340, i64 %indvars.iv.i93.i
+  %400 = getelementptr inbounds nuw [4 x i8], ptr %340, i64 %indvars.iv.i93.i
   %401 = load float, ptr %400, align 4, !tbaa !45, !noalias !380
   %402 = call float @llvm.fmuladd.f32(float %399, float %401, float %.089.i94.i)
   %indvars.iv.next.i95.i = add nuw nsw i64 %indvars.iv.i93.i, 1
@@ -10913,8 +10907,8 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i.i: ; preds = %.noexc238, %514
 
 523:                                              ; preds = %523, %.lr.ph.i.i.i.i233
   %indvars.iv.i.i.i.i235 = phi i64 [ 0, %.lr.ph.i.i.i.i233 ], [ %indvars.iv.next.i.i.i.i236, %523 ]
-  %524 = getelementptr inbounds nuw float, ptr %.0.i.i.i.i231, i64 %indvars.iv.i.i.i.i235
-  %525 = getelementptr inbounds nuw float, ptr %522, i64 %indvars.iv.i.i.i.i235
+  %524 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i.i231, i64 %indvars.iv.i.i.i.i235
+  %525 = getelementptr inbounds nuw [4 x i8], ptr %522, i64 %indvars.iv.i.i.i.i235
   %526 = load float, ptr %525, align 4, !tbaa !45
   store float %526, ptr %524, align 4, !tbaa !45
   %indvars.iv.next.i.i.i.i236 = add nuw nsw i64 %indvars.iv.i.i.i.i235, 1
@@ -10970,8 +10964,8 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.i:  ; preds = %.lr.ph.i.i227, %._Z
 
 540:                                              ; preds = %540, %.lr.ph.i4.i222
   %indvars.iv.i6.i224 = phi i64 [ 0, %.lr.ph.i4.i222 ], [ %indvars.iv.next.i7.i225, %540 ]
-  %541 = getelementptr inbounds nuw float, ptr %537, i64 %indvars.iv.i6.i224
-  %542 = getelementptr inbounds nuw float, ptr %539, i64 %indvars.iv.i6.i224
+  %541 = getelementptr inbounds nuw [4 x i8], ptr %537, i64 %indvars.iv.i6.i224
+  %542 = getelementptr inbounds nuw [4 x i8], ptr %539, i64 %indvars.iv.i6.i224
   %543 = load float, ptr %542, align 4, !tbaa !45
   store float %543, ptr %541, align 4, !tbaa !45
   %indvars.iv.next.i7.i225 = add nuw nsw i64 %indvars.iv.i6.i224, 1
@@ -11033,9 +11027,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i.i: ; preds = %.noe
 
 563:                                              ; preds = %563, %.lr.ph.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i, %563 ]
-  %564 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i
+  %564 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i
   %565 = load ptr, ptr %562, align 8, !tbaa !29
-  %566 = getelementptr inbounds nuw %class.btVector3, ptr %565, i64 %indvars.iv.i.i.i.i.i.i
+  %566 = getelementptr inbounds nuw [16 x i8], ptr %565, i64 %indvars.iv.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %564, ptr noundef nonnull align 4 dereferenceable(16) %566, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %wide.trip.count.i.i.i.i.i.i
@@ -11074,9 +11068,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i.i: ; preds = %_ZN20
 
 576:                                              ; preds = %576, %.lr.ph.i4.i.i.i
   %indvars.iv.i6.i.i.i = phi i64 [ 0, %.lr.ph.i4.i.i.i ], [ %indvars.iv.next.i7.i.i.i, %576 ]
-  %577 = getelementptr inbounds nuw %class.btVector3, ptr %574, i64 %indvars.iv.i6.i.i.i
+  %577 = getelementptr inbounds nuw [16 x i8], ptr %574, i64 %indvars.iv.i6.i.i.i
   %578 = load ptr, ptr %40, align 8, !tbaa !29
-  %579 = getelementptr inbounds nuw %class.btVector3, ptr %578, i64 %indvars.iv.i6.i.i.i
+  %579 = getelementptr inbounds nuw [16 x i8], ptr %578, i64 %indvars.iv.i6.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %577, ptr noundef nonnull align 4 dereferenceable(16) %579, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i.i = add nuw nsw i64 %indvars.iv.i6.i.i.i, 1
   %exitcond.not.i8.i.i.i = icmp eq i64 %indvars.iv.next.i7.i.i.i, %wide.trip.count.i5.i.i.i
@@ -11122,9 +11116,9 @@ _ZN20btAlignedObjectArrayI11btMatrix3x3E8allocateEi.exit.i.i.i: ; preds = %.noex
 
 596:                                              ; preds = %596, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %596 ]
-  %597 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %.0.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %597 = getelementptr inbounds nuw [48 x i8], ptr %.0.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %598 = load ptr, ptr %595, align 8, !tbaa !366
-  %599 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %598, i64 %indvars.iv.i.i.i.i
+  %599 = getelementptr inbounds nuw [48 x i8], ptr %598, i64 %indvars.iv.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %597, ptr noundef nonnull align 4 dereferenceable(48) %599, i64 16, i1 false), !tbaa.struct !40
   %600 = getelementptr inbounds nuw i8, ptr %599, i64 16
   %601 = getelementptr inbounds nuw i8, ptr %597, i64 16
@@ -11169,9 +11163,9 @@ _ZN20btAlignedObjectArrayI11btMatrix3x3E6resizeEiRKS0_.exit.i: ; preds = %_ZN20b
 
 613:                                              ; preds = %613, %.lr.ph.i4.i
   %indvars.iv.i6.i = phi i64 [ 0, %.lr.ph.i4.i ], [ %indvars.iv.next.i7.i, %613 ]
-  %614 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %611, i64 %indvars.iv.i6.i
+  %614 = getelementptr inbounds nuw [48 x i8], ptr %611, i64 %indvars.iv.i6.i
   %615 = load ptr, ptr %44, align 8, !tbaa !366
-  %616 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %615, i64 %indvars.iv.i6.i
+  %616 = getelementptr inbounds nuw [48 x i8], ptr %615, i64 %indvars.iv.i6.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %614, ptr noundef nonnull align 4 dereferenceable(48) %616, i64 16, i1 false), !tbaa.struct !40
   %617 = getelementptr inbounds nuw i8, ptr %616, i64 16
   %618 = getelementptr inbounds nuw i8, ptr %614, i64 16
@@ -11236,8 +11230,8 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i.i279: ; preds = %.noexc294, %63
 
 639:                                              ; preds = %639, %.lr.ph.i.i.i.i285
   %indvars.iv.i.i.i.i287 = phi i64 [ 0, %.lr.ph.i.i.i.i285 ], [ %indvars.iv.next.i.i.i.i288, %639 ]
-  %640 = getelementptr inbounds nuw float, ptr %.0.i.i.i.i280, i64 %indvars.iv.i.i.i.i287
-  %641 = getelementptr inbounds nuw float, ptr %638, i64 %indvars.iv.i.i.i.i287
+  %640 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i.i280, i64 %indvars.iv.i.i.i.i287
+  %641 = getelementptr inbounds nuw [4 x i8], ptr %638, i64 %indvars.iv.i.i.i.i287
   %642 = load float, ptr %641, align 4, !tbaa !45
   store float %642, ptr %640, align 4, !tbaa !45
   %indvars.iv.next.i.i.i.i288 = add nuw nsw i64 %indvars.iv.i.i.i.i287, 1
@@ -11293,8 +11287,8 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.i265: ; preds = %.lr.ph.i.i274, %.
 
 656:                                              ; preds = %656, %.lr.ph.i4.i266
   %indvars.iv.i6.i268 = phi i64 [ 0, %.lr.ph.i4.i266 ], [ %indvars.iv.next.i7.i269, %656 ]
-  %657 = getelementptr inbounds nuw float, ptr %653, i64 %indvars.iv.i6.i268
-  %658 = getelementptr inbounds nuw float, ptr %655, i64 %indvars.iv.i6.i268
+  %657 = getelementptr inbounds nuw [4 x i8], ptr %653, i64 %indvars.iv.i6.i268
+  %658 = getelementptr inbounds nuw [4 x i8], ptr %655, i64 %indvars.iv.i6.i268
   %659 = load float, ptr %658, align 4, !tbaa !45
   store float %659, ptr %657, align 4, !tbaa !45
   %indvars.iv.next.i7.i269 = add nuw nsw i64 %indvars.iv.i6.i268, 1
@@ -11356,9 +11350,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i.i135: ; preds = %.
 
 679:                                              ; preds = %679, %.lr.ph.i.i.i.i.i.i141
   %indvars.iv.i.i.i.i.i.i143 = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i141 ], [ %indvars.iv.next.i.i.i.i.i.i144, %679 ]
-  %680 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i.i136, i64 %indvars.iv.i.i.i.i.i.i143
+  %680 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i.i136, i64 %indvars.iv.i.i.i.i.i.i143
   %681 = load ptr, ptr %678, align 8, !tbaa !29
-  %682 = getelementptr inbounds nuw %class.btVector3, ptr %681, i64 %indvars.iv.i.i.i.i.i.i143
+  %682 = getelementptr inbounds nuw [16 x i8], ptr %681, i64 %indvars.iv.i.i.i.i.i.i143
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %680, ptr noundef nonnull align 4 dereferenceable(16) %682, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i.i144 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i143, 1
   %exitcond.not.i.i.i.i.i.i145 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i144, %wide.trip.count.i.i.i.i.i.i142
@@ -11397,9 +11391,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i.i126: ; preds = %_Z
 
 692:                                              ; preds = %692, %.lr.ph.i4.i.i.i128
   %indvars.iv.i6.i.i.i130 = phi i64 [ 0, %.lr.ph.i4.i.i.i128 ], [ %indvars.iv.next.i7.i.i.i131, %692 ]
-  %693 = getelementptr inbounds nuw %class.btVector3, ptr %690, i64 %indvars.iv.i6.i.i.i130
+  %693 = getelementptr inbounds nuw [16 x i8], ptr %690, i64 %indvars.iv.i6.i.i.i130
   %694 = load ptr, ptr %64, align 8, !tbaa !29
-  %695 = getelementptr inbounds nuw %class.btVector3, ptr %694, i64 %indvars.iv.i6.i.i.i130
+  %695 = getelementptr inbounds nuw [16 x i8], ptr %694, i64 %indvars.iv.i6.i.i.i130
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %693, ptr noundef nonnull align 4 dereferenceable(16) %695, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i.i131 = add nuw nsw i64 %indvars.iv.i6.i.i.i130, 1
   %exitcond.not.i8.i.i.i132 = icmp eq i64 %indvars.iv.next.i7.i.i.i131, %wide.trip.count.i5.i.i.i129
@@ -11445,9 +11439,9 @@ _ZN20btAlignedObjectArrayI11btMatrix3x3E8allocateEi.exit.i.i.i248: ; preds = %.n
 
 712:                                              ; preds = %712, %.lr.ph.i.i.i.i254
   %indvars.iv.i.i.i.i256 = phi i64 [ 0, %.lr.ph.i.i.i.i254 ], [ %indvars.iv.next.i.i.i.i257, %712 ]
-  %713 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %.0.i.i.i.i249, i64 %indvars.iv.i.i.i.i256
+  %713 = getelementptr inbounds nuw [48 x i8], ptr %.0.i.i.i.i249, i64 %indvars.iv.i.i.i.i256
   %714 = load ptr, ptr %711, align 8, !tbaa !366
-  %715 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %714, i64 %indvars.iv.i.i.i.i256
+  %715 = getelementptr inbounds nuw [48 x i8], ptr %714, i64 %indvars.iv.i.i.i.i256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %713, ptr noundef nonnull align 4 dereferenceable(48) %715, i64 16, i1 false), !tbaa.struct !40
   %716 = getelementptr inbounds nuw i8, ptr %715, i64 16
   %717 = getelementptr inbounds nuw i8, ptr %713, i64 16
@@ -11492,9 +11486,9 @@ _ZN20btAlignedObjectArrayI11btMatrix3x3E6resizeEiRKS0_.exit.i240: ; preds = %_ZN
 
 729:                                              ; preds = %729, %.lr.ph.i4.i241
   %indvars.iv.i6.i243 = phi i64 [ 0, %.lr.ph.i4.i241 ], [ %indvars.iv.next.i7.i244, %729 ]
-  %730 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %727, i64 %indvars.iv.i6.i243
+  %730 = getelementptr inbounds nuw [48 x i8], ptr %727, i64 %indvars.iv.i6.i243
   %731 = load ptr, ptr %68, align 8, !tbaa !366
-  %732 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %731, i64 %indvars.iv.i6.i243
+  %732 = getelementptr inbounds nuw [48 x i8], ptr %731, i64 %indvars.iv.i6.i243
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %730, ptr noundef nonnull align 4 dereferenceable(48) %732, i64 16, i1 false), !tbaa.struct !40
   %733 = getelementptr inbounds nuw i8, ptr %732, i64 16
   %734 = getelementptr inbounds nuw i8, ptr %730, i64 16
@@ -11559,8 +11553,8 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i.i336: ; preds = %.noexc351, %74
 
 755:                                              ; preds = %755, %.lr.ph.i.i.i.i342
   %indvars.iv.i.i.i.i344 = phi i64 [ 0, %.lr.ph.i.i.i.i342 ], [ %indvars.iv.next.i.i.i.i345, %755 ]
-  %756 = getelementptr inbounds nuw float, ptr %.0.i.i.i.i337, i64 %indvars.iv.i.i.i.i344
-  %757 = getelementptr inbounds nuw float, ptr %754, i64 %indvars.iv.i.i.i.i344
+  %756 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i.i337, i64 %indvars.iv.i.i.i.i344
+  %757 = getelementptr inbounds nuw [4 x i8], ptr %754, i64 %indvars.iv.i.i.i.i344
   %758 = load float, ptr %757, align 4, !tbaa !45
   store float %758, ptr %756, align 4, !tbaa !45
   %indvars.iv.next.i.i.i.i345 = add nuw nsw i64 %indvars.iv.i.i.i.i344, 1
@@ -11616,8 +11610,8 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.i322: ; preds = %.lr.ph.i.i331, %.
 
 772:                                              ; preds = %772, %.lr.ph.i4.i323
   %indvars.iv.i6.i325 = phi i64 [ 0, %.lr.ph.i4.i323 ], [ %indvars.iv.next.i7.i326, %772 ]
-  %773 = getelementptr inbounds nuw float, ptr %769, i64 %indvars.iv.i6.i325
-  %774 = getelementptr inbounds nuw float, ptr %771, i64 %indvars.iv.i6.i325
+  %773 = getelementptr inbounds nuw [4 x i8], ptr %769, i64 %indvars.iv.i6.i325
+  %774 = getelementptr inbounds nuw [4 x i8], ptr %771, i64 %indvars.iv.i6.i325
   %775 = load float, ptr %774, align 4, !tbaa !45
   store float %775, ptr %773, align 4, !tbaa !45
   %indvars.iv.next.i7.i326 = add nuw nsw i64 %indvars.iv.i6.i325, 1
@@ -11679,9 +11673,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i.i.i163: ; preds = %.
 
 795:                                              ; preds = %795, %.lr.ph.i.i.i.i.i.i169
   %indvars.iv.i.i.i.i.i.i171 = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i169 ], [ %indvars.iv.next.i.i.i.i.i.i172, %795 ]
-  %796 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i.i.i.i164, i64 %indvars.iv.i.i.i.i.i.i171
+  %796 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i.i.i.i164, i64 %indvars.iv.i.i.i.i.i.i171
   %797 = load ptr, ptr %794, align 8, !tbaa !29
-  %798 = getelementptr inbounds nuw %class.btVector3, ptr %797, i64 %indvars.iv.i.i.i.i.i.i171
+  %798 = getelementptr inbounds nuw [16 x i8], ptr %797, i64 %indvars.iv.i.i.i.i.i.i171
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %796, ptr noundef nonnull align 4 dereferenceable(16) %798, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i.i.i172 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i171, 1
   %exitcond.not.i.i.i.i.i.i173 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i172, %wide.trip.count.i.i.i.i.i.i170
@@ -11720,9 +11714,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i.i.i154: ; preds = %_Z
 
 808:                                              ; preds = %808, %.lr.ph.i4.i.i.i156
   %indvars.iv.i6.i.i.i158 = phi i64 [ 0, %.lr.ph.i4.i.i.i156 ], [ %indvars.iv.next.i7.i.i.i159, %808 ]
-  %809 = getelementptr inbounds nuw %class.btVector3, ptr %806, i64 %indvars.iv.i6.i.i.i158
+  %809 = getelementptr inbounds nuw [16 x i8], ptr %806, i64 %indvars.iv.i6.i.i.i158
   %810 = load ptr, ptr %88, align 8, !tbaa !29
-  %811 = getelementptr inbounds nuw %class.btVector3, ptr %810, i64 %indvars.iv.i6.i.i.i158
+  %811 = getelementptr inbounds nuw [16 x i8], ptr %810, i64 %indvars.iv.i6.i.i.i158
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %809, ptr noundef nonnull align 4 dereferenceable(16) %811, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i.i.i159 = add nuw nsw i64 %indvars.iv.i6.i.i.i158, 1
   %exitcond.not.i8.i.i.i160 = icmp eq i64 %indvars.iv.next.i7.i.i.i159, %wide.trip.count.i5.i.i.i157
@@ -11768,9 +11762,9 @@ _ZN20btAlignedObjectArrayI11btMatrix3x3E8allocateEi.exit.i.i.i305: ; preds = %.n
 
 828:                                              ; preds = %828, %.lr.ph.i.i.i.i311
   %indvars.iv.i.i.i.i313 = phi i64 [ 0, %.lr.ph.i.i.i.i311 ], [ %indvars.iv.next.i.i.i.i314, %828 ]
-  %829 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %.0.i.i.i.i306, i64 %indvars.iv.i.i.i.i313
+  %829 = getelementptr inbounds nuw [48 x i8], ptr %.0.i.i.i.i306, i64 %indvars.iv.i.i.i.i313
   %830 = load ptr, ptr %827, align 8, !tbaa !366
-  %831 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %830, i64 %indvars.iv.i.i.i.i313
+  %831 = getelementptr inbounds nuw [48 x i8], ptr %830, i64 %indvars.iv.i.i.i.i313
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %829, ptr noundef nonnull align 4 dereferenceable(48) %831, i64 16, i1 false), !tbaa.struct !40
   %832 = getelementptr inbounds nuw i8, ptr %831, i64 16
   %833 = getelementptr inbounds nuw i8, ptr %829, i64 16
@@ -11815,9 +11809,9 @@ _ZN20btAlignedObjectArrayI11btMatrix3x3E6resizeEiRKS0_.exit.i297: ; preds = %_ZN
 
 845:                                              ; preds = %845, %.lr.ph.i4.i298
   %indvars.iv.i6.i300 = phi i64 [ 0, %.lr.ph.i4.i298 ], [ %indvars.iv.next.i7.i301, %845 ]
-  %846 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %843, i64 %indvars.iv.i6.i300
+  %846 = getelementptr inbounds nuw [48 x i8], ptr %843, i64 %indvars.iv.i6.i300
   %847 = load ptr, ptr %92, align 8, !tbaa !366
-  %848 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %847, i64 %indvars.iv.i6.i300
+  %848 = getelementptr inbounds nuw [48 x i8], ptr %847, i64 %indvars.iv.i6.i300
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %846, ptr noundef nonnull align 4 dereferenceable(48) %848, i64 16, i1 false), !tbaa.struct !40
   %849 = getelementptr inbounds nuw i8, ptr %848, i64 16
   %850 = getelementptr inbounds nuw i8, ptr %846, i64 16
@@ -12397,7 +12391,7 @@ _ZN11btSparseSdfILi3EE4HashEiiiPK16btCollisionShape.exit: ; preds = %.lr.ph.i.i
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %98 = load ptr, ptr %97, align 8, !tbaa !395
   %99 = sext i32 %96 to i64
-  %100 = getelementptr inbounds ptr, ptr %98, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr %98, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !396
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %103 = load i32, ptr %102, align 8, !tbaa !398
@@ -12473,7 +12467,7 @@ _ZN11btSparseSdfILi3EE4HashEiiiPK16btCollisionShape.exit: ; preds = %.lr.ph.i.i
 139:                                              ; preds = %._crit_edge.i, %.lr.ph14.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph14.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %140 = load ptr, ptr %97, align 8, !tbaa !395
-  %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv.i
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %indvars.iv.i
   %142 = load ptr, ptr %141, align 8, !tbaa !396
   store ptr null, ptr %141, align 8, !tbaa !396
   %.not10.i = icmp eq ptr %142, null
@@ -12530,35 +12524,35 @@ _ZN11btSparseSdfILi3EE5ResetEv.exit:              ; preds = %._crit_edge.i, %137
   %159 = getelementptr inbounds nuw i8, ptr %.1, i64 268
   store i32 %158, ptr %159, align 4, !tbaa !412
   %160 = sext i32 %67 to i64
-  %161 = getelementptr inbounds [4 x [4 x float]], ptr %.1, i64 %160
+  %161 = getelementptr inbounds [64 x i8], ptr %.1, i64 %160
   %162 = sext i32 %73 to i64
-  %163 = getelementptr inbounds [4 x float], ptr %161, i64 %162
+  %163 = getelementptr inbounds [16 x i8], ptr %161, i64 %162
   %164 = sext i32 %79 to i64
-  %165 = getelementptr inbounds float, ptr %163, i64 %164
+  %165 = getelementptr inbounds [4 x i8], ptr %163, i64 %164
   %166 = load float, ptr %165, align 4, !tbaa !45
   %sext = add i64 %.sroa.5.0.insert.shift.i, 4294967296
   %167 = ashr exact i64 %sext, 26
   %168 = getelementptr inbounds i8, ptr %.1, i64 %167
-  %169 = getelementptr inbounds [4 x float], ptr %168, i64 %162
-  %170 = getelementptr inbounds float, ptr %169, i64 %164
+  %169 = getelementptr inbounds [16 x i8], ptr %168, i64 %162
+  %170 = getelementptr inbounds [4 x i8], ptr %169, i64 %164
   %171 = load float, ptr %170, align 4, !tbaa !45
   %sext138 = add i64 %.sroa.5.0.insert.shift.i141, 4294967296
   %172 = ashr exact i64 %sext138, 32
-  %173 = getelementptr inbounds [4 x float], ptr %168, i64 %172
-  %174 = getelementptr inbounds float, ptr %173, i64 %164
+  %173 = getelementptr inbounds [16 x i8], ptr %168, i64 %172
+  %174 = getelementptr inbounds [4 x i8], ptr %173, i64 %164
   %175 = load float, ptr %174, align 4, !tbaa !45
-  %176 = getelementptr inbounds [4 x float], ptr %161, i64 %172
-  %177 = getelementptr inbounds float, ptr %176, i64 %164
+  %176 = getelementptr inbounds [16 x i8], ptr %161, i64 %172
+  %177 = getelementptr inbounds [4 x i8], ptr %176, i64 %164
   %178 = load float, ptr %177, align 4, !tbaa !45
   %sext139 = add i64 %.sroa.5.0.insert.shift.i147, 4294967296
   %179 = ashr exact i64 %sext139, 32
-  %180 = getelementptr inbounds float, ptr %163, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %163, i64 %179
   %181 = load float, ptr %180, align 4, !tbaa !45
-  %182 = getelementptr inbounds float, ptr %169, i64 %179
+  %182 = getelementptr inbounds [4 x i8], ptr %169, i64 %179
   %183 = load float, ptr %182, align 4, !tbaa !45
-  %184 = getelementptr inbounds float, ptr %173, i64 %179
+  %184 = getelementptr inbounds [4 x i8], ptr %173, i64 %179
   %185 = load float, ptr %184, align 4, !tbaa !45
-  %186 = getelementptr inbounds float, ptr %176, i64 %179
+  %186 = getelementptr inbounds [4 x i8], ptr %176, i64 %179
   %187 = load float, ptr %186, align 4, !tbaa !45
   %188 = fsub float %171, %166
   %189 = fsub float %175, %178
@@ -12681,8 +12675,8 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i: ; preds = %19, %18
 
 27:                                               ; preds = %27, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %27 ]
-  %28 = getelementptr inbounds nuw float, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %29 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv.i.i.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv.i.i.i
   %30 = load float, ptr %29, align 4, !tbaa !45
   store float %30, ptr %28, align 4, !tbaa !45
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -12769,8 +12763,8 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i26: ; preds = %51, %50
 
 59:                                               ; preds = %59, %.lr.ph.i.i.i32
   %indvars.iv.i.i.i34 = phi i64 [ 0, %.lr.ph.i.i.i32 ], [ %indvars.iv.next.i.i.i35, %59 ]
-  %60 = getelementptr inbounds nuw float, ptr %.0.i.i.i27, i64 %indvars.iv.i.i.i34
-  %61 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv.i.i.i34
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i27, i64 %indvars.iv.i.i.i34
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv.i.i.i34
   %62 = load float, ptr %61, align 4, !tbaa !45
   store float %62, ptr %60, align 4, !tbaa !45
   %indvars.iv.next.i.i.i35 = add nuw nsw i64 %indvars.iv.i.i.i34, 1
@@ -13245,8 +13239,8 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit.i:  ; preds = %1
 
 16:                                               ; preds = %16, %.lr.ph.i.i
   %indvars.iv.i6.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i7.i, %16 ]
-  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i6.i
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i6.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i6.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i6.i
   %19 = load i32, ptr %18, align 4, !tbaa !37
   store i32 %19, ptr %17, align 4, !tbaa !37
   %indvars.iv.next.i7.i = add nuw nsw i64 %indvars.iv.i6.i, 1
@@ -13288,9 +13282,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i: ; preds = %_ZN20btAl
 
 32:                                               ; preds = %32, %.lr.ph.i.i14
   %indvars.iv.i6.i15 = phi i64 [ 0, %.lr.ph.i.i14 ], [ %indvars.iv.next.i7.i16, %32 ]
-  %33 = getelementptr inbounds nuw %class.btVector3, ptr %30, i64 %indvars.iv.i6.i15
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %indvars.iv.i6.i15
   %34 = load ptr, ptr %31, align 8, !tbaa !29
-  %35 = getelementptr inbounds nuw %class.btVector3, ptr %34, i64 %indvars.iv.i6.i15
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %indvars.iv.i6.i15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i16 = add nuw nsw i64 %indvars.iv.i6.i15, 1
   %exitcond.not.i8.i17 = icmp eq i64 %indvars.iv.next.i7.i16, %28
@@ -13472,7 +13466,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjec
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %169
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %169 ]
-  %96 = getelementptr inbounds nuw %class.btVector3, ptr %36, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv
   %97 = load float, ptr %96, align 4, !tbaa !45
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %99 = load float, ptr %98, align 4, !tbaa !45
@@ -13485,7 +13479,7 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %_ZN20btAlignedObjec
   br i1 %105, label %106, label %169
 
 106:                                              ; preds = %.lr.ph
-  %107 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %108 = load i32, ptr %8, align 4, !tbaa !26
   %109 = load i32, ptr %72, align 8, !tbaa !27
   %110 = icmp eq i32 %108, %109
@@ -13525,8 +13519,8 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %.noexc54, %115
 
 123:                                              ; preds = %123, %.lr.ph.i.i.i49
   %indvars.iv.i.i.i51 = phi i64 [ 0, %.lr.ph.i.i.i49 ], [ %indvars.iv.next.i.i.i52, %123 ]
-  %124 = getelementptr inbounds nuw i32, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i51
-  %125 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv.i.i.i51
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i51
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv.i.i.i51
   %126 = load i32, ptr %125, align 4, !tbaa !37
   store i32 %126, ptr %124, align 4, !tbaa !37
   %indvars.iv.next.i.i.i52 = add nuw nsw i64 %indvars.iv.i.i.i51, 1
@@ -13561,13 +13555,13 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i48: ; preds = %.noexc55, %_ZN
   %131 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i48 ], [ %108, %111 ], [ %108, %106 ]
   %132 = load ptr, ptr %65, align 8, !tbaa !25
   %133 = sext i32 %131 to i64
-  %134 = getelementptr inbounds i32, ptr %132, i64 %133
+  %134 = getelementptr inbounds [4 x i8], ptr %132, i64 %133
   %135 = load i32, ptr %107, align 4, !tbaa !37
   store i32 %135, ptr %134, align 4, !tbaa !37
   %136 = load i32, ptr %8, align 4, !tbaa !26
   %137 = add nsw i32 %136, 1
   store i32 %137, ptr %8, align 4, !tbaa !26
-  %138 = getelementptr inbounds nuw %class.btVector3, ptr %36, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv
   %139 = load i32, ptr %25, align 4, !tbaa !30
   %140 = load i32, ptr %79, align 8, !tbaa !31
   %141 = icmp eq i32 %139, %140
@@ -13606,9 +13600,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i: ; preds = %.noexc70, 
 
 153:                                              ; preds = %153, %.lr.ph.i.i.i65
   %indvars.iv.i.i.i67 = phi i64 [ 0, %.lr.ph.i.i.i65 ], [ %indvars.iv.next.i.i.i68, %153 ]
-  %154 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i59, i64 %indvars.iv.i.i.i67
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i59, i64 %indvars.iv.i.i.i67
   %155 = load ptr, ptr %73, align 8, !tbaa !29
-  %156 = getelementptr inbounds nuw %class.btVector3, ptr %155, i64 %indvars.iv.i.i.i67
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %155, i64 %indvars.iv.i.i.i67
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %154, ptr noundef nonnull align 4 dereferenceable(16) %156, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i68 = add nuw nsw i64 %indvars.iv.i.i.i67, 1
   %exitcond.not.i.i.i69 = icmp eq i64 %indvars.iv.next.i.i.i68, %wide.trip.count.i.i.i66
@@ -13637,7 +13631,7 @@ _ZN20btAlignedObjectArrayI9btVector3E9push_backERKS0_.exit: ; preds = %130, %142
   %161 = phi i32 [ %.pre2.i64, %_ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i.i63 ], [ %139, %142 ], [ %139, %130 ]
   %162 = load ptr, ptr %73, align 8, !tbaa !29
   %163 = sext i32 %161 to i64
-  %164 = getelementptr inbounds %class.btVector3, ptr %162, i64 %163
+  %164 = getelementptr inbounds [16 x i8], ptr %162, i64 %163
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %164, ptr noundef nonnull align 4 dereferenceable(16) %138, i64 16, i1 false), !tbaa.struct !40
   %165 = load i32, ptr %25, align 4, !tbaa !30
   %166 = add nsw i32 %165, 1
@@ -13717,8 +13711,8 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %13, %12
 
 21:                                               ; preds = %21, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %21 ]
-  %22 = getelementptr inbounds nuw i32, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i.i.i
   %24 = load i32, ptr %23, align 4, !tbaa !37
   store i32 %24, ptr %22, align 4, !tbaa !37
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -13775,8 +13769,8 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %._ZN20btAlignedObje
 
 39:                                               ; preds = %39, %.lr.ph.i4
   %indvars.iv.i6 = phi i64 [ 0, %.lr.ph.i4 ], [ %indvars.iv.next.i7, %39 ]
-  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i6
-  %41 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i6
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i6
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv.i6
   %42 = load i32, ptr %41, align 4, !tbaa !37
   store i32 %42, ptr %40, align 4, !tbaa !37
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
@@ -13912,21 +13906,21 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i.i:                 ; preds = %11
 
 76:                                               ; preds = %76, %69
   %indvars.iv.i18 = phi i64 [ 0, %69 ], [ %indvars.iv.next.i19, %76 ]
-  %77 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv.i18
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i18
   %78 = load float, ptr %77, align 4, !tbaa !45
-  %79 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv.i18
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv.i18
   %80 = load float, ptr %79, align 4, !tbaa !45
   %81 = fcmp olt float %78, %80
   %.sink.i = select i1 %81, float %78, float %80
-  %82 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i18
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i18
   store float %.sink.i, ptr %82, align 4, !tbaa !45
-  %83 = getelementptr inbounds nuw float, ptr %73, i64 %indvars.iv.i18
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv.i18
   %84 = load float, ptr %83, align 4, !tbaa !45
-  %85 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv.i18
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv.i18
   %86 = load float, ptr %85, align 4, !tbaa !45
   %87 = fcmp ogt float %84, %86
   %.sink30.i = select i1 %87, float %84, float %86
-  %88 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv.i18
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv.i18
   store float %.sink30.i, ptr %88, align 4, !tbaa !45
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i19, 3
@@ -14068,7 +14062,7 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i.i:                 ; preds = %_Z8btSetMinIfEvRT_R
   %93 = phi float [ %.sroa.1586.16.copyload, %18 ], [ %103, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i ]
   %94 = phi float [ %.sroa.1285.16.copyload, %18 ], [ %99, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i ]
   %95 = phi float [ %.sroa.1285.16.copyload, %18 ], [ %113, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i ]
-  %96 = getelementptr inbounds nuw %class.btVector3, ptr %5, i64 %indvars.iv.i
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.i
   %97 = load float, ptr %96, align 16, !tbaa !45, !noalias !425
   %98 = fcmp olt float %97, %94
   %99 = select i1 %98, float %97, float %94
@@ -14134,7 +14128,7 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i.i54:               ; preds = %_Z8btSetMinIfEvRT_R
   %136 = phi float [ %.sroa.15.16.copyload, %120 ], [ %146, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i54 ]
   %137 = phi float [ %.sroa.12.16.copyload, %120 ], [ %142, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i54 ]
   %138 = phi float [ %.sroa.12.16.copyload, %120 ], [ %156, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i54 ]
-  %139 = getelementptr inbounds nuw %class.btVector3, ptr %6, i64 %indvars.iv.i55
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.i55
   %140 = load float, ptr %139, align 16, !tbaa !45, !noalias !429
   %141 = fcmp olt float %140, %137
   %142 = select i1 %141, float %140, float %137
@@ -14212,21 +14206,21 @@ _ZN12btDbvtAabbMm10FromPointsEPK9btVector3i.exit58: ; preds = %_Z8btSetMinIfEvRT
 
 177:                                              ; preds = %177, %170
   %indvars.iv.i59 = phi i64 [ 0, %170 ], [ %indvars.iv.next.i60, %177 ]
-  %178 = getelementptr inbounds nuw float, ptr %172, i64 %indvars.iv.i59
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %indvars.iv.i59
   %179 = load float, ptr %178, align 4, !tbaa !45
-  %180 = getelementptr inbounds nuw float, ptr %173, i64 %indvars.iv.i59
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %indvars.iv.i59
   %181 = load float, ptr %180, align 4, !tbaa !45
   %182 = fcmp olt float %179, %181
   %.sink.i = select i1 %182, float %179, float %181
-  %183 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i59
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i59
   store float %.sink.i, ptr %183, align 4, !tbaa !45
-  %184 = getelementptr inbounds nuw float, ptr %174, i64 %indvars.iv.i59
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %indvars.iv.i59
   %185 = load float, ptr %184, align 4, !tbaa !45
-  %186 = getelementptr inbounds nuw float, ptr %175, i64 %indvars.iv.i59
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %indvars.iv.i59
   %187 = load float, ptr %186, align 4, !tbaa !45
   %188 = fcmp ogt float %185, %187
   %.sink30.i = select i1 %188, float %185, float %187
-  %189 = getelementptr inbounds nuw float, ptr %176, i64 %indvars.iv.i59
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %indvars.iv.i59
   store float %.sink30.i, ptr %189, align 4, !tbaa !45
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
   %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, 3
@@ -14368,7 +14362,7 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i.i:                 ; preds = %_Z8btSetMinIfEvRT_R
   %93 = phi float [ %.sroa.1586.16.copyload, %18 ], [ %103, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i ]
   %94 = phi float [ %.sroa.1285.16.copyload, %18 ], [ %99, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i ]
   %95 = phi float [ %.sroa.1285.16.copyload, %18 ], [ %113, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i ]
-  %96 = getelementptr inbounds nuw %class.btVector3, ptr %5, i64 %indvars.iv.i
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.i
   %97 = load float, ptr %96, align 16, !tbaa !45, !noalias !436
   %98 = fcmp olt float %97, %94
   %99 = select i1 %98, float %97, float %94
@@ -14434,7 +14428,7 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i.i54:               ; preds = %_Z8btSetMinIfEvRT_R
   %136 = phi float [ %.sroa.15.16.copyload, %120 ], [ %146, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i54 ]
   %137 = phi float [ %.sroa.12.16.copyload, %120 ], [ %142, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i54 ]
   %138 = phi float [ %.sroa.12.16.copyload, %120 ], [ %156, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i54 ]
-  %139 = getelementptr inbounds nuw %class.btVector3, ptr %6, i64 %indvars.iv.i55
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.i55
   %140 = load float, ptr %139, align 16, !tbaa !45, !noalias !439
   %141 = fcmp olt float %140, %137
   %142 = select i1 %141, float %140, float %137
@@ -14514,21 +14508,21 @@ _ZN12btDbvtAabbMm10FromPointsEPK9btVector3i.exit58: ; preds = %_Z8btSetMinIfEvRT
 
 179:                                              ; preds = %179, %170
   %indvars.iv.i59 = phi i64 [ 0, %170 ], [ %indvars.iv.next.i60, %179 ]
-  %180 = getelementptr inbounds nuw float, ptr %174, i64 %indvars.iv.i59
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %indvars.iv.i59
   %181 = load float, ptr %180, align 4, !tbaa !45
-  %182 = getelementptr inbounds nuw float, ptr %175, i64 %indvars.iv.i59
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %indvars.iv.i59
   %183 = load float, ptr %182, align 4, !tbaa !45
   %184 = fcmp olt float %181, %183
   %.sink.i = select i1 %184, float %181, float %183
-  %185 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i59
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i59
   store float %.sink.i, ptr %185, align 4, !tbaa !45
-  %186 = getelementptr inbounds nuw float, ptr %176, i64 %indvars.iv.i59
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %indvars.iv.i59
   %187 = load float, ptr %186, align 4, !tbaa !45
-  %188 = getelementptr inbounds nuw float, ptr %177, i64 %indvars.iv.i59
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %indvars.iv.i59
   %189 = load float, ptr %188, align 4, !tbaa !45
   %190 = fcmp ogt float %187, %189
   %.sink30.i = select i1 %190, float %187, float %189
-  %191 = getelementptr inbounds nuw float, ptr %178, i64 %indvars.iv.i59
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %178, i64 %indvars.iv.i59
   store float %.sink30.i, ptr %191, align 4, !tbaa !45
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
   %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, 3
@@ -14629,8 +14623,8 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i: ; preds = %13, %12
 
 21:                                               ; preds = %21, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %21 ]
-  %22 = getelementptr inbounds nuw float, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %23 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i.i.i
   %24 = load float, ptr %23, align 4, !tbaa !45
   store float %24, ptr %22, align 4, !tbaa !45
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -14687,8 +14681,8 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit:    ; preds = %._ZN20btAlignedObje
 
 39:                                               ; preds = %39, %.lr.ph.i4
   %indvars.iv.i6 = phi i64 [ 0, %.lr.ph.i4 ], [ %indvars.iv.next.i7, %39 ]
-  %40 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i6
-  %41 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv.i6
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i6
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv.i6
   %42 = load float, ptr %41, align 4, !tbaa !45
   store float %42, ptr %40, align 4, !tbaa !45
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
@@ -14733,7 +14727,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayI15btReducedVectorE
 6:                                                ; preds = %_ZN15btReducedVectorD2Ev.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN15btReducedVectorD2Ev.exit.i ]
   %7 = load ptr, ptr %5, align 8, !tbaa !13
-  %8 = getelementptr inbounds nuw %class.btReducedVector, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [72 x i8], ptr %7, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %.not.i.i.i.i.i = icmp ne ptr %10, null
@@ -14847,9 +14841,9 @@ _ZN20btAlignedObjectArrayI15btReducedVectorE8allocateEi.exit: ; preds = %6, %7
 
 15:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds nuw %class.btReducedVector, ptr %.0.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [72 x i8], ptr %.0.i, i64 %indvars.iv.i
   %17 = load ptr, ptr %14, align 8, !tbaa !13
-  %18 = getelementptr inbounds nuw %class.btReducedVector, ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [72 x i8], ptr %17, i64 %indvars.iv.i
   tail call void @_ZN15btReducedVectorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(68) %16, ptr noundef nonnull align 8 dereferenceable(68) %18)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = icmp eq i64 %indvars.iv.next.i, %zext
@@ -14868,7 +14862,7 @@ _ZNK20btAlignedObjectArrayI15btReducedVectorE4copyEiiPS0_.exit: ; preds = %15
 22:                                               ; preds = %_ZN15btReducedVectorD2Ev.exit.i, %.lr.ph.i5
   %indvars.iv.i6 = phi i64 [ 0, %.lr.ph.i5 ], [ %indvars.iv.next.i7, %_ZN15btReducedVectorD2Ev.exit.i ]
   %23 = load ptr, ptr %21, align 8, !tbaa !13
-  %24 = getelementptr inbounds nuw %class.btReducedVector, ptr %23, i64 %indvars.iv.i6
+  %24 = getelementptr inbounds nuw [72 x i8], ptr %23, i64 %indvars.iv.i6
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8, !tbaa !29
   %.not.i.i.i.i.i = icmp ne ptr %26, null
@@ -15000,9 +14994,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i: ; preds = %13, %12
 
 20:                                               ; preds = %20, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %20 ]
-  %21 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %22 = load ptr, ptr %19, align 8, !tbaa !29
-  %23 = getelementptr inbounds nuw %class.btVector3, ptr %22, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -15066,9 +15060,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i12: ; preds = %39, %38
 
 46:                                               ; preds = %46, %.lr.ph.i.i.i18
   %indvars.iv.i.i.i20 = phi i64 [ 0, %.lr.ph.i.i.i18 ], [ %indvars.iv.next.i.i.i21, %46 ]
-  %47 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i13, i64 %indvars.iv.i.i.i20
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i13, i64 %indvars.iv.i.i.i20
   %48 = load ptr, ptr %45, align 8, !tbaa !29
-  %49 = getelementptr inbounds nuw %class.btVector3, ptr %48, i64 %indvars.iv.i.i.i20
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv.i.i.i20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %47, ptr noundef nonnull align 4 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i21 = add nuw nsw i64 %indvars.iv.i.i.i20, 1
   %exitcond.not.i.i.i22 = icmp eq i64 %indvars.iv.next.i.i.i21, %wide.trip.count.i.i.i19
@@ -15132,9 +15126,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i31: ; preds = %65, %64
 
 72:                                               ; preds = %72, %.lr.ph.i.i.i37
   %indvars.iv.i.i.i39 = phi i64 [ 0, %.lr.ph.i.i.i37 ], [ %indvars.iv.next.i.i.i40, %72 ]
-  %73 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i32, i64 %indvars.iv.i.i.i39
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i32, i64 %indvars.iv.i.i.i39
   %74 = load ptr, ptr %71, align 8, !tbaa !29
-  %75 = getelementptr inbounds nuw %class.btVector3, ptr %74, i64 %indvars.iv.i.i.i39
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %indvars.iv.i.i.i39
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %73, ptr noundef nonnull align 4 dereferenceable(16) %75, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i40 = add nuw nsw i64 %indvars.iv.i.i.i39, 1
   %exitcond.not.i.i.i41 = icmp eq i64 %indvars.iv.next.i.i.i40, %wide.trip.count.i.i.i38
@@ -15198,9 +15192,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i50: ; preds = %91, %90
 
 98:                                               ; preds = %98, %.lr.ph.i.i.i56
   %indvars.iv.i.i.i58 = phi i64 [ 0, %.lr.ph.i.i.i56 ], [ %indvars.iv.next.i.i.i59, %98 ]
-  %99 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i51, i64 %indvars.iv.i.i.i58
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i51, i64 %indvars.iv.i.i.i58
   %100 = load ptr, ptr %97, align 8, !tbaa !29
-  %101 = getelementptr inbounds nuw %class.btVector3, ptr %100, i64 %indvars.iv.i.i.i58
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %100, i64 %indvars.iv.i.i.i58
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %99, ptr noundef nonnull align 4 dereferenceable(16) %101, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i59 = add nuw nsw i64 %indvars.iv.i.i.i58, 1
   %exitcond.not.i.i.i60 = icmp eq i64 %indvars.iv.next.i.i.i59, %wide.trip.count.i.i.i57
@@ -15279,9 +15273,9 @@ define linkonce_odr dso_local void @_ZN14btKrylovSolverI34btDeformableBackwardEu
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %22 = load ptr, ptr %17, align 8, !tbaa !29
-  %23 = getelementptr inbounds nuw %class.btVector3, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %18, align 8, !tbaa !29
-  %25 = getelementptr inbounds nuw %class.btVector3, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv
   %26 = load float, ptr %23, align 4, !tbaa !45
   %27 = load float, ptr %25, align 4, !tbaa !45
   %28 = fsub float %26, %27
@@ -15298,7 +15292,7 @@ define linkonce_odr dso_local void @_ZN14btKrylovSolverI34btDeformableBackwardEu
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %28, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %33, i64 1
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %38, i64 0
-  %39 = getelementptr inbounds nuw %class.btVector3, ptr %15, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %39, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !41
@@ -15337,7 +15331,7 @@ define linkonce_odr dso_local noundef float @_ZN14btKrylovSolverI34btDeformableB
 .preheader:                                       ; preds = %.preheader.lr.ph, %9
   %indvars.iv15 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next16, %9 ]
   %.0912 = phi float [ 0.000000e+00, %.preheader.lr.ph ], [ %.sroa.speculated, %9 ]
-  %8 = getelementptr inbounds nuw %class.btVector3, ptr %7, i64 %indvars.iv15
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv15
   br label %10
 
 ._crit_edge:                                      ; preds = %9, %2
@@ -15352,7 +15346,7 @@ define linkonce_odr dso_local noundef float @_ZN14btKrylovSolverI34btDeformableB
 10:                                               ; preds = %.preheader, %10
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %10 ]
   %.110 = phi float [ %.0912, %.preheader ], [ %.sroa.speculated, %10 ]
-  %11 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !45
   %13 = tail call noundef float @llvm.fabs.f32(float %12)
   %14 = fcmp ogt float %.110, %13
@@ -15382,7 +15376,7 @@ define linkonce_odr dso_local void @_ZN14btKrylovSolverI34btDeformableBackwardEu
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw %class.btVector3, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !45
   %15 = fmul float %1, %14
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -15391,7 +15385,7 @@ define linkonce_odr dso_local void @_ZN14btKrylovSolverI34btDeformableBackwardEu
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load float, ptr %19, align 4, !tbaa !45
   %21 = fmul float %1, %20
-  %22 = getelementptr inbounds nuw %class.btVector3, ptr %11, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv
   %23 = load float, ptr %22, align 4, !tbaa !45
   %24 = fadd float %15, %23
   store float %24, ptr %22, align 4, !tbaa !45
@@ -15456,7 +15450,7 @@ define linkonce_odr dso_local void @_ZN14btKrylovSolverI34btDeformableBackwardEu
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %23 = load ptr, ptr %18, align 8, !tbaa !29
-  %24 = getelementptr inbounds nuw %class.btVector3, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv
   %25 = load float, ptr %24, align 4, !tbaa !45
   %26 = fmul float %2, %25
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -15466,7 +15460,7 @@ define linkonce_odr dso_local void @_ZN14btKrylovSolverI34btDeformableBackwardEu
   %31 = load float, ptr %30, align 4, !tbaa !45
   %32 = fmul float %2, %31
   %33 = load ptr, ptr %19, align 8, !tbaa !29
-  %34 = getelementptr inbounds nuw %class.btVector3, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv
   %35 = load float, ptr %34, align 4, !tbaa !45
   %36 = fadd float %26, %35
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
@@ -15478,7 +15472,7 @@ define linkonce_odr dso_local void @_ZN14btKrylovSolverI34btDeformableBackwardEu
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %36, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %39, i64 1
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %42, i64 0
-  %43 = getelementptr inbounds nuw %class.btVector3, ptr %16, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %43, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !41
@@ -15545,9 +15539,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i: ; preds = %13, %12
 
 20:                                               ; preds = %20, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %20 ]
-  %21 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %22 = load ptr, ptr %19, align 8, !tbaa !29
-  %23 = getelementptr inbounds nuw %class.btVector3, ptr %22, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -15611,9 +15605,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i14: ; preds = %39, %38
 
 46:                                               ; preds = %46, %.lr.ph.i.i.i20
   %indvars.iv.i.i.i22 = phi i64 [ 0, %.lr.ph.i.i.i20 ], [ %indvars.iv.next.i.i.i23, %46 ]
-  %47 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i15, i64 %indvars.iv.i.i.i22
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i15, i64 %indvars.iv.i.i.i22
   %48 = load ptr, ptr %45, align 8, !tbaa !29
-  %49 = getelementptr inbounds nuw %class.btVector3, ptr %48, i64 %indvars.iv.i.i.i22
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv.i.i.i22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %47, ptr noundef nonnull align 4 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i23 = add nuw nsw i64 %indvars.iv.i.i.i22, 1
   %exitcond.not.i.i.i24 = icmp eq i64 %indvars.iv.next.i.i.i23, %wide.trip.count.i.i.i21
@@ -15677,9 +15671,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i33: ; preds = %65, %64
 
 72:                                               ; preds = %72, %.lr.ph.i.i.i39
   %indvars.iv.i.i.i41 = phi i64 [ 0, %.lr.ph.i.i.i39 ], [ %indvars.iv.next.i.i.i42, %72 ]
-  %73 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i34, i64 %indvars.iv.i.i.i41
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i34, i64 %indvars.iv.i.i.i41
   %74 = load ptr, ptr %71, align 8, !tbaa !29
-  %75 = getelementptr inbounds nuw %class.btVector3, ptr %74, i64 %indvars.iv.i.i.i41
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %indvars.iv.i.i.i41
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %73, ptr noundef nonnull align 4 dereferenceable(16) %75, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i42 = add nuw nsw i64 %indvars.iv.i.i.i41, 1
   %exitcond.not.i.i.i43 = icmp eq i64 %indvars.iv.next.i.i.i42, %wide.trip.count.i.i.i40
@@ -15743,9 +15737,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i52: ; preds = %91, %90
 
 98:                                               ; preds = %98, %.lr.ph.i.i.i58
   %indvars.iv.i.i.i60 = phi i64 [ 0, %.lr.ph.i.i.i58 ], [ %indvars.iv.next.i.i.i61, %98 ]
-  %99 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i53, i64 %indvars.iv.i.i.i60
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i53, i64 %indvars.iv.i.i.i60
   %100 = load ptr, ptr %97, align 8, !tbaa !29
-  %101 = getelementptr inbounds nuw %class.btVector3, ptr %100, i64 %indvars.iv.i.i.i60
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %100, i64 %indvars.iv.i.i.i60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %99, ptr noundef nonnull align 4 dereferenceable(16) %101, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i61 = add nuw nsw i64 %indvars.iv.i.i.i60, 1
   %exitcond.not.i.i.i62 = icmp eq i64 %indvars.iv.next.i.i.i61, %wide.trip.count.i.i.i59
@@ -15809,9 +15803,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i71: ; preds = %117, %11
 
 124:                                              ; preds = %124, %.lr.ph.i.i.i77
   %indvars.iv.i.i.i79 = phi i64 [ 0, %.lr.ph.i.i.i77 ], [ %indvars.iv.next.i.i.i80, %124 ]
-  %125 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i72, i64 %indvars.iv.i.i.i79
+  %125 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i72, i64 %indvars.iv.i.i.i79
   %126 = load ptr, ptr %123, align 8, !tbaa !29
-  %127 = getelementptr inbounds nuw %class.btVector3, ptr %126, i64 %indvars.iv.i.i.i79
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %126, i64 %indvars.iv.i.i.i79
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %125, ptr noundef nonnull align 4 dereferenceable(16) %127, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i80 = add nuw nsw i64 %indvars.iv.i.i.i79, 1
   %exitcond.not.i.i.i81 = icmp eq i64 %indvars.iv.next.i.i.i80, %wide.trip.count.i.i.i78
@@ -15875,9 +15869,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i90: ; preds = %143, %14
 
 150:                                              ; preds = %150, %.lr.ph.i.i.i96
   %indvars.iv.i.i.i98 = phi i64 [ 0, %.lr.ph.i.i.i96 ], [ %indvars.iv.next.i.i.i99, %150 ]
-  %151 = getelementptr inbounds nuw %class.btVector3, ptr %.0.i.i.i91, i64 %indvars.iv.i.i.i98
+  %151 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i91, i64 %indvars.iv.i.i.i98
   %152 = load ptr, ptr %149, align 8, !tbaa !29
-  %153 = getelementptr inbounds nuw %class.btVector3, ptr %152, i64 %indvars.iv.i.i.i98
+  %153 = getelementptr inbounds nuw [16 x i8], ptr %152, i64 %indvars.iv.i.i.i98
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %151, ptr noundef nonnull align 4 dereferenceable(16) %153, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i99 = add nuw nsw i64 %indvars.iv.i.i.i98, 1
   %exitcond.not.i.i.i100 = icmp eq i64 %indvars.iv.next.i.i.i99, %wide.trip.count.i.i.i97
@@ -15947,9 +15941,9 @@ _ZN20btAlignedObjectArrayIN10btSoftBody26DeformableNodeRigidContactEE8allocateEi
 
 15:                                               ; preds = %_ZN10btSoftBody26DeformableNodeRigidContactC2ERKS0_.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN10btSoftBody26DeformableNodeRigidContactC2ERKS0_.exit.i ]
-  %16 = getelementptr inbounds nuw %"class.btSoftBody::DeformableNodeRigidContact", ptr %.0.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [856 x i8], ptr %.0.i, i64 %indvars.iv.i
   %17 = load ptr, ptr %14, align 8, !tbaa !312
-  %18 = getelementptr inbounds nuw %"class.btSoftBody::DeformableNodeRigidContact", ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [856 x i8], ptr %17, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %16, ptr noundef nonnull align 8 dereferenceable(856) %18, i64 64, i1 false), !tbaa.struct !314
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
@@ -16027,7 +16021,7 @@ _ZNK20btAlignedObjectArrayIN10btSoftBody26DeformableNodeRigidContactEE4copyEiiPS
 53:                                               ; preds = %53, %.lr.ph.i5
   %indvars.iv.i6 = phi i64 [ 0, %.lr.ph.i5 ], [ %indvars.iv.next.i7, %53 ]
   %54 = load ptr, ptr %52, align 8, !tbaa !312
-  %55 = getelementptr inbounds nuw %"class.btSoftBody::DeformableNodeRigidContact", ptr %54, i64 %indvars.iv.i6
+  %55 = getelementptr inbounds nuw [856 x i8], ptr %54, i64 %indvars.iv.i6
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 608
   tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %56) #28
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 400
@@ -16099,8 +16093,8 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i.i: ; preds = %2
 
 15:                                               ; preds = %15, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %15 ]
-  %16 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i.i.i.i
-  %17 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i.i.i.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i.i.i.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i.i.i.i
   %18 = load float, ptr %17, align 4, !tbaa !45
   store float %18, ptr %16, align 4, !tbaa !45
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -16139,8 +16133,8 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.i:  ; preds = %2
 
 24:                                               ; preds = %24, %.lr.ph.i.i
   %indvars.iv.i6.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i7.i, %24 ]
-  %25 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i6.i
-  %26 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i6.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i6.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.i6.i
   %27 = load float, ptr %26, align 4, !tbaa !45
   store float %27, ptr %25, align 4, !tbaa !45
   %indvars.iv.next.i7.i = add nuw nsw i64 %indvars.iv.i6.i, 1
@@ -16180,8 +16174,8 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i.i18: ; preds = %_ZN20btAlignedO
 
 41:                                               ; preds = %41, %.lr.ph.i.i.i.i27
   %indvars.iv.i.i.i.i29 = phi i64 [ 0, %.lr.ph.i.i.i.i27 ], [ %indvars.iv.next.i.i.i.i30, %41 ]
-  %42 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv.i.i.i.i29
-  %43 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv.i.i.i.i29
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv.i.i.i.i29
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i.i.i.i29
   %44 = load float, ptr %43, align 4, !tbaa !45
   store float %44, ptr %42, align 4, !tbaa !45
   %indvars.iv.next.i.i.i.i30 = add nuw nsw i64 %indvars.iv.i.i.i.i29, 1
@@ -16220,8 +16214,8 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.i17: ; preds = %_ZN20btAlignedObje
 
 50:                                               ; preds = %50, %.lr.ph.i.i23
   %indvars.iv.i6.i24 = phi i64 [ 0, %.lr.ph.i.i23 ], [ %indvars.iv.next.i7.i25, %50 ]
-  %51 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv.i6.i24
-  %52 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i6.i24
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv.i6.i24
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i6.i24
   %53 = load float, ptr %52, align 4, !tbaa !45
   store float %53, ptr %51, align 4, !tbaa !45
   %indvars.iv.next.i7.i25 = add nuw nsw i64 %indvars.iv.i6.i24, 1
@@ -16261,8 +16255,8 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i.i38: ; preds = %_ZN20btAlignedO
 
 67:                                               ; preds = %67, %.lr.ph.i.i.i.i47
   %indvars.iv.i.i.i.i49 = phi i64 [ 0, %.lr.ph.i.i.i.i47 ], [ %indvars.iv.next.i.i.i.i50, %67 ]
-  %68 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv.i.i.i.i49
-  %69 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv.i.i.i.i49
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv.i.i.i.i49
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv.i.i.i.i49
   %70 = load float, ptr %69, align 4, !tbaa !45
   store float %70, ptr %68, align 4, !tbaa !45
   %indvars.iv.next.i.i.i.i50 = add nuw nsw i64 %indvars.iv.i.i.i.i49, 1
@@ -16301,8 +16295,8 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.i37: ; preds = %_ZN20btAlignedObje
 
 76:                                               ; preds = %76, %.lr.ph.i.i43
   %indvars.iv.i6.i44 = phi i64 [ 0, %.lr.ph.i.i43 ], [ %indvars.iv.next.i7.i45, %76 ]
-  %77 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv.i6.i44
-  %78 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv.i6.i44
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv.i6.i44
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv.i6.i44
   %79 = load float, ptr %78, align 4, !tbaa !45
   store float %79, ptr %77, align 4, !tbaa !45
   %indvars.iv.next.i7.i45 = add nuw nsw i64 %indvars.iv.i6.i44, 1
@@ -16342,8 +16336,8 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i.i59: ; preds = %_ZN20btAlignedO
 
 93:                                               ; preds = %93, %.lr.ph.i.i.i.i68
   %indvars.iv.i.i.i.i70 = phi i64 [ 0, %.lr.ph.i.i.i.i68 ], [ %indvars.iv.next.i.i.i.i71, %93 ]
-  %94 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv.i.i.i.i70
-  %95 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv.i.i.i.i70
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv.i.i.i.i70
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.i.i.i.i70
   %96 = load float, ptr %95, align 4, !tbaa !45
   store float %96, ptr %94, align 4, !tbaa !45
   %indvars.iv.next.i.i.i.i71 = add nuw nsw i64 %indvars.iv.i.i.i.i70, 1
@@ -16382,8 +16376,8 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit.i58: ; preds = %_ZN20btAlignedObje
 
 102:                                              ; preds = %102, %.lr.ph.i.i64
   %indvars.iv.i6.i65 = phi i64 [ 0, %.lr.ph.i.i64 ], [ %indvars.iv.next.i7.i66, %102 ]
-  %103 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv.i6.i65
-  %104 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv.i6.i65
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv.i6.i65
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv.i6.i65
   %105 = load float, ptr %104, align 4, !tbaa !45
   store float %105, ptr %103, align 4, !tbaa !45
   %indvars.iv.next.i7.i66 = add nuw nsw i64 %indvars.iv.i6.i65, 1
@@ -16422,9 +16416,9 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i.i: ; preds = %_ZN20btA
 
 118:                                              ; preds = %118, %.lr.ph.i.i.i.i85
   %indvars.iv.i.i.i.i87 = phi i64 [ 0, %.lr.ph.i.i.i.i85 ], [ %indvars.iv.next.i.i.i.i88, %118 ]
-  %119 = getelementptr inbounds nuw %class.btVector3, ptr %116, i64 %indvars.iv.i.i.i.i87
+  %119 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %indvars.iv.i.i.i.i87
   %120 = load ptr, ptr %108, align 8, !tbaa !29
-  %121 = getelementptr inbounds nuw %class.btVector3, ptr %120, i64 %indvars.iv.i.i.i.i87
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %120, i64 %indvars.iv.i.i.i.i87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %119, ptr noundef nonnull align 4 dereferenceable(16) %121, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i.i.i.i88 = add nuw nsw i64 %indvars.iv.i.i.i.i87, 1
   %exitcond.not.i.i.i.i89 = icmp eq i64 %indvars.iv.next.i.i.i.i88, %wide.trip.count.i.i.i.i86
@@ -16456,9 +16450,9 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.i: ; preds = %_ZN20btAl
 
 127:                                              ; preds = %127, %.lr.ph.i.i81
   %indvars.iv.i6.i82 = phi i64 [ 0, %.lr.ph.i.i81 ], [ %indvars.iv.next.i7.i83, %127 ]
-  %128 = getelementptr inbounds nuw %class.btVector3, ptr %116, i64 %indvars.iv.i6.i82
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %indvars.iv.i6.i82
   %129 = load ptr, ptr %126, align 8, !tbaa !29
-  %130 = getelementptr inbounds nuw %class.btVector3, ptr %129, i64 %indvars.iv.i6.i82
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %indvars.iv.i6.i82
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %128, ptr noundef nonnull align 4 dereferenceable(16) %130, i64 16, i1 false), !tbaa.struct !40
   %indvars.iv.next.i7.i83 = add nuw nsw i64 %indvars.iv.i6.i82, 1
   %exitcond.not.i8.i84 = icmp eq i64 %indvars.iv.next.i7.i83, %114
@@ -16495,9 +16489,9 @@ _ZN20btAlignedObjectArrayI11btMatrix3x3E8allocateEi.exit.i.i.i: ; preds = %_ZN20
 
 142:                                              ; preds = %142, %.lr.ph.i.i.i.i99
   %indvars.iv.i.i.i.i101 = phi i64 [ 0, %.lr.ph.i.i.i.i99 ], [ %indvars.iv.next.i.i.i.i102, %142 ]
-  %143 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %140, i64 %indvars.iv.i.i.i.i101
+  %143 = getelementptr inbounds nuw [48 x i8], ptr %140, i64 %indvars.iv.i.i.i.i101
   %144 = load ptr, ptr %132, align 8, !tbaa !366
-  %145 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %144, i64 %indvars.iv.i.i.i.i101
+  %145 = getelementptr inbounds nuw [48 x i8], ptr %144, i64 %indvars.iv.i.i.i.i101
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %143, ptr noundef nonnull align 4 dereferenceable(48) %145, i64 16, i1 false), !tbaa.struct !40
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %147 = getelementptr inbounds nuw i8, ptr %143, i64 16
@@ -16535,9 +16529,9 @@ _ZN20btAlignedObjectArrayI11btMatrix3x3E6resizeEiRKS0_.exit.i: ; preds = %_ZN20b
 
 155:                                              ; preds = %155, %.lr.ph.i.i95
   %indvars.iv.i6.i96 = phi i64 [ 0, %.lr.ph.i.i95 ], [ %indvars.iv.next.i7.i97, %155 ]
-  %156 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %140, i64 %indvars.iv.i6.i96
+  %156 = getelementptr inbounds nuw [48 x i8], ptr %140, i64 %indvars.iv.i6.i96
   %157 = load ptr, ptr %154, align 8, !tbaa !366
-  %158 = getelementptr inbounds nuw %class.btMatrix3x3, ptr %157, i64 %indvars.iv.i6.i96
+  %158 = getelementptr inbounds nuw [48 x i8], ptr %157, i64 %indvars.iv.i6.i96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %156, ptr noundef nonnull align 4 dereferenceable(48) %158, i64 16, i1 false), !tbaa.struct !40
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 16
@@ -16633,9 +16627,9 @@ _ZN20btAlignedObjectArrayIN10btSoftBody26DeformableFaceRigidContactEE8allocateEi
 
 15:                                               ; preds = %_ZN10btSoftBody26DeformableFaceRigidContactC2ERKS0_.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN10btSoftBody26DeformableFaceRigidContactC2ERKS0_.exit.i ]
-  %16 = getelementptr inbounds nuw %"class.btSoftBody::DeformableFaceRigidContact", ptr %.0.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [904 x i8], ptr %.0.i, i64 %indvars.iv.i
   %17 = load ptr, ptr %14, align 8, !tbaa !325
-  %18 = getelementptr inbounds nuw %"class.btSoftBody::DeformableFaceRigidContact", ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [904 x i8], ptr %17, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(904) %16, ptr noundef nonnull align 8 dereferenceable(904) %18, i64 64, i1 false), !tbaa.struct !314
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
@@ -16712,7 +16706,7 @@ _ZNK20btAlignedObjectArrayIN10btSoftBody26DeformableFaceRigidContactEE4copyEiiPS
 52:                                               ; preds = %52, %.lr.ph.i5
   %indvars.iv.i6 = phi i64 [ 0, %.lr.ph.i5 ], [ %indvars.iv.next.i7, %52 ]
   %53 = load ptr, ptr %51, align 8, !tbaa !325
-  %54 = getelementptr inbounds nuw %"class.btSoftBody::DeformableFaceRigidContact", ptr %53, i64 %indvars.iv.i6
+  %54 = getelementptr inbounds nuw [904 x i8], ptr %53, i64 %indvars.iv.i6
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 608
   tail call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %55) #28
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 400
@@ -16796,7 +16790,7 @@ define linkonce_odr dso_local void @_ZN11btSparseSdfILi3EE9BuildCellERNS0_4CellE
   %35 = trunc nuw nsw i64 %indvars.iv44 to i32
   %36 = uitofp nneg i32 %35 to float
   %37 = call float @llvm.fmuladd.f32(float %34, float %36, float %22)
-  %invariant.gep36 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv44
+  %invariant.gep36 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv44
   br label %39
 
 38:                                               ; preds = %44
@@ -16810,7 +16804,7 @@ define linkonce_odr dso_local void @_ZN11btSparseSdfILi3EE9BuildCellERNS0_4CellE
   %41 = trunc nuw nsw i64 %indvars.iv40 to i32
   %42 = uitofp nneg i32 %41 to float
   %43 = call float @llvm.fmuladd.f32(float %40, float %42, float %21)
-  %gep = getelementptr inbounds nuw [4 x float], ptr %invariant.gep36, i64 %indvars.iv40
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep36, i64 %indvars.iv40
   br label %45
 
 44:                                               ; preds = %_ZN11btSparseSdfILi3EE15DistanceToShapeERK9btVector3PK16btCollisionShape.exit
@@ -16851,7 +16845,7 @@ define linkonce_odr dso_local void @_ZN11btSparseSdfILi3EE9BuildCellERNS0_4CellE
 _ZN11btSparseSdfILi3EE15DistanceToShapeERK9btVector3PK16btCollisionShape.exit: ; preds = %45, %54
   %.0.i = phi float [ %55, %54 ], [ 0.000000e+00, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %gep35 = getelementptr inbounds nuw [4 x [4 x float]], ptr %gep, i64 %indvars.iv
+  %gep35 = getelementptr inbounds nuw [64 x i8], ptr %gep, i64 %indvars.iv
   store float %.0.i, ptr %gep35, align 4, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

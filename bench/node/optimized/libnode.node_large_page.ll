@@ -25,7 +25,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%struct.Elf64_Phdr = type { i32, i32, i64, i64, i64, i64, i64, i64 }
 
 $_ZN4node7FPrintFIJPvS1_S1_EEEvP8_IO_FILEPKcDpOT_ = comdat any
 
@@ -747,7 +746,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %4, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [56 x i8], ptr %4, i64 %indvars.iv
   %5 = load i32, ptr %arrayidx, align 8
   %cmp2 = icmp eq i32 %5, 1
   br i1 %cmp2, label %land.lhs.true, label %for.inc

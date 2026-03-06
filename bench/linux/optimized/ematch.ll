@@ -19,7 +19,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___tcf_em_tre
 %struct.list_head = type { ptr, ptr }
 %struct.nla_policy = type { i8, i8, i16, %union.anon.3 }
 %union.anon.3 = type { ptr }
-%struct.tcf_ematch = type { ptr, i64, i32, i16, i16, ptr }
 %struct.tcf_ematch_hdr = type { i16, i16, i16, i16 }
 
 @ematch_mod_lock = internal global %struct.rwlock_t zeroinitializer, align 4
@@ -187,7 +186,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr noundef
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr %29, align 8
-  %59 = getelementptr %struct.tcf_ematch, ptr %58, i64 %39
+  %59 = getelementptr [32 x i8], ptr %58, i64 %39
   %60 = getelementptr i8, ptr %37, i64 4
   %61 = zext i16 %55 to i32
   %62 = add nsw i32 %61, -8
@@ -422,7 +421,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr noundef
   %190 = phi i16 [ %215, %214 ], [ %188, %187 ]
   %191 = phi i64 [ %216, %214 ], [ 0, %187 ]
   %192 = load ptr, ptr %29, align 8
-  %193 = getelementptr %struct.tcf_ematch, ptr %192, i64 %191
+  %193 = getelementptr [32 x i8], ptr %192, i64 %191
   %194 = load ptr, ptr %193, align 8
   %195 = icmp eq ptr %194, null
   br i1 %195, label %214, label %196
@@ -502,7 +501,7 @@ define dso_local void @tcf_em_tree_destroy(ptr noundef captures(none) %0) #0 ali
   %8 = phi i16 [ %33, %32 ], [ %6, %5 ]
   %9 = phi i64 [ %34, %32 ], [ 0, %5 ]
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr %struct.tcf_ematch, ptr %10, i64 %9
+  %11 = getelementptr [32 x i8], ptr %10, i64 %9
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %32, label %14
@@ -619,7 +618,7 @@ define dso_local noundef range(i32 -1, 1) i32 @tcf_em_tree_dump(ptr noundef %0, 
   %38 = phi ptr [ %89, %85 ], [ %37, %.lr.ph.preheader ]
   %39 = phi i64 [ %53, %85 ], [ 0, %.lr.ph.preheader ]
   %40 = load ptr, ptr %32, align 8
-  %41 = getelementptr %struct.tcf_ematch, ptr %40, i64 %39
+  %41 = getelementptr [32 x i8], ptr %40, i64 %39
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !annotation !8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 20
@@ -769,14 +768,14 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr noundef readonly c
 13:                                               ; preds = %6
   %14 = sext i32 %8 to i64
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr %struct.tcf_ematch, ptr %15, i64 %14
+  %16 = getelementptr [32 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.loopexit8, label %.preheader
 
 19:                                               ; preds = %59
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr %struct.tcf_ematch, ptr %20, i64 %60
+  %21 = getelementptr [32 x i8], ptr %20, i64 %60
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.loopexit8.loopexit, label %.preheader, !llvm.loop !13
@@ -795,7 +794,7 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr noundef readonly c
 29:                                               ; preds = %.loopexit8
   %30 = add nsw i32 %7, 1
   %31 = sext i32 %7 to i64
-  %32 = getelementptr i32, ptr %4, i64 %31
+  %32 = getelementptr [4 x i8], ptr %4, i64 %31
   store i32 %25, ptr %32, align 4
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %34 = load i64, ptr %33, align 8
@@ -855,10 +854,10 @@ define dso_local i32 @__tcf_em_tree_match(ptr noundef %0, ptr noundef readonly c
   %70 = phi i64 [ %68, %66 ], [ %72, %96 ]
   %71 = phi i32 [ %64, %66 ], [ %82, %96 ]
   %72 = add nsw i64 %70, -1
-  %73 = getelementptr i32, ptr %4, i64 %72
+  %73 = getelementptr [4 x i8], ptr %4, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
-  %.split = getelementptr %struct.tcf_ematch, ptr %67, i64 %75
+  %.split = getelementptr [32 x i8], ptr %67, i64 %75
   %76 = getelementptr i8, ptr %.split, i64 22
   %77 = load i16, ptr %76, align 2
   %78 = and i16 %77, 4

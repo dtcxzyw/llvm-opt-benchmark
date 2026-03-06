@@ -3,8 +3,6 @@ source_filename = "bench/gromacs/original/selvalue.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.gmx_ana_index_t = type { i32, ptr, i32 }
-
 @.str = private unnamed_addr constant [11 x i8] c"val->u.ptr\00", align 1
 @.str.1 = private unnamed_addr constant [128 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/gromacs/gromacs/src/gromacs/selection/selvalue.cpp\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"val->u.i\00", align 1
@@ -132,7 +130,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
 .lr.ph48:                                         ; preds = %.lr.ph48.preheader, %.lr.ph48
   %indvars.iv52 = phi i64 [ %23, %.lr.ph48.preheader ], [ %indvars.iv.next53, %.lr.ph48 ]
   %24 = load ptr, ptr %7, align 8, !tbaa !11
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv52
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %indvars.iv52
   store ptr null, ptr %25, align 8, !tbaa !16
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, %19
@@ -206,7 +204,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %52, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %53 = load ptr, ptr %7, align 8, !tbaa !11
-  %54 = getelementptr inbounds %struct.gmx_ana_index_t, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds [24 x i8], ptr %53, i64 %indvars.iv
   tail call void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr noundef %54)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32

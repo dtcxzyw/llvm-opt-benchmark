@@ -3,9 +3,6 @@ source_filename = "bench/llvm/original/RawPtrRefLocalVarsChecker.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.clang::ento::CheckerFn" = type { ptr, ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { ptr, ptr }
 %struct.LocalVisitor = type { %"class.clang::DynamicRecursiveASTVisitorBase.base", ptr, ptr, %"class.clang::TrivialFunctionAnalysis" }
 %"class.clang::DynamicRecursiveASTVisitorBase.base" = type <{ ptr, i8, i8, i8, i8 }>
 %"class.clang::TrivialFunctionAnalysis" = type { %"class.llvm::DenseMap.143" }
@@ -40,7 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.clang::NestedNameSpecifierLoc" = type { ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -250,7 +246,7 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.e
 _ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %60, %_ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i
   store ptr %55, ptr %34, align 8, !tbaa !32
   store ptr %59, ptr %35, align 8, !tbaa !27
-  %61 = getelementptr inbounds nuw %"class.clang::ento::CheckerFn", ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !30
   br label %_ZN5clang4ento14CheckerManager15registerCheckerIN12_GLOBAL__N_125UncountedLocalVarsCheckerEJEEEPT_DpOT0_.exit
 
@@ -399,7 +395,7 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.e
 _ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %60, %_ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i
   store ptr %55, ptr %34, align 8, !tbaa !32
   store ptr %59, ptr %35, align 8, !tbaa !27
-  %61 = getelementptr inbounds nuw %"class.clang::ento::CheckerFn", ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !30
   br label %_ZN5clang4ento14CheckerManager15registerCheckerIN12_GLOBAL__N_125UncheckedLocalVarsCheckerEJEEEPT_DpOT0_.exit
 
@@ -434,7 +430,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %15 = add i32 %6, -1
   %.02944.i = and i32 %14, %15
   %16 = zext nneg i32 %.02944.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.loopexit, label %.lr.ph.i, !prof !49
@@ -462,7 +458,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %29 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %29, %15
   %30 = zext i32 %.029.i to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !3
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.loopexit, label %.lr.ph.i, !prof !51, !llvm.loop !52
@@ -605,7 +601,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %15 = add i32 %6, -1
   %.02944 = and i32 %14, %15
   %16 = zext nneg i32 %.02944 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.thread, label %.lr.ph, !prof !49
@@ -633,7 +629,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = add i32 %.02947, %.02746
   %.029 = and i32 %29, %15
   %30 = zext i32 %.029 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !3
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.thread, label %.lr.ph, !prof !51, !llvm.loop !52
@@ -742,7 +738,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   %47 = xor i32 %45, %46
   %.02944.i.i = and i32 %47, %38
   %48 = zext nneg i32 %.02944.i.i to i64
-  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %43, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !3
   %51 = icmp eq ptr %41, %50
   br i1 %51, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i, label %.lr.ph.i15.i, !prof !49
@@ -770,7 +766,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   %61 = add i32 %.02746.i.i, %.02947.i.i
   %.029.i.i = and i32 %61, %38
   %62 = zext i32 %.029.i.i to i64
-  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %43, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !3
   %65 = icmp eq ptr %41, %64
   br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i, label %.lr.ph.i15.i, !prof !51, !llvm.loop !52
@@ -4626,7 +4622,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbPKN5clang4ExprEbE
   %22 = lshr i32 %19, 19
   %.lobit.i.i.i.i.i.i.i.i = and i32 %22, 1
   %23 = zext nneg i32 %.lobit.i.i.i.i.i.i.i.i to i64
-  %24 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %.in.i.i.i.i = select i1 %.not.i.i.i.i, ptr %25, ptr %24
   %26 = load ptr, ptr %.in.i.i.i.i, align 8, !tbaa !3
@@ -5081,7 +5077,7 @@ _ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread76: ; preds = %24, %24, %24, %24
   %41 = phi i1 [ %55, %.loopexit125 ], [ %37, %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread76 ]
   %42 = load ptr, ptr %7, align 8
   %spec.select.i = select i1 %41, ptr %7, ptr %42
-  %43 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %42, i64 %40
+  %43 = getelementptr inbounds nuw [40 x i8], ptr %42, i64 %40
   %44 = select i1 %41, ptr %34, ptr %43
   %.not98 = icmp eq ptr %spec.select.i, %44
   br i1 %.not98, label %.loopexit125, label %.lr.ph
@@ -5150,7 +5146,7 @@ _ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread76: ; preds = %24, %24, %24, %24
   %.056111 = phi ptr [ %.157.lcssa, %._crit_edge109 ], [ null, %._crit_edge ]
   %70 = load ptr, ptr %9, align 8
   %spec.select.i70 = select i1 %69, ptr %9, ptr %70
-  %71 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %70, i64 %68
+  %71 = getelementptr inbounds nuw [40 x i8], ptr %70, i64 %68
   %72 = select i1 %69, ptr %61, ptr %71
   %.not65104 = icmp eq ptr %spec.select.i70, %72
   br i1 %.not65104, label %._crit_edge109, label %.lr.ph108
@@ -5303,7 +5299,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115GuardianVisitor24VisitCXX
   %12 = lshr i32 %7, 19
   %13 = and i32 %12, 1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !192
   %17 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %16) #27
   %18 = load i16, ptr %17, align 8

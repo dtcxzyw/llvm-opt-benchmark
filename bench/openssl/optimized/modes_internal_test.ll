@@ -161,7 +161,7 @@ define internal range(i32 0, 2) i32 @test_gcm128(i32 noundef %0) #0 {
   %4 = alloca %struct.aes_key_st, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.gcm128_data, ptr @gcm128_vectors, i64 %5
+  %6 = getelementptr inbounds [96 x i8], ptr @gcm128_vectors, i64 %5
   %.sroa.027.0.copyload = load i64, ptr %6, align 16, !tbaa !4
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.428.0.copyload = load ptr, ptr %.sroa.428.0..sroa_idx, align 8, !tbaa !8
@@ -293,7 +293,7 @@ define internal fastcc range(i32 0, 2) i32 @execute_cts128(ptr noundef readonly 
   %5 = alloca [64 x i8], align 16
   %6 = alloca [64 x i8], align 16
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.SIZED_DATA, ptr @aes_cts128_vectors, i64 %7
+  %8 = getelementptr inbounds [16 x i8], ptr @aes_cts128_vectors, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !11
   %11 = load i64, ptr %8, align 16, !tbaa !13

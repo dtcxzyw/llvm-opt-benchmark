@@ -3,7 +3,6 @@ source_filename = "bench/abc/original/amapLib.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Amap_Pin_t_ = type { ptr, i32, double, double, double, double, double, double, double }
 %struct.timespec = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
@@ -149,7 +148,7 @@ Vec_PtrFree.exit51:                               ; preds = %20, %23
   %.val14.i = phi i32 [ %.val11.i, %.lr.ph.i ], [ %.val.i, %38 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
   %.val8.i = load ptr, ptr %30, align 8, !tbaa !27
-  %32 = getelementptr inbounds nuw ptr, ptr %.val8.i, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.val8.i, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8, !tbaa !28
   %.not.i52 = icmp eq ptr %33, null
   br i1 %.not.i52, label %38, label %34
@@ -210,7 +209,7 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %43
   %.val14.i57 = phi i32 [ %.val11.i53, %.lr.ph.i56 ], [ %.val.i64, %58 ]
   %indvars.iv.i58 = phi i64 [ 0, %.lr.ph.i56 ], [ %indvars.iv.next.i65, %58 ]
   %.val8.i59 = load ptr, ptr %50, align 8, !tbaa !27
-  %52 = getelementptr inbounds nuw ptr, ptr %.val8.i59, i64 %indvars.iv.i58
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.val8.i59, i64 %indvars.iv.i58
   %53 = load ptr, ptr %52, align 8, !tbaa !28
   %.not.i60 = icmp eq ptr %53, null
   br i1 %.not.i60, label %58, label %54
@@ -350,7 +349,7 @@ define range(i32 0, 256) i32 @Amap_LibNumPinsMax(ptr noundef readonly captures(n
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.012 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %.val10, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.val10, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load i32, ptr %10, align 8
@@ -373,7 +372,7 @@ define void @Amap_LibWritePin(ptr noundef captures(none) %0, ptr noundef readonl
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !44
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds ptr, ptr @__const.Amap_LibWritePin.pPhaseNames, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr @__const.Amap_LibWritePin.pPhaseNames, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !45
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %10) #25
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -454,7 +453,7 @@ define void @Amap_LibWriteGate(ptr noundef captures(none) %0, ptr noundef readon
   %30 = load i32, ptr %27, align 8
   %31 = lshr i32 %30, 24
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw %struct.Amap_Pin_t_, ptr %26, i64 %32
+  %33 = getelementptr inbounds nuw [72 x i8], ptr %26, i64 %32
   %34 = icmp ult ptr %29, %33
   br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
@@ -483,7 +482,7 @@ define void @Amap_LibWrite(ptr noundef captures(none) %0, ptr noundef readonly c
   %10 = phi ptr [ %14, %.lr.ph ], [ %7, %3 ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val9 = load ptr, ptr %11, align 8, !tbaa !10
-  %12 = getelementptr inbounds nuw ptr, ptr %.val9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val9, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !28
   tail call void @Amap_LibWriteGate(ptr noundef %0, ptr noundef %13, i32 noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -567,7 +566,7 @@ define ptr @Amap_LibFindGate(ptr noundef readonly captures(none) %0, i32 noundef
 
 8:                                                ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %.val14, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.val14, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = icmp eq ptr %10, null
   br i1 %11, label %23, label %12
@@ -621,7 +620,7 @@ Amap_LibFindGate.exit.thread:                     ; preds = %2
 
 9:                                                ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %.val14.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val14.i, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = icmp eq ptr %11, null
   br i1 %12, label %24, label %13
@@ -656,7 +655,7 @@ Amap_LibFindGate.exit:                            ; preds = %21, %24
 
 26:                                               ; preds = %41, %Amap_LibFindGate.exit
   %indvars.iv.i47 = phi i64 [ 0, %Amap_LibFindGate.exit ], [ %indvars.iv.next.i48, %41 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %.val14.i, i64 %indvars.iv.i47
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.val14.i, i64 %indvars.iv.i47
   %28 = load ptr, ptr %27, align 8, !tbaa !28
   %29 = icmp eq ptr %28, null
   br i1 %29, label %41, label %30
@@ -691,7 +690,7 @@ Amap_LibFindGate.exit50:                          ; preds = %38, %41
 
 43:                                               ; preds = %58, %Amap_LibFindGate.exit50
   %indvars.iv.i56 = phi i64 [ 0, %Amap_LibFindGate.exit50 ], [ %indvars.iv.next.i57, %58 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %.val14.i, i64 %indvars.iv.i56
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val14.i, i64 %indvars.iv.i56
   %45 = load ptr, ptr %44, align 8, !tbaa !28
   %46 = icmp eq ptr %45, null
   br i1 %46, label %58, label %47
@@ -726,7 +725,7 @@ Amap_LibFindGate.exit59:                          ; preds = %55, %58
 
 60:                                               ; preds = %75, %Amap_LibFindGate.exit59
   %indvars.iv.i65 = phi i64 [ 0, %Amap_LibFindGate.exit59 ], [ %indvars.iv.next.i66, %75 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %.val14.i, i64 %indvars.iv.i65
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.val14.i, i64 %indvars.iv.i65
   %62 = load ptr, ptr %61, align 8, !tbaa !28
   %63 = icmp eq ptr %62, null
   br i1 %63, label %75, label %64
@@ -773,7 +772,7 @@ Amap_LibFindGate.exit68:                          ; preds = %72, %75, %Amap_LibF
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.critedge2 ], [ 0, %Amap_LibFindGate.exit68 ]
   %84 = getelementptr i8, ptr %81, i64 8
   %.val41 = load ptr, ptr %84, align 8, !tbaa !10
-  %85 = getelementptr inbounds nuw ptr, ptr %.val41, i64 %indvars.iv78
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %.val41, i64 %indvars.iv78
   %86 = load ptr, ptr %85, align 8, !tbaa !28
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %88 = load ptr, ptr %87, align 8, !tbaa !58
@@ -796,7 +795,7 @@ Amap_LibFindGate.exit68:                          ; preds = %72, %75, %Amap_LibF
 
 94:                                               ; preds = %.lr.ph, %116
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %116 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %.val41, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %.val41, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 8, !tbaa !28
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
   %98 = load ptr, ptr %97, align 8, !tbaa !58
@@ -893,7 +892,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %140 = add nsw i32 %83, 1
   store i32 %140, ptr %78, align 4, !tbaa !3
   %141 = sext i32 %83 to i64
-  %142 = getelementptr inbounds ptr, ptr %139, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr %139, i64 %141
   store ptr %86, ptr %142, align 8, !tbaa !28
   %.pre = load ptr, ptr %3, align 8, !tbaa !23
   br label %.critedge2
@@ -931,7 +930,7 @@ define void @Amap_LibPrintSelectedGates(ptr noundef readonly captures(none) %0, 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.val15 = load ptr, ptr %6, align 8, !tbaa !10
-  %8 = getelementptr inbounds nuw ptr, ptr %.val15, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.val15, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !52

@@ -653,7 +653,7 @@ _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %24, %_ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %19, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, align 8, !tbaa !20
   store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !25
-  %25 = getelementptr inbounds nuw ptr, ptr %19, i64 %17
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %17
   store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 16), align 8, !tbaa !22
   br label %_ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE9push_backERKS2_.exit
 
@@ -775,7 +775,7 @@ _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i: ; preds = %26, %_ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i.i
   store ptr %21, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, align 8, !tbaa !20
   store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !25
-  %27 = getelementptr inbounds nuw ptr, ptr %21, i64 %19
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %19
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 16), align 8, !tbaa !22
   br label %_ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE9push_backEOS2_.exit.i.i
 
@@ -849,7 +849,7 @@ _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i16.i.i: ; preds = %53, %_ZNSt6vectorIPN5faiss19InvertedListsIOHookESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i14.i.i
   store ptr %48, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, align 8, !tbaa !20
   store ptr %52, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !25
-  %54 = getelementptr inbounds nuw ptr, ptr %48, i64 %46
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %46
   store ptr %54, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 16), align 8, !tbaa !22
   br label %__cxx_global_var_init.exit
 

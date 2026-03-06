@@ -14,19 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.mnt_idmap = type opaque
 %struct.static_call_key = type { ptr, %union.anon.45 }
 %union.anon.45 = type { i64 }
-%struct.address_space = type { ptr, %struct.xarray, %struct.rw_semaphore, i32, %struct.atomic_t, %struct.rb_root_cached, i64, i64, ptr, i64, %struct.rw_semaphore, i32, %struct.spinlock, %struct.list_head, ptr }
-%struct.xarray = type { %struct.spinlock, i32, ptr }
-%struct.rb_root_cached = type { %struct.rb_root, ptr }
-%struct.rb_root = type { ptr }
-%struct.rw_semaphore = type { %struct.atomic64_t, %struct.atomic64_t, %struct.optimistic_spin_queue, %struct.raw_spinlock, %struct.list_head }
-%struct.atomic64_t = type { i64 }
-%struct.optimistic_spin_queue = type { %struct.atomic_t }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.5 }
-%union.anon.5 = type { %struct.atomic_t }
-%struct.spinlock = type { %union.anon.8 }
-%union.anon.8 = type { %struct.raw_spinlock }
-%struct.list_head = type { ptr, ptr }
 
 @__tracepoint_mmap_lock_start_locking = external dso_local global %struct.tracepoint, align 8
 @__tracepoint_mmap_lock_acquire_returned = external dso_local global %struct.tracepoint, align 8
@@ -375,10 +362,10 @@ define internal noundef i32 @mincore_pte_range(ptr noundef %0, i64 noundef %1, i
   %64 = xor i64 %26, -1
   %65 = lshr i64 %64, 9
   %66 = and i64 %65, 1125899906842623
-  %67 = getelementptr ptr, ptr @swapper_spaces, i64 %63
+  %67 = getelementptr [8 x i8], ptr @swapper_spaces, i64 %63
   %68 = load ptr, ptr %67, align 8
   %69 = lshr i64 %66, 14
-  %70 = getelementptr %struct.address_space, ptr %68, i64 %69
+  %70 = getelementptr [192 x i8], ptr %68, i64 %69
   %71 = call ptr @filemap_get_incore_folio(ptr noundef %70, i64 noundef %66) #7
   %72 = icmp ugt ptr %71, inttoptr (i64 -4096 to ptr)
   br i1 %72, label %__mincore_unmapped_range.exit, label %73

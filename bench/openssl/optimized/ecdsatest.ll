@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ecdsa_cavs_kat_t = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.EC_builtin_curve = type { i32, ptr }
 
 @fake_rand = internal unnamed_addr global ptr null, align 8
 @crv_len = internal unnamed_addr global i64 0, align 8
@@ -4687,7 +4686,7 @@ define internal range(i32 0, 2) i32 @x9_62_tests(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8, !tbaa !12
   %13 = sext i32 %0 to i64
-  %14 = getelementptr inbounds %struct.ecdsa_cavs_kat_t, ptr @ecdsa_cavs_kats, i64 %13
+  %14 = getelementptr inbounds [56 x i8], ptr @ecdsa_cavs_kats, i64 %13
   %15 = load i32, ptr %14, align 8, !tbaa !18
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !20
@@ -4916,7 +4915,7 @@ define internal fastcc range(i32 0, 2) i32 @test_builtin(i32 noundef %0, i32 nou
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @curves, align 8, !tbaa !11
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.EC_builtin_curve, ptr %5, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8, !tbaa !27
   %9 = add i32 %8, -749
   %or.cond = icmp ult i32 %9, 2
@@ -5476,7 +5475,7 @@ define internal range(i32 0, 2) i32 @fbytes(ptr noundef %0, i64 noundef %1, ptr 
 11:                                               ; preds = %8
   %12 = load i32, ptr @fbytes.fbytes_counter, align 4, !tbaa !14
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr @numbers, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @numbers, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = call i32 @BN_hex2bn(ptr noundef nonnull %5, ptr noundef %15) #5
   %17 = icmp ne i32 %16, 0

@@ -171,7 +171,7 @@ define hidden noundef ptr @epl_eds_load(ptr noundef %0, ptr noundef %1) local_un
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 88, i1 false)
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
-  %34 = getelementptr i16, ptr %24, i64 %33
+  %34 = getelementptr [2 x i8], ptr %24, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = and i16 %35, 1024
   %.not50 = icmp eq i16 %36, 0
@@ -389,7 +389,7 @@ define internal fastcc zeroext i16 @epl_g_key_file_get_uint16(ptr noundef %0, pt
   %.0.i = phi ptr [ %16, %10 ], [ %6, %.preheader.i ]
   %11 = load i8, ptr %.0.i, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr i16, ptr %9, i64 %12
+  %13 = getelementptr [2 x i8], ptr %9, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 1024
   %.not6.i = icmp eq i16 %15, 0
@@ -844,7 +844,7 @@ define internal range(i32 -1, 1) i32 @populate_datatype_list(ptr noundef readonl
   %.04669 = phi i32 [ 0, %.lr.ph71 ], [ %54, %._crit_edge68 ]
   %11 = load ptr, ptr %5, align 8
   %12 = zext nneg i32 %.04669 to i64
-  %13 = getelementptr ptr, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %.critedge59, label %15
@@ -973,7 +973,7 @@ define internal noundef i32 @populate_object_list(ptr noundef readonly captures(
 14:                                               ; preds = %.lr.ph44, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next, %72 ]
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 88, i1 false)

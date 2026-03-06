@@ -47,7 +47,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9Tok
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -344,7 +344,7 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIA3_cTnPNSt9ena
 
 switch.lookup:                                    ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIA3_cTnPNSt9enable_ifIXntsr3std10is_base_ofISt9exceptionT_EE5valueEvE4typeELPv0EEERS5_RKSA_.exit
   %13 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9TokenTypeE.exit
 
@@ -490,7 +490,7 @@ _ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIA3_cTnPNSt9ena
 
 switch.lookup64:                                  ; preds = %_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEElsIA3_cTnPNSt9enable_ifIXntsr3std10is_base_ofISt9exceptionT_EE5valueEvE4typeELPv0EEERS5_RKSA_.exit27
   %77 = zext nneg i32 %75 to i64
-  %switch.gep65 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 %77
+  %switch.gep65 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6Assimp3FBX4Util12GetTokenTextB5cxx11EPKNS0_5TokenE.1, i64 %77
   %switch.load66 = load ptr, ptr %switch.gep65, align 8
   br label %_ZN6Assimp3FBX4Util15TokenTypeStringENS0_9TokenTypeE.exit29
 

@@ -10,7 +10,7 @@ define ptr @l_Array_getLit___rarg(ptr noundef readonly captures(none) %0, ptr no
   %5 = ptrtoint ptr %1 to i64
   %6 = lshr i64 %5, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -67,7 +67,7 @@ define ptr @l_Array_getLit___rarg___boxed(ptr noundef %0, ptr noundef %1, ptr re
   %5 = ptrtoint ptr %1 to i64
   %6 = lshr i64 %5, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -239,7 +239,7 @@ lean_dec.exit22:                                  ; preds = %14, %12, %23, %22, 
   %.1.i28 = phi ptr [ %17, %23 ], [ %17, %20 ], [ %17, %22 ], [ inttoptr (i64 1 to ptr), %12 ], [ %16, %14 ]
   %24 = ptrtoint ptr %.1.i28 to i64
   %25 = lshr i64 %24, 1
-  %26 = getelementptr inbounds nuw ptr, ptr %7, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !4
   %28 = ptrtoint ptr %27 to i64
   %29 = trunc i64 %28 to i1

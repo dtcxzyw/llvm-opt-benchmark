@@ -335,7 +335,7 @@ define internal i32 @dissect_smb_logon(ptr noundef %0, ptr noundef %1, ptr nound
 
 21:                                               ; preds = %17
   %22 = zext nneg i8 %8 to i64
-  %23 = getelementptr ptr, ptr @dissect_smb_logon_cmds, i64 %22
+  %23 = getelementptr [8 x i8], ptr @dissect_smb_logon_cmds, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %24(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef 2)
   br label %30

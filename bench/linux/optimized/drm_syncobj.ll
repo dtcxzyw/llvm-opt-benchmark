@@ -2197,7 +2197,7 @@ define dso_local i32 @drm_syncobj_wait_ioctl(ptr noundef readonly captures(none)
 
 69:                                               ; preds = %.thread, %67
   %70 = phi i64 [ 0, %67 ], [ %79, %.thread ]
-  %71 = getelementptr ptr, ptr %64, i64 %70
+  %71 = getelementptr [8 x i8], ptr %64, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %72, i32 -1, ptr elementtype(i32) %72) #12, !srcloc !15
   %74 = icmp eq i32 %73, 1
@@ -2268,7 +2268,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @drm_syncobj_array_find(ptr
 
 22:                                               ; preds = %38, %19
   %23 = phi i64 [ 0, %19 ], [ %40, %38 ]
-  %24 = getelementptr i32, ptr %7, i64 %23
+  %24 = getelementptr [4 x i8], ptr %7, i64 %23
   %25 = load i32, ptr %24, align 4
   tail call void @_raw_spin_lock(ptr noundef nonnull %20) #12
   %26 = zext i32 %25 to i64
@@ -2294,7 +2294,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @drm_syncobj_array_find(ptr
 
 38:                                               ; preds = %36, %32
   tail call void @_raw_spin_unlock(ptr noundef nonnull %20) #12
-  %39 = getelementptr ptr, ptr %17, i64 %23
+  %39 = getelementptr [8 x i8], ptr %17, i64 %23
   store ptr %27, ptr %39, align 8
   %40 = add nuw nsw i64 %23, 1
   %41 = icmp eq i64 %40, %5
@@ -2307,7 +2307,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @drm_syncobj_array_find(ptr
 
 43:                                               ; preds = %22
   tail call void @_raw_spin_unlock(ptr noundef nonnull %20) #12
-  %44 = getelementptr ptr, ptr %17, i64 %23
+  %44 = getelementptr [8 x i8], ptr %17, i64 %23
   store ptr null, ptr %44, align 8
   %45 = and i64 %23, 4294967295
   %46 = icmp eq i64 %45, 0
@@ -2316,7 +2316,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @drm_syncobj_array_find(ptr
 .preheader:                                       ; preds = %43, %.thread
   %47 = phi i64 [ %48, %.thread ], [ %45, %43 ]
   %48 = add nsw i64 %47, -1
-  %49 = getelementptr ptr, ptr %17, i64 %48
+  %49 = getelementptr [8 x i8], ptr %17, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %50, i32 -1, ptr elementtype(i32) %50) #12, !srcloc !15
   %52 = icmp eq i32 %51, 1
@@ -2460,7 +2460,7 @@ define dso_local i32 @drm_syncobj_timeline_wait_ioctl(ptr noundef readonly captu
 
 70:                                               ; preds = %.thread, %68
   %71 = phi i64 [ 0, %68 ], [ %80, %.thread ]
-  %72 = getelementptr ptr, ptr %38, i64 %71
+  %72 = getelementptr [8 x i8], ptr %38, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %73, i32 -1, ptr elementtype(i32) %73) #12, !srcloc !15
   %75 = icmp eq i32 %74, 1
@@ -2663,7 +2663,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_reset_ioctl(ptr noun
 
 .preheader:                                       ; preds = %27, %.preheader
   %31 = phi i64 [ %34, %.preheader ], [ 0, %27 ]
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   tail call void @drm_syncobj_replace_fence(ptr noundef %33, ptr noundef null)
   %34 = add nuw nsw i64 %31, 1
@@ -2678,7 +2678,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_reset_ioctl(ptr noun
 
 .preheader12:                                     ; preds = %38, %.thread6
   %40 = phi i64 [ %49, %.thread6 ], [ 0, %38 ]
-  %41 = getelementptr ptr, ptr %30, i64 %40
+  %41 = getelementptr [8 x i8], ptr %30, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %42, i32 -1, ptr elementtype(i32) %42) #12, !srcloc !15
   %44 = icmp eq i32 %43, 1
@@ -2762,7 +2762,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_signal_ioctl(ptr nou
 
 .preheader:                                       ; preds = %27, %.thread
   %35 = phi i64 [ %31, %.thread ], [ 0, %27 ]
-  %36 = getelementptr ptr, ptr %30, i64 %35
+  %36 = getelementptr [8 x i8], ptr %30, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i64 @ktime_get() #12
   %39 = tail call ptr @dma_fence_allocate_private_stub(i64 noundef %38) #12
@@ -2805,7 +2805,7 @@ thread-pre-split:                                 ; preds = %.preheader
 
 54:                                               ; preds = %.thread12, %52
   %55 = phi i64 [ 0, %52 ], [ %64, %.thread12 ]
-  %56 = getelementptr ptr, ptr %30, i64 %55
+  %56 = getelementptr [8 x i8], ptr %30, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %57, i32 -1, ptr elementtype(i32) %57) #12, !srcloc !15
   %59 = icmp eq i32 %58, 1
@@ -2943,7 +2943,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_timeline_signal_ioct
   %60 = phi i64 [ %73, %72 ], [ 0, %53 ]
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 56), align 8
   %62 = tail call noalias noundef align 8 dereferenceable_or_null(128) ptr @kmalloc_trace(ptr noundef %61, i32 noundef 3264, i64 noundef 128) #14
-  %63 = getelementptr ptr, ptr %51, i64 %60
+  %63 = getelementptr [8 x i8], ptr %51, i64 %60
   store ptr %62, ptr %63, align 8
   %64 = icmp eq ptr %62, null
   br i1 %64, label %65, label %72
@@ -2954,7 +2954,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_timeline_signal_ioct
 
 .preheader45:                                     ; preds = %65, %.preheader45
   %67 = phi i64 [ %70, %.preheader45 ], [ 0, %65 ]
-  %68 = getelementptr ptr, ptr %51, i64 %67
+  %68 = getelementptr [8 x i8], ptr %51, i64 %67
   %69 = load ptr, ptr %68, align 8
   tail call void @kfree(ptr noundef %69) #12
   %70 = add nuw nsw i64 %67, 1
@@ -2971,11 +2971,11 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_timeline_signal_ioct
 77:                                               ; preds = %.thread13, %58
   %78 = phi i64 [ 0, %58 ], [ %95, %.thread13 ]
   %79 = tail call ptr @dma_fence_get_stub() #12
-  %80 = getelementptr ptr, ptr %59, i64 %78
+  %80 = getelementptr [8 x i8], ptr %59, i64 %78
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr ptr, ptr %51, i64 %78
+  %82 = getelementptr [8 x i8], ptr %51, i64 %78
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr i64, ptr %31, i64 %78
+  %84 = getelementptr [8 x i8], ptr %31, i64 %78
   %85 = load i64, ptr %84, align 8
   tail call void @drm_syncobj_add_point(ptr noundef %81, ptr noundef %83, ptr noundef %79, i64 noundef %85)
   %86 = icmp eq ptr %79, null
@@ -3030,7 +3030,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_timeline_signal_ioct
 
 109:                                              ; preds = %.thread15, %107
   %110 = phi i64 [ 0, %107 ], [ %119, %.thread15 ]
-  %111 = getelementptr ptr, ptr %104, i64 %110
+  %111 = getelementptr [8 x i8], ptr %104, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %112, i32 -1, ptr elementtype(i32) %112) #12, !srcloc !15
   %114 = icmp eq i32 %113, 1
@@ -3124,7 +3124,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_query_ioctl(ptr noun
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !24
   %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr ptr, ptr %41, i64 %40
+  %42 = getelementptr [8 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
   %44 = call fastcc ptr @drm_syncobj_fence_get(ptr noundef %43)
   %45 = icmp eq ptr %44, null
@@ -3341,7 +3341,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_syncobj_query_ioctl(ptr noun
   br label %.thread26
 
 .thread26:                                        ; preds = %148, %150, %151, %.thread24
-  %152 = getelementptr i64, ptr %8, i64 %40
+  %152 = getelementptr [8 x i8], ptr %8, i64 %40
   %153 = call i64 @_copy_to_user(ptr noundef %152, ptr noundef nonnull %5, i64 noundef 8) #12
   %154 = and i64 %153, 4294967295
   %155 = icmp eq i64 %154, 0
@@ -3365,7 +3365,7 @@ thread-pre-split:                                 ; preds = %.thread26
 
 162:                                              ; preds = %.thread29, %160
   %163 = phi i64 [ 0, %160 ], [ %172, %.thread29 ]
-  %164 = getelementptr ptr, ptr %158, i64 %163
+  %164 = getelementptr [8 x i8], ptr %158, i64 %163
   %165 = load ptr, ptr %164, align 8
   %166 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %165, i32 -1, ptr elementtype(i32) %165) #12, !srcloc !15
   %167 = icmp eq i32 %166, 1
@@ -3543,14 +3543,14 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
   %38 = phi i32 [ 0, %29 ], [ %92, %91 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !annotation !24
-  %39 = getelementptr %struct.syncobj_wait_entry, ptr %25, i64 %37
+  %39 = getelementptr [64 x i8], ptr %25, i64 %37
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %31, ptr %40, align 8
-  %41 = getelementptr i64, ptr %12, i64 %37
+  %41 = getelementptr [8 x i8], ptr %12, i64 %37
   %42 = load i64, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 56
   store i64 %42, ptr %43, align 8
-  %44 = getelementptr ptr, ptr %0, i64 %37
+  %44 = getelementptr [8 x i8], ptr %0, i64 %37
   %45 = load ptr, ptr %44, align 8
   %46 = call fastcc ptr @drm_syncobj_fence_get(ptr noundef %45)
   store ptr %46, ptr %8, align 8
@@ -3672,9 +3672,9 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
 
 .preheader32:                                     ; preds = %102, %.preheader32
   %106 = phi i64 [ %110, %.preheader32 ], [ 0, %102 ]
-  %107 = getelementptr ptr, ptr %0, i64 %106
+  %107 = getelementptr [8 x i8], ptr %0, i64 %106
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr %struct.syncobj_wait_entry, ptr %25, i64 %106
+  %109 = getelementptr [64 x i8], ptr %25, i64 %106
   call fastcc void @drm_syncobj_fence_add_wait(ptr noundef %108, ptr noundef %109)
   %110 = add nuw nsw i64 %106, 1
   %111 = icmp eq i64 %110, %10
@@ -3687,7 +3687,7 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
 
 .preheader30:                                     ; preds = %.loopexit33, %120
   %114 = phi i64 [ %121, %120 ], [ 0, %.loopexit33 ]
-  %.split = getelementptr %struct.syncobj_wait_entry, ptr %25, i64 %114
+  %.split = getelementptr [64 x i8], ptr %25, i64 %114
   %115 = getelementptr i8, ptr %.split, i64 24
   %116 = load ptr, ptr %115, align 8
   %117 = icmp eq ptr %116, null
@@ -3723,7 +3723,7 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
 .preheader27.split.us:                            ; preds = %.preheader27, %163
   %131 = phi i64 [ %165, %163 ], [ 0, %.preheader27 ]
   %132 = phi i32 [ %164, %163 ], [ 0, %.preheader27 ]
-  %133 = getelementptr %struct.syncobj_wait_entry, ptr %25, i64 %131
+  %133 = getelementptr [64 x i8], ptr %25, i64 %131
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %135 = load ptr, ptr %134, align 8
   %136 = icmp eq ptr %135, null
@@ -3782,7 +3782,7 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
 
 .preheader27.split.split.us:                      ; preds = %.preheader27.split, %172
   %167 = phi i64 [ %173, %172 ], [ 0, %.preheader27.split ]
-  %168 = getelementptr %struct.syncobj_wait_entry, ptr %25, i64 %167
+  %168 = getelementptr [64 x i8], ptr %25, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 24
   %170 = load ptr, ptr %169, align 8
   %171 = icmp eq ptr %170, null
@@ -3796,7 +3796,7 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
 .preheader27.split.split:                         ; preds = %.preheader27.split, %.preheader27.split.split
   %175 = phi i64 [ %182, %.preheader27.split.split ], [ 0, %.preheader27.split ]
   %176 = phi i32 [ %spec.select, %.preheader27.split.split ], [ 0, %.preheader27.split ]
-  %177 = getelementptr %struct.syncobj_wait_entry, ptr %25, i64 %175
+  %177 = getelementptr [64 x i8], ptr %25, i64 %175
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 24
   %179 = load ptr, ptr %178, align 8
   %180 = icmp ne ptr %179, null
@@ -3852,13 +3852,13 @@ define internal fastcc i64 @drm_syncobj_array_wait_timeout(ptr noundef readonly 
 
 .preheader:                                       ; preds = %.loopexit34, %.thread26
   %202 = phi i64 [ %235, %.thread26 ], [ 0, %.loopexit34 ]
-  %203 = getelementptr %struct.syncobj_wait_entry, ptr %25, i64 %202
+  %203 = getelementptr [64 x i8], ptr %25, i64 %202
   %204 = load ptr, ptr %203, align 8
   %205 = icmp eq ptr %204, null
   br i1 %205, label %214, label %206
 
 206:                                              ; preds = %.preheader
-  %207 = getelementptr ptr, ptr %0, i64 %202
+  %207 = getelementptr [8 x i8], ptr %0, i64 %202
   %208 = load ptr, ptr %207, align 8
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 48
   call void @_raw_spin_lock(ptr noundef nonnull %209) #12

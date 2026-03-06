@@ -15,8 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.AddDerivedOop = type { %class.DerivedOopClosure }
 %class.IgnoreDerivedOop = type { %class.DerivedOopClosure, ptr }
 %class.OopMapDo = type { ptr, ptr }
-%class.ImmutableOopMapPair = type { i32, i32 }
-%"class.ImmutableOopMapBuilder::Mapping" = type { i32, i32, i32, ptr, ptr }
 %class.ImmutableOopMapBuilder = type { ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr }
 
 $_ZN11OopMapValue9read_fromEP20CompressedReadStream = comdat any
@@ -290,7 +288,7 @@ _ZN20CompressedReadStream8read_intEv.exit13:      ; preds = %35, %.preheader.i.i
   %storemerge.i.i12 = add nsw i32 %storemerge.in.i.i10, 1
   store i32 %storemerge.i.i12, ptr %4, align 4
   %65 = sext i32 %.0.i.i11 to i64
-  %66 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %65
+  %66 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %65
   %67 = ptrtoint ptr %66 to i64
   %68 = trunc i64 %67 to i16
   %69 = sub i16 %68, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -465,7 +463,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i:    ; preds = %.loopexit.loopexit.
   %.0.i.i11.i = phi i32 [ %62, %57 ], [ %71, %.preheader.i.i3.i ], [ %81, %.loopexit.loopexit.i.i9.i ]
   %storemerge.i.i12.i = add nsw i32 %storemerge.in.i.i10.i, 1
   %85 = sext i32 %.0.i.i11.i to i64
-  %86 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %85
+  %86 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %85
   %87 = ptrtoint ptr %86 to i64
   %88 = trunc i64 %87 to i16
   %89 = sub i16 %88, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -590,7 +588,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i27:  ; preds = %.loopexit.loopexit.
   %.0.i.i11.i29 = phi i32 [ %130, %125 ], [ %139, %.preheader.i.i3.i20 ], [ %149, %.loopexit.loopexit.i.i9.i26 ]
   %storemerge.i.i12.i30 = add nsw i32 %storemerge.in.i.i10.i28, 1
   %153 = sext i32 %.0.i.i11.i29 to i64
-  %154 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %153
+  %154 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %153
   %155 = ptrtoint ptr %154 to i64
   %156 = trunc i64 %155 to i16
   %157 = sub i16 %156, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -702,7 +700,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %44 = load i16, ptr %43, align 2
   %45 = sext i16 %44 to i64
-  %46 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %45
+  %46 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %45
   %47 = ptrtoint ptr %46 to i64
   %48 = trunc i64 %47 to i32
   %49 = sub i32 %48, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
@@ -940,7 +938,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i112: ; preds = %.loopexit.loopexit.
   %.0.i.i11.i114 = phi i32 [ %47, %42 ], [ %56, %.preheader.i.i3.i105 ], [ %66, %.loopexit.loopexit.i.i9.i111 ]
   %storemerge.i.i12.i115 = add nsw i32 %storemerge.in.i.i10.i113, 1
   %70 = sext i32 %.0.i.i11.i114 to i64
-  %71 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %70
+  %71 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %70
   %72 = ptrtoint ptr %71 to i64
   %73 = trunc i64 %72 to i16
   %74 = sub i16 %73, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -963,7 +961,7 @@ _ZN10OopMapSort6insertE11OopMapValuei.exit:       ; preds = %_ZN12OopMapStream7i
   %77 = load i32, ptr %7, align 8
   %.pre.i18 = sext i32 %77 to i64
   %78 = load ptr, ptr %8, align 8
-  %79 = getelementptr inbounds %class.OopMapValue, ptr %78, i64 %.pre.i18
+  %79 = getelementptr inbounds [4 x i8], ptr %78, i64 %.pre.i18
   store i32 %.sroa.26292.26.insert.insert, ptr %79, align 2
   %80 = load i32, ptr %7, align 8
   %81 = add nsw i32 %80, 1
@@ -1075,7 +1073,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i136: ; preds = %.loopexit.loopexit.
   %.0.i.i11.i138 = phi i32 [ %120, %115 ], [ %129, %.preheader.i.i3.i129 ], [ %139, %.loopexit.loopexit.i.i9.i135 ]
   %storemerge.i.i12.i139 = add nsw i32 %storemerge.in.i.i10.i137, 1
   %143 = sext i32 %.0.i.i11.i138 to i64
-  %144 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %143
+  %144 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %143
   %145 = ptrtoint ptr %144 to i64
   %146 = trunc i64 %145 to i16
   %147 = sub i16 %146, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -1213,7 +1211,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i160: ; preds = %.loopexit.loopexit.
   %.0.i.i11.i162 = phi i32 [ %197, %192 ], [ %206, %.preheader.i.i3.i153 ], [ %216, %.loopexit.loopexit.i.i9.i159 ]
   %storemerge.i.i12.i163 = add nsw i32 %storemerge.in.i.i10.i161, 1
   %220 = sext i32 %.0.i.i11.i162 to i64
-  %221 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %220
+  %221 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %220
   %222 = ptrtoint ptr %221 to i64
   %223 = trunc i64 %222 to i16
   %224 = sub i16 %223, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -1254,7 +1252,7 @@ _ZN12OopMapStream7is_doneEv.exit27.thread:        ; preds = %_ZN20CompressedRead
 
 239:                                              ; preds = %253, %.lr.ph.i29
   %indvars.iv.i30 = phi i64 [ %157, %.lr.ph.i29 ], [ %indvars.iv.next.i31, %253 ]
-  %240 = getelementptr inbounds %class.OopMapValue, ptr %228, i64 %indvars.iv.i30
+  %240 = getelementptr inbounds [4 x i8], ptr %228, i64 %indvars.iv.i30
   %.sroa.01.0.copyload.i = load i32, ptr %240, align 2
   %241 = lshr i32 %.sroa.01.0.copyload.i, 2
   %242 = and i32 %241, 16383
@@ -1295,7 +1293,7 @@ _ZN10OopMapSort13find_positionE11OopMapValuei.exit: ; preds = %226, %._crit_edge
 .lr.ph.preheader.i35:                             ; preds = %_ZN10OopMapSort13find_positionE11OopMapValuei.exit
   %256 = sext i32 %.09.lcssa.i to i64
   %257 = load ptr, ptr %8, align 8
-  %258 = getelementptr inbounds %class.OopMapValue, ptr %257, i64 %256
+  %258 = getelementptr inbounds [4 x i8], ptr %257, i64 %256
   %259 = load i32, ptr %258, align 2
   br label %.lr.ph.i36
 
@@ -1304,7 +1302,7 @@ _ZN10OopMapSort13find_positionE11OopMapValuei.exit: ; preds = %226, %._crit_edge
   %storemerge9.i38 = phi i32 [ %259, %.lr.ph.preheader.i35 ], [ %262, %.lr.ph.i36 ]
   %260 = load ptr, ptr %8, align 8
   %indvars.iv.next.i39 = add nsw i64 %indvars.iv.i37, 1
-  %261 = getelementptr inbounds %class.OopMapValue, ptr %260, i64 %indvars.iv.next.i39
+  %261 = getelementptr inbounds [4 x i8], ptr %260, i64 %indvars.iv.next.i39
   %262 = load i32, ptr %261, align 2
   store i32 %storemerge9.i38, ptr %261, align 2
   %263 = load i32, ptr %7, align 8
@@ -1315,7 +1313,7 @@ _ZN10OopMapSort13find_positionE11OopMapValuei.exit: ; preds = %226, %._crit_edge
 _ZN10OopMapSort6insertE11OopMapValuei.exit40:     ; preds = %.lr.ph.i36, %..loopexit_crit_edge12.i32
   %.pre-phi.i34 = phi i64 [ %.pre.i33, %..loopexit_crit_edge12.i32 ], [ %256, %.lr.ph.i36 ]
   %266 = load ptr, ptr %8, align 8
-  %267 = getelementptr inbounds %class.OopMapValue, ptr %266, i64 %.pre-phi.i34
+  %267 = getelementptr inbounds [4 x i8], ptr %266, i64 %.pre-phi.i34
   store i32 %.sroa.0253.0.insert.insert257, ptr %267, align 2
   %268 = load i32, ptr %7, align 8
   %269 = add nsw i32 %268, 1
@@ -1428,7 +1426,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i184: ; preds = %.loopexit.loopexit.
   %.0.i.i11.i186 = phi i32 [ %309, %304 ], [ %318, %.preheader.i.i3.i177 ], [ %328, %.loopexit.loopexit.i.i9.i183 ]
   %storemerge.i.i12.i187 = add nsw i32 %storemerge.in.i.i10.i185, 1
   %332 = sext i32 %.0.i.i11.i186 to i64
-  %333 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %332
+  %333 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %332
   %334 = ptrtoint ptr %333 to i64
   %335 = trunc i64 %334 to i16
   %336 = sub i16 %335, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -1563,7 +1561,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i208: ; preds = %.loopexit.loopexit.
   %.0.i.i11.i210 = phi i32 [ %383, %378 ], [ %392, %.preheader.i.i3.i201 ], [ %402, %.loopexit.loopexit.i.i9.i207 ]
   %storemerge.i.i12.i211 = add nsw i32 %storemerge.in.i.i10.i209, 1
   %406 = sext i32 %.0.i.i11.i210 to i64
-  %407 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %406
+  %407 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %406
   %408 = ptrtoint ptr %407 to i64
   %409 = trunc i64 %408 to i16
   %410 = sub i16 %409, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -1592,7 +1590,7 @@ _ZN12OopMapStream7is_doneEv.exit48.thread:        ; preds = %_ZN20CompressedRead
 
 416:                                              ; preds = %451, %.lr.ph.i50
   %indvars.iv.i51 = phi i64 [ %157, %.lr.ph.i50 ], [ %indvars.iv.next.i52, %451 ]
-  %417 = getelementptr inbounds %class.OopMapValue, ptr %415, i64 %indvars.iv.i51
+  %417 = getelementptr inbounds [4 x i8], ptr %415, i64 %indvars.iv.i51
   %418 = load i16, ptr %417, align 2
   %.fr30.i = freeze i16 %418
   %419 = lshr i16 %.fr30.i, 2
@@ -1600,7 +1598,7 @@ _ZN12OopMapStream7is_doneEv.exit48.thread:        ; preds = %_ZN20CompressedRead
   br i1 %420, label %.preheader.i, label %451
 
 .preheader.i:                                     ; preds = %416
-  %421 = getelementptr inbounds %class.OopMapValue, ptr %415, i64 %indvars.iv.i51
+  %421 = getelementptr inbounds [4 x i8], ptr %415, i64 %indvars.iv.i51
   %422 = trunc nsw i64 %indvars.iv.i51 to i32
   %423 = and i16 %.fr30.i, 3
   %424 = getelementptr inbounds nuw i8, ptr %421, i64 2
@@ -1672,7 +1670,7 @@ _ZN10OopMapSort21find_derived_positionE11OopMapValuei.exit: ; preds = %451, %436
 .lr.ph.preheader.i58:                             ; preds = %_ZN10OopMapSort21find_derived_positionE11OopMapValuei.exit
   %453 = sext i32 %.0.i to i64
   %454 = load ptr, ptr %8, align 8
-  %455 = getelementptr inbounds %class.OopMapValue, ptr %454, i64 %453
+  %455 = getelementptr inbounds [4 x i8], ptr %454, i64 %453
   %456 = load i32, ptr %455, align 2
   br label %.lr.ph.i59
 
@@ -1681,7 +1679,7 @@ _ZN10OopMapSort21find_derived_positionE11OopMapValuei.exit: ; preds = %451, %436
   %storemerge9.i61 = phi i32 [ %456, %.lr.ph.preheader.i58 ], [ %459, %.lr.ph.i59 ]
   %457 = load ptr, ptr %8, align 8
   %indvars.iv.next.i62 = add nsw i64 %indvars.iv.i60, 1
-  %458 = getelementptr inbounds %class.OopMapValue, ptr %457, i64 %indvars.iv.next.i62
+  %458 = getelementptr inbounds [4 x i8], ptr %457, i64 %indvars.iv.next.i62
   %459 = load i32, ptr %458, align 2
   store i32 %storemerge9.i61, ptr %458, align 2
   %460 = load i32, ptr %7, align 8
@@ -1692,7 +1690,7 @@ _ZN10OopMapSort21find_derived_positionE11OopMapValuei.exit: ; preds = %451, %436
 _ZN10OopMapSort6insertE11OopMapValuei.exit63:     ; preds = %.lr.ph.i59, %..loopexit_crit_edge12.i55
   %.pre-phi.i57 = phi i64 [ %.pre.i56, %..loopexit_crit_edge12.i55 ], [ %453, %.lr.ph.i59 ]
   %463 = load ptr, ptr %8, align 8
-  %464 = getelementptr inbounds %class.OopMapValue, ptr %463, i64 %.pre-phi.i57
+  %464 = getelementptr inbounds [4 x i8], ptr %463, i64 %.pre-phi.i57
   store i32 %.sroa.0.0.insert.insert239, ptr %464, align 2
   %465 = load i32, ptr %7, align 8
   %466 = add nsw i32 %465, 1
@@ -1805,7 +1803,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i232: ; preds = %.loopexit.loopexit.
   %.0.i.i11.i234 = phi i32 [ %506, %501 ], [ %515, %.preheader.i.i3.i225 ], [ %525, %.loopexit.loopexit.i.i9.i231 ]
   %storemerge.i.i12.i235 = add nsw i32 %storemerge.in.i.i10.i233, 1
   %529 = sext i32 %.0.i.i11.i234 to i64
-  %530 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %529
+  %530 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %529
   %531 = ptrtoint ptr %530 to i64
   %532 = trunc i64 %531 to i16
   %533 = sub i16 %532, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -1836,7 +1834,7 @@ define hidden void @_ZN10OopMapSort5printEv(ptr noundef nonnull readonly align 8
 7:                                                ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %class.OopMapValue, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 2
   %.sroa.0.0.extract.trunc = trunc i32 %10 to i16
   %11 = and i32 %10, 3
@@ -1888,7 +1886,7 @@ define hidden void @_ZN10OopMapSort5printEv(ptr noundef nonnull readonly align 8
   %39 = load ptr, ptr @tty, align 8
   %40 = lshr i16 %.sroa.0.0.extract.trunc, 2
   %41 = zext nneg i16 %40 to i64
-  %42 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %41
   %43 = ptrtoint ptr %42 to i64
   %44 = trunc i64 %43 to i32
   %45 = sub i32 %44, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)
@@ -1971,7 +1969,7 @@ define hidden void @_ZNK6OopMap21copy_and_sort_data_toEPh(ptr noundef nonnull al
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %20 = getelementptr inbounds nuw %class.OopMapValue, ptr %18, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i
   tail call void @_ZN11OopMapValue8write_onEP21CompressedWriteStream(ptr noundef nonnull align 2 dereferenceable(4) %20, ptr noundef nonnull %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %19
@@ -2220,7 +2218,7 @@ _ZN9OopMapSet3addEP6OopMap.exit:                  ; preds = %3, %8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %16 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   store ptr %2, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %16, ptr %22, align 4
@@ -2476,7 +2474,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
 61:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
   %62 = lshr i16 %.sroa.26.247, 2
   %63 = zext nneg i16 %62 to i64
-  %64 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %63
   %65 = load ptr, ptr %2, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
@@ -2703,7 +2701,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
 60:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
   %61 = lshr i16 %.sroa.26.246, 2
   %62 = zext nneg i16 %61 to i64
-  %63 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %62
   %64 = load ptr, ptr %3, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
@@ -2937,7 +2935,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i.i:  ; preds = %.loopexit.loopexit.
   %.0.i.i11.i.i = phi i32 [ %50, %45 ], [ %59, %.preheader.i.i3.i.i ], [ %69, %.loopexit.loopexit.i.i9.i.i ]
   %storemerge.i.i12.i.i = add nsw i32 %storemerge.in.i.i10.i.i, 1
   %73 = sext i32 %.0.i.i11.i.i to i64
-  %74 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %73
+  %74 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %73
   %75 = ptrtoint ptr %74 to i64
   %76 = trunc i64 %75 to i16
   %77 = sub i16 %76, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -2954,7 +2952,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread.i:        ; preds = %_ZN20CompressedRead
 
 80:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread.i
   %81 = sext i16 %.sroa.30.251.i to i64
-  %82 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %81
+  %82 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %81
   %83 = lshr i16 %.sroa.26.250.i, 2
   %84 = zext nneg i16 %83 to i64
   %85 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %84
@@ -2969,7 +2967,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread.i:        ; preds = %_ZN20CompressedRead
 91:                                               ; preds = %80
   %92 = sdiv i32 %88, 64
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i64, ptr %11, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %11, i64 %93
   %95 = load i64, ptr %94, align 8
   %96 = srem i32 %88, 64
   %97 = zext nneg i32 %96 to i64
@@ -2980,7 +2978,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread.i:        ; preds = %_ZN20CompressedRead
 
 100:                                              ; preds = %91
   %101 = sext i32 %88 to i64
-  %102 = getelementptr inbounds ptr, ptr %2, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %2, i64 %101
   %103 = load ptr, ptr %102, align 8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit.i
 
@@ -3014,7 +3012,7 @@ _ZNK11RegisterMap7in_contEv.exit.i.i:             ; preds = %106
 118:                                              ; preds = %114
   %119 = load ptr, ptr %9, align 8
   %120 = zext nneg i32 %116 to i64
-  %121 = getelementptr inbounds nuw i64, ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %120
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i.i
 
 122:                                              ; preds = %114, %112
@@ -3048,13 +3046,13 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit.i: ; pre
   %137 = sub i32 %136, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %138 = sdiv i32 %137, 64
   %139 = sext i32 %137 to i64
-  %140 = getelementptr inbounds ptr, ptr %2, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr %2, i64 %139
   store ptr %.0.i.i, ptr %140, align 8
   %141 = srem i32 %137, 64
   %142 = zext nneg i32 %141 to i64
   %143 = shl nuw i64 1, %142
   %144 = sext i32 %138 to i64
-  %145 = getelementptr inbounds i64, ptr %11, i64 %144
+  %145 = getelementptr inbounds [8 x i8], ptr %11, i64 %144
   %146 = load i64, ptr %145, align 8
   %147 = or i64 %146, %143
   store i64 %147, ptr %145, align 8
@@ -3165,7 +3163,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i28.i: ; preds = %.loopexit.loopexit
   %.0.i.i11.i30.i = phi i32 [ %186, %181 ], [ %195, %.preheader.i.i3.i21.i ], [ %205, %.loopexit.loopexit.i.i9.i27.i ]
   %storemerge.i.i12.i31.i = add nsw i32 %storemerge.in.i.i10.i29.i, 1
   %209 = sext i32 %.0.i.i11.i30.i to i64
-  %210 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %209
+  %210 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %209
   %211 = ptrtoint ptr %210 to i64
   %212 = trunc i64 %211 to i16
   %213 = sub i16 %212, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -3205,7 +3203,7 @@ define hidden void @_ZNK11OopMapValue8print_onEP12outputStream(ptr noundef nonnu
   %3 = load i16, ptr %0, align 2
   %4 = lshr i16 %3, 2
   %5 = zext nneg i16 %4 to i64
-  %6 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %5
   tail call void @_ZNK9VMRegImpl8print_onEP12outputStream(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %1) #19
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11) #19
   %7 = load i16, ptr %0, align 2
@@ -3213,7 +3211,7 @@ define hidden void @_ZNK11OopMapValue8print_onEP12outputStream(ptr noundef nonnu
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %10 = load i16, ptr %9, align 2
   %11 = sext i16 %10 to i64
-  %12 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %11
+  %12 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %11
   switch i16 %8, label %default.unreachable5 [
     i16 0, label %13
     i16 1, label %14
@@ -3379,7 +3377,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i:    ; preds = %.loopexit.loopexit.
   %.0.i.i11.i = phi i32 [ %44, %39 ], [ %53, %.preheader.i.i3.i ], [ %63, %.loopexit.loopexit.i.i9.i ]
   %storemerge.i.i12.i = add nsw i32 %storemerge.in.i.i10.i, 1
   %67 = sext i32 %.0.i.i11.i to i64
-  %68 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %67
+  %68 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %67
   %69 = ptrtoint ptr %68 to i64
   %70 = trunc i64 %69 to i16
   %71 = sub i16 %70, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -3500,7 +3498,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i25:  ; preds = %.loopexit.loopexit.
   %.0.i.i11.i27 = phi i32 [ %109, %104 ], [ %118, %.preheader.i.i3.i18 ], [ %128, %.loopexit.loopexit.i.i9.i24 ]
   %storemerge.i.i12.i28 = add nsw i32 %storemerge.in.i.i10.i26, 1
   %132 = sext i32 %.0.i.i11.i27 to i64
-  %133 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %132
+  %133 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %132
   %134 = ptrtoint ptr %133 to i64
   %135 = trunc i64 %134 to i16
   %136 = sub i16 %135, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -3648,7 +3646,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i:    ; preds = %.loopexit.loopexit.
   %.0.i.i11.i = phi i32 [ %47, %42 ], [ %56, %.preheader.i.i3.i ], [ %66, %.loopexit.loopexit.i.i9.i ]
   %storemerge.i.i12.i = add nsw i32 %storemerge.in.i.i10.i, 1
   %70 = sext i32 %.0.i.i11.i to i64
-  %71 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %70
+  %71 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %70
   %72 = ptrtoint ptr %71 to i64
   %73 = trunc i64 %72 to i16
   %74 = sub i16 %73, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -3769,7 +3767,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i25:  ; preds = %.loopexit.loopexit.
   %.0.i.i11.i27 = phi i32 [ %112, %107 ], [ %121, %.preheader.i.i3.i18 ], [ %131, %.loopexit.loopexit.i.i9.i24 ]
   %storemerge.i.i12.i28 = add nsw i32 %storemerge.in.i.i10.i26, 1
   %135 = sext i32 %.0.i.i11.i27 to i64
-  %136 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %135
+  %136 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %135
   %137 = ptrtoint ptr %136 to i64
   %138 = trunc i64 %137 to i16
   %139 = sub i16 %138, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -3809,7 +3807,7 @@ define hidden void @_ZNK18ImmutableOopMapSet8print_onEP12outputStream(ptr nounde
 6:                                                ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.020 = phi ptr [ null, %.lr.ph ], [ %15, %17 ]
-  %7 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %0, align 4
@@ -3863,7 +3861,7 @@ define hidden void @_ZNK9OopMapSet8print_onEP12outputStream(ptr noundef nonnull 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.21, i32 noundef %10) #19
@@ -3894,7 +3892,7 @@ define hidden void @_ZNK9OopMapSet5printEv(ptr noundef nonnull readonly align 8 
 6:                                                ; preds = %6, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %10 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.21, i32 noundef %10) #19
@@ -3956,7 +3954,7 @@ define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZNK18ImmutableOop
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
-  %6 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %.not = icmp slt i32 %7, %1
   br i1 %.not, label %12, label %8
@@ -3995,7 +3993,7 @@ define hidden noundef nonnull ptr @_ZNK18ImmutableOopMapSet18find_map_at_offsetE
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %.not = icmp slt i32 %8, %1
   br i1 %.not, label %6, label %10
@@ -4007,7 +4005,7 @@ define hidden noundef nonnull ptr @_ZNK18ImmutableOopMapSet18find_map_at_offsetE
   unreachable
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = shl nuw nsw i64 %wide.trip.count, 3
@@ -4060,7 +4058,7 @@ define hidden void @_ZN15ImmutableOopMapC2EPK6OopMap(ptr noundef nonnull writeon
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %28 = getelementptr inbounds nuw %class.OopMapValue, ptr %26, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv.i.i
   tail call void @_ZN11OopMapValue8write_onEP21CompressedWriteStream(ptr noundef nonnull align 2 dereferenceable(4) %28, ptr noundef nonnull %19)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %27
@@ -4352,7 +4350,7 @@ define hidden noundef i32 @_ZN22ImmutableOopMapBuilder9heap_sizeEv(ptr noundef n
   %12 = phi ptr [ %2, %.lr.ph ], [ %87, %84 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
@@ -4366,7 +4364,7 @@ define hidden noundef i32 @_ZN22ImmutableOopMapBuilder9heap_sizeEv(ptr noundef n
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %10, align 8
   store i32 2, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -4390,7 +4388,7 @@ define hidden noundef i32 @_ZN22ImmutableOopMapBuilder9heap_sizeEv(ptr noundef n
   %36 = add i32 %35, 19
   %37 = and i32 %36, -8
   %38 = load ptr, ptr %6, align 8
-  %39 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %indvars.iv
   store i32 1, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %31, ptr %40, align 4
@@ -4437,7 +4435,7 @@ _ZNK6OopMap6equalsEPKS_.exit.i:                   ; preds = %50
 
 62:                                               ; preds = %_ZNK6OopMap6equalsEPKS_.exit.i
   %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %63, i64 %indvars.iv
   %65 = load i32, ptr %7, align 4
   store i32 3, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 4
@@ -4458,7 +4456,7 @@ _ZN22ImmutableOopMapBuilder17is_last_duplicateEPK6OopMap.exit: ; preds = %_ZNK6O
   %74 = add i32 %73, 19
   %75 = and i32 %74, -8
   %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %76, i64 %indvars.iv
   %78 = load i32, ptr %8, align 8
   store i32 1, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 4
@@ -4546,7 +4544,7 @@ define hidden void @_ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti(ptr 
   %10 = phi i32 [ %5, %.lr.ph ], [ %37, %36 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %12, align 8
@@ -4557,7 +4555,7 @@ define hidden void @_ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti(ptr 
   ]
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %4, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = load i32, ptr %14, align 8
@@ -4577,7 +4575,7 @@ define hidden void @_ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti(ptr 
   br label %36
 
 30:                                               ; preds = %9, %9
-  %31 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %4, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = load i32, ptr %14, align 8
@@ -4621,7 +4619,7 @@ define hidden noundef ptr @_ZN22ImmutableOopMapBuilder13generate_intoEPh(ptr nou
   %14 = phi i32 [ %10, %.lr.ph.i ], [ %41, %40 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %15, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %indvars.iv.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %16, align 8
@@ -4632,7 +4630,7 @@ define hidden noundef ptr @_ZN22ImmutableOopMapBuilder13generate_intoEPh(ptr nou
   ]
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %9, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %18, align 8
@@ -4652,7 +4650,7 @@ define hidden noundef ptr @_ZN22ImmutableOopMapBuilder13generate_intoEPh(ptr nou
   br label %40
 
 34:                                               ; preds = %13, %13
-  %35 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %9, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = load i32, ptr %18, align 8
@@ -4705,7 +4703,7 @@ define hidden noundef ptr @_ZN22ImmutableOopMapBuilder5buildEv(ptr noundef nonnu
   %16 = phi i32 [ %12, %.lr.ph.i.i ], [ %43, %42 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %42 ]
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds nuw %"class.ImmutableOopMapBuilder::Mapping", ptr %17, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %indvars.iv.i.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %18, align 8
@@ -4716,7 +4714,7 @@ define hidden noundef ptr @_ZN22ImmutableOopMapBuilder5buildEv(ptr noundef nonnu
   ]
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %11, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = load i32, ptr %20, align 8
@@ -4736,7 +4734,7 @@ define hidden noundef ptr @_ZN22ImmutableOopMapBuilder5buildEv(ptr noundef nonnu
   br label %42
 
 36:                                               ; preds = %15, %15
-  %37 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %11, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i
   %38 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = load i32, ptr %20, align 8
@@ -5061,9 +5059,9 @@ _ZN13GrowableArrayIP6OopMapE8allocateEv.exit:     ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5080,7 +5078,7 @@ _ZN13GrowableArrayIP6OopMapE8allocateEv.exit:     ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -5305,7 +5303,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i:    ; preds = %.loopexit.loopexit.
   %.0.i.i11.i = phi i32 [ %54, %49 ], [ %63, %.preheader.i.i3.i ], [ %73, %.loopexit.loopexit.i.i9.i ]
   %storemerge.i.i12.i = add nsw i32 %storemerge.in.i.i10.i, 1
   %77 = sext i32 %.0.i.i11.i to i64
-  %78 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %77
+  %78 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %77
   %79 = ptrtoint ptr %78 to i64
   %80 = trunc i64 %79 to i16
   %81 = sub i16 %80, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -5335,7 +5333,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
 92:                                               ; preds = %83
   %93 = sdiv i32 %89, 64
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds i64, ptr %15, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %15, i64 %94
   %96 = load i64, ptr %95, align 8
   %97 = srem i32 %89, 64
   %98 = zext nneg i32 %97 to i64
@@ -5346,7 +5344,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
 
 101:                                              ; preds = %92
   %102 = sext i32 %89 to i64
-  %103 = getelementptr inbounds ptr, ptr %2, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %2, i64 %102
   %104 = load ptr, ptr %103, align 8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit
 
@@ -5384,7 +5382,7 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %107
 
 119:                                              ; preds = %115
   %120 = zext nneg i32 %117 to i64
-  %121 = getelementptr inbounds nuw i64, ptr %.pre.i.i.pre245, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i.pre245, i64 %120
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i
 
 122:                                              ; preds = %._crit_edge, %115
@@ -5444,7 +5442,7 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit: ; preds
 149:                                              ; preds = %141
   %150 = sdiv i32 %146, 64
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds i64, ptr %15, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %15, i64 %151
   %153 = load i64, ptr %152, align 8
   %154 = srem i32 %146, 64
   %155 = zext nneg i32 %154 to i64
@@ -5455,7 +5453,7 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit: ; preds
 
 158:                                              ; preds = %149
   %159 = sext i32 %146 to i64
-  %160 = getelementptr inbounds ptr, ptr %2, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr %2, i64 %159
   %161 = load ptr, ptr %160, align 8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit48
 
@@ -5493,7 +5491,7 @@ _ZNK11RegisterMap7in_contEv.exit.i37:             ; preds = %164
 
 176:                                              ; preds = %172
   %177 = zext nneg i32 %174 to i64
-  %178 = getelementptr inbounds nuw i64, ptr %.pre.i.i41.pre248, i64 %177
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i41.pre248, i64 %177
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i42
 
 179:                                              ; preds = %._crit_edge247, %172
@@ -5651,7 +5649,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i94:  ; preds = %.loopexit.loopexit.
   %.0.i.i11.i96 = phi i32 [ %241, %236 ], [ %250, %.preheader.i.i3.i87 ], [ %260, %.loopexit.loopexit.i.i9.i93 ]
   %storemerge.i.i12.i97 = add nsw i32 %storemerge.in.i.i10.i95, 1
   %264 = sext i32 %.0.i.i11.i96 to i64
-  %265 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %264
+  %265 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %264
   %266 = ptrtoint ptr %265 to i64
   %267 = trunc i64 %266 to i16
   %268 = sub i16 %267, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i16)
@@ -5803,7 +5801,7 @@ _ZN12OopMapStream7is_doneEv.exit55.thread:        ; preds = %_ZN20CompressedRead
 340:                                              ; preds = %331
   %341 = sdiv i32 %337, 64
   %342 = sext i32 %341 to i64
-  %343 = getelementptr inbounds i64, ptr %278, i64 %342
+  %343 = getelementptr inbounds [8 x i8], ptr %278, i64 %342
   %344 = load i64, ptr %343, align 8
   %345 = srem i32 %337, 64
   %346 = zext nneg i32 %345 to i64
@@ -5814,7 +5812,7 @@ _ZN12OopMapStream7is_doneEv.exit55.thread:        ; preds = %_ZN20CompressedRead
 
 349:                                              ; preds = %340
   %350 = sext i32 %337 to i64
-  %351 = getelementptr inbounds ptr, ptr %2, i64 %350
+  %351 = getelementptr inbounds [8 x i8], ptr %2, i64 %350
   %352 = load ptr, ptr %351, align 8
   br label %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit69
 
@@ -5852,7 +5850,7 @@ _ZNK11RegisterMap7in_contEv.exit.i58:             ; preds = %355
 
 367:                                              ; preds = %363
   %368 = zext nneg i32 %365 to i64
-  %369 = getelementptr inbounds nuw i64, ptr %.pre.i.i62.pre251, i64 %368
+  %369 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i62.pre251, i64 %368
   br label %_ZNK17stackChunkOopDesc21relativize_usp_offsetERK5framei.exit.i63
 
 370:                                              ; preds = %._crit_edge250, %363

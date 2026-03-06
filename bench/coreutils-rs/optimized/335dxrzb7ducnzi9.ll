@@ -319,7 +319,7 @@ define hidden noundef ptr @_ZN3std2io5Write18write_all_vectored17hca2a0836ca91dd
   unreachable
 
 .lr.ph:                                           ; preds = %20
-  %23 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %1, i64 %.0.lcssa.i
+  %23 = getelementptr inbounds [16 x i8], ptr %1, i64 %.0.lcssa.i
   %24 = sub nuw i64 %2, %.0.lcssa.i
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -411,7 +411,7 @@ default.unreachable:                              ; preds = %32
 
 57:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c32b36c8b715ed4E.exit.thread.i14"
   %58 = sub nuw i64 %.sroa.8.040, %.0.lcssa.i16
-  %59 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %.sroa.0.041, i64 %.0.lcssa.i16
+  %59 = getelementptr inbounds [16 x i8], ptr %.sroa.0.041, i64 %.0.lcssa.i16
   %60 = icmp eq i64 %.sroa.8.040, %.0.lcssa.i16
   br i1 %60, label %.thread.i18, label %64
 

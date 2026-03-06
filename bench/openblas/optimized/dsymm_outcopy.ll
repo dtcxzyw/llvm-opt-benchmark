@@ -10,7 +10,7 @@ define noundef i32 @dsymm_outcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
   br i1 %9, label %.lr.ph87, label %._crit_edge88
 
 .lr.ph87:                                         ; preds = %7
-  %10 = getelementptr inbounds double, ptr %2, i64 %5
+  %10 = getelementptr inbounds [8 x i8], ptr %2, i64 %5
   %11 = mul nsw i64 %5, %3
   %12 = icmp sgt i64 %0, 0
   br i1 %12, label %.lr.ph.us, label %.lr.ph87.split.preheader
@@ -27,15 +27,15 @@ define noundef i32 @dsymm_outcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
   %15 = sub nsw i64 %.06985.us, %5
   %16 = icmp sgt i64 %15, 0
   %17 = mul nsw i64 %.06985.us, %3
-  %18 = getelementptr inbounds double, ptr %10, i64 %17
-  %19 = getelementptr inbounds double, ptr %2, i64 %.06985.us
-  %20 = getelementptr inbounds double, ptr %19, i64 %11
+  %18 = getelementptr inbounds [8 x i8], ptr %10, i64 %17
+  %19 = getelementptr inbounds [8 x i8], ptr %2, i64 %.06985.us
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %11
   %.066.us = select i1 %16, ptr %18, ptr %20
   %21 = add nsw i64 %.06985.us, 1
   %22 = mul nsw i64 %21, %3
-  %23 = getelementptr inbounds double, ptr %10, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %10, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %25 = getelementptr inbounds double, ptr %24, i64 %11
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %11
   %26 = icmp slt i64 %15, 0
   %.0.us = select i1 %26, ptr %25, ptr %23
   br label %27
@@ -50,10 +50,10 @@ define noundef i32 @dsymm_outcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
   %29 = load double, ptr %.182.us, align 8, !tbaa !3
   %30 = icmp sgt i64 %.07080.us, 0
   %31 = getelementptr inbounds nuw i8, ptr %.16781.us, i64 8
-  %32 = getelementptr inbounds double, ptr %.16781.us, i64 %3
+  %32 = getelementptr inbounds [8 x i8], ptr %.16781.us, i64 %3
   %.268.us = select i1 %30, ptr %31, ptr %32
   %33 = getelementptr inbounds nuw i8, ptr %.182.us, i64 8
-  %34 = getelementptr inbounds double, ptr %.182.us, i64 %3
+  %34 = getelementptr inbounds [8 x i8], ptr %.182.us, i64 %3
   %35 = icmp slt i64 %.07080.us, 0
   %.2.us = select i1 %35, ptr %34, ptr %33
   store double %28, ptr %.17678.us, align 8, !tbaa !3
@@ -82,12 +82,12 @@ define noundef i32 @dsymm_outcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
 .lr.ph.preheader:                                 ; preds = %._crit_edge88
   %45 = sub nsw i64 %.069.lcssa, %5
   %46 = icmp sgt i64 %45, 0
-  %47 = getelementptr inbounds double, ptr %2, i64 %5
+  %47 = getelementptr inbounds [8 x i8], ptr %2, i64 %5
   %48 = mul nsw i64 %.069.lcssa, %3
-  %49 = getelementptr inbounds double, ptr %47, i64 %48
-  %50 = getelementptr inbounds double, ptr %2, i64 %.069.lcssa
+  %49 = getelementptr inbounds [8 x i8], ptr %47, i64 %48
+  %50 = getelementptr inbounds [8 x i8], ptr %2, i64 %.069.lcssa
   %51 = mul nsw i64 %5, %3
-  %52 = getelementptr inbounds double, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   %.3 = select i1 %46, ptr %49, ptr %52
   br label %.lr.ph
 
@@ -99,7 +99,7 @@ define noundef i32 @dsymm_outcopy(i64 noundef %0, i64 noundef %1, ptr noundef re
   %53 = load double, ptr %.495, align 8, !tbaa !3
   %54 = icmp sgt i64 %.17194, 0
   %55 = getelementptr inbounds nuw i8, ptr %.495, i64 8
-  %56 = getelementptr inbounds double, ptr %.495, i64 %3
+  %56 = getelementptr inbounds [8 x i8], ptr %.495, i64 %3
   %.5 = select i1 %54, ptr %55, ptr %56
   store double %53, ptr %.27792, align 8, !tbaa !3
   %57 = getelementptr inbounds nuw i8, ptr %.27792, i64 8

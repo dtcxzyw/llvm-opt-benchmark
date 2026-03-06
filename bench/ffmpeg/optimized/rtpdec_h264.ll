@@ -326,7 +326,7 @@ define range(i32 -2147483648, 1) i32 @ff_h264_handle_aggregated_packet(ptr nound
   %59 = zext i8 %58 to i32
   %60 = and i32 %7, %59
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %6, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !12
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %62, align 4, !tbaa !12
@@ -433,7 +433,7 @@ define internal i32 @parse_h264_sdp_line(ptr noundef %0, i32 noundef %1, ptr nou
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !44
   %14 = call i32 @av_strstart(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %6) #10
   %.not = icmp eq i32 %14, 0

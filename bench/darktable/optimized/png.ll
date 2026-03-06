@@ -374,8 +374,8 @@ PNGwriteRawProfile.exit:                          ; preds = %80, %134
 166:                                              ; preds = %.lr.ph85, %166
   %indvars.iv90 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next91, %166 ]
   %167 = mul i64 %165, %indvars.iv90
-  %168 = getelementptr inbounds nuw i16, ptr %2, i64 %167
-  %169 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv90
+  %168 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %167
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv90
   store ptr %168, ptr %169, align 8, !tbaa !33
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
@@ -385,7 +385,7 @@ PNGwriteRawProfile.exit:                          ; preds = %80, %134
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %170 ]
   %171 = mul i64 %161, %indvars.iv
   %172 = getelementptr inbounds nuw i8, ptr %2, i64 %171
-  %173 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv
   store ptr %172, ptr %173, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

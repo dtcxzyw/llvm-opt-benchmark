@@ -1575,7 +1575,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i: ; preds = %
 _ZNSt6vectorISt6threadSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i, %415
   store ptr %408, ptr %36, align 8, !tbaa !84
   store ptr %414, ptr %369, align 8, !tbaa !74
-  %416 = getelementptr inbounds nuw %"class.std::thread", ptr %408, i64 %406
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %408, i64 %406
   store ptr %416, ptr %370, align 8, !tbaa !85
   %.sroa.0.0.copyload.i.i.pr = load i64, ptr %37, align 8, !tbaa !73
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i.pr, 0

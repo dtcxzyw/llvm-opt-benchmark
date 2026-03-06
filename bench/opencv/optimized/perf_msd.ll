@@ -664,7 +664,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %150, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %145, ptr %0, align 8, !tbaa !33
   store ptr %149, ptr %10, align 8, !tbaa !30
-  %151 = getelementptr inbounds nuw ptr, ptr %145, i64 %143
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %143
   store ptr %151, ptr %128, align 8, !tbaa !32
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -2097,7 +2097,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
 
 18:                                               ; preds = %18, %14
   %.08.i.i = phi i64 [ %17, %14 ], [ %20, %18 ]
-  %19 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.08.i.i
+  %19 = getelementptr inbounds [28 x i8], ptr %0, i64 %.08.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) %19, i64 28, i1 false)
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEEEvT_T0_SG_T1_T2_(ptr %0, i64 noundef %.08.i.i, i64 noundef %15, ptr noundef nonnull byval(%"class.cv::KeyPoint") align 8 %4)
   %.not.i.i = icmp eq i64 %.08.i.i, 0
@@ -2125,7 +2125,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_S
 26:                                               ; preds = %11
   %27 = add nsw i64 %.023, -1
   %28 = udiv i64 %12, 56
-  %29 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw [28 x i8], ptr %0, i64 %28
   %30 = getelementptr inbounds i8, ptr %storemerge22, i64 -28
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEEEvT_SF_SF_SF_T0_(ptr %0, ptr nonnull %10, ptr %29, ptr nonnull %30)
   %31 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEEET_SF_SF_SF_T0_(ptr nonnull %10, ptr %storemerge22, ptr %0)
@@ -2258,9 +2258,9 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   %.059 = phi i64 [ %47, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread56 ], [ %1, %4 ]
   %8 = shl i64 %.059, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %9
+  %10 = getelementptr inbounds [28 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %11
+  %12 = getelementptr inbounds [28 x i8], ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load float, ptr %13, align 4, !tbaa !117
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -2320,8 +2320,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread56: ; preds = %26, %34, %18, %36, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread
   %47 = phi i64 [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit.thread ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_.exit ], [ %9, %36 ], [ %9, %18 ], [ %9, %34 ], [ %9, %26 ]
-  %48 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %47
-  %49 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.059
+  %48 = getelementptr inbounds [28 x i8], ptr %0, i64 %47
+  %49 = getelementptr inbounds [28 x i8], ptr %0, i64 %.059
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %49, ptr noundef nonnull align 4 dereferenceable(28) %48, i64 28, i1 false), !tbaa.struct !112
   %50 = icmp slt i64 %47, %6
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !126
@@ -2341,8 +2341,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS
 57:                                               ; preds = %53
   %58 = shl nsw i64 %.0.lcssa, 1
   %59 = or disjoint i64 %58, 1
-  %60 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %59
-  %61 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.0.lcssa
+  %60 = getelementptr inbounds [28 x i8], ptr %0, i64 %59
+  %61 = getelementptr inbounds [28 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %61, ptr noundef nonnull align 4 dereferenceable(28) %60, i64 28, i1 false), !tbaa.struct !112
   br label %62
 
@@ -2368,7 +2368,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf11comparators15KeypointGreaterEEclINS
   %.022.i = phi i64 [ %.0923.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread.i ], [ %.1, %62 ]
   %.0923.in.i = add nsw i64 %.022.i, -1
   %.0923.i = sdiv i64 %.0923.in.i, 2
-  %64 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.0923.i
+  %64 = getelementptr inbounds [28 x i8], ptr %0, i64 %.0923.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load float, ptr %65, align 4, !tbaa !117
   %67 = fcmp ogt float %66, %.sroa.550.0.copyload
@@ -2414,14 +2414,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4perf11comparators15KeypointGreaterEEclINS_
   br i1 %89, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIN4perf11comparators15KeypointGreaterEEEEvT_T0_SG_T1_RT2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i, %86, %76, %70, %.lr.ph.i
-  %90 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.022.i
+  %90 = getelementptr inbounds [28 x i8], ptr %0, i64 %.022.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %90, ptr noundef nonnull align 4 dereferenceable(28) %64, i64 28, i1 false), !tbaa.struct !112
   %91 = icmp sgt i64 %.0923.i, %1
   br i1 %91, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIN4perf11comparators15KeypointGreaterEEEEvT_T0_SG_T1_RT2_.exit, !llvm.loop !127
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIN4perf11comparators15KeypointGreaterEEEEvT_T0_SG_T1_RT2_.exit: ; preds = %68, %74, %80, %82, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread.i, %62
   %.0.lcssa.i = phi i64 [ %.1, %62 ], [ %.022.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.i ], [ %.0923.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN4perf11comparators15KeypointGreaterEEclINS_17__normal_iteratorIPN2cv8KeyPointESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit.thread.i ], [ %.022.i, %82 ], [ %.022.i, %68 ], [ %.022.i, %80 ], [ %.022.i, %74 ]
-  %92 = getelementptr inbounds %"class.cv::KeyPoint", ptr %0, i64 %.0.lcssa.i
+  %92 = getelementptr inbounds [28 x i8], ptr %0, i64 %.0.lcssa.i
   store float %.sroa.049.0.copyload, ptr %92, align 4, !tbaa !113
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 4
   store float %.sroa.2.0.copyload, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !113
@@ -2979,7 +2979,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv8KeyPointESt6vectorIS3_S
   %40 = ptrtoint ptr %.sroa.0.023 to i64
   %41 = sub i64 %40, %9
   %.neg.i.i.i.i.i = sdiv exact i64 %41, -28
-  %42 = getelementptr inbounds %"class.cv::KeyPoint", ptr %39, i64 %.neg.i.i.i.i.i
+  %42 = getelementptr inbounds [28 x i8], ptr %39, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %42, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %41, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !112
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -6822,7 +6822,7 @@ _ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN1
 _ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_110msd_detectEE8TestInfoEEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i.i.i: ; preds = %134, %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_110msd_detectEE8TestInfoEEES9_EvT_SB_RSaIT0_E.exit.i.i.i.i.i.i
   store ptr %96, ptr %69, align 8, !tbaa !181
   store ptr %133, ptr %71, align 8, !tbaa !184
-  %143 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.13", ptr %96, i64 %94
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 %94
   store ptr %143, ptr %73, align 8, !tbaa !249
   br label %146
 
@@ -7126,7 +7126,7 @@ _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOB
 _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_110msd_detectEE17InstantiationInfoESaIS7_EE9push_backEOS7_.exit.i.i: ; preds = %245, %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_110msd_detectEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit30.i.i.i.i.i
   store ptr %222, ptr %185, align 8, !tbaa !176
   store ptr %244, ptr %192, align 8, !tbaa !179
-  %246 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::(anonymous namespace)::msd_detect>::InstantiationInfo", ptr %222, i64 %218
+  %246 = getelementptr inbounds nuw [64 x i8], ptr %222, i64 %218
   store ptr %246, ptr %194, align 8, !tbaa !251
   %.pre1.i.i = load ptr, ptr %1, align 8, !tbaa !17
   %247 = icmp eq ptr %.pre1.i.i, %186

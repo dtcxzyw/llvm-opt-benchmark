@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.CoefVLCTable = type { i32, i32, ptr, ptr, ptr }
-%struct.VLCElem = type { %union.anon.0 }
-%union.anon.0 = type { %struct.anon }
-%struct.anon = type { i16, i16 }
 
 @ff_wma_hgain_hufftab = local_unnamed_addr constant [37 x [2 x i8]] [[2 x i8] c"\19\0A", [2 x i8] c"\02\0A", [2 x i8] c"\1B\0A", [2 x i8] c"\00\0A", [2 x i8] c"\1F\09", [2 x i8] c"\1E\09", [2 x i8] c"\17\08", [2 x i8] c"\07\08", [2 x i8] c"\1D\08", [2 x i8] c"\1A\08", [2 x i8] c"\18\07", [2 x i8] c"\0A\05", [2 x i8] c"\0C\04", [2 x i8] c"\14\05", [2 x i8] c"\16\06", [2 x i8] c"\08\07", [2 x i8] c"!\0A", [2 x i8] c" \0D", [2 x i8] c"\05\0D", [2 x i8] c"\22\0D", [2 x i8] c"#\0D", [2 x i8] c"$\0D", [2 x i8] c"\03\0D", [2 x i8] c"\01\0C", [2 x i8] c"\04\09", [2 x i8] c"\06\09", [2 x i8] c"\1C\09", [2 x i8] c"\12\04", [2 x i8] c"\10\04", [2 x i8] c"\15\05", [2 x i8] c"\09\05", [2 x i8] c"\0B\04", [2 x i8] c"\13\04", [2 x i8] c"\0E\03", [2 x i8] c"\0F\03", [2 x i8] c"\0D\03", [2 x i8] c"\11\03"], align 16
 @ff_wma_lsp_codebook = local_unnamed_addr constant <{ <{ [8 x float], [8 x float] }>, [16 x float], [16 x float], [16 x float], [16 x float], [16 x float], [16 x float], [16 x float], <{ [8 x float], [8 x float] }>, <{ [8 x float], [8 x float] }> }> <{ <{ [8 x float], [8 x float] }> <{ [8 x float] [float 0x3FFFCC1940000000, float 0x3FFFABCEE0000000, float 0x3FFF8C74A0000000, float 0x3FFF66D500000000, float 0x3FFF34C5A0000000, float 0x3FFEEF0C20000000, float 0x3FFE83DC20000000, float 0x3FFDCA6680000000], [8 x float] zeroinitializer }>, [16 x float] [float 0x3FFF8FC500000000, float 0x3FFF5F9100000000, float 0x3FFF327CA0000000, float 0x3FFF024CE0000000, float 0x3FFECD7B00000000, float 0x3FFE8FC720000000, float 0x3FFE46F4C0000000, float 0x3FFDF1A800000000, float 0x3FFD87C660000000, float 0x3FFD046D20000000, float 0x3FFC6B5160000000, float 0x3FFBB8F200000000, float 0x3FFADD8180000000, float 0x3FF9C0E240000000, float 0x3FF821FB80000000, float 0x3FF54C9BE0000000], [16 x float] [float 0x3FFE6ADE80000000, float 0x3FFDD65200000000, float 0x3FFD58DEA0000000, float 0x3FFCD3B320000000, float 0x3FFC4396C0000000, float 0x3FFBA68E80000000, float 0x3FFAF5DEE0000000, float 0x3FFA32B800000000, float 0x3FF95C3980000000, float 0x3FF84987E0000000, float 0x3FF6FD2100000000, float 0x3FF56E9DA0000000, float 0x3FF3DE41E0000000, float 0x3FF1F63300000000, float 0x3FEEF5BBA0000000, float 0x3FE7B208A0000000], [16 x float] [float 0x3FFC4F9EE0000000, float 0x3FFADA0220000000, float 0x3FF9976740000000, float 0x3FF891D760000000, float 0x3FF7986760000000, float 0x3FF697F7E0000000, float 0x3FF58582C0000000, float 0x3FF45FD380000000, float 0x3FF316AF20000000, float 0x3FF18FFB40000000, float 0x3FEF9F3AC0000000, float 0x3FEBEAA7C0000000, float 0x3FE7CC52A0000000, float 0x3FE32035A0000000, float 0x3FDBA0BFA0000000, float 0x3FC702B5E0000000], [16 x float] [float 0x3FF6F2D340000000, float 0x3FF5204A80000000, float 0x3FF35F31C0000000, float 0x3FF1B14640000000, float 0x3FF0170260000000, float 0x3FECE851A0000000, float 0x3FE9BD7060000000, float 0x3FE6A08940000000, float 0x3FE3563660000000, float 0x3FDFE188A0000000, float 0x3FD8A56720000000, float 0x3FD1592DA0000000, float 0x3FC27105A0000000, float 0x3F6203D8E0000000, float 0xBFC5687E80000000, float 0xBFD7A39BC0000000], [16 x float] [float 0x3FEFF77460000000, float 0x3FEAF0B1C0000000, float 0x3FE6A42580000000, float 0x3FE287B560000000, float 0x3FDE1D9560000000, float 0x3FD7A8AAE0000000, float 0x3FD12B4720000000, float 0x3FC5F818A0000000, float 0x3FB2741780000000, float 0xBF9F5D4D80000000, float 0xBFF667EE80000000, float 0xBFD0152140000000, float 0xBFD7D121A0000000, float 0xBFE0581DE0000000, float 0xBFE4C395C0000000, float 0xBFE9B2D580000000], [16 x float] [float 0x3FD0F84380000000, float 0x3FB029A620000000, float 0xBFB6B66800000000, float 0xBFCB0335E0000000, float 0xBFD3E274C0000000, float 0xBFD9653960000000, float 0xBFDE391800000000, float 0xBFE1555F20000000, float 0xBFE3A98DA0000000, float 0xBFE60FD6C0000000, float 0xBFE8817360000000, float 0xBFEB412220000000, float 0xBFEE7E1480000000, float 0xBFF10AD7A0000000, float 0xBFF3481E60000000, float 0xBFF604D2A0000000], [16 x float] [float 0xBFE142CA20000000, float 0xBFE79B5080000000, float 0xBFEC4BC400000000, float 0xBFF02DCA60000000, float 0xBFF2246AC0000000, float 0xBFF44AF5C0000000, float 0xBFF6BA0A20000000, float 0xBFF9ECE8C0000000, float 0xBFF1A01AE0000000, float 0xBFF2A45AC0000000, float 0xBFF3BBE380000000, float 0xBFF4DDC620000000, float 0xBFF606B080000000, float 0xBFF77F2220000000, float 0xBFF9385A40000000, float 0xBFFAB3F6A0000000], <{ [8 x float], [8 x float] }> <{ [8 x float] [float 0xBFD8B48D20000000, float 0xBFE1EC4940000000, float 0xBFE56EE0A0000000, float 0xBFE85440A0000000, float 0xBFEAD4AB60000000, float 0xBFED13E9E0000000, float 0xBFEF2BBC40000000, float 0xBFF0975880000000], [8 x float] zeroinitializer }>, <{ [8 x float], [8 x float] }> <{ [8 x float] [float 0xBFF8FBB2E0000000, float 0xBFFA8D1140000000, float 0xBFFBA15EA0000000, float 0xBFFC750DA0000000, float 0xBFFD270900000000, float 0xBFFDCB9300000000, float 0xBFFE720820000000, float 0xBFFF2BD8C0000000], [8 x float] zeroinitializer }> }>, align 16
@@ -336,7 +333,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
 168:                                              ; preds = %.preheader301, %181
   %indvars.iv330 = phi i64 [ 0, %.preheader301 ], [ %indvars.iv.next331, %181 ]
   %.0259308 = phi i32 [ 0, %.preheader301 ], [ %spec.select295, %181 ]
-  %169 = getelementptr inbounds nuw i16, ptr @ff_wma_critical_freqs, i64 %indvars.iv330
+  %169 = getelementptr inbounds nuw [2 x i8], ptr @ff_wma_critical_freqs, i64 %indvars.iv330
   %170 = load i16, ptr %169, align 2, !tbaa !55
   %171 = zext i16 %170 to i32
   %172 = mul nsw i32 %166, %171
@@ -345,7 +342,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %spec.select295 = tail call i32 @llvm.smin.i32(i32 %174, i32 %162)
   %175 = sub nsw i32 %spec.select295, %.0259308
   %176 = trunc i32 %175 to i16
-  %177 = getelementptr inbounds nuw i16, ptr %151, i64 %indvars.iv330
+  %177 = getelementptr inbounds nuw [2 x i8], ptr %151, i64 %indvars.iv330
   store i16 %176, ptr %177, align 2, !tbaa !55
   %.not294 = icmp slt i32 %174, %162
   br i1 %.not294, label %181, label %178
@@ -363,7 +360,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
 .loopexit302:                                     ; preds = %181, %178
   %.1252 = phi i32 [ %180, %178 ], [ 25, %181 ]
   store i32 %.1252, ptr %152, align 8, !tbaa !59
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv339
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %indvars.iv339
   %.pre352 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !59
   br label %226
 
@@ -389,7 +386,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
 
 192:                                              ; preds = %190, %182
   %193 = shl nsw i32 %.pre, 2
-  %194 = getelementptr inbounds nuw [25 x i16], ptr %151, i64 %indvars.iv339
+  %194 = getelementptr inbounds nuw [50 x i8], ptr %151, i64 %indvars.iv339
   br label %208
 
 195:                                              ; preds = %190, %188, %186
@@ -403,7 +400,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   br i1 %.not324, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %195
-  %201 = getelementptr inbounds nuw [25 x i16], ptr %151, i64 %indvars.iv339
+  %201 = getelementptr inbounds nuw [50 x i8], ptr %151, i64 %indvars.iv339
   %wide.trip.count = zext i8 %199 to i64
   br label %202
 
@@ -412,14 +409,14 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %203 = getelementptr inbounds nuw i8, ptr %198, i64 %indvars.iv327
   %204 = load i8, ptr %203, align 1, !tbaa !52
   %205 = zext i8 %204 to i16
-  %206 = getelementptr inbounds nuw i16, ptr %201, i64 %indvars.iv327
+  %206 = getelementptr inbounds nuw [2 x i8], ptr %201, i64 %indvars.iv327
   store i16 %205, ptr %206, align 2, !tbaa !55
   %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next328, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %202, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %202, %195
-  %207 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv339
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %indvars.iv339
   store i32 %200, ptr %207, align 4, !tbaa !59
   br label %226
 
@@ -427,7 +424,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %indvars.iv = phi i64 [ %indvars.iv.next, %222 ], [ 0, %192 ]
   %.0250306 = phi i32 [ %.2, %222 ], [ 0, %192 ]
   %.1260304 = phi i32 [ %spec.select296, %222 ], [ 0, %192 ]
-  %209 = getelementptr inbounds nuw i16, ptr @ff_wma_critical_freqs, i64 %indvars.iv
+  %209 = getelementptr inbounds nuw [2 x i8], ptr @ff_wma_critical_freqs, i64 %indvars.iv
   %210 = load i16, ptr %209, align 2, !tbaa !55
   %211 = zext i16 %210 to i32
   %212 = mul i32 %162, %211
@@ -444,7 +441,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %218 = trunc i32 %217 to i16
   %219 = add nsw i32 %.0250306, 1
   %220 = sext i32 %.0250306 to i64
-  %221 = getelementptr inbounds i16, ptr %194, i64 %220
+  %221 = getelementptr inbounds [2 x i8], ptr %194, i64 %220
   store i16 %218, ptr %221, align 2, !tbaa !55
   br label %222
 
@@ -457,7 +454,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   br i1 %or.cond, label %208, label %224, !llvm.loop !61
 
 224:                                              ; preds = %222
-  %225 = getelementptr inbounds nuw i32, ptr %152, i64 %indvars.iv339
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %indvars.iv339
   store i32 %.2, ptr %225, align 4, !tbaa !59
   br label %226
 
@@ -468,7 +465,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %.neg = sdiv i32 %229, -100
   %230 = add i32 %.neg, %228
   %231 = ashr i32 %230, %161
-  %232 = getelementptr inbounds nuw i32, ptr %153, i64 %indvars.iv339
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %indvars.iv339
   store i32 %231, ptr %232, align 4, !tbaa !59
   %233 = shl nsw i32 %162, 1
   %234 = sitofp i32 %233 to float
@@ -479,14 +476,14 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %239 = fpext nsz float %238 to double
   %240 = fadd nsz double %239, 5.000000e-01
   %241 = fptosi double %240 to i32
-  %242 = getelementptr inbounds nuw i32, ptr %154, i64 %indvars.iv339
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 %indvars.iv339
   store i32 %241, ptr %242, align 4, !tbaa !59
   %243 = icmp sgt i32 %227, 0
   br i1 %243, label %.lr.ph314, label %._crit_edge315
 
 .lr.ph314:                                        ; preds = %226
-  %244 = getelementptr inbounds nuw [25 x i16], ptr %151, i64 %indvars.iv339
-  %245 = getelementptr inbounds nuw [16 x i32], ptr %155, i64 %indvars.iv339
+  %244 = getelementptr inbounds nuw [50 x i8], ptr %151, i64 %indvars.iv339
+  %245 = getelementptr inbounds nuw [64 x i8], ptr %155, i64 %indvars.iv339
   %wide.trip.count337 = zext nneg i32 %227 to i64
   br label %246
 
@@ -494,7 +491,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %indvars.iv334 = phi i64 [ 0, %.lr.ph314 ], [ %indvars.iv.next335, %259 ]
   %.3312 = phi i32 [ 0, %.lr.ph314 ], [ %.4, %259 ]
   %.2263310 = phi i32 [ 0, %.lr.ph314 ], [ %250, %259 ]
-  %247 = getelementptr inbounds nuw i16, ptr %244, i64 %indvars.iv334
+  %247 = getelementptr inbounds nuw [2 x i8], ptr %244, i64 %indvars.iv334
   %248 = load i16, ptr %247, align 2, !tbaa !55
   %249 = zext i16 %248 to i32
   %250 = add nuw nsw i32 %.2263310, %249
@@ -509,7 +506,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %255 = sub nsw i32 %.0247, %spec.select297
   %256 = add nsw i32 %.3312, 1
   %257 = sext i32 %.3312 to i64
-  %258 = getelementptr inbounds i32, ptr %245, i64 %257
+  %258 = getelementptr inbounds [4 x i8], ptr %245, i64 %257
   store i32 %255, ptr %258, align 4, !tbaa !59
   br label %259
 
@@ -521,7 +518,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
 
 ._crit_edge315:                                   ; preds = %259, %226
   %.3.lcssa = phi i32 [ 0, %226 ], [ %.4, %259 ]
-  %260 = getelementptr inbounds nuw i32, ptr %156, i64 %indvars.iv339
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %indvars.iv339
   store i32 %.3.lcssa, ptr %260, align 4, !tbaa !59
   %indvars.iv.next340 = add nuw nsw i64 %indvars.iv339, 1
   %261 = load i32, ptr %45, align 8, !tbaa !50
@@ -538,9 +535,9 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %268 = load i32, ptr %26, align 4, !tbaa !44
   %269 = sub nsw i32 %268, %266
   %270 = sext i32 %269 to i64
-  %271 = getelementptr inbounds ptr, ptr @ff_sine_windows, i64 %270
+  %271 = getelementptr inbounds [8 x i8], ptr @ff_sine_windows, i64 %270
   %272 = load ptr, ptr %271, align 8, !tbaa !64
-  %273 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv342
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %indvars.iv342
   store ptr %272, ptr %273, align 8, !tbaa !64
   %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
   %274 = load i32, ptr %45, align 8, !tbaa !50
@@ -575,7 +572,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %289 = add i32 %288, 1
   %290 = sitofp i32 %289 to float
   %291 = fmul nsz float %285, %290
-  %292 = getelementptr inbounds nuw float, ptr %286, i64 %indvars.iv345
+  %292 = getelementptr inbounds nuw [4 x i8], ptr %286, i64 %indvars.iv345
   store float %291, ptr %292, align 4, !tbaa !70
   %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
   %exitcond348.not = icmp eq i64 %indvars.iv.next346, 8192
@@ -610,7 +607,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
 
 307:                                              ; preds = %301, %306, %304, %298
   %.0267 = phi i64 [ 4, %298 ], [ 2, %306 ], [ 4, %304 ], [ 0, %301 ]
-  %308 = getelementptr inbounds nuw %struct.CoefVLCTable, ptr @coef_vlcs, i64 %.0267
+  %308 = getelementptr inbounds nuw [32 x i8], ptr @coef_vlcs, i64 %.0267
   %309 = getelementptr inbounds nuw i8, ptr %4, i64 1152
   store ptr %308, ptr %309, align 16, !tbaa !74
   %310 = getelementptr inbounds nuw i8, ptr %308, i64 32
@@ -695,10 +692,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_coef_vlc(ptr noundef 
   %.03443 = phi i32 [ %41, %._crit_edge ], [ 1, %.preheader ]
   %.03741 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 2, %.preheader ]
   %28 = trunc i32 %.03741 to i16
-  %29 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv47
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv47
   store i16 %28, ptr %29, align 2, !tbaa !55
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %30 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv47
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv47
   %31 = load i16, ptr %30, align 2, !tbaa !55
   %32 = zext i16 %31 to i32
   %.not = icmp eq i16 %31, 0
@@ -713,9 +710,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_coef_vlc(ptr noundef 
   %indvars.iv = phi i64 [ %34, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %.03640 = phi i32 [ 0, %.lr.ph ], [ %39, %35 ]
   %36 = trunc i32 %.03640 to i16
-  %37 = getelementptr inbounds i16, ptr %20, i64 %indvars.iv
+  %37 = getelementptr inbounds [2 x i8], ptr %20, i64 %indvars.iv
   store i16 %36, ptr %37, align 2, !tbaa !55
-  %38 = getelementptr inbounds float, ptr %21, i64 %indvars.iv
+  %38 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv
   store float %33, ptr %38, align 4, !tbaa !70
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %39 = add nuw nsw i32 %.03640, 1
@@ -784,7 +781,7 @@ define noundef i32 @ff_wma_end(ptr noundef readonly captures(none) %0) local_unn
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   tail call void @av_tx_uninit(ptr noundef nonnull %9) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %4, align 8, !tbaa !50
@@ -975,7 +972,7 @@ define range(i32 -1094995529, 1) i32 @ff_wma_run_level_decode(ptr noundef %0, pt
   %30 = shl i32 %28, %29
   %31 = lshr i32 %30, 23
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw %struct.VLCElem, ptr %2, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !52
   %35 = sext i16 %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 2
@@ -998,7 +995,7 @@ define range(i32 -1094995529, 1) i32 @ff_wma_run_level_decode(ptr noundef %0, pt
   %51 = lshr i32 %49, %50
   %52 = add i32 %51, %35
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw %struct.VLCElem, ptr %2, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !52
   %56 = sext i16 %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 2
@@ -1021,7 +1018,7 @@ define range(i32 -1094995529, 1) i32 @ff_wma_run_level_decode(ptr noundef %0, pt
   %72 = lshr i32 %70, %71
   %73 = add i32 %72, %56
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %struct.VLCElem, ptr %2, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %74
   %76 = load i16, ptr %75, align 2, !tbaa !52
   %77 = sext i16 %76 to i32
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 2
@@ -1041,7 +1038,7 @@ get_vlc2.exit:                                    ; preds = %19, %40, %61
 
 84:                                               ; preds = %get_vlc2.exit
   %85 = zext nneg i32 %.062.i to i64
-  %86 = getelementptr inbounds nuw i16, ptr %4, i64 %85
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %85
   %87 = load i16, ptr %86, align 2, !tbaa !55
   %88 = zext i16 %87 to i32
   %89 = add nsw i32 %.04861, %88
@@ -1055,7 +1052,7 @@ get_vlc2.exit:                                    ; preds = %19, %40, %61
   %96 = zext i8 %93 to i32
   %97 = and i32 %82, 7
   store i32 %spec.select.i, ptr %15, align 8, !tbaa !85
-  %98 = getelementptr inbounds nuw i32, ptr %3, i64 %85
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %85
   %99 = load i32, ptr %98, align 4, !tbaa !59
   %100 = lshr exact i32 128, %97
   %101 = and i32 %100, %96
@@ -1064,7 +1061,7 @@ get_vlc2.exit:                                    ; preds = %19, %40, %61
   %104 = xor i32 %103, %99
   %105 = and i32 %89, %13
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw i32, ptr %6, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %106
   store i32 %104, ptr %107, align 4, !tbaa !59
   br label %216
 
@@ -1211,7 +1208,7 @@ get_vlc2.exit:                                    ; preds = %19, %40, %61
   %212 = sitofp i32 %211 to float
   %213 = and i32 %.1, %13
   %214 = zext i32 %213 to i64
-  %215 = getelementptr inbounds nuw float, ptr %6, i64 %214
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %214
   store float %212, ptr %215, align 4, !tbaa !70
   br label %216
 

@@ -233,7 +233,7 @@ define { i64, i64 } @_ZN16ruff_source_file10line_index9LineIndex15source_locatio
   br i1 %31, label %.split.i, label %.split3.i
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i32, ptr %24, i64 %21
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %21
   %34 = load i32, ptr %33, align 4
   br label %_ZN16ruff_source_file10line_index9LineIndex10line_start17hed7e8a2147d8d2d5E.exit
 
@@ -412,7 +412,7 @@ define i32 @_ZN16ruff_source_file10line_index9LineIndex10line_start17hed7e8a2147
   br i1 %16, label %.split, label %.split3
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i32, ptr %9, i64 %6
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %6
   %19 = load i32, ptr %18, align 4
   br label %21
 
@@ -456,7 +456,7 @@ define i32 @_ZN16ruff_source_file10line_index9LineIndex8line_end17h3333f336dd7ba
   br i1 %16, label %.split, label %.split4
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i32, ptr %9, i64 %1
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %1
   %19 = load i32, ptr %18, align 4
   br label %21
 
@@ -500,7 +500,7 @@ define i32 @_ZN16ruff_source_file10line_index9LineIndex18line_end_exclusive17h14
   br i1 %16, label %.split, label %.split4
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw i32, ptr %9, i64 %1
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %1
   %19 = load i32, ptr %18, align 4
   %20 = tail call i32 @_ZN14ruff_text_size4size8TextSize3new17hdf09347c0d8982fdE(i32 1)
   %21 = sub i32 %19, %20
@@ -545,7 +545,7 @@ define { i32, i32 } @_ZN16ruff_source_file10line_index9LineIndex10line_range17h1
   unreachable
 
 _ZN16ruff_source_file10line_index9LineIndex10line_start17hed7e8a2147d8d2d5E.exit: ; preds = %13
-  %16 = getelementptr inbounds nuw i32, ptr %8, i64 %11
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %11
   %17 = load i32, ptr %16, align 4
   %18 = tail call i64 @llvm.uadd.sat.i64(i64 %1, i64 1)
   %19 = add i64 %18, -1
@@ -561,7 +561,7 @@ _ZN16ruff_source_file10line_index9LineIndex10line_start17hed7e8a2147d8d2d5E.exit
   br i1 %24, label %.split.i9, label %.split3.i8
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i32, ptr %8, i64 %19
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %19
   %27 = load i32, ptr %26, align 4
   br label %_ZN16ruff_source_file10line_index9LineIndex10line_start17hed7e8a2147d8d2d5E.exit10
 

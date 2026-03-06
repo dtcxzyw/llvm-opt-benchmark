@@ -3,10 +3,8 @@ source_filename = "bench/flac/original/metadata_object.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FLAC__StreamMetadata_VorbisComment_Entry = type { i32, ptr }
-%struct.FLAC__StreamMetadata_CueSheet_Track = type { i64, i8, [13 x i8], i8, i8, ptr }
 %struct.FLAC__StreamMetadata_SeekPoint = type { i64, i64, i32 }
-%struct.FLAC__StreamMetadata_CueSheet_Index = type { i64, i8 }
+%struct.FLAC__StreamMetadata_VorbisComment_Entry = type { i32, ptr }
 %struct.set_raw_client_data = type { ptr, i32, ptr, i32, i32 }
 
 @FLAC__STREAM_METADATA_APPLICATION_ID_LEN = external local_unnamed_addr constant i32, align 4
@@ -371,8 +369,8 @@ copy_vcentry_.exit:                               ; preds = %.thread.i97, %67
 
 .preheader.i:                                     ; preds = %78, %copy_vcentry_.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %copy_vcentry_.exit.i ], [ 0, %78 ]
-  %83 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %82, i64 %indvars.iv.i
-  %84 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %80, i64 %indvars.iv.i
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 %indvars.iv.i
   %85 = load i32, ptr %84, align 8, !tbaa !15
   store i32 %85, ptr %83, align 8, !tbaa !15
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -411,7 +409,7 @@ copy_vcentry_.exit:                               ; preds = %.thread.i97, %67
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
-  %101 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %82, i64 %indvars.iv.i.i
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %indvars.iv.i.i
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !17
   tail call void @free(ptr noundef %103) #33
@@ -464,8 +462,8 @@ vorbiscomment_entry_array_copy_.exit:             ; preds = %copy_vcentry_.exit.
 
 .preheader.i100:                                  ; preds = %115, %141
   %indvars.iv.i101 = phi i64 [ %indvars.iv.next.i103, %141 ], [ 0, %115 ]
-  %120 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %119, i64 %indvars.iv.i101
-  %121 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %117, i64 %indvars.iv.i101
+  %120 = getelementptr inbounds nuw [32 x i8], ptr %119, i64 %indvars.iv.i101
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %117, i64 %indvars.iv.i101
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %120, ptr noundef nonnull readonly align 1 dereferenceable(32) %121, i64 noundef 32, i1 noundef false) #33
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load ptr, ptr %122, align 8, !tbaa !21
@@ -492,7 +490,7 @@ vorbiscomment_entry_array_copy_.exit:             ; preds = %copy_vcentry_.exit.
 
 .lr.ph.i.i106:                                    ; preds = %125, %140
   %indvars.iv.i.i107 = phi i64 [ %indvars.iv.next.i.i108, %140 ], [ 0, %125 ]
-  %136 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %119, i64 %indvars.iv.i.i107
+  %136 = getelementptr inbounds nuw [32 x i8], ptr %119, i64 %indvars.iv.i.i107
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   %138 = load ptr, ptr %137, align 8, !tbaa !21
   %.not.i.i = icmp eq ptr %138, null
@@ -718,7 +716,7 @@ define hidden void @FLAC__metadata_object_delete_data(ptr noundef captures(none)
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %21 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %17, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !17
   tail call void @free(ptr noundef %23) #33
@@ -750,7 +748,7 @@ vorbiscomment_entry_array_delete_.exit:           ; preds = %.lr.ph.i, %18
 
 .lr.ph.i50:                                       ; preds = %34, %.lr.ph.preheader.i48
   %indvars.iv.i51 = phi i64 [ 0, %.lr.ph.preheader.i48 ], [ %indvars.iv.next.i53, %34 ]
-  %30 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %26, i64 %indvars.iv.i51
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %indvars.iv.i51
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !21
   %.not.i52 = icmp eq ptr %32, null
@@ -1069,9 +1067,9 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_seektable_(ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !44
-  %14 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %.pre, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8, !tbaa !44
   %.not24 = icmp eq i64 %13, %15
   br i1 %.not24, label %16, label %.loopexit
@@ -1148,11 +1146,11 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_vorbiscomment_(pt
 
 21:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %22 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %19, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !17
   %.not39 = icmp eq ptr %24, null
-  %.phi.trans.insert53 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %.pre51.pre, i64 %indvars.iv
+  %.phi.trans.insert53 = getelementptr inbounds nuw [16 x i8], ptr %.pre51.pre, i64 %indvars.iv
   %.phi.trans.insert54 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert53, i64 8
   %.pre55 = load ptr, ptr %.phi.trans.insert54, align 8, !tbaa !17
   br i1 %.not39, label %29, label %25
@@ -1231,9 +1229,9 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_cuesheet_(ptr nou
 .lr.ph88:                                         ; preds = %.preheader83, %.loopexit
   %.06387 = phi i32 [ %64, %.loopexit ], [ 0, %.preheader83 ]
   %23 = zext i32 %.06387 to i64
-  %24 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !59
-  %26 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %.pre96, i64 %23
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %.pre96, i64 %23
   %27 = load i64, ptr %26, align 8, !tbaa !59
   %.not71 = icmp eq i64 %25, %27
   br i1 %.not71, label %28, label %.loopexit82
@@ -1298,9 +1296,9 @@ define internal fastcc range(i32 0, 2) i32 @compare_block_data_cuesheet_(ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %50, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !62
-  %55 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %.pre, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %indvars.iv
   %56 = load i64, ptr %55, align 8, !tbaa !62
   %.not80 = icmp eq i64 %54, %56
   br i1 %.not80, label %57, label %.loopexit82
@@ -1522,7 +1520,7 @@ seekpoint_array_new_.exit.thread:                 ; preds = %15
 
 18:                                               ; preds = %18, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %16, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %indvars.iv.i
   store i64 %17, ptr %19, align 8, !tbaa !44
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 0, ptr %20, align 8, !tbaa !46
@@ -1574,14 +1572,14 @@ seekpoint_array_new_.exit:                        ; preds = %18
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %39 = load ptr, ptr %10, align 8, !tbaa !13
-  %40 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %indvars.iv
   store i64 %36, ptr %40, align 8, !tbaa !44
   %41 = load ptr, ptr %10, align 8, !tbaa !13
-  %42 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 0, ptr %43, align 8, !tbaa !46
   %44 = load ptr, ptr %10, align 8, !tbaa !13
-  %45 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i32 0, ptr %46, align 8, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1608,7 +1606,7 @@ define void @FLAC__metadata_object_seektable_set_point(ptr noundef readonly capt
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false), !tbaa.struct !79
   ret void
 }
@@ -1642,8 +1640,8 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_insert_point(ptr nou
   %indvars.iv18 = phi i64 [ %12, %.lr.ph ], [ %indvars.iv.next19, %15 ]
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %16 = load ptr, ptr %11, align 8, !tbaa !13
-  %17 = getelementptr inbounds %struct.FLAC__StreamMetadata_SeekPoint, ptr %16, i64 %indvars.iv
-  %18 = getelementptr %struct.FLAC__StreamMetadata_SeekPoint, ptr %16, i64 %indvars.iv18
+  %17 = getelementptr inbounds [24 x i8], ptr %16, i64 %indvars.iv
+  %18 = getelementptr [24 x i8], ptr %16, i64 %indvars.iv18
   %19 = getelementptr i8, ptr %18, i64 -48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !tbaa.struct !79
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -1655,7 +1653,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_insert_point(ptr nou
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = zext i32 %1 to i64
-  %24 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %25 = load i32, ptr %4, align 8, !tbaa !13
   %26 = mul i32 %25, 18
@@ -1684,9 +1682,9 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_delete_point(ptr nou
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ %8, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !13
-  %11 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %10, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv.next
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !tbaa.struct !79
   %13 = load i32, ptr %3, align 8, !tbaa !13
   %14 = add i32 %13, -1
@@ -1741,7 +1739,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_poin
   %10 = load i32, ptr %3, align 8, !tbaa !40
   %11 = add i32 %10, -1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %12
   store i64 %1, ptr %13, align 8, !tbaa !44
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %14, align 8, !tbaa !46
@@ -1776,10 +1774,10 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_poin
 11:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %.02024 = phi i32 [ %6, %.preheader ], [ %18, %11 ]
-  %12 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !76
   %14 = zext i32 %.02024 to i64
-  %15 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %10, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %14
   store i64 %13, ptr %15, align 8, !tbaa !44
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %16, align 8, !tbaa !46
@@ -1833,7 +1831,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_spac
   %21 = mul i64 %2, %indvars.iv52
   %22 = udiv i64 %21, %12
   %23 = zext i32 %.03848 to i64
-  %24 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %23
   store i64 %22, ptr %24, align 8, !tbaa !44
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %25, align 8, !tbaa !46
@@ -1849,7 +1847,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_spac
   %.13946 = phi i32 [ %8, %.preheader44 ], [ %34, %28 ]
   %29 = mul i64 %15, %indvars.iv
   %30 = zext i32 %.13946 to i64
-  %31 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %17, i64 %30
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %30
   store i64 %29, ptr %31, align 8, !tbaa !44
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %32, align 8, !tbaa !46
@@ -1907,7 +1905,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_spac
   %.03041 = phi i64 [ 0, %.lr.ph ], [ %29, %23 ]
   %.03339 = phi i32 [ %16, %.lr.ph ], [ %28, %23 ]
   %24 = zext i32 %.03339 to i64
-  %25 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %24
   store i64 %.03041, ptr %25, align 8, !tbaa !44
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %26, align 8, !tbaa !46
@@ -2038,7 +2036,7 @@ copy_vcentry_.exit:                               ; preds = %11
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
   %39 = phi i32 [ %33, %.lr.ph.i ], [ %43, %38 ]
   %40 = add i32 %39, %26
-  %41 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %37, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv.i
   %42 = load i32, ptr %41, align 8, !tbaa !15
   %43 = add i32 %40, %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2075,11 +2073,11 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(
 .preheader:                                       ; preds = %8, %23
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %23 ], [ 0, %8 ]
   %12 = load ptr, ptr %3, align 8, !tbaa !13
-  %13 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %12, i64 %indvars.iv90
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv90
   store i32 0, ptr %13, align 8, !tbaa !15
   %14 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #32
   %15 = load ptr, ptr %3, align 8, !tbaa !13
-  %16 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %15, i64 %indvars.iv90
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv90
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %14, ptr %17, align 8, !tbaa !17
   %18 = icmp eq ptr %14, null
@@ -2094,7 +2092,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(
 
 23:                                               ; preds = %.preheader
   %24 = load ptr, ptr %3, align 8, !tbaa !13
-  %25 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %24, i64 %indvars.iv90
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv90
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !17
   store i8 0, ptr %27, align 1, !tbaa !13
@@ -2118,7 +2116,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(
   %36 = phi i32 [ %43, %42 ], [ %30, %34 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ %31, %34 ]
   %37 = load ptr, ptr %3, align 8, !tbaa !13
-  %38 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !17
   %.not69 = icmp eq ptr %40, null
@@ -2168,11 +2166,11 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %66
   %indvars.iv87 = phi i64 [ %55, %.lr.ph81.preheader ], [ %indvars.iv.next88, %66 ]
   %56 = load ptr, ptr %3, align 8, !tbaa !13
-  %57 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %56, i64 %indvars.iv87
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %indvars.iv87
   store i32 0, ptr %57, align 8, !tbaa !15
   %58 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #32
   %59 = load ptr, ptr %3, align 8, !tbaa !13
-  %60 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %59, i64 %indvars.iv87
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %indvars.iv87
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %58, ptr %61, align 8, !tbaa !17
   %62 = icmp eq ptr %58, null
@@ -2186,7 +2184,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(
 
 66:                                               ; preds = %.lr.ph81
   %67 = load ptr, ptr %3, align 8, !tbaa !13
-  %68 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %67, i64 %indvars.iv87
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %indvars.iv87
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !17
   store i8 0, ptr %70, align 1, !tbaa !13
@@ -2219,7 +2217,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %82 ]
   %83 = phi i32 [ %80, %.lr.ph.i ], [ %87, %82 ]
   %84 = add i32 %83, %73
-  %85 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %81, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %indvars.iv.i
   %86 = load i32, ptr %85, align 8, !tbaa !15
   %87 = add i32 %84, %86
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2249,7 +2247,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_set_comment(ptr 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %12
   %14 = call fastcc i32 @vorbiscomment_set_entry_(ptr noundef %0, ptr noundef %13, ptr noundef %6, i32 noundef %4)
   br label %15
 
@@ -2283,20 +2281,20 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_insert_comment(p
   %17 = load i32, ptr %10, align 8, !tbaa !51
   %18 = add i32 %17, -1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !86
   %21 = add i32 %1, 1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %16, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %22
   %24 = zext i32 %1 to i64
-  %25 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %16, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %24
   %26 = xor i32 %1, -1
   %27 = add i32 %17, %26
   %28 = zext i32 %27 to i64
   %29 = shl nuw nsw i64 %28, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %23, ptr noundef nonnull align 1 %25, i64 noundef range(i64 0, 137438953441) %29, i1 noundef false) #33
   %30 = load ptr, ptr %15, align 8, !tbaa !52
-  %31 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %30, i64 %24
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !86
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 %2, ptr %6, align 8
@@ -2308,7 +2306,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_insert_comment(p
 
 34:                                               ; preds = %14
   %35 = load ptr, ptr %15, align 8, !tbaa !13
-  %36 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %35, i64 %24
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %24
   %37 = call fastcc i32 @vorbiscomment_set_entry_(ptr noundef nonnull %0, ptr noundef %36, ptr noundef %6, i32 noundef %4)
   br label %FLAC__metadata_object_vorbiscomment_set_comment.exit
 
@@ -2363,7 +2361,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_replace_comment(
 
 22:                                               ; preds = %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i ]
-  %23 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %21, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load ptr, ptr %25, align 8
@@ -2408,7 +2406,7 @@ FLAC__metadata_object_vorbiscomment_set_comment.exit.thread: ; preds = %38
 
 FLAC__metadata_object_vorbiscomment_set_comment.exit: ; preds = %38
   %41 = load ptr, ptr %20, align 8, !tbaa !13
-  %42 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %41, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %indvars.iv.i
   %43 = call fastcc i32 @vorbiscomment_set_entry_(ptr noundef %0, ptr noundef %42, ptr noundef %6, i32 noundef %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not45 = icmp eq i32 %43, 0
@@ -2416,7 +2414,7 @@ FLAC__metadata_object_vorbiscomment_set_comment.exit: ; preds = %38
 
 44:                                               ; preds = %FLAC__metadata_object_vorbiscomment_set_comment.exit
   %45 = load ptr, ptr %20, align 8, !tbaa !13
-  %46 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %45, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %indvars.iv.i
   %.sroa.631.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.sroa.631.0.copyload = load ptr, ptr %.sroa.631.0..sroa_idx, align 8, !tbaa !10
   %47 = add nuw i32 %36, 1
@@ -2434,7 +2432,7 @@ FLAC__metadata_object_vorbiscomment_set_comment.exit: ; preds = %38
 
 52:                                               ; preds = %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i54, %.lr.ph.i50
   %indvars.iv.i51 = phi i64 [ %51, %.lr.ph.i50 ], [ %indvars.iv.next.i55, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i54 ]
-  %53 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %45, i64 %indvars.iv.i51
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %indvars.iv.i51
   %54 = load i32, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load ptr, ptr %55, align 8
@@ -2469,15 +2467,15 @@ vorbiscomment_find_entry_from_.exit61:            ; preds = %FLAC__metadata_obje
   %.04082 = phi i32 [ %106, %vorbiscomment_find_entry_from_.exit74 ], [ %65, %vorbiscomment_find_entry_from_.exit61 ]
   %67 = load ptr, ptr %20, align 8, !tbaa !52
   %68 = zext nneg i32 %.04082 to i64
-  %69 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !17
   tail call void @free(ptr noundef %71) #33
   %72 = load ptr, ptr %20, align 8, !tbaa !52
-  %73 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %72, i64 %68
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %68
   %74 = add nuw i32 %.04082, 1
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %72, i64 %75
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %75
   %77 = load i32, ptr %18, align 8, !tbaa !51
   %78 = xor i32 %.04082, -1
   %79 = add i32 %77, %78
@@ -2488,7 +2486,7 @@ vorbiscomment_find_entry_from_.exit61:            ; preds = %FLAC__metadata_obje
   %83 = load i32, ptr %18, align 8, !tbaa !51
   %84 = add i32 %83, -1
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %82, i64 %85
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %85
   store i32 0, ptr %86, align 8, !tbaa !15
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr null, ptr %87, align 8, !tbaa !17
@@ -2507,7 +2505,7 @@ vorbiscomment_find_entry_from_.exit61:            ; preds = %FLAC__metadata_obje
 
 93:                                               ; preds = %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i67, %.lr.ph.i63
   %indvars.iv.i64 = phi i64 [ %68, %.lr.ph.i63 ], [ %indvars.iv.next.i68, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i67 ]
-  %94 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %92, i64 %indvars.iv.i64
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %indvars.iv.i64
   %95 = load i32, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %97 = load ptr, ptr %96, align 8
@@ -2555,15 +2553,15 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_delete_comment(p
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !52
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   tail call void @free(ptr noundef %8) #33
   %9 = load ptr, ptr %3, align 8, !tbaa !52
-  %10 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %9, i64 %5
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %5
   %11 = add i32 %1, 1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i32, ptr %14, align 8, !tbaa !51
   %16 = xor i32 %1, -1
@@ -2575,7 +2573,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_delete_comment(p
   %21 = load i32, ptr %14, align 8, !tbaa !51
   %22 = add i32 %21, -1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %23
   store i32 0, ptr %24, align 8, !tbaa !15
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr null, ptr %25, align 8, !tbaa !17
@@ -2759,7 +2757,7 @@ define i32 @FLAC__metadata_object_vorbiscomment_find_entry_from(ptr noundef read
 
 13:                                               ; preds = %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %12, %.lr.ph.i ], [ %indvars.iv.next.i, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread.i ]
-  %14 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %11, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv.i
   %15 = load i32, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -2812,7 +2810,7 @@ define range(i32 -1, 2) i32 @FLAC__metadata_object_vorbiscomment_remove_entry_ma
 
 10:                                               ; preds = %.lr.ph, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread ]
-  %11 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -2836,10 +2834,10 @@ FLAC__metadata_object_vorbiscomment_entry_matches.exit: ; preds = %10
   %24 = trunc nuw i64 %indvars.iv to i32
   tail call void @free(ptr noundef %14) #33
   %25 = load ptr, ptr %7, align 8, !tbaa !52
-  %26 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv
   %27 = add nuw i64 %indvars.iv, 1
   %28 = and i64 %27, 4294967295
-  %29 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %28
   %30 = load i32, ptr %5, align 8, !tbaa !51
   %31 = xor i32 %24, -1
   %32 = add i32 %30, %31
@@ -2850,7 +2848,7 @@ FLAC__metadata_object_vorbiscomment_entry_matches.exit: ; preds = %10
   %36 = load i32, ptr %5, align 8, !tbaa !51
   %37 = add i32 %36, -1
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %38
   store i32 0, ptr %39, align 8, !tbaa !15
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr null, ptr %40, align 8, !tbaa !17
@@ -2889,7 +2887,7 @@ define i32 @FLAC__metadata_object_vorbiscomment_remove_entries_matching(ptr noun
   %.01519 = phi i32 [ 0, %.lr.ph ], [ %.116, %FLAC__metadata_object_vorbiscomment_entry_matches.exit.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %12 = load ptr, ptr %8, align 8, !tbaa !13
-  %13 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %12, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv.next
   %14 = load i32, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
@@ -2913,8 +2911,8 @@ FLAC__metadata_object_vorbiscomment_entry_matches.exit: ; preds = %11
   %26 = add i32 %.01519, 1
   tail call void @free(ptr noundef %16) #33
   %27 = load ptr, ptr %8, align 8, !tbaa !52
-  %28 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %27, i64 %indvars.iv.next
-  %29 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %indvars.iv.next
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %indvars.iv
   %30 = load i32, ptr %5, align 8, !tbaa !51
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = sub i32 %30, %31
@@ -2925,7 +2923,7 @@ FLAC__metadata_object_vorbiscomment_entry_matches.exit: ; preds = %11
   %36 = load i32, ptr %5, align 8, !tbaa !51
   %37 = add i32 %36, -1
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %38
   store i32 0, ptr %39, align 8, !tbaa !15
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr null, ptr %40, align 8, !tbaa !17
@@ -3041,7 +3039,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_resize_indices(
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !21
   %10 = icmp eq ptr %9, null
@@ -3090,7 +3088,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_resize_indices(
 33:                                               ; preds = %30
   %34 = load i8, ptr %18, align 1, !tbaa !24
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %31, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %35
   %37 = sub nuw nsw i64 %23, %21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %36, i8 noundef 0, i64 noundef range(i64 -137438953438, 137438953441) %37, i1 noundef false) #33
   br label %.critedge
@@ -3145,7 +3143,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_resize_indices(
 75:                                               ; preds = %75, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %75 ]
   %76 = phi i32 [ %68, %.lr.ph.i ], [ %83, %75 ]
-  %77 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %69, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %69, i64 %indvars.iv.i
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 23
   %79 = load i8, ptr %78, align 1, !tbaa !24
   %80 = zext i8 %79 to i32
@@ -3170,7 +3168,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_insert_index(pt
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8, !tbaa !13
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 23
   %11 = load i8, ptr %10, align 1, !tbaa !24
   %12 = zext i8 %11 to i32
@@ -3184,9 +3182,9 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_insert_index(pt
   %17 = load ptr, ptr %16, align 8, !tbaa !21
   %18 = add i32 %2, 1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %19
   %21 = zext i32 %2 to i64
-  %22 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %17, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %21
   %23 = load i8, ptr %10, align 1, !tbaa !24
   %24 = zext i8 %23 to i32
   %25 = xor i32 %2, -1
@@ -3195,7 +3193,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_insert_index(pt
   %28 = shl nuw nsw i64 %27, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %20, ptr noundef nonnull align 1 %22, i64 noundef range(i64 0, 137438953441) %28, i1 noundef false) #33
   %29 = load ptr, ptr %16, align 8, !tbaa !21
-  %30 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %29, i64 %21
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %21
   store i64 %3, ptr %30, align 8, !tbaa !76
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i8 %4, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !13
@@ -3245,7 +3243,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_track_insert_index(pt
 66:                                               ; preds = %66, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %66 ]
   %67 = phi i32 [ %59, %.lr.ph.i ], [ %74, %66 ]
-  %68 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %60, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %60, i64 %indvars.iv.i
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 23
   %70 = load i8, ptr %69, align 1, !tbaa !24
   %71 = zext i8 %70 to i32
@@ -3276,14 +3274,14 @@ define noundef i32 @FLAC__metadata_object_cuesheet_track_delete_index(ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !21
   %10 = zext i32 %2 to i64
-  %11 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %10
   %12 = add i32 %2, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %9, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 23
   %16 = load i8, ptr %15, align 1, !tbaa !24
   %17 = zext i8 %16 to i32
@@ -3342,7 +3340,7 @@ define noundef i32 @FLAC__metadata_object_cuesheet_track_delete_index(ptr nounde
 61:                                               ; preds = %61, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %61 ]
   %62 = phi i32 [ %54, %.lr.ph.i ], [ %69, %61 ]
-  %63 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %55, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [32 x i8], ptr %55, i64 %indvars.iv.i
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 23
   %65 = load i8, ptr %64, align 1, !tbaa !24
   %66 = zext i8 %65 to i32
@@ -3396,7 +3394,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr nou
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %17, %20 ]
   %22 = load ptr, ptr %3, align 8, !tbaa !13
-  %23 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !21
   tail call void @free(ptr noundef %25) #33
@@ -3429,7 +3427,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr nou
 37:                                               ; preds = %34
   %38 = load i32, ptr %13, align 4, !tbaa !13
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %39
   %41 = sub nuw nsw i64 %18, %16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %40, i8 noundef 0, i64 noundef range(i64 -137438953438, 137438953441) %41, i1 noundef false) #33
   br label %.critedge.thread
@@ -3481,7 +3479,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_resize_tracks(ptr nou
 76:                                               ; preds = %76, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %76 ]
   %77 = phi i32 [ %70, %.lr.ph.i ], [ %84, %76 ]
-  %78 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %42, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %indvars.iv.i
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 23
   %80 = load i8, ptr %79, align 1, !tbaa !24
   %81 = zext i8 %80 to i32
@@ -3506,7 +3504,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_set_track(ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !21
   %.not.i = icmp eq i32 %3, 0
@@ -3584,7 +3582,7 @@ copy_track_.exit.thread.i:                        ; preds = %4, %.thread.i.i, %1
 60:                                               ; preds = %60, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %60 ]
   %61 = phi i32 [ %53, %.lr.ph.i.i ], [ %68, %60 ]
-  %62 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %54, i64 %indvars.iv.i.i
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %54, i64 %indvars.iv.i.i
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 23
   %64 = load i8, ptr %63, align 1, !tbaa !24
   %65 = zext i8 %64 to i32
@@ -3618,9 +3616,9 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_insert_track(ptr noun
   %11 = load ptr, ptr %10, align 8, !tbaa !58
   %12 = add i32 %1, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %13
   %15 = zext i32 %1 to i64
-  %16 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %11, i64 %15
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %15
   %17 = load i32, ptr %5, align 4, !tbaa !57
   %18 = xor i32 %1, -1
   %19 = add i32 %17, %18
@@ -3628,7 +3626,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_insert_track(ptr noun
   %21 = shl nuw nsw i64 %20, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %14, ptr noundef nonnull align 1 %16, i64 noundef range(i64 0, 137438953441) %21, i1 noundef false) #33
   %22 = load ptr, ptr %10, align 8, !tbaa !58
-  %23 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %22, i64 %15
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %15
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 23
   store i8 0, ptr %24, align 1, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -3655,9 +3653,9 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_insert_blank_track(pt
   %9 = load ptr, ptr %8, align 8, !tbaa !58
   %10 = add i32 %1, 1
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %11
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %9, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %13
   %15 = load i32, ptr %3, align 4, !tbaa !57
   %16 = xor i32 %1, -1
   %17 = add i32 %15, %16
@@ -3665,13 +3663,13 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_insert_blank_track(pt
   %19 = shl nuw nsw i64 %18, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %12, ptr noundef nonnull align 1 %14, i64 noundef range(i64 0, 137438953441) %19, i1 noundef false) #33
   %20 = load ptr, ptr %8, align 8, !tbaa !58
-  %21 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %20, i64 %13
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %13
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 23
   store i8 0, ptr %22, align 1, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr null, ptr %23, align 8, !tbaa !21
   %24 = load ptr, ptr %8, align 8, !tbaa !13
-  %25 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %24, i64 %13
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %13
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 32, i1 false)
@@ -3721,7 +3719,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_insert_blank_track(pt
 62:                                               ; preds = %62, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %62 ]
   %63 = phi i32 [ %55, %.lr.ph.i.i.i ], [ %70, %62 ]
-  %64 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %56, i64 %indvars.iv.i.i.i
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %56, i64 %indvars.iv.i.i.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 23
   %66 = load i8, ptr %65, align 1, !tbaa !24
   %67 = zext i8 %66 to i32
@@ -3746,15 +3744,15 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_delete_track(ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8, !tbaa !58
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !21
   tail call void @free(ptr noundef %8) #33
   %9 = load ptr, ptr %3, align 8, !tbaa !58
-  %10 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %9, i64 %5
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %5
   %11 = add i32 %1, 1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %15 = load i32, ptr %14, align 4, !tbaa !57
   %16 = xor i32 %1, -1
@@ -3766,7 +3764,7 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_cuesheet_delete_track(ptr noun
   %21 = load i32, ptr %14, align 4, !tbaa !57
   %22 = add i32 %21, -1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 23
   store i8 0, ptr %25, align 1, !tbaa !24
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -3806,7 +3804,7 @@ define i32 @FLAC__metadata_object_cuesheet_calculate_cddb_id(ptr noundef readonl
 
 10:                                               ; preds = %9
   %11 = load ptr, ptr %6, align 8, !tbaa !58
-  %12 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 23
   %14 = load i8, ptr %13, align 1, !tbaa !24
   %15 = icmp eq i8 %14, 0
@@ -3865,7 +3863,7 @@ cddb_add_digits_.exit:                            ; preds = %.lr.ph.i, %24, %9, 
 40:                                               ; preds = %cddb_add_digits_.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %42 = load ptr, ptr %41, align 8, !tbaa !58
-  %43 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %42, i64 %8
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %8
   %44 = load i64, ptr %43, align 8, !tbaa !59
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %46 = load i64, ptr %45, align 8, !tbaa !54

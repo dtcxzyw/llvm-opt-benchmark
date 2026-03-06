@@ -14,7 +14,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_cpufreq_gene
 
 %struct.freq_attr = type { %struct.attribute, ptr, ptr }
 %struct.attribute = type { ptr, i16 }
-%struct.cpufreq_frequency_table = type { i32, i32, i32 }
 
 @__UNIQUE_ID___addressable_policy_has_boost_freq328 = internal global ptr @policy_has_boost_freq, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_cpufreq_frequency_table_verify329 = internal global ptr @cpufreq_frequency_table_verify, section ".discard.addressable", align 8
@@ -438,7 +437,7 @@ define dso_local i32 @cpufreq_table_index_unsorted(ptr noundef readonly captures
 
 103:                                              ; preds = %101
   %104 = zext i32 %85 to i64
-  %.split.us = getelementptr %struct.cpufreq_frequency_table, ptr %5, i64 %104
+  %.split.us = getelementptr [12 x i8], ptr %5, i64 %104
   %105 = getelementptr i8, ptr %.split.us, i64 8
   %106 = load i32, ptr %105, align 4
   %107 = icmp ugt i32 %88, %106

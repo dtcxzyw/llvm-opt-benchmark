@@ -137,7 +137,7 @@ define hidden noundef ptr @_ZN19OpenColorIO_v2_5dev11ConfigUtils25getBuiltinLine
   %.sroa.speculated3.i = tail call i32 @llvm.smax.i32(i32 %0, i32 0)
   %2 = tail call i32 @llvm.umin.i32(i32 %.sroa.speculated3.i, i32 4)
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @__const._ZN19OpenColorIO_v2_5dev11ConfigUtils25getBuiltinLinearSpaceNameEi.builtinLinearSpaces, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN19OpenColorIO_v2_5dev11ConfigUtils25getBuiltinLinearSpaceNameEi.builtinLinearSpaces, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   ret ptr %5
 }
@@ -1805,9 +1805,9 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc26, %_ZNSt6ve
 
 45:                                               ; preds = %45, %.lr.ph
   %.01441 = phi i64 [ 0, %.lr.ph ], [ %55, %45 ]
-  %46 = getelementptr inbounds nuw float, ptr %38, i64 %.01441
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.01441
   %47 = load float, ptr %46, align 4, !tbaa !51
-  %48 = getelementptr inbounds nuw float, ptr %.sroa.030.0, i64 %.01441
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.030.0, i64 %.01441
   %49 = load float, ptr %48, align 4, !tbaa !51
   %50 = fcmp ogt float %47, %49
   %51 = fsub float %47, %49
@@ -2107,7 +2107,7 @@ _ZN19OpenColorIO_v2_5dev14DynamicPtrCastIKNS_15MatrixTransformEKNS_9TransformEEE
   br i1 %.not, label %62, label %58
 
 58:                                               ; preds = %57
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %59 = load double, ptr %gep, align 8, !tbaa !75
   %60 = call noundef double @llvm.fabs.f64(double %59)
   %61 = fcmp ogt double %60, 1.000000e-01
@@ -3588,7 +3588,7 @@ define hidden noundef i32 @_ZN19OpenColorIO_v2_5dev11ConfigUtils32getReferenceSp
 
 .preheader:                                       ; preds = %4, %50
   %indvars.iv48 = phi i64 [ 0, %4 ], [ %indvars.iv.next49, %50 ]
-  %12 = getelementptr inbounds nuw ptr, ptr @__const._ZN19OpenColorIO_v2_5dev11ConfigUtils25getBuiltinLinearSpaceNameEi.builtinLinearSpaces, i64 %indvars.iv48
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN19OpenColorIO_v2_5dev11ConfigUtils25getBuiltinLinearSpaceNameEi.builtinLinearSpaces, i64 %indvars.iv48
   br label %13
 
 13:                                               ; preds = %.preheader, %49
@@ -3601,7 +3601,7 @@ define hidden noundef i32 @_ZN19OpenColorIO_v2_5dev11ConfigUtils32getReferenceSp
   %15 = load ptr, ptr %2, align 8, !tbaa !13
   %16 = call noundef ptr @_ZNK19OpenColorIO_v2_5dev10ColorSpace7getNameEv(ptr noundef nonnull align 8 dereferenceable(8) %15) #23
   %17 = load ptr, ptr %12, align 8, !tbaa !3
-  %18 = getelementptr inbounds nuw ptr, ptr @__const._ZN19OpenColorIO_v2_5dev11ConfigUtils25getBuiltinLinearSpaceNameEi.builtinLinearSpaces, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN19OpenColorIO_v2_5dev11ConfigUtils25getBuiltinLinearSpaceNameEi.builtinLinearSpaces, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !3
   invoke void @_ZN19OpenColorIO_v2_5dev6Config23GetProcessorFromConfigsERKSt10shared_ptrIKS0_EPKcS7_S5_S7_S7_(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.13") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %16, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %17, ptr noundef %19)
           to label %20 unwind label %45
@@ -4224,7 +4224,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSERKS3_.exit: ; preds = %_
 
 .preheader:                                       ; preds = %191, %193
   %.036127 = phi i64 [ %194, %193 ], [ 0, %191 ]
-  %199 = getelementptr inbounds nuw float, ptr %172, i64 %.036127
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %.036127
   %200 = load float, ptr %199, align 4, !tbaa !51
   %201 = fcmp ugt float %200, 0x3F68E73480000000
   br i1 %201, label %204, label %202
@@ -4241,7 +4241,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSERKS3_.exit: ; preds = %_
 207:                                              ; preds = %204, %202
   %storemerge = phi float [ %203, %202 ], [ %206, %204 ]
   store float %storemerge, ptr %199, align 4, !tbaa !51
-  %208 = getelementptr inbounds nuw float, ptr %167, i64 %.036127
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %.036127
   %209 = load float, ptr %208, align 4, !tbaa !51
   %210 = fcmp ogt float %209, %storemerge
   %211 = fsub float %209, %storemerge
@@ -4274,7 +4274,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSERKS3_.exit: ; preds = %_
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %223 = load ptr, ptr %2, align 8, !tbaa !13
   %224 = call noundef ptr @_ZNK19OpenColorIO_v2_5dev10ColorSpace7getNameEv(ptr noundef nonnull align 8 dereferenceable(8) %223) #23
-  %225 = getelementptr inbounds nuw ptr, ptr @__const._ZN19OpenColorIO_v2_5dev11ConfigUtils25getBuiltinLinearSpaceNameEi.builtinLinearSpaces, i64 %indvars.iv
+  %225 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN19OpenColorIO_v2_5dev11ConfigUtils25getBuiltinLinearSpaceNameEi.builtinLinearSpaces, i64 %indvars.iv
   %226 = load ptr, ptr %225, align 8, !tbaa !3
   invoke void @_ZN19OpenColorIO_v2_5dev6Config23GetProcessorFromConfigsERKSt10shared_ptrIKS0_EPKcS7_S5_S7_S7_(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.13") align 8 %14, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %224, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str, ptr noundef %226)
           to label %227 unwind label %252
@@ -5222,7 +5222,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev10ColorSpaceELN9__gnu_cxx12_Lock_poli
   %.4135 = phi i32 [ %.7, %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev10ColorSpaceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit115._crit_edge ], [ %.3, %._crit_edge ]
   %224 = call i32 @llvm.umin.i32(i32 %.4135, i32 4)
   %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr inbounds nuw ptr, ptr @__const._ZN19OpenColorIO_v2_5dev11ConfigUtils25getBuiltinLinearSpaceNameEi.builtinLinearSpaces, i64 %225
+  %226 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN19OpenColorIO_v2_5dev11ConfigUtils25getBuiltinLinearSpaceNameEi.builtinLinearSpaces, i64 %225
   %227 = load ptr, ptr %226, align 8, !tbaa !3
   store ptr %227, ptr %1, align 8, !tbaa !3
   %228 = load ptr, ptr %14, align 8, !tbaa !8

@@ -11419,7 +11419,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -11572,7 +11572,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i32, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -11725,7 +11725,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i16, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -12031,7 +12031,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i64, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -12184,7 +12184,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw double, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -12490,7 +12490,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i32, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -12643,7 +12643,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i16, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -12796,7 +12796,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw float, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -12949,7 +12949,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i64, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -13102,7 +13102,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw i128, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8
@@ -13423,7 +13423,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h440df4ffb954f487E.exit.i.i": ; preds = %94, %87
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %101 = load ptr, ptr %100, align 8, !alias.scope !915, !noalias !918, !nonnull !6, !noundef !6
-  %102 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %101, i64 %91
+  %102 = getelementptr inbounds nuw [24 x i8], ptr %101, i64 %91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !905
   %103 = add i64 %91, 1
   store i64 %103, ptr %90, align 8, !alias.scope !915, !noalias !918
@@ -13469,7 +13469,7 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
 "_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$10push_value17h24a360abe08dbabaE.exit": ; preds = %_ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.exit.i.i, %109
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %112 = load ptr, ptr %111, align 8, !alias.scope !920, !noalias !923, !nonnull !6, !noundef !6
-  %113 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %112, i64 %106
+  %113 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 %106
   store i32 %44, ptr %113, align 4
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %113, i64 4
   store i32 %.sroa.3.0.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 4
@@ -13693,7 +13693,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 102:                                              ; preds = %97, %92
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %104 = load ptr, ptr %103, align 8, !alias.scope !948, !noalias !951, !nonnull !6, !noundef !6
-  %105 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %104, i64 %94
+  %105 = getelementptr inbounds nuw [24 x i8], ptr %104, i64 %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !929
   %106 = add i64 %94, 1
   store i64 %106, ptr %93, align 8, !alias.scope !948, !noalias !951
@@ -13777,7 +13777,7 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
 "_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$10push_value17h411c8b312e5095b3E.exit": ; preds = %_ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.exit.i.i, %118
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %127 = load ptr, ptr %126, align 8, !alias.scope !959, !noalias !962, !nonnull !6, !noundef !6
-  %128 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %127, i64 %115
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %127, i64 %115
   store i32 %50, ptr %128, align 4, !noalias !929
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %128, i64 4
   store i32 %.sroa.3.0.i.i, ptr %.sroa.3.0..sroa_idx.i.i, align 4, !noalias !929
@@ -20009,7 +20009,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17hf588054c344918d9E.exit356": ; preds = %229, %234
   %235 = load ptr, ptr %190, align 8, !alias.scope !1335, !nonnull !6, !noundef !6
-  %236 = getelementptr inbounds nuw i64, ptr %235, i64 %231
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %231
   store i64 %230, ptr %236, align 8
   %237 = add i64 %231, 1
   store i64 %237, ptr %189, align 8, !alias.scope !1335
@@ -20158,7 +20158,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit377": ; preds = %280, %276
   %281 = load ptr, ptr %245, align 8, !alias.scope !1356, !nonnull !6, !noundef !6
-  %282 = getelementptr inbounds nuw i64, ptr %281, i64 %277
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %277
   store i64 %.sroa.097.0, ptr %282, align 8
   %283 = add i64 %277, 1
   store i64 %283, ptr %244, align 8, !alias.scope !1356
@@ -20389,7 +20389,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 358:                                              ; preds = %352, %357
   %359 = load ptr, ptr %305, align 8, !alias.scope !1377, !nonnull !6, !noundef !6
-  %360 = getelementptr inbounds nuw i64, ptr %359, i64 %354
+  %360 = getelementptr inbounds nuw [8 x i8], ptr %359, i64 %354
   store i64 %353, ptr %360, align 8
   %361 = add i64 %354, 1
   store i64 %361, ptr %304, align 8, !alias.scope !1377
@@ -21341,7 +21341,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 219:                                              ; preds = %195
   %220 = load ptr, ptr %189, align 8, !noalias !1420, !nonnull !6, !noundef !6
-  %221 = getelementptr inbounds nuw i64, ptr %220, i64 %197
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %197
   %222 = load i64, ptr %221, align 8, !noalias !1420, !noundef !6
   %223 = add nuw i64 %197, 1
   store i64 %223, ptr %.val311, align 8, !noalias !1420
@@ -21356,7 +21356,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17hf588054c344918d9E.exit340": ; preds = %219, %227
   %228 = load ptr, ptr %191, align 8, !alias.scope !1423, !nonnull !6, !noundef !6
-  %229 = getelementptr inbounds nuw i64, ptr %228, i64 %224
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %224
   store i64 %222, ptr %229, align 8
   %230 = add i64 %224, 1
   store i64 %230, ptr %190, align 8, !alias.scope !1423
@@ -21476,7 +21476,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit347": ; preds = %264, %260
   %265 = load ptr, ptr %241, align 8, !alias.scope !1434, !nonnull !6, !noundef !6
-  %266 = getelementptr inbounds nuw i64, ptr %265, i64 %261
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 %261
   store i64 %.sroa.097.0, ptr %266, align 8
   %267 = add i64 %261, 1
   store i64 %267, ptr %240, align 8, !alias.scope !1434
@@ -21484,7 +21484,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 268:                                              ; preds = %255
   %269 = load ptr, ptr %239, align 8, !noalias !1431, !nonnull !6, !noundef !6
-  %270 = getelementptr inbounds nuw i64, ptr %269, i64 %256
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %269, i64 %256
   %271 = load i64, ptr %270, align 8, !noalias !1431, !noundef !6
   %272 = add nuw i64 %256, 1
   store i64 %272, ptr %.val309, align 8, !noalias !1431
@@ -21659,7 +21659,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 332:                                              ; preds = %.lr.ph576
   %333 = load ptr, ptr %293, align 8, !noalias !1439, !nonnull !6, !noundef !6
-  %334 = getelementptr inbounds nuw i64, ptr %333, i64 %318
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %318
   %335 = load i64, ptr %334, align 8, !noalias !1439, !noundef !6
   %336 = add nuw i64 %318, 1
   store i64 %336, ptr %.val307, align 8, !noalias !1439
@@ -21674,7 +21674,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 341:                                              ; preds = %332, %340
   %342 = load ptr, ptr %295, align 8, !alias.scope !1445, !nonnull !6, !noundef !6
-  %343 = getelementptr inbounds nuw i64, ptr %342, i64 %337
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %342, i64 %337
   store i64 %335, ptr %343, align 8
   %344 = add i64 %337, 1
   store i64 %344, ptr %294, align 8, !alias.scope !1445
@@ -22153,7 +22153,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 77:                                               ; preds = %72
   %78 = load ptr, ptr %67, align 8, !noalias !1475, !nonnull !6, !noundef !6
-  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %74
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %74
   %80 = load i64, ptr %79, align 8, !noalias !1475, !noundef !6
   %81 = load i64, ptr %71, align 8, !noalias !1475, !noundef !6
   %82 = add i64 %81, %80
@@ -22276,7 +22276,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 126:                                              ; preds = %121
   %127 = load ptr, ptr %114, align 8, !noalias !1481, !nonnull !6, !noundef !6
-  %128 = getelementptr inbounds nuw i64, ptr %127, i64 %123
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %123
   %129 = load i64, ptr %128, align 8, !noalias !1481, !noundef !6
   %130 = load i64, ptr %118, align 8, !noalias !1481, !noundef !6
   %131 = add i64 %130, %129
@@ -22448,7 +22448,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 183:                                              ; preds = %178
   %184 = load ptr, ptr %170, align 8, !noalias !1490, !nonnull !6, !noundef !6
-  %185 = getelementptr inbounds nuw i64, ptr %184, i64 %180
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %180
   %186 = load i64, ptr %185, align 8, !noalias !1490, !noundef !6
   %187 = load i64, ptr %174, align 8, !noalias !1490, !noundef !6
   %188 = add i64 %187, %186
@@ -22542,7 +22542,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 228:                                              ; preds = %223
   %229 = load ptr, ptr %216, align 8, !noalias !1496, !nonnull !6, !noundef !6
-  %230 = getelementptr inbounds nuw i64, ptr %229, i64 %225
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %225
   %231 = load i64, ptr %230, align 8, !noalias !1496, !noundef !6
   %232 = load i64, ptr %220, align 8, !noalias !1496, !noundef !6
   %233 = add i64 %232, %231
@@ -22724,7 +22724,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 284:                                              ; preds = %280
   %285 = load ptr, ptr %269, align 8, !noalias !1501, !nonnull !6, !noundef !6
-  %286 = getelementptr inbounds nuw i64, ptr %285, i64 %281
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %281
   %287 = load i64, ptr %286, align 8, !noalias !1501, !noundef !6
   %288 = load i64, ptr %275, align 8, !noalias !1501, !noundef !6
   %289 = add i64 %288, %287
@@ -22898,7 +22898,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 353:                                              ; preds = %349
   %354 = load ptr, ptr %329, align 8, !noalias !1508, !nonnull !6, !noundef !6
-  %355 = getelementptr inbounds nuw i64, ptr %354, i64 %350
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %354, i64 %350
   %356 = load i64, ptr %355, align 8, !noalias !1508, !noundef !6
   %357 = load i64, ptr %335, align 8, !noalias !1508, !noundef !6
   %358 = add i64 %357, %356
@@ -23084,7 +23084,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 426:                                              ; preds = %422
   %427 = load ptr, ptr %393, align 8, !noalias !1512, !nonnull !6, !noundef !6
-  %428 = getelementptr inbounds nuw i64, ptr %427, i64 %423
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %427, i64 %423
   %429 = load i64, ptr %428, align 8, !noalias !1512, !noundef !6
   %430 = load i64, ptr %399, align 8, !noalias !1512, !noundef !6
   %431 = add i64 %430, %429
@@ -23112,7 +23112,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 441:                                              ; preds = %.lr.ph728
   %442 = load ptr, ptr %393, align 8, !noalias !1516, !nonnull !6, !noundef !6
-  %443 = getelementptr inbounds nuw i64, ptr %442, i64 %438
+  %443 = getelementptr inbounds nuw [8 x i8], ptr %442, i64 %438
   %444 = load i64, ptr %443, align 8, !noalias !1516, !noundef !6
   %445 = load i64, ptr %399, align 8, !noalias !1516, !noundef !6
   %446 = add i64 %445, %444
@@ -24201,7 +24201,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17heeb4acf77f74b771E.exit350": ; preds = %217, %223
   %224 = load ptr, ptr %187, align 8, !alias.scope !1568, !nonnull !6, !noundef !6
-  %225 = getelementptr inbounds nuw float, ptr %224, i64 %220
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %224, i64 %220
   store float %.sroa.03.0.copyload.i5.i.i.i.i352, ptr %225, align 4
   %226 = add i64 %220, 1
   store i64 %226, ptr %186, align 8, !alias.scope !1568
@@ -24334,7 +24334,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h9442763fd798dbf2E.exit367": ; preds = %260, %256
   %261 = load ptr, ptr %234, align 8, !alias.scope !1579, !nonnull !6, !noundef !6
-  %262 = getelementptr inbounds nuw float, ptr %261, i64 %257
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %261, i64 %257
   store float %.sroa.097.0, ptr %262, align 4
   %263 = add i64 %257, 1
   store i64 %263, ptr %233, align 8, !alias.scope !1579
@@ -24553,7 +24553,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 331:                                              ; preds = %324, %330
   %332 = load ptr, ptr %286, align 8, !alias.scope !1604, !nonnull !6, !noundef !6
-  %333 = getelementptr inbounds nuw float, ptr %332, i64 %327
+  %333 = getelementptr inbounds nuw [4 x i8], ptr %332, i64 %327
   store float %.sroa.03.0.copyload.i5.i.i.i.i371, ptr %333, align 4
   %334 = add i64 %327, 1
   store i64 %334, ptr %285, align 8, !alias.scope !1604
@@ -25512,7 +25512,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 219:                                              ; preds = %195
   %220 = load ptr, ptr %189, align 8, !noalias !1647, !nonnull !6, !noundef !6
-  %221 = getelementptr inbounds nuw i64, ptr %220, i64 %197
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %197
   %222 = load i64, ptr %221, align 8, !noalias !1647, !noundef !6
   %223 = add nuw i64 %197, 1
   store i64 %223, ptr %.val311, align 8, !noalias !1647
@@ -25528,7 +25528,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17h6e5b6252575d4a7bE.exit340": ; preds = %219, %228
   %229 = load ptr, ptr %191, align 8, !alias.scope !1650, !nonnull !6, !noundef !6
-  %230 = getelementptr inbounds nuw i32, ptr %229, i64 %225
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %229, i64 %225
   store i32 %224, ptr %230, align 4
   %231 = add i64 %225, 1
   store i64 %231, ptr %190, align 8, !alias.scope !1650
@@ -25648,7 +25648,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit347": ; preds = %265, %261
   %266 = load ptr, ptr %242, align 8, !alias.scope !1661, !nonnull !6, !noundef !6
-  %267 = getelementptr inbounds nuw i32, ptr %266, i64 %262
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %266, i64 %262
   store i32 %.sroa.097.0, ptr %267, align 4
   %268 = add i64 %262, 1
   store i64 %268, ptr %241, align 8, !alias.scope !1661
@@ -25656,7 +25656,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 269:                                              ; preds = %256
   %270 = load ptr, ptr %240, align 8, !noalias !1658, !nonnull !6, !noundef !6
-  %271 = getelementptr inbounds nuw i64, ptr %270, i64 %257
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %257
   %272 = load i64, ptr %271, align 8, !noalias !1658, !noundef !6
   %273 = add nuw i64 %257, 1
   store i64 %273, ptr %.val309, align 8, !noalias !1658
@@ -25832,7 +25832,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 334:                                              ; preds = %.lr.ph576
   %335 = load ptr, ptr %295, align 8, !noalias !1666, !nonnull !6, !noundef !6
-  %336 = getelementptr inbounds nuw i64, ptr %335, i64 %320
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %320
   %337 = load i64, ptr %336, align 8, !noalias !1666, !noundef !6
   %338 = add nuw i64 %320, 1
   store i64 %338, ptr %.val307, align 8, !noalias !1666
@@ -25848,7 +25848,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 344:                                              ; preds = %334, %343
   %345 = load ptr, ptr %297, align 8, !alias.scope !1672, !nonnull !6, !noundef !6
-  %346 = getelementptr inbounds nuw i32, ptr %345, i64 %340
+  %346 = getelementptr inbounds nuw [4 x i8], ptr %345, i64 %340
   store i32 %339, ptr %346, align 4
   %347 = add i64 %340, 1
   store i64 %347, ptr %296, align 8, !alias.scope !1672
@@ -26888,7 +26888,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17ha919a10b9b735ee7E.exit214": ; preds = %215, %223
   %224 = load ptr, ptr %186, align 8, !alias.scope !1729, !noalias !1734, !nonnull !6, !noundef !6
-  %225 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %224, i64 %220
+  %225 = getelementptr inbounds nuw [32 x i8], ptr %224, i64 %220
   store i128 %218, ptr %225, align 16
   %.sroa.2397.0..sroa_idx = getelementptr inbounds nuw i8, ptr %225, i64 16
   store i128 %219, ptr %.sroa.2397.0..sroa_idx, align 16
@@ -27027,7 +27027,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h71dd5d337ddae469E.exit236": ; preds = %259, %"_ZN76_$LT$polars_arrow..types..native..i256$u20$as$u20$core..default..Default$GT$7default17h8c23d5ec405554b6E.exit"
   %260 = load ptr, ptr %234, align 8, !alias.scope !1743, !noalias !1748, !nonnull !6, !noundef !6
-  %261 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %260, i64 %256
+  %261 = getelementptr inbounds nuw [32 x i8], ptr %260, i64 %256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %261, ptr noundef nonnull readonly align 16 dereferenceable(32) %26, i64 32, i1 false)
   %262 = add i64 %256, 1
   store i64 %262, ptr %233, align 8, !alias.scope !1743, !noalias !1748
@@ -27252,7 +27252,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 334:                                              ; preds = %325, %333
   %335 = load ptr, ptr %287, align 8, !alias.scope !1779, !noalias !1784, !nonnull !6, !noundef !6
-  %336 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %335, i64 %330
+  %336 = getelementptr inbounds nuw [32 x i8], ptr %335, i64 %330
   store i128 %328, ptr %336, align 16
   %.sroa.2435.0..sroa_idx = getelementptr inbounds nuw i8, ptr %336, i64 16
   store i128 %329, ptr %.sroa.2435.0..sroa_idx, align 16
@@ -28292,7 +28292,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17he95184cd485c3612E.exit350": ; preds = %217, %224
   %225 = load ptr, ptr %187, align 8, !alias.scope !1835, !nonnull !6, !noundef !6
-  %226 = getelementptr inbounds nuw i16, ptr %225, i64 %221
+  %226 = getelementptr inbounds nuw [2 x i8], ptr %225, i64 %221
   store i16 %220, ptr %226, align 2
   %227 = add i64 %221, 1
   store i64 %227, ptr %186, align 8, !alias.scope !1835
@@ -28425,7 +28425,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7edb4748ab4faf13E.exit367": ; preds = %261, %257
   %262 = load ptr, ptr %235, align 8, !alias.scope !1846, !nonnull !6, !noundef !6
-  %263 = getelementptr inbounds nuw i16, ptr %262, i64 %258
+  %263 = getelementptr inbounds nuw [2 x i8], ptr %262, i64 %258
   store i16 %.sroa.097.0, ptr %263, align 2
   %264 = add i64 %258, 1
   store i64 %264, ptr %234, align 8, !alias.scope !1846
@@ -28646,7 +28646,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 334:                                              ; preds = %326, %333
   %335 = load ptr, ptr %288, align 8, !alias.scope !1871, !nonnull !6, !noundef !6
-  %336 = getelementptr inbounds nuw i16, ptr %335, i64 %330
+  %336 = getelementptr inbounds nuw [2 x i8], ptr %335, i64 %330
   store i16 %329, ptr %336, align 2
   %337 = add i64 %330, 1
   store i64 %337, ptr %287, align 8, !alias.scope !1871
@@ -29684,7 +29684,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit": ; preds = %221, %214
   %222 = load ptr, ptr %185, align 8, !alias.scope !1927, !nonnull !6, !noundef !6
-  %223 = getelementptr inbounds nuw i128, ptr %222, i64 %218
+  %223 = getelementptr inbounds nuw [16 x i8], ptr %222, i64 %218
   store i128 %217, ptr %223, align 16
   %224 = add i64 %218, 1
   store i64 %224, ptr %184, align 8, !alias.scope !1927
@@ -29817,7 +29817,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit382": ; preds = %257, %253
   %258 = load ptr, ptr %232, align 8, !alias.scope !1938, !nonnull !6, !noundef !6
-  %259 = getelementptr inbounds nuw i128, ptr %258, i64 %254
+  %259 = getelementptr inbounds nuw [16 x i8], ptr %258, i64 %254
   store i128 %.sroa.0105.0, ptr %259, align 16
   %260 = add i64 %254, 1
   store i64 %260, ptr %231, align 8, !alias.scope !1938
@@ -30038,7 +30038,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit402": ; preds = %329, %322
   %330 = load ptr, ptr %284, align 8, !alias.scope !1969, !nonnull !6, !noundef !6
-  %331 = getelementptr inbounds nuw i128, ptr %330, i64 %326
+  %331 = getelementptr inbounds nuw [16 x i8], ptr %330, i64 %326
   store i128 %325, ptr %331, align 16
   %332 = add i64 %326, 1
   store i64 %332, ptr %283, align 8, !alias.scope !1969
@@ -31078,7 +31078,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17ha919a10b9b735ee7E.exit214": ; preds = %215, %223
   %224 = load ptr, ptr %186, align 8, !alias.scope !2027, !noalias !2032, !nonnull !6, !noundef !6
-  %225 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %224, i64 %220
+  %225 = getelementptr inbounds nuw [32 x i8], ptr %224, i64 %220
   store i128 %218, ptr %225, align 16
   %.sroa.2397.0..sroa_idx = getelementptr inbounds nuw i8, ptr %225, i64 16
   store i128 %219, ptr %.sroa.2397.0..sroa_idx, align 16
@@ -31217,7 +31217,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h71dd5d337ddae469E.exit236": ; preds = %259, %"_ZN76_$LT$polars_arrow..types..native..i256$u20$as$u20$core..default..Default$GT$7default17h8c23d5ec405554b6E.exit"
   %260 = load ptr, ptr %234, align 8, !alias.scope !2041, !noalias !2046, !nonnull !6, !noundef !6
-  %261 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %260, i64 %256
+  %261 = getelementptr inbounds nuw [32 x i8], ptr %260, i64 %256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %261, ptr noundef nonnull readonly align 16 dereferenceable(32) %26, i64 32, i1 false)
   %262 = add i64 %256, 1
   store i64 %262, ptr %233, align 8, !alias.scope !2041, !noalias !2046
@@ -31442,7 +31442,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 334:                                              ; preds = %325, %333
   %335 = load ptr, ptr %287, align 8, !alias.scope !2079, !noalias !2084, !nonnull !6, !noundef !6
-  %336 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %335, i64 %330
+  %336 = getelementptr inbounds nuw [32 x i8], ptr %335, i64 %330
   store i128 %328, ptr %336, align 16
   %.sroa.2435.0..sroa_idx = getelementptr inbounds nuw i8, ptr %336, i64 16
   store i128 %329, ptr %.sroa.2435.0..sroa_idx, align 16
@@ -32403,7 +32403,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 219:                                              ; preds = %195
   %220 = load ptr, ptr %189, align 8, !noalias !2125, !nonnull !6, !noundef !6
-  %221 = getelementptr inbounds nuw i64, ptr %220, i64 %197
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %197
   %222 = load i64, ptr %221, align 8, !noalias !2125, !noundef !6
   %223 = add nuw i64 %197, 1
   store i64 %223, ptr %.val311, align 8, !noalias !2125
@@ -32418,7 +32418,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17h4f39c2b36716fe20E.exit340": ; preds = %219, %227
   %228 = load ptr, ptr %191, align 8, !alias.scope !2128, !nonnull !6, !noundef !6
-  %229 = getelementptr inbounds nuw i64, ptr %228, i64 %224
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %224
   store i64 %222, ptr %229, align 8
   %230 = add i64 %224, 1
   store i64 %230, ptr %190, align 8, !alias.scope !2128
@@ -32538,7 +32538,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17hb7d062f596122689E.exit347": ; preds = %264, %260
   %265 = load ptr, ptr %241, align 8, !alias.scope !2139, !nonnull !6, !noundef !6
-  %266 = getelementptr inbounds nuw i64, ptr %265, i64 %261
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 %261
   store i64 %.sroa.097.0, ptr %266, align 8
   %267 = add i64 %261, 1
   store i64 %267, ptr %240, align 8, !alias.scope !2139
@@ -32546,7 +32546,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 268:                                              ; preds = %255
   %269 = load ptr, ptr %239, align 8, !noalias !2136, !nonnull !6, !noundef !6
-  %270 = getelementptr inbounds nuw i64, ptr %269, i64 %256
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %269, i64 %256
   %271 = load i64, ptr %270, align 8, !noalias !2136, !noundef !6
   %272 = add nuw i64 %256, 1
   store i64 %272, ptr %.val309, align 8, !noalias !2136
@@ -32721,7 +32721,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 332:                                              ; preds = %.lr.ph576
   %333 = load ptr, ptr %293, align 8, !noalias !2144, !nonnull !6, !noundef !6
-  %334 = getelementptr inbounds nuw i64, ptr %333, i64 %318
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %318
   %335 = load i64, ptr %334, align 8, !noalias !2144, !noundef !6
   %336 = add nuw i64 %318, 1
   store i64 %336, ptr %.val307, align 8, !noalias !2144
@@ -32736,7 +32736,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 341:                                              ; preds = %332, %340
   %342 = load ptr, ptr %295, align 8, !alias.scope !2150, !nonnull !6, !noundef !6
-  %343 = getelementptr inbounds nuw i64, ptr %342, i64 %337
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %342, i64 %337
   store i64 %335, ptr %343, align 8
   %344 = add i64 %337, 1
   store i64 %344, ptr %294, align 8, !alias.scope !2150
@@ -33780,7 +33780,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17hf588054c344918d9E.exit353": ; preds = %220, %229
   %230 = load ptr, ptr %190, align 8, !alias.scope !2207, !nonnull !6, !noundef !6
-  %231 = getelementptr inbounds nuw i64, ptr %230, i64 %226
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %226
   store i64 %225, ptr %231, align 8
   %232 = add i64 %226, 1
   store i64 %232, ptr %189, align 8, !alias.scope !2207
@@ -33917,7 +33917,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit372": ; preds = %267, %263
   %268 = load ptr, ptr %241, align 8, !alias.scope !2221, !nonnull !6, !noundef !6
-  %269 = getelementptr inbounds nuw i64, ptr %268, i64 %264
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %264
   store i64 %.sroa.097.0, ptr %269, align 8
   %270 = add i64 %264, 1
   store i64 %270, ptr %240, align 8, !alias.scope !2221
@@ -34146,7 +34146,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 345:                                              ; preds = %335, %344
   %346 = load ptr, ptr %297, align 8, !alias.scope !2251, !nonnull !6, !noundef !6
-  %347 = getelementptr inbounds nuw i64, ptr %346, i64 %341
+  %347 = getelementptr inbounds nuw [8 x i8], ptr %346, i64 %341
   store i64 %340, ptr %347, align 8
   %348 = add i64 %341, 1
   store i64 %348, ptr %296, align 8, !alias.scope !2251
@@ -35105,7 +35105,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 219:                                              ; preds = %195
   %220 = load ptr, ptr %189, align 8, !noalias !2294, !nonnull !6, !noundef !6
-  %221 = getelementptr inbounds nuw i64, ptr %220, i64 %197
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %197
   %222 = load i64, ptr %221, align 8, !noalias !2294, !noundef !6
   %223 = add nuw i64 %197, 1
   store i64 %223, ptr %.val311, align 8, !noalias !2294
@@ -35121,7 +35121,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17h92f21d8878ce9f69E.exit340": ; preds = %219, %228
   %229 = load ptr, ptr %191, align 8, !alias.scope !2297, !nonnull !6, !noundef !6
-  %230 = getelementptr inbounds nuw i16, ptr %229, i64 %225
+  %230 = getelementptr inbounds nuw [2 x i8], ptr %229, i64 %225
   store i16 %224, ptr %230, align 2
   %231 = add i64 %225, 1
   store i64 %231, ptr %190, align 8, !alias.scope !2297
@@ -35241,7 +35241,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7ade14d45b50621fE.exit347": ; preds = %265, %261
   %266 = load ptr, ptr %242, align 8, !alias.scope !2308, !nonnull !6, !noundef !6
-  %267 = getelementptr inbounds nuw i16, ptr %266, i64 %262
+  %267 = getelementptr inbounds nuw [2 x i8], ptr %266, i64 %262
   store i16 %.sroa.097.0, ptr %267, align 2
   %268 = add i64 %262, 1
   store i64 %268, ptr %241, align 8, !alias.scope !2308
@@ -35249,7 +35249,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 269:                                              ; preds = %256
   %270 = load ptr, ptr %240, align 8, !noalias !2305, !nonnull !6, !noundef !6
-  %271 = getelementptr inbounds nuw i64, ptr %270, i64 %257
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %257
   %272 = load i64, ptr %271, align 8, !noalias !2305, !noundef !6
   %273 = add nuw i64 %257, 1
   store i64 %273, ptr %.val309, align 8, !noalias !2305
@@ -35425,7 +35425,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 334:                                              ; preds = %.lr.ph576
   %335 = load ptr, ptr %295, align 8, !noalias !2313, !nonnull !6, !noundef !6
-  %336 = getelementptr inbounds nuw i64, ptr %335, i64 %320
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %320
   %337 = load i64, ptr %336, align 8, !noalias !2313, !noundef !6
   %338 = add nuw i64 %320, 1
   store i64 %338, ptr %.val307, align 8, !noalias !2313
@@ -35441,7 +35441,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 344:                                              ; preds = %334, %343
   %345 = load ptr, ptr %297, align 8, !alias.scope !2319, !nonnull !6, !noundef !6
-  %346 = getelementptr inbounds nuw i16, ptr %345, i64 %340
+  %346 = getelementptr inbounds nuw [2 x i8], ptr %345, i64 %340
   store i16 %339, ptr %346, align 2
   %347 = add i64 %340, 1
   store i64 %347, ptr %296, align 8, !alias.scope !2319
@@ -36400,7 +36400,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 219:                                              ; preds = %195
   %220 = load ptr, ptr %189, align 8, !noalias !2362, !nonnull !6, !noundef !6
-  %221 = getelementptr inbounds nuw i64, ptr %220, i64 %197
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %197
   %222 = load i64, ptr %221, align 8, !noalias !2362, !noundef !6
   %223 = add nuw i64 %197, 1
   store i64 %223, ptr %.val311, align 8, !noalias !2362
@@ -36544,7 +36544,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 269:                                              ; preds = %256
   %270 = load ptr, ptr %240, align 8, !noalias !2373, !nonnull !6, !noundef !6
-  %271 = getelementptr inbounds nuw i64, ptr %270, i64 %257
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %257
   %272 = load i64, ptr %271, align 8, !noalias !2373, !noundef !6
   %273 = add nuw i64 %257, 1
   store i64 %273, ptr %.val309, align 8, !noalias !2373
@@ -36720,7 +36720,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 334:                                              ; preds = %.lr.ph576
   %335 = load ptr, ptr %295, align 8, !noalias !2381, !nonnull !6, !noundef !6
-  %336 = getelementptr inbounds nuw i64, ptr %335, i64 %320
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %320
   %337 = load i64, ptr %336, align 8, !noalias !2381, !noundef !6
   %338 = add nuw i64 %320, 1
   store i64 %338, ptr %.val307, align 8, !noalias !2381
@@ -37773,7 +37773,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17hde3e2cd60d5545c3E.exit350": ; preds = %217, %223
   %224 = load ptr, ptr %187, align 8, !alias.scope !2442, !nonnull !6, !noundef !6
-  %225 = getelementptr inbounds nuw double, ptr %224, i64 %220
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %220
   store double %.sroa.02.0.copyload.i3.i.i.i.i352, ptr %225, align 8
   %226 = add i64 %220, 1
   store i64 %226, ptr %186, align 8, !alias.scope !2442
@@ -37906,7 +37906,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h1afd600d1649e7baE.exit367": ; preds = %260, %256
   %261 = load ptr, ptr %234, align 8, !alias.scope !2453, !nonnull !6, !noundef !6
-  %262 = getelementptr inbounds nuw double, ptr %261, i64 %257
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %257
   store double %.sroa.097.0, ptr %262, align 8
   %263 = add i64 %257, 1
   store i64 %263, ptr %233, align 8, !alias.scope !2453
@@ -38125,7 +38125,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 331:                                              ; preds = %324, %330
   %332 = load ptr, ptr %286, align 8, !alias.scope !2482, !nonnull !6, !noundef !6
-  %333 = getelementptr inbounds nuw double, ptr %332, i64 %327
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %327
   store double %.sroa.02.0.copyload.i3.i.i.i.i371, ptr %333, align 8
   %334 = add i64 %327, 1
   store i64 %334, ptr %285, align 8, !alias.scope !2482
@@ -39084,7 +39084,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 219:                                              ; preds = %195
   %220 = load ptr, ptr %189, align 8, !noalias !2525, !nonnull !6, !noundef !6
-  %221 = getelementptr inbounds nuw i64, ptr %220, i64 %197
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %197
   %222 = load i64, ptr %221, align 8, !noalias !2525, !noundef !6
   %223 = add nuw i64 %197, 1
   store i64 %223, ptr %.val311, align 8, !noalias !2525
@@ -39100,7 +39100,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17hf8cc0286b935fc0bE.exit340": ; preds = %219, %228
   %229 = load ptr, ptr %191, align 8, !alias.scope !2528, !nonnull !6, !noundef !6
-  %230 = getelementptr inbounds nuw i32, ptr %229, i64 %225
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %229, i64 %225
   store i32 %224, ptr %230, align 4
   %231 = add i64 %225, 1
   store i64 %231, ptr %190, align 8, !alias.scope !2528
@@ -39220,7 +39220,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h6c9df35e2c9c9aeeE.exit347": ; preds = %265, %261
   %266 = load ptr, ptr %242, align 8, !alias.scope !2539, !nonnull !6, !noundef !6
-  %267 = getelementptr inbounds nuw i32, ptr %266, i64 %262
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %266, i64 %262
   store i32 %.sroa.097.0, ptr %267, align 4
   %268 = add i64 %262, 1
   store i64 %268, ptr %241, align 8, !alias.scope !2539
@@ -39228,7 +39228,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 269:                                              ; preds = %256
   %270 = load ptr, ptr %240, align 8, !noalias !2536, !nonnull !6, !noundef !6
-  %271 = getelementptr inbounds nuw i64, ptr %270, i64 %257
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %257
   %272 = load i64, ptr %271, align 8, !noalias !2536, !noundef !6
   %273 = add nuw i64 %257, 1
   store i64 %273, ptr %.val309, align 8, !noalias !2536
@@ -39404,7 +39404,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 334:                                              ; preds = %.lr.ph576
   %335 = load ptr, ptr %295, align 8, !noalias !2544, !nonnull !6, !noundef !6
-  %336 = getelementptr inbounds nuw i64, ptr %335, i64 %320
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %320
   %337 = load i64, ptr %336, align 8, !noalias !2544, !noundef !6
   %338 = add nuw i64 %320, 1
   store i64 %338, ptr %.val307, align 8, !noalias !2544
@@ -39420,7 +39420,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 344:                                              ; preds = %334, %343
   %345 = load ptr, ptr %297, align 8, !alias.scope !2550, !nonnull !6, !noundef !6
-  %346 = getelementptr inbounds nuw i32, ptr %345, i64 %340
+  %346 = getelementptr inbounds nuw [4 x i8], ptr %345, i64 %340
   store i32 %339, ptr %346, align 4
   %347 = add i64 %340, 1
   store i64 %347, ptr %296, align 8, !alias.scope !2550
@@ -40386,7 +40386,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 231:                                              ; preds = %207
   %232 = load ptr, ptr %199, align 8, !noalias !2610, !nonnull !6, !noundef !6
-  %233 = getelementptr inbounds nuw i64, ptr %232, i64 %209
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %209
   %234 = load i64, ptr %233, align 8, !noalias !2610, !noundef !6
   %235 = add nuw i64 %209, 1
   store i64 %235, ptr %197, align 8, !noalias !2610
@@ -40404,7 +40404,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17hf588054c344918d9E.exit324": ; preds = %231, %242
   %243 = load ptr, ptr %203, align 8, !alias.scope !2611, !nonnull !6, !noundef !6
-  %244 = getelementptr inbounds nuw i64, ptr %243, i64 %239
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %239
   store i64 %238, ptr %244, align 8
   %245 = add i64 %239, 1
   store i64 %245, ptr %202, align 8, !alias.scope !2611
@@ -40526,7 +40526,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit331": ; preds = %283, %279
   %284 = load ptr, ptr %260, align 8, !alias.scope !2623, !nonnull !6, !noundef !6
-  %285 = getelementptr inbounds nuw i64, ptr %284, i64 %280
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %284, i64 %280
   store i64 %.sroa.097.0, ptr %285, align 8
   %286 = add i64 %280, 1
   store i64 %286, ptr %259, align 8, !alias.scope !2623
@@ -40534,7 +40534,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 287:                                              ; preds = %274
   %288 = load ptr, ptr %256, align 8, !noalias !2619, !nonnull !6, !noundef !6
-  %289 = getelementptr inbounds nuw i64, ptr %288, i64 %275
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %288, i64 %275
   %290 = load i64, ptr %289, align 8, !noalias !2619, !noundef !6
   %291 = add nuw i64 %275, 1
   store i64 %291, ptr %254, align 8, !noalias !2619
@@ -40714,7 +40714,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 357:                                              ; preds = %.lr.ph560
   %358 = load ptr, ptr %317, align 8, !noalias !2628, !nonnull !6, !noundef !6
-  %359 = getelementptr inbounds nuw i64, ptr %358, i64 %344
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %358, i64 %344
   %360 = load i64, ptr %359, align 8, !noalias !2628, !noundef !6
   %361 = add nuw i64 %344, 1
   store i64 %361, ptr %315, align 8, !noalias !2628
@@ -40732,7 +40732,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 369:                                              ; preds = %357, %368
   %370 = load ptr, ptr %321, align 8, !alias.scope !2636, !nonnull !6, !noundef !6
-  %371 = getelementptr inbounds nuw i64, ptr %370, i64 %365
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %370, i64 %365
   store i64 %364, ptr %371, align 8
   %372 = add i64 %365, 1
   store i64 %372, ptr %320, align 8, !alias.scope !2636
@@ -41209,7 +41209,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 76:                                               ; preds = %72
   %77 = load ptr, ptr %67, align 8, !noalias !2661, !nonnull !6, !noundef !6
-  %78 = getelementptr inbounds nuw i64, ptr %77, i64 %73
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %73
   %79 = load i64, ptr %78, align 8, !noalias !2661, !noundef !6
   %80 = add nuw i64 %73, 1
   store i64 %80, ptr %65, align 8, !noalias !2661
@@ -41319,7 +41319,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 117:                                              ; preds = %113
   %118 = load ptr, ptr %108, align 8, !noalias !2665, !nonnull !6, !noundef !6
-  %119 = getelementptr inbounds nuw i64, ptr %118, i64 %114
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %114
   %120 = load i64, ptr %119, align 8, !noalias !2665, !noundef !6
   %121 = add nuw i64 %114, 1
   store i64 %121, ptr %106, align 8, !noalias !2665
@@ -41483,7 +41483,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 172:                                              ; preds = %168
   %173 = load ptr, ptr %160, align 8, !noalias !2672, !nonnull !6, !noundef !6
-  %174 = getelementptr inbounds nuw i64, ptr %173, i64 %169
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %169
   %175 = load i64, ptr %174, align 8, !noalias !2672, !noundef !6
   %176 = add nuw i64 %169, 1
   store i64 %176, ptr %158, align 8, !noalias !2672
@@ -41568,7 +41568,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 213:                                              ; preds = %209
   %214 = load ptr, ptr %204, align 8, !noalias !2676, !nonnull !6, !noundef !6
-  %215 = getelementptr inbounds nuw i64, ptr %214, i64 %210
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %210
   %216 = load i64, ptr %215, align 8, !noalias !2676, !noundef !6
   %217 = add nuw i64 %210, 1
   store i64 %217, ptr %202, align 8, !noalias !2676
@@ -41752,7 +41752,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 271:                                              ; preds = %266
   %272 = load ptr, ptr %258, align 8, !noalias !2688, !nonnull !6, !noundef !6
-  %273 = getelementptr inbounds nuw i64, ptr %272, i64 %268
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %268
   %274 = load i64, ptr %273, align 8, !noalias !2688, !noundef !6
   %275 = add nuw i64 %268, 1
   store i64 %275, ptr %256, align 8, !noalias !2688
@@ -41835,7 +41835,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17hf588054c344918d9E.exit332": ; preds = %304, %309
   %310 = load ptr, ptr %262, align 8, !alias.scope !2689, !nonnull !6, !noundef !6
-  %311 = getelementptr inbounds nuw i64, ptr %310, i64 %306
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %310, i64 %306
   store i64 %305, ptr %311, align 8
   %312 = add i64 %306, 1
   store i64 %312, ptr %261, align 8, !alias.scope !2689
@@ -41939,7 +41939,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 345:                                              ; preds = %341
   %346 = load ptr, ptr %323, align 8, !noalias !2697, !nonnull !6, !noundef !6
-  %347 = getelementptr inbounds nuw i64, ptr %346, i64 %342
+  %347 = getelementptr inbounds nuw [8 x i8], ptr %346, i64 %342
   %348 = load i64, ptr %347, align 8, !noalias !2697, !noundef !6
   %349 = add nuw i64 %342, 1
   store i64 %349, ptr %321, align 8, !noalias !2697
@@ -41988,7 +41988,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit343": ; preds = %364, %360
   %365 = load ptr, ptr %327, align 8, !alias.scope !2701, !nonnull !6, !noundef !6
-  %366 = getelementptr inbounds nuw i64, ptr %365, i64 %361
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %365, i64 %361
   store i64 %.sroa.097.0, ptr %366, align 8
   %367 = add i64 %361, 1
   store i64 %367, ptr %326, align 8, !alias.scope !2701
@@ -42134,7 +42134,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 422:                                              ; preds = %.lr.ph600
   %423 = load ptr, ptr %392, align 8, !noalias !2706, !nonnull !6, !noundef !6
-  %424 = getelementptr inbounds nuw i64, ptr %423, i64 %419
+  %424 = getelementptr inbounds nuw [8 x i8], ptr %423, i64 %419
   %425 = load i64, ptr %424, align 8, !noalias !2706, !noundef !6
   %426 = add nuw i64 %419, 1
   store i64 %426, ptr %390, align 8, !noalias !2706
@@ -42167,7 +42167,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 440:                                              ; preds = %436
   %441 = load ptr, ptr %392, align 8, !noalias !2710, !nonnull !6, !noundef !6
-  %442 = getelementptr inbounds nuw i64, ptr %441, i64 %437
+  %442 = getelementptr inbounds nuw [8 x i8], ptr %441, i64 %437
   %443 = load i64, ptr %442, align 8, !noalias !2710, !noundef !6
   %444 = add nuw i64 %437, 1
   store i64 %444, ptr %390, align 8, !noalias !2710
@@ -42218,7 +42218,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 460:                                              ; preds = %454, %459
   %461 = load ptr, ptr %396, align 8, !alias.scope !2714, !nonnull !6, !noundef !6
-  %462 = getelementptr inbounds nuw i64, ptr %461, i64 %456
+  %462 = getelementptr inbounds nuw [8 x i8], ptr %461, i64 %456
   store i64 %455, ptr %462, align 8
   %463 = add i64 %456, 1
   store i64 %463, ptr %395, align 8, !alias.scope !2714
@@ -43171,7 +43171,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 220:                                              ; preds = %196
   %221 = load ptr, ptr %190, align 8, !noalias !2757, !nonnull !6, !noundef !6
-  %222 = getelementptr inbounds nuw i64, ptr %221, i64 %198
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %198
   %223 = load i64, ptr %222, align 8, !noalias !2757, !noundef !6
   %224 = add nuw i64 %198, 1
   store i64 %224, ptr %.val169, align 8, !noalias !2757
@@ -43188,7 +43188,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17ha919a10b9b735ee7E.exit201": ; preds = %220, %230
   %231 = load ptr, ptr %192, align 8, !alias.scope !2760, !noalias !2765, !nonnull !6, !noundef !6
-  %232 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %231, i64 %227
+  %232 = getelementptr inbounds nuw [32 x i8], ptr %231, i64 %227
   store i128 %225, ptr %232, align 16
   %.sroa.2360.0..sroa_idx = getelementptr inbounds nuw i8, ptr %232, i64 16
   store i128 %226, ptr %.sroa.2360.0..sroa_idx, align 16
@@ -43314,7 +43314,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h71dd5d337ddae469E.exit211": ; preds = %267, %"_ZN76_$LT$polars_arrow..types..native..i256$u20$as$u20$core..default..Default$GT$7default17h8c23d5ec405554b6E.exit"
   %268 = load ptr, ptr %244, align 8, !alias.scope !2774, !noalias !2779, !nonnull !6, !noundef !6
-  %269 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %268, i64 %264
+  %269 = getelementptr inbounds nuw [32 x i8], ptr %268, i64 %264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %269, ptr noundef nonnull readonly align 16 dereferenceable(32) %26, i64 32, i1 false)
   %270 = add i64 %264, 1
   store i64 %270, ptr %243, align 8, !alias.scope !2774, !noalias !2779
@@ -43322,7 +43322,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 271:                                              ; preds = %259
   %272 = load ptr, ptr %242, align 8, !noalias !2771, !nonnull !6, !noundef !6
-  %273 = getelementptr inbounds nuw i64, ptr %272, i64 %260
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %260
   %274 = load i64, ptr %273, align 8, !noalias !2771, !noundef !6
   %275 = add nuw i64 %260, 1
   store i64 %275, ptr %.val167, align 8, !noalias !2771
@@ -43501,7 +43501,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 337:                                              ; preds = %.lr.ph589
   %338 = load ptr, ptr %298, align 8, !noalias !2782, !nonnull !6, !noundef !6
-  %339 = getelementptr inbounds nuw i64, ptr %338, i64 %323
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %338, i64 %323
   %340 = load i64, ptr %339, align 8, !noalias !2782, !noundef !6
   %341 = add nuw i64 %323, 1
   store i64 %341, ptr %.val165, align 8, !noalias !2782
@@ -43518,7 +43518,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 348:                                              ; preds = %337, %347
   %349 = load ptr, ptr %300, align 8, !alias.scope !2788, !noalias !2793, !nonnull !6, !noundef !6
-  %350 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %349, i64 %344
+  %350 = getelementptr inbounds nuw [32 x i8], ptr %349, i64 %344
   store i128 %342, ptr %350, align 16
   %.sroa.2398.0..sroa_idx = getelementptr inbounds nuw i8, ptr %350, i64 16
   store i128 %343, ptr %.sroa.2398.0..sroa_idx, align 16
@@ -44558,7 +44558,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17h6e5b6252575d4a7bE.exit350": ; preds = %217, %224
   %225 = load ptr, ptr %187, align 8, !alias.scope !2846, !nonnull !6, !noundef !6
-  %226 = getelementptr inbounds nuw i32, ptr %225, i64 %221
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %225, i64 %221
   store i32 %220, ptr %226, align 4
   %227 = add i64 %221, 1
   store i64 %227, ptr %186, align 8, !alias.scope !2846
@@ -44691,7 +44691,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit367": ; preds = %261, %257
   %262 = load ptr, ptr %235, align 8, !alias.scope !2857, !nonnull !6, !noundef !6
-  %263 = getelementptr inbounds nuw i32, ptr %262, i64 %258
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %262, i64 %258
   store i32 %.sroa.097.0, ptr %263, align 4
   %264 = add i64 %258, 1
   store i64 %264, ptr %234, align 8, !alias.scope !2857
@@ -44912,7 +44912,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 334:                                              ; preds = %326, %333
   %335 = load ptr, ptr %288, align 8, !alias.scope !2886, !nonnull !6, !noundef !6
-  %336 = getelementptr inbounds nuw i32, ptr %335, i64 %330
+  %336 = getelementptr inbounds nuw [4 x i8], ptr %335, i64 %330
   store i32 %329, ptr %336, align 4
   %337 = add i64 %330, 1
   store i64 %337, ptr %287, align 8, !alias.scope !2886
@@ -45970,7 +45970,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17hf588054c344918d9E.exit356": ; preds = %229, %234
   %235 = load ptr, ptr %190, align 8, !alias.scope !2942, !nonnull !6, !noundef !6
-  %236 = getelementptr inbounds nuw i64, ptr %235, i64 %231
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %231
   store i64 %230, ptr %236, align 8
   %237 = add i64 %231, 1
   store i64 %237, ptr %189, align 8, !alias.scope !2942
@@ -46119,7 +46119,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit377": ; preds = %280, %276
   %281 = load ptr, ptr %245, align 8, !alias.scope !2963, !nonnull !6, !noundef !6
-  %282 = getelementptr inbounds nuw i64, ptr %281, i64 %277
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %277
   store i64 %.sroa.097.0, ptr %282, align 8
   %283 = add i64 %277, 1
   store i64 %283, ptr %244, align 8, !alias.scope !2963
@@ -46350,7 +46350,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 358:                                              ; preds = %352, %357
   %359 = load ptr, ptr %305, align 8, !alias.scope !2984, !nonnull !6, !noundef !6
-  %360 = getelementptr inbounds nuw i64, ptr %359, i64 %354
+  %360 = getelementptr inbounds nuw [8 x i8], ptr %359, i64 %354
   store i64 %353, ptr %360, align 8
   %361 = add i64 %354, 1
   store i64 %361, ptr %304, align 8, !alias.scope !2984
@@ -47302,7 +47302,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 219:                                              ; preds = %195
   %220 = load ptr, ptr %189, align 8, !noalias !3027, !nonnull !6, !noundef !6
-  %221 = getelementptr inbounds nuw i64, ptr %220, i64 %197
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %197
   %222 = load i64, ptr %221, align 8, !noalias !3027, !noundef !6
   %223 = add nuw i64 %197, 1
   store i64 %223, ptr %.val311, align 8, !noalias !3027
@@ -47318,7 +47318,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17h6e5b6252575d4a7bE.exit340": ; preds = %219, %228
   %229 = load ptr, ptr %191, align 8, !alias.scope !3030, !nonnull !6, !noundef !6
-  %230 = getelementptr inbounds nuw i32, ptr %229, i64 %225
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %229, i64 %225
   store i32 %224, ptr %230, align 4
   %231 = add i64 %225, 1
   store i64 %231, ptr %190, align 8, !alias.scope !3030
@@ -47438,7 +47438,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit347": ; preds = %265, %261
   %266 = load ptr, ptr %242, align 8, !alias.scope !3041, !nonnull !6, !noundef !6
-  %267 = getelementptr inbounds nuw i32, ptr %266, i64 %262
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %266, i64 %262
   store i32 %.sroa.097.0, ptr %267, align 4
   %268 = add i64 %262, 1
   store i64 %268, ptr %241, align 8, !alias.scope !3041
@@ -47446,7 +47446,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 269:                                              ; preds = %256
   %270 = load ptr, ptr %240, align 8, !noalias !3038, !nonnull !6, !noundef !6
-  %271 = getelementptr inbounds nuw i64, ptr %270, i64 %257
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %257
   %272 = load i64, ptr %271, align 8, !noalias !3038, !noundef !6
   %273 = add nuw i64 %257, 1
   store i64 %273, ptr %.val309, align 8, !noalias !3038
@@ -47622,7 +47622,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 334:                                              ; preds = %.lr.ph576
   %335 = load ptr, ptr %295, align 8, !noalias !3046, !nonnull !6, !noundef !6
-  %336 = getelementptr inbounds nuw i64, ptr %335, i64 %320
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %320
   %337 = load i64, ptr %336, align 8, !noalias !3046, !noundef !6
   %338 = add nuw i64 %320, 1
   store i64 %338, ptr %.val307, align 8, !noalias !3046
@@ -47638,7 +47638,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 344:                                              ; preds = %334, %343
   %345 = load ptr, ptr %297, align 8, !alias.scope !3052, !nonnull !6, !noundef !6
-  %346 = getelementptr inbounds nuw i32, ptr %345, i64 %340
+  %346 = getelementptr inbounds nuw [4 x i8], ptr %345, i64 %340
   store i32 %339, ptr %346, align 4
   %347 = add i64 %340, 1
   store i64 %347, ptr %296, align 8, !alias.scope !3052
@@ -50126,7 +50126,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17hf588054c344918d9E.exit356": ; preds = %228, %233
   %234 = load ptr, ptr %190, align 8, !alias.scope !3146, !nonnull !6, !noundef !6
-  %235 = getelementptr inbounds nuw i64, ptr %234, i64 %230
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %230
   store i64 %229, ptr %235, align 8
   %236 = add i64 %230, 1
   store i64 %236, ptr %189, align 8, !alias.scope !3146
@@ -50274,7 +50274,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit377": ; preds = %278, %274
   %279 = load ptr, ptr %244, align 8, !alias.scope !3167, !nonnull !6, !noundef !6
-  %280 = getelementptr inbounds nuw i64, ptr %279, i64 %275
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %275
   store i64 %.sroa.097.0, ptr %280, align 8
   %281 = add i64 %275, 1
   store i64 %281, ptr %243, align 8, !alias.scope !3167
@@ -50504,7 +50504,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 355:                                              ; preds = %349, %354
   %356 = load ptr, ptr %303, align 8, !alias.scope !3188, !nonnull !6, !noundef !6
-  %357 = getelementptr inbounds nuw i64, ptr %356, i64 %351
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %356, i64 %351
   store i64 %350, ptr %357, align 8
   %358 = add i64 %351, 1
   store i64 %358, ptr %302, align 8, !alias.scope !3188
@@ -51536,7 +51536,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17hf588054c344918d9E.exit350": ; preds = %217, %225
   %226 = load ptr, ptr %187, align 8, !alias.scope !3241, !nonnull !6, !noundef !6
-  %227 = getelementptr inbounds nuw i64, ptr %226, i64 %222
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %222
   store i64 %221, ptr %227, align 8
   %228 = add i64 %222, 1
   store i64 %228, ptr %186, align 8, !alias.scope !3241
@@ -51669,7 +51669,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit367": ; preds = %262, %258
   %263 = load ptr, ptr %236, align 8, !alias.scope !3252, !nonnull !6, !noundef !6
-  %264 = getelementptr inbounds nuw i64, ptr %263, i64 %259
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %259
   store i64 %.sroa.097.0, ptr %264, align 8
   %265 = add i64 %259, 1
   store i64 %265, ptr %235, align 8, !alias.scope !3252
@@ -51892,7 +51892,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 337:                                              ; preds = %328, %336
   %338 = load ptr, ptr %290, align 8, !alias.scope !3277, !nonnull !6, !noundef !6
-  %339 = getelementptr inbounds nuw i64, ptr %338, i64 %333
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %338, i64 %333
   store i64 %332, ptr %339, align 8
   %340 = add i64 %333, 1
   store i64 %340, ptr %289, align 8, !alias.scope !3277
@@ -54243,7 +54243,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 219:                                              ; preds = %195
   %220 = load ptr, ptr %189, align 8, !noalias !3415, !nonnull !6, !noundef !6
-  %221 = getelementptr inbounds nuw i64, ptr %220, i64 %197
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %197
   %222 = load i64, ptr %221, align 8, !noalias !3415, !noundef !6
   %223 = add nuw i64 %197, 1
   store i64 %223, ptr %.val311, align 8, !noalias !3415
@@ -54261,7 +54261,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17hf588054c344918d9E.exit343": ; preds = %219, %229
   %230 = load ptr, ptr %191, align 8, !alias.scope !3418, !nonnull !6, !noundef !6
-  %231 = getelementptr inbounds nuw i64, ptr %230, i64 %226
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %226
   store i64 %225, ptr %231, align 8
   %232 = add i64 %226, 1
   store i64 %232, ptr %190, align 8, !alias.scope !3418
@@ -54381,7 +54381,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit352": ; preds = %266, %262
   %267 = load ptr, ptr %243, align 8, !alias.scope !3429, !nonnull !6, !noundef !6
-  %268 = getelementptr inbounds nuw i64, ptr %267, i64 %263
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %267, i64 %263
   store i64 %.sroa.097.0, ptr %268, align 8
   %269 = add i64 %263, 1
   store i64 %269, ptr %242, align 8, !alias.scope !3429
@@ -54389,7 +54389,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 270:                                              ; preds = %257
   %271 = load ptr, ptr %241, align 8, !noalias !3426, !nonnull !6, !noundef !6
-  %272 = getelementptr inbounds nuw i64, ptr %271, i64 %258
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %258
   %273 = load i64, ptr %272, align 8, !noalias !3426, !noundef !6
   %274 = add nuw i64 %258, 1
   store i64 %274, ptr %.val309, align 8, !noalias !3426
@@ -54567,7 +54567,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 336:                                              ; preds = %.lr.ph583
   %337 = load ptr, ptr %297, align 8, !noalias !3434, !nonnull !6, !noundef !6
-  %338 = getelementptr inbounds nuw i64, ptr %337, i64 %322
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %337, i64 %322
   %339 = load i64, ptr %338, align 8, !noalias !3434, !noundef !6
   %340 = add nuw i64 %322, 1
   store i64 %340, ptr %.val307, align 8, !noalias !3434
@@ -54585,7 +54585,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 347:                                              ; preds = %336, %346
   %348 = load ptr, ptr %299, align 8, !alias.scope !3440, !nonnull !6, !noundef !6
-  %349 = getelementptr inbounds nuw i64, ptr %348, i64 %343
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %348, i64 %343
   store i64 %342, ptr %349, align 8
   %350 = add i64 %343, 1
   store i64 %350, ptr %298, align 8, !alias.scope !3440
@@ -55545,7 +55545,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 220:                                              ; preds = %196
   %221 = load ptr, ptr %190, align 8, !noalias !3483, !nonnull !6, !noundef !6
-  %222 = getelementptr inbounds nuw i64, ptr %221, i64 %198
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %198
   %223 = load i64, ptr %222, align 8, !noalias !3483, !noundef !6
   %224 = add nuw i64 %198, 1
   store i64 %224, ptr %.val169, align 8, !noalias !3483
@@ -55563,7 +55563,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17ha919a10b9b735ee7E.exit201": ; preds = %220, %231
   %232 = load ptr, ptr %192, align 8, !alias.scope !3486, !noalias !3491, !nonnull !6, !noundef !6
-  %233 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %232, i64 %228
+  %233 = getelementptr inbounds nuw [32 x i8], ptr %232, i64 %228
   store i128 %226, ptr %233, align 16
   %.sroa.2360.0..sroa_idx = getelementptr inbounds nuw i8, ptr %233, i64 16
   store i128 %227, ptr %.sroa.2360.0..sroa_idx, align 16
@@ -55689,7 +55689,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h71dd5d337ddae469E.exit211": ; preds = %268, %"_ZN76_$LT$polars_arrow..types..native..i256$u20$as$u20$core..default..Default$GT$7default17h8c23d5ec405554b6E.exit"
   %269 = load ptr, ptr %245, align 8, !alias.scope !3500, !noalias !3505, !nonnull !6, !noundef !6
-  %270 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %269, i64 %265
+  %270 = getelementptr inbounds nuw [32 x i8], ptr %269, i64 %265
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %270, ptr noundef nonnull readonly align 16 dereferenceable(32) %26, i64 32, i1 false)
   %271 = add i64 %265, 1
   store i64 %271, ptr %244, align 8, !alias.scope !3500, !noalias !3505
@@ -55697,7 +55697,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 272:                                              ; preds = %260
   %273 = load ptr, ptr %243, align 8, !noalias !3497, !nonnull !6, !noundef !6
-  %274 = getelementptr inbounds nuw i64, ptr %273, i64 %261
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %261
   %275 = load i64, ptr %274, align 8, !noalias !3497, !noundef !6
   %276 = add nuw i64 %261, 1
   store i64 %276, ptr %.val167, align 8, !noalias !3497
@@ -55877,7 +55877,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 339:                                              ; preds = %.lr.ph589
   %340 = load ptr, ptr %300, align 8, !noalias !3508, !nonnull !6, !noundef !6
-  %341 = getelementptr inbounds nuw i64, ptr %340, i64 %325
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %325
   %342 = load i64, ptr %341, align 8, !noalias !3508, !noundef !6
   %343 = add nuw i64 %325, 1
   store i64 %343, ptr %.val165, align 8, !noalias !3508
@@ -55895,7 +55895,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 351:                                              ; preds = %339, %350
   %352 = load ptr, ptr %302, align 8, !alias.scope !3514, !noalias !3519, !nonnull !6, !noundef !6
-  %353 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %352, i64 %347
+  %353 = getelementptr inbounds nuw [32 x i8], ptr %352, i64 %347
   store i128 %345, ptr %353, align 16
   %.sroa.2398.0..sroa_idx = getelementptr inbounds nuw i8, ptr %353, i64 16
   store i128 %346, ptr %.sroa.2398.0..sroa_idx, align 16
@@ -56955,7 +56955,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17hf588054c344918d9E.exit356": ; preds = %229, %234
   %235 = load ptr, ptr %190, align 8, !alias.scope !3573, !nonnull !6, !noundef !6
-  %236 = getelementptr inbounds nuw i64, ptr %235, i64 %231
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %231
   store i64 %230, ptr %236, align 8
   %237 = add i64 %231, 1
   store i64 %237, ptr %189, align 8, !alias.scope !3573
@@ -57104,7 +57104,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit377": ; preds = %280, %276
   %281 = load ptr, ptr %245, align 8, !alias.scope !3594, !nonnull !6, !noundef !6
-  %282 = getelementptr inbounds nuw i64, ptr %281, i64 %277
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %277
   store i64 %.sroa.097.0, ptr %282, align 8
   %283 = add i64 %277, 1
   store i64 %283, ptr %244, align 8, !alias.scope !3594
@@ -57335,7 +57335,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 358:                                              ; preds = %352, %357
   %359 = load ptr, ptr %305, align 8, !alias.scope !3615, !nonnull !6, !noundef !6
-  %360 = getelementptr inbounds nuw i64, ptr %359, i64 %354
+  %360 = getelementptr inbounds nuw [8 x i8], ptr %359, i64 %354
   store i64 %353, ptr %360, align 8
   %361 = add i64 %354, 1
   store i64 %361, ptr %304, align 8, !alias.scope !3615
@@ -58287,7 +58287,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 219:                                              ; preds = %195
   %220 = load ptr, ptr %189, align 8, !noalias !3658, !nonnull !6, !noundef !6
-  %221 = getelementptr inbounds nuw i64, ptr %220, i64 %197
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %197
   %222 = load i64, ptr %221, align 8, !noalias !3658, !noundef !6
   %223 = add nuw i64 %197, 1
   store i64 %223, ptr %.val321, align 8, !noalias !3658
@@ -58304,7 +58304,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit": ; preds = %229, %219
   %230 = load ptr, ptr %191, align 8, !alias.scope !3661, !nonnull !6, !noundef !6
-  %231 = getelementptr inbounds nuw i128, ptr %230, i64 %226
+  %231 = getelementptr inbounds nuw [16 x i8], ptr %230, i64 %226
   store i128 %225, ptr %231, align 16
   %232 = add i64 %226, 1
   store i64 %232, ptr %190, align 8, !alias.scope !3661
@@ -58424,7 +58424,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit357": ; preds = %266, %262
   %267 = load ptr, ptr %243, align 8, !alias.scope !3672, !nonnull !6, !noundef !6
-  %268 = getelementptr inbounds nuw i128, ptr %267, i64 %263
+  %268 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %263
   store i128 %.sroa.0105.0, ptr %268, align 16
   %269 = add i64 %263, 1
   store i64 %269, ptr %242, align 8, !alias.scope !3672
@@ -58432,7 +58432,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 270:                                              ; preds = %257
   %271 = load ptr, ptr %241, align 8, !noalias !3669, !nonnull !6, !noundef !6
-  %272 = getelementptr inbounds nuw i64, ptr %271, i64 %258
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %258
   %273 = load i64, ptr %272, align 8, !noalias !3669, !noundef !6
   %274 = add nuw i64 %258, 1
   store i64 %274, ptr %.val319, align 8, !noalias !3669
@@ -58609,7 +58609,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 336:                                              ; preds = %.lr.ph584
   %337 = load ptr, ptr %297, align 8, !noalias !3677, !nonnull !6, !noundef !6
-  %338 = getelementptr inbounds nuw i64, ptr %337, i64 %322
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %337, i64 %322
   %339 = load i64, ptr %338, align 8, !noalias !3677, !noundef !6
   %340 = add nuw i64 %322, 1
   store i64 %340, ptr %.val317, align 8, !noalias !3677
@@ -58626,7 +58626,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit365": ; preds = %346, %336
   %347 = load ptr, ptr %299, align 8, !alias.scope !3683, !nonnull !6, !noundef !6
-  %348 = getelementptr inbounds nuw i128, ptr %347, i64 %343
+  %348 = getelementptr inbounds nuw [16 x i8], ptr %347, i64 %343
   store i128 %342, ptr %348, align 16
   %349 = add i64 %343, 1
   store i64 %349, ptr %298, align 8, !alias.scope !3683
@@ -59663,7 +59663,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17hf588054c344918d9E.exit350": ; preds = %217, %223
   %224 = load ptr, ptr %187, align 8, !alias.scope !3738, !nonnull !6, !noundef !6
-  %225 = getelementptr inbounds nuw i64, ptr %224, i64 %220
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %220
   store i64 %.sroa.02.0.copyload.i.i.i.i.i352, ptr %225, align 8
   %226 = add i64 %220, 1
   store i64 %226, ptr %186, align 8, !alias.scope !3738
@@ -59796,7 +59796,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit367": ; preds = %260, %256
   %261 = load ptr, ptr %234, align 8, !alias.scope !3749, !nonnull !6, !noundef !6
-  %262 = getelementptr inbounds nuw i64, ptr %261, i64 %257
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %257
   store i64 %.sroa.097.0, ptr %262, align 8
   %263 = add i64 %257, 1
   store i64 %263, ptr %233, align 8, !alias.scope !3749
@@ -60015,7 +60015,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 331:                                              ; preds = %324, %330
   %332 = load ptr, ptr %286, align 8, !alias.scope !3778, !nonnull !6, !noundef !6
-  %333 = getelementptr inbounds nuw i64, ptr %332, i64 %327
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %327
   store i64 %.sroa.02.0.copyload.i.i.i.i.i371, ptr %333, align 8
   %334 = add i64 %327, 1
   store i64 %334, ptr %285, align 8, !alias.scope !3778
@@ -61052,7 +61052,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17h6e5b6252575d4a7bE.exit350": ; preds = %217, %223
   %224 = load ptr, ptr %187, align 8, !alias.scope !3831, !nonnull !6, !noundef !6
-  %225 = getelementptr inbounds nuw i32, ptr %224, i64 %220
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %224, i64 %220
   store i32 %.sroa.03.0.copyload.i.i.i.i.i352, ptr %225, align 4
   %226 = add i64 %220, 1
   store i64 %226, ptr %186, align 8, !alias.scope !3831
@@ -61185,7 +61185,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit367": ; preds = %260, %256
   %261 = load ptr, ptr %234, align 8, !alias.scope !3842, !nonnull !6, !noundef !6
-  %262 = getelementptr inbounds nuw i32, ptr %261, i64 %257
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %261, i64 %257
   store i32 %.sroa.097.0, ptr %262, align 4
   %263 = add i64 %257, 1
   store i64 %263, ptr %233, align 8, !alias.scope !3842
@@ -61404,7 +61404,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 331:                                              ; preds = %324, %330
   %332 = load ptr, ptr %286, align 8, !alias.scope !3867, !nonnull !6, !noundef !6
-  %333 = getelementptr inbounds nuw i32, ptr %332, i64 %327
+  %333 = getelementptr inbounds nuw [4 x i8], ptr %332, i64 %327
   store i32 %.sroa.03.0.copyload.i.i.i.i.i371, ptr %333, align 4
   %334 = add i64 %327, 1
   store i64 %334, ptr %285, align 8, !alias.scope !3867
@@ -62441,7 +62441,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17hf8cc0286b935fc0bE.exit350": ; preds = %217, %223
   %224 = load ptr, ptr %187, align 8, !alias.scope !3920, !nonnull !6, !noundef !6
-  %225 = getelementptr inbounds nuw i32, ptr %224, i64 %220
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %224, i64 %220
   store i32 %.sroa.03.0.copyload.i.i.i.i.i352, ptr %225, align 4
   %226 = add i64 %220, 1
   store i64 %226, ptr %186, align 8, !alias.scope !3920
@@ -62574,7 +62574,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h6c9df35e2c9c9aeeE.exit367": ; preds = %260, %256
   %261 = load ptr, ptr %234, align 8, !alias.scope !3931, !nonnull !6, !noundef !6
-  %262 = getelementptr inbounds nuw i32, ptr %261, i64 %257
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %261, i64 %257
   store i32 %.sroa.097.0, ptr %262, align 4
   %263 = add i64 %257, 1
   store i64 %263, ptr %233, align 8, !alias.scope !3931
@@ -62793,7 +62793,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 331:                                              ; preds = %324, %330
   %332 = load ptr, ptr %286, align 8, !alias.scope !3956, !nonnull !6, !noundef !6
-  %333 = getelementptr inbounds nuw i32, ptr %332, i64 %327
+  %333 = getelementptr inbounds nuw [4 x i8], ptr %332, i64 %327
   store i32 %.sroa.03.0.copyload.i.i.i.i.i371, ptr %333, align 4
   %334 = add i64 %327, 1
   store i64 %334, ptr %285, align 8, !alias.scope !3956
@@ -63831,7 +63831,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17h92f21d8878ce9f69E.exit350": ; preds = %217, %224
   %225 = load ptr, ptr %187, align 8, !alias.scope !4009, !nonnull !6, !noundef !6
-  %226 = getelementptr inbounds nuw i16, ptr %225, i64 %221
+  %226 = getelementptr inbounds nuw [2 x i8], ptr %225, i64 %221
   store i16 %220, ptr %226, align 2
   %227 = add i64 %221, 1
   store i64 %227, ptr %186, align 8, !alias.scope !4009
@@ -63964,7 +63964,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7ade14d45b50621fE.exit367": ; preds = %261, %257
   %262 = load ptr, ptr %235, align 8, !alias.scope !4020, !nonnull !6, !noundef !6
-  %263 = getelementptr inbounds nuw i16, ptr %262, i64 %258
+  %263 = getelementptr inbounds nuw [2 x i8], ptr %262, i64 %258
   store i16 %.sroa.097.0, ptr %263, align 2
   %264 = add i64 %258, 1
   store i64 %264, ptr %234, align 8, !alias.scope !4020
@@ -64185,7 +64185,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 334:                                              ; preds = %326, %333
   %335 = load ptr, ptr %288, align 8, !alias.scope !4045, !nonnull !6, !noundef !6
-  %336 = getelementptr inbounds nuw i16, ptr %335, i64 %330
+  %336 = getelementptr inbounds nuw [2 x i8], ptr %335, i64 %330
   store i16 %329, ptr %336, align 2
   %337 = add i64 %330, 1
   store i64 %337, ptr %287, align 8, !alias.scope !4045
@@ -65144,7 +65144,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 219:                                              ; preds = %195
   %220 = load ptr, ptr %189, align 8, !noalias !4088, !nonnull !6, !noundef !6
-  %221 = getelementptr inbounds nuw i64, ptr %220, i64 %197
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %197
   %222 = load i64, ptr %221, align 8, !noalias !4088, !noundef !6
   %223 = add nuw i64 %197, 1
   store i64 %223, ptr %.val311, align 8, !noalias !4088
@@ -65160,7 +65160,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17he95184cd485c3612E.exit340": ; preds = %219, %228
   %229 = load ptr, ptr %191, align 8, !alias.scope !4091, !nonnull !6, !noundef !6
-  %230 = getelementptr inbounds nuw i16, ptr %229, i64 %225
+  %230 = getelementptr inbounds nuw [2 x i8], ptr %229, i64 %225
   store i16 %224, ptr %230, align 2
   %231 = add i64 %225, 1
   store i64 %231, ptr %190, align 8, !alias.scope !4091
@@ -65280,7 +65280,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7edb4748ab4faf13E.exit347": ; preds = %265, %261
   %266 = load ptr, ptr %242, align 8, !alias.scope !4102, !nonnull !6, !noundef !6
-  %267 = getelementptr inbounds nuw i16, ptr %266, i64 %262
+  %267 = getelementptr inbounds nuw [2 x i8], ptr %266, i64 %262
   store i16 %.sroa.097.0, ptr %267, align 2
   %268 = add i64 %262, 1
   store i64 %268, ptr %241, align 8, !alias.scope !4102
@@ -65288,7 +65288,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 269:                                              ; preds = %256
   %270 = load ptr, ptr %240, align 8, !noalias !4099, !nonnull !6, !noundef !6
-  %271 = getelementptr inbounds nuw i64, ptr %270, i64 %257
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %257
   %272 = load i64, ptr %271, align 8, !noalias !4099, !noundef !6
   %273 = add nuw i64 %257, 1
   store i64 %273, ptr %.val309, align 8, !noalias !4099
@@ -65464,7 +65464,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 334:                                              ; preds = %.lr.ph576
   %335 = load ptr, ptr %295, align 8, !noalias !4107, !nonnull !6, !noundef !6
-  %336 = getelementptr inbounds nuw i64, ptr %335, i64 %320
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %320
   %337 = load i64, ptr %336, align 8, !noalias !4107, !noundef !6
   %338 = add nuw i64 %320, 1
   store i64 %338, ptr %.val307, align 8, !noalias !4107
@@ -65480,7 +65480,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 344:                                              ; preds = %334, %343
   %345 = load ptr, ptr %297, align 8, !alias.scope !4113, !nonnull !6, !noundef !6
-  %346 = getelementptr inbounds nuw i16, ptr %345, i64 %340
+  %346 = getelementptr inbounds nuw [2 x i8], ptr %345, i64 %340
   store i16 %339, ptr %346, align 2
   %347 = add i64 %340, 1
   store i64 %347, ptr %296, align 8, !alias.scope !4113
@@ -66517,7 +66517,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17h4f39c2b36716fe20E.exit350": ; preds = %217, %223
   %224 = load ptr, ptr %187, align 8, !alias.scope !4168, !nonnull !6, !noundef !6
-  %225 = getelementptr inbounds nuw i64, ptr %224, i64 %220
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %220
   store i64 %.sroa.02.0.copyload.i.i.i.i.i352, ptr %225, align 8
   %226 = add i64 %220, 1
   store i64 %226, ptr %186, align 8, !alias.scope !4168
@@ -66650,7 +66650,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17hb7d062f596122689E.exit367": ; preds = %260, %256
   %261 = load ptr, ptr %234, align 8, !alias.scope !4179, !nonnull !6, !noundef !6
-  %262 = getelementptr inbounds nuw i64, ptr %261, i64 %257
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %257
   store i64 %.sroa.097.0, ptr %262, align 8
   %263 = add i64 %257, 1
   store i64 %263, ptr %233, align 8, !alias.scope !4179
@@ -66869,7 +66869,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 331:                                              ; preds = %324, %330
   %332 = load ptr, ptr %286, align 8, !alias.scope !4208, !nonnull !6, !noundef !6
-  %333 = getelementptr inbounds nuw i64, ptr %332, i64 %327
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %327
   store i64 %.sroa.02.0.copyload.i.i.i.i.i371, ptr %333, align 8
   %334 = add i64 %327, 1
   store i64 %334, ptr %285, align 8, !alias.scope !4208
@@ -68046,7 +68046,7 @@ _ZN14polars_parquet7parquet5types6decode17h51e9e134f2c12261E.exit.i.i.i367: ; pr
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$7reserve17hf588054c344918d9E.exit364": ; preds = %272, %277
   %278 = load ptr, ptr %231, align 8, !alias.scope !4309, !nonnull !6, !noundef !6
-  %279 = getelementptr inbounds nuw i64, ptr %278, i64 %274
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %278, i64 %274
   store i64 %273, ptr %279, align 8
   %280 = add i64 %274, 1
   store i64 %280, ptr %230, align 8, !alias.scope !4309
@@ -68213,7 +68213,7 @@ _ZN14polars_parquet7parquet5types6decode17h51e9e134f2c12261E.exit.i.i.i379: ; pr
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit389": ; preds = %326, %322
   %327 = load ptr, ptr %289, align 8, !alias.scope !4331, !nonnull !6, !noundef !6
-  %328 = getelementptr inbounds nuw i64, ptr %327, i64 %323
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %327, i64 %323
   store i64 %.sroa.097.0, ptr %328, align 8
   %329 = add i64 %323, 1
   store i64 %329, ptr %288, align 8, !alias.scope !4331
@@ -68473,7 +68473,7 @@ _ZN14polars_parquet7parquet5types6decode17h51e9e134f2c12261E.exit.i.i.i405: ; pr
 
 412:                                              ; preds = %406, %411
   %413 = load ptr, ptr %352, align 8, !alias.scope !4364, !nonnull !6, !noundef !6
-  %414 = getelementptr inbounds nuw i64, ptr %413, i64 %408
+  %414 = getelementptr inbounds nuw [8 x i8], ptr %413, i64 %408
   store i64 %407, ptr %414, align 8
   %415 = add i64 %408, 1
   store i64 %415, ptr %351, align 8, !alias.scope !4364
@@ -69425,7 +69425,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 219:                                              ; preds = %195
   %220 = load ptr, ptr %189, align 8, !noalias !4407, !nonnull !6, !noundef !6
-  %221 = getelementptr inbounds nuw i64, ptr %220, i64 %197
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %197
   %222 = load i64, ptr %221, align 8, !noalias !4407, !noundef !6
   %223 = add nuw i64 %197, 1
   store i64 %223, ptr %.val321, align 8, !noalias !4407
@@ -69441,7 +69441,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit": ; preds = %228, %219
   %229 = load ptr, ptr %191, align 8, !alias.scope !4410, !nonnull !6, !noundef !6
-  %230 = getelementptr inbounds nuw i128, ptr %229, i64 %225
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %229, i64 %225
   store i128 %224, ptr %230, align 16
   %231 = add i64 %225, 1
   store i64 %231, ptr %190, align 8, !alias.scope !4410
@@ -69561,7 +69561,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit357": ; preds = %265, %261
   %266 = load ptr, ptr %242, align 8, !alias.scope !4421, !nonnull !6, !noundef !6
-  %267 = getelementptr inbounds nuw i128, ptr %266, i64 %262
+  %267 = getelementptr inbounds nuw [16 x i8], ptr %266, i64 %262
   store i128 %.sroa.0105.0, ptr %267, align 16
   %268 = add i64 %262, 1
   store i64 %268, ptr %241, align 8, !alias.scope !4421
@@ -69569,7 +69569,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 269:                                              ; preds = %256
   %270 = load ptr, ptr %240, align 8, !noalias !4418, !nonnull !6, !noundef !6
-  %271 = getelementptr inbounds nuw i64, ptr %270, i64 %257
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %257
   %272 = load i64, ptr %271, align 8, !noalias !4418, !noundef !6
   %273 = add nuw i64 %257, 1
   store i64 %273, ptr %.val319, align 8, !noalias !4418
@@ -69745,7 +69745,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 334:                                              ; preds = %.lr.ph584
   %335 = load ptr, ptr %295, align 8, !noalias !4426, !nonnull !6, !noundef !6
-  %336 = getelementptr inbounds nuw i64, ptr %335, i64 %320
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %320
   %337 = load i64, ptr %336, align 8, !noalias !4426, !noundef !6
   %338 = add nuw i64 %320, 1
   store i64 %338, ptr %.val317, align 8, !noalias !4426
@@ -69761,7 +69761,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit365": ; preds = %343, %334
   %344 = load ptr, ptr %297, align 8, !alias.scope !4432, !nonnull !6, !noundef !6
-  %345 = getelementptr inbounds nuw i128, ptr %344, i64 %340
+  %345 = getelementptr inbounds nuw [16 x i8], ptr %344, i64 %340
   store i128 %339, ptr %345, align 16
   %346 = add i64 %340, 1
   store i64 %346, ptr %296, align 8, !alias.scope !4432
@@ -70720,7 +70720,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 219:                                              ; preds = %195
   %220 = load ptr, ptr %189, align 8, !noalias !4475, !nonnull !6, !noundef !6
-  %221 = getelementptr inbounds nuw i64, ptr %220, i64 %197
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %197
   %222 = load i64, ptr %221, align 8, !noalias !4475, !noundef !6
   %223 = add nuw i64 %197, 1
   store i64 %223, ptr %.val311, align 8, !noalias !4475
@@ -70864,7 +70864,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 269:                                              ; preds = %256
   %270 = load ptr, ptr %240, align 8, !noalias !4488, !nonnull !6, !noundef !6
-  %271 = getelementptr inbounds nuw i64, ptr %270, i64 %257
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %257
   %272 = load i64, ptr %271, align 8, !noalias !4488, !noundef !6
   %273 = add nuw i64 %257, 1
   store i64 %273, ptr %.val309, align 8, !noalias !4488
@@ -71040,7 +71040,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 334:                                              ; preds = %.lr.ph576
   %335 = load ptr, ptr %295, align 8, !noalias !4498, !nonnull !6, !noundef !6
-  %336 = getelementptr inbounds nuw i64, ptr %335, i64 %320
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %320
   %337 = load i64, ptr %336, align 8, !noalias !4498, !noundef !6
   %338 = add nuw i64 %320, 1
   store i64 %338, ptr %.val307, align 8, !noalias !4498
@@ -72094,7 +72094,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit": ; preds = %221, %214
   %222 = load ptr, ptr %185, align 8, !alias.scope !4563, !nonnull !6, !noundef !6
-  %223 = getelementptr inbounds nuw i128, ptr %222, i64 %218
+  %223 = getelementptr inbounds nuw [16 x i8], ptr %222, i64 %218
   store i128 %217, ptr %223, align 16
   %224 = add i64 %218, 1
   store i64 %224, ptr %184, align 8, !alias.scope !4563
@@ -72227,7 +72227,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit382": ; preds = %257, %253
   %258 = load ptr, ptr %232, align 8, !alias.scope !4574, !nonnull !6, !noundef !6
-  %259 = getelementptr inbounds nuw i128, ptr %258, i64 %254
+  %259 = getelementptr inbounds nuw [16 x i8], ptr %258, i64 %254
   store i128 %.sroa.0105.0, ptr %259, align 16
   %260 = add i64 %254, 1
   store i64 %260, ptr %231, align 8, !alias.scope !4574
@@ -72448,7 +72448,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit402": ; preds = %329, %322
   %330 = load ptr, ptr %284, align 8, !alias.scope !4607, !nonnull !6, !noundef !6
-  %331 = getelementptr inbounds nuw i128, ptr %330, i64 %326
+  %331 = getelementptr inbounds nuw [16 x i8], ptr %330, i64 %326
   store i128 %325, ptr %331, align 16
   %332 = add i64 %326, 1
   store i64 %332, ptr %283, align 8, !alias.scope !4607
@@ -73236,7 +73236,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink63 = phi i64 [ %34, %33 ], [ %57, %50 ], [ %.sink63.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h6c9df35e2c9c9aeeE.exit73.sink.split" ]
   %.sink = phi i32 [ 0, %33 ], [ %56, %50 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h6c9df35e2c9c9aeeE.exit73.sink.split" ]
   %43 = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %.sink63
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.sink63
   store i32 %.sink, ptr %44, align 4
   %storemerge = add i64 %.sink63, 1
   store i64 %storemerge, ptr %6, align 8
@@ -73250,7 +73250,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 50:                                               ; preds = %37
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !4683, !nonnull !6, !noundef !6
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %38
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %38
   %54 = load i64, ptr %53, align 8, !noalias !4683, !noundef !6
   %55 = add nuw i64 %38, 1
   store i64 %55, ptr %.val66, align 8, !noalias !4683
@@ -73381,7 +73381,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink63 = phi i64 [ %34, %33 ], [ %56, %50 ], [ %.sink63.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17hb7d062f596122689E.exit73.sink.split" ]
   %.sink = phi i64 [ 0, %33 ], [ %54, %50 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17hb7d062f596122689E.exit73.sink.split" ]
   %43 = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %.sink63
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.sink63
   store i64 %.sink, ptr %44, align 8
   %storemerge = add i64 %.sink63, 1
   store i64 %storemerge, ptr %6, align 8
@@ -73395,7 +73395,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 50:                                               ; preds = %37
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !4702, !nonnull !6, !noundef !6
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %38
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %38
   %54 = load i64, ptr %53, align 8, !noalias !4702, !noundef !6
   %55 = add nuw i64 %38, 1
   store i64 %55, ptr %.val66, align 8, !noalias !4702
@@ -73546,7 +73546,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink35 = phi i64 [ %36, %35 ], [ %59, %54 ], [ %.sink35.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit74.sink.split" ]
   %.sink = phi i64 [ 0, %35 ], [ %58, %54 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit74.sink.split" ]
   %47 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %.sink35
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.sink35
   store i64 %.sink, ptr %48, align 8
   %storemerge = add i64 %.sink35, 1
   store i64 %storemerge, ptr %5, align 8
@@ -73675,7 +73675,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h71dd5d337ddae469E.exit": ; preds = %34, %38
   %39 = load ptr, ptr %8, align 8, !alias.scope !4755, !noalias !4760, !nonnull !6, !noundef !6
-  %40 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %39, i64 %35
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %40, ptr noundef nonnull readonly align 16 dereferenceable(32) %4, i64 32, i1 false)
   %41 = add i64 %35, 1
   store i64 %41, ptr %7, align 8, !alias.scope !4755, !noalias !4760
@@ -73707,7 +73707,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 54:                                               ; preds = %42
   %55 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %56 = load ptr, ptr %55, align 8, !noalias !4763, !nonnull !6, !noundef !6
-  %57 = getelementptr inbounds nuw i64, ptr %56, i64 %43
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %43
   %58 = load i64, ptr %57, align 8, !noalias !4763, !noundef !6
   %59 = add nuw i64 %43, 1
   store i64 %59, ptr %.val22, align 8, !noalias !4763
@@ -73724,7 +73724,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h71dd5d337ddae469E.exit31": ; preds = %54, %65
   %66 = load ptr, ptr %8, align 8, !alias.scope !4766, !noalias !4771, !nonnull !6, !noundef !6
-  %67 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %66, i64 %62
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %66, i64 %62
   store i128 %60, ptr %67, align 16
   %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 16
   store i128 %61, ptr %.sroa.231.0..sroa_idx, align 16
@@ -73874,7 +73874,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink33 = phi i64 [ %36, %35 ], [ %57, %54 ], [ %.sink33.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h1afd600d1649e7baE.exit74.sink.split" ]
   %.sroa.02.0.copyload.i3.i.i.i.i72.sink = phi double [ 0.000000e+00, %35 ], [ %.sroa.02.0.copyload.i3.i.i.i.i72, %54 ], [ %.sroa.02.0.copyload.i3.i.i.i.i72.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h1afd600d1649e7baE.exit74.sink.split" ]
   %47 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %48 = getelementptr inbounds nuw double, ptr %47, i64 %.sink33
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.sink33
   store double %.sroa.02.0.copyload.i3.i.i.i.i72.sink, ptr %48, align 8
   %storemerge = add i64 %.sink33, 1
   store i64 %storemerge, ptr %5, align 8
@@ -74016,7 +74016,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink63 = phi i64 [ %34, %33 ], [ %57, %50 ], [ %.sink63.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7ade14d45b50621fE.exit73.sink.split" ]
   %.sink = phi i16 [ 0, %33 ], [ %56, %50 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7ade14d45b50621fE.exit73.sink.split" ]
   %43 = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
-  %44 = getelementptr inbounds nuw i16, ptr %43, i64 %.sink63
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %.sink63
   store i16 %.sink, ptr %44, align 2
   %storemerge = add i64 %.sink63, 1
   store i64 %storemerge, ptr %6, align 8
@@ -74030,7 +74030,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 50:                                               ; preds = %37
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !4826, !nonnull !6, !noundef !6
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %38
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %38
   %54 = load i64, ptr %53, align 8, !noalias !4826, !noundef !6
   %55 = add nuw i64 %38, 1
   store i64 %55, ptr %.val66, align 8, !noalias !4826
@@ -74161,7 +74161,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink61 = phi i64 [ %34, %33 ], [ %58, %50 ], [ %.sink61.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit78.sink.split" ]
   %.sink = phi i128 [ 0, %33 ], [ %57, %50 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit78.sink.split" ]
   %43 = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
-  %44 = getelementptr inbounds nuw i128, ptr %43, i64 %.sink61
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %.sink61
   store i128 %.sink, ptr %44, align 16
   %storemerge = add i64 %.sink61, 1
   store i64 %storemerge, ptr %6, align 8
@@ -74175,7 +74175,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 50:                                               ; preds = %37
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !4845, !nonnull !6, !noundef !6
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %38
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %38
   %54 = load i64, ptr %53, align 8, !noalias !4845, !noundef !6
   %55 = add nuw i64 %38, 1
   store i64 %55, ptr %.val71, align 8, !noalias !4845
@@ -74328,7 +74328,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink35 = phi i64 [ %36, %35 ], [ %58, %54 ], [ %.sink35.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7ade14d45b50621fE.exit74.sink.split" ]
   %.sink = phi i16 [ 0, %35 ], [ %57, %54 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7ade14d45b50621fE.exit74.sink.split" ]
   %47 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %48 = getelementptr inbounds nuw i16, ptr %47, i64 %.sink35
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %.sink35
   store i16 %.sink, ptr %48, align 2
   %storemerge = add i64 %.sink35, 1
   store i64 %storemerge, ptr %5, align 8
@@ -74515,7 +74515,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink35 = phi i64 [ %39, %38 ], [ %68, %66 ], [ %.sink35.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78.sink.split" ]
   %.sink = phi i64 [ 0, %38 ], [ %67, %66 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78.sink.split" ]
   %59 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %.sink35
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.sink35
   store i64 %.sink, ptr %60, align 8
   %storemerge = add i64 %.sink35, 1
   store i64 %storemerge, ptr %5, align 8
@@ -74645,7 +74645,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h71dd5d337ddae469E.exit": ; preds = %34, %38
   %39 = load ptr, ptr %7, align 8, !alias.scope !4960, !noalias !4965, !nonnull !6, !noundef !6
-  %40 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %39, i64 %35
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %40, ptr noundef nonnull readonly align 16 dereferenceable(32) %4, i64 32, i1 false)
   %41 = add i64 %35, 1
   store i64 %41, ptr %6, align 8, !alias.scope !4960, !noalias !4965
@@ -74701,7 +74701,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h71dd5d337ddae469E.exit34": ; preds = %55, %63
   %64 = load ptr, ptr %7, align 8, !alias.scope !4987, !noalias !4992, !nonnull !6, !noundef !6
-  %65 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %64, i64 %60
+  %65 = getelementptr inbounds nuw [32 x i8], ptr %64, i64 %60
   store i128 %58, ptr %65, align 16
   %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 16
   store i128 %59, ptr %.sroa.231.0..sroa_idx, align 16
@@ -74815,7 +74815,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h71dd5d337ddae469E.exit": ; preds = %34, %38
   %39 = load ptr, ptr %8, align 8, !alias.scope !5001, !noalias !5006, !nonnull !6, !noundef !6
-  %40 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %39, i64 %35
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %40, ptr noundef nonnull readonly align 16 dereferenceable(32) %4, i64 32, i1 false)
   %41 = add i64 %35, 1
   store i64 %41, ptr %7, align 8, !alias.scope !5001, !noalias !5006
@@ -74847,7 +74847,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 54:                                               ; preds = %42
   %55 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %56 = load ptr, ptr %55, align 8, !noalias !5009, !nonnull !6, !noundef !6
-  %57 = getelementptr inbounds nuw i64, ptr %56, i64 %43
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %43
   %58 = load i64, ptr %57, align 8, !noalias !5009, !noundef !6
   %59 = add nuw i64 %43, 1
   store i64 %59, ptr %.val22, align 8, !noalias !5009
@@ -74865,7 +74865,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h71dd5d337ddae469E.exit31": ; preds = %54, %66
   %67 = load ptr, ptr %8, align 8, !alias.scope !5012, !noalias !5017, !nonnull !6, !noundef !6
-  %68 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %67, i64 %63
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %67, i64 %63
   store i128 %61, ptr %68, align 16
   %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %68, i64 16
   store i128 %62, ptr %.sroa.231.0..sroa_idx, align 16
@@ -74994,7 +74994,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink63 = phi i64 [ %34, %33 ], [ %58, %50 ], [ %.sink63.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit75.sink.split" ]
   %.sink = phi i64 [ 0, %33 ], [ %57, %50 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit75.sink.split" ]
   %43 = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %.sink63
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.sink63
   store i64 %.sink, ptr %44, align 8
   %storemerge = add i64 %.sink63, 1
   store i64 %storemerge, ptr %6, align 8
@@ -75008,7 +75008,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 50:                                               ; preds = %37
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !5031, !nonnull !6, !noundef !6
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %38
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %38
   %54 = load i64, ptr %53, align 8, !noalias !5031, !noundef !6
   %55 = add nuw i64 %38, 1
   store i64 %55, ptr %.val66, align 8, !noalias !5031
@@ -75141,7 +75141,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink63 = phi i64 [ %34, %33 ], [ %57, %50 ], [ %.sink63.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7edb4748ab4faf13E.exit73.sink.split" ]
   %.sink = phi i16 [ 0, %33 ], [ %56, %50 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7edb4748ab4faf13E.exit73.sink.split" ]
   %43 = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
-  %44 = getelementptr inbounds nuw i16, ptr %43, i64 %.sink63
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %.sink63
   store i16 %.sink, ptr %44, align 2
   %storemerge = add i64 %.sink63, 1
   store i64 %storemerge, ptr %6, align 8
@@ -75155,7 +75155,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 50:                                               ; preds = %37
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !5050, !nonnull !6, !noundef !6
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %38
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %38
   %54 = load i64, ptr %53, align 8, !noalias !5050, !noundef !6
   %55 = add nuw i64 %38, 1
   store i64 %55, ptr %.val66, align 8, !noalias !5050
@@ -75286,7 +75286,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink61 = phi i64 [ %34, %33 ], [ %57, %50 ], [ %.sink61.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit78.sink.split" ]
   %.sink = phi i128 [ 0, %33 ], [ %56, %50 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit78.sink.split" ]
   %43 = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
-  %44 = getelementptr inbounds nuw i128, ptr %43, i64 %.sink61
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %.sink61
   store i128 %.sink, ptr %44, align 16
   %storemerge = add i64 %.sink61, 1
   store i64 %storemerge, ptr %6, align 8
@@ -75300,7 +75300,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 50:                                               ; preds = %37
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !5069, !nonnull !6, !noundef !6
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %38
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %38
   %54 = load i64, ptr %53, align 8, !noalias !5069, !noundef !6
   %55 = add nuw i64 %38, 1
   store i64 %55, ptr %.val71, align 8, !noalias !5069
@@ -75452,7 +75452,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink34 = phi i64 [ %36, %35 ], [ %57, %54 ], [ %.sink34.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit74.sink.split" ]
   %.sroa.03.0.copyload.i.i.i.i.i72.sink = phi i32 [ 0, %35 ], [ %.sroa.03.0.copyload.i.i.i.i.i72, %54 ], [ %.sroa.03.0.copyload.i.i.i.i.i72.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit74.sink.split" ]
   %47 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink34
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink34
   store i32 %.sroa.03.0.copyload.i.i.i.i.i72.sink, ptr %48, align 4
   %storemerge = add i64 %.sink34, 1
   store i64 %storemerge, ptr %5, align 8
@@ -75615,7 +75615,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink33 = phi i64 [ %34, %33 ], [ %55, %51 ], [ %.sink33.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit81.sink.split" ]
   %.sink = phi i128 [ 0, %33 ], [ %54, %51 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit81.sink.split" ]
   %44 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %45 = getelementptr inbounds nuw i128, ptr %44, i64 %.sink33
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %.sink33
   store i128 %.sink, ptr %45, align 16
   %storemerge = add i64 %.sink33, 1
   store i64 %storemerge, ptr %5, align 8
@@ -75943,7 +75943,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink34 = phi i64 [ %36, %35 ], [ %57, %54 ], [ %.sink34.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit74.sink.split" ]
   %.sroa.02.0.copyload.i.i.i.i.i72.sink = phi i64 [ 0, %35 ], [ %.sroa.02.0.copyload.i.i.i.i.i72, %54 ], [ %.sroa.02.0.copyload.i.i.i.i.i72.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit74.sink.split" ]
   %47 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %.sink34
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.sink34
   store i64 %.sroa.02.0.copyload.i.i.i.i.i72.sink, ptr %48, align 8
   %storemerge = add i64 %.sink34, 1
   store i64 %storemerge, ptr %5, align 8
@@ -76036,7 +76036,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %20, align 8, !noalias !5256, !nonnull !6, !noundef !6
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %33
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %33
   %39 = load i64, ptr %38, align 8, !noalias !5256, !noundef !6
   %40 = load ptr, ptr %22, align 8, !alias.scope !5246, !noalias !5249, !nonnull !6, !align !983, !noundef !6
   %41 = load i64, ptr %40, align 8, !noalias !5256, !noundef !6
@@ -76092,7 +76092,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 62:                                               ; preds = %58
   %63 = load ptr, ptr %31, align 8, !noalias !5260, !nonnull !6, !noundef !6
-  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %59
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %59
   %65 = load i64, ptr %64, align 8, !noalias !5260, !noundef !6
   %66 = load ptr, ptr %7, align 8, !alias.scope !5251, !noalias !5254, !nonnull !6, !align !983, !noundef !6
   %67 = load i64, ptr %66, align 8, !noalias !5260, !noundef !6
@@ -76177,7 +76177,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
 
 "_ZN132_$LT$polars_arrow..array..binview..mutable..MutableBinaryViewArray$LT$K$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h9f06e98c04feb8feE.exit": ; preds = %102, %106
   %107 = load ptr, ptr %14, align 8, !alias.scope !5280, !noalias !5285, !nonnull !6, !noundef !6
-  %108 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %107, i64 %103
+  %108 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %103
   %109 = add i64 %103, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %108, i8 0, i64 16, i1 false)
   store i64 %109, ptr %13, align 8, !alias.scope !5280, !noalias !5285
@@ -76197,7 +76197,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
 117:                                              ; preds = %110
   %118 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %119 = load ptr, ptr %118, align 8, !noalias !5294, !nonnull !6, !noundef !6
-  %120 = getelementptr inbounds nuw i64, ptr %119, i64 %113
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %113
   %121 = load i64, ptr %120, align 8, !noalias !5294, !noundef !6
   %122 = load ptr, ptr %8, align 8, !alias.scope !5289, !noalias !5292, !nonnull !6, !align !1500, !noundef !6
   %123 = load ptr, ptr %7, align 8, !alias.scope !5289, !noalias !5292, !nonnull !6, !align !983, !noundef !6
@@ -76386,7 +76386,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink35 = phi i64 [ %36, %35 ], [ %58, %54 ], [ %.sink35.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7edb4748ab4faf13E.exit74.sink.split" ]
   %.sink = phi i16 [ 0, %35 ], [ %57, %54 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h7edb4748ab4faf13E.exit74.sink.split" ]
   %47 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %48 = getelementptr inbounds nuw i16, ptr %47, i64 %.sink35
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %.sink35
   store i16 %.sink, ptr %48, align 2
   %storemerge = add i64 %.sink35, 1
   store i64 %storemerge, ptr %5, align 8
@@ -76554,7 +76554,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink35 = phi i64 [ %36, %35 ], [ %61, %56 ], [ %.sink35.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit76.sink.split" ]
   %.sink = phi i64 [ 0, %35 ], [ %60, %56 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit76.sink.split" ]
   %49 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %50 = getelementptr inbounds nuw i64, ptr %49, i64 %.sink35
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.sink35
   store i64 %.sink, ptr %50, align 8
   %storemerge = add i64 %.sink35, 1
   store i64 %storemerge, ptr %5, align 8
@@ -76704,7 +76704,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink64 = phi i64 [ %39, %38 ], [ %67, %57 ], [ %.sink64.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit68.sink.split" ]
   %.sink = phi i64 [ 0, %38 ], [ %66, %57 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit68.sink.split" ]
   %50 = load ptr, ptr %8, align 8, !nonnull !6, !noundef !6
-  %51 = getelementptr inbounds nuw i64, ptr %50, i64 %.sink64
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.sink64
   store i64 %.sink, ptr %51, align 8
   %storemerge = add i64 %.sink64, 1
   store i64 %storemerge, ptr %7, align 8
@@ -76718,7 +76718,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 57:                                               ; preds = %42
   %58 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %59 = load ptr, ptr %58, align 8, !noalias !5401, !nonnull !6, !noundef !6
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %45
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %45
   %61 = load i64, ptr %60, align 8, !noalias !5401, !noundef !6
   %62 = add nuw i64 %45, 1
   store i64 %62, ptr %44, align 8, !noalias !5401
@@ -76873,7 +76873,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink34 = phi i64 [ %36, %35 ], [ %57, %54 ], [ %.sink34.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17hb7d062f596122689E.exit74.sink.split" ]
   %.sroa.02.0.copyload.i.i.i.i.i72.sink = phi i64 [ 0, %35 ], [ %.sroa.02.0.copyload.i.i.i.i.i72, %54 ], [ %.sroa.02.0.copyload.i.i.i.i.i72.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17hb7d062f596122689E.exit74.sink.split" ]
   %47 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %.sink34
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.sink34
   store i64 %.sroa.02.0.copyload.i.i.i.i.i72.sink, ptr %48, align 8
   %storemerge = add i64 %.sink34, 1
   store i64 %storemerge, ptr %5, align 8
@@ -77036,7 +77036,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink33 = phi i64 [ %36, %35 ], [ %57, %54 ], [ %.sink33.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h9442763fd798dbf2E.exit74.sink.split" ]
   %.sroa.03.0.copyload.i5.i.i.i.i72.sink = phi float [ 0.000000e+00, %35 ], [ %.sroa.03.0.copyload.i5.i.i.i.i72, %54 ], [ %.sroa.03.0.copyload.i5.i.i.i.i72.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h9442763fd798dbf2E.exit74.sink.split" ]
   %47 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %48 = getelementptr inbounds nuw float, ptr %47, i64 %.sink33
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink33
   store float %.sroa.03.0.copyload.i5.i.i.i.i72.sink, ptr %48, align 4
   %storemerge = add i64 %.sink33, 1
   store i64 %storemerge, ptr %5, align 8
@@ -77178,7 +77178,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink63 = phi i64 [ %34, %33 ], [ %57, %50 ], [ %.sink63.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit73.sink.split" ]
   %.sink = phi i32 [ 0, %33 ], [ %56, %50 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit73.sink.split" ]
   %43 = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %.sink63
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.sink63
   store i32 %.sink, ptr %44, align 4
   %storemerge = add i64 %.sink63, 1
   store i64 %storemerge, ptr %6, align 8
@@ -77192,7 +77192,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 50:                                               ; preds = %37
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !5498, !nonnull !6, !noundef !6
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %38
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %38
   %54 = load i64, ptr %53, align 8, !noalias !5498, !noundef !6
   %55 = add nuw i64 %38, 1
   store i64 %55, ptr %.val66, align 8, !noalias !5498
@@ -77432,7 +77432,7 @@ _ZN14polars_parquet7parquet5types6decode17h51e9e134f2c12261E.exit.i.i.i75: ; pre
   %.sink42 = phi i64 [ %61, %60 ], [ %93, %91 ], [ %.sink42.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78.sink.split" ]
   %.sink = phi i64 [ 0, %60 ], [ %92, %91 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78.sink.split" ]
   %84 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %85 = getelementptr inbounds nuw i64, ptr %84, i64 %.sink42
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.sink42
   store i64 %.sink, ptr %85, align 8
   %storemerge = add i64 %.sink42, 1
   store i64 %storemerge, ptr %5, align 8
@@ -77585,7 +77585,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink33 = phi i64 [ %34, %33 ], [ %55, %51 ], [ %.sink33.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit81.sink.split" ]
   %.sink = phi i128 [ 0, %33 ], [ %54, %51 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h61df302aa4b9a21dE.exit81.sink.split" ]
   %44 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %45 = getelementptr inbounds nuw i128, ptr %44, i64 %.sink33
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %.sink33
   store i128 %.sink, ptr %45, align 16
   %storemerge = add i64 %.sink33, 1
   store i64 %storemerge, ptr %5, align 8
@@ -77772,7 +77772,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink35 = phi i64 [ %39, %38 ], [ %68, %66 ], [ %.sink35.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78.sink.split" ]
   %.sink = phi i64 [ 0, %38 ], [ %67, %66 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78.sink.split" ]
   %59 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %.sink35
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.sink35
   store i64 %.sink, ptr %60, align 8
   %storemerge = add i64 %.sink35, 1
   store i64 %storemerge, ptr %5, align 8
@@ -77948,7 +77948,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink35 = phi i64 [ %39, %38 ], [ %67, %65 ], [ %.sink35.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78.sink.split" ]
   %.sink = phi i64 [ 0, %38 ], [ %66, %65 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78.sink.split" ]
   %58 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %59 = getelementptr inbounds nuw i64, ptr %58, i64 %.sink35
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.sink35
   store i64 %.sink, ptr %59, align 8
   %storemerge = add i64 %.sink35, 1
   store i64 %storemerge, ptr %5, align 8
@@ -78078,7 +78078,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h71dd5d337ddae469E.exit": ; preds = %34, %38
   %39 = load ptr, ptr %7, align 8, !alias.scope !5724, !noalias !5729, !nonnull !6, !noundef !6
-  %40 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %39, i64 %35
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %40, ptr noundef nonnull readonly align 16 dereferenceable(32) %4, i64 32, i1 false)
   %41 = add i64 %35, 1
   store i64 %41, ptr %6, align 8, !alias.scope !5724, !noalias !5729
@@ -78134,7 +78134,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 "_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h71dd5d337ddae469E.exit34": ; preds = %55, %63
   %64 = load ptr, ptr %7, align 8, !alias.scope !5750, !noalias !5755, !nonnull !6, !noundef !6
-  %65 = getelementptr inbounds nuw { { [2 x i128] } }, ptr %64, i64 %60
+  %65 = getelementptr inbounds nuw [32 x i8], ptr %64, i64 %60
   store i128 %58, ptr %65, align 16
   %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 16
   store i128 %59, ptr %.sroa.231.0..sroa_idx, align 16
@@ -78307,7 +78307,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink35 = phi i64 [ %39, %38 ], [ %68, %66 ], [ %.sink35.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78.sink.split" ]
   %.sink = phi i64 [ 0, %38 ], [ %67, %66 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit78.sink.split" ]
   %59 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %.sink35
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.sink35
   store i64 %.sink, ptr %60, align 8
   %storemerge = add i64 %.sink35, 1
   store i64 %storemerge, ptr %5, align 8
@@ -78461,7 +78461,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink35 = phi i64 [ %36, %35 ], [ %58, %54 ], [ %.sink35.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit74.sink.split" ]
   %.sink = phi i32 [ 0, %35 ], [ %57, %54 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit74.sink.split" ]
   %47 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink35
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink35
   store i32 %.sink, ptr %48, align 4
   %storemerge = add i64 %.sink35, 1
   store i64 %storemerge, ptr %5, align 8
@@ -78625,7 +78625,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink34 = phi i64 [ %36, %35 ], [ %57, %54 ], [ %.sink34.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h6c9df35e2c9c9aeeE.exit74.sink.split" ]
   %.sroa.03.0.copyload.i.i.i.i.i72.sink = phi i32 [ 0, %35 ], [ %.sroa.03.0.copyload.i.i.i.i.i72, %54 ], [ %.sroa.03.0.copyload.i.i.i.i.i72.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h6c9df35e2c9c9aeeE.exit74.sink.split" ]
   %47 = load ptr, ptr %6, align 8, !nonnull !6, !noundef !6
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink34
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink34
   store i32 %.sroa.03.0.copyload.i.i.i.i.i72.sink, ptr %48, align 4
   %storemerge = add i64 %.sink34, 1
   store i64 %storemerge, ptr %5, align 8
@@ -78718,7 +78718,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %14, align 8, !noalias !5887, !nonnull !6, !noundef !6
-  %33 = getelementptr inbounds nuw i64, ptr %32, i64 %28
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %28
   %34 = load i64, ptr %33, align 8, !noalias !5887, !noundef !6
   %35 = add nuw i64 %28, 1
   store i64 %35, ptr %12, align 8, !noalias !5887
@@ -78772,7 +78772,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr %24, align 8, !noalias !5893, !nonnull !6, !noundef !6
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %53
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %53
   %59 = load i64, ptr %58, align 8, !noalias !5893, !noundef !6
   %60 = add nuw i64 %53, 1
   store i64 %60, ptr %22, align 8, !noalias !5893
@@ -78820,7 +78820,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 83:                                               ; preds = %76
   %84 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %85 = load ptr, ptr %84, align 8, !noalias !5904, !nonnull !6, !noundef !6
-  %86 = getelementptr inbounds nuw i64, ptr %85, i64 %79
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %79
   %87 = load i64, ptr %86, align 8, !noalias !5904, !noundef !6
   %88 = add nuw i64 %79, 1
   store i64 %88, ptr %78, align 8, !noalias !5904
@@ -78858,7 +78858,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink107 = phi i64 [ %73, %72 ], [ %109, %107 ], [ %.sink107.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit68.sink.split" ]
   %.sink = phi i64 [ 0, %72 ], [ %108, %107 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit68.sink.split" ]
   %100 = load ptr, ptr %8, align 8, !nonnull !6, !noundef !6
-  %101 = getelementptr inbounds nuw i64, ptr %100, i64 %.sink107
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.sink107
   store i64 %.sink, ptr %101, align 8
   %storemerge = add i64 %.sink107, 1
   store i64 %storemerge, ptr %7, align 8
@@ -78990,7 +78990,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink63 = phi i64 [ %34, %33 ], [ %57, %50 ], [ %.sink63.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit73.sink.split" ]
   %.sink = phi i32 [ 0, %33 ], [ %56, %50 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h3a437c24e58a2b10E.exit73.sink.split" ]
   %43 = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %.sink63
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.sink63
   store i32 %.sink, ptr %44, align 4
   %storemerge = add i64 %.sink63, 1
   store i64 %storemerge, ptr %6, align 8
@@ -79004,7 +79004,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 50:                                               ; preds = %37
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !5921, !nonnull !6, !noundef !6
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %38
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %38
   %54 = load i64, ptr %53, align 8, !noalias !5921, !noundef !6
   %55 = add nuw i64 %38, 1
   store i64 %55, ptr %.val66, align 8, !noalias !5921
@@ -79149,7 +79149,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 50:                                               ; preds = %37
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !5940, !nonnull !6, !noundef !6
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %38
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %38
   %54 = load i64, ptr %53, align 8, !noalias !5940, !noundef !6
   %55 = add nuw i64 %38, 1
   store i64 %55, ptr %.val66, align 8, !noalias !5940
@@ -79280,7 +79280,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
   %.sink63 = phi i64 [ %34, %33 ], [ %56, %50 ], [ %.sink63.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit73.sink.split" ]
   %.sink = phi i64 [ 0, %33 ], [ %54, %50 ], [ %.sink.ph, %"_ZN86_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$polars_arrow..pushable..Pushable$LT$T$GT$$GT$4push17h5f0df2f4e7cbf7fbE.exit73.sink.split" ]
   %43 = load ptr, ptr %7, align 8, !nonnull !6, !noundef !6
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %.sink63
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.sink63
   store i64 %.sink, ptr %44, align 8
   %storemerge = add i64 %.sink63, 1
   store i64 %storemerge, ptr %6, align 8
@@ -79294,7 +79294,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 50:                                               ; preds = %37
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !5959, !nonnull !6, !noundef !6
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %38
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %38
   %54 = load i64, ptr %53, align 8, !noalias !5959, !noundef !6
   %55 = add nuw i64 %38, 1
   store i64 %55, ptr %.val66, align 8, !noalias !5959
@@ -79438,7 +79438,7 @@ define internal fastcc void @"_ZN14polars_parquet5arrow4read11deserialize5utils2
 50:                                               ; preds = %37
   %51 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !5980, !nonnull !6, !noundef !6
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %38
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %38
   %54 = load i64, ptr %53, align 8, !noalias !5980, !noundef !6
   %55 = add nuw i64 %38, 1
   store i64 %55, ptr %.val66, align 8, !noalias !5980

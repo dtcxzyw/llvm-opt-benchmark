@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.diff_options = type { ptr, ptr, i32, i32, ptr, i32, ptr, i64, i64, ptr, ptr, ptr, ptr, %struct.diff_flags, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, i32, i32, i32, i32, ptr, i32, i32, ptr, i32, i32, ptr, ptr, i32, [3 x i8], %struct.pathspec, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, ptr, ptr, i32 }
 %struct.diff_flags = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.pathspec = type { i32, i8, i32, i32, ptr }
-%struct.notes_merge_pair = type { %struct.object_id, %struct.object_id, %struct.object_id, %struct.object_id }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
@@ -151,7 +150,7 @@ define dso_local range(i32 -1, 2) i32 @notes_merge(ptr noundef %0, ptr noundef %
 
 21:                                               ; preds = %23, %3
   %.0811.i.i = phi i64 [ 0, %3 ], [ %24, %23 ]
-  %22 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %22 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %20, %22
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %23
 
@@ -256,7 +255,7 @@ oidclr.exit:                                      ; preds = %23, %.split.loop.ex
 
 68:                                               ; preds = %70, %64
   %.0811.i.i85 = phi i64 [ 0, %64 ], [ %71, %70 ]
-  %69 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i85
+  %69 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i85
   %.not.i.i86 = icmp eq ptr %67, %69
   br i1 %.not.i.i86, label %.split.loop.exit9.i.i89, label %70
 
@@ -518,7 +517,7 @@ oidclr.exit90:                                    ; preds = %70, %.split.loop.ex
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %301 ]
   %.03363.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %301 ]
   %193 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !66
-  %194 = getelementptr inbounds nuw ptr, ptr %193, i64 %indvars.iv.i.i
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %indvars.iv.i.i
   %195 = load ptr, ptr %194, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 18
@@ -619,7 +618,7 @@ verify_notes_filepair.exit.thread.i.i:            ; preds = %verify_notes_filepa
   %.03855.i.i.i = phi i32 [ %234, %243 ], [ 0, %227 ]
   %.03954.i.i.i = phi i32 [ %244, %243 ], [ %230, %227 ]
   %232 = zext nneg i32 %.03954.i.i.i to i64
-  %233 = getelementptr inbounds nuw %struct.notes_merge_pair, ptr %188, i64 %232
+  %233 = getelementptr inbounds nuw [144 x i8], ptr %188, i64 %232
   %234 = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %13, ptr noundef nonnull readonly dereferenceable(32) %233, i64 noundef 32) #19
   %.not.i41.i.i = icmp eq i32 %234, 0
   br i1 %.not.i41.i.i, label %255, label %235
@@ -657,7 +656,7 @@ verify_notes_filepair.exit.thread.i.i:            ; preds = %verify_notes_filepa
   br i1 %248, label %move_array.exit.i.i.i, label %272
 
 move_array.exit.i.i.i:                            ; preds = %.loopexit.i.i.i
-  %250 = getelementptr inbounds nuw %struct.notes_merge_pair, ptr %188, i64 %249
+  %250 = getelementptr inbounds nuw [144 x i8], ptr %188, i64 %249
   %251 = sub nsw i32 %.03363.i.i, %spec.store.select49.i.i.i
   %252 = zext nneg i32 %251 to i64
   %253 = getelementptr inbounds nuw i8, ptr %250, i64 144
@@ -702,7 +701,7 @@ move_array.exit.i.i.i:                            ; preds = %.loopexit.i.i.i
 
 272:                                              ; preds = %move_array.exit.i.i.i, %.loopexit.i.i.i
   store i32 %spec.store.select49.i.i.i, ptr @find_notes_merge_pair_pos.last_index, align 4, !tbaa !81
-  %273 = getelementptr inbounds nuw %struct.notes_merge_pair, ptr %188, i64 %249
+  %273 = getelementptr inbounds nuw [144 x i8], ptr %188, i64 %249
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %273, ptr noundef nonnull readonly align 4 dereferenceable(32) %13, i64 32, i1 false)
   %274 = load i32, ptr %191, align 4, !tbaa !38
   %275 = getelementptr inbounds nuw i8, ptr %273, i64 32
@@ -797,7 +796,7 @@ diff_tree_remote.exit.i:                          ; preds = %301, %182
 317:                                              ; preds = %407, %.lr.ph.i23.i
   %indvars.iv.i24.i = phi i64 [ 0, %.lr.ph.i23.i ], [ %indvars.iv.next.i36.i, %407 ]
   %318 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !66
-  %319 = getelementptr inbounds nuw ptr, ptr %318, i64 %indvars.iv.i24.i
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %318, i64 %indvars.iv.i24.i
   %320 = load ptr, ptr %319, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 18
@@ -897,7 +896,7 @@ verify_notes_filepair.exit.thread.i35.i:          ; preds = %verify_notes_filepa
   %.03855.i.i48.i = phi i32 [ %358, %367 ], [ 0, %352 ]
   %.03954.i.i49.i = phi i32 [ %368, %367 ], [ %354, %352 ]
   %356 = zext nneg i32 %.03954.i.i49.i to i64
-  %357 = getelementptr inbounds nuw %struct.notes_merge_pair, ptr %188, i64 %356
+  %357 = getelementptr inbounds nuw [144 x i8], ptr %188, i64 %356
   %358 = call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(32) %10, ptr noundef nonnull readonly dereferenceable(32) %357, i64 noundef 32) #19
   %.not.i37.i.i = icmp eq i32 %358, 0
   br i1 %.not.i37.i.i, label %381, label %359
@@ -971,7 +970,7 @@ verify_notes_filepair.exit.thread.i35.i:          ; preds = %verify_notes_filepa
 
 390:                                              ; preds = %392, %386
   %.0811.i.i.i.i = phi i64 [ 0, %386 ], [ %393, %392 ]
-  %391 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
+  %391 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i42.i.i = icmp eq ptr %389, %391
   br i1 %.not.i.i42.i.i, label %.split.loop.exit9.i.i.i.i, label %392
 
@@ -1049,7 +1048,7 @@ diff_tree_local.exit.i:                           ; preds = %407, %310
 420:                                              ; preds = %590, %.lr.ph.i57.i
   %indvars.iv.i58.i = phi i64 [ 0, %.lr.ph.i57.i ], [ %indvars.iv.next.i66.i, %590 ]
   %.02423.i.i = phi i32 [ 0, %.lr.ph.i57.i ], [ %.1.i65.i, %590 ]
-  %421 = getelementptr inbounds nuw %struct.notes_merge_pair, ptr %188, i64 %indvars.iv.i58.i
+  %421 = getelementptr inbounds nuw [144 x i8], ptr %188, i64 %indvars.iv.i58.i
   %422 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 8), align 8, !tbaa !40
   %.not.i35.i.i = icmp eq i32 %422, 0
   %423 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_default_key, i64 12), align 4

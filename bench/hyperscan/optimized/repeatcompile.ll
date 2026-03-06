@@ -15,10 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.ue2::CharReach" = type { %"class.ue2::bitfield" }
 %"class.ue2::bitfield" = type { %"struct.std::array" }
 %"struct.std::array" = type { [4 x i64] }
-%"class.std::vector.11" = type { %"struct.std::_Vector_base.12" }
-%"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl" }
-%"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl" = type { %"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ue2::CharReach, std::allocator<ue2::CharReach>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt6vectorIjSaIjEE17_M_default_appendEm = comdat any
 
@@ -331,7 +327,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i: ; preds = %127, %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i: ; preds = %129, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i.i
   store ptr %124, ptr %13, align 8
   store ptr %128, ptr %103, align 8
-  %130 = getelementptr inbounds nuw i64, ptr %124, i64 %122
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %130, ptr %104, align 8
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit.i
 
@@ -350,11 +346,11 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit.i:         ; preds = %_ZNSt6vectorImSaImE
 133:                                              ; preds = %.preheader.i
   %134 = zext i32 %.027.in.i to i64
   %135 = load ptr, ptr %13, align 8
-  %136 = getelementptr inbounds nuw i64, ptr %135, i64 %134
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %134
   %137 = load i64, ptr %136, align 8
   %138 = sub i32 %.027.i, %4
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw i64, ptr %135, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %139
   %141 = load i64, ptr %140, align 8
   %142 = add i64 %141, %137
   %143 = load ptr, ptr %104, align 8
@@ -411,7 +407,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   tail call void @_ZdlPv(ptr noundef nonnull %135) #20
   store ptr %158, ptr %13, align 8
   store ptr %162, ptr %103, align 8
-  %163 = getelementptr inbounds nuw i64, ptr %158, i64 %156
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %156
   store ptr %163, ptr %104, align 8
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit38.i
 
@@ -419,9 +415,9 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit38.i:       ; preds = %_ZNSt6vectorImSaImE
   %164 = phi ptr [ %.pre6.i, %144 ], [ %158, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i37.i ]
   %165 = phi ptr [ %146, %144 ], [ %162, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i37.i ]
   %166 = zext nneg i32 %.027.i to i64
-  %167 = getelementptr inbounds nuw i64, ptr %164, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %166
   %168 = load i64, ptr %167, align 8
-  %169 = getelementptr inbounds nuw i64, ptr %164, i64 %134
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %134
   %170 = load i64, ptr %169, align 8
   %171 = icmp ult i64 %168, %170
   br i1 %171, label %_ZN3ue2L16repeatRecurTableEPNS_15RepeatStateInfoERKNS_5depthEj.exit, label %.preheader.i, !llvm.loop !7
@@ -490,7 +486,7 @@ _ZNK3ue25depthcvjEv.exit26.i:                     ; preds = %.lr.ph.i
   %182 = udiv i32 %181, %.031.i
   %183 = add i32 %182, 1
   %184 = zext i32 %.031.i to i64
-  %185 = getelementptr inbounds nuw i64, ptr %.pre132, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %.pre132, i64 %184
   %186 = load i64, ptr %185, align 8
   %187 = icmp ult i64 %186, 2
   %188 = add i64 %186, -1
@@ -518,7 +514,7 @@ _ZNK3ue25depthcvjEv.exit26.i:                     ; preds = %.lr.ph.i
   %199 = phi ptr [ %.pre131, %_ZNK3ue25depthcvjEv.exit83 ], [ %.pre132, %_ZNK3ue25depthcvjEv.exit.i84 ], [ %.pre132, %197 ]
   %.038 = phi i32 [ %172, %_ZNK3ue25depthcvjEv.exit83 ], [ 0, %_ZNK3ue25depthcvjEv.exit.i84 ], [ %.1.i, %197 ]
   %200 = zext i32 %.038 to i64
-  %201 = getelementptr inbounds nuw i64, ptr %199, i64 %200
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %200
   %202 = load i64, ptr %201, align 8
   %203 = icmp ult i64 %202, 2
   %204 = add i64 %202, -1
@@ -988,7 +984,7 @@ define hidden void @_ZN3ue217minResetDistToEndERKSt6vectorIS0_INS_9CharReachESaI
   %storemerge22 = phi i64 [ 0, %.lr.ph ], [ %45, %44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %32 = xor i64 %storemerge22, -1
-  %33 = getelementptr %"class.ue2::CharReach", ptr %26, i64 %32
+  %33 = getelementptr [32 x i8], ptr %26, i64 %32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32, i1 false)
   %34 = load i64, ptr %4, align 8, !alias.scope !13
@@ -1085,7 +1081,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %64, %.noex
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %66, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %65, ptr %14, align 8
-  %67 = getelementptr inbounds nuw i64, ptr %61, i64 %59
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %67, ptr %15, align 8
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -1187,7 +1183,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %._crit_edge38, %21
   %30 = phi ptr [ %18, %.lr.ph ], [ %126, %125 ]
   %.034 = phi i64 [ 0, %.lr.ph ], [ %128, %125 ]
   %.133 = phi i32 [ %.02937, %.lr.ph ], [ %.sroa.speculated, %125 ]
-  %31 = getelementptr inbounds nuw %"class.std::vector.11", ptr %30, i64 %.034
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %.034
   %.val = load ptr, ptr %.sroa.023.036, align 8
   %.val15 = load ptr, ptr %20, align 8
   %.val16 = load ptr, ptr %31, align 8
@@ -1208,7 +1204,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %._crit_edge38, %21
   %42 = ashr exact i64 %41, 5
   %.not6.i37.i = icmp eq ptr %.val, %.val15
   %43 = sub nsw i64 0, %42
-  %invariant.gep.i = getelementptr %"class.ue2::CharReach", ptr %.val17, i64 %43
+  %invariant.gep.i = getelementptr [32 x i8], ptr %.val17, i64 %43
   %.not6.i37.fr.i = freeze i1 %.not6.i37.i
   br i1 %.not6.i37.fr.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
@@ -1347,7 +1343,7 @@ _ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS
 
 .lr.ph.i38.i:                                     ; preds = %.lr.ph.split.i
   %96 = sub nsw i64 0, %71
-  %gep.i = getelementptr %"class.ue2::CharReach", ptr %invariant.gep.i, i64 %96
+  %gep.i = getelementptr [32 x i8], ptr %invariant.gep.i, i64 %96
   br label %97
 
 97:                                               ; preds = %_ZNK3ue29CharReach4noneEv.exit.i47.i, %.lr.ph.i38.i
@@ -1408,7 +1404,7 @@ _ZN3ue2L13minDistAfterAERKSt6vectorINS_9CharReachESaIS1_EES5_.exit: ; preds = %1
   %.3.i = phi i32 [ %.03218.us.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.us.i ], [ %38, %27 ], [ %38, %67 ], [ %.03218.us.i, %.lr.ph.split.us.i ], [ %.03218.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit.i ], [ %38, %74 ], [ %38, %117 ], [ %.03218.i, %_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_9CharReachESt6vectorIS2_SaIS2_EEEES8_S8_S8_.exit53.i ]
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.3.i, i32 %.133)
   %121 = zext i32 %.3.i to i64
-  %122 = getelementptr inbounds nuw i64, ptr %.pre44, i64 %.034
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %.pre44, i64 %.034
   %123 = load i64, ptr %122, align 8
   %.not = icmp ult i64 %123, %121
   br i1 %.not, label %125, label %124
@@ -1537,9 +1533,9 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8
-  %38 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8
-  %39 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8
   br label %40
 

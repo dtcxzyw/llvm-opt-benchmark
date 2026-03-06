@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.zlentry = type { i32, i32, i32, i32, i32, i8, ptr }
-%struct.rand_pick = type { i32, i32 }
-%struct.ziplistEntry = type { ptr, i32, i64 }
 
 @.str = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"ziplist.c\00", align 1
@@ -3937,7 +3935,7 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.i,
 
 60:                                               ; preds = %64, %.lr.ph50.us
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %64 ], [ %59, %.lr.ph50.us ]
-  %61 = getelementptr inbounds nuw %struct.rand_pick, ptr %14, i64 %indvars.iv69
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv69
   %62 = load i32, ptr %61, align 4, !tbaa !42
   %63 = icmp eq i32 %.04054.us, %62
   br i1 %63, label %64, label %.critedge.us.loopexit.split.loop.exit
@@ -3946,7 +3944,7 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.i,
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %66 = load i32, ptr %65, align 4, !tbaa !45
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds %struct.ziplistEntry, ptr %2, i64 %67
+  %68 = getelementptr inbounds [24 x i8], ptr %2, i64 %67
   store ptr %56, ptr %68, align 8, !tbaa !46
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i32 %57, ptr %69, align 8, !tbaa !48
@@ -3961,7 +3959,7 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.i,
   %71 = tail call i32 @rand() #17
   %72 = urem i32 %71, %38
   %73 = shl nuw i32 %72, 1
-  %74 = getelementptr inbounds nuw %struct.rand_pick, ptr %14, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   store i32 %73, ptr %74, align 4, !tbaa !42
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = trunc nuw i64 %indvars.iv to i32
@@ -4000,7 +3998,7 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.i,
 
 87:                                               ; preds = %.lr.ph50, %91
   %indvars.iv65 = phi i64 [ %86, %.lr.ph50 ], [ %indvars.iv.next66, %91 ]
-  %88 = getelementptr inbounds nuw %struct.rand_pick, ptr %14, i64 %indvars.iv65
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv65
   %89 = load i32, ptr %88, align 4, !tbaa !42
   %90 = icmp eq i32 %.04054, %89
   br i1 %90, label %91, label %.critedge.loopexit.split.loop.exit79
@@ -4009,13 +4007,13 @@ ziplistLen.exit:                                  ; preds = %17, %._crit_edge.i,
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %93 = load i32, ptr %92, align 4, !tbaa !45
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds %struct.ziplistEntry, ptr %2, i64 %94
+  %95 = getelementptr inbounds [24 x i8], ptr %2, i64 %94
   store ptr %80, ptr %95, align 8, !tbaa !46
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 %81, ptr %96, align 8, !tbaa !48
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 16
   store i64 %82, ptr %97, align 8, !tbaa !49
-  %98 = getelementptr inbounds %struct.ziplistEntry, ptr %3, i64 %94
+  %98 = getelementptr inbounds [24 x i8], ptr %3, i64 %94
   store ptr %83, ptr %98, align 8, !tbaa !46
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i32 %84, ptr %99, align 8, !tbaa !48
@@ -4160,7 +4158,7 @@ ziplistLen.exit:                                  ; preds = %11, %._crit_edge.i,
   %49 = load i32, ptr %7, align 4, !tbaa !5
   %50 = load i64, ptr %8, align 8, !tbaa !10
   %51 = zext nneg i32 %.03552.us to i64
-  %52 = getelementptr inbounds nuw %struct.ziplistEntry, ptr %2, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %51
   store ptr %48, ptr %52, align 8, !tbaa !46
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 %49, ptr %53, align 8, !tbaa !48
@@ -4221,7 +4219,7 @@ ziplistLen.exit:                                  ; preds = %11, %._crit_edge.i,
   %79 = load i32, ptr %7, align 4, !tbaa !5
   %80 = load i64, ptr %8, align 8, !tbaa !10
   %81 = zext nneg i32 %.03552 to i64
-  %82 = getelementptr inbounds nuw %struct.ziplistEntry, ptr %2, i64 %81
+  %82 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %81
   store ptr %78, ptr %82, align 8, !tbaa !46
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i32 %79, ptr %83, align 8, !tbaa !48
@@ -4250,7 +4248,7 @@ ziplistLen.exit:                                  ; preds = %11, %._crit_edge.i,
   %90 = load ptr, ptr %6, align 8, !tbaa !32
   %91 = load i32, ptr %7, align 4, !tbaa !5
   %92 = load i64, ptr %8, align 8, !tbaa !10
-  %93 = getelementptr inbounds nuw %struct.ziplistEntry, ptr %3, i64 %81
+  %93 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %81
   store ptr %90, ptr %93, align 8, !tbaa !46
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i32 %91, ptr %94, align 8, !tbaa !48

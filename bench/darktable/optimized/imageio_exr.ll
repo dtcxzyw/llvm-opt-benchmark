@@ -858,12 +858,12 @@ _ZNK7Imf_2_56Header18findTypedAttributeINS_14TypedAttributeINS_4BlobEEEEEPKT_PKc
   %272 = shl nsw i32 %250, 2
   %273 = sext i32 %272 to i64
   %274 = sub nsw i64 0, %273
-  %275 = getelementptr inbounds float, ptr %263, i64 %274
+  %275 = getelementptr inbounds [4 x i8], ptr %263, i64 %274
   %276 = shl i32 %252, 2
   %277 = mul i32 %276, %270
   %278 = sext i32 %277 to i64
   %279 = sub nsw i64 0, %278
-  %280 = getelementptr inbounds float, ptr %275, i64 %279
+  %280 = getelementptr inbounds [4 x i8], ptr %275, i64 %279
   %281 = zext i32 %271 to i64
   invoke void @_ZN7Imf_2_55SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %9, i32 noundef 2, ptr noundef nonnull %280, i64 noundef 16, i64 noundef %281, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %282 unwind label %318
@@ -879,7 +879,7 @@ _ZNK7Imf_2_56Header18findTypedAttributeINS_14TypedAttributeINS_4BlobEEEEEPKT_PKc
   %285 = mul i32 %276, %284
   %286 = sext i32 %285 to i64
   %287 = sub nsw i64 0, %286
-  %288 = getelementptr inbounds float, ptr %275, i64 %287
+  %288 = getelementptr inbounds [4 x i8], ptr %275, i64 %287
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 4
   invoke void @_ZN7Imf_2_55SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %10, i32 noundef 2, ptr noundef nonnull %289, i64 noundef 16, i64 noundef %281, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %290 unwind label %320
@@ -895,7 +895,7 @@ _ZNK7Imf_2_56Header18findTypedAttributeINS_14TypedAttributeINS_4BlobEEEEEPKT_PKc
   %293 = mul i32 %276, %292
   %294 = sext i32 %293 to i64
   %295 = sub nsw i64 0, %294
-  %296 = getelementptr inbounds float, ptr %275, i64 %295
+  %296 = getelementptr inbounds [4 x i8], ptr %275, i64 %295
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
   invoke void @_ZN7Imf_2_55SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %11, i32 noundef 2, ptr noundef nonnull %297, i64 noundef 16, i64 noundef %281, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %298 unwind label %322
@@ -911,7 +911,7 @@ _ZNK7Imf_2_56Header18findTypedAttributeINS_14TypedAttributeINS_4BlobEEEEEPKT_PKc
   %301 = mul i32 %276, %300
   %302 = sext i32 %301 to i64
   %303 = sub nsw i64 0, %302
-  %304 = getelementptr inbounds float, ptr %275, i64 %303
+  %304 = getelementptr inbounds [4 x i8], ptr %275, i64 %303
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 12
   invoke void @_ZN7Imf_2_55SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %12, i32 noundef 2, ptr noundef nonnull %305, i64 noundef 16, i64 noundef %281, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %306 unwind label %324
@@ -1292,7 +1292,7 @@ _ZNK7Imf_2_56Header18findTypedAttributeINS_14TypedAttributeINS_4BlobEEEEEPKT_PKc
 
 .preheader:                                       ; preds = %.preheader232, %455
   %indvars.iv250 = phi i64 [ 0, %.preheader232 ], [ %indvars.iv.next251, %455 ]
-  %invariant.gep = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv250
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv250
   %.idx = mul nuw nsw i64 %indvars.iv250, 12
   %invariant.gep277 = getelementptr inbounds nuw i8, ptr %444, i64 %.idx
   br label %456
@@ -1326,9 +1326,9 @@ _ZNK7Imf_2_56Header18findTypedAttributeINS_14TypedAttributeINS_4BlobEEEEEPKT_PKc
 
 456:                                              ; preds = %.preheader, %456
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %456 ]
-  %gep = getelementptr inbounds nuw [4 x float], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv
   %457 = load float, ptr %gep, align 4, !tbaa !84
-  %gep278 = getelementptr inbounds nuw float, ptr %invariant.gep277, i64 %indvars.iv
+  %gep278 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep277, i64 %indvars.iv
   store float %457, ptr %gep278, align 4, !tbaa !84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

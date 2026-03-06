@@ -6,10 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { i64 }
 %struct.ImageInfo = type { i32, i16, i16 }
-%struct.VLC = type { i32, ptr, i32, i32 }
-%struct.VLCElem = type { %union.anon.2 }
-%union.anon.2 = type { %struct.anon }
-%struct.anon = type { i16, i16 }
 
 @.str = private unnamed_addr constant [8 x i8] c"photocd\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"Kodak Photo CD\00", align 1
@@ -120,7 +116,7 @@ define internal i32 @photocd_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
 43:                                               ; preds = %33, %35, %28
   %44 = phi i64 [ 2, %33 ], [ %42, %35 ], [ 0, %28 ]
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  %46 = getelementptr inbounds nuw %struct.ImageInfo, ptr @img_info, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @img_info, i64 %44
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i16, ptr %47, align 4, !tbaa !42
   %49 = zext i16 %48 to i32
@@ -186,7 +182,7 @@ bytestream2_init.exit:                            ; preds = %64
 
 85:                                               ; preds = %75
   %86 = sext i32 %73 to i64
-  %87 = getelementptr inbounds %struct.ImageInfo, ptr @img_info, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr @img_info, i64 %86
   %88 = load i32, ptr %87, align 8, !tbaa !51
   %..i.i159 = tail call i32 @llvm.smin.i32(i32 %88, i32 %66)
   %89 = sext i32 %..i.i159 to i64
@@ -326,7 +322,7 @@ bytestream2_init.exit:                            ; preds = %64
 
 180:                                              ; preds = %176, %179
   %indvars.iv = phi i64 [ 0, %176 ], [ %indvars.iv.next, %179 ]
-  %181 = getelementptr inbounds nuw %struct.VLC, ptr %178, i64 %indvars.iv
+  %181 = getelementptr inbounds nuw [24 x i8], ptr %178, i64 %indvars.iv
   %.val = load ptr, ptr %5, align 8, !tbaa !31
   %182 = tail call fastcc i32 @read_hufftable(ptr %.val, ptr noundef nonnull %181)
   %183 = icmp slt i32 %182, 0
@@ -361,7 +357,7 @@ bytestream2_init.exit:                            ; preds = %64
 
 198:                                              ; preds = %194, %197
   %indvars.iv188 = phi i64 [ 0, %194 ], [ %indvars.iv.next189, %197 ]
-  %199 = getelementptr inbounds nuw %struct.VLC, ptr %178, i64 %indvars.iv188
+  %199 = getelementptr inbounds nuw [24 x i8], ptr %178, i64 %indvars.iv188
   %.val163 = load ptr, ptr %5, align 8, !tbaa !31
   %200 = tail call fastcc i32 @read_hufftable(ptr %.val163, ptr noundef nonnull %199)
   %201 = icmp slt i32 %200, 0
@@ -470,7 +466,7 @@ define internal noundef i32 @photocd_decode_close(ptr noundef readonly captures(
 
 6:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %struct.VLC, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv
   tail call void @ff_vlc_free(ptr noundef nonnull %7) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1116,7 +1112,7 @@ bytestream2_get_byte.exit:                        ; preds = %19, %20
   %narrow = sub nuw nsw i8 15, %35
   %45 = zext nneg i8 %narrow to i16
   %46 = lshr i16 %42, %45
-  %47 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv
   store i16 %46, ptr %47, align 2, !tbaa !73
   %48 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv
   store i8 %41, ptr %48, align 1, !tbaa !35
@@ -1190,7 +1186,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_huff(ptr noundef re
   %.sroa.65.7 = phi ptr [ %21, %26 ], [ %33, %29 ]
   %.sroa.0.6 = phi i64 [ 0, %26 ], [ %32, %29 ]
   %34 = zext nneg i32 %3 to i64
-  %35 = getelementptr inbounds nuw %struct.ImageInfo, ptr @img_info, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @img_info, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   %37 = load i16, ptr %36, align 2, !tbaa !45
   %38 = zext i16 %37 to i32
@@ -1535,12 +1531,12 @@ bits_skip_be.exit108:                             ; preds = %169, %181, %bits_pr
   %188 = getelementptr inbounds nuw i8, ptr @__const.decode_huff.type2idx, i64 %185
   %189 = load i8, ptr %188, align 1, !tbaa !35
   %190 = zext i8 %189 to i64
-  %191 = getelementptr inbounds nuw ptr, ptr %1, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %190
   %192 = load ptr, ptr %191, align 8, !tbaa !50
   %193 = icmp ne i64 %185, 0
   %194 = zext i1 %193 to i32
   %195 = lshr i32 %151, %194
-  %196 = getelementptr inbounds nuw i32, ptr %39, i64 %190
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %190
   %197 = load i32, ptr %196, align 4, !tbaa !54
   %198 = mul nsw i32 %197, %195
   %199 = sext i32 %198 to i64
@@ -1558,7 +1554,7 @@ bits_skip_be.exit108:                             ; preds = %169, %181, %bits_pr
   br label %.preheader
 
 .lr.ph233:                                        ; preds = %187
-  %204 = getelementptr inbounds nuw %struct.VLC, ptr %41, i64 %190
+  %204 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %190
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %wide.trip.count = zext nneg i32 %203 to i64
   br label %206
@@ -1616,7 +1612,7 @@ bits_peek_be.exit.i:                              ; preds = %213, %bits_peek_nz_
   %.sroa.65.26 = phi ptr [ %.sroa.65.25, %bits_peek_nz_be.exit.i.i ], [ %.sroa.65.6229, %213 ]
   %.pre.i = phi i64 [ %.val.i.i.i, %bits_peek_nz_be.exit.i.i ], [ %.sroa.0.5230, %213 ]
   %.0.i.i111 = phi i64 [ %231, %bits_peek_nz_be.exit.i.i ], [ 0, %213 ]
-  %232 = getelementptr inbounds nuw %struct.VLCElem, ptr %214, i64 %.0.i.i111
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %.0.i.i111
   %233 = load i16, ptr %232, align 2, !tbaa !35
   %234 = sext i16 %233 to i32
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 2
@@ -1657,7 +1653,7 @@ bits_priv_set_idx_be.exit.i:                      ; preds = %245, %239
   %259 = trunc i64 %258 to i32
   %260 = add i32 %259, %234
   %261 = zext i32 %260 to i64
-  %262 = getelementptr inbounds nuw %struct.VLCElem, ptr %214, i64 %261
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %261
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 2
   %264 = load i16, ptr %263, align 2, !tbaa !35
   %265 = sext i16 %264 to i32

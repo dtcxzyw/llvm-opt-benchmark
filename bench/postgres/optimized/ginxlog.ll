@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.RelFileLocator = type { i32, i32, i32 }
-%struct.ItemIdData = type { i32 }
 
 @opCtx = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [29 x i8] c"gin_redo: unknown op code %u\00", align 1
@@ -85,7 +84,7 @@ define dso_local void @gin_redo(ptr noundef %0) local_unnamed_addr #0 {
   %39 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %40 = xor i32 %36, -1
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %41
   %43 = load ptr, ptr %42, align 8
   br label %ginRedoCreatePTree.exit
 
@@ -157,7 +156,7 @@ ginRedoCreatePTree.exit:                          ; preds = %38, %44
   %85 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %86 = xor i32 %82, -1
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %85, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %87
   %89 = load ptr, ptr %88, align 8
   br label %BufferGetPage.exit.i.i
 
@@ -217,7 +216,7 @@ ginRedoClearIncompleteSplit.exit.i:               ; preds = %110, %108
   %118 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %119 = xor i32 %115, -1
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw ptr, ptr %118, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %120
   %122 = load ptr, ptr %121, align 8
   br label %BufferGetPage.exit.i
 
@@ -247,7 +246,7 @@ BufferGetPage.exit.i:                             ; preds = %123, %117
   %136 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %137 = xor i32 %132, -1
   %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds nuw ptr, ptr %136, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %138
   %140 = load ptr, ptr %139, align 8
   br label %BufferGetPage.exit.i20.i
 
@@ -291,7 +290,7 @@ BufferGetPage.exit.i20.i:                         ; preds = %141, %135
   %162 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %163 = xor i32 %132, -1
   %164 = zext nneg i32 %163 to i64
-  %165 = getelementptr inbounds nuw ptr, ptr %162, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %164
   %166 = load ptr, ptr %165, align 8
   br label %BufferGetPage.exit.i22.i
 
@@ -312,7 +311,7 @@ BufferGetPage.exit.i22.i:                         ; preds = %167, %161
 174:                                              ; preds = %BufferGetPage.exit.i22.i
   %175 = zext i16 %173 to i64
   %176 = getelementptr i8, ptr %.0.i.i.i23.i, i64 20
-  %177 = getelementptr %struct.ItemIdData, ptr %176, i64 %175
+  %177 = getelementptr [4 x i8], ptr %176, i64 %175
   %.val.i.i = load i32, ptr %177, align 4
   %178 = and i32 %.val.i.i, 32767
   %179 = zext nneg i32 %178 to i64
@@ -419,7 +418,7 @@ ginRedoInsert.exit:                               ; preds = %211, %213
   %231 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %232 = xor i32 %228, -1
   %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr inbounds nuw ptr, ptr %231, i64 %233
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %233
   %235 = load ptr, ptr %234, align 8
   br label %BufferGetPage.exit.i.i16
 
@@ -550,7 +549,7 @@ ginRedoVacuumPage.exit:                           ; preds = %277
   %292 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %293 = xor i32 %289, -1
   %294 = zext nneg i32 %293 to i64
-  %295 = getelementptr inbounds nuw ptr, ptr %292, i64 %294
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %292, i64 %294
   %296 = load ptr, ptr %295, align 8
   br label %BufferGetPage.exit.i20
 
@@ -612,7 +611,7 @@ ginRedoVacuumDataLeafPage.exit:                   ; preds = %309, %311
   %323 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %324 = xor i32 %320, -1
   %325 = zext nneg i32 %324 to i64
-  %326 = getelementptr inbounds nuw ptr, ptr %323, i64 %325
+  %326 = getelementptr inbounds nuw [8 x i8], ptr %323, i64 %325
   %327 = load ptr, ptr %326, align 8
   br label %BufferGetPage.exit.i25
 
@@ -657,7 +656,7 @@ BufferGetPage.exit.i25:                           ; preds = %328, %322
   %352 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %353 = xor i32 %349, -1
   %354 = zext nneg i32 %353 to i64
-  %355 = getelementptr inbounds nuw ptr, ptr %352, i64 %354
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %352, i64 %354
   %356 = load ptr, ptr %355, align 8
   br label %BufferGetPage.exit22.i
 
@@ -707,7 +706,7 @@ BufferGetPage.exit22.i:                           ; preds = %357, %351
   %385 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %386 = xor i32 %382, -1
   %387 = zext nneg i32 %386 to i64
-  %388 = getelementptr inbounds nuw ptr, ptr %385, i64 %387
+  %388 = getelementptr inbounds nuw [8 x i8], ptr %385, i64 %387
   %389 = load ptr, ptr %388, align 8
   br label %BufferGetPage.exit24.i
 
@@ -780,7 +779,7 @@ ginRedoDeletePage.exit:                           ; preds = %408, %410
   %419 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %420 = xor i32 %416, -1
   %421 = zext nneg i32 %420 to i64
-  %422 = getelementptr inbounds nuw ptr, ptr %419, i64 %421
+  %422 = getelementptr inbounds nuw [8 x i8], ptr %419, i64 %421
   %423 = load ptr, ptr %422, align 8
   br label %BufferGetPage.exit.i27
 
@@ -824,7 +823,7 @@ BufferGetPage.exit.i27:                           ; preds = %424, %418
   %446 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %447 = xor i32 %443, -1
   %448 = zext nneg i32 %447 to i64
-  %449 = getelementptr inbounds nuw ptr, ptr %446, i64 %448
+  %449 = getelementptr inbounds nuw [8 x i8], ptr %446, i64 %448
   %450 = load ptr, ptr %449, align 8
   br label %BufferGetPage.exit44.i
 
@@ -924,7 +923,7 @@ BufferGetPage.exit44.i:                           ; preds = %451, %445
   %501 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %502 = xor i32 %498, -1
   %503 = zext nneg i32 %502 to i64
-  %504 = getelementptr inbounds nuw ptr, ptr %501, i64 %503
+  %504 = getelementptr inbounds nuw [8 x i8], ptr %501, i64 %503
   %505 = load ptr, ptr %504, align 8
   br label %BufferGetPage.exit46.i
 
@@ -981,7 +980,7 @@ ginRedoUpdateMetapage.exit:                       ; preds = %489, %491, %520, %.
   %530 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %531 = xor i32 %527, -1
   %532 = zext nneg i32 %531 to i64
-  %533 = getelementptr inbounds nuw ptr, ptr %530, i64 %532
+  %533 = getelementptr inbounds nuw [8 x i8], ptr %530, i64 %532
   %534 = load ptr, ptr %533, align 8
   br label %BufferGetPage.exit.i32
 
@@ -1080,7 +1079,7 @@ ginRedoInsertListPage.exit:                       ; preds = %572, %556
   %590 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %591 = xor i32 %587, -1
   %592 = zext nneg i32 %591 to i64
-  %593 = getelementptr inbounds nuw ptr, ptr %590, i64 %592
+  %593 = getelementptr inbounds nuw [8 x i8], ptr %590, i64 %592
   %594 = load ptr, ptr %593, align 8
   br label %BufferGetPage.exit.i37
 
@@ -1121,7 +1120,7 @@ BufferGetPage.exit.i37:                           ; preds = %595, %589
   %614 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %615 = xor i32 %611, -1
   %616 = zext nneg i32 %615 to i64
-  %617 = getelementptr inbounds nuw ptr, ptr %614, i64 %616
+  %617 = getelementptr inbounds nuw [8 x i8], ptr %614, i64 %616
   %618 = load ptr, ptr %617, align 8
   br label %BufferGetPage.exit22.i41
 

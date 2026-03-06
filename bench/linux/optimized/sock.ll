@@ -2144,7 +2144,7 @@ define dso_local noundef range(i32 -95, 1) i32 @sock_set_timestamping(ptr nounde
   br label %.thread10
 
 81:                                               ; preds = %77
-  %82 = getelementptr i32, ptr %72, i64 %79
+  %82 = getelementptr [4 x i8], ptr %72, i64 %79
   %83 = load i32, ptr %82, align 4
   %84 = icmp eq i32 %83, %7
   br i1 %84, label %.thread7, label %77, !llvm.loop !45
@@ -4815,7 +4815,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @groups_to_user(ptr %0, i8 
 .split.us:                                        ; preds = %8, %23
   %12 = phi i64 [ %24, %23 ], [ 0, %8 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %13 = getelementptr %struct.kgid_t, ptr %9, i64 %12
+  %13 = getelementptr [4 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, -1
   %16 = load i32, ptr @overflowgid, align 4
@@ -4839,7 +4839,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @groups_to_user(ptr %0, i8 
 .critedge:                                        ; preds = %8, %.critedge
   %28 = phi i64 [ %36, %.critedge ], [ 0, %8 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %29 = getelementptr %struct.kgid_t, ptr %9, i64 %28
+  %29 = getelementptr [4 x i8], ptr %9, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, -1
   %32 = load i32, ptr @overflowgid, align 4
@@ -9390,12 +9390,12 @@ define dso_local range(i32 0, -2147483648) i32 @sock_prot_inuse_get(ptr noundef 
   %19 = load ptr, ptr %6, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %15, 63
-  %22 = getelementptr i64, ptr @__per_cpu_offset, i64 %21
+  %22 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, %20
   %25 = inttoptr i64 %24 to ptr
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %27 = getelementptr i32, ptr %26, i64 %7
+  %27 = getelementptr [4 x i8], ptr %26, i64 %7
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %28, %10
   %30 = add nuw nsw i64 %15, 1
@@ -9433,7 +9433,7 @@ define dso_local i32 @sock_inuse_get(ptr noundef readonly captures(none) %0) #11
   %15 = load ptr, ptr %3, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %11, 63
-  %18 = getelementptr i64, ptr @__per_cpu_offset, i64 %17
+  %18 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %16
   %21 = inttoptr i64 %20 to ptr
@@ -9757,7 +9757,7 @@ define dso_local i32 @sock_load_diag_module(i32 noundef %0, i32 noundef %1) #0 a
 
 12:                                               ; preds = %8
   %13 = sext i32 %1 to i64
-  %14 = getelementptr ptr, ptr @inet_protos, i64 %13
+  %14 = getelementptr [8 x i8], ptr @inet_protos, i64 %13
   %15 = load volatile ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %19, label %17
@@ -10316,12 +10316,12 @@ define internal noundef i32 @proto_seq_show(ptr noundef %0, ptr noundef %1) #0 a
   %27 = load ptr, ptr %14, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %23, 63
-  %30 = getelementptr i64, ptr @__per_cpu_offset, i64 %29
+  %30 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, %28
   %33 = inttoptr i64 %32 to ptr
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %35 = getelementptr i32, ptr %34, i64 %15
+  %35 = getelementptr [4 x i8], ptr %34, i64 %15
   %36 = load i32, ptr %35, align 4
   %37 = add i32 %36, %18
   %38 = add nuw nsw i64 %23, 1

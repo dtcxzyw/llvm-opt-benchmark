@@ -582,7 +582,7 @@ define internal i64 @unix_recv_io(i32 noundef %0, ptr noundef readonly captures(
 
 13:                                               ; preds = %.preheader
   %14 = sext i32 %.185.i58 to i64
-  %15 = getelementptr inbounds i64, ptr %1, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %1, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !17
   store i64 %16, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !17
   %17 = add nsw i32 %.185.i58, 1
@@ -849,7 +849,7 @@ define internal i64 @unix_s_socketpair(i32 noundef %0, ptr noundef readonly capt
 
 9:                                                ; preds = %.preheader
   %10 = sext i32 %.185.i6 to i64
-  %11 = getelementptr inbounds i64, ptr %1, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %1, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !17
   store i64 %12, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !17
   %13 = add nsw i32 %.185.i6, 1

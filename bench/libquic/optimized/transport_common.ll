@@ -783,7 +783,7 @@ _Z20SocketSetNonBlockingib.exit.preheader:        ; preds = %8
   %14 = shl nuw i64 1, %13
   %15 = sdiv i32 %1, 64
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i64, ptr %3, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %3, i64 %16
   %18 = add nsw i32 %1, 1
   br label %_Z20SocketSetNonBlockingib.exit.outer
 

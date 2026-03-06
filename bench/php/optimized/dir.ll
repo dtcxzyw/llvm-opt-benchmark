@@ -1332,7 +1332,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %30
 
 69:                                               ; preds = %67
   %70 = load ptr, ptr %53, align 8, !tbaa !97
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %.0138
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.0138
   %72 = load ptr, ptr %71, align 8, !tbaa !98
   %73 = call i32 @php_check_open_basedir_ex(ptr noundef %72, i32 noundef 0) #13
   %.not91 = icmp eq i32 %73, 0
@@ -1348,7 +1348,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %7, i8 0, i64 144, i1 false)
   %78 = load ptr, ptr %53, align 8, !tbaa !97
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %.0138
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %.0138
   %80 = load ptr, ptr %79, align 8, !tbaa !98
   %81 = call i32 @stat(ptr noundef %80, ptr noundef nonnull %7) #13
   %.not93 = icmp eq i32 %81, 0
@@ -1361,7 +1361,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %30
 
 zend_string_alloc.exit:                           ; preds = %77, %74
   %85 = load ptr, ptr %53, align 8, !tbaa !97
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %.0138
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.0138
   %87 = load ptr, ptr %86, align 8, !tbaa !98
   %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #15
   %89 = and i64 %88, -8
@@ -1598,7 +1598,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %28
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %59 = load ptr, ptr %5, align 8, !tbaa !32
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !34
   %62 = call i32 @add_next_index_str(ptr noundef nonnull %1, ptr noundef %61) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

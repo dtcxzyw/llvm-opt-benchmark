@@ -17,12 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.boost::program_options::basic_option" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8], %"class.std::vector.29", %"class.std::vector.29", i8, i8, [6 x i8] }>
-%"class.std::vector.29" = type { %"struct.std::_Vector_base.30" }
-%"struct.std::_Vector_base.30" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.boost::shared_ptr.40" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
 %"struct.std::_Head_base" = type { ptr }
@@ -300,7 +294,7 @@ define void @_ZN5boost15program_options5storeERKNS0_20basic_parsed_optionsIcEERN
   %45 = phi ptr [ %36, %.lr.ph ], [ %264, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertERKS5_.exit ]
   %46 = phi i64 [ 0, %.lr.ph ], [ %262, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertERKS5_.exit ]
   %.0301 = phi i32 [ 0, %.lr.ph ], [ %261, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertERKS5_.exit ]
-  %47 = getelementptr inbounds nuw %"class.boost::program_options::basic_option", ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %46
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %47)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %50
 
@@ -317,7 +311,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %4
 
 52:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit
   %53 = load ptr, ptr %0, align 8, !tbaa !28
-  %54 = getelementptr inbounds nuw %"class.boost::program_options::basic_option", ptr %53, i64 %46
+  %54 = getelementptr inbounds nuw [96 x i8], ptr %53, i64 %46
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 88
   %56 = load i8, ptr %55, align 8, !tbaa !29, !range !36, !noundef !37
   %57 = trunc nuw i8 %56 to i1
@@ -585,7 +579,7 @@ _ZN5boost15program_options14variable_valueD2Ev.exit: ; preds = %131, %.noexc.i.i
 150:                                              ; preds = %_ZN5boost15program_options14variable_valueD2Ev.exit
   %151 = load ptr, ptr %11, align 8, !tbaa !54
   %152 = load ptr, ptr %0, align 8, !tbaa !28
-  %153 = getelementptr inbounds nuw %"class.boost::program_options::basic_option", ptr %152, i64 %46
+  %153 = getelementptr inbounds nuw [96 x i8], ptr %152, i64 %46
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 40
   %155 = load ptr, ptr %151, align 8, !tbaa !51
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 40
@@ -918,7 +912,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %306 = phi ptr [ %289, %._crit_edge.i.i131.lr.ph ], [ %592, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit207 ]
   %307 = phi i64 [ 0, %._crit_edge.i.i131.lr.ph ], [ %590, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit207 ]
   %.1302 = phi i32 [ 0, %._crit_edge.i.i131.lr.ph ], [ %589, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit207 ]
-  %308 = getelementptr inbounds nuw %"class.boost::shared_ptr.40", ptr %306, i64 %307
+  %308 = getelementptr inbounds nuw [16 x i8], ptr %306, i64 %307
   %309 = load ptr, ptr %308, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)

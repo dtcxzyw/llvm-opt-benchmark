@@ -3,8 +3,6 @@ source_filename = "bench/libigl/original/mesh_to_tetgenio.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.tetgenio::facet" = type { ptr, i32, ptr, i32 }
-
 $_ZN3igl8copyleft6tetgen16mesh_to_tetgenioIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_NS4_IiLin1ELi1ELi0ELin1ELi1EEES7_S5_EEvRKNS3_10MatrixBaseIT_EERKNS8_IT0_EERKNS8_IT1_EERKNS8_IT2_EERKNS8_IT3_EERKNS8_IT4_EER8tetgenio = comdat any
 
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
@@ -49,12 +47,12 @@ define weak_odr dso_local void @_ZN3igl8copyleft6tetgen16mesh_to_tetgenioIN5Eige
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %indvars.iv158 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next159, %.lr.ph.split.us ]
-  %27 = getelementptr double, ptr %26, i64 %indvars.iv158
+  %27 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv158
   %28 = load double, ptr %27, align 8, !tbaa !23
   %.idx185 = mul nuw nsw i64 %indvars.iv158, 24
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx185
   store double %28, ptr %29, align 8, !tbaa !23
-  %30 = getelementptr double, ptr %27, i64 %9
+  %30 = getelementptr [8 x i8], ptr %27, i64 %9
   %31 = load double, ptr %30, align 8, !tbaa !23
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store double %31, ptr %32, align 8, !tbaa !23
@@ -104,12 +102,12 @@ define weak_odr dso_local void @_ZN3igl8copyleft6tetgen16mesh_to_tetgenioIN5Eige
 
 57:                                               ; preds = %.lr.ph.split, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %57 ]
-  %58 = getelementptr double, ptr %36, i64 %indvars.iv
+  %58 = getelementptr [8 x i8], ptr %36, i64 %indvars.iv
   %59 = load double, ptr %58, align 8, !tbaa !23
   %.idx184 = mul nuw nsw i64 %indvars.iv, 24
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx184
   store double %59, ptr %60, align 8, !tbaa !23
-  %61 = getelementptr double, ptr %58, i64 %9
+  %61 = getelementptr [8 x i8], ptr %58, i64 %9
   %62 = load double, ptr %61, align 8, !tbaa !23
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store double %62, ptr %63, align 8, !tbaa !23
@@ -117,9 +115,9 @@ define weak_odr dso_local void @_ZN3igl8copyleft6tetgen16mesh_to_tetgenioIN5Eige
   %65 = load double, ptr %64, align 8, !tbaa !23
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store double %65, ptr %66, align 8, !tbaa !23
-  %67 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4, !tbaa !33
-  %69 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   store i32 %68, ptr %69, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
@@ -152,15 +150,15 @@ define weak_odr dso_local void @_ZN3igl8copyleft6tetgen16mesh_to_tetgenioIN5Eige
 
 82:                                               ; preds = %80
   %83 = load ptr, ptr %4, align 8, !tbaa !27
-  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv166
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv166
   %85 = load i32, ptr %84, align 4, !tbaa !33
   br label %86
 
 86:                                               ; preds = %80, %82
   %87 = phi i32 [ %85, %82 ], [ %81, %80 ]
-  %88 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv166
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv166
   store i32 %87, ptr %88, align 4, !tbaa !33
-  %89 = getelementptr inbounds nuw %"struct.tetgenio::facet", ptr %46, i64 %indvars.iv166
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %46, i64 %indvars.iv166
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i32 1, ptr %90, align 8, !tbaa !36
   %91 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #3
@@ -170,7 +168,7 @@ define weak_odr dso_local void @_ZN3igl8copyleft6tetgen16mesh_to_tetgenioIN5Eige
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store ptr null, ptr %93, align 8, !tbaa !40
   %94 = load ptr, ptr %1, align 8, !tbaa !41, !noalias !42
-  %95 = getelementptr i32, ptr %94, i64 %indvars.iv166
+  %95 = getelementptr [4 x i8], ptr %94, i64 %indvars.iv166
   %96 = load i64, ptr %56, align 8, !tbaa !45, !noalias !42
   %97 = icmp eq i64 %96, 0
   br i1 %97, label %_ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIiiLNS2_14ComparisonNameE2EEEKNS_14CwiseNullaryOpINS2_18scalar_constant_opIiEENS_5ArrayIiLi1ELin1ELi1ELi1ELin1EEEEEKNS_12ArrayWrapperIKNS_5BlockIKNS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEEEEEEE5countEv.exit, label %98
@@ -186,7 +184,7 @@ define weak_odr dso_local void @_ZN3igl8copyleft6tetgen16mesh_to_tetgenioIN5Eige
   %.01724.i.i.i.i = phi i64 [ %109, %.lr.ph.i.i.i.i ], [ 1, %98 ]
   %.02223.i.i.i.i = phi i64 [ %108, %.lr.ph.i.i.i.i ], [ %101, %98 ]
   %103 = mul nuw nsw i64 %.01724.i.i.i.i, %41
-  %104 = getelementptr i32, ptr %95, i64 %103
+  %104 = getelementptr [4 x i8], ptr %95, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !33
   %106 = icmp sgt i32 %105, -1
   %107 = zext i1 %106 to i64
@@ -220,9 +218,9 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIiiLNS2_14Com
 .lr.ph142:                                        ; preds = %.lr.ph142.preheader, %.lr.ph142
   %indvars.iv162 = phi i64 [ 0, %.lr.ph142.preheader ], [ %indvars.iv.next163, %.lr.ph142 ]
   %116 = mul nuw nsw i64 %41, %indvars.iv162
-  %117 = getelementptr i32, ptr %95, i64 %116
+  %117 = getelementptr [4 x i8], ptr %95, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !33
-  %119 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv162
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv162
   store i32 %118, ptr %119, align 4, !tbaa !33
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count
@@ -252,12 +250,12 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIiiLNS2_14Com
 
 130:                                              ; preds = %.lr.ph150, %130
   %indvars.iv170 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next171, %130 ]
-  %131 = getelementptr double, ptr %79, i64 %indvars.iv170
+  %131 = getelementptr [8 x i8], ptr %79, i64 %indvars.iv170
   %132 = load double, ptr %131, align 8, !tbaa !23
   %.idx186 = mul nuw nsw i64 %indvars.iv170, 24
   %133 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx186
   store double %132, ptr %133, align 8, !tbaa !23
-  %134 = getelementptr double, ptr %131, i64 %71
+  %134 = getelementptr [8 x i8], ptr %131, i64 %71
   %135 = load double, ptr %134, align 8, !tbaa !23
   %136 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store double %135, ptr %136, align 8, !tbaa !23
@@ -274,12 +272,12 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIiiLNS2_14Com
 
 140:                                              ; preds = %.lr.ph154, %140
   %indvars.iv174 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next175, %140 ]
-  %141 = getelementptr double, ptr %129, i64 %indvars.iv174
+  %141 = getelementptr [8 x i8], ptr %129, i64 %indvars.iv174
   %142 = load double, ptr %141, align 8, !tbaa !23
   %.idx187 = mul nuw nsw i64 %indvars.iv174, 40
   %143 = getelementptr inbounds nuw i8, ptr %126, i64 %.idx187
   store double %142, ptr %143, align 8, !tbaa !23
-  %144 = getelementptr double, ptr %141, i64 %121
+  %144 = getelementptr [8 x i8], ptr %141, i64 %121
   %145 = load double, ptr %144, align 8, !tbaa !23
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 8
   store double %145, ptr %146, align 8, !tbaa !23

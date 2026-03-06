@@ -259,7 +259,7 @@ define noundef ptr @_ZNK3net30QuicMultipathSentPacketManager38MaybeGetSentPacket
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = zext i8 %1 to i64
   %12 = load ptr, ptr %10, align 8, !tbaa !19
-  %13 = getelementptr inbounds nuw %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !25
   %.not = icmp eq i32 %15, 0
@@ -948,7 +948,7 @@ define void @_ZN3net30QuicMultipathSentPacketManager13OnIncomingAckERKNS_12QuicA
   br i1 %.not, label %15, label %24
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", ptr %10, i64 %6
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %6
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !25
   %.not6 = icmp eq i32 %18, 0
@@ -1196,7 +1196,7 @@ define noundef ptr @_ZNK3net30QuicMultipathSentPacketManager32MaybeGetSentPacket
   br i1 %.not, label %16, label %20
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds nuw %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", ptr %11, i64 %7
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %7
   %18 = load ptr, ptr %17, align 8, !tbaa !21
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %.critedge45
@@ -1443,7 +1443,7 @@ define void @_ZN3net30QuicMultipathSentPacketManager23OnRetransmissionTimeoutEv(
   %.017.i = phi i8 [ %.1.i, %22 ], [ -1, %1 ]
   %.0816.i = phi i64 [ %23, %22 ], [ 0, %1 ]
   %.sroa.011.015.i = phi i64 [ %.sroa.011.1.i, %22 ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", ptr %6, i64 %.0816.i
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.0816.i
   %8 = load ptr, ptr %7, align 8, !tbaa !21
   %9 = icmp eq ptr %8, null
   br i1 %9, label %22, label %10
@@ -1523,7 +1523,7 @@ define noundef zeroext i8 @_ZNK3net30QuicMultipathSentPacketManager34DetermineRe
   %.017 = phi i8 [ %.1, %22 ], [ -1, %1 ]
   %.0816 = phi i64 [ %23, %22 ], [ 0, %1 ]
   %.sroa.011.015 = phi i64 [ %.sroa.011.1, %22 ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", ptr %6, i64 %.0816
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.0816
   %8 = load ptr, ptr %7, align 8, !tbaa !21
   %9 = icmp eq ptr %8, null
   br i1 %9, label %22, label %10
@@ -1590,7 +1590,7 @@ define { i64, i64 } @_ZN3net30QuicMultipathSentPacketManager13TimeUntilSendENS_8
   %.021 = phi i64 [ %27, %26 ], [ 0, %3 ]
   %.sroa.4.020 = phi i64 [ %.sroa.4.1, %26 ], [ 9223372036854775807, %3 ]
   %.sroa.016.019 = phi i64 [ %.sroa.016.1, %26 ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", ptr %8, i64 %.021
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %.021
   %10 = load ptr, ptr %9, align 8, !tbaa !21
   %11 = icmp eq ptr %10, null
   br i1 %11, label %26, label %12
@@ -1878,7 +1878,7 @@ define void @_ZNK3net30QuicMultipathSentPacketManager13GetDebugStateB5cxx11Ev(pt
   %29 = phi ptr [ %15, %.lr.ph ], [ %186, %185 ]
   %30 = phi ptr [ %14, %.lr.ph ], [ %187, %185 ]
   %.016129 = phi i64 [ 0, %.lr.ph ], [ %188, %185 ]
-  %31 = getelementptr inbounds nuw %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", ptr %29, i64 %.016129
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %.016129
   %32 = load ptr, ptr %31, align 8, !tbaa !21
   %33 = icmp eq ptr %32, null
   br i1 %33, label %185, label %34
@@ -2942,7 +2942,7 @@ _ZNSt12_Vector_baseIN3net30QuicMultipathSentPacketManager25PathSentPacketManager
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !19
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %4, align 8, !tbaa !17
-  %49 = getelementptr inbounds nuw %"struct.net::QuicMultipathSentPacketManager::PathSentPacketManagerInfo", ptr %20, i64 %16
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %49, ptr %48, align 8, !tbaa !18
   ret void
 

@@ -410,7 +410,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   %31 = shl nuw i32 1, %30
   %32 = xor i32 %31, -1
   %33 = zext nneg i32 %29 to i64
-  %34 = getelementptr i32, ptr %24, i64 %33
+  %34 = getelementptr [4 x i8], ptr %24, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, %32
   store i32 %36, ptr %34, align 4
@@ -456,7 +456,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   %61 = shl nuw i32 1, %60
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %63 = zext nneg i32 %59 to i64
-  %64 = getelementptr i32, ptr %62, i64 %63
+  %64 = getelementptr [4 x i8], ptr %62, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = or i32 %61, %65
   store i32 %66, ptr %64, align 4
@@ -569,7 +569,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   %129 = shl nuw i32 1, %128
   %130 = xor i32 %129, -1
   %131 = zext nneg i32 %127 to i64
-  %132 = getelementptr i32, ptr %122, i64 %131
+  %132 = getelementptr [4 x i8], ptr %122, i64 %131
   %133 = load i32, ptr %132, align 4
   %134 = and i32 %133, %130
   store i32 %134, ptr %132, align 4
@@ -620,7 +620,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   %161 = shl nuw i32 1, %160
   %162 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %163 = zext nneg i32 %159 to i64
-  %164 = getelementptr i32, ptr %162, i64 %163
+  %164 = getelementptr [4 x i8], ptr %162, i64 %163
   %165 = load i32, ptr %164, align 4
   %166 = or i32 %161, %165
   store i32 %166, ptr %164, align 4
@@ -774,7 +774,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_check(ptr noundef %0
   %39 = and i32 %37, 31
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %41 = zext nneg i32 %38 to i64
-  %42 = getelementptr i32, ptr %40, i64 %41
+  %42 = getelementptr [4 x i8], ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = shl nuw i32 1, %39
   %45 = and i32 %44, %43
@@ -933,7 +933,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @xfrm_replay_check_esn(ptr 
   %52 = and i32 %50, 31
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %54 = zext nneg i32 %51 to i64
-  %55 = getelementptr i32, ptr %53, i64 %54
+  %55 = getelementptr [4 x i8], ptr %53, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = shl nuw i32 1, %52
   %58 = and i32 %57, %56
@@ -1018,7 +1018,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm_replay_recheck(ptr noundef 
   %39 = and i32 %37, 31
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %41 = zext nneg i32 %38 to i64
-  %42 = getelementptr i32, ptr %40, i64 %41
+  %42 = getelementptr [4 x i8], ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = shl nuw i32 1, %39
   %45 = and i32 %44, %43

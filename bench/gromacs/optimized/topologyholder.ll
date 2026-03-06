@@ -409,7 +409,7 @@ _ZNSt6vectorIPN3gmx21ITopologyHolderClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIPN3gmx21ITopologyHolderClientESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPN3gmx21ITopologyHolderClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %37, ptr %0, align 8, !tbaa !4
   store ptr %41, ptr %18, align 8, !tbaa !29
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %20, align 8, !tbaa !11
   br label %_ZNSt6vectorIPN3gmx21ITopologyHolderClientESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 

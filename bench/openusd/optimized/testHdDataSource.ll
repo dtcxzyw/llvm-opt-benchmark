@@ -4916,7 +4916,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %1809 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %1810 = load i32, ptr %1809, align 8
   %1811 = zext i32 %1810 to i64
-  %1812 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %spec.select.i.i.i.i, i64 %1811
+  %1812 = getelementptr inbounds nuw [8 x i8], ptr %spec.select.i.i.i.i, i64 %1811
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE6assignIPKS1_vEEvT_S6_(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef %spec.select.i.i.i.i, ptr noundef %1812)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoraSERKS0_.exit unwind label %1965
 
@@ -5444,7 +5444,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %2051 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %2052 = load i32, ptr %2051, align 8
   %2053 = zext i32 %2052 to i64
-  %2054 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %spec.select.i.i.i.i525, i64 %2053
+  %2054 = getelementptr inbounds nuw [8 x i8], ptr %spec.select.i.i.i.i525, i64 %2053
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE6assignIPKS1_vEEvT_S6_(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef %spec.select.i.i.i.i525, ptr noundef %2054)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoraSERKS0_.exit526 unwind label %2207
 
@@ -5899,7 +5899,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %2257 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %2258 = load i32, ptr %2257, align 8
   %2259 = zext i32 %2258 to i64
-  %2260 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %spec.select.i.i.i.i577, i64 %2259
+  %2260 = getelementptr inbounds nuw [8 x i8], ptr %spec.select.i.i.i.i577, i64 %2259
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE6assignIPKS1_vEEvT_S6_(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef %spec.select.i.i.i.i577, ptr noundef %2260)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoraSERKS0_.exit578 unwind label %2293
 
@@ -6085,7 +6085,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %2343 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %2344 = load i32, ptr %2343, align 8
   %2345 = zext i32 %2344 to i64
-  %2346 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %spec.select.i.i.i.i587, i64 %2345
+  %2346 = getelementptr inbounds nuw [8 x i8], ptr %spec.select.i.i.i.i587, i64 %2345
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE6assignIPKS1_vEEvT_S6_(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef %spec.select.i.i.i.i587, ptr noundef %2346)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoraSERKS0_.exit588 unwind label %2379
 
@@ -6271,7 +6271,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2
   %2429 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %2430 = load i32, ptr %2429, align 8
   %2431 = zext i32 %2430 to i64
-  %2432 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %spec.select.i.i.i.i597, i64 %2431
+  %2432 = getelementptr inbounds nuw [8 x i8], ptr %spec.select.i.i.i.i597, i64 %2431
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE6assignIPKS1_vEEvT_S6_(ptr noundef nonnull align 8 dereferenceable(56) %50, ptr noundef %spec.select.i.i.i.i597, ptr noundef %2432)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatoraSERKS0_.exit598 unwind label %2465
 
@@ -15710,7 +15710,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2
 .lr.ph:                                           ; preds = %.preheader, %81
   %68 = phi ptr [ %84, %81 ], [ %67, %.preheader ]
   %.063182 = phi i64 [ %82, %81 ], [ 0, %.preheader ]
-  %69 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %68, i64 %.063182
+  %69 = getelementptr inbounds [8 x i8], ptr %68, i64 %.063182
   %70 = load ptr, ptr %69, align 8
   %71 = ptrtoint ptr %70 to i64
   %72 = and i64 %71, -8

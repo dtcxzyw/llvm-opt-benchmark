@@ -698,7 +698,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %10
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %33 = call i32 @pmix_mca_base_component_repository_add(ptr noundef nonnull %1, ptr noundef nonnull %32)
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %34 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.next42
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.next42
   %35 = load ptr, ptr %34, align 8, !tbaa !24
   %.not33 = icmp eq ptr %35, null
   br i1 %.not33, label %._crit_edge39, label %.preheader, !llvm.loop !50

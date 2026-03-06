@@ -255,7 +255,7 @@ define hidden noundef ptr @mk_quantifier_ex_core(ptr noundef initializes((1568, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !166
   %35 = invoke noundef zeroext i1 @_ZN17pattern_validatorclEjjP4exprjj(ptr noundef nonnull align 4 dereferenceable(8) %15, i32 noundef -1, i32 noundef %9, ptr noundef %34, i32 noundef 0, i32 noundef 0)
           to label %_ZN17pattern_validatorclEjP4exprjj.exit unwind label %.loopexit
@@ -300,7 +300,7 @@ _ZN17pattern_validatorclEjP4exprjj.exit:          ; preds = %.lr.ph
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %50
   %39 = phi ptr [ null, %.lr.ph79.preheader ], [ %51, %50 ]
   %indvars.iv82 = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next83, %50 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv82
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv82
   %41 = load ptr, ptr %40, align 8, !tbaa !172
   %42 = icmp eq ptr %39, null
   br i1 %42, label %49, label %43
@@ -328,7 +328,7 @@ _ZN17pattern_validatorclEjP4exprjj.exit:          ; preds = %.lr.ph
   %52 = phi i32 [ %.pre2.i, %.noexc ], [ %45, %43 ]
   %53 = getelementptr inbounds i8, ptr %51, i64 -4
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw %class.symbol, ptr %51, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %54
   %56 = ptrtoint ptr %41 to i64
   store i64 %56, ptr %55, align 8, !tbaa !3
   %57 = add i32 %52, 1
@@ -799,7 +799,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit.thread:  ; preds = %20
 25:                                               ; preds = %24, %37
   %26 = phi ptr [ null, %24 ], [ %38, %37 ]
   %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %37 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !172
   %29 = icmp eq ptr %26, null
   br i1 %29, label %36, label %30
@@ -827,7 +827,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit.thread:  ; preds = %20
   %39 = phi i32 [ %.pre2.i, %.noexc ], [ %32, %30 ]
   %40 = getelementptr inbounds i8, ptr %38, i64 -4
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw %class.symbol, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %41
   %43 = ptrtoint ptr %28 to i64
   store i64 %43, ptr %42, align 8, !tbaa !3
   %44 = add i32 %39, 1
@@ -1070,7 +1070,7 @@ define ptr @Z3_mk_lambda_const(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 
 22:                                               ; preds = %21, %72
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %72 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !187
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !189
@@ -1102,7 +1102,7 @@ define ptr @Z3_mk_lambda_const(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %39 = phi ptr [ %.pre.i, %.noexc ], [ %28, %30 ]
   %40 = getelementptr inbounds i8, ptr %39, i64 -4
   %41 = zext i32 %38 to i64
-  %42 = getelementptr inbounds nuw %class.symbol, ptr %39, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %41
   %43 = load i64, ptr %27, align 8, !tbaa !3
   store i64 %43, ptr %42, align 8, !tbaa !3
   %44 = add i32 %38, 1
@@ -1134,7 +1134,7 @@ define ptr @Z3_mk_lambda_const(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %56 = phi ptr [ %.pre.i46, %.noexc49 ], [ %45, %47 ]
   %57 = getelementptr inbounds i8, ptr %56, i64 -4
   %58 = zext i32 %55 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %58
   store ptr %24, ptr %59, align 8, !tbaa !166
   %60 = add i32 %55, 1
   store i32 %60, ptr %57, align 4, !tbaa !174
@@ -1169,7 +1169,7 @@ define ptr @Z3_mk_lambda_const(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %74 = phi ptr [ %.pre.i50, %.noexc53 ], [ %63, %65 ]
   %75 = getelementptr inbounds i8, ptr %74, i64 -4
   %76 = zext i32 %73 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %74, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %76
   store ptr %61, ptr %77, align 8, !tbaa !194
   %78 = add i32 %73, 1
   store i32 %78, ptr %75, align 4, !tbaa !174
@@ -1581,7 +1581,7 @@ define noundef ptr @Z3_mk_quantifier_const_ex(ptr noundef %0, i1 noundef zeroext
 
 .preheader:                                       ; preds = %.preheader.preheader, %44
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %44 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !187
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4
@@ -1644,7 +1644,7 @@ define noundef ptr @Z3_mk_quantifier_const_ex(ptr noundef %0, i1 noundef zeroext
   %72 = phi ptr [ %.pre.i, %.noexc ], [ %61, %63 ]
   %73 = getelementptr inbounds i8, ptr %72, i64 -4
   %74 = zext i32 %71 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %72, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %74
   store ptr %.sroa.018.0.copyload, ptr %75, align 8, !tbaa !172
   %76 = add i32 %71, 1
   store i32 %76, ptr %73, align 4, !tbaa !174
@@ -1679,7 +1679,7 @@ define noundef ptr @Z3_mk_quantifier_const_ex(ptr noundef %0, i1 noundef zeroext
   %90 = phi ptr [ %.pre.i159, %.noexc162 ], [ %79, %81 ]
   %91 = getelementptr inbounds i8, ptr %90, i64 -4
   %92 = zext i32 %89 to i64
-  %93 = getelementptr inbounds nuw ptr, ptr %90, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %92
   store ptr %77, ptr %93, align 8, !tbaa !205
   %94 = add i32 %89, 1
   store i32 %94, ptr %91, align 4, !tbaa !174
@@ -1710,7 +1710,7 @@ define noundef ptr @Z3_mk_quantifier_const_ex(ptr noundef %0, i1 noundef zeroext
   %106 = phi ptr [ %.pre.i163, %.noexc166 ], [ %95, %97 ]
   %107 = getelementptr inbounds i8, ptr %106, i64 -4
   %108 = zext i32 %105 to i64
-  %109 = getelementptr inbounds nuw ptr, ptr %106, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %108
   store ptr %46, ptr %109, align 8, !tbaa !166
   %110 = add i32 %105, 1
   store i32 %110, ptr %107, align 4, !tbaa !174
@@ -1801,7 +1801,7 @@ _ZNK3app13get_family_idEv.exit.thread:            ; preds = %104, %_ZNK3app13get
   %139 = load ptr, ptr %132, align 8, !tbaa !160
   store ptr null, ptr %18, align 8, !tbaa !176
   store ptr %139, ptr %136, align 8, !tbaa !171
-  %140 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv222
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv222
   %141 = load ptr, ptr %140, align 8, !tbaa !219
   %142 = load ptr, ptr %15, align 8, !tbaa !186
   invoke void @_Z13expr_abstractR11ast_managerjjPKP4exprS2_R7obj_refIS1_S_E(ptr noundef nonnull align 8 dereferenceable(976) %139, i32 noundef 0, i32 noundef %5, ptr noundef %142, ptr noundef %141, ptr noundef nonnull align 8 dereferenceable(16) %18)
@@ -1847,7 +1847,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %160 = phi ptr [ %.pre.i.i, %.noexc167 ], [ %149, %151 ]
   %161 = getelementptr inbounds i8, ptr %160, i64 -4
   %162 = zext i32 %159 to i64
-  %163 = getelementptr inbounds nuw ptr, ptr %160, i64 %162
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %162
   store ptr %144, ptr %163, align 8, !tbaa !166
   %164 = add i32 %159, 1
   store i32 %164, ptr %161, align 4, !tbaa !174
@@ -1911,7 +1911,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %189 = phi ptr [ %.pre.i168, %.noexc171 ], [ %178, %180 ]
   %190 = getelementptr inbounds i8, ptr %189, i64 -4
   %191 = zext i32 %188 to i64
-  %192 = getelementptr inbounds nuw ptr, ptr %189, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %191
   store ptr %177, ptr %192, align 8, !tbaa !219
   %193 = add i32 %188, 1
   store i32 %193, ptr %190, align 4, !tbaa !174
@@ -1980,7 +1980,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %194, %196, %202
   %212 = load ptr, ptr %132, align 8, !tbaa !160
   store ptr null, ptr %20, align 8, !tbaa !176
   store ptr %212, ptr %209, align 8, !tbaa !171
-  %213 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv227
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv227
   %214 = load ptr, ptr %213, align 8, !tbaa !225
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
   %216 = load i32, ptr %215, align 4
@@ -2056,7 +2056,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %245 = phi ptr [ %.pre.i.i174, %.noexc177 ], [ %234, %236 ]
   %246 = getelementptr inbounds i8, ptr %245, i64 -4
   %247 = zext i32 %244 to i64
-  %248 = getelementptr inbounds nuw ptr, ptr %245, i64 %247
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %247
   store ptr %229, ptr %248, align 8, !tbaa !166
   %249 = add i32 %244, 1
   store i32 %249, ptr %246, align 4, !tbaa !174
@@ -2088,7 +2088,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %262 = phi ptr [ %.pre.i179, %.noexc182 ], [ %251, %253 ]
   %263 = getelementptr inbounds i8, ptr %262, i64 -4
   %264 = zext i32 %261 to i64
-  %265 = getelementptr inbounds nuw ptr, ptr %262, i64 %264
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %264
   store ptr %250, ptr %265, align 8, !tbaa !225
   %266 = add i32 %261, 1
   store i32 %266, ptr %263, align 4, !tbaa !174
@@ -2685,7 +2685,7 @@ define noundef ptr @Z3_mk_pattern(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !225
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
@@ -3573,10 +3573,10 @@ define ptr @Z3_get_quantifier_pattern_ast(ptr noundef %0, ptr noundef %1, i32 no
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !235
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
-  %25 = getelementptr inbounds nuw %class.symbol, ptr %24, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   %26 = zext i32 %2 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !166
   br label %_ZN10z3_log_ctxD2Ev.exit
 
@@ -3585,10 +3585,10 @@ define ptr @Z3_get_quantifier_pattern_ast(ptr noundef %0, ptr noundef %1, i32 no
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %32 = load i32, ptr %31, align 4, !tbaa !235
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %33
-  %35 = getelementptr inbounds nuw %class.symbol, ptr %34, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = zext i32 %2 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !166
   invoke void @_Z4SetRPKv(ptr noundef %38)
           to label %48 unwind label %41
@@ -3816,10 +3816,10 @@ define ptr @Z3_get_quantifier_no_pattern_ast(ptr noundef %0, ptr noundef %1, i32
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !235
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
-  %25 = getelementptr inbounds nuw %class.symbol, ptr %24, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   %26 = zext i32 %2 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !166
   br label %_ZN10z3_log_ctxD2Ev.exit
 
@@ -3828,10 +3828,10 @@ define ptr @Z3_get_quantifier_no_pattern_ast(ptr noundef %0, ptr noundef %1, i32
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %32 = load i32, ptr %31, align 4, !tbaa !235
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %33
-  %35 = getelementptr inbounds nuw %class.symbol, ptr %34, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = zext i32 %2 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !166
   invoke void @_Z4SetRPKv(ptr noundef %38)
           to label %48 unwind label %41
@@ -3954,9 +3954,9 @@ define ptr @Z3_get_quantifier_bound_name(ptr noundef %0, ptr noundef %1, i32 nou
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4, !tbaa !235
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %18
   %20 = zext i32 %2 to i64
-  %21 = getelementptr inbounds nuw %class.symbol, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   br label %23
 
 22:                                               ; preds = %8
@@ -4064,14 +4064,14 @@ define ptr @Z3_get_quantifier_bound_sort(ptr noundef %0, ptr noundef %1, i32 nou
 .thread31:                                        ; preds = %.thread
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %21 = zext i32 %2 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !194
   br label %_ZN10z3_log_ctxD2Ev.exit
 
 24:                                               ; preds = %9
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %26 = zext i32 %2 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !194
   invoke void @_Z4SetRPKv(ptr noundef %28)
           to label %36 unwind label %29
@@ -4521,7 +4521,7 @@ define ptr @Z3_get_pattern(ptr noundef %0, ptr noundef %1, i32 noundef %2) local
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = zext i32 %2 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !166
   br i1 %5, label %20, label %_ZN10z3_log_ctxD2Ev.exit, !prof !8
 

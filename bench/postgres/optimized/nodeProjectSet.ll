@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 
 @TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
@@ -70,7 +69,7 @@ list_length.exit:                                 ; preds = %3, %15
 .lr.ph50:                                         ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %.lr.ph ]
   %35 = load ptr, ptr %31, align 8
-  %36 = getelementptr inbounds nuw %union.ListCell, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
@@ -111,7 +110,7 @@ list_length.exit:                                 ; preds = %3, %15
 56:                                               ; preds = %.thread, %52
   %.sink = phi ptr [ %55, %.thread ], [ %54, %52 ]
   %57 = load ptr, ptr %23, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   store ptr %.sink, ptr %58, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = load i32, ptr %30, align 4
@@ -280,12 +279,12 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr noundef captures(none) in
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %48 ], [ 0, %.lr.ph ]
   %.03942.us = phi i1 [ %.1.us, %48 ], [ false, %.lr.ph ]
   %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv44
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv44
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv44
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv44
   %28 = load ptr, ptr %20, align 8
-  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %indvars.iv44
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv44
   %30 = load ptr, ptr %21, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv44
   %32 = load i32, ptr %27, align 4
@@ -336,12 +335,12 @@ define internal fastcc noundef ptr @ExecProjectSRF(ptr noundef captures(none) in
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
   %.03942 = phi i1 [ %.1, %73 ], [ false, %.lr.ph ]
   %52 = load ptr, ptr %18, align 8
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %19, align 8
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   %57 = load ptr, ptr %20, align 8
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   %59 = load ptr, ptr %21, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv
   %61 = load i32, ptr %54, align 4

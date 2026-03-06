@@ -44,7 +44,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.72" = type { %"class.llvm::SmallVectorBase.73" }
 %"class.llvm::SmallVectorBase.73" = type { ptr, i64, i64 }
 %"struct.llvm::SmallVectorStorage.74" = type { [128 x i8] }
-%"struct.std::pair" = type { ptr, i64 }
 %"struct.llvm::yaml::EmptyContext" = type { i8 }
 %"class.std::optional.22" = type { %"struct.std::_Optional_base.23" }
 %"struct.std::_Optional_base.23" = type { %"struct.std::_Optional_payload.25" }
@@ -66,7 +65,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.llvm::Twine::Child" = type { %struct.anon.77 }
 %struct.anon.77 = type { ptr, i64 }
 %class.anon = type { i8 }
-%"struct.llvm::remarks::Argument" = type { %"class.llvm::StringRef", %"class.llvm::StringRef", %"class.std::optional.14" }
 %"struct.llvm::yaml::StringBlockVal" = type { %"class.llvm::StringRef" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -886,7 +884,7 @@ _ZSt4moveIPPvS1_ET0_T_S3_S2_.exit35:              ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !34
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)
@@ -1035,7 +1033,7 @@ _ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit39:    ; preds = %.lr.ph.i.i.i.i.i35,
   %.idx40 = shl nuw nsw i64 %.026, 4
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx40
   %58 = load ptr, ptr %0, align 8, !tbaa !34
-  %59 = getelementptr inbounds nuw %"struct.std::pair", ptr %58, i64 %.026
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %.026
   %60 = sub nsw i64 %.pre-phi, %.026
   %gepdiff = shl nsw i64 %60, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 8 %57, i64 %gepdiff, i1 false)
@@ -3326,7 +3324,7 @@ define linkonce_odr hidden void @_ZN4llvm4yaml2IO10processKeyINS_8ArrayRefINS_7r
 
 31:                                               ; preds = %.lr.ph.i
   %32 = load ptr, ptr %2, align 8, !tbaa !157
-  %33 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %32, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [64 x i8], ptr %32, i64 %indvars.iv.i
   %34 = load ptr, ptr %0, align 8, !tbaa !54
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %36 = load ptr, ptr %35, align 8

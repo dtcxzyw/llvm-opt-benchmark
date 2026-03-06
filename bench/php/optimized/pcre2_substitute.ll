@@ -541,11 +541,11 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
 226:                                              ; preds = %224
   %227 = add i32 %.01072, -1
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds nuw ptr, ptr %17, i64 %228
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %228
   %230 = load ptr, ptr %229, align 8, !tbaa !34
   %231 = add i32 %.01072, -2
   %232 = zext i32 %231 to i64
-  %233 = getelementptr inbounds nuw ptr, ptr %17, i64 %232
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %232
   %234 = load ptr, ptr %233, align 8, !tbaa !34
   store ptr %234, ptr %13, align 8, !tbaa !34
   br label %.backedge
@@ -976,7 +976,7 @@ define dso_local i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 n
   %spec.select1351 = select i1 %431, i32 %428, i32 %.1211022126
   %432 = shl nuw nsw i32 %428, 1
   %433 = zext nneg i32 %432 to i64
-  %434 = getelementptr inbounds nuw i64, ptr %66, i64 %433
+  %434 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %433
   %435 = load i64, ptr %434, align 8, !tbaa !14
   %.not1307 = icmp eq i64 %435, -1
   br i1 %.not1307, label %select.unfold1504, label %.thread1513
@@ -1056,7 +1056,7 @@ select.unfold1504:                                ; preds = %430, %421
 459:                                              ; preds = %457
   %460 = load ptr, ptr %13, align 8, !tbaa !34
   %461 = zext nneg i32 %.01072 to i64
-  %462 = getelementptr inbounds nuw ptr, ptr %17, i64 %461
+  %462 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %461
   store ptr %460, ptr %462, align 8, !tbaa !34
   %463 = add nuw nsw i32 %.01072, 2
   %464 = getelementptr inbounds nuw i8, ptr %462, i64 8
@@ -1070,7 +1070,7 @@ select.unfold1504:                                ; preds = %430, %421
 466:                                              ; preds = %454, %455
   %467 = shl nuw nsw i32 %.91099, 1
   %468 = zext nneg i32 %467 to i64
-  %469 = getelementptr inbounds nuw i64, ptr %66, i64 %468
+  %469 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %468
   %470 = load i64, ptr %469, align 8, !tbaa !14
   %471 = getelementptr inbounds nuw i8, ptr %.07931385, i64 %470
   %472 = getelementptr i8, ptr %469, i64 8
@@ -2207,17 +2207,17 @@ define internal fastcc range(i32 0, 2) i32 @read_name_subst(ptr noundef nonnull 
   %.059 = phi i32 [ %23, %20 ], [ %36, %27 ], [ %55, %40 ], [ %80, %71 ], [ %96, %81 ], [ %11, %.lr.ph ]
   %98 = lshr i32 %.059, 7
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage1_8, i64 %99
+  %100 = getelementptr inbounds nuw [2 x i8], ptr @_pcre2_ucd_stage1_8, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !43
   %102 = zext i16 %101 to i32
   %103 = shl nuw nsw i32 %102, 7
   %104 = and i32 %.059, 127
   %105 = or disjoint i32 %103, %104
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage2_8, i64 %106
+  %107 = getelementptr inbounds nuw [2 x i8], ptr @_pcre2_ucd_stage2_8, i64 %106
   %108 = load i16, ptr %107, align 2, !tbaa !43
   %109 = zext i16 %108 to i64
-  %110 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %109
+  %110 = getelementptr inbounds nuw [12 x i8], ptr @_pcre2_ucd_records_8, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 1
   %112 = load i8, ptr %111, align 1, !tbaa !44
   %.not69 = icmp eq i8 %112, 13
@@ -2225,7 +2225,7 @@ define internal fastcc range(i32 0, 2) i32 @read_name_subst(ptr noundef nonnull 
 
 113:                                              ; preds = %97
   %114 = zext i8 %112 to i64
-  %115 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gentype_8, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucp_gentype_8, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !38
   %117 = icmp ne i32 %116, 1
   %118 = icmp ne i32 %.059, 95
@@ -2626,21 +2626,21 @@ define internal fastcc i64 @default_substitute_case_callout(ptr noundef %0, i64 
 128:                                              ; preds = %126
   %129 = lshr i32 %.0103, 7
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage1_8, i64 %130
+  %131 = getelementptr inbounds nuw [2 x i8], ptr @_pcre2_ucd_stage1_8, i64 %130
   %132 = load i16, ptr %131, align 2, !tbaa !43
   %133 = zext i16 %132 to i32
   %134 = shl nuw nsw i32 %133, 7
   %135 = and i32 %.0103, 127
   %136 = or disjoint i32 %134, %135
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw i16, ptr @_pcre2_ucd_stage2_8, i64 %137
+  %138 = getelementptr inbounds nuw [2 x i8], ptr @_pcre2_ucd_stage2_8, i64 %137
   %139 = load i16, ptr %138, align 2, !tbaa !43
   %140 = zext i16 %139 to i64
-  %141 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %140
+  %141 = getelementptr inbounds nuw [12 x i8], ptr @_pcre2_ucd_records_8, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 1
   %143 = load i8, ptr %142, align 1, !tbaa !44
   %144 = zext i8 %143 to i64
-  %145 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gentype_8, i64 %144
+  %145 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucp_gentype_8, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !38
   %147 = icmp eq i32 %146, 1
   br i1 %147, label %148, label %174

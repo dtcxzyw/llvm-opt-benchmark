@@ -12,7 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.18 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.static_call_key = type { ptr, %union.anon.19 }
 %union.anon.19 = type { i64 }
-%struct.mem_section = type { i64, ptr }
 
 @va_align = dso_local local_unnamed_addr global %struct.va_alignment { i32 -1, i64 0, i64 0, [40 x i8] undef }, section ".data..read_mostly", align 64
 @mmap_rnd_compat_bits = external dso_local local_unnamed_addr global i32, section ".data..read_mostly", align 4
@@ -372,14 +371,14 @@ define dso_local noundef zeroext i1 @pfn_modify_allowed(i64 noundef %0, i64 %1) 
   br i1 %27, label %35, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr ptr, ptr %26, i64 %20
+  %29 = getelementptr [8 x i8], ptr %26, i64 %20
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %35, label %32
 
 32:                                               ; preds = %28
   %33 = and i64 %14, 255
-  %34 = getelementptr %struct.mem_section, ptr %30, i64 %33
+  %34 = getelementptr [16 x i8], ptr %30, i64 %33
   br label %35
 
 35:                                               ; preds = %32, %28, %25, %22

@@ -492,7 +492,7 @@ invoke.cont43:                                    ; preds = %.noexc, %for.body
 invoke.cont45:                                    ; preds = %invoke.cont43
   %35 = load i64, ptr %__begin1, align 8, !tbaa !42
   %36 = load ptr, ptr %a, align 8, !tbaa !46
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %36, i64 %35
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %35
   %37 = load double, ptr %arrayidx.i, align 8, !tbaa !47
   %cmp51 = fcmp ogt double %call46, %37
   br i1 %cmp51, label %if.then52, label %if.end57
@@ -528,11 +528,11 @@ for.body.lr.ph.i:                                 ; preds = %if.end57
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.lr.ph.i
   %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc9.i, %if.then.i ]
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %41, i64 %i.08.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %i.08.i
   %42 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !8
   %inc3.i = add i64 %42, 1
   store i64 %inc3.i, ptr %add.ptr.i.i, align 8, !tbaa !8
-  %add.ptr.i5.i = getelementptr inbounds nuw i64, ptr %40, i64 %i.08.i
+  %add.ptr.i5.i = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %i.08.i
   %43 = load i64, ptr %add.ptr.i5.i, align 8, !tbaa !8
   %cmp6.i = icmp eq i64 %inc3.i, %43
   br i1 %cmp6.i, label %if.then.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit

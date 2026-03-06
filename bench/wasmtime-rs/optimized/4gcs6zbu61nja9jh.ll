@@ -160,7 +160,7 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !30, !nonnull !14, !noundef !14
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %16
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %16
   %25 = load i64, ptr %24, align 8, !noalias !30, !noundef !14
   %26 = and i64 %3, 63
   %27 = lshr i64 %25, %26
@@ -170,7 +170,7 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
   %31 = load ptr, ptr %30, align 8, !nonnull !14, !noundef !14
   %32 = and i64 %3, 63
   %33 = shl nuw i64 1, %32
-  %34 = getelementptr inbounds nuw i64, ptr %31, i64 %16
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %16
   %35 = load i64, ptr %34, align 8, !noundef !14
   %36 = or i64 %35, %33
   store i64 %36, ptr %34, align 8
@@ -222,7 +222,7 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !40, !nonnull !14, !noundef !14
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %16
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %16
   %25 = load i64, ptr %24, align 8, !noalias !40, !noundef !14
   %26 = and i64 %3, 63
   %27 = lshr i64 %25, %26
@@ -232,7 +232,7 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
   %31 = load ptr, ptr %30, align 8, !nonnull !14, !noundef !14
   %32 = and i64 %3, 63
   %33 = shl nuw i64 1, %32
-  %34 = getelementptr inbounds nuw i64, ptr %31, i64 %16
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %16
   %35 = load i64, ptr %34, align 8, !noundef !14
   %36 = or i64 %35, %33
   store i64 %36, ptr %34, align 8
@@ -261,7 +261,7 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !14, !noundef !14
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %8
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %8
   %17 = load i64, ptr %16, align 8, !noundef !14
   %18 = and i64 %3, 63
   %19 = lshr i64 %17, %18
@@ -295,7 +295,7 @@ define hidden noundef zeroext i1 @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !14, !noundef !14
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %8
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %8
   %17 = load i64, ptr %16, align 8, !noundef !14
   %18 = and i64 %3, 63
   %19 = lshr i64 %17, %18
@@ -968,7 +968,7 @@ switch.lookup:                                    ; preds = %1, %switch.lookup
   %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx13, 1
   %3 = load i8, ptr %.sroa.0.0.ptr, align 1, !range !50, !noundef !14
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5memfd7sealing17seals_to_bitflags17h68064dfeaccf2ab9E, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5memfd7sealing17seals_to_bitflags17h68064dfeaccf2ab9E, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = or i32 %switch.load, %.014
   %6 = icmp eq i64 %.sroa.0.0.add, 4

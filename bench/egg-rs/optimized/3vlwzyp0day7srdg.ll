@@ -58,7 +58,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN100_$LT$index
   %25 = load ptr, ptr %19, align 8, !alias.scope !42, !noalias !43, !nonnull !16
   %26 = extractvalue { i64, i64 } %21, 1
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds i64, ptr %25, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %25, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 -8
   %30 = load i64, ptr %29, align 8, !noundef !16
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !28
@@ -76,7 +76,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN100_$LT$index
 
 35:                                               ; preds = %24
   %36 = load ptr, ptr %13, align 8, !alias.scope !4, !noalias !7, !nonnull !16, !noundef !16
-  %37 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %36, i64 %30
+  %37 = getelementptr inbounds [56 x i8], ptr %36, i64 %30
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   ret ptr %38
 }
@@ -194,7 +194,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   %24 = load ptr, ptr %18, align 8, !alias.scope !97, !noalias !98, !nonnull !16
   %25 = extractvalue { i64, i64 } %20, 1
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds i64, ptr %24, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -8
   %29 = load i64, ptr %28, align 8, !noundef !16
   br label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12get_index_of17hdcd6a13225b86f99E.exit"
@@ -255,7 +255,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h2070151
   %21 = load ptr, ptr %15, align 8, !alias.scope !107, !noalias !104, !nonnull !16
   %22 = extractvalue { i64, i64 } %17, 1
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds i64, ptr %21, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %21, i64 %23
   %.sink10.i = select i1 %19, ptr %20, ptr %24
   %storemerge.i = zext i1 %19 to i64
   %.sink.i = load i32, ptr %6, align 4, !range !17, !noalias !109, !noundef !16
@@ -318,7 +318,7 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN8indexmap3map
   %24 = load ptr, ptr %18, align 8, !alias.scope !143, !noalias !144, !nonnull !16
   %25 = extractvalue { i64, i64 } %20, 1
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds i64, ptr %24, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %24, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -8
   %29 = load i64, ptr %28, align 8, !noundef !16
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !129
@@ -328,7 +328,7 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN8indexmap3map
 
 32:                                               ; preds = %23
   %33 = load ptr, ptr %12, align 8, !nonnull !16, !noundef !16
-  %34 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %33, i64 %29
+  %34 = getelementptr inbounds [56 x i8], ptr %33, i64 %29
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17h8f26345564270a96E.llvm.13994044477760586293.exit.thread"
 

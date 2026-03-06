@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._usb_pseudo_urb_t = type { i8, i8, i8, i8, i16, i32 }
-%struct.usbll_endpoint_info = type { i32, i32, i16, i8, i8, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [11 x i8] c"%d us (%d)\00", align 1
 @proto_register_usbll.hf = internal global [37 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_usbll_pid, %struct._header_field_info { ptr @.str.1, ptr @.str.2, i32 4, i32 514, ptr @usb_packetid_vals_ext, i64 0, ptr @.str.3, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_src, %struct._header_field_info { ptr @.str.4, ptr @.str.5, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_dst, %struct._header_field_info { ptr @.str.6, ptr @.str.7, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_addr, %struct._header_field_info { ptr @.str.8, ptr @.str.9, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_device_addr, %struct._header_field_info { ptr @.str.10, ptr @.str.11, i32 5, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_endp, %struct._header_field_info { ptr @.str.12, ptr @.str.13, i32 5, i32 1, ptr null, i64 1920, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_sof_framenum, %struct._header_field_info { ptr @.str.14, ptr @.str.15, i32 5, i32 1, ptr null, i64 2047, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_crc5, %struct._header_field_info { ptr @.str.16, ptr @.str.17, i32 5, i32 2, ptr null, i64 63488, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_crc5_status, %struct._header_field_info { ptr @.str.18, ptr @.str.19, i32 4, i32 0, ptr @proto_checksum_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_data, %struct._header_field_info { ptr @.str.20, ptr @.str.21, i32 30, i32 2048, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_data_crc, %struct._header_field_info { ptr @.str.22, ptr @.str.23, i32 5, i32 2, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_data_crc_status, %struct._header_field_info { ptr @.str.24, ptr @.str.25, i32 4, i32 0, ptr @proto_checksum_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_hub_addr, %struct._header_field_info { ptr @.str.26, ptr @.str.27, i32 6, i32 1, ptr null, i64 127, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_sc, %struct._header_field_info { ptr @.str.28, ptr @.str.29, i32 6, i32 1, ptr @usb_start_complete_vals, i64 128, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_port, %struct._header_field_info { ptr @.str.30, ptr @.str.31, i32 6, i32 1, ptr null, i64 32512, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_s, %struct._header_field_info { ptr @.str.32, ptr @.str.33, i32 6, i32 1, ptr @usb_split_speed_vals, i64 32768, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_e, %struct._header_field_info { ptr @.str.34, ptr @.str.35, i32 6, i32 1, ptr null, i64 65536, ptr @.str.36, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_u, %struct._header_field_info { ptr @.str.37, ptr @.str.38, i32 6, i32 1, ptr null, i64 65536, ptr @.str.36, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_iso_se, %struct._header_field_info { ptr @.str.39, ptr @.str.40, i32 6, i32 1, ptr @usb_split_iso_se_vals, i64 98304, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_et, %struct._header_field_info { ptr @.str.41, ptr @.str.42, i32 6, i32 1, ptr @usb_endpoint_type_vals, i64 393216, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_crc5, %struct._header_field_info { ptr @.str.16, ptr @.str.43, i32 6, i32 2, ptr null, i64 16252928, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_split_crc5_status, %struct._header_field_info { ptr @.str.18, ptr @.str.44, i32 4, i32 0, ptr @proto_checksum_vals, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragments, %struct._header_field_info { ptr @.str.45, ptr @.str.46, i32 0, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment, %struct._header_field_info { ptr @.str.47, ptr @.str.48, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_overlap, %struct._header_field_info { ptr @.str.49, ptr @.str.50, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_overlap_conflicts, %struct._header_field_info { ptr @.str.51, ptr @.str.52, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_multiple_tails, %struct._header_field_info { ptr @.str.53, ptr @.str.54, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_too_long_fragment, %struct._header_field_info { ptr @.str.55, ptr @.str.56, i32 2, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_error, %struct._header_field_info { ptr @.str.57, ptr @.str.58, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_fragment_count, %struct._header_field_info { ptr @.str.59, ptr @.str.60, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_reassembled_in, %struct._header_field_info { ptr @.str.61, ptr @.str.62, i32 35, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_transfer_reassembled_length, %struct._header_field_info { ptr @.str.63, ptr @.str.64, i32 7, i32 1, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_subpid, %struct._header_field_info { ptr @.str.65, ptr @.str.66, i32 4, i32 514, ptr @usb_subpid_vals_ext, i64 0, ptr @.str.67, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_lpm_link_state, %struct._header_field_info { ptr @.str.68, ptr @.str.69, i32 5, i32 6, ptr @lpm_link_state_str, i64 15, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_lpm_besl, %struct._header_field_info { ptr @.str.70, ptr @.str.71, i32 5, i32 6, ptr @usb_lpm_besl_str, i64 240, ptr @.str.72, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_lpm_remote_wake, %struct._header_field_info { ptr @.str.73, ptr @.str.74, i32 5, i32 1, ptr @usb_lpm_remote_wake_vals, i64 256, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_usbll_lpm_reserved, %struct._header_field_info { ptr @.str.75, ptr @.str.76, i32 5, i32 1, ptr null, i64 1536, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
@@ -925,10 +924,10 @@ usbll_is_non_periodic_split_complete_token.exit.i.i: ; preds = %133
 tt_restore_transaction.exit.i:                    ; preds = %134, %133, %133, %133
   %.sink9.i.i = phi ptr [ %131, %134 ], [ %129, %133 ], [ %129, %133 ], [ %129, %133 ]
   %135 = zext nneg i8 %115 to i64
-  %136 = getelementptr ptr, ptr %.sink9.i.i, i64 %135
+  %136 = getelementptr [8 x i8], ptr %.sink9.i.i, i64 %135
   %137 = load ptr, ptr %136, align 8
   %138 = zext nneg i8 %117 to i64
-  %139 = getelementptr ptr, ptr %137, i64 %138
+  %139 = getelementptr [8 x i8], ptr %137, i64 %138
   %140 = load ptr, ptr %139, align 8
   %141 = icmp eq ptr %140, null
   br i1 %141, label %tt_restore_transaction.exit.thread.i, label %148
@@ -1069,7 +1068,7 @@ usbll_is_split_complete_token.exit.i:             ; preds = %usbll_is_non_split_
   %202 = tail call ptr @wmem_file_scope()
   %203 = tail call noalias dereferenceable_or_null(1024) ptr @wmem_alloc0(ptr noundef %202, i64 noundef 1024) #14
   %204 = load ptr, ptr @tt_periodic, align 8
-  %205 = getelementptr ptr, ptr %204, i64 %indvars.iv.i.i
+  %205 = getelementptr [8 x i8], ptr %204, i64 %indvars.iv.i.i
   store ptr %203, ptr %205, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 128
@@ -1086,7 +1085,7 @@ usbll_is_split_complete_token.exit.i:             ; preds = %usbll_is_non_split_
   %210 = tail call ptr @wmem_file_scope()
   %211 = tail call noalias dereferenceable_or_null(1024) ptr @wmem_alloc0(ptr noundef %210, i64 noundef 1024) #14
   %212 = load ptr, ptr @tt_non_periodic, align 8
-  %213 = getelementptr ptr, ptr %212, i64 %indvars.iv6.i.i
+  %213 = getelementptr [8 x i8], ptr %212, i64 %indvars.iv6.i.i
   store ptr %211, ptr %213, align 8
   %indvars.iv.next7.i.i = add nuw nsw i64 %indvars.iv6.i.i, 1
   %exitcond9.not.i.i = icmp eq i64 %indvars.iv.next7.i.i, 128
@@ -1117,10 +1116,10 @@ usbll_is_non_periodic_split_start_token.exit.i.i: ; preds = %.loopexit.i.i
 tt_store_transaction.exit.i:                      ; preds = %215, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i, %.loopexit.i.i
   %.sink14.i.i = phi ptr [ %216, %215 ], [ %214, %.loopexit.i.i ], [ %214, %.loopexit.i.i ], [ %214, %.loopexit.i.i ], [ %214, %.loopexit.i.i ], [ %214, %.loopexit.i.i ]
   %217 = zext nneg i8 %178 to i64
-  %218 = getelementptr ptr, ptr %.sink14.i.i, i64 %217
+  %218 = getelementptr [8 x i8], ptr %.sink14.i.i, i64 %217
   %219 = load ptr, ptr %218, align 8
   %220 = zext nneg i8 %180 to i64
-  %221 = getelementptr ptr, ptr %219, i64 %220
+  %221 = getelementptr [8 x i8], ptr %219, i64 %220
   store ptr %.1.i, ptr %221, align 8
   br label %222
 
@@ -2181,7 +2180,7 @@ usbll_is_stalled_data_from_host.exit.i:           ; preds = %625, %usbll_is_data
   store ptr %760, ptr %772, align 8
   %switch.table.dissect_usbll_packet.6.switch.table.dissect_usbll_packet = select i1 %.not.i112, ptr @switch.table.dissect_usbll_packet.6, ptr @switch.table.dissect_usbll_packet
   %773 = zext nneg i32 %767 to i64
-  %switch.gep231 = getelementptr inbounds nuw i32, ptr %switch.table.dissect_usbll_packet.6.switch.table.dissect_usbll_packet, i64 %773
+  %switch.gep231 = getelementptr inbounds nuw [4 x i8], ptr %switch.table.dissect_usbll_packet.6.switch.table.dissect_usbll_packet, i64 %773
   %switch.load232 = load i32, ptr %switch.gep231, align 4
   store i32 %switch.load232, ptr %.0.ph229, align 8
   br label %dissect_usbll_token.exit
@@ -3206,7 +3205,7 @@ define internal fastcc ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef z
   %26 = tail call ptr @wmem_file_scope()
   %27 = tail call noalias dereferenceable_or_null(448) ptr @wmem_alloc(ptr noundef %26, i64 noundef 448) #14
   %28 = load ptr, ptr @ep_info_in, align 8
-  %29 = getelementptr ptr, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr [8 x i8], ptr %28, i64 %indvars.iv.i
   store ptr %27, ptr %29, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
@@ -3227,7 +3226,7 @@ define internal fastcc ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef z
   %35 = tail call ptr @wmem_file_scope()
   %36 = tail call noalias dereferenceable_or_null(448) ptr @wmem_alloc(ptr noundef %35, i64 noundef 448) #14
   %37 = load ptr, ptr @ep_info_out, align 8
-  %38 = getelementptr ptr, ptr %37, i64 %indvars.iv13.i
+  %38 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv13.i
   store ptr %36, ptr %38, align 8
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 128
@@ -3235,12 +3234,12 @@ define internal fastcc ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef z
 
 39:                                               ; preds = %usbll_reset_device_endpoints.exit.i, %.preheader.i
   %indvars.iv17.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next18.i, %usbll_reset_device_endpoints.exit.i ]
-  %40 = getelementptr ptr, ptr %33, i64 %indvars.iv17.i
+  %40 = getelementptr [8 x i8], ptr %33, i64 %indvars.iv17.i
   %41 = load ptr, ptr %40, align 8
   store i32 1, ptr %41, align 4
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %42, i8 0, i64 24, i1 false)
-  %43 = getelementptr ptr, ptr %37, i64 %indvars.iv17.i
+  %43 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv17.i
   %44 = load ptr, ptr %43, align 8
   store i32 1, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -3250,10 +3249,10 @@ define internal fastcc ptr @usbll_get_endpoint_info(ptr noundef %0, i8 noundef z
 46:                                               ; preds = %46, %39
   %indvars.iv.i.i = phi i64 [ 1, %39 ], [ %indvars.iv.next.i.i, %46 ]
   %47 = load ptr, ptr %40, align 8
-  %48 = getelementptr %struct.usbll_endpoint_info, ptr %47, i64 %indvars.iv.i.i
+  %48 = getelementptr [28 x i8], ptr %47, i64 %indvars.iv.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(28) %48, i8 0, i64 28, i1 false)
   %49 = load ptr, ptr %43, align 8
-  %50 = getelementptr %struct.usbll_endpoint_info, ptr %49, i64 %indvars.iv.i.i
+  %50 = getelementptr [28 x i8], ptr %49, i64 %indvars.iv.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(28) %50, i8 0, i64 28, i1 false)
@@ -3286,9 +3285,9 @@ usbll_init_endpoint_tables.exit:                  ; preds = %usbll_reset_device_
   %57 = zext nneg i8 %1 to i64
   %58 = zext nneg i8 %2 to i64
   %. = select i1 %3, ptr %55, ptr %56
-  %59 = getelementptr ptr, ptr %., i64 %57
+  %59 = getelementptr [8 x i8], ptr %., i64 %57
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr %struct.usbll_endpoint_info, ptr %60, i64 %58
+  %61 = getelementptr [28 x i8], ptr %60, i64 %58
   %.not32 = icmp eq i8 %2, 0
   br i1 %.not32, label %85, label %62
 
@@ -3370,13 +3369,13 @@ define internal fastcc void @usbll_reset_device_endpoints(i32 noundef range(i32 
 3:                                                ; preds = %1
   %4 = load ptr, ptr @ep_info_in, align 8
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr ptr, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   store i32 1, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %9 = load ptr, ptr @ep_info_out, align 8
-  %10 = getelementptr ptr, ptr %9, i64 %5
+  %10 = getelementptr [8 x i8], ptr %9, i64 %5
   %11 = load ptr, ptr %10, align 8
   store i32 1, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -3386,10 +3385,10 @@ define internal fastcc void @usbll_reset_device_endpoints(i32 noundef range(i32 
 13:                                               ; preds = %3, %13
   %indvars.iv = phi i64 [ 1, %3 ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr %struct.usbll_endpoint_info, ptr %14, i64 %indvars.iv
+  %15 = getelementptr [28 x i8], ptr %14, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(28) %15, i8 0, i64 28, i1 false)
   %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr %struct.usbll_endpoint_info, ptr %16, i64 %indvars.iv
+  %17 = getelementptr [28 x i8], ptr %16, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(28) %17, i8 0, i64 28, i1 false)

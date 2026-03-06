@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timespec = type { i64, i64 }
 %struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
 %struct.regmatch_t = type { i32, i32 }
-%struct.slurmstepd_task_info_t = type { i32, i8, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [45 x i8] c"%s:%d: %s: safe_write (%zu of %d) failed: %m\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"stepd_api.c\00", align 1
@@ -4266,7 +4265,7 @@ define dso_local ptr @stepd_getgr(i32 noundef %0, i16 zeroext %1, i32 noundef %2
 .lr.ph1098:                                       ; preds = %.lr.ph1098.preheader, %.outer._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph1098.preheader ], [ %indvars.iv.next, %.outer._crit_edge ]
   %172 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 828, ptr noundef nonnull @__func__.stepd_getgr) #12
-  %173 = getelementptr inbounds nuw ptr, ptr %170, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %indvars.iv
   store ptr %172, ptr %173, align 8
   br label %.lr.ph700
 
@@ -5259,7 +5258,7 @@ define dso_local void @xfree_struct_group_array(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph15 ], [ 0, %.lr.ph.split ]
   %4 = phi ptr [ %14, %.lr.ph15 ], [ %3, %.lr.ph.split ]
   tail call void @slurm_xfree(ptr noundef nonnull %4) #12
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %7) #12
@@ -5272,7 +5271,7 @@ define dso_local void @xfree_struct_group_array(ptr noundef %0) #0 {
   tail call void @slurm_xfree(ptr noundef nonnull %12) #12
   tail call void @slurm_xfree(ptr noundef nonnull %5) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next
   %14 = load ptr, ptr %13, align 8
   %.not9 = icmp eq ptr %14, null
   br i1 %.not9, label %.critedge, label %.lr.ph15
@@ -6262,7 +6261,7 @@ define dso_local ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 no
   %331 = sext i32 %330 to i64
   %332 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %331, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 907, ptr noundef nonnull @__func__.stepd_gethostbyname) #12
   %333 = load ptr, ptr %284, align 8
-  %334 = getelementptr inbounds nuw ptr, ptr %333, i64 %indvars.iv
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %indvars.iv
   store ptr %332, ptr %334, align 8
   %335 = sext i32 %.fr1620 to i64
   %.not350924 = icmp eq i32 %.fr1620, 0
@@ -6270,7 +6269,7 @@ define dso_local ptr @stepd_gethostbyname(i32 noundef %0, i16 zeroext %1, i32 no
 
 .lr.ph867.preheader:                              ; preds = %.outer437._crit_edge
   %336 = load ptr, ptr %284, align 8
-  %337 = getelementptr inbounds nuw ptr, ptr %336, i64 %indvars.iv
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %336, i64 %indvars.iv
   %338 = load ptr, ptr %337, align 8
   br label %.lr.ph867
 
@@ -6842,7 +6841,7 @@ define dso_local void @xfree_struct_hostent(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %3, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %3 ]
   %6 = phi ptr [ %12, %11 ], [ %5, %3 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not7 = icmp eq ptr %8, null
   br i1 %.not7, label %.critedge, label %11
@@ -9482,14 +9481,14 @@ define dso_local i32 @stepd_attach(i32 noundef %0, i16 noundef zeroext %1, ptr n
   %372 = sext i32 %371 to i64
   %373 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %372, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 414, ptr noundef nonnull @__func__.stepd_attach) #12
   %374 = load ptr, ptr %327, align 8
-  %375 = getelementptr inbounds nuw ptr, ptr %374, i64 %indvars.iv
+  %375 = getelementptr inbounds nuw [8 x i8], ptr %374, i64 %indvars.iv
   store ptr %373, ptr %375, align 8
   %.not316901 = icmp eq i32 %371, 0
   br i1 %.not316901, label %.outer._crit_edge, label %.lr.ph844.preheader
 
 .lr.ph844.preheader:                              ; preds = %.outer384._crit_edge
   %376 = load ptr, ptr %327, align 8
-  %377 = getelementptr inbounds nuw ptr, ptr %376, i64 %indvars.iv
+  %377 = getelementptr inbounds nuw [8 x i8], ptr %376, i64 %indvars.iv
   %378 = load ptr, ptr %377, align 8
   br label %.lr.ph844
 
@@ -13824,7 +13823,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_task_info(i32 noundef %0, i16 nound
 
 .lr.ph609:                                        ; preds = %.outer227._crit_edge, %.outer._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.outer._crit_edge ], [ 0, %.outer227._crit_edge ]
-  %72 = getelementptr inbounds nuw %struct.slurmstepd_task_info_t, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [20 x i8], ptr %71, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 12
   br label %.lr.ph347
 
@@ -14703,7 +14702,7 @@ define dso_local range(i32 -1, 1) i32 @stepd_list_pids(i32 noundef %0, i16 nound
 
 .lr.ph226:                                        ; preds = %.outer93._crit_edge, %.outer._crit_edge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.outer._crit_edge ], [ 0, %.outer93._crit_edge ]
-  %72 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv
   br label %.lr.ph172
 
 .lr.ph172:                                        ; preds = %.lr.ph172.backedge, %.lr.ph226

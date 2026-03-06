@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.XSetWindowAttributes = type { i64, i64, i64, i64, i32, i32, i32, i64, i64, i32, i64, i64, i32, i64, i64 }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 %struct.XVisualInfo = type { ptr, i64, i32, i32, i32, i64, i64, i64, i32, i32 }
 %struct.XWindowAttributes = type { i32, i32, i32, i32, i32, i32, ptr, i64, i32, i32, i32, i32, i64, i64, i32, i64, i32, i32, i64, i64, i64, i32, ptr }
 
@@ -466,7 +465,7 @@ X11_GL_GetProcAddress.exit107:                    ; preds = %23, %25
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %38 = load ptr, ptr %37, align 8
   %39 = sext i32 %7 to i64
-  %40 = getelementptr inbounds %struct.Screen, ptr %38, i64 %39
+  %40 = getelementptr inbounds [128 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = load ptr, ptr %8, align 8
@@ -475,7 +474,7 @@ X11_GL_GetProcAddress.exit107:                    ; preds = %23, %25
   store i64 %44, ptr %45, align 8
   %46 = load ptr, ptr @X11_XCreateWindow, align 8
   %47 = load ptr, ptr %37, align 8
-  %48 = getelementptr inbounds %struct.Screen, ptr %47, i64 %39
+  %48 = getelementptr inbounds [128 x i8], ptr %47, i64 %39
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 20
@@ -1332,7 +1331,7 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
   %34 = load ptr, ptr %10, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %.0102, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.0102, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = call ptr %36(ptr noundef %1, ptr noundef %38) #6
   %40 = call i32 @X11_GetPixelFormatFromVisualInfo(ptr noundef %1, ptr noundef %39) #6
@@ -1504,7 +1503,7 @@ X11_GL_GetTransparentVisualInfo.exit.thread172:   ; preds = %.thread196
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.thread.i ], [ 0, %.preheader.i ]
-  %99 = getelementptr inbounds nuw %struct.XVisualInfo, ptr %96, i64 %indvars.iv.i
+  %99 = getelementptr inbounds nuw [64 x i8], ptr %96, i64 %indvars.iv.i
   %100 = call i32 @X11_GetPixelFormatFromVisualInfo(ptr noundef %1, ptr noundef nonnull %99) #6
   %.not44.i = icmp eq i32 %100, 0
   %.mask.i = and i32 %100, -268435456
@@ -1620,7 +1619,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
 13:                                               ; preds = %10, %11, %12
   %.0120 = phi i32 [ 2, %10 ], [ 2, %11 ], [ 1, %12 ]
   %14 = zext nneg i32 %.0120 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %1, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %14
   store i32 8, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %17 = load i32, ptr %16, align 8
@@ -1646,7 +1645,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
 
 30:                                               ; preds = %13
   %31 = zext nneg i32 %26 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %1, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %31
   store i32 11, ptr %32, align 4
   %33 = load i32, ptr %28, align 4
   %34 = or disjoint i32 %.0120, 8
@@ -1664,21 +1663,21 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
 39:                                               ; preds = %36
   %40 = add nuw nsw i32 %.1, 1
   %41 = zext nneg i32 %.1 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %1, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %41
   store i32 5, ptr %42, align 4
   br i1 %.not, label %47, label %43
 
 43:                                               ; preds = %39
   %44 = add nuw nsw i32 %.1, 2
   %45 = zext nneg i32 %40 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %1, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %45
   store i32 1, ptr %46, align 4
   br label %47
 
 47:                                               ; preds = %39, %43, %36
   %.2 = phi i32 [ %44, %43 ], [ %40, %39 ], [ %.1, %36 ]
   %48 = zext nneg i32 %.2 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %1, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %48
   store i32 12, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %51 = load i32, ptr %50, align 8
@@ -1692,7 +1691,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
 
 56:                                               ; preds = %47
   %57 = zext nneg i32 %52 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %1, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %57
   store i32 13, ptr %58, align 4
   %59 = load i32, ptr %54, align 8
   %60 = add nuw nsw i32 %.2, 4
@@ -1709,7 +1708,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
 
 65:                                               ; preds = %62
   %66 = zext nneg i32 %.3 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %1, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %66
   store i32 14, ptr %67, align 4
   %68 = load i32, ptr %63, align 8
   %69 = add nuw nsw i32 %.3, 2
@@ -1726,7 +1725,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
 
 74:                                               ; preds = %71
   %75 = zext nneg i32 %.4 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %1, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %75
   store i32 15, ptr %76, align 4
   %77 = load i32, ptr %72, align 4
   %78 = add nuw nsw i32 %.4, 2
@@ -1743,7 +1742,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
 
 83:                                               ; preds = %80
   %84 = zext nneg i32 %.5 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %1, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %84
   store i32 16, ptr %85, align 4
   %86 = load i32, ptr %81, align 8
   %87 = add nuw nsw i32 %.5, 2
@@ -1760,7 +1759,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
 
 92:                                               ; preds = %89
   %93 = zext nneg i32 %.6 to i64
-  %94 = getelementptr inbounds nuw i32, ptr %1, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %93
   store i32 17, ptr %94, align 4
   %95 = load i32, ptr %90, align 4
   %96 = add nuw nsw i32 %.6, 2
@@ -1778,14 +1777,14 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
 101:                                              ; preds = %98
   %102 = add nuw nsw i32 %.7, 1
   %103 = zext nneg i32 %.7 to i64
-  %104 = getelementptr inbounds nuw i32, ptr %1, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %103
   store i32 6, ptr %104, align 4
   br i1 %.not, label %109, label %105
 
 105:                                              ; preds = %101
   %106 = add nuw nsw i32 %.7, 2
   %107 = zext nneg i32 %102 to i64
-  %108 = getelementptr inbounds nuw i32, ptr %1, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %107
   store i32 1, ptr %108, align 4
   br label %109
 
@@ -1798,7 +1797,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
 
 112:                                              ; preds = %109
   %113 = zext nneg i32 %.8 to i64
-  %114 = getelementptr inbounds nuw i32, ptr %1, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %113
   store i32 100000, ptr %114, align 4
   %115 = load i32, ptr %110, align 4
   %116 = add nuw nsw i32 %.8, 2
@@ -1815,7 +1814,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
 
 121:                                              ; preds = %118
   %122 = zext nneg i32 %.9 to i64
-  %123 = getelementptr inbounds nuw i32, ptr %1, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %122
   store i32 100001, ptr %123, align 4
   %124 = load i32, ptr %119, align 8
   %125 = add nuw nsw i32 %.9, 2
@@ -1832,7 +1831,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
 
 130:                                              ; preds = %127
   %131 = zext nneg i32 %.10 to i64
-  %132 = getelementptr inbounds nuw i32, ptr %1, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %131
   store i32 32785, ptr %132, align 4
   %133 = add nuw nsw i32 %.10, 2
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 4
@@ -1848,7 +1847,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
 
 138:                                              ; preds = %135
   %139 = zext nneg i32 %.11 to i64
-  %140 = getelementptr inbounds nuw i32, ptr %1, i64 %139
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %139
   store i32 8370, ptr %140, align 4
   %141 = add nuw nsw i32 %.11, 2
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 4
@@ -1872,7 +1871,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
 
 153:                                              ; preds = %147
   %154 = zext nneg i32 %.12 to i64
-  %155 = getelementptr inbounds nuw i32, ptr %1, i64 %154
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %154
   store i32 32, ptr %155, align 4
   %156 = load i32, ptr %144, align 8
   %.not135 = icmp eq i32 %156, 0
@@ -1900,7 +1899,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
 
 169:                                              ; preds = %163
   %170 = zext nneg i32 %.13 to i64
-  %171 = getelementptr inbounds nuw i32, ptr %1, i64 %170
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %170
   store i32 34, ptr %171, align 4
   %172 = add nuw nsw i32 %.13, 2
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 4
@@ -1911,7 +1910,7 @@ define internal fastcc void @X11_GL_GetAttributes(ptr noundef readonly captures(
   %.14 = phi i32 [ %.13, %160 ], [ %172, %169 ], [ %.13, %163 ], [ %.13, %161 ]
   %.0 = phi ptr [ null, %160 ], [ %171, %169 ], [ null, %163 ], [ null, %161 ]
   %175 = zext nneg i32 %.14 to i64
-  %176 = getelementptr inbounds nuw i32, ptr %1, i64 %175
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %175
   store i32 0, ptr %176, align 4
   store ptr %.0, ptr %3, align 8
   ret void
@@ -2037,7 +2036,7 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
 
 72:                                               ; preds = %69
   %73 = zext nneg i32 %.0131 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %6, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %73
   store i32 8340, ptr %74, align 8
   %75 = add nuw nsw i32 %.0131, 2
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
@@ -2060,7 +2059,7 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
 
 86:                                               ; preds = %82
   %87 = zext nneg i32 %.1132 to i64
-  %88 = getelementptr inbounds nuw i32, ptr %6, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %87
   store i32 8343, ptr %88, align 4
   %89 = add nuw nsw i32 %.1132, 2
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -2082,7 +2081,7 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
 
 98:                                               ; preds = %95
   %99 = zext nneg i32 %.2133 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %6, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %99
   store i32 33366, ptr %100, align 4
   %101 = add nuw nsw i32 %.2133, 2
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 4
@@ -2104,7 +2103,7 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
 
 110:                                              ; preds = %107
   %111 = zext nneg i32 %.3134 to i64
-  %112 = getelementptr inbounds nuw i32, ptr %6, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %111
   store i32 12723, ptr %112, align 4
   %113 = add nuw nsw i32 %.3134, 2
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 4
@@ -2114,7 +2113,7 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
 115:                                              ; preds = %110, %107, %103
   %.4135 = phi i32 [ %113, %110 ], [ %.3134, %107 ], [ %.3134, %103 ]
   %116 = zext nneg i32 %.4135 to i64
-  %117 = getelementptr inbounds nuw i32, ptr %6, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %116
   store i32 0, ptr %117, align 4
   %118 = getelementptr inbounds nuw i8, ptr %78, i64 64
   %119 = load ptr, ptr %118, align 8
@@ -2172,7 +2171,7 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
   %143 = load ptr, ptr %28, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 80
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw ptr, ptr %.0124, i64 %indvars.iv
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %.0124, i64 %indvars.iv
   %147 = load ptr, ptr %146, align 8
   %148 = call ptr %145(ptr noundef %14, ptr noundef %147) #6
   %.not158 = icmp eq ptr %148, null
@@ -2224,7 +2223,7 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
   br label %171
 
 .thread186:                                       ; preds = %154, %154, %154, %154, %158, %158, %158, %158
-  %163 = getelementptr inbounds nuw ptr, ptr %.0124, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %.0124, i64 %indvars.iv
   %164 = load ptr, ptr %28, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 64
   %166 = load ptr, ptr %165, align 8

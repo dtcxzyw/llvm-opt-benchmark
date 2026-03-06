@@ -397,7 +397,7 @@ do.end:                                           ; preds = %entry
   %cmp.not = icmp eq i64 %rem, 0
   %values_30 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %18 = load ptr, ptr %values_30, align 8, !tbaa !19
-  %arrayidx.i25 = getelementptr double, ptr %18, i64 %div3
+  %arrayidx.i25 = getelementptr [8 x i8], ptr %18, i64 %div3
   %19 = load double, ptr %arrayidx.i25, align 8, !tbaa !20
   br i1 %cmp.not, label %if.else, label %cleanup
 
@@ -688,16 +688,16 @@ do.end:                                           ; preds = %entry
   %values_41 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %div12.sink68 = add nuw i64 %div12, %rem
   %18 = load ptr, ptr %values_41, align 8, !tbaa !19
-  %arrayidx.i33 = getelementptr inbounds nuw double, ptr %18, i64 %div12.sink68
+  %arrayidx.i33 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %div12.sink68
   %19 = load double, ptr %arrayidx.i33, align 8, !tbaa !20
   %sub44 = add nsw i64 %div12, -1
-  %arrayidx.i34 = getelementptr inbounds nuw double, ptr %18, i64 %sub44
+  %arrayidx.i34 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %sub44
   %20 = load double, ptr %arrayidx.i34, align 8, !tbaa !20
   %sub46 = fsub double %19, %20
   %21 = load ptr, ptr %this, align 8, !tbaa !19
-  %arrayidx.i35 = getelementptr inbounds nuw double, ptr %21, i64 %div12.sink68
+  %arrayidx.i35 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %div12.sink68
   %22 = load double, ptr %arrayidx.i35, align 8, !tbaa !20
-  %arrayidx.i36 = getelementptr inbounds nuw double, ptr %21, i64 %sub44
+  %arrayidx.i36 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %sub44
   %23 = load double, ptr %arrayidx.i36, align 8, !tbaa !20
   %sub52 = fsub double %22, %23
   %div53 = fdiv double %sub46, %sub52
@@ -859,26 +859,26 @@ do.end:                                           ; preds = %entry
   %values_63 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %add64 = add nuw i64 %div24, 1
   %18 = load ptr, ptr %values_63, align 8, !tbaa !19
-  %arrayidx.i51 = getelementptr inbounds nuw double, ptr %18, i64 %add64
+  %arrayidx.i51 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %add64
   %19 = load double, ptr %arrayidx.i51, align 8, !tbaa !20
   br i1 %cmp28.not, label %if.else, label %if.then29
 
 if.then29:                                        ; preds = %do.end
-  %arrayidx.i42 = getelementptr inbounds nuw double, ptr %18, i64 %div24
+  %arrayidx.i42 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %div24
   %20 = load double, ptr %arrayidx.i42, align 8, !tbaa !20
   %sub = fsub double %19, %20
   %21 = load ptr, ptr %this, align 8, !tbaa !19
-  %arrayidx.i43 = getelementptr inbounds nuw double, ptr %21, i64 %add64
+  %arrayidx.i43 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %add64
   %22 = load double, ptr %arrayidx.i43, align 8, !tbaa !20
-  %arrayidx.i44 = getelementptr inbounds nuw double, ptr %21, i64 %div24
+  %arrayidx.i44 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %div24
   %23 = load double, ptr %arrayidx.i44, align 8, !tbaa !20
   %sub37 = fsub double %22, %23
   %div38 = fdiv double %sub, %sub37
   %sub42 = add nsw i64 %div24, -1
-  %arrayidx.i46 = getelementptr inbounds nuw double, ptr %18, i64 %sub42
+  %arrayidx.i46 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %sub42
   %24 = load double, ptr %arrayidx.i46, align 8, !tbaa !20
   %sub44 = fsub double %20, %24
-  %arrayidx.i48 = getelementptr inbounds nuw double, ptr %21, i64 %sub42
+  %arrayidx.i48 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %sub42
   %25 = load double, ptr %arrayidx.i48, align 8, !tbaa !20
   %sub50 = fsub double %23, %25
   %div51 = fdiv double %sub44, %sub50
@@ -890,25 +890,25 @@ if.then29:                                        ; preds = %do.end
 
 if.else:                                          ; preds = %do.end
   %sub67 = add nsw i64 %div24, -1
-  %arrayidx.i52 = getelementptr inbounds nuw double, ptr %18, i64 %sub67
+  %arrayidx.i52 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %sub67
   %26 = load double, ptr %arrayidx.i52, align 8, !tbaa !20
   %sub69 = fsub double %19, %26
   %27 = load ptr, ptr %this, align 8, !tbaa !19
-  %arrayidx.i53 = getelementptr inbounds nuw double, ptr %27, i64 %add64
+  %arrayidx.i53 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %add64
   %28 = load double, ptr %arrayidx.i53, align 8, !tbaa !20
-  %arrayidx.i54 = getelementptr inbounds nuw double, ptr %27, i64 %sub67
+  %arrayidx.i54 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %sub67
   %29 = load double, ptr %arrayidx.i54, align 8, !tbaa !20
   %sub76 = fsub double %28, %29
   %div77 = fdiv double %sub69, %sub76
-  %arrayidx.i55 = getelementptr inbounds nuw double, ptr %18, i64 %div24
+  %arrayidx.i55 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %div24
   %30 = load double, ptr %arrayidx.i55, align 8, !tbaa !20
   %sub82 = add nsw i64 %div24, -2
-  %arrayidx.i56 = getelementptr inbounds nuw double, ptr %18, i64 %sub82
+  %arrayidx.i56 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %sub82
   %31 = load double, ptr %arrayidx.i56, align 8, !tbaa !20
   %sub84 = fsub double %30, %31
-  %arrayidx.i57 = getelementptr inbounds nuw double, ptr %27, i64 %div24
+  %arrayidx.i57 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %div24
   %32 = load double, ptr %arrayidx.i57, align 8, !tbaa !20
-  %arrayidx.i58 = getelementptr inbounds nuw double, ptr %27, i64 %sub82
+  %arrayidx.i58 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %sub82
   %33 = load double, ptr %arrayidx.i58, align 8, !tbaa !20
   %sub90 = fsub double %32, %33
   %div91 = fdiv double %sub84, %sub90
@@ -939,7 +939,7 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2)
   %n_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %n_.i, align 8, !tbaa !3
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %0, i64 %1
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   store ptr %add.ptr.i, ptr %ref.tmp2, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp5)
   %values_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1017,7 +1017,7 @@ invoke.cont18:                                    ; preds = %_ZNK5boost10shared_
   %incdec.ptr20 = getelementptr inbounds nuw i8, ptr %grid.048, i64 8
   %15 = load ptr, ptr %new_grid, align 8, !tbaa !19
   %16 = load i64, ptr %n_.i10, align 8, !tbaa !3
-  %add.ptr.i14 = getelementptr inbounds nuw double, ptr %15, i64 %16
+  %add.ptr.i14 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %cmp.not = icmp eq ptr %incdec.ptr20, %add.ptr.i14
   br i1 %cmp.not, label %for.end, label %.noexc22, !llvm.loop !32
 
@@ -1597,7 +1597,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i18, ptr %dx_, align 8, !tbaa !68
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i18, i64 %sub
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i18, i64 %sub
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !69
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i18, align 8, !tbaa !20
@@ -1628,7 +1628,7 @@ if.then.i.i.i.i.i22:                              ; preds = %call5.i.i.i.i2.i.i.
 
 call5.i.i.i.i2.i.i.noexc37:                       ; preds = %if.then.i.i.i.i.i22
   store ptr %call5.i.i.i.i2.i.i38, ptr %S_75, align 8, !tbaa !68
-  %add.ptr.i.i.i24 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i38, i64 %sub
+  %add.ptr.i.i.i24 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i38, i64 %sub
   %_M_end_of_storage.i.i.i25 = getelementptr inbounds nuw i8, ptr %this, i64 272
   store ptr %add.ptr.i.i.i24, ptr %_M_end_of_storage.i.i.i25, align 8, !tbaa !69
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i38, align 8, !tbaa !20
@@ -1977,7 +1977,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %sub, 3
   %call5.i.i.i.i2.i.i10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #26
   store ptr %call5.i.i.i.i2.i.i10, ptr %primitiveConst_, align 8, !tbaa !68
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i10, i64 %sub
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i10, i64 %sub
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !69
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i10, align 8, !tbaa !20
@@ -2003,7 +2003,7 @@ if.then.i.i.i.i.i14:                              ; preds = %if.then.i.i.i.i.i, 
 
 call5.i.i.i.i2.i.i.noexc29:                       ; preds = %if.then.i.i.i.i.i14
   store ptr %call5.i.i.i.i2.i.i30, ptr %a_102, align 8, !tbaa !68
-  %add.ptr.i.i.i16 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i30, i64 %sub
+  %add.ptr.i.i.i16 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i30, i64 %sub
   %_M_end_of_storage.i.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %add.ptr.i.i.i16, ptr %_M_end_of_storage.i.i.i17, align 8, !tbaa !69
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i30, align 8, !tbaa !20
@@ -2027,7 +2027,7 @@ if.then.i.i.i.i.i35:                              ; preds = %call5.i.i.i.i2.i.i.
 
 call5.i.i.i.i2.i.i.noexc50:                       ; preds = %if.then.i.i.i.i.i35
   store ptr %call5.i.i.i.i2.i.i51, ptr %b_111, align 8, !tbaa !68
-  %add.ptr.i.i.i37 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i51, i64 %sub
+  %add.ptr.i.i.i37 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i51, i64 %sub
   %_M_end_of_storage.i.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 80
   store ptr %add.ptr.i.i.i37, ptr %_M_end_of_storage.i.i.i38, align 8, !tbaa !69
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i51, align 8, !tbaa !20
@@ -2058,7 +2058,7 @@ if.then.i.i.i.i.i56:                              ; preds = %call5.i.i.i.i2.i.i.
 
 call5.i.i.i.i2.i.i.noexc71:                       ; preds = %if.then.i.i.i.i.i56
   store ptr %call5.i.i.i.i2.i.i72, ptr %c_122, align 8, !tbaa !68
-  %add.ptr.i.i.i58 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i72, i64 %sub
+  %add.ptr.i.i.i58 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i72, i64 %sub
   %_M_end_of_storage.i.i.i59 = getelementptr inbounds nuw i8, ptr %this, i64 104
   store ptr %add.ptr.i.i.i58, ptr %_M_end_of_storage.i.i.i59, align 8, !tbaa !69
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i72, align 8, !tbaa !20
@@ -2104,12 +2104,12 @@ lpad.i.i:                                         ; preds = %if.then.i.i.i
 
 invoke.cont16:                                    ; preds = %if.then.i.i.i
   %div1.i.i.i.i = lshr i64 %sub.i.i.i.i.i74, 6
-  %add.ptr.i.i.i76 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i1.i.i, i64 %div1.i.i.i.i
+  %add.ptr.i.i.i76 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i1.i.i, i64 %div1.i.i.i.i
   store ptr %add.ptr.i.i.i76, ptr %_M_end_of_storage.i.i.i.i.i, align 8, !tbaa !73
   store ptr %call5.i.i.i.i1.i.i, ptr %monotonicityAdjustments_, align 8
   store i32 0, ptr %_M_offset.i.i.i.i.i.i.i, align 8
   %div.i.i.i.i.i.i130131 = lshr i64 %n, 6
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i1.i.i, i64 %div.i.i.i.i.i.i130131
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i1.i.i, i64 %div.i.i.i.i.i.i130131
   %3 = trunc i64 %n to i32
   %conv4.i.i.i.i.i.i = and i32 %3, 63
   store ptr %add.ptr.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i.i, align 8
@@ -2704,20 +2704,20 @@ for.body23.lr.ph:                                 ; preds = %for.cond18.preheade
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.01873 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
   %add = add nuw i64 %i.01873, 1
-  %arrayidx = getelementptr inbounds nuw double, ptr %1, i64 %add
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %add
   %6 = load double, ptr %arrayidx, align 8, !tbaa !20
-  %arrayidx4 = getelementptr inbounds nuw double, ptr %1, i64 %i.01873
+  %arrayidx4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %i.01873
   %7 = load double, ptr %arrayidx4, align 8, !tbaa !20
   %sub5 = fsub double %6, %7
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %2, i64 %i.01873
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %i.01873
   store double %sub5, ptr %add.ptr.i, align 8, !tbaa !20
-  %arrayidx8 = getelementptr inbounds nuw double, ptr %3, i64 %add
+  %arrayidx8 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %add
   %8 = load double, ptr %arrayidx8, align 8, !tbaa !20
-  %arrayidx11 = getelementptr inbounds nuw double, ptr %3, i64 %i.01873
+  %arrayidx11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %i.01873
   %9 = load double, ptr %arrayidx11, align 8, !tbaa !20
   %sub12 = fsub double %8, %9
   %div = fdiv double %sub12, %sub5
-  %add.ptr.i418 = getelementptr inbounds nuw double, ptr %4, i64 %i.01873
+  %add.ptr.i418 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %i.01873
   store double %div, ptr %add.ptr.i418, align 8, !tbaa !20
   %exitcond.not = icmp eq i64 %add, %sub
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !77
@@ -2738,29 +2738,29 @@ for.cond.cleanup22:                               ; preds = %for.body23, %for.co
 for.body23:                                       ; preds = %for.body23.lr.ph, %for.body23
   %11 = phi ptr [ %.pre1964, %for.body23.lr.ph ], [ %14, %for.body23 ]
   %i17.01909 = phi i64 [ 1, %for.body23.lr.ph ], [ %inc50, %for.body23 ]
-  %add.ptr.i419 = getelementptr inbounds nuw double, ptr %11, i64 %i17.01909
+  %add.ptr.i419 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %i17.01909
   %12 = load double, ptr %add.ptr.i419, align 8, !tbaa !20
   %sub29 = add i64 %i17.01909, -1
-  %add.ptr.i421 = getelementptr inbounds nuw double, ptr %11, i64 %sub29
+  %add.ptr.i421 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %sub29
   %13 = load double, ptr %add.ptr.i421, align 8, !tbaa !20
   %add31 = fadd double %12, %13
   %mul = fmul double %add31, 2.000000e+00
   tail call void @_ZN8QuantLib19TridiagonalOperator9setMidRowEmddd(ptr noundef nonnull align 8 dereferenceable(88) %L_, i64 noundef %i17.01909, double noundef %12, double noundef %mul, double noundef %13)
   %14 = load ptr, ptr %dx_24, align 8, !tbaa !68
-  %add.ptr.i423 = getelementptr inbounds nuw double, ptr %14, i64 %i17.01909
+  %add.ptr.i423 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %i17.01909
   %15 = load double, ptr %add.ptr.i423, align 8, !tbaa !20
   %16 = load ptr, ptr %S_37, align 8, !tbaa !68
-  %add.ptr.i424 = getelementptr inbounds nuw double, ptr %16, i64 %sub29
+  %add.ptr.i424 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %sub29
   %17 = load double, ptr %add.ptr.i424, align 8, !tbaa !20
-  %add.ptr.i425 = getelementptr inbounds nuw double, ptr %14, i64 %sub29
+  %add.ptr.i425 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %sub29
   %18 = load double, ptr %add.ptr.i425, align 8, !tbaa !20
-  %add.ptr.i426 = getelementptr inbounds nuw double, ptr %16, i64 %i17.01909
+  %add.ptr.i426 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %i17.01909
   %19 = load double, ptr %add.ptr.i426, align 8, !tbaa !20
   %mul46 = fmul double %18, %19
   %20 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %mul46)
   %mul47 = fmul double %20, 3.000000e+00
   %21 = load ptr, ptr %tmp_, align 8, !tbaa !19
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %21, i64 %i17.01909
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %i17.01909
   store double %mul47, ptr %arrayidx.i, align 8, !tbaa !20
   %inc50 = add nuw i64 %i17.01909, 1
   %22 = load i64, ptr %n_, align 8, !tbaa !67
@@ -3187,10 +3187,10 @@ sw.bb204:                                         ; preds = %sw.epilog
   %dx_206 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %sub208 = add i64 %.lcssa, -2
   %104 = load ptr, ptr %dx_206, align 8, !tbaa !68
-  %add.ptr.i492 = getelementptr inbounds nuw double, ptr %104, i64 %sub208
+  %add.ptr.i492 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %sub208
   %105 = load double, ptr %add.ptr.i492, align 8, !tbaa !20
   %sub212 = add i64 %.lcssa, -3
-  %add.ptr.i493 = getelementptr inbounds nuw double, ptr %104, i64 %sub212
+  %add.ptr.i493 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %sub212
   %106 = load double, ptr %add.ptr.i493, align 8, !tbaa !20
   %add214 = fadd double %105, %106
   %fneg = fneg double %add214
@@ -3200,20 +3200,20 @@ sw.bb204:                                         ; preds = %sw.epilog
   %lowerDiagonal_.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   %107 = load i64, ptr %L_205, align 8, !tbaa !79
   %108 = load ptr, ptr %lowerDiagonal_.i, align 8, !tbaa !19
-  %109 = getelementptr double, ptr %108, i64 %107
+  %109 = getelementptr [8 x i8], ptr %108, i64 %107
   %arrayidx.i.i = getelementptr i8, ptr %109, i64 -16
   store double %mul224, ptr %arrayidx.i.i, align 8, !tbaa !20
-  %110 = getelementptr double, ptr %101, i64 %107
+  %110 = getelementptr [8 x i8], ptr %101, i64 %107
   %arrayidx.i1.i = getelementptr i8, ptr %110, i64 -8
   store double %mul239, ptr %arrayidx.i1.i, align 8, !tbaa !20
   %S_240 = getelementptr inbounds nuw i8, ptr %this, i64 256
   %111 = load ptr, ptr %S_240, align 8, !tbaa !68
-  %add.ptr.i500 = getelementptr inbounds nuw double, ptr %111, i64 %sub212
+  %add.ptr.i500 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %sub212
   %112 = load double, ptr %add.ptr.i500, align 8, !tbaa !20
   %fneg244 = fneg double %112
   %113 = load double, ptr %add.ptr.i492, align 8, !tbaa !20
   %mul249 = fmul double %113, %fneg244
-  %add.ptr.i503 = getelementptr inbounds nuw double, ptr %111, i64 %sub208
+  %add.ptr.i503 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %sub208
   %114 = load double, ptr %add.ptr.i503, align 8, !tbaa !20
   %115 = load double, ptr %add.ptr.i493, align 8, !tbaa !20
   %mul263 = fmul double %114, %115
@@ -3229,10 +3229,10 @@ sw.bb280:                                         ; preds = %sw.epilog
   %lowerDiagonal_.i508 = getelementptr inbounds nuw i8, ptr %this, i64 304
   %119 = load i64, ptr %L_281, align 8, !tbaa !79
   %120 = load ptr, ptr %lowerDiagonal_.i508, align 8, !tbaa !19
-  %121 = getelementptr double, ptr %120, i64 %119
+  %121 = getelementptr [8 x i8], ptr %120, i64 %119
   %arrayidx.i.i509 = getelementptr i8, ptr %121, i64 -16
   store double 0.000000e+00, ptr %arrayidx.i.i509, align 8, !tbaa !20
-  %122 = getelementptr double, ptr %101, i64 %119
+  %122 = getelementptr [8 x i8], ptr %101, i64 %119
   %arrayidx.i1.i511 = getelementptr i8, ptr %122, i64 -8
   store double 1.000000e+00, ptr %arrayidx.i1.i511, align 8, !tbaa !20
   %rightValue_ = getelementptr inbounds nuw i8, ptr %this, i64 208
@@ -3244,22 +3244,22 @@ sw.bb286:                                         ; preds = %sw.epilog
   %lowerDiagonal_.i513 = getelementptr inbounds nuw i8, ptr %this, i64 304
   %124 = load i64, ptr %L_287, align 8, !tbaa !79
   %125 = load ptr, ptr %lowerDiagonal_.i513, align 8, !tbaa !19
-  %126 = getelementptr double, ptr %125, i64 %124
+  %126 = getelementptr [8 x i8], ptr %125, i64 %124
   %arrayidx.i.i514 = getelementptr i8, ptr %126, i64 -16
   store double 1.000000e+00, ptr %arrayidx.i.i514, align 8, !tbaa !20
-  %127 = getelementptr double, ptr %101, i64 %124
+  %127 = getelementptr [8 x i8], ptr %101, i64 %124
   %arrayidx.i1.i516 = getelementptr i8, ptr %127, i64 -8
   store double 2.000000e+00, ptr %arrayidx.i1.i516, align 8, !tbaa !20
   %S_288 = getelementptr inbounds nuw i8, ptr %this, i64 256
   %sub290 = add i64 %.lcssa, -2
   %128 = load ptr, ptr %S_288, align 8, !tbaa !68
-  %add.ptr.i517 = getelementptr inbounds nuw double, ptr %128, i64 %sub290
+  %add.ptr.i517 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %sub290
   %129 = load double, ptr %add.ptr.i517, align 8, !tbaa !20
   %rightValue_293 = getelementptr inbounds nuw i8, ptr %this, i64 208
   %130 = load double, ptr %rightValue_293, align 8, !tbaa !66
   %dx_294 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %131 = load ptr, ptr %dx_294, align 8, !tbaa !68
-  %add.ptr.i518 = getelementptr inbounds nuw double, ptr %131, i64 %sub290
+  %add.ptr.i518 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %sub290
   %132 = load double, ptr %add.ptr.i518, align 8, !tbaa !20
   %mul298 = fmul double %130, %132
   %div299 = fmul double %mul298, 5.000000e-01
@@ -3402,34 +3402,34 @@ sw.bb342:                                         ; preds = %sw.epilog
   %lowerDiagonal_.i544 = getelementptr inbounds nuw i8, ptr %this, i64 304
   %151 = load i64, ptr %L_343, align 8, !tbaa !79
   %152 = load ptr, ptr %lowerDiagonal_.i544, align 8, !tbaa !19
-  %153 = getelementptr double, ptr %152, i64 %151
+  %153 = getelementptr [8 x i8], ptr %152, i64 %151
   %arrayidx.i.i545 = getelementptr i8, ptr %153, i64 -16
   store double 0.000000e+00, ptr %arrayidx.i.i545, align 8, !tbaa !20
-  %154 = getelementptr double, ptr %101, i64 %151
+  %154 = getelementptr [8 x i8], ptr %101, i64 %151
   %arrayidx.i1.i547 = getelementptr i8, ptr %154, i64 -8
   store double 1.000000e+00, ptr %arrayidx.i1.i547, align 8, !tbaa !20
   %xBegin_345 = getelementptr inbounds nuw i8, ptr %this, i64 160
   %155 = load ptr, ptr %xBegin_345, align 8, !tbaa !74
   %sub347 = add i64 %.lcssa, -4
-  %arrayidx348 = getelementptr inbounds nuw double, ptr %155, i64 %sub347
+  %arrayidx348 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %sub347
   %156 = load double, ptr %arrayidx348, align 8, !tbaa !20
   %sub352 = add i64 %.lcssa, -3
-  %arrayidx353 = getelementptr inbounds nuw double, ptr %155, i64 %sub352
+  %arrayidx353 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %sub352
   %157 = load double, ptr %arrayidx353, align 8, !tbaa !20
   %sub357 = add i64 %.lcssa, -2
-  %arrayidx358 = getelementptr inbounds nuw double, ptr %155, i64 %sub357
+  %arrayidx358 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %sub357
   %158 = load double, ptr %arrayidx358, align 8, !tbaa !20
-  %arrayidx363 = getelementptr inbounds nuw double, ptr %155, i64 %sub20.lcssa
+  %arrayidx363 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %sub20.lcssa
   %159 = load double, ptr %arrayidx363, align 8, !tbaa !20
   %yBegin_365 = getelementptr inbounds nuw i8, ptr %this, i64 176
   %160 = load ptr, ptr %yBegin_365, align 8, !tbaa !76
-  %arrayidx368 = getelementptr inbounds nuw double, ptr %160, i64 %sub347
+  %arrayidx368 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %sub347
   %161 = load double, ptr %arrayidx368, align 8, !tbaa !20
-  %arrayidx373 = getelementptr inbounds nuw double, ptr %160, i64 %sub352
+  %arrayidx373 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %sub352
   %162 = load double, ptr %arrayidx373, align 8, !tbaa !20
-  %arrayidx378 = getelementptr inbounds nuw double, ptr %160, i64 %sub357
+  %arrayidx378 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %sub357
   %163 = load double, ptr %arrayidx378, align 8, !tbaa !20
-  %arrayidx383 = getelementptr inbounds nuw double, ptr %160, i64 %sub20.lcssa
+  %arrayidx383 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %sub20.lcssa
   %164 = load double, ptr %arrayidx383, align 8, !tbaa !20
   %sub.i548 = fsub double %156, %158
   %sub2.i549 = fsub double %157, %158
@@ -3611,7 +3611,7 @@ ehcleanup429:                                     ; preds = %if.then.i.i606, %eh
 
 sw.epilog432:                                     ; preds = %sw.bb342, %sw.bb286, %sw.bb280, %sw.bb204
   %div.i586.sink = phi double [ %div.i586, %sw.bb342 ], [ %133, %sw.bb286 ], [ %123, %sw.bb280 ], [ %118, %sw.bb204 ]
-  %arrayidx.i587 = getelementptr inbounds nuw double, ptr %102, i64 %sub20.lcssa
+  %arrayidx.i587 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %sub20.lcssa
   store double %div.i586.sink, ptr %arrayidx.i587, align 8, !tbaa !20
   %L_433 = getelementptr inbounds nuw i8, ptr %this, i64 280
   %tmp_434 = getelementptr inbounds nuw i8, ptr %this, i64 216
@@ -3702,20 +3702,20 @@ invoke.cont516.lr.ph:                             ; preds = %_ZN8QuantLib6Matrix
 
 invoke.cont471:                                   ; preds = %invoke.cont471.lr.ph, %invoke.cont471
   %i442.01892 = phi i64 [ 0, %invoke.cont471.lr.ph ], [ %add457, %invoke.cont471 ]
-  %add.ptr.i629 = getelementptr inbounds nuw double, ptr %195, i64 %i442.01892
+  %add.ptr.i629 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %i442.01892
   %201 = load double, ptr %add.ptr.i629, align 8, !tbaa !20
   %mul.i.i = mul i64 %0, %i442.01892
-  %add.ptr.i.i630 = getelementptr inbounds nuw double, ptr %194, i64 %mul.i.i
+  %add.ptr.i.i630 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %mul.i.i
   %div451 = fdiv double %201, 6.000000e+00
-  %arrayidx455 = getelementptr inbounds nuw double, ptr %add.ptr.i.i630, i64 %i442.01892
+  %arrayidx455 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i630, i64 %i442.01892
   store double %div451, ptr %arrayidx455, align 8, !tbaa !20
   %add457 = add nuw i64 %i442.01892, 1
-  %add.ptr.i631 = getelementptr inbounds nuw double, ptr %195, i64 %add457
+  %add.ptr.i631 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %add457
   %202 = load double, ptr %add.ptr.i631, align 8, !tbaa !20
   %203 = load double, ptr %add.ptr.i629, align 8, !tbaa !20
   %add461 = fadd double %202, %203
   %div462 = fdiv double %add461, 3.000000e+00
-  %arrayidx466 = getelementptr inbounds nuw double, ptr %add.ptr.i.i630, i64 %add457
+  %arrayidx466 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i630, i64 %add457
   store double %div462, ptr %arrayidx466, align 8, !tbaa !20
   %204 = load double, ptr %add.ptr.i631, align 8, !tbaa !20
   %div470 = fdiv double %204, 6.000000e+00
@@ -3763,22 +3763,22 @@ ehcleanup930.thread:                              ; preds = %for.body.i.i.i.preh
 
 invoke.cont516:                                   ; preds = %invoke.cont516.lr.ph, %invoke.cont516
   %i485.01894 = phi i64 [ 0, %invoke.cont516.lr.ph ], [ %add500, %invoke.cont516 ]
-  %add.ptr.i656 = getelementptr inbounds nuw double, ptr %200, i64 %i485.01894
+  %add.ptr.i656 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %i485.01894
   %210 = load double, ptr %add.ptr.i656, align 8, !tbaa !20
   %mul.i.i658 = mul i64 %0, %i485.01894
-  %add.ptr.i.i659 = getelementptr inbounds nuw double, ptr %199, i64 %mul.i.i658
+  %add.ptr.i.i659 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %mul.i.i658
   %div494 = fdiv double 1.000000e+00, %210
-  %arrayidx498 = getelementptr inbounds nuw double, ptr %add.ptr.i.i659, i64 %i485.01894
+  %arrayidx498 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i659, i64 %i485.01894
   store double %div494, ptr %arrayidx498, align 8, !tbaa !20
   %add500 = add nuw i64 %i485.01894, 1
-  %add.ptr.i660 = getelementptr inbounds nuw double, ptr %200, i64 %add500
+  %add.ptr.i660 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %add500
   %211 = load double, ptr %add.ptr.i660, align 8, !tbaa !20
   %212 = load double, ptr %add.ptr.i656, align 8, !tbaa !20
   %div502 = fdiv double 1.000000e+00, %211
   %div505 = fdiv double 1.000000e+00, %212
   %add506 = fadd double %div502, %div505
   %fneg507 = fneg double %add506
-  %arrayidx511 = getelementptr inbounds nuw double, ptr %add.ptr.i.i659, i64 %add500
+  %arrayidx511 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i659, i64 %add500
   store double %fneg507, ptr %arrayidx511, align 8, !tbaa !20
   %213 = load double, ptr %add.ptr.i660, align 8, !tbaa !20
   %div515 = fdiv double 1.000000e+00, %213
@@ -3837,8 +3837,8 @@ invoke.cont550:                                   ; preds = %_ZN8QuantLib6Matrix
   %i541.01896 = phi i64 [ %add548, %invoke.cont550 ], [ 0, %_ZN8QuantLib6MatrixC2Emmd.exit690 ]
   %add548 = add nuw i64 %i541.01896, 1
   %mul.i.i692 = mul i64 %sub440, %add548
-  %add.ptr.i.i693 = getelementptr inbounds nuw double, ptr %217, i64 %mul.i.i692
-  %arrayidx552 = getelementptr inbounds nuw double, ptr %add.ptr.i.i693, i64 %i541.01896
+  %add.ptr.i.i693 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %mul.i.i692
+  %arrayidx552 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i693, i64 %i541.01896
   store double 1.000000e+00, ptr %arrayidx552, align 8, !tbaa !20
   %exitcond1941.not = icmp eq i64 %add548, %sub440
   br i1 %exitcond1941.not, label %for.cond.cleanup546, label %invoke.cont550, !llvm.loop !85
@@ -3964,8 +3964,8 @@ lpad571:                                          ; preds = %for.body.i.i.i.preh
 invoke.cont580:                                   ; preds = %_ZN8QuantLib6MatrixC2Emmd.exit712, %invoke.cont580
   %i573.01898 = phi i64 [ %inc584, %invoke.cont580 ], [ 0, %_ZN8QuantLib6MatrixC2Emmd.exit712 ]
   %mul.i.i720 = mul i64 %222, %i573.01898
-  %add.ptr.i.i721 = getelementptr inbounds nuw double, ptr %226, i64 %mul.i.i720
-  %arrayidx582 = getelementptr inbounds nuw double, ptr %add.ptr.i.i721, i64 %i573.01898
+  %add.ptr.i.i721 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %mul.i.i720
+  %arrayidx582 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i721, i64 %i573.01898
   store double 1.000000e+00, ptr %arrayidx582, align 8, !tbaa !20
   %inc584 = add nuw i64 %i573.01898, 1
   %exitcond1942.not = icmp eq i64 %inc584, %222
@@ -4098,16 +4098,16 @@ lpad603:                                          ; preds = %invoke.cont600
 invoke.cont710:                                   ; preds = %call.i731.noexc, %invoke.cont710
   %i637.01900 = phi i64 [ %add712, %invoke.cont710 ], [ 1, %call.i731.noexc ]
   %sub649 = add i64 %i637.01900, -1
-  %add.ptr.i768 = getelementptr inbounds nuw double, ptr %239, i64 %sub649
+  %add.ptr.i768 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %sub649
   %249 = load double, ptr %add.ptr.i768, align 8, !tbaa !20
   %mul.i.i772 = mul i64 %235, %i637.01900
-  %add.ptr.i.i773 = getelementptr inbounds nuw double, ptr %call.i731742, i64 %mul.i.i772
+  %add.ptr.i.i773 = getelementptr inbounds nuw [8 x i8], ptr %call.i731742, i64 %mul.i.i772
   %mul651 = fmul double %div624, %249
   %mul655 = fmul double %249, %mul651
   %mul659 = fmul double %249, %mul655
-  %arrayidx664 = getelementptr inbounds nuw double, ptr %add.ptr.i.i773, i64 %sub649
+  %arrayidx664 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i773, i64 %sub649
   store double %mul659, ptr %arrayidx664, align 8, !tbaa !20
-  %add.ptr.i774 = getelementptr inbounds nuw double, ptr %239, i64 %i637.01900
+  %add.ptr.i774 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %i637.01900
   %250 = load double, ptr %add.ptr.i774, align 8, !tbaa !20
   %251 = load double, ptr %add.ptr.i768, align 8, !tbaa !20
   %mul671 = fmul double %div607, %250
@@ -4116,28 +4116,28 @@ invoke.cont710:                                   ; preds = %call.i731.noexc, %i
   %mul689 = fmul double %251, %mul685
   %mul693 = fmul double %251, %mul689
   %252 = call double @llvm.fmuladd.f64(double %mul674, double %250, double %mul693)
-  %arrayidx696 = getelementptr inbounds nuw double, ptr %add.ptr.i.i773, i64 %i637.01900
+  %arrayidx696 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i773, i64 %i637.01900
   store double %252, ptr %arrayidx696, align 8, !tbaa !20
   %253 = load double, ptr %add.ptr.i774, align 8, !tbaa !20
   %mul703 = fmul double %div624, %253
   %mul706 = fmul double %253, %mul703
   %mul709 = fmul double %253, %mul706
   %add712 = add nuw i64 %i637.01900, 1
-  %arrayidx713 = getelementptr inbounds nuw double, ptr %add.ptr.i.i773, i64 %add712
+  %arrayidx713 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i773, i64 %add712
   store double %mul709, ptr %arrayidx713, align 8, !tbaa !20
   %exitcond1943.not = icmp eq i64 %add712, %sub606
   br i1 %exitcond1943.not, label %invoke.cont765, label %invoke.cont710, !llvm.loop !87
 
 invoke.cont765:                                   ; preds = %invoke.cont710, %call.i731.noexc
-  %254 = getelementptr double, ptr %239, i64 %235
+  %254 = getelementptr [8 x i8], ptr %239, i64 %235
   %add.ptr.i756 = getelementptr i8, ptr %254, i64 -16
   %255 = load double, ptr %add.ptr.i756, align 8, !tbaa !20
   %mul.i.i760 = mul i64 %235, %sub606
-  %add.ptr.i.i761 = getelementptr inbounds nuw double, ptr %call.i731742, i64 %mul.i.i760
+  %add.ptr.i.i761 = getelementptr inbounds nuw [8 x i8], ptr %call.i731742, i64 %mul.i.i760
   %mul726 = fmul double %div624, %255
   %mul731 = fmul double %255, %mul726
   %mul736 = fmul double %255, %mul731
-  %256 = getelementptr double, ptr %add.ptr.i.i761, i64 %235
+  %256 = getelementptr [8 x i8], ptr %add.ptr.i.i761, i64 %235
   %arrayidx743 = getelementptr i8, ptr %256, i64 -16
   store double %mul736, ptr %arrayidx743, align 8, !tbaa !20
   %257 = load double, ptr %add.ptr.i756, align 8, !tbaa !20
@@ -4191,7 +4191,7 @@ invoke.cont5.us.i:                                ; preds = %invoke.cont5.lr.ph.
   %i.020.us.i = phi i64 [ %add.i.us.i, %invoke.cont7.loopexit.us.i ], [ 0, %invoke.cont5.lr.ph.i ]
   %add.ptr.i.idx.us.i = mul i64 %mul.i13.i, %i.020.us.i
   %add.ptr.i.us.i = getelementptr inbounds nuw i8, ptr %263, i64 %add.ptr.i.idx.us.i
-  %add.ptr.i17.us.i = getelementptr inbounds nuw double, ptr %cond.i.i, i64 %i.020.us.i
+  %add.ptr.i17.us.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i.i, i64 %i.020.us.i
   br label %for.body.i.i.i.i.i.us.i
 
 for.body.i.i.i.i.i.us.i:                          ; preds = %for.body.i.i.i.i.i.us.i, %invoke.cont5.us.i
@@ -4201,7 +4201,7 @@ for.body.i.i.i.i.i.us.i:                          ; preds = %for.body.i.i.i.i.i.
   %264 = load double, ptr %__first.addr.08.i.i.i.i.i.us.i, align 8, !tbaa !20, !noalias !88
   store double %264, ptr %__result.sroa.0.07.i.i.i.i.i.us.i, align 8, !tbaa !20, !noalias !88
   %incdec.ptr.i.i.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.us.i, i64 8
-  %add.ptr.i.i.i.i.i.i.us.i = getelementptr inbounds double, ptr %__result.sroa.0.07.i.i.i.i.i.us.i, i64 %259
+  %add.ptr.i.i.i.i.i.i.us.i = getelementptr inbounds [8 x i8], ptr %__result.sroa.0.07.i.i.i.i.i.us.i, i64 %259
   %dec.i.i.i.i.i.us.i = add nsw i64 %__n.09.i.i.i.i.i.us.i, -1
   %cmp.i.i.i.i.i.us.i = icmp samesign ugt i64 %__n.09.i.i.i.i.i.us.i, 1
   br i1 %cmp.i.i.i.i.i.us.i, label %for.body.i.i.i.i.i.us.i, label %invoke.cont7.loopexit.us.i, !llvm.loop !91
@@ -4263,7 +4263,7 @@ invoke.cont5.us.i814:                             ; preds = %invoke.cont5.lr.ph.
   %i.020.us.i815 = phi i64 [ %add.i.us.i828, %invoke.cont7.loopexit.us.i827 ], [ 0, %invoke.cont5.lr.ph.i811 ]
   %add.ptr.i.idx.us.i816 = mul i64 %mul.i13.i812, %i.020.us.i815
   %add.ptr.i.us.i817 = getelementptr inbounds nuw i8, ptr %270, i64 %add.ptr.i.idx.us.i816
-  %add.ptr.i17.us.i818 = getelementptr inbounds nuw double, ptr %cond.i.i807, i64 %i.020.us.i815
+  %add.ptr.i17.us.i818 = getelementptr inbounds nuw [8 x i8], ptr %cond.i.i807, i64 %i.020.us.i815
   br label %for.body.i.i.i.i.i.us.i819
 
 for.body.i.i.i.i.i.us.i819:                       ; preds = %for.body.i.i.i.i.i.us.i819, %invoke.cont5.us.i814
@@ -4273,7 +4273,7 @@ for.body.i.i.i.i.i.us.i819:                       ; preds = %for.body.i.i.i.i.i.
   %271 = load double, ptr %__first.addr.08.i.i.i.i.i.us.i821, align 8, !tbaa !20, !noalias !93
   store double %271, ptr %__result.sroa.0.07.i.i.i.i.i.us.i822, align 8, !tbaa !20, !noalias !93
   %incdec.ptr.i.i.i.i.i.us.i823 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.us.i821, i64 8
-  %add.ptr.i.i.i.i.i.i.us.i824 = getelementptr inbounds double, ptr %__result.sroa.0.07.i.i.i.i.i.us.i822, i64 %266
+  %add.ptr.i.i.i.i.i.i.us.i824 = getelementptr inbounds [8 x i8], ptr %__result.sroa.0.07.i.i.i.i.i.us.i822, i64 %266
   %dec.i.i.i.i.i.us.i825 = add nsw i64 %__n.09.i.i.i.i.i.us.i820, -1
   %cmp.i.i.i.i.i.us.i826 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.us.i820, 1
   br i1 %cmp.i.i.i.i.i.us.i826, label %for.body.i.i.i.i.i.us.i819, label %invoke.cont7.loopexit.us.i827, !llvm.loop !91
@@ -4632,9 +4632,9 @@ lpad818:                                          ; preds = %cond.true.i
 
 for.body825:                                      ; preds = %for.body825.lr.ph, %for.body825
   %i820.01902 = phi i64 [ 0, %for.body825.lr.ph ], [ %inc833, %for.body825 ]
-  %arrayidx828 = getelementptr inbounds nuw double, ptr %285, i64 %i820.01902
+  %arrayidx828 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %i820.01902
   %310 = load double, ptr %arrayidx828, align 8, !tbaa !20
-  %arrayidx.i889 = getelementptr inbounds nuw double, ptr %call.i860861, i64 %i820.01902
+  %arrayidx.i889 = getelementptr inbounds nuw [8 x i8], ptr %call.i860861, i64 %i820.01902
   store double %310, ptr %arrayidx.i889, align 8, !tbaa !20
   %inc833 = add nuw i64 %i820.01902, 1
   %exitcond1944.not = icmp eq i64 %inc833, %281
@@ -4644,20 +4644,20 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %for.body844, %for.c
   %311 = phi ptr [ %.pre1963, %for.cond839.preheader._ZN8QuantLib5ArrayD2Ev.exit_crit_edge ], [ %288, %for.body844 ]
   %312 = phi ptr [ %.pre1961, %for.cond839.preheader._ZN8QuantLib5ArrayD2Ev.exit_crit_edge ], [ %289, %for.body844 ]
   %sub875 = add i64 %286, -2
-  %arrayidx.i890 = getelementptr inbounds nuw double, ptr %312, i64 %sub875
+  %arrayidx.i890 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %sub875
   %313 = load double, ptr %arrayidx.i890, align 8, !tbaa !20
-  %arrayidx.i891 = getelementptr inbounds nuw double, ptr %.pre1962, i64 %sub875
+  %arrayidx.i891 = getelementptr inbounds nuw [8 x i8], ptr %.pre1962, i64 %sub875
   %314 = load double, ptr %arrayidx.i891, align 8, !tbaa !20
-  %add.ptr.i892 = getelementptr inbounds nuw double, ptr %311, i64 %sub875
+  %add.ptr.i892 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %sub875
   %315 = load double, ptr %add.ptr.i892, align 8, !tbaa !20
   %316 = call double @llvm.fmuladd.f64(double %314, double %315, double %313)
-  %arrayidx.i893 = getelementptr inbounds nuw double, ptr %.pre1962, i64 %sub841
+  %arrayidx.i893 = getelementptr inbounds nuw [8 x i8], ptr %.pre1962, i64 %sub841
   %317 = load double, ptr %arrayidx.i893, align 8, !tbaa !20
   %sub896 = fsub double %317, %314
   %mul901 = fmul double %315, %sub896
   %div902 = fmul double %mul901, 5.000000e-01
   %add903 = fadd double %316, %div902
-  %arrayidx.i896 = getelementptr inbounds nuw double, ptr %312, i64 %sub841
+  %arrayidx.i896 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %sub841
   store double %add903, ptr %arrayidx.i896, align 8, !tbaa !20
   call void @_ZdaPv(ptr noundef nonnull %.pre1962) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %D_)
@@ -4788,23 +4788,23 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 for.body844:                                      ; preds = %for.body844.lr.ph, %for.body844
   %i838.01904 = phi i64 [ 0, %for.body844.lr.ph ], [ %add845, %for.body844 ]
   %add845 = add nuw i64 %i838.01904, 1
-  %arrayidx.i935 = getelementptr inbounds nuw double, ptr %287, i64 %add845
+  %arrayidx.i935 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %add845
   %331 = load double, ptr %arrayidx.i935, align 8, !tbaa !20
-  %arrayidx.i936 = getelementptr inbounds nuw double, ptr %287, i64 %i838.01904
+  %arrayidx.i936 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %i838.01904
   %332 = load double, ptr %arrayidx.i936, align 8, !tbaa !20
   %sub851 = fsub double %331, %332
-  %add.ptr.i937 = getelementptr inbounds nuw double, ptr %288, i64 %i838.01904
+  %add.ptr.i937 = getelementptr inbounds nuw [8 x i8], ptr %288, i64 %i838.01904
   %333 = load double, ptr %add.ptr.i937, align 8, !tbaa !20
   %div854 = fdiv double %sub851, %333
-  %arrayidx.i938 = getelementptr inbounds nuw double, ptr %.pre1962, i64 %i838.01904
+  %arrayidx.i938 = getelementptr inbounds nuw [8 x i8], ptr %.pre1962, i64 %i838.01904
   %334 = load double, ptr %arrayidx.i938, align 8, !tbaa !20
-  %arrayidx.i939 = getelementptr inbounds nuw double, ptr %.pre1962, i64 %add845
+  %arrayidx.i939 = getelementptr inbounds nuw [8 x i8], ptr %.pre1962, i64 %add845
   %335 = load double, ptr %arrayidx.i939, align 8, !tbaa !20
   %336 = call double @llvm.fmuladd.f64(double %334, double 2.000000e+00, double %335)
   %mul863 = fmul double %333, %336
   %div864 = fdiv double %mul863, 6.000000e+00
   %sub865 = fsub double %div854, %div864
-  %arrayidx.i941 = getelementptr inbounds nuw double, ptr %289, i64 %i838.01904
+  %arrayidx.i941 = getelementptr inbounds nuw [8 x i8], ptr %289, i64 %i838.01904
   store double %sub865, ptr %arrayidx.i941, align 8, !tbaa !20
   %exitcond1945.not = icmp eq i64 %add845, %sub841
   br i1 %exitcond1945.not, label %_ZN8QuantLib5ArrayD2Ev.exit, label %for.body844, !llvm.loop !97
@@ -5015,20 +5015,20 @@ invoke.cont1015.lr.ph:                            ; preds = %_ZN8QuantLib6Matrix
 
 invoke.cont970:                                   ; preds = %invoke.cont970.lr.ph, %invoke.cont970
   %i941.01876 = phi i64 [ 0, %invoke.cont970.lr.ph ], [ %add958, %invoke.cont970 ]
-  %add.ptr.i1003 = getelementptr inbounds nuw double, ptr %351, i64 %i941.01876
+  %add.ptr.i1003 = getelementptr inbounds nuw [8 x i8], ptr %351, i64 %i941.01876
   %357 = load double, ptr %add.ptr.i1003, align 8, !tbaa !20
   %mul.i.i1005 = mul i64 %0, %i941.01876
-  %add.ptr.i.i1006 = getelementptr inbounds nuw double, ptr %350, i64 %mul.i.i1005
+  %add.ptr.i.i1006 = getelementptr inbounds nuw [8 x i8], ptr %350, i64 %mul.i.i1005
   %div950 = fdiv double %357, 6.000000e+00
-  %arrayidx954 = getelementptr inbounds nuw double, ptr %add.ptr.i.i1006, i64 %i941.01876
+  %arrayidx954 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i1006, i64 %i941.01876
   store double %div950, ptr %arrayidx954, align 8, !tbaa !20
   %358 = load double, ptr %add.ptr.i1003, align 8, !tbaa !20
   %add958 = add nuw i64 %i941.01876, 1
-  %add.ptr.i1008 = getelementptr inbounds nuw double, ptr %351, i64 %add958
+  %add.ptr.i1008 = getelementptr inbounds nuw [8 x i8], ptr %351, i64 %add958
   %359 = load double, ptr %add.ptr.i1008, align 8, !tbaa !20
   %add960 = fadd double %358, %359
   %div961 = fdiv double %add960, 3.000000e+00
-  %arrayidx965 = getelementptr inbounds nuw double, ptr %add.ptr.i.i1006, i64 %add958
+  %arrayidx965 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i1006, i64 %add958
   store double %div961, ptr %arrayidx965, align 8, !tbaa !20
   %360 = load double, ptr %add.ptr.i1008, align 8, !tbaa !20
   %div969 = fdiv double %360, 6.000000e+00
@@ -5076,22 +5076,22 @@ ehcleanup1380.thread:                             ; preds = %for.body.i.i.i.preh
 
 invoke.cont1015:                                  ; preds = %invoke.cont1015.lr.ph, %invoke.cont1015
   %i984.01878 = phi i64 [ 0, %invoke.cont1015.lr.ph ], [ %add999, %invoke.cont1015 ]
-  %add.ptr.i1032 = getelementptr inbounds nuw double, ptr %356, i64 %i984.01878
+  %add.ptr.i1032 = getelementptr inbounds nuw [8 x i8], ptr %356, i64 %i984.01878
   %366 = load double, ptr %add.ptr.i1032, align 8, !tbaa !20
   %mul.i.i1034 = mul i64 %0, %i984.01878
-  %add.ptr.i.i1035 = getelementptr inbounds nuw double, ptr %355, i64 %mul.i.i1034
+  %add.ptr.i.i1035 = getelementptr inbounds nuw [8 x i8], ptr %355, i64 %mul.i.i1034
   %div993 = fdiv double 1.000000e+00, %366
-  %arrayidx997 = getelementptr inbounds nuw double, ptr %add.ptr.i.i1035, i64 %i984.01878
+  %arrayidx997 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i1035, i64 %i984.01878
   store double %div993, ptr %arrayidx997, align 8, !tbaa !20
   %add999 = add nuw i64 %i984.01878, 1
-  %add.ptr.i1036 = getelementptr inbounds nuw double, ptr %356, i64 %add999
+  %add.ptr.i1036 = getelementptr inbounds nuw [8 x i8], ptr %356, i64 %add999
   %367 = load double, ptr %add.ptr.i1036, align 8, !tbaa !20
   %368 = load double, ptr %add.ptr.i1032, align 8, !tbaa !20
   %div1001 = fdiv double 1.000000e+00, %367
   %div1004 = fdiv double 1.000000e+00, %368
   %add1005 = fadd double %div1001, %div1004
   %fneg1006 = fneg double %add1005
-  %arrayidx1010 = getelementptr inbounds nuw double, ptr %add.ptr.i.i1035, i64 %add999
+  %arrayidx1010 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i1035, i64 %add999
   store double %fneg1006, ptr %arrayidx1010, align 8, !tbaa !20
   %369 = load double, ptr %add.ptr.i1036, align 8, !tbaa !20
   %div1014 = fdiv double 1.000000e+00, %369
@@ -5150,8 +5150,8 @@ invoke.cont1051:                                  ; preds = %_ZN8QuantLib6Matrix
   %i1042.01880 = phi i64 [ %add1049, %invoke.cont1051 ], [ 0, %_ZN8QuantLib6MatrixC2Emmd.exit1066 ]
   %add1049 = add nuw i64 %i1042.01880, 1
   %mul.i.i1068 = mul i64 %sub939, %add1049
-  %add.ptr.i.i1069 = getelementptr inbounds nuw double, ptr %373, i64 %mul.i.i1068
-  %arrayidx1053 = getelementptr inbounds nuw double, ptr %add.ptr.i.i1069, i64 %i1042.01880
+  %add.ptr.i.i1069 = getelementptr inbounds nuw [8 x i8], ptr %373, i64 %mul.i.i1068
+  %arrayidx1053 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i1069, i64 %i1042.01880
   store double 1.000000e+00, ptr %arrayidx1053, align 8, !tbaa !20
   %exitcond1934.not = icmp eq i64 %add1049, %sub939
   br i1 %exitcond1934.not, label %for.cond.cleanup1047, label %invoke.cont1051, !llvm.loop !100
@@ -5277,8 +5277,8 @@ lpad1074:                                         ; preds = %for.body.i.i.i.preh
 invoke.cont1083:                                  ; preds = %_ZN8QuantLib6MatrixC2Emmd.exit1091, %invoke.cont1083
   %i1076.01882 = phi i64 [ %inc1087, %invoke.cont1083 ], [ 0, %_ZN8QuantLib6MatrixC2Emmd.exit1091 ]
   %mul.i.i1099 = mul i64 %378, %i1076.01882
-  %add.ptr.i.i1100 = getelementptr inbounds nuw double, ptr %382, i64 %mul.i.i1099
-  %arrayidx1085 = getelementptr inbounds nuw double, ptr %add.ptr.i.i1100, i64 %i1076.01882
+  %add.ptr.i.i1100 = getelementptr inbounds nuw [8 x i8], ptr %382, i64 %mul.i.i1099
+  %arrayidx1085 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i1100, i64 %i1076.01882
   store double 1.000000e+00, ptr %arrayidx1085, align 8, !tbaa !20
   %inc1087 = add nuw i64 %i1076.01882, 1
   %exitcond1935.not = icmp eq i64 %inc1087, %378
@@ -5407,36 +5407,36 @@ lpad1109:                                         ; preds = %invoke.cont1105
 invoke.cont1177:                                  ; preds = %call.i1110.noexc, %invoke.cont1177
   %i1132.01884 = phi i64 [ %add1179, %invoke.cont1177 ], [ 1, %call.i1110.noexc ]
   %sub1144 = add i64 %i1132.01884, -1
-  %add.ptr.i1141 = getelementptr inbounds nuw double, ptr %395, i64 %sub1144
+  %add.ptr.i1141 = getelementptr inbounds nuw [8 x i8], ptr %395, i64 %sub1144
   %405 = load double, ptr %add.ptr.i1141, align 8, !tbaa !20
   %mul.i.i1143 = mul i64 %391, %i1132.01884
-  %add.ptr.i.i1144 = getelementptr inbounds nuw double, ptr %call.i11101121, i64 %mul.i.i1143
+  %add.ptr.i.i1144 = getelementptr inbounds nuw [8 x i8], ptr %call.i11101121, i64 %mul.i.i1143
   %mul1146 = fmul double %div1125, %405
-  %arrayidx1151 = getelementptr inbounds nuw double, ptr %add.ptr.i.i1144, i64 %sub1144
+  %arrayidx1151 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i1144, i64 %sub1144
   store double %mul1146, ptr %arrayidx1151, align 8, !tbaa !20
-  %add.ptr.i1145 = getelementptr inbounds nuw double, ptr %395, i64 %i1132.01884
+  %add.ptr.i1145 = getelementptr inbounds nuw [8 x i8], ptr %395, i64 %i1132.01884
   %406 = load double, ptr %add.ptr.i1145, align 8, !tbaa !20
   %407 = load double, ptr %add.ptr.i1141, align 8, !tbaa !20
   %mul1166 = fmul double %div1114, %407
   %408 = call double @llvm.fmuladd.f64(double %div1114, double %406, double %mul1166)
-  %arrayidx1169 = getelementptr inbounds nuw double, ptr %add.ptr.i.i1144, i64 %i1132.01884
+  %arrayidx1169 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i1144, i64 %i1132.01884
   store double %408, ptr %arrayidx1169, align 8, !tbaa !20
   %409 = load double, ptr %add.ptr.i1145, align 8, !tbaa !20
   %mul1176 = fmul double %div1125, %409
   %add1179 = add nuw i64 %i1132.01884, 1
-  %arrayidx1180 = getelementptr inbounds nuw double, ptr %add.ptr.i.i1144, i64 %add1179
+  %arrayidx1180 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i1144, i64 %add1179
   store double %mul1176, ptr %arrayidx1180, align 8, !tbaa !20
   %exitcond1936.not = icmp eq i64 %add1179, %sub1112
   br i1 %exitcond1936.not, label %invoke.cont1212, label %invoke.cont1177, !llvm.loop !102
 
 invoke.cont1212:                                  ; preds = %invoke.cont1177, %call.i1110.noexc
-  %410 = getelementptr double, ptr %395, i64 %391
+  %410 = getelementptr [8 x i8], ptr %395, i64 %391
   %add.ptr.i1131 = getelementptr i8, ptr %410, i64 -16
   %411 = load double, ptr %add.ptr.i1131, align 8, !tbaa !20
   %mul.i.i1133 = mul i64 %391, %sub1112
-  %add.ptr.i.i1134 = getelementptr inbounds nuw double, ptr %call.i11101121, i64 %mul.i.i1133
+  %add.ptr.i.i1134 = getelementptr inbounds nuw [8 x i8], ptr %call.i11101121, i64 %mul.i.i1133
   %mul1193 = fmul double %div1125, %411
-  %412 = getelementptr double, ptr %add.ptr.i.i1134, i64 %391
+  %412 = getelementptr [8 x i8], ptr %add.ptr.i.i1134, i64 %391
   %arrayidx1200 = getelementptr i8, ptr %412, i64 -16
   store double %mul1193, ptr %arrayidx1200, align 8, !tbaa !20
   %413 = load double, ptr %add.ptr.i1131, align 8, !tbaa !20
@@ -5488,7 +5488,7 @@ invoke.cont5.us.i1172:                            ; preds = %invoke.cont5.lr.ph.
   %i.020.us.i1173 = phi i64 [ %add.i.us.i1186, %invoke.cont7.loopexit.us.i1185 ], [ 0, %invoke.cont5.lr.ph.i1169 ]
   %add.ptr.i.idx.us.i1174 = mul i64 %mul.i13.i1170, %i.020.us.i1173
   %add.ptr.i.us.i1175 = getelementptr inbounds nuw i8, ptr %419, i64 %add.ptr.i.idx.us.i1174
-  %add.ptr.i17.us.i1176 = getelementptr inbounds nuw double, ptr %cond.i.i1165, i64 %i.020.us.i1173
+  %add.ptr.i17.us.i1176 = getelementptr inbounds nuw [8 x i8], ptr %cond.i.i1165, i64 %i.020.us.i1173
   br label %for.body.i.i.i.i.i.us.i1177
 
 for.body.i.i.i.i.i.us.i1177:                      ; preds = %for.body.i.i.i.i.i.us.i1177, %invoke.cont5.us.i1172
@@ -5498,7 +5498,7 @@ for.body.i.i.i.i.i.us.i1177:                      ; preds = %for.body.i.i.i.i.i.
   %420 = load double, ptr %__first.addr.08.i.i.i.i.i.us.i1179, align 8, !tbaa !20, !noalias !103
   store double %420, ptr %__result.sroa.0.07.i.i.i.i.i.us.i1180, align 8, !tbaa !20, !noalias !103
   %incdec.ptr.i.i.i.i.i.us.i1181 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.us.i1179, i64 8
-  %add.ptr.i.i.i.i.i.i.us.i1182 = getelementptr inbounds double, ptr %__result.sroa.0.07.i.i.i.i.i.us.i1180, i64 %415
+  %add.ptr.i.i.i.i.i.i.us.i1182 = getelementptr inbounds [8 x i8], ptr %__result.sroa.0.07.i.i.i.i.i.us.i1180, i64 %415
   %dec.i.i.i.i.i.us.i1183 = add nsw i64 %__n.09.i.i.i.i.i.us.i1178, -1
   %cmp.i.i.i.i.i.us.i1184 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.us.i1178, 1
   br i1 %cmp.i.i.i.i.i.us.i1184, label %for.body.i.i.i.i.i.us.i1177, label %invoke.cont7.loopexit.us.i1185, !llvm.loop !91
@@ -5560,7 +5560,7 @@ invoke.cont5.us.i1204:                            ; preds = %invoke.cont5.lr.ph.
   %i.020.us.i1205 = phi i64 [ %add.i.us.i1218, %invoke.cont7.loopexit.us.i1217 ], [ 0, %invoke.cont5.lr.ph.i1201 ]
   %add.ptr.i.idx.us.i1206 = mul i64 %mul.i13.i1202, %i.020.us.i1205
   %add.ptr.i.us.i1207 = getelementptr inbounds nuw i8, ptr %426, i64 %add.ptr.i.idx.us.i1206
-  %add.ptr.i17.us.i1208 = getelementptr inbounds nuw double, ptr %cond.i.i1197, i64 %i.020.us.i1205
+  %add.ptr.i17.us.i1208 = getelementptr inbounds nuw [8 x i8], ptr %cond.i.i1197, i64 %i.020.us.i1205
   br label %for.body.i.i.i.i.i.us.i1209
 
 for.body.i.i.i.i.i.us.i1209:                      ; preds = %for.body.i.i.i.i.i.us.i1209, %invoke.cont5.us.i1204
@@ -5570,7 +5570,7 @@ for.body.i.i.i.i.i.us.i1209:                      ; preds = %for.body.i.i.i.i.i.
   %427 = load double, ptr %__first.addr.08.i.i.i.i.i.us.i1211, align 8, !tbaa !20, !noalias !106
   store double %427, ptr %__result.sroa.0.07.i.i.i.i.i.us.i1212, align 8, !tbaa !20, !noalias !106
   %incdec.ptr.i.i.i.i.i.us.i1213 = getelementptr inbounds nuw i8, ptr %__first.addr.08.i.i.i.i.i.us.i1211, i64 8
-  %add.ptr.i.i.i.i.i.i.us.i1214 = getelementptr inbounds double, ptr %__result.sroa.0.07.i.i.i.i.i.us.i1212, i64 %422
+  %add.ptr.i.i.i.i.i.i.us.i1214 = getelementptr inbounds [8 x i8], ptr %__result.sroa.0.07.i.i.i.i.i.us.i1212, i64 %422
   %dec.i.i.i.i.i.us.i1215 = add nsw i64 %__n.09.i.i.i.i.i.us.i1210, -1
   %cmp.i.i.i.i.i.us.i1216 = icmp samesign ugt i64 %__n.09.i.i.i.i.i.us.i1210, 1
   br i1 %cmp.i.i.i.i.i.us.i1216, label %for.body.i.i.i.i.i.us.i1209, label %invoke.cont7.loopexit.us.i1217, !llvm.loop !91
@@ -5929,9 +5929,9 @@ lpad1267:                                         ; preds = %cond.true.i1250
 
 for.body1274:                                     ; preds = %for.body1274.lr.ph, %for.body1274
   %i1269.01886 = phi i64 [ 0, %for.body1274.lr.ph ], [ %inc1282, %for.body1274 ]
-  %arrayidx1277 = getelementptr inbounds nuw double, ptr %441, i64 %i1269.01886
+  %arrayidx1277 = getelementptr inbounds nuw [8 x i8], ptr %441, i64 %i1269.01886
   %466 = load double, ptr %arrayidx1277, align 8, !tbaa !20
-  %arrayidx.i1283 = getelementptr inbounds nuw double, ptr %call.i12511254, i64 %i1269.01886
+  %arrayidx.i1283 = getelementptr inbounds nuw [8 x i8], ptr %call.i12511254, i64 %i1269.01886
   store double %466, ptr %arrayidx.i1283, align 8, !tbaa !20
   %inc1282 = add nuw i64 %i1269.01886, 1
   %exitcond1937.not = icmp eq i64 %inc1282, %437
@@ -5941,20 +5941,20 @@ _ZN8QuantLib5ArrayD2Ev.exit1293:                  ; preds = %for.body1294, %for.
   %467 = phi ptr [ %.pre1957, %for.cond1289.preheader._ZN8QuantLib5ArrayD2Ev.exit1293_crit_edge ], [ %444, %for.body1294 ]
   %468 = phi ptr [ %.pre1955, %for.cond1289.preheader._ZN8QuantLib5ArrayD2Ev.exit1293_crit_edge ], [ %445, %for.body1294 ]
   %sub1325 = add i64 %442, -2
-  %arrayidx.i1284 = getelementptr inbounds nuw double, ptr %468, i64 %sub1325
+  %arrayidx.i1284 = getelementptr inbounds nuw [8 x i8], ptr %468, i64 %sub1325
   %469 = load double, ptr %arrayidx.i1284, align 8, !tbaa !20
-  %arrayidx.i1285 = getelementptr inbounds nuw double, ptr %.pre1956, i64 %sub1325
+  %arrayidx.i1285 = getelementptr inbounds nuw [8 x i8], ptr %.pre1956, i64 %sub1325
   %470 = load double, ptr %arrayidx.i1285, align 8, !tbaa !20
-  %add.ptr.i1286 = getelementptr inbounds nuw double, ptr %467, i64 %sub1325
+  %add.ptr.i1286 = getelementptr inbounds nuw [8 x i8], ptr %467, i64 %sub1325
   %471 = load double, ptr %add.ptr.i1286, align 8, !tbaa !20
   %472 = call double @llvm.fmuladd.f64(double %470, double %471, double %469)
-  %arrayidx.i1287 = getelementptr inbounds nuw double, ptr %.pre1956, i64 %sub1291
+  %arrayidx.i1287 = getelementptr inbounds nuw [8 x i8], ptr %.pre1956, i64 %sub1291
   %473 = load double, ptr %arrayidx.i1287, align 8, !tbaa !20
   %sub1346 = fsub double %473, %470
   %mul1351 = fmul double %471, %sub1346
   %div1352 = fmul double %mul1351, 5.000000e-01
   %add1353 = fadd double %472, %div1352
-  %arrayidx.i1290 = getelementptr inbounds nuw double, ptr %468, i64 %sub1291
+  %arrayidx.i1290 = getelementptr inbounds nuw [8 x i8], ptr %468, i64 %sub1291
   store double %add1353, ptr %arrayidx.i1290, align 8, !tbaa !20
   call void @_ZdaPv(ptr noundef nonnull %.pre1956) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %D_1285)
@@ -6085,23 +6085,23 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 for.body1294:                                     ; preds = %for.body1294.lr.ph, %for.body1294
   %i1288.01888 = phi i64 [ 0, %for.body1294.lr.ph ], [ %add1295, %for.body1294 ]
   %add1295 = add nuw i64 %i1288.01888, 1
-  %arrayidx.i1330 = getelementptr inbounds nuw double, ptr %443, i64 %add1295
+  %arrayidx.i1330 = getelementptr inbounds nuw [8 x i8], ptr %443, i64 %add1295
   %487 = load double, ptr %arrayidx.i1330, align 8, !tbaa !20
-  %arrayidx.i1331 = getelementptr inbounds nuw double, ptr %443, i64 %i1288.01888
+  %arrayidx.i1331 = getelementptr inbounds nuw [8 x i8], ptr %443, i64 %i1288.01888
   %488 = load double, ptr %arrayidx.i1331, align 8, !tbaa !20
   %sub1301 = fsub double %487, %488
-  %add.ptr.i1332 = getelementptr inbounds nuw double, ptr %444, i64 %i1288.01888
+  %add.ptr.i1332 = getelementptr inbounds nuw [8 x i8], ptr %444, i64 %i1288.01888
   %489 = load double, ptr %add.ptr.i1332, align 8, !tbaa !20
   %div1304 = fdiv double %sub1301, %489
-  %arrayidx.i1333 = getelementptr inbounds nuw double, ptr %.pre1956, i64 %i1288.01888
+  %arrayidx.i1333 = getelementptr inbounds nuw [8 x i8], ptr %.pre1956, i64 %i1288.01888
   %490 = load double, ptr %arrayidx.i1333, align 8, !tbaa !20
-  %arrayidx.i1334 = getelementptr inbounds nuw double, ptr %.pre1956, i64 %add1295
+  %arrayidx.i1334 = getelementptr inbounds nuw [8 x i8], ptr %.pre1956, i64 %add1295
   %491 = load double, ptr %arrayidx.i1334, align 8, !tbaa !20
   %492 = call double @llvm.fmuladd.f64(double %490, double 2.000000e+00, double %491)
   %mul1313 = fmul double %489, %492
   %div1314 = fdiv double %mul1313, 6.000000e+00
   %sub1315 = fsub double %div1304, %div1314
-  %arrayidx.i1336 = getelementptr inbounds nuw double, ptr %445, i64 %i1288.01888
+  %arrayidx.i1336 = getelementptr inbounds nuw [8 x i8], ptr %445, i64 %i1288.01888
   store double %sub1315, ptr %arrayidx.i1336, align 8, !tbaa !20
   %exitcond1938.not = icmp eq i64 %add1295, %sub1291
   br i1 %exitcond1938.not, label %_ZN8QuantLib5ArrayD2Ev.exit1293, label %for.body1294, !llvm.loop !110
@@ -6447,41 +6447,41 @@ for.cond.cleanup1439:                             ; preds = %for.body1440, %for.
   %div1484 = fdiv double %539, %add1483
   store double %div1484, ptr %515, align 8, !tbaa !20
   %sub1489 = add i64 %0, -2
-  %add.ptr.i1402 = getelementptr inbounds nuw double, ptr %513, i64 %sub1489
+  %add.ptr.i1402 = getelementptr inbounds nuw [8 x i8], ptr %513, i64 %sub1489
   %540 = load double, ptr %add.ptr.i1402, align 8, !tbaa !20
   %sub1494 = add i64 %0, -3
-  %add.ptr.i1403 = getelementptr inbounds nuw double, ptr %513, i64 %sub1494
+  %add.ptr.i1403 = getelementptr inbounds nuw [8 x i8], ptr %513, i64 %sub1494
   %541 = load double, ptr %add.ptr.i1403, align 8, !tbaa !20
   %542 = tail call double @llvm.fmuladd.f64(double %540, double 2.000000e+00, double %541)
-  %add.ptr.i1404 = getelementptr inbounds nuw double, ptr %514, i64 %sub1489
+  %add.ptr.i1404 = getelementptr inbounds nuw [8 x i8], ptr %514, i64 %sub1489
   %543 = load double, ptr %add.ptr.i1404, align 8, !tbaa !20
-  %add.ptr.i1406 = getelementptr inbounds nuw double, ptr %514, i64 %sub1494
+  %add.ptr.i1406 = getelementptr inbounds nuw [8 x i8], ptr %514, i64 %sub1494
   %544 = load double, ptr %add.ptr.i1406, align 8, !tbaa !20
   %545 = fneg double %544
   %neg1510 = fmul double %540, %545
   %546 = tail call double @llvm.fmuladd.f64(double %542, double %543, double %neg1510)
   %add1519 = fadd double %540, %541
   %div1520 = fdiv double %546, %add1519
-  %arrayidx.i1409 = getelementptr inbounds nuw double, ptr %515, i64 %sub
+  %arrayidx.i1409 = getelementptr inbounds nuw [8 x i8], ptr %515, i64 %sub
   store double %div1520, ptr %arrayidx.i1409, align 8, !tbaa !20
   br label %if.end2332
 
 for.body1440:                                     ; preds = %for.cond1435.preheader, %for.body1440
   %i1434.01922 = phi i64 [ %inc1463, %for.body1440 ], [ 1, %for.cond1435.preheader ]
   %sub1442 = add i64 %i1434.01922, -1
-  %add.ptr.i1410 = getelementptr inbounds nuw double, ptr %513, i64 %sub1442
+  %add.ptr.i1410 = getelementptr inbounds nuw [8 x i8], ptr %513, i64 %sub1442
   %547 = load double, ptr %add.ptr.i1410, align 8, !tbaa !20
-  %add.ptr.i1411 = getelementptr inbounds nuw double, ptr %514, i64 %i1434.01922
+  %add.ptr.i1411 = getelementptr inbounds nuw [8 x i8], ptr %514, i64 %i1434.01922
   %548 = load double, ptr %add.ptr.i1411, align 8, !tbaa !20
-  %add.ptr.i1412 = getelementptr inbounds nuw double, ptr %513, i64 %i1434.01922
+  %add.ptr.i1412 = getelementptr inbounds nuw [8 x i8], ptr %513, i64 %i1434.01922
   %549 = load double, ptr %add.ptr.i1412, align 8, !tbaa !20
-  %add.ptr.i1413 = getelementptr inbounds nuw double, ptr %514, i64 %sub1442
+  %add.ptr.i1413 = getelementptr inbounds nuw [8 x i8], ptr %514, i64 %sub1442
   %550 = load double, ptr %add.ptr.i1413, align 8, !tbaa !20
   %mul1452 = fmul double %549, %550
   %551 = tail call double @llvm.fmuladd.f64(double %547, double %548, double %mul1452)
   %add1458 = fadd double %547, %549
   %div1459 = fdiv double %551, %add1458
-  %arrayidx.i1416 = getelementptr inbounds nuw double, ptr %515, i64 %i1434.01922
+  %arrayidx.i1416 = getelementptr inbounds nuw [8 x i8], ptr %515, i64 %i1434.01922
   store double %div1459, ptr %arrayidx.i1416, align 8, !tbaa !20
   %inc1463 = add nuw i64 %i1434.01922, 1
   %exitcond1950.not = icmp eq i64 %inc1463, %sub
@@ -6504,28 +6504,28 @@ for.cond.cleanup1531:                             ; preds = %if.end1573, %for.co
   %div1596 = fdiv double %559, %add1595
   store double %div1596, ptr %512, align 8, !tbaa !20
   %sub1601 = add i64 %0, -2
-  %add.ptr.i1425 = getelementptr inbounds nuw double, ptr %552, i64 %sub1601
+  %add.ptr.i1425 = getelementptr inbounds nuw [8 x i8], ptr %552, i64 %sub1601
   %560 = load double, ptr %add.ptr.i1425, align 8, !tbaa !20
   %sub1606 = add i64 %0, -3
-  %add.ptr.i1426 = getelementptr inbounds nuw double, ptr %552, i64 %sub1606
+  %add.ptr.i1426 = getelementptr inbounds nuw [8 x i8], ptr %552, i64 %sub1606
   %561 = load double, ptr %add.ptr.i1426, align 8, !tbaa !20
   %562 = tail call double @llvm.fmuladd.f64(double %560, double 2.000000e+00, double %561)
-  %add.ptr.i1427 = getelementptr inbounds nuw double, ptr %511, i64 %sub1601
+  %add.ptr.i1427 = getelementptr inbounds nuw [8 x i8], ptr %511, i64 %sub1601
   %563 = load double, ptr %add.ptr.i1427, align 8, !tbaa !20
-  %add.ptr.i1429 = getelementptr inbounds nuw double, ptr %511, i64 %sub1606
+  %add.ptr.i1429 = getelementptr inbounds nuw [8 x i8], ptr %511, i64 %sub1606
   %564 = load double, ptr %add.ptr.i1429, align 8, !tbaa !20
   %565 = fneg double %564
   %neg1622 = fmul double %560, %565
   %566 = tail call double @llvm.fmuladd.f64(double %562, double %563, double %neg1622)
   %add1631 = fadd double %560, %561
   %div1632 = fdiv double %566, %add1631
-  %arrayidx.i1432 = getelementptr inbounds nuw double, ptr %512, i64 %sub
+  %arrayidx.i1432 = getelementptr inbounds nuw [8 x i8], ptr %512, i64 %sub
   store double %div1632, ptr %arrayidx.i1432, align 8, !tbaa !20
   br label %if.end2332
 
 for.body1532:                                     ; preds = %for.cond1527.preheader, %if.end1573
   %i1526.01920 = phi i64 [ %inc1575, %if.end1573 ], [ 1, %for.cond1527.preheader ]
-  %567 = getelementptr double, ptr %511, i64 %i1526.01920
+  %567 = getelementptr [8 x i8], ptr %511, i64 %i1526.01920
   %add.ptr.i1433 = getelementptr i8, ptr %567, i64 -8
   %568 = load double, ptr %567, align 8, !tbaa !20
   %569 = load double, ptr %add.ptr.i1433, align 8, !tbaa !20
@@ -6543,13 +6543,13 @@ if.then1547:                                      ; preds = %for.body1532
   br i1 %cmp1549, label %if.then1550, label %if.else1555
 
 if.then1550:                                      ; preds = %if.then1547
-  %arrayidx.i1439 = getelementptr inbounds nuw double, ptr %512, i64 %i1526.01920
+  %arrayidx.i1439 = getelementptr inbounds nuw [8 x i8], ptr %512, i64 %i1526.01920
   store double 0xFFEFFFFFFFFFFFFF, ptr %arrayidx.i1439, align 8, !tbaa !20
   br label %if.end1573
 
 if.else1555:                                      ; preds = %if.then1547
   %cmp1557 = fcmp oeq double %mul1548, 0.000000e+00
-  %arrayidx.i1440 = getelementptr inbounds nuw double, ptr %512, i64 %i1526.01920
+  %arrayidx.i1440 = getelementptr inbounds nuw [8 x i8], ptr %512, i64 %i1526.01920
   br i1 %cmp1557, label %if.then1558, label %if.else1561
 
 if.then1558:                                      ; preds = %if.else1555
@@ -6564,7 +6564,7 @@ if.else1566:                                      ; preds = %for.body1532
   %mul1567 = fmul double %570, 3.000000e+00
   %mul1568 = fmul double %571, %mul1567
   %div1570 = fdiv double %mul1568, %572
-  %arrayidx.i1442 = getelementptr inbounds nuw double, ptr %512, i64 %i1526.01920
+  %arrayidx.i1442 = getelementptr inbounds nuw [8 x i8], ptr %512, i64 %i1526.01920
   store double %div1570, ptr %arrayidx.i1442, align 8, !tbaa !20
   br label %if.end1573
 
@@ -6617,10 +6617,10 @@ sw.bb1637:                                        ; preds = %if.else1393
   br i1 %cmp17441916, label %for.body1746, label %for.cond.cleanup1745
 
 for.cond.cleanup1745:                             ; preds = %for.inc1876, %sw.bb1637
-  %add.ptr.i1474 = getelementptr inbounds nuw double, ptr %573, i64 %sub1743
+  %add.ptr.i1474 = getelementptr inbounds nuw [8 x i8], ptr %573, i64 %sub1743
   %589 = load double, ptr %add.ptr.i1474, align 8, !tbaa !20
   %mul1883 = fmul double %589, 2.000000e+00
-  %590 = getelementptr double, ptr %573, i64 %0
+  %590 = getelementptr [8 x i8], ptr %573, i64 %0
   %add.ptr.i1475 = getelementptr i8, ptr %590, i64 -24
   %591 = load double, ptr %add.ptr.i1475, align 8, !tbaa !20
   %neg1893 = fneg double %589
@@ -6634,7 +6634,7 @@ for.cond.cleanup1745:                             ; preds = %for.inc1876, %sw.bb
   %596 = tail call double @llvm.fmuladd.f64(double %593, double %591, double %mul1914)
   %add1941 = fadd double %593, %595
   %div1942 = fdiv double %596, %add1941
-  %arrayidx.i1486 = getelementptr inbounds nuw double, ptr %581, i64 %sub1743
+  %arrayidx.i1486 = getelementptr inbounds nuw [8 x i8], ptr %581, i64 %sub1743
   store double %div1942, ptr %arrayidx.i1486, align 8, !tbaa !20
   %597 = load double, ptr %add.ptr.i1474, align 8, !tbaa !20
   %mul1951 = fmul double %597, 4.000000e+00
@@ -6653,13 +6653,13 @@ for.cond.cleanup1745:                             ; preds = %for.inc1876, %sw.bb
   %603 = tail call double @llvm.fmuladd.f64(double %601, double %597, double %mul1999)
   %add2037 = fadd double %602, %601
   %div2038 = fdiv double %603, %add2037
-  %arrayidx.i1504 = getelementptr inbounds nuw double, ptr %581, i64 %sub
+  %arrayidx.i1504 = getelementptr inbounds nuw [8 x i8], ptr %581, i64 %sub
   store double %div2038, ptr %arrayidx.i1504, align 8, !tbaa !20
   br label %if.end2332
 
 for.body1746:                                     ; preds = %sw.bb1637, %for.inc1876
   %i1740.01917 = phi i64 [ %inc1877, %for.inc1876 ], [ 2, %sw.bb1637 ]
-  %604 = getelementptr double, ptr %573, i64 %i1740.01917
+  %604 = getelementptr [8 x i8], ptr %573, i64 %i1740.01917
   %add.ptr.i1505 = getelementptr i8, ptr %604, i64 -16
   %605 = load double, ptr %add.ptr.i1505, align 8, !tbaa !20
   %add.ptr.i1506 = getelementptr i8, ptr %604, i64 -8
@@ -6715,7 +6715,7 @@ if.else1830:                                      ; preds = %if.else1798
 
 for.inc1876:                                      ; preds = %if.else1786, %land.lhs.true1774, %land.lhs.true, %if.else1830, %if.then1820
   %.sink2187 = phi double [ %606, %land.lhs.true ], [ %.pre1970.pre, %land.lhs.true1774 ], [ %div1869, %if.else1830 ], [ %div1827, %if.then1820 ], [ %.pre1970.pre, %if.else1786 ]
-  %arrayidx.i1510 = getelementptr inbounds nuw double, ptr %581, i64 %i1740.01917
+  %arrayidx.i1510 = getelementptr inbounds nuw [8 x i8], ptr %581, i64 %i1740.01917
   store double %.sink2187, ptr %arrayidx.i1510, align 8, !tbaa !20
   %inc1877 = add nuw i64 %i1740.01917, 1
   %exitcond1948.not = icmp eq i64 %inc1877, %sub1743
@@ -6730,20 +6730,20 @@ for.cond.cleanup2049:                             ; preds = %for.body2050, %for.
   %div2083 = fmul double %615, 5.000000e-01
   store double %div2083, ptr %510, align 8, !tbaa !20
   %sub2088 = add i64 %0, -2
-  %add.ptr.i1544 = getelementptr inbounds nuw double, ptr %509, i64 %sub2088
+  %add.ptr.i1544 = getelementptr inbounds nuw [8 x i8], ptr %509, i64 %sub2088
   %616 = load double, ptr %add.ptr.i1544, align 8, !tbaa !20
-  %arrayidx.i1545 = getelementptr inbounds nuw double, ptr %510, i64 %sub2088
+  %arrayidx.i1545 = getelementptr inbounds nuw [8 x i8], ptr %510, i64 %sub2088
   %617 = load double, ptr %arrayidx.i1545, align 8, !tbaa !20
   %neg2095 = fneg double %617
   %618 = tail call double @llvm.fmuladd.f64(double %616, double 3.000000e+00, double %neg2095)
   %div2096 = fmul double %618, 5.000000e-01
-  %arrayidx.i1546 = getelementptr inbounds nuw double, ptr %510, i64 %sub
+  %arrayidx.i1546 = getelementptr inbounds nuw [8 x i8], ptr %510, i64 %sub
   store double %div2096, ptr %arrayidx.i1546, align 8, !tbaa !20
   br label %if.end2332
 
 for.body2050:                                     ; preds = %for.cond2045.preheader, %for.body2050
   %i2044.01915 = phi i64 [ %inc2075, %for.body2050 ], [ 1, %for.cond2045.preheader ]
-  %619 = getelementptr double, ptr %509, i64 %i2044.01915
+  %619 = getelementptr [8 x i8], ptr %509, i64 %i2044.01915
   %add.ptr.i1547 = getelementptr i8, ptr %619, i64 -8
   %620 = load double, ptr %add.ptr.i1547, align 8, !tbaa !20
   %621 = load double, ptr %619, align 8, !tbaa !20
@@ -6754,7 +6754,7 @@ for.body2050:                                     ; preds = %for.cond2045.prehea
   %add2069 = fadd double %div2065, %div2068
   %div2070 = fdiv double 2.000000e+00, %add2069
   %div2070.sink = select i1 %cmp2057, double 0.000000e+00, double %div2070
-  %622 = getelementptr inbounds nuw double, ptr %510, i64 %i2044.01915
+  %622 = getelementptr inbounds nuw [8 x i8], ptr %510, i64 %i2044.01915
   store double %div2070.sink, ptr %622, align 8, !tbaa !20
   %inc2075 = add nuw i64 %i2044.01915, 1
   %exitcond1947.not = icmp eq i64 %inc2075, %sub
@@ -6785,18 +6785,18 @@ for.cond.cleanup2107:                             ; preds = %if.end2144, %for.co
 for.body2108:                                     ; preds = %for.body2108.lr.ph, %if.end2144
   %i2102.01913 = phi i64 [ 1, %for.body2108.lr.ph ], [ %inc2146, %if.end2144 ]
   %sub2113 = add i64 %i2102.01913, -1
-  %add.ptr.i1567 = getelementptr inbounds nuw double, ptr %506, i64 %sub2113
+  %add.ptr.i1567 = getelementptr inbounds nuw [8 x i8], ptr %506, i64 %sub2113
   %634 = load double, ptr %add.ptr.i1567, align 8, !tbaa !20
-  %add.ptr.i1568 = getelementptr inbounds nuw double, ptr %506, i64 %i2102.01913
+  %add.ptr.i1568 = getelementptr inbounds nuw [8 x i8], ptr %506, i64 %i2102.01913
   %635 = load double, ptr %add.ptr.i1568, align 8, !tbaa !20
   %mul2126 = fmul double %634, %635
   %cmp2127 = fcmp ugt double %mul2126, 0.000000e+00
   br i1 %cmp2127, label %if.else2131, label %if.end2144
 
 if.else2131:                                      ; preds = %for.body2108
-  %add.ptr.i1564 = getelementptr inbounds nuw double, ptr %508, i64 %sub2113
+  %add.ptr.i1564 = getelementptr inbounds nuw [8 x i8], ptr %508, i64 %sub2113
   %636 = load double, ptr %add.ptr.i1564, align 8, !tbaa !20
-  %add.ptr.i1563 = getelementptr inbounds nuw double, ptr %508, i64 %i2102.01913
+  %add.ptr.i1563 = getelementptr inbounds nuw [8 x i8], ptr %508, i64 %i2102.01913
   %637 = load double, ptr %add.ptr.i1563, align 8, !tbaa !20
   %638 = tail call double @llvm.fmuladd.f64(double %636, double 2.000000e+00, double %637)
   %639 = tail call double @llvm.fmuladd.f64(double %637, double 2.000000e+00, double %636)
@@ -6809,7 +6809,7 @@ if.else2131:                                      ; preds = %for.body2108
 
 if.end2144:                                       ; preds = %for.body2108, %if.else2131
   %.sink = phi double [ %div2141, %if.else2131 ], [ 0.000000e+00, %for.body2108 ]
-  %640 = getelementptr inbounds nuw double, ptr %507, i64 %i2102.01913
+  %640 = getelementptr inbounds nuw [8 x i8], ptr %507, i64 %i2102.01913
   store double %.sink, ptr %640, align 8, !tbaa !20
   %inc2146 = add nuw i64 %i2102.01913, 1
   %exitcond1946.not = icmp eq i64 %inc2146, %sub
@@ -6835,22 +6835,22 @@ if.end2201.sink.split:                            ; preds = %if.then2186, %for.c
 
 if.end2201:                                       ; preds = %if.end2201.sink.split, %if.else2179, %if.then2186
   %sub2204 = add i64 %0, -2
-  %add.ptr.i1580 = getelementptr inbounds nuw double, ptr %625, i64 %sub2204
+  %add.ptr.i1580 = getelementptr inbounds nuw [8 x i8], ptr %625, i64 %sub2204
   %644 = load double, ptr %add.ptr.i1580, align 8, !tbaa !20
   %sub2209 = add i64 %0, -3
-  %add.ptr.i1581 = getelementptr inbounds nuw double, ptr %625, i64 %sub2209
+  %add.ptr.i1581 = getelementptr inbounds nuw [8 x i8], ptr %625, i64 %sub2209
   %645 = load double, ptr %add.ptr.i1581, align 8, !tbaa !20
   %646 = tail call double @llvm.fmuladd.f64(double %644, double 2.000000e+00, double %645)
-  %add.ptr.i1582 = getelementptr inbounds nuw double, ptr %624, i64 %sub2204
+  %add.ptr.i1582 = getelementptr inbounds nuw [8 x i8], ptr %624, i64 %sub2204
   %647 = load double, ptr %add.ptr.i1582, align 8, !tbaa !20
-  %add.ptr.i1584 = getelementptr inbounds nuw double, ptr %624, i64 %sub2209
+  %add.ptr.i1584 = getelementptr inbounds nuw [8 x i8], ptr %624, i64 %sub2209
   %648 = load double, ptr %add.ptr.i1584, align 8, !tbaa !20
   %649 = fneg double %648
   %neg2225 = fmul double %644, %649
   %650 = tail call double @llvm.fmuladd.f64(double %646, double %647, double %neg2225)
   %add2234 = fadd double %644, %645
   %div2235 = fdiv double %650, %add2234
-  %arrayidx.i1587 = getelementptr inbounds nuw double, ptr %623, i64 %sub
+  %arrayidx.i1587 = getelementptr inbounds nuw [8 x i8], ptr %623, i64 %sub
   store double %div2235, ptr %arrayidx.i1587, align 8, !tbaa !20
   %651 = load double, ptr %add.ptr.i1582, align 8, !tbaa !20
   %mul2248 = fmul double %651, %div2235
@@ -7104,9 +7104,9 @@ if.else2382:                                      ; preds = %for.body2345
   br i1 %cmp2385, label %if.then2386, label %if.else2425
 
 if.then2386:                                      ; preds = %if.else2382
-  %arrayidx.i1633 = getelementptr inbounds nuw double, ptr %677, i64 %i2340.01924
+  %arrayidx.i1633 = getelementptr inbounds nuw [8 x i8], ptr %677, i64 %i2340.01924
   %685 = load double, ptr %arrayidx.i1633, align 8, !tbaa !20
-  %686 = getelementptr double, ptr %675, i64 %679
+  %686 = getelementptr [8 x i8], ptr %675, i64 %679
   %add.ptr.i1634 = getelementptr i8, ptr %686, i64 -16
   %687 = load double, ptr %add.ptr.i1634, align 8, !tbaa !20
   %mul2393 = fmul double %685, %687
@@ -7131,7 +7131,7 @@ if.end2413:                                       ; preds = %if.then2386, %if.th
 if.then2417:                                      ; preds = %if.end2413
   store double %correction.1, ptr %arrayidx.i1633, align 8, !tbaa !20
   %div.i.i.i.i.i = sdiv i64 %i2340.01924, 64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %678, i64 %div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %678, i64 %div.i.i.i.i.i
   %690 = and i64 %i2340.01924, -9223372036854775745
   %cmp.i.i.i.i.i = icmp ugt i64 %690, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 -8, i64 0
@@ -7145,13 +7145,13 @@ if.then2417:                                      ; preds = %if.end2413
 
 if.else2425:                                      ; preds = %if.else2382
   %sub2427 = add i64 %i2340.01924, -1
-  %add.ptr.i1647 = getelementptr inbounds nuw double, ptr %675, i64 %sub2427
+  %add.ptr.i1647 = getelementptr inbounds nuw [8 x i8], ptr %675, i64 %sub2427
   %692 = load double, ptr %add.ptr.i1647, align 8, !tbaa !20
-  %add.ptr.i1648 = getelementptr inbounds nuw double, ptr %676, i64 %i2340.01924
+  %add.ptr.i1648 = getelementptr inbounds nuw [8 x i8], ptr %676, i64 %i2340.01924
   %693 = load double, ptr %add.ptr.i1648, align 8, !tbaa !20
-  %add.ptr.i1649 = getelementptr inbounds nuw double, ptr %675, i64 %i2340.01924
+  %add.ptr.i1649 = getelementptr inbounds nuw [8 x i8], ptr %675, i64 %i2340.01924
   %694 = load double, ptr %add.ptr.i1649, align 8, !tbaa !20
-  %add.ptr.i1650 = getelementptr inbounds nuw double, ptr %676, i64 %sub2427
+  %add.ptr.i1650 = getelementptr inbounds nuw [8 x i8], ptr %676, i64 %sub2427
   %695 = load double, ptr %add.ptr.i1650, align 8, !tbaa !20
   %mul2437 = fmul double %694, %695
   %696 = call double @llvm.fmuladd.f64(double %692, double %693, double %mul2437)
@@ -7170,7 +7170,7 @@ if.else2425:                                      ; preds = %if.else2382
 
 if.then2457:                                      ; preds = %if.else2425
   %sub2462 = add i64 %i2340.01924, -2
-  %add.ptr.i1660 = getelementptr inbounds nuw double, ptr %675, i64 %sub2462
+  %add.ptr.i1660 = getelementptr inbounds nuw [8 x i8], ptr %675, i64 %sub2462
   %700 = load double, ptr %add.ptr.i1660, align 8, !tbaa !20
   %sub2464 = fsub double %692, %700
   %sub2470 = fsub double %694, %692
@@ -7179,7 +7179,7 @@ if.then2457:                                      ; preds = %if.else2425
   br i1 %cmp2472, label %if.then2473, label %if.end2522
 
 if.then2473:                                      ; preds = %if.then2457
-  %add.ptr.i1665 = getelementptr inbounds nuw double, ptr %676, i64 %sub2462
+  %add.ptr.i1665 = getelementptr inbounds nuw [8 x i8], ptr %676, i64 %sub2462
   %701 = load double, ptr %add.ptr.i1665, align 8, !tbaa !20
   %702 = call double @llvm.fmuladd.f64(double %695, double 2.000000e+00, double %701)
   %703 = fneg double %695
@@ -7212,7 +7212,7 @@ if.end2522:                                       ; preds = %if.then2457, %if.th
 if.then2526:                                      ; preds = %if.end2522
   %sub2532 = fsub double %694, %692
   %add2534 = add nuw i64 %i2340.01924, 1
-  %add.ptr.i1678 = getelementptr inbounds nuw double, ptr %675, i64 %add2534
+  %add.ptr.i1678 = getelementptr inbounds nuw [8 x i8], ptr %675, i64 %add2534
   %706 = load double, ptr %add.ptr.i1678, align 8, !tbaa !20
   %sub2538 = fsub double %706, %694
   %mul2539 = fmul double %sub2532, %sub2538
@@ -7220,7 +7220,7 @@ if.then2526:                                      ; preds = %if.end2522
   br i1 %cmp2540, label %if.then2541, label %if.end2586
 
 if.then2541:                                      ; preds = %if.then2526
-  %add.ptr.i1682 = getelementptr inbounds nuw double, ptr %676, i64 %add2534
+  %add.ptr.i1682 = getelementptr inbounds nuw [8 x i8], ptr %676, i64 %add2534
   %707 = load double, ptr %add.ptr.i1682, align 8, !tbaa !20
   %708 = call double @llvm.fmuladd.f64(double %693, double 2.000000e+00, double %707)
   %709 = fneg double %693
@@ -7249,7 +7249,7 @@ if.then2577:                                      ; preds = %land.lhs.true2567
 
 if.end2586:                                       ; preds = %if.then2526, %if.then2577, %land.lhs.true2567, %if.then2541, %if.end2522
   %M.1 = phi double [ %.sroa.speculated1738, %if.then2577 ], [ %M.0, %land.lhs.true2567 ], [ %M.0, %if.then2541 ], [ %M.0, %if.then2526 ], [ %M.0, %if.end2522 ]
-  %arrayidx.i1693 = getelementptr inbounds nuw double, ptr %677, i64 %i2340.01924
+  %arrayidx.i1693 = getelementptr inbounds nuw [8 x i8], ptr %677, i64 %i2340.01924
   %712 = load double, ptr %arrayidx.i1693, align 8, !tbaa !20
   %mul2589 = fmul double %div2444, %712
   %cmp2590 = fcmp ogt double %mul2589, 0.000000e+00
@@ -7271,7 +7271,7 @@ if.end2603:                                       ; preds = %if.end2586, %if.the
 if.then2607:                                      ; preds = %if.end2603
   store double %correction.2, ptr %arrayidx.i1693, align 8, !tbaa !20
   %div.i.i.i.i.i1701 = sdiv i64 %i2340.01924, 64
-  %add.ptr.i.i.i.i.i1702 = getelementptr inbounds i64, ptr %678, i64 %div.i.i.i.i.i1701
+  %add.ptr.i.i.i.i.i1702 = getelementptr inbounds [8 x i8], ptr %678, i64 %div.i.i.i.i.i1701
   %714 = and i64 %i2340.01924, -9223372036854775745
   %cmp.i.i.i.i.i1703 = icmp ugt i64 %714, -9223372036854775808
   %storemerge.idx.i.i.i.i.i1704 = select i1 %cmp.i.i.i.i.i1703, i64 -8, i64 0
@@ -7339,22 +7339,22 @@ for.body2671.lr.ph:                               ; preds = %for.cond.cleanup262
 
 for.body2627:                                     ; preds = %for.body2627.lr.ph, %for.body2627
   %i2621.01926 = phi i64 [ 0, %for.body2627.lr.ph ], [ %add2635, %for.body2627 ]
-  %arrayidx.i1713 = getelementptr inbounds nuw double, ptr %719, i64 %i2621.01926
+  %arrayidx.i1713 = getelementptr inbounds nuw [8 x i8], ptr %719, i64 %i2621.01926
   %731 = load double, ptr %arrayidx.i1713, align 8, !tbaa !20
-  %add.ptr.i1714 = getelementptr inbounds nuw double, ptr %720, i64 %i2621.01926
+  %add.ptr.i1714 = getelementptr inbounds nuw [8 x i8], ptr %720, i64 %i2621.01926
   store double %731, ptr %add.ptr.i1714, align 8, !tbaa !20
-  %add.ptr.i1715 = getelementptr inbounds nuw double, ptr %721, i64 %i2621.01926
+  %add.ptr.i1715 = getelementptr inbounds nuw [8 x i8], ptr %721, i64 %i2621.01926
   %732 = load double, ptr %add.ptr.i1715, align 8, !tbaa !20
   %add2635 = add nuw i64 %i2621.01926, 1
-  %arrayidx.i1716 = getelementptr inbounds nuw double, ptr %719, i64 %add2635
+  %arrayidx.i1716 = getelementptr inbounds nuw [8 x i8], ptr %719, i64 %add2635
   %733 = load double, ptr %arrayidx.i1716, align 8, !tbaa !20
   %neg2637 = fneg double %733
   %734 = call double @llvm.fmuladd.f64(double %732, double 3.000000e+00, double %neg2637)
   %735 = call double @llvm.fmuladd.f64(double %731, double -2.000000e+00, double %734)
-  %add.ptr.i1718 = getelementptr inbounds nuw double, ptr %722, i64 %i2621.01926
+  %add.ptr.i1718 = getelementptr inbounds nuw [8 x i8], ptr %722, i64 %i2621.01926
   %736 = load double, ptr %add.ptr.i1718, align 8, !tbaa !20
   %div2643 = fdiv double %735, %736
-  %add.ptr.i1719 = getelementptr inbounds nuw double, ptr %723, i64 %i2621.01926
+  %add.ptr.i1719 = getelementptr inbounds nuw [8 x i8], ptr %723, i64 %i2621.01926
   store double %div2643, ptr %add.ptr.i1719, align 8, !tbaa !20
   %737 = load double, ptr %arrayidx.i1716, align 8, !tbaa !20
   %738 = load double, ptr %arrayidx.i1713, align 8, !tbaa !20
@@ -7364,7 +7364,7 @@ for.body2627:                                     ; preds = %for.body2627.lr.ph,
   %741 = load double, ptr %add.ptr.i1718, align 8, !tbaa !20
   %mul2658 = fmul double %741, %741
   %div2659 = fdiv double %740, %mul2658
-  %add.ptr.i1725 = getelementptr inbounds nuw double, ptr %724, i64 %i2621.01926
+  %add.ptr.i1725 = getelementptr inbounds nuw [8 x i8], ptr %724, i64 %i2621.01926
   store double %div2659, ptr %add.ptr.i1725, align 8, !tbaa !20
   %exitcond1951.not = icmp eq i64 %add2635, %sub26242177
   br i1 %exitcond1951.not, label %for.cond.cleanup2626, label %for.body2627, !llvm.loop !119
@@ -7376,17 +7376,17 @@ for.body2671:                                     ; preds = %for.body2671.lr.ph,
   %742 = phi double [ 0.000000e+00, %for.body2671.lr.ph ], [ %750, %for.body2671 ]
   %i2665.01929 = phi i64 [ 1, %for.body2671.lr.ph ], [ %inc2711, %for.body2671 ]
   %sub2673 = add i64 %i2665.01929, -1
-  %add.ptr.i1727 = getelementptr inbounds nuw double, ptr %726, i64 %sub2673
+  %add.ptr.i1727 = getelementptr inbounds nuw [8 x i8], ptr %726, i64 %sub2673
   %743 = load double, ptr %add.ptr.i1727, align 8, !tbaa !20
-  %arrayidx2681 = getelementptr inbounds nuw double, ptr %727, i64 %sub2673
+  %arrayidx2681 = getelementptr inbounds nuw [8 x i8], ptr %727, i64 %sub2673
   %744 = load double, ptr %arrayidx2681, align 8, !tbaa !20
-  %add.ptr.i1729 = getelementptr inbounds nuw double, ptr %728, i64 %sub2673
+  %add.ptr.i1729 = getelementptr inbounds nuw [8 x i8], ptr %728, i64 %sub2673
   %745 = load double, ptr %add.ptr.i1729, align 8, !tbaa !20
   %div2688 = fmul double %745, 5.000000e-01
-  %add.ptr.i1731 = getelementptr inbounds nuw double, ptr %729, i64 %sub2673
+  %add.ptr.i1731 = getelementptr inbounds nuw [8 x i8], ptr %729, i64 %sub2673
   %746 = load double, ptr %add.ptr.i1731, align 8, !tbaa !20
   %div2695 = fdiv double %746, 3.000000e+00
-  %add.ptr.i1733 = getelementptr inbounds nuw double, ptr %730, i64 %sub2673
+  %add.ptr.i1733 = getelementptr inbounds nuw [8 x i8], ptr %730, i64 %sub2673
   %747 = load double, ptr %add.ptr.i1733, align 8, !tbaa !20
   %mul2702 = fmul double %743, %747
   %div2703 = fmul double %mul2702, 2.500000e-01
@@ -7394,7 +7394,7 @@ for.body2671:                                     ; preds = %for.body2671.lr.ph,
   %748 = call double @llvm.fmuladd.f64(double %743, double %add2704, double %div2688)
   %749 = call double @llvm.fmuladd.f64(double %743, double %748, double %744)
   %750 = call double @llvm.fmuladd.f64(double %743, double %749, double %742)
-  %add.ptr.i1734 = getelementptr inbounds nuw double, ptr %725, i64 %i2665.01929
+  %add.ptr.i1734 = getelementptr inbounds nuw [8 x i8], ptr %725, i64 %i2665.01929
   store double %750, ptr %add.ptr.i1734, align 8, !tbaa !20
   %inc2711 = add nuw i64 %i2665.01929, 1
   %exitcond1952.not = icmp eq i64 %inc2711, %sub26242177
@@ -7444,7 +7444,7 @@ while.body.i.i.i:                                 ; preds = %if.else6.i, %while.
   %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %if.else6.i ]
   %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %if.else6.i ]
   %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %4 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !20
   %cmp.i.i.i.i = fcmp olt double %x, %4
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -7468,24 +7468,24 @@ _ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i:       ; preds = %_ZSt11upper_boundIP
 
 _ZNK8QuantLib13Interpolation12templateImplIPdS2_E6locateEd.exit: ; preds = %entry, %if.then3.i, %_ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i
   %retval.0.i = phi i64 [ %sub15.i, %_ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i ], [ %sub.i, %if.then3.i ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds nuw double, ptr %0, i64 %retval.0.i
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %retval.0.i
   %6 = load double, ptr %arrayidx, align 8, !tbaa !20
   %sub = fsub double %x, %6
   %yBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %7 = load ptr, ptr %yBegin_, align 8, !tbaa !76
-  %arrayidx4 = getelementptr inbounds nuw double, ptr %7, i64 %retval.0.i
+  %arrayidx4 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %retval.0.i
   %8 = load double, ptr %arrayidx4, align 8, !tbaa !20
   %a_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %9 = load ptr, ptr %a_, align 8, !tbaa !68
-  %add.ptr.i8 = getelementptr inbounds nuw double, ptr %9, i64 %retval.0.i
+  %add.ptr.i8 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %retval.0.i
   %10 = load double, ptr %add.ptr.i8, align 8, !tbaa !20
   %b_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %11 = load ptr, ptr %b_, align 8, !tbaa !68
-  %add.ptr.i9 = getelementptr inbounds nuw double, ptr %11, i64 %retval.0.i
+  %add.ptr.i9 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %retval.0.i
   %12 = load double, ptr %add.ptr.i9, align 8, !tbaa !20
   %c_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %13 = load ptr, ptr %c_, align 8, !tbaa !68
-  %add.ptr.i10 = getelementptr inbounds nuw double, ptr %13, i64 %retval.0.i
+  %add.ptr.i10 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %retval.0.i
   %14 = load double, ptr %add.ptr.i10, align 8, !tbaa !20
   %15 = tail call double @llvm.fmuladd.f64(double %sub, double %14, double %12)
   %16 = tail call double @llvm.fmuladd.f64(double %sub, double %15, double %10)
@@ -7529,7 +7529,7 @@ while.body.i.i.i:                                 ; preds = %if.else6.i, %while.
   %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %if.else6.i ]
   %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %if.else6.i ]
   %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %4 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !20
   %cmp.i.i.i.i = fcmp olt double %x, %4
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -7553,30 +7553,30 @@ _ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i:       ; preds = %_ZSt11upper_boundIP
 
 _ZNK8QuantLib13Interpolation12templateImplIPdS2_E6locateEd.exit: ; preds = %entry, %if.then3.i, %_ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i
   %retval.0.i = phi i64 [ %sub15.i, %_ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i ], [ %sub.i, %if.then3.i ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds nuw double, ptr %0, i64 %retval.0.i
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %retval.0.i
   %6 = load double, ptr %arrayidx, align 8, !tbaa !20
   %sub = fsub double %x, %6
   %primitiveConst_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %7 = load ptr, ptr %primitiveConst_, align 8, !tbaa !68
-  %add.ptr.i10 = getelementptr inbounds nuw double, ptr %7, i64 %retval.0.i
+  %add.ptr.i10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %retval.0.i
   %8 = load double, ptr %add.ptr.i10, align 8, !tbaa !20
   %yBegin_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %9 = load ptr, ptr %yBegin_, align 8, !tbaa !76
-  %arrayidx5 = getelementptr inbounds nuw double, ptr %9, i64 %retval.0.i
+  %arrayidx5 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %retval.0.i
   %10 = load double, ptr %arrayidx5, align 8, !tbaa !20
   %a_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %11 = load ptr, ptr %a_, align 8, !tbaa !68
-  %add.ptr.i11 = getelementptr inbounds nuw double, ptr %11, i64 %retval.0.i
+  %add.ptr.i11 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %retval.0.i
   %12 = load double, ptr %add.ptr.i11, align 8, !tbaa !20
   %div = fmul double %12, 5.000000e-01
   %b_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %13 = load ptr, ptr %b_, align 8, !tbaa !68
-  %add.ptr.i12 = getelementptr inbounds nuw double, ptr %13, i64 %retval.0.i
+  %add.ptr.i12 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %retval.0.i
   %14 = load double, ptr %add.ptr.i12, align 8, !tbaa !20
   %div8 = fdiv double %14, 3.000000e+00
   %c_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %15 = load ptr, ptr %c_, align 8, !tbaa !68
-  %add.ptr.i13 = getelementptr inbounds nuw double, ptr %15, i64 %retval.0.i
+  %add.ptr.i13 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %retval.0.i
   %16 = load double, ptr %add.ptr.i13, align 8, !tbaa !20
   %mul = fmul double %sub, %16
   %div10 = fmul double %mul, 2.500000e-01
@@ -7623,7 +7623,7 @@ while.body.i.i.i:                                 ; preds = %if.else6.i, %while.
   %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %if.else6.i ]
   %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %if.else6.i ]
   %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %4 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !20
   %cmp.i.i.i.i = fcmp olt double %x, %4
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -7647,20 +7647,20 @@ _ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i:       ; preds = %_ZSt11upper_boundIP
 
 _ZNK8QuantLib13Interpolation12templateImplIPdS2_E6locateEd.exit: ; preds = %entry, %if.then3.i, %_ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i
   %retval.0.i = phi i64 [ %sub15.i, %_ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i ], [ %sub.i, %if.then3.i ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds nuw double, ptr %0, i64 %retval.0.i
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %retval.0.i
   %6 = load double, ptr %arrayidx, align 8, !tbaa !20
   %sub = fsub double %x, %6
   %a_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %7 = load ptr, ptr %a_, align 8, !tbaa !68
-  %add.ptr.i6 = getelementptr inbounds nuw double, ptr %7, i64 %retval.0.i
+  %add.ptr.i6 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %retval.0.i
   %8 = load double, ptr %add.ptr.i6, align 8, !tbaa !20
   %b_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %9 = load ptr, ptr %b_, align 8, !tbaa !68
-  %add.ptr.i7 = getelementptr inbounds nuw double, ptr %9, i64 %retval.0.i
+  %add.ptr.i7 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %retval.0.i
   %10 = load double, ptr %add.ptr.i7, align 8, !tbaa !20
   %c_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %11 = load ptr, ptr %c_, align 8, !tbaa !68
-  %add.ptr.i8 = getelementptr inbounds nuw double, ptr %11, i64 %retval.0.i
+  %add.ptr.i8 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %retval.0.i
   %12 = load double, ptr %add.ptr.i8, align 8, !tbaa !20
   %mul6 = fmul double %12, 3.000000e+00
   %mul7 = fmul double %sub, %mul6
@@ -7705,7 +7705,7 @@ while.body.i.i.i:                                 ; preds = %if.else6.i, %while.
   %__first.addr.013.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.body.i.i.i ], [ %0, %if.else6.i ]
   %__len.012.i.i.i = phi i64 [ %__len.1.i.i.i, %while.body.i.i.i ], [ %sub.ptr.div.i.i.i.i.i, %if.else6.i ]
   %shr.i.i.i = lshr i64 %__len.012.i.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i, i64 %shr.i.i.i
   %4 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !20
   %cmp.i.i.i.i = fcmp olt double %x, %4
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -7729,16 +7729,16 @@ _ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i:       ; preds = %_ZSt11upper_boundIP
 
 _ZNK8QuantLib13Interpolation12templateImplIPdS2_E6locateEd.exit: ; preds = %entry, %if.then3.i, %_ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i
   %retval.0.i = phi i64 [ %sub15.i, %_ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i ], [ %sub.i, %if.then3.i ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds nuw double, ptr %0, i64 %retval.0.i
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %retval.0.i
   %6 = load double, ptr %arrayidx, align 8, !tbaa !20
   %sub = fsub double %x, %6
   %b_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %7 = load ptr, ptr %b_, align 8, !tbaa !68
-  %add.ptr.i4 = getelementptr inbounds nuw double, ptr %7, i64 %retval.0.i
+  %add.ptr.i4 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %retval.0.i
   %8 = load double, ptr %add.ptr.i4, align 8, !tbaa !20
   %c_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %9 = load ptr, ptr %c_, align 8, !tbaa !68
-  %add.ptr.i5 = getelementptr inbounds nuw double, ptr %9, i64 %retval.0.i
+  %add.ptr.i5 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %retval.0.i
   %10 = load double, ptr %add.ptr.i5, align 8, !tbaa !20
   %mul5 = fmul double %10, 6.000000e+00
   %mul6 = fmul double %sub, %mul5
@@ -8072,7 +8072,7 @@ while.body.i.i.i.i:                               ; preds = %if.else6.i.i, %whil
   %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %if.else6.i.i ]
   %__len.012.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i, %if.else6.i.i ]
   %shr.i.i.i.i = lshr i64 %__len.012.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
   %4 = load double, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !20
   %cmp.i.i.i.i.i = fcmp olt double %x, %4
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
@@ -8096,24 +8096,24 @@ _ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i.i:     ; preds = %_ZSt11upper_boundIP
 
 _ZNK8QuantLib6detail22CubicInterpolationImplIPdS2_E5valueEd.exit: ; preds = %entry, %if.then3.i.i, %_ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i.i
   %retval.0.i.i = phi i64 [ %sub15.i.i, %_ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i.i ], [ %sub.i.i, %if.then3.i.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %0, i64 %retval.0.i.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %retval.0.i.i
   %6 = load double, ptr %arrayidx.i, align 8, !tbaa !20
   %sub.i = fsub double %x, %6
   %yBegin_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load ptr, ptr %yBegin_.i, align 8, !tbaa !76
-  %arrayidx4.i = getelementptr inbounds nuw double, ptr %7, i64 %retval.0.i.i
+  %arrayidx4.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %retval.0.i.i
   %8 = load double, ptr %arrayidx4.i, align 8, !tbaa !20
   %a_.i = getelementptr inbounds i8, ptr %this, i64 -112
   %9 = load ptr, ptr %a_.i, align 8, !tbaa !68
-  %add.ptr.i8.i = getelementptr inbounds nuw double, ptr %9, i64 %retval.0.i.i
+  %add.ptr.i8.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %retval.0.i.i
   %10 = load double, ptr %add.ptr.i8.i, align 8, !tbaa !20
   %b_.i = getelementptr inbounds i8, ptr %this, i64 -88
   %11 = load ptr, ptr %b_.i, align 8, !tbaa !68
-  %add.ptr.i9.i = getelementptr inbounds nuw double, ptr %11, i64 %retval.0.i.i
+  %add.ptr.i9.i = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %retval.0.i.i
   %12 = load double, ptr %add.ptr.i9.i, align 8, !tbaa !20
   %c_.i = getelementptr inbounds i8, ptr %this, i64 -64
   %13 = load ptr, ptr %c_.i, align 8, !tbaa !68
-  %add.ptr.i10.i = getelementptr inbounds nuw double, ptr %13, i64 %retval.0.i.i
+  %add.ptr.i10.i = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %retval.0.i.i
   %14 = load double, ptr %add.ptr.i10.i, align 8, !tbaa !20
   %15 = tail call double @llvm.fmuladd.f64(double %sub.i, double %14, double %12)
   %16 = tail call double @llvm.fmuladd.f64(double %sub.i, double %15, double %10)
@@ -8157,7 +8157,7 @@ while.body.i.i.i.i:                               ; preds = %if.else6.i.i, %whil
   %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %if.else6.i.i ]
   %__len.012.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i, %if.else6.i.i ]
   %shr.i.i.i.i = lshr i64 %__len.012.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
   %4 = load double, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !20
   %cmp.i.i.i.i.i = fcmp olt double %x, %4
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
@@ -8181,30 +8181,30 @@ _ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i.i:     ; preds = %_ZSt11upper_boundIP
 
 _ZNK8QuantLib6detail22CubicInterpolationImplIPdS2_E9primitiveEd.exit: ; preds = %entry, %if.then3.i.i, %_ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i.i
   %retval.0.i.i = phi i64 [ %sub15.i.i, %_ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i.i ], [ %sub.i.i, %if.then3.i.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %0, i64 %retval.0.i.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %retval.0.i.i
   %6 = load double, ptr %arrayidx.i, align 8, !tbaa !20
   %sub.i = fsub double %x, %6
   %primitiveConst_.i = getelementptr inbounds i8, ptr %this, i64 -136
   %7 = load ptr, ptr %primitiveConst_.i, align 8, !tbaa !68
-  %add.ptr.i10.i = getelementptr inbounds nuw double, ptr %7, i64 %retval.0.i.i
+  %add.ptr.i10.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %retval.0.i.i
   %8 = load double, ptr %add.ptr.i10.i, align 8, !tbaa !20
   %yBegin_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %9 = load ptr, ptr %yBegin_.i, align 8, !tbaa !76
-  %arrayidx5.i = getelementptr inbounds nuw double, ptr %9, i64 %retval.0.i.i
+  %arrayidx5.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %retval.0.i.i
   %10 = load double, ptr %arrayidx5.i, align 8, !tbaa !20
   %a_.i = getelementptr inbounds i8, ptr %this, i64 -112
   %11 = load ptr, ptr %a_.i, align 8, !tbaa !68
-  %add.ptr.i11.i = getelementptr inbounds nuw double, ptr %11, i64 %retval.0.i.i
+  %add.ptr.i11.i = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %retval.0.i.i
   %12 = load double, ptr %add.ptr.i11.i, align 8, !tbaa !20
   %div.i = fmul double %12, 5.000000e-01
   %b_.i = getelementptr inbounds i8, ptr %this, i64 -88
   %13 = load ptr, ptr %b_.i, align 8, !tbaa !68
-  %add.ptr.i12.i = getelementptr inbounds nuw double, ptr %13, i64 %retval.0.i.i
+  %add.ptr.i12.i = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %retval.0.i.i
   %14 = load double, ptr %add.ptr.i12.i, align 8, !tbaa !20
   %div8.i = fdiv double %14, 3.000000e+00
   %c_.i = getelementptr inbounds i8, ptr %this, i64 -64
   %15 = load ptr, ptr %c_.i, align 8, !tbaa !68
-  %add.ptr.i13.i = getelementptr inbounds nuw double, ptr %15, i64 %retval.0.i.i
+  %add.ptr.i13.i = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %retval.0.i.i
   %16 = load double, ptr %add.ptr.i13.i, align 8, !tbaa !20
   %mul.i = fmul double %sub.i, %16
   %div10.i = fmul double %mul.i, 2.500000e-01
@@ -8251,7 +8251,7 @@ while.body.i.i.i.i:                               ; preds = %if.else6.i.i, %whil
   %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %if.else6.i.i ]
   %__len.012.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i, %if.else6.i.i ]
   %shr.i.i.i.i = lshr i64 %__len.012.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
   %4 = load double, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !20
   %cmp.i.i.i.i.i = fcmp olt double %x, %4
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
@@ -8275,20 +8275,20 @@ _ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i.i:     ; preds = %_ZSt11upper_boundIP
 
 _ZNK8QuantLib6detail22CubicInterpolationImplIPdS2_E10derivativeEd.exit: ; preds = %entry, %if.then3.i.i, %_ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i.i
   %retval.0.i.i = phi i64 [ %sub15.i.i, %_ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i.i ], [ %sub.i.i, %if.then3.i.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %0, i64 %retval.0.i.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %retval.0.i.i
   %6 = load double, ptr %arrayidx.i, align 8, !tbaa !20
   %sub.i = fsub double %x, %6
   %a_.i = getelementptr inbounds i8, ptr %this, i64 -112
   %7 = load ptr, ptr %a_.i, align 8, !tbaa !68
-  %add.ptr.i6.i = getelementptr inbounds nuw double, ptr %7, i64 %retval.0.i.i
+  %add.ptr.i6.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %retval.0.i.i
   %8 = load double, ptr %add.ptr.i6.i, align 8, !tbaa !20
   %b_.i = getelementptr inbounds i8, ptr %this, i64 -88
   %9 = load ptr, ptr %b_.i, align 8, !tbaa !68
-  %add.ptr.i7.i = getelementptr inbounds nuw double, ptr %9, i64 %retval.0.i.i
+  %add.ptr.i7.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %retval.0.i.i
   %10 = load double, ptr %add.ptr.i7.i, align 8, !tbaa !20
   %c_.i = getelementptr inbounds i8, ptr %this, i64 -64
   %11 = load ptr, ptr %c_.i, align 8, !tbaa !68
-  %add.ptr.i8.i = getelementptr inbounds nuw double, ptr %11, i64 %retval.0.i.i
+  %add.ptr.i8.i = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %retval.0.i.i
   %12 = load double, ptr %add.ptr.i8.i, align 8, !tbaa !20
   %mul6.i = fmul double %12, 3.000000e+00
   %mul7.i = fmul double %sub.i, %mul6.i
@@ -8333,7 +8333,7 @@ while.body.i.i.i.i:                               ; preds = %if.else6.i.i, %whil
   %__first.addr.013.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %if.else6.i.i ]
   %__len.012.i.i.i.i = phi i64 [ %__len.1.i.i.i.i, %while.body.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i, %if.else6.i.i ]
   %shr.i.i.i.i = lshr i64 %__len.012.i.i.i.i, 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.013.i.i.i.i, i64 %shr.i.i.i.i
   %4 = load double, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !20
   %cmp.i.i.i.i.i = fcmp olt double %x, %4
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
@@ -8357,16 +8357,16 @@ _ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i.i:     ; preds = %_ZSt11upper_boundIP
 
 _ZNK8QuantLib6detail22CubicInterpolationImplIPdS2_E16secondDerivativeEd.exit: ; preds = %entry, %if.then3.i.i, %_ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i.i
   %retval.0.i.i = phi i64 [ %sub15.i.i, %_ZSt11upper_boundIPddET_S1_S1_RKT0_.exit.i.i ], [ %sub.i.i, %if.then3.i.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %0, i64 %retval.0.i.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %retval.0.i.i
   %6 = load double, ptr %arrayidx.i, align 8, !tbaa !20
   %sub.i = fsub double %x, %6
   %b_.i = getelementptr inbounds i8, ptr %this, i64 -88
   %7 = load ptr, ptr %b_.i, align 8, !tbaa !68
-  %add.ptr.i4.i = getelementptr inbounds nuw double, ptr %7, i64 %retval.0.i.i
+  %add.ptr.i4.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %retval.0.i.i
   %8 = load double, ptr %add.ptr.i4.i, align 8, !tbaa !20
   %c_.i = getelementptr inbounds i8, ptr %this, i64 -64
   %9 = load ptr, ptr %c_.i, align 8, !tbaa !68
-  %add.ptr.i5.i = getelementptr inbounds nuw double, ptr %9, i64 %retval.0.i.i
+  %add.ptr.i5.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %retval.0.i.i
   %10 = load double, ptr %add.ptr.i5.i, align 8, !tbaa !20
   %mul5.i = fmul double %10, 6.000000e+00
   %mul6.i = fmul double %sub.i, %mul5.i
@@ -8391,7 +8391,7 @@ if.then.i.i:                                      ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %idx.neg.i.i = sub nsw i64 0, %sub.ptr.div.i.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i, i64 noundef %sub.ptr.sub.i.i) #24
   store ptr null, ptr %monotonicityAdjustments_, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -8518,7 +8518,7 @@ if.then.i:                                        ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %idx.neg.i = sub nsw i64 0, %sub.ptr.div.i
-  %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i, i64 noundef %sub.ptr.sub.i) #24
   store ptr null, ptr %this, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -8686,16 +8686,16 @@ ehcleanup24:                                      ; preds = %if.then.i.i18, %ehc
 do.end:                                           ; preds = %land.lhs.true
   %lowerDiagonal_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %18 = load ptr, ptr %lowerDiagonal_, align 8, !tbaa !19
-  %19 = getelementptr double, ptr %18, i64 %i
+  %19 = getelementptr [8 x i8], ptr %18, i64 %i
   %arrayidx.i = getelementptr i8, ptr %19, i64 -8
   store double %valA, ptr %arrayidx.i, align 8, !tbaa !20
   %diagonal_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %20 = load ptr, ptr %diagonal_, align 8, !tbaa !19
-  %arrayidx.i24 = getelementptr inbounds nuw double, ptr %20, i64 %i
+  %arrayidx.i24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %i
   store double %valB, ptr %arrayidx.i24, align 8, !tbaa !20
   %upperDiagonal_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %21 = load ptr, ptr %upperDiagonal_, align 8, !tbaa !19
-  %arrayidx.i25 = getelementptr inbounds nuw double, ptr %21, i64 %i
+  %arrayidx.i25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %i
   store double %valC, ptr %arrayidx.i25, align 8, !tbaa !20
   ret void
 
@@ -8940,24 +8940,24 @@ for.cond56.preheader.us.us.preheader:             ; preds = %_ZN8QuantLib6Matrix
 for.cond56.preheader.us.us:                       ; preds = %for.cond56.preheader.us.us.preheader, %for.cond56.for.cond.cleanup61_crit_edge.split.us.us.us
   %i.0100.us.us = phi i64 [ %inc84.us.us, %for.cond56.for.cond.cleanup61_crit_edge.split.us.us.us ], [ 0, %for.cond56.preheader.us.us.preheader ]
   %mul.i.i.us.us = mul i64 %i.0100.us.us, %0
-  %add.ptr.i.i70.us.us = getelementptr inbounds nuw double, ptr %.pre, i64 %mul.i.i.us.us
+  %add.ptr.i.i70.us.us = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %mul.i.i.us.us
   %mul.i.i75.us.us = mul i64 %24, %i.0100.us.us
-  %add.ptr.i.i76.us.us = getelementptr inbounds nuw double, ptr %28, i64 %mul.i.i75.us.us
+  %add.ptr.i.i76.us.us = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %mul.i.i75.us.us
   br label %for.cond63.preheader.us.us.us
 
 for.cond63.preheader.us.us.us:                    ; preds = %for.cond63.for.cond.cleanup68_crit_edge.us.us.us, %for.cond56.preheader.us.us
   %k.098.us.us.us = phi i64 [ 0, %for.cond56.preheader.us.us ], [ %inc80.us.us.us, %for.cond63.for.cond.cleanup68_crit_edge.us.us.us ]
-  %arrayidx.us.us.us = getelementptr inbounds nuw double, ptr %add.ptr.i.i70.us.us, i64 %k.098.us.us.us
+  %arrayidx.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i70.us.us, i64 %k.098.us.us.us
   %mul.i.i72.us.us.us = mul i64 %k.098.us.us.us, %24
-  %add.ptr.i.i73.us.us.us = getelementptr inbounds nuw double, ptr %.pre111, i64 %mul.i.i72.us.us.us
+  %add.ptr.i.i73.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %.pre111, i64 %mul.i.i72.us.us.us
   br label %invoke.cont75.us.us.us
 
 invoke.cont75.us.us.us:                           ; preds = %invoke.cont75.us.us.us, %for.cond63.preheader.us.us.us
   %j.096.us.us.us = phi i64 [ 0, %for.cond63.preheader.us.us.us ], [ %inc.us.us.us, %invoke.cont75.us.us.us ]
   %29 = load double, ptr %arrayidx.us.us.us, align 8, !tbaa !20
-  %arrayidx74.us.us.us = getelementptr inbounds nuw double, ptr %add.ptr.i.i73.us.us.us, i64 %j.096.us.us.us
+  %arrayidx74.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i73.us.us.us, i64 %j.096.us.us.us
   %30 = load double, ptr %arrayidx74.us.us.us, align 8, !tbaa !20
-  %arrayidx77.us.us.us = getelementptr inbounds nuw double, ptr %add.ptr.i.i76.us.us, i64 %j.096.us.us.us
+  %arrayidx77.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i76.us.us, i64 %j.096.us.us.us
   %31 = load double, ptr %arrayidx77.us.us.us, align 8, !tbaa !20
   %32 = tail call double @llvm.fmuladd.f64(double %29, double %30, double %31)
   store double %32, ptr %arrayidx77.us.us.us, align 8, !tbaa !20
@@ -9423,7 +9423,7 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
 for.body:                                         ; preds = %for.body.lr.ph, %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit.loopexit
   %i.072 = phi i64 [ %inc, %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit.loopexit ], [ 0, %for.body.lr.ph ]
   %mul.i = mul i64 %i.072, %0
-  %add.ptr.i51 = getelementptr inbounds nuw double, ptr %27, i64 %mul.i
+  %add.ptr.i51 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %mul.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body, %for.body.i
@@ -9439,7 +9439,7 @@ for.body.i:                                       ; preds = %for.body, %for.body
   br i1 %cmp.not.i52, label %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit.loopexit, label %for.body.i, !llvm.loop !126
 
 _ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit.loopexit: ; preds = %for.body.i
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %call.i, i64 %i.072
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %call.i, i64 %i.072
   store double %31, ptr %arrayidx.i, align 8, !tbaa !20
   %inc = add nuw i64 %i.072, 1
   %exitcond.not = icmp eq i64 %inc, %22

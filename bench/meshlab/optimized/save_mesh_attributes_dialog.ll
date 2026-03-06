@@ -28,9 +28,6 @@ module asm ".previous"
 %class.QSize = type { i32, i32 }
 %class.QRect = type { i32, i32, i32, i32 }
 %"class.QMetaObject::Connection" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.169 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.169 = type { i64, [8 x i8] }
 %class.RichParameterList = type { %"class.std::__cxx11::list" }
 %"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
 %"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<RichParameter *, std::allocator<RichParameter *>>::_List_impl" }
@@ -44,6 +41,9 @@ module asm ".previous"
 %class.QVariant = type { %"struct.QVariant::Private" }
 %"struct.QVariant::Private" = type <{ %"union.QVariant::Private::Data", i32, [4 x i8] }>
 %"union.QVariant::Private::Data" = type { i64 }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.169 }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon.169 = type { i64, [8 x i8] }
 %"class.std::allocator.166" = type { i8 }
 %class.QByteArray = type { ptr }
 %"struct.std::pair" = type { i32, %"class.std::vector.5" }
@@ -3614,7 +3614,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %19, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %19, i64 %17
   store ptr %24, ptr %14, align 8
-  %25 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %1
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %1
   store ptr %25, ptr %6, align 8
   br label %26
 
@@ -5296,7 +5296,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8
-  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8
   ret void
 
@@ -5972,7 +5972,7 @@ _ZN7QStringD2Ev.exit24:                           ; preds = %_ZN7QStringD2Ev.exi
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %48 = sext i32 %45 to i64
   %49 = load ptr, ptr %47, align 8
-  %50 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %49, i64 %48
+  %50 = getelementptr inbounds [32 x i8], ptr %49, i64 %48
   %51 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %10) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #23
   %52 = load ptr, ptr %41, align 8

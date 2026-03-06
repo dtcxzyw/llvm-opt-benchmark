@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/strtoultest.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.strtoul_test_entry = type { ptr, i32, i64, i32, i64 }
-
 @.str = private unnamed_addr constant [13 x i8] c"test_strtoul\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"../openssl/test/strtoultest.c\00", align 1
 @.str.2 = private unnamed_addr constant [4 x i8] c"err\00", align 1
@@ -39,7 +37,7 @@ define internal range(i32 0, 2) i32 @test_strtoul(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !4
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.strtoul_test_entry, ptr @strtoul_tests, i64 %4
+  %5 = getelementptr inbounds [40 x i8], ptr @strtoul_tests, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !13

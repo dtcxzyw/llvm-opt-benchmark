@@ -2574,9 +2574,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit.i: ; preds = %63, %_ZSt27__u
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %64, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit.i
   store ptr %57, ptr %22, align 8, !tbaa !85
-  %66 = getelementptr inbounds nuw float, ptr %58, i64 %37
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %37
   store ptr %66, ptr %28, align 8, !tbaa !84
-  %67 = getelementptr inbounds nuw float, ptr %57, i64 %55
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %55
   store ptr %67, ptr %38, align 8, !tbaa !86
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
@@ -2585,7 +2585,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %64, %_ZNSt6v
   br i1 %69, label %70, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds nuw float, ptr %30, i64 %27
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %27
   %.not.i.i = icmp eq ptr %29, %71
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %72
 

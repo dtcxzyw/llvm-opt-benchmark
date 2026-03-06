@@ -112,7 +112,7 @@ define hidden noundef ptr @_ZN16PlaceholderEntry13actionToQueueEN16PlaceholderTa
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0 = load ptr, ptr %7, align 8
@@ -136,7 +136,7 @@ define hidden void @_ZN16PlaceholderEntry11set_threadQEP10SeenThreadN16Placehold
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   store ptr %1, ptr %8, align 8
@@ -161,7 +161,7 @@ define hidden void @_ZN16PlaceholderEntry15add_seen_threadEP10JavaThreadN16Place
 
 switch.lookup:                                    ; preds = %3
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0.i = load ptr, ptr %10, align 8
@@ -170,7 +170,7 @@ switch.lookup:                                    ; preds = %3
 
 switch.lookup19:                                  ; preds = %switch.lookup
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %12
+  %13 = getelementptr [8 x i8], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %12
   %switch.gep20 = getelementptr i8, ptr %13, i64 -8
   %switch.load21 = load i64, ptr %switch.gep20, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load21
@@ -209,7 +209,7 @@ define hidden noundef zeroext i1 @_ZN16PlaceholderEntry17check_seen_threadEP10Ja
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.08 = load ptr, ptr %8, align 8
@@ -247,7 +247,7 @@ define hidden noundef zeroext i1 @_ZN16PlaceholderEntry18remove_seen_threadEP10J
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.01725 = load ptr, ptr %8, align 8
@@ -290,7 +290,7 @@ switch.lookup:                                    ; preds = %3
 
 switch.lookup39:                                  ; preds = %17
   %21 = zext nneg i32 %switch.tableidx38 to i64
-  %switch.gep40 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %21
+  %switch.gep40 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %21
   %switch.load41 = load i64, ptr %switch.gep40, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load41
   store ptr %14, ptr %22, align 8
@@ -331,7 +331,7 @@ switch.lookup39:                                  ; preds = %17
 
 switch.lookup43:                                  ; preds = %.loopexit
   %32 = zext nneg i32 %switch.tableidx42 to i64
-  %switch.gep44 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %32
+  %switch.gep44 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %32
   %switch.load45 = load i64, ptr %switch.gep44, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load45
   %.0.i21 = load ptr, ptr %33, align 8
@@ -398,7 +398,7 @@ _ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit: ; preds = %2, %3
   %27 = xor i32 %23, %26
   %28 = urem i32 %27, 503
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %4, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %29
   %31 = load ptr, ptr %30, align 8
   %.not11.i.i.i = icmp eq ptr %31, null
   br i1 %.not11.i.i.i, label %_ZN14PlaceholderKeyD2Ev.exit, label %.lr.ph.i.i.i
@@ -473,7 +473,7 @@ _ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit.i: ; preds = %9, %5
   %33 = xor i32 %29, %32
   %34 = urem i32 %33, 503
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %10, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %35
   %37 = load ptr, ptr %36, align 8
   %.not11.i.i.i.i = icmp eq ptr %37, null
   br i1 %.not11.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i
@@ -611,7 +611,7 @@ _ZN16PlaceholderEntry13actionToQueueEN16PlaceholderTable15classloadActionE.exit.
 
 switch.lookup:                                    ; preds = %_ZN16PlaceholderEntry13actionToQueueEN16PlaceholderTable15classloadActionE.exit.i
   %79 = sext i32 %2 to i64
-  %80 = getelementptr i64, ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %79
+  %80 = getelementptr [8 x i8], ptr @switch.table._ZN16PlaceholderTable12find_and_addEP6SymbolP15ClassLoaderDataNS_15classloadActionES1_P10JavaThread, i64 %79
   %switch.gep = getelementptr i8, ptr %80, i64 -8
   %switch.load = load i64, ptr %switch.gep, align 8
   %81 = getelementptr inbounds nuw i8, ptr %.023, i64 %switch.load
@@ -673,7 +673,7 @@ define linkonce_odr hidden void @_Z3logP6SymbolP16PlaceholderEntryPKcN16Placehol
 
 switch.lookup:                                    ; preds = %7
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z3logP6SymbolP16PlaceholderEntryPKcN16PlaceholderTable15classloadActionE, i64 %24
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z3logP6SymbolP16PlaceholderEntryPKcN16PlaceholderTable15classloadActionE, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZL16action_to_stringN16PlaceholderTable15classloadActionE.exit
 
@@ -760,7 +760,7 @@ _ZN14PlaceholderKeyC2EP6SymbolP15ClassLoaderData.exit.i: ; preds = %5, %4
   %29 = xor i32 %25, %28
   %30 = urem i32 %29, 503
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %6, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %31
   %33 = load ptr, ptr %32, align 8
   %.not11.i.i.i.i = icmp eq ptr %33, null
   br i1 %.not11.i.i.i.i, label %_ZN16PlaceholderTable9get_entryEP6SymbolP15ClassLoaderData.exit, label %.lr.ph.i.i.i.i
@@ -1186,7 +1186,7 @@ define linkonce_odr hidden noundef ptr @_ZN21ResourceHashtableBaseI29FixedResour
   %30 = xor i32 %24, %29
   %31 = urem i32 %30, 503
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %32
   %34 = load ptr, ptr %33, align 8
   %.not11.i = icmp eq ptr %34, null
   br i1 %.not11.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj503E14PlaceholderKey16PlaceholderEntryES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES8_S8_EEE11lookup_nodeEjS8_.exit.thread, label %.lr.ph.i
@@ -1369,7 +1369,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21ResourceHashtableBaseI29Fixe
   %28 = xor i32 %22, %27
   %29 = urem i32 %28, 503
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not11.i = icmp eq ptr %32, null
   br i1 %.not11.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj503E14PlaceholderKey16PlaceholderEntryES1_S2_LN6AnyObj15allocation_typeE2EL8MEMFLAGS1EXadL_ZNS1_4hashERKS1_EEXadL_ZNS1_6equalsES8_S8_EEE11lookup_nodeEjS8_.exit.thread, label %.lr.ph.i

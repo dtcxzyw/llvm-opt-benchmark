@@ -298,7 +298,7 @@ common.ret:                                       ; preds = %130, %133
   br label %.body.i
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds { i64, i64 }, ptr %.val.i, i64 %.val17.i
+  %55 = getelementptr inbounds [16 x i8], ptr %.val.i, i64 %.val17.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.030.sroa.10.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01.sroa.6.i.i.i, i64 24, i1 false), !noalias !21
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.01.sroa.6.i.i.i), !noalias !26
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -485,7 +485,7 @@ common.ret:                                       ; preds = %130, %133
   %85 = load ptr, ptr %64, align 8, !noalias !21, !nonnull !9, !align !10, !noundef !9
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %87 = load i64, ptr %86, align 8, !noalias !21, !noundef !9
-  %88 = getelementptr inbounds { i64, i64 }, ptr %85, i64 %87
+  %88 = getelementptr inbounds [16 x i8], ptr %85, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 88
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !58
   store ptr %85, ptr %6, align 8, !alias.scope !65, !noalias !69
@@ -7383,7 +7383,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %7 = add i64 %6, %.01925.i
   %8 = icmp ult i64 %7, %1
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds { i64, i64 }, ptr %0, i64 %7
+  %9 = getelementptr inbounds [16 x i8], ptr %0, i64 %7
   %.val23.i = load i64, ptr %9, align 8, !alias.scope !1450, !noalias !1455, !noundef !9
   %.not.i.not.i = icmp ugt i64 %.val23.i, %4
   %10 = add nuw i64 %7, 1
@@ -7418,7 +7418,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %7 = add i64 %6, %.01925.i
   %8 = icmp ult i64 %7, %1
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds { i64, i64 }, ptr %0, i64 %7
+  %9 = getelementptr inbounds [16 x i8], ptr %0, i64 %7
   %.val23.i = load i64, ptr %9, align 8, !alias.scope !1456, !noalias !1461, !noundef !9
   %.not.i.not.i = icmp ugt i64 %.val23.i, %4
   %10 = add nuw i64 %7, 1
@@ -7453,7 +7453,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %7 = add i64 %6, %.01925.i
   %8 = icmp ult i64 %7, %1
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds { i64, i64 }, ptr %0, i64 %7
+  %9 = getelementptr inbounds [16 x i8], ptr %0, i64 %7
   %.val23.i = load i64, ptr %9, align 8, !alias.scope !1462, !noalias !1467, !noundef !9
   %.not.i.not.i = icmp ugt i64 %.val23.i, %4
   %10 = add nuw i64 %7, 1
@@ -7495,7 +7495,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %9 = add i64 %8, %.01925
   %10 = icmp ult i64 %9, %1
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds { i64, i64 }, ptr %0, i64 %9
+  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 %9
   %.val23 = load i64, ptr %11, align 8, !noundef !9
   %.not.i.not = icmp ugt i64 %.val23, %4
   %12 = add nuw i64 %9, 1
@@ -7531,7 +7531,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %9 = add i64 %8, %.01925
   %10 = icmp ult i64 %9, %1
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds { i64, i64 }, ptr %0, i64 %9
+  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 %9
   %.val23 = load i64, ptr %11, align 8, !noundef !9
   %.not.i.not = icmp ugt i64 %.val23, %4
   %12 = add nuw i64 %9, 1
@@ -7567,7 +7567,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %9 = add i64 %8, %.01925
   %10 = icmp ult i64 %9, %1
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds { i64, i64 }, ptr %0, i64 %9
+  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 %9
   %.val23 = load i64, ptr %11, align 8, !noundef !9
   %.not.i.not = icmp ugt i64 %.val23, %4
   %12 = add nuw i64 %9, 1
@@ -8048,7 +8048,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %33 = and i64 %.0411, 255
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %35 = load ptr, ptr %34, align 8, !nonnull !9, !align !10, !noundef !9
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   %37 = load ptr, ptr %36, align 8
   br label %45
 
@@ -8359,7 +8359,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
   store i8 %20, ptr %27, align 1, !noalias !1575
   %28 = load ptr, ptr %4, align 8, !alias.scope !1582, !noalias !1575, !nonnull !9, !noundef !9
   %29 = sub nsw i64 0, %10
-  %30 = getelementptr inbounds { i8, [7 x i8], { { { i64, ptr, {} }, i64 } } }, ptr %28, i64 %29
+  %30 = getelementptr inbounds [32 x i8], ptr %28, i64 %29
   %31 = and i8 %18, 1
   %32 = zext nneg i8 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16

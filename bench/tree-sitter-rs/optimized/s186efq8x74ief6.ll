@@ -101,7 +101,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN75_$LT$usize
   br i1 %5, label %6, label %8, !prof !27
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %1, i64 %0
+  %7 = getelementptr inbounds [104 x i8], ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -123,7 +123,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN84_$LT$alloc
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h911ab2dabfa0236dE.llvm.10823498929142229777.exit": ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %9, i64 %1
+  %10 = getelementptr inbounds [104 x i8], ptr %9, i64 %1
   ret ptr %10
 }
 
@@ -249,7 +249,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entr
   %40 = phi i64 [ %.pre.i9, %._crit_edge.i ], [ %32, %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17hf3e84ab1a633bf2fE.exit" ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8, !alias.scope !40, !noalias !43, !nonnull !5, !noundef !5
-  %43 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %42, i64 %40
+  %43 = getelementptr inbounds [104 x i8], ptr %42, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %43, ptr noundef nonnull align 8 dereferenceable(104) %5, i64 104, i1 false)
   %44 = load i64, ptr %6, align 8, !alias.scope !40, !noalias !43, !noundef !5
   %45 = add i64 %44, 1
@@ -323,7 +323,7 @@ define hidden void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
 .critedge:                                        ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !alias.scope !48, !noalias !51, !nonnull !5, !noundef !5
-  %22 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %21, i64 %.fca.1.extract
+  %22 = getelementptr inbounds [104 x i8], ptr %21, i64 %.fca.1.extract
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull align 8 dereferenceable(72) %23, i64 72, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %23, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
@@ -429,14 +429,14 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..
   %27 = add i64 %.sroa.0.025.i.i, %24
   %28 = and i64 %27, %.val5.i
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i64, ptr %.val4.i, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %.val4.i, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -8
   %.val3.i.i.i = load i64, ptr %31, align 8, !noalias !78, !noundef !5
   %32 = icmp ult i64 %.val3.i.i.i, %7
   br i1 %32, label %33, label %39, !prof !27
 
 33:                                               ; preds = %.lr.ph.i.i
-  %34 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %5, i64 %.val3.i.i.i
+  %34 = getelementptr inbounds [104 x i8], ptr %5, i64 %.val3.i.i.i
   %35 = getelementptr i8, ptr %34, i64 16
   %.val4.i.i.i.i = load i64, ptr %35, align 8, !noalias !81, !noundef !5
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.val2.i.i.i.i, %.val4.i.i.i.i
@@ -522,7 +522,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..
   %77 = add i64 %67, 1
   store i64 %77, ptr %66, align 8, !alias.scope !91
   %78 = sub nsw i64 0, %.sroa.410.0.ph
-  %79 = getelementptr inbounds i64, ptr %.val4.i, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %.val4.i, i64 %78
   %80 = getelementptr inbounds i8, ptr %79, i64 -8
   store i64 %67, ptr %80, align 8, !noalias !91
   br label %.loopexit

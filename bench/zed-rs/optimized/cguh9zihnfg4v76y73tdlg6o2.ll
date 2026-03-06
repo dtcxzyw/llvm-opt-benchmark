@@ -129,7 +129,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17hc61124d
 49:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h5c4886a64d82db84E.exit.i.i", %._crit_edge.i.i
   %.pre-phi.i.i = phi i64 [ %.pre2.i.i, %._crit_edge.i.i ], [ %31, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h5c4886a64d82db84E.exit.i.i" ]
   %50 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.06.0.i.i.pn.i.i.i.i.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h5c4886a64d82db84E.exit.i.i" ]
-  %51 = getelementptr inbounds <{ i8, i32, i32 }>, ptr %50, i64 %25
+  %51 = getelementptr inbounds [9 x i8], ptr %50, i64 %25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %51, i8 0, i64 9, i1 false), !noalias !6
   store i64 %.pre-phi.i.i, ptr %24, align 8, !alias.scope !14, !noalias !15
   %52 = getelementptr inbounds nuw i8, ptr %16, i64 584
@@ -196,7 +196,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17hc61124d
 76:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hf9297155c6dbb095E.exit.i.i", %._crit_edge.i173.i
   %.pre-phi.i177.i = phi i64 [ %.pre2.i176.i, %._crit_edge.i173.i ], [ %60, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hf9297155c6dbb095E.exit.i.i" ]
   %77 = phi ptr [ %.pre.i175.i, %._crit_edge.i173.i ], [ %.sroa.06.0.i.i.pn.i.i.i.i181.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hf9297155c6dbb095E.exit.i.i" ]
-  %78 = getelementptr inbounds { i32, i32 }, ptr %77, i64 %54
+  %78 = getelementptr inbounds [8 x i8], ptr %77, i64 %54
   store i32 0, ptr %78, align 4, !noalias !55
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i32 0, ptr %79, align 4, !noalias !55
@@ -274,7 +274,7 @@ define hidden void @_ZN12aho_corasick3nfa13noncontiguous7Builder5build17hc61124d
 106:                                              ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h3fb0c3b842f8e225E.exit.i.i", %._crit_edge.i185.i
   %.pre-phi.i189.i = phi i64 [ %.pre2.i188.i, %._crit_edge.i185.i ], [ %88, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h3fb0c3b842f8e225E.exit.i.i" ]
   %107 = phi ptr [ %.pre.i187.i, %._crit_edge.i185.i ], [ %.sroa.06.0.i.i.pn.i.i.i.i193.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h3fb0c3b842f8e225E.exit.i.i" ]
-  %108 = getelementptr inbounds i32, ptr %107, i64 %82
+  %108 = getelementptr inbounds [4 x i8], ptr %107, i64 %82
   store i32 0, ptr %108, align 4, !noalias !77
   store i64 %.pre-phi.i189.i, ptr %81, align 16, !alias.scope !59, !noalias !6
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !78
@@ -864,7 +864,7 @@ _ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit: ; pre
 
 64:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h709ef2f18cc738adE.exit.i", %._crit_edge.i
   %65 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.sroa.06.0.i.i.pn.i.i.i.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h709ef2f18cc738adE.exit.i" ]
-  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %27
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %27
   store i32 %40, ptr %66, align 4, !noalias !108
   store i64 %28, ptr %14, align 16, !alias.scope !108
   %67 = load ptr, ptr %16, align 8, !nonnull !5, !align !99, !noundef !5
@@ -937,7 +937,7 @@ _ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit: ; pre
 
 95:                                               ; preds = %86
   %96 = load ptr, ptr %19, align 8, !nonnull !5, !noundef !5
-  %97 = getelementptr inbounds nuw { i32, i32, i32, i32, i32 }, ptr %96, i64 %87
+  %97 = getelementptr inbounds nuw [20 x i8], ptr %96, i64 %87
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load i32, ptr %98, align 4, !noundef !5
   %100 = icmp ne i32 %99, 0
@@ -971,7 +971,7 @@ _ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit: ; pre
 
 115:                                              ; preds = %111
   %116 = load ptr, ptr %19, align 8, !alias.scope !129, !nonnull !5, !noundef !5
-  %117 = getelementptr inbounds nuw { i32, i32, i32, i32, i32 }, ptr %116, i64 %112
+  %117 = getelementptr inbounds nuw [20 x i8], ptr %116, i64 %112
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %119 = load i32, ptr %118, align 4, !noalias !129, !noundef !5
   %120 = icmp eq i32 %119, 0
@@ -1002,7 +1002,7 @@ _ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit: ; pre
 
 132:                                              ; preds = %129
   %133 = load ptr, ptr %128, align 8, !nonnull !5, !noundef !5
-  %134 = getelementptr inbounds nuw <{ i8, i32, i32 }>, ptr %133, i64 %130
+  %134 = getelementptr inbounds nuw [9 x i8], ptr %133, i64 %130
   %.sroa.04.0.copyload.i = load i8, ptr %134, align 1
   %.not.i = icmp ugt i8 %78, %.sroa.04.0.copyload.i
   br i1 %.not.i, label %138, label %140
@@ -1041,7 +1041,7 @@ _ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit: ; pre
 
 151:                                              ; preds = %142
   %152 = load ptr, ptr %23, align 8, !alias.scope !129, !nonnull !5, !noundef !5
-  %153 = getelementptr inbounds nuw i32, ptr %152, i64 %148
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %148
   br label %_ZN12aho_corasick3nfa13noncontiguous3NFA17follow_transition17hd25854e654170580E.exit
 
 154:                                              ; preds = %106

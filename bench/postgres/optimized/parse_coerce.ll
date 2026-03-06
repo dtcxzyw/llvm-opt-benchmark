@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ParseCallbackState = type { ptr, i32, %struct.ErrorContextCallback }
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [49 x i8] c"failed to find conversion function from %s to %s\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"parse_coerce.c\00", align 1
@@ -154,9 +151,9 @@ define dso_local noundef zeroext i1 @can_coerce_type(i32 noundef %0, ptr noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %45 ]
   %.06176 = phi i1 [ false, %.lr.ph.preheader ], [ %.162, %45 ]
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = icmp eq i32 %8, %10
@@ -1155,7 +1152,7 @@ list_head.exit:                                   ; preds = %32, %36
   %47 = shl nsw i64 %46, 4
   %48 = getelementptr i8, ptr %35, i64 %47
   %49 = getelementptr i8, ptr %48, i64 24
-  %50 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [100 x i8], ptr %49, i64 %indvars.iv
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 91
   %52 = load i8, ptr %51, align 1, !range !7, !noundef !8
   %53 = trunc nuw i8 %52 to i1
@@ -1214,7 +1211,7 @@ list_head.exit:                                   ; preds = %32, %36
   %.082.val95 = load ptr, ptr %43, align 8
   %91 = getelementptr inbounds nuw i8, ptr %.087105, i64 8
   %92 = sext i32 %.082.val to i64
-  %93 = getelementptr inbounds %union.ListCell, ptr %.082.val95, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %.082.val95, i64 %92
   %94 = icmp ult ptr %91, %93
   %..i = select i1 %94, ptr %91, ptr null
   br label %95
@@ -1385,9 +1382,9 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   %.0190355 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2192304, %.thread288 ]
   %.0194354 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2196303, %.thread288 ]
   %.0199353 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2201302, %.thread288 ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   switch i32 %7, label %.thread288 [
     i32 2776, label %11
@@ -1515,7 +1512,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
   %.2201302.ph = phi i32 [ %.0199353, %27 ], [ %.0199353, %31 ], [ %37, %39 ]
   %48 = add i32 %.0165360, 1
   %49 = sext i32 %.0165360 to i64
-  %50 = getelementptr inbounds i32, ptr %5, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %5, i64 %49
   store i32 %.sink, ptr %50, align 4
   br label %.thread288
 
@@ -1632,7 +1629,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
 77:                                               ; preds = %75
   %78 = add i32 %.2167309, 1
   %79 = sext i32 %.2167309 to i64
-  %80 = getelementptr inbounds i32, ptr %5, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr %5, i64 %79
   store i32 %76, ptr %80, align 4
   br label %81
 
@@ -1660,7 +1657,7 @@ define dso_local zeroext i1 @check_generic_type_consistency(ptr noundef readonly
 
 87:                                               ; preds = %85, %86
   %indvars.iv378 = phi i64 [ 0, %85 ], [ %indvars.iv.next379, %86 ]
-  %88 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv378
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv378
   %89 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef nonnull %88, ptr noundef nonnull %4, i32 noundef 0)
   br i1 %89, label %86, label %verify_common_type_from_oids.exit
 
@@ -1937,7 +1934,7 @@ for_each_cell_setup.exit:                         ; preds = %17
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ %24, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
   %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds %union.ListCell, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @exprType(ptr noundef %31) #4
   %.not64 = icmp eq i32 %32, %16
@@ -1952,7 +1949,7 @@ for_each_cell_setup.exit:                         ; preds = %17
   br label %80
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds %union.ListCell, ptr %29, i64 %indvars.iv
+  %34 = getelementptr inbounds [8 x i8], ptr %29, i64 %indvars.iv
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %list_second_cell.exit
@@ -1984,7 +1981,7 @@ for_each_cell_setup.exit78:                       ; preds = %.loopexit
   %.043108 = phi ptr [ %11, %.lr.ph109.preheader ], [ %.54891, %.thread88 ]
   %43 = phi i32 [ %35, %.lr.ph109.preheader ], [ %73, %.thread88 ]
   %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr inbounds %union.ListCell, ptr %44, i64 %indvars.iv124
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %indvars.iv124
   %46 = load ptr, ptr %45, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %47 = call i32 @exprType(ptr noundef %46) #4
@@ -2150,7 +2147,7 @@ define dso_local noundef zeroext i1 @verify_common_type(i32 noundef %0, ptr noun
 .lr.ph26:                                         ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %.lr.ph ]
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %16 = tail call i32 @exprType(ptr noundef %15) #4
@@ -2181,7 +2178,7 @@ define dso_local i32 @select_common_typmod(ptr noundef readnone captures(none) %
   %.0224862 = phi i32 [ %.22438, %.thread34 ], [ -1, %.lr.ph.split ]
   %.0194961 = phi i1 [ false, %.thread34 ], [ true, %.lr.ph.split ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @exprType(ptr noundef %10) #4
   %.not28 = icmp eq i32 %11, %2
@@ -2245,7 +2242,7 @@ define internal fastcc range(i32 706, 705) i32 @select_common_type_from_oids(i32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %.not23 = icmp eq i32 %13, %10
   br i1 %.not23, label %14, label %._crit_edge.loopexit
@@ -2281,7 +2278,7 @@ define internal fastcc range(i32 706, 705) i32 @select_common_type_from_oids(i32
   %21 = phi i32 [ %18, %.lr.ph34.preheader ], [ %49, %48 ]
   %indvars.iv37 = phi i64 [ %20, %.lr.ph34.preheader ], [ %indvars.iv.next38, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %22 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv37
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv37
   %23 = load i32, ptr %22, align 4
   %24 = call i32 @getBaseType(i32 noundef %23) #4
   store i32 %24, ptr %7, align 4
@@ -2439,9 +2436,9 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   %.0411754 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1412, %139 ]
   %.0417753 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1418, %139 ]
   %.0421752 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1422, %139 ]
-  %20 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   switch i32 %21, label %139 [
     i32 3500, label %24
@@ -2697,7 +2694,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
   %.1387.ph = phi i8 [ %.0386761, %82 ], [ %.0386761, %88 ], [ 1, %109 ]
   %136 = add i32 %.0375764, 1
   %137 = sext i32 %.0375764 to i64
-  %138 = getelementptr inbounds i32, ptr %7, i64 %137
+  %138 = getelementptr inbounds [4 x i8], ptr %7, i64 %137
   store i32 %.sink, ptr %138, align 4
   br label %139
 
@@ -2964,7 +2961,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
 240:                                              ; preds = %233
   %241 = add i32 %.0375.lcssa, 1
   %242 = sext i32 %.0375.lcssa to i64
-  %243 = getelementptr inbounds i32, ptr %7, i64 %242
+  %243 = getelementptr inbounds [4 x i8], ptr %7, i64 %242
   store i32 %234, ptr %243, align 4
   br label %248
 
@@ -2995,7 +2992,7 @@ define dso_local i32 @enforce_generic_type_consistency(ptr noundef readonly capt
 
 252:                                              ; preds = %252, %250
   %indvars.iv.i = phi i64 [ 0, %250 ], [ %indvars.iv.next.i, %252 ]
-  %253 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  %253 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   %254 = call zeroext i1 @can_coerce_type(i32 noundef 1, ptr noundef nonnull readonly %253, ptr noundef nonnull %6, i32 noundef 0)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3138,7 +3135,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
 
 .lr.ph792:                                        ; preds = %.lr.ph792.preheader, %321
   %indvars.iv870 = phi i64 [ 0, %.lr.ph792.preheader ], [ %indvars.iv.next871, %321 ]
-  %315 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv870
+  %315 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv870
   %316 = load i32, ptr %315, align 4
   %317 = and i32 %316, -3
   %or.cond27 = icmp eq i32 %317, 5077
@@ -3183,8 +3180,8 @@ verify_common_type_from_oids.exit:                ; preds = %252
 322:                                              ; preds = %.lr.ph795, %346
   %indvars.iv875 = phi i64 [ 0, %.lr.ph795 ], [ %indvars.iv.next876, %346 ]
   %.6356793 = phi i32 [ %.3353, %.lr.ph795 ], [ %.7357, %346 ]
-  %323 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv875
-  %324 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv875
+  %323 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv875
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv875
   %325 = load i32, ptr %324, align 4
   %.not496 = icmp eq i32 %325, 705
   br i1 %.not496, label %326, label %346
@@ -3395,7 +3392,7 @@ define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noun
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %8
   %indvars.iv133 = phi i64 [ 0, %.lr.ph119.preheader ], [ %indvars.iv.next134, %8 ]
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv133
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv133
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %8 [
     i32 3831, label %.loopexit
@@ -3417,7 +3414,7 @@ define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noun
 
 .lr.ph115:                                        ; preds = %.lr.ph115.preheader, %13
   %indvars.iv128 = phi i64 [ 0, %.lr.ph115.preheader ], [ %indvars.iv.next129, %13 ]
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv128
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv128
   %12 = load i32, ptr %11, align 4
   switch i32 %12, label %13 [
     i32 5080, label %.loopexit
@@ -3439,7 +3436,7 @@ define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   switch i32 %17, label %18 [
     i32 2283, label %.loopexit
@@ -3470,7 +3467,7 @@ define dso_local ptr @check_valid_polymorphic_signature(i32 noundef %0, ptr noun
 
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %24
   %indvars.iv138 = phi i64 [ 0, %.lr.ph122.preheader ], [ %indvars.iv.next139, %24 ]
-  %22 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv138
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv138
   %23 = load i32, ptr %22, align 4
   switch i32 %23, label %24 [
     i32 5077, label %.loopexit
@@ -3518,7 +3515,7 @@ define dso_local ptr @check_valid_internal_signature(i32 noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 2281
   br i1 %9, label %.loopexit, label %6

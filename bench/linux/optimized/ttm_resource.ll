@@ -17,9 +17,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ttm_resource
 
 %struct.ttm_kmap_iter_ops = type { ptr, ptr, i8 }
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ttm_lru_bulk_move_pos = type { ptr, ptr }
-%struct.list_head = type { ptr, ptr }
-%struct.ttm_place = type { i32, i32, i32, i32 }
 %struct.ttm_operation_ctx = type { i8, i8, i8, i8, i8, ptr, i64 }
 %struct.drm_printer = type { ptr, ptr, ptr, ptr }
 
@@ -59,12 +56,12 @@ define dso_local void @ttm_lru_bulk_move_tail(ptr noundef readonly captures(none
 
 2:                                                ; preds = %34, %1
   %3 = phi i64 [ 0, %1 ], [ %35, %34 ]
-  %.split = getelementptr [4 x %struct.ttm_lru_bulk_move_pos], ptr %0, i64 %3
+  %.split = getelementptr [64 x i8], ptr %0, i64 %3
   br label %4
 
 4:                                                ; preds = %31, %2
   %5 = phi i64 [ 0, %2 ], [ %32, %31 ]
-  %6 = getelementptr %struct.ttm_lru_bulk_move_pos, ptr %.split, i64 %5
+  %6 = getelementptr [16 x i8], ptr %.split, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %31, label %9
@@ -76,10 +73,10 @@ define dso_local void @ttm_lru_bulk_move_tail(ptr noundef readonly captures(none
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 352
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  %16 = getelementptr ptr, ptr %15, i64 %3
+  %16 = getelementptr [8 x i8], ptr %15, i64 %3
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %19 = getelementptr %struct.list_head, ptr %18, i64 %5
+  %19 = getelementptr [16 x i8], ptr %18, i64 %5
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %21 = load ptr, ptr %10, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
@@ -135,8 +132,8 @@ define dso_local void @ttm_resource_add_bulk_move(ptr noundef %0, ptr noundef re
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 416
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %.split = getelementptr [4 x %struct.ttm_lru_bulk_move_pos], ptr %4, i64 %13
-  %19 = getelementptr %struct.ttm_lru_bulk_move_pos, ptr %.split, i64 %18
+  %.split = getelementptr [64 x i8], ptr %4, i64 %13
+  %19 = getelementptr [16 x i8], ptr %.split, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %24
@@ -211,8 +208,8 @@ define dso_local void @ttm_resource_del_bulk_move(ptr noundef %0, ptr noundef re
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 416
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %.split = getelementptr [4 x %struct.ttm_lru_bulk_move_pos], ptr %4, i64 %13
-  %19 = getelementptr %struct.ttm_lru_bulk_move_pos, ptr %.split, i64 %18
+  %.split = getelementptr [64 x i8], ptr %4, i64 %13
+  %19 = getelementptr [16 x i8], ptr %.split, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %26, label %22
@@ -321,8 +318,8 @@ define dso_local void @ttm_resource_move_to_lru_tail(ptr noundef %0) local_unnam
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 416
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
-  %.split = getelementptr [4 x %struct.ttm_lru_bulk_move_pos], ptr %20, i64 %25
-  %29 = getelementptr %struct.ttm_lru_bulk_move_pos, ptr %.split, i64 %28
+  %.split = getelementptr [64 x i8], ptr %20, i64 %25
+  %29 = getelementptr [16 x i8], ptr %.split, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, %0
@@ -361,14 +358,14 @@ define dso_local void @ttm_resource_move_to_lru_tail(ptr noundef %0) local_unnam
 49:                                               ; preds = %18
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %51 = sext i32 %23 to i64
-  %52 = getelementptr ptr, ptr %50, i64 %51
+  %52 = getelementptr [8 x i8], ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 416
   %57 = load i32, ptr %56, align 8
   %58 = zext i32 %57 to i64
-  %59 = getelementptr %struct.list_head, ptr %55, i64 %58
+  %59 = getelementptr [16 x i8], ptr %55, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %54, align 8
@@ -413,7 +410,7 @@ define dso_local void @ttm_resource_init(ptr noundef %0, ptr noundef readonly ca
   %18 = load ptr, ptr %16, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 144
   %20 = sext i32 %17 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 2080
   tail call void @_raw_spin_lock(ptr noundef nonnull %23) #13
@@ -433,7 +430,7 @@ define dso_local void @ttm_resource_init(ptr noundef %0, ptr noundef readonly ca
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
-  %36 = getelementptr %struct.list_head, ptr %32, i64 %35
+  %36 = getelementptr [16 x i8], ptr %32, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   br label %38
 
@@ -491,7 +488,7 @@ define dso_local i32 @ttm_resource_alloc(ptr noundef %0, ptr noundef %1, ptr nou
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %9 = sext i32 %6 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
@@ -525,8 +522,8 @@ define dso_local i32 @ttm_resource_alloc(ptr noundef %0, ptr noundef %1, ptr nou
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 416
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
-  %.split = getelementptr [4 x %struct.ttm_lru_bulk_move_pos], ptr %22, i64 %31
-  %37 = getelementptr %struct.ttm_lru_bulk_move_pos, ptr %.split, i64 %36
+  %.split = getelementptr [64 x i8], ptr %22, i64 %31
+  %37 = getelementptr [16 x i8], ptr %.split, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %42
@@ -617,8 +614,8 @@ define dso_local void @ttm_resource_free(ptr noundef readonly captures(none) %0,
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 416
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
-  %.split = getelementptr [4 x %struct.ttm_lru_bulk_move_pos], ptr %11, i64 %20
-  %26 = getelementptr %struct.ttm_lru_bulk_move_pos, ptr %.split, i64 %25
+  %.split = getelementptr [64 x i8], ptr %11, i64 %20
+  %26 = getelementptr [16 x i8], ptr %.split, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %33, label %29
@@ -692,7 +689,7 @@ define dso_local void @ttm_resource_free(ptr noundef readonly captures(none) %0,
   %64 = load ptr, ptr %6, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 144
   %66 = sext i32 %63 to i64
-  %67 = getelementptr ptr, ptr %65, i64 %66
+  %67 = getelementptr [8 x i8], ptr %65, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load ptr, ptr %69, align 8
@@ -716,7 +713,7 @@ define dso_local zeroext i1 @ttm_resource_intersects(ptr noundef readonly captur
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = sext i32 %8 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %2, null
   br i1 %13, label %22, label %14
@@ -750,7 +747,7 @@ define dso_local zeroext i1 @ttm_resource_compatible(ptr noundef readonly captur
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %12 = sext i32 %10 to i64
-  %13 = getelementptr ptr, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
@@ -795,7 +792,7 @@ define dso_local noundef zeroext i1 @ttm_resource_compat(ptr noundef %0, ptr nou
 
 .split:                                           ; preds = %12, %50
   %21 = phi i64 [ %51, %50 ], [ 0, %12 ]
-  %22 = getelementptr %struct.ttm_place, ptr %4, i64 %21
+  %22 = getelementptr [16 x i8], ptr %4, i64 %21
   %23 = load i64, ptr %17, align 8
   %.not14 = icmp eq ptr %22, null
   br i1 %.not14, label %50, label %24
@@ -803,7 +800,7 @@ define dso_local noundef zeroext i1 @ttm_resource_compat(ptr noundef %0, ptr nou
 24:                                               ; preds = %.split
   %25 = load i32, ptr %18, align 8
   %26 = sext i32 %25 to i64
-  %27 = getelementptr ptr, ptr %19, i64 %26
+  %27 = getelementptr [8 x i8], ptr %19, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
@@ -885,7 +882,7 @@ define dso_local noundef zeroext i1 @ttm_resource_compat(ptr noundef %0, ptr nou
 
 .split13:                                         ; preds = %67, %105
   %76 = phi i64 [ %106, %105 ], [ 0, %67 ]
-  %77 = getelementptr %struct.ttm_place, ptr %55, i64 %76
+  %77 = getelementptr [16 x i8], ptr %55, i64 %76
   %78 = load i64, ptr %72, align 8
   %.not16 = icmp eq ptr %77, null
   br i1 %.not16, label %105, label %79
@@ -893,7 +890,7 @@ define dso_local noundef zeroext i1 @ttm_resource_compat(ptr noundef %0, ptr nou
 79:                                               ; preds = %.split13
   %80 = load i32, ptr %73, align 8
   %81 = sext i32 %80 to i64
-  %82 = getelementptr ptr, ptr %74, i64 %81
+  %82 = getelementptr [8 x i8], ptr %74, i64 %81
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
@@ -969,7 +966,7 @@ define dso_local void @ttm_resource_manager_init(ptr noundef initializes((8, 24)
 
 9:                                                ; preds = %9, %3
   %10 = phi i64 [ 0, %3 ], [ %13, %9 ]
-  %11 = getelementptr %struct.list_head, ptr %8, i64 %10
+  %11 = getelementptr [16 x i8], ptr %8, i64 %10
   store volatile ptr %11, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store volatile ptr %11, ptr %12, align 8
@@ -1002,7 +999,7 @@ define dso_local i32 @ttm_resource_manager_evict_all(ptr noundef %0, ptr noundef
 
 8:                                                ; preds = %.loopexit6, %2
   %9 = phi i64 [ 0, %2 ], [ %18, %.loopexit6 ]
-  %10 = getelementptr %struct.list_head, ptr %7, i64 %9
+  %10 = getelementptr [16 x i8], ptr %7, i64 %9
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %10
   br i1 %12, label %.loopexit6, label %.preheader
@@ -1161,7 +1158,7 @@ define dso_local ptr @ttm_resource_manager_first(ptr noundef readonly captures(a
 
 8:                                                ; preds = %4, %2
   %9 = phi i64 [ 0, %2 ], [ %5, %4 ]
-  %10 = getelementptr %struct.list_head, ptr %3, i64 %9
+  %10 = getelementptr [16 x i8], ptr %3, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %10
   br i1 %12, label %4, label %13
@@ -1182,7 +1179,7 @@ define dso_local ptr @ttm_resource_manager_next(ptr noundef readonly captures(ad
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %1, align 4
   %8 = zext i32 %7 to i64
-  %9 = getelementptr %struct.list_head, ptr %6, i64 %8
+  %9 = getelementptr [16 x i8], ptr %6, i64 %8
   %10 = icmp eq ptr %5, %9
   br i1 %10, label %.preheader, label %11
 
@@ -1199,7 +1196,7 @@ define dso_local ptr @ttm_resource_manager_next(ptr noundef readonly captures(ad
 
 16:                                               ; preds = %.preheader
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr %struct.list_head, ptr %6, i64 %17
+  %18 = getelementptr [16 x i8], ptr %6, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %18
   br i1 %20, label %.preheader, label %21, !llvm.loop !25

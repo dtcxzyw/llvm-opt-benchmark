@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/poll_builder.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.pollfd = type { i32, i16, i16 }
-
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/ssl/rio/poll_builder.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -50,7 +48,7 @@ define range(i32 0, 2) i32 @ossl_rio_poll_builder_add_fd(ptr noundef captures(no
 
 .lr.ph:                                           ; preds = %.preheader, %15
   %.03043 = phi i64 [ %16, %15 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw %struct.pollfd, ptr %7, i64 %.03043
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.03043
   %12 = load i32, ptr %11, align 4, !tbaa !12
   %13 = icmp eq i32 %12, -1
   %14 = icmp eq i32 %12, %1
@@ -101,7 +99,7 @@ define range(i32 0, 2) i32 @ossl_rio_poll_builder_add_fd(ptr noundef captures(no
 
 rpb_ensure_alloc.exit:                            ; preds = %30, %19, %._crit_edge
   %31 = phi i64 [ %.pre, %30 ], [ %10, %19 ], [ %10, %._crit_edge ]
-  %32 = getelementptr inbounds nuw %struct.pollfd, ptr %7, i64 %.030.lcssa
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.030.lcssa
   store i32 %1, ptr %32, align 4, !tbaa !12
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %.not38 = icmp ne i32 %2, 0

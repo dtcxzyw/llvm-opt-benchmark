@@ -3,8 +3,6 @@ source_filename = "bench/hdf5/original/h5repack_parse.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.obj_list_t = type { [256 x i8] }
-
 @.str = private unnamed_addr constant [32 x i8] c"could not allocate object list\0A\00", align 1
 @.str.1 = private unnamed_addr constant [47 x i8] c"input Error: Invalid compression type in <%s>\0A\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"SZIP\00", align 1
@@ -152,7 +150,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
 
 46:                                               ; preds = %44, %43
   %47 = zext i32 %.2363 to i64
-  %48 = getelementptr inbounds nuw %struct.obj_list_t, ptr %28, i64 %47
+  %48 = getelementptr inbounds nuw [256 x i8], ptr %28, i64 %47
   %49 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %50 = add i32 %.2363, 1
@@ -244,7 +242,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
 
 83:                                               ; preds = %77
   %84 = sext i8 %79 to i64
-  %85 = getelementptr inbounds i16, ptr %74, i64 %84
+  %85 = getelementptr inbounds [2 x i8], ptr %74, i64 %84
   %86 = load i16, ptr %85, align 2, !tbaa !22
   %87 = and i16 %86, 2048
   %88 = icmp eq i16 %87, 0
@@ -283,7 +281,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
 101:                                              ; preds = %99
   %102 = add i32 %.1243400, 1
   %103 = zext i32 %.1243400 to i64
-  %104 = getelementptr inbounds nuw i32, ptr %76, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %103
   store i32 32, ptr %104, align 4, !tbaa !4
   br label %112
 
@@ -295,7 +293,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
 107:                                              ; preds = %105
   %108 = add i32 %.1243400, 1
   %109 = zext i32 %.1243400 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %76, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %109
   store i32 4, ptr %110, align 4, !tbaa !4
   br label %112
 
@@ -352,7 +350,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
 
 128:                                              ; preds = %122
   %129 = sext i8 %124 to i64
-  %130 = getelementptr inbounds i16, ptr %119, i64 %129
+  %130 = getelementptr inbounds [2 x i8], ptr %119, i64 %129
   %131 = load i16, ptr %130, align 2, !tbaa !22
   %132 = and i16 %131, 2048
   %133 = icmp eq i16 %132, 0
@@ -391,7 +389,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
 146:                                              ; preds = %144
   %147 = add i32 %.4391, 1
   %148 = zext i32 %.4391 to i64
-  %149 = getelementptr inbounds nuw i32, ptr %121, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %148
   store i32 2, ptr %149, align 4, !tbaa !4
   br label %157
 
@@ -403,7 +401,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
 152:                                              ; preds = %150
   %153 = add i32 %.4391, 1
   %154 = zext i32 %.4391 to i64
-  %155 = getelementptr inbounds nuw i32, ptr %121, i64 %154
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %154
   store i32 0, ptr %155, align 4, !tbaa !4
   br label %157
 
@@ -497,7 +495,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
   %191 = trunc i64 %190 to i32
   %192 = add i32 %.6380, 1
   %193 = zext i32 %.6380 to i64
-  %194 = getelementptr inbounds nuw i32, ptr %165, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %165, i64 %193
   store i32 %191, ptr %194, align 4, !tbaa !4
   br label %195
 
@@ -520,7 +518,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
   %.7 = phi i32 [ %.8, %195 ], [ %.6380, %169 ]
   %199 = load ptr, ptr %168, align 8, !tbaa !20
   %200 = sext i8 %198 to i64
-  %201 = getelementptr inbounds i16, ptr %199, i64 %200
+  %201 = getelementptr inbounds [2 x i8], ptr %199, i64 %200
   %202 = load i16, ptr %201, align 2, !tbaa !22
   %203 = and i16 %202, 2048
   %204 = icmp eq i16 %203, 0
@@ -565,7 +563,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 %.6281370
   %219 = load i8, ptr %218, align 1, !tbaa !8
   %220 = sext i8 %219 to i64
-  %221 = getelementptr inbounds i16, ptr %164, i64 %220
+  %221 = getelementptr inbounds [2 x i8], ptr %164, i64 %220
   %222 = load i16, ptr %221, align 2, !tbaa !22
   %223 = and i16 %222, 2048
   %.not = icmp eq i16 %223, 0
@@ -601,7 +599,7 @@ define dso_local noundef ptr @parse_filter(ptr noundef %0, ptr noundef writeonly
   %232 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %233 = add i32 %.3245, 1
   %234 = zext i32 %.3245 to i64
-  %235 = getelementptr inbounds nuw i32, ptr %232, i64 %234
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %234
   store i32 %231, ptr %235, align 4, !tbaa !4
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %237 = load i64, ptr %236, align 8, !tbaa !29
@@ -952,7 +950,7 @@ define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr noundef writeonly
 
 42:                                               ; preds = %40, %39
   %43 = zext i32 %.2126153 to i64
-  %44 = getelementptr inbounds nuw %struct.obj_list_t, ptr %24, i64 %43
+  %44 = getelementptr inbounds nuw [256 x i8], ptr %24, i64 %43
   %45 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
   %46 = add i32 %.2126153, 1
@@ -1062,7 +1060,7 @@ define dso_local noundef ptr @parse_layout(ptr noundef %0, ptr noundef writeonly
   %87 = add nsw i32 %.2158, 1
   %88 = load ptr, ptr %76, align 8, !tbaa !20
   %89 = sext i8 %84 to i64
-  %90 = getelementptr inbounds i16, ptr %88, i64 %89
+  %90 = getelementptr inbounds [2 x i8], ptr %88, i64 %89
   %91 = load i16, ptr %90, align 2, !tbaa !22
   %.fr143 = freeze i16 %91
   %92 = and i16 %.fr143, 2048
@@ -1096,7 +1094,7 @@ switch.early.test:                                ; preds = %81
   store i8 0, ptr %86, align 1, !tbaa !8
   %100 = call i64 @strtoull(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 0) #14
   %101 = sext i32 %.0159 to i64
-  %102 = getelementptr inbounds i64, ptr %78, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %78, i64 %101
   store i64 %100, ptr %102, align 8, !tbaa !38
   %103 = icmp eq i64 %100, 0
   br i1 %103, label %104, label %105
@@ -1129,7 +1127,7 @@ switch.early.test:                                ; preds = %81
 113:                                              ; preds = %108
   %114 = call i64 @strtoull(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 0) #14
   %115 = sext i32 %.0159 to i64
-  %116 = getelementptr inbounds i64, ptr %78, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %78, i64 %115
   store i64 %114, ptr %116, align 8, !tbaa !38
   %117 = icmp eq i64 %114, 0
   br i1 %117, label %118, label %119

@@ -46,8 +46,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantEll
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %18 = getelementptr i32, ptr %16, i64 %indvars.iv35
-  %19 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv35
+  %18 = getelementptr [4 x i8], ptr %16, i64 %indvars.iv35
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv35
   %.promoted.us = load double, ptr %19, align 8, !tbaa !15
   br label %20
 
@@ -55,10 +55,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantEll
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %20 ]
   %21 = phi double [ %.promoted.us, %.preheader.us ], [ %28, %20 ]
   %22 = mul nuw nsw i64 %indvars.iv, %10
-  %23 = getelementptr i32, ptr %18, i64 %22
+  %23 = getelementptr [4 x i8], ptr %18, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !22
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds double, ptr %17, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %17, i64 %25
   %27 = load double, ptr %26, align 8, !tbaa !15
   %28 = fadd double %27, %21
   store double %28, ptr %19, align 8, !tbaa !15
@@ -90,7 +90,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantEll
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %._crit_edge.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %40, %.lr.ph.i.i.i.i.i.i.i ], [ %32, %._crit_edge.i.i.i.i.i.i ]
-  %37 = getelementptr inbounds double, ptr %30, i64 %.05.i.i.i.i.i.i.i
+  %37 = getelementptr inbounds [8 x i8], ptr %30, i64 %.05.i.i.i.i.i.i.i
   %38 = load double, ptr %37, align 8, !tbaa !15
   %39 = fdiv double %38, %29
   store double %39, ptr %37, align 8, !tbaa !15
@@ -100,7 +100,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11setConstantEll
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
   %.011.i.i.i.i.i.i = phi i64 [ %44, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i.i.i ]
-  %41 = getelementptr inbounds nuw double, ptr %30, i64 %.011.i.i.i.i.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.011.i.i.i.i.i.i
   %42 = load <2 x double>, ptr %41, align 16, !tbaa !28
   %43 = fdiv <2 x double> %42, %35
   store <2 x double> %43, ptr %41, align 16, !tbaa !28

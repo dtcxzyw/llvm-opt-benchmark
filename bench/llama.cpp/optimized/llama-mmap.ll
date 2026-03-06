@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.21 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.21 = type { i64, [8 x i8] }
-%"struct.std::pair" = type { i64, i64 }
 %struct.rlimit = type { i64, i64 }
 
 $_ZNK10llama_file4impl4tellEv = comdat any
@@ -690,7 +689,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i: ; preds
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRKmRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRKmRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %69, %_ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
-  %70 = getelementptr inbounds nuw %"struct.std::pair", ptr %63, i64 %61
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %61
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJRKmRmEEERS1_DpOT_.exit
 
 _ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJRKmRmEEERS1_DpOT_.exit: ; preds = %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRKmRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %50
@@ -765,7 +764,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i40: ; pre
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmRKmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmRKmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %94, %_ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i40
-  %95 = getelementptr inbounds nuw %"struct.std::pair", ptr %87, i64 %85
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 %85
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJRmRKmEEERS1_DpOT_.exit
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorISt4pairImmESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorISt4pairImmESaIS1_EE12_M_check_lenEmPKc.exit.i.i32, %_ZNKSt6vectorISt4pairImmESaIS1_EE12_M_check_lenEmPKc.exit.i.i48, %_ZNKSt6vectorISt4pairImmESaIS1_EE12_M_check_lenEmPKc.exit.i.i64, %_ZNKSt6vectorISt4pairImmESaIS1_EE12_M_check_lenEmPKc.exit.i.i80
@@ -863,7 +862,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i56: ; pre
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRKmRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i59
 
 _ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRKmRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i59: ; preds = %125, %_ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i56
-  %126 = getelementptr inbounds nuw %"struct.std::pair", ptr %118, i64 %116
+  %126 = getelementptr inbounds nuw [16 x i8], ptr %118, i64 %116
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJRmRKmEEERS1_DpOT_.exit
 
 127:                                              ; preds = %.lr.ph, %101
@@ -937,7 +936,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i72: ; pre
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmRKmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i75
 
 _ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmRKmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i75: ; preds = %156, %_ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i72
-  %157 = getelementptr inbounds nuw %"struct.std::pair", ptr %149, i64 %147
+  %157 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %147
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJRmRKmEEERS1_DpOT_.exit
 
 158:                                              ; preds = %129, %127
@@ -1004,7 +1003,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; preds
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %181, %_ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
-  %182 = getelementptr inbounds nuw %"struct.std::pair", ptr %176, i64 %174
+  %182 = getelementptr inbounds nuw [16 x i8], ptr %176, i64 %174
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJRmRKmEEERS1_DpOT_.exit
 
 _ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJRmRKmEEERS1_DpOT_.exit: ; preds = %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %163, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmRKmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i75, %134, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRKmRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i59, %104, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmRKmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %71, %159
@@ -1510,7 +1509,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i: ; preds
 _ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJimEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %93, %_ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
   store ptr %87, ptr %0, align 8, !tbaa !37
   store ptr %92, ptr %67, align 8, !tbaa !39
-  %94 = getelementptr inbounds nuw %"struct.std::pair", ptr %87, i64 %85
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 %85
   store ptr %94, ptr %69, align 8, !tbaa !38
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJimEEERS1_DpOT_.exit
 

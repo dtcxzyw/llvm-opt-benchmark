@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [36 x i8] c"database with OID %u does not exist\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"dbsize.c\00", align 1
@@ -597,7 +596,7 @@ define internal fastcc i64 @calculate_table_size(ptr noundef nonnull readonly ca
   %.135.i16 = phi i64 [ %67, %69 ], [ %21, %.lr.ph.i ]
   %indvars.iv.i15 = phi i64 [ %indvars.iv.next.i, %69 ], [ 0, %.lr.ph.i ]
   %30 = load ptr, ptr %26, align 8
-  %31 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv.i15
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i15
   %32 = load i32, ptr %31, align 8
   %33 = call ptr @relation_open(i32 noundef %32, i32 noundef 1) #8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 28
@@ -745,7 +744,7 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef nonnull %0) unnam
   %.12634 = phi i64 [ %53, %55 ], [ 0, %.lr.ph ]
   %indvars.iv33 = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.lr.ph ]
   %16 = load ptr, ptr %12, align 8
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv33
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv33
   %18 = load i32, ptr %17, align 8
   %19 = call ptr @relation_open(i32 noundef %18, i32 noundef 1) #8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -1048,7 +1047,7 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   %.0 = phi ptr [ %7, %1 ], [ %16, %10 ]
   %11 = load i8, ptr %.0, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 8192
   %.not = icmp eq i16 %15, 0
@@ -1064,7 +1063,7 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
 18:                                               ; preds = %17, %17
   %.pre = load i8, ptr %16, align 1
   %.phi.trans.insert = zext i8 %.pre to i64
-  %.phi.trans.insert121 = getelementptr inbounds nuw i16, ptr %9, i64 %.phi.trans.insert
+  %.phi.trans.insert121 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %.phi.trans.insert
   %.pre122 = load i16, ptr %.phi.trans.insert121, align 2
   br label %19
 
@@ -1081,7 +1080,7 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   %23 = getelementptr inbounds nuw i8, ptr %.268, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %9, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 2048
   %.not82 = icmp eq i16 %28, 0
@@ -1097,7 +1096,7 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   %32 = getelementptr inbounds nuw i8, ptr %.167, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i16, ptr %9, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 2048
   %.not83 = icmp eq i16 %37, 0
@@ -1108,7 +1107,7 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   %38 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw i16, ptr %9, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %40
   %42 = load i16, ptr %41, align 2
   %43 = and i16 %42, 2048
   %.not84 = icmp eq i16 %43, 0
@@ -1156,7 +1155,7 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   store i8 %57, ptr %.5, align 1
   %62 = load ptr, ptr %8, align 8
   %63 = zext i8 %57 to i64
-  %64 = getelementptr inbounds nuw i16, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %63
   %65 = load i16, ptr %64, align 2
   %66 = and i16 %65, 8192
   %.not85109 = icmp eq i16 %66, 0
@@ -1167,7 +1166,7 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   %67 = getelementptr inbounds nuw i8, ptr %.1110, i64 1
   %.pr = load i8, ptr %67, align 1
   %68 = zext i8 %.pr to i64
-  %69 = getelementptr inbounds nuw i16, ptr %62, i64 %68
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %68
   %70 = load i16, ptr %69, align 2
   %71 = and i16 %70, 8192
   %.not85 = icmp eq i16 %71, 0
@@ -1223,7 +1222,7 @@ define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) loca
   %.7 = getelementptr inbounds i8, ptr %.pn, i64 -1
   %98 = load i8, ptr %.7, align 1
   %99 = zext i8 %98 to i64
-  %100 = getelementptr inbounds nuw i16, ptr %62, i64 %99
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %99
   %101 = load i16, ptr %100, align 2
   %102 = and i16 %101, 8192
   %.not88 = icmp eq i16 %102, 0

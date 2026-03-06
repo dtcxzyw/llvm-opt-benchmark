@@ -97,7 +97,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn14Concat_x86_fma7forwardE
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.04991221 = phi i32 [ %52, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.05021220 = phi i64 [ %53, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %46 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %23, i64 %.05021220
+  %46 = getelementptr inbounds nuw [72 x i8], ptr %23, i64 %.05021220
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 44
   %48 = load i32, ptr %47, align 4, !tbaa !37
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 24
@@ -152,7 +152,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %61
   %81 = phi ptr [ %98, %.lr.ph1224 ], [ %80, %.preheader1216 ]
   %.05131223 = phi ptr [ %95, %.lr.ph1224 ], [ %70, %.preheader1216 ]
   %.05161222 = phi i64 [ %96, %.lr.ph1224 ], [ 0, %.preheader1216 ]
-  %82 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %81, i64 %.05161222
+  %82 = getelementptr inbounds nuw [72 x i8], ptr %81, i64 %.05161222
   %83 = load ptr, ptr %82, align 8, !tbaa !41
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 44
   %85 = load i32, ptr %84, align 4, !tbaa !37
@@ -166,7 +166,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %61
   %92 = load i32, ptr %91, align 8, !tbaa !31
   %93 = mul nsw i32 %92, %90
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds float, ptr %.05131223, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %.05131223, i64 %94
   %96 = add nuw i64 %.05161222, 1
   %97 = load ptr, ptr %37, align 8, !tbaa !32
   %98 = load ptr, ptr %1, align 8, !tbaa !4
@@ -220,7 +220,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %61
   %.05201227 = phi i64 [ %132, %.lr.ph1230 ], [ 0, %.lr.ph1230.preheader ]
   %.01226 = phi i64 [ %.sroa.speculated1201, %.lr.ph1230 ], [ %111, %.lr.ph1230.preheader ]
   %.012061225 = phi i32 [ %.sroa.speculated1188, %.lr.ph1230 ], [ %113, %.lr.ph1230.preheader ]
-  %123 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %23, i64 %.05201227
+  %123 = getelementptr inbounds nuw [72 x i8], ptr %23, i64 %.05201227
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load i64, ptr %124, align 8, !tbaa !45
   %.sroa.speculated1201 = tail call i64 @llvm.umin.i64(i64 %125, i64 %.01226)
@@ -385,7 +385,7 @@ _ZNK4ncnn3Mat5emptyEv.exit671:                    ; preds = %192
   %228 = phi ptr [ %203, %.lr.ph1285 ], [ %375, %373 ]
   %.05641283 = phi ptr [ %205, %.lr.ph1285 ], [ %.7571, %373 ]
   %.05831282 = phi i64 [ 0, %.lr.ph1285 ], [ %376, %373 ]
-  %229 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %227, i64 %.05831282
+  %229 = getelementptr inbounds nuw [72 x i8], ptr %227, i64 %.05831282
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 24
   %231 = load i32, ptr %230, align 8, !tbaa !31
   %232 = icmp eq i32 %231, 8
@@ -426,7 +426,7 @@ _ZNK4ncnn3Mat5emptyEv.exit671:                    ; preds = %192
   %.25661243.us = phi ptr [ %.05641283, %.lr.ph1240.us.preheader ], [ %275, %._crit_edge1241.us ]
   %.reass.us = mul i64 %factor.op.mul, %indvars.iv
   %247 = getelementptr inbounds nuw i8, ptr %236, i64 %.reass.us
-  %248 = getelementptr inbounds nuw float, ptr %.25661243.us, i64 %208
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %.25661243.us, i64 %208
   br label %249
 
 249:                                              ; preds = %.lr.ph1240.us, %249
@@ -471,7 +471,7 @@ _ZNK4ncnn3Mat5emptyEv.exit671:                    ; preds = %192
   br i1 %exitcond1426.not, label %._crit_edge1241.us, label %249, !llvm.loop !55
 
 ._crit_edge1241.us:                               ; preds = %249
-  %275 = getelementptr inbounds nuw float, ptr %.25661243.us, i64 %211
+  %275 = getelementptr inbounds nuw [4 x i8], ptr %.25661243.us, i64 %211
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond1428.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond1428.not, label %.loopexit1215, label %.lr.ph1240.us, !llvm.loop !56
@@ -515,13 +515,13 @@ _ZNK4ncnn3Mat5emptyEv.exit671:                    ; preds = %192
   %.45681260.us = phi ptr [ %.1565, %.lr.ph1257.us.preheader ], [ %324, %._crit_edge1258.us ]
   %.reass.us1264 = mul i64 %factor.op.mul1263, %indvars.iv1431
   %290 = getelementptr inbounds nuw i8, ptr %279, i64 %.reass.us1264
-  %291 = getelementptr inbounds nuw float, ptr %.45681260.us, i64 %213
-  %292 = getelementptr inbounds nuw float, ptr %.45681260.us, i64 %215
-  %293 = getelementptr inbounds nuw float, ptr %.45681260.us, i64 %217
-  %294 = getelementptr inbounds nuw float, ptr %.45681260.us, i64 %208
-  %295 = getelementptr inbounds nuw float, ptr %.45681260.us, i64 %219
-  %296 = getelementptr inbounds nuw float, ptr %.45681260.us, i64 %221
-  %297 = getelementptr inbounds nuw float, ptr %.45681260.us, i64 %223
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %.45681260.us, i64 %213
+  %292 = getelementptr inbounds nuw [4 x i8], ptr %.45681260.us, i64 %215
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %.45681260.us, i64 %217
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %.45681260.us, i64 %208
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %.45681260.us, i64 %219
+  %296 = getelementptr inbounds nuw [4 x i8], ptr %.45681260.us, i64 %221
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %.45681260.us, i64 %223
   br label %298
 
 298:                                              ; preds = %.lr.ph1257.us, %298
@@ -572,7 +572,7 @@ _ZNK4ncnn3Mat5emptyEv.exit671:                    ; preds = %192
   br i1 %exitcond1430.not, label %._crit_edge1258.us, label %298, !llvm.loop !57
 
 ._crit_edge1258.us:                               ; preds = %298
-  %324 = getelementptr inbounds nuw float, ptr %.45681260.us, i64 %211
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %.45681260.us, i64 %211
   %indvars.iv.next1432 = add nuw nsw i64 %indvars.iv1431, 1
   %exitcond1435.not = icmp eq i64 %indvars.iv.next1432, %wide.trip.count1434
   br i1 %exitcond1435.not, label %.loopexit1213, label %.lr.ph1257.us, !llvm.loop !58
@@ -617,9 +617,9 @@ _ZNK4ncnn3Mat5emptyEv.exit671:                    ; preds = %192
   %.65701276.us = phi ptr [ %.3567, %.lr.ph1273.us.preheader ], [ %358, %._crit_edge1274.us ]
   %.reass.us1280 = mul i64 %factor.op.mul1279, %indvars.iv1438
   %340 = getelementptr inbounds nuw i8, ptr %329, i64 %.reass.us1280
-  %341 = getelementptr inbounds nuw float, ptr %.65701276.us, i64 %213
-  %342 = getelementptr inbounds nuw float, ptr %.65701276.us, i64 %215
-  %343 = getelementptr inbounds nuw float, ptr %.65701276.us, i64 %217
+  %341 = getelementptr inbounds nuw [4 x i8], ptr %.65701276.us, i64 %213
+  %342 = getelementptr inbounds nuw [4 x i8], ptr %.65701276.us, i64 %215
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %.65701276.us, i64 %217
   br label %344
 
 344:                                              ; preds = %.lr.ph1273.us, %344
@@ -650,7 +650,7 @@ _ZNK4ncnn3Mat5emptyEv.exit671:                    ; preds = %192
   br i1 %exitcond1437.not, label %._crit_edge1274.us, label %344, !llvm.loop !59
 
 ._crit_edge1274.us:                               ; preds = %344
-  %358 = getelementptr inbounds nuw float, ptr %.65701276.us, i64 %208
+  %358 = getelementptr inbounds nuw [4 x i8], ptr %.65701276.us, i64 %208
   %indvars.iv.next1439 = add nuw nsw i64 %indvars.iv1438, 1
   %exitcond1442.not = icmp eq i64 %indvars.iv.next1439, %wide.trip.count1441
   br i1 %exitcond1442.not, label %.loopexit1211, label %.lr.ph1273.us, !llvm.loop !60
@@ -673,7 +673,7 @@ _ZNK4ncnn3Mat5emptyEv.exit671:                    ; preds = %192
   %369 = load i32, ptr %230, align 8, !tbaa !31
   %370 = mul nsw i32 %369, %363
   %371 = sext i32 %370 to i64
-  %372 = getelementptr inbounds float, ptr %.5569, i64 %371
+  %372 = getelementptr inbounds [4 x i8], ptr %.5569, i64 %371
   %.pre = load ptr, ptr %114, align 8, !tbaa !32
   %.pre1483 = load ptr, ptr %1, align 8, !tbaa !4
   br label %373
@@ -835,7 +835,7 @@ _ZNK4ncnn3Mat5emptyEv.exit672:                    ; preds = %._crit_edge1291
 .lr.ph1290:                                       ; preds = %.lr.ph1290.preheader, %.lr.ph1290
   %.06111288 = phi i64 [ %451, %.lr.ph1290 ], [ 0, %.lr.ph1290.preheader ]
   %.06121287 = phi i32 [ %450, %.lr.ph1290 ], [ 0, %.lr.ph1290.preheader ]
-  %447 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %422, i64 %.06111288
+  %447 = getelementptr inbounds nuw [72 x i8], ptr %422, i64 %.06111288
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 44
   %449 = load i32, ptr %448, align 4, !tbaa !37
   %450 = add nsw i32 %449, %.06121287
@@ -899,7 +899,7 @@ _ZNK4ncnn3Mat5emptyEv.exit672:                    ; preds = %._crit_edge1291
   %.06051295 = phi i32 [ %488, %.lr.ph1298 ], [ 0, %.lr.ph1298.preheader ]
   %.012071294 = phi i64 [ %.sroa.speculated1175, %.lr.ph1298 ], [ %468, %.lr.ph1298.preheader ]
   %.012081293 = phi i32 [ %.sroa.speculated, %.lr.ph1298 ], [ %470, %.lr.ph1298.preheader ]
-  %480 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %460, i64 %.06041296
+  %480 = getelementptr inbounds nuw [72 x i8], ptr %460, i64 %.06041296
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 16
   %482 = load i64, ptr %481, align 8, !tbaa !45
   %.sroa.speculated1175 = call i64 @llvm.umin.i64(i64 %482, i64 %.012071294)
@@ -1046,7 +1046,7 @@ _ZNK4ncnn3Mat5emptyEv.exit674:                    ; preds = %548
   %566 = phi ptr [ %560, %.lr.ph1375 ], [ %758, %756 ]
   %.05911373 = phi i64 [ 0, %.lr.ph1375 ], [ %759, %756 ]
   %.05921372 = phi i32 [ 0, %.lr.ph1375 ], [ %.7599, %756 ]
-  %567 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %565, i64 %.05911373
+  %567 = getelementptr inbounds nuw [72 x i8], ptr %565, i64 %.05911373
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 24
   %569 = load i32, ptr %568, align 8, !tbaa !31
   %570 = icmp eq i32 %569, 8
@@ -1573,7 +1573,7 @@ _ZNK4ncnn3Mat5emptyEv.exit675:                    ; preds = %._crit_edge1381
 .lr.ph1380:                                       ; preds = %.lr.ph1380.preheader, %.lr.ph1380
   %.05181378 = phi i64 [ %838, %.lr.ph1380 ], [ 0, %.lr.ph1380.preheader ]
   %.05191377 = phi i32 [ %837, %.lr.ph1380 ], [ 0, %.lr.ph1380.preheader ]
-  %834 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %805, i64 %.05181378
+  %834 = getelementptr inbounds nuw [72 x i8], ptr %805, i64 %.05181378
   %835 = getelementptr inbounds nuw i8, ptr %834, i64 48
   %836 = load i32, ptr %835, align 8, !tbaa !47
   %837 = add nsw i32 %836, %.05191377
@@ -1658,7 +1658,7 @@ _ZNK4ncnn3Mat5emptyEv.exit676:                    ; preds = %._crit_edge1387
 .lr.ph1386:                                       ; preds = %.lr.ph1386.preheader, %.lr.ph1386
   %.05141384 = phi i64 [ %879, %.lr.ph1386 ], [ 0, %.lr.ph1386.preheader ]
   %.05151383 = phi i32 [ %878, %.lr.ph1386 ], [ 0, %.lr.ph1386.preheader ]
-  %875 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %846, i64 %.05141384
+  %875 = getelementptr inbounds nuw [72 x i8], ptr %846, i64 %.05141384
   %876 = getelementptr inbounds nuw i8, ptr %875, i64 44
   %877 = load i32, ptr %876, align 4, !tbaa !37
   %878 = add nsw i32 %877, %.05151383
@@ -1737,7 +1737,7 @@ _ZNK4ncnn3Mat5emptyEv.exit677:                    ; preds = %._crit_edge1393
 .lr.ph1392:                                       ; preds = %.lr.ph1392.preheader, %.lr.ph1392
   %.05001390 = phi i64 [ %918, %.lr.ph1392 ], [ 0, %.lr.ph1392.preheader ]
   %.05011389 = phi i32 [ %917, %.lr.ph1392 ], [ 0, %.lr.ph1392.preheader ]
-  %914 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %885, i64 %.05001390
+  %914 = getelementptr inbounds nuw [72 x i8], ptr %885, i64 %.05001390
   %915 = getelementptr inbounds nuw i8, ptr %914, i64 52
   %916 = load i32, ptr %915, align 4, !tbaa !51
   %917 = add nsw i32 %916, %.05011389
@@ -1976,7 +1976,7 @@ define internal void @_ZNK4ncnn14Concat_x86_fma7forwardERKSt6vectorINS_3MatESaIS
   %39 = phi ptr [ %59, %.lr.ph ], [ %26, %.lr.ph.preheader ]
   %.02831 = phi ptr [ %56, %.lr.ph ], [ %34, %.lr.ph.preheader ]
   %.02930 = phi i64 [ %57, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %40 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %39, i64 %.02930
+  %40 = getelementptr inbounds nuw [72 x i8], ptr %39, i64 %.02930
   %41 = load ptr, ptr %40, align 8, !tbaa !41
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 44
   %43 = load i32, ptr %42, align 4, !tbaa !37
@@ -1993,7 +1993,7 @@ define internal void @_ZNK4ncnn14Concat_x86_fma7forwardERKSt6vectorINS_3MatESaIS
   %53 = load i32, ptr %6, align 4, !tbaa !46
   %54 = mul nsw i32 %53, %52
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds float, ptr %.02831, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %.02831, i64 %55
   %57 = add nuw i64 %.02930, 1
   %58 = load ptr, ptr %22, align 8, !tbaa !32
   %59 = load ptr, ptr %4, align 8, !tbaa !4
@@ -2145,7 +2145,7 @@ define internal void @_ZNK4ncnn14Concat_x86_fma7forwardERKSt6vectorINS_3MatESaIS
   %49 = phi ptr [ %79, %.noexc ], [ %38, %.preheader ]
   %.188 = phi ptr [ %76, %.noexc ], [ %.03490, %.preheader ]
   %.03687 = phi i64 [ %77, %.noexc ], [ 0, %.preheader ]
-  %50 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %49, i64 %.03687
+  %50 = getelementptr inbounds nuw [72 x i8], ptr %49, i64 %.03687
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 44
   %52 = load i32, ptr %51, align 4, !tbaa !37
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 48
@@ -2172,7 +2172,7 @@ define internal void @_ZNK4ncnn14Concat_x86_fma7forwardERKSt6vectorINS_3MatESaIS
   %73 = load i32, ptr %7, align 4, !tbaa !46
   %74 = mul nsw i32 %73, %55
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds float, ptr %.188, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %.188, i64 %75
   %77 = add nuw i64 %.03687, 1
   %78 = load ptr, ptr %23, align 8, !tbaa !32
   %79 = load ptr, ptr %5, align 8, !tbaa !4
@@ -2326,7 +2326,7 @@ define internal void @_ZNK4ncnn14Concat_x86_fma7forwardERKSt6vectorINS_3MatESaIS
   %61 = phi ptr [ %92, %.noexc ], [ %49, %.preheader ]
   %.289 = phi ptr [ %89, %.noexc ], [ %.191, %.preheader ]
   %.03788 = phi i64 [ %90, %.noexc ], [ 0, %.preheader ]
-  %62 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %61, i64 %.03788
+  %62 = getelementptr inbounds nuw [72 x i8], ptr %61, i64 %.03788
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 44
   %64 = load i32, ptr %63, align 4, !tbaa !37, !noalias !118
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 48
@@ -2354,7 +2354,7 @@ define internal void @_ZNK4ncnn14Concat_x86_fma7forwardERKSt6vectorINS_3MatESaIS
   %86 = load i32, ptr %8, align 4, !tbaa !46
   %87 = mul nsw i32 %86, %85
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds float, ptr %.289, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %.289, i64 %88
   %90 = add nuw i64 %.03788, 1
   %91 = load ptr, ptr %24, align 8, !tbaa !32
   %92 = load ptr, ptr %6, align 8, !tbaa !4
@@ -2449,7 +2449,7 @@ define internal void @_ZNK4ncnn14Concat_x86_fma7forwardERKSt6vectorINS_3MatESaIS
   %37 = phi ptr [ %64, %.noexc ], [ %25, %.noexc.preheader ]
   %.03165 = phi ptr [ %61, %.noexc ], [ %32, %.noexc.preheader ]
   %.03264 = phi i64 [ %62, %.noexc ], [ 0, %.noexc.preheader ]
-  %38 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %37, i64 %.03264
+  %38 = getelementptr inbounds nuw [72 x i8], ptr %37, i64 %.03264
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 44
   %40 = load i32, ptr %39, align 4, !tbaa !37
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 48
@@ -2473,7 +2473,7 @@ define internal void @_ZNK4ncnn14Concat_x86_fma7forwardERKSt6vectorINS_3MatESaIS
   %58 = load i32, ptr %6, align 4, !tbaa !46
   %59 = mul nsw i32 %58, %54
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds float, ptr %.03165, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %.03165, i64 %60
   %62 = add nuw i64 %.03264, 1
   %63 = load ptr, ptr %22, align 8, !tbaa !32
   %64 = load ptr, ptr %4, align 8, !tbaa !4

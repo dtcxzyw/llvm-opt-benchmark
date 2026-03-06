@@ -28,7 +28,7 @@ define void @Extra_ThreshPrintChow(i32 noundef %0, ptr noundef readonly captures
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -66,7 +66,7 @@ define i32 @Extra_ThreshComputeChow(ptr noundef readonly captures(none) %0, i32 
   %.02531.us = phi i32 [ %.1.us, %..loopexit_crit_edge.us ], [ 0, %.lr.ph34.split.us.preheader ]
   %8 = lshr i32 %.032.us, 6
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !9
   %12 = and i32 %.032.us, 63
   %13 = zext nneg i32 %12 to i64
@@ -84,7 +84,7 @@ define i32 @Extra_ThreshComputeChow(ptr noundef readonly captures(none) %0, i32 
   br i1 %.not29.us, label %23, label %19
 
 19:                                               ; preds = %.lr.ph.us
-  %20 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !3
   %22 = add nsw i32 %21, 1
   store i32 %22, ptr %20, align 4, !tbaa !3
@@ -115,7 +115,7 @@ define i32 @Extra_ThreshComputeChow(ptr noundef readonly captures(none) %0, i32 
   %.02531 = phi i32 [ %spec.select, %.lr.ph34.split ], [ 0, %.lr.ph34 ]
   %26 = lshr i32 %.032, 6
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i64, ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !9
   %30 = and i32 %.032, 63
   %31 = zext nneg i32 %30 to i64
@@ -129,7 +129,7 @@ define i32 @Extra_ThreshComputeChow(ptr noundef readonly captures(none) %0, i32 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv42 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next43, %.lr.ph ]
-  %36 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv42
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv42
   %37 = load i32, ptr %36, align 4, !tbaa !3
   %38 = shl nsw i32 %37, 1
   %39 = sub nsw i32 %38, %.025.lcssa50
@@ -173,10 +173,10 @@ define void @Extra_ThreshSortByChow(ptr noundef captures(address) %0, i32 nounde
 .lr.ph.us.us.us:                                  ; preds = %.split.us, %.lr.ph.us.us.us.backedge
   %indvars.iv71 = phi i64 [ %indvars.iv71.be, %.lr.ph.us.us.us.backedge ], [ 0, %.split.us ]
   %.02227.us.us.us.us.us = phi i32 [ %.02227.us.us.us.us.us.be, %.lr.ph.us.us.us.backedge ], [ 0, %.split.us ]
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv71
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv71
   %15 = load i32, ptr %14, align 4, !tbaa !3
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next72
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next72
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %.not.us.us.us.us.us = icmp slt i32 %15, %17
   br i1 %.not.us.us.us.us.us, label %18, label %Abc_TtSwapAdjacent.exit.us.us.us.us.us
@@ -210,15 +210,15 @@ define void @Extra_ThreshSortByChow(ptr noundef captures(address) %0, i32 nounde
 
 .preheader.us.i.us.us.us.us.us:                   ; preds = %._crit_edge.us.i.us.us.us.us.us, %.preheader.us.preheader.i.us.us.us.us.us
   %.061.us.i.us.us.us.us.us = phi ptr [ %36, %._crit_edge.us.i.us.us.us.us.us ], [ %0, %.preheader.us.preheader.i.us.us.us.us.us ]
-  %invariant.gep.i.us.us.us.us.us = getelementptr inbounds nuw i64, ptr %.061.us.i.us.us.us.us.us, i64 %31
-  %invariant.gep80.i.us.us.us.us.us = getelementptr inbounds nuw i64, ptr %.061.us.i.us.us.us.us.us, i64 %32
+  %invariant.gep.i.us.us.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %.061.us.i.us.us.us.us.us, i64 %31
+  %invariant.gep80.i.us.us.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %.061.us.i.us.us.us.us.us, i64 %32
   br label %33
 
 33:                                               ; preds = %33, %.preheader.us.i.us.us.us.us.us
   %indvars.iv.i.us.us.us.us.us = phi i64 [ 0, %.preheader.us.i.us.us.us.us.us ], [ %indvars.iv.next.i.us.us.us.us.us, %33 ]
-  %gep.i.us.us.us.us.us = getelementptr inbounds nuw i64, ptr %invariant.gep.i.us.us.us.us.us, i64 %indvars.iv.i.us.us.us.us.us
+  %gep.i.us.us.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep.i.us.us.us.us.us, i64 %indvars.iv.i.us.us.us.us.us
   %34 = load i64, ptr %gep.i.us.us.us.us.us, align 8, !tbaa !9
-  %gep81.i.us.us.us.us.us = getelementptr inbounds nuw i64, ptr %invariant.gep80.i.us.us.us.us.us, i64 %indvars.iv.i.us.us.us.us.us
+  %gep81.i.us.us.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep80.i.us.us.us.us.us, i64 %indvars.iv.i.us.us.us.us.us
   %35 = load i64, ptr %gep81.i.us.us.us.us.us, align 8, !tbaa !9
   store i64 %35, ptr %gep.i.us.us.us.us.us, align 8, !tbaa !9
   store i64 %34, ptr %gep81.i.us.us.us.us.us, align 8, !tbaa !9
@@ -227,7 +227,7 @@ define void @Extra_ThreshSortByChow(ptr noundef captures(address) %0, i32 nounde
   br i1 %exitcond.not.i.us.us.us.us.us, label %._crit_edge.us.i.us.us.us.us.us, label %33, !llvm.loop !14
 
 ._crit_edge.us.i.us.us.us.us.us:                  ; preds = %33
-  %36 = getelementptr inbounds nuw i64, ptr %.061.us.i.us.us.us.us.us, i64 %29
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.061.us.i.us.us.us.us.us, i64 %29
   %37 = icmp ult ptr %36, %10
   br i1 %37, label %.preheader.us.i.us.us.us.us.us, label %Abc_TtSwapAdjacent.exit.us.us.us.us.us, !llvm.loop !15
 
@@ -249,7 +249,7 @@ define void @Extra_ThreshSortByChow(ptr noundef captures(address) %0, i32 nounde
 .lr.ph64.i.us.us.us.us.us:                        ; preds = %18
   %45 = trunc nuw nsw i64 %indvars.iv71 to i32
   %46 = shl nuw nsw i32 1, %45
-  %47 = getelementptr inbounds nuw [3 x i64], ptr @s_PMasks, i64 %indvars.iv71
+  %47 = getelementptr inbounds nuw [24 x i8], ptr @s_PMasks, i64 %indvars.iv71
   %48 = load i64, ptr %47, align 8, !tbaa !9
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !9
@@ -260,7 +260,7 @@ define void @Extra_ThreshSortByChow(ptr noundef captures(address) %0, i32 nounde
 
 54:                                               ; preds = %54, %.lr.ph64.i.us.us.us.us.us
   %indvars.iv70.i.us.us.us.us.us = phi i64 [ 0, %.lr.ph64.i.us.us.us.us.us ], [ %indvars.iv.next71.i.us.us.us.us.us, %54 ]
-  %55 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv70.i.us.us.us.us.us
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv70.i.us.us.us.us.us
   %56 = load i64, ptr %55, align 8, !tbaa !9
   %57 = and i64 %56, %48
   %58 = and i64 %56, %50
@@ -291,10 +291,10 @@ Abc_TtSwapAdjacent.exit.us.us.us.us.us:           ; preds = %._crit_edge.us.i.us
 .lr.ph.us:                                        ; preds = %.split.us, %.lr.ph.us.backedge
   %indvars.iv = phi i64 [ %indvars.iv.be, %.lr.ph.us.backedge ], [ 0, %.split.us ]
   %.02227.us30 = phi i32 [ %.02227.us30.be, %.lr.ph.us.backedge ], [ 0, %.split.us ]
-  %64 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %66 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next
   %67 = load i32, ptr %66, align 4, !tbaa !3
   %.not.us31 = icmp slt i32 %65, %67
   br i1 %.not.us31, label %68, label %Abc_TtSwapAdjacent.exit.us46
@@ -360,10 +360,10 @@ define void @Extra_ThreshSortByChowInverted(ptr noundef captures(address) %0, i3
 .lr.ph.us.us.us:                                  ; preds = %.split.us, %.lr.ph.us.us.us.backedge
   %indvars.iv71 = phi i64 [ %indvars.iv71.be, %.lr.ph.us.us.us.backedge ], [ 0, %.split.us ]
   %.02227.us.us.us.us.us = phi i32 [ %.02227.us.us.us.us.us.be, %.lr.ph.us.us.us.backedge ], [ 0, %.split.us ]
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv71
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv71
   %15 = load i32, ptr %14, align 4, !tbaa !3
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next72
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next72
   %17 = load i32, ptr %16, align 4, !tbaa !3
   %.not.us.us.us.us.us = icmp sgt i32 %15, %17
   br i1 %.not.us.us.us.us.us, label %18, label %Abc_TtSwapAdjacent.exit.us.us.us.us.us
@@ -397,15 +397,15 @@ define void @Extra_ThreshSortByChowInverted(ptr noundef captures(address) %0, i3
 
 .preheader.us.i.us.us.us.us.us:                   ; preds = %._crit_edge.us.i.us.us.us.us.us, %.preheader.us.preheader.i.us.us.us.us.us
   %.061.us.i.us.us.us.us.us = phi ptr [ %36, %._crit_edge.us.i.us.us.us.us.us ], [ %0, %.preheader.us.preheader.i.us.us.us.us.us ]
-  %invariant.gep.i.us.us.us.us.us = getelementptr inbounds nuw i64, ptr %.061.us.i.us.us.us.us.us, i64 %31
-  %invariant.gep80.i.us.us.us.us.us = getelementptr inbounds nuw i64, ptr %.061.us.i.us.us.us.us.us, i64 %32
+  %invariant.gep.i.us.us.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %.061.us.i.us.us.us.us.us, i64 %31
+  %invariant.gep80.i.us.us.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %.061.us.i.us.us.us.us.us, i64 %32
   br label %33
 
 33:                                               ; preds = %33, %.preheader.us.i.us.us.us.us.us
   %indvars.iv.i.us.us.us.us.us = phi i64 [ 0, %.preheader.us.i.us.us.us.us.us ], [ %indvars.iv.next.i.us.us.us.us.us, %33 ]
-  %gep.i.us.us.us.us.us = getelementptr inbounds nuw i64, ptr %invariant.gep.i.us.us.us.us.us, i64 %indvars.iv.i.us.us.us.us.us
+  %gep.i.us.us.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep.i.us.us.us.us.us, i64 %indvars.iv.i.us.us.us.us.us
   %34 = load i64, ptr %gep.i.us.us.us.us.us, align 8, !tbaa !9
-  %gep81.i.us.us.us.us.us = getelementptr inbounds nuw i64, ptr %invariant.gep80.i.us.us.us.us.us, i64 %indvars.iv.i.us.us.us.us.us
+  %gep81.i.us.us.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep80.i.us.us.us.us.us, i64 %indvars.iv.i.us.us.us.us.us
   %35 = load i64, ptr %gep81.i.us.us.us.us.us, align 8, !tbaa !9
   store i64 %35, ptr %gep.i.us.us.us.us.us, align 8, !tbaa !9
   store i64 %34, ptr %gep81.i.us.us.us.us.us, align 8, !tbaa !9
@@ -414,7 +414,7 @@ define void @Extra_ThreshSortByChowInverted(ptr noundef captures(address) %0, i3
   br i1 %exitcond.not.i.us.us.us.us.us, label %._crit_edge.us.i.us.us.us.us.us, label %33, !llvm.loop !14
 
 ._crit_edge.us.i.us.us.us.us.us:                  ; preds = %33
-  %36 = getelementptr inbounds nuw i64, ptr %.061.us.i.us.us.us.us.us, i64 %29
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.061.us.i.us.us.us.us.us, i64 %29
   %37 = icmp ult ptr %36, %10
   br i1 %37, label %.preheader.us.i.us.us.us.us.us, label %Abc_TtSwapAdjacent.exit.us.us.us.us.us, !llvm.loop !15
 
@@ -436,7 +436,7 @@ define void @Extra_ThreshSortByChowInverted(ptr noundef captures(address) %0, i3
 .lr.ph64.i.us.us.us.us.us:                        ; preds = %18
   %45 = trunc nuw nsw i64 %indvars.iv71 to i32
   %46 = shl nuw nsw i32 1, %45
-  %47 = getelementptr inbounds nuw [3 x i64], ptr @s_PMasks, i64 %indvars.iv71
+  %47 = getelementptr inbounds nuw [24 x i8], ptr @s_PMasks, i64 %indvars.iv71
   %48 = load i64, ptr %47, align 8, !tbaa !9
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !9
@@ -447,7 +447,7 @@ define void @Extra_ThreshSortByChowInverted(ptr noundef captures(address) %0, i3
 
 54:                                               ; preds = %54, %.lr.ph64.i.us.us.us.us.us
   %indvars.iv70.i.us.us.us.us.us = phi i64 [ 0, %.lr.ph64.i.us.us.us.us.us ], [ %indvars.iv.next71.i.us.us.us.us.us, %54 ]
-  %55 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv70.i.us.us.us.us.us
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv70.i.us.us.us.us.us
   %56 = load i64, ptr %55, align 8, !tbaa !9
   %57 = and i64 %56, %48
   %58 = and i64 %56, %50
@@ -478,10 +478,10 @@ Abc_TtSwapAdjacent.exit.us.us.us.us.us:           ; preds = %._crit_edge.us.i.us
 .lr.ph.us:                                        ; preds = %.split.us, %.lr.ph.us.backedge
   %indvars.iv = phi i64 [ %indvars.iv.be, %.lr.ph.us.backedge ], [ 0, %.split.us ]
   %.02227.us30 = phi i32 [ %.02227.us30.be, %.lr.ph.us.backedge ], [ 0, %.split.us ]
-  %64 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %66 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next
   %67 = load i32, ptr %66, align 4, !tbaa !3
   %.not.us31 = icmp sgt i32 %65, %67
   br i1 %.not.us31, label %68, label %Abc_TtSwapAdjacent.exit.us46
@@ -548,7 +548,7 @@ define range(i32 -2147483647, -2147483648) i32 @Extra_ThreshInitializeChow(i32 n
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = getelementptr i8, ptr %10, i64 -4
   %13 = load i32, ptr %12, align 4, !tbaa !3
@@ -559,7 +559,7 @@ define range(i32 -2147483647, -2147483648) i32 @Extra_ThreshInitializeChow(i32 n
 
 16:                                               ; preds = %9, %.lr.ph
   %.024.sink = phi i32 [ %.024, %.lr.ph ], [ %spec.select, %9 ]
-  %17 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %.024.sink, ptr %17, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -609,7 +609,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights3(ptr noundef readonly 
   %.03661.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us ], [ %17, %16 ]
   %8 = lshr i32 %.03661.us.us.us.us.us.us.us.us.us.us, 6
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !9
   %12 = and i32 %.03661.us.us.us.us.us.us.us.us.us.us, 63
   %13 = zext nneg i32 %12 to i64
@@ -633,7 +633,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights3(ptr noundef readonly 
   br i1 %.not.i.us.us.us.us.us.us.us.us.us.us, label %25, label %21
 
 21:                                               ; preds = %.lr.ph.i.us.us.us.us.us.us.us.us.us.us
-  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = add nsw i32 %23, %.010.i.us.us.us.us.us.us.us.us.us.us
   br label %25
@@ -654,7 +654,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights3(ptr noundef readonly 
   br i1 %.not.i52.us.us.us.us.us.us.us.us.us.us, label %33, label %29
 
 29:                                               ; preds = %.lr.ph.i49.us.us.us.us.us.us.us.us.us.us
-  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i50.us.us.us.us.us.us.us.us.us.us
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i50.us.us.us.us.us.us.us.us.us.us
   %31 = load i32, ptr %30, align 4, !tbaa !3
   %32 = add nsw i32 %31, %.010.i51.us.us.us.us.us.us.us.us.us.us
   br label %33
@@ -751,7 +751,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights4(ptr noundef readonly 
   %.04169.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us.us.us.us.us.us.us ], [ %18, %17 ]
   %9 = lshr i32 %.04169.us.us.us.us.us.us.us.us.us.us.us.us.us, 6
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !9
   %13 = and i32 %.04169.us.us.us.us.us.us.us.us.us.us.us.us.us, 63
   %14 = zext nneg i32 %13 to i64
@@ -775,7 +775,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights4(ptr noundef readonly 
   br i1 %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us, label %26, label %22
 
 22:                                               ; preds = %.lr.ph.i.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %23 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us
   %24 = load i32, ptr %23, align 4, !tbaa !3
   %25 = add nsw i32 %24, %.010.i.us.us.us.us.us.us.us.us.us.us.us.us.us
   br label %26
@@ -796,7 +796,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights4(ptr noundef readonly 
   br i1 %.not.i60.us.us.us.us.us.us.us.us.us.us.us.us.us, label %34, label %30
 
 30:                                               ; preds = %.lr.ph.i57.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %31 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i58.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i58.us.us.us.us.us.us.us.us.us.us.us.us.us
   %32 = load i32, ptr %31, align 4, !tbaa !3
   %33 = add nsw i32 %32, %.010.i59.us.us.us.us.us.us.us.us.us.us.us.us.us
   br label %34
@@ -906,7 +906,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights5(ptr noundef readonly 
   %.04678.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %18 ]
   %10 = lshr i32 %.04480.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 6
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !9
   %14 = and i32 %.04480.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 63
   %15 = zext nneg i32 %14 to i64
@@ -930,7 +930,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights5(ptr noundef readonly 
   br i1 %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %27, label %23
 
 23:                                               ; preds = %.lr.ph.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %24 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %25 = load i32, ptr %24, align 4, !tbaa !3
   %26 = add nsw i32 %25, %.010.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   br label %27
@@ -951,7 +951,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights5(ptr noundef readonly 
   br i1 %.not.i69.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %35, label %31
 
 31:                                               ; preds = %.lr.ph.i66.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %32 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i67.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i67.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %33 = load i32, ptr %32, align 4, !tbaa !3
   %34 = add nsw i32 %33, %.010.i68.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   br label %35
@@ -1084,7 +1084,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights6(ptr noundef readonly 
   %.05186.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ]
   %14 = lshr i32 %.04988.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 6
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !9
   %18 = and i32 %.04988.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 63
   %19 = zext nneg i32 %18 to i64
@@ -1108,7 +1108,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights6(ptr noundef readonly 
   br i1 %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %31, label %27
 
 27:                                               ; preds = %.lr.ph.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %29 = load i32, ptr %28, align 4, !tbaa !3
   %30 = add nsw i32 %29, %.010.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   br label %31
@@ -1129,7 +1129,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights6(ptr noundef readonly 
   br i1 %.not.i77.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %39, label %35
 
 35:                                               ; preds = %.lr.ph.i74.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %36 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i75.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i75.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %37 = load i32, ptr %36, align 4, !tbaa !3
   %38 = add nsw i32 %37, %.010.i76.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   br label %39
@@ -1219,7 +1219,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
   %.04988.us.us.us.us.us = phi i32 [ 0, %.preheader.us127.us.us.us.us ], [ %50, %49 ]
   %52 = lshr i32 %.04988.us.us.us.us.us, 6
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw i64, ptr %0, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !9
   %56 = and i32 %.04988.us.us.us.us.us, 63
   %57 = zext nneg i32 %56 to i64
@@ -1364,7 +1364,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights7(ptr noundef readonly 
   %.05694.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %23 ]
   %15 = lshr i32 %.05496.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 6
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i64, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !9
   %19 = and i32 %.05496.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 63
   %20 = zext nneg i32 %19 to i64
@@ -1388,7 +1388,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights7(ptr noundef readonly 
   br i1 %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %32, label %28
 
 28:                                               ; preds = %.lr.ph.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %30 = load i32, ptr %29, align 4, !tbaa !3
   %31 = add nsw i32 %30, %.010.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   br label %32
@@ -1409,7 +1409,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights7(ptr noundef readonly 
   br i1 %.not.i85.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %40, label %36
 
 36:                                               ; preds = %.lr.ph.i82.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %37 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i83.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i83.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %38 = load i32, ptr %37, align 4, !tbaa !3
   %39 = add nsw i32 %38, %.010.i84.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   br label %40
@@ -1509,7 +1509,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
   %.05496.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us135.us.us.us.us.us ], [ %52, %51 ]
   %54 = lshr i32 %.05496.us.us.us.us.us.us, 6
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i64, ptr %0, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !9
   %58 = and i32 %.05496.us.us.us.us.us.us, 63
   %59 = zext nneg i32 %58 to i64
@@ -1661,7 +1661,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights8(ptr noundef readonly 
   %.061102.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us = phi i32 [ 10000, %.preheader.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us ], [ %.2.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, %22 ]
   %14 = lshr i32 %.059104.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 6
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !9
   %18 = and i32 %.059104.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, 63
   %19 = zext nneg i32 %18 to i64
@@ -1685,7 +1685,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights8(ptr noundef readonly 
   br i1 %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %31, label %27
 
 27:                                               ; preds = %.lr.ph.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %29 = load i32, ptr %28, align 4, !tbaa !3
   %30 = add nsw i32 %29, %.010.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   br label %31
@@ -1706,7 +1706,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights8(ptr noundef readonly 
   br i1 %.not.i93.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us, label %39, label %35
 
 35:                                               ; preds = %.lr.ph.i90.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
-  %36 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i91.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i91.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   %37 = load i32, ptr %36, align 4, !tbaa !3
   %38 = add nsw i32 %37, %.010.i92.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us
   br label %39
@@ -1788,7 +1788,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.us.
   %.059104.us.us.us.us.us.us.us = phi i32 [ %52, %51 ], [ %1, %.lr.ph ]
   %53 = lshr i32 %.059104.us.us.us.us.us.us.us, 6
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %0, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %54
   %56 = load i64, ptr %55, align 8, !tbaa !9
   %57 = and i32 %.059104.us.us.us.us.us.us.us, 63
   %58 = zext nneg i32 %57 to i64
@@ -1884,7 +1884,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights(ptr noundef readonly c
   %15 = trunc nuw nsw i64 %indvars.iv53 to i32
   %16 = lshr i64 %indvars.iv53, 6
   %17 = and i64 %16, 67108863
-  %18 = getelementptr inbounds nuw i64, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = shl nuw i64 1, %indvars.iv53
   %21 = and i64 %20, %19
@@ -1906,7 +1906,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights(ptr noundef readonly c
   br i1 %.not.i.us.us.us.us.us.us.us.us.us.us.i, label %30, label %26
 
 26:                                               ; preds = %.lr.ph.i.us.us.us.us.us.us.us.us.us.us.i
-  %27 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.i
   %28 = load i32, ptr %27, align 4, !tbaa !3
   %29 = add nsw i32 %28, %.010.i.us.us.us.us.us.us.us.us.us.us.i
   br label %30
@@ -1927,7 +1927,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshSelectWeights(ptr noundef readonly c
   br i1 %.not.i52.us.us.us.us.us.us.us.us.us.us.i, label %38, label %34
 
 34:                                               ; preds = %.lr.ph.i49.us.us.us.us.us.us.us.us.us.us.i
-  %35 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i50.us.us.us.us.us.us.us.us.us.us.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i50.us.us.us.us.us.us.us.us.us.us.i
   %36 = load i32, ptr %35, align 4, !tbaa !3
   %37 = add nsw i32 %36, %.010.i51.us.us.us.us.us.us.us.us.us.us.i
   br label %38
@@ -2003,7 +2003,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.i: ; preds =
   %50 = trunc nuw nsw i64 %indvars.iv50 to i32
   %51 = lshr i64 %indvars.iv50, 6
   %52 = and i64 %51, 67108863
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !9
   %55 = shl nuw i64 1, %indvars.iv50
   %56 = and i64 %55, %54
@@ -2025,7 +2025,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.i: ; preds =
   br i1 %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %65, label %61
 
 61:                                               ; preds = %.lr.ph.i.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %62 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   %63 = load i32, ptr %62, align 4, !tbaa !3
   %64 = add nsw i32 %63, %.010.i.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   br label %65
@@ -2046,7 +2046,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.i: ; preds =
   br i1 %.not.i60.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %73, label %69
 
 69:                                               ; preds = %.lr.ph.i57.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %70 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i58.us.us.us.us.us.us.us.us.us.us.us.us.us.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i58.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   %71 = load i32, ptr %70, align 4, !tbaa !3
   %72 = add nsw i32 %71, %.010.i59.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   br label %73
@@ -2134,7 +2134,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i: 
   %87 = trunc nuw nsw i64 %indvars.iv to i32
   %88 = lshr i64 %indvars.iv, 6
   %89 = and i64 %88, 67108863
-  %90 = getelementptr inbounds nuw i64, ptr %0, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %89
   %91 = load i64, ptr %90, align 8, !tbaa !9
   %92 = shl nuw i64 1, %indvars.iv
   %93 = and i64 %91, %92
@@ -2156,7 +2156,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i: 
   br i1 %.not.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %102, label %98
 
 98:                                               ; preds = %.lr.ph.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %99 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   %100 = load i32, ptr %99, align 4, !tbaa !3
   %101 = add nsw i32 %100, %.010.i.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   br label %102
@@ -2177,7 +2177,7 @@ Extra_ThreshWeightedSum.exit.loopexit.us.us.us.us.us.us.us.us.us.us.us.us.us.i: 
   br i1 %.not.i69.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i, label %110, label %106
 
 106:                                              ; preds = %.lr.ph.i66.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
-  %107 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i67.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i67.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   %108 = load i32, ptr %107, align 4, !tbaa !3
   %109 = add nsw i32 %108, %.010.i68.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.us.i
   br label %110
@@ -2261,7 +2261,7 @@ define void @Extra_ThreshIncrementWeights(i32 noundef %0, ptr noundef captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !3
   %8 = add nsw i32 %7, 1
   store i32 %8, ptr %6, align 4, !tbaa !3
@@ -2285,7 +2285,7 @@ define void @Extra_ThreshDecrementWeights(i32 noundef %0, ptr noundef captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !3
   %8 = add nsw i32 %7, -1
   store i32 %8, ptr %6, align 4, !tbaa !3
@@ -2315,13 +2315,13 @@ define void @Extra_ThreshPrintInequalities(ptr noundef readonly captures(none) %
   %indvars.iv38 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next39, %._crit_edge21.us.us ]
   %7 = trunc nuw nsw i64 %indvars.iv38 to i32
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %7)
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv38
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv38
   br label %15
 
 10:                                               ; preds = %._crit_edge.us.us, %10
   %indvars.iv33 = phi i64 [ 0, %._crit_edge.us.us ], [ %indvars.iv.next34, %10 ]
   %11 = load ptr, ptr %21, align 8, !tbaa !63
-  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv33
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv33
   %13 = load i64, ptr %12, align 8, !tbaa !9
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef %13)
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
@@ -2331,7 +2331,7 @@ define void @Extra_ThreshPrintInequalities(ptr noundef readonly captures(none) %
 15:                                               ; preds = %15, %.lr.ph.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.lr.ph.us.us ]
   %16 = load ptr, ptr %9, align 8, !tbaa !63
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !9
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i64 noundef %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2340,7 +2340,7 @@ define void @Extra_ThreshPrintInequalities(ptr noundef readonly captures(none) %
 
 ._crit_edge.us.us:                                ; preds = %15
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
-  %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv38
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv38
   br label %10
 
 ._crit_edge21.us.us:                              ; preds = %10
@@ -2383,17 +2383,17 @@ define void @Extra_ThreshCreateInequalities(ptr noundef readonly captures(none) 
 
 .preheader73.us:                                  ; preds = %.preheader73.us.preheader, %._crit_edge.us
   %indvars.iv111 = phi i64 [ 0, %.preheader73.us.preheader ], [ %indvars.iv.next112, %._crit_edge.us ]
-  %22 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv111
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv111
   %23 = load ptr, ptr %22, align 8, !tbaa !63
-  %24 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv111
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv111
   %25 = load ptr, ptr %24, align 8, !tbaa !63
   br label %26
 
 26:                                               ; preds = %.preheader73.us, %26
   %indvars.iv = phi i64 [ 0, %.preheader73.us ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   store i64 0, ptr %27, align 8, !tbaa !9
-  %28 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store i64 0, ptr %28, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2430,7 +2430,7 @@ define void @Extra_ThreshCreateInequalities(ptr noundef readonly captures(none) 
 .preheader70.us.us.us:                            ; preds = %._crit_edge.us80.us.us, %.preheader71.us.us
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.us80.us.us ], [ %36, %.preheader71.us.us ]
   %.06078.us.us.us = phi i32 [ %50, %._crit_edge.us80.us.us ], [ 0, %.preheader71.us.us ]
-  %37 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv119
+  %37 = getelementptr inbounds [8 x i8], ptr %7, i64 %indvars.iv119
   br label %38
 
 38:                                               ; preds = %49, %.preheader70.us.us.us
@@ -2442,10 +2442,10 @@ define void @Extra_ThreshCreateInequalities(ptr noundef readonly captures(none) 
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %37, align 8, !tbaa !63
-  %43 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv114
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv114
   %44 = load i32, ptr %43, align 4, !tbaa !3
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i64, ptr %42, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %42, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !9
   %48 = add i64 %47, 1
   store i64 %48, ptr %46, align 8, !tbaa !9
@@ -2506,7 +2506,7 @@ define void @Extra_ThreshCreateInequalities(ptr noundef readonly captures(none) 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge.us94.us
   %indvars.iv132 = phi i64 [ %62, %.preheader.us.us.preheader ], [ %indvars.iv.next133, %._crit_edge.us94.us ]
   %indvars.iv130 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next131, %._crit_edge.us94.us ]
-  %66 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv132
+  %66 = getelementptr inbounds [8 x i8], ptr %8, i64 %indvars.iv132
   %invariant.gep143 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv130
   br label %67
 
@@ -2519,10 +2519,10 @@ define void @Extra_ThreshCreateInequalities(ptr noundef readonly captures(none) 
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %66, align 8, !tbaa !63
-  %72 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv125
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv125
   %73 = load i32, ptr %72, align 4, !tbaa !3
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i64, ptr %71, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %71, i64 %74
   %76 = load i64, ptr %75, align 8, !tbaa !9
   %77 = add i64 %76, 1
   store i64 %77, ptr %75, align 8, !tbaa !9
@@ -2563,17 +2563,17 @@ define void @Extra_ThreshSimplifyInequalities(i32 noundef %0, i32 noundef %1, pt
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv55 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us ]
-  %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv55
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv55
   %8 = load ptr, ptr %7, align 8, !tbaa !63
-  %9 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv55
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv55
   %10 = load ptr, ptr %9, align 8, !tbaa !63
   br label %11
 
 11:                                               ; preds = %.preheader.us, %24
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %24 ]
-  %12 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !9
-  %14 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8, !tbaa !9
   %16 = icmp eq i64 %13, %15
   br i1 %16, label %23, label %17
@@ -2643,7 +2643,7 @@ define range(i32 -2147483647, 1001) i32 @Extra_ThreshAssignWeights(ptr readnone 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %28 = tail call noalias ptr @malloc(i64 noundef %26) #19
-  %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   store ptr %28, ptr %29, align 8, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2664,7 +2664,7 @@ define range(i32 -2147483647, 1001) i32 @Extra_ThreshAssignWeights(ptr readnone 
 34:                                               ; preds = %.lr.ph197, %34
   %indvars.iv269 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next270, %34 ]
   %35 = tail call noalias ptr @malloc(i64 noundef %33) #19
-  %36 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv269
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv269
   store ptr %35, ptr %36, align 8, !tbaa !63
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count272
@@ -2682,17 +2682,17 @@ define range(i32 -2147483647, 1001) i32 @Extra_ThreshAssignWeights(ptr readnone 
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv55.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next56.i, %._crit_edge.us.i ]
-  %38 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv55.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv55.i
   %39 = load ptr, ptr %38, align 8, !tbaa !63
-  %40 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv55.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv55.i
   %41 = load ptr, ptr %40, align 8, !tbaa !63
   br label %42
 
 42:                                               ; preds = %55, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %55 ]
-  %43 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i
   %44 = load i64, ptr %43, align 8, !tbaa !9
-  %45 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.i
   %46 = load i64, ptr %45, align 8, !tbaa !9
   %47 = icmp eq i64 %44, %46
   br i1 %47, label %54, label %48
@@ -2741,7 +2741,7 @@ Extra_ThreshSimplifyInequalities.exit:            ; preds = %._crit_edge.us.i, %
   br label %.lr.ph200
 
 .preheader192:                                    ; preds = %.lr.ph200, %Extra_ThreshSimplifyInequalities.exit
-  %59 = getelementptr i32, ptr %12, i64 %10
+  %59 = getelementptr [4 x i8], ptr %12, i64 %10
   %60 = getelementptr i8, ptr %59, i64 -4
   br i1 %56, label %.lr.ph211, label %.critedge
 
@@ -2762,9 +2762,9 @@ Extra_ThreshSimplifyInequalities.exit:            ; preds = %._crit_edge.us.i, %
   %.1142202.us.us.us = phi i32 [ %.1142.be.us.us.us, %.backedge.us.us.us ], [ %.0141209.us.us, %.lr.ph211.split.us.split.us ]
   %.1146201.us.us.us = phi i32 [ %.1146.be.us.us.us, %.backedge.us.us.us ], [ %.0145208.us.us, %.lr.ph211.split.us.split.us ]
   %62 = sext i32 %.1134203.us.us.us to i64
-  %63 = getelementptr inbounds ptr, ptr %24, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %24, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !63
-  %65 = getelementptr inbounds nuw i64, ptr %64, i64 %indvars.iv284
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv284
   %66 = load i64, ptr %65, align 8, !tbaa !9
   %.not152.us.us.us = icmp eq i64 %66, 0
   br i1 %.not152.us.us.us, label %100, label %.lr.ph.i.us.us.us
@@ -2772,9 +2772,9 @@ Extra_ThreshSimplifyInequalities.exit:            ; preds = %._crit_edge.us.i, %
 .lr.ph.i.us.us.us:                                ; preds = %.preheader191.us.us, %.lr.ph.i.us.us.us
   %indvars.iv.i154.us.us.us = phi i64 [ %indvars.iv.next.i155.us.us.us, %.lr.ph.i.us.us.us ], [ 0, %.preheader191.us.us ]
   %.011.i.us.us.us = phi i32 [ %73, %.lr.ph.i.us.us.us ], [ 0, %.preheader191.us.us ]
-  %67 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i154.us.us.us
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i154.us.us.us
   %68 = load i32, ptr %67, align 4, !tbaa !3
-  %69 = getelementptr inbounds nuw i64, ptr %64, i64 %indvars.iv.i154.us.us.us
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv.i154.us.us.us
   %70 = load i64, ptr %69, align 8, !tbaa !9
   %71 = trunc i64 %70 to i32
   %72 = mul i32 %68, %71
@@ -2784,16 +2784,16 @@ Extra_ThreshSimplifyInequalities.exit:            ; preds = %._crit_edge.us.i, %
   br i1 %exitcond.not.i156.us.us.us, label %.lr.ph.i158.us.us.us, label %.lr.ph.i.us.us.us, !llvm.loop !82
 
 .lr.ph.i158.us.us.us:                             ; preds = %.lr.ph.i.us.us.us
-  %74 = getelementptr inbounds ptr, ptr %57, i64 %62
+  %74 = getelementptr inbounds [8 x i8], ptr %57, i64 %62
   %75 = load ptr, ptr %74, align 8, !tbaa !63
   br label %76
 
 76:                                               ; preds = %76, %.lr.ph.i158.us.us.us
   %indvars.iv.i160.us.us.us = phi i64 [ 0, %.lr.ph.i158.us.us.us ], [ %indvars.iv.next.i162.us.us.us, %76 ]
   %.011.i161.us.us.us = phi i32 [ 0, %.lr.ph.i158.us.us.us ], [ %83, %76 ]
-  %77 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i160.us.us.us
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i160.us.us.us
   %78 = load i32, ptr %77, align 4, !tbaa !3
-  %79 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv.i160.us.us.us
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv.i160.us.us.us
   %80 = load i64, ptr %79, align 8, !tbaa !9
   %81 = trunc i64 %80 to i32
   %82 = mul i32 %78, %81
@@ -2816,7 +2816,7 @@ Extra_ThreshSimplifyInequalities.exit:            ; preds = %._crit_edge.us.i, %
 
 .lr.ph.i171.us.us.us:                             ; preds = %86, %.lr.ph.i171.us.us.us
   %indvars.iv.i172.us.us.us = phi i64 [ %indvars.iv.next.i173.us.us.us, %.lr.ph.i171.us.us.us ], [ %indvars.iv284, %86 ]
-  %90 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i172.us.us.us
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i172.us.us.us
   %91 = load i32, ptr %90, align 4, !tbaa !3
   %92 = add nsw i32 %91, -1
   store i32 %92, ptr %90, align 4, !tbaa !3
@@ -2830,7 +2830,7 @@ Extra_ThreshDecrementWeights.exit.us.us.us:       ; preds = %.lr.ph.i171.us.us.u
 
 .lr.ph.i165.us.us.us:                             ; preds = %84, %.lr.ph.i165.us.us.us
   %indvars.iv.i166.us.us.us = phi i64 [ %indvars.iv.next.i167.us.us.us, %.lr.ph.i165.us.us.us ], [ %indvars.iv284, %84 ]
-  %94 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i166.us.us.us
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i166.us.us.us
   %95 = load i32, ptr %94, align 4, !tbaa !3
   %96 = add nsw i32 %95, 1
   store i32 %96, ptr %94, align 4, !tbaa !3
@@ -2869,7 +2869,7 @@ Extra_ThreshCubeWeightedSum4.exit.loopexit.us.us.us: ; preds = %76
 .lr.ph200:                                        ; preds = %.lr.ph200.preheader, %.lr.ph200
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph200.preheader ], [ %106, %.lr.ph200 ]
   %indvars.iv274 = phi i64 [ 1, %.lr.ph200.preheader ], [ %indvars.iv.next275, %.lr.ph200 ]
-  %105 = getelementptr i32, ptr %12, i64 %indvars.iv274
+  %105 = getelementptr [4 x i8], ptr %12, i64 %indvars.iv274
   %106 = add nsw i32 %store_forwarded, 1
   store i32 %106, ptr %105, align 4, !tbaa !3
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
@@ -2885,7 +2885,7 @@ Extra_ThreshCubeWeightedSum4.exit.loopexit.us.us.us: ; preds = %76
 
 .lr.ph242:                                        ; preds = %.lr.ph242.preheader, %.lr.ph242
   %indvars.iv289 = phi i64 [ 0, %.lr.ph242.preheader ], [ %indvars.iv.next290, %.lr.ph242 ]
-  %107 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv289
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv289
   %108 = load ptr, ptr %107, align 8, !tbaa !63
   tail call void @free(ptr noundef %108) #20
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
@@ -2903,7 +2903,7 @@ Extra_ThreshCubeWeightedSum4.exit.loopexit.us.us.us: ; preds = %76
 
 .lr.ph246:                                        ; preds = %.lr.ph246.preheader, %.lr.ph246
   %indvars.iv294 = phi i64 [ 0, %.lr.ph246.preheader ], [ %indvars.iv.next295, %.lr.ph246 ]
-  %109 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv294
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv294
   %110 = load ptr, ptr %109, align 8, !tbaa !63
   tail call void @free(ptr noundef %110) #20
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
@@ -2942,10 +2942,10 @@ Extra_ThreshCubeWeightedSum4.exit.loopexit.us.us.us: ; preds = %76
 
 121:                                              ; preds = %.lr.ph.i177.us
   %122 = sub nuw nsw i64 %indvars.iv.i178.us, %indvars.iv299
-  %123 = getelementptr inbounds nuw i32, ptr %5, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !3
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds i32, ptr %12, i64 %125
+  %126 = getelementptr inbounds [4 x i8], ptr %12, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !3
   %128 = add nsw i32 %127, %.014.i.us
   br label %129
@@ -2995,10 +2995,10 @@ Extra_ThreshCubeWeightedSum1.exit.loopexit.us:    ; preds = %129
 
 144:                                              ; preds = %.lr.ph.i182.us
   %145 = sub nuw nsw i64 %indvars.iv.i183.us, %indvars.iv302
-  %146 = getelementptr inbounds nuw i32, ptr %5, i64 %145
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %145
   %147 = load i32, ptr %146, align 4, !tbaa !3
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds i32, ptr %12, i64 %148
+  %149 = getelementptr inbounds [4 x i8], ptr %12, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !3
   %151 = add nsw i32 %150, %.014.i184.us
   br label %152
@@ -3027,12 +3027,12 @@ Extra_ThreshCubeWeightedSum2.exit.loopexit.us:    ; preds = %152
 
 .lr.ph258:                                        ; preds = %.lr.ph258.preheader, %.lr.ph258
   %indvars.iv305 = phi i64 [ 0, %.lr.ph258.preheader ], [ %indvars.iv.next306, %.lr.ph258 ]
-  %158 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv305
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv305
   %159 = load i32, ptr %158, align 4, !tbaa !3
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds i32, ptr %12, i64 %160
+  %161 = getelementptr inbounds [4 x i8], ptr %12, i64 %160
   %162 = load i32, ptr %161, align 4, !tbaa !3
-  %163 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv305
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv305
   store i32 %162, ptr %163, align 4, !tbaa !3
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %exitcond309.not = icmp eq i64 %indvars.iv.next306, %wide.trip.count308
@@ -3073,7 +3073,7 @@ define void @Extra_ThreshPrintWeights(i32 noundef %0, ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3118,7 +3118,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshCheck(ptr noundef captures(address) 
   %.02531.us.i = phi i32 [ %.1.us.i, %..loopexit_crit_edge.us.i ], [ 0, %.lr.ph34.split.us.preheader.i ]
   %11 = lshr i32 %.032.us.i, 6
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !9
   %15 = and i32 %.032.us.i, 63
   %16 = zext nneg i32 %15 to i64
@@ -3136,7 +3136,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshCheck(ptr noundef captures(address) 
   br i1 %.not29.us.i, label %26, label %22
 
 22:                                               ; preds = %.lr.ph.us.i
-  %23 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 4, !tbaa !3
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr %23, align 4, !tbaa !3
@@ -3164,7 +3164,7 @@ define range(i32 0, 10001) i32 @Extra_ThreshCheck(ptr noundef captures(address) 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv42.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next43.i, %.lr.ph.i ]
-  %29 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv42.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv42.i
   %30 = load i32, ptr %29, align 4, !tbaa !3
   %31 = shl nsw i32 %30, 1
   %32 = sub nsw i32 %31, %.025.lcssa50.i
@@ -3216,7 +3216,7 @@ Abc_TtNegVar.exit.us:                             ; preds = %Abc_TtNegVar.exit.t
   %11 = shl nuw i32 1, %10
   %12 = zext nneg i32 %11 to i64
   %13 = shl i64 %9, %12
-  %14 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv59
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @s_Truths6, i64 %indvars.iv59
   %15 = load i64, ptr %14, align 8, !tbaa !9
   %16 = xor i64 %13, -1
   %17 = and i64 %15, %16
@@ -3226,7 +3226,7 @@ Abc_TtNegVar.exit.us:                             ; preds = %Abc_TtNegVar.exit.t
 
 Abc_TtPosVar.exit.us:                             ; preds = %Abc_TtNegVar.exit.us
   %19 = lshr i64 %9, %12
-  %20 = getelementptr inbounds nuw i64, ptr @s_Truths6Neg, i64 %indvars.iv59
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @s_Truths6Neg, i64 %indvars.iv59
   %21 = load i64, ptr %20, align 8, !tbaa !9
   %22 = xor i64 %19, -1
   %23 = and i64 %21, %22
@@ -3251,7 +3251,7 @@ Abc_TtNegVar.exit.thread.us:                      ; preds = %Abc_TtPosVar.exit.u
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = shl nuw nsw i32 1, %27
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @s_Truths6, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8, !tbaa !9
   br label %33
 
@@ -3262,7 +3262,7 @@ Abc_TtNegVar.exit.thread.us:                      ; preds = %Abc_TtPosVar.exit.u
 
 33:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv58.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next59.i, %32 ]
-  %34 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv58.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv58.i
   %35 = load i64, ptr %34, align 8, !tbaa !9
   %36 = shl i64 %35, %29
   %37 = xor i64 %36, -1
@@ -3291,7 +3291,7 @@ Abc_TtNegVar.exit.thread.us:                      ; preds = %Abc_TtPosVar.exit.u
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %.03648.us.i = phi ptr [ %54, %._crit_edge.us.i ], [ %0, %.preheader.us.preheader.i ]
-  %invariant.gep.i = getelementptr i64, ptr %.03648.us.i, i64 %47
+  %invariant.gep.i = getelementptr [8 x i8], ptr %.03648.us.i, i64 %47
   br label %49
 
 48:                                               ; preds = %49
@@ -3301,16 +3301,16 @@ Abc_TtNegVar.exit.thread.us:                      ; preds = %Abc_TtPosVar.exit.u
 
 49:                                               ; preds = %48, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %48 ]
-  %50 = getelementptr inbounds nuw i64, ptr %.03648.us.i, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.03648.us.i, i64 %indvars.iv.i
   %51 = load i64, ptr %50, align 8, !tbaa !9
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr [8 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   %52 = load i64, ptr %gep.i, align 8, !tbaa !9
   %53 = and i64 %52, %51
   %.not.us.i = icmp eq i64 %53, %52
   br i1 %.not.us.i, label %48, label %.loopexit
 
 ._crit_edge.us.i:                                 ; preds = %48
-  %54 = getelementptr inbounds i64, ptr %.03648.us.i, i64 %46
+  %54 = getelementptr inbounds [8 x i8], ptr %.03648.us.i, i64 %46
   %55 = icmp ult ptr %54, %8
   br i1 %55, label %.preheader.us.i, label %Abc_TtNegVar.exit.thread, !llvm.loop !100
 
@@ -3324,7 +3324,7 @@ Abc_TtNegVar.exit.thread.us:                      ; preds = %Abc_TtPosVar.exit.u
   %57 = trunc nuw nsw i64 %indvars.iv to i32
   %58 = shl nuw nsw i32 1, %57
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw i64, ptr @s_Truths6Neg, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr @s_Truths6Neg, i64 %indvars.iv
   %61 = load i64, ptr %60, align 8, !tbaa !9
   br label %63
 
@@ -3335,7 +3335,7 @@ Abc_TtNegVar.exit.thread.us:                      ; preds = %Abc_TtPosVar.exit.u
 
 63:                                               ; preds = %62, %.lr.ph.i28
   %indvars.iv57.i = phi i64 [ 0, %.lr.ph.i28 ], [ %indvars.iv.next58.i, %62 ]
-  %64 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv57.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv57.i
   %65 = load i64, ptr %64, align 8, !tbaa !9
   %66 = lshr i64 %65, %59
   %67 = xor i64 %66, -1
@@ -3364,7 +3364,7 @@ Abc_TtNegVar.exit.thread.us:                      ; preds = %Abc_TtPosVar.exit.u
 
 .preheader.us.i18:                                ; preds = %._crit_edge.us.i26, %.preheader.us.preheader.i15
   %.03547.us.i = phi ptr [ %84, %._crit_edge.us.i26 ], [ %0, %.preheader.us.preheader.i15 ]
-  %invariant.gep.i19 = getelementptr i64, ptr %.03547.us.i, i64 %77
+  %invariant.gep.i19 = getelementptr [8 x i8], ptr %.03547.us.i, i64 %77
   br label %79
 
 78:                                               ; preds = %79
@@ -3374,16 +3374,16 @@ Abc_TtNegVar.exit.thread.us:                      ; preds = %Abc_TtPosVar.exit.u
 
 79:                                               ; preds = %78, %.preheader.us.i18
   %indvars.iv.i20 = phi i64 [ 0, %.preheader.us.i18 ], [ %indvars.iv.next.i24, %78 ]
-  %80 = getelementptr inbounds nuw i64, ptr %.03547.us.i, i64 %indvars.iv.i20
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %.03547.us.i, i64 %indvars.iv.i20
   %81 = load i64, ptr %80, align 8, !tbaa !9
-  %gep.i21 = getelementptr i64, ptr %invariant.gep.i19, i64 %indvars.iv.i20
+  %gep.i21 = getelementptr [8 x i8], ptr %invariant.gep.i19, i64 %indvars.iv.i20
   %82 = load i64, ptr %gep.i21, align 8, !tbaa !9
   %83 = and i64 %82, %81
   %.not.us.i22 = icmp eq i64 %81, %83
   br i1 %.not.us.i22, label %78, label %Abc_TtPosVar.exit.thread38
 
 ._crit_edge.us.i26:                               ; preds = %78
-  %84 = getelementptr inbounds i64, ptr %.03547.us.i, i64 %76
+  %84 = getelementptr inbounds [8 x i8], ptr %.03547.us.i, i64 %76
   %85 = icmp ult ptr %84, %8
   br i1 %85, label %.preheader.us.i18, label %Abc_TtNegVar.exit.thread, !llvm.loop !103
 
@@ -3437,7 +3437,7 @@ define internal fastcc void @Abc_TtMakePosUnate(ptr noundef captures(address) %0
   %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = shl nuw nsw i32 1, %18
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @s_Truths6, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8, !tbaa !9
   br label %24
 
@@ -3448,7 +3448,7 @@ define internal fastcc void @Abc_TtMakePosUnate(ptr noundef captures(address) %0
 
 24:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv58.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next59.i, %23 ]
-  %25 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv58.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv58.i
   %26 = load i64, ptr %25, align 8, !tbaa !9
   %27 = shl i64 %26, %20
   %28 = xor i64 %27, -1
@@ -3477,7 +3477,7 @@ define internal fastcc void @Abc_TtMakePosUnate(ptr noundef captures(address) %0
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %.03648.us.i = phi ptr [ %45, %._crit_edge.us.i ], [ %0, %.preheader.us.preheader.i ]
-  %invariant.gep.i = getelementptr i64, ptr %.03648.us.i, i64 %38
+  %invariant.gep.i = getelementptr [8 x i8], ptr %.03648.us.i, i64 %38
   br label %40
 
 39:                                               ; preds = %40
@@ -3487,16 +3487,16 @@ define internal fastcc void @Abc_TtMakePosUnate(ptr noundef captures(address) %0
 
 40:                                               ; preds = %39, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %39 ]
-  %41 = getelementptr inbounds nuw i64, ptr %.03648.us.i, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.03648.us.i, i64 %indvars.iv.i
   %42 = load i64, ptr %41, align 8, !tbaa !9
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr [8 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   %43 = load i64, ptr %gep.i, align 8, !tbaa !9
   %44 = and i64 %43, %42
   %.not.us.i = icmp eq i64 %44, %43
   br i1 %.not.us.i, label %39, label %Abc_TtFlip.exit
 
 ._crit_edge.us.i:                                 ; preds = %39
-  %45 = getelementptr inbounds i64, ptr %.03648.us.i, i64 %37
+  %45 = getelementptr inbounds [8 x i8], ptr %.03648.us.i, i64 %37
   %46 = icmp ult ptr %45, %9
   br i1 %46, label %.preheader.us.i, label %Abc_TtNegVar.exit.thread, !llvm.loop !100
 
@@ -3506,7 +3506,7 @@ Abc_TtNegVar.exit:                                ; preds = %14
   %49 = shl nuw i32 1, %48
   %50 = zext nneg i32 %49 to i64
   %51 = shl i64 %47, %50
-  %52 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @s_Truths6, i64 %indvars.iv
   %53 = load i64, ptr %52, align 8, !tbaa !9
   %54 = xor i64 %51, -1
   %55 = and i64 %53, %54
@@ -3523,7 +3523,7 @@ Abc_TtNegVar.exit.thread:                         ; preds = %._crit_edge.us.i, %
   %60 = shl nuw i32 1, %59
   %61 = zext i32 %60 to i64
   %62 = shl i64 %58, %61
-  %63 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @s_Truths6, i64 %indvars.iv
   %64 = load i64, ptr %63, align 8, !tbaa !9
   %65 = and i64 %62, %64
   %66 = and i64 %64, %58
@@ -3543,13 +3543,13 @@ Abc_TtNegVar.exit.thread:                         ; preds = %._crit_edge.us.i, %
   %72 = trunc nuw nsw i64 %indvars.iv to i32
   %73 = shl nuw nsw i32 1, %72
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @s_Truths6, i64 %indvars.iv
   %76 = load i64, ptr %75, align 8, !tbaa !9
   br label %77
 
 77:                                               ; preds = %77, %.lr.ph.i23
   %indvars.iv56.i = phi i64 [ 0, %.lr.ph.i23 ], [ %indvars.iv.next57.i, %77 ]
-  %78 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv56.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv56.i
   %79 = load i64, ptr %78, align 8, !tbaa !9
   %80 = shl i64 %79, %74
   %81 = and i64 %80, %76
@@ -3581,14 +3581,14 @@ Abc_TtNegVar.exit.thread:                         ; preds = %._crit_edge.us.i, %
 
 .preheader.us.i16:                                ; preds = %._crit_edge.us.i22, %.preheader.us.preheader.i13
   %.051.us.i = phi ptr [ %93, %._crit_edge.us.i22 ], [ %0, %.preheader.us.preheader.i13 ]
-  %invariant.gep.i17 = getelementptr i64, ptr %.051.us.i, i64 %88
+  %invariant.gep.i17 = getelementptr [8 x i8], ptr %.051.us.i, i64 %88
   br label %89
 
 89:                                               ; preds = %89, %.preheader.us.i16
   %indvars.iv.i18 = phi i64 [ 0, %.preheader.us.i16 ], [ %indvars.iv.next.i20, %89 ]
-  %90 = getelementptr inbounds nuw i64, ptr %.051.us.i, i64 %indvars.iv.i18
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %.051.us.i, i64 %indvars.iv.i18
   %91 = load i64, ptr %90, align 8, !tbaa !9
-  %gep.i19 = getelementptr i64, ptr %invariant.gep.i17, i64 %indvars.iv.i18
+  %gep.i19 = getelementptr [8 x i8], ptr %invariant.gep.i17, i64 %indvars.iv.i18
   %92 = load i64, ptr %gep.i19, align 8, !tbaa !9
   store i64 %92, ptr %90, align 8, !tbaa !9
   store i64 %91, ptr %gep.i19, align 8, !tbaa !9
@@ -3597,7 +3597,7 @@ Abc_TtNegVar.exit.thread:                         ; preds = %._crit_edge.us.i, %
   br i1 %exitcond.not.i21, label %._crit_edge.us.i22, label %89, !llvm.loop !105
 
 ._crit_edge.us.i22:                               ; preds = %89
-  %93 = getelementptr inbounds i64, ptr %.051.us.i, i64 %87
+  %93 = getelementptr inbounds [8 x i8], ptr %.051.us.i, i64 %87
   %94 = icmp ult ptr %93, %12
   br i1 %94, label %.preheader.us.i16, label %Abc_TtFlip.exit, !llvm.loop !106
 
@@ -3641,7 +3641,7 @@ define range(i32 -2147483647, 1001) i32 @Extra_ThreshHeuristic(ptr noundef %0, i
   %.02531.us.i = phi i32 [ %.1.us.i, %..loopexit_crit_edge.us.i ], [ 0, %.lr.ph34.split.us.preheader.i ]
   %13 = lshr i32 %.032.us.i, 6
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !9
   %17 = and i32 %.032.us.i, 63
   %18 = zext nneg i32 %17 to i64
@@ -3659,7 +3659,7 @@ define range(i32 -2147483647, 1001) i32 @Extra_ThreshHeuristic(ptr noundef %0, i
   br i1 %.not29.us.i, label %28, label %24
 
 24:                                               ; preds = %.lr.ph.us.i
-  %25 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %25, align 4, !tbaa !3
@@ -3686,7 +3686,7 @@ define range(i32 -2147483647, 1001) i32 @Extra_ThreshHeuristic(ptr noundef %0, i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv42.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next43.i, %.lr.ph.i ]
-  %31 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv42.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv42.i
   %32 = load i32, ptr %31, align 4, !tbaa !3
   %33 = shl nsw i32 %32, 1
   %34 = sub nsw i32 %33, %.025.lcssa50.i
@@ -3721,7 +3721,7 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i
   br i1 %41, label %49, label %42
 
 42:                                               ; preds = %.lr.ph.i69
-  %43 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i70
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i70
   %44 = load i32, ptr %43, align 4, !tbaa !3
   %45 = getelementptr i8, ptr %43, i64 -4
   %46 = load i32, ptr %45, align 4, !tbaa !3
@@ -3732,7 +3732,7 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i
 
 49:                                               ; preds = %42, %.lr.ph.i69
   %.024.sink.i = phi i32 [ %.024.i, %.lr.ph.i69 ], [ %spec.select.i71, %42 ]
-  %50 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i70
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i70
   store i32 %.024.sink.i, ptr %50, align 4, !tbaa !3
   %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i70, 1
   %exitcond.not.i73 = icmp eq i64 %indvars.iv.next.i72, %10
@@ -3762,7 +3762,7 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i
 
 .lr.ph.i77:                                       ; preds = %.lr.ph.i77, %.lr.ph.preheader.i75
   %indvars.iv.i78 = phi i64 [ 0, %.lr.ph.preheader.i75 ], [ %indvars.iv.next.i79, %.lr.ph.i77 ]
-  %60 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i78
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i78
   %61 = load i64, ptr %60, align 8, !tbaa !9
   %62 = xor i64 %61, -1
   store i64 %62, ptr %60, align 8, !tbaa !9
@@ -3842,7 +3842,7 @@ define void @Extra_ThreshCheckTest() local_unnamed_addr #0 {
   %6 = shl nuw nsw i32 1, %5
   %7 = zext nneg i32 %6 to i64
   %8 = lshr i64 -6302637592877692800, %7
-  %9 = getelementptr inbounds nuw i64, ptr @s_Truths6Neg, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @s_Truths6Neg, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8, !tbaa !9
   %11 = and i64 %8, -6302637592877692800
   %12 = xor i64 %11, -6302637592877692800
@@ -3850,7 +3850,7 @@ define void @Extra_ThreshCheckTest() local_unnamed_addr #0 {
   %14 = icmp eq i64 %13, 0
   %15 = zext i1 %14 to i32
   %16 = shl i64 -6302637592877692800, %7
-  %17 = getelementptr inbounds nuw i64, ptr @s_Truths6, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @s_Truths6, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !9
   %19 = and i64 %16, -6302637592877692800
   %20 = xor i64 %19, -6302637592877692800
@@ -3887,7 +3887,7 @@ define void @Extra_ThreshCheckTest() local_unnamed_addr #0 {
   br i1 %.not29.us.i, label %36, label %32
 
 32:                                               ; preds = %.lr.ph.us.i
-  %33 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %34 = load i32, ptr %33, align 4, !tbaa !3
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %33, align 4, !tbaa !3
@@ -3910,7 +3910,7 @@ define void @Extra_ThreshCheckTest() local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %..loopexit_crit_edge.us.i, %.lr.ph.i
   %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %.lr.ph.i ], [ 0, %..loopexit_crit_edge.us.i ]
-  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv42.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv42.i
   %39 = load i32, ptr %38, align 4, !tbaa !3
   %40 = shl nsw i32 %39, 1
   %41 = sub nsw i32 %40, %.1.us.i
@@ -3926,7 +3926,7 @@ Extra_ThreshComputeChow.exit:                     ; preds = %.lr.ph.i
 
 .lr.ph.i13:                                       ; preds = %Extra_ThreshComputeChow.exit, %.lr.ph.i13
   %indvars.iv.i14 = phi i64 [ %indvars.iv.next.i15, %.lr.ph.i13 ], [ 0, %Extra_ThreshComputeChow.exit ]
-  %43 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i14
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i14
   %44 = load i32, ptr %43, align 4, !tbaa !3
   %45 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %44)
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
@@ -3970,7 +3970,7 @@ define void @Extra_ThreshHeuristicTest() local_unnamed_addr #12 {
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %8
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

@@ -9415,7 +9415,7 @@ define void @_ZN8Paintbox12setUndoStackEP7QWidget(ptr noundef nonnull align 8 de
   %18 = load ptr, ptr %17, align 8
   %19 = urem i32 %16, %8
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %20
   br label %22
 
 22:                                               ; preds = %24, %9
@@ -12229,7 +12229,7 @@ _ZN5QHashIP7QWidgetP10QUndoStackE6detachEv.exit:  ; preds = %2, %_ZN5QHashIP7QWi
   %27 = load ptr, ptr %26, align 8
   %28 = urem i32 %24, %16
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   br label %31
 
 31:                                               ; preds = %33, %25
@@ -12276,7 +12276,7 @@ _ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5
   %54 = load ptr, ptr %53, align 8
   %55 = urem i32 %24, %51
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %54, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %56
   %58 = load ptr, ptr %1, align 8
   br label %59
 
@@ -12379,7 +12379,7 @@ _ZN5QHashIP7QWidgetP10QUndoStackE6detachEv.exit:  ; preds = %3, %_ZN5QHashIP7QWi
   %28 = load ptr, ptr %27, align 8
   %29 = urem i32 %25, %17
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   br label %32
 
 32:                                               ; preds = %34, %26
@@ -12426,7 +12426,7 @@ _ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5
   %55 = load ptr, ptr %54, align 8
   %56 = urem i32 %25, %52
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %57
   %59 = load ptr, ptr %1, align 8
   br label %60
 
@@ -13588,7 +13588,7 @@ define void @_ZN8Paintbox15getPixmapBufferERPhRPfRiS4_(ptr noundef nonnull align
   %42 = add nsw i32 %41, %.031
   %43 = load ptr, ptr %2, align 8
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds float, ptr %43, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %43, i64 %44
   store float 0.000000e+00, ptr %45, align 4
   %46 = shl nsw i32 %42, 2
   %47 = invoke i64 @_ZNK6QImage4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)

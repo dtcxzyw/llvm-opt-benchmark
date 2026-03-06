@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ident_t = type { i32, i32, i32, i32, ptr }
-%struct.t_complex = type { float, float }
 
 $__clang_call_terminate = comdat any
 
@@ -59,15 +58,15 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %13 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !9
-  %15 = getelementptr inbounds nuw %struct.t_complex, ptr %8, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store float %14, ptr %15, align 4, !tbaa !11
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float 0.000000e+00, ptr %16, align 4, !tbaa !13
-  %17 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %18 = load float, ptr %17, align 4, !tbaa !9
-  %19 = getelementptr inbounds nuw %struct.t_complex, ptr %9, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store float %18, ptr %19, align 4, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store float 0.000000e+00, ptr %20, align 4, !tbaa !13
@@ -77,11 +76,11 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
 
 .lr.ph52:                                         ; preds = %.lr.ph52.preheader, %.lr.ph52
   %indvars.iv62 = phi i64 [ %12, %.lr.ph52.preheader ], [ %indvars.iv.next63, %.lr.ph52 ]
-  %21 = getelementptr inbounds nuw %struct.t_complex, ptr %8, i64 %indvars.iv62
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv62
   store float 0.000000e+00, ptr %21, align 4, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store float 0.000000e+00, ptr %22, align 4, !tbaa !13
-  %23 = getelementptr inbounds nuw %struct.t_complex, ptr %9, i64 %indvars.iv62
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv62
   store float 0.000000e+00, ptr %23, align 4, !tbaa !11
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store float 0.000000e+00, ptr %24, align 4, !tbaa !13
@@ -101,8 +100,8 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
 
 28:                                               ; preds = %.lr.ph55, %28
   %indvars.iv67 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next68, %28 ]
-  %29 = getelementptr inbounds nuw %struct.t_complex, ptr %8, i64 %indvars.iv67
-  %30 = getelementptr inbounds nuw %struct.t_complex, ptr %9, i64 %indvars.iv67
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv67
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv67
   %.val = load float, ptr %30, align 4, !tbaa !11
   %31 = getelementptr i8, ptr %30, i64 4
   %.val37 = load float, ptr %31, align 4, !tbaa !13
@@ -132,9 +131,9 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
 
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
   %indvars.iv72 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next73, %.lr.ph59 ]
-  %43 = getelementptr inbounds nuw %struct.t_complex, ptr %8, i64 %indvars.iv72
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv72
   %44 = load float, ptr %43, align 4, !tbaa !11
-  %45 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv72
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv72
   store float %44, ptr %45, align 4, !tbaa !9
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
@@ -214,7 +213,7 @@ define internal void @_Z15many_cross_corriPiPPfS1_S1_.omp_outlined(ptr noalias n
   %indvars.iv = phi i64 [ %20, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %21 = load ptr, ptr %3, align 8, !tbaa !21
-  %22 = getelementptr inbounds i32, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !19
   %24 = shl nsw i32 %23, 1
   %25 = invoke noundef i32 @_Z15gmx_fft_init_1dPP7gmx_fftii(ptr noundef nonnull %12, i32 noundef %24, i32 noundef 1)
@@ -222,16 +221,16 @@ define internal void @_Z15many_cross_corriPiPPfS1_S1_.omp_outlined(ptr noalias n
 
 26:                                               ; preds = %.lr.ph
   %27 = load ptr, ptr %3, align 8, !tbaa !21
-  %28 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !19
   %30 = load ptr, ptr %4, align 8, !tbaa !23
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !26
   %33 = load ptr, ptr %5, align 8, !tbaa !23
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !26
   %36 = load ptr, ptr %6, align 8, !tbaa !23
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !26
   %39 = load ptr, ptr %12, align 8, !tbaa !4
   invoke fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %29, ptr noundef %32, ptr noundef %35, ptr noundef %38, ptr noundef %39)

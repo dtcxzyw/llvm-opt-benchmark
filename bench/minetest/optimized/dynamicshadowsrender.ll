@@ -23,17 +23,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.StreamProxy = type { ptr }
 %"class.irr::core::vector3d" = type { float, float, float }
 %"class.irr::video::SColor" = type { i32 }
-%class.DirectionalLight = type <{ i8, [3 x i8], %"class.irr::video::SColorf", float, i32, %"class.irr::core::vector3d", %"class.irr::core::vector3d", %"class.irr::core::vector3d", %"class.irr::core::vector3d", %struct.shadowFrustum, %struct.shadowFrustum, i8, [3 x i8] }>
-%"class.irr::video::SColorf" = type { float, float, float, float }
-%struct.shadowFrustum = type <{ float, float, float, float, %"class.irr::core::CMatrix4", %"class.irr::core::CMatrix4", %"class.irr::core::vector3d", %"class.irr::core::vector3d", %"class.irr::core::vector3d.50", [2 x i8] }>
-%"class.irr::core::CMatrix4" = type { [16 x float] }
-%"class.irr::core::vector3d.50" = type { i16, i16, i16 }
-%struct.NodeToApply = type <{ ptr, i8, i8, [6 x i8] }>
 %"class.irr::core::dimension2d" = type { i32, i32 }
 %"class.irr::core::string" = type { %"class.std::__cxx11::basic_string" }
 %"class.irr::video::SMaterial" = type <{ [4 x %"class.irr::video::SMaterialLayer"], i32, %"class.irr::video::SColor", %"class.irr::video::SColor", %"class.irr::video::SColor", %"class.irr::video::SColor", float, float, float, i8, i8, i16, float, float, float, i16, [6 x i8] }>
 %"class.irr::video::SMaterialLayer" = type { ptr, i16, i32, i32, i8, i8, ptr }
-%"struct.std::pair" = type { i8, i8 }
 
 $__clang_call_terminate = comdat any
 
@@ -4075,7 +4068,7 @@ entry:
   %m_light_list = getelementptr inbounds nuw i8, ptr %this, i64 64
   %conv = zext i32 %index to i64
   %0 = load ptr, ptr %m_light_list, align 8, !tbaa !55
-  %add.ptr.i = getelementptr inbounds nuw %class.DirectionalLight, ptr %0, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [432 x i8], ptr %0, i64 %conv
   ret ptr %add.ptr.i
 }
 
@@ -4205,7 +4198,7 @@ if.then.i59.i.i:                                  ; preds = %_ZNSt6vectorI11Node
 _ZNSt6vectorI11NodeToApplySaIS0_EE17_M_realloc_insertIJRPN3irr5scene10ISceneNodeER13E_SHADOW_MODEEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %if.then.i59.i.i, %_ZNSt6vectorI11NodeToApplySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit58.i.i
   store ptr %call5.i.i.i.i.i, ptr %m_shadow_node_array, align 8, !tbaa !54
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !60
-  %add.ptr28.i.i = getelementptr inbounds nuw %struct.NodeToApply, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr28.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr28.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !131
   br label %_ZNSt6vectorI11NodeToApplySaIS0_EE12emplace_backIJRPN3irr5scene10ISceneNodeER13E_SHADOW_MODEEEERS0_DpOT_.exit
 
@@ -7321,7 +7314,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %if.end
           to label %_ZNSt12_Vector_baseISt4pairIbbESaIS1_EE11_M_allocateEm.exit.i unwind label %lpad
 
 _ZNSt12_Vector_baseISt4pairIbbESaIS1_EE11_M_allocateEm.exit.i: ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
-  %add.ptr21.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i164, i64 %conv18
+  %add.ptr21.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i164, i64 %conv18
   %mul.i.i.i.i174 = shl nuw nsw i64 %conv18, 1
   %call5.i.i.i.i180 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i174) #31
           to label %_ZNSt12_Vector_baseIN3irr5video17E_BLEND_OPERATIONESaIS2_EE11_M_allocateEm.exit.i unwind label %lpad
@@ -7331,8 +7324,8 @@ _ZNSt12_Vector_baseIN3irr5video17E_BLEND_OPERATIONESaIS2_EE11_M_allocateEm.exit.
           to label %for.body26.preheader unwind label %lpad
 
 for.body26.preheader:                             ; preds = %_ZNSt12_Vector_baseIN3irr5video17E_BLEND_OPERATIONESaIS2_EE11_M_allocateEm.exit.i
-  %add.ptr21.i178 = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i.i180, i64 %conv18
-  %add.ptr21.i195 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i198, i64 %conv18
+  %add.ptr21.i178 = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i.i180, i64 %conv18
+  %add.ptr21.i195 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i198, i64 %conv18
   br label %for.body26
 
 for.cond.cleanup25:                               ; preds = %invoke.cont52, %if.end
@@ -7422,7 +7415,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %BufferMaterialList.sroa.0.2396) #28
-  %add.ptr19.i.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i203, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i203, i64 %cond.i.i.i.i
   br label %invoke.cont34
 
 invoke.cont34:                                    ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %if.then.i.i201
@@ -7544,7 +7537,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
 _ZNSt6vectorISt4pairIbbESaIS1_EE17_M_realloc_insertIJbbEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %for.body.i.i.i.i.i, %middle.block, %invoke.cont.i.i
   %__cur.0.lcssa.i.i.i.i.i4 = phi ptr [ %ind.end, %middle.block ], [ %call5.i.i.i.i.i207, %invoke.cont.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %BufferMaterialCullingList.sroa.0.2388) #28
-  %add.ptr28.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i.i.i207, i64 %cond.i.i.i
+  %add.ptr28.i.i = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i.i.i207, i64 %cond.i.i.i
   br label %invoke.cont44
 
 invoke.cont44:                                    ; preds = %_ZNSt6vectorISt4pairIbbESaIS1_EE17_M_realloc_insertIJbbEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i
@@ -7603,7 +7596,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_base
 
 _ZNSt6vectorIN3irr5video17E_BLEND_OPERATIONESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIN3irr5video17E_BLEND_OPERATIONESaIS2_EE11_M_allocateEm.exit.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %BufferBlendOperationList.sroa.0.2391) #28
-  %add.ptr19.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i232, i64 %cond.i.i.i222
+  %add.ptr19.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i232, i64 %cond.i.i.i222
   br label %invoke.cont52
 
 invoke.cont52:                                    ; preds = %_ZNSt6vectorIN3irr5video17E_BLEND_OPERATIONESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i211
@@ -7707,11 +7700,11 @@ for.body78:                                       ; preds = %for.cond75.preheade
           to label %invoke.cont84 unwind label %lpad83
 
 invoke.cont84:                                    ; preds = %for.body78
-  %add.ptr.i239 = getelementptr inbounds nuw i32, ptr %BufferMaterialList.sroa.0.2.lcssa, i64 %indvars.iv
+  %add.ptr.i239 = getelementptr inbounds nuw [4 x i8], ptr %BufferMaterialList.sroa.0.2.lcssa, i64 %indvars.iv
   %42 = load i32, ptr %add.ptr.i239, align 4, !tbaa !226
   %MaterialType88 = getelementptr inbounds nuw i8, ptr %call85, i64 128
   store i32 %42, ptr %MaterialType88, align 8, !tbaa !116
-  %add.ptr.i240 = getelementptr inbounds nuw %"struct.std::pair", ptr %BufferMaterialCullingList.sroa.0.2.lcssa, i64 %indvars.iv
+  %add.ptr.i240 = getelementptr inbounds nuw [2 x i8], ptr %BufferMaterialCullingList.sroa.0.2.lcssa, i64 %indvars.iv
   %43 = load i8, ptr %add.ptr.i240, align 1, !tbaa !227, !range !72, !noundef !73
   %BackfaceCulling91 = getelementptr inbounds nuw i8, ptr %call85, i64 176
   %bf.load92 = load i16, ptr %BackfaceCulling91, align 8
@@ -7727,7 +7720,7 @@ invoke.cont84:                                    ; preds = %for.body78
   %bf.clear101 = and i16 %bf.set94, -129
   %bf.set102 = or disjoint i16 %bf.clear101, %bf.shl100
   store i16 %bf.set102, ptr %BackfaceCulling91, align 8
-  %add.ptr.i242 = getelementptr inbounds nuw i32, ptr %BufferBlendOperationList.sroa.0.2.lcssa, i64 %indvars.iv
+  %add.ptr.i242 = getelementptr inbounds nuw [4 x i8], ptr %BufferBlendOperationList.sroa.0.2.lcssa, i64 %indvars.iv
   %47 = load i32, ptr %add.ptr.i242, align 4, !tbaa !239
   %BlendOperation105 = getelementptr inbounds nuw i8, ptr %call85, i64 162
   %48 = trunc i32 %47 to i16
@@ -9110,7 +9103,7 @@ _ZNSt12_Vector_baseI16DirectionalLightSaIS0_EE13_M_deallocateEPS0_m.exit: ; pred
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !55
   store ptr %__cur.0.lcssa.i.i.i.i.i85, ptr %_M_finish.i.i, align 8, !tbaa !53
-  %add.ptr35 = getelementptr inbounds nuw %class.DirectionalLight, ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr35 = getelementptr inbounds nuw [432 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr35, ptr %_M_end_of_storage, align 8, !tbaa !52
   ret void
 

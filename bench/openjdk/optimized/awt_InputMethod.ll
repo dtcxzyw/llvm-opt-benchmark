@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.XSetWindowAttributes = type { i64, i64, i64, i64, i32, i32, i32, i64, i64, i32, i64, i64, i32, i64, i64 }
 %struct.XWindowAttributes = type { i32, i32, i32, i32, i32, i32, ptr, i64, i32, i32, i32, i32, i64, i64, i32, i64, i32, i32, i64, i64, i64, i32, ptr }
 %struct.XGCValues = type { i32, i64, i64, i64, i32, i32, i32, i32, i32, i32, i32, i64, i64, i32, i32, i64, i32, i32, i32, i32, i64, i32, i8 }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 
 @x11InputMethodGRefListHead = hidden local_unnamed_addr global ptr null, align 8
 @currentX11InputMethodInstance = hidden local_unnamed_addr global ptr null, align 8
@@ -722,7 +721,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 
 129:                                              ; preds = %128, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %128 ]
-  %130 = getelementptr inbounds nuw i64, ptr %124, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv.i
   %131 = load i64, ptr %130, align 8
   %132 = icmp eq i64 %131, 514
   br i1 %132, label %._crit_edge.i, label %128
@@ -736,7 +735,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %.08617.i = phi i64 [ 0, %._crit_edge.i ], [ %141, %133 ]
   %.08716.i = phi i64 [ 0, %._crit_edge.i ], [ %139, %133 ]
   %.08915.i = phi i64 [ 0, %._crit_edge.i ], [ %137, %133 ]
-  %134 = getelementptr inbounds nuw i64, ptr %124, i64 %indvars.iv33.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv33.i
   %135 = load i64, ptr %134, align 8
   %136 = and i64 %135, %.091.i
   %137 = or i64 %136, %.08915.i
@@ -785,7 +784,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %indvars.iv38.i = phi i64 [ 0, %156 ], [ %indvars.iv.next39.i, %158 ]
   %.08525.i = phi ptr [ %154, %156 ], [ %162, %158 ]
   store ptr %114, ptr %.08525.i, align 8
-  %159 = getelementptr inbounds nuw ptr, ptr @callback_funcs, i64 %indvars.iv38.i
+  %159 = getelementptr inbounds nuw [8 x i8], ptr @callback_funcs, i64 %indvars.iv38.i
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds nuw i8, ptr %.08525.i, i64 8
   store ptr %160, ptr %161, align 8
@@ -848,7 +847,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 
 184:                                              ; preds = %189, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %189 ]
-  %185 = getelementptr inbounds nuw %struct.Screen, ptr %182, i64 %indvars.iv.i.i
+  %185 = getelementptr inbounds nuw [128 x i8], ptr %182, i64 %indvars.iv.i.i
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %187 = load i64, ptr %186, align 8
   %188 = icmp eq i64 %187, %183
@@ -3927,10 +3926,10 @@ wcstombsdmp.exit:                                 ; preds = %87
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %121 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %122 = load i64, ptr %121, align 8
   %123 = trunc i64 %122 to i32
-  %124 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv
   store i32 %123, ptr %124, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %125 = icmp samesign ult i64 %indvars.iv.next, %117

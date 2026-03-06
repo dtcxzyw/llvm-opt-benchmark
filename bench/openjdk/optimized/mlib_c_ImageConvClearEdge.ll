@@ -71,7 +71,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next454
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next454
   %38 = load i32, ptr %37, align 4
   %39 = trunc i32 %38 to i8
   br i1 %22, label %.preheader276.lr.ph, label %.preheader279
@@ -242,7 +242,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %97, label %.loopexit286, label %98
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next423
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next423
   %100 = load i32, ptr %99, align 4
   %101 = trunc i32 %100 to i16
   br i1 %84, label %.preheader284.lr.ph, label %.preheader288
@@ -266,7 +266,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   %107 = mul i32 %82, %106
   %108 = add i32 %104, %107
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i16, ptr %.val269, i64 %109
+  %110 = getelementptr inbounds [2 x i8], ptr %.val269, i64 %109
   store i16 %101, ptr %110, align 2
   %indvars.iv.next395 = add nsw i64 %indvars.iv394, 1
   %111 = icmp slt i64 %indvars.iv.next395, %93
@@ -298,7 +298,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   %120 = mul i32 %82, %119
   %121 = add i32 %117, %120
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i16, ptr %.val269, i64 %122
+  %123 = getelementptr inbounds [2 x i8], ptr %.val269, i64 %122
   store i16 %101, ptr %123, align 2
   %indvars.iv.next399 = add nsw i64 %indvars.iv398, 1
   %124 = icmp slt i64 %indvars.iv.next399, %93
@@ -316,19 +316,19 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %89, label %.loopexit286, label %.preheader282.us.preheader
 
 .preheader282.us.preheader:                       ; preds = %.preheader282.lr.ph
-  %invariant.gep463 = getelementptr i16, ptr %.val269, i64 %indvars.iv.next423
+  %invariant.gep463 = getelementptr [2 x i8], ptr %.val269, i64 %indvars.iv.next423
   br label %.preheader282.us
 
 .preheader282.us:                                 ; preds = %.preheader282.us.preheader, %._crit_edge.us324
   %indvars.iv407 = phi i64 [ 0, %.preheader282.us.preheader ], [ %indvars.iv.next408, %._crit_edge.us324 ]
   %126 = mul nsw i64 %indvars.iv407, %92
-  %gep464 = getelementptr i16, ptr %invariant.gep463, i64 %126
+  %gep464 = getelementptr [2 x i8], ptr %invariant.gep463, i64 %126
   br label %127
 
 127:                                              ; preds = %.preheader282.us, %127
   %indvars.iv402 = phi i64 [ 0, %.preheader282.us ], [ %indvars.iv.next403, %127 ]
   %128 = mul nuw nsw i64 %indvars.iv402, %94
-  %129 = getelementptr i16, ptr %gep464, i64 %128
+  %129 = getelementptr [2 x i8], ptr %gep464, i64 %128
   store i16 %101, ptr %129, align 2
   %indvars.iv.next403 = add nuw nsw i64 %indvars.iv402, 1
   %exitcond406.not = icmp eq i64 %indvars.iv.next403, %wide.trip.count405
@@ -343,7 +343,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %brmerge476, label %.loopexit286, label %.preheader281.us.preheader
 
 .preheader281.us.preheader:                       ; preds = %.preheader285
-  %130 = getelementptr i16, ptr %.val269, i64 %indvars.iv.next423
+  %130 = getelementptr [2 x i8], ptr %.val269, i64 %indvars.iv.next423
   br label %.preheader281.us
 
 .preheader281.us:                                 ; preds = %.preheader281.us.preheader, %._crit_edge.us328
@@ -353,13 +353,13 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   %133 = add i32 %.val265, %132
   %134 = mul nsw i32 %133, %82
   %135 = sext i32 %134 to i64
-  %136 = getelementptr i16, ptr %130, i64 %135
+  %136 = getelementptr [2 x i8], ptr %130, i64 %135
   br label %137
 
 137:                                              ; preds = %.preheader281.us, %137
   %indvars.iv412 = phi i64 [ 0, %.preheader281.us ], [ %indvars.iv.next413, %137 ]
   %138 = mul nuw nsw i64 %indvars.iv412, %94
-  %139 = getelementptr i16, ptr %136, i64 %138
+  %139 = getelementptr [2 x i8], ptr %136, i64 %138
   store i16 %101, ptr %139, align 2
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
   %exitcond416.not = icmp eq i64 %indvars.iv.next413, %wide.trip.count415
@@ -413,7 +413,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %159, label %.loopexit295, label %160
 
 160:                                              ; preds = %157
-  %161 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next392
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next392
   %162 = load i32, ptr %161, align 4
   br i1 %146, label %.preheader293.lr.ph, label %.preheader297
 
@@ -436,7 +436,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   %168 = mul i32 %144, %167
   %169 = add i32 %165, %168
   %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds i32, ptr %.val270, i64 %170
+  %171 = getelementptr inbounds [4 x i8], ptr %.val270, i64 %170
   store i32 %162, ptr %171, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %172 = icmp slt i64 %indvars.iv.next, %155
@@ -468,7 +468,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   %181 = mul i32 %144, %180
   %182 = add i32 %178, %181
   %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds i32, ptr %.val270, i64 %183
+  %184 = getelementptr inbounds [4 x i8], ptr %.val270, i64 %183
   store i32 %162, ptr %184, align 4
   %indvars.iv.next369 = add nsw i64 %indvars.iv368, 1
   %185 = icmp slt i64 %indvars.iv.next369, %155
@@ -486,19 +486,19 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %151, label %.loopexit295, label %.preheader291.us.preheader
 
 .preheader291.us.preheader:                       ; preds = %.preheader291.lr.ph
-  %invariant.gep = getelementptr i32, ptr %.val270, i64 %indvars.iv.next392
+  %invariant.gep = getelementptr [4 x i8], ptr %.val270, i64 %indvars.iv.next392
   br label %.preheader291.us
 
 .preheader291.us:                                 ; preds = %.preheader291.us.preheader, %._crit_edge.us306
   %indvars.iv376 = phi i64 [ 0, %.preheader291.us.preheader ], [ %indvars.iv.next377, %._crit_edge.us306 ]
   %187 = mul nsw i64 %indvars.iv376, %154
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %187
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %187
   br label %188
 
 188:                                              ; preds = %.preheader291.us, %188
   %indvars.iv372 = phi i64 [ 0, %.preheader291.us ], [ %indvars.iv.next373, %188 ]
   %189 = mul nuw nsw i64 %indvars.iv372, %156
-  %190 = getelementptr i32, ptr %gep, i64 %189
+  %190 = getelementptr [4 x i8], ptr %gep, i64 %189
   store i32 %162, ptr %190, align 4
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
   %exitcond375.not = icmp eq i64 %indvars.iv.next373, %wide.trip.count
@@ -513,7 +513,7 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %brmerge482, label %.loopexit295, label %.preheader290.us.preheader
 
 .preheader290.us.preheader:                       ; preds = %.preheader294
-  %191 = getelementptr i32, ptr %.val270, i64 %indvars.iv.next392
+  %191 = getelementptr [4 x i8], ptr %.val270, i64 %indvars.iv.next392
   br label %.preheader290.us
 
 .preheader290.us:                                 ; preds = %.preheader290.us.preheader, %._crit_edge.us309
@@ -523,13 +523,13 @@ define hidden i32 @mlib_ImageConvClearEdge(ptr noundef %0, i32 noundef %1, i32 n
   %194 = add i32 %.val265, %193
   %195 = mul nsw i32 %194, %144
   %196 = sext i32 %195 to i64
-  %197 = getelementptr i32, ptr %191, i64 %196
+  %197 = getelementptr [4 x i8], ptr %191, i64 %196
   br label %198
 
 198:                                              ; preds = %.preheader290.us, %198
   %indvars.iv381 = phi i64 [ 0, %.preheader290.us ], [ %indvars.iv.next382, %198 ]
   %199 = mul nuw nsw i64 %indvars.iv381, %156
-  %200 = getelementptr i32, ptr %197, i64 %199
+  %200 = getelementptr [4 x i8], ptr %197, i64 %199
   store i32 %162, ptr %200, align 4
   %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
   %exitcond385.not = icmp eq i64 %indvars.iv.next382, %wide.trip.count384

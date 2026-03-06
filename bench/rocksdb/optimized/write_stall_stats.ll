@@ -513,7 +513,7 @@ common.resume:                                    ; preds = %40, %42, %44, %46, 
 
 switch.lookup:                                    ; preds = %38
   %58 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7rocksdb29WriteStallCauseToHyphenStringB5cxx11ENS_15WriteStallCauseE, i64 %58
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7rocksdb29WriteStallCauseToHyphenStringB5cxx11ENS_15WriteStallCauseE, i64 %58
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN7rocksdb29InvalidWriteStallHyphenStringB5cxx11Ev.exit
 

@@ -53,7 +53,7 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local i64 @kallsyms_sym_address(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i32, ptr @kallsyms_offsets, i64 %2
+  %3 = getelementptr [4 x i8], ptr @kallsyms_offsets, i64 %2
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %8
@@ -110,7 +110,7 @@ define dso_local i64 @kallsyms_lookup_name(ptr noundef %0) local_unnamed_addr #1
 
 24:                                               ; preds = %11
   %25 = sext i32 %21 to i64
-  %26 = getelementptr i32, ptr @kallsyms_offsets, i64 %25
+  %26 = getelementptr [4 x i8], ptr @kallsyms_offsets, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = icmp sgt i32 %27, -1
   br i1 %28, label %29, label %31
@@ -173,7 +173,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
 27:                                               ; preds = %14
   %28 = zext i32 %24 to i64
   %29 = lshr i64 %28, 8
-  %30 = getelementptr i32, ptr @kallsyms_markers, i64 %29
+  %30 = getelementptr [4 x i8], ptr @kallsyms_markers, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
   %33 = getelementptr i8, ptr @kallsyms_names, i64 %32
@@ -252,7 +252,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %86 = phi ptr [ %78, %.loopexit46 ], [ %4, %74 ]
   %87 = load i8, ptr %82, align 1
   %88 = zext i8 %87 to i64
-  %89 = getelementptr i16, ptr @kallsyms_token_index, i64 %88
+  %89 = getelementptr [2 x i8], ptr @kallsyms_token_index, i64 %88
   %90 = load i16, ptr %89, align 2
   %91 = zext i16 %90 to i64
   %92 = getelementptr i8, ptr @kallsyms_token_table, i64 %91
@@ -354,7 +354,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
 149:                                              ; preds = %136
   %150 = zext i32 %146 to i64
   %151 = lshr i64 %150, 8
-  %152 = getelementptr i32, ptr @kallsyms_markers, i64 %151
+  %152 = getelementptr [4 x i8], ptr @kallsyms_markers, i64 %151
   %153 = load i32, ptr %152, align 4
   %154 = zext i32 %153 to i64
   %155 = getelementptr i8, ptr @kallsyms_names, i64 %154
@@ -433,7 +433,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %208 = phi ptr [ %200, %.loopexit38 ], [ %4, %196 ]
   %209 = load i8, ptr %204, align 1
   %210 = zext i8 %209 to i64
-  %211 = getelementptr i16, ptr @kallsyms_token_index, i64 %210
+  %211 = getelementptr [2 x i8], ptr @kallsyms_token_index, i64 %210
   %212 = load i16, ptr %211, align 2
   %213 = zext i16 %212 to i64
   %214 = getelementptr i8, ptr @kallsyms_token_table, i64 %213
@@ -526,7 +526,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
 266:                                              ; preds = %253
   %267 = zext i32 %263 to i64
   %268 = lshr i64 %267, 8
-  %269 = getelementptr i32, ptr @kallsyms_markers, i64 %268
+  %269 = getelementptr [4 x i8], ptr @kallsyms_markers, i64 %268
   %270 = load i32, ptr %269, align 4
   %271 = zext i32 %270 to i64
   %272 = getelementptr i8, ptr @kallsyms_names, i64 %271
@@ -605,7 +605,7 @@ define internal fastcc noundef range(i32 -3, 1) i32 @kallsyms_lookup_names(ptr n
   %325 = phi ptr [ %317, %.loopexit31 ], [ %4, %313 ]
   %326 = load i8, ptr %321, align 1
   %327 = zext i8 %326 to i64
-  %328 = getelementptr i16, ptr @kallsyms_token_index, i64 %327
+  %328 = getelementptr [2 x i8], ptr @kallsyms_token_index, i64 %327
   %329 = load i16, ptr %328, align 2
   %330 = zext i16 %329 to i64
   %331 = getelementptr i8, ptr @kallsyms_token_table, i64 %330
@@ -729,7 +729,7 @@ define dso_local i32 @kallsyms_on_each_symbol(ptr noundef readonly captures(none
   %37 = phi ptr [ %29, %.loopexit9 ], [ %3, %24 ]
   %38 = load i8, ptr %33, align 1
   %39 = zext i8 %38 to i64
-  %40 = getelementptr i16, ptr @kallsyms_token_index, i64 %39
+  %40 = getelementptr [2 x i8], ptr @kallsyms_token_index, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i64
   %43 = getelementptr i8, ptr @kallsyms_token_table, i64 %42
@@ -861,7 +861,7 @@ define dso_local i32 @kallsyms_on_each_match_symbol(ptr noundef readonly capture
 
 27:                                               ; preds = %14
   %28 = sext i32 %24 to i64
-  %29 = getelementptr i32, ptr @kallsyms_offsets, i64 %28
+  %29 = getelementptr [4 x i8], ptr @kallsyms_offsets, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %30, -1
   br i1 %31, label %32, label %34
@@ -1149,7 +1149,7 @@ define internal fastcc ptr @kallsyms_lookup_buildid(i64 noundef %0, ptr noundef 
 18:                                               ; preds = %15, %11, %6
   %19 = tail call fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef %1, ptr noundef %2)
   %20 = lshr i64 %19, 8
-  %21 = getelementptr i32, ptr @kallsyms_markers, i64 %20
+  %21 = getelementptr [4 x i8], ptr @kallsyms_markers, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
   %24 = getelementptr i8, ptr @kallsyms_names, i64 %23
@@ -1228,7 +1228,7 @@ define internal fastcc ptr @kallsyms_lookup_buildid(i64 noundef %0, ptr noundef 
   %77 = phi ptr [ %69, %.loopexit7 ], [ %5, %65 ]
   %78 = load i8, ptr %73, align 1
   %79 = zext i8 %78 to i64
-  %80 = getelementptr i16, ptr @kallsyms_token_index, i64 %79
+  %80 = getelementptr [2 x i8], ptr @kallsyms_token_index, i64 %79
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i64
   %83 = getelementptr i8, ptr @kallsyms_token_table, i64 %82
@@ -1328,7 +1328,7 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef initializes
 14:                                               ; preds = %11, %7, %2
   %15 = tail call fastcc i64 @get_symbol_pos(i64 noundef %0, ptr noundef null, ptr noundef null)
   %16 = lshr i64 %15, 8
-  %17 = getelementptr i32, ptr @kallsyms_markers, i64 %16
+  %17 = getelementptr [4 x i8], ptr @kallsyms_markers, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = zext i32 %18 to i64
   %20 = getelementptr i8, ptr @kallsyms_names, i64 %19
@@ -1407,7 +1407,7 @@ define dso_local i32 @lookup_symbol_name(i64 noundef %0, ptr noundef initializes
   %73 = phi ptr [ %65, %.loopexit6 ], [ %1, %61 ]
   %74 = load i8, ptr %69, align 1
   %75 = zext i8 %74 to i64
-  %76 = getelementptr i16, ptr @kallsyms_token_index, i64 %75
+  %76 = getelementptr [2 x i8], ptr @kallsyms_token_index, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = zext i16 %77 to i64
   %79 = getelementptr i8, ptr @kallsyms_token_table, i64 %78
@@ -1852,7 +1852,7 @@ define internal fastcc range(i32 0, 2) i32 @update_iter(ptr noundef %0, i64 noun
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 45
   store i8 0, ptr %61, align 1
   %62 = lshr i64 %1, 8
-  %63 = getelementptr i32, ptr @kallsyms_markers, i64 %62
+  %63 = getelementptr [4 x i8], ptr @kallsyms_markers, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = zext i32 %64 to i64
   %66 = getelementptr i8, ptr @kallsyms_names, i64 %65
@@ -1934,7 +1934,7 @@ define internal fastcc range(i32 0, 2) i32 @update_iter(ptr noundef %0, i64 noun
   %118 = getelementptr i8, ptr @kallsyms_names, i64 %117
   %119 = load i8, ptr %118, align 1
   %120 = zext i8 %119 to i64
-  %121 = getelementptr i16, ptr @kallsyms_token_index, i64 %120
+  %121 = getelementptr [2 x i8], ptr @kallsyms_token_index, i64 %120
   %122 = load i16, ptr %121, align 2
   %123 = zext i16 %122 to i64
   %124 = getelementptr i8, ptr @kallsyms_token_table, i64 %123
@@ -1982,7 +1982,7 @@ define internal fastcc range(i32 0, 2) i32 @update_iter(ptr noundef %0, i64 noun
   %155 = phi ptr [ %147, %.loopexit8 ], [ %127, %142 ]
   %156 = load i8, ptr %151, align 1
   %157 = zext i8 %156 to i64
-  %158 = getelementptr i16, ptr @kallsyms_token_index, i64 %157
+  %158 = getelementptr [2 x i8], ptr @kallsyms_token_index, i64 %157
   %159 = load i16, ptr %158, align 2
   %160 = zext i16 %159 to i64
   %161 = getelementptr i8, ptr @kallsyms_token_table, i64 %160

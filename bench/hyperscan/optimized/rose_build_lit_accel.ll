@@ -3,10 +3,6 @@ source_filename = "bench/hyperscan/original/rose_build_lit_accel.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.ue2::CharReach" = type { %"class.ue2::bitfield" }
-%"class.ue2::bitfield" = type { %"struct.std::array" }
-%"struct.std::array" = type { [4 x i64] }
-
 @_ZTIN3ue218ResourceLimitErrorE = external constant ptr
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
@@ -96,7 +92,7 @@ _ZNSt6vectorIPKN3ue211AccelStringESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.
   br label %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIPKN3ue211AccelStringESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %29, %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i
-  %30 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   br label %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EE9push_backEOS3_.exit.i
 
 _ZNSt6vectorIPKN3ue211AccelStringESaIS3_EE9push_backEOS3_.exit.i: ; preds = %_ZNSt6vectorIPKN3ue211AccelStringESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i, %10, %.lr.ph.i
@@ -956,7 +952,7 @@ _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit: ; preds = %.lr.ph.i129, %351, 
 
 .preheader191:                                    ; preds = %.preheader191.lr.ph, %368
   %indvars.iv243 = phi i64 [ 0, %.preheader191.lr.ph ], [ %indvars.iv.next244, %368 ]
-  %365 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %332, i64 %indvars.iv243
+  %365 = getelementptr inbounds nuw [32 x i8], ptr %332, i64 %indvars.iv243
   %.phi.trans.insert258 = getelementptr inbounds nuw i8, ptr %346, i64 %indvars.iv243
   %.pre259 = load i8, ptr %.phi.trans.insert258, align 1
   %.phi.trans.insert261 = getelementptr inbounds nuw i8, ptr %.pre260.pre, i64 %indvars.iv243
@@ -981,7 +977,7 @@ _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit: ; preds = %.lr.ph.i129, %351, 
   %375 = and i64 %indvars.iv239, 63
   %376 = shl nuw i64 1, %375
   %377 = lshr i64 %indvars.iv239, 6
-  %378 = getelementptr inbounds nuw i64, ptr %365, i64 %377
+  %378 = getelementptr inbounds nuw [8 x i8], ptr %365, i64 %377
   %379 = load i64, ptr %378, align 8
   %380 = or i64 %379, %376
   store i64 %380, ptr %378, align 8
@@ -995,7 +991,7 @@ _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit: ; preds = %.lr.ph.i129, %351, 
 382:                                              ; preds = %.lr.ph, %_ZN3ue2L21litGuardedByCharReachERKNS_9CharReachERKNS_11AccelStringEj.exit
   %indvars.iv250 = phi i64 [ %361, %.lr.ph ], [ %indvars.iv.next251, %_ZN3ue2L21litGuardedByCharReachERKNS_9CharReachERKNS_11AccelStringEj.exit ]
   %indvars.iv246 = phi i32 [ 1, %.lr.ph ], [ %indvars.iv.next247, %_ZN3ue2L21litGuardedByCharReachERKNS_9CharReachERKNS_11AccelStringEj.exit ]
-  %383 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %332, i64 %indvars.iv250
+  %383 = getelementptr inbounds nuw [32 x i8], ptr %332, i64 %indvars.iv250
   %384 = sub nuw nsw i64 %indvars.iv250, %361
   br i1 %362, label %.split.us.i139, label %.split.i135
 
@@ -1014,7 +1010,7 @@ _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit: ; preds = %.lr.ph.i129, %351, 
   %.0.i.us.i = select i1 %391, i8 %389, i8 %392
   %393 = zext i8 %.0.i.us.i to i64
   %394 = lshr i64 %393, 6
-  %395 = getelementptr inbounds nuw i64, ptr %383, i64 %394
+  %395 = getelementptr inbounds nuw [8 x i8], ptr %383, i64 %394
   %396 = load i64, ptr %395, align 8
   %397 = and i64 %393, 63
   %398 = shl nuw i64 1, %397
@@ -1029,7 +1025,7 @@ _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit: ; preds = %.lr.ph.i129, %351, 
   %.0.i22.us.i = select i1 %402, i8 %389, i8 %403
   %404 = zext i8 %.0.i22.us.i to i64
   %405 = lshr i64 %404, 6
-  %406 = getelementptr inbounds nuw i64, ptr %383, i64 %405
+  %406 = getelementptr inbounds nuw [8 x i8], ptr %383, i64 %405
   %407 = load i64, ptr %406, align 8
   %408 = and i64 %404, 63
   %409 = shl nuw i64 1, %408
@@ -1053,7 +1049,7 @@ _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit: ; preds = %.lr.ph.i129, %351, 
   %417 = load i8, ptr %416, align 1
   %418 = zext i8 %417 to i64
   %419 = lshr i64 %418, 6
-  %420 = getelementptr inbounds nuw i64, ptr %383, i64 %419
+  %420 = getelementptr inbounds nuw [8 x i8], ptr %383, i64 %419
   %421 = load i64, ptr %420, align 8
   %422 = and i64 %418, 63
   %423 = shl nuw i64 1, %422
@@ -1082,7 +1078,7 @@ _ZN3ue2L13mask_overhangERKNS_11AccelStringE.exit: ; preds = %.lr.ph.i129, %351, 
   %435 = and i64 %434, 63
   %436 = shl nuw i64 1, %435
   %437 = lshr i64 %434, 6
-  %438 = getelementptr inbounds nuw i64, ptr %383, i64 %437
+  %438 = getelementptr inbounds nuw [8 x i8], ptr %383, i64 %437
   %439 = load i64, ptr %438, align 8
   %440 = or i64 %439, %436
   store i64 %440, ptr %438, align 8
@@ -1098,7 +1094,7 @@ _ZN3ue2L21litGuardedByCharReachERKNS_9CharReachERKNS_11AccelStringEj.exit.sink.s
   %445 = and i64 %444, 63
   %446 = shl nuw i64 1, %445
   %447 = lshr i64 %444, 6
-  %448 = getelementptr inbounds nuw i64, ptr %383, i64 %447
+  %448 = getelementptr inbounds nuw [8 x i8], ptr %383, i64 %447
   %449 = load i64, ptr %448, align 8
   %450 = or i64 %449, %446
   store i64 %450, ptr %448, align 8
@@ -1123,7 +1119,7 @@ _ZN3ue2L21litGuardedByCharReachERKNS_9CharReachERKNS_11AccelStringEj.exit: ; pre
   %indvars.iv253 = phi i64 [ %indvars.iv.next254, %.preheader ], [ 0, %.preheader.preheader ]
   %.073218 = phi i32 [ %spec.select94, %.preheader ], [ -1, %.preheader.preheader ]
   %.075217 = phi i64 [ %spec.select188, %.preheader ], [ 4294967295, %.preheader.preheader ]
-  %455 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %332, i64 %indvars.iv253
+  %455 = getelementptr inbounds nuw [32 x i8], ptr %332, i64 %indvars.iv253
   %456 = load i64, ptr %455, align 8
   %457 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %456)
   %458 = getelementptr inbounds nuw i8, ptr %455, i64 8
@@ -1148,7 +1144,7 @@ _ZN3ue2L21litGuardedByCharReachERKNS_9CharReachERKNS_11AccelStringEj.exit: ; pre
 
 472:                                              ; preds = %453
   %473 = zext i32 %spec.select94 to i64
-  %474 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %332, i64 %473
+  %474 = getelementptr inbounds nuw [32 x i8], ptr %332, i64 %473
   %475 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %476 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %477 = invoke noundef i32 @_ZN3ue216shuftiBuildMasksERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %474, ptr noundef nonnull %475, ptr noundef nonnull %476)

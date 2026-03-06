@@ -176,7 +176,7 @@ _ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 _ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %68, %.noexc38.i
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 32
   call void @_ZdlPv(ptr noundef nonnull %.val.pre.i) #16, !noalias !3
-  %70 = getelementptr inbounds nuw %"struct.net::(anonymous namespace)::CertEntry", ptr %65, i64 %63
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %63
   br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE9push_backERKS2_.exit49.i
 
 .loopexit.i:                                      ; preds = %43, %34
@@ -249,7 +249,7 @@ _ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 _ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i46.i: ; preds = %98, %.noexc48.i
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 32
   call void @_ZdlPv(ptr noundef nonnull %.val.pre.i) #16, !noalias !3
-  %100 = getelementptr inbounds nuw %"struct.net::(anonymous namespace)::CertEntry", ptr %95, i64 %93
+  %100 = getelementptr inbounds nuw [32 x i8], ptr %95, i64 %93
   br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE9push_backERKS2_.exit49.i
 
 .loopexit75.i:                                    ; preds = %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i52.i, %_ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i41.i, %71
@@ -309,7 +309,7 @@ _ZNKSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i
 _ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i57.i: ; preds = %118, %.noexc59.i
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 32
   call void @_ZdlPv(ptr noundef nonnull %.val.pre.i) #16, !noalias !3
-  %120 = getelementptr inbounds nuw %"struct.net::(anonymous namespace)::CertEntry", ptr %115, i64 %113
+  %120 = getelementptr inbounds nuw [32 x i8], ptr %115, i64 %113
   br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE9push_backERKS2_.exit49.i
 
 _ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE9push_backERKS2_.exit49.i: ; preds = %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i57.i, %101, %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i46.i, %81, %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %50
@@ -369,13 +369,13 @@ _ZN3net12_GLOBAL__N_110MatchCertsERKSt6vectorINSt7__cxx1112basic_stringIcSt11cha
 134:                                              ; preds = %.lr.ph, %144
   %.071200 = phi i64 [ 0, %.lr.ph ], [ %145, %144 ]
   %.072199 = phi i64 [ 0, %.lr.ph ], [ %.173, %144 ]
-  %135 = getelementptr inbounds nuw %"struct.net::(anonymous namespace)::CertEntry", ptr %121, i64 %.071200
+  %135 = getelementptr inbounds nuw [32 x i8], ptr %121, i64 %.071200
   %136 = load i32, ptr %135, align 8, !tbaa !21
   %137 = icmp eq i32 %136, 1
   br i1 %137, label %138, label %144
 
 138:                                              ; preds = %134
-  %139 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %131, i64 %.071200
+  %139 = getelementptr inbounds nuw [32 x i8], ptr %131, i64 %.071200
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load i64, ptr %140, align 8, !tbaa !18
   %142 = add i64 %.072199, 4
@@ -638,14 +638,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %21
   %235 = phi ptr [ %232, %.lr.ph206 ], [ %265, %264 ]
   %236 = phi ptr [ %231, %.lr.ph206 ], [ %266, %264 ]
   %.0204 = phi i64 [ 0, %.lr.ph206 ], [ %267, %264 ]
-  %237 = getelementptr inbounds nuw %"struct.net::(anonymous namespace)::CertEntry", ptr %.val100, i64 %.0204
+  %237 = getelementptr inbounds nuw [32 x i8], ptr %.val100, i64 %.0204
   %238 = load i32, ptr %237, align 8, !tbaa !21
   %.not80 = icmp eq i32 %238, 1
   br i1 %.not80, label %239, label %264
 
 239:                                              ; preds = %234
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %240 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %235, i64 %.0204
+  %240 = getelementptr inbounds nuw [32 x i8], ptr %235, i64 %.0204
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %242 = load i64, ptr %241, align 8, !tbaa !18
   %243 = trunc i64 %242 to i32
@@ -670,7 +670,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %21
 
 251:                                              ; preds = %247
   %252 = load ptr, ptr %1, align 8, !tbaa !12
-  %253 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %252, i64 %.0204
+  %253 = getelementptr inbounds nuw [32 x i8], ptr %252, i64 %.0204
   %254 = load ptr, ptr %253, align 8, !tbaa !13
   store ptr %254, ptr %10, align 8, !tbaa !48
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 8
@@ -911,13 +911,13 @@ define internal fastcc void @_ZN3net12_GLOBAL__N_118ZlibDictForEntriesERKSt6vect
 16:                                               ; preds = %.lr.ph, %24
   %.02447 = phi i64 [ %.02445, %.lr.ph ], [ %.024, %24 ]
   %.02546 = phi i64 [ 0, %.lr.ph ], [ %.126, %24 ]
-  %17 = getelementptr inbounds nuw %"struct.net::(anonymous namespace)::CertEntry", ptr %.val31, i64 %.02447
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %.val31, i64 %.02447
   %18 = load i32, ptr %17, align 8, !tbaa !21
   %.not30 = icmp eq i32 %18, 1
   br i1 %.not30, label %24, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %.02447
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %.02447
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !18
   %23 = add i64 %22, %.02546
@@ -962,13 +962,13 @@ define internal fastcc void @_ZN3net12_GLOBAL__N_118ZlibDictForEntriesERKSt6vect
   %38 = phi ptr [ %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit ], [ %27, %.lr.ph51.preheader ]
   %.049 = phi i64 [ %.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit ], [ %.048, %.lr.ph51.preheader ]
   %.val = load ptr, ptr %1, align 8, !tbaa !45
-  %39 = getelementptr inbounds nuw %"struct.net::(anonymous namespace)::CertEntry", ptr %.val, i64 %.049
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %.val, i64 %.049
   %40 = load i32, ptr %39, align 8, !tbaa !21
   %.not = icmp eq i32 %40, 1
   br i1 %.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit, label %41
 
 41:                                               ; preds = %.lr.ph51
-  %42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %37, i64 %.049
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %.049
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !18
   %45 = load i64, ptr %7, align 8, !tbaa !18
@@ -1331,7 +1331,7 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i.i: ; preds = %76
           to label %.lr.ph.i.i unwind label %.loopexit152.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i.i.i
-  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %73
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %73
   br label %80
 
 80:                                               ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit.i.i, %.lr.ph.i.i
@@ -1394,7 +1394,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i.i.i: ; preds = %91
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i: ; preds = %106, %.noexc9.i.i
   call void @_ZdlPv(ptr noundef nonnull %81) #16, !noalias !55
-  %107 = getelementptr inbounds nuw i64, ptr %103, i64 %101
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %101
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit.i.i
 
 _ZNSt6vectorImSaImEE9push_backEOm.exit.i.i:       ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i, %90
@@ -1458,14 +1458,14 @@ _ZNSt6vectorImSaImEED2Ev.exit.i:                  ; preds = %113, %_ZN3net12_GLO
 
 .lr.ph.i:                                         ; preds = %146, %.lr.ph.preheader.i
   %.0216.i = phi i64 [ %147, %146 ], [ 0, %.lr.ph.preheader.i ]
-  %118 = getelementptr inbounds nuw i64, ptr %.sroa.095.5.i, i64 %.0216.i
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.095.5.i, i64 %.0216.i
   %119 = load i64, ptr %118, align 8, !tbaa !27
   %120 = icmp eq i64 %119, %61
   br i1 %120, label %121, label %146
 
 121:                                              ; preds = %.lr.ph.i
   %122 = load ptr, ptr %2, align 8, !tbaa !12
-  %123 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %122, i64 %.0216.i
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %.0216.i
   %124 = load ptr, ptr %18, align 8, !tbaa !6
   %125 = load ptr, ptr %27, align 8, !tbaa !54
   %.not.i54.i = icmp eq ptr %124, %125
@@ -1781,7 +1781,7 @@ _ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %223, %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i.i
   store ptr %218, ptr %10, align 8, !tbaa !45
   store ptr %222, ptr %16, align 8, !tbaa !63
-  %224 = getelementptr inbounds nuw %"struct.net::(anonymous namespace)::CertEntry", ptr %218, i64 %216
+  %224 = getelementptr inbounds nuw [32 x i8], ptr %218, i64 %216
   store ptr %224, ptr %31, align 8, !tbaa !64
   br label %_ZNSt6vectorIN3net12_GLOBAL__N_19CertEntryESaIS2_EE9push_backERKS2_.exit.i
 
@@ -2006,7 +2006,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %.cr
   %.val69227 = phi ptr [ %.val69182, %.lr.ph ], [ %.val69, %351 ]
   %.val225 = phi ptr [ %.val181, %.lr.ph ], [ %.val, %351 ]
   %.033184 = phi i64 [ 0, %.lr.ph ], [ %352, %351 ]
-  %290 = getelementptr inbounds nuw %"struct.net::(anonymous namespace)::CertEntry", ptr %.val225, i64 %.033184
+  %290 = getelementptr inbounds nuw [32 x i8], ptr %.val225, i64 %.033184
   %291 = load i32, ptr %290, align 8, !tbaa !21
   %cond8 = icmp eq i32 %291, 1
   br i1 %cond8, label %292, label %351
@@ -2099,7 +2099,7 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv.exit: ; preds = %316, %.thread.i
   %320 = load ptr, ptr %4, align 8, !tbaa !12
-  %321 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %320, i64 %.033184
+  %321 = getelementptr inbounds nuw [32 x i8], ptr %320, i64 %.033184
   %322 = load ptr, ptr %321, align 8, !tbaa !13
   %323 = getelementptr inbounds nuw i8, ptr %321, i64 16
   %324 = icmp eq ptr %322, %323
@@ -2517,7 +2517,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !12
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !6
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !54
   ret void
 }
@@ -2708,7 +2708,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !12
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !6
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !54
   ret void
 

@@ -17,9 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.6" = type { %"struct.std::_Tuple_impl.7" }
 %"struct.std::_Tuple_impl.7" = type { %"struct.std::_Head_base.10" }
 %"struct.std::_Head_base.10" = type { ptr }
-%struct.gmx_ana_selparam_t = type { ptr, %struct.gmx_ana_selvalue_t, ptr, i32 }
-%struct.gmx_ana_selvalue_t = type { i32, i32, %union.anon, i32 }
-%union.anon = type { ptr }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @_ZTIN3gmx8APIErrorE = external constant ptr
@@ -380,7 +377,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 20:                                               ; preds = %.lr.ph272, %182
   %indvars.iv284 = phi i64 [ 0, %.lr.ph272 ], [ %indvars.iv.next285, %182 ]
   %.0193271 = phi i1 [ true, %.lr.ph272 ], [ %.1, %182 ]
-  %21 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %3, i64 %indvars.iv284
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %3, i64 %indvars.iv284
   %22 = load ptr, ptr %21, align 8, !tbaa !26
   %23 = icmp eq ptr %22, null
   %24 = icmp ne i64 %indvars.iv284, 0
@@ -397,7 +394,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 .lr.ph:                                           ; preds = %.preheader256, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.preheader256 ]
-  %26 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %3, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [48 x i8], ptr %3, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !26
   %28 = icmp eq ptr %27, null
   br i1 %28, label %34, label %29
@@ -1031,7 +1028,7 @@ define internal fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_
 61:                                               ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %.03855 = phi i1 [ false, %.lr.ph ], [ %.1, %69 ]
-  %62 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %60, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [48 x i8], ptr %60, i64 %indvars.iv
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i32, ptr %63, align 8, !tbaa !33
   %.not53 = icmp eq i32 %64, 4
@@ -1163,7 +1160,7 @@ define noundef range(i32 -1, 1) i32 @_Z35gmx_ana_selmethod_register_defaultsPN3g
 6:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
   %.01215 = phi i8 [ 1, %1 ], [ %spec.select, %6 ]
-  %7 = getelementptr inbounds nuw %struct.t_register_method, ptr @__const._Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionParserSymbolTableE.smtable_def, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @__const._Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionParserSymbolTableE.smtable_def, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !52
   %10 = shl nuw i64 1, %indvars.iv

@@ -33,9 +33,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.pci_device_id = type { i32, i32, i32, i32, i32, i32, i64, i32 }
 %struct.dev_pm_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.xhci_driver_data = type { i64, ptr }
-%struct.xhci_port = type { ptr, i32, i32, ptr, ptr, i8, i64, i8, %struct.completion, %struct.completion }
-%struct.completion = type { i32, %struct.swait_queue_head }
-%struct.swait_queue_head = type { %struct.raw_spinlock, %struct.list_head }
 
 @__UNIQUE_ID___addressable_xhci_pci_init1175 = internal global ptr @xhci_pci_init, section ".discard.addressable", align 8
 @xhci_pci_driver = internal global %struct.pci_driver { ptr @.str.7, ptr @pci_ids, ptr @xhci_pci_probe, ptr @xhci_pci_remove, ptr null, ptr null, ptr @usb_hcd_pci_shutdown, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, %struct.device_driver { ptr null, ptr null, ptr null, ptr null, i8 0, i32 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @usb_hcd_pci_pm_ops, ptr null, ptr null }, %struct.pci_dynids zeroinitializer, i8 0 }, align 8
@@ -432,7 +429,7 @@ define internal noundef i32 @xhci_pci_poweroff_late(ptr noundef %0, i1 noundef z
 23:                                               ; preds = %68, %20
   %24 = phi i64 [ 0, %20 ], [ %69, %68 ]
   %25 = load ptr, ptr %21, align 8
-  %26 = getelementptr %struct.xhci_port, ptr %25, i64 %24
+  %26 = getelementptr [120 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %27) #10, !srcloc !6
   %29 = and i32 %28, 480
@@ -454,7 +451,7 @@ define internal noundef i32 @xhci_pci_poweroff_late(ptr noundef %0, i1 noundef z
 
 42:                                               ; preds = %31
   %43 = zext i32 %40 to i64
-  %44 = getelementptr ptr, ptr %22, i64 %43
+  %44 = getelementptr [8 x i8], ptr %22, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %57
@@ -865,7 +862,7 @@ define internal i32 @xhci_pci_update_hub_device(ptr noundef %0, ptr noundef %1, 
 
 34:                                               ; preds = %.preheader
   %35 = load ptr, ptr %16, align 8
-  %36 = getelementptr ptr, ptr %35, i64 %30
+  %36 = getelementptr [8 x i8], ptr %35, i64 %30
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = trunc i32 %32 to i8

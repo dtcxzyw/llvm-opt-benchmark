@@ -578,7 +578,7 @@ define internal void @_focus_button_clicked(ptr readnone captures(none) %0, ptr 
 
 switch.lookup:                                    ; preds = %12
   %14 = and i64 %4, 7
-  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table._focus_button_clicked, i64 %14
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._focus_button_clicked, i64 %14
   %switch.load = load float, ptr %switch.gep, align 4
   br label %15
 
@@ -1096,7 +1096,7 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
 
 169:                                              ; preds = %160
   %170 = zext nneg i32 %167 to i64
-  %171 = getelementptr inbounds nuw i32, ptr @_overlay_modes, i64 %170
+  %171 = getelementptr inbounds nuw [4 x i8], ptr @_overlay_modes, i64 %170
   %172 = load i32, ptr %171, align 4, !tbaa !89
   call void @cairo_set_operator(ptr noundef %1, i32 noundef %172) #12
   br label %173

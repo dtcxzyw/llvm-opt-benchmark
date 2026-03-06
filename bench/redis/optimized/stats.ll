@@ -2926,7 +2926,7 @@ emitter_json_object_end.exit118:                  ; preds = %175, %emitter_inden
 
 186:                                              ; preds = %147, %emitter_json_object_end.exit130
   %indvars.iv = phi i64 [ 0, %147 ], [ %indvars.iv.next, %emitter_json_object_end.exit130 ]
-  %187 = getelementptr inbounds nuw ptr, ptr @je_global_mutex_names, i64 %indvars.iv
+  %187 = getelementptr inbounds nuw [8 x i8], ptr @je_global_mutex_names, i64 %indvars.iv
   %188 = load ptr, ptr %187, align 8, !tbaa !25
   %189 = load i64, ptr %51, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -8048,7 +8048,7 @@ emitter_indent.exit.i.i:                          ; preds = %.lr.ph.i.i.i, %1192
 
 1199:                                             ; preds = %emitter_json_object_end.exit29.i, %1157
   %indvars.iv.i = phi i64 [ 0, %1157 ], [ %indvars.iv.next.i, %emitter_json_object_end.exit29.i ]
-  %1200 = getelementptr inbounds nuw ptr, ptr @je_arena_mutex_names, i64 %indvars.iv.i
+  %1200 = getelementptr inbounds nuw [8 x i8], ptr @je_arena_mutex_names, i64 %indvars.iv.i
   %1201 = load ptr, ptr %1200, align 8, !tbaa !25
   call fastcc void @emitter_json_object_kv_begin(ptr noundef nonnull %0, ptr noundef %1201)
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
@@ -9690,7 +9690,7 @@ tsd_fetch_impl.exit140.i:                         ; preds = %1668, %1666
   %1686 = phi i64 [ %.pre282.i, %1683 ], [ %1675, %1672 ]
   %1687 = phi i64 [ %.pre281.i, %1683 ], [ %1673, %1672 ]
   %1688 = phi i64 [ %.pre.i447, %1683 ], [ %1679, %1672 ]
-  %1689 = getelementptr inbounds nuw i64, ptr @je_sz_pind2sz_tab, i64 %indvars.iv.i444
+  %1689 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_pind2sz_tab, i64 %indvars.iv.i444
   %1690 = load i64, ptr %1689, align 8, !tbaa !4
   store i64 %1690, ptr %1603, align 8, !tbaa !8
   store i64 %indvars.iv.i444, ptr %1604, align 8, !tbaa !8
@@ -14775,7 +14775,7 @@ emitter_indent.exit.i:                            ; preds = %.lr.ph.i.i, %341, %
   br label %emitter_json_object_end.exit
 
 emitter_json_object_end.exit:                     ; preds = %emitter_json_object_begin.exit, %emitter_indent.exit.i
-  %348 = getelementptr inbounds nuw i64, ptr @je_sz_pind2sz_tab, i64 %indvars.iv
+  %348 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_pind2sz_tab, i64 %indvars.iv
   %349 = load i64, ptr %348, align 8, !tbaa !4
   store i64 %349, ptr %259, align 8, !tbaa !8
   store i64 %indvars.iv, ptr %260, align 8, !tbaa !8

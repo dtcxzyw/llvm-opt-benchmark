@@ -60,7 +60,7 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_prtedl_dlopen_component, i64 240), align 8, !tbaa !8
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.next75
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.next75
   %.024.us = load ptr, ptr %20, align 8, !tbaa !15
   %.not.us = icmp eq ptr %.024.us, null
   br i1 %.not.us, label %do_dlopen.exit39.thread, label %.lr.ph.split.us, !llvm.loop !16
@@ -115,7 +115,7 @@ define internal range(i32 -11, 1) i32 @dlopen_open(ptr noundef %0, i1 noundef ze
 36:                                               ; preds = %29
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_mca_prtedl_dlopen_component, i64 240), align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.next
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.next
   %.024 = load ptr, ptr %38, align 8, !tbaa !15
   %.not = icmp eq ptr %.024, null
   br i1 %.not, label %do_dlopen.exit39.thread, label %.lr.ph.split, !llvm.loop !16
@@ -212,7 +212,7 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
 .lr.ph169:                                        ; preds = %.lr.ph118, %._crit_edge
   %10 = phi ptr [ %51, %._crit_edge ], [ %9, %.lr.ph118 ]
   %indvars.iv131168 = phi i64 [ %indvars.iv.next132, %._crit_edge ], [ 0, %.lr.ph118 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv131168
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv131168
   %12 = call ptr @opendir(ptr noundef nonnull %10)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread101, label %.preheader103
@@ -279,7 +279,7 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
 
 41:                                               ; preds = %.lr.ph113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.next
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.next
   %43 = load ptr, ptr %42, align 8, !tbaa !15
   %.not69 = icmp eq ptr %43, null
   br i1 %.not69, label %.critedge75, label %.lr.ph113
@@ -308,7 +308,7 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
 ._crit_edge:                                      ; preds = %.critedge2, %.preheader103
   %49 = call i32 @closedir(ptr noundef nonnull %12)
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131168, 1
-  %50 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next132
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next132
   %51 = load ptr, ptr %50, align 8, !tbaa !15
   %.not65 = icmp eq ptr %51, null
   br i1 %.not65, label %._crit_edge119, label %.lr.ph169
@@ -326,7 +326,7 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
 53:                                               ; preds = %.lr.ph124
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %54 = load ptr, ptr %4, align 8, !tbaa !21
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.next135
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv.next135
   %56 = load ptr, ptr %55, align 8, !tbaa !15
   %.not71 = icmp eq ptr %56, null
   br i1 %.not71, label %.thread101, label %.lr.ph124, !llvm.loop !28

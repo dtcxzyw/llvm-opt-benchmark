@@ -457,7 +457,7 @@ define internal range(i32 0, 2) i32 @int_put_bytes_bn(ptr noundef %0, ptr nounde
   %9 = tail call ptr @bn_get_words(ptr noundef %1) #3
   %10 = add nsw i64 %8, -1
   %11 = lshr i64 %10, 3
-  %12 = getelementptr inbounds nuw i64, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !4
   %14 = shl nsw i64 %10, 3
   %15 = and i64 %14, 56

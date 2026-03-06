@@ -447,7 +447,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exi
   %.not.i = icmp ult i64 %59, %64
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 720
   %67 = load ptr, ptr %66, align 8, !alias.scope !20, !noalias !23, !nonnull !10
-  %68 = getelementptr inbounds { ptr, [1 x i64] }, ptr %67, i64 %59
+  %68 = getelementptr inbounds [16 x i8], ptr %67, i64 %59
   br i1 %.not.i, label %79, label %82
 
 69:                                               ; preds = %55
@@ -507,7 +507,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exi
   %89 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %59, %69 ]
   %90 = getelementptr inbounds nuw i8, ptr %11, i64 720
   %91 = load ptr, ptr %90, align 8, !alias.scope !25, !noalias !28, !nonnull !10, !noundef !10
-  %92 = getelementptr inbounds { ptr, [1 x i64] }, ptr %91, i64 %89
+  %92 = getelementptr inbounds [16 x i8], ptr %91, i64 %89
   store ptr %57, ptr %92, align 8, !noalias !23
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %92, i64 8
   store ptr %58, ptr %.sroa.5.0..sroa_idx.i, align 8
@@ -1134,7 +1134,7 @@ define hidden { ptr, ptr } @"_ZN4slab13Slab$LT$T$GT$10try_remove17h8b15e882417c2
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !10
-  %8 = getelementptr inbounds { ptr, [1 x i64] }, ptr %7, i64 %1
+  %8 = getelementptr inbounds [16 x i8], ptr %7, i64 %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8, !noundef !10
   %.sroa.02.0.copyload = load ptr, ptr %8, align 8

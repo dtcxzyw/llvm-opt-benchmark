@@ -191,10 +191,10 @@ define hidden i64 @rb_yjit_exit_locations_dict(ptr noundef readonly captures(non
 .lr.ph85:                                         ; preds = %3, %rb_ull2num_inline.exit53
   %.083 = phi i32 [ %65, %rb_ull2num_inline.exit53 ], [ 0, %3 ]
   %10 = sext i32 %.083 to i64
-  %11 = getelementptr i64, ptr %0, i64 %10
+  %11 = getelementptr [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !15
   %13 = trunc i64 %12 to i32
-  %14 = getelementptr i32, ptr %1, i64 %10
+  %14 = getelementptr [4 x i8], ptr %1, i64 %10
   %15 = load i32, ptr %14, align 4, !tbaa !7
   %16 = shl i64 %12, 32
   %sext = add i64 %16, 4294967296
@@ -231,7 +231,7 @@ rb_ull2num_inline.exit:                           ; preds = %19, %22
   %.1.in.lcssa = phi i32 [ %.083, %rb_ull2num_inline.exit ], [ %.181, %rb_ull2num_inline.exit56 ]
   %.1.lcssa = phi i32 [ %.179, %rb_ull2num_inline.exit ], [ %31, %rb_ull2num_inline.exit56 ]
   %32 = sext i32 %.1.lcssa to i64
-  %33 = getelementptr i64, ptr %0, i64 %32
+  %33 = getelementptr [8 x i8], ptr %0, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !15
   %35 = icmp ult i64 %34, 4611686018427387904
   br i1 %35, label %36, label %39
@@ -248,7 +248,7 @@ rb_ull2num_inline.exit:                           ; preds = %19, %22
 rb_ull2num_inline.exit51:                         ; preds = %36, %39
   %.0.i50 = phi i64 [ %38, %36 ], [ %40, %39 ]
   %41 = tail call i64 @rb_ary_push(i64 noundef %6, i64 noundef %.0.i50) #5
-  %42 = getelementptr i32, ptr %1, i64 %32
+  %42 = getelementptr [4 x i8], ptr %1, i64 %32
   %43 = load i32, ptr %42, align 4, !tbaa !7
   %44 = sext i32 %43 to i64
   %45 = shl nsw i64 %44, 1
@@ -256,7 +256,7 @@ rb_ull2num_inline.exit51:                         ; preds = %36, %39
   %47 = tail call i64 @rb_ary_push(i64 noundef %7, i64 noundef %46) #5
   %48 = add i32 %.1.in.lcssa, 2
   %49 = sext i32 %48 to i64
-  %50 = getelementptr i64, ptr %0, i64 %49
+  %50 = getelementptr [8 x i8], ptr %0, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !15
   %52 = icmp ult i64 %51, 4611686018427387904
   br i1 %52, label %53, label %56
@@ -273,7 +273,7 @@ rb_ull2num_inline.exit51:                         ; preds = %36, %39
 rb_ull2num_inline.exit53:                         ; preds = %53, %56
   %.0.i52 = phi i64 [ %55, %53 ], [ %57, %56 ]
   %58 = tail call i64 @rb_ary_push(i64 noundef %6, i64 noundef %.0.i52) #5
-  %59 = getelementptr i32, ptr %1, i64 %49
+  %59 = getelementptr [4 x i8], ptr %1, i64 %49
   %60 = load i32, ptr %59, align 4, !tbaa !7
   %61 = sext i32 %60 to i64
   %62 = shl nsw i64 %61, 1
@@ -286,7 +286,7 @@ rb_ull2num_inline.exit53:                         ; preds = %53, %56
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %rb_ull2num_inline.exit56
   %.181 = phi i32 [ %.1, %rb_ull2num_inline.exit56 ], [ %.179, %.lr.ph.preheader ]
   %67 = sext i32 %.181 to i64
-  %68 = getelementptr i64, ptr %0, i64 %67
+  %68 = getelementptr [8 x i8], ptr %0, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !15
   %70 = tail call i64 @rb_int2inum(i64 noundef %69) #5
   %71 = tail call i64 @rb_hash_aref(i64 noundef %8, i64 noundef %70) #5
@@ -435,7 +435,7 @@ rb_yjit_add_frame.exit:                           ; preds = %.lr.ph, %106
 rb_ull2num_inline.exit56:                         ; preds = %110, %113
   %.0.i55 = phi i64 [ %112, %110 ], [ %114, %113 ]
   %115 = tail call i64 @rb_ary_push(i64 noundef %6, i64 noundef %.0.i55) #5
-  %116 = getelementptr i32, ptr %1, i64 %67
+  %116 = getelementptr [4 x i8], ptr %1, i64 %67
   %117 = load i32, ptr %116, align 4, !tbaa !7
   %118 = sext i32 %117 to i64
   %119 = shl nsw i64 %118, 1
@@ -917,7 +917,7 @@ imemo_type_p.exit.thread:                         ; preds = %2, %imemo_type_p.ex
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !116
   %20 = zext i32 %1 to i64
-  %21 = getelementptr i64, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   ret ptr %21
 }
 
@@ -977,7 +977,7 @@ define hidden ptr @rb_yjit_get_proc_ptr(i64 noundef %0) local_unnamed_addr #4 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define hidden ptr @rb_insn_name(i64 noundef %0) local_unnamed_addr #8 {
-  %2 = getelementptr i16, ptr @rb_vm_insn_name_offset, i64 %0
+  %2 = getelementptr [2 x i8], ptr @rb_vm_insn_name_offset, i64 %0
   %3 = load i16, ptr %2, align 2, !tbaa !82
   %4 = zext i16 %3 to i64
   %5 = getelementptr i8, ptr @rb_vm_insn_name_base, i64 %4
@@ -1075,7 +1075,7 @@ define hidden i32 @rb_get_cikw_keyword_len(ptr noundef readonly captures(none) %
 define hidden i64 @rb_get_cikw_keywords_idx(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr i64, ptr %3, i64 %4
+  %5 = getelementptr [8 x i8], ptr %3, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !15
   ret i64 %6
 }
@@ -1461,7 +1461,7 @@ invokebuiltin_delegate_leave_p.exit:              ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !116
   %21 = zext i8 %14 to i64
-  %22 = getelementptr i64, ptr %20, i64 %21
+  %22 = getelementptr [8 x i8], ptr %20, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !15
   %24 = inttoptr i64 %23 to ptr
   %25 = tail call i32 @rb_vm_insn_addr2opcode(ptr noundef %24) #5
@@ -1781,7 +1781,7 @@ rb_array_const_ptr.exit.i:                        ; preds = %10, %6
 
 22:                                               ; preds = %21, %18
   %.011.i = phi i64 [ %19, %18 ], [ %1, %21 ]
-  %23 = getelementptr i64, ptr %.0.i16.i, i64 %.011.i
+  %23 = getelementptr [8 x i8], ptr %.0.i16.i, i64 %.011.i
   %24 = load i64, ptr %23, align 8, !tbaa !15
   br label %rb_ary_entry_internal.exit
 
@@ -1939,7 +1939,7 @@ rb_array_len.exit.thread:                         ; preds = %10
 RARRAY_AREF.exit:                                 ; preds = %18, %20
   %.in = phi i64 [ %16, %18 ], [ %13, %20 ]
   %.0.i.i = phi ptr [ %19, %18 ], [ %22, %20 ]
-  %23 = getelementptr i64, ptr %.0.i.i, i64 %.in
+  %23 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.in
   %24 = getelementptr i8, ptr %23, i64 -8
   %25 = load i64, ptr %24, align 8, !tbaa !15
   %26 = icmp eq i64 %25, 0
@@ -1983,7 +1983,7 @@ define hidden range(i64 0, 21) i64 @rb_yjit_splat_varg_checks(ptr noundef readno
 rb_array_len.exit:                                ; preds = %7, %10
   %.0.i19 = phi i64 [ %9, %7 ], [ %12, %10 ]
   %or.cond = icmp ugt i64 %.0.i19, 128
-  %13 = getelementptr i64, ptr %0, i64 %.0.i19
+  %13 = getelementptr [8 x i8], ptr %0, i64 %.0.i19
   %14 = getelementptr i8, ptr %2, i64 -112
   %15 = icmp ugt ptr %13, %14
   %or.cond18 = or i1 %or.cond, %15
@@ -2007,7 +2007,7 @@ rb_array_len.exit:                                ; preds = %7, %10
 
 RARRAY_AREF.exit:                                 ; preds = %18, %20
   %.0.i.i = phi ptr [ %19, %18 ], [ %22, %20 ]
-  %23 = getelementptr i64, ptr %.0.i.i, i64 %.0.i19
+  %23 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.0.i19
   %24 = getelementptr i8, ptr %23, i64 -8
   %25 = load i64, ptr %24, align 8, !tbaa !15
   %26 = icmp eq i64 %25, 0
@@ -2250,7 +2250,7 @@ define hidden zeroext i1 @rb_RB_TYPE_P(i64 noundef %0, i32 noundef %1) local_unn
   br label %rbimpl_RB_TYPE_P_fastpath.exit
 
 switch.lookup:                                    ; preds = %12
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_RB_TYPE_P, i64 %13
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_RB_TYPE_P, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rbimpl_RB_TYPE_P_fastpath.exit
 
@@ -2297,7 +2297,7 @@ define hidden ptr @rb_get_call_data_ci(ptr noundef readonly captures(none) %0) l
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden zeroext i1 @rb_BASIC_OP_UNREDEFINED_P(i32 noundef %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr i16, ptr @ruby_vm_redefined_flag, i64 %3
+  %4 = getelementptr [2 x i8], ptr @ruby_vm_redefined_flag, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !82
   %6 = sext i16 %5 to i32
   %7 = and i32 %1, %6

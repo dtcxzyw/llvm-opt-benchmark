@@ -27,9 +27,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.4 = type { i64 }
 %union.anon.8 = type { %struct.anon.9 }
 %struct.anon.9 = type { i8, i8, i16, i32, i64 }
-%struct.elf64_shdr = type { i32, i32, i64, i64, i64, i64, i32, i32, i64, i64 }
-%struct.elf64_rela = type { i64, i64, i64 }
-%struct.elf64_sym = type { i32, i8, i8, i16, i64, i64 }
 %struct.callthunk_sites = type { ptr, ptr, ptr, ptr }
 
 @__default_kernel_pte_mask = external dso_local local_unnamed_addr global i64, align 8
@@ -118,7 +115,7 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr noundef re
 11:                                               ; preds = %10, %5
   %12 = phi ptr [ @memcpy, %5 ], [ @text_poke, %10 ]
   %13 = zext i32 %3 to i64
-  %14 = getelementptr %struct.elf64_shdr, ptr %0, i64 %13
+  %14 = getelementptr [64 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
@@ -134,7 +131,7 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr noundef re
 21:                                               ; preds = %11
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %23 = zext i32 %2 to i64
-  %.split = getelementptr %struct.elf64_shdr, ptr %0, i64 %23
+  %.split = getelementptr [64 x i8], ptr %0, i64 %23
   %24 = getelementptr i8, ptr %.split, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %26
@@ -145,11 +142,11 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr noundef re
   %29 = phi i32 [ 0, %21 ], [ %71, %69 ]
   %30 = load i32, ptr %22, align 4
   %31 = zext i32 %30 to i64
-  %.split1 = getelementptr %struct.elf64_shdr, ptr %0, i64 %31
+  %.split1 = getelementptr [64 x i8], ptr %0, i64 %31
   %32 = getelementptr i8, ptr %.split1, i64 16
   %33 = load i64, ptr %32, align 8
   %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr %struct.elf64_rela, ptr %17, i64 %28
+  %35 = getelementptr [24 x i8], ptr %17, i64 %28
   %36 = load i64, ptr %35, align 8
   %37 = getelementptr i8, ptr %34, i64 %36
   %38 = load i64, ptr %24, align 8
@@ -157,7 +154,7 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr noundef re
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %41 = load i64, ptr %40, align 8
   %42 = lshr i64 %41, 32
-  %.split2 = getelementptr %struct.elf64_sym, ptr %39, i64 %42
+  %.split2 = getelementptr [24 x i8], ptr %39, i64 %42
   %43 = getelementptr i8, ptr %.split2, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -249,14 +246,14 @@ define dso_local noundef i32 @module_finalize(ptr noundef readonly captures(none
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i64
-  %.split = getelementptr %struct.elf64_shdr, ptr %1, i64 %7
+  %.split = getelementptr [64 x i8], ptr %1, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr i8, ptr %0, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %12 = load i16, ptr %11, align 4
   %13 = zext i16 %12 to i64
-  %14 = getelementptr %struct.elf64_shdr, ptr %1, i64 %13
+  %14 = getelementptr [64 x i8], ptr %1, i64 %13
   %15 = icmp ugt ptr %14, %1
   %.sink53.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sink53.sroa.gep70 = getelementptr inbounds nuw i8, ptr %4, i64 24

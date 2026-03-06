@@ -1285,7 +1285,7 @@ _ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL13copy_t
   %303 = load i32, ptr %7, align 4, !tbaa !51
   %304 = load ptr, ptr %15, align 8, !tbaa !16
   %305 = sext i32 %303 to i64
-  %306 = getelementptr inbounds i16, ptr %304, i64 %305
+  %306 = getelementptr inbounds [2 x i8], ptr %304, i64 %305
   %307 = load ptr, ptr %14, align 8, !tbaa !16
   %308 = getelementptr inbounds nuw i8, ptr %13, i64 116
   %309 = load i32, ptr %308, align 4, !tbaa !40
@@ -1298,10 +1298,10 @@ _ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL13copy_t
   %.01518.i87 = phi ptr [ %306, %.lr.ph.i85 ], [ %316, %312 ]
   %.01617.i88 = phi ptr [ %307, %.lr.ph.i85 ], [ %313, %312 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.01518.i87, ptr align 2 %.01617.i88, i64 %311, i1 false)
-  %313 = getelementptr inbounds i16, ptr %.01617.i88, i64 %310
+  %313 = getelementptr inbounds [2 x i8], ptr %.01617.i88, i64 %310
   %314 = load i32, ptr %301, align 4, !tbaa !40
   %315 = sext i32 %314 to i64
-  %316 = getelementptr inbounds i16, ptr %.01518.i87, i64 %315
+  %316 = getelementptr inbounds [2 x i8], ptr %.01518.i87, i64 %315
   %317 = add nuw nsw i32 %.019.i86, 1
   %exitcond.not.i89 = icmp eq i32 %317, %300
   br i1 %exitcond.not.i89, label %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit.loopexit, label %312, !llvm.loop !54
@@ -1326,7 +1326,7 @@ _ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL13copy_t
   %325 = load i32, ptr %7, align 4, !tbaa !51
   %326 = load ptr, ptr %15, align 8, !tbaa !16
   %327 = sext i32 %325 to i64
-  %328 = getelementptr inbounds float, ptr %326, i64 %327
+  %328 = getelementptr inbounds [4 x i8], ptr %326, i64 %327
   %329 = load ptr, ptr %14, align 8, !tbaa !16
   %330 = getelementptr inbounds nuw i8, ptr %13, i64 116
   %331 = load i32, ptr %330, align 4, !tbaa !40
@@ -1339,10 +1339,10 @@ _ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL13copy_t
   %.01518.i92 = phi ptr [ %328, %.lr.ph.i90 ], [ %338, %334 ]
   %.01617.i93 = phi ptr [ %329, %.lr.ph.i90 ], [ %335, %334 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.01518.i92, ptr align 4 %.01617.i93, i64 %333, i1 false)
-  %335 = getelementptr inbounds float, ptr %.01617.i93, i64 %332
+  %335 = getelementptr inbounds [4 x i8], ptr %.01617.i93, i64 %332
   %336 = load i32, ptr %323, align 4, !tbaa !40
   %337 = sext i32 %336 to i64
-  %338 = getelementptr inbounds float, ptr %.01518.i92, i64 %337
+  %338 = getelementptr inbounds [4 x i8], ptr %.01518.i92, i64 %337
   %339 = add nuw nsw i32 %.019.i91, 1
   %exitcond.not.i94 = icmp eq i32 %339, %322
   br i1 %exitcond.not.i94, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit, label %334, !llvm.loop !55
@@ -1421,7 +1421,7 @@ _ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100: ; preds = %_ZN4ncnnL13cop
   %387 = mul i64 %384, %386
   %388 = getelementptr inbounds nuw i8, ptr %380, i64 %387
   %389 = sext i32 %378 to i64
-  %390 = getelementptr inbounds i16, ptr %388, i64 %389
+  %390 = getelementptr inbounds [2 x i8], ptr %388, i64 %389
   %391 = load ptr, ptr %14, align 8, !tbaa !16
   %392 = getelementptr inbounds nuw i8, ptr %13, i64 116
   %393 = load i32, ptr %392, align 4, !tbaa !40
@@ -1434,10 +1434,10 @@ _ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100: ; preds = %_ZN4ncnnL13cop
   %.01518.i103 = phi ptr [ %390, %.lr.ph.i101 ], [ %400, %396 ]
   %.01617.i104 = phi ptr [ %391, %.lr.ph.i101 ], [ %397, %396 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.01518.i103, ptr align 2 %.01617.i104, i64 %395, i1 false)
-  %397 = getelementptr inbounds i16, ptr %.01617.i104, i64 %394
+  %397 = getelementptr inbounds [2 x i8], ptr %.01617.i104, i64 %394
   %398 = load i32, ptr %376, align 4, !tbaa !40
   %399 = sext i32 %398 to i64
-  %400 = getelementptr inbounds i16, ptr %.01518.i103, i64 %399
+  %400 = getelementptr inbounds [2 x i8], ptr %.01518.i103, i64 %399
   %401 = add nuw nsw i32 %.019.i102, 1
   %exitcond.not.i105 = icmp eq i32 %401, %375
   br i1 %exitcond.not.i105, label %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106.loopexit, label %396, !llvm.loop !54
@@ -1471,7 +1471,7 @@ _ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106: ; preds = %_ZN4ncnnL13cop
   %418 = mul i64 %415, %417
   %419 = getelementptr inbounds nuw i8, ptr %411, i64 %418
   %420 = sext i32 %409 to i64
-  %421 = getelementptr inbounds float, ptr %419, i64 %420
+  %421 = getelementptr inbounds [4 x i8], ptr %419, i64 %420
   %422 = load ptr, ptr %14, align 8, !tbaa !16
   %423 = getelementptr inbounds nuw i8, ptr %13, i64 116
   %424 = load i32, ptr %423, align 4, !tbaa !40
@@ -1484,10 +1484,10 @@ _ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106: ; preds = %_ZN4ncnnL13cop
   %.01518.i109 = phi ptr [ %421, %.lr.ph.i107 ], [ %431, %427 ]
   %.01617.i110 = phi ptr [ %422, %.lr.ph.i107 ], [ %428, %427 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.01518.i109, ptr align 4 %.01617.i110, i64 %426, i1 false)
-  %428 = getelementptr inbounds float, ptr %.01617.i110, i64 %425
+  %428 = getelementptr inbounds [4 x i8], ptr %.01617.i110, i64 %425
   %429 = load i32, ptr %407, align 4, !tbaa !40
   %430 = sext i32 %429 to i64
-  %431 = getelementptr inbounds float, ptr %.01518.i109, i64 %430
+  %431 = getelementptr inbounds [4 x i8], ptr %.01518.i109, i64 %430
   %432 = add nuw nsw i32 %.019.i108, 1
   %exitcond.not.i111 = icmp eq i32 %432, %406
   br i1 %exitcond.not.i111, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit, label %427, !llvm.loop !55
@@ -1626,12 +1626,12 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %35 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !51
   %37 = icmp slt i32 %36, 0
   %38 = select i1 %37, i32 %17, i32 0
   %spec.select = add nsw i32 %38, %36
-  %39 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %spec.select, ptr %39, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1668,7 +1668,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
 
 .thread.us:                                       ; preds = %.thread.us.preheader, %.thread.us
   %indvars.iv174 = phi i64 [ 0, %.thread.us.preheader ], [ %indvars.iv.next175, %.thread.us ]
-  %41 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv174
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv174
   %42 = load i32, ptr %41, align 4, !tbaa !51
   %43 = icmp eq i32 %42, -233
   %spec.store.select.us = select i1 %43, i32 0, i32 %42
@@ -1682,9 +1682,9 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
 
 .lr.ph144.split.us145:                            ; preds = %.lr.ph144.split.us145.preheader, %.thread132.us147
   %indvars.iv169 = phi i64 [ 0, %.lr.ph144.split.us145.preheader ], [ %indvars.iv.next170, %.thread132.us147 ]
-  %47 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv169
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv169
   %48 = load i32, ptr %47, align 4, !tbaa !51
-  %49 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv169
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv169
   %50 = load i32, ptr %49, align 4, !tbaa !51
   switch i32 %48, label %.thread132.us147 [
     i32 0, label %.thread122.us
@@ -1712,9 +1712,9 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
 
 .lr.ph144.split.us148:                            ; preds = %.lr.ph144.split.us148.preheader, %.thread132.us150
   %indvars.iv164 = phi i64 [ 0, %.lr.ph144.split.us148.preheader ], [ %indvars.iv.next165, %.thread132.us150 ]
-  %55 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv164
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv164
   %56 = load i32, ptr %55, align 4, !tbaa !51
-  %57 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv164
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv164
   %58 = load i32, ptr %57, align 4, !tbaa !51
   switch i32 %56, label %.thread132.us150 [
     i32 0, label %.thread126.us
@@ -1746,9 +1746,9 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %6
 
 .lr.ph144.split.us151:                            ; preds = %.lr.ph144.split.us151.preheader, %.thread132.us153
   %indvars.iv159 = phi i64 [ 0, %.lr.ph144.split.us151.preheader ], [ %indvars.iv.next160, %.thread132.us153 ]
-  %64 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv159
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv159
   %65 = load i32, ptr %64, align 4, !tbaa !51
-  %66 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv159
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv159
   %67 = load i32, ptr %66, align 4, !tbaa !51
   switch i32 %65, label %.thread132.us153 [
     i32 0, label %.thread134.us
@@ -1917,7 +1917,7 @@ _ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL13copy_t
   %73 = mul i64 %72, %71
   %74 = getelementptr inbounds nuw i8, ptr %48, i64 %73
   %75 = sext i32 %69 to i64
-  %76 = getelementptr inbounds i16, ptr %74, i64 %75
+  %76 = getelementptr inbounds [2 x i8], ptr %74, i64 %75
   %77 = shl nsw i64 %38, 1
   br label %78
 
@@ -1926,8 +1926,8 @@ _ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL13copy_t
   %.01518.i30 = phi ptr [ %76, %.lr.ph.i28 ], [ %80, %78 ]
   %.01617.i31 = phi ptr [ %37, %.lr.ph.i28 ], [ %79, %78 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.01518.i30, ptr align 2 %.01617.i31, i64 %77, i1 false)
-  %79 = getelementptr inbounds i16, ptr %.01617.i31, i64 %38
-  %80 = getelementptr inbounds i16, ptr %.01518.i30, i64 %49
+  %79 = getelementptr inbounds [2 x i8], ptr %.01617.i31, i64 %38
+  %80 = getelementptr inbounds [2 x i8], ptr %.01518.i30, i64 %49
   %81 = add nuw nsw i32 %.019.i29, 1
   %exitcond.not.i32 = icmp eq i32 %81, %31
   br i1 %exitcond.not.i32, label %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit.loopexit, label %78, !llvm.loop !54
@@ -1950,7 +1950,7 @@ _ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL13copy_t
   %88 = mul i64 %87, %86
   %89 = getelementptr inbounds nuw i8, ptr %48, i64 %88
   %90 = sext i32 %84 to i64
-  %91 = getelementptr inbounds float, ptr %89, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %89, i64 %90
   %92 = shl nsw i64 %38, 2
   br label %93
 
@@ -1959,8 +1959,8 @@ _ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL13copy_t
   %.01518.i35 = phi ptr [ %91, %.lr.ph.i33 ], [ %95, %93 ]
   %.01617.i36 = phi ptr [ %37, %.lr.ph.i33 ], [ %94, %93 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.01518.i35, ptr align 4 %.01617.i36, i64 %92, i1 false)
-  %94 = getelementptr inbounds float, ptr %.01617.i36, i64 %38
-  %95 = getelementptr inbounds float, ptr %.01518.i35, i64 %49
+  %94 = getelementptr inbounds [4 x i8], ptr %.01617.i36, i64 %38
+  %95 = getelementptr inbounds [4 x i8], ptr %.01518.i35, i64 %49
   %96 = add nuw nsw i32 %.019.i34, 1
   %exitcond.not.i37 = icmp eq i32 %96, %31
   br i1 %exitcond.not.i37, label %_ZN4ncnn3MatD2Ev.exit, label %93, !llvm.loop !55
@@ -2150,7 +2150,7 @@ _ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL13copy_t
   %97 = mul i64 %72, %96
   %98 = getelementptr inbounds nuw i8, ptr %75, i64 %97
   %99 = sext i32 %94 to i64
-  %100 = getelementptr inbounds i16, ptr %98, i64 %99
+  %100 = getelementptr inbounds [2 x i8], ptr %98, i64 %99
   %101 = shl nsw i64 %49, 1
   br label %102
 
@@ -2159,8 +2159,8 @@ _ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL13copy_t
   %.01518.i51 = phi ptr [ %100, %.lr.ph.i49 ], [ %104, %102 ]
   %.01617.i52 = phi ptr [ %54, %.lr.ph.i49 ], [ %103, %102 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.01518.i51, ptr align 2 %.01617.i52, i64 %101, i1 false)
-  %103 = getelementptr inbounds i16, ptr %.01617.i52, i64 %49
-  %104 = getelementptr inbounds i16, ptr %.01518.i51, i64 %66
+  %103 = getelementptr inbounds [2 x i8], ptr %.01617.i52, i64 %49
+  %104 = getelementptr inbounds [2 x i8], ptr %.01518.i51, i64 %66
   %105 = add nuw nsw i32 %.019.i50, 1
   %exitcond.not.i53 = icmp eq i32 %105, %42
   br i1 %exitcond.not.i53, label %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit.loopexit, label %102, !llvm.loop !54
@@ -2182,7 +2182,7 @@ _ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL13copy_t
   %111 = mul i64 %72, %110
   %112 = getelementptr inbounds nuw i8, ptr %75, i64 %111
   %113 = sext i32 %108 to i64
-  %114 = getelementptr inbounds float, ptr %112, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %112, i64 %113
   %115 = shl nsw i64 %49, 2
   br label %116
 
@@ -2191,8 +2191,8 @@ _ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL13copy_t
   %.01518.i56 = phi ptr [ %114, %.lr.ph.i54 ], [ %118, %116 ]
   %.01617.i57 = phi ptr [ %54, %.lr.ph.i54 ], [ %117, %116 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.01518.i56, ptr align 4 %.01617.i57, i64 %115, i1 false)
-  %117 = getelementptr inbounds float, ptr %.01617.i57, i64 %49
-  %118 = getelementptr inbounds float, ptr %.01518.i56, i64 %66
+  %117 = getelementptr inbounds [4 x i8], ptr %.01617.i57, i64 %49
+  %118 = getelementptr inbounds [4 x i8], ptr %.01518.i56, i64 %66
   %119 = add nuw nsw i32 %.019.i55, 1
   %exitcond.not.i58 = icmp eq i32 %119, %42
   br i1 %exitcond.not.i58, label %_ZN4ncnn3MatD2Ev.exit, label %116, !llvm.loop !55

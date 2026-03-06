@@ -16,24 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
-%struct.t_resinfo = type { ptr, i32, i8, i32, i8, ptr }
-%struct.PreprocessResidue = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::vector.13", %"class.std::vector.18", i8, i32, i8, i8, %"struct.gmx::EnumerationArray" }
-%"class.std::vector.13" = type { %"struct.std::_Vector_base.14" }
-%"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<t_atom, std::allocator<t_atom>>::_Vector_impl" }
-%"struct.std::_Vector_base<t_atom, std::allocator<t_atom>>::_Vector_impl" = type { %"struct.std::_Vector_base<t_atom, std::allocator<t_atom>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<t_atom, std::allocator<t_atom>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.18" = type { %"struct.std::_Vector_base.19" }
-%"struct.std::_Vector_base.19" = type { %"struct.std::_Vector_base<char **, std::allocator<char **>>::_Vector_impl" }
-%"struct.std::_Vector_base<char **, std::allocator<char **>>::_Vector_impl" = type { %"struct.std::_Vector_base<char **, std::allocator<char **>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<char **, std::allocator<char **>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx::EnumerationArray" = type { [6 x %struct.BondedInteractionList] }
-%struct.BondedInteractionList = type { i32, %"class.std::vector.23" }
-%"class.std::vector.23" = type { %"struct.std::_Vector_base.24" }
-%"struct.std::_Vector_base.24" = type { %"struct.std::_Vector_base<BondedInteraction, std::allocator<BondedInteraction>>::_Vector_impl" }
-%"struct.std::_Vector_base<BondedInteraction, std::allocator<BondedInteraction>>::_Vector_impl" = type { %"struct.std::_Vector_base<BondedInteraction, std::allocator<BondedInteraction>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<BondedInteraction, std::allocator<BondedInteraction>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.t_xlate_atom = type { ptr, ptr, ptr, ptr }
 %"class.std::filesystem::__cxx11::path" = type { %"class.std::__cxx11::basic_string", %"struct.std::filesystem::__cxx11::path::_List" }
 %"struct.std::filesystem::__cxx11::path::_List" = type { %"class.std::unique_ptr" }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
@@ -279,7 +261,7 @@ _ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev.exit: ; preds = %_ZSt8_De
 110:                                              ; preds = %.lr.ph838, %444
   %indvars.iv898 = phi i64 [ 0, %.lr.ph838 ], [ %indvars.iv.next899, %444 ]
   %111 = load ptr, ptr %78, align 8, !tbaa !38
-  %112 = getelementptr inbounds nuw %struct.t_atom, ptr %111, i64 %indvars.iv898
+  %112 = getelementptr inbounds nuw [36 x i8], ptr %111, i64 %indvars.iv898
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load i32, ptr %113, align 4, !tbaa !39
   %115 = icmp eq i32 %114, 0
@@ -288,7 +270,7 @@ _ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev.exit: ; preds = %_ZSt8_De
 116:                                              ; preds = %110
   %117 = load ptr, ptr %79, align 8, !tbaa !44
   %118 = sext i32 %114 to i64
-  %119 = getelementptr inbounds %struct.t_resinfo, ptr %117, i64 %118
+  %119 = getelementptr inbounds [32 x i8], ptr %117, i64 %118
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load i32, ptr %120, align 8, !tbaa !45
   %122 = getelementptr i8, ptr %119, i64 -16
@@ -306,7 +288,7 @@ _ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev.exit: ; preds = %_ZSt8_De
 129:                                              ; preds = %125
   %130 = load ptr, ptr %79, align 8, !tbaa !44
   %131 = sext i32 %114 to i64
-  %132 = getelementptr inbounds %struct.t_resinfo, ptr %130, i64 %131
+  %132 = getelementptr inbounds [32 x i8], ptr %130, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load i32, ptr %133, align 8, !tbaa !45
   %135 = getelementptr i8, ptr %132, i64 48
@@ -318,12 +300,12 @@ _ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev.exit: ; preds = %_ZSt8_De
   %139 = phi i1 [ true, %125 ], [ %137, %129 ]
   %140 = load ptr, ptr %79, align 8, !tbaa !44
   %141 = sext i32 %114 to i64
-  %142 = getelementptr inbounds %struct.t_resinfo, ptr %140, i64 %141
+  %142 = getelementptr inbounds [32 x i8], ptr %140, i64 %141
   %.0370.in.in = getelementptr inbounds nuw i8, ptr %142, i64 %.0370.in.in.idx
   %.0370.in = load ptr, ptr %.0370.in.in, align 8, !tbaa !49
   %.0370 = load ptr, ptr %.0370.in, align 8, !tbaa !50
   %143 = load ptr, ptr %81, align 8, !tbaa !51
-  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv898
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %indvars.iv898
   %145 = load ptr, ptr %144, align 8, !tbaa !49
   %146 = load ptr, ptr %145, align 8, !tbaa !50
   %147 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %146) #13
@@ -367,7 +349,7 @@ _ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev.exit: ; preds = %_ZSt8_De
 
 .lr.ph833:                                        ; preds = %159
   %162 = sext i32 %114 to i64
-  %163 = getelementptr inbounds %struct.PreprocessResidue, ptr %4, i64 %162
+  %163 = getelementptr inbounds [320 x i8], ptr %4, i64 %162
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 32
   %165 = icmp eq ptr %.0370, null
   %.pre902.pre = load ptr, ptr %18, align 8, !tbaa !8
@@ -380,7 +362,7 @@ _ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev.exit: ; preds = %_ZSt8_De
 
 168:                                              ; preds = %167
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %169 = getelementptr inbounds nuw %struct.t_xlate_atom, ptr %.pre902.pre, i64 %indvars.iv896
+  %169 = getelementptr inbounds nuw [32 x i8], ptr %.pre902.pre, i64 %indvars.iv896
   %170 = load ptr, ptr %169, align 8, !tbaa !53
   store ptr %83, ptr %22, align 8, !tbaa !55
   %171 = icmp eq ptr %170, null
@@ -452,7 +434,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br i1 %186, label %.critedge430.thread, label %.critedge501
 
 .critedge430.thread:                              ; preds = %167, %.critedge430
-  %191 = getelementptr inbounds nuw %struct.t_xlate_atom, ptr %.pre902.pre, i64 %indvars.iv896
+  %191 = getelementptr inbounds nuw [32 x i8], ptr %.pre902.pre, i64 %indvars.iv896
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load ptr, ptr %192, align 8, !tbaa !57
   %194 = icmp eq ptr %193, null
@@ -1294,11 +1276,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
 
 429:                                              ; preds = %426
   %430 = load ptr, ptr %81, align 8, !tbaa !51
-  %431 = getelementptr inbounds nuw ptr, ptr %430, i64 %indvars.iv898
+  %431 = getelementptr inbounds nuw [8 x i8], ptr %430, i64 %indvars.iv898
   %432 = load ptr, ptr %431, align 8, !tbaa !49
   %433 = load ptr, ptr %432, align 8, !tbaa !50
   %434 = load ptr, ptr %79, align 8, !tbaa !44
-  %435 = getelementptr inbounds %struct.t_resinfo, ptr %434, i64 %162
+  %435 = getelementptr inbounds [32 x i8], ptr %434, i64 %162
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 8
   %437 = load i32, ptr %436, align 8, !tbaa !61
   %438 = load ptr, ptr %435, align 8, !tbaa !62
@@ -1321,7 +1303,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
   %.sink1074 = phi ptr [ %428, %426 ], [ %428, %429 ], [ %19, %._crit_edge834.loopexit ], [ %19, %._crit_edge834 ]
   %441 = call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef %3, ptr noundef %.sink1074)
   %442 = load ptr, ptr %81, align 8, !tbaa !51
-  %443 = getelementptr inbounds nuw ptr, ptr %442, i64 %indvars.iv898
+  %443 = getelementptr inbounds nuw [8 x i8], ptr %442, i64 %indvars.iv898
   store ptr %441, ptr %443, align 8, !tbaa !49
   br label %444
 
@@ -1344,7 +1326,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i61
 
 .lr.ph.i:                                         ; preds = %456, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %456 ]
-  %451 = getelementptr inbounds nuw %struct.t_xlate_atom, ptr %449, i64 %indvars.iv.i
+  %451 = getelementptr inbounds nuw [32 x i8], ptr %449, i64 %indvars.iv.i
   %452 = load ptr, ptr %451, align 8, !tbaa !53
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.10, i32 noundef 135, ptr noundef %452)
   %453 = getelementptr inbounds nuw i8, ptr %451, i64 8
@@ -1574,7 +1556,7 @@ _ZL15gmx_srenew_implI12t_xlate_atomEvPKcS2_iRPT_m.exit: ; preds = %51
           to label %71 unwind label %79
 
 71:                                               ; preds = %65
-  %72 = getelementptr inbounds %struct.t_xlate_atom, ptr %52, i64 %indvars.iv
+  %72 = getelementptr inbounds [32 x i8], ptr %52, i64 %indvars.iv
   store ptr %70, ptr %72, align 8, !tbaa !53
   %73 = load ptr, ptr %15, align 8, !tbaa !24
   %74 = icmp eq ptr %73, %19

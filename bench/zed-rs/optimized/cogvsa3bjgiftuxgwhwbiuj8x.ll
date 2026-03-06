@@ -241,7 +241,7 @@ _ZN14regex_automata4meta5regex5Regex20search_captures_with17hd6eec329556150e7E.e
   br i1 %114, label %115, label %_ZN14regex_automata4util4iter8Searcher7advance17he706eb4fbc3da569E.exit.i.i
 
 115:                                              ; preds = %111
-  %116 = getelementptr inbounds nuw i64, ptr %112, i64 %.sroa.039.0.i.i.i.i.i.i.i
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %.sroa.039.0.i.i.i.i.i.i.i
   %117 = load i64, ptr %116, align 8, !noalias !65, !noundef !9
   %118 = icmp ne i64 %117, 0
   %119 = icmp ult i64 %.sroa.041.0.i.i.i.i.i.i.i, %113
@@ -249,7 +249,7 @@ _ZN14regex_automata4meta5regex5Regex20search_captures_with17hd6eec329556150e7E.e
   br i1 %or.cond.i.i.i.i.i.i.i, label %120, label %_ZN14regex_automata4util4iter8Searcher7advance17he706eb4fbc3da569E.exit.i.i
 
 120:                                              ; preds = %115
-  %121 = getelementptr inbounds nuw i64, ptr %112, i64 %.sroa.041.0.i.i.i.i.i.i.i
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %.sroa.041.0.i.i.i.i.i.i.i
   %122 = load i64, ptr %121, align 8, !noalias !65, !noundef !9
   %123 = icmp eq i64 %122, 0
   br i1 %123, label %_ZN14regex_automata4util4iter8Searcher7advance17he706eb4fbc3da569E.exit.i.i, label %124
@@ -1973,7 +1973,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h07796c882b77fcafE.exit: ; 
   br i1 %324, label %325, label %335
 
 325:                                              ; preds = %321
-  %326 = getelementptr inbounds nuw i64, ptr %322, i64 %.sroa.039.0.i
+  %326 = getelementptr inbounds nuw [8 x i8], ptr %322, i64 %.sroa.039.0.i
   %327 = load i64, ptr %326, align 8, !noalias !355, !noundef !9
   %328 = icmp ne i64 %327, 0
   %329 = icmp ult i64 %.sroa.041.0.i, %323
@@ -1981,7 +1981,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h07796c882b77fcafE.exit: ; 
   br i1 %or.cond.i, label %330, label %335
 
 330:                                              ; preds = %325
-  %331 = getelementptr inbounds nuw i64, ptr %322, i64 %.sroa.041.0.i
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %322, i64 %.sroa.041.0.i
   %332 = load i64, ptr %331, align 8, !noalias !355, !noundef !9
   %333 = icmp eq i64 %332, 0
   br i1 %333, label %335, label %336
@@ -2294,14 +2294,14 @@ define noundef zeroext i1 @_ZN16html_to_markdown15markdown_writer14MarkdownWrite
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !397
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !394, !noalias !399, !nonnull !9, !noundef !9
-  %16 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %15, i64 %11
-  %17 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %15, i64 %9
-  %18 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %15, i64 %13
+  %16 = getelementptr inbounds [56 x i8], ptr %15, i64 %11
+  %17 = getelementptr inbounds [56 x i8], ptr %15, i64 %9
+  %18 = getelementptr inbounds [56 x i8], ptr %15, i64 %13
   %.not.i.i = icmp eq i64 %7, %9
   br i1 %.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h19805ddc5a60c792E.llvm.12532707877173929846.exit.thread.i, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %3
-  %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %15, i64 %7
+  %19 = getelementptr inbounds [56 x i8], ptr %15, i64 %7
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.critedge.backedge.i.i
@@ -2934,7 +2934,7 @@ default.unreachable188:                           ; preds = %.noexc.i34, %.noexc
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @"_ZN92_$LT$markup5ever..LocalNameStaticSet$u20$as$u20$string_cache..static_sets..StaticAtomSet$GT$3get3SET17h2d1a41fe5ff4e3e2E", i64 16), align 8, !noalias !555, !nonnull !9, !align !10, !noundef !9
-  %67 = getelementptr inbounds nuw { ptr, i64 }, ptr %66, i64 %62
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %62
   %68 = load ptr, ptr %67, align 8, !noalias !555, !nonnull !9, !align !120, !noundef !9
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %70 = load i64, ptr %69, align 8, !noalias !555, !noundef !9
@@ -3874,7 +3874,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter10visit_text17h3ceb8b48504
   %.sroa.0.0.i62 = sub nuw i64 %410, %411
   %412 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %413 = load ptr, ptr %412, align 8, !alias.scope !745, !noalias !748, !nonnull !9, !noundef !9
-  %414 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %413, i64 %.sroa.0.0.i62
+  %414 = getelementptr inbounds [56 x i8], ptr %413, i64 %.sroa.0.0.i62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %414, ptr noundef nonnull align 8 dereferenceable(56) %24, i64 56, i1 false)
   %415 = load i64, ptr %396, align 8, !alias.scope !745, !noalias !748, !noundef !9
   %416 = add i64 %415, 1
@@ -3889,7 +3889,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter10visit_text17h3ceb8b48504
   %420 = load ptr, ptr %419, align 8, !nonnull !9, !noundef !9
   %421 = getelementptr inbounds nuw i8, ptr %29, i64 128
   %422 = load i64, ptr %421, align 8, !noundef !9
-  %423 = getelementptr inbounds ptr, ptr %420, i64 %422
+  %423 = getelementptr inbounds [8 x i8], ptr %420, i64 %422
   br label %424
 
 424:                                              ; preds = %430, %417
@@ -3956,7 +3956,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter10visit_text17h3ceb8b48504
   %.sroa.01.0.i = sub nuw i64 %449, %450
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %452 = load ptr, ptr %451, align 8, !alias.scope !764, !noalias !767, !nonnull !9, !noundef !9
-  %453 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %452, i64 %.sroa.01.0.i
+  %453 = getelementptr inbounds [56 x i8], ptr %452, i64 %.sroa.01.0.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %453, i64 56, i1 false), !noalias !764
   %.pr106 = load i64, ptr %22, align 8, !alias.scope !769
   %454 = icmp eq i64 %.pr106, -9223372036854775808

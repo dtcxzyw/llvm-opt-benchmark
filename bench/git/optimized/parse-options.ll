@@ -5,9 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.parse_opt_ctx_t = type { ptr, ptr, i32, i32, i32, ptr, i32, i32, ptr, ptr, ptr }
-%struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [25 x i8] c"unknown subcommand: `%s'\00", align 1
@@ -874,7 +872,7 @@ parse_nodash_opt.exit.thread:                     ; preds = %43, %28, %parse_nod
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %14, align 4, !tbaa !17
   %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds ptr, ptr %55, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %55, i64 %58
   store ptr %54, ptr %59, align 8, !tbaa !48
   br label %.loopexit
 
@@ -1503,7 +1501,7 @@ parse_long_opt.exit.thread:                       ; preds = %._crit_edge.thread.
   %276 = add nsw i32 %275, 1
   store i32 %276, ptr %14, align 4, !tbaa !17
   %277 = sext i32 %275 to i64
-  %278 = getelementptr inbounds ptr, ptr %274, i64 %277
+  %278 = getelementptr inbounds [8 x i8], ptr %274, i64 %277
   store ptr %273, ptr %278, align 8, !tbaa !48
   store ptr null, ptr %7, align 8, !tbaa !47
   br label %.loopexit
@@ -1977,7 +1975,7 @@ _.exit168:                                        ; preds = %31, %35, %37
   %45 = phi i64 [ %55, %53 ], [ 0, %.lr.ph ]
   %.0113223.us = phi i32 [ %54, %53 ], [ 0, %.lr.ph ]
   %46 = load ptr, ptr %6, align 8, !tbaa !68
-  %47 = getelementptr inbounds nuw %struct.string_list_item, ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %45
   %48 = load ptr, ptr %47, align 8, !tbaa !69
   %.not156.us = icmp eq i32 %.0113223.us, 0
   br i1 %.not156.us, label %51, label %49
@@ -2001,7 +1999,7 @@ _.exit168:                                        ; preds = %31, %35, %37
   %58 = phi i64 [ %72, %70 ], [ 0, %.lr.ph.split.preheader ]
   %.0113223 = phi i32 [ %71, %70 ], [ 0, %.lr.ph.split.preheader ]
   %59 = load ptr, ptr %6, align 8, !tbaa !68
-  %60 = getelementptr inbounds nuw %struct.string_list_item, ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %58
   %61 = load ptr, ptr %60, align 8, !tbaa !69
   %62 = load i8, ptr %61, align 1, !tbaa !28
   %.not155 = icmp eq i8 %62, 0
@@ -2489,7 +2487,7 @@ define dso_local i32 @parse_options_end(ptr noundef readonly captures(none) %0) 
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4, !tbaa !17
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %13, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %13, i64 %16
   %18 = load ptr, ptr %0, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !4
@@ -2519,7 +2517,7 @@ move_array.exit:                                  ; preds = %11, %st_mult.exit.i
   %27 = phi ptr [ %13, %11 ], [ %.pre, %st_mult.exit.i ]
   %28 = add nsw i32 %25, %26
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   store ptr null, ptr %30, align 8, !tbaa !48
   br label %31
 
@@ -2542,7 +2540,7 @@ define dso_local i32 @parse_options(i32 noundef %0, ptr noundef %1, ptr noundef 
   %indvars.iv109.i = phi i32 [ %indvars.iv.next110.i, %15 ], [ -1, %6 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %6 ]
   %.072.i = phi i32 [ %.173.i, %15 ], [ 0, %6 ]
-  %11 = getelementptr inbounds nuw %struct.option, ptr %3, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [88 x i8], ptr %3, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 8, !tbaa !19
   switch i32 %12, label %15 [
     i32 0, label %16
@@ -2589,7 +2587,7 @@ st_mult.exit.i:                                   ; preds = %16
   %.07195.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %74 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.preprocess_options.help, i64 24, i1 false)
-  %27 = getelementptr inbounds nuw %struct.option, ptr %20, i64 %indvars.iv114.i
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %20, i64 %indvars.iv114.i
   %28 = load i32, ptr %27, align 8, !tbaa !19
   %.not79.i = icmp eq i32 %28, 3
   br i1 %.not79.i, label %29, label %74
@@ -2624,7 +2622,7 @@ _.exit.i:                                         ; preds = %39, %37
 
 41:                                               ; preds = %58, %_.exit.i
   %indvars.iv107.i = phi i64 [ 0, %_.exit.i ], [ %indvars.iv.next108.i, %58 ]
-  %42 = getelementptr inbounds nuw %struct.option, ptr %3, i64 %indvars.iv107.i
+  %42 = getelementptr inbounds nuw [88 x i8], ptr %3, i64 %indvars.iv107.i
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !26
   %.not81.i = icmp eq ptr %44, null
@@ -2677,10 +2675,10 @@ _.exit.i:                                         ; preds = %39, %37
   %63 = load ptr, ptr %25, align 8, !tbaa !54
   %64 = mul nsw i32 %.07195.i, 3
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %63, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %63, i64 %65
   store ptr %60, ptr %66, align 8, !tbaa !48
   %67 = zext nneg i32 %.06887.i to i64
-  %68 = getelementptr inbounds nuw %struct.option, ptr %3, i64 %67
+  %68 = getelementptr inbounds nuw [88 x i8], ptr %3, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !26
   %71 = getelementptr i8, ptr %66, i64 8
@@ -2816,7 +2814,7 @@ _.exit32:                                         ; preds = %112, %113
 
 .lr.ph.i34:                                       ; preds = %.preheader.i, %127
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %127 ], [ 0, %.preheader.i ]
-  %120 = getelementptr inbounds nuw %struct.option, ptr %.0.i, i64 %indvars.iv.i35
+  %120 = getelementptr inbounds nuw [88 x i8], ptr %.0.i, i64 %indvars.iv.i35
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
   %122 = load i32, ptr %121, align 8, !tbaa !25
   %123 = and i32 %122, 128
@@ -2831,7 +2829,7 @@ _.exit32:                                         ; preds = %112, %113
 
 127:                                              ; preds = %124, %.lr.ph.i34
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
-  %128 = getelementptr inbounds nuw %struct.option, ptr %.0.i, i64 %indvars.iv.next.i36
+  %128 = getelementptr inbounds nuw [88 x i8], ptr %.0.i, i64 %indvars.iv.next.i36
   %129 = load i32, ptr %128, align 8, !tbaa !19
   %.not9.i = icmp eq i32 %129, 0
   br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i34, !llvm.loop !80
@@ -2870,7 +2868,7 @@ free_preprocessed_options.exit:                   ; preds = %118, %._crit_edge.i
   %146 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %147 = load i32, ptr %146, align 4, !tbaa !17
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds ptr, ptr %145, i64 %148
+  %149 = getelementptr inbounds [8 x i8], ptr %145, i64 %148
   %150 = load ptr, ptr %8, align 8, !tbaa !13
   %151 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %152 = load i32, ptr %151, align 8, !tbaa !4
@@ -2900,7 +2898,7 @@ move_array.exit.i:                                ; preds = %st_mult.exit.i.i, %
   %159 = phi ptr [ %145, %143 ], [ %.pre.i, %st_mult.exit.i.i ]
   %160 = add nsw i32 %158, %157
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds ptr, ptr %159, i64 %161
+  %162 = getelementptr inbounds [8 x i8], ptr %159, i64 %161
   store ptr null, ptr %162, align 8, !tbaa !48
   br label %parse_options_end.exit
 
@@ -3017,7 +3015,7 @@ define dso_local void @die_for_incompatible_opt4(i32 noundef %0, ptr noundef %1,
 12:                                               ; preds = %11
   %13 = add nuw nsw i32 %.0, 1
   %14 = zext nneg i32 %.0 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %9, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %14
   store ptr %3, ptr %15, align 8, !tbaa !48
   br label %16
 
@@ -3029,7 +3027,7 @@ define dso_local void @die_for_incompatible_opt4(i32 noundef %0, ptr noundef %1,
 17:                                               ; preds = %16
   %18 = add nuw nsw i32 %.1, 1
   %19 = zext nneg i32 %.1 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %19
   store ptr %5, ptr %20, align 8, !tbaa !48
   br label %21
 
@@ -3041,7 +3039,7 @@ define dso_local void @die_for_incompatible_opt4(i32 noundef %0, ptr noundef %1,
 22:                                               ; preds = %21
   %23 = add nuw nsw i32 %.2, 1
   %24 = zext nneg i32 %.2 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %9, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %24
   store ptr %7, ptr %25, align 8, !tbaa !48
   br label %26
 

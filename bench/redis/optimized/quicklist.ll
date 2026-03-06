@@ -3,7 +3,6 @@ source_filename = "bench/redis/original/quicklist.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.quicklistBookmark = type { ptr, ptr }
 %struct.quicklistEntry = type { ptr, ptr, ptr, ptr, i64, i64, i32 }
 
 @packed_threshold = internal unnamed_addr global i64 0, align 8
@@ -205,7 +204,7 @@ define dso_local void @quicklistRelease(ptr noundef %0) local_unnamed_addr #1 {
   %30 = and i64 %26, -64424509441
   %31 = or i64 %29, %30
   store i64 %31, ptr %20, align 8
-  %32 = getelementptr inbounds nuw %struct.quicklistBookmark, ptr %0, i64 %28
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %28
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8, !tbaa !20
   tail call void @zfree(ptr noundef %34) #23
@@ -242,7 +241,7 @@ define dso_local void @quicklistBookmarksClear(ptr noundef captures(none) %0) lo
   %12 = and i64 %8, -64424509441
   %13 = or i64 %11, %12
   store i64 %13, ptr %2, align 8
-  %14 = getelementptr inbounds nuw %struct.quicklistBookmark, ptr %0, i64 %10
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !20
   tail call void @zfree(ptr noundef %16) #23
@@ -738,7 +737,7 @@ define dso_local void @quicklistNodeLimit(i32 noundef %0, ptr noundef writeonly 
   %8 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %0, i32 -5)
   %narrow.i = xor i32 %8, -1
   %.0.i = zext nneg i32 %narrow.i to i64
-  %9 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i
   %10 = load i64, ptr %9, align 8, !tbaa !5
   store i64 %10, ptr %1, align 8, !tbaa !5
   br label %11
@@ -756,7 +755,7 @@ quicklistNodeLimit.exit:                          ; preds = %3
   %5 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %0, i32 -5)
   %narrow.i.i = xor i32 %5, -1
   %.0.i.i = zext nneg i32 %narrow.i.i to i64
-  %6 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i
   %7 = load i64, ptr %6, align 8, !tbaa !5
   %8 = icmp ugt i64 %1, %7
   br label %13
@@ -803,7 +802,7 @@ define dso_local range(i32 0, 2) i32 @_quicklistNodeAllowInsert(ptr noundef read
   %15 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %1, i32 -5)
   %narrow.i.i = xor i32 %15, -1
   %.0.i.i = zext nneg i32 %narrow.i.i to i64
-  %16 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i
   %17 = load i64, ptr %16, align 8, !tbaa !5
   %18 = icmp ugt i64 %2, %17
   br i1 %18, label %.critedge, label %.thread13, !prof !24
@@ -843,7 +842,7 @@ isLargeElement.exit:                              ; preds = %12
 quicklistNodeLimit.exit.i:                        ; preds = %.quicklistNodeLimit.exit.i_crit_edge, %.thread13
   %.0.i.i.i.pre-phi = phi i64 [ %.pre16, %.quicklistNodeLimit.exit.i_crit_edge ], [ %.0.i.i, %.thread13 ]
   %34 = phi i64 [ %32, %.quicklistNodeLimit.exit.i_crit_edge ], [ %22, %.thread13 ]
-  %35 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i.i.pre-phi
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i.i.pre-phi
   %36 = load i64, ptr %35, align 8, !tbaa !5
   %37 = icmp ugt i64 %34, %36
   br label %quicklistNodeExceedsLimit.exit
@@ -904,7 +903,7 @@ quicklistNodeLimit.exit.i:                        ; preds = %16
   %25 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %2, i32 -5)
   %narrow.i.i.i = xor i32 %25, -1
   %.0.i.i.i = zext nneg i32 %narrow.i.i.i to i64
-  %26 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i.i
   %27 = load i64, ptr %26, align 8, !tbaa !5
   %28 = icmp ugt i64 %23, %27
   br label %quicklistNodeExceedsLimit.exit
@@ -954,7 +953,7 @@ define dso_local range(i32 0, 2) i32 @quicklistPushHead(ptr noundef captures(non
   %15 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %9, i32 -5)
   %narrow.i.i = xor i32 %15, -1
   %.0.i.i = zext nneg i32 %narrow.i.i to i64
-  %16 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i
   %17 = load i64, ptr %16, align 8, !tbaa !5
   %18 = icmp ugt i64 %2, %17
   br i1 %18, label %20, label %21, !prof !24
@@ -993,7 +992,7 @@ isLargeElement.exit:                              ; preds = %12
   %32 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %9, i32 -5)
   %narrow.i.i.i = xor i32 %32, -1
   %.0.i.i.i = zext nneg i32 %narrow.i.i.i to i64
-  %33 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i.i
   %34 = load i64, ptr %33, align 8, !tbaa !5
   %35 = icmp ugt i64 %2, %34
   br i1 %35, label %_quicklistNodeAllowInsert.exit.thread, label %.thread13.i, !prof !24
@@ -1028,7 +1027,7 @@ isLargeElement.exit.i:                            ; preds = %29
   %.pre.i = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %9, i32 -5)
   %.pre15.i = xor i32 %.pre.i, -1
   %.pre16.i = zext nneg i32 %.pre15.i to i64
-  %.phi.trans.insert = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.pre16.i
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.pre16.i
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !5
   br label %quicklistNodeLimit.exit.i.i
 
@@ -1159,7 +1158,7 @@ define dso_local range(i32 0, 2) i32 @quicklistPushTail(ptr noundef captures(non
   %16 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %10, i32 -5)
   %narrow.i.i = xor i32 %16, -1
   %.0.i.i = zext nneg i32 %narrow.i.i to i64
-  %17 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i
   %18 = load i64, ptr %17, align 8, !tbaa !5
   %19 = icmp ugt i64 %2, %18
   br i1 %19, label %21, label %22, !prof !24
@@ -1198,7 +1197,7 @@ isLargeElement.exit:                              ; preds = %13
   %33 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %10, i32 -5)
   %narrow.i.i.i = xor i32 %33, -1
   %.0.i.i.i = zext nneg i32 %narrow.i.i.i to i64
-  %34 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i.i
   %35 = load i64, ptr %34, align 8, !tbaa !5
   %36 = icmp ugt i64 %2, %35
   br i1 %36, label %_quicklistNodeAllowInsert.exit.thread, label %.thread13.i, !prof !24
@@ -1233,7 +1232,7 @@ isLargeElement.exit.i:                            ; preds = %30
   %.pre.i = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %10, i32 -5)
   %.pre15.i = xor i32 %.pre.i, -1
   %.pre16.i = zext nneg i32 %.pre15.i to i64
-  %.phi.trans.insert = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.pre16.i
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.pre16.i
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !5
   br label %quicklistNodeLimit.exit.i.i
 
@@ -1392,7 +1391,7 @@ define dso_local void @__quicklistDelNode(ptr noundef captures(none) %0, ptr nou
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw %struct.quicklistBookmark, ptr %3, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8, !tbaa !31
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %_quicklistBookmarkFindByNode.exit, label %8
@@ -1503,7 +1502,7 @@ define dso_local noundef ptr @_quicklistBookmarkFindByNode(ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw %struct.quicklistBookmark, ptr %3, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !31
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %._crit_edge, label %8
@@ -1706,7 +1705,7 @@ define dso_local void @quicklistReplaceEntry(ptr noundef captures(none) %0, ptr 
   %24 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %18, i32 -5)
   %narrow.i.i = xor i32 %24, -1
   %.0.i.i = zext nneg i32 %narrow.i.i to i64
-  %25 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !5
   %27 = icmp ugt i64 %3, %26
   br i1 %27, label %.critedge, label %29, !prof !24
@@ -1785,7 +1784,7 @@ isLargeElement.exit:                              ; preds = %21
   %64 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %58, i32 -5)
   %narrow.i.i122 = xor i32 %64, -1
   %.0.i.i123 = zext nneg i32 %narrow.i.i122 to i64
-  %65 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i123
+  %65 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i123
   %66 = load i64, ptr %65, align 8, !tbaa !5
   %67 = icmp ugt i64 %3, %66
   br i1 %67, label %69, label %85
@@ -1874,7 +1873,7 @@ isLargeElement.exit124:                           ; preds = %61
   %110 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %101, i32 -5)
   %narrow.i.i128 = xor i32 %110, -1
   %.0.i.i129 = zext nneg i32 %narrow.i.i128 to i64
-  %111 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i129
+  %111 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i129
   %112 = load i64, ptr %111, align 8, !tbaa !5
   %113 = icmp ugt i64 %3, %112
   br label %isLargeElement.exit130
@@ -2170,7 +2169,7 @@ quicklistNodeLimit.exit.i.i:                      ; preds = %30
   %39 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %7, i32 -5)
   %narrow.i.i.i.i = xor i32 %39, -1
   %.0.i.i.i.i = zext nneg i32 %narrow.i.i.i.i to i64
-  %40 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i.i.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i.i.i
   %41 = load i64, ptr %40, align 8, !tbaa !5
   %42 = icmp ugt i64 %37, %41
   br i1 %42, label %_quicklistNodeAllowMerge.exit.thread, label %49
@@ -2224,7 +2223,7 @@ quicklistNodeLimit.exit.i.i52:                    ; preds = %63
   %72 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %7, i32 -5)
   %narrow.i.i.i.i53 = xor i32 %72, -1
   %.0.i.i.i.i54 = zext nneg i32 %narrow.i.i.i.i53 to i64
-  %73 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i.i.i54
+  %73 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i.i.i54
   %74 = load i64, ptr %73, align 8, !tbaa !5
   %75 = icmp ugt i64 %70, %74
   br i1 %75, label %_quicklistNodeAllowMerge.exit60.thread, label %82
@@ -2277,7 +2276,7 @@ quicklistNodeLimit.exit.i.i63:                    ; preds = %95
   %104 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %7, i32 -5)
   %narrow.i.i.i.i64 = xor i32 %104, -1
   %.0.i.i.i.i65 = zext nneg i32 %narrow.i.i.i.i64 to i64
-  %105 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i.i.i65
+  %105 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i.i.i65
   %106 = load i64, ptr %105, align 8, !tbaa !5
   %107 = icmp ugt i64 %102, %106
   br i1 %107, label %_quicklistNodeAllowMerge.exit71.thread, label %114
@@ -2334,7 +2333,7 @@ quicklistNodeLimit.exit.i.i74:                    ; preds = %130
   %139 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %7, i32 -5)
   %narrow.i.i.i.i75 = xor i32 %139, -1
   %.0.i.i.i.i76 = zext nneg i32 %narrow.i.i.i.i75 to i64
-  %140 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i.i.i76
+  %140 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i.i.i76
   %141 = load i64, ptr %140, align 8, !tbaa !5
   %142 = icmp ugt i64 %137, %141
   br i1 %142, label %_quicklistNodeAllowMerge.exit82.thread, label %149
@@ -2700,7 +2699,7 @@ define dso_local void @_quicklistInsert(ptr noundef captures(none) %0, ptr nound
   %20 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %11, i32 -5)
   %narrow.i.i = xor i32 %20, -1
   %.0.i.i = zext nneg i32 %narrow.i.i to i64
-  %21 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i
   %22 = load i64, ptr %21, align 8, !tbaa !5
   %23 = icmp ugt i64 %3, %22
   br i1 %23, label %25, label %28, !prof !24
@@ -2807,7 +2806,7 @@ __quicklistInsertNode.exit:                       ; preds = %53, %49
   %74 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %11, i32 -5)
   %narrow.i.i.i = xor i32 %74, -1
   %.0.i.i.i = zext nneg i32 %narrow.i.i.i to i64
-  %75 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i.i
   %76 = load i64, ptr %75, align 8, !tbaa !5
   %77 = icmp ugt i64 %3, %76
   br i1 %77, label %_quicklistNodeAllowInsert.exit, label %.thread13.i, !prof !24
@@ -2842,7 +2841,7 @@ isLargeElement.exit.i:                            ; preds = %71
   %.pre.i = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %11, i32 -5)
   %.pre15.i = xor i32 %.pre.i, -1
   %.pre16.i = zext nneg i32 %.pre15.i to i64
-  %.phi.trans.insert = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.pre16.i
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.pre16.i
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !5
   br label %quicklistNodeLimit.exit.i.i
 
@@ -2912,7 +2911,7 @@ _quicklistNodeAllowInsert.exit:                   ; preds = %63, %70, %73, %isLa
   %124 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %11, i32 -5)
   %narrow.i.i.i290 = xor i32 %124, -1
   %.0.i.i.i291 = zext nneg i32 %narrow.i.i.i290 to i64
-  %125 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i.i291
+  %125 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i.i291
   %126 = load i64, ptr %125, align 8, !tbaa !5
   %127 = icmp ugt i64 %3, %126
   br i1 %127, label %_quicklistNodeAllowInsert.exit295, label %.thread13.i292, !prof !24
@@ -2947,7 +2946,7 @@ isLargeElement.exit.i293:                         ; preds = %121
   %.pre.i279 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %11, i32 -5)
   %.pre15.i280 = xor i32 %.pre.i279, -1
   %.pre16.i281 = zext nneg i32 %.pre15.i280 to i64
-  %.phi.trans.insert337 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.pre16.i281
+  %.phi.trans.insert337 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.pre16.i281
   %.pre338 = load i64, ptr %.phi.trans.insert337, align 8, !tbaa !5
   br label %quicklistNodeLimit.exit.i.i282
 
@@ -3011,7 +3010,7 @@ _quicklistNodeAllowInsert.exit295:                ; preds = %quicklistNodeLimit.
   %171 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %11, i32 -5)
   %narrow.i.i.i312 = xor i32 %171, -1
   %.0.i.i.i313 = zext nneg i32 %narrow.i.i.i312 to i64
-  %172 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i.i313
+  %172 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i.i313
   %173 = load i64, ptr %172, align 8, !tbaa !5
   %174 = icmp ugt i64 %3, %173
   br i1 %174, label %_quicklistNodeAllowInsert.exit317, label %.thread13.i314, !prof !24
@@ -3046,7 +3045,7 @@ isLargeElement.exit.i315:                         ; preds = %168
   %.pre.i301 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %11, i32 -5)
   %.pre15.i302 = xor i32 %.pre.i301, -1
   %.pre16.i303 = zext nneg i32 %.pre15.i302 to i64
-  %.phi.trans.insert335 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.pre16.i303
+  %.phi.trans.insert335 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.pre16.i303
   %.pre336 = load i64, ptr %.phi.trans.insert335, align 8, !tbaa !5
   br label %quicklistNodeLimit.exit.i.i304
 
@@ -3091,7 +3090,7 @@ _quicklistNodeAllowInsert.exit317:                ; preds = %quicklistNodeLimit.
   %203 = tail call i32 @llvm.umax.i32(i32 range(i32 -2147483648, 0) %11, i32 -5)
   %narrow.i.i321 = xor i32 %203, -1
   %.0.i.i322 = zext nneg i32 %narrow.i.i321 to i64
-  %204 = getelementptr inbounds nuw i64, ptr @optimization_level, i64 %.0.i.i322
+  %204 = getelementptr inbounds nuw [8 x i8], ptr @optimization_level, i64 %.0.i.i322
   %205 = load i64, ptr %204, align 8, !tbaa !5
   %206 = icmp ugt i64 %3, %205
   br i1 %206, label %208, label %224, !prof !24
@@ -4905,7 +4904,7 @@ define dso_local range(i32 0, 2) i32 @quicklistBookmarkCreate(ptr noundef captur
 
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds nuw %struct.quicklistBookmark, ptr %10, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %1) #26
@@ -4927,13 +4926,13 @@ _quicklistBookmarkFindByName.exit:                ; preds = %.lr.ph.i
   %23 = load i64, ptr %22, align 8
   %24 = lshr i64 %23, 32
   %25 = and i64 %24, 15
-  %26 = getelementptr inbounds nuw %struct.quicklistBookmark, ptr %21, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %25
   store ptr %2, ptr %26, align 8, !tbaa !31
   %27 = tail call noalias ptr @zstrdup(ptr noundef %1) #23
   %28 = load i64, ptr %22, align 8
   %29 = lshr i64 %28, 32
   %30 = and i64 %29, 15
-  %31 = getelementptr inbounds nuw %struct.quicklistBookmark, ptr %21, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %27, ptr %32, align 8, !tbaa !20
   %33 = add i64 %28, 4294967296
@@ -4969,7 +4968,7 @@ define dso_local ptr @_quicklistBookmarkFindByName(ptr noundef readonly captures
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw %struct.quicklistBookmark, ptr %3, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %1) #26
@@ -5004,7 +5003,7 @@ define dso_local ptr @quicklistBookmarkFind(ptr noundef readonly captures(none) 
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw %struct.quicklistBookmark, ptr %3, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %1) #26
@@ -5041,7 +5040,7 @@ define dso_local range(i32 0, 2) i32 @quicklistBookmarkDelete(ptr noundef captur
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw %struct.quicklistBookmark, ptr %3, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %1) #26

@@ -660,7 +660,7 @@ define internal void @tls1_sha256_final_raw(ptr noundef readonly captures(none) 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %.01415 = phi ptr [ %1, %2 ], [ %19, %3 ]
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !20
   %6 = lshr i32 %5, 24
   %7 = trunc nuw i32 %6 to i8
@@ -701,7 +701,7 @@ define internal void @tls1_sha512_final_raw(ptr noundef readonly captures(none) 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   %.02627 = phi ptr [ %1, %2 ], [ %35, %3 ]
-  %4 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %5 = load i64, ptr %4, align 8, !tbaa !34
   %6 = lshr i64 %5, 56
   %7 = trunc nuw i64 %6 to i8

@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.FFOutputFormat = type { %struct.AVOutputFormat, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.AVOutputFormat = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr }
-%struct.IcoImage = type { i32, i32, i8, i8, i16 }
 
 @.str = private unnamed_addr constant [4 x i8] c"ico\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"Microsoft Windows ICO\00", align 1
@@ -55,7 +54,7 @@ define internal range(i32 -22, 1) i32 @ico_write_header(ptr noundef %0) #0 {
 17:                                               ; preds = %.lr.ph, %ico_check_attributes.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ico_check_attributes.exit ]
   %18 = load ptr, ptr %16, align 8, !tbaa !31
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !32
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !34
@@ -143,7 +142,7 @@ define internal range(i32 -22, 1) i32 @ico_write_packet(ptr noundef %0, ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = load i32, ptr %9, align 4, !tbaa !50
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !34
@@ -163,7 +162,7 @@ define internal range(i32 -22, 1) i32 @ico_write_packet(ptr noundef %0, ptr noun
   %23 = add nsw i32 %16, 1
   store i32 %23, ptr %4, align 8, !tbaa !27
   %24 = sext i32 %16 to i64
-  %25 = getelementptr inbounds %struct.IcoImage, ptr %22, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %22, i64 %24
   %26 = tail call i64 @avio_seek(ptr noundef %6, i64 noundef 0, i32 noundef 1) #2
   %27 = trunc i64 %26 to i32
   store i32 %27, ptr %25, align 4, !tbaa !51
@@ -270,19 +269,19 @@ define internal noundef i32 @ico_write_trailer(ptr noundef readonly captures(non
 13:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %14 = load ptr, ptr %11, align 8, !tbaa !49
-  %15 = getelementptr inbounds nuw %struct.IcoImage, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [12 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i8, ptr %16, align 4, !tbaa !54
   %18 = zext i8 %17 to i32
   tail call void @avio_w8(ptr noundef %5, i32 noundef %18) #2
   %19 = load ptr, ptr %11, align 8, !tbaa !49
-  %20 = getelementptr inbounds nuw %struct.IcoImage, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [12 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 9
   %22 = load i8, ptr %21, align 1, !tbaa !55
   %23 = zext i8 %22 to i32
   tail call void @avio_w8(ptr noundef %5, i32 noundef %23) #2
   %24 = load ptr, ptr %12, align 8, !tbaa !31
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !32
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !34
@@ -299,7 +298,7 @@ define internal noundef i32 @ico_write_trailer(ptr noundef readonly captures(non
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %11, align 8, !tbaa !49
-  %38 = getelementptr inbounds nuw %struct.IcoImage, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [12 x i8], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 10
   %40 = load i16, ptr %39, align 2, !tbaa !57
   %41 = icmp sgt i16 %40, 7
@@ -314,18 +313,18 @@ define internal noundef i32 @ico_write_trailer(ptr noundef readonly captures(non
   tail call void @avio_w8(ptr noundef %5, i32 noundef 0) #2
   tail call void @avio_wl16(ptr noundef %5, i32 noundef 1) #2
   %46 = load ptr, ptr %11, align 8, !tbaa !49
-  %47 = getelementptr inbounds nuw %struct.IcoImage, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [12 x i8], ptr %46, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 10
   %49 = load i16, ptr %48, align 2, !tbaa !57
   %50 = sext i16 %49 to i32
   tail call void @avio_wl16(ptr noundef %5, i32 noundef %50) #2
   %51 = load ptr, ptr %11, align 8, !tbaa !49
-  %52 = getelementptr inbounds nuw %struct.IcoImage, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [12 x i8], ptr %51, i64 %indvars.iv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4, !tbaa !59
   tail call void @avio_wl32(ptr noundef %5, i32 noundef %54) #2
   %55 = load ptr, ptr %11, align 8, !tbaa !49
-  %56 = getelementptr inbounds nuw %struct.IcoImage, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [12 x i8], ptr %55, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !51
   tail call void @avio_wl32(ptr noundef %5, i32 noundef %57) #2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

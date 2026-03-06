@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.YYSTYPE = type { ptr }
 %struct.arr_info = type { [32 x i64], i32, i8 }
-%union.yyalloc = type { %union.YYSTYPE }
-%struct.cmpd_info = type { i64, i8, i8 }
 
 @H5LTyychar = local_unnamed_addr global i32 0, align 4
 @yypact = internal unnamed_addr constant [151 x i16] [i16 140, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -21, i16 -15, i16 -24, i16 -14, i16 -24, i16 -4, i16 -2, i16 119, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 70, i16 58, i16 51, i16 207, i16 52, i16 140, i16 140, i16 -24, i16 68, i16 54, i16 -24, i16 49, i16 -24, i16 55, i16 56, i16 -24, i16 -24, i16 50, i16 -24, i16 53, i16 69, i16 -24, i16 -3, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 59, i16 -24, i16 82, i16 76, i16 71, i16 -23, i16 120, i16 -24, i16 -1, i16 122, i16 -24, i16 114, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 116, i16 -24, i16 117, i16 124, i16 121, i16 125, i16 126, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 -24, i16 123, i16 -24, i16 145, i16 130, i16 -24, i16 -10, i16 -24, i16 -24, i16 -24, i16 127, i16 -24, i16 146, i16 0, i16 -24, i16 -24, i16 160, i16 -24, i16 165, i16 -24], align 16
@@ -141,7 +139,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 1 %.0245, i64 %18, i1 false)
   %26 = add nsw i64 %spec.store.select, 7
   %27 = sdiv i64 %26, 8
-  %28 = getelementptr inbounds %union.yyalloc, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = shl i64 %18, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %.0254, i64 %29, i1 false)
   %.not299 = icmp eq ptr %.0245, %1
@@ -153,7 +151,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 31:                                               ; preds = %25, %30
   %32 = getelementptr inbounds i8, ptr %24, i64 %17
-  %33 = getelementptr inbounds %union.YYSTYPE, ptr %28, i64 %18
+  %33 = getelementptr inbounds [8 x i8], ptr %28, i64 %18
   %34 = getelementptr inbounds i8, ptr %33, i64 -8
   %35 = add nsw i64 %spec.store.select, -1
   %.not300 = icmp sgt i64 %35, %17
@@ -170,7 +168,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 37:                                               ; preds = %.thread340
   %38 = zext nneg i32 %.0238 to i64
-  %39 = getelementptr inbounds nuw i16, ptr @yypact, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr @yypact, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !8
   %41 = sext i16 %40 to i32
   %42 = icmp eq i16 %40, -24
@@ -249,7 +247,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %81 = load i8, ptr %80, align 1, !tbaa !7
   %82 = sext i8 %81 to i64
   %83 = sub nsw i64 1, %82
-  %84 = getelementptr inbounds %union.YYSTYPE, ptr %.2260, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %.2260, i64 %83
   %.sroa.0.0.copyload = load ptr, ptr %84, align 8, !tbaa !7
   switch i8 %76, label %1031 [
     i8 2, label %85
@@ -1016,14 +1014,14 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %535 = call i64 @H5Tcreate(i32 noundef 6, i64 noundef 1) #10
   %536 = load i32, ptr @csindex, align 4, !tbaa !3
   %537 = sext i32 %536 to i64
-  %538 = getelementptr inbounds %struct.cmpd_info, ptr @cmpd_stack, i64 %537
+  %538 = getelementptr inbounds [16 x i8], ptr @cmpd_stack, i64 %537
   store i64 %535, ptr %538, align 16, !tbaa !17
   br label %1031
 
 539:                                              ; preds = %78
   %540 = load i32, ptr @csindex, align 4, !tbaa !3
   %541 = sext i32 %540 to i64
-  %542 = getelementptr inbounds %struct.cmpd_info, ptr @cmpd_stack, i64 %541
+  %542 = getelementptr inbounds [16 x i8], ptr @cmpd_stack, i64 %541
   %543 = load i64, ptr %542, align 16, !tbaa !17
   %544 = inttoptr i64 %543 to ptr
   store i64 0, ptr %542, align 16, !tbaa !17
@@ -1036,7 +1034,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 547:                                              ; preds = %78
   %548 = load i32, ptr @csindex, align 4, !tbaa !3
   %549 = sext i32 %548 to i64
-  %550 = getelementptr inbounds %struct.cmpd_info, ptr @cmpd_stack, i64 %549
+  %550 = getelementptr inbounds [16 x i8], ptr @cmpd_stack, i64 %549
   %551 = getelementptr inbounds nuw i8, ptr %550, i64 8
   store i8 1, ptr %551, align 8, !tbaa !20
   br label %1031
@@ -1044,7 +1042,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 552:                                              ; preds = %78
   %553 = load i32, ptr @csindex, align 4, !tbaa !3
   %554 = sext i32 %553 to i64
-  %555 = getelementptr inbounds %struct.cmpd_info, ptr @cmpd_stack, i64 %554
+  %555 = getelementptr inbounds [16 x i8], ptr @cmpd_stack, i64 %554
   %556 = load i64, ptr %555, align 16, !tbaa !17
   %557 = getelementptr inbounds nuw i8, ptr %555, i64 9
   %558 = load i8, ptr %557, align 1, !tbaa !19, !range !12, !noundef !13
@@ -1068,7 +1066,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %574 = call i32 @H5Tinsert(i64 noundef %556, ptr noundef %570, i64 noundef %572, i64 noundef %573) #10
   %575 = load i32, ptr @csindex, align 4, !tbaa !3
   %576 = sext i32 %575 to i64
-  %577 = getelementptr inbounds %struct.cmpd_info, ptr @cmpd_stack, i64 %576
+  %577 = getelementptr inbounds [16 x i8], ptr @cmpd_stack, i64 %576
   %578 = getelementptr inbounds nuw i8, ptr %577, i64 9
   store i8 0, ptr %578, align 1, !tbaa !19
   br label %607
@@ -1121,7 +1119,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 611:                                              ; preds = %610, %607
   %612 = load i32, ptr @csindex, align 4, !tbaa !3
   %613 = sext i32 %612 to i64
-  %614 = getelementptr inbounds %struct.cmpd_info, ptr @cmpd_stack, i64 %613
+  %614 = getelementptr inbounds [16 x i8], ptr @cmpd_stack, i64 %613
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 8
   store i8 0, ptr %615, align 8, !tbaa !20
   %616 = getelementptr inbounds i8, ptr %.2260, i64 -32
@@ -1163,14 +1161,14 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %635 = load i64, ptr %634, align 8, !tbaa !7
   %636 = load i32, ptr @asindex, align 4, !tbaa !3
   %637 = sext i32 %636 to i64
-  %638 = getelementptr inbounds %struct.arr_info, ptr @arr_stack, i64 %637
+  %638 = getelementptr inbounds [264 x i8], ptr @arr_stack, i64 %637
   %639 = getelementptr inbounds nuw i8, ptr %638, i64 256
   %640 = load i32, ptr %639, align 8, !tbaa !21
   %641 = call i64 @H5Tarray_create2(i64 noundef %635, i32 noundef %640, ptr noundef nonnull %638) #10
   %642 = inttoptr i64 %641 to ptr
   %643 = load i32, ptr @asindex, align 4, !tbaa !3
   %644 = sext i32 %643 to i64
-  %645 = getelementptr inbounds %struct.arr_info, ptr @arr_stack, i64 %644
+  %645 = getelementptr inbounds [264 x i8], ptr @arr_stack, i64 %644
   %646 = getelementptr inbounds nuw i8, ptr %645, i64 256
   store i32 0, ptr %646, align 8, !tbaa !21
   %647 = add nsw i32 %643, -1
@@ -1182,7 +1180,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 650:                                              ; preds = %78
   %651 = load i32, ptr @asindex, align 4, !tbaa !3
   %652 = sext i32 %651 to i64
-  %653 = getelementptr inbounds %struct.arr_info, ptr @arr_stack, i64 %652
+  %653 = getelementptr inbounds [264 x i8], ptr @arr_stack, i64 %652
   %654 = getelementptr inbounds nuw i8, ptr %653, i64 260
   store i8 1, ptr %654, align 4, !tbaa !23
   br label %1031
@@ -1190,13 +1188,13 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 655:                                              ; preds = %78
   %656 = load i32, ptr @asindex, align 4, !tbaa !3
   %657 = sext i32 %656 to i64
-  %658 = getelementptr inbounds %struct.arr_info, ptr @arr_stack, i64 %657
+  %658 = getelementptr inbounds [264 x i8], ptr @arr_stack, i64 %657
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 256
   %660 = load i32, ptr %659, align 8, !tbaa !21
   %661 = load i32, ptr @H5LTyylval, align 8, !tbaa !7
   %662 = sext i32 %661 to i64
   %663 = zext i32 %660 to i64
-  %664 = getelementptr inbounds nuw i64, ptr %658, i64 %663
+  %664 = getelementptr inbounds nuw [8 x i8], ptr %658, i64 %663
   store i64 %662, ptr %664, align 8, !tbaa !15
   %665 = add i32 %660, 1
   store i32 %665, ptr %659, align 8, !tbaa !21
@@ -1862,7 +1860,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 1031:                                             ; preds = %823, %818, %812, %78, %834, %846, %821, %822, %815, %817, %816, %808, %809, %1028, %893, %890, %884, %883, %882, %879, %876, %873, %870, %867, %864, %858, %800, %794, %789, %782, %778, %766, %754, %742, %730, %718, %706, %694, %682, %667, %655, %650, %633, %630, %626, %623, %620, %611, %547, %539, %532, %528, %516, %504, %492, %480, %468, %456, %444, %432, %420, %408, %396, %384, %372, %360, %348, %336, %324, %312, %300, %288, %276, %264, %252, %240, %228, %216, %204, %192, %180, %168, %156, %144, %132, %120, %108, %96, %85
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %78 ], [ %.sroa.0.0.copyload, %85 ], [ %99, %96 ], [ %111, %108 ], [ %123, %120 ], [ %135, %132 ], [ %147, %144 ], [ %159, %156 ], [ %171, %168 ], [ %183, %180 ], [ %195, %192 ], [ %207, %204 ], [ %219, %216 ], [ %231, %228 ], [ %243, %240 ], [ %255, %252 ], [ %267, %264 ], [ %279, %276 ], [ %291, %288 ], [ %303, %300 ], [ %315, %312 ], [ %327, %324 ], [ %339, %336 ], [ %351, %348 ], [ %363, %360 ], [ %375, %372 ], [ %387, %384 ], [ %399, %396 ], [ %411, %408 ], [ %423, %420 ], [ %435, %432 ], [ %447, %444 ], [ %459, %456 ], [ %471, %468 ], [ %483, %480 ], [ %495, %492 ], [ %507, %504 ], [ %519, %516 ], [ %531, %528 ], [ %.sroa.0.0.copyload, %532 ], [ %544, %539 ], [ %.sroa.0.0.copyload, %547 ], [ %.sroa.0.0.copyload, %611 ], [ %622, %620 ], [ %625, %623 ], [ %629, %626 ], [ %.sroa.0.0.copyload, %630 ], [ %642, %633 ], [ %.sroa.0.0.copyload, %650 ], [ %.sroa.0.0.copyload, %655 ], [ %671, %667 ], [ %685, %682 ], [ %697, %694 ], [ %709, %706 ], [ %721, %718 ], [ %733, %730 ], [ %745, %742 ], [ %757, %754 ], [ %769, %766 ], [ %781, %778 ], [ %786, %782 ], [ %793, %789 ], [ %.sroa.0.0.copyload, %794 ], [ %803, %800 ], [ %.sroa.0.0.copyload, %808 ], [ %.sroa.0.0.copyload, %809 ], [ %.sroa.0.0.copyload, %815 ], [ %.sroa.0.0.copyload, %816 ], [ %.sroa.0.0.copyload, %817 ], [ %.sroa.0.0.copyload, %812 ], [ %.sroa.0.0.copyload, %821 ], [ %.sroa.0.0.copyload, %822 ], [ %.sroa.0.0.copyload, %818 ], [ %837, %834 ], [ %849, %846 ], [ %.sroa.0.0.copyload, %823 ], [ %863, %858 ], [ %866, %864 ], [ %869, %867 ], [ %872, %870 ], [ %875, %873 ], [ %878, %876 ], [ %881, %879 ], [ inttoptr (i64 315 to ptr), %882 ], [ inttoptr (i64 316 to ptr), %883 ], [ %.sroa.0.0.copyload, %884 ], [ %892, %890 ], [ %.sroa.0.0.copyload, %893 ], [ %.sroa.0.0.copyload, %1028 ]
   %1032 = sub nsw i64 0, %82
-  %1033 = getelementptr inbounds %union.YYSTYPE, ptr %.2260, i64 %1032
+  %1033 = getelementptr inbounds [8 x i8], ptr %.2260, i64 %1032
   %1034 = getelementptr inbounds i8, ptr %.2250, i64 %1032
   %1035 = getelementptr inbounds nuw i8, ptr %1033, i64 8
   store ptr %.sroa.0.0, ptr %1035, align 8, !tbaa !7
@@ -1870,7 +1868,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %1037 = load i8, ptr %1036, align 1, !tbaa !7
   %1038 = sext i8 %1037 to i64
   %1039 = add nsw i64 %1038, -78
-  %1040 = getelementptr inbounds i16, ptr @yypgoto, i64 %1039
+  %1040 = getelementptr inbounds [2 x i8], ptr @yypgoto, i64 %1039
   %1041 = load i16, ptr %1040, align 2, !tbaa !8
   %1042 = sext i16 %1041 to i32
   %1043 = load i8, ptr %1034, align 1, !tbaa !7

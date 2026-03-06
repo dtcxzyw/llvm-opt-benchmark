@@ -7,10 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.CaseFoldMapping2_16 = type { i16, i16, i16 }
 %struct.CaseFoldMapping3_16 = type { i16, i16, i16, i16 }
 %struct.CaseFoldMapping1_32 = type { i32, i32 }
-%struct.CaseFoldHashBucket1_16 = type { ptr, i8 }
-%struct.CaseFoldHashBucket2_16 = type { ptr, i8 }
-%struct.CaseFoldHashBucket3_16 = type { ptr, i8 }
-%struct.CaseFoldHashBucket1_32 = type { ptr, i8 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @ntoa_table = internal unnamed_addr constant [36 x i8] c"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ", align 16
@@ -432,7 +428,7 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 .critedge.lr.ph:                                  ; preds = %12
   %.mask = and i32 %11, 255
   %13 = zext nneg i32 %.mask to i64
-  %14 = getelementptr inbounds nuw %struct.CaseFoldHashBucket1_16, ptr @case_fold_hash1_16, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @case_fold_hash1_16, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i8, ptr %15, align 8
   %17 = load ptr, ptr %14, align 16
@@ -447,14 +443,14 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %19
   %indvars.iv159 = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next160, %19 ]
-  %20 = getelementptr inbounds nuw %struct.CaseFoldMapping1_16, ptr %17, i64 %indvars.iv159
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv159
   %21 = load i16, ptr %20, align 2
   %22 = zext i16 %21 to i32
   %.not107 = icmp eq i32 %0, %22
   br i1 %.not107, label %.thread, label %19
 
 .thread:                                          ; preds = %.critedge
-  %23 = getelementptr inbounds nuw %struct.CaseFoldMapping1_16, ptr %17, i64 %indvars.iv159
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv159
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
@@ -464,7 +460,7 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 .lr.ph:                                           ; preds = %19, %12, %12
   %27 = and i32 %11, 15
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw %struct.CaseFoldHashBucket2_16, ptr @case_fold_hash2_16, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr @case_fold_hash2_16, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i8, ptr %30, align 8
   %32 = load ptr, ptr %29, align 16
@@ -479,7 +475,7 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 
 35:                                               ; preds = %.lr.ph, %34
   %indvars.iv165 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next166, %34 ]
-  %36 = getelementptr inbounds nuw %struct.CaseFoldMapping2_16, ptr %32, i64 %indvars.iv165
+  %36 = getelementptr inbounds nuw [6 x i8], ptr %32, i64 %indvars.iv165
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i32
   %.not109 = icmp eq i32 %0, %38
@@ -504,7 +500,7 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 
 .lr.ph149:                                        ; preds = %._crit_edge143
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw %struct.CaseFoldHashBucket3_16, ptr @case_fold_hash3_16, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr @case_fold_hash3_16, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i8, ptr %49, align 8
   %51 = load ptr, ptr %48, align 16
@@ -519,14 +515,14 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 
 54:                                               ; preds = %.lr.ph149, %53
   %indvars.iv171 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next172, %53 ]
-  %55 = getelementptr inbounds nuw %struct.CaseFoldMapping3_16, ptr %51, i64 %indvars.iv171
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv171
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
   %.not111 = icmp eq i32 %0, %57
   br i1 %.not111, label %.thread122, label %53
 
 .thread122:                                       ; preds = %54
-  %58 = getelementptr inbounds nuw %struct.CaseFoldMapping3_16, ptr %51, i64 %indvars.iv171
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv171
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 2
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i32
@@ -546,7 +542,7 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 .critedge114.lr.ph:                               ; preds = %8
   %70 = and i32 %11, 15
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw %struct.CaseFoldHashBucket1_32, ptr @case_fold_hash1_32, i64 %71
+  %72 = getelementptr inbounds nuw [16 x i8], ptr @case_fold_hash1_32, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load i8, ptr %73, align 8
   %75 = load ptr, ptr %72, align 16
@@ -561,13 +557,13 @@ define hidden range(i32 1, 4) i32 @SDL_CaseFoldUnicode(i32 noundef %0, ptr nound
 
 .critedge114:                                     ; preds = %.critedge114.lr.ph, %77
   %indvars.iv = phi i64 [ 0, %.critedge114.lr.ph ], [ %indvars.iv.next, %77 ]
-  %78 = getelementptr inbounds nuw %struct.CaseFoldMapping1_32, ptr %75, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4
   %.not = icmp eq i32 %79, %0
   br i1 %.not, label %80, label %77
 
 80:                                               ; preds = %.critedge114
-  %81 = getelementptr inbounds nuw %struct.CaseFoldMapping1_32, ptr %75, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4
   store i32 %83, ptr %1, align 4
@@ -965,7 +961,7 @@ define hidden range(i32 -1, 2) i32 @SDL_wcscasecmp_REAL(ptr noundef readonly cap
 6:                                                ; preds = %5
   %7 = add nsw i32 %.023, 1
   %8 = sext i32 %.023 to i64
-  %9 = getelementptr inbounds i32, ptr %3, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %3, i64 %8
   br label %15
 
 StepUTF32.exit:                                   ; preds = %5
@@ -990,7 +986,7 @@ StepUTF32.exit:                                   ; preds = %5
 16:                                               ; preds = %15
   %17 = add nsw i32 %.019, 1
   %18 = sext i32 %.019 to i64
-  %19 = getelementptr inbounds i32, ptr %4, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %4, i64 %18
   br label %25
 
 StepUTF32.exit27:                                 ; preds = %15
@@ -1050,7 +1046,7 @@ define hidden range(i32 -1, 2) i32 @SDL_wcsncasecmp_REAL(ptr noundef %0, ptr nou
 7:                                                ; preds = %6
   %8 = add nsw i32 %.031, 1
   %9 = sext i32 %.031 to i64
-  %10 = getelementptr inbounds i32, ptr %4, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %4, i64 %9
   br label %25
 
 11:                                               ; preds = %6
@@ -1092,7 +1088,7 @@ StepUTF32.exit:                                   ; preds = %11, %12, %15
 26:                                               ; preds = %25
   %27 = add nsw i32 %.027, 1
   %28 = sext i32 %.027 to i64
-  %29 = getelementptr inbounds i32, ptr %5, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %5, i64 %28
   br label %44
 
 30:                                               ; preds = %25
@@ -1516,7 +1512,7 @@ define hidden range(i32 -1, 2) i32 @SDL_strncasecmp_REAL(ptr noundef %0, ptr nou
 11:                                               ; preds = %8
   %12 = add nsw i32 %.029, 1
   %13 = sext i32 %.029 to i64
-  %14 = getelementptr inbounds i32, ptr %6, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %6, i64 %13
   br label %22
 
 15:                                               ; preds = %8
@@ -1542,7 +1538,7 @@ define hidden range(i32 -1, 2) i32 @SDL_strncasecmp_REAL(ptr noundef %0, ptr nou
 24:                                               ; preds = %22
   %25 = add nsw i32 %.025, 1
   %26 = sext i32 %.025 to i64
-  %27 = getelementptr inbounds i32, ptr %7, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %7, i64 %26
   br label %35
 
 28:                                               ; preds = %22
@@ -2155,7 +2151,7 @@ define hidden range(i32 -1, 2) i32 @SDL_strcasecmp_REAL(ptr noundef %0, ptr noun
 8:                                                ; preds = %7
   %9 = add nsw i32 %.022, 1
   %10 = sext i32 %.022 to i64
-  %11 = getelementptr inbounds i32, ptr %5, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %5, i64 %10
   br label %15
 
 12:                                               ; preds = %7
@@ -2174,7 +2170,7 @@ define hidden range(i32 -1, 2) i32 @SDL_strcasecmp_REAL(ptr noundef %0, ptr noun
 16:                                               ; preds = %15
   %17 = add nsw i32 %.018, 1
   %18 = sext i32 %.018 to i64
-  %19 = getelementptr inbounds i32, ptr %6, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %6, i64 %18
   br label %23
 
 20:                                               ; preds = %15

@@ -1620,7 +1620,7 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %245 = load i32, ptr %20, align 4, !tbaa !48
   %246 = sext i32 %245 to i64
   %247 = sext i32 %239 to i64
-  %248 = getelementptr inbounds i16, ptr %244, i64 %247
+  %248 = getelementptr inbounds [2 x i8], ptr %244, i64 %247
   %249 = load ptr, ptr %32, align 8, !tbaa !16
   %250 = icmp sgt i32 %243, 0
   br i1 %250, label %.lr.ph31.i237, label %_ZN4ncnn3MataSERKS0_.exit
@@ -1648,17 +1648,17 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
 
 256:                                              ; preds = %256, %.preheader.us.us.i244
   %indvars.iv.i248 = phi i64 [ 0, %.preheader.us.us.i244 ], [ %indvars.iv.next.i249, %256 ]
-  %257 = getelementptr inbounds nuw i16, ptr %.02528.us.us.i247, i64 %indvars.iv.i248
+  %257 = getelementptr inbounds nuw [2 x i8], ptr %.02528.us.us.i247, i64 %indvars.iv.i248
   %258 = load i16, ptr %257, align 2, !tbaa !68
-  %259 = getelementptr inbounds nuw i16, ptr %.02429.us.us.i246, i64 %indvars.iv.i248
+  %259 = getelementptr inbounds nuw [2 x i8], ptr %.02429.us.us.i246, i64 %indvars.iv.i248
   store i16 %258, ptr %259, align 2, !tbaa !68
   %indvars.iv.next.i249 = add nuw nsw i64 %indvars.iv.i248, 1
   %exitcond35.not.i250 = icmp eq i64 %indvars.iv.next.i249, %wide.trip.count.i
   br i1 %exitcond35.not.i250, label %..loopexit_crit_edge.us.us.i251, label %256, !llvm.loop !70
 
 ..loopexit_crit_edge.us.us.i251:                  ; preds = %256
-  %260 = getelementptr inbounds nuw i16, ptr %.02429.us.us.i246, i64 %254
-  %261 = getelementptr inbounds i16, ptr %.02528.us.us.i247, i64 %246
+  %260 = getelementptr inbounds nuw [2 x i8], ptr %.02429.us.us.i246, i64 %254
+  %261 = getelementptr inbounds [2 x i8], ptr %.02528.us.us.i247, i64 %246
   %262 = add nuw nsw i32 %.02330.us.us.i245, 1
   %exitcond36.not.i252 = icmp eq i32 %262, %243
   br i1 %exitcond36.not.i252, label %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit, label %.preheader.us.us.i244, !llvm.loop !71
@@ -1668,10 +1668,10 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %.02429.i240 = phi ptr [ %263, %.lr.ph31.split.i238 ], [ %249, %.lr.ph31.i237 ]
   %.02528.i241 = phi ptr [ %266, %.lr.ph31.split.i238 ], [ %248, %.lr.ph31.i237 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.02429.i240, ptr align 2 %.02528.i241, i64 %253, i1 false)
-  %263 = getelementptr inbounds nuw i16, ptr %.02429.i240, i64 %254
+  %263 = getelementptr inbounds nuw [2 x i8], ptr %.02429.i240, i64 %254
   %264 = load i32, ptr %20, align 4, !tbaa !48
   %265 = sext i32 %264 to i64
-  %266 = getelementptr inbounds i16, ptr %.02528.i241, i64 %265
+  %266 = getelementptr inbounds [2 x i8], ptr %.02528.i241, i64 %265
   %267 = add nuw nsw i32 %.02330.i239, 1
   %exitcond.not.i242 = icmp eq i32 %267, %243
   br i1 %exitcond.not.i242, label %_ZN4ncnn3MataSERKS0_.exit, label %.lr.ph31.split.i238, !llvm.loop !71
@@ -1690,7 +1690,7 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %..loopexi
   %276 = load i32, ptr %20, align 4, !tbaa !48
   %277 = sext i32 %276 to i64
   %278 = sext i32 %270 to i64
-  %279 = getelementptr inbounds float, ptr %275, i64 %278
+  %279 = getelementptr inbounds [4 x i8], ptr %275, i64 %278
   %280 = load ptr, ptr %32, align 8, !tbaa !16
   %281 = icmp sgt i32 %274, 0
   br i1 %281, label %.lr.ph31.i253, label %_ZN4ncnn3MataSERKS0_.exit
@@ -1714,17 +1714,17 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %..loopexi
 
 287:                                              ; preds = %287, %.preheader.us.us.i260
   %indvars.iv.i264 = phi i64 [ 0, %.preheader.us.us.i260 ], [ %indvars.iv.next.i265, %287 ]
-  %288 = getelementptr inbounds nuw float, ptr %.02528.us.us.i263, i64 %indvars.iv.i264
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %.02528.us.us.i263, i64 %indvars.iv.i264
   %289 = load float, ptr %288, align 4, !tbaa !72
-  %290 = getelementptr inbounds nuw float, ptr %.02429.us.us.i262, i64 %indvars.iv.i264
+  %290 = getelementptr inbounds nuw [4 x i8], ptr %.02429.us.us.i262, i64 %indvars.iv.i264
   store float %289, ptr %290, align 4, !tbaa !72
   %indvars.iv.next.i265 = add nuw nsw i64 %indvars.iv.i264, 1
   %exitcond35.not.i266 = icmp eq i64 %indvars.iv.next.i265, %283
   br i1 %exitcond35.not.i266, label %..loopexit_crit_edge.us.us.i267, label %287, !llvm.loop !74
 
 ..loopexit_crit_edge.us.us.i267:                  ; preds = %287
-  %291 = getelementptr inbounds nuw float, ptr %.02429.us.us.i262, i64 %285
-  %292 = getelementptr inbounds float, ptr %.02528.us.us.i263, i64 %277
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %.02429.us.us.i262, i64 %285
+  %292 = getelementptr inbounds [4 x i8], ptr %.02528.us.us.i263, i64 %277
   %293 = add nuw nsw i32 %.02330.us.us.i261, 1
   %exitcond36.not.i268 = icmp eq i32 %293, %274
   br i1 %exitcond36.not.i268, label %_ZN4ncnn3MataSERKS0_.exit, label %.preheader.us.us.i260, !llvm.loop !75
@@ -1734,10 +1734,10 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %..loopexi
   %.02429.i256 = phi ptr [ %294, %.lr.ph31.split.i254 ], [ %280, %.lr.ph31.i253 ]
   %.02528.i257 = phi ptr [ %297, %.lr.ph31.split.i254 ], [ %279, %.lr.ph31.i253 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02429.i256, ptr align 4 %.02528.i257, i64 %284, i1 false)
-  %294 = getelementptr inbounds nuw float, ptr %.02429.i256, i64 %285
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %.02429.i256, i64 %285
   %295 = load i32, ptr %20, align 4, !tbaa !48
   %296 = sext i32 %295 to i64
-  %297 = getelementptr inbounds float, ptr %.02528.i257, i64 %296
+  %297 = getelementptr inbounds [4 x i8], ptr %.02528.i257, i64 %296
   %298 = add nuw nsw i32 %.02330.i255, 1
   %exitcond.not.i258 = icmp eq i32 %298, %274
   br i1 %exitcond.not.i258, label %_ZN4ncnn3MataSERKS0_.exit, label %.lr.ph31.split.i254, !llvm.loop !75
@@ -1952,7 +1952,7 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit285: ; preds = %_ZN4nc
   %410 = mul i64 %408, %409
   %411 = getelementptr inbounds nuw i8, ptr %404, i64 %410
   %412 = sext i32 %399 to i64
-  %413 = getelementptr inbounds i16, ptr %411, i64 %412
+  %413 = getelementptr inbounds [2 x i8], ptr %411, i64 %412
   %414 = load ptr, ptr %32, align 8, !tbaa !16
   %415 = icmp sgt i32 %403, 0
   br i1 %415, label %.lr.ph31.i286, label %_ZN4ncnn3MataSERKS0_.exit
@@ -1980,17 +1980,17 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit285: ; preds = %_ZN4nc
 
 421:                                              ; preds = %421, %.preheader.us.us.i295
   %indvars.iv.i299 = phi i64 [ 0, %.preheader.us.us.i295 ], [ %indvars.iv.next.i300, %421 ]
-  %422 = getelementptr inbounds nuw i16, ptr %.02528.us.us.i298, i64 %indvars.iv.i299
+  %422 = getelementptr inbounds nuw [2 x i8], ptr %.02528.us.us.i298, i64 %indvars.iv.i299
   %423 = load i16, ptr %422, align 2, !tbaa !68
-  %424 = getelementptr inbounds nuw i16, ptr %.02429.us.us.i297, i64 %indvars.iv.i299
+  %424 = getelementptr inbounds nuw [2 x i8], ptr %.02429.us.us.i297, i64 %indvars.iv.i299
   store i16 %423, ptr %424, align 2, !tbaa !68
   %indvars.iv.next.i300 = add nuw nsw i64 %indvars.iv.i299, 1
   %exitcond35.not.i301 = icmp eq i64 %indvars.iv.next.i300, %wide.trip.count.i294
   br i1 %exitcond35.not.i301, label %..loopexit_crit_edge.us.us.i302, label %421, !llvm.loop !70
 
 ..loopexit_crit_edge.us.us.i302:                  ; preds = %421
-  %425 = getelementptr inbounds nuw i16, ptr %.02429.us.us.i297, i64 %419
-  %426 = getelementptr inbounds i16, ptr %.02528.us.us.i298, i64 %406
+  %425 = getelementptr inbounds nuw [2 x i8], ptr %.02429.us.us.i297, i64 %419
+  %426 = getelementptr inbounds [2 x i8], ptr %.02528.us.us.i298, i64 %406
   %427 = add nuw nsw i32 %.02330.us.us.i296, 1
   %exitcond36.not.i303 = icmp eq i32 %427, %403
   br i1 %exitcond36.not.i303, label %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit304, label %.preheader.us.us.i295, !llvm.loop !71
@@ -2000,10 +2000,10 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit285: ; preds = %_ZN4nc
   %.02429.i289 = phi ptr [ %428, %.lr.ph31.split.i287 ], [ %414, %.lr.ph31.i286 ]
   %.02528.i290 = phi ptr [ %431, %.lr.ph31.split.i287 ], [ %413, %.lr.ph31.i286 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.02429.i289, ptr align 2 %.02528.i290, i64 %418, i1 false)
-  %428 = getelementptr inbounds nuw i16, ptr %.02429.i289, i64 %419
+  %428 = getelementptr inbounds nuw [2 x i8], ptr %.02429.i289, i64 %419
   %429 = load i32, ptr %20, align 4, !tbaa !48
   %430 = sext i32 %429 to i64
-  %431 = getelementptr inbounds i16, ptr %.02528.i290, i64 %430
+  %431 = getelementptr inbounds [2 x i8], ptr %.02528.i290, i64 %430
   %432 = add nuw nsw i32 %.02330.i288, 1
   %exitcond.not.i291 = icmp eq i32 %432, %403
   br i1 %exitcond.not.i291, label %_ZN4ncnn3MataSERKS0_.exit, label %.lr.ph31.split.i287, !llvm.loop !71
@@ -2028,7 +2028,7 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit304: ; preds = %..loop
   %447 = mul i64 %445, %446
   %448 = getelementptr inbounds nuw i8, ptr %441, i64 %447
   %449 = sext i32 %436 to i64
-  %450 = getelementptr inbounds float, ptr %448, i64 %449
+  %450 = getelementptr inbounds [4 x i8], ptr %448, i64 %449
   %451 = load ptr, ptr %32, align 8, !tbaa !16
   %452 = icmp sgt i32 %440, 0
   br i1 %452, label %.lr.ph31.i305, label %_ZN4ncnn3MataSERKS0_.exit
@@ -2052,17 +2052,17 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit304: ; preds = %..loop
 
 458:                                              ; preds = %458, %.preheader.us.us.i312
   %indvars.iv.i316 = phi i64 [ 0, %.preheader.us.us.i312 ], [ %indvars.iv.next.i317, %458 ]
-  %459 = getelementptr inbounds nuw float, ptr %.02528.us.us.i315, i64 %indvars.iv.i316
+  %459 = getelementptr inbounds nuw [4 x i8], ptr %.02528.us.us.i315, i64 %indvars.iv.i316
   %460 = load float, ptr %459, align 4, !tbaa !72
-  %461 = getelementptr inbounds nuw float, ptr %.02429.us.us.i314, i64 %indvars.iv.i316
+  %461 = getelementptr inbounds nuw [4 x i8], ptr %.02429.us.us.i314, i64 %indvars.iv.i316
   store float %460, ptr %461, align 4, !tbaa !72
   %indvars.iv.next.i317 = add nuw nsw i64 %indvars.iv.i316, 1
   %exitcond35.not.i318 = icmp eq i64 %indvars.iv.next.i317, %454
   br i1 %exitcond35.not.i318, label %..loopexit_crit_edge.us.us.i319, label %458, !llvm.loop !74
 
 ..loopexit_crit_edge.us.us.i319:                  ; preds = %458
-  %462 = getelementptr inbounds nuw float, ptr %.02429.us.us.i314, i64 %456
-  %463 = getelementptr inbounds float, ptr %.02528.us.us.i315, i64 %443
+  %462 = getelementptr inbounds nuw [4 x i8], ptr %.02429.us.us.i314, i64 %456
+  %463 = getelementptr inbounds [4 x i8], ptr %.02528.us.us.i315, i64 %443
   %464 = add nuw nsw i32 %.02330.us.us.i313, 1
   %exitcond36.not.i320 = icmp eq i32 %464, %440
   br i1 %exitcond36.not.i320, label %_ZN4ncnn3MataSERKS0_.exit, label %.preheader.us.us.i312, !llvm.loop !75
@@ -2072,10 +2072,10 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit304: ; preds = %..loop
   %.02429.i308 = phi ptr [ %465, %.lr.ph31.split.i306 ], [ %451, %.lr.ph31.i305 ]
   %.02528.i309 = phi ptr [ %468, %.lr.ph31.split.i306 ], [ %450, %.lr.ph31.i305 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02429.i308, ptr align 4 %.02528.i309, i64 %455, i1 false)
-  %465 = getelementptr inbounds nuw float, ptr %.02429.i308, i64 %456
+  %465 = getelementptr inbounds nuw [4 x i8], ptr %.02429.i308, i64 %456
   %466 = load i32, ptr %20, align 4, !tbaa !48
   %467 = sext i32 %466 to i64
-  %468 = getelementptr inbounds float, ptr %.02528.i309, i64 %467
+  %468 = getelementptr inbounds [4 x i8], ptr %.02528.i309, i64 %467
   %469 = add nuw nsw i32 %.02330.i307, 1
   %exitcond.not.i310 = icmp eq i32 %469, %440
   br i1 %exitcond.not.i310, label %_ZN4ncnn3MataSERKS0_.exit, label %.lr.ph31.split.i306, !llvm.loop !75
@@ -3421,7 +3421,7 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %203 = load i32, ptr %20, align 4, !tbaa !48
   %204 = sext i32 %203 to i64
   %205 = sext i32 %197 to i64
-  %206 = getelementptr inbounds i16, ptr %202, i64 %205
+  %206 = getelementptr inbounds [2 x i8], ptr %202, i64 %205
   %207 = load ptr, ptr %2, align 8, !tbaa !16
   %208 = icmp sgt i32 %201, 0
   br i1 %208, label %.lr.ph31.i214, label %_ZN4ncnn3MataSERKS0_.exit
@@ -3449,17 +3449,17 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
 
 214:                                              ; preds = %214, %.preheader.us.us.i221
   %indvars.iv.i225 = phi i64 [ 0, %.preheader.us.us.i221 ], [ %indvars.iv.next.i226, %214 ]
-  %215 = getelementptr inbounds nuw i16, ptr %.02528.us.us.i224, i64 %indvars.iv.i225
+  %215 = getelementptr inbounds nuw [2 x i8], ptr %.02528.us.us.i224, i64 %indvars.iv.i225
   %216 = load i16, ptr %215, align 2, !tbaa !68
-  %217 = getelementptr inbounds nuw i16, ptr %.02429.us.us.i223, i64 %indvars.iv.i225
+  %217 = getelementptr inbounds nuw [2 x i8], ptr %.02429.us.us.i223, i64 %indvars.iv.i225
   store i16 %216, ptr %217, align 2, !tbaa !68
   %indvars.iv.next.i226 = add nuw nsw i64 %indvars.iv.i225, 1
   %exitcond35.not.i227 = icmp eq i64 %indvars.iv.next.i226, %wide.trip.count.i
   br i1 %exitcond35.not.i227, label %..loopexit_crit_edge.us.us.i228, label %214, !llvm.loop !70
 
 ..loopexit_crit_edge.us.us.i228:                  ; preds = %214
-  %218 = getelementptr inbounds nuw i16, ptr %.02429.us.us.i223, i64 %212
-  %219 = getelementptr inbounds i16, ptr %.02528.us.us.i224, i64 %204
+  %218 = getelementptr inbounds nuw [2 x i8], ptr %.02429.us.us.i223, i64 %212
+  %219 = getelementptr inbounds [2 x i8], ptr %.02528.us.us.i224, i64 %204
   %220 = add nuw nsw i32 %.02330.us.us.i222, 1
   %exitcond36.not.i229 = icmp eq i32 %220, %201
   br i1 %exitcond36.not.i229, label %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit, label %.preheader.us.us.i221, !llvm.loop !71
@@ -3469,10 +3469,10 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %.02429.i217 = phi ptr [ %221, %.lr.ph31.split.i215 ], [ %207, %.lr.ph31.i214 ]
   %.02528.i218 = phi ptr [ %224, %.lr.ph31.split.i215 ], [ %206, %.lr.ph31.i214 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.02429.i217, ptr align 2 %.02528.i218, i64 %211, i1 false)
-  %221 = getelementptr inbounds nuw i16, ptr %.02429.i217, i64 %212
+  %221 = getelementptr inbounds nuw [2 x i8], ptr %.02429.i217, i64 %212
   %222 = load i32, ptr %20, align 4, !tbaa !48
   %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds i16, ptr %.02528.i218, i64 %223
+  %224 = getelementptr inbounds [2 x i8], ptr %.02528.i218, i64 %223
   %225 = add nuw nsw i32 %.02330.i216, 1
   %exitcond.not.i219 = icmp eq i32 %225, %201
   br i1 %exitcond.not.i219, label %_ZN4ncnn3MataSERKS0_.exit, label %.lr.ph31.split.i215, !llvm.loop !71
@@ -3491,7 +3491,7 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %..loopexi
   %234 = load i32, ptr %20, align 4, !tbaa !48
   %235 = sext i32 %234 to i64
   %236 = sext i32 %228 to i64
-  %237 = getelementptr inbounds float, ptr %233, i64 %236
+  %237 = getelementptr inbounds [4 x i8], ptr %233, i64 %236
   %238 = load ptr, ptr %2, align 8, !tbaa !16
   %239 = icmp sgt i32 %232, 0
   br i1 %239, label %.lr.ph31.i230, label %_ZN4ncnn3MataSERKS0_.exit
@@ -3515,17 +3515,17 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %..loopexi
 
 245:                                              ; preds = %245, %.preheader.us.us.i237
   %indvars.iv.i241 = phi i64 [ 0, %.preheader.us.us.i237 ], [ %indvars.iv.next.i242, %245 ]
-  %246 = getelementptr inbounds nuw float, ptr %.02528.us.us.i240, i64 %indvars.iv.i241
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %.02528.us.us.i240, i64 %indvars.iv.i241
   %247 = load float, ptr %246, align 4, !tbaa !72
-  %248 = getelementptr inbounds nuw float, ptr %.02429.us.us.i239, i64 %indvars.iv.i241
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %.02429.us.us.i239, i64 %indvars.iv.i241
   store float %247, ptr %248, align 4, !tbaa !72
   %indvars.iv.next.i242 = add nuw nsw i64 %indvars.iv.i241, 1
   %exitcond35.not.i243 = icmp eq i64 %indvars.iv.next.i242, %241
   br i1 %exitcond35.not.i243, label %..loopexit_crit_edge.us.us.i244, label %245, !llvm.loop !74
 
 ..loopexit_crit_edge.us.us.i244:                  ; preds = %245
-  %249 = getelementptr inbounds nuw float, ptr %.02429.us.us.i239, i64 %243
-  %250 = getelementptr inbounds float, ptr %.02528.us.us.i240, i64 %235
+  %249 = getelementptr inbounds nuw [4 x i8], ptr %.02429.us.us.i239, i64 %243
+  %250 = getelementptr inbounds [4 x i8], ptr %.02528.us.us.i240, i64 %235
   %251 = add nuw nsw i32 %.02330.us.us.i238, 1
   %exitcond36.not.i245 = icmp eq i32 %251, %232
   br i1 %exitcond36.not.i245, label %_ZN4ncnn3MataSERKS0_.exit, label %.preheader.us.us.i237, !llvm.loop !75
@@ -3535,10 +3535,10 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %..loopexi
   %.02429.i233 = phi ptr [ %252, %.lr.ph31.split.i231 ], [ %238, %.lr.ph31.i230 ]
   %.02528.i234 = phi ptr [ %255, %.lr.ph31.split.i231 ], [ %237, %.lr.ph31.i230 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02429.i233, ptr align 4 %.02528.i234, i64 %242, i1 false)
-  %252 = getelementptr inbounds nuw float, ptr %.02429.i233, i64 %243
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %.02429.i233, i64 %243
   %253 = load i32, ptr %20, align 4, !tbaa !48
   %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds float, ptr %.02528.i234, i64 %254
+  %255 = getelementptr inbounds [4 x i8], ptr %.02528.i234, i64 %254
   %256 = add nuw nsw i32 %.02330.i232, 1
   %exitcond.not.i235 = icmp eq i32 %256, %232
   br i1 %exitcond.not.i235, label %_ZN4ncnn3MataSERKS0_.exit, label %.lr.ph31.split.i231, !llvm.loop !75
@@ -3756,7 +3756,7 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit262: ; preds = %_ZN4nc
   %373 = mul i64 %371, %372
   %374 = getelementptr inbounds nuw i8, ptr %367, i64 %373
   %375 = sext i32 %362 to i64
-  %376 = getelementptr inbounds i16, ptr %374, i64 %375
+  %376 = getelementptr inbounds [2 x i8], ptr %374, i64 %375
   %377 = load ptr, ptr %2, align 8, !tbaa !16
   %378 = icmp sgt i32 %366, 0
   br i1 %378, label %.lr.ph31.i263, label %_ZN4ncnn3MataSERKS0_.exit
@@ -3784,17 +3784,17 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit262: ; preds = %_ZN4nc
 
 384:                                              ; preds = %384, %.preheader.us.us.i272
   %indvars.iv.i276 = phi i64 [ 0, %.preheader.us.us.i272 ], [ %indvars.iv.next.i277, %384 ]
-  %385 = getelementptr inbounds nuw i16, ptr %.02528.us.us.i275, i64 %indvars.iv.i276
+  %385 = getelementptr inbounds nuw [2 x i8], ptr %.02528.us.us.i275, i64 %indvars.iv.i276
   %386 = load i16, ptr %385, align 2, !tbaa !68
-  %387 = getelementptr inbounds nuw i16, ptr %.02429.us.us.i274, i64 %indvars.iv.i276
+  %387 = getelementptr inbounds nuw [2 x i8], ptr %.02429.us.us.i274, i64 %indvars.iv.i276
   store i16 %386, ptr %387, align 2, !tbaa !68
   %indvars.iv.next.i277 = add nuw nsw i64 %indvars.iv.i276, 1
   %exitcond35.not.i278 = icmp eq i64 %indvars.iv.next.i277, %wide.trip.count.i271
   br i1 %exitcond35.not.i278, label %..loopexit_crit_edge.us.us.i279, label %384, !llvm.loop !70
 
 ..loopexit_crit_edge.us.us.i279:                  ; preds = %384
-  %388 = getelementptr inbounds nuw i16, ptr %.02429.us.us.i274, i64 %382
-  %389 = getelementptr inbounds i16, ptr %.02528.us.us.i275, i64 %369
+  %388 = getelementptr inbounds nuw [2 x i8], ptr %.02429.us.us.i274, i64 %382
+  %389 = getelementptr inbounds [2 x i8], ptr %.02528.us.us.i275, i64 %369
   %390 = add nuw nsw i32 %.02330.us.us.i273, 1
   %exitcond36.not.i280 = icmp eq i32 %390, %366
   br i1 %exitcond36.not.i280, label %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit281, label %.preheader.us.us.i272, !llvm.loop !71
@@ -3804,10 +3804,10 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit262: ; preds = %_ZN4nc
   %.02429.i266 = phi ptr [ %391, %.lr.ph31.split.i264 ], [ %377, %.lr.ph31.i263 ]
   %.02528.i267 = phi ptr [ %394, %.lr.ph31.split.i264 ], [ %376, %.lr.ph31.i263 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.02429.i266, ptr align 2 %.02528.i267, i64 %381, i1 false)
-  %391 = getelementptr inbounds nuw i16, ptr %.02429.i266, i64 %382
+  %391 = getelementptr inbounds nuw [2 x i8], ptr %.02429.i266, i64 %382
   %392 = load i32, ptr %20, align 4, !tbaa !48
   %393 = sext i32 %392 to i64
-  %394 = getelementptr inbounds i16, ptr %.02528.i267, i64 %393
+  %394 = getelementptr inbounds [2 x i8], ptr %.02528.i267, i64 %393
   %395 = add nuw nsw i32 %.02330.i265, 1
   %exitcond.not.i268 = icmp eq i32 %395, %366
   br i1 %exitcond.not.i268, label %_ZN4ncnn3MataSERKS0_.exit, label %.lr.ph31.split.i264, !llvm.loop !71
@@ -3832,7 +3832,7 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit281: ; preds = %..loop
   %410 = mul i64 %408, %409
   %411 = getelementptr inbounds nuw i8, ptr %404, i64 %410
   %412 = sext i32 %399 to i64
-  %413 = getelementptr inbounds float, ptr %411, i64 %412
+  %413 = getelementptr inbounds [4 x i8], ptr %411, i64 %412
   %414 = load ptr, ptr %2, align 8, !tbaa !16
   %415 = icmp sgt i32 %403, 0
   br i1 %415, label %.lr.ph31.i282, label %_ZN4ncnn3MataSERKS0_.exit
@@ -3856,17 +3856,17 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit281: ; preds = %..loop
 
 421:                                              ; preds = %421, %.preheader.us.us.i289
   %indvars.iv.i293 = phi i64 [ 0, %.preheader.us.us.i289 ], [ %indvars.iv.next.i294, %421 ]
-  %422 = getelementptr inbounds nuw float, ptr %.02528.us.us.i292, i64 %indvars.iv.i293
+  %422 = getelementptr inbounds nuw [4 x i8], ptr %.02528.us.us.i292, i64 %indvars.iv.i293
   %423 = load float, ptr %422, align 4, !tbaa !72
-  %424 = getelementptr inbounds nuw float, ptr %.02429.us.us.i291, i64 %indvars.iv.i293
+  %424 = getelementptr inbounds nuw [4 x i8], ptr %.02429.us.us.i291, i64 %indvars.iv.i293
   store float %423, ptr %424, align 4, !tbaa !72
   %indvars.iv.next.i294 = add nuw nsw i64 %indvars.iv.i293, 1
   %exitcond35.not.i295 = icmp eq i64 %indvars.iv.next.i294, %417
   br i1 %exitcond35.not.i295, label %..loopexit_crit_edge.us.us.i296, label %421, !llvm.loop !74
 
 ..loopexit_crit_edge.us.us.i296:                  ; preds = %421
-  %425 = getelementptr inbounds nuw float, ptr %.02429.us.us.i291, i64 %419
-  %426 = getelementptr inbounds float, ptr %.02528.us.us.i292, i64 %406
+  %425 = getelementptr inbounds nuw [4 x i8], ptr %.02429.us.us.i291, i64 %419
+  %426 = getelementptr inbounds [4 x i8], ptr %.02528.us.us.i292, i64 %406
   %427 = add nuw nsw i32 %.02330.us.us.i290, 1
   %exitcond36.not.i297 = icmp eq i32 %427, %403
   br i1 %exitcond36.not.i297, label %_ZN4ncnn3MataSERKS0_.exit, label %.preheader.us.us.i289, !llvm.loop !75
@@ -3876,10 +3876,10 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit281: ; preds = %..loop
   %.02429.i285 = phi ptr [ %428, %.lr.ph31.split.i283 ], [ %414, %.lr.ph31.i282 ]
   %.02528.i286 = phi ptr [ %431, %.lr.ph31.split.i283 ], [ %413, %.lr.ph31.i282 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02429.i285, ptr align 4 %.02528.i286, i64 %418, i1 false)
-  %428 = getelementptr inbounds nuw float, ptr %.02429.i285, i64 %419
+  %428 = getelementptr inbounds nuw [4 x i8], ptr %.02429.i285, i64 %419
   %429 = load i32, ptr %20, align 4, !tbaa !48
   %430 = sext i32 %429 to i64
-  %431 = getelementptr inbounds float, ptr %.02528.i286, i64 %430
+  %431 = getelementptr inbounds [4 x i8], ptr %.02528.i286, i64 %430
   %432 = add nuw nsw i32 %.02330.i284, 1
   %exitcond.not.i287 = icmp eq i32 %432, %403
   br i1 %exitcond.not.i287, label %_ZN4ncnn3MataSERKS0_.exit, label %.lr.ph31.split.i283, !llvm.loop !75
@@ -4991,12 +4991,12 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %49 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !55
   %51 = icmp slt i32 %50, 0
   %52 = select i1 %51, i32 %21, i32 0
   %spec.select = add nsw i32 %52, %50
-  %53 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store i32 %spec.select, ptr %53, align 4, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5033,9 +5033,9 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %32
 
 .thread.us:                                       ; preds = %.thread.us.preheader, %.thread.us
   %indvars.iv480 = phi i64 [ 0, %.thread.us.preheader ], [ %indvars.iv.next481, %.thread.us ]
-  %55 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv480
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv480
   %56 = load i32, ptr %55, align 4, !tbaa !55
-  %57 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv480
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv480
   %58 = load i32, ptr %57, align 4, !tbaa !55
   %59 = icmp eq i32 %56, -233
   %spec.store.select.us = select i1 %59, i32 0, i32 %56
@@ -5057,11 +5057,11 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %32
 
 .lr.ph450.split.us451:                            ; preds = %.lr.ph450.split.us451.preheader, %.thread385.us453
   %indvars.iv475 = phi i64 [ 0, %.lr.ph450.split.us451.preheader ], [ %indvars.iv.next476, %.thread385.us453 ]
-  %68 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv475
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv475
   %69 = load i32, ptr %68, align 4, !tbaa !55
-  %70 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv475
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv475
   %71 = load i32, ptr %70, align 4, !tbaa !55
-  %72 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv475
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv475
   %73 = load i32, ptr %72, align 4, !tbaa !55
   switch i32 %69, label %.thread385.us453 [
     i32 0, label %.thread371.us
@@ -5098,11 +5098,11 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %32
 
 .lr.ph450.split.us454:                            ; preds = %.lr.ph450.split.us454.preheader, %.thread385.us456
   %indvars.iv470 = phi i64 [ 0, %.lr.ph450.split.us454.preheader ], [ %indvars.iv.next471, %.thread385.us456 ]
-  %83 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv470
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv470
   %84 = load i32, ptr %83, align 4, !tbaa !55
-  %85 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv470
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv470
   %86 = load i32, ptr %85, align 4, !tbaa !55
-  %87 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv470
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv470
   %88 = load i32, ptr %87, align 4, !tbaa !55
   switch i32 %84, label %.thread385.us456 [
     i32 0, label %.thread377.us
@@ -5143,11 +5143,11 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %32
 
 .lr.ph450.split.us457:                            ; preds = %.lr.ph450.split.us457.preheader, %.thread385.us459
   %indvars.iv465 = phi i64 [ 0, %.lr.ph450.split.us457.preheader ], [ %indvars.iv.next466, %.thread385.us459 ]
-  %99 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv465
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv465
   %100 = load i32, ptr %99, align 4, !tbaa !55
-  %101 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv465
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv465
   %102 = load i32, ptr %101, align 4, !tbaa !55
-  %103 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv465
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv465
   %104 = load i32, ptr %103, align 4, !tbaa !55
   switch i32 %100, label %.thread385.us459 [
     i32 0, label %.thread388.us
@@ -5535,7 +5535,7 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %78 = mul i64 %77, %76
   %79 = getelementptr inbounds nuw i8, ptr %35, i64 %78
   %80 = sext i32 %75 to i64
-  %81 = getelementptr inbounds i16, ptr %79, i64 %80
+  %81 = getelementptr inbounds [2 x i8], ptr %79, i64 %80
   %82 = icmp sgt i32 %38, 0
   br i1 %82, label %.lr.ph31.i26, label %_ZN4ncnn3MatD2Ev.exit
 
@@ -5561,17 +5561,17 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
 
 87:                                               ; preds = %87, %.preheader.us.us.i33
   %indvars.iv.i37 = phi i64 [ 0, %.preheader.us.us.i33 ], [ %indvars.iv.next.i38, %87 ]
-  %88 = getelementptr inbounds nuw i16, ptr %.02528.us.us.i36, i64 %indvars.iv.i37
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %.02528.us.us.i36, i64 %indvars.iv.i37
   %89 = load i16, ptr %88, align 2, !tbaa !68
-  %90 = getelementptr inbounds nuw i16, ptr %.02429.us.us.i35, i64 %indvars.iv.i37
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %.02429.us.us.i35, i64 %indvars.iv.i37
   store i16 %89, ptr %90, align 2, !tbaa !68
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond35.not.i39 = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i
   br i1 %exitcond35.not.i39, label %..loopexit_crit_edge.us.us.i40, label %87, !llvm.loop !70
 
 ..loopexit_crit_edge.us.us.i40:                   ; preds = %87
-  %91 = getelementptr inbounds nuw i16, ptr %.02429.us.us.i35, i64 %45
-  %92 = getelementptr inbounds i16, ptr %.02528.us.us.i36, i64 %36
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %.02429.us.us.i35, i64 %45
+  %92 = getelementptr inbounds [2 x i8], ptr %.02528.us.us.i36, i64 %36
   %93 = add nuw nsw i32 %.02330.us.us.i34, 1
   %exitcond36.not.i41 = icmp eq i32 %93, %38
   br i1 %exitcond36.not.i41, label %_ZN4ncnn3MatD2Ev.exit, label %.preheader.us.us.i33, !llvm.loop !71
@@ -5581,8 +5581,8 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %.02429.i29 = phi ptr [ %94, %.lr.ph31.split.i27 ], [ %44, %.lr.ph31.i26 ]
   %.02528.i30 = phi ptr [ %95, %.lr.ph31.split.i27 ], [ %81, %.lr.ph31.i26 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.02429.i29, ptr align 2 %.02528.i30, i64 %85, i1 false)
-  %94 = getelementptr inbounds nuw i16, ptr %.02429.i29, i64 %45
-  %95 = getelementptr inbounds i16, ptr %.02528.i30, i64 %36
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %.02429.i29, i64 %45
+  %95 = getelementptr inbounds [2 x i8], ptr %.02528.i30, i64 %36
   %96 = add nuw nsw i32 %.02330.i28, 1
   %exitcond.not.i31 = icmp eq i32 %96, %38
   br i1 %exitcond.not.i31, label %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit.loopexit99, label %.lr.ph31.split.i27, !llvm.loop !71
@@ -5604,7 +5604,7 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %104 = mul i64 %103, %102
   %105 = getelementptr inbounds nuw i8, ptr %35, i64 %104
   %106 = sext i32 %101 to i64
-  %107 = getelementptr inbounds float, ptr %105, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %105, i64 %106
   %108 = icmp sgt i32 %38, 0
   br i1 %108, label %.lr.ph31.i42, label %_ZN4ncnn3MatD2Ev.exit
 
@@ -5626,17 +5626,17 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
 
 113:                                              ; preds = %113, %.preheader.us.us.i49
   %indvars.iv.i53 = phi i64 [ 0, %.preheader.us.us.i49 ], [ %indvars.iv.next.i54, %113 ]
-  %114 = getelementptr inbounds nuw float, ptr %.02528.us.us.i52, i64 %indvars.iv.i53
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %.02528.us.us.i52, i64 %indvars.iv.i53
   %115 = load float, ptr %114, align 4, !tbaa !72
-  %116 = getelementptr inbounds nuw float, ptr %.02429.us.us.i51, i64 %indvars.iv.i53
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %.02429.us.us.i51, i64 %indvars.iv.i53
   store float %115, ptr %116, align 4, !tbaa !72
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond35.not.i55 = icmp eq i64 %indvars.iv.next.i54, %110
   br i1 %exitcond35.not.i55, label %..loopexit_crit_edge.us.us.i56, label %113, !llvm.loop !74
 
 ..loopexit_crit_edge.us.us.i56:                   ; preds = %113
-  %117 = getelementptr inbounds nuw float, ptr %.02429.us.us.i51, i64 %45
-  %118 = getelementptr inbounds float, ptr %.02528.us.us.i52, i64 %36
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.02429.us.us.i51, i64 %45
+  %118 = getelementptr inbounds [4 x i8], ptr %.02528.us.us.i52, i64 %36
   %119 = add nuw nsw i32 %.02330.us.us.i50, 1
   %exitcond36.not.i57 = icmp eq i32 %119, %38
   br i1 %exitcond36.not.i57, label %_ZN4ncnn3MatD2Ev.exit, label %.preheader.us.us.i49, !llvm.loop !75
@@ -5646,8 +5646,8 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %.02429.i45 = phi ptr [ %120, %.lr.ph31.split.i43 ], [ %44, %.lr.ph31.i42 ]
   %.02528.i46 = phi ptr [ %121, %.lr.ph31.split.i43 ], [ %107, %.lr.ph31.i42 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02429.i45, ptr align 4 %.02528.i46, i64 %111, i1 false)
-  %120 = getelementptr inbounds nuw float, ptr %.02429.i45, i64 %45
-  %121 = getelementptr inbounds float, ptr %.02528.i46, i64 %36
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %.02429.i45, i64 %45
+  %121 = getelementptr inbounds [4 x i8], ptr %.02528.i46, i64 %36
   %122 = add nuw nsw i32 %.02330.i44, 1
   %exitcond.not.i47 = icmp eq i32 %122, %38
   br i1 %exitcond.not.i47, label %_ZN4ncnn3MatD2Ev.exit, label %.lr.ph31.split.i43, !llvm.loop !75
@@ -5861,7 +5861,7 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %102 = mul i64 %54, %101
   %103 = getelementptr inbounds nuw i8, ptr %57, i64 %102
   %104 = sext i32 %100 to i64
-  %105 = getelementptr inbounds i16, ptr %103, i64 %104
+  %105 = getelementptr inbounds [2 x i8], ptr %103, i64 %104
   %106 = icmp sgt i32 %59, 0
   br i1 %106, label %.lr.ph31.i47, label %_ZN4ncnn3MatD2Ev.exit
 
@@ -5887,17 +5887,17 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
 
 111:                                              ; preds = %111, %.preheader.us.us.i54
   %indvars.iv.i58 = phi i64 [ 0, %.preheader.us.us.i54 ], [ %indvars.iv.next.i59, %111 ]
-  %112 = getelementptr inbounds nuw i16, ptr %.02528.us.us.i57, i64 %indvars.iv.i58
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %.02528.us.us.i57, i64 %indvars.iv.i58
   %113 = load i16, ptr %112, align 2, !tbaa !68
-  %114 = getelementptr inbounds nuw i16, ptr %.02429.us.us.i56, i64 %indvars.iv.i58
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %.02429.us.us.i56, i64 %indvars.iv.i58
   store i16 %113, ptr %114, align 2, !tbaa !68
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond35.not.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i
   br i1 %exitcond35.not.i60, label %..loopexit_crit_edge.us.us.i61, label %111, !llvm.loop !70
 
 ..loopexit_crit_edge.us.us.i61:                   ; preds = %111
-  %115 = getelementptr inbounds nuw i16, ptr %.02429.us.us.i56, i64 %66
-  %116 = getelementptr inbounds i16, ptr %.02528.us.us.i57, i64 %48
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %.02429.us.us.i56, i64 %66
+  %116 = getelementptr inbounds [2 x i8], ptr %.02528.us.us.i57, i64 %48
   %117 = add nuw nsw i32 %.02330.us.us.i55, 1
   %exitcond36.not.i62 = icmp eq i32 %117, %59
   br i1 %exitcond36.not.i62, label %_ZN4ncnn3MatD2Ev.exit, label %.preheader.us.us.i54, !llvm.loop !71
@@ -5907,8 +5907,8 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %.02429.i50 = phi ptr [ %118, %.lr.ph31.split.i48 ], [ %71, %.lr.ph31.i47 ]
   %.02528.i51 = phi ptr [ %119, %.lr.ph31.split.i48 ], [ %105, %.lr.ph31.i47 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.02429.i50, ptr align 2 %.02528.i51, i64 %109, i1 false)
-  %118 = getelementptr inbounds nuw i16, ptr %.02429.i50, i64 %66
-  %119 = getelementptr inbounds i16, ptr %.02528.i51, i64 %48
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %.02429.i50, i64 %66
+  %119 = getelementptr inbounds [2 x i8], ptr %.02528.i51, i64 %48
   %120 = add nuw nsw i32 %.02330.i49, 1
   %exitcond.not.i52 = icmp eq i32 %120, %59
   br i1 %exitcond.not.i52, label %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit.loopexit153, label %.lr.ph31.split.i48, !llvm.loop !71
@@ -5929,7 +5929,7 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %127 = mul i64 %54, %126
   %128 = getelementptr inbounds nuw i8, ptr %57, i64 %127
   %129 = sext i32 %125 to i64
-  %130 = getelementptr inbounds float, ptr %128, i64 %129
+  %130 = getelementptr inbounds [4 x i8], ptr %128, i64 %129
   %131 = icmp sgt i32 %59, 0
   br i1 %131, label %.lr.ph31.i63, label %_ZN4ncnn3MatD2Ev.exit
 
@@ -5951,17 +5951,17 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
 
 136:                                              ; preds = %136, %.preheader.us.us.i70
   %indvars.iv.i74 = phi i64 [ 0, %.preheader.us.us.i70 ], [ %indvars.iv.next.i75, %136 ]
-  %137 = getelementptr inbounds nuw float, ptr %.02528.us.us.i73, i64 %indvars.iv.i74
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %.02528.us.us.i73, i64 %indvars.iv.i74
   %138 = load float, ptr %137, align 4, !tbaa !72
-  %139 = getelementptr inbounds nuw float, ptr %.02429.us.us.i72, i64 %indvars.iv.i74
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %.02429.us.us.i72, i64 %indvars.iv.i74
   store float %138, ptr %139, align 4, !tbaa !72
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
   %exitcond35.not.i76 = icmp eq i64 %indvars.iv.next.i75, %133
   br i1 %exitcond35.not.i76, label %..loopexit_crit_edge.us.us.i77, label %136, !llvm.loop !74
 
 ..loopexit_crit_edge.us.us.i77:                   ; preds = %136
-  %140 = getelementptr inbounds nuw float, ptr %.02429.us.us.i72, i64 %66
-  %141 = getelementptr inbounds float, ptr %.02528.us.us.i73, i64 %48
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %.02429.us.us.i72, i64 %66
+  %141 = getelementptr inbounds [4 x i8], ptr %.02528.us.us.i73, i64 %48
   %142 = add nuw nsw i32 %.02330.us.us.i71, 1
   %exitcond36.not.i78 = icmp eq i32 %142, %59
   br i1 %exitcond36.not.i78, label %_ZN4ncnn3MatD2Ev.exit, label %.preheader.us.us.i70, !llvm.loop !75
@@ -5971,8 +5971,8 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %.02429.i66 = phi ptr [ %143, %.lr.ph31.split.i64 ], [ %71, %.lr.ph31.i63 ]
   %.02528.i67 = phi ptr [ %144, %.lr.ph31.split.i64 ], [ %130, %.lr.ph31.i63 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02429.i66, ptr align 4 %.02528.i67, i64 %134, i1 false)
-  %143 = getelementptr inbounds nuw float, ptr %.02429.i66, i64 %66
-  %144 = getelementptr inbounds float, ptr %.02528.i67, i64 %48
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %.02429.i66, i64 %66
+  %144 = getelementptr inbounds [4 x i8], ptr %.02528.i67, i64 %48
   %145 = add nuw nsw i32 %.02330.i65, 1
   %exitcond.not.i68 = icmp eq i32 %145, %59
   br i1 %exitcond.not.i68, label %_ZN4ncnn3MatD2Ev.exit, label %.lr.ph31.split.i64, !llvm.loop !75
@@ -6296,7 +6296,7 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %78 = mul i64 %77, %76
   %79 = getelementptr inbounds nuw i8, ptr %35, i64 %78
   %80 = sext i32 %75 to i64
-  %81 = getelementptr inbounds i16, ptr %79, i64 %80
+  %81 = getelementptr inbounds [2 x i8], ptr %79, i64 %80
   %82 = icmp sgt i32 %38, 0
   br i1 %82, label %.lr.ph31.i26, label %_ZN4ncnn3MatD2Ev.exit
 
@@ -6322,17 +6322,17 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
 
 87:                                               ; preds = %87, %.preheader.us.us.i33
   %indvars.iv.i37 = phi i64 [ 0, %.preheader.us.us.i33 ], [ %indvars.iv.next.i38, %87 ]
-  %88 = getelementptr inbounds nuw i16, ptr %.02528.us.us.i36, i64 %indvars.iv.i37
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %.02528.us.us.i36, i64 %indvars.iv.i37
   %89 = load i16, ptr %88, align 2, !tbaa !68
-  %90 = getelementptr inbounds nuw i16, ptr %.02429.us.us.i35, i64 %indvars.iv.i37
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %.02429.us.us.i35, i64 %indvars.iv.i37
   store i16 %89, ptr %90, align 2, !tbaa !68
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond35.not.i39 = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i
   br i1 %exitcond35.not.i39, label %..loopexit_crit_edge.us.us.i40, label %87, !llvm.loop !70
 
 ..loopexit_crit_edge.us.us.i40:                   ; preds = %87
-  %91 = getelementptr inbounds nuw i16, ptr %.02429.us.us.i35, i64 %45
-  %92 = getelementptr inbounds i16, ptr %.02528.us.us.i36, i64 %36
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %.02429.us.us.i35, i64 %45
+  %92 = getelementptr inbounds [2 x i8], ptr %.02528.us.us.i36, i64 %36
   %93 = add nuw nsw i32 %.02330.us.us.i34, 1
   %exitcond36.not.i41 = icmp eq i32 %93, %38
   br i1 %exitcond36.not.i41, label %_ZN4ncnn3MatD2Ev.exit, label %.preheader.us.us.i33, !llvm.loop !71
@@ -6342,8 +6342,8 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %.02429.i29 = phi ptr [ %94, %.lr.ph31.split.i27 ], [ %44, %.lr.ph31.i26 ]
   %.02528.i30 = phi ptr [ %95, %.lr.ph31.split.i27 ], [ %81, %.lr.ph31.i26 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.02429.i29, ptr align 2 %.02528.i30, i64 %85, i1 false)
-  %94 = getelementptr inbounds nuw i16, ptr %.02429.i29, i64 %45
-  %95 = getelementptr inbounds i16, ptr %.02528.i30, i64 %36
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %.02429.i29, i64 %45
+  %95 = getelementptr inbounds [2 x i8], ptr %.02528.i30, i64 %36
   %96 = add nuw nsw i32 %.02330.i28, 1
   %exitcond.not.i31 = icmp eq i32 %96, %38
   br i1 %exitcond.not.i31, label %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit.loopexit99, label %.lr.ph31.split.i27, !llvm.loop !71
@@ -6365,7 +6365,7 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %104 = mul i64 %103, %102
   %105 = getelementptr inbounds nuw i8, ptr %35, i64 %104
   %106 = sext i32 %101 to i64
-  %107 = getelementptr inbounds float, ptr %105, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %105, i64 %106
   %108 = icmp sgt i32 %38, 0
   br i1 %108, label %.lr.ph31.i42, label %_ZN4ncnn3MatD2Ev.exit
 
@@ -6387,17 +6387,17 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
 
 113:                                              ; preds = %113, %.preheader.us.us.i49
   %indvars.iv.i53 = phi i64 [ 0, %.preheader.us.us.i49 ], [ %indvars.iv.next.i54, %113 ]
-  %114 = getelementptr inbounds nuw float, ptr %.02528.us.us.i52, i64 %indvars.iv.i53
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %.02528.us.us.i52, i64 %indvars.iv.i53
   %115 = load float, ptr %114, align 4, !tbaa !72
-  %116 = getelementptr inbounds nuw float, ptr %.02429.us.us.i51, i64 %indvars.iv.i53
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %.02429.us.us.i51, i64 %indvars.iv.i53
   store float %115, ptr %116, align 4, !tbaa !72
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond35.not.i55 = icmp eq i64 %indvars.iv.next.i54, %110
   br i1 %exitcond35.not.i55, label %..loopexit_crit_edge.us.us.i56, label %113, !llvm.loop !74
 
 ..loopexit_crit_edge.us.us.i56:                   ; preds = %113
-  %117 = getelementptr inbounds nuw float, ptr %.02429.us.us.i51, i64 %45
-  %118 = getelementptr inbounds float, ptr %.02528.us.us.i52, i64 %36
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.02429.us.us.i51, i64 %45
+  %118 = getelementptr inbounds [4 x i8], ptr %.02528.us.us.i52, i64 %36
   %119 = add nuw nsw i32 %.02330.us.us.i50, 1
   %exitcond36.not.i57 = icmp eq i32 %119, %38
   br i1 %exitcond36.not.i57, label %_ZN4ncnn3MatD2Ev.exit, label %.preheader.us.us.i49, !llvm.loop !75
@@ -6407,8 +6407,8 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %.02429.i45 = phi ptr [ %120, %.lr.ph31.split.i43 ], [ %44, %.lr.ph31.i42 ]
   %.02528.i46 = phi ptr [ %121, %.lr.ph31.split.i43 ], [ %107, %.lr.ph31.i42 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02429.i45, ptr align 4 %.02528.i46, i64 %111, i1 false)
-  %120 = getelementptr inbounds nuw float, ptr %.02429.i45, i64 %45
-  %121 = getelementptr inbounds float, ptr %.02528.i46, i64 %36
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %.02429.i45, i64 %45
+  %121 = getelementptr inbounds [4 x i8], ptr %.02528.i46, i64 %36
   %122 = add nuw nsw i32 %.02330.i44, 1
   %exitcond.not.i47 = icmp eq i32 %122, %38
   br i1 %exitcond.not.i47, label %_ZN4ncnn3MatD2Ev.exit, label %.lr.ph31.split.i43, !llvm.loop !75
@@ -6605,7 +6605,7 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %102 = mul i64 %54, %101
   %103 = getelementptr inbounds nuw i8, ptr %57, i64 %102
   %104 = sext i32 %100 to i64
-  %105 = getelementptr inbounds i16, ptr %103, i64 %104
+  %105 = getelementptr inbounds [2 x i8], ptr %103, i64 %104
   %106 = icmp sgt i32 %59, 0
   br i1 %106, label %.lr.ph31.i47, label %_ZN4ncnn3MatD2Ev.exit
 
@@ -6631,17 +6631,17 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
 
 111:                                              ; preds = %111, %.preheader.us.us.i54
   %indvars.iv.i58 = phi i64 [ 0, %.preheader.us.us.i54 ], [ %indvars.iv.next.i59, %111 ]
-  %112 = getelementptr inbounds nuw i16, ptr %.02528.us.us.i57, i64 %indvars.iv.i58
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %.02528.us.us.i57, i64 %indvars.iv.i58
   %113 = load i16, ptr %112, align 2, !tbaa !68
-  %114 = getelementptr inbounds nuw i16, ptr %.02429.us.us.i56, i64 %indvars.iv.i58
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %.02429.us.us.i56, i64 %indvars.iv.i58
   store i16 %113, ptr %114, align 2, !tbaa !68
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond35.not.i60 = icmp eq i64 %indvars.iv.next.i59, %wide.trip.count.i
   br i1 %exitcond35.not.i60, label %..loopexit_crit_edge.us.us.i61, label %111, !llvm.loop !70
 
 ..loopexit_crit_edge.us.us.i61:                   ; preds = %111
-  %115 = getelementptr inbounds nuw i16, ptr %.02429.us.us.i56, i64 %66
-  %116 = getelementptr inbounds i16, ptr %.02528.us.us.i57, i64 %48
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %.02429.us.us.i56, i64 %66
+  %116 = getelementptr inbounds [2 x i8], ptr %.02528.us.us.i57, i64 %48
   %117 = add nuw nsw i32 %.02330.us.us.i55, 1
   %exitcond36.not.i62 = icmp eq i32 %117, %59
   br i1 %exitcond36.not.i62, label %_ZN4ncnn3MatD2Ev.exit, label %.preheader.us.us.i54, !llvm.loop !71
@@ -6651,8 +6651,8 @@ _ZN4ncnnL21copy_cut_border_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %.02429.i50 = phi ptr [ %118, %.lr.ph31.split.i48 ], [ %71, %.lr.ph31.i47 ]
   %.02528.i51 = phi ptr [ %119, %.lr.ph31.split.i48 ], [ %105, %.lr.ph31.i47 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.02429.i50, ptr align 2 %.02528.i51, i64 %109, i1 false)
-  %118 = getelementptr inbounds nuw i16, ptr %.02429.i50, i64 %66
-  %119 = getelementptr inbounds i16, ptr %.02528.i51, i64 %48
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %.02429.i50, i64 %66
+  %119 = getelementptr inbounds [2 x i8], ptr %.02528.i51, i64 %48
   %120 = add nuw nsw i32 %.02330.i49, 1
   %exitcond.not.i52 = icmp eq i32 %120, %59
   br i1 %exitcond.not.i52, label %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit.loopexit153, label %.lr.ph31.split.i48, !llvm.loop !71
@@ -6673,7 +6673,7 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %127 = mul i64 %54, %126
   %128 = getelementptr inbounds nuw i8, ptr %57, i64 %127
   %129 = sext i32 %125 to i64
-  %130 = getelementptr inbounds float, ptr %128, i64 %129
+  %130 = getelementptr inbounds [4 x i8], ptr %128, i64 %129
   %131 = icmp sgt i32 %59, 0
   br i1 %131, label %.lr.ph31.i63, label %_ZN4ncnn3MatD2Ev.exit
 
@@ -6695,17 +6695,17 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
 
 136:                                              ; preds = %136, %.preheader.us.us.i70
   %indvars.iv.i74 = phi i64 [ 0, %.preheader.us.us.i70 ], [ %indvars.iv.next.i75, %136 ]
-  %137 = getelementptr inbounds nuw float, ptr %.02528.us.us.i73, i64 %indvars.iv.i74
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %.02528.us.us.i73, i64 %indvars.iv.i74
   %138 = load float, ptr %137, align 4, !tbaa !72
-  %139 = getelementptr inbounds nuw float, ptr %.02429.us.us.i72, i64 %indvars.iv.i74
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %.02429.us.us.i72, i64 %indvars.iv.i74
   store float %138, ptr %139, align 4, !tbaa !72
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
   %exitcond35.not.i76 = icmp eq i64 %indvars.iv.next.i75, %133
   br i1 %exitcond35.not.i76, label %..loopexit_crit_edge.us.us.i77, label %136, !llvm.loop !74
 
 ..loopexit_crit_edge.us.us.i77:                   ; preds = %136
-  %140 = getelementptr inbounds nuw float, ptr %.02429.us.us.i72, i64 %66
-  %141 = getelementptr inbounds float, ptr %.02528.us.us.i73, i64 %48
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %.02429.us.us.i72, i64 %66
+  %141 = getelementptr inbounds [4 x i8], ptr %.02528.us.us.i73, i64 %48
   %142 = add nuw nsw i32 %.02330.us.us.i71, 1
   %exitcond36.not.i78 = icmp eq i32 %142, %59
   br i1 %exitcond36.not.i78, label %_ZN4ncnn3MatD2Ev.exit, label %.preheader.us.us.i70, !llvm.loop !75
@@ -6715,8 +6715,8 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL
   %.02429.i66 = phi ptr [ %143, %.lr.ph31.split.i64 ], [ %71, %.lr.ph31.i63 ]
   %.02528.i67 = phi ptr [ %144, %.lr.ph31.split.i64 ], [ %130, %.lr.ph31.i63 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02429.i66, ptr align 4 %.02528.i67, i64 %134, i1 false)
-  %143 = getelementptr inbounds nuw float, ptr %.02429.i66, i64 %66
-  %144 = getelementptr inbounds float, ptr %.02528.i67, i64 %48
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %.02429.i66, i64 %66
+  %144 = getelementptr inbounds [4 x i8], ptr %.02528.i67, i64 %48
   %145 = add nuw nsw i32 %.02330.i65, 1
   %exitcond.not.i68 = icmp eq i32 %145, %59
   br i1 %exitcond.not.i68, label %_ZN4ncnn3MatD2Ev.exit, label %.lr.ph31.split.i64, !llvm.loop !75

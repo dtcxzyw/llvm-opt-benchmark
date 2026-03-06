@@ -102,7 +102,7 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
 
 .preheader:                                       ; preds = %19, %.preheader.backedge
   %.0 = phi i64 [ %.0.be, %.preheader.backedge ], [ %22, %19 ]
-  %24 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr @_ZL1Y, i64 %.0
+  %24 = getelementptr inbounds [16 x i8], ptr @_ZL1Y, i64 %.0
   %25 = load float, ptr %24, align 16, !tbaa !44
   %26 = fpext float %25 to double
   %27 = fcmp olt double %7, %26
@@ -114,7 +114,7 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
 
 30:                                               ; preds = %.preheader
   %31 = add nsw i64 %.0, 1
-  %32 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr @_ZL1Y, i64 %31
+  %32 = getelementptr inbounds [16 x i8], ptr @_ZL1Y, i64 %31
   %33 = load float, ptr %32, align 16, !tbaa !44
   %34 = fpext float %33 to double
   %35 = fcmp ult double %7, %34
@@ -177,7 +177,7 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
   %67 = fcmp olt double %1, 0.000000e+00
   %68 = fneg double %66
   %.sroa.9.3 = select i1 %67, double %68, double %66
-  %69 = getelementptr inbounds %"struct.(anonymous namespace)::COEFS", ptr @_ZL1X, i64 %.0
+  %69 = getelementptr inbounds [16 x i8], ptr @_ZL1X, i64 %.0
   %70 = load float, ptr %69, align 16, !tbaa !44
   %71 = fpext float %70 to double
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 4
@@ -237,7 +237,7 @@ define internal { double, double } @_ZL15robin_s_forward5PJ_LPP8PJconsts(double 
   %14 = uitofp nneg i64 %13 to double
   %15 = tail call double @llvm.fmuladd.f64(double %14, double 0xBFB657184AE74487, double %4)
   %16 = fmul double %15, 0x404CA5DC1A63C1F8
-  %17 = getelementptr inbounds nuw %"struct.(anonymous namespace)::COEFS", ptr @_ZL1X, i64 %13
+  %17 = getelementptr inbounds nuw [16 x i8], ptr @_ZL1X, i64 %13
   %18 = load float, ptr %17, align 16, !tbaa !44
   %19 = fpext float %18 to double
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
@@ -254,7 +254,7 @@ define internal { double, double } @_ZL15robin_s_forward5PJ_LPP8PJconsts(double 
   %31 = tail call double @llvm.fmuladd.f64(double %16, double %30, double %19)
   %32 = fmul double %31, 8.487000e-01
   %33 = fmul double %0, %32
-  %34 = getelementptr inbounds nuw %"struct.(anonymous namespace)::COEFS", ptr @_ZL1Y, i64 %13
+  %34 = getelementptr inbounds nuw [16 x i8], ptr @_ZL1Y, i64 %13
   %35 = load float, ptr %34, align 16, !tbaa !44
   %36 = fpext float %35 to double
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 4

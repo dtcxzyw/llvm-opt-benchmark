@@ -2774,7 +2774,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev14ColorSpaceInfo17getHierarc
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %1
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !54
   br label %15
 
@@ -4028,7 +4028,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev28ColorSpaceMenuParametersIm
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %1
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !54
   br label %15
 
@@ -4264,7 +4264,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %12, %.t
   %.049 = phi i64 [ %127, %.lr.ph ], [ 1, %111 ]
   %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.18, i64 noundef 2)
   %121 = load ptr, ptr %94, align 8, !tbaa !65
-  %122 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %121, i64 %.049
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %121, i64 %.049
   %123 = load ptr, ptr %122, align 8, !tbaa !54
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %125 = load i64, ptr %124, align 8, !tbaa !48
@@ -9052,7 +9052,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev24ColorSpaceMenuHelperImpl7g
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %6, i64 %1
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !54
@@ -9077,7 +9077,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev24ColorSpaceMenuHelperImpl9g
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %6, i64 %1
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !54
@@ -9162,7 +9162,7 @@ define hidden noundef i64 @_ZNK19OpenColorIO_v2_5dev24ColorSpaceMenuHelperImpl16
   %31 = phi ptr [ %27, %.lr.ph ], [ %60, %57 ]
   %.01030 = phi i64 [ 0, %.lr.ph ], [ %58, %57 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %32 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %31, i64 %.01030
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.01030
   %33 = load ptr, ptr %32, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !54
@@ -9361,7 +9361,7 @@ define hidden noundef i64 @_ZNK19OpenColorIO_v2_5dev24ColorSpaceMenuHelperImpl18
   %31 = phi ptr [ %27, %.lr.ph ], [ %60, %57 ]
   %.01030 = phi i64 [ 0, %.lr.ph ], [ %58, %57 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %32 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %31, i64 %.01030
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.01030
   %33 = load ptr, ptr %32, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load ptr, ptr %34, align 8, !tbaa !54
@@ -9500,7 +9500,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev24ColorSpaceMenuHelperImpl9g
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %6, i64 %1
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !54
@@ -9525,7 +9525,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev24ColorSpaceMenuHelperImpl14
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %6, i64 %1
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %16 = load ptr, ptr %15, align 8, !tbaa !54
@@ -9550,7 +9550,7 @@ define hidden noundef range(i64 -288230376151711744, 288230376151711744) i64 @_Z
   br i1 %11, label %12, label %23
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %6, i64 %1
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 136
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 144
@@ -9581,7 +9581,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev24ColorSpaceMenuHelperImpl17
   br i1 %12, label %13, label %_ZNK19OpenColorIO_v2_5dev14ColorSpaceInfo17getHierarchyLevelEm.exit
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %7, i64 %1
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %1
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 136
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 144
@@ -9595,7 +9595,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev24ColorSpaceMenuHelperImpl17
   br i1 %24, label %25, label %_ZNK19OpenColorIO_v2_5dev14ColorSpaceInfo17getHierarchyLevelEm.exit
 
 25:                                               ; preds = %13
-  %26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %2
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %2
   %27 = load ptr, ptr %26, align 8, !tbaa !54
   br label %_ZNK19OpenColorIO_v2_5dev14ColorSpaceInfo17getHierarchyLevelEm.exit
 
@@ -13202,7 +13202,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !65
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !68
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !69
   ret void
 }
@@ -13466,7 +13466,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !65
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !68
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !69
   ret void
 
@@ -14389,7 +14389,7 @@ _ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_5dev14ColorSpaceInfoEESaIS4_EE11_
 _ZNSt12_Vector_baseISt10shared_ptrIKN19OpenColorIO_v2_5dev14ColorSpaceInfoEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_5dev14ColorSpaceInfoEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !153
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !156
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !158
   ret void
 }
@@ -14510,7 +14510,7 @@ _ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_5dev14ColorSpaceInfoEESaIS4_EE11_
 _ZNSt12_Vector_baseISt10shared_ptrIKN19OpenColorIO_v2_5dev14ColorSpaceInfoEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_5dev14ColorSpaceInfoEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !153
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !156
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !158
   ret void
 }
@@ -14787,7 +14787,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIKN19
 
 .lr.ph.i.i.i.i.i57.preheader:                     ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIKN19OpenColorIO_v2_5dev14ColorSpaceInfoEESt6vectorIS6_SaIS6_EEEES7_S6_ET0_T_SD_SC_RSaIT1_E.exit
   %122 = sub nuw nsw i64 %9, %20
-  %123 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %121, i64 %122
   br label %.lr.ph.i.i.i.i.i57
 
 .lr.ph.i.i.i.i.i57:                               ; preds = %.lr.ph.i.i.i.i.i57.preheader, %.lr.ph.i.i.i.i.i57
@@ -15090,7 +15090,7 @@ _ZSt8_DestroyIPSt10shared_ptrIKN19OpenColorIO_v2_5dev14ColorSpaceInfoEES4_EvT_S6
 _ZNSt12_Vector_baseISt10shared_ptrIKN19OpenColorIO_v2_5dev14ColorSpaceInfoEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt8_DestroyIPSt10shared_ptrIKN19OpenColorIO_v2_5dev14ColorSpaceInfoEES4_EvT_S6_RSaIT0_E.exit, %239
   store ptr %188, ptr %0, align 8, !tbaa !153
   store ptr %.0.lcssa.i.i.i.i.i101, ptr %12, align 8, !tbaa !156
-  %243 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %188, i64 %184
+  %243 = getelementptr inbounds nuw [16 x i8], ptr %188, i64 %184
   store ptr %243, ptr %10, align 8, !tbaa !158
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIKN19OpenColorIO_v2_5dev14ColorSpaceInfoEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit
 

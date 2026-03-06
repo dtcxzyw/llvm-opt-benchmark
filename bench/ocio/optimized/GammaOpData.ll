@@ -494,7 +494,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %34
 
 switch.lookup:                                    ; preds = %1
   %44 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData20ConvertStyleToStringENS0_5StyleE, i64 %44
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData20ConvertStyleToStringENS0_5StyleE, i64 %44
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 
@@ -643,7 +643,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %34
 
 switch.lookup:                                    ; preds = %1
   %44 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12ConvertStyleENS0_5StyleE, i64 %44
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12ConvertStyleENS0_5StyleE, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 
@@ -1599,7 +1599,7 @@ _ZNK19OpenColorIO_v2_5dev11GammaOpData5cloneEv.exit: ; preds = %2
 
 switch.lookup:                                    ; preds = %_ZNK19OpenColorIO_v2_5dev11GammaOpData5cloneEv.exit
   %12 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE.4, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE.4, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN19OpenColorIO_v2_5dev11GammaOpData6invertEv.exit
 
@@ -1618,7 +1618,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11GammaOpData6invertEv(ptr noundef n
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE.4, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE.4, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -2149,15 +2149,15 @@ define hidden void @_ZN19OpenColorIO_v2_5dev14validateParamsERKSt6vectorIdSaIdEE
 
 .lr.ph:                                           ; preds = %.preheader, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.preheader ]
-  %23 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %24 = load double, ptr %23, align 8, !tbaa !40
-  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %26 = load double, ptr %25, align 8, !tbaa !40
   %27 = fcmp olt double %24, %26
   br i1 %27, label %28, label %55
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5)
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2166,7 +2166,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev14validateParamsERKSt6vectorIdSaIdEE
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %28
   %32 = load ptr, ptr %0, align 8, !tbaa !42
-  %33 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load double, ptr %33, align 8, !tbaa !40
   %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %30, double noundef %34)
           to label %_ZNSolsEd.exit unwind label %43
@@ -2238,13 +2238,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46
   br label %86
 
 55:                                               ; preds = %.lr.ph
-  %56 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %57 = load double, ptr %56, align 8, !tbaa !40
   %58 = fcmp ogt double %24, %57
   br i1 %58, label %59, label %22
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %7)
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -2253,7 +2253,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit45: ; preds = %59
   %63 = load ptr, ptr %0, align 8, !tbaa !42
-  %64 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %65 = load double, ptr %64, align 8, !tbaa !40
   %66 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %61, double noundef %65)
           to label %_ZNSolsEd.exit46 unwind label %74
@@ -4125,7 +4125,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %.lr.ph
   %44 = load ptr, ptr %1, align 8, !tbaa !42
-  %45 = getelementptr inbounds nuw double, ptr %44, i64 %.011
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.011
   %46 = load double, ptr %45, align 8, !tbaa !40
   %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %3, double noundef %46)
           to label %_ZNSolsEd.exit10 unwind label %56
@@ -4194,7 +4194,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZNK19OpenColorIO_v2_5dev11GammaOpDat
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -4213,7 +4213,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18Tra
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK19OpenColorIO_v2_5dev11GammaOpData12getDirectionEv.exit
 
@@ -4228,7 +4228,7 @@ _ZNK19OpenColorIO_v2_5dev11GammaOpData12getDirectionEv.exit: ; preds = %2, %swit
 
 switch.lookup2:                                   ; preds = %7
   %9 = zext nneg i32 %4 to i64
-  %switch.gep3 = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE.4, i64 %9
+  %switch.gep3 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev11GammaOpData12setDirectionENS_18TransformDirectionE.4, i64 %9
   %switch.load4 = load i32, ptr %switch.gep3, align 4
   br label %_ZN19OpenColorIO_v2_5dev11GammaOpData6invertEv.exit
 

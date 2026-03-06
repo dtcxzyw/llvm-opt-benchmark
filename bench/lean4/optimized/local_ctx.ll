@@ -1353,7 +1353,7 @@ define linkonce_odr hidden void @_ZNK4lean9local_ctx10mk_bindingILb1EEENS_4exprE
   %indvars = trunc i64 %indvars.iv.next to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = and i64 %indvars.iv.next, 4294967295
-  %19 = getelementptr inbounds nuw %"class.lean::expr", ptr %3, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   invoke void @_ZNK4lean9local_ctx14get_local_declERKNS_4nameE(ptr dead_on_unwind nonnull writable sret(%"class.lean::local_decl") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %21)
@@ -1883,7 +1883,7 @@ define linkonce_odr hidden void @_ZNK4lean9local_ctx10mk_bindingILb0EEENS_4exprE
   %indvars = trunc i64 %indvars.iv.next to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = and i64 %indvars.iv.next, 4294967295
-  %19 = getelementptr inbounds nuw %"class.lean::expr", ptr %3, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   invoke void @_ZNK4lean9local_ctx14get_local_declERKNS_4nameE(ptr dead_on_unwind nonnull writable sret(%"class.lean::local_decl") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %21)

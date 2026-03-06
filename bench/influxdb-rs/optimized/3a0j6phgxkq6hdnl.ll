@@ -865,7 +865,7 @@ define hidden noundef i64 @"_ZN7parquet5arrow12arrow_writer20ArrowWriter$LT$W$GT
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds { { i64, [117 x i64] }, ptr }, ptr %2, i64 %6
+  %7 = getelementptr inbounds [952 x i8], ptr %2, i64 %6
   %8 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha479a53bfe4dd236E.llvm.3198005069098508149"(ptr noundef nonnull %2, ptr noundef nonnull %7, i64 noundef 0)
   br label %9
 
@@ -2509,7 +2509,7 @@ define hidden void @"_ZN9arrow_csv6writer15Writer$LT$W$GT$5write17h3959fa5124e33
   %71 = call { ptr, i64 } @_ZN11arrow_array12record_batch11RecordBatch7columns17h72dda4b87a5a9fb6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
   %72 = extractvalue { ptr, i64 } %71, 0
   %73 = extractvalue { ptr, i64 } %71, 1
-  %74 = getelementptr inbounds { ptr, ptr }, ptr %72, i64 %73
+  %74 = getelementptr inbounds [16 x i8], ptr %72, i64 %73
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %72) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !429
   store i64 17, ptr %18, align 8, !noalias !429
@@ -2637,7 +2637,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr73drop
 "_ZN9arrow_csv6writer15Writer$LT$W$GT$5write28_$u7b$$u7b$closure$u7d$$u7d$17hef6ef9a1149124cbE.exit.i": ; preds = %._crit_edge.i.i.i, %.noexc
   %115 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %107, %.noexc ]
   %116 = load ptr, ptr %27, align 8, !alias.scope !450, !noalias !453, !nonnull !4, !noundef !4
-  %117 = getelementptr inbounds { { { ptr, i64 }, i64 } }, ptr %116, i64 %115
+  %117 = getelementptr inbounds [24 x i8], ptr %116, i64 %115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   %118 = load i64, ptr %93, align 8, !alias.scope !450, !noalias !453, !noundef !4
   %119 = add i64 %118, 1
@@ -3116,7 +3116,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr73drop
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hc4f148022b2f004fE.exit.i.i": ; preds = %228
   %.val.i.i = load ptr, ptr %231, align 8, !alias.scope !520, !noalias !523, !nonnull !4, !noundef !4
   %.not.i.i = icmp eq i64 %233, 0
-  %239 = getelementptr i64, ptr %.val.i.i, i64 %233
+  %239 = getelementptr [8 x i8], ptr %.val.i.i, i64 %233
   %240 = getelementptr i8, ptr %239, i64 -8
   %241 = icmp eq ptr %240, null
   %.not7.i.i = or i1 %.not.i.i, %241
@@ -3224,7 +3224,7 @@ _ZN3csv11byte_record10ByteRecord13expand_fields17h5a8b01154a42d1a0E.exit.i: ; pr
 
 273:                                              ; preds = %261
   %.val.i12.i = load ptr, ptr %231, align 8, !alias.scope !533, !noalias !523, !nonnull !4, !noundef !4
-  %274 = getelementptr inbounds i64, ptr %.val.i12.i, i64 %262
+  %274 = getelementptr inbounds [8 x i8], ptr %.val.i12.i, i64 %262
   store i64 %244, ptr %274, align 8, !noalias !523
   %275 = load i64, ptr %232, align 8, !alias.scope !533, !noalias !523, !noundef !4
   %276 = add i64 %275, 1

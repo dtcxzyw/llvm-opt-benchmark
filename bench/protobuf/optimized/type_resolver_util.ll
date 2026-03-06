@@ -27,19 +27,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.google::protobuf::FieldDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i8, i8, i32, ptr, ptr, ptr, ptr, %union.anon.33, %union.anon.34, ptr, ptr, ptr, %union.anon.35 }
-%"class.google::protobuf::internal::SymbolBase" = type { i8 }
-%union.anon.33 = type { ptr }
-%union.anon.34 = type { ptr }
-%union.anon.35 = type { i64 }
-%"class.google::protobuf::OneofDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i32, ptr, ptr, ptr, ptr, ptr, ptr }
 %"class.google::protobuf::Enum" = type { %"class.google::protobuf::Message", %union.anon.3 }
 %union.anon.3 = type { %"struct.google::protobuf::Enum::Impl_" }
 %"struct.google::protobuf::Enum::Impl_" = type <{ %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", %"class.google::protobuf::RepeatedPtrField.4", %"class.google::protobuf::RepeatedPtrField.2", %"struct.google::protobuf::internal::ArenaStringPtr", %"struct.google::protobuf::internal::ArenaStringPtr", ptr, i32, [4 x i8] }>
 %"class.google::protobuf::RepeatedPtrField.4" = type { %"class.google::protobuf::internal::RepeatedPtrFieldBase" }
-%"class.google::protobuf::EnumValueDescriptor" = type { %"class.google::protobuf::internal::SymbolBaseN", %"class.google::protobuf::internal::SymbolBaseN.44", i32, ptr, ptr, ptr, ptr, ptr }
-%"class.google::protobuf::internal::SymbolBaseN" = type { %"class.google::protobuf::internal::SymbolBase" }
-%"class.google::protobuf::internal::SymbolBaseN.44" = type { %"class.google::protobuf::internal::SymbolBase" }
 %"class.absl::lts_20230802::Status" = type { i64 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<const google::protobuf::FieldDescriptor *, std::allocator<const google::protobuf::FieldDescriptor *>>::_Vector_impl" }
@@ -279,7 +270,7 @@ for.body11.lr.ph:                                 ; preds = %for.cond8.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN6google8protobuf4util12_GLOBAL__N_122ConvertFieldDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS0_15FieldDescriptorEPNS0_5FieldE.exit
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN6google8protobuf4util12_GLOBAL__N_122ConvertFieldDescriptorESt17basic_string_viewIcSt11char_traitsIcEERKNS0_15FieldDescriptorEPNS0_5FieldE.exit ]
   %12 = load ptr, ptr %fields_.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %12, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [88 x i8], ptr %12, i64 %indvars.iv
   %call2.i.i.i = call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPFPvPNS0_5ArenaEE(ptr noundef nonnull align 8 dereferenceable(24) %fields_.i.i, ptr noundef nonnull @_ZN6google8protobuf5Arena16DefaultConstructINS0_5FieldEEEPvPS1_)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp12.i)
@@ -379,7 +370,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit.i: ; preds = %if.else.i.i.i, %
   %bf.lshr.i36.i = lshr i8 %bf.load.i35.i, 4
   %bf.clear.i37.i = and i8 %bf.lshr.i36.i, 7
   %idxprom.i.i = zext nneg i8 %bf.clear.i37.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %25, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %idxprom.i.i
   %json_name_.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 56
   %26 = load i64, ptr %_internal_metadata_.i.i, align 8
   %and.i.i39.i = and i64 %26, 1
@@ -442,7 +433,7 @@ if.then5.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
 _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i.i: ; preds = %if.then5.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i.i, %if.then.i.i.i47.i, %if.then.i
   %35 = load i8, ptr %type_.i.i, align 2, !noalias !4
   %idxprom.i.i.i = zext i8 %35 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i.i
   %36 = load i32, ptr %arrayidx.i.i.i, align 4, !noalias !4
   switch i32 %36, label %sw.epilog.i.i [
     i32 1, label %sw.bb.i.i
@@ -1007,7 +998,7 @@ _ZN6google8protobuf4util12_GLOBAL__N_122ConvertFieldDescriptorESt17basic_string_
 for.body11:                                       ; preds = %for.body11.lr.ph, %for.body11
   %indvars.iv45 = phi i64 [ 0, %for.body11.lr.ph ], [ %indvars.iv.next46, %for.body11 ]
   %119 = load ptr, ptr %oneof_decls_.i, align 8
-  %add.ptr.i22 = getelementptr inbounds nuw %"class.google::protobuf::OneofDescriptor", ptr %119, i64 %indvars.iv45
+  %add.ptr.i22 = getelementptr inbounds nuw [56 x i8], ptr %119, i64 %indvars.iv45
   %all_names_.i23 = getelementptr inbounds nuw i8, ptr %add.ptr.i22, i64 8
   %120 = load ptr, ptr %all_names_.i23, align 8
   %call2.i.i.i24 = call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPFPvPNS0_5ArenaEE(ptr noundef nonnull align 8 dereferenceable(24) %oneofs_.i.i, ptr noundef nonnull @_ZN6google8protobuf8internal16NewStringElementEPNS0_5ArenaE)
@@ -1231,7 +1222,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK6google8protobu
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit36
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit36 ]
   %22 = load ptr, ptr %values_.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %22, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %indvars.iv
   %call2.i.i = tail call noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18AddOutOfLineHelperEPFPvPNS0_5ArenaEE(ptr noundef nonnull align 8 dereferenceable(24) %enumvalue_.i.i, ptr noundef nonnull @_ZN6google8protobuf5Arena16DefaultConstructINS0_9EnumValueEEEPvPS1_)
   %all_names_.i28 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %23 = load ptr, ptr %all_names_.i28, align 8
@@ -2099,7 +2090,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %_ZN6google8pro
   %type_.i.i = getelementptr inbounds nuw i8, ptr %field, i64 2
   %20 = load i8, ptr %type_.i.i, align 2
   %idxprom.i = zext i8 %20 to i64
-  %arrayidx.i104 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
+  %arrayidx.i104 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %21 = load i32, ptr %arrayidx.i104, align 4
   switch i32 %21, label %sw.epilog [
     i32 10, label %sw.bb

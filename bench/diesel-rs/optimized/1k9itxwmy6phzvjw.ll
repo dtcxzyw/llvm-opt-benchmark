@@ -764,7 +764,7 @@ _ZN5serde2de9SeqAccess12next_element17h5f6051de87eb071fE.exit: ; preds = %17
 36:                                               ; preds = %.noexc, %31
   %37 = phi i64 [ %.pre.i, %.noexc ], [ %32, %31 ]
   %38 = load ptr, ptr %13, align 8, !alias.scope !192, !noalias !195, !nonnull !11, !noundef !11
-  %39 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %38, i64 %37
+  %39 = getelementptr inbounds [32 x i8], ptr %38, i64 %37
   store ptr %21, ptr %39, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, i64 24, i1 false)
@@ -2703,7 +2703,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN9hashbrown11r
   store i8 %19, ptr %26, align 1, !noalias !570
   %27 = load ptr, ptr %5, align 8, !alias.scope !577, !noalias !570, !nonnull !11, !noundef !11
   %28 = sub nsw i64 0, %9
-  %29 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, { { { i64, ptr }, i64 }, { ptr, i64 } } }, ptr %27, i64 %28
+  %29 = getelementptr inbounds [88 x i8], ptr %27, i64 %28
   %30 = and i8 %17, 1
   %31 = zext nneg i8 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16

@@ -54,22 +54,13 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.314 = type { %"class.std::function.0", i64 }
 %class.anon.315 = type { %"class.std::function.65", i64 }
 %class.anon.316 = type { %"class.std::function.56", i64 }
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::OutputOptions>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.95", i8, [7 x i8] }>
-%"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::vector.152" = type { %"struct.std::_Vector_base.153" }
 %"struct.std::_Vector_base.153" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::IncludeOptions::IndexOptions>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.98", i8, [7 x i8] }>
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::IncludeOptions>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.124", i8, [7 x i8] }>
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::ExcludeOptions::FixturesOptions>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.127", i8, [7 x i8] }>
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::ExcludeOptions>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.130", i8, [7 x i8] }>
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::ExecutionOptions::RepeatOptions>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.133", i8, [7 x i8] }>
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::ExecutionOptions>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.136", i8, [7 x i8] }>
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::FilterOptions>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.139", i8, [7 x i8] }>
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.142", i8, [7 x i8] }>
 %class.anon.319 = type <{ %"class.std::function.4", %"class.cmJSONHelperBuilder::Object.74", [8 x i8] }>
 %"struct.std::pair" = type { %"class.std::basic_string_view", ptr }
+%"class.std::basic_string_view" = type { i64, ptr }
 %class.cmAlphaNum = type { ptr, %"class.std::basic_string_view", [32 x i8] }
 %"class.Json::ValueConstIterator" = type { %"class.Json::ValueIteratorBase.base", [7 x i8] }
 %"class.Json::ValueIteratorBase.base" = type <{ %"struct.std::_Rb_tree_iterator", i8 }>
@@ -10507,7 +10498,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13O
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13OutputOptionsEE6MemberESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !46
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !22
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::OutputOptions>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !25
   ret void
 }
@@ -12894,7 +12885,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14I
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptions12IndexOptionsEE6MemberESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !66
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !55
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::IncludeOptions::IndexOptions>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !58
   ret void
 }
@@ -14309,7 +14300,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14I
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14IncludeOptionsEE6MemberESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !97
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !72
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::IncludeOptions>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !75
   ret void
 }
@@ -15765,7 +15756,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14E
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptions15FixturesOptionsEE6MemberESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !114
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !103
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::ExcludeOptions::FixturesOptions>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !106
   ret void
 }
@@ -17171,7 +17162,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14E
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset14ExcludeOptionsEE6MemberESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !135
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !120
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::ExcludeOptions>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !123
   ret void
 }
@@ -18787,7 +18778,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16E
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptions13RepeatOptionsEE6MemberESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !156
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !143
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::ExecutionOptions::RepeatOptions>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !146
   ret void
 }
@@ -20190,7 +20181,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16E
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEE6MemberESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !187
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !164
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::ExecutionOptions>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !167
   ret void
 }
@@ -22076,7 +22067,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13F
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPreset13FilterOptionsEE6MemberESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !212
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !197
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset::FilterOptions>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !200
   ret void
 }
@@ -23698,7 +23689,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph10TestPresetEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !243
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !218
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::TestPreset>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !221
   ret void
 }
@@ -26705,7 +26696,7 @@ _ZNSt6vectorIN19cmCMakePresetsGraph10TestPresetESaIS1_EE11_S_relocateEPS1_S4_S4_
 _ZNSt12_Vector_baseIN19cmCMakePresetsGraph10TestPresetESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN19cmCMakePresetsGraph10TestPresetESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %32
   store ptr %20, ptr %0, align 8, !tbaa !608
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !611
-  %36 = getelementptr inbounds nuw %"class.cmCMakePresetsGraph::TestPreset", ptr %20, i64 %16
+  %36 = getelementptr inbounds nuw [904 x i8], ptr %20, i64 %16
   store ptr %36, ptr %31, align 8, !tbaa !656
   ret void
 }

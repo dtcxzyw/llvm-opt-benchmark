@@ -186,7 +186,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %62, i64 520
   %72 = load i64, ptr %71, align 8, !noalias !4, !noundef !3
-  %73 = getelementptr inbounds { { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { ptr, [2 x i64] } }, ptr %67, i64 %72
+  %73 = getelementptr inbounds [120 x i8], ptr %67, i64 %72
   invoke void @"_ZN136_$LT$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LP$K$C$V$RP$$GT$$GT$9from_iter17h7b1cac1d8231e6e1E"(ptr nonnull sret({ { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }) align 8 %12, ptr nonnull %67, ptr nonnull %73)
           to label %75 unwind label %.loopexit.i, !noalias !4
 
@@ -228,7 +228,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
 84:                                               ; preds = %53
   %85 = load ptr, ptr %34, align 8, !nonnull !3, !noundef !3
   %86 = load i64, ptr %36, align 8, !noundef !3
-  %87 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }, ptr %85, i64 %86
+  %87 = getelementptr inbounds [72 x i8], ptr %85, i64 %86
   store ptr %85, ptr %24, align 8
   store ptr %87, ptr %49, align 8
   %88 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17h2cfa96fcb7f54057E"(ptr nonnull align 8 %24, ptr nonnull align 8 %52)
@@ -684,7 +684,7 @@ define void @_ZN14anki_proto_gen12get_services17h27a42d222accd88bE(ptr writeonly
   %246 = load ptr, ptr %245, align 8, !nonnull !3, !noundef !3
   %247 = getelementptr inbounds nuw i8, ptr %88, i64 40
   %248 = load i64, ptr %247, align 8, !noundef !3
-  %249 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i32 }, i32, [1 x i32] }, i64, { ptr, [2 x i64] } }, ptr %246, i64 %248
+  %249 = getelementptr inbounds [80 x i8], ptr %246, i64 %248
   %250 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store ptr %246, ptr %22, align 8
   store ptr %249, ptr %.sroa.26.0..sroa_idx, align 8
@@ -886,12 +886,12 @@ define void @_ZN14anki_proto_gen14BackendService11all_methods17ha5ec3409aa604103
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i32 }, i32, [1 x i32] }, i64, { ptr, [2 x i64] } }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [80 x i8], ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = load i64, ptr %10, align 8, !noundef !3
-  %12 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i32 }, i32, [1 x i32] }, i64, { ptr, [2 x i64] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [80 x i8], ptr %9, i64 %11
   tail call void @_ZN4core4iter6traits8iterator8Iterator5chain17h5db219fe9bb28099E(ptr sret({ { ptr, ptr }, { ptr, ptr } }) align 8 %0, ptr nonnull %4, ptr nonnull %7, ptr nonnull %9, ptr nonnull %12)
   ret void
 }

@@ -22483,9 +22483,9 @@ _ZN5Catch14MessageBuilderD2Ev.exit.i:             ; preds = %186, %_ZNKSt7__cxx1
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %194 = load ptr, ptr %5, align 8, !tbaa !77
-  %195 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %194, i64 %storemerge52.i
+  %195 = getelementptr inbounds nuw [32 x i8], ptr %194, i64 %storemerge52.i
   %196 = load ptr, ptr %7, align 8, !tbaa !77
-  %197 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %196, i64 %storemerge52.i
+  %197 = getelementptr inbounds nuw [32 x i8], ptr %196, i64 %storemerge52.i
   call void @llvm.experimental.noalias.scope.decl(metadata !407)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 8

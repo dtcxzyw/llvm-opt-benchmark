@@ -40,8 +40,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
-%"class.cmJSONState::Error" = type { %"struct.cmJSONState::Location", %"class.std::__cxx11::basic_string" }
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", ptr }
 
 $_ZNSt6vectorIN11cmJSONState5ErrorESaIS1_EED2Ev = comdat any
 
@@ -3129,7 +3127,7 @@ _ZNSt6vectorIN11cmJSONState5ErrorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36: ;
 _ZNSt12_Vector_baseIN11cmJSONState5ErrorESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN11cmJSONState5ErrorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %92
   store ptr %24, ptr %0, align 8, !tbaa !78
   store ptr %.0.lcssa.i.i.i35, ptr %6, align 8, !tbaa !79
-  %96 = getelementptr inbounds nuw %"class.cmJSONState::Error", ptr %24, i64 %18
+  %96 = getelementptr inbounds nuw [40 x i8], ptr %24, i64 %18
   store ptr %96, ptr %91, align 8, !tbaa !82
   ret void
 
@@ -3419,7 +3417,7 @@ _ZNSt6vectorIN11cmJSONState5ErrorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37: ;
 _ZNSt12_Vector_baseIN11cmJSONState5ErrorESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN11cmJSONState5ErrorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, %92
   store ptr %25, ptr %0, align 8, !tbaa !78
   store ptr %.0.lcssa.i.i.i36, ptr %7, align 8, !tbaa !79
-  %96 = getelementptr inbounds nuw %"class.cmJSONState::Error", ptr %25, i64 %19
+  %96 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %19
   store ptr %96, ptr %91, align 8, !tbaa !82
   ret void
 
@@ -3601,7 +3599,7 @@ _ZSt8_DestroyIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4
 _ZNSt12_Vector_baseISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEESaISC_EE13_M_deallocateEPSC_m.exit: ; preds = %_ZSt8_DestroyIPSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Json5ValueEESC_EvT_SE_RSaIT0_E.exit, %54
   store ptr %24, ptr %0, align 8, !tbaa !83
   store ptr %46, ptr %6, align 8, !tbaa !84
-  %58 = getelementptr inbounds nuw %"struct.std::pair", ptr %24, i64 %18
+  %58 = getelementptr inbounds nuw [40 x i8], ptr %24, i64 %18
   store ptr %58, ptr %53, align 8, !tbaa !86
   ret void
 

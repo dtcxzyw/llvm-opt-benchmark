@@ -89,8 +89,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.98" = type { %"struct.std::_Head_base.101" }
 %"struct.std::_Head_base.101" = type { ptr }
 %"struct.std::pair.124" = type { %"class.std::__cxx11::basic_string", %"class.gmx::KeyValueTreeValue" }
-%"class.gmx::KeyValueTreeProperty" = type { %"struct.std::_Rb_tree_const_iterator" }
-%"struct.std::_Rb_tree_const_iterator" = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, gmx::KeyValueTreeValue>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, gmx::KeyValueTreeValue>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 %"class.std::unique_ptr.138" = type { %"struct.std::__uniq_ptr_data.139" }
 %"struct.std::__uniq_ptr_data.139" = type { %"class.std::__uniq_ptr_impl.140" }
@@ -3174,7 +3172,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %71,
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %77 = load i32, ptr %76, align 8, !tbaa !137
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL37c_densitySimilarityMeasureMethodNamesE, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3gmxL37c_densitySimilarityMeasureMethodNamesE, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !138
   %81 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %81, ptr %20, align 8, !tbaa !17
@@ -3273,7 +3271,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %106
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 556
   %112 = load i32, ptr %111, align 4, !tbaa !139
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL36c_densityFittingAmplitudeMethodNamesE, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3gmxL36c_densityFittingAmplitudeMethodNamesE, i64 %113
   %115 = load ptr, ptr %114, align 8, !tbaa !138
   %116 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %116, ptr %22, align 8, !tbaa !17
@@ -8694,7 +8692,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 .preheader.i.i.i.i:                               ; preds = %.noexc20.i.i.i.i, %_ZN3gmxL10fromStringIfEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %_ZN3gmxL10fromStringIfEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i ], [ 0, %.noexc20.i.i.i.i ]
   %165 = load ptr, ptr %6, align 8, !tbaa !37, !noalias !297
-  %166 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %165, i64 %indvars.iv.i.i.i.i.i
+  %166 = getelementptr inbounds nuw [32 x i8], ptr %165, i64 %indvars.iv.i.i.i.i.i
   %.val.i.i.i.i.i = load ptr, ptr %166, align 8, !tbaa !18, !noalias !297
   %167 = invoke noundef float @_ZN3gmx15floatFromStringEPKc(ptr noundef %.val.i.i.i.i.i)
           to label %_ZN3gmxL10fromStringIfEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i unwind label %168, !noalias !297
@@ -10026,7 +10024,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 .preheader.i.i.i.i:                               ; preds = %.noexc20.i.i.i.i, %_ZN3gmxL10fromStringIfEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %_ZN3gmxL10fromStringIfEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i ], [ 0, %.noexc20.i.i.i.i ]
   %165 = load ptr, ptr %6, align 8, !tbaa !37, !noalias !335
-  %166 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %165, i64 %indvars.iv.i.i.i.i.i
+  %166 = getelementptr inbounds nuw [32 x i8], ptr %165, i64 %indvars.iv.i.i.i.i.i
   %.val.i.i.i.i.i = load ptr, ptr %166, align 8, !tbaa !18, !noalias !335
   %167 = invoke noundef float @_ZN3gmx15floatFromStringEPKc(ptr noundef %.val.i.i.i.i.i)
           to label %_ZN3gmxL10fromStringIfEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i.i.i unwind label %168, !noalias !335
@@ -11545,7 +11543,7 @@ _ZNSt12_Vector_baseIN3gmx20KeyValueTreePropertyESaIS1_EE13_M_deallocateEPS1_m.ex
   store ptr %52, ptr %33, align 8, !tbaa !394
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 %39
   store ptr %57, ptr %34, align 8, !tbaa !391
-  %58 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeProperty", ptr %52, i64 %41
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %41
   store ptr %58, ptr %45, align 8, !tbaa !395
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE7reserveEm.exit
 
@@ -11698,7 +11696,7 @@ _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %116, %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %109, ptr %88, align 8, !tbaa !394
   store ptr %115, ptr %89, align 8, !tbaa !391
-  %117 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeProperty", ptr %109, i64 %107
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %107
   store ptr %117, ptr %91, align 8, !tbaa !395
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE9push_backEOS1_.exit
 
@@ -12533,7 +12531,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %35, %.no
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %37, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %32, ptr %4, align 8, !tbaa !440
   store ptr %36, ptr %11, align 8, !tbaa !439
-  %38 = getelementptr inbounds nuw i32, ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %30
   store ptr %38, ptr %12, align 8, !tbaa !441
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -12749,7 +12747,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %25, %_ZNSt6vec
   store ptr %22, ptr %3, align 8, !tbaa !440
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 %9
   store ptr %26, ptr %4, align 8, !tbaa !439
-  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %11
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %11
   store ptr %27, ptr %15, align 8, !tbaa !441
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit
 
@@ -12806,7 +12804,7 @@ _ZNSt12_Vector_baseIN3gmx30DensitySimilarityMeasureMethodESaIS1_EE13_M_deallocat
   store ptr %49, ptr %29, align 8, !tbaa !442
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 %36
   store ptr %53, ptr %31, align 8, !tbaa !444
-  %54 = getelementptr inbounds nuw i32, ptr %49, i64 %38
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %38
   store ptr %54, ptr %42, align 8, !tbaa !445
   br label %_ZNSt6vectorIN3gmx30DensitySimilarityMeasureMethodESaIS1_EE7reserveEm.exit
 
@@ -12876,7 +12874,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %28, %_ZNKS
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %24, ptr %3, align 8, !tbaa !440
   store ptr %29, ptr %4, align 8, !tbaa !439
-  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %22
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %22
   store ptr %31, ptr %11, align 8, !tbaa !441
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -12957,7 +12955,7 @@ _ZNSt6vectorIN3gmx30DensitySimilarityMeasureMethodESaIS1_EE11_S_relocateEPS1_S4_
 _ZNSt6vectorIN3gmx30DensitySimilarityMeasureMethodESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %66, %_ZNSt6vectorIN3gmx30DensitySimilarityMeasureMethodESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %61, ptr %39, align 8, !tbaa !442
   store ptr %65, ptr %42, align 8, !tbaa !444
-  %67 = getelementptr inbounds nuw i32, ptr %61, i64 %59
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %59
   store ptr %67, ptr %44, align 8, !tbaa !445
   br label %_ZNSt6vectorIN3gmx30DensitySimilarityMeasureMethodESaIS1_EE9push_backEOS1_.exit
 
@@ -13144,7 +13142,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %35, %.no
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %37, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %32, ptr %4, align 8, !tbaa !440
   store ptr %36, ptr %11, align 8, !tbaa !439
-  %38 = getelementptr inbounds nuw i32, ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %30
   store ptr %38, ptr %12, align 8, !tbaa !441
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -13360,7 +13358,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i: ; preds = %25, %_ZNSt6vec
   store ptr %22, ptr %3, align 8, !tbaa !440
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 %9
   store ptr %26, ptr %4, align 8, !tbaa !439
-  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %11
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %11
   store ptr %27, ptr %15, align 8, !tbaa !441
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit
 
@@ -13417,7 +13415,7 @@ _ZNSt12_Vector_baseIN3gmx29DensityFittingAmplitudeMethodESaIS1_EE13_M_deallocate
   store ptr %49, ptr %29, align 8, !tbaa !456
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 %36
   store ptr %53, ptr %31, align 8, !tbaa !458
-  %54 = getelementptr inbounds nuw i32, ptr %49, i64 %38
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %38
   store ptr %54, ptr %42, align 8, !tbaa !459
   br label %_ZNSt6vectorIN3gmx29DensityFittingAmplitudeMethodESaIS1_EE7reserveEm.exit
 
@@ -13487,7 +13485,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %28, %_ZNKS
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %24, ptr %3, align 8, !tbaa !440
   store ptr %29, ptr %4, align 8, !tbaa !439
-  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %22
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %22
   store ptr %31, ptr %11, align 8, !tbaa !441
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -13568,7 +13566,7 @@ _ZNSt6vectorIN3gmx29DensityFittingAmplitudeMethodESaIS1_EE11_S_relocateEPS1_S4_S
 _ZNSt6vectorIN3gmx29DensityFittingAmplitudeMethodESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %66, %_ZNSt6vectorIN3gmx29DensityFittingAmplitudeMethodESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %61, ptr %39, align 8, !tbaa !456
   store ptr %65, ptr %42, align 8, !tbaa !458
-  %67 = getelementptr inbounds nuw i32, ptr %61, i64 %59
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %59
   store ptr %67, ptr %44, align 8, !tbaa !459
   br label %_ZNSt6vectorIN3gmx29DensityFittingAmplitudeMethodESaIS1_EE9push_backEOS1_.exit
 
@@ -14060,7 +14058,7 @@ _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit2
 .noexc:                                           ; preds = %33, %_ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i
   store ptr %27, ptr %7, align 8, !tbaa !487
   store ptr %32, ptr %8, align 8, !tbaa !483
-  %34 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeValue", ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %10, align 8, !tbaa !486
   br label %_ZN3gmx17KeyValueTreeValueD2Ev.exit
 
@@ -15524,9 +15522,9 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36: ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !157
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !461
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !158
   br label %41
 

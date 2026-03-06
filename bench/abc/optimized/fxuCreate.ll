@@ -40,7 +40,7 @@ define ptr @Fxu_CreateMatrix(ptr noundef readonly captures(none) %0) local_unnam
   %8 = load ptr, ptr %5, align 8, !tbaa !11
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !12
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   %.not192 = icmp eq ptr %12, null
   br i1 %.not192, label %23, label %13
@@ -105,7 +105,7 @@ define ptr @Fxu_CreateMatrix(ptr noundef readonly captures(none) %0) local_unnam
   %indvars.iv243 = phi i64 [ %indvars.iv.next244, %.lr.ph206 ], [ 0, %32 ]
   %44 = tail call ptr @Fxu_MatrixAddVar(ptr noundef nonnull %33) #12
   %45 = load ptr, ptr %42, align 8, !tbaa !18
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv243
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv243
   store ptr %44, ptr %46, align 8, !tbaa !34
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %47 = load i32, ptr %2, align 8, !tbaa !3
@@ -152,7 +152,7 @@ define ptr @Fxu_CreateMatrix(ptr noundef readonly captures(none) %0) local_unnam
   %71 = load ptr, ptr %68, align 8, !tbaa !11
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !12
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv249
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv249
   %75 = load ptr, ptr %74, align 8, !tbaa !14
   %.not190 = icmp eq ptr %75, null
   br i1 %.not190, label %99, label %76
@@ -172,12 +172,12 @@ define ptr @Fxu_CreateMatrix(ptr noundef readonly captures(none) %0) local_unnam
 84:                                               ; preds = %76
   %85 = load ptr, ptr %56, align 8, !tbaa !36
   %86 = sext i32 %.0144212 to i64
-  %87 = getelementptr inbounds ptr, ptr %85, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %85, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store ptr %87, ptr %88, align 8, !tbaa !42
   %89 = load ptr, ptr %61, align 8, !tbaa !37
   %90 = sext i32 %.0143213 to i64
-  %91 = getelementptr inbounds ptr, ptr %89, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %89, i64 %90
   store ptr %91, ptr %87, align 8, !tbaa !43
   %.not241 = icmp eq i32 %77, 1
   br i1 %.not241, label %.loopexit195, label %.lr.ph210
@@ -190,8 +190,8 @@ define ptr @Fxu_CreateMatrix(ptr noundef readonly captures(none) %0) local_unnam
 93:                                               ; preds = %.lr.ph210, %93
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph210 ], [ %95, %93 ]
   %indvars.iv246 = phi i64 [ 1, %.lr.ph210 ], [ %indvars.iv.next247, %93 ]
-  %94 = getelementptr ptr, ptr %87, i64 %indvars.iv246
-  %95 = getelementptr inbounds nuw ptr, ptr %store_forwarded, i64 %92
+  %94 = getelementptr [8 x i8], ptr %87, i64 %indvars.iv246
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %store_forwarded, i64 %92
   store ptr %95, ptr %94, align 8, !tbaa !43
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next247, %92
@@ -231,7 +231,7 @@ define ptr @Fxu_CreateMatrix(ptr noundef readonly captures(none) %0) local_unnam
   %111 = load ptr, ptr %107, align 8, !tbaa !11
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8, !tbaa !12
-  %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %indvars.iv257
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %indvars.iv257
   %115 = load ptr, ptr %114, align 8, !tbaa !14
   %.not185 = icmp eq ptr %115, null
   br i1 %.not185, label %.loopexit, label %116
@@ -245,7 +245,7 @@ define ptr @Fxu_CreateMatrix(ptr noundef readonly captures(none) %0) local_unnam
   %121 = load ptr, ptr %108, align 8, !tbaa !46
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8, !tbaa !12
-  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %indvars.iv257
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %indvars.iv257
   %125 = load ptr, ptr %124, align 8, !tbaa !14
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = load ptr, ptr %126, align 8, !tbaa !47
@@ -260,7 +260,7 @@ define ptr @Fxu_CreateMatrix(ptr noundef readonly captures(none) %0) local_unnam
 
 .lr.ph219:                                        ; preds = %.lr.ph219.preheader, %.lr.ph219
   %indvars.iv252 = phi i64 [ 0, %.lr.ph219.preheader ], [ %indvars.iv.next253, %.lr.ph219 ]
-  %130 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv252
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv252
   %131 = trunc nuw nsw i64 %indvars.iv252 to i32
   store i32 %131, ptr %130, align 4, !tbaa !51
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
@@ -297,7 +297,7 @@ define ptr @Fxu_CreateMatrix(ptr noundef readonly captures(none) %0) local_unnam
   ]
 
 140:                                              ; preds = %137
-  %141 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv.i
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv.i
   %142 = load i32, ptr %141, align 4, !tbaa !51
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds i8, ptr %.0159223, i64 %143
@@ -310,22 +310,22 @@ define ptr @Fxu_CreateMatrix(ptr noundef readonly captures(none) %0) local_unnam
 146:                                              ; preds = %140
   %147 = load ptr, ptr %42, align 8, !tbaa !18
   %148 = load ptr, ptr %126, align 8, !tbaa !47
-  %149 = getelementptr inbounds i32, ptr %148, i64 %143
+  %149 = getelementptr inbounds [4 x i8], ptr %148, i64 %143
   %150 = load i32, ptr %149, align 4, !tbaa !51
   %151 = shl nsw i32 %150, 1
   %152 = sext i32 %151 to i64
-  %153 = getelementptr ptr, ptr %147, i64 %152
+  %153 = getelementptr [8 x i8], ptr %147, i64 %152
   %154 = getelementptr i8, ptr %153, i64 8
   br label %.sink.split.i
 
 155:                                              ; preds = %140
   %156 = load ptr, ptr %42, align 8, !tbaa !18
   %157 = load ptr, ptr %126, align 8, !tbaa !47
-  %158 = getelementptr inbounds i32, ptr %157, i64 %143
+  %158 = getelementptr inbounds [4 x i8], ptr %157, i64 %143
   %159 = load i32, ptr %158, align 4, !tbaa !51
   %160 = shl nsw i32 %159, 1
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds ptr, ptr %156, i64 %161
+  %162 = getelementptr inbounds [8 x i8], ptr %156, i64 %161
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %155, %146
@@ -506,11 +506,11 @@ define internal i32 @Fxu_CreateMatrixLitCompare(ptr noundef readonly captures(no
   %3 = load ptr, ptr @s_pLits, align 8, !tbaa !50
   %4 = load i32, ptr %0, align 4, !tbaa !51
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i32, ptr %3, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %3, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !51
   %8 = load i32, ptr %1, align 4, !tbaa !51
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %3, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %3, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !51
   %12 = sub nsw i32 %7, %11
   ret i32 %12
@@ -593,7 +593,7 @@ Fxu_CreateCoversFirstCube.exit:                   ; preds = %11, %12, %2
   %26 = load ptr, ptr %19, align 8, !tbaa !11
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !12
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !14
   %.not = icmp eq ptr %30, null
   %.pre76 = add nuw nsw i64 %indvars.iv, 1
@@ -745,7 +745,7 @@ define internal fastcc void @Fxu_CreateCoversNode(ptr noundef %0, ptr noundef re
   %18 = sdiv i32 %17, 2
   %19 = shl nsw i32 %18, 1
   %20 = sext i32 %19 to i64
-  %21 = getelementptr ptr, ptr %12, i64 %20
+  %21 = getelementptr [8 x i8], ptr %12, i64 %20
   %22 = getelementptr i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !34
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -843,7 +843,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %36, align 4, !tbaa !91
   %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds i32, ptr %.pre.i131, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %.pre.i131, i64 %62
   store i32 %41, ptr %63, align 4, !tbaa !51
   %64 = getelementptr inbounds nuw i8, ptr %.078107, i64 64
   %65 = load ptr, ptr %64, align 8, !tbaa !88
@@ -872,11 +872,11 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 72:                                               ; preds = %.lr.ph111, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph111 ], [ %indvars.iv.next, %72 ]
-  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4, !tbaa !51
   %75 = shl nsw i32 %74, 1
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds ptr, ptr %70, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %70, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !34
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 40
   %80 = trunc nuw nsw i64 %indvars.iv to i32
@@ -884,7 +884,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %81 = load i32, ptr %73, align 4, !tbaa !51
   %82 = shl nsw i32 %81, 1
   %83 = sext i32 %82 to i64
-  %84 = getelementptr ptr, ptr %70, i64 %83
+  %84 = getelementptr [8 x i8], ptr %70, i64 %83
   %85 = getelementptr i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !34
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 40
@@ -922,7 +922,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !12
   %104 = sext i32 %2 to i64
-  %105 = getelementptr inbounds ptr, ptr %103, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %103, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !14
   %107 = tail call i32 @Abc_SopGetPhase(ptr noundef %106) #12
   %108 = icmp eq i32 %107, 0
@@ -996,13 +996,13 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load ptr, ptr %141, align 8, !tbaa !12
   %143 = sext i32 %2 to i64
-  %144 = getelementptr inbounds ptr, ptr %142, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %142, i64 %143
   store ptr %95, ptr %144, align 8, !tbaa !14
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %146 = load ptr, ptr %145, align 8, !tbaa !102
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load ptr, ptr %147, align 8, !tbaa !12
-  %149 = getelementptr inbounds ptr, ptr %148, i64 %143
+  %149 = getelementptr inbounds [8 x i8], ptr %148, i64 %143
   store ptr %35, ptr %149, align 8, !tbaa !14
   ret void
 }

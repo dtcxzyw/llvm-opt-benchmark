@@ -49,7 +49,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.14" = type { %"struct.std::_Tuple_impl.15" }
 %"struct.std::_Tuple_impl.15" = type { %"struct.std::_Head_base.18" }
 %"struct.std::_Head_base.18" = type { ptr }
-%"struct.std::pair" = type { ptr, i64 }
 
 $_ZSt11make_uniqueIN4llvm7remarks20YAMLRemarkSerializerEJRNS0_11raw_ostreamERNS1_14SerializerModeEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_ = comdat any
 
@@ -1190,7 +1189,7 @@ _ZSt4moveIPPvS1_ET0_T_S3_S2_.exit35:              ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !45
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)
@@ -1336,7 +1335,7 @@ _ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit39:    ; preds = %.lr.ph.i.i.i.i.i35,
   %.idx40 = shl nuw nsw i64 %.026, 4
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx40
   %58 = load ptr, ptr %0, align 8, !tbaa !45
-  %59 = getelementptr inbounds nuw %"struct.std::pair", ptr %58, i64 %.026
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %.026
   %60 = sub nsw i64 %.pre-phi, %.026
   %gepdiff = shl nsw i64 %60, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 8 %57, i64 %gepdiff, i1 false)

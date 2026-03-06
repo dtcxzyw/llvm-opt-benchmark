@@ -15,11 +15,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.skl_dpll_regs = type { %struct.i915_reg_t, %struct.i915_reg_t, %struct.i915_reg_t }
 %struct.i915_reg_t = type { i32 }
 %struct.anon.73 = type { ptr, i32 }
-%struct.intel_shared_dpll = type { %struct.intel_shared_dpll_state, i8, i8, i8, ptr, i64 }
-%struct.intel_shared_dpll_state = type { i8, %struct.intel_dpll_hw_state }
 %struct.intel_dpll_hw_state = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.icl_port_dpll = type { ptr, %struct.intel_dpll_hw_state }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
+%struct.intel_shared_dpll_state = type { i8, %struct.intel_dpll_hw_state }
 
 @.str = private unnamed_addr constant [26 x i8] c"Missing case (%s == %ld)\0A\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"id\00", align 1
@@ -214,7 +211,7 @@ define dso_local ptr @intel_get_shared_dpll_by_id(ptr noundef readonly captures(
 
 11:                                               ; preds = %9, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %6 ]
-  %12 = getelementptr %struct.intel_shared_dpll, ptr %7, i64 %indvars.iv
+  %12 = getelementptr [160 x i8], ptr %7, i64 %indvars.iv
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %14
 
@@ -862,7 +859,7 @@ define dso_local void @intel_shared_dpll_swap_state(ptr noundef captures(none) %
 
 .preheader:                                       ; preds = %7, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %7 ]
-  %14 = getelementptr %struct.intel_shared_dpll, ptr %10, i64 %indvars.iv
+  %14 = getelementptr [160 x i8], ptr %10, i64 %indvars.iv
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.loopexit, label %16
 
@@ -872,7 +869,7 @@ define dso_local void @intel_shared_dpll_swap_state(ptr noundef captures(none) %
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 140
   %18 = load i8, ptr %17, align 4
   %19 = zext i8 %18 to i64
-  %20 = getelementptr %struct.intel_shared_dpll_state, ptr %3, i64 %19
+  %20 = getelementptr [140 x i8], ptr %3, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %14, ptr noundef align 4 dereferenceable(140) %20, i64 140, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(140) %20, ptr noundef nonnull align 4 dereferenceable(140) %2, i64 140, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -893,7 +890,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define dso_local void @icl_set_active_port_dpll(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %4 = zext i32 %1 to i64
-  %5 = getelementptr %struct.icl_port_dpll, ptr %3, i64 %4
+  %5 = getelementptr [144 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %6, ptr %7, align 8
@@ -993,7 +990,7 @@ define dso_local void @intel_shared_dpll_init(ptr noundef %0) local_unnamed_addr
 
 56:                                               ; preds = %89, %54
   %57 = phi i64 [ 0, %54 ], [ %94, %89 ]
-  %58 = getelementptr %struct.dpll_info, ptr %51, i64 %57
+  %58 = getelementptr [32 x i8], ptr %51, i64 %57
   %59 = icmp eq i64 %57, 9
   br i1 %59, label %60, label %72, !prof !14
 
@@ -1053,14 +1050,14 @@ define dso_local void @intel_shared_dpll_init(ptr noundef %0) local_unnamed_addr
   br label %100
 
 89:                                               ; preds = %72
-  %90 = getelementptr %struct.intel_shared_dpll, ptr %55, i64 %57
+  %90 = getelementptr [160 x i8], ptr %55, i64 %57
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 144
   store ptr %58, ptr %91, align 8
   %92 = trunc i64 %57 to i8
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 140
   store i8 %92, ptr %93, align 4
   %94 = add nuw nsw i64 %57, 1
-  %95 = getelementptr %struct.dpll_info, ptr %51, i64 %94
+  %95 = getelementptr [32 x i8], ptr %51, i64 %94
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
   br i1 %97, label %98, label %56, !llvm.loop !79
@@ -1314,7 +1311,7 @@ define dso_local void @intel_dpll_readout_hw_state(ptr noundef %0) local_unnamed
 
 10:                                               ; preds = %54, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %6 ]
-  %11 = getelementptr %struct.intel_shared_dpll, ptr %2, i64 %indvars.iv
+  %11 = getelementptr [160 x i8], ptr %2, i64 %indvars.iv
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit5, label %13
 
@@ -1423,7 +1420,7 @@ define dso_local void @intel_dpll_sanitize_state(ptr noundef %0) local_unnamed_a
 
 .split.us:                                        ; preds = %6, %33
   %indvars.iv5 = phi i64 [ %indvars.iv.next6, %33 ], [ 0, %6 ]
-  %9 = getelementptr %struct.intel_shared_dpll, ptr %2, i64 %indvars.iv5
+  %9 = getelementptr [160 x i8], ptr %2, i64 %indvars.iv5
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
 
@@ -1471,7 +1468,7 @@ define dso_local void @intel_dpll_sanitize_state(ptr noundef %0) local_unnamed_a
 
 .split:                                           ; preds = %6, %62
   %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %6 ]
-  %37 = getelementptr %struct.intel_shared_dpll, ptr %2, i64 %indvars.iv
+  %37 = getelementptr [160 x i8], ptr %2, i64 %indvars.iv
   %38 = icmp eq ptr %37, null
   br i1 %38, label %.loopexit, label %39
 
@@ -1569,7 +1566,7 @@ define dso_local void @intel_shared_dpll_state_verify(ptr noundef readonly captu
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %.split = getelementptr [56 x i8], ptr %6, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %.split, i64 24
@@ -2216,7 +2213,7 @@ define dso_local void @intel_shared_dpll_verify_disabled(ptr noundef readonly ca
 
 .preheader:                                       ; preds = %1, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %1 ]
-  %8 = getelementptr %struct.intel_shared_dpll, ptr %4, i64 %indvars.iv
+  %8 = getelementptr [160 x i8], ptr %4, i64 %indvars.iv
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10
 
@@ -2255,7 +2252,7 @@ define internal noundef range(i32 -22, 1) i32 @icl_compute_dplls(ptr noundef rea
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %.split12 = getelementptr %struct.__drm_crtcs_state, ptr %13, i64 %16
+  %.split12 = getelementptr [56 x i8], ptr %13, i64 %16
   %17 = getelementptr i8, ptr %.split12, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 872
@@ -2279,7 +2276,7 @@ define internal noundef range(i32 -22, 1) i32 @icl_compute_dplls(ptr noundef rea
   %33 = phi i32 [ 0, %27 ], [ %51, %48 ]
   %34 = phi i32 [ -1, %27 ], [ %50, %48 ]
   %35 = phi i32 [ 0, %27 ], [ %49, %48 ]
-  %36 = getelementptr i32, ptr @icl_calc_wrpll.dividers, i64 %32
+  %36 = getelementptr [4 x i8], ptr @icl_calc_wrpll.dividers, i64 %32
   %37 = load i32, ptr %36, align 4
   %38 = mul i32 %30, %37
   %39 = add i32 %38, -7998000
@@ -2445,7 +2442,7 @@ default.unreachable74:                            ; preds = %473
 
 113:                                              ; preds = %110, %105
   %114 = phi i64 [ 0, %105 ], [ %111, %110 ]
-  %115 = getelementptr %struct.icl_combo_pll_params, ptr %107, i64 %114
+  %115 = getelementptr [32 x i8], ptr %107, i64 %114
   %116 = load i32, ptr %115, align 16
   %117 = icmp eq i32 %109, %116
   br i1 %117, label %118, label %110
@@ -2605,7 +2602,7 @@ ehl_combo_pll_div_frac_wa_needed.exit.thread:     ; preds = %ehl_combo_pll_div_f
   %208 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %209 = load i32, ptr %208, align 8
   %210 = zext i32 %209 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %207, i64 %210
+  %.split = getelementptr [56 x i8], ptr %207, i64 %210
   %211 = getelementptr i8, ptr %.split, i64 24
   %212 = load ptr, ptr %211, align 8
   %213 = load ptr, ptr %212, align 8
@@ -3114,7 +3111,7 @@ define internal noundef range(i32 -22, 1) i32 @icl_get_dplls(ptr noundef capture
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %.split6 = getelementptr %struct.__drm_crtcs_state, ptr %13, i64 %16
+  %.split6 = getelementptr [56 x i8], ptr %13, i64 %16
   %17 = getelementptr i8, ptr %.split6, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 1064
@@ -3178,7 +3175,7 @@ define internal noundef range(i32 -22, 1) i32 @icl_get_dplls(ptr noundef capture
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 140
   %59 = load i8, ptr %58, align 4
   %60 = zext i8 %59 to i64
-  %61 = getelementptr %struct.intel_shared_dpll_state, ptr %57, i64 %60
+  %61 = getelementptr [140 x i8], ptr %57, i64 %60
   %62 = load i8, ptr %61, align 4
   %63 = icmp eq i8 %62, 0
   br i1 %63, label %64, label %66
@@ -3192,12 +3189,12 @@ define internal noundef range(i32 -22, 1) i32 @icl_get_dplls(ptr noundef capture
 
 66:                                               ; preds = %64, %56
   %.pre-phi = phi i64 [ %.pre11, %64 ], [ %60, %56 ]
-  %67 = getelementptr %struct.intel_shared_dpll_state, ptr %57, i64 %.pre-phi
+  %67 = getelementptr [140 x i8], ptr %57, i64 %.pre-phi
   tail call fastcc void @intel_reference_shared_dpll_crtc(ptr noundef %1, ptr noundef nonnull %54, ptr noundef %67)
   %68 = load ptr, ptr %12, align 8
   %69 = load i32, ptr %14, align 8
   %70 = zext i32 %69 to i64
-  %.split7 = getelementptr %struct.__drm_crtcs_state, ptr %68, i64 %70
+  %.split7 = getelementptr [56 x i8], ptr %68, i64 %70
   %71 = getelementptr i8, ptr %.split7, i64 24
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -3234,7 +3231,7 @@ define internal noundef range(i32 -22, 1) i32 @icl_get_dplls(ptr noundef capture
 .thread:                                          ; preds = %66, %85, %83, %78
   %86 = phi i64 [ 1, %85 ], [ 0, %83 ], [ 0, %78 ], [ 0, %66 ]
   %87 = getelementptr inbounds nuw i8, ptr %72, i64 1064
-  %88 = getelementptr %struct.icl_port_dpll, ptr %87, i64 %86
+  %88 = getelementptr [144 x i8], ptr %87, i64 %86
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %72, i64 920
   store ptr %89, ptr %90, align 8
@@ -3254,7 +3251,7 @@ define internal noundef range(i32 -22, 1) i32 @icl_get_dplls(ptr noundef capture
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %100 = load i32, ptr %99, align 8
   %101 = zext i32 %100 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %98, i64 %101
+  %.split = getelementptr [56 x i8], ptr %98, i64 %101
   %102 = getelementptr i8, ptr %.split, i64 24
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 1064
@@ -3269,7 +3266,7 @@ define internal noundef range(i32 -22, 1) i32 @icl_get_dplls(ptr noundef capture
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 140
   %111 = load i8, ptr %110, align 4
   %112 = zext i8 %111 to i64
-  %113 = getelementptr %struct.intel_shared_dpll_state, ptr %109, i64 %112
+  %113 = getelementptr [140 x i8], ptr %109, i64 %112
   %114 = load i8, ptr %113, align 4
   %115 = icmp eq i8 %114, 0
   br i1 %115, label %116, label %118
@@ -3283,7 +3280,7 @@ define internal noundef range(i32 -22, 1) i32 @icl_get_dplls(ptr noundef capture
 
 118:                                              ; preds = %116, %108
   %.pre-phi13 = phi i64 [ %.pre12, %116 ], [ %112, %108 ]
-  %119 = getelementptr %struct.intel_shared_dpll_state, ptr %109, i64 %.pre-phi13
+  %119 = getelementptr [140 x i8], ptr %109, i64 %.pre-phi13
   tail call fastcc void @intel_reference_shared_dpll_crtc(ptr noundef %1, ptr noundef nonnull %106, ptr noundef %119)
   %120 = getelementptr i8, ptr %103, i64 1208
   %121 = load i32, ptr %6, align 4
@@ -3303,7 +3300,7 @@ define internal noundef range(i32 -22, 1) i32 @icl_get_dplls(ptr noundef capture
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 140
   %133 = load i8, ptr %132, align 4
   %134 = zext i8 %133 to i64
-  %135 = getelementptr %struct.intel_shared_dpll_state, ptr %131, i64 %134
+  %135 = getelementptr [140 x i8], ptr %131, i64 %134
   tail call void @intel_unreference_shared_dpll_crtc(ptr noundef %1, ptr noundef %130, ptr noundef %135)
   br label %175
 
@@ -3312,7 +3309,7 @@ define internal noundef range(i32 -22, 1) i32 @icl_get_dplls(ptr noundef capture
   %138 = getelementptr inbounds nuw i8, ptr %127, i64 140
   %139 = load i8, ptr %138, align 4
   %140 = zext i8 %139 to i64
-  %141 = getelementptr %struct.intel_shared_dpll_state, ptr %137, i64 %140
+  %141 = getelementptr [140 x i8], ptr %137, i64 %140
   %142 = load i8, ptr %141, align 4
   %143 = icmp eq i8 %142, 0
   br i1 %143, label %144, label %146
@@ -3326,12 +3323,12 @@ define internal noundef range(i32 -22, 1) i32 @icl_get_dplls(ptr noundef capture
 
 146:                                              ; preds = %144, %136
   %.pre-phi15 = phi i64 [ %.pre14, %144 ], [ %140, %136 ]
-  %147 = getelementptr %struct.intel_shared_dpll_state, ptr %137, i64 %.pre-phi15
+  %147 = getelementptr [140 x i8], ptr %137, i64 %.pre-phi15
   tail call fastcc void @intel_reference_shared_dpll_crtc(ptr noundef %1, ptr noundef nonnull %127, ptr noundef %147)
   %148 = load ptr, ptr %97, align 8
   %149 = load i32, ptr %99, align 8
   %150 = zext i32 %149 to i64
-  %.split5 = getelementptr %struct.__drm_crtcs_state, ptr %148, i64 %150
+  %.split5 = getelementptr [56 x i8], ptr %148, i64 %150
   %151 = getelementptr i8, ptr %.split5, i64 24
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -3368,7 +3365,7 @@ define internal noundef range(i32 -22, 1) i32 @icl_get_dplls(ptr noundef capture
 .thread8:                                         ; preds = %146, %165, %163, %158
   %166 = phi i64 [ 1, %165 ], [ 0, %163 ], [ 0, %158 ], [ 0, %146 ]
   %167 = getelementptr inbounds nuw i8, ptr %152, i64 1064
-  %168 = getelementptr %struct.icl_port_dpll, ptr %167, i64 %166
+  %168 = getelementptr [144 x i8], ptr %167, i64 %166
   %169 = load ptr, ptr %168, align 8
   %170 = getelementptr inbounds nuw i8, ptr %152, i64 920
   store ptr %169, ptr %170, align 8
@@ -3399,7 +3396,7 @@ define internal void @icl_put_dplls(ptr noundef captures(none) %0, ptr noundef r
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %.split, i64 24
@@ -3413,8 +3410,8 @@ define internal void @icl_put_dplls(ptr noundef captures(none) %0, ptr noundef r
 15:                                               ; preds = %28, %2
   %16 = phi i1 [ true, %2 ], [ false, %28 ]
   %17 = phi i64 [ 0, %2 ], [ 1, %28 ]
-  %18 = getelementptr %struct.icl_port_dpll, ptr %13, i64 %17
-  %19 = getelementptr %struct.icl_port_dpll, ptr %14, i64 %17
+  %18 = getelementptr [144 x i8], ptr %13, i64 %17
+  %19 = getelementptr [144 x i8], ptr %14, i64 %17
   store ptr null, ptr %19, align 8
   %20 = load ptr, ptr %18, align 8
   %21 = icmp eq ptr %20, null
@@ -3425,7 +3422,7 @@ define internal void @icl_put_dplls(ptr noundef captures(none) %0, ptr noundef r
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 140
   %25 = load i8, ptr %24, align 4
   %26 = zext i8 %25 to i64
-  %27 = getelementptr %struct.intel_shared_dpll_state, ptr %23, i64 %26
+  %27 = getelementptr [140 x i8], ptr %23, i64 %26
   tail call void @intel_unreference_shared_dpll_crtc(ptr noundef %1, ptr noundef nonnull %20, ptr noundef %27)
   br label %28
 
@@ -3443,7 +3440,7 @@ define internal void @icl_update_active_dpll(ptr noundef readonly captures(none)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %5, i64 %8
+  %.split = getelementptr [56 x i8], ptr %5, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -3480,7 +3477,7 @@ define internal void @icl_update_active_dpll(ptr noundef readonly captures(none)
 .thread:                                          ; preds = %3, %23, %21, %16
   %24 = phi i64 [ 1, %23 ], [ 0, %21 ], [ 0, %16 ], [ 0, %3 ]
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 1064
-  %26 = getelementptr %struct.icl_port_dpll, ptr %25, i64 %24
+  %26 = getelementptr [144 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 920
   store ptr %27, ptr %28, align 8
@@ -5015,7 +5012,7 @@ define internal fastcc ptr @intel_find_shared_dpll(ptr noundef captures(none) %0
   %14 = phi i32 [ %40, %39 ], [ %9, %11 ]
   %15 = phi i64 [ %42, %39 ], [ 0, %11 ]
   %16 = phi i64 [ %41, %39 ], [ 0, %11 ]
-  %17 = getelementptr %struct.intel_shared_dpll, ptr %7, i64 %15
+  %17 = getelementptr [160 x i8], ptr %7, i64 %15
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.loopexit, label %19
 
@@ -5139,7 +5136,7 @@ define internal fastcc ptr @intel_find_shared_dpll(ptr noundef captures(none) %0
 
 89:                                               ; preds = %86, %84
   %90 = phi i64 [ 0, %84 ], [ %87, %86 ]
-  %91 = getelementptr %struct.intel_shared_dpll, ptr %7, i64 %90
+  %91 = getelementptr [160 x i8], ptr %7, i64 %90
   %92 = icmp eq ptr %91, null
   br i1 %92, label %.thread, label %93
 
@@ -5166,7 +5163,7 @@ define internal fastcc ptr @intel_find_shared_dpll(ptr noundef captures(none) %0
   %102 = getelementptr inbounds nuw i8, ptr %91, i64 140
   %103 = load i8, ptr %102, align 4
   %104 = zext i8 %103 to i64
-  %105 = getelementptr %struct.intel_shared_dpll_state, ptr %46, i64 %104
+  %105 = getelementptr [140 x i8], ptr %46, i64 %104
   %106 = load i8, ptr %105, align 4
   %107 = icmp eq i8 %106, 0
   br i1 %107, label %108, label %111
@@ -5285,7 +5282,7 @@ define internal fastcc nonnull ptr @intel_atomic_get_shared_dpll_state(ptr nound
 
 .preheader:                                       ; preds = %25, %35
   %32 = phi i64 [ %40, %35 ], [ 0, %25 ]
-  %33 = getelementptr %struct.intel_shared_dpll, ptr %28, i64 %32
+  %33 = getelementptr [160 x i8], ptr %28, i64 %32
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.loopexit, label %35
 
@@ -5293,7 +5290,7 @@ define internal fastcc nonnull ptr @intel_atomic_get_shared_dpll_state(ptr nound
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 140
   %37 = load i8, ptr %36, align 4
   %38 = zext i8 %37 to i64
-  %39 = getelementptr %struct.intel_shared_dpll_state, ptr %27, i64 %38
+  %39 = getelementptr [140 x i8], ptr %27, i64 %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(140) %39, ptr noundef nonnull align 8 dereferenceable(140) %33, i64 140, i1 false)
   %40 = add nuw nsw i64 %32, 1
   %41 = load i32, ptr %29, align 8
@@ -5507,7 +5504,7 @@ define internal noundef range(i32 -22, 1) i32 @bxt_compute_dpll(ptr noundef read
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %8, i64 %11
+  %.split = getelementptr [56 x i8], ptr %8, i64 %11
   %12 = getelementptr i8, ptr %.split, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 872
@@ -5714,7 +5711,7 @@ bxt_ddi_set_dpll_hw_state.exit:                   ; preds = %55, %57
 
 132:                                              ; preds = %129, %124
   %133 = phi i64 [ 0, %124 ], [ %130, %129 ]
-  %134 = getelementptr %struct.dpll, ptr @bxt_dp_clk_val, i64 %133
+  %134 = getelementptr [36 x i8], ptr @bxt_dp_clk_val, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 20
   %136 = load i32, ptr %135, align 4
   %137 = icmp eq i32 %128, %136
@@ -5887,7 +5884,7 @@ define internal noundef i32 @bxt_get_dpll(ptr noundef captures(none) %0, ptr nou
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %5, i64 %8
+  %.split = getelementptr [56 x i8], ptr %5, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %1, align 8
@@ -5910,7 +5907,7 @@ define internal noundef i32 @bxt_get_dpll(ptr noundef captures(none) %0, ptr nou
 
 23:                                               ; preds = %20, %17
   %24 = phi i64 [ %21, %20 ], [ 0, %17 ]
-  %25 = getelementptr %struct.intel_shared_dpll, ptr %18, i64 %24
+  %25 = getelementptr [160 x i8], ptr %18, i64 %24
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.loopexit, label %27
 
@@ -5956,7 +5953,7 @@ define internal noundef i32 @bxt_get_dpll(ptr noundef captures(none) %0, ptr nou
   %49 = getelementptr inbounds nuw i8, ptr %34, i64 140
   %50 = load i8, ptr %49, align 4
   %51 = zext i8 %50 to i64
-  %52 = getelementptr %struct.intel_shared_dpll_state, ptr %48, i64 %51
+  %52 = getelementptr [140 x i8], ptr %48, i64 %51
   %53 = load i8, ptr %52, align 4
   %54 = icmp eq i8 %53, 0
   br i1 %54, label %55, label %58
@@ -5971,7 +5968,7 @@ define internal noundef i32 @bxt_get_dpll(ptr noundef captures(none) %0, ptr nou
 
 58:                                               ; preds = %55, %39
   %.pre-phi = phi i64 [ %.pre7, %55 ], [ %51, %39 ]
-  %59 = getelementptr %struct.intel_shared_dpll_state, ptr %48, i64 %.pre-phi
+  %59 = getelementptr [140 x i8], ptr %48, i64 %.pre-phi
   tail call fastcc void @intel_reference_shared_dpll_crtc(ptr noundef %1, ptr noundef %34, ptr noundef %59)
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 920
   store ptr %34, ptr %60, align 8
@@ -5985,7 +5982,7 @@ define internal void @intel_put_dpll(ptr noundef captures(none) %0, ptr noundef 
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %.split, i64 24
@@ -6002,7 +5999,7 @@ define internal void @intel_put_dpll(ptr noundef captures(none) %0, ptr noundef 
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 140
   %19 = load i8, ptr %18, align 4
   %20 = zext i8 %19 to i64
-  %21 = getelementptr %struct.intel_shared_dpll_state, ptr %17, i64 %20
+  %21 = getelementptr [140 x i8], ptr %17, i64 %20
   tail call void @intel_unreference_shared_dpll_crtc(ptr noundef %1, ptr noundef nonnull %14, ptr noundef %21)
   br label %22
 
@@ -6865,7 +6862,7 @@ define internal noundef range(i32 -22, 1) i32 @skl_compute_dpll(ptr noundef read
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %5, i64 %8
+  %.split = getelementptr [56 x i8], ptr %5, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 872
@@ -6890,7 +6887,7 @@ define internal noundef range(i32 -22, 1) i32 @skl_compute_dpll(ptr noundef read
   %26 = phi i64 [ 0, %15 ], [ 1, %.loopexit ]
   %27 = phi i64 [ -1, %15 ], [ %73, %.loopexit ]
   %28 = phi i64 [ 0, %15 ], [ %72, %.loopexit ]
-  %29 = getelementptr %struct.anon.73, ptr @skl_ddi_calculate_wrpll.dividers, i64 %26
+  %29 = getelementptr [16 x i8], ptr @skl_ddi_calculate_wrpll.dividers, i64 %26
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
@@ -6902,7 +6899,7 @@ define internal noundef range(i32 -22, 1) i32 @skl_compute_dpll(ptr noundef read
   %36 = phi i64 [ %27, %24 ], [ %73, %75 ]
   %37 = phi i64 [ %28, %24 ], [ %72, %75 ]
   %38 = phi i32 [ 0, %24 ], [ %71, %75 ]
-  %39 = getelementptr i64, ptr @skl_ddi_calculate_wrpll.dco_central_freq, i64 %35
+  %39 = getelementptr [8 x i8], ptr @skl_ddi_calculate_wrpll.dco_central_freq, i64 %35
   %40 = load i64, ptr %39, align 8
   br label %44
 
@@ -7219,7 +7216,7 @@ define internal noundef range(i32 -22, 1) i32 @skl_get_dpll(ptr noundef captures
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %5, i64 %8
+  %.split = getelementptr [56 x i8], ptr %5, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 872
@@ -7237,7 +7234,7 @@ define internal noundef range(i32 -22, 1) i32 @skl_get_dpll(ptr noundef captures
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 140
   %22 = load i8, ptr %21, align 4
   %23 = zext i8 %22 to i64
-  %24 = getelementptr %struct.intel_shared_dpll_state, ptr %20, i64 %23
+  %24 = getelementptr [140 x i8], ptr %20, i64 %23
   %25 = load i8, ptr %24, align 4
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %27, label %29
@@ -7251,7 +7248,7 @@ define internal noundef range(i32 -22, 1) i32 @skl_get_dpll(ptr noundef captures
 
 29:                                               ; preds = %27, %19
   %.pre-phi = phi i64 [ %.pre1, %27 ], [ %23, %19 ]
-  %30 = getelementptr %struct.intel_shared_dpll_state, ptr %20, i64 %.pre-phi
+  %30 = getelementptr [140 x i8], ptr %20, i64 %.pre-phi
   tail call fastcc void @intel_reference_shared_dpll_crtc(ptr noundef %1, ptr noundef nonnull %17, ptr noundef %30)
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 920
   store ptr %17, ptr %31, align 8
@@ -7342,7 +7339,7 @@ define internal noundef zeroext i1 @skl_ddi_dpll0_get_hw_state(ptr noundef %0, p
 
 10:                                               ; preds = %3
   %11 = sext i32 %7 to i64
-  %12 = getelementptr %struct.skl_dpll_regs, ptr @skl_dpll_regs, i64 %11
+  %12 = getelementptr [12 x i8], ptr @skl_dpll_regs, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 7512
@@ -7619,7 +7616,7 @@ define internal void @skl_ddi_pll_enable(ptr noundef %0, ptr noundef readonly ca
   %27 = load ptr, ptr %19, align 8
   %28 = tail call i32 %27(ptr noundef nonnull %18, i32 442456, i1 noundef zeroext false) #13
   %29 = sext i32 %6 to i64
-  %30 = getelementptr %struct.skl_dpll_regs, ptr @skl_dpll_regs, i64 %29
+  %30 = getelementptr [12 x i8], ptr @skl_dpll_regs, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load i32, ptr %32, align 8
@@ -7673,7 +7670,7 @@ define internal void @skl_ddi_pll_disable(ptr noundef %0, ptr noundef readonly c
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr %struct.skl_dpll_regs, ptr @skl_dpll_regs, i64 %7
+  %8 = getelementptr [12 x i8], ptr @skl_dpll_regs, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 7512
@@ -7700,7 +7697,7 @@ define internal noundef zeroext i1 @skl_ddi_pll_get_hw_state(ptr noundef %0, ptr
 
 10:                                               ; preds = %3
   %11 = sext i32 %7 to i64
-  %12 = getelementptr %struct.skl_dpll_regs, ptr @skl_dpll_regs, i64 %11
+  %12 = getelementptr [12 x i8], ptr @skl_dpll_regs, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 7512
@@ -7754,7 +7751,7 @@ define internal noundef range(i32 -22, 1) i32 @hsw_compute_dpll(ptr noundef read
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %5, i64 %8
+  %.split = getelementptr [56 x i8], ptr %5, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 872
@@ -8073,7 +8070,7 @@ define internal noundef range(i32 -22, 1) i32 @hsw_get_dpll(ptr noundef captures
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %5, i64 %8
+  %.split = getelementptr [56 x i8], ptr %5, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 872
@@ -8135,7 +8132,7 @@ define internal noundef range(i32 -22, 1) i32 @hsw_get_dpll(ptr noundef captures
 
 40:                                               ; preds = %37, %34
   %41 = phi i64 [ %38, %37 ], [ 0, %34 ]
-  %42 = getelementptr %struct.intel_shared_dpll, ptr %35, i64 %41
+  %42 = getelementptr [160 x i8], ptr %35, i64 %41
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.loopexit, label %44
 
@@ -8175,7 +8172,7 @@ define internal noundef range(i32 -22, 1) i32 @hsw_get_dpll(ptr noundef captures
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 140
   %61 = load i8, ptr %60, align 4
   %62 = zext i8 %61 to i64
-  %63 = getelementptr %struct.intel_shared_dpll_state, ptr %59, i64 %62
+  %63 = getelementptr [140 x i8], ptr %59, i64 %62
   %64 = load i8, ptr %63, align 4
   %65 = icmp eq i8 %64, 0
   br i1 %65, label %66, label %69
@@ -8190,7 +8187,7 @@ define internal noundef range(i32 -22, 1) i32 @hsw_get_dpll(ptr noundef captures
 
 69:                                               ; preds = %66, %.thread4
   %.pre-phi = phi i64 [ %.pre7, %66 ], [ %62, %.thread4 ]
-  %70 = getelementptr %struct.intel_shared_dpll_state, ptr %59, i64 %.pre-phi
+  %70 = getelementptr [140 x i8], ptr %59, i64 %.pre-phi
   tail call fastcc void @intel_reference_shared_dpll_crtc(ptr noundef %1, ptr noundef nonnull %58, ptr noundef %70)
   %71 = getelementptr inbounds nuw i8, ptr %10, i64 920
   store ptr %58, ptr %71, align 8
@@ -8584,7 +8581,7 @@ define internal noundef range(i32 -22, 1) i32 @ibx_get_dpll(ptr noundef captures
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %5, i64 %8
+  %.split = getelementptr [56 x i8], ptr %5, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %1, align 8
@@ -8613,7 +8610,7 @@ define internal noundef range(i32 -22, 1) i32 @ibx_get_dpll(ptr noundef captures
 
 27:                                               ; preds = %24, %21
   %28 = phi i64 [ %25, %24 ], [ 0, %21 ]
-  %29 = getelementptr %struct.intel_shared_dpll, ptr %22, i64 %28
+  %29 = getelementptr [160 x i8], ptr %22, i64 %28
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.loopexit, label %31
 
@@ -8672,7 +8669,7 @@ define internal noundef range(i32 -22, 1) i32 @ibx_get_dpll(ptr noundef captures
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 140
   %61 = load i8, ptr %60, align 4
   %62 = zext i8 %61 to i64
-  %63 = getelementptr %struct.intel_shared_dpll_state, ptr %59, i64 %62
+  %63 = getelementptr [140 x i8], ptr %59, i64 %62
   %64 = load i8, ptr %63, align 4
   %65 = icmp eq i8 %64, 0
   br i1 %65, label %66, label %69
@@ -8687,7 +8684,7 @@ define internal noundef range(i32 -22, 1) i32 @ibx_get_dpll(ptr noundef captures
 
 69:                                               ; preds = %66, %58
   %.pre-phi = phi i64 [ %.pre8, %66 ], [ %62, %58 ]
-  %70 = getelementptr %struct.intel_shared_dpll_state, ptr %59, i64 %.pre-phi
+  %70 = getelementptr [140 x i8], ptr %59, i64 %.pre-phi
   tail call fastcc void @intel_reference_shared_dpll_crtc(ptr noundef %1, ptr noundef nonnull %56, ptr noundef %70)
   %71 = getelementptr inbounds nuw i8, ptr %10, i64 920
   store ptr %56, ptr %71, align 8

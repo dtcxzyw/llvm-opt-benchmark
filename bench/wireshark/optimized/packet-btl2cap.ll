@@ -5198,7 +5198,7 @@ switch.lookup:
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext nneg i32 %13 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_i_frame, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_i_frame, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @col_append_str(ptr noundef %15, i32 noundef 25, ptr noundef nonnull %switch.load)
   %17 = load i32, ptr @hf_btl2cap_control, align 4

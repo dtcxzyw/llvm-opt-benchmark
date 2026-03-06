@@ -4895,7 +4895,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %16 = load i64, ptr %15, align 8, !alias.scope !971, !noalias !974, !noundef !46
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !976
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !980
-  %17 = getelementptr inbounds { { ptr, i64 } }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [16 x i8], ptr %14, i64 %16
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !981
   store ptr %14, ptr %7, align 8, !noalias !981
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4928,7 +4928,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %30 = load i64, ptr %29, align 8, !alias.scope !988, !noalias !989, !noundef !46
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !991
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !995
-  %31 = getelementptr inbounds { { ptr, i64 } }, ptr %28, i64 %30
+  %31 = getelementptr inbounds [16 x i8], ptr %28, i64 %30
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !996
   store ptr %28, ptr %4, align 8, !noalias !996
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5069,10 +5069,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !46, !align !427, !noundef !46
   %.val = load i8, ptr %2, align 1, !range !429, !noundef !46
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hebe82ecc9e941792E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hebe82ecc9e941792E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hebe82ecc9e941792E.105", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hebe82ecc9e941792E.105", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -12959,7 +12959,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h3caf5338a24ba062E.exit.i
 
 98:                                               ; preds = %94
   %99 = load ptr, ptr %86, align 8, !noalias !2522, !nonnull !46, !noundef !46
-  %100 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %99, i64 %85
+  %100 = getelementptr inbounds [64 x i8], ptr %99, i64 %85
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h2745c2895fa5c5beE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 8 %100)
           to label %102 unwind label %.thread.loopexit.i.i.i, !noalias !2522
 
@@ -13011,7 +13011,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h3caf5338a24ba062E.exit.i
   %118 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %109, %104 ]
   %119 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %120 = load ptr, ptr %119, align 8, !alias.scope !2526, !noalias !2529, !nonnull !46, !noundef !46
-  %121 = getelementptr inbounds ptr, ptr %120, i64 %118
+  %121 = getelementptr inbounds [8 x i8], ptr %120, i64 %118
   store ptr %71, ptr %121, align 8, !noalias !2529
   %122 = load i64, ptr %108, align 8, !alias.scope !2526, !noalias !2531, !noundef !46
   %123 = add i64 %122, 1
@@ -13751,10 +13751,10 @@ define internal { ptr, i64 } @"_ZN70_$LT$core..num..error..ParseIntError$u20$as$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !425, !noundef !46
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hd2528a5b1092f989E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hd2528a5b1092f989E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hd2528a5b1092f989E.106", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hd2528a5b1092f989E.106", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -18707,7 +18707,7 @@ default.unreachable96:                            ; preds = %44, %25, %3
   %.val.i = load ptr, ptr %.sroa.759.0..sroa_idx60.i, align 8, !noalias !3388, !nonnull !46, !noundef !46
   %134 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.val15.i = load i64, ptr %134, align 8, !noalias !3388, !noundef !46
-  %135 = getelementptr inbounds { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, ptr %.val.i, i64 %.val15.i
+  %135 = getelementptr inbounds [48 x i8], ptr %.val.i, i64 %.val15.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !3421
   store i64 8, ptr %7, align 8, !noalias !3421
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3421
@@ -25248,7 +25248,7 @@ common.ret:                                       ; preds = %1396, %283, %242, %
   br i1 %724, label %748, label %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.exit.i.i.i.i.i.i
 
 _ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.exit.i.i.i.i.i.i: ; preds = %719
-  %725 = getelementptr inbounds nuw { i32, i32 }, ptr %.val.i.i.i.i.i.i, i64 %721
+  %725 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i.i.i.i, i64 %721
   %726 = getelementptr inbounds nuw i8, ptr %725, i64 4
   %727 = load i32, ptr %726, align 4, !noalias !4217, !noundef !46
   %728 = zext i32 %727 to i64
@@ -25273,7 +25273,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i.
   br i1 %738, label %739, label %748
 
 739:                                              ; preds = %733
-  %740 = getelementptr inbounds nuw i64, ptr %735, i64 %.061.i.i.i.i.i
+  %740 = getelementptr inbounds nuw [8 x i8], ptr %735, i64 %.061.i.i.i.i.i
   %741 = load i64, ptr %740, align 8, !noalias !4217, !noundef !46
   %742 = icmp ne i64 %741, 0
   %743 = icmp ult i64 %.0.i.i.i.i.i, %737
@@ -25281,7 +25281,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i.
   br i1 %or.cond.i.i.i.i.i, label %744, label %748
 
 744:                                              ; preds = %739
-  %745 = getelementptr inbounds nuw i64, ptr %735, i64 %.0.i.i.i.i.i
+  %745 = getelementptr inbounds nuw [8 x i8], ptr %735, i64 %.0.i.i.i.i.i
   %746 = load i64, ptr %745, align 8, !noalias !4217, !noundef !46
   %747 = icmp eq i64 %746, 0
   br i1 %747, label %748, label %751
@@ -25534,7 +25534,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i.
   br i1 %838, label %863, label %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.exit.i.i.i80.i.i.i
 
 _ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.exit.i.i.i80.i.i.i: ; preds = %833
-  %839 = getelementptr inbounds nuw { i32, i32 }, ptr %.val.i.i.i79.i.i.i, i64 %835
+  %839 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i79.i.i.i, i64 %835
   %840 = getelementptr inbounds nuw i8, ptr %839, i64 4
   %841 = load i32, ptr %840, align 4, !noalias !4246, !noundef !46
   %842 = zext i32 %841 to i64
@@ -25559,7 +25559,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i82.
   br i1 %852, label %853, label %863
 
 853:                                              ; preds = %847
-  %854 = getelementptr inbounds nuw i64, ptr %849, i64 %.061.i.i83.i.i.i
+  %854 = getelementptr inbounds nuw [8 x i8], ptr %849, i64 %.061.i.i83.i.i.i
   %855 = load i64, ptr %854, align 8, !noalias !4246, !noundef !46
   %856 = icmp ne i64 %855, 0
   %857 = icmp ult i64 %.0.i.i84.i.i.i, %851
@@ -25567,7 +25567,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i82.
   br i1 %or.cond.i.i85.i.i.i, label %858, label %863
 
 858:                                              ; preds = %853
-  %859 = getelementptr inbounds nuw i64, ptr %849, i64 %.0.i.i84.i.i.i
+  %859 = getelementptr inbounds nuw [8 x i8], ptr %849, i64 %.0.i.i84.i.i.i
   %860 = load i64, ptr %859, align 8, !noalias !4246, !noundef !46
   %861 = icmp eq i64 %860, 0
   br i1 %861, label %863, label %866
@@ -25722,7 +25722,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i82.
   br i1 %923, label %946, label %_ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.exit.i.i.i103.i.i.i
 
 _ZN14regex_automata4util8captures14GroupInfoInner9group_len17hf44aea63cceed637E.exit.i.i.i103.i.i.i: ; preds = %918
-  %924 = getelementptr inbounds nuw { i32, i32 }, ptr %.val.i.i.i102.i.i.i, i64 %920
+  %924 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i102.i.i.i, i64 %920
   %925 = getelementptr inbounds nuw i8, ptr %924, i64 4
   %926 = load i32, ptr %925, align 4, !noalias !4275, !noundef !46
   %927 = zext i32 %926 to i64
@@ -25746,7 +25746,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i105
   br i1 %936, label %937, label %946
 
 937:                                              ; preds = %933
-  %938 = getelementptr inbounds nuw i64, ptr %934, i64 %.061.i.i106.i.i.i
+  %938 = getelementptr inbounds nuw [8 x i8], ptr %934, i64 %.061.i.i106.i.i.i
   %939 = load i64, ptr %938, align 8, !noalias !4275, !noundef !46
   %940 = icmp ne i64 %939, 0
   %941 = icmp ult i64 %.0.i.i107.i.i.i, %935
@@ -25754,7 +25754,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i105
   br i1 %or.cond.i.i108.i.i.i, label %942, label %946
 
 942:                                              ; preds = %937
-  %943 = getelementptr inbounds nuw i64, ptr %934, i64 %.0.i.i107.i.i.i
+  %943 = getelementptr inbounds nuw [8 x i8], ptr %934, i64 %.0.i.i107.i.i.i
   %944 = load i64, ptr %943, align 8, !noalias !4275, !noundef !46
   %945 = icmp eq i64 %944, 0
   br i1 %945, label %946, label %949

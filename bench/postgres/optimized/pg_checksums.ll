@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.exclude_list_item = type { ptr, i8 }
 %union.PGIOAlignedBlock = type { double, [8184 x i8] }
 
 @main.long_options = internal global [10 x { ptr, i32, [4 x i8], ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str, i32 0, [4 x i8] zeroinitializer, ptr null, i32 99, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.1, i32 1, [4 x i8] zeroinitializer, ptr null, i32 68, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.2, i32 0, [4 x i8] zeroinitializer, ptr null, i32 100, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.3, i32 0, [4 x i8] zeroinitializer, ptr null, i32 101, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.4, i32 1, [4 x i8] zeroinitializer, ptr null, i32 102, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.5, i32 0, [4 x i8] zeroinitializer, ptr null, i32 78, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.6, i32 0, [4 x i8] zeroinitializer, ptr null, i32 80, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.7, i32 0, [4 x i8] zeroinitializer, ptr null, i32 118, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.8, i32 1, [4 x i8] zeroinitializer, ptr null, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } zeroinitializer], align 16
@@ -128,14 +127,14 @@ define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr noundef captu
 
 .preheader28.i:                                   ; preds = %16, %2
   %indvars.iv36.i = phi i64 [ 0, %2 ], [ %indvars.iv.next37.i, %16 ]
-  %6 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 %indvars.iv36.i
+  %6 = getelementptr inbounds nuw [128 x i8], ptr %0, i64 %indvars.iv36.i
   br label %7
 
 7:                                                ; preds = %7, %.preheader28.i
   %indvars.iv.i = phi i64 [ 0, %.preheader28.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4
   %12 = xor i32 %11, %9
   %13 = mul i32 %12, 16777619
@@ -157,7 +156,7 @@ define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr noundef captu
 
 18:                                               ; preds = %18, %.preheader26.i
   %indvars.iv40.i = phi i64 [ 0, %.preheader26.i ], [ %indvars.iv.next41.i, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv40.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv40.i
   %20 = load i32, ptr %19, align 4
   %21 = mul i32 %20, 16777619
   %22 = lshr i32 %20, 17
@@ -173,7 +172,7 @@ define dso_local zeroext range(i16 1, 0) i16 @pg_checksum_page(ptr noundef captu
 .preheader.i:                                     ; preds = %24, %.preheader.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %.preheader.i ], [ 0, %24 ]
   %.034.i = phi i32 [ %27, %.preheader.i ], [ 0, %24 ]
-  %25 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv44.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv44.i
   %26 = load i32, ptr %25, align 4
   %27 = xor i32 %26, %.034.i
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
@@ -361,7 +360,7 @@ sub_151:                                          ; preds = %.tail.thread, %.thr
   %62 = add nsw i32 %.pre, 1
   store i32 %62, ptr @optind, align 4
   %63 = sext i32 %.pre to i64
-  %64 = getelementptr inbounds ptr, ptr %1, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %1, i64 %63
   %65 = load ptr, ptr %64, align 8
   br label %68
 
@@ -390,7 +389,7 @@ sub_151:                                          ; preds = %.tail.thread, %.thr
 
 76:                                               ; preds = %73
   %77 = sext i32 %74 to i64
-  %78 = getelementptr inbounds ptr, ptr %1, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %1, i64 %77
   %79 = load ptr, ptr %78, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.20, ptr noundef %79) #12
   %80 = load ptr, ptr @progname, align 8
@@ -795,7 +794,7 @@ sub_148:                                          ; preds = %.tail
 
 41:                                               ; preds = %41, %40
   %indvars.iv.i = phi i64 [ 0, %40 ], [ %indvars.iv.next.i, %41 ]
-  %42 = getelementptr inbounds nuw %struct.exclude_list_item, ptr @skip, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr @skip, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 16
   %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #13
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -1068,14 +1067,14 @@ define internal fastcc void @scan_file(ptr noundef nonnull %0, i32 noundef %1) u
 
 .preheader28.i.i:                                 ; preds = %42, %30
   %indvars.iv36.i.i = phi i64 [ 0, %30 ], [ %indvars.iv.next37.i.i, %42 ]
-  %32 = getelementptr inbounds nuw [32 x i32], ptr %4, i64 %indvars.iv36.i.i
+  %32 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 %indvars.iv36.i.i
   br label %33
 
 33:                                               ; preds = %33, %.preheader28.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader28.i.i ], [ %indvars.iv.next.i.i, %33 ]
-  %34 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.i
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.i.i
   %37 = load i32, ptr %36, align 4
   %38 = xor i32 %37, %35
   %39 = mul i32 %38, 16777619
@@ -1097,7 +1096,7 @@ define internal fastcc void @scan_file(ptr noundef nonnull %0, i32 noundef %1) u
 
 44:                                               ; preds = %44, %.preheader26.i.i
   %indvars.iv40.i.i = phi i64 [ 0, %.preheader26.i.i ], [ %indvars.iv.next41.i.i, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv40.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv40.i.i
   %46 = load i32, ptr %45, align 4
   %47 = mul i32 %46, 16777619
   %48 = lshr i32 %46, 17
@@ -1113,7 +1112,7 @@ define internal fastcc void @scan_file(ptr noundef nonnull %0, i32 noundef %1) u
 .preheader.i.i:                                   ; preds = %50, %.preheader.i.i
   %indvars.iv44.i.i = phi i64 [ %indvars.iv.next45.i.i, %.preheader.i.i ], [ 0, %50 ]
   %.034.i.i = phi i32 [ %53, %.preheader.i.i ], [ 0, %50 ]
-  %51 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv44.i.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv44.i.i
   %52 = load i32, ptr %51, align 4
   %53 = xor i32 %52, %.034.i.i
   %indvars.iv.next45.i.i = add nuw nsw i64 %indvars.iv44.i.i, 1

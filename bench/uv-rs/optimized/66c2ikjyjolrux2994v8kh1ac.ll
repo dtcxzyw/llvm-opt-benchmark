@@ -1941,7 +1941,7 @@ default.unreachable1147:                          ; preds = %250
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %111 = load ptr, ptr %48, align 8, !nonnull !7, !noundef !7
   %112 = load i64, ptr %49, align 8, !noundef !7
-  %113 = getelementptr inbounds i32, ptr %111, i64 %112
+  %113 = getelementptr inbounds [4 x i8], ptr %111, i64 %112
   invoke void @"_ZN99_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$RF$char$GT$$GT$9from_iter17he4c17bd0482ded1eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %22, ptr noundef nonnull %111, ptr noundef nonnull %113)
           to label %457 unwind label %.loopexit.split-lp
 
@@ -2232,7 +2232,7 @@ default.unreachable1147:                          ; preds = %250
   br i1 %203, label %.invoke1407, label %240
 
 204:                                              ; preds = %198
-  %205 = getelementptr inbounds i32, ptr %165, i64 %200
+  %205 = getelementptr inbounds [4 x i8], ptr %165, i64 %200
   store ptr %205, ptr %23, align 8
   store ptr %166, ptr %70, align 8
   store i8 0, ptr %71, align 8
@@ -2436,7 +2436,7 @@ default.unreachable1147:                          ; preds = %250
 
 291:                                              ; preds = %287
   %292 = load ptr, ptr %48, align 8, !nonnull !7, !noundef !7
-  %293 = getelementptr inbounds i32, ptr %292, i64 %.sroa.0204.0
+  %293 = getelementptr inbounds [4 x i8], ptr %292, i64 %.sroa.0204.0
   store ptr %292, ptr %26, align 8
   store ptr %293, ptr %77, align 8
   store i8 0, ptr %78, align 8
@@ -2890,7 +2890,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.i.i:
 
 481:                                              ; preds = %476
   %482 = load ptr, ptr %48, align 8, !alias.scope !431, !noalias !434, !nonnull !7, !noundef !7
-  %483 = getelementptr inbounds nuw i32, ptr %482, i64 %477
+  %483 = getelementptr inbounds nuw [4 x i8], ptr %482, i64 %477
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 4
   %485 = sub nsw i64 %478, %.sroa.0204.0
   %486 = shl nsw i64 %485, 2
@@ -2981,8 +2981,8 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.i.i:
 
 525:                                              ; preds = %518
   %526 = load ptr, ptr %48, align 8, !nonnull !7, !noundef !7
-  %527 = getelementptr inbounds nuw i32, ptr %526, i64 %477
-  %528 = getelementptr inbounds i32, ptr %526, i64 %519
+  %527 = getelementptr inbounds nuw [4 x i8], ptr %526, i64 %477
+  %528 = getelementptr inbounds [4 x i8], ptr %526, i64 %519
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !438
   store i64 0, ptr %14, align 8, !noalias !438
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !438
@@ -3184,7 +3184,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.i.i:
 
 .noexc478:                                        ; preds = %598, %594
   %599 = load ptr, ptr %48, align 8, !alias.scope !457, !noalias !460, !nonnull !7, !noundef !7
-  %600 = getelementptr inbounds nuw i32, ptr %599, i64 %.sroa.0204.0
+  %600 = getelementptr inbounds nuw [4 x i8], ptr %599, i64 %.sroa.0204.0
   %601 = icmp samesign ult i64 %.sroa.0204.0, %591
   br i1 %601, label %602, label %606
 
@@ -3202,8 +3202,8 @@ _ZN4core7unicode12unicode_data11white_space6lookup17hd45bc17fb77ea212E.exit.i.i:
   %608 = add nuw nsw i64 %.sroa.0204.0, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %609 = load ptr, ptr %48, align 8, !nonnull !7, !noundef !7
-  %610 = getelementptr inbounds nuw i32, ptr %609, i64 %608
-  %611 = getelementptr inbounds nuw i32, ptr %609, i64 %607
+  %610 = getelementptr inbounds nuw [4 x i8], ptr %609, i64 %608
+  %611 = getelementptr inbounds nuw [4 x i8], ptr %609, i64 %607
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !463
   store i64 0, ptr %10, align 8, !noalias !463
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i479, align 8, !noalias !463

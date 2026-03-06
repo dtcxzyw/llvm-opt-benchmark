@@ -48,7 +48,7 @@ define hidden void @_ZN14MallocLimitSetC2Ev(ptr noundef nonnull writeonly align 
 
 3:                                                ; preds = %3, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %3 ]
-  %4 = getelementptr inbounds nuw %struct.malloclimit, ptr %2, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv.i
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
@@ -68,7 +68,7 @@ define hidden void @_ZN14MallocLimitSet5resetEv(ptr noundef nonnull writeonly al
 
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw %struct.malloclimit, ptr %2, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %5, align 8
@@ -92,7 +92,7 @@ define hidden void @_ZN14MallocLimitSet16set_global_limitEm15MallocLimitMode(ptr
 define hidden void @_ZN14MallocLimitSet18set_category_limitE8MEMFLAGSm15MallocLimitMode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(464) %0, i8 noundef zeroext %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = zext i8 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.malloclimit, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   store i64 %2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %3, ptr %8, align 8
@@ -158,13 +158,13 @@ _ZL12mode_to_name15MallocLimitMode.exit:          ; preds = %_Z25proper_unit_for
 
 19:                                               ; preds = %.preheader, %38
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %38 ]
-  %20 = getelementptr inbounds nuw %struct.malloclimit, ptr %4, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8
   %.not10 = icmp eq i64 %21, 0
   br i1 %.not10, label %38, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @_ZN7NMTUtil8_stringsE, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 16
   %25 = icmp ugt i64 %21, 107374182399
   br i1 %25, label %_Z24byte_size_in_proper_unitImET_S0_.exit15, label %26
@@ -233,7 +233,7 @@ define hidden noundef zeroext i1 @_ZN14MallocLimitSet24parse_malloclimit_optionE
 
 7:                                                ; preds = %7, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw %struct.malloclimit, ptr %6, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.i
   store i64 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %9, align 8
@@ -355,7 +355,7 @@ _ZN12ParserHelper15match_mode_flagEP15MallocLimitMode.exit: ; preds = %27, %30
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 1
   store ptr %55, ptr %13, align 8
   %56 = zext i8 %45 to i64
-  %57 = getelementptr inbounds nuw %struct.malloclimit, ptr %6, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %56
   %58 = call noundef zeroext i1 @_ZN12ParserHelper10match_sizeEPm(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull %57)
   br i1 %58, label %60, label %59
 
@@ -632,7 +632,7 @@ define internal void @_GLOBAL__sub_I_mallocLimit.cpp() #10 section ".text.startu
 
 1:                                                ; preds = %1, %0
   %indvars.iv.i.i.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i.i.i, %1 ]
-  %2 = getelementptr inbounds nuw %struct.malloclimit, ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 %indvars.iv.i.i.i
+  %2 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN18MallocLimitHandler7_limitsE, i64 16), i64 %indvars.iv.i.i.i
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %3, align 8

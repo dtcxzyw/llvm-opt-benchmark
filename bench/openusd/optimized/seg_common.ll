@@ -28,7 +28,7 @@ define hidden void @av1_calculate_segdata(ptr noundef captures(none) initializes
 .preheader:                                       ; preds = %1, %20
   %5 = phi i8 [ 0, %1 ], [ %18, %20 ]
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %20 ]
-  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   br label %8
 
@@ -70,7 +70,7 @@ define hidden void @av1_enable_segfeature(ptr noundef captures(none) %0, i32 nou
   %5 = shl nuw i32 1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = or i32 %9, %5
   store i32 %10, ptr %8, align 4
@@ -80,7 +80,7 @@ define hidden void @av1_enable_segfeature(ptr noundef captures(none) %0, i32 nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden i32 @av1_seg_feature_data_max(i8 noundef zeroext %0) local_unnamed_addr #4 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds nuw i32, ptr @seg_feature_data_max, i64 %2
+  %3 = getelementptr inbounds nuw [4 x i8], ptr @seg_feature_data_max, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -88,7 +88,7 @@ define hidden i32 @av1_seg_feature_data_max(i8 noundef zeroext %0) local_unnamed
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden i32 @av1_is_segfeature_signed(i8 noundef zeroext %0) local_unnamed_addr #4 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr inbounds nuw i32, ptr @seg_feature_data_signed, i64 %2
+  %3 = getelementptr inbounds nuw [4 x i8], ptr @seg_feature_data_signed, i64 %2
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -98,9 +98,9 @@ define hidden void @av1_set_segdata(ptr noundef writeonly captures(none) %0, i32
   %5 = trunc i32 %3 to i16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds [8 x i16], ptr %6, i64 %7
+  %8 = getelementptr inbounds [16 x i8], ptr %6, i64 %7
   %9 = zext i8 %2 to i64
-  %10 = getelementptr inbounds nuw i16, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %9
   store i16 %5, ptr %10, align 2
   ret void
 }

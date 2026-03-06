@@ -1259,7 +1259,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %104, %107
   %110 = phi i32 [ %105, %104 ], [ %.pre.i, %107 ]
   %111 = load ptr, ptr %30, align 8, !tbaa !11
   %112 = zext i32 %110 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %112
   store i32 %42, ptr %113, align 1
   %114 = load i32, ptr %31, align 8, !tbaa !14
   %115 = add i32 %114, 1
@@ -1568,7 +1568,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE28reserveForParamAndGetAddressERjm.exit:
   %11 = phi i32 [ %4, %2 ], [ %.pre, %7 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !11
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   store i32 %1, ptr %14, align 1
   %15 = load i32, ptr %3, align 8, !tbaa !14
   %16 = add i32 %15, 1
@@ -2331,7 +2331,7 @@ _ZN4llvm5ErrorD2Ev.exit294:                       ; preds = %242
   %314 = getelementptr inbounds nuw i8, ptr %299, i64 %.sroa.speculated4.i315
   %315 = sub i64 %301, %.sroa.speculated4.i315
   %.sroa.speculated.i316 = tail call i64 @llvm.umin.i64(i64 %315, i64 %311)
-  %316 = getelementptr inbounds nuw %"struct.llvm::object::ViewArray.36", ptr %302, i64 %indvars.iv
+  %316 = getelementptr inbounds nuw [24 x i8], ptr %302, i64 %indvars.iv
   store ptr %314, ptr %316, align 8, !tbaa !4
   %.sroa.452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %316, i64 8
   store i64 %.sroa.speculated.i316, ptr %.sroa.452.0..sroa_idx, align 8, !tbaa !9
@@ -2405,7 +2405,7 @@ _ZN4llvm5ErrorD2Ev.exit294:                       ; preds = %242
   %353 = getelementptr inbounds nuw i8, ptr %333, i64 %.sroa.speculated4.i323
   %354 = sub i64 %335, %.sroa.speculated4.i323
   %.sroa.speculated.i324 = tail call i64 @llvm.umin.i64(i64 %354, i64 %350)
-  %355 = getelementptr inbounds nuw %"struct.llvm::object::ViewArray.36", ptr %336, i64 %indvars.iv415
+  %355 = getelementptr inbounds nuw [24 x i8], ptr %336, i64 %indvars.iv415
   store ptr %353, ptr %355, align 8, !tbaa !4
   %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %355, i64 8
   store i64 %.sroa.speculated.i324, ptr %.sroa.437.0..sroa_idx, align 8, !tbaa !9

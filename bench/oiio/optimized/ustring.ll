@@ -27,7 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %"class.OpenImageIO::v3_1_0::basic_string_view" = type { ptr, i64 }
-%"struct.std::pair.9" = type { ptr, i64 }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -273,7 +272,7 @@ _ZN11OpenImageIO6v3_1_07Strutil9strhash64ENS0_17basic_string_viewIcSt11char_trai
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = lshr i64 %24, 52
-  %26 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TableRepMap", ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEvE5table, i64 %25
+  %26 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEvE5table, i64 %25
   store ptr %23, ptr %4, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %22, ptr %27, align 8, !tbaa !20
@@ -418,7 +417,7 @@ _ZN11OpenImageIO6v3_1_07Strutil9strhash64ENS0_17basic_string_viewIcSt11char_trai
   store i64 %82, ptr %5, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %83 = lshr i64 %82, 52
-  %84 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TableRepMap", ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEvE5table, i64 %83
+  %84 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEvE5table, i64 %83
   store ptr %81, ptr %3, align 8, !tbaa !23
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %80, ptr %85, align 8, !tbaa !20
@@ -466,7 +465,7 @@ _ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.th
 _ZN11OpenImageIO6v3_1_012_GLOBAL__N_111reverse_mapEv.exit: ; preds = %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread, %89, %98
   %100 = load i64, ptr %5, align 8, !tbaa !27
   %101 = lshr i64 %100, 56
-  %102 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<unsigned long, const char *, OpenImageIO::v3_1_0::identity<unsigned long>, std::equal_to<unsigned long>, 256>::Bin", ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_111reverse_mapEvE2rm, i64 64), i64 %101
+  %102 = getelementptr inbounds nuw [64 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_111reverse_mapEvE2rm, i64 64), i64 %101
   %103 = cmpxchg weak ptr %102, i32 0, i32 1073741824 acquire acquire, align 4
   %104 = extractvalue { i32, i1 } %103, 1
   br i1 %104, label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentImPKcNS0_8identityImEESt8equal_toImELm256ESt13unordered_mapImS3_S5_S7_SaISt4pairIKmS3_EEEE8lock_binERSA_.exit, label %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.i.i.i.i
@@ -510,7 +509,7 @@ _ZN11OpenImageIO6v3_1_024unordered_map_concurrentImPKcNS0_8identityImEESt8equal_
   %116 = phi i64 [ %113, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentImPKcNS0_8identityImEESt8equal_toImELm256ESt13unordered_mapImS3_S5_S7_SaISt4pairIKmS3_EEEE8lock_binERSA_.exit ], [ %182, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentImPKcNS0_8identityImEESt8equal_toImELm256ESt13unordered_mapImS3_S5_S7_SaISt4pairIKmS3_EEEE8iteratorD2Ev.exit56 ]
   %.023 = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentImPKcNS0_8identityImEESt8equal_toImELm256ESt13unordered_mapImS3_S5_S7_SaISt4pairIKmS3_EEEE8lock_binERSA_.exit ], [ %183, %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentImPKcNS0_8identityImEESt8equal_toImELm256ESt13unordered_mapImS3_S5_S7_SaISt4pairIKmS3_EEEE8iteratorD2Ev.exit56 ]
   %117 = lshr i64 %116, 56
-  %118 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::unordered_map_concurrent<unsigned long, const char *, OpenImageIO::v3_1_0::identity<unsigned long>, std::equal_to<unsigned long>, 256>::Bin", ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_111reverse_mapEvE2rm, i64 64), i64 %117
+  %118 = getelementptr inbounds nuw [64 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_111reverse_mapEvE2rm, i64 64), i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %120 = load i64, ptr %119, align 32, !tbaa !45, !noalias !46
   %.not.not.i.i.i.i = icmp eq i64 %120, 0
@@ -538,7 +537,7 @@ _ZN11OpenImageIO6v3_1_024unordered_map_concurrentImPKcNS0_8identityImEESt8equal_
   %131 = load i64, ptr %130, align 16, !tbaa !40, !noalias !46
   %132 = urem i64 %116, %131
   %133 = load ptr, ptr %129, align 8, !tbaa !32, !noalias !46
-  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %132
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %132
   %135 = load ptr, ptr %134, align 8, !tbaa !51, !noalias !46
   %.not.i.i.i.i.i.i = icmp eq ptr %135, null
   br i1 %.not.i.i.i.i.i.i, label %.thread, label %136
@@ -575,7 +574,7 @@ _ZN11OpenImageIO6v3_1_024unordered_map_concurrentImPKcNS0_8identityImEESt8equal_
   %149 = load i64, ptr %21, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %150 = lshr i64 %116, 52
-  %151 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TableRepMap", ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEvE5table, i64 %150
+  %151 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEvE5table, i64 %150
   store ptr %148, ptr %2, align 8, !tbaa !23
   %152 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %149, ptr %152, align 8, !tbaa !20
@@ -728,7 +727,7 @@ _ZNSt6vectorISt4pairIPKcmESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33.i.i: ; pre
 _ZNSt6vectorISt4pairIPKcmESaIS3_EE17_M_realloc_insertIJRKS2_RKmEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %214, %_ZNSt6vectorISt4pairIPKcmESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33.i.i
   store ptr %206, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_119all_hash_collisionsE, align 8, !tbaa !3
   store ptr %213, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_119all_hash_collisionsE, i64 8), align 8, !tbaa !57
-  %215 = getelementptr inbounds nuw %"struct.std::pair.9", ptr %206, i64 %204
+  %215 = getelementptr inbounds nuw [16 x i8], ptr %206, i64 %204
   store ptr %215, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_119all_hash_collisionsE, i64 16), align 8, !tbaa !9
   br label %_ZN11OpenImageIO6v3_1_024unordered_map_concurrentImPKcNS0_8identityImEESt8equal_toImELm256ESt13unordered_mapImS3_S5_S7_SaISt4pairIKmS3_EEEE8iteratorD2Ev.exit56
 
@@ -844,7 +843,7 @@ _ZNSt6vectorISt4pairIPKcmESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33.i.i72: ; p
 _ZNSt6vectorISt4pairIPKcmESaIS3_EE17_M_realloc_insertIJRS2_RmEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %252, %_ZNSt6vectorISt4pairIPKcmESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33.i.i72
   store ptr %245, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_119all_hash_collisionsE, align 8, !tbaa !3
   store ptr %251, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_119all_hash_collisionsE, i64 8), align 8, !tbaa !57
-  %253 = getelementptr inbounds nuw %"struct.std::pair.9", ptr %245, i64 %243
+  %253 = getelementptr inbounds nuw [16 x i8], ptr %245, i64 %243
   store ptr %253, ptr getelementptr inbounds nuw (i8, ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_119all_hash_collisionsE, i64 16), align 8, !tbaa !9
   br label %_ZNSt6vectorISt4pairIPKcmESaIS3_EE12emplace_backIJRS2_RmEEERS3_DpOT_.exit
 
@@ -908,7 +907,7 @@ define ptr @_ZN11OpenImageIO6v3_1_07ustring9from_hashEm(i64 noundef %0) local_un
 
 _ZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEv.exit: ; preds = %1, %4, %7
   %10 = lshr i64 %0, 52
-  %11 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::TableRepMap", ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEvE5table, i64 %10
+  %11 = getelementptr inbounds nuw [64 x i8], ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEvE5table, i64 %10
   %12 = atomicrmw add ptr %11, i32 1 acquire, align 4
   %13 = and i32 %12, 1073741824
   %.not.i.i.i.i = icmp eq i32 %13, 0
@@ -962,7 +961,7 @@ _ZN11OpenImageIO6v3_1_013spin_rw_mutex15read_lock_guardC2ERS1_.exit.i.i: ; preds
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %36 = load ptr, ptr %35, align 16, !tbaa !76
   %.0913.i.i = and i64 %34, %0
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.0913.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.0913.i.i
   %38 = load ptr, ptr %37, align 8, !tbaa !77
   %39 = icmp eq ptr %38, null
   br i1 %39, label %_ZN11OpenImageIO6v3_1_012UstringTable6lookupEm.exit, label %.lr.ph.i.i
@@ -983,7 +982,7 @@ _ZN11OpenImageIO6v3_1_013spin_rw_mutex15read_lock_guardC2ERS1_.exit.i.i: ; preds
   %46 = add i64 %.014.i.i, 1
   %47 = add i64 %46, %.0915.i.i
   %.09.i.i = and i64 %47, %34
-  %48 = getelementptr inbounds nuw ptr, ptr %36, i64 %.09.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.09.i.i
   %49 = load ptr, ptr %48, align 8, !tbaa !77
   %50 = icmp eq ptr %49, null
   br i1 %50, label %_ZN11OpenImageIO6v3_1_012UstringTable6lookupEm.exit, label %.lr.ph.i.i, !llvm.loop !79
@@ -1628,7 +1627,7 @@ _ZNSt6vectorIN11OpenImageIO6v3_1_07ustringESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIN11OpenImageIO6v3_1_07ustringESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %34, %_ZNSt6vectorIN11OpenImageIO6v3_1_07ustringESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %27, ptr %0, align 8, !tbaa !100
   store ptr %33, ptr %5, align 8, !tbaa !96
-  %35 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ustring", ptr %27, i64 %25
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %35, ptr %6, align 8, !tbaa !99
   br label %_ZNSt6vectorIN11OpenImageIO6v3_1_07ustringESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
 
@@ -2673,7 +2672,7 @@ _ZN11OpenImageIO6v3_1_013spin_rw_mutex15read_lock_guardC2ERS1_.exit: ; preds = %
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 16, !tbaa !76
   %.01114 = and i64 %2, %26
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.01114
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.01114
   %30 = load ptr, ptr %29, align 8, !tbaa !77
   %31 = icmp eq ptr %30, null
   br i1 %31, label %._crit_edge, label %.lr.ph
@@ -2708,7 +2707,7 @@ _ZN11OpenImageIO6v3_1_013spin_rw_mutex15read_lock_guardC2ERS1_.exit: ; preds = %
   %48 = add i64 %.015, 1
   %49 = add i64 %48, %.01116
   %.011 = and i64 %49, %26
-  %50 = getelementptr inbounds nuw ptr, ptr %28, i64 %.011
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.011
   %51 = load ptr, ptr %50, align 8, !tbaa !77
   %52 = icmp eq ptr %51, null
   br i1 %52, label %._crit_edge, label %33, !llvm.loop !111
@@ -2815,7 +2814,7 @@ _ZN11OpenImageIO6v3_1_013spin_rw_mutex16write_lock_guardC2ERS1_.exit: ; preds = 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 16, !tbaa !76
   %.01725 = and i64 %2, %16
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.01725
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01725
   %20 = load ptr, ptr %19, align 8, !tbaa !77
   %21 = icmp eq ptr %20, null
   br i1 %21, label %._crit_edge, label %.lr.ph
@@ -2850,7 +2849,7 @@ _ZN11OpenImageIO6v3_1_013spin_rw_mutex16write_lock_guardC2ERS1_.exit: ; preds = 
   %37 = add i64 %.01826, 1
   %38 = add i64 %.01727, %37
   %.017 = and i64 %38, %16
-  %39 = getelementptr inbounds nuw ptr, ptr %18, i64 %.017
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.017
   %40 = load ptr, ptr %39, align 8, !tbaa !77
   %41 = icmp eq ptr %40, null
   br i1 %41, label %._crit_edge, label %23, !llvm.loop !114
@@ -2915,7 +2914,7 @@ _ZN11OpenImageIO6v3_1_011TableRepMapILj256ELj4096EE10pool_allocEm.exit.i: ; pred
 70:                                               ; preds = %_ZN11OpenImageIO6v3_1_011TableRepMapILj256ELj4096EE10pool_allocEm.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %71 = load ptr, ptr %17, align 16, !tbaa !76
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %.017.lcssa
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.017.lcssa
   store ptr %.0.i.i, ptr %72, align 8, !tbaa !77
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %74 = load i64, ptr %73, align 8, !tbaa !94
@@ -2943,7 +2942,7 @@ _ZN11OpenImageIO6v3_1_011TableRepMapILj256ELj4096EE10pool_allocEm.exit.i: ; pred
 .lr.ph29.i:                                       ; preds = %79, %104
   %.01927.i = phi i64 [ %105, %104 ], [ 0, %79 ]
   %.02026.i = phi i64 [ %.1.i, %104 ], [ %75, %79 ]
-  %89 = getelementptr inbounds nuw ptr, ptr %71, i64 %.01927.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.01927.i
   %90 = load ptr, ptr %89, align 8, !tbaa !77
   %91 = icmp eq ptr %90, null
   br i1 %91, label %104, label %92
@@ -2951,7 +2950,7 @@ _ZN11OpenImageIO6v3_1_011TableRepMapILj256ELj4096EE10pool_allocEm.exit.i: ; pred
 92:                                               ; preds = %.lr.ph29.i
   %93 = load i64, ptr %90, align 8, !tbaa !10
   %.01822.i = and i64 %93, %81
-  %94 = getelementptr inbounds nuw ptr, ptr %88, i64 %.01822.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.01822.i
   %95 = load ptr, ptr %94, align 8, !tbaa !77
   %96 = icmp eq ptr %95, null
   br i1 %96, label %._crit_edge.i, label %.lr.ph.i
@@ -2962,14 +2961,14 @@ _ZN11OpenImageIO6v3_1_011TableRepMapILj256ELj4096EE10pool_allocEm.exit.i: ; pred
   %97 = add i64 %.023.i, 1
   %98 = add i64 %97, %.01824.i
   %.018.i = and i64 %98, %81
-  %99 = getelementptr inbounds nuw ptr, ptr %88, i64 %.018.i
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.018.i
   %100 = load ptr, ptr %99, align 8, !tbaa !77
   %101 = icmp eq ptr %100, null
   br i1 %101, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !115
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %92
   %.018.lcssa.i = phi i64 [ %.01822.i, %92 ], [ %.018.i, %.lr.ph.i ]
-  %102 = getelementptr inbounds nuw ptr, ptr %88, i64 %.018.lcssa.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.018.lcssa.i
   store ptr %90, ptr %102, align 8, !tbaa !77
   %103 = add i64 %.02026.i, -1
   br label %104
@@ -3036,7 +3035,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmPKcESaIS4_E
   %12 = load i64, ptr %11, align 8, !tbaa !40
   %13 = urem i64 %6, %12
   %14 = load ptr, ptr %0, align 8, !tbaa !32
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !51
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %.critedge28, label %28
@@ -3169,7 +3168,7 @@ _ZNSt10_HashtableImSt4pairIKmPKcESaIS4_ENSt8__detail10_Select1stESt8equal_toImEN
 31:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmPKcESaIS4_ENSt8__detail10_Select1stESt8equal_toImEN11OpenImageIO6v3_1_08identityImEENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableImSt4pairIKmPKcESaIS4_ENSt8__detail10_Select1stESt8equal_toImEN11OpenImageIO6v3_1_08identityImEENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !32
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !51
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -3195,7 +3194,7 @@ _ZNSt10_HashtableImSt4pairIKmPKcESaIS4_ENSt8__detail10_Select1stESt8equal_toImEN
   %44 = load i64, ptr %9, align 8, !tbaa !40
   %45 = load i64, ptr %43, align 8, !tbaa !27
   %46 = urem i64 %45, %44
-  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %46
   store ptr %3, ptr %47, align 8, !tbaa !51
   br label %48
 
@@ -3272,7 +3271,7 @@ _ZNSt10_HashtableImSt4pairIKmPKcESaIS4_ENSt8__detail10_Select1stESt8equal_toImEN
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !27
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !51
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -3287,7 +3286,7 @@ _ZNSt10_HashtableImSt4pairIKmPKcESaIS4_ENSt8__detail10_Select1stESt8equal_toImEN
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !51
   br label %28
 

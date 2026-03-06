@@ -447,7 +447,7 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %2
 94:                                               ; preds = %94, %86
   %indvars.iv.i = phi i64 [ 0, %86 ], [ %indvars.iv.next.i, %94 ]
   %.04766.i = phi ptr [ %7, %86 ], [ %96, %94 ]
-  %95 = getelementptr inbounds nuw %struct.drbg_fork_result_st, ptr %8, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.04766.i, ptr noundef nonnull align 8 dereferenceable(16) %95, i64 16, i1 false)
   %96 = getelementptr inbounds nuw i8, ptr %.04766.i, i64 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -462,7 +462,7 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %2
 98:                                               ; preds = %110, %97
   %99 = phi i8 [ %.pre.i, %97 ], [ %101, %110 ]
   %indvars.iv76.i = phi i64 [ 1, %97 ], [ %indvars.iv.next77.i, %110 ]
-  %100 = getelementptr inbounds nuw %struct.drbg_fork_result_st, ptr %8, i64 %indvars.iv76.i
+  %100 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %indvars.iv76.i
   %101 = load i8, ptr %100, align 8, !tbaa !26
   %102 = icmp eq i8 %101, %99
   br i1 %102, label %103, label %110
@@ -471,7 +471,7 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %2
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %105 = load i32, ptr %104, align 8, !tbaa !24
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds i32, ptr %5, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %5, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !22
   %109 = add nsw i32 %108, 1
   store i32 %109, ptr %107, align 4, !tbaa !22
@@ -539,7 +539,7 @@ test_drbg_reseed_in_child.exit.i:                 ; preds = %.sink.split.i.i, %2
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv80.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next81.i, %.preheader.i ]
-  %131 = getelementptr inbounds nuw %struct.drbg_fork_result_st, ptr %8, i64 %indvars.iv80.i
+  %131 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %indvars.iv80.i
   %132 = call ptr @OPENSSL_buf2hexstr(ptr noundef nonnull %131, i64 noundef 16) #14
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 20
   %134 = load i32, ptr %133, align 4, !tbaa !23
@@ -818,7 +818,7 @@ define internal range(i32 0, 2) i32 @test_multi_thread() #0 {
 
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %4 = call i32 @pthread_create(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef null) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -830,7 +830,7 @@ define internal range(i32 0, 2) i32 @test_multi_thread() #0 {
 
 6:                                                ; preds = %5, %6
   %indvars.iv13 = phi i64 [ 0, %5 ], [ %indvars.iv.next14, %6 ]
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv13
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv13
   %8 = load i64, ptr %7, align 8, !tbaa !31
   %9 = call i32 @pthread_join(i64 noundef %8, ptr noundef null) #14
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1

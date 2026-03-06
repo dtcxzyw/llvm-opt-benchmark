@@ -41,11 +41,11 @@ define dso_local ptr @riscv_create_params(ptr noundef readonly captures(address_
 
 12:                                               ; preds = %8, %12
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call fastcc ptr @type_lowering(ptr noundef %14)
   %16 = tail call fastcc ptr @riscv_classify_argument_type(ptr noundef %15, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3)
-  %17 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store ptr %16, ptr %17, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
@@ -527,11 +527,11 @@ riscv_classify_return.exit:                       ; preds = %13, %15
 
 50:                                               ; preds = %50, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %50 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8
   %53 = tail call fastcc ptr @type_lowering(ptr noundef %52)
   %54 = call fastcc ptr @riscv_classify_argument_type(ptr noundef %53, i1 noundef zeroext true, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %55 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i
   store ptr %54, ptr %55, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %47
@@ -560,11 +560,11 @@ riscv_create_params.exit:                         ; preds = %50, %40, %43
 
 66:                                               ; preds = %66, %62
   %indvars.iv.i20 = phi i64 [ 0, %62 ], [ %indvars.iv.next.i21, %66 ]
-  %67 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i20
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv.i20
   %68 = load ptr, ptr %67, align 8
   %69 = tail call fastcc ptr @type_lowering(ptr noundef %68)
   %70 = call fastcc ptr @riscv_classify_argument_type(ptr noundef %69, i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %71 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i20
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.i20
   store ptr %70, ptr %71, align 8
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, %63
@@ -763,7 +763,7 @@ define internal fastcc zeroext i1 @riscv_detect_fpcc_struct_internal(ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %60 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 72
   %64 = load ptr, ptr %63, align 8

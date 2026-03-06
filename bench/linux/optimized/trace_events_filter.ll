@@ -18,7 +18,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_filter_match
 %struct.anon.28 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.srcu_struct = type { i32, ptr, %struct.lockdep_map, ptr }
 %struct.lockdep_map = type {}
-%struct.prog_entry = type { i32, i32, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"[?\\\00", align 1
 @__UNIQUE_ID___addressable_filter_match_preds396 = internal global ptr @filter_match_preds, section ".discard.addressable", align 8
@@ -1468,7 +1467,7 @@ define dso_local i32 @filter_match_preds(ptr noundef %0, ptr noundef %1) #2 alig
   %915 = phi i32 [ %913, %912 ], [ %15, %.thread ]
   %916 = add i32 %915, 1
   %917 = sext i32 %916 to i64
-  %918 = getelementptr %struct.prog_entry, ptr %7, i64 %917
+  %918 = getelementptr [16 x i8], ptr %7, i64 %917
   %919 = getelementptr inbounds nuw i8, ptr %918, i64 8
   %920 = load ptr, ptr %919, align 8
   %921 = icmp eq ptr %920, null
@@ -1581,7 +1580,7 @@ define internal fastcc void @__free_filter(ptr noundef %0) unnamed_addr #2 align
   tail call void @kfree(ptr noundef nonnull %10) #19
   %15 = add i32 %11, 1
   %16 = sext i32 %15 to i64
-  %.split = getelementptr %struct.prog_entry, ptr %4, i64 %16
+  %.split = getelementptr [16 x i8], ptr %4, i64 %16
   %17 = getelementptr i8, ptr %.split, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
@@ -2630,7 +2629,7 @@ define internal fastcc i32 @process_preds(ptr noundef %0, ptr noundef %1, ptr no
   %165 = getelementptr i8, ptr %119, i64 %164
   store i8 %163, ptr %165, align 1
   %166 = add i32 %132, -1
-  %167 = getelementptr %struct.prog_entry, ptr %115, i64 %164
+  %167 = getelementptr [16 x i8], ptr %115, i64 %164
   store i32 %166, ptr %167, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !38
@@ -2736,7 +2735,7 @@ define internal fastcc i32 @process_preds(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %235, label %.loopexit117, label %.preheader115
 
 236:                                              ; preds = %.preheader115
-  %237 = getelementptr ptr, ptr @ops, i64 %243
+  %237 = getelementptr [8 x i8], ptr @ops, i64 %243
   %238 = load ptr, ptr %237, align 8
   %239 = call i64 @strlen(ptr noundef %238) #19
   %240 = call i32 @strncmp(ptr noundef %234, ptr noundef %238, i64 noundef %239) #19
@@ -3531,7 +3530,7 @@ sub_1:                                            ; preds = %sub_0
 653:                                              ; preds = %647
   %654 = load i32, ptr %167, align 8
   %655 = sext i32 %654 to i64
-  %656 = getelementptr %struct.prog_entry, ptr %115, i64 %655
+  %656 = getelementptr [16 x i8], ptr %115, i64 %655
   %657 = load i32, ptr %656, align 8
   %658 = getelementptr inbounds nuw i8, ptr %656, i64 4
   store i32 %650, ptr %658, align 4
@@ -3562,7 +3561,7 @@ sub_1:                                            ; preds = %sub_0
   %671 = xor i32 %650, 1
   %672 = load i32, ptr %167, align 8
   %673 = sext i32 %672 to i64
-  %674 = getelementptr %struct.prog_entry, ptr %115, i64 %673
+  %674 = getelementptr [16 x i8], ptr %115, i64 %673
   %675 = load i32, ptr %674, align 8
   %676 = getelementptr inbounds nuw i8, ptr %674, i64 4
   store i32 %671, ptr %676, align 4
@@ -3662,19 +3661,19 @@ thread-pre-split:                                 ; preds = %692, %130, %149
 
 711:                                              ; preds = %706
   %712 = sext i32 %700 to i64
-  %713 = getelementptr %struct.prog_entry, ptr %115, i64 %712
+  %713 = getelementptr [16 x i8], ptr %115, i64 %712
   %714 = getelementptr inbounds nuw i8, ptr %713, i64 8
   store ptr null, ptr %714, align 8
   store i32 1, ptr %713, align 8
   %715 = add i32 %700, 1
   %716 = sext i32 %715 to i64
-  %717 = getelementptr %struct.prog_entry, ptr %115, i64 %716
+  %717 = getelementptr [16 x i8], ptr %115, i64 %716
   %718 = getelementptr inbounds nuw i8, ptr %717, i64 8
   store ptr null, ptr %718, align 8
   store i32 0, ptr %717, align 8
   %719 = add i32 %700, -1
   %720 = sext i32 %719 to i64
-  %721 = getelementptr %struct.prog_entry, ptr %115, i64 %720
+  %721 = getelementptr [16 x i8], ptr %115, i64 %720
   store i32 %700, ptr %721, align 8
   %722 = getelementptr inbounds nuw i8, ptr %721, i64 4
   store i32 0, ptr %722, align 4
@@ -3696,12 +3695,12 @@ thread-pre-split:                                 ; preds = %692, %130, %149
 729:                                              ; preds = %743, %724
   %730 = phi i32 [ %744, %743 ], [ %725, %724 ]
   %731 = sext i32 %730 to i64
-  %732 = getelementptr %struct.prog_entry, ptr %115, i64 %731
+  %732 = getelementptr [16 x i8], ptr %115, i64 %731
   %733 = load i32, ptr %732, align 8
   %734 = getelementptr inbounds nuw i8, ptr %732, i64 4
   %735 = load i32, ptr %734, align 4
   %736 = sext i32 %733 to i64
-  %737 = getelementptr %struct.prog_entry, ptr %115, i64 %736
+  %737 = getelementptr [16 x i8], ptr %115, i64 %736
   %738 = getelementptr inbounds nuw i8, ptr %737, i64 4
   %739 = load i32, ptr %738, align 4
   %740 = icmp eq i32 %735, %739
@@ -3727,7 +3726,7 @@ thread-pre-split:                                 ; preds = %692, %130, %149
   %751 = getelementptr i8, ptr %119, i64 %750
   %752 = load i8, ptr %751, align 1
   %753 = zext i8 %752 to i32
-  %754 = getelementptr %struct.prog_entry, ptr %115, i64 %750
+  %754 = getelementptr [16 x i8], ptr %115, i64 %750
   %755 = getelementptr inbounds nuw i8, ptr %754, i64 4
   %756 = load i32, ptr %755, align 4
   %757 = xor i32 %756, %753
@@ -3774,7 +3773,7 @@ thread-pre-split:                                 ; preds = %692, %130, %149
   call void @kfree(ptr noundef nonnull %770) #19
   %775 = add i32 %771, 1
   %776 = sext i32 %775 to i64
-  %.split56 = getelementptr %struct.prog_entry, ptr %763, i64 %776
+  %.split56 = getelementptr [16 x i8], ptr %763, i64 %776
   %777 = getelementptr i8, ptr %.split56, i64 8
   %778 = load ptr, ptr %777, align 8
   %779 = icmp eq ptr %778, null
@@ -3854,7 +3853,7 @@ define internal fastcc void @append_filter_err(ptr noundef %0, ptr noundef reado
   tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.25, i32 noundef %26, ptr noundef nonnull @.str.26) #19
   %27 = load i32, ptr %1, align 4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr ptr, ptr @err_text, i64 %28
+  %29 = getelementptr [8 x i8], ptr @err_text, i64 %28
   %30 = load ptr, ptr %29, align 8
   tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.27, ptr noundef %30) #19
   %31 = load ptr, ptr %6, align 8

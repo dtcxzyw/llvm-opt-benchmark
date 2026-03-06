@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.summary_ctx = type { ptr, i32, ptr, ptr, i64, i32, i32, i16, i32, ptr, i32 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.codepage_entry = type { i16, ptr }
 
 @.str = private unnamed_addr constant [26 x i8] c"in cli_ole2_summary_json\0A\00", align 1
 @.str.1 = private unnamed_addr constant [44 x i8] c"ole2_summary_json: invalid file descriptor\0A\00", align 1
@@ -1640,7 +1639,7 @@ define internal fastcc ptr @ole2_convert_utf(ptr noundef nonnull captures(none) 
 43:                                               ; preds = %.preheader126, %52
   %.092150 = phi i64 [ 0, %.preheader126 ], [ %53, %52 ]
   %.199149 = phi ptr [ null, %.preheader126 ], [ %.2, %52 ]
-  %44 = getelementptr inbounds nuw %struct.codepage_entry, ptr @codepage_entries, i64 %.092150
+  %44 = getelementptr inbounds nuw [16 x i8], ptr @codepage_entries, i64 %.092150
   %45 = load i16, ptr %44, align 16, !tbaa !46
   %46 = icmp eq i16 %42, %45
   br i1 %46, label %47, label %50

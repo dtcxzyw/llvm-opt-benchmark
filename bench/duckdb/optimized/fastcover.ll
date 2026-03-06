@@ -138,7 +138,7 @@ _ZN11duckdb_zstdL25FASTCOVER_checkParametersENS_20ZDICT_cover_params_tEmjj.exit.
 
 52:                                               ; preds = %43
   %53 = zext nneg i32 %18 to i64
-  %54 = getelementptr inbounds nuw %"struct.duckdb_zstd::FASTCOVER_accel_t", ptr @_ZN11duckdb_zstdL32FASTCOVER_defaultAccelParametersE, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11duckdb_zstdL32FASTCOVER_defaultAccelParametersE, i64 %53
   %.sroa.011.0.copyload = load i64, ptr %54, align 8
   %55 = call fastcc noundef i64 @_ZN11duckdb_zstdL18FASTCOVER_ctx_initEPNS_15FASTCOVER_ctx_tEPKvPKmjjdjNS_17FASTCOVER_accel_tE(ptr noundef %7, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.sroa.250.0.copyload, double noundef 1.000000e+00, i32 noundef %15, i64 %.sroa.011.0.copyload)
   %56 = icmp ult i64 %55, -119
@@ -264,7 +264,7 @@ define internal fastcc noundef range(i64 -72, 1) i64 @_ZN11duckdb_zstdL18FASTCOV
 17:                                               ; preds = %8
   %18 = tail call noundef i64 @_ZN11duckdb_zstd9COVER_sumEPKmj(ptr noundef %2, i32 noundef %13)
   %19 = zext i32 %13 to i64
-  %20 = getelementptr inbounds nuw i64, ptr %2, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %19
   %21 = tail call noundef i64 @_ZN11duckdb_zstd9COVER_sumEPKmj(ptr noundef %20, i32 noundef %16)
   br label %22
 
@@ -409,11 +409,11 @@ define internal fastcc noundef range(i64 -72, 1) i64 @_ZN11duckdb_zstdL18FASTCOV
 105:                                              ; preds = %104, %105
   %106 = phi i64 [ 0, %104 ], [ %110, %105 ]
   %indvars.iv = phi i64 [ 1, %104 ], [ %indvars.iv.next, %105 ]
-  %107 = getelementptr i64, ptr %2, i64 %indvars.iv
+  %107 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv
   %108 = getelementptr i8, ptr %107, i64 -8
   %109 = load i64, ptr %108, align 8, !tbaa !35
   %110 = add i64 %109, %106
-  %111 = getelementptr inbounds nuw i64, ptr %89, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv
   store i64 %110, ptr %111, align 8, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -491,7 +491,7 @@ define internal fastcc noundef range(i64 -72, 1) i64 @_ZN11duckdb_zstdL18FASTCOV
   %151 = phi i64 [ %.pre.i, %.lr.ph26.i ], [ %154, %.loopexit.i ]
   %.025.i = phi i64 [ 0, %.lr.ph26.i ], [ %152, %.loopexit.i ]
   %152 = add nuw i64 %.025.i, 1
-  %153 = getelementptr inbounds nuw i64, ptr %143, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %152
   %154 = load i64, ptr %153, align 8, !tbaa !35
   %155 = add i64 %151, %144
   %.not23.i = icmp ugt i64 %155, %154
@@ -507,7 +507,7 @@ define internal fastcc noundef range(i64 -72, 1) i64 @_ZN11duckdb_zstdL18FASTCOV
   %.val.i.i = load i64, ptr %158, align 1, !tbaa !35
   %159 = mul i64 %.val.i.i, %..i.i
   %160 = lshr i64 %159, %147
-  %161 = getelementptr inbounds nuw i32, ptr %136, i64 %160
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %160
   %162 = load i32, ptr %161, align 4, !tbaa !10
   %163 = add i32 %162, 1
   store i32 %163, ptr %161, align 4, !tbaa !10
@@ -615,13 +615,13 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
   %.val.i.i = load i64, ptr %45, align 1, !tbaa !35
   %46 = mul i64 %.val.i.i, %..i.i
   %47 = lshr i64 %46, %36
-  %48 = getelementptr inbounds nuw i16, ptr %5, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !43
   %50 = icmp eq i16 %49, 0
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds nuw i32, ptr %1, i64 %47
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %47
   %53 = load i32, ptr %52, align 4, !tbaa !10
   %54 = add i32 %53, %.sroa.18.04.i
   br label %55
@@ -642,7 +642,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
   %.val.i54.i = load i64, ptr %61, align 1, !tbaa !35
   %62 = mul i64 %.val.i54.i, %..i.i
   %63 = lshr i64 %62, %36
-  %64 = getelementptr inbounds nuw i16, ptr %5, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !43
   %66 = add i16 %65, -1
   store i16 %66, ptr %64, align 2, !tbaa !43
@@ -650,7 +650,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %59
-  %69 = getelementptr inbounds nuw i32, ptr %1, i64 %63
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %63
   %70 = load i32, ptr %69, align 4, !tbaa !10
   %71 = sub i32 %.sroa.18.1.i, %70
   br label %72
@@ -686,7 +686,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
   %.val.i56.i = load i64, ptr %80, align 1, !tbaa !35
   %81 = mul i64 %.val.i56.i, %..i.i
   %82 = lshr i64 %81, %42
-  %83 = getelementptr inbounds nuw i16, ptr %5, i64 %82
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !43
   %85 = add i16 %84, -1
   store i16 %85, ptr %83, align 2, !tbaa !43
@@ -701,7 +701,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
   %.val.i58.i = load i64, ptr %88, align 1, !tbaa !35
   %89 = mul i64 %.val.i58.i, %..i.i
   %90 = lshr i64 %89, %78
-  %91 = getelementptr inbounds nuw i32, ptr %1, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %90
   store i32 0, ptr %91, align 4, !tbaa !10
   %92 = add i32 %.014.i, 1
   %.not.i = icmp eq i32 %92, %.sroa.049.sroa.4.0.lcssa.i
@@ -926,7 +926,7 @@ define noundef i64 @_ZN11duckdb_zstd39ZDICT_optimizeTrainFromBuffer_fastCoverEPv
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.sroa.4, ptr noundef nonnull align 4 dereferenceable(12) %95, i64 12, i1 false)
   %96 = zext nneg i32 %41 to i64
-  %97 = getelementptr inbounds nuw %"struct.duckdb_zstd::FASTCOVER_accel_t", ptr @_ZN11duckdb_zstdL32FASTCOVER_defaultAccelParametersE, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11duckdb_zstdL32FASTCOVER_defaultAccelParametersE, i64 %96
   %.sroa.0100.0.copyload = load i64, ptr %97, align 8
   %98 = call i32 @llvm.usub.sat.i32(i32 %43, i32 1)
   store i32 %98, ptr @_ZN11duckdb_zstdL14g_displayLevelE, align 4, !tbaa !10

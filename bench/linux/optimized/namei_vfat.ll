@@ -1469,7 +1469,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
 
 133:                                              ; preds = %139, %130
   %134 = phi i64 [ %140, %139 ], [ 0, %130 ]
-  %135 = getelementptr i16, ptr %46, i64 %134
+  %135 = getelementptr [2 x i8], ptr %46, i64 %134
   %136 = load i16, ptr %135, align 2
   %137 = icmp ult i16 %136, 32
   br i1 %137, label %.thread83, label %138
@@ -1500,7 +1500,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %144 = phi i32 [ %128, %127 ], [ %128, %142 ], [ 0, %55 ]
   %145 = phi i32 [ %112, %127 ], [ %112, %142 ], [ 0, %55 ]
   %146 = phi i64 [ -1, %127 ], [ %143, %142 ], [ -1, %55 ]
-  %147 = getelementptr i16, ptr %46, i64 %146
+  %147 = getelementptr [2 x i8], ptr %46, i64 %146
   %148 = load i16, ptr %147, align 2
   %149 = icmp eq i16 %148, 32
   br i1 %149, label %.thread83, label %150
@@ -1520,7 +1520,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %14, i8 0, i64 6, i1 false), !annotation !5
   %156 = sext i32 %145 to i64
-  %157 = getelementptr i16, ptr %46, i64 %156
+  %157 = getelementptr [2 x i8], ptr %46, i64 %156
   br label %158
 
 158:                                              ; preds = %162, %150
@@ -2208,7 +2208,7 @@ define internal fastcc i32 @vfat_add_entry(ptr noundef %0, ptr noundef readonly 
   %553 = add nuw nsw i64 %552, 4294967283
   %554 = and i64 %553, 4294967295
   %555 = getelementptr inbounds nuw i8, ptr %546, i64 1
-  %556 = getelementptr i16, ptr %46, i64 %554
+  %556 = getelementptr [2 x i8], ptr %46, i64 %554
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %555, ptr noundef align 2 dereferenceable(10) %556, i64 10, i1 false)
   %557 = getelementptr inbounds nuw i8, ptr %546, i64 14
   %558 = getelementptr i8, ptr %556, i64 10

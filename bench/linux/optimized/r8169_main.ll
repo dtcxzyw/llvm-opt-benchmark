@@ -46,17 +46,7 @@ module asm ".previous\09\09\09\09\09"
 %struct.rtl_mac_info = type { i16, i16, i32 }
 %struct.anon.84 = type { i32, i16, i8 }
 %struct.rtl_coalesce_info = type { i32, [4 x i32] }
-%struct.TxDesc = type { i32, i32, i64 }
-%struct.ring_info = type { ptr, i32 }
-%struct.RxDesc = type { i32, i32, i64 }
 %struct.vlan_hdr = type { i16, i16 }
-%struct.bio_vec = type { ptr, i32, i32 }
-%struct.page = type { i64, %union.anon.64, %union.anon.72, %struct.atomic_t, [8 x i8] }
-%union.anon.64 = type { %struct.anon.65 }
-%struct.anon.65 = type { %union.anon.66, ptr, %union.anon.68, i64 }
-%union.anon.66 = type { %struct.list_head }
-%union.anon.68 = type { i64 }
-%union.anon.72 = type { %struct.atomic_t }
 %struct.ipv6hdr = type { i8, [3 x i8], i16, i8, i8, %union.anon.60 }
 %union.anon.60 = type { %struct.anon.61 }
 %struct.anon.61 = type { %struct.in6_addr, %struct.in6_addr }
@@ -767,7 +757,7 @@ define internal i32 @rtl_init_one(ptr noundef %0, ptr noundef readonly captures(
 
 69:                                               ; preds = %61
   %70 = tail call ptr @pcim_iomap_table(ptr noundef %0) #19
-  %71 = getelementptr ptr, ptr %70, i64 %62
+  %71 = getelementptr [8 x i8], ptr %70, i64 %62
   %72 = load ptr, ptr %71, align 8
   store ptr %72, ptr %9, align 8
   %73 = getelementptr i8, ptr %72, i64 64
@@ -1588,7 +1578,7 @@ thread-pre-split:                                 ; preds = %442, %457
   %477 = select i1 %474, i32 32895, i32 %476
   store i32 %477, ptr %473, align 4
   %478 = zext i32 %120 to i64
-  %479 = getelementptr %struct.anon.30, ptr @rtl_chip_infos, i64 %478
+  %479 = getelementptr [16 x i8], ptr @rtl_chip_infos, i64 %478
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 8
   %481 = load ptr, ptr %480, align 8
   %482 = getelementptr i8, ptr %4, i64 9104
@@ -2168,7 +2158,7 @@ define internal i32 @rtl8169_poll(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %14 = and i32 %7, 255
   %15 = load ptr, ptr %9, align 8
   %16 = zext nneg i32 %14 to i64
-  %17 = getelementptr %struct.TxDesc, ptr %15, i64 %16
+  %17 = getelementptr [16 x i8], ptr %15, i64 %16
   %18 = load volatile i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, -1
   br i1 %19, label %.lr.ph41, label %.thread
@@ -2177,7 +2167,7 @@ define internal i32 @rtl8169_poll(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %20 = and i32 %49, 255
   %21 = load ptr, ptr %9, align 8
   %22 = zext nneg i32 %20 to i64
-  %23 = getelementptr %struct.TxDesc, ptr %21, i64 %22
+  %23 = getelementptr [16 x i8], ptr %21, i64 %22
   %24 = load volatile i32, ptr %23, align 8
   %25 = icmp sgt i32 %24, -1
   br i1 %25, label %.lr.ph41, label %.thread.loopexit
@@ -2188,7 +2178,7 @@ define internal i32 @rtl8169_poll(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %28 = phi i32 [ %47, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %29 = phi i32 [ %48, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %30 = phi i32 [ %49, %.lr.ph ], [ %7, %.lr.ph.preheader ]
-  %31 = getelementptr %struct.ring_info, ptr %10, i64 %27
+  %31 = getelementptr [16 x i8], ptr %10, i64 %27
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %11, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 184
@@ -2344,7 +2334,7 @@ define internal i32 @rtl8169_poll(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %123 = and i32 %121, 255
   %124 = load ptr, ptr %111, align 8
   %125 = zext nneg i32 %123 to i64
-  %126 = getelementptr %struct.RxDesc, ptr %124, i64 %125
+  %126 = getelementptr [16 x i8], ptr %124, i64 %125
   %127 = load volatile i32, ptr %126, align 8
   %128 = icmp sgt i32 %127, -1
   br i1 %128, label %129, label %.loopexit
@@ -2439,7 +2429,7 @@ define internal i32 @rtl8169_poll(ptr noundef %0, i32 noundef %1) #0 align 16 {
 180:                                              ; preds = %174
   %181 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %182 = load i64, ptr %181, align 8
-  %183 = getelementptr ptr, ptr %117, i64 %125
+  %183 = getelementptr [8 x i8], ptr %117, i64 %125
   %184 = load ptr, ptr %183, align 8
   %185 = load i64, ptr @vmemmap_base, align 8
   %186 = ptrtoint ptr %184 to i64
@@ -3055,7 +3045,7 @@ define internal i32 @rtl_open(ptr noundef %0) #0 align 16 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !36
   %27 = or disjoint i32 %25, -2147467265
   store volatile i32 %27, ptr %34, align 8
-  %28 = getelementptr ptr, ptr %20, i64 %32
+  %28 = getelementptr [8 x i8], ptr %20, i64 %32
   store ptr %44, ptr %28, align 8
   %29 = add nuw nsw i64 %32, 1
   %30 = icmp eq i64 %29, 256
@@ -3064,7 +3054,7 @@ define internal i32 @rtl_open(ptr noundef %0) #0 align 16 {
 31:                                               ; preds = %22, %16
   %32 = phi i64 [ 0, %16 ], [ %29, %22 ]
   %33 = load ptr, ptr %14, align 8
-  %34 = getelementptr %struct.RxDesc, ptr %33, i64 %32
+  %34 = getelementptr [16 x i8], ptr %33, i64 %32
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 184
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 824
@@ -3098,7 +3088,7 @@ define internal i32 @rtl_open(ptr noundef %0) #0 align 16 {
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %55
   %51 = phi i64 [ %66, %55 ], [ 0, %.loopexit.preheader ]
-  %52 = getelementptr ptr, ptr %20, i64 %51
+  %52 = getelementptr [8 x i8], ptr %20, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.thread16, label %55
@@ -3107,7 +3097,7 @@ define internal i32 @rtl_open(ptr noundef %0) #0 align 16 {
   %56 = load ptr, ptr %3, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 184
   %58 = load ptr, ptr %14, align 8
-  %.split = getelementptr %struct.RxDesc, ptr %58, i64 %51
+  %.split = getelementptr [16 x i8], ptr %58, i64 %51
   %59 = getelementptr i8, ptr %.split, i64 8
   %60 = load i64, ptr %59, align 8
   tail call void @dma_unmap_page_attrs(ptr noundef nonnull %57, i64 noundef %60, i64 noundef 16383, i32 noundef 2, i64 noundef 0) #19
@@ -3115,11 +3105,11 @@ define internal i32 @rtl_open(ptr noundef %0) #0 align 16 {
   tail call void @__free_pages(ptr noundef %61, i32 noundef 2) #19
   store ptr null, ptr %52, align 8
   %62 = load ptr, ptr %14, align 8
-  %.split12 = getelementptr %struct.RxDesc, ptr %62, i64 %51
+  %.split12 = getelementptr [16 x i8], ptr %62, i64 %51
   %63 = getelementptr i8, ptr %.split12, i64 8
   store i64 0, ptr %63, align 8
   %64 = load ptr, ptr %14, align 8
-  %65 = getelementptr %struct.RxDesc, ptr %64, i64 %51
+  %65 = getelementptr [16 x i8], ptr %64, i64 %51
   store i32 0, ptr %65, align 8
   %66 = add nuw nsw i64 %51, 1
   %67 = icmp eq i64 %66, 256
@@ -3303,7 +3293,7 @@ define internal i32 @rtl_open(ptr noundef %0) #0 align 16 {
 
 174:                                              ; preds = %.preheader, %179
   %175 = phi i64 [ %190, %179 ], [ 0, %.preheader ]
-  %176 = getelementptr ptr, ptr %20, i64 %175
+  %176 = getelementptr [8 x i8], ptr %20, i64 %175
   %177 = load ptr, ptr %176, align 8
   %178 = icmp eq ptr %177, null
   br i1 %178, label %.thread16, label %179
@@ -3312,7 +3302,7 @@ define internal i32 @rtl_open(ptr noundef %0) #0 align 16 {
   %180 = load ptr, ptr %3, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 184
   %182 = load ptr, ptr %14, align 8
-  %.split13 = getelementptr %struct.RxDesc, ptr %182, i64 %175
+  %.split13 = getelementptr [16 x i8], ptr %182, i64 %175
   %183 = getelementptr i8, ptr %.split13, i64 8
   %184 = load i64, ptr %183, align 8
   tail call void @dma_unmap_page_attrs(ptr noundef nonnull %181, i64 noundef %184, i64 noundef 16383, i32 noundef 2, i64 noundef 0) #19
@@ -3320,11 +3310,11 @@ define internal i32 @rtl_open(ptr noundef %0) #0 align 16 {
   tail call void @__free_pages(ptr noundef %185, i32 noundef 2) #19
   store ptr null, ptr %176, align 8
   %186 = load ptr, ptr %14, align 8
-  %.split14 = getelementptr %struct.RxDesc, ptr %186, i64 %175
+  %.split14 = getelementptr [16 x i8], ptr %186, i64 %175
   %187 = getelementptr i8, ptr %.split14, i64 8
   store i64 0, ptr %187, align 8
   %188 = load ptr, ptr %14, align 8
-  %189 = getelementptr %struct.RxDesc, ptr %188, i64 %175
+  %189 = getelementptr [16 x i8], ptr %188, i64 %175
   store i32 0, ptr %189, align 8
   %190 = add nuw nsw i64 %175, 1
   %191 = icmp eq i64 %190, 256
@@ -3365,7 +3355,7 @@ define internal noundef i32 @rtl8169_close(ptr noundef initializes((8960, 8968))
 
 12:                                               ; preds = %17, %1
   %13 = phi i64 [ 0, %1 ], [ %28, %17 ]
-  %14 = getelementptr ptr, ptr %10, i64 %13
+  %14 = getelementptr [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %30, label %17
@@ -3374,7 +3364,7 @@ define internal noundef i32 @rtl8169_close(ptr noundef initializes((8960, 8968))
   %18 = load ptr, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 184
   %20 = load ptr, ptr %11, align 8
-  %.split = getelementptr %struct.RxDesc, ptr %20, i64 %13
+  %.split = getelementptr [16 x i8], ptr %20, i64 %13
   %21 = getelementptr i8, ptr %.split, i64 8
   %22 = load i64, ptr %21, align 8
   tail call void @dma_unmap_page_attrs(ptr noundef nonnull %19, i64 noundef %22, i64 noundef 16383, i32 noundef 2, i64 noundef 0) #19
@@ -3382,11 +3372,11 @@ define internal noundef i32 @rtl8169_close(ptr noundef initializes((8960, 8968))
   tail call void @__free_pages(ptr noundef %23, i32 noundef 2) #19
   store ptr null, ptr %14, align 8
   %24 = load ptr, ptr %11, align 8
-  %.split1 = getelementptr %struct.RxDesc, ptr %24, i64 %13
+  %.split1 = getelementptr [16 x i8], ptr %24, i64 %13
   %25 = getelementptr i8, ptr %.split1, i64 8
   store i64 0, ptr %25, align 8
   %26 = load ptr, ptr %11, align 8
-  %27 = getelementptr %struct.RxDesc, ptr %26, i64 %13
+  %27 = getelementptr [16 x i8], ptr %26, i64 %13
   store i32 0, ptr %27, align 8
   %28 = add nuw nsw i64 %13, 1
   %29 = icmp eq i64 %28, 256
@@ -3852,7 +3842,7 @@ __skb_put.exit:                                   ; preds = %230
   %251 = getelementptr i8, ptr %1, i64 2760
   %252 = load ptr, ptr %251, align 8
   %253 = zext nneg i32 %16 to i64
-  %254 = getelementptr %struct.TxDesc, ptr %252, i64 %253
+  %254 = getelementptr [16 x i8], ptr %252, i64 %253
   %255 = icmp eq i8 %11, 0
   br i1 %255, label %326, label %256
 
@@ -3873,7 +3863,7 @@ __skb_put.exit:                                   ; preds = %230
 266:                                              ; preds = %288, %264
   %267 = phi i64 [ 0, %264 ], [ %289, %288 ]
   %268 = phi i32 [ %16, %264 ], [ %285, %288 ]
-  %269 = getelementptr %struct.bio_vec, ptr %265, i64 %267
+  %269 = getelementptr [16 x i8], ptr %265, i64 %267
   %270 = load ptr, ptr %269, align 8
   %271 = load i64, ptr @vmemmap_base, align 8
   %272 = ptrtoint ptr %270 to i64
@@ -3918,7 +3908,7 @@ __skb_put.exit:                                   ; preds = %230
   %303 = add i32 %296, %302
   %304 = and i32 %303, 255
   %305 = zext nneg i32 %304 to i64
-  %306 = getelementptr %struct.ring_info, ptr %299, i64 %305
+  %306 = getelementptr [16 x i8], ptr %299, i64 %305
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 8
   %308 = load i32, ptr %307, align 8
   %309 = icmp eq i32 %308, 0
@@ -3927,7 +3917,7 @@ __skb_put.exit:                                   ; preds = %230
 310:                                              ; preds = %301
   %311 = load ptr, ptr %306, align 8
   %312 = load ptr, ptr %251, align 8
-  %313 = getelementptr %struct.TxDesc, ptr %312, i64 %305
+  %313 = getelementptr [16 x i8], ptr %312, i64 %305
   %314 = load ptr, ptr %300, align 8
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 184
   %316 = getelementptr inbounds nuw i8, ptr %313, i64 8
@@ -3962,12 +3952,12 @@ __skb_put.exit:                                   ; preds = %230
 326:                                              ; preds = %.loopexit30, %250
   %.pre-phi = phi i64 [ %.pre43, %.loopexit30 ], [ %253, %250 ]
   %327 = phi ptr [ %.pre42, %.loopexit30 ], [ %252, %250 ]
-  %328 = getelementptr %struct.TxDesc, ptr %327, i64 %.pre-phi
+  %328 = getelementptr [16 x i8], ptr %327, i64 %.pre-phi
   %329 = load i32, ptr %328, align 8
   %330 = or i32 %329, 268435456
   store i32 %330, ptr %328, align 8
   %331 = getelementptr i8, ptr %1, i64 4840
-  %332 = getelementptr %struct.ring_info, ptr %331, i64 %.pre-phi
+  %332 = getelementptr [16 x i8], ptr %331, i64 %.pre-phi
   store ptr %0, ptr %332, align 8
   %333 = load ptr, ptr %4, align 8
   %334 = load i32, ptr %6, align 4
@@ -4105,9 +4095,9 @@ __skb_put.exit:                                   ; preds = %230
 
 .loopexit:                                        ; preds = %321, %293
   %408 = getelementptr i8, ptr %1, i64 4840
-  %409 = getelementptr %struct.ring_info, ptr %408, i64 %253
+  %409 = getelementptr [16 x i8], ptr %408, i64 %253
   %410 = load ptr, ptr %251, align 8
-  %411 = getelementptr %struct.TxDesc, ptr %410, i64 %253
+  %411 = getelementptr [16 x i8], ptr %410, i64 %253
   %412 = getelementptr i8, ptr %1, i64 2312
   %413 = load ptr, ptr %412, align 8
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 184
@@ -4348,7 +4338,7 @@ define internal i64 @rtl8169_features_check(ptr noundef %0, ptr noundef readonly
 
 121:                                              ; preds = %117
   %122 = zext i8 %119 to i64
-  %123 = getelementptr %struct.bio_vec, ptr %101, i64 %122
+  %123 = getelementptr [16 x i8], ptr %101, i64 %122
   %124 = getelementptr i8, ptr %123, i64 40
   %125 = load i32, ptr %124, align 8
   %.fr = freeze i32 %125
@@ -4550,7 +4540,7 @@ define internal void @rtl_set_rx_mode(ptr noundef readonly captures(address) %0)
   %36 = shl nuw i32 1, %35
   %37 = lshr i32 %33, 7
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr i32, ptr %2, i64 %38
+  %39 = getelementptr [4 x i8], ptr %2, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = or i32 %36, %40
   store i32 %41, ptr %39, align 4
@@ -6523,7 +6513,7 @@ define internal fastcc void @rtl_reset_work(ptr noundef %0) unnamed_addr #0 alig
 8:                                                ; preds = %8, %1
   %9 = phi i64 [ 0, %1 ], [ %16, %8 ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr %struct.RxDesc, ptr %10, i64 %9
+  %11 = getelementptr [16 x i8], ptr %10, i64 %9
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1073741824
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -6638,7 +6628,7 @@ define internal fastcc void @rtl_reset_work(ptr noundef %0) unnamed_addr #0 alig
   br i1 %78, label %79, label %103
 
 79:                                               ; preds = %73
-  %80 = getelementptr ptr, ptr @rtl_hw_config.hw_configs, i64 %75
+  %80 = getelementptr [8 x i8], ptr @rtl_hw_config.hw_configs, i64 %75
   %81 = load ptr, ptr %80, align 8
   tail call void %81(ptr noundef %0) #19
   br label %thread-pre-split
@@ -6669,7 +6659,7 @@ define internal fastcc void @rtl_reset_work(ptr noundef %0) unnamed_addr #0 alig
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %91
-  %98 = getelementptr ptr, ptr @rtl_hw_config.hw_configs, i64 %93
+  %98 = getelementptr [8 x i8], ptr @rtl_hw_config.hw_configs, i64 %93
   %99 = load ptr, ptr %98, align 8
   tail call void %99(ptr noundef %0) #19
   br label %100
@@ -7219,7 +7209,7 @@ define internal fastcc void @rtl8169_cleanup(ptr noundef %0) unnamed_addr #0 ali
   %102 = add i32 %101, %96
   %103 = and i32 %102, 255
   %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr %struct.ring_info, ptr %97, i64 %104
+  %105 = getelementptr [16 x i8], ptr %97, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load i32, ptr %106, align 8
   %108 = icmp eq i32 %107, 0
@@ -7228,7 +7218,7 @@ define internal fastcc void @rtl8169_cleanup(ptr noundef %0) unnamed_addr #0 ali
 109:                                              ; preds = %100
   %110 = load ptr, ptr %105, align 8
   %111 = load ptr, ptr %98, align 8
-  %112 = getelementptr %struct.TxDesc, ptr %111, i64 %104
+  %112 = getelementptr [16 x i8], ptr %111, i64 %104
   %113 = load ptr, ptr %99, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 184
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
@@ -9008,7 +8998,7 @@ define internal void @rtl_hw_start_8411_2(ptr noundef %0) #0 align 16 {
 
 31:                                               ; preds = %31, %1
   %32 = phi i64 [ 0, %1 ], [ %42, %31 ]
-  %33 = getelementptr i16, ptr @rtl8411b_fix_phy_down.fix_data, i64 %32
+  %33 = getelementptr [2 x i8], ptr @rtl8411b_fix_phy_down.fix_data, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   %36 = trunc i64 %32 to i32
@@ -12514,7 +12504,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @rtl8169_tx_map(ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %7 = load ptr, ptr %6, align 8
   %8 = zext nneg i32 %3 to i64
-  %9 = getelementptr %struct.TxDesc, ptr %7, i64 %8
+  %9 = getelementptr [16 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 184
@@ -12562,7 +12552,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @rtl8169_tx_map(ptr noundef
   %37 = select i1 %33, i64 %34, i64 %36
   %38 = add i64 %32, %37
   %39 = lshr i64 %38, 12
-  %40 = getelementptr %struct.page, ptr %30, i64 %39
+  %40 = getelementptr [64 x i8], ptr %30, i64 %39
   %41 = and i64 %31, 4095
   %42 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %12, ptr noundef %40, i64 noundef %41, i64 noundef %13, i32 noundef 1, i64 noundef 0) #19
   %43 = icmp eq i64 %42, -1
@@ -13336,7 +13326,7 @@ define internal i32 @rtl_get_coalesce(ptr noundef readonly captures(none) %0, pt
   %36 = load i16, ptr %35, align 8
   %37 = and i16 %36, 3
   %38 = zext nneg i16 %37 to i64
-  %39 = getelementptr i32, ptr %34, i64 %38
+  %39 = getelementptr [4 x i8], ptr %34, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = load ptr, ptr %5, align 8
   %42 = getelementptr i8, ptr %41, i64 226
@@ -13449,7 +13439,7 @@ define internal range(i32 -2147483648, 1) i32 @rtl_set_coalesce(ptr noundef capt
 
 47:                                               ; preds = %56, %42
   %48 = phi i64 [ 0, %42 ], [ %57, %56 ]
-  %49 = getelementptr i32, ptr %43, i64 %48
+  %49 = getelementptr [4 x i8], ptr %43, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = mul i32 %50, 15
   %52 = udiv i32 %51, 1000
@@ -14067,7 +14057,7 @@ define internal fastcc void @__rtl8169_set_wol(ptr noundef %0, i32 noundef %1) u
 136:                                              ; preds = %136, %.loopexit
   %137 = phi i64 [ 0, %.loopexit ], [ %156, %136 ]
   %138 = load ptr, ptr %0, align 8
-  %139 = getelementptr %struct.anon.84, ptr @__rtl8169_set_wol.cfg, i64 %137
+  %139 = getelementptr [8 x i8], ptr @__rtl8169_set_wol.cfg, i64 %137
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %141 = load i16, ptr %140, align 4
   %142 = zext i16 %141 to i64

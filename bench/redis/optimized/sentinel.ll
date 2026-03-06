@@ -1258,7 +1258,7 @@ define dso_local void @sentinelScheduleScriptExecution(ptr noundef %0, ...) loca
 18:                                               ; preds = %15, %10
   %19 = phi ptr [ %13, %10 ], [ %16, %15 ]
   %20 = load ptr, ptr %19, align 8, !tbaa !87
-  %21 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store ptr %20, ptr %21, align 8, !tbaa !87
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %24, label %22
@@ -1331,7 +1331,7 @@ define dso_local void @sentinelScheduleScriptExecution(ptr noundef %0, ...) loca
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   call void @sdsfree(ptr noundef nonnull %54) #30
   %55 = load ptr, ptr %51, align 8, !tbaa !93
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.next.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv.next.i
   %57 = load ptr, ptr %56, align 8, !tbaa !87
   %.not.i = icmp eq ptr %57, null
   br i1 %.not.i, label %sentinelReleaseScriptJob.exit, label %.lr.ph.i, !llvm.loop !102
@@ -1386,7 +1386,7 @@ define dso_local void @sentinelReleaseScriptJob(ptr noundef %0) local_unnamed_ad
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   tail call void @sdsfree(ptr noundef nonnull %5) #30
   %6 = load ptr, ptr %2, align 8, !tbaa !93
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.next
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next
   %8 = load ptr, ptr %7, align 8, !tbaa !87
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !102
@@ -1694,7 +1694,7 @@ sentinelScriptRetryDelay.exit:                    ; preds = %.lr.ph.i25, %36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   call void @sdsfree(ptr noundef nonnull %59) #30
   %60 = load ptr, ptr %56, align 8, !tbaa !93
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.next.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.next.i
   %62 = load ptr, ptr %61, align 8, !tbaa !87
   %.not.i27 = icmp eq ptr %62, null
   br i1 %.not.i27, label %sentinelReleaseScriptJob.exit, label %.lr.ph.i26, !llvm.loop !102
@@ -1802,7 +1802,7 @@ define dso_local void @sentinelPendingScriptsCommand(ptr noundef %0) local_unnam
 
 13:                                               ; preds = %13, %.lr.ph45
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.lr.ph45 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !87
   %.not35 = icmp eq ptr %15, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1821,7 +1821,7 @@ define dso_local void @sentinelPendingScriptsCommand(ptr noundef %0) local_unnam
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   call void @addReplyBulkCString(ptr noundef %0, ptr noundef nonnull %19) #30
   %20 = load ptr, ptr %11, align 8, !tbaa !93
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.next49
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.next49
   %22 = load ptr, ptr %21, align 8, !tbaa !87
   %.not36 = icmp eq ptr %22, null
   br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !112
@@ -3457,7 +3457,7 @@ sentinelAddrOrHostnameEqual.exit.thread:          ; preds = %22, %sentinelAddrOr
   store i32 %46, ptr %47, align 8, !tbaa !86
   %48 = add nsw i32 %.04058, 1
   %49 = sext i32 %.04058 to i64
-  %50 = getelementptr inbounds ptr, ptr %16, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %16, i64 %49
   store ptr %39, ptr %50, align 8, !tbaa !173
   br label %sentinelAddrOrHostnameEqual.exit.thread52
 
@@ -3510,7 +3510,7 @@ sentinelAddrOrHostnameEqual.exit50.thread:        ; preds = %._crit_edge, %senti
   store i32 %75, ptr %76, align 8, !tbaa !86
   %77 = add nsw i32 %.040.lcssa, 1
   %78 = sext i32 %.040.lcssa to i64
-  %79 = getelementptr inbounds ptr, ptr %16, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %16, i64 %78
   store ptr %68, ptr %79, align 8, !tbaa !173
   br label %sentinelAddrOrHostnameEqual.exit50.thread55
 
@@ -3531,7 +3531,7 @@ sentinelAddrOrHostnameEqual.exit50.thread55:      ; preds = %59, %sentinelAddrOr
 
 84:                                               ; preds = %.lr.ph60, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next, %96 ]
-  %85 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8, !tbaa !173
   %87 = load ptr, ptr %86, align 8, !tbaa !30
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 16
@@ -3688,7 +3688,7 @@ define dso_local void @sentinelPropagateDownAfterPeriod(ptr noundef readonly cap
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   tail call void @dictReleaseIterator(ptr noundef %12) #30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next
   %20 = load ptr, ptr %19, align 8, !tbaa !177
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %._crit_edge17, label %10, !llvm.loop !179
@@ -3825,7 +3825,7 @@ define dso_local range(i32 0, 2) i32 @searchPreMonitorCfgName(ptr noundef readon
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @preMonitorCfgName, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @preMonitorCfgName, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !87
   %6 = tail call i32 @strcasecmp(ptr noundef %5, ptr noundef %0) #34
   %.not = icmp eq i32 %6, 0
@@ -3891,10 +3891,10 @@ define dso_local void @queueSentinelConfig(ptr noundef readonly captures(none) %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !87
   %35 = tail call ptr @sdsdup(ptr noundef %34) #30
-  %36 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store ptr %35, ptr %36, align 8, !tbaa !87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3918,7 +3918,7 @@ define dso_local void @queueSentinelConfig(ptr noundef readonly captures(none) %
 
 .preheader:                                       ; preds = %._crit_edge, %42
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %42 ], [ 0, %._crit_edge ]
-  %43 = getelementptr inbounds nuw ptr, ptr @preMonitorCfgName, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @preMonitorCfgName, i64 %indvars.iv.i
   %44 = load ptr, ptr %43, align 8, !tbaa !87
   %45 = tail call i32 @strcasecmp(ptr noundef %44, ptr noundef readonly %37) #34
   %.not.i = icmp eq i32 %45, 0
@@ -3967,7 +3967,7 @@ define dso_local void @loadSentinelConfigFromQueue() local_unnamed_addr #0 {
 
 13:                                               ; preds = %5, %25
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %25 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !192
   call void @listRewind(ptr noundef %15, ptr noundef nonnull %1) #30
   br label %16
@@ -4143,7 +4143,7 @@ define dso_local noundef ptr @sentinelHandleConfiguration(ptr noundef readonly c
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph16.i
   tail call void @dictReleaseIterator(ptr noundef %57) #30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %64 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next.i
   %65 = load ptr, ptr %64, align 8, !tbaa !177
   %.not.i = icmp eq ptr %65, null
   br i1 %.not.i, label %sentinelPropagateDownAfterPeriod.exit, label %.lr.ph16.i, !llvm.loop !179
@@ -5841,7 +5841,7 @@ define dso_local void @sentinelRefreshInstanceInfo(ptr noundef initializes((192,
 27:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %.0182313 = phi i32 [ 0, %.lr.ph ], [ %.1, %.critedge ]
-  %28 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !87
   %30 = getelementptr inbounds i8, ptr %29, i64 -1
   %31 = load i8, ptr %30, align 1, !tbaa !79
@@ -5988,7 +5988,7 @@ sdslen.exit250:                                   ; preds = %73, %76, %80, %84, 
   %96 = getelementptr inbounds nuw i8, ptr %29, i64 5
   %97 = load i8, ptr %96, align 1, !tbaa !79
   %98 = sext i8 %97 to i64
-  %99 = getelementptr inbounds i16, ptr %95, i64 %98
+  %99 = getelementptr inbounds [2 x i8], ptr %95, i64 %98
   %100 = load i16, ptr %99, align 2, !tbaa !204
   %101 = and i16 %100, 2048
   %.not221 = icmp eq i16 %101, 0
@@ -8080,7 +8080,7 @@ define dso_local noundef nonnull ptr @getLogLevel() local_unnamed_addr #24 {
 
 switch.lookup:                                    ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.sentinelConfigGetCommand, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.sentinelConfigGetCommand, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -8116,7 +8116,7 @@ define dso_local void @sentinelConfigSetCommand(ptr noundef %0) local_unnamed_ad
 
 11:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw ptr, ptr @__const.sentinelConfigSetCommand.options, i64 %indvars.iv.next.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @__const.sentinelConfigSetCommand.options, i64 %indvars.iv.next.i
   %13 = load ptr, ptr %12, align 8, !tbaa !87
   %.not.i = icmp eq i64 %indvars.iv.next.i, 7
   br i1 %.not.i, label %populateDict.exit, label %.lr.ph.i, !llvm.loop !248
@@ -8143,7 +8143,7 @@ populateDict.exit:                                ; preds = %11, %1
 21:                                               ; preds = %.lr.ph, %83
   %indvars.iv = phi i64 [ 3, %.lr.ph ], [ %indvars.iv.next, %83 ]
   %22 = load ptr, ptr %18, align 8, !tbaa !258
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !259
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !260
@@ -8189,7 +8189,7 @@ populateDict.exit:                                ; preds = %11, %1
 
 45:                                               ; preds = %39
   %46 = load ptr, ptr %18, align 8, !tbaa !258
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %40
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %40
   %48 = load ptr, ptr %47, align 8, !tbaa !259
   %49 = call i32 @strcasecmp(ptr noundef %26, ptr noundef nonnull @.str.7) #34
   %.not116 = icmp eq i32 %49, 0
@@ -8281,7 +8281,7 @@ populateDict.exit:                                ; preds = %11, %1
   %.0104159 = phi i32 [ 3, %.lr.ph161 ], [ %246, %245 ]
   %90 = load ptr, ptr %20, align 8, !tbaa !258
   %91 = sext i32 %.0104159 to i64
-  %92 = getelementptr inbounds ptr, ptr %90, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %90, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !259
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !260
@@ -8295,7 +8295,7 @@ populateDict.exit:                                ; preds = %11, %1
 100:                                              ; preds = %88
   %101 = add nsw i32 %.0104159, 1
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds ptr, ptr %90, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %90, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !259
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8, !tbaa !260
@@ -8352,7 +8352,7 @@ populateDict.exit:                                ; preds = %11, %1
 124:                                              ; preds = %121
   %125 = add nsw i32 %.0104159, 1
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds ptr, ptr %90, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %90, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !259
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load ptr, ptr %129, align 8, !tbaa !260
@@ -8371,7 +8371,7 @@ populateDict.exit:                                ; preds = %11, %1
 136:                                              ; preds = %133
   %137 = add nsw i32 %.0104159, 1
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds ptr, ptr %90, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %90, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !259
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load ptr, ptr %141, align 8, !tbaa !260
@@ -8390,7 +8390,7 @@ populateDict.exit:                                ; preds = %11, %1
 148:                                              ; preds = %145
   %149 = add nsw i32 %.0104159, 1
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds ptr, ptr %90, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %90, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !259
   %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 96), align 8, !tbaa !71
   %.not126 = icmp eq ptr %153, null
@@ -8416,7 +8416,7 @@ populateDict.exit:                                ; preds = %11, %1
 162:                                              ; preds = %159
   %163 = add nsw i32 %.0104159, 1
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds ptr, ptr %90, i64 %164
+  %165 = getelementptr inbounds [8 x i8], ptr %90, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !259
   %167 = call i32 @getLongLongFromObject(ptr noundef %166, ptr noundef nonnull %2) #30
   %168 = load i64, ptr %2, align 8, !tbaa !107
@@ -8433,7 +8433,7 @@ populateDict.exit:                                ; preds = %11, %1
 173:                                              ; preds = %170
   %174 = add nsw i32 %.0104159, 1
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds ptr, ptr %90, i64 %175
+  %176 = getelementptr inbounds [8 x i8], ptr %90, i64 %175
   %177 = load ptr, ptr %176, align 8, !tbaa !259
   %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 136), align 8, !tbaa !198
   call void @sdsfree(ptr noundef %178) #30
@@ -8502,7 +8502,7 @@ sdslen.exit.thread:                               ; preds = %173, %sdslen.exit, 
 210:                                              ; preds = %207
   %211 = add nsw i32 %.0104159, 1
   %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds ptr, ptr %90, i64 %212
+  %213 = getelementptr inbounds [8 x i8], ptr %90, i64 %212
   %214 = load ptr, ptr %213, align 8, !tbaa !259
   %215 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 128), align 8, !tbaa !199
   call void @sdsfree(ptr noundef %215) #30
@@ -8665,7 +8665,7 @@ define dso_local void @sentinelConfigGetCommand(ptr noundef %0) local_unnamed_ad
   %indvars.iv = phi i64 [ 3, %.lr.ph ], [ %indvars.iv.next, %82 ]
   %.05475 = phi i32 [ 0, %.lr.ph ], [ %.1, %82 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !258
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !259
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !260
@@ -8821,7 +8821,7 @@ define dso_local void @sentinelConfigGetCommand(ptr noundef %0) local_unnamed_ad
 
 switch.lookup:                                    ; preds = %76
   %79 = zext nneg i32 %77 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.sentinelConfigGetCommand, i64 %79
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.sentinelConfigGetCommand, i64 %79
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %getLogLevel.exit
 
@@ -8855,7 +8855,7 @@ define dso_local noundef nonnull ptr @sentinelFailoverStateStr(i32 noundef %0) l
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.addReplySentinelRedisInstance, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.addReplySentinelRedisInstance, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -9150,7 +9150,7 @@ sdslen.exit.thread:                               ; preds = %93, %116, %sdslen.e
 
 switch.lookup:                                    ; preds = %126
   %130 = zext nneg i32 %128 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.addReplySentinelRedisInstance, i64 %130
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.addReplySentinelRedisInstance, i64 %130
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sentinelFailoverStateStr.exit
 
@@ -9443,7 +9443,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
   %.0266 = phi i32 [ 2, %.lr.ph ], [ %174, %173 ]
   %9 = load ptr, ptr %6, align 8, !tbaa !258
   %10 = sext i32 %.0266 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !259
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !260
@@ -9458,7 +9458,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
 19:                                               ; preds = %7
   %20 = add nuw nsw i32 %.0266, 1
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !259
   %24 = call i32 @getLongLongFromObject(ptr noundef %23, ptr noundef nonnull %2) #30
   %25 = icmp ne i32 %24, -1
@@ -9480,7 +9480,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
 31:                                               ; preds = %28
   %32 = add nuw nsw i32 %.0266, 1
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %9, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %9, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !259
   %36 = call i32 @getLongLongFromObject(ptr noundef %35, ptr noundef nonnull %2) #30
   %37 = icmp ne i32 %36, -1
@@ -9502,7 +9502,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
 43:                                               ; preds = %40
   %44 = add nuw nsw i32 %.0266, 1
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %9, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %9, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !259
   %48 = call i32 @getLongLongFromObject(ptr noundef %47, ptr noundef nonnull %2) #30
   %49 = icmp ne i32 %48, -1
@@ -9524,7 +9524,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
 55:                                               ; preds = %52
   %56 = add nuw nsw i32 %.0266, 1
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %9, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %9, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !259
   %60 = call i32 @getLongLongFromObject(ptr noundef %59, ptr noundef nonnull %2) #30
   %61 = icmp ne i32 %60, -1
@@ -9546,7 +9546,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
 67:                                               ; preds = %64
   %68 = add nuw nsw i32 %.0266, 1
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds ptr, ptr %9, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %9, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !259
   %72 = call i32 @getLongLongFromObject(ptr noundef %71, ptr noundef nonnull %2) #30
   %73 = icmp ne i32 %72, -1
@@ -9568,7 +9568,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
 79:                                               ; preds = %76
   %80 = add nuw nsw i32 %.0266, 1
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds ptr, ptr %9, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %9, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !259
   %84 = call i32 @getLongLongFromObject(ptr noundef %83, ptr noundef nonnull %2) #30
   %85 = icmp ne i32 %84, -1
@@ -9590,7 +9590,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
 91:                                               ; preds = %88
   %92 = add nuw nsw i32 %.0266, 1
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds ptr, ptr %9, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %9, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !259
   %96 = call i32 @getLongLongFromObject(ptr noundef %95, ptr noundef nonnull %2) #30
   %97 = icmp ne i32 %96, -1
@@ -9612,7 +9612,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
 103:                                              ; preds = %100
   %104 = add nuw nsw i32 %.0266, 1
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds ptr, ptr %9, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %9, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !259
   %108 = call i32 @getLongLongFromObject(ptr noundef %107, ptr noundef nonnull %2) #30
   %109 = icmp ne i32 %108, -1
@@ -9634,7 +9634,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
 115:                                              ; preds = %112
   %116 = add nuw nsw i32 %.0266, 1
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds ptr, ptr %9, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %9, i64 %117
   %119 = load ptr, ptr %118, align 8, !tbaa !259
   %120 = call i32 @getLongLongFromObject(ptr noundef %119, ptr noundef nonnull %2) #30
   %121 = icmp ne i32 %120, -1
@@ -9656,7 +9656,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
 127:                                              ; preds = %124
   %128 = add nuw nsw i32 %.0266, 1
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds ptr, ptr %9, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %9, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !259
   %132 = call i32 @getLongLongFromObject(ptr noundef %131, ptr noundef nonnull %2) #30
   %133 = icmp ne i32 %132, -1
@@ -9678,7 +9678,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
 139:                                              ; preds = %136
   %140 = add nuw nsw i32 %.0266, 1
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds ptr, ptr %9, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr %9, i64 %141
   %143 = load ptr, ptr %142, align 8, !tbaa !259
   %144 = call i32 @getLongLongFromObject(ptr noundef %143, ptr noundef nonnull %2) #30
   %145 = icmp ne i32 %144, -1
@@ -9700,7 +9700,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
 151:                                              ; preds = %148
   %152 = add nuw nsw i32 %.0266, 1
   %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds ptr, ptr %9, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %9, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !259
   %156 = call i32 @getLongLongFromObject(ptr noundef %155, ptr noundef nonnull %2) #30
   %157 = icmp ne i32 %156, -1
@@ -9722,7 +9722,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
 163:                                              ; preds = %160
   %164 = add nuw nsw i32 %.0266, 1
   %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds ptr, ptr %9, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr %9, i64 %165
   %167 = load ptr, ptr %166, align 8, !tbaa !259
   %168 = call i32 @getLongLongFromObject(ptr noundef %167, ptr noundef nonnull %2) #30
   %169 = icmp ne i32 %168, -1
@@ -9757,7 +9757,7 @@ define dso_local void @sentinelSetDebugConfigParameters(ptr noundef %0) local_un
   %.pre-phi = phi i64 [ %165, %163 ], [ %21, %19 ], [ %33, %31 ], [ %45, %43 ], [ %57, %55 ], [ %69, %67 ], [ %81, %79 ], [ %93, %91 ], [ %105, %103 ], [ %117, %115 ], [ %129, %127 ], [ %141, %139 ], [ %153, %151 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %179 = load ptr, ptr %6, align 8, !tbaa !258
-  %180 = getelementptr inbounds ptr, ptr %179, i64 %.pre-phi
+  %180 = getelementptr inbounds [8 x i8], ptr %179, i64 %.pre-phi
   %181 = load ptr, ptr %180, align 8, !tbaa !259
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = load ptr, ptr %182, align 8, !tbaa !260
@@ -10643,7 +10643,7 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
 .lr.ph361:                                        ; preds = %305, %319
   %indvars.iv372 = phi i64 [ %indvars.iv.next373, %319 ], [ 2, %305 ]
   %309 = load ptr, ptr %33, align 8, !tbaa !258
-  %310 = getelementptr inbounds nuw ptr, ptr %309, i64 %indvars.iv372
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %309, i64 %indvars.iv372
   %311 = load ptr, ptr %310, align 8, !tbaa !259
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
   %313 = load ptr, ptr %312, align 8, !tbaa !260
@@ -10832,7 +10832,7 @@ sdslen.exit:                                      ; preds = %367, %372, %375, %3
 .lr.ph:                                           ; preds = %399, %423
   %indvars.iv = phi i64 [ %indvars.iv.next, %423 ], [ 2, %399 ]
   %401 = load ptr, ptr %33, align 8, !tbaa !258
-  %402 = getelementptr inbounds nuw ptr, ptr %401, i64 %indvars.iv
+  %402 = getelementptr inbounds nuw [8 x i8], ptr %401, i64 %indvars.iv
   %403 = load ptr, ptr %402, align 8, !tbaa !259
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 8
   %405 = load ptr, ptr %404, align 8, !tbaa !260
@@ -11152,7 +11152,7 @@ define dso_local ptr @sentinelSelectSlave(ptr noundef readonly captures(none) %0
 62:                                               ; preds = %58
   %63 = add nsw i32 %.03039, 1
   %64 = sext i32 %.03039 to i64
-  %65 = getelementptr inbounds ptr, ptr %10, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %10, i64 %64
   store ptr %27, ptr %65, align 8, !tbaa !279
   br label %66
 
@@ -11272,7 +11272,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
   %32 = add i32 %30, %31
   %33 = load ptr, ptr %4, align 8, !tbaa !258
   %34 = sext i32 %.0322 to i64
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !259
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !260
@@ -11286,7 +11286,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
 42:                                               ; preds = %29
   %43 = add nsw i32 %.0322, 1
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %33, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %33, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !259
   %47 = call i32 @getLongLongFromObject(ptr noundef %46, ptr noundef nonnull %3) #30
   %48 = icmp ne i32 %47, -1
@@ -11330,7 +11330,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph16.i
   call void @dictReleaseIterator(ptr noundef %55) #30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %62 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i
   %63 = load ptr, ptr %62, align 8, !tbaa !177
   %.not.i247 = icmp eq ptr %63, null
   br i1 %.not.i247, label %64, label %.lr.ph16.i, !llvm.loop !179
@@ -11348,7 +11348,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
 68:                                               ; preds = %65
   %69 = add nsw i32 %.0322, 1
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds ptr, ptr %33, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %33, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !259
   %73 = call i32 @getLongLongFromObject(ptr noundef %72, ptr noundef nonnull %3) #30
   %74 = icmp ne i32 %73, -1
@@ -11370,7 +11370,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
 80:                                               ; preds = %77
   %81 = add nsw i32 %.0322, 1
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds ptr, ptr %33, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %33, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !259
   %85 = call i32 @getLongLongFromObject(ptr noundef %84, ptr noundef nonnull %3) #30
   %86 = icmp ne i32 %85, -1
@@ -11393,7 +11393,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
 93:                                               ; preds = %90
   %94 = add nsw i32 %.0322, 1
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds ptr, ptr %33, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %33, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !259
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !260
@@ -11444,7 +11444,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
 116:                                              ; preds = %113
   %117 = add nsw i32 %.0322, 1
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds ptr, ptr %33, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr %33, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !259
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !260
@@ -11495,7 +11495,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
 139:                                              ; preds = %136
   %140 = add nsw i32 %.0322, 1
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds ptr, ptr %33, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr %33, i64 %141
   %143 = load ptr, ptr %142, align 8, !tbaa !259
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8, !tbaa !260
@@ -11524,7 +11524,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
 154:                                              ; preds = %151
   %155 = add nsw i32 %.0322, 1
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds ptr, ptr %33, i64 %156
+  %157 = getelementptr inbounds [8 x i8], ptr %33, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !259
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %160 = load ptr, ptr %159, align 8, !tbaa !260
@@ -11553,7 +11553,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
 169:                                              ; preds = %166
   %170 = add nsw i32 %.0322, 1
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds ptr, ptr %33, i64 %171
+  %172 = getelementptr inbounds [8 x i8], ptr %33, i64 %171
   %173 = load ptr, ptr %172, align 8, !tbaa !259
   %174 = call i32 @getLongLongFromObject(ptr noundef %173, ptr noundef nonnull %3) #30
   %175 = icmp ne i32 %174, -1
@@ -11577,13 +11577,13 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
 183:                                              ; preds = %179
   %184 = add nsw i32 %.0322, 1
   %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds ptr, ptr %33, i64 %185
+  %186 = getelementptr inbounds [8 x i8], ptr %33, i64 %185
   %187 = load ptr, ptr %186, align 8, !tbaa !259
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load ptr, ptr %188, align 8, !tbaa !260
   %190 = add nsw i32 %.0322, 2
   %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds ptr, ptr %33, i64 %191
+  %192 = getelementptr inbounds [8 x i8], ptr %33, i64 %191
   %193 = load ptr, ptr %192, align 8, !tbaa !259
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = load ptr, ptr %194, align 8, !tbaa !260
@@ -11626,7 +11626,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
 217:                                              ; preds = %214
   %218 = add nsw i32 %.0322, 1
   %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds ptr, ptr %33, i64 %219
+  %220 = getelementptr inbounds [8 x i8], ptr %33, i64 %219
   %221 = load ptr, ptr %220, align 8, !tbaa !259
   %222 = call i32 @getLongLongFromObject(ptr noundef %221, ptr noundef nonnull %3) #30
   %223 = icmp ne i32 %222, -1
@@ -11649,7 +11649,7 @@ sentinelGetMasterByNameOrReplyError.exit.thread:  ; preds = %1
   %.3 = add nuw nsw i32 %.0191320, 1
   %227 = sub nsw i32 %.2, %.0322
   %228 = load ptr, ptr %4, align 8, !tbaa !258
-  %229 = getelementptr inbounds ptr, ptr %228, i64 %34
+  %229 = getelementptr inbounds [8 x i8], ptr %228, i64 %34
   %230 = load ptr, ptr %229, align 8, !tbaa !259
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %232 = load ptr, ptr %231, align 8, !tbaa !260
@@ -11714,7 +11714,7 @@ sentinelGetMasterByNameOrReplyError.exit._crit_edge: ; preds = %sentinelGetMaste
   %.2196.ph = phi i32 [ %213, %211 ], [ %.2196.ph.ph, %.thread.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %255 = sext i32 %.2196.ph to i64
-  %256 = getelementptr inbounds ptr, ptr %254, i64 %255
+  %256 = getelementptr inbounds [8 x i8], ptr %254, i64 %255
   %257 = load ptr, ptr %256, align 8, !tbaa !259
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %259 = load ptr, ptr %258, align 8, !tbaa !260
@@ -11796,7 +11796,7 @@ define dso_local void @sentinelInfoCommand(ptr noundef %0) local_unnamed_addr #0
 
 17:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next
   %19 = load ptr, ptr %18, align 8, !tbaa !87
   %.not54 = icmp eq ptr %19, null
   br i1 %.not54, label %._crit_edge, label %.lr.ph, !llvm.loop !281

@@ -23,7 +23,6 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.1 = type { i64 }
 %struct.efi = type { ptr, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.efi_memory_map, i64 }
 %struct.efi_memory_map = type { i64, ptr, ptr, i32, i64, i64, i64 }
-%struct.acpi_mcfg_allocation = type { i64, i16, i8, i8, i32 }
 %struct.acpi_resource_address64 = type <{ i8, i8, i8, i8, i8, %union.acpi_resource_attribute, %struct.acpi_address64_attribute, %struct.acpi_resource_source }>
 %union.acpi_resource_attribute = type { %struct.acpi_memory_attribute }
 %struct.acpi_memory_attribute = type { i8, i8, i8, i8 }
@@ -298,7 +297,7 @@ define internal fastcc range(i32 0, 2) i32 @pci_mmcfg_check_hostbridge() unnamed
 
 5:                                                ; preds = %.thread, %4
   %6 = phi i64 [ 0, %4 ], [ %31, %.thread ]
-  %7 = getelementptr %struct.pci_mmcfg_hostbridge_probe, ptr @pci_mmcfg_probes, i64 %6
+  %7 = getelementptr [24 x i8], ptr @pci_mmcfg_probes, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4
@@ -387,7 +386,7 @@ define internal noundef range(i32 -22, 1) i32 @pci_parse_mcfg(ptr noundef readon
 
 23:                                               ; preds = %20, %17
   %24 = phi i64 [ 0, %17 ], [ %21, %20 ]
-  %25 = getelementptr %struct.acpi_mcfg_allocation, ptr %18, i64 %24
+  %25 = getelementptr [16 x i8], ptr %18, i64 %24
   %26 = tail call fastcc zeroext i1 @acpi_mcfg_valid_entry(ptr noundef nonnull %0, ptr noundef %25) #14
   br i1 %26, label %28, label %27
 
@@ -1335,14 +1334,14 @@ define internal ptr @pci_mmcfg_nvidia_mcp55() #0 section ".init.text" align 16 {
   %26 = lshr i32 %23, 28
   %27 = and i32 %26, 3
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr i32, ptr @pci_mmcfg_nvidia_mcp55.extcfg_base_mask, i64 %28
+  %29 = getelementptr [4 x i8], ptr @pci_mmcfg_nvidia_mcp55.extcfg_base_mask, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, %23
   %32 = zext i32 %31 to i64
   %33 = shl nuw nsw i64 %32, 25
   %34 = lshr i32 %23, 16
   %35 = and i32 %34, 255
-  %36 = getelementptr i32, ptr @pci_mmcfg_nvidia_mcp55.extcfg_sizebus, i64 %28
+  %36 = getelementptr [4 x i8], ptr @pci_mmcfg_nvidia_mcp55.extcfg_sizebus, i64 %28
   %37 = load i32, ptr %36, align 4
   %38 = add nsw i32 %35, -1
   %39 = add i32 %38, %37

@@ -10,8 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Ipopt::SmartPtr.14" = type { ptr }
 %"class.Ipopt::SmartPtr.37" = type { ptr }
 %"class.std::allocator.6" = type { i8 }
-%"class.Ipopt::SmartPtr.35" = type { ptr }
-%"class.Ipopt::SmartPtr.23" = type { ptr }
 %"class.std::vector.24" = type { %"struct.std::_Vector_base.25" }
 %"struct.std::_Vector_base.25" = type { %"struct.std::_Vector_base<Ipopt::SmartPtr<const Ipopt::Vector>, std::allocator<Ipopt::SmartPtr<const Ipopt::Vector>>>::_Vector_impl" }
 %"struct.std::_Vector_base<Ipopt::SmartPtr<const Ipopt::Vector>, std::allocator<Ipopt::SmartPtr<const Ipopt::Vector>>>::_Vector_impl" = type { %"struct.std::_Vector_base<Ipopt::SmartPtr<const Ipopt::Vector>, std::allocator<Ipopt::SmartPtr<const Ipopt::Vector>>>::_Vector_impl_data" }
@@ -863,7 +861,7 @@ define noundef range(i32 5, 3) i32 @_ZN5Ipopt18GenAugSystemSolver10MultiSolveEPK
   %176 = sext i32 %50 to i64
   %177 = sext i32 %56 to i64
   %wide.trip.count = and i64 %37, 2147483647
-  %invariant.gep = getelementptr double, ptr %172, i64 %177
+  %invariant.gep = getelementptr [8 x i8], ptr %172, i64 %177
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %164
@@ -879,27 +877,27 @@ define noundef range(i32 5, 3) i32 @_ZN5Ipopt18GenAugSystemSolver10MultiSolveEPK
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %183 = load ptr, ptr %13, align 8, !tbaa !56
-  %184 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.35", ptr %183, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %indvars.iv
   %185 = load ptr, ptr %184, align 8, !tbaa !57
   %186 = mul nsw i64 %indvars.iv, %174
-  %187 = getelementptr inbounds double, ptr %172, i64 %186
+  %187 = getelementptr inbounds [8 x i8], ptr %172, i64 %186
   tail call void @_ZN5Ipopt13TripletHelper20FillValuesFromVectorEiRKNS_6VectorEPd(i32 noundef %44, ptr noundef nonnull align 8 dereferenceable(205) %185, ptr noundef nonnull %187)
   %188 = load ptr, ptr %15, align 8, !tbaa !56
-  %189 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.35", ptr %188, i64 %indvars.iv
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %indvars.iv
   %190 = load ptr, ptr %189, align 8, !tbaa !57
   %191 = add nsw i64 %186, %175
-  %192 = getelementptr inbounds double, ptr %172, i64 %191
+  %192 = getelementptr inbounds [8 x i8], ptr %172, i64 %191
   tail call void @_ZN5Ipopt13TripletHelper20FillValuesFromVectorEiRKNS_6VectorEPd(i32 noundef %50, ptr noundef nonnull align 8 dereferenceable(205) %190, ptr noundef nonnull %192)
   %193 = load ptr, ptr %16, align 8, !tbaa !56
-  %194 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.35", ptr %193, i64 %indvars.iv
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %indvars.iv
   %195 = load ptr, ptr %194, align 8, !tbaa !57
   %196 = add nsw i64 %191, %176
-  %197 = getelementptr inbounds double, ptr %172, i64 %196
+  %197 = getelementptr inbounds [8 x i8], ptr %172, i64 %196
   tail call void @_ZN5Ipopt13TripletHelper20FillValuesFromVectorEiRKNS_6VectorEPd(i32 noundef %56, ptr noundef nonnull align 8 dereferenceable(205) %195, ptr noundef nonnull %197)
   %198 = load ptr, ptr %14, align 8, !tbaa !56
-  %199 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.35", ptr %198, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %indvars.iv
   %200 = load ptr, ptr %199, align 8, !tbaa !57
-  %gep = getelementptr double, ptr %invariant.gep, i64 %196
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %196
   tail call void @_ZN5Ipopt13TripletHelper20FillValuesFromVectorEiRKNS_6VectorEPd(i32 noundef %56, ptr noundef nonnull align 8 dereferenceable(205) %200, ptr noundef nonnull %gep)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1074,32 +1072,32 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit222:     ; preds = %264, %259, %_ZN5Ipo
   %280 = sext i32 %50 to i64
   %281 = sext i32 %56 to i64
   %wide.trip.count252 = and i64 %37, 2147483647
-  %invariant.gep280 = getelementptr double, ptr %172, i64 %281
+  %invariant.gep280 = getelementptr [8 x i8], ptr %172, i64 %281
   br label %.lr.ph246
 
 .lr.ph246:                                        ; preds = %.lr.ph246.preheader, %.lr.ph246
   %indvars.iv249 = phi i64 [ 0, %.lr.ph246.preheader ], [ %indvars.iv.next250, %.lr.ph246 ]
   %282 = mul nsw i64 %indvars.iv249, %278
-  %283 = getelementptr inbounds double, ptr %172, i64 %282
+  %283 = getelementptr inbounds [8 x i8], ptr %172, i64 %282
   %284 = load ptr, ptr %17, align 8, !tbaa !91
-  %285 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.23", ptr %284, i64 %indvars.iv249
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %284, i64 %indvars.iv249
   %286 = load ptr, ptr %285, align 8, !tbaa !94
   call void @_ZN5Ipopt13TripletHelper17PutValuesInVectorEiPKdRNS_6VectorE(i32 noundef %44, ptr noundef nonnull %283, ptr noundef nonnull align 8 dereferenceable(205) %286)
   %287 = add nsw i64 %282, %279
-  %288 = getelementptr inbounds double, ptr %172, i64 %287
+  %288 = getelementptr inbounds [8 x i8], ptr %172, i64 %287
   %289 = load ptr, ptr %19, align 8, !tbaa !91
-  %290 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.23", ptr %289, i64 %indvars.iv249
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %289, i64 %indvars.iv249
   %291 = load ptr, ptr %290, align 8, !tbaa !94
   call void @_ZN5Ipopt13TripletHelper17PutValuesInVectorEiPKdRNS_6VectorE(i32 noundef %50, ptr noundef nonnull %288, ptr noundef nonnull align 8 dereferenceable(205) %291)
   %292 = add nsw i64 %287, %280
-  %293 = getelementptr inbounds double, ptr %172, i64 %292
+  %293 = getelementptr inbounds [8 x i8], ptr %172, i64 %292
   %294 = load ptr, ptr %20, align 8, !tbaa !91
-  %295 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.23", ptr %294, i64 %indvars.iv249
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %294, i64 %indvars.iv249
   %296 = load ptr, ptr %295, align 8, !tbaa !94
   call void @_ZN5Ipopt13TripletHelper17PutValuesInVectorEiPKdRNS_6VectorE(i32 noundef %56, ptr noundef nonnull %293, ptr noundef nonnull align 8 dereferenceable(205) %296)
-  %gep281 = getelementptr double, ptr %invariant.gep280, i64 %292
+  %gep281 = getelementptr [8 x i8], ptr %invariant.gep280, i64 %292
   %297 = load ptr, ptr %18, align 8, !tbaa !91
-  %298 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.23", ptr %297, i64 %indvars.iv249
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %indvars.iv249
   %299 = load ptr, ptr %298, align 8, !tbaa !94
   call void @_ZN5Ipopt13TripletHelper17PutValuesInVectorEiPKdRNS_6VectorE(i32 noundef %56, ptr noundef nonnull %gep281, ptr noundef nonnull align 8 dereferenceable(205) %299)
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.DS4EffectsState_t = type { i8, i8, i8, i8, i8, i8, i8, [8 x i8], i8, i8, i8, i8 }
-%struct.IMUCalibrationData = type { i16, float }
 
 @.str = private unnamed_addr constant [24 x i8] c"SDL_JOYSTICK_HIDAPI_PS4\00", align 1
 @SDL_HIDAPI_DriverPS4 = hidden local_unnamed_addr global { ptr, i8, [7 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { ptr @.str, i8 1, [7 x i8] zeroinitializer, ptr @HIDAPI_DriverPS4_RegisterHints, ptr @HIDAPI_DriverPS4_UnregisterHints, ptr @HIDAPI_DriverPS4_IsEnabled, ptr @HIDAPI_DriverPS4_IsSupportedDevice, ptr @HIDAPI_DriverPS4_InitDevice, ptr @HIDAPI_DriverPS4_GetDevicePlayerIndex, ptr @HIDAPI_DriverPS4_SetDevicePlayerIndex, ptr @HIDAPI_DriverPS4_UpdateDevice, ptr @HIDAPI_DriverPS4_OpenJoystick, ptr @HIDAPI_DriverPS4_RumbleJoystick, ptr @HIDAPI_DriverPS4_RumbleJoystickTriggers, ptr @HIDAPI_DriverPS4_GetJoystickCapabilities, ptr @HIDAPI_DriverPS4_SetJoystickLED, ptr @HIDAPI_DriverPS4_SendJoystickEffect, ptr @HIDAPI_DriverPS4_SetJoystickSensorsEnabled, ptr @HIDAPI_DriverPS4_CloseJoystick, ptr @HIDAPI_DriverPS4_FreeDevice }, align 8
@@ -367,7 +366,7 @@ ReadWiredSerial.exit130:                          ; preds = %84, %87, %106
 
 switch.lookup:                                    ; preds = %160
   %162 = zext nneg i8 %135 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.HIDAPI_DriverPS4_InitDevice, i64 %162
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.HIDAPI_DriverPS4_InitDevice, i64 %162
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %163
 
@@ -1495,7 +1494,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
 
 182:                                              ; preds = %195, %150
   %indvars.iv117.i.i = phi i64 [ 0, %150 ], [ %indvars.iv.next118.i.i, %195 ]
-  %183 = getelementptr inbounds nuw %struct.IMUCalibrationData, ptr %154, i64 %indvars.iv117.i.i
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %indvars.iv117.i.i
   %184 = load i16, ptr %183, align 4
   %185 = sext i16 %184 to i32
   %186 = call i32 @SDL_abs_REAL(i32 noundef %185) #9
@@ -1536,7 +1535,7 @@ HIDAPI_DriverPS4_LoadOfficialCalibrationData.exit.i: ; preds = %36, %29, %22
 
 200:                                              ; preds = %200, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %200 ]
-  %201 = getelementptr inbounds nuw %struct.IMUCalibrationData, ptr %199, i64 %indvars.iv.i
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %indvars.iv.i
   store i16 0, ptr %201, align 4
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 4
   store float 1.000000e+00, ptr %202, align 4
@@ -1555,7 +1554,7 @@ HIDAPI_DriverPS4_LoadOfficialCalibrationData.exit.i: ; preds = %36, %29, %22
 
 209:                                              ; preds = %246, %.loopexit.i
   %indvars.iv35.i = phi i64 [ 0, %.loopexit.i ], [ %indvars.iv.next36.i, %246 ]
-  %210 = getelementptr inbounds nuw %struct.IMUCalibrationData, ptr %23, i64 %indvars.iv35.i
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv35.i
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 40
   %212 = load float, ptr %211, align 4
   %213 = fpext float %212 to double
@@ -2429,7 +2428,7 @@ define internal void @SDL_PS4ReportIntervalHintChanged(ptr noundef captures(none
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SDL_PS4ReportIntervalHintChanged, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SDL_PS4ReportIntervalHintChanged, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 

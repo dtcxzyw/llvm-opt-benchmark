@@ -375,7 +375,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lean_Elab_PartialF
 
 7:                                                ; preds = %.lr.ph, %5
   %.01528 = phi i64 [ %1, %.lr.ph ], [ %6, %5 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01528
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01528
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -452,7 +452,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lean_Elab_PartialFixpoint_registerEqnsIn
   %.02040 = phi i64 [ %47, %63 ], [ %1, %3 ]
   %.02239 = phi ptr [ %.0.i.i30, %63 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02239, i64 24
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.02040
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.02040
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -488,7 +488,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %11, %13, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %16, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %17, %16 ], [ %.02239, %lean_array_uget.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.02040
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.02040
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i1
@@ -572,7 +572,7 @@ lean_dec.exit:                                    ; preds = %46, %45, %43, %lean
 lean_ensure_exclusive_array.exit.i29:             ; preds = %49, %lean_dec.exit
   %.0.i.i30 = phi ptr [ %50, %49 ], [ %.0.i.i, %lean_dec.exit ]
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i30, i64 24
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.02040
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.02040
   %53 = load ptr, ptr %52, align 8, !tbaa !4
   %54 = ptrtoint ptr %53 to i64
   %55 = trunc i64 %54 to i1
@@ -631,7 +631,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_PartialFixpoint_registerEqn
 18:                                               ; preds = %.lr.ph, %lean_dec.exit
   %.052111 = phi i64 [ %5, %.lr.ph ], [ %159, %lean_dec.exit ]
   %.054110 = phi ptr [ %7, %.lr.ph ], [ %158, %lean_dec.exit ]
-  %19 = getelementptr inbounds nuw ptr, ptr %9, i64 %.052111
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.052111
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i1
@@ -1055,7 +1055,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_Elab_PartialFixpoint_registerEqnsIn
 18:                                               ; preds = %.lr.ph, %288
   %.080210 = phi i64 [ %1, %.lr.ph ], [ %289, %288 ]
   %.084209 = phi ptr [ %7, %.lr.ph ], [ %168, %288 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %9, i64 %.080210
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.080210
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i1
@@ -1850,7 +1850,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_PartialFixpoint_registerEqn
   br label %lean_dec.exit61
 
 lean_dec.exit61:                                  ; preds = %20, %19, %17, %11
-  %21 = getelementptr inbounds nuw ptr, ptr %10, i64 %.04395
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.04395
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = ptrtoint ptr %22 to i64
   %24 = trunc i64 %23 to i1
@@ -2715,7 +2715,7 @@ lean_usize_of_nat.exit563:                        ; preds = %38, %37, %35, %lean
 
 228:                                              ; preds = %226, %.lr.ph.i
   %.01528.i = phi i64 [ 0, %.lr.ph.i ], [ %227, %226 ]
-  %229 = getelementptr inbounds nuw ptr, ptr %225, i64 %.01528.i
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %.01528.i
   %230 = load ptr, ptr %229, align 8, !tbaa !4
   %231 = ptrtoint ptr %230 to i64
   %232 = trunc i64 %231 to i1
@@ -4711,7 +4711,7 @@ declare ptr @lean_st_ref_take(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 9) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -4798,7 +4798,7 @@ lean_dec.exit9:                                   ; preds = %17, %16, %14
 
 21:                                               ; preds = %19, %.lr.ph.i
   %.01528.i = phi i64 [ %.val, %.lr.ph.i ], [ %20, %19 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %.01528.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01528.i
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   %24 = ptrtoint ptr %23 to i64
   %25 = trunc i64 %24 to i1

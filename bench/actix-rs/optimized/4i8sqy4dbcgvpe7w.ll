@@ -1850,7 +1850,7 @@ _ZN6brotli3enc9histogram15ClearHistograms17h48799de36060ce1eE.exit.preheader.spl
   br i1 %263, label %.split38.us.i.invoke.i, label %264
 
 264:                                              ; preds = %261
-  %265 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %233, i64 %.01935.i.i
+  %265 = getelementptr inbounds nuw [1040 x i8], ptr %233, i64 %.01935.i.i
   %266 = sub nuw i64 %203, %spec.select.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !251)
   call void @llvm.experimental.noalias.scope.decl(metadata !254)
@@ -1871,7 +1871,7 @@ _ZN6brotli3enc9histogram15ClearHistograms17h48799de36060ce1eE.exit.preheader.spl
   %.sroa.0.08.i.add.i.i = add nuw nsw i64 %.sroa.0.08.i.idx.i.i, 1
   %272 = load i8, ptr %.sroa.0.08.i.ptr.i.i, align 1, !alias.scope !263, !noalias !266, !noundef !4
   %273 = zext i8 %272 to i64
-  %274 = getelementptr inbounds nuw i32, ptr %265, i64 %273
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %265, i64 %273
   %275 = load i32, ptr %274, align 4, !alias.scope !267, !noalias !259, !noundef !4
   %276 = add i32 %275, 1
   store i32 %276, ptr %274, align 4, !alias.scope !267, !noalias !259
@@ -1940,7 +1940,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit.i.i: ; preds =
   %.sroa.0.08.i.add.i.i.i = add nuw nsw i64 %.sroa.0.08.i.idx.i.i.i, 1
   %299 = load i8, ptr %.sroa.0.08.i.ptr.i.i.i, align 1, !alias.scope !292, !noalias !295, !noundef !4
   %300 = zext i8 %299 to i64
-  %301 = getelementptr inbounds nuw i32, ptr %190, i64 %300
+  %301 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %300
   %302 = load i32, ptr %301, align 4, !alias.scope !296, !noalias !290, !noundef !4
   %303 = add i32 %302, 1
   store i32 %303, ptr %301, align 4, !alias.scope !296, !noalias !290
@@ -1949,7 +1949,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit.i.i: ; preds =
 
 _ZN6brotli3enc14block_splitter12RandomSample17hb1bfc5edbe46b0b6E.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   %305 = urem i64 %.021.i.i, %spec.store.select.i
-  %306 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %233, i64 %305
+  %306 = getelementptr inbounds nuw [1040 x i8], ptr %233, i64 %305
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 1024
   %308 = load i64, ptr %307, align 8, !alias.scope !297, !noalias !300, !noundef !4
   %309 = add i64 %308, 70
@@ -1959,9 +1959,9 @@ _ZN6brotli3enc14block_splitter12RandomSample17hb1bfc5edbe46b0b6E.exit.i.i: ; pre
 310:                                              ; preds = %310, %_ZN6brotli3enc14block_splitter12RandomSample17hb1bfc5edbe46b0b6E.exit.i.i
   %.sroa.01.0.i19.i.i = phi i64 [ 0, %_ZN6brotli3enc14block_splitter12RandomSample17hb1bfc5edbe46b0b6E.exit.i.i ], [ %311, %310 ]
   %311 = add nuw nsw i64 %.sroa.01.0.i19.i.i, 1
-  %312 = getelementptr inbounds nuw i32, ptr %306, i64 %.sroa.01.0.i19.i.i
+  %312 = getelementptr inbounds nuw [4 x i8], ptr %306, i64 %.sroa.01.0.i19.i.i
   %313 = load i32, ptr %312, align 4, !alias.scope !271, !noalias !306, !noundef !4
-  %314 = getelementptr inbounds nuw i32, ptr %190, i64 %.sroa.01.0.i19.i.i
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %.sroa.01.0.i19.i.i
   %315 = load i32, ptr %314, align 4, !noalias !273, !noundef !4
   %316 = add i32 %315, %313
   store i32 %316, ptr %312, align 4, !alias.scope !271, !noalias !306
@@ -3000,7 +3000,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17hdcf8cdc27061ffcaE.exit.i: ;
   br i1 %exitcond1724.not.i.i, label %.invoke2072.i.i, label %599, !prof !551
 
 599:                                              ; preds = %598
-  %600 = getelementptr inbounds i32, ptr %385, i64 %.42531415.i.i
+  %600 = getelementptr inbounds [4 x i8], ptr %385, i64 %.42531415.i.i
   %601 = load i32, ptr %600, align 4, !noalias !365, !noundef !4
   %602 = add i32 %601, %.02471416.i.i
   %603 = add nuw i64 %.42531415.i.i, 1
@@ -3019,9 +3019,9 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17hdcf8cdc27061ffcaE.exit.i: ;
   br i1 %609, label %610, label %.invoke2072.i.i, !prof !552
 
 610:                                              ; preds = %608
-  %611 = getelementptr inbounds i32, ptr %380, i64 %.42531415.i.i
+  %611 = getelementptr inbounds [4 x i8], ptr %380, i64 %.42531415.i.i
   %612 = load i32, ptr %611, align 4, !noalias !365, !noundef !4
-  %613 = getelementptr inbounds i32, ptr %380, i64 %603
+  %613 = getelementptr inbounds [4 x i8], ptr %380, i64 %603
   %614 = load i32, ptr %613, align 4, !noalias !365, !noundef !4
   %.not.i165.i = icmp eq i32 %612, %614
   br i1 %.not.i165.i, label %615, label %616
@@ -3037,14 +3037,14 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17hdcf8cdc27061ffcaE.exit.i: ;
   br i1 %617, label %618, label %.invoke2072.i.i, !prof !552
 
 618:                                              ; preds = %616
-  %619 = getelementptr inbounds i32, ptr %380, i64 %.42531415.i.i
+  %619 = getelementptr inbounds [4 x i8], ptr %380, i64 %.42531415.i.i
   %620 = load i32, ptr %619, align 4, !noalias !365, !noundef !4
   %621 = zext i32 %620 to i64
   %622 = icmp ugt i64 %517, %621
   br i1 %622, label %623, label %.invoke2072.i.i, !prof !552
 
 623:                                              ; preds = %618
-  %624 = getelementptr inbounds nuw i32, ptr %516, i64 %621
+  %624 = getelementptr inbounds nuw [4 x i8], ptr %516, i64 %621
   %625 = load i32, ptr %624, align 4, !noalias !365, !noundef !4
   %626 = trunc i32 %625 to i8
   %627 = icmp ult i64 %.02541414.i.i, %.val386.i.i
@@ -3067,7 +3067,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17hdcf8cdc27061ffcaE.exit.i: ;
   unreachable
 
 634:                                              ; preds = %628
-  %635 = getelementptr inbounds i32, ptr %.val4291804.i.i, i64 %.02541414.i.i
+  %635 = getelementptr inbounds [4 x i8], ptr %.val4291804.i.i, i64 %.02541414.i.i
   store i32 %602, ptr %635, align 4, !noalias !365
   %.0.sroa.speculated.i572.i.i = call noundef i8 @llvm.umax.i8(i8 %.02561413.i.i, i8 %626)
   %636 = add nuw i64 %.02541414.i.i, 1
@@ -3105,7 +3105,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit.i164.i: ; pred
   br i1 %exitcond1721.not.i.i, label %.split1367.us.invoke.i.i, label %.lr.ph1354.i.i, !prof !570
 
 .lr.ph1354.i.i:                                   ; preds = %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit.i164.i
-  %644 = getelementptr inbounds i32, ptr %385, i64 %.32521409.i.i
+  %644 = getelementptr inbounds [4 x i8], ptr %385, i64 %.32521409.i.i
   %645 = load i32, ptr %644, align 4, !noalias !365, !noundef !4
   %646 = zext i32 %645 to i64
   %.not1429.i.i = icmp eq i32 %645, 0
@@ -3121,7 +3121,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit.i164.i: ; pred
   %650 = getelementptr inbounds i8, ptr %202, i64 %.22311353.us1396.i.i
   %651 = load i8, ptr %650, align 1, !alias.scope !571, !noalias !574, !noundef !4
   %652 = zext i8 %651 to i64
-  %653 = getelementptr inbounds nuw i32, ptr %178, i64 %652
+  %653 = getelementptr inbounds nuw [4 x i8], ptr %178, i64 %652
   %654 = load i32, ptr %653, align 4, !alias.scope !575, !noalias !361, !noundef !4
   %655 = add i32 %654, 1
   store i32 %655, ptr %653, align 4, !alias.scope !575, !noalias !361
@@ -3160,7 +3160,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit.i164.i: ; pred
   br i1 %662, label %663, label %.split1367.us.invoke.i.i, !prof !552
 
 663:                                              ; preds = %660
-  %664 = getelementptr inbounds i32, ptr %380, i64 %661
+  %664 = getelementptr inbounds [4 x i8], ptr %380, i64 %661
   br label %665
 
 665:                                              ; preds = %663, %659
@@ -3171,7 +3171,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit.i164.i: ; pred
   br i1 %667, label %.noexc.i.i, label %.split1367.us.invoke.i.i, !prof !552
 
 .noexc.i.i:                                       ; preds = %665
-  %668 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %.sroa.0635.3.lcssa.i.i, i64 %666
+  %668 = getelementptr inbounds nuw [1040 x i8], ptr %.sroa.0635.3.lcssa.i.i, i64 %666
   br i1 %.not1429.i.i, label %_ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.i.i, label %.noexc382.i.i
 
 .noexc382.i.i:                                    ; preds = %.noexc.i.i
@@ -3189,9 +3189,9 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit.i164.i: ; pred
 672:                                              ; preds = %672, %.noexc382.i.i
   %.sroa.01.0.i3771401.i.i = phi i64 [ 0, %.noexc382.i.i ], [ %673, %672 ]
   %673 = add nuw nsw i64 %.sroa.01.0.i3771401.i.i, 1
-  %674 = getelementptr inbounds nuw i32, ptr %177, i64 %.sroa.01.0.i3771401.i.i
+  %674 = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %.sroa.01.0.i3771401.i.i
   %675 = load i32, ptr %674, align 4, !noalias !361, !noundef !4
-  %676 = getelementptr inbounds nuw i32, ptr %668, i64 %.sroa.01.0.i3771401.i.i
+  %676 = getelementptr inbounds nuw [4 x i8], ptr %668, i64 %.sroa.01.0.i3771401.i.i
   %677 = load i32, ptr %676, align 4, !noalias !365, !noundef !4
   %678 = add i32 %677, %675
   store i32 %678, ptr %674, align 4, !noalias !361
@@ -3221,7 +3221,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
   br i1 %exitcond1719.not.i.us.i, label %.split1367.us.invoke.i.i, label %683, !prof !551
 
 683:                                              ; preds = %.lr.ph1406.i.us.i
-  %684 = getelementptr inbounds i32, ptr %484, i64 %.12371404.i.us.i
+  %684 = getelementptr inbounds [4 x i8], ptr %484, i64 %.12371404.i.us.i
   %685 = load i32, ptr %684, align 4, !noalias !365, !noundef !4
   %686 = zext i32 %685 to i64
   %687 = icmp ugt i64 %.sroa.14.3.lcssa.i.i, %686
@@ -3238,14 +3238,14 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
   br i1 %exitcond1722.not.i.i, label %.split1367.us.invoke.i.i, label %689, !prof !551
 
 689:                                              ; preds = %._crit_edge1407.i.i
-  %690 = getelementptr inbounds i32, ptr %380, i64 %.32521409.i.i
+  %690 = getelementptr inbounds [4 x i8], ptr %380, i64 %.32521409.i.i
   store i32 %.1239.lcssa.i.i, ptr %690, align 4, !noalias !365
   %691 = zext i32 %.1239.lcssa.i.i to i64
   %692 = icmp ugt i64 %517, %691
   br i1 %692, label %693, label %.split1367.us.invoke.i.i, !prof !552
 
 693:                                              ; preds = %689
-  %694 = getelementptr inbounds nuw i32, ptr %516, i64 %691
+  %694 = getelementptr inbounds nuw [4 x i8], ptr %516, i64 %691
   %695 = load i32, ptr %694, align 4, !noalias !365, !noundef !4
   %696 = icmp eq i32 %695, -1
   br i1 %696, label %697, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.exit537.thread.i.i"
@@ -3270,14 +3270,14 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
   br i1 %exitcond1719.not.i.i, label %.split1367.us.invoke.i.i, label %700, !prof !551
 
 700:                                              ; preds = %.lr.ph1406.i.i
-  %701 = getelementptr inbounds i32, ptr %484, i64 %.12371404.i.i
+  %701 = getelementptr inbounds [4 x i8], ptr %484, i64 %.12371404.i.i
   %702 = load i32, ptr %701, align 4, !noalias !365, !noundef !4
   %703 = zext i32 %702 to i64
   %704 = icmp ugt i64 %.sroa.14.3.lcssa.i.i, %703
   br i1 %704, label %.noexc358.i.i, label %.split1367.us.invoke.i.i, !prof !552
 
 .noexc358.i.i:                                    ; preds = %700
-  %705 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %.sroa.0635.3.lcssa.i.i, i64 %703
+  %705 = getelementptr inbounds nuw [1040 x i8], ptr %.sroa.0635.3.lcssa.i.i, i64 %703
   call void @llvm.lifetime.start.p0(ptr nonnull %176), !noalias !599
   call void @llvm.experimental.noalias.scope.decl(metadata !604)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1040) %176, ptr noundef nonnull readonly align 8 dereferenceable(1040) %178, i64 1024, i1 false), !alias.scope !607, !noalias !361
@@ -3292,9 +3292,9 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
 709:                                              ; preds = %709, %.noexc358.i.i
   %.sroa.01.0.i1402.i.i = phi i64 [ 0, %.noexc358.i.i ], [ %710, %709 ]
   %710 = add nuw nsw i64 %.sroa.01.0.i1402.i.i, 1
-  %711 = getelementptr inbounds nuw i32, ptr %176, i64 %.sroa.01.0.i1402.i.i
+  %711 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %.sroa.01.0.i1402.i.i
   %712 = load i32, ptr %711, align 4, !noalias !361, !noundef !4
-  %713 = getelementptr inbounds nuw i32, ptr %705, i64 %.sroa.01.0.i1402.i.i
+  %713 = getelementptr inbounds nuw [4 x i8], ptr %705, i64 %.sroa.01.0.i1402.i.i
   %714 = load i32, ptr %713, align 4, !noalias !365, !noundef !4
   %715 = add i32 %714, %712
   store i32 %715, ptr %711, align 4, !noalias !361
@@ -3446,8 +3446,8 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h76075b6c04ebce1dE.llvm.10144161557925507027.exit.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h76075b6c04ebce1dE.llvm.10144161557925507027.exit.preheader.i.i.i", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h76075b6c04ebce1dE.llvm.10144161557925507027.exit.i.i.i"
   %.sroa.0.010.i.i.i = phi i64 [ %756, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h76075b6c04ebce1dE.llvm.10144161557925507027.exit.i.i.i" ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h76075b6c04ebce1dE.llvm.10144161557925507027.exit.preheader.i.i.i" ]
   %756 = add nuw i64 %.sroa.0.010.i.i.i, 1
-  %757 = getelementptr inbounds { [256 x i32], i64, float, [1 x i32] }, ptr %749, i64 %.sroa.0.010.i.i.i
-  %758 = getelementptr inbounds { [256 x i32], i64, float, [1 x i32] }, ptr %.sroa.0635.31326.i.i, i64 %.sroa.0.010.i.i.i
+  %757 = getelementptr inbounds [1040 x i8], ptr %749, i64 %.sroa.0.010.i.i.i
+  %758 = getelementptr inbounds [1040 x i8], ptr %.sroa.0635.31326.i.i, i64 %.sroa.0.010.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !639)
   call void @llvm.experimental.noalias.scope.decl(metadata !642)
   %759 = getelementptr inbounds nuw i8, ptr %758, i64 1024
@@ -3546,7 +3546,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
 
 788:                                              ; preds = %796, %.lr.ph1321.i.i
   %.21320.i.i = phi i64 [ 0, %.lr.ph1321.i.i ], [ %801, %796 ]
-  %789 = getelementptr inbounds nuw i32, ptr %180, i64 %.21320.i.i
+  %789 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %.21320.i.i
   %790 = load i32, ptr %789, align 4, !noalias !361, !noundef !4
   %791 = zext i32 %790 to i64
   %792 = icmp ult i32 %790, 64
@@ -3558,10 +3558,10 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
   br i1 %795, label %796, label %.invoke5724, !prof !552
 
 796:                                              ; preds = %793
-  %797 = getelementptr inbounds nuw i32, ptr %179, i64 %791
+  %797 = getelementptr inbounds nuw [4 x i8], ptr %179, i64 %791
   %798 = load i32, ptr %797, align 4, !noalias !361, !noundef !4
   %799 = add i32 %798, %784
-  %800 = getelementptr inbounds i32, ptr %380, i64 %794
+  %800 = getelementptr inbounds [4 x i8], ptr %380, i64 %794
   store i32 %799, ptr %800, align 4, !noalias !365
   %801 = add nuw nsw i64 %.21320.i.i, 1
   %exitcond1715.not.i.i = icmp eq i64 %801, %umax1714.i.i
@@ -3575,7 +3575,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
   br i1 %exitcond1711.not.i.i, label %.invoke5724, label %802, !prof !551
 
 802:                                              ; preds = %.lr.ph1317.i.i
-  %803 = getelementptr inbounds nuw i32, ptr %181, i64 %.12201314.i.i
+  %803 = getelementptr inbounds nuw [4 x i8], ptr %181, i64 %.12201314.i.i
   %804 = load i32, ptr %803, align 4, !noalias !361, !noundef !4
   %805 = zext i32 %804 to i64
   %806 = icmp ugt i64 %429, %805
@@ -3587,7 +3587,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
   br label %.thread787.i.i
 
 809:                                              ; preds = %802
-  %810 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %428, i64 %805
+  %810 = getelementptr inbounds nuw [1040 x i8], ptr %428, i64 %805
   %811 = getelementptr inbounds nuw i8, ptr %810, i64 1024
   %812 = load i64, ptr %811, align 8, !alias.scope !674, !noalias !677, !noundef !4
   %813 = getelementptr inbounds nuw i8, ptr %810, i64 1032
@@ -3601,7 +3601,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
           to label %605 unwind label %807, !noalias !365
 
 817:                                              ; preds = %809
-  %818 = getelementptr inbounds { [256 x i32], i64, float, [1 x i32] }, ptr %.sroa.0635.8.i.i, i64 %.12161316.i.i
+  %818 = getelementptr inbounds [1040 x i8], ptr %.sroa.0635.8.i.i, i64 %.12161316.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %818, ptr noundef nonnull align 8 dereferenceable(1024) %810, i64 1024, i1 false), !noalias !365
   %.sroa.4.0..sroa_idx.i162.i = getelementptr inbounds nuw i8, ptr %818, i64 1024
   store i64 %812, ptr %.sroa.4.0..sroa_idx.i162.i, align 8, !noalias !365
@@ -3614,14 +3614,14 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
   br i1 %822, label %823, label %.invoke5724, !prof !552
 
 823:                                              ; preds = %817
-  %824 = getelementptr inbounds nuw i32, ptr %182, i64 %821
+  %824 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %821
   %825 = load i32, ptr %824, align 4, !noalias !361, !noundef !4
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0647.5.i.i) ]
   %826 = icmp ult i64 %.12181315.i.i, %.sroa.12.5.i.i
   br i1 %826, label %827, label %.invoke5724, !prof !552
 
 827:                                              ; preds = %823
-  %828 = getelementptr inbounds i32, ptr %.sroa.0647.5.i.i, i64 %.12181315.i.i
+  %828 = getelementptr inbounds [4 x i8], ptr %.sroa.0647.5.i.i, i64 %.12181315.i.i
   store i32 %825, ptr %828, align 4, !noalias !365
   %829 = load i32, ptr %803, align 4, !noalias !361, !noundef !4
   %830 = zext i32 %829 to i64
@@ -3630,7 +3630,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hf201d493a1c83640E.exit.
 
 832:                                              ; preds = %827
   %833 = add nuw i64 %.12181315.i.i, 1
-  %834 = getelementptr inbounds nuw i32, ptr %179, i64 %830
+  %834 = getelementptr inbounds nuw [4 x i8], ptr %179, i64 %830
   %835 = trunc nuw nsw i64 %.12201314.i.i to i32
   store i32 %835, ptr %834, align 4, !noalias !361
   %836 = add nuw nsw i64 %.12201314.i.i, 1
@@ -3679,7 +3679,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit370.i.i: ; pred
   %848 = mul nuw nsw i64 %.02191310.i.i, 1040
   %scevgep.i.i = getelementptr i8, ptr %428, i64 %848
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %scevgep.i.i, i8 0, i64 1024, i1 false), !noalias !365
-  %849 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %428, i64 %.02191310.i.i
+  %849 = getelementptr inbounds nuw [1040 x i8], ptr %428, i64 %.02191310.i.i
   %850 = getelementptr inbounds nuw i8, ptr %849, i64 1024
   store i64 0, ptr %850, align 8, !alias.scope !693, !noalias !365
   %851 = getelementptr inbounds nuw i8, ptr %849, i64 1032
@@ -3689,7 +3689,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit370.i.i: ; pred
   br i1 %853, label %.lr.ph.i160.i, label %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit370._crit_edge.i.i, !prof !699
 
 .lr.ph.i160.i:                                    ; preds = %_ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit370.i.i
-  %854 = getelementptr inbounds i32, ptr %385, i64 %852
+  %854 = getelementptr inbounds [4 x i8], ptr %385, i64 %852
   %855 = load i32, ptr %854, align 4, !noalias !365, !noundef !4
   %.not1423.i.i = icmp eq i32 %855, 0
   br i1 %.not1423.i.i, label %.split.us.i161.i, label %.lr.ph1306.i.i
@@ -3704,7 +3704,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit370.i.i: ; pred
   %859 = getelementptr inbounds i8, ptr %202, i64 %.42331187.us1305.i.i
   %860 = load i8, ptr %859, align 1, !alias.scope !700, !noalias !574, !noundef !4
   %861 = zext i8 %860 to i64
-  %862 = getelementptr inbounds nuw i32, ptr %849, i64 %861
+  %862 = getelementptr inbounds nuw [4 x i8], ptr %849, i64 %861
   %863 = load i32, ptr %862, align 4, !alias.scope !703, !noalias !365, !noundef !4
   %864 = add i32 %863, 1
   store i32 %864, ptr %862, align 4, !alias.scope !703, !noalias !365
@@ -3727,12 +3727,12 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit370._crit_edge.
 
 871:                                              ; preds = %.split.us.i161.i
   store float %870, ptr %851, align 8, !alias.scope !709, !noalias !365
-  %872 = getelementptr inbounds nuw i32, ptr %181, i64 %.02191310.i.i
+  %872 = getelementptr inbounds nuw [4 x i8], ptr %181, i64 %.02191310.i.i
   %873 = trunc nuw nsw i64 %.02191310.i.i to i32
   store i32 %873, ptr %872, align 4, !noalias !361
-  %874 = getelementptr inbounds nuw i32, ptr %180, i64 %.02191310.i.i
+  %874 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %.02191310.i.i
   store i32 %873, ptr %874, align 4, !noalias !361
-  %875 = getelementptr inbounds nuw i32, ptr %182, i64 %.02191310.i.i
+  %875 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %.02191310.i.i
   store i32 1, ptr %875, align 4, !noalias !361
   %876 = add nuw nsw i64 %.02191310.i.i, 1
   %exitcond1710.not.i.i = icmp eq i64 %876, %umax1714.i.i
@@ -3755,7 +3755,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.exit370._crit_edge.
   br i1 %881, label %882, label %.invoke.i.i, !prof !552
 
 882:                                              ; preds = %880
-  %883 = getelementptr inbounds i32, ptr %385, i64 %.01184.i.i
+  %883 = getelementptr inbounds [4 x i8], ptr %385, i64 %.01184.i.i
   %884 = load i32, ptr %883, align 4, !noalias !365, !noundef !4
   %885 = add i32 %884, 1
   store i32 %885, ptr %883, align 4, !noalias !365
@@ -3884,7 +3884,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h09a921fedbbff64fE.exit.i: ; pred
   br i1 %exitcond.not.i175.i, label %.split18.us.i.invoke.i, label %920, !prof !551
 
 920:                                              ; preds = %.preheader345.split.us.i.i
-  %921 = getelementptr inbounds { [256 x i32], i64, float, [1 x i32] }, ptr %233, i64 %.1114384.us.i.i
+  %921 = getelementptr inbounds [1040 x i8], ptr %233, i64 %.1114384.us.i.i
   %922 = getelementptr inbounds nuw i8, ptr %921, i64 1024
   %923 = load i64, ptr %922, align 8, !alias.scope !755, !noalias !758, !noundef !4
   %924 = and i64 %923, 4294967295
@@ -3897,13 +3897,13 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h09a921fedbbff64fE.exit.i: ; pred
   br label %932
 
 929:                                              ; preds = %920
-  %930 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util10kLog2Table17h3d7a587af6dc9265E, i64 %924
+  %930 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6brotli3enc4util10kLog2Table17h3d7a587af6dc9265E, i64 %924
   %931 = load float, ptr %930, align 4, !noalias !759, !noundef !4
   br label %932
 
 932:                                              ; preds = %929, %926
   %.0112.us.i.i = phi float [ %931, %929 ], [ %928, %926 ]
-  %933 = getelementptr inbounds float, ptr %333, i64 %.1114384.us.i.i
+  %933 = getelementptr inbounds [4 x i8], ptr %333, i64 %.1114384.us.i.i
   store float %.0112.us.i.i, ptr %933, align 4, !alias.scope !746, !noalias !754
   %934 = add nuw i64 %.1114384.us.i.i, 1
   %exitcond484.not.i.i = icmp eq i64 %934, %.039507.i
@@ -3915,7 +3915,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h09a921fedbbff64fE.exit.i: ; pred
 .split385.us.i.i:                                 ; preds = %.preheader344.split395.i.i, %.loopexit343.split.us.us.i.i
   %.2115396.us.i.i = phi i64 [ %935, %.loopexit343.split.us.us.i.i ], [ 256, %.preheader344.split395.i.i ]
   %935 = add nsw i64 %.2115396.us.i.i, -1
-  %invariant.gep.us.i.i = getelementptr i32, ptr %233, i64 %935
+  %invariant.gep.us.i.i = getelementptr [4 x i8], ptr %233, i64 %935
   %936 = mul i64 %935, %.039507.i
   br label %937
 
@@ -3925,9 +3925,9 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h09a921fedbbff64fE.exit.i: ; pred
   br i1 %exitcond488.not.i.i, label %.split18.us.i.invoke.i, label %938, !prof !551
 
 938:                                              ; preds = %937
-  %939 = getelementptr inbounds float, ptr %333, i64 %.0116386.us.us.i.i
+  %939 = getelementptr inbounds [4 x i8], ptr %333, i64 %.0116386.us.us.i.i
   %940 = load float, ptr %939, align 4, !alias.scope !746, !noalias !754, !noundef !4
-  %gep.us.us.i.i = getelementptr { [256 x i32], i64, float, [1 x i32] }, ptr %invariant.gep.us.i.i, i64 %.0116386.us.us.i.i
+  %gep.us.us.i.i = getelementptr [1040 x i8], ptr %invariant.gep.us.i.i, i64 %.0116386.us.us.i.i
   %941 = load i32, ptr %gep.us.us.i.i, align 4, !alias.scope !744, !noalias !758, !noundef !4
   %942 = zext i32 %941 to i64
   %943 = invoke noundef float @_ZN6brotli3enc14block_splitter7BitCost17h8bd07a40ea33d343E(i64 noundef %942)
@@ -3939,7 +3939,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h09a921fedbbff64fE.exit.i: ; pred
   br i1 %945, label %946, label %.split18.us.i.invoke.i, !prof !552
 
 946:                                              ; preds = %.noexc181.i
-  %947 = getelementptr inbounds float, ptr %333, i64 %944
+  %947 = getelementptr inbounds [4 x i8], ptr %333, i64 %944
   %948 = fsub float %940, %943
   store float %948, ptr %947, align 4, !alias.scope !746, !noalias !754
   %949 = add nuw i64 %.0116386.us.us.i.i, 1
@@ -3964,7 +3964,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h09a921fedbbff64fE.exit.i: ; pred
 .split385.i.i:                                    ; preds = %.preheader344.split395.i.i, %.loopexit343.split.i.i
   %.2115396.i.i = phi i64 [ %952, %.loopexit343.split.i.i ], [ 256, %.preheader344.split395.i.i ]
   %952 = add nsw i64 %.2115396.i.i, -1
-  %invariant.gep.i.i = getelementptr i32, ptr %233, i64 %952
+  %invariant.gep.i.i = getelementptr [4 x i8], ptr %233, i64 %952
   %953 = mul i64 %952, %.039507.i
   br label %.check388.i.i
 
@@ -4097,7 +4097,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.invoke1405.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i": ; preds = %999
-  %1005 = getelementptr inbounds float, ptr %333, i64 %1004
+  %1005 = getelementptr inbounds [4 x i8], ptr %333, i64 %1004
   %1006 = sub nuw i64 %334, %1004
   br i1 %959, label %._crit_edge412.i.i, label %.lr.ph411.i.i
 
@@ -4121,7 +4121,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.invoke1405.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit193.i.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit188.i.i"
-  %1011 = getelementptr inbounds float, ptr %333, i64 %1007
+  %1011 = getelementptr inbounds [4 x i8], ptr %333, i64 %1007
   %1012 = getelementptr inbounds nuw i8, ptr %1011, i64 %.idx442.i.i
   br i1 %968, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.thread.i.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.i.i"
 
@@ -4158,7 +4158,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 1021:                                             ; preds = %1021, %1020
   %1022 = phi i64 [ 0, %1020 ], [ %1024, %1021 ]
-  %1023 = getelementptr inbounds nuw float, ptr %148, i64 %1022
+  %1023 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %1022
   store float %.1119.lcssa.i.i, ptr %1023, align 4, !noalias !789
   %1024 = add nuw nsw i64 %1022, 1
   %exitcond495.not.i.i = icmp eq i64 %1024, 8
@@ -4179,7 +4179,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 1026:                                             ; preds = %1026, %1025
   %1027 = phi i64 [ 0, %1025 ], [ %1029, %1026 ]
-  %1028 = getelementptr inbounds nuw float, ptr %147, i64 %1027
+  %1028 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %1027
   store float %.0117.i.i, ptr %1028, align 4, !noalias !789
   %1029 = add nuw nsw i64 %1027, 1
   %exitcond496.not.i.i = icmp eq i64 %1029, 8
@@ -4298,8 +4298,8 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 1084:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.i.i"
   %1085 = and i64 %.0121414.i.i, 7
   %1086 = load float, ptr %.sroa.0238.0413.i.i, align 4, !alias.scope !746, !noalias !754, !noundef !4
-  %1087 = getelementptr inbounds nuw { [8 x float] }, ptr %348, i64 %1017
-  %1088 = getelementptr inbounds nuw float, ptr %1087, i64 %1085
+  %1087 = getelementptr inbounds nuw [32 x i8], ptr %348, i64 %1017
+  %1088 = getelementptr inbounds nuw [4 x i8], ptr %1087, i64 %1085
   %1089 = load float, ptr %1088, align 4, !alias.scope !748, !noalias !760, !noundef !4
   %1090 = fadd float %1086, %1089
   store float %1090, ptr %1088, align 4, !alias.scope !748, !noalias !760
@@ -4349,7 +4349,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i"
-  %1101 = getelementptr inbounds float, ptr %1005, i64 %1015
+  %1101 = getelementptr inbounds [4 x i8], ptr %1005, i64 %1015
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %149, ptr noundef nonnull readonly align 4 dereferenceable(32) %1101, i64 32, i1 false), !alias.scope !804, !noalias !808
   br label %1104
 
@@ -4362,9 +4362,9 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   %.3407.i.i = phi float [ %.0118410.i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i" ], [ %.4.i.i, %1115 ]
   %.sroa.054.0406.i.i = phi i64 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i" ], [ %1105, %1115 ]
   %1105 = add nuw nsw i64 %.sroa.054.0406.i.i, 1
-  %1106 = getelementptr inbounds nuw float, ptr %149, i64 %.sroa.054.0406.i.i
+  %1106 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %.sroa.054.0406.i.i
   %1107 = load float, ptr %1106, align 4, !noalias !759, !noundef !4
-  %1108 = getelementptr inbounds nuw float, ptr %.sroa.0219.0408.i.i, i64 %.sroa.054.0406.i.i
+  %1108 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0219.0408.i.i, i64 %.sroa.054.0406.i.i
   %1109 = load float, ptr %1108, align 4, !alias.scope !748, !noalias !760, !noundef !4
   %1110 = fadd float %1107, %1109
   store float %1110, ptr %1108, align 4, !alias.scope !748, !noalias !760
@@ -4384,13 +4384,13 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 .check388.i.i:                                    ; preds = %1124, %.split385.i.i
   %.0116386.i.i = phi i64 [ 0, %.split385.i.i ], [ %1127, %1124 ]
-  %1116 = getelementptr inbounds float, ptr %333, i64 %.0116386.i.i
+  %1116 = getelementptr inbounds [4 x i8], ptr %333, i64 %.0116386.i.i
   %1117 = load float, ptr %1116, align 4, !alias.scope !746, !noalias !754, !noundef !4
   %exitcond491.not.i.i = icmp eq i64 %.0116386.i.i, %234
   br i1 %exitcond491.not.i.i, label %.split18.us.i.invoke.i, label %1118, !prof !551
 
 1118:                                             ; preds = %.check388.i.i
-  %gep.i.i = getelementptr { [256 x i32], i64, float, [1 x i32] }, ptr %invariant.gep.i.i, i64 %.0116386.i.i
+  %gep.i.i = getelementptr [1040 x i8], ptr %invariant.gep.i.i, i64 %.0116386.i.i
   %1119 = load i32, ptr %gep.i.i, align 4, !alias.scope !744, !noalias !758, !noundef !4
   %1120 = zext i32 %1119 to i64
   %1121 = invoke noundef float @_ZN6brotli3enc14block_splitter7BitCost17h8bd07a40ea33d343E(i64 noundef %1120)
@@ -4402,7 +4402,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br i1 %1123, label %1124, label %.split18.us.i.invoke.i, !prof !552
 
 1124:                                             ; preds = %.noexc199.i
-  %1125 = getelementptr inbounds float, ptr %333, i64 %1122
+  %1125 = getelementptr inbounds [4 x i8], ptr %333, i64 %1122
   %1126 = fsub float %1117, %1121
   store float %1126, ptr %1125, align 4, !alias.scope !746, !noalias !754
   %1127 = add nuw i64 %.0116386.i.i, 1
@@ -4411,7 +4411,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 .preheader345.split.preheader.i.i:                ; preds = %.preheader345.i.i, %1139
   %.1114384.i.i = phi i64 [ %1141, %1139 ], [ 0, %.preheader345.i.i ]
-  %1128 = getelementptr inbounds { [256 x i32], i64, float, [1 x i32] }, ptr %233, i64 %.1114384.i.i
+  %1128 = getelementptr inbounds [1040 x i8], ptr %233, i64 %.1114384.i.i
   %1129 = getelementptr inbounds nuw i8, ptr %1128, i64 1024
   %1130 = load i64, ptr %1129, align 8, !alias.scope !755, !noalias !758, !noundef !4
   %1131 = and i64 %1130, 4294967295
@@ -4429,12 +4429,12 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br i1 %exitcond485.not.i.i, label %.split18.us.i.invoke.i, label %1139, !prof !551
 
 1136:                                             ; preds = %.preheader345.split.preheader.i.i
-  %1137 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util10kLog2Table17h3d7a587af6dc9265E, i64 %1131
+  %1137 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6brotli3enc4util10kLog2Table17h3d7a587af6dc9265E, i64 %1131
   %1138 = load float, ptr %1137, align 4, !noalias !759, !noundef !4
   br label %.check.i.i
 
 1139:                                             ; preds = %.check.i.i
-  %1140 = getelementptr inbounds float, ptr %333, i64 %.1114384.i.i
+  %1140 = getelementptr inbounds [4 x i8], ptr %333, i64 %.1114384.i.i
   store float %.0112.i.i, ptr %1140, align 4, !alias.scope !746, !noalias !754
   %1141 = add nuw i64 %.1114384.i.i, 1
   %exitcond487.not.i.i = icmp eq i64 %1141, %.039507.i
@@ -4529,11 +4529,11 @@ _ZN6brotli3enc9histogram15ClearHistograms17h48799de36060ce1eE.exit.split.us.i.i:
   br i1 %1166, label %1167, label %.split18.us.i.invoke.i, !prof !552
 
 1167:                                             ; preds = %1162
-  %1168 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %233, i64 %1165
+  %1168 = getelementptr inbounds nuw [1040 x i8], ptr %233, i64 %1165
   %1169 = getelementptr inbounds i8, ptr %202, i64 %.016.us.i.i
   %1170 = load i8, ptr %1169, align 1, !alias.scope !834, !noalias !837, !noundef !4
   %1171 = zext i8 %1170 to i64
-  %1172 = getelementptr inbounds nuw i32, ptr %1168, i64 %1171
+  %1172 = getelementptr inbounds nuw [4 x i8], ptr %1168, i64 %1171
   %1173 = load i32, ptr %1172, align 4, !alias.scope !838, !noalias !826, !noundef !4
   %1174 = add i32 %1173, 1
   store i32 %1174, ptr %1172, align 4, !alias.scope !838, !noalias !826
@@ -4568,11 +4568,11 @@ _ZN6brotli3enc9histogram15ClearHistograms17h48799de36060ce1eE.exit.split.prehead
   unreachable
 
 1186:                                             ; preds = %.check.i213.i
-  %1187 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %233, i64 %1181
+  %1187 = getelementptr inbounds nuw [1040 x i8], ptr %233, i64 %1181
   %1188 = getelementptr inbounds i8, ptr %202, i64 %.016.i.i
   %1189 = load i8, ptr %1188, align 1, !alias.scope !834, !noalias !837, !noundef !4
   %1190 = zext i8 %1189 to i64
-  %1191 = getelementptr inbounds nuw i32, ptr %1187, i64 %1190
+  %1191 = getelementptr inbounds nuw [4 x i8], ptr %1187, i64 %1190
   %1192 = load i32, ptr %1191, align 4, !alias.scope !838, !noalias !826, !noundef !4
   %1193 = add i32 %1192, 1
   store i32 %1193, ptr %1191, align 4, !alias.scope !838, !noalias !826
@@ -4804,7 +4804,7 @@ _ZN6brotli3enc14block_splitter20BuildBlockHistograms17hbe728a8dff5aeaa1E.exit.i:
   br i1 %1245, label %1246, label %.invoke, !prof !552
 
 1246:                                             ; preds = %1243
-  %1247 = getelementptr inbounds i32, ptr %.val109.i, i64 %228
+  %1247 = getelementptr inbounds [4 x i8], ptr %.val109.i, i64 %228
   %1248 = trunc nuw nsw i64 %196 to i32
   store i32 %1248, ptr %1247, align 4, !noalias !240
   store i64 %229, ptr %227, align 8, !alias.scope !220, !noalias !222
@@ -5041,7 +5041,7 @@ _ZN6brotli3enc9histogram15ClearHistograms17h18f74c1506e2979aE.exit.preheader.spl
   br i1 %1319, label %.split43.us.i.invoke.i, label %1320
 
 1320:                                             ; preds = %1317
-  %1321 = getelementptr inbounds nuw { [704 x i32], i64, float, [1 x i32] }, ptr %1289, i64 %.01940.i.i
+  %1321 = getelementptr inbounds nuw [2832 x i8], ptr %1289, i64 %.01940.i.i
   %1322 = sub nuw i64 %1261, %spec.select.i.i72
   call void @llvm.experimental.noalias.scope.decl(metadata !974)
   call void @llvm.experimental.noalias.scope.decl(metadata !977)
@@ -5053,7 +5053,7 @@ _ZN6brotli3enc9histogram15ClearHistograms17h18f74c1506e2979aE.exit.preheader.spl
   br i1 %1326, label %.invoke.i56, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcf829c903b9a64cfE.llvm.10144161557925507027.exit.i.i.i"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcf829c903b9a64cfE.llvm.10144161557925507027.exit.i.i.i": ; preds = %1320
-  %1327 = getelementptr inbounds i16, ptr %1260, i64 %spec.select.i.i72
+  %1327 = getelementptr inbounds [2 x i8], ptr %1260, i64 %spec.select.i.i72
   br label %.lr.ph.i28.i.i73
 
 .lr.ph.i28.i.i73:                                 ; preds = %1331, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcf829c903b9a64cfE.llvm.10144161557925507027.exit.i.i.i"
@@ -5066,7 +5066,7 @@ _ZN6brotli3enc9histogram15ClearHistograms17h18f74c1506e2979aE.exit.preheader.spl
 
 1331:                                             ; preds = %.lr.ph.i28.i.i73
   %.sroa.0.08.i.add.i.i76 = add nuw nsw i64 %.sroa.0.08.i.idx.i.i74, 2
-  %1332 = getelementptr inbounds nuw i32, ptr %1321, i64 %1329
+  %1332 = getelementptr inbounds nuw [4 x i8], ptr %1321, i64 %1329
   %1333 = load i32, ptr %1332, align 4, !alias.scope !990, !noalias !982, !noundef !4
   %1334 = add i32 %1333, 1
   store i32 %1334, ptr %1332, align 4, !alias.scope !990, !noalias !982
@@ -5134,7 +5134,7 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit.i.i: ; preds =
   br i1 %1356, label %.invoke.i56, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcf829c903b9a64cfE.llvm.10144161557925507027.exit.i.i.i.i"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcf829c903b9a64cfE.llvm.10144161557925507027.exit.i.i.i.i": ; preds = %1354
-  %1357 = getelementptr inbounds nuw i16, ptr %1260, i64 %1352
+  %1357 = getelementptr inbounds nuw [2 x i8], ptr %1260, i64 %1352
   br label %.lr.ph.i.i.i.i80
 
 .lr.ph.i.i.i.i80:                                 ; preds = %1361, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcf829c903b9a64cfE.llvm.10144161557925507027.exit.i.i.i.i"
@@ -5147,7 +5147,7 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit.i.i: ; preds =
 
 1361:                                             ; preds = %.lr.ph.i.i.i.i80
   %.sroa.0.08.i.add.i.i.i83 = add nuw nsw i64 %.sroa.0.08.i.idx.i.i.i81, 2
-  %1362 = getelementptr inbounds nuw i32, ptr %130, i64 %1359
+  %1362 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %1359
   %1363 = load i32, ptr %1362, align 4, !alias.scope !1019, !noalias !1013, !noundef !4
   %1364 = add i32 %1363, 1
   store i32 %1364, ptr %1362, align 4, !alias.scope !1019, !noalias !1013
@@ -5156,7 +5156,7 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit.i.i: ; preds =
 
 _ZN6brotli3enc14block_splitter12RandomSample17h73ed6b38cdf2021fE.exit.i.i: ; preds = %1361
   %1366 = urem i64 %.025.i.i, %spec.store.select.i50
-  %1367 = getelementptr inbounds nuw { [704 x i32], i64, float, [1 x i32] }, ptr %1289, i64 %1366
+  %1367 = getelementptr inbounds nuw [2832 x i8], ptr %1289, i64 %1366
   %1368 = getelementptr inbounds nuw i8, ptr %1367, i64 2816
   %1369 = load i64, ptr %1368, align 8, !alias.scope !1020, !noalias !1023, !noundef !4
   %1370 = load i64, ptr %1346, align 8, !alias.scope !1026, !noalias !996, !noundef !4
@@ -5167,9 +5167,9 @@ _ZN6brotli3enc14block_splitter12RandomSample17h73ed6b38cdf2021fE.exit.i.i: ; pre
 1372:                                             ; preds = %1372, %_ZN6brotli3enc14block_splitter12RandomSample17h73ed6b38cdf2021fE.exit.i.i
   %.sroa.01.0.i23.i.i = phi i64 [ 0, %_ZN6brotli3enc14block_splitter12RandomSample17h73ed6b38cdf2021fE.exit.i.i ], [ %1373, %1372 ]
   %1373 = add nuw nsw i64 %.sroa.01.0.i23.i.i, 1
-  %1374 = getelementptr inbounds nuw i32, ptr %1367, i64 %.sroa.01.0.i23.i.i
+  %1374 = getelementptr inbounds nuw [4 x i8], ptr %1367, i64 %.sroa.01.0.i23.i.i
   %1375 = load i32, ptr %1374, align 4, !alias.scope !994, !noalias !1032, !noundef !4
-  %1376 = getelementptr inbounds nuw i32, ptr %130, i64 %.sroa.01.0.i23.i.i
+  %1376 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %.sroa.01.0.i23.i.i
   %1377 = load i32, ptr %1376, align 4, !noalias !996, !noundef !4
   %1378 = add i32 %1377, %1375
   store i32 %1378, ptr %1374, align 4, !alias.scope !994, !noalias !1032
@@ -6208,7 +6208,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h805b2b64643d8961E.exit.i: ;
   br i1 %exitcond1759.not.i.i, label %.invoke2118.i.i, label %1661, !prof !551
 
 1661:                                             ; preds = %1660
-  %1662 = getelementptr inbounds i32, ptr %1447, i64 %.42531438.i.i
+  %1662 = getelementptr inbounds [4 x i8], ptr %1447, i64 %.42531438.i.i
   %1663 = load i32, ptr %1662, align 4, !noalias !1091, !noundef !4
   %1664 = add i32 %1663, %.02471439.i.i
   %1665 = add nuw i64 %.42531438.i.i, 1
@@ -6227,9 +6227,9 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h805b2b64643d8961E.exit.i: ;
   br i1 %1671, label %1672, label %.invoke2118.i.i, !prof !552
 
 1672:                                             ; preds = %1670
-  %1673 = getelementptr inbounds i32, ptr %1442, i64 %.42531438.i.i
+  %1673 = getelementptr inbounds [4 x i8], ptr %1442, i64 %.42531438.i.i
   %1674 = load i32, ptr %1673, align 4, !noalias !1091, !noundef !4
-  %1675 = getelementptr inbounds i32, ptr %1442, i64 %1665
+  %1675 = getelementptr inbounds [4 x i8], ptr %1442, i64 %1665
   %1676 = load i32, ptr %1675, align 4, !noalias !1091, !noundef !4
   %.not.i167.i = icmp eq i32 %1674, %1676
   br i1 %.not.i167.i, label %1677, label %1678
@@ -6245,14 +6245,14 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h805b2b64643d8961E.exit.i: ;
   br i1 %1679, label %1680, label %.invoke2118.i.i, !prof !552
 
 1680:                                             ; preds = %1678
-  %1681 = getelementptr inbounds i32, ptr %1442, i64 %.42531438.i.i
+  %1681 = getelementptr inbounds [4 x i8], ptr %1442, i64 %.42531438.i.i
   %1682 = load i32, ptr %1681, align 4, !noalias !1091, !noundef !4
   %1683 = zext i32 %1682 to i64
   %1684 = icmp ugt i64 %1579, %1683
   br i1 %1684, label %1685, label %.invoke2118.i.i, !prof !552
 
 1685:                                             ; preds = %1680
-  %1686 = getelementptr inbounds nuw i32, ptr %1578, i64 %1683
+  %1686 = getelementptr inbounds nuw [4 x i8], ptr %1578, i64 %1683
   %1687 = load i32, ptr %1686, align 4, !noalias !1091, !noundef !4
   %1688 = trunc i32 %1687 to i8
   %1689 = icmp ult i64 %.02541437.i.i, %.val386.i.i351
@@ -6275,7 +6275,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17h805b2b64643d8961E.exit.i: ;
   unreachable
 
 1696:                                             ; preds = %1690
-  %1697 = getelementptr inbounds i32, ptr %.val4111839.i.i, i64 %.02541437.i.i
+  %1697 = getelementptr inbounds [4 x i8], ptr %.val4111839.i.i, i64 %.02541437.i.i
   store i32 %1664, ptr %1697, align 4, !noalias !1091
   %.0.sroa.speculated.i572.i.i354 = call noundef i8 @llvm.umax.i8(i8 %.02561436.i.i, i8 %1688)
   %1698 = add nuw i64 %.02541437.i.i, 1
@@ -6313,7 +6313,7 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit.i166.i: ; pred
   br i1 %exitcond1756.not.i.i, label %.split1392.us.invoke.i.i, label %.lr.ph1381.i.i, !prof !570
 
 .lr.ph1381.i.i:                                   ; preds = %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit.i166.i
-  %1706 = getelementptr inbounds i32, ptr %1447, i64 %.32521432.i.i
+  %1706 = getelementptr inbounds [4 x i8], ptr %1447, i64 %.32521432.i.i
   %1707 = load i32, ptr %1706, align 4, !noalias !1091, !noundef !4
   %.not1452.i.i = icmp eq i32 %1707, 0
   br i1 %.not1452.i.i, label %.split1386.us.i.i, label %.lr.ph1422.preheader.i.i
@@ -6329,14 +6329,14 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit.i166.i: ; pred
   br i1 %1710, label %1711, label %.split1392.us.invoke.i.i, !prof !552
 
 1711:                                             ; preds = %.lr.ph1422.i.i
-  %1712 = getelementptr inbounds i16, ptr %1260, i64 %.22311380.us1420.i.i
+  %1712 = getelementptr inbounds [2 x i8], ptr %1260, i64 %.22311380.us1420.i.i
   %1713 = load i16, ptr %1712, align 2, !alias.scope !1293, !noalias !1296, !noundef !4
   %1714 = zext i16 %1713 to i64
   %1715 = icmp ult i16 %1713, 704
   br i1 %1715, label %1716, label %.split1392.us.invoke.i.i, !prof !552
 
 1716:                                             ; preds = %1711
-  %1717 = getelementptr inbounds nuw i32, ptr %118, i64 %1714
+  %1717 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %1714
   %1718 = load i32, ptr %1717, align 4, !alias.scope !1297, !noalias !1087, !noundef !4
   %1719 = add i32 %1718, 1
   store i32 %1719, ptr %1717, align 4, !alias.scope !1297, !noalias !1087
@@ -6377,7 +6377,7 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit.i166.i: ; pred
   br i1 %1728, label %1729, label %.split1392.us.invoke.i.i, !prof !552
 
 1729:                                             ; preds = %1726
-  %1730 = getelementptr inbounds i32, ptr %1442, i64 %1727
+  %1730 = getelementptr inbounds [4 x i8], ptr %1442, i64 %1727
   br label %1731
 
 1731:                                             ; preds = %1729, %1725
@@ -6388,7 +6388,7 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit.i166.i: ; pred
   br i1 %1733, label %.noexc.i.i329, label %.split1392.us.invoke.i.i, !prof !552
 
 .noexc.i.i329:                                    ; preds = %1731
-  %1734 = getelementptr inbounds nuw { [704 x i32], i64, float, [1 x i32] }, ptr %.sroa.0638.3.lcssa.i.i, i64 %1732
+  %1734 = getelementptr inbounds nuw [2832 x i8], ptr %.sroa.0638.3.lcssa.i.i, i64 %1732
   %1735 = icmp eq i64 %1723, 0
   br i1 %1735, label %_ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.i.i, label %.noexc382.i.i330
 
@@ -6409,9 +6409,9 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit.i166.i: ; pred
 1740:                                             ; preds = %1740, %.noexc382.i.i330
   %.sroa.01.0.i3771424.i.i = phi i64 [ 0, %.noexc382.i.i330 ], [ %1741, %1740 ]
   %1741 = add nuw nsw i64 %.sroa.01.0.i3771424.i.i, 1
-  %1742 = getelementptr inbounds nuw i32, ptr %117, i64 %.sroa.01.0.i3771424.i.i
+  %1742 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %.sroa.01.0.i3771424.i.i
   %1743 = load i32, ptr %1742, align 4, !noalias !1087, !noundef !4
-  %1744 = getelementptr inbounds nuw i32, ptr %1734, i64 %.sroa.01.0.i3771424.i.i
+  %1744 = getelementptr inbounds nuw [4 x i8], ptr %1734, i64 %.sroa.01.0.i3771424.i.i
   %1745 = load i32, ptr %1744, align 4, !noalias !1091, !noundef !4
   %1746 = add i32 %1745, %1743
   store i32 %1746, ptr %1742, align 4, !noalias !1087
@@ -6441,7 +6441,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
   br i1 %exitcond1754.not.i.us.i, label %.split1392.us.invoke.i.i, label %1751, !prof !551
 
 1751:                                             ; preds = %.lr.ph1429.i.split.us.i
-  %1752 = getelementptr inbounds i32, ptr %1546, i64 %.12371427.i.us.i
+  %1752 = getelementptr inbounds [4 x i8], ptr %1546, i64 %.12371427.i.us.i
   %1753 = load i32, ptr %1752, align 4, !noalias !1091, !noundef !4
   %1754 = zext i32 %1753 to i64
   %1755 = icmp ugt i64 %.sroa.14.3.lcssa.i.i306, %1754
@@ -6458,14 +6458,14 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
   br i1 %exitcond1757.not.i.i, label %.split1392.us.invoke.i.i, label %1757, !prof !551
 
 1757:                                             ; preds = %._crit_edge1430.i.i
-  %1758 = getelementptr inbounds i32, ptr %1442, i64 %.32521432.i.i
+  %1758 = getelementptr inbounds [4 x i8], ptr %1442, i64 %.32521432.i.i
   store i32 %.1239.lcssa.i.i341, ptr %1758, align 4, !noalias !1091
   %1759 = zext i32 %.1239.lcssa.i.i341 to i64
   %1760 = icmp ugt i64 %1579, %1759
   br i1 %1760, label %1761, label %.split1392.us.invoke.i.i, !prof !552
 
 1761:                                             ; preds = %1757
-  %1762 = getelementptr inbounds nuw i32, ptr %1578, i64 %1759
+  %1762 = getelementptr inbounds nuw [4 x i8], ptr %1578, i64 %1759
   %1763 = load i32, ptr %1762, align 4, !noalias !1091, !noundef !4
   %1764 = icmp eq i32 %1763, -1
   br i1 %1764, label %1765, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.exit537.thread.i.i342"
@@ -6490,14 +6490,14 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
   br i1 %exitcond1754.not.i.i, label %.split1392.us.invoke.i.i, label %1768, !prof !551
 
 1768:                                             ; preds = %.lr.ph1429.i.split.i
-  %1769 = getelementptr inbounds i32, ptr %1546, i64 %.12371427.i.i
+  %1769 = getelementptr inbounds [4 x i8], ptr %1546, i64 %.12371427.i.i
   %1770 = load i32, ptr %1769, align 4, !noalias !1091, !noundef !4
   %1771 = zext i32 %1770 to i64
   %1772 = icmp ugt i64 %.sroa.14.3.lcssa.i.i306, %1771
   br i1 %1772, label %.noexc358.i.i334, label %.split1392.us.invoke.i.i, !prof !552
 
 .noexc358.i.i334:                                 ; preds = %1768
-  %1773 = getelementptr inbounds nuw { [704 x i32], i64, float, [1 x i32] }, ptr %.sroa.0638.3.lcssa.i.i, i64 %1771
+  %1773 = getelementptr inbounds nuw [2832 x i8], ptr %.sroa.0638.3.lcssa.i.i, i64 %1771
   call void @llvm.lifetime.start.p0(ptr nonnull %116), !noalias !1328
   call void @llvm.experimental.noalias.scope.decl(metadata !1333)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2832) %116, ptr noundef nonnull readonly align 8 dereferenceable(2832) %118, i64 2816, i1 false), !alias.scope !1336, !noalias !1087
@@ -6512,9 +6512,9 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
 1777:                                             ; preds = %1777, %.noexc358.i.i334
   %.sroa.01.0.i1425.i.i = phi i64 [ 0, %.noexc358.i.i334 ], [ %1778, %1777 ]
   %1778 = add nuw nsw i64 %.sroa.01.0.i1425.i.i, 1
-  %1779 = getelementptr inbounds nuw i32, ptr %116, i64 %.sroa.01.0.i1425.i.i
+  %1779 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %.sroa.01.0.i1425.i.i
   %1780 = load i32, ptr %1779, align 4, !noalias !1087, !noundef !4
-  %1781 = getelementptr inbounds nuw i32, ptr %1773, i64 %.sroa.01.0.i1425.i.i
+  %1781 = getelementptr inbounds nuw [4 x i8], ptr %1773, i64 %.sroa.01.0.i1425.i.i
   %1782 = load i32, ptr %1781, align 4, !noalias !1091, !noundef !4
   %1783 = add i32 %1782, %1780
   store i32 %1783, ptr %1779, align 4, !noalias !1087
@@ -6662,8 +6662,8 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc7c4a6d4ca0a1f63E.llvm.10144161557925507027.exit.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc7c4a6d4ca0a1f63E.llvm.10144161557925507027.exit.preheader.i.i.i", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc7c4a6d4ca0a1f63E.llvm.10144161557925507027.exit.i.i.i"
   %.sroa.0.010.i.i.i389 = phi i64 [ %1824, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc7c4a6d4ca0a1f63E.llvm.10144161557925507027.exit.i.i.i" ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc7c4a6d4ca0a1f63E.llvm.10144161557925507027.exit.preheader.i.i.i" ]
   %1824 = add nuw i64 %.sroa.0.010.i.i.i389, 1
-  %1825 = getelementptr inbounds { [704 x i32], i64, float, [1 x i32] }, ptr %1817, i64 %.sroa.0.010.i.i.i389
-  %1826 = getelementptr inbounds { [704 x i32], i64, float, [1 x i32] }, ptr %.sroa.0638.31358.i.i, i64 %.sroa.0.010.i.i.i389
+  %1825 = getelementptr inbounds [2832 x i8], ptr %1817, i64 %.sroa.0.010.i.i.i389
+  %1826 = getelementptr inbounds [2832 x i8], ptr %.sroa.0638.31358.i.i, i64 %.sroa.0.010.i.i.i389
   call void @llvm.experimental.noalias.scope.decl(metadata !1368)
   call void @llvm.experimental.noalias.scope.decl(metadata !1371)
   %1827 = getelementptr inbounds nuw i8, ptr %1826, i64 2816
@@ -6762,7 +6762,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
 
 1856:                                             ; preds = %1864, %.lr.ph1353.i.i
   %.21352.i.i = phi i64 [ 0, %.lr.ph1353.i.i ], [ %1869, %1864 ]
-  %1857 = getelementptr inbounds nuw i32, ptr %120, i64 %.21352.i.i
+  %1857 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %.21352.i.i
   %1858 = load i32, ptr %1857, align 4, !noalias !1087, !noundef !4
   %1859 = zext i32 %1858 to i64
   %1860 = icmp ult i32 %1858, 64
@@ -6774,10 +6774,10 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
   br i1 %1863, label %1864, label %.invoke5730, !prof !552
 
 1864:                                             ; preds = %1861
-  %1865 = getelementptr inbounds nuw i32, ptr %119, i64 %1859
+  %1865 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %1859
   %1866 = load i32, ptr %1865, align 4, !noalias !1087, !noundef !4
   %1867 = add i32 %1866, %1852
-  %1868 = getelementptr inbounds i32, ptr %1442, i64 %1862
+  %1868 = getelementptr inbounds [4 x i8], ptr %1442, i64 %1862
   store i32 %1867, ptr %1868, align 4, !noalias !1091
   %1869 = add nuw nsw i64 %.21352.i.i, 1
   %exitcond1750.not.i.i = icmp eq i64 %1869, %umax1749.i.i
@@ -6791,7 +6791,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
   br i1 %exitcond1746.not.i.i, label %.invoke5730, label %1870, !prof !551
 
 1870:                                             ; preds = %.lr.ph1349.i.i
-  %1871 = getelementptr inbounds nuw i32, ptr %121, i64 %.12201346.i.i
+  %1871 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %.12201346.i.i
   %1872 = load i32, ptr %1871, align 4, !noalias !1087, !noundef !4
   %1873 = zext i32 %1872 to i64
   %1874 = icmp ugt i64 %1491, %1873
@@ -6803,7 +6803,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
   br label %.thread790.i.i
 
 1877:                                             ; preds = %1870
-  %1878 = getelementptr inbounds nuw { [704 x i32], i64, float, [1 x i32] }, ptr %1490, i64 %1873
+  %1878 = getelementptr inbounds nuw [2832 x i8], ptr %1490, i64 %1873
   %1879 = getelementptr inbounds nuw i8, ptr %1878, i64 2816
   %1880 = load i64, ptr %1879, align 8, !alias.scope !1403, !noalias !1406, !noundef !4
   %1881 = getelementptr inbounds nuw i8, ptr %1878, i64 2824
@@ -6817,7 +6817,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
           to label %1667 unwind label %1875, !noalias !1091
 
 1885:                                             ; preds = %1877
-  %1886 = getelementptr inbounds { [704 x i32], i64, float, [1 x i32] }, ptr %.sroa.0638.8.i.i, i64 %.12161348.i.i
+  %1886 = getelementptr inbounds [2832 x i8], ptr %.sroa.0638.8.i.i, i64 %.12161348.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2816) %1886, ptr noundef nonnull align 8 dereferenceable(2816) %1878, i64 2816, i1 false), !noalias !1091
   %.sroa.4.0..sroa_idx.i164.i = getelementptr inbounds nuw i8, ptr %1886, i64 2816
   store i64 %1880, ptr %.sroa.4.0..sroa_idx.i164.i, align 8, !noalias !1091
@@ -6830,14 +6830,14 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
   br i1 %1890, label %1891, label %.invoke5730, !prof !552
 
 1891:                                             ; preds = %1885
-  %1892 = getelementptr inbounds nuw i32, ptr %122, i64 %1889
+  %1892 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %1889
   %1893 = load i32, ptr %1892, align 4, !noalias !1087, !noundef !4
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0650.5.i.i) ]
   %1894 = icmp ult i64 %.12181347.i.i, %.sroa.12.5.i.i300
   br i1 %1894, label %1895, label %.invoke5730, !prof !552
 
 1895:                                             ; preds = %1891
-  %1896 = getelementptr inbounds i32, ptr %.sroa.0650.5.i.i, i64 %.12181347.i.i
+  %1896 = getelementptr inbounds [4 x i8], ptr %.sroa.0650.5.i.i, i64 %.12181347.i.i
   store i32 %1893, ptr %1896, align 4, !noalias !1091
   %1897 = load i32, ptr %1871, align 4, !noalias !1087, !noundef !4
   %1898 = zext i32 %1897 to i64
@@ -6846,7 +6846,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17h28800ac751c2bf4dE.exit.
 
 1900:                                             ; preds = %1895
   %1901 = add nuw i64 %.12181347.i.i, 1
-  %1902 = getelementptr inbounds nuw i32, ptr %119, i64 %1898
+  %1902 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %1898
   %1903 = trunc nuw nsw i64 %.12201346.i.i to i32
   store i32 %1903, ptr %1902, align 4, !noalias !1087
   %1904 = add nuw nsw i64 %.12201346.i.i, 1
@@ -6895,7 +6895,7 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit370.i.i: ; pred
   %1916 = mul nuw nsw i64 %.02191342.i.i, 2832
   %scevgep.i.i293 = getelementptr i8, ptr %1490, i64 %1916
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2816) %scevgep.i.i293, i8 0, i64 2816, i1 false), !noalias !1091
-  %1917 = getelementptr inbounds nuw { [704 x i32], i64, float, [1 x i32] }, ptr %1490, i64 %.02191342.i.i
+  %1917 = getelementptr inbounds nuw [2832 x i8], ptr %1490, i64 %.02191342.i.i
   %1918 = getelementptr inbounds nuw i8, ptr %1917, i64 2816
   store i64 0, ptr %1918, align 8, !alias.scope !1422, !noalias !1091
   %1919 = getelementptr inbounds nuw i8, ptr %1917, i64 2824
@@ -6905,7 +6905,7 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit370.i.i: ; pred
   br i1 %1921, label %.lr.ph.i162.i, label %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit370._crit_edge.i.i, !prof !699
 
 .lr.ph.i162.i:                                    ; preds = %_ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit370.i.i
-  %1922 = getelementptr inbounds i32, ptr %1447, i64 %1920
+  %1922 = getelementptr inbounds [4 x i8], ptr %1447, i64 %1920
   %1923 = load i32, ptr %1922, align 4, !noalias !1091, !noundef !4
   %.not1446.i.i = icmp eq i32 %1923, 0
   br i1 %.not1446.i.i, label %.split.us.i163.i, label %.lr.ph1338.i.i
@@ -6917,14 +6917,14 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit370.i.i: ; pred
   br i1 %1924, label %1925, label %.split1224.us.i.i.invoke, !prof !552
 
 1925:                                             ; preds = %.lr.ph1338.i.i
-  %1926 = getelementptr inbounds i16, ptr %1260, i64 %.42331205.us1337.i.i
+  %1926 = getelementptr inbounds [2 x i8], ptr %1260, i64 %.42331205.us1337.i.i
   %1927 = load i16, ptr %1926, align 2, !alias.scope !1428, !noalias !1296, !noundef !4
   %1928 = zext i16 %1927 to i64
   %1929 = icmp ult i16 %1927, 704
   br i1 %1929, label %1930, label %.split1224.us.i.i.invoke, !prof !552
 
 1930:                                             ; preds = %1925
-  %1931 = getelementptr inbounds nuw i32, ptr %1917, i64 %1928
+  %1931 = getelementptr inbounds nuw [4 x i8], ptr %1917, i64 %1928
   %1932 = load i32, ptr %1931, align 4, !alias.scope !1431, !noalias !1091, !noundef !4
   %1933 = add i32 %1932, 1
   store i32 %1933, ptr %1931, align 4, !alias.scope !1431, !noalias !1091
@@ -6949,12 +6949,12 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit370._crit_edge.
 
 1942:                                             ; preds = %.split.us.i163.i
   store float %1941, ptr %1919, align 8, !alias.scope !1440, !noalias !1091
-  %1943 = getelementptr inbounds nuw i32, ptr %121, i64 %.02191342.i.i
+  %1943 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %.02191342.i.i
   %1944 = trunc nuw nsw i64 %.02191342.i.i to i32
   store i32 %1944, ptr %1943, align 4, !noalias !1087
-  %1945 = getelementptr inbounds nuw i32, ptr %120, i64 %.02191342.i.i
+  %1945 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %.02191342.i.i
   store i32 %1944, ptr %1945, align 4, !noalias !1087
-  %1946 = getelementptr inbounds nuw i32, ptr %122, i64 %.02191342.i.i
+  %1946 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %.02191342.i.i
   store i32 1, ptr %1946, align 4, !noalias !1087
   %1947 = add nuw nsw i64 %.02191342.i.i, 1
   %exitcond1745.not.i.i = icmp eq i64 %1947, %umax1749.i.i
@@ -6977,7 +6977,7 @@ _ZN6brotli3enc9histogram14HistogramClear17he333e171e9c67cd9E.exit370._crit_edge.
   br i1 %1952, label %1953, label %.invoke.i.i283, !prof !552
 
 1953:                                             ; preds = %1951
-  %1954 = getelementptr inbounds i32, ptr %1447, i64 %.01202.i.i
+  %1954 = getelementptr inbounds [4 x i8], ptr %1447, i64 %.01202.i.i
   %1955 = load i32, ptr %1954, align 4, !noalias !1091, !noundef !4
   %1956 = add i32 %1955, 1
   store i32 %1956, ptr %1954, align 4, !noalias !1091
@@ -7106,7 +7106,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h76534def3e3ec7c9E.exit.i: ; pred
   br i1 %exitcond.not.i177.i, label %.split24.us.i.invoke.i, label %1991, !prof !551
 
 1991:                                             ; preds = %.preheader345.split.us.i.i123
-  %1992 = getelementptr inbounds { [704 x i32], i64, float, [1 x i32] }, ptr %1289, i64 %.1114384.us.i.i124
+  %1992 = getelementptr inbounds [2832 x i8], ptr %1289, i64 %.1114384.us.i.i124
   %1993 = getelementptr inbounds nuw i8, ptr %1992, i64 2816
   %1994 = load i64, ptr %1993, align 8, !alias.scope !1486, !noalias !1489, !noundef !4
   %1995 = and i64 %1994, 4294967295
@@ -7119,13 +7119,13 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h76534def3e3ec7c9E.exit.i: ; pred
   br label %2003
 
 2000:                                             ; preds = %1991
-  %2001 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util10kLog2Table17h3d7a587af6dc9265E, i64 %1995
+  %2001 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6brotli3enc4util10kLog2Table17h3d7a587af6dc9265E, i64 %1995
   %2002 = load float, ptr %2001, align 4, !noalias !1490, !noundef !4
   br label %2003
 
 2003:                                             ; preds = %2000, %1997
   %.0112.us.i.i125 = phi float [ %2002, %2000 ], [ %1999, %1997 ]
-  %2004 = getelementptr inbounds float, ptr %1395, i64 %.1114384.us.i.i124
+  %2004 = getelementptr inbounds [4 x i8], ptr %1395, i64 %.1114384.us.i.i124
   store float %.0112.us.i.i125, ptr %2004, align 4, !alias.scope !1477, !noalias !1485
   %2005 = add nuw i64 %.1114384.us.i.i124, 1
   %exitcond485.not.i.i126 = icmp eq i64 %2005, %.039539.i
@@ -7137,7 +7137,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h76534def3e3ec7c9E.exit.i: ; pred
 .split385.us.i.i128:                              ; preds = %.preheader344.split395.i.i127, %.loopexit343.split.us.us.i.i140
   %.2115396.us.i.i129 = phi i64 [ %2006, %.loopexit343.split.us.us.i.i140 ], [ 704, %.preheader344.split395.i.i127 ]
   %2006 = add nsw i64 %.2115396.us.i.i129, -1
-  %invariant.gep.us.i.i130 = getelementptr i32, ptr %1289, i64 %2006
+  %invariant.gep.us.i.i130 = getelementptr [4 x i8], ptr %1289, i64 %2006
   %2007 = mul i64 %2006, %.039539.i
   br label %2008
 
@@ -7147,9 +7147,9 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h76534def3e3ec7c9E.exit.i: ; pred
   br i1 %exitcond489.not.i.i, label %.split24.us.i.invoke.i, label %2009, !prof !551
 
 2009:                                             ; preds = %2008
-  %2010 = getelementptr inbounds float, ptr %1395, i64 %.0116386.us.us.i.i131
+  %2010 = getelementptr inbounds [4 x i8], ptr %1395, i64 %.0116386.us.us.i.i131
   %2011 = load float, ptr %2010, align 4, !alias.scope !1477, !noalias !1485, !noundef !4
-  %gep.us.us.i.i132 = getelementptr { [704 x i32], i64, float, [1 x i32] }, ptr %invariant.gep.us.i.i130, i64 %.0116386.us.us.i.i131
+  %gep.us.us.i.i132 = getelementptr [2832 x i8], ptr %invariant.gep.us.i.i130, i64 %.0116386.us.us.i.i131
   %2012 = load i32, ptr %gep.us.us.i.i132, align 4, !alias.scope !1475, !noalias !1489, !noundef !4
   %2013 = zext i32 %2012 to i64
   %2014 = invoke noundef float @_ZN6brotli3enc14block_splitter7BitCost17h8bd07a40ea33d343E(i64 noundef %2013)
@@ -7161,7 +7161,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h76534def3e3ec7c9E.exit.i: ; pred
   br i1 %2016, label %2017, label %.split24.us.i.invoke.i, !prof !552
 
 2017:                                             ; preds = %.noexc183.i
-  %2018 = getelementptr inbounds float, ptr %1395, i64 %2015
+  %2018 = getelementptr inbounds [4 x i8], ptr %1395, i64 %2015
   %2019 = fsub float %2011, %2014
   store float %2019, ptr %2018, align 4, !alias.scope !1477, !noalias !1485
   %2020 = add nuw i64 %.0116386.us.us.i.i131, 1
@@ -7186,7 +7186,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17h76534def3e3ec7c9E.exit.i: ; pred
 .split385.i.i399:                                 ; preds = %.preheader344.split395.i.i127, %.loopexit343.split.i.i407
   %.2115396.i.i400 = phi i64 [ %2023, %.loopexit343.split.i.i407 ], [ 704, %.preheader344.split395.i.i127 ]
   %2023 = add nsw i64 %.2115396.i.i400, -1
-  %invariant.gep.i.i401 = getelementptr i32, ptr %1289, i64 %2023
+  %invariant.gep.i.i401 = getelementptr [4 x i8], ptr %1289, i64 %2023
   %2024 = mul i64 %2023, %.039539.i
   br label %.check388.i.i402
 
@@ -7319,7 +7319,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.invoke1504.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i157": ; preds = %2070
-  %2076 = getelementptr inbounds float, ptr %1395, i64 %2075
+  %2076 = getelementptr inbounds [4 x i8], ptr %1395, i64 %2075
   %2077 = sub nuw i64 %1396, %2075
   br i1 %2030, label %._crit_edge412.i.i170, label %.lr.ph411.i.i158
 
@@ -7343,7 +7343,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.invoke1504.i
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit193.i.i175": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit188.i.i173"
-  %2082 = getelementptr inbounds float, ptr %1395, i64 %2078
+  %2082 = getelementptr inbounds [4 x i8], ptr %1395, i64 %2078
   %2083 = getelementptr inbounds nuw i8, ptr %2082, i64 %.idx443.i.i
   br i1 %2039, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.thread.i.i181", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.i.i176"
 
@@ -7380,7 +7380,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 2092:                                             ; preds = %2092, %2091
   %2093 = phi i64 [ 0, %2091 ], [ %2095, %2092 ]
-  %2094 = getelementptr inbounds nuw float, ptr %88, i64 %2093
+  %2094 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %2093
   store float %.1119.lcssa.i.i182, ptr %2094, align 4, !noalias !1520
   %2095 = add nuw nsw i64 %2093, 1
   %exitcond496.not.i.i184 = icmp eq i64 %2095, 8
@@ -7401,7 +7401,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 2097:                                             ; preds = %2097, %2096
   %2098 = phi i64 [ 0, %2096 ], [ %2100, %2097 ]
-  %2099 = getelementptr inbounds nuw float, ptr %87, i64 %2098
+  %2099 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %2098
   store float %.0117.i.i183, ptr %2099, align 4, !noalias !1520
   %2100 = add nuw nsw i64 %2098, 1
   %exitcond497.not.i.i193 = icmp eq i64 %2100, 8
@@ -7520,8 +7520,8 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 2155:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.i.i176"
   %2156 = and i64 %.0121414.i.i178, 7
   %2157 = load float, ptr %.sroa.0238.0413.i.i179, align 4, !alias.scope !1477, !noalias !1485, !noundef !4
-  %2158 = getelementptr inbounds nuw { [8 x float] }, ptr %1410, i64 %2088
-  %2159 = getelementptr inbounds nuw float, ptr %2158, i64 %2156
+  %2158 = getelementptr inbounds nuw [32 x i8], ptr %1410, i64 %2088
+  %2159 = getelementptr inbounds nuw [4 x i8], ptr %2158, i64 %2156
   %2160 = load float, ptr %2159, align 4, !alias.scope !1479, !noalias !1491, !noundef !4
   %2161 = fadd float %2157, %2160
   store float %2161, ptr %2159, align 4, !alias.scope !1479, !noalias !1491
@@ -7571,7 +7571,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i165": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i163"
-  %2172 = getelementptr inbounds float, ptr %2076, i64 %2086
+  %2172 = getelementptr inbounds [4 x i8], ptr %2076, i64 %2086
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %89, ptr noundef nonnull readonly align 4 dereferenceable(32) %2172, i64 32, i1 false), !alias.scope !1535, !noalias !1539
   br label %2175
 
@@ -7584,9 +7584,9 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   %.3407.i.i166 = phi float [ %.0118410.i.i159, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i165" ], [ %.4.i.i168, %2186 ]
   %.sroa.054.0406.i.i167 = phi i64 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i165" ], [ %2176, %2186 ]
   %2176 = add nuw nsw i64 %.sroa.054.0406.i.i167, 1
-  %2177 = getelementptr inbounds nuw float, ptr %89, i64 %.sroa.054.0406.i.i167
+  %2177 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %.sroa.054.0406.i.i167
   %2178 = load float, ptr %2177, align 4, !noalias !1490, !noundef !4
-  %2179 = getelementptr inbounds nuw float, ptr %.sroa.0219.0408.i.i161, i64 %.sroa.054.0406.i.i167
+  %2179 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0219.0408.i.i161, i64 %.sroa.054.0406.i.i167
   %2180 = load float, ptr %2179, align 4, !alias.scope !1479, !noalias !1491, !noundef !4
   %2181 = fadd float %2178, %2180
   store float %2181, ptr %2179, align 4, !alias.scope !1479, !noalias !1491
@@ -7606,13 +7606,13 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 .check388.i.i402:                                 ; preds = %2195, %.split385.i.i399
   %.0116386.i.i403 = phi i64 [ 0, %.split385.i.i399 ], [ %2198, %2195 ]
-  %2187 = getelementptr inbounds float, ptr %1395, i64 %.0116386.i.i403
+  %2187 = getelementptr inbounds [4 x i8], ptr %1395, i64 %.0116386.i.i403
   %2188 = load float, ptr %2187, align 4, !alias.scope !1477, !noalias !1485, !noundef !4
   %exitcond492.not.i.i = icmp eq i64 %.0116386.i.i403, %1290
   br i1 %exitcond492.not.i.i, label %.split24.us.i.invoke.i, label %2189, !prof !551
 
 2189:                                             ; preds = %.check388.i.i402
-  %gep.i.i404 = getelementptr { [704 x i32], i64, float, [1 x i32] }, ptr %invariant.gep.i.i401, i64 %.0116386.i.i403
+  %gep.i.i404 = getelementptr [2832 x i8], ptr %invariant.gep.i.i401, i64 %.0116386.i.i403
   %2190 = load i32, ptr %gep.i.i404, align 4, !alias.scope !1475, !noalias !1489, !noundef !4
   %2191 = zext i32 %2190 to i64
   %2192 = invoke noundef float @_ZN6brotli3enc14block_splitter7BitCost17h8bd07a40ea33d343E(i64 noundef %2191)
@@ -7624,7 +7624,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br i1 %2194, label %2195, label %.split24.us.i.invoke.i, !prof !552
 
 2195:                                             ; preds = %.noexc201.i
-  %2196 = getelementptr inbounds float, ptr %1395, i64 %2193
+  %2196 = getelementptr inbounds [4 x i8], ptr %1395, i64 %2193
   %2197 = fsub float %2188, %2192
   store float %2197, ptr %2196, align 4, !alias.scope !1477, !noalias !1485
   %2198 = add nuw i64 %.0116386.i.i403, 1
@@ -7633,7 +7633,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 .preheader345.split.preheader.i.i408:             ; preds = %.preheader345.i.i122, %2210
   %.1114384.i.i409 = phi i64 [ %2212, %2210 ], [ 0, %.preheader345.i.i122 ]
-  %2199 = getelementptr inbounds { [704 x i32], i64, float, [1 x i32] }, ptr %1289, i64 %.1114384.i.i409
+  %2199 = getelementptr inbounds [2832 x i8], ptr %1289, i64 %.1114384.i.i409
   %2200 = getelementptr inbounds nuw i8, ptr %2199, i64 2816
   %2201 = load i64, ptr %2200, align 8, !alias.scope !1486, !noalias !1489, !noundef !4
   %2202 = and i64 %2201, 4294967295
@@ -7651,12 +7651,12 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br i1 %exitcond486.not.i.i, label %.split24.us.i.invoke.i, label %2210, !prof !551
 
 2207:                                             ; preds = %.preheader345.split.preheader.i.i408
-  %2208 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util10kLog2Table17h3d7a587af6dc9265E, i64 %2202
+  %2208 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6brotli3enc4util10kLog2Table17h3d7a587af6dc9265E, i64 %2202
   %2209 = load float, ptr %2208, align 4, !noalias !1490, !noundef !4
   br label %.check.i.i410
 
 2210:                                             ; preds = %.check.i.i410
-  %2211 = getelementptr inbounds float, ptr %1395, i64 %.1114384.i.i409
+  %2211 = getelementptr inbounds [4 x i8], ptr %1395, i64 %.1114384.i.i409
   store float %.0112.i.i411, ptr %2211, align 4, !alias.scope !1477, !noalias !1485
   %2212 = add nuw i64 %.1114384.i.i409, 1
   %exitcond488.not.i.i412 = icmp eq i64 %2212, %.039539.i
@@ -7751,15 +7751,15 @@ _ZN6brotli3enc9histogram15ClearHistograms17h18f74c1506e2979aE.exit.split.us.i.i:
   br i1 %2237, label %2238, label %.split24.us.i.invoke.i, !prof !552
 
 2238:                                             ; preds = %2233
-  %2239 = getelementptr inbounds i16, ptr %1260, i64 %.019.us.i.i
+  %2239 = getelementptr inbounds [2 x i8], ptr %1260, i64 %.019.us.i.i
   %2240 = load i16, ptr %2239, align 2, !alias.scope !1564, !noalias !1567, !noundef !4
   %2241 = zext i16 %2240 to i64
   %2242 = icmp ult i16 %2240, 704
   br i1 %2242, label %_ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit.us.i.i, label %.split24.us.i.invoke.i, !prof !552
 
 _ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit.us.i.i: ; preds = %2238
-  %2243 = getelementptr inbounds nuw { [704 x i32], i64, float, [1 x i32] }, ptr %1289, i64 %2236
-  %2244 = getelementptr inbounds nuw i32, ptr %2243, i64 %2241
+  %2243 = getelementptr inbounds nuw [2832 x i8], ptr %1289, i64 %2236
+  %2244 = getelementptr inbounds nuw [4 x i8], ptr %2243, i64 %2241
   %2245 = load i32, ptr %2244, align 4, !alias.scope !1568, !noalias !1556, !noundef !4
   %2246 = add i32 %2245, 1
   store i32 %2246, ptr %2244, align 4, !alias.scope !1568, !noalias !1556
@@ -7784,7 +7784,7 @@ _ZN6brotli3enc9histogram15ClearHistograms17h18f74c1506e2979aE.exit.split.prehead
   br i1 %exitcond50.not.i.i, label %.split24.us.i.invoke.i, label %2255, !prof !551
 
 2255:                                             ; preds = %.check.i215.i
-  %2256 = getelementptr inbounds i16, ptr %1260, i64 %.019.i.i
+  %2256 = getelementptr inbounds [2 x i8], ptr %1260, i64 %.019.i.i
   %2257 = load i16, ptr %2256, align 2, !alias.scope !1564, !noalias !1567, !noundef !4
   %2258 = zext i16 %2257 to i64
   %2259 = icmp ult i16 %2257, 704
@@ -7801,8 +7801,8 @@ _ZN6brotli3enc9histogram15ClearHistograms17h18f74c1506e2979aE.exit.split.prehead
   unreachable
 
 _ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit.i.i: ; preds = %2255
-  %2263 = getelementptr inbounds nuw { [704 x i32], i64, float, [1 x i32] }, ptr %1289, i64 %2253
-  %2264 = getelementptr inbounds nuw i32, ptr %2263, i64 %2258
+  %2263 = getelementptr inbounds nuw [2832 x i8], ptr %1289, i64 %2253
+  %2264 = getelementptr inbounds nuw [4 x i8], ptr %2263, i64 %2258
   %2265 = load i32, ptr %2264, align 4, !alias.scope !1568, !noalias !1556, !noundef !4
   %2266 = add i32 %2265, 1
   store i32 %2266, ptr %2264, align 4, !alias.scope !1568, !noalias !1556
@@ -8034,7 +8034,7 @@ _ZN6brotli3enc14block_splitter20BuildBlockHistograms17h257838a35b134f87E.exit.i:
   br i1 %2318, label %2319, label %.invoke4713, !prof !552
 
 2319:                                             ; preds = %2316
-  %2320 = getelementptr inbounds i32, ptr %.val101.i, i64 %1284
+  %2320 = getelementptr inbounds [4 x i8], ptr %.val101.i, i64 %1284
   %2321 = trunc nuw nsw i64 %3 to i32
   store i32 %2321, ptr %2320, align 4, !noalias !963
   store i64 %1285, ptr %1283, align 8, !alias.scope !943, !noalias !945
@@ -8277,7 +8277,7 @@ _ZN6brotli3enc9histogram15ClearHistograms17ha69f88845c5332a9E.exit.preheader.spl
   br i1 %2393, label %.split43.us.i.invoke.i1047, label %2394
 
 2394:                                             ; preds = %2391
-  %2395 = getelementptr inbounds nuw { [544 x i32], i64, float, [1 x i32] }, ptr %2363, i64 %.01940.i.i460
+  %2395 = getelementptr inbounds nuw [2192 x i8], ptr %2363, i64 %.01940.i.i460
   %2396 = sub nuw i64 %2336, %spec.select.i.i465
   call void @llvm.experimental.noalias.scope.decl(metadata !1704)
   call void @llvm.experimental.noalias.scope.decl(metadata !1707)
@@ -8289,7 +8289,7 @@ _ZN6brotli3enc9histogram15ClearHistograms17ha69f88845c5332a9E.exit.preheader.spl
   br i1 %2400, label %.invoke.i443, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcf829c903b9a64cfE.llvm.10144161557925507027.exit.i.i.i466"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcf829c903b9a64cfE.llvm.10144161557925507027.exit.i.i.i466": ; preds = %2394
-  %2401 = getelementptr inbounds i16, ptr %2335, i64 %spec.select.i.i465
+  %2401 = getelementptr inbounds [2 x i8], ptr %2335, i64 %spec.select.i.i465
   br label %.lr.ph.i28.i.i467
 
 .lr.ph.i28.i.i467:                                ; preds = %2405, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcf829c903b9a64cfE.llvm.10144161557925507027.exit.i.i.i466"
@@ -8302,7 +8302,7 @@ _ZN6brotli3enc9histogram15ClearHistograms17ha69f88845c5332a9E.exit.preheader.spl
 
 2405:                                             ; preds = %.lr.ph.i28.i.i467
   %.sroa.0.08.i.add.i.i472 = add nuw nsw i64 %.sroa.0.08.i.idx.i.i468, 2
-  %2406 = getelementptr inbounds nuw i32, ptr %2395, i64 %2403
+  %2406 = getelementptr inbounds nuw [4 x i8], ptr %2395, i64 %2403
   %2407 = load i32, ptr %2406, align 4, !alias.scope !1720, !noalias !1712, !noundef !4
   %2408 = add i32 %2407, 1
   store i32 %2408, ptr %2406, align 4, !alias.scope !1720, !noalias !1712
@@ -8370,7 +8370,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit.i.i: ; preds =
   br i1 %2430, label %.invoke.i443, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcf829c903b9a64cfE.llvm.10144161557925507027.exit.i.i.i.i478"
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcf829c903b9a64cfE.llvm.10144161557925507027.exit.i.i.i.i478": ; preds = %2428
-  %2431 = getelementptr inbounds nuw i16, ptr %2335, i64 %2426
+  %2431 = getelementptr inbounds nuw [2 x i8], ptr %2335, i64 %2426
   br label %.lr.ph.i.i.i.i479
 
 .lr.ph.i.i.i.i479:                                ; preds = %2435, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcf829c903b9a64cfE.llvm.10144161557925507027.exit.i.i.i.i478"
@@ -8383,7 +8383,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit.i.i: ; preds =
 
 2435:                                             ; preds = %.lr.ph.i.i.i.i479
   %.sroa.0.08.i.add.i.i.i482 = add nuw nsw i64 %.sroa.0.08.i.idx.i.i.i480, 2
-  %2436 = getelementptr inbounds nuw i32, ptr %70, i64 %2433
+  %2436 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %2433
   %2437 = load i32, ptr %2436, align 4, !alias.scope !1749, !noalias !1743, !noundef !4
   %2438 = add i32 %2437, 1
   store i32 %2438, ptr %2436, align 4, !alias.scope !1749, !noalias !1743
@@ -8392,7 +8392,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit.i.i: ; preds =
 
 _ZN6brotli3enc14block_splitter12RandomSample17h7ed01a0076ba1c0aE.exit.i.i: ; preds = %2435
   %2440 = urem i64 %.025.i.i475, %spec.store.select.i437
-  %2441 = getelementptr inbounds nuw { [544 x i32], i64, float, [1 x i32] }, ptr %2363, i64 %2440
+  %2441 = getelementptr inbounds nuw [2192 x i8], ptr %2363, i64 %2440
   %2442 = getelementptr inbounds nuw i8, ptr %2441, i64 2176
   %2443 = load i64, ptr %2442, align 8, !alias.scope !1750, !noalias !1753, !noundef !4
   %2444 = load i64, ptr %2421, align 8, !alias.scope !1756, !noalias !1726, !noundef !4
@@ -8403,9 +8403,9 @@ _ZN6brotli3enc14block_splitter12RandomSample17h7ed01a0076ba1c0aE.exit.i.i: ; pre
 2446:                                             ; preds = %2446, %_ZN6brotli3enc14block_splitter12RandomSample17h7ed01a0076ba1c0aE.exit.i.i
   %.sroa.01.0.i23.i.i483 = phi i64 [ 0, %_ZN6brotli3enc14block_splitter12RandomSample17h7ed01a0076ba1c0aE.exit.i.i ], [ %2447, %2446 ]
   %2447 = add nuw nsw i64 %.sroa.01.0.i23.i.i483, 1
-  %2448 = getelementptr inbounds nuw i32, ptr %2441, i64 %.sroa.01.0.i23.i.i483
+  %2448 = getelementptr inbounds nuw [4 x i8], ptr %2441, i64 %.sroa.01.0.i23.i.i483
   %2449 = load i32, ptr %2448, align 4, !alias.scope !1724, !noalias !1762, !noundef !4
-  %2450 = getelementptr inbounds nuw i32, ptr %70, i64 %.sroa.01.0.i23.i.i483
+  %2450 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %.sroa.01.0.i23.i.i483
   %2451 = load i32, ptr %2450, align 4, !noalias !1726, !noundef !4
   %2452 = add i32 %2451, %2449
   store i32 %2452, ptr %2448, align 4, !alias.scope !1724, !noalias !1762
@@ -9444,7 +9444,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17hd9c8785c563fc95eE.exit.i: ;
   br i1 %exitcond1759.not.i.i946, label %.invoke2118.i.i947, label %2735, !prof !551
 
 2735:                                             ; preds = %2734
-  %2736 = getelementptr inbounds i32, ptr %2521, i64 %.42531438.i.i943
+  %2736 = getelementptr inbounds [4 x i8], ptr %2521, i64 %.42531438.i.i943
   %2737 = load i32, ptr %2736, align 4, !noalias !1821, !noundef !4
   %2738 = add i32 %2737, %.02471439.i.i942
   %2739 = add nuw i64 %.42531438.i.i943, 1
@@ -9463,9 +9463,9 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17hd9c8785c563fc95eE.exit.i: ;
   br i1 %2745, label %2746, label %.invoke2118.i.i947, !prof !552
 
 2746:                                             ; preds = %2744
-  %2747 = getelementptr inbounds i32, ptr %2516, i64 %.42531438.i.i943
+  %2747 = getelementptr inbounds [4 x i8], ptr %2516, i64 %.42531438.i.i943
   %2748 = load i32, ptr %2747, align 4, !noalias !1821, !noundef !4
-  %2749 = getelementptr inbounds i32, ptr %2516, i64 %2739
+  %2749 = getelementptr inbounds [4 x i8], ptr %2516, i64 %2739
   %2750 = load i32, ptr %2749, align 4, !noalias !1821, !noundef !4
   %.not.i167.i949 = icmp eq i32 %2748, %2750
   br i1 %.not.i167.i949, label %2751, label %2752
@@ -9481,14 +9481,14 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17hd9c8785c563fc95eE.exit.i: ;
   br i1 %2753, label %2754, label %.invoke2118.i.i947, !prof !552
 
 2754:                                             ; preds = %2752
-  %2755 = getelementptr inbounds i32, ptr %2516, i64 %.42531438.i.i943
+  %2755 = getelementptr inbounds [4 x i8], ptr %2516, i64 %.42531438.i.i943
   %2756 = load i32, ptr %2755, align 4, !noalias !1821, !noundef !4
   %2757 = zext i32 %2756 to i64
   %2758 = icmp ugt i64 %2653, %2757
   br i1 %2758, label %2759, label %.invoke2118.i.i947, !prof !552
 
 2759:                                             ; preds = %2754
-  %2760 = getelementptr inbounds nuw i32, ptr %2652, i64 %2757
+  %2760 = getelementptr inbounds nuw [4 x i8], ptr %2652, i64 %2757
   %2761 = load i32, ptr %2760, align 4, !noalias !1821, !noundef !4
   %2762 = trunc i32 %2761 to i8
   %2763 = icmp ult i64 %.02541437.i.i944, %.val386.i.i934
@@ -9511,7 +9511,7 @@ _ZN6brotli3enc14block_splitter18RefineEntropyCodes17hd9c8785c563fc95eE.exit.i: ;
   unreachable
 
 2770:                                             ; preds = %2764
-  %2771 = getelementptr inbounds i32, ptr %.val4111839.i.i940, i64 %.02541437.i.i944
+  %2771 = getelementptr inbounds [4 x i8], ptr %.val4111839.i.i940, i64 %.02541437.i.i944
   store i32 %2738, ptr %2771, align 4, !noalias !1821
   %.0.sroa.speculated.i572.i.i950 = call noundef i8 @llvm.umax.i8(i8 %.02561436.i.i945, i8 %2762)
   %2772 = add nuw i64 %.02541437.i.i944, 1
@@ -9549,7 +9549,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit.i166.i: ; pred
   br i1 %exitcond1756.not.i.i873, label %.split1392.us.invoke.i.i879, label %.lr.ph1381.i.i874, !prof !570
 
 .lr.ph1381.i.i874:                                ; preds = %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit.i166.i
-  %2780 = getelementptr inbounds i32, ptr %2521, i64 %.32521432.i.i872
+  %2780 = getelementptr inbounds [4 x i8], ptr %2521, i64 %.32521432.i.i872
   %2781 = load i32, ptr %2780, align 4, !noalias !1821, !noundef !4
   %.not1452.i.i875 = icmp eq i32 %2781, 0
   br i1 %.not1452.i.i875, label %.split1386.us.i.i891, label %.lr.ph1422.preheader.i.i876
@@ -9565,14 +9565,14 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit.i166.i: ; pred
   br i1 %2784, label %2785, label %.split1392.us.invoke.i.i879, !prof !552
 
 2785:                                             ; preds = %.lr.ph1422.i.i877
-  %2786 = getelementptr inbounds i16, ptr %2335, i64 %.22311380.us1420.i.i878
+  %2786 = getelementptr inbounds [2 x i8], ptr %2335, i64 %.22311380.us1420.i.i878
   %2787 = load i16, ptr %2786, align 2, !alias.scope !2023, !noalias !2026, !noundef !4
   %2788 = zext i16 %2787 to i64
   %2789 = icmp ult i16 %2787, 544
   br i1 %2789, label %2790, label %.split1392.us.invoke.i.i879, !prof !552
 
 2790:                                             ; preds = %2785
-  %2791 = getelementptr inbounds nuw i32, ptr %58, i64 %2788
+  %2791 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %2788
   %2792 = load i32, ptr %2791, align 4, !alias.scope !2027, !noalias !1817, !noundef !4
   %2793 = add i32 %2792, 1
   store i32 %2793, ptr %2791, align 4, !alias.scope !2027, !noalias !1817
@@ -9613,7 +9613,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit.i166.i: ; pred
   br i1 %2802, label %2803, label %.split1392.us.invoke.i.i879, !prof !552
 
 2803:                                             ; preds = %2800
-  %2804 = getelementptr inbounds i32, ptr %2516, i64 %2801
+  %2804 = getelementptr inbounds [4 x i8], ptr %2516, i64 %2801
   br label %2805
 
 2805:                                             ; preds = %2803, %2799
@@ -9624,7 +9624,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit.i166.i: ; pred
   br i1 %2807, label %.noexc.i.i895, label %.split1392.us.invoke.i.i879, !prof !552
 
 .noexc.i.i895:                                    ; preds = %2805
-  %2808 = getelementptr inbounds nuw { [544 x i32], i64, float, [1 x i32] }, ptr %.sroa.0638.3.lcssa.i.i830, i64 %2806
+  %2808 = getelementptr inbounds nuw [2192 x i8], ptr %.sroa.0638.3.lcssa.i.i830, i64 %2806
   %2809 = icmp eq i64 %2797, 0
   br i1 %2809, label %_ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.i.i, label %.noexc382.i.i896
 
@@ -9645,9 +9645,9 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit.i166.i: ; pred
 2814:                                             ; preds = %2814, %.noexc382.i.i896
   %.sroa.01.0.i3771424.i.i897 = phi i64 [ 0, %.noexc382.i.i896 ], [ %2815, %2814 ]
   %2815 = add nuw nsw i64 %.sroa.01.0.i3771424.i.i897, 1
-  %2816 = getelementptr inbounds nuw i32, ptr %57, i64 %.sroa.01.0.i3771424.i.i897
+  %2816 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %.sroa.01.0.i3771424.i.i897
   %2817 = load i32, ptr %2816, align 4, !noalias !1817, !noundef !4
-  %2818 = getelementptr inbounds nuw i32, ptr %2808, i64 %.sroa.01.0.i3771424.i.i897
+  %2818 = getelementptr inbounds nuw [4 x i8], ptr %2808, i64 %.sroa.01.0.i3771424.i.i897
   %2819 = load i32, ptr %2818, align 4, !noalias !1821, !noundef !4
   %2820 = add i32 %2819, %2817
   store i32 %2820, ptr %2816, align 4, !noalias !1817
@@ -9677,7 +9677,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
   br i1 %exitcond1754.not.i.us.i986, label %.split1392.us.invoke.i.i879, label %2825, !prof !551
 
 2825:                                             ; preds = %.lr.ph1429.i.split.us.i984
-  %2826 = getelementptr inbounds i32, ptr %2620, i64 %.12371427.i.us.i985
+  %2826 = getelementptr inbounds [4 x i8], ptr %2620, i64 %.12371427.i.us.i985
   %2827 = load i32, ptr %2826, align 4, !noalias !1821, !noundef !4
   %2828 = zext i32 %2827 to i64
   %2829 = icmp ugt i64 %.sroa.14.3.lcssa.i.i829, %2828
@@ -9694,14 +9694,14 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
   br i1 %exitcond1757.not.i.i920, label %.split1392.us.invoke.i.i879, label %2831, !prof !551
 
 2831:                                             ; preds = %._crit_edge1430.i.i918
-  %2832 = getelementptr inbounds i32, ptr %2516, i64 %.32521432.i.i872
+  %2832 = getelementptr inbounds [4 x i8], ptr %2516, i64 %.32521432.i.i872
   store i32 %.1239.lcssa.i.i919, ptr %2832, align 4, !noalias !1821
   %2833 = zext i32 %.1239.lcssa.i.i919 to i64
   %2834 = icmp ugt i64 %2653, %2833
   br i1 %2834, label %2835, label %.split1392.us.invoke.i.i879, !prof !552
 
 2835:                                             ; preds = %2831
-  %2836 = getelementptr inbounds nuw i32, ptr %2652, i64 %2833
+  %2836 = getelementptr inbounds nuw [4 x i8], ptr %2652, i64 %2833
   %2837 = load i32, ptr %2836, align 4, !noalias !1821, !noundef !4
   %2838 = icmp eq i32 %2837, -1
   br i1 %2838, label %2839, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.exit537.thread.i.i921"
@@ -9726,14 +9726,14 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
   br i1 %exitcond1754.not.i.i907, label %.split1392.us.invoke.i.i879, label %2842, !prof !551
 
 2842:                                             ; preds = %.lr.ph1429.i.split.i903
-  %2843 = getelementptr inbounds i32, ptr %2620, i64 %.12371427.i.i905
+  %2843 = getelementptr inbounds [4 x i8], ptr %2620, i64 %.12371427.i.i905
   %2844 = load i32, ptr %2843, align 4, !noalias !1821, !noundef !4
   %2845 = zext i32 %2844 to i64
   %2846 = icmp ugt i64 %.sroa.14.3.lcssa.i.i829, %2845
   br i1 %2846, label %.noexc358.i.i908, label %.split1392.us.invoke.i.i879, !prof !552
 
 .noexc358.i.i908:                                 ; preds = %2842
-  %2847 = getelementptr inbounds nuw { [544 x i32], i64, float, [1 x i32] }, ptr %.sroa.0638.3.lcssa.i.i830, i64 %2845
+  %2847 = getelementptr inbounds nuw [2192 x i8], ptr %.sroa.0638.3.lcssa.i.i830, i64 %2845
   call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !2058
   call void @llvm.experimental.noalias.scope.decl(metadata !2063)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2192) %56, ptr noundef nonnull readonly align 8 dereferenceable(2192) %58, i64 2176, i1 false), !alias.scope !2066, !noalias !1817
@@ -9748,9 +9748,9 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
 2851:                                             ; preds = %2851, %.noexc358.i.i908
   %.sroa.01.0.i1425.i.i909 = phi i64 [ 0, %.noexc358.i.i908 ], [ %2852, %2851 ]
   %2852 = add nuw nsw i64 %.sroa.01.0.i1425.i.i909, 1
-  %2853 = getelementptr inbounds nuw i32, ptr %56, i64 %.sroa.01.0.i1425.i.i909
+  %2853 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %.sroa.01.0.i1425.i.i909
   %2854 = load i32, ptr %2853, align 4, !noalias !1817, !noundef !4
-  %2855 = getelementptr inbounds nuw i32, ptr %2847, i64 %.sroa.01.0.i1425.i.i909
+  %2855 = getelementptr inbounds nuw [4 x i8], ptr %2847, i64 %.sroa.01.0.i1425.i.i909
   %2856 = load i32, ptr %2855, align 4, !noalias !1821, !noundef !4
   %2857 = add i32 %2856, %2854
   store i32 %2857, ptr %2853, align 4, !noalias !1817
@@ -9898,8 +9898,8 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd3027090651afa83E.llvm.10144161557925507027.exit.i.i.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd3027090651afa83E.llvm.10144161557925507027.exit.preheader.i.i.i", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd3027090651afa83E.llvm.10144161557925507027.exit.i.i.i"
   %.sroa.0.010.i.i.i1003 = phi i64 [ %2898, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd3027090651afa83E.llvm.10144161557925507027.exit.i.i.i" ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd3027090651afa83E.llvm.10144161557925507027.exit.preheader.i.i.i" ]
   %2898 = add nuw i64 %.sroa.0.010.i.i.i1003, 1
-  %2899 = getelementptr inbounds { [544 x i32], i64, float, [1 x i32] }, ptr %2891, i64 %.sroa.0.010.i.i.i1003
-  %2900 = getelementptr inbounds { [544 x i32], i64, float, [1 x i32] }, ptr %.sroa.0638.31358.i.i773, i64 %.sroa.0.010.i.i.i1003
+  %2899 = getelementptr inbounds [2192 x i8], ptr %2891, i64 %.sroa.0.010.i.i.i1003
+  %2900 = getelementptr inbounds [2192 x i8], ptr %.sroa.0638.31358.i.i773, i64 %.sroa.0.010.i.i.i1003
   call void @llvm.experimental.noalias.scope.decl(metadata !2098)
   call void @llvm.experimental.noalias.scope.decl(metadata !2101)
   %2901 = getelementptr inbounds nuw i8, ptr %2900, i64 2176
@@ -9998,7 +9998,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
 
 2930:                                             ; preds = %2938, %.lr.ph1353.i.i819
   %.21352.i.i822 = phi i64 [ 0, %.lr.ph1353.i.i819 ], [ %2943, %2938 ]
-  %2931 = getelementptr inbounds nuw i32, ptr %60, i64 %.21352.i.i822
+  %2931 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %.21352.i.i822
   %2932 = load i32, ptr %2931, align 4, !noalias !1817, !noundef !4
   %2933 = zext i32 %2932 to i64
   %2934 = icmp ult i32 %2932, 64
@@ -10010,10 +10010,10 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
   br i1 %2937, label %2938, label %.invoke5736, !prof !552
 
 2938:                                             ; preds = %2935
-  %2939 = getelementptr inbounds nuw i32, ptr %59, i64 %2933
+  %2939 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %2933
   %2940 = load i32, ptr %2939, align 4, !noalias !1817, !noundef !4
   %2941 = add i32 %2940, %2926
-  %2942 = getelementptr inbounds i32, ptr %2516, i64 %2936
+  %2942 = getelementptr inbounds [4 x i8], ptr %2516, i64 %2936
   store i32 %2941, ptr %2942, align 4, !noalias !1821
   %2943 = add nuw nsw i64 %.21352.i.i822, 1
   %exitcond1750.not.i.i823 = icmp eq i64 %2943, %umax1749.i.i777
@@ -10027,7 +10027,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
   br i1 %exitcond1746.not.i.i815, label %.invoke5736, label %2944, !prof !551
 
 2944:                                             ; preds = %.lr.ph1349.i.i811
-  %2945 = getelementptr inbounds nuw i32, ptr %61, i64 %.12201346.i.i814
+  %2945 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %.12201346.i.i814
   %2946 = load i32, ptr %2945, align 4, !noalias !1817, !noundef !4
   %2947 = zext i32 %2946 to i64
   %2948 = icmp ugt i64 %2565, %2947
@@ -10039,7 +10039,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
   br label %.thread790.i.i745
 
 2951:                                             ; preds = %2944
-  %2952 = getelementptr inbounds nuw { [544 x i32], i64, float, [1 x i32] }, ptr %2564, i64 %2947
+  %2952 = getelementptr inbounds nuw [2192 x i8], ptr %2564, i64 %2947
   %2953 = getelementptr inbounds nuw i8, ptr %2952, i64 2176
   %2954 = load i64, ptr %2953, align 8, !alias.scope !2133, !noalias !2136, !noundef !4
   %2955 = getelementptr inbounds nuw i8, ptr %2952, i64 2184
@@ -10053,7 +10053,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
           to label %2741 unwind label %2949, !noalias !1821
 
 2959:                                             ; preds = %2951
-  %2960 = getelementptr inbounds { [544 x i32], i64, float, [1 x i32] }, ptr %.sroa.0638.8.i.i804, i64 %.12161348.i.i812
+  %2960 = getelementptr inbounds [2192 x i8], ptr %.sroa.0638.8.i.i804, i64 %.12161348.i.i812
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2176) %2960, ptr noundef nonnull align 8 dereferenceable(2176) %2952, i64 2176, i1 false), !noalias !1821
   %.sroa.4.0..sroa_idx.i164.i816 = getelementptr inbounds nuw i8, ptr %2960, i64 2176
   store i64 %2954, ptr %.sroa.4.0..sroa_idx.i164.i816, align 8, !noalias !1821
@@ -10066,14 +10066,14 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
   br i1 %2964, label %2965, label %.invoke5736, !prof !552
 
 2965:                                             ; preds = %2959
-  %2966 = getelementptr inbounds nuw i32, ptr %62, i64 %2963
+  %2966 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %2963
   %2967 = load i32, ptr %2966, align 4, !noalias !1817, !noundef !4
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0650.5.i.i808) ]
   %2968 = icmp ult i64 %.12181347.i.i813, %.sroa.12.5.i.i807
   br i1 %2968, label %2969, label %.invoke5736, !prof !552
 
 2969:                                             ; preds = %2965
-  %2970 = getelementptr inbounds i32, ptr %.sroa.0650.5.i.i808, i64 %.12181347.i.i813
+  %2970 = getelementptr inbounds [4 x i8], ptr %.sroa.0650.5.i.i808, i64 %.12181347.i.i813
   store i32 %2967, ptr %2970, align 4, !noalias !1821
   %2971 = load i32, ptr %2945, align 4, !noalias !1817, !noundef !4
   %2972 = zext i32 %2971 to i64
@@ -10082,7 +10082,7 @@ _ZN6brotli3enc7cluster30BrotliHistogramBitCostDistance17hcc5083c757651959E.exit.
 
 2974:                                             ; preds = %2969
   %2975 = add nuw i64 %.12181347.i.i813, 1
-  %2976 = getelementptr inbounds nuw i32, ptr %59, i64 %2972
+  %2976 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %2972
   %2977 = trunc nuw nsw i64 %.12201346.i.i814 to i32
   store i32 %2977, ptr %2976, align 4, !noalias !1817
   %2978 = add nuw nsw i64 %.12201346.i.i814, 1
@@ -10131,7 +10131,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit370.i.i: ; pred
   %2990 = mul nuw nsw i64 %.02191342.i.i780, 2192
   %scevgep.i.i783 = getelementptr i8, ptr %2564, i64 %2990
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2176) %scevgep.i.i783, i8 0, i64 2176, i1 false), !noalias !1821
-  %2991 = getelementptr inbounds nuw { [544 x i32], i64, float, [1 x i32] }, ptr %2564, i64 %.02191342.i.i780
+  %2991 = getelementptr inbounds nuw [2192 x i8], ptr %2564, i64 %.02191342.i.i780
   %2992 = getelementptr inbounds nuw i8, ptr %2991, i64 2176
   store i64 0, ptr %2992, align 8, !alias.scope !2152, !noalias !1821
   %2993 = getelementptr inbounds nuw i8, ptr %2991, i64 2184
@@ -10141,7 +10141,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit370.i.i: ; pred
   br i1 %2995, label %.lr.ph.i162.i785, label %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit370._crit_edge.i.i, !prof !699
 
 .lr.ph.i162.i785:                                 ; preds = %_ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit370.i.i
-  %2996 = getelementptr inbounds i32, ptr %2521, i64 %2994
+  %2996 = getelementptr inbounds [4 x i8], ptr %2521, i64 %2994
   %2997 = load i32, ptr %2996, align 4, !noalias !1821, !noundef !4
   %.not1446.i.i786 = icmp eq i32 %2997, 0
   br i1 %.not1446.i.i786, label %.split.us.i163.i793, label %.lr.ph1338.i.i787
@@ -10153,14 +10153,14 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit370.i.i: ; pred
   br i1 %2998, label %2999, label %.split1224.us.i.i791.invoke, !prof !552
 
 2999:                                             ; preds = %.lr.ph1338.i.i787
-  %3000 = getelementptr inbounds i16, ptr %2335, i64 %.42331205.us1337.i.i788
+  %3000 = getelementptr inbounds [2 x i8], ptr %2335, i64 %.42331205.us1337.i.i788
   %3001 = load i16, ptr %3000, align 2, !alias.scope !2158, !noalias !2026, !noundef !4
   %3002 = zext i16 %3001 to i64
   %3003 = icmp ult i16 %3001, 544
   br i1 %3003, label %3004, label %.split1224.us.i.i791.invoke, !prof !552
 
 3004:                                             ; preds = %2999
-  %3005 = getelementptr inbounds nuw i32, ptr %2991, i64 %3002
+  %3005 = getelementptr inbounds nuw [4 x i8], ptr %2991, i64 %3002
   %3006 = load i32, ptr %3005, align 4, !alias.scope !2161, !noalias !1821, !noundef !4
   %3007 = add i32 %3006, 1
   store i32 %3007, ptr %3005, align 4, !alias.scope !2161, !noalias !1821
@@ -10185,12 +10185,12 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit370._crit_edge.
 
 3016:                                             ; preds = %.split.us.i163.i793
   store float %3015, ptr %2993, align 8, !alias.scope !2170, !noalias !1821
-  %3017 = getelementptr inbounds nuw i32, ptr %61, i64 %.02191342.i.i780
+  %3017 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %.02191342.i.i780
   %3018 = trunc nuw nsw i64 %.02191342.i.i780 to i32
   store i32 %3018, ptr %3017, align 4, !noalias !1817
-  %3019 = getelementptr inbounds nuw i32, ptr %60, i64 %.02191342.i.i780
+  %3019 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %.02191342.i.i780
   store i32 %3018, ptr %3019, align 4, !noalias !1817
-  %3020 = getelementptr inbounds nuw i32, ptr %62, i64 %.02191342.i.i780
+  %3020 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.02191342.i.i780
   store i32 1, ptr %3020, align 4, !noalias !1817
   %3021 = add nuw nsw i64 %.02191342.i.i780, 1
   %exitcond1745.not.i.i797 = icmp eq i64 %3021, %umax1749.i.i777
@@ -10213,7 +10213,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h928958d332638a72E.exit370._crit_edge.
   br i1 %3026, label %3027, label %.invoke.i.i734, !prof !552
 
 3027:                                             ; preds = %3025
-  %3028 = getelementptr inbounds i32, ptr %2521, i64 %.01202.i.i732
+  %3028 = getelementptr inbounds [4 x i8], ptr %2521, i64 %.01202.i.i732
   %3029 = load i32, ptr %3028, align 4, !noalias !1821, !noundef !4
   %3030 = add i32 %3029, 1
   store i32 %3030, ptr %3028, align 4, !noalias !1821
@@ -10342,7 +10342,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17hb9c8282d4a8a1d5fE.exit.i: ; pred
   br i1 %exitcond.not.i177.i538, label %.split24.us.i.invoke.i554, label %3065, !prof !551
 
 3065:                                             ; preds = %.preheader345.split.us.i.i536
-  %3066 = getelementptr inbounds { [544 x i32], i64, float, [1 x i32] }, ptr %2363, i64 %.1114384.us.i.i537
+  %3066 = getelementptr inbounds [2192 x i8], ptr %2363, i64 %.1114384.us.i.i537
   %3067 = getelementptr inbounds nuw i8, ptr %3066, i64 2176
   %3068 = load i64, ptr %3067, align 8, !alias.scope !2216, !noalias !2219, !noundef !4
   %3069 = and i64 %3068, 4294967295
@@ -10355,13 +10355,13 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17hb9c8282d4a8a1d5fE.exit.i: ; pred
   br label %3077
 
 3074:                                             ; preds = %3065
-  %3075 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util10kLog2Table17h3d7a587af6dc9265E, i64 %3069
+  %3075 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6brotli3enc4util10kLog2Table17h3d7a587af6dc9265E, i64 %3069
   %3076 = load float, ptr %3075, align 4, !noalias !2220, !noundef !4
   br label %3077
 
 3077:                                             ; preds = %3074, %3071
   %.0112.us.i.i539 = phi float [ %3076, %3074 ], [ %3073, %3071 ]
-  %3078 = getelementptr inbounds float, ptr %2469, i64 %.1114384.us.i.i537
+  %3078 = getelementptr inbounds [4 x i8], ptr %2469, i64 %.1114384.us.i.i537
   store float %.0112.us.i.i539, ptr %3078, align 4, !alias.scope !2207, !noalias !2215
   %3079 = add nuw i64 %.1114384.us.i.i537, 1
   %exitcond485.not.i.i540 = icmp eq i64 %3079, %.039539.i530
@@ -10373,7 +10373,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17hb9c8282d4a8a1d5fE.exit.i: ; pred
 .split385.us.i.i542:                              ; preds = %.preheader344.split395.i.i541, %.loopexit343.split.us.us.i.i559
   %.2115396.us.i.i543 = phi i64 [ %3080, %.loopexit343.split.us.us.i.i559 ], [ 544, %.preheader344.split395.i.i541 ]
   %3080 = add nsw i64 %.2115396.us.i.i543, -1
-  %invariant.gep.us.i.i544 = getelementptr i32, ptr %2363, i64 %3080
+  %invariant.gep.us.i.i544 = getelementptr [4 x i8], ptr %2363, i64 %3080
   %3081 = mul i64 %3080, %.039539.i530
   br label %3082
 
@@ -10383,9 +10383,9 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17hb9c8282d4a8a1d5fE.exit.i: ; pred
   br i1 %exitcond489.not.i.i546, label %.split24.us.i.invoke.i554, label %3083, !prof !551
 
 3083:                                             ; preds = %3082
-  %3084 = getelementptr inbounds float, ptr %2469, i64 %.0116386.us.us.i.i545
+  %3084 = getelementptr inbounds [4 x i8], ptr %2469, i64 %.0116386.us.us.i.i545
   %3085 = load float, ptr %3084, align 4, !alias.scope !2207, !noalias !2215, !noundef !4
-  %gep.us.us.i.i547 = getelementptr { [544 x i32], i64, float, [1 x i32] }, ptr %invariant.gep.us.i.i544, i64 %.0116386.us.us.i.i545
+  %gep.us.us.i.i547 = getelementptr [2192 x i8], ptr %invariant.gep.us.i.i544, i64 %.0116386.us.us.i.i545
   %3086 = load i32, ptr %gep.us.us.i.i547, align 4, !alias.scope !2205, !noalias !2219, !noundef !4
   %3087 = zext i32 %3086 to i64
   %3088 = invoke noundef float @_ZN6brotli3enc14block_splitter7BitCost17h8bd07a40ea33d343E(i64 noundef %3087)
@@ -10397,7 +10397,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17hb9c8282d4a8a1d5fE.exit.i: ; pred
   br i1 %3090, label %3091, label %.split24.us.i.invoke.i554, !prof !552
 
 3091:                                             ; preds = %.noexc183.i553
-  %3092 = getelementptr inbounds float, ptr %2469, i64 %3089
+  %3092 = getelementptr inbounds [4 x i8], ptr %2469, i64 %3089
   %3093 = fsub float %3085, %3088
   store float %3093, ptr %3092, align 4, !alias.scope !2207, !noalias !2215
   %3094 = add nuw i64 %.0116386.us.us.i.i545, 1
@@ -10422,7 +10422,7 @@ _ZN6brotli3enc14block_splitter13ClusterBlocks17hb9c8282d4a8a1d5fE.exit.i: ; pred
 .split385.i.i1025:                                ; preds = %.preheader344.split395.i.i541, %.loopexit343.split.i.i1036
   %.2115396.i.i1026 = phi i64 [ %3097, %.loopexit343.split.i.i1036 ], [ 544, %.preheader344.split395.i.i541 ]
   %3097 = add nsw i64 %.2115396.i.i1026, -1
-  %invariant.gep.i.i1027 = getelementptr i32, ptr %2363, i64 %3097
+  %invariant.gep.i.i1027 = getelementptr [4 x i8], ptr %2363, i64 %3097
   %3098 = mul i64 %3097, %.039539.i530
   br label %.check388.i.i1028
 
@@ -10555,7 +10555,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.invoke1504.i1017
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit.i.i577": ; preds = %3144
-  %3150 = getelementptr inbounds float, ptr %2469, i64 %3149
+  %3150 = getelementptr inbounds [4 x i8], ptr %2469, i64 %3149
   %3151 = sub nuw i64 %2470, %3149
   br i1 %3104, label %._crit_edge412.i.i590, label %.lr.ph411.i.i578
 
@@ -10579,7 +10579,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br label %.invoke1504.i1017
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit193.i.i595": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit188.i.i593"
-  %3156 = getelementptr inbounds float, ptr %2469, i64 %3152
+  %3156 = getelementptr inbounds [4 x i8], ptr %2469, i64 %3152
   %3157 = getelementptr inbounds nuw i8, ptr %3156, i64 %.idx443.i.i571
   br i1 %3113, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.thread.i.i601", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.i.i596"
 
@@ -10616,7 +10616,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 3166:                                             ; preds = %3166, %3165
   %3167 = phi i64 [ 0, %3165 ], [ %3169, %3166 ]
-  %3168 = getelementptr inbounds nuw float, ptr %28, i64 %3167
+  %3168 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %3167
   store float %.1119.lcssa.i.i602, ptr %3168, align 4, !noalias !2250
   %3169 = add nuw nsw i64 %3167, 1
   %exitcond496.not.i.i604 = icmp eq i64 %3169, 8
@@ -10637,7 +10637,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 3171:                                             ; preds = %3171, %3170
   %3172 = phi i64 [ 0, %3170 ], [ %3174, %3171 ]
-  %3173 = getelementptr inbounds nuw float, ptr %27, i64 %3172
+  %3173 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %3172
   store float %.0117.i.i603, ptr %3173, align 4, !noalias !2250
   %3174 = add nuw nsw i64 %3172, 1
   %exitcond497.not.i.i613 = icmp eq i64 %3174, 8
@@ -10756,8 +10756,8 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 3229:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.i.i596"
   %3230 = and i64 %.0121414.i.i598, 7
   %3231 = load float, ptr %.sroa.0238.0413.i.i599, align 4, !alias.scope !2207, !noalias !2215, !noundef !4
-  %3232 = getelementptr inbounds nuw { [8 x float] }, ptr %2484, i64 %3162
-  %3233 = getelementptr inbounds nuw float, ptr %3232, i64 %3230
+  %3232 = getelementptr inbounds nuw [32 x i8], ptr %2484, i64 %3162
+  %3233 = getelementptr inbounds nuw [4 x i8], ptr %3232, i64 %3230
   %3234 = load float, ptr %3233, align 4, !alias.scope !2209, !noalias !2221, !noundef !4
   %3235 = fadd float %3231, %3234
   store float %3235, ptr %3233, align 4, !alias.scope !2209, !noalias !2221
@@ -10807,7 +10807,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i585": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hed95342f1728b6d9E.exit202.i.i583"
-  %3246 = getelementptr inbounds float, ptr %3150, i64 %3160
+  %3246 = getelementptr inbounds [4 x i8], ptr %3150, i64 %3160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %29, ptr noundef nonnull readonly align 4 dereferenceable(32) %3246, i64 32, i1 false), !alias.scope !2265, !noalias !2269
   br label %3249
 
@@ -10820,9 +10820,9 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   %.3407.i.i586 = phi float [ %.0118410.i.i579, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i585" ], [ %.4.i.i588, %3260 ]
   %.sroa.054.0406.i.i587 = phi i64 [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hfe04b69dc4ccca78E.exit.i.i585" ], [ %3250, %3260 ]
   %3250 = add nuw nsw i64 %.sroa.054.0406.i.i587, 1
-  %3251 = getelementptr inbounds nuw float, ptr %29, i64 %.sroa.054.0406.i.i587
+  %3251 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.sroa.054.0406.i.i587
   %3252 = load float, ptr %3251, align 4, !noalias !2220, !noundef !4
-  %3253 = getelementptr inbounds nuw float, ptr %.sroa.0219.0408.i.i581, i64 %.sroa.054.0406.i.i587
+  %3253 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0219.0408.i.i581, i64 %.sroa.054.0406.i.i587
   %3254 = load float, ptr %3253, align 4, !alias.scope !2209, !noalias !2221, !noundef !4
   %3255 = fadd float %3252, %3254
   store float %3255, ptr %3253, align 4, !alias.scope !2209, !noalias !2221
@@ -10842,13 +10842,13 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 .check388.i.i1028:                                ; preds = %3269, %.split385.i.i1025
   %.0116386.i.i1029 = phi i64 [ 0, %.split385.i.i1025 ], [ %3272, %3269 ]
-  %3261 = getelementptr inbounds float, ptr %2469, i64 %.0116386.i.i1029
+  %3261 = getelementptr inbounds [4 x i8], ptr %2469, i64 %.0116386.i.i1029
   %3262 = load float, ptr %3261, align 4, !alias.scope !2207, !noalias !2215, !noundef !4
   %exitcond492.not.i.i1030 = icmp eq i64 %.0116386.i.i1029, %2364
   br i1 %exitcond492.not.i.i1030, label %.split24.us.i.invoke.i554, label %3263, !prof !551
 
 3263:                                             ; preds = %.check388.i.i1028
-  %gep.i.i1031 = getelementptr { [544 x i32], i64, float, [1 x i32] }, ptr %invariant.gep.i.i1027, i64 %.0116386.i.i1029
+  %gep.i.i1031 = getelementptr [2192 x i8], ptr %invariant.gep.i.i1027, i64 %.0116386.i.i1029
   %3264 = load i32, ptr %gep.i.i1031, align 4, !alias.scope !2205, !noalias !2219, !noundef !4
   %3265 = zext i32 %3264 to i64
   %3266 = invoke noundef float @_ZN6brotli3enc14block_splitter7BitCost17h8bd07a40ea33d343E(i64 noundef %3265)
@@ -10860,7 +10860,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br i1 %3268, label %3269, label %.split24.us.i.invoke.i554, !prof !552
 
 3269:                                             ; preds = %.noexc201.i1034
-  %3270 = getelementptr inbounds float, ptr %2469, i64 %3267
+  %3270 = getelementptr inbounds [4 x i8], ptr %2469, i64 %3267
   %3271 = fsub float %3262, %3266
   store float %3271, ptr %3270, align 4, !alias.scope !2207, !noalias !2215
   %3272 = add nuw i64 %.0116386.i.i1029, 1
@@ -10869,7 +10869,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 .preheader345.split.preheader.i.i1037:            ; preds = %.preheader345.i.i535, %3284
   %.1114384.i.i1038 = phi i64 [ %3286, %3284 ], [ 0, %.preheader345.i.i535 ]
-  %3273 = getelementptr inbounds { [544 x i32], i64, float, [1 x i32] }, ptr %2363, i64 %.1114384.i.i1038
+  %3273 = getelementptr inbounds [2192 x i8], ptr %2363, i64 %.1114384.i.i1038
   %3274 = getelementptr inbounds nuw i8, ptr %3273, i64 2176
   %3275 = load i64, ptr %3274, align 8, !alias.scope !2216, !noalias !2219, !noundef !4
   %3276 = and i64 %3275, 4294967295
@@ -10887,12 +10887,12 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   br i1 %exitcond486.not.i.i1041, label %.split24.us.i.invoke.i554, label %3284, !prof !551
 
 3281:                                             ; preds = %.preheader345.split.preheader.i.i1037
-  %3282 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util10kLog2Table17h3d7a587af6dc9265E, i64 %3276
+  %3282 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6brotli3enc4util10kLog2Table17h3d7a587af6dc9265E, i64 %3276
   %3283 = load float, ptr %3282, align 4, !noalias !2220, !noundef !4
   br label %.check.i.i1039
 
 3284:                                             ; preds = %.check.i.i1039
-  %3285 = getelementptr inbounds float, ptr %2469, i64 %.1114384.i.i1038
+  %3285 = getelementptr inbounds [4 x i8], ptr %2469, i64 %.1114384.i.i1038
   store float %.0112.i.i1040, ptr %3285, align 4, !alias.scope !2207, !noalias !2215
   %3286 = add nuw i64 %.1114384.i.i1038, 1
   %exitcond488.not.i.i1042 = icmp eq i64 %3286, %.039539.i530
@@ -10987,15 +10987,15 @@ _ZN6brotli3enc9histogram15ClearHistograms17ha69f88845c5332a9E.exit.split.us.i.i:
   br i1 %3311, label %3312, label %.split24.us.i.invoke.i554, !prof !552
 
 3312:                                             ; preds = %3307
-  %3313 = getelementptr inbounds i16, ptr %2335, i64 %.019.us.i.i677
+  %3313 = getelementptr inbounds [2 x i8], ptr %2335, i64 %.019.us.i.i677
   %3314 = load i16, ptr %3313, align 2, !alias.scope !2294, !noalias !2297, !noundef !4
   %3315 = zext i16 %3314 to i64
   %3316 = icmp ult i16 %3314, 544
   br i1 %3316, label %_ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit.us.i.i, label %.split24.us.i.invoke.i554, !prof !552
 
 _ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit.us.i.i: ; preds = %3312
-  %3317 = getelementptr inbounds nuw { [544 x i32], i64, float, [1 x i32] }, ptr %2363, i64 %3310
-  %3318 = getelementptr inbounds nuw i32, ptr %3317, i64 %3315
+  %3317 = getelementptr inbounds nuw [2192 x i8], ptr %2363, i64 %3310
+  %3318 = getelementptr inbounds nuw [4 x i8], ptr %3317, i64 %3315
   %3319 = load i32, ptr %3318, align 4, !alias.scope !2298, !noalias !2286, !noundef !4
   %3320 = add i32 %3319, 1
   store i32 %3320, ptr %3318, align 4, !alias.scope !2298, !noalias !2286
@@ -11020,7 +11020,7 @@ _ZN6brotli3enc9histogram15ClearHistograms17ha69f88845c5332a9E.exit.split.prehead
   br i1 %exitcond50.not.i.i1013, label %.split24.us.i.invoke.i554, label %3329, !prof !551
 
 3329:                                             ; preds = %.check.i215.i1012
-  %3330 = getelementptr inbounds i16, ptr %2335, i64 %.019.i.i1011
+  %3330 = getelementptr inbounds [2 x i8], ptr %2335, i64 %.019.i.i1011
   %3331 = load i16, ptr %3330, align 2, !alias.scope !2294, !noalias !2297, !noundef !4
   %3332 = zext i16 %3331 to i64
   %3333 = icmp ult i16 %3331, 544
@@ -11037,8 +11037,8 @@ _ZN6brotli3enc9histogram15ClearHistograms17ha69f88845c5332a9E.exit.split.prehead
   unreachable
 
 _ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit.i.i: ; preds = %3329
-  %3337 = getelementptr inbounds nuw { [544 x i32], i64, float, [1 x i32] }, ptr %2363, i64 %3327
-  %3338 = getelementptr inbounds nuw i32, ptr %3337, i64 %3332
+  %3337 = getelementptr inbounds nuw [2192 x i8], ptr %2363, i64 %3327
+  %3338 = getelementptr inbounds nuw [4 x i8], ptr %3337, i64 %3332
   %3339 = load i32, ptr %3338, align 4, !alias.scope !2298, !noalias !2286, !noundef !4
   %3340 = add i32 %3339, 1
   store i32 %3340, ptr %3338, align 4, !alias.scope !2298, !noalias !2286
@@ -11270,7 +11270,7 @@ _ZN6brotli3enc14block_splitter20BuildBlockHistograms17h2b0dcbc429c35f4bE.exit.i:
   br i1 %3392, label %3393, label %.invoke4715, !prof !552
 
 3393:                                             ; preds = %3390
-  %3394 = getelementptr inbounds i32, ptr %.val101.i1057, i64 %2358
+  %3394 = getelementptr inbounds [4 x i8], ptr %.val101.i1057, i64 %2358
   %3395 = trunc nuw nsw i64 %.1 to i32
   store i32 %3395, ptr %3394, align 4, !noalias !1693
   store i64 %2359, ptr %2357, align 8, !alias.scope !1673, !noalias !1675
@@ -11320,7 +11320,7 @@ _ZN6brotli3enc14block_splitter15SplitByteVector17h1a7661ff1e31e721E.exit: ; pred
   ret void
 
 3408:                                             ; preds = %.lr.ph2193
-  %3409 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %1, i64 %.0182192
+  %3409 = getelementptr inbounds [16 x i8], ptr %1, i64 %.0182192
   %3410 = getelementptr inbounds nuw i8, ptr %3409, i64 4
   %3411 = load i32, ptr %3410, align 4, !noundef !4
   %3412 = and i32 %3411, 16777215
@@ -11346,7 +11346,7 @@ _ZN6brotli3enc14block_splitter15SplitByteVector17h1a7661ff1e31e721E.exit: ; pred
 3422:                                             ; preds = %3420
   %3423 = getelementptr inbounds nuw i8, ptr %3409, i64 14
   %3424 = load i16, ptr %3423, align 2, !noundef !4
-  %3425 = getelementptr inbounds i16, ptr %2335, i64 %.0192191
+  %3425 = getelementptr inbounds [2 x i8], ptr %2335, i64 %.0192191
   %3426 = and i16 %3424, 1023
   store i16 %3426, ptr %3425, align 2
   %3427 = add nuw i64 %.0192191, 1
@@ -11372,11 +11372,11 @@ _ZN6brotli3enc14block_splitter15SplitByteVector17h1a7661ff1e31e721E.exit: ; pred
   br i1 %exitcond.not, label %.invoke4713, label %3430, !prof !551
 
 3430:                                             ; preds = %.lr.ph
-  %3431 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %1, i64 %.sroa.01.02190
+  %3431 = getelementptr inbounds [16 x i8], ptr %1, i64 %.sroa.01.02190
   %3432 = getelementptr inbounds nuw i8, ptr %3431, i64 12
   %3433 = load i16, ptr %3432, align 4, !noundef !4
   %3434 = add nuw i64 %.sroa.01.02190, 1
-  %3435 = getelementptr inbounds i16, ptr %1260, i64 %.sroa.01.02190
+  %3435 = getelementptr inbounds [2 x i8], ptr %1260, i64 %.sroa.01.02190
   store i16 %3433, ptr %3435, align 2
   %exitcond3205.not = icmp eq i64 %3434, %.0.sroa.speculated.i
   br i1 %exitcond3205.not, label %._crit_edge, label %.lr.ph

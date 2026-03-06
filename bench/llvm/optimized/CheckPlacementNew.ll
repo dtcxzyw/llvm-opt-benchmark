@@ -3,9 +3,6 @@ source_filename = "bench/llvm/original/CheckPlacementNew.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.clang::ento::CheckerFn" = type { ptr, ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { ptr, ptr }
 %"class.clang::ento::EnvironmentEntry" = type { %"struct.std::pair.776" }
 %"struct.std::pair.776" = type { ptr, ptr }
 %"class.clang::ento::SVal" = type <{ ptr, i8, [7 x i8] }>
@@ -343,7 +340,7 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.e
 _ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %89, %_ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i
   store ptr %84, ptr %63, align 8, !tbaa !32
   store ptr %88, ptr %64, align 8, !tbaa !27
-  %90 = getelementptr inbounds nuw %"class.clang::ento::CheckerFn", ptr %84, i64 %82
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %82
   store ptr %90, ptr %66, align 8, !tbaa !30
   br label %_ZN5clang4ento14CheckerManager15registerCheckerIN12_GLOBAL__N_119PlacementNewCheckerEJEEEPT_DpOT0_.exit
 
@@ -378,7 +375,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %15 = add i32 %6, -1
   %.02944.i = and i32 %14, %15
   %16 = zext nneg i32 %.02944.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.loopexit, label %.lr.ph.i, !prof !45
@@ -406,7 +403,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %29 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %29, %15
   %30 = zext i32 %.029.i to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !3
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.loopexit, label %.lr.ph.i, !prof !47, !llvm.loop !48
@@ -518,7 +515,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %15 = add i32 %6, -1
   %.02944 = and i32 %14, %15
   %16 = zext nneg i32 %.02944 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.thread, label %.lr.ph, !prof !45
@@ -546,7 +543,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = add i32 %.02947, %.02746
   %.029 = and i32 %29, %15
   %30 = zext i32 %.029 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !3
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.thread, label %.lr.ph, !prof !47, !llvm.loop !48
@@ -655,7 +652,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   %47 = xor i32 %45, %46
   %.02944.i.i = and i32 %47, %38
   %48 = zext nneg i32 %.02944.i.i to i64
-  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %43, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !3
   %51 = icmp eq ptr %41, %50
   br i1 %51, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i, label %.lr.ph.i15.i, !prof !45
@@ -683,7 +680,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
   %61 = add i32 %.02746.i.i, %.02947.i.i
   %.029.i.i = and i32 %61, %38
   %62 = zext i32 %.029.i.i to i64
-  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %43, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !3
   %65 = icmp eq ptr %41, %64
   br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_.exit.i, label %.lr.ph.i15.i, !prof !47, !llvm.loop !48
@@ -1209,7 +1206,7 @@ _ZNK12_GLOBAL__N_119PlacementNewChecker24getExtentSizeOfNewTargetEPKN5clang10CXX
   %.lobit.i.i.i.i.i.i.i = and i32 %118, 1
   %119 = add nuw nsw i32 %.lobit.i.i.i.i.i.i.i.i, %.lobit.i.i.i.i.i.i.i
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw ptr, ptr %115, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %120
   %122 = load ptr, ptr %121, align 8, !tbaa !236
   %123 = load ptr, ptr %33, align 8, !tbaa !66
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 56
@@ -1790,7 +1787,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit69.i.i: ; preds = 
   %.lobit.i.i.i.i.i.i = and i32 %328, 1
   %329 = add nuw nsw i32 %.lobit.i.i.i.i.i70.i.i, %.lobit.i.i.i.i.i.i
   %330 = zext nneg i32 %329 to i64
-  %331 = getelementptr inbounds nuw ptr, ptr %115, i64 %330
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %330
   %332 = load ptr, ptr %331, align 8, !tbaa !236
   %333 = call noundef zeroext i1 @_ZN5clang4ento11bugreporter20trackExpressionValueEPKNS0_12ExplodedNodeEPKNS_4ExprERNS0_22PathSensitiveBugReportENS1_15TrackingOptionsE(ptr noundef nonnull %168, ptr noundef %332, ptr noundef nonnull align 8 dereferenceable(1000) %321, i64 4294967296) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1839,7 +1836,7 @@ _ZNK12_GLOBAL__N_119PlacementNewChecker30checkPlaceCapacityIsSufficientEPKN5clan
   %.lobit.i.i.i.i.i8.i = and i32 %352, 1
   %353 = add nuw nsw i32 %.lobit.i.i.i.i.i.i7.i, %.lobit.i.i.i.i.i8.i
   %354 = zext nneg i32 %353 to i64
-  %355 = getelementptr inbounds nuw ptr, ptr %115, i64 %354
+  %355 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %354
   %356 = load ptr, ptr %355, align 8, !tbaa !236
   %.sroa.0.0.copyload.i.i.i9.i = load i64, ptr %41, align 8, !tbaa !17
   %357 = and i64 %.sroa.0.0.copyload.i.i.i9.i, -16

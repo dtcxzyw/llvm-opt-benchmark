@@ -446,7 +446,7 @@ _ZN6vectorIN3sat7literalELb0EjE3endEv.exit:       ; preds = %7
   %23 = lshr i32 %.sroa.03.0.copyload, 1
   %24 = load ptr, ptr %16, align 8, !tbaa !14
   %25 = zext nneg i32 %23 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !18
   %28 = call noundef i32 @_ZNK3smt7context13relevancy_lvlEv(ptr noundef nonnull align 8 dereferenceable(10544) %0)
   %.not.i.i.i = icmp eq i32 %28, 0
@@ -705,7 +705,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i6:           ; preds = %27
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %52 = load ptr, ptr %51, align 8, !tbaa !14
   %53 = zext nneg i32 %50 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !18
   %56 = tail call noundef ptr @_ZN11ast_manager6mk_appEiiP4expr(ptr noundef nonnull align 8 dereferenceable(976) %49, i32 noundef 0, i32 noundef 8, ptr noundef %55)
   %.not.i9 = icmp eq ptr %56, null
@@ -742,7 +742,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i10:          ; preds = %47
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8840
   %73 = load ptr, ptr %72, align 8, !tbaa !14
   %74 = zext nneg i32 %71 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !18
   %.not.i13 = icmp eq ptr %76, null
   br i1 %.not.i13, label %80, label %_ZN11ast_manager7inc_refEP3ast.exit.i14
@@ -878,7 +878,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %31 ]
   %28 = load ptr, ptr %3, align 8, !tbaa !14
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !18
   invoke void @_ZN3smt7context11assert_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(10544) %2, ptr noundef %30)
           to label %31 unwind label %32
@@ -900,7 +900,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 .lr.ph31:                                         ; preds = %.lr.ph31.preheader, %38
   %indvars.iv36 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next37, %38 ]
   %35 = load ptr, ptr %21, align 8, !tbaa !14
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv36
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv36
   %37 = load ptr, ptr %36, align 8, !tbaa !18
   invoke void @_ZN3smt7context11assert_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(10544) %2, ptr noundef %37)
           to label %38 unwind label %39

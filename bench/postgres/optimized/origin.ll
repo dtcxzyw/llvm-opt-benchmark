@@ -8,11 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.xl_replorigin_drop = type { i16 }
-%struct.ReplicationState = type { i16, i64, i64, i32, %struct.ConditionVariable, %struct.LWLock }
-%struct.ConditionVariable = type { i8, %struct.proclist_head }
-%struct.proclist_head = type { i32, i32 }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.pg_atomic_uint32 = type { i32 }
 %struct.ReplicationStateOnDisk = type { i16, i64 }
 %struct.xl_replorigin_set = type { i64, i16, i8 }
 
@@ -280,7 +275,7 @@ define dso_local void @replorigin_drop_by_name(ptr noundef %0, i1 noundef zeroex
 
 23:                                               ; preds = %22, %.lr.ph.us.i
   %indvars.iv34.i = phi i64 [ %indvars.iv.next35.i, %22 ], [ 0, %.lr.ph.us.i ]
-  %24 = getelementptr inbounds nuw %struct.ReplicationState, ptr %21, i64 %indvars.iv34.i
+  %24 = getelementptr inbounds nuw [56 x i8], ptr %21, i64 %indvars.iv34.i
   %25 = load i16, ptr %24, align 8
   %26 = icmp eq i16 %25, %6
   br i1 %26, label %27, label %22
@@ -304,7 +299,7 @@ define dso_local void @replorigin_drop_by_name(ptr noundef %0, i1 noundef zeroex
 
 33:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
-  %34 = getelementptr inbounds nuw %struct.ReplicationState, ptr %31, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [56 x i8], ptr %31, i64 %indvars.iv.i
   %35 = load i16, ptr %34, align 8
   %36 = icmp eq i16 %35, %6
   br i1 %36, label %37, label %32
@@ -514,13 +509,13 @@ ReplicationOriginShmemSize.exit22:                ; preds = %13, %16
 .lr.ph26:                                         ; preds = %.loopexit23, %.lr.ph26
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph26 ], [ 0, %.loopexit23 ]
   %39 = load ptr, ptr @replication_states, align 8
-  %40 = getelementptr inbounds nuw %struct.ReplicationState, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [56 x i8], ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load ptr, ptr @replication_states_ctl, align 8
   %43 = load i32, ptr %42, align 8
   call void @LWLockInitialize(ptr noundef nonnull %41, i32 noundef %43) #9
   %44 = load ptr, ptr @replication_states, align 8
-  %45 = getelementptr inbounds nuw %struct.ReplicationState, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [56 x i8], ptr %44, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 28
   call void @ConditionVariableInit(ptr noundef nonnull %46) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -627,7 +622,7 @@ define dso_local void @CheckPointReplicationOrigin() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
   %46 = phi i32 [ %36, %.lr.ph ], [ %73, %70 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %47 = getelementptr inbounds nuw %struct.ReplicationState, ptr %45, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [56 x i8], ptr %45, i64 %indvars.iv
   %48 = load i16, ptr %47, align 8
   %49 = icmp eq i16 %48, 0
   br i1 %49, label %70, label %50
@@ -887,7 +882,7 @@ define dso_local void @StartupReplicationOrigin() local_unnamed_addr #0 {
   %64 = load i16, ptr %2, align 8
   %65 = load ptr, ptr @replication_states, align 8
   %66 = sext i32 %.03357 to i64
-  %67 = getelementptr inbounds %struct.ReplicationState, ptr %65, i64 %66
+  %67 = getelementptr inbounds [56 x i8], ptr %65, i64 %66
   store i16 %64, ptr %67, align 8
   %68 = load i64, ptr %37, align 8
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -996,7 +991,7 @@ define dso_local void @replorigin_redo(ptr noundef readonly captures(none) %0) l
 
 26:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %27 = getelementptr inbounds nuw %struct.ReplicationState, ptr %23, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %23, i64 %indvars.iv
   %28 = load i16, ptr %27, align 8
   %29 = icmp eq i16 %28, %24
   br i1 %29, label %30, label %25
@@ -1041,7 +1036,7 @@ define dso_local void @replorigin_advance(i16 noundef zeroext %0, i64 noundef %1
 16:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %.04269 = phi ptr [ null, %.lr.ph ], [ %.2.ph, %34 ]
-  %17 = getelementptr inbounds nuw %struct.ReplicationState, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %15, i64 %indvars.iv
   %18 = load i16, ptr %17, align 8
   %19 = icmp eq i16 %18, 0
   %20 = icmp eq ptr %.04269, null
@@ -1187,7 +1182,7 @@ define dso_local i64 @replorigin_get_progress(i16 noundef zeroext %0, i1 noundef
 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %11 = getelementptr inbounds nuw %struct.ReplicationState, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %indvars.iv
   %12 = load i16, ptr %11, align 8
   %13 = icmp eq i16 %12, %0
   br i1 %13, label %14, label %9
@@ -1258,7 +1253,7 @@ define dso_local void @replorigin_session_setup(i16 noundef zeroext %0, i32 noun
 17:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %.02740 = phi i32 [ -1, %.lr.ph ], [ %.2.ph, %36 ]
-  %18 = getelementptr inbounds nuw %struct.ReplicationState, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [56 x i8], ptr %16, i64 %indvars.iv
   %19 = load i16, ptr %18, align 8
   %20 = icmp eq i16 %19, 0
   %21 = icmp eq i32 %.02740, -1
@@ -1321,7 +1316,7 @@ define dso_local void @replorigin_session_setup(i16 noundef zeroext %0, i32 noun
 46:                                               ; preds = %45
   %47 = load ptr, ptr @replication_states, align 8
   %48 = sext i32 %.027.lcssa to i64
-  %49 = getelementptr inbounds %struct.ReplicationState, ptr %47, i64 %48
+  %49 = getelementptr inbounds [56 x i8], ptr %47, i64 %48
   store ptr %49, ptr @session_replication_state, align 8
   store i16 %0, ptr %49, align 8
   br label %50
@@ -1832,7 +1827,7 @@ replorigin_check_prerequisites.exit:              ; preds = %1
 
 23:                                               ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
-  %24 = getelementptr inbounds nuw %struct.ReplicationState, ptr %21, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [56 x i8], ptr %21, i64 %indvars.iv.i
   %25 = load i16, ptr %24, align 8
   %26 = icmp eq i16 %25, %15
   br i1 %26, label %27, label %22
@@ -1906,7 +1901,7 @@ define dso_local noundef i64 @pg_show_replication_origin_status(ptr noundef %0) 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %22 = getelementptr inbounds nuw %struct.ReplicationState, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [56 x i8], ptr %21, i64 %indvars.iv
   %23 = load i16, ptr %22, align 8
   %24 = icmp eq i16 %23, 0
   br i1 %24, label %49, label %25

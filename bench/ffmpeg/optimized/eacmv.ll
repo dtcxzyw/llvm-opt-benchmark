@@ -158,7 +158,7 @@ define internal range(i32 8, 0) i32 @cmv_decode_frame(ptr noundef %0, ptr nounde
   %80 = or disjoint i32 %72, %76
   %81 = or disjoint i32 %80, %79
   %82 = or disjoint i32 %81, -16777216
-  %83 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv.i
   store i32 %82, ptr %83, align 4, !tbaa !42
   %84 = getelementptr inbounds nuw i8, ptr %.04052.i, i64 3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

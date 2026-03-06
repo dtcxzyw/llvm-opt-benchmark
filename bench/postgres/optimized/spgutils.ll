@@ -5,11 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.relopt_parse_elt = type { ptr, i32, i32 }
 %struct.spgConfigIn = type { i32 }
-%union.ListCell = type { ptr }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 %struct.BufferManagerRelation = type { ptr, ptr, i8 }
-%struct.SpGistLastUsedPage = type { i32, i32 }
-%struct.ItemIdData = type { i32 }
 
 @.str = private unnamed_addr constant [76 x i8] c"compress method must be defined when leaf type is different from input type\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"spgutils.c\00", align 1
@@ -177,7 +173,7 @@ define dso_local noundef zeroext i1 @spgproperty(i32 noundef %0, i32 noundef %1,
 22:                                               ; preds = %.lr.ph, %51
   %23 = phi i32 [ %19, %.lr.ph ], [ %52, %51 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr i8, ptr %25, i64 80
   %.val = load ptr, ptr %26, align 8
@@ -336,7 +332,7 @@ list_head.exit.i:                                 ; preds = %.thread.i, %25
 35:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
   %.05570.i = phi ptr [ %29, %.lr.ph.i ], [ %.1.i, %55 ]
-  %36 = getelementptr i16, ptr %30, i64 %indvars.iv.i
+  %36 = getelementptr [2 x i8], ptr %30, i64 %indvars.iv.i
   %37 = getelementptr i8, ptr %36, i64 46
   %38 = load i16, ptr %37, align 2
   %39 = icmp eq i16 %38, 0
@@ -366,7 +362,7 @@ list_head.exit.i:                                 ; preds = %.thread.i, %25
   %.056.val62.i = load ptr, ptr %34, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.05570.i, i64 8
   %52 = sext i32 %.056.val.i to i64
-  %53 = getelementptr inbounds %union.ListCell, ptr %.056.val62.i, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.056.val62.i, i64 %52
   %54 = icmp ult ptr %51, %53
   %..i.i = select i1 %54, ptr %51, ptr null
   br label %55
@@ -619,7 +615,7 @@ fillTypeDesc.exit59:                              ; preds = %fillTypeDesc.exit56
   %196 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %197 = xor i32 %193, -1
   %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds nuw ptr, ptr %196, i64 %198
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %198
   %200 = load ptr, ptr %199, align 8
   br label %BufferGetPage.exit
 
@@ -753,7 +749,7 @@ define dso_local noundef ptr @getSpGistTupleDesc(ptr noundef readonly captures(n
 
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %38, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %indvars.iv
   store i32 -1, ptr %41, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = icmp samesign ult i64 %indvars.iv.next, %39
@@ -845,7 +841,7 @@ define dso_local void @initSpGistState(ptr noundef captures(none) initializes((0
 
 51:                                               ; preds = %51, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %51 ]
-  %52 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %49, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %indvars.iv.i
   store i32 -1, ptr %52, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %50
@@ -895,7 +891,7 @@ define dso_local i32 @SpGistNewBuffer(ptr noundef %0) local_unnamed_addr #0 {
   %13 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %14 = xor i32 %8, -1
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   %17 = load ptr, ptr %16, align 8
   br label %BufferGetPage.exit
 
@@ -986,7 +982,7 @@ define dso_local void @SpGistUpdateMetaPage(ptr noundef %0) local_unnamed_addr #
   %10 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %11 = xor i32 %5, -1
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8
   br label %BufferGetPage.exit
 
@@ -1052,7 +1048,7 @@ define dso_local i32 @SpGistGetBuffer(ptr noundef %0, i32 noundef %1, i32 nounde
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %24 = and i32 %1, 7
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw %struct.SpGistLastUsedPage, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %29, label %31
@@ -1087,7 +1083,7 @@ define dso_local i32 @SpGistGetBuffer(ptr noundef %0, i32 noundef %1, i32 nounde
   %42 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %43 = xor i32 %35, -1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %44
   %46 = load ptr, ptr %45, align 8
   br label %BufferGetPage.exit
 
@@ -1136,7 +1132,7 @@ BufferGetPage.exit:                               ; preds = %41, %47
   %72 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %73 = xor i32 %35, -1
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %72, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %74
   %76 = load ptr, ptr %75, align 8
   br label %SpGistInitBuffer.exit
 
@@ -1237,7 +1233,7 @@ define internal fastcc i32 @allocNewBuffer(ptr noundef %0, i32 noundef %1) unnam
   %18 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %19 = xor i32 %9, -1
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %20
   %22 = load ptr, ptr %21, align 8
   br label %SpGistInitBuffer.exit.us
 
@@ -1274,7 +1270,7 @@ SpGistInitBuffer.exit.us:                         ; preds = %17, %11
   %37 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %38 = xor i32 %28, -1
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %39
   %41 = load ptr, ptr %40, align 8
   br label %SpGistInitBuffer.exit.us42
 
@@ -1295,7 +1291,7 @@ SpGistInitBuffer.exit.us42:                       ; preds = %36, %30
 
 49:                                               ; preds = %SpGistInitBuffer.exit.us42
   %50 = zext nneg i32 %48 to i64
-  %51 = getelementptr inbounds nuw %struct.SpGistLastUsedPage, ptr %8, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %50
   store i32 %47, ptr %51, align 4
   br i1 %29, label %58, label %52
 
@@ -1311,7 +1307,7 @@ SpGistInitBuffer.exit.us42:                       ; preds = %36, %30
   %59 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %60 = xor i32 %28, -1
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %59, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %61
   %63 = load ptr, ptr %62, align 8
   br label %64
 
@@ -1333,7 +1329,7 @@ SpGistInitBuffer.exit.us42:                       ; preds = %36, %30
   %71 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %72 = xor i32 %68, -1
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %71, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %73
   %75 = load ptr, ptr %74, align 8
   br label %SpGistInitBuffer.exit
 
@@ -1362,7 +1358,7 @@ SpGistInitBuffer.exit:                            ; preds = %70, %76
 
 89:                                               ; preds = %SpGistInitBuffer.exit
   %90 = zext nneg i32 %88 to i64
-  %91 = getelementptr inbounds nuw %struct.SpGistLastUsedPage, ptr %8, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
   store i32 %87, ptr %92, align 4
   br i1 %69, label %93, label %99
@@ -1371,7 +1367,7 @@ SpGistInitBuffer.exit:                            ; preds = %70, %76
   %94 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %95 = xor i32 %68, -1
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %94, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %96
   %98 = load ptr, ptr %97, align 8
   br label %105
 
@@ -1406,7 +1402,7 @@ define dso_local void @SpGistInitBuffer(i32 noundef %0, i16 noundef zeroext %1) 
   %5 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %6 = xor i32 %0, -1
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
   br label %BufferGetPage.exit
 
@@ -1443,7 +1439,7 @@ define dso_local void @SpGistSetLastUsedPage(ptr noundef %0, i32 noundef %1) loc
   %6 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %7 = xor i32 %1, -1
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   br label %BufferGetPage.exit
 
@@ -1477,7 +1473,7 @@ BufferGetPage.exit:                               ; preds = %5, %11
   %.1 = or disjoint i32 %.0, %29
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %31 = zext nneg i32 %.1 to i64
-  %32 = getelementptr inbounds nuw %struct.SpGistLastUsedPage, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = tail call i64 @PageGetExactFreeSpace(ptr noundef %.0.i.i) #9
   %34 = trunc i64 %33 to i32
   %35 = load i32, ptr %32, align 4
@@ -1538,7 +1534,7 @@ define dso_local void @SpGistInitMetapage(ptr noundef %0) local_unnamed_addr #0 
 
 10:                                               ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %struct.SpGistLastUsedPage, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store i32 -1, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -1917,7 +1913,7 @@ SpGistGetInnerTypeSize.exit:                      ; preds = %6, %14, %21, %30, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.054 = phi i32 [ %narrow, %.lr.ph.preheader ], [ %44, %.lr.ph ]
-  %39 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr i8, ptr %40, i64 6
   %.val = load i16, ptr %41, align 2
@@ -2045,7 +2041,7 @@ memcpyInnerDatum.exit:                            ; preds = %100, %74, %58
 .lr.ph57:                                         ; preds = %.lr.ph57.preheader, %.lr.ph57
   %indvars.iv60 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next61, %.lr.ph57 ]
   %.04356 = phi ptr [ %105, %.lr.ph57.preheader ], [ %113, %.lr.ph57 ]
-  %106 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv60
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv60
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr i8, ptr %107, i64 6
   %.val49 = load i16, ptr %108, align 2
@@ -2225,7 +2221,7 @@ define dso_local ptr @spgExtractNodeLabels(ptr noundef readonly captures(none) %
 
 46:                                               ; preds = %44, %42
   %47 = phi i64 [ %43, %42 ], [ %45, %44 ]
-  %48 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store i64 %47, ptr %48, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.1.val = load i16, ptr %33, align 2
@@ -2285,7 +2281,7 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
 .lr.ph.us:                                        ; preds = %.split.us, %34
   %.14965.us = phi i16 [ %35, %34 ], [ 1, %.split.us ]
   %26 = zext i16 %.14965.us to i64
-  %27 = getelementptr %struct.ItemIdData, ptr %25, i64 %26
+  %27 = getelementptr [4 x i8], ptr %25, i64 %26
   %.val61.us = load i32, ptr %27, align 4
   %28 = and i32 %.val61.us, 32767
   %29 = zext nneg i32 %28 to i64
@@ -2317,7 +2313,7 @@ define dso_local zeroext i16 @SpGistPageAddNewItem(ptr noundef readnone captures
 .lr.ph:                                           ; preds = %36, %46
   %.14965 = phi i16 [ %47, %46 ], [ %spec.select, %36 ]
   %38 = zext i16 %.14965 to i64
-  %39 = getelementptr %struct.ItemIdData, ptr %25, i64 %38
+  %39 = getelementptr [4 x i8], ptr %25, i64 %38
   %.val61 = load i32, ptr %39, align 4
   %40 = and i32 %.val61, 32767
   %41 = zext nneg i32 %40 to i64

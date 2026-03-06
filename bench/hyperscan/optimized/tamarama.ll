@@ -54,7 +54,7 @@ loadActiveIdx.exit:                               ; preds = %6, %10, %12, %20, %
   %31 = shl nuw nsw i64 %30, 2
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
   %33 = zext i32 %.0.i.i to i64
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 %36
@@ -210,7 +210,7 @@ loadActiveIdx.exit:                               ; preds = %3, %46, %48, %56, %
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load i32, ptr %63, align 8
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %struct.mq_item, ptr %62, i64 %65
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 104
@@ -222,7 +222,7 @@ loadActiveIdx.exit:                               ; preds = %3, %46, %48, %56, %
   store i32 1, ptr %4, align 4, !alias.scope !5
   %72 = load i32, ptr %63, align 8
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw %struct.mq_item, ptr %62, i64 %73
+  %74 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %73
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %79
@@ -243,7 +243,7 @@ loadActiveIdx.exit:                               ; preds = %3, %46, %48, %56, %
 85:                                               ; preds = %79
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %87 = zext i32 %80 to i64
-  %88 = getelementptr inbounds nuw %struct.mq_item, ptr %62, i64 %87
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %87
   %89 = load i32, ptr %88, align 8
   %.not18.i = icmp eq i32 %43, 0
   br i1 %.not18.i, label %findEngineForTop.exit, label %.lr.ph.preheader.i
@@ -256,7 +256,7 @@ loadActiveIdx.exit:                               ; preds = %3, %46, %48, %56, %
 
 .lr.ph.i:                                         ; preds = %101, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.pre-phi.i, %101 ]
-  %92 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv.i
   %93 = load i32, ptr %92, align 4
   %.not.i = icmp ult i32 %89, %93
   br i1 %.not.i, label %.lr.ph._crit_edge.i, label %94
@@ -271,7 +271,7 @@ loadActiveIdx.exit:                               ; preds = %3, %46, %48, %56, %
 
 96:                                               ; preds = %94
   %97 = add nuw nsw i64 %indvars.iv.i, 1
-  %98 = getelementptr inbounds nuw i32, ptr %86, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %97
   %99 = load i32, ptr %98, align 4
   %100 = icmp ult i32 %89, %99
   br i1 %100, label %._crit_edge.loopexit.split.loop.exit21.i, label %101
@@ -295,12 +295,12 @@ findEngineForTop.exit:                            ; preds = %101, %94, %._crit_e
 
 104:                                              ; preds = %findEngineForTop.exit
   %105 = zext i32 %80 to i64
-  %106 = getelementptr inbounds nuw %struct.mq_item, ptr %62, i64 %105
+  %106 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load i64, ptr %107, align 8
   %109 = load i32, ptr %4, align 4, !alias.scope !8
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw %struct.mq_item, ptr %69, i64 %110
+  %111 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %110
   store i32 1, ptr %111, align 8, !alias.scope !8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i64 %108, ptr %112, align 8, !alias.scope !8
@@ -314,7 +314,7 @@ findEngineForTop.exit:                            ; preds = %101, %94, %._crit_e
   %118 = shl nuw nsw i64 %117, 2
   %119 = getelementptr inbounds nuw i8, ptr %115, i64 %118
   %120 = zext i32 %.0.i.i to i64
-  %121 = getelementptr inbounds nuw i32, ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = zext i32 %122 to i64
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 %123
@@ -328,7 +328,7 @@ findEngineForTop.exit:                            ; preds = %101, %94, %._crit_e
   %129 = shl nuw nsw i64 %128, 2
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 %129
   %131 = zext i32 %.042 to i64
-  %132 = getelementptr inbounds nuw i32, ptr %130, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %131
   %133 = load i32, ptr %132, align 4
   %134 = zext i32 %133 to i64
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 %134
@@ -347,7 +347,7 @@ findEngineForTop.exit:                            ; preds = %101, %94, %._crit_e
   tail call fastcc void @copyQueueItems(ptr noundef nonnull %0, ptr noundef nonnull %135, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %.042)
   %141 = load i32, ptr %63, align 8
   %142 = zext i32 %141 to i64
-  %143 = getelementptr inbounds nuw %struct.mq_item, ptr %62, i64 %142
+  %143 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %142
   %144 = load i32, ptr %143, align 8
   %145 = icmp eq i32 %144, 1
   br i1 %145, label %146, label %148
@@ -447,7 +447,7 @@ loadActiveIdx.exit:                               ; preds = %2, %9, %11, %19, %2
   %30 = shl nuw nsw i64 %29, 2
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 %30
   %32 = zext i32 %.0.i.i to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
@@ -504,9 +504,9 @@ loadActiveIdx.exit:                               ; preds = %2, %9, %11, %19, %2
   store i32 %71, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %75 = zext i32 %71 to i64
-  %76 = getelementptr inbounds nuw %struct.mq_item, ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %78 = getelementptr inbounds nuw %struct.mq_item, ptr %77, i64 %75
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %78, i64 24, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %72, ptr %79, align 4
@@ -574,7 +574,7 @@ loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %
   %31 = shl nuw nsw i64 %30, 2
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
   %33 = zext i32 %.0.i.i to i64
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 %36
@@ -631,9 +631,9 @@ loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %
   store i32 %72, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %76 = zext i32 %72 to i64
-  %77 = getelementptr inbounds nuw %struct.mq_item, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %75, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %79 = getelementptr inbounds nuw %struct.mq_item, ptr %78, i64 %76
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %79, i64 24, i1 false)
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %73, ptr %80, align 4
@@ -701,7 +701,7 @@ loadActiveIdx.exit:                               ; preds = %2, %9, %11, %19, %2
   %30 = shl nuw nsw i64 %29, 2
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 %30
   %32 = zext i32 %.0.i.i to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 %35
@@ -758,9 +758,9 @@ loadActiveIdx.exit:                               ; preds = %2, %9, %11, %19, %2
   store i32 %71, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %75 = zext i32 %71 to i64
-  %76 = getelementptr inbounds nuw %struct.mq_item, ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %78 = getelementptr inbounds nuw %struct.mq_item, ptr %77, i64 %75
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %78, i64 24, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %72, ptr %79, align 4
@@ -870,7 +870,7 @@ loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %
   %31 = shl nuw nsw i64 %30, 2
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
   %33 = zext i32 %.0.i.i to i64
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 %36
@@ -978,7 +978,7 @@ loadActiveIdx.exit:                               ; preds = %5, %9, %11, %19, %2
   %30 = shl nuw nsw i64 %29, 2
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 %30
   %32 = zext i32 %.0.i.i to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 %35
@@ -1045,7 +1045,7 @@ loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %
   %31 = shl nuw nsw i64 %30, 2
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
   %33 = zext i32 %.0.i.i to i64
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 %36
@@ -1102,9 +1102,9 @@ loadActiveIdx.exit:                               ; preds = %3, %10, %12, %20, %
   store i32 %72, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %76 = zext i32 %72 to i64
-  %77 = getelementptr inbounds nuw %struct.mq_item, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %75, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %79 = getelementptr inbounds nuw %struct.mq_item, ptr %78, i64 %76
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %79, i64 24, i1 false)
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %73, ptr %80, align 4
@@ -1138,7 +1138,7 @@ define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %0, ptr noundef captures
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %14 = zext i32 %8 to i64
-  %15 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load i64, ptr %16, align 8
   %.not43 = icmp sgt i64 %17, %2
@@ -1152,7 +1152,7 @@ define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %0, ptr noundef captures
 
 22:                                               ; preds = %18
   %23 = zext i32 %19 to i64
-  %24 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %26 = load i64, ptr %25, align 8
   %.not = icmp sgt i64 %26, %2
@@ -1254,12 +1254,12 @@ loadActiveIdx.exit:                               ; preds = %16, %21, %23, %31, 
 38:                                               ; preds = %loadActiveIdx.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = zext i32 %.0.i.i to i64
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = zext i32 %37 to i64
   %44 = shl nuw nsw i64 %43, 2
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 %44
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %40
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %40
   %47 = load i32, ptr %46, align 4
   %48 = zext i32 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 %48
@@ -1310,12 +1310,12 @@ isMultiTopType.exit.thread:                       ; preds = %53, %53, %53, %53, 
   %68 = add i32 %8, -1
   store i32 %68, ptr %7, align 8
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw %struct.mq_item, ptr %67, i64 %69
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %72 = load i32, ptr %56, align 4
   %73 = add i32 %72, -1
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %struct.mq_item, ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %71, i64 %74
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false)
   %.pre = load i32, ptr %58, align 8
   %.pre72 = add i32 %.pre, 1
@@ -1328,11 +1328,11 @@ isMultiTopType.exit.thread:                       ; preds = %53, %53, %53, %53, 
   %79 = sub i32 %78, %64
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %81 = zext i32 %79 to i64
-  %82 = getelementptr inbounds nuw %struct.mq_item, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [24 x i8], ptr %80, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 %.pre-phi, ptr %58, align 8
   %84 = zext i32 %77 to i64
-  %85 = getelementptr inbounds nuw %struct.mq_item, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %84
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   store i32 0, ptr %82, align 8
   store i32 %79, ptr %7, align 8
@@ -1350,7 +1350,7 @@ isMultiTopType.exit.thread:                       ; preds = %53, %53, %53, %53, 
   %.05170 = add i32 %.05170.in, 1
   %89 = load i32, ptr %58, align 8
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw %struct.mq_item, ptr %83, i64 %90
+  %91 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %90
   %92 = load i32, ptr %91, align 8
   %93 = icmp ugt i32 %92, 1
   br i1 %93, label %94, label %96
@@ -1362,7 +1362,7 @@ isMultiTopType.exit.thread:                       ; preds = %53, %53, %53, %53, 
 
 96:                                               ; preds = %94, %88
   %97 = zext i32 %.05170 to i64
-  %98 = getelementptr inbounds nuw %struct.mq_item, ptr %80, i64 %97
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %80, i64 %97
   %99 = add i32 %89, 1
   store i32 %99, ptr %58, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, ptr noundef nonnull align 8 dereferenceable(24) %91, i64 24, i1 false)
@@ -1391,7 +1391,7 @@ define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %0, ptr noundef capture
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %14 = zext i32 %8 to i64
-  %15 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load i64, ptr %16, align 8
   %.not47 = icmp sgt i64 %17, %2
@@ -1405,7 +1405,7 @@ define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %0, ptr noundef capture
 
 22:                                               ; preds = %18
   %23 = zext i32 %19 to i64
-  %24 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %26 = load i64, ptr %25, align 8
   %27 = icmp sle i64 %26, %2
@@ -1449,7 +1449,7 @@ declare signext i8 @nfaQueueInitState(ptr noundef, ptr noundef) local_unnamed_ad
 define internal fastcc void @copyQueueItems(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef nonnull captures(none) %3, i32 noundef %4) unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = zext i32 %4 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %0, align 32
   %11 = add i32 %10, -1
@@ -1459,7 +1459,7 @@ define internal fastcc void @copyQueueItems(ptr noundef readonly captures(none) 
 13:                                               ; preds = %5
   %14 = add i32 %4, 1
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %6, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %15
   %17 = load i32, ptr %16, align 4
   br label %18
 
@@ -1504,7 +1504,7 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %61
   %35 = phi i32 [ %63, %61 ], [ %29, %.lr.ph ]
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %struct.mq_item, ptr %32, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %36
   %38 = load i32, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load i64, ptr %39, align 8
@@ -1521,7 +1521,7 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
 44:                                               ; preds = %42
   %45 = add i32 %43, -1
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %struct.mq_item, ptr %34, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %46
   %48 = load i32, ptr %47, align 8, !alias.scope !11
   %49 = icmp eq i32 %48, 2
   br i1 %49, label %50, label %.thread.us
@@ -1539,7 +1539,7 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
 
 .thread.us:                                       ; preds = %42, %50, %44
   %56 = zext i32 %43 to i64
-  %57 = getelementptr inbounds nuw %struct.mq_item, ptr %34, i64 %56
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %56
   store i32 2, ptr %57, align 8, !alias.scope !11
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i64 %40, ptr %58, align 8, !alias.scope !11
@@ -1560,7 +1560,7 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
 .lr.ph.split:                                     ; preds = %.lr.ph, %99
   %66 = phi i32 [ %101, %99 ], [ %29, %.lr.ph ]
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw %struct.mq_item, ptr %32, i64 %67
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %67
   %69 = load i32, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load i64, ptr %70, align 8
@@ -1579,7 +1579,7 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
 76:                                               ; preds = %73
   %77 = add i32 %75, -1
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw %struct.mq_item, ptr %34, i64 %78
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %78
   %80 = load i32, ptr %79, align 8, !alias.scope !11
   %81 = icmp eq i32 %80, %74
   br i1 %81, label %82, label %.thread
@@ -1597,7 +1597,7 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
 
 .thread:                                          ; preds = %76, %82, %73
   %88 = zext i32 %75 to i64
-  %89 = getelementptr inbounds nuw %struct.mq_item, ptr %34, i64 %88
+  %89 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %88
   store i32 %74, ptr %89, align 8, !alias.scope !11
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i64 %71, ptr %90, align 8, !alias.scope !11
@@ -1611,7 +1611,7 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
   %.us-phi = phi i64 [ %40, %.lr.ph.split.us ], [ %71, %.lr.ph.split ]
   %93 = load i32, ptr %33, align 4, !alias.scope !14
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %struct.mq_item, ptr %34, i64 %94
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %94
   store i32 1, ptr %95, align 8, !alias.scope !14
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i64 %.us-phi, ptr %96, align 8, !alias.scope !14

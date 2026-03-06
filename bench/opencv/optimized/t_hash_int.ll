@@ -130,7 +130,7 @@ define hidden void @_ZN2cv12ppf_match_3d16hashtableDestroyEPNS0_8HSHTBL_iE(ptr n
   %5 = phi i64 [ %2, %.lr.ph15 ], [ %11, %._crit_edge ]
   %.013 = phi i64 [ 0, %.lr.ph15 ], [ %12, %._crit_edge ]
   %6 = load ptr, ptr %3, align 8, !tbaa !3
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.013
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.013
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %.not11 = icmp eq ptr %8, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -170,7 +170,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d15hashtableInser
   %8 = urem i64 %6, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !3
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %8
   %.02227 = load ptr, ptr %11, align 8, !tbaa !13
   %.not28 = icmp eq ptr %.02227, null
   br i1 %.not28, label %._crit_edge, label %.lr.ph
@@ -218,7 +218,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d21hashtableInser
   %6 = urem i64 %4, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %6
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %6
   %.02126 = load ptr, ptr %9, align 8, !tbaa !13
   %.not27 = icmp eq ptr %.02126, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph
@@ -268,7 +268,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d15hashtableRemov
   %7 = urem i64 %5, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %.01822 = load ptr, ptr %10, align 8, !tbaa !13
   %.not23 = icmp eq ptr %.01822, null
   br i1 %.not23, label %.loopexit, label %.lr.ph.preheader
@@ -325,7 +325,7 @@ define hidden noundef ptr @_ZN2cv12ppf_match_3d12hashtableGetEPNS0_8HSHTBL_iEj(p
   %7 = urem i64 %5, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %.01012 = load ptr, ptr %10, align 8, !tbaa !13
   %.not13 = icmp eq ptr %.01012, null
   br i1 %.not13, label %.loopexit, label %.lr.ph
@@ -359,7 +359,7 @@ define hidden noundef ptr @_ZN2cv12ppf_match_3d24hashtableGetBucketHashedEPNS0_8
   %5 = urem i64 %3, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %5
   %9 = load ptr, ptr %8, align 8, !tbaa !13
   ret ptr %9
 }
@@ -385,7 +385,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d15hashtableResiz
   %9 = phi i64 [ %6, %.lr.ph35 ], [ %50, %._crit_edge ]
   %.01934 = phi i64 [ 0, %.lr.ph35 ], [ %51, %._crit_edge ]
   %10 = load ptr, ptr %7, align 8, !tbaa !3
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.01934
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.01934
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   %.not2031 = icmp eq ptr %12, null
   br i1 %.not2031, label %._crit_edge, label %.lr.ph33
@@ -399,7 +399,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d15hashtableResiz
   %17 = load ptr, ptr %16, align 8, !tbaa !22
   %18 = tail call noundef i64 %4(i32 noundef %15)
   %19 = urem i64 %18, %1
-  %20 = getelementptr inbounds nuw ptr, ptr %5, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %19
   %.02227.i = load ptr, ptr %20, align 8, !tbaa !13
   %.not28.i = icmp eq ptr %.02227.i, null
   br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i
@@ -442,7 +442,7 @@ _ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit: ; preds = %22, %.
   %33 = load i64, ptr %0, align 8, !tbaa !11
   %34 = urem i64 %32, %33
   %35 = load ptr, ptr %7, align 8, !tbaa !3
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %34
   %.01822.i = load ptr, ptr %36, align 8, !tbaa !13
   %.not23.i = icmp eq ptr %.01822.i, null
   br i1 %.not23.i, label %_ZN2cv12ppf_match_3d15hashtableRemoveEPNS0_8HSHTBL_iEj.exit, label %.lr.ph.i21.preheader
@@ -535,7 +535,7 @@ define hidden noundef i32 @_ZN2cv12ppf_match_3d14hashtableWriteEPKNS0_8HSHTBL_iE
 14:                                               ; preds = %.lr.ph31, %._crit_edge28
   %.01929 = phi i64 [ 0, %.lr.ph31 ], [ %29, %._crit_edge28 ]
   %15 = load ptr, ptr %13, align 8, !tbaa !3
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.01929
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.01929
   %17 = load ptr, ptr %16, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not21 = icmp eq ptr %17, null
@@ -555,7 +555,7 @@ define hidden noundef i32 @_ZN2cv12ppf_match_3d14hashtableWriteEPKNS0_8HSHTBL_iE
   store i64 %.lcssa, ptr %7, align 8
   %22 = call i64 @fwrite(ptr noundef nonnull %7, i64 noundef 8, i64 noundef 1, ptr noundef %2)
   %23 = load ptr, ptr %13, align 8, !tbaa !3
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %.01929
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.01929
   %.123 = load ptr, ptr %24, align 8, !tbaa !13
   %.not2024 = icmp eq ptr %.123, null
   br i1 %.not2024, label %._crit_edge28, label %.lr.ph27
@@ -600,7 +600,7 @@ define hidden void @_ZN2cv12ppf_match_3d14hashtablePrintEPNS0_8HSHTBL_iE(ptr nou
   %5 = phi i64 [ %2, %.lr.ph14 ], [ %38, %._crit_edge ]
   %.012 = phi i64 [ 0, %.lr.ph14 ], [ %39, %._crit_edge ]
   %6 = load ptr, ptr %3, align 8, !tbaa !3
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.012
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.012
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   %.not10 = icmp eq ptr %8, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -770,7 +770,7 @@ _ZN2cv12ppf_match_3d15hashtableCreateEmPFmjE.exit: ; preds = %16, %11
   %49 = load i64, ptr %31, align 8, !tbaa !11
   %50 = urem i64 %48, %49
   %51 = load ptr, ptr %38, align 8, !tbaa !3
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %50
   %.02227.i.us.us = load ptr, ptr %52, align 8, !tbaa !13
   %.not28.i.us.us = icmp eq ptr %.02227.i.us.us, null
   br i1 %.not28.i.us.us, label %._crit_edge.i38.us.us, label %.lr.ph.i35.us.us
@@ -839,7 +839,7 @@ _ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit.us.us: ; preds = %
   %71 = load i64, ptr %31, align 8, !tbaa !11
   %72 = urem i64 %70, %71
   %73 = load ptr, ptr %38, align 8, !tbaa !3
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %72
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %72
   %.02227.i = load ptr, ptr %74, align 8, !tbaa !13
   %.not28.i = icmp eq ptr %.02227.i, null
   br i1 %.not28.i, label %._crit_edge.i38, label %.lr.ph.i35
@@ -855,7 +855,7 @@ _ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit.us.us: ; preds = %
 
 .lr.ph15.i:                                       ; preds = %.lr.ph15.i.preheader, %._crit_edge.i
   %.013.i = phi i64 [ %81, %._crit_edge.i ], [ 0, %.lr.ph15.i.preheader ]
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %.013.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.013.i
   %78 = load ptr, ptr %77, align 8, !tbaa !13
   %.not11.i = icmp eq ptr %78, null
   br i1 %.not11.i, label %._crit_edge.i, label %.lr.ph.i

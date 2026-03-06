@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pxr_nc_1_0_ColorSpaceDescriptor = type { ptr, %struct.pxr_nc_1_0_Chromaticity, %struct.pxr_nc_1_0_Chromaticity, %struct.pxr_nc_1_0_Chromaticity, %struct.pxr_nc_1_0_Chromaticity, float, float }
 %struct.pxr_nc_1_0_Chromaticity = type { float, float }
 %struct.pxr_nc_1_0_M33f = type { [9 x float] }
-%struct.pxr_nc_1_0_RGB = type { float, float, float }
 
 @_acescg = internal constant [7 x i8] c"acescg\00", align 1
 @Nc_acescg = local_unnamed_addr global ptr @_acescg, align 8
@@ -224,9 +223,9 @@ define zeroext i1 @pxr_nc_1_0_ColorSpaceEqual(ptr noundef readonly captures(addr
 
 14:                                               ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %13 ]
-  %15 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %16 = load float, ptr %15, align 4
-  %17 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %18 = load float, ptr %17, align 4
   %19 = fsub float %16, %18
   %20 = tail call float @llvm.fabs.f32(float %19)
@@ -267,7 +266,7 @@ define void @pxr_nc_1_0_InitColorSpaceLibrary() local_unnamed_addr #5 {
 
 1:                                                ; preds = %0, %1
   %.03 = phi i64 [ 0, %0 ], [ %3, %1 ]
-  %2 = getelementptr inbounds nuw %struct.pxr_nc_1_0_ColorSpace, ptr @_colorSpaces, i64 %.03
+  %2 = getelementptr inbounds nuw [96 x i8], ptr @_colorSpaces, i64 %.03
   tail call fastcc void @_NcInitColorSpace(ptr noundef nonnull %2)
   %3 = add nuw nsw i64 %.03, 1
   %exitcond.not = icmp eq i64 %3, 18
@@ -968,7 +967,7 @@ define void @pxr_nc_1_0_FreeColorSpace(ptr noundef captures(address) %0) local_u
 
 .preheader:                                       ; preds = %1, %2
   %.07 = phi i64 [ %3, %2 ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw %struct.pxr_nc_1_0_ColorSpace, ptr @_colorSpaces, i64 %.07
+  %4 = getelementptr inbounds nuw [96 x i8], ptr @_colorSpaces, i64 %.07
   %5 = icmp eq ptr %0, %4
   br i1 %5, label %.loopexit, label %2
 
@@ -1814,7 +1813,7 @@ pxr_nc_1_0_GetXYZtoRGBMatrix.exit:                ; preds = %4
 
 81:                                               ; preds = %.lr.ph, %nc_ToLinear.exit67
   %.0112 = phi i64 [ 0, %.lr.ph ], [ %119, %nc_ToLinear.exit67 ]
-  %82 = getelementptr inbounds %struct.pxr_nc_1_0_RGB, ptr %2, i64 %.0112
+  %82 = getelementptr inbounds [12 x i8], ptr %2, i64 %.0112
   %.sroa.026.0.copyload = load float, ptr %82, align 4
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 4
   %.sroa.428.0.copyload = load float, ptr %.sroa.428.0..sroa_idx, align 4
@@ -1898,7 +1897,7 @@ nc_ToLinear.exit67:                               ; preds = %109, %112
 
 .lr.ph114:                                        ; preds = %nc_ToLinear.exit67, %.lr.ph114
   %.057113 = phi i64 [ %134, %.lr.ph114 ], [ 0, %nc_ToLinear.exit67 ]
-  %124 = getelementptr inbounds %struct.pxr_nc_1_0_RGB, ptr %2, i64 %.057113
+  %124 = getelementptr inbounds [12 x i8], ptr %2, i64 %.057113
   %.sroa.013.0.copyload = load float, ptr %124, align 4
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %124, i64 4
   %.sroa.416.0.copyload = load float, ptr %.sroa.416.0..sroa_idx, align 4
@@ -1922,7 +1921,7 @@ nc_ToLinear.exit67:                               ; preds = %109, %112
 
 135:                                              ; preds = %.lr.ph116, %nc_FromLinear.exit72
   %.058115 = phi i64 [ 0, %.lr.ph116 ], [ %175, %nc_FromLinear.exit72 ]
-  %136 = getelementptr inbounds %struct.pxr_nc_1_0_RGB, ptr %2, i64 %.058115
+  %136 = getelementptr inbounds [12 x i8], ptr %2, i64 %.058115
   %.sroa.0.0.copyload = load float, ptr %136, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %136, i64 4
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
@@ -2806,7 +2805,7 @@ define noundef ptr @pxr_nc_1_0_GetNamedColorSpace(ptr noundef readonly captures(
 
 .preheader:                                       ; preds = %1, %2
   %.09 = phi i64 [ %3, %2 ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw %struct.pxr_nc_1_0_ColorSpace, ptr @_colorSpaces, i64 %.09
+  %4 = getelementptr inbounds nuw [96 x i8], ptr @_colorSpaces, i64 %.09
   %5 = load ptr, ptr %4, align 16
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %5) #23
   %7 = icmp eq i32 %6, 0
@@ -2835,7 +2834,7 @@ define ptr @pxr_nc_1_0_MatchLinearColorSpace(<2 x float> %0, <2 x float> %1, <2 
 
 6:                                                ; preds = %5, %CompareChromaticity.exit.thread
   %.026 = phi i64 [ 0, %5 ], [ %57, %CompareChromaticity.exit.thread ]
-  %7 = getelementptr inbounds nuw %struct.pxr_nc_1_0_ColorSpace, ptr @_colorSpaces, i64 %.026
+  %7 = getelementptr inbounds nuw [96 x i8], ptr @_colorSpaces, i64 %.026
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load float, ptr %8, align 8
   %10 = fcmp une float %9, 1.000000e+00

@@ -88,7 +88,7 @@ define dso_local void @init_tar_archiver() local_unnamed_addr #0 {
   %8 = phi i32 [ %6, %.lr.ph.preheader ], [ %16, %15 ]
   %9 = phi ptr [ %.pre6, %.lr.ph.preheader ], [ %17, %15 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !15
@@ -146,7 +146,7 @@ define internal fastcc range(i32 -1, 1) i32 @tar_filter_config(ptr noundef %0, p
 .lr.ph.i:                                         ; preds = %10, %14
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %10 ]
   %18 = load ptr, ptr @tar_filters, align 8, !tbaa !11
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8, !tbaa !13
   %21 = load ptr, ptr %20, align 8, !tbaa !23
   %22 = call i32 @xstrncmpz(ptr noundef %21, ptr noundef nonnull %8, i64 noundef %11) #11
@@ -201,7 +201,7 @@ st_mult.exit:                                     ; preds = %31
   %45 = add nsw i32 %43, 1
   store i32 %45, ptr @nr_tar_filters, align 4, !tbaa !9
   %46 = sext i32 %43 to i64
-  %47 = getelementptr inbounds ptr, ptr %44, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %44, i64 %46
   store ptr %23, ptr %47, align 8, !tbaa !13
   br label %find_tar_filter.exit
 

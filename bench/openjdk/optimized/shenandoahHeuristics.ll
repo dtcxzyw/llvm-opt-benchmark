@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogTagSet = type { ptr, i64, [5 x i32], [4 x i8], %class.LogOutputList, %class.LogDecorators, ptr }
 %class.LogOutputList = type <{ [6 x ptr], i32, [4 x i8] }>
 %class.LogDecorators = type { i32 }
-%"struct.ShenandoahHeuristics::RegionData" = type { ptr, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 $_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz = comdat any
@@ -148,7 +147,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
   %10 = icmp ult i64 %.073113, %9
   tail call void @llvm.assume(i1 %10)
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %.073113
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %.073113
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -191,7 +190,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
   br label %46
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds %"struct.ShenandoahHeuristics::RegionData", ptr %7, i64 %.0119
+  %37 = getelementptr inbounds [16 x i8], ptr %7, i64 %.0119
   store ptr %13, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %24, ptr %38, align 8

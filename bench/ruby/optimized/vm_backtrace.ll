@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.rb_data_type_struct = type { ptr, %struct.anon.18, ptr, ptr, i64 }
 %struct.anon.18 = type { ptr, ptr, ptr, ptr, [1 x ptr] }
-%struct.rb_backtrace_location_struct = type { ptr, ptr, ptr }
 %struct.rb_debug_inspector_struct = type { ptr, ptr, i64, i64, i64 }
 %struct.rb_vm_tag = type { i64, i64, [5 x ptr], ptr, i32, i32 }
 
@@ -288,7 +287,7 @@ define internal fastcc noundef i64 @rb_ec_partial_backtrace_object(ptr noundef r
   %.val = load ptr, ptr %0, align 8, !tbaa !64
   %9 = getelementptr i8, ptr %0, i64 8
   %.val108 = load i64, ptr %9, align 8, !tbaa !65
-  %10 = getelementptr i64, ptr %.val, i64 %.val108
+  %10 = getelementptr [8 x i8], ptr %.val, i64 %.val108
   %11 = icmp eq ptr %10, null
   br i1 %11, label %23, label %12
 
@@ -394,7 +393,7 @@ is_internal_location.exit:                        ; preds = %46, %52
   %60 = add i32 %59, 1
   store i32 %60, ptr %28, align 8, !tbaa !66
   %61 = sext i32 %59 to i64
-  %62 = getelementptr %struct.rb_backtrace_location_struct, ptr %30, i64 %61
+  %62 = getelementptr [24 x i8], ptr %30, i64 %61
   %63 = tail call ptr @rb_vm_frame_method_entry(ptr noundef nonnull %.092129) #5
   %64 = ptrtoint ptr %63 to i64
   store i64 %64, ptr %62, align 8, !tbaa !15
@@ -460,7 +459,7 @@ bt_update_cfunc_loc.exit:                         ; preds = %.lr.ph.i, %rb_obj_w
 
 88:                                               ; preds = %bt_update_cfunc_loc.exit
   %89 = sub i64 0, %.085131
-  %90 = getelementptr %struct.rb_backtrace_location_struct, ptr %62, i64 %89
+  %90 = getelementptr [24 x i8], ptr %62, i64 %89
   %91 = add i64 %.085131, 1
   tail call fastcc void @bt_yield_loc(ptr noundef %90, i64 noundef %91, i64 noundef %27)
   br label %92
@@ -487,7 +486,7 @@ bt_update_cfunc_loc.exit:                         ; preds = %.lr.ph.i, %rb_obj_w
 100:                                              ; preds = %96
   %101 = add i32 %33, 1
   store i32 %101, ptr %28, align 8, !tbaa !66
-  %102 = getelementptr %struct.rb_backtrace_location_struct, ptr %30, i64 %34
+  %102 = getelementptr [24 x i8], ptr %30, i64 %34
   %103 = tail call ptr @rb_vm_frame_method_entry(ptr noundef nonnull %.092129) #5
   %104 = ptrtoint ptr %103 to i64
   store i64 %104, ptr %102, align 8, !tbaa !15
@@ -617,7 +616,7 @@ rb_obj_written.exit:                              ; preds = %bt_update_cfunc_loc
 
 146:                                              ; preds = %rb_obj_written.exit
   %147 = sub i64 0, %.085.lcssa
-  %148 = getelementptr %struct.rb_backtrace_location_struct, ptr %.087.lcssa, i64 %147
+  %148 = getelementptr [24 x i8], ptr %.087.lcssa, i64 %147
   tail call fastcc void @bt_yield_loc(ptr noundef %148, i64 noundef %.085.lcssa, i64 noundef %27)
   br label %.loopexit
 
@@ -672,7 +671,7 @@ define hidden i64 @rb_backtrace_to_str_ary(i64 noundef %0) local_unnamed_addr #0
 
 15:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %16 = getelementptr %struct.rb_backtrace_location_struct, ptr %14, i64 %indvars.iv.i.i
+  %16 = getelementptr [24 x i8], ptr %14, i64 %indvars.iv.i.i
   %17 = tail call fastcc i64 @location_to_str(ptr noundef readonly %16)
   %18 = tail call i64 @rb_ary_push(i64 noundef %11, i64 noundef %17) #5
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -766,7 +765,7 @@ define internal fastcc i64 @backtrace_to_location_ary(i64 noundef %0) unnamed_ad
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %RTYPEDDATA_GET_DATA.exit.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %RTYPEDDATA_GET_DATA.exit.i.us ], [ 0, %.lr.ph.i ]
-  %15 = getelementptr %struct.rb_backtrace_location_struct, ptr %10, i64 %indvars.iv.i.us
+  %15 = getelementptr [24 x i8], ptr %10, i64 %indvars.iv.i.us
   %16 = load i64, ptr @rb_cBacktraceLocation, align 8, !tbaa !15
   %17 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %16, i64 noundef 16, ptr noundef nonnull @location_data_type) #5
   %18 = inttoptr i64 %17 to ptr
@@ -795,7 +794,7 @@ RTYPEDDATA_GET_DATA.exit.i.us:                    ; preds = %23, %.lr.ph.i.split
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %RTYPEDDATA_GET_DATA.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %RTYPEDDATA_GET_DATA.exit.i ], [ 0, %.lr.ph.i ]
-  %31 = getelementptr %struct.rb_backtrace_location_struct, ptr %10, i64 %indvars.iv.i
+  %31 = getelementptr [24 x i8], ptr %10, i64 %indvars.iv.i
   %32 = load i64, ptr @rb_cBacktraceLocation, align 8, !tbaa !15
   %33 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %32, i64 noundef 16, ptr noundef nonnull @location_data_type) #5
   %34 = inttoptr i64 %33 to ptr
@@ -928,7 +927,7 @@ rb_array_len.exit31.thread:                       ; preds = %38
 
 RARRAY_AREF.exit34:                               ; preds = %.thread, %44
   %.0.i.i33 = phi ptr [ %45, %44 ], [ %35, %.thread ]
-  %46 = getelementptr i64, ptr %.0.i.i33, i64 %.023
+  %46 = getelementptr [8 x i8], ptr %.0.i.i33, i64 %.023
   %47 = load i64, ptr %46, align 8, !tbaa !15
   store i64 %47, ptr %2, align 8, !tbaa !15
   %48 = call i32 @rb_typeddata_is_kind_of(i64 noundef %47, ptr noundef nonnull @location_data_type) #5
@@ -938,7 +937,7 @@ RARRAY_AREF.exit34:                               ; preds = %.thread, %44
 49:                                               ; preds = %RARRAY_AREF.exit34
   %50 = load i64, ptr %2, align 8, !tbaa !15
   %51 = call ptr @rb_check_typeddata(i64 noundef %50, ptr noundef nonnull @location_data_type) #5
-  %52 = getelementptr %struct.rb_backtrace_location_struct, ptr %37, i64 %.023
+  %52 = getelementptr [24 x i8], ptr %37, i64 %.023
   %53 = load ptr, ptr %51, align 8, !tbaa !49
   %54 = load ptr, ptr %53, align 8, !tbaa !90
   %55 = ptrtoint ptr %54 to i64
@@ -1044,7 +1043,7 @@ define hidden void @rb_backtrace_print_as_bugreport(ptr noundef %0) local_unname
   %.val.i = load ptr, ptr %3, align 8, !tbaa !64
   %6 = getelementptr i8, ptr %3, i64 8
   %.val34.i = load i64, ptr %6, align 8, !tbaa !65
-  %7 = getelementptr i64, ptr %.val.i, i64 %.val34.i
+  %7 = getelementptr [8 x i8], ptr %.val.i, i64 %.val34.i
   %8 = icmp eq ptr %7, null
   br i1 %8, label %backtrace_each.exit, label %9
 
@@ -1234,7 +1233,7 @@ define dso_local void @rb_backtrace() local_unnamed_addr #0 {
   %.val.i.i = load ptr, ptr %3, align 8, !tbaa !64
   %6 = getelementptr i8, ptr %3, i64 8
   %.val34.i.i = load i64, ptr %6, align 8, !tbaa !65
-  %7 = getelementptr i64, ptr %.val.i.i, i64 %.val34.i.i
+  %7 = getelementptr [8 x i8], ptr %.val.i.i, i64 %.val34.i.i
   %8 = icmp eq ptr %7, null
   br i1 %8, label %vm_backtrace_print.exit, label %9
 
@@ -1409,7 +1408,7 @@ define hidden void @rb_backtrace_each(ptr noundef readonly captures(none) %0, i6
   %.val.i = load ptr, ptr %4, align 8, !tbaa !64
   %7 = getelementptr i8, ptr %4, i64 8
   %.val34.i = load i64, ptr %7, align 8, !tbaa !65
-  %8 = getelementptr i64, ptr %.val.i, i64 %.val34.i
+  %8 = getelementptr [8 x i8], ptr %.val.i, i64 %.val34.i
   %9 = icmp eq ptr %8, null
   br i1 %9, label %backtrace_each.exit, label %10
 
@@ -1670,7 +1669,7 @@ define internal fastcc i64 @ec_backtrace_to_ary(ptr noundef readonly captures(no
 
 32:                                               ; preds = %32, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %32 ]
-  %33 = getelementptr %struct.rb_backtrace_location_struct, ptr %31, i64 %indvars.iv.i.i
+  %33 = getelementptr [24 x i8], ptr %31, i64 %indvars.iv.i.i
   %34 = call fastcc i64 @location_to_str(ptr noundef readonly %33)
   %35 = call i64 @rb_ary_push(i64 noundef %28, i64 noundef %34) #5
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2303,7 +2302,7 @@ rb_array_len.exit:                                ; preds = %30, %33
   %.val.i.i = load ptr, ptr %10, align 8, !tbaa !64
   %39 = getelementptr i8, ptr %10, i64 8
   %.val34.i.i = load i64, ptr %39, align 8, !tbaa !65
-  %40 = getelementptr i64, ptr %.val.i.i, i64 %.val34.i.i
+  %40 = getelementptr [8 x i8], ptr %.val.i.i, i64 %.val34.i.i
   %41 = icmp eq ptr %40, null
   br i1 %41, label %backtrace_each.exit.i, label %42
 
@@ -2425,7 +2424,7 @@ collect_caller_bindings_cfunc.exit.i:             ; preds = %93, %rbimpl_RB_TYPE
   %.sink32.i = phi i64 [ %79, %collect_caller_bindings_cfunc.exit.i ], [ %56, %collect_caller_bindings_iseq.exit.i ]
   %.val.i15.i = load ptr, ptr %10, align 8, !tbaa !64
   %.val13.i.i = load i64, ptr %39, align 8, !tbaa !65
-  %98 = getelementptr i64, ptr %.val.i15.i, i64 %.val13.i.i
+  %98 = getelementptr [8 x i8], ptr %.val.i15.i, i64 %.val13.i.i
   %99 = ptrtoint ptr %98 to i64
   %100 = sub i64 %99, %.sink38.i
   %101 = sdiv exact i64 %100, 56
@@ -2778,7 +2777,7 @@ define dso_local range(i64 1, 0) i64 @rb_debug_inspector_current_depth() local_u
   %.val = load ptr, ptr %2, align 8, !tbaa !64
   %5 = getelementptr i8, ptr %2, i64 8
   %.val2 = load i64, ptr %5, align 8, !tbaa !65
-  %6 = getelementptr i64, ptr %.val, i64 %.val2
+  %6 = getelementptr [8 x i8], ptr %.val, i64 %.val2
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %4 to i64
   %9 = sub i64 %7, %8
@@ -2823,7 +2822,7 @@ define internal fastcc i32 @thread_profile_frames(ptr noundef readonly captures(
   %.val = load ptr, ptr %0, align 8, !tbaa !64
   %9 = getelementptr i8, ptr %0, i64 8
   %.val63 = load i64, ptr %9, align 8, !tbaa !65
-  %10 = getelementptr i64, ptr %.val, i64 %.val63
+  %10 = getelementptr [8 x i8], ptr %.val, i64 %.val63
   %11 = getelementptr i8, ptr %10, i64 -56
   %12 = icmp sgt i32 %2, 0
   %13 = icmp ne ptr %7, %11
@@ -2881,7 +2880,7 @@ define internal fastcc i32 @thread_profile_frames(ptr noundef readonly captures(
   %.sink79 = phi ptr [ %35, %33 ], [ %26, %27 ]
   %37 = ptrtoint ptr %.sink79 to i64
   %38 = sext i32 %.04865 to i64
-  %39 = getelementptr i64, ptr %3, i64 %38
+  %39 = getelementptr [8 x i8], ptr %3, i64 %38
   store i64 %37, ptr %39, align 8, !tbaa !15
   br i1 %.not61, label %69, label %40
 
@@ -2931,7 +2930,7 @@ define internal fastcc i32 @thread_profile_frames(ptr noundef readonly captures(
 .sink.split:                                      ; preds = %57, %54, %51, %42
   %.sink = phi i32 [ 0, %42 ], [ 0, %51 ], [ %66, %57 ], [ %56, %54 ]
   %67 = sext i32 %.04865 to i64
-  %68 = getelementptr i32, ptr %4, i64 %67
+  %68 = getelementptr [4 x i8], ptr %4, i64 %67
   store i32 %.sink, ptr %68, align 4, !tbaa !79
   br label %69
 
@@ -2963,12 +2962,12 @@ define internal fastcc i32 @thread_profile_frames(ptr noundef readonly captures(
 83:                                               ; preds = %79
   %84 = ptrtoint ptr %72 to i64
   %85 = sext i32 %.04865 to i64
-  %86 = getelementptr i64, ptr %3, i64 %85
+  %86 = getelementptr [8 x i8], ptr %3, i64 %85
   store i64 %84, ptr %86, align 8, !tbaa !15
   br i1 %.not61, label %89, label %87
 
 87:                                               ; preds = %83
-  %88 = getelementptr i32, ptr %4, i64 %85
+  %88 = getelementptr [4 x i8], ptr %4, i64 %85
   store i32 0, ptr %88, align 4, !tbaa !79
   br label %89
 
@@ -3904,7 +3903,7 @@ define internal void @backtrace_mark(ptr noundef readonly captures(none) %0) #0 
 
 5:                                                ; preds = %.lr.ph, %location_mark_entry.exit
   %.08 = phi i64 [ 0, %.lr.ph ], [ %13, %location_mark_entry.exit ]
-  %6 = getelementptr %struct.rb_backtrace_location_struct, ptr %4, i64 %.08
+  %6 = getelementptr [24 x i8], ptr %4, i64 %.08
   %7 = load ptr, ptr %6, align 8, !tbaa !90
   %8 = ptrtoint ptr %7 to i64
   tail call void @rb_gc_mark(i64 noundef %8) #5
@@ -3946,7 +3945,7 @@ define internal void @backtrace_update(ptr noundef captures(none) %0) #0 {
 
 5:                                                ; preds = %.lr.ph, %location_update_entry.exit
   %.010 = phi i64 [ 0, %.lr.ph ], [ %17, %location_update_entry.exit ]
-  %6 = getelementptr %struct.rb_backtrace_location_struct, ptr %4, i64 %.010
+  %6 = getelementptr [24 x i8], ptr %4, i64 %.010
   %7 = load ptr, ptr %6, align 8, !tbaa !90
   %8 = ptrtoint ptr %7 to i64
   %9 = tail call i64 @rb_gc_location(i64 noundef %8) #5
@@ -4394,7 +4393,7 @@ define internal fastcc i64 @ec_backtrace_range(ptr noundef readonly captures(non
 
 13:                                               ; preds = %6
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr i64, ptr %2, i64 %14
+  %15 = getelementptr [8 x i8], ptr %2, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load i64, ptr %16, align 8, !tbaa !15
   %18 = tail call i32 @rb_keyword_given_p() #5
@@ -4424,7 +4423,7 @@ define internal fastcc i64 @ec_backtrace_range(ptr noundef readonly captures(non
 
 25:                                               ; preds = %.preheader
   %26 = sext i32 %.185.i50 to i64
-  %27 = getelementptr i64, ptr %2, i64 %26
+  %27 = getelementptr [8 x i8], ptr %2, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !15
   store i64 %28, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !15
   %29 = add nsw i32 %.185.i50, 1
@@ -4481,7 +4480,7 @@ rb_scan_args_set.exit:                            ; preds = %32
   %.val.i = load ptr, ptr %0, align 8, !tbaa !64
   %47 = getelementptr i8, ptr %0, i64 8
   %.val11.i = load i64, ptr %47, align 8, !tbaa !65
-  %48 = getelementptr i64, ptr %.val.i, i64 %.val11.i
+  %48 = getelementptr [8 x i8], ptr %.val.i, i64 %.val11.i
   %49 = icmp eq ptr %48, null
   br i1 %49, label %backtrace_size.exit, label %50
 

@@ -40,8 +40,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hpet_rtc_int
 %struct.msi_domain_info = type { i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.irq_chip = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 %struct.msi_domain_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.hpet_channel = type { %struct.clock_event_device, i32, i32, i32, i32, i32, i32, [10 x i8], [30 x i8] }
-%struct.clock_event_device = type { ptr, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, ptr, i32, i32, i32, ptr, %struct.list_head, ptr, [48 x i8] }
 %struct.rtc_time = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.irq_alloc_info = type { i32, i32, i32, i64, ptr, ptr, ptr, %union.anon.6 }
 %union.anon.6 = type { %struct.uv_alloc_info }
@@ -630,12 +628,12 @@ hpet_init_clockevent.exit:
   %11 = load i32, ptr %3, align 4
   %12 = and i32 %11, 63
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %13
+  %14 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %13
   %15 = getelementptr i8, ptr %14, i64 8
   %16 = lshr i32 %11, 6
   %17 = zext nneg i32 %16 to i64
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr i64, ptr %15, i64 %18
+  %19 = getelementptr [8 x i8], ptr %15, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %19, ptr %20, align 16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -706,7 +704,7 @@ define internal i32 @hpet_late_init() #4 section ".init.text" align 16 {
 19:                                               ; preds = %16, %14
   %20 = phi i32 [ 0, %14 ], [ %17, %16 ]
   %21 = sext i32 %20 to i64
-  %.split = getelementptr %struct.hpet_channel, ptr %15, i64 %21
+  %.split = getelementptr [320 x i8], ptr %15, i64 %21
   %22 = getelementptr i8, ptr %.split, i64 272
   %23 = load i32, ptr %22, align 16
   %24 = icmp eq i32 %23, 0
@@ -775,7 +773,7 @@ define dso_local void @hpet_disable() local_unnamed_addr #8 align 16 {
 .preheader:                                       ; preds = %9, %.preheader
   %15 = phi i64 [ %24, %.preheader ], [ 0, %9 ]
   %16 = load ptr, ptr @hpet_base.3, align 8
-  %.split = getelementptr %struct.hpet_channel, ptr %16, i64 %15
+  %.split = getelementptr [320 x i8], ptr %16, i64 %15
   %17 = getelementptr i8, ptr %.split, i64 276
   %18 = load i32, ptr %17, align 4
   %19 = shl nuw nsw i64 %15, 5
@@ -1780,7 +1778,7 @@ define internal fastcc void @hpet_select_clockevents() unnamed_addr #4 section "
   %50 = phi i32 [ %43, %45 ], [ %86, %85 ]
   %51 = phi ptr [ %.pre6, %45 ], [ %87, %85 ]
   %52 = phi i64 [ 0, %45 ], [ %88, %85 ]
-  %53 = getelementptr %struct.hpet_channel, ptr %51, i64 %52
+  %53 = getelementptr [320 x i8], ptr %51, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 272
   %55 = load i32, ptr %54, align 16
   %56 = icmp eq i32 %55, 0
@@ -1885,14 +1883,14 @@ define internal fastcc void @hpet_reserve_platform_timers() unnamed_addr #4 sect
 
 16:                                               ; preds = %34, %12
   %17 = phi i64 [ 0, %12 ], [ %35, %34 ]
-  %18 = getelementptr %struct.hpet_channel, ptr %13, i64 %17
+  %18 = getelementptr [320 x i8], ptr %13, i64 %17
   %19 = icmp samesign ugt i64 %17, 1
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 264
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr i32, ptr %9, i64 %17
+  %23 = getelementptr [4 x i8], ptr %9, i64 %17
   store i32 %22, ptr %23, align 4
   br label %24
 
@@ -1948,7 +1946,7 @@ define internal noundef i32 @hpet_cpuhp_online(i32 noundef %0) #8 align 16 {
 9:                                                ; preds = %6, %4
   %10 = phi i32 [ 0, %4 ], [ %7, %6 ]
   %11 = sext i32 %10 to i64
-  %12 = getelementptr %struct.hpet_channel, ptr %5, i64 %11
+  %12 = getelementptr [320 x i8], ptr %5, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 272
   %14 = load i32, ptr %13, align 16
   %15 = icmp eq i32 %14, 2
@@ -1970,7 +1968,7 @@ define internal noundef i32 @hpet_cpuhp_online(i32 noundef %0) #8 align 16 {
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 260
   store i32 %0, ptr %24, align 4
   %25 = sext i32 %0 to i64
-  %26 = getelementptr i64, ptr @__per_cpu_offset, i64 %25
+  %26 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, ptrtoint (ptr @cpu_hpet_channel to i64)
   %29 = inttoptr i64 %28 to ptr
@@ -1989,12 +1987,12 @@ define internal noundef i32 @hpet_cpuhp_online(i32 noundef %0) #8 align 16 {
   %38 = load i32, ptr %24, align 4
   %39 = and i32 %38, 63
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %40
+  %41 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %40
   %42 = getelementptr i8, ptr %41, i64 8
   %43 = lshr i32 %38, 6
   %44 = zext nneg i32 %43 to i64
   %45 = sub nsw i64 0, %44
-  %46 = getelementptr i64, ptr %42, i64 %45
+  %46 = getelementptr [8 x i8], ptr %42, i64 %45
   %47 = tail call i32 @irq_set_affinity(i32 noundef %37, ptr noundef %46) #19
   %48 = load i32, ptr %30, align 8
   tail call void @enable_irq(i32 noundef %48) #19
@@ -2011,12 +2009,12 @@ define internal noundef i32 @hpet_cpuhp_online(i32 noundef %0) #8 align 16 {
   %54 = load i32, ptr %24, align 4
   %55 = and i32 %54, 63
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %56
+  %57 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %56
   %58 = getelementptr i8, ptr %57, i64 8
   %59 = lshr i32 %54, 6
   %60 = zext nneg i32 %59 to i64
   %61 = sub nsw i64 0, %60
-  %62 = getelementptr i64, ptr %58, i64 %61
+  %62 = getelementptr [8 x i8], ptr %58, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 176
   store ptr %62, ptr %63, align 16
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 80
@@ -2054,7 +2052,7 @@ define internal noundef i32 @hpet_cpuhp_online(i32 noundef %0) #8 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @hpet_cpuhp_dead(i32 noundef %0) #8 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_hpet_channel to i64)
   %6 = inttoptr i64 %5 to ptr

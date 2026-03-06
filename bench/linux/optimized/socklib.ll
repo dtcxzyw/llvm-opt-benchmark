@@ -190,7 +190,7 @@ define internal fastcc i64 @xdr_partial_copy_from_skb(ptr noundef readonly captu
   %24 = load i32, ptr %23, align 8
   %25 = lshr i32 %24, 12
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr ptr, ptr %5, i64 %26
+  %27 = getelementptr [8 x i8], ptr %5, i64 %26
   %28 = and i32 %24, 4095
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16

@@ -54,10 +54,10 @@ define weak_odr dso_local noundef i32 @_ZN3igl20euler_characteristicIN5Eigen6Mat
   %.057.in74.i.i.i.i = phi i64 [ %.05775.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %17 ]
   %.sroa.064.173.i.i.i.i = phi <4 x i32> [ %28, %.lr.ph.i.i.i.i ], [ %20, %17 ]
   %25 = phi <4 x i32> [ %32, %.lr.ph.i.i.i.i ], [ %19, %17 ]
-  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %.05775.i.i.i.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.05775.i.i.i.i
   %27 = load <4 x i32>, ptr %26, align 16, !tbaa !13
   %28 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %.sroa.064.173.i.i.i.i, <4 x i32> %27)
-  %29 = getelementptr inbounds nuw i32, ptr %6, i64 %.057.in74.i.i.i.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.057.in74.i.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load <4 x i32>, ptr %30, align 16, !tbaa !13
   %32 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %25, <4 x i32> %31)
@@ -66,7 +66,7 @@ define weak_odr dso_local noundef i32 @_ZN3igl20euler_characteristicIN5Eigen6Mat
   br i1 %33, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !14
 
 34:                                               ; preds = %._crit_edge.i.i.i.i
-  %35 = getelementptr inbounds nuw i32, ptr %6, i64 %11
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %11
   %36 = load <4 x i32>, ptr %35, align 16, !tbaa !13
   %37 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %22, <4 x i32> %36)
   %38 = bitcast <4 x i32> %37 to <2 x i64>
@@ -88,8 +88,8 @@ define weak_odr dso_local noundef i32 @_ZN3igl20euler_characteristicIN5Eigen6Mat
 
 41:                                               ; preds = %41, %.preheader.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %47, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %2, i64 %.011.i.i.i.i.i.i.i
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %.01012.i.i.i.i.i.i.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.011.i.i.i.i.i.i.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.01012.i.i.i.i.i.i.i
   %44 = load i32, ptr %42, align 4, !tbaa !17
   %45 = load i32, ptr %43, align 4, !tbaa !17
   %46 = tail call noundef i32 @llvm.smax.i32(i32 %44, i32 %45)
@@ -107,7 +107,7 @@ define weak_odr dso_local noundef i32 @_ZN3igl20euler_characteristicIN5Eigen6Mat
 .lr.ph80.i.i.i.i:                                 ; preds = %48, %.lr.ph80.i.i.i.i
   %.05578.i.i.i.i = phi i64 [ %54, %.lr.ph80.i.i.i.i ], [ %13, %48 ]
   %.177.i.i.i.i = phi i32 [ %53, %.lr.ph80.i.i.i.i ], [ %49, %48 ]
-  %51 = getelementptr inbounds i32, ptr %6, i64 %.05578.i.i.i.i
+  %51 = getelementptr inbounds [4 x i8], ptr %6, i64 %.05578.i.i.i.i
   %52 = load i32, ptr %51, align 4, !tbaa !17
   %53 = tail call noundef i32 @llvm.smax.i32(i32 %.177.i.i.i.i, i32 %52)
   %54 = add nsw i64 %.05578.i.i.i.i, 1
@@ -122,7 +122,7 @@ define weak_odr dso_local noundef i32 @_ZN3igl20euler_characteristicIN5Eigen6Mat
 .lr.ph85.i.i.i.i:                                 ; preds = %55, %.lr.ph85.i.i.i.i
   %.083.i.i.i.i = phi i64 [ %61, %.lr.ph85.i.i.i.i ], [ 1, %55 ]
   %.382.i.i.i.i = phi i32 [ %60, %.lr.ph85.i.i.i.i ], [ %56, %55 ]
-  %58 = getelementptr inbounds nuw i32, ptr %6, i64 %.083.i.i.i.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.083.i.i.i.i
   %59 = load i32, ptr %58, align 4, !tbaa !17
   %60 = tail call noundef i32 @llvm.smax.i32(i32 %.382.i.i.i.i, i32 %59)
   %61 = add nuw nsw i64 %.083.i.i.i.i, 1

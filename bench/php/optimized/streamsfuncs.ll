@@ -2934,7 +2934,7 @@ define internal fastcc range(i32 0, 2) i32 @stream_array_to_fd_set(ptr noundef n
   %43 = shl nuw i64 1, %42
   %44 = sdiv i32 %36, 64
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i64, ptr %1, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %1, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !9
   %48 = or i64 %47, %43
   store i64 %48, ptr %46, align 8, !tbaa !9
@@ -3076,7 +3076,7 @@ define internal fastcc void @stream_array_from_fd_set(ptr noundef nonnull %0, pt
 50:                                               ; preds = %43
   %51 = sdiv i32 %46, 64
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i64, ptr %1, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %1, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !9
   %55 = srem i32 %46, 64
   %56 = zext nneg i32 %55 to i64
@@ -3975,7 +3975,7 @@ zend_string_init.exit:                            ; preds = %8
 
 40:                                               ; preds = %.preheader, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.preheader ]
-  %41 = getelementptr inbounds nuw %struct._zval_struct, ptr %10, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   call void @zval_ptr_dtor(ptr noundef nonnull %41) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6

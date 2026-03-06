@@ -6243,7 +6243,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !11
   %9 = tail call i32 @rb_keyword_given_p() #18
@@ -11316,7 +11316,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_comp(ptr noundef %0, i32 nound
   %19 = load ptr, ptr %18, align 8, !tbaa !56
   %20 = load i8, ptr %0, align 1, !tbaa !48
   %21 = zext i8 %20 to i64
-  %22 = getelementptr i16, ptr %19, i64 %21
+  %22 = getelementptr [2 x i8], ptr %19, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !58
   %24 = and i16 %23, 8192
   %.not2.i = icmp eq i16 %24, 0
@@ -11327,7 +11327,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_comp(ptr noundef %0, i32 nound
   %26 = getelementptr i8, ptr %25, i64 1
   %27 = load i8, ptr %26, align 1, !tbaa !48
   %28 = zext i8 %27 to i64
-  %29 = getelementptr i16, ptr %19, i64 %28
+  %29 = getelementptr [2 x i8], ptr %19, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !58
   %31 = and i16 %30, 8192
   %.not.i = icmp eq i16 %31, 0
@@ -11433,7 +11433,7 @@ read_rat.exit.i:                                  ; preds = %57, %54
   %67 = load i8, ptr %66, align 1, !tbaa !48
   %68 = load ptr, ptr %18, align 8, !tbaa !56
   %69 = zext i8 %67 to i64
-  %70 = getelementptr i16, ptr %68, i64 %69
+  %70 = getelementptr [2 x i8], ptr %68, i64 %69
   %71 = load i16, ptr %70, align 2, !tbaa !58
   %72 = and i16 %71, 2048
   %.not69.i = icmp eq i16 %72, 0
@@ -11519,7 +11519,7 @@ read_comp.exit._crit_edge:                        ; preds = %read_comp.exit
   %95 = load ptr, ptr %18, align 8, !tbaa !56
   %96 = load i8, ptr %.promoted.i7, align 1, !tbaa !48
   %97 = zext i8 %96 to i64
-  %98 = getelementptr i16, ptr %95, i64 %97
+  %98 = getelementptr [2 x i8], ptr %95, i64 %97
   %99 = load i16, ptr %98, align 2, !tbaa !58
   %100 = and i16 %99, 8192
   %.not2.i8 = icmp eq i16 %100, 0
@@ -11530,7 +11530,7 @@ read_comp.exit._crit_edge:                        ; preds = %read_comp.exit
   %102 = getelementptr i8, ptr %101, i64 1
   %103 = load i8, ptr %102, align 1, !tbaa !48
   %104 = zext i8 %103 to i64
-  %105 = getelementptr i16, ptr %95, i64 %104
+  %105 = getelementptr [2 x i8], ptr %95, i64 %104
   %106 = load i16, ptr %105, align 2, !tbaa !58
   %107 = and i16 %106, 8192
   %.not.i10 = icmp eq i16 %107, 0
@@ -11581,7 +11581,7 @@ define internal fastcc range(i32 0, 2) i32 @read_rat_nos(ptr noundef nonnull cap
 6:                                                ; preds = %3
   %7 = load ptr, ptr %.pre72, align 8, !tbaa !56
   %8 = zext i8 %5 to i64
-  %9 = getelementptr i16, ptr %7, i64 %8
+  %9 = getelementptr [2 x i8], ptr %7, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !58
   %11 = and i16 %10, 2048
   %.not.i.i = icmp eq i16 %11, 0
@@ -11630,7 +11630,7 @@ define internal fastcc range(i32 0, 2) i32 @read_rat_nos(ptr noundef nonnull cap
   store ptr %24, ptr %0, align 8, !tbaa !54
   %.pre.i.i = load i8, ptr %24, align 1, !tbaa !48
   %.phi.trans.insert.i.i = zext i8 %.pre.i.i to i64
-  %.phi.trans.insert25.i.i = getelementptr i16, ptr %.pre24.i.i, i64 %.phi.trans.insert.i.i
+  %.phi.trans.insert25.i.i = getelementptr [2 x i8], ptr %.pre24.i.i, i64 %.phi.trans.insert.i.i
   %.pre26.i.i = load i16, ptr %.phi.trans.insert25.i.i, align 2, !tbaa !58
   br label %.preheader18.i.i, !llvm.loop !61
 
@@ -11667,7 +11667,7 @@ read_digits.exit.thread.i:                        ; preds = %3, %read_digits.exi
   %37 = load i8, ptr %36, align 1, !tbaa !48
   %38 = load ptr, ptr %.pre72, align 8, !tbaa !56
   %39 = zext i8 %37 to i64
-  %40 = getelementptr i16, ptr %38, i64 %39
+  %40 = getelementptr [2 x i8], ptr %38, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !58
   %42 = and i16 %41, 2048
   %.not.i28.i = icmp eq i16 %42, 0
@@ -11716,7 +11716,7 @@ read_digits.exit.thread.i:                        ; preds = %3, %read_digits.exi
   store ptr %55, ptr %0, align 8, !tbaa !54
   %.pre.i39.i = load i8, ptr %55, align 1, !tbaa !48
   %.phi.trans.insert.i40.i = zext i8 %.pre.i39.i to i64
-  %.phi.trans.insert25.i41.i = getelementptr i16, ptr %.pre24.i37.i, i64 %.phi.trans.insert.i40.i
+  %.phi.trans.insert25.i41.i = getelementptr [2 x i8], ptr %.pre24.i37.i, i64 %.phi.trans.insert.i40.i
   %.pre26.i42.i = load i16, ptr %.phi.trans.insert25.i41.i, align 2, !tbaa !58
   br label %.preheader18.i29.i, !llvm.loop !61
 
@@ -11776,7 +11776,7 @@ read_sign.exit.i:                                 ; preds = %70, %62
   %78 = tail call ptr @__ctype_b_loc() #26
   %79 = load ptr, ptr %78, align 8, !tbaa !56
   %80 = zext i8 %76 to i64
-  %81 = getelementptr i16, ptr %79, i64 %80
+  %81 = getelementptr [2 x i8], ptr %79, i64 %80
   %82 = load i16, ptr %81, align 2, !tbaa !58
   %83 = and i16 %82, 2048
   %.not.i52.i = icmp eq i16 %83, 0
@@ -11825,7 +11825,7 @@ read_sign.exit.i:                                 ; preds = %70, %62
   store ptr %96, ptr %0, align 8, !tbaa !54
   %.pre.i63.i = load i8, ptr %96, align 1, !tbaa !48
   %.phi.trans.insert.i64.i = zext i8 %.pre.i63.i to i64
-  %.phi.trans.insert25.i65.i = getelementptr i16, ptr %.pre24.i61.i, i64 %.phi.trans.insert.i64.i
+  %.phi.trans.insert25.i65.i = getelementptr [2 x i8], ptr %.pre24.i61.i, i64 %.phi.trans.insert.i64.i
   %.pre26.i66.i = load i16, ptr %.phi.trans.insert25.i65.i, align 2, !tbaa !58
   br label %.preheader18.i53.i, !llvm.loop !61
 
@@ -11863,7 +11863,7 @@ read_num.exit:                                    ; preds = %.preheader.i71.i, %
   %111 = tail call ptr @__ctype_b_loc() #26
   %112 = load ptr, ptr %111, align 8, !tbaa !56
   %113 = zext i8 %110 to i64
-  %114 = getelementptr i16, ptr %112, i64 %113
+  %114 = getelementptr [2 x i8], ptr %112, i64 %113
   %115 = load i16, ptr %114, align 2, !tbaa !58
   %116 = and i16 %115, 2048
   %.not.i.i13 = icmp eq i16 %116, 0
@@ -11912,7 +11912,7 @@ read_num.exit:                                    ; preds = %.preheader.i71.i, %
   store ptr %129, ptr %0, align 8, !tbaa !54
   %.pre.i.i24 = load i8, ptr %129, align 1, !tbaa !48
   %.phi.trans.insert.i.i25 = zext i8 %.pre.i.i24 to i64
-  %.phi.trans.insert25.i.i26 = getelementptr i16, ptr %.pre24.i.i22, i64 %.phi.trans.insert.i.i25
+  %.phi.trans.insert25.i.i26 = getelementptr [2 x i8], ptr %.pre24.i.i22, i64 %.phi.trans.insert.i.i25
   %.pre26.i.i27 = load i16, ptr %.phi.trans.insert25.i.i26, align 2, !tbaa !58
   br label %.preheader18.i.i14, !llvm.loop !61
 

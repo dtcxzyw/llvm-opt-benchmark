@@ -57,10 +57,10 @@ define void @Rwt_Man4ExploreCount(i32 noundef %0) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !14
   %7 = zext i32 %0 to i64
-  %8 = getelementptr inbounds nuw i16, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %7
   %9 = load i16, ptr %8, align 2, !tbaa !15
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !17
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 4, !tbaa !17
@@ -87,7 +87,7 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
   %.045 = phi i32 [ 0, %.lr.ph ], [ %.1, %8 ]
   %.02444 = phi i32 [ 0, %.lr.ph ], [ %11, %8 ]
   %.02743 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %8 ]
-  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.02743, i32 %10)
   %11 = add nsw i32 %10, %.02444
@@ -124,14 +124,14 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
 
 28:                                               ; preds = %.lr.ph50, %28
   %indvars.iv66 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next67, %28 ]
-  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv66
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv66
   %30 = load i32, ptr %29, align 4, !tbaa !17
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i32, ptr %calloc, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %calloc, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !17
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr %32, align 4, !tbaa !17
-  %35 = getelementptr inbounds i32, ptr %21, i64 %31
+  %35 = getelementptr inbounds [4 x i8], ptr %21, i64 %31
   %36 = trunc nuw nsw i64 %indvars.iv66 to i32
   store i32 %36, ptr %35, align 4, !tbaa !17
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
@@ -146,7 +146,7 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
 
 .lr.ph55:                                         ; preds = %._crit_edge51, %47
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %47 ], [ 1, %._crit_edge51 ]
-  %40 = getelementptr inbounds nuw i32, ptr %calloc, i64 %indvars.iv69
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %calloc, i64 %indvars.iv69
   %41 = load i32, ptr %40, align 4, !tbaa !17
   %.not41 = icmp eq i32 %41, 0
   br i1 %.not41, label %47, label %42
@@ -155,7 +155,7 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
   %43 = trunc nuw nsw i64 %indvars.iv69 to i32
   %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %43, i32 noundef %41)
   %45 = load ptr, ptr @stdout, align 8, !tbaa !21
-  %46 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv69
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv69
   tail call void @Extra_PrintBinary(ptr noundef %45, ptr noundef nonnull %46, i32 noundef 16) #18
   %putchar = tail call i32 @putchar(i32 10)
   br label %47
@@ -189,7 +189,7 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !11
   %57 = sext i32 %storemerge4058 to i64
-  %58 = getelementptr inbounds i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %56, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !17
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %61, label %71
@@ -201,7 +201,7 @@ define void @Rwt_Man4ExplorePrint() local_unnamed_addr #0 {
   %64 = load ptr, ptr %63, align 8, !tbaa !11
   %65 = load i32, ptr %1, align 4, !tbaa !17
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i32, ptr %64, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %64, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !17
   %69 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.7, i32 noundef %68) #18
   %70 = add nsw i32 %.02559, 1
@@ -347,12 +347,12 @@ Abc_Clock.exit:
 .critedge2:                                       ; preds = %._crit_edge, %.critedge2
   %26 = load i32, ptr %3, align 4, !tbaa !17
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %calloc, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %calloc, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !17
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %28, align 4, !tbaa !17
   %31 = load i32, ptr %4, align 4, !tbaa !17
-  %32 = getelementptr inbounds i32, ptr %19, i64 %27
+  %32 = getelementptr inbounds [4 x i8], ptr %19, i64 %27
   store i32 %31, ptr %32, align 4, !tbaa !17
   %33 = call i32 @stmm_gen(ptr noundef %21, ptr noundef nonnull %4, ptr noundef nonnull %3) #18
   %.not79 = icmp eq i32 %33, 0
@@ -360,7 +360,7 @@ Abc_Clock.exit:
 
 .lr.ph:                                           ; preds = %._crit_edge117, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 1, %._crit_edge117 ]
-  %34 = getelementptr inbounds nuw i32, ptr %calloc, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %calloc, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !17
   %.not85 = icmp eq i32 %35, 0
   br i1 %.not85, label %41, label %36
@@ -369,7 +369,7 @@ Abc_Clock.exit:
   %37 = trunc nuw nsw i64 %indvars.iv to i32
   %38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %37, i32 noundef %35)
   %39 = load ptr, ptr @stdout, align 8, !tbaa !21
-  %40 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   call void @Extra_PrintBinary(ptr noundef %39, ptr noundef nonnull %40, i32 noundef 32) #18
   %putchar = call i32 @putchar(i32 10)
   br label %41
@@ -482,7 +482,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %81 = add nsw i32 %63, 1
   store i32 %81, ptr %49, align 4, !tbaa !37
   %82 = sext i32 %63 to i64
-  %83 = getelementptr inbounds i32, ptr %.pre.i151, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %.pre.i151, i64 %82
   store i32 %62, ptr %83, align 4, !tbaa !17
   %84 = call i32 @stmm_gen(ptr noundef %56, ptr noundef nonnull %4, ptr noundef null) #18
   %.not82 = icmp eq i32 %84, 0
@@ -490,7 +490,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 .lr.ph126:                                        ; preds = %.lr.ph126.preheader, %.lr.ph126
   %indvars.iv135 = phi i64 [ 0, %.lr.ph126.preheader ], [ %indvars.iv.next136, %.lr.ph126 ]
-  %85 = getelementptr inbounds nuw i32, ptr %.val86, i64 %indvars.iv135
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %.val86, i64 %indvars.iv135
   %86 = load i32, ptr %85, align 4, !tbaa !17
   store i32 %86, ptr %4, align 4, !tbaa !17
   %87 = load ptr, ptr @s_pManRwrExp5.body, align 8, !tbaa !25
@@ -532,7 +532,7 @@ Abc_Clock.exit96:                                 ; preds = %.critedge6, %97
 
 .lr.ph128:                                        ; preds = %.lr.ph128.preheader, %110
   %indvars.iv140 = phi i64 [ 0, %.lr.ph128.preheader ], [ %indvars.iv.next141, %110 ]
-  %101 = getelementptr inbounds nuw i32, ptr %.val86, i64 %indvars.iv140
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.val86, i64 %indvars.iv140
   %102 = load i32, ptr %101, align 4, !tbaa !17
   store i32 %102, ptr %4, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -685,7 +685,7 @@ Vec_IntPush.exit109:                              ; preds = %Vec_IntPush.exit109
   %173 = add nsw i32 %155, 1
   store i32 %173, ptr %141, align 4, !tbaa !37
   %174 = sext i32 %155 to i64
-  %175 = getelementptr inbounds i32, ptr %.pre.i105154, i64 %174
+  %175 = getelementptr inbounds [4 x i8], ptr %.pre.i105154, i64 %174
   store i32 %154, ptr %175, align 4, !tbaa !17
   %176 = call i32 @stmm_gen(ptr noundef %148, ptr noundef nonnull %4, ptr noundef null) #18
   %.not83 = icmp eq i32 %176, 0
@@ -693,7 +693,7 @@ Vec_IntPush.exit109:                              ; preds = %Vec_IntPush.exit109
 
 .lr.ph133:                                        ; preds = %.lr.ph133.preheader, %.lr.ph133
   %indvars.iv145 = phi i64 [ 0, %.lr.ph133.preheader ], [ %indvars.iv.next146, %.lr.ph133 ]
-  %177 = getelementptr inbounds nuw i32, ptr %.val88, i64 %indvars.iv145
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %.val88, i64 %indvars.iv145
   %178 = load i32, ptr %177, align 4, !tbaa !17
   store i32 %178, ptr %4, align 4, !tbaa !17
   %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @s_pManRwrExp5.body, i64 8), align 8, !tbaa !28

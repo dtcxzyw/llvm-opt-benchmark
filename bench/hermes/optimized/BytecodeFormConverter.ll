@@ -41,9 +41,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.(anonymous namespace)::BytecodeFormConverter" = type { %"class.llvh::MutableArrayRef", %"struct.hermes::hbc::BytecodeFileFields", %"class.std::unique_ptr" }
 %"class.(anonymous namespace)::BytecodeFormConverter.18" = type { %"class.llvh::MutableArrayRef", %"struct.hermes::hbc::BytecodeFileFields", %"class.std::unique_ptr" }
 %"struct.std::array" = type { [20 x i8] }
-%"struct.hermes::hbc::SmallFuncHeader" = type { [15 x i8], %"union.hermes::hbc::FunctionHeaderFlag" }
-%"union.hermes::hbc::FunctionHeaderFlag" = type { %struct.anon.60 }
-%struct.anon.60 = type { i8 }
 
 $_ZN6hermes3hbc20BCProviderFromBufferD2Ev = comdat any
 
@@ -646,7 +643,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %adjCreateClosure.sroa.0.054 = phi i16 [ %adjCreateClosure.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
   %functionHeaders_.i = getelementptr inbounds nuw i8, ptr %2, i64 296
   %3 = load ptr, ptr %functionHeaders_.i, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %3, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %flags.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 15
   %bf.load.i = load i8, ptr %flags.i, align 1
   %4 = and i8 %bf.load.i, 32
@@ -953,7 +950,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %adjCreateClosure.sroa.0.058 = phi i16 [ %adjCreateClosure.sroa.0.1.lcssa, %for.inc ], [ 0, %entry ]
   %functionHeaders_.i = getelementptr inbounds nuw i8, ptr %2, i64 296
   %3 = load ptr, ptr %functionHeaders_.i, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %3, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %flags.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 15
   %bf.load.i = load i8, ptr %flags.i, align 1
   %4 = and i8 %bf.load.i, 32

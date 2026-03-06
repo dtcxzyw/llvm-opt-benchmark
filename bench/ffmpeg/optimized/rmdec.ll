@@ -402,7 +402,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rm_read_audio_stream_info(
   br label %get_strl.exit.us.i
 
 get_strl.exit.us.i:                               ; preds = %22, %19
-  %26 = getelementptr inbounds nuw ptr, ptr @ff_rm_metadata, i64 %indvars.iv16.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @ff_rm_metadata, i64 %indvars.iv16.i
   %27 = load ptr, ptr %26, align 8, !tbaa !57
   %28 = call i32 @av_dict_set(ptr noundef nonnull %16, ptr noundef %27, ptr noundef nonnull %6, i32 noundef 0) #12
   br label %29
@@ -1423,7 +1423,7 @@ readfull.exit143:                                 ; preds = %readfull.exit137, %
 287:                                              ; preds = %.lr.ph, %287
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %287 ]
   %288 = tail call i32 @avio_rb16(ptr noundef %1) #12
-  %289 = getelementptr inbounds nuw i32, ptr %286, i64 %indvars.iv
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %286, i64 %indvars.iv
   store i32 %288, ptr %289, align 4, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %290 = load i32, ptr %285, align 8, !tbaa !84
@@ -1547,7 +1547,7 @@ define range(i32 -2147483648, 2147483647) i32 @ff_rm_retrieve_cache(ptr noundef 
   %18 = load i32, ptr %17, align 8, !tbaa !84
   %19 = sub nsw i32 %18, %9
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %16, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %16, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !61
   %23 = tail call i32 @av_get_packet(ptr noundef %1, ptr noundef %4, i32 noundef %22) #12
   %24 = icmp slt i32 %23, 0
@@ -1824,7 +1824,7 @@ ff_rm_alloc_rmstream.exit.thread.i:               ; preds = %15
   br label %get_strl.exit.i
 
 get_strl.exit.i:                                  ; preds = %69, %66
-  %73 = getelementptr inbounds nuw ptr, ptr @ff_rm_metadata, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr @ff_rm_metadata, i64 %indvars.iv.i
   %74 = load ptr, ptr %73, align 8, !tbaa !57
   %75 = call i32 @av_dict_set(ptr noundef nonnull %32, ptr noundef %74, ptr noundef nonnull %2, i32 noundef 0) #12
   br label %76
@@ -2054,7 +2054,7 @@ define internal range(i32 -2147483648, 1) i32 @rm_read_packet(ptr noundef %0, pt
   %17 = load ptr, ptr %10, align 8, !tbaa !107
   %18 = load i32, ptr %12, align 4, !tbaa !89
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %17, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !108
   %22 = load ptr, ptr %13, align 8, !tbaa !98
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -2118,7 +2118,7 @@ define internal range(i32 -2147483648, 1) i32 @rm_read_packet(ptr noundef %0, pt
   %59 = load ptr, ptr %10, align 8, !tbaa !107
   %60 = load i32, ptr %3, align 4, !tbaa !61
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds ptr, ptr %59, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %59, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !108
   br label %64
 
@@ -2213,7 +2213,7 @@ define internal noundef i32 @rm_read_close(ptr noundef readonly captures(none) %
   %6 = phi i32 [ %3, %.lr.ph ], [ %13, %ff_rm_free_rmstream.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ff_rm_free_rmstream.exit ]
   %7 = load ptr, ptr %4, align 8, !tbaa !107
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !108
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !100
@@ -2296,7 +2296,7 @@ define internal noundef i64 @rm_read_dts(ptr noundef %0, i32 noundef %1, ptr nou
   %26 = load ptr, ptr %23, align 8, !tbaa !107
   %27 = load i32, ptr %7, align 4, !tbaa !61
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !108
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !16
@@ -2754,7 +2754,7 @@ define internal i32 @ivr_read_packet(ptr noundef %0, ptr noundef %1) #0 {
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = load i32, ptr %21, align 4, !tbaa !89
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !108
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !100
@@ -2809,7 +2809,7 @@ define internal i32 @ivr_read_packet(ptr noundef %0, ptr noundef %1) #0 {
 49:                                               ; preds = %43
   %50 = load ptr, ptr %18, align 8, !tbaa !107
   %51 = zext i32 %41 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !108
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load ptr, ptr %54, align 8, !tbaa !100
@@ -2888,7 +2888,7 @@ define internal fastcc void @rm_read_metadata(ptr noundef %0, ptr noundef %1, i3
   br label %get_strl.exit.us
 
 get_strl.exit.us:                                 ; preds = %11, %8
-  %15 = getelementptr inbounds nuw ptr, ptr @ff_rm_metadata, i64 %indvars.iv16
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @ff_rm_metadata, i64 %indvars.iv16
   %16 = load ptr, ptr %15, align 8, !tbaa !57
   %17 = call i32 @av_dict_set(ptr noundef nonnull %5, ptr noundef %16, ptr noundef nonnull %4, i32 noundef 0) #12
   br label %18
@@ -2916,7 +2916,7 @@ get_strl.exit.us:                                 ; preds = %11, %8
   br label %get_strl.exit
 
 get_strl.exit:                                    ; preds = %21, %24
-  %28 = getelementptr inbounds nuw ptr, ptr @ff_rm_metadata, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @ff_rm_metadata, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !57
   %30 = call i32 @av_dict_set(ptr noundef nonnull %5, ptr noundef %29, ptr noundef nonnull %4, i32 noundef 0) #12
   br label %31
@@ -3115,7 +3115,7 @@ define internal fastcc void @rm_read_index(ptr noundef %0) unnamed_addr #0 {
 
 23:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !108
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i32, ptr %26, align 4, !tbaa !72
@@ -3369,7 +3369,7 @@ define internal fastcc i32 @rm_sync(ptr noundef %0, ptr noundef nonnull writeonl
 
 69:                                               ; preds = %.lr.ph, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8, !tbaa !108
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %73 = load i32, ptr %72, align 4, !tbaa !72

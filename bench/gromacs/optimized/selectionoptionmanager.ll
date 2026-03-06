@@ -25,8 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<gmx::Selection, std::allocator<gmx::Selection>>::_Vector_impl" }
 %"struct.std::_Vector_base<gmx::Selection, std::allocator<gmx::Selection>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::Selection, std::allocator<gmx::Selection>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<gmx::Selection, std::allocator<gmx::Selection>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::Selection" = type { ptr }
-%"struct.gmx::SelectionOptionManager::Impl::SelectionRequest" = type { ptr }
 %"class.std::unique_ptr.39" = type { %"struct.std::__uniq_ptr_data.40" }
 %"struct.std::__uniq_ptr_data.40" = type { %"class.std::__uniq_ptr_impl.41" }
 %"class.std::__uniq_ptr_impl.41" = type { %"class.std::tuple.42" }
@@ -290,7 +288,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %65
 
 81:                                               ; preds = %35
   %82 = zext nneg i32 %33 to i64
-  %83 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %.sroa.0123.0202, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0123.0202, i64 %82
   br label %121
 
 84:                                               ; preds = %29
@@ -768,7 +766,7 @@ _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_M_r
   %.pre = phi ptr [ %.pre.pre, %39 ], [ %.pre12, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i ]
   store ptr %33, ptr %6, align 8, !tbaa !41
   store ptr %38, ptr %7, align 8, !tbaa !43
-  %40 = getelementptr inbounds nuw %"struct.gmx::SelectionOptionManager::Impl::SelectionRequest", ptr %33, i64 %31
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %40, ptr %8, align 8, !tbaa !49
   br label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit
 
@@ -1265,7 +1263,7 @@ _ZNSt12_Vector_baseIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_E
   store ptr %31, ptr %5, align 8, !tbaa !41
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 %29
   store ptr %36, ptr %26, align 8, !tbaa !43
-  %37 = getelementptr inbounds nuw %"struct.gmx::SelectionOptionManager::Impl::SelectionRequest", ptr %31, i64 %14
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %14
   store ptr %37, ptr %18, align 8, !tbaa !49
   br label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE7reserveEm.exit
 
@@ -1329,7 +1327,7 @@ _ZNSt6vectorIPN3gmx22SelectionOptionStorageESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_
 _ZNSt6vectorIPN3gmx22SelectionOptionStorageESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %64, %_ZNSt6vectorIPN3gmx22SelectionOptionStorageESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %59, ptr %40, align 8, !tbaa !85
   store ptr %63, ptr %41, align 8, !tbaa !88
-  %65 = getelementptr inbounds nuw ptr, ptr %59, i64 %57
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %57
   store ptr %65, ptr %42, align 8, !tbaa !87
   br label %_ZNSt6vectorIPN3gmx22SelectionOptionStorageESaIS2_EE9push_backERKS2_.exit
 
@@ -1463,7 +1461,7 @@ _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_r
 _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_M_realloc_insertIJRPNS0_22SelectionOptionStorageEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %31, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i
   store ptr %25, ptr %5, align 8, !tbaa !41
   store ptr %30, ptr %6, align 8, !tbaa !43
-  %32 = getelementptr inbounds nuw %"struct.gmx::SelectionOptionManager::Impl::SelectionRequest", ptr %25, i64 %23
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %32, ptr %8, align 8, !tbaa !49
   br label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJRPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit
 

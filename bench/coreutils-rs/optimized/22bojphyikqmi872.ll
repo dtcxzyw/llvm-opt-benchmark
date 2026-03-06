@@ -465,7 +465,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %49 = icmp eq <16 x i8> %.0.copyload.i.i, %33
   %50 = icmp eq <16 x i8> %.0.copyload2.i.i, %34
   %51 = and <16 x i1> %49, %50
-  %52 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.022.0132.i
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.022.0132.i
   store <16 x i1> %51, ptr %52, align 2, !noalias !82
   %exitcond.not.i = icmp eq i64 %45, 4
   br i1 %exitcond.not.i, label %.preheader128.i, label %44
@@ -483,7 +483,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
   %.sroa.028.0134.i = phi i64 [ %58, %62 ], [ 0, %44 ]
   %.2133.i = phi i8 [ %.3.i, %62 ], [ 0, %44 ]
   %58 = add nuw nsw i64 %.sroa.028.0134.i, 1
-  %59 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.028.0134.i
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.028.0134.i
   %60 = load i16, ptr %59, align 2, !noalias !82, !noundef !4
   %61 = icmp eq i16 %60, 0
   br i1 %61, label %62, label %63
@@ -1007,7 +1007,7 @@ define hidden void @_ZN6digest21ExtendableOutputReset23finalize_xof_reset_into17
   %.sroa.12.045.i.i = phi i64 [ 0, %3 ], [ %22, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i" ]
   %19 = shl nuw nsw i64 %.sroa.12.045.i.i, 3
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 %19
-  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.045.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.045.i.i
   %22 = add nuw nsw i64 %.sroa.12.045.i.i, 1
   %.val.i18.i.i = load i64, ptr %20, align 8, !alias.scope !165, !noalias !168
   %23 = load i64, ptr %21, align 8, !alias.scope !170, !noalias !171, !noundef !4
@@ -1110,7 +1110,7 @@ define hidden void @_ZN6digest21ExtendableOutputReset23finalize_xof_reset_into17
   %.sroa.12.045.i.i = phi i64 [ 0, %3 ], [ %22, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i.i" ]
   %19 = shl nuw nsw i64 %.sroa.12.045.i.i, 3
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 %19
-  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.12.045.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.12.045.i.i
   %22 = add nuw nsw i64 %.sroa.12.045.i.i, 1
   %.val.i18.i.i = load i64, ptr %20, align 8, !alias.scope !207, !noalias !210
   %23 = load i64, ptr %21, align 8, !alias.scope !212, !noalias !213, !noundef !4
@@ -1200,7 +1200,7 @@ define hidden void @"_ZN77_$LT$sha3..Shake128Core$u20$as$u20$digest..core_api..E
   %.sroa.12.045 = phi i64 [ 0, %"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$14pad_with_zeros17he3f3f505b65587b2E.exit" ], [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i" ]
   %11 = shl nuw nsw i64 %.sroa.12.045, 3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 %11
-  %13 = getelementptr inbounds nuw i64, ptr %1, i64 %.sroa.12.045
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.12.045
   %14 = add nuw nsw i64 %.sroa.12.045, 1
   %.val.i18 = load i64, ptr %12, align 1, !alias.scope !236, !noalias !239
   %15 = load i64, ptr %13, align 8, !noundef !4
@@ -1243,7 +1243,7 @@ define hidden void @"_ZN77_$LT$sha3..Shake256Core$u20$as$u20$digest..core_api..E
   %.sroa.12.045 = phi i64 [ 0, %"_ZN12block_buffer35BlockBuffer$LT$BlockSize$C$Kind$GT$14pad_with_zeros17he28a097fb0fdf0b7E.exit" ], [ %14, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i" ]
   %11 = shl nuw nsw i64 %.sroa.12.045, 3
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 %11
-  %13 = getelementptr inbounds nuw i64, ptr %1, i64 %.sroa.12.045
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.12.045
   %14 = add nuw nsw i64 %.sroa.12.045, 1
   %.val.i18 = load i64, ptr %12, align 1, !alias.scope !252, !noalias !255
   %15 = load i64, ptr %13, align 8, !noundef !4
@@ -1294,7 +1294,7 @@ define hidden void @"_ZN97_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u
   %.sroa.12.045.i = phi i64 [ 0, %2 ], [ %19, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i" ]
   %16 = shl nuw nsw i64 %.sroa.12.045.i, 3
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 %16
-  %18 = getelementptr inbounds nuw i64, ptr %1, i64 %.sroa.12.045.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.12.045.i
   %19 = add nuw nsw i64 %.sroa.12.045.i, 1
   %.val.i18.i = load i64, ptr %17, align 8, !alias.scope !275, !noalias !278
   %20 = load i64, ptr %18, align 8, !alias.scope !262, !noalias !280, !noundef !4
@@ -1387,7 +1387,7 @@ define hidden void @"_ZN97_$LT$digest..core_api..wrapper..CoreWrapper$LT$T$GT$$u
   %.sroa.12.045.i = phi i64 [ 0, %2 ], [ %19, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha82f067669153a3cE.exit.i.i" ]
   %16 = shl nuw nsw i64 %.sroa.12.045.i, 3
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 %16
-  %18 = getelementptr inbounds nuw i64, ptr %1, i64 %.sroa.12.045.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.12.045.i
   %19 = add nuw nsw i64 %.sroa.12.045.i, 1
   %.val.i18.i = load i64, ptr %17, align 8, !alias.scope !305, !noalias !308
   %20 = load i64, ptr %18, align 8, !alias.scope !292, !noalias !310, !noundef !4
@@ -1557,7 +1557,7 @@ define internal fastcc void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderC
   %25 = sub nuw nsw i64 168, %24
   %.0.sroa.speculated.i.i.i3.i = call noundef i64 @llvm.umin.i64(i64 %25, i64 8)
   %26 = getelementptr inbounds i8, ptr %9, i64 %24
-  %27 = getelementptr inbounds nuw i64, ptr %17, i64 %.sroa.11.020.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.sroa.11.020.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %28 = load i64, ptr %27, align 8, !alias.scope !323, !noalias !343, !noundef !4
   store i64 %28, ptr %.sroa.0.i, align 8, !noalias !344
@@ -1664,7 +1664,7 @@ define internal fastcc void @"_ZN97_$LT$digest..core_api..xof_reader..XofReaderC
   %25 = sub nuw nsw i64 136, %24
   %.0.sroa.speculated.i.i.i3.i = call noundef i64 @llvm.umin.i64(i64 %25, i64 8)
   %26 = getelementptr inbounds i8, ptr %9, i64 %24
-  %27 = getelementptr inbounds nuw i64, ptr %17, i64 %.sroa.11.020.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.sroa.11.020.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %28 = load i64, ptr %27, align 8, !alias.scope !354, !noalias !374, !noundef !4
   store i64 %28, ptr %.sroa.0.i, align 8, !noalias !375

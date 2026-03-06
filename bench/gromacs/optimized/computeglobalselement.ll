@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ArrayRefWithPadding" = type { ptr, ptr, ptr }
 %"class.gmx::ArrayRef" = type { %"struct.gmx::ArrayRefIter", %"struct.gmx::ArrayRefIter" }
 %"struct.gmx::ArrayRefIter" = type { ptr }
-%struct.t_grp_tcstat = type { float, float, [3 x [3 x float]], [3 x [3 x float]], [3 x [3 x float]], float, double, double, double }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload.base", [7 x i8] }
@@ -36,12 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.264" = type { %"struct.std::_Head_base.267" }
 %"struct.std::_Head_base.267" = type { ptr }
 %"class.std::function.276" = type { %"class.std::_Function_base", ptr }
-%"class.std::unique_ptr.417" = type { %"struct.std::__uniq_ptr_data.418" }
-%"struct.std::__uniq_ptr_data.418" = type { %"class.std::__uniq_ptr_impl.419" }
-%"class.std::__uniq_ptr_impl.419" = type { %"class.std::tuple.420" }
-%"class.std::tuple.420" = type { %"struct.std::_Tuple_impl.421" }
-%"struct.std::_Tuple_impl.421" = type { %"struct.std::_Head_base.424" }
-%"struct.std::_Head_base.424" = type { ptr }
 %"class.gmx::ElementNotFoundError" = type { %"class.gmx::ModularSimulatorError" }
 %"class.gmx::ModularSimulatorError" = type { %"class.gmx::GromacsException" }
 %"class.gmx::GromacsException" = type { %"class.std::exception", %"class.std::shared_ptr.430" }
@@ -788,13 +781,13 @@ define weak_odr void @_ZN3gmx21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorit
   %65 = call noundef ptr @_ZN3gmx10EnergyData8ekindataEv(ptr noundef nonnull align 8 dereferenceable(552) %64)
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8, !tbaa !224
-  %68 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [144 x i8], ptr %67, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %51, align 8, !tbaa !222
   %71 = call noundef ptr @_ZN3gmx10EnergyData8ekindataEv(ptr noundef nonnull align 8 dereferenceable(552) %70)
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load ptr, ptr %72, align 8, !tbaa !224
-  %74 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [144 x i8], ptr %73, i64 %indvars.iv
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 44
   %76 = load float, ptr %69, align 4, !tbaa !227
   store float %76, ptr %75, align 4, !tbaa !227
@@ -1417,13 +1410,13 @@ define weak_odr void @_ZN3gmx21ComputeGlobalsElementILNS_23ComputeGlobalsAlgorit
   %65 = call noundef ptr @_ZN3gmx10EnergyData8ekindataEv(ptr noundef nonnull align 8 dereferenceable(552) %64)
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8, !tbaa !224
-  %68 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [144 x i8], ptr %67, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %51, align 8, !tbaa !267
   %71 = call noundef ptr @_ZN3gmx10EnergyData8ekindataEv(ptr noundef nonnull align 8 dereferenceable(552) %70)
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load ptr, ptr %72, align 8, !tbaa !224
-  %74 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [144 x i8], ptr %73, i64 %indvars.iv
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 44
   %76 = load float, ptr %69, align 4, !tbaa !227
   store float %76, ptr %75, align 4, !tbaa !227
@@ -3263,7 +3256,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
 .noexc:                                           ; preds = %32, %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %26, ptr %13, align 8, !tbaa !438
   store ptr %31, ptr %6, align 8, !tbaa !431
-  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.417", ptr %26, i64 %24
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %33, ptr %8, align 8, !tbaa !434
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_21ComputeGlobalsElementILNS1_23ComputeGlobalsAlgorithmE0EEES3_ISB_EEEEERS5_DpOT_.exit.i
 
@@ -3420,7 +3413,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE0EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %39, ptr %19, align 8, !tbaa !451
   store ptr %43, ptr %20, align 8, !tbaa !447
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !450
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE0EEEEEERS2_DpOT_.exit
 
@@ -3897,7 +3890,7 @@ _ZNSt6vectorIPN3gmx22IEnergySignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_
 _ZNSt6vectorIPN3gmx22IEnergySignallerClientESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPN3gmx22IEnergySignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %37, ptr %0, align 8, !tbaa !485
   store ptr %41, ptr %18, align 8, !tbaa !481
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %20, align 8, !tbaa !482
   br label %_ZNSt6vectorIPN3gmx22IEnergySignallerClientESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 
@@ -4021,7 +4014,7 @@ _ZNSt6vectorIPN3gmx26ITrajectorySignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_
 _ZNSt6vectorIPN3gmx26ITrajectorySignallerClientESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPN3gmx26ITrajectorySignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %37, ptr %0, align 8, !tbaa !497
   store ptr %41, ptr %18, align 8, !tbaa !493
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %20, align 8, !tbaa !494
   br label %_ZNSt6vectorIPN3gmx26ITrajectorySignallerClientESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 
@@ -4721,7 +4714,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
 .noexc:                                           ; preds = %32, %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %26, ptr %13, align 8, !tbaa !438
   store ptr %31, ptr %6, align 8, !tbaa !431
-  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.417", ptr %26, i64 %24
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %33, ptr %8, align 8, !tbaa !434
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_21ComputeGlobalsElementILNS1_23ComputeGlobalsAlgorithmE1EEES3_ISB_EEEEERS5_DpOT_.exit.i
 
@@ -5056,7 +5049,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %39, ptr %19, align 8, !tbaa !451
   store ptr %43, ptr %20, align 8, !tbaa !447
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !450
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_21ComputeGlobalsElementILNS0_23ComputeGlobalsAlgorithmE1EEEEEERS2_DpOT_.exit
 

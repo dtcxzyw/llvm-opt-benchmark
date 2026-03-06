@@ -36,7 +36,7 @@ define dso_local range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.preheader11 ]
   %.112 = phi i32 [ %.2, %15 ], [ 0, %.preheader11 ]
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 936), align 8
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @access(ptr noundef %6, i32 noundef 1) #5
   %8 = icmp slt i32 %7, 0
@@ -44,7 +44,7 @@ define dso_local range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
 
 9:                                                ; preds = %.lr.ph
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 936), align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str, ptr noundef %12) #5
   br label %15
@@ -65,7 +65,7 @@ define dso_local range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %30 ], [ 0, %.preheader ]
   %.314 = phi i32 [ %.4, %30 ], [ %.1.lcssa, %.preheader ]
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 368), align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv20
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv20
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @access(ptr noundef %21, i32 noundef 1) #5
   %23 = icmp slt i32 %22, 0
@@ -73,7 +73,7 @@ define dso_local range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
 
 24:                                               ; preds = %.lr.ph16
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 368), align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv20
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv20
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1, ptr noundef %27) #5
   br label %30

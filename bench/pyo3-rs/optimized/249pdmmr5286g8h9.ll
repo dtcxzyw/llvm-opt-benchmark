@@ -2677,7 +2677,7 @@ define void @_ZN17pyo3_build_config5impl_22find_all_sysconfigdata17h70d012363951
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %37, i64 %39
+  %40 = getelementptr inbounds [24 x i8], ptr %37, i64 %39
   store ptr %37, ptr %8, align 8
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %40, ptr %41, align 8

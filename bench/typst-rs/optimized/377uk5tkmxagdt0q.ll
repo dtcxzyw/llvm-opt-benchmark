@@ -795,7 +795,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN10pdf
   %.not.not.i.i = phi i1 [ false, %3 ], [ true, %.noexc3 ]
   %15 = phi i64 [ 0, %3 ], [ 1, %.noexc3 ]
   %16 = phi i1 [ true, %3 ], [ false, %.noexc3 ]
-  %17 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %15
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx.i, i64 %15
   %18 = load float, ptr %17, align 4, !alias.scope !140, !noalias !137, !noundef !16
   br i1 %16, label %_ZN10pdf_writer7content9Operation7operand17hacdf58952fe0b02cE.exit.i, label %19
 
@@ -934,7 +934,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN10pdf
   %.not.not.i.i = phi i1 [ false, %3 ], [ true, %.noexc3 ]
   %15 = phi i64 [ 0, %3 ], [ 1, %.noexc3 ]
   %16 = phi i1 [ true, %3 ], [ false, %.noexc3 ]
-  %17 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %15
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx.i, i64 %15
   %18 = load float, ptr %17, align 4, !alias.scope !169, !noalias !166, !noundef !16
   br i1 %16, label %_ZN10pdf_writer7content9Operation7operand17hacdf58952fe0b02cE.exit.i, label %19
 
@@ -1157,7 +1157,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN10pdf
   %12 = phi i64 [ 0, %2 ], [ %14, %.noexc1 ]
   %13 = phi i1 [ true, %2 ], [ false, %.noexc1 ]
   %14 = add nuw nsw i64 %12, 1
-  %15 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i, i64 %12
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx.i, i64 %12
   %16 = load float, ptr %15, align 4, !alias.scope !222, !noalias !217, !noundef !16
   br i1 %13, label %_ZN10pdf_writer7content9Operation7operand17hacdf58952fe0b02cE.exit.i, label %17
 
@@ -1953,8 +1953,8 @@ default.unreachable16:                            ; preds = %17, %6
   br i1 %exitcond.not.i.i.i.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i.i", label %30
 
 30:                                               ; preds = %.preheader.split.i.i.i.i.i
-  %31 = getelementptr inbounds { { i32, [4 x i32] }, [1 x i32], double }, ptr %.val.i.i.i, i64 %.sroa.01.0.i.i.i.i.i
-  %32 = getelementptr inbounds { { i32, [4 x i32] }, [1 x i32], double }, ptr %.val2.i.i.i, i64 %.sroa.01.0.i.i.i.i.i
+  %31 = getelementptr inbounds [32 x i8], ptr %.val.i.i.i, i64 %.sroa.01.0.i.i.i.i.i
+  %32 = getelementptr inbounds [32 x i8], ptr %.val2.i.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %33 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %32), !noalias !371
   br i1 %33, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i.i", label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
@@ -2018,8 +2018,8 @@ default.unreachable16:                            ; preds = %17, %6
   br i1 %exitcond.not.i.i.i.i13.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i15.i", label %61
 
 61:                                               ; preds = %.preheader.split.i.i.i.i11.i
-  %62 = getelementptr inbounds { { i32, [4 x i32] }, [1 x i32], double }, ptr %.val.i.i8.i, i64 %.sroa.01.0.i.i.i.i12.i
-  %63 = getelementptr inbounds { { i32, [4 x i32] }, [1 x i32], double }, ptr %.val8.i.i.i, i64 %.sroa.01.0.i.i.i.i12.i
+  %62 = getelementptr inbounds [32 x i8], ptr %.val.i.i8.i, i64 %.sroa.01.0.i.i.i.i12.i
+  %63 = getelementptr inbounds [32 x i8], ptr %.val8.i.i.i, i64 %.sroa.01.0.i.i.i.i12.i
   %64 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %62, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %63), !noalias !379
   br i1 %64, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i14.i", label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
@@ -2113,8 +2113,8 @@ default.unreachable16:                            ; preds = %17, %6
   br i1 %exitcond.not.i.i.i.i26.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hde44497195321b55E.exit.i.i28.i", label %112
 
 112:                                              ; preds = %.preheader.split.i.i.i.i24.i
-  %113 = getelementptr inbounds { { i32, [4 x i32] }, [1 x i32], double }, ptr %.val.i.i18.i, i64 %.sroa.01.0.i.i.i.i25.i
-  %114 = getelementptr inbounds { { i32, [4 x i32] }, [1 x i32], double }, ptr %.val4.i.i20.i, i64 %.sroa.01.0.i.i.i.i25.i
+  %113 = getelementptr inbounds [32 x i8], ptr %.val.i.i18.i, i64 %.sroa.01.0.i.i.i.i25.i
+  %114 = getelementptr inbounds [32 x i8], ptr %.val4.i.i20.i, i64 %.sroa.01.0.i.i.i.i25.i
   %115 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..visualize..color..Color$u20$as$u20$core..cmp..PartialEq$GT$2eq17h46331aa3838d0fb8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %114), !noalias !385
   br i1 %115, label %"_ZN4core5tuple64_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$U$C$T$RP$$GT$2ne17h897fa63276d25d80E.llvm.16528140993567049526.exit.i.i.i.i27.i", label %"_ZN77_$LT$typst..visualize..gradient..Gradient$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7fa6fd787a7111dcE.exit"
 
@@ -2403,7 +2403,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i: ; preds = %1
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %117 = load i64, ptr %116, align 8, !alias.scope !391, !noundef !16
   call void @llvm.experimental.noalias.scope.decl(metadata !401)
-  %118 = getelementptr inbounds i32, ptr %115, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr %115, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %120 = load i64, ptr %119, align 8, !alias.scope !404, !noalias !405, !noundef !16
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !408
@@ -2479,7 +2479,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i: ; preds = %1
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %142 = load i64, ptr %141, align 8, !alias.scope !391, !noundef !16
   call void @llvm.experimental.noalias.scope.decl(metadata !420)
-  %143 = getelementptr inbounds i32, ptr %140, i64 %142
+  %143 = getelementptr inbounds [4 x i8], ptr %140, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %145 = load i64, ptr %144, align 8, !alias.scope !423, !noalias !424, !noundef !16
   call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !427
@@ -2555,7 +2555,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i: ; preds = %1
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %167 = load i64, ptr %166, align 8, !alias.scope !391, !noundef !16
   call void @llvm.experimental.noalias.scope.decl(metadata !439)
-  %168 = getelementptr inbounds i32, ptr %165, i64 %167
+  %168 = getelementptr inbounds [4 x i8], ptr %165, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %170 = load i64, ptr %169, align 8, !alias.scope !442, !noalias !443, !noundef !16
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !446
@@ -2628,7 +2628,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i: ; preds = %1
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %190 = load i64, ptr %189, align 8, !alias.scope !391, !noundef !16
   call void @llvm.experimental.noalias.scope.decl(metadata !458)
-  %191 = getelementptr inbounds i32, ptr %188, i64 %190
+  %191 = getelementptr inbounds [4 x i8], ptr %188, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %193 = load i64, ptr %192, align 8, !alias.scope !461, !noalias !462, !noundef !16
   call void @llvm.lifetime.start.p0(ptr nonnull %32), !noalias !465
@@ -2689,7 +2689,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i: ; preds = %1
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %214 = load i64, ptr %213, align 8, !alias.scope !391, !noundef !16
   call void @llvm.experimental.noalias.scope.decl(metadata !477)
-  %215 = getelementptr inbounds i32, ptr %212, i64 %214
+  %215 = getelementptr inbounds [4 x i8], ptr %212, i64 %214
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %217 = load i64, ptr %216, align 8, !alias.scope !480, !noalias !481, !noundef !16
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !484
@@ -2773,7 +2773,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i: ; preds = %1
 237:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit158.i", %.lr.ph458.i
   %.sroa.8251.0456.i = phi i64 [ 0, %.lr.ph458.i ], [ %238, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit158.i" ]
   %238 = add nuw i64 %.sroa.8251.0456.i, 1
-  %239 = getelementptr inbounds i32, ptr %224, i64 %.sroa.8251.0456.i
+  %239 = getelementptr inbounds [4 x i8], ptr %224, i64 %.sroa.8251.0456.i
   %240 = load i32, ptr %239, align 4, !range !394, !noalias !503, !noundef !16
   %241 = add nuw i64 %.sroa.8251.0456.i, %225
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !391
@@ -2880,7 +2880,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i: ; preds = %1
 268:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit166.i", %.lr.ph453.i
   %.sroa.8237.0451.i = phi i64 [ 0, %.lr.ph453.i ], [ %269, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit166.i" ]
   %269 = add nuw i64 %.sroa.8237.0451.i, 1
-  %270 = getelementptr inbounds i32, ptr %200, i64 %.sroa.8237.0451.i
+  %270 = getelementptr inbounds [4 x i8], ptr %200, i64 %.sroa.8237.0451.i
   %271 = load i32, ptr %270, align 4, !range !394, !noalias !538, !noundef !16
   %272 = add nuw i64 %.sroa.8237.0451.i, %201
   call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !391
@@ -2976,7 +2976,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i: ; preds = %1
 297:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit174.i", %.lr.ph448.i
   %.sroa.8223.0446.i = phi i64 [ 0, %.lr.ph448.i ], [ %298, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit174.i" ]
   %298 = add nuw i64 %.sroa.8223.0446.i, 1
-  %299 = getelementptr inbounds i32, ptr %178, i64 %.sroa.8223.0446.i
+  %299 = getelementptr inbounds [4 x i8], ptr %178, i64 %.sroa.8223.0446.i
   %300 = load i32, ptr %299, align 4, !range !394, !noalias !573, !noundef !16
   %301 = add nuw i64 %.sroa.8223.0446.i, %179
   call void @llvm.lifetime.start.p0(ptr nonnull %64), !noalias !391
@@ -3077,7 +3077,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i: ; preds = %1
 326:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit182.i", %.lr.ph443.i
   %.sroa.8209.0441.i = phi i64 [ 0, %.lr.ph443.i ], [ %327, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit182.i" ]
   %327 = add nuw i64 %.sroa.8209.0441.i, 1
-  %328 = getelementptr inbounds i32, ptr %153, i64 %.sroa.8209.0441.i
+  %328 = getelementptr inbounds [4 x i8], ptr %153, i64 %.sroa.8209.0441.i
   %329 = load i32, ptr %328, align 4, !range !394, !noalias !608, !noundef !16
   %330 = add nuw i64 %.sroa.8209.0441.i, %154
   call void @llvm.lifetime.start.p0(ptr nonnull %70), !noalias !391
@@ -3178,7 +3178,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i: ; preds = %1
 355:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit190.i", %.lr.ph.i
   %.sroa.8.0439.i = phi i64 [ 0, %.lr.ph.i ], [ %356, %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit190.i" ]
   %356 = add nuw i64 %.sroa.8.0439.i, 1
-  %357 = getelementptr inbounds i32, ptr %128, i64 %.sroa.8.0439.i
+  %357 = getelementptr inbounds [4 x i8], ptr %128, i64 %.sroa.8.0439.i
   %358 = load i32, ptr %357, align 4, !range !394, !noalias !643, !noundef !16
   %359 = add nuw i64 %.sroa.8.0439.i, %129
   call void @llvm.lifetime.start.p0(ptr nonnull %76), !noalias !391
@@ -3334,7 +3334,7 @@ _ZN9typst_pdf4page22write_global_resources17h159b5f3c5f39f4f9E.exit: ; preds = %
 
 414:                                              ; preds = %410
   %415 = load ptr, ptr %382, align 8, !alias.scope !671, !nonnull !16, !noundef !16
-  %416 = getelementptr inbounds { { i64, [4 x i64] }, { { i64, ptr, {} }, i64 }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { double, double }, i32, i8, [3 x i8] }, ptr %415, i64 %.sroa.01.0107
+  %416 = getelementptr inbounds [144 x i8], ptr %415, i64 %.sroa.01.0107
   %417 = load i32, ptr %81, align 8, !range !394, !alias.scope !671, !noundef !16
   %418 = icmp ugt i32 %417, 2147483646
   br i1 %418, label %419, label %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i15
@@ -3955,7 +3955,7 @@ _ZN10pdf_writer6object4Dict4pair17h0650e90793458ca2E.exit: ; preds = %_ZN10pdf_w
   %632 = add i64 %.sroa.01.0.i.i.i.i.i, %629
   %633 = and i64 %632, %.val5.i.i
   %634 = sub nsw i64 0, %633
-  %635 = getelementptr inbounds { { i128, i64, i64 }, i32, [3 x i32] }, ptr %.val.i.i, i64 %634
+  %635 = getelementptr inbounds [48 x i8], ptr %.val.i.i, i64 %634
   %636 = getelementptr inbounds i8, ptr %635, i64 -48
   %637 = load i128, ptr %636, align 16, !alias.scope !796, !noalias !803, !noundef !16
   %638 = icmp eq i128 %619, %637
@@ -4192,7 +4192,7 @@ _ZN10pdf_writer6object4Dict4pair17hcbfbbf2f57883d71E.exit: ; preds = %_ZN10pdf_w
   %728 = load i64, ptr %380, align 8, !alias.scope !671, !noundef !16
   %.not.i18 = icmp ult i64 %668, %728
   %729 = load ptr, ptr %382, align 8, !alias.scope !671, !nonnull !16
-  %730 = getelementptr inbounds { { i64, [4 x i64] }, { { i64, ptr, {} }, i64 }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { double, double }, i32, i8, [3 x i8] }, ptr %729, i64 %668
+  %730 = getelementptr inbounds [144 x i8], ptr %729, i64 %668
   br i1 %.not.i18, label %731, label %.invoke.i
 
 731:                                              ; preds = %727
@@ -4296,7 +4296,7 @@ _ZN9typst_pdf4page10write_page17h209c909dc8a257cfE.exit: ; preds = %"_ZN5typst4u
   %759 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %760 = load ptr, ptr %759, align 8, !nonnull !16, !noundef !16
   %761 = load i64, ptr %406, align 8, !noundef !16
-  %762 = getelementptr inbounds i32, ptr %760, i64 %761
+  %762 = getelementptr inbounds [4 x i8], ptr %760, i64 %761
   %763 = invoke noundef align 8 dereferenceable(16) ptr @_ZN10pdf_writer9structure5Pages4kids17hc02ce32861785398E(ptr noalias noundef nonnull align 8 dereferenceable(16) %409, ptr noundef nonnull %760, ptr noundef nonnull %762)
           to label %764 unwind label %756
 
@@ -4693,7 +4693,7 @@ _ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i.i: ; preds = %.n
 158:                                              ; preds = %.noexc44, %153
   %159 = phi i64 [ %.pre.i, %.noexc44 ], [ %154, %153 ]
   %160 = load ptr, ptr %8, align 8, !alias.scope !885, !nonnull !16, !noundef !16
-  %161 = getelementptr inbounds { i64, i32, [1 x i32] }, ptr %160, i64 %159
+  %161 = getelementptr inbounds [16 x i8], ptr %160, i64 %159
   store i64 %24, ptr %161, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store i32 %31, ptr %162, align 8
@@ -5423,8 +5423,8 @@ define internal fastcc void @_ZN9typst_pdf4page11PageContext10set_stroke17hec0be
 
 51:                                               ; preds = %.preheader.split.i.i.i
   %52 = add i64 %.sroa.01.0.i.i.i, 1
-  %53 = getelementptr inbounds double, ptr %.val.i, i64 %.sroa.01.0.i.i.i
-  %54 = getelementptr inbounds double, ptr %.val4.i, i64 %.sroa.01.0.i.i.i
+  %53 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %.sroa.01.0.i.i.i
+  %54 = getelementptr inbounds [8 x i8], ptr %.val4.i, i64 %.sroa.01.0.i.i.i
   %55 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %54)
   br i1 %55, label %.preheader.split.i.i.i, label %.critedge
 
@@ -5856,8 +5856,8 @@ _ZN10pdf_writer7content7Content14set_line_width17h2dd8d2f502be0f7fE.exit..crited
 
 228:                                              ; preds = %.preheader.split.i.i.i.i.i
   %229 = add i64 %.sroa.01.0.i.i.i.i.i, 1
-  %230 = getelementptr inbounds double, ptr %.val.i.i.i, i64 %.sroa.01.0.i.i.i.i.i
-  %231 = getelementptr inbounds double, ptr %.val2.i.i.i, i64 %.sroa.01.0.i.i.i.i.i
+  %230 = getelementptr inbounds [8 x i8], ptr %.val.i.i.i, i64 %.sroa.01.0.i.i.i.i.i
+  %231 = getelementptr inbounds [8 x i8], ptr %.val2.i.i.i, i64 %.sroa.01.0.i.i.i.i.i
   %232 = tail call noundef zeroext i1 @"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %230, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %231), !noalias !1094
   br i1 %232, label %.preheader.split.i.i.i.i.i, label %.critedge79
 
@@ -7250,7 +7250,7 @@ common.resume:                                    ; preds = %778, %781, %521, %5
 ._crit_edge.i.i.i48:                              ; preds = %._crit_edge.i.i55, %"_ZN61_$LT$typst_pdf..page..State$u20$as$u20$core..clone..Clone$GT$5clone17h1e5e0f60fcb40430E.exit.i"
   %245 = phi i64 [ %.pre.i.i56, %._crit_edge.i.i55 ], [ %237, %"_ZN61_$LT$typst_pdf..page..State$u20$as$u20$core..clone..Clone$GT$5clone17h1e5e0f60fcb40430E.exit.i" ]
   %246 = load ptr, ptr %144, align 8, !alias.scope !1341, !noalias !1344, !nonnull !16, !noundef !16
-  %247 = getelementptr inbounds { { i64, [9 x i64] }, { i32, [5 x i32] }, { double, double, double, double, double, double }, { double, double, double, double, double, double }, { double, double }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { i8, [2 x i8] }, i8, [4 x i8] }, ptr %246, i64 %245
+  %247 = getelementptr inbounds [272 x i8], ptr %246, i64 %245
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %247, ptr noundef nonnull align 8 dereferenceable(272) %7, i64 272, i1 false), !noalias !1283
   %248 = load i64, ptr %143, align 8, !alias.scope !1341, !noalias !1344, !noundef !16
   %249 = add i64 %248, 1
@@ -7488,7 +7488,7 @@ _ZN9typst_pdf4page11write_group17h77c04bf649d97aebE.exit: ; preds = %270, %"_ZN4
   %334 = icmp ult i64 %332, %333
   call void @llvm.assume(i1 %334)
   %335 = load ptr, ptr %144, align 8, !alias.scope !1417, !noalias !1418, !nonnull !16, !noundef !16
-  %336 = getelementptr inbounds { { i64, [9 x i64] }, { i32, [5 x i32] }, { double, double, double, double, double, double }, { double, double, double, double, double, double }, { double, double }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, { i8, [2 x i8] }, i8, [4 x i8] }, ptr %335, i64 %332
+  %336 = getelementptr inbounds [272 x i8], ptr %335, i64 %332
   %.sroa.0.0.copyload1.i = load i64, ptr %336, align 8, !noalias !1414
   %337 = icmp eq i64 %.sroa.0.0.copyload1.i, -9223372036854775806
   br i1 %337, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17heaae1cc4f6446278E.exit.thread.i", label %338
@@ -7674,7 +7674,7 @@ _ZN9typst_pdf4page11PageContext13restore_state17he5271de64e2faae7E.exit: ; preds
   %404 = phi i64 [ 0, %399 ], [ %406, %.noexc1.i.i ]
   %405 = phi i1 [ true, %399 ], [ false, %.noexc1.i.i ]
   %406 = add nuw nsw i64 %404, 1
-  %407 = getelementptr inbounds nuw float, ptr %32, i64 %404
+  %407 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %404
   %408 = load float, ptr %407, align 4, !alias.scope !1455, !noalias !1450, !noundef !16
   br i1 %405, label %_ZN10pdf_writer7content9Operation7operand17hacdf58952fe0b02cE.exit.i.i.i, label %409
 
@@ -8730,7 +8730,7 @@ _ZN9typst_pdf4page11write_shape17h163980c8eaa3a2bdE.exit: ; preds = %"_ZN4core3p
 784:                                              ; preds = %784, %716
   %785 = phi i64 [ 0, %716 ], [ %786, %784 ]
   %786 = add nuw nsw i64 %785, 1
-  %787 = getelementptr inbounds nuw { [2 x i64] }, ptr %12, i64 %785
+  %787 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %785
   %788 = load double, ptr %787, align 8, !alias.scope !1722, !noalias !1725, !noundef !16
   %789 = getelementptr inbounds nuw i8, ptr %787, i64 8
   %790 = load double, ptr %789, align 8, !alias.scope !1722, !noalias !1725, !noundef !16
@@ -8750,7 +8750,7 @@ _ZN9typst_pdf4page11write_shape17h163980c8eaa3a2bdE.exit: ; preds = %"_ZN4core3p
 _ZN9typst_pdf4page10write_link17he340e52f1a8ba751E.exit: ; preds = %"_ZN70_$LT$typst..model..link..Destination$u20$as$u20$core..clone..Clone$GT$5clone17h92aac11e747aaabaE.exit.i", %._crit_edge.i.i19
   %794 = phi i64 [ %.pre.i.i20, %._crit_edge.i.i19 ], [ %774, %"_ZN70_$LT$typst..model..link..Destination$u20$as$u20$core..clone..Clone$GT$5clone17h92aac11e747aaabaE.exit.i" ]
   %795 = load ptr, ptr %60, align 8, !alias.scope !1717, !noalias !1720, !nonnull !16, !noundef !16
-  %796 = getelementptr inbounds { { i64, [5 x i64] }, { float, float, float, float } }, ptr %795, i64 %794
+  %796 = getelementptr inbounds [64 x i8], ptr %795, i64 %794
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %796, ptr noundef nonnull align 16 dereferenceable(64) %10, i64 64, i1 false), !noalias !1697
   %797 = load i64, ptr %59, align 8, !alias.scope !1717, !noalias !1720, !noundef !16
   %798 = add i64 %797, 1
@@ -8830,7 +8830,7 @@ define internal fastcc void @_ZN9typst_pdf4page10write_text17h4425fff697665325E(
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 24
   %.sroa.21.0.copyload.i = load i64, ptr %.sroa.21.0..sroa_idx.i, align 8, !alias.scope !1727
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 8
-  %57 = getelementptr inbounds i64, ptr %56, i64 %.sroa.21.0.copyload.i
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %.sroa.21.0.copyload.i
   br label %"_ZN5alloc11collections5btree3map5entry22Entry$LT$K$C$V$C$A$GT$9or_insert17h21132597f84ac432E.exit"
 
 "_ZN5alloc11collections5btree3map5entry22Entry$LT$K$C$V$C$A$GT$9or_insert17h21132597f84ac432E.exit": ; preds = %52, %54
@@ -8930,7 +8930,7 @@ define internal fastcc void @_ZN9typst_pdf4page10write_text17h4425fff697665325E(
   store i8 %86, ptr %93, align 1, !noalias !1751
   %94 = load ptr, ptr %.sroa.4143.0.copyload, align 8, !alias.scope !1758, !noalias !1751, !nonnull !16, !noundef !16
   %95 = sub nsw i64 0, %76
-  %96 = getelementptr inbounds { ptr, { { ptr, [1 x i64] }, i64, { {} }, {} } }, ptr %94, i64 %95
+  %96 = getelementptr inbounds [32 x i8], ptr %94, i64 %95
   %97 = and i8 %84, 1
   %98 = zext nneg i8 %97 to i64
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.4143.0.copyload, i64 16
@@ -9484,7 +9484,7 @@ common.resume:                                    ; preds = %360, %556, %326, %1
   %312 = phi i64 [ 0, %"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE.exit" ], [ %314, %.noexc1.i ]
   %313 = phi i1 [ true, %"_ZN4core3ptr51drop_in_place$LT$pdf_writer..content..Operation$GT$17hbc06809aedc5b03dE.exit" ], [ false, %.noexc1.i ]
   %314 = add nuw nsw i64 %312, 1
-  %315 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i.i, i64 %312
+  %315 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx.i.i, i64 %312
   %316 = load float, ptr %315, align 4, !alias.scope !1891, !noalias !1886, !noundef !16
   br i1 %313, label %_ZN10pdf_writer7content9Operation7operand17hacdf58952fe0b02cE.exit.i.i, label %317
 
@@ -10279,7 +10279,7 @@ default.unreachable13:                            ; preds = %"_ZN91_$LT$core..sl
   %70 = phi i64 [ 0, %37 ], [ %72, %.noexc1.i ]
   %71 = phi i1 [ true, %37 ], [ false, %.noexc1.i ]
   %72 = add nuw nsw i64 %70, 1
-  %73 = getelementptr inbounds nuw float, ptr %.sroa.5.0..sroa_idx.i.i, i64 %70
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.5.0..sroa_idx.i.i, i64 %70
   %74 = load float, ptr %73, align 4, !alias.scope !2016, !noalias !2011, !noundef !16
   br i1 %71, label %_ZN10pdf_writer7content9Operation7operand17hacdf58952fe0b02cE.exit.i.i, label %75
 
@@ -10674,7 +10674,7 @@ _ZN9typst_pdf4page12PdfPageLabel8generate17hc1b24804cd4ffdbdE.exit: ; preds = %3
 88:                                               ; preds = %.noexc20, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit"
   %89 = phi i64 [ %.pre.i, %.noexc20 ], [ %84, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$typst_pdf..page..PdfPageLabel$GT$$GT$17h415e17c5d60b9ef4E.exit" ]
   %90 = load ptr, ptr %17, align 8, !alias.scope !2091, !nonnull !16, !noundef !16
-  %91 = getelementptr inbounds i32, ptr %90, i64 %89
+  %91 = getelementptr inbounds [4 x i8], ptr %90, i64 %89
   store i32 %32, ptr %91, align 4
   %92 = load i64, ptr %16, align 8, !alias.scope !2091, !noundef !16
   %93 = add i64 %92, 1
@@ -10709,7 +10709,7 @@ _ZN9typst_pdf4page12PdfPageLabel8generate17hc1b24804cd4ffdbdE.exit: ; preds = %3
 102:                                              ; preds = %._crit_edge.i, %88
   %103 = phi i64 [ %.pre.i21, %._crit_edge.i ], [ %94, %88 ]
   %104 = load ptr, ptr %20, align 8, !alias.scope !2094, !noalias !2097, !nonnull !16, !noundef !16
-  %105 = getelementptr inbounds { { i64, [4 x i64] }, { { i64, ptr, {} }, i64 }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { double, double }, i32, i8, [3 x i8] }, ptr %104, i64 %103
+  %105 = getelementptr inbounds [144 x i8], ptr %104, i64 %103
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %105, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
   %106 = load i64, ptr %19, align 8, !alias.scope !2094, !noalias !2097, !noundef !16
   %107 = add i64 %106, 1

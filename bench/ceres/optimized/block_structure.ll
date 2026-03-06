@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"struct.ceres::internal::Block" = type { i32, i32 }
 %"class.absl::lts_20240116::log_internal::CheckOpMessageBuilder" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -93,7 +92,7 @@ _ZNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE11_M_allocateEm.exit.i: ; pre
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #18
   store ptr %21, ptr %0, align 8, !tbaa !12
   store ptr %21, ptr %19, align 8, !tbaa !8
-  %22 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %21, i64 %12
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %12
   store ptr %22, ptr %18, align 8, !tbaa !14
   %23 = sub i32 %15, %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -127,7 +126,7 @@ _ZNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE11_M_allocateEm.exit.i: ; pre
   %.03140 = phi i32 [ 0, %_ZNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE11_M_allocateEm.exit.i ], [ %70, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE12emplace_backIJRKiRiEEERS2_DpOT_.exit ]
   %35 = phi ptr [ %22, %_ZNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE11_M_allocateEm.exit.i ], [ %67, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE12emplace_backIJRKiRiEEERS2_DpOT_.exit ]
   %36 = phi ptr [ %21, %_ZNSt12_Vector_baseIN5ceres8internal5BlockESaIS2_EE11_M_allocateEm.exit.i ], [ %66, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE12emplace_backIJRKiRiEEERS2_DpOT_.exit ]
-  %37 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %33, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %.not.i23 = icmp eq ptr %34, %35
   br i1 %.not.i23, label %42, label %38
 
@@ -204,7 +203,7 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23.
 _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE17_M_realloc_insertIJRKiRiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %62, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23.i.i
   %.pre = phi ptr [ %.pre.pre, %62 ], [ %.pre54, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23.i.i ]
   store ptr %61, ptr %24, align 8, !tbaa !8
-  %63 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %54, i64 %52
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %52
   br label %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE12emplace_backIJRKiRiEEERS2_DpOT_.exit
 
 _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE12emplace_backIJRKiRiEEERS2_DpOT_.exit: ; preds = %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE17_M_realloc_insertIJRKiRiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %38
@@ -213,7 +212,7 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE12emplace_backIJRKiRiEEERS2_DpOT_.ex
   %65 = phi ptr [ %61, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE17_M_realloc_insertIJRKiRiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %41, %38 ]
   %66 = phi ptr [ %54, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE17_M_realloc_insertIJRKiRiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %36, %38 ]
   %67 = phi ptr [ %63, %_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE17_M_realloc_insertIJRKiRiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %35, %38 ]
-  %68 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %64, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !22
   %70 = add nsw i32 %69, %.03140
   %indvars.iv.next = add nsw i64 %indvars.iv, 1

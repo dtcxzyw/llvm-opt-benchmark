@@ -134,18 +134,18 @@ define internal void @vector_clipf_c(ptr noundef writeonly captures(none) %0, pt
   %11 = shl nuw nsw i64 %indvar, 5
   %scevgep = getelementptr i8, ptr %0, i64 %11
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %invariant.gep = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv25
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv25
   br label %12
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %13 = load float, ptr %gep, align 4, !tbaa !18
   %14 = fcmp nsz ogt float %13, %3
   %15 = select nsz i1 %14, float %13, float %3
   %16 = fcmp nsz ogt float %15, %4
   %..i = select nsz i1 %16, float %4, float %15
-  %17 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store float %..i, ptr %17, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8

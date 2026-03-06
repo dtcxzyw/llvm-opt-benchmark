@@ -344,7 +344,7 @@ Io_ReadBlifNetwork.exit:                          ; preds = %.split.us.i, %90
   %134 = phi ptr [ %142, %.lr.ph.i18 ], [ %128, %127 ]
   %135 = getelementptr i8, ptr %134, i64 8
   %.val83.i = load ptr, ptr %135, align 8, !tbaa !34
-  %136 = getelementptr inbounds nuw i32, ptr %.val83.i, i64 %indvars.iv.i
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.val83.i, i64 %indvars.iv.i
   %137 = load i32, ptr %136, align 4, !tbaa !67
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %139 = load float, ptr %138, align 4, !tbaa !67
@@ -372,7 +372,7 @@ Io_ReadBlifNetwork.exit:                          ; preds = %.split.us.i, %90
   %150 = phi ptr [ %158, %.critedge.i ], [ %131, %.critedge.preheader.i ]
   %151 = getelementptr i8, ptr %150, i64 8
   %.val86.i = load ptr, ptr %151, align 8, !tbaa !34
-  %152 = getelementptr inbounds nuw i32, ptr %.val86.i, i64 %indvars.iv110.i
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %.val86.i, i64 %indvars.iv110.i
   %153 = load i32, ptr %152, align 4, !tbaa !67
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 4
   %155 = load float, ptr %154, align 4, !tbaa !67
@@ -400,7 +400,7 @@ Io_ReadBlifNetwork.exit:                          ; preds = %.split.us.i, %90
   %166 = phi ptr [ %174, %.critedge2.i ], [ %147, %.critedge2.preheader.i ]
   %167 = getelementptr i8, ptr %166, i64 8
   %.val89.i = load ptr, ptr %167, align 8, !tbaa !34
-  %168 = getelementptr inbounds nuw i32, ptr %.val89.i, i64 %indvars.iv113.i
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %.val89.i, i64 %indvars.iv113.i
   %169 = load i32, ptr %168, align 4, !tbaa !67
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %171 = load float, ptr %170, align 4, !tbaa !67
@@ -421,7 +421,7 @@ Io_ReadBlifNetwork.exit:                          ; preds = %.split.us.i, %90
   %179 = phi ptr [ %187, %.critedge4.i ], [ %163, %.critedge4.preheader.i ]
   %180 = getelementptr i8, ptr %179, i64 8
   %.val92.i = load ptr, ptr %180, align 8, !tbaa !34
-  %181 = getelementptr inbounds nuw i32, ptr %.val92.i, i64 %indvars.iv116.i
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %.val92.i, i64 %indvars.iv116.i
   %182 = load i32, ptr %181, align 4, !tbaa !67
   %183 = getelementptr inbounds nuw i8, ptr %181, i64 4
   %184 = load float, ptr %183, align 4, !tbaa !67
@@ -591,7 +591,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifReorderFormalNames(ptr noundef captures(n
   %17 = tail call ptr @Mio_PinReadName(ptr noundef nonnull %.0121166) #14
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #16
   %.val145 = load ptr, ptr %15, align 8, !tbaa !23
-  %19 = getelementptr inbounds nuw ptr, ptr %.val145, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val145, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !40
   %sext = shl i64 %18, 32
@@ -651,7 +651,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifReorderFormalNames(ptr noundef captures(n
 
 40:                                               ; preds = %.lr.ph174.us, %48
   %indvars.iv190 = phi i64 [ 2, %.lr.ph174.us ], [ %indvars.iv.next191, %48 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %.val146.us, i64 %indvars.iv190
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.val146.us, i64 %indvars.iv190
   %42 = load ptr, ptr %41, align 8, !tbaa !40
   %43 = tail call i32 @strncmp(ptr noundef nonnull %37, ptr noundef %42, i64 noundef %39) #16
   %.not142.us = icmp eq i32 %43, 0
@@ -692,7 +692,7 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrPush.exit.us
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %4, align 4, !tbaa !20
   %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds ptr, ptr %58, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %58, i64 %61
   store ptr %42, ptr %62, align 8, !tbaa !40
   br label %..loopexit161_crit_edge.us
 
@@ -728,7 +728,7 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrPush.exit.us
 
 72:                                               ; preds = %.lr.ph182, %94
   %indvars.iv194 = phi i64 [ 2, %.lr.ph182 ], [ %indvars.iv.next195, %94 ]
-  %73 = getelementptr inbounds nuw ptr, ptr %.val147, i64 %indvars.iv194
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.val147, i64 %indvars.iv194
   %74 = load ptr, ptr %73, align 8, !tbaa !40
   %75 = tail call i32 @strncmp(ptr noundef nonnull %67, ptr noundef %74, i64 noundef %71) #16
   %.not139 = icmp eq i32 %75, 0
@@ -764,7 +764,7 @@ Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160
   %91 = add nsw i32 %90, 1
   store i32 %91, ptr %4, align 4, !tbaa !20
   %92 = sext i32 %90 to i64
-  %93 = getelementptr inbounds ptr, ptr %89, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %89, i64 %92
   store ptr %74, ptr %93, align 8, !tbaa !40
   br label %.loopexit
 
@@ -793,10 +793,10 @@ Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160
 100:                                              ; preds = %.lr.ph184, %100
   %indvars.iv200 = phi i64 [ %99, %.lr.ph184 ], [ %indvars.iv.next201, %100 ]
   %.val148 = load ptr, ptr %98, align 8, !tbaa !23
-  %101 = getelementptr inbounds ptr, ptr %.val148, i64 %indvars.iv200
+  %101 = getelementptr inbounds [8 x i8], ptr %.val148, i64 %indvars.iv200
   %102 = load ptr, ptr %101, align 8, !tbaa !40
   %103 = sub nsw i64 %indvars.iv200, %99
-  %104 = getelementptr ptr, ptr %.val148, i64 %103
+  %104 = getelementptr [8 x i8], ptr %.val148, i64 %103
   %105 = getelementptr i8, ptr %104, i64 16
   store ptr %102, ptr %105, align 8, !tbaa !40
   %indvars.iv.next201 = add nsw i64 %indvars.iv200, 1
@@ -823,7 +823,7 @@ Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160
   %115 = getelementptr i8, ptr %0, i64 8
   %.val149 = load ptr, ptr %115, align 8, !tbaa !23
   %116 = sext i32 %114 to i64
-  %117 = getelementptr inbounds ptr, ptr %.val149, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %.val149, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !40
   %sext133 = shl i64 %113, 32
   %119 = ashr exact i64 %sext133, 32
@@ -845,7 +845,7 @@ Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160
   %127 = tail call ptr @Mio_GateReadOutName(ptr noundef nonnull %2) #14
   %128 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %127) #16
   %.val150 = load ptr, ptr %115, align 8, !tbaa !23
-  %129 = getelementptr inbounds ptr, ptr %.val150, i64 %116
+  %129 = getelementptr inbounds [8 x i8], ptr %.val150, i64 %116
   %130 = load ptr, ptr %129, align 8, !tbaa !40
   %sext135 = shl i64 %128, 32
   %131 = ashr exact i64 %sext135, 32
@@ -864,7 +864,7 @@ Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160
   %139 = add nsw i32 %138, -1
   store i32 %139, ptr %4, align 4, !tbaa !20
   %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds ptr, ptr %.val150, i64 %140
+  %141 = getelementptr inbounds [8 x i8], ptr %.val150, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !40
   tail call fastcc void @Vec_PtrPush(ptr noundef nonnull %0, ptr noundef null)
   tail call fastcc void @Vec_PtrPush(ptr noundef nonnull %0, ptr noundef %142)
@@ -882,7 +882,7 @@ Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160
   %150 = getelementptr i8, ptr %0, i64 8
   %.val151 = load ptr, ptr %150, align 8, !tbaa !23
   %151 = sext i32 %.val.fr to i64
-  %152 = getelementptr ptr, ptr %.val151, i64 %151
+  %152 = getelementptr [8 x i8], ptr %.val151, i64 %151
   %153 = getelementptr i8, ptr %152, i64 -16
   %154 = load ptr, ptr %153, align 8, !tbaa !40
   %sext129 = shl i64 %149, 32
@@ -901,7 +901,7 @@ Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160
   %162 = tail call ptr @Mio_GateReadOutName(ptr noundef nonnull %2) #14
   %163 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %162) #16
   %.val152 = load ptr, ptr %150, align 8, !tbaa !23
-  %164 = getelementptr ptr, ptr %.val152, i64 %151
+  %164 = getelementptr [8 x i8], ptr %.val152, i64 %151
   %165 = getelementptr i8, ptr %164, i64 -8
   %166 = load ptr, ptr %165, align 8, !tbaa !40
   %sext131 = shl i64 %163, 32
@@ -1002,7 +1002,7 @@ Vec_PtrGrow.exit11:                               ; preds = %.Vec_PtrGrow.exit11
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %3, align 4, !tbaa !20
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %29, i64 %32
   store ptr %1, ptr %33, align 8, !tbaa !40
   ret void
 }
@@ -1026,7 +1026,7 @@ define range(i32 -2147483648, 2147483647) i32 @Io_ReadFindCiId(ptr noundef reado
 
 7:                                                ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %.val9.val, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.val9.val, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !40
   %10 = icmp eq ptr %9, %1
   br i1 %10, label %.critedge.loopexit.split.loop.exit14, label %11
@@ -1062,7 +1062,7 @@ define range(i32 -2147483648, 2147483647) i32 @Io_ReadFindCoId(ptr noundef reado
 
 7:                                                ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %.val9.val, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.val9.val, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !40
   %10 = icmp eq ptr %9, %1
   br i1 %10, label %.critedge.loopexit.split.loop.exit14, label %11
@@ -1136,7 +1136,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %.val190265 = phi ptr [ %.val190, %.lr.ph ], [ %.val190262, %.preheader221 ]
   %33 = getelementptr i8, ptr %.val190265, i64 8
   %.val195.val = load ptr, ptr %33, align 8, !tbaa !23
-  %34 = getelementptr inbounds nuw ptr, ptr %.val195.val, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.val195.val, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !40
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   store ptr null, ptr %36, align 8, !tbaa !73
@@ -1163,7 +1163,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
 .lr.ph270:                                        ; preds = %.preheader, %142
   %indvars.iv345 = phi i64 [ %indvars.iv.next346, %142 ], [ 1, %.preheader ]
   %.val177 = load ptr, ptr %7, align 8, !tbaa !23
-  %43 = getelementptr inbounds nuw ptr, ptr %.val177, i64 %indvars.iv345
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.val177, i64 %indvars.iv345
   %44 = load ptr, ptr %43, align 8, !tbaa !40
   %45 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %44) #16
   %46 = trunc i64 %45 to i32
@@ -1266,7 +1266,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %103 = getelementptr i8, ptr %.val180.val, i64 8
   %.val180.val.val = load ptr, ptr %103, align 8, !tbaa !23
   %104 = sext i32 %.val181.val to i64
-  %105 = getelementptr inbounds ptr, ptr %.val180.val.val, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %.val180.val.val, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !40
   %107 = getelementptr i8, ptr %106, i64 20
   %.val198 = load i32, ptr %107, align 4
@@ -1358,7 +1358,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %.val193276 = phi ptr [ %.val193, %175 ], [ %.val193273, %.critedge2 ]
   %150 = getelementptr i8, ptr %.val193276, i64 8
   %.val196.val = load ptr, ptr %150, align 8, !tbaa !23
-  %151 = getelementptr inbounds nuw ptr, ptr %.val196.val, i64 %indvars.iv348
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %.val196.val, i64 %indvars.iv348
   %152 = load ptr, ptr %151, align 8, !tbaa !40
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 64
   %154 = load ptr, ptr %153, align 8, !tbaa !73
@@ -1421,7 +1421,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %.val194283 = phi ptr [ %.val194, %.critedge4 ], [ %.val193, %.critedge4.preheader ]
   %186 = getelementptr i8, ptr %.val194283, i64 8
   %.val197.val = load ptr, ptr %186, align 8, !tbaa !23
-  %187 = getelementptr inbounds nuw ptr, ptr %.val197.val, i64 %indvars.iv351
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %.val197.val, i64 %indvars.iv351
   %188 = load ptr, ptr %187, align 8, !tbaa !40
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 64
   store ptr null, ptr %189, align 8, !tbaa !73
@@ -1449,7 +1449,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %.val186288 = phi ptr [ %.val186, %.critedge6 ], [ %.val186285, %.critedge6.preheader ]
   %196 = getelementptr i8, ptr %.val186288, i64 8
   %.val189.val = load ptr, ptr %196, align 8, !tbaa !23
-  %197 = getelementptr inbounds nuw ptr, ptr %.val189.val, i64 %indvars.iv354
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %.val189.val, i64 %indvars.iv354
   %198 = load ptr, ptr %197, align 8, !tbaa !40
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 64
   store ptr null, ptr %199, align 8, !tbaa !73
@@ -1478,7 +1478,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
 .lr.ph292:                                        ; preds = %.lr.ph292.preheader, %.critedge8
   %indvars.iv357 = phi i64 [ %195, %.lr.ph292.preheader ], [ %indvars.iv.next358, %.critedge8 ]
   %.val174 = load ptr, ptr %7, align 8, !tbaa !23
-  %205 = getelementptr inbounds ptr, ptr %.val174, i64 %indvars.iv357
+  %205 = getelementptr inbounds [8 x i8], ptr %.val174, i64 %indvars.iv357
   %206 = load ptr, ptr %205, align 8, !tbaa !40
   %207 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %206) #16
   %208 = trunc i64 %207 to i32
@@ -1581,7 +1581,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %265 = getelementptr i8, ptr %.val182.val, i64 8
   %.val182.val.val = load ptr, ptr %265, align 8, !tbaa !23
   %266 = sext i32 %.val183.val to i64
-  %267 = getelementptr inbounds ptr, ptr %.val182.val.val, i64 %266
+  %267 = getelementptr inbounds [8 x i8], ptr %.val182.val.val, i64 %266
   %268 = load ptr, ptr %267, align 8, !tbaa !40
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 64
   %270 = load ptr, ptr %269, align 8, !tbaa !73
@@ -1632,7 +1632,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %.val185298 = phi ptr [ %.val185, %.critedge10 ], [ %.val185295, %.critedge10.preheader ]
   %293 = getelementptr i8, ptr %.val185298, i64 8
   %.val188.val = load ptr, ptr %293, align 8, !tbaa !23
-  %294 = getelementptr inbounds nuw ptr, ptr %.val188.val, i64 %indvars.iv360
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %.val188.val, i64 %indvars.iv360
   %295 = load ptr, ptr %294, align 8, !tbaa !40
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 64
   %297 = load ptr, ptr %296, align 8, !tbaa !73
@@ -1693,7 +1693,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %.val184304 = phi ptr [ %.val184, %.critedge12 ], [ %.val185, %.critedge12.preheader ]
   %328 = getelementptr i8, ptr %.val184304, i64 8
   %.val187.val = load ptr, ptr %328, align 8, !tbaa !23
-  %329 = getelementptr inbounds nuw ptr, ptr %.val187.val, i64 %indvars.iv363
+  %329 = getelementptr inbounds nuw [8 x i8], ptr %.val187.val, i64 %indvars.iv363
   %330 = load ptr, ptr %329, align 8, !tbaa !40
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 64
   store ptr null, ptr %331, align 8, !tbaa !73
@@ -1710,7 +1710,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOneBox(ptr noundef %0,
   %indvars.iv366 = phi i64 [ %indvars.iv.next367, %.critedge14 ], [ 0, %.critedge14.preheader ]
   %336 = getelementptr i8, ptr %335, i64 8
   %.val171 = load ptr, ptr %336, align 8, !tbaa !23
-  %337 = getelementptr inbounds nuw ptr, ptr %.val171, i64 %indvars.iv366
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %.val171, i64 %indvars.iv366
   %338 = load ptr, ptr %337, align 8, !tbaa !40
   %.not166 = icmp eq ptr %338, null
   br i1 %.not166, label %.critedge14, label %339
@@ -1780,7 +1780,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifNetworkConnectBoxesOne(ptr noundef %0, pt
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %3 ]
   %9 = getelementptr i8, ptr %8, i64 8
   %.val12.val = load ptr, ptr %9, align 8, !tbaa !23
-  %10 = getelementptr inbounds nuw ptr, ptr %.val12.val, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val12.val, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !40
   %12 = getelementptr i8, ptr %11, i64 20
   %.val13 = load i32, ptr %12, align 4
@@ -1831,7 +1831,7 @@ define internal fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull readonly ca
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !23
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !40
   %.not58 = icmp eq ptr %11, null
   br i1 %.not58, label %17, label %12
@@ -1841,7 +1841,7 @@ define internal fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull readonly ca
   %13 = load ptr, ptr %2, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !23
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr null, ptr %16, align 8, !tbaa !40
   %.pre = load ptr, ptr %2, align 8, !tbaa !24
   br label %17
@@ -1873,7 +1873,7 @@ define internal fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull readonly ca
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !20
   %34 = sext i32 %33 to i64
-  %35 = getelementptr ptr, ptr %31, i64 %34
+  %35 = getelementptr [8 x i8], ptr %31, i64 %34
   %36 = getelementptr i8, ptr %35, i64 -8
   %37 = load ptr, ptr %36, align 8, !tbaa !40
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #16
@@ -1912,7 +1912,7 @@ define internal fastcc ptr @Io_ReadBlifGetTokens(ptr noundef nonnull readonly ca
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %Vec_PtrPush.exit ], [ 0, %47 ]
   %55 = load ptr, ptr %2, align 8, !tbaa !24
   %56 = load ptr, ptr %30, align 8, !tbaa !23
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv95
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv95
   %58 = load ptr, ptr %57, align 8, !tbaa !40
   %59 = tail call ptr @Extra_UtilStrsav(ptr noundef %58) #14
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 4
@@ -1979,7 +1979,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %88 = add nsw i32 %87, 1
   store i32 %88, ptr %60, align 4, !tbaa !20
   %89 = sext i32 %87 to i64
-  %90 = getelementptr inbounds ptr, ptr %86, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %86, i64 %89
   store ptr %59, ptr %90, align 8, !tbaa !40
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %91 = load i32, ptr %32, align 4, !tbaa !20
@@ -2002,7 +2002,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !23
   %104 = sext i32 %99 to i64
-  %105 = getelementptr ptr, ptr %103, i64 %104
+  %105 = getelementptr [8 x i8], ptr %103, i64 %104
   %106 = getelementptr i8, ptr %105, i64 -8
   %107 = load ptr, ptr %106, align 8, !tbaa !40
   %108 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %107) #16
@@ -2037,7 +2037,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %Vec_PtrPush.exit65 ], [ 0, %119 ]
   %122 = load ptr, ptr %2, align 8, !tbaa !24
   %123 = load ptr, ptr %102, align 8, !tbaa !23
-  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %indvars.iv98
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %indvars.iv98
   %125 = load ptr, ptr %124, align 8, !tbaa !40
   %126 = tail call ptr @Extra_UtilStrsav(ptr noundef %125) #14
   %127 = getelementptr inbounds nuw i8, ptr %122, i64 4
@@ -2104,7 +2104,7 @@ Vec_PtrPush.exit65:                               ; preds = %.Vec_PtrGrow.exit11
   %155 = add nsw i32 %154, 1
   store i32 %155, ptr %127, align 4, !tbaa !20
   %156 = sext i32 %154 to i64
-  %157 = getelementptr inbounds ptr, ptr %153, i64 %156
+  %157 = getelementptr inbounds [8 x i8], ptr %153, i64 %156
   store ptr %126, ptr %157, align 8, !tbaa !40
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %158 = load i32, ptr %100, align 4, !tbaa !20
@@ -2116,7 +2116,7 @@ Vec_PtrPush.exit65:                               ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %Vec_PtrPush.exit72 ], [ 0, %.preheader ]
   %161 = load ptr, ptr %2, align 8, !tbaa !24
   %162 = load ptr, ptr %102, align 8, !tbaa !23
-  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %indvars.iv101
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %indvars.iv101
   %164 = load ptr, ptr %163, align 8, !tbaa !40
   %165 = tail call ptr @Extra_UtilStrsav(ptr noundef %164) #14
   %166 = getelementptr inbounds nuw i8, ptr %161, i64 4
@@ -2183,7 +2183,7 @@ Vec_PtrPush.exit72:                               ; preds = %.Vec_PtrGrow.exit11
   %194 = add nsw i32 %193, 1
   store i32 %194, ptr %166, align 4, !tbaa !20
   %195 = sext i32 %193 to i64
-  %196 = getelementptr inbounds ptr, ptr %192, i64 %195
+  %196 = getelementptr inbounds [8 x i8], ptr %192, i64 %195
   store ptr %165, ptr %196, align 8, !tbaa !40
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %197 = load i32, ptr %100, align 4, !tbaa !20
@@ -2415,7 +2415,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %102, %99, %.critedg
   %124 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %125 = add nsw i32 %111, -2
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw ptr, ptr %124, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !110
   %129 = tail call ptr @Io_ReadCreateNode(ptr noundef %109, ptr noundef %128, ptr noundef nonnull %124, i32 noundef %125) #14
   %130 = load ptr, ptr %88, align 8, !tbaa !29
@@ -3299,7 +3299,7 @@ Vec_StrPush.exit158.i:                            ; preds = %520, %Vec_StrGrow.e
   %541 = getelementptr i8, ptr %.val92.val.i, i64 8
   %.val92.val.val.i = load ptr, ptr %541, align 8, !tbaa !23
   %542 = sext i32 %.val93.val.i to i64
-  %543 = getelementptr inbounds ptr, ptr %.val92.val.val.i, i64 %542
+  %543 = getelementptr inbounds [8 x i8], ptr %.val92.val.val.i, i64 %542
   %544 = load ptr, ptr %543, align 8, !tbaa !40
   %545 = tail call ptr @Abc_ObjName(ptr noundef %544) #14
   %.val91.i = load ptr, ptr %533, align 8, !tbaa !73
@@ -3470,7 +3470,7 @@ Vec_StrPush.exit158.i:                            ; preds = %520, %Vec_StrGrow.e
 .lr.ph.i135:                                      ; preds = %636, %.lr.ph.preheader.i
   %637 = phi ptr [ %.pre.i134, %.lr.ph.preheader.i ], [ %650, %636 ]
   %indvars.iv.i = phi i64 [ 2, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %636 ]
-  %638 = getelementptr inbounds nuw ptr, ptr %637, i64 %indvars.iv.i
+  %638 = getelementptr inbounds nuw [8 x i8], ptr %637, i64 %indvars.iv.i
   %639 = load ptr, ptr %638, align 8, !tbaa !40
   %640 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %639) #16
   %641 = trunc i64 %640 to i32
@@ -3502,7 +3502,7 @@ Io_ReadBlifCleanName.exit.i:                      ; preds = %643, %647, %.lr.ph.
   %.0.i.i = phi ptr [ %649, %647 ], [ null, %.lr.ph.i135 ], [ null, %643 ]
   store ptr %.0.i.i, ptr %638, align 8, !tbaa !40
   %650 = load ptr, ptr %104, align 8, !tbaa !23
-  %651 = getelementptr inbounds nuw ptr, ptr %650, i64 %indvars.iv.i
+  %651 = getelementptr inbounds nuw [8 x i8], ptr %650, i64 %indvars.iv.i
   %652 = load ptr, ptr %651, align 8, !tbaa !40
   %653 = icmp eq ptr %652, null
   br i1 %653, label %654, label %636
@@ -3538,7 +3538,7 @@ Io_ReadBlifCleanName.exit.i:                      ; preds = %643, %647, %.lr.ph.
   %670 = add nsw i32 %666, -3
   %671 = load ptr, ptr %13, align 8, !tbaa !107
   %672 = sext i32 %670 to i64
-  %673 = getelementptr inbounds ptr, ptr %668, i64 %672
+  %673 = getelementptr inbounds [8 x i8], ptr %668, i64 %672
   %674 = load ptr, ptr %673, align 8, !tbaa !110
   %675 = tail call ptr @Io_ReadCreateNode(ptr noundef %671, ptr noundef %674, ptr noundef nonnull %668, i32 noundef %670) #14
   %676 = getelementptr inbounds nuw i8, ptr %675, i64 56
@@ -3548,7 +3548,7 @@ Io_ReadBlifCleanName.exit.i:                      ; preds = %643, %647, %.lr.ph.
 677:                                              ; preds = %._crit_edge.i
   %678 = add nsw i32 %666, -4
   %679 = sext i32 %678 to i64
-  %680 = getelementptr inbounds ptr, ptr %668, i64 %679
+  %680 = getelementptr inbounds [8 x i8], ptr %668, i64 %679
   %681 = load ptr, ptr %680, align 8, !tbaa !110
   %.not79.i = icmp eq ptr %681, null
   br i1 %.not79.i, label %686, label %682
@@ -3562,7 +3562,7 @@ Io_ReadBlifCleanName.exit.i:                      ; preds = %643, %647, %.lr.ph.
 
 686:                                              ; preds = %682, %677
   %687 = sext i32 %666 to i64
-  %688 = getelementptr ptr, ptr %668, i64 %687
+  %688 = getelementptr [8 x i8], ptr %668, i64 %687
   %689 = getelementptr i8, ptr %688, i64 -24
   %690 = load ptr, ptr %689, align 8, !tbaa !110
   %.not80.i = icmp eq ptr %690, null
@@ -3625,7 +3625,7 @@ Io_ReadBlifCleanName.exit.i:                      ; preds = %643, %647, %.lr.ph.
 723:                                              ; preds = %712
   %724 = load ptr, ptr %104, align 8, !tbaa !23
   %725 = sext i32 %719 to i64
-  %726 = getelementptr ptr, ptr %724, i64 %725
+  %726 = getelementptr [8 x i8], ptr %724, i64 %725
   %727 = getelementptr i8, ptr %726, i64 -8
   %728 = load ptr, ptr %727, align 8, !tbaa !40
   %729 = tail call i64 @strtol(ptr noundef nonnull captures(none) %728, ptr noundef null, i32 noundef 10) #14
@@ -3694,7 +3694,7 @@ default.unreachable:                              ; preds = %746
   %indvars.iv.i144 = phi i64 [ %indvars.iv.next.i145, %.lr.ph.i143 ], [ 1, %753 ]
   %757 = load ptr, ptr %13, align 8, !tbaa !107
   %758 = load ptr, ptr %104, align 8, !tbaa !23
-  %759 = getelementptr inbounds nuw ptr, ptr %758, i64 %indvars.iv.i144
+  %759 = getelementptr inbounds nuw [8 x i8], ptr %758, i64 %indvars.iv.i144
   %760 = load ptr, ptr %759, align 8, !tbaa !40
   %761 = tail call ptr @Io_ReadCreatePi(ptr noundef %757, ptr noundef %760) #14
   %indvars.iv.next.i145 = add nuw nsw i64 %indvars.iv.i144, 1
@@ -3718,7 +3718,7 @@ default.unreachable:                              ; preds = %746
   %indvars.iv.i148 = phi i64 [ %indvars.iv.next.i149, %.lr.ph.i147 ], [ 1, %767 ]
   %771 = load ptr, ptr %13, align 8, !tbaa !107
   %772 = load ptr, ptr %104, align 8, !tbaa !23
-  %773 = getelementptr inbounds nuw ptr, ptr %772, i64 %indvars.iv.i148
+  %773 = getelementptr inbounds nuw [8 x i8], ptr %772, i64 %indvars.iv.i148
   %774 = load ptr, ptr %773, align 8, !tbaa !40
   %775 = tail call ptr @Io_ReadCreatePo(ptr noundef %771, ptr noundef %774) #14
   %indvars.iv.next.i149 = add nuw nsw i64 %indvars.iv.i148, 1
@@ -3852,7 +3852,7 @@ default.unreachable:                              ; preds = %746
   %853 = getelementptr i8, ptr %.val37.val.i, i64 8
   %.val37.val.val.i = load ptr, ptr %853, align 8, !tbaa !23
   %854 = sext i32 %.val38.val.i to i64
-  %855 = getelementptr inbounds ptr, ptr %.val37.val.val.i, i64 %854
+  %855 = getelementptr inbounds [8 x i8], ptr %.val37.val.val.i, i64 %854
   %856 = load ptr, ptr %855, align 8, !tbaa !40
   %857 = getelementptr inbounds nuw i8, ptr %856, i64 16
   %858 = load i32, ptr %857, align 8, !tbaa !120
@@ -3868,7 +3868,7 @@ default.unreachable:                              ; preds = %746
   %863 = getelementptr i8, ptr %.val35.val.i, i64 8
   %.val35.val.val.i = load ptr, ptr %863, align 8, !tbaa !23
   %864 = sext i32 %.val36.val.i to i64
-  %865 = getelementptr inbounds ptr, ptr %.val35.val.val.i, i64 %864
+  %865 = getelementptr inbounds [8 x i8], ptr %.val35.val.val.i, i64 %864
   %866 = load ptr, ptr %865, align 8, !tbaa !40
   %867 = getelementptr inbounds nuw i8, ptr %866, i64 16
   %868 = load i32, ptr %867, align 8, !tbaa !120
@@ -3936,7 +3936,7 @@ Vec_IntPush.exit.i:                               ; preds = %893, %Vec_IntGrow.e
   %897 = add nsw i32 %896, 1
   store i32 %897, ptr %869, align 4, !tbaa !30
   %898 = sext i32 %896 to i64
-  %899 = getelementptr inbounds i32, ptr %895, i64 %898
+  %899 = getelementptr inbounds [4 x i8], ptr %895, i64 %898
   store i32 %868, ptr %899, align 4, !tbaa !67
   %900 = load ptr, ptr %87, align 8, !tbaa !35
   %901 = getelementptr inbounds nuw i8, ptr %900, i64 4
@@ -4003,7 +4003,7 @@ Vec_IntPush.exit47.i:                             ; preds = %925, %Vec_IntGrow.e
   %929 = add nsw i32 %928, 1
   store i32 %929, ptr %901, align 4, !tbaa !30
   %930 = sext i32 %928 to i64
-  %931 = getelementptr inbounds i32, ptr %927, i64 %930
+  %931 = getelementptr inbounds [4 x i8], ptr %927, i64 %930
   store float %859, ptr %931, align 4, !tbaa !67
   %932 = load ptr, ptr %87, align 8, !tbaa !35
   %933 = getelementptr inbounds nuw i8, ptr %932, i64 4
@@ -4070,7 +4070,7 @@ Vec_IntPush.exit54.i:                             ; preds = %957, %Vec_IntGrow.e
   %961 = add nsw i32 %960, 1
   store i32 %961, ptr %933, align 4, !tbaa !30
   %962 = sext i32 %960 to i64
-  %963 = getelementptr inbounds i32, ptr %959, i64 %962
+  %963 = getelementptr inbounds [4 x i8], ptr %959, i64 %962
   store float %860, ptr %963, align 4, !tbaa !67
   br label %Io_ReadBlifNetworkInputArrival.exit
 
@@ -4199,7 +4199,7 @@ Io_ReadBlifNetworkInputArrival.exit:              ; preds = %790, %792, %811, %8
   %1035 = getelementptr i8, ptr %.val35.val.i162, i64 8
   %.val35.val.val.i164 = load ptr, ptr %1035, align 8, !tbaa !23
   %1036 = sext i32 %.val36.val.i163 to i64
-  %1037 = getelementptr inbounds ptr, ptr %.val35.val.val.i164, i64 %1036
+  %1037 = getelementptr inbounds [8 x i8], ptr %.val35.val.val.i164, i64 %1036
   %1038 = load ptr, ptr %1037, align 8, !tbaa !40
   %1039 = getelementptr inbounds nuw i8, ptr %1038, i64 16
   %1040 = load i32, ptr %1039, align 8, !tbaa !120
@@ -4215,7 +4215,7 @@ Io_ReadBlifNetworkInputArrival.exit:              ; preds = %790, %792, %811, %8
   %1045 = getelementptr i8, ptr %.val.val.i, i64 8
   %.val.val.val.i = load ptr, ptr %1045, align 8, !tbaa !23
   %1046 = sext i32 %.val34.val.i to i64
-  %1047 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %1046
+  %1047 = getelementptr inbounds [8 x i8], ptr %.val.val.val.i, i64 %1046
   %1048 = load ptr, ptr %1047, align 8, !tbaa !40
   %1049 = getelementptr inbounds nuw i8, ptr %1048, i64 16
   %1050 = load i32, ptr %1049, align 8, !tbaa !120
@@ -4283,7 +4283,7 @@ Vec_IntPush.exit.i169:                            ; preds = %1075, %Vec_IntGrow.
   %1079 = add nsw i32 %1078, 1
   store i32 %1079, ptr %1051, align 4, !tbaa !30
   %1080 = sext i32 %1078 to i64
-  %1081 = getelementptr inbounds i32, ptr %1077, i64 %1080
+  %1081 = getelementptr inbounds [4 x i8], ptr %1077, i64 %1080
   store i32 %1050, ptr %1081, align 4, !tbaa !67
   %1082 = load ptr, ptr %86, align 8, !tbaa !36
   %1083 = getelementptr inbounds nuw i8, ptr %1082, i64 4
@@ -4350,7 +4350,7 @@ Vec_IntPush.exit45.i:                             ; preds = %1107, %Vec_IntGrow.
   %1111 = add nsw i32 %1110, 1
   store i32 %1111, ptr %1083, align 4, !tbaa !30
   %1112 = sext i32 %1110 to i64
-  %1113 = getelementptr inbounds i32, ptr %1109, i64 %1112
+  %1113 = getelementptr inbounds [4 x i8], ptr %1109, i64 %1112
   store float %1041, ptr %1113, align 4, !tbaa !67
   %1114 = load ptr, ptr %86, align 8, !tbaa !36
   %1115 = getelementptr inbounds nuw i8, ptr %1114, i64 4
@@ -4417,7 +4417,7 @@ Vec_IntPush.exit52.i:                             ; preds = %1139, %Vec_IntGrow.
   %1143 = add nsw i32 %1142, 1
   store i32 %1143, ptr %1115, align 4, !tbaa !30
   %1144 = sext i32 %1142 to i64
-  %1145 = getelementptr inbounds i32, ptr %1141, i64 %1144
+  %1145 = getelementptr inbounds [4 x i8], ptr %1141, i64 %1144
   store float %1042, ptr %1145, align 4, !tbaa !67
   br label %Io_ReadBlifNetworkOutputRequired.exit
 
@@ -4727,7 +4727,7 @@ Io_ReadBlifNetworkDefaultOutputRequired.exit:     ; preds = %1205, %1207, %1235,
   %1314 = getelementptr i8, ptr %.val.val.i182, i64 8
   %.val.val.val.i183 = load ptr, ptr %1314, align 8, !tbaa !23
   %1315 = sext i32 %.val32.val.i to i64
-  %1316 = getelementptr inbounds ptr, ptr %.val.val.val.i183, i64 %1315
+  %1316 = getelementptr inbounds [8 x i8], ptr %.val.val.val.i183, i64 %1315
   %1317 = load ptr, ptr %1316, align 8, !tbaa !40
   %1318 = getelementptr inbounds nuw i8, ptr %1317, i64 16
   %1319 = load i32, ptr %1318, align 8, !tbaa !120
@@ -4736,7 +4736,7 @@ Io_ReadBlifNetworkDefaultOutputRequired.exit:     ; preds = %1205, %1207, %1235,
   %1321 = getelementptr i8, ptr %.val33.i, i64 8
   %.val33.val.i = load ptr, ptr %1321, align 8, !tbaa !23
   %1322 = sext i32 %1319 to i64
-  %1323 = getelementptr inbounds ptr, ptr %.val33.val.i, i64 %1322
+  %1323 = getelementptr inbounds [8 x i8], ptr %.val33.val.i, i64 %1322
   %1324 = load ptr, ptr %1323, align 8, !tbaa !40
   %1325 = getelementptr i8, ptr %1311, i64 56
   %.val.i.i = load ptr, ptr %1325, align 8, !tbaa !79
@@ -4753,7 +4753,7 @@ Io_ReadBlifNetworkDefaultOutputRequired.exit:     ; preds = %1205, %1207, %1235,
 
 1329:                                             ; preds = %1333, %.lr.ph.i.i191
   %indvars.iv.i.i193 = phi i64 [ 0, %.lr.ph.i.i191 ], [ %indvars.iv.next.i.i194, %1333 ]
-  %1330 = getelementptr inbounds nuw ptr, ptr %.val9.val.i.i, i64 %indvars.iv.i.i193
+  %1330 = getelementptr inbounds nuw [8 x i8], ptr %.val9.val.i.i, i64 %indvars.iv.i.i193
   %1331 = load ptr, ptr %1330, align 8, !tbaa !40
   %1332 = icmp eq ptr %1331, %1324
   br i1 %1332, label %.critedge.loopexit.split.loop.exit14.i.i, label %1333
@@ -4833,7 +4833,7 @@ Vec_IntPush.exit.i187:                            ; preds = %1359, %Vec_IntGrow.
   %1363 = add nsw i32 %1362, 1
   store i32 %1363, ptr %1335, align 4, !tbaa !30
   %1364 = sext i32 %1362 to i64
-  %1365 = getelementptr inbounds i32, ptr %1361, i64 %1364
+  %1365 = getelementptr inbounds [4 x i8], ptr %1361, i64 %1364
   store i32 %.08.i.i, ptr %1365, align 4, !tbaa !67
   %1366 = load ptr, ptr %79, align 8, !tbaa !37
   %1367 = fptrunc double %1282 to float
@@ -4901,7 +4901,7 @@ Vec_IntPush.exit42.i:                             ; preds = %1392, %Vec_IntGrow.
   %1396 = add nsw i32 %1395, 1
   store i32 %1396, ptr %1368, align 4, !tbaa !30
   %1397 = sext i32 %1395 to i64
-  %1398 = getelementptr inbounds i32, ptr %1394, i64 %1397
+  %1398 = getelementptr inbounds [4 x i8], ptr %1394, i64 %1397
   store float %1367, ptr %1398, align 4, !tbaa !67
   %1399 = load ptr, ptr %79, align 8, !tbaa !37
   %1400 = fptrunc double %1286 to float
@@ -4969,7 +4969,7 @@ Vec_IntPush.exit49.i:                             ; preds = %1425, %Vec_IntGrow.
   %1429 = add nsw i32 %1428, 1
   store i32 %1429, ptr %1401, align 4, !tbaa !30
   %1430 = sext i32 %1428 to i64
-  %1431 = getelementptr inbounds i32, ptr %1427, i64 %1430
+  %1431 = getelementptr inbounds [4 x i8], ptr %1427, i64 %1430
   store float %1400, ptr %1431, align 4, !tbaa !67
   br label %Io_ReadBlifNetworkInputDrive.exit
 
@@ -5239,7 +5239,7 @@ define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkOutputLoad(ptr nou
   %93 = getelementptr i8, ptr %.val.val, i64 8
   %.val.val.val = load ptr, ptr %93, align 8, !tbaa !23
   %94 = sext i32 %.val32.val to i64
-  %95 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %.val.val.val, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !40
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load i32, ptr %97, align 8, !tbaa !120
@@ -5248,7 +5248,7 @@ define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkOutputLoad(ptr nou
   %100 = getelementptr i8, ptr %.val33, i64 8
   %.val33.val = load ptr, ptr %100, align 8, !tbaa !23
   %101 = sext i32 %98 to i64
-  %102 = getelementptr inbounds ptr, ptr %.val33.val, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %.val33.val, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !40
   %104 = getelementptr i8, ptr %90, i64 48
   %.val.i = load ptr, ptr %104, align 8, !tbaa !81
@@ -5265,7 +5265,7 @@ define internal fastcc range(i32 0, 2) i32 @Io_ReadBlifNetworkOutputLoad(ptr nou
 
 108:                                              ; preds = %112, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %112 ]
-  %109 = getelementptr inbounds nuw ptr, ptr %.val9.val.i, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %.val9.val.i, i64 %indvars.iv.i
   %110 = load ptr, ptr %109, align 8, !tbaa !40
   %111 = icmp eq ptr %110, %103
   br i1 %111, label %.critedge.loopexit.split.loop.exit14.i, label %112
@@ -5345,7 +5345,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %142 = add nsw i32 %141, 1
   store i32 %142, ptr %114, align 4, !tbaa !30
   %143 = sext i32 %141 to i64
-  %144 = getelementptr inbounds i32, ptr %140, i64 %143
+  %144 = getelementptr inbounds [4 x i8], ptr %140, i64 %143
   store i32 %.08.i, ptr %144, align 4, !tbaa !67
   %145 = load ptr, ptr %88, align 8, !tbaa !38
   %146 = fptrunc double %55 to float
@@ -5413,7 +5413,7 @@ Vec_IntPush.exit42:                               ; preds = %.Vec_IntGrow.exit10
   %175 = add nsw i32 %174, 1
   store i32 %175, ptr %147, align 4, !tbaa !30
   %176 = sext i32 %174 to i64
-  %177 = getelementptr inbounds i32, ptr %173, i64 %176
+  %177 = getelementptr inbounds [4 x i8], ptr %173, i64 %176
   store float %146, ptr %177, align 4, !tbaa !67
   %178 = load ptr, ptr %88, align 8, !tbaa !38
   %179 = fptrunc double %59 to float
@@ -5481,7 +5481,7 @@ Vec_IntPush.exit49:                               ; preds = %.Vec_IntGrow.exit10
   %208 = add nsw i32 %207, 1
   store i32 %208, ptr %180, align 4, !tbaa !30
   %209 = sext i32 %207 to i64
-  %210 = getelementptr inbounds i32, ptr %206, i64 %209
+  %210 = getelementptr inbounds [4 x i8], ptr %206, i64 %209
   store float %179, ptr %210, align 4, !tbaa !67
   br label %Io_ReadBlifPrintErrorMessage.exit
 

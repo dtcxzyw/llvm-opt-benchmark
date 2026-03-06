@@ -157,25 +157,25 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .split.us:                                        ; preds = %33, %.loopexit92.us
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %.loopexit92.us ], [ 0, %33 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv130
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv130
   %45 = load ptr, ptr %44, align 8, !tbaa !52
   %.not85.us = icmp eq ptr %45, null
   br i1 %.not85.us, label %.critedge, label %46
 
 46:                                               ; preds = %.split.us
-  %47 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv130
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv130
   %48 = load i32, ptr %47, align 4, !tbaa !53
   %.not86.us = icmp eq i32 %48, 0
   br i1 %.not86.us, label %.critedge, label %49
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv130
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv130
   %51 = load i32, ptr %50, align 4, !tbaa !53
   %52 = select i1 %40, i32 %51, i32 0
   %53 = select i1 %40, i32 %48, i32 0
-  %54 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv130
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv130
   %55 = load i32, ptr %54, align 4, !tbaa !53
-  %56 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv130
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %indvars.iv130
   %57 = load ptr, ptr %56, align 8, !tbaa !52
   %58 = load i32, ptr %16, align 8, !tbaa !47
   %.not89.us = icmp eq i32 %58, 0

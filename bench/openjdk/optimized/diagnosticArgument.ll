@@ -81,7 +81,7 @@ define hidden void @_ZN19StringArrayArgumentD2Ev(ptr noundef nonnull readonly al
   %5 = phi ptr [ %10, %.lr.ph ], [ %2, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %9) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -169,7 +169,7 @@ _ZN26GrowableArrayWithAllocatorIPc13GrowableArrayIS0_EE6appendERKS0_.exit: ; pre
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %22 to i64
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %25, i64 %26
   store ptr %6, ptr %27, align 8
   br label %28
 
@@ -275,7 +275,7 @@ define hidden void @_ZNK15GenDCmdArgument9to_stringEP19StringArrayArgumentPcm(pt
   %11 = load ptr, ptr %1, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #16
   %17 = add i64 %16, %.024
@@ -796,7 +796,7 @@ _ZN26GrowableArrayWithAllocatorIPc13GrowableArrayIS0_EE6appendERKS0_.exit.i: ; p
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %25 to i64
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
   store ptr %9, ptr %30, align 8
   br label %_ZN19StringArrayArgument3addEPKcm.exit
 
@@ -862,7 +862,7 @@ define hidden void @_ZN12DCmdArgumentIP19StringArrayArgumentE13destroy_valueEv(p
   %8 = phi ptr [ %13, %.lr.ph.i ], [ %5, %4 ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %12) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1095,9 +1095,9 @@ _ZN13GrowableArrayIPcE8allocateEv.exit:           ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1114,7 +1114,7 @@ _ZN13GrowableArrayIPcE8allocateEv.exit:           ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

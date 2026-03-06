@@ -85,7 +85,7 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr noundef captures(none) %0, 
 34:                                               ; preds = %.thread
   %35 = load i32, ptr %1, align 4, !tbaa !4
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %36
   store i32 %20, ptr %37, align 4, !tbaa !4
   %38 = add i32 %35, 1
   store i32 %38, ptr %1, align 4, !tbaa !4
@@ -138,7 +138,7 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr noundef captures(none) %0, 
 
 .lr.ph96:                                         ; preds = %.preheader82, %.lr.ph96
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph96 ], [ 0, %.preheader82 ]
-  %57 = getelementptr inbounds nuw i32, ptr %.06793, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.06793, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4, !tbaa !4
   %59 = call i32 @close(i32 noundef %58) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -255,7 +255,7 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr noundef captures(none) %0, 
 134:                                              ; preds = %119
   %135 = load i32, ptr %1, align 4, !tbaa !4
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw i32, ptr %55, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %136
   store i32 %71, ptr %137, align 4, !tbaa !4
   %138 = add i32 %135, 1
   store i32 %138, ptr %1, align 4, !tbaa !4

@@ -785,8 +785,8 @@ define { i64, ptr } @_ZN9quinn_udp3imp14UdpSocketState4recv17ha083ed936ae1c98dE(
   br i1 %exitcond37.not.i, label %75, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw { [16 x i64] }, ptr %13, i64 %.sroa.08.026.i
-  %39 = getelementptr inbounds nuw { { ptr, i32, [1 x i32], ptr, i64, ptr, i64, i32, [1 x i32] }, i32, [1 x i32] }, ptr %11, i64 %.sroa.08.026.i
+  %38 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 %.sroa.08.026.i
+  %39 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %.sroa.08.026.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %41 = load i32, ptr %40, align 8, !noalias !15, !noundef !5
   %42 = zext i32 %41 to i64
@@ -931,7 +931,7 @@ _ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E.exit.i: ; preds = %53, %51
   unreachable
 
 76:                                               ; preds = %_ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E.exit.i
-  %77 = getelementptr inbounds nuw { { i16, [15 x i16] }, i64, i64, { i8, [16 x i8] }, i8, [6 x i8] }, ptr %4, i64 %.sroa.08.026.i
+  %77 = getelementptr inbounds nuw [72 x i8], ptr %4, i64 %.sroa.08.026.i
   store i16 %.sroa.021.0.i.i, ptr %77, align 8, !alias.scope !12, !noalias !27
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %77, i64 2
   store i32 %.sroa.3.0.i.i, ptr %.sroa.4.0..sroa_idx.i, align 2, !alias.scope !12, !noalias !27
@@ -969,10 +969,10 @@ _ZN9quinn_udp3imp11decode_recv17h466ebba9d8af9166E.exit.i: ; preds = %53, %51
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.i
   %.sroa.06.024.i = phi i64 [ %79, %.lr.ph.i ], [ 0, %6 ]
   %79 = add nuw nsw i64 %.sroa.06.024.i, 1
-  %80 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %2, i64 %.sroa.06.024.i
-  %81 = getelementptr inbounds nuw { [16 x i64] }, ptr %13, i64 %.sroa.06.024.i
-  %82 = getelementptr inbounds nuw { { [88 x i8] } }, ptr %12, i64 %.sroa.06.024.i
-  %83 = getelementptr inbounds nuw { { ptr, i32, [1 x i32], ptr, i64, ptr, i64, i32, [1 x i32] }, i32, [1 x i32] }, ptr %11, i64 %.sroa.06.024.i
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.sroa.06.024.i
+  %81 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 %.sroa.06.024.i
+  %82 = getelementptr inbounds nuw [88 x i8], ptr %12, i64 %.sroa.06.024.i
+  %83 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %.sroa.06.024.i
   store ptr %81, ptr %83, align 8, !alias.scope !28, !noalias !31
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i32 128, ptr %84, align 8, !alias.scope !28, !noalias !31

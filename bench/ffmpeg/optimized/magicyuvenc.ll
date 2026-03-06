@@ -5,10 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
 %union.anon.0 = type { i64 }
-%struct.Slice = type { i32, i32, i32, i32, i32, ptr, ptr, [256 x i64] }
 %struct.PackageMergerList = type { i32, [515 x i32], [514 x i32], [4112 x i32] }
 %struct.PTable = type { i32, i64 }
-%struct.HuffEntry = type { i8, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"magicyuv\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"MagicYUV video\00", align 1
@@ -227,7 +225,7 @@ define internal range(i32 -12, 1) i32 @magy_encode_init(ptr noundef captures(non
   %106 = trunc nuw nsw i64 %indvars.iv to i32
   %107 = add nsw i32 %105, %106
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds %struct.Slice, ptr %104, i64 %108
+  %109 = getelementptr inbounds [2088 x i8], ptr %104, i64 %108
   %110 = load i32, ptr %42, align 8, !tbaa !40
   %111 = add nsw i32 %110, -1
   %112 = icmp eq i32 %.0139193, %111
@@ -250,14 +248,14 @@ define internal range(i32 -12, 1) i32 @magy_encode_init(ptr noundef captures(non
   %123 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store i32 %122, ptr %123, align 4, !tbaa !46
   %124 = sub nsw i32 0, %122
-  %125 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   %126 = load i32, ptr %125, align 4, !tbaa !33
   %127 = ashr i32 %124, %126
   %128 = sub nsw i32 0, %127
   store i32 %128, ptr %123, align 4, !tbaa !46
   %129 = load i32, ptr %97, align 8, !tbaa !42
   %130 = sub nsw i32 0, %129
-  %131 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv
   %132 = load i32, ptr %131, align 4, !tbaa !33
   %133 = ashr i32 %130, %132
   %134 = sub nsw i32 0, %133
@@ -292,7 +290,7 @@ define internal range(i32 -12, 1) i32 @magy_encode_init(ptr noundef captures(non
 
 switch.lookup:                                    ; preds = %.critedge162
   %147 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.magy_encode_init, i64 %147
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.magy_encode_init, i64 %147
   %switch.load = load ptr, ptr %switch.gep, align 8
   %148 = getelementptr inbounds nuw i8, ptr %3, i64 8304
   store ptr %switch.load, ptr %148, align 8, !tbaa !52
@@ -412,15 +410,15 @@ define internal range(i32 -2147483648, 1) i32 @magy_encode_frame(ptr noundef %0,
   %indvars.iv219 = phi i64 [ %indvars.iv.next220, %._crit_edge.us ], [ 0, %.preheader152.lr.ph.split.us ]
   %.0101171.us = phi i64 [ %70, %._crit_edge.us ], [ %30, %.preheader152.lr.ph.split.us ]
   %48 = mul nuw nsw i64 %indvars.iv219, %47
-  %invariant.gep = getelementptr inbounds nuw %struct.Slice, ptr %46, i64 %48
+  %invariant.gep = getelementptr inbounds nuw [2088 x i8], ptr %46, i64 %48
   br label %49
 
 49:                                               ; preds = %.preheader152.us, %52
   %indvars.iv215 = phi i64 [ 0, %.preheader152.us ], [ %indvars.iv.next216, %52 ]
   %.1102167.us = phi i64 [ %.0101171.us, %.preheader152.us ], [ %70, %52 ]
-  %gep = getelementptr inbounds nuw %struct.Slice, ptr %invariant.gep, i64 %indvars.iv215
+  %gep = getelementptr inbounds nuw [2088 x i8], ptr %invariant.gep, i64 %indvars.iv215
   %50 = getelementptr inbounds nuw i8, ptr %gep, i64 40
-  %51 = getelementptr inbounds nuw [256 x %struct.HuffEntry], ptr %44, i64 %indvars.iv215
+  %51 = getelementptr inbounds nuw [2048 x i8], ptr %44, i64 %indvars.iv215
   br label %71
 
 52:                                               ; preds = %71
@@ -453,9 +451,9 @@ define internal range(i32 -2147483648, 1) i32 @magy_encode_frame(ptr noundef %0,
 71:                                               ; preds = %71, %49
   %.099165.us = phi i64 [ 0, %49 ], [ %79, %71 ]
   %.0100164.us = phi i64 [ 0, %49 ], [ %78, %71 ]
-  %72 = getelementptr inbounds nuw i64, ptr %50, i64 %.099165.us
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.099165.us
   %73 = load i64, ptr %72, align 8, !tbaa !61
-  %74 = getelementptr inbounds nuw %struct.HuffEntry, ptr %51, i64 %.099165.us
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.099165.us
   %75 = load i8, ptr %74, align 8, !tbaa !62
   %76 = zext i8 %75 to i64
   %77 = mul nsw i64 %73, %76
@@ -478,7 +476,7 @@ define internal range(i32 -2147483648, 1) i32 @magy_encode_frame(ptr noundef %0,
   br label %90
 
 .preheader.i:                                     ; preds = %90
-  %81 = getelementptr inbounds nuw [256 x %struct.HuffEntry], ptr %36, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [2048 x i8], ptr %36, i64 %indvars.iv
   %82 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %83 = load i32, ptr %82, align 8, !tbaa !40
   %84 = icmp sgt i32 %83, 0
@@ -491,12 +489,12 @@ define internal range(i32 -2147483648, 1) i32 @magy_encode_frame(ptr noundef %0,
   %88 = load i32, ptr %87, align 4, !tbaa !35
   %89 = sext i32 %88 to i64
   %wide.trip.count.i = zext nneg i32 %83 to i64
-  %invariant.gep.i = getelementptr %struct.Slice, ptr %86, i64 %indvars.iv
+  %invariant.gep.i = getelementptr [2088 x i8], ptr %86, i64 %indvars.iv
   br label %315
 
 90:                                               ; preds = %90, %80
   %.0207.i = phi i64 [ 0, %80 ], [ %94, %90 ]
-  %91 = getelementptr inbounds nuw %struct.PTable, ptr %17, i64 %.0207.i
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %.0207.i
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i64 1, ptr %92, align 8, !tbaa !66
   %93 = trunc nuw nsw i64 %.0207.i to i32
@@ -523,7 +521,7 @@ define internal range(i32 -2147483648, 1) i32 @magy_encode_frame(ptr noundef %0,
   %.0201269.i.i = phi i32 [ 1, %._crit_edge.i ], [ %.1202251.i.i, %.thread.i.i ]
   %96 = add nsw i32 %.0201269.i.i, -1
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds [2 x ptr], ptr %8, i64 %97
+  %98 = getelementptr inbounds [16 x i8], ptr %8, i64 %97
   %99 = load ptr, ptr %98, align 16, !tbaa !72
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !72
@@ -550,7 +548,7 @@ define internal range(i32 -2147483648, 1) i32 @magy_encode_frame(ptr noundef %0,
   %111 = ptrtoint ptr %.0198261.i.i to i64
   %112 = sub i64 %110, %111
   %113 = ashr i64 %112, 5
-  %114 = getelementptr inbounds %struct.PTable, ptr %.0198261.i.i, i64 %113
+  %114 = getelementptr inbounds [16 x i8], ptr %.0198261.i.i, i64 %113
   %115 = getelementptr i8, ptr %.0198261.i.i, i64 8
   %.0198.val.i.i = load i64, ptr %115, align 8, !tbaa !66
   %116 = getelementptr i8, ptr %.0195262.i.i, i64 8
@@ -734,7 +732,7 @@ define internal range(i32 -2147483648, 1) i32 @magy_encode_frame(ptr noundef %0,
   br i1 %172, label %173, label %177
 
 173:                                              ; preds = %168
-  %174 = getelementptr inbounds [2 x ptr], ptr %8, i64 %indvars.iv.i.i
+  %174 = getelementptr inbounds [16 x i8], ptr %8, i64 %indvars.iv.i.i
   store ptr %.0198261.i.i, ptr %174, align 16, !tbaa !72
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store ptr %.0190.lcssa.i.i, ptr %175, align 8, !tbaa !72
@@ -743,7 +741,7 @@ define internal range(i32 -2147483648, 1) i32 @magy_encode_frame(ptr noundef %0,
 
 177:                                              ; preds = %168
   %178 = getelementptr inbounds nuw i8, ptr %.0189.lcssa.i.i, i64 16
-  %179 = getelementptr inbounds [2 x ptr], ptr %8, i64 %indvars.iv.i.i
+  %179 = getelementptr inbounds [16 x i8], ptr %8, i64 %indvars.iv.i.i
   store ptr %178, ptr %179, align 16, !tbaa !72
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   store ptr %.0195262.i.i, ptr %180, align 8, !tbaa !72
@@ -810,7 +808,7 @@ select.unfold.i.i.outer:                          ; preds = %._crit_edge302.i.i,
   %.0206.i.i.ph = phi i32 [ %.0206.i.i, %._crit_edge302.i.i ], [ 0, %select.unfold.preheader.i.i ]
   %197 = icmp slt i32 %.2210.i.i.ph, 256
   %198 = sext i32 %.2210.i.i.ph to i64
-  %199 = getelementptr inbounds %struct.PTable, ptr %17, i64 %198
+  %199 = getelementptr inbounds [16 x i8], ptr %17, i64 %198
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
   br label %select.unfold.i.i
 
@@ -829,10 +827,10 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.i.o
   %206 = add nsw i32 %205, 1
   store i32 %206, ptr %.0204278.i.i, align 4, !tbaa !70
   %207 = sext i32 %205 to i64
-  %208 = getelementptr inbounds i32, ptr %192, i64 %207
+  %208 = getelementptr inbounds [4 x i8], ptr %192, i64 %207
   %209 = load i32, ptr %208, align 4, !tbaa !33
   %210 = sext i32 %206 to i64
-  %211 = getelementptr inbounds i32, ptr %192, i64 %210
+  %211 = getelementptr inbounds [4 x i8], ptr %192, i64 %210
   store i32 %209, ptr %211, align 4, !tbaa !33
   %.pre.i.i = sext i32 %.0206.i.i to i64
   br label %247
@@ -842,10 +840,10 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.i.o
   %214 = add nsw i32 %213, 1
   store i32 %214, ptr %.0204278.i.i, align 4, !tbaa !70
   %215 = sext i32 %213 to i64
-  %216 = getelementptr inbounds i32, ptr %192, i64 %215
+  %216 = getelementptr inbounds [4 x i8], ptr %192, i64 %215
   %217 = load i32, ptr %216, align 4, !tbaa !33
   %218 = sext i32 %214 to i64
-  %219 = getelementptr inbounds i32, ptr %192, i64 %218
+  %219 = getelementptr inbounds [4 x i8], ptr %192, i64 %218
   store i32 %217, ptr %219, align 4, !tbaa !33
   %220 = add nsw i32 %.0206.i.i, 1
   %221 = load i32, ptr %.0214275.i.i, align 4, !tbaa !70
@@ -855,10 +853,10 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.i.o
 
 223:                                              ; preds = %212
   %224 = sext i32 %.0206.i.i to i64
-  %225 = getelementptr inbounds i32, ptr %193, i64 %224
+  %225 = getelementptr inbounds [4 x i8], ptr %193, i64 %224
   %226 = load i32, ptr %225, align 4, !tbaa !33
   %227 = sext i32 %220 to i64
-  %228 = getelementptr inbounds i32, ptr %193, i64 %227
+  %228 = getelementptr inbounds [4 x i8], ptr %193, i64 %227
   %229 = load i32, ptr %228, align 4, !tbaa !33
   %230 = add nsw i32 %229, %226
   %231 = sext i32 %230 to i64
@@ -869,17 +867,17 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.i.o
   %233 = load i32, ptr %199, align 16, !tbaa !68
   %234 = load i32, ptr %.0204278.i.i, align 4, !tbaa !70
   %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds i32, ptr %192, i64 %235
+  %236 = getelementptr inbounds [4 x i8], ptr %192, i64 %235
   %237 = load i32, ptr %236, align 4, !tbaa !33
   %238 = add nsw i32 %237, 1
   store i32 %238, ptr %236, align 4, !tbaa !33
   %239 = sext i32 %237 to i64
-  %240 = getelementptr inbounds i32, ptr %196, i64 %239
+  %240 = getelementptr inbounds [4 x i8], ptr %196, i64 %239
   store i32 %233, ptr %240, align 4, !tbaa !33
   %241 = trunc i64 %222 to i32
   %242 = load i32, ptr %.0204278.i.i, align 4, !tbaa !70
   %243 = sext i32 %242 to i64
-  %244 = getelementptr i32, ptr %.0204278.i.i, i64 %243
+  %244 = getelementptr [4 x i8], ptr %.0204278.i.i, i64 %243
   %245 = getelementptr i8, ptr %244, i64 2060
   store i32 %241, ptr %245, align 4, !tbaa !33
   %246 = add nsw i32 %.2210.i.i.ph, 1
@@ -887,11 +885,11 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.i.o
 
 247:                                              ; preds = %223, %.critedge6.i.i
   %.pre-phi.i.i = phi i64 [ %.pre.i.i, %.critedge6.i.i ], [ %224, %223 ]
-  %248 = getelementptr inbounds i32, ptr %194, i64 %.pre-phi.i.i
+  %248 = getelementptr inbounds [4 x i8], ptr %194, i64 %.pre-phi.i.i
   %249 = load i32, ptr %248, align 4, !tbaa !33
   %250 = add nsw i32 %.0206.i.i, 2
   %251 = sext i32 %250 to i64
-  %252 = getelementptr inbounds i32, ptr %194, i64 %251
+  %252 = getelementptr inbounds [4 x i8], ptr %194, i64 %251
   %253 = load i32, ptr %252, align 4, !tbaa !33
   %254 = icmp slt i32 %249, %253
   br i1 %254, label %.lr.ph272.preheader.i.i, label %._crit_edge273.i.i
@@ -903,30 +901,30 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.i.o
 
 .lr.ph272.i.i:                                    ; preds = %.lr.ph272.i.i, %.lr.ph272.preheader.i.i
   %indvars.iv288.i.i = phi i64 [ %255, %.lr.ph272.preheader.i.i ], [ %indvars.iv.next289.i.i, %.lr.ph272.i.i ]
-  %256 = getelementptr inbounds i32, ptr %195, i64 %indvars.iv288.i.i
+  %256 = getelementptr inbounds [4 x i8], ptr %195, i64 %indvars.iv288.i.i
   %257 = load i32, ptr %256, align 4, !tbaa !33
   %258 = load i32, ptr %.0204278.i.i, align 4, !tbaa !70
   %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds i32, ptr %192, i64 %259
+  %260 = getelementptr inbounds [4 x i8], ptr %192, i64 %259
   %261 = load i32, ptr %260, align 4, !tbaa !33
   %262 = add nsw i32 %261, 1
   store i32 %262, ptr %260, align 4, !tbaa !33
   %263 = sext i32 %261 to i64
-  %264 = getelementptr inbounds i32, ptr %196, i64 %263
+  %264 = getelementptr inbounds [4 x i8], ptr %196, i64 %263
   store i32 %257, ptr %264, align 4, !tbaa !33
   %indvars.iv.next289.i.i = add nsw i64 %indvars.iv288.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next289.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge273.i.i, label %.lr.ph272.i.i, !llvm.loop !80
 
 ._crit_edge273.i.i:                               ; preds = %.lr.ph272.i.i, %247
-  %265 = getelementptr inbounds i32, ptr %193, i64 %.pre-phi.i.i
+  %265 = getelementptr inbounds [4 x i8], ptr %193, i64 %.pre-phi.i.i
   %266 = load i32, ptr %265, align 4, !tbaa !33
   %267 = getelementptr i8, ptr %265, i64 4
   %268 = load i32, ptr %267, align 4, !tbaa !33
   %269 = add nsw i32 %268, %266
   %270 = load i32, ptr %.0204278.i.i, align 4, !tbaa !70
   %271 = sext i32 %270 to i64
-  %272 = getelementptr i32, ptr %.0204278.i.i, i64 %271
+  %272 = getelementptr [4 x i8], ptr %.0204278.i.i, i64 %271
   %273 = getelementptr i8, ptr %272, i64 2060
   store i32 %269, ptr %273, align 4, !tbaa !33
   br label %select.unfold.i.i, !llvm.loop !79
@@ -940,17 +938,17 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.i.o
   %277 = load i32, ptr %.0204278.i.i, align 4, !tbaa !70
   %narrow.i.i = call i32 @llvm.smin.i32(i32 %277, i32 255)
   %278 = sext i32 %narrow.i.i to i64
-  %279 = getelementptr inbounds i32, ptr %192, i64 %278
+  %279 = getelementptr inbounds [4 x i8], ptr %192, i64 %278
   %280 = load i32, ptr %279, align 4, !tbaa !33
   %281 = icmp sgt i32 %280, 0
   br i1 %281, label %.lr.ph281.i.i, label %.preheader.i.i.preheader
 
 .lr.ph281.i.i:                                    ; preds = %276, %.lr.ph281.i.i
   %indvars.iv293.i.i = phi i64 [ %indvars.iv.next294.i.i, %.lr.ph281.i.i ], [ 0, %276 ]
-  %282 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv293.i.i
+  %282 = getelementptr inbounds nuw [4 x i8], ptr %196, i64 %indvars.iv293.i.i
   %283 = load i32, ptr %282, align 4, !tbaa !33
   %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds i32, ptr %7, i64 %284
+  %285 = getelementptr inbounds [4 x i8], ptr %7, i64 %284
   %286 = load i32, ptr %285, align 4, !tbaa !33
   %287 = add nsw i32 %286, 1
   store i32 %287, ptr %285, align 4, !tbaa !33
@@ -965,13 +963,13 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.i.o
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %.preheader.i.i
   %indvars.iv297.i.i = phi i64 [ %indvars.iv.next298.i.i, %.preheader.i.i ], [ 0, %.preheader.i.i.preheader ]
-  %291 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv297.i.i
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv297.i.i
   %292 = load i32, ptr %291, align 4, !tbaa !33
   %293 = trunc i32 %292 to i8
-  %294 = getelementptr inbounds nuw %struct.HuffEntry, ptr %81, i64 %indvars.iv297.i.i
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv297.i.i
   store i8 %293, ptr %294, align 4, !tbaa !62
   %295 = sext i32 %292 to i64
-  %296 = getelementptr inbounds i16, ptr %18, i64 %295
+  %296 = getelementptr inbounds [2 x i8], ptr %18, i64 %295
   %297 = load i16, ptr %296, align 2, !tbaa !83
   %298 = add i16 %297, 1
   store i16 %298, ptr %296, align 2, !tbaa !83
@@ -988,7 +986,7 @@ magy_huffman_compute_bits.exit.i:                 ; preds = %.preheader.i.i
 299:                                              ; preds = %299, %magy_huffman_compute_bits.exit.i
   %indvars.iv.i22.i = phi i64 [ 32, %magy_huffman_compute_bits.exit.i ], [ %indvars.iv.next.i23.i, %299 ]
   %.02021.i.i = phi i32 [ 0, %magy_huffman_compute_bits.exit.i ], [ %306, %299 ]
-  %300 = getelementptr inbounds nuw i16, ptr %18, i64 %indvars.iv.i22.i
+  %300 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %indvars.iv.i22.i
   %301 = load i16, ptr %300, align 2, !tbaa !83
   %302 = lshr i32 %.02021.i.i, 1
   %303 = trunc i32 %302 to i16
@@ -1002,10 +1000,10 @@ magy_huffman_compute_bits.exit.i:                 ; preds = %.preheader.i.i
 
 .preheader.i25.i:                                 ; preds = %299, %.preheader.i25.i
   %indvars.iv25.i.i = phi i64 [ %indvars.iv.next26.i.i, %.preheader.i25.i ], [ 0, %299 ]
-  %307 = getelementptr inbounds nuw %struct.HuffEntry, ptr %81, i64 %indvars.iv25.i.i
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv25.i.i
   %308 = load i8, ptr %307, align 4, !tbaa !62
   %309 = zext i8 %308 to i64
-  %310 = getelementptr inbounds nuw i16, ptr %18, i64 %309
+  %310 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %309
   %311 = load i16, ptr %310, align 2, !tbaa !83
   %312 = zext i16 %311 to i32
   %313 = getelementptr inbounds nuw i8, ptr %307, i64 4
@@ -1019,7 +1017,7 @@ magy_huffman_compute_bits.exit.i:                 ; preds = %.preheader.i.i
 315:                                              ; preds = %318, %.lr.ph.i
   %indvars.iv18.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next19.i, %318 ]
   %316 = mul nsw i64 %indvars.iv18.i, %89
-  %gep.i = getelementptr %struct.Slice, ptr %invariant.gep.i, i64 %316
+  %gep.i = getelementptr [2088 x i8], ptr %invariant.gep.i, i64 %316
   %317 = getelementptr inbounds nuw i8, ptr %gep.i, i64 40
   br label %319
 
@@ -1030,9 +1028,9 @@ magy_huffman_compute_bits.exit.i:                 ; preds = %.preheader.i.i
 
 319:                                              ; preds = %319, %315
   %indvars.iv.i = phi i64 [ 0, %315 ], [ %indvars.iv.next.i, %319 ]
-  %320 = getelementptr inbounds nuw i64, ptr %317, i64 %indvars.iv.i
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %317, i64 %indvars.iv.i
   %321 = load i64, ptr %320, align 8, !tbaa !61
-  %322 = getelementptr inbounds nuw %struct.PTable, ptr %17, i64 %indvars.iv.i
+  %322 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv.i
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %324 = load i64, ptr %323, align 8, !tbaa !66
   %325 = add nsw i64 %324, %321
@@ -1163,7 +1161,7 @@ bytestream2_init_writer.exit:                     ; preds = %331
   %383 = mul nsw i32 %382, %.097175
   %384 = add nsw i32 %383, %.098179
   %385 = sext i32 %384 to i64
-  %386 = getelementptr inbounds %struct.Slice, ptr %381, i64 %385
+  %386 = getelementptr inbounds [2088 x i8], ptr %381, i64 %385
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 12
   %388 = load i32, ptr %387, align 4, !tbaa !59
   %389 = add i32 %388, -32
@@ -1233,13 +1231,13 @@ bytestream2_init_writer.exit:                     ; preds = %331
 419:                                              ; preds = %.lr.ph196, %output_codes.exit
   %indvars.iv224 = phi i64 [ 0, %.lr.ph196 ], [ %indvars.iv.next225, %output_codes.exit ]
   %.sroa.0.4194 = phi ptr [ %.sroa.0.2.lcssa261, %.lr.ph196 ], [ %424, %output_codes.exit ]
-  %420 = getelementptr inbounds nuw [256 x %struct.HuffEntry], ptr %403, i64 %indvars.iv224
+  %420 = getelementptr inbounds nuw [2048 x i8], ptr %403, i64 %indvars.iv224
   br label %421
 
 421:                                              ; preds = %421, %419
   %.sroa.0.5 = phi ptr [ %.sroa.0.4194, %419 ], [ %424, %421 ]
   %indvars.iv.i110 = phi i64 [ 0, %419 ], [ %indvars.iv.next.i111, %421 ]
-  %422 = getelementptr inbounds nuw %struct.HuffEntry, ptr %420, i64 %indvars.iv.i110
+  %422 = getelementptr inbounds nuw [8 x i8], ptr %420, i64 %indvars.iv.i110
   %423 = load i8, ptr %422, align 4, !tbaa !62
   store i8 %423, ptr %.sroa.0.5, align 1, !tbaa !55
   %424 = getelementptr inbounds nuw i8, ptr %.sroa.0.5, i64 1
@@ -1284,7 +1282,7 @@ define internal noundef i32 @magy_encode_close(ptr noundef readonly captures(non
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr %4, align 8, !tbaa !41
-  %13 = getelementptr inbounds nuw %struct.Slice, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [2088 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   tail call void @av_freep(ptr noundef nonnull %14) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1710,13 +1708,13 @@ define internal noundef i32 @predict_slice(ptr noundef readonly captures(none) %
   %116 = trunc nuw nsw i64 %indvars.iv to i32
   %117 = add nsw i32 %115, %116
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds %struct.Slice, ptr %114, i64 %118
+  %119 = getelementptr inbounds [2088 x i8], ptr %114, i64 %118
   %120 = load ptr, ptr %94, align 8, !tbaa !52
-  %121 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %122 = load ptr, ptr %121, align 8, !tbaa !43
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %124 = load ptr, ptr %123, align 8, !tbaa !49
-  %125 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %126 = load i32, ptr %125, align 4, !tbaa !33
   %127 = sext i32 %126 to i64
   %128 = load i32, ptr %95, align 8, !tbaa !115
@@ -1735,15 +1733,15 @@ define internal noundef i32 @predict_slice(ptr noundef readonly captures(none) %
   %136 = trunc nuw nsw i64 %indvars.iv146 to i32
   %137 = add nsw i32 %135, %136
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds %struct.Slice, ptr %134, i64 %138
+  %139 = getelementptr inbounds [2088 x i8], ptr %134, i64 %138
   %140 = load ptr, ptr %35, align 8, !tbaa !52
-  %141 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv146
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv146
   %142 = load ptr, ptr %141, align 8, !tbaa !43
-  %143 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv146
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv146
   %144 = load i32, ptr %143, align 4, !tbaa !33
   %145 = ashr i32 %19, %144
   %146 = mul nsw i32 %145, %2
-  %147 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv146
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv146
   %148 = load i32, ptr %147, align 4, !tbaa !33
   %149 = mul nsw i32 %146, %148
   %150 = sext i32 %149 to i64
@@ -1780,7 +1778,7 @@ define internal noundef i32 @predict_slice(ptr noundef readonly captures(none) %
   %166 = mul nsw i32 %.val.val, %2
   %167 = add nsw i32 %166, %.0141
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds %struct.Slice, ptr %.val.val129, i64 %168
+  %169 = getelementptr inbounds [2088 x i8], ptr %.val.val129, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
   %171 = load ptr, ptr %170, align 8, !tbaa !49
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 40
@@ -1810,7 +1808,7 @@ define internal noundef i32 @predict_slice(ptr noundef readonly captures(none) %
   %180 = getelementptr inbounds nuw i8, ptr %.01114.us.i.i, i64 %indvars.iv.i.i
   %181 = load i8, ptr %180, align 1, !tbaa !55
   %182 = zext i8 %181 to i64
-  %183 = getelementptr inbounds nuw i64, ptr %172, i64 %182
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %182
   %184 = load i64, ptr %183, align 8, !tbaa !61
   %185 = add nsw i64 %184, 1
   store i64 %185, ptr %183, align 8, !tbaa !61
@@ -1859,7 +1857,7 @@ define internal noundef i32 @encode_slice(ptr noundef readonly captures(none) %0
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = add nsw i32 %16, %17
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.Slice, ptr %15, i64 %19
+  %20 = getelementptr inbounds [2088 x i8], ptr %15, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !97
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -1896,7 +1894,7 @@ define internal noundef i32 @encode_slice(ptr noundef readonly captures(none) %0
   %45 = load i32, ptr %20, align 8, !tbaa !48
   %46 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !46
-  %48 = getelementptr inbounds nuw [256 x %struct.HuffEntry], ptr %12, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [2048 x i8], ptr %12, i64 %indvars.iv
   %49 = load i32, ptr %11, align 8, !tbaa !51
   %50 = icmp slt i32 %44, 0
   %spec.select.i.i = select i1 %50, ptr null, ptr %32
@@ -1932,7 +1930,7 @@ define internal noundef i32 @encode_slice(ptr noundef readonly captures(none) %0
   %58 = getelementptr inbounds nuw i8, ptr %.056.us.i, i64 %indvars.iv.i
   %59 = load i8, ptr %58, align 1, !tbaa !55
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw %struct.HuffEntry, ptr %48, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %60
   %62 = load i8, ptr %61, align 4, !tbaa !62
   %63 = zext i8 %62 to i32
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 4

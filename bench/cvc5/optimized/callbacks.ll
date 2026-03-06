@@ -157,7 +157,7 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear20SetupLiteralCallBackc
   %12 = icmp eq i32 %11, 2
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %14 = zext i1 %12 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !16, !noalias !13
   br label %17
 
@@ -224,7 +224,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %34, %32, 
   %49 = load i64, ptr %48, align 8, !tbaa !35
   %50 = urem i64 %47, %49
   %51 = load ptr, ptr %46, align 8, !tbaa !36
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %50
   %53 = load ptr, ptr %52, align 8, !tbaa !37
   %.not.i.i.i.i.i = icmp eq ptr %53, null
   %.pre = load ptr, ptr %3, align 8, !tbaa !20
@@ -670,7 +670,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i.i: ; preds = %28, %_
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i.i: ; preds = %30, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i.i
   store ptr %25, ptr %5, align 8, !tbaa !65
   store ptr %29, ptr %6, align 8, !tbaa !59
-  %31 = getelementptr inbounds nuw i32, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !62
   br label %_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate6signalEj.exit
 
@@ -851,7 +851,7 @@ _ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE11_S_relo
 _ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i: ; preds = %34, %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit16.i.i
   store ptr %29, ptr %9, align 8, !tbaa !84
   store ptr %33, ptr %10, align 8, !tbaa !85
-  %35 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %35, ptr %12, align 8, !tbaa !91
   br label %_ZNSt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS7_EE9push_backERKS7_.exit
 
@@ -1846,7 +1846,7 @@ _ZSt8_DestroyIPN4cvc58internal8RationalES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt
 _ZNSt12_Vector_baseIN4cvc58internal8RationalESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal8RationalES2_EvT_S4_RSaIT0_E.exit, %39
   store ptr %22, ptr %0, align 8, !tbaa !88
   store ptr %33, ptr %4, align 8, !tbaa !89
-  %43 = getelementptr inbounds nuw %"class.cvc5::internal::Rational", ptr %22, i64 %16
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %43, ptr %38, align 8, !tbaa !93
   ret void
 

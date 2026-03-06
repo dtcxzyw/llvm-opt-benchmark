@@ -444,10 +444,10 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: 
 100:                                              ; preds = %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
   %101 = load i8, ptr %31, align 8, !tbaa !3, !noalias !23
   %102 = sext i8 %101 to i64
-  %103 = getelementptr inbounds nuw i64, ptr %90, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %102
   %104 = load i64, ptr %103, align 8, !tbaa !58
   %105 = sub nsw i64 1, %102
-  %106 = getelementptr inbounds nuw i64, ptr %90, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %105
   %107 = load i64, ptr %106, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !23
   invoke void @_ZNK5arrow6Tensor12CountNonZeroEv(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Result.36") align 8 %13, ptr noundef nonnull align 8 dereferenceable(112) %86)
@@ -1043,9 +1043,9 @@ _ZNSt6vectorIlSaIlEEaSESt16initializer_listIlE.exit169.i: ; preds = %_ZSt4copyIP
 337:                                              ; preds = %337, %.lr.ph.i.i.i
   %.011.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %344, %337 ]
   %.0910.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %343, %337 ]
-  %338 = getelementptr inbounds nuw i64, ptr %.sroa.0273.3.i, i64 %.011.i.i.i
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0273.3.i, i64 %.011.i.i.i
   %339 = load i64, ptr %338, align 8, !tbaa !58
-  %340 = getelementptr inbounds nuw i64, ptr %336, i64 %.011.i.i.i
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %336, i64 %.011.i.i.i
   %341 = load i64, ptr %340, align 8, !tbaa !58
   %342 = mul nsw i64 %341, %339
   %343 = add nsw i64 %342, %.0910.i.i.i

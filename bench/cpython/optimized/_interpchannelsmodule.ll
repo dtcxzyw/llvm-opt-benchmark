@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PyStructSequence_Field = type { ptr, ptr }
 %struct.PyGetSetDef = type { ptr, ptr, ptr, ptr, ptr }
 %struct.channel_id_converter_data = type { ptr, i64, i32 }
-%struct.channel_id_and_info = type { i64, i32 }
 %struct._PyXIData_lookup_context_t = type { ptr, ptr, ptr }
 %struct.wait_info = type { ptr, i32, i32, i64 }
 
@@ -584,7 +583,7 @@ define internal ptr @channelsmod_list_all(ptr noundef %0, ptr readnone captures(
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.0164.i = phi ptr [ %.016.i, %.lr.ph.i ], [ %.0161.i, %.preheader.i ]
   %.0173.i = phi i64 [ %19, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %12 = getelementptr %struct.channel_id_and_info, ptr %10, i64 %.0173.i
+  %12 = getelementptr [16 x i8], ptr %10, i64 %.0173.i
   %13 = load i64, ptr %.0164.i, align 8, !tbaa !55
   %14 = getelementptr inbounds nuw i8, ptr %.0164.i, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !58
@@ -711,7 +710,7 @@ Py_DECREF.exit40.thread:                          ; preds = %Py_DECREF.exit40.th
 
 65:                                               ; preds = %Py_DECREF.exit42
   %.133.val = load ptr, ptr %32, align 8, !tbaa !72
-  %66 = getelementptr ptr, ptr %.133.val, i64 %.02658
+  %66 = getelementptr [8 x i8], ptr %.133.val, i64 %.02658
   store ptr %54, ptr %66, align 8, !tbaa !27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %67 = getelementptr i8, ptr %.02559, i64 16

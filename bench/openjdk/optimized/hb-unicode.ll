@@ -390,7 +390,7 @@ define hidden ptr @hb_unicode_funcs_get_user_data(ptr noundef readonly captures(
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %9, %17
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %17 ], [ 0, %9 ]
-  %15 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %indvars.iv.i.i.i.i.i.i
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv.i.i.i.i.i.i
   %.val17.i.i.i.i.i.i = load ptr, ptr %15, align 8
   %16 = icmp eq ptr %.val17.i.i.i.i.i.i, %1
   br i1 %16, label %18, label %17
@@ -402,7 +402,7 @@ define hidden ptr @hb_unicode_funcs_get_user_data(ptr noundef readonly captures(
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %19 = and i64 %indvars.iv.i.i.i.i.i.i, 4294967295
-  %20 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %12, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %19
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   br label %_ZN20hb_user_data_array_t3getEP18hb_user_data_key_t.exit.i
@@ -1107,7 +1107,7 @@ define hidden noundef i32 @hb_unicode_decompose_compatibility(ptr noundef %0, i3
 
 14:                                               ; preds = %10, %3
   %15 = zext i32 %8 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %15
   store i32 0, ptr %16, align 4
   br label %_ZN18hb_unicode_funcs_t23decompose_compatibilityEjPj.exit
 
@@ -1211,7 +1211,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE3popEv.exit: 
   %15 = add i32 %14, -1
   %16 = load ptr, ptr %13, align 8
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %17
   %.sroa.1.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.1.0.copyload = load ptr, ptr %.sroa.1.0..0.i.i.sroa_idx, align 8
   %.sroa.2.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -1289,7 +1289,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 
 .lr.ph.i.i.i.i:                                   ; preds = %12, %20
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %20 ], [ 0, %12 ]
-  %18 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %indvars.iv.i.i.i.i
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv.i.i.i.i
   %.val17.i.i.i.i = load ptr, ptr %18, align 8
   %19 = icmp eq ptr %.val17.i.i.i.i, %1
   br i1 %19, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i, label %20
@@ -1301,14 +1301,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20hb_user_data_array_t3setEP18
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4tailEv.exit.i: ; preds = %.lr.ph.i.i.i.i
   %21 = and i64 %indvars.iv.i.i.i.i, 4294967295
-  %22 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %21
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.1.0.copyload.i = load ptr, ptr %.sroa.1.0..sroa_idx.i, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8
   %23 = add i32 %17, -1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %15, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   %26 = load i32, ptr %16, align 4, !noalias !12
   %.not.i.i = icmp eq i32 %26, 0
@@ -1368,7 +1368,7 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
 
 10:                                               ; preds = %13, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %13 ]
-  %11 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %indvars.iv.i.i.i
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.i.i.i
   %.val17.i.i.i = load ptr, ptr %11, align 8
   %12 = icmp eq ptr %.val.i.i.i, %.val17.i.i.i
   br i1 %12, label %14, label %13
@@ -1380,7 +1380,7 @@ define linkonce_odr hidden noundef ptr @_ZN17hb_lockable_set_tIN20hb_user_data_a
 
 14:                                               ; preds = %10
   %15 = and i64 %indvars.iv.i.i.i, 4294967295
-  %16 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %15
   br i1 %3, label %17, label %20
 
 17:                                               ; preds = %14
@@ -1464,7 +1464,7 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exi
   %39 = add i32 %38, 1
   store i32 %39, ptr %8, align 4
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw %"struct.hb_user_data_array_t::hb_user_data_item_t", ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE4pushIJRS1_EEEPS1_DpOT_.exit
 

@@ -4,12 +4,11 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.duckdb_yyjson::yyjson_alc" = type { ptr, ptr, ptr, ptr }
-%"struct.duckdb_yyjson::yyjson_mut_val" = type { i64, %"union.duckdb_yyjson::yyjson_val_uni", ptr }
-%"union.duckdb_yyjson::yyjson_val_uni" = type { i64 }
-%"struct.duckdb_yyjson::yyjson_val" = type { i64, %"union.duckdb_yyjson::yyjson_val_uni" }
 %"struct.duckdb_yyjson::yyjson_ptr_ctx" = type { ptr, ptr, ptr }
 %"struct.duckdb_yyjson::yyjson_patch_err" = type { i32, i64, ptr, %"struct.duckdb_yyjson::yyjson_ptr_err" }
 %"struct.duckdb_yyjson::yyjson_ptr_err" = type { i32, ptr, i64 }
+%"struct.duckdb_yyjson::yyjson_val" = type { i64, %"union.duckdb_yyjson::yyjson_val_uni" }
+%"union.duckdb_yyjson::yyjson_val_uni" = type { i64 }
 %"struct.duckdb_yyjson::bigint" = type { i32, [64 x i64] }
 %"struct.duckdb_yyjson::yyjson_read_err" = type { i32, ptr, i64 }
 %"struct.duckdb_yyjson::yyjson_write_err" = type { i32, ptr }
@@ -1132,7 +1131,7 @@ define noundef ptr @_ZN13duckdb_yyjson19yyjson_val_mut_copyEPNS_14yyjson_mut_doc
 
 _ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit: ; preds = %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit_crit_edge, %5
   %26 = phi ptr [ %.pre, %._ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit_crit_edge ], [ %17, %5 ]
-  %27 = getelementptr inbounds nuw %"struct.duckdb_yyjson::yyjson_mut_val", ptr %26, i64 %13
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %13
   store ptr %27, ptr %14, align 8, !tbaa !59
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %_ZN13duckdb_yyjsonL21unsafe_yyjson_mut_valEPNS_14yyjson_mut_docEm.exit.thread, label %.preheader
@@ -1234,7 +1233,7 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit: ;
   %67 = select i1 %64, i64 %66, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %.087109, i64 %67
   %69 = ashr exact i64 %67, 4
-  %70 = getelementptr inbounds %"struct.duckdb_yyjson::yyjson_mut_val", ptr %.086110, i64 %69
+  %70 = getelementptr inbounds [24 x i8], ptr %.086110, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %.086110, i64 16
   store ptr %70, ptr %71, align 8, !tbaa !79
   %72 = icmp ugt i64 %61, 1
@@ -1276,7 +1275,7 @@ _ZN13duckdb_yyjsonL25unsafe_yyjson_mut_strncpyEPNS_14yyjson_mut_docEPKcm.exit: ;
   %88 = getelementptr inbounds nuw i8, ptr %81, i64 %87
   %89 = add nuw nsw i64 %87, 16
   %90 = ashr exact i64 %89, 4
-  %91 = getelementptr inbounds %"struct.duckdb_yyjson::yyjson_mut_val", ptr %.079108, i64 %90
+  %91 = getelementptr inbounds [24 x i8], ptr %.079108, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %.079108, i64 24
   %93 = getelementptr inbounds nuw i8, ptr %.079108, i64 16
   store ptr %92, ptr %93, align 8, !tbaa !79
@@ -2568,7 +2567,7 @@ _ZN13duckdb_yyjsonL16ptr_token_to_idxEPKcmPm.exit: ; preds = %.critedge.i37, %89
   br i1 %.not12.i103, label %_ZN13duckdb_yyjsonL11ptr_obj_getEPNS_10yyjson_valEPKcmm.exit, label %.lr.ph106
 
 108:                                              ; preds = %101
-  %109 = getelementptr inbounds nuw %"struct.duckdb_yyjson::yyjson_val", ptr %80, i64 %.153
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 %.153
   br label %_ZN13duckdb_yyjsonL11ptr_obj_getEPNS_10yyjson_valEPKcmm.exit
 
 .lr.ph106:                                        ; preds = %.preheader71, %.lr.ph106
@@ -7791,7 +7790,7 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
   br i1 %.not.i, label %5071, label %.thread, !prof !3
 
 .thread:                                          ; preds = %92
-  %103 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %102, i64 %100
+  %103 = getelementptr [16 x i8], ptr %102, i64 %100
   %104 = getelementptr i8, ptr %103, i64 -32
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 64
   %106 = and i32 %2, 160
@@ -7859,7 +7858,7 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
   %134 = ptrtoint ptr %.2530.i to i64
   %135 = sub i64 %134, %131
   %136 = getelementptr inbounds nuw i8, ptr %129, i64 %135
-  %137 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %129, i64 %126
+  %137 = getelementptr [16 x i8], ptr %129, i64 %126
   %138 = getelementptr i8, ptr %137, i64 -32
   br label %139
 
@@ -8129,7 +8128,7 @@ define noundef ptr @_ZN13duckdb_yyjson16yyjson_read_optsEPcmjPKNS_10yyjson_alcEP
   %233 = ptrtoint ptr %.1529.i.ph to i64
   %234 = sub i64 %233, %230
   %235 = getelementptr inbounds nuw i8, ptr %228, i64 %234
-  %236 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %228, i64 %225
+  %236 = getelementptr [16 x i8], ptr %228, i64 %225
   %237 = getelementptr i8, ptr %236, i64 -32
   br label %238
 
@@ -9804,14 +9803,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit880: ; preds =
 1069:                                             ; preds = %1066
   %1070 = sub nsw i64 0, %storemerge.in.i367
   %1071 = and i64 %1070, 4294967295
-  %1072 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %1071
+  %1072 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %1071
   %1073 = load double, ptr %1072, align 8, !tbaa !163
   %1074 = fdiv double %1067, %1073
   br label %1080
 
 1075:                                             ; preds = %1066
   %1076 = and i64 %storemerge.in.i367, 2147483647
-  %1077 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %1076
+  %1077 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %1076
   %1078 = load double, ptr %1077, align 8, !tbaa !163
   %1079 = fmul double %1078, %1067
   br label %1080
@@ -9848,7 +9847,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit880: ; preds =
 1088:                                             ; preds = %1084
   %1089 = shl nsw i32 %storemerge.i372, 1
   %1090 = sext i32 %1089 to i64
-  %1091 = getelementptr i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %1090
+  %1091 = getelementptr [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %1090
   %1092 = getelementptr i8, ptr %1091, i64 5488
   %1093 = load i64, ptr %1092, align 16, !tbaa !85
   %1094 = mul nsw i32 %storemerge.i372, 217706
@@ -9926,11 +9925,11 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit880: ; preds =
   %1141 = shl i64 %1140, %.pre-phi6844
   %1142 = add i32 %.pre-phi6848, 686
   %1143 = sext i32 %1142 to i64
-  %1144 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %1143
+  %1144 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %1143
   %1145 = load i64, ptr %1144, align 16, !tbaa !85
   %1146 = add i32 %.pre-phi6848, 687
   %1147 = sext i32 %1146 to i64
-  %1148 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %1147
+  %1148 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %1147
   %1149 = load i64, ptr %1148, align 8, !tbaa !85
   %1150 = lshr i64 %1149, 63
   %1151 = add i64 %1150, %1145
@@ -10118,7 +10117,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1213: ; preds = %1193
 
 .lr.ph5000:                                       ; preds = %.lr.ph5000.preheader, %1253
   %indvars.iv6366 = phi i64 [ 0, %.lr.ph5000.preheader ], [ %indvars.iv.next6367, %1253 ]
-  %1251 = getelementptr inbounds nuw i64, ptr %1248, i64 %indvars.iv6366
+  %1251 = getelementptr inbounds nuw [8 x i8], ptr %1248, i64 %indvars.iv6366
   %1252 = load i64, ptr %1251, align 8, !tbaa !85
   %.not.i1400 = icmp eq i64 %1252, 0
   br i1 %.not.i1400, label %1253, label %._crit_edge5001.loopexit
@@ -10145,7 +10144,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1213: ; preds = %1193
 .lr.ph5008:                                       ; preds = %.lr.ph5008.preheader, %.lr.ph5008
   %indvars.iv6371 = phi i64 [ %1256, %.lr.ph5008.preheader ], [ %indvars.iv.next6372, %.lr.ph5008 ]
   %.0.i13985006 = phi i64 [ 0, %.lr.ph5008.preheader ], [ %1264, %.lr.ph5008 ]
-  %1257 = getelementptr inbounds nuw i64, ptr %1248, i64 %indvars.iv6371
+  %1257 = getelementptr inbounds nuw [8 x i8], ptr %1248, i64 %indvars.iv6371
   %1258 = load i64, ptr %1257, align 8, !tbaa !85
   %1259 = zext i64 %1258 to i128
   %1260 = mul nuw i128 %1259, 10000000000000000000
@@ -10166,7 +10165,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1213: ; preds = %1193
 1266:                                             ; preds = %._crit_edge5009
   %1267 = add i32 %1250, 1
   %1268 = zext i32 %1250 to i64
-  %1269 = getelementptr inbounds nuw i64, ptr %1248, i64 %1268
+  %1269 = getelementptr inbounds nuw [8 x i8], ptr %1248, i64 %1268
   store i64 %1264, ptr %1269, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1401
 
@@ -10185,7 +10184,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1401: ; preds = %1253, %._
 
 1274:                                             ; preds = %._crit_edge5015
   %1275 = sext i32 %.0.i1223.lcssa to i64
-  %1276 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1275
+  %1276 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1275
   %1277 = load i64, ptr %1276, align 8, !tbaa !85
   %1278 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.not5788 = icmp eq i32 %1273, 0
@@ -10197,7 +10196,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1401: ; preds = %1253, %._
 
 .lr.ph5020:                                       ; preds = %.lr.ph5020.preheader, %1281
   %indvars.iv6376 = phi i64 [ 0, %.lr.ph5020.preheader ], [ %indvars.iv.next6377, %1281 ]
-  %1279 = getelementptr inbounds nuw i64, ptr %1278, i64 %indvars.iv6376
+  %1279 = getelementptr inbounds nuw [8 x i8], ptr %1278, i64 %indvars.iv6376
   %1280 = load i64, ptr %1279, align 8, !tbaa !85
   %.not.i1406 = icmp eq i64 %1280, 0
   br i1 %.not.i1406, label %1281, label %._crit_edge5021.loopexit
@@ -10225,7 +10224,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1401: ; preds = %1253, %._
 1286:                                             ; preds = %.lr.ph5028, %1286
   %indvars.iv6381 = phi i64 [ %1285, %.lr.ph5028 ], [ %indvars.iv.next6382, %1286 ]
   %.0.i14045026 = phi i64 [ 0, %.lr.ph5028 ], [ %1294, %1286 ]
-  %1287 = getelementptr inbounds nuw i64, ptr %1278, i64 %indvars.iv6381
+  %1287 = getelementptr inbounds nuw [8 x i8], ptr %1278, i64 %indvars.iv6381
   %1288 = load i64, ptr %1287, align 8, !tbaa !85
   %1289 = zext i64 %1288 to i128
   %1290 = mul nuw i128 %1289, %1284
@@ -10256,7 +10255,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1401: ; preds = %1253, %._
 .thread7353:                                      ; preds = %1298
   store i32 1, ptr %11, align 8
   %1301 = zext nneg i32 %1299 to i64
-  %1302 = getelementptr inbounds nuw i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1301
+  %1302 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1301
   %1303 = load i64, ptr %1302, align 8, !tbaa !85
   br label %.lr.ph4987.preheader
 
@@ -10272,7 +10271,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1401: ; preds = %1253, %._
 
 .lr.ph4966:                                       ; preds = %.lr.ph4966.preheader, %1307
   %indvars.iv6346 = phi i64 [ 0, %.lr.ph4966.preheader ], [ %indvars.iv.next6347, %1307 ]
-  %1305 = getelementptr inbounds nuw i64, ptr %1244, i64 %indvars.iv6346
+  %1305 = getelementptr inbounds nuw [8 x i8], ptr %1244, i64 %indvars.iv6346
   %1306 = load i64, ptr %1305, align 8, !tbaa !85
   %.not.i1388 = icmp eq i64 %1306, 0
   br i1 %.not.i1388, label %1307, label %._crit_edge4967.loopexit
@@ -10299,7 +10298,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1401: ; preds = %1253, %._
 .lr.ph4974:                                       ; preds = %.lr.ph4974.preheader, %.lr.ph4974
   %indvars.iv6351 = phi i64 [ %1310, %.lr.ph4974.preheader ], [ %indvars.iv.next6352, %.lr.ph4974 ]
   %.0.i13864972 = phi i64 [ 0, %.lr.ph4974.preheader ], [ %1318, %.lr.ph4974 ]
-  %1311 = getelementptr inbounds nuw i64, ptr %1244, i64 %indvars.iv6351
+  %1311 = getelementptr inbounds nuw [8 x i8], ptr %1244, i64 %indvars.iv6351
   %1312 = load i64, ptr %1311, align 8, !tbaa !85
   %1313 = zext i64 %1312 to i128
   %1314 = mul nuw i128 %1313, 10000000000000000000
@@ -10320,7 +10319,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1401: ; preds = %1253, %._
 1320:                                             ; preds = %._crit_edge4975
   %1321 = add i32 %1304, 1
   %1322 = zext i32 %1304 to i64
-  %1323 = getelementptr inbounds nuw i64, ptr %1244, i64 %1322
+  %1323 = getelementptr inbounds nuw [8 x i8], ptr %1244, i64 %1322
   store i64 %1318, ptr %1323, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1389
 
@@ -10337,7 +10336,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1389: ; preds = %1307, %._
 
 1327:                                             ; preds = %._crit_edge4982
   %1328 = sext i32 %1325 to i64
-  %1329 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1328
+  %1329 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1328
   %1330 = load i64, ptr %1329, align 8, !tbaa !85
   %.not5786 = icmp eq i32 %1324, 0
   br i1 %.not5786, label %._crit_edge4988, label %.lr.ph4987.preheader
@@ -10350,7 +10349,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1389: ; preds = %1307, %._
 
 .lr.ph4987:                                       ; preds = %.lr.ph4987.preheader, %1335
   %indvars.iv6356 = phi i64 [ 0, %.lr.ph4987.preheader ], [ %indvars.iv.next6357, %1335 ]
-  %1333 = getelementptr inbounds nuw i64, ptr %1244, i64 %indvars.iv6356
+  %1333 = getelementptr inbounds nuw [8 x i8], ptr %1244, i64 %indvars.iv6356
   %1334 = load i64, ptr %1333, align 8, !tbaa !85
   %.not.i1394 = icmp eq i64 %1334, 0
   br i1 %.not.i1394, label %1335, label %._crit_edge4988.loopexit
@@ -10380,7 +10379,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1389: ; preds = %1307, %._
 1342:                                             ; preds = %.lr.ph4995, %1342
   %indvars.iv6361 = phi i64 [ %1341, %.lr.ph4995 ], [ %indvars.iv.next6362, %1342 ]
   %.0.i13924993 = phi i64 [ 0, %.lr.ph4995 ], [ %1350, %1342 ]
-  %1343 = getelementptr inbounds nuw i64, ptr %1244, i64 %indvars.iv6361
+  %1343 = getelementptr inbounds nuw [8 x i8], ptr %1244, i64 %indvars.iv6361
   %1344 = load i64, ptr %1343, align 8, !tbaa !85
   %1345 = zext i64 %1344 to i128
   %1346 = mul nuw i128 %1345, %1340
@@ -10409,7 +10408,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1225.sink.split: ; preds
   %.ph8411 = phi i32 [ %1353, %1352 ], [ 1, %1296 ]
   %1355 = getelementptr inbounds nuw i8, ptr %1354, i64 8
   %1356 = zext i32 %.sink to i64
-  %1357 = getelementptr inbounds nuw i64, ptr %1355, i64 %1356
+  %1357 = getelementptr inbounds nuw [8 x i8], ptr %1355, i64 %1356
   store i64 %.lcssa7744.sink, ptr %1357, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1225
 
@@ -10436,12 +10435,12 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1225: ; preds = %1335, %
 1366:                                             ; preds = %.lr.ph5059, %1366
   %indvars.iv6401 = phi i64 [ %1365, %.lr.ph5059 ], [ %1367, %1366 ]
   %1367 = add nsw i64 %indvars.iv6401, -1
-  %1368 = getelementptr i64, ptr %11, i64 %indvars.iv6401
+  %1368 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv6401
   %1369 = load i64, ptr %1368, align 8, !tbaa !85
   %1370 = trunc nuw i64 %indvars.iv6401 to i32
   %1371 = add i32 %1364, %1370
   %1372 = zext i32 %1371 to i64
-  %1373 = getelementptr inbounds nuw i64, ptr %1244, i64 %1372
+  %1373 = getelementptr inbounds nuw [8 x i8], ptr %1244, i64 %1372
   store i64 %1369, ptr %1373, align 8, !tbaa !85
   %.not46.i1258.wide = icmp eq i64 %1367, 0
   br i1 %.not46.i1258.wide, label %.lr.ph5064.preheader, label %1366, !llvm.loop !170
@@ -10458,7 +10457,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1225: ; preds = %1335, %
 
 1379:                                             ; preds = %1360
   %1380 = zext i32 %1358 to i64
-  %1381 = getelementptr inbounds nuw i64, ptr %1244, i64 %1380
+  %1381 = getelementptr inbounds nuw [8 x i8], ptr %1244, i64 %1380
   store i64 0, ptr %1381, align 8, !tbaa !85
   %.not.i12545048 = icmp eq i32 %1358, 0
   %.pre6859 = zext nneg i32 %1361 to i64
@@ -10471,18 +10470,18 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1225: ; preds = %1335, %
 
 1384:                                             ; preds = %.lr.ph5051, %1384
   %indvars.iv6396 = phi i64 [ %1380, %.lr.ph5051 ], [ %1388, %1384 ]
-  %1385 = getelementptr inbounds nuw i64, ptr %1244, i64 %indvars.iv6396
+  %1385 = getelementptr inbounds nuw [8 x i8], ptr %1244, i64 %indvars.iv6396
   %1386 = load i64, ptr %1385, align 8, !tbaa !85
   %1387 = shl i64 %1386, %.pre6859
   %1388 = add nsw i64 %indvars.iv6396, -1
-  %1389 = getelementptr i64, ptr %11, i64 %indvars.iv6396
+  %1389 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv6396
   %1390 = load i64, ptr %1389, align 8, !tbaa !85
   %1391 = lshr i64 %1390, %1383
   %1392 = or i64 %1391, %1387
   %1393 = trunc nuw i64 %indvars.iv6396 to i32
   %1394 = add i32 %1362, %1393
   %1395 = zext i32 %1394 to i64
-  %1396 = getelementptr inbounds nuw i64, ptr %1244, i64 %1395
+  %1396 = getelementptr inbounds nuw [8 x i8], ptr %1244, i64 %1395
   store i64 %1392, ptr %1396, align 8, !tbaa !85
   %.not.i1254.wide = icmp eq i64 %1388, 0
   br i1 %.not.i1254.wide, label %._crit_edge5052, label %1384, !llvm.loop !171
@@ -10491,11 +10490,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1225: ; preds = %1335, %
   %1397 = load i64, ptr %1244, align 8, !tbaa !85
   %1398 = shl i64 %1397, %.pre6859
   %1399 = zext nneg i32 %1362 to i64
-  %1400 = getelementptr inbounds nuw i64, ptr %1244, i64 %1399
+  %1400 = getelementptr inbounds nuw [8 x i8], ptr %1244, i64 %1399
   store i64 %1398, ptr %1400, align 8, !tbaa !85
   %1401 = add i32 %1358, %1362
   %1402 = zext i32 %1401 to i64
-  %1403 = getelementptr inbounds nuw i64, ptr %1244, i64 %1402
+  %1403 = getelementptr inbounds nuw [8 x i8], ptr %1244, i64 %1402
   %1404 = load i64, ptr %1403, align 8, !tbaa !85
   %1405 = icmp ne i64 %1404, 0
   %1406 = zext i1 %1405 to i32
@@ -10531,12 +10530,12 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1225: ; preds = %1335, %
 1420:                                             ; preds = %.lr.ph5042, %1420
   %indvars.iv6391 = phi i64 [ %1419, %.lr.ph5042 ], [ %1421, %1420 ]
   %1421 = add nsw i64 %indvars.iv6391, -1
-  %1422 = getelementptr i64, ptr %10, i64 %indvars.iv6391
+  %1422 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv6391
   %1423 = load i64, ptr %1422, align 8, !tbaa !85
   %1424 = trunc nuw i64 %indvars.iv6391 to i32
   %1425 = add i32 %1418, %1424
   %1426 = zext i32 %1425 to i64
-  %1427 = getelementptr inbounds nuw i64, ptr %1417, i64 %1426
+  %1427 = getelementptr inbounds nuw [8 x i8], ptr %1417, i64 %1426
   store i64 %1423, ptr %1427, align 8, !tbaa !85
   %.not46.i1267.wide = icmp eq i64 %1421, 0
   br i1 %.not46.i1267.wide, label %._crit_edge5043, label %1420, !llvm.loop !170
@@ -10557,7 +10556,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1225: ; preds = %1335, %
 1432:                                             ; preds = %1411
   %1433 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1434 = zext i32 %1415 to i64
-  %1435 = getelementptr inbounds nuw i64, ptr %1433, i64 %1434
+  %1435 = getelementptr inbounds nuw [8 x i8], ptr %1433, i64 %1434
   store i64 0, ptr %1435, align 8, !tbaa !85
   %.not.i12635031 = icmp eq i32 %1415, 0
   %.pre6861 = zext nneg i32 %1413 to i64
@@ -10570,18 +10569,18 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1225: ; preds = %1335, %
 
 1438:                                             ; preds = %.lr.ph5034, %1438
   %indvars.iv6386 = phi i64 [ %1434, %.lr.ph5034 ], [ %1442, %1438 ]
-  %1439 = getelementptr inbounds nuw i64, ptr %1433, i64 %indvars.iv6386
+  %1439 = getelementptr inbounds nuw [8 x i8], ptr %1433, i64 %indvars.iv6386
   %1440 = load i64, ptr %1439, align 8, !tbaa !85
   %1441 = shl i64 %1440, %.pre6861
   %1442 = add nsw i64 %indvars.iv6386, -1
-  %1443 = getelementptr i64, ptr %10, i64 %indvars.iv6386
+  %1443 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv6386
   %1444 = load i64, ptr %1443, align 8, !tbaa !85
   %1445 = lshr i64 %1444, %1437
   %1446 = or i64 %1445, %1441
   %1447 = trunc nuw i64 %indvars.iv6386 to i32
   %1448 = add i32 %1414, %1447
   %1449 = zext i32 %1448 to i64
-  %1450 = getelementptr inbounds nuw i64, ptr %1433, i64 %1449
+  %1450 = getelementptr inbounds nuw [8 x i8], ptr %1433, i64 %1449
   store i64 %1446, ptr %1450, align 8, !tbaa !85
   %.not.i1263.wide = icmp eq i64 %1442, 0
   br i1 %.not.i1263.wide, label %._crit_edge5035, label %1438, !llvm.loop !171
@@ -10590,11 +10589,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1225: ; preds = %1335, %
   %1451 = load i64, ptr %1433, align 8, !tbaa !85
   %1452 = shl i64 %1451, %.pre6861
   %1453 = zext nneg i32 %1414 to i64
-  %1454 = getelementptr inbounds nuw i64, ptr %1433, i64 %1453
+  %1454 = getelementptr inbounds nuw [8 x i8], ptr %1433, i64 %1453
   store i64 %1452, ptr %1454, align 8, !tbaa !85
   %1455 = add i32 %1415, %1414
   %1456 = zext i32 %1455 to i64
-  %1457 = getelementptr inbounds nuw i64, ptr %1433, i64 %1456
+  %1457 = getelementptr inbounds nuw [8 x i8], ptr %1433, i64 %1456
   %1458 = load i64, ptr %1457, align 8, !tbaa !85
   %1459 = icmp ne i64 %1458, 0
   %1460 = zext i1 %1459 to i32
@@ -10631,9 +10630,9 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1261: ; preds = %.lr.ph50
   br i1 %.not.i1314, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1320.thread3287, label %1473
 
 1473:                                             ; preds = %1471
-  %1474 = getelementptr i64, ptr %10, i64 %indvars.iv6404
+  %1474 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv6404
   %1475 = load i64, ptr %1474, align 8, !tbaa !85
-  %1476 = getelementptr i64, ptr %11, i64 %indvars.iv6404
+  %1476 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv6404
   %1477 = load i64, ptr %1476, align 8, !tbaa !85
   %1478 = icmp ult i64 %1475, %1477
   br i1 %1478, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1320.thread, label %1479
@@ -10771,7 +10770,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit463: ; preds =
   %1519 = ptrtoint ptr %.1529.i.ph to i64
   %1520 = sub i64 %1519, %1516
   %1521 = getelementptr inbounds nuw i8, ptr %1514, i64 %1520
-  %1522 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %1514, i64 %1511
+  %1522 = getelementptr [16 x i8], ptr %1514, i64 %1511
   %1523 = getelementptr i8, ptr %1522, i64 -32
   br label %1524
 
@@ -11861,7 +11860,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit763: ; preds =
   %2089 = ptrtoint ptr %.1529.i.ph to i64
   %2090 = sub i64 %2089, %2086
   %2091 = getelementptr inbounds nuw i8, ptr %2084, i64 %2090
-  %2092 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %2084, i64 %2081
+  %2092 = getelementptr [16 x i8], ptr %2084, i64 %2081
   %2093 = getelementptr i8, ptr %2092, i64 -32
   br label %2094
 
@@ -11906,7 +11905,7 @@ _ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit849: ; preds = %2094
   %2111 = ptrtoint ptr %.1529.i.ph to i64
   %2112 = sub i64 %2111, %2108
   %2113 = getelementptr inbounds nuw i8, ptr %2106, i64 %2112
-  %2114 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %2106, i64 %2103
+  %2114 = getelementptr [16 x i8], ptr %2106, i64 %2103
   %2115 = getelementptr i8, ptr %2114, i64 -32
   br label %2116
 
@@ -11952,7 +11951,7 @@ _ZN13duckdb_yyjsonL10read_falseEPPhPNS_10yyjson_valE.exit852: ; preds = %2116
   %2134 = ptrtoint ptr %.1529.i.ph to i64
   %2135 = sub i64 %2134, %2131
   %2136 = getelementptr inbounds nuw i8, ptr %2129, i64 %2135
-  %2137 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %2129, i64 %2126
+  %2137 = getelementptr [16 x i8], ptr %2129, i64 %2126
   %2138 = getelementptr i8, ptr %2137, i64 -32
   br label %2139
 
@@ -12101,7 +12100,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit855: ; preds = %2139
   %2194 = ptrtoint ptr %.1529.i.ph to i64
   %2195 = sub i64 %2194, %2191
   %2196 = getelementptr inbounds nuw i8, ptr %2189, i64 %2195
-  %2197 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %2189, i64 %2186
+  %2197 = getelementptr [16 x i8], ptr %2189, i64 %2186
   %2198 = getelementptr i8, ptr %2197, i64 -32
   %.pre6738 = load i8, ptr %.pre6745, align 1, !tbaa !75
   br label %2199
@@ -12421,7 +12420,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit855: ; preds = %2139
   %2324 = ptrtoint ptr %.5533.i to i64
   %2325 = sub i64 %2324, %2321
   %2326 = getelementptr inbounds nuw i8, ptr %2319, i64 %2325
-  %2327 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %2319, i64 %2316
+  %2327 = getelementptr [16 x i8], ptr %2319, i64 %2316
   %2328 = getelementptr i8, ptr %2327, i64 -32
   br label %2329
 
@@ -12680,7 +12679,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit855: ; preds = %2139
   %2417 = ptrtoint ptr %.0528.i.ph to i64
   %2418 = sub i64 %2417, %2414
   %2419 = getelementptr inbounds nuw i8, ptr %2412, i64 %2418
-  %2420 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %2412, i64 %2409
+  %2420 = getelementptr [16 x i8], ptr %2412, i64 %2409
   %2421 = getelementptr i8, ptr %2420, i64 -32
   br label %2422
 
@@ -16613,14 +16612,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
 4418:                                             ; preds = %4415
   %4419 = sub nsw i64 0, %storemerge.in.i474
   %4420 = and i64 %4419, 4294967295
-  %4421 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %4420
+  %4421 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %4420
   %4422 = load double, ptr %4421, align 8, !tbaa !163
   %4423 = fdiv double %4416, %4422
   br label %4429
 
 4424:                                             ; preds = %4415
   %4425 = and i64 %storemerge.in.i474, 2147483647
-  %4426 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %4425
+  %4426 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %4425
   %4427 = load double, ptr %4426, align 8, !tbaa !163
   %4428 = fmul double %4427, %4416
   br label %4429
@@ -16657,7 +16656,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
 4437:                                             ; preds = %4433
   %4438 = shl nsw i32 %storemerge.i479, 1
   %4439 = sext i32 %4438 to i64
-  %4440 = getelementptr i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %4439
+  %4440 = getelementptr [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %4439
   %4441 = getelementptr i8, ptr %4440, i64 5488
   %4442 = load i64, ptr %4441, align 16, !tbaa !85
   %4443 = mul nsw i32 %storemerge.i479, 217706
@@ -16735,11 +16734,11 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %4490 = shl i64 %4489, %.pre-phi6866
   %4491 = add i32 %.pre-phi6870, 686
   %4492 = sext i32 %4491 to i64
-  %4493 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %4492
+  %4493 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %4492
   %4494 = load i64, ptr %4493, align 16, !tbaa !85
   %4495 = add i32 %.pre-phi6870, 687
   %4496 = sext i32 %4495 to i64
-  %4497 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %4496
+  %4497 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %4496
   %4498 = load i64, ptr %4497, align 8, !tbaa !85
   %4499 = lshr i64 %4498, 63
   %4500 = add i64 %4499, %4494
@@ -16927,7 +16926,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %4542
 
 .lr.ph4743:                                       ; preds = %.lr.ph4743.preheader, %4602
   %indvars.iv6305 = phi i64 [ 0, %.lr.ph4743.preheader ], [ %indvars.iv.next6306, %4602 ]
-  %4600 = getelementptr inbounds nuw i64, ptr %4597, i64 %indvars.iv6305
+  %4600 = getelementptr inbounds nuw [8 x i8], ptr %4597, i64 %indvars.iv6305
   %4601 = load i64, ptr %4600, align 8, !tbaa !85
   %.not.i1424 = icmp eq i64 %4601, 0
   br i1 %.not.i1424, label %4602, label %._crit_edge4744.loopexit
@@ -16954,7 +16953,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %4542
 .lr.ph4751:                                       ; preds = %.lr.ph4751.preheader, %.lr.ph4751
   %indvars.iv6310 = phi i64 [ %4605, %.lr.ph4751.preheader ], [ %indvars.iv.next6311, %.lr.ph4751 ]
   %.0.i14224749 = phi i64 [ 0, %.lr.ph4751.preheader ], [ %4613, %.lr.ph4751 ]
-  %4606 = getelementptr inbounds nuw i64, ptr %4597, i64 %indvars.iv6310
+  %4606 = getelementptr inbounds nuw [8 x i8], ptr %4597, i64 %indvars.iv6310
   %4607 = load i64, ptr %4606, align 8, !tbaa !85
   %4608 = zext i64 %4607 to i128
   %4609 = mul nuw i128 %4608, 10000000000000000000
@@ -16975,7 +16974,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %4542
 4615:                                             ; preds = %._crit_edge4752
   %4616 = add i32 %4599, 1
   %4617 = zext i32 %4599 to i64
-  %4618 = getelementptr inbounds nuw i64, ptr %4597, i64 %4617
+  %4618 = getelementptr inbounds nuw [8 x i8], ptr %4597, i64 %4617
   store i64 %4613, ptr %4618, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1425
 
@@ -16994,7 +16993,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1425: ; preds = %4602, %._
 
 4623:                                             ; preds = %._crit_edge4758
   %4624 = sext i32 %.0.i1218.lcssa to i64
-  %4625 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %4624
+  %4625 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %4624
   %4626 = load i64, ptr %4625, align 8, !tbaa !85
   %4627 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.not5780 = icmp eq i32 %4622, 0
@@ -17006,7 +17005,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1425: ; preds = %4602, %._
 
 .lr.ph4763:                                       ; preds = %.lr.ph4763.preheader, %4630
   %indvars.iv6315 = phi i64 [ 0, %.lr.ph4763.preheader ], [ %indvars.iv.next6316, %4630 ]
-  %4628 = getelementptr inbounds nuw i64, ptr %4627, i64 %indvars.iv6315
+  %4628 = getelementptr inbounds nuw [8 x i8], ptr %4627, i64 %indvars.iv6315
   %4629 = load i64, ptr %4628, align 8, !tbaa !85
   %.not.i1430 = icmp eq i64 %4629, 0
   br i1 %.not.i1430, label %4630, label %._crit_edge4764.loopexit
@@ -17034,7 +17033,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1425: ; preds = %4602, %._
 4635:                                             ; preds = %.lr.ph4771, %4635
   %indvars.iv6320 = phi i64 [ %4634, %.lr.ph4771 ], [ %indvars.iv.next6321, %4635 ]
   %.0.i14284769 = phi i64 [ 0, %.lr.ph4771 ], [ %4643, %4635 ]
-  %4636 = getelementptr inbounds nuw i64, ptr %4627, i64 %indvars.iv6320
+  %4636 = getelementptr inbounds nuw [8 x i8], ptr %4627, i64 %indvars.iv6320
   %4637 = load i64, ptr %4636, align 8, !tbaa !85
   %4638 = zext i64 %4637 to i128
   %4639 = mul nuw i128 %4638, %4633
@@ -17065,7 +17064,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1425: ; preds = %4602, %._
 .thread7377:                                      ; preds = %4647
   store i32 1, ptr %8, align 8
   %4650 = zext nneg i32 %4648 to i64
-  %4651 = getelementptr inbounds nuw i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %4650
+  %4651 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %4650
   %4652 = load i64, ptr %4651, align 8, !tbaa !85
   br label %.lr.ph4730.preheader
 
@@ -17081,7 +17080,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1425: ; preds = %4602, %._
 
 .lr.ph4709:                                       ; preds = %.lr.ph4709.preheader, %4656
   %indvars.iv = phi i64 [ 0, %.lr.ph4709.preheader ], [ %indvars.iv.next, %4656 ]
-  %4654 = getelementptr inbounds nuw i64, ptr %4593, i64 %indvars.iv
+  %4654 = getelementptr inbounds nuw [8 x i8], ptr %4593, i64 %indvars.iv
   %4655 = load i64, ptr %4654, align 8, !tbaa !85
   %.not.i1412 = icmp eq i64 %4655, 0
   br i1 %.not.i1412, label %4656, label %._crit_edge4710.loopexit
@@ -17108,7 +17107,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1425: ; preds = %4602, %._
 .lr.ph4717:                                       ; preds = %.lr.ph4717.preheader, %.lr.ph4717
   %indvars.iv6290 = phi i64 [ %4659, %.lr.ph4717.preheader ], [ %indvars.iv.next6291, %.lr.ph4717 ]
   %.0.i14104715 = phi i64 [ 0, %.lr.ph4717.preheader ], [ %4667, %.lr.ph4717 ]
-  %4660 = getelementptr inbounds nuw i64, ptr %4593, i64 %indvars.iv6290
+  %4660 = getelementptr inbounds nuw [8 x i8], ptr %4593, i64 %indvars.iv6290
   %4661 = load i64, ptr %4660, align 8, !tbaa !85
   %4662 = zext i64 %4661 to i128
   %4663 = mul nuw i128 %4662, 10000000000000000000
@@ -17129,7 +17128,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1425: ; preds = %4602, %._
 4669:                                             ; preds = %._crit_edge4718
   %4670 = add i32 %4653, 1
   %4671 = zext i32 %4653 to i64
-  %4672 = getelementptr inbounds nuw i64, ptr %4593, i64 %4671
+  %4672 = getelementptr inbounds nuw [8 x i8], ptr %4593, i64 %4671
   store i64 %4667, ptr %4672, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1413
 
@@ -17146,7 +17145,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1413: ; preds = %4656, %._
 
 4676:                                             ; preds = %._crit_edge4725
   %4677 = sext i32 %4674 to i64
-  %4678 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %4677
+  %4678 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %4677
   %4679 = load i64, ptr %4678, align 8, !tbaa !85
   %.not5778 = icmp eq i32 %4673, 0
   br i1 %.not5778, label %._crit_edge4731, label %.lr.ph4730.preheader
@@ -17159,7 +17158,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1413: ; preds = %4656, %._
 
 .lr.ph4730:                                       ; preds = %.lr.ph4730.preheader, %4684
   %indvars.iv6295 = phi i64 [ 0, %.lr.ph4730.preheader ], [ %indvars.iv.next6296, %4684 ]
-  %4682 = getelementptr inbounds nuw i64, ptr %4593, i64 %indvars.iv6295
+  %4682 = getelementptr inbounds nuw [8 x i8], ptr %4593, i64 %indvars.iv6295
   %4683 = load i64, ptr %4682, align 8, !tbaa !85
   %.not.i1418 = icmp eq i64 %4683, 0
   br i1 %.not.i1418, label %4684, label %._crit_edge4731.loopexit
@@ -17189,7 +17188,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1413: ; preds = %4656, %._
 4691:                                             ; preds = %.lr.ph4738, %4691
   %indvars.iv6300 = phi i64 [ %4690, %.lr.ph4738 ], [ %indvars.iv.next6301, %4691 ]
   %.0.i14164736 = phi i64 [ 0, %.lr.ph4738 ], [ %4699, %4691 ]
-  %4692 = getelementptr inbounds nuw i64, ptr %4593, i64 %indvars.iv6300
+  %4692 = getelementptr inbounds nuw [8 x i8], ptr %4593, i64 %indvars.iv6300
   %4693 = load i64, ptr %4692, align 8, !tbaa !85
   %4694 = zext i64 %4693 to i128
   %4695 = mul nuw i128 %4694, %4689
@@ -17218,7 +17217,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit.sink.split: ; preds = %
   %.ph8438 = phi i32 [ %4702, %4701 ], [ 1, %4645 ]
   %4704 = getelementptr inbounds nuw i8, ptr %4703, i64 8
   %4705 = zext i32 %.sink8442 to i64
-  %4706 = getelementptr inbounds nuw i64, ptr %4704, i64 %4705
+  %4706 = getelementptr inbounds nuw [8 x i8], ptr %4704, i64 %4705
   store i64 %.lcssa7842.sink, ptr %4706, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit
 
@@ -17245,12 +17244,12 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4684, %4630
 4715:                                             ; preds = %.lr.ph4802, %4715
   %indvars.iv6340 = phi i64 [ %4714, %.lr.ph4802 ], [ %4716, %4715 ]
   %4716 = add nsw i64 %indvars.iv6340, -1
-  %4717 = getelementptr i64, ptr %8, i64 %indvars.iv6340
+  %4717 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv6340
   %4718 = load i64, ptr %4717, align 8, !tbaa !85
   %4719 = trunc nuw i64 %indvars.iv6340 to i32
   %4720 = add i32 %4713, %4719
   %4721 = zext i32 %4720 to i64
-  %4722 = getelementptr inbounds nuw i64, ptr %4593, i64 %4721
+  %4722 = getelementptr inbounds nuw [8 x i8], ptr %4593, i64 %4721
   store i64 %4718, ptr %4722, align 8, !tbaa !85
   %.not46.i.wide = icmp eq i64 %4716, 0
   br i1 %.not46.i.wide, label %.lr.ph4807.preheader, label %4715, !llvm.loop !170
@@ -17267,7 +17266,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4684, %4630
 
 4728:                                             ; preds = %4709
   %4729 = zext i32 %4707 to i64
-  %4730 = getelementptr inbounds nuw i64, ptr %4593, i64 %4729
+  %4730 = getelementptr inbounds nuw [8 x i8], ptr %4593, i64 %4729
   store i64 0, ptr %4730, align 8, !tbaa !85
   %.not.i12414791 = icmp eq i32 %4707, 0
   %.pre6881 = zext nneg i32 %4710 to i64
@@ -17280,18 +17279,18 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4684, %4630
 
 4733:                                             ; preds = %.lr.ph4794, %4733
   %indvars.iv6335 = phi i64 [ %4729, %.lr.ph4794 ], [ %4737, %4733 ]
-  %4734 = getelementptr inbounds nuw i64, ptr %4593, i64 %indvars.iv6335
+  %4734 = getelementptr inbounds nuw [8 x i8], ptr %4593, i64 %indvars.iv6335
   %4735 = load i64, ptr %4734, align 8, !tbaa !85
   %4736 = shl i64 %4735, %.pre6881
   %4737 = add nsw i64 %indvars.iv6335, -1
-  %4738 = getelementptr i64, ptr %8, i64 %indvars.iv6335
+  %4738 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv6335
   %4739 = load i64, ptr %4738, align 8, !tbaa !85
   %4740 = lshr i64 %4739, %4732
   %4741 = or i64 %4740, %4736
   %4742 = trunc nuw i64 %indvars.iv6335 to i32
   %4743 = add i32 %4711, %4742
   %4744 = zext i32 %4743 to i64
-  %4745 = getelementptr inbounds nuw i64, ptr %4593, i64 %4744
+  %4745 = getelementptr inbounds nuw [8 x i8], ptr %4593, i64 %4744
   store i64 %4741, ptr %4745, align 8, !tbaa !85
   %.not.i1241.wide = icmp eq i64 %4737, 0
   br i1 %.not.i1241.wide, label %._crit_edge4795, label %4733, !llvm.loop !171
@@ -17300,11 +17299,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4684, %4630
   %4746 = load i64, ptr %4593, align 8, !tbaa !85
   %4747 = shl i64 %4746, %.pre6881
   %4748 = zext nneg i32 %4711 to i64
-  %4749 = getelementptr inbounds nuw i64, ptr %4593, i64 %4748
+  %4749 = getelementptr inbounds nuw [8 x i8], ptr %4593, i64 %4748
   store i64 %4747, ptr %4749, align 8, !tbaa !85
   %4750 = add i32 %4707, %4711
   %4751 = zext i32 %4750 to i64
-  %4752 = getelementptr inbounds nuw i64, ptr %4593, i64 %4751
+  %4752 = getelementptr inbounds nuw [8 x i8], ptr %4593, i64 %4751
   %4753 = load i64, ptr %4752, align 8, !tbaa !85
   %4754 = icmp ne i64 %4753, 0
   %4755 = zext i1 %4754 to i32
@@ -17340,12 +17339,12 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4684, %4630
 4769:                                             ; preds = %.lr.ph4785, %4769
   %indvars.iv6330 = phi i64 [ %4768, %.lr.ph4785 ], [ %4770, %4769 ]
   %4770 = add nsw i64 %indvars.iv6330, -1
-  %4771 = getelementptr i64, ptr %7, i64 %indvars.iv6330
+  %4771 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv6330
   %4772 = load i64, ptr %4771, align 8, !tbaa !85
   %4773 = trunc nuw i64 %indvars.iv6330 to i32
   %4774 = add i32 %4767, %4773
   %4775 = zext i32 %4774 to i64
-  %4776 = getelementptr inbounds nuw i64, ptr %4766, i64 %4775
+  %4776 = getelementptr inbounds nuw [8 x i8], ptr %4766, i64 %4775
   store i64 %4772, ptr %4776, align 8, !tbaa !85
   %.not46.i1249.wide = icmp eq i64 %4770, 0
   br i1 %.not46.i1249.wide, label %._crit_edge4786, label %4769, !llvm.loop !170
@@ -17366,7 +17365,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4684, %4630
 4781:                                             ; preds = %4760
   %4782 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %4783 = zext i32 %4764 to i64
-  %4784 = getelementptr inbounds nuw i64, ptr %4782, i64 %4783
+  %4784 = getelementptr inbounds nuw [8 x i8], ptr %4782, i64 %4783
   store i64 0, ptr %4784, align 8, !tbaa !85
   %.not.i12454774 = icmp eq i32 %4764, 0
   %.pre6883 = zext nneg i32 %4762 to i64
@@ -17379,18 +17378,18 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4684, %4630
 
 4787:                                             ; preds = %.lr.ph4777, %4787
   %indvars.iv6325 = phi i64 [ %4783, %.lr.ph4777 ], [ %4791, %4787 ]
-  %4788 = getelementptr inbounds nuw i64, ptr %4782, i64 %indvars.iv6325
+  %4788 = getelementptr inbounds nuw [8 x i8], ptr %4782, i64 %indvars.iv6325
   %4789 = load i64, ptr %4788, align 8, !tbaa !85
   %4790 = shl i64 %4789, %.pre6883
   %4791 = add nsw i64 %indvars.iv6325, -1
-  %4792 = getelementptr i64, ptr %7, i64 %indvars.iv6325
+  %4792 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv6325
   %4793 = load i64, ptr %4792, align 8, !tbaa !85
   %4794 = lshr i64 %4793, %4786
   %4795 = or i64 %4794, %4790
   %4796 = trunc nuw i64 %indvars.iv6325 to i32
   %4797 = add i32 %4763, %4796
   %4798 = zext i32 %4797 to i64
-  %4799 = getelementptr inbounds nuw i64, ptr %4782, i64 %4798
+  %4799 = getelementptr inbounds nuw [8 x i8], ptr %4782, i64 %4798
   store i64 %4795, ptr %4799, align 8, !tbaa !85
   %.not.i1245.wide = icmp eq i64 %4791, 0
   br i1 %.not.i1245.wide, label %._crit_edge4778, label %4787, !llvm.loop !171
@@ -17399,11 +17398,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4684, %4630
   %4800 = load i64, ptr %4782, align 8, !tbaa !85
   %4801 = shl i64 %4800, %.pre6883
   %4802 = zext nneg i32 %4763 to i64
-  %4803 = getelementptr inbounds nuw i64, ptr %4782, i64 %4802
+  %4803 = getelementptr inbounds nuw [8 x i8], ptr %4782, i64 %4802
   store i64 %4801, ptr %4803, align 8, !tbaa !85
   %4804 = add i32 %4764, %4763
   %4805 = zext i32 %4804 to i64
-  %4806 = getelementptr inbounds nuw i64, ptr %4782, i64 %4805
+  %4806 = getelementptr inbounds nuw [8 x i8], ptr %4782, i64 %4805
   %4807 = load i64, ptr %4806, align 8, !tbaa !85
   %4808 = icmp ne i64 %4807, 0
   %4809 = zext i1 %4808 to i32
@@ -17440,9 +17439,9 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit: ; preds = %.lr.ph4782.p
   br i1 %.not.i1308, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread3360, label %4822
 
 4822:                                             ; preds = %4820
-  %4823 = getelementptr i64, ptr %7, i64 %indvars.iv6343
+  %4823 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv6343
   %4824 = load i64, ptr %4823, align 8, !tbaa !85
-  %4825 = getelementptr i64, ptr %8, i64 %indvars.iv6343
+  %4825 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv6343
   %4826 = load i64, ptr %4825, align 8, !tbaa !85
   %4827 = icmp ult i64 %4824, %4826
   br i1 %4827, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread, label %4828
@@ -18247,7 +18246,7 @@ _ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read
   br i1 %.not.i160, label %9925, label %.thread3368, !prof !3
 
 .thread3368:                                      ; preds = %5104
-  %5115 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %5114, i64 %5112
+  %5115 = getelementptr [16 x i8], ptr %5114, i64 %5112
   %5116 = getelementptr i8, ptr %5115, i64 -32
   %5117 = getelementptr inbounds nuw i8, ptr %5114, i64 64
   %5118 = and i32 %2, 160
@@ -18310,7 +18309,7 @@ _ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read
   %5142 = ptrtoint ptr %.2529.i to i64
   %5143 = sub i64 %5142, %5139
   %5144 = getelementptr inbounds nuw i8, ptr %5137, i64 %5143
-  %5145 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %5137, i64 %5134
+  %5145 = getelementptr [16 x i8], ptr %5137, i64 %5134
   %5146 = getelementptr i8, ptr %5145, i64 -32
   br label %5147
 
@@ -18379,7 +18378,7 @@ _ZN13duckdb_yyjsonL16read_root_prettyEPhS0_S0_NS_10yyjson_alcEjPNS_15yyjson_read
   %5173 = ptrtoint ptr %.1528.i.ph to i64
   %5174 = sub i64 %5173, %5170
   %5175 = getelementptr inbounds nuw i8, ptr %5168, i64 %5174
-  %5176 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %5168, i64 %5165
+  %5176 = getelementptr [16 x i8], ptr %5168, i64 %5165
   %5177 = getelementptr i8, ptr %5176, i64 -32
   %.pre6776 = load ptr, ptr %18, align 8, !tbaa !86
   br label %5178
@@ -20055,14 +20054,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit896: ; preds =
 6009:                                             ; preds = %6006
   %6010 = sub nsw i64 0, %storemerge.in.i
   %6011 = and i64 %6010, 4294967295
-  %6012 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %6011
+  %6012 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %6011
   %6013 = load double, ptr %6012, align 8, !tbaa !163
   %6014 = fdiv double %6007, %6013
   br label %6020
 
 6015:                                             ; preds = %6006
   %6016 = and i64 %storemerge.in.i, 2147483647
-  %6017 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %6016
+  %6017 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %6016
   %6018 = load double, ptr %6017, align 8, !tbaa !163
   %6019 = fmul double %6018, %6007
   br label %6020
@@ -20099,7 +20098,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit896: ; preds =
 6028:                                             ; preds = %6024
   %6029 = shl nsw i32 %storemerge.i229, 1
   %6030 = sext i32 %6029 to i64
-  %6031 = getelementptr i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %6030
+  %6031 = getelementptr [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %6030
   %6032 = getelementptr i8, ptr %6031, i64 5488
   %6033 = load i64, ptr %6032, align 16, !tbaa !85
   %6034 = mul nsw i32 %storemerge.i229, 217706
@@ -20177,11 +20176,11 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit896: ; preds =
   %6081 = shl i64 %6080, %.pre-phi6800
   %6082 = add i32 %.pre-phi6804, 686
   %6083 = sext i32 %6082 to i64
-  %6084 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %6083
+  %6084 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %6083
   %6085 = load i64, ptr %6084, align 16, !tbaa !85
   %6086 = add i32 %.pre-phi6804, 687
   %6087 = sext i32 %6086 to i64
-  %6088 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %6087
+  %6088 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %6087
   %6089 = load i64, ptr %6088, align 8, !tbaa !85
   %6090 = lshr i64 %6089, 63
   %6091 = add i64 %6090, %6085
@@ -20369,7 +20368,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1217: ; preds = %6133
 
 .lr.ph5589:                                       ; preds = %.lr.ph5589.preheader, %6193
   %indvars.iv6488 = phi i64 [ 0, %.lr.ph5589.preheader ], [ %indvars.iv.next6489, %6193 ]
-  %6191 = getelementptr inbounds nuw i64, ptr %6188, i64 %indvars.iv6488
+  %6191 = getelementptr inbounds nuw [8 x i8], ptr %6188, i64 %indvars.iv6488
   %6192 = load i64, ptr %6191, align 8, !tbaa !85
   %.not.i1352 = icmp eq i64 %6192, 0
   br i1 %.not.i1352, label %6193, label %._crit_edge5590.loopexit
@@ -20396,7 +20395,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1217: ; preds = %6133
 .lr.ph5597:                                       ; preds = %.lr.ph5597.preheader, %.lr.ph5597
   %indvars.iv6493 = phi i64 [ %6196, %.lr.ph5597.preheader ], [ %indvars.iv.next6494, %.lr.ph5597 ]
   %.0.i13505595 = phi i64 [ 0, %.lr.ph5597.preheader ], [ %6204, %.lr.ph5597 ]
-  %6197 = getelementptr inbounds nuw i64, ptr %6188, i64 %indvars.iv6493
+  %6197 = getelementptr inbounds nuw [8 x i8], ptr %6188, i64 %indvars.iv6493
   %6198 = load i64, ptr %6197, align 8, !tbaa !85
   %6199 = zext i64 %6198 to i128
   %6200 = mul nuw i128 %6199, 10000000000000000000
@@ -20417,7 +20416,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1217: ; preds = %6133
 6206:                                             ; preds = %._crit_edge5598
   %6207 = add i32 %6190, 1
   %6208 = zext i32 %6190 to i64
-  %6209 = getelementptr inbounds nuw i64, ptr %6188, i64 %6208
+  %6209 = getelementptr inbounds nuw [8 x i8], ptr %6188, i64 %6208
   store i64 %6204, ptr %6209, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1353
 
@@ -20436,7 +20435,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1353: ; preds = %6193, %._
 
 6214:                                             ; preds = %._crit_edge5604
   %6215 = sext i32 %.0.i1235.lcssa to i64
-  %6216 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %6215
+  %6216 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %6215
   %6217 = load i64, ptr %6216, align 8, !tbaa !85
   %6218 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.not5804 = icmp eq i32 %6213, 0
@@ -20448,7 +20447,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1353: ; preds = %6193, %._
 
 .lr.ph5609:                                       ; preds = %.lr.ph5609.preheader, %6221
   %indvars.iv6498 = phi i64 [ 0, %.lr.ph5609.preheader ], [ %indvars.iv.next6499, %6221 ]
-  %6219 = getelementptr inbounds nuw i64, ptr %6218, i64 %indvars.iv6498
+  %6219 = getelementptr inbounds nuw [8 x i8], ptr %6218, i64 %indvars.iv6498
   %6220 = load i64, ptr %6219, align 8, !tbaa !85
   %.not.i1358 = icmp eq i64 %6220, 0
   br i1 %.not.i1358, label %6221, label %._crit_edge5610.loopexit
@@ -20476,7 +20475,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1353: ; preds = %6193, %._
 6226:                                             ; preds = %.lr.ph5617, %6226
   %indvars.iv6503 = phi i64 [ %6225, %.lr.ph5617 ], [ %indvars.iv.next6504, %6226 ]
   %.0.i13565615 = phi i64 [ 0, %.lr.ph5617 ], [ %6234, %6226 ]
-  %6227 = getelementptr inbounds nuw i64, ptr %6218, i64 %indvars.iv6503
+  %6227 = getelementptr inbounds nuw [8 x i8], ptr %6218, i64 %indvars.iv6503
   %6228 = load i64, ptr %6227, align 8, !tbaa !85
   %6229 = zext i64 %6228 to i128
   %6230 = mul nuw i128 %6229, %6224
@@ -20507,7 +20506,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1353: ; preds = %6193, %._
 .thread7402:                                      ; preds = %6238
   store i32 1, ptr %17, align 8
   %6241 = zext nneg i32 %6239 to i64
-  %6242 = getelementptr inbounds nuw i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %6241
+  %6242 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %6241
   %6243 = load i64, ptr %6242, align 8, !tbaa !85
   br label %.lr.ph5576.preheader
 
@@ -20523,7 +20522,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1353: ; preds = %6193, %._
 
 .lr.ph5555:                                       ; preds = %.lr.ph5555.preheader, %6247
   %indvars.iv6468 = phi i64 [ 0, %.lr.ph5555.preheader ], [ %indvars.iv.next6469, %6247 ]
-  %6245 = getelementptr inbounds nuw i64, ptr %6184, i64 %indvars.iv6468
+  %6245 = getelementptr inbounds nuw [8 x i8], ptr %6184, i64 %indvars.iv6468
   %6246 = load i64, ptr %6245, align 8, !tbaa !85
   %.not.i1341 = icmp eq i64 %6246, 0
   br i1 %.not.i1341, label %6247, label %._crit_edge5556.loopexit
@@ -20550,7 +20549,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1353: ; preds = %6193, %._
 .lr.ph5563:                                       ; preds = %.lr.ph5563.preheader, %.lr.ph5563
   %indvars.iv6473 = phi i64 [ %6250, %.lr.ph5563.preheader ], [ %indvars.iv.next6474, %.lr.ph5563 ]
   %.0.i13405561 = phi i64 [ 0, %.lr.ph5563.preheader ], [ %6258, %.lr.ph5563 ]
-  %6251 = getelementptr inbounds nuw i64, ptr %6184, i64 %indvars.iv6473
+  %6251 = getelementptr inbounds nuw [8 x i8], ptr %6184, i64 %indvars.iv6473
   %6252 = load i64, ptr %6251, align 8, !tbaa !85
   %6253 = zext i64 %6252 to i128
   %6254 = mul nuw i128 %6253, 10000000000000000000
@@ -20571,7 +20570,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1353: ; preds = %6193, %._
 6260:                                             ; preds = %._crit_edge5564
   %6261 = add i32 %6244, 1
   %6262 = zext i32 %6244 to i64
-  %6263 = getelementptr inbounds nuw i64, ptr %6184, i64 %6262
+  %6263 = getelementptr inbounds nuw [8 x i8], ptr %6184, i64 %6262
   store i64 %6258, ptr %6263, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit
 
@@ -20588,7 +20587,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %6247, %._crit
 
 6267:                                             ; preds = %._crit_edge5571
   %6268 = sext i32 %6265 to i64
-  %6269 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %6268
+  %6269 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %6268
   %6270 = load i64, ptr %6269, align 8, !tbaa !85
   %.not5802 = icmp eq i32 %6264, 0
   br i1 %.not5802, label %._crit_edge5577, label %.lr.ph5576.preheader
@@ -20601,7 +20600,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %6247, %._crit
 
 .lr.ph5576:                                       ; preds = %.lr.ph5576.preheader, %6275
   %indvars.iv6478 = phi i64 [ 0, %.lr.ph5576.preheader ], [ %indvars.iv.next6479, %6275 ]
-  %6273 = getelementptr inbounds nuw i64, ptr %6184, i64 %indvars.iv6478
+  %6273 = getelementptr inbounds nuw [8 x i8], ptr %6184, i64 %indvars.iv6478
   %6274 = load i64, ptr %6273, align 8, !tbaa !85
   %.not.i1346 = icmp eq i64 %6274, 0
   br i1 %.not.i1346, label %6275, label %._crit_edge5577.loopexit
@@ -20631,7 +20630,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %6247, %._crit
 6282:                                             ; preds = %.lr.ph5584, %6282
   %indvars.iv6483 = phi i64 [ %6281, %.lr.ph5584 ], [ %indvars.iv.next6484, %6282 ]
   %.0.i13445582 = phi i64 [ 0, %.lr.ph5584 ], [ %6290, %6282 ]
-  %6283 = getelementptr inbounds nuw i64, ptr %6184, i64 %indvars.iv6483
+  %6283 = getelementptr inbounds nuw [8 x i8], ptr %6184, i64 %indvars.iv6483
   %6284 = load i64, ptr %6283, align 8, !tbaa !85
   %6285 = zext i64 %6284 to i128
   %6286 = mul nuw i128 %6285, %6280
@@ -20660,7 +20659,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1237.sink.split: ; preds
   %.ph8477 = phi i32 [ %6293, %6292 ], [ 1, %6236 ]
   %6295 = getelementptr inbounds nuw i8, ptr %6294, i64 8
   %6296 = zext i32 %.sink8481 to i64
-  %6297 = getelementptr inbounds nuw i64, ptr %6295, i64 %6296
+  %6297 = getelementptr inbounds nuw [8 x i8], ptr %6295, i64 %6296
   store i64 %.lcssa7511.sink, ptr %6297, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1237
 
@@ -20687,12 +20686,12 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1237: ; preds = %6275, %
 6306:                                             ; preds = %.lr.ph5648, %6306
   %indvars.iv6523 = phi i64 [ %6305, %.lr.ph5648 ], [ %6307, %6306 ]
   %6307 = add nsw i64 %indvars.iv6523, -1
-  %6308 = getelementptr i64, ptr %17, i64 %indvars.iv6523
+  %6308 = getelementptr [8 x i8], ptr %17, i64 %indvars.iv6523
   %6309 = load i64, ptr %6308, align 8, !tbaa !85
   %6310 = trunc nuw i64 %indvars.iv6523 to i32
   %6311 = add i32 %6304, %6310
   %6312 = zext i32 %6311 to i64
-  %6313 = getelementptr inbounds nuw i64, ptr %6184, i64 %6312
+  %6313 = getelementptr inbounds nuw [8 x i8], ptr %6184, i64 %6312
   store i64 %6309, ptr %6313, align 8, !tbaa !85
   %.not46.i1294.wide = icmp eq i64 %6307, 0
   br i1 %.not46.i1294.wide, label %.lr.ph5653.preheader, label %6306, !llvm.loop !170
@@ -20709,7 +20708,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1237: ; preds = %6275, %
 
 6319:                                             ; preds = %6300
   %6320 = zext i32 %6298 to i64
-  %6321 = getelementptr inbounds nuw i64, ptr %6184, i64 %6320
+  %6321 = getelementptr inbounds nuw [8 x i8], ptr %6184, i64 %6320
   store i64 0, ptr %6321, align 8, !tbaa !85
   %.not.i12905637 = icmp eq i32 %6298, 0
   %.pre6815 = zext nneg i32 %6301 to i64
@@ -20722,18 +20721,18 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1237: ; preds = %6275, %
 
 6324:                                             ; preds = %.lr.ph5640, %6324
   %indvars.iv6518 = phi i64 [ %6320, %.lr.ph5640 ], [ %6328, %6324 ]
-  %6325 = getelementptr inbounds nuw i64, ptr %6184, i64 %indvars.iv6518
+  %6325 = getelementptr inbounds nuw [8 x i8], ptr %6184, i64 %indvars.iv6518
   %6326 = load i64, ptr %6325, align 8, !tbaa !85
   %6327 = shl i64 %6326, %.pre6815
   %6328 = add nsw i64 %indvars.iv6518, -1
-  %6329 = getelementptr i64, ptr %17, i64 %indvars.iv6518
+  %6329 = getelementptr [8 x i8], ptr %17, i64 %indvars.iv6518
   %6330 = load i64, ptr %6329, align 8, !tbaa !85
   %6331 = lshr i64 %6330, %6323
   %6332 = or i64 %6331, %6327
   %6333 = trunc nuw i64 %indvars.iv6518 to i32
   %6334 = add i32 %6302, %6333
   %6335 = zext i32 %6334 to i64
-  %6336 = getelementptr inbounds nuw i64, ptr %6184, i64 %6335
+  %6336 = getelementptr inbounds nuw [8 x i8], ptr %6184, i64 %6335
   store i64 %6332, ptr %6336, align 8, !tbaa !85
   %.not.i1290.wide = icmp eq i64 %6328, 0
   br i1 %.not.i1290.wide, label %._crit_edge5641, label %6324, !llvm.loop !171
@@ -20742,11 +20741,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1237: ; preds = %6275, %
   %6337 = load i64, ptr %6184, align 8, !tbaa !85
   %6338 = shl i64 %6337, %.pre6815
   %6339 = zext nneg i32 %6302 to i64
-  %6340 = getelementptr inbounds nuw i64, ptr %6184, i64 %6339
+  %6340 = getelementptr inbounds nuw [8 x i8], ptr %6184, i64 %6339
   store i64 %6338, ptr %6340, align 8, !tbaa !85
   %6341 = add i32 %6298, %6302
   %6342 = zext i32 %6341 to i64
-  %6343 = getelementptr inbounds nuw i64, ptr %6184, i64 %6342
+  %6343 = getelementptr inbounds nuw [8 x i8], ptr %6184, i64 %6342
   %6344 = load i64, ptr %6343, align 8, !tbaa !85
   %6345 = icmp ne i64 %6344, 0
   %6346 = zext i1 %6345 to i32
@@ -20782,12 +20781,12 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1237: ; preds = %6275, %
 6360:                                             ; preds = %.lr.ph5631, %6360
   %indvars.iv6513 = phi i64 [ %6359, %.lr.ph5631 ], [ %6361, %6360 ]
   %6361 = add nsw i64 %indvars.iv6513, -1
-  %6362 = getelementptr i64, ptr %16, i64 %indvars.iv6513
+  %6362 = getelementptr [8 x i8], ptr %16, i64 %indvars.iv6513
   %6363 = load i64, ptr %6362, align 8, !tbaa !85
   %6364 = trunc nuw i64 %indvars.iv6513 to i32
   %6365 = add i32 %6358, %6364
   %6366 = zext i32 %6365 to i64
-  %6367 = getelementptr inbounds nuw i64, ptr %6357, i64 %6366
+  %6367 = getelementptr inbounds nuw [8 x i8], ptr %6357, i64 %6366
   store i64 %6363, ptr %6367, align 8, !tbaa !85
   %.not46.i1303.wide = icmp eq i64 %6361, 0
   br i1 %.not46.i1303.wide, label %._crit_edge5632, label %6360, !llvm.loop !170
@@ -20808,7 +20807,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1237: ; preds = %6275, %
 6372:                                             ; preds = %6351
   %6373 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %6374 = zext i32 %6355 to i64
-  %6375 = getelementptr inbounds nuw i64, ptr %6373, i64 %6374
+  %6375 = getelementptr inbounds nuw [8 x i8], ptr %6373, i64 %6374
   store i64 0, ptr %6375, align 8, !tbaa !85
   %.not.i12995620 = icmp eq i32 %6355, 0
   %.pre6817 = zext nneg i32 %6353 to i64
@@ -20821,18 +20820,18 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1237: ; preds = %6275, %
 
 6378:                                             ; preds = %.lr.ph5623, %6378
   %indvars.iv6508 = phi i64 [ %6374, %.lr.ph5623 ], [ %6382, %6378 ]
-  %6379 = getelementptr inbounds nuw i64, ptr %6373, i64 %indvars.iv6508
+  %6379 = getelementptr inbounds nuw [8 x i8], ptr %6373, i64 %indvars.iv6508
   %6380 = load i64, ptr %6379, align 8, !tbaa !85
   %6381 = shl i64 %6380, %.pre6817
   %6382 = add nsw i64 %indvars.iv6508, -1
-  %6383 = getelementptr i64, ptr %16, i64 %indvars.iv6508
+  %6383 = getelementptr [8 x i8], ptr %16, i64 %indvars.iv6508
   %6384 = load i64, ptr %6383, align 8, !tbaa !85
   %6385 = lshr i64 %6384, %6377
   %6386 = or i64 %6385, %6381
   %6387 = trunc nuw i64 %indvars.iv6508 to i32
   %6388 = add i32 %6354, %6387
   %6389 = zext i32 %6388 to i64
-  %6390 = getelementptr inbounds nuw i64, ptr %6373, i64 %6389
+  %6390 = getelementptr inbounds nuw [8 x i8], ptr %6373, i64 %6389
   store i64 %6386, ptr %6390, align 8, !tbaa !85
   %.not.i1299.wide = icmp eq i64 %6382, 0
   br i1 %.not.i1299.wide, label %._crit_edge5624, label %6378, !llvm.loop !171
@@ -20841,11 +20840,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1237: ; preds = %6275, %
   %6391 = load i64, ptr %6373, align 8, !tbaa !85
   %6392 = shl i64 %6391, %.pre6817
   %6393 = zext nneg i32 %6354 to i64
-  %6394 = getelementptr inbounds nuw i64, ptr %6373, i64 %6393
+  %6394 = getelementptr inbounds nuw [8 x i8], ptr %6373, i64 %6393
   store i64 %6392, ptr %6394, align 8, !tbaa !85
   %6395 = add i32 %6355, %6354
   %6396 = zext i32 %6395 to i64
-  %6397 = getelementptr inbounds nuw i64, ptr %6373, i64 %6396
+  %6397 = getelementptr inbounds nuw [8 x i8], ptr %6373, i64 %6396
   %6398 = load i64, ptr %6397, align 8, !tbaa !85
   %6399 = icmp ne i64 %6398, 0
   %6400 = zext i1 %6399 to i32
@@ -20882,9 +20881,9 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1297: ; preds = %.lr.ph56
   br i1 %.not.i1332, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1338.thread3401, label %6413
 
 6413:                                             ; preds = %6411
-  %6414 = getelementptr i64, ptr %16, i64 %indvars.iv6526
+  %6414 = getelementptr [8 x i8], ptr %16, i64 %indvars.iv6526
   %6415 = load i64, ptr %6414, align 8, !tbaa !85
-  %6416 = getelementptr i64, ptr %17, i64 %indvars.iv6526
+  %6416 = getelementptr [8 x i8], ptr %17, i64 %indvars.iv6526
   %6417 = load i64, ptr %6416, align 8, !tbaa !85
   %6418 = icmp ult i64 %6415, %6417
   br i1 %6418, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1338.thread, label %6419
@@ -21015,7 +21014,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %5
   %6457 = ptrtoint ptr %.1528.i.ph to i64
   %6458 = sub i64 %6457, %6454
   %6459 = getelementptr inbounds nuw i8, ptr %6452, i64 %6458
-  %6460 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %6452, i64 %6449
+  %6460 = getelementptr [16 x i8], ptr %6452, i64 %6449
   %6461 = getelementptr i8, ptr %6460, i64 -32
   %.pre6780 = load ptr, ptr %18, align 8, !tbaa !86
   br label %6462
@@ -22105,7 +22104,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit: ; preds = %.
   %7027 = ptrtoint ptr %.1528.i.ph to i64
   %7028 = sub i64 %7027, %7024
   %7029 = getelementptr inbounds nuw i8, ptr %7022, i64 %7028
-  %7030 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %7022, i64 %7019
+  %7030 = getelementptr [16 x i8], ptr %7022, i64 %7019
   %7031 = getelementptr i8, ptr %7030, i64 -32
   %.pre6779 = load ptr, ptr %18, align 8, !tbaa !86
   br label %7032
@@ -22150,7 +22149,7 @@ _ZN13duckdb_yyjsonL9read_trueEPPhPNS_10yyjson_valE.exit: ; preds = %7032
   %7049 = ptrtoint ptr %.1528.i.ph to i64
   %7050 = sub i64 %7049, %7046
   %7051 = getelementptr inbounds nuw i8, ptr %7044, i64 %7050
-  %7052 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %7044, i64 %7041
+  %7052 = getelementptr [16 x i8], ptr %7044, i64 %7041
   %7053 = getelementptr i8, ptr %7052, i64 -32
   %.pre6778 = load ptr, ptr %18, align 8, !tbaa !86
   br label %7054
@@ -22196,7 +22195,7 @@ _ZN13duckdb_yyjsonL10read_falseEPPhPNS_10yyjson_valE.exit: ; preds = %7054
   %7072 = ptrtoint ptr %.1528.i.ph to i64
   %7073 = sub i64 %7072, %7069
   %7074 = getelementptr inbounds nuw i8, ptr %7067, i64 %7073
-  %7075 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %7067, i64 %7064
+  %7075 = getelementptr [16 x i8], ptr %7067, i64 %7064
   %7076 = getelementptr i8, ptr %7075, i64 -32
   %.pre6777 = load ptr, ptr %18, align 8, !tbaa !86
   br label %7077
@@ -22345,7 +22344,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7077
   %7132 = ptrtoint ptr %.1528.i.ph to i64
   %7133 = sub i64 %7132, %7129
   %7134 = getelementptr inbounds nuw i8, ptr %7127, i64 %7133
-  %7135 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %7127, i64 %7124
+  %7135 = getelementptr [16 x i8], ptr %7127, i64 %7124
   %7136 = getelementptr i8, ptr %7135, i64 -32
   %.pre6790 = load ptr, ptr %18, align 8, !tbaa !86
   %.pre6791 = load i8, ptr %.pre6790, align 1, !tbaa !75
@@ -22645,7 +22644,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7077
   %7256 = ptrtoint ptr %.5532.i to i64
   %7257 = sub i64 %7256, %7253
   %7258 = getelementptr inbounds nuw i8, ptr %7251, i64 %7257
-  %7259 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %7251, i64 %7248
+  %7259 = getelementptr [16 x i8], ptr %7251, i64 %7248
   %7260 = getelementptr i8, ptr %7259, i64 -32
   br label %7261
 
@@ -22704,7 +22703,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7077
   %7281 = ptrtoint ptr %.0527.i.ph to i64
   %7282 = sub i64 %7281, %7278
   %7283 = getelementptr inbounds nuw i8, ptr %7276, i64 %7282
-  %7284 = getelementptr %"struct.duckdb_yyjson::yyjson_val", ptr %7276, i64 %7273
+  %7284 = getelementptr [16 x i8], ptr %7276, i64 %7273
   %7285 = getelementptr i8, ptr %7284, i64 -32
   %.pre6752 = load ptr, ptr %18, align 8, !tbaa !86
   br label %7286
@@ -26626,14 +26625,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit888: ; preds =
 9281:                                             ; preds = %9278
   %9282 = sub nsw i64 0, %storemerge.in.i260
   %9283 = and i64 %9282, 4294967295
-  %9284 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %9283
+  %9284 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %9283
   %9285 = load double, ptr %9284, align 8, !tbaa !163
   %9286 = fdiv double %9279, %9285
   br label %9292
 
 9287:                                             ; preds = %9278
   %9288 = and i64 %storemerge.in.i260, 2147483647
-  %9289 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %9288
+  %9289 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %9288
   %9290 = load double, ptr %9289, align 8, !tbaa !163
   %9291 = fmul double %9290, %9279
   br label %9292
@@ -26670,7 +26669,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit888: ; preds =
 9300:                                             ; preds = %9296
   %9301 = shl nsw i32 %storemerge.i265, 1
   %9302 = sext i32 %9301 to i64
-  %9303 = getelementptr i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %9302
+  %9303 = getelementptr [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %9302
   %9304 = getelementptr i8, ptr %9303, i64 5488
   %9305 = load i64, ptr %9304, align 16, !tbaa !85
   %9306 = mul nsw i32 %storemerge.i265, 217706
@@ -26748,11 +26747,11 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit888: ; preds =
   %9353 = shl i64 %9352, %.pre-phi6822
   %9354 = add i32 %.pre-phi6826, 686
   %9355 = sext i32 %9354 to i64
-  %9356 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %9355
+  %9356 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %9355
   %9357 = load i64, ptr %9356, align 16, !tbaa !85
   %9358 = add i32 %.pre-phi6826, 687
   %9359 = sext i32 %9358 to i64
-  %9360 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %9359
+  %9360 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %9359
   %9361 = load i64, ptr %9360, align 8, !tbaa !85
   %9362 = lshr i64 %9361, 63
   %9363 = add i64 %9362, %9357
@@ -26940,7 +26939,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1215: ; preds = %9405
 
 .lr.ph5360:                                       ; preds = %.lr.ph5360.preheader, %9465
   %indvars.iv6427 = phi i64 [ 0, %.lr.ph5360.preheader ], [ %indvars.iv.next6428, %9465 ]
-  %9463 = getelementptr inbounds nuw i64, ptr %9460, i64 %indvars.iv6427
+  %9463 = getelementptr inbounds nuw [8 x i8], ptr %9460, i64 %indvars.iv6427
   %9464 = load i64, ptr %9463, align 8, !tbaa !85
   %.not.i1376 = icmp eq i64 %9464, 0
   br i1 %.not.i1376, label %9465, label %._crit_edge5361.loopexit
@@ -26967,7 +26966,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1215: ; preds = %9405
 .lr.ph5368:                                       ; preds = %.lr.ph5368.preheader, %.lr.ph5368
   %indvars.iv6432 = phi i64 [ %9468, %.lr.ph5368.preheader ], [ %indvars.iv.next6433, %.lr.ph5368 ]
   %.0.i13745366 = phi i64 [ 0, %.lr.ph5368.preheader ], [ %9476, %.lr.ph5368 ]
-  %9469 = getelementptr inbounds nuw i64, ptr %9460, i64 %indvars.iv6432
+  %9469 = getelementptr inbounds nuw [8 x i8], ptr %9460, i64 %indvars.iv6432
   %9470 = load i64, ptr %9469, align 8, !tbaa !85
   %9471 = zext i64 %9470 to i128
   %9472 = mul nuw i128 %9471, 10000000000000000000
@@ -26988,7 +26987,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit1215: ; preds = %9405
 9478:                                             ; preds = %._crit_edge5369
   %9479 = add i32 %9462, 1
   %9480 = zext i32 %9462 to i64
-  %9481 = getelementptr inbounds nuw i64, ptr %9460, i64 %9480
+  %9481 = getelementptr inbounds nuw [8 x i8], ptr %9460, i64 %9480
   store i64 %9476, ptr %9481, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1377
 
@@ -27007,7 +27006,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1377: ; preds = %9465, %._
 
 9486:                                             ; preds = %._crit_edge5375
   %9487 = sext i32 %.0.i1229.lcssa to i64
-  %9488 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %9487
+  %9488 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %9487
   %9489 = load i64, ptr %9488, align 8, !tbaa !85
   %9490 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.not5796 = icmp eq i32 %9485, 0
@@ -27019,7 +27018,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1377: ; preds = %9465, %._
 
 .lr.ph5380:                                       ; preds = %.lr.ph5380.preheader, %9493
   %indvars.iv6437 = phi i64 [ 0, %.lr.ph5380.preheader ], [ %indvars.iv.next6438, %9493 ]
-  %9491 = getelementptr inbounds nuw i64, ptr %9490, i64 %indvars.iv6437
+  %9491 = getelementptr inbounds nuw [8 x i8], ptr %9490, i64 %indvars.iv6437
   %9492 = load i64, ptr %9491, align 8, !tbaa !85
   %.not.i1382 = icmp eq i64 %9492, 0
   br i1 %.not.i1382, label %9493, label %._crit_edge5381.loopexit
@@ -27047,7 +27046,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1377: ; preds = %9465, %._
 9498:                                             ; preds = %.lr.ph5388, %9498
   %indvars.iv6442 = phi i64 [ %9497, %.lr.ph5388 ], [ %indvars.iv.next6443, %9498 ]
   %.0.i13805386 = phi i64 [ 0, %.lr.ph5388 ], [ %9506, %9498 ]
-  %9499 = getelementptr inbounds nuw i64, ptr %9490, i64 %indvars.iv6442
+  %9499 = getelementptr inbounds nuw [8 x i8], ptr %9490, i64 %indvars.iv6442
   %9500 = load i64, ptr %9499, align 8, !tbaa !85
   %9501 = zext i64 %9500 to i128
   %9502 = mul nuw i128 %9501, %9496
@@ -27078,7 +27077,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1377: ; preds = %9465, %._
 .thread7427:                                      ; preds = %9510
   store i32 1, ptr %14, align 8
   %9513 = zext nneg i32 %9511 to i64
-  %9514 = getelementptr inbounds nuw i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %9513
+  %9514 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %9513
   %9515 = load i64, ptr %9514, align 8, !tbaa !85
   br label %.lr.ph5347.preheader
 
@@ -27094,7 +27093,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1377: ; preds = %9465, %._
 
 .lr.ph5326:                                       ; preds = %.lr.ph5326.preheader, %9519
   %indvars.iv6407 = phi i64 [ 0, %.lr.ph5326.preheader ], [ %indvars.iv.next6408, %9519 ]
-  %9517 = getelementptr inbounds nuw i64, ptr %9456, i64 %indvars.iv6407
+  %9517 = getelementptr inbounds nuw [8 x i8], ptr %9456, i64 %indvars.iv6407
   %9518 = load i64, ptr %9517, align 8, !tbaa !85
   %.not.i1364 = icmp eq i64 %9518, 0
   br i1 %.not.i1364, label %9519, label %._crit_edge5327.loopexit
@@ -27121,7 +27120,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1377: ; preds = %9465, %._
 .lr.ph5334:                                       ; preds = %.lr.ph5334.preheader, %.lr.ph5334
   %indvars.iv6412 = phi i64 [ %9522, %.lr.ph5334.preheader ], [ %indvars.iv.next6413, %.lr.ph5334 ]
   %.0.i13625332 = phi i64 [ 0, %.lr.ph5334.preheader ], [ %9530, %.lr.ph5334 ]
-  %9523 = getelementptr inbounds nuw i64, ptr %9456, i64 %indvars.iv6412
+  %9523 = getelementptr inbounds nuw [8 x i8], ptr %9456, i64 %indvars.iv6412
   %9524 = load i64, ptr %9523, align 8, !tbaa !85
   %9525 = zext i64 %9524 to i128
   %9526 = mul nuw i128 %9525, 10000000000000000000
@@ -27142,7 +27141,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1377: ; preds = %9465, %._
 9532:                                             ; preds = %._crit_edge5335
   %9533 = add i32 %9516, 1
   %9534 = zext i32 %9516 to i64
-  %9535 = getelementptr inbounds nuw i64, ptr %9456, i64 %9534
+  %9535 = getelementptr inbounds nuw [8 x i8], ptr %9456, i64 %9534
   store i64 %9530, ptr %9535, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1365
 
@@ -27159,7 +27158,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1365: ; preds = %9519, %._
 
 9539:                                             ; preds = %._crit_edge5342
   %9540 = sext i32 %9537 to i64
-  %9541 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %9540
+  %9541 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %9540
   %9542 = load i64, ptr %9541, align 8, !tbaa !85
   %.not5794 = icmp eq i32 %9536, 0
   br i1 %.not5794, label %._crit_edge5348, label %.lr.ph5347.preheader
@@ -27172,7 +27171,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1365: ; preds = %9519, %._
 
 .lr.ph5347:                                       ; preds = %.lr.ph5347.preheader, %9547
   %indvars.iv6417 = phi i64 [ 0, %.lr.ph5347.preheader ], [ %indvars.iv.next6418, %9547 ]
-  %9545 = getelementptr inbounds nuw i64, ptr %9456, i64 %indvars.iv6417
+  %9545 = getelementptr inbounds nuw [8 x i8], ptr %9456, i64 %indvars.iv6417
   %9546 = load i64, ptr %9545, align 8, !tbaa !85
   %.not.i1370 = icmp eq i64 %9546, 0
   br i1 %.not.i1370, label %9547, label %._crit_edge5348.loopexit
@@ -27202,7 +27201,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit1365: ; preds = %9519, %._
 9554:                                             ; preds = %.lr.ph5355, %9554
   %indvars.iv6422 = phi i64 [ %9553, %.lr.ph5355 ], [ %indvars.iv.next6423, %9554 ]
   %.0.i13685353 = phi i64 [ 0, %.lr.ph5355 ], [ %9562, %9554 ]
-  %9555 = getelementptr inbounds nuw i64, ptr %9456, i64 %indvars.iv6422
+  %9555 = getelementptr inbounds nuw [8 x i8], ptr %9456, i64 %indvars.iv6422
   %9556 = load i64, ptr %9555, align 8, !tbaa !85
   %9557 = zext i64 %9556 to i128
   %9558 = mul nuw i128 %9557, %9552
@@ -27231,7 +27230,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1231.sink.split: ; preds
   %.ph = phi i32 [ %9565, %9564 ], [ 1, %9508 ]
   %9567 = getelementptr inbounds nuw i8, ptr %9566, i64 8
   %9568 = zext i32 %.sink8509 to i64
-  %9569 = getelementptr inbounds nuw i64, ptr %9567, i64 %9568
+  %9569 = getelementptr inbounds nuw [8 x i8], ptr %9567, i64 %9568
   store i64 %.lcssa7605.sink, ptr %9569, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1231
 
@@ -27258,12 +27257,12 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1231: ; preds = %9547, %
 9578:                                             ; preds = %.lr.ph5419, %9578
   %indvars.iv6462 = phi i64 [ %9577, %.lr.ph5419 ], [ %9579, %9578 ]
   %9579 = add nsw i64 %indvars.iv6462, -1
-  %9580 = getelementptr i64, ptr %14, i64 %indvars.iv6462
+  %9580 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv6462
   %9581 = load i64, ptr %9580, align 8, !tbaa !85
   %9582 = trunc nuw i64 %indvars.iv6462 to i32
   %9583 = add i32 %9576, %9582
   %9584 = zext i32 %9583 to i64
-  %9585 = getelementptr inbounds nuw i64, ptr %9456, i64 %9584
+  %9585 = getelementptr inbounds nuw [8 x i8], ptr %9456, i64 %9584
   store i64 %9581, ptr %9585, align 8, !tbaa !85
   %.not46.i1276.wide = icmp eq i64 %9579, 0
   br i1 %.not46.i1276.wide, label %.lr.ph5424.preheader, label %9578, !llvm.loop !170
@@ -27280,7 +27279,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1231: ; preds = %9547, %
 
 9591:                                             ; preds = %9572
   %9592 = zext i32 %9570 to i64
-  %9593 = getelementptr inbounds nuw i64, ptr %9456, i64 %9592
+  %9593 = getelementptr inbounds nuw [8 x i8], ptr %9456, i64 %9592
   store i64 0, ptr %9593, align 8, !tbaa !85
   %.not.i12725408 = icmp eq i32 %9570, 0
   %.pre6837 = zext nneg i32 %9573 to i64
@@ -27293,18 +27292,18 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1231: ; preds = %9547, %
 
 9596:                                             ; preds = %.lr.ph5411, %9596
   %indvars.iv6457 = phi i64 [ %9592, %.lr.ph5411 ], [ %9600, %9596 ]
-  %9597 = getelementptr inbounds nuw i64, ptr %9456, i64 %indvars.iv6457
+  %9597 = getelementptr inbounds nuw [8 x i8], ptr %9456, i64 %indvars.iv6457
   %9598 = load i64, ptr %9597, align 8, !tbaa !85
   %9599 = shl i64 %9598, %.pre6837
   %9600 = add nsw i64 %indvars.iv6457, -1
-  %9601 = getelementptr i64, ptr %14, i64 %indvars.iv6457
+  %9601 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv6457
   %9602 = load i64, ptr %9601, align 8, !tbaa !85
   %9603 = lshr i64 %9602, %9595
   %9604 = or i64 %9603, %9599
   %9605 = trunc nuw i64 %indvars.iv6457 to i32
   %9606 = add i32 %9574, %9605
   %9607 = zext i32 %9606 to i64
-  %9608 = getelementptr inbounds nuw i64, ptr %9456, i64 %9607
+  %9608 = getelementptr inbounds nuw [8 x i8], ptr %9456, i64 %9607
   store i64 %9604, ptr %9608, align 8, !tbaa !85
   %.not.i1272.wide = icmp eq i64 %9600, 0
   br i1 %.not.i1272.wide, label %._crit_edge5412, label %9596, !llvm.loop !171
@@ -27313,11 +27312,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1231: ; preds = %9547, %
   %9609 = load i64, ptr %9456, align 8, !tbaa !85
   %9610 = shl i64 %9609, %.pre6837
   %9611 = zext nneg i32 %9574 to i64
-  %9612 = getelementptr inbounds nuw i64, ptr %9456, i64 %9611
+  %9612 = getelementptr inbounds nuw [8 x i8], ptr %9456, i64 %9611
   store i64 %9610, ptr %9612, align 8, !tbaa !85
   %9613 = add i32 %9570, %9574
   %9614 = zext i32 %9613 to i64
-  %9615 = getelementptr inbounds nuw i64, ptr %9456, i64 %9614
+  %9615 = getelementptr inbounds nuw [8 x i8], ptr %9456, i64 %9614
   %9616 = load i64, ptr %9615, align 8, !tbaa !85
   %9617 = icmp ne i64 %9616, 0
   %9618 = zext i1 %9617 to i32
@@ -27353,12 +27352,12 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1231: ; preds = %9547, %
 9632:                                             ; preds = %.lr.ph5402, %9632
   %indvars.iv6452 = phi i64 [ %9631, %.lr.ph5402 ], [ %9633, %9632 ]
   %9633 = add nsw i64 %indvars.iv6452, -1
-  %9634 = getelementptr i64, ptr %13, i64 %indvars.iv6452
+  %9634 = getelementptr [8 x i8], ptr %13, i64 %indvars.iv6452
   %9635 = load i64, ptr %9634, align 8, !tbaa !85
   %9636 = trunc nuw i64 %indvars.iv6452 to i32
   %9637 = add i32 %9630, %9636
   %9638 = zext i32 %9637 to i64
-  %9639 = getelementptr inbounds nuw i64, ptr %9629, i64 %9638
+  %9639 = getelementptr inbounds nuw [8 x i8], ptr %9629, i64 %9638
   store i64 %9635, ptr %9639, align 8, !tbaa !85
   %.not46.i1285.wide = icmp eq i64 %9633, 0
   br i1 %.not46.i1285.wide, label %._crit_edge5403, label %9632, !llvm.loop !170
@@ -27379,7 +27378,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1231: ; preds = %9547, %
 9644:                                             ; preds = %9623
   %9645 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %9646 = zext i32 %9627 to i64
-  %9647 = getelementptr inbounds nuw i64, ptr %9645, i64 %9646
+  %9647 = getelementptr inbounds nuw [8 x i8], ptr %9645, i64 %9646
   store i64 0, ptr %9647, align 8, !tbaa !85
   %.not.i12815391 = icmp eq i32 %9627, 0
   %.pre6839 = zext nneg i32 %9625 to i64
@@ -27392,18 +27391,18 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1231: ; preds = %9547, %
 
 9650:                                             ; preds = %.lr.ph5394, %9650
   %indvars.iv6447 = phi i64 [ %9646, %.lr.ph5394 ], [ %9654, %9650 ]
-  %9651 = getelementptr inbounds nuw i64, ptr %9645, i64 %indvars.iv6447
+  %9651 = getelementptr inbounds nuw [8 x i8], ptr %9645, i64 %indvars.iv6447
   %9652 = load i64, ptr %9651, align 8, !tbaa !85
   %9653 = shl i64 %9652, %.pre6839
   %9654 = add nsw i64 %indvars.iv6447, -1
-  %9655 = getelementptr i64, ptr %13, i64 %indvars.iv6447
+  %9655 = getelementptr [8 x i8], ptr %13, i64 %indvars.iv6447
   %9656 = load i64, ptr %9655, align 8, !tbaa !85
   %9657 = lshr i64 %9656, %9649
   %9658 = or i64 %9657, %9653
   %9659 = trunc nuw i64 %indvars.iv6447 to i32
   %9660 = add i32 %9626, %9659
   %9661 = zext i32 %9660 to i64
-  %9662 = getelementptr inbounds nuw i64, ptr %9645, i64 %9661
+  %9662 = getelementptr inbounds nuw [8 x i8], ptr %9645, i64 %9661
   store i64 %9658, ptr %9662, align 8, !tbaa !85
   %.not.i1281.wide = icmp eq i64 %9654, 0
   br i1 %.not.i1281.wide, label %._crit_edge5395, label %9650, !llvm.loop !171
@@ -27412,11 +27411,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1231: ; preds = %9547, %
   %9663 = load i64, ptr %9645, align 8, !tbaa !85
   %9664 = shl i64 %9663, %.pre6839
   %9665 = zext nneg i32 %9626 to i64
-  %9666 = getelementptr inbounds nuw i64, ptr %9645, i64 %9665
+  %9666 = getelementptr inbounds nuw [8 x i8], ptr %9645, i64 %9665
   store i64 %9664, ptr %9666, align 8, !tbaa !85
   %9667 = add i32 %9627, %9626
   %9668 = zext i32 %9667 to i64
-  %9669 = getelementptr inbounds nuw i64, ptr %9645, i64 %9668
+  %9669 = getelementptr inbounds nuw [8 x i8], ptr %9645, i64 %9668
   %9670 = load i64, ptr %9669, align 8, !tbaa !85
   %9671 = icmp ne i64 %9670, 0
   %9672 = zext i1 %9671 to i32
@@ -27453,9 +27452,9 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1279: ; preds = %.lr.ph53
   br i1 %.not.i1323, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1329.thread3474, label %9685
 
 9685:                                             ; preds = %9683
-  %9686 = getelementptr i64, ptr %13, i64 %indvars.iv6465
+  %9686 = getelementptr [8 x i8], ptr %13, i64 %indvars.iv6465
   %9687 = load i64, ptr %9686, align 8, !tbaa !85
-  %9688 = getelementptr i64, ptr %14, i64 %indvars.iv6465
+  %9688 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv6465
   %9689 = load i64, ptr %9688, align 8, !tbaa !85
   %9690 = icmp ult i64 %9687, %9689
   br i1 %9690, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit1329.thread, label %9691
@@ -30113,14 +30112,14 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
 857:                                              ; preds = %854
   %858 = sub nsw i64 0, %storemerge.in.i
   %859 = and i64 %858, 4294967295
-  %860 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %859
+  %860 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %859
   %861 = load double, ptr %860, align 8, !tbaa !163
   %862 = fdiv double %855, %861
   br label %868
 
 863:                                              ; preds = %854
   %864 = and i64 %storemerge.in.i, 2147483647
-  %865 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %864
+  %865 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %864
   %866 = load double, ptr %865, align 8, !tbaa !163
   %867 = fmul double %866, %855
   br label %868
@@ -30155,7 +30154,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
 876:                                              ; preds = %872
   %877 = shl nsw i32 %storemerge.i, 1
   %878 = sext i32 %877 to i64
-  %879 = getelementptr i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %878
+  %879 = getelementptr [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %878
   %880 = getelementptr i8, ptr %879, i64 5488
   %881 = load i64, ptr %880, align 16, !tbaa !85
   %882 = mul nsw i32 %storemerge.i, 217706
@@ -30231,11 +30230,11 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
   %929 = shl i64 %928, %.pre-phi1132
   %930 = add i32 %.pre-phi1136, 686
   %931 = sext i32 %930 to i64
-  %932 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %931
+  %932 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %931
   %933 = load i64, ptr %932, align 16, !tbaa !85
   %934 = add i32 %.pre-phi1136, 687
   %935 = sext i32 %934 to i64
-  %936 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %935
+  %936 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %935
   %937 = load i64, ptr %936, align 8, !tbaa !85
   %938 = lshr i64 %937, 63
   %939 = add i64 %938, %933
@@ -30425,7 +30424,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %981
 
 .lr.ph793:                                        ; preds = %.lr.ph793.preheader, %1042
   %indvars.iv1063 = phi i64 [ 0, %.lr.ph793.preheader ], [ %indvars.iv.next1064, %1042 ]
-  %1040 = getelementptr inbounds nuw i64, ptr %1037, i64 %indvars.iv1063
+  %1040 = getelementptr inbounds nuw [8 x i8], ptr %1037, i64 %indvars.iv1063
   %1041 = load i64, ptr %1040, align 8, !tbaa !85
   %.not.i255 = icmp eq i64 %1041, 0
   br i1 %.not.i255, label %1042, label %._crit_edge794.loopexit
@@ -30452,7 +30451,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %981
 .lr.ph801:                                        ; preds = %.lr.ph801.preheader, %.lr.ph801
   %indvars.iv1068 = phi i64 [ %1045, %.lr.ph801.preheader ], [ %indvars.iv.next1069, %.lr.ph801 ]
   %.0.i253799 = phi i64 [ 0, %.lr.ph801.preheader ], [ %1053, %.lr.ph801 ]
-  %1046 = getelementptr inbounds nuw i64, ptr %1037, i64 %indvars.iv1068
+  %1046 = getelementptr inbounds nuw [8 x i8], ptr %1037, i64 %indvars.iv1068
   %1047 = load i64, ptr %1046, align 8, !tbaa !85
   %1048 = zext i64 %1047 to i128
   %1049 = mul nuw i128 %1048, 10000000000000000000
@@ -30473,7 +30472,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %981
 1055:                                             ; preds = %._crit_edge802
   %1056 = add i32 %1039, 1
   %1057 = zext i32 %1039 to i64
-  %1058 = getelementptr inbounds nuw i64, ptr %1037, i64 %1057
+  %1058 = getelementptr inbounds nuw [8 x i8], ptr %1037, i64 %1057
   store i64 %1053, ptr %1058, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256
 
@@ -30492,7 +30491,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256: ; preds = %1042, %._c
 
 1063:                                             ; preds = %._crit_edge808
   %1064 = sext i32 %.0.i221.lcssa to i64
-  %1065 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1064
+  %1065 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1064
   %1066 = load i64, ptr %1065, align 8, !tbaa !85
   %1067 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.not978 = icmp eq i32 %1062, 0
@@ -30504,7 +30503,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256: ; preds = %1042, %._c
 
 .lr.ph813:                                        ; preds = %.lr.ph813.preheader, %1070
   %indvars.iv1073 = phi i64 [ 0, %.lr.ph813.preheader ], [ %indvars.iv.next1074, %1070 ]
-  %1068 = getelementptr inbounds nuw i64, ptr %1067, i64 %indvars.iv1073
+  %1068 = getelementptr inbounds nuw [8 x i8], ptr %1067, i64 %indvars.iv1073
   %1069 = load i64, ptr %1068, align 8, !tbaa !85
   %.not.i261 = icmp eq i64 %1069, 0
   br i1 %.not.i261, label %1070, label %._crit_edge814.loopexit
@@ -30532,7 +30531,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256: ; preds = %1042, %._c
 1075:                                             ; preds = %.lr.ph821, %1075
   %indvars.iv1078 = phi i64 [ %1074, %.lr.ph821 ], [ %indvars.iv.next1079, %1075 ]
   %.0.i259819 = phi i64 [ 0, %.lr.ph821 ], [ %1083, %1075 ]
-  %1076 = getelementptr inbounds nuw i64, ptr %1067, i64 %indvars.iv1078
+  %1076 = getelementptr inbounds nuw [8 x i8], ptr %1067, i64 %indvars.iv1078
   %1077 = load i64, ptr %1076, align 8, !tbaa !85
   %1078 = zext i64 %1077 to i128
   %1079 = mul nuw i128 %1078, %1073
@@ -30563,7 +30562,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256: ; preds = %1042, %._c
 .thread1263:                                      ; preds = %1087
   store i32 1, ptr %9, align 8
   %1090 = zext nneg i32 %1088 to i64
-  %1091 = getelementptr inbounds nuw i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1090
+  %1091 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1090
   %1092 = load i64, ptr %1091, align 8, !tbaa !85
   br label %.lr.ph780.preheader
 
@@ -30579,7 +30578,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256: ; preds = %1042, %._c
 
 .lr.ph760:                                        ; preds = %.lr.ph760.preheader, %1096
   %indvars.iv = phi i64 [ 0, %.lr.ph760.preheader ], [ %indvars.iv.next, %1096 ]
-  %1094 = getelementptr inbounds nuw i64, ptr %1033, i64 %indvars.iv
+  %1094 = getelementptr inbounds nuw [8 x i8], ptr %1033, i64 %indvars.iv
   %1095 = load i64, ptr %1094, align 8, !tbaa !85
   %.not.i244 = icmp eq i64 %1095, 0
   br i1 %.not.i244, label %1096, label %._crit_edge761.loopexit
@@ -30606,7 +30605,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256: ; preds = %1042, %._c
 .lr.ph768:                                        ; preds = %.lr.ph768.preheader, %.lr.ph768
   %indvars.iv1048 = phi i64 [ %1099, %.lr.ph768.preheader ], [ %indvars.iv.next1049, %.lr.ph768 ]
   %.0.i243766 = phi i64 [ 0, %.lr.ph768.preheader ], [ %1107, %.lr.ph768 ]
-  %1100 = getelementptr inbounds nuw i64, ptr %1033, i64 %indvars.iv1048
+  %1100 = getelementptr inbounds nuw [8 x i8], ptr %1033, i64 %indvars.iv1048
   %1101 = load i64, ptr %1100, align 8, !tbaa !85
   %1102 = zext i64 %1101 to i128
   %1103 = mul nuw i128 %1102, 10000000000000000000
@@ -30627,7 +30626,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit256: ; preds = %1042, %._c
 1109:                                             ; preds = %._crit_edge769
   %1110 = add i32 %1093, 1
   %1111 = zext i32 %1093 to i64
-  %1112 = getelementptr inbounds nuw i64, ptr %1033, i64 %1111
+  %1112 = getelementptr inbounds nuw [8 x i8], ptr %1033, i64 %1111
   store i64 %1107, ptr %1112, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit
 
@@ -30644,7 +30643,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %1096, %._crit
 
 1116:                                             ; preds = %._crit_edge775
   %1117 = sext i32 %1114 to i64
-  %1118 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1117
+  %1118 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1117
   %1119 = load i64, ptr %1118, align 8, !tbaa !85
   %.not976 = icmp eq i32 %1113, 0
   br i1 %.not976, label %._crit_edge781, label %.lr.ph780.preheader
@@ -30657,7 +30656,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %1096, %._crit
 
 .lr.ph780:                                        ; preds = %.lr.ph780.preheader, %1124
   %indvars.iv1053 = phi i64 [ 0, %.lr.ph780.preheader ], [ %indvars.iv.next1054, %1124 ]
-  %1122 = getelementptr inbounds nuw i64, ptr %1033, i64 %indvars.iv1053
+  %1122 = getelementptr inbounds nuw [8 x i8], ptr %1033, i64 %indvars.iv1053
   %1123 = load i64, ptr %1122, align 8, !tbaa !85
   %.not.i249 = icmp eq i64 %1123, 0
   br i1 %.not.i249, label %1124, label %._crit_edge781.loopexit
@@ -30687,7 +30686,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %1096, %._crit
 1131:                                             ; preds = %.lr.ph788, %1131
   %indvars.iv1058 = phi i64 [ %1130, %.lr.ph788 ], [ %indvars.iv.next1059, %1131 ]
   %.0.i247786 = phi i64 [ 0, %.lr.ph788 ], [ %1139, %1131 ]
-  %1132 = getelementptr inbounds nuw i64, ptr %1033, i64 %indvars.iv1058
+  %1132 = getelementptr inbounds nuw [8 x i8], ptr %1033, i64 %indvars.iv1058
   %1133 = load i64, ptr %1132, align 8, !tbaa !85
   %1134 = zext i64 %1133 to i128
   %1135 = mul nuw i128 %1134, %1129
@@ -30716,7 +30715,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit.sink.split: ; preds = %
   %.ph1394 = phi i32 [ %1142, %1141 ], [ 1, %1085 ]
   %1144 = getelementptr inbounds nuw i8, ptr %1143, i64 8
   %1145 = zext i32 %.sink1398 to i64
-  %1146 = getelementptr inbounds nuw i64, ptr %1144, i64 %1145
+  %1146 = getelementptr inbounds nuw [8 x i8], ptr %1144, i64 %1145
   store i64 %.lcssa1319.sink, ptr %1146, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit
 
@@ -30743,12 +30742,12 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1124, %1070
 1155:                                             ; preds = %.lr.ph852, %1155
   %indvars.iv1098 = phi i64 [ %1154, %.lr.ph852 ], [ %1156, %1155 ]
   %1156 = add nsw i64 %indvars.iv1098, -1
-  %1157 = getelementptr i64, ptr %9, i64 %indvars.iv1098
+  %1157 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv1098
   %1158 = load i64, ptr %1157, align 8, !tbaa !85
   %1159 = trunc nuw i64 %indvars.iv1098 to i32
   %1160 = add i32 %1153, %1159
   %1161 = zext i32 %1160 to i64
-  %1162 = getelementptr inbounds nuw i64, ptr %1033, i64 %1161
+  %1162 = getelementptr inbounds nuw [8 x i8], ptr %1033, i64 %1161
   store i64 %1158, ptr %1162, align 8, !tbaa !85
   %.not46.i.wide = icmp eq i64 %1156, 0
   br i1 %.not46.i.wide, label %.lr.ph857.preheader, label %1155, !llvm.loop !170
@@ -30765,7 +30764,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1124, %1070
 
 1168:                                             ; preds = %1149
   %1169 = zext i32 %1147 to i64
-  %1170 = getelementptr inbounds nuw i64, ptr %1033, i64 %1169
+  %1170 = getelementptr inbounds nuw [8 x i8], ptr %1033, i64 %1169
   store i64 0, ptr %1170, align 8, !tbaa !85
   %.not.i226841 = icmp eq i32 %1147, 0
   %.pre1147 = zext nneg i32 %1150 to i64
@@ -30778,18 +30777,18 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1124, %1070
 
 1173:                                             ; preds = %.lr.ph844, %1173
   %indvars.iv1093 = phi i64 [ %1169, %.lr.ph844 ], [ %1177, %1173 ]
-  %1174 = getelementptr inbounds nuw i64, ptr %1033, i64 %indvars.iv1093
+  %1174 = getelementptr inbounds nuw [8 x i8], ptr %1033, i64 %indvars.iv1093
   %1175 = load i64, ptr %1174, align 8, !tbaa !85
   %1176 = shl i64 %1175, %.pre1147
   %1177 = add nsw i64 %indvars.iv1093, -1
-  %1178 = getelementptr i64, ptr %9, i64 %indvars.iv1093
+  %1178 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv1093
   %1179 = load i64, ptr %1178, align 8, !tbaa !85
   %1180 = lshr i64 %1179, %1172
   %1181 = or i64 %1180, %1176
   %1182 = trunc nuw i64 %indvars.iv1093 to i32
   %1183 = add i32 %1151, %1182
   %1184 = zext i32 %1183 to i64
-  %1185 = getelementptr inbounds nuw i64, ptr %1033, i64 %1184
+  %1185 = getelementptr inbounds nuw [8 x i8], ptr %1033, i64 %1184
   store i64 %1181, ptr %1185, align 8, !tbaa !85
   %.not.i226.wide = icmp eq i64 %1177, 0
   br i1 %.not.i226.wide, label %._crit_edge845, label %1173, !llvm.loop !171
@@ -30798,11 +30797,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1124, %1070
   %1186 = load i64, ptr %1033, align 8, !tbaa !85
   %1187 = shl i64 %1186, %.pre1147
   %1188 = zext nneg i32 %1151 to i64
-  %1189 = getelementptr inbounds nuw i64, ptr %1033, i64 %1188
+  %1189 = getelementptr inbounds nuw [8 x i8], ptr %1033, i64 %1188
   store i64 %1187, ptr %1189, align 8, !tbaa !85
   %1190 = add i32 %1147, %1151
   %1191 = zext i32 %1190 to i64
-  %1192 = getelementptr inbounds nuw i64, ptr %1033, i64 %1191
+  %1192 = getelementptr inbounds nuw [8 x i8], ptr %1033, i64 %1191
   %1193 = load i64, ptr %1192, align 8, !tbaa !85
   %1194 = icmp ne i64 %1193, 0
   %1195 = zext i1 %1194 to i32
@@ -30838,12 +30837,12 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1124, %1070
 1209:                                             ; preds = %.lr.ph835, %1209
   %indvars.iv1088 = phi i64 [ %1208, %.lr.ph835 ], [ %1210, %1209 ]
   %1210 = add nsw i64 %indvars.iv1088, -1
-  %1211 = getelementptr i64, ptr %8, i64 %indvars.iv1088
+  %1211 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv1088
   %1212 = load i64, ptr %1211, align 8, !tbaa !85
   %1213 = trunc nuw i64 %indvars.iv1088 to i32
   %1214 = add i32 %1207, %1213
   %1215 = zext i32 %1214 to i64
-  %1216 = getelementptr inbounds nuw i64, ptr %1206, i64 %1215
+  %1216 = getelementptr inbounds nuw [8 x i8], ptr %1206, i64 %1215
   store i64 %1212, ptr %1216, align 8, !tbaa !85
   %.not46.i234.wide = icmp eq i64 %1210, 0
   br i1 %.not46.i234.wide, label %._crit_edge836, label %1209, !llvm.loop !170
@@ -30864,7 +30863,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1124, %1070
 1221:                                             ; preds = %1200
   %1222 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %1223 = zext i32 %1204 to i64
-  %1224 = getelementptr inbounds nuw i64, ptr %1222, i64 %1223
+  %1224 = getelementptr inbounds nuw [8 x i8], ptr %1222, i64 %1223
   store i64 0, ptr %1224, align 8, !tbaa !85
   %.not.i230824 = icmp eq i32 %1204, 0
   %.pre1149 = zext nneg i32 %1202 to i64
@@ -30877,18 +30876,18 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1124, %1070
 
 1227:                                             ; preds = %.lr.ph827, %1227
   %indvars.iv1083 = phi i64 [ %1223, %.lr.ph827 ], [ %1231, %1227 ]
-  %1228 = getelementptr inbounds nuw i64, ptr %1222, i64 %indvars.iv1083
+  %1228 = getelementptr inbounds nuw [8 x i8], ptr %1222, i64 %indvars.iv1083
   %1229 = load i64, ptr %1228, align 8, !tbaa !85
   %1230 = shl i64 %1229, %.pre1149
   %1231 = add nsw i64 %indvars.iv1083, -1
-  %1232 = getelementptr i64, ptr %8, i64 %indvars.iv1083
+  %1232 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv1083
   %1233 = load i64, ptr %1232, align 8, !tbaa !85
   %1234 = lshr i64 %1233, %1226
   %1235 = or i64 %1234, %1230
   %1236 = trunc nuw i64 %indvars.iv1083 to i32
   %1237 = add i32 %1203, %1236
   %1238 = zext i32 %1237 to i64
-  %1239 = getelementptr inbounds nuw i64, ptr %1222, i64 %1238
+  %1239 = getelementptr inbounds nuw [8 x i8], ptr %1222, i64 %1238
   store i64 %1235, ptr %1239, align 8, !tbaa !85
   %.not.i230.wide = icmp eq i64 %1231, 0
   br i1 %.not.i230.wide, label %._crit_edge828, label %1227, !llvm.loop !171
@@ -30897,11 +30896,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1124, %1070
   %1240 = load i64, ptr %1222, align 8, !tbaa !85
   %1241 = shl i64 %1240, %.pre1149
   %1242 = zext nneg i32 %1203 to i64
-  %1243 = getelementptr inbounds nuw i64, ptr %1222, i64 %1242
+  %1243 = getelementptr inbounds nuw [8 x i8], ptr %1222, i64 %1242
   store i64 %1241, ptr %1243, align 8, !tbaa !85
   %1244 = add i32 %1204, %1203
   %1245 = zext i32 %1244 to i64
-  %1246 = getelementptr inbounds nuw i64, ptr %1222, i64 %1245
+  %1246 = getelementptr inbounds nuw [8 x i8], ptr %1222, i64 %1245
   %1247 = load i64, ptr %1246, align 8, !tbaa !85
   %1248 = icmp ne i64 %1247, 0
   %1249 = zext i1 %1248 to i32
@@ -30938,9 +30937,9 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit: ; preds = %.lr.ph832.pr
   br i1 %.not.i239, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread571, label %1262
 
 1262:                                             ; preds = %1260
-  %1263 = getelementptr i64, ptr %8, i64 %indvars.iv1101
+  %1263 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv1101
   %1264 = load i64, ptr %1263, align 8, !tbaa !85
-  %1265 = getelementptr i64, ptr %9, i64 %indvars.iv1101
+  %1265 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv1101
   %1266 = load i64, ptr %1265, align 8, !tbaa !85
   %1267 = icmp ult i64 %1264, %1266
   br i1 %1267, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread, label %1268
@@ -34377,14 +34376,14 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
 815:                                              ; preds = %812
   %816 = sub nsw i64 0, %storemerge.in.i
   %817 = and i64 %816, 4294967295
-  %818 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %817
+  %818 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %817
   %819 = load double, ptr %818, align 8, !tbaa !163
   %820 = fdiv double %813, %819
   br label %826
 
 821:                                              ; preds = %812
   %822 = and i64 %storemerge.in.i, 2147483647
-  %823 = getelementptr inbounds nuw double, ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %822
+  %823 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15f64_pow10_tableE, i64 %822
   %824 = load double, ptr %823, align 8, !tbaa !163
   %825 = fmul double %824, %813
   br label %826
@@ -34419,7 +34418,7 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
 834:                                              ; preds = %830
   %835 = shl nsw i32 %storemerge.i, 1
   %836 = sext i32 %835 to i64
-  %837 = getelementptr i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %836
+  %837 = getelementptr [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %836
   %838 = getelementptr i8, ptr %837, i64 5488
   %839 = load i64, ptr %838, align 16, !tbaa !85
   %840 = mul nsw i32 %storemerge.i, 217706
@@ -34495,11 +34494,11 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
   %887 = shl i64 %886, %.pre-phi566
   %888 = add i32 %.pre-phi570, 686
   %889 = sext i32 %888 to i64
-  %890 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %889
+  %890 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %889
   %891 = load i64, ptr %890, align 16, !tbaa !85
   %892 = add i32 %.pre-phi570, 687
   %893 = sext i32 %892 to i64
-  %894 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %893
+  %894 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %893
   %895 = load i64, ptr %894, align 8, !tbaa !85
   %896 = lshr i64 %895, 63
   %897 = add i64 %896, %891
@@ -34674,7 +34673,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %939
 
 .lr.ph418:                                        ; preds = %.lr.ph418.preheader, %995
   %indvars.iv521 = phi i64 [ 0, %.lr.ph418.preheader ], [ %indvars.iv.next522, %995 ]
-  %993 = getelementptr inbounds nuw i64, ptr %990, i64 %indvars.iv521
+  %993 = getelementptr inbounds nuw [8 x i8], ptr %990, i64 %indvars.iv521
   %994 = load i64, ptr %993, align 8, !tbaa !85
   %.not.i65 = icmp eq i64 %994, 0
   br i1 %.not.i65, label %995, label %._crit_edge419.loopexit
@@ -34701,7 +34700,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %939
 .lr.ph426:                                        ; preds = %.lr.ph426.preheader, %.lr.ph426
   %indvars.iv526 = phi i64 [ %998, %.lr.ph426.preheader ], [ %indvars.iv.next527, %.lr.ph426 ]
   %.0.i63424 = phi i64 [ 0, %.lr.ph426.preheader ], [ %1006, %.lr.ph426 ]
-  %999 = getelementptr inbounds nuw i64, ptr %990, i64 %indvars.iv526
+  %999 = getelementptr inbounds nuw [8 x i8], ptr %990, i64 %indvars.iv526
   %1000 = load i64, ptr %999, align 8, !tbaa !85
   %1001 = zext i64 %1000 to i128
   %1002 = mul nuw i128 %1001, 10000000000000000000
@@ -34722,7 +34721,7 @@ _ZN13duckdb_yyjsonL18diy_fp_to_ieee_rawENS_6diy_fpE.exit: ; preds = %939
 1008:                                             ; preds = %._crit_edge427
   %1009 = add i32 %992, 1
   %1010 = zext i32 %992 to i64
-  %1011 = getelementptr inbounds nuw i64, ptr %990, i64 %1010
+  %1011 = getelementptr inbounds nuw [8 x i8], ptr %990, i64 %1010
   store i64 %1006, ptr %1011, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66
 
@@ -34741,7 +34740,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66: ; preds = %995, %._cri
 
 1016:                                             ; preds = %._crit_edge433
   %1017 = sext i32 %.0.i34.lcssa to i64
-  %1018 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1017
+  %1018 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1017
   %1019 = load i64, ptr %1018, align 8, !tbaa !85
   %1020 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.not487 = icmp eq i32 %1015, 0
@@ -34753,7 +34752,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66: ; preds = %995, %._cri
 
 .lr.ph438:                                        ; preds = %.lr.ph438.preheader, %1023
   %indvars.iv531 = phi i64 [ 0, %.lr.ph438.preheader ], [ %indvars.iv.next532, %1023 ]
-  %1021 = getelementptr inbounds nuw i64, ptr %1020, i64 %indvars.iv531
+  %1021 = getelementptr inbounds nuw [8 x i8], ptr %1020, i64 %indvars.iv531
   %1022 = load i64, ptr %1021, align 8, !tbaa !85
   %.not.i71 = icmp eq i64 %1022, 0
   br i1 %.not.i71, label %1023, label %._crit_edge439.loopexit
@@ -34781,7 +34780,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66: ; preds = %995, %._cri
 1028:                                             ; preds = %.lr.ph446, %1028
   %indvars.iv536 = phi i64 [ %1027, %.lr.ph446 ], [ %indvars.iv.next537, %1028 ]
   %.0.i69444 = phi i64 [ 0, %.lr.ph446 ], [ %1036, %1028 ]
-  %1029 = getelementptr inbounds nuw i64, ptr %1020, i64 %indvars.iv536
+  %1029 = getelementptr inbounds nuw [8 x i8], ptr %1020, i64 %indvars.iv536
   %1030 = load i64, ptr %1029, align 8, !tbaa !85
   %1031 = zext i64 %1030 to i128
   %1032 = mul nuw i128 %1031, %1026
@@ -34812,7 +34811,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66: ; preds = %995, %._cri
 .thread675:                                       ; preds = %1040
   store i32 1, ptr %8, align 8
   %1043 = zext nneg i32 %1041 to i64
-  %1044 = getelementptr inbounds nuw i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1043
+  %1044 = getelementptr inbounds nuw [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1043
   %1045 = load i64, ptr %1044, align 8, !tbaa !85
   br label %.lr.ph405.preheader
 
@@ -34828,7 +34827,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66: ; preds = %995, %._cri
 
 .lr.ph385:                                        ; preds = %.lr.ph385.preheader, %1049
   %indvars.iv = phi i64 [ 0, %.lr.ph385.preheader ], [ %indvars.iv.next, %1049 ]
-  %1047 = getelementptr inbounds nuw i64, ptr %986, i64 %indvars.iv
+  %1047 = getelementptr inbounds nuw [8 x i8], ptr %986, i64 %indvars.iv
   %1048 = load i64, ptr %1047, align 8, !tbaa !85
   %.not.i54 = icmp eq i64 %1048, 0
   br i1 %.not.i54, label %1049, label %._crit_edge386.loopexit
@@ -34855,7 +34854,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66: ; preds = %995, %._cri
 .lr.ph393:                                        ; preds = %.lr.ph393.preheader, %.lr.ph393
   %indvars.iv506 = phi i64 [ %1052, %.lr.ph393.preheader ], [ %indvars.iv.next507, %.lr.ph393 ]
   %.0.i53391 = phi i64 [ 0, %.lr.ph393.preheader ], [ %1060, %.lr.ph393 ]
-  %1053 = getelementptr inbounds nuw i64, ptr %986, i64 %indvars.iv506
+  %1053 = getelementptr inbounds nuw [8 x i8], ptr %986, i64 %indvars.iv506
   %1054 = load i64, ptr %1053, align 8, !tbaa !85
   %1055 = zext i64 %1054 to i128
   %1056 = mul nuw i128 %1055, 10000000000000000000
@@ -34876,7 +34875,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit66: ; preds = %995, %._cri
 1062:                                             ; preds = %._crit_edge394
   %1063 = add i32 %1046, 1
   %1064 = zext i32 %1046 to i64
-  %1065 = getelementptr inbounds nuw i64, ptr %986, i64 %1064
+  %1065 = getelementptr inbounds nuw [8 x i8], ptr %986, i64 %1064
   store i64 %1060, ptr %1065, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit
 
@@ -34893,7 +34892,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %1049, %._crit
 
 1069:                                             ; preds = %._crit_edge400
   %1070 = sext i32 %1067 to i64
-  %1071 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1070
+  %1071 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %1070
   %1072 = load i64, ptr %1071, align 8, !tbaa !85
   %.not485 = icmp eq i32 %1066, 0
   br i1 %.not485, label %._crit_edge406, label %.lr.ph405.preheader
@@ -34906,7 +34905,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %1049, %._crit
 
 .lr.ph405:                                        ; preds = %.lr.ph405.preheader, %1077
   %indvars.iv511 = phi i64 [ 0, %.lr.ph405.preheader ], [ %indvars.iv.next512, %1077 ]
-  %1075 = getelementptr inbounds nuw i64, ptr %986, i64 %indvars.iv511
+  %1075 = getelementptr inbounds nuw [8 x i8], ptr %986, i64 %indvars.iv511
   %1076 = load i64, ptr %1075, align 8, !tbaa !85
   %.not.i59 = icmp eq i64 %1076, 0
   br i1 %.not.i59, label %1077, label %._crit_edge406.loopexit
@@ -34936,7 +34935,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit: ; preds = %1049, %._crit
 1084:                                             ; preds = %.lr.ph413, %1084
   %indvars.iv516 = phi i64 [ %1083, %.lr.ph413 ], [ %indvars.iv.next517, %1084 ]
   %.0.i57411 = phi i64 [ 0, %.lr.ph413 ], [ %1092, %1084 ]
-  %1085 = getelementptr inbounds nuw i64, ptr %986, i64 %indvars.iv516
+  %1085 = getelementptr inbounds nuw [8 x i8], ptr %986, i64 %indvars.iv516
   %1086 = load i64, ptr %1085, align 8, !tbaa !85
   %1087 = zext i64 %1086 to i128
   %1088 = mul nuw i128 %1087, %1082
@@ -34965,7 +34964,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit.sink.split: ; preds = %
   %.ph = phi i32 [ %1095, %1094 ], [ 1, %1038 ]
   %1097 = getelementptr inbounds nuw i8, ptr %1096, i64 8
   %1098 = zext i32 %.sink to i64
-  %1099 = getelementptr inbounds nuw i64, ptr %1097, i64 %1098
+  %1099 = getelementptr inbounds nuw [8 x i8], ptr %1097, i64 %1098
   store i64 %.lcssa690.sink, ptr %1099, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit
 
@@ -34992,12 +34991,12 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1077, %1023
 1108:                                             ; preds = %.lr.ph477, %1108
   %indvars.iv556 = phi i64 [ %1107, %.lr.ph477 ], [ %1109, %1108 ]
   %1109 = add nsw i64 %indvars.iv556, -1
-  %1110 = getelementptr i64, ptr %8, i64 %indvars.iv556
+  %1110 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv556
   %1111 = load i64, ptr %1110, align 8, !tbaa !85
   %1112 = trunc nuw i64 %indvars.iv556 to i32
   %1113 = add i32 %1106, %1112
   %1114 = zext i32 %1113 to i64
-  %1115 = getelementptr inbounds nuw i64, ptr %986, i64 %1114
+  %1115 = getelementptr inbounds nuw [8 x i8], ptr %986, i64 %1114
   store i64 %1111, ptr %1115, align 8, !tbaa !85
   %.not46.i.wide = icmp eq i64 %1109, 0
   br i1 %.not46.i.wide, label %.lr.ph482.preheader, label %1108, !llvm.loop !170
@@ -35013,7 +35012,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1077, %1023
 
 1121:                                             ; preds = %1102
   %1122 = zext i32 %1100 to i64
-  %1123 = getelementptr inbounds nuw i64, ptr %986, i64 %1122
+  %1123 = getelementptr inbounds nuw [8 x i8], ptr %986, i64 %1122
   store i64 0, ptr %1123, align 8, !tbaa !85
   %.not.i38466 = icmp eq i32 %1100, 0
   %.pre581 = zext nneg i32 %1103 to i64
@@ -35026,18 +35025,18 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1077, %1023
 
 1126:                                             ; preds = %.lr.ph469, %1126
   %indvars.iv551 = phi i64 [ %1122, %.lr.ph469 ], [ %1130, %1126 ]
-  %1127 = getelementptr inbounds nuw i64, ptr %986, i64 %indvars.iv551
+  %1127 = getelementptr inbounds nuw [8 x i8], ptr %986, i64 %indvars.iv551
   %1128 = load i64, ptr %1127, align 8, !tbaa !85
   %1129 = shl i64 %1128, %.pre581
   %1130 = add nsw i64 %indvars.iv551, -1
-  %1131 = getelementptr i64, ptr %8, i64 %indvars.iv551
+  %1131 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv551
   %1132 = load i64, ptr %1131, align 8, !tbaa !85
   %1133 = lshr i64 %1132, %1125
   %1134 = or i64 %1133, %1129
   %1135 = trunc nuw i64 %indvars.iv551 to i32
   %1136 = add i32 %1104, %1135
   %1137 = zext i32 %1136 to i64
-  %1138 = getelementptr inbounds nuw i64, ptr %986, i64 %1137
+  %1138 = getelementptr inbounds nuw [8 x i8], ptr %986, i64 %1137
   store i64 %1134, ptr %1138, align 8, !tbaa !85
   %.not.i38.wide = icmp eq i64 %1130, 0
   br i1 %.not.i38.wide, label %._crit_edge470, label %1126, !llvm.loop !171
@@ -35046,11 +35045,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1077, %1023
   %1139 = load i64, ptr %986, align 8, !tbaa !85
   %1140 = shl i64 %1139, %.pre581
   %1141 = zext nneg i32 %1104 to i64
-  %1142 = getelementptr inbounds nuw i64, ptr %986, i64 %1141
+  %1142 = getelementptr inbounds nuw [8 x i8], ptr %986, i64 %1141
   store i64 %1140, ptr %1142, align 8, !tbaa !85
   %1143 = add i32 %1100, %1104
   %1144 = zext i32 %1143 to i64
-  %1145 = getelementptr inbounds nuw i64, ptr %986, i64 %1144
+  %1145 = getelementptr inbounds nuw [8 x i8], ptr %986, i64 %1144
   %1146 = load i64, ptr %1145, align 8, !tbaa !85
   %1147 = icmp ne i64 %1146, 0
   %1148 = zext i1 %1147 to i32
@@ -35086,12 +35085,12 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1077, %1023
 1162:                                             ; preds = %.lr.ph460, %1162
   %indvars.iv546 = phi i64 [ %1161, %.lr.ph460 ], [ %1163, %1162 ]
   %1163 = add nsw i64 %indvars.iv546, -1
-  %1164 = getelementptr i64, ptr %7, i64 %indvars.iv546
+  %1164 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv546
   %1165 = load i64, ptr %1164, align 8, !tbaa !85
   %1166 = trunc nuw i64 %indvars.iv546 to i32
   %1167 = add i32 %1160, %1166
   %1168 = zext i32 %1167 to i64
-  %1169 = getelementptr inbounds nuw i64, ptr %1159, i64 %1168
+  %1169 = getelementptr inbounds nuw [8 x i8], ptr %1159, i64 %1168
   store i64 %1165, ptr %1169, align 8, !tbaa !85
   %.not46.i45.wide = icmp eq i64 %1163, 0
   br i1 %.not46.i45.wide, label %._crit_edge461, label %1162, !llvm.loop !170
@@ -35112,7 +35111,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1077, %1023
 1174:                                             ; preds = %1153
   %1175 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %1176 = zext i32 %1157 to i64
-  %1177 = getelementptr inbounds nuw i64, ptr %1175, i64 %1176
+  %1177 = getelementptr inbounds nuw [8 x i8], ptr %1175, i64 %1176
   store i64 0, ptr %1177, align 8, !tbaa !85
   %.not.i41449 = icmp eq i32 %1157, 0
   %.pre583 = zext nneg i32 %1155 to i64
@@ -35125,18 +35124,18 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1077, %1023
 
 1180:                                             ; preds = %.lr.ph452, %1180
   %indvars.iv541 = phi i64 [ %1176, %.lr.ph452 ], [ %1184, %1180 ]
-  %1181 = getelementptr inbounds nuw i64, ptr %1175, i64 %indvars.iv541
+  %1181 = getelementptr inbounds nuw [8 x i8], ptr %1175, i64 %indvars.iv541
   %1182 = load i64, ptr %1181, align 8, !tbaa !85
   %1183 = shl i64 %1182, %.pre583
   %1184 = add nsw i64 %indvars.iv541, -1
-  %1185 = getelementptr i64, ptr %7, i64 %indvars.iv541
+  %1185 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv541
   %1186 = load i64, ptr %1185, align 8, !tbaa !85
   %1187 = lshr i64 %1186, %1179
   %1188 = or i64 %1187, %1183
   %1189 = trunc nuw i64 %indvars.iv541 to i32
   %1190 = add i32 %1156, %1189
   %1191 = zext i32 %1190 to i64
-  %1192 = getelementptr inbounds nuw i64, ptr %1175, i64 %1191
+  %1192 = getelementptr inbounds nuw [8 x i8], ptr %1175, i64 %1191
   store i64 %1188, ptr %1192, align 8, !tbaa !85
   %.not.i41.wide = icmp eq i64 %1184, 0
   br i1 %.not.i41.wide, label %._crit_edge453, label %1180, !llvm.loop !171
@@ -35145,11 +35144,11 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1077, %1023
   %1193 = load i64, ptr %1175, align 8, !tbaa !85
   %1194 = shl i64 %1193, %.pre583
   %1195 = zext nneg i32 %1156 to i64
-  %1196 = getelementptr inbounds nuw i64, ptr %1175, i64 %1195
+  %1196 = getelementptr inbounds nuw [8 x i8], ptr %1175, i64 %1195
   store i64 %1194, ptr %1196, align 8, !tbaa !85
   %1197 = add i32 %1157, %1156
   %1198 = zext i32 %1197 to i64
-  %1199 = getelementptr inbounds nuw i64, ptr %1175, i64 %1198
+  %1199 = getelementptr inbounds nuw [8 x i8], ptr %1175, i64 %1198
   %1200 = load i64, ptr %1199, align 8, !tbaa !85
   %1201 = icmp ne i64 %1200, 0
   %1202 = zext i1 %1201 to i32
@@ -35186,9 +35185,9 @@ _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit: ; preds = %.lr.ph457.pr
   br i1 %.not.i50, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread290, label %1215
 
 1215:                                             ; preds = %1213
-  %1216 = getelementptr i64, ptr %7, i64 %indvars.iv559
+  %1216 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv559
   %1217 = load i64, ptr %1216, align 8, !tbaa !85
-  %1218 = getelementptr i64, ptr %8, i64 %indvars.iv559
+  %1218 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv559
   %1219 = load i64, ptr %1218, align 8, !tbaa !85
   %1220 = icmp ult i64 %1217, %1219
   br i1 %1220, label %_ZN13duckdb_yyjsonL10bigint_cmpEPNS_6bigintES1_.exit.thread, label %1221
@@ -37287,7 +37286,7 @@ _ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit679: ; preds = %913, %887, %8
   %1094 = add nsw i32 %1093, %1092
   %.neg1817 = mul nsw i32 %1090, -2
   %1095 = sext i32 %.neg1817 to i64
-  %1096 = getelementptr i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %1095
+  %1096 = getelementptr [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %1095
   %1097 = getelementptr i8, ptr %1096, i64 5488
   %1098 = load i64, ptr %1097, align 16, !tbaa !85
   %1099 = getelementptr i8, ptr %1096, i64 5496
@@ -41191,7 +41190,7 @@ _ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit676: ; preds = %3329, %3303, 
   %3510 = add nsw i32 %3509, %3508
   %.neg = mul nsw i32 %3506, -2
   %3511 = sext i32 %.neg to i64
-  %3512 = getelementptr i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %3511
+  %3512 = getelementptr [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %3511
   %3513 = getelementptr i8, ptr %3512, i64 5488
   %3514 = load i64, ptr %3513, align 16, !tbaa !85
   %3515 = getelementptr i8, ptr %3512, i64 5496
@@ -45509,7 +45508,7 @@ _ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit: ; preds = %5975, %5949, %59
   %6156 = add nsw i32 %6155, %6154
   %.neg1794 = mul nsw i32 %6152, -2
   %6157 = sext i32 %.neg1794 to i64
-  %6158 = getelementptr i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %6157
+  %6158 = getelementptr [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %6157
   %6159 = getelementptr i8, ptr %6158, i64 5488
   %6160 = load i64, ptr %6159, align 16, !tbaa !85
   %6161 = getelementptr i8, ptr %6158, i64 5496
@@ -49866,7 +49865,7 @@ _ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit.i: ; preds = %857, %868, %88
   %1095 = add nsw i32 %1094, %1093
   %.neg996 = mul nsw i32 %1091, -2
   %1096 = sext i32 %.neg996 to i64
-  %1097 = getelementptr i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %1096
+  %1097 = getelementptr [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %1096
   %1098 = getelementptr i8, ptr %1097, i64 5488
   %1099 = load i64, ptr %1098, align 16, !tbaa !85
   %1100 = getelementptr i8, ptr %1097, i64 5496
@@ -53780,7 +53779,7 @@ _ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit.i62: ; preds = %3278, %3289,
   %3516 = add nsw i32 %3515, %3514
   %.neg = mul nsw i32 %3512, -2
   %3517 = sext i32 %.neg to i64
-  %3518 = getelementptr i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %3517
+  %3518 = getelementptr [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %3517
   %3519 = getelementptr i8, ptr %3518, i64 5488
   %3520 = load i64, ptr %3519, align 16, !tbaa !85
   %3521 = getelementptr i8, ptr %3518, i64 5496
@@ -58135,7 +58134,7 @@ _ZN13duckdb_yyjsonL21write_u64_len_1_to_16EmPh.exit.i237: ; preds = %5948, %5959
   %6186 = add nsw i32 %6185, %6184
   %.neg973 = mul nsw i32 %6182, -2
   %6187 = sext i32 %.neg973 to i64
-  %6188 = getelementptr i64, ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %6187
+  %6188 = getelementptr [8 x i8], ptr @_ZN13duckdb_yyjsonL15pow10_sig_tableE, i64 %6187
   %6189 = getelementptr i8, ptr %6188, i64 5488
   %6190 = load i64, ptr %6189, align 16, !tbaa !85
   %6191 = getelementptr i8, ptr %6188, i64 5496
@@ -61239,7 +61238,7 @@ define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPi
 
 .lr.ph120:                                        ; preds = %.lr.ph120.preheader, %54
   %indvars.iv184 = phi i64 [ 0, %.lr.ph120.preheader ], [ %indvars.iv.next185, %54 ]
-  %52 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv184
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv184
   %53 = load i64, ptr %52, align 8, !tbaa !85
   %.not.i65 = icmp eq i64 %53, 0
   br i1 %.not.i65, label %54, label %._crit_edge121.loopexit
@@ -61266,7 +61265,7 @@ define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPi
 .lr.ph128:                                        ; preds = %.lr.ph128.preheader, %.lr.ph128
   %indvars.iv189 = phi i64 [ %57, %.lr.ph128.preheader ], [ %indvars.iv.next190, %.lr.ph128 ]
   %.0.i64126 = phi i64 [ 0, %.lr.ph128.preheader ], [ %65, %.lr.ph128 ]
-  %58 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv189
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv189
   %59 = load i64, ptr %58, align 8, !tbaa !85
   %60 = zext i64 %59 to i128
   %61 = mul nuw i128 %60, 10000000000000000000
@@ -61307,7 +61306,7 @@ define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPi
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %74 ]
-  %72 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %73 = load i64, ptr %72, align 8, !tbaa !85
   %.not.i76 = icmp eq i64 %73, 0
   br i1 %.not.i76, label %74, label %._crit_edge.loopexit
@@ -61334,7 +61333,7 @@ define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPi
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %.lr.ph99
   %indvars.iv169 = phi i64 [ %77, %.lr.ph99.preheader ], [ %indvars.iv.next170, %.lr.ph99 ]
   %.0.i7497 = phi i64 [ 0, %.lr.ph99.preheader ], [ %85, %.lr.ph99 ]
-  %78 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv169
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv169
   %79 = load i64, ptr %78, align 8, !tbaa !85
   %80 = zext i64 %79 to i128
   %81 = mul nuw i128 %80, 10000000000000000000
@@ -61356,7 +61355,7 @@ define internal fastcc void @_ZN13duckdb_yyjsonL14bigint_set_bufEPNS_6bigintEmPi
   %88 = add i32 %71, 1
   store i32 %88, ptr %0, align 8, !tbaa !168
   %89 = zext i32 %71 to i64
-  %90 = getelementptr inbounds nuw i64, ptr %32, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %89
   store i64 %85, ptr %90, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit77
 
@@ -61381,7 +61380,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit77: ; preds = %74, %._crit
 
 98:                                               ; preds = %.split51._crit_edge
   %99 = sext i32 %.0.i.lcssa to i64
-  %100 = getelementptr inbounds i64, ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr @_ZN13duckdb_yyjsonL15u64_pow10_tableE, i64 %99
   %101 = load i64, ptr %100, align 8, !tbaa !85
   %.not156 = icmp eq i32 %97, 0
   br i1 %.not156, label %._crit_edge108, label %.lr.ph107.preheader
@@ -61392,7 +61391,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit77: ; preds = %74, %._crit
 
 .lr.ph107:                                        ; preds = %.lr.ph107.preheader, %104
   %indvars.iv174 = phi i64 [ 0, %.lr.ph107.preheader ], [ %indvars.iv.next175, %104 ]
-  %102 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv174
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv174
   %103 = load i64, ptr %102, align 8, !tbaa !85
   %.not.i82 = icmp eq i64 %103, 0
   br i1 %.not.i82, label %104, label %._crit_edge108.loopexit
@@ -61420,7 +61419,7 @@ _ZN13duckdb_yyjsonL14bigint_mul_u64EPNS_6bigintEm.exit77: ; preds = %74, %._crit
 109:                                              ; preds = %.lr.ph115, %109
   %indvars.iv179 = phi i64 [ %108, %.lr.ph115 ], [ %indvars.iv.next180, %109 ]
   %.0.i80113 = phi i64 [ 0, %.lr.ph115 ], [ %117, %109 ]
-  %110 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv179
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv179
   %111 = load i64, ptr %110, align 8, !tbaa !85
   %112 = zext i64 %111 to i128
   %113 = mul nuw i128 %112, %107
@@ -61444,7 +61443,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61.sink.split: ; preds =
   %119 = add i32 %.promoted131.sink257, 1
   store i32 %119, ptr %0, align 8, !tbaa !168
   %120 = zext i32 %.promoted131.sink257 to i64
-  %121 = getelementptr inbounds nuw i64, ptr %32, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %120
   store i64 %.lcssa250.sink, ptr %121, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61
 
@@ -61466,7 +61465,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61: ; preds = %104, %54,
 
 .lr.ph148:                                        ; preds = %126, %132
   %indvars.iv200 = phi i64 [ %indvars.iv.next201, %132 ], [ 1, %126 ]
-  %128 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv200
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv200
   %129 = load i64, ptr %128, align 8, !tbaa !85
   %.not21.i = icmp eq i64 %129, -1
   br i1 %.not21.i, label %132, label %130, !prof !3
@@ -61485,7 +61484,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit61: ; preds = %104, %54,
 ._crit_edge149:                                   ; preds = %132, %126
   %133 = add i32 %122, 1
   store i32 %133, ptr %0, align 8, !tbaa !168
-  %134 = getelementptr inbounds nuw i64, ptr %32, i64 %wide.trip.count203
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %wide.trip.count203
   store i64 1, ptr %134, align 8, !tbaa !85
   br label %_ZN13duckdb_yyjsonL14bigint_add_u64EPNS_6bigintEm.exit
 

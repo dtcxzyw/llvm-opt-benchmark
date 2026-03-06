@@ -158,7 +158,7 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
   store i8 %15, ptr %55, align 1
   store ptr %18, ptr %0, align 8
   %56 = zext nneg i8 %10 to i64
-  %57 = getelementptr ptr, ptr @trackpoint_variants, i64 %56
+  %57 = getelementptr [8 x i8], ptr @trackpoint_variants, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %58, ptr %59, align 8

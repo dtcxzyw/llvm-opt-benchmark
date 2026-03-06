@@ -1834,7 +1834,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %195 = load i32, ptr %194, align 8
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds ptr, ptr %193, i64 %196
+  %197 = getelementptr inbounds [8 x i8], ptr %193, i64 %196
   %198 = getelementptr inbounds nuw i8, ptr %192, i64 12
   %199 = load i32, ptr %198, align 4
   %.not4.i.i.i.i = icmp eq i32 %195, %199
@@ -1842,7 +1842,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i:  ; preds = %_ZN9QtPrivate8RefCo
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
   %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds ptr, ptr %193, i64 %200
+  %201 = getelementptr inbounds [8 x i8], ptr %193, i64 %200
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -4049,7 +4049,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %12 = load i32, ptr %11, align 4
   %.not4.i.i.i = icmp eq i32 %8, %12
@@ -4057,7 +4057,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %6, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %6, i64 %13
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN7QStringD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -5400,14 +5400,14 @@ define linkonce_odr noundef ptr @_ZN5QListI7QStringE18detach_helper_growEii(ptr 
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = call noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %4, i32 noundef %2)
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %13, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %13, i64 %16
   %18 = load i32, ptr %4, align 4
   %19 = sext i32 %18 to i64
   %.idx = shl nsw i64 %19, 3
@@ -5462,7 +5462,7 @@ _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit: ; preds = %_ZN5QListI7QStr
   br i1 %.not8.i6, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit14, label %.lr.ph.i7.preheader
 
 .lr.ph.i7.preheader:                              ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit
-  %38 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %10, i64 %28
+  %38 = getelementptr inbounds [8 x i8], ptr %10, i64 %28
   %39 = getelementptr inbounds i8, ptr %30, i64 %33
   br label %.lr.ph.i7
 
@@ -5503,7 +5503,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread16:     ; preds = %_ZN5QListI7QStringE
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %48, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %48, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %54 = load i32, ptr %53, align 4
   %.not4.i.i = icmp eq i32 %50, %54
@@ -5511,7 +5511,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread16:     ; preds = %_ZN5QListI7QStringE
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread16
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr %48, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %48, i64 %55
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN7QStringD2Ev.exit.i.i, %.lr.ph.i.preheader.i
@@ -5552,10 +5552,10 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %_ZN5QListI7QStringE
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds ptr, ptr %63, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %63, i64 %66
   %68 = load i32, ptr %4, align 4
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds ptr, ptr %67, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %67, i64 %69
   ret ptr %70
 }
 
@@ -6055,7 +6055,7 @@ _ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %39, ptr %18, align 8
   store ptr %43, ptr %19, align 8
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %21, align 8
   br label %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE9push_backERKS1_.exit
 
@@ -6203,7 +6203,7 @@ _ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit: ; preds = %_ZNSt6ve
   %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit.preheader ], [ %indvars.iv.next, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit ]
   %.034 = phi ptr [ null, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit.preheader ], [ %.1, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit ]
   %.01433 = phi float [ 0x47EFFFFFE0000000, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit.preheader ], [ %.115, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit ]
-  %46 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 60
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %48, align 4
@@ -6556,7 +6556,7 @@ define linkonce_odr noundef ptr @_ZN3vcg11GridClosestINS_13GridStaticPtrI6CFaceO
   %63 = mul nsw i32 %62, %58
   %64 = add nsw i32 %63, %50
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %56, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %56, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = load ptr, ptr %68, align 8
@@ -6766,7 +6766,7 @@ _ZN3vcg4Box3IiE9IntersectERKS1_.exit:             ; preds = %142, %108
   %159 = mul nsw i32 %158, %155
   %160 = add nsw i32 %159, %.070209
   %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds ptr, ptr %154, i64 %161
+  %162 = getelementptr inbounds [8 x i8], ptr %154, i64 %161
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %165 = load ptr, ptr %164, align 8
@@ -8070,7 +8070,7 @@ define void @_ZN16PickPointsDialog11clearPointsEb(ptr noundef nonnull align 8 ca
 _ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit: ; preds = %.preheader, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit ], [ 0, %.preheader ]
   %8 = phi ptr [ %12, %_ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit ], [ %7, %.preheader ]
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN25PickedPointTreeWidgetItem10clearPointEv(ptr noundef nonnull align 8 dereferenceable(85) %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8273,7 +8273,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %14, %_ZN9QtPrivate8
 .lr.ph:                                           ; preds = %_ZN7QStringD2Ev.exit, %26
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %_ZN7QStringD2Ev.exit ]
   %22 = phi ptr [ %28, %26 ], [ %21, %_ZN7QStringD2Ev.exit ]
-  %23 = getelementptr inbounds nuw %class.QString, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = invoke noundef ptr @_ZN16PickPointsDialog25addTreeWidgetItemForPointERN3vcg6Point3IfEER7QStringS3_b(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(12) %6, i1 noundef zeroext false)
           to label %25 unwind label %.loopexit
 
@@ -8738,7 +8738,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %92, %_ZN9QtPrivate8
 _ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit:    ; preds = %_ZN7QStringD2Ev.exit, %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit
   %101 = phi ptr [ %110, %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit ], [ %100, %_ZN7QStringD2Ev.exit ]
   %.046 = phi i64 [ %108, %_ZNSt6vectorIP11PickedPointSaIS1_EE2atEm.exit ], [ 0, %_ZN7QStringD2Ev.exit ]
-  %102 = getelementptr inbounds ptr, ptr %101, i64 %.046
+  %102 = getelementptr inbounds [8 x i8], ptr %101, i64 %.046
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 12
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
@@ -9150,7 +9150,7 @@ _ZN7QStringD2Ev.exit22:                           ; preds = %31, %_ZN9QtPrivate8
 .lr.ph:                                           ; preds = %.preheader, %47
   %40 = phi ptr [ %50, %47 ], [ %39, %.preheader ]
   %.01125 = phi i64 [ %48, %47 ], [ 0, %.preheader ]
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %.01125
+  %41 = getelementptr inbounds [8 x i8], ptr %40, i64 %.01125
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -9747,7 +9747,7 @@ define linkonce_odr void @_ZN3vcg13GridStaticPtrI6CFaceOfE3SetIN9__gnu_cxx17__no
   br i1 %53, label %54, label %_ZNSt6vectorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS5_EE6resizeEm.exit
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds ptr, ptr %44, i64 %41
+  %55 = getelementptr inbounds [8 x i8], ptr %44, i64 %41
   %.not.i.i = icmp eq ptr %43, %55
   br i1 %.not.i.i, label %_ZNSt6vectorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS5_EE6resizeEm.exit, label %56
 
@@ -9992,7 +9992,7 @@ _ZNSt6vectorIN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS4_EE11_S_relocateEPS4_S7_S7
 _ZNSt6vectorIN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %162, %_ZNSt6vectorIN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
   store ptr %157, ptr %57, align 8
   store ptr %161, ptr %59, align 8
-  %163 = getelementptr inbounds nuw %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %157, i64 %155
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %157, i64 %155
   store ptr %163, ptr %71, align 8
   br label %_ZNSt6vectorIN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS4_EE9push_backEOS4_.exit
 
@@ -10099,7 +10099,7 @@ _ZNSt6vectorIN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS4_EE11_S_relocateEPS4_S7_S7
 _ZNSt6vectorIN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i53: ; preds = %202, %_ZNSt6vectorIN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i50
   store ptr %197, ptr %57, align 8
   store ptr %201, ptr %59, align 8
-  %203 = getelementptr inbounds nuw %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %197, i64 %195
+  %203 = getelementptr inbounds nuw [16 x i8], ptr %197, i64 %195
   store ptr %203, ptr %179, align 8
   br label %_ZNSt6vectorIN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS4_EE9push_backEOS4_.exit54
 
@@ -10134,7 +10134,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESt
   %218 = phi i64 [ %230, %228 ], [ 0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESt6vectorIS6_SaIS6_EEEEEvT_SC_.exit ]
   %.029103 = phi i32 [ %229, %228 ], [ 0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESt6vectorIS6_SaIS6_EEEEEvT_SC_.exit ]
   %.sroa.056.0102 = phi ptr [ %.sroa.056.2, %228 ], [ %214, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESt6vectorIS6_SaIS6_EEEEEvT_SC_.exit ]
-  %219 = getelementptr inbounds nuw ptr, ptr %217, i64 %218
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %218
   store ptr %.sroa.056.0102, ptr %219, align 8
   %220 = load ptr, ptr %59, align 8
   br label %221
@@ -10256,9 +10256,9 @@ _ZNSt6vectorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS5_EE11_S_relocateEPS5_S8_S
 
 _ZNSt12_Vector_baseIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS5_EE13_M_deallocateEPS5_m.exit36: ; preds = %_ZNSt6vectorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %37
   store ptr %30, ptr %0, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8
   br label %40
 
@@ -10302,7 +10302,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 23:                                               ; preds = %19
   %24 = add nsw i64 %.013, -1
   %25 = lshr i64 %20, 1
-  %26 = getelementptr inbounds nuw %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %25
   %27 = getelementptr inbounds i8, ptr %storemerge12, i64 -16
   %28 = load i32, ptr %17, align 8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -10549,7 +10549,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceO
   %41 = sub i64 %40, %6
   %42 = ashr exact i64 %41, 4
   %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %39, i64 %43
+  %44 = getelementptr inbounds [16 x i8], ptr %39, i64 %43
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %44, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %41, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %3, i64 12, i1 false)
   br label %52
@@ -10618,17 +10618,17 @@ define linkonce_odr void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN
   %.036.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i ]
   %15 = shl i64 %.036.i.i.i, 1
   %16 = add i64 %15, 2
-  %17 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %16
+  %17 = getelementptr inbounds [16 x i8], ptr %0, i64 %16
   %18 = or disjoint i64 %15, 1
-  %19 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %0, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = icmp slt i32 %21, %23
   %spec.select.i.i.i = select i1 %24, i64 %18, i64 %16
-  %25 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %spec.select.i.i.i
-  %26 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %.036.i.i.i
+  %25 = getelementptr inbounds [16 x i8], ptr %0, i64 %spec.select.i.i.i
+  %26 = getelementptr inbounds [16 x i8], ptr %0, i64 %.036.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %26, ptr noundef nonnull align 8 dereferenceable(12) %25, i64 12, i1 false)
   %27 = icmp slt i64 %spec.select.i.i.i, %13
   br i1 %27, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !54
@@ -10648,8 +10648,8 @@ define linkonce_odr void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN
 .thread.i.i:                                      ; preds = %30
   %34 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
   %35 = or disjoint i64 %34, 1
-  %36 = getelementptr inbounds nuw %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %35
-  %37 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %.0.lcssa.i.i.i
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %35
+  %37 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %37, ptr noundef nonnull align 8 dereferenceable(12) %36, i64 12, i1 false)
   br label %.lr.ph.i.i.i.i.preheader
 
@@ -10665,21 +10665,21 @@ define linkonce_odr void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN
   %.019.i.i.i.i = phi i64 [ %.0920.i.i910.i.i, %43 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i = add nsw i64 %.019.i.i.i.i, -1
   %.0920.i.i910.i.i = lshr i64 %.0920.in.i.i.i.i, 1
-  %39 = getelementptr inbounds nuw %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %.0920.i.i910.i.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.0920.i.i910.i.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = icmp slt i32 %41, %.sroa.23.0.copyload.i.i
   br i1 %42, label %43, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit.i
 
 43:                                               ; preds = %.lr.ph.i.i.i.i
-  %44 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %.019.i.i.i.i
+  %44 = getelementptr inbounds [16 x i8], ptr %0, i64 %.019.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %44, ptr noundef nonnull align 8 dereferenceable(12) %39, i64 12, i1 false)
   %.not11.i.i = icmp eq i64 %.0920.i.i910.i.i, 0
   br i1 %.not11.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !55
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit.i: ; preds = %43, %.lr.ph.i.i.i.i, %38
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %38 ], [ 0, %43 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %45 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %45 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i
   store ptr %.sroa.02.0.copyload.i.i, ptr %45, align 8
   %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %.sroa.23.0.copyload.i.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i.i, align 8
@@ -10708,13 +10708,13 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3
   %13 = and i64 %.fr, 16
   %14 = icmp eq i64 %13, 0
   %15 = or disjoint i64 %9, 1
-  %16 = getelementptr inbounds nuw %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %15
-  %17 = getelementptr inbounds nuw %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %10
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %15
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %10
   br label %18
 
 18:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_less_iterEEvT_T0_SF_T1_T2_.exit.i, %.split.i
   %.0.i = phi i64 [ %10, %.split.i ], [ %46, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_less_iterEEvT_T0_SF_T1_T2_.exit.i ]
-  %phi.call.i = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %.0.i
+  %phi.call.i = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.i
   %.sroa.02.0.copyload.i = load ptr, ptr %phi.call.i, align 8
   %.sroa.23.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %phi.call.i, i64 8
   %.sroa.23.0.copyload.i = load i32, ptr %.sroa.23.0..sroa_idx.i, align 8
@@ -10725,17 +10725,17 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3
   %.036.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ %.0.i, %18 ]
   %20 = shl i64 %.036.i.i, 1
   %21 = add i64 %20, 2
-  %22 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %0, i64 %21
   %23 = or disjoint i64 %20, 1
-  %24 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %23
+  %24 = getelementptr inbounds [16 x i8], ptr %0, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = icmp slt i32 %26, %28
   %spec.select.i.i = select i1 %29, i64 %23, i64 %21
-  %30 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %spec.select.i.i
-  %31 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %.036.i.i
+  %30 = getelementptr inbounds [16 x i8], ptr %0, i64 %spec.select.i.i
+  %31 = getelementptr inbounds [16 x i8], ptr %0, i64 %.036.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false)
   %32 = icmp slt i64 %spec.select.i.i, %12
   br i1 %32, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !54
@@ -10759,21 +10759,21 @@ define linkonce_odr void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN3
   %.019.i.i.i = phi i64 [ %.0920.i.i.i, %41 ], [ %.1.i.i, %35 ]
   %.0920.in.i.i.i = add nsw i64 %.019.i.i.i, -1
   %.0920.i.i.i = sdiv i64 %.0920.in.i.i.i, 2
-  %37 = getelementptr inbounds nuw %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %.0920.i.i.i
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.0920.i.i.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = icmp slt i32 %39, %.sroa.23.0.copyload.i
   br i1 %40, label %41, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_less_iterEEvT_T0_SF_T1_T2_.exit.i
 
 41:                                               ; preds = %.lr.ph.i.i.i
-  %42 = getelementptr inbounds nuw %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %.019.i.i.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.019.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %42, ptr noundef nonnull align 8 dereferenceable(12) %37, i64 12, i1 false)
   %43 = icmp sgt i64 %.0920.i.i.i, %.0.i
   br i1 %43, label %.lr.ph.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_less_iterEEvT_T0_SF_T1_T2_.exit.i, !llvm.loop !55
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_less_iterEEvT_T0_SF_T1_T2_.exit.i: ; preds = %41, %.lr.ph.i.i.i, %35
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %35 ], [ %.019.i.i.i, %.lr.ph.i.i.i ], [ %.0920.i.i.i, %41 ]
-  %44 = getelementptr inbounds nuw %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %.0.lcssa.i.i.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.0.lcssa.i.i.i
   store ptr %.sroa.02.0.copyload.i, ptr %44, align 8
   %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 %.sroa.23.0.copyload.i, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i, align 8
@@ -10798,8 +10798,8 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %56 = or disjoint i64 %54, 1
-  %57 = getelementptr inbounds nuw %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %56
-  %58 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %55
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %56
+  %58 = getelementptr inbounds [16 x i8], ptr %0, i64 %55
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %84
@@ -10819,17 +10819,17 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE
   %.036.i.i21.us = phi i64 [ %spec.select.i.i22.us, %.lr.ph.i.i20.us ], [ 0, %.lr.ph.i.i20.preheader.us ]
   %63 = shl i64 %.036.i.i21.us, 1
   %64 = add i64 %63, 2
-  %65 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %64
+  %65 = getelementptr inbounds [16 x i8], ptr %0, i64 %64
   %66 = or disjoint i64 %63, 1
-  %67 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %66
+  %67 = getelementptr inbounds [16 x i8], ptr %0, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %69 = load i32, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = icmp slt i32 %69, %71
   %spec.select.i.i22.us = select i1 %72, i64 %66, i64 %64
-  %73 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %spec.select.i.i22.us
-  %74 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %.036.i.i21.us
+  %73 = getelementptr inbounds [16 x i8], ptr %0, i64 %spec.select.i.i22.us
+  %74 = getelementptr inbounds [16 x i8], ptr %0, i64 %.036.i.i21.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %74, ptr noundef nonnull align 8 dereferenceable(12) %73, i64 12, i1 false)
   %75 = icmp slt i64 %spec.select.i.i22.us, %50
   br i1 %75, label %.lr.ph.i.i20.us, label %._crit_edge.i.i12.loopexit.us, !llvm.loop !54
@@ -10850,21 +10850,21 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE
   %.019.i.i.i15.us = phi i64 [ %.0920.i.i910.i.us, %81 ], [ %.019.i.i.i15.us.ph, %.lr.ph.i.i.i14.us.preheader ]
   %.0920.in.i.i.i16.us = add nsw i64 %.019.i.i.i15.us, -1
   %.0920.i.i910.i.us = lshr i64 %.0920.in.i.i.i16.us, 1
-  %77 = getelementptr inbounds nuw %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %.0920.i.i910.i.us
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.0920.i.i910.i.us
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load i32, ptr %78, align 8
   %80 = icmp slt i32 %79, %60
   br i1 %80, label %81, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit.us
 
 81:                                               ; preds = %.lr.ph.i.i.i14.us
-  %82 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %.019.i.i.i15.us
+  %82 = getelementptr inbounds [16 x i8], ptr %0, i64 %.019.i.i.i15.us
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %82, ptr noundef nonnull align 8 dereferenceable(12) %77, i64 12, i1 false)
   %.not11.i.us = icmp eq i64 %.0920.i.i910.i.us, 0
   br i1 %.not11.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit.us, label %.lr.ph.i.i.i14.us, !llvm.loop !55
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE4LinkESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_RT0_.exit.us: ; preds = %.lr.ph.i.i.i14.us, %81, %76
   %.0.lcssa.i.i.i18.us = phi i64 [ 0, %76 ], [ %.019.i.i.i15.us, %.lr.ph.i.i.i14.us ], [ 0, %81 ]
-  %83 = getelementptr inbounds %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %.0.lcssa.i.i.i18.us
+  %83 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa.i.i.i18.us
   store ptr %.sroa.02.0.copyload.i9.us, ptr %83, align 8
   %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i19.us = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i32 %60, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i19.us, align 8
@@ -10903,7 +10903,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg13GridStaticPtrI6CFaceOfE4
   %94 = load i32, ptr %48, align 8
   %95 = icmp sge i32 %94, %91
   %spec.select = zext i1 %95 to i64
-  %96 = getelementptr inbounds nuw %"class.vcg::GridStaticPtr<CFaceO>::Link", ptr %0, i64 %spec.select
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %spec.select
   store ptr %.sroa.02.0.copyload.i9.us28.us, ptr %96, align 8
   %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i19.us37.us = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i32 %91, ptr %.sroa.2.0..sroa.0.0..sroa_idx.i.i.i19.us37.us, align 8
@@ -12620,7 +12620,7 @@ define noundef nonnull ptr @_ZN16PickPointsDialog15getPickedPointsEv(ptr noundef
 _ZNSt6vectorIP25PickedPointTreeWidgetItemSaIS1_EE2atEm.exit: ; preds = %.preheader, %_ZN7QStringD2Ev.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7QStringD2Ev.exit ], [ 0, %.preheader ]
   %10 = phi ptr [ %28, %_ZN7QStringD2Ev.exit ], [ %9, %.preheader ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !69
   %13 = load ptr, ptr %12, align 8, !noalias !72
@@ -13441,7 +13441,7 @@ define void @_ZN16PickPointsDialog17savePointTemplateEv(ptr noundef nonnull alig
 21:                                               ; preds = %.lr.ph, %_ZN7QStringD2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN7QStringD2Ev.exit ]
   %22 = phi ptr [ %18, %.lr.ph ], [ %43, %_ZN7QStringD2Ev.exit ]
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !76
   %25 = load ptr, ptr %24, align 8, !noalias !79
@@ -14118,7 +14118,7 @@ _ZNSt12_Vector_baseI7QStringSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i22, ptr %4, align 8
-  %38 = getelementptr inbounds nuw %class.QString, ptr %20, i64 %16
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %38, ptr %37, align 8
   ret void
 }

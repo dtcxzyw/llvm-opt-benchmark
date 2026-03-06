@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
-%struct.ParamExecData = type { ptr, i64, i8 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 %struct.tuplehash_iterator = type { i32, i32, i8 }
 
 @InterruptPending = external global i32, align 4
@@ -286,11 +282,11 @@ ExecProcNode.exit.i.i:                            ; preds = %130, %124
   %indvars.iv99.i.i = phi i64 [ %indvars.iv.next100.i.i, %slot_getattr.exit.i.i ], [ 1, %.lr.ph.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %slot_getattr.exit.i.i ], [ 0, %.lr.ph.i.i ]
   %153 = load ptr, ptr %147, align 8
-  %154 = getelementptr inbounds nuw %union.ListCell, ptr %153, i64 %indvars.iv.i.i
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %indvars.iv.i.i
   %155 = load i32, ptr %154, align 8
   %156 = load ptr, ptr %136, align 8
   %157 = sext i32 %155 to i64
-  %158 = getelementptr inbounds %struct.ParamExecData, ptr %156, i64 %157
+  %158 = getelementptr inbounds [24 x i8], ptr %156, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = load i16, ptr %148, align 2
   %161 = sext i16 %160 to i64
@@ -309,7 +305,7 @@ slot_getattr.exit.i.i:                            ; preds = %slot_getsomeattrs.e
   %167 = load i8, ptr %166, align 1, !range !5, !noundef !6
   store i8 %167, ptr %159, align 1
   %168 = load ptr, ptr %150, align 8
-  %169 = getelementptr inbounds i64, ptr %168, i64 %165
+  %169 = getelementptr inbounds [8 x i8], ptr %168, i64 %165
   %170 = load i64, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store i64 %170, ptr %171, align 8
@@ -709,7 +705,7 @@ slotAllNulls.exit.i:                              ; preds = %slot_attisnull.exit
   %387 = phi ptr [ %.pre.i23, %.lr.ph197.preheader.i ], [ %391, %.lr.ph197.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph197.preheader.i ], [ %indvars.iv.next.i, %.lr.ph197.i ]
   %388 = load ptr, ptr %383, align 8
-  %389 = getelementptr inbounds nuw %union.ListCell, ptr %388, i64 %indvars.iv.i
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %388, i64 %indvars.iv.i
   %390 = load i32, ptr %389, align 8
   %391 = tail call ptr @bms_add_member(ptr noundef %387, i32 noundef %390) #8
   store ptr %391, ptr %384, align 8
@@ -843,11 +839,11 @@ ExecProcNode.exit.i:                              ; preds = %399, %.critedge.i
   %indvars.iv229.i = phi i64 [ %indvars.iv.next230.i, %.lr.ph204.i ], [ 0, %.lr.ph200.i ]
   %.0128199202.i = phi i32 [ %465, %.lr.ph204.i ], [ 1, %.lr.ph200.i ]
   %455 = load ptr, ptr %452, align 8
-  %456 = getelementptr inbounds nuw %union.ListCell, ptr %455, i64 %indvars.iv229.i
+  %456 = getelementptr inbounds nuw [8 x i8], ptr %455, i64 %indvars.iv229.i
   %457 = load i32, ptr %456, align 8
   %458 = load ptr, ptr %406, align 8
   %459 = sext i32 %457 to i64
-  %460 = getelementptr inbounds %struct.ParamExecData, ptr %458, i64 %459
+  %460 = getelementptr inbounds [24 x i8], ptr %458, i64 %459
   %461 = load ptr, ptr %404, align 8
   %462 = getelementptr inbounds nuw i8, ptr %460, i64 16
   %463 = call fastcc i64 @heap_getattr(ptr noundef %461, i32 noundef %.0128199202.i, ptr noundef %420, ptr noundef nonnull %462)
@@ -915,11 +911,11 @@ slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.e
   %indvars.iv234.i = phi i64 [ %indvars.iv.next235.i, %slot_getattr.exit159.i ], [ 1, %.lr.ph207.i ]
   %indvars.iv232.i = phi i64 [ %indvars.iv.next233.i, %slot_getattr.exit159.i ], [ 0, %.lr.ph207.i ]
   %497 = load ptr, ptr %491, align 8
-  %498 = getelementptr inbounds nuw %union.ListCell, ptr %497, i64 %indvars.iv232.i
+  %498 = getelementptr inbounds nuw [8 x i8], ptr %497, i64 %indvars.iv232.i
   %499 = load i32, ptr %498, align 8
   %500 = load ptr, ptr %406, align 8
   %501 = sext i32 %499 to i64
-  %502 = getelementptr inbounds %struct.ParamExecData, ptr %500, i64 %501
+  %502 = getelementptr inbounds [24 x i8], ptr %500, i64 %501
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 16
   %504 = load i16, ptr %492, align 2
   %505 = sext i16 %504 to i64
@@ -938,7 +934,7 @@ slot_getattr.exit159.i:                           ; preds = %slot_getsomeattrs.e
   %511 = load i8, ptr %510, align 1, !range !5, !noundef !6
   store i8 %511, ptr %503, align 1
   %512 = load ptr, ptr %494, align 8
-  %513 = getelementptr inbounds i64, ptr %512, i64 %509
+  %513 = getelementptr inbounds [8 x i8], ptr %512, i64 %509
   %514 = load i64, ptr %513, align 8
   %515 = getelementptr inbounds nuw i8, ptr %502, i64 8
   store i64 %514, ptr %515, align 8
@@ -1072,11 +1068,11 @@ ExecProcNode.exit161.i:                           ; preds = %537, %.loopexit.i22
 .lr.ph227.i:                                      ; preds = %.lr.ph224.i, %.lr.ph227.i
   %indvars.iv239.i = phi i64 [ %indvars.iv.next240.i, %.lr.ph227.i ], [ 0, %.lr.ph224.i ]
   %556 = load ptr, ptr %552, align 8
-  %557 = getelementptr inbounds nuw %union.ListCell, ptr %556, i64 %indvars.iv239.i
+  %557 = getelementptr inbounds nuw [8 x i8], ptr %556, i64 %indvars.iv239.i
   %558 = load i32, ptr %557, align 8
   %559 = load ptr, ptr %553, align 8
   %560 = sext i32 %558 to i64
-  %561 = getelementptr inbounds %struct.ParamExecData, ptr %559, i64 %560
+  %561 = getelementptr inbounds [24 x i8], ptr %559, i64 %560
   %562 = getelementptr inbounds nuw i8, ptr %561, i64 8
   store i64 0, ptr %562, align 8
   %563 = getelementptr inbounds nuw i8, ptr %561, i64 16
@@ -1121,7 +1117,7 @@ define dso_local noundef ptr @ExecInitSubPlan(ptr noundef %0, ptr noundef %1) lo
   %15 = getelementptr i8, ptr %11, i64 16
   %.val156 = load ptr, ptr %15, align 8
   %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds %union.ListCell, ptr %.val156, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %.val156, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %18, ptr %19, align 8
@@ -1191,11 +1187,11 @@ define dso_local noundef ptr @ExecInitSubPlan(ptr noundef %0, ptr noundef %1) lo
 56:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %57 = load ptr, ptr %54, align 8
-  %58 = getelementptr inbounds nuw %union.ListCell, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   %59 = load i32, ptr %58, align 8
   %60 = load ptr, ptr %55, align 8
   %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds %struct.ParamExecData, ptr %60, i64 %61
+  %62 = getelementptr inbounds [24 x i8], ptr %60, i64 %61
   store ptr %6, ptr %62, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = load i32, ptr %52, align 4
@@ -1293,7 +1289,7 @@ list_length.exit:                                 ; preds = %88, %89
   %.0142168190 = phi i32 [ %183, %171 ], [ 1, %.lr.ph169 ]
   %indvars.iv176189 = phi i64 [ %indvars.iv.next177, %171 ], [ 0, %.lr.ph169 ]
   %109 = load ptr, ptr %106, align 8
-  %110 = getelementptr inbounds nuw %union.ListCell, ptr %109, i64 %indvars.iv176189
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv176189
   %111 = load ptr, ptr %110, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1317,13 +1313,13 @@ list_length.exit:                                 ; preds = %88, %89
   %126 = load i32, ptr %125, align 8
   %127 = add i32 %.0142168190, -1
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds i32, ptr %104, i64 %128
+  %129 = getelementptr inbounds [4 x i8], ptr %104, i64 %128
   store i32 %126, ptr %129, align 4
   %130 = load ptr, ptr %42, align 8
-  %131 = getelementptr inbounds %struct.FmgrInfo, ptr %130, i64 %128
+  %131 = getelementptr inbounds [48 x i8], ptr %130, i64 %128
   call void @fmgr_info(i32 noundef %126, ptr noundef %131) #8
   %132 = load ptr, ptr %42, align 8
-  %133 = getelementptr inbounds %struct.FmgrInfo, ptr %132, i64 %128
+  %133 = getelementptr inbounds [48 x i8], ptr %132, i64 %128
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 40
   store ptr %111, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %111, i64 4
@@ -1370,7 +1366,7 @@ list_length.exit:                                 ; preds = %88, %89
   %161 = load i32, ptr %3, align 4
   %162 = call i32 @get_opcode(i32 noundef %161) #8
   %163 = load ptr, ptr %39, align 8
-  %164 = getelementptr inbounds i32, ptr %163, i64 %128
+  %164 = getelementptr inbounds [4 x i8], ptr %163, i64 %128
   store i32 %162, ptr %164, align 4
   %165 = load i32, ptr %135, align 4
   %166 = call zeroext i1 @get_op_hash_functions(i32 noundef %165, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
@@ -1385,19 +1381,19 @@ list_length.exit:                                 ; preds = %88, %89
 
 171:                                              ; preds = %160
   %172 = load i32, ptr %4, align 4
-  %173 = getelementptr inbounds %struct.FmgrInfo, ptr %102, i64 %128
+  %173 = getelementptr inbounds [48 x i8], ptr %102, i64 %128
   call void @fmgr_info(i32 noundef %172, ptr noundef %173) #8
   %174 = load i32, ptr %5, align 4
   %175 = load ptr, ptr %40, align 8
-  %176 = getelementptr inbounds %struct.FmgrInfo, ptr %175, i64 %128
+  %176 = getelementptr inbounds [48 x i8], ptr %175, i64 %128
   call void @fmgr_info(i32 noundef %174, ptr noundef %176) #8
   %177 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %178 = load i32, ptr %177, align 8
   %179 = load ptr, ptr %41, align 8
-  %180 = getelementptr inbounds i32, ptr %179, i64 %128
+  %180 = getelementptr inbounds [4 x i8], ptr %179, i64 %128
   store i32 %178, ptr %180, align 4
   %181 = load ptr, ptr %38, align 8
-  %182 = getelementptr inbounds i16, ptr %181, i64 %128
+  %182 = getelementptr inbounds [2 x i8], ptr %181, i64 %128
   store i16 %116, ptr %182, align 2
   %183 = add nuw i32 %.0142168190, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1554,7 +1550,7 @@ ExecProcNode.exit:                                ; preds = %38, %44
   %61 = load i32, ptr %.val123, align 8
   %62 = load ptr, ptr %53, align 8
   %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds %struct.ParamExecData, ptr %62, i64 %63
+  %64 = getelementptr inbounds [24 x i8], ptr %62, i64 %63
   store ptr null, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i64 1, ptr %65, align 8
@@ -1668,11 +1664,11 @@ ExecProcNode.exit125.us:                          ; preds = %89, %slot_getattr.e
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph142 ], [ 0, %.lr.ph ]
   %.0104138140 = phi i32 [ %128, %.lr.ph142 ], [ 1, %.lr.ph ]
   %118 = load ptr, ptr %115, align 8
-  %119 = getelementptr inbounds nuw %union.ListCell, ptr %118, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv
   %120 = load i32, ptr %119, align 8
   %121 = load ptr, ptr %53, align 8
   %122 = sext i32 %120 to i64
-  %123 = getelementptr inbounds %struct.ParamExecData, ptr %121, i64 %122
+  %123 = getelementptr inbounds [24 x i8], ptr %121, i64 %122
   store ptr null, ptr %123, align 8
   %124 = load ptr, ptr %51, align 8
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 16
@@ -1716,7 +1712,7 @@ ExecProcNode.exit125:                             ; preds = %.loopexit, %133
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %142 = load ptr, ptr %141, align 8
   %143 = sext i32 %140 to i64
-  %144 = getelementptr inbounds %struct.ParamExecData, ptr %142, i64 %143
+  %144 = getelementptr inbounds [24 x i8], ptr %142, i64 %143
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %146 = load i64, ptr %145, align 8
   %.not116 = icmp eq i64 %146, 0
@@ -1755,7 +1751,7 @@ ExecProcNode.exit125:                             ; preds = %.loopexit, %133
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %163 = load ptr, ptr %162, align 8
   %164 = sext i32 %161 to i64
-  %165 = getelementptr inbounds %struct.ParamExecData, ptr %163, i64 %164
+  %165 = getelementptr inbounds [24 x i8], ptr %163, i64 %164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %165, i8 0, i64 17, i1 false)
   br label %.critedge121
 
@@ -1776,11 +1772,11 @@ ExecProcNode.exit125:                             ; preds = %.loopexit, %133
 .lr.ph170:                                        ; preds = %.lr.ph167, %.lr.ph170
   %indvars.iv174 = phi i64 [ %indvars.iv.next175, %.lr.ph170 ], [ 0, %.lr.ph167 ]
   %174 = load ptr, ptr %170, align 8
-  %175 = getelementptr inbounds nuw %union.ListCell, ptr %174, i64 %indvars.iv174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %indvars.iv174
   %176 = load i32, ptr %175, align 8
   %177 = load ptr, ptr %171, align 8
   %178 = sext i32 %176 to i64
-  %179 = getelementptr inbounds %struct.ParamExecData, ptr %177, i64 %178
+  %179 = getelementptr inbounds [24 x i8], ptr %177, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %179, i8 0, i64 16, i1 false)
   store i8 1, ptr %180, align 8
@@ -1835,7 +1831,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
 
 19:                                               ; preds = %16
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr %struct.CompactAttribute, ptr %2, i64 %20
+  %21 = getelementptr [16 x i8], ptr %2, i64 %20
   %22 = getelementptr i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, -1
@@ -1952,7 +1948,7 @@ define dso_local void @ExecSetParamPlanMulti(ptr noundef %0, ptr noundef readonl
   %7 = phi i32 [ %3, %.lr.ph ], [ %14, %13 ]
   %8 = load ptr, ptr %5, align 8
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw %struct.ParamExecData, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %13, label %12
@@ -2033,7 +2029,7 @@ define dso_local void @ExecReScanSetParamPlan(ptr noundef %0, ptr noundef captur
 36:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %37 = load ptr, ptr %29, align 8
-  %38 = getelementptr inbounds nuw %union.ListCell, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %39 = load i32, ptr %38, align 8
   %40 = load i32, ptr %30, align 4
   %.not22 = icmp eq i32 %40, 7
@@ -2045,7 +2041,7 @@ define dso_local void @ExecReScanSetParamPlan(ptr noundef %0, ptr noundef captur
 41:                                               ; preds = %36
   %42 = load ptr, ptr %31, align 8
   %43 = sext i32 %39 to i64
-  %44 = getelementptr inbounds %struct.ParamExecData, ptr %42, i64 %43
+  %44 = getelementptr inbounds [24 x i8], ptr %42, i64 %43
   store ptr %0, ptr %44, align 8
   br label %45
 
@@ -2119,7 +2115,7 @@ define internal fastcc noundef zeroext i1 @findPartialMatch(ptr noundef readonly
 
 34:                                               ; preds = %select.unfold.i.us, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ %20, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %select.unfold.i.us ]
-  %35 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv.i.us
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv.i.us
   %36 = load i16, ptr %35, align 2
   %37 = sext i16 %36 to i32
   %38 = load i16, ptr %17, align 2
@@ -2137,7 +2133,7 @@ slot_getattr.exit.i.us:                           ; preds = %slot_getsomeattrs.e
   %43 = getelementptr inbounds i8, ptr %40, i64 %42
   %44 = load i8, ptr %43, align 1, !range !5, !noundef !6
   %45 = load ptr, ptr %19, align 8
-  %46 = getelementptr inbounds i64, ptr %45, i64 %42
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %42
   %47 = load i64, ptr %46, align 8
   %48 = trunc nuw i8 %44 to i1
   br i1 %48, label %select.unfold.i.us, label %49, !llvm.loop !16
@@ -2160,10 +2156,10 @@ slot_getattr.exit22.i.us:                         ; preds = %slot_getsomeattrs.e
 
 56:                                               ; preds = %slot_getattr.exit22.i.us
   %57 = load ptr, ptr %31, align 8
-  %58 = getelementptr inbounds i64, ptr %57, i64 %42
+  %58 = getelementptr inbounds [8 x i8], ptr %57, i64 %42
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %2, i64 %indvars.iv.i.us
-  %61 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i.us
+  %60 = getelementptr inbounds nuw [48 x i8], ptr %2, i64 %indvars.iv.i.us
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i.us
   %62 = load i32, ptr %61, align 4
   %63 = call i64 @FunctionCall2Coll(ptr noundef %60, i32 noundef %62, i64 noundef %47, i64 noundef %59) #8
   %.not.i.us = icmp eq i64 %63, 0

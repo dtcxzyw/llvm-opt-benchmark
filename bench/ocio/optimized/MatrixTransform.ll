@@ -704,9 +704,9 @@ define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform3FitEPdS1_PKdS3_S3_S3_(ptr
 
 .split.us.split.us:                               ; preds = %15, %22
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %22 ], [ 0, %15 ]
-  %16 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv103
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv103
   %17 = load double, ptr %16, align 8, !tbaa !66
-  %18 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv103
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv103
   %19 = load double, ptr %18, align 8, !tbaa !66
   %20 = fsub double %17, %19
   %21 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIdEEbT_(double noundef %20)
@@ -719,18 +719,18 @@ define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform3FitEPdS1_PKdS3_S3_S3_(ptr
 
 .split.us.split:                                  ; preds = %.thread, %29
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %29 ], [ 0, %.thread ]
-  %23 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv99
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv99
   %24 = load double, ptr %23, align 8, !tbaa !66
-  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv99
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv99
   %26 = load double, ptr %25, align 8, !tbaa !66
   %27 = fsub double %24, %26
   %28 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIdEEbT_(double noundef %27)
   br i1 %28, label %.split68.us, label %29
 
 29:                                               ; preds = %.split.us.split
-  %30 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv99
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv99
   %31 = load double, ptr %30, align 8, !tbaa !66
-  %32 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv99
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv99
   %33 = load double, ptr %32, align 8, !tbaa !66
   %34 = fsub double %31, %33
   %35 = fdiv double %34, %27
@@ -743,31 +743,31 @@ define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform3FitEPdS1_PKdS3_S3_S3_(ptr
 
 .split68.us:                                      ; preds = %.split.us.split, %.split.us.split.us
   %.us-phi76 = phi i64 [ %indvars.iv103, %.split.us.split.us ], [ %indvars.iv99, %.split.us.split ]
-  %37 = getelementptr inbounds nuw double, ptr %3, i64 %.us-phi76
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.us-phi76
   br label %.split68
 
 .split.split.us:                                  ; preds = %.split.split.us.preheader, %44
   %indvars.iv95 = phi i64 [ 0, %.split.split.us.preheader ], [ %indvars.iv.next96, %44 ]
-  %38 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv95
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv95
   %39 = load double, ptr %38, align 8, !tbaa !66
-  %40 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv95
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv95
   %41 = load double, ptr %40, align 8, !tbaa !66
   %42 = fsub double %39, %41
   %43 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIdEEbT_(double noundef %42)
   br i1 %43, label %.split68, label %44
 
 44:                                               ; preds = %.split.split.us
-  %45 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv95
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv95
   %46 = load double, ptr %45, align 8, !tbaa !66
   %47 = load double, ptr %38, align 8, !tbaa !66
-  %48 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv95
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv95
   %49 = load double, ptr %48, align 8, !tbaa !66
   %50 = load double, ptr %40, align 8, !tbaa !66
   %51 = fneg double %50
   %52 = fmul double %49, %51
   %53 = tail call double @llvm.fmuladd.f64(double %46, double %47, double %52)
   %54 = fdiv double %53, %42
-  %55 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv95
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv95
   store double %54, ptr %55, align 8, !tbaa !66
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next96, 4
@@ -775,9 +775,9 @@ define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform3FitEPdS1_PKdS3_S3_S3_(ptr
 
 .split.split:                                     ; preds = %.split.split.preheader, %86
   %indvars.iv = phi i64 [ 0, %.split.split.preheader ], [ %indvars.iv.next, %86 ]
-  %56 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %57 = load double, ptr %56, align 8, !tbaa !66
-  %58 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %59 = load double, ptr %58, align 8, !tbaa !66
   %60 = fsub double %57, %59
   %61 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIdEEbT_(double noundef %60)
@@ -871,9 +871,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %77
   resume { ptr, i32 } %.pn.pn
 
 86:                                               ; preds = %.split.split
-  %87 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %88 = load double, ptr %87, align 8, !tbaa !66
-  %89 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %90 = load double, ptr %89, align 8, !tbaa !66
   %91 = fsub double %88, %90
   %92 = fdiv double %91, %60
@@ -888,7 +888,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %77
   %99 = fmul double %96, %98
   %100 = tail call double @llvm.fmuladd.f64(double %94, double %95, double %99)
   %101 = fdiv double %100, %60
-  %102 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store double %101, ptr %102, align 8, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1145,13 +1145,13 @@ _ZN19OpenColorIO_v2_5dev15MatrixTransform8IdentityEPdS1_.exit: ; preds = %19
 
 41:                                               ; preds = %31, %41
   %indvars.iv59 = phi i64 [ 0, %31 ], [ %indvars.iv.next60, %41 ]
-  %42 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv59
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv59
   %43 = load double, ptr %42, align 8, !tbaa !66
-  %44 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv59
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv59
   %45 = load i32, ptr %44, align 4, !tbaa !28
   %.not52 = icmp eq i32 %45, 0
   %46 = select i1 %.not52, double 0.000000e+00, double 1.000000e+00
-  %47 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv59
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv59
   %48 = load double, ptr %47, align 8, !tbaa !66
   %49 = tail call double @llvm.fmuladd.f64(double %43, double %46, double %48)
   store double %49, ptr %47, align 8, !tbaa !66
@@ -1334,7 +1334,7 @@ _ZNSolsEd.exit.preheader:                         ; preds = %_ZStlsISt11char_tra
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43 unwind label %.loopexit.split-lp.loopexit
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43: ; preds = %_ZNSolsEd.exit.preheader
-  %79 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %80 = load double, ptr %79, align 8, !tbaa !66
   %81 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %80)
           to label %_ZNSolsEd.exit45 unwind label %.loopexit.split-lp.loopexit
@@ -1359,7 +1359,7 @@ _ZNSolsEd.exit47.preheader:                       ; preds = %_ZStlsISt11char_tra
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51 unwind label %.loopexit
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51: ; preds = %_ZNSolsEd.exit47.preheader
-  %87 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv60
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv60
   %88 = load double, ptr %87, align 8, !tbaa !66
   %89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %88)
           to label %_ZNSolsEd.exit53 unwind label %.loopexit

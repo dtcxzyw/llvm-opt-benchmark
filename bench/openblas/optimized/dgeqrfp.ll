@@ -34,7 +34,7 @@ define void @dgeqrfp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %16 = load i32, ptr %3, align 4, !tbaa !3
   %narrow = xor i32 %16, -1
   %17 = sext i32 %narrow to i64
-  %18 = getelementptr inbounds double, ptr %2, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %2, i64 %17
   %19 = getelementptr inbounds i8, ptr %4, i64 -8
   store i32 0, ptr %7, align 4, !tbaa !3
   %20 = tail call i32 @ilaenv_(ptr noundef nonnull @c__1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef %1, ptr noundef nonnull @c_n1, ptr noundef nonnull @c_n1, i32 noundef 6, i32 noundef 1) #4
@@ -156,9 +156,9 @@ define void @dgeqrfp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store i32 %74, ptr %11, align 4, !tbaa !3
   %75 = mul i32 %.0124151, %67
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds double, ptr %18, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %18, i64 %76
   %78 = zext nneg i32 %.0124151 to i64
-  %79 = getelementptr inbounds nuw double, ptr %19, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %78
   call void @dgeqr2p_(ptr noundef nonnull %11, ptr noundef nonnull %14, ptr noundef %77, ptr noundef nonnull %3, ptr noundef nonnull %79, ptr noundef nonnull %5, ptr noundef nonnull %13) #4
   %80 = load i32, ptr %14, align 4, !tbaa !3
   %81 = add nsw i32 %80, %.0124151
@@ -183,9 +183,9 @@ define void @dgeqrfp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %93 = mul nsw i32 %90, %16
   %94 = add nsw i32 %93, %.0124151
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds double, ptr %18, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %18, i64 %95
   %97 = sext i32 %89 to i64
-  %98 = getelementptr double, ptr %5, i64 %97
+  %98 = getelementptr [8 x i8], ptr %5, i64 %97
   call void @dlarfb_(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef %77, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %15, ptr noundef %96, ptr noundef nonnull %3, ptr noundef %98, ptr noundef nonnull %15) #4
   br label %99
 
@@ -213,9 +213,9 @@ define void @dgeqrfp_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %107 = add i32 %16, 1
   %108 = mul i32 %.1, %107
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds double, ptr %18, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %18, i64 %109
   %111 = zext nneg i32 %.1 to i64
-  %112 = getelementptr inbounds nuw double, ptr %19, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %111
   call void @dgeqr2p_(ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %110, ptr noundef nonnull %3, ptr noundef nonnull %112, ptr noundef nonnull %5, ptr noundef nonnull %13) #4
   br label %113
 

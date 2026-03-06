@@ -135,7 +135,7 @@ define range(i32 -2147483648, 1) i32 @ff_ccitt_unpack(ptr noundef %0, ptr nounde
   %.067126.us = phi i32 [ %57, %.thread98.us ], [ 0, %.lr.ph128 ]
   %.1125.us = phi ptr [ %.170124.us, %.thread98.us ], [ %17, %.lr.ph128 ]
   %.170124.us = phi ptr [ %.1125.us, %.thread98.us ], [ %18, %.lr.ph128 ]
-  %51 = getelementptr inbounds i32, ptr %.1125.us, i64 %16
+  %51 = getelementptr inbounds [4 x i8], ptr %.1125.us, i64 %16
   %52 = load i32, ptr %13, align 8, !tbaa !9
   %53 = call fastcc i32 @decode_group3_2d_line(ptr noundef nonnull %0, ptr noundef %12, i32 noundef %52, ptr noundef %.1125.us, ptr noundef %51, ptr noundef %.170124.us)
   %54 = icmp slt i32 %53, 0
@@ -154,7 +154,7 @@ define range(i32 -2147483648, 1) i32 @ff_ccitt_unpack(ptr noundef %0, ptr nounde
   %.067126 = phi i32 [ %194, %191 ], [ 0, %.lr.ph128 ]
   %.1125 = phi ptr [ %.1125..170124, %191 ], [ %17, %.lr.ph128 ]
   %.170124 = phi ptr [ %.170124..1125, %191 ], [ %18, %.lr.ph128 ]
-  %58 = getelementptr inbounds i32, ptr %.1125, i64 %16
+  %58 = getelementptr inbounds [4 x i8], ptr %.1125, i64 %16
   %.val3848.i.pre.pre = load i32, ptr %35, align 8, !tbaa !35
   br i1 %or.cond3, label %59, label %find_group3_syncmarker.exit
 
@@ -241,7 +241,7 @@ find_group3_syncmarker.exit:                      ; preds = %find_group3_syncmar
   %.02551.i = phi i32 [ %.126.i, %176 ], [ 0, %96 ]
   %98 = load i32, ptr %11, align 4, !tbaa !29
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds ptr, ptr @ccitt_vlc, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr @ccitt_vlc, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !4
   %102 = load i32, ptr %31, align 8, !tbaa !33
   %103 = load ptr, ptr %12, align 8, !tbaa !30
@@ -254,7 +254,7 @@ find_group3_syncmarker.exit:                      ; preds = %find_group3_syncmar
   %110 = shl i32 %108, %109
   %111 = lshr i32 %110, 23
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw %struct.VLCElem, ptr %101, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %112
   %114 = load i16, ptr %113, align 2, !tbaa !36
   %115 = sext i16 %114 to i32
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 2
@@ -277,7 +277,7 @@ find_group3_syncmarker.exit:                      ; preds = %find_group3_syncmar
   %131 = lshr i32 %129, %130
   %132 = add i32 %131, %115
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw %struct.VLCElem, ptr %101, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %133
   %135 = load i16, ptr %134, align 2, !tbaa !36
   %136 = sext i16 %135 to i32
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 2
@@ -490,7 +490,7 @@ define internal fastcc i32 @decode_group3_2d_line(ptr noundef %0, ptr noundef no
   %27 = shl i32 %25, %26
   %28 = lshr i32 %27, 23
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw %struct.VLCElem, ptr @ccitt_group3_2d_vlc, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @ccitt_group3_2d_vlc, i64 %29
   %31 = load i16, ptr %30, align 4, !tbaa !36
   %32 = sext i16 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 2
@@ -560,7 +560,7 @@ define internal fastcc i32 @decode_group3_2d_line(ptr noundef %0, ptr noundef no
   %.val155 = load i32, ptr %13, align 4, !tbaa !32
   %.promoted = load i32, ptr %12, align 8, !tbaa !35
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr @ccitt_vlc, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr @ccitt_vlc, i64 %59
   br label %61
 
 61:                                               ; preds = %.preheader, %106
@@ -581,7 +581,7 @@ define internal fastcc i32 @decode_group3_2d_line(ptr noundef %0, ptr noundef no
   %72 = shl i32 %70, %71
   %73 = lshr i32 %72, 23
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw %struct.VLCElem, ptr %64, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %74
   %76 = load i16, ptr %75, align 2, !tbaa !36
   %77 = sext i16 %76 to i32
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 2
@@ -604,7 +604,7 @@ define internal fastcc i32 @decode_group3_2d_line(ptr noundef %0, ptr noundef no
   %93 = lshr i32 %91, %92
   %94 = add i32 %93, %77
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw %struct.VLCElem, ptr %64, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %95
   %97 = load i16, ptr %96, align 2, !tbaa !36
   %98 = sext i16 %97 to i32
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 2
@@ -847,7 +847,7 @@ define internal fastcc void @put_line(ptr noundef %0, i32 noundef %1, i32 nounde
   %.sroa.13.042 = phi i32 [ 32, %.lr.ph48 ], [ %.sroa.13.2, %put_sbits.exit20 ]
   %.sroa.23.041 = phi ptr [ %spec.select.i, %.lr.ph48 ], [ %.sroa.23.2, %put_sbits.exit20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !29
   %13 = xor i32 %.01544, -1
   %14 = sub nsw i32 %.01445, %12

@@ -448,7 +448,7 @@ define void @Sto_ManDumpClauses(ptr noundef readonly captures(none) %0, ptr noun
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !17
   %24 = and i32 %23, 1
   %.not.i = icmp eq i32 %24, 0
@@ -660,7 +660,7 @@ define noundef ptr @Sto_ManLoadClauses(ptr noundef %0) local_unnamed_addr #11 {
 
 37:                                               ; preds = %33
   %38 = sext i32 %.045 to i64
-  %39 = getelementptr inbounds i32, ptr %.041.ph, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %.041.ph, i64 %38
   %40 = call i32 @Sto_ManAddClause(ptr noundef nonnull %calloc.i, ptr noundef %.041.ph, ptr noundef %39)
   br label %21
 
@@ -704,7 +704,7 @@ lit_read.exit:                                    ; preds = %53, %56
   %60 = phi i32 [ %55, %53 ], [ %59, %56 ]
   %61 = add nsw i32 %.045, 1
   %62 = sext i32 %.045 to i64
-  %63 = getelementptr inbounds i32, ptr %.1, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %.1, i64 %62
   store i32 %60, ptr %63, align 4, !tbaa !17
   br label %.outer, !llvm.loop !39
 

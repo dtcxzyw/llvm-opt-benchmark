@@ -342,7 +342,7 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
   %15 = fmul double %13, %14
   %16 = mul nuw nsw i64 %.062.us, %6
   %17 = fsub double 1.000000e+00, %15
-  %18 = getelementptr double, ptr %8, i64 %16
+  %18 = getelementptr [8 x i8], ptr %8, i64 %16
   br label %19
 
 19:                                               ; preds = %.lr.ph.us, %19
@@ -355,7 +355,7 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
   %25 = fmul double %23, %24
   %26 = fmul double %15, %25
   %27 = fmul double %17, %26
-  %28 = getelementptr double, ptr %18, i64 %.05561.us
+  %28 = getelementptr [8 x i8], ptr %18, i64 %.05561.us
   store double %27, ptr %28, align 8, !tbaa !18
   %29 = add nuw nsw i64 %.05561.us, 1
   %exitcond.not = icmp eq i64 %29, %6
@@ -391,25 +391,25 @@ define internal fastcc void @SetInitialProfile(ptr noundef readonly captures(non
 41:                                               ; preds = %41, %.lr.ph.us.i
   %.036.us.i = phi i64 [ 1, %.lr.ph.us.i ], [ %62, %41 ]
   %42 = add nuw nsw i64 %.036.us.i, %40
-  %43 = getelementptr inbounds nuw double, ptr %32, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %42
   %44 = load double, ptr %43, align 8, !tbaa !18
-  %45 = getelementptr double, ptr %31, i64 %42
+  %45 = getelementptr [8 x i8], ptr %31, i64 %42
   %46 = getelementptr i8, ptr %45, i64 -8
   %47 = load double, ptr %46, align 8, !tbaa !18
   %48 = getelementptr i8, ptr %45, i64 8
   %49 = load double, ptr %48, align 8, !tbaa !18
   %50 = fadd double %47, %49
   %51 = sub nsw i64 %42, %34
-  %52 = getelementptr inbounds double, ptr %31, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %31, i64 %51
   %53 = load double, ptr %52, align 8, !tbaa !18
   %54 = fadd double %50, %53
-  %55 = getelementptr double, ptr %45, i64 %34
+  %55 = getelementptr [8 x i8], ptr %45, i64 %34
   %56 = load double, ptr %55, align 8, !tbaa !18
   %57 = fadd double %54, %56
   %58 = load double, ptr %45, align 8, !tbaa !18
   %59 = tail call double @llvm.fmuladd.f64(double %58, double -4.000000e+00, double %57)
   %60 = tail call double @llvm.fmuladd.f64(double %39, double %59, double %44)
-  %61 = getelementptr inbounds nuw double, ptr %33, i64 %42
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %42
   store double %60, ptr %61, align 8, !tbaa !18
   %62 = add nuw nsw i64 %.036.us.i, 1
   %exitcond.not.i = icmp eq i64 %62, %37
@@ -439,11 +439,11 @@ heatres.exit:                                     ; preds = %._crit_edge.us.i, %
 
 68:                                               ; preds = %.lr.ph.split.split.us77
   %69 = add nuw nsw i64 %.15666.us72, %64
-  %70 = getelementptr inbounds nuw double, ptr %8, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %69
   store double 1.000000e-01, ptr %70, align 8, !tbaa !18
-  %71 = getelementptr inbounds nuw double, ptr %9, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %69
   store double 0.000000e+00, ptr %71, align 8, !tbaa !18
-  %72 = getelementptr inbounds nuw double, ptr %10, i64 %69
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %69
   store double 0.000000e+00, ptr %72, align 8, !tbaa !18
   br label %73
 
@@ -464,11 +464,11 @@ heatres.exit:                                     ; preds = %._crit_edge.us.i, %
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us73, %.lr.ph.split.us.us
   %.15666.us.us = phi i64 [ %80, %.lr.ph.split.us.us ], [ 0, %.lr.ph.us73 ]
-  %77 = getelementptr inbounds nuw double, ptr %8, i64 %.15666.us.us
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.15666.us.us
   store double 1.000000e-01, ptr %77, align 8, !tbaa !18
-  %78 = getelementptr inbounds nuw double, ptr %9, i64 %.15666.us.us
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.15666.us.us
   store double 0.000000e+00, ptr %78, align 8, !tbaa !18
-  %79 = getelementptr inbounds nuw double, ptr %10, i64 %.15666.us.us
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.15666.us.us
   store double 0.000000e+00, ptr %79, align 8, !tbaa !18
   %80 = add nuw nsw i64 %.15666.us.us, 1
   %exitcond84.not = icmp eq i64 %80, %6
@@ -477,11 +477,11 @@ heatres.exit:                                     ; preds = %._crit_edge.us.i, %
 .lr.ph.split.split.us.us:                         ; preds = %.lr.ph.split.us75, %.lr.ph.split.split.us.us
   %.15666.us68.us = phi i64 [ %85, %.lr.ph.split.split.us.us ], [ 0, %.lr.ph.split.us75 ]
   %81 = add nuw nsw i64 %.15666.us68.us, %64
-  %82 = getelementptr inbounds nuw double, ptr %8, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %81
   store double 1.000000e-01, ptr %82, align 8, !tbaa !18
-  %83 = getelementptr inbounds nuw double, ptr %9, i64 %81
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %81
   store double 0.000000e+00, ptr %83, align 8, !tbaa !18
-  %84 = getelementptr inbounds nuw double, ptr %10, i64 %81
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %81
   store double 0.000000e+00, ptr %84, align 8, !tbaa !18
   %85 = add nuw nsw i64 %.15666.us68.us, 1
   %exitcond83.not = icmp eq i64 %85, %6
@@ -530,25 +530,25 @@ define dso_local noundef i32 @heatres(double %0, ptr noundef %1, ptr noundef %2,
 16:                                               ; preds = %.lr.ph.us, %16
   %.036.us = phi i64 [ 1, %.lr.ph.us ], [ %37, %16 ]
   %17 = add nuw nsw i64 %.036.us, %15
-  %18 = getelementptr inbounds nuw double, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %19 = load double, ptr %18, align 8, !tbaa !18
-  %20 = getelementptr double, ptr %6, i64 %17
+  %20 = getelementptr [8 x i8], ptr %6, i64 %17
   %21 = getelementptr i8, ptr %20, i64 -8
   %22 = load double, ptr %21, align 8, !tbaa !18
   %23 = getelementptr i8, ptr %20, i64 8
   %24 = load double, ptr %23, align 8, !tbaa !18
   %25 = fadd double %22, %24
   %26 = sub nsw i64 %17, %9
-  %27 = getelementptr inbounds double, ptr %6, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %6, i64 %26
   %28 = load double, ptr %27, align 8, !tbaa !18
   %29 = fadd double %25, %28
-  %30 = getelementptr double, ptr %20, i64 %9
+  %30 = getelementptr [8 x i8], ptr %20, i64 %9
   %31 = load double, ptr %30, align 8, !tbaa !18
   %32 = fadd double %29, %31
   %33 = load double, ptr %20, align 8, !tbaa !18
   %34 = tail call double @llvm.fmuladd.f64(double %33, double -4.000000e+00, double %32)
   %35 = tail call double @llvm.fmuladd.f64(double %14, double %34, double %19)
-  %36 = getelementptr inbounds nuw double, ptr %8, i64 %17
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %17
   store double %35, ptr %36, align 8, !tbaa !18
   %37 = add nuw nsw i64 %.036.us, 1
   %exitcond.not = icmp eq i64 %37, %12

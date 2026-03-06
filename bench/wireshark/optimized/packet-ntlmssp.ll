@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.expert_field = type { i32, i32 }
 %struct._dcerpc_auth_subdissector_fns = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.except_id_t = type { i64, i64 }
-%struct._md4_pass = type { [16 x i8], [257 x i8] }
 %struct._ntlmssp_blob = type { i16, ptr }
 %struct.except_stacknode = type { ptr, i32, %union.anon }
 %union.anon = type { ptr }
@@ -614,7 +613,7 @@ ansi_to_unicode.exit:                             ; preds = %.lr.ph.i, %21
 53:                                               ; preds = %49
   %54 = sext i32 %.150 to i64
   %.idx = mul nsw i64 %54, 273
-  %55 = getelementptr %struct._md4_pass, ptr %36, i64 %54
+  %55 = getelementptr [273 x i8], ptr %36, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %.13951, i64 16
   %57 = call i64 @llvm.usub.sat.i64(i64 %35, i64 %.idx)
   %58 = call ptr @__memcpy_chk(ptr noundef %55, ptr noundef nonnull %56, i64 noundef 16, i64 noundef %57) #17, !alias.scope !13
@@ -808,7 +807,7 @@ ansi_to_unicode.exit91.i:                         ; preds = %.lr.ph.i88.i, %69
   br i1 %exitcond.not.i, label %create_ntlmssp_v2_key.exit, label %87
 
 87:                                               ; preds = %86
-  %88 = getelementptr %struct._md4_pass, ptr %78, i64 %indvars.iv.i
+  %88 = getelementptr [273 x i8], ptr %78, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %16, ptr noundef align 1 dereferenceable(16) %88, i64 noundef 16, i1 noundef false) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(768) %15, i8 noundef 0, i64 noundef 768, i1 noundef false) #17
@@ -1381,7 +1380,7 @@ ansi_to_unicode.exit:                             ; preds = %.lr.ph.i, %9
 
 62:                                               ; preds = %.lr.ph, %76
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %76 ]
-  %63 = getelementptr %struct._md4_pass, ptr %56, i64 %indvars.iv
+  %63 = getelementptr [273 x i8], ptr %56, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, ptr noundef align 1 dereferenceable(16) %63, i64 noundef 16, i1 noundef false) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %.not91, label %66, label %64
@@ -1761,7 +1760,7 @@ define internal fastcc noundef i32 @dissect_ntlmssp_target_info_list(ptr noundef
 
 40:                                               ; preds = %39, %39, %39, %39, %39, %39
   %41 = zext nneg i16 %18 to i64
-  %42 = getelementptr ptr, ptr %17, i64 %41
+  %42 = getelementptr [8 x i8], ptr %17, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %15, align 8
@@ -1787,7 +1786,7 @@ define internal fastcc noundef i32 @dissect_ntlmssp_target_info_list(ptr noundef
 
 59:                                               ; preds = %39, %39
   %60 = zext nneg i16 %18 to i64
-  %61 = getelementptr ptr, ptr %17, i64 %60
+  %61 = getelementptr [8 x i8], ptr %17, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr %62, align 4
   %64 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %63, ptr noundef %10, i32 noundef %21, i32 noundef %22, i32 noundef 0)

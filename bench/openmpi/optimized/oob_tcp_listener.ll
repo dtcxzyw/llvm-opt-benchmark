@@ -134,7 +134,7 @@ thread-pre-split.i:                               ; preds = %14, %12
 
 28:                                               ; preds = %26
   %29 = zext nneg i32 %27 to i64
-  %30 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %29
+  %30 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !32
   %33 = icmp sgt i32 %32, 4
@@ -143,14 +143,14 @@ thread-pre-split.i:                               ; preds = %14, %12
 34:                                               ; preds = %28
   %35 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #13
   %36 = load ptr, ptr %4, align 8, !tbaa !20
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8, !tbaa !22
   call void (i32, ptr, ...) @pmix_output(i32 noundef %27, ptr noundef nonnull @.str.8, ptr noundef %35, ptr noundef %38) #13
   br label %39
 
 39:                                               ; preds = %34, %28, %26
   %40 = load ptr, ptr %4, align 8, !tbaa !20
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8, !tbaa !22
   %43 = call i64 @strtol(ptr noundef captures(none) %42, ptr noundef null, i32 noundef 10) #13
   %44 = trunc i64 %43 to i16
@@ -561,7 +561,7 @@ define internal noalias noundef ptr @listen_thread(ptr readnone captures(none) %
   %12 = shl nuw i64 1, %11
   %13 = sdiv i32 %9, 64
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i64, ptr %4, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %4, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !69
   %17 = or i64 %12, %16
   store i64 %17, ptr %15, align 8, !tbaa !69
@@ -579,7 +579,7 @@ define internal noalias noundef ptr @listen_thread(ptr readnone captures(none) %
   %22 = shl nuw i64 1, %21
   %23 = sdiv i32 %19, 64
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i64, ptr %4, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %4, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !69
   %27 = or i64 %22, %26
   store i64 %27, ptr %25, align 8, !tbaa !69
@@ -627,7 +627,7 @@ define internal noalias noundef ptr @listen_thread(ptr readnone captures(none) %
   %46 = load i32, ptr %45, align 4, !tbaa !46
   %47 = sdiv i32 %46, 64
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i64, ptr %4, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %4, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !69
   %51 = srem i32 %46, 64
   %52 = zext nneg i32 %51 to i64
@@ -773,7 +773,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %91
 
 122:                                              ; preds = %120
   %123 = zext nneg i32 %121 to i64
-  %124 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %123
+  %124 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %126 = load i32, ptr %125, align 4, !tbaa !32
   %127 = icmp sgt i32 %126, 6
@@ -916,7 +916,7 @@ define internal void @connection_event_handler(i32 noundef %0, i16 signext %1, p
 
 8:                                                ; preds = %3
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %9
+  %10 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !32
   %13 = icmp sgt i32 %12, 6
@@ -1088,7 +1088,7 @@ define internal void @connection_handler(i32 %0, i16 signext %1, ptr noundef %2)
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %6
+  %7 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !32
   %10 = icmp sgt i32 %9, 3

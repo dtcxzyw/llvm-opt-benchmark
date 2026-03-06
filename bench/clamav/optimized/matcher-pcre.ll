@@ -506,7 +506,7 @@ cli_pcre_freemeta.exit:                           ; preds = %56, %59
 
 125:                                              ; preds = %113
   %126 = zext i32 %115 to i64
-  %127 = getelementptr inbounds nuw ptr, ptr %122, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %126
   store ptr %47, ptr %127, align 8, !tbaa !49
   store ptr %122, ptr %118, align 8, !tbaa !48
   store i32 %116, ptr %114, align 4, !tbaa !47
@@ -702,7 +702,7 @@ define i32 @cli_pcre_build(ptr noundef readonly captures(none) %0, i64 noundef %
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %25
   %indvars.iv69 = phi i64 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next70, %25 ]
   %14 = load ptr, ptr %13, align 8, !tbaa !48
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv69
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv69
   %16 = load ptr, ptr %15, align 8, !tbaa !49
   %.not34.us.us = icmp eq ptr %16, null
   br i1 %.not34.us.us, label %.split.us, label %17
@@ -735,7 +735,7 @@ define i32 @cli_pcre_build(ptr noundef readonly captures(none) %0, i64 noundef %
 .lr.ph.split.us.split:                            ; preds = %.lr.ph, %51
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %51 ], [ 0, %.lr.ph ]
   %29 = load ptr, ptr %10, align 8, !tbaa !48
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv66
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv66
   %31 = load ptr, ptr %30, align 8, !tbaa !49
   %.not34.us = icmp eq ptr %31, null
   br i1 %.not34.us, label %.split.us, label %32
@@ -787,7 +787,7 @@ define i32 @cli_pcre_build(ptr noundef readonly captures(none) %0, i64 noundef %
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %57 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !49
   %.not34 = icmp eq ptr %56, null
   br i1 %.not34, label %.split.us, label %57
@@ -908,7 +908,7 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly captures(address_is_null) %0,
   %39 = phi ptr [ %85, %78 ], [ %29, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %.preheader ]
   %40 = load ptr, ptr %8, align 8, !tbaa !48
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !49
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 88
   %44 = load i32, ptr %43, align 8, !tbaa !46
@@ -916,7 +916,7 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly captures(address_is_null) %0,
   br i1 %.not78, label %47, label %45
 
 45:                                               ; preds = %.lr.ph
-  %46 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   store i32 -2, ptr %46, align 4, !tbaa !3
   br label %78
 
@@ -930,19 +930,19 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly captures(address_is_null) %0,
   ]
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   store i32 -1, ptr %51, align 4, !tbaa !3
   br label %78
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   store i32 -2, ptr %53, align 4, !tbaa !3
   br label %78
 
 54:                                               ; preds = %47
   %55 = getelementptr inbounds nuw i8, ptr %42, i64 68
   %56 = load i32, ptr %55, align 4, !tbaa !3
-  %57 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   store i32 %56, ptr %57, align 4, !tbaa !3
   %58 = getelementptr inbounds nuw i8, ptr %42, i64 72
   %59 = load i32, ptr %58, align 8, !tbaa !3
@@ -950,7 +950,7 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly captures(address_is_null) %0,
 
 60:                                               ; preds = %47
   %61 = load i32, ptr %0, align 8, !tbaa !42
-  %62 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %63 = call i32 @cli_caloff(ptr noundef null, ptr noundef nonnull %2, i32 noundef %61, ptr noundef nonnull %48, ptr noundef %62, ptr noundef nonnull %5) #13
   %.not79 = icmp eq i32 %63, 0
   br i1 %.not79, label %67, label %64
@@ -965,7 +965,7 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly captures(address_is_null) %0,
 
 67:                                               ; preds = %60
   %68 = load ptr, ptr %1, align 8, !tbaa !70
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !3
   %71 = icmp eq i32 %70, -1
   br i1 %71, label %72, label %74
@@ -990,7 +990,7 @@ define i32 @cli_pcre_recaloff(ptr noundef readonly captures(address_is_null) %0,
   %83 = phi ptr [ %32, %50 ], [ %36, %54 ], [ %77, %74 ], [ %73, %72 ], [ %34, %52 ], [ %36, %45 ]
   %84 = phi ptr [ %33, %50 ], [ %37, %54 ], [ %68, %74 ], [ %68, %72 ], [ %35, %52 ], [ %37, %45 ]
   %85 = phi ptr [ %33, %50 ], [ %37, %54 ], [ %68, %74 ], [ %68, %72 ], [ %35, %52 ], [ %39, %45 ]
-  %86 = getelementptr inbounds nuw i32, ptr %.sink93, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.sink93, i64 %indvars.iv
   store i32 %.sink, ptr %86, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %87 = load i32, ptr %22, align 4, !tbaa !47
@@ -1134,7 +1134,7 @@ define i32 @cli_pcre_scanbuf(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   %.0100196 = phi i32 [ 0, %.lr.ph ], [ %.1, %cli_pcre_qoff.exit ]
   %.0101195 = phi i32 [ 0, %.lr.ph ], [ %.1102, %cli_pcre_qoff.exit ]
   %32 = load ptr, ptr %16, align 8, !tbaa !48
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !49
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 88
@@ -1153,7 +1153,7 @@ define i32 @cli_pcre_scanbuf(ptr noundef %0, i32 noundef %1, ptr noundef writeon
 
 42:                                               ; preds = %41
   %43 = load ptr, ptr %6, align 8, !tbaa !70
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4, !tbaa !3
   %46 = icmp eq i32 %45, -2
   br i1 %46, label %cli_pcre_qoff.exit, label %47
@@ -1177,7 +1177,7 @@ define i32 @cli_pcre_scanbuf(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   %57 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %58 = load i32, ptr %57, align 4, !tbaa !3
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %56, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !79
   %62 = call i32 @cli_ac_chklsig(ptr noundef nonnull %50, ptr noundef nonnull %55, ptr noundef %61, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 0) #13
   %.not141 = icmp eq i32 %62, 1
@@ -1226,10 +1226,10 @@ define i32 @cli_pcre_scanbuf(ptr noundef %0, i32 noundef %1, ptr noundef writeon
 
 84:                                               ; preds = %64
   %85 = load ptr, ptr %6, align 8, !tbaa !70
-  %86 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv
   %87 = load i32, ptr %86, align 4, !tbaa !3
   %88 = load ptr, ptr %27, align 8, !tbaa !68
-  %89 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv
   %90 = load i32, ptr %89, align 4, !tbaa !3
   br label %cli_pcre_qoff.exit.thread
 
@@ -1474,7 +1474,7 @@ define void @cli_pcre_freetable(ptr noundef captures(none) %0) local_unnamed_add
 6:                                                ; preds = %.lr.ph, %cli_pcre_freemeta.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %cli_pcre_freemeta.exit ]
   %7 = load ptr, ptr %4, align 8, !tbaa !48
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !49
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %cli_pcre_freemeta.exit, label %10

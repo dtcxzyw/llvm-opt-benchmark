@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.gvrender_engine_s = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.pointf_s = type { double, double }
-%struct.fontinfo = type { [3 x i8], ptr }
 
 @pic_engine = global %struct.gvrender_engine_s { ptr null, ptr null, ptr @pic_begin_graph, ptr @pic_end_graph, ptr null, ptr null, ptr @pic_begin_page, ptr @pic_end_page, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @pic_textspan, ptr null, ptr @pic_ellipse, ptr @pic_polygon, ptr @pic_bezier, ptr @pic_polyline, ptr @pic_comment, ptr null }, align 8
 @.str = private unnamed_addr constant [4 x i8] c"pic\00", align 1
@@ -293,7 +292,7 @@ tailrecurse.i:                                    ; preds = %37, %23
 
 27:                                               ; preds = %25, %tailrecurse.i
   %.01421.i = phi i64 [ 0, %tailrecurse.i ], [ %26, %25 ]
-  %28 = getelementptr inbounds nuw %struct.fontinfo, ptr @fonttab, i64 %.01421.i
+  %28 = getelementptr inbounds nuw [16 x i8], ptr @fonttab, i64 %.01421.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !49
   %strlen.i.i.i = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %30)
@@ -397,7 +396,7 @@ define internal void @pic_polygon(ptr noundef %0, ptr noundef readonly captures(
   br label %16
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.018.i
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.018.i
   %13 = load double, ptr %12, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load double, ptr %14, align 8, !tbaa !53
@@ -447,14 +446,14 @@ define internal void @pic_bezier(ptr noundef %0, ptr noundef readonly captures(n
   %15 = phi i64 [ %12, %.loopexit ], [ 3, %4 ]
   %.027 = phi i64 [ %15, %.loopexit ], [ 0, %4 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !56
-  %16 = getelementptr %struct.pointf_s, ptr %1, i64 %.027
+  %16 = getelementptr [16 x i8], ptr %1, i64 %.027
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17
   %.02325 = phi i64 [ 1, %.lr.ph ], [ %24, %17 ]
-  %18 = getelementptr %struct.pointf_s, ptr %16, i64 %.02325
+  %18 = getelementptr [16 x i8], ptr %16, i64 %.02325
   %19 = load double, ptr %18, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw %struct.pointf_s, ptr %5, i64 %.02325
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.02325
   store double %19, ptr %20, align 16, !tbaa !52
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load double, ptr %21, align 8, !tbaa !53
@@ -498,7 +497,7 @@ define internal void @pic_polyline(ptr noundef %0, ptr noundef readonly captures
   br label %15
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.018.i
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.018.i
   %12 = load double, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load double, ptr %13, align 8, !tbaa !53

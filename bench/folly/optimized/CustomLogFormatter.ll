@@ -1396,7 +1396,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit70: ; pred
   %.04.i.i = phi ptr [ @_ZN12_GLOBAL__N_110formatKeysE, %53 ], [ %.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5folly18CustomLogFormatter17parseFormatStringENS2_5RangeIPKcEEE3$_0EclIPKN12_GLOBAL__N_110FormatKeysEKS7_EEbT_RT0_.exit.i.i" ]
   %.0113.i.i = phi i64 [ 13, %53 ], [ %.112.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5folly18CustomLogFormatter17parseFormatStringENS2_5RangeIPKcEEE3$_0EclIPKN12_GLOBAL__N_110FormatKeysEKS7_EEbT_RT0_.exit.i.i" ]
   %58 = lshr i64 %.0113.i.i, 1
-  %59 = getelementptr inbounds nuw %"struct.(anonymous namespace)::FormatKeys", ptr %.04.i.i, i64 %58
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %.04.i.i, i64 %58
   %.val.i.i = load ptr, ptr %59, align 8, !tbaa !66
   %60 = getelementptr i8, ptr %59, i64 8
   %.val13.i.i = load ptr, ptr %60, align 8, !tbaa !65
@@ -1903,7 +1903,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %_Z
 
 213:                                              ; preds = %217, %206
   %.08.i4.i.i.i.i.i.i.i = phi i64 [ 0, %206 ], [ %218, %217 ]
-  %214 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i.i.i
+  %214 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i.i.i
   %215 = load i64, ptr %214, align 8, !tbaa !18, !noalias !99
   %216 = icmp ugt i64 %215, 13
   br i1 %216, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i.i.i, label %217, !prof !78
@@ -2250,7 +2250,7 @@ define linkonce_odr void @_ZN5folly11toAppendFitIJmPNSt7__cxx1112basic_stringIcS
 
 6:                                                ; preds = %10, %2
   %.08.i4.i.i.i.i = phi i64 [ 0, %2 ], [ %11, %10 ]
-  %7 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i
   %8 = load i64, ptr %7, align 8, !tbaa !18
   %9 = icmp ult i64 %5, %8
   br i1 %9, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i, label %10, !prof !78
@@ -2274,7 +2274,7 @@ _ZN5folly6detail15reserveInTargetImPNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 16:                                               ; preds = %20, %_ZN5folly6detail15reserveInTargetImPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_.exit
   %.08.i.i4.i.i.i.i = phi i64 [ 0, %_ZN5folly6detail15reserveInTargetImPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_RKT0_.exit ], [ %21, %20 ]
-  %17 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i
   %18 = load i64, ptr %17, align 8, !tbaa !18
   %19 = icmp ult i64 %14, %18
   br i1 %19, label %.loopexit.i.i.i.i, label %20, !prof !78
@@ -2299,7 +2299,7 @@ _ZN5folly6detail15reserveInTargetImPNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %25 = add i64 %.014.i5.i.i.i.i, -2
   %26 = udiv i64 %.0.i6.i.i.i.i, 100
   %27 = urem i64 %.0.i6.i.i.i.i, 100
-  %28 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !104
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 %25
   store i16 %29, ptr %30, align 1
@@ -2310,7 +2310,7 @@ _ZN5folly6detail15reserveInTargetImPNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %32 = phi i64 [ %22, %.loopexit.i.i.i.i ], [ %24, %.lr.ph.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i = phi i64 [ %22, %.loopexit.i.i.i.i ], [ %25, %.lr.ph.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i = phi i64 [ %14, %.loopexit.i.i.i.i ], [ %26, %.lr.ph.i.i.i.i ]
-  %33 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
+  %33 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
   %34 = load i16, ptr %33, align 2, !tbaa !104
   %35 = icmp eq i64 %.014.i.lcssa.i.i.i.i, 2
   br i1 %35, label %36, label %37, !prof !78
@@ -2359,7 +2359,7 @@ define linkonce_odr void @_ZN5folly11toAppendFitIJA2_cmS1_NSt7__cxx1112basic_str
 
 15:                                               ; preds = %19, %10
   %.08.i4.i.i.i.i.i = phi i64 [ 0, %10 ], [ %20, %19 ]
-  %16 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i
   %17 = load i64, ptr %16, align 8, !tbaa !18
   %18 = icmp ult i64 %14, %17
   br i1 %18, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i, label %19, !prof !78
@@ -2390,7 +2390,7 @@ _ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is
 
 30:                                               ; preds = %34, %_ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i
   %.08.i4.i.i.i19.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i ], [ %35, %34 ]
-  %31 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i19.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i19.i.i
   %32 = load i64, ptr %31, align 8, !tbaa !18
   %33 = icmp ult i64 %29, %32
   br i1 %33, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i21.i.i, label %34, !prof !78
@@ -2415,7 +2415,7 @@ _ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is
 
 41:                                               ; preds = %45, %_ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit22.i.i
   %.08.i4.i.i.i23.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit22.i.i ], [ %46, %45 ]
-  %42 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i23.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i23.i.i
   %43 = load i64, ptr %42, align 8, !tbaa !18
   %44 = icmp ult i64 %40, %43
   br i1 %44, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i25.i.i, label %45, !prof !78
@@ -2480,7 +2480,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
 
 23:                                               ; preds = %27, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit
   %.08.i.i4.i.i.i.i = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit ], [ %28, %27 ]
-  %24 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i
   %25 = load i64, ptr %24, align 8, !tbaa !18
   %26 = icmp ult i64 %22, %25
   br i1 %26, label %.loopexit.i.i.i.i, label %27, !prof !78
@@ -2505,7 +2505,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
   %32 = add i64 %.014.i5.i.i.i.i, -2
   %33 = udiv i64 %.0.i6.i.i.i.i, 100
   %34 = urem i64 %.0.i6.i.i.i.i, 100
-  %35 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !104
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 %32
   store i16 %36, ptr %37, align 1
@@ -2516,7 +2516,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
   %39 = phi i64 [ %29, %.loopexit.i.i.i.i ], [ %31, %.lr.ph.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i = phi i64 [ %29, %.loopexit.i.i.i.i ], [ %32, %.lr.ph.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i = phi i64 [ %22, %.loopexit.i.i.i.i ], [ %33, %.lr.ph.i.i.i.i ]
-  %40 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
+  %40 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
   %41 = load i16, ptr %40, align 2, !tbaa !104
   %42 = icmp eq i64 %.014.i.lcssa.i.i.i.i, 2
   br i1 %42, label %43, label %44, !prof !78
@@ -2588,7 +2588,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
 
 73:                                               ; preds = %77, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit31
   %.08.i.i4.i.i.i.i32 = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit31 ], [ %78, %77 ]
-  %74 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i32
+  %74 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i32
   %75 = load i64, ptr %74, align 8, !tbaa !18
   %76 = icmp ult i64 %72, %75
   br i1 %76, label %.loopexit.i.i.i.i42, label %77, !prof !78
@@ -2613,7 +2613,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
   %82 = add i64 %.014.i5.i.i.i.i37, -2
   %83 = udiv i64 %.0.i6.i.i.i.i36, 100
   %84 = urem i64 %.0.i6.i.i.i.i36, 100
-  %85 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %84
+  %85 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %84
   %86 = load i16, ptr %85, align 2, !tbaa !104
   %87 = getelementptr inbounds nuw i8, ptr %12, i64 %82
   store i16 %86, ptr %87, align 1
@@ -2624,7 +2624,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
   %89 = phi i64 [ %79, %.loopexit.i.i.i.i42 ], [ %81, %.lr.ph.i.i.i.i35 ]
   %.014.i.lcssa.i.i.i.i39 = phi i64 [ %79, %.loopexit.i.i.i.i42 ], [ %82, %.lr.ph.i.i.i.i35 ]
   %.0.i.lcssa.i.i.i.i40 = phi i64 [ %72, %.loopexit.i.i.i.i42 ], [ %83, %.lr.ph.i.i.i.i35 ]
-  %90 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i40
+  %90 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i40
   %91 = load i16, ptr %90, align 2, !tbaa !104
   %92 = icmp eq i64 %.014.i.lcssa.i.i.i.i39, 2
   br i1 %92, label %93, label %94, !prof !78
@@ -2670,7 +2670,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
 
 109:                                              ; preds = %113, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit44
   %.08.i.i4.i.i.i.i45 = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit44 ], [ %114, %113 ]
-  %110 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i45
+  %110 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i45
   %111 = load i64, ptr %110, align 8, !tbaa !18
   %112 = icmp ult i64 %108, %111
   br i1 %112, label %.loopexit.i.i.i.i55, label %113, !prof !78
@@ -2695,7 +2695,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
   %118 = add i64 %.014.i5.i.i.i.i50, -2
   %119 = udiv i64 %.0.i6.i.i.i.i49, 100
   %120 = urem i64 %.0.i6.i.i.i.i49, 100
-  %121 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %120
+  %121 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %120
   %122 = load i16, ptr %121, align 2, !tbaa !104
   %123 = getelementptr inbounds nuw i8, ptr %11, i64 %118
   store i16 %122, ptr %123, align 1
@@ -2706,7 +2706,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
   %125 = phi i64 [ %115, %.loopexit.i.i.i.i55 ], [ %117, %.lr.ph.i.i.i.i48 ]
   %.014.i.lcssa.i.i.i.i52 = phi i64 [ %115, %.loopexit.i.i.i.i55 ], [ %118, %.lr.ph.i.i.i.i48 ]
   %.0.i.lcssa.i.i.i.i53 = phi i64 [ %108, %.loopexit.i.i.i.i55 ], [ %119, %.lr.ph.i.i.i.i48 ]
-  %126 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i53
+  %126 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i53
   %127 = load i16, ptr %126, align 2, !tbaa !104
   %128 = icmp eq i64 %.014.i.lcssa.i.i.i.i52, 2
   br i1 %128, label %129, label %130, !prof !78
@@ -2786,7 +2786,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
 
 24:                                               ; preds = %28, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit
   %.08.i.i4.i.i.i.i = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit ], [ %29, %28 ]
-  %25 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i
   %26 = load i64, ptr %25, align 8, !tbaa !18
   %27 = icmp ult i64 %23, %26
   br i1 %27, label %.loopexit.i.i.i.i, label %28, !prof !78
@@ -2811,7 +2811,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
   %33 = add i64 %.014.i5.i.i.i.i, -2
   %34 = udiv i64 %.0.i6.i.i.i.i, 100
   %35 = urem i64 %.0.i6.i.i.i.i, 100
-  %36 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !104
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 %33
   store i16 %37, ptr %38, align 1
@@ -2822,7 +2822,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
   %40 = phi i64 [ %30, %.loopexit.i.i.i.i ], [ %32, %.lr.ph.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i = phi i64 [ %30, %.loopexit.i.i.i.i ], [ %33, %.lr.ph.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i = phi i64 [ %23, %.loopexit.i.i.i.i ], [ %34, %.lr.ph.i.i.i.i ]
-  %41 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
+  %41 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
   %42 = load i16, ptr %41, align 2, !tbaa !104
   %43 = icmp eq i64 %.014.i.lcssa.i.i.i.i, 2
   br i1 %43, label %44, label %45, !prof !78
@@ -3536,7 +3536,7 @@ _ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit: ; preds = %137
 
 _ZN5folly6detail16formatCheckIndexEmRKNS_9FormatArgEm.exit: ; preds = %_ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %145 = getelementptr inbounds nuw i32, ptr %2, i64 %142
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %142
   %146 = load i32, ptr %145, align 4, !tbaa !62
   %147 = icmp sgt i32 %146, -1
   br i1 %147, label %_ZNK5folly9FormatArg7enforceIbJRA46_KcEEEvRKT_DpOT0_.exit, label %148, !prof !139
@@ -3580,7 +3580,7 @@ _ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit74: ; preds = %153
 
 _ZN5folly6detail16formatCheckIndexEmRKNS_9FormatArgEm.exit75: ; preds = %_ZNK5folly9FormatArg7enforceIbJRA55_KcEEEvRKT_DpOT0_.exit74
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %159 = getelementptr inbounds nuw i32, ptr %2, i64 %156
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %156
   %160 = load i32, ptr %159, align 4, !tbaa !62
   %161 = icmp sgt i32 %160, -1
   br i1 %161, label %_ZNK5folly9FormatArg7enforceIbJRA46_KcEEEvRKT_DpOT0_.exit76, label %162, !prof !139
@@ -3672,7 +3672,7 @@ _ZNK5folly9FormatArg7enforceIbJRA36_KcEEEvRKT_DpOT0_.exit: ; preds = %_ZNR5folly
 
 _ZN5folly6detail16formatCheckIndexEmRKNS_9FormatArgEm.exit77: ; preds = %178
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %182 = getelementptr inbounds ptr, ptr %4, i64 %179
+  %182 = getelementptr inbounds [8 x i8], ptr %4, i64 %179
   %183 = load ptr, ptr %182, align 8, !tbaa !148
   call void %183(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(84) %11, ptr noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -3792,7 +3792,7 @@ _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61: ; preds =
 
 41:                                               ; preds = %45, %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61
   %.08.i.i6.i.i.i = phi i64 [ 0, %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61 ], [ %46, %45 ]
-  %42 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i6.i.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i6.i.i.i
   %43 = load i64, ptr %42, align 8, !tbaa !18
   %44 = icmp ugt i64 %43, %40
   br i1 %44, label %.loopexit.i.i.i, label %45, !prof !78
@@ -3821,7 +3821,7 @@ _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61: ; preds =
   %51 = add i64 %.014.i.i7.i.i.i, -2
   %52 = udiv i64 %.0.i.i28.i.i.i, 100
   %53 = urem i64 %.0.i.i28.i.i.i, 100
-  %54 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !104
   %56 = getelementptr inbounds nuw i8, ptr %39, i64 %51
   store i16 %55, ptr %56, align 1
@@ -3832,7 +3832,7 @@ _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61: ; preds =
   %58 = phi i64 [ %48, %.preheader.i.i.i ], [ %50, %.lr.ph.i.i.i ]
   %.014.i.i.lcssa.i.i.i = phi i64 [ %48, %.preheader.i.i.i ], [ %51, %.lr.ph.i.i.i ]
   %.0.i.i2.lcssa.i.i.i = phi i64 [ %40, %.preheader.i.i.i ], [ %52, %.lr.ph.i.i.i ]
-  %59 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.i2.lcssa.i.i.i
+  %59 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.i2.lcssa.i.i.i
   %60 = load i16, ptr %59, align 2, !tbaa !104
   %61 = icmp eq i64 %.014.i.i.lcssa.i.i.i, 2
   br i1 %61, label %62, label %63, !prof !78
@@ -3901,7 +3901,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63: ; preds =
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 67
   store ptr %87, ptr %6, align 8, !tbaa !23
   %88 = zext i8 %.0 to i64
-  %89 = getelementptr inbounds nuw %"struct.std::array.22", ptr @_ZN5folly6detail11formatOctalE, i64 %88
+  %89 = getelementptr inbounds nuw [3 x i8], ptr @_ZN5folly6detail11formatOctalE, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 2
   %91 = load i8, ptr %90, align 1, !tbaa !17
   store i8 %91, ptr %.1.i.i66.sroa.gep76, align 2, !tbaa !17
@@ -3946,7 +3946,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64: ; preds =
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 67
   store ptr %109, ptr %6, align 8, !tbaa !23
   %110 = zext i8 %.0 to i64
-  %111 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexLowerE, i64 %110
+  %111 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexLowerE, i64 %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 1
   %113 = load i8, ptr %112, align 1, !tbaa !17
   store i8 %113, ptr %.1.i.i66.sroa.gep76, align 2, !tbaa !17
@@ -3986,7 +3986,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit65: ; preds =
   %128 = getelementptr inbounds nuw i8, ptr %5, i64 67
   store ptr %128, ptr %6, align 8, !tbaa !23
   %129 = zext i8 %.0 to i64
-  %130 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexUpperE, i64 %129
+  %130 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexUpperE, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 1
   %132 = load i8, ptr %131, align 1, !tbaa !17
   store i8 %132, ptr %.1.i.i66.sroa.gep76, align 2, !tbaa !17
@@ -4031,7 +4031,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit67: ; preds =
 .preheader18.split.us.i:                          ; preds = %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit67
   %149 = getelementptr inbounds nuw i8, ptr %5, i64 59
   %150 = zext i8 %.0 to i64
-  %151 = getelementptr inbounds nuw %"struct.std::array.26", ptr @_ZN5folly6detail12formatBinaryE, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail12formatBinaryE, i64 %150
   %152 = load i64, ptr %151, align 1
   store i64 %152, ptr %149, align 1
   br label %154
@@ -4879,7 +4879,7 @@ _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61: ; preds =
 
 41:                                               ; preds = %45, %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61
   %.08.i.i6.i.i.i = phi i64 [ 0, %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61 ], [ %46, %45 ]
-  %42 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i6.i.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i6.i.i.i
   %43 = load i64, ptr %42, align 8, !tbaa !18
   %44 = icmp ugt i64 %43, %40
   br i1 %44, label %.loopexit.i.i.i, label %45, !prof !78
@@ -4908,7 +4908,7 @@ _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61: ; preds =
   %51 = add i64 %.014.i.i7.i.i.i, -2
   %52 = udiv i64 %.0.i.i28.i.i.i, 100
   %53 = urem i64 %.0.i.i28.i.i.i, 100
-  %54 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !104
   %56 = getelementptr inbounds nuw i8, ptr %39, i64 %51
   store i16 %55, ptr %56, align 1
@@ -4919,7 +4919,7 @@ _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61: ; preds =
   %58 = phi i64 [ %48, %.preheader.i.i.i ], [ %50, %.lr.ph.i.i.i ]
   %.014.i.i.lcssa.i.i.i = phi i64 [ %48, %.preheader.i.i.i ], [ %51, %.lr.ph.i.i.i ]
   %.0.i.i2.lcssa.i.i.i = phi i64 [ %40, %.preheader.i.i.i ], [ %52, %.lr.ph.i.i.i ]
-  %59 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.i2.lcssa.i.i.i
+  %59 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.i2.lcssa.i.i.i
   %60 = load i16, ptr %59, align 2, !tbaa !104
   %61 = icmp eq i64 %.014.i.i.lcssa.i.i.i, 2
   br i1 %61, label %62, label %63, !prof !78
@@ -4997,7 +4997,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63: ; preds =
   %90 = and i32 %.02527.i, 511
   %91 = add nsw i64 %.028.i, -3
   %92 = zext nneg i32 %90 to i64
-  %93 = getelementptr inbounds nuw %"struct.std::array.22", ptr @_ZN5folly6detail11formatOctalE, i64 %92
+  %93 = getelementptr inbounds nuw [3 x i8], ptr @_ZN5folly6detail11formatOctalE, i64 %92
   %94 = load i8, ptr %93, align 1, !tbaa !17
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 %91
   store i8 %94, ptr %95, align 1, !tbaa !17
@@ -5018,7 +5018,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63: ; preds =
   %.025.lcssa.i = phi i32 [ %.0, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63 ], [ %103, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ 67, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63 ], [ %91, %.lr.ph.i ]
   %105 = zext nneg i32 %.025.lcssa.i to i64
-  %106 = getelementptr inbounds nuw %"struct.std::array.22", ptr @_ZN5folly6detail11formatOctalE, i64 %105
+  %106 = getelementptr inbounds nuw [3 x i8], ptr @_ZN5folly6detail11formatOctalE, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 2
   %108 = load i8, ptr %107, align 1, !tbaa !17
   %109 = add i64 %.0.lcssa.i, -1
@@ -5078,7 +5078,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64: ; preds =
   %135 = and i32 %.02223.i.i, 255
   %136 = add nsw i64 %.024.i.i, -2
   %137 = zext nneg i32 %135 to i64
-  %138 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexLowerE, i64 %137
+  %138 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexLowerE, i64 %137
   %139 = load i8, ptr %138, align 1, !tbaa !17
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 %136
   store i8 %139, ptr %140, align 1, !tbaa !17
@@ -5095,7 +5095,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64: ; preds =
   %.022.lcssa.i.i = phi i32 [ %.0, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64 ], [ %145, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi i64 [ 67, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64 ], [ %136, %.lr.ph.i.i ]
   %147 = zext nneg i32 %.022.lcssa.i.i to i64
-  %148 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexLowerE, i64 %147
+  %148 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexLowerE, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 1
   %150 = load i8, ptr %149, align 1, !tbaa !17
   %151 = add i64 %.0.lcssa.i.i, -1
@@ -5148,7 +5148,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit65: ; preds =
   %172 = and i32 %.02223.i.i68, 255
   %173 = add nsw i64 %.024.i.i67, -2
   %174 = zext nneg i32 %172 to i64
-  %175 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexUpperE, i64 %174
+  %175 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexUpperE, i64 %174
   %176 = load i8, ptr %175, align 1, !tbaa !17
   %177 = getelementptr inbounds nuw i8, ptr %5, i64 %173
   store i8 %176, ptr %177, align 1, !tbaa !17
@@ -5165,7 +5165,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit65: ; preds =
   %.022.lcssa.i.i70 = phi i32 [ %.0, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit65 ], [ %182, %.lr.ph.i.i66 ]
   %.0.lcssa.i.i71 = phi i64 [ 67, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit65 ], [ %173, %.lr.ph.i.i66 ]
   %184 = zext nneg i32 %.022.lcssa.i.i70 to i64
-  %185 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexUpperE, i64 %184
+  %185 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexUpperE, i64 %184
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 1
   %187 = load i8, ptr %186, align 1, !tbaa !17
   %188 = add i64 %.0.lcssa.i.i71, -1
@@ -5224,7 +5224,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit73: ; preds =
   %212 = add nsw i64 %.01621.i, -8
   %213 = getelementptr inbounds nuw i8, ptr %5, i64 %212
   %214 = zext nneg i32 %211 to i64
-  %215 = getelementptr inbounds nuw %"struct.std::array.26", ptr @_ZN5folly6detail12formatBinaryE, i64 %214
+  %215 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail12formatBinaryE, i64 %214
   %216 = load i64, ptr %215, align 1
   store i64 %216, ptr %213, align 1
   %217 = lshr i32 %.01720.i, 8
@@ -5429,7 +5429,7 @@ _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61: ; preds =
 
 39:                                               ; preds = %43, %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61
   %.08.i.i6.i.i.i = phi i64 [ 0, %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61 ], [ %44, %43 ]
-  %40 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i6.i.i.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i6.i.i.i
   %41 = load i64, ptr %40, align 8, !tbaa !18
   %42 = icmp ult i64 %.0, %41
   br i1 %42, label %.loopexit.i.i.i, label %43, !prof !78
@@ -5458,7 +5458,7 @@ _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61: ; preds =
   %49 = add i64 %.014.i.i7.i.i.i, -2
   %50 = udiv i64 %.0.i.i28.i.i.i, 100
   %51 = urem i64 %.0.i.i28.i.i.i, 100
-  %52 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !104
   %54 = getelementptr inbounds nuw i8, ptr %38, i64 %49
   store i16 %53, ptr %54, align 1
@@ -5469,7 +5469,7 @@ _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit61: ; preds =
   %56 = phi i64 [ %46, %.preheader.i.i.i ], [ %48, %.lr.ph.i.i.i ]
   %.014.i.i.lcssa.i.i.i = phi i64 [ %46, %.preheader.i.i.i ], [ %49, %.lr.ph.i.i.i ]
   %.0.i.i2.lcssa.i.i.i = phi i64 [ %.0, %.preheader.i.i.i ], [ %50, %.lr.ph.i.i.i ]
-  %57 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.i2.lcssa.i.i.i
+  %57 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.i2.lcssa.i.i.i
   %58 = load i16, ptr %57, align 2, !tbaa !104
   %59 = icmp eq i64 %.014.i.i.lcssa.i.i.i, 2
   br i1 %59, label %60, label %61, !prof !78
@@ -5546,7 +5546,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63: ; preds =
   %.02527.i = phi i64 [ %100, %.lr.ph.i ], [ %.0, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63 ]
   %88 = and i64 %.02527.i, 511
   %89 = add nsw i64 %.028.i, -3
-  %90 = getelementptr inbounds nuw %"struct.std::array.22", ptr @_ZN5folly6detail11formatOctalE, i64 %88
+  %90 = getelementptr inbounds nuw [3 x i8], ptr @_ZN5folly6detail11formatOctalE, i64 %88
   %91 = load i8, ptr %90, align 1, !tbaa !17
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 %89
   store i8 %91, ptr %92, align 1, !tbaa !17
@@ -5566,7 +5566,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63: ; preds =
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63
   %.025.lcssa.i = phi i64 [ %.0, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63 ], [ %100, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ 67, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63 ], [ %89, %.lr.ph.i ]
-  %102 = getelementptr inbounds nuw %"struct.std::array.22", ptr @_ZN5folly6detail11formatOctalE, i64 %.025.lcssa.i
+  %102 = getelementptr inbounds nuw [3 x i8], ptr @_ZN5folly6detail11formatOctalE, i64 %.025.lcssa.i
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 2
   %104 = load i8, ptr %103, align 1, !tbaa !17
   %105 = add i64 %.0.lcssa.i, -1
@@ -5625,7 +5625,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64: ; preds =
   %.02223.i.i = phi i64 [ %140, %.lr.ph.i.i ], [ %.0, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64 ]
   %131 = and i64 %.02223.i.i, 255
   %132 = add nsw i64 %.024.i.i, -2
-  %133 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexLowerE, i64 %131
+  %133 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexLowerE, i64 %131
   %134 = load i8, ptr %133, align 1, !tbaa !17
   %135 = getelementptr inbounds nuw i8, ptr %5, i64 %132
   store i8 %134, ptr %135, align 1, !tbaa !17
@@ -5641,7 +5641,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64: ; preds =
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64
   %.022.lcssa.i.i = phi i64 [ %.0, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64 ], [ %140, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi i64 [ 67, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64 ], [ %132, %.lr.ph.i.i ]
-  %142 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexLowerE, i64 %.022.lcssa.i.i
+  %142 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexLowerE, i64 %.022.lcssa.i.i
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 1
   %144 = load i8, ptr %143, align 1, !tbaa !17
   %145 = add i64 %.0.lcssa.i.i, -1
@@ -5693,7 +5693,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit65: ; preds =
   %.02223.i.i68 = phi i64 [ %175, %.lr.ph.i.i66 ], [ %.0, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit65 ]
   %166 = and i64 %.02223.i.i68, 255
   %167 = add nsw i64 %.024.i.i67, -2
-  %168 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexUpperE, i64 %166
+  %168 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexUpperE, i64 %166
   %169 = load i8, ptr %168, align 1, !tbaa !17
   %170 = getelementptr inbounds nuw i8, ptr %5, i64 %167
   store i8 %169, ptr %170, align 1, !tbaa !17
@@ -5709,7 +5709,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit65: ; preds =
 ._crit_edge.i.i69:                                ; preds = %.lr.ph.i.i66, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit65
   %.022.lcssa.i.i70 = phi i64 [ %.0, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit65 ], [ %175, %.lr.ph.i.i66 ]
   %.0.lcssa.i.i71 = phi i64 [ 67, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit65 ], [ %167, %.lr.ph.i.i66 ]
-  %177 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexUpperE, i64 %.022.lcssa.i.i70
+  %177 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexUpperE, i64 %.022.lcssa.i.i70
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 1
   %179 = load i8, ptr %178, align 1, !tbaa !17
   %180 = add i64 %.0.lcssa.i.i71, -1
@@ -5767,7 +5767,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit73: ; preds =
   %203 = and i64 %.01720.i, 255
   %204 = add nsw i64 %.01621.i, -8
   %205 = getelementptr inbounds nuw i8, ptr %5, i64 %204
-  %206 = getelementptr inbounds nuw %"struct.std::array.26", ptr @_ZN5folly6detail12formatBinaryE, i64 %203
+  %206 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail12formatBinaryE, i64 %203
   %207 = load i64, ptr %206, align 1
   store i64 %207, ptr %205, align 1
   %208 = lshr i64 %.01720.i, 8
@@ -5957,7 +5957,7 @@ _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit60: ; preds =
 
 34:                                               ; preds = %38, %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit60
   %.08.i.i6.i.i.i = phi i64 [ 0, %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit60 ], [ %39, %38 ]
-  %35 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i6.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i6.i.i.i
   %36 = load i64, ptr %35, align 8, !tbaa !18
   %37 = icmp ult i64 %10, %36
   br i1 %37, label %.loopexit.i.i.i, label %38, !prof !78
@@ -5986,7 +5986,7 @@ _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit60: ; preds =
   %44 = add i64 %.014.i.i7.i.i.i, -2
   %45 = udiv i64 %.0.i.i28.i.i.i, 100
   %46 = urem i64 %.0.i.i28.i.i.i, 100
-  %47 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !104
   %49 = getelementptr inbounds nuw i8, ptr %33, i64 %44
   store i16 %48, ptr %49, align 1
@@ -5997,7 +5997,7 @@ _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit60: ; preds =
   %51 = phi i64 [ %41, %.preheader.i.i.i ], [ %43, %.lr.ph.i.i.i ]
   %.014.i.i.lcssa.i.i.i = phi i64 [ %41, %.preheader.i.i.i ], [ %44, %.lr.ph.i.i.i ]
   %.0.i.i2.lcssa.i.i.i = phi i64 [ %10, %.preheader.i.i.i ], [ %45, %.lr.ph.i.i.i ]
-  %52 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.i2.lcssa.i.i.i
+  %52 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.i2.lcssa.i.i.i
   %53 = load i16, ptr %52, align 2, !tbaa !104
   %54 = icmp eq i64 %.014.i.i.lcssa.i.i.i, 2
   br i1 %54, label %55, label %56, !prof !78
@@ -6075,7 +6075,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit62: ; preds =
   %.02527.i = phi i64 [ %95, %.lr.ph.i ], [ %10, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit62 ]
   %83 = and i64 %.02527.i, 511
   %84 = add nsw i64 %.028.i, -3
-  %85 = getelementptr inbounds nuw %"struct.std::array.22", ptr @_ZN5folly6detail11formatOctalE, i64 %83
+  %85 = getelementptr inbounds nuw [3 x i8], ptr @_ZN5folly6detail11formatOctalE, i64 %83
   %86 = load i8, ptr %85, align 1, !tbaa !17
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 %84
   store i8 %86, ptr %87, align 1, !tbaa !17
@@ -6095,7 +6095,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit62: ; preds =
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit62
   %.025.lcssa.i = phi i64 [ %10, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit62 ], [ %95, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ 67, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit62 ], [ %84, %.lr.ph.i ]
-  %97 = getelementptr inbounds nuw %"struct.std::array.22", ptr @_ZN5folly6detail11formatOctalE, i64 %.025.lcssa.i
+  %97 = getelementptr inbounds nuw [3 x i8], ptr @_ZN5folly6detail11formatOctalE, i64 %.025.lcssa.i
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 2
   %99 = load i8, ptr %98, align 1, !tbaa !17
   %100 = add i64 %.0.lcssa.i, -1
@@ -6154,7 +6154,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63: ; preds =
   %.02223.i.i = phi i64 [ %135, %.lr.ph.i.i ], [ %10, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63 ]
   %126 = and i64 %.02223.i.i, 255
   %127 = add nsw i64 %.024.i.i, -2
-  %128 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexLowerE, i64 %126
+  %128 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexLowerE, i64 %126
   %129 = load i8, ptr %128, align 1, !tbaa !17
   %130 = getelementptr inbounds nuw i8, ptr %5, i64 %127
   store i8 %129, ptr %130, align 1, !tbaa !17
@@ -6170,7 +6170,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63: ; preds =
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63
   %.022.lcssa.i.i = phi i64 [ %10, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63 ], [ %135, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi i64 [ 67, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63 ], [ %127, %.lr.ph.i.i ]
-  %137 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexLowerE, i64 %.022.lcssa.i.i
+  %137 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexLowerE, i64 %.022.lcssa.i.i
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 1
   %139 = load i8, ptr %138, align 1, !tbaa !17
   %140 = add i64 %.0.lcssa.i.i, -1
@@ -6222,7 +6222,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64: ; preds =
   %.02223.i.i67 = phi i64 [ %170, %.lr.ph.i.i65 ], [ %10, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64 ]
   %161 = and i64 %.02223.i.i67, 255
   %162 = add nsw i64 %.024.i.i66, -2
-  %163 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexUpperE, i64 %161
+  %163 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexUpperE, i64 %161
   %164 = load i8, ptr %163, align 1, !tbaa !17
   %165 = getelementptr inbounds nuw i8, ptr %5, i64 %162
   store i8 %164, ptr %165, align 1, !tbaa !17
@@ -6238,7 +6238,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64: ; preds =
 ._crit_edge.i.i68:                                ; preds = %.lr.ph.i.i65, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64
   %.022.lcssa.i.i69 = phi i64 [ %10, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64 ], [ %170, %.lr.ph.i.i65 ]
   %.0.lcssa.i.i70 = phi i64 [ 67, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64 ], [ %162, %.lr.ph.i.i65 ]
-  %172 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexUpperE, i64 %.022.lcssa.i.i69
+  %172 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexUpperE, i64 %.022.lcssa.i.i69
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 1
   %174 = load i8, ptr %173, align 1, !tbaa !17
   %175 = add i64 %.0.lcssa.i.i70, -1
@@ -6296,7 +6296,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit72: ; preds =
   %198 = and i64 %.01720.i, 255
   %199 = add nsw i64 %.01621.i, -8
   %200 = getelementptr inbounds nuw i8, ptr %5, i64 %199
-  %201 = getelementptr inbounds nuw %"struct.std::array.26", ptr @_ZN5folly6detail12formatBinaryE, i64 %198
+  %201 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail12formatBinaryE, i64 %198
   %202 = load i64, ptr %201, align 1
   store i64 %202, ptr %200, align 1
   %203 = lshr i64 %.01720.i, 8
@@ -6954,7 +6954,7 @@ _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit60: ; preds =
 
 36:                                               ; preds = %40, %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit60
   %.08.i.i6.i.i.i = phi i64 [ 0, %_ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit60 ], [ %41, %40 ]
-  %37 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i6.i.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i6.i.i.i
   %38 = load i64, ptr %37, align 8, !tbaa !18
   %39 = icmp ugt i64 %38, %35
   br i1 %39, label %.loopexit.i.i.i, label %40, !prof !78
@@ -6983,7 +6983,7 @@ _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit60: ; preds =
   %46 = add i64 %.014.i.i7.i.i.i, -2
   %47 = udiv i64 %.0.i.i28.i.i.i, 100
   %48 = urem i64 %.0.i.i28.i.i.i, 100
-  %49 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !104
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 %46
   store i16 %50, ptr %51, align 1
@@ -6994,7 +6994,7 @@ _ZNK5folly9FormatArg7enforceIbJRA31_KcRcRA12_S2_EEEvRKT_DpOT0_.exit60: ; preds =
   %53 = phi i64 [ %43, %.preheader.i.i.i ], [ %45, %.lr.ph.i.i.i ]
   %.014.i.i.lcssa.i.i.i = phi i64 [ %43, %.preheader.i.i.i ], [ %46, %.lr.ph.i.i.i ]
   %.0.i.i2.lcssa.i.i.i = phi i64 [ %35, %.preheader.i.i.i ], [ %47, %.lr.ph.i.i.i ]
-  %54 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.i2.lcssa.i.i.i
+  %54 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.i2.lcssa.i.i.i
   %55 = load i16, ptr %54, align 2, !tbaa !104
   %56 = icmp eq i64 %.014.i.i.lcssa.i.i.i, 2
   br i1 %56, label %57, label %58, !prof !78
@@ -7073,7 +7073,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit62: ; preds =
   %85 = and i32 %.02527.i, 511
   %86 = add nsw i64 %.028.i, -3
   %87 = zext nneg i32 %85 to i64
-  %88 = getelementptr inbounds nuw %"struct.std::array.22", ptr @_ZN5folly6detail11formatOctalE, i64 %87
+  %88 = getelementptr inbounds nuw [3 x i8], ptr @_ZN5folly6detail11formatOctalE, i64 %87
   %89 = load i8, ptr %88, align 1, !tbaa !17
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 %86
   store i8 %89, ptr %90, align 1, !tbaa !17
@@ -7094,7 +7094,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit62: ; preds =
   %.025.lcssa.i = phi i32 [ %10, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit62 ], [ %98, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ 67, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit62 ], [ %86, %.lr.ph.i ]
   %100 = zext nneg i32 %.025.lcssa.i to i64
-  %101 = getelementptr inbounds nuw %"struct.std::array.22", ptr @_ZN5folly6detail11formatOctalE, i64 %100
+  %101 = getelementptr inbounds nuw [3 x i8], ptr @_ZN5folly6detail11formatOctalE, i64 %100
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 2
   %103 = load i8, ptr %102, align 1, !tbaa !17
   %104 = add i64 %.0.lcssa.i, -1
@@ -7154,7 +7154,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63: ; preds =
   %130 = and i32 %.02223.i.i, 255
   %131 = add nsw i64 %.024.i.i, -2
   %132 = zext nneg i32 %130 to i64
-  %133 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexLowerE, i64 %132
+  %133 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexLowerE, i64 %132
   %134 = load i8, ptr %133, align 1, !tbaa !17
   %135 = getelementptr inbounds nuw i8, ptr %5, i64 %131
   store i8 %134, ptr %135, align 1, !tbaa !17
@@ -7171,7 +7171,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63: ; preds =
   %.022.lcssa.i.i = phi i32 [ %10, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63 ], [ %140, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi i64 [ 67, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit63 ], [ %131, %.lr.ph.i.i ]
   %142 = zext nneg i32 %.022.lcssa.i.i to i64
-  %143 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexLowerE, i64 %142
+  %143 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexLowerE, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 1
   %145 = load i8, ptr %144, align 1, !tbaa !17
   %146 = add i64 %.0.lcssa.i.i, -1
@@ -7224,7 +7224,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64: ; preds =
   %167 = and i32 %.02223.i.i67, 255
   %168 = add nsw i64 %.024.i.i66, -2
   %169 = zext nneg i32 %167 to i64
-  %170 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexUpperE, i64 %169
+  %170 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexUpperE, i64 %169
   %171 = load i8, ptr %170, align 1, !tbaa !17
   %172 = getelementptr inbounds nuw i8, ptr %5, i64 %168
   store i8 %171, ptr %172, align 1, !tbaa !17
@@ -7241,7 +7241,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64: ; preds =
   %.022.lcssa.i.i69 = phi i32 [ %10, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64 ], [ %177, %.lr.ph.i.i65 ]
   %.0.lcssa.i.i70 = phi i64 [ 67, %_ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit64 ], [ %168, %.lr.ph.i.i65 ]
   %179 = zext nneg i32 %.022.lcssa.i.i69 to i64
-  %180 = getelementptr inbounds nuw %"struct.std::array.24", ptr @_ZN5folly6detail14formatHexUpperE, i64 %179
+  %180 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14formatHexUpperE, i64 %179
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 1
   %182 = load i8, ptr %181, align 1, !tbaa !17
   %183 = add i64 %.0.lcssa.i.i70, -1
@@ -7300,7 +7300,7 @@ _ZNK5folly9FormatArg7enforceIbJRA45_KcRcRA12_S2_EEEvRKT_DpOT0_.exit72: ; preds =
   %207 = add nsw i64 %.01621.i, -8
   %208 = getelementptr inbounds nuw i8, ptr %5, i64 %207
   %209 = zext nneg i32 %206 to i64
-  %210 = getelementptr inbounds nuw %"struct.std::array.26", ptr @_ZN5folly6detail12formatBinaryE, i64 %209
+  %210 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail12formatBinaryE, i64 %209
   %211 = load i64, ptr %210, align 1
   store i64 %211, ptr %208, align 1
   %212 = lshr i32 %.01720.i, 8
@@ -7626,7 +7626,7 @@ _ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_E
 
 29:                                               ; preds = %33, %_ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i
   %.08.i4.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIPKcEENSt9enable_ifIXsr3std14is_convertibleIT_S2_EE5valueEmE4typeES4_.exit.i.i.i ], [ %34, %33 ]
-  %30 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i.i
   %31 = load i64, ptr %30, align 8, !tbaa !18
   %32 = icmp ult i64 %28, %31
   br i1 %32, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i.i, label %33, !prof !78
@@ -7770,7 +7770,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
 
 43:                                               ; preds = %47, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit
   %.08.i.i4.i.i.i.i = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9enable_ifIXaasr3std14is_convertibleIT0_S8_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeESA_PSB_.exit ], [ %48, %47 ]
-  %44 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !18
   %46 = icmp ult i64 %42, %45
   br i1 %46, label %.loopexit.i.i.i.i, label %47, !prof !78
@@ -7795,7 +7795,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
   %52 = add i64 %.014.i5.i.i.i.i, -2
   %53 = udiv i64 %.0.i6.i.i.i.i, 100
   %54 = urem i64 %.0.i6.i.i.i.i, 100
-  %55 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !104
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 %52
   store i16 %56, ptr %57, align 1
@@ -7806,7 +7806,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
   %59 = phi i64 [ %49, %.loopexit.i.i.i.i ], [ %51, %.lr.ph.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i = phi i64 [ %49, %.loopexit.i.i.i.i ], [ %52, %.lr.ph.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i = phi i64 [ %42, %.loopexit.i.i.i.i ], [ %53, %.lr.ph.i.i.i.i ]
-  %60 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
+  %60 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
   %61 = load i16, ptr %60, align 2, !tbaa !104
   %62 = icmp eq i64 %.014.i.lcssa.i.i.i.i, 2
   br i1 %62, label %63, label %64, !prof !78

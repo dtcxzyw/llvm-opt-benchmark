@@ -15,10 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
-%"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
-%"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
-%struct.iovec = type { ptr, i64 }
 %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView" = type { %"class.std::basic_streambuf", ptr, %"class.absl::lts_20240722::Span", %"class.absl::lts_20240722::Span", %"class.absl::lts_20240722::Span" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
@@ -127,7 +123,7 @@ _ZL21ensure_iovec_buf_sizeP25alts_grpc_record_protocolPK17grpc_slice_buffer.exit
 
 25:                                               ; preds = %.lr.ph, %42
   %.030 = phi i64 [ 0, %.lr.ph ], [ %47, %42 ]
-  %26 = getelementptr inbounds nuw %struct.grpc_slice, ptr %18, i64 %.030
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %.030
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %.not21 = icmp eq ptr %27, null
   br i1 %.not21, label %35, label %28
@@ -136,7 +132,7 @@ _ZL21ensure_iovec_buf_sizeP25alts_grpc_record_protocolPK17grpc_slice_buffer.exit
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !26
   %31 = load ptr, ptr %19, align 8, !tbaa !17
-  %32 = getelementptr inbounds nuw %struct.iovec, ptr %31, i64 %.030
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.030
   store ptr %30, ptr %32, align 8, !tbaa !27
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !26
@@ -145,7 +141,7 @@ _ZL21ensure_iovec_buf_sizeP25alts_grpc_record_protocolPK17grpc_slice_buffer.exit
 35:                                               ; preds = %25
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 9
   %37 = load ptr, ptr %19, align 8, !tbaa !17
-  %38 = getelementptr inbounds nuw %struct.iovec, ptr %37, i64 %.030
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %.030
   store ptr %36, ptr %38, align 8, !tbaa !27
   %39 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %40 = load i8, ptr %39, align 8, !tbaa !26
@@ -155,7 +151,7 @@ _ZL21ensure_iovec_buf_sizeP25alts_grpc_record_protocolPK17grpc_slice_buffer.exit
 42:                                               ; preds = %35, %28
   %43 = phi ptr [ %31, %28 ], [ %37, %35 ]
   %44 = phi i64 [ %34, %28 ], [ %41, %35 ]
-  %45 = getelementptr inbounds nuw %struct.iovec, ptr %43, i64 %.030
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %.030
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 %44, ptr %46, align 8, !tbaa !29
   %47 = add nuw i64 %.030, 1
@@ -215,7 +211,7 @@ _ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_str
   %.02133 = phi i64 [ 0, %.lr.ph ], [ %30, %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit ]
   %.032 = phi ptr [ %1, %.lr.ph ], [ %29, %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit ]
   %15 = load ptr, ptr %8, align 8, !tbaa !18
-  %16 = getelementptr inbounds nuw %struct.grpc_slice, ptr %15, i64 %.02133
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %.02133
   %17 = load ptr, ptr %16, align 8, !tbaa !23
   %.not25 = icmp eq ptr %17, null
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -305,7 +301,7 @@ _ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_str
   %.02133.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.i ]
   %.032.i = phi ptr [ %21, %.lr.ph.i ], [ %43, %_ZN4absl12lts_2024072212log_internal12Check_NEImplIPhDnEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.i ]
   %29 = load ptr, ptr %22, align 8, !tbaa !18
-  %30 = getelementptr inbounds nuw %struct.grpc_slice, ptr %29, i64 %.02133.i
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %.02133.i
   %31 = load ptr, ptr %30, align 8, !tbaa !23
   %.not25.i = icmp eq ptr %31, null
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8

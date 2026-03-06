@@ -376,7 +376,7 @@ define internal range(i32 -1, 1) i32 @H5G__node_found(ptr noundef %0, i64 nounde
   %24 = lshr i32 %23, 1
   %25 = load ptr, ptr %18, align 8, !tbaa !34
   %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %22, i64 %26
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i64, ptr %28, align 8, !tbaa !36
   %30 = tail call ptr @H5HL_offset_into(ptr noundef %25, i64 noundef %29) #9
@@ -393,7 +393,7 @@ define internal range(i32 -1, 1) i32 @H5G__node_found(ptr noundef %0, i64 nounde
   %37 = load ptr, ptr %4, align 8, !tbaa !38
   %38 = load i64, ptr %20, align 8, !tbaa !39
   %39 = load ptr, ptr %19, align 8, !tbaa !24
-  %40 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %39, i64 %26
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %26
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i64, ptr %41, align 8, !tbaa !36
   %43 = sub i64 %38, %42
@@ -491,7 +491,7 @@ define internal range(i32 -1, 3) i32 @H5G__node_insert(ptr noundef %0, i64 nound
   %29 = lshr i32 %28, 1
   %30 = load ptr, ptr %23, align 8, !tbaa !44
   %31 = zext nneg i32 %29 to i64
-  %32 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %27, i64 %31
+  %32 = getelementptr inbounds nuw [40 x i8], ptr %27, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load i64, ptr %33, align 8, !tbaa !36
   %35 = tail call ptr @H5HL_offset_into(ptr noundef %30, i64 noundef %34) #9
@@ -508,7 +508,7 @@ define internal range(i32 -1, 3) i32 @H5G__node_insert(ptr noundef %0, i64 nound
   %42 = load ptr, ptr %5, align 8, !tbaa !47
   %43 = load i64, ptr %25, align 8, !tbaa !48
   %44 = load ptr, ptr %24, align 8, !tbaa !24
-  %45 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %44, i64 %31
+  %45 = getelementptr inbounds nuw [40 x i8], ptr %44, i64 %31
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load i64, ptr %46, align 8, !tbaa !36
   %48 = sub i64 %43, %47
@@ -593,7 +593,7 @@ define internal range(i32 -1, 3) i32 @H5G__node_insert(ptr noundef %0, i64 nound
   %100 = load ptr, ptr %99, align 8, !tbaa !24
   %101 = call i32 @H5F_sym_leaf_k(ptr noundef %0) #9
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %100, i64 %102
+  %103 = getelementptr inbounds nuw [40 x i8], ptr %100, i64 %102
   %104 = call i32 @H5F_sym_leaf_k(ptr noundef %0) #9
   %105 = zext i32 %104 to i64
   %106 = mul nuw nsw i64 %105, 40
@@ -604,7 +604,7 @@ define internal range(i32 -1, 3) i32 @H5G__node_insert(ptr noundef %0, i64 nound
   %109 = load ptr, ptr %99, align 8, !tbaa !24
   %110 = call i32 @H5F_sym_leaf_k(ptr noundef %0) #9
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %109, i64 %111
+  %112 = getelementptr inbounds nuw [40 x i8], ptr %109, i64 %111
   %113 = call i32 @H5F_sym_leaf_k(ptr noundef %0) #9
   %114 = zext i32 %113 to i64
   %115 = mul nuw nsw i64 %114, 40
@@ -614,7 +614,7 @@ define internal range(i32 -1, 3) i32 @H5G__node_insert(ptr noundef %0, i64 nound
   %117 = load ptr, ptr %99, align 8, !tbaa !24
   %118 = add i32 %116, -1
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw [40 x i8], ptr %117, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load i64, ptr %121, align 8, !tbaa !36
   store i64 %122, ptr %4, align 8, !tbaa !25
@@ -666,7 +666,7 @@ define internal range(i32 -1, 3) i32 @H5G__node_insert(ptr noundef %0, i64 nound
   %144 = getelementptr inbounds nuw i8, ptr %.098, i64 264
   %145 = load ptr, ptr %144, align 8, !tbaa !24
   %146 = sext i32 %.1100 to i64
-  %147 = getelementptr inbounds %struct.H5G_entry_t, ptr %145, i64 %146
+  %147 = getelementptr inbounds [40 x i8], ptr %145, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 40
   %149 = getelementptr inbounds nuw i8, ptr %.098, i64 256
   %150 = load i32, ptr %149, align 8, !tbaa !33
@@ -675,7 +675,7 @@ define internal range(i32 -1, 3) i32 @H5G__node_insert(ptr noundef %0, i64 nound
   %153 = mul nuw nsw i64 %152, 40
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %148, ptr align 8 %147, i64 %153, i1 false)
   %154 = load ptr, ptr %144, align 8, !tbaa !24
-  %155 = getelementptr inbounds %struct.H5G_entry_t, ptr %154, i64 %146
+  %155 = getelementptr inbounds [40 x i8], ptr %154, i64 %146
   call void @H5G__ent_copy(ptr noundef %155, ptr noundef nonnull %10, i32 noundef 0) #9
   %156 = load i32, ptr %149, align 8, !tbaa !33
   %157 = add i32 %156, 1
@@ -771,7 +771,7 @@ define internal range(i32 -1, 6) i32 @H5G__node_remove(ptr noundef %0, i64 nound
   %34 = lshr i32 %33, 1
   %35 = load ptr, ptr %28, align 8, !tbaa !56
   %36 = zext nneg i32 %34 to i64
-  %37 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %32, i64 %36
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %32, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load i64, ptr %38, align 8, !tbaa !36
   %40 = tail call ptr @H5HL_offset_into(ptr noundef %35, i64 noundef %39) #9
@@ -788,7 +788,7 @@ define internal range(i32 -1, 6) i32 @H5G__node_remove(ptr noundef %0, i64 nound
   %45 = load ptr, ptr %4, align 8, !tbaa !53
   %46 = load i64, ptr %30, align 8, !tbaa !57
   %47 = load ptr, ptr %29, align 8, !tbaa !24
-  %48 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %47, i64 %36
+  %48 = getelementptr inbounds nuw [40 x i8], ptr %47, i64 %36
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i64, ptr %49, align 8, !tbaa !36
   %51 = sub i64 %46, %50
@@ -822,7 +822,7 @@ define internal range(i32 -1, 6) i32 @H5G__node_remove(ptr noundef %0, i64 nound
 67:                                               ; preds = %58
   %68 = load i64, ptr %30, align 8, !tbaa !57
   %69 = load ptr, ptr %29, align 8, !tbaa !24
-  %70 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %69, i64 %36
+  %70 = getelementptr inbounds nuw [40 x i8], ptr %69, i64 %36
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load i64, ptr %71, align 8, !tbaa !36
   %73 = sub i64 %68, %72
@@ -909,7 +909,7 @@ define internal range(i32 -1, 6) i32 @H5G__node_remove(ptr noundef %0, i64 nound
 121:                                              ; preds = %118
   %122 = load i64, ptr %30, align 8, !tbaa !57
   %123 = load ptr, ptr %29, align 8, !tbaa !24
-  %124 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %123, i64 %36
+  %124 = getelementptr inbounds nuw [40 x i8], ptr %123, i64 %36
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load i64, ptr %125, align 8, !tbaa !66
   %127 = sub i64 %122, %126
@@ -934,7 +934,7 @@ define internal range(i32 -1, 6) i32 @H5G__node_remove(ptr noundef %0, i64 nound
 .critedge167:                                     ; preds = %121, %.critedge, %118
   %137 = load ptr, ptr %28, align 8, !tbaa !56
   %138 = load ptr, ptr %29, align 8, !tbaa !24
-  %139 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %138, i64 %36
+  %139 = getelementptr inbounds nuw [40 x i8], ptr %138, i64 %36
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 24
   %141 = load i64, ptr %140, align 8, !tbaa !36
   %142 = call i32 @H5HL_remove(ptr noundef %0, ptr noundef %137, i64 noundef %141, i64 noundef %spec.select) #9
@@ -964,7 +964,7 @@ define internal range(i32 -1, 6) i32 @H5G__node_remove(ptr noundef %0, i64 nound
   %155 = add i32 %149, -1
   store i32 %155, ptr %26, align 8, !tbaa !33
   %156 = load ptr, ptr %29, align 8, !tbaa !24
-  %157 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %156, i64 %36
+  %157 = getelementptr inbounds nuw [40 x i8], ptr %156, i64 %36
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 40
   %159 = zext i32 %155 to i64
   %160 = mul nuw nsw i64 %159, 40
@@ -979,7 +979,7 @@ define internal range(i32 -1, 6) i32 @H5G__node_remove(ptr noundef %0, i64 nound
   store i32 %34, ptr %26, align 8, !tbaa !33
   %164 = load ptr, ptr %29, align 8, !tbaa !24
   %165 = zext nneg i32 %34 to i64
-  %166 = getelementptr %struct.H5G_entry_t, ptr %164, i64 %165
+  %166 = getelementptr [40 x i8], ptr %164, i64 %165
   %167 = getelementptr i8, ptr %166, i64 -16
   %168 = load i64, ptr %167, align 8, !tbaa !36
   store i64 %168, ptr %5, align 8, !tbaa !25
@@ -990,7 +990,7 @@ define internal range(i32 -1, 6) i32 @H5G__node_remove(ptr noundef %0, i64 nound
   %170 = add i32 %149, -1
   store i32 %170, ptr %26, align 8, !tbaa !33
   %171 = load ptr, ptr %29, align 8, !tbaa !24
-  %172 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %171, i64 %36
+  %172 = getelementptr inbounds nuw [40 x i8], ptr %171, i64 %36
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 40
   %174 = sub i32 %170, %34
   %175 = zext i32 %174 to i64
@@ -1015,7 +1015,7 @@ define internal range(i32 -1, 6) i32 @H5G__node_remove(ptr noundef %0, i64 nound
   %183 = phi i32 [ %179, %.lr.ph191 ], [ %198, %197 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph191 ], [ %indvars.iv.next, %197 ]
   %184 = load ptr, ptr %180, align 8, !tbaa !24
-  %185 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %184, i64 %indvars.iv
+  %185 = getelementptr inbounds nuw [40 x i8], ptr %184, i64 %indvars.iv
   %186 = load i32, ptr %185, align 8, !tbaa !64
   %187 = icmp eq i32 %186, 2
   br i1 %187, label %197, label %188
@@ -1350,7 +1350,7 @@ define i32 @H5G__node_iterate(ptr noundef %0, ptr noundef readnone captures(none
 
 29:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %30 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %18, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [40 x i8], ptr %18, i64 %indvars.iv
   %31 = load ptr, ptr %4, align 8, !tbaa !81
   %32 = call i32 @H5G__ent_to_link(ptr noundef %30, ptr noundef %31, ptr noundef nonnull %6) #9
   %33 = icmp slt i32 %32, 0
@@ -1525,7 +1525,7 @@ define range(i32 -1, 2) i32 @H5G__node_by_idx(ptr noundef %0, ptr noundef readno
   %23 = load ptr, ptr %22, align 8, !tbaa !89
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 264
   %25 = load ptr, ptr %24, align 8, !tbaa !24
-  %26 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %25, i64 %21
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %21
   %27 = tail call i32 %23(ptr noundef %26, ptr noundef nonnull %4) #9
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %37
@@ -1700,7 +1700,7 @@ define range(i32 -1, 1) i32 @H5G__node_copy(ptr noundef %0, ptr noundef readnone
 49:                                               ; preds = %.lr.ph, %165
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %165 ]
   %50 = load ptr, ptr %31, align 8, !tbaa !24
-  %51 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [40 x i8], ptr %50, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2063,11 +2063,11 @@ define range(i32 -1, 1) i32 @H5G__node_build_table(ptr noundef %0, ptr noundef r
   %48 = add i64 %47, 1
   store i64 %48, ptr %46, align 8, !tbaa !123
   %49 = load ptr, ptr %39, align 8, !tbaa !24
-  %50 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [40 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %40, align 8, !tbaa !128
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !126
-  %54 = getelementptr inbounds nuw %struct.H5O_link_t, ptr %53, i64 %47
+  %54 = getelementptr inbounds nuw [48 x i8], ptr %53, i64 %47
   %55 = tail call i32 @H5G__ent_to_link(ptr noundef %50, ptr noundef %51, ptr noundef %54) #9
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %41
@@ -2234,7 +2234,7 @@ define range(i32 -1, 1) i32 @H5G_node_debug(ptr noundef %0, i64 noundef %1, ptr 
   %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.30, i32 noundef %3, ptr noundef nonnull @.str.21, i32 noundef %55) #9
   %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.33, i32 noundef %50, ptr noundef nonnull @.str.21, i32 noundef %52, ptr noundef nonnull @.str.34) #9
   %58 = load ptr, ptr %54, align 8, !tbaa !24
-  %59 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %58, i64 %indvars.iv99
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %58, i64 %indvars.iv99
   %60 = tail call i32 @H5G__ent_debug(ptr noundef %59, ptr noundef %2, i32 noundef %50, i32 noundef %52, ptr noundef null) #9
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %61 = load i32, ptr %45, align 8, !tbaa !33
@@ -2247,7 +2247,7 @@ define range(i32 -1, 1) i32 @H5G_node_debug(ptr noundef %0, i64 noundef %1, ptr 
   %64 = trunc nuw i64 %indvars.iv to i32
   %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.30, i32 noundef %3, ptr noundef nonnull @.str.21, i32 noundef %64) #9
   %66 = load ptr, ptr %54, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [40 x i8], ptr %66, i64 %indvars.iv
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load i64, ptr %68, align 8, !tbaa !36
   %70 = tail call ptr @H5HL_offset_into(ptr noundef nonnull %.175.fr, i64 noundef %69) #9
@@ -2260,7 +2260,7 @@ define range(i32 -1, 1) i32 @H5G_node_debug(ptr noundef %0, i64 noundef %1, ptr 
 
 73:                                               ; preds = %.lr.ph.split, %71
   %74 = load ptr, ptr %54, align 8, !tbaa !24
-  %75 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [40 x i8], ptr %74, i64 %indvars.iv
   %76 = tail call i32 @H5G__ent_debug(ptr noundef %75, ptr noundef %2, i32 noundef %50, i32 noundef %52, ptr noundef nonnull %.175.fr) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = load i32, ptr %45, align 8, !tbaa !33

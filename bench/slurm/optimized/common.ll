@@ -6,11 +6,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sview_config_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i16, i8, i16, i32, i32, i32, i8, i32, i32, i32, i32, [10 x ptr], [10 x %struct.page_opts_t], [10 x i8], i16, i8, i8, i8, i8, i16, i32 }
 %struct.page_opts_t = type { ptr, i8, ptr, ptr }
 %struct.popup_pos_t = type { i32, i32, i32, i32 }
-%struct.node_info = type { ptr, ptr, i16, i64, ptr, i16, i16, i32, i32, i64, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i32, ptr, ptr, i32, ptr, i32, ptr, i16, i64, i16, ptr, ptr, ptr, i64, i32, i64, ptr, ptr, i64, i16, i16, i32, i32, ptr, ptr }
-%struct.topo_info = type { i16, i32, ptr, ptr, ptr }
 %struct._GtkTreeIter = type { i32, ptr, ptr, ptr }
 %struct.each_t = type { ptr, ptr, ptr }
-%struct.display_data = type { i64, i32, ptr, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._GdkColor = type { i32, i16, i16, i16 }
 
 @g_switch_nodes_maps = external local_unnamed_addr global ptr, align 8
@@ -258,7 +255,7 @@ define dso_local range(i32 0, 23) i32 @build_nodes_bitmap(ptr noundef %0, ptr no
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %34 ], [ 0, %.preheader.i ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw %struct.node_info, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [368 x i8], ptr %27, i64 %indvars.iv.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 176
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
@@ -401,7 +398,7 @@ free_switch_nodes_maps.exit:                      ; preds = %free_switch_nodes_m
   %.019 = phi ptr [ %44, %42 ], [ %22, %18 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw %struct.topo_info, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %.not14 = icmp eq ptr %30, null
@@ -417,7 +414,7 @@ free_switch_nodes_maps.exit:                      ; preds = %free_switch_nodes_m
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %.pre27, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw %struct.topo_info, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -791,7 +788,7 @@ declare i64 @gtk_menu_shell_get_type() local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define dso_local void @set_page_opts(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.page_opts_t, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 176), i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 176), i64 %5
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %12
@@ -1670,12 +1667,12 @@ define dso_local void @create_treestore(ptr noundef %0, ptr noundef readonly cap
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
-  %9 = getelementptr inbounds nuw %struct.display_data, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [96 x i8], ptr %1, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i64, ptr %7, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %7, i64 %13
   store i64 %10, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6
@@ -1699,7 +1696,7 @@ define dso_local void @create_treestore(ptr noundef %0, ptr noundef readonly cap
 
 .lr.ph69:                                         ; preds = %17, %_add_col_to_treeview.exit.thread
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %_add_col_to_treeview.exit.thread ], [ 1, %17 ]
-  %21 = getelementptr inbounds nuw %struct.display_data, ptr %1, i64 %indvars.iv72
+  %21 = getelementptr inbounds nuw [96 x i8], ptr %1, i64 %indvars.iv72
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i8, ptr %22, align 8, !range !21, !noundef !22
   %24 = trunc nuw i8 %23 to i1
@@ -1980,7 +1977,7 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   %indvars.iv = phi i64 [ %21, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
   %22 = phi i8 [ %19, %.lr.ph.preheader ], [ %29, %27 ]
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw i16, ptr %15, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 8
   %.not67 = icmp eq i16 %26, 0
@@ -2010,7 +2007,7 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %42 ], [ %indvars.iv, %.critedge ]
   %37 = phi i8 [ %44, %42 ], [ %36, %.critedge ]
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw i16, ptr %15, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 8
   %.not78 = icmp eq i16 %41, 0
@@ -2077,7 +2074,7 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   %indvars.iv144 = phi i64 [ %60, %.lr.ph113.preheader ], [ %indvars.iv.next145, %66 ]
   %61 = phi i8 [ %58, %.lr.ph113.preheader ], [ %68, %66 ]
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw i16, ptr %57, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %62
   %64 = load i16, ptr %63, align 2
   %65 = and i16 %64, 8
   %.not71 = icmp eq i16 %65, 0
@@ -2107,7 +2104,7 @@ define internal range(i32 -1, 2) i32 @_sort_iter_compare_func_nodes(ptr noundef 
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %81 ], [ %indvars.iv144, %.critedge7 ]
   %76 = phi i8 [ %83, %81 ], [ %75, %.critedge7 ]
   %77 = zext i8 %76 to i64
-  %78 = getelementptr inbounds nuw i16, ptr %57, i64 %77
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %77
   %79 = load i16, ptr %78, align 2
   %80 = and i16 %79, 8
   %.not75 = icmp eq i16 %80, 0
@@ -2218,7 +2215,7 @@ define internal i32 @_sort_iter_compare_func_char(ptr noundef %0, ptr noundef %1
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %23, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, 8
   %.not = icmp eq i16 %31, 0
@@ -2864,8 +2861,8 @@ define dso_local void @setup_popup_info(ptr noundef captures(none) initializes((
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw %struct.display_data, ptr %9, i64 %indvars.iv
-  %11 = getelementptr inbounds nuw %struct.display_data, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [96 x i8], ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [96 x i8], ptr %1, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %11, i64 96, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3122,7 +3119,7 @@ define dso_local noalias noundef ptr @popup_thr(ptr noundef %0) local_unnamed_ad
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.popup_thr, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.popup_thr, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %2, ptr %8, align 8
@@ -3262,14 +3259,14 @@ define dso_local ptr @create_pulldown_combo(ptr noundef readonly captures(none) 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %6 = phi ptr [ %12, %.lr.ph ], [ %4, %1 ]
-  %7 = getelementptr inbounds nuw %struct.display_data, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [96 x i8], ptr %0, i64 %indvars.iv
   call void @gtk_list_store_append(ptr noundef %3, ptr noundef nonnull %2) #16
   %8 = load i32, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load ptr, ptr %9, align 8
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %3, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %8, i32 noundef 1, ptr noundef %10, i32 noundef -1) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds nuw %struct.display_data, ptr %0, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [96 x i8], ptr %0, i64 %indvars.iv.next
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %.not = icmp eq i32 %13, -1
@@ -3333,7 +3330,7 @@ define dso_local ptr @str_tolower(ptr noundef readonly captures(none) %0) local_
   %8 = phi i8 [ %15, %.lr.ph ], [ %6, %.lr.ph.preheader ]
   %9 = load ptr, ptr %7, align 8
   %10 = sext i8 %8 to i64
-  %11 = getelementptr inbounds i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %9, i64 %10
   %.020 = load i32, ptr %11, align 4
   %12 = trunc i32 %.020 to i8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
@@ -3776,7 +3773,7 @@ define dso_local noundef ptr @page_to_str(i32 noundef %0) local_unnamed_addr #12
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.visible_to_str, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.visible_to_str, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -3792,7 +3789,7 @@ define dso_local noundef nonnull ptr @tab_pos_to_str(i32 noundef %0) local_unnam
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.tab_pos_to_str, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.tab_pos_to_str, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -3832,7 +3829,7 @@ define dso_local ptr @visible_to_str(ptr noundef readonly captures(none) %0) loc
   br i1 %13, label %switch.lookup, label %page_to_str.exit
 
 switch.lookup:                                    ; preds = %12
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.visible_to_str, i64 %indvars.iv
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.visible_to_str, i64 %indvars.iv
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %page_to_str.exit
 

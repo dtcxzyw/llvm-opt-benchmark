@@ -915,7 +915,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._Py_hashtable_allocator_t = type { ptr, ptr }
 %struct.PyStatus = type { i32, ptr, ptr, i32 }
 %struct.get_traces_t = type { ptr, ptr, ptr, ptr, i32 }
-%union._Py_CODEUNIT = type { i16 }
 
 @_PyRuntime = external global %struct.pyruntimestate, align 8
 @__func__._PyTraceMalloc_Init = private unnamed_addr constant [20 x i8] c"_PyTraceMalloc_Init\00", align 1
@@ -1126,8 +1125,8 @@ define internal range(i32 0, 2) i32 @hashtable_compare_traceback(ptr noundef rea
 
 15:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %16 = getelementptr %struct.tracemalloc_frame, ptr %12, i64 %indvars.iv
-  %17 = getelementptr %struct.tracemalloc_frame, ptr %13, i64 %indvars.iv
+  %16 = getelementptr [12 x i8], ptr %12, i64 %indvars.iv
+  %17 = getelementptr [12 x i8], ptr %13, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 1, !tbaa !187
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -1560,7 +1559,7 @@ tracemalloc_get_traceback_unlocked.exit:          ; preds = %12
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr %struct.tracemalloc_frame, ptr %21, i64 %indvars.iv
+  %24 = getelementptr [12 x i8], ptr %21, i64 %indvars.iv
   %25 = tail call i64 @_Py_write_noraise(i32 noundef %0, ptr noundef nonnull @.str.7, i64 noundef 8) #14
   %26 = load ptr, ptr %24, align 1, !tbaa !185
   tail call void @_Py_DumpASCII(i32 noundef %0, ptr noundef %26) #14
@@ -1941,7 +1940,7 @@ define internal fastcc ptr @traceback_to_pyobject(ptr noundef %0, ptr noundef %1
 
 19:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %20 = getelementptr %struct.tracemalloc_frame, ptr %17, i64 %indvars.iv
+  %20 = getelementptr [12 x i8], ptr %17, i64 %indvars.iv
   %21 = tail call ptr @PyTuple_New(i64 noundef 2) #14
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.loopexit, label %23
@@ -2000,7 +1999,7 @@ _Py_NewRef.exit.i:                                ; preds = %27, %23
 46:                                               ; preds = %_Py_NewRef.exit.i
   %47 = getelementptr i8, ptr %21, i64 32
   store ptr %33, ptr %47, align 8, !tbaa !198
-  %48 = getelementptr ptr, ptr %18, i64 %indvars.iv
+  %48 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv
   store ptr %21, ptr %48, align 8, !tbaa !198
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i16, ptr %11, align 8, !tbaa !193
@@ -2887,7 +2886,7 @@ _PyFrame_IsIncomplete.exit.i.i.i:                 ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 192
   %16 = load i32, ptr %15, align 8, !tbaa !235
   %17 = sext i32 %16 to i64
-  %18 = getelementptr %union._Py_CODEUNIT, ptr %14, i64 %17
+  %18 = getelementptr [2 x i8], ptr %14, i64 %17
   %19 = icmp ult ptr %12, %18
   br i1 %19, label %_PyFrame_IsIncomplete.exit.thread.i.i.i, label %.lr.ph.i
 
@@ -2915,7 +2914,7 @@ _PyFrame_GetFirstComplete.exit.i:                 ; preds = %_PyFrame_GetFirstCo
 
 28:                                               ; preds = %_PyFrame_GetFirstComplete.exit.i
   %29 = zext i16 %24 to i64
-  %30 = getelementptr %struct.tracemalloc_frame, ptr %22, i64 %29
+  %30 = getelementptr [12 x i8], ptr %22, i64 %29
   store ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 35064), ptr %30, align 1, !tbaa !185
   %31 = tail call i32 @PyUnstable_InterpreterFrame_GetLine(ptr noundef nonnull %.015.i) #14
   %spec.store.select.i.i = tail call i32 @llvm.smax.i32(i32 %31, i32 0)
@@ -3031,7 +3030,7 @@ _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 192
   %84 = load i32, ptr %83, align 8, !tbaa !235
   %85 = sext i32 %84 to i64
-  %86 = getelementptr %union._Py_CODEUNIT, ptr %82, i64 %85
+  %86 = getelementptr [2 x i8], ptr %82, i64 %85
   %87 = icmp ult ptr %80, %86
   br i1 %87, label %_PyFrame_IsIncomplete.exit.thread.i.i, label %_PyFrame_GetFirstComplete.exit.i.loopexit, !llvm.loop !247
 

@@ -3,9 +3,6 @@ source_filename = "bench/luau/original/UnwindBuilderWin.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.Luau::CodeGen::UnwindFunctionWin" = type { i32, i32, i32 }
-%"struct.Luau::CodeGen::UnwindCodeWin" = type { i8, i8 }
-
 $_ZN4Luau7CodeGen16UnwindBuilderWinD2Ev = comdat any
 
 $_ZN4Luau7CodeGen16UnwindBuilderWinD0Ev = comdat any
@@ -117,7 +114,7 @@ _ZNSt6vectorIN4Luau7CodeGen17UnwindFunctionWinESaIS2_EE11_S_relocateEPS2_S5_S5_R
 _ZNSt6vectorIN4Luau7CodeGen17UnwindFunctionWinESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %34, %_ZNSt6vectorIN4Luau7CodeGen17UnwindFunctionWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %29, ptr %9, align 8, !tbaa !29
   store ptr %33, ptr %10, align 8, !tbaa !25
-  %35 = getelementptr inbounds nuw %"struct.Luau::CodeGen::UnwindFunctionWin", ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %27
   store ptr %35, ptr %12, align 8, !tbaa !26
   br label %_ZNSt6vectorIN4Luau7CodeGen17UnwindFunctionWinESaIS2_EE9push_backERKS2_.exit
 
@@ -227,7 +224,7 @@ define dso_local void @_ZN4Luau7CodeGen16UnwindBuilderWin14finishFunctionEjj(ptr
   %.011 = phi i64 [ %41, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.pn10 = phi ptr [ %.09, %.lr.ph ], [ %37, %.lr.ph.preheader ]
   %.09 = getelementptr i8, ptr %.pn10, i64 -2
-  %39 = getelementptr inbounds nuw %"struct.Luau::CodeGen::UnwindCodeWin", ptr %38, i64 %.011
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %.011
   %40 = load i16, ptr %39, align 1
   store i16 %40, ptr %.09, align 1
   %41 = add nuw i64 %.011, 1
@@ -329,7 +326,7 @@ _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %35, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %30, ptr %9, align 8, !tbaa !30
   store ptr %34, ptr %10, align 8, !tbaa !31
-  %36 = getelementptr inbounds nuw %"struct.Luau::CodeGen::UnwindCodeWin", ptr %30, i64 %28
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %28
   store ptr %36, ptr %12, align 8, !tbaa !32
   br label %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit
 
@@ -394,7 +391,7 @@ _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i57: ; preds = %62, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i55
   store ptr %57, ptr %9, align 8, !tbaa !30
   store ptr %61, ptr %10, align 8, !tbaa !31
-  %63 = getelementptr inbounds nuw %"struct.Luau::CodeGen::UnwindCodeWin", ptr %57, i64 %55
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %55
   store ptr %63, ptr %12, align 8, !tbaa !32
   br label %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit58
 
@@ -508,7 +505,7 @@ _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i65: ; preds = %112, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i63
   store ptr %107, ptr %65, align 8, !tbaa !30
   store ptr %111, ptr %66, align 8, !tbaa !31
-  %113 = getelementptr inbounds nuw %"struct.Luau::CodeGen::UnwindCodeWin", ptr %107, i64 %105
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %107, i64 %105
   store ptr %113, ptr %67, align 8, !tbaa !32
   br label %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit66
 
@@ -593,7 +590,7 @@ _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i73: ; preds = %150, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i71
   store ptr %145, ptr %83, align 8, !tbaa !30
   store ptr %149, ptr %125, align 8, !tbaa !31
-  %151 = getelementptr inbounds nuw %"struct.Luau::CodeGen::UnwindCodeWin", ptr %145, i64 %143
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %145, i64 %143
   store ptr %151, ptr %127, align 8, !tbaa !32
   br label %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit74
 
@@ -659,7 +656,7 @@ _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i81: ; preds = %181, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i79
   store ptr %176, ptr %83, align 8, !tbaa !30
   store ptr %180, ptr %156, align 8, !tbaa !31
-  %182 = getelementptr inbounds nuw %"struct.Luau::CodeGen::UnwindCodeWin", ptr %176, i64 %174
+  %182 = getelementptr inbounds nuw [2 x i8], ptr %176, i64 %174
   store ptr %182, ptr %158, align 8, !tbaa !32
   br label %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit82
 
@@ -727,7 +724,7 @@ _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i89: ; preds = %208, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i87
   store ptr %203, ptr %83, align 8, !tbaa !30
   store ptr %207, ptr %156, align 8, !tbaa !31
-  %209 = getelementptr inbounds nuw %"struct.Luau::CodeGen::UnwindCodeWin", ptr %203, i64 %201
+  %209 = getelementptr inbounds nuw [2 x i8], ptr %203, i64 %201
   store ptr %209, ptr %158, align 8, !tbaa !32
   br label %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit74
 
@@ -821,7 +818,7 @@ _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i97: ; preds = %248, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i95
   store ptr %243, ptr %214, align 8, !tbaa !30
   store ptr %247, ptr %215, align 8, !tbaa !31
-  %249 = getelementptr inbounds nuw %"struct.Luau::CodeGen::UnwindCodeWin", ptr %243, i64 %241
+  %249 = getelementptr inbounds nuw [2 x i8], ptr %243, i64 %241
   store ptr %249, ptr %216, align 8, !tbaa !32
   br label %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit98
 
@@ -894,7 +891,7 @@ _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i105: ; preds = %277, %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i103
   store ptr %272, ptr %214, align 8, !tbaa !30
   store ptr %276, ptr %215, align 8, !tbaa !31
-  %278 = getelementptr inbounds nuw %"struct.Luau::CodeGen::UnwindCodeWin", ptr %272, i64 %270
+  %278 = getelementptr inbounds nuw [2 x i8], ptr %272, i64 %270
   store ptr %278, ptr %216, align 8, !tbaa !32
   br label %_ZNSt6vectorIN4Luau7CodeGen13UnwindCodeWinESaIS2_EE9push_backEOS2_.exit106
 

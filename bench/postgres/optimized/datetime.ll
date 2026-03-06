@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%struct.anon = type { ptr, i32 }
 
 @PGTYPESdate_fmt_asc.mapping = internal unnamed_addr constant [7 x { ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8] } { ptr @.str, i32 2, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.1, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.2, i32 4, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.3, i32 3, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.4, i32 6, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } { ptr @.str.5, i32 5, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8] } zeroinitializer], align 16
 @.str = private unnamed_addr constant [4 x i8] c"ddd\00", align 1
@@ -282,13 +281,13 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef rea
   %14 = add i32 %13, %12
   %15 = srem i32 %14, 7
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr @pgtypes_date_weekdays_short, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr @pgtypes_date_weekdays_short, i64 %16
   br label %.preheader
 
 .preheader:                                       ; preds = %3, %._crit_edge
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %._crit_edge ]
   %.sroa.0.084 = phi ptr [ undef, %3 ], [ %.sroa.0.1.lcssa, %._crit_edge ]
-  %18 = getelementptr inbounds nuw %struct.anon, ptr @PGTYPESdate_fmt_asc.mapping, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @PGTYPESdate_fmt_asc.mapping, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 16
   %20 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %19) #14
   %.not6381 = icmp eq ptr %20, null
@@ -323,7 +322,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef rea
   %30 = load i32, ptr %10, align 8
   %31 = add i32 %30, -1
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr @months, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr @months, i64 %32
   %34 = load ptr, ptr %33, align 8
   br label %40
 
@@ -492,7 +491,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %41 = phi i8 [ %32, %.lr.ph ], [ %39, %35 ]
   %.0189254 = phi i32 [ 0, %.lr.ph ], [ %36, %35 ]
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw i16, ptr %34, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = and i16 %44, 2048
   %.not226 = icmp eq i16 %45, 0
@@ -584,7 +583,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %86 = sext i32 %83 to i64
   %87 = getelementptr inbounds i8, ptr %52, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %78, i64 %85
-  %89 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.next
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.next
   %90 = load i32, ptr %89, align 4
   %91 = sext i32 %90 to i64
   %92 = tail call ptr @strncpy(ptr noundef nonnull %87, ptr noundef nonnull %88, i64 noundef %91) #12
@@ -638,7 +637,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %.1200261.ph = phi i32 [ %.2201, %.loopexit328 ], [ 0, %.lr.ph263 ]
   %.0202260.ph = phi i32 [ %.1203, %.loopexit328 ], [ 0, %.lr.ph263 ]
   %110 = sext i32 %.0202260.ph to i64
-  %111 = getelementptr inbounds [2 x i32], ptr %4, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %4, i64 %110
   br label %112
 
 112:                                              ; preds = %.outer, %.thread317
@@ -648,7 +647,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %114 = getelementptr inbounds nuw i8, ptr %.1208, i64 %113
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i64
-  %117 = getelementptr inbounds nuw i16, ptr %109, i64 %116
+  %117 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %116
   %118 = load i16, ptr %117, align 2
   %119 = and i16 %118, 2048
   %120 = icmp eq i16 %119, 0
@@ -659,7 +658,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
 122:                                              ; preds = %112
   %123 = add i32 %.3192262, -1
   %124 = sext i32 %.0202260.ph to i64
-  %125 = getelementptr inbounds [2 x i32], ptr %4, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %4, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   store i32 %123, ptr %126, align 4
   %127 = add i32 %.0202260.ph, 1
@@ -691,7 +690,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
 ._crit_edge.thread322:                            ; preds = %.thread317, %._crit_edge
   %.1203320325 = phi i32 [ %.1203, %._crit_edge ], [ %.0202260.ph, %.thread317 ]
   %136 = sext i32 %.1203320325 to i64
-  %137 = getelementptr inbounds [2 x i32], ptr %4, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %4, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 4
   store i32 %.3192262, ptr %138, align 4
   %139 = add i32 %.1203320325, 1
@@ -815,7 +814,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
 188:                                              ; preds = %186
   %189 = add i32 %.4268, 1
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw ptr, ptr @pgtypes_date_months, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr @pgtypes_date_months, i64 %190
   %192 = load ptr, ptr %191, align 8
   %193 = icmp eq ptr %192, null
   %spec.select243 = select i1 %193, i32 -1, i32 %.4268
@@ -827,7 +826,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %.1 = phi ptr [ %.0269, %186 ], [ %spec.select244, %188 ]
   %195 = add i32 %.5, 1
   %196 = zext i32 %195 to i64
-  %197 = getelementptr inbounds nuw ptr, ptr %.1, i64 %196
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %.1, i64 %196
   %198 = load ptr, ptr %197, align 8
   %.not235 = icmp eq ptr %198, null
   br i1 %.not235, label %.critedge246, label %.preheader, !llvm.loop !10
@@ -844,14 +843,14 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly capture
   %.sroa.2.0272 = phi i32 [ %.sroa.2.1, %225 ], [ 0, %.preheader350 ]
   %.sroa.9.0271 = phi i32 [ %.sroa.9.1, %225 ], [ 0, %.preheader350 ]
   %.sroa.19.0270 = phi i32 [ %.sroa.19.1, %225 ], [ 0, %.preheader350 ]
-  %201 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 %indvars.iv282
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv282
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 4
   %203 = load i32, ptr %202, align 4
   %204 = sext i32 %203 to i64
   %205 = getelementptr inbounds i8, ptr %.1208, i64 %204
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 1
   store i8 0, ptr %206, align 1
-  %207 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv282
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv282
   %208 = load i32, ptr %207, align 4
   %209 = icmp eq i32 %208, -1
   br i1 %209, label %210, label %218

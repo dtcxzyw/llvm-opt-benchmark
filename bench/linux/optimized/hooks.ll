@@ -127,8 +127,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.anon.80 = type { %struct.in6_addr, %struct.in6_addr }
 %struct.in6_addr = type { %union.anon.68 }
 %union.anon.68 = type { [4 x i32] }
-%struct.rlimit = type { i64, i64 }
-%struct.xattr = type { ptr, ptr, i64 }
 %struct.qstr = type { %union.anon.19, ptr }
 %union.anon.19 = type { i64 }
 %struct.fs_parse_result = type { i8, %union.anon.136 }
@@ -2459,7 +2457,7 @@ define internal i32 @selinux_netlink_send(ptr noundef %0, ptr noundef readonly c
   store i32 0, ptr %5, align 4, !annotation !5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %17 = zext i16 %13 to i64
-  %18 = getelementptr %struct.security_class_mapping, ptr @secclass_map, i64 %17
+  %18 = getelementptr [272 x i8], ptr @secclass_map, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -272
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3001,10 +2999,10 @@ define internal void @selinux_bprm_committing_creds(ptr noundef readonly capture
   %85 = phi i64 [ 0, %81 ], [ %96, %84 ]
   %86 = load ptr, ptr %83, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 672
-  %88 = getelementptr %struct.rlimit, ptr %87, i64 %85
+  %88 = getelementptr [16 x i8], ptr %87, i64 %85
   %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_task, i64 1880), align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 672
-  %91 = getelementptr %struct.rlimit, ptr %90, i64 %85
+  %91 = getelementptr [16 x i8], ptr %90, i64 %85
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %93 = load i64, ptr %92, align 8
   %94 = load i64, ptr %91, align 8
@@ -4590,7 +4588,7 @@ define internal i32 @selinux_inode_init_security(ptr noundef readonly captures(n
   %21 = add i32 %20, 1
   store i32 %21, ptr %4, align 4
   %22 = sext i32 %20 to i64
-  %23 = getelementptr %struct.xattr, ptr %3, i64 %22
+  %23 = getelementptr [24 x i8], ptr %3, i64 %22
   br label %24
 
 24:                                               ; preds = %19, %5
@@ -12412,7 +12410,7 @@ define internal i32 @selinux_sb_eat_lsm_opts(ptr noundef %0, ptr noundef capture
 
 26:                                               ; preds = %23, %21
   %27 = phi i64 [ 0, %21 ], [ %24, %23 ]
-  %28 = getelementptr %struct.anon.138, ptr @tokens, i64 %27
+  %28 = getelementptr [24 x i8], ptr @tokens, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = sext i32 %30 to i64
@@ -12784,7 +12782,7 @@ define internal noundef range(i32 -12, 1) i32 @selinux_sk_alloc_security(ptr nou
 
 11:                                               ; preds = %7, %3
   %12 = phi i64 [ 0, %3 ], [ %10, %7 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %12
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %12
   %13 = getelementptr i8, ptr %.split, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %14, i32 noundef %4, i64 noundef 32) #29

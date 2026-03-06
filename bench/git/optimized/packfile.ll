@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.object_id = type { [32 x i8], i32 }
 %struct.prepare_pack_data = type { ptr, ptr, i32, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.git_zstream = type { %struct.z_stream_s, i64, i64, i64, i64, ptr, ptr }
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
 %struct.hashmap_entry = type { ptr, i32 }
@@ -231,7 +230,7 @@ git_bswap32.exit:                                 ; preds = %14
 git_bswap32.exit80:                               ; preds = %22, %21
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %22 ]
   %.067103 = phi i32 [ 0, %21 ], [ %25, %22 ]
-  %23 = getelementptr inbounds nuw i32, ptr %spec.select, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %spec.select, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !36
   %25 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %24) #24, !srcloc !41
   %.not78 = icmp ult i32 %25, %.067103
@@ -452,7 +451,7 @@ define dso_local i32 @get_pack_fanout(ptr noundef %0, i32 noundef %1) local_unna
   %spec.select.idx = select i1 %12, i64 8, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %.0, i64 %spec.select.idx
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %spec.select, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %spec.select, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !36
   %16 = tail call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %15) #24, !srcloc !41
   br label %git_bswap32.exit
@@ -838,7 +837,7 @@ strip_suffix_mem.exit:                            ; preds = %2, %9, %13
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %22, %24
-  %26 = getelementptr inbounds nuw ptr, ptr @unlink_pack_path.exts, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @unlink_pack_path.exts, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !79
   %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #26
   call void @strbuf_add(ptr noundef nonnull %3, ptr noundef nonnull %27, i64 noundef %28) #21
@@ -2261,14 +2260,14 @@ define internal fastcc void @prepare_packed_git(ptr noundef %0) unnamed_addr #0 
   %.03465.i.i = phi i32 [ %.236.i.i, %69 ], [ 0, %33 ]
   %.03864.i.i = phi i32 [ %.341.i.i, %69 ], [ 0, %33 ]
   %36 = load ptr, ptr %31, align 8, !tbaa !126
-  %37 = getelementptr inbounds nuw %struct.string_list_item, ptr %36, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv.i.i
   %38 = load ptr, ptr %37, align 8, !tbaa !127
   %.not45.i.i = icmp eq i32 %.03266.i.i, -1
   br i1 %.not45.i.i, label %.loopexit.i.i, label %39
 
 39:                                               ; preds = %.lr.ph.i.i
   %40 = sext i32 %.03864.i.i to i64
-  %41 = getelementptr inbounds %struct.string_list_item, ptr %36, i64 %40
+  %41 = getelementptr inbounds [16 x i8], ptr %36, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !127
   %43 = sext i32 %.03266.i.i to i64
   %44 = call i32 @strncmp(ptr noundef %38, ptr noundef %42, i64 noundef %43) #26
@@ -2285,7 +2284,7 @@ define internal fastcc void @prepare_packed_git(ptr noundef %0) unnamed_addr #0 
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ %40, %45 ]
   %48 = load ptr, ptr @report_garbage, align 8, !tbaa !44
   %49 = load ptr, ptr %31, align 8, !tbaa !126
-  %50 = getelementptr inbounds %struct.string_list_item, ptr %49, i64 %indvars.iv.i.i.i
+  %50 = getelementptr inbounds [16 x i8], ptr %49, i64 %indvars.iv.i.i.i
   %51 = load ptr, ptr %50, align 8, !tbaa !127
   call void %48(i32 noundef %.03465.i.i, ptr noundef %51) #21
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, 1
@@ -2359,7 +2358,7 @@ report_helper.exit.i.i:                           ; preds = %55, %39
   %indvars.iv.i53.i.i = phi i64 [ %75, %.lr.ph.preheader.i51.i.i ], [ %indvars.iv.next.i54.i.i, %.lr.ph.i52.i.i ]
   %76 = load ptr, ptr @report_garbage, align 8, !tbaa !44
   %77 = load ptr, ptr %31, align 8, !tbaa !126
-  %78 = getelementptr inbounds %struct.string_list_item, ptr %77, i64 %indvars.iv.i53.i.i
+  %78 = getelementptr inbounds [16 x i8], ptr %77, i64 %indvars.iv.i53.i.i
   %79 = load ptr, ptr %78, align 8, !tbaa !127
   call void %76(i32 noundef %.236.i.i, ptr noundef %79) #21
   %indvars.iv.next.i54.i.i = add nsw i64 %indvars.iv.i53.i.i, 1
@@ -2420,7 +2419,7 @@ rearrange_packed_git.exit.thread:                 ; preds = %._crit_edge
   br i1 %.not28.i.i, label %133, label %89
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i.i18
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i.i18
   %91 = load ptr, ptr %90, align 8, !tbaa !63
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 152
   %93 = load i8, ptr %92, align 8
@@ -2524,7 +2523,7 @@ sort_packs__merge.exit.i.i:                       ; preds = %110
 137:                                              ; preds = %133
   %138 = add i64 %.023.i.i, 1
   %139 = and i64 %indvars.iv.i.i18, 4294967295
-  %140 = getelementptr inbounds nuw ptr, ptr %2, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %139
   store ptr %.1.i.i, ptr %140, align 8, !tbaa !63
   br label %.preheader.i.i
 
@@ -3095,7 +3094,7 @@ define dso_local i64 @get_delta_base(ptr noundef %0, ptr noundef captures(none) 
 
 40:                                               ; preds = %.preheader, %42
   %.0811.i.i = phi i64 [ %43, %42 ], [ 0, %.preheader ]
-  %41 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %41 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %33, %41
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %42
 
@@ -3518,7 +3517,7 @@ st_mult.exit77.i:                                 ; preds = %124
   %.155.i = phi ptr [ %122, %st_mult.exit.i ], [ %132, %st_mult.exit77.i ], [ %.054.i, %124 ]
   %.1.i = phi i32 [ %119, %st_mult.exit.i ], [ %..i, %st_mult.exit77.i ], [ %.051.i, %124 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %134 = getelementptr inbounds nuw i64, ptr %.155.i, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %.155.i, i64 %indvars.iv.i
   store i64 %.057.i, ptr %134, align 8, !tbaa !37
   %135 = call i64 @get_delta_base(ptr noundef %1, ptr noundef nonnull %14, ptr noundef nonnull %9, i32 noundef %.059.i, i64 noundef %.057.i)
   %.not71.i = icmp eq i64 %135, 0
@@ -3625,7 +3624,7 @@ unpack_object_header.exit.i:                      ; preds = %st_add.exit.i.i.i, 
 
 170:                                              ; preds = %168
   %indvars.iv.next145.i = add nsw i64 %indvars.iv144.i, -1
-  %171 = getelementptr inbounds i64, ptr %.155.i, i64 %indvars.iv.next145.i
+  %171 = getelementptr inbounds [8 x i8], ptr %.155.i, i64 %indvars.iv.next145.i
   %172 = load i64, ptr %171, align 8, !tbaa !37
   %173 = call fastcc i32 @retry_bad_packed_offset(ptr noundef %0, ptr noundef %1, i64 noundef %172)
   %174 = icmp sgt i32 %173, 0
@@ -3707,7 +3706,7 @@ packed_to_object_type.exit:                       ; preds = %.thread.i, %166
 
 208:                                              ; preds = %.preheader, %210
   %.0811.i.i.i = phi i64 [ %211, %210 ], [ 0, %.preheader ]
-  %209 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
+  %209 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i86 = icmp eq ptr %200, %209
   br i1 %.not.i.i.i86, label %.split.loop.exit9.i.i.i, label %210
 
@@ -3831,7 +3830,7 @@ st_mult.exit.i.i:                                 ; preds = %251
 
 271:                                              ; preds = %.preheader312, %273
   %.0811.i.i.i.i = phi i64 [ %274, %273 ], [ 0, %.preheader312 ]
-  %272 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
+  %272 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %263, %272
   br i1 %.not.i.i.i.i, label %.split.loop.exit9.i.i.i.i, label %273
 
@@ -3870,7 +3869,7 @@ st_mult.exit28.i.i:                               ; preds = %251
 
 290:                                              ; preds = %.preheader314, %292
   %.0811.i.i29.i.i = phi i64 [ %293, %292 ], [ 0, %.preheader314 ]
-  %291 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i29.i.i
+  %291 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i29.i.i
   %.not.i.i30.i.i = icmp eq ptr %282, %291
   br i1 %.not.i.i30.i.i, label %.split.loop.exit9.i.i33.i.i, label %292
 
@@ -3905,7 +3904,7 @@ get_delta_base_oid.exit:                          ; preds = %292, %273, %.split.
 
 301:                                              ; preds = %303, %296
   %.0811.i.i = phi i64 [ 0, %296 ], [ %304, %303 ]
-  %302 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %302 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i87 = icmp eq ptr %300, %302
   br i1 %.not.i.i87, label %.split.loop.exit9.i.i, label %303
 
@@ -4191,7 +4190,7 @@ st_mult.exit.i:                                   ; preds = %93
 
 111:                                              ; preds = %.preheader449, %113
   %.0811.i.i.i = phi i64 [ %114, %113 ], [ 0, %.preheader449 ]
-  %112 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
+  %112 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %104, %112
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %113
 
@@ -4229,7 +4228,7 @@ st_mult.exit28.i:                                 ; preds = %93
 
 129:                                              ; preds = %.preheader451, %131
   %.0811.i.i29.i = phi i64 [ %132, %131 ], [ 0, %.preheader451 ]
-  %130 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i29.i
+  %130 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i29.i
   %.not.i.i30.i = icmp eq ptr %122, %130
   br i1 %.not.i.i30.i, label %.split.loop.exit9.i.i33.i, label %131
 
@@ -4376,7 +4375,7 @@ st_mult.exit158:                                  ; preds = %182
   %.2117 = phi i32 [ %177, %st_mult.exit ], [ %., %st_mult.exit158 ], [ %.0115, %182 ]
   %.2111 = phi ptr [ %180, %st_mult.exit ], [ %190, %st_mult.exit158 ], [ %.0109, %182 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %192 = getelementptr inbounds nuw %struct.unpack_entry_stack_ent, ptr %.2111, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw [24 x i8], ptr %.2111, i64 %indvars.iv
   store i64 %35, ptr %192, align 8, !tbaa !178
   %193 = load i64, ptr %12, align 8, !tbaa !37
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 8
@@ -4465,7 +4464,7 @@ thread-pre-split:                                 ; preds = %166, %44
 
 .thread:                                          ; preds = %222
   %indvars.iv.next320349 = add nsw i64 %indvars.iv319, -1
-  %224 = getelementptr inbounds nuw %struct.unpack_entry_stack_ent, ptr %.0109, i64 %indvars.iv.next320349
+  %224 = getelementptr inbounds nuw [24 x i8], ptr %.0109, i64 %indvars.iv.next320349
   %225 = load i64, ptr %224, align 8, !tbaa !178
   %226 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %227 = load i64, ptr %226, align 8, !tbaa !180
@@ -4545,7 +4544,7 @@ st_mult.exit.i170:                                ; preds = %245
 
 264:                                              ; preds = %.preheader, %266
   %.0811.i.i.i171 = phi i64 [ %267, %266 ], [ 0, %.preheader ]
-  %265 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i171
+  %265 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i171
   %.not.i.i.i172 = icmp eq ptr %256, %265
   br i1 %.not.i.i.i172, label %.split.loop.exit9.i.i.i174, label %266
 
@@ -4584,7 +4583,7 @@ st_mult.exit28.i163:                              ; preds = %245
 
 283:                                              ; preds = %.preheader445, %285
   %.0811.i.i29.i164 = phi i64 [ %286, %285 ], [ 0, %.preheader445 ]
-  %284 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i29.i164
+  %284 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i29.i164
   %.not.i.i30.i165 = icmp eq ptr %275, %284
   br i1 %.not.i.i30.i165, label %.split.loop.exit9.i.i33.i169, label %285
 
@@ -4633,7 +4632,7 @@ nth_packed_object_id.exit176._crit_edge:          ; preds = %nth_packed_object_i
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %297 = icmp eq ptr %.pre322, null
   %indvars.iv.next320 = add nsw i64 %indvars.iv319, -1
-  %298 = getelementptr inbounds nuw %struct.unpack_entry_stack_ent, ptr %.0109, i64 %indvars.iv.next320
+  %298 = getelementptr inbounds nuw [24 x i8], ptr %.0109, i64 %indvars.iv.next320
   %299 = load i64, ptr %298, align 8, !tbaa !178
   %300 = getelementptr inbounds nuw i8, ptr %298, i64 8
   %301 = load i64, ptr %300, align 8, !tbaa !180
@@ -4645,7 +4644,7 @@ nth_packed_object_id.exit176._crit_edge:          ; preds = %nth_packed_object_i
   %304 = phi i64 [ %225, %.thread ], [ %299, %296 ]
   %indvars.iv.next320351 = phi i64 [ %indvars.iv.next320349, %.thread ], [ %indvars.iv.next320, %296 ]
   %.0107350 = phi ptr [ null, %.thread ], [ %.1108, %296 ]
-  %305 = getelementptr inbounds nuw %struct.unpack_entry_stack_ent, ptr %.0109, i64 %indvars.iv.next320351
+  %305 = getelementptr inbounds nuw [24 x i8], ptr %.0109, i64 %indvars.iv.next320351
   %.in = getelementptr inbounds nuw i8, ptr %305, i64 16
   %306 = load i64, ptr %.in, align 8, !tbaa !181
   %307 = call fastcc ptr @unpack_compressed_entry(ptr noundef %1, ptr noundef %11, i64 noundef %303, i64 noundef %306)
@@ -4919,7 +4918,7 @@ st_mult.exit:                                     ; preds = %19
 
 39:                                               ; preds = %.preheader, %41
   %.0811.i.i = phi i64 [ %42, %41 ], [ 0, %.preheader ]
-  %40 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %40 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %31, %40
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %41
 
@@ -4958,7 +4957,7 @@ st_mult.exit28:                                   ; preds = %19
 
 58:                                               ; preds = %.preheader53, %60
   %.0811.i.i29 = phi i64 [ %61, %60 ], [ 0, %.preheader53 ]
-  %59 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i29
+  %59 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i29
   %.not.i.i30 = icmp eq ptr %50, %59
   br i1 %.not.i.i30, label %.split.loop.exit9.i.i33, label %60
 
@@ -5556,7 +5555,7 @@ st_mult.exit.us.i:                                ; preds = %41
 47:                                               ; preds = %st_mult.exit.us.i, %38
   %.139.us.i = phi ptr [ %46, %st_mult.exit.us.i ], [ %.03862.us.i, %38 ]
   %.2.us.i = phi i64 [ %..us.i, %st_mult.exit.us.i ], [ %.03564.us.i, %38 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %.139.us.i, i64 %.03663.us.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.139.us.i, i64 %.03663.us.i
   store ptr %.065.us.i, ptr %48, align 8, !tbaa !63
   br label %49
 
@@ -5604,7 +5603,7 @@ st_mult.exit.us79.i:                              ; preds = %57
 63:                                               ; preds = %st_mult.exit.us79.i, %54
   %.139.us80.i = phi ptr [ %62, %st_mult.exit.us79.i ], [ %.03862.us74.i, %54 ]
   %.2.us81.i = phi i64 [ %..us77.i, %st_mult.exit.us79.i ], [ %.03564.us72.i, %54 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %.139.us80.i, i64 %.03663.us73.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.139.us80.i, i64 %.03663.us73.i
   store ptr %.065.us71.i, ptr %64, align 8, !tbaa !63
   br label %65
 
@@ -5654,7 +5653,7 @@ st_mult.exit.i:                                   ; preds = %73
 79:                                               ; preds = %st_mult.exit.i, %70
   %.139.i = phi ptr [ %78, %st_mult.exit.i ], [ %.03862.i, %70 ]
   %.2.i = phi i64 [ %..i, %st_mult.exit.i ], [ %.03564.i, %70 ]
-  %80 = getelementptr inbounds nuw ptr, ptr %.139.i, i64 %.03663.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %.139.i, i64 %.03663.i
   store ptr %.065.i, ptr %80, align 8, !tbaa !63
   br label %81
 
@@ -5694,7 +5693,7 @@ st_mult.exit56.i:                                 ; preds = %85
 
 92:                                               ; preds = %st_mult.exit56.i, %._crit_edge.i
   %.341.i = phi ptr [ %91, %st_mult.exit56.i ], [ %.038.lcssa.i, %._crit_edge.i ]
-  %93 = getelementptr inbounds nuw ptr, ptr %.341.i, i64 %.036.lcssa.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %.341.i, i64 %.036.lcssa.i
   store ptr null, ptr %93, align 8, !tbaa !63
   %94 = load ptr, ptr %5, align 8, !tbaa !87
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 144
@@ -5889,7 +5888,7 @@ st_mult.exit.i:                                   ; preds = %34
 
 53:                                               ; preds = %.preheader, %55
   %.0811.i.i.i = phi i64 [ %56, %55 ], [ 0, %.preheader ]
-  %54 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
+  %54 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %45, %54
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %55
 
@@ -5928,7 +5927,7 @@ st_mult.exit28.i:                                 ; preds = %34
 
 72:                                               ; preds = %.preheader71, %74
   %.0811.i.i29.i = phi i64 [ %75, %74 ], [ 0, %.preheader71 ]
-  %73 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i29.i
+  %73 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i29.i
   %.not.i.i30.i = icmp eq ptr %64, %73
   br i1 %.not.i.i30.i, label %.split.loop.exit9.i.i33.i, label %74
 
@@ -6741,7 +6740,7 @@ st_mult.exit.i:                                   ; preds = %26
 
 45:                                               ; preds = %.preheader, %47
   %.0811.i.i.i = phi i64 [ %48, %47 ], [ 0, %.preheader ]
-  %46 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
+  %46 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %38, %46
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %47
 
@@ -6779,7 +6778,7 @@ st_mult.exit28.i:                                 ; preds = %26
 
 63:                                               ; preds = %.preheader28, %65
   %.0811.i.i29.i = phi i64 [ %66, %65 ], [ 0, %.preheader28 ]
-  %64 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i29.i
+  %64 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i29.i
   %.not.i.i30.i = icmp eq ptr %56, %64
   br i1 %.not.i.i30.i, label %.split.loop.exit9.i.i33.i, label %65
 

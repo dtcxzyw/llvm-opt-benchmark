@@ -341,7 +341,7 @@ should_use_loose_object_map.exit:                 ; preds = %1
   %28 = load ptr, ptr %21, align 8, !tbaa !71
   %29 = lshr i32 %.035, 4
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !50
   %33 = shl i32 %.035, 1
   %34 = and i32 %33, 30
@@ -353,7 +353,7 @@ should_use_loose_object_map.exit:                 ; preds = %1
 37:                                               ; preds = %27
   %38 = load ptr, ptr %22, align 8, !tbaa !72
   %39 = zext i32 %.035 to i64
-  %40 = getelementptr inbounds nuw %struct.object_id, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [36 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %23, align 8, !tbaa !42
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 80
   %43 = load ptr, ptr %42, align 8, !tbaa !43
@@ -371,7 +371,7 @@ should_use_loose_object_map.exit:                 ; preds = %1
 47:                                               ; preds = %44
   %48 = call ptr @oid_to_hex(ptr noundef nonnull %40) #16
   %49 = load ptr, ptr %24, align 8, !tbaa !73
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %39
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %39
   %51 = load ptr, ptr %50, align 8, !tbaa !74
   %52 = call ptr @oid_to_hex(ptr noundef %51) #16
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.1, ptr noundef %48, ptr noundef %52) #16
@@ -623,7 +623,7 @@ define dso_local range(i32 -1, 1) i32 @repo_loose_object_map_oid(ptr noundef rea
   %.0.i = phi i32 [ 0, %18 ], [ %39, %.critedge2.i ]
   %25 = lshr i32 %.027.i, 4
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !50
   %29 = shl i32 %.027.i, 1
   %30 = and i32 %29, 30
@@ -640,7 +640,7 @@ define dso_local range(i32 -1, 1) i32 @repo_loose_object_map_oid(ptr noundef rea
 35:                                               ; preds = %33
   %36 = load ptr, ptr %23, align 8, !tbaa !72
   %37 = zext i32 %.027.i to i64
-  %38 = getelementptr inbounds nuw %struct.object_id, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [36 x i8], ptr %36, i64 %37
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 4 dereferenceable(36) %38, i64 36, i1 false), !tbaa.struct !80
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(32) %6, i64 32)
@@ -676,7 +676,7 @@ kh_get_oid_map.exit:                              ; preds = %13, %.critedge.i
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %48 = load ptr, ptr %47, align 8, !tbaa !73
   %49 = zext i32 %.1.i to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !74
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef nonnull readonly align 4 dereferenceable(32) %51, i64 32, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
@@ -723,7 +723,7 @@ define dso_local void @loose_object_map_clear(ptr noundef captures(none) %0) loc
   %12 = load ptr, ptr %11, align 8, !tbaa !71
   %13 = lshr i32 %.02333, 4
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !50
   %17 = shl i32 %.02333, 1
   %18 = and i32 %17, 30
@@ -736,7 +736,7 @@ define dso_local void @loose_object_map_clear(ptr noundef captures(none) %0) loc
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !73
   %24 = zext i32 %.02333 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !74
   tail call void @free(ptr noundef %26) #16
   %.pre = load ptr, ptr %2, align 8, !tbaa !4
@@ -758,7 +758,7 @@ define dso_local void @loose_object_map_clear(ptr noundef captures(none) %0) loc
   %34 = load ptr, ptr %33, align 8, !tbaa !71
   %35 = lshr i32 %.035, 4
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !50
   %39 = shl i32 %.035, 1
   %40 = and i32 %39, 30
@@ -771,7 +771,7 @@ define dso_local void @loose_object_map_clear(ptr noundef captures(none) %0) loc
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %45 = load ptr, ptr %44, align 8, !tbaa !73
   %46 = zext i32 %.035 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !74
   tail call void @free(ptr noundef %48) #16
   %.pre38 = load ptr, ptr %6, align 8, !tbaa !10
@@ -941,7 +941,7 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
   %56 = load ptr, ptr %50, align 8, !tbaa !71
   %57 = lshr i32 %.1129.i, 4
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !50
   %61 = shl i32 %.1129.i, 1
   %62 = and i32 %61, 30
@@ -954,12 +954,12 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   %67 = load ptr, ptr %51, align 8, !tbaa !72
   %68 = zext i32 %.1129.i to i64
-  %69 = getelementptr inbounds nuw %struct.object_id, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [36 x i8], ptr %67, i64 %68
   %.sroa.0.0.copyload.i = load i32, ptr %69, align 4
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %69, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.0..sroa_idx.i, i64 32, i1 false), !tbaa.struct !90
   %70 = load ptr, ptr %53, align 8, !tbaa !73
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %68
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %68
   %72 = load ptr, ptr %71, align 8, !tbaa !74
   %73 = shl nuw nsw i32 1, %62
   %74 = or i32 %73, %60
@@ -973,7 +973,7 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
   %.095119.i = and i32 %.sroa.0.0.i, %52
   %77 = lshr i32 %.095119.i, 4
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %36, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !50
   %81 = shl i32 %.095119.i, 1
   %82 = and i32 %81, 30
@@ -990,7 +990,7 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
   %.095.i = and i32 %86, %52
   %87 = lshr i32 %.095.i, 4
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %36, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !50
   %91 = shl i32 %.095.i, 1
   %92 = and i32 %91, 30
@@ -1005,7 +1005,7 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
   %.lcssa114.i = phi i32 [ %80, %75 ], [ %90, %.lr.ph.i ]
   %.lcssa113.i = phi i32 [ %82, %75 ], [ %92, %.lr.ph.i ]
   %.lcssa.i = phi i32 [ %83, %75 ], [ %93, %.lr.ph.i ]
-  %95 = getelementptr inbounds nuw i32, ptr %36, i64 %.lcssa118.i
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %.lcssa118.i
   %96 = xor i32 %.lcssa.i, -1
   %97 = and i32 %.lcssa114.i, %96
   store i32 %97, ptr %95, align 4, !tbaa !50
@@ -1018,7 +1018,7 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
   br label %split.i
 
 100:                                              ; preds = %._crit_edge.i
-  %101 = getelementptr inbounds nuw i32, ptr %76, i64 %.lcssa118.i
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %.lcssa118.i
   %102 = load i32, ptr %101, align 4, !tbaa !50
   %103 = shl nuw i32 3, %.lcssa113.i
   %104 = and i32 %102, %103
@@ -1029,7 +1029,7 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
 106:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
   %107 = zext i32 %.095.lcssa.i to i64
-  %108 = getelementptr inbounds nuw %struct.object_id, ptr %.pre141.i, i64 %107
+  %108 = getelementptr inbounds nuw [36 x i8], ptr %.pre141.i, i64 %107
   %.sroa.0109.0.copyload.i = load i32, ptr %108, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %108, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.0..sroa_idx.i, i64 32, i1 false), !tbaa.struct !90
@@ -1038,12 +1038,12 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.i, i64 32, i1 false), !tbaa.struct !90
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   %109 = load ptr, ptr %53, align 8, !tbaa !73
-  %110 = getelementptr inbounds nuw ptr, ptr %109, i64 %107
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %107
   %111 = load ptr, ptr %110, align 8, !tbaa !74
   store ptr %.098.i, ptr %110, align 8, !tbaa !74
   %112 = shl nuw nsw i32 1, %.lcssa113.i
   %113 = load ptr, ptr %50, align 8, !tbaa !71
-  %114 = getelementptr inbounds nuw i32, ptr %113, i64 %.lcssa118.i
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %.lcssa118.i
   %115 = load i32, ptr %114, align 4, !tbaa !50
   %116 = or i32 %115, %112
   store i32 %116, ptr %114, align 4, !tbaa !50
@@ -1052,12 +1052,12 @@ define internal fastcc range(i32 0, 2) i32 @insert_oid_pair(ptr noundef captures
 split.i:                                          ; preds = %100, %._crit_edge._crit_edge.i
   %117 = phi ptr [ %.pre140.i, %._crit_edge._crit_edge.i ], [ %.pre141.i, %100 ]
   %118 = zext i32 %.095.lcssa.i to i64
-  %119 = getelementptr inbounds nuw %struct.object_id, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [36 x i8], ptr %117, i64 %118
   store i32 %.sroa.0.0.i, ptr %119, align 4
   %.sroa.7.0..sroa_idx108.i = getelementptr inbounds nuw i8, ptr %119, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.0..sroa_idx108.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !tbaa.struct !90
   %120 = load ptr, ptr %53, align 8, !tbaa !73
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %118
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %118
   store ptr %.098.i, ptr %121, align 8, !tbaa !74
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   %.pre142.i = load i32, ptr %0, align 8, !tbaa !68
@@ -1105,7 +1105,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge132.thre
   %141 = load ptr, ptr %140, align 8, !tbaa !71
   %142 = lshr i32 %139, 4
   %143 = zext nneg i32 %142 to i64
-  %144 = getelementptr inbounds nuw i32, ptr %141, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !50
   %146 = shl i32 %139, 1
   %147 = and i32 %146, 30
@@ -1124,7 +1124,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge132.thre
   %.0.i = phi i32 [ %168, %.critedge2.i ], [ 0, %.preheader.i ]
   %152 = lshr i32 %.069.i, 4
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw i32, ptr %141, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !50
   %156 = shl i32 %.069.i, 1
   %157 = and i32 %156, 30
@@ -1141,7 +1141,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge132.thre
 162:                                              ; preds = %160
   %163 = load ptr, ptr %150, align 8, !tbaa !72
   %164 = zext i32 %.069.i to i64
-  %165 = getelementptr inbounds nuw %struct.object_id, ptr %163, i64 %164
+  %165 = getelementptr inbounds nuw [36 x i8], ptr %163, i64 %164
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull align 4 dereferenceable(36) %165, i64 36, i1 false), !tbaa.struct !80
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32)
@@ -1183,7 +1183,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge132.thre
   %.068.i = phi i32 [ %spec.select.i, %.critedge.i ], [ %139, %kh_resize_oid_map.exit ], [ %spec.select87.i, %.critedge.thread.i ]
   %175 = lshr i32 %.068.i, 4
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw i32, ptr %141, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %176
   %178 = load i32, ptr %177, align 4, !tbaa !50
   %179 = shl i32 %.068.i, 1
   %180 = and i32 %179, 30
@@ -1196,12 +1196,12 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge132.thre
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %185 = load ptr, ptr %184, align 8, !tbaa !72
   %186 = zext i32 %.068.i to i64
-  %187 = getelementptr inbounds nuw %struct.object_id, ptr %185, i64 %186
+  %187 = getelementptr inbounds nuw [36 x i8], ptr %185, i64 %186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %187, ptr noundef nonnull readonly align 8 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !80
   %188 = shl nuw i32 3, %180
   %189 = xor i32 %188, -1
   %190 = load ptr, ptr %140, align 8, !tbaa !71
-  %191 = getelementptr inbounds nuw i32, ptr %190, i64 %176
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %176
   %192 = load i32, ptr %191, align 4, !tbaa !50
   %193 = and i32 %192, %189
   store i32 %193, ptr %191, align 4, !tbaa !50
@@ -1223,12 +1223,12 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge132.thre
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %203 = load ptr, ptr %202, align 8, !tbaa !72
   %204 = zext i32 %.068.i to i64
-  %205 = getelementptr inbounds nuw %struct.object_id, ptr %203, i64 %204
+  %205 = getelementptr inbounds nuw [36 x i8], ptr %203, i64 %204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %205, ptr noundef nonnull readonly align 8 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !80
   %206 = shl nuw i32 3, %180
   %207 = xor i32 %206, -1
   %208 = load ptr, ptr %140, align 8, !tbaa !71
-  %209 = getelementptr inbounds nuw i32, ptr %208, i64 %176
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %208, i64 %176
   %210 = load i32, ptr %209, align 4, !tbaa !50
   %211 = and i32 %210, %207
   store i32 %211, ptr %209, align 4, !tbaa !50
@@ -1253,7 +1253,7 @@ kh_put_oid_map.exit:                              ; preds = %199
   store i32 %218, ptr %219, align 4, !tbaa !82
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %221 = load ptr, ptr %220, align 8, !tbaa !73
-  %222 = getelementptr inbounds nuw ptr, ptr %221, i64 %.pre-phi
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %.pre-phi
   store ptr %216, ptr %222, align 8, !tbaa !74
   br label %223
 

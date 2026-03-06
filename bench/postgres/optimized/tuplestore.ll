@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/tuplestore.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.TSReadPointer = type { i32, i8, i32, i32, i64 }
-
 @.str = private unnamed_addr constant [39 x i8] c"too late to call tuplestore_set_eflags\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"tuplestore.c\00", align 1
 @__func__.tuplestore_set_eflags = private unnamed_addr constant [22 x i8] c"tuplestore_set_eflags\00", align 1
@@ -211,7 +209,7 @@ define dso_local void @tuplestore_set_eflags(ptr noundef captures(none) %0, i32 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.01113 = phi i32 [ %1, %.lr.ph ], [ %20, %17 ]
-  %18 = getelementptr inbounds nuw %struct.TSReadPointer, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %indvars.iv
   %19 = load i32, ptr %18, align 8
   %20 = or i32 %19, %.01113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -287,12 +285,12 @@ define dso_local i32 @tuplestore_alloc_read_pointer(ptr noundef captures(none) %
   %28 = phi ptr [ %.pre, %._crit_edge ], [ %25, %19 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = sext i32 %27 to i64
-  %31 = getelementptr inbounds %struct.TSReadPointer, ptr %28, i64 %30
+  %31 = getelementptr inbounds [24 x i8], ptr %28, i64 %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
   %32 = load ptr, ptr %29, align 8
   %33 = load i32, ptr %15, align 4
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %struct.TSReadPointer, ptr %32, i64 %34
+  %35 = getelementptr inbounds [24 x i8], ptr %32, i64 %34
   store i32 %1, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %37 = load i32, ptr %36, align 4
@@ -457,9 +455,9 @@ define dso_local void @tuplestore_select_read_pointer(ptr noundef captures(none)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %struct.TSReadPointer, ptr %8, i64 %9
+  %10 = getelementptr inbounds [24 x i8], ptr %8, i64 %9
   %11 = sext i32 %4 to i64
-  %12 = getelementptr inbounds %struct.TSReadPointer, ptr %8, i64 %11
+  %12 = getelementptr inbounds [24 x i8], ptr %8, i64 %11
   %13 = load i32, ptr %0, align 8
   switch i32 %13, label %49 [
     i32 0, label %52
@@ -557,7 +555,7 @@ define dso_local zeroext i1 @tuplestore_ateof(ptr noundef readonly captures(none
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.TSReadPointer, ptr %3, i64 %6
+  %7 = getelementptr inbounds [24 x i8], ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i8, ptr %8, align 4, !range !4, !noundef !5
   %10 = trunc nuw i8 %9 to i1
@@ -751,7 +749,7 @@ grow_memtuples.exit:                              ; preds = %.grow_memtuples.exi
   %85 = add i32 %82, 1
   store i32 %85, ptr %30, align 4
   %86 = sext i32 %82 to i64
-  %87 = getelementptr inbounds ptr, ptr %84, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %84, i64 %86
   store ptr %1, ptr %87, align 8
   %88 = load i32, ptr %30, align 4
   %89 = load i32, ptr %32, align 8
@@ -886,7 +884,7 @@ tuplestore_updatemax.exit:                        ; preds = %119, %133
 164:                                              ; preds = %._crit_edge.i
   %165 = load ptr, ptr %138, align 8
   %166 = load ptr, ptr %83, align 8
-  %167 = getelementptr inbounds ptr, ptr %166, i64 %indvars.iv.i
+  %167 = getelementptr inbounds [8 x i8], ptr %166, i64 %indvars.iv.i
   %168 = load ptr, ptr %167, align 8
   tail call void %165(ptr noundef nonnull %0, ptr noundef %168) #8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -952,7 +950,7 @@ dumptuples.exit:                                  ; preds = %._crit_edge.i
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %199 = load i32, ptr %198, align 8
   %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds %struct.TSReadPointer, ptr %197, i64 %200
+  %201 = getelementptr inbounds [24 x i8], ptr %197, i64 %200
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 4
   %203 = load i8, ptr %202, align 4, !range !4, !noundef !5
   %204 = trunc nuw i8 %203 to i1
@@ -1125,7 +1123,7 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.TSReadPointer, ptr %8, i64 %11
+  %12 = getelementptr inbounds [24 x i8], ptr %8, i64 %11
   %13 = load i32, ptr %0, align 8
   switch i32 %13, label %132 [
     i32 0, label %14
@@ -1157,7 +1155,7 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   %28 = add nsw i32 %21, 1
   store i32 %28, ptr %20, align 8
   %29 = sext i32 %21 to i64
-  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   %31 = load ptr, ptr %30, align 8
   br label %135
 
@@ -1200,7 +1198,7 @@ define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroe
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %51 = load ptr, ptr %50, align 8
   %52 = sext i32 %46 to i64
-  %53 = getelementptr ptr, ptr %51, i64 %52
+  %53 = getelementptr [8 x i8], ptr %51, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -8
   %55 = load ptr, ptr %54, align 8
   br label %135
@@ -1393,7 +1391,7 @@ define dso_local noundef zeroext i1 @tuplestore_skiptuples(ptr noundef %0, i64 n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.TSReadPointer, ptr %6, i64 %9
+  %10 = getelementptr inbounds [24 x i8], ptr %6, i64 %9
   %11 = icmp slt i64 %1, 1
   br i1 %11, label %.loopexit, label %12
 
@@ -1519,7 +1517,7 @@ define dso_local void @tuplestore_rescan(ptr noundef readonly captures(none) %0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.TSReadPointer, ptr %3, i64 %6
+  %7 = getelementptr inbounds [24 x i8], ptr %3, i64 %6
   %8 = load i32, ptr %0, align 8
   switch i32 %8, label %25 [
     i32 0, label %9
@@ -1574,13 +1572,13 @@ define dso_local void @tuplestore_copy_read_pointer(ptr noundef captures(none) %
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds %struct.TSReadPointer, ptr %5, i64 %6
+  %7 = getelementptr inbounds [24 x i8], ptr %5, i64 %6
   %8 = icmp eq i32 %1, %2
   br i1 %8, label %70, label %9
 
 9:                                                ; preds = %3
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds %struct.TSReadPointer, ptr %5, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr %5, i64 %10
   %12 = load i32, ptr %7, align 8
   %13 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, %13
@@ -1602,7 +1600,7 @@ define dso_local void @tuplestore_copy_read_pointer(ptr noundef captures(none) %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03642 = phi i32 [ %16, %.lr.ph.preheader ], [ %22, %.lr.ph ]
-  %20 = getelementptr inbounds nuw %struct.TSReadPointer, ptr %15, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv
   %21 = load i32, ptr %20, align 8
   %22 = or i32 %21, %.03642
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1727,7 +1725,7 @@ define dso_local void @tuplestore_trim(ptr noundef captures(none) %0) local_unna
 15:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %.05359 = phi i32 [ %9, %.lr.ph ], [ %.154, %23 ]
-  %16 = getelementptr inbounds nuw %struct.TSReadPointer, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i8, ptr %17, align 4, !range !4, !noundef !5
   %19 = trunc nuw i8 %18 to i1
@@ -1774,18 +1772,18 @@ tuplestore_updatemax.exit:                        ; preds = %._crit_edge
 38:                                               ; preds = %.lr.ph62, %38
   %indvars.iv68 = phi i64 [ %37, %.lr.ph62 ], [ %indvars.iv.next69, %38 ]
   %39 = load ptr, ptr %36, align 8
-  %40 = getelementptr inbounds ptr, ptr %39, i64 %indvars.iv68
+  %40 = getelementptr inbounds [8 x i8], ptr %39, i64 %indvars.iv68
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i64 @GetMemoryChunkSpace(ptr noundef %41) #8
   %43 = load i64, ptr %30, align 8
   %44 = add i64 %43, %42
   store i64 %44, ptr %30, align 8
   %45 = load ptr, ptr %36, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv68
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %indvars.iv68
   %47 = load ptr, ptr %46, align 8
   tail call void @pfree(ptr noundef %47) #8
   %48 = load ptr, ptr %36, align 8
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv68
+  %49 = getelementptr inbounds [8 x i8], ptr %48, i64 %indvars.iv68
   store ptr null, ptr %49, align 8
   %indvars.iv.next69 = add nsw i64 %indvars.iv68, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next69 to i32
@@ -1810,7 +1808,7 @@ tuplestore_updatemax.exit:                        ; preds = %._crit_edge
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %57 = load ptr, ptr %56, align 8
   %58 = zext nneg i32 %24 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %58
   br i1 %55, label %60, label %62
 
 60:                                               ; preds = %54
@@ -1842,7 +1840,7 @@ tuplestore_updatemax.exit:                        ; preds = %._crit_edge
   %73 = phi i32 [ %69, %.lr.ph66 ], [ %84, %83 ]
   %indvars.iv72 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next73, %83 ]
   %74 = load ptr, ptr %71, align 8
-  %75 = getelementptr inbounds nuw %struct.TSReadPointer, ptr %74, i64 %indvars.iv72
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %indvars.iv72
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = load i8, ptr %76, align 4, !range !4, !noundef !5
   %78 = trunc nuw i8 %77 to i1

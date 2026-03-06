@@ -224,13 +224,13 @@ define void @Dar_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
 
 .split.us:                                        ; preds = %68, %101
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %101 ], [ 0, %68 ]
-  %73 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv66
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv66
   %74 = load i32, ptr %73, align 4, !tbaa !26
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %.split.us
-  %77 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv66
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv66
   %78 = load i32, ptr %77, align 4, !tbaa !26
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %101, label %80
@@ -240,7 +240,7 @@ define void @Dar_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
   %82 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %81)
   %83 = load i32, ptr %73, align 4, !tbaa !26
   %84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %83, double noundef 0.000000e+00)
-  %85 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv66
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv66
   %86 = load i32, ptr %85, align 4, !tbaa !26
   %87 = load i32, ptr %72, align 4, !tbaa !51
   %.not53.us = icmp eq i32 %87, 0
@@ -272,13 +272,13 @@ define void @Dar_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
 
 .split:                                           ; preds = %68, %133
   %indvars.iv = phi i64 [ %indvars.iv.next, %133 ], [ 0, %68 ]
-  %102 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv
   %103 = load i32, ptr %102, align 4, !tbaa !26
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %109
 
 105:                                              ; preds = %.split
-  %106 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv
   %107 = load i32, ptr %106, align 4, !tbaa !26
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %133, label %109
@@ -291,7 +291,7 @@ define void @Dar_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
   %114 = fmul nnan double %113, 1.000000e+02
   %115 = fdiv double %114, %13
   %116 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %112, double noundef %115)
-  %117 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv
   %118 = load i32, ptr %117, align 4, !tbaa !26
   %119 = load i32, ptr %72, align 4, !tbaa !51
   %.not53 = icmp eq i32 %119, 0

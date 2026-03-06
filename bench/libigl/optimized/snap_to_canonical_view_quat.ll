@@ -71,7 +71,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
 23:                                               ; preds = %.preheader54, %23
   %indvars.iv = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next, %23 ]
   %.04257 = phi double [ 0.000000e+00, %.preheader54 ], [ %32, %23 ]
-  %24 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %25 = load double, ptr %24, align 8, !tbaa !4
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = call noundef double @_ZN3igl19CANONICAL_VIEW_QUATIdEET_ii(i32 noundef %.04362, i32 noundef %26)
@@ -99,7 +99,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
   %39 = trunc nuw nsw i64 %indvars.iv70 to i32
   %40 = call noundef double @_ZN3igl19CANONICAL_VIEW_QUATIdEET_ii(i32 noundef %.248, i32 noundef %39)
   %41 = fmul double %.2, %40
-  %42 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv70
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv70
   store double %41, ptr %42, align 8, !tbaa !4
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 4
@@ -177,7 +177,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
 23:                                               ; preds = %.preheader54, %23
   %indvars.iv = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next, %23 ]
   %.04257 = phi float [ 0.000000e+00, %.preheader54 ], [ %38, %23 ]
-  %24 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %25 = load float, ptr %24, align 4, !tbaa !16
   %26 = fpext float %25 to double
   %27 = trunc nuw nsw i64 %indvars.iv to i32
@@ -214,7 +214,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
   %48 = fpext float %47 to double
   %49 = fmul double %.2, %48
   %50 = fptrunc double %49 to float
-  %51 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv70
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv70
   store float %50, ptr %51, align 4, !tbaa !16
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 4

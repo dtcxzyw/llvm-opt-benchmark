@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.diff_queue_struct = type { ptr, i32, i32 }
 %struct.strbuf = type { i64, i64, ptr }
-%struct.obj_order = type { ptr, i32, i32 }
 
 @diff_queued_diff = external local_unnamed_addr global %struct.diff_queue_struct, align 8
 @strbuf_slopbuf = external global [0 x i8], align 1
@@ -126,7 +125,7 @@ define dso_local void @order_objects(ptr noundef %0, ptr noundef readonly captur
   %39 = call ptr @xmemdupz(ptr noundef nonnull %.03138.i, i64 noundef %38) #12
   %40 = load ptr, ptr @order, align 8, !tbaa !4
   %41 = sext i32 %.02839.i to i64
-  %42 = getelementptr inbounds ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %40, i64 %41
   store ptr %39, ptr %42, align 8, !tbaa !17
   %43 = add nsw i32 %.02839.i, 1
   br label %44
@@ -182,7 +181,7 @@ prepare_order.exit:                               ; preds = %6, %53
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %match_order.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %match_order.exit ]
-  %55 = getelementptr inbounds nuw %struct.obj_order, ptr %2, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %57, ptr %56, align 8, !tbaa !20
@@ -218,7 +217,7 @@ strbuf_setlen.exit.i:                             ; preds = %63, %.lr.ph25.i
 .lr.ph.i16:                                       ; preds = %strbuf_setlen.exit.i, %75
   %67 = phi ptr [ %76, %75 ], [ %65, %strbuf_setlen.exit.i ]
   %68 = load ptr, ptr @order, align 8, !tbaa !4
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i
   %70 = load ptr, ptr %69, align 8, !tbaa !17
   %71 = call i32 @wildmatch(ptr noundef %70, ptr noundef nonnull %67, i32 noundef 0) #12
   %.not12.i = icmp eq i32 %71, 0
@@ -325,9 +324,9 @@ st_mult.exit:                                     ; preds = %3
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !31
-  %14 = getelementptr inbounds nuw %struct.obj_order, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   store ptr %13, ptr %14, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -346,9 +345,9 @@ st_mult.exit:                                     ; preds = %3
 
 18:                                               ; preds = %.lr.ph24, %18
   %indvars.iv27 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next28, %18 ]
-  %19 = getelementptr inbounds nuw %struct.obj_order, ptr %7, i64 %indvars.iv27
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv27
   %20 = load ptr, ptr %19, align 8, !tbaa !22
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv27
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv27
   store ptr %20, ptr %21, align 8, !tbaa !31
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30

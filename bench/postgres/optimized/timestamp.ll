@@ -511,8 +511,8 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds ptr, ptr @days, i64 %17
-  %19 = getelementptr inbounds ptr, ptr @pgtypes_date_weekdays_short, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr @days, i64 %17
+  %19 = getelementptr inbounds [8 x i8], ptr @pgtypes_date_weekdays_short, i64 %17
   br label %20
 
 20:                                               ; preds = %342, %6
@@ -584,7 +584,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %30 = load i32, ptr %9, align 8
   %31 = add i32 %30, -1
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr @months, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr @months, i64 %32
   %34 = load ptr, ptr %33, align 8
   br label %.loopexit
 
@@ -592,7 +592,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %36 = load i32, ptr %9, align 8
   %37 = add i32 %36, -1
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr @pgtypes_date_months, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr @pgtypes_date_months, i64 %38
   %40 = load ptr, ptr %39, align 8
   br label %.loopexit
 
@@ -1431,10 +1431,10 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   %47 = srem i32 %39, 400
   %48 = icmp eq i32 %47, 0
   %49 = zext i1 %48 to i64
-  %50 = getelementptr inbounds nuw [13 x i32], ptr @day_tab, i64 %49
+  %50 = getelementptr inbounds nuw [52 x i8], ptr @day_tab, i64 %49
   %51 = add nsw i32 %38, -1
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = icmp sgt i32 %41, %54
   br i1 %55, label %66, label %75
@@ -1442,7 +1442,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
 .thread60:                                        ; preds = %44
   %56 = add nsw i32 %38, -1
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @day_tab, i64 52), i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @day_tab, i64 52), i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = icmp sgt i32 %41, %59
   br i1 %60, label %.thread44, label %75
@@ -1450,7 +1450,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
 .thread:                                          ; preds = %37
   %61 = add nsw i32 %38, -1
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw i32, ptr @day_tab, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr @day_tab, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = icmp sgt i32 %41, %64
   br i1 %65, label %.thread44, label %75
@@ -1464,8 +1464,8 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
 .thread44:                                        ; preds = %.thread60, %.thread, %66
   %70 = phi i64 [ %62, %.thread ], [ %57, %.thread60 ], [ %52, %66 ]
   %71 = phi i64 [ 0, %.thread ], [ 1, %.thread60 ], [ %69, %66 ]
-  %72 = getelementptr inbounds nuw [13 x i32], ptr @day_tab, i64 %71
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %70
+  %72 = getelementptr inbounds nuw [52 x i8], ptr @day_tab, i64 %71
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %70
   %74 = load i32, ptr %73, align 4
   store i32 %74, ptr %40, align 4
   br label %75

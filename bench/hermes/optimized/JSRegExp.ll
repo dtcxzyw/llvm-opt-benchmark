@@ -73,13 +73,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage" = type { [4 x %"struct.llvh::AlignedCharArrayUnion"] }
 %"struct.llvh::AlignedCharArrayUnion" = type { %"struct.llvh::AlignedCharArray" }
 %"struct.llvh::AlignedCharArray" = type { [12 x i8] }
-%"class.hermes::OptValue.273" = type <{ %"struct.hermes::vm::RegExpMatchRange", i8, [3 x i8] }>
-%"struct.hermes::vm::RegExpMatchRange" = type { i32, i32 }
 %"class.std::vector.359" = type { %"struct.std::_Vector_base.360" }
 %"struct.std::_Vector_base.360" = type { %"struct.std::_Vector_base<hermes::regex::CapturedRange, std::allocator<hermes::regex::CapturedRange>>::_Vector_impl" }
 %"struct.std::_Vector_base<hermes::regex::CapturedRange, std::allocator<hermes::regex::CapturedRange>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::regex::CapturedRange, std::allocator<hermes::regex::CapturedRange>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<hermes::regex::CapturedRange, std::allocator<hermes::regex::CapturedRange>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.hermes::regex::CapturedRange" = type { i32, i32 }
+%"class.hermes::OptValue.273" = type <{ %"struct.hermes::vm::RegExpMatchRange", i8, [3 x i8] }>
+%"struct.hermes::vm::RegExpMatchRange" = type { i32, i32 }
 %"class.std::__cxx11::basic_string.276" = type { %"struct.std::__cxx11::basic_string<char16_t>::_Alloc_hider", i64, %union.anon.280 }
 %"struct.std::__cxx11::basic_string<char16_t>::_Alloc_hider" = type { ptr }
 %union.anon.280 = type { i64, [8 x i8] }
@@ -88,14 +87,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.llvh::SmallVectorStorage.240" = type { [32 x %"struct.llvh::AlignedCharArrayUnion.179"] }
 %"class.hermes::vm::StringView" = type { %union.anon.236, i32, i32 }
 %union.anon.236 = type { ptr }
-%"struct.llvh::detail::DenseMapPair" = type { %"struct.std::pair.base.253", [4 x i8] }
-%"struct.std::pair.base.253" = type <{ %"class.llvh::ArrayRef.183", i32 }>
-%"class.std::unique_ptr.257" = type { %"struct.std::__uniq_ptr_data.258" }
-%"struct.std::__uniq_ptr_data.258" = type { %"class.std::__uniq_ptr_impl.259" }
-%"class.std::__uniq_ptr_impl.259" = type { %"class.std::tuple.260" }
-%"class.std::tuple.260" = type { %"struct.std::_Tuple_impl.261" }
-%"struct.std::_Tuple_impl.261" = type { %"struct.std::_Head_base.264" }
-%"struct.std::_Head_base.264" = type { ptr }
 %"class.llvh::SmallVector.299" = type { %"class.llvh::SmallVectorImpl.300", %"struct.llvh::SmallVectorStorage.303" }
 %"class.llvh::SmallVectorImpl.300" = type { %"class.llvh::SmallVectorTemplateBase.301" }
 %"class.llvh::SmallVectorTemplateBase.301" = type { %"class.llvh::SmallVectorTemplateCommon.302" }
@@ -1072,7 +1063,7 @@ for.inc.i:                                        ; preds = %sw.bb53.i, %sw.bb43
 if.end:                                           ; preds = %for.inc.i, %_ZN6hermes5regex16UTF16RegexTraitsC2Ev.exit
   %sflags.sroa.0.0.extract.trunc7 = phi i8 [ 0, %_ZN6hermes5regex16UTF16RegexTraitsC2Ev.exit ], [ %bf.set.i, %for.inc.i ]
   store i8 %sflags.sroa.0.0.extract.trunc7, ptr %flags_, align 8
-  %add.ptr.i = getelementptr inbounds i16, ptr %pattern.coerce0, i64 %pattern.coerce1
+  %add.ptr.i = getelementptr inbounds [2 x i8], ptr %pattern.coerce0, i64 %pattern.coerce1
   %call26 = tail call noundef i32 @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE5parseIPKDsEENS0_9constants9ErrorTypeET_S9_(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %pattern.coerce0, ptr noundef %add.ptr.i)
   br label %return
 
@@ -1243,7 +1234,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapINS_8ArrayRefIDsEEjNS_12DenseMapInfoIS3_EENS_
   %call47 = call noundef i32 @_ZN6hermes2vm8JSObject20defineNewOwnPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsENS2_INS0_11HermesValueEEE(ptr %retval.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %conv.i.i.i, i16 14, ptr nonnull %retval.0.i.i.i.i.i.i20) #19
   %cmp48.not = icmp eq i32 %call47, 0
   %20 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i18.i.i.i = getelementptr inbounds nuw ptr, ptr %20, i64 %conv.i.i.i33
+  %arrayidx.i18.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %conv.i.i.i33
   %21 = load ptr, ptr %arrayidx.i18.i.i.i, align 8
   %add.ptr.i.i.i34 = getelementptr inbounds nuw i8, ptr %21, i64 128
   store i32 %.pre68, ptr %curChunkIndex_.i, align 8
@@ -1302,7 +1293,7 @@ _ZN6hermes2vm9GCPointerINS0_8JSObjectEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGC
 cleanup55.critedge:                               ; preds = %_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
   %conv.i.i.i45 = zext i32 %.pre68 to i64
   %29 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i18.i.i.i46 = getelementptr inbounds nuw ptr, ptr %29, i64 %conv.i.i.i45
+  %arrayidx.i18.i.i.i46 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %conv.i.i.i45
   %30 = load ptr, ptr %arrayidx.i18.i.i.i46, align 8
   %add.ptr.i.i.i47 = getelementptr inbounds nuw i8, ptr %30, i64 128
   store i32 %.pre68, ptr %curChunkIndex_.i, align 8
@@ -1786,7 +1777,7 @@ if.then.i.i.i269:                                 ; preds = %if.end37.i265
   %add.ptr39.idx.i270 = mul nuw nsw i64 %CurSize.0.i266, 12
   %add.ptr39.i271 = getelementptr inbounds nuw i8, ptr %24, i64 %add.ptr39.idx.i270
   %25 = load ptr, ptr %matchResult, align 8
-  %add.ptr42.i272 = getelementptr inbounds nuw %"class.hermes::OptValue.273", ptr %25, i64 %CurSize.0.i266
+  %add.ptr42.i272 = getelementptr inbounds nuw [12 x i8], ptr %25, i64 %CurSize.0.i266
   %add.ptr.i.idx57.i273 = sub nsw i64 %conv.i51.i267, %CurSize.0.i266
   %gepdiff.i274 = mul nsw i64 %add.ptr.i.idx57.i273, 12
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42.i272, ptr align 4 %add.ptr39.i271, i64 %gepdiff.i274, i1 false)
@@ -1922,7 +1913,7 @@ if.else13.i.i68:                                  ; preds = %if.else.i.i58
 _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit: ; preds = %if.else, %if.then.i.i73, %if.then5.i.i66, %if.then10.i.i60, %if.else13.i.i68
   %retval.0.i.sink.i62 = phi ptr [ %0, %if.else ], [ %37, %if.then.i.i73 ], [ %add.ptr.i.i.i.i.i67, %if.then5.i.i66 ], [ %add.ptr.i.i.i4.i.i61, %if.then10.i.i60 ], [ %39, %if.else13.i.i68 ]
   %bf.clear8.i63 = and i64 %1, 1073741823
-  %add.ptr10.i65 = getelementptr inbounds nuw i16, ptr %retval.0.i.sink.i62, i64 %bf.clear8.i63
+  %add.ptr10.i65 = getelementptr inbounds nuw [2 x i8], ptr %retval.0.i.sink.i62, i64 %bf.clear8.i63
   call void @_ZN6hermes2vm13performSearchIDsNS_5regex16UTF16RegexTraitsEEENS0_10CallResultIN4llvh11SmallVectorINS_8OptValueINS0_16RegExpMatchRangeEEELj4EEELNS0_6detail20CallResultSpecializeE0EEERNS0_7RuntimeENS5_8ArrayRefIhEEPKT_jjNS2_9constants13MatchFlagTypeE(ptr nonnull sret(%"class.hermes::vm::CallResult.231") align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %34, i64 %conv31, ptr noundef %add.ptr10.i65, i32 noundef %input.sroa.8.8.extract.trunc, i32 noundef %searchStartOffset, i32 noundef %spec.select)
   %hasVal.i.i.i77 = getelementptr inbounds nuw i8, ptr %ref.tmp25, i64 64
   %40 = load i8, ptr %hasVal.i.i.i77, align 8
@@ -2036,7 +2027,7 @@ if.then.i.i.i361:                                 ; preds = %if.end37.i357
   %add.ptr39.idx.i362 = mul nuw nsw i64 %CurSize.0.i358, 12
   %add.ptr39.i363 = getelementptr inbounds nuw i8, ptr %54, i64 %add.ptr39.idx.i362
   %55 = load ptr, ptr %matchResult, align 8
-  %add.ptr42.i364 = getelementptr inbounds nuw %"class.hermes::OptValue.273", ptr %55, i64 %CurSize.0.i358
+  %add.ptr42.i364 = getelementptr inbounds nuw [12 x i8], ptr %55, i64 %CurSize.0.i358
   %add.ptr.i.idx57.i365 = sub nsw i64 %conv.i51.i359, %CurSize.0.i358
   %gepdiff.i366 = mul nsw i64 %add.ptr.i.idx57.i365, 12
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr42.i364, ptr align 4 %add.ptr39.i363, i64 %gepdiff.i366, i1 false)
@@ -2200,7 +2191,7 @@ if.then.i.i.i113:                                 ; preds = %if.end28.i.i
   %add.ptr30.idx.i.i = mul nuw nsw i64 %CurSize.0.i.i, 12
   %add.ptr30.i.i = getelementptr inbounds nuw i8, ptr %74, i64 %add.ptr30.idx.i.i
   %75 = load ptr, ptr %regExpLastMatch, align 8
-  %add.ptr33.i.i = getelementptr inbounds nuw %"class.hermes::OptValue.273", ptr %75, i64 %CurSize.0.i.i
+  %add.ptr33.i.i = getelementptr inbounds nuw [12 x i8], ptr %75, i64 %CurSize.0.i.i
   %add.ptr.i65.idx40.i.i = sub nsw i64 %conv.i35.i.i, %CurSize.0.i.i
   %gepdiff.i.i = mul nsw i64 %add.ptr.i65.idx40.i.i, 12
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr33.i.i, ptr align 4 %add.ptr30.i.i, i64 %gepdiff.i.i, i1 false)
@@ -2373,7 +2364,7 @@ _ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserv
 for.body:                                         ; preds = %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit, %for.inc
   %i.094 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit ]
   %3 = load ptr, ptr %nativeMatchRanges, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::regex::CapturedRange", ptr %3, i64 %i.094
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.094
   %4 = load i32, ptr %add.ptr.i, align 4
   %cmp.i14.not = icmp eq i32 %4, -1
   br i1 %cmp.i14.not, label %if.then10, label %if.else12
@@ -2394,7 +2385,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEE
   %7 = phi i32 [ %.pre.i, %if.then.i16 ], [ %5, %if.then10 ]
   %8 = load ptr, ptr %match, align 8
   %conv.i3.i = zext i32 %7 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.hermes::OptValue.273", ptr %8, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [12 x i8], ptr %8, i64 %conv.i3.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp11, i64 12, i1 false)
   br label %for.inc
 
@@ -2420,7 +2411,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEE
   %12 = phi i32 [ %.pre.i23, %if.then.i21 ], [ %10, %if.else12 ]
   %13 = load ptr, ptr %match, align 8
   %conv.i3.i24 = zext i32 %12 to i64
-  %add.ptr.i.i25 = getelementptr inbounds nuw %"class.hermes::OptValue.273", ptr %13, i64 %conv.i3.i24
+  %add.ptr.i.i25 = getelementptr inbounds nuw [12 x i8], ptr %13, i64 %conv.i3.i24
   store i64 %ref.tmp16.sroa.0.0.insert.insert, ptr %add.ptr.i.i25, align 1
   %ref.tmp15.sroa.2.0.add.ptr.i.i25.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i25, i64 8
   store i8 1, ptr %ref.tmp15.sroa.2.0.add.ptr.i.i25.sroa_idx, align 1
@@ -2593,7 +2584,7 @@ _ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserv
 for.body:                                         ; preds = %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit, %for.inc
   %i.094 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN4llvh15SmallVectorImplIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEEE7reserveEm.exit ]
   %3 = load ptr, ptr %nativeMatchRanges, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.hermes::regex::CapturedRange", ptr %3, i64 %i.094
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %3, i64 %i.094
   %4 = load i32, ptr %add.ptr.i, align 4
   %cmp.i14.not = icmp eq i32 %4, -1
   br i1 %cmp.i14.not, label %if.then10, label %if.else12
@@ -2614,7 +2605,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEE
   %7 = phi i32 [ %.pre.i, %if.then.i16 ], [ %5, %if.then10 ]
   %8 = load ptr, ptr %match, align 8
   %conv.i3.i = zext i32 %7 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.hermes::OptValue.273", ptr %8, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [12 x i8], ptr %8, i64 %conv.i3.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp11, i64 12, i1 false)
   br label %for.inc
 
@@ -2640,7 +2631,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEE
   %12 = phi i32 [ %.pre.i23, %if.then.i21 ], [ %10, %if.else12 ]
   %13 = load ptr, ptr %match, align 8
   %conv.i3.i24 = zext i32 %12 to i64
-  %add.ptr.i.i25 = getelementptr inbounds nuw %"class.hermes::OptValue.273", ptr %13, i64 %conv.i3.i24
+  %add.ptr.i.i25 = getelementptr inbounds nuw [12 x i8], ptr %13, i64 %conv.i3.i24
   store i64 %ref.tmp16.sroa.0.0.insert.insert, ptr %add.ptr.i.i25, align 1
   %ref.tmp15.sroa.2.0.add.ptr.i.i25.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i25, i64 8
   store i8 1, ptr %ref.tmp15.sroa.2.0.add.ptr.i.i25.sroa_idx, align 1
@@ -2925,13 +2916,13 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i68: ; preds = %if.then.i.i.i82
 
 if.end.i25:                                       ; preds = %if.end.i
   %bf.clear8.i15.i = and i64 %4, 1073741823
-  %add.ptr10.i17.i = getelementptr inbounds nuw i16, ptr %2, i64 %bf.clear8.i15.i
+  %add.ptr10.i17.i = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %bf.clear8.i15.i
   br label %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i36
 
 if.end.i5.i27:                                    ; preds = %if.else13.i.i20.i, %if.then10.i.i12.i, %if.then5.i.i18.i, %if.then.i.i25.i
   %retval.0.i.sink.i14.i.ph = phi ptr [ %13, %if.else13.i.i20.i ], [ %add.ptr.i.i.i4.i.i13.i, %if.then10.i.i12.i ], [ %add.ptr.i.i.i.i.i19.i, %if.then5.i.i18.i ], [ %11, %if.then.i.i25.i ]
   %bf.clear8.i15.i259 = and i64 %4, 1073741823
-  %add.ptr10.i17.i260 = getelementptr inbounds nuw i16, ptr %retval.0.i.sink.i14.i.ph, i64 %bf.clear8.i15.i259
+  %add.ptr10.i17.i260 = getelementptr inbounds nuw [2 x i8], ptr %retval.0.i.sink.i14.i.ph, i64 %bf.clear8.i15.i259
   %retval.sroa.0.0.copyload.i.i.i.i6.i28 = load i64, ptr %2, align 8
   %and.i.i.i.i.i.i7.i29 = and i64 %retval.sroa.0.0.copyload.i.i.i.i6.i28, 281474976710655
   %17 = inttoptr i64 %and.i.i.i.i.i.i7.i29 to ptr
@@ -2972,8 +2963,8 @@ _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i36: ; preds = %if.end.i25, %
   %add.ptr10.i17.i263 = phi ptr [ %add.ptr10.i17.i, %if.end.i25 ], [ %add.ptr10.i17.i260, %if.then.i.i25.i52 ], [ %add.ptr10.i17.i260, %if.then5.i.i18.i45 ], [ %add.ptr10.i17.i260, %if.then10.i.i12.i34 ], [ %add.ptr10.i17.i260, %if.else13.i.i20.i47 ]
   %retval.0.i.sink.i14.i37 = phi ptr [ %2, %if.end.i25 ], [ %18, %if.then.i.i25.i52 ], [ %add.ptr.i.i.i.i.i19.i46, %if.then5.i.i18.i45 ], [ %add.ptr.i.i.i4.i.i13.i35, %if.then10.i.i12.i34 ], [ %20, %if.else13.i.i20.i47 ]
   %bf.clear8.i15.i38 = and i64 %4, 1073741823
-  %add.ptr10.i17.i40 = getelementptr inbounds nuw i16, ptr %retval.0.i.sink.i14.i37, i64 %bf.clear8.i15.i38
-  %add.ptr6.i = getelementptr inbounds nuw i16, ptr %add.ptr10.i17.i40, i64 %6
+  %add.ptr10.i17.i40 = getelementptr inbounds nuw [2 x i8], ptr %retval.0.i.sink.i14.i37, i64 %bf.clear8.i15.i38
+  %add.ptr6.i = getelementptr inbounds nuw [2 x i8], ptr %add.ptr10.i17.i40, i64 %6
   br label %_ZNK6hermes2vm10StringView3endEv.exit
 
 _ZNK6hermes2vm10StringView3endEv.exit:            ; preds = %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit.i68, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit.i36
@@ -3038,7 +3029,7 @@ if.then.i.i89:                                    ; preds = %sw.bb
 if.end.i.i88:                                     ; preds = %if.then.i.i89, %sw.bb
   %conv.i9.pre-phi.i.i = phi i64 [ %.pre14.i.i, %if.then.i.i89 ], [ %conv.i5.i.i, %sw.bb ]
   %26 = load ptr, ptr %result, align 8
-  %add.ptr.i.i1.i = getelementptr inbounds nuw i16, ptr %26, i64 %conv.i9.pre-phi.i.i
+  %add.ptr.i.i1.i = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %conv.i9.pre-phi.i.i
   br label %for.body.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.i.i.i.i.i, %if.end.i.i88
@@ -3081,7 +3072,7 @@ if.then.i.i110:                                   ; preds = %sw.bb13
 if.end.i.i96:                                     ; preds = %if.then.i.i110, %sw.bb13
   %conv.i9.pre-phi.i.i97 = phi i64 [ %.pre14.i.i114, %if.then.i.i110 ], [ %conv.i5.i.i93, %sw.bb13 ]
   %31 = load ptr, ptr %result, align 8
-  %add.ptr.i.i1.i99 = getelementptr inbounds nuw i16, ptr %31, i64 %conv.i9.pre-phi.i.i97
+  %add.ptr.i.i1.i99 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %conv.i9.pre-phi.i.i97
   br label %for.body.i.i.i.i.i.i.i.i.i.i100
 
 for.body.i.i.i.i.i.i.i.i.i.i100:                  ; preds = %for.body.i.i.i.i.i.i.i.i.i.i100, %if.end.i.i96
@@ -3124,7 +3115,7 @@ if.then.i.i136:                                   ; preds = %sw.bb18
 if.end.i.i122:                                    ; preds = %if.then.i.i136, %sw.bb18
   %conv.i9.pre-phi.i.i123 = phi i64 [ %.pre14.i.i140, %if.then.i.i136 ], [ %conv.i5.i.i119, %sw.bb18 ]
   %36 = load ptr, ptr %result, align 8
-  %add.ptr.i.i1.i125 = getelementptr inbounds nuw i16, ptr %36, i64 %conv.i9.pre-phi.i.i123
+  %add.ptr.i.i1.i125 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %conv.i9.pre-phi.i.i123
   br label %for.body.i.i.i.i.i.i.i.i.i.i126
 
 for.body.i.i.i.i.i.i.i.i.i.i126:                  ; preds = %for.body.i.i.i.i.i.i.i.i.i.i126, %if.end.i.i122
@@ -3167,7 +3158,7 @@ if.then.i.i162:                                   ; preds = %sw.bb23
 if.end.i.i148:                                    ; preds = %if.then.i.i162, %sw.bb23
   %conv.i9.pre-phi.i.i149 = phi i64 [ %.pre14.i.i166, %if.then.i.i162 ], [ %conv.i5.i.i145, %sw.bb23 ]
   %41 = load ptr, ptr %result, align 8
-  %add.ptr.i.i1.i151 = getelementptr inbounds nuw i16, ptr %41, i64 %conv.i9.pre-phi.i.i149
+  %add.ptr.i.i1.i151 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %conv.i9.pre-phi.i.i149
   br label %for.body.i.i.i.i.i.i.i.i.i.i152
 
 for.body.i.i.i.i.i.i.i.i.i.i152:                  ; preds = %for.body.i.i.i.i.i.i.i.i.i.i152, %if.end.i.i148
@@ -3210,7 +3201,7 @@ if.then.i.i188:                                   ; preds = %sw.bb28
 if.end.i.i174:                                    ; preds = %if.then.i.i188, %sw.bb28
   %conv.i9.pre-phi.i.i175 = phi i64 [ %.pre14.i.i192, %if.then.i.i188 ], [ %conv.i5.i.i171, %sw.bb28 ]
   %46 = load ptr, ptr %result, align 8
-  %add.ptr.i.i1.i177 = getelementptr inbounds nuw i16, ptr %46, i64 %conv.i9.pre-phi.i.i175
+  %add.ptr.i.i1.i177 = getelementptr inbounds nuw [2 x i8], ptr %46, i64 %conv.i9.pre-phi.i.i175
   br label %for.body.i.i.i.i.i.i.i.i.i.i178
 
 for.body.i.i.i.i.i.i.i.i.i.i178:                  ; preds = %for.body.i.i.i.i.i.i.i.i.i.i178, %if.end.i.i174
@@ -3247,7 +3238,7 @@ _ZN6hermes2vm12SmallXStringIDsLj32EE6appendEDs.exit: ; preds = %sw.default, %if.
   %51 = phi i32 [ %.pre.i.i198, %if.then.i.i196 ], [ %49, %sw.default ]
   %52 = load ptr, ptr %result, align 8
   %conv.i3.i.i = zext i32 %51 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %52, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %conv.i3.i.i
   store i16 %cond.i, ptr %add.ptr.i.i.i, align 1
   %53 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i.i199 = add i32 %53, 1
@@ -3522,7 +3513,7 @@ _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit: ; preds = %if.end, %if.then.
   %retval.0.i.sink.i16 = phi ptr [ %7, %if.end ], [ %9, %if.then.i.i27 ], [ %add.ptr.i.i.i.i.i21, %if.then5.i.i20 ], [ %add.ptr.i.i.i4.i.i15, %if.then10.i.i14 ], [ %11, %if.else13.i.i22 ]
   %bf.clear8.i17 = and i32 %bf.load.i, 1073741823
   %idx.ext9.i18 = zext nneg i32 %bf.clear8.i17 to i64
-  %add.ptr10.i19 = getelementptr inbounds nuw i16, ptr %retval.0.i.sink.i16, i64 %idx.ext9.i18
+  %add.ptr10.i19 = getelementptr inbounds nuw [2 x i8], ptr %retval.0.i.sink.i16, i64 %idx.ext9.i18
   %length_.i29 = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i32, ptr %length_.i29, align 4
   %conv.i30 = zext i32 %12 to i64
@@ -3780,7 +3771,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN6her
 _ZNSt6vectorIPN6hermes2vm6GCCellESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN6hermes2vm6GCCellESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
   store ptr %call5.i.i.i.i.i, ptr %youngGenFinalizables_, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIPN6hermes2vm6GCCellESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
@@ -4012,7 +4003,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
   %7 = load ptr, ptr %nameMapping_.i, align 8
   %8 = load i32, ptr %NumBuckets.i.i.i.i.i, align 8
   %idx.ext.i.i.i = zext i32 %8 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %7, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %idx.ext.i.i.i
   %cmp.i610.i = icmp ne ptr %6, %add.ptr.i.i.i
   %cmp.i6.not.i = select i1 %call.i.i.i, i1 %cmp.i610.i, i1 false
   br i1 %cmp.i6.not.i, label %if.end.i, label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE20resolveNamedBackRefsEv.exit
@@ -4144,7 +4135,7 @@ if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorISt10un
 _ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %nodeHolder_, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"class.std::unique_ptr.257", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit
 
@@ -4208,7 +4199,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN6her
 _ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
   store ptr %call5.i.i.i.i.i, ptr %nodes_, align 8
   store ptr %incdec.ptr.i.i1, ptr %_M_finish.i, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS2_EED2Ev.exit
 
@@ -4294,7 +4285,7 @@ if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorISt10un
 _ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %nodeHolder_, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"class.std::unique_ptr.257", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS2_EED2Ev.exit
 
@@ -4358,7 +4349,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIPN6her
 _ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIPN6hermes5regex4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i19, ptr %nodes_, align 8
   store ptr %incdec.ptr.i.i.i21, ptr %_M_finish.i.i2, align 8
-  %add.ptr19.i.i.i23 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i19, i64 %cond.i.i.i.i16
+  %add.ptr19.i.i.i23 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i19, i64 %cond.i.i.i.i16
   store ptr %add.ptr19.i.i.i23, ptr %_M_end_of_storage.i.i3, align 8
   br label %_ZNSt10unique_ptrIN6hermes5regex8GoalNodeESt14default_deleteIS2_EED2Ev.exit
 
@@ -4412,7 +4403,7 @@ for.body:                                         ; preds = %while.body, %_ZN4ll
   %stack.sroa.9.1174 = phi ptr [ %stack.sroa.9.3, %_ZN4llvh11SmallVectorIPSt6vectorIPN6hermes5regex4NodeESaIS5_EELj1EED2Ev.exit ], [ %add.ptr.i.i, %while.body ]
   %stack.sroa.26.1173 = phi ptr [ %stack.sroa.26.3, %_ZN4llvh11SmallVectorIPSt6vectorIPN6hermes5regex4NodeESaIS5_EELj1EED2Ev.exit ], [ %stack.sroa.26.0188, %while.body ]
   %4 = load ptr, ptr %1, align 8
-  %add.ptr.i25 = getelementptr inbounds ptr, ptr %4, i64 %idx.0176
+  %add.ptr.i25 = getelementptr inbounds [8 x i8], ptr %4, i64 %idx.0176
   %5 = load ptr, ptr %add.ptr.i25, align 8
   %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
@@ -4436,7 +4427,7 @@ if.then.i73:                                      ; preds = %for.body
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i73
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %stack.sroa.9.1174, ptr align 8 %7, i64 %add.ptr.i.idx, i1 false)
-  %add.ptr36.i = getelementptr inbounds nuw ptr, ptr %stack.sroa.9.1174, i64 %conv.i
+  %add.ptr36.i = getelementptr inbounds nuw [8 x i8], ptr %stack.sroa.9.1174, i64 %conv.i
   br label %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit
 
 if.else50.i:                                      ; preds = %if.then.i73
@@ -4484,7 +4475,7 @@ if.then.i76.i:                                    ; preds = %_ZSt22__uninitializ
   br label %_ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i
 
 _ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i: ; preds = %if.then.i76.i, %_ZSt22__uninitialized_copy_aIPPSt6vectorIPN6hermes5regex4NodeESaIS4_EES8_S7_ET0_T_SA_S9_RSaIT1_E.exit68.i
-  %add.ptr76.i = getelementptr inbounds nuw ptr, ptr %cond.i55.i, i64 %cond.i.i
+  %add.ptr76.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i55.i, i64 %cond.i.i
   br label %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit
 
 _ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %for.body, %_ZNSt12_Vector_baseIPSt6vectorIPN6hermes5regex4NodeESaIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i
@@ -4500,7 +4491,7 @@ _ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN
 land.rhs:                                         ; preds = %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit, %while.body18
   %idx.1170 = phi i64 [ %inc, %while.body18 ], [ %idx.0176, %_ZNSt6vectorIPS_IPN6hermes5regex4NodeESaIS3_EESaIS6_EE15_M_range_insertIPS6_EEvN9__gnu_cxx17__normal_iteratorISA_S8_EET_SE_St20forward_iterator_tag.exit ]
   %10 = load ptr, ptr %1, align 8
-  %add.ptr.i28 = getelementptr inbounds ptr, ptr %10, i64 %idx.1170
+  %add.ptr.i28 = getelementptr inbounds [8 x i8], ptr %10, i64 %idx.1170
   %11 = load ptr, ptr %add.ptr.i28, align 8
   %vtable15 = load ptr, ptr %11, align 8
   %vfn16 = getelementptr inbounds nuw i8, ptr %vtable15, i64 24
@@ -4697,7 +4688,7 @@ if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorISt10un
 _ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJPNS2_13MatchCharNodeEEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit19.i.i
   store ptr %call5.i.i.i.i.i, ptr %nodeHolder, align 8
   store ptr %incdec.ptr.i.i37, ptr %_M_finish.i33, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw %"class.std::unique_ptr.257", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN6hermes5regex4NodeESt14default_deleteIS3_EESaIS6_EE12emplace_backIJPNS2_13MatchCharNodeEEEERS6_DpOT_.exit
 
@@ -4717,7 +4708,7 @@ _ZN4llvh11SmallVectorIjLj5EED2Ev.exit:            ; preds = %_ZNSt6vectorISt10un
   %add.ptr.i.i42 = getelementptr inbounds i8, ptr %31, i64 -8
   %32 = load ptr, ptr %add.ptr.i.i42, align 8
   %33 = load ptr, ptr %1, align 8
-  %add.ptr.i43 = getelementptr inbounds ptr, ptr %33, i64 %idx.0176
+  %add.ptr.i43 = getelementptr inbounds [8 x i8], ptr %33, i64 %idx.0176
   store ptr %32, ptr %add.ptr.i43, align 8
   %.idx = shl i64 %idx.0176, 3
   %34 = add i64 %.idx, 8
@@ -5274,7 +5265,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
 if.then.i.i:                                      ; preds = %if.end.i
   %4 = load ptr, ptr %output, align 8
   %conv.i9.i = zext i32 %.pre13.i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %4, i64 %conv.i9.i
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %conv.i9.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i, ptr align 4 %0, i64 %add.ptr.i.idx, i1 false)
   %.pre.i = load i32, ptr %Size.i.i, align 8
   br label %_ZN4llvh15SmallVectorImplIjE6appendIPKjvEEvT_S5_.exit
@@ -5552,7 +5543,7 @@ _ZNK4llvh8ArrayRefIjE10take_whileIPFbjEEES1_T_.exit: ; preds = %for.body.i.i.i.i
   tail call void @_ZNK6hermes5regex13MatchCharNode13emitASCIIListEN4llvh8ArrayRefIjEERNS0_19RegexBytecodeStreamE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %remaining.sroa.0.092, i64 %sub.ptr.div.i.i, ptr noundef nonnull align 8 dereferenceable(25) %bcs)
   %sub.i = sub i64 %remaining.sroa.7.094, %sub.ptr.div.i.i
   %add.ptr.i.i = getelementptr inbounds i8, ptr %remaining.sroa.0.092, i64 %sub.ptr.sub.i.i
-  %add.ptr.i.i.i.i.i.i5 = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %sub.i
+  %add.ptr.i.i.i.i.i.i5 = getelementptr inbounds [4 x i8], ptr %add.ptr.i.i, i64 %sub.i
   %sub.ptr.lhs.cast.i.i.i.i.i6 = ptrtoint ptr %add.ptr.i.i.i.i.i.i5 to i64
   %shr.i.i.i.i.i7 = ashr i64 %sub.i, 2
   %cmp48.i.i.i.i.i = icmp sgt i64 %shr.i.i.i.i.i7, 0
@@ -6265,7 +6256,7 @@ if.end:                                           ; preds = %entry
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %Val, align 8
   %agg.tmp.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %Val, i64 8
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i16, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i
+  %add.ptr.i.i.i.i = getelementptr inbounds [2 x i8], ptr %agg.tmp.sroa.0.0.copyload.i, i64 %agg.tmp.sroa.2.0.copyload.i
   %call.i.i.i.i = tail call i64 @_ZN4llvh7hashing6detail23hash_combine_range_implIKDsEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %agg.tmp.sroa.0.0.copyload.i, ptr noundef %add.ptr.i.i.i.i)
   %conv.i.i = trunc i64 %call.i.i.i.i to i32
   %sub = add i32 %1, -1
@@ -6288,7 +6279,7 @@ while.body.us.us:                                 ; preds = %if.end.split.us, %_
   %FoundTombstone.0.us.us = phi ptr [ %spec.select.us.us, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIDsEEE7isEqualES2_S2_.exit44.us.us ], [ null, %if.end.split.us ]
   %BucketNo.0.us.us = and i32 %call5.pn.us.us, %sub
   %idx.ext.us.us = zext i32 %BucketNo.0.us.us to i64
-  %add.ptr.us.us = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us.us
+  %add.ptr.us.us = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %idx.ext.us.us
   %agg.tmp6.sroa.0.0.copyload.us.us = load ptr, ptr %add.ptr.us.us, align 8
   %magicptr.i.us.us = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us.us to i64
   switch i64 %magicptr.i.us.us, label %if.end19.i.us.us [
@@ -6324,7 +6315,7 @@ while.body.us:                                    ; preds = %if.end.split.us, %_
   %FoundTombstone.0.us = phi ptr [ %spec.select.us, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIDsEEE7isEqualES2_S2_.exit44.us ], [ null, %if.end.split.us ]
   %BucketNo.0.us = and i32 %call5.pn.us, %sub
   %idx.ext.us = zext i32 %BucketNo.0.us to i64
-  %add.ptr.us = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us
+  %add.ptr.us = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %idx.ext.us
   %agg.tmp6.sroa.0.0.copyload.us = load ptr, ptr %add.ptr.us, align 8
   %magicptr = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us to i64
   switch i64 %magicptr, label %if.end19.i.us [
@@ -6363,7 +6354,7 @@ while.body.us54:                                  ; preds = %if.end.split, %_ZN4
   %FoundTombstone.0.us57 = phi ptr [ %spec.select.us76, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIDsEEE7isEqualES2_S2_.exit44.us72 ], [ null, %if.end.split ]
   %BucketNo.0.us58 = and i32 %call5.pn.us56, %sub
   %idx.ext.us59 = zext i32 %BucketNo.0.us58 to i64
-  %add.ptr.us60 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us59
+  %add.ptr.us60 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %idx.ext.us59
   %agg.tmp6.sroa.0.0.copyload.us61 = load ptr, ptr %add.ptr.us60, align 8
   %magicptr138 = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us61 to i64
   switch i64 %magicptr138, label %if.end19.i.us65 [
@@ -6404,7 +6395,7 @@ while.body.us87:                                  ; preds = %if.end.split.split,
   %FoundTombstone.0.us90 = phi ptr [ %spec.select.us111, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIDsEEE7isEqualES2_S2_.exit44.us107 ], [ null, %if.end.split.split ]
   %BucketNo.0.us91 = and i32 %call5.pn.us89, %sub
   %idx.ext.us92 = zext i32 %BucketNo.0.us91 to i64
-  %add.ptr.us93 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.us92
+  %add.ptr.us93 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %idx.ext.us92
   %agg.tmp6.sroa.0.0.copyload.us94 = load ptr, ptr %add.ptr.us93, align 8
   %magicptr139 = ptrtoint ptr %agg.tmp6.sroa.0.0.copyload.us94 to i64
   switch i64 %magicptr139, label %if.end19.i.us98 [
@@ -6442,7 +6433,7 @@ while.body:                                       ; preds = %if.end.split.split,
   %FoundTombstone.0 = phi ptr [ %spec.select, %_ZN4llvh12DenseMapInfoINS_8ArrayRefIDsEEE7isEqualES2_S2_.exit44 ], [ null, %if.end.split.split ]
   %BucketNo.0 = and i32 %call5.pn, %sub
   %idx.ext = zext i32 %BucketNo.0 to i64
-  %add.ptr = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %idx.ext
   %agg.tmp6.sroa.0.0.copyload = load ptr, ptr %add.ptr, align 8
   %switch = icmp ugt ptr %agg.tmp6.sroa.0.0.copyload, inttoptr (i64 -3 to ptr)
   br i1 %switch, label %_ZN4llvh12DenseMapInfoINS_8ArrayRefIDsEEE7isEqualES2_S2_.exit29, label %if.end19.i
@@ -7373,7 +7364,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitializ
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %idx.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZSt13move_backwardIPPN6hermes5regex4NodeES4_ET0_T_S6_S5_.exit
 
@@ -7403,7 +7394,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
 
 if.else5.i.i:                                     ; preds = %if.then5
   %idx.neg.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i
-  %add.ptr.i.i.i.i22 = getelementptr inbounds ptr, ptr %retval.sroa.0.0.copyload.i.i.i, i64 %idx.neg.i.i.i.i
+  %add.ptr.i.i.i.i22 = getelementptr inbounds [8 x i8], ptr %retval.sroa.0.0.copyload.i.i.i, i64 %idx.neg.i.i.i.i
   %8 = ptrtoint ptr %add.ptr.i.i.i.i22 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i23 = sub i64 %8, %0
   %sub.ptr.div.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i23, 3
@@ -7429,7 +7420,7 @@ _ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iterator
 _ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEPS6_S6_ET0_T_SG_SF_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEPS6_S6_ET0_T_SG_SF_RSaIT1_E.exit.loopexit, %if.else5.i.i
   %10 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEEPS6_S6_ET0_T_SG_SF_RSaIT1_E.exit.loopexit ], [ %3, %if.else5.i.i ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i
-  %add.ptr42 = getelementptr inbounds ptr, ptr %10, i64 %sub
+  %add.ptr42 = getelementptr inbounds [8 x i8], ptr %10, i64 %sub
   store ptr %add.ptr42, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i27 = icmp eq ptr %3, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i27, label %_ZSt22__uninitialized_move_aIPPN6hermes5regex4NodeES4_SaIS3_EET0_T_S7_S6_RT1_.exit30, label %if.then.i.i.i.i.i.i.i.i.i28
@@ -7540,7 +7531,7 @@ if.then.i78:                                      ; preds = %_ZSt34__uninitializ
 _ZNSt12_Vector_baseIPN6hermes5regex4NodeESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPPN6hermes5regex4NodeES4_SaIS3_EET0_T_S7_S6_RT1_.exit77, %if.then.i78
   store ptr %cond.i50, ptr %this, align 8
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i76, ptr %_M_finish, align 8
-  %add.ptr86 = getelementptr inbounds nuw ptr, ptr %cond.i50, i64 %cond.i
+  %add.ptr86 = getelementptr inbounds nuw [8 x i8], ptr %cond.i50, i64 %cond.i
   store ptr %add.ptr86, ptr %_M_end_of_storage, align 8
   br label %if.end90
 
@@ -7593,7 +7584,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZSt22__uninitializ
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %3, i64 %idx.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i, ptr align 8 %__position.coerce, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZSt13move_backwardIPPN6hermes5regex4NodeES4_ET0_T_S6_S5_.exit
 
@@ -7623,7 +7614,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
 
 if.else5.i.i:                                     ; preds = %if.then5
   %idx.neg.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i
-  %add.ptr.i.i.i.i22 = getelementptr inbounds ptr, ptr %retval.sroa.0.0.copyload.i.i.i, i64 %idx.neg.i.i.i.i
+  %add.ptr.i.i.i.i22 = getelementptr inbounds [8 x i8], ptr %retval.sroa.0.0.copyload.i.i.i, i64 %idx.neg.i.i.i.i
   %8 = ptrtoint ptr %add.ptr.i.i.i.i22 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i23 = sub i64 %8, %0
   %sub.ptr.div.i.i.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i23, 3
@@ -7649,7 +7640,7 @@ _ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iterator
 _ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEES7_S6_ET0_T_SE_SD_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEES7_S6_ET0_T_SE_SD_RSaIT1_E.exit.loopexit, %if.else5.i.i
   %10 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN6hermes5regex4NodeESt6vectorIS6_SaIS6_EEEEES7_S6_ET0_T_SE_SD_RSaIT1_E.exit.loopexit ], [ %3, %if.else5.i.i ]
   %sub = sub nuw nsw i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i
-  %add.ptr42 = getelementptr inbounds ptr, ptr %10, i64 %sub
+  %add.ptr42 = getelementptr inbounds [8 x i8], ptr %10, i64 %sub
   store ptr %add.ptr42, ptr %_M_finish, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i27 = icmp eq ptr %3, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i27, label %_ZSt22__uninitialized_move_aIPPN6hermes5regex4NodeES4_SaIS3_EET0_T_S7_S6_RT1_.exit30, label %if.then.i.i.i.i.i.i.i.i.i28
@@ -7760,7 +7751,7 @@ if.then.i78:                                      ; preds = %_ZSt34__uninitializ
 _ZNSt12_Vector_baseIPN6hermes5regex4NodeESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPPN6hermes5regex4NodeES4_SaIS3_EET0_T_S7_S6_RT1_.exit77, %if.then.i78
   store ptr %cond.i50, ptr %this, align 8
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i76, ptr %_M_finish, align 8
-  %add.ptr86 = getelementptr inbounds nuw ptr, ptr %cond.i50, i64 %cond.i
+  %add.ptr86 = getelementptr inbounds nuw [8 x i8], ptr %cond.i50, i64 %cond.i
   store ptr %add.ptr86, ptr %_M_end_of_storage, align 8
   br label %if.end90
 

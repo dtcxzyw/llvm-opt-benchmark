@@ -37,7 +37,7 @@ define noundef range(i32 0, 1114113) i32 @"_ZN91_$LT$$RF$widestring..utfstr..Utf
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %1
   %9 = load i32, ptr %8, align 4, !range !5, !noundef !3
   br label %10
 
@@ -60,7 +60,7 @@ define void @"_ZN91_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish_printf.
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %9 = sub nuw i64 %4, %1
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %1
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %1
   store ptr %10, ptr %0, align 8
   store i64 %9, ptr %3, align 8
   ret void
@@ -141,7 +141,7 @@ define { ptr, i64 } @"_ZN91_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish
 30:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb9cfb931e4583b18E.exit"
   %31 = sub nuw i64 %5, %26
   %32 = lshr i64 %.sroa.0.0.i.i8, 1
-  %33 = getelementptr inbounds nuw i32, ptr %3, i64 %26
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %26
   store ptr %33, ptr %0, align 8
   store i64 %31, ptr %4, align 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -155,7 +155,7 @@ define { ptr, i64 } @"_ZN91_$LT$$RF$widestring..utfstr..Utf32Str$u20$as$u20$fish
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h18ff10cb156c632fE.exit": ; preds = %30
-  %38 = getelementptr inbounds nuw i32, ptr %3, i64 %35
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %35
   tail call void @"_ZN93_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$$RF$char$GT$$GT$6extend17h29d957a73005679dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %3, ptr noundef nonnull %38)
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8, !nonnull !3, !noundef !3

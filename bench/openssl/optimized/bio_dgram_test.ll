@@ -173,7 +173,7 @@ define internal i32 @test_bio_dgram(i32 noundef %0) #0 {
   %10 = alloca [128 x i8], align 16
   %11 = alloca i64, align 8
   %12 = sext i32 %0 to i64
-  %13 = getelementptr inbounds %struct.bio_dgram_case, ptr @bio_dgram_cases, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr @bio_dgram_cases, i64 %12
   %14 = load i32, ptr %13, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !9
@@ -641,7 +641,7 @@ define internal i32 @test_bio_dgram(i32 noundef %0) #0 {
   %235 = trunc nuw nsw i64 %.0203.i to i8
   %236 = getelementptr inbounds nuw i8, ptr %10, i64 %.0203.i
   store i8 %235, ptr %236, align 1, !tbaa !14
-  %237 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %8, i64 %.0203.i
+  %237 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %.0203.i
   store ptr %236, ptr %237, align 8, !tbaa !15
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
   store i64 1, ptr %238, align 8, !tbaa !19
@@ -674,7 +674,7 @@ define internal i32 @test_bio_dgram(i32 noundef %0) #0 {
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %.1204.i = phi i64 [ %253, %.preheader.i ], [ 0, %.preheader.preheader.i ]
   %249 = getelementptr inbounds nuw i8, ptr %6, i64 %.1204.i
-  %250 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %9, i64 %.1204.i
+  %250 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %.1204.i
   store ptr %249, ptr %250, align 8, !tbaa !15
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
   store i64 1, ptr %251, align 8, !tbaa !19
@@ -782,7 +782,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
 11:                                               ; preds = %1, %11
   %.070160 = phi i64 [ 0, %1 ], [ %14, %11 ]
   %12 = tail call i32 @test_random() #5
-  %13 = getelementptr inbounds nuw i32, ptr %6, i64 %.070160
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.070160
   store i32 %12, ptr %13, align 4, !tbaa !28
   %14 = add nuw nsw i64 %.070160, 1
   %exitcond.not = icmp eq i64 %14, 8
@@ -1471,7 +1471,7 @@ define internal fastcc range(i32 0, 2) i32 @do_sendmmsg(ptr noundef %0, ptr noun
 
 5:                                                ; preds = %4, %9
   %.016 = phi i64 [ 0, %4 ], [ %11, %9 ]
-  %6 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.016
+  %6 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %.016
   %7 = sub nuw nsw i64 %2, %.016
   %8 = tail call i32 @BIO_sendmmsg(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 40, i64 noundef %7, i64 noundef 0, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %8, 0
@@ -1502,7 +1502,7 @@ define internal fastcc range(i32 0, 2) i32 @do_recvmmsg(ptr noundef %0, ptr noun
 
 5:                                                ; preds = %4, %9
   %.016 = phi i64 [ 0, %4 ], [ %11, %9 ]
-  %6 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.016
+  %6 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %.016
   %7 = sub nuw nsw i64 %2, %.016
   %8 = tail call i32 @BIO_recvmmsg(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 40, i64 noundef %7, i64 noundef 0, ptr noundef nonnull %3) #5
   %.not = icmp eq i32 %8, 0

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.set_name_fn = type { ptr, ptr, i32, i32 }
-%struct.gennamedata = type { [22 x i8], i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [14 x i8] c"call_run_cert\00", align 1
@@ -144,7 +143,7 @@ define internal range(i32 0, 2) i32 @call_run_cert(i32 noundef %0) #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [1024 x i8], align 16
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.set_name_fn, ptr @name_fns, i64 %5
+  %6 = getelementptr inbounds [24 x i8], ptr @name_fns, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 350, ptr noundef nonnull @.str.3, ptr noundef %8) #7
@@ -434,17 +433,17 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
 .preheader59:                                     ; preds = %5, %20
   %.04460 = phi i64 [ %21, %20 ], [ 0, %5 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %7 = getelementptr inbounds nuw %struct.gennamedata, ptr @gennames, i64 %.04460
+  %7 = getelementptr inbounds nuw [32 x i8], ptr @gennames, i64 %.04460
   store ptr %7, ptr %1, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8, !tbaa !17
   %10 = call ptr @d2i_GENERAL_NAME(ptr noundef null, ptr noundef nonnull %1, i64 noundef %9) #7
-  %11 = getelementptr inbounds nuw ptr, ptr %2, i64 %.04460
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.04460
   store ptr %10, ptr %11, align 8, !tbaa !20
   store ptr %7, ptr %1, align 8, !tbaa !12
   %12 = load i64, ptr %8, align 8, !tbaa !17
   %13 = call ptr @d2i_GENERAL_NAME(ptr noundef null, ptr noundef nonnull %1, i64 noundef %12) #7
-  %14 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.04460
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.fr, i64 %.04460
   store ptr %13, ptr %14, align 8, !tbaa !20
   %15 = load ptr, ptr %11, align 8, !tbaa !20
   %16 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 681, ptr noundef nonnull @.str.114, ptr noundef %15) #7
@@ -469,8 +468,8 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
 
 .preheader:                                       ; preds = %20, %38
   %.162 = phi i64 [ %39, %38 ], [ 0, %20 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %2, i64 %.162
-  %23 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.162
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.162
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.fr, i64 %.162
   br label %24
 
 24:                                               ; preds = %.preheader, %36
@@ -487,7 +486,7 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
   br i1 %.not50, label %.split.split.preheader, label %36
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.04561
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.fr, i64 %.04561
   %33 = load ptr, ptr %32, align 8, !tbaa !20
   %34 = call i32 @GENERAL_NAME_cmp(ptr noundef %26, ptr noundef %33) #7
   %35 = call i32 @test_int_ne(ptr noundef nonnull @.str.2, i32 noundef 692, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.67, i32 noundef %34, i32 noundef 0) #7
@@ -514,7 +513,7 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
 
 .split.us.split:                                  ; preds = %.split.us, %.split.us.split
   %.263.us = phi i64 [ %42, %.split.us.split ], [ 0, %.split.us ]
-  %40 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.263.us
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.fr, i64 %.263.us
   %41 = load ptr, ptr %40, align 8, !tbaa !20
   tail call void @GENERAL_NAME_free(ptr noundef %41) #7
   %42 = add nuw nsw i64 %.263.us, 1
@@ -530,7 +529,7 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us
   %.263.us66 = phi i64 [ %45, %.split.split.us ], [ 0, %.split ]
-  %43 = getelementptr inbounds nuw ptr, ptr %2, i64 %.263.us66
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.263.us66
   %44 = load ptr, ptr %43, align 8, !tbaa !20
   tail call void @GENERAL_NAME_free(ptr noundef %44) #7
   %45 = add nuw nsw i64 %.263.us66, 1
@@ -539,10 +538,10 @@ define internal range(i32 0, 2) i32 @test_GENERAL_NAME_cmp() #0 {
 
 .split.split:                                     ; preds = %.split.split.preheader, %.split.split
   %.263 = phi i64 [ %50, %.split.split ], [ 0, %.split.split.preheader ]
-  %46 = getelementptr inbounds nuw ptr, ptr %2, i64 %.263
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.263
   %47 = load ptr, ptr %46, align 8, !tbaa !20
   call void @GENERAL_NAME_free(ptr noundef %47) #7
-  %48 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %.263
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.fr, i64 %.263
   %49 = load ptr, ptr %48, align 8, !tbaa !20
   call void @GENERAL_NAME_free(ptr noundef %49) #7
   %50 = add nuw nsw i64 %.263, 1

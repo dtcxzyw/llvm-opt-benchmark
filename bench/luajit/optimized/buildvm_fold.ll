@@ -151,7 +151,7 @@ define dso_local void @emit_fold(ptr noundef readonly captures(none) %0) local_u
 55:                                               ; preds = %.lr.ph164.i.i
   %56 = add i32 %.575163.i.i, 1
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr @ir_names, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @ir_names, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !17
   %.not110.i.i = icmp eq ptr %59, null
   br i1 %.not110.i.i, label %.loopexit.i.i, label %.lr.ph164.i.i, !llvm.loop !22
@@ -193,7 +193,7 @@ nexttoken.exit.i:                                 ; preds = %.lr.ph164.i.i
   %indvars.iv.i = phi i64 [ %72, %.lr.ph.i ], [ %indvars.iv.next.i, %88 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %77 = and i64 %indvars.iv.next.i, 4294967295
-  %78 = getelementptr inbounds nuw i32, ptr @foldkeys, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr @foldkeys, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !20
   %80 = and i32 %79, 16777215
   %81 = icmp samesign ult i32 %80, %71
@@ -211,7 +211,7 @@ nexttoken.exit.i:                                 ; preds = %.lr.ph164.i.i
   unreachable
 
 88:                                               ; preds = %82
-  %89 = getelementptr inbounds nuw i32, ptr @foldkeys, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr @foldkeys, i64 %indvars.iv.i
   store i32 %79, ptr %89, align 4, !tbaa !20
   %.not.i = icmp eq i64 %77, 0
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %76, !llvm.loop !24
@@ -225,7 +225,7 @@ foldrule.exit:                                    ; preds = %.preheader.i, %._cr
   %.0.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %90, %._crit_edge.loopexit.i ]
   %91 = shl i32 %64, 24
   %92 = or i32 %68, %91
-  %93 = getelementptr inbounds nuw i32, ptr @foldkeys, i64 %.0.lcssa.i
+  %93 = getelementptr inbounds nuw [4 x i8], ptr @foldkeys, i64 %.0.lcssa.i
   store i32 %92, ptr %93, align 4, !tbaa !20
   %94 = add nuw nsw i32 %69, 1
   store i32 %94, ptr @nkeys, align 4, !tbaa !20
@@ -321,7 +321,7 @@ foldrule.exit:                                    ; preds = %.preheader.i, %._cr
 
 131:                                              ; preds = %.critedge.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.critedge.i.i ]
-  %132 = getelementptr inbounds nuw i32, ptr @foldkeys, i64 %indvars.iv.i.i
+  %132 = getelementptr inbounds nuw [4 x i8], ptr @foldkeys, i64 %indvars.iv.i.i
   %133 = load i32, ptr %132, align 4, !tbaa !20
   %134 = and i32 %133, 16777215
   %135 = shl i32 %134, %129
@@ -329,7 +329,7 @@ foldrule.exit:                                    ; preds = %.preheader.i, %._cr
   %137 = shl i32 %136, %130
   %138 = urem i32 %137, %indvars84.i
   %139 = zext nneg i32 %138 to i64
-  %140 = getelementptr inbounds nuw i32, ptr %2, i64 %139
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %139
   %141 = load i32, ptr %140, align 4, !tbaa !20
   %.not75.i.i = icmp eq i32 %141, -1
   br i1 %.not75.i.i, label %161, label %142
@@ -337,7 +337,7 @@ foldrule.exit:                                    ; preds = %.preheader.i, %._cr
 142:                                              ; preds = %131
   %143 = add nuw nsw i32 %138, 1
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw i32, ptr %2, i64 %144
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !20
   %.not76.i.i = icmp eq i32 %146, -1
   br i1 %.not76.i.i, label %160, label %147
@@ -395,7 +395,7 @@ tryhash.exit.i:                                   ; preds = %tryhash.exit.loopex
 166:                                              ; preds = %166, %tryhash.exit.i
   %indvars.iv.i24.i = phi i64 [ 1, %tryhash.exit.i ], [ %indvars.iv.next.i25.i, %166 ]
   %167 = load ptr, ptr %30, align 8, !tbaa !21
-  %168 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i24.i
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i24.i
   %169 = load i32, ptr %168, align 4, !tbaa !20
   %170 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef nonnull @.str.23, i32 noundef %169) #15
   %indvars.iv.next.i25.i = add nuw nsw i64 %indvars.iv.i24.i, 1
@@ -431,7 +431,7 @@ printhash.exit.i:                                 ; preds = %166
 
 183:                                              ; preds = %.critedge.i35.i, %.lr.ph.i28.i
   %indvars.iv.i30.i = phi i64 [ 0, %.lr.ph.i28.i ], [ %indvars.iv.next.i36.i, %.critedge.i35.i ]
-  %184 = getelementptr inbounds nuw i32, ptr @foldkeys, i64 %indvars.iv.i30.i
+  %184 = getelementptr inbounds nuw [4 x i8], ptr @foldkeys, i64 %indvars.iv.i30.i
   %185 = load i32, ptr %184, align 4, !tbaa !20
   %186 = and i32 %185, 16777215
   %187 = call i32 @llvm.fshl.i32(i32 %186, i32 %186, i32 %182)
@@ -439,7 +439,7 @@ printhash.exit.i:                                 ; preds = %166
   %189 = call i32 @llvm.fshl.i32(i32 %188, i32 %188, i32 range(i32 0, 1024) %.174.i)
   %190 = urem i32 %189, %indvars84.i
   %191 = zext nneg i32 %190 to i64
-  %192 = getelementptr inbounds nuw i32, ptr %2, i64 %191
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %191
   %193 = load i32, ptr %192, align 4, !tbaa !20
   %.not75.i31.i = icmp eq i32 %193, -1
   br i1 %.not75.i31.i, label %213, label %194
@@ -447,7 +447,7 @@ printhash.exit.i:                                 ; preds = %166
 194:                                              ; preds = %183
   %195 = add nuw nsw i32 %190, 1
   %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr inbounds nuw i32, ptr %2, i64 %196
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %196
   %198 = load i32, ptr %197, align 4, !tbaa !20
   %.not76.i32.i = icmp eq i32 %198, -1
   br i1 %.not76.i32.i, label %212, label %199
@@ -499,7 +499,7 @@ tryhash.exit38.i:                                 ; preds = %.critedge.i35.i
 218:                                              ; preds = %218, %tryhash.exit38.i
   %indvars.iv.i40.i = phi i64 [ 1, %tryhash.exit38.i ], [ %indvars.iv.next.i41.i, %218 ]
   %219 = load ptr, ptr %30, align 8, !tbaa !21
-  %220 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i40.i
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i40.i
   %221 = load i32, ptr %220, align 4, !tbaa !20
   %222 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.23, i32 noundef %221) #15
   %indvars.iv.next.i41.i = add nuw nsw i64 %indvars.iv.i40.i, 1
@@ -611,7 +611,7 @@ define internal fastcc i32 @nexttoken(ptr noundef nonnull captures(none) %0, i32
 17:                                               ; preds = %14
   %18 = add i32 %.070160, 1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr @irfpm_names, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @irfpm_names, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !17
   %.not94 = icmp eq ptr %21, null
   br i1 %.not94, label %.loopexit, label %14, !llvm.loop !31
@@ -640,7 +640,7 @@ define internal fastcc i32 @nexttoken(ptr noundef nonnull captures(none) %0, i32
 29:                                               ; preds = %26
   %30 = add i32 %.171157, 1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr @irfield_names, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @irfield_names, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !17
   %.not97 = icmp eq ptr %33, null
   br i1 %.not97, label %.loopexit, label %26, !llvm.loop !32
@@ -669,7 +669,7 @@ define internal fastcc i32 @nexttoken(ptr noundef nonnull captures(none) %0, i32
 40:                                               ; preds = %37
   %41 = add i32 %.272154, 1
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr @ircall_names, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @ircall_names, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !17
   %.not100 = icmp eq ptr %44, null
   br i1 %.not100, label %.loopexit, label %37, !llvm.loop !33
@@ -711,7 +711,7 @@ define internal fastcc i32 @nexttoken(ptr noundef nonnull captures(none) %0, i32
 57:                                               ; preds = %.lr.ph148
   %58 = add i32 %.0147, 1
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr @irt_names, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr @irt_names, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !17
   %.not106 = icmp eq ptr %61, null
   br i1 %.not106, label %.loopexit131, label %.lr.ph148, !llvm.loop !34
@@ -724,7 +724,7 @@ define internal fastcc i32 @nexttoken(ptr noundef nonnull captures(none) %0, i32
 .loopexit131:                                     ; preds = %57, %.lr.ph152.split
   %65 = add i32 %.373150, 1
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr @irt_names, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr @irt_names, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !17
   %.not103 = icmp eq ptr %68, null
   br i1 %.not103, label %.loopexit, label %.lr.ph152.split, !llvm.loop !35
@@ -777,7 +777,7 @@ define internal fastcc i32 @nexttoken(ptr noundef nonnull captures(none) %0, i32
 84:                                               ; preds = %.lr.ph164
   %85 = add i32 %.575163, 1
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw ptr, ptr @ir_names, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr @ir_names, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !17
   %.not110 = icmp eq ptr %88, null
   br i1 %.not110, label %.loopexit, label %.lr.ph164, !llvm.loop !22

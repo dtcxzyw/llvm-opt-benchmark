@@ -1026,7 +1026,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %12 = icmp ule i64 %2, %7
   tail call void @llvm.assume(i1 %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %13 = getelementptr inbounds { { { ptr, ptr } }, {}, {} }, ptr %1, i64 %2
+  %13 = getelementptr inbounds [16 x i8], ptr %1, i64 %2
   %14 = icmp eq i64 %7, 0
   br i1 %14, label %.thread, label %.lr.ph
 
@@ -1062,7 +1062,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %23 = add nuw nsw i64 %.sroa.7.022, 1
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.015.023, i64 16
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val14) ]
-  %25 = getelementptr inbounds nuw { [2 x i64] }, ptr %11, i64 %.sroa.7.022
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %.sroa.7.022
   store ptr %.val13, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %.val14, ptr %26, align 8
@@ -1092,7 +1092,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %12 = icmp ule i64 %2, %7
   tail call void @llvm.assume(i1 %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %13 = getelementptr inbounds { { { ptr, ptr } }, {}, {} }, ptr %1, i64 %2
+  %13 = getelementptr inbounds [16 x i8], ptr %1, i64 %2
   %14 = icmp eq i64 %7, 0
   br i1 %14, label %.thread, label %.lr.ph
 
@@ -1128,7 +1128,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %23 = add nuw nsw i64 %.sroa.7.022, 1
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.015.023, i64 16
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val14) ]
-  %25 = getelementptr inbounds nuw { [2 x i64] }, ptr %11, i64 %.sroa.7.022
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %.sroa.7.022
   store ptr %.val13, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %.val14, ptr %26, align 8
@@ -1254,7 +1254,7 @@ define hidden void @"_ZN5alloc11collections5btree3map5entry30OccupiedEntry$LT$K$
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !98, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 272
-  %8 = getelementptr inbounds { [3 x i64] }, ptr %7, i64 %6
+  %8 = getelementptr inbounds [24 x i8], ptr %7, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   ret void
@@ -1266,7 +1266,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.41.0.copyload = load i64, ptr %.sroa.41.0..sroa_idx, align 8
   %2 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 272
-  %3 = getelementptr inbounds { [3 x i64] }, ptr %2, i64 %.sroa.41.0.copyload
+  %3 = getelementptr inbounds [24 x i8], ptr %2, i64 %.sroa.41.0.copyload
   ret ptr %3
 }
 
@@ -3264,7 +3264,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
   %14 = icmp ule i64 %6, %9
   tail call void @llvm.assume(i1 %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !203
-  %15 = getelementptr inbounds { { { ptr, ptr } }, {}, {} }, ptr %4, i64 %6
+  %15 = getelementptr inbounds [16 x i8], ptr %4, i64 %6
   %16 = icmp eq i64 %9, 0
   br i1 %16, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h40cf3a4c43e534d3E.llvm.8523920468416357378.exit", label %.lr.ph.i
 
@@ -3292,7 +3292,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
   %25 = add nuw nsw i64 %.sroa.7.022.i, 1
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.015.023.i, i64 16
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val14.i) ]
-  %27 = getelementptr inbounds nuw { [2 x i64] }, ptr %13, i64 %.sroa.7.022.i
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.sroa.7.022.i
   store ptr %.val13.i, ptr %27, align 8, !noalias !203
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %.val14.i, ptr %28, align 8, !noalias !203
@@ -3384,7 +3384,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
   %14 = icmp ule i64 %6, %9
   tail call void @llvm.assume(i1 %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !214
-  %15 = getelementptr inbounds { { { ptr, ptr } }, {}, {} }, ptr %4, i64 %6
+  %15 = getelementptr inbounds [16 x i8], ptr %4, i64 %6
   %16 = icmp eq i64 %9, 0
   br i1 %16, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hdd394f417e44ae30E.llvm.8523920468416357378.exit", label %.lr.ph.i
 
@@ -3412,7 +3412,7 @@ define hidden { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$
   %25 = add nuw nsw i64 %.sroa.7.022.i, 1
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.015.023.i, i64 16
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val14.i) ]
-  %27 = getelementptr inbounds nuw { [2 x i64] }, ptr %13, i64 %.sroa.7.022.i
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.sroa.7.022.i
   store ptr %.val13.i, ptr %27, align 8, !noalias !214
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %.val14.i, ptr %28, align 8, !noalias !214

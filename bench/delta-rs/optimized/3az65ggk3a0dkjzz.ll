@@ -1364,7 +1364,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %16 = load i64, ptr %15, align 8, !alias.scope !183, !noalias !187, !noundef !148
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !189
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !193
-  %17 = getelementptr inbounds { { ptr, i64 } }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [16 x i8], ptr %14, i64 %16
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !194
   store ptr %14, ptr %7, align 8, !noalias !194
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1397,7 +1397,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %30 = load i64, ptr %29, align 8, !alias.scope !201, !noalias !202, !noundef !148
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !204
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !208
-  %31 = getelementptr inbounds { { ptr, i64 } }, ptr %28, i64 %30
+  %31 = getelementptr inbounds [16 x i8], ptr %28, i64 %30
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !209
   store ptr %28, ptr %4, align 8, !noalias !209
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2519,10 +2519,10 @@ define internal noundef zeroext i1 @"_ZN99_$LT$aws_smithy_runtime_api..client..i
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !398, !noundef !148
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN99_$LT$aws_smithy_runtime_api..client..interceptors..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h079de2fe7384356dE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN99_$LT$aws_smithy_runtime_api..client..interceptors..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h079de2fe7384356dE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN99_$LT$aws_smithy_runtime_api..client..interceptors..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h079de2fe7384356dE.16", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN99_$LT$aws_smithy_runtime_api..client..interceptors..error..ErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h079de2fe7384356dE.16", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

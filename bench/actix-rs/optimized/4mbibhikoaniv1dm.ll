@@ -208,7 +208,7 @@ define internal fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_ref
   br i1 %40, label %41, label %.split.us, !prof !5
 
 41:                                               ; preds = %.lr.ph.split.split.us.us
-  %42 = getelementptr inbounds nuw i32, ptr %5, i64 %39
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %39
   %43 = load i32, ptr %42, align 4, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 -1, i8 1, i8 -2, i8 2, i8 -3, i8 3, i8 -1, i8 1, i8 -2, i8 2, i8 -3, i8 3>, ptr %19, align 16
@@ -302,7 +302,7 @@ define internal fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_ref
   br i1 %80, label %81, label %.split.us, !prof !5
 
 81:                                               ; preds = %.lr.ph.split.split.us
-  %82 = getelementptr inbounds nuw i32, ptr %5, i64 %79
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %79
   %83 = load i32, ptr %82, align 4, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 -1, i8 1, i8 -2, i8 2, i8 -3, i8 3, i8 -1, i8 1, i8 -2, i8 2, i8 -3, i8 3>, ptr %19, align 16
@@ -446,7 +446,7 @@ define internal fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_ref
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit"
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %140 = load ptr, ptr %139, align 8, !alias.scope !24, !nonnull !4, !align !33, !noundef !4
-  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %133
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %133
   %142 = sub nuw i64 %132, %133
   %.not.i.i112 = icmp ult i64 %142, 256
   br i1 %.not.i.i112, label %143, label %148
@@ -473,7 +473,7 @@ define internal fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_ref
 
 152:                                              ; preds = %148
   %153 = load ptr, ptr %0, align 8, !alias.scope !40, !nonnull !4, !align !43, !noundef !4
-  %154 = getelementptr inbounds nuw i16, ptr %153, i64 %130
+  %154 = getelementptr inbounds nuw [2 x i8], ptr %153, i64 %130
   %155 = load i16, ptr %154, align 2, !noundef !4
   %156 = icmp ugt i16 %155, 256
   %157 = zext i16 %155 to i64
@@ -503,7 +503,7 @@ define internal fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_ref
   %.061201 = phi i64 [ %.061.ph208, %.lr.ph202 ], [ %167, %194 ]
   %167 = add nsw i64 %.061201, -1
   %168 = and i64 %167, 255
-  %169 = getelementptr inbounds nuw i32, ptr %141, i64 %168
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %168
   %170 = load i32, ptr %169, align 4, !noundef !4
   %171 = zext i32 %170 to i64
   %172 = sub i64 %7, %171
@@ -606,7 +606,7 @@ define internal fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_ref
   %209 = load i16, ptr %154, align 2, !noundef !4
   %210 = and i16 %209, 255
   %211 = zext nneg i16 %210 to i64
-  %212 = getelementptr inbounds nuw i32, ptr %141, i64 %211
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %211
   %213 = trunc i64 %7 to i32
   store i32 %213, ptr %212, align 4
   %214 = load i16, ptr %154, align 2, !noundef !4
@@ -661,7 +661,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hed395236ffcf51ee
   br i1 %236, label %237, label %242, !prof !5
 
 237:                                              ; preds = %232
-  %238 = getelementptr inbounds nuw i16, ptr @_ZN6brotli3enc15dictionary_hash21kStaticDictionaryHash17h89777a76f55a9c75E, i64 %.0104.i
+  %238 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6brotli3enc15dictionary_hash21kStaticDictionaryHash17h89777a76f55a9c75E, i64 %.0104.i
   %239 = load i16, ptr %238, align 2, !noalias !64, !noundef !4
   %240 = add i64 %234, 1
   store i64 %240, ptr %224, align 8, !alias.scope !56, !noalias !59
@@ -690,7 +690,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hed395236ffcf51ee
   br label %243
 
 252:                                              ; preds = %106
-  %253 = getelementptr inbounds nuw i32, ptr %5, i64 %110
+  %253 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %110
   %254 = load i32, ptr %253, align 4, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 -1, i8 1, i8 -2, i8 2, i8 -3, i8 3, i8 -1, i8 1, i8 -2, i8 2, i8 -3, i8 3>, ptr %19, align 16
@@ -826,7 +826,7 @@ define hidden void @"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT
 
 28:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit"
   %29 = load ptr, ptr %0, align 8, !alias.scope !83, !nonnull !4, !align !43, !noundef !4
-  %30 = getelementptr inbounds nuw i16, ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %24
   %31 = load i16, ptr %30, align 2, !noundef !4
   %32 = and i16 %31, 255
   %33 = zext nneg i16 %32 to i64
@@ -844,7 +844,7 @@ define hidden void @"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT
 40:                                               ; preds = %28
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load ptr, ptr %41, align 8, !alias.scope !86, !nonnull !4, !align !33, !noundef !4
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %37
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %37
   %44 = trunc i64 %4 to i32
   store i32 %44, ptr %43, align 4
   %45 = load i16, ptr %30, align 2, !noundef !4
@@ -1054,7 +1054,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
 
 78:                                               ; preds = %73
   %79 = load ptr, ptr %0, align 8, !alias.scope !108, !nonnull !4, !align !33, !noundef !4
-  %80 = getelementptr inbounds nuw i32, ptr %79, i64 %28
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %28
   %81 = trunc i64 %7 to i32
   store i32 %81, ptr %80, align 4
   br label %83
@@ -1073,7 +1073,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
 
 85:                                               ; preds = %49
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !align !33, !noundef !4
-  %86 = getelementptr inbounds nuw i32, ptr %.val, i64 %28
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %28
   %87 = load i32, ptr %86, align 4, !noundef !4
   %88 = zext i32 %87 to i64
   %89 = trunc i64 %7 to i32
@@ -1145,7 +1145,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   br i1 %124, label %125, label %130, !prof !5
 
 125:                                              ; preds = %120
-  %126 = getelementptr inbounds nuw i16, ptr @_ZN6brotli3enc15dictionary_hash21kStaticDictionaryHash17h89777a76f55a9c75E, i64 %123
+  %126 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6brotli3enc15dictionary_hash21kStaticDictionaryHash17h89777a76f55a9c75E, i64 %123
   %127 = load i16, ptr %126, align 2, !noalias !121, !noundef !4
   %128 = add i64 %117, 1
   store i64 %128, ptr %116, align 8, !alias.scope !113, !noalias !116
@@ -1285,7 +1285,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17ha665da4865a4defdE.exit"
-  %61 = getelementptr inbounds nuw i32, ptr %.val, i64 %29
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %29
   %62 = getelementptr inbounds nuw i8, ptr %11, i64 16
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.lr.ph"
 
@@ -1383,7 +1383,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7b
   br i1 %111, label %112, label %117, !prof !5
 
 112:                                              ; preds = %107
-  %113 = getelementptr inbounds nuw i16, ptr @_ZN6brotli3enc15dictionary_hash21kStaticDictionaryHash17h89777a76f55a9c75E, i64 %110
+  %113 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6brotli3enc15dictionary_hash21kStaticDictionaryHash17h89777a76f55a9c75E, i64 %110
   %114 = load i16, ptr %113, align 2, !noalias !152, !noundef !4
   %115 = add i64 %104, 1
   store i64 %115, ptr %103, align 8, !alias.scope !144, !noalias !147
@@ -1406,7 +1406,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7b
   br label %_ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7bE.exit
 
 124:                                              ; preds = %_ZN6brotli3enc19backward_references24SearchInStaticDictionary17h231f250a09652b7bE.exit
-  %125 = getelementptr inbounds nuw i32, ptr %.val, i64 %98
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %98
   %126 = trunc i64 %7 to i32
   store i32 %126, ptr %125, align 4
   %127 = trunc nuw i8 %.4 to i1
@@ -1607,7 +1607,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17ha665da4865a4defdE.exit"
-  %59 = getelementptr inbounds nuw i32, ptr %.val, i64 %27
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %27
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.lr.ph"
 
@@ -1679,7 +1679,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   br i1 %95, label %96, label %99, !prof !5
 
 96:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread"
-  %97 = getelementptr inbounds nuw i32, ptr %.val, i64 %94
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %94
   %98 = trunc i64 %6 to i32
   store i32 %98, ptr %97, align 4
   ret i1 %.2.ph.lcssa14
@@ -1879,7 +1879,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17haf5e73a4401e655aE.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17ha665da4865a4defdE.exit"
-  %59 = getelementptr inbounds nuw i32, ptr %.val, i64 %27
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %27
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.lr.ph"
 
@@ -1951,7 +1951,7 @@ define internal fastcc noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_ref
   br i1 %95, label %96, label %99, !prof !5
 
 96:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h199b4a11450a76b5E.exit.thread"
-  %97 = getelementptr inbounds nuw i32, ptr %.val, i64 %94
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %94
   %98 = trunc i64 %6 to i32
   store i32 %98, ptr %97, align 4
   ret i1 %.2.ph.lcssa14
@@ -2097,7 +2097,7 @@ define hidden void @"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT
 29:                                               ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit"
   %30 = trunc i64 %4 to i32
   %31 = load ptr, ptr %0, align 8, !alias.scope !218, !nonnull !4, !align !33, !noundef !4
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %27
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %27
   store i32 %30, ptr %32, align 4
   ret void
 
@@ -2164,7 +2164,7 @@ define hidden void @"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT
 29:                                               ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit"
   %30 = trunc i64 %4 to i32
   %31 = load ptr, ptr %0, align 8, !alias.scope !244, !nonnull !4, !align !33, !noundef !4
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %27
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %27
   store i32 %30, ptr %32, align 4
   ret void
 
@@ -2231,7 +2231,7 @@ define hidden void @"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT
 29:                                               ; preds = %"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit"
   %30 = trunc i64 %4 to i32
   %31 = load ptr, ptr %0, align 8, !alias.scope !270, !nonnull !4, !align !33, !noundef !4
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %27
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %27
   store i32 %30, ptr %32, align 4
   ret void
 
@@ -2294,7 +2294,7 @@ define hidden void @"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT
 
 26:                                               ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit"
   %27 = load ptr, ptr %0, align 8, !alias.scope !296, !nonnull !4, !align !33, !noundef !4
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %22
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %22
   %29 = trunc i64 %4 to i32
   store i32 %29, ptr %28, align 4
   ret void
@@ -2386,7 +2386,7 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit": ; preds = %"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit"
-  %37 = getelementptr inbounds nuw i32, ptr %14, i64 %33
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   %exitcond.not = icmp eq i64 %21, %2
   br i1 %exitcond.not, label %.thread, label %20
@@ -2478,7 +2478,7 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit"
-  %37 = getelementptr inbounds nuw i32, ptr %14, i64 %33
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %33
   store i64 0, ptr %37, align 4
   %exitcond.not = icmp eq i64 %21, %2
   br i1 %exitcond.not, label %.thread, label %20
@@ -2570,7 +2570,7 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit"
-  %36 = getelementptr inbounds nuw i32, ptr %14, i64 %33
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %33
   store i32 0, ptr %36, align 4
   %exitcond.not = icmp eq i64 %21, %2
   br i1 %exitcond.not, label %.thread, label %20
@@ -2662,7 +2662,7 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h438919e1f213898dE.exit": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit"
-  %37 = getelementptr inbounds nuw i32, ptr %14, i64 %33
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   %exitcond.not = icmp eq i64 %21, %2
   br i1 %exitcond.not, label %.thread, label %20
@@ -3255,7 +3255,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 51:                                               ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h20f6dfb8c76d8cb3E.exit"
   %52 = load ptr, ptr %0, align 8, !alias.scope !481, !nonnull !4, !align !43, !noundef !4
-  %53 = getelementptr inbounds nuw i16, ptr %52, i64 %46
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %46
   %54 = load i16, ptr %53, align 2, !noundef !4
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load i64, ptr %55, align 8, !alias.scope !484, !noundef !4
@@ -3280,7 +3280,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit": ; preds = %51
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !484, !nonnull !4, !align !33, !noundef !4
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %57
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %57
   %66 = sub nuw i64 %56, %57
   %.not.i.i105 = icmp ult i64 %66, 16
   br i1 %.not.i.i105, label %67, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit109"
@@ -3311,7 +3311,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.1 = phi i8 [ %.0.lcssa, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit109" ], [ %.0.lcssa, %81 ], [ %.2111, %119 ], [ %.2111, %106 ], [ %.3, %133 ], [ %.2111, %.preheader ], [ %.2111, %.split85.us ]
   %74 = and i16 %54, 15
   %75 = zext nneg i16 %74 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %65, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %75
   %77 = trunc i64 %7 to i32
   store i32 %77, ptr %76, align 4
   %78 = load i16, ptr %53, align 2, !noundef !4
@@ -3354,7 +3354,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.263.us81 = phi i64 [ %91, %106 ], [ %.162109, %.preheader.split ]
   %91 = add nsw i64 %.263.us81, -1
   %92 = and i64 %91, 15
-  %93 = getelementptr inbounds nuw i32, ptr %65, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %92
   %94 = load i32, ptr %93, align 4, !noundef !4
   %95 = zext i32 %94 to i64
   %96 = sub i64 %7, %95
@@ -3388,7 +3388,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.263 = phi i64 [ %110, %119 ], [ %.162109, %.preheader.split ]
   %110 = add nsw i64 %.263, -1
   %111 = and i64 %110, 15
-  %112 = getelementptr inbounds nuw i32, ptr %65, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %111
   %113 = load i32, ptr %112, align 4, !noundef !4
   %114 = zext i32 %113 to i64
   %115 = and i64 %4, %114
@@ -3484,7 +3484,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h456073b07195e3c9
   br i1 %152, label %153, label %158, !prof !5
 
 153:                                              ; preds = %148
-  %154 = getelementptr inbounds nuw i16, ptr @_ZN6brotli3enc15dictionary_hash21kStaticDictionaryHash17h89777a76f55a9c75E, i64 %.0104.i
+  %154 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6brotli3enc15dictionary_hash21kStaticDictionaryHash17h89777a76f55a9c75E, i64 %.0104.i
   %155 = load i16, ptr %154, align 2, !noalias !513, !noundef !4
   %156 = add i64 %150, 1
   store i64 %156, ptr %140, align 8, !alias.scope !505, !noalias !508
@@ -3513,7 +3513,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h456073b07195e3c9
   br label %159
 
 168:                                              ; preds = %50
-  %169 = getelementptr inbounds i32, ptr %5, i64 %.06164
+  %169 = getelementptr inbounds [4 x i8], ptr %5, i64 %.06164
   %170 = load i32, ptr %169, align 4, !noundef !4
   %171 = sext i32 %170 to i64
   %172 = sub i64 %7, %171
@@ -3729,7 +3729,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %.val102 = load i32, ptr %57, align 4, !noundef !4
   %58 = trunc i64 %49 to i32
-  %59 = getelementptr inbounds nuw i16, ptr %56, i64 %50
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %50
   %60 = load i16, ptr %59, align 2, !noundef !4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = load i64, ptr %61, align 8, !alias.scope !549, !noundef !4
@@ -3756,7 +3756,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit": ; preds = %55
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load ptr, ptr %71, align 8, !alias.scope !549, !nonnull !4, !align !33, !noundef !4
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %65
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %65
   %74 = sub nuw i64 %62, %65
   %75 = shl nuw i32 1, %63
   %76 = zext i32 %75 to i64
@@ -3835,7 +3835,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   br i1 %104, label %105, label %.split.us, !prof !5
 
 105:                                              ; preds = %.preheader.split.us
-  %106 = getelementptr inbounds nuw i32, ptr %73, i64 %103
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %103
   %107 = load i32, ptr %106, align 4, !noundef !4
   %108 = zext i32 %107 to i64
   %109 = sub i64 %7, %108
@@ -3857,7 +3857,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   br i1 %115, label %116, label %.split.us, !prof !5
 
 116:                                              ; preds = %.preheader.split.split.us
-  %117 = getelementptr inbounds nuw i32, ptr %73, i64 %114
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %114
   %118 = load i32, ptr %117, align 4, !noundef !4
   %119 = zext i32 %118 to i64
   %120 = sub i64 %7, %119
@@ -3895,7 +3895,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   br i1 %136, label %137, label %.split.us, !prof !5
 
 137:                                              ; preds = %.preheader.split.split
-  %138 = getelementptr inbounds nuw i32, ptr %73, i64 %135
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %135
   %139 = load i32, ptr %138, align 4, !noundef !4
   %140 = zext i32 %139 to i64
   %141 = and i64 %4, %140
@@ -3967,7 +3967,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   br label %159
 
 164:                                              ; preds = %.loopexit
-  %165 = getelementptr inbounds nuw i32, ptr %73, i64 %91
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %91
   %166 = trunc i64 %7 to i32
   store i32 %166, ptr %165, align 4
   %167 = load i16, ptr %59, align 2, !noundef !4
@@ -4012,7 +4012,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hf3f051a18e1469e6
   br i1 %185, label %186, label %191, !prof !5
 
 186:                                              ; preds = %181
-  %187 = getelementptr inbounds nuw i16, ptr @_ZN6brotli3enc15dictionary_hash21kStaticDictionaryHash17h89777a76f55a9c75E, i64 %.0104.i
+  %187 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6brotli3enc15dictionary_hash21kStaticDictionaryHash17h89777a76f55a9c75E, i64 %.0104.i
   %188 = load i16, ptr %187, align 2, !noalias !581, !noundef !4
   %189 = add i64 %183, 1
   store i64 %189, ptr %173, align 8, !alias.scope !573, !noalias !576
@@ -4041,7 +4041,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hf3f051a18e1469e6
   br label %192
 
 201:                                              ; preds = %54
-  %202 = getelementptr inbounds i32, ptr %5, i64 %.06172
+  %202 = getelementptr inbounds [4 x i8], ptr %5, i64 %.06172
   %203 = load i32, ptr %202, align 4, !noundef !4
   %204 = sext i32 %203 to i64
   %205 = sub i64 %7, %204
@@ -4232,7 +4232,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %.val103 = load i32, ptr %49, align 4, !noundef !4
   %50 = trunc i64 %41 to i32
-  %51 = getelementptr inbounds nuw i16, ptr %48, i64 %42
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %42
   %52 = load i16, ptr %51, align 2, !noundef !4
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = load i64, ptr %53, align 8, !alias.scope !604, !noundef !4
@@ -4259,7 +4259,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit": ; preds = %47
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !604, !nonnull !4, !align !33, !noundef !4
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %57
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %57
   %66 = sub nuw i64 %54, %57
   %67 = shl nuw i32 1, %55
   %68 = zext i32 %67 to i64
@@ -4340,7 +4340,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   br i1 %95, label %96, label %.split.us, !prof !5
 
 96:                                               ; preds = %.preheader.split.us
-  %97 = getelementptr inbounds nuw i32, ptr %65, i64 %94
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %94
   %98 = load i32, ptr %97, align 4, !noundef !4
   %99 = zext i32 %98 to i64
   %100 = sub i64 %7, %99
@@ -4362,7 +4362,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   br i1 %106, label %107, label %.split.us, !prof !5
 
 107:                                              ; preds = %.preheader.split.split.us
-  %108 = getelementptr inbounds nuw i32, ptr %65, i64 %105
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %105
   %109 = load i32, ptr %108, align 4, !noundef !4
   %110 = zext i32 %109 to i64
   %111 = sub i64 %7, %110
@@ -4400,7 +4400,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   br i1 %127, label %128, label %.split.us, !prof !5
 
 128:                                              ; preds = %.preheader.split.split
-  %129 = getelementptr inbounds nuw i32, ptr %65, i64 %126
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %126
   %130 = load i32, ptr %129, align 4, !noundef !4
   %131 = zext i32 %130 to i64
   %132 = and i64 %4, %131
@@ -4476,7 +4476,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   br label %150
 
 155:                                              ; preds = %.loopexit
-  %156 = getelementptr inbounds nuw i32, ptr %65, i64 %81
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %81
   %157 = trunc i64 %7 to i32
   store i32 %157, ptr %156, align 4
   %158 = load i16, ptr %51, align 2, !noundef !4
@@ -4522,7 +4522,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hfae9f379570ef1a5
   br i1 %176, label %177, label %182, !prof !5
 
 177:                                              ; preds = %172
-  %178 = getelementptr inbounds nuw i16, ptr @_ZN6brotli3enc15dictionary_hash21kStaticDictionaryHash17h89777a76f55a9c75E, i64 %.0104.i
+  %178 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6brotli3enc15dictionary_hash21kStaticDictionaryHash17h89777a76f55a9c75E, i64 %.0104.i
   %179 = load i16, ptr %178, align 2, !noalias !633, !noundef !4
   %180 = add i64 %174, 1
   store i64 %180, ptr %164, align 8, !alias.scope !625, !noalias !628
@@ -4551,7 +4551,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hfae9f379570ef1a5
   br label %183
 
 192:                                              ; preds = %46
-  %193 = getelementptr inbounds i32, ptr %5, i64 %.06172
+  %193 = getelementptr inbounds [4 x i8], ptr %5, i64 %.06172
   %194 = load i32, ptr %193, align 4, !noundef !4
   %195 = sext i32 %194 to i64
   %196 = sub i64 %7, %195
@@ -4760,7 +4760,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 51:                                               ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17hfdb3b5f465ee5ca3E.exit"
   %52 = load ptr, ptr %0, align 8, !alias.scope !661, !nonnull !4, !align !43, !noundef !4
-  %53 = getelementptr inbounds nuw i16, ptr %52, i64 %46
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %46
   %54 = load i16, ptr %53, align 2, !noundef !4
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load i64, ptr %55, align 8, !alias.scope !664, !noundef !4
@@ -4785,7 +4785,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit": ; preds = %51
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load ptr, ptr %63, align 8, !alias.scope !664, !nonnull !4, !align !33, !noundef !4
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %57
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %57
   %66 = sub nuw i64 %56, %57
   %.not.i.i105 = icmp ult i64 %66, 64
   br i1 %.not.i.i105, label %67, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit109"
@@ -4816,7 +4816,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.1 = phi i8 [ %.0.lcssa, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17hc2f1de313b01b872E.exit109" ], [ %.0.lcssa, %81 ], [ %.2111, %119 ], [ %.2111, %106 ], [ %.3, %133 ], [ %.2111, %.preheader ], [ %.2111, %.split85.us ]
   %74 = and i16 %54, 63
   %75 = zext nneg i16 %74 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %65, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %75
   %77 = trunc i64 %7 to i32
   store i32 %77, ptr %76, align 4
   %78 = load i16, ptr %53, align 2, !noundef !4
@@ -4859,7 +4859,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.263.us81 = phi i64 [ %91, %106 ], [ %.162109, %.preheader.split ]
   %91 = add nsw i64 %.263.us81, -1
   %92 = and i64 %91, 63
-  %93 = getelementptr inbounds nuw i32, ptr %65, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %92
   %94 = load i32, ptr %93, align 4, !noundef !4
   %95 = zext i32 %94 to i64
   %96 = sub i64 %7, %95
@@ -4893,7 +4893,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.263 = phi i64 [ %110, %119 ], [ %.162109, %.preheader.split ]
   %110 = add nsw i64 %.263, -1
   %111 = and i64 %110, 63
-  %112 = getelementptr inbounds nuw i32, ptr %65, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %111
   %113 = load i32, ptr %112, align 4, !noundef !4
   %114 = zext i32 %113 to i64
   %115 = and i64 %4, %114
@@ -4989,7 +4989,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h6e6e2914e7e6a3a8
   br i1 %152, label %153, label %158, !prof !5
 
 153:                                              ; preds = %148
-  %154 = getelementptr inbounds nuw i16, ptr @_ZN6brotli3enc15dictionary_hash21kStaticDictionaryHash17h89777a76f55a9c75E, i64 %.0104.i
+  %154 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6brotli3enc15dictionary_hash21kStaticDictionaryHash17h89777a76f55a9c75E, i64 %.0104.i
   %155 = load i16, ptr %154, align 2, !noalias !693, !noundef !4
   %156 = add i64 %150, 1
   store i64 %156, ptr %140, align 8, !alias.scope !685, !noalias !688
@@ -5018,7 +5018,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h6e6e2914e7e6a3a8
   br label %159
 
 168:                                              ; preds = %50
-  %169 = getelementptr inbounds i32, ptr %5, i64 %.06164
+  %169 = getelementptr inbounds [4 x i8], ptr %5, i64 %.06164
   %170 = load i32, ptr %169, align 4, !noundef !4
   %171 = sext i32 %170 to i64
   %172 = sub i64 %7, %171
@@ -5191,7 +5191,7 @@ define hidden void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$S
 
 27:                                               ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h20f6dfb8c76d8cb3E.exit"
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !align !43, !noundef !4
-  %28 = getelementptr inbounds nuw i16, ptr %.val, i64 %24
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.val, i64 %24
   %29 = load i16, ptr %28, align 2, !noundef !4
   %30 = and i16 %29, 15
   %31 = zext nneg i16 %30 to i64
@@ -5213,7 +5213,7 @@ define hidden void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$S
 39:                                               ; preds = %27
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8, !alias.scope !721, !nonnull !4, !align !33, !noundef !4
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %33
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %33
   %43 = trunc i64 %4 to i32
   store i32 %43, ptr %42, align 4
   %44 = load i16, ptr %28, align 2, !noundef !4
@@ -5285,7 +5285,7 @@ define hidden void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$S
 31:                                               ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h3d1115d926fac27bE.exit"
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !align !43, !noundef !4
   %32 = trunc i64 %27 to i32
-  %33 = getelementptr inbounds nuw i16, ptr %.val, i64 %28
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %.val, i64 %28
   %34 = load i16, ptr %33, align 2, !noundef !4
   %35 = zext i16 %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -5314,7 +5314,7 @@ define hidden void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$S
 50:                                               ; preds = %31
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8, !alias.scope !750, !nonnull !4, !align !33, !noundef !4
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %44
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %44
   %54 = trunc i64 %4 to i32
   store i32 %54, ptr %53, align 4
   %55 = load i16, ptr %33, align 2, !noundef !4
@@ -5362,7 +5362,7 @@ define hidden void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$S
 24:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h84aaafaec353abe6E.llvm.6642645476840219850.exit"
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !align !43, !noundef !4
   %25 = trunc i64 %20 to i32
-  %26 = getelementptr inbounds nuw i16, ptr %.val, i64 %21
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %.val, i64 %21
   %27 = load i16, ptr %26, align 2, !noundef !4
   %28 = zext i16 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -5387,7 +5387,7 @@ define hidden void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$S
 41:                                               ; preds = %24
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8, !alias.scope !766, !nonnull !4, !align !33, !noundef !4
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %36
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %36
   %45 = trunc i64 %4 to i32
   store i32 %45, ptr %44, align 4
   %46 = load i64, ptr %22, align 8, !alias.scope !769, !noundef !4
@@ -5400,7 +5400,7 @@ define hidden void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$S
 
 49:                                               ; preds = %41
   %50 = load ptr, ptr %0, align 8, !alias.scope !769, !nonnull !4, !align !43, !noundef !4
-  %51 = getelementptr inbounds nuw i16, ptr %50, i64 %21
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %21
   %52 = load i16, ptr %51, align 2, !noundef !4
   %53 = add i16 %52, 1
   store i16 %53, ptr %51, align 2
@@ -5467,7 +5467,7 @@ define hidden void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$S
 
 27:                                               ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17hfdb3b5f465ee5ca3E.exit"
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !align !43, !noundef !4
-  %28 = getelementptr inbounds nuw i16, ptr %.val, i64 %24
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %.val, i64 %24
   %29 = load i16, ptr %28, align 2, !noundef !4
   %30 = and i16 %29, 63
   %31 = zext nneg i16 %30 to i64
@@ -5489,7 +5489,7 @@ define hidden void @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$S
 39:                                               ; preds = %27
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8, !alias.scope !793, !nonnull !4, !align !33, !noundef !4
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %33
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %33
   %43 = trunc i64 %4 to i32
   store i32 %43, ptr %42, align 4
   %44 = load i16, ptr %28, align 2, !noundef !4
@@ -5584,7 +5584,7 @@ define hidden noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..
   unreachable
 
 39:                                               ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17hfdb3b5f465ee5ca3E.exit"
-  %40 = getelementptr inbounds nuw i16, ptr %14, i64 %36
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %36
   store i16 0, ptr %40, align 2
   %exitcond.not = icmp eq i64 %22, %2
   br i1 %exitcond.not, label %.thread, label %21
@@ -5680,7 +5680,7 @@ define hidden noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..
   unreachable
 
 39:                                               ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h20f6dfb8c76d8cb3E.exit"
-  %40 = getelementptr inbounds nuw i16, ptr %14, i64 %36
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %36
   store i16 0, ptr %40, align 2
   %exitcond.not = icmp eq i64 %22, %2
   br i1 %exitcond.not, label %.thread, label %21
@@ -5768,7 +5768,7 @@ define hidden noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..
 
 40:                                               ; preds = %28
   %41 = load ptr, ptr %0, align 8, !alias.scope !851, !nonnull !4, !align !43, !noundef !4
-  %42 = getelementptr inbounds nuw i16, ptr %41, i64 %36
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %36
   store i16 0, ptr %42, align 2
   %exitcond.not = icmp eq i64 %25, %2
   br i1 %exitcond.not, label %.thread, label %24
@@ -5880,7 +5880,7 @@ define hidden noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..
   unreachable
 
 49:                                               ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h3d1115d926fac27bE.exit"
-  %50 = getelementptr inbounds nuw i16, ptr %22, i64 %46
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %46
   store i16 0, ptr %50, align 2
   %exitcond.not = icmp eq i64 %32, %2
   br i1 %exitcond.not, label %.thread, label %31
@@ -6787,7 +6787,7 @@ define hidden void @_ZN6brotli3enc19backward_references29StitchToPreviousBlockIn
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h293cc5c812a29533E.llvm.6642645476840219850.exit": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit.i"
   %40 = trunc i64 %17 to i32
   %41 = load ptr, ptr %0, align 8, !alias.scope !1000, !noalias !977, !nonnull !4, !align !33, !noundef !4
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %37
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %37
   store i32 %40, ptr %42, align 4, !noalias !1005
   %43 = add i64 %2, -2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1006)
@@ -6846,7 +6846,7 @@ define hidden void @_ZN6brotli3enc19backward_references29StitchToPreviousBlockIn
 
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h293cc5c812a29533E.llvm.6642645476840219850.exit6": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit.i4"
   %64 = trunc i64 %43 to i32
-  %65 = getelementptr inbounds nuw i32, ptr %41, i64 %61
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %61
   store i32 %64, ptr %65, align 4, !noalias !1031
   %66 = add i64 %2, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1032)
@@ -6905,7 +6905,7 @@ define hidden void @_ZN6brotli3enc19backward_references29StitchToPreviousBlockIn
 
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h293cc5c812a29533E.llvm.6642645476840219850.exit12": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit.i10"
   %87 = trunc i64 %66 to i32
-  %88 = getelementptr inbounds nuw i32, ptr %41, i64 %84
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %84
   store i32 %87, ptr %88, align 4, !noalias !1057
   br label %15
 }
@@ -6988,7 +6988,7 @@ define hidden void @_ZN6brotli3enc19backward_references29StitchToPreviousBlockIn
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h5e2d39ff09b118beE.llvm.6642645476840219850.exit": ; preds = %"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit.i"
   %40 = trunc i64 %17 to i32
   %41 = load ptr, ptr %0, align 8, !alias.scope !1084, !noalias !1061, !nonnull !4, !align !33, !noundef !4
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %37
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %37
   store i32 %40, ptr %42, align 4, !noalias !1089
   %43 = add i64 %2, -2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1090)
@@ -7047,7 +7047,7 @@ define hidden void @_ZN6brotli3enc19backward_references29StitchToPreviousBlockIn
 
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h5e2d39ff09b118beE.llvm.6642645476840219850.exit6": ; preds = %"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit.i4"
   %64 = trunc i64 %43 to i32
-  %65 = getelementptr inbounds nuw i32, ptr %41, i64 %61
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %61
   store i32 %64, ptr %65, align 4, !noalias !1115
   %66 = add i64 %2, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1116)
@@ -7106,7 +7106,7 @@ define hidden void @_ZN6brotli3enc19backward_references29StitchToPreviousBlockIn
 
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h5e2d39ff09b118beE.llvm.6642645476840219850.exit12": ; preds = %"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit.i10"
   %87 = trunc i64 %66 to i32
-  %88 = getelementptr inbounds nuw i32, ptr %41, i64 %84
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %84
   store i32 %87, ptr %88, align 4, !noalias !1141
   br label %15
 }
@@ -7189,7 +7189,7 @@ define hidden void @_ZN6brotli3enc19backward_references29StitchToPreviousBlockIn
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h452324f7c39b37b6E.llvm.6642645476840219850.exit": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit.i"
   %40 = trunc i64 %17 to i32
   %41 = load ptr, ptr %0, align 8, !alias.scope !1168, !noalias !1145, !nonnull !4, !align !33, !noundef !4
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %37
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %37
   store i32 %40, ptr %42, align 4, !noalias !1173
   %43 = add i64 %2, -2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1174)
@@ -7248,7 +7248,7 @@ define hidden void @_ZN6brotli3enc19backward_references29StitchToPreviousBlockIn
 
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h452324f7c39b37b6E.llvm.6642645476840219850.exit6": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit.i4"
   %64 = trunc i64 %43 to i32
-  %65 = getelementptr inbounds nuw i32, ptr %41, i64 %61
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %61
   store i32 %64, ptr %65, align 4, !noalias !1199
   %66 = add i64 %2, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1200)
@@ -7307,7 +7307,7 @@ define hidden void @_ZN6brotli3enc19backward_references29StitchToPreviousBlockIn
 
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h452324f7c39b37b6E.llvm.6642645476840219850.exit12": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit.i10"
   %87 = trunc i64 %66 to i32
-  %88 = getelementptr inbounds nuw i32, ptr %41, i64 %84
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %84
   store i32 %87, ptr %88, align 4, !noalias !1225
   br label %15
 }
@@ -7386,7 +7386,7 @@ define hidden void @_ZN6brotli3enc19backward_references29StitchToPreviousBlockIn
 
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hd9b78d0b58bdd867E.llvm.6642645476840219850.exit": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit.i"
   %37 = load ptr, ptr %0, align 8, !alias.scope !1252, !noalias !1229, !nonnull !4, !align !33, !noundef !4
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %32
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %32
   %39 = trunc i64 %17 to i32
   store i32 %39, ptr %38, align 4, !noalias !1257
   %40 = add i64 %2, -2
@@ -7442,7 +7442,7 @@ define hidden void @_ZN6brotli3enc19backward_references29StitchToPreviousBlockIn
   unreachable
 
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hd9b78d0b58bdd867E.llvm.6642645476840219850.exit6": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit.i4"
-  %58 = getelementptr inbounds nuw i32, ptr %37, i64 %55
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %55
   %59 = trunc i64 %40 to i32
   store i32 %59, ptr %58, align 4, !noalias !1283
   %60 = add i64 %2, -1
@@ -7498,7 +7498,7 @@ define hidden void @_ZN6brotli3enc19backward_references29StitchToPreviousBlockIn
   unreachable
 
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hd9b78d0b58bdd867E.llvm.6642645476840219850.exit12": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit.i10"
-  %78 = getelementptr inbounds nuw i32, ptr %37, i64 %75
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %75
   %79 = trunc i64 %60 to i32
   store i32 %79, ptr %78, align 4, !noalias !1309
   br label %15
@@ -7778,7 +7778,7 @@ default.unreachable5659:                          ; preds = %16
 
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hd9b78d0b58bdd867E.llvm.6642645476840219850.exit.i.i": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit.i.i.i"
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val94.i) ]
-  %186 = getelementptr inbounds nuw i32, ptr %.val94.i, i64 %183
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %.val94.i, i64 %183
   %187 = trunc i64 %168 to i32
   store i32 %187, ptr %186, align 4, !noalias !1360
   %exitcond.not.i.i = icmp eq i64 %166, 4
@@ -7851,7 +7851,7 @@ _ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h285f4ba4fa2d1cc8E
 
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hd9b78d0b58bdd867E.llvm.6642645476840219850.exit.i104.i": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit.i.i102.i"
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val94.i) ]
-  %212 = getelementptr inbounds nuw i32, ptr %.val94.i, i64 %209
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %.val94.i, i64 %209
   %213 = trunc i64 %194 to i32
   store i32 %213, ptr %212, align 4, !noalias !1389
   %exitcond.not.i105.i = icmp eq i64 %192, 4
@@ -8159,7 +8159,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i: ;
   br i1 %342, label %343, label %347, !prof !5
 
 343:                                              ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit46.i.i.i"
-  %344 = getelementptr inbounds nuw i32, ptr %.val96.i, i64 %332
+  %344 = getelementptr inbounds nuw [4 x i8], ptr %.val96.i, i64 %332
   %345 = trunc i64 %318 to i32
   store i32 %345, ptr %344, align 4, !noalias !1453
   %346 = icmp ugt i64 %.val97.i, %335
@@ -8170,7 +8170,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i: ;
   unreachable
 
 348:                                              ; preds = %343
-  %349 = getelementptr inbounds nuw i32, ptr %.val96.i, i64 %335
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %.val96.i, i64 %335
   %350 = add i32 %345, 1
   store i32 %350, ptr %349, align 4, !noalias !1453
   %351 = icmp ugt i64 %.val97.i, %338
@@ -8181,7 +8181,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i: ;
   unreachable
 
 353:                                              ; preds = %348
-  %354 = getelementptr inbounds nuw i32, ptr %.val96.i, i64 %338
+  %354 = getelementptr inbounds nuw [4 x i8], ptr %.val96.i, i64 %338
   %355 = add i32 %345, 2
   store i32 %355, ptr %354, align 4, !noalias !1453
   %356 = icmp ugt i64 %.val97.i, %341
@@ -8192,7 +8192,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i: ;
   unreachable
 
 358:                                              ; preds = %353
-  %359 = getelementptr inbounds nuw i32, ptr %.val96.i, i64 %341
+  %359 = getelementptr inbounds nuw [4 x i8], ptr %.val96.i, i64 %341
   %360 = add i32 %345, 3
   store i32 %360, ptr %359, align 4, !noalias !1453
   %exitcond.not.i.i.i = icmp eq i64 %315, %312
@@ -8263,7 +8263,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i: ;
 
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hd9b78d0b58bdd867E.llvm.6642645476840219850.exit.i112.i": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit.i.i111.i"
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val96.i) ]
-  %381 = getelementptr inbounds nuw i32, ptr %.val96.i, i64 %378
+  %381 = getelementptr inbounds nuw [4 x i8], ptr %.val96.i, i64 %378
   %382 = trunc i64 %.sroa.01.022.i.i to i32
   store i32 %382, ptr %381, align 4, !noalias !1479
   %exitcond.not.i113.i = icmp eq i64 %363, %spec.select92.i
@@ -8441,7 +8441,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17hf008dd397a10d318
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h293cc5c812a29533E.llvm.6642645476840219850.exit.i.i": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit.i.i.i"
   %461 = trunc i64 %440 to i32
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
-  %462 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %458
+  %462 = getelementptr inbounds nuw [4 x i8], ptr %.val.i, i64 %458
   store i32 %461, ptr %462, align 4, !noalias !1530
   %exitcond.not.i.i60 = icmp eq i64 %438, 4
   br i1 %exitcond.not.i.i60, label %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf2008cb4f58097c7E.exit.i, label %437
@@ -8517,7 +8517,7 @@ _ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf2008cb4f58097c7E
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h293cc5c812a29533E.llvm.6642645476840219850.exit.i104.i": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit.i.i102.i"
   %490 = trunc i64 %469 to i32
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
-  %491 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %487
+  %491 = getelementptr inbounds nuw [4 x i8], ptr %.val.i, i64 %487
   store i32 %490, ptr %491, align 4, !noalias !1559
   %exitcond.not.i105.i66 = icmp eq i64 %467, 4
   br i1 %exitcond.not.i105.i66, label %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h1c36e48314ea325aE.exit.i, label %466
@@ -8835,7 +8835,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i82:
   br i1 %624, label %625, label %629, !prof !5
 
 625:                                              ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit46.i.i.i"
-  %626 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %620
+  %626 = getelementptr inbounds nuw [4 x i8], ptr %.val.i, i64 %620
   %627 = trunc i64 %594 to i32
   store i32 %627, ptr %626, align 4, !noalias !1623
   %628 = icmp ult i64 %621, %.val93.i
@@ -8846,7 +8846,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i82:
   unreachable
 
 630:                                              ; preds = %625
-  %631 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %621
+  %631 = getelementptr inbounds nuw [4 x i8], ptr %.val.i, i64 %621
   %632 = add i32 %627, 1
   store i32 %632, ptr %631, align 4, !noalias !1623
   %633 = icmp ult i64 %622, %.val93.i
@@ -8857,7 +8857,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i82:
   unreachable
 
 635:                                              ; preds = %630
-  %636 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %622
+  %636 = getelementptr inbounds nuw [4 x i8], ptr %.val.i, i64 %622
   %637 = add i32 %627, 2
   store i32 %637, ptr %636, align 4, !noalias !1623
   %638 = icmp ult i64 %623, %.val93.i
@@ -8868,7 +8868,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i82:
   unreachable
 
 640:                                              ; preds = %635
-  %641 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %623
+  %641 = getelementptr inbounds nuw [4 x i8], ptr %.val.i, i64 %623
   %642 = add i32 %627, 3
   store i32 %642, ptr %641, align 4, !noalias !1623
   %exitcond.not.i.i.i97 = icmp eq i64 %591, %588
@@ -8943,7 +8943,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i82:
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h293cc5c812a29533E.llvm.6642645476840219850.exit.i112.i": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit.i.i111.i"
   %666 = trunc i64 %.sroa.01.022.i.i101 to i32
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
-  %667 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %663
+  %667 = getelementptr inbounds nuw [4 x i8], ptr %.val.i, i64 %663
   store i32 %666, ptr %667, align 4, !noalias !1649
   %exitcond.not.i113.i106 = icmp eq i64 %645, %spec.select92.i85
   br i1 %exitcond.not.i113.i106, label %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17h5fe411e456a552d2E.exit.i", label %.lr.ph.i.i100
@@ -9120,7 +9120,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h21486f25a8f7fe26
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h452324f7c39b37b6E.llvm.6642645476840219850.exit.i.i": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit.i.i.i"
   %748 = trunc i64 %727 to i32
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val94.i135) ]
-  %749 = getelementptr inbounds nuw i32, ptr %.val94.i135, i64 %745
+  %749 = getelementptr inbounds nuw [4 x i8], ptr %.val94.i135, i64 %745
   store i32 %748, ptr %749, align 4, !noalias !1700
   %exitcond.not.i.i142 = icmp eq i64 %725, 4
   br i1 %exitcond.not.i.i142, label %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h69e98b9b8d1784afE.exit.i, label %724
@@ -9196,7 +9196,7 @@ _ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h69e98b9b8d1784afE
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h452324f7c39b37b6E.llvm.6642645476840219850.exit.i104.i": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit.i.i102.i"
   %777 = trunc i64 %756 to i32
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val94.i135) ]
-  %778 = getelementptr inbounds nuw i32, ptr %.val94.i135, i64 %774
+  %778 = getelementptr inbounds nuw [4 x i8], ptr %.val94.i135, i64 %774
   store i32 %777, ptr %778, align 4, !noalias !1729
   %exitcond.not.i105.i148 = icmp eq i64 %754, 4
   br i1 %exitcond.not.i105.i148, label %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hf1b7e9de66f72937E.exit.i, label %753
@@ -9509,7 +9509,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i165
   br i1 %913, label %914, label %918, !prof !5
 
 914:                                              ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit46.i.i.i"
-  %915 = getelementptr inbounds nuw i32, ptr %.val96.i169, i64 %909
+  %915 = getelementptr inbounds nuw [4 x i8], ptr %.val96.i169, i64 %909
   %916 = trunc i64 %883 to i32
   store i32 %916, ptr %915, align 4, !noalias !1793
   %917 = icmp ult i64 %910, %.val97.i170
@@ -9520,7 +9520,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i165
   unreachable
 
 919:                                              ; preds = %914
-  %920 = getelementptr inbounds nuw i32, ptr %.val96.i169, i64 %910
+  %920 = getelementptr inbounds nuw [4 x i8], ptr %.val96.i169, i64 %910
   %921 = add i32 %916, 1
   store i32 %921, ptr %920, align 4, !noalias !1793
   %922 = icmp ult i64 %911, %.val97.i170
@@ -9531,7 +9531,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i165
   unreachable
 
 924:                                              ; preds = %919
-  %925 = getelementptr inbounds nuw i32, ptr %.val96.i169, i64 %911
+  %925 = getelementptr inbounds nuw [4 x i8], ptr %.val96.i169, i64 %911
   %926 = add i32 %916, 2
   store i32 %926, ptr %925, align 4, !noalias !1793
   %927 = icmp ult i64 %912, %.val97.i170
@@ -9542,7 +9542,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i165
   unreachable
 
 929:                                              ; preds = %924
-  %930 = getelementptr inbounds nuw i32, ptr %.val96.i169, i64 %912
+  %930 = getelementptr inbounds nuw [4 x i8], ptr %.val96.i169, i64 %912
   %931 = add i32 %916, 3
   store i32 %931, ptr %930, align 4, !noalias !1793
   %exitcond.not.i.i.i182 = icmp eq i64 %880, %877
@@ -9617,7 +9617,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i165
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h452324f7c39b37b6E.llvm.6642645476840219850.exit.i112.i": ; preds = %"_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit.i.i111.i"
   %955 = trunc i64 %.sroa.01.022.i.i186 to i32
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val96.i169) ]
-  %956 = getelementptr inbounds nuw i32, ptr %.val96.i169, i64 %952
+  %956 = getelementptr inbounds nuw [4 x i8], ptr %.val96.i169, i64 %952
   store i32 %955, ptr %956, align 4, !noalias !1819
   %exitcond.not.i113.i191 = icmp eq i64 %934, %spec.select92.i168
   br i1 %exitcond.not.i113.i191, label %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17haac241951d639dc9E.exit.i", label %.lr.ph.i.i185
@@ -9794,7 +9794,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h69c4cc4c30a475c2
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h5e2d39ff09b118beE.llvm.6642645476840219850.exit.i.i": ; preds = %"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit.i.i.i"
   %1035 = trunc i64 %1014 to i32
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i202) ]
-  %1036 = getelementptr inbounds nuw i32, ptr %.val.i202, i64 %1032
+  %1036 = getelementptr inbounds nuw [4 x i8], ptr %.val.i202, i64 %1032
   store i32 %1035, ptr %1036, align 4, !noalias !1870
   %exitcond.not.i.i227 = icmp eq i64 %1012, 4
   br i1 %exitcond.not.i.i227, label %_ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf7bb7a86ac24e1c3E.exit.i, label %1011
@@ -9870,7 +9870,7 @@ _ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417hf7bb7a86ac24e1c3E
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h5e2d39ff09b118beE.llvm.6642645476840219850.exit.i104.i": ; preds = %"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit.i.i102.i"
   %1064 = trunc i64 %1043 to i32
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i202) ]
-  %1065 = getelementptr inbounds nuw i32, ptr %.val.i202, i64 %1061
+  %1065 = getelementptr inbounds nuw [4 x i8], ptr %.val.i202, i64 %1061
   store i32 %1064, ptr %1065, align 4, !noalias !1899
   %exitcond.not.i105.i233 = icmp eq i64 %1041, 4
   br i1 %exitcond.not.i105.i233, label %_ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hdfa2548dfa6fdfc2E.exit.i, label %1040
@@ -10188,7 +10188,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i252
   br i1 %1198, label %1199, label %1203, !prof !5
 
 1199:                                             ; preds = %"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit46.i.i.i"
-  %1200 = getelementptr inbounds nuw i32, ptr %.val.i202, i64 %1194
+  %1200 = getelementptr inbounds nuw [4 x i8], ptr %.val.i202, i64 %1194
   %1201 = trunc i64 %1168 to i32
   store i32 %1201, ptr %1200, align 4, !noalias !1963
   %1202 = icmp ult i64 %1195, %.val93.i203
@@ -10199,7 +10199,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i252
   unreachable
 
 1204:                                             ; preds = %1199
-  %1205 = getelementptr inbounds nuw i32, ptr %.val.i202, i64 %1195
+  %1205 = getelementptr inbounds nuw [4 x i8], ptr %.val.i202, i64 %1195
   %1206 = add i32 %1201, 1
   store i32 %1206, ptr %1205, align 4, !noalias !1963
   %1207 = icmp ult i64 %1196, %.val93.i203
@@ -10210,7 +10210,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i252
   unreachable
 
 1209:                                             ; preds = %1204
-  %1210 = getelementptr inbounds nuw i32, ptr %.val.i202, i64 %1196
+  %1210 = getelementptr inbounds nuw [4 x i8], ptr %.val.i202, i64 %1196
   %1211 = add i32 %1201, 2
   store i32 %1211, ptr %1210, align 4, !noalias !1963
   %1212 = icmp ult i64 %1197, %.val93.i203
@@ -10221,7 +10221,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i252
   unreachable
 
 1214:                                             ; preds = %1209
-  %1215 = getelementptr inbounds nuw i32, ptr %.val.i202, i64 %1197
+  %1215 = getelementptr inbounds nuw [4 x i8], ptr %.val.i202, i64 %1197
   %1216 = add i32 %1201, 3
   store i32 %1216, ptr %1215, align 4, !noalias !1963
   %exitcond.not.i.i.i267 = icmp eq i64 %1165, %1162
@@ -10296,7 +10296,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i252
 "_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h5e2d39ff09b118beE.llvm.6642645476840219850.exit.i112.i": ; preds = %"_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit.i.i111.i"
   %1240 = trunc i64 %.sroa.01.022.i.i271 to i32
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i202) ]
-  %1241 = getelementptr inbounds nuw i32, ptr %.val.i202, i64 %1237
+  %1241 = getelementptr inbounds nuw [4 x i8], ptr %.val.i202, i64 %1237
   store i32 %1240, ptr %1241, align 4, !noalias !1989
   %exitcond.not.i113.i276 = icmp eq i64 %1219, %spec.select92.i255
   br i1 %exitcond.not.i113.i276, label %"_ZN118_$LT$brotli..enc..backward_references..BasicHasher$LT$T$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10StoreRange17hc123bdbb2a18a310E.exit.i", label %.lr.ph.i.i270
@@ -10583,7 +10583,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   unreachable
 
 1418:                                             ; preds = %1388
-  %1419 = getelementptr inbounds nuw i16, ptr %1309, i64 %1399
+  %1419 = getelementptr inbounds nuw [2 x i8], ptr %1309, i64 %1399
   %1420 = load i16, ptr %1419, align 2, !noalias !2028, !noundef !4
   %1421 = zext i16 %1420 to i32
   %1422 = add i16 %1420, 1
@@ -10598,7 +10598,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   unreachable
 
 1426:                                             ; preds = %1418
-  %1427 = getelementptr inbounds nuw i16, ptr %1309, i64 %1403
+  %1427 = getelementptr inbounds nuw [2 x i8], ptr %1309, i64 %1403
   %1428 = load i16, ptr %1427, align 2, !noalias !2028, !noundef !4
   %1429 = zext i16 %1428 to i32
   %1430 = add i16 %1428, 1
@@ -10612,7 +10612,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   unreachable
 
 1434:                                             ; preds = %1426
-  %1435 = getelementptr inbounds nuw i16, ptr %1309, i64 %1407
+  %1435 = getelementptr inbounds nuw [2 x i8], ptr %1309, i64 %1407
   %1436 = load i16, ptr %1435, align 2, !noalias !2028, !noundef !4
   %1437 = add i16 %1436, 1
   store i16 %1437, ptr %1435, align 2, !noalias !2028
@@ -10626,7 +10626,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
 1440:                                             ; preds = %1434
   %1441 = zext i16 %1436 to i32
   %1442 = and i32 %.val55.i.i, %1441
-  %1443 = getelementptr inbounds nuw i16, ptr %1309, i64 %1415
+  %1443 = getelementptr inbounds nuw [2 x i8], ptr %1309, i64 %1415
   %1444 = load i16, ptr %1443, align 2, !noalias !2028, !noundef !4
   %1445 = zext i16 %1444 to i32
   %1446 = add i16 %1444, 1
@@ -10655,7 +10655,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   unreachable
 
 1464:                                             ; preds = %1440
-  %1465 = getelementptr inbounds i32, ptr %1311, i64 %1452
+  %1465 = getelementptr inbounds [4 x i8], ptr %1311, i64 %1452
   %1466 = trunc i64 %1295 to i32
   store i32 %1466, ptr %1465, align 4, !noalias !2028
   %1467 = icmp ult i64 %1455, %1312
@@ -10666,7 +10666,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   unreachable
 
 1469:                                             ; preds = %1464
-  %1470 = getelementptr inbounds i32, ptr %1311, i64 %1455
+  %1470 = getelementptr inbounds [4 x i8], ptr %1311, i64 %1455
   %1471 = add i32 %1466, 2
   store i32 %1471, ptr %1470, align 4, !noalias !2028
   %1472 = icmp ult i64 %1458, %1312
@@ -10677,7 +10677,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   unreachable
 
 1474:                                             ; preds = %1469
-  %1475 = getelementptr inbounds i32, ptr %1311, i64 %1458
+  %1475 = getelementptr inbounds [4 x i8], ptr %1311, i64 %1458
   %1476 = add i32 %1466, 4
   store i32 %1476, ptr %1475, align 4, !noalias !2028
   %1477 = icmp ult i64 %1461, %1312
@@ -10692,7 +10692,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   unreachable
 
 "_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h58ca70a2bae08ba6E.exit.i": ; preds = %1474
-  %1480 = getelementptr inbounds i32, ptr %1311, i64 %1461
+  %1480 = getelementptr inbounds [4 x i8], ptr %1311, i64 %1461
   %1481 = add i32 %1466, 6
   store i32 %1481, ptr %1480, align 4, !noalias !2028
   %1482 = add i64 %.071992.i, 9
@@ -10939,7 +10939,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   unreachable
 
 1639:                                             ; preds = %1604
-  %1640 = getelementptr inbounds nuw i16, ptr %1485, i64 %1627
+  %1640 = getelementptr inbounds nuw [2 x i8], ptr %1485, i64 %1627
   %1641 = load i16, ptr %1640, align 2, !noalias !2047, !noundef !4
   %1642 = zext i16 %1641 to i32
   %1643 = add i16 %1641, 1
@@ -10954,7 +10954,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   unreachable
 
 1647:                                             ; preds = %1639
-  %1648 = getelementptr inbounds nuw i16, ptr %1485, i64 %1630
+  %1648 = getelementptr inbounds nuw [2 x i8], ptr %1485, i64 %1630
   %1649 = load i16, ptr %1648, align 2, !noalias !2047, !noundef !4
   %1650 = zext i16 %1649 to i32
   %1651 = add i16 %1649, 1
@@ -10968,7 +10968,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   unreachable
 
 1655:                                             ; preds = %1647
-  %1656 = getelementptr inbounds nuw i16, ptr %1485, i64 %1633
+  %1656 = getelementptr inbounds nuw [2 x i8], ptr %1485, i64 %1633
   %1657 = load i16, ptr %1656, align 2, !noalias !2047, !noundef !4
   %1658 = add i16 %1657, 1
   store i16 %1658, ptr %1656, align 2, !noalias !2047
@@ -10982,7 +10982,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
 1661:                                             ; preds = %1655
   %1662 = zext i16 %1657 to i32
   %1663 = and i32 %.val67.i.i, %1662
-  %1664 = getelementptr inbounds nuw i16, ptr %1485, i64 %1636
+  %1664 = getelementptr inbounds nuw [2 x i8], ptr %1485, i64 %1636
   %1665 = load i16, ptr %1664, align 2, !noalias !2047, !noundef !4
   %1666 = zext i16 %1665 to i32
   %1667 = add i16 %1665, 1
@@ -11011,7 +11011,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   unreachable
 
 1685:                                             ; preds = %1661
-  %1686 = getelementptr inbounds i32, ptr %1487, i64 %1673
+  %1686 = getelementptr inbounds [4 x i8], ptr %1487, i64 %1673
   %1687 = trunc i64 %1295 to i32
   store i32 %1687, ptr %1686, align 4, !noalias !2047
   %1688 = icmp ult i64 %1676, %1488
@@ -11022,7 +11022,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   unreachable
 
 1690:                                             ; preds = %1685
-  %1691 = getelementptr inbounds i32, ptr %1487, i64 %1676
+  %1691 = getelementptr inbounds [4 x i8], ptr %1487, i64 %1676
   %1692 = add i32 %1687, 4
   store i32 %1692, ptr %1691, align 4, !noalias !2047
   %1693 = icmp ult i64 %1679, %1488
@@ -11033,7 +11033,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   unreachable
 
 1695:                                             ; preds = %1690
-  %1696 = getelementptr inbounds i32, ptr %1487, i64 %1679
+  %1696 = getelementptr inbounds [4 x i8], ptr %1487, i64 %1679
   %1697 = trunc i64 %1554 to i32
   store i32 %1697, ptr %1696, align 4, !noalias !2047
   %1698 = icmp ult i64 %1682, %1488
@@ -11048,7 +11048,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   unreachable
 
 "_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf184b5f93e12b7f5E.exit.i": ; preds = %1695
-  %1701 = getelementptr inbounds i32, ptr %1487, i64 %1682
+  %1701 = getelementptr inbounds [4 x i8], ptr %1487, i64 %1682
   %1702 = add i32 %1687, 12
   store i32 %1702, ptr %1701, align 4, !noalias !2047
   %1703 = add i64 %.071992.i, 17
@@ -11462,7 +11462,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i318
   unreachable
 
 1905:                                             ; preds = %1854
-  %1906 = getelementptr inbounds nuw i16, ptr %1801, i64 %1890
+  %1906 = getelementptr inbounds nuw [2 x i8], ptr %1801, i64 %1890
   %1907 = load i16, ptr %1906, align 2, !noalias !2082, !noundef !4
   %1908 = zext i16 %1907 to i32
   %1909 = add i16 %1907, 1
@@ -11476,7 +11476,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i318
   unreachable
 
 1913:                                             ; preds = %1905
-  %1914 = getelementptr inbounds nuw i16, ptr %1801, i64 %1894
+  %1914 = getelementptr inbounds nuw [2 x i8], ptr %1801, i64 %1894
   %1915 = load i16, ptr %1914, align 2, !noalias !2082, !noundef !4
   %1916 = zext i16 %1915 to i32
   %1917 = add i16 %1915, 1
@@ -11490,7 +11490,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i318
   unreachable
 
 1921:                                             ; preds = %1913
-  %1922 = getelementptr inbounds nuw i16, ptr %1801, i64 %1898
+  %1922 = getelementptr inbounds nuw [2 x i8], ptr %1801, i64 %1898
   %1923 = load i16, ptr %1922, align 2, !noalias !2082, !noundef !4
   %1924 = add i16 %1923, 1
   store i16 %1924, ptr %1922, align 2, !noalias !2082
@@ -11504,7 +11504,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i318
 1927:                                             ; preds = %1921
   %1928 = zext i16 %1923 to i32
   %1929 = and i32 %.val53.i.i.i, %1928
-  %1930 = getelementptr inbounds nuw i16, ptr %1801, i64 %1902
+  %1930 = getelementptr inbounds nuw [2 x i8], ptr %1801, i64 %1902
   %1931 = load i16, ptr %1930, align 2, !noalias !2082, !noundef !4
   %1932 = zext i16 %1931 to i32
   %1933 = add i16 %1931, 1
@@ -11530,7 +11530,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i318
   unreachable
 
 1949:                                             ; preds = %1927
-  %1950 = getelementptr inbounds nuw i32, ptr %1803, i64 %1937
+  %1950 = getelementptr inbounds nuw [4 x i8], ptr %1803, i64 %1937
   %1951 = trunc i64 %1828 to i32
   store i32 %1951, ptr %1950, align 4, !noalias !2082
   %1952 = icmp ult i64 %1940, %1804
@@ -11541,7 +11541,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i318
   unreachable
 
 1954:                                             ; preds = %1949
-  %1955 = getelementptr inbounds nuw i32, ptr %1803, i64 %1940
+  %1955 = getelementptr inbounds nuw [4 x i8], ptr %1803, i64 %1940
   %1956 = trunc i64 %1831 to i32
   store i32 %1956, ptr %1955, align 4, !noalias !2082
   %1957 = icmp ult i64 %1943, %1804
@@ -11552,7 +11552,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i318
   unreachable
 
 1959:                                             ; preds = %1954
-  %1960 = getelementptr inbounds nuw i32, ptr %1803, i64 %1943
+  %1960 = getelementptr inbounds nuw [4 x i8], ptr %1803, i64 %1943
   %1961 = trunc i64 %1835 to i32
   store i32 %1961, ptr %1960, align 4, !noalias !2082
   %1962 = icmp ult i64 %1946, %1804
@@ -11563,7 +11563,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i318
   unreachable
 
 1964:                                             ; preds = %1959
-  %1965 = getelementptr inbounds nuw i32, ptr %1803, i64 %1946
+  %1965 = getelementptr inbounds nuw [4 x i8], ptr %1803, i64 %1946
   %1966 = trunc i64 %1839 to i32
   store i32 %1966, ptr %1965, align 4, !noalias !2082
   %exitcond.not.i.i.i323 = icmp eq i64 %1825, %1816
@@ -11616,7 +11616,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i318
 1985:                                             ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h84aaafaec353abe6E.llvm.6642645476840219850.exit.i.i"
   %.val.i.i = load ptr, ptr %1250, align 8, !alias.scope !2105, !noalias !2106, !nonnull !4, !align !43, !noundef !4
   %1986 = trunc i64 %1982 to i32
-  %1987 = getelementptr inbounds nuw i16, ptr %.val.i.i, i64 %1983
+  %1987 = getelementptr inbounds nuw [2 x i8], ptr %.val.i.i, i64 %1983
   %1988 = load i16, ptr %1987, align 2, !noalias !2061, !noundef !4
   %1989 = zext i16 %1988 to i32
   %.val6.i.i = load i32, ptr %1279, align 8, !alias.scope !2105, !noalias !2106, !noundef !4
@@ -11637,7 +11637,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i318
 
 1999:                                             ; preds = %1985
   %2000 = load ptr, ptr %1277, align 8, !alias.scope !2107, !noalias !2106, !nonnull !4, !align !33, !noundef !4
-  %2001 = getelementptr inbounds nuw i32, ptr %2000, i64 %1995
+  %2001 = getelementptr inbounds nuw [4 x i8], ptr %2000, i64 %1995
   %2002 = trunc i64 %.sroa.01.0152.i.i to i32
   store i32 %2002, ptr %2001, align 4, !noalias !2061
   %2003 = load i64, ptr %1276, align 8, !alias.scope !2110, !noalias !2106, !noundef !4
@@ -11654,7 +11654,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i318
 
 "_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h61a2c999bf3155f0E.llvm.6642645476840219850.exit.i": ; preds = %1999
   %2007 = load ptr, ptr %1250, align 8, !alias.scope !2110, !noalias !2106, !nonnull !4, !align !43, !noundef !4
-  %2008 = getelementptr inbounds nuw i16, ptr %2007, i64 %1983
+  %2008 = getelementptr inbounds nuw [2 x i8], ptr %2007, i64 %1983
   %2009 = load i16, ptr %2008, align 2, !noalias !2061, !noundef !4
   %2010 = add i16 %2009, 1
   store i16 %2010, ptr %2008, align 2, !noalias !2061
@@ -11941,7 +11941,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   unreachable
 
 2182:                                             ; preds = %2154
-  %2183 = getelementptr inbounds nuw i16, ptr %2075, i64 %2163
+  %2183 = getelementptr inbounds nuw [2 x i8], ptr %2075, i64 %2163
   %2184 = load i16, ptr %2183, align 2, !noalias !2148, !noundef !4
   %2185 = add i16 %2184, 1
   store i16 %2185, ptr %2183, align 2, !noalias !2148
@@ -11954,7 +11954,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   unreachable
 
 2189:                                             ; preds = %2182
-  %2190 = getelementptr inbounds nuw i16, ptr %2075, i64 %2167
+  %2190 = getelementptr inbounds nuw [2 x i8], ptr %2075, i64 %2167
   %2191 = load i16, ptr %2190, align 2, !noalias !2148, !noundef !4
   %2192 = add i16 %2191, 1
   store i16 %2192, ptr %2190, align 2, !noalias !2148
@@ -11967,7 +11967,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   unreachable
 
 2196:                                             ; preds = %2189
-  %2197 = getelementptr inbounds nuw i16, ptr %2075, i64 %2171
+  %2197 = getelementptr inbounds nuw [2 x i8], ptr %2075, i64 %2171
   %2198 = load i16, ptr %2197, align 2, !noalias !2148, !noundef !4
   %2199 = add i16 %2198, 1
   store i16 %2199, ptr %2197, align 2, !noalias !2148
@@ -11980,7 +11980,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
 
 2202:                                             ; preds = %2196
   %2203 = and i16 %2198, 63
-  %2204 = getelementptr inbounds nuw i16, ptr %2075, i64 %2179
+  %2204 = getelementptr inbounds nuw [2 x i8], ptr %2075, i64 %2179
   %2205 = load i16, ptr %2204, align 2, !noalias !2148, !noundef !4
   %2206 = add i16 %2205, 1
   store i16 %2206, ptr %2204, align 2, !noalias !2148
@@ -12005,7 +12005,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   unreachable
 
 2222:                                             ; preds = %2202
-  %2223 = getelementptr inbounds nuw i32, ptr %2077, i64 %2210
+  %2223 = getelementptr inbounds nuw [4 x i8], ptr %2077, i64 %2210
   %2224 = trunc i64 %2062 to i32
   store i32 %2224, ptr %2223, align 4, !noalias !2148
   %2225 = icmp ult i64 %2213, %2078
@@ -12016,7 +12016,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   unreachable
 
 2227:                                             ; preds = %2222
-  %2228 = getelementptr inbounds nuw i32, ptr %2077, i64 %2213
+  %2228 = getelementptr inbounds nuw [4 x i8], ptr %2077, i64 %2213
   %2229 = add i32 %2224, 2
   store i32 %2229, ptr %2228, align 4, !noalias !2148
   %2230 = icmp ult i64 %2216, %2078
@@ -12027,7 +12027,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   unreachable
 
 2232:                                             ; preds = %2227
-  %2233 = getelementptr inbounds nuw i32, ptr %2077, i64 %2216
+  %2233 = getelementptr inbounds nuw [4 x i8], ptr %2077, i64 %2216
   %2234 = add i32 %2224, 4
   store i32 %2234, ptr %2233, align 4, !noalias !2148
   %2235 = icmp ult i64 %2219, %2078
@@ -12042,7 +12042,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   unreachable
 
 "_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h2a937a326a3d6dcaE.exit.i": ; preds = %2232
-  %2238 = getelementptr inbounds nuw i32, ptr %2077, i64 %2219
+  %2238 = getelementptr inbounds nuw [4 x i8], ptr %2077, i64 %2219
   %2239 = add i32 %2224, 6
   store i32 %2239, ptr %2238, align 4, !noalias !2148
   %2240 = add i64 %.071816.i, 9
@@ -12286,7 +12286,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   unreachable
 
 2394:                                             ; preds = %2361
-  %2395 = getelementptr inbounds nuw i16, ptr %2242, i64 %2382
+  %2395 = getelementptr inbounds nuw [2 x i8], ptr %2242, i64 %2382
   %2396 = load i16, ptr %2395, align 2, !noalias !2163, !noundef !4
   %2397 = add i16 %2396, 1
   store i16 %2397, ptr %2395, align 2, !noalias !2163
@@ -12299,7 +12299,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   unreachable
 
 2401:                                             ; preds = %2394
-  %2402 = getelementptr inbounds nuw i16, ptr %2242, i64 %2385
+  %2402 = getelementptr inbounds nuw [2 x i8], ptr %2242, i64 %2385
   %2403 = load i16, ptr %2402, align 2, !noalias !2163, !noundef !4
   %2404 = add i16 %2403, 1
   store i16 %2404, ptr %2402, align 2, !noalias !2163
@@ -12312,7 +12312,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   unreachable
 
 2408:                                             ; preds = %2401
-  %2409 = getelementptr inbounds nuw i16, ptr %2242, i64 %2388
+  %2409 = getelementptr inbounds nuw [2 x i8], ptr %2242, i64 %2388
   %2410 = load i16, ptr %2409, align 2, !noalias !2163, !noundef !4
   %2411 = add i16 %2410, 1
   store i16 %2411, ptr %2409, align 2, !noalias !2163
@@ -12325,7 +12325,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
 
 2414:                                             ; preds = %2408
   %2415 = and i16 %2410, 63
-  %2416 = getelementptr inbounds nuw i16, ptr %2242, i64 %2391
+  %2416 = getelementptr inbounds nuw [2 x i8], ptr %2242, i64 %2391
   %2417 = load i16, ptr %2416, align 2, !noalias !2163, !noundef !4
   %2418 = add i16 %2417, 1
   store i16 %2418, ptr %2416, align 2, !noalias !2163
@@ -12350,7 +12350,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   unreachable
 
 2434:                                             ; preds = %2414
-  %2435 = getelementptr inbounds nuw i32, ptr %2244, i64 %2422
+  %2435 = getelementptr inbounds nuw [4 x i8], ptr %2244, i64 %2422
   %2436 = trunc i64 %2062 to i32
   store i32 %2436, ptr %2435, align 4, !noalias !2163
   %2437 = icmp ult i64 %2425, %2245
@@ -12361,7 +12361,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   unreachable
 
 2439:                                             ; preds = %2434
-  %2440 = getelementptr inbounds nuw i32, ptr %2244, i64 %2425
+  %2440 = getelementptr inbounds nuw [4 x i8], ptr %2244, i64 %2425
   %2441 = add i32 %2436, 4
   store i32 %2441, ptr %2440, align 4, !noalias !2163
   %2442 = icmp ult i64 %2428, %2245
@@ -12372,7 +12372,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   unreachable
 
 2444:                                             ; preds = %2439
-  %2445 = getelementptr inbounds nuw i32, ptr %2244, i64 %2428
+  %2445 = getelementptr inbounds nuw [4 x i8], ptr %2244, i64 %2428
   %2446 = trunc i64 %2311 to i32
   store i32 %2446, ptr %2445, align 4, !noalias !2163
   %2447 = icmp ult i64 %2431, %2245
@@ -12387,7 +12387,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   unreachable
 
 "_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hfb3bf55e46905b39E.exit.i": ; preds = %2444
-  %2450 = getelementptr inbounds nuw i32, ptr %2244, i64 %2431
+  %2450 = getelementptr inbounds nuw [4 x i8], ptr %2244, i64 %2431
   %2451 = add i32 %2436, 12
   store i32 %2451, ptr %2450, align 4, !noalias !2163
   %2452 = add i64 %.071816.i, 17
@@ -12782,22 +12782,22 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i368
   %2640 = mul nuw nsw i64 %2639, 506832829
   %2641 = lshr i64 %2640, 17
   %2642 = and i64 %2641, 32767
-  %2643 = getelementptr inbounds nuw i16, ptr %2550, i64 %2630
+  %2643 = getelementptr inbounds nuw [2 x i8], ptr %2550, i64 %2630
   %2644 = load i16, ptr %2643, align 2, !noalias !2196, !noundef !4
   %2645 = add i16 %2644, 1
   store i16 %2645, ptr %2643, align 2, !noalias !2196
   %2646 = and i16 %2644, 63
-  %2647 = getelementptr inbounds nuw i16, ptr %2550, i64 %2634
+  %2647 = getelementptr inbounds nuw [2 x i8], ptr %2550, i64 %2634
   %2648 = load i16, ptr %2647, align 2, !noalias !2196, !noundef !4
   %2649 = add i16 %2648, 1
   store i16 %2649, ptr %2647, align 2, !noalias !2196
   %2650 = and i16 %2648, 63
-  %2651 = getelementptr inbounds nuw i16, ptr %2550, i64 %2638
+  %2651 = getelementptr inbounds nuw [2 x i8], ptr %2550, i64 %2638
   %2652 = load i16, ptr %2651, align 2, !noalias !2196, !noundef !4
   %2653 = add i16 %2652, 1
   store i16 %2653, ptr %2651, align 2, !noalias !2196
   %2654 = and i16 %2652, 63
-  %2655 = getelementptr inbounds nuw i16, ptr %2550, i64 %2642
+  %2655 = getelementptr inbounds nuw [2 x i8], ptr %2550, i64 %2642
   %2656 = load i16, ptr %2655, align 2, !noalias !2196, !noundef !4
   %2657 = add i16 %2656, 1
   store i16 %2657, ptr %2655, align 2, !noalias !2196
@@ -12808,22 +12808,22 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i368
   %2662 = zext nneg i16 %2646 to i64
   %.idx.i.i.i = shl nuw nsw i64 %2630, 8
   %2663 = getelementptr inbounds nuw i8, ptr %2552, i64 %.idx.i.i.i
-  %2664 = getelementptr inbounds nuw i32, ptr %2663, i64 %2662
+  %2664 = getelementptr inbounds nuw [4 x i8], ptr %2663, i64 %2662
   %2665 = trunc i64 %2567 to i32
   store i32 %2665, ptr %2664, align 4, !noalias !2196
   %.idx356.i.i.i = shl nuw nsw i64 %2634, 8
   %2666 = getelementptr inbounds nuw i8, ptr %2552, i64 %.idx356.i.i.i
-  %2667 = getelementptr inbounds nuw i32, ptr %2666, i64 %2659
+  %2667 = getelementptr inbounds nuw [4 x i8], ptr %2666, i64 %2659
   %2668 = trunc i64 %2570 to i32
   store i32 %2668, ptr %2667, align 4, !noalias !2196
   %.idx357.i.i.i = shl nuw nsw i64 %2638, 8
   %2669 = getelementptr inbounds nuw i8, ptr %2552, i64 %.idx357.i.i.i
-  %2670 = getelementptr inbounds nuw i32, ptr %2669, i64 %2660
+  %2670 = getelementptr inbounds nuw [4 x i8], ptr %2669, i64 %2660
   %2671 = trunc i64 %2574 to i32
   store i32 %2671, ptr %2670, align 4, !noalias !2196
   %.idx358.i.i.i = shl nuw nsw i64 %2642, 8
   %2672 = getelementptr inbounds nuw i8, ptr %2552, i64 %.idx358.i.i.i
-  %2673 = getelementptr inbounds nuw i32, ptr %2672, i64 %2661
+  %2673 = getelementptr inbounds nuw [4 x i8], ptr %2672, i64 %2661
   %2674 = trunc i64 %2578 to i32
   store i32 %2674, ptr %2673, align 4, !noalias !2196
   %exitcond.not.i.i.i374 = icmp eq i64 %2564, %2561
@@ -12894,7 +12894,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i368
   br i1 %2696, label %2697, label %2705, !prof !5
 
 2697:                                             ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17hfdb3b5f465ee5ca3E.exit.i.i"
-  %2698 = getelementptr inbounds nuw i16, ptr %.val.i.i378, i64 %2695
+  %2698 = getelementptr inbounds nuw [2 x i8], ptr %.val.i.i378, i64 %2695
   %2699 = load i16, ptr %2698, align 2, !noalias !2224, !noundef !4
   %2700 = and i16 %2699, 63
   %2701 = zext nneg i16 %2700 to i64
@@ -12912,7 +12912,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i368
   unreachable
 
 "_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hc3c52f1989495d36E.llvm.6642645476840219850.exit.i": ; preds = %2697
-  %2707 = getelementptr inbounds nuw i32, ptr %2677, i64 %2703
+  %2707 = getelementptr inbounds nuw [4 x i8], ptr %2677, i64 %2703
   %2708 = trunc i64 %.sroa.01.040.i.i to i32
   store i32 %2708, ptr %2707, align 4, !noalias !2224
   %2709 = load i16, ptr %2698, align 2, !noalias !2224, !noundef !4
@@ -13201,7 +13201,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   unreachable
 
 2882:                                             ; preds = %2854
-  %2883 = getelementptr inbounds nuw i16, ptr %2775, i64 %2863
+  %2883 = getelementptr inbounds nuw [2 x i8], ptr %2775, i64 %2863
   %2884 = load i16, ptr %2883, align 2, !noalias !2260, !noundef !4
   %2885 = add i16 %2884, 1
   store i16 %2885, ptr %2883, align 2, !noalias !2260
@@ -13214,7 +13214,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   unreachable
 
 2889:                                             ; preds = %2882
-  %2890 = getelementptr inbounds nuw i16, ptr %2775, i64 %2867
+  %2890 = getelementptr inbounds nuw [2 x i8], ptr %2775, i64 %2867
   %2891 = load i16, ptr %2890, align 2, !noalias !2260, !noundef !4
   %2892 = add i16 %2891, 1
   store i16 %2892, ptr %2890, align 2, !noalias !2260
@@ -13227,7 +13227,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   unreachable
 
 2896:                                             ; preds = %2889
-  %2897 = getelementptr inbounds nuw i16, ptr %2775, i64 %2871
+  %2897 = getelementptr inbounds nuw [2 x i8], ptr %2775, i64 %2871
   %2898 = load i16, ptr %2897, align 2, !noalias !2260, !noundef !4
   %2899 = add i16 %2898, 1
   store i16 %2899, ptr %2897, align 2, !noalias !2260
@@ -13240,7 +13240,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
 
 2902:                                             ; preds = %2896
   %2903 = and i16 %2898, 15
-  %2904 = getelementptr inbounds nuw i16, ptr %2775, i64 %2879
+  %2904 = getelementptr inbounds nuw [2 x i8], ptr %2775, i64 %2879
   %2905 = load i16, ptr %2904, align 2, !noalias !2260, !noundef !4
   %2906 = add i16 %2905, 1
   store i16 %2906, ptr %2904, align 2, !noalias !2260
@@ -13265,7 +13265,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   unreachable
 
 2922:                                             ; preds = %2902
-  %2923 = getelementptr inbounds nuw i32, ptr %2777, i64 %2910
+  %2923 = getelementptr inbounds nuw [4 x i8], ptr %2777, i64 %2910
   %2924 = trunc i64 %2762 to i32
   store i32 %2924, ptr %2923, align 4, !noalias !2260
   %2925 = icmp ult i64 %2913, %2778
@@ -13276,7 +13276,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   unreachable
 
 2927:                                             ; preds = %2922
-  %2928 = getelementptr inbounds nuw i32, ptr %2777, i64 %2913
+  %2928 = getelementptr inbounds nuw [4 x i8], ptr %2777, i64 %2913
   %2929 = add i32 %2924, 2
   store i32 %2929, ptr %2928, align 4, !noalias !2260
   %2930 = icmp ult i64 %2916, %2778
@@ -13287,7 +13287,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   unreachable
 
 2932:                                             ; preds = %2927
-  %2933 = getelementptr inbounds nuw i32, ptr %2777, i64 %2916
+  %2933 = getelementptr inbounds nuw [4 x i8], ptr %2777, i64 %2916
   %2934 = add i32 %2924, 4
   store i32 %2934, ptr %2933, align 4, !noalias !2260
   %2935 = icmp ult i64 %2919, %2778
@@ -13302,7 +13302,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   unreachable
 
 "_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$13StoreEvenVec417h0886c36ae4d7fc6cE.exit.i": ; preds = %2932
-  %2938 = getelementptr inbounds nuw i32, ptr %2777, i64 %2919
+  %2938 = getelementptr inbounds nuw [4 x i8], ptr %2777, i64 %2919
   %2939 = add i32 %2924, 6
   store i32 %2939, ptr %2938, align 4, !noalias !2260
   %2940 = add i64 %.071816.i403, 9
@@ -13546,7 +13546,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   unreachable
 
 3094:                                             ; preds = %3061
-  %3095 = getelementptr inbounds nuw i16, ptr %2942, i64 %3082
+  %3095 = getelementptr inbounds nuw [2 x i8], ptr %2942, i64 %3082
   %3096 = load i16, ptr %3095, align 2, !noalias !2275, !noundef !4
   %3097 = add i16 %3096, 1
   store i16 %3097, ptr %3095, align 2, !noalias !2275
@@ -13559,7 +13559,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   unreachable
 
 3101:                                             ; preds = %3094
-  %3102 = getelementptr inbounds nuw i16, ptr %2942, i64 %3085
+  %3102 = getelementptr inbounds nuw [2 x i8], ptr %2942, i64 %3085
   %3103 = load i16, ptr %3102, align 2, !noalias !2275, !noundef !4
   %3104 = add i16 %3103, 1
   store i16 %3104, ptr %3102, align 2, !noalias !2275
@@ -13572,7 +13572,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   unreachable
 
 3108:                                             ; preds = %3101
-  %3109 = getelementptr inbounds nuw i16, ptr %2942, i64 %3088
+  %3109 = getelementptr inbounds nuw [2 x i8], ptr %2942, i64 %3088
   %3110 = load i16, ptr %3109, align 2, !noalias !2275, !noundef !4
   %3111 = add i16 %3110, 1
   store i16 %3111, ptr %3109, align 2, !noalias !2275
@@ -13585,7 +13585,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
 
 3114:                                             ; preds = %3108
   %3115 = and i16 %3110, 15
-  %3116 = getelementptr inbounds nuw i16, ptr %2942, i64 %3091
+  %3116 = getelementptr inbounds nuw [2 x i8], ptr %2942, i64 %3091
   %3117 = load i16, ptr %3116, align 2, !noalias !2275, !noundef !4
   %3118 = add i16 %3117, 1
   store i16 %3118, ptr %3116, align 2, !noalias !2275
@@ -13610,7 +13610,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   unreachable
 
 3134:                                             ; preds = %3114
-  %3135 = getelementptr inbounds nuw i32, ptr %2944, i64 %3122
+  %3135 = getelementptr inbounds nuw [4 x i8], ptr %2944, i64 %3122
   %3136 = trunc i64 %2762 to i32
   store i32 %3136, ptr %3135, align 4, !noalias !2275
   %3137 = icmp ult i64 %3125, %2945
@@ -13621,7 +13621,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   unreachable
 
 3139:                                             ; preds = %3134
-  %3140 = getelementptr inbounds nuw i32, ptr %2944, i64 %3125
+  %3140 = getelementptr inbounds nuw [4 x i8], ptr %2944, i64 %3125
   %3141 = add i32 %3136, 4
   store i32 %3141, ptr %3140, align 4, !noalias !2275
   %3142 = icmp ult i64 %3128, %2945
@@ -13632,7 +13632,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   unreachable
 
 3144:                                             ; preds = %3139
-  %3145 = getelementptr inbounds nuw i32, ptr %2944, i64 %3128
+  %3145 = getelementptr inbounds nuw [4 x i8], ptr %2944, i64 %3128
   %3146 = trunc i64 %3011 to i32
   store i32 %3146, ptr %3145, align 4, !noalias !2275
   %3147 = icmp ult i64 %3131, %2945
@@ -13647,7 +13647,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   unreachable
 
 "_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$10Store4Vec417hf1a9192e32021c36E.exit.i": ; preds = %3144
-  %3150 = getelementptr inbounds nuw i32, ptr %2944, i64 %3131
+  %3150 = getelementptr inbounds nuw [4 x i8], ptr %2944, i64 %3131
   %3151 = add i32 %3136, 12
   store i32 %3151, ptr %3150, align 4, !noalias !2275
   %3152 = add i64 %.071816.i403, 17
@@ -14042,22 +14042,22 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i430
   %3340 = mul nuw nsw i64 %3339, 506832829
   %3341 = lshr i64 %3340, 18
   %3342 = and i64 %3341, 16383
-  %3343 = getelementptr inbounds nuw i16, ptr %3250, i64 %3330
+  %3343 = getelementptr inbounds nuw [2 x i8], ptr %3250, i64 %3330
   %3344 = load i16, ptr %3343, align 2, !noalias !2308, !noundef !4
   %3345 = add i16 %3344, 1
   store i16 %3345, ptr %3343, align 2, !noalias !2308
   %3346 = and i16 %3344, 15
-  %3347 = getelementptr inbounds nuw i16, ptr %3250, i64 %3334
+  %3347 = getelementptr inbounds nuw [2 x i8], ptr %3250, i64 %3334
   %3348 = load i16, ptr %3347, align 2, !noalias !2308, !noundef !4
   %3349 = add i16 %3348, 1
   store i16 %3349, ptr %3347, align 2, !noalias !2308
   %3350 = and i16 %3348, 15
-  %3351 = getelementptr inbounds nuw i16, ptr %3250, i64 %3338
+  %3351 = getelementptr inbounds nuw [2 x i8], ptr %3250, i64 %3338
   %3352 = load i16, ptr %3351, align 2, !noalias !2308, !noundef !4
   %3353 = add i16 %3352, 1
   store i16 %3353, ptr %3351, align 2, !noalias !2308
   %3354 = and i16 %3352, 15
-  %3355 = getelementptr inbounds nuw i16, ptr %3250, i64 %3342
+  %3355 = getelementptr inbounds nuw [2 x i8], ptr %3250, i64 %3342
   %3356 = load i16, ptr %3355, align 2, !noalias !2308, !noundef !4
   %3357 = add i16 %3356, 1
   store i16 %3357, ptr %3355, align 2, !noalias !2308
@@ -14068,22 +14068,22 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i430
   %3362 = zext nneg i16 %3346 to i64
   %.idx.i.i.i438 = shl nuw nsw i64 %3330, 6
   %3363 = getelementptr inbounds nuw i8, ptr %3252, i64 %.idx.i.i.i438
-  %3364 = getelementptr inbounds nuw i32, ptr %3363, i64 %3362
+  %3364 = getelementptr inbounds nuw [4 x i8], ptr %3363, i64 %3362
   %3365 = trunc i64 %3267 to i32
   store i32 %3365, ptr %3364, align 4, !noalias !2308
   %.idx356.i.i.i439 = shl nuw nsw i64 %3334, 6
   %3366 = getelementptr inbounds nuw i8, ptr %3252, i64 %.idx356.i.i.i439
-  %3367 = getelementptr inbounds nuw i32, ptr %3366, i64 %3359
+  %3367 = getelementptr inbounds nuw [4 x i8], ptr %3366, i64 %3359
   %3368 = trunc i64 %3270 to i32
   store i32 %3368, ptr %3367, align 4, !noalias !2308
   %.idx357.i.i.i440 = shl nuw nsw i64 %3338, 6
   %3369 = getelementptr inbounds nuw i8, ptr %3252, i64 %.idx357.i.i.i440
-  %3370 = getelementptr inbounds nuw i32, ptr %3369, i64 %3360
+  %3370 = getelementptr inbounds nuw [4 x i8], ptr %3369, i64 %3360
   %3371 = trunc i64 %3274 to i32
   store i32 %3371, ptr %3370, align 4, !noalias !2308
   %.idx358.i.i.i441 = shl nuw nsw i64 %3342, 6
   %3372 = getelementptr inbounds nuw i8, ptr %3252, i64 %.idx358.i.i.i441
-  %3373 = getelementptr inbounds nuw i32, ptr %3372, i64 %3361
+  %3373 = getelementptr inbounds nuw [4 x i8], ptr %3372, i64 %3361
   %3374 = trunc i64 %3278 to i32
   store i32 %3374, ptr %3373, align 4, !noalias !2308
   %exitcond.not.i.i.i442 = icmp eq i64 %3264, %3261
@@ -14154,7 +14154,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i430
   br i1 %3396, label %3397, label %3405, !prof !5
 
 3397:                                             ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h20f6dfb8c76d8cb3E.exit.i.i"
-  %3398 = getelementptr inbounds nuw i16, ptr %.val.i.i447, i64 %3395
+  %3398 = getelementptr inbounds nuw [2 x i8], ptr %.val.i.i447, i64 %3395
   %3399 = load i16, ptr %3398, align 2, !noalias !2336, !noundef !4
   %3400 = and i16 %3399, 15
   %3401 = zext nneg i16 %3400 to i64
@@ -14172,7 +14172,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i430
   unreachable
 
 "_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h05739ace4fbac820E.llvm.6642645476840219850.exit.i": ; preds = %3397
-  %3407 = getelementptr inbounds nuw i32, ptr %3377, i64 %3403
+  %3407 = getelementptr inbounds nuw [4 x i8], ptr %3377, i64 %3403
   %3408 = trunc i64 %.sroa.01.040.i.i449 to i32
   store i32 %3408, ptr %3407, align 4, !noalias !2336
   %3409 = load i16, ptr %3398, align 2, !noalias !2336, !noundef !4
@@ -14366,7 +14366,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h6a6a90d8d16354c7
 
 3502:                                             ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h3d1115d926fac27bE.exit.i.i"
   %3503 = trunc i64 %3499 to i32
-  %3504 = getelementptr inbounds nuw i16, ptr %.val.i104.i, i64 %3500
+  %3504 = getelementptr inbounds nuw [2 x i8], ptr %.val.i104.i, i64 %3500
   %3505 = load i16, ptr %3504, align 2, !noalias !2387, !noundef !4
   %3506 = zext i16 %3505 to i32
   %3507 = and i32 %3474, %3506
@@ -14386,7 +14386,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h6a6a90d8d16354c7
   unreachable
 
 "_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h24746c885ef838e6E.llvm.6642645476840219850.exit.i": ; preds = %3502
-  %3515 = getelementptr inbounds nuw i32, ptr %3477, i64 %3511
+  %3515 = getelementptr inbounds nuw [4 x i8], ptr %3477, i64 %3511
   %3516 = trunc i64 %3483 to i32
   store i32 %3516, ptr %3515, align 4, !noalias !2387
   %3517 = load i16, ptr %3504, align 2, !noalias !2387, !noundef !4
@@ -14456,7 +14456,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h6a6a90d8d16354c7
 
 3542:                                             ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h3d1115d926fac27bE.exit.i101.i"
   %3543 = trunc i64 %3539 to i32
-  %3544 = getelementptr inbounds nuw i16, ptr %.val.i104.i, i64 %3540
+  %3544 = getelementptr inbounds nuw [2 x i8], ptr %.val.i104.i, i64 %3540
   %3545 = load i16, ptr %3544, align 2, !noalias !2415, !noundef !4
   %3546 = zext i16 %3545 to i32
   %3547 = and i32 %3474, %3546
@@ -14476,7 +14476,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h6a6a90d8d16354c7
   unreachable
 
 "_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h24746c885ef838e6E.llvm.6642645476840219850.exit106.i": ; preds = %3542
-  %3555 = getelementptr inbounds nuw i32, ptr %3477, i64 %3551
+  %3555 = getelementptr inbounds nuw [4 x i8], ptr %3477, i64 %3551
   %3556 = trunc i64 %3523 to i32
   store i32 %3556, ptr %3555, align 4, !noalias !2415
   %3557 = load i16, ptr %3544, align 2, !noalias !2415, !noundef !4
@@ -14778,7 +14778,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i500
 
 3680:                                             ; preds = %"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h3d1115d926fac27bE.exit.i112.i"
   %3681 = trunc i64 %3677 to i32
-  %3682 = getelementptr inbounds nuw i16, ptr %.val.i115.i, i64 %3678
+  %3682 = getelementptr inbounds nuw [2 x i8], ptr %.val.i115.i, i64 %3678
   %3683 = load i16, ptr %3682, align 2, !noalias !2455, !noundef !4
   %3684 = zext i16 %3683 to i32
   %3685 = and i32 %3657, %3684
@@ -14798,7 +14798,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i500
   unreachable
 
 "_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17h24746c885ef838e6E.llvm.6642645476840219850.exit117.i": ; preds = %3680
-  %3693 = getelementptr inbounds nuw i32, ptr %3660, i64 %3689
+  %3693 = getelementptr inbounds nuw [4 x i8], ptr %3660, i64 %3689
   %3694 = trunc i64 %.sroa.01.06.i.i to i32
   store i32 %3694, ptr %3693, align 4, !noalias !2455
   %3695 = load i16, ptr %3682, align 2, !noalias !2455, !noundef !4
@@ -14978,7 +14978,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17hc6b333d496a11798
   br i1 %3779, label %3780, label %3788, !prof !5
 
 3780:                                             ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit.i.i"
-  %3781 = getelementptr inbounds nuw i16, ptr %3753, i64 %3778
+  %3781 = getelementptr inbounds nuw [2 x i8], ptr %3753, i64 %3778
   %3782 = load i16, ptr %3781, align 2, !noalias !2501, !noundef !4
   %3783 = and i16 %3782, 255
   %3784 = zext nneg i16 %3783 to i64
@@ -14996,7 +14996,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17hc6b333d496a11798
   unreachable
 
 "_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hc56d7706e5ed2b55E.llvm.6642645476840219850.exit.i": ; preds = %3780
-  %3790 = getelementptr inbounds nuw i32, ptr %3755, i64 %3786
+  %3790 = getelementptr inbounds nuw [4 x i8], ptr %3755, i64 %3786
   %3791 = trunc i64 %3761 to i32
   store i32 %3791, ptr %3790, align 4, !noalias !2501
   %3792 = load i16, ptr %3781, align 2, !noalias !2501, !noundef !4
@@ -15064,7 +15064,7 @@ _ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h5b0cf5f397f1d65aE
   br i1 %3816, label %3817, label %3825, !prof !5
 
 3817:                                             ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit.i99.i"
-  %3818 = getelementptr inbounds nuw i16, ptr %3753, i64 %3815
+  %3818 = getelementptr inbounds nuw [2 x i8], ptr %3753, i64 %3815
   %3819 = load i16, ptr %3818, align 2, !noalias !2524, !noundef !4
   %3820 = and i16 %3819, 255
   %3821 = zext nneg i16 %3820 to i64
@@ -15082,7 +15082,7 @@ _ZN6brotli3enc19backward_references9AnyHasher13StoreEvenVec417h5b0cf5f397f1d65aE
   unreachable
 
 "_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hc56d7706e5ed2b55E.llvm.6642645476840219850.exit101.i": ; preds = %3817
-  %3827 = getelementptr inbounds nuw i32, ptr %3755, i64 %3823
+  %3827 = getelementptr inbounds nuw [4 x i8], ptr %3755, i64 %3823
   %3828 = trunc i64 %3798 to i32
   store i32 %3828, ptr %3827, align 4, !noalias !2524
   %3829 = load i16, ptr %3818, align 2, !noalias !2524, !noundef !4
@@ -15374,7 +15374,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i554
   br i1 %3949, label %3950, label %3958, !prof !5
 
 3950:                                             ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2c304cd278eb72ebE.exit.i105.i"
-  %3951 = getelementptr inbounds nuw i16, ptr %3928, i64 %3948
+  %3951 = getelementptr inbounds nuw [2 x i8], ptr %3928, i64 %3948
   %3952 = load i16, ptr %3951, align 2, !noalias !2559, !noundef !4
   %3953 = and i16 %3952, 255
   %3954 = zext nneg i16 %3953 to i64
@@ -15392,7 +15392,7 @@ _ZN6brotli3enc7command19ComputeDistanceCode17h4b87827e6ff78041E.exit.thread.i554
   unreachable
 
 "_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$5Store17hc56d7706e5ed2b55E.llvm.6642645476840219850.exit107.i": ; preds = %3950
-  %3960 = getelementptr inbounds nuw i32, ptr %3930, i64 %3956
+  %3960 = getelementptr inbounds nuw [4 x i8], ptr %3930, i64 %3956
   %3961 = trunc i64 %.sroa.01.06.i.i560 to i32
   store i32 %3961, ptr %3960, align 4, !noalias !2559
   %3962 = load i16, ptr %3951, align 2, !noalias !2559, !noundef !4

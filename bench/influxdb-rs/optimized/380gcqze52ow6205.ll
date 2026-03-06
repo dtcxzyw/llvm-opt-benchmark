@@ -4803,9 +4803,9 @@ switch.lookup:
   %2 = add nsw i64 %1, -6
   %3 = icmp ult i64 %2, 10
   %4 = select i1 %3, i64 %2, i64 2
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$11description17h13cc562389f8dce9E", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$11description17h13cc562389f8dce9E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$11description17h13cc562389f8dce9E.16", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$11description17h13cc562389f8dce9E.16", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %6 = insertvalue { ptr, i64 } %5, i64 %switch.load, 1
@@ -5124,9 +5124,9 @@ define internal noundef zeroext i1 @"_ZN64_$LT$core..str..error..Utf8Error$u20$a
 define internal { ptr, i64 } @"_ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(80) %0) unnamed_addr #5 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !83, !noundef !4
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E", i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E", i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E.17", i64 %1
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN64_$LT$object_store..path..Error$u20$as$u20$core..error..Error$GT$11description17ha53ffae8e0e821e8E.17", i64 %1
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %2 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1
@@ -5514,10 +5514,10 @@ switch.lookup:
   %2 = load i16, ptr %0, align 2, !range !1035, !noundef !4
   %switch.tableidx = add nsw i16 %2, -1
   %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN68_$LT$data_types..columns..ColumnType$u20$as$u20$core..fmt..Debug$GT$3fmt17h5cb2cc95f09eead7E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN68_$LT$data_types..columns..ColumnType$u20$as$u20$core..fmt..Debug$GT$3fmt17h5cb2cc95f09eead7E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN68_$LT$data_types..columns..ColumnType$u20$as$u20$core..fmt..Debug$GT$3fmt17h5cb2cc95f09eead7E.18", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN68_$LT$data_types..columns..ColumnType$u20$as$u20$core..fmt..Debug$GT$3fmt17h5cb2cc95f09eead7E.18", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -8509,10 +8509,10 @@ define { ptr, i64 } @_ZN16influxdb3_server4http11QueryFormat15as_content_type17h
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !156, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16influxdb3_server4http11QueryFormat15as_content_type17h8f1d1f2bac023ee4E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16influxdb3_server4http11QueryFormat15as_content_type17h8f1d1f2bac023ee4E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16influxdb3_server4http11QueryFormat15as_content_type17h8f1d1f2bac023ee4E.19, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16influxdb3_server4http11QueryFormat15as_content_type17h8f1d1f2bac023ee4E.19, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -8549,7 +8549,7 @@ define void @"_ZN16influxdb3_server4http27record_batch_stream_to_body28_$u7b$$u7
   %14 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds { ptr, { { ptr, i64 }, i64 }, i64 }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [40 x i8], ptr %14, i64 %16
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4db74dd6c2937502E.llvm.14496618814205752201"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull %14, ptr noundef nonnull %17)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h5cd151d519846c8fE.exit" unwind label %19
 

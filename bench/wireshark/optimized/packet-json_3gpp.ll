@@ -446,14 +446,14 @@ define hidden void @proto_register_json_3gpp() local_unnamed_addr #0 {
 
 4:                                                ; preds = %4, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %4 ]
-  %5 = getelementptr %struct.hf_register_info, ptr @register_static_headers.hf, i64 %indvars.iv.i
+  %5 = getelementptr [80 x i8], ptr @register_static_headers.hf, i64 %indvars.iv.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @g_strdup(ptr noundef %7)
   %9 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #5
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %10, ptr %9, align 8
-  %11 = getelementptr ptr, ptr @register_static_headers.json_decode_fn, i64 %indvars.iv.i
+  %11 = getelementptr [8 x i8], ptr @register_static_headers.json_decode_fn, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %12, ptr %13, align 8
@@ -599,7 +599,7 @@ define internal void @dissect_3gpp_supportfeatures(ptr noundef %0, ptr noundef %
   %39 = getelementptr i8, ptr %36, i64 %indvars.iv
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i64
-  %42 = getelementptr i16, ptr %37, i64 %41
+  %42 = getelementptr [2 x i8], ptr %37, i64 %41
   %43 = load i16, ptr %42, align 2
   %44 = and i16 %43, 1024
   %.not320.not = icmp eq i16 %44, 0

@@ -41,7 +41,7 @@ define noundef i32 @dtrsm_iunncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.0344434.us = phi i64 [ %97, %._crit_edge.us ], [ %7, %.lr.ph437 ]
   %.0355433.us = phi ptr [ %93, %._crit_edge.us ], [ %5, %.lr.ph437 ]
   %.0360432.us = phi ptr [ %95, %._crit_edge.us ], [ %2, %.lr.ph437 ]
-  %14 = getelementptr inbounds double, ptr %.0360432.us, i64 %3
+  %14 = getelementptr inbounds [8 x i8], ptr %.0360432.us, i64 %3
   %15 = getelementptr inbounds i8, ptr %.0360432.us, i64 %.idx386
   %16 = getelementptr inbounds i8, ptr %.0360432.us, i64 %.idx387
   %17 = getelementptr inbounds i8, ptr %.0360432.us, i64 %.idx388
@@ -88,11 +88,11 @@ define noundef i32 @dtrsm_iunncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 34:                                               ; preds = %31
   %35 = mul nsw i64 %32, %3
-  %36 = getelementptr inbounds double, ptr %.0331415.us, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %.0331415.us, i64 %35
   %37 = load double, ptr %36, align 8, !tbaa !3
   %38 = fdiv double 1.000000e+00, %37
-  %39 = getelementptr inbounds nuw double, ptr %.1356412.us, i64 %.0345414.us
-  %40 = getelementptr inbounds double, ptr %39, i64 %29
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.1356412.us, i64 %.0345414.us
+  %40 = getelementptr inbounds [8 x i8], ptr %39, i64 %29
   store double %38, ptr %40, align 8, !tbaa !3
   %.not491 = icmp eq i64 %32, 15
   br i1 %.not491, label %.thread402.us, label %.lr.ph.us
@@ -101,9 +101,9 @@ define noundef i32 @dtrsm_iunncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.0335.in411.us = phi i64 [ %.0335.us, %.lr.ph.us ], [ %32, %34 ]
   %.0335.us = add nsw i64 %.0335.in411.us, 1
   %41 = mul nsw i64 %.0335.us, %3
-  %42 = getelementptr inbounds double, ptr %.0331415.us, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %.0331415.us, i64 %41
   %43 = load double, ptr %42, align 8, !tbaa !3
-  %44 = getelementptr inbounds double, ptr %.1356412.us, i64 %.0335.us
+  %44 = getelementptr inbounds [8 x i8], ptr %.1356412.us, i64 %.0335.us
   store double %43, ptr %44, align 8, !tbaa !3
   %45 = icmp slt i64 %.0335.in411.us, 14
   br i1 %45, label %.lr.ph.us, label %.thread402.us, !llvm.loop !7
@@ -214,7 +214,7 @@ define noundef i32 @dtrsm_iunncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %107 = getelementptr inbounds i8, ptr %.0360.lcssa, i64 %.idx369
   %.idx = shl nsw i64 %3, 4
   %108 = getelementptr inbounds i8, ptr %.0360.lcssa, i64 %.idx
-  %109 = getelementptr inbounds double, ptr %.0360.lcssa, i64 %3
+  %109 = getelementptr inbounds [8 x i8], ptr %.0360.lcssa, i64 %3
   %110 = sub i64 0, %.0340.lcssa
   br label %111
 
@@ -239,11 +239,11 @@ define noundef i32 @dtrsm_iunncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 115:                                              ; preds = %112
   %116 = mul nsw i64 %113, %3
-  %117 = getelementptr inbounds double, ptr %.1332448, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %.1332448, i64 %116
   %118 = load double, ptr %117, align 8, !tbaa !3
   %119 = fdiv double 1.000000e+00, %118
-  %120 = getelementptr inbounds nuw double, ptr %.3358445, i64 %.1346447
-  %121 = getelementptr inbounds double, ptr %120, i64 %110
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %.3358445, i64 %.1346447
+  %121 = getelementptr inbounds [8 x i8], ptr %120, i64 %110
   store double %119, ptr %121, align 8, !tbaa !3
   %.not492 = icmp eq i64 %113, 7
   br i1 %.not492, label %.thread404, label %.lr.ph
@@ -252,9 +252,9 @@ define noundef i32 @dtrsm_iunncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.1336.in444 = phi i64 [ %.1336, %.lr.ph ], [ %113, %115 ]
   %.1336 = add nsw i64 %.1336.in444, 1
   %122 = mul nsw i64 %.1336, %3
-  %123 = getelementptr inbounds double, ptr %.1332448, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %.1332448, i64 %122
   %124 = load double, ptr %123, align 8, !tbaa !3
-  %125 = getelementptr inbounds double, ptr %.3358445, i64 %.1336
+  %125 = getelementptr inbounds [8 x i8], ptr %.3358445, i64 %.1336
   store double %124, ptr %125, align 8, !tbaa !3
   %126 = icmp slt i64 %.1336.in444, 6
   br i1 %126, label %.lr.ph, label %.thread404, !llvm.loop !11
@@ -323,7 +323,7 @@ define noundef i32 @dtrsm_iunncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %158 = getelementptr inbounds i8, ptr %.1361, i64 %.idx377
   %.idx376 = shl nsw i64 %3, 4
   %159 = getelementptr inbounds i8, ptr %.1361, i64 %.idx376
-  %160 = getelementptr inbounds double, ptr %.1361, i64 %3
+  %160 = getelementptr inbounds [8 x i8], ptr %.1361, i64 %3
   %161 = sub i64 0, %.1341
   br label %162
 
@@ -344,11 +344,11 @@ define noundef i32 @dtrsm_iunncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 166:                                              ; preds = %163
   %167 = mul nsw i64 %164, %3
-  %168 = getelementptr inbounds double, ptr %.2333463, i64 %167
+  %168 = getelementptr inbounds [8 x i8], ptr %.2333463, i64 %167
   %169 = load double, ptr %168, align 8, !tbaa !3
   %170 = fdiv double 1.000000e+00, %169
-  %171 = getelementptr inbounds nuw double, ptr %.5460, i64 %.2347462
-  %172 = getelementptr inbounds double, ptr %171, i64 %161
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %.5460, i64 %.2347462
+  %172 = getelementptr inbounds [8 x i8], ptr %171, i64 %161
   store double %170, ptr %172, align 8, !tbaa !3
   %.not493 = icmp eq i64 %164, 3
   br i1 %.not493, label %.thread406, label %.lr.ph459
@@ -357,9 +357,9 @@ define noundef i32 @dtrsm_iunncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.2337.in457 = phi i64 [ %.2337, %.lr.ph459 ], [ %164, %166 ]
   %.2337 = add nsw i64 %.2337.in457, 1
   %173 = mul nsw i64 %.2337, %3
-  %174 = getelementptr inbounds double, ptr %.2333463, i64 %173
+  %174 = getelementptr inbounds [8 x i8], ptr %.2333463, i64 %173
   %175 = load double, ptr %174, align 8, !tbaa !3
-  %176 = getelementptr inbounds double, ptr %.5460, i64 %.2337
+  %176 = getelementptr inbounds [8 x i8], ptr %.5460, i64 %.2337
   store double %175, ptr %176, align 8, !tbaa !3
   %177 = icmp slt i64 %.2337.in457, 2
   br i1 %177, label %.lr.ph459, label %.thread406, !llvm.loop !13
@@ -408,7 +408,7 @@ define noundef i32 @dtrsm_iunncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %196, label %.lr.ph480, label %._crit_edge481
 
 .lr.ph480:                                        ; preds = %194
-  %197 = getelementptr inbounds double, ptr %.2362, i64 %3
+  %197 = getelementptr inbounds [8 x i8], ptr %.2362, i64 %3
   %198 = sub i64 0, %.2342
   br label %199
 
@@ -427,11 +427,11 @@ define noundef i32 @dtrsm_iunncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 203:                                              ; preds = %200
   %204 = mul nsw i64 %201, %3
-  %205 = getelementptr inbounds double, ptr %.3334477, i64 %204
+  %205 = getelementptr inbounds [8 x i8], ptr %.3334477, i64 %204
   %206 = load double, ptr %205, align 8, !tbaa !3
   %207 = fdiv double 1.000000e+00, %206
-  %208 = getelementptr inbounds nuw double, ptr %.7474, i64 %.3348476
-  %209 = getelementptr inbounds double, ptr %208, i64 %198
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %.7474, i64 %.3348476
+  %209 = getelementptr inbounds [8 x i8], ptr %208, i64 %198
   store double %207, ptr %209, align 8, !tbaa !3
   %.not494 = icmp eq i64 %201, 1
   br i1 %.not494, label %.thread408, label %.lr.ph473
@@ -440,9 +440,9 @@ define noundef i32 @dtrsm_iunncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.3338.in471 = phi i64 [ %.3338, %.lr.ph473 ], [ %201, %203 ]
   %.3338 = add nsw i64 %.3338.in471, 1
   %210 = mul nsw i64 %.3338, %3
-  %211 = getelementptr inbounds double, ptr %.3334477, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %.3334477, i64 %210
   %212 = load double, ptr %211, align 8, !tbaa !3
-  %213 = getelementptr inbounds double, ptr %.7474, i64 %.3338
+  %213 = getelementptr inbounds [8 x i8], ptr %.7474, i64 %.3338
   store double %212, ptr %213, align 8, !tbaa !3
   %214 = icmp slt i64 %.3338.in471, 0
   br i1 %214, label %.lr.ph473, label %.thread408, !llvm.loop !15
@@ -495,11 +495,11 @@ define noundef i32 @dtrsm_iunncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 230:                                              ; preds = %227
   %231 = mul nsw i64 %228, %3
-  %232 = getelementptr inbounds double, ptr %.4489, i64 %231
+  %232 = getelementptr inbounds [8 x i8], ptr %.4489, i64 %231
   %233 = load double, ptr %232, align 8, !tbaa !3
   %234 = fdiv double 1.000000e+00, %233
-  %235 = getelementptr inbounds nuw double, ptr %.8486, i64 %.4349488
-  %236 = getelementptr inbounds double, ptr %235, i64 %225
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %.8486, i64 %.4349488
+  %236 = getelementptr inbounds [8 x i8], ptr %235, i64 %225
   store double %234, ptr %236, align 8, !tbaa !3
   br label %.thread410
 

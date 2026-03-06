@@ -1501,7 +1501,7 @@ thread-pre-split:                                 ; preds = %42
 
 switch.lookup:                                    ; preds = %46
   %49 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SSL_get_error, i64 %49
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SSL_get_error, i64 %49
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %50
 
@@ -5171,7 +5171,7 @@ define hidden range(i32 0, 2) i32 @ssl3_is_version_enabled(ptr noundef readonly 
 
 switch.lookup:                                    ; preds = %22
   %24 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ssl3_is_version_enabled, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ssl3_is_version_enabled, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split
 

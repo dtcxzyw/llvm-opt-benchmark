@@ -70,8 +70,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.fmt::v11::detail::counting_buffer" = type { %"class.fmt::v11::detail::buffer", [256 x i8], i64 }
 %class.anon = type { i8, %"class.fmt::v11::basic_string_view", ptr, i64 }
 %"struct.fmt::v11::detail::find_escape_result" = type { ptr, ptr, i32 }
-%"class.fmt::v11::basic_format_arg" = type <{ %"class.fmt::v11::detail::value", i32, [12 x i8] }>
-%"struct.fmt::v11::detail::named_arg_info" = type { ptr, i32 }
 %"struct.fmt::v11::formatter.42" = type { %"struct.fmt::v11::formatter.43" }
 %"struct.fmt::v11::formatter.43" = type { %"struct.fmt::v11::formatter.35" }
 %"struct.testing::internal::CodeLocation" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
@@ -9969,7 +9967,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail18for_each_codepointIZNS1_16c
   %16 = getelementptr inbounds nuw i8, ptr @.str.132, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !26
   %18 = sext i8 %17 to i64
-  %19 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !447
   %21 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !26
@@ -9977,11 +9975,11 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail18for_each_codepointIZNS1_16c
   %24 = load i8, ptr %23, align 1, !tbaa !26
   %25 = getelementptr inbounds nuw i8, ptr %.1, i64 3
   %26 = load i8, ptr %25, align 1, !tbaa !26
-  %27 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %18
+  %27 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %18
   %28 = load i32, ptr %27, align 4, !tbaa !447
-  %29 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %18
+  %29 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %18
   %30 = load i32, ptr %29, align 4, !tbaa !447
-  %31 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %18
+  %31 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %18
   %32 = load i32, ptr %31, align 4, !tbaa !447
   %33 = load i64, ptr %.sroa.5.0.copyload, align 8, !tbaa !277
   %.not.i8.not.i = icmp eq i64 %33, 0
@@ -10081,7 +10079,7 @@ _ZN3fmt3v116detail4copyIcPKcPcTnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_
   %92 = getelementptr inbounds nuw i8, ptr @.str.132, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !26
   %94 = sext i8 %93 to i64
-  %95 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !447
   %97 = getelementptr inbounds nuw i8, ptr %.022, i64 1
   %98 = load i8, ptr %97, align 1, !tbaa !26
@@ -10089,11 +10087,11 @@ _ZN3fmt3v116detail4copyIcPKcPcTnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_
   %100 = load i8, ptr %99, align 1, !tbaa !26
   %101 = getelementptr inbounds nuw i8, ptr %.022, i64 3
   %102 = load i8, ptr %101, align 1, !tbaa !26
-  %103 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %94
+  %103 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %94
   %104 = load i32, ptr %103, align 4, !tbaa !447
-  %105 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %94
+  %105 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %94
   %106 = load i32, ptr %105, align 4, !tbaa !447
-  %107 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %94
+  %107 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %94
   %108 = load i32, ptr %107, align 4, !tbaa !447
   %109 = load i64, ptr %.sroa.5.0.copyload, align 8, !tbaa !277
   %.not.i8.not.i34 = icmp ne i64 %109, 0
@@ -10406,7 +10404,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail18for_each_codepointIZNS1_11f
   %17 = and i32 %.not.i.i, 1
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %18
-  %20 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %15
+  %20 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %15
   %21 = load i32, ptr %20, align 4, !tbaa !447
   %22 = and i32 %21, %10
   %23 = shl nuw nsw i32 %22, 18
@@ -10427,10 +10425,10 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail18for_each_codepointIZNS1_11f
   %38 = and i8 %37, 63
   %39 = zext nneg i8 %38 to i32
   %40 = or disjoint i32 %35, %39
-  %41 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %15
+  %41 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %15
   %42 = load i32, ptr %41, align 4, !tbaa !447
   %43 = lshr i32 %40, %42
-  %44 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %15
+  %44 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %15
   %45 = load i32, ptr %44, align 4, !tbaa !447
   %46 = icmp ult i32 %43, %45
   %47 = select i1 %46, i32 64, i32 0
@@ -10451,7 +10449,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail18for_each_codepointIZNS1_11f
   %61 = or disjoint i32 %60, %51
   %62 = or disjoint i32 %61, %49
   %63 = xor i32 %62, 42
-  %64 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %15
+  %64 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %15
   %65 = load i32, ptr %64, align 4, !tbaa !447
   %66 = lshr i32 %63, %65
   %.not.i = icmp eq i32 %66, 0
@@ -10531,7 +10529,7 @@ _ZN3fmt3v116detail4copyIcPKcPcTnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_
   %92 = and i32 %.not.i.i34, 1
   %93 = zext nneg i32 %92 to i64
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 %93
-  %95 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %90
+  %95 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %90
   %96 = load i32, ptr %95, align 4, !tbaa !447
   %97 = and i32 %96, %85
   %98 = shl nuw nsw i32 %97, 18
@@ -10552,10 +10550,10 @@ _ZN3fmt3v116detail4copyIcPKcPcTnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_
   %113 = and i8 %112, 63
   %114 = zext nneg i8 %113 to i32
   %115 = or disjoint i32 %110, %114
-  %116 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %90
+  %116 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %90
   %117 = load i32, ptr %116, align 4, !tbaa !447
   %118 = lshr i32 %115, %117
-  %119 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %90
+  %119 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %90
   %120 = load i32, ptr %119, align 4, !tbaa !447
   %121 = icmp ult i32 %118, %120
   %122 = select i1 %121, i32 64, i32 0
@@ -10576,7 +10574,7 @@ _ZN3fmt3v116detail4copyIcPKcPcTnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_
   %136 = or disjoint i32 %135, %126
   %137 = or disjoint i32 %136, %124
   %138 = xor i32 %137, 42
-  %139 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %90
+  %139 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %90
   %140 = load i32, ptr %139, align 4, !tbaa !447
   %141 = lshr i32 %138, %140
   %.not.i36 = icmp eq i32 %141, 0
@@ -10977,7 +10975,7 @@ define linkonce_odr hidden noundef ptr @_ZZN3fmt3v116detail18for_each_codepointI
   %8 = getelementptr inbounds nuw i8, ptr @.str.132, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !26
   %10 = sext i8 %9 to i64
-  %11 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.masks, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !447
   %13 = and i32 %12, %5
   %14 = shl nuw nsw i32 %13, 18
@@ -10998,10 +10996,10 @@ define linkonce_odr hidden noundef ptr @_ZZN3fmt3v116detail18for_each_codepointI
   %29 = and i8 %28, 63
   %30 = zext nneg i8 %29 to i32
   %31 = or disjoint i32 %26, %30
-  %32 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %10
+  %32 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shiftc, i64 %10
   %33 = load i32, ptr %32, align 4, !tbaa !447
   %34 = lshr i32 %31, %33
-  %35 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %10
+  %35 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.mins, i64 %10
   %36 = load i32, ptr %35, align 4, !tbaa !447
   %37 = icmp ult i32 %34, %36
   %38 = select i1 %37, i32 64, i32 0
@@ -11022,7 +11020,7 @@ define linkonce_odr hidden noundef ptr @_ZZN3fmt3v116detail18for_each_codepointI
   %52 = or disjoint i32 %51, %42
   %53 = or disjoint i32 %52, %40
   %54 = xor i32 %53, 42
-  %55 = getelementptr inbounds i32, ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %10
+  %55 = getelementptr inbounds [4 x i8], ptr @__const._ZN3fmt3v116detail11utf8_decodeEPKcPjPi.shifte, i64 %10
   %56 = load i32, ptr %55, align 4, !tbaa !447
   %57 = lshr i32 %54, %56
   %.not = icmp eq i32 %57, 0
@@ -11238,7 +11236,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt3v116detail16get_dynamic_specINS0
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !26, !noalias !499
   %16 = sext i32 %6 to i64
-  %17 = getelementptr inbounds %"class.fmt::v11::basic_format_arg", ptr %15, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr %15, i64 %16
   br label %_ZNK3fmt3v117context3argEi.exit
 
 18:                                               ; preds = %5
@@ -11291,7 +11289,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt3v116detail16get_dynamic_specINS0
 
 43:                                               ; preds = %41, %.lr.ph.i.i.i
   %.01115.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %42, %41 ]
-  %44 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %40, i64 %.01115.i.i.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %.01115.i.i.i
   %45 = load ptr, ptr %44, align 8, !tbaa !514, !noalias !504
   %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #23, !noalias !504
   %47 = tail call noundef i64 @llvm.umin.i64(i64 %46, i64 %.sroa.2.0.copyload)
@@ -11318,7 +11316,7 @@ _ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_vie
 
 58:                                               ; preds = %55
   %59 = zext nneg i32 %51 to i64
-  %60 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %35, i64 %59
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %59
   br label %_ZNK3fmt3v117context3argEi.exit
 
 61:                                               ; preds = %53
@@ -11356,7 +11354,7 @@ _ZNK3fmt3v117context3argEi.exit.thread39.sink.split: ; preds = %63, %26
   %.sink107 = phi ptr [ %28, %26 ], [ %35, %63 ]
   %.sroa.23.041.ph = phi i32 [ %25, %26 ], [ %68, %63 ]
   %69 = zext nneg i32 %.sink to i64
-  %70 = getelementptr inbounds nuw %"class.fmt::v11::detail::value", ptr %.sink107, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %.sink107, i64 %69
   %.sroa.012.0.copyload27 = load i128, ptr %70, align 16, !tbaa !26
   %.sroa.012.sroa.0.sroa.0.0.extract.trunc = trunc i128 %.sroa.012.0.copyload27 to i32
   %.sroa.012.sroa.0.sroa.11.0.extract.shift103 = lshr i128 %.sroa.012.0.copyload27, 32

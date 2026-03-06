@@ -3,8 +3,6 @@ source_filename = "bench/luajit/original/lj_ccall.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.CType = type { i32, i32, i16, i16, %struct.GCRef }
-%struct.GCRef = type { i64 }
 %struct.CCallState = type { ptr, i32, i8, i8, i8, i8, [8 x %union.FPRArg], [6 x i64], [31 x i64], [8 x i8] }
 %union.FPRArg = type { [2 x double] }
 %union.TValue = type { i64 }
@@ -32,7 +30,7 @@ define hidden i32 @lj_ccall_ctid_vararg(ptr noundef %0, ptr noundef readonly cap
   %12 = zext i16 %11 to i32
   %13 = load ptr, ptr %0, align 8, !tbaa !7
   %14 = zext i16 %11 to i64
-  %15 = getelementptr inbounds nuw %struct.CType, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !18
   %17 = and i32 %16, -67108864
   %18 = icmp eq i32 %17, 805306368
@@ -108,7 +106,7 @@ define hidden range(i32 -1, 2) i32 @lj_ccall_func(ptr noundef %0, ptr noundef re
 
 21:                                               ; preds = %21, %2
   %.pn = phi i64 [ %20, %2 ], [ %25, %21 ]
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %19, i64 %.pn
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %.pn
   %22 = load i32, ptr %.0.i, align 8, !tbaa !18
   %23 = icmp slt i32 %22, -1879048192
   %24 = and i32 %22, 65535
@@ -131,7 +129,7 @@ ctype_raw.exit:                                   ; preds = %21
   %30 = phi i32 [ %22, %26 ], [ %34, %29 ]
   %31 = and i32 %30, 65535
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw %struct.CType, ptr %19, i64 %32
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %32
   %34 = load i32, ptr %33, align 8, !tbaa !18
   %35 = icmp slt i32 %34, -1879048192
   br i1 %35, label %29, label %ctype_rawchild.exit, !llvm.loop !44
@@ -179,7 +177,7 @@ cdata_getptr.exit:                                ; preds = %41, %45
   %52 = phi i32 [ %.pre.i, %cdata_getptr.exit ], [ %56, %51 ]
   %53 = and i32 %52, 65535
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw %struct.CType, ptr %19, i64 %54
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %54
   %56 = load i32, ptr %55, align 8, !tbaa !18
   %57 = icmp slt i32 %56, -1879048192
   br i1 %57, label %51, label %ctype_rawchild.exit.i, !llvm.loop !44
@@ -271,7 +269,7 @@ ctype_rawchild.exit.i:                            ; preds = %51
 95:                                               ; preds = %94
   %96 = load ptr, ptr %15, align 8, !tbaa !7
   %97 = zext i16 %.0154.in.i to i64
-  %98 = getelementptr inbounds nuw %struct.CType, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %96, i64 %97
   %99 = load i32, ptr %98, align 8, !tbaa !18
   %100 = icmp slt i32 %99, -1879048192
   br i1 %100, label %94, label %.thread.i
@@ -305,7 +303,7 @@ ctype_rawchild.exit.i:                            ; preds = %51
 110:                                              ; preds = %109
   %111 = load ptr, ptr %15, align 8, !tbaa !7
   %112 = zext nneg i32 %.3256.i to i64
-  %113 = getelementptr inbounds nuw %struct.CType, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [24 x i8], ptr %111, i64 %112
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = load i16, ptr %114, align 8, !tbaa !53
   %116 = zext i16 %115 to i32
@@ -337,7 +335,7 @@ ctype_rawchild.exit.i:                            ; preds = %51
 127:                                              ; preds = %127, %125
   %.pn235.in.i = phi i32 [ %.0174.i, %125 ], [ %130, %127 ]
   %.pn235.i = zext i32 %.pn235.in.i to i64
-  %.0.i.i = getelementptr inbounds nuw %struct.CType, ptr %126, i64 %.pn235.i
+  %.0.i.i = getelementptr inbounds nuw [24 x i8], ptr %126, i64 %.pn235.i
   %128 = load i32, ptr %.0.i.i, align 8, !tbaa !18
   %129 = icmp slt i32 %128, -1879048192
   %130 = and i32 %128, 65535
@@ -420,7 +418,7 @@ ctype_raw.exit.i:                                 ; preds = %127
   %165 = load i64, ptr %indvars.iv.i.sroa.phi.i.i, align 8, !tbaa !51
   %166 = add nuw nsw i32 %.0233.i.i.i, 1
   %167 = zext nneg i32 %.0233.i.i.i to i64
-  %168 = getelementptr inbounds nuw i64, ptr %58, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %167
   store i64 %165, ptr %168, align 8, !tbaa !51
   br label %178
 
@@ -437,7 +435,7 @@ ctype_raw.exit.i:                                 ; preds = %127
   %174 = load i64, ptr %indvars.iv.i.sroa.phi.i.i, align 8, !tbaa !51
   %175 = add nuw nsw i32 %.0224.i.i.i, 1
   %176 = zext nneg i32 %.0224.i.i.i to i64
-  %177 = getelementptr inbounds nuw %union.FPRArg, ptr %50, i64 %176
+  %177 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %176
   store i64 %174, ptr %177, align 16, !tbaa !4
   br label %178
 
@@ -507,7 +505,7 @@ ccall_struct_reg.exit.i.i:                        ; preds = %178
   %206 = add nuw nsw i32 %.pre-phi271.i, %.0179248.i
   %207 = icmp ult i32 %206, 9
   %208 = zext nneg i32 %.0179248.i to i64
-  %209 = getelementptr inbounds nuw %union.FPRArg, ptr %50, i64 %208
+  %209 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %208
   br i1 %207, label %237, label %221
 
 210:                                              ; preds = %147
@@ -526,7 +524,7 @@ ccall_struct_reg.exit.i.i:                        ; preds = %178
 
 218:                                              ; preds = %.thread233.i
   %219 = zext nneg i32 %.3166255.i to i64
-  %220 = getelementptr inbounds nuw i64, ptr %58, i64 %219
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %219
   br label %237
 
 221:                                              ; preds = %.thread233.i, %210, %._crit_edge269.i
@@ -618,7 +616,7 @@ ccall_struct_reg.exit.i.i:                        ; preds = %178
 266:                                              ; preds = %264
   %267 = add nsw i32 %.5184.i, -2
   %268 = zext i32 %267 to i64
-  %269 = getelementptr inbounds nuw %union.FPRArg, ptr %50, i64 %268
+  %269 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %268
   %270 = icmp eq ptr %.3160.i, %269
   br i1 %270, label %271, label %277
 
@@ -627,7 +625,7 @@ ccall_struct_reg.exit.i.i:                        ; preds = %178
   %273 = load double, ptr %272, align 8, !tbaa !4
   %274 = add nsw i32 %.5184.i, -1
   %275 = zext i32 %274 to i64
-  %276 = getelementptr inbounds nuw %union.FPRArg, ptr %50, i64 %275
+  %276 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %275
   store double %273, ptr %276, align 16, !tbaa !4
   store double 0.000000e+00, ptr %272, align 8, !tbaa !4
   br label %277
@@ -707,7 +705,7 @@ ccall_set_args.exit:                              ; preds = %._crit_edge.i
   %310 = phi i32 [ %.pre.i36, %304 ], [ %314, %309 ]
   %311 = and i32 %310, 65535
   %312 = zext nneg i32 %311 to i64
-  %313 = getelementptr inbounds nuw %struct.CType, ptr %305, i64 %312
+  %313 = getelementptr inbounds nuw [24 x i8], ptr %305, i64 %312
   %314 = load i32, ptr %313, align 8, !tbaa !18
   %315 = icmp slt i32 %314, -1879048192
   br i1 %315, label %309, label %ctype_rawchild.exit.i37, !llvm.loop !44
@@ -754,7 +752,7 @@ ctype_rawchild.exit.i37:                          ; preds = %309
 330:                                              ; preds = %326
   %331 = add i32 %.01417.i.i, 1
   %332 = zext i32 %.01417.i.i to i64
-  %333 = getelementptr inbounds nuw i64, ptr %58, i64 %332
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %332
   br label %.sink.split.i.i
 
 334:                                              ; preds = %326
@@ -765,7 +763,7 @@ ctype_rawchild.exit.i37:                          ; preds = %309
 336:                                              ; preds = %334
   %337 = add i32 %.01318.i.i, 1
   %338 = zext i32 %.01318.i.i to i64
-  %339 = getelementptr inbounds nuw %union.FPRArg, ptr %50, i64 %338
+  %339 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %338
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %336, %330
@@ -895,7 +893,7 @@ define internal fastcc range(i32 0, 5) i32 @ccall_classify_struct(ptr noundef re
   %10 = phi i16 [ %43, %41 ], [ %9, %.preheader29 ]
   %11 = load ptr, ptr %0, align 8, !tbaa !7
   %12 = zext i16 %10 to i64
-  %13 = getelementptr inbounds nuw %struct.CType, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !23
   %16 = add i32 %15, %3
@@ -910,7 +908,7 @@ define internal fastcc range(i32 0, 5) i32 @ccall_classify_struct(ptr noundef re
   %19 = phi i32 [ %23, %.preheader28 ], [ %17, %.lr.ph ]
   %20 = and i32 %19, 65535
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw %struct.CType, ptr %11, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %21
   %23 = load i32, ptr %22, align 8, !tbaa !18
   %24 = icmp slt i32 %23, -1879048192
   br i1 %24, label %.preheader28, label %ctype_rawchild.exit27, !llvm.loop !44
@@ -922,7 +920,7 @@ ctype_rawchild.exit27:                            ; preds = %.preheader28
 25:                                               ; preds = %.lr.ph
   %26 = icmp ugt i32 %16, 7
   %27 = zext i1 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !45
   %30 = or i32 %29, 1
   store i32 %30, ptr %28, align 4, !tbaa !45
@@ -937,7 +935,7 @@ ctype_rawchild.exit27:                            ; preds = %.preheader28
   %34 = phi i32 [ %38, %.preheader ], [ %17, %31 ]
   %35 = and i32 %34, 65535
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw %struct.CType, ptr %11, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %36
   %38 = load i32, ptr %37, align 8, !tbaa !18
   %39 = icmp slt i32 %38, -1879048192
   br i1 %39, label %.preheader, label %ctype_rawchild.exit, !llvm.loop !44
@@ -989,7 +987,7 @@ define internal fastcc void @ccall_classify_ct(ptr noundef readonly captures(non
   %9 = phi i32 [ %13, %8 ], [ %5, %.preheader ]
   %10 = and i32 %9, 65535
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.CType, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %11
   %13 = load i32, ptr %12, align 8, !tbaa !18
   %14 = icmp slt i32 %13, -1879048192
   br i1 %14, label %8, label %ctype_rawchild.exit, !llvm.loop !44
@@ -1026,7 +1024,7 @@ ctype_rawchild.exit:                              ; preds = %8
   %spec.store.select = select i1 %.not, i32 %27, i32 4
   %32 = icmp ugt i32 %3, 7
   %33 = zext i1 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %2, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !45
   %36 = or i32 %spec.store.select, %35
   store i32 %36, ptr %34, align 4, !tbaa !45

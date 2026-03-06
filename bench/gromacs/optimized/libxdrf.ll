@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw ptr, ptr @__const._Z17enumValueToString11XdrDataType.xdrDataTypeNames, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z17enumValueToString11XdrDataType.xdrDataTypeNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   ret ptr %4
 }
@@ -438,7 +438,7 @@ _ZL9sizeofinti.exit473:                           ; preds = %.lr.ph.i470, %_ZL9s
 
 217:                                              ; preds = %_ZL9sizeofinti.exit473, %221
   %indvars.iv = phi i64 [ 9, %_ZL9sizeofinti.exit473 ], [ %indvars.iv.next, %221 ]
-  %218 = getelementptr inbounds nuw i32, ptr @_ZL9magicints, i64 %indvars.iv
+  %218 = getelementptr inbounds nuw [4 x i8], ptr @_ZL9magicints, i64 %indvars.iv
   %219 = load i32, ptr %218, align 4, !tbaa !16
   %220 = icmp slt i32 %219, %.1420
   br i1 %220, label %221, label %.critedge.split.loop.exit757
@@ -475,11 +475,11 @@ _ZL9sizeofinti.exit473:                           ; preds = %.lr.ph.i470, %_ZL9s
   %.sroa.speculated562 = add nsw i32 %231, 8
   %232 = call i32 @llvm.smax.i32(i32 %230, i32 10)
   %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr i32, ptr @_ZL9magicints, i64 %233
+  %234 = getelementptr [4 x i8], ptr @_ZL9magicints, i64 %233
   %235 = getelementptr i8, ptr %234, i64 -4
   %236 = load i32, ptr %235, align 4, !tbaa !16
   %237 = sext i32 %230 to i64
-  %238 = getelementptr inbounds i32, ptr @_ZL9magicints, i64 %237
+  %238 = getelementptr inbounds [4 x i8], ptr @_ZL9magicints, i64 %237
   %239 = load i32, ptr %238, align 4, !tbaa !16
   %240 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %239, ptr %240, align 4, !tbaa !16
@@ -487,7 +487,7 @@ _ZL9sizeofinti.exit473:                           ; preds = %.lr.ph.i470, %_ZL9s
   store i32 %239, ptr %241, align 4, !tbaa !16
   store i32 %239, ptr %12, align 4, !tbaa !16
   %242 = sext i32 %.sroa.speculated562 to i64
-  %243 = getelementptr inbounds i32, ptr @_ZL9magicints, i64 %242
+  %243 = getelementptr inbounds [4 x i8], ptr @_ZL9magicints, i64 %242
   %244 = load i32, ptr %243, align 4, !tbaa !16
   %245 = sdiv i32 %244, 2
   store i32 0, ptr %13, align 4, !tbaa !16
@@ -871,7 +871,7 @@ _ZL8sendbitsP10DataBufferii.exit493:              ; preds = %424, %422, %431
   %.2398 = phi i32 [ %.1397607, %440 ], [ %spec.select, %443 ]
   %457 = sub i32 %.0410623, %.sroa.0.1612
   %458 = add i32 %457, %.pre682
-  %459 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv668
+  %459 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv668
   store i32 %458, ptr %459, align 4, !tbaa !16
   %460 = getelementptr inbounds nuw i8, ptr %.0382609, i64 4
   %461 = load i32, ptr %460, align 4, !tbaa !16
@@ -1057,7 +1057,7 @@ _ZL8sendbitsP10DataBufferii.exit505:              ; preds = %_ZL8sendbitsP10Data
 .lr.ph621:                                        ; preds = %.lr.ph621.preheader, %.lr.ph621
   %indvars.iv671 = phi i64 [ 0, %.lr.ph621.preheader ], [ %indvars.iv.next672, %.lr.ph621 ]
   %562 = load i32, ptr %10, align 4, !tbaa !16
-  %563 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv671
+  %563 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv671
   call fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef %16, i32 noundef %562, ptr noundef %12, ptr noundef %563)
   %indvars.iv.next672 = add nuw nsw i64 %indvars.iv671, 3
   %564 = icmp samesign ult i64 %indvars.iv.next672, %561
@@ -1072,7 +1072,7 @@ _ZL8sendbitsP10DataBufferii.exit505:              ; preds = %_ZL8sendbitsP10Data
   store i32 %567, ptr %10, align 4, !tbaa !16
   %568 = icmp slt i32 %.1397.lcssa, 0
   %569 = sext i32 %567 to i64
-  %570 = getelementptr i32, ptr @_ZL9magicints, i64 %569
+  %570 = getelementptr [4 x i8], ptr @_ZL9magicints, i64 %569
   br i1 %568, label %571, label %575
 
 571:                                              ; preds = %565
@@ -1390,12 +1390,12 @@ _ZL9sizeofinti.exit530:                           ; preds = %.lr.ph.i527, %_ZL9s
   %732 = load i32, ptr %10, align 4, !tbaa !16
   %733 = call i32 @llvm.smax.i32(i32 %732, i32 10)
   %734 = zext nneg i32 %733 to i64
-  %735 = getelementptr i32, ptr @_ZL9magicints, i64 %734
+  %735 = getelementptr [4 x i8], ptr @_ZL9magicints, i64 %734
   %736 = getelementptr i8, ptr %735, i64 -4
   %737 = load i32, ptr %736, align 4, !tbaa !16
   %738 = sdiv i32 %737, 2
   %739 = sext i32 %732 to i64
-  %740 = getelementptr inbounds i32, ptr @_ZL9magicints, i64 %739
+  %740 = getelementptr inbounds [4 x i8], ptr @_ZL9magicints, i64 %739
   %741 = load i32, ptr %740, align 4, !tbaa !16
   %742 = sdiv i32 %741, 2
   %743 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -1691,7 +1691,7 @@ _ZL11receivebitsP10DataBufferi.exit543:           ; preds = %822, %824
 
 901:                                              ; preds = %899
   %902 = zext nneg i32 %897 to i64
-  %903 = getelementptr i32, ptr @_ZL9magicints, i64 %902
+  %903 = getelementptr [4 x i8], ptr @_ZL9magicints, i64 %902
   %904 = getelementptr i8, ptr %903, i64 -4
   %905 = load i32, ptr %904, align 4, !tbaa !16
   %906 = sdiv i32 %905, 2
@@ -1703,7 +1703,7 @@ _ZL11receivebitsP10DataBufferi.exit543:           ; preds = %822, %824
 
 908:                                              ; preds = %907
   %909 = sext i32 %897 to i64
-  %910 = getelementptr inbounds i32, ptr @_ZL9magicints, i64 %909
+  %910 = getelementptr inbounds [4 x i8], ptr @_ZL9magicints, i64 %909
   %911 = load i32, ptr %910, align 4, !tbaa !16
   %912 = sdiv i32 %911, 2
   br label %913
@@ -1712,7 +1712,7 @@ _ZL11receivebitsP10DataBufferi.exit543:           ; preds = %822, %824
   %.4414 = phi i32 [ %.3408638, %901 ], [ %.3413637, %907 ], [ %912, %908 ], [ %.3408638, %899 ]
   %.4409 = phi i32 [ %906, %901 ], [ %.3408638, %907 ], [ %.3413637, %908 ], [ 0, %899 ]
   %914 = sext i32 %897 to i64
-  %915 = getelementptr inbounds i32, ptr @_ZL9magicints, i64 %914
+  %915 = getelementptr inbounds [4 x i8], ptr @_ZL9magicints, i64 %914
   %916 = load i32, ptr %915, align 4, !tbaa !16
   store i32 %916, ptr %743, align 4, !tbaa !16
   store i32 %916, ptr %744, align 4, !tbaa !16
@@ -1781,7 +1781,7 @@ define internal fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr noundef nonnull read
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader31
-  %3 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv54
+  %3 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv54
   %4 = load i32, ptr %3, align 4, !tbaa !16
   %wide.trip.count = zext i32 %.02741 to i64
   br label %5
@@ -1793,7 +1793,7 @@ define internal fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr noundef nonnull read
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %.033 = phi i32 [ 0, %.lr.ph ], [ %11, %5 ]
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !16
   %8 = mul i32 %4, %7
   %9 = add i32 %8, %.033
@@ -1810,7 +1810,7 @@ define internal fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr noundef nonnull read
   %12 = and i32 %.137, 255
   %13 = add i32 %.12536, 1
   %14 = zext i32 %.12536 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %2, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %14
   store i32 %12, ptr %15, align 4, !tbaa !16
   %16 = lshr i32 %.137, 8
   %.not30 = icmp eq i32 %16, 0
@@ -1825,7 +1825,7 @@ define internal fastcc noundef i32 @_ZL10sizeofintsiPKj(ptr noundef nonnull read
 17:                                               ; preds = %._crit_edge
   %18 = add i32 %.125.lcssa, -1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %2, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !16
   %.not42 = icmp slt i32 %21, 1
   br i1 %.not42, label %._crit_edge47, label %.lr.ph46
@@ -1858,7 +1858,7 @@ define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef nonnul
   %.052 = phi i32 [ %10, %7 ], [ %6, %4 ]
   %8 = and i32 %.052, 255
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %8, ptr %9, align 4, !tbaa !16
   %10 = lshr i32 %.052, 8
   %.not = icmp eq i32 %10, 0
@@ -1872,9 +1872,9 @@ define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef nonnul
   %exitcond153.not = phi i1 [ false, %.preheader98.preheader ], [ true, %._crit_edge ]
   %indvars.iv150 = phi i64 [ 1, %.preheader98.preheader ], [ 2, %._crit_edge ]
   %.158119 = phi i32 [ %11, %.preheader98.preheader ], [ %.156.lcssa, %._crit_edge ]
-  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv150
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv150
   %13 = load i32, ptr %12, align 4, !tbaa !16
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv150
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv150
   %15 = load i32, ptr %14, align 4, !tbaa !16
   %.not67 = icmp ult i32 %13, %15
   br i1 %.not67, label %.preheader97, label %17
@@ -1906,7 +1906,7 @@ define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef nonnul
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv144 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next145, %.lr.ph ]
   %.153112 = phi i32 [ %13, %.lr.ph.preheader ], [ %26, %.lr.ph ]
-  %21 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv144
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv144
   %22 = load i32, ptr %21, align 4, !tbaa !16
   %23 = mul i32 %22, %15
   %24 = add i32 %23, %.153112
@@ -1922,7 +1922,7 @@ define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef nonnul
   %.254116 = phi i32 [ %.153.lcssa, %.lr.ph117.preheader ], [ %29, %.lr.ph117 ]
   %27 = and i32 %.254116, 255
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
-  %28 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv147
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv147
   store i32 %27, ptr %28, align 4, !tbaa !16
   %29 = lshr i32 %.254116, 8
   %.not68 = icmp eq i32 %29, 0
@@ -1966,7 +1966,7 @@ define internal fastcc void @_ZL8sendintsP10DataBufferiiPjS1_(ptr noundef nonnul
 
 42:                                               ; preds = %_ZL8sendbitsP10DataBufferii.exit, %.lr.ph122
   %indvars.iv154 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next155, %_ZL8sendbitsP10DataBufferii.exit ]
-  %43 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv154
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv154
   %44 = load i32, ptr %43, align 4, !tbaa !16
   %45 = load i32, ptr %34, align 8, !tbaa !26
   %46 = load i32, ptr %35, align 4, !tbaa !27
@@ -2064,7 +2064,7 @@ _ZL8sendbitsP10DataBufferii.exit:                 ; preds = %42, %56
 
 96:                                               ; preds = %_ZL8sendbitsP10DataBufferii.exit83, %.lr.ph125
   %indvars.iv160 = phi i64 [ 0, %.lr.ph125 ], [ %indvars.iv.next161, %_ZL8sendbitsP10DataBufferii.exit83 ]
-  %97 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv160
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv160
   %98 = load i32, ptr %97, align 4, !tbaa !16
   %99 = load i32, ptr %39, align 8, !tbaa !26
   %100 = load i32, ptr %40, align 4, !tbaa !27
@@ -2114,7 +2114,7 @@ _ZL8sendbitsP10DataBufferii.exit83:               ; preds = %96, %110
   br i1 %124, label %125, label %141
 
 125:                                              ; preds = %._crit_edge126
-  %126 = getelementptr inbounds nuw i32, ptr %5, i64 %.2.lcssa
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.2.lcssa
   %127 = load i32, ptr %126, align 4, !tbaa !16
   %128 = shl i32 %123, %119
   %129 = or i32 %128, %127
@@ -2282,7 +2282,7 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
   store i32 %.promoted, ptr %7, align 8, !tbaa !26
   store i32 %17, ptr %8, align 4, !tbaa !27
   %indvars.iv.next = add i64 %indvars.iv, 1
-  %20 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %19, ptr %20, align 4, !tbaa !16
   %21 = add nsw i32 %.03061, -8
   %22 = icmp samesign ugt i32 %.03061, 16
@@ -2355,7 +2355,7 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
   store i32 %.032.i36, ptr %26, align 8, !tbaa !26
   store i32 %.1.i37, ptr %28, align 4, !tbaa !27
   %58 = zext nneg i32 %.031.lcssa104 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %5, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %58
   store i32 %57, ptr %59, align 4, !tbaa !16
   %60 = icmp ult i32 %.031.lcssa104, 2147483647
   br i1 %60, label %.split.us.preheader, label %.split.preheader
@@ -2370,7 +2370,7 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
 
 .split.us:                                        ; preds = %.split.us.preheader, %._crit_edge71.us
   %indvars.iv94 = phi i64 [ 2, %.split.us.preheader ], [ %indvars.iv.next95, %._crit_edge71.us ]
-  %63 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv94
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv94
   %64 = load i32, ptr %63, align 4, !tbaa !16
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %.split75.us, label %.preheader.us
@@ -2380,7 +2380,7 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
   %.069.us = phi i32 [ %.recomposed, %.preheader.us ], [ 0, %.split.us ]
   %indvars.iv.next92 = add nsw i64 %indvars.iv91, -1
   %66 = shl i32 %.069.us, 8
-  %67 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next92
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next92
   %68 = load i32, ptr %67, align 4, !tbaa !16
   %69 = or i32 %68, %66
   %70 = udiv i32 %69, %64
@@ -2391,7 +2391,7 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
   br i1 %72, label %.preheader.us, label %._crit_edge71.us, !llvm.loop !50
 
 ._crit_edge71.us:                                 ; preds = %.preheader.us
-  %73 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv94
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv94
   store i32 %.recomposed, ptr %73, align 4, !tbaa !16
   %indvars.iv.next95 = add nsw i64 %indvars.iv94, -1
   %74 = icmp samesign ugt i64 %indvars.iv94, 1
@@ -2400,13 +2400,13 @@ _ZL11receivebitsP10DataBufferi.exit:              ; preds = %_ZL11receivebitsP10
 .split:                                           ; preds = %.split.preheader, %.preheader
   %.03373 = phi i32 [ %80, %.preheader ], [ 2, %.split.preheader ]
   %75 = zext nneg i32 %.03373 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %2, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !16
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %.split75.us, label %.preheader
 
 .preheader:                                       ; preds = %.split
-  %79 = getelementptr inbounds nuw i32, ptr %3, i64 %75
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %75
   store i32 0, ptr %79, align 4, !tbaa !16
   %80 = add nsw i32 %.03373, -1
   %81 = icmp samesign ugt i32 %.03373, 1
@@ -2605,7 +2605,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL19xtc_at_header_startP8_
 
 .preheader:                                       ; preds = %5, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %5 ]
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %12 = call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef %1, ptr noundef nonnull %11)
   %.not38 = icmp eq i32 %12, 0
   br i1 %.not38, label %13, label %10
@@ -2639,7 +2639,7 @@ define internal fastcc noundef range(i32 -1, 2) i32 @_ZL19xtc_at_header_startP8_
 
 22:                                               ; preds = %.preheader48, %21
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %21 ], [ 0, %.preheader48 ]
-  %23 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv43
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv43
   %24 = call noundef i32 @_Z9xdr_floatP3XDRPf(ptr noundef %1, ptr noundef nonnull %23)
   %.not36 = icmp eq i32 %24, 0
   br i1 %.not36, label %25, label %21

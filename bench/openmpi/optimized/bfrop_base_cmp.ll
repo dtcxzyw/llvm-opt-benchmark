@@ -3,29 +3,6 @@ source_filename = "bench/openmpi/original/bfrop_base_cmp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.pmix_info = type { [512 x i8], i32, %struct.pmix_value }
-%struct.pmix_value = type { i16, %union.anon }
-%union.anon = type { %struct.pmix_envar_t }
-%struct.pmix_envar_t = type { ptr, ptr, i8 }
-%struct.pmix_byte_object = type { ptr, i64 }
-%struct.pmix_proc_info = type { %struct.pmix_proc, ptr, ptr, i32, i32, i8 }
-%struct.pmix_proc = type { [256 x i8], i32 }
-%struct.pmix_coord = type { i8, ptr, i64 }
-%struct.pmix_topology_t = type { ptr, ptr }
-%struct.pmix_cpuset_t = type { ptr, ptr }
-%struct.pmix_geometry = type { i64, ptr, ptr, ptr, i64 }
-%struct.pmix_device = type { ptr, ptr, i64 }
-%struct.pmix_resource_unit = type { i64, i64 }
-%struct.pmix_device_distance = type { ptr, ptr, i64, i16, i16 }
-%struct.pmix_endpoint = type { ptr, ptr, %struct.pmix_byte_object }
-%struct.pmix_data_buffer = type { ptr, ptr, ptr, i64, i64 }
-%struct.pmix_proc_stats = type { ptr, %struct.pmix_proc, i32, ptr, i8, %struct.timeval, float, i32, i16, float, float, float, float, i16, %struct.timeval }
-%struct.timeval = type { i64, i64 }
-%struct.pmix_disk_stats_t = type { ptr, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%struct.pmix_net_stats_t = type { ptr, i64, i64, i64, i64, i64, i64 }
-%struct.pmix_node_stats_t = type { ptr, float, float, float, float, float, float, float, float, float, float, float, %struct.timeval, ptr, i64, ptr, i64 }
-%struct.pmix_regattr_t = type { ptr, [512 x i8], i16, ptr }
-
 @.str = private unnamed_addr constant [45 x i8] c"COMPARE-PMIX-VALUE: UNSUPPORTED TYPE %s (%d)\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -1146,8 +1123,8 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 
 .lr.ph887:                                        ; preds = %.lr.ph887.preheader, %118
   %.1886 = phi i64 [ %119, %118 ], [ 0, %.lr.ph887.preheader ]
-  %122 = getelementptr inbounds nuw %struct.pmix_info, ptr %10, i64 %.1886
-  %123 = getelementptr inbounds nuw %struct.pmix_info, ptr %13, i64 %.1886
+  %122 = getelementptr inbounds nuw [552 x i8], ptr %10, i64 %.1886
+  %123 = getelementptr inbounds nuw [552 x i8], ptr %13, i64 %.1886
   %124 = tail call fastcc i32 @cmp_info(ptr noundef %122, ptr noundef %123)
   %.not455 = icmp eq i32 %124, 0
   br i1 %.not455, label %118, label %cmp_resunit.exit.thread
@@ -1159,8 +1136,8 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 
 127:                                              ; preds = %.preheader2847, %125
   %.2885 = phi i64 [ %126, %125 ], [ 0, %.preheader2847 ]
-  %128 = getelementptr inbounds nuw %struct.pmix_byte_object, ptr %10, i64 %.2885
-  %129 = getelementptr inbounds nuw %struct.pmix_byte_object, ptr %13, i64 %.2885
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %.2885
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.2885
   %130 = tail call fastcc i32 @cmp_byte_object(ptr noundef %128, ptr noundef %129)
   %.not454 = icmp eq i32 %130, 0
   br i1 %.not454, label %125, label %cmp_resunit.exit.thread
@@ -1212,8 +1189,8 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 
 .preheader2850:                                   ; preds = %27, %147
   %.3884 = phi i64 [ %148, %147 ], [ 0, %27 ]
-  %149 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %10, i64 %.3884
-  %150 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %13, i64 %.3884
+  %149 = getelementptr inbounds nuw [296 x i8], ptr %10, i64 %.3884
+  %150 = getelementptr inbounds nuw [296 x i8], ptr %13, i64 %.3884
   %151 = tail call fastcc i32 @cmp_proc_info(ptr noundef %149, ptr noundef %150)
   %.not449 = icmp eq i32 %151, 0
   br i1 %.not449, label %147, label %cmp_resunit.exit.thread
@@ -1256,8 +1233,8 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 
 .preheader2853:                                   ; preds = %27, %165
   %.4883 = phi i64 [ %166, %165 ], [ 0, %27 ]
-  %167 = getelementptr inbounds nuw %struct.pmix_envar_t, ptr %10, i64 %.4883
-  %168 = getelementptr inbounds nuw %struct.pmix_envar_t, ptr %13, i64 %.4883
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %.4883
+  %168 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.4883
   %169 = tail call fastcc i32 @cmp_envar(ptr noundef %167, ptr noundef %168)
   %.not445 = icmp eq i32 %169, 0
   br i1 %.not445, label %165, label %cmp_resunit.exit.thread
@@ -1269,8 +1246,8 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 
 .preheader2856:                                   ; preds = %27, %170
   %.5882 = phi i64 [ %171, %170 ], [ 0, %27 ]
-  %172 = getelementptr inbounds nuw %struct.pmix_coord, ptr %10, i64 %.5882
-  %173 = getelementptr inbounds nuw %struct.pmix_coord, ptr %13, i64 %.5882
+  %172 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %.5882
+  %173 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.5882
   %174 = tail call fastcc i32 @cmp_coord(ptr noundef %172, ptr noundef %173)
   %.not444 = icmp eq i32 %174, 0
   br i1 %.not444, label %170, label %cmp_resunit.exit.thread
@@ -1303,7 +1280,7 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 
 .lr.ph878:                                        ; preds = %.lr.ph878.preheader, %183
   %.6877 = phi i64 [ %184, %183 ], [ 0, %.lr.ph878.preheader ]
-  %187 = getelementptr inbounds nuw %struct.pmix_topology_t, ptr %10, i64 %.6877
+  %187 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %.6877
   %188 = tail call fastcc i32 @cmp_topo(ptr noundef %187, ptr noundef %187)
   %.not441 = icmp eq i32 %188, 0
   br i1 %.not441, label %183, label %cmp_resunit.exit.thread
@@ -1316,7 +1293,7 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 
 .lr.ph873:                                        ; preds = %.lr.ph873.preheader, %189
   %.7872 = phi i64 [ %190, %189 ], [ 0, %.lr.ph873.preheader ]
-  %193 = getelementptr inbounds nuw %struct.pmix_cpuset_t, ptr %10, i64 %.7872
+  %193 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %.7872
   %194 = tail call fastcc i32 @cmp_cpuset(ptr noundef %193, ptr noundef %193)
   %.not440 = icmp eq i32 %194, 0
   br i1 %.not440, label %189, label %cmp_resunit.exit.thread
@@ -1339,8 +1316,8 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 
 .preheader2863:                                   ; preds = %27, %200
   %.8871 = phi i64 [ %201, %200 ], [ 0, %27 ]
-  %202 = getelementptr inbounds nuw %struct.pmix_geometry, ptr %10, i64 %.8871
-  %203 = getelementptr inbounds nuw %struct.pmix_geometry, ptr %13, i64 %.8871
+  %202 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %.8871
+  %203 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %.8871
   %204 = tail call fastcc i32 @cmp_geometry(ptr noundef %202, ptr noundef %203)
   %.not438 = icmp eq i32 %204, 0
   br i1 %.not438, label %200, label %cmp_resunit.exit.thread
@@ -1363,8 +1340,8 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 
 .preheader2866:                                   ; preds = %27, %210
   %.9870 = phi i64 [ %211, %210 ], [ 0, %27 ]
-  %212 = getelementptr inbounds nuw %struct.pmix_device, ptr %10, i64 %.9870
-  %213 = getelementptr inbounds nuw %struct.pmix_device, ptr %13, i64 %.9870
+  %212 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %.9870
+  %213 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.9870
   %214 = tail call fastcc i32 @cmp_device(ptr noundef %212, ptr noundef %213)
   %.not436 = icmp eq i32 %214, 0
   br i1 %.not436, label %210, label %cmp_resunit.exit.thread
@@ -1376,8 +1353,8 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
 
 .preheader2869:                                   ; preds = %27, %215
   %.10869 = phi i64 [ %216, %215 ], [ 0, %27 ]
-  %217 = getelementptr inbounds nuw %struct.pmix_resource_unit, ptr %10, i64 %.10869
-  %218 = getelementptr inbounds nuw %struct.pmix_resource_unit, ptr %13, i64 %.10869
+  %217 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %.10869
+  %218 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.10869
   %219 = load i64, ptr %217, align 8, !tbaa !15
   %220 = load i64, ptr %218, align 8, !tbaa !15
   %.not.i = icmp eq i64 %219, %220
@@ -1402,8 +1379,8 @@ cmp_resunit.exit:                                 ; preds = %221
 
 .preheader2872:                                   ; preds = %27, %228
   %.11868 = phi i64 [ %229, %228 ], [ 0, %27 ]
-  %230 = getelementptr inbounds nuw %struct.pmix_device_distance, ptr %10, i64 %.11868
-  %231 = getelementptr inbounds nuw %struct.pmix_device_distance, ptr %13, i64 %.11868
+  %230 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %.11868
+  %231 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %.11868
   %232 = tail call fastcc i32 @cmp_devdist(ptr noundef %230, ptr noundef %231)
   %.not434 = icmp eq i32 %232, 0
   br i1 %.not434, label %228, label %cmp_resunit.exit.thread
@@ -1415,8 +1392,8 @@ cmp_resunit.exit:                                 ; preds = %221
 
 .preheader2875:                                   ; preds = %27, %233
   %.12867 = phi i64 [ %234, %233 ], [ 0, %27 ]
-  %235 = getelementptr inbounds nuw %struct.pmix_endpoint, ptr %10, i64 %.12867
-  %236 = getelementptr inbounds nuw %struct.pmix_endpoint, ptr %13, i64 %.12867
+  %235 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %.12867
+  %236 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %.12867
   %237 = tail call fastcc i32 @cmp_endpoint(ptr noundef %235, ptr noundef %236)
   %.not433 = icmp eq i32 %237, 0
   br i1 %.not433, label %233, label %cmp_resunit.exit.thread
@@ -1428,8 +1405,8 @@ cmp_resunit.exit:                                 ; preds = %221
 
 .preheader2878:                                   ; preds = %27, %238
   %.13866 = phi i64 [ %239, %238 ], [ 0, %27 ]
-  %240 = getelementptr inbounds nuw %struct.pmix_data_buffer, ptr %10, i64 %.13866
-  %241 = getelementptr inbounds nuw %struct.pmix_data_buffer, ptr %13, i64 %.13866
+  %240 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %.13866
+  %241 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %.13866
   %242 = tail call fastcc i32 @cmp_dbuf(ptr noundef %240, ptr noundef %241)
   %.not432 = icmp eq i32 %242, 0
   br i1 %.not432, label %238, label %cmp_resunit.exit.thread
@@ -1441,8 +1418,8 @@ cmp_resunit.exit:                                 ; preds = %221
 
 .preheader2881:                                   ; preds = %27, %243
   %.14865 = phi i64 [ %244, %243 ], [ 0, %27 ]
-  %245 = getelementptr inbounds nuw %struct.pmix_proc_stats, ptr %10, i64 %.14865
-  %246 = getelementptr inbounds nuw %struct.pmix_proc_stats, ptr %13, i64 %.14865
+  %245 = getelementptr inbounds nuw [352 x i8], ptr %10, i64 %.14865
+  %246 = getelementptr inbounds nuw [352 x i8], ptr %13, i64 %.14865
   %247 = tail call fastcc i32 @cmp_procstats(ptr noundef %245, ptr noundef %246)
   %.not431 = icmp eq i32 %247, 0
   br i1 %.not431, label %243, label %cmp_resunit.exit.thread
@@ -1454,8 +1431,8 @@ cmp_resunit.exit:                                 ; preds = %221
 
 .preheader2884:                                   ; preds = %27, %248
   %.15864 = phi i64 [ %249, %248 ], [ 0, %27 ]
-  %250 = getelementptr inbounds nuw %struct.pmix_disk_stats_t, ptr %10, i64 %.15864
-  %251 = getelementptr inbounds nuw %struct.pmix_disk_stats_t, ptr %13, i64 %.15864
+  %250 = getelementptr inbounds nuw [96 x i8], ptr %10, i64 %.15864
+  %251 = getelementptr inbounds nuw [96 x i8], ptr %13, i64 %.15864
   %252 = tail call fastcc i32 @cmp_diskstats(ptr noundef %250, ptr noundef %251)
   %.not430 = icmp eq i32 %252, 0
   br i1 %.not430, label %248, label %cmp_resunit.exit.thread
@@ -1467,8 +1444,8 @@ cmp_resunit.exit:                                 ; preds = %221
 
 .preheader2887:                                   ; preds = %27, %253
   %.16863 = phi i64 [ %254, %253 ], [ 0, %27 ]
-  %255 = getelementptr inbounds nuw %struct.pmix_net_stats_t, ptr %10, i64 %.16863
-  %256 = getelementptr inbounds nuw %struct.pmix_net_stats_t, ptr %13, i64 %.16863
+  %255 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %.16863
+  %256 = getelementptr inbounds nuw [56 x i8], ptr %13, i64 %.16863
   %257 = tail call fastcc i32 @cmp_netstats(ptr noundef %255, ptr noundef %256)
   %.not429 = icmp eq i32 %257, 0
   br i1 %.not429, label %253, label %cmp_resunit.exit.thread
@@ -1480,8 +1457,8 @@ cmp_resunit.exit:                                 ; preds = %221
 
 .preheader2890:                                   ; preds = %27, %258
   %.17862 = phi i64 [ %259, %258 ], [ 0, %27 ]
-  %260 = getelementptr inbounds nuw %struct.pmix_node_stats_t, ptr %10, i64 %.17862
-  %261 = getelementptr inbounds nuw %struct.pmix_node_stats_t, ptr %13, i64 %.17862
+  %260 = getelementptr inbounds nuw [104 x i8], ptr %10, i64 %.17862
+  %261 = getelementptr inbounds nuw [104 x i8], ptr %13, i64 %.17862
   %262 = tail call fastcc i32 @cmp_nodestats(ptr noundef %260, ptr noundef %261)
   %.not428 = icmp eq i32 %262, 0
   br i1 %.not428, label %258, label %cmp_resunit.exit.thread
@@ -1498,8 +1475,8 @@ cmp_resunit.exit:                                 ; preds = %221
 
 .lr.ph858:                                        ; preds = %.lr.ph858.preheader, %264
   %.18857 = phi i64 [ %265, %264 ], [ 0, %.lr.ph858.preheader ]
-  %268 = getelementptr inbounds nuw %struct.pmix_regattr_t, ptr %10, i64 %.18857
-  %269 = getelementptr inbounds nuw %struct.pmix_regattr_t, ptr %13, i64 %.18857
+  %268 = getelementptr inbounds nuw [536 x i8], ptr %10, i64 %.18857
+  %269 = getelementptr inbounds nuw [536 x i8], ptr %13, i64 %.18857
   %270 = tail call fastcc i32 @cmp_regattr(ptr noundef %268, ptr noundef %269)
   %.not427 = icmp eq i32 %270, 0
   br i1 %.not427, label %264, label %cmp_resunit.exit.thread
@@ -1855,8 +1832,8 @@ define internal fastcc range(i32 0, 5) i32 @cmp_geometry(ptr noundef readonly ca
 
 .preheader:                                       ; preds = %44, %46
   %.058 = phi i64 [ %47, %46 ], [ 0, %44 ]
-  %48 = getelementptr inbounds nuw %struct.pmix_coord, ptr %29, i64 %.058
-  %49 = getelementptr inbounds nuw %struct.pmix_coord, ptr %32, i64 %.058
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %.058
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %.058
   %50 = load i8, ptr %48, align 8, !tbaa !53
   %51 = load i8, ptr %49, align 8, !tbaa !53
   %.not.i = icmp eq i8 %50, %51
@@ -2840,8 +2817,8 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 
 .lr.ph:                                           ; preds = %.preheader133, %121
   %.0135 = phi i64 [ %122, %121 ], [ 0, %.preheader133 ]
-  %123 = getelementptr inbounds nuw %struct.pmix_disk_stats_t, ptr %109, i64 %.0135
-  %124 = getelementptr inbounds nuw %struct.pmix_disk_stats_t, ptr %111, i64 %.0135
+  %123 = getelementptr inbounds nuw [96 x i8], ptr %109, i64 %.0135
+  %124 = getelementptr inbounds nuw [96 x i8], ptr %111, i64 %.0135
   %125 = tail call fastcc i32 @cmp_diskstats(ptr noundef %123, ptr noundef nonnull %124)
   %.not130 = icmp eq i32 %125, 0
   br i1 %.not130, label %121, label %.loopexit
@@ -2879,8 +2856,8 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly c
 
 .lr.ph137:                                        ; preds = %.preheader, %139
   %.1136 = phi i64 [ %140, %139 ], [ 0, %.preheader ]
-  %141 = getelementptr inbounds nuw %struct.pmix_net_stats_t, ptr %127, i64 %.1136
-  %142 = getelementptr inbounds nuw %struct.pmix_net_stats_t, ptr %129, i64 %.1136
+  %141 = getelementptr inbounds nuw [56 x i8], ptr %127, i64 %.1136
+  %142 = getelementptr inbounds nuw [56 x i8], ptr %129, i64 %.1136
   %143 = tail call fastcc i32 @cmp_netstats(ptr noundef %141, ptr noundef nonnull %142)
   %.not129 = icmp eq i32 %143, 0
   br i1 %.not129, label %139, label %.loopexit
@@ -2982,9 +2959,9 @@ define internal fastcc range(i32 0, 6) i32 @cmp_regattr(ptr noundef readonly cap
 
 48:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !146
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !146
   %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %52) #7
   %54 = icmp slt i32 %53, 0

@@ -2492,7 +2492,7 @@ _ZNK4YAML5RegEx13IsValidSourceINS_16StreamCharSourceEEEbRKT_.exit.thread: ; pred
 
 58:                                               ; preds = %56, %54
   %59 = phi i64 [ %55, %54 ], [ %57, %56 ]
-  %60 = getelementptr inbounds ptr, ptr %44, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %44, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !95, !noalias !92
   %62 = shl nsw i64 %59, 9
   %63 = sub nsw i64 %48, %62
@@ -2540,7 +2540,7 @@ _ZNK4YAML5RegEx12MatchOpEmptyINS_16StreamCharSourceEEEiRKT_.exit: ; preds = %52,
 
 90:                                               ; preds = %88, %86
   %91 = phi i64 [ %87, %86 ], [ %89, %88 ]
-  %92 = getelementptr inbounds ptr, ptr %76, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %76, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !95, !noalias !96
   %94 = shl nsw i64 %91, 9
   %95 = sub nsw i64 %80, %94
@@ -2580,7 +2580,7 @@ _ZNK4YAML5RegEx12MatchOpMatchINS_16StreamCharSourceEEEiRKT_.exit: ; preds = %84,
 
 _ZNK4YAML16StreamCharSourceixEm.exit.i:           ; preds = %116
   %118 = lshr i64 %114, 9
-  %119 = getelementptr inbounds nuw ptr, ptr %110, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !95, !noalias !100
   %121 = and i64 %114, 511
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 %121
@@ -2590,7 +2590,7 @@ _ZNK4YAML16StreamCharSourceixEm.exit.i:           ; preds = %116
 
 _ZNK4YAML16StreamCharSourceixEm.exit.thread7.i:   ; preds = %100
   %125 = ashr i64 %114, 9
-  %126 = getelementptr inbounds ptr, ptr %110, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %110, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !95, !noalias !100
   %128 = and i64 %114, 511
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 %128
@@ -2699,7 +2699,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamChar
 
 32:                                               ; preds = %30, %28
   %33 = phi i64 [ %29, %28 ], [ %31, %30 ]
-  %34 = getelementptr inbounds ptr, ptr %18, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %18, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !95, !noalias !104
   %36 = shl nsw i64 %33, 9
   %37 = sub nsw i64 %22, %36
@@ -2748,7 +2748,7 @@ _ZNK4YAML5RegEx12MatchOpEmptyINS_16StreamCharSourceEEEiRKT_.exit: ; preds = %26,
 
 65:                                               ; preds = %63, %61
   %66 = phi i64 [ %62, %61 ], [ %64, %63 ]
-  %67 = getelementptr inbounds ptr, ptr %51, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %51, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !95, !noalias !107
   %69 = shl nsw i64 %66, 9
   %70 = sub nsw i64 %55, %69
@@ -2789,7 +2789,7 @@ _ZNK4YAML5RegEx12MatchOpMatchINS_16StreamCharSourceEEEiRKT_.exit: ; preds = %59,
 
 _ZNK4YAML16StreamCharSourceixEm.exit.i:           ; preds = %92
   %94 = lshr i64 %90, 9
-  %95 = getelementptr inbounds nuw ptr, ptr %86, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !95, !noalias !110
   %97 = and i64 %90, 511
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 %97
@@ -2799,7 +2799,7 @@ _ZNK4YAML16StreamCharSourceixEm.exit.i:           ; preds = %92
 
 _ZNK4YAML16StreamCharSourceixEm.exit.thread7.i:   ; preds = %75
   %101 = ashr i64 %90, 9
-  %102 = getelementptr inbounds ptr, ptr %86, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %86, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !95, !noalias !110
   %104 = and i64 %90, 511
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 %104
@@ -2853,7 +2853,7 @@ _ZNK4YAML16StreamCharSourceixEm.exit4.i:          ; preds = %111, %_ZNK4YAML16St
   %129 = phi ptr [ %136, %132 ], [ %8, %.preheader ]
   %.014.i41 = phi i64 [ %134, %132 ], [ 0, %.preheader ]
   %.015.i40 = phi i32 [ %spec.select.i12, %132 ], [ -1, %.preheader ]
-  %130 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %129, i64 %.014.i41
+  %130 = getelementptr inbounds nuw [32 x i8], ptr %129, i64 %.014.i41
   %131 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %.not.i11 = icmp eq i32 %131, -1
   br i1 %.not.i11, label %common.ret85, label %132
@@ -2968,7 +2968,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx10MatchOpAndINS_16StreamCharSour
   %7 = phi ptr [ %14, %10 ], [ %6, %2 ]
   %.01424 = phi i64 [ %12, %10 ], [ 0, %2 ]
   %.01523 = phi i32 [ %spec.select, %10 ], [ -1, %2 ]
-  %8 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %7, i64 %.01424
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %.01424
   %9 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StreamCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %.not = icmp eq i32 %9, -1
   br i1 %.not, label %._crit_edge, label %10

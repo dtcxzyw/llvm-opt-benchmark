@@ -33,12 +33,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.QuantLib::detail::ordinal_holder" = type { i64 }
 %"class.boost::shared_ptr" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.QuantLib::Period" = type { i32, i32 }
-%"class.std::vector.50" = type { %"struct.std::_Vector_base.51" }
-%"struct.std::_Vector_base.51" = type { %"struct.std::_Vector_base<QuantLib::Handle<QuantLib::Quote>, std::allocator<QuantLib::Handle<QuantLib::Quote>>>::_Vector_impl" }
-%"struct.std::_Vector_base<QuantLib::Handle<QuantLib::Quote>, std::allocator<QuantLib::Handle<QuantLib::Quote>>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::Handle<QuantLib::Quote>, std::allocator<QuantLib::Handle<QuantLib::Quote>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<QuantLib::Handle<QuantLib::Quote>, std::allocator<QuantLib::Handle<QuantLib::Quote>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.QuantLib::Handle.59" = type { %"class.boost::shared_ptr.60" }
-%"class.boost::shared_ptr.60" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.QuantLib::SwapIndex" = type { %"class.QuantLib::InterestRateIndex", %"class.QuantLib::Period", %"class.boost::shared_ptr.55", %"class.QuantLib::Period", i32, i8, %"class.QuantLib::Handle.56", %"class.boost::shared_ptr.58", %"class.QuantLib::Date" }
 %"class.QuantLib::InterestRateIndex" = type { %"class.QuantLib::Index", %"class.std::__cxx11::basic_string", %"class.QuantLib::Period", i32, %"class.QuantLib::Currency", %"class.QuantLib::DayCounter", %"class.std::__cxx11::basic_string", %"class.QuantLib::Calendar" }
 %"class.QuantLib::Index" = type { %"class.QuantLib::Observable", %"class.QuantLib::Observer" }
@@ -1564,7 +1558,7 @@ for.cond.cleanup:                                 ; preds = %for.inc, %for.cond.
 do.body82:                                        ; preds = %do.body82.lr.ph, %for.inc
   %77 = phi double [ %.pre, %do.body82.lr.ph ], [ %78, %for.inc ]
   %i.0814 = phi i64 [ 1, %do.body82.lr.ph ], [ %inc, %for.inc ]
-  %add.ptr.i149 = getelementptr inbounds nuw double, ptr %49, i64 %i.0814
+  %add.ptr.i149 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %i.0814
   %78 = load double, ptr %add.ptr.i149, align 8, !tbaa !88
   %cmp87 = fcmp olt double %77, %78
   br i1 %cmp87, label %for.inc, label %if.then88
@@ -1590,7 +1584,7 @@ invoke.cont99:                                    ; preds = %invoke.cont97
 
 invoke.cont101:                                   ; preds = %invoke.cont99
   %79 = load ptr, ptr %strikeSpreads_, align 8, !tbaa !53
-  %80 = getelementptr double, ptr %79, i64 %i.0814
+  %80 = getelementptr [8 x i8], ptr %79, i64 %i.0814
   %add.ptr.i156 = getelementptr i8, ptr %80, i64 -8
   %81 = load double, ptr %add.ptr.i156, align 8, !tbaa !88
   %call.i157 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call100, double noundef %81)
@@ -1613,7 +1607,7 @@ invoke.cont115:                                   ; preds = %invoke.cont112
 
 invoke.cont117:                                   ; preds = %invoke.cont115
   %82 = load ptr, ptr %strikeSpreads_, align 8, !tbaa !53
-  %add.ptr.i164 = getelementptr inbounds nuw double, ptr %82, i64 %i.0814
+  %add.ptr.i164 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %i.0814
   %83 = load double, ptr %add.ptr.i164, align 8, !tbaa !88
   %call.i165 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call116, double noundef %83)
           to label %invoke.cont121 unwind label %lpad111
@@ -2285,7 +2279,7 @@ _ZNSt8_Rb_treeIN5boost10shared_ptrIN8QuantLib10ObservableEEES4_St9_IdentityIS4_E
 
 do.body269:                                       ; preds = %do.body269.preheader, %for.inc339
   %i262.0816 = phi i64 [ %inc340, %for.inc339 ], [ 0, %do.body269.preheader ]
-  %add.ptr.i281 = getelementptr inbounds nuw %"class.std::vector.50", ptr %75, i64 %i262.0816
+  %add.ptr.i281 = getelementptr inbounds nuw [24 x i8], ptr %75, i64 %i262.0816
   %_M_finish.i282 = getelementptr inbounds nuw i8, ptr %add.ptr.i281, i64 8
   %166 = load ptr, ptr %_M_finish.i282, align 8, !tbaa !104
   %167 = load ptr, ptr %add.ptr.i281, align 8, !tbaa !106
@@ -2316,7 +2310,7 @@ invoke.cont283:                                   ; preds = %invoke.cont280
 
 invoke.cont285:                                   ; preds = %invoke.cont283
   %169 = load ptr, ptr %volSpreads_, align 8, !tbaa !89
-  %add.ptr.i297 = getelementptr inbounds nuw %"class.std::vector.50", ptr %169, i64 %i262.0816
+  %add.ptr.i297 = getelementptr inbounds nuw [24 x i8], ptr %169, i64 %i262.0816
   %_M_finish.i298 = getelementptr inbounds nuw i8, ptr %add.ptr.i297, i64 8
   %170 = load ptr, ptr %_M_finish.i298, align 8, !tbaa !104
   %171 = load ptr, ptr %add.ptr.i297, align 8, !tbaa !106
@@ -3560,10 +3554,10 @@ for.body9:                                        ; preds = %for.cond6.preheader
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   %mul = mul i64 %13, %j.044
   %14 = load ptr, ptr %volSpreads_, align 8, !tbaa !89
-  %15 = getelementptr %"class.std::vector.50", ptr %14, i64 %mul
-  %add.ptr.i = getelementptr %"class.std::vector.50", ptr %15, i64 %k.042
+  %15 = getelementptr [24 x i8], ptr %14, i64 %mul
+  %add.ptr.i = getelementptr [24 x i8], ptr %15, i64 %k.042
   %16 = load ptr, ptr %add.ptr.i, align 8, !tbaa !106
-  %add.ptr.i7 = getelementptr inbounds nuw %"class.QuantLib::Handle.59", ptr %16, i64 %i.046
+  %add.ptr.i7 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %i.046
   %17 = load ptr, ptr %add.ptr.i7, align 8, !tbaa !112, !noalias !114
   %pn3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i7, i64 8
   %18 = load ptr, ptr %pn3.i.i, align 8, !tbaa !44, !noalias !114

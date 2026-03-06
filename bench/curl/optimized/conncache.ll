@@ -2270,14 +2270,14 @@ define hidden void @Curl_cpool_setfds(ptr noundef %0, ptr noundef captures(none)
   br i1 %.not44, label %49, label %38
 
 38:                                               ; preds = %.lr.ph
-  %39 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !114
   %41 = srem i32 %40, 64
   %42 = zext nneg i32 %41 to i64
   %43 = shl nuw i64 1, %42
   %44 = sdiv i32 %40, 64
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i64, ptr %1, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %1, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !144
   %48 = or i64 %43, %47
   store i64 %48, ptr %46, align 8, !tbaa !144
@@ -2289,14 +2289,14 @@ define hidden void @Curl_cpool_setfds(ptr noundef %0, ptr noundef captures(none)
   br i1 %.not45, label %62, label %51
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !114
   %54 = srem i32 %53, 64
   %55 = zext nneg i32 %54 to i64
   %56 = shl nuw i64 1, %55
   %57 = sdiv i32 %53, 64
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds i64, ptr %2, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %2, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !144
   %61 = or i64 %56, %60
   store i64 %61, ptr %59, align 8, !tbaa !144
@@ -2308,7 +2308,7 @@ define hidden void @Curl_cpool_setfds(ptr noundef %0, ptr noundef captures(none)
   br i1 %.not46, label %70, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !114
   %67 = load i32, ptr %3, align 4, !tbaa !114
   %68 = icmp sgt i32 %66, %67

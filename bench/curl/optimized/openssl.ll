@@ -6155,7 +6155,7 @@ define internal range(i32 0, 92) i32 @ossl_get_channel_binding(ptr noundef %0, i
   %9 = load ptr, ptr %8, align 8, !tbaa !211
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 608
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !212
   br label %14
 
@@ -6716,7 +6716,7 @@ define internal fastcc noundef nonnull ptr @SSL_ERROR_to_str(i32 noundef %0) unn
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SSL_ERROR_to_str, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SSL_ERROR_to_str, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -7280,7 +7280,7 @@ ossl_strerror.exit.i:                             ; preds = %232, %229
 
 switch.lookup:                                    ; preds = %.thread203.i
   %261 = zext nneg i32 %118 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_connect_common, i64 %261
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_connect_common, i64 %261
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %SSL_ERROR_to_str.exit
 

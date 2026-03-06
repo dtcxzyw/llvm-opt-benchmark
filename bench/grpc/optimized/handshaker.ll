@@ -30,7 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::allocator.20" = type { i8 }
-%"class.grpc_core::RefCountedPtr.11" = type { ptr }
 %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView" = type { %"class.std::basic_streambuf", ptr, %"class.absl::lts_20240722::Span.63", %"class.absl::lts_20240722::Span.63", %"class.absl::lts_20240722::Span.63" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
@@ -537,7 +536,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = load ptr, ptr %49, align 16, !noalias !72
   %.sink2.i.i.i.i = select i1 %45, ptr %50, ptr %49
-  %51 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.11", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store ptr null, ptr %51, align 8, !tbaa !64
   %52 = load ptr, ptr %1, align 8, !tbaa !64
   store ptr %52, ptr %51, align 8, !tbaa !64
@@ -1669,7 +1668,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataIPN9grpc_core14Handshaker
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %199 = load ptr, ptr %198, align 16
   %200 = select i1 %197, ptr %199, ptr %198
-  %201 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.11", ptr %200, i64 %47
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %47
   %202 = load ptr, ptr %201, align 8, !tbaa !64
   %.not.i90 = icmp eq ptr %202, null
   br i1 %.not.i90, label %_ZN9grpc_core13RefCountedPtrINS_10HandshakerEEC2ERKS2_.exit, label %203
@@ -1984,7 +1983,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi37EEERS2_RAT__Kc.exit: ; pr
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load ptr, ptr %41, align 16
   %43 = select i1 %40, ptr %42, ptr %41
-  %44 = getelementptr %"class.grpc_core::RefCountedPtr.11", ptr %43, i64 %37
+  %44 = getelementptr [8 x i8], ptr %43, i64 %37
   %45 = getelementptr i8, ptr %44, i64 -8
   %46 = load ptr, ptr %45, align 8, !tbaa !64
   %47 = load i64, ptr %1, align 8, !tbaa !30
@@ -3037,7 +3036,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrINS0_10HandshakerEEEEE7destroyIS3_EEvRS4_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrINS0_10HandshakerEEEEE7destroyIS3_EEvRS4_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.11", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   %.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrINS0_10HandshakerEEEEE7destroyIS3_EEvRS4_PT_.exit.i, label %11
@@ -3119,7 +3118,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl12lt
 _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core13RefCountedPtrINS3_10HandshakerEEEELb0EE8AllocateERS7_m.exit.i: ; preds = %2
   %14 = shl nuw nsw i64 %10, 3
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #25
-  %16 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.11", ptr %15, i64 %.sink1.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.sink1.i
   %17 = load ptr, ptr %1, align 8, !tbaa !64
   store ptr %17, ptr %16, align 8, !tbaa !64
   store ptr null, ptr %1, align 8, !tbaa !64
@@ -3129,7 +3128,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core13R
 .lr.ph.i:                                         ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core13RefCountedPtrINS3_10HandshakerEEEELb0EE8AllocateERS7_m.exit.i, %.lr.ph.i
   %.012.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core13RefCountedPtrINS3_10HandshakerEEEELb0EE8AllocateERS7_m.exit.i ]
   %18 = phi ptr [ %21, %.lr.ph.i ], [ %.sink2.i, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core13RefCountedPtrINS3_10HandshakerEEEELb0EE8AllocateERS7_m.exit.i ]
-  %19 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.11", ptr %15, i64 %.012.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.012.i
   %20 = load ptr, ptr %18, align 8, !tbaa !64
   store ptr %20, ptr %19, align 8, !tbaa !64
   store ptr null, ptr %18, align 8, !tbaa !64
@@ -3141,7 +3140,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core13R
 .lr.ph.i15:                                       ; preds = %.lr.ph.i, %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrINS0_10HandshakerEEEEE7destroyIS3_EEvRS4_PT_.exit.i
   %.06.i = phi i64 [ %23, %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrINS0_10HandshakerEEEEE7destroyIS3_EEvRS4_PT_.exit.i ], [ %.sink1.i, %.lr.ph.i ]
   %23 = add nsw i64 %.06.i, -1
-  %24 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.11", ptr %.sink2.i, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !64
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %_ZNSt16allocator_traitsISaIN9grpc_core13RefCountedPtrINS0_10HandshakerEEEEE7destroyIS3_EEvRS4_PT_.exit.i, label %26

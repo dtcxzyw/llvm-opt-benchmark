@@ -374,7 +374,7 @@ define internal i32 @dissect_mpeg_audio(ptr noundef %0, ptr noundef %1, ptr noun
   %40 = load ptr, ptr %15, align 8
   %41 = call i32 @mpa_version(ptr noundef nonnull %6)
   %42 = sext i32 %41 to i64
-  %43 = getelementptr ptr, ptr @dissect_mpeg_audio_frame.version_names, i64 %42
+  %43 = getelementptr [8 x i8], ptr @dissect_mpeg_audio_frame.version_names, i64 %42
   %44 = load ptr, ptr %43, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %40, i32 noundef 35, ptr noundef nonnull @.str.220, ptr noundef %44)
   %45 = load ptr, ptr %15, align 8

@@ -404,7 +404,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %34
 
 switch.lookup:                                    ; preds = %1
   %44 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev7LogUtil20ConvertStyleToStringENS0_8LogStyleE, i64 %44
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev7LogUtil20ConvertStyleToStringENS0_8LogStyleE, i64 %44
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 
@@ -1022,7 +1022,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN19OpenColorIO_v2_5dev7LogUtil15Get
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev7LogUtil15GetLogDirectionENS0_8LogStyleE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev7LogUtil15GetLogDirectionENS0_8LogStyleE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -1221,9 +1221,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !12
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !19
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !24
   br label %41
 

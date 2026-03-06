@@ -240,7 +240,7 @@ define internal i32 @yenta_probe(ptr noundef %0, ptr noundef readonly captures(n
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %37
-  %56 = getelementptr %struct.cardbus_type, ptr @cardbus_type, i64 %53
+  %56 = getelementptr [32 x i8], ptr @cardbus_type, i64 %53
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 1368
   store ptr %56, ptr %57, align 8
   %58 = load ptr, ptr %56, align 16
@@ -1752,7 +1752,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @yenta_allocate_res(ptr nound
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 920
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr %struct.resource, ptr %10, i64 %11
+  %12 = getelementptr [64 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null

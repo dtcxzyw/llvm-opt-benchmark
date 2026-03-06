@@ -220,7 +220,7 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11upd
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw { i64 }, ptr %0, i64 %.sroa.8.010
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.8.010
   %11 = load atomic i64, ptr %10 seq_cst, align 8
   %12 = icmp eq i64 %11, 0
   %13 = zext i1 %12 to i8
@@ -248,7 +248,7 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11upd
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw { i64 }, ptr %0, i64 %.sroa.8.010
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.8.010
   %11 = load atomic i64, ptr %10 seq_cst, align 8
   %12 = icmp eq i64 %11, 0
   %13 = zext i1 %12 to i8
@@ -278,7 +278,7 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$13wri
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw { i64 }, ptr %0, i64 %.sroa.8.010.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.8.010.i
   %9 = load atomic i64, ptr %8 seq_cst, align 8, !noalias !6
   %10 = icmp eq i64 %9, 0
   %11 = zext i1 %10 to i8
@@ -341,7 +341,7 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$13wri
   br i1 %29, label %35, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw { i64 }, ptr %0, i64 %.sroa.8.010.i2
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.8.010.i2
   %32 = load atomic i64, ptr %31 seq_cst, align 8, !noalias !12
   %33 = icmp eq i64 %32, 0
   %34 = zext i1 %33 to i8
@@ -371,7 +371,7 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$13wri
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw { i64 }, ptr %0, i64 %.sroa.8.010.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.8.010.i
   %9 = load atomic i64, ptr %8 seq_cst, align 8, !noalias !15
   %10 = icmp eq i64 %9, 0
   %11 = zext i1 %10 to i8
@@ -434,7 +434,7 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$13wri
   br i1 %29, label %35, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw { i64 }, ptr %0, i64 %.sroa.8.010.i2
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.8.010.i2
   %32 = load atomic i64, ptr %31 seq_cst, align 8, !noalias !21
   %33 = icmp eq i64 %32, 0
   %34 = zext i1 %33 to i8
@@ -581,7 +581,7 @@ common.resume:                                    ; preds = %8, %57
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw { i64 }, ptr %17, i64 %.sroa.8.010.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.sroa.8.010.i.i
   %24 = load atomic i64, ptr %23 seq_cst, align 8, !noalias !34
   %25 = icmp eq i64 %24, 0
   %26 = zext i1 %25 to i8
@@ -640,7 +640,7 @@ common.resume:                                    ; preds = %8, %57
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw { i64 }, ptr %17, i64 %.sroa.8.010.i2.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.sroa.8.010.i2.i
   %46 = load atomic i64, ptr %45 seq_cst, align 8, !noalias !40
   %47 = icmp eq i64 %46, 0
   %48 = zext i1 %47 to i8
@@ -717,7 +717,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5542961546488995764.ex
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw { i64 }, ptr %13, i64 %.sroa.8.010.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.8.010.i.i
   %20 = load atomic i64, ptr %19 seq_cst, align 8, !noalias !70
   %21 = icmp eq i64 %20, 0
   %22 = zext i1 %21 to i8
@@ -776,7 +776,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.llvm.5542961546488995764.ex
   br i1 %39, label %45, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds nuw { i64 }, ptr %13, i64 %.sroa.8.010.i2.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.8.010.i2.i
   %42 = load atomic i64, ptr %41 seq_cst, align 8, !noalias !76
   %43 = icmp eq i64 %42, 0
   %44 = zext i1 %43 to i8
@@ -4834,7 +4834,7 @@ define hidden noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_
   %29 = add i64 %24, -1
   store i64 %29, ptr %17, align 8, !alias.scope !452
   %30 = load ptr, ptr %22, align 8, !alias.scope !452, !nonnull !5, !noundef !5
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %25
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %25
   %32 = load ptr, ptr %31, align 8, !noalias !452, !nonnull !5, !noundef !5
   %33 = atomicrmw sub ptr %32, i64 64 acq_rel, align 8, !noalias !456
   %34 = lshr i64 %33, 6
@@ -5063,7 +5063,7 @@ define noundef ptr @_ZN5tokio7runtime9scheduler14current_thread4Core9next_task17
   store i64 %27, ptr %17, align 8, !alias.scope !497
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = load ptr, ptr %28, align 8, !alias.scope !497, !nonnull !5, !noundef !5
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %23
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %23
   %31 = load ptr, ptr %30, align 8, !noalias !497, !nonnull !5, !noundef !5
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h976fd04771dea735E.exit"
 
@@ -5089,7 +5089,7 @@ _ZN5tokio7runtime9scheduler14current_thread4Core15next_local_task17h23337b13f7e7
   store i64 %42, ptr %33, align 8, !alias.scope !507
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load ptr, ptr %43, align 8, !alias.scope !507, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %38
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %38
   %46 = load ptr, ptr %45, align 8, !noalias !507, !nonnull !5, !noundef !5
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h976fd04771dea735E.exit"
 
@@ -5151,7 +5151,7 @@ define hidden void @_ZN5tokio7runtime9scheduler14current_thread4Core9push_task17
   %.0.i.i = sub nuw i64 %20, %21
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load ptr, ptr %22, align 8, !alias.scope !511, !nonnull !5, !noundef !5
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %.0.i.i
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %.0.i.i
   store ptr %2, ptr %24, align 8
   %25 = load i64, ptr %6, align 8, !alias.scope !511, !noundef !5
   %26 = add i64 %25, 1
@@ -5842,7 +5842,7 @@ _ZN5tokio4loom3std10atomic_u329AtomicU3211unsync_load17hc488a0b2ff33134bE.exit: 
   %58 = and i32 %.034, 255
   %59 = zext nneg i32 %58 to i64
   %60 = load ptr, ptr %28, align 8, !nonnull !5, !align !33, !noundef !5
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %59
   store ptr %30, ptr %61, align 8
   %62 = add i32 %.034, 1
   %63 = icmp eq i64 %57, 0
@@ -5898,7 +5898,7 @@ _ZN5tokio4loom3std10atomic_u329AtomicU3211unsync_load17hc488a0b2ff33134bE.exit: 
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %24 = load ptr, ptr %23, align 8, !noalias !589, !nonnull !5, !align !33, !noundef !5
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %20, ptr %25, align 8, !noalias !589
   %26 = add i32 %14, 1
   store atomic i32 %26, ptr %8 release, align 8, !noalias !589
@@ -5939,7 +5939,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Local$LT$T
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !33, !noundef !5
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %6
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %6
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %11 = add i32 %2, 1
@@ -6116,7 +6116,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %32 = and i64 %.0310, 255
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %34 = load ptr, ptr %33, align 8, !nonnull !5, !align !33, !noundef !5
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %32
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   %36 = load ptr, ptr %35, align 8
   br label %43
 
@@ -6175,7 +6175,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Ste
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %22 = load ptr, ptr %21, align 8, !nonnull !5, !align !33, !noundef !5
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %20
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   %24 = load ptr, ptr %23, align 8, !nonnull !5, !noundef !5
   %25 = icmp eq i32 %17, 0
   br i1 %25, label %26, label %27
@@ -6284,10 +6284,10 @@ define hidden noundef i32 @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Ste
   %55 = add i32 %.sroa.05.046, %18
   %56 = and i32 %55, 255
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %57
   %59 = load ptr, ptr %58, align 8, !nonnull !5, !noundef !5
   %60 = load ptr, ptr %35, align 8, !nonnull !5, !align !33, !noundef !5
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %53
   store ptr %59, ptr %61, align 8
   %exitcond.not = icmp eq i32 %50, %umax
   br i1 %exitcond.not, label %.preheader, label %49
@@ -7466,7 +7466,7 @@ define hidden void @_ZN5tokio7runtime4time5wheel5level5Level9add_entry17h003c014
   %10 = and i64 %9, 62
   %11 = lshr i64 %6, %10
   %12 = and i64 %11, 63
-  %13 = getelementptr inbounds nuw { ptr, ptr }, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !684)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !684
   store ptr %1, ptr %4, align 8, !noalias !684
@@ -7522,7 +7522,7 @@ define hidden void @_ZN5tokio7runtime4time5wheel5level5Level12remove_entry17hdcd
   %8 = and i64 %7, 62
   %9 = lshr i64 %4, %8
   %10 = and i64 %9, 63
-  %11 = getelementptr inbounds nuw { ptr, ptr }, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %10
   %12 = tail call noundef ptr @"_ZN5tokio4util11linked_list81LinkedList$LT$L$C$$LT$L$u20$as$u20$tokio..util..linked_list..Link$GT$..Target$GT$6remove17h5674c003639ee125E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !687)
   %13 = load ptr, ptr %11, align 8, !alias.scope !687, !noundef !5
@@ -7565,7 +7565,7 @@ define hidden { ptr, ptr } @_ZN5tokio7runtime4time5wheel5level5Level9take_slot17
   br i1 %9, label %10, label %17, !prof !690
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw { ptr, ptr }, ptr %0, i64 %1
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %1
   %12 = load ptr, ptr %11, align 8, !noundef !5
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8, !noundef !5

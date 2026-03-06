@@ -142,7 +142,7 @@ define dso_local i32 @computeCRC(ptr noundef readonly captures(none) %0, i32 nou
   br i1 %11, label %6, label %12, !llvm.loop !4
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %.1, ptr %13, align 4, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -158,7 +158,7 @@ define dso_local i32 @computeCRC(ptr noundef readonly captures(none) %0, i32 nou
   %.022.tr = trunc i32 %.02229 to i8
   %.narrow = xor i8 %16, %.022.tr
   %17 = zext i8 %.narrow to i64
-  %18 = getelementptr inbounds nuw i32, ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !6
   %20 = xor i32 %19, %15
   %21 = getelementptr inbounds nuw i8, ptr %.02031, i64 1
@@ -663,7 +663,7 @@ _ZL15alias_write_xmlP13AliasResourcePKcS2_P10UErrorCode.exit: ; preds = %_ZNK18S
   %212 = call i32 @itostr(ptr noundef nonnull %50, i32 noundef %.0191.i, i32 noundef 10, i32 noundef 0)
   %213 = call fastcc noundef ptr @_ZL5getIDPKcS0_Pc(ptr noundef %194, ptr noundef nonnull %50)
   %214 = load ptr, ptr %197, align 8, !tbaa !29
-  %215 = getelementptr inbounds nuw i32, ptr %214, i64 %211
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %211
   %216 = load i32, ptr %215, align 4, !tbaa !6
   %217 = call i32 @itostr(ptr noundef nonnull %49, i32 noundef %216, i32 noundef 10, i32 noundef 0)
   %218 = load ptr, ptr @_ZL3out, align 8, !tbaa !21
@@ -1542,7 +1542,7 @@ _ZL10write_tabsP11_FileStream.exit91.i:           ; preds = %_ZL10write_tabsP11_
   br i1 %518, label %513, label %519, !llvm.loop !4
 
 519:                                              ; preds = %513
-  %520 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i.i
+  %520 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i.i
   store i32 %.1.i.i, ptr %520, align 4, !tbaa !6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 256
@@ -1558,7 +1558,7 @@ _ZL10write_tabsP11_FileStream.exit91.i:           ; preds = %_ZL10write_tabsP11_
   %.022.tr.i.i = trunc i32 %.02229.i.i to i8
   %.narrow.i.i = xor i8 %523, %.022.tr.i.i
   %524 = zext i8 %.narrow.i.i to i64
-  %525 = getelementptr inbounds nuw i32, ptr %18, i64 %524
+  %525 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %524
   %526 = load i32, ptr %525, align 4, !tbaa !6
   %527 = xor i32 %526, %522
   %528 = getelementptr inbounds nuw i8, ptr %.02031.i.i, i64 1
@@ -3560,7 +3560,7 @@ define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCod
   %.014914 = phi i32 [ %.2151, %.critedge ], [ 0, %21 ]
   %23 = add nsw i32 %.014914, 1
   %24 = sext i32 %.014914 to i64
-  %25 = getelementptr inbounds i16, ptr %2, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %2, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !66
   %27 = zext i16 %26 to i32
   %28 = and i32 %27, 64512
@@ -3571,7 +3571,7 @@ define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCod
 
 30:                                               ; preds = %.lr.ph
   %31 = sext i32 %23 to i64
-  %32 = getelementptr inbounds i16, ptr %2, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %2, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !66
   %34 = zext i16 %33 to i32
   %35 = and i32 %34, 64512

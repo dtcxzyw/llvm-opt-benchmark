@@ -65,8 +65,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.testing::internal::GTestLog" = type { i32 }
 %"class.testing::internal::DummyMatchResultListener" = type { %"class.testing::MatchResultListener" }
 %"class.testing::MatchResultListener" = type { ptr, ptr }
-%"class.std::shared_ptr.56" = type { %"class.std::__shared_ptr.57" }
-%"class.std::__shared_ptr.57" = type { ptr, %"class.std::__shared_count" }
 %"class.testing::StringMatchResultListener" = type { %"class.testing::MatchResultListener", %"class.std::__cxx11::basic_stringstream" }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
@@ -88,6 +86,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.testing::internal::UntypedFunctionMockerBase::FailureCleanupHandler" = type <{ ptr, ptr, ptr, ptr, i8, i8, [6 x i8] }>
 %"class.testing::Action.37" = type { %"class.std::function.38" }
 %"class.std::function.38" = type { %"class.std::_Function_base", ptr }
+%"class.std::shared_ptr.56" = type { %"class.std::__shared_ptr.57" }
+%"class.std::__shared_ptr.57" = type { ptr, %"class.std::__shared_count" }
 %"class.testing::Expectation" = type { %"class.std::shared_ptr.56" }
 %"class.std::tuple.43" = type { %"struct.std::_Tuple_impl.base", [4 x i8] }
 %"struct.std::_Tuple_impl.base" = type <{ %"struct.std::_Tuple_impl.45", %"struct.std::_Head_base.49" }>
@@ -5564,7 +5564,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFvN4ab
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us
   %.021.us = phi i64 [ %42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %4, align 8, !tbaa !253
-  %22 = getelementptr inbounds nuw %"class.std::shared_ptr.56", ptr %21, i64 %.021.us
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.021.us
   %23 = load ptr, ptr %22, align 8, !tbaa !215
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.24, i64 noundef 1)
   tail call void @_ZNK7testing8internal15ExpectationBase18DescribeLocationToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
@@ -7617,7 +7617,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %117
 133:                                              ; preds = %132
   %134 = load ptr, ptr %24, align 8, !tbaa !169
   %135 = sext i32 %8 to i64
-  %136 = getelementptr ptr, ptr %134, i64 %135
+  %136 = getelementptr [8 x i8], ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8, !tbaa !77
   br label %141
@@ -8716,7 +8716,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFvRKN4
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us
   %.021.us = phi i64 [ %42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %4, align 8, !tbaa !253
-  %22 = getelementptr inbounds nuw %"class.std::shared_ptr.56", ptr %21, i64 %.021.us
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.021.us
   %23 = load ptr, ptr %22, align 8, !tbaa !215
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.24, i64 noundef 1)
   tail call void @_ZNK7testing8internal15ExpectationBase18DescribeLocationToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
@@ -9879,7 +9879,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %117
 133:                                              ; preds = %132
   %134 = load ptr, ptr %24, align 8, !tbaa !169
   %135 = sext i32 %8 to i64
-  %136 = getelementptr ptr, ptr %134, i64 %135
+  %136 = getelementptr [8 x i8], ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8, !tbaa !77
   br label %141
@@ -10677,7 +10677,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFvvEE2
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us
   %.021.us = phi i64 [ %42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %4, align 8, !tbaa !253
-  %22 = getelementptr inbounds nuw %"class.std::shared_ptr.56", ptr %21, i64 %.021.us
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.021.us
   %23 = load ptr, ptr %22, align 8, !tbaa !215
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.24, i64 noundef 1)
   tail call void @_ZNK7testing8internal15ExpectationBase18DescribeLocationToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
@@ -11423,7 +11423,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %117
 133:                                              ; preds = %132
   %134 = load ptr, ptr %24, align 8, !tbaa !169
   %135 = sext i32 %8 to i64
-  %136 = getelementptr ptr, ptr %134, i64 %135
+  %136 = getelementptr [8 x i8], ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8, !tbaa !77
   br label %141
@@ -15523,7 +15523,7 @@ _ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_S_re
 _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !253
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !252
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.56", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !538
   ret void
 }

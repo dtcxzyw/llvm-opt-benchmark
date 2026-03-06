@@ -25,19 +25,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<const toml::v3::key *, std::allocator<const toml::v3::key *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const toml::v3::key *, std::allocator<const toml::v3::key *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<const toml::v3::key *, std::allocator<const toml::v3::key *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.toml::v3::source_position" = type { i32, i32 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.34" }
-%"struct.std::_Head_base.34" = type { ptr }
 %"class.toml::v3::path" = type { %"class.std::vector.24" }
 %"class.std::vector.24" = type { %"struct.std::_Vector_base.25" }
 %"struct.std::_Vector_base.25" = type { %"struct.std::_Vector_base<toml::v3::path_component, std::allocator<toml::v3::path_component>>::_Vector_impl" }
 %"struct.std::_Vector_base<toml::v3::path_component, std::allocator<toml::v3::path_component>>::_Vector_impl" = type { %"struct.std::_Vector_base<toml::v3::path_component, std::allocator<toml::v3::path_component>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<toml::v3::path_component, std::allocator<toml::v3::path_component>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.toml::v3::path_component" = type { %"struct.toml::v3::path_component::storage_t", i8, [7 x i8] }
-%"struct.toml::v3::path_component::storage_t" = type { [32 x i8] }
 %class.anon.108 = type { i16 }
 %"class.std::tuple.111" = type { %"struct.std::_Tuple_impl.112" }
 %"struct.std::_Tuple_impl.112" = type { %"struct.std::_Head_base.113" }
@@ -46,12 +38,17 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.115" = type { %"struct.std::_Head_base.116" }
 %"struct.std::_Head_base.116" = type { ptr }
 %class.anon.122 = type { i16 }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.34" }
+%"struct.std::_Head_base.34" = type { ptr }
 %"class.toml::v3::impl::table_iterator" = type <{ %"struct.std::_Rb_tree_iterator", [16 x i8], i8, [7 x i8] }>
 %"struct.std::_Rb_tree_iterator" = type { ptr }
 %"class.toml::v3::impl::table_iterator.42" = type <{ %"struct.std::_Rb_tree_const_iterator", [16 x i8], i8, [7 x i8] }>
 %"struct.std::_Rb_tree_const_iterator" = type { ptr }
 %"struct.(anonymous namespace)::escaped_codepoint" = type { ptr }
-%"struct.(anonymous namespace)::utf8_codepoint" = type { i32, [4 x i8], i64, %"struct.toml::v3::source_position" }
 %class.anon.76 = type { ptr }
 %class.anon.77 = type { ptr }
 %class.anon.78 = type { ptr }
@@ -62,7 +59,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"struct.std::pair.87" = type { i64, i64 }
 %"class.toml::v3::table" = type <{ %"class.toml::v3::node", %"class.std::map", i8, [7 x i8] }>
 %"class.toml::v3::node" = type { ptr, %"struct.toml::v3::source_region" }
 %"class.std::map" = type { %"class.std::_Rb_tree" }
@@ -77,6 +73,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.toml::v3::impl::utf8_decoder" = type { i32, i32 }
 %"struct.(anonymous namespace)::utf8_reader<std::basic_string_view<char>>::currently_decoding_t" = type { [4 x i8], i64 }
 %"struct.(anonymous namespace)::utf8_reader<std::basic_string_view<char>>::codepoints_t" = type { [32 x %"struct.(anonymous namespace)::utf8_codepoint"], i64, i64, [16 x i8] }
+%"struct.(anonymous namespace)::utf8_codepoint" = type { i32, [4 x i8], i64, %"struct.toml::v3::source_position" }
 %"class.toml::v3::impl::impl_ex::parser" = type { %"class.(anonymous namespace)::utf8_buffered_reader", %"class.toml::v3::table", %"struct.toml::v3::source_position", ptr, %"class.std::vector.45", %"class.std::vector.45", %"class.std::vector.45", %"class.std::vector.50", %"struct.(anonymous namespace)::parse_key_buffer", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, i8, %"class.std::basic_string_view", i64 }
 %"class.(anonymous namespace)::utf8_buffered_reader" = type { ptr, %struct.anon, ptr, i64 }
 %struct.anon = type { [127 x %"struct.(anonymous namespace)::utf8_codepoint"], i64, i64 }
@@ -5343,7 +5340,7 @@ _ZSt10from_charsImENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_
   br i1 %107, label %"_ZZN4toml2v37at_pathERNS0_4nodeESt17basic_string_viewIcSt11char_traitsIcEEEN3$_18__invokeEPvm.exit", label %_ZN4toml2v34impl10parse_pathESt17basic_string_viewIcSt11char_traitsIcEEPvPFbS6_S5_EPFbS6_mE.exit.thread
 
 "_ZZN4toml2v37at_pathERNS0_4nodeESt17basic_string_viewIcSt11char_traitsIcEEEN3$_18__invokeEPvm.exit": ; preds = %98
-  %108 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %102, i64 %.2.i
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %.2.i
   %109 = load ptr, ptr %108, align 8, !tbaa !179
   %.not107 = icmp eq ptr %109, null
   br i1 %.not107, label %_ZN4toml2v34impl10parse_pathESt17basic_string_viewIcSt11char_traitsIcEEPvPFbS6_S5_EPFbS6_mE.exit.thread, label %.backedge.i
@@ -5693,7 +5690,7 @@ define ptr @_ZN4toml2v37at_pathERNS0_4nodeERKNS0_4pathE(ptr noundef nonnull alig
   br i1 %48, label %49, label %.thread74
 
 49:                                               ; preds = %38
-  %50 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %43, i64 %39
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %39
   br label %_ZN4toml2v35array3getEm.exit.thread
 
 51:                                               ; preds = %.lr.ph
@@ -8295,7 +8292,7 @@ define void @_ZNK4toml2v34path9truncatedEm(ptr dead_on_unwind noalias nonnull wr
   %sext = shl i64 %spec.select, 32
   %11 = ashr exact i64 %sext, 32
   %12 = sub nsw i64 0, %11
-  %13 = getelementptr inbounds %"class.toml::v3::path_component", ptr %5, i64 %12
+  %13 = getelementptr inbounds [40 x i8], ptr %5, i64 %12
   invoke void @_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEvNS7_IPS2_S4_EET_SD_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr null, ptr %6, ptr %13)
           to label %14 unwind label %15
 
@@ -8318,7 +8315,7 @@ define void @_ZNK4toml2v34path6parentEv(ptr dead_on_unwind noalias nonnull writa
   %5 = load ptr, ptr %1, align 8, !tbaa !203, !noalias !214
   %.not = icmp ne ptr %4, %5
   %sext.i.neg = sext i1 %.not to i64
-  %6 = getelementptr inbounds %"class.toml::v3::path_component", ptr %4, i64 %sext.i.neg
+  %6 = getelementptr inbounds [40 x i8], ptr %4, i64 %sext.i.neg
   invoke void @_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEvNS7_IPS2_S4_EET_SD_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr null, ptr %5, ptr %6)
           to label %_ZNK4toml2v34path9truncatedEm.exit unwind label %7
 
@@ -8350,7 +8347,7 @@ define void @_ZNK4toml2v34path4leafEm(ptr dead_on_unwind noalias writable sret(%
   %sext = shl i64 %spec.select, 32
   %12 = ashr exact i64 %sext, 32
   %13 = sub nsw i64 0, %12
-  %14 = getelementptr inbounds %"class.toml::v3::path_component", ptr %5, i64 %13
+  %14 = getelementptr inbounds [40 x i8], ptr %5, i64 %13
   invoke void @_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEvNS7_IPS2_S4_EET_SD_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr null, ptr %14, ptr %5)
           to label %17 unwind label %15
 
@@ -8404,8 +8401,8 @@ define void @_ZNK4toml2v34path7subpathEmm(ptr dead_on_unwind noalias writable sr
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %1, align 8, !tbaa !183
-  %11 = getelementptr inbounds %"class.toml::v3::path_component", ptr %10, i64 %7
-  %12 = getelementptr inbounds %"class.toml::v3::path_component", ptr %10, i64 %5
+  %11 = getelementptr inbounds [40 x i8], ptr %10, i64 %7
+  %12 = getelementptr inbounds [40 x i8], ptr %10, i64 %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !217
   invoke void @_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEEEvNS7_IPS2_S4_EET_SD_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr null, ptr %12, ptr nonnull %11)
           to label %_ZNK4toml2v34path7subpathEN9__gnu_cxx17__normal_iteratorIPKNS0_14path_componentESt6vectorIS4_SaIS4_EEEESA_.exit unwind label %13
@@ -8728,7 +8725,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %17, ptr %5, align 8, !tbaa !178
   store ptr %17, ptr %18, align 8, !tbaa !176
-  %19 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %17, i64 %spec.select
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %spec.select
   store ptr %19, ptr %15, align 8, !tbaa !221
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %21
@@ -8930,7 +8927,7 @@ _ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE11_S_
 .noexc14:                                         ; preds = %54, %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
   store ptr %47, ptr %5, align 8, !tbaa !178
   store ptr %53, ptr %22, align 8, !tbaa !176
-  %55 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %47, i64 %45
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %45
   store ptr %55, ptr %16, align 8, !tbaa !221
   br label %_ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EED2Ev.exit
 
@@ -9246,7 +9243,7 @@ _ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE11_S_
 .noexc:                                           ; preds = %93, %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
   store ptr %86, ptr %29, align 8, !tbaa !178
   store ptr %92, ptr %31, align 8, !tbaa !176
-  %94 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %86, i64 %84
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %84
   store ptr %94, ptr %48, align 8, !tbaa !221
   br label %_ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EED2Ev.exit
 
@@ -9433,7 +9430,7 @@ define void @_ZN4toml2v35array19preinsertion_resizeEmm(ptr noundef nonnull align
   br i1 %17, label %18, label %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %8, i64 %13
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %13
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -9470,8 +9467,8 @@ _ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE6resi
   %26 = add i64 %.01417, -1
   %.0 = add i64 %.0.in18, -1
   %27 = load ptr, ptr %5, align 8, !tbaa !178
-  %28 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %27, i64 %26
-  %29 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %27, i64 %.0
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.0
   %30 = load ptr, ptr %28, align 8, !tbaa !179
   store ptr null, ptr %28, align 8, !tbaa !179
   %31 = load ptr, ptr %29, align 8, !tbaa !179
@@ -9769,7 +9766,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN4toml2v35array2atEm(p
   unreachable
 
 _ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE2atEm.exit: ; preds = %2
-  %12 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %6, i64 %1
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %1
   %13 = load ptr, ptr %12, align 8, !tbaa !179
   ret ptr %13
 }
@@ -9830,7 +9827,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_
   store ptr %20, ptr %3, align 8, !tbaa !178
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   store ptr %25, ptr %15, align 8, !tbaa !176
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %1
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %1
   store ptr %26, ptr %7, align 8, !tbaa !221
   br label %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit
 
@@ -9870,7 +9867,7 @@ define void @_ZN4toml2v35array8truncateEm(ptr noundef nonnull align 8 captures(n
   br i1 %11, label %12, label %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE6resizeEm.exit
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %6, i64 %1
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %1
   %.not.i.i = icmp eq ptr %5, %13
   br i1 %.not.i.i, label %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -10087,7 +10084,7 @@ define noundef i64 @_ZNK4toml2v35array16total_leaf_countEv(ptr noundef nonnull r
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %.011 = phi i64 [ %20, %18 ], [ 0, %.lr.ph.preheader ]
   %.0810 = phi i64 [ %21, %18 ], [ 0, %.lr.ph.preheader ]
-  %10 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i64 %.0810
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0810
   %11 = load ptr, ptr %10, align 8, !tbaa !179
   %12 = load ptr, ptr %11, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 152
@@ -10131,7 +10128,7 @@ define void @_ZN4toml2v35array13flatten_childEOS1_Rm(ptr noundef nonnull readonl
 13:                                               ; preds = %.lr.ph, %_ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EEaSEOS5_.exit
   %.015 = phi i64 [ 0, %.lr.ph ], [ %38, %_ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EEaSEOS5_.exit ]
   %14 = load ptr, ptr %4, align 8, !tbaa !178
-  %15 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %14, i64 %.015
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.015
   %16 = load ptr, ptr %15, align 8, !tbaa !179
   %17 = load ptr, ptr %16, align 8, !tbaa !44
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -10157,7 +10154,7 @@ define void @_ZN4toml2v35array13flatten_childEOS1_Rm(ptr noundef nonnull readonl
   %31 = add i64 %30, 1
   store i64 %31, ptr %2, align 8, !tbaa !114
   %32 = load ptr, ptr %12, align 8, !tbaa !178
-  %33 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %32, i64 %30
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %30
   store ptr null, ptr %15, align 8, !tbaa !179
   %34 = load ptr, ptr %33, align 8, !tbaa !179
   store ptr %16, ptr %33, align 8, !tbaa !179
@@ -10208,7 +10205,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNR4toml2v35array7flatt
   %.02241 = phi i64 [ %.123, %47 ], [ %.02241.ph, %.lr.ph.outer ]
   %12 = add i64 %.in, -1
   %13 = load ptr, ptr %3, align 8, !tbaa !178
-  %14 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8, !tbaa !179
   %16 = load ptr, ptr %15, align 8, !tbaa !44
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 152
@@ -10349,7 +10346,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_
   store ptr %63, ptr %3, align 8, !tbaa !178
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 %61
   store ptr %68, ptr %5, align 8, !tbaa !176
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %63, i64 %.1237781
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.1237781
   store ptr %69, ptr %52, align 8, !tbaa !221
   br label %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE7reserveEm.exit
 
@@ -10370,7 +10367,7 @@ _ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE7rese
   %75 = phi i64 [ %72, %.lr.ph44 ], [ %129, %_ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EED2Ev.exit36 ]
   %76 = phi ptr [ %70, %.lr.ph44 ], [ %127, %_ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EED2Ev.exit36 ]
   %77 = phi i64 [ 0, %.lr.ph44 ], [ %125, %_ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EED2Ev.exit36 ]
-  %78 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %77
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr %79, align 8, !tbaa !44
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 152
@@ -10409,7 +10406,7 @@ _ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE7rese
   br i1 %99, label %100, label %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE6resizeEm.exit.i
 
 100:                                              ; preds = %98
-  %101 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %76, i64 %95
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %95
   %.not.i.i.i = icmp eq ptr %74, %101
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE6resizeEm.exit.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -10446,8 +10443,8 @@ _ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE6resi
   %108 = add i64 %.01417.i, -1
   %.0.i = add i64 %.0.in18.i, -1
   %109 = load ptr, ptr %3, align 8, !tbaa !178
-  %110 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %109, i64 %108
-  %111 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %109, i64 %.0.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %108
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %.0.i
   %112 = load ptr, ptr %110, align 8, !tbaa !179
   store ptr null, ptr %110, align 8, !tbaa !179
   %113 = load ptr, ptr %111, align 8, !tbaa !179
@@ -10523,7 +10520,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNR4toml2v35array5prune
   %.in = phi i64 [ %12, %94 ], [ %11, %.lr.ph.preheader ]
   %12 = add i64 %.in, -1
   %13 = load ptr, ptr %3, align 8, !tbaa !178
-  %14 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8, !tbaa !179
   %16 = load ptr, ptr %15, align 8, !tbaa !44
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 152
@@ -10549,7 +10546,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNR4toml2v35array5prune
 
 29:                                               ; preds = %23
   %30 = load ptr, ptr %3, align 8, !tbaa !161
-  %31 = getelementptr inbounds %"class.std::unique_ptr", ptr %30, i64 %12
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %12
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %5, align 8, !tbaa !161
   %.not.i.i = icmp eq ptr %32, %33
@@ -10633,7 +10630,7 @@ _ZNKSt14default_deleteIN4toml2v34nodeEEclEPS2_.exit.i.i.i.i.i: ; preds = %_ZSt4m
 
 67:                                               ; preds = %63
   %68 = load ptr, ptr %3, align 8, !tbaa !161
-  %69 = getelementptr inbounds %"class.std::unique_ptr", ptr %68, i64 %12
+  %69 = getelementptr inbounds [8 x i8], ptr %68, i64 %12
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %5, align 8, !tbaa !161
   %.not.i.i21 = icmp eq ptr %70, %71
@@ -10874,13 +10871,13 @@ define noundef zeroext i1 @_ZN4toml2v35array5equalERKS1_S3_(ptr noundef nonnull 
 
 .lr.ph:                                           ; preds = %.preheader, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31"
   %.02134 = phi i64 [ %156, %"_ZN4toml2v34node8do_visitIZNS0_5array5equalERKS3_S5_E3$_0RS1_EEDcOT_OT0_.exit.thread31" ], [ 0, %.preheader ]
-  %21 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %8, i64 %.02134
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.02134
   %22 = load ptr, ptr %21, align 8, !tbaa !179
   %23 = load ptr, ptr %22, align 8, !tbaa !44
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef zeroext i8 %25(ptr noundef nonnull align 8 dereferenceable(40) %22) #55
-  %27 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %16, i64 %.02134
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.02134
   %28 = load ptr, ptr %27, align 8, !tbaa !179
   %29 = load ptr, ptr %28, align 8, !tbaa !44
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -13390,7 +13387,7 @@ _ZN4toml2v34impl7impl_ex6parser15consume_commentEv.exit: ; preds = %.preheader.i
 
 121:                                              ; preds = %117
   %122 = zext nneg i32 %119 to i64
-  %123 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %122
+  %123 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %122
   %.sroa.0.0.copyload.i = load i64, ptr %123, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %123, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !115
@@ -13603,7 +13600,7 @@ define linkonce_odr void @_ZN4toml2v34impl7impl_ex6parser7advanceEv(ptr noundef 
   %20 = add i64 %reass.sub, 1
   %21 = add i64 %20, %19
   %22 = urem i64 %21, 127
-  %23 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %15, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %22
   br label %_ZN12_GLOBAL__N_120utf8_buffered_reader9read_nextEv.exit
 
 24:                                               ; preds = %1
@@ -13653,7 +13650,7 @@ _ZN12_GLOBAL__N_120utf8_buffered_reader9read_nextEv.exit.thread: ; preds = %37
 
 48:                                               ; preds = %42, %40
   %.sink13.i = phi i64 [ %47, %42 ], [ %27, %40 ]
-  %49 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %25, i64 %.sink13.i
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %.sink13.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
   %50 = load ptr, ptr %0, align 8, !tbaa !381
   %51 = load ptr, ptr %50, align 8, !tbaa !44
@@ -14353,7 +14350,7 @@ _ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EEaSEOS5_.exit: ; preds =
   %130 = sub i64 %120, %124
   %131 = add i64 %130, %129
   %132 = urem i64 %131, 127
-  %133 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %127, i64 %132
+  %133 = getelementptr inbounds nuw [24 x i8], ptr %127, i64 %132
   br label %_ZZN4toml2v34impl7impl_ex6parser11parse_valueEvENKUlvE0_clEv.exit
 
 134:                                              ; preds = %111
@@ -14391,7 +14388,7 @@ _ZZN4toml2v34impl7impl_ex6parser11parse_valueEvENKUlvE0_clEv.exit: ; preds = %12
   %150 = load i64, ptr %13, align 8, !tbaa !114
   %151 = add i64 %150, 1
   store i64 %151, ptr %13, align 8, !tbaa !114
-  %152 = getelementptr inbounds nuw i32, ptr %12, i64 %150
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %150
   store i32 %108, ptr %152, align 4, !tbaa !357
   invoke void @_ZN4toml2v34impl7impl_ex6parser7advanceEv(ptr noundef nonnull align 8 dereferenceable(3496) %1)
           to label %153 unwind label %147
@@ -14442,7 +14439,7 @@ _ZZN4toml2v34impl7impl_ex6parser11parse_valueEvENKUlvE0_clEv.exit: ; preds = %12
   %175 = sub i64 %165, %169
   %176 = add i64 %175, %174
   %177 = urem i64 %176, 127
-  %178 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %172, i64 %177
+  %178 = getelementptr inbounds nuw [24 x i8], ptr %172, i64 %177
   br label %_ZN4toml2v34impl7impl_ex6parser7go_backEm.exit
 
 179:                                              ; preds = %161
@@ -15407,7 +15404,7 @@ _ZNSt6vectorIPN4toml2v35tableESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.
 _ZNSt6vectorIPN4toml2v35tableESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %57, %_ZNSt6vectorIPN4toml2v35tableESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i.i
   store ptr %52, ptr %32, align 8, !tbaa !429
   store ptr %56, ptr %33, align 8, !tbaa !425
-  %58 = getelementptr inbounds nuw ptr, ptr %52, i64 %50
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %50
   store ptr %58, ptr %35, align 8, !tbaa !426
   br label %_ZN12_GLOBAL__N_118table_vector_scopeC2ERSt6vectorIPN4toml2v35tableESaIS5_EERS4_.exit
 
@@ -15655,7 +15652,7 @@ _ZN4toml2v34impl21is_bare_key_characterEDi.exit:  ; preds = %106
 
 120:                                              ; preds = %116
   %121 = zext nneg i32 %118 to i64
-  %122 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %121
+  %122 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %121
   %.sroa.0.0.copyload.i = load i64, ptr %122, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %122, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !115
@@ -15715,7 +15712,7 @@ _ZN4toml2v34impl21is_bare_key_characterEDi.exit.thread: ; preds = %106, %_ZN4tom
 
 139:                                              ; preds = %_ZN4toml2v34impl21is_bare_key_characterEDi.exit.thread
   %140 = zext nneg i32 %137 to i64
-  %141 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %140
+  %141 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %140
   %.sroa.0.0.copyload.i30 = load i64, ptr %141, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i31 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %.sroa.4.0.copyload.i32 = load ptr, ptr %.sroa.4.0..sroa_idx.i31, align 8, !tbaa !115
@@ -15955,7 +15952,7 @@ _ZN4toml2v34impl7impl_ex6parser14stop_recordingEm.exit: ; preds = %54, %56
 
 76:                                               ; preds = %73
   %77 = zext nneg i32 %72 to i64
-  %78 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %77
   %.sroa.0.0.copyload.i = load i64, ptr %78, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %78, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !115
@@ -16063,7 +16060,7 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit: ; preds = %76, %79, %81
 
 113:                                              ; preds = %110
   %114 = zext nneg i32 %108 to i64
-  %115 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %114
+  %115 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %114
   %.sroa.0.0.copyload.i72 = load i64, ptr %115, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i73 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %.sroa.4.0.copyload.i74 = load ptr, ptr %.sroa.4.0..sroa_idx.i73, align 8, !tbaa !115
@@ -16131,7 +16128,7 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit75: ; preds = %113, %116, %11
   %.1211 = phi ptr [ %1, %.lr.ph ], [ %.2, %.critedge64 ]
   %.045209 = phi i64 [ 0, %.lr.ph ], [ %306, %.critedge64 ]
   %147 = load ptr, ptr %128, align 8, !tbaa !3
-  %148 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %146, i64 %.045209
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %.045209
   %149 = load i64, ptr %148, align 8, !tbaa !434
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 %149
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 8
@@ -16243,7 +16240,7 @@ _ZNK4toml2v34impl14table_iteratorILb0EE9get_proxyEv.exit78: ; preds = %171, %_ZN
 _ZNK4toml2v34impl14table_iteratorILb0EE9get_proxyEv.exit86: ; preds = %.loopexit, %_ZNK4toml2v34impl14table_iteratorILb0EE9get_proxyEv.exit78, %189
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 3352
   %192 = load ptr, ptr %191, align 8, !tbaa !442
-  %193 = getelementptr inbounds nuw %"struct.toml::v3::source_position", ptr %192, i64 %.045209
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %.045209
   %.sroa.09.0.copyload = load i64, ptr %193, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 25, ptr %12, align 8
@@ -16254,7 +16251,7 @@ _ZNK4toml2v34impl14table_iteratorILb0EE9get_proxyEv.exit86: ; preds = %.loopexit
   %196 = load ptr, ptr %195, align 8
   %197 = call noundef zeroext i8 %196(ptr noundef nonnull align 8 dereferenceable(40) %166) #55
   %198 = zext i8 %197 to i64
-  %199 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl24node_type_friendly_namesE, i64 %198
+  %199 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl24node_type_friendly_namesE, i64 %198
   %.sroa.0.0.copyload.i87 = load i64, ptr %199, align 16, !tbaa !114
   %.sroa.2.0..sroa_idx.i88 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i88, align 8, !tbaa !115
@@ -16509,7 +16506,7 @@ _ZNSt6vectorIPN4toml2v35tableESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i:
 _ZNSt6vectorIPN4toml2v35tableESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %299, %_ZNSt6vectorIPN4toml2v35tableESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %294, ptr %137, align 8, !tbaa !429
   store ptr %298, ptr %138, align 8, !tbaa !425
-  %300 = getelementptr inbounds nuw ptr, ptr %294, i64 %292
+  %300 = getelementptr inbounds nuw [8 x i8], ptr %294, i64 %292
   store ptr %300, ptr %144, align 8, !tbaa !426
   br label %.critedge64
 
@@ -16560,7 +16557,7 @@ _ZNSt6vectorIPN4toml2v35tableESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17_
   %316 = ashr exact i64 %.pre-phi224, 4
   %317 = add nsw i64 %316, -1
   %318 = load ptr, ptr %128, align 8, !tbaa !3
-  %319 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %315, i64 %317
+  %319 = getelementptr inbounds nuw [16 x i8], ptr %315, i64 %317
   %320 = load i64, ptr %319, align 8, !tbaa !434
   %321 = getelementptr inbounds nuw i8, ptr %318, i64 %320
   %322 = getelementptr inbounds nuw i8, ptr %319, i64 8
@@ -16638,7 +16635,7 @@ _ZNK4toml2v34impl14table_iteratorILb0EE9get_proxyEv.exit127: ; preds = %342, %_Z
   %348 = load ptr, ptr %347, align 8
   %349 = call noundef zeroext i8 %348(ptr noundef nonnull align 8 dereferenceable(40) %337) #55
   %350 = zext i8 %349 to i64
-  %351 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl24node_type_friendly_namesE, i64 %350
+  %351 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl24node_type_friendly_namesE, i64 %350
   %.sroa.0.0.copyload.i128 = load i64, ptr %351, align 16, !tbaa !114
   %.sroa.2.0..sroa_idx.i129 = getelementptr inbounds nuw i8, ptr %351, i64 8
   %.sroa.2.0.copyload.i130 = load ptr, ptr %.sroa.2.0..sroa_idx.i129, align 8, !tbaa !115
@@ -17124,7 +17121,7 @@ _ZN12_GLOBAL__N_120utf8_buffered_reader9read_nextEv.exit.thread18.i: ; preds = %
   %82 = add i64 %reass.sub, 1
   %83 = add i64 %82, %81
   %84 = urem i64 %83, 127
-  %85 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %.ptr3.i.i, i64 %84
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %.ptr3.i.i, i64 %84
   store ptr %85, ptr %7, align 8, !tbaa !329
   br label %116
 
@@ -17177,7 +17174,7 @@ _ZN12_GLOBAL__N_120utf8_buffered_reader9read_nextEv.exit.thread.i: ; preds = %98
 
 109:                                              ; preds = %103, %101
   %.sink13.i.i = phi i64 [ %108, %103 ], [ %88, %101 ]
-  %110 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %.ptr3.i.i, i64 %.sink13.i.i
+  %110 = getelementptr inbounds nuw [24 x i8], ptr %.ptr3.i.i, i64 %.sink13.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %110, ptr noundef nonnull align 8 dereferenceable(24) %90, i64 24, i1 false)
   %111 = load ptr, ptr %3, align 8, !tbaa !381
   %112 = load ptr, ptr %111, align 8, !tbaa !44
@@ -18816,7 +18813,7 @@ _ZNK4toml2v34impl12utf8_decoder16needs_more_inputEv.exit.thread: ; preds = %41, 
 
 187:                                              ; preds = %184
   %188 = zext nneg i8 %168 to i64
-  %189 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %188
+  %189 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %188
   %.sroa.042.0.copyload = load i64, ptr %189, align 16, !tbaa !114
   %.sroa.243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %189, i64 8
   %.sroa.243.0.copyload = load ptr, ptr %.sroa.243.0..sroa_idx, align 8, !tbaa !115
@@ -18997,7 +18994,7 @@ _ZN4toml2v34impl15print_to_streamERSohNS0_11value_flagsEm.exit: ; preds = %.preh
 265:                                              ; preds = %263
   %266 = load ptr, ptr %158, align 8, !tbaa !121
   %267 = zext nneg i32 %212 to i64
-  %268 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %267
+  %268 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %267
   %.sroa.013.0.copyload = load i64, ptr %268, align 16, !tbaa !114
   %.sroa.214.0..sroa_idx = getelementptr inbounds nuw i8, ptr %268, i64 8
   %.sroa.214.0.copyload = load ptr, ptr %.sroa.214.0..sroa_idx, align 8, !tbaa !115
@@ -20075,7 +20072,7 @@ define void @_ZN4toml2v314toml_formatter5printERKNS0_5arrayE(ptr noundef nonnull
 
 _ZN4toml2v34impl9formatter12print_indentEv.exit:  ; preds = %.lr.ph.i, %.critedge, %.thread, %51
   %61 = load ptr, ptr %3, align 8, !tbaa !178
-  %62 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %61, i64 %.034
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.034
   %63 = load ptr, ptr %62, align 8, !tbaa !179
   %64 = load ptr, ptr %63, align 8, !tbaa !44
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
@@ -20525,7 +20522,7 @@ _ZNSt6vectorIPKN4toml2v33keyESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i: 
 _ZNSt6vectorIPKN4toml2v33keyESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %177, %_ZNSt6vectorIPKN4toml2v33keyESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
   store ptr %172, ptr %13, align 8, !tbaa !136
   store ptr %176, ptr %14, align 8, !tbaa !516
-  %178 = getelementptr inbounds nuw ptr, ptr %172, i64 %170
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %170
   store ptr %178, ptr %15, align 8, !tbaa !140
   br label %_ZNSt6vectorIPKN4toml2v33keyESaIS4_EE9push_backEOS4_.exit
 
@@ -20753,7 +20750,7 @@ _ZNSt6vectorIPKN4toml2v33keyESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i11
 _ZNSt6vectorIPKN4toml2v33keyESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i116: ; preds = %279, %_ZNSt6vectorIPKN4toml2v33keyESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i114
   store ptr %274, ptr %86, align 8, !tbaa !136
   store ptr %278, ptr %87, align 8, !tbaa !516
-  %280 = getelementptr inbounds nuw ptr, ptr %274, i64 %272
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %274, i64 %272
   store ptr %280, ptr %88, align 8, !tbaa !140
   br label %_ZNSt6vectorIPKN4toml2v33keyESaIS4_EE9push_backEOS4_.exit117
 
@@ -20850,7 +20847,7 @@ _ZN4toml2v34impl9formatter12print_indentEv.exit124: ; preds = %.lr.ph.i119, %_ZN
   store i8 0, ptr %90, align 4, !tbaa !120
   store i8 1, ptr %89, align 8, !tbaa !495
   %320 = load ptr, ptr %282, align 8, !tbaa !178
-  %321 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %320, i64 %.074192
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %320, i64 %.074192
   %322 = load ptr, ptr %321, align 8, !tbaa !179
   tail call void @_ZN4toml2v314toml_formatter5printERKNS0_5tableE(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull align 8 dereferenceable(89) %322)
   %323 = add nuw i64 %.074192, 1
@@ -21183,7 +21180,7 @@ define void @_ZN4toml2v314json_formatter5printERKNS0_5arrayE(ptr noundef nonnull
 
 _ZN4toml2v34impl9formatter12print_indentEv.exit:  ; preds = %.lr.ph.i, %31
   %41 = load ptr, ptr %3, align 8, !tbaa !178
-  %42 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %41, i64 %.022
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.022
   %43 = load ptr, ptr %42, align 8, !tbaa !179
   %44 = load ptr, ptr %43, align 8, !tbaa !44
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
@@ -22357,7 +22354,7 @@ _ZNSt6vectorIN4toml2v314path_componentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt12_Vector_baseIN4toml2v314path_componentESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, %46
   store ptr %20, ptr %0, align 8, !tbaa !203
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !201
-  %50 = getelementptr inbounds nuw %"class.toml::v3::path_component", ptr %20, i64 %16
+  %50 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %50, ptr %45, align 8, !tbaa !205
   ret void
 
@@ -22573,7 +22570,7 @@ _ZNSt6vectorIN4toml2v314path_componentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt12_Vector_baseIN4toml2v314path_componentESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25, %47
   store ptr %20, ptr %0, align 8, !tbaa !203
   store ptr %.0.lcssa.i.i.i22, ptr %4, align 8, !tbaa !201
-  %51 = getelementptr inbounds nuw %"class.toml::v3::path_component", ptr %20, i64 %16
+  %51 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %51, ptr %46, align 8, !tbaa !205
   ret void
 }
@@ -22766,9 +22763,9 @@ _ZNSt6vectorIN4toml2v314path_componentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 
 _ZNSt12_Vector_baseIN4toml2v314path_componentESaIS2_EE13_M_deallocateEPS2_m.exit42: ; preds = %_ZNSt6vectorIN4toml2v314path_componentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %68
   store ptr %38, ptr %0, align 8, !tbaa !203
-  %72 = getelementptr inbounds nuw %"class.toml::v3::path_component", ptr %39, i64 %1
+  %72 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %1
   store ptr %72, ptr %4, align 8, !tbaa !201
-  %73 = getelementptr inbounds nuw %"class.toml::v3::path_component", ptr %38, i64 %36
+  %73 = getelementptr inbounds nuw [40 x i8], ptr %38, i64 %36
   store ptr %73, ptr %11, align 8, !tbaa !205
   br label %74
 
@@ -23106,7 +23103,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113error_builder6appendINS_17escape
 
 12:                                               ; preds = %10
   %13 = zext nneg i32 %8 to i64
-  %14 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %13
   %.sroa.0.0.copyload.i.i = load i64, ptr %14, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !115
@@ -23683,7 +23680,7 @@ define linkonce_odr void @_ZZN4toml2v34impl7impl_ex6parser11parse_valueEvENKUlvE
   %19 = load i64, ptr %18, align 8, !tbaa !114
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !114
-  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %19
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %19
   store i32 %15, ptr %21, align 4, !tbaa !357
   %22 = add i32 %15, -48
   %23 = icmp ult i32 %22, 10
@@ -23881,7 +23878,7 @@ define linkonce_odr void @_ZZN4toml2v34impl7impl_ex6parser11parse_valueEvENKUlvE
   %22 = sub i64 %12, %16
   %23 = add i64 %22, %21
   %24 = urem i64 %23, 127
-  %25 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %19, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %24
   br label %_ZN4toml2v34impl7impl_ex6parser7go_backEm.exit
 
 26:                                               ; preds = %1
@@ -23999,7 +23996,7 @@ define linkonce_odr noundef i64 @_ZN4toml2v34impl7impl_ex6parser13parse_integerI
 
 39:                                               ; preds = %36
   %40 = zext nneg i32 %35 to i64
-  %41 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %40
   %.sroa.0.0.copyload.i = load i64, ptr %41, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !115
@@ -24090,7 +24087,7 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit: ; preds = %39, %42, %44
 
 69:                                               ; preds = %65
   %70 = zext nneg i32 %64 to i64
-  %71 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %70
   %.sroa.0.0.copyload.i71 = load i64, ptr %71, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %.sroa.4.0.copyload.i73 = load ptr, ptr %.sroa.4.0..sroa_idx.i72, align 8, !tbaa !115
@@ -24179,7 +24176,7 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit74: ; preds = %69, %72, %74
   br i1 %102, label %103, label %105
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %94
+  %104 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %94
   %.sroa.0.0.copyload.i79 = load i64, ptr %104, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i80 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %.sroa.4.0.copyload.i81 = load ptr, ptr %.sroa.4.0..sroa_idx.i80, align 8, !tbaa !115
@@ -24370,7 +24367,7 @@ thread-pre-split:                                 ; preds = %116, %194
   br i1 %172, label %173, label %175
 
 173:                                              ; preds = %170
-  %174 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %164
+  %174 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %164
   %.sroa.0.0.copyload.i90 = load i64, ptr %174, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i91 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %.sroa.4.0.copyload.i92 = load ptr, ptr %.sroa.4.0..sroa_idx.i91, align 8, !tbaa !115
@@ -24694,7 +24691,7 @@ define linkonce_odr noundef i64 @_ZN4toml2v34impl7impl_ex6parser13parse_integerI
 
 39:                                               ; preds = %36
   %40 = zext nneg i32 %35 to i64
-  %41 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %40
   %.sroa.0.0.copyload.i = load i64, ptr %41, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !115
@@ -24785,7 +24782,7 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit: ; preds = %39, %42, %44
 
 69:                                               ; preds = %65
   %70 = zext nneg i32 %64 to i64
-  %71 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %70
   %.sroa.0.0.copyload.i71 = load i64, ptr %71, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %.sroa.4.0.copyload.i73 = load ptr, ptr %.sroa.4.0..sroa_idx.i72, align 8, !tbaa !115
@@ -24869,7 +24866,7 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit74: ; preds = %69, %72, %74
 
 98:                                               ; preds = %95
   %99 = zext nneg i32 %92 to i64
-  %100 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %99
+  %100 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %99
   %.sroa.0.0.copyload.i79 = load i64, ptr %100, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i80 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %.sroa.4.0.copyload.i81 = load ptr, ptr %.sroa.4.0..sroa_idx.i80, align 8, !tbaa !115
@@ -25045,7 +25042,7 @@ thread-pre-split:                                 ; preds = %112, %174
 
 152:                                              ; preds = %149
   %153 = zext nneg i32 %116 to i64
-  %154 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %153
+  %154 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %153
   %.sroa.0.0.copyload.i87 = load i64, ptr %154, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i88 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %.sroa.4.0.copyload.i89 = load ptr, ptr %.sroa.4.0..sroa_idx.i88, align 8, !tbaa !115
@@ -25359,7 +25356,7 @@ define linkonce_odr noundef i64 @_ZN4toml2v34impl7impl_ex6parser13parse_integerI
 
 39:                                               ; preds = %36
   %40 = zext nneg i32 %35 to i64
-  %41 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %40
   %.sroa.0.0.copyload.i = load i64, ptr %41, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !115
@@ -25450,7 +25447,7 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit: ; preds = %39, %42, %44
 
 69:                                               ; preds = %65
   %70 = zext nneg i32 %64 to i64
-  %71 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %70
   %.sroa.0.0.copyload.i71 = load i64, ptr %71, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %.sroa.4.0.copyload.i73 = load ptr, ptr %.sroa.4.0..sroa_idx.i72, align 8, !tbaa !115
@@ -25534,7 +25531,7 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit74: ; preds = %69, %72, %74
 
 98:                                               ; preds = %95
   %99 = zext nneg i32 %92 to i64
-  %100 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %99
+  %100 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %99
   %.sroa.0.0.copyload.i79 = load i64, ptr %100, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i80 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %.sroa.4.0.copyload.i81 = load ptr, ptr %.sroa.4.0..sroa_idx.i80, align 8, !tbaa !115
@@ -25710,7 +25707,7 @@ thread-pre-split:                                 ; preds = %112, %174
 
 152:                                              ; preds = %149
   %153 = zext nneg i32 %116 to i64
-  %154 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %153
+  %154 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %153
   %.sroa.0.0.copyload.i87 = load i64, ptr %154, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i88 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %.sroa.4.0.copyload.i89 = load ptr, ptr %.sroa.4.0..sroa_idx.i88, align 8, !tbaa !115
@@ -26478,7 +26475,7 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit84: ; preds = %160
 
 188:                                              ; preds = %185
   %189 = zext nneg i32 %61 to i64
-  %190 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %189
+  %190 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %189
   %.sroa.0.0.copyload.i89 = load i64, ptr %190, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i90 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %.sroa.4.0.copyload.i91 = load ptr, ptr %.sroa.4.0..sroa_idx.i90, align 8, !tbaa !115
@@ -26617,7 +26614,7 @@ _ZN12_GLOBAL__N_18is_matchIJDiDiDiDiDiEEEbDiDpT_.exit.thread: ; preds = %207, %2
 
 231:                                              ; preds = %227
   %232 = zext nneg i32 %229 to i64
-  %233 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %232
+  %233 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %232
   %.sroa.0.0.copyload.i97 = load i64, ptr %233, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i98 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %.sroa.4.0.copyload.i99 = load ptr, ptr %.sroa.4.0..sroa_idx.i98, align 8, !tbaa !115
@@ -27023,7 +27020,7 @@ _ZN4toml2v34impl7impl_ex6parser25consume_expected_sequenceESt17basic_string_view
 
 69:                                               ; preds = %65
   %70 = zext nneg i32 %67 to i64
-  %71 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %70
   %.sroa.0.0.copyload.i = load i64, ptr %71, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %71, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !115
@@ -27181,7 +27178,7 @@ define linkonce_odr noundef i64 @_ZN4toml2v34impl7impl_ex6parser13parse_integerI
 
 49:                                               ; preds = %46
   %50 = zext nneg i32 %42 to i64
-  %51 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %50
   %.sroa.0.0.copyload.i = load i64, ptr %51, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !115
@@ -27355,7 +27352,7 @@ thread-pre-split:                                 ; preds = %63, %127
 
 106:                                              ; preds = %103
   %107 = zext nneg i32 %67 to i64
-  %108 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %107
+  %108 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %107
   %.sroa.0.0.copyload.i64 = load i64, ptr %108, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i65 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %.sroa.4.0.copyload.i66 = load ptr, ptr %.sroa.4.0..sroa_idx.i65, align 8, !tbaa !115
@@ -27723,7 +27720,7 @@ define linkonce_odr i64 @_ZN4toml2v34impl7impl_ex6parser10parse_timeEb(ptr nound
 
 57:                                               ; preds = %54
   %58 = zext nneg i32 %50 to i64
-  %59 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %58
+  %59 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %58
   %.sroa.0.0.copyload.i.i = load i64, ptr %59, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !115
@@ -27839,7 +27836,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit: ; preds = %57, %60, %62
 
 95:                                               ; preds = %92
   %96 = zext nneg i32 %91 to i64
-  %97 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %96
+  %97 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %96
   %.sroa.0.0.copyload.i = load i64, ptr %97, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %97, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !115
@@ -27959,7 +27956,7 @@ thread-pre-split:                                 ; preds = %.noexc54
 
 127:                                              ; preds = %124
   %128 = zext nneg i32 %120 to i64
-  %129 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %128
+  %129 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %128
   %.sroa.0.0.copyload.i.i63 = load i64, ptr %129, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i.i64 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %.sroa.4.0.copyload.i.i65 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i64, align 8, !tbaa !115
@@ -28064,7 +28061,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit66: ; preds = %127, %130, %13
 
 164:                                              ; preds = %161
   %165 = zext nneg i32 %160 to i64
-  %166 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %165
+  %166 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %165
   %.sroa.0.0.copyload.i71 = load i64, ptr %166, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i72 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %.sroa.4.0.copyload.i73 = load ptr, ptr %.sroa.4.0..sroa_idx.i72, align 8, !tbaa !115
@@ -28184,7 +28181,7 @@ thread-pre-split126:                              ; preds = %.noexc79
 
 196:                                              ; preds = %193
   %197 = zext nneg i32 %189 to i64
-  %198 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %197
+  %198 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %197
   %.sroa.0.0.copyload.i.i88 = load i64, ptr %198, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i.i89 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %.sroa.4.0.copyload.i.i90 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i89, align 8, !tbaa !115
@@ -28288,7 +28285,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit91: ; preds = %196, %199, %20
 
 232:                                              ; preds = %229
   %233 = zext nneg i32 %224 to i64
-  %234 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %233
+  %234 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %233
   %.sroa.0.0.copyload.i96 = load i64, ptr %234, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i97 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %.sroa.4.0.copyload.i98 = load ptr, ptr %.sroa.4.0..sroa_idx.i97, align 8, !tbaa !115
@@ -28371,7 +28368,7 @@ thread-pre-split128:                              ; preds = %.noexc102
   br i1 %259, label %260, label %_ZN4toml2v34impl7impl_ex6parser38consume_variable_length_digit_sequenceIjEEmPT_m.exit
 
 260:                                              ; preds = %.preheader145
-  %261 = getelementptr inbounds nuw i32, ptr %6, i64 %.09.i162
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.09.i162
   store i32 %258, ptr %261, align 4, !tbaa !145
   invoke void @_ZN4toml2v34impl7impl_ex6parser7advanceEv(ptr noundef nonnull align 8 dereferenceable(3496) %0)
           to label %.noexc102 unwind label %264
@@ -28404,7 +28401,7 @@ _ZN4toml2v34impl7impl_ex6parser38consume_variable_length_digit_sequenceIjEEmPT_m
 
 270:                                              ; preds = %266
   %271 = zext nneg i32 %268 to i64
-  %272 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %271
+  %272 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %271
   %.sroa.0.0.copyload.i107 = load i64, ptr %272, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i108 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %.sroa.4.0.copyload.i109 = load ptr, ptr %.sroa.4.0..sroa_idx.i108, align 8, !tbaa !115
@@ -28492,7 +28489,7 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit110: ; preds = %270, %273, %2
 
 302:                                              ; preds = %298
   %303 = zext nneg i32 %300 to i64
-  %304 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %303
+  %304 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %303
   %.sroa.0.0.copyload.i115 = load i64, ptr %304, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i116 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %.sroa.4.0.copyload.i117 = load ptr, ptr %.sroa.4.0..sroa_idx.i116, align 8, !tbaa !115
@@ -28552,7 +28549,7 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit118: ; preds = %302, %305, %3
   %.014165 = phi i32 [ %323, %.lr.ph ], [ 1, %.lr.ph.preheader ]
   %.015164 = phi i32 [ %322, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %318 = add nsw i64 %.013166, -1
-  %319 = getelementptr inbounds nuw i32, ptr %6, i64 %318
+  %319 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %318
   %320 = load i32, ptr %319, align 4, !tbaa !145
   %321 = mul i32 %320, %.014165
   %322 = add i32 %321, %.015164
@@ -28682,7 +28679,7 @@ define linkonce_odr i32 @_ZN4toml2v34impl7impl_ex6parser10parse_dateEb(ptr nound
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i32, ptr %6, i64 %.0912.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0912.i
   store i32 %43, ptr %46, align 4, !tbaa !145
   invoke void @_ZN4toml2v34impl7impl_ex6parser7advanceEv(ptr noundef nonnull align 8 dereferenceable(3496) %0)
           to label %.noexc38 unwind label %.loopexit100
@@ -28703,7 +28700,7 @@ define linkonce_odr i32 @_ZN4toml2v34impl7impl_ex6parser10parse_dateEb(ptr nound
 
 51:                                               ; preds = %48
   %52 = zext nneg i32 %42 to i64
-  %53 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %52
+  %53 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %52
   %.sroa.0.0.copyload.i.i = load i64, ptr %53, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !115
@@ -28821,7 +28818,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit: ; preds = %51, %54, %56
 
 100:                                              ; preds = %97
   %101 = zext nneg i32 %96 to i64
-  %102 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %101
+  %102 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %101
   %.sroa.0.0.copyload.i = load i64, ptr %102, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %102, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !115
@@ -28941,7 +28938,7 @@ thread-pre-split:                                 ; preds = %.noexc44
 
 132:                                              ; preds = %129
   %133 = zext nneg i32 %125 to i64
-  %134 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %133
+  %134 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %133
   %.sroa.0.0.copyload.i.i53 = load i64, ptr %134, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i.i54 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %.sroa.4.0.copyload.i.i55 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i54, align 8, !tbaa !115
@@ -29066,7 +29063,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit56: ; preds = %132, %135, %13
 
 173:                                              ; preds = %170
   %174 = zext nneg i32 %169 to i64
-  %175 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %174
+  %175 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %174
   %.sroa.0.0.copyload.i61 = load i64, ptr %175, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %.sroa.4.0.copyload.i63 = load ptr, ptr %.sroa.4.0..sroa_idx.i62, align 8, !tbaa !115
@@ -29186,7 +29183,7 @@ thread-pre-split92:                               ; preds = %.noexc69
 
 205:                                              ; preds = %202
   %206 = zext nneg i32 %198 to i64
-  %207 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %206
+  %207 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %206
   %.sroa.0.0.copyload.i.i78 = load i64, ptr %207, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i.i79 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %.sroa.4.0.copyload.i.i80 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i79, align 8, !tbaa !115
@@ -29283,7 +29280,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit81: ; preds = %205, %208, %21
 
 240:                                              ; preds = %237
   %241 = zext nneg i32 %235 to i64
-  %242 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %241
+  %242 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %241
   %.sroa.0.0.copyload.i86 = load i64, ptr %242, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i87 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %.sroa.4.0.copyload.i88 = load ptr, ptr %.sroa.4.0..sroa_idx.i87, align 8, !tbaa !115
@@ -29449,7 +29446,7 @@ define linkonce_odr { i64, i64 } @_ZN4toml2v34impl7impl_ex6parser15parse_date_ti
 
 46:                                               ; preds = %43
   %47 = zext nneg i32 %42 to i64
-  %48 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %47
   %.sroa.0.0.copyload.i = load i64, ptr %48, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !115
@@ -29646,7 +29643,7 @@ thread-pre-split:                                 ; preds = %.noexc31
 
 105:                                              ; preds = %102
   %106 = zext nneg i32 %98 to i64
-  %107 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %106
+  %107 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %106
   %.sroa.0.0.copyload.i.i = load i64, ptr %107, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %107, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !115
@@ -29761,7 +29758,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit: ; preds = %105, %108, %110
 
 140:                                              ; preds = %137
   %141 = zext nneg i32 %136 to i64
-  %142 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %141
+  %142 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %141
   %.sroa.0.0.copyload.i37 = load i64, ptr %142, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i38 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %.sroa.4.0.copyload.i39 = load ptr, ptr %.sroa.4.0..sroa_idx.i38, align 8, !tbaa !115
@@ -29881,7 +29878,7 @@ thread-pre-split77:                               ; preds = %.noexc45
 
 172:                                              ; preds = %169
   %173 = zext nneg i32 %165 to i64
-  %174 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %173
+  %174 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %173
   %.sroa.0.0.copyload.i.i54 = load i64, ptr %174, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i.i55 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %.sroa.4.0.copyload.i.i56 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i55, align 8, !tbaa !115
@@ -30002,7 +29999,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit57: ; preds = %172, %175, %17
 
 212:                                              ; preds = %209
   %213 = zext nneg i32 %207 to i64
-  %214 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %213
+  %214 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %213
   %.sroa.0.0.copyload.i62 = load i64, ptr %214, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i63 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %.sroa.4.0.copyload.i64 = load ptr, ptr %.sroa.4.0..sroa_idx.i63, align 8, !tbaa !115
@@ -30863,7 +30860,7 @@ define internal fastcc void @_ZN4toml2v34impl7impl_ex6parser12parse_stringEv(ptr
   %61 = add i64 %reass.sub, -2
   %62 = add i64 %61, %60
   %63 = urem i64 %62, 127
-  %64 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %58, i64 %63
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %63
   br label %_ZN4toml2v34impl7impl_ex6parser7go_backEm.exit
 
 65:                                               ; preds = %49
@@ -31094,7 +31091,7 @@ _ZN4toml2v34impl7impl_ex6parser25consume_expected_sequenceESt17basic_string_view
 
 59:                                               ; preds = %55
   %60 = zext nneg i32 %57 to i64
-  %61 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %60
+  %61 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %60
   %.sroa.0.0.copyload.i = load i64, ptr %61, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %61, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !115
@@ -32173,7 +32170,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit135: ; preds = %_Z
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %213
-  %217 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %207
+  %217 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %207
   %.sroa.0.0.copyload.i = load i64, ptr %217, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %217, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !115
@@ -32670,7 +32667,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit176: ; preds = %_Z
 
 433:                                              ; preds = %430
   %434 = zext nneg i32 %77 to i64
-  %435 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %434
+  %435 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %434
   %.sroa.0.0.copyload.i181 = load i64, ptr %435, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i182 = getelementptr inbounds nuw i8, ptr %435, i64 8
   %.sroa.4.0.copyload.i183 = load ptr, ptr %.sroa.4.0..sroa_idx.i182, align 8, !tbaa !115
@@ -36731,7 +36728,7 @@ _ZN4toml2v34impl21is_bare_key_characterEDi.exit27.thread: ; preds = %_ZNK4toml2v
 
 77:                                               ; preds = %74
   %78 = zext nneg i32 %41 to i64
-  %79 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %78
   %.sroa.0.0.copyload.i = load i64, ptr %79, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !115
@@ -36864,7 +36861,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i: ; p
 _ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %119, %_ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i
   store ptr %114, ptr %17, align 8, !tbaa !433
   store ptr %118, ptr %19, align 8, !tbaa !432
-  %120 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %114, i64 %112
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %112
   store ptr %120, ptr %36, align 8, !tbaa !617
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE9push_backEOS1_.exit.i
 
@@ -36934,7 +36931,7 @@ _ZNSt6vectorIN4toml2v315source_positionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIN4toml2v315source_positionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %147, %_ZNSt6vectorIN4toml2v315source_positionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %142, ptr %22, align 8, !tbaa !442
   store ptr %146, ptr %24, align 8, !tbaa !615
-  %148 = getelementptr inbounds nuw %"struct.toml::v3::source_position", ptr %142, i64 %140
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %140
   store ptr %148, ptr %37, align 8, !tbaa !623
   br label %_ZNSt6vectorIN4toml2v315source_positionESaIS2_EE9push_backERKS2_.exit.i
 
@@ -36994,7 +36991,7 @@ _ZNSt6vectorIN4toml2v315source_positionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIN4toml2v315source_positionESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i7.i: ; preds = %171, %_ZNSt6vectorIN4toml2v315source_positionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i5.i
   store ptr %166, ptr %27, align 8, !tbaa !442
   store ptr %170, ptr %29, align 8, !tbaa !615
-  %172 = getelementptr inbounds nuw %"struct.toml::v3::source_position", ptr %166, i64 %164
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %164
   store ptr %172, ptr %38, align 8, !tbaa !623
   br label %_ZN12_GLOBAL__N_116parse_key_buffer9push_backESt17basic_string_viewIcSt11char_traitsIcEEN4toml2v315source_positionES7_.exit
 
@@ -37442,7 +37439,7 @@ define linkonce_odr void @_ZNK4toml2v34impl7impl_ex6parser8make_keyEm(ptr dead_o
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 3328
   %9 = load ptr, ptr %8, align 8, !tbaa !433
-  %10 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %9, i64 %2
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %2
   %11 = load i64, ptr %10, align 8, !tbaa !434
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -37450,13 +37447,13 @@ define linkonce_odr void @_ZNK4toml2v34impl7impl_ex6parser8make_keyEm(ptr dead_o
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 3352
   %16 = load ptr, ptr %15, align 8, !tbaa !442
-  %17 = getelementptr inbounds nuw %"struct.toml::v3::source_position", ptr %16, i64 %2
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2
   %18 = load i64, ptr %17, align 4
   store i64 %18, ptr %5, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 3376
   %21 = load ptr, ptr %20, align 8, !tbaa !442
-  %22 = getelementptr inbounds nuw %"struct.toml::v3::source_position", ptr %21, i64 %2
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %2
   %23 = load i64, ptr %22, align 4
   store i64 %23, ptr %19, align 8
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -38075,7 +38072,7 @@ _ZN4toml2v34impl21is_bare_key_characterEDi.exit.thread: ; preds = %28, %_ZN4toml
 
 54:                                               ; preds = %51
   %55 = zext nneg i32 %52 to i64
-  %56 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %55
+  %56 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %55
   %.sroa.0.0.copyload.i.i = load i64, ptr %56, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !115
@@ -38150,7 +38147,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit: ; preds = %48, %_ZN12_GLOBA
 
 77:                                               ; preds = %74
   %78 = zext nneg i32 %24 to i64
-  %79 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %78
   %.sroa.0.0.copyload.i.i31 = load i64, ptr %79, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i.i32 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sroa.4.0.copyload.i.i33 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i32, align 8, !tbaa !115
@@ -38742,7 +38739,7 @@ _ZN4toml2v34impl7impl_ex6parser14stop_recordingEm.exit: ; preds = %128, %130
 
 148:                                              ; preds = %145
   %149 = zext nneg i32 %144 to i64
-  %150 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %149
+  %150 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %149
   %.sroa.0.0.copyload.i = load i64, ptr %150, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %150, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !115
@@ -38827,7 +38824,7 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit: ; preds = %148, %151, %153
 
 176:                                              ; preds = %173
   %177 = zext nneg i32 %172 to i64
-  %178 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %177
+  %178 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %177
   %.sroa.0.0.copyload.i193 = load i64, ptr %178, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i194 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %.sroa.4.0.copyload.i195 = load ptr, ptr %.sroa.4.0..sroa_idx.i194, align 8, !tbaa !115
@@ -38936,7 +38933,7 @@ _ZNK4toml2v34impl7impl_ex6parser16current_positionEj.exit: ; preds = %193, %195
 
 215:                                              ; preds = %212
   %216 = zext nneg i32 %213 to i64
-  %217 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %216
+  %217 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl20control_char_escapesE, i64 %216
   %.sroa.0.0.copyload.i.i = load i64, ptr %217, align 16, !tbaa !114
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %217, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !115
@@ -39027,7 +39024,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit: ; preds = %209, %_ZN12_GLOB
   %253 = phi ptr [ %.pre498, %._crit_edge.loopexit ], [ %237, %231 ]
   %.0127.lcssa = phi ptr [ %.2129, %._crit_edge.loopexit ], [ %232, %231 ]
   %254 = load ptr, ptr %233, align 8, !tbaa !3
-  %255 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %253, i64 %.pre-phi509
+  %255 = getelementptr inbounds nuw [16 x i8], ptr %253, i64 %.pre-phi509
   %256 = load i64, ptr %255, align 8, !tbaa !434
   %257 = getelementptr inbounds nuw i8, ptr %254, i64 %256
   %258 = getelementptr inbounds nuw i8, ptr %255, i64 8
@@ -39080,7 +39077,7 @@ _ZN4toml2v35table11lower_boundESt17basic_string_viewIcSt11char_traitsIcEE.exit: 
   %.0130477 = phi i64 [ 0, %.lr.ph ], [ %459, %_ZN4toml2v34impl4findIN9__gnu_cxx17__normal_iteratorIPPNS0_5tableESt6vectorIS6_SaIS6_EEEES6_EEDTaddefp_ET_SD_RKT0_.exit ]
   %272 = load ptr, ptr %233, align 8, !tbaa !3
   %273 = load ptr, ptr %234, align 8, !tbaa !433
-  %274 = getelementptr inbounds nuw %"struct.std::pair.87", ptr %273, i64 %.0130477
+  %274 = getelementptr inbounds nuw [16 x i8], ptr %273, i64 %.0130477
   %275 = load i64, ptr %274, align 8, !tbaa !434
   %276 = getelementptr inbounds nuw i8, ptr %272, i64 %275
   %277 = getelementptr inbounds nuw i8, ptr %274, i64 8
@@ -39287,7 +39284,7 @@ _ZN4toml2v34impl4findIN9__gnu_cxx17__normal_iteratorIPPNS0_5arrayESt6vectorIS6_S
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %347 = call noundef zeroext i8 %.pre496(ptr noundef nonnull align 8 dereferenceable(40) %292) #55
   %348 = zext i8 %347 to i64
-  %349 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl24node_type_friendly_namesE, i64 %348
+  %349 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl24node_type_friendly_namesE, i64 %348
   %.sroa.0.0.copyload.i235 = load i64, ptr %349, align 16, !tbaa !114
   %.sroa.2.0..sroa_idx.i236 = getelementptr inbounds nuw i8, ptr %349, i64 8
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i236, align 8, !tbaa !115
@@ -39554,7 +39551,7 @@ _ZNSt6vectorIPN4toml2v35tableESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i:
 _ZNSt6vectorIPN4toml2v35tableESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %452, %_ZNSt6vectorIPN4toml2v35tableESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %447, ptr %250, align 8, !tbaa !429
   store ptr %451, ptr %251, align 8, !tbaa !425
-  %453 = getelementptr inbounds nuw ptr, ptr %447, i64 %445
+  %453 = getelementptr inbounds nuw [8 x i8], ptr %447, i64 %445
   store ptr %453, ptr %252, align 8, !tbaa !426
   br label %_ZN4toml2v34impl4findIN9__gnu_cxx17__normal_iteratorIPPNS0_5tableESt6vectorIS6_SaIS6_EEEES6_EEDTaddefp_ET_SD_RKT0_.exit
 
@@ -39872,7 +39869,7 @@ _ZN4toml2v313source_regionD2Ev.exit275.thread453: ; preds = %532, %_ZN4toml2v313
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %588 = call noundef zeroext i8 %586(ptr noundef nonnull align 8 dereferenceable(40) %462) #55
   %589 = zext i8 %588 to i64
-  %590 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr @_ZN4toml2v34impl24node_type_friendly_namesE, i64 %589
+  %590 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4toml2v34impl24node_type_friendly_namesE, i64 %589
   %.sroa.0.0.copyload.i286 = load i64, ptr %590, align 16, !tbaa !114
   %.sroa.2.0..sroa_idx.i287 = getelementptr inbounds nuw i8, ptr %590, i64 8
   %.sroa.2.0.copyload.i288 = load ptr, ptr %.sroa.2.0..sroa_idx.i287, align 8, !tbaa !115
@@ -40003,7 +40000,7 @@ _ZNSt6vectorIPN4toml2v35arrayESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i:
 _ZNSt6vectorIPN4toml2v35arrayESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %631, %_ZNSt6vectorIPN4toml2v35arrayESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %626, ptr %606, align 8, !tbaa !462
   store ptr %630, ptr %607, align 8, !tbaa !643
-  %632 = getelementptr inbounds nuw ptr, ptr %626, i64 %624
+  %632 = getelementptr inbounds nuw [8 x i8], ptr %626, i64 %624
   store ptr %632, ptr %609, align 8, !tbaa !463
   br label %_ZNSt6vectorIPN4toml2v35arrayESaIS3_EE9push_backEOS3_.exit
 
@@ -40480,7 +40477,7 @@ _ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE11_S_
 .noexc:                                           ; preds = %31, %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
   store ptr %24, ptr %11, align 8, !tbaa !178
   store ptr %30, ptr %3, align 8, !tbaa !176
-  %32 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %24, i64 %22
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %32, ptr %5, align 8, !tbaa !221
   br label %_ZNSt10unique_ptrIN4toml2v34nodeESt14default_deleteIS2_EED2Ev.exit
 
@@ -44214,7 +44211,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4toml2v314path_co
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4toml2v314path_componentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4toml2v314path_componentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4toml2v314path_componentESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit
   %58 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN4toml2v314path_componentESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN4toml2v314path_componentESt6vectorIS4_SaIS4_EEEEmEvRT_T0_.exit ]
   %59 = sub nuw nsw i64 %9, %20
-  %60 = getelementptr inbounds nuw %"class.toml::v3::path_component", ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [40 x i8], ptr %58, i64 %59
   store ptr %60, ptr %12, align 8, !tbaa !201
   %.not11.i.i.i.i.i54 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i54, label %_ZSt22__uninitialized_move_aIPN4toml2v314path_componentES3_SaIS2_EET0_T_S6_S5_RT1_.exit60, label %.lr.ph.i.i.i.i.i55
@@ -44395,7 +44392,7 @@ _ZSt8_DestroyIPN4toml2v314path_componentES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZS
 _ZNSt12_Vector_baseIN4toml2v314path_componentESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4toml2v314path_componentES2_EvT_S4_RSaIT0_E.exit, %115
   store ptr %87, ptr %0, align 8, !tbaa !203
   store ptr %.0.lcssa.i.i.i.i.i87, ptr %12, align 8, !tbaa !201
-  %119 = getelementptr inbounds nuw %"class.toml::v3::path_component", ptr %87, i64 %83
+  %119 = getelementptr inbounds nuw [40 x i8], ptr %87, i64 %83
   store ptr %119, ptr %10, align 8, !tbaa !205
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4toml2v314path_componentESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit
 
@@ -44543,7 +44540,7 @@ _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN
 _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN4toml2v314path_componentESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN4toml2v314path_componentESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit.loopexit, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN4toml2v314path_componentESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit
   %47 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN4toml2v314path_componentESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN4toml2v314path_componentESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit ]
   %48 = sub nuw nsw i64 %9, %20
-  %49 = getelementptr inbounds nuw %"class.toml::v3::path_component", ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [40 x i8], ptr %47, i64 %48
   store ptr %49, ptr %12, align 8, !tbaa !201
   %.not11.i.i.i.i.i54 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i54, label %_ZSt22__uninitialized_move_aIPN4toml2v314path_componentES3_SaIS2_EET0_T_S6_S5_RT1_.exit60, label %.lr.ph.i.i.i.i.i55
@@ -44693,7 +44690,7 @@ _ZSt8_DestroyIPN4toml2v314path_componentES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZS
 _ZNSt12_Vector_baseIN4toml2v314path_componentESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4toml2v314path_componentES2_EvT_S4_RSaIT0_E.exit, %93
   store ptr %76, ptr %0, align 8, !tbaa !203
   store ptr %.0.lcssa.i.i.i.i.i86, ptr %12, align 8, !tbaa !201
-  %97 = getelementptr inbounds nuw %"class.toml::v3::path_component", ptr %76, i64 %72
+  %97 = getelementptr inbounds nuw [40 x i8], ptr %76, i64 %72
   store ptr %97, ptr %10, align 8, !tbaa !205
   br label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPN4toml2v314path_componentESt6vectorIS5_SaIS5_EEEEESA_ET0_T_SD_SC_.exit
 
@@ -45011,7 +45008,7 @@ _ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE11_S_
 _ZNSt12_Vector_baseISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !178
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !176
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !221
   ret void
 }
@@ -45093,9 +45090,9 @@ _ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE11_S_
 
 _ZNSt12_Vector_baseISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit37: ; preds = %_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %32
   store ptr %26, ptr %0, align 8, !tbaa !178
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %27, i64 %1
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %1
   store ptr %34, ptr %4, align 8, !tbaa !176
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %26, i64 %24
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %35, ptr %11, align 8, !tbaa !221
   br label %36
 
@@ -46279,7 +46276,7 @@ _ZNK4toml2v34impl12utf8_decoder16needs_more_inputEv.exit26.thread.i: ; preds = %
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.02350.i = phi i64 [ %46, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %40 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %.02350.i
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %.02350.i
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 %.02350.i
   %42 = load i8, ptr %41, align 1, !tbaa !15
   %43 = sext i8 %42 to i32
@@ -46361,7 +46358,7 @@ _ZN4toml2v34impl12utf8_decoderclEh.exit.i:        ; preds = %68, %63
   %82 = call ptr @__cxa_allocate_exception(i64 48) #53
   %83 = load i64, ptr %6, align 8, !tbaa !681
   %.not.i35.i = icmp eq i64 %83, 0
-  %84 = getelementptr %"struct.(anonymous namespace)::utf8_codepoint", ptr %0, i64 %83
+  %84 = getelementptr [24 x i8], ptr %0, i64 %83
   %85 = getelementptr i8, ptr %84, i64 56
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %87 = select i1 %.not.i35.i, ptr %86, ptr %85
@@ -46383,7 +46380,7 @@ _ZN4toml2v34impl12utf8_decoderclEh.exit.i:        ; preds = %68, %63
   %95 = load i64, ptr %6, align 8, !tbaa !681
   %96 = add i64 %95, 1
   store i64 %96, ptr %6, align 8, !tbaa !681
-  %97 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %95
+  %97 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %95
   store i32 %73, ptr %97, align 8, !tbaa !367
   %98 = load i64, ptr %49, align 8, !tbaa !453
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
@@ -46405,7 +46402,7 @@ _ZN4toml2v34impl12utf8_decoderclEh.exit.i:        ; preds = %68, %63
   %105 = call ptr @__cxa_allocate_exception(i64 48) #53
   %106 = load i64, ptr %6, align 8, !tbaa !681
   %.not.i36.i = icmp eq i64 %106, 0
-  %107 = getelementptr %"struct.(anonymous namespace)::utf8_codepoint", ptr %0, i64 %106
+  %107 = getelementptr [24 x i8], ptr %0, i64 %106
   %108 = getelementptr i8, ptr %107, i64 56
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %110 = select i1 %.not.i36.i, ptr %109, ptr %108
@@ -46424,7 +46421,7 @@ _ZN4toml2v34impl12utf8_decoderclEh.exit.i:        ; preds = %68, %63
   %115 = call ptr @__cxa_allocate_exception(i64 48) #53
   %116 = load i64, ptr %6, align 8, !tbaa !681
   %.not.i37.i = icmp eq i64 %116, 0
-  %117 = getelementptr %"struct.(anonymous namespace)::utf8_codepoint", ptr %0, i64 %116
+  %117 = getelementptr [24 x i8], ptr %0, i64 %116
   %118 = getelementptr i8, ptr %117, i64 56
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %120 = select i1 %.not.i37.i, ptr %119, ptr %118
@@ -46443,7 +46440,7 @@ _ZN4toml2v34impl12utf8_decoderclEh.exit.i:        ; preds = %68, %63
 
 126:                                              ; preds = %139, %.lr.ph.i39.i
   %.01.i.i = phi i64 [ 0, %.lr.ph.i39.i ], [ %140, %139 ]
-  %127 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %.01.i.i
+  %127 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %.01.i.i
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load i64, ptr %124, align 32
   store i64 %129, ptr %128, align 8
@@ -46481,7 +46478,7 @@ _ZN4toml2v34impl12utf8_decoderclEh.exit.i:        ; preds = %68, %63
   call void @llvm.assume(i1 %145)
   %146 = add nuw nsw i64 %143, 1
   store i64 %146, ptr %4, align 32, !tbaa !680
-  %147 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %143
+  %147 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %143
   br label %.critedge
 
 .critedge:                                        ; preds = %9, %142
@@ -46652,7 +46649,7 @@ define internal fastcc void @_ZZN12_GLOBAL__N_111utf8_readerISt17basic_string_vi
 
 6:                                                ; preds = %.lr.ph, %19
   %.01 = phi i64 [ 0, %.lr.ph ], [ %20, %19 ]
-  %7 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %.01
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %.01
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %4, align 32
   store i64 %9, ptr %8, align 8
@@ -46917,7 +46914,7 @@ _ZNK4toml2v34impl12utf8_decoder16needs_more_inputEv.exit35.thread.i: ; preds = %
 
 87:                                               ; preds = %87, %.loopexit.i
   %.03060.i = phi i64 [ 0, %.loopexit.i ], [ %94, %87 ]
-  %88 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %.03060.i
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %.03060.i
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 %.03060.i
   %90 = load i8, ptr %89, align 1, !tbaa !15
   %91 = sext i8 %90 to i32
@@ -46990,7 +46987,7 @@ _ZN4toml2v34impl12utf8_decoderclEh.exit.i:        ; preds = %113, %108
   %127 = call ptr @__cxa_allocate_exception(i64 48) #53
   %128 = load i64, ptr %6, align 8, !tbaa !689
   %.not.i43.i = icmp eq i64 %128, 0
-  %129 = getelementptr %"struct.(anonymous namespace)::utf8_codepoint", ptr %0, i64 %128
+  %129 = getelementptr [24 x i8], ptr %0, i64 %128
   %130 = getelementptr i8, ptr %129, i64 56
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %132 = select i1 %.not.i43.i, ptr %131, ptr %130
@@ -47020,7 +47017,7 @@ _ZN4toml2v34impl12utf8_decoderclEh.exit.i:        ; preds = %113, %108
   %143 = call ptr @__cxa_allocate_exception(i64 48) #53
   %144 = load i64, ptr %6, align 8, !tbaa !689
   %.not.i44.i = icmp eq i64 %144, 0
-  %145 = getelementptr %"struct.(anonymous namespace)::utf8_codepoint", ptr %0, i64 %144
+  %145 = getelementptr [24 x i8], ptr %0, i64 %144
   %146 = getelementptr i8, ptr %145, i64 56
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %148 = select i1 %.not.i44.i, ptr %147, ptr %146
@@ -47033,7 +47030,7 @@ _ZN4toml2v34impl12utf8_decoderclEh.exit.i:        ; preds = %113, %108
   %151 = load i64, ptr %6, align 8, !tbaa !689
   %152 = add i64 %151, 1
   store i64 %152, ptr %6, align 8, !tbaa !689
-  %153 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %151
+  %153 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %151
   store i32 %118, ptr %153, align 8, !tbaa !367
   %154 = load i64, ptr %97, align 8, !tbaa !467
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 8
@@ -47072,7 +47069,7 @@ _ZN4toml2v34impl12utf8_decoderclEh.exit.i:        ; preds = %113, %108
   %168 = call ptr @__cxa_allocate_exception(i64 48) #53
   %169 = load i64, ptr %6, align 8, !tbaa !689
   %.not.i45.i = icmp eq i64 %169, 0
-  %170 = getelementptr %"struct.(anonymous namespace)::utf8_codepoint", ptr %0, i64 %169
+  %170 = getelementptr [24 x i8], ptr %0, i64 %169
   %171 = getelementptr i8, ptr %170, i64 56
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %173 = select i1 %.not.i45.i, ptr %172, ptr %171
@@ -47091,7 +47088,7 @@ _ZN4toml2v34impl12utf8_decoderclEh.exit.i:        ; preds = %113, %108
 
 179:                                              ; preds = %192, %.lr.ph.i47.i
   %.01.i.i = phi i64 [ 0, %.lr.ph.i47.i ], [ %193, %192 ]
-  %180 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %.01.i.i
+  %180 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %.01.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %182 = load i64, ptr %177, align 16
   store i64 %182, ptr %181, align 8
@@ -47166,7 +47163,7 @@ _ZN12_GLOBAL__N_111utf8_readerISiE15read_next_blockEv.exit: ; preds = %_ZZN12_GL
   call void @llvm.assume(i1 %212)
   %213 = add nuw nsw i64 %210, 1
   store i64 %213, ptr %4, align 32, !tbaa !688
-  %214 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %210
+  %214 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %210
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN12_GLOBAL__N_111utf8_readerISiE15read_next_blockEv.exit.thread, %9, %209
@@ -47275,7 +47272,7 @@ define internal fastcc void @_ZZN12_GLOBAL__N_111utf8_readerISiE15read_next_bloc
 
 6:                                                ; preds = %.lr.ph, %19
   %.01 = phi i64 [ 0, %.lr.ph ], [ %20, %19 ]
-  %7 = getelementptr inbounds nuw %"struct.(anonymous namespace)::utf8_codepoint", ptr %3, i64 %.01
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %.01
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %4, align 16
   store i64 %9, ptr %8, align 8

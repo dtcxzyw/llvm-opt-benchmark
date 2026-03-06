@@ -33,7 +33,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Tactic_expandLocation___spe
 6:                                                ; preds = %.lr.ph, %lean_dec.exit28
   %.02344 = phi i64 [ %1, %.lr.ph ], [ %35, %lean_dec.exit28 ]
   %.02543 = phi ptr [ %3, %.lr.ph ], [ %.227, %lean_dec.exit28 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02344
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02344
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -1332,7 +1332,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit244
   %.0157481 = phi i64 [ %5, %.lr.ph ], [ %.1158, %lean_dec.exit226 ]
   %.0163480 = phi i8 [ %6, %.lr.ph ], [ %.1164, %lean_dec.exit226 ]
   %.0169479 = phi ptr [ %15, %.lr.ph ], [ %.1170, %lean_dec.exit226 ]
-  %126 = getelementptr inbounds nuw ptr, ptr %17, i64 %.0157481
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.0157481
   %127 = load ptr, ptr %126, align 8, !tbaa !4
   %128 = ptrtoint ptr %127 to i64
   %129 = trunc i64 %128 to i1
@@ -3530,7 +3530,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Elab_Tactic_withLocation___spec_
   br label %lean_dec.exit120
 
 lean_dec.exit120:                                 ; preds = %43, %42, %40, %34
-  %44 = getelementptr inbounds nuw ptr, ptr %15, i64 %.077224
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.077224
   %45 = load ptr, ptr %44, align 8, !tbaa !4
   %46 = ptrtoint ptr %45 to i64
   %47 = trunc i64 %46 to i1
@@ -9292,7 +9292,7 @@ declare ptr @l_Lean_Elab_Tactic_SavedState_restore(ptr noundef, i8 noundef zeroe
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1

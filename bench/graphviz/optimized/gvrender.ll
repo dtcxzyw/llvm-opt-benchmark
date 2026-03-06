@@ -3,10 +3,10 @@ source_filename = "bench/graphviz/original/gvrender.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.pointf_s = type { double, double }
 %struct.agxbuf = type { %union.anon.1 }
 %union.anon.1 = type { %struct.anon }
 %struct.anon = type { ptr, i64, i64, [7 x i8], i8 }
+%struct.pointf_s = type { double, double }
 %struct.color_s = type { %union.anon, i32 }
 %union.anon = type { [4 x double] }
 %struct.boxf = type { %struct.pointf_s, %struct.pointf_s }
@@ -268,7 +268,7 @@ define noundef ptr @gvrender_ptf_A(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph:                                           ; preds = %.preheader36, %.lr.ph
   %.03538 = phi i64 [ %27, %.lr.ph ], [ 0, %.preheader36 ]
-  %16 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.03538
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.03538
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load double, ptr %17, align 8, !tbaa !75
   %19 = fadd double %.sroa.516.0.copyload, %18
@@ -277,7 +277,7 @@ define noundef ptr @gvrender_ptf_A(ptr noundef readonly captures(none) %0, ptr n
   %22 = load double, ptr %16, align 8, !tbaa !76
   %23 = fadd double %.sroa.014.0.copyload, %22
   %24 = fmul double %13, %23
-  %25 = getelementptr inbounds nuw %struct.pointf_s, ptr %2, i64 %.03538
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.03538
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store double %24, ptr %26, align 8, !tbaa !75
   store double %21, ptr %25, align 8, !tbaa !76
@@ -287,11 +287,11 @@ define noundef ptr @gvrender_ptf_A(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph40:                                         ; preds = %.preheader, %.lr.ph40
   %.039 = phi i64 [ %38, %.lr.ph40 ], [ 0, %.preheader ]
-  %28 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.039
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.039
   %29 = load double, ptr %28, align 8, !tbaa !76
   %30 = fadd double %.sroa.014.0.copyload, %29
   %31 = fmul double %10, %30
-  %32 = getelementptr inbounds nuw %struct.pointf_s, ptr %2, i64 %.039
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.039
   store double %31, ptr %32, align 8, !tbaa !76
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load double, ptr %33, align 8, !tbaa !75
@@ -414,7 +414,7 @@ define void @gvrender_begin_layer(ptr noundef %0) local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %12 = load i32, ptr %11, align 8, !tbaa !86
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !87
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %17 = load i32, ptr %16, align 4, !tbaa !88
@@ -1297,7 +1297,7 @@ define void @gvrender_ellipse(ptr noundef %0, ptr noundef readonly captures(none
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.i
   %.03538.i = phi i64 [ %53, %.lr.ph.i ], [ 0, %32 ]
-  %44 = getelementptr inbounds nuw %struct.pointf_s, ptr %4, i64 %.03538.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.03538.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load double, ptr %45, align 8, !tbaa !75
   %47 = fadd double %.sroa.516.0.copyload.i, %46
@@ -1314,7 +1314,7 @@ define void @gvrender_ellipse(ptr noundef %0, ptr noundef readonly captures(none
 
 .lr.ph40.i:                                       ; preds = %32, %.lr.ph40.i
   %.039.i = phi i64 [ %62, %.lr.ph40.i ], [ 0, %32 ]
-  %54 = getelementptr inbounds nuw %struct.pointf_s, ptr %4, i64 %.039.i
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.039.i
   %55 = load double, ptr %54, align 16, !tbaa !76
   %56 = fadd double %.sroa.014.0.copyload.i, %55
   %57 = fmul double %38, %56
@@ -1443,7 +1443,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %34
 
 .lr.ph.i:                                         ; preds = %.preheader36.i, %.lr.ph.i
   %.03538.i = phi i64 [ %64, %.lr.ph.i ], [ 0, %.preheader36.i ]
-  %53 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.03538.i
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.03538.i
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load double, ptr %54, align 8, !tbaa !75
   %56 = fadd double %.sroa.516.0.copyload.i, %55
@@ -1452,7 +1452,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %34
   %59 = load double, ptr %53, align 8, !tbaa !76
   %60 = fadd double %.sroa.014.0.copyload.i, %59
   %61 = fmul double %50, %60
-  %62 = getelementptr inbounds nuw %struct.pointf_s, ptr %41, i64 %.03538.i
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.03538.i
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store double %61, ptr %63, align 8, !tbaa !75
   store double %58, ptr %62, align 8, !tbaa !76
@@ -1462,11 +1462,11 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %34
 
 .lr.ph40.i:                                       ; preds = %.preheader.i, %.lr.ph40.i
   %.039.i = phi i64 [ %75, %.lr.ph40.i ], [ 0, %.preheader.i ]
-  %65 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.039.i
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.039.i
   %66 = load double, ptr %65, align 8, !tbaa !76
   %67 = fadd double %.sroa.014.0.copyload.i, %66
   %68 = fmul double %47, %67
-  %69 = getelementptr inbounds nuw %struct.pointf_s, ptr %41, i64 %.039.i
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.039.i
   store double %68, ptr %69, align 8, !tbaa !76
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %71 = load double, ptr %70, align 8, !tbaa !75
@@ -1617,7 +1617,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %26
 
 .lr.ph.i:                                         ; preds = %.preheader36.i, %.lr.ph.i
   %.03538.i = phi i64 [ %56, %.lr.ph.i ], [ 0, %.preheader36.i ]
-  %45 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.03538.i
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.03538.i
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load double, ptr %46, align 8, !tbaa !75
   %48 = fadd double %.sroa.516.0.copyload.i, %47
@@ -1626,7 +1626,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %26
   %51 = load double, ptr %45, align 8, !tbaa !76
   %52 = fadd double %.sroa.014.0.copyload.i, %51
   %53 = fmul double %42, %52
-  %54 = getelementptr inbounds nuw %struct.pointf_s, ptr %33, i64 %.03538.i
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %.03538.i
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store double %53, ptr %55, align 8, !tbaa !75
   store double %50, ptr %54, align 8, !tbaa !76
@@ -1636,11 +1636,11 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %26
 
 .lr.ph40.i:                                       ; preds = %.preheader.i, %.lr.ph40.i
   %.039.i = phi i64 [ %67, %.lr.ph40.i ], [ 0, %.preheader.i ]
-  %57 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.039.i
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.039.i
   %58 = load double, ptr %57, align 8, !tbaa !76
   %59 = fadd double %.sroa.014.0.copyload.i, %58
   %60 = fmul double %39, %59
-  %61 = getelementptr inbounds nuw %struct.pointf_s, ptr %33, i64 %.039.i
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %.039.i
   store double %60, ptr %61, align 8, !tbaa !76
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %63 = load double, ptr %62, align 8, !tbaa !75
@@ -1750,7 +1750,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %25
 
 .lr.ph.i:                                         ; preds = %.preheader36.i, %.lr.ph.i
   %.03538.i = phi i64 [ %55, %.lr.ph.i ], [ 0, %.preheader36.i ]
-  %44 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.03538.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.03538.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load double, ptr %45, align 8, !tbaa !75
   %47 = fadd double %.sroa.516.0.copyload.i, %46
@@ -1759,7 +1759,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %25
   %50 = load double, ptr %44, align 8, !tbaa !76
   %51 = fadd double %.sroa.014.0.copyload.i, %50
   %52 = fmul double %41, %51
-  %53 = getelementptr inbounds nuw %struct.pointf_s, ptr %32, i64 %.03538.i
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %.03538.i
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store double %52, ptr %54, align 8, !tbaa !75
   store double %49, ptr %53, align 8, !tbaa !76
@@ -1769,11 +1769,11 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %25
 
 .lr.ph40.i:                                       ; preds = %.preheader.i, %.lr.ph40.i
   %.039.i = phi i64 [ %66, %.lr.ph40.i ], [ 0, %.preheader.i ]
-  %56 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.039.i
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.039.i
   %57 = load double, ptr %56, align 8, !tbaa !76
   %58 = fadd double %.sroa.014.0.copyload.i, %57
   %59 = fmul double %38, %58
-  %60 = getelementptr inbounds nuw %struct.pointf_s, ptr %32, i64 %.039.i
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %.039.i
   store double %59, ptr %60, align 8, !tbaa !76
   %61 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %62 = load double, ptr %61, align 8, !tbaa !75
@@ -1936,7 +1936,7 @@ get_imagescale.exit:                              ; preds = %51
   %.084122 = phi i64 [ 1, %.lr.ph ], [ %67, %54 ]
   %57 = phi double [ %.promoted, %.lr.ph ], [ %63, %54 ]
   %58 = phi double [ %.promoted120, %.lr.ph ], [ %65, %54 ]
-  %59 = getelementptr inbounds nuw %struct.pointf_s, ptr %2, i64 %.084122
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.084122
   %60 = load double, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load double, ptr %61, align 8

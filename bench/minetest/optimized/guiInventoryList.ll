@@ -1472,7 +1472,7 @@ if.end55:                                         ; preds = %for.body
   call void @llvm.lifetime.start.p0(ptr nonnull %item)
   %conv.i479 = zext i32 %add to i64
   %64 = load ptr, ptr %call18, align 8, !tbaa !210
-  %add.ptr.i.i = getelementptr inbounds nuw %struct.ItemStack, ptr %64, i64 %conv.i479
+  %add.ptr.i.i = getelementptr inbounds nuw [312 x i8], ptr %64, i64 %conv.i479
   store ptr %54, ptr %item, align 8, !tbaa !44
   %65 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !4
   %_M_string_length.i.i.i480 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
@@ -3153,11 +3153,11 @@ vector.ph:                                        ; preds = %for.body.lr.ph.i
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %5 = getelementptr inbounds i32, ptr %text, i64 %index
+  %5 = getelementptr inbounds [4 x i8], ptr %text, i64 %index
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %wide.load = load <4 x i32>, ptr %5, align 4, !tbaa !68
   %wide.load3 = load <4 x i32>, ptr %6, align 4, !tbaa !68
-  %7 = getelementptr inbounds i32, ptr %2, i64 %index
+  %7 = getelementptr inbounds [4 x i8], ptr %2, i64 %index
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store <4 x i32> %wide.load, ptr %7, align 4, !tbaa !68
   store <4 x i32> %wide.load3, ptr %8, align 4, !tbaa !68
@@ -3179,9 +3179,9 @@ for.body.i.preheader:                             ; preds = %middle.block, %for.
 for.body.i.prol:                                  ; preds = %for.body.i.preheader, %for.body.i.prol
   %indvars.iv.i.prol = phi i64 [ %indvars.iv.next.i.prol, %for.body.i.prol ], [ %indvars.iv.i.ph, %for.body.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.prol ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i.prol = getelementptr inbounds nuw i32, ptr %text, i64 %indvars.iv.i.prol
+  %arrayidx.i.prol = getelementptr inbounds nuw [4 x i8], ptr %text, i64 %indvars.iv.i.prol
   %10 = load i32, ptr %arrayidx.i.prol, align 4, !tbaa !68
-  %arrayidx.i.i.prol = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.prol
+  %arrayidx.i.i.prol = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.prol
   store i32 %10, ptr %arrayidx.i.i.prol, align 4, !tbaa !68
   %indvars.iv.next.i.prol = add nuw nsw i64 %indvars.iv.i.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -3196,24 +3196,24 @@ for.body.i.prol.loopexit:                         ; preds = %for.body.i.prol, %f
 
 for.body.i:                                       ; preds = %for.body.i.prol.loopexit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i.3, %for.body.i ], [ %indvars.iv.i.unr, %for.body.i.prol.loopexit ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.i
   %13 = load i32, ptr %arrayidx.i, align 4, !tbaa !68
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.i
   store i32 %13, ptr %arrayidx.i.i, align 4, !tbaa !68
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i.1 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i
+  %arrayidx.i.1 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i
   %14 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !68
-  %arrayidx.i.i.1 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i
+  %arrayidx.i.i.1 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i
   store i32 %14, ptr %arrayidx.i.i.1, align 4, !tbaa !68
   %indvars.iv.next.i.1 = add nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx.i.2 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.1
+  %arrayidx.i.2 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.1
   %15 = load i32, ptr %arrayidx.i.2, align 4, !tbaa !68
-  %arrayidx.i.i.2 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i.1
+  %arrayidx.i.i.2 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i.1
   store i32 %15, ptr %arrayidx.i.i.2, align 4, !tbaa !68
   %indvars.iv.next.i.2 = add nuw nsw i64 %indvars.iv.i, 3
-  %arrayidx.i.3 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.2
+  %arrayidx.i.3 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.2
   %16 = load i32, ptr %arrayidx.i.3, align 4, !tbaa !68
-  %arrayidx.i.i.3 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i.2
+  %arrayidx.i.i.3 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i.2
   store i32 %16, ptr %arrayidx.i.i.3, align 4, !tbaa !68
   %indvars.iv.next.i.3 = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i.3 = icmp eq i64 %indvars.iv.next.i.3, %conv.i
@@ -3282,11 +3282,11 @@ vector.ph:                                        ; preds = %for.body.lr.ph.i
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %5 = getelementptr inbounds i32, ptr %text, i64 %index
+  %5 = getelementptr inbounds [4 x i8], ptr %text, i64 %index
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %wide.load = load <4 x i32>, ptr %5, align 4, !tbaa !68
   %wide.load3 = load <4 x i32>, ptr %6, align 4, !tbaa !68
-  %7 = getelementptr inbounds i32, ptr %2, i64 %index
+  %7 = getelementptr inbounds [4 x i8], ptr %2, i64 %index
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store <4 x i32> %wide.load, ptr %7, align 4, !tbaa !68
   store <4 x i32> %wide.load3, ptr %8, align 4, !tbaa !68
@@ -3308,9 +3308,9 @@ for.body.i.preheader:                             ; preds = %middle.block, %for.
 for.body.i.prol:                                  ; preds = %for.body.i.preheader, %for.body.i.prol
   %indvars.iv.i.prol = phi i64 [ %indvars.iv.next.i.prol, %for.body.i.prol ], [ %indvars.iv.i.ph, %for.body.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.prol ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i.prol = getelementptr inbounds nuw i32, ptr %text, i64 %indvars.iv.i.prol
+  %arrayidx.i.prol = getelementptr inbounds nuw [4 x i8], ptr %text, i64 %indvars.iv.i.prol
   %10 = load i32, ptr %arrayidx.i.prol, align 4, !tbaa !68
-  %arrayidx.i.i.prol = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.prol
+  %arrayidx.i.i.prol = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.prol
   store i32 %10, ptr %arrayidx.i.i.prol, align 4, !tbaa !68
   %indvars.iv.next.i.prol = add nuw nsw i64 %indvars.iv.i.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -3325,24 +3325,24 @@ for.body.i.prol.loopexit:                         ; preds = %for.body.i.prol, %f
 
 for.body.i:                                       ; preds = %for.body.i.prol.loopexit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i.3, %for.body.i ], [ %indvars.iv.i.unr, %for.body.i.prol.loopexit ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.i
   %13 = load i32, ptr %arrayidx.i, align 4, !tbaa !68
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.i
   store i32 %13, ptr %arrayidx.i.i, align 4, !tbaa !68
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i.1 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i
+  %arrayidx.i.1 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i
   %14 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !68
-  %arrayidx.i.i.1 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i
+  %arrayidx.i.i.1 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i
   store i32 %14, ptr %arrayidx.i.i.1, align 4, !tbaa !68
   %indvars.iv.next.i.1 = add nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx.i.2 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.1
+  %arrayidx.i.2 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.1
   %15 = load i32, ptr %arrayidx.i.2, align 4, !tbaa !68
-  %arrayidx.i.i.2 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i.1
+  %arrayidx.i.i.2 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i.1
   store i32 %15, ptr %arrayidx.i.i.2, align 4, !tbaa !68
   %indvars.iv.next.i.2 = add nuw nsw i64 %indvars.iv.i, 3
-  %arrayidx.i.3 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.2
+  %arrayidx.i.3 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.2
   %16 = load i32, ptr %arrayidx.i.3, align 4, !tbaa !68
-  %arrayidx.i.i.3 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i.2
+  %arrayidx.i.i.3 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i.2
   store i32 %16, ptr %arrayidx.i.i.3, align 4, !tbaa !68
   %indvars.iv.next.i.3 = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i.3 = icmp eq i64 %indvars.iv.next.i.3, %conv.i
@@ -3528,7 +3528,7 @@ entry:
   %Type = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load i32, ptr %Type, align 8, !tbaa !75
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN3irr3guiL19GUIElementTypeNamesE, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN3irr3guiL19GUIElementTypeNamesE, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8, !tbaa !79
   ret ptr %1
 }
@@ -4753,7 +4753,7 @@ invoke.cont15:                                    ; preds = %call5.i.i.i.i.noexc
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !280
   %rem.i.i.i.i.i = urem i64 %9, %11
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %10, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i65, ptr %arrayidx.i.i, align 8, !tbaa !79
   %__ht_n.077 = load ptr, ptr %2, align 8, !tbaa !281
   %tobool17.not78 = icmp eq ptr %__ht_n.077, null
@@ -4806,7 +4806,7 @@ invoke.cont22:                                    ; preds = %call5.i.i.i.i.noexc
   %19 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !280
   %rem.i.i.i = urem i64 %18, %19
   %20 = load ptr, ptr %this, align 8, !tbaa !279
-  %arrayidx = getelementptr inbounds ptr, ptr %20, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %20, i64 %rem.i.i.i
   %21 = load ptr, ptr %arrayidx, align 8, !tbaa !79
   %tobool31.not = icmp eq ptr %21, null
   br i1 %tobool31.not, label %if.then32, label %if.end35
@@ -5135,7 +5135,7 @@ invoke.cont15:                                    ; preds = %call5.i.i.i.i.noexc
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !287
   %rem.i.i.i.i.i = urem i64 %9, %11
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %10, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i65, ptr %arrayidx.i.i, align 8, !tbaa !79
   %__ht_n.077 = load ptr, ptr %2, align 8, !tbaa !281
   %tobool17.not78 = icmp eq ptr %__ht_n.077, null
@@ -5188,7 +5188,7 @@ invoke.cont22:                                    ; preds = %call5.i.i.i.i.noexc
   %19 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !287
   %rem.i.i.i = urem i64 %18, %19
   %20 = load ptr, ptr %this, align 8, !tbaa !286
-  %arrayidx = getelementptr inbounds ptr, ptr %20, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %20, i64 %rem.i.i.i
   %21 = load ptr, ptr %arrayidx, align 8, !tbaa !79
   %tobool31.not = icmp eq ptr %21, null
   br i1 %tobool31.not, label %if.then32, label %if.end35
@@ -5483,7 +5483,7 @@ invoke.cont15:                                    ; preds = %if.end5
   %sext = shl i64 %4, 32
   %conv.i.i.i.i.i.i = ashr exact i64 %sext, 32
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i, %5
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %2, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i65, ptr %arrayidx.i.i, align 8, !tbaa !79
   %__ht_n.070 = load ptr, ptr %3, align 8, !tbaa !281
   %tobool17.not71 = icmp eq ptr %__ht_n.070, null
@@ -5506,7 +5506,7 @@ invoke.cont22:                                    ; preds = %for.body
   %conv.i.i.i.i = ashr exact i64 %sext74, 32
   %rem.i.i.i = urem i64 %conv.i.i.i.i, %5
   %7 = load ptr, ptr %this, align 8, !tbaa !326
-  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %7, i64 %rem.i.i.i
   %8 = load ptr, ptr %arrayidx, align 8, !tbaa !79
   %tobool31.not = icmp eq ptr %8, null
   br i1 %tobool31.not, label %if.then32, label %if.end35
@@ -5667,7 +5667,7 @@ invoke.cont15:                                    ; preds = %if.end5
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !291
   %rem.i.i.i.i.i = urem i64 %4, %6
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %5, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i65, ptr %arrayidx.i.i, align 8, !tbaa !79
   %__ht_n.068 = load ptr, ptr %2, align 8, !tbaa !281
   %tobool17.not69 = icmp eq ptr %__ht_n.068, null
@@ -5690,7 +5690,7 @@ invoke.cont22:                                    ; preds = %for.body
   %9 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !291
   %rem.i.i.i = urem i64 %8, %9
   %10 = load ptr, ptr %this, align 8, !tbaa !290
-  %arrayidx = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %10, i64 %rem.i.i.i
   %11 = load ptr, ptr %arrayidx, align 8, !tbaa !79
   %tobool31.not = icmp eq ptr %11, null
   br i1 %tobool31.not, label %if.then32, label %if.end35
@@ -6420,7 +6420,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i47, ptr %this, align 8, !tbaa !352
   store ptr %__cur.0.lcssa.i.i.i63, ptr %_M_finish.i.i, align 8, !tbaa !232
-  %add.ptr26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i47, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [32 x i8], ptr %cond.i47, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !231
   ret void
 

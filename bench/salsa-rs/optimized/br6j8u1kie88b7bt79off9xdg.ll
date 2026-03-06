@@ -55,8 +55,8 @@ define hidden void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping
 5:                                                ; preds = %3, %5
   %.sroa.0.03 = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw i64 %.sroa.0.03, 1
-  %7 = getelementptr inbounds nuw { [8 x i8] }, ptr %0, i64 %.sroa.0.03
-  %8 = getelementptr inbounds nuw { [8 x i8] }, ptr %1, i64 %.sroa.0.03
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.03
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.0.03
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 1, !alias.scope !9, !noalias !12
@@ -445,7 +445,7 @@ define hidden { ptr, ptr } @_ZN5salsa5table5Table5memos17hc55c70c326ae6280E(ptr 
   %16 = tail call range(i64 41, 65) i64 @llvm.ctlz.i64(i64 %15, i1 true)
   %17 = sub nuw nsw i64 58, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = getelementptr inbounds nuw { { ptr } }, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load atomic ptr, ptr %19 acquire, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h3c2239a832879e02E.exit.thread.i", label %22
@@ -453,8 +453,8 @@ define hidden { ptr, ptr } @_ZN5salsa5table5Table5memos17hc55c70c326ae6280E(ptr 
 22:                                               ; preds = %3
   %23 = xor i64 %16, 63
   %.neg.i.i = shl nsw i64 -1, %23
-  %24 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %20, i64 %.neg.i.i
-  %25 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %24, i64 %15
+  %24 = getelementptr [80 x i8], ptr %20, i64 %.neg.i.i
+  %25 = getelementptr [80 x i8], ptr %24, i64 %15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %27 = load atomic i8, ptr %26 acquire, align 1
   %28 = icmp eq i8 %27, 0
@@ -555,7 +555,7 @@ define { ptr, ptr } @_ZN5salsa5table5Table9memos_mut17h9a553f2234750380E(ptr noa
   %14 = tail call range(i64 41, 65) i64 @llvm.ctlz.i64(i64 %13, i1 true)
   %15 = sub nuw nsw i64 58, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = getelementptr inbounds nuw { { ptr } }, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !alias.scope !32, !noundef !3
   %19 = icmp eq ptr %18, null
   br i1 %19, label %"_ZN6boxcar3raw12Vec$LT$T$GT$7get_mut17h9c2e85dcc22da1e0E.exit.thread", label %20
@@ -563,8 +563,8 @@ define { ptr, ptr } @_ZN5salsa5table5Table9memos_mut17h9a553f2234750380E(ptr noa
 20:                                               ; preds = %2
   %21 = xor i64 %14, 63
   %.neg.i = shl nsw i64 -1, %21
-  %22 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %18, i64 %.neg.i
-  %23 = getelementptr { { { { [9 x i64] } } }, { i8 }, [7 x i8] }, ptr %22, i64 %13
+  %22 = getelementptr [80 x i8], ptr %18, i64 %.neg.i
+  %23 = getelementptr [80 x i8], ptr %22, i64 %13
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %25 = load i8, ptr %24, align 1, !range !30, !noalias !32, !noundef !3
   %26 = trunc nuw i8 %25 to i1
@@ -726,7 +726,7 @@ define hidden void @_ZN5salsa5table5Table20record_unfilled_page17h7e3608969f79e5
 33:                                               ; preds = %27, %32
   %34 = getelementptr inbounds i8, ptr %.pn.i, i64 -16
   %35 = load ptr, ptr %34, align 8, !alias.scope !38, !nonnull !3, !noundef !3
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %29
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %29
   store i64 %2, ptr %36, align 8
   %37 = add i64 %29, 1
   store i64 %37, ptr %28, align 8, !alias.scope !38

@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %struct.AlphaFunc = type { %struct.AlphaOperands, %struct.AlphaOperands }
 %struct.AlphaOperands = type { i8, i8, i16 }
-%struct.ImageRef = type { ptr, ptr, i32, i32, i32, i32, i32, i32 }
 
 @PrimitiveTypes = external global %struct._PrimitiveTypes, align 8
 @SurfaceTypes = external global %struct._SurfaceTypes, align 8
@@ -225,7 +224,7 @@ define hidden void @ByteIndexedToThreeByteBgrConvert(ptr noundef %0, ptr noundef
   %.025 = phi i32 [ %2, %19 ], [ %38, %20 ]
   %21 = load i8, ptr %.128, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %10, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %.1, align 1
@@ -351,7 +350,7 @@ define hidden void @IntArgbToThreeByteBgrScaleConvert(ptr noundef %0, ptr nounde
   %.030 = phi i32 [ %4, %22 ], [ %43, %28 ]
   %29 = ashr i32 %.030, %8
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %27, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %27, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = trunc i32 %32 to i8
   store i8 %33, ptr %.1, align 1
@@ -475,7 +474,7 @@ define hidden void @ByteIndexedToThreeByteBgrScaleConvert(ptr noundef %0, ptr no
   %33 = getelementptr inbounds i8, ptr %29, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %15, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = trunc i32 %37 to i8
   store i8 %38, ptr %.1, align 1
@@ -534,7 +533,7 @@ define hidden void @ByteIndexedBmToThreeByteBgrXparOver(ptr noundef %0, ptr noun
   %.026 = phi i32 [ %2, %19 ], [ %41, %34 ]
   %21 = load i8, ptr %.129, align 1
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %10, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %34
@@ -611,7 +610,7 @@ define hidden void @ByteIndexedBmToThreeByteBgrScaleXparOver(ptr noundef %0, ptr
   %33 = getelementptr inbounds i8, ptr %29, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %15, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %47
@@ -680,7 +679,7 @@ define hidden void @IntArgbBmToThreeByteBgrScaleXparOver(ptr noundef %0, ptr nou
   %.1 = phi ptr [ %.032, %22 ], [ %45, %42 ]
   %29 = ashr i32 %.033, %8
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %27, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %27, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = icmp ult i32 %32, 16777216
   br i1 %33, label %42, label %34
@@ -746,7 +745,7 @@ define hidden void @ByteIndexedBmToThreeByteBgrXparBgCopy(ptr noundef %0, ptr no
   %.035 = phi i32 [ %2, %20 ], [ %35, %21 ]
   %22 = load i8, ptr %.138, align 1
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %11, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp slt i32 %25, 0
   %spec.select = select i1 %26, i32 %25, i32 %4
@@ -1471,7 +1470,7 @@ define hidden void @ThreeByteBgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i3
   %.0134 = phi i32 [ %25, %19 ], [ %17, %10 ]
   %34 = load i32, ptr %9, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr @AlphaRules, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
@@ -2000,7 +1999,7 @@ define hidden void @IntArgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr nound
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @AlphaRules, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -2698,7 +2697,7 @@ define hidden void @IntArgbPreToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr no
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @AlphaRules, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -3009,7 +3008,7 @@ define hidden void @IntRgbToThreeByteBgrAlphaMaskBlit(ptr noundef %0, ptr nounde
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @AlphaRules, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -3327,7 +3326,7 @@ define hidden void @ThreeByteBgrDrawGlyphListAA(ptr noundef readonly captures(no
 
 30:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv135 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next136, %.loopexit ]
-  %31 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv135
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv135
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, null
@@ -3506,7 +3505,7 @@ define hidden void @ThreeByteBgrDrawGlyphListLCD(ptr noundef readonly captures(n
 
 42:                                               ; preds = %.lr.ph, %.loopexit197
   %indvars.iv211 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next212, %.loopexit197 ]
-  %43 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv211
+  %43 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv211
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 24

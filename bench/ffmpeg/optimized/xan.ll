@@ -174,7 +174,7 @@ bytestream2_get_be32.exit.thread:                 ; preds = %bytestream2_get_be3
   %49 = load i32, ptr %17, align 8, !tbaa !44
   %50 = shl nsw i32 %49, 8
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %47, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %47, i64 %51
   br label %53
 
 53:                                               ; preds = %48, %53
@@ -305,7 +305,7 @@ bytestream2_get_le32.exit73:                      ; preds = %84, %86
   %127 = load i32, ptr %126, align 4, !tbaa !49
   %128 = shl nsw i32 %127, 8
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds i32, ptr %125, i64 %129
+  %130 = getelementptr inbounds [4 x i8], ptr %125, i64 %129
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1024) %123, ptr noundef nonnull align 4 dereferenceable(1024) %130, i64 1024, i1 false)
   %131 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.sroa.0.0.lcssa, ptr %131, align 8, !tbaa !52

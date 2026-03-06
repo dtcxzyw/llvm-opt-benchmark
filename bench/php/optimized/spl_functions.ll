@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union._zend_value = type { i64 }
 %union.anon.9 = type { i32 }
 %union.anon.12 = type { i32 }
-%struct._zend_class_name = type { ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @spl_add_class_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -83,7 +82,7 @@ define hidden void @spl_add_interfaces(ptr noundef readonly captures(none) %0, p
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %spl_add_class_name.exit.us
   %indvars.iv13 = phi i64 [ %indvars.iv.next14, %spl_add_class_name.exit.us ], [ 0, %.lr.ph ]
   %11 = load ptr, ptr %8, align 8, !tbaa !26
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv13
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv13
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = load ptr, ptr %0, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -126,7 +125,7 @@ spl_add_class_name.exit.us:                       ; preds = %27, %.lr.ph.split.u
 .lr.ph.split:                                     ; preds = %.lr.ph, %spl_add_class_name.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %spl_add_class_name.exit ], [ 0, %.lr.ph ]
   %33 = load ptr, ptr %8, align 8, !tbaa !26
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !30
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 28
   %37 = load i32, ptr %36, align 4, !tbaa !4
@@ -199,7 +198,7 @@ define hidden void @spl_add_traits(ptr noundef readonly captures(none) %0, ptr n
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %spl_add_class_name.exit.us
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %spl_add_class_name.exit.us ], [ 0, %.lr.ph ]
   %11 = load ptr, ptr %8, align 8, !tbaa !33
-  %12 = getelementptr inbounds nuw %struct._zend_class_name, ptr %11, i64 %indvars.iv14
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv14
   %13 = load ptr, ptr %12, align 8, !tbaa !34
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !36
@@ -249,7 +248,7 @@ spl_add_class_name.exit.us:                       ; preds = %30, %.lr.ph.split.u
 .lr.ph.split:                                     ; preds = %.lr.ph, %spl_add_class_name.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %spl_add_class_name.exit ], [ 0, %.lr.ph ]
   %36 = load ptr, ptr %8, align 8, !tbaa !33
-  %37 = getelementptr inbounds nuw %struct._zend_class_name, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !34
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !36

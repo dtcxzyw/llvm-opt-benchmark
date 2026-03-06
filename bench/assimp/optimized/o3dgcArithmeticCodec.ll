@@ -705,7 +705,7 @@ define hidden void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_17Static_Data_ModelE
   %8 = icmp eq i32 %1, %7
   %9 = load ptr, ptr %2, align 8
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
@@ -727,7 +727,7 @@ define hidden void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_17Static_Data_ModelE
   %23 = load ptr, ptr %2, align 8
   %24 = add i32 %1, 1
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = sub i32 %27, %12
   %29 = mul i32 %28, %15
@@ -817,11 +817,11 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_17Static_Data_
   %14 = lshr i32 %11, %13
   %15 = load ptr, ptr %5, align 8
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %14, 1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %15, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, 1
   %24 = add i32 %18, 1
@@ -835,7 +835,7 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_17Static_Data_
   %26 = add i32 %.056, %.03855
   %27 = lshr i32 %26, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %.pre, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = icmp ugt i32 %30, %11
   %.038. = select i1 %31, i32 %.03855, i32 %27
@@ -848,7 +848,7 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_17Static_Data_
   %.038.lcssa = phi i32 [ %18, %7 ], [ %.038., %.lr.ph ]
   %.lcssa = phi i32 [ %24, %7 ], [ %32, %.lr.ph ]
   %34 = zext i32 %.038.lcssa to i64
-  %35 = getelementptr inbounds nuw i32, ptr %.pre, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %36, %10
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -858,7 +858,7 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_17Static_Data_
 
 40:                                               ; preds = %._crit_edge
   %41 = zext i32 %.lcssa to i64
-  %42 = getelementptr inbounds nuw i32, ptr %.pre, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = mul i32 %43, %10
   br label %.loopexit
@@ -881,7 +881,7 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_17Static_Data_
   %.037 = phi i32 [ %49, %45 ], [ %60, %53 ]
   %.2 = phi i32 [ %48, %45 ], [ %.037..2, %53 ]
   %54 = zext nneg i32 %.037 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %50, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = mul i32 %56, %46
   %58 = icmp ugt i32 %57, %52
@@ -941,7 +941,7 @@ define hidden void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_19Adaptive_Data_Mode
   %8 = icmp eq i32 %1, %7
   %9 = load ptr, ptr %2, align 8
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
@@ -963,7 +963,7 @@ define hidden void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_19Adaptive_Data_Mode
   %23 = load ptr, ptr %2, align 8
   %24 = add i32 %1, 1
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = sub i32 %27, %12
   %29 = mul i32 %28, %15
@@ -1033,7 +1033,7 @@ _ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit: ; preds = %47, %41
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = zext i32 %1 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = add i32 %62, 1
   store i32 %63, ptr %61, align 4
@@ -1067,7 +1067,7 @@ _ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit: ; preds = %47, %41
 76:                                               ; preds = %76, %.lr.ph.i17
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i17 ], [ %indvars.iv.next.i, %76 ]
   %77 = load ptr, ptr %58, align 8
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv.i
   %79 = load i32, ptr %78, align 4
   %80 = add i32 %79, 1
   %81 = lshr i32 %80, 1
@@ -1095,10 +1095,10 @@ _ZN5o3dgc16Arithmetic_Codec19renorm_enc_intervalEv.exit: ; preds = %47, %41
   %91 = mul i32 %.02949.i, %89
   %92 = lshr i32 %91, 16
   %93 = load ptr, ptr %2, align 8
-  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv64.i
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv64.i
   store i32 %92, ptr %94, align 4
   %95 = load ptr, ptr %58, align 8
-  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv64.i
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv64.i
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, %.02949.i
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
@@ -1146,7 +1146,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr noundef nonnull 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, 1
   %16 = lshr i32 %15, 1
@@ -1205,10 +1205,10 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr noundef nonnull 
   %40 = mul i32 %.02949, %23
   %41 = lshr i32 %40, 16
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv64
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv64
   store i32 %41, ptr %43, align 4
   %44 = load ptr, ptr %38, align 8
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv64
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv64
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %46, %.02949
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
@@ -1224,14 +1224,14 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr noundef nonnull 
   %52 = mul i32 %.13040, %23
   %53 = lshr i32 %52, 16
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv61
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv61
   store i32 %53, ptr %55, align 4
   %56 = load ptr, ptr %32, align 8
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv61
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv61
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, %.13040
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv61
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv61
   %62 = load i32, ptr %61, align 4
   %63 = load i32, ptr %33, align 8
   %64 = lshr i32 %62, %63
@@ -1249,7 +1249,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr noundef nonnull 
   %indvars.iv58 = phi i64 [ %68, %.lr.ph38 ], [ %indvars.iv.next59, %69 ]
   %70 = load ptr, ptr %34, align 8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv.next59
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv.next59
   store i32 %67, ptr %71, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %69, !llvm.loop !11
@@ -1282,7 +1282,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model6updateEb(ptr noundef nonnull 
   %81 = load ptr, ptr %78, align 8
   %82 = add i32 %.246, 1
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %81, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %83
   store i32 %80, ptr %84, align 4
   %85 = load i32, ptr %25, align 4
   %.not = icmp ugt i32 %82, %85
@@ -1323,11 +1323,11 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Dat
   %14 = lshr i32 %11, %13
   %15 = load ptr, ptr %5, align 8
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %14, 1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %15, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, 1
   %24 = add i32 %18, 1
@@ -1341,7 +1341,7 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Dat
   %26 = add i32 %.060, %.04259
   %27 = lshr i32 %26, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %.pre, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = icmp ugt i32 %30, %11
   %.042. = select i1 %31, i32 %.04259, i32 %27
@@ -1354,7 +1354,7 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Dat
   %.042.lcssa = phi i32 [ %18, %7 ], [ %.042., %.lr.ph ]
   %.lcssa = phi i32 [ %24, %7 ], [ %32, %.lr.ph ]
   %34 = zext i32 %.042.lcssa to i64
-  %35 = getelementptr inbounds nuw i32, ptr %.pre, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = mul i32 %36, %10
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1364,7 +1364,7 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Dat
 
 40:                                               ; preds = %._crit_edge
   %41 = zext i32 %.lcssa to i64
-  %42 = getelementptr inbounds nuw i32, ptr %.pre, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = mul i32 %43, %10
   br label %.loopexit
@@ -1387,7 +1387,7 @@ define hidden noundef i32 @_ZN5o3dgc16Arithmetic_Codec6decodeERNS_19Adaptive_Dat
   %.041 = phi i32 [ %49, %45 ], [ %60, %53 ]
   %.2 = phi i32 [ %48, %45 ], [ %.041..2, %53 ]
   %54 = zext nneg i32 %.041 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %50, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = mul i32 %56, %46
   %58 = icmp ugt i32 %57, %52
@@ -1438,7 +1438,7 @@ _ZN5o3dgc16Arithmetic_Codec19renorm_dec_intervalEv.exit: ; preds = %68, %.loopex
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = zext i32 %.244 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %83, 1
   store i32 %84, ptr %82, align 4
@@ -2050,7 +2050,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
   %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #17
   store ptr %31, ptr %0, align 8
   %32 = zext i32 %16 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %33, ptr %34, align 8
   br label %.lr.ph53
@@ -2092,7 +2092,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
   %48 = fmul double %.03549.us, 3.276800e+04
   %49 = fptoui double %48 to i32
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv75
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv75
   store i32 %49, ptr %51, align 4
   %52 = fadd double %.03549.us, %42
   %53 = load i32, ptr %43, align 8
@@ -2101,7 +2101,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
 
 55:                                               ; preds = %.lr.ph53.split.us.split
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv75
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv75
   %58 = load i32, ptr %57, align 4
   %59 = load i32, ptr %44, align 4
   %60 = lshr i32 %58, %59
@@ -2112,7 +2112,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
   %indvars.iv70 = phi i64 [ %70, %.lr.ph.us ], [ %indvars.iv.next71, %62 ]
   %63 = load ptr, ptr %45, align 8
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv.next71
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv.next71
   store i32 %69, ptr %64, align 4
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
   br i1 %exitcond74.not, label %.loopexit44.us, label %62, !llvm.loop !19
@@ -2144,7 +2144,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.loopexit44 ], [ 0, %.lr.ph53 ]
   %.03549 = phi double [ %82, %.loopexit44 ], [ 0.000000e+00, %.lr.ph53 ]
   %.03648 = phi i32 [ %.137, %.loopexit44 ], [ 0, %.lr.ph53 ]
-  %73 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv67
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv67
   %74 = load double, ptr %73, align 8
   %75 = fcmp olt double %74, 1.000000e-04
   %76 = fcmp ogt double %74, 9.999000e-01
@@ -2159,7 +2159,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
   %78 = fmul double %.03549, 3.276800e+04
   %79 = fptoui double %78 to i32
   %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv67
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv67
   store i32 %79, ptr %81, align 4
   %82 = fadd double %.03549, %74
   %83 = load i32, ptr %43, align 8
@@ -2168,7 +2168,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
 
 85:                                               ; preds = %77
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv67
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv67
   %88 = load i32, ptr %87, align 4
   %89 = load i32, ptr %44, align 4
   %90 = lshr i32 %88, %89
@@ -2186,7 +2186,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
   %indvars.iv = phi i64 [ %94, %.lr.ph ], [ %indvars.iv.next, %95 ]
   %96 = load ptr, ptr %45, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %97 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv.next
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv.next
   store i32 %93, ptr %97, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit44, label %95, !llvm.loop !19
@@ -2214,7 +2214,7 @@ define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noun
   %107 = load ptr, ptr %102, align 8
   %108 = add i32 %.358, 1
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %107, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %109
   store i32 %106, ptr %110, align 4
   %111 = load i32, ptr %71, align 8
   %.not42 = icmp ugt i32 %108, %111
@@ -2309,11 +2309,11 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model12set_alphabetEj(ptr noundef n
   %29 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %28) #17
   store ptr %29, ptr %0, align 8
   %30 = zext i32 %24 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %31, ptr %32, align 8
   %33 = zext i32 %.pr to i64
-  %34 = getelementptr inbounds nuw i32, ptr %29, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %34, ptr %35, align 8
   br label %.lr.ph.i
@@ -2330,7 +2330,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model12set_alphabetEj(ptr noundef n
   %42 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %41) #17
   store ptr %42, ptr %0, align 8
   %43 = zext nneg i32 %.pr to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %44, ptr %45, align 8
   %46 = icmp eq i32 %.pr, 0
@@ -2358,7 +2358,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model12set_alphabetEj(ptr noundef n
 55:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
   %56 = load ptr, ptr %50, align 8
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.i
   store i32 1, ptr %57, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %58 = load i32, ptr %6, align 4
@@ -2412,7 +2412,7 @@ define hidden void @_ZN5o3dgc19Adaptive_Data_Model5resetEv(ptr noundef nonnull a
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   store i32 1, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load i32, ptr %2, align 4

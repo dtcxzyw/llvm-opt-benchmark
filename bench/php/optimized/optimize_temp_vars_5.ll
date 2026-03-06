@@ -145,7 +145,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
   %reass.sub = sub i32 %79, %6
   %80 = add i32 %reass.sub, -5
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %.0.i194, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %.0.i194, i64 %81
   store ptr %.0164205, ptr %82, align 8, !tbaa !41
   br label %83
 
@@ -205,7 +205,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
 .lr.ph218:                                        ; preds = %.lr.ph218.preheader, %120
   %indvars.iv262 = phi i64 [ %113, %.lr.ph218.preheader ], [ %indvars.iv.next263, %120 ]
   %114 = lshr i64 %indvars.iv262, 6
-  %115 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %114
   %116 = load i64, ptr %115, align 8, !tbaa !45
   %117 = and i64 %indvars.iv262, 63
   %118 = lshr i64 %116, %117
@@ -227,14 +227,14 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
   %124 = tail call i32 @llvm.smax.i32(i32 %.0166240, i32 %123)
   %125 = add nsw i32 %.0162.lcssa, 1
   %126 = sext i32 %99 to i64
-  %127 = getelementptr inbounds i32, ptr %.0.i198, i64 %126
+  %127 = getelementptr inbounds [4 x i8], ptr %.0.i198, i64 %126
   store i32 %125, ptr %127, align 4, !tbaa !46
   %128 = and i32 %125, 63
   %129 = zext nneg i32 %128 to i64
   %130 = shl nuw i64 1, %129
   %131 = lshr i32 %125, 6
   %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %132
   %134 = load i64, ptr %133, align 8, !tbaa !45
   %135 = or i64 %134, %130
   store i64 %135, ptr %133, align 8, !tbaa !45
@@ -254,7 +254,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
   %144 = shl nuw i64 1, %143
   %145 = lshr i32 %141, 6
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %146
   %148 = load i64, ptr %147, align 8, !tbaa !45
   %149 = or i64 %148, %144
   store i64 %149, ptr %147, align 8, !tbaa !45
@@ -263,7 +263,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
 
 151:                                              ; preds = %95
   %152 = sext i32 %99 to i64
-  %153 = getelementptr inbounds i32, ptr %.0.i198, i64 %152
+  %153 = getelementptr inbounds [4 x i8], ptr %.0.i198, i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !46
   %155 = icmp eq i32 %154, -1
   br i1 %155, label %156, label %194
@@ -313,7 +313,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
   %171 = shl nuw i64 1, %170
   %172 = lshr i32 %168, 6
   %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %173
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %173
   %175 = load i64, ptr %174, align 8, !tbaa !45
   %176 = or i64 %175, %171
   store i64 %176, ptr %174, align 8, !tbaa !45
@@ -325,7 +325,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
 .lr.ph212:                                        ; preds = %.critedge190, %183
   %indvars.iv = phi i64 [ %indvars.iv.next, %183 ], [ 0, %.critedge190 ]
   %177 = lshr i64 %indvars.iv, 6
-  %178 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %177
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %177
   %179 = load i64, ptr %178, align 8, !tbaa !45
   %180 = and i64 %indvars.iv, 63
   %181 = lshr i64 %179, %180
@@ -348,7 +348,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
   %187 = shl nuw i64 1, %186
   %188 = lshr i32 %.1169.lcssa, 6
   %189 = zext nneg i32 %188 to i64
-  %190 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %189
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %189
   %191 = load i64, ptr %190, align 8, !tbaa !45
   %192 = or i64 %191, %187
   store i64 %192, ptr %190, align 8, !tbaa !45
@@ -385,7 +385,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
   %reass.sub259 = sub i32 %205, %6
   %206 = add i32 %reass.sub259, -5
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds i32, ptr %.0.i198, i64 %207
+  %208 = getelementptr inbounds [4 x i8], ptr %.0.i198, i64 %207
   %209 = load i32, ptr %208, align 4, !tbaa !46
   %210 = icmp eq i32 %209, -1
   br i1 %210, label %.preheader203, label %227
@@ -396,7 +396,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
 .lr.ph225:                                        ; preds = %.preheader203, %217
   %indvars.iv265 = phi i64 [ %indvars.iv.next266, %217 ], [ 0, %.preheader203 ]
   %211 = lshr i64 %indvars.iv265, 6
-  %212 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %211
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %211
   %213 = load i64, ptr %212, align 8, !tbaa !45
   %214 = and i64 %indvars.iv265, 63
   %215 = lshr i64 %213, %214
@@ -419,7 +419,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
   %221 = shl nuw i64 1, %220
   %222 = lshr i32 %.2170.lcssa, 6
   %223 = zext nneg i32 %222 to i64
-  %224 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %223
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %223
   %225 = load i64, ptr %224, align 8, !tbaa !45
   %226 = or i64 %225, %221
   store i64 %226, ptr %224, align 8, !tbaa !45
@@ -451,7 +451,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
   %reass.sub260 = sub i32 %239, %6
   %240 = add i32 %reass.sub260, -5
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds i32, ptr %.0.i198, i64 %241
+  %242 = getelementptr inbounds [4 x i8], ptr %.0.i198, i64 %241
   %243 = load i32, ptr %242, align 4, !tbaa !46
   %244 = icmp eq i32 %243, -1
   br i1 %244, label %.preheader, label %261
@@ -462,7 +462,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
 .lr.ph231:                                        ; preds = %.preheader, %251
   %indvars.iv270 = phi i64 [ %indvars.iv.next271, %251 ], [ 0, %.preheader ]
   %245 = lshr i64 %indvars.iv270, 6
-  %246 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %245
   %247 = load i64, ptr %246, align 8, !tbaa !45
   %248 = and i64 %indvars.iv270, 63
   %249 = lshr i64 %247, %248
@@ -485,7 +485,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
   %255 = shl nuw i64 1, %254
   %256 = lshr i32 %.3171.lcssa, 6
   %257 = zext nneg i32 %256 to i64
-  %258 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %257
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %257
   %259 = load i64, ptr %258, align 8, !tbaa !45
   %260 = or i64 %259, %255
   store i64 %260, ptr %258, align 8, !tbaa !45
@@ -500,7 +500,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
   %264 = shl i32 %263, 4
   %265 = add i32 %264, 80
   store i32 %265, ptr %237, align 8, !tbaa !40
-  %266 = getelementptr inbounds ptr, ptr %.0.i194, i64 %241
+  %266 = getelementptr inbounds [8 x i8], ptr %.0.i194, i64 %241
   %267 = load ptr, ptr %266, align 8, !tbaa !41
   %268 = icmp eq ptr %267, %.1165241
   br i1 %268, label %269, label %.thread
@@ -519,7 +519,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
   %277 = xor i64 %276, -1
   %278 = lshr i32 %273, 6
   %279 = zext nneg i32 %278 to i64
-  %280 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %279
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %279
   %281 = load i64, ptr %280, align 8, !tbaa !45
   %282 = and i64 %281, %277
   store i64 %282, ptr %280, align 8, !tbaa !45
@@ -550,7 +550,7 @@ zend_arena_alloc.exit196:                         ; preds = %34, %36
   %299 = xor i64 %298, -1
   %300 = lshr i32 %295, 6
   %301 = zext nneg i32 %300 to i64
-  %302 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %301
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %301
   %303 = load i64, ptr %302, align 8, !tbaa !45
   %304 = and i64 %303, %299
   store i64 %304, ptr %302, align 8, !tbaa !45

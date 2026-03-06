@@ -1114,7 +1114,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %size
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %1, i64 %size
   %tobool.not.i.i = icmp eq ptr %0, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit, label %invoke.cont.i.i
 
@@ -1152,7 +1152,7 @@ define noundef i64 @_ZNK7openvdb5v11_02io19DelayedLoadMetadata17getCompressedSiz
 entry:
   %mCompressedSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %mCompressedSize, align 8
-  %add.ptr.i = getelementptr inbounds i64, ptr %0, i64 %index
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %0, i64 %index
   %1 = load i64, ptr %add.ptr.i, align 8
   ret i64 %1
 }
@@ -1163,7 +1163,7 @@ entry:
   %0 = load i64, ptr %value, align 8
   %mCompressedSize = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %mCompressedSize, align 8
-  %add.ptr.i = getelementptr inbounds i64, ptr %1, i64 %index
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %1, i64 %index
   store i64 %0, ptr %add.ptr.i, align 8
   ret void
 }
@@ -1374,7 +1374,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %if.then.i.i40,
   store ptr %call5.i.i.i.i46, ptr %mCompressedSize, align 8
   %add.ptr.i41 = getelementptr inbounds i8, ptr %call5.i.i.i.i46, i64 %sub.ptr.sub.i8.i38
   store ptr %add.ptr.i41, ptr %_M_finish.i.i36, align 8
-  %add.ptr21.i42 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i46, i64 %conv1.i28
+  %add.ptr21.i42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i46, i64 %conv1.i28
   store ptr %add.ptr21.i42, ptr %_M_end_of_storage.i.i31, align 8
   %.pre104 = ptrtoint ptr %call5.i.i.i.i46 to i64
   br label %invoke.cont65
@@ -1411,7 +1411,7 @@ if.else.i:                                        ; preds = %invoke.cont65
   br i1 %cmp4.i, label %if.then5.i, label %invoke.cont68
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i53 = getelementptr inbounds nuw i64, ptr %21, i64 %conv67
+  %add.ptr.i53 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %conv67
   %tobool.not.i.i54 = icmp eq ptr %22, %add.ptr.i53
   br i1 %tobool.not.i.i54, label %invoke.cont68, label %invoke.cont.i.i
 
@@ -1467,7 +1467,7 @@ if.else.i75:                                      ; preds = %if.else78
   br i1 %cmp4.i76, label %if.then5.i77, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit83
 
 if.then5.i77:                                     ; preds = %if.else.i75
-  %add.ptr.i78 = getelementptr inbounds nuw i64, ptr %29, i64 %conv80
+  %add.ptr.i78 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %conv80
   %tobool.not.i.i79 = icmp eq ptr %28, %add.ptr.i78
   br i1 %tobool.not.i.i79, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit83, label %invoke.cont.i.i80
 
@@ -2224,9 +2224,9 @@ if.then.i34:                                      ; preds = %_ZNSt6vectorIlSaIlE
 
 _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35: ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit, %if.then.i34
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds nuw i64, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds nuw i64, ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 

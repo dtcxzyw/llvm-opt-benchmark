@@ -930,7 +930,7 @@ _ZN3std4path4Path4join17h84cb66cb90994f4fE.exit:  ; preds = %107
   %182 = add i64 %177, -1
   store i64 %182, ptr %142, align 8, !alias.scope !179, !noalias !181
   %183 = load ptr, ptr %143, align 8, !alias.scope !179, !noalias !181, !nonnull !9, !noundef !9
-  %184 = getelementptr inbounds { i64, [3 x i64] }, ptr %183, i64 %178
+  %184 = getelementptr inbounds [32 x i8], ptr %183, i64 %178
   %.sroa.0.0.copyload379 = load i64, ptr %184, align 8, !noalias !179
   %.sroa.11.0..sroa_idx380 = getelementptr inbounds nuw i8, ptr %184, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.0..sroa_idx380, i64 24, i1 false), !noalias !179
@@ -1256,10 +1256,10 @@ _ZN3std4path7PathBuf4push17h0f87a070931dfa0eE.exit: ; preds = %209, %202, %185
   %276 = load i64, ptr %166, align 8, !noalias !273, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !273
   %277 = load ptr, ptr %143, align 8, !alias.scope !276, !noalias !277, !nonnull !9, !noundef !9
-  %278 = getelementptr inbounds { i64, [3 x i64] }, ptr %277, i64 %273
-  %279 = getelementptr inbounds { i64, [3 x i64] }, ptr %277, i64 %275
-  %280 = getelementptr inbounds { i64, [3 x i64] }, ptr %277, i64 %274
-  %281 = getelementptr inbounds { i64, [3 x i64] }, ptr %277, i64 %276
+  %278 = getelementptr inbounds [32 x i8], ptr %277, i64 %273
+  %279 = getelementptr inbounds [32 x i8], ptr %277, i64 %275
+  %280 = getelementptr inbounds [32 x i8], ptr %277, i64 %274
+  %281 = getelementptr inbounds [32 x i8], ptr %277, i64 %276
   br label %_ZN3std4path7PathBuf4push17h0f87a070931dfa0eE.exit188
 
 _ZN3std4path7PathBuf4push17h0f87a070931dfa0eE.exit188: ; preds = %309, %272
@@ -1437,7 +1437,7 @@ _ZN3std4path7PathBuf4push17h0f87a070931dfa0eE.exit188: ; preds = %309, %272
   %336 = add i64 %331, 1
   store i64 %336, ptr %142, align 8, !alias.scope !291, !noalias !294
   %337 = load ptr, ptr %143, align 8, !alias.scope !291, !noalias !294, !nonnull !9, !noundef !9
-  %338 = getelementptr inbounds { i64, [3 x i64] }, ptr %337, i64 %..i.i
+  %338 = getelementptr inbounds [32 x i8], ptr %337, i64 %..i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %338, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)

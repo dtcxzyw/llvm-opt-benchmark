@@ -259,11 +259,11 @@ define internal range(i32 -1, 2) i32 @cvBandPrecSetup(double noundef %0, ptr nou
 
 .lr.ph.i:                                         ; preds = %60, %75
   %.0102114.i = phi i64 [ %80, %75 ], [ %62, %60 ]
-  %63 = getelementptr inbounds double, ptr %30, i64 %.0102114.i
+  %63 = getelementptr inbounds [8 x i8], ptr %30, i64 %.0102114.i
   %64 = load double, ptr %63, align 8, !tbaa !41
   %65 = tail call double @SUNRabs(double noundef %64) #5
   %66 = fmul double %33, %65
-  %67 = getelementptr inbounds double, ptr %27, i64 %.0102114.i
+  %67 = getelementptr inbounds [8 x i8], ptr %27, i64 %.0102114.i
   %68 = load double, ptr %67, align 8, !tbaa !41
   %69 = fdiv double %50, %68
   %70 = fcmp ogt double %66, %69
@@ -277,7 +277,7 @@ define internal range(i32 -1, 2) i32 @cvBandPrecSetup(double noundef %0, ptr nou
 
 75:                                               ; preds = %71, %.lr.ph.i
   %76 = phi double [ %74, %71 ], [ %69, %.lr.ph.i ]
-  %77 = getelementptr inbounds double, ptr %31, i64 %.0102114.i
+  %77 = getelementptr inbounds [8 x i8], ptr %31, i64 %.0102114.i
   %78 = load double, ptr %77, align 8, !tbaa !41
   %79 = fadd double %76, %78
   store double %79, ptr %77, align 8, !tbaa !41
@@ -303,21 +303,21 @@ define internal range(i32 -1, 2) i32 @cvBandPrecSetup(double noundef %0, ptr nou
 
 .lr.ph121.i:                                      ; preds = %.preheader.i, %._crit_edge119.i
   %.1120.i = phi i64 [ %129, %._crit_edge119.i ], [ %62, %.preheader.i ]
-  %89 = getelementptr inbounds double, ptr %30, i64 %.1120.i
+  %89 = getelementptr inbounds [8 x i8], ptr %30, i64 %.1120.i
   %90 = load double, ptr %89, align 8, !tbaa !41
-  %91 = getelementptr inbounds double, ptr %31, i64 %.1120.i
+  %91 = getelementptr inbounds [8 x i8], ptr %31, i64 %.1120.i
   store double %90, ptr %91, align 8, !tbaa !41
   %92 = load ptr, ptr %13, align 8, !tbaa !31
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 72
   %94 = load ptr, ptr %93, align 8, !tbaa !46
-  %95 = getelementptr inbounds ptr, ptr %94, i64 %.1120.i
+  %95 = getelementptr inbounds [8 x i8], ptr %94, i64 %.1120.i
   %96 = load ptr, ptr %95, align 8, !tbaa !49
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %98 = load i64, ptr %97, align 8, !tbaa !50
-  %99 = getelementptr inbounds double, ptr %96, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %96, i64 %98
   %100 = tail call double @SUNRabs(double noundef %90) #5
   %101 = fmul double %33, %100
-  %102 = getelementptr inbounds double, ptr %27, i64 %.1120.i
+  %102 = getelementptr inbounds [8 x i8], ptr %27, i64 %.1120.i
   %103 = load double, ptr %102, align 8, !tbaa !41
   %104 = fdiv double %50, %103
   %105 = fcmp ogt double %101, %104
@@ -345,14 +345,14 @@ define internal range(i32 -1, 2) i32 @cvBandPrecSetup(double noundef %0, ptr nou
 
 .lr.ph118.i:                                      ; preds = %110, %.lr.ph118.i
   %.0101116.i = phi i64 [ %128, %.lr.ph118.i ], [ %spec.select.i, %110 ]
-  %120 = getelementptr inbounds nuw double, ptr %29, i64 %.0101116.i
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.0101116.i
   %121 = load double, ptr %120, align 8, !tbaa !41
-  %122 = getelementptr inbounds nuw double, ptr %28, i64 %.0101116.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.0101116.i
   %123 = load double, ptr %122, align 8, !tbaa !41
   %124 = fsub double %121, %123
   %125 = fmul double %112, %124
   %126 = sub nsw i64 %.0101116.i, %.1120.i
-  %127 = getelementptr inbounds double, ptr %99, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %99, i64 %126
   store double %125, ptr %127, align 8, !tbaa !41
   %128 = add nuw nsw i64 %.0101116.i, 1
   %.not113.not.i = icmp slt i64 %.0101116.i, %119

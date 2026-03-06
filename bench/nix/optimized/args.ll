@@ -105,7 +105,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.rc::gen::detail::ExecHandler" = type { %"class.rc::gen::detail::GenerationHandler", ptr, %"class.rc::Random", %"class.__gnu_cxx::__normal_iterator" }
 %"class.rc::gen::detail::GenerationHandler" = type { ptr }
 %"class.__gnu_cxx::__normal_iterator" = type { ptr }
-%"struct.std::pair.95" = type { ptr, i64 }
 %"class.std::tuple.104" = type { %"struct.std::_Tuple_impl.105" }
 %"struct.std::_Tuple_impl.105" = type { %"struct.std::_Head_base.106" }
 %"struct.std::_Head_base.106" = type { %"class.std::__cxx11::basic_string" }
@@ -119,7 +118,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.rc::Gen.158" = type { ptr, %"class.std::__cxx11::basic_string" }
 %"class.rc::detail::AdapterContext" = type { %"class.rc::detail::PropertyContext", i32, %"class.std::vector.82", %"class.std::__cxx11::basic_ostringstream", %"class.std::vector.82" }
 %"class.rc::detail::PropertyContext" = type { ptr }
-%"struct.std::pair.111" = type { ptr, i64 }
 %"class.rc::gen::detail::TupleGen" = type { %"class.std::tuple.115" }
 %"class.std::tuple.115" = type { %"struct.std::_Tuple_impl.116" }
 %"struct.std::_Tuple_impl.116" = type { %"struct.std::_Head_base.117" }
@@ -6746,7 +6744,7 @@ _ZN7testing7MessageD2Ev.exit50:                   ; preds = %186, %_ZNKSt14defau
 _ZN2rc6detail13SuccessResultD2Ev.exit:            ; preds = %_ZN2rc6detail13SuccessResultC2ERKS1_.exit.thread, %_ZN7testing7MessageD2Ev.exit
   %192 = load i64, ptr %14, align 8
   %193 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %194 = getelementptr inbounds ptr, ptr @_ZZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEE7destroyEmPvE12destroyFuncs, i64 %192
+  %194 = getelementptr inbounds [8 x i8], ptr @_ZZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEE7destroyEmPvE12destroyFuncs, i64 %192
   %195 = load ptr, ptr %194, align 8
   invoke void %195(ptr noundef nonnull %193)
           to label %_ZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEED2Ev.exit unwind label %196
@@ -6785,7 +6783,7 @@ _ZN2rc6detail12TestMetadataD2Ev.exit:             ; preds = %_ZNSt7__cxx1112basi
   %.pn20 = phi { ptr, i32 } [ %151, %150 ], [ %149, %148 ], [ %.pn16.pn.pn, %191 ]
   %204 = load i64, ptr %14, align 8
   %205 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %206 = getelementptr inbounds ptr, ptr @_ZZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEE7destroyEmPvE12destroyFuncs, i64 %204
+  %206 = getelementptr inbounds [8 x i8], ptr @_ZZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEE7destroyEmPvE12destroyFuncs, i64 %204
   %207 = load ptr, ptr %206, align 8
   invoke void %207(ptr noundef nonnull %205)
           to label %_ZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEED2Ev.exit51 unwind label %208
@@ -8115,7 +8113,7 @@ _ZN7testing7MessageD2Ev.exit50:                   ; preds = %186, %_ZNKSt14defau
 _ZN2rc6detail13SuccessResultD2Ev.exit:            ; preds = %_ZN2rc6detail13SuccessResultC2ERKS1_.exit.thread, %_ZN7testing7MessageD2Ev.exit
   %192 = load i64, ptr %14, align 8
   %193 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %194 = getelementptr inbounds ptr, ptr @_ZZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEE7destroyEmPvE12destroyFuncs, i64 %192
+  %194 = getelementptr inbounds [8 x i8], ptr @_ZZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEE7destroyEmPvE12destroyFuncs, i64 %192
   %195 = load ptr, ptr %194, align 8
   invoke void %195(ptr noundef nonnull %193)
           to label %_ZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEED2Ev.exit unwind label %196
@@ -8154,7 +8152,7 @@ _ZN2rc6detail12TestMetadataD2Ev.exit:             ; preds = %_ZNSt7__cxx1112basi
   %.pn20 = phi { ptr, i32 } [ %151, %150 ], [ %149, %148 ], [ %.pn16.pn.pn, %191 ]
   %204 = load i64, ptr %14, align 8
   %205 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %206 = getelementptr inbounds ptr, ptr @_ZZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEE7destroyEmPvE12destroyFuncs, i64 %204
+  %206 = getelementptr inbounds [8 x i8], ptr @_ZZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEE7destroyEmPvE12destroyFuncs, i64 %204
   %207 = load ptr, ptr %206, align 8
   invoke void %207(ptr noundef nonnull %205)
           to label %_ZN2rc6detail7VariantINS0_13SuccessResultEJNS0_13FailureResultENS0_12GaveUpResultENS0_5ErrorEEED2Ev.exit51 unwind label %208
@@ -12177,7 +12175,7 @@ _ZNSt6vectorISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE11_S_relocate
 _ZNSt6vectorISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i: ; preds = %64, %_ZNSt6vectorISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i.i.i
   store ptr %59, ptr @_ZN2rc6detail13ImplicitParamINS_3gen6detail5param14CurrentHandlerEE7m_stackE, align 8
   store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @_ZN2rc6detail13ImplicitParamINS_3gen6detail5param14CurrentHandlerEE7m_stackE, i64 8), align 8
-  %65 = getelementptr inbounds nuw %"struct.std::pair.95", ptr %59, i64 %57
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %57
   store ptr %65, ptr getelementptr inbounds nuw (i8, ptr @_ZN2rc6detail13ImplicitParamINS_3gen6detail5param14CurrentHandlerEE7m_stackE, i64 16), align 8
   br label %_ZN2rc6detail13ImplicitParamINS_3gen6detail5param14CurrentHandlerEEC2EPNS3_17GenerationHandlerE.exit
 
@@ -12870,7 +12868,7 @@ _ZNSt6vectorISt4pairIPN2rc6detail15PropertyContextEmESaIS5_EE11_S_relocateEPS5_S
 _ZNSt6vectorISt4pairIPN2rc6detail15PropertyContextEmESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i.i: ; preds = %48, %_ZNSt6vectorISt4pairIPN2rc6detail15PropertyContextEmESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i.i
   store ptr %43, ptr @_ZN2rc6detail13ImplicitParamINS0_5param22CurrentPropertyContextEE7m_stackE, align 8
   store ptr %47, ptr getelementptr inbounds nuw (i8, ptr @_ZN2rc6detail13ImplicitParamINS0_5param22CurrentPropertyContextEE7m_stackE, i64 8), align 8
-  %49 = getelementptr inbounds nuw %"struct.std::pair.111", ptr %43, i64 %41
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %41
   store ptr %49, ptr getelementptr inbounds nuw (i8, ptr @_ZN2rc6detail13ImplicitParamINS0_5param22CurrentPropertyContextEE7m_stackE, i64 16), align 8
   br label %_ZN2rc6detail13ImplicitParamINS0_5param22CurrentPropertyContextEEC2EPNS0_15PropertyContextE.exit
 
@@ -14925,7 +14923,7 @@ _ZNSt6vectorISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE11_S_relocate
 _ZNSt6vectorISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i: ; preds = %45, %_ZNSt6vectorISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i.i
   store ptr %40, ptr @_ZN2rc6detail13ImplicitParamINS_3gen6detail5param14CurrentHandlerEE7m_stackE, align 8
   store ptr %44, ptr getelementptr inbounds nuw (i8, ptr @_ZN2rc6detail13ImplicitParamINS_3gen6detail5param14CurrentHandlerEE7m_stackE, i64 8), align 8
-  %46 = getelementptr inbounds nuw %"struct.std::pair.95", ptr %40, i64 %38
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %38
   store ptr %46, ptr getelementptr inbounds nuw (i8, ptr @_ZN2rc6detail13ImplicitParamINS_3gen6detail5param14CurrentHandlerEE7m_stackE, i64 16), align 8
   br label %_ZNSt5stackISt4pairIPN2rc3gen6detail17GenerationHandlerEmESt6vectorIS6_SaIS6_EEE4pushEOS6_.exit
 
@@ -14995,7 +14993,7 @@ _ZNSt6vectorIPFvvESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %
 _ZNSt6vectorIPFvvESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %77, %_ZNSt6vectorIPFvvESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %72, ptr %51, align 8
   store ptr %76, ptr %52, align 8
-  %78 = getelementptr inbounds nuw ptr, ptr %72, i64 %70
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %70
   store ptr %78, ptr %54, align 8
   br label %_ZNSt6vectorIPFvvESaIS1_EE9push_backEOS1_.exit
 
@@ -18587,7 +18585,7 @@ _ZNSt6vectorISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE11_S_relocate
 _ZNSt6vectorISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i: ; preds = %64, %_ZNSt6vectorISt4pairIPN2rc3gen6detail17GenerationHandlerEmESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i.i.i
   store ptr %59, ptr @_ZN2rc6detail13ImplicitParamINS_3gen6detail5param14CurrentHandlerEE7m_stackE, align 8
   store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @_ZN2rc6detail13ImplicitParamINS_3gen6detail5param14CurrentHandlerEE7m_stackE, i64 8), align 8
-  %65 = getelementptr inbounds nuw %"struct.std::pair.95", ptr %59, i64 %57
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %57
   store ptr %65, ptr getelementptr inbounds nuw (i8, ptr @_ZN2rc6detail13ImplicitParamINS_3gen6detail5param14CurrentHandlerEE7m_stackE, i64 16), align 8
   br label %_ZN2rc6detail13ImplicitParamINS_3gen6detail5param14CurrentHandlerEEC2EPNS3_17GenerationHandlerE.exit
 
@@ -19337,7 +19335,7 @@ _ZNSt6vectorISt4pairIPN2rc6detail15PropertyContextEmESaIS5_EE11_S_relocateEPS5_S
 _ZNSt6vectorISt4pairIPN2rc6detail15PropertyContextEmESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i.i: ; preds = %49, %_ZNSt6vectorISt4pairIPN2rc6detail15PropertyContextEmESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i.i
   store ptr %44, ptr @_ZN2rc6detail13ImplicitParamINS0_5param22CurrentPropertyContextEE7m_stackE, align 8
   store ptr %48, ptr getelementptr inbounds nuw (i8, ptr @_ZN2rc6detail13ImplicitParamINS0_5param22CurrentPropertyContextEE7m_stackE, i64 8), align 8
-  %50 = getelementptr inbounds nuw %"struct.std::pair.111", ptr %44, i64 %42
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %42
   store ptr %50, ptr getelementptr inbounds nuw (i8, ptr @_ZN2rc6detail13ImplicitParamINS0_5param22CurrentPropertyContextEE7m_stackE, i64 16), align 8
   br label %_ZN2rc6detail13ImplicitParamINS0_5param22CurrentPropertyContextEEC2EPNS0_15PropertyContextE.exit
 
@@ -20638,7 +20636,7 @@ define linkonce_odr void @_ZN2rc3SeqINS_10ShrinkableISt5tupleIJNSt7__cxx1112basi
 
 8:                                                ; preds = %.critedge.i, %.lr.ph.i
   %9 = phi i64 [ %5, %.lr.ph.i ], [ %30, %.critedge.i ]
-  %10 = getelementptr inbounds nuw %"class.rc::Seq.250", ptr %3, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !510)
   %11 = load ptr, ptr %10, align 8, !noalias !513
   %.not.i.i = icmp eq ptr %11, null
@@ -20718,7 +20716,7 @@ define linkonce_odr void @_ZNK2rc3SeqINS_10ShrinkableISt5tupleIJNSt7__cxx1112bas
   %.idx.i.i = shl nuw nsw i64 %8, 3
   %.add4.i = add nuw nsw i64 %.idx.i.i, 8
   %.ptr7.i = getelementptr inbounds nuw i8, ptr %3, i64 %.add4.i
-  %9 = getelementptr inbounds nuw %"class.rc::Seq.250", ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i, label %15, label %11

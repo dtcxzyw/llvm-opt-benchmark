@@ -196,7 +196,7 @@ marker_is_icc.exit:                               ; preds = %73
 110:                                              ; preds = %101
   store i8 1, ptr %103, align 1, !tbaa !35
   %111 = add i32 %30, -14
-  %112 = getelementptr inbounds nuw i32, ptr %5, i64 %102
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %102
   store i32 %111, ptr %112, align 4, !tbaa !37
   br label %marker_is_icc.exit.thread
 
@@ -233,9 +233,9 @@ marker_is_icc.exit.thread:                        ; preds = %.lr.ph, %28, %32, %
   br label %._crit_edge.thread
 
 123:                                              ; preds = %.lr.ph116
-  %124 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %.082115, ptr %124, align 4, !tbaa !37
-  %125 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %126 = load i32, ptr %125, align 4, !tbaa !37
   %127 = add i32 %126, %.082115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -368,14 +368,14 @@ marker_is_icc.exit99:                             ; preds = %193
   %200 = getelementptr inbounds nuw i8, ptr %154, i64 12
   %201 = load i8, ptr %200, align 1, !tbaa !35
   %202 = zext i8 %201 to i64
-  %203 = getelementptr inbounds nuw i32, ptr %5, i64 %202
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %202
   %204 = load i32, ptr %203, align 4, !tbaa !37
   %.not93119 = icmp eq i32 %204, 0
   br i1 %.not93119, label %marker_is_icc.exit99.thread, label %.lr.ph124.preheader
 
 .lr.ph124.preheader:                              ; preds = %199
   %205 = getelementptr inbounds nuw i8, ptr %154, i64 14
-  %206 = getelementptr inbounds nuw i32, ptr %6, i64 %202
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %202
   %207 = load i32, ptr %206, align 4, !tbaa !37
   %208 = zext i32 %207 to i64
   %209 = getelementptr inbounds nuw i8, ptr %136, i64 %208

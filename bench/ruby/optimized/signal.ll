@@ -212,7 +212,7 @@ rb_check_arity.exit:                              ; preds = %2
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %32
   %indvars.iv104 = phi i64 [ 1, %.lr.ph82.preheader ], [ %indvars.iv.next105, %32 ]
-  %19 = getelementptr i64, ptr %1, i64 %indvars.iv104
+  %19 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv104
   %20 = load i64, ptr %19, align 8, !tbaa !20
   %21 = trunc i64 %20 to i1
   br i1 %21, label %22, label %24
@@ -267,7 +267,7 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %51 = zext nneg i32 %.039.fr to i64
-  %52 = getelementptr i32, ptr @signal_buff, i64 %51
+  %52 = getelementptr [4 x i8], ptr @signal_buff, i64 %51
   br i1 %or.cond, label %.lr.ph.split, label %.lr.ph.split.us.preheader
 
 .lr.ph.split.us.preheader:                        ; preds = %33, %.lr.ph
@@ -276,7 +276,7 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %63
   %indvars.iv = phi i64 [ 1, %.lr.ph.split.us.preheader ], [ %indvars.iv.next, %63 ]
-  %53 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %53 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !20
   %55 = trunc i64 %54 to i1
   br i1 %55, label %58, label %56
@@ -322,7 +322,7 @@ rb_num2int_inline.exit52.us:                      ; preds = %58, %56
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %79
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %79 ], [ 1, %.lr.ph.split.split.us.preheader ]
-  %65 = getelementptr i64, ptr %1, i64 %indvars.iv92
+  %65 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv92
   %66 = load i64, ptr %65, align 8, !tbaa !20
   %67 = trunc i64 %66 to i1
   br i1 %67, label %70, label %68
@@ -357,7 +357,7 @@ rb_num2int_inline.exit52.us73:                    ; preds = %70, %68
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.outer, %106
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %106 ], [ %indvars.iv98.ph, %.lr.ph.split.split.outer ]
-  %80 = getelementptr i64, ptr %1, i64 %indvars.iv98
+  %80 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv98
   %81 = load i64, ptr %80, align 8, !tbaa !20
   %82 = trunc i64 %81 to i1
   br i1 %82, label %83, label %85
@@ -600,7 +600,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
 59:                                               ; preds = %55
   %60 = xor i32 %2, 1
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr %struct.signals, ptr @siglist, i64 %61
+  %62 = getelementptr [12 x i8], ptr @siglist, i64 %61
   %63 = icmp ult ptr %62, getelementptr inbounds nuw (i8, ptr @siglist, i64 408)
   br i1 %63, label %.lr.ph, label %.loopexit
 
@@ -806,13 +806,13 @@ define hidden range(i32 0, 65) i32 @rb_get_next_signal() local_unnamed_addr #8 {
 
 .preheader:                                       ; preds = %0, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 1, %0 ]
-  %2 = getelementptr i32, ptr @signal_buff, i64 %indvars.iv
+  %2 = getelementptr [4 x i8], ptr @signal_buff, i64 %indvars.iv
   %3 = load i32, ptr %2, align 4, !tbaa !19
   %.not7 = icmp eq i32 %3, 0
   br i1 %.not7, label %9, label %4
 
 4:                                                ; preds = %.preheader
-  %5 = getelementptr i32, ptr @signal_buff, i64 %indvars.iv
+  %5 = getelementptr [4 x i8], ptr @signal_buff, i64 %indvars.iv
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   %7 = atomicrmw volatile sub ptr %5, i32 1 seq_cst, align 4
   %8 = atomicrmw volatile sub ptr getelementptr inbounds nuw (i8, ptr @signal_buff, i64 260), i32 1 seq_cst, align 4
@@ -961,7 +961,7 @@ define hidden range(i32 0, 2) i32 @rb_signal_exec(ptr noundef %0, i32 noundef %1
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 664
   %5 = sext i32 %1 to i64
-  %6 = getelementptr i64, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !20
   switch i64 %7, label %12 [
     i64 0, label %8
@@ -1101,7 +1101,7 @@ define internal void @sighandler(i32 noundef %0) #1 {
   %2 = tail call ptr @rb_errno_ptr() #16
   %3 = load i32, ptr %2, align 4, !tbaa !19
   %4 = sext i32 %0 to i64
-  %5 = getelementptr i32, ptr @signal_buff, i64 %4
+  %5 = getelementptr [4 x i8], ptr @signal_buff, i64 %4
   %6 = atomicrmw volatile add ptr %5, i32 1 seq_cst, align 4
   %7 = atomicrmw volatile add ptr getelementptr inbounds nuw (i8, ptr @signal_buff, i64 260), i32 1 seq_cst, align 4
   tail call void @rb_thread_wakeup_timer_thread(i32 noundef %0) #16
@@ -1742,7 +1742,7 @@ ruby_signal.exit.i:                               ; preds = %102
   %.0.i19 = phi ptr [ %.010.i.i, %ruby_signal.exit.i ], [ inttoptr (i64 -1 to ptr), %rb_ractor_main_p.exit.thread ]
   %118 = getelementptr inbounds nuw i8, ptr %93, i64 664
   %119 = sext i32 %.0.i to i64
-  %120 = getelementptr i64, ptr %118, i64 %119
+  %120 = getelementptr [8 x i8], ptr %118, i64 %119
   %121 = load i64, ptr %120, align 8, !tbaa !20
   switch i64 %121, label %trap.exit [
     i64 0, label %122

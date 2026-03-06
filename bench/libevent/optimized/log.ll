@@ -99,7 +99,7 @@ define void @event_logv_(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
 
 switch.lookup:                                    ; preds = %24
   %26 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.event_logv_, i64 %26
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.event_logv_, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %27
 

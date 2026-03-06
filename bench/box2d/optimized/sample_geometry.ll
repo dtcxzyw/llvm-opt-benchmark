@@ -183,7 +183,7 @@ define linkonce_odr dso_local void @_ZN10ConvexHull8GenerateEv(ptr noundef nonnu
   %60 = fmul float %.sroa.05.0.vec.extract.i, %55
   %61 = fadd float %59, %60
   %.sroa.010.4.vec.insert.i = insertelement <2 x float> %.sroa.010.0.vec.insert.i, float %61, i64 1
-  %62 = getelementptr inbounds nuw %struct.b2Vec2, ptr %16, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   store <2 x float> %.sroa.010.4.vec.insert.i, ptr %62, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -335,7 +335,7 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
 
 65:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %66 = getelementptr inbounds nuw %struct.b2Vec2, ptr %62, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   %.sroa.07.0.copyload = load <2 x float>, ptr %66, align 8
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.07.0.copyload, float noundef 5.000000e+00, i32 noundef 255)
   %.sroa.05.0.copyload = load <2 x float>, ptr %66, align 8
@@ -359,7 +359,7 @@ define linkonce_odr dso_local void @_ZN10ConvexHull4StepER8Settings(ptr noundef 
 
 .lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.lr.ph35 ], [ 0, %.preheader ]
-  %73 = getelementptr inbounds nuw %struct.b2Vec2, ptr %3, i64 %indvars.iv37
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv37
   %.sroa.0.0.copyload = load <2 x float>, ptr %73, align 4
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.0.0.copyload, float noundef 6.000000e+00, i32 noundef 32768)
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1

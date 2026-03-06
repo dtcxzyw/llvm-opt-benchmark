@@ -2584,7 +2584,7 @@ define internal void @_ZN12_GLOBAL__N_151UniformRealDistributionTest_ParamSerial
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %81 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %82, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %83 = getelementptr inbounds nuw i32, ptr %6, i64 %.016.i.i.i.i.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.016.i.i.i.i.i
   %84 = load i32, ptr %83, align 4, !tbaa !66
   %85 = zext i32 %84 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %85
@@ -8408,7 +8408,7 @@ define internal void @_ZN12_GLOBAL__N_151UniformRealDistributionTest_ParamSerial
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %81 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %82, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %83 = getelementptr inbounds nuw i32, ptr %6, i64 %.016.i.i.i.i.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.016.i.i.i.i.i
   %84 = load i32, ptr %83, align 4, !tbaa !66
   %85 = zext i32 %84 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %85
@@ -13594,7 +13594,7 @@ define internal void @_ZN12_GLOBAL__N_151UniformRealDistributionTest_ParamSerial
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %78 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %79, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %80 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i.i.i.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.016.i.i.i.i.i
   %81 = load i32, ptr %80, align 4, !tbaa !66
   %82 = zext i32 %81 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %82
@@ -19429,7 +19429,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !10
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !19
   ret void
 }
@@ -19883,7 +19883,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %131 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %132, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %133 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.016.i.i.i.i.i
   %134 = load i32, ptr %133, align 4, !tbaa !66
   %135 = zext i32 %134 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %135
@@ -21790,7 +21790,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %131 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %132, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %133 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.016.i.i.i.i.i
   %134 = load i32, ptr %133, align 4, !tbaa !66
   %135 = zext i32 %134 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %135
@@ -22509,7 +22509,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %134 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %135, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %136 = getelementptr inbounds nuw i32, ptr %2, i64 %.016.i.i.i.i.i
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.016.i.i.i.i.i
   %137 = load i32, ptr %136, align 4, !tbaa !66
   %138 = zext i32 %137 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %138
@@ -22970,7 +22970,7 @@ _ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13
 _ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit: ; preds = %.split.i.i, %_ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.split.loop.exit126
   %.0.i.i.i125 = phi float [ %32, %_ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEfRT_.exit.split.loop.exit126 ], [ 0.000000e+00, %.split.i.i ]
   %33 = fpext float %.0.i.i.i125 to double
-  %34 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store double %33, ptr %34, align 8, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1000000
@@ -23590,7 +23590,7 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit: ; preds = %.split.i.i, %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.split.loop.exit126
   %.0.i.i.i125 = phi double [ %30, %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit.split.loop.exit126 ], [ 0.000000e+00, %.split.i.i ]
-  %31 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store double %.0.i.i.i125, ptr %31, align 8, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1000000
@@ -24182,7 +24182,7 @@ define internal void @_ZN12_GLOBAL__N_144UniformRealDistributionTest_TestMoments
 
 23:                                               ; preds = %21
   %24 = fptrunc x86_fp80 %22 to double
-  %25 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   store double %24, ptr %25, align 8, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1000000
@@ -24991,7 +24991,7 @@ _ZN4absl25uniform_real_distributionIfEclINS_15random_internal10pcg_engineINS3_13
   %57 = fsub double %56, %34
   %58 = fmul double %37, %57
   %59 = fptoui double %58 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %33, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !66
   %62 = add nsw i32 %61, 1
   store i32 %62, ptr %60, align 4, !tbaa !66
@@ -25061,7 +25061,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EE
   %87 = fsub double %86, %34
   %88 = fmul double %37, %87
   %89 = fptoui double %88 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %33, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !66
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %90, align 4, !tbaa !66
@@ -25559,7 +25559,7 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal10pcg_engineINS3_13
   %52 = fsub double %50, %30
   %53 = fmul double %35, %52
   %54 = fptoui double %53 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %33, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !66
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %55, align 4, !tbaa !66
@@ -25626,7 +25626,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   %79 = fsub double %78, %30
   %80 = fmul double %35, %79
   %81 = fptoui double %80 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %33, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !66
   %84 = add nsw i32 %83, 1
   store i32 %84, ptr %82, align 4, !tbaa !66
@@ -26105,7 +26105,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   %57 = fsub x86_fp80 %56, %40
   %58 = fmul x86_fp80 %57, %41
   %59 = fptoui x86_fp80 %58 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %33, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !66
   %62 = add nsw i32 %61, 1
   store i32 %62, ptr %60, align 4, !tbaa !66
@@ -26164,7 +26164,7 @@ _ZN4absl25uniform_real_distributionIeEclINS_15random_internal10pcg_engineINS3_13
   %81 = fsub x86_fp80 %79, %40
   %82 = fmul x86_fp80 %81, %41
   %83 = fptoui x86_fp80 %82 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %33, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !66
   %86 = add nsw i32 %85, 1
   store i32 %86, ptr %84, align 4, !tbaa !66
@@ -26232,7 +26232,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   %109 = fsub x86_fp80 %108, %40
   %110 = fmul x86_fp80 %109, %41
   %111 = fptoui x86_fp80 %110 to i64
-  %112 = getelementptr inbounds nuw i32, ptr %33, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !66
   %114 = add nsw i32 %113, 1
   store i32 %114, ptr %112, align 4, !tbaa !66
@@ -26637,7 +26637,7 @@ define internal void @_ZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTe
   %13 = phi i64 [ %14, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.us.i ], [ %12, %.split.i.i.i.preheader.us.i ]
   %14 = add i64 %13, 1
   %15 = urem i64 %13, 12
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !63
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.us.i
@@ -28678,7 +28678,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKiEES4_EvT_S6_RSaIT0_E.exit: ; preds = %.lr.ph
 _ZNSt12_Vector_baseIN7testing7MatcherIRKiEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKiEES4_EvT_S6_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !377
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !380
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.135", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !381
   ret void
 }
@@ -29849,7 +29849,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %.body, %_ZNKSt14def
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.021)
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.95, i64 noundef 1)
   %95 = load ptr, ptr %8, align 8, !tbaa !377
-  %96 = getelementptr inbounds nuw %"class.testing::Matcher.135", ptr %95, i64 %.021
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.021
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !392
   %99 = icmp ne ptr %98, null
@@ -30092,7 +30092,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %.body, %_ZNKSt14def
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.95, i64 noundef 1)
   %77 = load ptr, ptr %7, align 8, !tbaa !377
-  %78 = getelementptr inbounds nuw %"class.testing::Matcher.135", ptr %77, i64 %.017
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.017
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !392
   %81 = icmp ne ptr %80, null
@@ -30194,7 +30194,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = shl nuw nsw i64 %23, 5
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #32
   store ptr %26, ptr %9, align 8, !tbaa !4
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !19
   br label %.lr.ph.i.i.i.i.i
@@ -30268,7 +30268,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %65
   %66 = load ptr, ptr %16, align 8, !tbaa !377
-  %67 = getelementptr inbounds nuw %"class.testing::Matcher.135", ptr %66, i64 %storemerge164.us
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %storemerge164.us
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !392
   %70 = icmp ne ptr %69, null
@@ -30329,7 +30329,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %87, %81
   %88 = load ptr, ptr %9, align 8, !tbaa !4
-  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %storemerge164.us
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %storemerge164.us
   %90 = load ptr, ptr %89, align 8, !tbaa !11
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %92 = icmp eq ptr %90, %91
@@ -30493,7 +30493,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   br i1 %.not, label %.critedge, label %144
 
 144:                                              ; preds = %.lr.ph.split
-  %145 = getelementptr inbounds nuw %"class.testing::Matcher.135", ptr %139, i64 %storemerge164
+  %145 = getelementptr inbounds nuw [24 x i8], ptr %139, i64 %storemerge164
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %37, align 8, !tbaa !341
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %7, align 8, !tbaa !20
@@ -30814,7 +30814,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %246
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %248
   %.pre216 = load ptr, ptr %13, align 8, !tbaa !341
   %250 = load ptr, ptr %9, align 8, !tbaa !4
-  %251 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %250, i64 %storemerge.lcssa
+  %251 = getelementptr inbounds nuw [32 x i8], ptr %250, i64 %storemerge.lcssa
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %253 = load i64, ptr %252, align 8, !tbaa !54
   %254 = icmp eq i64 %253, 0
@@ -30844,7 +30844,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %248
 .lr.ph206:                                        ; preds = %.lr.ph206.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.028205 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph206.preheader ]
   %storemerge48204 = phi i64 [ %282, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph206.preheader ]
-  %262 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge48204
+  %262 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %storemerge48204
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %264 = load i64, ptr %263, align 8, !tbaa !54
   %265 = icmp eq i64 %264, 0
@@ -31510,7 +31510,7 @@ define internal void @_ZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTe
   %13 = phi i64 [ %14, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.us.i ], [ %12, %.split.i.i.i.preheader.us.i ]
   %14 = add i64 %13, 1
   %15 = urem i64 %13, 12
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !63
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.us.i
@@ -31799,7 +31799,7 @@ define internal void @_ZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTe
   %13 = phi i64 [ %14, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ %.sroa.042.0, %.split.i.preheader.i ]
   %14 = add i64 %13, 1
   %15 = urem i64 %13, 12
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !63
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %.noexc, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i

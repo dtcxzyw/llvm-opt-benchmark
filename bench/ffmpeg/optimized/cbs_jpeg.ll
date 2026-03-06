@@ -8,9 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { %struct.anon.1 }
 %struct.anon.1 = type { i32, [2 x i64] }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
-%struct.JPEGRawQuantisationTable = type { i8, i8, [64 x i16] }
-%struct.JPEGRawHuffmanTable = type { i8, i8, [16 x i8], [256 x i8] }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @ff_cbs_type_jpeg = local_unnamed_addr constant { i32, [4 x i8], ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 7, [4 x i8] zeroinitializer, ptr null, i64 0, ptr @cbs_jpeg_unit_types, ptr @cbs_jpeg_split_fragment, ptr @cbs_jpeg_read_unit, ptr @cbs_jpeg_write_unit, ptr null, ptr @cbs_jpeg_assemble_fragment, ptr null, ptr null }, align 8
 @cbs_jpeg_unit_types = internal constant <{ { i32, { %struct.anon, [4 x i8] }, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, { %struct.anon, [4 x i8] }, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, %union.anon, i32, [4 x i8], i64, %union.anon.0 } }> <{ { i32, { %struct.anon, [4 x i8] }, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 -1, { %struct.anon, [4 x i8] } { %struct.anon { i32 192, i32 195 }, [4 x i8] zeroinitializer }, i32 0, [4 x i8] zeroinitializer, i64 1030, { { i32, [4 x i8], [2 x i64] } } zeroinitializer }, { i32, { %struct.anon, [4 x i8] }, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 -1, { %struct.anon, [4 x i8] } { %struct.anon { i32 224, i32 239 }, [4 x i8] zeroinitializer }, i32 0, [4 x i8] zeroinitializer, i64 24, { { i32, [4 x i8], [2 x i64] } } { { i32, [4 x i8], [2 x i64] } { i32 1, [4 x i8] zeroinitializer, [2 x i64] [i64 8, i64 0] } } }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 1, %union.anon { [3 x i32] [i32 218, i32 0, i32 0] }, i32 0, [4 x i8] zeroinitializer, i64 800, { { i32, [4 x i8], [2 x i64] } } { { i32, [4 x i8], [2 x i64] } { i32 1, [4 x i8] zeroinitializer, [2 x i64] [i64 776, i64 0] } } }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 1, %union.anon { [3 x i32] [i32 219, i32 0, i32 0] }, i32 0, [4 x i8] zeroinitializer, i64 522, { { i32, [4 x i8], [2 x i64] } } zeroinitializer }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 1, %union.anon { [3 x i32] [i32 196, i32 0, i32 0] }, i32 0, [4 x i8] zeroinitializer, i64 2194, { { i32, [4 x i8], [2 x i64] } } zeroinitializer }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 1, %union.anon { [3 x i32] [i32 254, i32 0, i32 0] }, i32 0, [4 x i8] zeroinitializer, i64 24, { { i32, [4 x i8], [2 x i64] } } { { i32, [4 x i8], [2 x i64] } { i32 1, [4 x i8] zeroinitializer, [2 x i64] [i64 8, i64 0] } } }, { i32, %union.anon, i32, [4 x i8], i64, %union.anon.0 } zeroinitializer }>, align 16
@@ -1296,7 +1293,7 @@ cbs_jpeg_write_application_data.exit.i:           ; preds = %228, %223, %218, %2
 
 250:                                              ; preds = %.loopexit.i.i, %.lr.ph.i31.i
   %indvars.iv.i32.i = phi i64 [ 0, %.lr.ph.i31.i ], [ %indvars.iv.next.i33.i, %.loopexit.i.i ]
-  %251 = getelementptr inbounds nuw %struct.JPEGRawQuantisationTable, ptr %247, i64 %indvars.iv.i32.i
+  %251 = getelementptr inbounds nuw [130 x i8], ptr %247, i64 %indvars.iv.i32.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %252 = load i8, ptr %251, align 2, !tbaa !81
@@ -1326,7 +1323,7 @@ cbs_jpeg_write_application_data.exit.i:           ; preds = %228, %223, %218, %2
 
 .preheader48.i.i.i:                               ; preds = %262, %265
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %265 ], [ 0, %262 ]
-  %266 = getelementptr inbounds nuw i16, ptr %264, i64 %indvars.iv.i.i.i
+  %266 = getelementptr inbounds nuw [2 x i8], ptr %264, i64 %indvars.iv.i.i.i
   %267 = load i16, ptr %266, align 2, !tbaa !85
   %268 = zext i16 %267 to i32
   store i32 1, ptr %7, align 4, !tbaa !41
@@ -1343,7 +1340,7 @@ cbs_jpeg_write_application_data.exit.i:           ; preds = %228, %223, %218, %2
 
 .preheader.i.i.i:                                 ; preds = %262, %272
   %indvars.iv56.i.i.i = phi i64 [ %indvars.iv.next57.i.i.i, %272 ], [ 0, %262 ]
-  %273 = getelementptr inbounds nuw i16, ptr %264, i64 %indvars.iv56.i.i.i
+  %273 = getelementptr inbounds nuw [2 x i8], ptr %264, i64 %indvars.iv56.i.i.i
   %274 = load i16, ptr %273, align 2, !tbaa !85
   %275 = zext i16 %274 to i32
   store i32 1, ptr %8, align 4, !tbaa !41
@@ -1394,7 +1391,7 @@ cbs_jpeg_write_quantisation_table.exit.thread.i.i: ; preds = %256, %250, %.prehe
   br i1 %exitcond51.i.i, label %cbs_jpeg_write_scan.exit, label %292
 
 292:                                              ; preds = %291
-  %293 = getelementptr inbounds nuw %struct.JPEGRawHuffmanTable, ptr %288, i64 %indvars.iv48.i.i
+  %293 = getelementptr inbounds nuw [274 x i8], ptr %288, i64 %indvars.iv48.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %294 = load i8, ptr %293, align 1, !tbaa !90
@@ -1583,7 +1580,7 @@ define internal range(i32 -12, 1) i32 @cbs_jpeg_assemble_fragment(ptr readnone c
 8:                                                ; preds = %.lr.ph92, %.loopexit86
   %indvars.iv = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next, %.loopexit86 ]
   %.07790 = phi i64 [ 4, %.lr.ph92 ], [ %.380, %.loopexit86 ]
-  %9 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %7, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !32
   %12 = add i64 %.07790, 2
@@ -1644,7 +1641,7 @@ define internal range(i32 -12, 1) i32 @cbs_jpeg_assemble_fragment(ptr readnone c
   %indvars.iv107 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next108, %.loopexit ]
   %.07599 = phi i64 [ 2, %.lr.ph102 ], [ %.3, %.loopexit ]
   %36 = load ptr, ptr %34, align 8, !tbaa !103
-  %37 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %36, i64 %indvars.iv107
+  %37 = getelementptr inbounds nuw [56 x i8], ptr %36, i64 %indvars.iv107
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 %.07599
   store i8 -1, ptr %38, align 1, !tbaa !15
   %39 = load i32, ptr %37, align 8, !tbaa !39
@@ -1994,7 +1991,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dqt(ptr noun
 
 20:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %21 = getelementptr inbounds nuw %struct.JPEGRawQuantisationTable, ptr %17, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [130 x i8], ptr %17, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2044,7 +2041,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dqt(ptr noun
 40:                                               ; preds = %.preheader53.i
   %41 = load i32, ptr %6, align 4, !tbaa !41
   %42 = trunc i32 %41 to i16
-  %43 = getelementptr inbounds nuw i16, ptr %35, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %indvars.iv.i
   store i16 %42, ptr %43, align 2, !tbaa !85
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2068,7 +2065,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dqt(ptr noun
 48:                                               ; preds = %.preheader.i
   %49 = load i32, ptr %8, align 4, !tbaa !41
   %50 = trunc i32 %49 to i16
-  %51 = getelementptr inbounds nuw i16, ptr %35, i64 %indvars.iv63.i
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %indvars.iv63.i
   store i16 %50, ptr %51, align 2, !tbaa !85
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
@@ -2138,7 +2135,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_jpeg_read_dht(ptr noun
   br i1 %exitcond66, label %.loopexit, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds nuw %struct.JPEGRawHuffmanTable, ptr %18, i64 %indvars.iv63
+  %23 = getelementptr inbounds nuw [274 x i8], ptr %18, i64 %indvars.iv63
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

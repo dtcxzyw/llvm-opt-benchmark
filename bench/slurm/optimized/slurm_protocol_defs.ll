@@ -4,24 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
-%struct.node_state_flags_t = type { i32, ptr }
 %struct.char_list_internal_args_t = type { i8, i8, i32 }
-%struct.anon = type { ptr, i32 }
-%struct.anon.0 = type { i32, ptr }
-%struct.kill_jobs_resp_job_t = type { i32, ptr, ptr, i32, ptr }
-%struct.job_state_response_job_t = type { i32, i32, i32, ptr, i32, i32 }
-%struct.kvs_hosts = type { i32, i16, ptr }
-%struct.job_info = type { ptr, i64, ptr, ptr, i32, ptr, i32, i32, i32, ptr, i32, ptr, i16, ptr, i64, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i16, i16, double, i16, i32, i32, i32, ptr, ptr, i64, i32, ptr, i32, i64, i64, ptr, ptr, i32, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i32, ptr, ptr, i32, i32, ptr, i32, i32, ptr, ptr, i32, i64, ptr, i16, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, i16, i16, i16, i16, i16, i32, i32, i32, i16, ptr, ptr, i64, i16, i32, i64, i64, i64, i32, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i16, i64, i16, ptr, ptr, ptr, ptr, i16, i32, i16, i16, i64, i16, ptr, i32, ptr, ptr, ptr, i16, i64, i64, ptr, i32, i32, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr }
-%struct.job_step_info_t = type { i32, i32, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i64, ptr, i32, i64, i16, i32, %struct.slurm_step_id_msg, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
-%struct.front_end_info = type { ptr, ptr, i64, ptr, ptr, ptr, i32, ptr, i64, i32, i64, ptr }
-%struct.node_info = type { ptr, ptr, i16, i64, ptr, i16, i16, i32, i32, i64, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i32, ptr, ptr, i32, ptr, i32, ptr, i16, i64, i16, ptr, ptr, ptr, i64, i32, i64, ptr, ptr, i64, i16, i16, i32, i32, ptr, ptr }
-%struct.partition_info = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i64, i32, ptr, ptr, i32, i32, ptr, ptr, i32, i32, i64, i32, i16, i32, i32, ptr, ptr, ptr, ptr, i16, i16, i16, i16, ptr, i16, i16, i32, i16, i32, i32, ptr }
-%struct.reserve_info = type { ptr, ptr, ptr, i32, i32, ptr, i64, ptr, i64, ptr, ptr, i32, ptr, i32, ptr, ptr, ptr, i32, i64, ptr, ptr }
-%struct.resv_core_spec = type { ptr, ptr }
-%struct.topo_info = type { i16, i32, ptr, ptr, ptr }
-%struct.trigger_info = type { i16, i32, i16, ptr, i32, i32, i16, i32, ptr }
-%struct.slurm_license_info = type { ptr, i32, i32, i32, i8, i32, i32, i32, i64 }
 
 @.str = private unnamed_addr constant [22 x i8] c"slurm_protocol_defs.c\00", align 1
 @__func__.slurm_add_slash_to_quotes = private unnamed_addr constant [26 x i8] c"slurm_add_slash_to_quotes\00", align 1
@@ -760,7 +743,7 @@ define dso_local noundef nonnull ptr @job_share_string(i16 noundef zeroext %0) #
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.job_share_string, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.job_share_string, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -839,7 +822,7 @@ define dso_local noundef nonnull ptr @job_state_string(i32 noundef %0) #0 {
 switch.lookup:                                    ; preds = %26
   %trunc.mask = and i32 %0, 15
   %28 = zext nneg i32 %trunc.mask to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._job_name_test, i64 %28
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._job_name_test, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %29
 
@@ -918,7 +901,7 @@ define dso_local noundef nonnull ptr @job_state_string_compact(i32 noundef %0) #
 switch.lookup:                                    ; preds = %26
   %trunc.mask = and i32 %0, 15
   %28 = zext nneg i32 %trunc.mask to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._job_name_test.1, i64 %28
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._job_name_test.1, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %29
 
@@ -1032,7 +1015,7 @@ define dso_local zeroext i1 @valid_base_state(i32 noundef %0) #2 {
 
 3:                                                ; preds = %3, %1
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw %struct.node_state_flags_t, ptr @node_states, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @node_states, i64 %indvars.iv
   %5 = load i32, ptr %4, align 16
   %6 = icmp eq i32 %5, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1056,7 +1039,7 @@ define dso_local ptr @node_state_base_string(i32 noundef %0) #2 {
 
 4:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw %struct.node_state_flags_t, ptr @node_states, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @node_states, i64 %indvars.iv
   %6 = load i32, ptr %5, align 16
   %7 = icmp eq i32 %6, %2
   br i1 %7, label %8, label %3
@@ -1092,7 +1075,7 @@ define dso_local ptr @node_state_flag_string(i32 noundef %0) #1 {
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %5
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %5 ], [ 0, %.preheader.i.preheader ]
-  %6 = getelementptr inbounds nuw %struct.node_state_flags_t, ptr @node_state_flags, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @node_state_flags, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 16
   %8 = and i32 %7, %4
   %.not17.i = icmp eq i32 %8, 0
@@ -1141,7 +1124,7 @@ define dso_local ptr @node_state_flag_string_single(ptr noundef captures(none) %
 
 .preheader:                                       ; preds = %1, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %4 ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw %struct.node_state_flags_t, ptr @node_state_flags, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @node_state_flags, i64 %indvars.iv
   %6 = load i32, ptr %5, align 16
   %7 = and i32 %6, %3
   %.not17 = icmp eq i32 %7, 0
@@ -1493,7 +1476,7 @@ switch.early.test:                                ; preds = %29
 
 switch.lookup:                                    ; preds = %.split
   %107 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.node_state_string, i64 %107
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.node_state_string, i64 %107
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %108
 
@@ -1835,7 +1818,7 @@ define dso_local ptr @node_state_string_complete(i32 noundef %0) #1 {
 
 7:                                                ; preds = %6, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %6 ]
-  %8 = getelementptr inbounds nuw %struct.node_state_flags_t, ptr @node_states, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @node_states, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 16
   %10 = icmp eq i32 %9, %5
   br i1 %10, label %11, label %6
@@ -1871,7 +1854,7 @@ node_state_flag_string.exit.thread:               ; preds = %node_state_base_str
 
 .preheader.i.i:                                   ; preds = %18, %.preheader.i.preheader.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %18 ], [ 0, %.preheader.i.preheader.i ]
-  %19 = getelementptr inbounds nuw %struct.node_state_flags_t, ptr @node_state_flags, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr @node_state_flags, i64 %indvars.iv.i.i
   %20 = load i32, ptr %19, align 16
   %21 = and i32 %20, %17
   %.not17.i.i = icmp eq i32 %21, 0
@@ -3973,7 +3956,7 @@ define internal range(i32 0, 2) i32 @_addto_step_list_internal(ptr noundef %0, p
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %1, align 1
   %8 = sext i8 %7 to i64
-  %9 = getelementptr inbounds i16, ptr %6, i64 %8
+  %9 = getelementptr inbounds [2 x i8], ptr %6, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2048
   %.not = icmp eq i16 %11, 0
@@ -4143,10 +4126,10 @@ define dso_local ptr @slurm_char_array_copy(i32 noundef %0, ptr noundef readonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @xstrdup(ptr noundef %8) #25
-  %10 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %9, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4154,7 +4137,7 @@ define dso_local ptr @slurm_char_array_copy(i32 noundef %0, ptr noundef readonly
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %11 = sext i32 %0 to i64
-  %12 = getelementptr inbounds ptr, ptr %5, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %5, i64 %11
   store ptr null, ptr %12, align 8
   ret ptr %5
 }
@@ -4601,7 +4584,7 @@ thread-pre-split:                                 ; preds = %46, %59
 
 .preheader.split:                                 ; preds = %92, %.preheader.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.split ], [ 0, %92 ]
-  %96 = getelementptr inbounds nuw %struct.anon, ptr @step_names, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [16 x i8], ptr @step_names, i64 %indvars.iv
   %97 = load ptr, ptr %96, align 16
   %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #26
   %99 = tail call i32 @xstrncasecmp(ptr noundef nonnull %97, ptr noundef nonnull %89, i64 noundef %98) #25
@@ -4798,7 +4781,7 @@ define dso_local range(i32 0, 2151) i32 @fmt_job_id_string(ptr noundef readonly 
 
 .preheader:                                       ; preds = %30, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %30 ]
-  %38 = getelementptr inbounds nuw %struct.anon, ptr @step_names, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [16 x i8], ptr @step_names, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, %32
@@ -4882,7 +4865,7 @@ define dso_local ptr @slurm_parse_step_str(ptr noundef %0) local_unnamed_addr #1
   %16 = load ptr, ptr %15, align 8
   %17 = load i8, ptr %6, align 1
   %18 = sext i8 %17 to i64
-  %19 = getelementptr inbounds i16, ptr %16, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %16, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 2048
   %.not49 = icmp eq i16 %21, 0
@@ -4941,7 +4924,7 @@ define dso_local ptr @slurm_parse_step_str(ptr noundef %0) local_unnamed_addr #1
   %45 = load ptr, ptr %44, align 8
   %46 = load i8, ptr %43, align 1
   %47 = sext i8 %46 to i64
-  %48 = getelementptr inbounds i16, ptr %45, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %45, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = and i16 %49, 2048
   %.not55 = icmp eq i16 %50, 0
@@ -4972,7 +4955,7 @@ define dso_local ptr @slurm_parse_step_str(ptr noundef %0) local_unnamed_addr #1
   %62 = load ptr, ptr %61, align 8
   %63 = load i8, ptr %60, align 1
   %64 = sext i8 %63 to i64
-  %65 = getelementptr inbounds i16, ptr %62, i64 %64
+  %65 = getelementptr inbounds [2 x i8], ptr %62, i64 %64
   %66 = load i16, ptr %65, align 2
   %67 = and i16 %66, 2048
   %.not54 = icmp eq i16 %67, 0
@@ -5431,7 +5414,7 @@ define dso_local ptr @slurm_container_status_to_str(i32 noundef %0) local_unname
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw %struct.anon.0, ptr @slurm_container_status_to_str.status_str, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @slurm_container_status_to_str.status_str, i64 %indvars.iv
   %5 = load i32, ptr %4, align 16
   %6 = icmp eq i32 %0, %5
   br i1 %6, label %7, label %2
@@ -5586,7 +5569,7 @@ define dso_local void @slurm_free_kill_jobs_response_msg(ptr noundef %0) local_u
   br i1 %.not.i, label %slurm_free_kill_jobs_resp_job_t.exit, label %9
 
 9:                                                ; preds = %.lr.ph.split
-  %10 = getelementptr inbounds nuw %struct.kill_jobs_resp_job_t, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %11) #25
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -5717,7 +5700,7 @@ define dso_local void @slurm_free_job_state_response_msg(ptr noundef %0) local_u
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds nuw %struct.job_state_response_job_t, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not5 = icmp eq ptr %9, null
@@ -5730,7 +5713,7 @@ define dso_local void @slurm_free_job_state_response_msg(ptr noundef %0) local_u
 
 11:                                               ; preds = %10, %.lr.ph
   %12 = phi ptr [ %.pre, %10 ], [ %6, %.lr.ph ]
-  %13 = getelementptr inbounds nuw %struct.job_state_response_job_t, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr null, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5820,7 +5803,7 @@ define dso_local void @slurm_free_job_desc_msg(ptr noundef %0) local_unnamed_add
 .lr.ph:                                           ; preds = %.preheader14, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader14 ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %12) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %9, align 8
@@ -5956,7 +5939,7 @@ define dso_local void @slurm_free_job_desc_msg(ptr noundef %0) local_unnamed_add
 .lr.ph17:                                         ; preds = %.preheader, %.lr.ph17
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.lr.ph17 ], [ 0, %.preheader ]
   %72 = load ptr, ptr %68, align 8
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv21
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv21
   tail call void @slurm_xfree(ptr noundef %73) #25
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %74 = load i32, ptr %70, align 8
@@ -7041,7 +7024,7 @@ define dso_local void @slurm_free_prolog_launch_msg(ptr noundef %0) local_unname
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %18) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %15, align 8
@@ -7154,7 +7137,7 @@ define dso_local void @slurm_free_job_launch_msg(ptr noundef %0) local_unnamed_a
 .lr.ph:                                           ; preds = %.preheader16, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader16 ]
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %10) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %7, align 8
@@ -7192,7 +7175,7 @@ define dso_local void @slurm_free_job_launch_msg(ptr noundef %0) local_unnamed_a
 .lr.ph21:                                         ; preds = %.preheader15, %.lr.ph21
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %.lr.ph21 ], [ 0, %.preheader15 ]
   %25 = load ptr, ptr %21, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv32
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv32
   tail call void @slurm_xfree(ptr noundef %26) #25
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %27 = load i32, ptr %23, align 8
@@ -7242,7 +7225,7 @@ define dso_local void @slurm_free_job_launch_msg(ptr noundef %0) local_unnamed_a
 .lr.ph25:                                         ; preds = %.preheader, %.lr.ph25
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %.lr.ph25 ], [ 0, %.preheader ]
   %45 = load ptr, ptr %41, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv35
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv35
   tail call void @slurm_xfree(ptr noundef %46) #25
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %47 = load i32, ptr %43, align 8
@@ -7374,7 +7357,7 @@ define dso_local void @slurm_free_job_info_members(ptr noundef %0) local_unnamed
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %36 = load ptr, ptr %32, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %37) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %34, align 8
@@ -8027,7 +8010,7 @@ define dso_local void @slurm_free_kill_job_msg(ptr noundef %0) local_unnamed_add
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %16) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %13, align 8
@@ -8091,7 +8074,7 @@ define dso_local void @slurm_free_launch_tasks_request_msg(ptr noundef %0) local
 .lr.ph:                                           ; preds = %.preheader31, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader31 ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %12) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %9, align 8
@@ -8132,7 +8115,7 @@ define dso_local void @slurm_free_launch_tasks_request_msg(ptr noundef %0) local
 .lr.ph38:                                         ; preds = %.preheader30, %.lr.ph38
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.lr.ph38 ], [ 0, %.preheader30 ]
   %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv59
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv59
   tail call void @slurm_xfree(ptr noundef %29) #25
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %30 = load i32, ptr %26, align 4
@@ -8159,7 +8142,7 @@ define dso_local void @slurm_free_launch_tasks_request_msg(ptr noundef %0) local
 .lr.ph42:                                         ; preds = %.preheader29, %.lr.ph42
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph42 ], [ 0, %.preheader29 ]
   %38 = load ptr, ptr %34, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv62
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv62
   tail call void @slurm_xfree(ptr noundef %39) #25
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %40 = load i32, ptr %36, align 8
@@ -8186,7 +8169,7 @@ define dso_local void @slurm_free_launch_tasks_request_msg(ptr noundef %0) local
 .lr.ph46:                                         ; preds = %.preheader28, %.lr.ph46
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.lr.ph46 ], [ 0, %.preheader28 ]
   %48 = load ptr, ptr %44, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv65
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv65
   tail call void @slurm_xfree(ptr noundef %49) #25
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %50 = load i32, ptr %46, align 4
@@ -8219,7 +8202,7 @@ define dso_local void @slurm_free_launch_tasks_request_msg(ptr noundef %0) local
 60:                                               ; preds = %.lr.ph50, %60
   %indvars.iv68 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next69, %60 ]
   %61 = load ptr, ptr %59, align 8
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv68
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv68
   tail call void @slurm_xfree(ptr noundef %62) #25
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %63 = load i32, ptr %57, align 8
@@ -8374,7 +8357,7 @@ define dso_local void @slurm_free_reattach_tasks_response_msg(ptr noundef %0) lo
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %11) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %8, align 4
@@ -8651,7 +8634,7 @@ define dso_local void @slurm_free_stats_response_msg(ptr noundef %0) local_unnam
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %24) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %19, align 8
@@ -8694,10 +8677,10 @@ define dso_local void @slurm_free_job_array_resp(ptr noundef %0) local_unnamed_a
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %10) #25
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %12) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %0, align 8
@@ -8759,7 +8742,7 @@ define dso_local void @slurm_free_kvs_comm_set(ptr noundef %0) local_unnamed_add
 .lr.ph:                                           ; preds = %.preheader23, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader23 ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %9) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8788,7 +8771,7 @@ define dso_local void @slurm_free_kvs_comm_set(ptr noundef %0) local_unnamed_add
   %18 = phi i16 [ %53, %52 ], [ %17, %.preheader ]
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %52 ], [ 0, %.preheader ]
   %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv44
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv44
   %21 = load ptr, ptr %20, align 8
   %.not22 = icmp eq ptr %21, null
   br i1 %.not22, label %52, label %22
@@ -8796,7 +8779,7 @@ define dso_local void @slurm_free_kvs_comm_set(ptr noundef %0) local_unnamed_add
 22:                                               ; preds = %.lr.ph33
   tail call void @slurm_xfree(ptr noundef nonnull %21) #25
   %23 = load ptr, ptr %14, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv44
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv44
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8
@@ -8808,18 +8791,18 @@ define dso_local void @slurm_free_kvs_comm_set(ptr noundef %0) local_unnamed_add
   %28 = phi ptr [ %40, %.lr.ph29 ], [ %25, %22 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv41
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv41
   tail call void @slurm_xfree(ptr noundef %31) #25
   %32 = load ptr, ptr %14, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv44
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv44
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv41
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv41
   tail call void @slurm_xfree(ptr noundef %37) #25
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %38 = load ptr, ptr %14, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv44
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv44
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i32, ptr %41, align 8
@@ -8832,12 +8815,12 @@ define dso_local void @slurm_free_kvs_comm_set(ptr noundef %0) local_unnamed_add
   %45 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %45) #25
   %46 = load ptr, ptr %14, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv44
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv44
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %49) #25
   %50 = load ptr, ptr %14, align 8
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv44
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv44
   tail call void @slurm_xfree(ptr noundef %51) #25
   %.pre = load i16, ptr %16, align 8
   br label %52
@@ -8926,7 +8909,7 @@ define dso_local noundef nonnull ptr @log_num2string(i16 noundef zeroext %0) loc
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.log_num2string, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.log_num2string, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -9020,7 +9003,7 @@ define dso_local ptr @job_state_string_complete(i32 noundef %0) local_unnamed_ad
 switch.lookup:                                    ; preds = %1
   %trunc.mask = and i32 %0, 15
   %5 = zext nneg i32 %trunc.mask to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._job_name_test, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._job_name_test, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -9238,7 +9221,7 @@ define internal fastcc zeroext i1 @_job_name_test(i32 noundef range(i32 0, 83886
 switch.lookup:                                    ; preds = %25
   %trunc.i.mask = and i32 %0, 15
   %27 = zext nneg i32 %trunc.i.mask to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._job_name_test, i64 %27
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._job_name_test, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %job_state_string.exit
 
@@ -9315,7 +9298,7 @@ job_state_string.exit.thread:                     ; preds = %2
 switch.lookup25:                                  ; preds = %50
   %trunc.i18.mask = and i32 %0, 15
   %52 = zext nneg i32 %trunc.i18.mask to i64
-  %switch.gep26 = getelementptr inbounds nuw ptr, ptr @switch.table._job_name_test.1, i64 %52
+  %switch.gep26 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._job_name_test.1, i64 %52
   %switch.load27 = load ptr, ptr %switch.gep26, align 8
   br label %job_state_string_compact.exit
 
@@ -9338,7 +9321,7 @@ define dso_local noundef nonnull ptr @trigger_res_type(i16 noundef zeroext %0) l
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.trigger_res_type, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.trigger_res_type, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -9431,7 +9414,7 @@ define dso_local noundef nonnull ptr @trigger_type(i32 noundef %0) local_unnamed
 
 switch.lookup:                                    ; preds = %.split
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.trigger_type, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.trigger_type, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 
@@ -9793,7 +9776,7 @@ define dso_local i32 @parse_node_state_flag(ptr noundef %0) local_unnamed_addr #
 
 5:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %6 = getelementptr inbounds nuw %struct.node_state_flags_t, ptr @node_state_flags, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @node_state_flags, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #26
@@ -10013,7 +9996,7 @@ define dso_local void @slurm_free_job_info_msg(ptr noundef %0) local_unnamed_add
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw %struct.job_info, ptr %8, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [968 x i8], ptr %8, i64 %indvars.iv.i
   tail call void @slurm_free_job_info_members(ptr noundef %9)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i32, ptr %6, align 8
@@ -10055,7 +10038,7 @@ define dso_local void @slurm_free_job_step_info_response_msg(ptr noundef %0) loc
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %8, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [264 x i8], ptr %8, i64 %indvars.iv.i
   tail call void @slurm_free_job_step_info_members(ptr noundef %9)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i32, ptr %6, align 8
@@ -10151,7 +10134,7 @@ define dso_local void @slurm_free_front_end_info_msg(ptr noundef %0) local_unnam
   br i1 %.not.i.i, label %slurm_free_front_end_info_members.exit.i, label %10
 
 10:                                               ; preds = %.lr.ph.split.i
-  %11 = getelementptr inbounds nuw %struct.front_end_info, ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [96 x i8], ptr %9, i64 %indvars.iv.i
   tail call void @slurm_xfree(ptr noundef nonnull %11) #25
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %12) #25
@@ -10248,7 +10231,7 @@ define dso_local void @slurm_free_node_info_msg(ptr noundef %0) local_unnamed_ad
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw %struct.node_info, ptr %8, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [368 x i8], ptr %8, i64 %indvars.iv.i
   tail call void @slurm_free_node_info_members(ptr noundef %9)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i32, ptr %6, align 8
@@ -10358,7 +10341,7 @@ define dso_local void @slurm_free_partition_info_msg(ptr noundef %0) local_unnam
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw %struct.partition_info, ptr %8, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [232 x i8], ptr %8, i64 %indvars.iv.i
   tail call void @slurm_free_partition_info_members(ptr noundef %9)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i32, ptr %6, align 8
@@ -10400,7 +10383,7 @@ define dso_local void @slurm_free_reservation_info_msg(ptr noundef %0) local_unn
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw %struct.reserve_info, ptr %8, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [160 x i8], ptr %8, i64 %indvars.iv.i
   tail call void @slurm_free_reserve_info_members(ptr noundef %9)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i32, ptr %6, align 8
@@ -10443,10 +10426,10 @@ define dso_local void @slurm_free_reserve_info_members(ptr noundef %0) local_unn
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw %struct.resv_core_spec, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %9) #25
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds nuw %struct.resv_core_spec, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %12) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10503,15 +10486,15 @@ define dso_local void @slurm_free_topo_info_msg(ptr noundef %0) local_unnamed_ad
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds nuw %struct.topo_info, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %9) #25
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds nuw %struct.topo_info, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %12) #25
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds nuw %struct.topo_info, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %15) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10788,11 +10771,11 @@ define dso_local void @slurm_free_trigger_msg(ptr noundef %0) local_unnamed_addr
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds nuw %struct.trigger_info, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [48 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %8) #25
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds nuw %struct.trigger_info, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   tail call void @slurm_xfree(ptr noundef nonnull %11) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10915,7 +10898,7 @@ define dso_local void @slurm_free_shares_response_msg(ptr noundef %0) local_unna
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %9) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %6, align 8
@@ -10978,7 +10961,7 @@ define dso_local void @slurm_destroy_priority_factors(ptr noundef %0) local_unna
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %7 ]
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %11) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %5, align 8
@@ -11038,7 +11021,7 @@ define dso_local void @slurm_destroy_priority_factors_object(ptr noundef %0) loc
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %13 ]
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   tail call void @slurm_xfree(ptr noundef %17) #25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = load i32, ptr %11, align 8
@@ -11215,7 +11198,7 @@ define dso_local void @slurm_free_bb_status_req_msg(ptr noundef %0) local_unname
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %8) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %0, align 8
@@ -11518,7 +11501,7 @@ define dso_local void @slurm_free_license_info_msg(ptr noundef %0) local_unnamed
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds nuw %struct.slurm_license_info, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %9, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %10) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %7, align 8
@@ -11652,7 +11635,7 @@ define dso_local void @slurm_free_assoc_mgr_info_msg(ptr noundef %0) local_unnam
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %16) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %13, align 8
@@ -11772,7 +11755,7 @@ define dso_local noundef zeroext i1 @valid_spank_job_env(ptr noundef captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 @xstrncmp(ptr noundef %6, ptr noundef nonnull @.str.415, i64 noundef 6) #25
   %.not = icmp eq i32 %7, 0
@@ -12124,7 +12107,7 @@ define dso_local range(i32 0, -1) i32 @get_cluster_node_offset(ptr noundef %0, p
 .lr.ph:                                           ; preds = %2, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %2 ]
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds nuw %struct.node_info, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [368 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @xstrcmp(ptr noundef %0, ptr noundef %9) #25
@@ -12622,7 +12605,7 @@ define dso_local void @slurm_array64_to_value_reps(ptr noundef readonly captures
   %15 = phi i32 [ 1, %.lr.ph.preheader ], [ %21, %20 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
   %.03442 = phi i64 [ %7, %.lr.ph.preheader ], [ %.135, %20 ]
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8
   %.not41 = icmp eq i64 %.03442, %17
   br i1 %.not41, label %20, label %18
@@ -12643,7 +12626,7 @@ define dso_local void @slurm_array64_to_value_reps(ptr noundef readonly captures
   %indvars.iv52 = phi i64 [ 0, %._crit_edge.loopexit ], [ %indvars.iv.next53, %29 ]
   %.03345 = phi i32 [ 0, %._crit_edge.loopexit ], [ %.1, %29 ]
   %.244 = phi i64 [ %13, %._crit_edge.loopexit ], [ %.3, %29 ]
-  %22 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv52
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv52
   %23 = load i64, ptr %22, align 8
   %.not40 = icmp eq i64 %.244, %23
   br i1 %.not40, label %.lr.ph48._crit_edge, label %24
@@ -12656,7 +12639,7 @@ define dso_local void @slurm_array64_to_value_reps(ptr noundef readonly captures
   %25 = add nsw i32 %.03345, 1
   %26 = load ptr, ptr %2, align 8
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds i64, ptr %26, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %26, i64 %27
   store i64 %23, ptr %28, align 8
   br label %29
 
@@ -12665,7 +12648,7 @@ define dso_local void @slurm_array64_to_value_reps(ptr noundef readonly captures
   %.3 = phi i64 [ %.244, %.lr.ph48._crit_edge ], [ %23, %24 ]
   %.1 = phi i32 [ %.03345, %.lr.ph48._crit_edge ], [ %25, %24 ]
   %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %.pre-phi
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %.pre-phi
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, 1
   store i32 %33, ptr %31, align 4
@@ -12722,7 +12705,7 @@ define dso_local void @slurm_array16_to_value_reps(ptr noundef readonly captures
   %15 = phi i32 [ 1, %.lr.ph.preheader ], [ %21, %20 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
   %.03440 = phi i16 [ %7, %.lr.ph.preheader ], [ %.135, %20 ]
-  %16 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %17 = load i16, ptr %16, align 2
   %.not39 = icmp eq i16 %.03440, %17
   br i1 %.not39, label %20, label %18
@@ -12743,7 +12726,7 @@ define dso_local void @slurm_array16_to_value_reps(ptr noundef readonly captures
   %indvars.iv49 = phi i64 [ 0, %._crit_edge.loopexit ], [ %indvars.iv.next50, %29 ]
   %.03343 = phi i32 [ 0, %._crit_edge.loopexit ], [ %.1, %29 ]
   %.242 = phi i16 [ %13, %._crit_edge.loopexit ], [ %.3, %29 ]
-  %22 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv49
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv49
   %23 = load i16, ptr %22, align 2
   %.not38 = icmp eq i16 %.242, %23
   br i1 %.not38, label %.lr.ph46._crit_edge, label %24
@@ -12756,7 +12739,7 @@ define dso_local void @slurm_array16_to_value_reps(ptr noundef readonly captures
   %25 = add nsw i32 %.03343, 1
   %26 = load ptr, ptr %2, align 8
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds i16, ptr %26, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr %26, i64 %27
   store i16 %23, ptr %28, align 2
   br label %29
 
@@ -12765,7 +12748,7 @@ define dso_local void @slurm_array16_to_value_reps(ptr noundef readonly captures
   %.3 = phi i16 [ %.242, %.lr.ph46._crit_edge ], [ %23, %24 ]
   %.1 = phi i32 [ %.03343, %.lr.ph46._crit_edge ], [ %25, %24 ]
   %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %.pre-phi
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %.pre-phi
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %32, 1
   store i32 %33, ptr %31, align 4
@@ -12801,7 +12784,7 @@ define dso_local i32 @slurm_get_rep_count_inx(ptr noundef readonly captures(none
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
   %.01318 = phi i32 [ 0, %.lr.ph.preheader ], [ %10, %12 ]
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %9
@@ -13167,7 +13150,7 @@ define dso_local range(i32 0, 2116) i32 @slurm_get_next_tres(ptr noundef %0, ptr
   %108 = tail call ptr @__ctype_b_loc() #27
   %109 = load ptr, ptr %108, align 8
   %110 = sext i8 %105 to i64
-  %111 = getelementptr inbounds i16, ptr %109, i64 %110
+  %111 = getelementptr inbounds [2 x i8], ptr %109, i64 %110
   %112 = load i16, ptr %111, align 2
   %113 = and i16 %112, 2048
   %.not.i = icmp eq i16 %113, 0
@@ -13205,7 +13188,7 @@ define dso_local range(i32 0, 2116) i32 @slurm_get_next_tres(ptr noundef %0, ptr
   %128 = load ptr, ptr %127, align 8
   %129 = load i8, ptr %97, align 1
   %130 = sext i8 %129 to i64
-  %131 = getelementptr inbounds i16, ptr %128, i64 %130
+  %131 = getelementptr inbounds [2 x i8], ptr %128, i64 %130
   %132 = load i16, ptr %131, align 2
   %133 = and i16 %132, 2048
   %.not.i134 = icmp eq i16 %133, 0
@@ -13491,7 +13474,7 @@ define dso_local noundef nonnull ptr @schedule_exit2string(i16 noundef zeroext %
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.schedule_exit2string, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.schedule_exit2string, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -13507,7 +13490,7 @@ define dso_local noundef nonnull ptr @bf_exit2string(i16 noundef zeroext %0) loc
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i16 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.bf_exit2string, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.bf_exit2string, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

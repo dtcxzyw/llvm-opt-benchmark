@@ -138,7 +138,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.ep
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i8 %proto to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8proxygen22getCodecProtocolStringB5cxx11ENS_13CodecProtocolE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8proxygen22getCodecProtocolStringB5cxx11ENS_13CodecProtocolE, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -1245,7 +1245,7 @@ call.i.i.noexc.i:                                 ; preds = %for.body.i.i
   %_M_table.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i1.i, i64 48
   %6 = load ptr, ptr %_M_table.i.i.i.i, align 8
   %idxprom.i.i.i.i = zext i8 %4 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw i16, ptr %6, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %idxprom.i.i.i.i
   %7 = load i16, ptr %arrayidx.i.i.i.i, align 2
   %and1.i.i.i.i = and i16 %7, %5
   %tobool.i.i.not.i.i = icmp eq i16 %and1.i.i.i.i, 0
@@ -1313,7 +1313,7 @@ call.i.i.noexc:                                   ; preds = %for.body.i
   %_M_table.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i4, i64 48
   %6 = load ptr, ptr %_M_table.i.i.i, align 8
   %idxprom.i.i.i = zext i8 %4 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i16, ptr %6, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %idxprom.i.i.i
   %7 = load i16, ptr %arrayidx.i.i.i, align 2
   %and1.i.i.i = and i16 %7, %5
   %tobool.i.i.not.i = icmp eq i16 %and1.i.i.i, 0

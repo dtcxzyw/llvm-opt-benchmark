@@ -286,7 +286,7 @@ define void @_ZN3gmx17CommandLineParser5parseEPiPPc(ptr noundef nonnull readonly
 
 .lr.ph:                                           ; preds = %.noexc.i.i, %103
   %indvars.iv = phi i64 [ %indvars.iv.next, %103 ], [ 1, %.noexc.i.i ]
-  %39 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !20
   %41 = load i8, ptr %40, align 1, !tbaa !19
   %.not.i = icmp eq i8 %41, 45
@@ -530,7 +530,7 @@ _ZN3gmx17CommandLineParser4Impl12toOptionNameEPKc.exit.thread205: ; preds = %_ZN
   %indvars.iv279 = phi i64 [ %119, %.lr.ph272 ], [ %indvars.iv.next280, %.thread219 ]
   %.051271 = phi i8 [ 0, %.lr.ph272 ], [ %.152221, %.thread219 ]
   %.3268 = phi i32 [ %.055.lcssa, %.lr.ph272 ], [ %.4, %.thread219 ]
-  %121 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv279
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv279
   %122 = load ptr, ptr %121, align 8, !tbaa !20
   %123 = load i8, ptr %122, align 1, !tbaa !19
   %.not.i130 = icmp eq i8 %123, 45
@@ -1119,7 +1119,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %29
 312:                                              ; preds = %307
   %313 = load ptr, ptr %121, align 8, !tbaa !20
   %314 = sext i32 %.3268 to i64
-  %315 = getelementptr inbounds ptr, ptr %2, i64 %314
+  %315 = getelementptr inbounds [8 x i8], ptr %2, i64 %314
   store ptr %313, ptr %315, align 8, !tbaa !20
   %316 = add nsw i32 %.3268, 1
   br label %.thread219
@@ -1149,7 +1149,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %29
 325:                                              ; preds = %._crit_edge
   store i32 %.3.lcssa, ptr %1, align 4, !tbaa !31
   %326 = sext i32 %.3.lcssa to i64
-  %327 = getelementptr inbounds ptr, ptr %2, i64 %326
+  %327 = getelementptr inbounds [8 x i8], ptr %2, i64 %326
   store ptr null, ptr %327, align 8, !tbaa !20
   br label %328
 
@@ -1817,7 +1817,7 @@ _ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE11_S_relocateEPS1_S4_S4
 _ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i, %30
   store ptr %23, ptr %3, align 8, !tbaa !45
   store ptr %29, ptr %4, align 8, !tbaa !47
-  %31 = getelementptr inbounds nuw %"class.std::__exception_ptr::exception_ptr", ptr %23, i64 %21
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %31, ptr %6, align 8, !tbaa !51
   %.pr = load ptr, ptr %2, align 8, !tbaa !48
   %.not.i = icmp eq ptr %.pr, null

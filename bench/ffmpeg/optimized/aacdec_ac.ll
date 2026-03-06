@@ -149,7 +149,7 @@ define range(i32 0, 256) i32 @ff_aac_ac_get_pk(i32 noundef %0) local_unnamed_add
   %4 = lshr i32 %3, 1
   %5 = add nsw i32 %4, %.01622
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i32, ptr @ff_aac_ac_hash_m, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr @ff_aac_ac_hash_m, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !14
   %9 = ashr i32 %8, 8
   %10 = icmp ult i32 %0, %9
@@ -289,7 +289,7 @@ define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef 
   %.0116 = phi i32 [ %44, %.preheader ], [ 8, %34 ]
   %.2115 = phi ptr [ %spec.select109, %.preheader ], [ %2, %34 ]
   %38 = zext nneg i32 %.0116 to i64
-  %39 = getelementptr inbounds nuw i16, ptr %.2115, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %.2115, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !26
   %41 = zext i16 %40 to i32
   %42 = mul nsw i32 %14, %41
@@ -362,7 +362,7 @@ define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef 
 76:                                               ; preds = %.loopexit
   %sext = shl i64 %72, 31
   %77 = ashr i64 %sext, 32
-  %78 = getelementptr inbounds i16, ptr %2, i64 %77
+  %78 = getelementptr inbounds [2 x i8], ptr %2, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !26
   %80 = zext i16 %79 to i32
   %81 = mul nsw i32 %14, %80
@@ -374,7 +374,7 @@ define zeroext i16 @ff_aac_ac_decode(ptr noundef captures(none) %0, ptr noundef 
 85:                                               ; preds = %76, %.loopexit
   %.096 = phi i32 [ %84, %76 ], [ %12, %.loopexit ]
   %86 = sext i32 %75 to i64
-  %87 = getelementptr inbounds i16, ptr %2, i64 %86
+  %87 = getelementptr inbounds [2 x i8], ptr %2, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !26
   %89 = zext i16 %88 to i32
   %90 = mul nsw i32 %14, %89

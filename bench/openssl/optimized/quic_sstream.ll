@@ -3,8 +3,8 @@ source_filename = "bench/openssl/original/quic_sstream.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ossl_qtx_iovec_st = type { ptr, i64 }
 %struct.ossl_quic_frame_stream_st = type { i64, i64, i64, ptr, i8 }
+%struct.ossl_qtx_iovec_st = type { ptr, i64 }
 %struct.uint_range_st = type { i64, i64 }
 
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/ssl/quic/quic_sstream.c\00", align 1
@@ -304,7 +304,7 @@ ring_buf_get_buf_at.exit:                         ; preds = %46
   %56 = icmp ugt i64 %55, %34
   %57 = sub i64 %34, %.04872
   %spec.select = select i1 %56, i64 %57, i64 %spec.select.i
-  %58 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %3, i64 %.04971
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.04971
   store ptr %54, ptr %58, align 8, !tbaa !30
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i64 %spec.select, ptr %59, align 8, !tbaa !32
@@ -807,7 +807,7 @@ define void @ossl_quic_sstream_adjust_iov(i64 noundef %0, ptr noundef captures(n
 .lr.ph:                                           ; preds = %3, %13
   %.020 = phi i64 [ %.pre-phi, %13 ], [ 0, %3 ]
   %.01719 = phi i64 [ %14, %13 ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %1, i64 %.01719
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.01719
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !32
   %.not = icmp ult i64 %.020, %0

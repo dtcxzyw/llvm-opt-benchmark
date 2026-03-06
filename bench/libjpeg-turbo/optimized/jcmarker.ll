@@ -1320,7 +1320,7 @@ define internal void @write_scan_header(ptr noundef %0) #0 {
 
 .lr.ph.split.us.split.us.split.us.i:              ; preds = %.lr.ph.split.us.split.us.i, %.lr.ph.split.us.split.us.split.us.i
   %indvars.iv75.i = phi i64 [ %indvars.iv.next76.i, %.lr.ph.split.us.split.us.split.us.i ], [ 0, %.lr.ph.split.us.split.us.i ]
-  %29 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv75.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv75.i
   %30 = load ptr, ptr %29, align 8, !tbaa !78
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %32 = load i32, ptr %31, align 4, !tbaa !70
@@ -1333,7 +1333,7 @@ define internal void @write_scan_header(ptr noundef %0) #0 {
 
 .lr.ph.split.us.split.us.split.i:                 ; preds = %.lr.ph.split.us.split.us.i, %.lr.ph.split.us.split.us.split.i
   %indvars.iv70.i = phi i64 [ %indvars.iv.next71.i, %.lr.ph.split.us.split.us.split.i ], [ 0, %.lr.ph.split.us.split.us.i ]
-  %35 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv70.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv70.i
   %36 = load ptr, ptr %35, align 8, !tbaa !78
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %38 = load i32, ptr %37, align 4, !tbaa !70
@@ -1358,7 +1358,7 @@ define internal void @write_scan_header(ptr noundef %0) #0 {
 
 .lr.ph.split.us.split.split.i:                    ; preds = %.lr.ph.split.us.split.split.i, %.lr.ph.split.us.split.split.preheader.i
   %indvars.iv65.i = phi i64 [ 0, %.lr.ph.split.us.split.split.preheader.i ], [ %indvars.iv.next66.i, %.lr.ph.split.us.split.split.i ]
-  %45 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv65.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv65.i
   %46 = load ptr, ptr %45, align 8, !tbaa !78
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load i32, ptr %47, align 8, !tbaa !71
@@ -1378,7 +1378,7 @@ define internal void @write_scan_header(ptr noundef %0) #0 {
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.split.i, %.lr.ph.split.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.split.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.split.split.i ]
-  %51 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8, !tbaa !78
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load i32, ptr %53, align 8, !tbaa !71
@@ -1683,7 +1683,7 @@ emit_dac.exit:                                    ; preds = %emit_byte.exit49.i,
 
 214:                                              ; preds = %.lr.ph, %238
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %238 ]
-  %215 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %216 = load ptr, ptr %215, align 8, !tbaa !78
   %217 = load i32, ptr %12, align 4, !tbaa !75
   %218 = icmp eq i32 %217, 0
@@ -2082,7 +2082,7 @@ emit_byte.exit.i35:                               ; preds = %425, %421, %emit_2b
 
 435:                                              ; preds = %emit_byte.exit31.i, %.lr.ph.i36
   %indvars.iv.i37 = phi i64 [ 0, %.lr.ph.i36 ], [ %indvars.iv.next.i39, %emit_byte.exit31.i ]
-  %436 = getelementptr inbounds nuw ptr, ptr %431, i64 %indvars.iv.i37
+  %436 = getelementptr inbounds nuw [8 x i8], ptr %431, i64 %indvars.iv.i37
   %437 = load ptr, ptr %436, align 8, !tbaa !78
   %438 = load i32, ptr %437, align 8, !tbaa !84
   %439 = load ptr, ptr %344, align 8, !tbaa !38
@@ -2405,7 +2405,7 @@ emit_marker.exit:                                 ; preds = %emit_byte.exit.i, %
 
 34:                                               ; preds = %emit_marker.exit, %40
   %indvars.iv = phi i64 [ 0, %emit_marker.exit ], [ %indvars.iv.next, %40 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !78
   %.not20 = icmp eq ptr %36, null
   br i1 %.not20, label %40, label %37
@@ -2433,7 +2433,7 @@ emit_marker.exit:                                 ; preds = %emit_byte.exit.i, %
 
 46:                                               ; preds = %.preheader, %56
   %indvars.iv28 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next29, %56 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv28
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv28
   %48 = load ptr, ptr %47, align 8, !tbaa !78
   %.not18 = icmp eq ptr %48, null
   br i1 %.not18, label %51, label %49
@@ -2444,7 +2444,7 @@ emit_marker.exit:                                 ; preds = %emit_byte.exit.i, %
   br label %51
 
 51:                                               ; preds = %49, %46
-  %52 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv28
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv28
   %53 = load ptr, ptr %52, align 8, !tbaa !78
   %.not19 = icmp eq ptr %53, null
   br i1 %.not19, label %56, label %54
@@ -2693,7 +2693,7 @@ emit_byte.exit:                                   ; preds = %2, %12, %16
 define internal fastcc range(i32 0, 2) i32 @emit_dqt(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !78
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %.preheader
@@ -2715,7 +2715,7 @@ define internal fastcc range(i32 0, 2) i32 @emit_dqt(ptr noundef %0, i32 noundef
 14:                                               ; preds = %.preheader, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %.preheader ]
   %.039 = phi i32 [ %spec.select, %14 ], [ 0, %.preheader ]
-  %15 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv
   %16 = load i16, ptr %15, align 2, !tbaa !89
   %17 = icmp ugt i16 %16, 255
   %spec.select = select i1 %17, i32 1, i32 %.039
@@ -2880,10 +2880,10 @@ emit_byte.exit:                                   ; preds = %emit_2bytes.exit, %
 
 emit_byte.exit35.us:                              ; preds = %emit_byte.exit, %emit_byte.exit37.us
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %emit_byte.exit37.us ], [ 0, %emit_byte.exit ]
-  %102 = getelementptr inbounds nuw i32, ptr @jpeg_natural_order, i64 %indvars.iv47
+  %102 = getelementptr inbounds nuw [4 x i8], ptr @jpeg_natural_order, i64 %indvars.iv47
   %103 = load i32, ptr %102, align 4, !tbaa !93
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds i16, ptr %6, i64 %104
+  %105 = getelementptr inbounds [2 x i8], ptr %6, i64 %104
   %106 = load i16, ptr %105, align 2, !tbaa !89
   %107 = load ptr, ptr %22, align 8, !tbaa !38
   %108 = trunc i16 %106 to i8
@@ -2920,10 +2920,10 @@ emit_byte.exit37.us:                              ; preds = %119, %115, %emit_by
 
 emit_byte.exit.split:                             ; preds = %emit_byte.exit, %emit_byte.exit37
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %emit_byte.exit37 ], [ 0, %emit_byte.exit ]
-  %123 = getelementptr inbounds nuw i32, ptr @jpeg_natural_order, i64 %indvars.iv43
+  %123 = getelementptr inbounds nuw [4 x i8], ptr @jpeg_natural_order, i64 %indvars.iv43
   %124 = load i32, ptr %123, align 4, !tbaa !93
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds i16, ptr %6, i64 %125
+  %126 = getelementptr inbounds [2 x i8], ptr %6, i64 %125
   %127 = load i16, ptr %126, align 2, !tbaa !89
   %128 = lshr i16 %127, 8
   %129 = load ptr, ptr %22, align 8, !tbaa !38
@@ -3450,7 +3450,7 @@ define internal fastcc void @emit_dht(ptr noundef %0, i32 noundef %1, i32 nounde
   %.036 = select i1 %.not, i32 %1, i32 %5
   %.035.in.v.v = select i1 %.not, i64 128, i64 160
   %.035.in.v = getelementptr inbounds nuw i8, ptr %0, i64 %.035.in.v.v
-  %.035.in = getelementptr inbounds ptr, ptr %.035.in.v, i64 %4
+  %.035.in = getelementptr inbounds [8 x i8], ptr %.035.in.v, i64 %4
   %.035 = load ptr, ptr %.035.in, align 8, !tbaa !78
   %6 = icmp eq ptr %.035, null
   br i1 %6, label %7, label %13

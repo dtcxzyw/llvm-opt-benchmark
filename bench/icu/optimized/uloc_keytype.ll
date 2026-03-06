@@ -1355,7 +1355,7 @@ _ZN6icu_7715MaybeStackArrayIP9TypeAliasLi8EE6resizeEii.exit.i5: ; preds = %339, 
   store i32 %347, ptr %313, align 8, !tbaa !57
   %348 = sext i32 %346 to i64
   %349 = load ptr, ptr %315, align 8, !tbaa !61
-  %350 = getelementptr inbounds ptr, ptr %349, i64 %348
+  %350 = getelementptr inbounds [8 x i8], ptr %349, i64 %348
   store ptr %342, ptr %350, align 8, !tbaa !85
   br label %_ZN6icu_7710MemoryPoolI9TypeAliasLi8EE6createIJS1_EEEPS1_DpOT_.exit10
 
@@ -1655,7 +1655,7 @@ _ZN6icu_7715MaybeStackArrayIP9TypeAliasLi8EE6resizeEii.exit.i: ; preds = %452, %
   store i32 %460, ptr %426, align 8, !tbaa !57
   %461 = sext i32 %459 to i64
   %462 = load ptr, ptr %428, align 8, !tbaa !61
-  %463 = getelementptr inbounds ptr, ptr %462, i64 %461
+  %463 = getelementptr inbounds [8 x i8], ptr %462, i64 %461
   store ptr %455, ptr %463, align 8, !tbaa !85
   br label %_ZN6icu_7710MemoryPoolI9TypeAliasLi8EE6createIJS1_EEEPS1_DpOT_.exit
 
@@ -2519,7 +2519,7 @@ define internal noundef signext i8 @_ZL21uloc_key_type_cleanupv() #1 personality
   %19 = phi i32 [ %7, %.lr.ph.i ], [ %32, %31 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
   %20 = load ptr, ptr %9, align 8, !tbaa !43
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8, !tbaa !96
   %23 = icmp eq ptr %22, null
   br i1 %23, label %31, label %24
@@ -2595,7 +2595,7 @@ _ZN6icu_7710MemoryPoolI13LocExtKeyDataLi8EED2Ev.exit: ; preds = %._crit_edge.i, 
   %51 = phi i32 [ %39, %.lr.ph.i7 ], [ %58, %57 ]
   %indvars.iv.i8 = phi i64 [ 0, %.lr.ph.i7 ], [ %indvars.iv.next.i10, %57 ]
   %52 = load ptr, ptr %41, align 8, !tbaa !52
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv.i8
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv.i8
   %54 = load ptr, ptr %53, align 8, !tbaa !99
   %55 = icmp eq ptr %54, null
   br i1 %55, label %57, label %56
@@ -2654,7 +2654,7 @@ _ZN6icu_7710MemoryPoolI10LocExtTypeLi8EED2Ev.exit: ; preds = %._crit_edge.i5, %4
   %77 = phi i32 [ %65, %.lr.ph.i13 ], [ %84, %83 ]
   %indvars.iv.i14 = phi i64 [ 0, %.lr.ph.i13 ], [ %indvars.iv.next.i16, %83 ]
   %78 = load ptr, ptr %67, align 8, !tbaa !61
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.i14
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.i14
   %80 = load ptr, ptr %79, align 8, !tbaa !85
   %81 = icmp eq ptr %80, null
   br i1 %81, label %83, label %82
@@ -2713,7 +2713,7 @@ _ZN6icu_7710MemoryPoolI9TypeAliasLi8EED2Ev.exit:  ; preds = %._crit_edge.i11, %7
   %103 = phi i32 [ %91, %.lr.ph.i19 ], [ %110, %109 ]
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i22, %109 ]
   %104 = load ptr, ptr %93, align 8, !tbaa !34
-  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv.i20
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv.i20
   %106 = load ptr, ptr %105, align 8, !tbaa !103
   %107 = icmp eq ptr %106, null
   br i1 %107, label %109, label %108
@@ -2839,7 +2839,7 @@ _ZN6icu_7710CharStringC2Ev.exit:                  ; preds = %31
   store i32 %36, ptr %0, align 8, !tbaa !29
   %37 = sext i32 %35 to i64
   %38 = load ptr, ptr %2, align 8, !tbaa !34
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %37
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %37
   store ptr %29, ptr %39, align 8, !tbaa !103
   br label %_ZN6icu_7715MaybeStackArrayIPNS_10CharStringELi8EE6resizeEii.exit.thread
 
@@ -2954,7 +2954,7 @@ _ZN6icu_7710CharStringC2ENS_11StringPieceER10UErrorCode.exit: ; preds = %.noexc,
   store i32 %46, ptr %0, align 8, !tbaa !29
   %47 = sext i32 %45 to i64
   %48 = load ptr, ptr %5, align 8, !tbaa !34
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %47
+  %49 = getelementptr inbounds [8 x i8], ptr %48, i64 %47
   store ptr %32, ptr %49, align 8, !tbaa !103
   br label %_ZN6icu_7715MaybeStackArrayIPNS_10CharStringELi8EE6resizeEii.exit.thread
 
@@ -3042,7 +3042,7 @@ _ZN6icu_7715MaybeStackArrayIP10LocExtTypeLi8EE6resizeEii.exit: ; preds = %23, %2
   store i32 %34, ptr %0, align 8, !tbaa !48
   %35 = sext i32 %33 to i64
   %36 = load ptr, ptr %2, align 8, !tbaa !52
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %35
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %35
   store ptr %29, ptr %37, align 8, !tbaa !99
   br label %_ZN6icu_7715MaybeStackArrayIP10LocExtTypeLi8EE6resizeEii.exit.thread
 
@@ -3152,7 +3152,7 @@ _ZN6icu_7715MaybeStackArrayIP13LocExtKeyDataLi8EE6resizeEii.exit: ; preds = %23,
   store i32 %34, ptr %0, align 8, !tbaa !39
   %35 = sext i32 %33 to i64
   %36 = load ptr, ptr %2, align 8, !tbaa !43
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %35
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %35
   store ptr %29, ptr %37, align 8, !tbaa !96
   br label %_ZN6icu_7715MaybeStackArrayIP13LocExtKeyDataLi8EE6resizeEii.exit.thread
 

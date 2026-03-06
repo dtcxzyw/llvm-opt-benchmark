@@ -723,7 +723,7 @@ cairogen_set_penstyle.exit:                       ; preds = %11, %12, %13
 
 .lr.ph:                                           ; preds = %cairogen_set_penstyle.exit, %.lr.ph
   %.032 = phi i64 [ %27, %.lr.ph ], [ 1, %cairogen_set_penstyle.exit ]
-  %22 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.032
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.032
   %23 = load double, ptr %22, align 8, !tbaa !62
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load double, ptr %24, align 8, !tbaa !64
@@ -812,7 +812,7 @@ cairogen_set_penstyle.exit:                       ; preds = %11, %12, %13
 
 .lr.ph:                                           ; preds = %cairogen_set_penstyle.exit, %.lr.ph
   %.039 = phi i64 [ %37, %.lr.ph ], [ 1, %cairogen_set_penstyle.exit ]
-  %22 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.039
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.039
   %23 = load double, ptr %22, align 8, !tbaa !62
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load double, ptr %24, align 8, !tbaa !64
@@ -919,7 +919,7 @@ cairogen_set_penstyle.exit:                       ; preds = %10, %11, %12
 
 .lr.ph:                                           ; preds = %cairogen_set_penstyle.exit, %.lr.ph
   %.017 = phi i64 [ %33, %.lr.ph ], [ 1, %cairogen_set_penstyle.exit ]
-  %28 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.017
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.017
   %29 = load double, ptr %28, align 8, !tbaa !62
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load double, ptr %30, align 8, !tbaa !64

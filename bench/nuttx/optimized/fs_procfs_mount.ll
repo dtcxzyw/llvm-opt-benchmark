@@ -96,7 +96,7 @@ define internal i64 @mount_read(ptr noundef captures(none) %0, ptr noundef %1, i
 
 switch.lookup:                                    ; preds = %3
   %19 = zext nneg i8 %17 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.mount_read, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mount_read, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = call i32 @foreach_mountpoint(ptr noundef nonnull %switch.load, ptr noundef nonnull %4) #13
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 40

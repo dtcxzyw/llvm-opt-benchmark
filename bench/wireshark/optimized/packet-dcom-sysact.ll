@@ -484,8 +484,8 @@ define internal i32 @dissect_dcom_ActivationProperties(ptr noundef %0, i32 nound
 61:                                               ; preds = %dissect_dcom_ActivationProperty.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %dissect_dcom_ActivationProperty.exit.i ]
   %.02831.i = phi i32 [ %52, %.lr.ph.i ], [ %68, %dissect_dcom_ActivationProperty.exit.i ]
-  %62 = getelementptr %struct._e_guid_t, ptr %53, i64 %indvars.iv.i
-  %63 = getelementptr i32, ptr %60, i64 %indvars.iv.i
+  %62 = getelementptr [16 x i8], ptr %53, i64 %indvars.iv.i
+  %63 = getelementptr [4 x i8], ptr %60, i64 %indvars.iv.i
   %64 = load i32, ptr %63, align 4
   %65 = call ptr @dcom_get_routine_by_uuid(ptr noundef %62)
   %.not.i.i = icmp eq ptr %65, null
@@ -1008,7 +1008,7 @@ define internal i32 @dissect_dcom_Property_Guid(ptr noundef %0, i32 noundef %1, 
   %14 = add nuw nsw i32 %10, 1
   store i32 %14, ptr %9, align 4
   %15 = zext nneg i32 %10 to i64
-  %16 = getelementptr %struct._e_guid_t, ptr %8, i64 %15
+  %16 = getelementptr [16 x i8], ptr %8, i64 %15
   %17 = tail call i32 @dissect_dcom_UUID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, ptr noundef %16)
   br label %20
 
@@ -1040,7 +1040,7 @@ define internal i32 @dissect_dcom_Property_Size(ptr noundef %0, i32 noundef %1, 
   %15 = add nuw nsw i32 %10, 1
   store i32 %15, ptr %9, align 4
   %16 = zext nneg i32 %10 to i64
-  %17 = getelementptr i32, ptr %14, i64 %16
+  %17 = getelementptr [4 x i8], ptr %14, i64 %16
   %18 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %13, ptr noundef %17)
   br label %21
 

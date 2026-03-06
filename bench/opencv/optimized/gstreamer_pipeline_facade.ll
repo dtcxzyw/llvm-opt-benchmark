@@ -769,7 +769,7 @@ _ZNSt6vectorIP11_GstElementSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; 
 
 _ZNSt6vectorIP11_GstElementSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %57, %_ZNSt6vectorIP11_GstElementSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %56, ptr %14, align 8, !tbaa !44
-  %58 = getelementptr inbounds nuw ptr, ptr %52, i64 %50
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %50
   store ptr %58, ptr %15, align 8, !tbaa !48
   br label %_ZNSt6vectorIP11_GstElementSaIS1_EE9push_backEOS1_.exit
 

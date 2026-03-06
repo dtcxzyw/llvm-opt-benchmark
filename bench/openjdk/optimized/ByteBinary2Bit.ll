@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %struct.AlphaFunc = type { %struct.AlphaOperands, %struct.AlphaOperands }
 %struct.AlphaOperands = type { i8, i8, i16 }
-%struct.ImageRef = type { ptr, ptr, i32, i32, i32, i32, i32, i32 }
 
 @PrimitiveTypes = external global %struct._PrimitiveTypes, align 8
 @SurfaceTypes = external global %struct._SurfaceTypes, align 8
@@ -658,7 +657,7 @@ define hidden void @ByteBinary2BitDrawGlyphList(ptr noundef readonly captures(no
 
 18:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv115 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next116, %.loopexit ]
-  %19 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv115
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv115
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
@@ -820,7 +819,7 @@ define hidden void @ByteBinary2BitDrawGlyphListAA(ptr noundef readonly captures(
 
 30:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv152 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next153, %.loopexit ]
-  %31 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv152
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv152
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, null
@@ -926,7 +925,7 @@ define hidden void @ByteBinary2BitDrawGlyphListAA(ptr noundef readonly captures(
   %89 = ashr i32 %.1122, %.1125
   %90 = and i32 %89, 3
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %13, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %91
   %93 = load i32, ptr %92, align 4
   %94 = and i32 %93, 255
   %95 = lshr i32 %93, 8
@@ -1030,7 +1029,7 @@ define hidden void @ByteBinary2BitDrawGlyphListXor(ptr noundef readonly captures
 
 22:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv116 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next117, %.loopexit ]
-  %23 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv116
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv116
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
@@ -1250,7 +1249,7 @@ define hidden void @ByteBinary2BitToByteBinary2BitConvert(ptr noundef %0, ptr no
   %69 = lshr i32 %.174, %.176
   %70 = and i32 %69, 3
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %10, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = shl nuw nsw i32 3, %.170
   %75 = xor i32 %74, -1
@@ -1355,7 +1354,7 @@ define hidden void @ByteBinary2BitToIntArgbConvert(ptr noundef %0, ptr noundef %
   %45 = lshr i32 %.1, %.140
   %46 = and i32 %45, 3
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %10, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %47
   %49 = load i32, ptr %48, align 4
   store i32 %49, ptr %.146, align 4
   %50 = add nsw i32 %.140, -2
@@ -1607,7 +1606,7 @@ define hidden void @ByteBinary2BitToIntArgbAlphaMaskBlit(ptr noundef %0, ptr nou
   %21 = load i32, ptr %8, align 8
   %22 = load i32, ptr %10, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr @AlphaRules, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
@@ -1726,7 +1725,7 @@ define hidden void @ByteBinary2BitToIntArgbAlphaMaskBlit(ptr noundef %0, ptr nou
   %93 = lshr i32 %.1157, %.1159
   %94 = and i32 %93, 3
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %51, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %95
   %97 = load i32, ptr %96, align 4
   %98 = lshr i32 %97, 24
   %99 = zext nneg i32 %98 to i64
@@ -1960,7 +1959,7 @@ define hidden void @IntArgbToByteBinary2BitAlphaMaskBlit(ptr noundef %0, ptr nou
   %21 = load i32, ptr %7, align 8
   %22 = load i32, ptr %10, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr @AlphaRules, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
@@ -2095,7 +2094,7 @@ define hidden void @IntArgbToByteBinary2BitAlphaMaskBlit(ptr noundef %0, ptr nou
   %103 = ashr i32 %.1164, %.1167
   %104 = and i32 %103, 3
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw i32, ptr %51, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %105
   %107 = load i32, ptr %106, align 4
   %108 = lshr i32 %107, 24
   br label %109
@@ -2354,7 +2353,7 @@ define hidden void @ByteBinary2BitAlphaMaskFill(ptr noundef %0, ptr noundef %1, 
   %.0165 = phi i32 [ %26, %20 ], [ %18, %10 ]
   %35 = load i32, ptr %9, align 4
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr @AlphaRules, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
@@ -2472,7 +2471,7 @@ define hidden void @ByteBinary2BitAlphaMaskFill(ptr noundef %0, ptr noundef %1, 
   %106 = ashr i32 %.1150, %.1153
   %107 = and i32 %106, 3
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i32, ptr %63, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %108
   %110 = load i32, ptr %109, align 4
   %111 = lshr i32 %110, 24
   br label %112

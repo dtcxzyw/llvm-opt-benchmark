@@ -3,11 +3,7 @@ source_filename = "bench/postgres/original/tsgistidx.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.WordEntry = type { i32 }
 %struct.CHKVAL = type { ptr, ptr }
-%struct.GISTENTRY = type { i64, ptr, ptr, i16, i8 }
-%struct.CACHESIGN = type { i8, ptr }
-%struct.SPLITCOST = type { i16, i32 }
 
 @.str = private unnamed_addr constant [33 x i8] c"cannot accept a value of type %s\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"gtsvector\00", align 1
@@ -175,7 +171,7 @@ define dso_local i64 @gtsvector_compress(ptr noundef readonly captures(none) %0)
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %30 = load i32, ptr %21, align 4
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %struct.WordEntry, ptr %29, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %29, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.not91107 = icmp eq i32 %30, 0
   br i1 %.not91107, label %._crit_edge112, label %.lr.ph111
@@ -208,7 +204,7 @@ define dso_local i64 @gtsvector_compress(ptr noundef readonly captures(none) %0)
   %45 = zext i8 %44 to i32
   %46 = xor i32 %42, %45
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr @pg_crc32_table, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr @pg_crc32_table, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = shl i32 %.083101, 8
   %51 = xor i32 %49, %50
@@ -354,7 +350,7 @@ thread-pre-split:                                 ; preds = %._crit_edge112, %qu
 
 116:                                              ; preds = %116, %.lr.ph33.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph33.i ], [ %indvars.iv.next.i, %116 ]
-  %117 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv.i
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv.i
   %118 = load i32, ptr %117, align 4
   %119 = urem i32 %118, %115
   %120 = and i32 %119, 7
@@ -535,7 +531,7 @@ define dso_local range(i64 0, 2) i64 @gtsvector_consistent(ptr noundef readonly 
   %29 = zext nneg i32 %28 to i64
   %30 = add nsw i64 %29, -8
   %31 = lshr i64 %30, 2
-  %32 = getelementptr inbounds nuw i32, ptr %26, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -613,7 +609,7 @@ define internal range(i32 0, 3) i32 @checkcondition_arr(ptr noundef readonly cap
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 2
   %18 = sdiv i64 %17, 2
-  %19 = getelementptr inbounds i32, ptr %.01519, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %.01519, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, %12
   br i1 %21, label %.loopexit, label %22
@@ -675,7 +671,7 @@ define dso_local noundef i64 @gtsvector_union(ptr noundef readonly captures(none
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit.us
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %.loopexit.us ], [ 0, %.lr.ph ]
-  %28 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %25, i64 %indvars.iv34
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %indvars.iv34
   %29 = load i64, ptr %28, align 8
   %30 = inttoptr i64 %29 to ptr
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
@@ -711,7 +707,7 @@ define dso_local noundef i64 @gtsvector_union(ptr noundef readonly captures(none
 .lr.ph29.i.us:                                    ; preds = %42, %.lr.ph29.i.us
   %45 = phi i64 [ %58, %.lr.ph29.i.us ], [ 0, %42 ]
   %.12428.i.us = phi i32 [ %57, %.lr.ph29.i.us ], [ 0, %42 ]
-  %46 = getelementptr inbounds nuw i32, ptr %34, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = urem i32 %47, %27
   %49 = and i32 %48, 7
@@ -743,7 +739,7 @@ define dso_local noundef i64 @gtsvector_union(ptr noundef readonly captures(none
 .lr.ph.split:                                     ; preds = %.lr.ph, %.preheader.i
   %68 = phi i32 [ %101, %.preheader.i ], [ %23, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.i ], [ 0, %.lr.ph ]
-  %69 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %25, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8
   %71 = inttoptr i64 %70 to ptr
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
@@ -767,7 +763,7 @@ define dso_local noundef i64 @gtsvector_union(ptr noundef readonly captures(none
 .lr.ph29.i:                                       ; preds = %78, %.lr.ph29.i
   %81 = phi i64 [ %94, %.lr.ph29.i ], [ 0, %78 ]
   %.12428.i = phi i32 [ %93, %.lr.ph29.i ], [ 0, %78 ]
-  %82 = getelementptr inbounds nuw i32, ptr %75, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = urem i32 %83, %27
   %85 = and i32 %84, 7
@@ -923,9 +919,9 @@ define dso_local i64 @gtsvector_same(ptr noundef readonly captures(none) %0) loc
 
 .lr.ph52:                                         ; preds = %.lr.ph52.preheader, %56
   %indvars.iv55 = phi i64 [ 0, %.lr.ph52.preheader ], [ %indvars.iv.next56, %56 ]
-  %57 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv55
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv55
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv55
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv55
   %60 = load i32, ptr %59, align 4
   %.not43 = icmp eq i32 %58, %60
   br i1 %.not43, label %56, label %.loopexit.sink.split
@@ -1027,7 +1023,7 @@ define dso_local i64 @gtsvector_penalty(ptr noundef readonly captures(none) %0) 
 
 54:                                               ; preds = %54, %.lr.ph33.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph33.i ], [ %indvars.iv.next.i, %54 ]
-  %55 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4
   %57 = urem i32 %56, %53
   %58 = and i32 %57, 7
@@ -1299,7 +1295,7 @@ define dso_local i64 @gtsvector_picksplit(ptr noundef readonly captures(none) %0
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %31, i64 %35
   %37 = zext i16 %.0195366 to i64
-  %38 = getelementptr inbounds nuw %struct.CACHESIGN, ptr %28, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %36, ptr %39, align 8
   %40 = add i16 %.0195366, 1
@@ -1373,7 +1369,7 @@ define dso_local i64 @gtsvector_picksplit(ptr noundef readonly captures(none) %0
 
 79:                                               ; preds = %79, %.lr.ph33.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph33.i.i ], [ %indvars.iv.next.i.i, %79 ]
-  %80 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv.i.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv.i.i
   %81 = load i32, ptr %80, align 4
   %82 = urem i32 %81, %78
   %83 = and i32 %82, 7
@@ -1436,7 +1432,7 @@ fillcache.exit:                                   ; preds = %79, %.loopexit.i.i,
   %.0212374 = phi i32 [ -1, %.lr.ph378 ], [ %.2214, %.loopexit353 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %108 = icmp eq i64 %indvars.iv, 1
-  %109 = getelementptr inbounds nuw %struct.CACHESIGN, ptr %28, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %indvars.iv
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = trunc nuw i64 %indvars.iv.next to i16
   %112 = trunc nuw i64 %indvars.iv to i16
@@ -1451,8 +1447,8 @@ fillcache.exit:                                   ; preds = %79, %.loopexit.i.i,
   br i1 %108, label %115, label %fillcache.exit248
 
 115:                                              ; preds = %113
-  %116 = getelementptr inbounds nuw %struct.CACHESIGN, ptr %28, i64 %114
-  %117 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %45, i64 %114
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %114
+  %117 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %114
   %118 = load i64, ptr %117, align 8
   %119 = inttoptr i64 %118 to ptr
   store i8 0, ptr %116, align 8
@@ -1506,7 +1502,7 @@ fillcache.exit:                                   ; preds = %79, %.loopexit.i.i,
 
 144:                                              ; preds = %144, %.lr.ph33.i.i238
   %indvars.iv.i.i240 = phi i64 [ 0, %.lr.ph33.i.i238 ], [ %indvars.iv.next.i.i241, %144 ]
-  %145 = getelementptr inbounds nuw i32, ptr %132, i64 %indvars.iv.i.i240
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %indvars.iv.i.i240
   %146 = load i32, ptr %145, align 4
   %147 = urem i32 %146, %104
   %148 = and i32 %147, 7
@@ -1539,7 +1535,7 @@ fillcache.exit:                                   ; preds = %79, %.loopexit.i.i,
   br label %fillcache.exit248
 
 fillcache.exit248:                                ; preds = %144, %113, %159, %158, %.loopexit.i.i237
-  %163 = getelementptr inbounds nuw %struct.CACHESIGN, ptr %28, i64 %114
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %114
   %164 = load i8, ptr %163, align 8, !range !6, !noundef !7
   %165 = trunc nuw i8 %164 to i1
   %166 = load i8, ptr %109, align 8, !range !6, !noundef !7
@@ -1665,7 +1661,7 @@ hemdistcache.exit:                                ; preds = %.lr.ph.i.i, %168, %
   %spec.select = select i1 %or.cond, i16 1, i16 %.0207.lcssa
   %spec.select233 = select i1 %or.cond, i16 2, i16 %.0204.lcssa
   %221 = zext i16 %spec.select to i64
-  %222 = getelementptr inbounds nuw %struct.CACHESIGN, ptr %28, i64 %221
+  %222 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %221
   %223 = load i8, ptr %222, align 8, !range !6, !noundef !7
   %224 = shl nuw nsw i8 %223, 2
   %225 = or disjoint i8 %224, 2
@@ -1693,7 +1689,7 @@ hemdistcache.exit:                                ; preds = %.lr.ph.i.i, %168, %
 
 gtsvector_alloc.exit:                             ; preds = %._crit_edge, %236
   %239 = zext i16 %spec.select233 to i64
-  %240 = getelementptr inbounds nuw %struct.CACHESIGN, ptr %28, i64 %239
+  %240 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %239
   %241 = load i8, ptr %240, align 8, !range !6, !noundef !7
   %242 = shl nuw nsw i8 %241, 2
   %243 = or disjoint i8 %242, 2
@@ -1724,8 +1720,8 @@ gtsvector_alloc.exit258:                          ; preds = %gtsvector_alloc.exi
   %258 = trunc i32 %17 to i16
   %259 = add i16 %258, -1
   %260 = zext i16 %259 to i64
-  %261 = getelementptr inbounds nuw %struct.CACHESIGN, ptr %28, i64 %260
-  %262 = getelementptr inbounds nuw %struct.GISTENTRY, ptr %45, i64 %260
+  %261 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %260
+  %262 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %260
   %263 = load i64, ptr %262, align 8
   %264 = inttoptr i64 %263 to ptr
   store i8 0, ptr %261, align 8
@@ -1788,7 +1784,7 @@ gtsvector_alloc.exit258:                          ; preds = %gtsvector_alloc.exi
 
 295:                                              ; preds = %295, %.lr.ph33.i.i263
   %indvars.iv.i.i265 = phi i64 [ 0, %.lr.ph33.i.i263 ], [ %indvars.iv.next.i.i266, %295 ]
-  %296 = getelementptr inbounds nuw i32, ptr %277, i64 %indvars.iv.i.i265
+  %296 = getelementptr inbounds nuw [4 x i8], ptr %277, i64 %indvars.iv.i.i265
   %297 = load i32, ptr %296, align 4
   %298 = urem i32 %297, %294
   %299 = and i32 %298, 7
@@ -1842,10 +1838,10 @@ fillcache.exit273:                                ; preds = %295, %.loopexit.i.i
 320:                                              ; preds = %.lr.ph383, %hemdistcache.exit327
   %.2382 = phi i16 [ 1, %.lr.ph383 ], [ %428, %hemdistcache.exit327 ]
   %321 = zext i16 %.2382 to i64
-  %322 = getelementptr %struct.SPLITCOST, ptr %316, i64 %321
+  %322 = getelementptr [8 x i8], ptr %316, i64 %321
   %323 = getelementptr i8, ptr %322, i64 -8
   store i16 %.2382, ptr %323, align 4
-  %324 = getelementptr inbounds nuw %struct.CACHESIGN, ptr %28, i64 %321
+  %324 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %321
   %325 = load i8, ptr %222, align 8, !range !6, !noundef !7
   %326 = trunc nuw i8 %325 to i1
   %327 = load i8, ptr %324, align 8, !range !6, !noundef !7
@@ -2074,7 +2070,7 @@ hemdistcache.exit327:                             ; preds = %.lr.ph.i.i304, %379
   %indvars.iv429 = phi i64 [ 0, %._crit_edge384 ], [ %indvars.iv.next430, %575 ]
   %.0200392 = phi ptr [ %217, %._crit_edge384 ], [ %.1201, %575 ]
   %.0202391 = phi ptr [ %215, %._crit_edge384 ], [ %.1203, %575 ]
-  %434 = getelementptr inbounds nuw %struct.SPLITCOST, ptr %316, i64 %indvars.iv429
+  %434 = getelementptr inbounds nuw [8 x i8], ptr %316, i64 %indvars.iv429
   %435 = load i16, ptr %434, align 4
   %436 = icmp eq i16 %435, %spec.select
   br i1 %436, label %437, label %441
@@ -2104,7 +2100,7 @@ hemdistcache.exit327:                             ; preds = %.lr.ph.i.i304, %379
   %449 = and i32 %448, 4
   %.not224 = icmp eq i32 %449, 0
   %450 = zext i16 %435 to i64
-  %451 = getelementptr inbounds nuw %struct.CACHESIGN, ptr %28, i64 %450
+  %451 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %450
   %452 = load i8, ptr %451, align 8, !range !6, !noundef !7
   %453 = trunc nuw i8 %452 to i1
   br i1 %.not224, label %454, label %455
@@ -2116,7 +2112,7 @@ hemdistcache.exit327:                             ; preds = %.lr.ph.i.i304, %379
   br i1 %453, label %hemdistsign.exit, label %.thread
 
 .thread:                                          ; preds = %455
-  %456 = getelementptr inbounds nuw %struct.CACHESIGN, ptr %28, i64 %450
+  %456 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %450
   %457 = getelementptr inbounds nuw i8, ptr %456, i64 8
   %458 = load ptr, ptr %457, align 8
   br label %.thread.thread
@@ -2182,7 +2178,7 @@ hemdistsign.exit:                                 ; preds = %.lr.ph.i, %473, %45
   %487 = and i32 %486, 4
   %.not226 = icmp eq i32 %487, 0
   %488 = zext i16 %435 to i64
-  %489 = getelementptr inbounds nuw %struct.CACHESIGN, ptr %28, i64 %488
+  %489 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %488
   %490 = load i8, ptr %489, align 8, !range !6, !noundef !7
   %491 = trunc nuw i8 %490 to i1
   br i1 %.not226, label %492, label %493
@@ -2194,7 +2190,7 @@ hemdistsign.exit:                                 ; preds = %.lr.ph.i, %473, %45
   br i1 %491, label %hemdistsign.exit347, label %.thread348
 
 .thread348:                                       ; preds = %493
-  %494 = getelementptr inbounds nuw %struct.CACHESIGN, ptr %28, i64 %488
+  %494 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %488
   %495 = getelementptr inbounds nuw i8, ptr %494, i64 8
   %496 = load ptr, ptr %495, align 8
   br label %.thread348.thread
@@ -2277,7 +2273,7 @@ hemdistsign.exit347:                              ; preds = %.lr.ph.i342, %511, 
 
 538:                                              ; preds = %535
   %539 = zext i16 %435 to i64
-  %540 = getelementptr inbounds nuw %struct.CACHESIGN, ptr %28, i64 %539
+  %540 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %539
   %541 = load i8, ptr %540, align 8, !range !6, !noundef !7
   %542 = trunc nuw i8 %541 to i1
   br i1 %542, label %543, label %544
@@ -2319,7 +2315,7 @@ hemdistsign.exit347:                              ; preds = %.lr.ph.i342, %511, 
 
 558:                                              ; preds = %555
   %559 = zext i16 %435 to i64
-  %560 = getelementptr inbounds nuw %struct.CACHESIGN, ptr %28, i64 %559
+  %560 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %559
   %561 = load i8, ptr %560, align 8, !range !6, !noundef !7
   %562 = trunc nuw i8 %561 to i1
   br i1 %562, label %563, label %564
@@ -2436,7 +2432,7 @@ define dso_local range(i64 0, 2) i64 @gtsvector_consistent_oldsig(ptr noundef re
   %29 = zext nneg i32 %28 to i64
   %30 = add nsw i64 %29, -8
   %31 = lshr i64 %30, 2
-  %32 = getelementptr inbounds nuw i32, ptr %26, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 8

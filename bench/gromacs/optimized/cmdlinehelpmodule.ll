@@ -1610,7 +1610,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83: ; preds = %448
 
 .lr.ph:                                           ; preds = %.preheader, %464
   %indvars.iv = phi i64 [ %indvars.iv.next, %464 ], [ 1, %.preheader ]
-  %462 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %462 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %463 = load ptr, ptr %462, align 8, !tbaa !101
   invoke void @_ZN3gmx11HelpManager10enterTopicEPKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %463)
           to label %464 unwind label %468
@@ -3277,7 +3277,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit37, %74
   store ptr %23, ptr %0, align 8, !tbaa !133
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !134
-  %78 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %78, ptr %73, align 8, !tbaa !136
   ret void
 

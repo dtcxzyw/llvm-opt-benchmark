@@ -25,8 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.witness_list_t = type { ptr }
 %struct.ehooks_s = type { i32, %struct.atomic_p_t }
 %struct.atomic_p_t = type { ptr }
-%struct.edata_heap_t = type { %struct.ph_s }
-%struct.ph_s = type { ptr, i64 }
 
 @duckdb_je_opt_metadata_thp = local_unnamed_addr global i32 0, align 4
 @.str = private unnamed_addr constant [9 x i8] c"disabled\00", align 1
@@ -137,7 +135,7 @@ define noundef ptr @duckdb_je_base_new(ptr noundef %0, i32 noundef %1, ptr nound
 
 52:                                               ; preds = %29, %52
   %indvars.iv = phi i64 [ 0, %29 ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw %struct.edata_heap_t, ptr %36, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv
   call void @duckdb_je_edata_heap_new(ptr noundef nonnull %53) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 232
@@ -225,7 +223,7 @@ sz_psz2u.exit:                                    ; preds = %7, %20
   %37 = icmp ult i32 %36, 198
   %spec.select = select i1 %37, i32 %36, i32 %35
   %38 = zext i32 %spec.select to i64
-  %39 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_pind2sz_tab, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_pind2sz_tab, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !10
   %41 = add i64 %40, 2097151
   %42 = tail call i64 @llvm.umax.i64(i64 %.0.i53, i64 %41)
@@ -904,7 +902,7 @@ base_edata_heap_insert.exit:                      ; preds = %10, %16, %18
   %29 = add nuw nsw i64 %.0.i.i, 4294967295
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %31 = and i64 %29, 4294967295
-  %32 = getelementptr inbounds nuw %struct.edata_heap_t, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %31
   tail call void @duckdb_je_edata_heap_insert(ptr noundef nonnull %32, ptr noundef nonnull %1) #10
   br label %35
 
@@ -1105,7 +1103,7 @@ sz_size2index.exit:                               ; preds = %38, %31
 
 56:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ %54, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %57 = getelementptr inbounds nuw %struct.edata_heap_t, ptr %53, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %indvars.iv
   %58 = tail call ptr @duckdb_je_edata_heap_remove_first(ptr noundef nonnull %57) #10
   %.not = icmp eq ptr %58, null
   br i1 %.not, label %55, label %.loopexit
@@ -1386,7 +1384,7 @@ base_alloc_base_edata.exit:                       ; preds = %26
   %47 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !15
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw i64, ptr @duckdb_je_sz_index2size_tab, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @duckdb_je_sz_index2size_tab, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !10
   br label %sz_s2u.exit
 
@@ -1520,7 +1518,7 @@ base_edata_heap_insert.exit:                      ; preds = %25, %31, %33
   %44 = add nuw nsw i64 %.0.i.i, 4294967295
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %46 = and i64 %44, 4294967295
-  %47 = getelementptr inbounds nuw %struct.edata_heap_t, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %46
   tail call void @duckdb_je_edata_heap_insert(ptr noundef nonnull %47, ptr noundef nonnull %4) #10
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store atomic i8 0, ptr %48 monotonic, align 1

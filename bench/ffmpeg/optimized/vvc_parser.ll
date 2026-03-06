@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVCodecParser = type { [7 x i32], i32, ptr, ptr, ptr, ptr }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @ff_vvc_parser = local_unnamed_addr constant %struct.AVCodecParser { [7 x i32] [i32 196, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0], i32 328, ptr @vvc_parser_init, ptr @vvc_parser_parse, ptr @vvc_parser_close, ptr null }, align 8
 @decompose_unit_types = internal constant [13 x i32] [i32 0, i32 1, i32 2, i32 3, i32 7, i32 8, i32 9, i32 10, i32 14, i32 15, i32 16, i32 19, i32 20], align 16
@@ -333,7 +332,7 @@ parse_nal_units.exit.thread:                      ; preds = %17
   %.sroa.9.0.i = phi ptr [ null, %.lr.ph.i.i ], [ %.sroa.9.2.i, %49 ]
   %34 = phi ptr [ null, %.lr.ph.i.i ], [ %50, %49 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %49 ]
-  %35 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %32, i64 %indvars.iv.i.i
+  %35 = getelementptr inbounds nuw [56 x i8], ptr %32, i64 %indvars.iv.i.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8, !tbaa !59
   %.not.i.i = icmp eq ptr %37, null
@@ -395,7 +394,7 @@ parse_nal_units.exit.thread:                      ; preds = %17
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 5
   %55 = load i8, ptr %54, align 1, !tbaa !71
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %53, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !72
   %.not51.i.i = icmp eq ptr %58, null
   br i1 %.not51.i.i, label %59, label %61
@@ -410,7 +409,7 @@ parse_nal_units.exit.thread:                      ; preds = %17
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 5
   %64 = load i8, ptr %63, align 1, !tbaa !74
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %62, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !77
   %.not52.i.i = icmp eq ptr %67, null
   br i1 %.not52.i.i, label %68, label %.preheader.i
@@ -423,7 +422,7 @@ parse_nal_units.exit.thread:                      ; preds = %17
 .preheader.i:                                     ; preds = %61, %.thread.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.thread.i.i.i ], [ 0, %61 ]
   %.01840.i.i.i = phi i32 [ %.52335.i.i.i, %.thread.i.i.i ], [ 0, %61 ]
-  %70 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %32, i64 %indvars.iv.i.i.i
+  %70 = getelementptr inbounds nuw [56 x i8], ptr %32, i64 %indvars.iv.i.i.i
   %71 = load i32, ptr %70, align 8, !tbaa !79
   switch i32 %71, label %.thread.i.i.i [
     i32 10, label %72
@@ -609,7 +608,7 @@ is_au_start.exit.i:                               ; preds = %150, %144, %139
   %157 = getelementptr inbounds nuw i8, ptr %67, i64 7
   %158 = load i8, ptr %157, align 1, !tbaa !102
   %159 = zext i8 %158 to i64
-  %160 = getelementptr inbounds nuw i32, ptr %pix_fmts_10bit.sink.i.i.i, i64 %159
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %pix_fmts_10bit.sink.i.i.i, i64 %159
   %161 = load i32, ptr %160, align 4, !tbaa !33
   br label %get_format.exit.i.i
 

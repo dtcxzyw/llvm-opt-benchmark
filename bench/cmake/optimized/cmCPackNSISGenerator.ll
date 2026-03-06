@@ -7765,7 +7765,7 @@ _ZNSt6vectorIP23cmCPackInstallationTypeSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
           to label %.noexc1637 unwind label %2675
 
 .noexc1637:                                       ; preds = %2662
-  %2665 = getelementptr inbounds nuw ptr, ptr %2664, i64 %2659
+  %2665 = getelementptr inbounds nuw [8 x i8], ptr %2664, i64 %2659
   store ptr null, ptr %2664, align 8, !tbaa !359
   %2666 = getelementptr i8, ptr %2664, i64 8
   %2667 = add nsw i64 %2659, -1
@@ -7809,7 +7809,7 @@ _ZNSt6vectorIP23cmCPackInstallationTypeSaIS1_EEC2EmRKS2_.exit: ; preds = %_ZSt6f
   %2679 = load i32, ptr %2678, align 8, !tbaa !361
   %2680 = add i32 %2679, -1
   %2681 = zext i32 %2680 to i64
-  %2682 = getelementptr inbounds nuw ptr, ptr %.sroa.02444.0, i64 %2681
+  %2682 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.02444.0, i64 %2681
   store ptr %2677, ptr %2682, align 8, !tbaa !359
   %2683 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.02440.03002) #27
   %.not2598 = icmp eq ptr %2683, %2672
@@ -26869,7 +26869,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !315
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !140
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !141
   ret void
 }
@@ -28493,7 +28493,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit37, %74
   store ptr %23, ptr %0, align 8, !tbaa !315
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !140
-  %78 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %78, ptr %73, align 8, !tbaa !141
   ret void
 

@@ -45,16 +45,8 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_reconfi
 %struct.acpi_table_fadt = type <{ %struct.acpi_table_header, i32, i32, i8, i8, i16, i32, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i16, i16, i16, i16, i8, i8, i8, i8, i8, i16, i8, i32, %struct.acpi_generic_address, i8, i16, i8, i64, i64, %struct.acpi_generic_address, %struct.acpi_generic_address, %struct.acpi_generic_address, %struct.acpi_generic_address, %struct.acpi_generic_address, %struct.acpi_generic_address, %struct.acpi_generic_address, %struct.acpi_generic_address, %struct.acpi_generic_address, %struct.acpi_generic_address, i64 }>
 %struct.acpi_table_header = type { [4 x i8], i32, i8, i8, [6 x i8], [8 x i8], i32, [4 x i8], i32 }
 %struct.acpi_generic_address = type <{ i8, i8, i8, i8, i64 }>
-%struct.page = type { i64, %union.anon.3, %union.anon.11, %struct.atomic_t, [8 x i8] }
-%union.anon.3 = type { %struct.anon.4 }
-%struct.anon.4 = type { %union.anon.5, ptr, %union.anon.7, i64 }
-%union.anon.5 = type { %struct.list_head }
-%union.anon.7 = type { i64 }
-%union.anon.11 = type { %struct.atomic_t }
 %struct.acpi_buffer = type { i64, ptr }
 %struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
-%struct.acpi_device_power_state = type { %struct.anon.1, i32, i32, %struct.list_head }
-%struct.anon.1 = type { i8 }
 %struct.acpi_handle_list = type { i32, ptr }
 
 @acpi_bus_id_list = dso_local global %struct.list_head { ptr @acpi_bus_id_list, ptr @acpi_bus_id_list }, align 8
@@ -385,7 +377,7 @@ define dso_local void @acpi_device_hotplug(ptr noundef %0, i32 noundef %1) local
   %15 = select i1 %14, i64 %11, i64 %13
   %16 = add i64 %15, sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)
   %17 = lshr i64 %16, 12
-  %18 = getelementptr %struct.page, ptr %10, i64 %17
+  %18 = getelementptr [64 x i8], ptr %10, i64 %17
   %19 = icmp eq ptr %8, %18
   br i1 %19, label %.thread27, label %20
 
@@ -866,7 +858,7 @@ define internal void @acpi_scan_drop_device(ptr readnone captures(none) %0, ptr 
   %17 = select i1 %16, i64 %13, i64 %15
   %18 = add i64 %17, sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)
   %19 = lshr i64 %18, 12
-  %20 = getelementptr %struct.page, ptr %12, i64 %19
+  %20 = getelementptr [64 x i8], ptr %12, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %20, ptr %21, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @acpi_device_del_lock) #19
@@ -3549,7 +3541,7 @@ define internal fastcc i32 @acpi_add_single_object(ptr noundef writeonly capture
 
 94:                                               ; preds = %133, %82
   %95 = phi i64 [ 0, %82 ], [ %136, %133 ]
-  %96 = getelementptr %struct.acpi_device_power_state, ptr %88, i64 %95
+  %96 = getelementptr [32 x i8], ptr %88, i64 %95
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 95, ptr %7, align 1
   store i8 80, ptr %89, align 1
@@ -5069,7 +5061,7 @@ define internal fastcc i32 @acpi_scan_check_dep(ptr noundef %0) unnamed_addr #0 
   store ptr null, ptr %3, align 8, !annotation !10
   %17 = load ptr, ptr %13, align 8
   %18 = sext i32 %16 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 @acpi_get_object_info(ptr noundef %20, ptr noundef nonnull %3) #19
   %22 = icmp eq i32 %21, 0
@@ -5185,7 +5177,7 @@ define internal fastcc i32 @acpi_scan_check_dep(ptr noundef %0) unnamed_addr #0 
 91:                                               ; preds = %87
   %92 = add i32 %15, 1
   %93 = load ptr, ptr %13, align 8
-  %94 = getelementptr ptr, ptr %93, i64 %18
+  %94 = getelementptr [8 x i8], ptr %93, i64 %18
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store ptr %95, ptr %96, align 8

@@ -22,9 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
-%"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
-%"struct.cv::MatSize" = type { ptr }
-%"struct.cv::MatStep" = type { ptr, [2 x i64] }
 
 $_ZN2cv3dnn14SplitLayerImplC2ERKNS0_14dnn4_v2024122311LayerParamsE = comdat any
 
@@ -609,7 +606,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3M
 
 44:                                               ; preds = %41
   %45 = load ptr, ptr %7, align 8, !tbaa !50
-  %46 = getelementptr inbounds nuw %"class.cv::Mat", ptr %45, i64 %.036
+  %46 = getelementptr inbounds nuw [96 x i8], ptr %45, i64 %.036
   %47 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %46)
           to label %48 unwind label %50
 
@@ -662,7 +659,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %57, %
   %63 = load ptr, ptr %6, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %64 = load ptr, ptr %7, align 8, !tbaa !50
-  %65 = getelementptr inbounds nuw %"class.cv::Mat", ptr %64, i64 %.036
+  %65 = getelementptr inbounds nuw [96 x i8], ptr %64, i64 %.036
   store i64 0, ptr %23, align 8
   store i32 33619968, ptr %10, align 8, !tbaa !53
   store ptr %65, ptr %22, align 8, !tbaa !56
@@ -725,7 +722,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn14SplitLayerImpl11tryQu
 
 17:                                               ; preds = %17, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %19 = load float, ptr %18, align 4, !tbaa !65
   %20 = fcmp oeq float %19, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1264,14 +1261,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46, %
 55:                                               ; preds = %51
   %56 = zext nneg i32 %54 to i64
   %57 = load ptr, ptr %52, align 8, !tbaa !76
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   %59 = load i64, ptr %58, align 8, !tbaa !75
   br label %98
 
 60:                                               ; preds = %51
   %61 = zext nneg i32 %54 to i64
   %62 = load ptr, ptr %52, align 8, !tbaa !79
-  %63 = getelementptr inbounds nuw double, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load double, ptr %63, align 8, !tbaa !82
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %65 = call double @modf(double noundef %64, ptr noundef nonnull %7) #22
@@ -1323,7 +1320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %72,
 79:                                               ; preds = %51
   %80 = zext nneg i32 %54 to i64
   %81 = load ptr, ptr %52, align 8, !tbaa !84
-  %82 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8, !tbaa !33
   %84 = tail call i64 @strtol(ptr noundef nonnull captures(none) %83, ptr noundef null, i32 noundef 10) #22
   %sext = shl i64 %84, 32

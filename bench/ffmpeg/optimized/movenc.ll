@@ -9,25 +9,10 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.1 = type { i64 }
 %struct.MP4TrackKindMapping = type { ptr, ptr }
 %struct.anon.3 = type { i32, i32, i32 }
-%struct.MOVTrack = type { i32, i32, i32, i32, i64, i64, i32, i64, i64, i64, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i64, i64, i64, i32, i64, i32, i32, ptr, i32, i64, i32, i64, i32, i32, %struct.HintSampleQueue, ptr, ptr, i64, i32, i32, i32, ptr, i32, %struct.anon, ptr, %struct.MOVMuxCencContext, [256 x i32], i32, i32, i32, %struct.PacketList, ptr, i32, i32, ptr }
-%struct.HintSampleQueue = type { i32, i32, ptr }
-%struct.anon = type { i32, i32, i32, i32, i32, i32, i32 }
-%struct.MOVMuxCencContext = type { ptr, ptr, i64, i64, i32, i32, i16, i64, ptr, i64, ptr, i32, i32, ptr, %struct.CodedBitstreamFragment }
-%struct.CodedBitstreamFragment = type { ptr, i64, i64, ptr, i32, i32, ptr }
-%struct.PacketList = type { ptr, ptr }
-%struct.MOVIentry = type { i64, i64, i64, i32, i32, i32, i32, i32, i32, %struct.AVProducerReferenceTime }
-%struct.AVProducerReferenceTime = type { i64, i32 }
-%struct.anon.0 = type { i8, i8, i8, i8, i8, i8, i16 }
 %struct.AVChannelLayout = type { i32, i32, %union.anon, ptr }
 %union.anon = type { i64 }
 %struct.AVTimecode = type { i32, i32, %struct.AVRational, i32 }
 %struct.AVRational = type { i32, i32 }
-%struct.MOVFragmentInfo = type { i64, i64, i64, i64, i32 }
-%struct.MP4TrackKindValueMapping = type { i32, ptr }
-%struct.MOVStts = type { i32, i32 }
-%struct.MOVCtts = type { i32, i32 }
-%struct.sgpd_entry = type { i32, i16, i32 }
-%struct.AVComponentDescriptor = type { i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [26 x i8] c"pts/dts pair unsupported\0A\00", align 1
 @ff_mov_write_packet.packed_size = internal unnamed_addr constant [16 x i16] [i16 13, i16 14, i16 16, i16 18, i16 20, i16 21, i16 27, i16 32, i16 6, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 1], align 16
@@ -542,7 +527,7 @@ define i32 @ff_mov_write_packet(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load ptr, ptr %23, align 8, !tbaa !34
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %21
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %21
   %26 = load ptr, ptr %25, align 8, !tbaa !35
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !37
@@ -551,7 +536,7 @@ define i32 @ff_mov_write_packet(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 29:                                               ; preds = %2
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %31 = load ptr, ptr %30, align 8, !tbaa !40
-  %32 = getelementptr inbounds %struct.MOVTrack, ptr %31, i64 %21
+  %32 = getelementptr inbounds [1600 x i8], ptr %31, i64 %21
   br label %33
 
 33:                                               ; preds = %29, %22
@@ -567,7 +552,7 @@ define i32 @ff_mov_write_packet(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %39 = getelementptr inbounds nuw i8, ptr %.0428, i64 136
   %40 = load ptr, ptr %39, align 8, !tbaa !64
   %41 = sext i32 %37 to i64
-  %42 = getelementptr %struct.MOVIentry, ptr %40, i64 %41
+  %42 = getelementptr [64 x i8], ptr %40, i64 %41
   %43 = getelementptr i8, ptr %42, i64 -56
   %44 = load i64, ptr %43, align 8, !tbaa !65
   br label %58
@@ -748,7 +733,7 @@ check_pkt.exit:                                   ; preds = %70
   %131 = lshr i8 %130, 3
   %132 = and i8 %131, 15
   %133 = zext nneg i8 %132 to i64
-  %134 = getelementptr inbounds nuw i16, ptr @ff_mov_write_packet.packed_size, i64 %133
+  %134 = getelementptr inbounds nuw [2 x i8], ptr @ff_mov_write_packet.packed_size, i64 %133
   %135 = load i16, ptr %134, align 2, !tbaa !89
   %136 = zext i16 %135 to i32
   %137 = add nuw nsw i32 %.0440616, %136
@@ -1220,7 +1205,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   %377 = getelementptr inbounds nuw i8, ptr %11, i64 288
   %378 = load i32, ptr %16, align 4, !tbaa !32
   %379 = sext i32 %378 to i64
-  %380 = getelementptr inbounds i32, ptr %377, i64 %379
+  %380 = getelementptr inbounds [4 x i8], ptr %377, i64 %379
   %381 = load i32, ptr %380, align 4, !tbaa !30
   %.not513 = icmp eq i32 %381, 0
   br i1 %.not513, label %382, label %.thread568
@@ -1377,7 +1362,7 @@ thread-pre-split563:                              ; preds = %183, %183, %183, %1
   %462 = load i8, ptr %461, align 4, !tbaa !124
   %463 = getelementptr inbounds nuw i8, ptr %391, i64 14
   %464 = zext nneg i32 %460 to i64
-  %465 = getelementptr inbounds nuw %struct.anon.0, ptr %463, i64 %464
+  %465 = getelementptr inbounds nuw [8 x i8], ptr %463, i64 %464
   store i8 %462, ptr %465, align 2, !tbaa !125
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 1
   store i8 %429, ptr %466, align 1, !tbaa !122
@@ -1835,7 +1820,7 @@ handle_eac3.exit:                                 ; preds = %487, %496, %402, %4
   %721 = load ptr, ptr %720, align 8, !tbaa !64
   %722 = load i32, ptr %36, align 4, !tbaa !63
   %723 = sext i32 %722 to i64
-  %724 = getelementptr inbounds %struct.MOVIentry, ptr %721, i64 %723
+  %724 = getelementptr inbounds [64 x i8], ptr %721, i64 %723
   store i64 %719, ptr %724, align 8, !tbaa !141
   %725 = getelementptr inbounds nuw i8, ptr %724, i64 28
   store i32 %.1430561, ptr %725, align 4, !tbaa !142
@@ -2013,7 +1998,7 @@ handle_eac3.exit:                                 ; preds = %487, %496, %402, %4
   %810 = load ptr, ptr %720, align 8, !tbaa !64
   %811 = load i32, ptr %36, align 4, !tbaa !63
   %812 = sext i32 %811 to i64
-  %813 = getelementptr inbounds %struct.MOVIentry, ptr %810, i64 %812
+  %813 = getelementptr inbounds [64 x i8], ptr %810, i64 %812
   %814 = getelementptr inbounds nuw i8, ptr %813, i64 40
   store i32 %809, ptr %814, align 8, !tbaa !153
   %815 = getelementptr inbounds nuw i8, ptr %813, i64 44
@@ -2189,7 +2174,7 @@ find_next_marker.exit80.i:                        ; preds = %859, %854
 
 887:                                              ; preds = %887, %.lr.ph90.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph90.i ], [ %indvars.iv.next.i, %887 ]
-  %888 = getelementptr inbounds nuw %struct.MOVIentry, ptr %886, i64 %indvars.iv.i
+  %888 = getelementptr inbounds nuw [64 x i8], ptr %886, i64 %indvars.iv.i
   %889 = getelementptr inbounds nuw i8, ptr %888, i64 44
   %890 = load i32, ptr %889, align 4, !tbaa !154
   %891 = and i32 %890, -2
@@ -2281,7 +2266,7 @@ find_next_marker.exit80.i:                        ; preds = %859, %854
 927:                                              ; preds = %926
   %928 = load ptr, ptr %720, align 8, !tbaa !64
   %929 = sext i32 %867 to i64
-  %930 = getelementptr inbounds %struct.MOVIentry, ptr %928, i64 %929
+  %930 = getelementptr inbounds [64 x i8], ptr %928, i64 %929
   %931 = getelementptr inbounds nuw i8, ptr %930, i64 44
   %932 = load i32, ptr %931, align 4, !tbaa !154
   %933 = or i32 %932, 1
@@ -2335,13 +2320,13 @@ find_next_marker.exit80.i:                        ; preds = %859, %854
 
 962:                                              ; preds = %956
   %963 = zext nneg i32 %811 to i64
-  %964 = getelementptr inbounds nuw %struct.MOVIentry, ptr %810, i64 %963
+  %964 = getelementptr inbounds nuw [64 x i8], ptr %810, i64 %963
   %965 = getelementptr inbounds nuw i8, ptr %964, i64 44
   call fastcc void @mov_parse_mpeg2_frame(ptr noundef nonnull %1, ptr noundef nonnull %965)
   %966 = load ptr, ptr %720, align 8, !tbaa !64
   %967 = load i32, ptr %36, align 4, !tbaa !63
   %968 = sext i32 %967 to i64
-  %969 = getelementptr inbounds %struct.MOVIentry, ptr %966, i64 %968
+  %969 = getelementptr inbounds [64 x i8], ptr %966, i64 %968
   %970 = getelementptr inbounds nuw i8, ptr %969, i64 44
   %971 = load i32, ptr %970, align 4, !tbaa !154
   %972 = and i32 %971, 2
@@ -2383,7 +2368,7 @@ mov_parse_vc1_frame.exit:                         ; preds = %mov_parse_vc1_frame
 986:                                              ; preds = %mov_parse_vc1_frame.exit
   %987 = load ptr, ptr %720, align 8, !tbaa !64
   %988 = sext i32 %982 to i64
-  %989 = getelementptr inbounds %struct.MOVIentry, ptr %987, i64 %988
+  %989 = getelementptr inbounds [64 x i8], ptr %987, i64 %988
   %990 = getelementptr inbounds nuw i8, ptr %989, i64 44
   %991 = load i32, ptr %990, align 4, !tbaa !154
   %992 = or i32 %991, 4
@@ -2403,7 +2388,7 @@ mov_parse_vc1_frame.exit:                         ; preds = %mov_parse_vc1_frame
   %1001 = load ptr, ptr %720, align 8, !tbaa !64
   %1002 = load i32, ptr %36, align 4, !tbaa !63
   %1003 = sext i32 %1002 to i64
-  %1004 = getelementptr inbounds %struct.MOVIentry, ptr %1001, i64 %1003
+  %1004 = getelementptr inbounds [64 x i8], ptr %1001, i64 %1003
   %1005 = getelementptr inbounds nuw i8, ptr %1004, i64 48
   br i1 %or.cond, label %1006, label %1007
 
@@ -2525,7 +2510,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_flush_fragment_interle
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ %26, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds %struct.MOVIentry, ptr %25, i64 %indvars.iv
+  %28 = getelementptr inbounds [64 x i8], ptr %25, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8, !tbaa !141
   %30 = add i64 %29, %23
   store i64 %30, ptr %28, align 8, !tbaa !141
@@ -2719,7 +2704,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_write_header(ptr noundef %0) 
 39:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %.2184319 = phi i32 [ %.0182, %.lr.ph ], [ %50, %49 ]
-  %40 = getelementptr inbounds nuw %struct.MOVTrack, ptr %38, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [1600 x i8], ptr %38, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
   %42 = load ptr, ptr %41, align 8, !tbaa !99
   %.not.i.i = icmp eq ptr %42, null
@@ -2793,7 +2778,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
 81:                                               ; preds = %.lr.ph331, %.loopexit312
   %indvars.iv348 = phi i64 [ 0, %.lr.ph331 ], [ %indvars.iv.next349, %.loopexit312 ]
   %82 = load ptr, ptr %53, align 8, !tbaa !40
-  %83 = getelementptr inbounds nuw %struct.MOVTrack, ptr %82, i64 %indvars.iv348
+  %83 = getelementptr inbounds nuw [1600 x i8], ptr %82, i64 %indvars.iv348
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 96
   %85 = load ptr, ptr %84, align 8, !tbaa !99
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
@@ -2845,7 +2830,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %104 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i
   %105 = load i32, ptr %104, align 4, !tbaa !30
   %106 = lshr i32 %105, 16
   %107 = lshr i32 %105, 8
@@ -2924,7 +2909,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
 
 .preheader.i:                                     ; preds = %.critedge.thread.i, %.preheader.i
   %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %.preheader.i ], [ 0, %.critedge.thread.i ]
-  %150 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv55.i
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv55.i
   %151 = load i32, ptr %150, align 4, !tbaa !30
   %152 = call i32 @llvm.bswap.i32(i32 %151)
   %153 = load ptr, ptr %149, align 8, !tbaa !97
@@ -3045,7 +3030,7 @@ mov_create_dvd_sub_decoder_specific_info.exit:    ; preds = %.critedge.thread.i,
 199:                                              ; preds = %.lr.ph327, %257
   %indvars.iv345 = phi i64 [ 0, %.lr.ph327 ], [ %indvars.iv.next346, %257 ]
   %200 = load ptr, ptr %53, align 8, !tbaa !40
-  %201 = getelementptr inbounds nuw %struct.MOVTrack, ptr %200, i64 %indvars.iv345
+  %201 = getelementptr inbounds nuw [1600 x i8], ptr %200, i64 %indvars.iv345
   %202 = icmp eq i64 %indvars.iv345, %indvars.iv348
   br i1 %202, label %257, label %203
 
@@ -3321,7 +3306,7 @@ mov_create_dvd_sub_decoder_specific_info.exit:    ; preds = %.critedge.thread.i,
   %indvars.iv351 = phi i64 [ 0, %.lr.ph335 ], [ %indvars.iv.next352, %rtp_hinting_needed.exit259.thread ]
   %.1174333 = phi i32 [ %.0173389, %.lr.ph335 ], [ %.2175, %rtp_hinting_needed.exit259.thread ]
   %334 = load ptr, ptr %331, align 8, !tbaa !40
-  %335 = getelementptr inbounds nuw %struct.MOVTrack, ptr %334, i64 %indvars.iv351
+  %335 = getelementptr inbounds nuw [1600 x i8], ptr %334, i64 %indvars.iv351
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 96
   %337 = load ptr, ptr %336, align 8, !tbaa !99
   %.not.i.i253 = icmp eq ptr %337, null
@@ -3382,7 +3367,7 @@ rtp_hinting_needed.exit259.thread:                ; preds = %is_cover_image.exit
   %indvars.iv354 = phi i64 [ 0, %.lr.ph339 ], [ %indvars.iv.next355, %.thread291 ]
   %.1177336 = phi i32 [ %spec.select248390, %.lr.ph339 ], [ %.4180295, %.thread291 ]
   %361 = load ptr, ptr %358, align 8, !tbaa !40
-  %362 = getelementptr inbounds nuw %struct.MOVTrack, ptr %361, i64 %indvars.iv354
+  %362 = getelementptr inbounds nuw [1600 x i8], ptr %361, i64 %indvars.iv354
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 96
   %364 = load ptr, ptr %363, align 8, !tbaa !99
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 16
@@ -3419,8 +3404,8 @@ rtp_hinting_needed.exit259.thread:                ; preds = %is_cover_image.exit
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 56
   %382 = load ptr, ptr %381, align 8, !tbaa !40
   %383 = sext i32 %.1177336 to i64
-  %384 = getelementptr inbounds %struct.MOVTrack, ptr %382, i64 %383
-  %385 = getelementptr inbounds nuw %struct.MOVTrack, ptr %382, i64 %indvars.iv354
+  %384 = getelementptr inbounds [1600 x i8], ptr %382, i64 %383
+  %385 = getelementptr inbounds nuw [1600 x i8], ptr %382, i64 %indvars.iv354
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 96
   %387 = load ptr, ptr %386, align 8, !tbaa !99
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -3567,7 +3552,7 @@ mov_create_timecode_track.exit:                   ; preds = %404
 452:                                              ; preds = %.thread.i, %.lr.ph.i264
   %indvars.iv.i265 = phi i64 [ 0, %.lr.ph.i264 ], [ %indvars.iv.next.i266, %.thread.i ]
   %453 = load ptr, ptr %451, align 8, !tbaa !40
-  %454 = getelementptr inbounds nuw %struct.MOVTrack, ptr %453, i64 %indvars.iv.i265
+  %454 = getelementptr inbounds nuw [1600 x i8], ptr %453, i64 %indvars.iv.i265
   %455 = call fastcc { i64, i32 } @calculate_mpeg4_bit_rates(ptr noundef %454)
   %.fca.1.extract.i = extractvalue { i64, i32 } %455, 1
   %456 = getelementptr inbounds nuw i8, ptr %454, i64 84
@@ -3861,7 +3846,7 @@ define internal i32 @mov_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %14 = load i32, ptr %13, align 4, !tbaa !32
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %12, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !35
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !176
@@ -3943,7 +3928,7 @@ mov_write_emsg_tag.exit:                          ; preds = %23
   %.pre = load ptr, ptr %50, align 8, !tbaa !223
   %.pre140 = load ptr, ptr %11, align 8, !tbaa !34
   %.pre141 = sext i32 %.pre.i to i64
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre140, i64 %.pre141
+  %.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pre140, i64 %.pre141
   %.pre142 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !35
   br label %61
 
@@ -4096,7 +4081,7 @@ is_cover_image.exit.thread:                       ; preds = %103, %is_cover_imag
   %130 = phi i32 [ %123, %.lr.ph ], [ %166, %165 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %165 ]
   %131 = load ptr, ptr %125, align 8, !tbaa !40
-  %132 = getelementptr inbounds nuw %struct.MOVTrack, ptr %131, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [1600 x i8], ptr %131, i64 %indvars.iv
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 104
   %134 = load ptr, ptr %133, align 8, !tbaa !46
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 4
@@ -4351,7 +4336,7 @@ define internal i32 @mov_write_trailer(ptr noundef %0) #0 {
 15:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %16 = load ptr, ptr %14, align 8, !tbaa !40
-  %17 = getelementptr inbounds nuw %struct.MOVTrack, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [1600 x i8], ptr %16, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %19 = load ptr, ptr %18, align 8, !tbaa !46
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
@@ -4403,7 +4388,7 @@ define internal i32 @mov_write_trailer(ptr noundef %0) #0 {
   %46 = phi i32 [ %42, %.lr.ph194 ], [ %72, %71 ]
   %indvars.iv204 = phi i64 [ 0, %.lr.ph194 ], [ %indvars.iv.next205, %71 ]
   %47 = load ptr, ptr %44, align 8, !tbaa !40
-  %48 = getelementptr inbounds nuw %struct.MOVTrack, ptr %47, i64 %indvars.iv204
+  %48 = getelementptr inbounds nuw [1600 x i8], ptr %47, i64 %indvars.iv204
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 104
   %50 = load ptr, ptr %49, align 8, !tbaa !46
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
@@ -4524,7 +4509,7 @@ define internal i32 @mov_write_trailer(ptr noundef %0) #0 {
 113:                                              ; preds = %.lr.ph198, %113
   %indvars.iv207 = phi i64 [ 0, %.lr.ph198 ], [ %indvars.iv.next208, %113 ]
   %114 = load ptr, ptr %112, align 8, !tbaa !40
-  %115 = getelementptr inbounds nuw %struct.MOVTrack, ptr %114, i64 %indvars.iv207
+  %115 = getelementptr inbounds nuw [1600 x i8], ptr %114, i64 %indvars.iv207
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 304
   store i64 0, ptr %116, align 8, !tbaa !240
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 136
@@ -4693,7 +4678,7 @@ mov_auto_flush_fragment.exit:                     ; preds = %193, %199, %203
 
 209:                                              ; preds = %.lr.ph201, %209
   %indvars.iv210 = phi i64 [ 0, %.lr.ph201 ], [ %indvars.iv.next211, %209 ]
-  %210 = getelementptr inbounds nuw %struct.MOVTrack, ptr %208, i64 %indvars.iv210
+  %210 = getelementptr inbounds nuw [1600 x i8], ptr %208, i64 %indvars.iv210
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 304
   store i64 0, ptr %211, align 8, !tbaa !240
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
@@ -4766,7 +4751,7 @@ mov_write_mfra_tag.exit.thread:                   ; preds = %225
   %238 = phi i32 [ %234, %.lr.ph.i ], [ %272, %271 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %271 ]
   %239 = load ptr, ptr %236, align 8, !tbaa !40
-  %240 = getelementptr inbounds nuw %struct.MOVTrack, ptr %239, i64 %indvars.iv.i
+  %240 = getelementptr inbounds nuw [1600 x i8], ptr %239, i64 %indvars.iv.i
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 320
   %242 = load i32, ptr %241, align 8, !tbaa !246
   %.not15.i = icmp eq i32 %242, 0
@@ -4797,12 +4782,12 @@ mov_write_mfra_tag.exit.thread:                   ; preds = %225
 253:                                              ; preds = %253, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %253 ]
   %254 = load ptr, ptr %251, align 8, !tbaa !247
-  %255 = getelementptr inbounds nuw %struct.MOVFragmentInfo, ptr %254, i64 %indvars.iv.i.i
+  %255 = getelementptr inbounds nuw [40 x i8], ptr %254, i64 %indvars.iv.i.i
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %257 = load i64, ptr %256, align 8, !tbaa !248
   call void @avio_wb64(ptr noundef %244, i64 noundef %257) #17
   %258 = load ptr, ptr %251, align 8, !tbaa !247
-  %259 = getelementptr inbounds nuw %struct.MOVFragmentInfo, ptr %258, i64 %indvars.iv.i.i
+  %259 = getelementptr inbounds nuw [40 x i8], ptr %258, i64 %indvars.iv.i.i
   %260 = load i64, ptr %259, align 8, !tbaa !250
   %261 = load i64, ptr %252, align 8, !tbaa !240
   %262 = add nsw i64 %261, %260
@@ -5263,7 +5248,7 @@ define internal i32 @mov_init(ptr noundef %0) #0 {
 175:                                              ; preds = %.lr.ph675, %194
   %indvars.iv773 = phi i64 [ 0, %.lr.ph675 ], [ %indvars.iv.next774, %194 ]
   %.0382674 = phi i32 [ 0, %.lr.ph675 ], [ %.1383.ph, %194 ]
-  %176 = getelementptr inbounds nuw ptr, ptr %168, i64 %indvars.iv773
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %indvars.iv773
   %177 = load ptr, ptr %176, align 8, !tbaa !266
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 32
   %179 = load i32, ptr %178, align 8, !tbaa !268
@@ -5284,7 +5269,7 @@ define internal i32 @mov_init(ptr noundef %0) #0 {
 
 184:                                              ; preds = %.lr.ph, %189
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %189 ]
-  %185 = getelementptr inbounds nuw ptr, ptr %183, i64 %indvars.iv
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %indvars.iv
   %186 = load ptr, ptr %185, align 8, !tbaa !35
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
   %188 = load ptr, ptr %187, align 8, !tbaa !37
@@ -5319,7 +5304,7 @@ define internal i32 @mov_init(ptr noundef %0) #0 {
 
 195:                                              ; preds = %.lr.ph677, %209
   %indvars.iv778 = phi i64 [ 0, %.lr.ph677 ], [ %indvars.iv.next779, %209 ]
-  %196 = getelementptr inbounds nuw ptr, ptr %173, i64 %indvars.iv778
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %indvars.iv778
   %197 = load ptr, ptr %196, align 8, !tbaa !35
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
   %199 = load ptr, ptr %198, align 8, !tbaa !37
@@ -5386,7 +5371,7 @@ define internal i32 @mov_init(ptr noundef %0) #0 {
 227:                                              ; preds = %.lr.ph681, %rtp_hinting_needed.exit.thread
   %228 = phi i32 [ %222, %.lr.ph681 ], [ %238, %rtp_hinting_needed.exit.thread ]
   %indvars.iv783 = phi i64 [ 0, %.lr.ph681 ], [ %indvars.iv.next784, %rtp_hinting_needed.exit.thread ]
-  %229 = getelementptr inbounds nuw ptr, ptr %226, i64 %indvars.iv783
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %indvars.iv783
   %230 = load ptr, ptr %229, align 8, !tbaa !35
   %.not.i.i = icmp eq ptr %230, null
   br i1 %.not.i.i, label %rtp_hinting_needed.exit, label %is_cover_image.exit.i
@@ -5458,7 +5443,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
 257:                                              ; preds = %.lr.ph684, %280
   %indvars.iv788 = phi i64 [ 0, %.lr.ph684 ], [ %indvars.iv.next789, %280 ]
   %258 = load ptr, ptr %255, align 8, !tbaa !34
-  %259 = getelementptr inbounds nuw ptr, ptr %258, i64 %indvars.iv788
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %258, i64 %indvars.iv788
   %260 = load ptr, ptr %259, align 8, !tbaa !35
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 16
   %262 = load ptr, ptr %261, align 8, !tbaa !176
@@ -5528,7 +5513,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   %291 = phi i32 [ %281, %.lr.ph687 ], [ %303, %301 ]
   %indvars.iv791 = phi i64 [ 0, %.lr.ph687 ], [ %indvars.iv.next792, %301 ]
   %292 = load ptr, ptr %288, align 8, !tbaa !34
-  %293 = getelementptr inbounds nuw ptr, ptr %292, i64 %indvars.iv791
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %292, i64 %indvars.iv791
   %294 = load ptr, ptr %293, align 8, !tbaa !35
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 16
   %296 = load ptr, ptr %295, align 8, !tbaa !176
@@ -5634,7 +5619,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %339 ]
   %.094128.i = phi i32 [ 0, %.lr.ph.i ], [ %.195.i, %339 ]
   %.096127.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %339 ]
-  %340 = getelementptr inbounds nuw ptr, ptr %336, i64 %indvars.iv.i
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %336, i64 %indvars.iv.i
   %341 = load ptr, ptr %340, align 8, !tbaa !266
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 32
   %343 = load i32, ptr %342, align 8, !tbaa !268
@@ -5678,7 +5663,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   %.081141.i = phi i32 [ 2147483647, %.lr.ph142.i ], [ %.384115.i, %377 ]
   %.088139.i = phi i32 [ 0, %.lr.ph142.i ], [ %.391114.i, %377 ]
   %357 = load ptr, ptr %355, align 8, !tbaa !265
-  %358 = getelementptr inbounds nuw ptr, ptr %357, i64 %indvars.iv160.i
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %357, i64 %indvars.iv160.i
   %359 = load ptr, ptr %358, align 8, !tbaa !266
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 32
   %361 = load i32, ptr %360, align 8, !tbaa !268
@@ -5703,7 +5688,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   %indvars.iv155.i = phi i64 [ 0, %.lr.ph134.i ], [ %indvars.iv.next156.i, %366 ]
   %.283132.i = phi i32 [ %.081141.i, %.lr.ph134.i ], [ %.283..i, %366 ]
   %.290131.i = phi i32 [ %.088139.i, %.lr.ph134.i ], [ %371, %366 ]
-  %367 = getelementptr inbounds nuw ptr, ptr %365, i64 %indvars.iv155.i
+  %367 = getelementptr inbounds nuw [8 x i8], ptr %365, i64 %indvars.iv155.i
   %368 = load ptr, ptr %367, align 8, !tbaa !35
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 8
   %370 = load i32, ptr %369, align 8, !tbaa !229
@@ -5746,7 +5731,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
   %381 = getelementptr inbounds nuw i8, ptr %333, i64 56
   %382 = load ptr, ptr %381, align 8, !tbaa !40
   %383 = sext i32 %.081.lcssa.i to i64
-  %384 = getelementptr inbounds %struct.MOVTrack, ptr %382, i64 %383
+  %384 = getelementptr inbounds [1600 x i8], ptr %382, i64 %383
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 1576
   store ptr %353, ptr %385, align 8, !tbaa !223
   %386 = getelementptr inbounds nuw i8, ptr %384, i64 1584
@@ -5766,7 +5751,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
 
 391:                                              ; preds = %.loopexit.i, %.lr.ph148.i
   %indvars.iv168.i = phi i64 [ 0, %.lr.ph148.i ], [ %indvars.iv.next169.i, %.loopexit.i ]
-  %392 = getelementptr inbounds nuw ptr, ptr %390, i64 %indvars.iv168.i
+  %392 = getelementptr inbounds nuw [8 x i8], ptr %390, i64 %indvars.iv168.i
   %393 = load ptr, ptr %392, align 8, !tbaa !266
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 32
   %395 = load i32, ptr %394, align 8, !tbaa !268
@@ -5787,7 +5772,7 @@ rtp_hinting_needed.exit.thread:                   ; preds = %is_cover_image.exit
 
 400:                                              ; preds = %400, %.lr.ph146.i
   %indvars.iv163.i = phi i64 [ 0, %.lr.ph146.i ], [ %indvars.iv.next164.i, %400 ]
-  %401 = getelementptr inbounds nuw ptr, ptr %399, i64 %indvars.iv163.i
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %399, i64 %indvars.iv163.i
   %402 = load ptr, ptr %401, align 8, !tbaa !35
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 24
   store ptr %384, ptr %403, align 8, !tbaa !37
@@ -5833,7 +5818,7 @@ mov_init_iamf_track.exit:                         ; preds = %.loopexit.i, %.thre
   %indvars.iv794 = phi i64 [ 0, %.lr.ph691 ], [ %indvars.iv.next795, %429 ]
   %.2384690 = phi i32 [ %.0382.lcssa, %.lr.ph691 ], [ %.4386, %429 ]
   %.0393689 = phi i32 [ 0, %.lr.ph691 ], [ %.2395, %429 ]
-  %419 = getelementptr inbounds nuw ptr, ptr %409, i64 %indvars.iv794
+  %419 = getelementptr inbounds nuw [8 x i8], ptr %409, i64 %indvars.iv794
   %420 = load ptr, ptr %419, align 8, !tbaa !35
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 24
   %422 = load ptr, ptr %421, align 8, !tbaa !37
@@ -5848,7 +5833,7 @@ mov_init_iamf_track.exit:                         ; preds = %.loopexit.i, %.thre
 425:                                              ; preds = %418
   %426 = load ptr, ptr %313, align 8, !tbaa !40
   %427 = zext nneg i32 %.0393689 to i64
-  %428 = getelementptr inbounds nuw %struct.MOVTrack, ptr %426, i64 %427
+  %428 = getelementptr inbounds nuw [1600 x i8], ptr %426, i64 %427
   store ptr %428, ptr %421, align 8, !tbaa !37
   br label %429
 
@@ -5863,7 +5848,7 @@ mov_init_iamf_track.exit:                         ; preds = %.loopexit.i, %.thre
 430:                                              ; preds = %.lr.ph695, %990
   %indvars.iv799 = phi i64 [ 0, %.lr.ph695 ], [ %indvars.iv.next800, %990 ]
   %431 = load ptr, ptr %410, align 8, !tbaa !34
-  %432 = getelementptr inbounds nuw ptr, ptr %431, i64 %indvars.iv799
+  %432 = getelementptr inbounds nuw [8 x i8], ptr %431, i64 %indvars.iv799
   %433 = load ptr, ptr %432, align 8, !tbaa !35
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 24
   %435 = load ptr, ptr %434, align 8, !tbaa !37
@@ -6079,7 +6064,7 @@ thread-pre-split.i:                               ; preds = %481, %478, %475, %4
 534:                                              ; preds = %544, %528
   %indvars.iv.i.i.i = phi i64 [ 0, %528 ], [ %indvars.iv.next.i.i.i, %544 ]
   %.025.i.i.i = phi i32 [ %530, %528 ], [ %.2.i.i.i, %544 ]
-  %535 = getelementptr inbounds nuw %struct.anon.3, ptr @mov_pix_fmt_tags, i64 %indvars.iv.i.i.i
+  %535 = getelementptr inbounds nuw [12 x i8], ptr @mov_pix_fmt_tags, i64 %indvars.iv.i.i.i
   %536 = load i32, ptr %535, align 4, !tbaa !292
   %537 = icmp eq i32 %532, %536
   br i1 %537, label %538, label %544
@@ -6653,7 +6638,7 @@ defined_frame_rate.exit.i69.i.i:                  ; preds = %629, %623
 
 ._crit_edge.i18.i:                                ; preds = %735, %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %740 = getelementptr inbounds nuw ptr, ptr %717, i64 %indvars.iv.next.i.i
+  %740 = getelementptr inbounds nuw [8 x i8], ptr %717, i64 %indvars.iv.next.i.i
   %741 = load ptr, ptr %740, align 8, !tbaa !299
   %.not19.i.i = icmp eq ptr %741, null
   br i1 %.not19.i.i, label %.thread564, label %.preheader.i.i
@@ -7239,7 +7224,7 @@ ff_is_ttml_stream_paragraph_based.exit:           ; preds = %930
 
 1001:                                             ; preds = %1024, %.lr.ph.i534
   %indvars.iv.i536 = phi i64 [ 0, %.lr.ph.i534 ], [ %indvars.iv.next.i539, %1024 ]
-  %1002 = getelementptr inbounds nuw %struct.MOVTrack, ptr %998, i64 %indvars.iv.i536
+  %1002 = getelementptr inbounds nuw [1600 x i8], ptr %998, i64 %indvars.iv.i536
   %1003 = getelementptr inbounds nuw i8, ptr %1002, i64 96
   %1004 = load ptr, ptr %1003, align 8, !tbaa !99
   %1005 = getelementptr inbounds nuw i8, ptr %1004, i64 16
@@ -7256,7 +7241,7 @@ is_cover_image.exit.i538:                         ; preds = %1001
 
 1010:                                             ; preds = %is_cover_image.exit.i538
   %1011 = zext nneg i32 %1007 to i64
-  %1012 = getelementptr inbounds nuw i32, ptr %3, i64 %1011
+  %1012 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %1011
   %1013 = load i32, ptr %1012, align 4, !tbaa !30
   %1014 = icmp slt i32 %1013, 0
   %1015 = trunc nuw nsw i64 %indvars.iv.i536 to i32
@@ -7271,7 +7256,7 @@ is_cover_image.exit.i538:                         ; preds = %1001
   %1019 = load i32, ptr %1018, align 8, !tbaa !152
   %1020 = or i32 %1019, 4
   store i32 %1020, ptr %1018, align 8, !tbaa !152
-  %1021 = getelementptr inbounds nuw i32, ptr %2, i64 %1011
+  %1021 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %1011
   %1022 = load i32, ptr %1021, align 4, !tbaa !30
   %1023 = add nsw i32 %1022, 1
   store i32 %1023, ptr %1021, align 4, !tbaa !30
@@ -7292,7 +7277,7 @@ is_cover_image.exit.i538:                         ; preds = %1001
   ]
 
 1027:                                             ; preds = %1025, %1025, %1025
-  %1028 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv9.i
+  %1028 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv9.i
   %1029 = load i32, ptr %1028, align 4, !tbaa !30
   %1030 = icmp sgt i32 %1029, 1
   br i1 %1030, label %.thread.i533, label %1031
@@ -7306,7 +7291,7 @@ is_cover_image.exit.i538:                         ; preds = %1001
   br i1 %.not.i532, label %1032, label %1043
 
 1032:                                             ; preds = %1031
-  %1033 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv9.i
+  %1033 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv9.i
   %1034 = load i32, ptr %1033, align 4, !tbaa !30
   %1035 = icmp sgt i32 %1034, -1
   br i1 %1035, label %1036, label %1043
@@ -7314,7 +7299,7 @@ is_cover_image.exit.i538:                         ; preds = %1001
 1036:                                             ; preds = %1032
   %1037 = load ptr, ptr %999, align 8, !tbaa !40
   %1038 = zext nneg i32 %1034 to i64
-  %1039 = getelementptr inbounds nuw %struct.MOVTrack, ptr %1037, i64 %1038
+  %1039 = getelementptr inbounds nuw [1600 x i8], ptr %1037, i64 %1038
   %1040 = getelementptr inbounds nuw i8, ptr %1039, i64 72
   %1041 = load i32, ptr %1040, align 8, !tbaa !152
   %1042 = or i32 %1041, 4
@@ -7359,7 +7344,7 @@ define internal void @mov_free(ptr noundef readonly captures(none) %0) #0 {
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !35
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr null, ptr %13, align 8, !tbaa !37
@@ -7375,7 +7360,7 @@ define internal void @mov_free(ptr noundef readonly captures(none) %0) #0 {
 
 17:                                               ; preds = %14
   %18 = sext i32 %16 to i64
-  %19 = getelementptr inbounds %struct.MOVTrack, ptr %9, i64 %18
+  %19 = getelementptr inbounds [1600 x i8], ptr %9, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   tail call void @avcodec_parameters_free(ptr noundef nonnull %20) #17
   br label %21
@@ -7399,7 +7384,7 @@ define internal void @mov_free(ptr noundef readonly captures(none) %0) #0 {
 27:                                               ; preds = %.lr.ph52, %57
   %indvars.iv56 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next57, %57 ]
   %28 = load ptr, ptr %8, align 8, !tbaa !40
-  %29 = getelementptr inbounds nuw %struct.MOVTrack, ptr %28, i64 %indvars.iv56
+  %29 = getelementptr inbounds nuw [1600 x i8], ptr %28, i64 %indvars.iv56
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %31 = load i32, ptr %30, align 8, !tbaa !96
   switch i32 %31, label %37 [
@@ -7603,7 +7588,7 @@ get_moov_size.exit:                               ; preds = %29, %34, %38
   %49 = call i64 @avio_seek(ptr noundef %6, i64 noundef 0, i32 noundef 1) #17
   %50 = add i64 %45, %49
   %51 = load ptr, ptr %46, align 8, !tbaa !40
-  %52 = getelementptr inbounds nuw %struct.MOVTrack, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [1600 x i8], ptr %51, i64 %indvars.iv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 304
   store i64 %50, ptr %53, align 8, !tbaa !240
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7646,7 +7631,7 @@ get_moov_size.exit:                               ; preds = %29, %34, %38
 
 76:                                               ; preds = %.lr.ph64, %79
   %indvars.iv67 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next68, %79 ]
-  %77 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv67
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv67
   %78 = load i64, ptr %77, align 8, !tbaa !319
   %.not57 = icmp ult i64 %78, 4294967296
   br i1 %.not57, label %79, label %.thread
@@ -7656,7 +7641,7 @@ get_moov_size.exit:                               ; preds = %29, %34, %38
   br label %87
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds nuw i64, ptr %75, i64 %indvars.iv67
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv67
   %81 = load i64, ptr %80, align 8, !tbaa !319
   %82 = call i64 @avio_seek(ptr noundef %6, i64 noundef %81, i32 noundef 0) #17
   %83 = trunc nuw i64 %78 to i32
@@ -7726,7 +7711,7 @@ define internal fastcc range(i32 -22, 1) i32 @mov_write_identification(ptr nound
 
 10:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !266
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i32, ptr %13, align 8, !tbaa !268
@@ -7794,7 +7779,7 @@ define internal fastcc range(i32 -22, 1) i32 @mov_write_identification(ptr nound
   %.094142.i = phi i32 [ 0, %.lr.ph148.i ], [ %.195.i, %57 ]
   %.0102141.i = phi i32 [ 0, %.lr.ph148.i ], [ %.1103.i, %57 ]
   %31 = load ptr, ptr %20, align 8, !tbaa !40
-  %32 = getelementptr inbounds nuw %struct.MOVTrack, ptr %31, i64 %indvars.iv157.i
+  %32 = getelementptr inbounds nuw [1600 x i8], ptr %31, i64 %indvars.iv157.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load ptr, ptr %33, align 8, !tbaa !99
   %.not.i.i = icmp eq ptr %34, null
@@ -8056,7 +8041,7 @@ mov_write_ftyp_tag.exit:                          ; preds = %126, %127
   %.02442 = phi i32 [ 0, %.lr.ph ], [ %.125, %154 ]
   %.02641 = phi i32 [ 0, %.lr.ph ], [ %.127, %154 ]
   %.02940 = phi i32 [ 0, %.lr.ph ], [ %.130, %154 ]
-  %140 = getelementptr inbounds nuw %struct.MOVTrack, ptr %138, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [1600 x i8], ptr %138, i64 %indvars.iv
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 96
   %142 = load ptr, ptr %141, align 8, !tbaa !99
   %.not.i34 = icmp eq ptr %142, null
@@ -8226,7 +8211,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_create_chapter_track(p
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !40
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.MOVTrack, ptr %6, i64 %7
+  %8 = getelementptr inbounds [1600 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %10 = load ptr, ptr %9, align 8, !tbaa !207
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -8276,7 +8261,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_create_chapter_track(p
 36:                                               ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
   %37 = load ptr, ptr %30, align 8, !tbaa !333
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !334
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load i64, ptr %40, align 8, !tbaa !336
@@ -8403,7 +8388,7 @@ define internal fastcc i32 @mov_write_moov_tag(ptr noundef %0, ptr noundef %1, p
 
 37:                                               ; preds = %.lr.ph, %build_chunks.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %build_chunks.exit ]
-  %38 = getelementptr inbounds nuw %struct.MOVTrack, ptr %34, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [1600 x i8], ptr %34, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !63
   %41 = icmp slt i32 %40, 1
@@ -8457,7 +8442,7 @@ define internal fastcc i32 @mov_write_moov_tag(ptr noundef %0, ptr noundef %1, p
   %.02732.i = phi ptr [ %52, %.lr.ph.preheader.i ], [ %.128.i, %84 ]
   %62 = load i64, ptr %.02732.i, align 8, !tbaa !141
   %63 = add i64 %62, %.033.i
-  %64 = getelementptr inbounds nuw %struct.MOVIentry, ptr %52, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [64 x i8], ptr %52, i64 %indvars.iv.i
   %65 = load i64, ptr %64, align 8, !tbaa !141
   %66 = icmp eq i64 %63, %65
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 24
@@ -8518,7 +8503,7 @@ build_chunks.exit:                                ; preds = %84, %58, %50, %47, 
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %92 = load ptr, ptr %91, align 8, !tbaa !40
   %93 = sext i32 %87 to i64
-  %94 = getelementptr inbounds %struct.MOVTrack, ptr %92, i64 %93
+  %94 = getelementptr inbounds [1600 x i8], ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 84
   %96 = load i32, ptr %95, align 4, !tbaa !215
   %wide.trip.count204 = zext nneg i32 %89 to i64
@@ -8526,7 +8511,7 @@ build_chunks.exit:                                ; preds = %84, %58, %50, %47, 
 
 97:                                               ; preds = %.lr.ph183, %97
   %indvars.iv201 = phi i64 [ 0, %.lr.ph183 ], [ %indvars.iv.next202, %97 ]
-  %98 = getelementptr inbounds nuw %struct.MOVTrack, ptr %92, i64 %indvars.iv201
+  %98 = getelementptr inbounds nuw [1600 x i8], ptr %92, i64 %indvars.iv201
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 164
   store i32 1885431907, ptr %99, align 4, !tbaa !316
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 168
@@ -8555,7 +8540,7 @@ build_chunks.exit:                                ; preds = %84, %58, %50, %47, 
 105:                                              ; preds = %.lr.ph186, %148
   %indvars.iv206 = phi i64 [ 0, %.lr.ph186 ], [ %indvars.iv.next207, %148 ]
   %106 = load ptr, ptr %101, align 8, !tbaa !40
-  %107 = getelementptr inbounds nuw %struct.MOVTrack, ptr %106, i64 %indvars.iv206
+  %107 = getelementptr inbounds nuw [1600 x i8], ptr %106, i64 %indvars.iv206
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 88
   %109 = load i32, ptr %108, align 8, !tbaa !96
   %110 = icmp eq i32 %109, 544240754
@@ -8615,7 +8600,7 @@ build_chunks.exit:                                ; preds = %84, %58, %50, %47, 
   %.sink274 = phi ptr [ %142, %140 ], [ %106, %111 ]
   %.sink = load i32, ptr %.sink.in, align 4, !tbaa !30
   %143 = sext i32 %.sink to i64
-  %144 = getelementptr inbounds %struct.MOVTrack, ptr %.sink274, i64 %143
+  %144 = getelementptr inbounds [1600 x i8], ptr %.sink274, i64 %143
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 84
   %146 = load i32, ptr %145, align 4, !tbaa !215
   %147 = getelementptr inbounds nuw i8, ptr %107, i64 168
@@ -8631,7 +8616,7 @@ build_chunks.exit:                                ; preds = %84, %58, %50, %47, 
 
 152:                                              ; preds = %.lr.ph188, %176
   %indvars.iv209 = phi i64 [ 0, %.lr.ph188 ], [ %indvars.iv.next210, %176 ]
-  %153 = getelementptr inbounds nuw %struct.MOVTrack, ptr %104, i64 %indvars.iv209
+  %153 = getelementptr inbounds nuw [1600 x i8], ptr %104, i64 %indvars.iv209
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 88
   %155 = load i32, ptr %154, align 8, !tbaa !96
   %156 = icmp eq i32 %155, 1684237684
@@ -8641,7 +8626,7 @@ build_chunks.exit:                                ; preds = %84, %58, %50, %47, 
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 220
   %159 = load i32, ptr %158, align 4, !tbaa !208
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds %struct.MOVTrack, ptr %104, i64 %160
+  %161 = getelementptr inbounds [1600 x i8], ptr %104, i64 %160
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 164
   store i32 1684237684, ptr %162, align 4, !tbaa !316
   %163 = getelementptr inbounds nuw i8, ptr %153, i64 84
@@ -8679,7 +8664,7 @@ build_chunks.exit:                                ; preds = %84, %58, %50, %47, 
   %indvars.iv.i141 = phi i64 [ 0, %.lr.ph.i140 ], [ %indvars.iv.next.i142, %205 ]
   %.076.i = phi i32 [ 1, %.lr.ph.i140 ], [ %.2.i, %205 ]
   %.06474.i = phi i64 [ 0, %.lr.ph.i140 ], [ %.266.i, %205 ]
-  %183 = getelementptr inbounds nuw %struct.MOVTrack, ptr %182, i64 %indvars.iv.i141
+  %183 = getelementptr inbounds nuw [1600 x i8], ptr %182, i64 %indvars.iv.i141
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 4
   %185 = load i32, ptr %184, align 4, !tbaa !63
   %186 = icmp sgt i32 %185, 0
@@ -8706,7 +8691,7 @@ build_chunks.exit:                                ; preds = %84, %58, %50, %47, 
   %195 = load i32, ptr %179, align 8, !tbaa !212
   %196 = sext i32 %195 to i64
   %197 = load ptr, ptr %177, align 8, !tbaa !40
-  %198 = getelementptr inbounds nuw %struct.MOVTrack, ptr %197, i64 %indvars.iv.i141
+  %198 = getelementptr inbounds nuw [1600 x i8], ptr %197, i64 %indvars.iv.i141
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 12
   %200 = load i32, ptr %199, align 4, !tbaa !209
   %201 = zext i32 %200 to i64
@@ -8849,7 +8834,7 @@ mov_write_mvhd_tag.exit:                          ; preds = %237, %238
   %indvars.iv.i148 = phi i64 [ 0, %.lr.ph.i146 ], [ %indvars.iv.next.i151, %273 ]
   %.03440.i = phi i32 [ 0, %.lr.ph.i146 ], [ %.1.i150, %273 ]
   %.03539.i = phi i32 [ 0, %.lr.ph.i146 ], [ %.136.i, %273 ]
-  %256 = getelementptr inbounds nuw %struct.MOVTrack, ptr %254, i64 %indvars.iv.i148
+  %256 = getelementptr inbounds nuw [1600 x i8], ptr %254, i64 %indvars.iv.i148
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 4
   %258 = load i32, ptr %257, align 4, !tbaa !63
   %259 = icmp sgt i32 %258, 0
@@ -8943,7 +8928,7 @@ mov_write_iods_tag.exit:                          ; preds = %276
   %300 = phi i32 [ %290, %.lr.ph192 ], [ %696, %695 ]
   %indvars.iv214 = phi i64 [ 0, %.lr.ph192 ], [ %indvars.iv.next215, %695 ]
   %301 = load ptr, ptr %292, align 8, !tbaa !40
-  %302 = getelementptr inbounds nuw %struct.MOVTrack, ptr %301, i64 %indvars.iv214
+  %302 = getelementptr inbounds nuw [1600 x i8], ptr %301, i64 %indvars.iv214
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 4
   %304 = load i32, ptr %303, align 4, !tbaa !63
   %305 = icmp sgt i32 %304, 0
@@ -9165,7 +9150,7 @@ mov_write_iods_tag.exit:                          ; preds = %276
 
 .preheader.i.i:                                   ; preds = %399, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i.i ], [ 0, %399 ]
-  %404 = getelementptr inbounds nuw i32, ptr %.099.i.i, i64 %indvars.iv.i.i
+  %404 = getelementptr inbounds nuw [4 x i8], ptr %.099.i.i, i64 %indvars.iv.i.i
   %405 = load i32, ptr %404, align 4, !tbaa !30
   call void @avio_wb32(ptr noundef %0, i32 noundef %405) #17
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -9792,7 +9777,7 @@ mov_write_track_metadata.exit.i.i:                ; preds = %.loopexit.i.i.i, %6
 653:                                              ; preds = %._crit_edge.i.i.i, %.lr.ph42.i.i.i
   %indvars.iv45.i.i.i = phi i64 [ 0, %.lr.ph42.i.i.i ], [ %indvars.iv.next46.i.i.i, %._crit_edge.i.i.i ]
   %654 = phi ptr [ %651, %.lr.ph42.i.i.i ], [ %680, %._crit_edge.i.i.i ]
-  %655 = getelementptr inbounds nuw %struct.MP4TrackKindMapping, ptr @ff_mov_track_kind_table, i64 %indvars.iv45.i.i.i
+  %655 = getelementptr inbounds nuw [16 x i8], ptr @ff_mov_track_kind_table, i64 %indvars.iv45.i.i.i
   %.sroa.47.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %655, i64 8
   %.sroa.47.0.copyload.i.i.i = load ptr, ptr %.sroa.47.0..sroa_idx.i.i.i, align 8, !tbaa !366
   %656 = load i32, ptr %.sroa.47.0.copyload.i.i.i, align 8, !tbaa !367
@@ -9808,7 +9793,7 @@ mov_write_track_metadata.exit.i.i:                ; preds = %.loopexit.i.i.i, %6
   br i1 %.not28.i.i.i, label %676, label %660
 
 660:                                              ; preds = %.lr.ph.i.i.i
-  %661 = getelementptr inbounds nuw %struct.MP4TrackKindValueMapping, ptr %.sroa.47.0.copyload.i.i.i, i64 %indvars.iv.i.i.i
+  %661 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.47.0.copyload.i.i.i, i64 %indvars.iv.i.i.i
   %.sroa.43.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %661, i64 8
   %.sroa.43.0.copyload.i.i.i = load ptr, ptr %.sroa.43.0..sroa_idx.i.i.i, align 8, !tbaa !31
   %662 = call i64 @avio_seek(ptr noundef %.pre26.i.i, i64 noundef 0, i32 noundef 1) #17
@@ -9847,14 +9832,14 @@ mov_write_track_kind.exit.i.i.i:                  ; preds = %667, %665, %660
 
 676:                                              ; preds = %mov_write_track_kind.exit.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %677 = getelementptr inbounds nuw %struct.MP4TrackKindValueMapping, ptr %.sroa.47.0.copyload.i.i.i, i64 %indvars.iv.next.i.i.i
+  %677 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.47.0.copyload.i.i.i, i64 %indvars.iv.next.i.i.i
   %678 = load i32, ptr %677, align 8, !tbaa !367
   %.not27.i.i.i = icmp eq i32 %678, 0
   br i1 %.not27.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !369
 
 ._crit_edge.i.i.i:                                ; preds = %676, %653
   %indvars.iv.next46.i.i.i = add nuw nsw i64 %indvars.iv45.i.i.i, 1
-  %679 = getelementptr inbounds nuw %struct.MP4TrackKindMapping, ptr @ff_mov_track_kind_table, i64 %indvars.iv.next46.i.i.i
+  %679 = getelementptr inbounds nuw [16 x i8], ptr @ff_mov_track_kind_table, i64 %indvars.iv.next46.i.i.i
   %680 = load ptr, ptr %679, align 8, !tbaa !363
   %.not.i20.i.i = icmp eq ptr %680, null
   br i1 %.not.i20.i.i, label %mov_write_track_kinds.exit.thread.loopexit.i.i, label %653, !llvm.loop !370
@@ -9929,7 +9914,7 @@ mov_write_trak_tag.exit._crit_edge:               ; preds = %mov_write_trak_tag.
 706:                                              ; preds = %706, %.lr.ph.i161
   %indvars.iv.i162 = phi i64 [ 0, %.lr.ph.i161 ], [ %indvars.iv.next.i163, %706 ]
   %707 = load ptr, ptr %705, align 8, !tbaa !40
-  %708 = getelementptr inbounds nuw %struct.MOVTrack, ptr %707, i64 %indvars.iv.i162
+  %708 = getelementptr inbounds nuw [1600 x i8], ptr %707, i64 %indvars.iv.i162
   call void @avio_wb32(ptr noundef %0, i32 noundef 32) #17
   call void @avio_wl32(ptr noundef %0, i32 noundef 2019914356) #17
   call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
@@ -10333,7 +10318,7 @@ mov_write_raw_metadata_tag.exit.i:                ; preds = %877, %874, %868, %m
 890:                                              ; preds = %908, %.lr.ph.i.i
   %indvars.iv.i.i169 = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i170, %908 ]
   %891 = load ptr, ptr %889, align 8, !tbaa !333
-  %892 = getelementptr inbounds nuw ptr, ptr %891, i64 %indvars.iv.i.i169
+  %892 = getelementptr inbounds nuw [8 x i8], ptr %891, i64 %indvars.iv.i.i169
   %893 = load ptr, ptr %892, align 8, !tbaa !334
   %894 = getelementptr inbounds nuw i8, ptr %893, i64 16
   %895 = load i64, ptr %894, align 8, !tbaa !338
@@ -10412,7 +10397,7 @@ mov_write_uuidusmt_tag.exit:                      ; preds = %732, %721, %719, %m
 926:                                              ; preds = %.lr.ph195, %926
   %indvars.iv217 = phi i64 [ 0, %.lr.ph195 ], [ %indvars.iv.next218, %926 ]
   %927 = load ptr, ptr %925, align 8, !tbaa !40
-  %928 = getelementptr inbounds nuw %struct.MOVTrack, ptr %927, i64 %indvars.iv217
+  %928 = getelementptr inbounds nuw [1600 x i8], ptr %927, i64 %indvars.iv217
   %929 = getelementptr inbounds nuw i8, ptr %928, i64 96
   %930 = load ptr, ptr %929, align 8, !tbaa !99
   %931 = getelementptr i8, ptr %930, i64 16
@@ -10672,7 +10657,7 @@ define internal fastcc void @mov_setup_track_ids(ptr noundef captures(none) %0) 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %.0455 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %25 ]
-  %26 = getelementptr inbounds nuw %struct.MOVTrack, ptr %11, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [1600 x i8], ptr %11, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load ptr, ptr %27, align 8, !tbaa !99
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
@@ -10685,7 +10670,7 @@ define internal fastcc void @mov_setup_track_ids(ptr noundef captures(none) %0) 
 31:                                               ; preds = %.lr.ph9, %50
   %indvars.iv16 = phi i64 [ 0, %.lr.ph9 ], [ %indvars.iv.next17, %50 ]
   %.28 = phi i32 [ %.045.lcssa, %.lr.ph9 ], [ %.3, %50 ]
-  %32 = getelementptr inbounds nuw %struct.MOVTrack, ptr %22, i64 %indvars.iv16
+  %32 = getelementptr inbounds nuw [1600 x i8], ptr %22, i64 %indvars.iv16
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !63
   %35 = icmp slt i32 %34, 1
@@ -10728,7 +10713,7 @@ define internal fastcc void @mov_setup_track_ids(ptr noundef captures(none) %0) 
 51:                                               ; preds = %.lr.ph13, %70
   %indvars.iv21 = phi i64 [ 0, %.lr.ph13 ], [ %indvars.iv.next22, %70 ]
   %.012 = phi i32 [ 0, %.lr.ph13 ], [ %.1, %70 ]
-  %52 = getelementptr inbounds nuw %struct.MOVTrack, ptr %16, i64 %indvars.iv21
+  %52 = getelementptr inbounds nuw [1600 x i8], ptr %16, i64 %indvars.iv21
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4, !tbaa !63
   %55 = icmp slt i32 %54, 1
@@ -10821,7 +10806,7 @@ define internal fastcc { i64, i32 } @calculate_mpeg4_bit_rates(ptr noundef reado
 22:                                               ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
   %.01012.i = phi i64 [ 0, %.lr.ph.i ], [ %27, %22 ]
-  %23 = getelementptr inbounds nuw %struct.MOVIentry, ptr %21, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %indvars.iv.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i32, ptr %24, align 8, !tbaa !144
   %26 = zext i32 %25 to i64
@@ -11062,7 +11047,7 @@ define internal fastcc void @mov_write_pssh_tag(ptr noundef %0, ptr %.16.val.32.
 .lr.ph3:                                          ; preds = %.preheader, %.lr.ph3
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %.lr.ph3 ], [ 0, %.preheader ]
   %45 = load ptr, ptr %21, align 8, !tbaa !398
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv22
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv22
   %47 = load ptr, ptr %46, align 8, !tbaa !31
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv19
   %49 = load i8, ptr %48, align 1, !tbaa !88
@@ -11117,7 +11102,7 @@ common.ret:                                       ; preds = %41, %44, %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 220
   %15 = load i32, ptr %14, align 4, !tbaa !208
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.MOVTrack, ptr %13, i64 %16
+  %17 = getelementptr inbounds [1600 x i8], ptr %13, i64 %16
   tail call fastcc void @get_pts_range(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %2, ptr noundef %3)
   %18 = load i64, ptr %2, align 8, !tbaa !319
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -11126,7 +11111,7 @@ common.ret:                                       ; preds = %41, %44, %11
   %22 = load ptr, ptr %12, align 8, !tbaa !40
   %23 = load i32, ptr %14, align 4, !tbaa !208
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.MOVTrack, ptr %22, i64 %24
+  %25 = getelementptr inbounds [1600 x i8], ptr %22, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i32, ptr %26, align 4, !tbaa !209
   %28 = zext i32 %27 to i64
@@ -11863,7 +11848,7 @@ mov_get_lpcm_flags.exit.i.i:                      ; preds = %mov_pcm_le_gt16.exi
 
 switch.lookup:                                    ; preds = %44
   %61 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mov_write_stbl_tag, i64 %61
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mov_write_stbl_tag, i64 %61
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %mov_get_lpcm_flags.exit217.i.i
 
@@ -12658,7 +12643,7 @@ thread-pre-split.thread.i.i.i:                    ; preds = %392, %383, %381
 .lr.ph.i230.i.i:                                  ; preds = %.lr.ph.i230.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i230.i.i ]
   %400 = load ptr, ptr %8, align 8, !tbaa !409
-  %401 = getelementptr inbounds nuw i32, ptr %400, i64 %indvars.iv.i.i.i
+  %401 = getelementptr inbounds nuw [4 x i8], ptr %400, i64 %indvars.iv.i.i.i
   %402 = load i32, ptr %401, align 4, !tbaa !30
   call void @avio_wb32(ptr noundef %1, i32 noundef %402) #17
   call void @avio_wb32(ptr noundef %1, i32 noundef 0) #17
@@ -13111,7 +13096,7 @@ mov_write_stsd_tag.exit:                          ; preds = %470, %mov_write_aud
 
 610:                                              ; preds = %609
   %611 = zext i32 %.15263.i to i64
-  %612 = getelementptr inbounds nuw %struct.MOVStts, ptr %590, i64 %611
+  %612 = getelementptr inbounds nuw [8 x i8], ptr %590, i64 %611
   %613 = getelementptr inbounds nuw i8, ptr %612, i64 4
   %614 = load i32, ptr %613, align 4, !tbaa !416
   %615 = icmp eq i32 %.0.i63, %614
@@ -13126,7 +13111,7 @@ mov_write_stsd_tag.exit:                          ; preds = %470, %mov_write_aud
 619:                                              ; preds = %610, %609
   %620 = add i32 %.15263.i, 1
   %621 = zext i32 %620 to i64
-  %622 = getelementptr inbounds nuw %struct.MOVStts, ptr %590, i64 %621
+  %622 = getelementptr inbounds nuw [8 x i8], ptr %590, i64 %621
   %623 = getelementptr inbounds nuw i8, ptr %622, i64 4
   store i32 %.0.i63, ptr %623, align 4, !tbaa !416
   store i32 1, ptr %622, align 4, !tbaa !414
@@ -13161,7 +13146,7 @@ mov_write_stsd_tag.exit:                          ; preds = %470, %mov_write_aud
 
 .lr.ph67.i:                                       ; preds = %.lr.ph67.i, %.lr.ph67.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph67.preheader.i ], [ %indvars.iv.next.i, %.lr.ph67.i ]
-  %631 = getelementptr inbounds nuw %struct.MOVStts, ptr %.053.i, i64 %indvars.iv.i
+  %631 = getelementptr inbounds nuw [8 x i8], ptr %.053.i, i64 %indvars.iv.i
   %632 = load i32, ptr %631, align 4, !tbaa !414
   call void @avio_wb32(ptr noundef %1, i32 noundef %632) #17
   %633 = getelementptr inbounds nuw i8, ptr %631, i64 4
@@ -13248,7 +13233,7 @@ mov_write_stts_tag.exit:                          ; preds = %578, %588, %._crit_
 669:                                              ; preds = %669, %.lr.ph.i65
   %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.i65 ], [ %indvars.iv.next.i67, %669 ]
   %670 = load ptr, ptr %668, align 8, !tbaa !64
-  %671 = getelementptr inbounds nuw %struct.MOVIentry, ptr %670, i64 %indvars.iv.i66
+  %671 = getelementptr inbounds nuw [64 x i8], ptr %670, i64 %indvars.iv.i66
   %672 = getelementptr inbounds nuw i8, ptr %671, i64 44
   %673 = load i32, ptr %672, align 4, !tbaa !154
   %674 = shl i32 %673, 1
@@ -13336,11 +13321,11 @@ mov_write_sdtp_tag.exit:                          ; preds = %669, %663
 .lr.ph.i71:                                       ; preds = %732, %.lr.ph.preheader.i
   %indvars.iv.i72 = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i73, %732 ]
   %.0451.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.146.i, %732 ]
-  %716 = getelementptr inbounds nuw %struct.MOVIentry, ptr %710, i64 %indvars.iv.i72
+  %716 = getelementptr inbounds nuw [64 x i8], ptr %710, i64 %indvars.iv.i72
   %717 = getelementptr inbounds nuw i8, ptr %716, i64 40
   %718 = load i32, ptr %717, align 8, !tbaa !153
   %719 = zext i32 %.0451.i to i64
-  %720 = getelementptr inbounds nuw %struct.MOVCtts, ptr %707, i64 %719
+  %720 = getelementptr inbounds nuw [8 x i8], ptr %707, i64 %719
   %721 = getelementptr inbounds nuw i8, ptr %720, i64 4
   %722 = load i32, ptr %721, align 4, !tbaa !422
   %723 = icmp eq i32 %718, %722
@@ -13355,7 +13340,7 @@ mov_write_sdtp_tag.exit:                          ; preds = %669, %663
 727:                                              ; preds = %.lr.ph.i71
   %728 = add i32 %.0451.i, 1
   %729 = zext i32 %728 to i64
-  %730 = getelementptr inbounds nuw %struct.MOVCtts, ptr %707, i64 %729
+  %730 = getelementptr inbounds nuw [8 x i8], ptr %707, i64 %729
   %731 = getelementptr inbounds nuw i8, ptr %730, i64 4
   store i32 %718, ptr %731, align 4, !tbaa !422
   store i32 1, ptr %730, align 4, !tbaa !420
@@ -13393,7 +13378,7 @@ mov_write_sdtp_tag.exit:                          ; preds = %669, %663
 
 .lr.ph5.i:                                        ; preds = %.lr.ph5.i, %.lr.ph5.preheader.i
   %indvars.iv9.i = phi i64 [ 0, %.lr.ph5.preheader.i ], [ %indvars.iv.next10.i, %.lr.ph5.i ]
-  %739 = getelementptr inbounds nuw %struct.MOVCtts, ptr %707, i64 %indvars.iv9.i
+  %739 = getelementptr inbounds nuw [8 x i8], ptr %707, i64 %indvars.iv9.i
   %740 = load i32, ptr %739, align 4, !tbaa !420
   call void @avio_wb32(ptr noundef %1, i32 noundef %740) #17
   %741 = getelementptr inbounds nuw i8, ptr %739, i64 4
@@ -13434,7 +13419,7 @@ mov_write_ctts_tag.exit:                          ; preds = %.lr.ph5.i, %._crit_
   %indvars.iv.i79 = phi i64 [ 0, %.lr.ph.i77 ], [ %indvars.iv.next.i81, %773 ]
   %.040.i = phi i32 [ 0, %.lr.ph.i77 ], [ %.1.i, %773 ]
   %.03339.i = phi i32 [ -1, %.lr.ph.i77 ], [ %.134.i, %773 ]
-  %757 = getelementptr inbounds nuw %struct.MOVIentry, ptr %756, i64 %indvars.iv.i79
+  %757 = getelementptr inbounds nuw [64 x i8], ptr %756, i64 %indvars.iv.i79
   %758 = getelementptr inbounds nuw i8, ptr %757, i64 28
   %759 = load i32, ptr %758, align 4, !tbaa !142
   %.not.i80 = icmp eq i32 %.03339.i, %759
@@ -13449,13 +13434,13 @@ mov_write_ctts_tag.exit:                          ; preds = %.lr.ph5.i, %._crit_
 763:                                              ; preds = %760
   call void @avio_wb32(ptr noundef %1, i32 noundef %762) #17
   %764 = load ptr, ptr %753, align 8, !tbaa !64
-  %765 = getelementptr inbounds nuw %struct.MOVIentry, ptr %764, i64 %indvars.iv.i79
+  %765 = getelementptr inbounds nuw [64 x i8], ptr %764, i64 %indvars.iv.i79
   %766 = getelementptr inbounds nuw i8, ptr %765, i64 28
   %767 = load i32, ptr %766, align 4, !tbaa !142
   call void @avio_wb32(ptr noundef %1, i32 noundef %767) #17
   call void @avio_wb32(ptr noundef %1, i32 noundef 1) #17
   %768 = load ptr, ptr %753, align 8, !tbaa !64
-  %769 = getelementptr inbounds nuw %struct.MOVIentry, ptr %768, i64 %indvars.iv.i79
+  %769 = getelementptr inbounds nuw [64 x i8], ptr %768, i64 %indvars.iv.i79
   %770 = getelementptr inbounds nuw i8, ptr %769, i64 28
   %771 = load i32, ptr %770, align 4, !tbaa !142
   %772 = add nsw i32 %.040.i, 1
@@ -13503,7 +13488,7 @@ mov_write_stsc_tag.exit:                          ; preds = %773, %744
   %.060.i = phi i32 [ 1, %.lr.ph.i85 ], [ %.1.i88, %791 ]
   %.04758.i = phi i32 [ -1, %.lr.ph.i85 ], [ %797, %791 ]
   %.04857.i = phi i32 [ 0, %.lr.ph.i85 ], [ %798, %791 ]
-  %792 = getelementptr inbounds nuw %struct.MOVIentry, ptr %790, i64 %indvars.iv.i87
+  %792 = getelementptr inbounds nuw [64 x i8], ptr %790, i64 %indvars.iv.i87
   %793 = getelementptr inbounds nuw i8, ptr %792, i64 24
   %794 = load i32, ptr %793, align 8, !tbaa !144
   %795 = getelementptr inbounds nuw i8, ptr %792, i64 36
@@ -13558,7 +13543,7 @@ mov_write_stsc_tag.exit:                          ; preds = %773, %744
   %813 = phi i32 [ %810, %.preheader.lr.ph.i ], [ %830, %._crit_edge65.i ]
   %814 = phi ptr [ %.pre.i84, %.preheader.lr.ph.i ], [ %831, %._crit_edge65.i ]
   %indvars.iv69.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next70.i, %._crit_edge65.i ]
-  %815 = getelementptr inbounds nuw %struct.MOVIentry, ptr %814, i64 %indvars.iv69.i
+  %815 = getelementptr inbounds nuw [64 x i8], ptr %814, i64 %indvars.iv69.i
   %816 = getelementptr inbounds nuw i8, ptr %815, i64 36
   %817 = load i32, ptr %816, align 4, !tbaa !145
   %.not67.i = icmp eq i32 %817, 0
@@ -13568,14 +13553,14 @@ mov_write_stsc_tag.exit:                          ; preds = %773, %744
   %818 = phi i32 [ %828, %.lr.ph64.i ], [ %817, %.preheader.i ]
   %819 = phi ptr [ %825, %.lr.ph64.i ], [ %814, %.preheader.i ]
   %.04963.i = phi i32 [ %824, %.lr.ph64.i ], [ 0, %.preheader.i ]
-  %820 = getelementptr inbounds nuw %struct.MOVIentry, ptr %819, i64 %indvars.iv69.i
+  %820 = getelementptr inbounds nuw [64 x i8], ptr %819, i64 %indvars.iv69.i
   %821 = getelementptr inbounds nuw i8, ptr %820, i64 24
   %822 = load i32, ptr %821, align 8, !tbaa !144
   %823 = udiv i32 %822, %818
   call void @avio_wb32(ptr noundef %1, i32 noundef %823) #17
   %824 = add nuw nsw i32 %.04963.i, 1
   %825 = load ptr, ptr %812, align 8, !tbaa !64
-  %826 = getelementptr inbounds nuw %struct.MOVIentry, ptr %825, i64 %indvars.iv69.i
+  %826 = getelementptr inbounds nuw [64 x i8], ptr %825, i64 %indvars.iv69.i
   %827 = getelementptr inbounds nuw i8, ptr %826, i64 36
   %828 = load i32, ptr %827, align 4, !tbaa !145
   %829 = icmp ult i32 %824, %828
@@ -13608,7 +13593,7 @@ mov_write_stsz_tag.exit:                          ; preds = %._crit_edge65.i, %8
   %842 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %843 = load ptr, ptr %842, align 8, !tbaa !64
   %844 = zext nneg i32 %839 to i64
-  %845 = getelementptr %struct.MOVIentry, ptr %843, i64 %844
+  %845 = getelementptr [64 x i8], ptr %843, i64 %844
   %846 = getelementptr i8, ptr %845, i64 -64
   %847 = load i64, ptr %846, align 8, !tbaa !141
   %848 = getelementptr inbounds nuw i8, ptr %3, i64 304
@@ -13643,7 +13628,7 @@ co64_required.exit.i:                             ; preds = %852, %841
   %860 = phi i32 [ %871, %870 ], [ %856, %.lr.ph.i94 ]
   %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %870 ], [ 0, %.lr.ph.i94 ]
   %861 = load ptr, ptr %858, align 8, !tbaa !64
-  %862 = getelementptr inbounds nuw %struct.MOVIentry, ptr %861, i64 %indvars.iv29.i
+  %862 = getelementptr inbounds nuw [64 x i8], ptr %861, i64 %indvars.iv29.i
   %863 = getelementptr inbounds nuw i8, ptr %862, i64 32
   %864 = load i32, ptr %863, align 8, !tbaa !143
   %.not24.us.i = icmp eq i32 %864, 0
@@ -13669,7 +13654,7 @@ co64_required.exit.i:                             ; preds = %852, %841
   %874 = phi i32 [ %884, %883 ], [ %856, %.lr.ph.i94 ]
   %indvars.iv.i95 = phi i64 [ %indvars.iv.next.i97, %883 ], [ 0, %.lr.ph.i94 ]
   %875 = load ptr, ptr %858, align 8, !tbaa !64
-  %876 = getelementptr inbounds nuw %struct.MOVIentry, ptr %875, i64 %indvars.iv.i95
+  %876 = getelementptr inbounds nuw [64 x i8], ptr %875, i64 %indvars.iv.i95
   %877 = getelementptr inbounds nuw i8, ptr %876, i64 32
   %878 = load i32, ptr %877, align 8, !tbaa !143
   %.not24.i = icmp eq i32 %878, 0
@@ -13789,7 +13774,7 @@ mov_write_stco_tag.exit:                          ; preds = %883, %870, %co64_re
 
 927:                                              ; preds = %926
   %928 = sext i32 %.090126.i to i64
-  %929 = getelementptr inbounds %struct.sgpd_entry, ptr %909, i64 %928
+  %929 = getelementptr inbounds [12 x i8], ptr %909, i64 %928
   %930 = getelementptr inbounds nuw i8, ptr %929, i64 4
   %931 = load i16, ptr %930, align 4, !tbaa !431
   %932 = sext i16 %931 to i32
@@ -13805,7 +13790,7 @@ mov_write_stco_tag.exit:                          ; preds = %883, %870, %co64_re
 937:                                              ; preds = %927, %926
   %938 = add nsw i32 %.090126.i, 1
   %939 = sext i32 %938 to i64
-  %940 = getelementptr inbounds %struct.sgpd_entry, ptr %909, i64 %939
+  %940 = getelementptr inbounds [12 x i8], ptr %909, i64 %939
   store i32 1, ptr %940, align 4, !tbaa !433
   %941 = trunc i32 %spec.select.i108 to i16
   %942 = getelementptr inbounds nuw i8, ptr %940, i64 4
@@ -13864,7 +13849,7 @@ mov_write_stco_tag.exit:                          ; preds = %883, %870, %co64_re
 
 .lr.ph.i101:                                      ; preds = %968, %.lr.ph.preheader.i99
   %indvars.iv.i102 = phi i64 [ 0, %.lr.ph.preheader.i99 ], [ %indvars.iv.next.i103, %968 ]
-  %960 = getelementptr inbounds nuw %struct.sgpd_entry, ptr %909, i64 %indvars.iv.i102
+  %960 = getelementptr inbounds nuw [12 x i8], ptr %909, i64 %indvars.iv.i102
   %961 = getelementptr inbounds nuw i8, ptr %960, i64 8
   %962 = load i32, ptr %961, align 4, !tbaa !434
   %.not111.i = icmp eq i32 %962, 0
@@ -13895,7 +13880,7 @@ mov_write_stco_tag.exit:                          ; preds = %883, %870, %co64_re
 
 .lr.ph135.i:                                      ; preds = %.lr.ph135.i, %._crit_edge131.i
   %indvars.iv139.i = phi i64 [ 0, %._crit_edge131.i ], [ %indvars.iv.next140.i, %.lr.ph135.i ]
-  %971 = getelementptr inbounds nuw %struct.sgpd_entry, ptr %909, i64 %indvars.iv139.i
+  %971 = getelementptr inbounds nuw [12 x i8], ptr %909, i64 %indvars.iv139.i
   %972 = load i32, ptr %971, align 4, !tbaa !433
   call void @avio_wb32(ptr noundef %1, i32 noundef %972) #17
   %973 = getelementptr inbounds nuw i8, ptr %971, i64 8
@@ -13958,7 +13943,7 @@ define internal fastcc void @mov_write_stss_tag(ptr noundef %0, ptr noundef read
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %.pre33, %._crit_edge32 ]
   %.02529 = phi i32 [ 0, %.lr.ph ], [ %.1, %._crit_edge32 ]
   %15 = load ptr, ptr %12, align 8, !tbaa !64
-  %16 = getelementptr inbounds nuw %struct.MOVIentry, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 44
   %18 = load i32, ptr %17, align 4, !tbaa !154
   %19 = and i32 %18, %2
@@ -14273,7 +14258,7 @@ find_compressor.exit:                             ; preds = %63, %67, %93
 
 136:                                              ; preds = %132, %136
   %indvars.iv = phi i64 [ 0, %132 ], [ %indvars.iv.next, %136 ]
-  %137 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %indvars.iv
   %138 = load i32, ptr %137, align 4, !tbaa !30
   %139 = lshr i32 %138, 16
   %140 = and i32 %139, 255
@@ -14713,7 +14698,7 @@ mov_write_avid_tag.exit:                          ; preds = %153, %153, %225, %2
 
 351:                                              ; preds = %347
   %352 = zext nneg i32 %349 to i64
-  %353 = getelementptr inbounds nuw i16, ptr @fiel_data, i64 %352
+  %353 = getelementptr inbounds nuw [2 x i8], ptr @fiel_data, i64 %352
   %354 = load i16, ptr %353, align 2, !tbaa !89
   %355 = zext i16 %354 to i32
   call void @avio_wb32(ptr noundef %1, i32 noundef 10) #17
@@ -15100,7 +15085,7 @@ mov_write_amve_tag.exit:                          ; preds = %515, %513, %511, %m
 
 switch.lookup:                                    ; preds = %562
   %567 = zext nneg i32 %563 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mov_write_video_tag, i64 %567
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mov_write_video_tag, i64 %567
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @avio_wb32(ptr noundef %1, i32 noundef 13) #17
   call void @avio_wl32(ptr noundef %1, i32 noundef 1681093747) #17
@@ -15374,7 +15359,7 @@ mov_write_sv3d_tag.exit:                          ; preds = %422, %mov_write_sv3
 
 switch.lookup455:                                 ; preds = %681
   %685 = zext nneg i32 %682 to i64
-  %switch.gep456 = getelementptr inbounds nuw i32, ptr @switch.table.mov_write_video_tag.65, i64 %685
+  %switch.gep456 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mov_write_video_tag.65, i64 %685
   %switch.load457 = load i32, ptr %switch.gep456, align 4
   call void @avio_wl32(ptr noundef %1, i32 noundef %switch.load457) #17
   br label %686
@@ -15396,7 +15381,7 @@ switch.lookup455:                                 ; preds = %681
 
 switch.lookup459:                                 ; preds = %687
   %692 = zext nneg i32 %690 to i64
-  %switch.gep460 = getelementptr inbounds nuw i32, ptr @switch.table.mov_write_video_tag.66, i64 %692
+  %switch.gep460 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mov_write_video_tag.66, i64 %692
   %switch.load461 = load i32, ptr %switch.gep460, align 4
   br label %693
 
@@ -16653,7 +16638,7 @@ put_bits.exit47:                                  ; preds = %4
   %.sroa.0.071 = phi i32 [ %21, %put_bits.exit47 ], [ %.sroa.0.1, %put_bits.exit87 ]
   %.sroa.35.070 = phi i32 [ 16, %put_bits.exit47 ], [ %220, %put_bits.exit87 ]
   %.sroa.68.469 = phi ptr [ %13, %put_bits.exit47 ], [ %.sroa.68.27, %put_bits.exit87 ]
-  %25 = getelementptr inbounds nuw %struct.anon.0, ptr %22, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %26 = load i8, ptr %25, align 2, !tbaa !125
   %27 = zext i8 %26 to i32
   %28 = icmp sgt i32 %.sroa.35.070, 2
@@ -17457,7 +17442,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @get_cluster_duration(ptr n
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = sext i32 %6 to i64
-  %18 = getelementptr inbounds %struct.MOVIentry, ptr %16, i64 %17
+  %18 = getelementptr inbounds [64 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !65
   br label %21
@@ -17466,7 +17451,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @get_cluster_duration(ptr n
   %22 = phi ptr [ %.pre, %8 ], [ %16, %14 ]
   %.0 = phi i64 [ %13, %8 ], [ %20, %14 ]
   %23 = sext i32 %1 to i64
-  %24 = getelementptr inbounds %struct.MOVIentry, ptr %22, i64 %23
+  %24 = getelementptr inbounds [64 x i8], ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !65
   %27 = sub nsw i64 %.0, %26
@@ -18003,10 +17988,10 @@ mov_write_mdta_keys_tag.exit:                     ; preds = %.lr.ph.i, %26
   tail call void @avio_wb16(ptr noundef %0, i32 noundef 0) #17
   tail call void @avio_wb16(ptr noundef %0, i32 noundef 1) #17
   %89 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
-  %90 = getelementptr inbounds nuw i64, ptr %85, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv.i
   store i64 %89, ptr %90, align 8, !tbaa !319
   tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
-  %91 = getelementptr inbounds nuw i32, ptr %86, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv.i
   %92 = load i32, ptr %91, align 4, !tbaa !30
   tail call void @avio_wb32(ptr noundef %0, i32 noundef %92) #17
   %93 = load i32, ptr %81, align 8, !tbaa !172
@@ -18113,7 +18098,7 @@ mov_write_iinf_tag.exit:                          ; preds = %.lr.ph.i44, %mov_wr
   tail call void @avio_wl32(ptr noundef %0, i32 noundef 1701868393) #17
   tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   %143 = load ptr, ptr %140, align 8, !tbaa !34
-  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv.i.i
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %indvars.iv.i.i
   %145 = load ptr, ptr %144, align 8, !tbaa !35
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %147 = load ptr, ptr %146, align 8, !tbaa !176
@@ -18121,7 +18106,7 @@ mov_write_iinf_tag.exit:                          ; preds = %.lr.ph.i44, %mov_wr
   %149 = load i32, ptr %148, align 8, !tbaa !181
   tail call void @avio_wb32(ptr noundef %0, i32 noundef %149) #17
   %150 = load ptr, ptr %140, align 8, !tbaa !34
-  %151 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv.i.i
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %indvars.iv.i.i
   %152 = load ptr, ptr %151, align 8, !tbaa !35
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %154 = load ptr, ptr %153, align 8, !tbaa !176
@@ -18136,7 +18121,7 @@ mov_write_iinf_tag.exit:                          ; preds = %.lr.ph.i44, %mov_wr
   %161 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %157, i32 noundef 0) #17
   %162 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
   %163 = load ptr, ptr %140, align 8, !tbaa !34
-  %164 = getelementptr inbounds nuw ptr, ptr %163, i64 %indvars.iv.i.i
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %indvars.iv.i.i
   %165 = load ptr, ptr %164, align 8, !tbaa !35
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %167 = load ptr, ptr %166, align 8, !tbaa !176
@@ -18156,7 +18141,7 @@ mov_write_iinf_tag.exit:                          ; preds = %.lr.ph.i44, %mov_wr
 
 .lr.ph.i.i.i:                                     ; preds = %141, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %141 ]
-  %175 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %170, i64 %indvars.iv.i.i.i
+  %175 = getelementptr inbounds nuw [20 x i8], ptr %170, i64 %indvars.iv.i.i.i
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 40
   %177 = load i32, ptr %176, align 4, !tbaa !325
   tail call void @avio_w8(ptr noundef %0, i32 noundef %177) #17
@@ -18174,7 +18159,7 @@ mov_write_pixi_tag.exit.i.i:                      ; preds = %.lr.ph.i.i.i, %141
   tail call void @avio_wb32(ptr noundef %0, i32 noundef %184) #17
   %185 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef %181, i32 noundef 0) #17
   %186 = load ptr, ptr %72, align 8, !tbaa !40
-  %187 = getelementptr inbounds nuw %struct.MOVTrack, ptr %186, i64 %indvars.iv.i.i
+  %187 = getelementptr inbounds nuw [1600 x i8], ptr %186, i64 %indvars.iv.i.i
   %188 = tail call i64 @avio_seek(ptr noundef %0, i64 noundef 0, i32 noundef 1) #17
   tail call void @avio_wb32(ptr noundef %0, i32 noundef 0) #17
   tail call void @avio_wl32(ptr noundef %0, i32 noundef 1127315041) #17
@@ -18573,7 +18558,7 @@ mov_write_string_metadata.exit118.i:              ; preds = %348, %mov_write_str
   %indvars.iv.i.i49 = phi i64 [ 0, %.lr.ph.i.i48 ], [ %indvars.iv.next.i.i51, %is_cover_image.exit.thread.i.i ]
   %.04.i.i = phi i64 [ 0, %.lr.ph.i.i48 ], [ %.1.i.i, %is_cover_image.exit.thread.i.i ]
   %360 = load ptr, ptr %357, align 8, !tbaa !40
-  %361 = getelementptr inbounds nuw %struct.MOVTrack, ptr %360, i64 %indvars.iv.i.i49
+  %361 = getelementptr inbounds nuw [1600 x i8], ptr %360, i64 %indvars.iv.i.i49
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 96
   %363 = load ptr, ptr %362, align 8, !tbaa !99
   %.not.i.i.i50 = icmp eq ptr %363, null
@@ -18968,7 +18953,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_flush_fragment(ptr nou
 25:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %26 = load ptr, ptr %19, align 8, !tbaa !40
-  %27 = getelementptr inbounds nuw %struct.MOVTrack, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [1600 x i8], ptr %26, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 200
   %29 = load i32, ptr %28, align 8, !tbaa !490
   %.not244 = icmp eq i32 %29, 0
@@ -19017,7 +19002,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_flush_fragment(ptr nou
 54:                                               ; preds = %.lr.ph267, %80
   %indvars.iv312 = phi i64 [ 0, %.lr.ph267 ], [ %indvars.iv.next313, %80 ]
   %55 = load ptr, ptr %23, align 8, !tbaa !40
-  %56 = getelementptr inbounds nuw %struct.MOVTrack, ptr %55, i64 %indvars.iv312
+  %56 = getelementptr inbounds nuw [1600 x i8], ptr %55, i64 %indvars.iv312
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4, !tbaa !63
   %59 = icmp slt i32 %58, 2
@@ -19086,7 +19071,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_flush_fragment(ptr nou
 
 95:                                               ; preds = %.lr.ph293, %104
   %indvars.iv324 = phi i64 [ 0, %.lr.ph293 ], [ %indvars.iv.next325, %104 ]
-  %96 = getelementptr inbounds nuw %struct.MOVTrack, ptr %94, i64 %indvars.iv324
+  %96 = getelementptr inbounds nuw [1600 x i8], ptr %94, i64 %indvars.iv324
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %98 = load i32, ptr %97, align 4, !tbaa !63
   %.not219 = icmp eq i32 %98, 0
@@ -19152,7 +19137,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
 
 125:                                              ; preds = %.lr.ph302, %125
   %indvars.iv327 = phi i64 [ 0, %.lr.ph302 ], [ %indvars.iv.next328, %125 ]
-  %126 = getelementptr inbounds nuw %struct.MOVTrack, ptr %124, i64 %indvars.iv327
+  %126 = getelementptr inbounds nuw [1600 x i8], ptr %124, i64 %indvars.iv327
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 304
   store i64 %122, ptr %127, align 8, !tbaa !240
   %indvars.iv.next328 = add nuw nsw i64 %indvars.iv327, 1
@@ -19242,7 +19227,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
 169:                                              ; preds = %.lr.ph306, %169
   %indvars.iv332 = phi i64 [ 0, %.lr.ph306 ], [ %indvars.iv.next333, %169 ]
   %170 = load ptr, ptr %168, align 8, !tbaa !40
-  %171 = getelementptr inbounds nuw %struct.MOVTrack, ptr %170, i64 %indvars.iv332
+  %171 = getelementptr inbounds nuw [1600 x i8], ptr %170, i64 %indvars.iv332
   call fastcc void @mov_finish_fragment(ptr noundef nonnull %9, ptr noundef %171, i64 noundef 0)
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %172 = load i32, ptr %20, align 4, !tbaa !102
@@ -19284,7 +19269,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
 186:                                              ; preds = %.lr.ph269, %182
   %indvars.iv315 = phi i64 [ 0, %.lr.ph269 ], [ %indvars.iv.next316, %182 ]
   %187 = load ptr, ptr %181, align 8, !tbaa !40
-  %188 = getelementptr inbounds nuw %struct.MOVTrack, ptr %187, i64 %indvars.iv315
+  %188 = getelementptr inbounds nuw [1600 x i8], ptr %187, i64 %indvars.iv315
   %.val = load ptr, ptr %8, align 8, !tbaa !4
   %189 = call fastcc i32 @mov_flush_fragment_interleaving(ptr %.val, ptr noundef %188)
   %190 = icmp sgt i32 %189, -1
@@ -19321,7 +19306,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
   %.0200272 = phi i32 [ 0, %.lr.ph278 ], [ %.1201, %235 ]
   %.0203271 = phi i32 [ 1, %.lr.ph278 ], [ %.1204, %235 ]
   %201 = load ptr, ptr %198, align 8, !tbaa !40
-  %202 = getelementptr inbounds nuw %struct.MOVTrack, ptr %201, i64 %indvars.iv318
+  %202 = getelementptr inbounds nuw [1600 x i8], ptr %201, i64 %indvars.iv318
   %203 = load i32, ptr %10, align 8, !tbaa !75
   %204 = and i32 %203, 16
   %.not236 = icmp eq i32 %204, 0
@@ -19418,7 +19403,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
   %243 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %244 = load ptr, ptr %243, align 8, !tbaa !40
   %245 = sext i32 %.0185.lcssa to i64
-  %246 = getelementptr inbounds %struct.MOVTrack, ptr %244, i64 %245
+  %246 = getelementptr inbounds [1600 x i8], ptr %244, i64 %245
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 136
   %248 = load ptr, ptr %247, align 8, !tbaa !64
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
@@ -19458,7 +19443,7 @@ get_moov_size.exit:                               ; preds = %is_cover_image.exit
   %.4192284 = phi i64 [ %.1189.lcssa, %.lr.ph289 ], [ %.5193, %531 ]
   %.0195283 = phi i64 [ 0, %.lr.ph289 ], [ %.1196, %531 ]
   %271 = load ptr, ptr %243, align 8, !tbaa !40
-  %272 = getelementptr inbounds nuw %struct.MOVTrack, ptr %271, i64 %indvars.iv321
+  %272 = getelementptr inbounds nuw [1600 x i8], ptr %271, i64 %indvars.iv321
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %273 = load i32, ptr %10, align 8, !tbaa !75
   %274 = and i32 %273, 16
@@ -19641,7 +19626,7 @@ mov_write_prft_tag.exit.i:                        ; preds = %344, %342, %316, %3
   %368 = phi i32 [ %363, %.lr.ph.i.i ], [ %453, %452 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %452 ]
   %369 = load ptr, ptr %243, align 8, !tbaa !40
-  %370 = getelementptr inbounds nuw %struct.MOVTrack, ptr %369, i64 %indvars.iv.i.i
+  %370 = getelementptr inbounds nuw [1600 x i8], ptr %369, i64 %indvars.iv.i.i
   %.not.i46.i = icmp eq i64 %indvars.iv.i.i, %366
   %or.cond.i.i = or i1 %365, %.not.i46.i
   br i1 %or.cond.i.i, label %371, label %452
@@ -19680,7 +19665,7 @@ mov_write_prft_tag.exit.i:                        ; preds = %344, %342, %316, %3
   %388 = getelementptr inbounds nuw i8, ptr %370, i64 328
   %389 = load ptr, ptr %388, align 8, !tbaa !247
   %390 = sext i32 %387 to i64
-  %391 = getelementptr %struct.MOVFragmentInfo, ptr %389, i64 %390
+  %391 = getelementptr [40 x i8], ptr %389, i64 %390
   %392 = getelementptr i8, ptr %391, i64 -40
   %393 = call i64 @avio_seek(ptr noundef %285, i64 noundef 0, i32 noundef 1) #17
   store i64 %393, ptr %392, align 8, !tbaa !250
@@ -19731,7 +19716,7 @@ mov_write_prft_tag.exit.i:                        ; preds = %344, %342, %316, %3
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i
   %420 = load ptr, ptr %388, align 8, !tbaa !247
   %421 = zext nneg i32 %418 to i64
-  %422 = getelementptr inbounds nuw %struct.MOVFragmentInfo, ptr %420, i64 %421
+  %422 = getelementptr inbounds nuw [40 x i8], ptr %420, i64 %421
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 24
   %424 = load i64, ptr %423, align 8, !tbaa !505
   %425 = call i64 @avio_seek(ptr noundef %285, i64 noundef %424, i32 noundef 0) #17
@@ -19752,12 +19737,12 @@ mov_write_prft_tag.exit.i:                        ; preds = %344, %342, %316, %3
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %430 ]
   %431 = add nuw nsw i64 %indvars.iv.i.i.i.i, %429
   %432 = load ptr, ptr %388, align 8, !tbaa !247
-  %433 = getelementptr inbounds nuw %struct.MOVFragmentInfo, ptr %432, i64 %431
+  %433 = getelementptr inbounds nuw [40 x i8], ptr %432, i64 %431
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 8
   %435 = load i64, ptr %434, align 8, !tbaa !248
   call void @avio_wb64(ptr noundef %285, i64 noundef %435) #17
   %436 = load ptr, ptr %388, align 8, !tbaa !247
-  %437 = getelementptr inbounds nuw %struct.MOVFragmentInfo, ptr %436, i64 %431
+  %437 = getelementptr inbounds nuw [40 x i8], ptr %436, i64 %431
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 16
   %439 = load i64, ptr %438, align 8, !tbaa !504
   call void @avio_wb64(ptr noundef %285, i64 noundef %439) #17
@@ -19831,7 +19816,7 @@ mov_write_tfrf_tags.exit.i.i:                     ; preds = %mov_write_tfrf_tag.
   %467 = phi i32 [ %483, %482 ], [ %456, %.lr.ph.i47.i ]
   %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %482 ], [ 0, %.lr.ph.i47.i ]
   %468 = load ptr, ptr %243, align 8, !tbaa !40
-  %469 = getelementptr inbounds nuw %struct.MOVTrack, ptr %468, i64 %indvars.iv24.i.i
+  %469 = getelementptr inbounds nuw [1600 x i8], ptr %468, i64 %indvars.iv24.i.i
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 4
   %471 = load i32, ptr %470, align 4, !tbaa !63
   %.not20.us.i.i = icmp eq i32 %471, 0
@@ -19848,7 +19833,7 @@ mov_write_tfrf_tags.exit.i.i:                     ; preds = %mov_write_tfrf_tag.
   %478 = load ptr, ptr %477, align 8, !tbaa !247
   %479 = sub nsw i32 %474, %461
   %480 = zext nneg i32 %479 to i64
-  %481 = getelementptr inbounds nuw %struct.MOVFragmentInfo, ptr %478, i64 %480
+  %481 = getelementptr inbounds nuw [40 x i8], ptr %478, i64 %480
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %478, ptr align 8 %481, i64 %465, i1 false)
   store i32 %461, ptr %473, align 8, !tbaa !246
   %.pre27.i.i = load i32, ptr %20, align 4, !tbaa !102
@@ -19865,7 +19850,7 @@ mov_write_tfrf_tags.exit.i.i:                     ; preds = %mov_write_tfrf_tag.
   %486 = phi i32 [ %456, %.lr.ph.split.preheader.i.i ], [ %503, %502 ]
   %indvars.iv.i48.i = phi i64 [ 0, %.lr.ph.split.preheader.i.i ], [ %indvars.iv.next.i50.i, %502 ]
   %487 = load ptr, ptr %243, align 8, !tbaa !40
-  %488 = getelementptr inbounds nuw %struct.MOVTrack, ptr %487, i64 %indvars.iv.i48.i
+  %488 = getelementptr inbounds nuw [1600 x i8], ptr %487, i64 %indvars.iv.i48.i
   %.not.i49.i = icmp eq i64 %indvars.iv.i48.i, %466
   br i1 %.not.i49.i, label %489, label %502
 
@@ -19886,7 +19871,7 @@ mov_write_tfrf_tags.exit.i.i:                     ; preds = %mov_write_tfrf_tag.
   %498 = load ptr, ptr %497, align 8, !tbaa !247
   %499 = sub nsw i32 %494, %461
   %500 = zext nneg i32 %499 to i64
-  %501 = getelementptr inbounds nuw %struct.MOVFragmentInfo, ptr %498, i64 %500
+  %501 = getelementptr inbounds nuw [40 x i8], ptr %498, i64 %500
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %498, ptr align 8 %501, i64 %465, i1 false)
   store i32 %461, ptr %493, align 8, !tbaa !246
   %.pre.i51.i = load i32, ptr %20, align 4, !tbaa !102
@@ -19923,7 +19908,7 @@ mov_write_moof_tag.exit:                          ; preds = %380, %283, %mov_pru
   %515 = phi ptr [ %.pre336, %mov_write_moof_tag.exit ], [ %271, %282 ]
   %.6194255 = phi i64 [ %.6194254, %mov_write_moof_tag.exit ], [ %.4192284, %282 ]
   %.2197 = phi i64 [ %513, %mov_write_moof_tag.exit ], [ %.0195283, %282 ]
-  %516 = getelementptr inbounds nuw %struct.MOVTrack, ptr %515, i64 %indvars.iv321
+  %516 = getelementptr inbounds nuw [1600 x i8], ptr %515, i64 %indvars.iv321
   call fastcc void @mov_finish_fragment(ptr noundef nonnull %9, ptr noundef %516, i64 noundef %.2197)
   %517 = load i32, ptr %178, align 8, !tbaa !78
   %.not233 = icmp eq i32 %517, 0
@@ -19991,7 +19976,7 @@ define internal fastcc i32 @mov_write_single_packet(ptr noundef %0, ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i32, ptr %8, align 4, !tbaa !32
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !35
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !37
@@ -20008,7 +19993,7 @@ define internal fastcc i32 @mov_write_single_packet(ptr noundef %0, ptr noundef 
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 136
   %23 = load ptr, ptr %22, align 8, !tbaa !64
   %24 = sext i32 %20 to i64
-  %25 = getelementptr %struct.MOVIentry, ptr %23, i64 %24
+  %25 = getelementptr [64 x i8], ptr %23, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -56
   %27 = load i64, ptr %26, align 8, !tbaa !65
   br label %41
@@ -20097,7 +20082,7 @@ check_pkt.exit:                                   ; preds = %53
 
 67:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %68 = getelementptr inbounds nuw %struct.MOVTrack, ptr %65, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [1600 x i8], ptr %65, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 312
   store i32 1, ptr %69, align 8, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -20251,7 +20236,7 @@ check_pkt.exit:                                   ; preds = %53
   %141 = sub nsw i64 %136, %140
   %142 = load ptr, ptr %6, align 8, !tbaa !34
   %143 = sext i32 %131 to i64
-  %144 = getelementptr inbounds ptr, ptr %142, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %142, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !35
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 32
   %147 = load i64, ptr %146, align 8
@@ -20398,7 +20383,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mov_write_squashed_packets
 8:                                                ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !40
-  %10 = getelementptr inbounds nuw %struct.MOVTrack, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [1600 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1552
   %12 = load i32, ptr %11, align 8, !tbaa !147
   %.not = icmp eq i32 %12, 0
@@ -20531,7 +20516,7 @@ define internal fastcc void @mov_finish_fragment(ptr noundef readonly captures(n
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw %struct.MOVIentry, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [64 x i8], ptr %16, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8, !tbaa !141
   %20 = add i64 %14, %19
   store i64 %20, ptr %18, align 8, !tbaa !141
@@ -20556,7 +20541,7 @@ define internal fastcc void @mov_finish_fragment(ptr noundef readonly captures(n
 
 27:                                               ; preds = %.lr.ph39, %27
   %indvars.iv42 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next43, %27 ]
-  %28 = getelementptr inbounds nuw %struct.MOVIentry, ptr %26, i64 %indvars.iv42
+  %28 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 %indvars.iv42
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store i32 0, ptr %29, align 8, !tbaa !143
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 36
@@ -20581,7 +20566,7 @@ define internal fastcc void @mov_finish_fragment(ptr noundef readonly captures(n
   %40 = load ptr, ptr %33, align 8, !tbaa !241
   %41 = load i32, ptr %34, align 8, !tbaa !242
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %struct.MOVIentry, ptr %40, i64 %42
+  %43 = getelementptr inbounds [64 x i8], ptr %40, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %45 = load ptr, ptr %44, align 8, !tbaa !64
   %46 = load i32, ptr %4, align 4, !tbaa !63
@@ -20649,7 +20634,7 @@ define internal fastcc void @mov_write_moof_tag_internal(ptr noundef %0, ptr nou
   %19 = phi i32 [ %10, %.lr.ph ], [ %220, %219 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %219 ]
   %20 = load ptr, ptr %12, align 8, !tbaa !40
-  %21 = getelementptr inbounds nuw %struct.MOVTrack, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [1600 x i8], ptr %20, i64 %indvars.iv
   %.not = icmp eq i64 %indvars.iv, %17
   %or.cond = or i1 %13, %.not
   br i1 %or.cond, label %22, label %219
@@ -20907,7 +20892,7 @@ mov_write_tfhd_tag.exit.i:                        ; preds = %117, %103
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %158 ]
   %.05465.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %158 ]
   %147 = load ptr, ptr %144, align 8, !tbaa !64
-  %148 = getelementptr inbounds nuw %struct.MOVIentry, ptr %147, i64 %indvars.iv.i
+  %148 = getelementptr inbounds nuw [64 x i8], ptr %147, i64 %indvars.iv.i
   %149 = load i64, ptr %148, align 8, !tbaa !141
   %150 = getelementptr i8, ptr %148, i64 -64
   %151 = load i64, ptr %150, align 8, !tbaa !141
@@ -20989,7 +20974,7 @@ mov_write_tfhd_tag.exit.i:                        ; preds = %117, %103
   %197 = getelementptr inbounds nuw i8, ptr %21, i64 328
   %198 = load ptr, ptr %197, align 8, !tbaa !247
   %199 = zext nneg i32 %194 to i64
-  %200 = getelementptr %struct.MOVFragmentInfo, ptr %198, i64 %199
+  %200 = getelementptr [40 x i8], ptr %198, i64 %199
   %201 = getelementptr i8, ptr %200, i64 -16
   %202 = load i64, ptr %201, align 8, !tbaa !505
   %.not59.i = icmp eq i64 %202, 0
@@ -21085,7 +21070,7 @@ define internal fastcc void @mov_write_sidx_tags(ptr noundef %0, ptr noundef rea
   %indvars.iv = phi i64 [ %indvars.iv.next, %111 ], [ 0, %17 ]
   %.131 = phi i32 [ %.2, %111 ], [ %.02133, %17 ]
   %21 = load ptr, ptr %7, align 8, !tbaa !40
-  %22 = getelementptr inbounds nuw %struct.MOVTrack, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [1600 x i8], ptr %21, i64 %indvars.iv
   %.not = icmp eq i64 %indvars.iv, %10
   %or.cond26 = or i1 %8, %.not
   br i1 %or.cond26, label %23, label %111
@@ -21191,7 +21176,7 @@ define internal fastcc void @mov_write_sidx_tags(ptr noundef %0, ptr noundef rea
   br i1 %77, label %78, label %88
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw %struct.MOVFragmentInfo, ptr %.pre93.i, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %.pre93.i, i64 %indvars.iv.i
   %80 = load i64, ptr %79, align 8, !tbaa !250
   %81 = getelementptr i8, ptr %79, i64 -40
   %82 = load i64, ptr %81, align 8, !tbaa !250
@@ -21209,7 +21194,7 @@ define internal fastcc void @mov_write_sidx_tags(ptr noundef %0, ptr noundef rea
 
 88:                                               ; preds = %87, %78, %76
   %89 = phi ptr [ %.pre.i, %87 ], [ %.pre93.i, %78 ], [ %.pre93.i, %76 ]
-  %90 = getelementptr inbounds nuw %struct.MOVFragmentInfo, ptr %89, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw [40 x i8], ptr %89, i64 %indvars.iv.i
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load i64, ptr %91, align 8, !tbaa !504
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 32
@@ -21298,7 +21283,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %19 = or i32 %.077104, 256
   %spec.select = select i1 %.not92, i32 %.077104, i32 %19
   %20 = load ptr, ptr %10, align 8, !tbaa !64
-  %21 = getelementptr inbounds %struct.MOVIentry, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds [64 x i8], ptr %20, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !144
   %24 = load i32, ptr %11, align 4, !tbaa !519
@@ -21343,7 +21328,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %40 = load ptr, ptr %39, align 8, !tbaa !64
   %41 = sext i32 %4 to i64
-  %42 = getelementptr inbounds %struct.MOVIentry, ptr %40, i64 %41
+  %42 = getelementptr inbounds [64 x i8], ptr %40, i64 %41
   %43 = getelementptr i8, ptr %42, i64 44
   %.val98 = load i32, ptr %43, align 4, !tbaa !154
   %44 = and i32 %.val98, 1
@@ -21395,7 +21380,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %70 = load ptr, ptr %69, align 8, !tbaa !64
   %71 = sext i32 %4 to i64
-  %72 = getelementptr inbounds %struct.MOVIentry, ptr %70, i64 %71
+  %72 = getelementptr inbounds [64 x i8], ptr %70, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !141
   %74 = add i64 %68, %73
   %75 = trunc i64 %74 to i32
@@ -21412,7 +21397,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %80 = load ptr, ptr %79, align 8, !tbaa !64
   %81 = sext i32 %4 to i64
-  %82 = getelementptr inbounds %struct.MOVIentry, ptr %80, i64 %81
+  %82 = getelementptr inbounds [64 x i8], ptr %80, i64 %81
   %83 = getelementptr i8, ptr %82, i64 44
   %.val99 = load i32, ptr %83, align 4, !tbaa !154
   %84 = and i32 %.val99, 1
@@ -21452,7 +21437,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
 
 97:                                               ; preds = %96
   %98 = load ptr, ptr %89, align 8, !tbaa !64
-  %99 = getelementptr inbounds %struct.MOVIentry, ptr %98, i64 %indvars.iv146
+  %99 = getelementptr inbounds [64 x i8], ptr %98, i64 %indvars.iv146
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %101 = load i32, ptr %100, align 8, !tbaa !144
   tail call void @avio_wb32(ptr noundef %0, i32 noundef %101) #17
@@ -21463,7 +21448,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
 
 103:                                              ; preds = %102
   %104 = load ptr, ptr %89, align 8, !tbaa !64
-  %105 = getelementptr inbounds %struct.MOVIentry, ptr %104, i64 %indvars.iv146
+  %105 = getelementptr inbounds [64 x i8], ptr %104, i64 %indvars.iv146
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
   %107 = load i32, ptr %106, align 8, !tbaa !153
   tail call void @avio_wb32(ptr noundef %0, i32 noundef %107) #17
@@ -21487,7 +21472,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
 .lr.ph108.split.split.us.split.us.split.us:       ; preds = %.lr.ph108.split.split.us.split.us, %.lr.ph108.split.split.us.split.us.split.us
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %.lr.ph108.split.split.us.split.us.split.us ], [ %92, %.lr.ph108.split.split.us.split.us ]
   %109 = load ptr, ptr %89, align 8, !tbaa !64
-  %110 = getelementptr inbounds %struct.MOVIentry, ptr %109, i64 %indvars.iv141
+  %110 = getelementptr inbounds [64 x i8], ptr %109, i64 %indvars.iv141
   %111 = getelementptr i8, ptr %110, i64 44
   %.val100.us.us.us = load i32, ptr %111, align 4, !tbaa !154
   %112 = and i32 %.val100.us.us.us, 1
@@ -21505,7 +21490,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %115 = tail call fastcc i32 @get_cluster_duration(ptr noundef nonnull %2, i32 noundef %114)
   tail call void @avio_wb32(ptr noundef %0, i32 noundef %115) #17
   %116 = load ptr, ptr %89, align 8, !tbaa !64
-  %117 = getelementptr inbounds %struct.MOVIentry, ptr %116, i64 %indvars.iv136
+  %117 = getelementptr inbounds [64 x i8], ptr %116, i64 %indvars.iv136
   %118 = getelementptr i8, ptr %117, i64 44
   %.val100.us.us = load i32, ptr %118, align 4, !tbaa !154
   %119 = and i32 %.val100.us.us, 1
@@ -21523,7 +21508,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
 .lr.ph108.split.split.us.split.split.us:          ; preds = %.lr.ph108.split.split.us.split, %.lr.ph108.split.split.us.split.split.us
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.lr.ph108.split.split.us.split.split.us ], [ %92, %.lr.ph108.split.split.us.split ]
   %121 = load ptr, ptr %89, align 8, !tbaa !64
-  %122 = getelementptr inbounds %struct.MOVIentry, ptr %121, i64 %indvars.iv131
+  %122 = getelementptr inbounds [64 x i8], ptr %121, i64 %indvars.iv131
   %123 = getelementptr i8, ptr %122, i64 44
   %.val100.us.us112 = load i32, ptr %123, align 4, !tbaa !154
   %124 = and i32 %.val100.us.us112, 1
@@ -21531,7 +21516,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %125 = select i1 %.not.i103.us.us113, i32 16842752, i32 33554432
   tail call void @avio_wb32(ptr noundef %0, i32 noundef %125) #17
   %126 = load ptr, ptr %89, align 8, !tbaa !64
-  %127 = getelementptr inbounds %struct.MOVIentry, ptr %126, i64 %indvars.iv131
+  %127 = getelementptr inbounds [64 x i8], ptr %126, i64 %indvars.iv131
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 40
   %129 = load i32, ptr %128, align 8, !tbaa !153
   tail call void @avio_wb32(ptr noundef %0, i32 noundef %129) #17
@@ -21546,7 +21531,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %131 = tail call fastcc i32 @get_cluster_duration(ptr noundef nonnull %2, i32 noundef %130)
   tail call void @avio_wb32(ptr noundef %0, i32 noundef %131) #17
   %132 = load ptr, ptr %89, align 8, !tbaa !64
-  %133 = getelementptr inbounds %struct.MOVIentry, ptr %132, i64 %indvars.iv126
+  %133 = getelementptr inbounds [64 x i8], ptr %132, i64 %indvars.iv126
   %134 = getelementptr i8, ptr %133, i64 44
   %.val100.us = load i32, ptr %134, align 4, !tbaa !154
   %135 = and i32 %.val100.us, 1
@@ -21554,7 +21539,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
   %136 = select i1 %.not.i103.us, i32 16842752, i32 33554432
   tail call void @avio_wb32(ptr noundef %0, i32 noundef %136) #17
   %137 = load ptr, ptr %89, align 8, !tbaa !64
-  %138 = getelementptr inbounds %struct.MOVIentry, ptr %137, i64 %indvars.iv126
+  %138 = getelementptr inbounds [64 x i8], ptr %137, i64 %indvars.iv126
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 40
   %140 = load i32, ptr %139, align 8, !tbaa !153
   tail call void @avio_wb32(ptr noundef %0, i32 noundef %140) #17
@@ -21575,12 +21560,12 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
 
 144:                                              ; preds = %141, %.lr.ph108.split.split
   %145 = load ptr, ptr %89, align 8, !tbaa !64
-  %146 = getelementptr inbounds %struct.MOVIentry, ptr %145, i64 %indvars.iv121
+  %146 = getelementptr inbounds [64 x i8], ptr %145, i64 %indvars.iv121
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %148 = load i32, ptr %147, align 8, !tbaa !144
   tail call void @avio_wb32(ptr noundef %0, i32 noundef %148) #17
   %149 = load ptr, ptr %89, align 8, !tbaa !64
-  %150 = getelementptr inbounds %struct.MOVIentry, ptr %149, i64 %indvars.iv121
+  %150 = getelementptr inbounds [64 x i8], ptr %149, i64 %indvars.iv121
   %151 = getelementptr i8, ptr %150, i64 44
   %.val100 = load i32, ptr %151, align 4, !tbaa !154
   %152 = and i32 %.val100, 1
@@ -21591,7 +21576,7 @@ define internal fastcc void @mov_write_trun_tag(ptr noundef %0, ptr noundef capt
 
 154:                                              ; preds = %144
   %155 = load ptr, ptr %89, align 8, !tbaa !64
-  %156 = getelementptr inbounds %struct.MOVIentry, ptr %155, i64 %indvars.iv121
+  %156 = getelementptr inbounds [64 x i8], ptr %155, i64 %indvars.iv121
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 40
   %158 = load i32, ptr %157, align 8, !tbaa !153
   tail call void @avio_wb32(ptr noundef %0, i32 noundef %158) #17
@@ -21677,7 +21662,7 @@ get_sidx_size.exit.i:                             ; preds = %10
 
 23:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %24 = getelementptr inbounds nuw %struct.MOVTrack, ptr %22, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [1600 x i8], ptr %22, i64 %indvars.iv.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 304
   %26 = load i64, ptr %25, align 8, !tbaa !240
   %27 = add nsw i64 %26, %20
@@ -21725,7 +21710,7 @@ get_moov_size.exit.i:                             ; preds = %31
 
 44:                                               ; preds = %44, %.lr.ph.i11
   %indvars.iv.i13 = phi i64 [ 0, %.lr.ph.i11 ], [ %indvars.iv.next.i14, %44 ]
-  %45 = getelementptr inbounds nuw %struct.MOVTrack, ptr %43, i64 %indvars.iv.i13
+  %45 = getelementptr inbounds nuw [1600 x i8], ptr %43, i64 %indvars.iv.i13
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 304
   %47 = load i64, ptr %46, align 8, !tbaa !240
   %48 = add nsw i64 %47, %41
@@ -21776,7 +21761,7 @@ get_moov_size.exit29.i:                           ; preds = %52
 
 65:                                               ; preds = %65, %.lr.ph37.i
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph37.i ], [ %indvars.iv.next40.i, %65 ]
-  %66 = getelementptr inbounds nuw %struct.MOVTrack, ptr %64, i64 %indvars.iv39.i
+  %66 = getelementptr inbounds nuw [1600 x i8], ptr %64, i64 %indvars.iv39.i
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 304
   %68 = load i64, ptr %67, align 8, !tbaa !240
   %69 = add nsw i64 %68, %62

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVBPrint = type { ptr, i32, i32, i32, [1 x i8], [1000 x i8] }
-%struct.AVMotionVector = type { i32, i8, i8, i16, i16, i16, i16, i64, i32, i32, i16 }
 
 @.str = private unnamed_addr constant [33 x i8] c"Adding %d MVs info to frame %ld\0A\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"New frame, type: %c\0A\00", align 1
@@ -162,7 +161,7 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   %45 = or disjoint i32 %44, 8
   %46 = trunc i32 %45 to i16
   %47 = mul i64 %indvars.iv350, %38
-  %invariant.gep = getelementptr i32, ptr %2, i64 %39
+  %invariant.gep = getelementptr [4 x i8], ptr %2, i64 %39
   %48 = trunc nsw i64 %42 to i32
   %49 = trunc nsw i64 %43 to i32
   %50 = trunc nsw i64 %42 to i32
@@ -172,7 +171,7 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
 52:                                               ; preds = %.preheader250.us, %.split268.us278
   %indvars.iv344 = phi i64 [ 0, %.preheader250.us ], [ %indvars.iv.next345, %.split268.us278 ]
   %.1199272.us = phi i32 [ %.0198274.us, %.preheader250.us ], [ %.us-phi.us, %.split268.us278 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv344
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv344
   %53 = load i32, ptr %gep, align 4, !tbaa !35
   %.fr316 = freeze i32 %53
   %54 = and i32 %.fr316, 64
@@ -211,7 +210,7 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %.not223.us282, label %.loopexit249.us, label %.preheader248.us
 
 .preheader248.us:                                 ; preds = %.split.us284
-  %73 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv326
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv326
   %74 = load ptr, ptr %73, align 8, !tbaa !40
   %75 = sext i32 %.2200266.us280 to i64
   br label %76
@@ -231,13 +230,13 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   %84 = add nsw i32 %81, %83
   %85 = shl i32 %84, %35
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds [2 x i16], ptr %74, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %74, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !43
   %89 = sext i16 %88 to i32
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 2
   %91 = load i16, ptr %90, align 2, !tbaa !43
   %92 = sext i16 %91 to i32
-  %93 = getelementptr inbounds %struct.AVMotionVector, ptr %32, i64 %indvars.iv
+  %93 = getelementptr inbounds [40 x i8], ptr %32, i64 %indvars.iv
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store i8 8, ptr %94, align 4, !tbaa !45
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 5
@@ -302,7 +301,7 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %.not223.us.us287, label %.loopexit247.us.us, label %.preheader246.us.us
 
 .preheader246.us.us:                              ; preds = %.split.us.split.us291
-  %117 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv332
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv332
   %118 = load ptr, ptr %117, align 8, !tbaa !40
   %119 = sext i32 %.2200266.us.us285 to i64
   br label %120
@@ -318,14 +317,14 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   %125 = add nsw i32 %124, %64
   %126 = shl i32 %125, %35
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds [2 x i16], ptr %118, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %118, i64 %127
   %129 = load i16, ptr %128, align 2, !tbaa !43
   %130 = sext i16 %129 to i32
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 2
   %132 = load i16, ptr %131, align 2, !tbaa !43
   %133 = sext i16 %132 to i32
   %spec.select.us.us = shl nsw i32 %133, %58
-  %134 = getelementptr inbounds %struct.AVMotionVector, ptr %32, i64 %indvars.iv329
+  %134 = getelementptr inbounds [40 x i8], ptr %32, i64 %indvars.iv329
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 4
   store i8 %60, ptr %135, align 4, !tbaa !45
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 5
@@ -383,7 +382,7 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %.not223.us.us.us294, label %.loopexit.us.us.us, label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %.split.us.split.us.split.us298
-  %156 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv338
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv338
   %157 = load ptr, ptr %156, align 8, !tbaa !40
   %158 = sext i32 %.2200266.us.us.us292 to i64
   br label %159
@@ -397,14 +396,14 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   %162 = or disjoint i32 %65, %.2205262.us.us.us
   %163 = shl i32 %162, %35
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds [2 x i16], ptr %157, i64 %164
+  %165 = getelementptr inbounds [4 x i8], ptr %157, i64 %164
   %166 = load i16, ptr %165, align 2, !tbaa !43
   %167 = sext i16 %166 to i32
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 2
   %169 = load i16, ptr %168, align 2, !tbaa !43
   %170 = sext i16 %169 to i32
   %spec.select229.us.us.us = shl nsw i32 %170, %58
-  %171 = getelementptr inbounds %struct.AVMotionVector, ptr %32, i64 %indvars.iv335
+  %171 = getelementptr inbounds [40 x i8], ptr %32, i64 %indvars.iv335
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 4
   store i8 8, ptr %172, align 4, !tbaa !45
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 5
@@ -455,16 +454,16 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %.not223.us.us.us.us, label %220, label %192
 
 192:                                              ; preds = %.split.us.split.us.split.us.us
-  %193 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv341
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv341
   %194 = load ptr, ptr %193, align 8, !tbaa !40
-  %195 = getelementptr inbounds [2 x i16], ptr %194, i64 %69
+  %195 = getelementptr inbounds [4 x i8], ptr %194, i64 %69
   %196 = load i16, ptr %195, align 2, !tbaa !43
   %197 = sext i16 %196 to i32
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 2
   %199 = load i16, ptr %198, align 2, !tbaa !43
   %200 = sext i16 %199 to i32
   %201 = sext i32 %.2200266.us.us.us.us to i64
-  %202 = getelementptr inbounds %struct.AVMotionVector, ptr %32, i64 %201
+  %202 = getelementptr inbounds [40 x i8], ptr %32, i64 %201
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 4
   store i8 16, ptr %203, align 4, !tbaa !45
   %204 = getelementptr inbounds nuw i8, ptr %202, i64 5
@@ -623,7 +622,7 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   %266 = shl i32 %265, 4
   %267 = mul nsw i64 %indvars.iv363, %264
   %invariant.gep381 = getelementptr i8, ptr %3, i64 %267
-  %invariant.gep383 = getelementptr i32, ptr %2, i64 %267
+  %invariant.gep383 = getelementptr [4 x i8], ptr %2, i64 %267
   br label %268
 
 268:                                              ; preds = %.lr.ph310.us, %309
@@ -656,7 +655,7 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %.not222.us, label %309, label %280
 
 280:                                              ; preds = %277
-  %gep384 = getelementptr i32, ptr %invariant.gep383, i64 %indvars.iv358
+  %gep384 = getelementptr [4 x i8], ptr %invariant.gep383, i64 %indvars.iv358
   %281 = load i32, ptr %gep384, align 4, !tbaa !35
   %282 = and i32 %281, 4
   %.not.i241.us = icmp eq i32 %282, 0

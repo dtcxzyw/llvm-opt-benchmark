@@ -117,7 +117,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.cpumask = type { [1 x i64] }
 %struct.notifier_block = type { ptr, ptr, i32 }
 %struct.trace_event_buffer = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.thermal_trip = type { i32, i32, i32, i32, ptr }
 
 @__tpstrtab_thermal_temperature = internal constant [20 x i8] c"thermal_temperature\00", section "__tracepoints_strings", align 16
 @__SCK__tp_func_thermal_temperature = dso_local global %struct.static_call_key { ptr @__traceiter_thermal_temperature, %union.anon.0 { i64 1 } }, align 8
@@ -2020,7 +2019,7 @@ define dso_local i32 @thermal_zone_bind_cooling_device(ptr noundef %0, i32 nound
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %14 = load ptr, ptr %13, align 8
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr %struct.thermal_trip, ptr %14, i64 %15
+  %16 = getelementptr [24 x i8], ptr %14, i64 %15
   %17 = tail call i32 @thermal_bind_cdev_to_trip(ptr noundef %0, ptr noundef %16, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5)
   br label %18
 
@@ -2138,7 +2137,7 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_zone_unbind_cooling_devi
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr %struct.thermal_trip, ptr %11, i64 %12
+  %13 = getelementptr [24 x i8], ptr %11, i64 %12
   %14 = tail call i32 @thermal_unbind_cdev_from_trip(ptr noundef %0, ptr noundef %13, ptr noundef %2), !range !44
   br label %15
 
@@ -2654,7 +2653,7 @@ define dso_local i32 @thermal_zone_get_crit_temp(ptr noundef %0, ptr noundef %1)
 
 24:                                               ; preds = %22, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %19 ]
-  %25 = getelementptr %struct.thermal_trip, ptr %20, i64 %indvars.iv
+  %25 = getelementptr [24 x i8], ptr %20, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 3

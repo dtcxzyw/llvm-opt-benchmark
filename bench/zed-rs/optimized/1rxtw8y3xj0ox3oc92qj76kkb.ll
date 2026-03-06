@@ -484,7 +484,7 @@ define noundef zeroext i1 @_ZN21command_palette_hooks20CommandPaletteFilter9is_h
   %196 = add i64 %.sroa.01.0.i.i.i9, %195
   %197 = and i64 %196, %187
   %198 = sub nsw i64 0, %197
-  %199 = getelementptr inbounds { { ptr, i64 }, {} }, ptr %188, i64 %198
+  %199 = getelementptr inbounds [16 x i8], ptr %188, i64 %198
   %200 = getelementptr i8, ptr %199, i64 -8
   %.val5.i.i.i = load i64, ptr %200, align 8, !alias.scope !87, !noalias !92, !noundef !12
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.sroa.4.1.i, %.val5.i.i.i
@@ -556,7 +556,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i11, 
   %232 = add i64 %.sroa.01.0.i.i.i18, %231
   %233 = and i64 %232, %223
   %234 = sub nsw i64 0, %233
-  %235 = getelementptr inbounds { { { i64, i64 } }, {} }, ptr %224, i64 %234
+  %235 = getelementptr inbounds [16 x i8], ptr %224, i64 %234
   %236 = getelementptr inbounds i8, ptr %235, i64 -16
   %.val3.i.i.i = load i64, ptr %236, align 8, !alias.scope !123, !noalias !132, !noundef !12
   %237 = getelementptr i8, ptr %235, i64 -8
@@ -625,7 +625,7 @@ define void @_ZN21command_palette_hooks20CommandPaletteFilter17hide_action_types
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [16 x i8], align 8
-  %7 = getelementptr inbounds { { i64, i64 } }, ptr %1, i64 %2
+  %7 = getelementptr inbounds [16 x i8], ptr %1, i64 %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !170)

@@ -309,10 +309,10 @@ define dso_local ptr @getSdsArrayFromArgv(i32 noundef %0, ptr noundef readonly c
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %8 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv48
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv48
   %9 = load ptr, ptr %8, align 8, !tbaa !27
   %10 = tail call ptr @hi_sdsnew(ptr noundef %9) #12
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv48
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv48
   store ptr %10, ptr %11, align 8, !tbaa !27
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
@@ -320,7 +320,7 @@ define dso_local ptr @getSdsArrayFromArgv(i32 noundef %0, ptr noundef readonly c
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %.lr.ph ]
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = call ptr @hi_sdssplitargs(ptr noundef %13, ptr noundef nonnull %4) #12
@@ -356,14 +356,14 @@ unquoteCString.exit:                              ; preds = %.lr.ph.split
 .lr.ph39:                                         ; preds = %.preheader, %.lr.ph39
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %.lr.ph39 ], [ %indvars.iv, %.preheader ]
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
-  %20 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next46
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next46
   %21 = load ptr, ptr %20, align 8, !tbaa !27
   call void @hi_sdsfree(ptr noundef %21) #12
   %22 = icmp sgt i64 %indvars.iv45, 1
   br i1 %22, label %.lr.ph39, label %._crit_edge, !llvm.loop !30
 
 .thread:                                          ; preds = %unquoteCString.exit
-  %23 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store ptr %19, ptr %23, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count51
@@ -619,14 +619,14 @@ define internal fastcc ptr @percentDecode(ptr noundef %0, i64 noundef %1) unname
   %20 = getelementptr inbounds nuw i8, ptr %.03547, i64 1
   %21 = load i8, ptr %20, align 1, !tbaa !21
   %22 = sext i8 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %19, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %19, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !5
   %25 = tail call ptr @__ctype_b_loc() #13
   %26 = load ptr, ptr %25, align 8, !tbaa !39
   %sext = shl i32 %24, 24
   %27 = ashr exact i32 %sext, 24
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i16, ptr %26, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %26, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !22
   %31 = and i16 %30, 2048
   %.not = icmp ne i16 %31, 0
@@ -639,12 +639,12 @@ define internal fastcc ptr @percentDecode(ptr noundef %0, i64 noundef %1) unname
   %34 = getelementptr inbounds nuw i8, ptr %.03547, i64 2
   %35 = load i8, ptr %34, align 1, !tbaa !21
   %36 = sext i8 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %19, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %19, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !5
   %sext38 = shl i32 %38, 24
   %39 = ashr exact i32 %sext38, 24
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i16, ptr %26, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %26, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !22
   %43 = and i16 %42, 2048
   %.not39 = icmp ne i16 %43, 0

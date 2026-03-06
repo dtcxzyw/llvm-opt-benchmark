@@ -2118,7 +2118,7 @@ init_request_info.exit:                           ; preds = %197, %478
   %530 = sub i32 %.neg415, %529
   store i32 %530, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 140), align 4, !tbaa !125
   %531 = sext i32 %529 to i64
-  %532 = getelementptr ptr, ptr %1, i64 %531
+  %532 = getelementptr [8 x i8], ptr %1, i64 %531
   %533 = getelementptr i8, ptr %532, i64 -8
   store ptr %533, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 144), align 8, !tbaa !126
   store ptr %.2241, ptr %533, align 8, !tbaa !35
@@ -2147,7 +2147,7 @@ init_request_info.exit:                           ; preds = %197, %478
 540:                                              ; preds = %539, %537
   %541 = phi i32 [ %.pre491, %539 ], [ %535, %537 ]
   %542 = sext i32 %541 to i64
-  %543 = getelementptr inbounds ptr, ptr %1, i64 %542
+  %543 = getelementptr inbounds [8 x i8], ptr %1, i64 %542
   %544 = load ptr, ptr %543, align 8, !tbaa !35
   %545 = call noalias ptr @_estrdup(ptr noundef %544) #28
   store ptr %545, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 40), align 8, !tbaa !100
@@ -2155,7 +2155,7 @@ init_request_info.exit:                           ; preds = %197, %478
   %547 = sub nsw i32 %0, %546
   store i32 %547, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 140), align 4, !tbaa !125
   %548 = sext i32 %546 to i64
-  %549 = getelementptr inbounds ptr, ptr %1, i64 %548
+  %549 = getelementptr inbounds [8 x i8], ptr %1, i64 %548
   store ptr %549, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 144), align 8, !tbaa !126
   br label %550
 
@@ -2192,7 +2192,7 @@ init_request_info.exit:                           ; preds = %197, %478
   %indvars.iv = phi i64 [ %559, %556 ], [ %indvars.iv.next, %560 ]
   %.0219463 = phi i64 [ 0, %556 ], [ %.1220, %560 ]
   %561 = icmp slt i64 %indvars.iv, %185
-  %562 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %562 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   %563 = load ptr, ptr %562, align 8, !tbaa !35
   %564 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %563) #29
   %565 = select i1 %561, i64 %558, i64 0
@@ -2210,7 +2210,7 @@ init_request_info.exit:                           ; preds = %197, %478
 
 .lr.ph466:                                        ; preds = %.lr.ph466.preheader, %575
   %indvars.iv484 = phi i64 [ %559, %.lr.ph466.preheader ], [ %indvars.iv.next485, %575 ]
-  %568 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv484
+  %568 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv484
   %569 = load ptr, ptr %568, align 8, !tbaa !35
   %570 = call i64 @php_strlcat(ptr noundef nonnull %567, ptr noundef %569, i64 noundef %566) #28
   %571 = icmp slt i64 %indvars.iv484, %185

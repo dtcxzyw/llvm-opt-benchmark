@@ -17,10 +17,10 @@ define i32 @Llb_ManComputeCommonQuant(ptr noundef readonly captures(none) %0, i3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !16
   %15 = sext i32 %2 to i64
-  %16 = getelementptr inbounds ptr, ptr %11, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %11, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %18
@@ -46,7 +46,7 @@ define i32 @Llb_ManComputeCommonQuant(ptr noundef readonly captures(none) %0, i3
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %17, align 8, !tbaa !18
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !19
   %29 = icmp eq i32 %28, 2
   %30 = add nsw i32 %.029, 2
@@ -112,7 +112,7 @@ define i32 @Llb_ManComputeBestQuant(ptr noundef readonly captures(none) %0) loca
 
 .lr.ph:                                           ; preds = %13
   %15 = load ptr, ptr %6, align 8, !tbaa !24
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv64
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv64
   %17 = load i32, ptr %16, align 4, !tbaa !19
   %18 = icmp eq i32 %17, 0
   %19 = trunc nuw nsw i64 %indvars.iv64 to i32
@@ -131,7 +131,7 @@ define i32 @Llb_ManComputeBestQuant(ptr noundef readonly captures(none) %0) loca
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %Llb_ManComputeCommonQuant.exit.thread ], [ %indvars.iv, %.lr.ph.split ]
   %.140 = phi i32 [ %.2, %Llb_ManComputeCommonQuant.exit.thread ], [ %.055, %.lr.ph.split ]
   %.12839 = phi i32 [ %.229, %Llb_ManComputeCommonQuant.exit.thread ], [ %.02753, %.lr.ph.split ]
-  %26 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv61
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv61
   %27 = load i32, ptr %26, align 4, !tbaa !19
   %28 = icmp eq i32 %27, 0
   %29 = icmp sgt i32 %27, %24
@@ -147,9 +147,9 @@ define i32 @Llb_ManComputeBestQuant(ptr noundef readonly captures(none) %0) loca
 
 .lr.ph.i:                                         ; preds = %30
   %35 = load ptr, ptr %10, align 8, !tbaa !15
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv64
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv64
   %37 = load ptr, ptr %36, align 8, !tbaa !16
-  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv61
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv61
   %wide.trip.count.i = zext nneg i32 %33 to i64
   br label %39
 
@@ -174,7 +174,7 @@ define i32 @Llb_ManComputeBestQuant(ptr noundef readonly captures(none) %0) loca
 
 46:                                               ; preds = %42
   %47 = load ptr, ptr %11, align 8, !tbaa !18
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4, !tbaa !19
   %50 = icmp eq i32 %49, 2
   %51 = add nsw i32 %.029.i, 2
@@ -235,9 +235,9 @@ define ptr @Llb_ManComputeQuant(ptr noundef readonly captures(none) %0) local_un
 
 .preheader29.us:                                  ; preds = %.preheader29.us.preheader, %.preheader29.us
   %indvars.iv = phi i64 [ 0, %.preheader29.us.preheader ], [ %indvars.iv.next, %.preheader29.us ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !38
-  %9 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store float 0.000000e+00, ptr %9, align 4, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -275,19 +275,19 @@ define ptr @Llb_ManComputeQuant(ptr noundef readonly captures(none) %0) local_un
   %21 = sub nsw i32 %19, %20
   %22 = icmp sgt i32 %21, 0
   %wide.trip.count.i = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv49
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv49
   %24 = load ptr, ptr %23, align 8, !tbaa !38
   br i1 %22, label %.lr.ph.split.us, label %Llb_ManComputeCommonQuant.exit
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %25 = load ptr, ptr %14, align 8, !tbaa !15
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv49
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv49
   %27 = load ptr, ptr %26, align 8, !tbaa !16
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %Llb_ManComputeCommonQuant.exit.loopexit.us, %.lr.ph.split.us
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %Llb_ManComputeCommonQuant.exit.loopexit.us ], [ %indvars.iv37, %.lr.ph.split.us ]
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv44
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv44
   br label %29
 
 29:                                               ; preds = %.thread27.i.us, %.lr.ph.i.us
@@ -322,7 +322,7 @@ define ptr @Llb_ManComputeQuant(ptr noundef readonly captures(none) %0) local_un
 
 43:                                               ; preds = %37
   %44 = load ptr, ptr %15, align 8, !tbaa !18
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i.us
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.i.us
   %46 = load i32, ptr %45, align 4, !tbaa !19
   %47 = icmp eq i32 %46, 2
   %48 = add nsw i32 %.029.i.us, 2
@@ -337,11 +337,11 @@ define ptr @Llb_ManComputeQuant(ptr noundef readonly captures(none) %0) local_un
 
 Llb_ManComputeCommonQuant.exit.loopexit.us:       ; preds = %.thread27.i.us
   %49 = sitofp i32 %.1.i.us to float
-  %50 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv44
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv44
   %51 = load ptr, ptr %50, align 8, !tbaa !38
-  %52 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv49
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv49
   store float %49, ptr %52, align 4, !tbaa !40
-  %53 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv44
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv44
   store float %49, ptr %53, align 4, !tbaa !40
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count52
@@ -349,11 +349,11 @@ Llb_ManComputeCommonQuant.exit.loopexit.us:       ; preds = %.thread27.i.us
 
 Llb_ManComputeCommonQuant.exit:                   ; preds = %.lr.ph, %Llb_ManComputeCommonQuant.exit
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %Llb_ManComputeCommonQuant.exit ], [ %indvars.iv37, %.lr.ph ]
-  %54 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv39
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv39
   %55 = load ptr, ptr %54, align 8, !tbaa !38
-  %56 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv49
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv49
   store float 0.000000e+00, ptr %56, align 4, !tbaa !40
-  %57 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv39
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv39
   store float 0.000000e+00, ptr %57, align 4, !tbaa !40
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count52
@@ -379,10 +379,10 @@ define float @Llb_ManComputeCommonAttr(ptr noundef readonly captures(none) %0, i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !16
   %15 = sext i32 %2 to i64
-  %16 = getelementptr inbounds ptr, ptr %11, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %11, i64 %15
   %wide.trip.count = zext nneg i32 %8 to i64
   %17 = load ptr, ptr %16, align 8, !tbaa !16
   br label %18
@@ -468,7 +468,7 @@ define i32 @Llb_ManComputeBestAttr(ptr noundef readonly captures(none) %0) local
 
 .lr.ph:                                           ; preds = %12
   %14 = load ptr, ptr %6, align 8, !tbaa !24
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv59
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv59
   %16 = load i32, ptr %15, align 4, !tbaa !19
   %17 = icmp eq i32 %16, 0
   %18 = trunc nuw nsw i64 %indvars.iv59 to i32
@@ -487,7 +487,7 @@ define i32 @Llb_ManComputeBestAttr(ptr noundef readonly captures(none) %0) local
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %62 ], [ %indvars.iv, %.lr.ph.split ]
   %.137 = phi i32 [ %.2, %62 ], [ %.051, %.lr.ph.split ]
   %.12834 = phi float [ %.229, %62 ], [ %.02749, %.lr.ph.split ]
-  %25 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv56
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv56
   %26 = load i32, ptr %25, align 4, !tbaa !19
   %27 = icmp eq i32 %26, 0
   %28 = icmp sgt i32 %26, %23
@@ -503,9 +503,9 @@ define i32 @Llb_ManComputeBestAttr(ptr noundef readonly captures(none) %0) local
 
 .lr.ph.i:                                         ; preds = %29
   %34 = load ptr, ptr %10, align 8, !tbaa !15
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv59
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv59
   %36 = load ptr, ptr %35, align 8, !tbaa !16
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv56
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv56
   %wide.trip.count.i = zext nneg i32 %32 to i64
   %38 = load ptr, ptr %37, align 8, !tbaa !16
   br label %39
@@ -587,9 +587,9 @@ define ptr @Llb_ManComputeAttr(ptr noundef readonly captures(none) %0) local_unn
 
 .preheader29.us:                                  ; preds = %.preheader29.us.preheader, %.preheader29.us
   %indvars.iv = phi i64 [ 0, %.preheader29.us.preheader ], [ %indvars.iv.next, %.preheader29.us ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !38
-  %9 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store float 0.000000e+00, ptr %9, align 4, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -626,19 +626,19 @@ define ptr @Llb_ManComputeAttr(ptr noundef readonly captures(none) %0) local_unn
   %20 = sub nsw i32 %18, %19
   %21 = icmp sgt i32 %20, 0
   %wide.trip.count.i = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv49
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv49
   %23 = load ptr, ptr %22, align 8, !tbaa !38
   br i1 %21, label %.lr.ph.split.us, label %Llb_ManComputeCommonAttr.exit
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %24 = load ptr, ptr %14, align 8, !tbaa !15
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv49
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv49
   %26 = load ptr, ptr %25, align 8, !tbaa !16
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %Llb_ManComputeCommonAttr.exit.loopexit.us, %.lr.ph.split.us
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %Llb_ManComputeCommonAttr.exit.loopexit.us ], [ %indvars.iv37, %.lr.ph.split.us ]
-  %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv44
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv44
   %28 = load ptr, ptr %27, align 8, !tbaa !16
   br label %29
 
@@ -682,11 +682,11 @@ Llb_ManComputeCommonAttr.exit.loopexit.us:        ; preds = %41
   %45 = sitofp i32 %44 to double
   %46 = fdiv double %43, %45
   %47 = fptrunc double %46 to float
-  %48 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv44
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv44
   %49 = load ptr, ptr %48, align 8, !tbaa !38
-  %50 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv49
   store float %47, ptr %50, align 4, !tbaa !40
-  %51 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv44
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv44
   store float %47, ptr %51, align 4, !tbaa !40
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count52
@@ -694,11 +694,11 @@ Llb_ManComputeCommonAttr.exit.loopexit.us:        ; preds = %41
 
 Llb_ManComputeCommonAttr.exit:                    ; preds = %.lr.ph, %Llb_ManComputeCommonAttr.exit
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %Llb_ManComputeCommonAttr.exit ], [ %indvars.iv37, %.lr.ph ]
-  %52 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv39
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv39
   %53 = load ptr, ptr %52, align 8, !tbaa !38
-  %54 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv49
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv49
   store float 0x7FF8000000000000, ptr %54, align 4, !tbaa !40
-  %55 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv39
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv39
   store float 0x7FF8000000000000, ptr %55, align 4, !tbaa !40
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count52
@@ -730,7 +730,7 @@ define void @Llb_MtrCombineSelectedColumns(ptr noundef readonly captures(none) %
 12:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %13 = load ptr, ptr %7, align 8, !tbaa !15
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %8
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %8
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1, !tbaa !17
@@ -738,7 +738,7 @@ define void @Llb_MtrCombineSelectedColumns(ptr noundef readonly captures(none) %
   br i1 %18, label %19, label %thread-pre-split
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds ptr, ptr %13, i64 %9
+  %20 = getelementptr inbounds [8 x i8], ptr %13, i64 %9
   %21 = load ptr, ptr %20, align 8, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1, !tbaa !17
@@ -747,7 +747,7 @@ define void @Llb_MtrCombineSelectedColumns(ptr noundef readonly captures(none) %
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %10, align 8, !tbaa !18
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !19
   %29 = add nsw i32 %28, -1
   store i32 %29, ptr %27, align 4, !tbaa !19
@@ -760,7 +760,7 @@ thread-pre-split:                                 ; preds = %25, %12
   br i1 %31, label %32, label %thread-pre-split.thread
 
 32:                                               ; preds = %thread-pre-split
-  %33 = getelementptr inbounds ptr, ptr %13, i64 %9
+  %33 = getelementptr inbounds [8 x i8], ptr %13, i64 %9
   %34 = load ptr, ptr %33, align 8, !tbaa !16
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv
   %36 = load i8, ptr %35, align 1, !tbaa !17
@@ -770,7 +770,7 @@ thread-pre-split:                                 ; preds = %25, %12
 38:                                               ; preds = %32
   store i8 1, ptr %16, align 1, !tbaa !17
   %39 = load ptr, ptr %11, align 8, !tbaa !24
-  %40 = getelementptr inbounds i32, ptr %39, i64 %8
+  %40 = getelementptr inbounds [4 x i8], ptr %39, i64 %8
   %41 = load i32, ptr %40, align 4, !tbaa !19
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %40, align 4, !tbaa !19
@@ -779,7 +779,7 @@ thread-pre-split:                                 ; preds = %25, %12
 
 thread-pre-split.thread:                          ; preds = %19, %38, %32, %thread-pre-split
   %43 = phi ptr [ %.pre, %38 ], [ %13, %32 ], [ %13, %thread-pre-split ], [ %13, %19 ]
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %9
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %9
   %45 = load ptr, ptr %44, align 8, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 %indvars.iv
   %47 = load i8, ptr %46, align 1, !tbaa !17
@@ -801,7 +801,7 @@ thread-pre-split.thread:                          ; preds = %19, %38, %32, %thre
   %.pre-phi = phi i64 [ %.pre32, %.._crit_edge_crit_edge ], [ %9, %50 ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !24
-  %56 = getelementptr inbounds i32, ptr %55, i64 %.pre-phi
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %.pre-phi
   store i32 0, ptr %56, align 4, !tbaa !19
   ret void
 }
@@ -811,10 +811,10 @@ define void @Llb_ManClusterOne(ptr noundef readonly captures(none) %0, i32 nound
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !52
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !53
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds ptr, ptr %5, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %5, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !53
   %12 = tail call ptr @Llb_ManGroupsCombine(ptr noundef %8, ptr noundef %11) #6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -831,7 +831,7 @@ define void @Llb_ManClusterOne(ptr noundef readonly captures(none) %0, i32 nound
 19:                                               ; preds = %57, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %57 ]
   %20 = load ptr, ptr %16, align 8, !tbaa !15
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %6
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %6
   %22 = load ptr, ptr %21, align 8, !tbaa !16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.i
   %24 = load i8, ptr %23, align 1, !tbaa !17
@@ -839,7 +839,7 @@ define void @Llb_ManClusterOne(ptr noundef readonly captures(none) %0, i32 nound
   br i1 %25, label %26, label %thread-pre-split.i
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds ptr, ptr %20, i64 %9
+  %27 = getelementptr inbounds [8 x i8], ptr %20, i64 %9
   %28 = load ptr, ptr %27, align 8, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1, !tbaa !17
@@ -848,7 +848,7 @@ define void @Llb_ManClusterOne(ptr noundef readonly captures(none) %0, i32 nound
 
 32:                                               ; preds = %26
   %33 = load ptr, ptr %17, align 8, !tbaa !18
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.i
   %35 = load i32, ptr %34, align 4, !tbaa !19
   %36 = add nsw i32 %35, -1
   store i32 %36, ptr %34, align 4, !tbaa !19
@@ -861,7 +861,7 @@ thread-pre-split.i:                               ; preds = %32, %19
   br i1 %38, label %39, label %thread-pre-split.thread.i
 
 39:                                               ; preds = %thread-pre-split.i
-  %40 = getelementptr inbounds ptr, ptr %20, i64 %9
+  %40 = getelementptr inbounds [8 x i8], ptr %20, i64 %9
   %41 = load ptr, ptr %40, align 8, !tbaa !16
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %indvars.iv.i
   %43 = load i8, ptr %42, align 1, !tbaa !17
@@ -871,7 +871,7 @@ thread-pre-split.i:                               ; preds = %32, %19
 45:                                               ; preds = %39
   store i8 1, ptr %23, align 1, !tbaa !17
   %46 = load ptr, ptr %18, align 8, !tbaa !24
-  %47 = getelementptr inbounds i32, ptr %46, i64 %6
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %6
   %48 = load i32, ptr %47, align 4, !tbaa !19
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %47, align 4, !tbaa !19
@@ -880,7 +880,7 @@ thread-pre-split.i:                               ; preds = %32, %19
 
 thread-pre-split.thread.i:                        ; preds = %45, %39, %thread-pre-split.i, %26
   %50 = phi ptr [ %.pre.i, %45 ], [ %20, %39 ], [ %20, %thread-pre-split.i ], [ %20, %26 ]
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %9
+  %51 = getelementptr inbounds [8 x i8], ptr %50, i64 %9
   %52 = load ptr, ptr %51, align 8, !tbaa !16
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv.i
   %54 = load i8, ptr %53, align 1, !tbaa !17
@@ -901,12 +901,12 @@ thread-pre-split.thread.i:                        ; preds = %45, %39, %thread-pr
 Llb_MtrCombineSelectedColumns.exit:               ; preds = %57, %3
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !24
-  %63 = getelementptr inbounds i32, ptr %62, i64 %9
+  %63 = getelementptr inbounds [4 x i8], ptr %62, i64 %9
   store i32 0, ptr %63, align 4, !tbaa !19
   %64 = load ptr, ptr %4, align 8, !tbaa !52
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %6
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %6
   store ptr %12, ptr %65, align 8, !tbaa !53
-  %66 = getelementptr inbounds ptr, ptr %64, i64 %9
+  %66 = getelementptr inbounds [8 x i8], ptr %64, i64 %9
   store ptr null, ptr %66, align 8, !tbaa !53
   ret void
 }
@@ -930,11 +930,11 @@ define void @Llb_ManClusterCompress(ptr noundef captures(none) %0) local_unnamed
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %.028 = phi i32 [ 0, %.lr.ph ], [ %.1, %29 ]
   %9 = load ptr, ptr %5, align 8, !tbaa !52
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !53
   %12 = icmp eq ptr %11, null
   %13 = load ptr, ptr %6, align 8, !tbaa !15
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   br i1 %12, label %16, label %20
 
@@ -945,20 +945,20 @@ define void @Llb_ManClusterCompress(ptr noundef captures(none) %0) local_unnamed
 17:                                               ; preds = %16
   tail call void @free(ptr noundef nonnull %15) #6
   %18 = load ptr, ptr %6, align 8, !tbaa !15
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   store ptr null, ptr %19, align 8, !tbaa !16
   br label %29
 
 20:                                               ; preds = %8
   %21 = sext i32 %.028 to i64
-  %22 = getelementptr inbounds ptr, ptr %13, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %13, i64 %21
   store ptr %15, ptr %22, align 8, !tbaa !16
-  %23 = getelementptr inbounds ptr, ptr %9, i64 %21
+  %23 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store ptr %11, ptr %23, align 8, !tbaa !53
   %24 = load ptr, ptr %7, align 8, !tbaa !24
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !19
-  %27 = getelementptr inbounds i32, ptr %24, i64 %21
+  %27 = getelementptr inbounds [4 x i8], ptr %24, i64 %21
   store i32 %26, ptr %27, align 4, !tbaa !19
   %28 = add nsw i32 %.028, 1
   br label %29
@@ -1021,7 +1021,7 @@ define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {
 
 .lr.ph.i:                                         ; preds = %16
   %18 = load ptr, ptr %3, align 8, !tbaa !24
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv64.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv64.i
   %20 = load i32, ptr %19, align 4, !tbaa !19
   %21 = icmp eq i32 %20, 0
   %22 = trunc nuw nsw i64 %indvars.iv64.i to i32
@@ -1040,7 +1040,7 @@ define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv61.i = phi i64 [ %indvars.iv.next62.i, %Llb_ManComputeCommonQuant.exit.thread.i ], [ %indvars.iv.i, %.lr.ph.split.i ]
   %.140.i = phi i32 [ %.2.i, %Llb_ManComputeCommonQuant.exit.thread.i ], [ %.055.i, %.lr.ph.split.i ]
   %.12839.i = phi i32 [ %.229.i, %Llb_ManComputeCommonQuant.exit.thread.i ], [ %.02753.i, %.lr.ph.split.i ]
-  %29 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv61.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv61.i
   %30 = load i32, ptr %29, align 4, !tbaa !19
   %31 = icmp eq i32 %30, 0
   %32 = icmp sgt i32 %30, %27
@@ -1056,9 +1056,9 @@ define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {
 
 .lr.ph.i.i:                                       ; preds = %33
   %38 = load ptr, ptr %7, align 8, !tbaa !15
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv64.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv64.i
   %40 = load ptr, ptr %39, align 8, !tbaa !16
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv61.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv61.i
   %wide.trip.count.i.i = zext nneg i32 %36 to i64
   br label %42
 
@@ -1083,7 +1083,7 @@ define void @Llb_ManCluster(ptr noundef %0) local_unnamed_addr #1 {
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr %8, align 8, !tbaa !18
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i.i
   %52 = load i32, ptr %51, align 4, !tbaa !19
   %53 = icmp eq i32 %52, 2
   %54 = add nsw i32 %.029.i.i, 2
@@ -1133,10 +1133,10 @@ Llb_ManComputeBestQuant.exit:                     ; preds = %.loopexit.i
   %69 = and i32 %.1.lcssa.i, 65535
   %70 = load ptr, ptr %9, align 8, !tbaa !52
   %71 = zext nneg i32 %68 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !53
   %74 = zext nneg i32 %69 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %70, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !53
   %77 = tail call ptr @Llb_ManGroupsCombine(ptr noundef %73, ptr noundef %76) #6
   %78 = load i32, ptr %5, align 8, !tbaa !3
@@ -1146,7 +1146,7 @@ Llb_ManComputeBestQuant.exit:                     ; preds = %.loopexit.i
 .lr.ph.i.i17:                                     ; preds = %67, %117
   %indvars.iv.i.i18 = phi i64 [ %indvars.iv.next.i.i19, %117 ], [ 0, %67 ]
   %80 = load ptr, ptr %7, align 8, !tbaa !15
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %71
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %71
   %82 = load ptr, ptr %81, align 8, !tbaa !16
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 %indvars.iv.i.i18
   %84 = load i8, ptr %83, align 1, !tbaa !17
@@ -1154,7 +1154,7 @@ Llb_ManComputeBestQuant.exit:                     ; preds = %.loopexit.i
   br i1 %85, label %86, label %thread-pre-split.i.i
 
 86:                                               ; preds = %.lr.ph.i.i17
-  %87 = getelementptr inbounds nuw ptr, ptr %80, i64 %74
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %74
   %88 = load ptr, ptr %87, align 8, !tbaa !16
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 %indvars.iv.i.i18
   %90 = load i8, ptr %89, align 1, !tbaa !17
@@ -1163,7 +1163,7 @@ Llb_ManComputeBestQuant.exit:                     ; preds = %.loopexit.i
 
 92:                                               ; preds = %86
   %93 = load ptr, ptr %8, align 8, !tbaa !18
-  %94 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv.i.i18
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv.i.i18
   %95 = load i32, ptr %94, align 4, !tbaa !19
   %96 = add nsw i32 %95, -1
   store i32 %96, ptr %94, align 4, !tbaa !19
@@ -1176,7 +1176,7 @@ thread-pre-split.i.i:                             ; preds = %92, %.lr.ph.i.i17
   br i1 %98, label %99, label %thread-pre-split.thread.i.i
 
 99:                                               ; preds = %thread-pre-split.i.i
-  %100 = getelementptr inbounds nuw ptr, ptr %80, i64 %74
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %74
   %101 = load ptr, ptr %100, align 8, !tbaa !16
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 %indvars.iv.i.i18
   %103 = load i8, ptr %102, align 1, !tbaa !17
@@ -1186,7 +1186,7 @@ thread-pre-split.i.i:                             ; preds = %92, %.lr.ph.i.i17
 105:                                              ; preds = %99
   store i8 1, ptr %83, align 1, !tbaa !17
   %106 = load ptr, ptr %3, align 8, !tbaa !24
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %71
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %71
   %108 = load i32, ptr %107, align 4, !tbaa !19
   %109 = add nsw i32 %108, 1
   store i32 %109, ptr %107, align 4, !tbaa !19
@@ -1195,7 +1195,7 @@ thread-pre-split.i.i:                             ; preds = %92, %.lr.ph.i.i17
 
 thread-pre-split.thread.i.i:                      ; preds = %105, %99, %thread-pre-split.i.i, %86
   %110 = phi ptr [ %.pre.i.i, %105 ], [ %80, %99 ], [ %80, %thread-pre-split.i.i ], [ %80, %86 ]
-  %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %74
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %74
   %112 = load ptr, ptr %111, align 8, !tbaa !16
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 %indvars.iv.i.i18
   %114 = load i8, ptr %113, align 1, !tbaa !17
@@ -1215,12 +1215,12 @@ thread-pre-split.thread.i.i:                      ; preds = %105, %99, %thread-p
 
 Llb_ManClusterOne.exit:                           ; preds = %117, %67
   %121 = load ptr, ptr %3, align 8, !tbaa !24
-  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %74
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %74
   store i32 0, ptr %122, align 4, !tbaa !19
   %123 = load ptr, ptr %9, align 8, !tbaa !52
-  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %71
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %71
   store ptr %77, ptr %124, align 8, !tbaa !53
-  %125 = getelementptr inbounds nuw ptr, ptr %123, i64 %74
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %74
   store ptr null, ptr %125, align 8, !tbaa !53
   %126 = load i32, ptr %2, align 4, !tbaa !22
   %127 = icmp sgt i32 %126, 2
@@ -1236,10 +1236,10 @@ Llb_ManClusterOne.exit:                           ; preds = %117, %67
   %132 = and i32 %128, 65535
   %133 = load ptr, ptr %9, align 8, !tbaa !52
   %134 = zext nneg i32 %131 to i64
-  %135 = getelementptr inbounds nuw ptr, ptr %133, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !53
   %137 = zext nneg i32 %132 to i64
-  %138 = getelementptr inbounds nuw ptr, ptr %133, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %137
   %139 = load ptr, ptr %138, align 8, !tbaa !53
   %140 = tail call ptr @Llb_ManGroupsCombine(ptr noundef %136, ptr noundef %139) #6
   %141 = load i32, ptr %5, align 8, !tbaa !3
@@ -1249,7 +1249,7 @@ Llb_ManClusterOne.exit:                           ; preds = %117, %67
 .lr.ph.i.i20:                                     ; preds = %130, %180
   %indvars.iv.i.i21 = phi i64 [ %indvars.iv.next.i.i24, %180 ], [ 0, %130 ]
   %143 = load ptr, ptr %7, align 8, !tbaa !15
-  %144 = getelementptr inbounds nuw ptr, ptr %143, i64 %134
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %134
   %145 = load ptr, ptr %144, align 8, !tbaa !16
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 %indvars.iv.i.i21
   %147 = load i8, ptr %146, align 1, !tbaa !17
@@ -1257,7 +1257,7 @@ Llb_ManClusterOne.exit:                           ; preds = %117, %67
   br i1 %148, label %149, label %thread-pre-split.i.i22
 
 149:                                              ; preds = %.lr.ph.i.i20
-  %150 = getelementptr inbounds nuw ptr, ptr %143, i64 %137
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %137
   %151 = load ptr, ptr %150, align 8, !tbaa !16
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 %indvars.iv.i.i21
   %153 = load i8, ptr %152, align 1, !tbaa !17
@@ -1266,7 +1266,7 @@ Llb_ManClusterOne.exit:                           ; preds = %117, %67
 
 155:                                              ; preds = %149
   %156 = load ptr, ptr %8, align 8, !tbaa !18
-  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %indvars.iv.i.i21
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %indvars.iv.i.i21
   %158 = load i32, ptr %157, align 4, !tbaa !19
   %159 = add nsw i32 %158, -1
   store i32 %159, ptr %157, align 4, !tbaa !19
@@ -1279,7 +1279,7 @@ thread-pre-split.i.i22:                           ; preds = %155, %.lr.ph.i.i20
   br i1 %161, label %162, label %thread-pre-split.thread.i.i23
 
 162:                                              ; preds = %thread-pre-split.i.i22
-  %163 = getelementptr inbounds nuw ptr, ptr %143, i64 %137
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %137
   %164 = load ptr, ptr %163, align 8, !tbaa !16
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 %indvars.iv.i.i21
   %166 = load i8, ptr %165, align 1, !tbaa !17
@@ -1289,7 +1289,7 @@ thread-pre-split.i.i22:                           ; preds = %155, %.lr.ph.i.i20
 168:                                              ; preds = %162
   store i8 1, ptr %146, align 1, !tbaa !17
   %169 = load ptr, ptr %3, align 8, !tbaa !24
-  %170 = getelementptr inbounds nuw i32, ptr %169, i64 %134
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %134
   %171 = load i32, ptr %170, align 4, !tbaa !19
   %172 = add nsw i32 %171, 1
   store i32 %172, ptr %170, align 4, !tbaa !19
@@ -1298,7 +1298,7 @@ thread-pre-split.i.i22:                           ; preds = %155, %.lr.ph.i.i20
 
 thread-pre-split.thread.i.i23:                    ; preds = %168, %162, %thread-pre-split.i.i22, %149
   %173 = phi ptr [ %.pre.i.i25, %168 ], [ %143, %162 ], [ %143, %thread-pre-split.i.i22 ], [ %143, %149 ]
-  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %137
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %137
   %175 = load ptr, ptr %174, align 8, !tbaa !16
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 %indvars.iv.i.i21
   %177 = load i8, ptr %176, align 1, !tbaa !17
@@ -1318,12 +1318,12 @@ thread-pre-split.thread.i.i23:                    ; preds = %168, %162, %thread-
 
 Llb_ManClusterOne.exit27:                         ; preds = %180, %130
   %184 = load ptr, ptr %3, align 8, !tbaa !24
-  %185 = getelementptr inbounds nuw i32, ptr %184, i64 %137
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %137
   store i32 0, ptr %185, align 4, !tbaa !19
   %186 = load ptr, ptr %9, align 8, !tbaa !52
-  %187 = getelementptr inbounds nuw ptr, ptr %186, i64 %134
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %134
   store ptr %140, ptr %187, align 8, !tbaa !53
-  %188 = getelementptr inbounds nuw ptr, ptr %186, i64 %137
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %137
   store ptr null, ptr %188, align 8, !tbaa !53
   tail call void @Llb_MtrVerifyMatrix(ptr noundef nonnull %0) #6
   br label %10, !llvm.loop !57
@@ -1343,10 +1343,10 @@ Llb_ManClusterOne.exit27:                         ; preds = %180, %130
   %indvars.iv.i30 = phi i64 [ 0, %.lr.ph.i29 ], [ %indvars.iv.next.i31, %212 ]
   %.028.i = phi i32 [ 0, %.lr.ph.i29 ], [ %.1.i, %212 ]
   %193 = load ptr, ptr %9, align 8, !tbaa !52
-  %194 = getelementptr inbounds nuw ptr, ptr %193, i64 %indvars.iv.i30
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %indvars.iv.i30
   %195 = load ptr, ptr %194, align 8, !tbaa !53
   %196 = icmp eq ptr %195, null
-  %197 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv.i30
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %indvars.iv.i30
   %198 = load ptr, ptr %197, align 8, !tbaa !16
   br i1 %196, label %199, label %203
 
@@ -1357,20 +1357,20 @@ Llb_ManClusterOne.exit27:                         ; preds = %180, %130
 200:                                              ; preds = %199
   tail call void @free(ptr noundef nonnull %198) #6
   %201 = load ptr, ptr %7, align 8, !tbaa !15
-  %202 = getelementptr inbounds nuw ptr, ptr %201, i64 %indvars.iv.i30
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %indvars.iv.i30
   store ptr null, ptr %202, align 8, !tbaa !16
   br label %212
 
 203:                                              ; preds = %191
   %204 = sext i32 %.028.i to i64
-  %205 = getelementptr inbounds ptr, ptr %192, i64 %204
+  %205 = getelementptr inbounds [8 x i8], ptr %192, i64 %204
   store ptr %198, ptr %205, align 8, !tbaa !16
-  %206 = getelementptr inbounds ptr, ptr %193, i64 %204
+  %206 = getelementptr inbounds [8 x i8], ptr %193, i64 %204
   store ptr %195, ptr %206, align 8, !tbaa !53
   %207 = load ptr, ptr %3, align 8, !tbaa !24
-  %208 = getelementptr inbounds nuw i32, ptr %207, i64 %indvars.iv.i30
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %207, i64 %indvars.iv.i30
   %209 = load i32, ptr %208, align 4, !tbaa !19
-  %210 = getelementptr inbounds i32, ptr %207, i64 %204
+  %210 = getelementptr inbounds [4 x i8], ptr %207, i64 %204
   store i32 %209, ptr %210, align 4, !tbaa !19
   %211 = add nsw i32 %.028.i, 1
   br label %212

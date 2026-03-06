@@ -399,7 +399,7 @@ define internal void @asymmetric_key_free_preparse(ptr noundef readonly captures
 
 .preheader:                                       ; preds = %15, %.preheader
   %17 = phi i64 [ %20, %.preheader ], [ 0, %15 ]
-  %18 = getelementptr ptr, ptr %5, i64 %17
+  %18 = getelementptr [8 x i8], ptr %5, i64 %17
   %19 = load ptr, ptr %18, align 8
   tail call void @kfree(ptr noundef %19) #17
   %20 = add nuw nsw i64 %17, 1
@@ -566,7 +566,7 @@ define internal void @asymmetric_key_destroy(ptr noundef captures(none) %0) #0 a
 
 .preheader:                                       ; preds = %15, %.preheader
   %17 = phi i64 [ %20, %.preheader ], [ 0, %15 ]
-  %18 = getelementptr ptr, ptr %6, i64 %17
+  %18 = getelementptr [8 x i8], ptr %6, i64 %17
   %19 = load ptr, ptr %18, align 8
   tail call void @kfree(ptr noundef %19) #17
   %20 = add nuw nsw i64 %17, 1
@@ -909,7 +909,7 @@ define internal zeroext i1 @asymmetric_key_cmp(ptr noundef readonly captures(non
 12:                                               ; preds = %27, %10
   %13 = phi i1 [ true, %27 ], [ false, %10 ]
   %14 = phi i64 [ 1, %27 ], [ 0, %10 ]
-  %15 = getelementptr ptr, ptr %4, i64 %14
+  %15 = getelementptr [8 x i8], ptr %4, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %27, label %18
@@ -955,7 +955,7 @@ define internal zeroext i1 @asymmetric_key_cmp_partial(ptr noundef readonly capt
 12:                                               ; preds = %29, %10
   %13 = phi i1 [ true, %29 ], [ false, %10 ]
   %14 = phi i64 [ 1, %29 ], [ 0, %10 ]
-  %15 = getelementptr ptr, ptr %4, i64 %14
+  %15 = getelementptr [8 x i8], ptr %4, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %29, label %18

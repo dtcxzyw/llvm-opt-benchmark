@@ -293,7 +293,7 @@ define internal fastcc noundef zeroext i1 @parse_dbs_etherwatch_packet(ptr nound
   %.044.i = phi i32 [ 0, %.lr.ph.i ], [ %26, %.loopexit.i ]
   %.03543.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.loopexit.i ]
   %29 = zext i8 %28 to i64
-  %30 = getelementptr i16, ptr %25, i64 %29
+  %30 = getelementptr [2 x i8], ptr %25, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
   %33 = and i32 %32, 1024
@@ -306,7 +306,7 @@ define internal fastcc noundef zeroext i1 @parse_dbs_etherwatch_packet(ptr nound
   %37 = getelementptr i8, ptr %23, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i64
-  %40 = getelementptr i16, ptr %25, i64 %39
+  %40 = getelementptr [2 x i8], ptr %25, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = and i16 %41, 1024
   %.not39.i = icmp eq i16 %42, 0
@@ -334,7 +334,7 @@ define internal fastcc noundef zeroext i1 @parse_dbs_etherwatch_packet(ptr nound
   store i8 %.sink.i, ptr %53, align 1
   %54 = load i8, ptr %37, align 1
   %55 = zext i8 %54 to i64
-  %56 = getelementptr i16, ptr %25, i64 %55
+  %56 = getelementptr [2 x i8], ptr %25, i64 %55
   %57 = load i16, ptr %56, align 2
   %58 = and i16 %57, 8
   %.not41.i = icmp eq i16 %58, 0
@@ -379,7 +379,7 @@ parse_hex_dump.exit.thread:                       ; preds = %34, %27, %22, %pars
   %.0115 = phi ptr [ %79, %.preheader ], [ %5, %parse_hex_dump.exit ]
   %74 = load i8, ptr %.0115, align 1
   %75 = zext i8 %74 to i64
-  %76 = getelementptr i16, ptr %25, i64 %75
+  %76 = getelementptr [2 x i8], ptr %25, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = and i16 %77, 1024
   %.not123 = icmp eq i16 %78, 0
@@ -401,7 +401,7 @@ parse_hex_dump.exit.thread:                       ; preds = %34, %27, %22, %pars
   %.044.i144 = phi i32 [ %82, %.loopexit.i153 ], [ 0, %80 ]
   %.03543.i145 = phi i32 [ %.1.i152, %.loopexit.i153 ], [ 0, %80 ]
   %84 = zext i8 %83 to i64
-  %85 = getelementptr i16, ptr %25, i64 %84
+  %85 = getelementptr [2 x i8], ptr %25, i64 %84
   %86 = load i16, ptr %85, align 2
   %87 = zext i16 %86 to i32
   %88 = and i32 %87, 1024
@@ -414,7 +414,7 @@ parse_hex_dump.exit.thread:                       ; preds = %34, %27, %22, %pars
   %92 = getelementptr i8, ptr %.0115, i64 %91
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i64
-  %95 = getelementptr i16, ptr %25, i64 %94
+  %95 = getelementptr [2 x i8], ptr %25, i64 %94
   %96 = load i16, ptr %95, align 2
   %97 = and i16 %96, 1024
   %.not39.i147 = icmp eq i16 %97, 0
@@ -779,7 +779,7 @@ define internal fastcc i32 @parse_hex_dump(ptr noundef readonly captures(none) %
   %.044 = phi i32 [ 0, %.lr.ph ], [ %7, %.loopexit ]
   %.03543 = phi i32 [ 0, %.lr.ph ], [ %.1, %.loopexit ]
   %10 = zext i8 %9 to i64
-  %11 = getelementptr i16, ptr %6, i64 %10
+  %11 = getelementptr [2 x i8], ptr %6, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   %14 = and i32 %13, 1024
@@ -792,7 +792,7 @@ define internal fastcc i32 @parse_hex_dump(ptr noundef readonly captures(none) %
   %18 = getelementptr i8, ptr %0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr i16, ptr %6, i64 %20
+  %21 = getelementptr [2 x i8], ptr %6, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 1024
   %.not39 = icmp eq i16 %23, 0
@@ -820,7 +820,7 @@ define internal fastcc i32 @parse_hex_dump(ptr noundef readonly captures(none) %
   store i8 %.sink, ptr %34, align 1
   %35 = load i8, ptr %18, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr i16, ptr %6, i64 %36
+  %37 = getelementptr [2 x i8], ptr %6, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 8
   %.not41 = icmp eq i16 %39, 0
@@ -917,7 +917,7 @@ define internal fastcc i32 @parse_single_hex_dump_line(ptr noundef readonly capt
   %22 = getelementptr i8, ptr %0, i64 %indvars.iv65
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr i16, ptr %15, i64 %24
+  %25 = getelementptr [2 x i8], ptr %15, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = zext i16 %26 to i32
   %28 = and i32 %27, 256
@@ -979,7 +979,7 @@ define internal fastcc i32 @parse_single_hex_dump_line(ptr noundef readonly capt
   %.044.i = phi i32 [ %49, %.loopexit.i ], [ 0, %44 ]
   %.03543.i = phi i32 [ %.1.i, %.loopexit.i ], [ 0, %44 ]
   %51 = zext i8 %50 to i64
-  %52 = getelementptr i16, ptr %15, i64 %51
+  %52 = getelementptr [2 x i8], ptr %15, i64 %51
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
   %55 = and i32 %54, 1024
@@ -992,7 +992,7 @@ define internal fastcc i32 @parse_single_hex_dump_line(ptr noundef readonly capt
   %59 = getelementptr i8, ptr %47, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i64
-  %62 = getelementptr i16, ptr %15, i64 %61
+  %62 = getelementptr [2 x i8], ptr %15, i64 %61
   %63 = load i16, ptr %62, align 2
   %64 = and i16 %63, 1024
   %.not39.i = icmp eq i16 %64, 0
@@ -1020,7 +1020,7 @@ define internal fastcc i32 @parse_single_hex_dump_line(ptr noundef readonly capt
   store i8 %.sink.i, ptr %75, align 1
   %76 = load i8, ptr %59, align 1
   %77 = zext i8 %76 to i64
-  %78 = getelementptr i16, ptr %15, i64 %77
+  %78 = getelementptr [2 x i8], ptr %15, i64 %77
   %79 = load i16, ptr %78, align 2
   %80 = and i16 %79, 8
   %.not41.i = icmp eq i16 %80, 0

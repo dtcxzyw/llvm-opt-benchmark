@@ -9,9 +9,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef float @_ZN3igl19CANONICAL_VIEW_QUATIfEET_ii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [4 x float], ptr @_ZN3iglL21CANONICAL_VIEW_QUAT_FE, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr @_ZN3iglL21CANONICAL_VIEW_QUAT_FE, i64 %3
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds float, ptr %4, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   %7 = load float, ptr %6, align 4, !tbaa !4
   ret float %7
 }
@@ -19,9 +19,9 @@ define dso_local noundef float @_ZN3igl19CANONICAL_VIEW_QUATIfEET_ii(i32 noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef double @_ZN3igl19CANONICAL_VIEW_QUATIdEET_ii(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds [4 x double], ptr @_ZN3iglL21CANONICAL_VIEW_QUAT_DE, i64 %3
+  %4 = getelementptr inbounds [32 x i8], ptr @_ZN3iglL21CANONICAL_VIEW_QUAT_DE, i64 %3
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds double, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load double, ptr %6, align 8, !tbaa !8
   ret double %7
 }

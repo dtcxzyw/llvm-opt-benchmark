@@ -175,7 +175,7 @@ tolower.exit:                                     ; preds = %4
   %9 = tail call ptr @__ctype_tolower_loc() #19
   %10 = load ptr, ptr %9, align 8, !tbaa !7
   %11 = sext i8 %8 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !10
   %14 = sext i8 %3 to i32
   %15 = icmp eq i32 %13, %14
@@ -187,7 +187,7 @@ tolower.exit:                                     ; preds = %4
   %19 = tail call ptr @__ctype_b_loc() #19
   %20 = load ptr, ptr %19, align 8, !tbaa !12
   %21 = sext i8 %18 to i64
-  %22 = getelementptr inbounds i16, ptr %20, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %20, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !14
   %24 = and i16 %23, 8192
   %.not = icmp eq i16 %24, 0
@@ -394,7 +394,7 @@ tolower.exit:                                     ; preds = %.tolower.exit_crit_
   %19 = tail call ptr @__ctype_tolower_loc() #19
   %20 = load ptr, ptr %19, align 8, !tbaa !7
   %21 = sext i8 %18 to i64
-  %22 = getelementptr inbounds i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %20, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !10
   switch i32 %23, label %89 [
     i32 105, label %24
@@ -421,7 +421,7 @@ tolower.exit:                                     ; preds = %.tolower.exit_crit_
 tolower.exit.i:                                   ; preds = %24
   %33 = load i8, ptr %25, align 1, !tbaa !4, !noalias !33
   %34 = sext i8 %33 to i64
-  %35 = getelementptr inbounds i32, ptr %20, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %20, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !10, !noalias !33
   %.not.i = icmp eq i32 %36, 110
   br i1 %.not.i, label %tolower.exit19.i, label %42, !prof !36
@@ -430,7 +430,7 @@ tolower.exit19.i:                                 ; preds = %tolower.exit.i
   %37 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   %38 = load i8, ptr %37, align 1, !tbaa !4, !noalias !33
   %39 = sext i8 %38 to i64
-  %40 = getelementptr inbounds i32, ptr %20, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %20, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !10, !noalias !33
   %.not17.i = icmp eq i32 %41, 102
   br i1 %.not17.i, label %45, label %42, !prof !36
@@ -453,7 +453,7 @@ tolower.exit19.i:                                 ; preds = %tolower.exit.i
 tolower.exit21.i:                                 ; preds = %45
   %50 = load i8, ptr %46, align 1, !tbaa !4, !noalias !33
   %51 = sext i8 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %20, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %20, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !10, !noalias !33
   %54 = icmp eq i32 %53, 105
   br i1 %54, label %tolower.exit23.i, label %80
@@ -462,7 +462,7 @@ tolower.exit23.i:                                 ; preds = %tolower.exit21.i
   %55 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %56 = load i8, ptr %55, align 1, !tbaa !4, !noalias !33
   %57 = sext i8 %56 to i64
-  %58 = getelementptr inbounds i32, ptr %20, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %20, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !10, !noalias !33
   %60 = icmp eq i32 %59, 110
   br i1 %60, label %tolower.exit25.i, label %80
@@ -471,7 +471,7 @@ tolower.exit25.i:                                 ; preds = %tolower.exit23.i
   %61 = getelementptr inbounds nuw i8, ptr %.0, i64 5
   %62 = load i8, ptr %61, align 1, !tbaa !4, !noalias !33
   %63 = sext i8 %62 to i64
-  %64 = getelementptr inbounds i32, ptr %20, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %20, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !10, !noalias !33
   %66 = icmp eq i32 %65, 105
   br i1 %66, label %tolower.exit27.i, label %80
@@ -480,7 +480,7 @@ tolower.exit27.i:                                 ; preds = %tolower.exit25.i
   %67 = getelementptr inbounds nuw i8, ptr %.0, i64 6
   %68 = load i8, ptr %67, align 1, !tbaa !4, !noalias !33
   %69 = sext i8 %68 to i64
-  %70 = getelementptr inbounds i32, ptr %20, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr %20, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !10, !noalias !33
   %72 = icmp eq i32 %71, 116
   br i1 %72, label %tolower.exit29.i, label %80
@@ -489,7 +489,7 @@ tolower.exit29.i:                                 ; preds = %tolower.exit27.i
   %73 = getelementptr inbounds nuw i8, ptr %.0, i64 7
   %74 = load i8, ptr %73, align 1, !tbaa !4, !noalias !33
   %75 = sext i8 %74 to i64
-  %76 = getelementptr inbounds i32, ptr %20, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %20, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !10, !noalias !33
   %78 = icmp eq i32 %77, 121
   %79 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -581,7 +581,7 @@ tolower.exit:                                     ; preds = %.tolower.exit_crit_
   %17 = tail call ptr @__ctype_tolower_loc() #19
   %18 = load ptr, ptr %17, align 8, !tbaa !7
   %19 = sext i8 %16 to i64
-  %20 = getelementptr inbounds i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !10
   switch i32 %21, label %131 [
     i32 105, label %22
@@ -606,7 +606,7 @@ tolower.exit:                                     ; preds = %.tolower.exit_crit_
 tolower.exit.i:                                   ; preds = %22
   %30 = load i8, ptr %23, align 1, !tbaa !4, !noalias !40
   %31 = sext i8 %30 to i64
-  %32 = getelementptr inbounds i32, ptr %18, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %18, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !10, !noalias !40
   %.not.i = icmp eq i32 %33, 110
   br i1 %.not.i, label %tolower.exit19.i, label %39, !prof !36
@@ -615,7 +615,7 @@ tolower.exit19.i:                                 ; preds = %tolower.exit.i
   %34 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   %35 = load i8, ptr %34, align 1, !tbaa !4, !noalias !40
   %36 = sext i8 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %18, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %18, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !10, !noalias !40
   %.not17.i = icmp eq i32 %38, 102
   br i1 %.not17.i, label %41, label %39, !prof !36
@@ -636,7 +636,7 @@ tolower.exit19.i:                                 ; preds = %tolower.exit.i
 tolower.exit21.i:                                 ; preds = %41
   %46 = load i8, ptr %42, align 1, !tbaa !4, !noalias !40
   %47 = sext i8 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %18, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %18, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !10, !noalias !40
   %50 = icmp eq i32 %49, 105
   br i1 %50, label %tolower.exit23.i, label %76
@@ -645,7 +645,7 @@ tolower.exit23.i:                                 ; preds = %tolower.exit21.i
   %51 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %52 = load i8, ptr %51, align 1, !tbaa !4, !noalias !40
   %53 = sext i8 %52 to i64
-  %54 = getelementptr inbounds i32, ptr %18, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %18, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !10, !noalias !40
   %56 = icmp eq i32 %55, 110
   br i1 %56, label %tolower.exit25.i, label %76
@@ -654,7 +654,7 @@ tolower.exit25.i:                                 ; preds = %tolower.exit23.i
   %57 = getelementptr inbounds nuw i8, ptr %.0, i64 5
   %58 = load i8, ptr %57, align 1, !tbaa !4, !noalias !40
   %59 = sext i8 %58 to i64
-  %60 = getelementptr inbounds i32, ptr %18, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %18, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !10, !noalias !40
   %62 = icmp eq i32 %61, 105
   br i1 %62, label %tolower.exit27.i, label %76
@@ -663,7 +663,7 @@ tolower.exit27.i:                                 ; preds = %tolower.exit25.i
   %63 = getelementptr inbounds nuw i8, ptr %.0, i64 6
   %64 = load i8, ptr %63, align 1, !tbaa !4, !noalias !40
   %65 = sext i8 %64 to i64
-  %66 = getelementptr inbounds i32, ptr %18, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %18, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !10, !noalias !40
   %68 = icmp eq i32 %67, 116
   br i1 %68, label %tolower.exit29.i, label %76
@@ -672,7 +672,7 @@ tolower.exit29.i:                                 ; preds = %tolower.exit27.i
   %69 = getelementptr inbounds nuw i8, ptr %.0, i64 7
   %70 = load i8, ptr %69, align 1, !tbaa !4, !noalias !40
   %71 = sext i8 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %18, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %18, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !10, !noalias !40
   %74 = icmp eq i32 %73, 121
   %75 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -718,7 +718,7 @@ tolower.exit29.i:                                 ; preds = %tolower.exit27.i
 tolower.exit.i30:                                 ; preds = %83
   %91 = load i8, ptr %84, align 1, !tbaa !4, !noalias !45
   %92 = sext i8 %91 to i64
-  %93 = getelementptr inbounds i32, ptr %18, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %18, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !10, !noalias !45
   %.not.i31 = icmp eq i32 %94, 97
   br i1 %.not.i31, label %tolower.exit32.i, label %100, !prof !36
@@ -727,7 +727,7 @@ tolower.exit32.i:                                 ; preds = %tolower.exit.i30
   %95 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   %96 = load i8, ptr %95, align 1, !tbaa !4, !noalias !45
   %97 = sext i8 %96 to i64
-  %98 = getelementptr inbounds i32, ptr %18, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %18, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !10, !noalias !45
   %.not26.i = icmp eq i32 %99, 110
   br i1 %.not26.i, label %102, label %100, !prof !36
@@ -769,7 +769,7 @@ tolower.exit32.i:                                 ; preds = %tolower.exit.i30
   %116 = tail call ptr @__ctype_b_loc() #19
   %117 = load ptr, ptr %116, align 8, !tbaa !12, !noalias !45
   %118 = sext i8 %111 to i64
-  %119 = getelementptr inbounds i16, ptr %117, i64 %118
+  %119 = getelementptr inbounds [2 x i8], ptr %117, i64 %118
   %120 = load i16, ptr %119, align 2, !tbaa !14, !noalias !45
   %121 = and i16 %120, 8
   %.not28.i = icmp eq i16 %121, 0
@@ -2107,7 +2107,7 @@ define internal fastcc noundef range(i32 0, 36) i32 @_ZN24__llvm_libc_common_uti
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN24__llvm_libc_common_utils8internalL15b36_char_to_intEi, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN24__llvm_libc_common_utils8internalL15b36_char_to_intEi, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -2217,7 +2217,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__131_Floating_to_chars_hex_short
   %52 = mul nuw nsw i32 %51, 1233
   %53 = lshr i32 %52, 12
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw i32, ptr @_ZNSt3__16__itoa10__pow10_32E, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr @_ZNSt3__16__itoa10__pow10_32E, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !10
   %57 = icmp ult i32 %spec.select74, %56
   %.neg.i.i.i = sext i1 %57 to i32
@@ -2337,7 +2337,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__131_Floating_to_chars_hex_short
   %53 = mul nuw nsw i32 %52, 1233
   %54 = lshr i32 %53, 12
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr @_ZNSt3__16__itoa10__pow10_32E, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @_ZNSt3__16__itoa10__pow10_32E, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !10
   %58 = icmp ult i32 %spec.select74, %57
   %.neg.i.i.i = sext i1 %58 to i32
@@ -2399,9 +2399,9 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__136_Floating_to_chars_general_p
   %23 = lshr i32 %22, 1
   %.zext = and i32 %23, 127
   %24 = zext nneg i32 %.zext to i64
-  %25 = getelementptr inbounds nuw i32, ptr @_ZNSt3__125_General_precision_tablesIfE16_Special_X_tableE, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @_ZNSt3__125_General_precision_tablesIfE16_Special_X_tableE, i64 %24
   %26 = zext nneg i32 %.0100 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   br label %32
 
 28:                                               ; preds = %18
@@ -2412,7 +2412,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__136_Floating_to_chars_general_p
 .thread105:                                       ; preds = %28, %16
   %.0104107 = phi i32 [ %3, %28 ], [ 1000000, %16 ]
   %30 = phi i64 [ %29, %28 ], [ 39, %16 ]
-  %31 = getelementptr inbounds nuw i32, ptr @_ZNSt3__125_General_precision_tablesIfE17_Ordinary_X_tableE, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_ZNSt3__125_General_precision_tablesIfE17_Ordinary_X_tableE, i64 %30
   br label %32
 
 32:                                               ; preds = %.thread105, %.thread
@@ -2690,7 +2690,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__132_Floating_to_chars_hex_preci
   %84 = mul nuw nsw i32 %83, 1233
   %85 = lshr i32 %84, 12
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw i32, ptr @_ZNSt3__16__itoa10__pow10_32E, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr @_ZNSt3__16__itoa10__pow10_32E, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !10
   %89 = icmp ult i32 %.073, %88
   %.neg.i.i.i = sext i1 %89 to i32
@@ -2762,9 +2762,9 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__136_Floating_to_chars_general_p
   %23 = lshr i32 %22, 1
   %.zext = and i32 %23, 32767
   %24 = zext nneg i32 %.zext to i64
-  %25 = getelementptr inbounds nuw i64, ptr @_ZNSt3__125_General_precision_tablesIdE16_Special_X_tableE, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @_ZNSt3__125_General_precision_tablesIdE16_Special_X_tableE, i64 %24
   %26 = zext nneg i32 %.0105 to i64
-  %27 = getelementptr inbounds nuw i64, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %.057118 = getelementptr inbounds nuw i8, ptr %27, i64 40
   br label %45
 
@@ -2792,7 +2792,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__136_Floating_to_chars_general_p
   %.016.i.i.i.i = phi ptr [ @_ZNSt3__125_General_precision_tablesIdE17_Ordinary_X_tableE, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %38 ]
   %.01015.i.i.i.i = phi i64 [ %37, %.lr.ph.i.i.i.i ], [ %.111.i.i.i.i, %38 ]
   %39 = lshr i64 %.01015.i.i.i.i, 1
-  %40 = getelementptr inbounds nuw i64, ptr %.016.i.i.i.i, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.016.i.i.i.i, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !52
   %42 = icmp ult i64 %41, %6
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -3088,7 +3088,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__132_Floating_to_chars_hex_preci
   %87 = mul nuw nsw i32 %86, 1233
   %88 = lshr i32 %87, 12
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw i32, ptr @_ZNSt3__16__itoa10__pow10_32E, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr @_ZNSt3__16__itoa10__pow10_32E, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !10
   %92 = icmp ult i32 %.074, %91
   %.neg.i.i.i = sext i1 %92 to i32
@@ -3131,7 +3131,7 @@ tolower.exit:                                     ; preds = %5
   %14 = tail call ptr @__ctype_tolower_loc() #19
   %15 = load ptr, ptr %14, align 8, !tbaa !7
   %16 = sext i8 %13 to i64
-  %17 = getelementptr inbounds i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !10
   %.not = icmp eq i32 %18, 97
   br i1 %.not, label %tolower.exit32, label %24, !prof !36
@@ -3140,7 +3140,7 @@ tolower.exit32:                                   ; preds = %tolower.exit
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %20 = load i8, ptr %19, align 1, !tbaa !4
   %21 = sext i8 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %15, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %15, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !10
   %.not26 = icmp eq i32 %23, 110
   br i1 %.not26, label %27, label %24, !prof !36
@@ -3183,7 +3183,7 @@ tolower.exit32:                                   ; preds = %tolower.exit
   %41 = tail call ptr @__ctype_b_loc() #19
   %42 = load ptr, ptr %41, align 8, !tbaa !12
   %43 = sext i8 %36 to i64
-  %44 = getelementptr inbounds i16, ptr %42, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %42, i64 %43
   %45 = load i16, ptr %44, align 2, !tbaa !14
   %46 = and i16 %45, 8
   %.not28 = icmp eq i16 %46, 0
@@ -3253,7 +3253,7 @@ define linkonce_odr hidden void @_ZNSt3__131__from_chars_floating_point_hexB8ne2
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.01821.i
   %20 = load i8, ptr %19, align 1, !tbaa !4, !noalias !56
   %21 = sext i8 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %13, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %13, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !14, !noalias !56
   %24 = and i16 %23, 4096
   %.not.i = icmp eq i16 %24, 0
@@ -3264,7 +3264,7 @@ tolower.exit.i:                                   ; preds = %14
   %26 = add nsw i32 %25, -48
   %27 = tail call ptr @__ctype_tolower_loc() #19
   %28 = load ptr, ptr %27, align 8, !tbaa !7, !noalias !56
-  %29 = getelementptr inbounds i32, ptr %28, i64 %21
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %21
   %30 = load i32, ptr %29, align 4, !tbaa !10, !noalias !56
   %switch.tableidx.i = add i32 %30, -97
   %31 = icmp ult i32 %switch.tableidx.i, 6
@@ -3600,7 +3600,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN24__llvm_libc_common_utils8internal2
 20:                                               ; preds = %18
   %21 = add nuw nsw i64 %.sroa.446.0.extract.shift, 4294967286
   %22 = and i64 %21, 4294967295
-  %23 = getelementptr inbounds nuw float, ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIfE19POWERS_OF_TEN_ARRAYE, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIfE19POWERS_OF_TEN_ARRAYE, i64 %22
   %24 = load float, ptr %23, align 4, !tbaa !60
   %25 = fmul float %24, %12
   br label %26
@@ -3613,7 +3613,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN24__llvm_libc_common_utils8internal2
 
 28:                                               ; preds = %26
   %29 = zext nneg i32 %.0.i to i64
-  %30 = getelementptr inbounds nuw float, ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIfE19POWERS_OF_TEN_ARRAYE, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIfE19POWERS_OF_TEN_ARRAYE, i64 %29
   %31 = load float, ptr %30, align 4, !tbaa !60
   %32 = fmul float %.021.i, %31
   %33 = bitcast float %32 to i32
@@ -3634,7 +3634,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN24__llvm_libc_common_utils8internal2
 .thread55.i:                                      ; preds = %37
   %39 = sub nsw i64 0, %.sroa.446.0.extract.shift
   %40 = and i64 %39, 31
-  %41 = getelementptr inbounds nuw float, ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIfE19POWERS_OF_TEN_ARRAYE, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIfE19POWERS_OF_TEN_ARRAYE, i64 %40
   %42 = load float, ptr %41, align 4, !tbaa !60
   %43 = fdiv float %12, %42
   %44 = bitcast float %43 to i32
@@ -3650,7 +3650,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN24__llvm_libc_common_utils8internal2
 46:                                               ; preds = %45
   %47 = fneg float %.122.i
   %48 = sext i32 %.1.i to i64
-  %49 = getelementptr inbounds float, ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIfE19POWERS_OF_TEN_ARRAYE, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIfE19POWERS_OF_TEN_ARRAYE, i64 %48
   %50 = load float, ptr %49, align 4, !tbaa !60
   %51 = fmul float %50, %47
   %52 = bitcast i32 %.sroa.040.1.i to float
@@ -3743,7 +3743,7 @@ define linkonce_odr hidden { i64, i8 } @_ZN24__llvm_libc_common_utils8internal12
   %10 = trunc i64 %9 to i32
   %11 = add nuw nsw i64 %.sroa.234.0.extract.shift, 348
   %12 = and i64 %11, 4294967295
-  %13 = getelementptr inbounds nuw [2 x i64], ptr @_ZN24__llvm_libc_common_utils8internalL22DETAILED_POWERS_OF_TENE, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr @_ZN24__llvm_libc_common_utils8internalL22DETAILED_POWERS_OF_TENE, i64 %12
   %14 = zext i32 %6 to i128
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !52
@@ -5105,7 +5105,7 @@ _ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal11right_shiftEj.exit
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal10left_shiftEj(ptr noundef nonnull align 4 dereferenceable(809) %0, i32 noundef %1) local_unnamed_addr #14 comdat align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw %"struct.__llvm_libc_common_utils::internal::LShiftTableEntry", ptr @_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal22LEFT_SHIFT_DIGIT_TABLEE, i64 %3
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal22LEFT_SHIFT_DIGIT_TABLEE, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !91
   %7 = load i32, ptr %4, align 16, !tbaa !94
@@ -5301,7 +5301,7 @@ define linkonce_odr hidden void @_ZNSt3__131__from_chars_floating_point_hexB8ne2
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.01821.i
   %20 = load i8, ptr %19, align 1, !tbaa !4, !noalias !98
   %21 = sext i8 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %13, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %13, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !14, !noalias !98
   %24 = and i16 %23, 4096
   %.not.i = icmp eq i16 %24, 0
@@ -5312,7 +5312,7 @@ tolower.exit.i:                                   ; preds = %14
   %26 = add nsw i32 %25, -48
   %27 = tail call ptr @__ctype_tolower_loc() #19
   %28 = load ptr, ptr %27, align 8, !tbaa !7, !noalias !98
-  %29 = getelementptr inbounds i32, ptr %28, i64 %21
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %21
   %30 = load i32, ptr %29, align 4, !tbaa !10, !noalias !98
   %switch.tableidx.i = add i32 %30, -97
   %31 = icmp ult i32 %switch.tableidx.i, 6
@@ -5685,7 +5685,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal20decimal
 
 24:                                               ; preds = %22
   %25 = zext nneg i32 %2 to i64
-  %26 = getelementptr double, ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIdE19POWERS_OF_TEN_ARRAYE, i64 %25
+  %26 = getelementptr [8 x i8], ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIdE19POWERS_OF_TEN_ARRAYE, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -176
   %28 = load double, ptr %27, align 8, !tbaa !102, !noalias !110
   %29 = fmul double %28, %16
@@ -5699,7 +5699,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal20decimal
 
 32:                                               ; preds = %30
   %33 = zext nneg i32 %.019.i to i64
-  %34 = getelementptr inbounds nuw double, ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIdE19POWERS_OF_TEN_ARRAYE, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIdE19POWERS_OF_TEN_ARRAYE, i64 %33
   %35 = load double, ptr %34, align 8, !tbaa !102, !noalias !110
   %36 = fmul double %.0.i, %35
   br label %45
@@ -5711,7 +5711,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal20decimal
 39:                                               ; preds = %37
   %40 = sub nsw i32 0, %2
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw double, ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIdE19POWERS_OF_TEN_ARRAYE, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIdE19POWERS_OF_TEN_ARRAYE, i64 %41
   %43 = load double, ptr %42, align 8, !tbaa !102, !noalias !110
   %44 = fdiv double %16, %43
   br label %45
@@ -5727,7 +5727,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal20decimal
 46:                                               ; preds = %45
   %47 = fneg double %.1.i
   %48 = sext i32 %.120.i to i64
-  %49 = getelementptr inbounds double, ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIdE19POWERS_OF_TEN_ARRAYE, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr @_ZN24__llvm_libc_common_utils8internal13ClingerConstsIdE19POWERS_OF_TEN_ARRAYE, i64 %48
   %50 = load double, ptr %49, align 8, !tbaa !102, !noalias !110
   %51 = fmul double %50, %47
   %52 = fneg double %51
@@ -5765,7 +5765,7 @@ _ZN24__llvm_libc_common_utils8internal17clinger_fast_pathIdEENS_3cpp8optionalINS
   %70 = mul nsw i64 %69, 217706
   %71 = lshr i64 %70, 16
   %72 = trunc i64 %71 to i32
-  %73 = getelementptr [2 x i64], ptr @_ZN24__llvm_libc_common_utils8internalL22DETAILED_POWERS_OF_TENE, i64 %69
+  %73 = getelementptr [16 x i8], ptr @_ZN24__llvm_libc_common_utils8internalL22DETAILED_POWERS_OF_TENE, i64 %69
   %74 = getelementptr i8, ptr %73, i64 5568
   %75 = zext i64 %68 to i128
   %76 = getelementptr i8, ptr %73, i64 5576

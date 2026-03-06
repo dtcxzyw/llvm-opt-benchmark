@@ -103495,7 +103495,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %.thread1322, %387, 
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %403 = load ptr, ptr %1, align 8, !tbaa !793
-  %404 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %403, i64 %indvars.iv
+  %404 = getelementptr inbounds nuw [32 x i8], ptr %403, i64 %indvars.iv
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %40, ptr noundef nonnull @.str.479, ptr noundef nonnull align 8 dereferenceable(32) %404)
           to label %405 unwind label %473
 
@@ -103880,7 +103880,7 @@ _ZN7testing15AssertionResultD2Ev.exit686:         ; preds = %513, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %530 = load ptr, ptr %3, align 8, !tbaa !793
-  %531 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %530, i64 %indvars.iv
+  %531 = getelementptr inbounds nuw [32 x i8], ptr %530, i64 %indvars.iv
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %50, ptr noundef nonnull @.str.482, ptr noundef nonnull align 8 dereferenceable(32) %531)
           to label %532 unwind label %645
 
@@ -104432,7 +104432,7 @@ _ZN7testing15AssertionResultD2Ev.exit761:         ; preds = %693, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %710 = load ptr, ptr %3, align 8, !tbaa !793
-  %711 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %710, i64 %indvars.iv
+  %711 = getelementptr inbounds nuw [32 x i8], ptr %710, i64 %indvars.iv
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %58, ptr noundef nonnull @.str.487, ptr noundef nonnull align 8 dereferenceable(32) %711)
           to label %712 unwind label %780
 
@@ -161494,7 +161494,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %.thread1346, %397, 
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %413 = load ptr, ptr %1, align 8, !tbaa !793
-  %414 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %413, i64 %indvars.iv
+  %414 = getelementptr inbounds nuw [32 x i8], ptr %413, i64 %indvars.iv
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %40, ptr noundef nonnull @.str.847, ptr noundef nonnull align 8 dereferenceable(32) %414)
           to label %415 unwind label %483
 
@@ -161933,7 +161933,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   %565 = load ptr, ptr %3, align 8, !tbaa !793
-  %566 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %565, i64 %indvars.iv
+  %566 = getelementptr inbounds nuw [32 x i8], ptr %565, i64 %indvars.iv
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %50, ptr noundef nonnull @.str.849, ptr noundef nonnull align 8 dereferenceable(32) %566)
           to label %567 unwind label %659
 

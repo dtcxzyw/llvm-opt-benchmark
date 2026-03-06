@@ -67,8 +67,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.15 = type { %struct.anon.16 }
 %struct.anon.16 = type { ptr, i32, i32 }
 %struct._cwd_state = type { ptr, i64 }
-%struct._phar_entry_fp = type { ptr, ptr, ptr }
-%struct._phar_entry_fp_info = type { i32, i64 }
 
 @.str = private unnamed_addr constant [3 x i8] c"|b\00", align 1
 @executor_globals = external global %struct._zend_executor_globals, align 8
@@ -5452,7 +5450,7 @@ zend_hash_add_mem.exit:                           ; preds = %phar_set_inode.exit
 
 230:                                              ; preds = %239, %218
   %indvars.iv.i = phi i64 [ 0, %218 ], [ %indvars.iv.next.i, %239 ]
-  %231 = getelementptr inbounds nuw ptr, ptr @phar_rename_archive.phar_ext_list, i64 %indvars.iv.i
+  %231 = getelementptr inbounds nuw [8 x i8], ptr @phar_rename_archive.phar_ext_list, i64 %indvars.iv.i
   %232 = load ptr, ptr %231, align 8, !tbaa !17
   %233 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %232) #21
   %.not149.i = icmp ne i64 %233, 0
@@ -14003,13 +14001,13 @@ zend_string_starts_with_cstr.exit.thread:         ; preds = %12, %zend_string_st
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 312
   %165 = load i32, ptr %164, align 8, !tbaa !228
   %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %161, i64 %166
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %161, i64 %166
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load ptr, ptr %168, align 8, !tbaa !229
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %171 = load i32, ptr %170, align 4, !tbaa !232
   %172 = zext i32 %171 to i64
-  %173 = getelementptr inbounds nuw %struct._phar_entry_fp_info, ptr %169, i64 %172
+  %173 = getelementptr inbounds nuw [16 x i8], ptr %169, i64 %172
   br label %phar_get_fp_type.exit
 
 phar_get_fp_type.exit:                            ; preds = %158, %160

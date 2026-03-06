@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.jpeg_scan_info = type { i32, [4 x i32], i32, i32, i32, i32 }
-%struct.jpeg_component_info = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [2 x i8] c"r\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -88,7 +87,7 @@ text_getc.exit.i:                                 ; preds = %.preheader.i.i, %.p
   %26 = tail call ptr @__ctype_b_loc() #9
   %27 = load ptr, ptr %26, align 8, !tbaa !13
   %28 = sext i32 %.0.i.i to i64
-  %29 = getelementptr inbounds i16, ptr %27, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %27, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !15
   %31 = zext i16 %30 to i32
   %32 = and i32 %31, 8192
@@ -126,7 +125,7 @@ text_getc.exit26.i:                               ; preds = %.preheader.i25.i, %
 42:                                               ; preds = %text_getc.exit26.i
   %43 = load ptr, ptr %26, align 8, !tbaa !13
   %44 = sext i32 %.0.i24.i to i64
-  %45 = getelementptr inbounds i16, ptr %43, i64 %44
+  %45 = getelementptr inbounds [2 x i8], ptr %43, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !15
   %47 = and i16 %46, 2048
   %.not23.i = icmp eq i16 %47, 0
@@ -147,7 +146,7 @@ text_getc.exit26.i:                               ; preds = %.preheader.i25.i, %
 
 56:                                               ; preds = %42, %text_getc.exit26.i
   %57 = trunc i64 %.0.i to i32
-  %58 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %57, ptr %58, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -156,7 +155,7 @@ text_getc.exit26.i:                               ; preds = %.preheader.i25.i, %
 59:                                               ; preds = %56
   store i64 %.0.i, ptr %5, align 8
   store i32 %.0.i24.i, ptr %4, align 4
-  %60 = getelementptr inbounds nuw i32, ptr @q_scale_factor, i64 %indvars.iv57
+  %60 = getelementptr inbounds nuw [4 x i8], ptr @q_scale_factor, i64 %indvars.iv57
   %61 = load i32, ptr %60, align 4, !tbaa !11
   %62 = trunc nuw nsw i64 %indvars.iv57 to i32
   call void @jpeg_add_quant_table(ptr noundef %0, i32 noundef %62, ptr noundef nonnull %6, i32 noundef %61, i32 noundef %2) #10
@@ -219,7 +218,7 @@ text_getc.exit:                                   ; preds = %.preheader.i, %.pre
   %10 = tail call ptr @__ctype_b_loc() #9
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = sext i32 %.0.i to i64
-  %13 = getelementptr inbounds i16, ptr %11, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !15
   %15 = zext i16 %14 to i32
   %16 = and i32 %15, 8192
@@ -257,7 +256,7 @@ text_getc.exit26:                                 ; preds = %.preheader.i25, %.p
 26:                                               ; preds = %text_getc.exit26
   %27 = load ptr, ptr %10, align 8, !tbaa !13
   %28 = sext i32 %.0.i24 to i64
-  %29 = getelementptr inbounds i16, ptr %27, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %27, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !15
   %31 = and i16 %30, 2048
   %.not23 = icmp eq i16 %31, 0
@@ -361,7 +360,7 @@ text_getc.exit.i60:                               ; preds = %.preheader.i.i64, %
   %30 = tail call ptr @__ctype_b_loc() #9
   %31 = load ptr, ptr %30, align 8, !tbaa !13
   %32 = sext i32 %.0.i.i61 to i64
-  %33 = getelementptr inbounds i16, ptr %31, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %31, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !15
   %35 = zext i16 %34 to i32
   %36 = and i32 %35, 8192
@@ -399,7 +398,7 @@ text_getc.exit26.i:                               ; preds = %.preheader.i25.i, %
 46:                                               ; preds = %text_getc.exit26.i
   %47 = load ptr, ptr %30, align 8, !tbaa !13
   %48 = sext i32 %.0.i24.i to i64
-  %49 = getelementptr inbounds i16, ptr %47, i64 %48
+  %49 = getelementptr inbounds [2 x i8], ptr %47, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !15
   %51 = and i16 %50, 2048
   %.not23.i = icmp eq i16 %51, 0
@@ -416,7 +415,7 @@ text_getc.exit26.i:                               ; preds = %.preheader.i25.i, %
   %.022.i = phi i32 [ %.0.i.i, %text_getc.exit.i ], [ %.0.i24.i, %46 ]
   %57 = load ptr, ptr %30, align 8, !tbaa !13
   %58 = sext i32 %.022.i to i64
-  %59 = getelementptr inbounds i16, ptr %57, i64 %58
+  %59 = getelementptr inbounds [2 x i8], ptr %57, i64 %58
   %60 = load i16, ptr %59, align 2, !tbaa !15
   %61 = and i16 %60, 8192
   %.not19.i = icmp eq i16 %61, 0
@@ -444,7 +443,7 @@ text_getc.exit.i:                                 ; preds = %.preheader.i.i, %.p
   %.lcssa21.i = phi i1 [ %.not19.i, %text_getc.exit.i ], [ %.not19.i, %.lr.ph.i ], [ false, %text_getc.exit26.i ]
   %66 = load ptr, ptr %30, align 8, !tbaa !13
   %67 = sext i32 %.0.lcssa.i to i64
-  %68 = getelementptr inbounds i16, ptr %66, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %66, i64 %67
   %69 = load i16, ptr %68, align 2, !tbaa !15
   %70 = and i16 %69, 2048
   %.not20.i = icmp eq i16 %70, 0
@@ -465,7 +464,7 @@ text_getc.exit.i:                                 ; preds = %.preheader.i.i, %.p
 select.unfold:                                    ; preds = %74, %71
   %.1.i = phi i32 [ %spec.select, %74 ], [ 32, %71 ]
   %77 = trunc i64 %.0.i to i32
-  %78 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   store i32 %77, ptr %78, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %79 = icmp eq i32 %.1.i, 32
@@ -623,7 +622,7 @@ define internal fastcc range(i32 0, 2) i32 @read_scan_integer(ptr noundef nonnul
   %.022 = phi i32 [ %.0.i, %text_getc.exit ], [ %6, %5 ]
   %7 = load ptr, ptr %.pre, align 8, !tbaa !13
   %8 = sext i32 %.022 to i64
-  %9 = getelementptr inbounds i16, ptr %7, i64 %8
+  %9 = getelementptr inbounds [2 x i8], ptr %7, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !15
   %11 = and i16 %10, 8192
   %.not19 = icmp eq i16 %11, 0
@@ -651,7 +650,7 @@ text_getc.exit:                                   ; preds = %.preheader.i, %.pre
   %.lcssa21 = phi i1 [ false, %5 ], [ %.not19, %text_getc.exit ], [ %.not19, %.lr.ph ]
   %16 = load ptr, ptr %.pre, align 8, !tbaa !13
   %17 = sext i32 %.0.lcssa to i64
-  %18 = getelementptr inbounds i16, ptr %16, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %16, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !15
   %20 = and i16 %19, 2048
   %.not20 = icmp eq i16 %20, 0
@@ -710,7 +709,7 @@ define dso_local range(i32 0, 2) i32 @set_quality_ratings(ptr noundef %0, ptr no
 12:                                               ; preds = %8
   %13 = load i32, ptr %4, align 4, !tbaa !11
   %14 = call i32 @jpeg_quality_scaling(i32 noundef %13) #10
-  %15 = getelementptr inbounds nuw i32, ptr @q_scale_factor, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @q_scale_factor, i64 %indvars.iv
   store i32 %14, ptr %15, align 4, !tbaa !11
   br label %16
 
@@ -728,7 +727,7 @@ define dso_local range(i32 0, 2) i32 @set_quality_ratings(ptr noundef %0, ptr no
 20:                                               ; preds = %6
   %21 = load i32, ptr %4, align 4, !tbaa !11
   %22 = call i32 @jpeg_quality_scaling(i32 noundef %21) #10
-  %23 = getelementptr inbounds nuw i32, ptr @q_scale_factor, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr @q_scale_factor, i64 %indvars.iv
   store i32 %22, ptr %23, align 4, !tbaa !11
   br label %.critedge
 
@@ -795,7 +794,7 @@ define dso_local range(i32 0, 2) i32 @set_quant_slots(ptr noundef readonly captu
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %5, align 8, !tbaa !54
-  %19 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [96 x i8], ptr %18, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 %13, ptr %20, align 8, !tbaa !55
   br label %21
@@ -814,7 +813,7 @@ define dso_local range(i32 0, 2) i32 @set_quant_slots(ptr noundef readonly captu
 25:                                               ; preds = %6
   %26 = load i32, ptr %3, align 4, !tbaa !11
   %27 = load ptr, ptr %5, align 8, !tbaa !54
-  %28 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [96 x i8], ptr %27, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 %26, ptr %29, align 8, !tbaa !55
   br label %.critedge
@@ -884,7 +883,7 @@ define dso_local range(i32 0, 2) i32 @set_sample_factors(ptr noundef readonly ca
 
 27:                                               ; preds = %18
   %28 = load ptr, ptr %7, align 8, !tbaa !54
-  %29 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %28, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 %19, ptr %30, align 8, !tbaa !59
   %31 = load i32, ptr %4, align 4, !tbaa !11
@@ -905,7 +904,7 @@ define dso_local range(i32 0, 2) i32 @set_sample_factors(ptr noundef readonly ca
 
 37:                                               ; preds = %8
   %38 = load ptr, ptr %7, align 8, !tbaa !54
-  %39 = getelementptr inbounds nuw %struct.jpeg_component_info, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [96 x i8], ptr %38, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 1, ptr %40, align 8, !tbaa !59
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 12

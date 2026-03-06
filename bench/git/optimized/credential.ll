@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.credential_capability = type { i8, [3 x i8] }
 %struct.strbuf = type { i64, i64, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.urlmatch_config = type { %struct.string_list, %struct.url_info, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.url_info = type { ptr, ptr, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
@@ -1104,7 +1103,7 @@ credential_has_capability.exit122:                ; preds = %155, %153
   %160 = phi i64 [ %150, %.lr.ph ], [ %176, %credential_write_item.exit126 ]
   %.061147 = phi i64 [ 0, %.lr.ph ], [ %177, %credential_write_item.exit126 ]
   %161 = load ptr, ptr %151, align 8, !tbaa !31
-  %162 = getelementptr inbounds nuw ptr, ptr %161, i64 %.061147
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %.061147
   %163 = load ptr, ptr %162, align 8, !tbaa !32
   %164 = icmp eq ptr %163, null
   br i1 %164, label %credential_write_item.exit126, label %165
@@ -1169,7 +1168,7 @@ credential_write_item.exit130:                    ; preds = %179
   %189 = phi i64 [ %186, %.lr.ph150 ], [ %205, %credential_write_item.exit134 ]
   %.0148 = phi i64 [ 0, %.lr.ph150 ], [ %206, %credential_write_item.exit134 ]
   %190 = load ptr, ptr %187, align 8, !tbaa !36
-  %191 = getelementptr inbounds nuw ptr, ptr %190, i64 %.0148
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %.0148
   %192 = load ptr, ptr %191, align 8, !tbaa !32
   %193 = icmp eq ptr %192, null
   br i1 %193, label %credential_write_item.exit134, label %194
@@ -1333,7 +1332,7 @@ define dso_local void @credential_fill(ptr noundef %0, ptr noundef %1, i32 nound
 37:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %38 = load ptr, ptr %1, align 8, !tbaa !40
-  %39 = getelementptr inbounds nuw %struct.string_list_item, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !41
   tail call fastcc void @credential_do(ptr noundef nonnull %1, ptr noundef %40, ptr noundef nonnull @.str.21)
   %41 = load i64, ptr %32, align 8, !tbaa !29
@@ -1382,7 +1381,7 @@ define dso_local void @credential_fill(ptr noundef %0, ptr noundef %1, i32 nound
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr %1, align 8, !tbaa !40
-  %61 = getelementptr inbounds nuw %struct.string_list_item, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !41
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.22, ptr noundef %62) #22
   unreachable
@@ -1709,7 +1708,7 @@ define dso_local void @credential_approve(ptr noundef %0, ptr noundef %1) local_
 .lr.ph:                                           ; preds = %23, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %23 ]
   %28 = load ptr, ptr %1, align 8, !tbaa !40
-  %29 = getelementptr inbounds nuw %struct.string_list_item, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !41
   tail call fastcc void @credential_do(ptr noundef nonnull %1, ptr noundef %30, ptr noundef nonnull @.str.24)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1747,7 +1746,7 @@ define dso_local void @credential_reject(ptr noundef %0, ptr noundef %1) local_u
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %8 = load ptr, ptr %1, align 8, !tbaa !40
-  %9 = getelementptr inbounds nuw %struct.string_list_item, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !41
   tail call fastcc void @credential_do(ptr noundef nonnull %1, ptr noundef %10, ptr noundef nonnull @.str.25)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

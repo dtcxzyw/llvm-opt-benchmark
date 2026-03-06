@@ -3,8 +3,6 @@ source_filename = "bench/stb/original/stb_include.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.include_info = type { i32, i32, ptr, i32 }
-
 @.str = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"include\00", align 1
 @.str.2 = private unnamed_addr constant [7 x i8] c"inject\00", align 1
@@ -72,7 +70,7 @@ define noalias noundef ptr @stb_include_append_include(ptr noundef captures(none
   %9 = mul nsw i64 %8, 24
   %10 = tail call ptr @realloc(ptr noundef %0, i64 noundef %9) #16
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds %struct.include_info, ptr %10, i64 %11
+  %12 = getelementptr inbounds [24 x i8], ptr %10, i64 %11
   store i32 %2, ptr %12, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %3, ptr %13, align 4, !tbaa !13
@@ -97,7 +95,7 @@ define void @stb_include_free_includes(ptr noundef captures(none) %0, i32 nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = getelementptr inbounds nuw %struct.include_info, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !14
   tail call void @free(ptr noundef %6) #17
@@ -297,7 +295,7 @@ stb_include_isspace.exit116.thread:               ; preds = %stb_include_isspace
   %52 = mul nsw i64 %51, 24
   %53 = tail call ptr @realloc(ptr noundef %.086131, i64 noundef %52) #16
   %54 = sext i32 %.087130 to i64
-  %55 = getelementptr inbounds %struct.include_info, ptr %53, i64 %54
+  %55 = getelementptr inbounds [24 x i8], ptr %53, i64 %54
   store i32 %46, ptr %55, align 8, !tbaa !8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 %49, ptr %56, align 4, !tbaa !13
@@ -422,7 +420,7 @@ stb_include_itoa.exit:                            ; preds = %stb_include_itoa.ex
   %.044108 = phi ptr [ null, %.lr.ph ], [ %68, %stb_include_itoa.exit73 ]
   %.0106 = phi i64 [ 0, %.lr.ph ], [ %67, %stb_include_itoa.exit73 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.043109
-  %16 = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %indvars.iv
   %17 = load i32, ptr %16, align 8, !tbaa !8
   %18 = sext i32 %17 to i64
   %19 = sub nsw i64 %18, %.043109
@@ -505,7 +503,7 @@ stb_include_file.exit:                            ; preds = %39
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i65 = phi i64 [ %indvars.iv.next.i66, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %46 = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv.i65
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %indvars.iv.i65
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !14
   call void @free(ptr noundef %48) #17
@@ -585,7 +583,7 @@ stb_include_itoa.exit73:                          ; preds = %57
 
 .lr.ph.i76:                                       ; preds = %.lr.ph.i76, %.lr.ph.preheader.i74
   %indvars.iv.i77 = phi i64 [ 0, %.lr.ph.preheader.i74 ], [ %indvars.iv.next.i78, %.lr.ph.i76 ]
-  %79 = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv.i77
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %indvars.iv.i77
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !14
   call void @free(ptr noundef %81) #17
@@ -649,7 +647,7 @@ define noalias noundef ptr @stb_include_strings(ptr noundef readonly captures(no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.027 = phi i64 [ 0, %.lr.ph.preheader ], [ %11, %.lr.ph ]
-  %8 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !29
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #18
   %11 = add i64 %10, %.027
@@ -671,7 +669,7 @@ define noalias noundef ptr @stb_include_strings(ptr noundef readonly captures(no
   %indvars.iv34 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next35, %.lr.ph31 ]
   %.129 = phi i64 [ 0, %.lr.ph31.preheader ], [ %20, %.lr.ph31 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.129
-  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv34
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv34
   %17 = load ptr, ptr %16, align 8, !tbaa !29
   %18 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %17) #17
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #18

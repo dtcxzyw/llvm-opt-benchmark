@@ -26,7 +26,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_elv_rb_latte
 %struct.list_head = type { ptr, ptr }
 %struct.obs_kernel_param = type { ptr, ptr, i32 }
 %struct.sysfs_ops = type { ptr, ptr }
-%struct.hlist_head = type { ptr }
 
 @__UNIQUE_ID___addressable_elv_bio_merge_ok754 = internal global ptr @elv_bio_merge_ok, section ".discard.addressable", align 8
 @elv_ktype = internal constant %struct.kobj_type { ptr @elevator_release, ptr @elv_sysfs_ops, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -222,7 +221,7 @@ define dso_local void @elv_rqhash_add(ptr noundef readonly captures(none) %0, pt
   %19 = add i64 %14, %18
   %20 = mul i64 %19, 7046029254386353131
   %21 = lshr i64 %20, 58
-  %22 = getelementptr %struct.hlist_head, ptr %12, i64 %21
+  %22 = getelementptr [8 x i8], ptr %12, i64 %21
   %23 = load ptr, ptr %22, align 8
   store volatile ptr %23, ptr %11, align 8
   %24 = icmp eq ptr %23, null
@@ -283,7 +282,7 @@ define dso_local void @elv_rqhash_reposition(ptr noundef readonly captures(none)
   %26 = add i64 %21, %25
   %27 = mul i64 %26, 7046029254386353131
   %28 = lshr i64 %27, 58
-  %29 = getelementptr %struct.hlist_head, ptr %19, i64 %28
+  %29 = getelementptr [8 x i8], ptr %19, i64 %28
   %30 = load ptr, ptr %29, align 8
   store volatile ptr %30, ptr %3, align 8
   %31 = icmp eq ptr %30, null
@@ -310,7 +309,7 @@ define dso_local ptr @elv_rqhash_find(ptr noundef readonly captures(none) %0, i6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = mul i64 %1, 7046029254386353131
   %7 = lshr i64 %6, 58
-  %8 = getelementptr %struct.hlist_head, ptr %5, i64 %7
+  %8 = getelementptr [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   %11 = getelementptr i8, ptr %9, i64 -144
@@ -567,7 +566,7 @@ define dso_local i32 @elv_merge(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 120
   %46 = mul i64 %43, 7046029254386353131
   %47 = lshr i64 %46, 58
-  %48 = getelementptr %struct.hlist_head, ptr %45, i64 %47
+  %48 = getelementptr [8 x i8], ptr %45, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   %51 = getelementptr i8, ptr %49, i64 -144
@@ -755,7 +754,7 @@ define dso_local noundef zeroext i1 @elv_attempt_insert_merge(ptr noundef %0, pt
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 120
   %29 = mul i64 %25, 7046029254386353131
   %30 = lshr i64 %29, 58
-  %31 = getelementptr %struct.hlist_head, ptr %28, i64 %30
+  %31 = getelementptr [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   %34 = getelementptr i8, ptr %32, i64 -144
@@ -870,7 +869,7 @@ elv_rqhash_find.exit6:                            ; preds = %135
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 120
   %95 = mul i64 %92, 7046029254386353131
   %96 = lshr i64 %95, 58
-  %97 = getelementptr %struct.hlist_head, ptr %94, i64 %96
+  %97 = getelementptr [8 x i8], ptr %94, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
   %100 = getelementptr i8, ptr %98, i64 -144
@@ -1024,7 +1023,7 @@ define dso_local void @elv_merged_request(ptr noundef %0, ptr noundef %1, i32 no
   %36 = add i64 %31, %35
   %37 = mul i64 %36, 7046029254386353131
   %38 = lshr i64 %37, 58
-  %39 = getelementptr %struct.hlist_head, ptr %29, i64 %38
+  %39 = getelementptr [8 x i8], ptr %29, i64 %38
   %40 = load ptr, ptr %39, align 8
   store volatile ptr %40, ptr %14, align 8
   %41 = icmp eq ptr %40, null
@@ -1101,7 +1100,7 @@ define dso_local void @elv_merge_requests(ptr noundef %0, ptr noundef %1, ptr no
   %34 = add i64 %29, %33
   %35 = mul i64 %34, 7046029254386353131
   %36 = lshr i64 %35, 58
-  %37 = getelementptr %struct.hlist_head, ptr %27, i64 %36
+  %37 = getelementptr [8 x i8], ptr %27, i64 %36
   %38 = load ptr, ptr %37, align 8
   store volatile ptr %38, ptr %12, align 8
   %39 = icmp eq ptr %38, null

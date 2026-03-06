@@ -79,7 +79,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
 %"class.irr::core::vector3d.397" = type { float, float, float }
 %"class.irr::video::SColorf" = type { float, float, float, float }
-%struct.image_definition = type { ptr, i8, i32 }
 %"class.std::basic_ofstream" = type { %"class.std::basic_ostream.base", %"class.std::basic_filebuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::basic_filebuf" = type { %"class.std::basic_streambuf", %union.pthread_mutex_t, %"class.std::__basic_file", i32, %struct.__mbstate_t, %struct.__mbstate_t, %struct.__mbstate_t, ptr, i64, i8, i8, i8, i8, ptr, ptr, i8, ptr, ptr, i64, ptr, ptr }
@@ -958,7 +957,7 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i
   store ptr %call5.i.i.i.i.i, ptr %m_to_delete, align 8, !tbaa !28
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !29
-  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !57
   br label %return
 
@@ -2285,7 +2284,7 @@ invoke.cont73:                                    ; preds = %if.end.i.i.i.i.i317
   %58 = phi i64 [ %54, %if.end.i.i313 ], [ %54, %if.then.i.i.i.i316 ], [ %.pre18.i.i, %if.end.i.i.i.i.i317 ]
   %_M_string_length.i.i.i.i314 = getelementptr inbounds nuw i8, ptr %ref.tmp66, i64 8
   store i64 %58, ptr %_M_string_length.i.i.i.i314, align 8, !tbaa !18
-  %arrayidx.i.i.i315 = getelementptr inbounds i32, ptr %57, i64 %58
+  %arrayidx.i.i.i315 = getelementptr inbounds [4 x i8], ptr %57, i64 %58
   store i32 0, ptr %arrayidx.i.i.i315, align 4, !tbaa !182
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i309)
   call void @llvm.lifetime.start.p0(ptr nonnull %spec.i)
@@ -6393,7 +6392,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
   %7 = phi i64 [ %3, %if.end.i.i ], [ %3, %if.then.i.i.i.i ], [ %.pre18.i.i, %if.end.i.i.i.i.i ]
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i64 %7, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !18
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %6, i64 %7
+  %arrayidx.i.i.i = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   store i32 0, ptr %arrayidx.i.i.i, align 4, !tbaa !182
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %spec.i)
@@ -7554,7 +7553,7 @@ _ZN15RenderingEngine16get_video_driverEv.exit:    ; preds = %land.lhs.true.i
   %call.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %m_textures = getelementptr inbounds nuw i8, ptr %this, i64 240
   %idxprom = zext i32 %layer to i64
-  %arrayidx = getelementptr inbounds nuw %struct.image_definition, ptr %m_textures, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %m_textures, i64 %idxprom
   %3 = load ptr, ptr %arrayidx, align 8, !tbaa !146
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -8046,7 +8045,7 @@ if.end32.i.i:                                     ; preds = %if.end.i.i.i.i, %if
   %10 = phi i64 [ %.pre.i.i, %if.end.i.i.i.i ], [ 1, %if.then.i79.i.i ], [ %7, %if.then22.i.i ]
   %_M_string_length.i.i81.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   store i64 %10, ptr %_M_string_length.i.i81.i.i, align 8, !tbaa !18
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %9, i64 %10
+  %arrayidx.i.i.i = getelementptr inbounds [4 x i8], ptr %9, i64 %10
   store i32 0, ptr %arrayidx.i.i.i, align 4, !tbaa !182
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEaSEOS4_.exit.i
 
@@ -8648,7 +8647,7 @@ if.then.i:                                        ; preds = %if.end9
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load i64, ptr %add.ptr.i.i.i, align 8, !tbaa !451
   %rem.i.i.i.i = urem i64 %13, %10
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %rem.i.i.i.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %9, i64 %rem.i.i.i.i
   store ptr %_M_before_begin.i, ptr %arrayidx.i, align 8, !tbaa !14
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_update_bbeginEv.exit
 

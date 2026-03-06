@@ -7080,7 +7080,7 @@ default.unreachable:                              ; preds = %123, %37, %5
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = zext nneg i8 %35 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.acn_add_dmp_reason_codes, i64 %85
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.acn_add_dmp_reason_codes, i64 %85
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.lr.ph263.split
 
@@ -7304,7 +7304,7 @@ define internal fastcc i32 @acn_add_dmp_reason_codes(ptr noundef %0, ptr noundef
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = zext nneg i8 %9 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.acn_add_dmp_reason_codes, i64 %32
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.acn_add_dmp_reason_codes, i64 %32
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %switch.lookup
 

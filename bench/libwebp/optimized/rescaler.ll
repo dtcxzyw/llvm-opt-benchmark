@@ -47,7 +47,7 @@ define hidden void @WebPRescalerImportRowExpand_C(ptr noalias noundef readonly c
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !15
   %24 = mul i32 %10, %20
-  %25 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv71
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv71
   store i32 %24, ptr %25, align 4, !tbaa !16
   %26 = trunc nuw i64 %21 to i32
   %.not50.us = icmp sgt i32 %7, %26
@@ -87,7 +87,7 @@ define hidden void @WebPRescalerImportRowExpand_C(ptr noalias noundef readonly c
   %39 = sub nsw i32 %.139.us, %.1.us
   %40 = mul i32 %39, %.141.us
   %41 = add i32 %40, %38
-  %42 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv68
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv68
   store i32 %41, ptr %42, align 4, !tbaa !16
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, %17
   %43 = trunc nuw i64 %indvars.iv.next69 to i32
@@ -106,7 +106,7 @@ define hidden void @WebPRescalerImportRowExpand_C(ptr noalias noundef readonly c
   %47 = load i8, ptr %46, align 1, !tbaa !15
   %48 = zext i8 %47 to i32
   %49 = mul i32 %10, %48
-  %50 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv63
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv63
   store i32 %49, ptr %50, align 4, !tbaa !16
   %51 = trunc i64 %indvars.iv63 to i32
   %52 = add i32 %4, %51
@@ -145,7 +145,7 @@ define hidden void @WebPRescalerImportRowExpand_C(ptr noalias noundef readonly c
   %66 = sub nsw i32 %.139, %.1
   %67 = mul i32 %66, %.141
   %68 = add i32 %67, %65
-  %69 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv60
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv60
   store i32 %68, ptr %69, align 4, !tbaa !16
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, %17
   %70 = trunc nuw i64 %indvars.iv.next61 to i32
@@ -234,7 +234,7 @@ define hidden void @WebPRescalerImportRowShrink_C(ptr noalias noundef readonly c
   %34 = sub i32 0, %.031.lcssa
   %35 = mul i32 %17, %.134.lcssa
   %36 = add i32 %35, %.031.lcssa
-  %37 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv59
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv59
   store i32 %36, ptr %37, align 4, !tbaa !16
   %38 = zext i32 %34 to i64
   %39 = mul nuw i64 %20, %38
@@ -284,7 +284,7 @@ define hidden void @WebPRescalerExportRowExpand_C(ptr noundef readonly captures(
 
 18:                                               ; preds = %.lr.ph39, %18
   %indvars.iv42 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next43, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv42
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv42
   %20 = load i32, ptr %19, align 4, !tbaa !16
   %21 = zext i32 %20 to i64
   %22 = load i32, ptr %17, align 8, !tbaa !27
@@ -323,11 +323,11 @@ define hidden void @WebPRescalerExportRowExpand_C(ptr noundef readonly captures(
 
 45:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4, !tbaa !16
   %48 = zext i32 %47 to i64
   %49 = mul nuw i64 %43, %48
-  %50 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4, !tbaa !16
   %52 = zext i32 %51 to i64
   %53 = mul nuw i64 %40, %52
@@ -395,13 +395,13 @@ define hidden void @WebPRescalerExportRowShrink_C(ptr noundef readonly captures(
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !16
   %26 = zext i32 %25 to i64
   %27 = mul nuw i64 %26, %20
   %28 = lshr i64 %27, 32
   %29 = trunc nuw i64 %28 to i32
-  %30 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4, !tbaa !16
   %32 = sub i32 %31, %29
   %33 = zext i32 %32 to i64
@@ -423,7 +423,7 @@ define hidden void @WebPRescalerExportRowShrink_C(ptr noundef readonly captures(
 
 44:                                               ; preds = %.lr.ph41, %44
   %indvars.iv44 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next45, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv44
   %46 = load i32, ptr %45, align 4, !tbaa !16
   %47 = zext i32 %46 to i64
   %48 = load i32, ptr %22, align 4, !tbaa !31
@@ -494,14 +494,14 @@ define hidden void @WebPRescalerExportRow(ptr noundef %0) local_unnamed_addr #2 
 19:                                               ; preds = %.lr.ph, %19
   %20 = phi ptr [ %.pre, %.lr.ph ], [ %26, %19 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !16
   %23 = trunc i32 %22 to i8
   %24 = load ptr, ptr %18, align 8, !tbaa !24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv
   store i8 %23, ptr %25, align 1, !tbaa !15
   %26 = load ptr, ptr %17, align 8, !tbaa !25
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   store i32 0, ptr %27, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load i32, ptr %11, align 8, !tbaa !3

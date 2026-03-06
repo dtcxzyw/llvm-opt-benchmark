@@ -219,13 +219,13 @@ define internal void @"_ZN123_$LT$polars_arrow..io..iterator..BufStreamingIterat
   %49 = tail call { ptr, i64 } @_ZN12polars_arrow5array7struct_11StructArray6fields17h3235edec6ff1b746E(ptr noundef nonnull align 8 %48), !noalias !46
   %50 = extractvalue { ptr, i64 } %49, 0
   %51 = extractvalue { ptr, i64 } %49, 1
-  %52 = getelementptr inbounds nuw { { i8, [31 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, ptr, i8, [7 x i8] }, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [72 x i8], ptr %50, i64 %51
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !46
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !alias.scope !40, !noalias !43, !nonnull !4, !noundef !4
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = load i64, ptr %55, align 8, !alias.scope !40, !noalias !43, !noundef !4
-  %57 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %54, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %56
   call void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h686054f23d740d5fE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull %50, ptr noundef %52, ptr noundef nonnull %54, ptr noundef nonnull %57), !noalias !46
   call void @_ZN11polars_json4json5write9serialize14serialize_item17hf13535b46e6addc3E(ptr noalias noundef nonnull align 8 dereferenceable(24) %45, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %2, i1 noundef zeroext true), !noalias !40
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !46
@@ -1986,9 +1986,9 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = icmp ult i64 %5, 11
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { [3 x i64] }, ptr %3, i64 %5
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 272
-  %9 = getelementptr inbounds nuw { [3 x i64] }, ptr %8, i64 %5
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %5
   %10 = insertvalue { ptr, ptr } poison, ptr %7, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %9, 1
   ret { ptr, ptr } %11
@@ -2002,7 +2002,7 @@ define hidden { ptr, i64 } @"_ZN5alloc11collections5btree4node180Handle$LT$alloc
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = icmp ult i64 %5, 12
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !4
@@ -2091,7 +2091,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 544
   %15 = icmp samesign ult i64 %9, 12
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %9
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %9
   br label %18
 
 17:                                               ; preds = %21, %10
@@ -2766,7 +2766,7 @@ default.unreachable220:                           ; preds = %348, %208
   %391 = load ptr, ptr %390, align 8, !noalias !271, !noundef !4
   %392 = getelementptr inbounds nuw i8, ptr %340, i64 48
   %393 = load i64, ptr %392, align 8, !noalias !271, !noundef !4
-  %394 = getelementptr inbounds nuw i64, ptr %391, i64 %393
+  %394 = getelementptr inbounds nuw [8 x i8], ptr %391, i64 %393
   %395 = getelementptr inbounds nuw i8, ptr %340, i64 56
   %396 = load ptr, ptr %395, align 8, !noalias !271, !noundef !4
   %.not7.i = icmp eq ptr %396, null
@@ -2839,7 +2839,7 @@ default.unreachable220:                           ; preds = %348, %208
   %420 = load ptr, ptr %419, align 8, !noalias !271, !noundef !4
   %421 = getelementptr inbounds nuw i8, ptr %340, i64 48
   %422 = load i64, ptr %421, align 8, !noalias !271, !noundef !4
-  %423 = getelementptr inbounds nuw i64, ptr %420, i64 %422
+  %423 = getelementptr inbounds nuw [8 x i8], ptr %420, i64 %422
   %424 = getelementptr inbounds nuw i8, ptr %340, i64 56
   %425 = load ptr, ptr %424, align 8, !noalias !271, !noundef !4
   %.not9.i = icmp eq ptr %425, null
@@ -3136,7 +3136,7 @@ _ZN11polars_json4json5write9serialize26fixed_size_list_serializer17h3d498a8785bc
   %533 = tail call { ptr, i64 } @_ZN12polars_arrow5array7struct_11StructArray6values17h5dbb5a2c7e2955b6E(ptr noundef nonnull align 8 %251)
   %534 = extractvalue { ptr, i64 } %533, 0
   %535 = extractvalue { ptr, i64 } %533, 1
-  %536 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %534, i64 %535
+  %536 = getelementptr inbounds nuw [16 x i8], ptr %534, i64 %535
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !291
   store ptr %534, ptr %9, align 8, !alias.scope !298, !noalias !302
   %.sroa.4.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3279,7 +3279,7 @@ _ZN11polars_json4json5write9serialize17struct_serializer17h63d02456421f2355E.exi
   %594 = load ptr, ptr %593, align 8, !noundef !4
   %.not.i164 = icmp eq ptr %594, null
   %..i165 = select i1 %.not.i164, ptr null, ptr %593
-  %595 = getelementptr inbounds nuw i128, ptr %590, i64 %592
+  %595 = getelementptr inbounds nuw [16 x i8], ptr %590, i64 %592
   call void @"_ZN12polars_arrow6bitmap5utils12zip_validity76ZipValidity$LT$T$C$I$C$polars_arrow..bitmap..utils..iterator..BitmapIter$GT$17new_with_validity17ha5fa5a5fd7731b13E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %7, ptr noundef nonnull %590, ptr noundef %595, ptr noundef align 8 %..i165)
   %596 = call { ptr, ptr } @_ZN11polars_json4json5write9serialize22materialize_serializer17hd35961b220f2aebcE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %7, i64 noundef %2, i64 noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

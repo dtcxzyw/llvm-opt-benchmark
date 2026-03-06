@@ -581,7 +581,7 @@ define dso_local noundef i64 @_ZNK4llvm12MCAsmBackend12getFixupKindENS_9StringRe
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm12MCAsmBackend16getFixupKindInfoENS_11MCFixupKindE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw %"struct.llvm::MCFixupKindInfo", ptr @_ZZNK4llvm12MCAsmBackend16getFixupKindInfoENS_11MCFixupKindEE8Builtins, i64 %3
+  %4 = getelementptr inbounds nuw [24 x i8], ptr @_ZZNK4llvm12MCAsmBackend16getFixupKindInfoENS_11MCFixupKindEE8Builtins, i64 %3
   ret ptr %4
 }
 

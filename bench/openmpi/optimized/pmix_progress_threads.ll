@@ -558,7 +558,7 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
   %24 = and i64 %17, 63
   %25 = shl nuw i64 1, %24
   %26 = lshr i64 %21, 6
-  %27 = getelementptr inbounds nuw i64, ptr %2, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !68
   %29 = or i64 %28, %25
   store i64 %29, ptr %27, align 8, !tbaa !68
@@ -583,7 +583,7 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
   %39 = and i64 %38, 63
   %40 = shl nuw i64 1, %39
   %41 = lshr i64 %38, 6
-  %42 = getelementptr inbounds nuw i64, ptr %2, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !68
   %44 = or i64 %43, %40
   store i64 %44, ptr %42, align 8, !tbaa !68
@@ -596,7 +596,7 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
 
 .loopexit:                                        ; preds = %45, %30, %23, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.next
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.next
   %48 = load ptr, ptr %47, align 8, !tbaa !67
   %.not41 = icmp eq ptr %48, null
   br i1 %.not41, label %._crit_edge, label %.lr.ph46, !llvm.loop !70

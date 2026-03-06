@@ -190,7 +190,7 @@ define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN98_$LT$la_are
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds nuw { { i32, i32 }, i16, [1 x i16] }, ptr %10, i64 %4
+  %11 = getelementptr inbounds nuw [12 x i8], ptr %10, i64 %4
   ret ptr %11
 
 12:                                               ; preds = %3

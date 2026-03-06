@@ -155,7 +155,7 @@ define hidden void @_ZN4cvc58internal24ElimWitnessNodeConverter11postConvertENS0
   %42 = load i64, ptr %41, align 8
   %43 = lshr i64 %42, 32
   %44 = and i64 %43, 67108863
-  %45 = getelementptr inbounds nuw ptr, ptr %40, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %44
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %46 = ptrtoint ptr %45 to i64
   %47 = ptrtoint ptr %spec.select.i.i to i64
@@ -2322,7 +2322,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !13
   store ptr %42, ptr %4, align 8, !tbaa !17
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !16
   ret void
 
@@ -2605,7 +2605,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !13
   store ptr %42, ptr %4, align 8, !tbaa !17
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !16
   ret void
 

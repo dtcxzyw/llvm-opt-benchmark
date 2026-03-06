@@ -3,10 +3,6 @@ source_filename = "bench/luajit/original/lj_opt_sink.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SnapShot = type { i32, i16, i16, i8, i8, i8, i8 }
-%union.IRIns = type { %struct.GCRef }
-%struct.GCRef = type { i64 }
-
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @lj_opt_sink(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
@@ -53,7 +49,7 @@ define hidden void @lj_opt_sink(ptr noundef %0) local_unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %27 = load i16, ptr %26, align 2, !tbaa !30
   %28 = zext i16 %27 to i64
-  %29 = getelementptr %struct.SnapShot, ptr %25, i64 %28
+  %29 = getelementptr [12 x i8], ptr %25, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -12
   %.val = load i32, ptr %30, align 4, !tbaa !31
   %31 = getelementptr i8, ptr %29, i64 -2
@@ -61,7 +57,7 @@ define hidden void @lj_opt_sink(ptr noundef %0) local_unnamed_addr #0 {
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8, !tbaa !34
   %34 = zext i32 %.val to i64
-  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %34
   %.not.i = icmp eq i8 %.val18, 0
   br i1 %.not.i, label %sink_mark_snap.exit, label %.lr.ph.i
 
@@ -72,7 +68,7 @@ define hidden void @lj_opt_sink(ptr noundef %0) local_unnamed_addr #0 {
 
 37:                                               ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
-  %38 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i
   %39 = load i32, ptr %38, align 4, !tbaa !35
   %40 = and i32 %39, 65535
   %41 = icmp samesign ult i32 %40, 32768
@@ -81,7 +77,7 @@ define hidden void @lj_opt_sink(ptr noundef %0) local_unnamed_addr #0 {
 42:                                               ; preds = %37
   %43 = load ptr, ptr %36, align 8, !tbaa !36
   %44 = zext nneg i32 %40 to i64
-  %45 = getelementptr inbounds nuw %union.IRIns, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i8, ptr %46, align 4, !tbaa !37
   %48 = or i8 %47, 32
@@ -100,7 +96,7 @@ sink_mark_snap.exit:                              ; preds = %49, %23, %20
   %53 = load i32, ptr %52, align 4, !tbaa !40
   %54 = add i32 %53, -1
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %union.IRIns, ptr %51, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %55
   br label %57
 
 57:                                               ; preds = %240, %sink_mark_snap.exit
@@ -130,7 +126,7 @@ sink_mark_snap.exit:                              ; preds = %49, %23, %20
   %61 = load ptr, ptr %50, align 8, !tbaa !36
   %62 = load i16, ptr %.0.i, align 8, !tbaa !37
   %63 = zext i16 %62 to i64
-  %64 = getelementptr inbounds nuw %union.IRIns, ptr %61, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %63
   br label %.sink.split.i
 
 65:                                               ; preds = %57
@@ -150,14 +146,14 @@ sink_mark_snap.exit:                              ; preds = %49, %23, %20
   %74 = load ptr, ptr %50, align 8, !tbaa !36
   %75 = load i16, ptr %.0.i, align 8, !tbaa !37
   %76 = zext i16 %75 to i64
-  %77 = getelementptr inbounds nuw %union.IRIns, ptr %74, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %76
   br label %.sink.split.i
 
 78:                                               ; preds = %57, %57, %57, %57
   %.val.i = load ptr, ptr %50, align 8, !tbaa !36
   %.0.val.i = load i16, ptr %.0.i, align 8, !tbaa !37
   %79 = zext i16 %.0.val.i to i64
-  %80 = getelementptr inbounds nuw %union.IRIns, ptr %.val.i, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 2
   %82 = load i16, ptr %81, align 2, !tbaa !37
   %83 = icmp sgt i16 %82, -1
@@ -178,14 +174,14 @@ sink_mark_snap.exit:                              ; preds = %49, %23, %20
 87:                                               ; preds = %84, %84
   %88 = load i16, ptr %80, align 8, !tbaa !37
   %89 = zext i16 %88 to i64
-  %90 = getelementptr inbounds nuw %union.IRIns, ptr %.val.i, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %89
   br label %91
 
 91:                                               ; preds = %87, %84, %84, %84, %84
   %.0.i.i = phi ptr [ %90, %87 ], [ %80, %84 ], [ %80, %84 ], [ %80, %84 ], [ %80, %84 ]
   %92 = load i16, ptr %.0.i.i, align 8, !tbaa !37
   %93 = zext i16 %92 to i64
-  %94 = getelementptr inbounds nuw %union.IRIns, ptr %.val.i, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 5
   %96 = load i8, ptr %95, align 1, !tbaa !37
   %.off.i.i = add i8 %96, -81
@@ -208,7 +204,7 @@ sink_checkalloc.exit.i:                           ; preds = %91
 
 105:                                              ; preds = %100
   %106 = zext i16 %102 to i64
-  %107 = getelementptr inbounds nuw %union.IRIns, ptr %.val.i, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i8, ptr %108, align 4, !tbaa !37
   %110 = and i8 %109, 64
@@ -230,7 +226,7 @@ sink_checkalloc.exit.i:                           ; preds = %91
 119:                                              ; preds = %115
   %120 = load i16, ptr %107, align 8, !tbaa !37
   %121 = zext i16 %120 to i64
-  %122 = getelementptr inbounds nuw %union.IRIns, ptr %.val.i, i64 %121
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %124 = load i8, ptr %123, align 4, !tbaa !37
   %125 = and i8 %124, 64
@@ -266,7 +262,7 @@ sink_checkphi.exit.sink_checkalloc.exit.thread_crit_edge.i: ; preds = %sink_chec
 sink_checkalloc.exit.thread.i:                    ; preds = %sink_checkphi.exit.sink_checkalloc.exit.thread_crit_edge.i, %130, %91, %84, %78
   %.pre-phi.i = phi i64 [ %.pre81.i, %sink_checkphi.exit.sink_checkalloc.exit.thread_crit_edge.i ], [ %79, %130 ], [ %79, %78 ], [ %79, %84 ], [ %79, %91 ]
   %134 = phi ptr [ %.pre79.i, %sink_checkphi.exit.sink_checkalloc.exit.thread_crit_edge.i ], [ %.val.i, %130 ], [ %.val.i, %78 ], [ %.val.i, %84 ], [ %.val.i, %91 ]
-  %135 = getelementptr inbounds nuw %union.IRIns, ptr %134, i64 %.pre-phi.i
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %.pre-phi.i
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 4
   %137 = load i8, ptr %136, align 4, !tbaa !37
   %138 = or i8 %137, 32
@@ -278,7 +274,7 @@ sink_checkphi.exit.thread.i:                      ; preds = %sink_checkalloc.exi
   %140 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   %141 = load i16, ptr %140, align 2, !tbaa !37
   %142 = zext i16 %141 to i64
-  %143 = getelementptr inbounds nuw %union.IRIns, ptr %139, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %142
   br label %.sink.split.i
 
 144:                                              ; preds = %57
@@ -298,7 +294,7 @@ sink_checkphi.exit.thread.i:                      ; preds = %sink_checkalloc.exi
 153:                                              ; preds = %148
   %154 = load ptr, ptr %50, align 8, !tbaa !36
   %155 = zext i16 %150 to i64
-  %156 = getelementptr inbounds nuw %union.IRIns, ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 4
   %158 = load i8, ptr %157, align 4, !tbaa !37
   %159 = and i8 %158, 64
@@ -320,7 +316,7 @@ sink_checkphi.exit.thread.i:                      ; preds = %sink_checkalloc.exi
 168:                                              ; preds = %164
   %169 = load i16, ptr %156, align 8, !tbaa !37
   %170 = zext i16 %169 to i64
-  %171 = getelementptr inbounds nuw %union.IRIns, ptr %154, i64 %170
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 4
   %173 = load i8, ptr %172, align 4, !tbaa !37
   %174 = and i8 %173, 64
@@ -362,25 +358,25 @@ sink_checkphi.exit66.thread.i:                    ; preds = %sink_checkphi.exit6
   %186 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   %187 = load i16, ptr %186, align 2, !tbaa !37
   %188 = zext i16 %187 to i64
-  %189 = getelementptr inbounds nuw %union.IRIns, ptr %185, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %188
   br label %.sink.split.i
 
 190:                                              ; preds = %57, %57
   %191 = load ptr, ptr %50, align 8, !tbaa !36
   %192 = load i16, ptr %.0.i, align 8, !tbaa !37
   %193 = zext i16 %192 to i64
-  %194 = getelementptr inbounds nuw %union.IRIns, ptr %191, i64 %193
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %193
   br label %.sink.split.i
 
 195:                                              ; preds = %57
   %196 = load ptr, ptr %50, align 8, !tbaa !36
   %197 = load i16, ptr %.0.i, align 8, !tbaa !37
   %198 = zext i16 %197 to i64
-  %199 = getelementptr inbounds nuw %union.IRIns, ptr %196, i64 %198
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %198
   %200 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   %201 = load i16, ptr %200, align 2, !tbaa !37
   %202 = zext i16 %201 to i64
-  %203 = getelementptr inbounds nuw %union.IRIns, ptr %196, i64 %202
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %202
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 6
   store i16 0, ptr %204, align 2, !tbaa !37
   %205 = getelementptr inbounds nuw i8, ptr %199, i64 6
@@ -417,7 +413,7 @@ sink_checkphi.exit66.thread.i:                    ; preds = %sink_checkphi.exit6
 222:                                              ; preds = %219
   %223 = load ptr, ptr %50, align 8, !tbaa !36
   %224 = zext i16 %220 to i64
-  %225 = getelementptr inbounds nuw %union.IRIns, ptr %223, i64 %224
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %224
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 4
   %227 = load i8, ptr %226, align 4, !tbaa !37
   %228 = or i8 %227, 32
@@ -433,7 +429,7 @@ sink_checkphi.exit66.thread.i:                    ; preds = %sink_checkphi.exit6
 233:                                              ; preds = %229
   %234 = load ptr, ptr %50, align 8, !tbaa !36
   %235 = zext i16 %231 to i64
-  %236 = getelementptr inbounds nuw %union.IRIns, ptr %234, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %235
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %233, %211, %190, %sink_checkphi.exit66.thread.i, %sink_checkphi.exit.thread.i, %73, %60
@@ -458,7 +454,7 @@ sink_mark_ins.exit:                               ; preds = %57
   %244 = load i32, ptr %52, align 4, !tbaa !40
   %245 = add i32 %244, -1
   %246 = zext i32 %245 to i64
-  %247 = getelementptr inbounds nuw %union.IRIns, ptr %243, i64 %246
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %246
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 5
   %249 = load i8, ptr %248, align 1, !tbaa !37
   %250 = icmp eq i8 %249, 19
@@ -470,11 +466,11 @@ sink_mark_ins.exit:                               ; preds = %57
   %251 = load ptr, ptr %50, align 8, !tbaa !36
   %252 = load i16, ptr %.022.i, align 8, !tbaa !37
   %253 = zext i16 %252 to i64
-  %254 = getelementptr inbounds nuw %union.IRIns, ptr %251, i64 %253
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %253
   %255 = getelementptr inbounds nuw i8, ptr %.022.i, i64 2
   %256 = load i16, ptr %255, align 2, !tbaa !37
   %257 = zext i16 %256 to i64
-  %258 = getelementptr inbounds nuw %union.IRIns, ptr %251, i64 %257
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %257
   %259 = getelementptr inbounds nuw i8, ptr %254, i64 4
   %260 = load i8, ptr %259, align 4, !tbaa !37
   %261 = getelementptr inbounds nuw i8, ptr %258, i64 4
@@ -503,7 +499,7 @@ sink_mark_ins.exit:                               ; preds = %57
   %278 = load ptr, ptr %50, align 8, !tbaa !36
   %279 = load i16, ptr %255, align 2, !tbaa !37
   %280 = zext i16 %279 to i64
-  %281 = getelementptr inbounds nuw %union.IRIns, ptr %278, i64 %280
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %278, i64 %280
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 4
   %283 = load i8, ptr %282, align 4, !tbaa !37
   %284 = or i8 %283, 32
@@ -558,7 +554,7 @@ sink_remark_phi.exit:                             ; preds = %._crit_edge.i, %.pr
   %.val.i27 = load ptr, ptr %50, align 8, !tbaa !36
   %.0.ptr.val.i = load i16, ptr %.0.ptr64.i, align 8, !tbaa !37
   %301 = zext i16 %.0.ptr.val.i to i64
-  %302 = getelementptr inbounds nuw %union.IRIns, ptr %.val.i27, i64 %301
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %.val.i27, i64 %301
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 2
   %304 = load i16, ptr %303, align 2, !tbaa !37
   %305 = icmp sgt i16 %304, -1
@@ -579,14 +575,14 @@ sink_remark_phi.exit:                             ; preds = %._crit_edge.i, %.pr
 309:                                              ; preds = %306, %306
   %310 = load i16, ptr %302, align 8, !tbaa !37
   %311 = zext i16 %310 to i64
-  %312 = getelementptr inbounds nuw %union.IRIns, ptr %.val.i27, i64 %311
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %.val.i27, i64 %311
   br label %313
 
 313:                                              ; preds = %309, %306, %306, %306, %306
   %.0.i.i29 = phi ptr [ %312, %309 ], [ %302, %306 ], [ %302, %306 ], [ %302, %306 ], [ %302, %306 ]
   %314 = load i16, ptr %.0.i.i29, align 8, !tbaa !37
   %315 = zext i16 %314 to i64
-  %316 = getelementptr inbounds nuw %union.IRIns, ptr %.val.i27, i64 %315
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %.val.i27, i64 %315
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 5
   %318 = load i8, ptr %317, align 1, !tbaa !37
   %.off.i.i30 = add i8 %318, -81
@@ -623,7 +619,7 @@ sink_checkalloc.exit.thread.i28:                  ; preds = %sink_checkalloc.exi
   %334 = load ptr, ptr %50, align 8, !tbaa !36
   %335 = load i16, ptr %.0.ptr64.i, align 8, !tbaa !37
   %336 = zext i16 %335 to i64
-  %337 = getelementptr inbounds nuw %union.IRIns, ptr %334, i64 %336
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %336
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 4
   %339 = load i8, ptr %338, align 4, !tbaa !37
   %340 = and i8 %339, 32
@@ -670,7 +666,7 @@ sink_checkalloc.exit.thread.i28:                  ; preds = %sink_checkalloc.exi
   %359 = getelementptr inbounds nuw i8, ptr %.0.ptr64.i, i64 2
   %360 = load i16, ptr %359, align 2, !tbaa !37
   %361 = zext i16 %360 to i64
-  %362 = getelementptr inbounds nuw %union.IRIns, ptr %358, i64 %361
+  %362 = getelementptr inbounds nuw [8 x i8], ptr %358, i64 %361
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 4
   %364 = load i8, ptr %363, align 4, !tbaa !37
   %365 = and i8 %364, 32
@@ -717,7 +713,7 @@ sink_checkalloc.exit.thread.i28:                  ; preds = %sink_checkalloc.exi
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %381 = load i32, ptr %380, align 8, !tbaa !45
   %382 = zext i32 %381 to i64
-  %383 = getelementptr inbounds nuw %union.IRIns, ptr %379, i64 %382
+  %383 = getelementptr inbounds nuw [8 x i8], ptr %379, i64 %382
   %384 = icmp ult ptr %383, %292
   br i1 %384, label %.lr.ph67.i, label %sink_sweep_ins.exit
 
@@ -759,7 +755,7 @@ define internal fastcc range(i32 0, 2) i32 @sink_phidep(ptr noundef %0, i32 noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !36
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %2, align 4, !tbaa !35
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %28, label %9

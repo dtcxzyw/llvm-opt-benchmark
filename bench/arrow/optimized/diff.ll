@@ -2058,7 +2058,7 @@ _ZN5arrow18TypedBufferBuilderIlvE12UnsafeAppendEll.exit.loopexit: ; preds = %110
   %118 = load ptr, ptr %87, align 8, !tbaa !66
   %119 = load i64, ptr %104, align 8, !tbaa !100
   %120 = lshr i64 %119, 3
-  %121 = getelementptr inbounds nuw i64, ptr %118, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %120
   %122 = shl i64 %43, 3
   %123 = add nsw i64 %119, %122
   store i64 %123, ptr %104, align 8, !tbaa !100
@@ -5033,7 +5033,7 @@ define linkonce_odr void @_ZN5arrow23QuadraticSpaceMyersDiffD2Ev(ptr noundef non
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #27
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -5615,7 +5615,7 @@ _ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit109: ; 
   %230 = zext nneg i8 %227 to i64
   %.2 = add nsw i64 %.036159, %230
   %231 = load ptr, ptr %201, align 8, !tbaa !244
-  %232 = getelementptr inbounds nuw i64, ptr %231, i64 %.035160
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %.035160
   %233 = load i64, ptr %232, align 8, !tbaa !101
   %.not = icmp eq i64 %233, 0
   br i1 %.not, label %244, label %234
@@ -7604,7 +7604,7 @@ define linkonce_odr void @_ZN5arrow23QuadraticSpaceMyersDiff4NextEv(ptr noundef 
   br i1 %22, label %23, label %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i64, ptr %13, i64 %9
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %9
   %.not.i.i = icmp eq ptr %12, %24
   br i1 %.not.i.i, label %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit, label %25
 
@@ -7635,7 +7635,7 @@ _ZNSt6vectorIlSaIlEE6resizeEmRKl.exit:            ; preds = %19, %21, %23, %25
 
 44:                                               ; preds = %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit
   %45 = sdiv i64 %30, 128
-  %46 = getelementptr inbounds i64, ptr %36, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %36, i64 %45
   %47 = and i64 %31, -9223372036854775745
   %48 = icmp ugt i64 %47, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %48, i64 -8, i64 0
@@ -7693,7 +7693,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %44, %51
   %.neg.i = sdiv i64 %74, -2
   %75 = add i64 %.neg.i, %73
   %76 = shl nsw i64 %75, 1
-  %77 = getelementptr inbounds nuw i64, ptr %70, i64 %73
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %73
   %78 = load i64, ptr %77, align 8, !tbaa !101
   %79 = load i64, ptr %60, align 8, !tbaa !193
   %80 = load i64, ptr %10, align 8, !tbaa !191
@@ -7715,8 +7715,8 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %44, %51
   %92 = tail call noundef i64 %91(ptr noundef nonnull align 8 dereferenceable(8) %88, i64 noundef %spec.select.i, i64 noundef %86, i64 noundef %.sroa.speculated.i, i64 noundef %85)
   %93 = add nsw i64 %92, %spec.select.i
   %94 = load ptr, ptr %5, align 8, !tbaa !218
-  %95 = getelementptr i64, ptr %94, i64 %.073
-  %96 = getelementptr i64, ptr %95, i64 %58
+  %95 = getelementptr [8 x i8], ptr %94, i64 %.073
+  %96 = getelementptr [8 x i8], ptr %95, i64 %58
   store i64 %93, ptr %96, align 8, !tbaa !101
   %97 = add nuw nsw i64 %.073, 1
   %98 = load i64, ptr %2, align 8, !tbaa !216
@@ -7749,7 +7749,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %44, %51
   %.04474 = phi i64 [ 1, %.lr.ph76 ], [ %152, %150 ]
   %112 = add nsw i64 %.04474, %58
   %113 = load ptr, ptr %5, align 8, !tbaa !218
-  %114 = getelementptr inbounds nuw i64, ptr %113, i64 %112
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %112
   %115 = load i64, ptr %114, align 8, !tbaa !101
   %116 = load i64, ptr %65, align 8, !tbaa !193
   %117 = load i64, ptr %10, align 8, !tbaa !191
@@ -7760,7 +7760,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %44, %51
   %.neg.i52 = sdiv i64 %121, -2
   %122 = add i64 %.neg.i52, %120
   %123 = shl nsw i64 %122, 1
-  %124 = getelementptr inbounds nuw i64, ptr %113, i64 %120
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %120
   %125 = load i64, ptr %124, align 8, !tbaa !101
   %reass.sub81 = sub i64 %123, %111
   %126 = add i64 %reass.sub81, 1
@@ -7784,7 +7784,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %44, %51
 138:                                              ; preds = %110
   %139 = load ptr, ptr %27, align 8, !tbaa !197
   %140 = sdiv i64 %112, 64
-  %141 = getelementptr inbounds i64, ptr %139, i64 %140
+  %141 = getelementptr inbounds [8 x i8], ptr %139, i64 %140
   %142 = and i64 %112, -9223372036854775745
   %143 = icmp ugt i64 %142, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %143, i64 -8, i64 0
@@ -7795,7 +7795,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %44, %51
   %147 = or i64 %146, %145
   store i64 %147, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !101
   %148 = load ptr, ptr %5, align 8, !tbaa !218
-  %149 = getelementptr inbounds nuw i64, ptr %148, i64 %112
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %112
   store i64 %137, ptr %149, align 8, !tbaa !101
   br label %150
 
@@ -7816,7 +7816,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %44, %51
   %158 = add nsw i64 %.04278, %58
   %159 = sub i64 %158, %.neg.i6082
   %160 = shl nsw i64 %159, 1
-  %161 = getelementptr inbounds nuw i64, ptr %106, i64 %158
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %158
   %162 = load i64, ptr %161, align 8, !tbaa !101
   %163 = sub i64 %160, %.lcssa71
   %164 = add i64 %163, %162
@@ -7919,7 +7919,7 @@ define linkonce_odr void @_ZN5arrow23QuadraticSpaceMyersDiff8GetEditsEPNS_10Memo
   %49 = load i64, ptr %23, align 8, !tbaa !216
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %51 = load ptr, ptr %50, align 8, !tbaa !218
-  %52 = getelementptr inbounds nuw i64, ptr %51, i64 %48
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %48
   %53 = load i64, ptr %52, align 8, !tbaa !101
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7972,7 +7972,7 @@ define linkonce_odr void @_ZN5arrow23QuadraticSpaceMyersDiff8GetEditsEPNS_10Memo
   %.069209 = phi i64 [ %49, %.lr.ph ], [ %111, %78 ]
   %79 = load ptr, ptr %69, align 8, !tbaa !197
   %80 = sdiv i64 %.067212, 64
-  %81 = getelementptr inbounds i64, ptr %79, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %79, i64 %80
   %82 = and i64 %.067212, -9223372036854775745
   %83 = icmp ugt i64 %82, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %83, i64 -8, i64 0
@@ -8019,7 +8019,7 @@ define linkonce_odr void @_ZN5arrow23QuadraticSpaceMyersDiff8GetEditsEPNS_10Memo
   %116 = add nsw i64 %113, %115
   %117 = shl nsw i64 %113, 1
   %118 = load ptr, ptr %50, align 8, !tbaa !218
-  %119 = getelementptr inbounds nuw i64, ptr %118, i64 %116
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %116
   %120 = load i64, ptr %119, align 8, !tbaa !101
   %121 = add i64 %.069209, %109
   %reass.sub = sub i64 %110, %121
@@ -8032,7 +8032,7 @@ define linkonce_odr void @_ZN5arrow23QuadraticSpaceMyersDiff8GetEditsEPNS_10Memo
   %.neg87 = sext i1 %126 to i64
   %127 = add i64 %.sroa.023.0210, %.neg87
   %128 = sub i64 %127, %120
-  %129 = getelementptr inbounds nuw i64, ptr %46, i64 %.069209
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.069209
   store i64 %128, ptr %129, align 8, !tbaa !101
   %130 = icmp samesign ugt i64 %.069209, 1
   br i1 %130, label %78, label %._crit_edge, !llvm.loop !368
@@ -11335,12 +11335,12 @@ _ZNK5arrow5Array7IsValidEl.exit12:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !837
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !840
-  %82 = getelementptr inbounds i16, ptr %81, i64 %1
+  %82 = getelementptr inbounds [2 x i8], ptr %81, i64 %1
   %83 = load i16, ptr %82, align 2, !tbaa !843
   %84 = load ptr, ptr %41, align 8, !tbaa !839
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !840
-  %87 = getelementptr inbounds i16, ptr %86, i64 %2
+  %87 = getelementptr inbounds [2 x i8], ptr %86, i64 %2
   %88 = load i16, ptr %87, align 2, !tbaa !843
   %89 = icmp eq i16 %83, %88
   br label %93
@@ -11486,12 +11486,12 @@ _ZNK5arrow5Array7IsValidEl.exit12:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !844
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !847
-  %82 = getelementptr inbounds i16, ptr %81, i64 %1
+  %82 = getelementptr inbounds [2 x i8], ptr %81, i64 %1
   %83 = load i16, ptr %82, align 2, !tbaa !843
   %84 = load ptr, ptr %41, align 8, !tbaa !846
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !847
-  %87 = getelementptr inbounds i16, ptr %86, i64 %2
+  %87 = getelementptr inbounds [2 x i8], ptr %86, i64 %2
   %88 = load i16, ptr %87, align 2, !tbaa !843
   %89 = icmp eq i16 %83, %88
   br label %93
@@ -11637,12 +11637,12 @@ _ZNK5arrow5Array7IsValidEl.exit12:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !849
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !852
-  %82 = getelementptr inbounds i32, ptr %81, i64 %1
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 %1
   %83 = load i32, ptr %82, align 4, !tbaa !131
   %84 = load ptr, ptr %41, align 8, !tbaa !851
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !852
-  %87 = getelementptr inbounds i32, ptr %86, i64 %2
+  %87 = getelementptr inbounds [4 x i8], ptr %86, i64 %2
   %88 = load i32, ptr %87, align 4, !tbaa !131
   %89 = icmp eq i32 %83, %88
   br label %93
@@ -11788,12 +11788,12 @@ _ZNK5arrow5Array7IsValidEl.exit12:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !855
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !858
-  %82 = getelementptr inbounds i32, ptr %81, i64 %1
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 %1
   %83 = load i32, ptr %82, align 4, !tbaa !131
   %84 = load ptr, ptr %41, align 8, !tbaa !857
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !858
-  %87 = getelementptr inbounds i32, ptr %86, i64 %2
+  %87 = getelementptr inbounds [4 x i8], ptr %86, i64 %2
   %88 = load i32, ptr %87, align 4, !tbaa !131
   %89 = icmp eq i32 %83, %88
   br label %93
@@ -11939,12 +11939,12 @@ _ZNK5arrow5Array7IsValidEl.exit12:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !860
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !244
-  %82 = getelementptr inbounds i64, ptr %81, i64 %1
+  %82 = getelementptr inbounds [8 x i8], ptr %81, i64 %1
   %83 = load i64, ptr %82, align 8, !tbaa !101
   %84 = load ptr, ptr %41, align 8, !tbaa !862
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !244
-  %87 = getelementptr inbounds i64, ptr %86, i64 %2
+  %87 = getelementptr inbounds [8 x i8], ptr %86, i64 %2
   %88 = load i64, ptr %87, align 8, !tbaa !101
   %89 = icmp eq i64 %83, %88
   br label %93
@@ -12090,12 +12090,12 @@ _ZNK5arrow5Array7IsValidEl.exit12:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !863
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !866
-  %82 = getelementptr inbounds i64, ptr %81, i64 %1
+  %82 = getelementptr inbounds [8 x i8], ptr %81, i64 %1
   %83 = load i64, ptr %82, align 8, !tbaa !101
   %84 = load ptr, ptr %41, align 8, !tbaa !865
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !866
-  %87 = getelementptr inbounds i64, ptr %86, i64 %2
+  %87 = getelementptr inbounds [8 x i8], ptr %86, i64 %2
   %88 = load i64, ptr %87, align 8, !tbaa !101
   %89 = icmp eq i64 %83, %88
   br label %93
@@ -12241,12 +12241,12 @@ _ZNK5arrow5Array7IsValidEl.exit12:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !868
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !871
-  %82 = getelementptr inbounds i16, ptr %81, i64 %1
+  %82 = getelementptr inbounds [2 x i8], ptr %81, i64 %1
   %83 = load i16, ptr %82, align 2, !tbaa !843
   %84 = load ptr, ptr %41, align 8, !tbaa !870
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !871
-  %87 = getelementptr inbounds i16, ptr %86, i64 %2
+  %87 = getelementptr inbounds [2 x i8], ptr %86, i64 %2
   %88 = load i16, ptr %87, align 2, !tbaa !843
   %89 = icmp eq i16 %83, %88
   br label %93
@@ -12392,12 +12392,12 @@ _ZNK5arrow5Array7IsValidEl.exit12:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !873
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !876
-  %82 = getelementptr inbounds float, ptr %81, i64 %1
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 %1
   %83 = load float, ptr %82, align 4, !tbaa !879
   %84 = load ptr, ptr %41, align 8, !tbaa !875
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !876
-  %87 = getelementptr inbounds float, ptr %86, i64 %2
+  %87 = getelementptr inbounds [4 x i8], ptr %86, i64 %2
   %88 = load float, ptr %87, align 4, !tbaa !879
   %89 = fcmp oeq float %83, %88
   br label %93
@@ -12543,12 +12543,12 @@ _ZNK5arrow5Array7IsValidEl.exit12:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !881
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !884
-  %82 = getelementptr inbounds double, ptr %81, i64 %1
+  %82 = getelementptr inbounds [8 x i8], ptr %81, i64 %1
   %83 = load double, ptr %82, align 8, !tbaa !887
   %84 = load ptr, ptr %41, align 8, !tbaa !883
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !884
-  %87 = getelementptr inbounds double, ptr %86, i64 %2
+  %87 = getelementptr inbounds [8 x i8], ptr %86, i64 %2
   %88 = load double, ptr %87, align 8, !tbaa !887
   %89 = fcmp oeq double %83, %88
   br label %93
@@ -12694,7 +12694,7 @@ _ZNK5arrow5Array7IsValidEl.exit14:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !889
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %81 = load ptr, ptr %80, align 8, !tbaa !892
-  %82 = getelementptr inbounds i32, ptr %81, i64 %1
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 %1
   %83 = load i32, ptr %82, align 4, !tbaa !131
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %85 = load ptr, ptr %84, align 8, !tbaa !894
@@ -12707,7 +12707,7 @@ _ZNK5arrow5Array7IsValidEl.exit14:                ; preds = %47, %62, %65, %68, 
   %92 = load ptr, ptr %41, align 8, !tbaa !891
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %94 = load ptr, ptr %93, align 8, !tbaa !892
-  %95 = getelementptr inbounds i32, ptr %94, i64 %2
+  %95 = getelementptr inbounds [4 x i8], ptr %94, i64 %2
   %96 = load i32, ptr %95, align 4, !tbaa !131
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 40
   %98 = load ptr, ptr %97, align 8, !tbaa !894
@@ -13035,7 +13035,7 @@ _ZNK5arrow5Array7IsValidEl.exit14:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !898
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %81 = load ptr, ptr %80, align 8, !tbaa !892
-  %82 = getelementptr inbounds i32, ptr %81, i64 %1
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 %1
   %83 = load i32, ptr %82, align 4, !tbaa !131
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %85 = load ptr, ptr %84, align 8, !tbaa !894
@@ -13048,7 +13048,7 @@ _ZNK5arrow5Array7IsValidEl.exit14:                ; preds = %47, %62, %65, %68, 
   %92 = load ptr, ptr %41, align 8, !tbaa !900
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %94 = load ptr, ptr %93, align 8, !tbaa !892
-  %95 = getelementptr inbounds i32, ptr %94, i64 %2
+  %95 = getelementptr inbounds [4 x i8], ptr %94, i64 %2
   %96 = load i32, ptr %95, align 4, !tbaa !131
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 40
   %98 = load ptr, ptr %97, align 8, !tbaa !894
@@ -13374,7 +13374,7 @@ _ZNK5arrow5Array7IsValidEl.exit14:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !904
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %81 = load ptr, ptr %80, align 8, !tbaa !907
-  %82 = getelementptr inbounds i64, ptr %81, i64 %1
+  %82 = getelementptr inbounds [8 x i8], ptr %81, i64 %1
   %83 = load i64, ptr %82, align 8, !tbaa !101
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %85 = load ptr, ptr %84, align 8, !tbaa !909
@@ -13385,7 +13385,7 @@ _ZNK5arrow5Array7IsValidEl.exit14:                ; preds = %47, %62, %65, %68, 
   %90 = load ptr, ptr %41, align 8, !tbaa !906
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %92 = load ptr, ptr %91, align 8, !tbaa !907
-  %93 = getelementptr inbounds i64, ptr %92, i64 %2
+  %93 = getelementptr inbounds [8 x i8], ptr %92, i64 %2
   %94 = load i64, ptr %93, align 8, !tbaa !101
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %96 = load ptr, ptr %95, align 8, !tbaa !909
@@ -13549,7 +13549,7 @@ _ZNK5arrow5Array7IsValidEl.exit14:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !910
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %81 = load ptr, ptr %80, align 8, !tbaa !907
-  %82 = getelementptr inbounds i64, ptr %81, i64 %1
+  %82 = getelementptr inbounds [8 x i8], ptr %81, i64 %1
   %83 = load i64, ptr %82, align 8, !tbaa !101
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %85 = load ptr, ptr %84, align 8, !tbaa !909
@@ -13560,7 +13560,7 @@ _ZNK5arrow5Array7IsValidEl.exit14:                ; preds = %47, %62, %65, %68, 
   %90 = load ptr, ptr %41, align 8, !tbaa !912
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %92 = load ptr, ptr %91, align 8, !tbaa !907
-  %93 = getelementptr inbounds i64, ptr %92, i64 %2
+  %93 = getelementptr inbounds [8 x i8], ptr %92, i64 %2
   %94 = load i64, ptr %93, align 8, !tbaa !101
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %96 = load ptr, ptr %95, align 8, !tbaa !909
@@ -13893,12 +13893,12 @@ _ZNK5arrow5Array7IsValidEl.exit12:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !919
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !922
-  %82 = getelementptr inbounds i64, ptr %81, i64 %1
+  %82 = getelementptr inbounds [8 x i8], ptr %81, i64 %1
   %83 = load i64, ptr %82, align 8, !tbaa !101
   %84 = load ptr, ptr %41, align 8, !tbaa !921
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !922
-  %87 = getelementptr inbounds i64, ptr %86, i64 %2
+  %87 = getelementptr inbounds [8 x i8], ptr %86, i64 %2
   %88 = load i64, ptr %87, align 8, !tbaa !101
   %89 = icmp eq i64 %83, %88
   br label %93
@@ -14044,12 +14044,12 @@ _ZNK5arrow5Array7IsValidEl.exit12:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !924
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !927
-  %82 = getelementptr inbounds i32, ptr %81, i64 %1
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 %1
   %83 = load i32, ptr %82, align 4, !tbaa !131
   %84 = load ptr, ptr %41, align 8, !tbaa !926
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !927
-  %87 = getelementptr inbounds i32, ptr %86, i64 %2
+  %87 = getelementptr inbounds [4 x i8], ptr %86, i64 %2
   %88 = load i32, ptr %87, align 4, !tbaa !131
   %89 = icmp eq i32 %83, %88
   br label %93
@@ -14195,12 +14195,12 @@ _ZNK5arrow5Array7IsValidEl.exit12:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !929
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !932
-  %82 = getelementptr inbounds i64, ptr %81, i64 %1
+  %82 = getelementptr inbounds [8 x i8], ptr %81, i64 %1
   %83 = load i64, ptr %82, align 8, !tbaa !101
   %84 = load ptr, ptr %41, align 8, !tbaa !931
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !932
-  %87 = getelementptr inbounds i64, ptr %86, i64 %2
+  %87 = getelementptr inbounds [8 x i8], ptr %86, i64 %2
   %88 = load i64, ptr %87, align 8, !tbaa !101
   %89 = icmp eq i64 %83, %88
   br label %93
@@ -14346,12 +14346,12 @@ _ZNK5arrow5Array7IsValidEl.exit12:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !934
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !937
-  %82 = getelementptr inbounds i64, ptr %81, i64 %1
+  %82 = getelementptr inbounds [8 x i8], ptr %81, i64 %1
   %83 = load i64, ptr %82, align 8, !tbaa !101
   %84 = load ptr, ptr %41, align 8, !tbaa !936
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !937
-  %87 = getelementptr inbounds i64, ptr %86, i64 %2
+  %87 = getelementptr inbounds [8 x i8], ptr %86, i64 %2
   %88 = load i64, ptr %87, align 8, !tbaa !101
   %89 = icmp eq i64 %83, %88
   br label %93
@@ -14497,12 +14497,12 @@ _ZNK5arrow5Array7IsValidEl.exit12:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !939
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !942
-  %82 = getelementptr inbounds i32, ptr %81, i64 %1
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 %1
   %83 = load i32, ptr %82, align 4, !tbaa !131
   %84 = load ptr, ptr %41, align 8, !tbaa !941
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !942
-  %87 = getelementptr inbounds i32, ptr %86, i64 %2
+  %87 = getelementptr inbounds [4 x i8], ptr %86, i64 %2
   %88 = load i32, ptr %87, align 4, !tbaa !131
   %89 = icmp eq i32 %83, %88
   br label %93
@@ -14648,12 +14648,12 @@ _ZNK5arrow5Array7IsValidEl.exit12:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !944
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !947
-  %82 = getelementptr inbounds i64, ptr %81, i64 %1
+  %82 = getelementptr inbounds [8 x i8], ptr %81, i64 %1
   %83 = load i64, ptr %82, align 8, !tbaa !101
   %84 = load ptr, ptr %41, align 8, !tbaa !946
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !947
-  %87 = getelementptr inbounds i64, ptr %86, i64 %2
+  %87 = getelementptr inbounds [8 x i8], ptr %86, i64 %2
   %88 = load i64, ptr %87, align 8, !tbaa !101
   %89 = icmp eq i64 %83, %88
   br label %93
@@ -14959,12 +14959,12 @@ _ZNK5arrow5Array7IsValidEl.exit12:                ; preds = %47, %62, %65, %68, 
   %79 = load ptr, ptr %4, align 8, !tbaa !952
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !955
-  %82 = getelementptr inbounds i32, ptr %81, i64 %1
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 %1
   %83 = load i32, ptr %82, align 4, !tbaa !131
   %84 = load ptr, ptr %41, align 8, !tbaa !954
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !955
-  %87 = getelementptr inbounds i32, ptr %86, i64 %2
+  %87 = getelementptr inbounds [4 x i8], ptr %86, i64 %2
   %88 = load i32, ptr %87, align 4, !tbaa !131
   %89 = icmp eq i32 %83, %88
   br label %93
@@ -15936,7 +15936,7 @@ _ZNK5arrow5Array7IsValidEl.exit15:                ; preds = %48, %63, %66, %69, 
   %.val = load ptr, ptr %81, align 8, !tbaa !117
   %82 = getelementptr i8, ptr %80, i64 56
   %.val10 = load ptr, ptr %82, align 8, !tbaa !975
-  %83 = getelementptr inbounds i32, ptr %.val10, i64 %1
+  %83 = getelementptr inbounds [4 x i8], ptr %.val10, i64 %1
   %84 = load i32, ptr %83, align 4, !tbaa !131, !noalias !979
   %85 = getelementptr i8, ptr %83, i64 4
   %86 = load i32, ptr %85, align 4, !tbaa !131, !noalias !979
@@ -15946,7 +15946,7 @@ _ZNK5arrow5Array7IsValidEl.exit15:                ; preds = %48, %63, %66, %69, 
   %.val11 = load ptr, ptr %89, align 8, !tbaa !117
   %90 = getelementptr i8, ptr %88, i64 56
   %.val12 = load ptr, ptr %90, align 8, !tbaa !975
-  %91 = getelementptr inbounds i32, ptr %.val12, i64 %2
+  %91 = getelementptr inbounds [4 x i8], ptr %.val12, i64 %2
   %92 = load i32, ptr %91, align 4, !tbaa !131, !noalias !982
   %93 = getelementptr i8, ptr %91, i64 4
   %94 = load i32, ptr %93, align 4, !tbaa !131, !noalias !982
@@ -16119,7 +16119,7 @@ _ZNK5arrow5Array7IsValidEl.exit15:                ; preds = %48, %63, %66, %69, 
   %.val = load ptr, ptr %81, align 8, !tbaa !117
   %82 = getelementptr i8, ptr %80, i64 56
   %.val10 = load ptr, ptr %82, align 8, !tbaa !994
-  %83 = getelementptr inbounds i64, ptr %.val10, i64 %1
+  %83 = getelementptr inbounds [8 x i8], ptr %.val10, i64 %1
   %84 = load i64, ptr %83, align 8, !tbaa !101, !noalias !997
   %85 = getelementptr i8, ptr %83, i64 8
   %86 = load i64, ptr %85, align 8, !tbaa !101, !noalias !997
@@ -16129,7 +16129,7 @@ _ZNK5arrow5Array7IsValidEl.exit15:                ; preds = %48, %63, %66, %69, 
   %.val11 = load ptr, ptr %89, align 8, !tbaa !117
   %90 = getelementptr i8, ptr %88, i64 56
   %.val12 = load ptr, ptr %90, align 8, !tbaa !994
-  %91 = getelementptr inbounds i64, ptr %.val12, i64 %2
+  %91 = getelementptr inbounds [8 x i8], ptr %.val12, i64 %2
   %92 = load i64, ptr %91, align 8, !tbaa !101, !noalias !1000
   %93 = getelementptr i8, ptr %91, i64 8
   %94 = load i64, ptr %93, align 8, !tbaa !101, !noalias !1000
@@ -16365,7 +16365,7 @@ _ZNK5arrow5Array7IsValidEl.exit15:                ; preds = %48, %63, %66, %69, 
   %.val = load ptr, ptr %81, align 8, !tbaa !117
   %82 = getelementptr i8, ptr %80, i64 56
   %.val10 = load ptr, ptr %82, align 8, !tbaa !975
-  %83 = getelementptr inbounds i32, ptr %.val10, i64 %1
+  %83 = getelementptr inbounds [4 x i8], ptr %.val10, i64 %1
   %84 = load i32, ptr %83, align 4, !tbaa !131, !noalias !1012
   %85 = getelementptr i8, ptr %83, i64 4
   %86 = load i32, ptr %85, align 4, !tbaa !131, !noalias !1012
@@ -16375,7 +16375,7 @@ _ZNK5arrow5Array7IsValidEl.exit15:                ; preds = %48, %63, %66, %69, 
   %.val11 = load ptr, ptr %89, align 8, !tbaa !117
   %90 = getelementptr i8, ptr %88, i64 56
   %.val12 = load ptr, ptr %90, align 8, !tbaa !975
-  %91 = getelementptr inbounds i32, ptr %.val12, i64 %2
+  %91 = getelementptr inbounds [4 x i8], ptr %.val12, i64 %2
   %92 = load i32, ptr %91, align 4, !tbaa !131, !noalias !1015
   %93 = getelementptr i8, ptr %91, i64 4
   %94 = load i32, ptr %93, align 4, !tbaa !131, !noalias !1015
@@ -17161,7 +17161,7 @@ define linkonce_odr void @_ZN5arrow18REEValueComparatorIsEC2ERKNS_18RunEndEncode
   %21 = load i64, ptr %20, align 8, !tbaa !1066
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %23 = load ptr, ptr %22, align 8, !tbaa !1067
-  %24 = getelementptr inbounds i16, ptr %23, i64 %21
+  %24 = getelementptr inbounds [2 x i8], ptr %23, i64 %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %24, ptr %25, align 8, !tbaa !1069
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -17193,7 +17193,7 @@ define linkonce_odr void @_ZN5arrow18REEValueComparatorIsEC2ERKNS_18RunEndEncode
   %39 = load i64, ptr %38, align 8, !tbaa !1066
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %41 = load ptr, ptr %40, align 8, !tbaa !1067
-  %42 = getelementptr inbounds i16, ptr %41, i64 %39
+  %42 = getelementptr inbounds [2 x i8], ptr %41, i64 %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %42, ptr %43, align 8, !tbaa !1069
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -17254,7 +17254,7 @@ define linkonce_odr void @_ZN5arrow18REEValueComparatorIiEC2ERKNS_18RunEndEncode
   %21 = load i64, ptr %20, align 8, !tbaa !1066
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %23 = load ptr, ptr %22, align 8, !tbaa !1067
-  %24 = getelementptr inbounds i32, ptr %23, i64 %21
+  %24 = getelementptr inbounds [4 x i8], ptr %23, i64 %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %24, ptr %25, align 8, !tbaa !1074
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -17286,7 +17286,7 @@ define linkonce_odr void @_ZN5arrow18REEValueComparatorIiEC2ERKNS_18RunEndEncode
   %39 = load i64, ptr %38, align 8, !tbaa !1066
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %41 = load ptr, ptr %40, align 8, !tbaa !1067
-  %42 = getelementptr inbounds i32, ptr %41, i64 %39
+  %42 = getelementptr inbounds [4 x i8], ptr %41, i64 %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %42, ptr %43, align 8, !tbaa !1074
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -17347,7 +17347,7 @@ define linkonce_odr void @_ZN5arrow18REEValueComparatorIlEC2ERKNS_18RunEndEncode
   %21 = load i64, ptr %20, align 8, !tbaa !1066
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %23 = load ptr, ptr %22, align 8, !tbaa !1067
-  %24 = getelementptr inbounds i64, ptr %23, i64 %21
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %21
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %24, ptr %25, align 8, !tbaa !1079
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -17379,7 +17379,7 @@ define linkonce_odr void @_ZN5arrow18REEValueComparatorIlEC2ERKNS_18RunEndEncode
   %39 = load i64, ptr %38, align 8, !tbaa !1066
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %41 = load ptr, ptr %40, align 8, !tbaa !1067
-  %42 = getelementptr inbounds i64, ptr %41, i64 %39
+  %42 = getelementptr inbounds [8 x i8], ptr %41, i64 %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %42, ptr %43, align 8, !tbaa !1079
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -17579,7 +17579,7 @@ define linkonce_odr noundef i64 @_ZN5arrow18REEValueComparatorIsE21RunLengthOfEq
   %.028 = phi i64 [ %10, %6 ], [ %50, %38 ]
   %.026 = phi i64 [ 0, %6 ], [ %53, %38 ]
   %17 = load ptr, ptr %11, align 8, !tbaa !1087
-  %18 = getelementptr inbounds i16, ptr %17, i64 %.030
+  %18 = getelementptr inbounds [2 x i8], ptr %17, i64 %.030
   %19 = load i16, ptr %18, align 2, !tbaa !843
   %20 = load ptr, ptr %12, align 8, !tbaa !1088
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -17587,7 +17587,7 @@ define linkonce_odr noundef i64 @_ZN5arrow18REEValueComparatorIsE21RunLengthOfEq
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load i64, ptr %23, align 8, !tbaa !250
   %25 = load ptr, ptr %13, align 8, !tbaa !1089
-  %26 = getelementptr inbounds i16, ptr %25, i64 %.028
+  %26 = getelementptr inbounds [2 x i8], ptr %25, i64 %.028
   %27 = load i16, ptr %26, align 2, !tbaa !843
   %28 = load ptr, ptr %14, align 8, !tbaa !1072
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -17881,7 +17881,7 @@ define linkonce_odr noundef i64 @_ZN5arrow18REEValueComparatorIiE21RunLengthOfEq
   %.028 = phi i64 [ %10, %6 ], [ %50, %38 ]
   %.026 = phi i64 [ 0, %6 ], [ %53, %38 ]
   %17 = load ptr, ptr %11, align 8, !tbaa !1090
-  %18 = getelementptr inbounds i32, ptr %17, i64 %.030
+  %18 = getelementptr inbounds [4 x i8], ptr %17, i64 %.030
   %19 = load i32, ptr %18, align 4, !tbaa !131
   %20 = load ptr, ptr %12, align 8, !tbaa !1091
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -17889,7 +17889,7 @@ define linkonce_odr noundef i64 @_ZN5arrow18REEValueComparatorIiE21RunLengthOfEq
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load i64, ptr %23, align 8, !tbaa !250
   %25 = load ptr, ptr %13, align 8, !tbaa !1092
-  %26 = getelementptr inbounds i32, ptr %25, i64 %.028
+  %26 = getelementptr inbounds [4 x i8], ptr %25, i64 %.028
   %27 = load i32, ptr %26, align 4, !tbaa !131
   %28 = load ptr, ptr %14, align 8, !tbaa !1077
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -18106,7 +18106,7 @@ define linkonce_odr noundef i64 @_ZN5arrow18REEValueComparatorIlE21RunLengthOfEq
   %.028 = phi i64 [ %10, %6 ], [ %48, %38 ]
   %.026 = phi i64 [ 0, %6 ], [ %51, %38 ]
   %17 = load ptr, ptr %11, align 8, !tbaa !1093
-  %18 = getelementptr inbounds i64, ptr %17, i64 %.030
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %.030
   %19 = load i64, ptr %18, align 8, !tbaa !101
   %20 = load ptr, ptr %12, align 8, !tbaa !1094
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -18114,7 +18114,7 @@ define linkonce_odr noundef i64 @_ZN5arrow18REEValueComparatorIlE21RunLengthOfEq
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load i64, ptr %23, align 8, !tbaa !250
   %25 = load ptr, ptr %13, align 8, !tbaa !1095
-  %26 = getelementptr inbounds i64, ptr %25, i64 %.028
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %.028
   %27 = load i64, ptr %26, align 8, !tbaa !101
   %28 = load ptr, ptr %14, align 8, !tbaa !1082
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -18398,7 +18398,7 @@ define linkonce_odr void @_ZNSt6vectorIbSaIbEE15_M_insert_rangeIPKbEEvSt13_Bit_i
 27:                                               ; preds = %6
   %28 = add nsw i64 %9, %24
   %29 = sdiv i64 %28, 64
-  %30 = getelementptr inbounds i64, ptr %18, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %18, i64 %29
   %31 = and i64 %28, -9223372036854775745
   %32 = icmp ugt i64 %31, -9223372036854775808
   %storemerge.idx.i.i.i = select i1 %32, i64 -8, i64 0
@@ -18680,13 +18680,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
 156:                                              ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
   %157 = ashr exact i64 %15, 3
   %158 = sub nsw i64 0, %157
-  %159 = getelementptr inbounds i64, ptr %11, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %11, i64 %158
   tail call void @_ZdlPvm(ptr noundef %159, i64 noundef %15) #27
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %156
   %160 = lshr i64 %86, 6
-  %161 = getelementptr inbounds nuw i64, ptr %89, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %160
   store ptr %161, ptr %10, align 8, !tbaa !199
   store ptr %89, ptr %0, align 8
   %.sroa.5.0..sroa_idx129 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -18744,7 +18744,7 @@ define linkonce_odr void @_ZNSt6vectorIlSaIlEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPlS0_SaIlEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !219
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit, label %26
@@ -18753,7 +18753,7 @@ _ZSt22__uninitialized_move_aIPlS0_SaIlEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 3
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i64, ptr %9, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPlS0_ET0_T_S2_S1_.exit
 
@@ -18864,7 +18864,7 @@ _ZSt24__uninitialized_fill_n_aIPlmllET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPlS0_SaIlEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPlS0_SaIlEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPlmllET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i64, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -18886,7 +18886,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPlS0_SaIlEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !218
   store ptr %72, ptr %8, align 8, !tbaa !219
-  %75 = getelementptr inbounds nuw i64, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !217
   br label %_ZSt4fillIPllEvT_S1_RKT0_.exit
 
@@ -18936,7 +18936,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %25
   %34 = trunc i64 %33 to i32
   %35 = and i32 %34, 63
   %36 = sdiv i64 %33, 64
-  %37 = getelementptr inbounds i64, ptr %16, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %16, i64 %36
   %38 = and i64 %33, -9223372036854775745
   %39 = icmp ugt i64 %38, -9223372036854775808
   %storemerge.idx.i.i.i = select i1 %39, i64 -8, i64 0
@@ -19091,7 +19091,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %77, %_ZSt14__fill_b
   %107 = add nsw i64 %3, %106
   %108 = sdiv i64 %107, 64
   %109 = load ptr, ptr %15, align 8, !tbaa !197
-  %110 = getelementptr inbounds i64, ptr %109, i64 %108
+  %110 = getelementptr inbounds [8 x i8], ptr %109, i64 %108
   %111 = and i64 %107, -9223372036854775745
   %112 = icmp ugt i64 %111, -9223372036854775808
   %storemerge.idx.i.i = select i1 %112, i64 -8, i64 0
@@ -19352,13 +19352,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
   %231 = sub i64 %229, %230
   %232 = ashr exact i64 %231, 3
   %233 = sub nsw i64 0, %232
-  %234 = getelementptr inbounds i64, ptr %228, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr %228, i64 %233
   tail call void @_ZdlPvm(ptr noundef %234, i64 noundef %231) #27
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %227
   %235 = lshr i64 %123, 6
-  %236 = getelementptr inbounds nuw i64, ptr %126, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %235
   store ptr %236, ptr %8, align 8, !tbaa !199
   store ptr %126, ptr %0, align 8
   %.sroa.5138.0..sroa_idx139 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20069,7 +20069,7 @@ _ZN5arrow14PrimitiveArray7SetDataERKSt10shared_ptrINS_9ArrayDataEE.exit.i: ; pre
   %131 = load ptr, ptr %11, align 8, !tbaa !32
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load i64, ptr %132, align 8, !tbaa !250
-  %134 = getelementptr inbounds i64, ptr %129, i64 %133
+  %134 = getelementptr inbounds [8 x i8], ptr %129, i64 %133
   br label %135
 
 135:                                              ; preds = %130, %_ZN5arrow14PrimitiveArray7SetDataERKSt10shared_ptrINS_9ArrayDataEE.exit.i, %_ZN5arrow14PrimitiveArray7SetDataERKSt10shared_ptrINS_9ArrayDataEE.exit.thread.i
@@ -23718,7 +23718,7 @@ _ZNSt6vectorISt8functionIFvRKN5arrow5ArrayElPSoEESaIS7_EE17_S_check_init_lenEmRK
   %23 = shl nuw nsw i64 %21, 5
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #26
   store ptr %24, ptr %9, align 8, !tbaa !1372
-  %25 = getelementptr inbounds nuw %"class.std::function.64", ptr %24, i64 %21
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %21
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %24, i8 0, i64 %23, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %24, i64 %23
   br label %_ZNSt12_Vector_baseISt8functionIFvRKN5arrow5ArrayElPSoEESaIS7_EEC2EmRKS8_.exit.thread.i
@@ -23764,7 +23764,7 @@ _ZNSt12_Vector_baseISt8functionIFvRKN5arrow5ArrayElPSoEESaIS7_EEC2EmRKS8_.exit.t
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
   %49 = phi ptr [ %17, %.lr.ph ], [ %43, %41 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %50 = getelementptr inbounds nuw %"class.std::shared_ptr.31", ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !142
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %53 = load ptr, ptr %52, align 8, !tbaa !137
@@ -23900,7 +23900,7 @@ _ZNO5arrow6ResultISt8functionIFvRKNS_5ArrayElPSoEEE11ValueUnsafeEv.exit.thread: 
   br label %_ZNSt8functionIFvRKN5arrow5ArrayElPSoEEC2EOS6_.exit.i
 
 _ZNSt8functionIFvRKN5arrow5ArrayElPSoEEC2EOS6_.exit.i: ; preds = %_ZNO5arrow6ResultISt8functionIFvRKNS_5ArrayElPSoEEE11ValueUnsafeEv.exit.thread, %85
-  %86 = getelementptr inbounds nuw %"class.std::function.64", ptr %.pr.i44, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %.pr.i44, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false), !tbaa.struct !285
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %86, i64 16, i1 false), !tbaa.struct !285
@@ -24135,7 +24135,7 @@ _ZNSt6vectorISt8functionIFvRKN5arrow5ArrayElPSoEESaIS7_EE17_S_check_init_lenEmRK
   %19 = shl nuw nsw i64 %18, 5
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #26
   store ptr %20, ptr %9, align 8, !tbaa !1372
-  %21 = getelementptr inbounds nuw %"class.std::function.64", ptr %20, i64 %18
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %20, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %20, i64 %19
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -24186,7 +24186,7 @@ _ZNSt6vectorISt8functionIFvRKN5arrow5ArrayElPSoEESaIS7_EE17_S_check_init_lenEmRK
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv
   %54 = load i8, ptr %53, align 1, !tbaa !95
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %55 = getelementptr inbounds nuw %"class.std::shared_ptr.31", ptr %51, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !142
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 56
   %58 = load ptr, ptr %57, align 8, !tbaa !137
@@ -24323,7 +24323,7 @@ _ZNO5arrow6ResultISt8functionIFvRKNS_5ArrayElPSoEEE11ValueUnsafeEv.exit.thread: 
 
 _ZNSt8functionIFvRKN5arrow5ArrayElPSoEEC2EOS6_.exit.i: ; preds = %_ZNO5arrow6ResultISt8functionIFvRKNS_5ArrayElPSoEEE11ValueUnsafeEv.exit.thread, %90
   %.pn = sext i8 %54 to i64
-  %91 = getelementptr inbounds nuw %"class.std::function.64", ptr %20, i64 %.pn
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %.pn
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 16, i1 false), !tbaa.struct !285
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %91, i64 16, i1 false), !tbaa.struct !285
@@ -24791,7 +24791,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_1
   %6 = load ptr, ptr %3, align 8, !tbaa !268
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !840
-  %9 = getelementptr inbounds i16, ptr %8, i64 %5
+  %9 = getelementptr inbounds [2 x i8], ptr %8, i64 %5
   %10 = load i16, ptr %9, align 2, !tbaa !843
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEs(ptr noundef nonnull align 8 dereferenceable(8) %6, i16 noundef signext %10)
   ret void
@@ -24822,7 +24822,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_1
   %6 = load ptr, ptr %3, align 8, !tbaa !268
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !847
-  %9 = getelementptr inbounds i16, ptr %8, i64 %5
+  %9 = getelementptr inbounds [2 x i8], ptr %8, i64 %5
   %10 = load i16, ptr %9, align 2, !tbaa !843
   %11 = zext i16 %10 to i64
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %11)
@@ -24856,7 +24856,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_1
   %6 = load ptr, ptr %3, align 8, !tbaa !268
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !852
-  %9 = getelementptr inbounds i32, ptr %8, i64 %5
+  %9 = getelementptr inbounds [4 x i8], ptr %8, i64 %5
   %10 = load i32, ptr %9, align 4, !tbaa !131
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %10)
   ret void
@@ -24889,7 +24889,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_1
   %6 = load ptr, ptr %3, align 8, !tbaa !268
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !858
-  %9 = getelementptr inbounds i32, ptr %8, i64 %5
+  %9 = getelementptr inbounds [4 x i8], ptr %8, i64 %5
   %10 = load i32, ptr %9, align 4, !tbaa !131
   %11 = zext i32 %10 to i64
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %11)
@@ -24921,7 +24921,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_1
   %6 = load ptr, ptr %3, align 8, !tbaa !268
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !244
-  %9 = getelementptr inbounds i64, ptr %8, i64 %5
+  %9 = getelementptr inbounds [8 x i8], ptr %8, i64 %5
   %10 = load i64, ptr %9, align 8, !tbaa !101
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIlEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %10)
   ret void
@@ -24954,7 +24954,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_1
   %6 = load ptr, ptr %3, align 8, !tbaa !268
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !866
-  %9 = getelementptr inbounds i64, ptr %8, i64 %5
+  %9 = getelementptr inbounds [8 x i8], ptr %8, i64 %5
   %10 = load i64, ptr %9, align 8, !tbaa !101
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %10)
   ret void
@@ -24985,7 +24985,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_1
   %6 = load ptr, ptr %3, align 8, !tbaa !268
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !871
-  %9 = getelementptr inbounds i16, ptr %8, i64 %5
+  %9 = getelementptr inbounds [2 x i8], ptr %8, i64 %5
   %10 = load i16, ptr %9, align 2, !tbaa !843
   %11 = zext i16 %10 to i64
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %11)
@@ -25017,7 +25017,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_1
   %6 = load ptr, ptr %3, align 8, !tbaa !268
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !876
-  %9 = getelementptr inbounds float, ptr %8, i64 %5
+  %9 = getelementptr inbounds [4 x i8], ptr %8, i64 %5
   %10 = load float, ptr %9, align 4, !tbaa !879
   %11 = fpext float %10 to double
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef %11)
@@ -25051,7 +25051,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_1
   %6 = load ptr, ptr %3, align 8, !tbaa !268
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !884
-  %9 = getelementptr inbounds double, ptr %8, i64 %5
+  %9 = getelementptr inbounds [8 x i8], ptr %8, i64 %5
   %10 = load double, ptr %9, align 8, !tbaa !887
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, double noundef %10)
   ret void
@@ -25110,7 +25110,7 @@ define linkonce_odr void @_ZZN5arrow17MakeFormatterImpl5VisitINS_10StringTypeEEE
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !892
-  %10 = getelementptr inbounds i32, ptr %9, i64 %2
+  %10 = getelementptr inbounds [4 x i8], ptr %9, i64 %2
   %11 = load i32, ptr %10, align 4, !tbaa !131
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !894
@@ -25338,7 +25338,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_1
   %7 = load ptr, ptr %3, align 8, !tbaa !268
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !892
-  %10 = getelementptr inbounds i32, ptr %9, i64 %6
+  %10 = getelementptr inbounds [4 x i8], ptr %9, i64 %6
   %11 = load i32, ptr %10, align 4, !tbaa !131
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !894
@@ -25516,7 +25516,7 @@ define linkonce_odr void @_ZZN5arrow17MakeFormatterImpl5VisitINS_15LargeStringTy
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !907
-  %10 = getelementptr inbounds i64, ptr %9, i64 %2
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %2
   %11 = load i64, ptr %10, align 8, !tbaa !101
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !909
@@ -25617,7 +25617,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_1
   %7 = load ptr, ptr %3, align 8, !tbaa !268
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !907
-  %10 = getelementptr inbounds i64, ptr %9, i64 %6
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %6
   %11 = load i64, ptr %10, align 8, !tbaa !101
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !909
@@ -25842,7 +25842,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_1
   %8 = load ptr, ptr %3, align 8, !tbaa !268
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !927
-  %11 = getelementptr inbounds i32, ptr %10, i64 %7
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %7
   %12 = load i32, ptr %11, align 4, !tbaa !131
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -27123,7 +27123,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1010: ; preds = %550, 
   %566 = zext nneg i8 %555 to i64
   %567 = add nuw nsw i64 %566, 4294967295
   %568 = and i64 %567, 4294967295
-  %569 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %568
+  %569 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %568
   %570 = load i8, ptr %569, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -28227,7 +28227,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1170: ; preds = %1023,
   %1042 = zext nneg i8 %1031 to i64
   %1043 = add nuw nsw i64 %1042, 4294967295
   %1044 = and i64 %1043, 4294967295
-  %1045 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1044
+  %1045 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1044
   %1046 = load i8, ptr %1045, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1182
 
@@ -28604,7 +28604,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1236: ; preds = %1197,
   %1216 = zext nneg i8 %1205 to i64
   %1217 = add nuw nsw i64 %1216, 4294967295
   %1218 = and i64 %1217, 4294967295
-  %1219 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1218
+  %1219 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1218
   %1220 = load i8, ptr %1219, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1248
 
@@ -28993,7 +28993,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1303: ; preds = %1378,
   %1397 = zext nneg i8 %1386 to i64
   %1398 = add nuw nsw i64 %1397, 4294967295
   %1399 = and i64 %1398, 4294967295
-  %1400 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1399
+  %1400 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1399
   %1401 = load i8, ptr %1400, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1315
 
@@ -29728,7 +29728,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1423: ; preds = %1729,
   %1748 = zext nneg i8 %1737 to i64
   %1749 = add nuw nsw i64 %1748, 4294967295
   %1750 = and i64 %1749, 4294967295
-  %1751 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1750
+  %1751 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1750
   %1752 = load i8, ptr %1751, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date19year_month_day_last3dayEv.exit.i1431
 
@@ -29778,7 +29778,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit1435.thread: ; preds = %1734
   %1769 = zext nneg i8 %1737 to i64
   %1770 = add nuw nsw i64 %1769, 4294967295
   %1771 = and i64 %1770, 4294967295
-  %1772 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1771
+  %1772 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1771
   %1773 = load i8, ptr %1772, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1447
 
@@ -32388,7 +32388,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1906: ; preds = %2935,
   %2951 = zext nneg i8 %2940 to i64
   %2952 = add nuw nsw i64 %2951, 4294967295
   %2953 = and i64 %2952, 4294967295
-  %2954 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %2953
+  %2954 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %2953
   %2955 = load i8, ptr %2954, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1918
 
@@ -32842,7 +32842,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2001: ; preds = %3158,
   %3174 = zext nneg i8 %3163 to i64
   %3175 = add nuw nsw i64 %3174, 4294967295
   %3176 = and i64 %3175, 4294967295
-  %3177 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3176
+  %3177 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3176
   %3178 = load i8, ptr %3177, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit2013
 
@@ -33519,7 +33519,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2175: ; preds = %3489,
   %3505 = zext nneg i8 %3494 to i64
   %3506 = add nuw nsw i64 %3505, 4294967295
   %3507 = and i64 %3506, 4294967295
-  %3508 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3507
+  %3508 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3507
   %3509 = load i8, ptr %3508, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit2187
 
@@ -35368,7 +35368,7 @@ define linkonce_odr noundef i32 @_ZN14arrow_vendored4date6detail15extract_weekda
   %18 = zext nneg i8 %6 to i64
   %19 = add nuw nsw i64 %18, 4294967295
   %20 = and i64 %19, 4294967295
-  %21 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -35436,7 +35436,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit.thread.thread: ; preds = %2
   %54 = zext nneg i8 %6 to i64
   %55 = add nuw nsw i64 %54, 4294967295
   %56 = and i64 %55, 4294967295
-  %57 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit20
 
@@ -36170,7 +36170,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_1
   %8 = load ptr, ptr %3, align 8, !tbaa !268
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !932
-  %11 = getelementptr inbounds i64, ptr %10, i64 %7
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %7
   %12 = load i64, ptr %11, align 8, !tbaa !101
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -37529,7 +37529,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1010: ; preds = %551, 
   %567 = zext nneg i8 %556 to i64
   %568 = add nuw nsw i64 %567, 4294967295
   %569 = and i64 %568, 4294967295
-  %570 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %569
+  %570 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %569
   %571 = load i8, ptr %570, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -38633,7 +38633,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1170: ; preds = %1024,
   %1043 = zext nneg i8 %1032 to i64
   %1044 = add nuw nsw i64 %1043, 4294967295
   %1045 = and i64 %1044, 4294967295
-  %1046 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1045
+  %1046 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1045
   %1047 = load i8, ptr %1046, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1182
 
@@ -39010,7 +39010,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1236: ; preds = %1198,
   %1217 = zext nneg i8 %1206 to i64
   %1218 = add nuw nsw i64 %1217, 4294967295
   %1219 = and i64 %1218, 4294967295
-  %1220 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1219
+  %1220 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1219
   %1221 = load i8, ptr %1220, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1248
 
@@ -39399,7 +39399,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1303: ; preds = %1379,
   %1398 = zext nneg i8 %1387 to i64
   %1399 = add nuw nsw i64 %1398, 4294967295
   %1400 = and i64 %1399, 4294967295
-  %1401 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1400
+  %1401 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1400
   %1402 = load i8, ptr %1401, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1315
 
@@ -40134,7 +40134,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1423: ; preds = %1730,
   %1749 = zext nneg i8 %1738 to i64
   %1750 = add nuw nsw i64 %1749, 4294967295
   %1751 = and i64 %1750, 4294967295
-  %1752 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1751
+  %1752 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1751
   %1753 = load i8, ptr %1752, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date19year_month_day_last3dayEv.exit.i1431
 
@@ -40184,7 +40184,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit1435.thread: ; preds = %1735
   %1770 = zext nneg i8 %1738 to i64
   %1771 = add nuw nsw i64 %1770, 4294967295
   %1772 = and i64 %1771, 4294967295
-  %1773 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1772
+  %1773 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1772
   %1774 = load i8, ptr %1773, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1447
 
@@ -42796,7 +42796,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1906: ; preds = %2938,
   %2954 = zext nneg i8 %2943 to i64
   %2955 = add nuw nsw i64 %2954, 4294967295
   %2956 = and i64 %2955, 4294967295
-  %2957 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %2956
+  %2957 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %2956
   %2958 = load i8, ptr %2957, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1918
 
@@ -43250,7 +43250,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2001: ; preds = %3161,
   %3177 = zext nneg i8 %3166 to i64
   %3178 = add nuw nsw i64 %3177, 4294967295
   %3179 = and i64 %3178, 4294967295
-  %3180 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3179
+  %3180 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3179
   %3181 = load i8, ptr %3180, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit2013
 
@@ -43927,7 +43927,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2175: ; preds = %3492,
   %3508 = zext nneg i8 %3497 to i64
   %3509 = add nuw nsw i64 %3508, 4294967295
   %3510 = and i64 %3509, 4294967295
-  %3511 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3510
+  %3511 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3510
   %3512 = load i8, ptr %3511, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit2187
 
@@ -45774,7 +45774,7 @@ define linkonce_odr noundef i32 @_ZN14arrow_vendored4date6detail15extract_weekda
   %18 = zext nneg i8 %6 to i64
   %19 = add nuw nsw i64 %18, 4294967295
   %20 = and i64 %19, 4294967295
-  %21 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -45842,7 +45842,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit.thread.thread: ; preds = %2
   %54 = zext nneg i8 %6 to i64
   %55 = add nuw nsw i64 %54, 4294967295
   %56 = and i64 %55, 4294967295
-  %57 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit20
 
@@ -46545,7 +46545,7 @@ define linkonce_odr void @_ZZN5arrow17MakeFormatterImpl17MakeTimeFormatterINS_13
   %18 = load i32, ptr %17, align 8, !tbaa !1528
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !937
-  %21 = getelementptr inbounds i64, ptr %20, i64 %2
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %2
   %22 = load i64, ptr %21, align 8, !tbaa !101
   switch i32 %18, label %103 [
     i32 3, label %23
@@ -48263,7 +48263,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1010: ; preds = %551, 
   %567 = zext nneg i8 %556 to i64
   %568 = add nuw nsw i64 %567, 4294967295
   %569 = and i64 %568, 4294967295
-  %570 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %569
+  %570 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %569
   %571 = load i8, ptr %570, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -49367,7 +49367,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1170: ; preds = %1024,
   %1043 = zext nneg i8 %1032 to i64
   %1044 = add nuw nsw i64 %1043, 4294967295
   %1045 = and i64 %1044, 4294967295
-  %1046 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1045
+  %1046 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1045
   %1047 = load i8, ptr %1046, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1182
 
@@ -49744,7 +49744,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1236: ; preds = %1198,
   %1217 = zext nneg i8 %1206 to i64
   %1218 = add nuw nsw i64 %1217, 4294967295
   %1219 = and i64 %1218, 4294967295
-  %1220 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1219
+  %1220 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1219
   %1221 = load i8, ptr %1220, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1248
 
@@ -50133,7 +50133,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1303: ; preds = %1379,
   %1398 = zext nneg i8 %1387 to i64
   %1399 = add nuw nsw i64 %1398, 4294967295
   %1400 = and i64 %1399, 4294967295
-  %1401 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1400
+  %1401 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1400
   %1402 = load i8, ptr %1401, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1315
 
@@ -50868,7 +50868,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1423: ; preds = %1730,
   %1749 = zext nneg i8 %1738 to i64
   %1750 = add nuw nsw i64 %1749, 4294967295
   %1751 = and i64 %1750, 4294967295
-  %1752 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1751
+  %1752 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1751
   %1753 = load i8, ptr %1752, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date19year_month_day_last3dayEv.exit.i1431
 
@@ -50918,7 +50918,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit1435.thread: ; preds = %1735
   %1770 = zext nneg i8 %1738 to i64
   %1771 = add nuw nsw i64 %1770, 4294967295
   %1772 = and i64 %1771, 4294967295
-  %1773 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1772
+  %1773 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1772
   %1774 = load i8, ptr %1773, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1447
 
@@ -53530,7 +53530,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1906: ; preds = %2938,
   %2954 = zext nneg i8 %2943 to i64
   %2955 = add nuw nsw i64 %2954, 4294967295
   %2956 = and i64 %2955, 4294967295
-  %2957 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %2956
+  %2957 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %2956
   %2958 = load i8, ptr %2957, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1918
 
@@ -53984,7 +53984,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2001: ; preds = %3161,
   %3177 = zext nneg i8 %3166 to i64
   %3178 = add nuw nsw i64 %3177, 4294967295
   %3179 = and i64 %3178, 4294967295
-  %3180 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3179
+  %3180 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3179
   %3181 = load i8, ptr %3180, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit2013
 
@@ -54661,7 +54661,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2175: ; preds = %3492,
   %3508 = zext nneg i8 %3497 to i64
   %3509 = add nuw nsw i64 %3508, 4294967295
   %3510 = and i64 %3509, 4294967295
-  %3511 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3510
+  %3511 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3510
   %3512 = load i8, ptr %3511, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit2187
 
@@ -56508,7 +56508,7 @@ define linkonce_odr noundef i32 @_ZN14arrow_vendored4date6detail15extract_weekda
   %18 = zext nneg i8 %6 to i64
   %19 = add nuw nsw i64 %18, 4294967295
   %20 = and i64 %19, 4294967295
-  %21 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -56576,7 +56576,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit.thread.thread: ; preds = %2
   %54 = zext nneg i8 %6 to i64
   %55 = add nuw nsw i64 %54, 4294967295
   %56 = and i64 %55, 4294967295
-  %57 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit20
 
@@ -58238,7 +58238,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1010: ; preds = %551, 
   %567 = zext nneg i8 %556 to i64
   %568 = add nuw nsw i64 %567, 4294967295
   %569 = and i64 %568, 4294967295
-  %570 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %569
+  %570 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %569
   %571 = load i8, ptr %570, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -59342,7 +59342,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1170: ; preds = %1024,
   %1043 = zext nneg i8 %1032 to i64
   %1044 = add nuw nsw i64 %1043, 4294967295
   %1045 = and i64 %1044, 4294967295
-  %1046 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1045
+  %1046 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1045
   %1047 = load i8, ptr %1046, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1182
 
@@ -59719,7 +59719,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1236: ; preds = %1198,
   %1217 = zext nneg i8 %1206 to i64
   %1218 = add nuw nsw i64 %1217, 4294967295
   %1219 = and i64 %1218, 4294967295
-  %1220 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1219
+  %1220 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1219
   %1221 = load i8, ptr %1220, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1248
 
@@ -60108,7 +60108,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1303: ; preds = %1379,
   %1398 = zext nneg i8 %1387 to i64
   %1399 = add nuw nsw i64 %1398, 4294967295
   %1400 = and i64 %1399, 4294967295
-  %1401 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1400
+  %1401 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1400
   %1402 = load i8, ptr %1401, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1315
 
@@ -60843,7 +60843,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1423: ; preds = %1730,
   %1749 = zext nneg i8 %1738 to i64
   %1750 = add nuw nsw i64 %1749, 4294967295
   %1751 = and i64 %1750, 4294967295
-  %1752 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1751
+  %1752 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1751
   %1753 = load i8, ptr %1752, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date19year_month_day_last3dayEv.exit.i1431
 
@@ -60893,7 +60893,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit1435.thread: ; preds = %1735
   %1770 = zext nneg i8 %1738 to i64
   %1771 = add nuw nsw i64 %1770, 4294967295
   %1772 = and i64 %1771, 4294967295
-  %1773 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1772
+  %1773 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %1772
   %1774 = load i8, ptr %1773, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1447
 
@@ -63505,7 +63505,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit1906: ; preds = %2938,
   %2954 = zext nneg i8 %2943 to i64
   %2955 = add nuw nsw i64 %2954, 4294967295
   %2956 = and i64 %2955, 4294967295
-  %2957 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %2956
+  %2957 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %2956
   %2958 = load i8, ptr %2957, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit1918
 
@@ -63959,7 +63959,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2001: ; preds = %3161,
   %3177 = zext nneg i8 %3166 to i64
   %3178 = add nuw nsw i64 %3177, 4294967295
   %3179 = and i64 %3178, 4294967295
-  %3180 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3179
+  %3180 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3179
   %3181 = load i8, ptr %3180, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit2013
 
@@ -64636,7 +64636,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit2175: ; preds = %3492,
   %3508 = zext nneg i8 %3497 to i64
   %3509 = add nuw nsw i64 %3508, 4294967295
   %3510 = and i64 %3509, 4294967295
-  %3511 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3510
+  %3511 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %3510
   %3512 = load i8, ptr %3511, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit2187
 
@@ -66483,7 +66483,7 @@ define linkonce_odr noundef i32 @_ZN14arrow_vendored4date6detail15extract_weekda
   %18 = zext nneg i8 %6 to i64
   %19 = add nuw nsw i64 %18, 4294967295
   %20 = and i64 %19, 4294967295
-  %21 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit
 
@@ -66551,7 +66551,7 @@ _ZNK14arrow_vendored4date14year_month_day2okEv.exit.thread.thread: ; preds = %2
   %54 = zext nneg i8 %6 to i64
   %55 = add nuw nsw i64 %54, 4294967295
   %56 = and i64 %55, 4294967295
-  %57 = getelementptr inbounds nuw %"class.arrow_vendored::date::day", ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr @__const._ZNK14arrow_vendored4date19year_month_day_last3dayEv.d, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !95
   br label %_ZNK14arrow_vendored4date14year_month_day2okEv.exit20
 
@@ -67540,7 +67540,7 @@ define linkonce_odr void @_ZZN5arrow17MakeFormatterImpl17MakeTimeFormatterINS_10
   %18 = load i32, ptr %17, align 8, !tbaa !1570
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !942
-  %21 = getelementptr inbounds i32, ptr %20, i64 %2
+  %21 = getelementptr inbounds [4 x i8], ptr %20, i64 %2
   %22 = load i32, ptr %21, align 4, !tbaa !131
   switch i32 %18, label %95 [
     i32 3, label %23
@@ -68627,7 +68627,7 @@ define linkonce_odr void @_ZZN5arrow17MakeFormatterImpl17MakeTimeFormatterINS_10
   %18 = load i32, ptr %17, align 8, !tbaa !1570
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !947
-  %21 = getelementptr inbounds i64, ptr %20, i64 %2
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %2
   %22 = load i64, ptr %21, align 8, !tbaa !101
   switch i32 %18, label %91 [
     i32 3, label %23
@@ -69393,7 +69393,7 @@ define linkonce_odr void @_ZZN5arrow17MakeFormatterImpl5VisitINS_8ListTypeEEENSt
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.38, i64 noundef 1)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !975
-  %10 = getelementptr i32, ptr %9, i64 %2
+  %10 = getelementptr [4 x i8], ptr %9, i64 %2
   %11 = getelementptr i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !131
   %13 = load i32, ptr %10, align 4, !tbaa !131
@@ -69424,7 +69424,7 @@ define linkonce_odr void @_ZZN5arrow17MakeFormatterImpl5VisitINS_8ListTypeEEENSt
 23:                                               ; preds = %21, %19
   %24 = phi ptr [ %.pre, %21 ], [ %20, %19 ]
   %25 = load ptr, ptr %15, align 8, !tbaa !117
-  %26 = getelementptr inbounds i32, ptr %24, i64 %2
+  %26 = getelementptr inbounds [4 x i8], ptr %24, i64 %2
   %27 = load i32, ptr %26, align 4, !tbaa !131
   %28 = add nsw i32 %27, %.014
   %29 = sext i32 %28 to i64
@@ -69447,7 +69447,7 @@ _ZNKSt8functionIFvRKN5arrow5ArrayElPSoEEclES3_lS4_.exit: ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = add nuw nsw i32 %.014, 1
   %34 = load ptr, ptr %8, align 8, !tbaa !975
-  %35 = getelementptr i32, ptr %34, i64 %2
+  %35 = getelementptr [4 x i8], ptr %34, i64 %2
   %36 = getelementptr i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !131
   %38 = load i32, ptr %35, align 4, !tbaa !131
@@ -69596,7 +69596,7 @@ define linkonce_odr void @_ZZN5arrow17MakeFormatterImpl5VisitINS_13LargeListType
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.38, i64 noundef 1)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !994
-  %10 = getelementptr i64, ptr %9, i64 %2
+  %10 = getelementptr [8 x i8], ptr %9, i64 %2
   %11 = getelementptr i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !101
   %13 = load i64, ptr %10, align 8, !tbaa !101
@@ -69627,7 +69627,7 @@ define linkonce_odr void @_ZZN5arrow17MakeFormatterImpl5VisitINS_13LargeListType
 23:                                               ; preds = %21, %19
   %24 = phi ptr [ %.pre, %21 ], [ %20, %19 ]
   %25 = load ptr, ptr %15, align 8, !tbaa !117
-  %26 = getelementptr inbounds i64, ptr %24, i64 %2
+  %26 = getelementptr inbounds [8 x i8], ptr %24, i64 %2
   %27 = load i64, ptr %26, align 8, !tbaa !101
   %28 = add nsw i64 %27, %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -69649,7 +69649,7 @@ _ZNKSt8functionIFvRKN5arrow5ArrayElPSoEEclES3_lS4_.exit: ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load ptr, ptr %8, align 8, !tbaa !994
-  %33 = getelementptr i64, ptr %32, i64 %2
+  %33 = getelementptr [8 x i8], ptr %32, i64 %2
   %34 = getelementptr i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !101
   %36 = load i64, ptr %33, align 8, !tbaa !101
@@ -69941,7 +69941,7 @@ define linkonce_odr void @_ZZN5arrow17MakeFormatterImpl5VisitINS_7MapTypeEEENSt9
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.38, i64 noundef 1)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !975
-  %10 = getelementptr i32, ptr %9, i64 %2
+  %10 = getelementptr [4 x i8], ptr %9, i64 %2
   %11 = getelementptr i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !131
   %13 = load i32, ptr %10, align 4, !tbaa !131
@@ -69972,7 +69972,7 @@ define linkonce_odr void @_ZZN5arrow17MakeFormatterImpl5VisitINS_7MapTypeEEENSt9
 23:                                               ; preds = %21, %19
   %24 = phi ptr [ %.pre, %21 ], [ %20, %19 ]
   %25 = load ptr, ptr %15, align 8, !tbaa !117
-  %26 = getelementptr inbounds i32, ptr %24, i64 %2
+  %26 = getelementptr inbounds [4 x i8], ptr %24, i64 %2
   %27 = load i32, ptr %26, align 4, !tbaa !131
   %28 = add nsw i32 %27, %.014
   %29 = sext i32 %28 to i64
@@ -69995,7 +69995,7 @@ _ZNKSt8functionIFvRKN5arrow5ArrayElPSoEEclES3_lS4_.exit: ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %33 = add nuw nsw i32 %.014, 1
   %34 = load ptr, ptr %8, align 8, !tbaa !975
-  %35 = getelementptr i32, ptr %34, i64 %2
+  %35 = getelementptr [4 x i8], ptr %34, i64 %2
   %36 = getelementptr i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !131
   %38 = load i32, ptr %35, align 4, !tbaa !131
@@ -70558,7 +70558,7 @@ _ZNK5arrow5Array6IsNullEl.exit:                   ; preds = %42
   %58 = call noundef ptr @_ZNK5arrow11StructArray11struct_typeEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %60 = load ptr, ptr %59, align 8, !tbaa !138
-  %61 = getelementptr inbounds nuw %"class.std::shared_ptr.31", ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !142
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !154
@@ -70567,7 +70567,7 @@ _ZNK5arrow5Array6IsNullEl.exit:                   ; preds = %42
   %67 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %64, i64 noundef %66)
   %68 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull @.str.42, i64 noundef 2)
   %69 = load ptr, ptr %0, align 8, !tbaa !1372
-  %70 = getelementptr inbounds nuw %"class.std::function.64", ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %69, i64 %indvars.iv
   %71 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow11StructArray5fieldEi(ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef %24)
   %72 = load ptr, ptr %71, align 8, !tbaa !117
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -70956,7 +70956,7 @@ define linkonce_odr void @_ZZN5arrow17MakeFormatterImpl5VisitERKNS_9UnionTypeEEN
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %16 = sext i8 %12 to i64
   %17 = load ptr, ptr %15, align 8, !tbaa !1624
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !131
   call void @_ZNK5arrow10UnionArray5fieldEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.16") align 8 %8, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %19)
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.41, i64 noundef 1)
@@ -71046,7 +71046,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15: ; preds = %23
 
 62:                                               ; preds = %.noexc16, %.noexc17, %51, %30, %57
   %63 = load ptr, ptr %0, align 8, !tbaa !1372
-  %64 = getelementptr inbounds nuw %"class.std::function.64", ptr %63, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %63, i64 %16
   %65 = load ptr, ptr %8, align 8, !tbaa !117
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -71297,7 +71297,7 @@ define linkonce_odr void @_ZNSt17_Function_handlerIFvRKN5arrow5ArrayElPSoEZNS0_1
   %7 = load ptr, ptr %3, align 8, !tbaa !268
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %9 = load ptr, ptr %8, align 8, !tbaa !1626
-  %10 = getelementptr inbounds i32, ptr %9, i64 %6
+  %10 = getelementptr inbounds [4 x i8], ptr %9, i64 %6
   %11 = load i32, ptr %10, align 4, !tbaa !131
   %12 = sext i32 %11 to i64
   tail call void @_ZZN5arrow17MakeFormatterImpl5VisitERKNS_9UnionTypeEEN9UnionImpl8DoFormatERKNS_10UnionArrayEllPSo(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 noundef %6, i64 noundef %12, ptr noundef %7)

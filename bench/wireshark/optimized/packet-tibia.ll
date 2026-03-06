@@ -14,8 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.0 = type { ptr, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.rsakeys_assoc = type { ptr, ptr, ptr, ptr }
-%struct.xteakeys_assoc = type { i32, ptr }
 %struct.rsakey = type { %struct._address, i16, ptr }
 %struct._address = type { i32, i32, ptr, ptr }
 
@@ -1030,7 +1028,7 @@ define internal void @rsa_parse_uat() #0 {
 .lr.ph:                                           ; preds = %0, %56
   %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %0 ]
   %7 = load ptr, ptr @rsakeylist_uats, align 8
-  %8 = getelementptr %struct.rsakeys_assoc, ptr %7, i64 %indvars.iv
+  %8 = getelementptr [32 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = call noalias ptr @fopen(ptr noundef %10, ptr noundef nonnull @.str.375)
@@ -1309,7 +1307,7 @@ define internal noundef zeroext i1 @xteakeys_uat_fld_key_chk_cb(ptr readnone cap
   %.014 = phi ptr [ %21, %20 ], [ %1, %.preheader ]
   %.011 = phi i64 [ %.1, %20 ], [ 0, %.preheader ]
   %11 = zext i8 %10 to i64
-  %12 = getelementptr i16, ptr %8, i64 %11
+  %12 = getelementptr [2 x i8], ptr %8, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = and i32 %14, 128
@@ -1427,7 +1425,7 @@ define internal void @xtea_parse_uat() #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next, %.critedge ]
   %5 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #18
   %6 = load ptr, ptr @xteakeylist_uats, align 8
-  %7 = getelementptr %struct.xteakeys_assoc, ptr %6, i64 %indvars.iv
+  %7 = getelementptr [16 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i8, ptr %9, align 1
@@ -1459,7 +1457,7 @@ define internal void @xtea_parse_uat() #0 {
 
 24:                                               ; preds = %.lr.ph
   %25 = zext i8 %11 to i64
-  %26 = getelementptr i16, ptr %3, i64 %25
+  %26 = getelementptr [2 x i8], ptr %3, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = and i16 %27, 128
   %.not18 = icmp eq i16 %28, 0

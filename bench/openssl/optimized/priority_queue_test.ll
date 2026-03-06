@@ -93,7 +93,7 @@ define internal range(i32 0, 2) i32 @test_size_t_priority_queue(i32 noundef %0) 
   %11 = sdiv i32 %3, 72
   %12 = srem i32 %11, 2
   %13 = zext nneg i32 %2 to i64
-  %14 = getelementptr inbounds nuw i32, ptr @test_size_t_priority_counts, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @test_size_t_priority_counts, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !4
   %16 = tail call fastcc i32 @test_size_t_priority_queue_int(i32 noundef %8, i32 noundef %4, i32 noundef %15, i32 noundef %10, i32 noundef %6, i32 noundef %12)
   ret i32 %16
@@ -117,7 +117,7 @@ define internal range(i32 0, 2) i32 @test_22644() #0 {
 
 3:                                                ; preds = %0, %3
   %.040 = phi i64 [ 0, %0 ], [ %6, %3 ]
-  %4 = getelementptr inbounds nuw %struct.info_st, ptr %1, i64 %.040
+  %4 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %.040
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.040, ptr %5, align 8, !tbaa !8
   %6 = add nuw nsw i64 %.040, 1
@@ -313,7 +313,7 @@ define internal range(i32 0, 2) i32 @test_22644() #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 noundef range(i32 -1, 2) %0, i32 noundef range(i32 -2, 3) %1, i32 noundef %2, i32 noundef range(i32 -5, 5001) %3, i32 noundef range(i32 -1, 2) %4, i32 noundef range(i32 -1, 2) %5) unnamed_addr #0 {
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds ptr, ptr @test_size_t_priority_queue_int.orders, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr @test_size_t_priority_queue_int.orders, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !15
   %.not = icmp eq i32 %0, 0
   %10 = select i1 %.not, ptr @.str.9, ptr @.str.8
@@ -341,7 +341,7 @@ define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 n
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %17 = sub nsw i64 %13, %indvars.iv98
-  %18 = getelementptr inbounds nuw i64, ptr @test_size_t_priority_queue_int.values, i64 %indvars.iv98
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @test_size_t_priority_queue_int.values, i64 %indvars.iv98
   store i64 %17, ptr %18, align 8, !tbaa !18
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
@@ -351,7 +351,7 @@ define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 n
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %19 = tail call i32 @test_random() #9
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw i64, ptr @test_size_t_priority_queue_int.values, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @test_size_t_priority_queue_int.values, i64 %indvars.iv
   store i64 %20, ptr %21, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count101
@@ -411,8 +411,8 @@ define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 n
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %38
   %indvars.iv103 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next104, %38 ]
-  %39 = getelementptr inbounds nuw i64, ptr @test_size_t_priority_queue_int.values, i64 %indvars.iv103
-  %40 = getelementptr inbounds nuw i64, ptr @test_size_t_priority_queue_int.ref, i64 %indvars.iv103
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @test_size_t_priority_queue_int.values, i64 %indvars.iv103
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @test_size_t_priority_queue_int.ref, i64 %indvars.iv103
   %41 = tail call i32 @ossl_pqueue_push(ptr noundef %26, ptr noundef nonnull %39, ptr noundef nonnull %40) #9
   %42 = icmp ne i32 %41, 0
   %43 = zext i1 %42 to i32
@@ -448,13 +448,13 @@ define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 n
   %55 = tail call i32 @test_random() #9
   %56 = urem i32 %55, %2
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i64, ptr @test_size_t_priority_queue_int.values, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr @test_size_t_priority_queue_int.values, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !18
   %.not77 = icmp eq i64 %59, -1
   br i1 %.not77, label %66, label %60
 
 60:                                               ; preds = %.lr.ph87
-  %61 = getelementptr inbounds i64, ptr @test_size_t_priority_queue_int.ref, i64 %57
+  %61 = getelementptr inbounds [8 x i8], ptr @test_size_t_priority_queue_int.ref, i64 %57
   %62 = load i64, ptr %61, align 8, !tbaa !18
   %63 = tail call ptr @ossl_pqueue_remove(ptr noundef %26, i64 noundef %62) #9
   %64 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.6, i32 noundef 102, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef %63, ptr noundef nonnull %58) #9
@@ -489,7 +489,7 @@ define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 n
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %70 ], [ 0, %68 ]
   %72 = tail call ptr @ossl_pqueue_peek(ptr noundef %26) #9
   %73 = load i64, ptr %72, align 8, !tbaa !18
-  %74 = getelementptr inbounds nuw i64, ptr @test_size_t_priority_queue_int.sorted, i64 %indvars.iv108
+  %74 = getelementptr inbounds nuw [8 x i8], ptr @test_size_t_priority_queue_int.sorted, i64 %indvars.iv108
   %75 = load i64, ptr %74, align 8, !tbaa !18
   %76 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.6, i32 noundef 111, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.25, i64 noundef %73, i64 noundef %75) #9
   %.not75 = icmp eq i32 %76, 0

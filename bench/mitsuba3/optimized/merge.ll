@@ -1658,7 +1658,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_6Object
 _ZNSt3__114__split_bufferIN7mitsuba3refINS1_6ObjectEEERNS_9allocatorIS4_EEEC2EmmS7_.exit: ; preds = %_ZNKSt3__16vectorIN7mitsuba3refINS1_6ObjectEEENS_9allocatorIS4_EEE11__recommendB8ne190000Em.exit, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS9_m.exit.i
   %storemerge.i = phi ptr [ %23, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS9_m.exit.i ], [ null, %_ZNKSt3__16vectorIN7mitsuba3refINS1_6ObjectEEENS_9allocatorIS4_EEE11__recommendB8ne190000Em.exit ]
   %24 = getelementptr inbounds i8, ptr %storemerge.i, i64 %9
-  %25 = getelementptr inbounds %"class.mitsuba::ref.74", ptr %storemerge.i, i64 %.0.i
+  %25 = getelementptr inbounds [8 x i8], ptr %storemerge.i, i64 %.0.i
   %26 = load ptr, ptr %1, align 8
   store ptr %26, ptr %24, align 8
   %.not.i.i.i = icmp eq ptr %26, null
@@ -1681,7 +1681,7 @@ _ZNSt3__116allocator_traitsINS_9allocatorIN7mitsuba3refINS2_6ObjectEEEEEE9constr
   %31 = phi ptr [ %.pre, %27 ], [ %5, %_ZNSt3__114__split_bufferIN7mitsuba3refINS1_6ObjectEEERNS_9allocatorIS4_EEEC2EmmS7_.exit ]
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %33 = sub nsw i64 0, %.pre-phi16
-  %34 = getelementptr inbounds %"class.mitsuba::ref.74", ptr %24, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %24, i64 %33
   %.not13.i.i = icmp eq ptr %30, %31
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferIN7mitsuba3refINS1_6ObjectEEERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
@@ -1847,7 +1847,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3__112__hash_tableINS_17__hash_valu
 _ZNSt3__116__constrain_hashB8ne190000Emm.exit:    ; preds = %32, %35, %37
   %39 = phi i64 [ %34, %32 ], [ %38, %37 ], [ %27, %35 ]
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %39
+  %41 = getelementptr inbounds [8 x i8], ptr %40, i64 %39
   %42 = load ptr, ptr %41, align 8
   %.not51 = icmp eq ptr %42, null
   br i1 %.not51, label %.critedge, label %.preheader
@@ -2161,7 +2161,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit60:  ; preds = %205, %203, %200, %_
   %.145 = phi i64 [ %.044, %_ZNSt3__112__hash_tableINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEE3KeyENS2_3refINS2_4MeshIfS8_EEEEEENS_22__unordered_map_hasherISA_SF_NS9_10key_hasherENS_8equal_toISA_EELb1EEENS_21__unordered_map_equalISA_SF_SJ_SH_Lb1EEENS_9allocatorISF_EEE21__construct_node_hashIRKNS_21piecewise_construct_tEJNS_5tupleIJRKSA_EEENSU_IJRSE_EEEEEENS_10unique_ptrINS_11__hash_nodeISF_PvEENS_22__hash_node_destructorINSN_IS13_EEEEEEmOT_DpOT0_.exit ], [ %202, %200 ], [ %206, %205 ], [ %27, %203 ]
   %.0 = phi i64 [ %29, %_ZNSt3__112__hash_tableINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEE3KeyENS2_3refINS2_4MeshIfS8_EEEEEENS_22__unordered_map_hasherISA_SF_NS9_10key_hasherENS_8equal_toISA_EELb1EEENS_21__unordered_map_equalISA_SF_SJ_SH_Lb1EEENS_9allocatorISF_EEE21__construct_node_hashIRKNS_21piecewise_construct_tEJNS_5tupleIJRKSA_EEENSU_IJRSE_EEEEEENS_10unique_ptrINS_11__hash_nodeISF_PvEENS_22__hash_node_destructorINSN_IS13_EEEEEEmOT_DpOT0_.exit ], [ %198, %200 ], [ %198, %205 ], [ %198, %203 ]
   %209 = load ptr, ptr %0, align 8
-  %210 = getelementptr inbounds ptr, ptr %209, i64 %.145
+  %210 = getelementptr inbounds [8 x i8], ptr %209, i64 %.145
   %211 = load ptr, ptr %210, align 8
   %212 = icmp eq ptr %211, null
   %213 = load ptr, ptr %8, align 8
@@ -2172,7 +2172,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit60:  ; preds = %205, %203, %200, %_
   store ptr %215, ptr %213, align 8
   store ptr %213, ptr %140, align 8
   %216 = load ptr, ptr %0, align 8
-  %217 = getelementptr inbounds ptr, ptr %216, i64 %.145
+  %217 = getelementptr inbounds [8 x i8], ptr %216, i64 %.145
   store ptr %140, ptr %217, align 8
   %218 = load ptr, ptr %213, align 8
   %.not53 = icmp eq ptr %218, null
@@ -2201,7 +2201,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit60:  ; preds = %205, %203, %200, %_
 _ZNSt3__116__constrain_hashB8ne190000Emm.exit62:  ; preds = %223, %226, %228
   %230 = phi i64 [ %225, %223 ], [ %229, %228 ], [ %221, %226 ]
   %231 = load ptr, ptr %0, align 8
-  %232 = getelementptr inbounds ptr, ptr %231, i64 %230
+  %232 = getelementptr inbounds [8 x i8], ptr %231, i64 %230
   store ptr %213, ptr %232, align 8
   br label %_ZNSt3__110unique_ptrINS_11__hash_nodeINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6MatrixINS3_8SpectrumIfLm4EEELm4EEEE3KeyENS3_3refINS3_4MeshIfS9_EEEEEEPvEENS_22__hash_node_destructorINS_9allocatorISI_EEEEED2B8ne190000Ev.exit
 
@@ -2291,7 +2291,7 @@ _ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeINS_17__hash_val
 11:                                               ; preds = %_ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEE3KeyENS4_3refINS4_4MeshIfSA_EEEEEEPvEEEENS_25__bucket_list_deallocatorINS_9allocatorISM_EEEEE5resetB8ne190000IPSM_TnNS_9enable_ifIXsr28_CheckArrayPointerConversionIT_EE5valueEiE4typeELi0EEEvSW_.exit, %11
   %.052 = phi i64 [ 0, %_ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6MatrixINS4_8SpectrumIfLm4EEELm4EEEE3KeyENS4_3refINS4_4MeshIfSA_EEEEEEPvEEEENS_25__bucket_list_deallocatorINS_9allocatorISM_EEEEE5resetB8ne190000IPSM_TnNS_9enable_ifIXsr28_CheckArrayPointerConversionIT_EE5valueEiE4typeELi0EEEvSW_.exit ], [ %14, %11 ]
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %.052
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %.052
   store ptr null, ptr %13, align 8
   %14 = add nuw i64 %.052, 1
   %exitcond.not = icmp eq i64 %14, %1
@@ -2321,7 +2321,7 @@ _ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeINS_17__hash_val
 _ZNSt3__116__constrain_hashB8ne190000Emm.exit:    ; preds = %22, %24
   %26 = phi i64 [ %20, %22 ], [ %25, %24 ]
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %26
   store ptr %16, ptr %28, align 8
   %.03853 = load ptr, ptr %17, align 8
   %.not4654 = icmp eq ptr %.03853, null
@@ -2331,7 +2331,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit.thread: ; preds = %18
   %29 = add nsw i64 %1, -1
   %30 = and i64 %20, %29
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds [8 x i8], ptr %31, i64 %30
   store ptr %16, ptr %32, align 8
   %.0385368 = load ptr, ptr %17, align 8
   %.not465469 = icmp eq ptr %.0385368, null
@@ -2353,7 +2353,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit49.us: ; preds = %.lr.ph.thread, %5
 
 38:                                               ; preds = %_ZNSt3__116__constrain_hashB8ne190000Emm.exit49.us
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %36
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %36
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %52, label %43
@@ -2362,12 +2362,12 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit49.us: ; preds = %.lr.ph.thread, %5
   %44 = load ptr, ptr %.03857.us, align 8
   store ptr %44, ptr %.03955.us, align 8
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %36
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %36
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %47, align 8
   store ptr %48, ptr %.03857.us, align 8
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %36
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %36
   %51 = load ptr, ptr %50, align 8
   store ptr %.03857.us, ptr %51, align 8
   br label %53
@@ -2403,7 +2403,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit49:  ; preds = %.lr.ph.split, %57
 
 61:                                               ; preds = %_ZNSt3__116__constrain_hashB8ne190000Emm.exit49
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %59
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %59
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %67
@@ -2416,12 +2416,12 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit49:  ; preds = %.lr.ph.split, %57
   %68 = load ptr, ptr %.03857, align 8
   store ptr %68, ptr %.03955, align 8
   %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %59
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %59
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %71, align 8
   store ptr %72, ptr %.03857, align 8
   %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %59
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %59
   %75 = load ptr, ptr %74, align 8
   store ptr %.03857, ptr %75, align 8
   br label %76
@@ -2497,7 +2497,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_6Object
   %21 = shl nuw i64 %.0.i, 3
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #25
   %23 = getelementptr inbounds i8, ptr %22, i64 %9
-  %24 = getelementptr inbounds nuw %"class.mitsuba::ref.74", ptr %22, i64 %.0.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.0.i
   %25 = load ptr, ptr %1, align 8
   store ptr %25, ptr %23, align 8
   store ptr null, ptr %1, align 8
@@ -2509,7 +2509,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba3refINS2_6Object
   %31 = sub i64 %29, %30
   %32 = ashr exact i64 %31, 3
   %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds %"class.mitsuba::ref.74", ptr %23, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %23, i64 %33
   %.not13.i.i = icmp eq ptr %28, %27
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferIN7mitsuba3refINS1_6ObjectEEERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
@@ -2839,7 +2839,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 67:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKc.exit
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %2, i64 %68
   %70 = load i8, ptr %8, align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %77, label %72
@@ -3397,7 +3397,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %153 = add nsw i32 %150, 1
   store i32 %153, ptr %5, align 4
   %154 = sext i32 %150 to i64
-  %155 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %154
+  %155 = getelementptr inbounds [24 x i8], ptr %4, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %155, align 8
@@ -3490,7 +3490,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %206 = add nsw i32 %203, 1
   store i32 %206, ptr %5, align 4
   %207 = sext i32 %203 to i64
-  %208 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %207
+  %208 = getelementptr inbounds [24 x i8], ptr %4, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %208, align 8

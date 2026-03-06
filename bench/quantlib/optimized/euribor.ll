@@ -1440,7 +1440,7 @@ ehcleanup24:                                      ; preds = %if.then.i.i14, %ehc
 
 switch.lookup:                                    ; preds = %entry
   %18 = zext nneg i32 %p.4.val to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN8QuantLib12_GLOBAL__N_117euriborConventionERKNS_6PeriodE, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN8QuantLib12_GLOBAL__N_117euriborConventionERKNS_6PeriodE, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 

@@ -1289,7 +1289,7 @@ getMagicHeaderName.exit.i.i186:                   ; preds = %276, %275, %274, %2
 
 390:                                              ; preds = %384
   store ptr %389, ptr %237, align 8, !tbaa !50
-  %391 = getelementptr inbounds nuw ptr, ptr %389, i64 %386
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %389, i64 %386
   store ptr %381, ptr %391, align 8, !tbaa !46
   %392 = add i64 %386, 1
   store i64 %392, ptr %238, align 8, !tbaa !51
@@ -1495,7 +1495,7 @@ egg_parse_file_headers.exit:                      ; preds = %466, %211, %207, %.
 472:                                              ; preds = %.thread
   store ptr %471, ptr %177, align 8, !tbaa !65
   %473 = load i64, ptr %176, align 8, !tbaa !66
-  %474 = getelementptr inbounds nuw ptr, ptr %471, i64 %473
+  %474 = getelementptr inbounds nuw [8 x i8], ptr %471, i64 %473
   store ptr %209, ptr %474, align 8, !tbaa !3
   %475 = add i64 %473, 1
   store i64 %475, ptr %176, align 8, !tbaa !66
@@ -1663,7 +1663,7 @@ egg_parse_file_headers.exit:                      ; preds = %466, %211, %207, %.
 
 552:                                              ; preds = %548
   %553 = load ptr, ptr %177, align 8, !tbaa !65
-  %554 = getelementptr ptr, ptr %553, i64 %549
+  %554 = getelementptr [8 x i8], ptr %553, i64 %549
   %555 = getelementptr i8, ptr %554, i64 -8
   %556 = load ptr, ptr %555, align 8, !tbaa !3
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 56
@@ -1679,7 +1679,7 @@ egg_parse_file_headers.exit:                      ; preds = %466, %211, %207, %.
 564:                                              ; preds = %552
   store ptr %563, ptr %557, align 8, !tbaa !79
   %565 = load i64, ptr %559, align 8, !tbaa !80
-  %566 = getelementptr inbounds nuw ptr, ptr %563, i64 %565
+  %566 = getelementptr inbounds nuw [8 x i8], ptr %563, i64 %565
   store ptr %489, ptr %566, align 8, !tbaa !3
   %567 = add i64 %565, 1
   store i64 %567, ptr %559, align 8, !tbaa !80
@@ -1853,7 +1853,7 @@ getMagicHeaderName.exit:                          ; preds = %576, %578, %579, %5
 632:                                              ; preds = %626
   store ptr %631, ptr %171, align 8, !tbaa !81
   %633 = load i64, ptr %172, align 8, !tbaa !82
-  %634 = getelementptr inbounds nuw ptr, ptr %631, i64 %633
+  %634 = getelementptr inbounds nuw [8 x i8], ptr %631, i64 %633
   store ptr %623, ptr %634, align 8, !tbaa !46
   %635 = add i64 %633, 1
   store i64 %635, ptr %172, align 8, !tbaa !82
@@ -1871,7 +1871,7 @@ getMagicHeaderName.exit:                          ; preds = %576, %578, %579, %5
 .thread239:                                       ; preds = %542
   store ptr %547, ptr %174, align 8, !tbaa !77
   %640 = load i64, ptr %175, align 8, !tbaa !78
-  %641 = getelementptr inbounds nuw ptr, ptr %547, i64 %640
+  %641 = getelementptr inbounds nuw [8 x i8], ptr %547, i64 %640
   store ptr %489, ptr %641, align 8, !tbaa !3
   %642 = add i64 %640, 1
   store i64 %642, ptr %175, align 8, !tbaa !78
@@ -1965,11 +1965,11 @@ define internal fastcc void @egg_free_egg_file(ptr noundef captures(none) %0) un
   %14 = phi i64 [ %21, %.lr.ph ], [ 0, %.preheader33 ]
   %.034 = phi i32 [ %20, %.lr.ph ], [ 0, %.preheader33 ]
   %15 = load ptr, ptr %10, align 8, !tbaa !79
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   tail call void @free(ptr noundef %17) #14
   %18 = load ptr, ptr %10, align 8, !tbaa !79
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %14
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %14
   store ptr null, ptr %19, align 8, !tbaa !3
   %20 = add i32 %.034, 1
   %21 = zext i32 %20 to i64
@@ -2003,11 +2003,11 @@ define internal fastcc void @egg_free_egg_file(ptr noundef captures(none) %0) un
   %30 = phi ptr [ %34, %.lr.ph36 ], [ %27, %.preheader ]
   %31 = phi i64 [ %37, %.lr.ph36 ], [ 0, %.preheader ]
   %.135 = phi i32 [ %36, %.lr.ph36 ], [ 0, %.preheader ]
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !46
   tail call void @free(ptr noundef %33) #14
   %34 = load ptr, ptr %26, align 8, !tbaa !50
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %31
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %31
   store ptr null, ptr %35, align 8, !tbaa !46
   %36 = add i32 %.135, 1
   %37 = zext i32 %36 to i64
@@ -2128,11 +2128,11 @@ define internal fastcc void @egg_free_egg_handle(ptr noundef nonnull captures(no
   %10 = phi i64 [ %17, %.lr.ph ], [ 0, %.preheader43 ]
   %.044 = phi i32 [ %16, %.lr.ph ], [ 0, %.preheader43 ]
   %11 = load ptr, ptr %6, align 8, !tbaa !65
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   tail call fastcc void @egg_free_egg_file(ptr noundef %13)
   %14 = load ptr, ptr %6, align 8, !tbaa !65
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %10
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %10
   store ptr null, ptr %15, align 8, !tbaa !3
   %16 = add i32 %.044, 1
   %17 = zext i32 %16 to i64
@@ -2166,11 +2166,11 @@ define internal fastcc void @egg_free_egg_handle(ptr noundef nonnull captures(no
   %26 = phi i64 [ %33, %.lr.ph46 ], [ 0, %.preheader42 ]
   %.145 = phi i32 [ %32, %.lr.ph46 ], [ 0, %.preheader42 ]
   %27 = load ptr, ptr %22, align 8, !tbaa !77
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !3
   tail call void @free(ptr noundef %29) #14
   %30 = load ptr, ptr %22, align 8, !tbaa !77
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %26
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %26
   store ptr null, ptr %31, align 8, !tbaa !3
   %32 = add i32 %.145, 1
   %33 = zext i32 %32 to i64
@@ -2204,11 +2204,11 @@ define internal fastcc void @egg_free_egg_handle(ptr noundef nonnull captures(no
   %42 = phi ptr [ %46, %.lr.ph49 ], [ %39, %.preheader ]
   %43 = phi i64 [ %49, %.lr.ph49 ], [ 0, %.preheader ]
   %.248 = phi i32 [ %48, %.lr.ph49 ], [ 0, %.preheader ]
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !46
   tail call void @free(ptr noundef %45) #14
   %46 = load ptr, ptr %38, align 8, !tbaa !81
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %43
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %43
   store ptr null, ptr %47, align 8, !tbaa !46
   %48 = add i32 %.248, 1
   %49 = zext i32 %48 to i64
@@ -2266,7 +2266,7 @@ define range(i32 0, 28) i32 @cli_egg_peek_file_header(ptr noundef readonly captu
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !65
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %16
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %16
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
@@ -2335,7 +2335,7 @@ define range(i32 0, 28) i32 @cli_egg_peek_file_header(ptr noundef readonly captu
 
 51:                                               ; preds = %.lr.ph, %55
   %.04671 = phi i64 [ 0, %.lr.ph ], [ %66, %55 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %.04671
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.04671
   %53 = load ptr, ptr %52, align 8, !tbaa !3
   %54 = load ptr, ptr %53, align 8, !tbaa !67
   %.not61.not = icmp eq ptr %54, null
@@ -3014,7 +3014,7 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef captures(address_i
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !65
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %23
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %23
   %31 = load ptr, ptr %30, align 8, !tbaa !3
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %34
@@ -3075,7 +3075,7 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef captures(address_i
   %.1113252 = phi i64 [ 0, %.lr.ph ], [ %.3115186, %141 ]
   %.2120251 = phi ptr [ null, %.lr.ph ], [ %.4122185, %141 ]
   %58 = load ptr, ptr %56, align 8, !tbaa !79
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.0111253
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.0111253
   %60 = load ptr, ptr %59, align 8, !tbaa !3
   %61 = load ptr, ptr %60, align 8, !tbaa !67
   %62 = icmp eq ptr %61, null

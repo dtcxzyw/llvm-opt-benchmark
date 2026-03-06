@@ -112,12 +112,12 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.preheader: ; pr
   %32 = tail call double @sqrt(double noundef %31) #11, !tbaa !4
   %33 = tail call double @cos(double noundef %29) #11, !tbaa !4
   %34 = load ptr, ptr %0, align 8, !tbaa !10
-  %35 = getelementptr double, ptr %34, i64 %indvars.iv
+  %35 = getelementptr [8 x i8], ptr %34, i64 %indvars.iv
   %36 = fmul double %32, %33
   store double %36, ptr %35, align 8, !tbaa !8
   %37 = tail call double @sin(double noundef %29) #11, !tbaa !4
   %38 = load i64, ptr %10, align 8, !tbaa !15
-  %39 = getelementptr double, ptr %35, i64 %38
+  %39 = getelementptr [8 x i8], ptr %35, i64 %38
   %40 = fmul double %32, %37
   store double %40, ptr %39, align 8, !tbaa !8
   %.idx.us = shl i64 %38, 4
@@ -183,7 +183,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.preheader: ; pr
   store double %74, ptr %53, align 8, !tbaa !8, !alias.scope !19
   store double %62, ptr %54, align 8, !tbaa !8, !alias.scope !19
   %75 = load ptr, ptr %0, align 8, !tbaa !10, !noalias !22
-  %76 = getelementptr inbounds double, ptr %75, i64 %indvars.iv53
+  %76 = getelementptr inbounds [8 x i8], ptr %75, i64 %indvars.iv53
   %77 = load i64, ptr %55, align 8, !tbaa !25, !noalias !22
   %78 = load i64, ptr %56, align 8, !tbaa !15
   %79 = icmp sgt i64 %77, 0
@@ -192,8 +192,8 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.preheader: ; pr
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %58, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i.i = phi i64 [ %84, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ 0, %58 ]
   %80 = mul nsw i64 %.05.i.i.i.i.i.i.i.i.i.i, %78
-  %81 = getelementptr inbounds double, ptr %76, i64 %80
-  %82 = getelementptr inbounds nuw double, ptr %2, i64 %.05.i.i.i.i.i.i.i.i.i.i
+  %81 = getelementptr inbounds [8 x i8], ptr %76, i64 %80
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.05.i.i.i.i.i.i.i.i.i.i
   %83 = load double, ptr %82, align 8, !tbaa !8
   store double %83, ptr %81, align 8, !tbaa !8
   %84 = add nuw nsw i64 %.05.i.i.i.i.i.i.i.i.i.i, 1

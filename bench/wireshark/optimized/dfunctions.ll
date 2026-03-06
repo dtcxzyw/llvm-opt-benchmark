@@ -198,7 +198,7 @@ define zeroext i1 @df_func_register(ptr noundef %0) local_unnamed_addr #0 {
   %3 = load ptr, ptr @g_ascii_table, align 8
   %4 = load i8, ptr %2, align 1
   %5 = zext i8 %4 to i64
-  %6 = getelementptr i16, ptr %3, i64 %5
+  %6 = getelementptr [2 x i8], ptr %3, i64 %5
   %7 = load i16, ptr %6, align 2
   %8 = and i16 %7, 2
   %.not.i = icmp ne i16 %8, 0
@@ -344,7 +344,7 @@ define internal noundef zeroext i1 @df_func_lower(ptr noundef readonly captures(
 .lr.ph3.i:                                        ; preds = %.preheader.i, %43
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %.preheader.i ]
   %7 = load ptr, ptr %.val, align 8
-  %8 = getelementptr ptr, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @fvalue_type_ftenum(ptr noundef %9)
   %11 = icmp eq i32 %10, 26
@@ -457,7 +457,7 @@ define internal noundef zeroext i1 @df_func_upper(ptr noundef readonly captures(
 .lr.ph3.i:                                        ; preds = %.preheader.i, %43
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %.preheader.i ]
   %7 = load ptr, ptr %.val, align 8
-  %8 = getelementptr ptr, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @fvalue_type_ftenum(ptr noundef %9)
   %11 = icmp eq i32 %10, 26
@@ -601,7 +601,7 @@ define internal noundef zeroext i1 @df_func_string(ptr noundef readonly captures
 .lr.ph:                                           ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @fvalue_type_ftenum(ptr noundef %10)
   switch i32 %11, label %.critedge [
@@ -757,7 +757,7 @@ define internal zeroext i1 @df_func_float(ptr noundef readonly captures(none) %0
 .lr.ph:                                           ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader ]
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 @fvalue_to_double(ptr noundef %13, ptr noundef nonnull %4)
   %15 = icmp eq i32 %14, 0
@@ -825,7 +825,7 @@ define internal zeroext i1 @df_func_double(ptr noundef readonly captures(none) %
 .lr.ph:                                           ; preds = %.preheader, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 @fvalue_to_double(ptr noundef %13, ptr noundef nonnull %4)
   %15 = icmp eq i32 %14, 0
@@ -1029,7 +1029,7 @@ define internal noundef zeroext i1 @df_func_max(ptr noundef readonly captures(no
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %.preheader.i ]
   %.125.i = phi ptr [ %.2.i, %15 ], [ %.02228.i, %.preheader.i ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr ptr, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %.125.i, null
   br i1 %10, label %14, label %11
@@ -1138,7 +1138,7 @@ define internal noundef zeroext i1 @df_func_min(ptr noundef readonly captures(no
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %.preheader.i ]
   %.125.i = phi ptr [ %.2.i, %15 ], [ %.02228.i, %.preheader.i ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr ptr, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %.125.i, null
   br i1 %10, label %14, label %11
@@ -1204,7 +1204,7 @@ define internal zeroext i1 @df_func_abs(ptr noundef readonly captures(none) %0, 
 .lr.ph:                                           ; preds = %.preheader, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.preheader ]
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 @fvalue_is_negative(ptr noundef %13)
   %.not = icmp eq i32 %14, 0
@@ -1342,7 +1342,7 @@ define internal fastcc noundef zeroext i1 @df_func_base(ptr readonly captures(ad
 .lr.ph:                                           ; preds = %.preheader, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %.preheader ]
   %6 = load ptr, ptr %.0.val, align 8
-  %7 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @fvalue_type_ftenum(ptr noundef %8)
   %10 = icmp eq i32 %9, 3

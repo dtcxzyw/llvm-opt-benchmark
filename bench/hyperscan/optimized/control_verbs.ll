@@ -68,7 +68,7 @@ define hidden noundef ptr @_ZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeE(pt
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE24_ControlVerbs_trans_keys, i64 %19
-  %21 = getelementptr inbounds i16, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE27_ControlVerbs_index_offsets, i64 %16
+  %21 = getelementptr inbounds [2 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE27_ControlVerbs_index_offsets, i64 %16
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i32
   %24 = getelementptr inbounds i8, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE28_ControlVerbs_single_lengths, i64 %16
@@ -550,7 +550,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221: ; preds = %17
 
 204:                                              ; preds = %202
   %205 = sext i32 %.0166 to i64
-  %206 = getelementptr inbounds i16, ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE23_ControlVerbs_eof_trans, i64 %205
+  %206 = getelementptr inbounds [2 x i8], ptr @_ZZN3ue218read_control_verbsEPKcS1_mRNS_9ParseModeEE23_ControlVerbs_eof_trans, i64 %205
   %207 = load i16, ptr %206, align 2
   %208 = sext i16 %207 to i64
   %209 = add nsw i64 %208, 4294967295

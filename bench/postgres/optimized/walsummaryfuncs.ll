@@ -3,7 +3,6 @@ source_filename = "bench/postgres/original/walsummaryfuncs.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
 %struct.WalSummaryFile = type { i64, i64, i32 }
 %struct.WalSummaryIO = type { i32, i64 }
 %struct.RelFileLocator = type { i32, i32, i32 }
@@ -43,7 +42,7 @@ define dso_local noundef i64 @pg_available_wal_summaries(ptr noundef %0) local_u
 .lr.ph20:                                         ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.lr.ph ]
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = load volatile i32, ptr @InterruptPending, align 4
   %.not16 = icmp eq i32 %18, 0
@@ -224,7 +223,7 @@ define dso_local noundef i64 @pg_wal_summary_contents(ptr noundef %0) local_unna
 
 66:                                               ; preds = %65, %66
   %indvars.iv = phi i64 [ 0, %65 ], [ %indvars.iv.next, %66 ]
-  %67 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4
   %69 = zext i32 %68 to i64
   store i64 %69, ptr %37, align 16

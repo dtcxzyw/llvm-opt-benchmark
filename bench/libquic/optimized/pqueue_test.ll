@@ -87,7 +87,7 @@ trivial.exit.thread6:                             ; preds = %21, %19, %17, %15, 
 
 28:                                               ; preds = %27, %.preheader48.i
   %indvars.iv.i = phi i64 [ 0, %.preheader48.i ], [ %indvars.iv.next.i, %27 ]
-  %29 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %30 = load i32, ptr %29, align 4, !tbaa !6
   %31 = trunc i32 %30 to i8
   store i8 %31, ptr %26, align 1, !tbaa !12
@@ -102,7 +102,7 @@ trivial.exit.thread6:                             ; preds = %21, %19, %17, %15, 
 
 .preheader46.i:                                   ; preds = %27, %43
   %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %43 ], [ 0, %27 ]
-  %36 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv55.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv55.i
   %37 = load i32, ptr %36, align 4, !tbaa !6
   %38 = trunc i32 %37 to i8
   store i8 %38, ptr %26, align 1, !tbaa !12

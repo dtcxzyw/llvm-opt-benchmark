@@ -1143,7 +1143,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %156, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %158, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %153, ptr %4, align 8, !tbaa !91
   store ptr %157, ptr %28, align 8, !tbaa !93
-  %159 = getelementptr inbounds nuw i32, ptr %153, i64 %151
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %151
   store ptr %159, ptr %35, align 8, !tbaa !100
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -1242,7 +1242,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i46: ; preds = %187, %
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i48: ; preds = %189, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i46
   store ptr %184, ptr %4, align 8, !tbaa !91
   store ptr %188, ptr %28, align 8, !tbaa !93
-  %190 = getelementptr inbounds nuw i32, ptr %184, i64 %182
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %182
   store ptr %190, ptr %35, align 8, !tbaa !100
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 

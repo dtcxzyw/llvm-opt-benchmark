@@ -678,7 +678,7 @@ define hidden { ptr, ptr } @"_ZN8indexmap3set21IndexSet$LT$T$C$S$GT$4iter17h9a05
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { i64, { i32, i16, i16 }, {} }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -706,7 +706,7 @@ define void @"_ZN66_$LT$salsa..runtime..Runtime$u20$as$u20$core..default..Defaul
 
 6:                                                ; preds = %6, %1
   %7 = phi i64 [ 0, %1 ], [ %9, %6 ]
-  %8 = getelementptr inbounds nuw { { i32 } }, ptr %3, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %7
   store i32 1, ptr %8, align 4
   %9 = add nuw nsw i64 %7, 1
   %exitcond.not.i.i = icmp eq i64 %9, 3
@@ -1008,7 +1008,7 @@ define void @_ZN5salsa7runtime7Runtime21report_synthetic_read17hb9aaca24f39e48e2
 7:                                                ; preds = %2
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %9 = getelementptr inbounds nuw { { i32 } }, ptr %8, i64 %5
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %5
   %10 = load atomic i32, ptr %9 seq_cst, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %_ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit
@@ -1222,7 +1222,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 80:                                               ; preds = %71
   %81 = load ptr, ptr %78, align 8, !nonnull !4, !noundef !4
   %82 = load i64, ptr %79, align 8, !noundef !4
-  %83 = getelementptr inbounds { i32, i16, i16 }, ptr %81, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %81, i64 %82
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %81, ptr %9, align 8, !alias.scope !150
   %84 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1252,7 +1252,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 92:                                               ; preds = %87
   %93 = load ptr, ptr %78, align 8, !nonnull !4, !noundef !4
   %94 = sub nuw i64 %90, %.093
-  %95 = getelementptr inbounds { i32, i16, i16 }, ptr %93, i64 %.093
+  %95 = getelementptr inbounds [8 x i8], ptr %93, i64 %.093
   invoke void @_ZN4core5slice6rotate10ptr_rotate17h0dbc64fccf577ce9E(i64 noundef %.093, ptr noundef nonnull %95, i64 noundef %94)
           to label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11rotate_left17hf167526aba3be53fE.exit" unwind label %197
 
@@ -1694,7 +1694,7 @@ define void @"_ZN70_$LT$salsa..runtime..SharedState$u20$as$u20$core..default..De
 
 4:                                                ; preds = %1, %4
   %5 = phi i64 [ 0, %1 ], [ %7, %4 ]
-  %6 = getelementptr inbounds nuw { { i32 } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %5
   store i32 1, ptr %6, align 4
   %7 = add nuw nsw i64 %5, 1
   %exitcond.not = icmp eq i64 %7, 3
@@ -2011,7 +2011,7 @@ define void @_ZN5salsa7runtime11ActiveQuery9revisions17h325c3965a1f26070E(ptr no
   %19 = load ptr, ptr %18, align 8, !alias.scope !238, !nonnull !4, !noundef !4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i64, ptr %20, align 8, !alias.scope !238, !noundef !4
-  %22 = getelementptr inbounds { i64, { i32, i16, i16 }, {} }, ptr %19, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %19, i64 %21
   %23 = tail call { ptr, i64 } @"_ZN8triomphe6header96_$LT$impl$u20$triomphe..arc..Arc$LT$triomphe..header..HeaderSlice$LT$H$C$$u5b$T$u5d$$GT$$GT$$GT$20from_header_and_iter17haaea53fa28183541E"(i64 %21, ptr noundef nonnull %19, ptr noundef nonnull %22)
   %24 = extractvalue { ptr, i64 } %23, 0
   %25 = extractvalue { ptr, i64 } %23, 1
@@ -2108,7 +2108,7 @@ define hidden void @_ZN5salsa7runtime11ActiveQuery8add_from17h744410310c48abcfE(
   %43 = load ptr, ptr %42, align 8, !alias.scope !268, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = load i64, ptr %44, align 8, !alias.scope !268, !noundef !4
-  %46 = getelementptr inbounds { i64, { i32, i16, i16 }, {} }, ptr %43, i64 %45
+  %46 = getelementptr inbounds [16 x i8], ptr %43, i64 %45
   tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !274)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !277

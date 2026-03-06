@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/restrictinfo.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @make_restrictinfo(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
@@ -69,7 +67,7 @@ is_orclause.exit:                                 ; preds = %11
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %.lr.ph90 ], [ 0, %.lr.ph82 ]
   %.0588188 = phi ptr [ %27, %.lr.ph90 ], [ null, %.lr.ph82 ]
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv94
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv94
   %25 = load ptr, ptr %24, align 8
   %26 = tail call fastcc ptr @make_sub_restrictinfos(ptr noundef %0, ptr noundef %25, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef null, ptr noundef %8, ptr noundef %9)
   %27 = tail call ptr @lappend(ptr noundef %.0588188, ptr noundef %26) #5
@@ -102,7 +100,7 @@ is_orclause.exit:                                 ; preds = %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph79 ], [ 0, %.lr.ph ]
   %.0607278 = phi ptr [ %44, %.lr.ph79 ], [ null, %.lr.ph ]
   %40 = load ptr, ptr %37, align 8
-  %41 = getelementptr inbounds nuw %union.ListCell, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
   %43 = tail call fastcc ptr @make_sub_restrictinfos(ptr noundef %0, ptr noundef %42, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %44 = tail call ptr @lappend(ptr noundef %.0607278, ptr noundef %43) #5
@@ -440,7 +438,7 @@ define dso_local ptr @get_actual_clauses(ptr noundef readonly captures(address_i
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph19 ], [ 0, %.lr.ph ]
   %.01317 = phi ptr [ %11, %.lr.ph19 ], [ null, %.lr.ph ]
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -476,7 +474,7 @@ define dso_local ptr @extract_actual_clauses(ptr noundef readonly captures(addre
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.lr.ph ]
   %.01620 = phi ptr [ %.1, %26 ], [ null, %.lr.ph ]
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 18
   %13 = load i8, ptr %12, align 2, !range !4, !noundef !5
@@ -537,7 +535,7 @@ define dso_local void @extract_actual_join_clauses(ptr noundef readonly captures
 .lr.ph29:                                         ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i8, ptr %12, align 8, !range !4, !noundef !5

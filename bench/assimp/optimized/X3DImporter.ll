@@ -35,7 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<Assimp::meta_entry, std::allocator<Assimp::meta_entry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.Assimp::meta_entry" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %struct.aiString = type { i32, [1024 x i8] }
-%struct.aiMetadataEntry = type { i32, ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -1392,7 +1391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %.c
 185:                                              ; preds = %.preheader, %185
   %.012191 = phi i64 [ %190, %185 ], [ 0, %.preheader ]
   %.013190 = phi i1 [ %spec.select, %185 ], [ false, %.preheader ]
-  %186 = getelementptr inbounds nuw ptr, ptr @_ZZN6Assimp11X3DImporter19skipUnsupportedNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4pugi8xml_nodeEE8Uns_Skip, i64 %.012191
+  %186 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN6Assimp11X3DImporter19skipUnsupportedNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN4pugi8xml_nodeEE8Uns_Skip, i64 %.012191
   %187 = load ptr, ptr %186, align 8
   %188 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %187) #31
   %189 = icmp eq i32 %188, 0
@@ -2497,7 +2496,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6Assimp10TXmlParserIN4pugi8xml
 
 switch.lookup:                                    ; preds = %44
   %48 = zext nneg i32 %46 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE5parseERSi, i64 %48
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE5parseERSi, i64 %48
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK4pugi16xml_parse_result11descriptionEv.exit
 
@@ -3074,7 +3073,7 @@ _ZN4pugi12xml_document4loadERSijNS_12xml_encodingE.exit: ; preds = %7, %2
 
 switch.lookup:                                    ; preds = %21
   %25 = zext nneg i32 %23 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE5parseERSi, i64 %25
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE5parseERSi, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK4pugi16xml_parse_result11descriptionEv.exit
 
@@ -3442,7 +3441,7 @@ _ZNK4pugi8xml_node4nameEv.exit.lr.ph:             ; preds = %_ZNK4pugi8xml_node8
           to label %.noexc25 unwind label %146
 
 .noexc25:                                         ; preds = %.noexc24
-  %40 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %39, i64 %31
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %31
   br label %41
 
 41:                                               ; preds = %41, %.noexc25
@@ -3791,7 +3790,7 @@ _ZNSt6vectorIN6Assimp10meta_entryESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN
 168:                                              ; preds = %165
   %169 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds nuw %struct.aiString, ptr %170, i64 %166
+  %171 = getelementptr inbounds nuw [1028 x i8], ptr %170, i64 %166
   %172 = trunc nuw nsw i64 %163 to i32
   store i32 %172, ptr %171, align 4
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 4
@@ -3804,10 +3803,10 @@ _ZNSt6vectorIN6Assimp10meta_entryESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN
 _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %168, %165
   %176 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %177, i64 %166
+  %178 = getelementptr inbounds nuw [16 x i8], ptr %177, i64 %166
   store i32 5, ptr %178, align 8
   %179 = load ptr, ptr %176, align 8
-  %180 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %179, i64 %166
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %179, i64 %166
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load ptr, ptr %181, align 8
   %.not24.i = icmp eq ptr %182, null
@@ -4511,7 +4510,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86: ; preds = %184
   %225 = getelementptr inbounds nuw i8, ptr %.sroa.0120.0126, i64 16
   %226 = load ptr, ptr %225, align 8
   %227 = load ptr, ptr %219, align 8
-  %228 = getelementptr inbounds nuw ptr, ptr %227, i64 %.047127
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %227, i64 %.047127
   store ptr %226, ptr %228, align 8
   %229 = add nuw nsw i64 %.047127, 1
   %230 = load i32, ptr %214, align 8
@@ -4552,7 +4551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86: ; preds = %184
   %247 = getelementptr inbounds nuw i8, ptr %.sroa.0117.0130, i64 16
   %248 = load ptr, ptr %247, align 8
   %249 = load ptr, ptr %243, align 8
-  %250 = getelementptr inbounds nuw ptr, ptr %249, i64 %.046131
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %.046131
   store ptr %248, ptr %250, align 8
   %251 = add nuw nsw i64 %.046131, 1
   %252 = load i32, ptr %238, align 8
@@ -4593,7 +4592,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86: ; preds = %184
   %269 = getelementptr inbounds nuw i8, ptr %.sroa.0114.0134, i64 16
   %270 = load ptr, ptr %269, align 8
   %271 = load ptr, ptr %265, align 8
-  %272 = getelementptr inbounds nuw ptr, ptr %271, i64 %.0135
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %.0135
   store ptr %270, ptr %272, align 8
   %273 = add nuw nsw i64 %.0135, 1
   %274 = load i32, ptr %260, align 8
@@ -8463,14 +8462,14 @@ switch.lookup:
   %6 = lshr i32 %3, 4
   %7 = and i32 %6, 15
   %8 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4pugi4impl10xml_parser10parse_treeEPcPNS_15xml_node_structEjc, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4pugi4impl10xml_parser10parse_treeEPcPNS_15xml_node_structEjc, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = and i32 %6, 3
   %10 = lshr i32 %3, 9
   %11 = and i32 %10, 4
   %12 = or disjoint i32 %9, %11
   %13 = zext nneg i32 %12 to i64
-  %switch.gep814 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4pugi4impl10xml_parser10parse_treeEPcPNS_15xml_node_structEjc.1, i64 %13
+  %switch.gep814 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4pugi4impl10xml_parser10parse_treeEPcPNS_15xml_node_structEjc.1, i64 %13
   %switch.load815 = load ptr, ptr %switch.gep814, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %2, ptr %5, align 8
@@ -14725,7 +14724,7 @@ _ZNSt6vectorIN6Assimp10meta_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40: ;
 _ZNSt12_Vector_baseIN6Assimp10meta_entryESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN6Assimp10meta_entryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40, %84
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i39, ptr %4, align 8
-  %88 = getelementptr inbounds nuw %"struct.Assimp::meta_entry", ptr %20, i64 %16
+  %88 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %16
   store ptr %88, ptr %83, align 8
   ret void
 

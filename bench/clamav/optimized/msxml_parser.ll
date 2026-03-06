@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.msxml_ctx = type { ptr, ptr, ptr, ptr, ptr }
 %struct.msxml_ictx = type { ptr, i32, ptr, i64, ptr, i32 }
 %struct.attrib_entry = type { ptr, ptr }
-%struct.key_entry = type { ptr, ptr, i32 }
 
 @blank_key = local_unnamed_addr global { ptr, ptr, i32, [4 x i8] } zeroinitializer, align 8
 @.str = private unnamed_addr constant [74 x i8] c"cli_msxml_parse_document: encountered halt event in parsing xml document\0A\00", align 1
@@ -227,7 +226,7 @@ define internal void @msxml_error_handler(ptr readnone captures(none) %0, ptr no
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.msxml_error_handler, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.msxml_error_handler, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %9
 
@@ -352,7 +351,7 @@ define internal fastcc i32 @msxml_parse_element(ptr noundef nonnull readonly cap
 56:                                               ; preds = %64, %.lr.ph.i
   %57 = phi i64 [ 0, %.lr.ph.i ], [ %66, %64 ]
   %.016.i = phi i32 [ 0, %.lr.ph.i ], [ %65, %64 ]
-  %58 = getelementptr inbounds nuw %struct.key_entry, ptr %54, i64 %57
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !35
   %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #9
   %61 = icmp eq i64 %60, %49
@@ -550,7 +549,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 135:                                              ; preds = %.preheader317
   %136 = call ptr @xmlTextReaderConstLocalName(ptr noundef %1) #8
-  %137 = getelementptr inbounds nuw %struct.attrib_entry, ptr %5, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv
   store ptr %136, ptr %137, align 16, !tbaa !41
   %138 = call ptr @xmlTextReaderConstValue(ptr noundef %1) #8
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 8

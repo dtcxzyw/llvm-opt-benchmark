@@ -8,12 +8,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::array" = type { [12 x i8] }
 %"class.arrow::internal::OptionalBitBlockCounter" = type { i8, i64, i64, %"class.arrow::internal::BitBlockCounter" }
 %"class.arrow::internal::BitBlockCounter" = type { ptr, i64, i64 }
-%"union.arrow::BinaryViewType::c_type" = type { %struct.anon }
+%"class.arrow::Result" = type { %"class.arrow::Status", %"class.arrow::internal::AlignedStorage" }
+%"class.arrow::internal::AlignedStorage" = type { [16 x i8] }
 %"class.std::shared_ptr.23" = type { %"class.std::__shared_ptr.24" }
 %"class.std::__shared_ptr.24" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.arrow::Result" = type { %"class.arrow::Status", %"class.arrow::internal::AlignedStorage" }
-%"class.arrow::internal::AlignedStorage" = type { [16 x i8] }
 %"class.arrow::Result.26" = type { %"class.arrow::Status", %"class.arrow::internal::AlignedStorage.29" }
 %"class.arrow::internal::AlignedStorage.29" = type { [24 x i8] }
 %"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
@@ -632,8 +631,8 @@ define void @_ZN5arrow17BinaryViewBuilder16AppendArraySliceERKNS_9ArraySpanEll(p
   %12 = load i64, ptr %11, align 8, !tbaa !67
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !64
-  %15 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %14, i64 %12
-  %16 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %15, i64 %3
+  %15 = getelementptr inbounds [16 x i8], ptr %14, i64 %12
+  %16 = getelementptr inbounds [16 x i8], ptr %15, i64 %3
   %17 = add nsw i64 %12, %3
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load i64, ptr %18, align 8, !tbaa !75
@@ -665,7 +664,7 @@ define void @_ZN5arrow17BinaryViewBuilder16AppendArraySliceERKNS_9ArraySpanEll(p
   %27 = phi i64 [ %32, %"_ZZN5arrow17BinaryViewBuilder16AppendArraySliceERKNS_9ArraySpanEllENK3$_0clEv.exit.i" ], [ %.lcssa5053, %.preheader.i ]
   %.5 = phi i64 [ %.6, %"_ZZN5arrow17BinaryViewBuilder16AppendArraySliceERKNS_9ArraySpanEllENK3$_0clEv.exit.i" ], [ %.0, %.preheader.i ]
   %.02213.i = phi i64 [ %33, %"_ZZN5arrow17BinaryViewBuilder16AppendArraySliceERKNS_9ArraySpanEllENK3$_0clEv.exit.i" ], [ 0, %.preheader.i ]
-  %28 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %16, i64 %27
+  %28 = getelementptr inbounds [16 x i8], ptr %16, i64 %27
   %29 = load i32, ptr %28, align 8, !tbaa !76
   %30 = icmp slt i32 %29, 13
   %narrow = select i1 %30, i32 0, i32 %29
@@ -706,7 +705,7 @@ define void @_ZN5arrow17BinaryViewBuilder16AppendArraySliceERKNS_9ArraySpanEll(p
   br i1 %48, label %49, label %"_ZZN5arrow17BinaryViewBuilder16AppendArraySliceERKNS_9ArraySpanEllENK3$_0clEv.exit27.i"
 
 49:                                               ; preds = %.lr.ph.i
-  %50 = getelementptr inbounds %"union.arrow::BinaryViewType::c_type", ptr %16, i64 %40
+  %50 = getelementptr inbounds [16 x i8], ptr %16, i64 %40
   %51 = load i32, ptr %50, align 8, !tbaa !76
   %52 = icmp slt i32 %51, 13
   br i1 %52, label %"_ZZN5arrow17BinaryViewBuilder16AppendArraySliceERKNS_9ArraySpanEllENK3$_0clEv.exit27.i", label %53
@@ -860,7 +859,7 @@ _ZN5arrow6StatusD2Ev.exit36._crit_edge:           ; preds = %_ZN5arrow6StatusD2E
   br label %_ZN5arrow6StatusD2Ev.exit36
 
 126:                                              ; preds = %91, %90
-  %127 = getelementptr inbounds nuw %"union.arrow::BinaryViewType::c_type", ptr %16, i64 %.02554
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %.02554
   %128 = call { ptr, i64 } @_ZNK5arrow9ArraySpan18GetVariadicBuffersEv(ptr noundef nonnull align 8 dereferenceable(128) %2)
   %129 = load i32, ptr %127, align 8, !tbaa !76
   %130 = icmp slt i32 %129, 13
@@ -875,7 +874,7 @@ _ZN5arrow6StatusD2Ev.exit36._crit_edge:           ; preds = %_ZN5arrow6StatusD2E
   %135 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %136 = load i32, ptr %135, align 8, !tbaa !76
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds %"class.std::shared_ptr.23", ptr %134, i64 %137
+  %138 = getelementptr inbounds [16 x i8], ptr %134, i64 %137
   %139 = load ptr, ptr %138, align 8, !tbaa !102
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 9
   %141 = load i8, ptr %140, align 1, !tbaa !105, !range !113, !noundef !114
@@ -1146,7 +1145,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE17_S_check_init_lenEmRKS4_.e
 
 .noexc43:                                         ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   store ptr %78, ptr %10, align 8, !tbaa !157
-  %79 = getelementptr inbounds nuw %"class.std::shared_ptr.23", ptr %78, i64 %74
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %74
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %78, i8 0, i64 %77, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %78, i64 %77
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -6337,7 +6336,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 4
-  %25 = getelementptr %"union.arrow::BinaryViewType::c_type", ptr %19, i64 %24
+  %25 = getelementptr [16 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %22, i1 false)
   br label %_ZN5arrow18TypedBufferBuilderINS_14BinaryViewType6c_typeEvE12UnsafeAppendElS2_.exit
 
@@ -6463,7 +6462,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %17
   %24 = lshr i64 %21, 4
-  %25 = getelementptr %"union.arrow::BinaryViewType::c_type", ptr %19, i64 %24
+  %25 = getelementptr [16 x i8], ptr %19, i64 %24
   call void @llvm.memset.p0.i64(ptr align 8 %25, i8 0, i64 %22, i1 false)
   br label %_ZN5arrow18TypedBufferBuilderINS_14BinaryViewType6c_typeEvE12UnsafeAppendElS2_.exit
 
@@ -7727,7 +7726,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow15ResizableBufferEESaIS3_EE11_S_relocateEPS3_
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow15ResizableBufferEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow15ResizableBufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !118
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !117
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !156
   ret void
 }
@@ -9271,11 +9270,11 @@ define linkonce_odr void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE16Append
   %14 = load i64, ptr %13, align 8, !tbaa !67
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !64
-  %17 = getelementptr inbounds i32, ptr %16, i64 %14
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %14
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !64
-  %20 = getelementptr i32, ptr %17, i64 %3
-  %21 = getelementptr i32, ptr %20, i64 %4
+  %20 = getelementptr [4 x i8], ptr %17, i64 %3
+  %21 = getelementptr [4 x i8], ptr %20, i64 %4
   %22 = load i32, ptr %21, align 4, !tbaa !116
   %23 = load i32, ptr %20, align 4, !tbaa !116
   %24 = sub nsw i32 %22, %23
@@ -9418,7 +9417,7 @@ _ZN5arrow6StatusD2Ev.exit45:                      ; preds = %_ZN5arrow6StatusD2E
 
 70:                                               ; preds = %._crit_edge49, %59
   %71 = phi i64 [ %.pre, %._crit_edge49 ], [ %.pre50, %59 ]
-  %72 = getelementptr i32, ptr %20, i64 %.03448
+  %72 = getelementptr [4 x i8], ptr %20, i64 %.03448
   %73 = load i32, ptr %72, align 4, !tbaa !116
   %74 = getelementptr i8, ptr %72, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !116
@@ -11315,7 +11314,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !374
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !373
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.58", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !378
   ret void
 }

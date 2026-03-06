@@ -429,7 +429,7 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
 17:                                               ; preds = %4, %17
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %17 ]
   %.066105 = phi i64 [ 0, %4 ], [ %21, %17 ]
-  %18 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %.066105
@@ -660,7 +660,7 @@ define internal fastcc i32 @_writev_timeout(i32 noundef %0, ptr noundef nonnull 
 .preheader:                                       ; preds = %110, %130
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %130 ], [ 0, %110 ]
   %.067106 = phi i64 [ %131, %130 ], [ %82, %110 ]
-  %121 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv125
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv125
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load i64, ptr %122, align 8
   %124 = icmp ult i64 %.067106, %123

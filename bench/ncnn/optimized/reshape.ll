@@ -883,14 +883,14 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %420
 .preheader489.us:                                 ; preds = %.preheader489.us.preheader, %._crit_edge.us
   %indvars.iv504 = phi i64 [ 0, %.preheader489.us.preheader ], [ %indvars.iv.next505, %._crit_edge.us ]
   %.0149492.us = phi ptr [ %421, %.preheader489.us.preheader ], [ %438, %._crit_edge.us ]
-  %invariant.gep = getelementptr inbounds nuw float, ptr %431, i64 %indvars.iv504
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %431, i64 %indvars.iv504
   br label %435
 
 435:                                              ; preds = %.preheader489.us, %435
   %indvars.iv = phi i64 [ 0, %.preheader489.us ], [ %indvars.iv.next, %435 ]
   %.1150490.us = phi ptr [ %.0149492.us, %.preheader489.us ], [ %438, %435 ]
   %436 = mul nuw nsw i64 %indvars.iv, %434
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %436
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %436
   %437 = load float, ptr %gep, align 4, !tbaa !49
   %438 = getelementptr inbounds nuw i8, ptr %.1150490.us, i64 4
   store float %437, ptr %.1150490.us, align 4, !tbaa !49
@@ -1836,14 +1836,14 @@ _ZNK4ncnn3Mat5emptyEv.exit229:                    ; preds = %865
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us498
   %indvars.iv514 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next515, %._crit_edge.us498 ]
   %.0144496.us = phi ptr [ %866, %.preheader.us.preheader ], [ %885, %._crit_edge.us498 ]
-  %invariant.gep731 = getelementptr inbounds nuw float, ptr %876, i64 %indvars.iv514
+  %invariant.gep731 = getelementptr inbounds nuw [4 x i8], ptr %876, i64 %indvars.iv514
   br label %882
 
 882:                                              ; preds = %.preheader.us, %882
   %indvars.iv509 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next510, %882 ]
   %.1494.us = phi ptr [ %.0144496.us, %.preheader.us ], [ %885, %882 ]
   %883 = mul nuw nsw i64 %indvars.iv509, %881
-  %gep732 = getelementptr inbounds nuw float, ptr %invariant.gep731, i64 %883
+  %gep732 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep731, i64 %883
   %884 = load float, ptr %gep732, align 4, !tbaa !49
   %885 = getelementptr inbounds nuw i8, ptr %.1494.us, i64 4
   store float %884, ptr %.1494.us, align 4, !tbaa !49
@@ -3006,7 +3006,7 @@ define internal void @_ZNK4ncnn7Reshape7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.noexc.us.us
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %._crit_edge.us.us.us ], [ 0, %.noexc.us.us ]
   %.02558.us.us.us = phi ptr [ %43, %._crit_edge.us.us.us ], [ %34, %.noexc.us.us ]
-  %invariant.gep56.us.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %indvars.iv72
+  %invariant.gep56.us.us.us = getelementptr [4 x i8], ptr %invariant.gep.us.us, i64 %indvars.iv72
   br label %.noexc28.us.us.us
 
 .noexc28.us.us.us:                                ; preds = %.noexc28.us.us.us, %.preheader.us.us.us
@@ -3176,7 +3176,7 @@ define internal void @_ZNK4ncnn7Reshape7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
 .preheader.us.us.us.us.us:                        ; preds = %._crit_edge.us.us.us.us.us, %.preheader79.us.us.us.us
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %._crit_edge.us.us.us.us.us ], [ 0, %.preheader79.us.us.us.us ]
   %.185.us.us.us.us.us = phi ptr [ %53, %._crit_edge.us.us.us.us.us ], [ %.03089.us.us.us.us, %.preheader79.us.us.us.us ]
-  %invariant.gep84.us.us.us.us.us = getelementptr float, ptr %invariant.gep82.us.us.us.us, i64 %indvars.iv111
+  %invariant.gep84.us.us.us.us.us = getelementptr [4 x i8], ptr %invariant.gep82.us.us.us.us, i64 %indvars.iv111
   br label %.noexc34.us.us.us.us.us
 
 .noexc34.us.us.us.us.us:                          ; preds = %.noexc34.us.us.us.us.us, %.preheader.us.us.us.us.us
@@ -3283,7 +3283,7 @@ define internal void @_ZNK4ncnn7Reshape7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 %.reass.us69.us
   %37 = load i32, ptr %2, align 4
   %38 = sext i32 %37 to i64
-  %invariant.gep90 = getelementptr float, ptr %27, i64 %indvars.iv82
+  %invariant.gep90 = getelementptr [4 x i8], ptr %27, i64 %indvars.iv82
   br label %.noexc.us.us.us
 
 .noexc.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.noexc28.us.us
@@ -3297,7 +3297,7 @@ define internal void @_ZNK4ncnn7Reshape7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.noexc.us.us.us ]
   %.160.us.us.us = phi ptr [ %42, %39 ], [ %.02762.us.us.us, %.noexc.us.us.us ]
   %40 = mul nsw i64 %indvars.iv, %38
-  %gep = getelementptr float, ptr %gep91, i64 %40
+  %gep = getelementptr [4 x i8], ptr %gep91, i64 %40
   %41 = load float, ptr %gep, align 4, !tbaa !49
   %42 = getelementptr inbounds nuw i8, ptr %.160.us.us.us, i64 4
   store float %41, ptr %.160.us.us.us, align 4, !tbaa !49
@@ -3403,7 +3403,7 @@ define internal void @_ZNK4ncnn7Reshape7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %.reass.us.us = mul i64 %factor.op.mul83, %indvars.iv107
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 %.reass.us.us
   %42 = zext nneg i32 %39 to i64
-  %invariant.gep = getelementptr float, ptr %28, i64 %indvars.iv107
+  %invariant.gep = getelementptr [4 x i8], ptr %28, i64 %indvars.iv107
   br label %.noexc.us.us.us.us
 
 ._crit_edge.split.us.us.us:                       ; preds = %._crit_edge70.split.us.us.us.us.us, %.noexc34.us.us
@@ -3433,7 +3433,7 @@ define internal void @_ZNK4ncnn7Reshape7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %47 = trunc nuw i64 %46 to i32
   %48 = mul i32 %43, %47
   %49 = sext i32 %48 to i64
-  %50 = getelementptr float, ptr %gep, i64 %49
+  %50 = getelementptr [4 x i8], ptr %gep, i64 %49
   %51 = load float, ptr %50, align 4, !tbaa !49
   %52 = getelementptr inbounds nuw i8, ptr %.266.us.us.us.us.us, i64 4
   store float %51, ptr %.266.us.us.us.us.us, align 4, !tbaa !49

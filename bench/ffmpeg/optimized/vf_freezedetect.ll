@@ -130,7 +130,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %indvars.iv.i = phi i64 [ 0, %52 ], [ %indvars.iv.next.i, %81 ]
   %.02731.i = phi i64 [ 0, %52 ], [ %.1.i, %81 ]
   %.02830.i = phi i64 [ 0, %52 ], [ %.129.i, %81 ]
-  %59 = getelementptr inbounds nuw i64, ptr %53, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv.i
   %60 = load i64, ptr %59, align 8, !tbaa !47
   %.not.i = icmp eq i64 %60, 0
   br i1 %.not.i, label %81, label %61
@@ -138,17 +138,17 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 61:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %62 = load ptr, ptr %54, align 8, !tbaa !48
-  %63 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i
   %64 = load ptr, ptr %63, align 8, !tbaa !49
-  %65 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv.i
   %66 = load i32, ptr %65, align 4, !tbaa !50
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   %69 = load ptr, ptr %68, align 8, !tbaa !49
-  %70 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.i
   %71 = load i32, ptr %70, align 4, !tbaa !50
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv.i
   %74 = load i64, ptr %73, align 8, !tbaa !47
   call void %62(ptr noundef %64, i64 noundef %67, ptr noundef %69, i64 noundef %72, i64 noundef %60, i64 noundef %74, ptr noundef nonnull %2) #7
   %75 = load i64, ptr %2, align 8, !tbaa !47
@@ -322,7 +322,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   %29 = icmp sgt i32 %28, 8
   %30 = zext i1 %29 to i64
   %31 = ashr i64 %27, %30
-  %32 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   store i64 %31, ptr %32, align 8, !tbaa !47
   %33 = load i32, ptr %14, align 4, !tbaa !62
   %34 = trunc i64 %indvars.iv to i32
@@ -339,7 +339,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   %40 = phi i32 [ %38, %36 ], [ 0, %22 ]
   %41 = ashr i32 %33, %40
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   store i64 %42, ptr %43, align 8, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

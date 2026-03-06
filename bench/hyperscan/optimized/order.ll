@@ -3344,7 +3344,7 @@ _ZNSt12_Vector_baseI7patternSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8
-  %76 = getelementptr inbounds nuw %struct.pattern, ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [80 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8
   ret void
 }

@@ -105,7 +105,7 @@ define noundef zeroext i1 @_ZN5draco38SequentialQuantizationAttributeEncoder4Ini
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = sext i32 %2 to i64
   %21 = load ptr, ptr %19, align 8, !tbaa !35
-  %22 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !38
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %25 = load i32, ptr %24, align 4, !tbaa !40
@@ -268,7 +268,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80: ; preds = %.cr
   %78 = zext i8 %77 to i64
   %79 = shl nuw nsw i64 %78, 2
   %80 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %79) #16
-  %81 = getelementptr inbounds nuw float, ptr %80, i64 %78
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %78
   store float 0.000000e+00, ptr %80, align 4, !tbaa !57
   %82 = add nsw i64 %78, -1
   %83 = icmp eq i64 %82, 0
@@ -1534,7 +1534,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   br i1 %.not, label %.critedge.loopexit, label %55
 
 55:                                               ; preds = %.lr.ph
-  %56 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store float %53, ptr %56, align 4, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

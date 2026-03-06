@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/multibitmapset.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [49 x i8] c"negative multibitmapset member index not allowed\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"multibitmapset.c\00", align 1
 @__func__.mbms_add_member = private unnamed_addr constant [16 x i8] c"mbms_add_member\00", align 1
@@ -45,7 +43,7 @@ list_length.exit:                                 ; preds = %.preheader, %8
   %15 = getelementptr i8, ptr %.0, i64 16
   %.0.val = load ptr, ptr %15, align 8
   %16 = sext i32 %1 to i64
-  %17 = getelementptr inbounds %union.ListCell, ptr %.0.val, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %.0.val, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @bms_add_member(ptr noundef %18, i32 noundef %2) #4
   store ptr %19, ptr %17, align 8
@@ -121,7 +119,7 @@ list_length.exit.thread:                          ; preds = %.split
 
 22:                                               ; preds = %.preheader.split30.split
   %23 = load ptr, ptr %15, align 8
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   br label %25
 
 25:                                               ; preds = %.preheader.split30.split, %22
@@ -143,7 +141,7 @@ list_length.exit.thread:                          ; preds = %.split
   ret ptr %.us-phi2840
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %37 = load ptr, ptr %26, align 8
   %38 = load ptr, ptr %36, align 8
   %39 = tail call ptr @bms_add_members(ptr noundef %37, ptr noundef %38) #4
@@ -183,7 +181,7 @@ list_length.exit.split.split:                     ; preds = %list_length.exit.sp
 
 14:                                               ; preds = %list_length.exit.split.split
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   br label %17
 
 17:                                               ; preds = %list_length.exit.split.split, %14
@@ -205,7 +203,7 @@ list_length.exit.split.split:                     ; preds = %list_length.exit.sp
   ret ptr %27
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %30 = load ptr, ptr %18, align 8
   %31 = load ptr, ptr %29, align 8
   %32 = tail call ptr @bms_int_members(ptr noundef %30, ptr noundef %31) #4
@@ -248,7 +246,7 @@ list_length.exit:                                 ; preds = %8, %9
   %14 = getelementptr i8, ptr %2, i64 16
   %.val = load ptr, ptr %14, align 8
   %15 = zext nneg i32 %0 to i64
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %.val, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @bms_is_member(i32 noundef %1, ptr noundef %17) #4
   br label %19
@@ -281,7 +279,7 @@ define dso_local ptr @mbms_overlap_sets(ptr noundef readonly captures(address_is
 
 10:                                               ; preds = %.split.split
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   br label %13
 
 13:                                               ; preds = %.split.split, %10
@@ -303,7 +301,7 @@ define dso_local ptr @mbms_overlap_sets(ptr noundef readonly captures(address_is
   ret ptr %.us-phi
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %25 = load ptr, ptr %14, align 8
   %26 = load ptr, ptr %24, align 8
   %27 = tail call zeroext i1 @bms_overlap(ptr noundef %25, ptr noundef %26) #4

@@ -3,9 +3,6 @@ source_filename = "bench/php/original/compact_vars.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._zend_op = type { ptr, %union._znode_op, %union._znode_op, %union._znode_op, i32, i32, i8, i8, i8, i8 }
-%union._znode_op = type { i32 }
-
 @zend_observer_fcall_op_array_extension = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
@@ -73,7 +70,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
 
 36:                                               ; preds = %.lr.ph245, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph245 ], [ %indvars.iv.next, %.loopexit ]
-  %37 = getelementptr inbounds nuw %struct._zend_op, ptr %33, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 29
   %39 = load i8, ptr %38, align 1, !tbaa !27
   %40 = and i8 %39, 14
@@ -90,7 +87,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %48 = shl nuw i64 1, %47
   %49 = lshr i32 %45, 6
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw i64, ptr %17, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !30
   %53 = or i64 %48, %52
   store i64 %53, ptr %51, align 8, !tbaa !30
@@ -113,7 +110,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %65 = shl nuw i64 1, %64
   %66 = lshr i32 %62, 6
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw i64, ptr %17, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !30
   %70 = or i64 %65, %69
   store i64 %70, ptr %68, align 8, !tbaa !30
@@ -136,7 +133,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %82 = shl nuw i64 1, %81
   %83 = lshr i32 %79, 6
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw i64, ptr %17, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %84
   %86 = load i64, ptr %85, align 8, !tbaa !30
   %87 = or i64 %82, %86
   store i64 %87, ptr %85, align 8, !tbaa !30
@@ -171,7 +168,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %107 = shl nuw i64 1, %106
   %108 = lshr i32 %104, 6
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds nuw i64, ptr %17, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !30
   %112 = or i64 %107, %111
   store i64 %112, ptr %110, align 8, !tbaa !30
@@ -198,7 +195,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %indvars.iv268 = phi i64 [ 0, %.lr.ph248.preheader ], [ %indvars.iv.next269, %.lr.ph248 ]
   %.0219246 = phi i32 [ 0, %.lr.ph248.preheader ], [ %spec.select299, %.lr.ph248 ]
   %118 = lshr i64 %indvars.iv268, 6
-  %119 = getelementptr inbounds nuw i64, ptr %17, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %118
   %120 = load i64, ptr %119, align 8, !tbaa !30
   %121 = and i64 %indvars.iv268, 63
   %122 = lshr i64 %120, %121
@@ -207,7 +204,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %124 = trunc i64 %122 to i32
   %125 = and i32 %124, 1
   %spec.select299 = add i32 %.0219246, %125
-  %126 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv268
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv268
   store i32 %spec.select, ptr %126, align 4, !tbaa !36
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271
@@ -218,7 +215,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %.0222250 = phi i32 [ 0, %.lr.ph252.preheader ], [ %.1223, %.lr.ph252 ]
   %127 = lshr i64 %indvars.iv273, 6
   %128 = and i64 %127, 67108863
-  %129 = getelementptr inbounds nuw i64, ptr %17, i64 %128
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %128
   %130 = load i64, ptr %129, align 8, !tbaa !30
   %131 = and i64 %indvars.iv273, 63
   %132 = lshr i64 %130, %131
@@ -228,7 +225,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %135 = trunc i64 %132 to i32
   %136 = and i32 %135, 1
   %.1223 = add i32 %.0222250, %136
-  %137 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv273
+  %137 = getelementptr inbounds [4 x i8], ptr %29, i64 %indvars.iv273
   store i32 %.sink285, ptr %137, align 4, !tbaa !36
   %indvars.iv.next274 = add nuw nsw i64 %indvars.iv273, 1
   %138 = trunc nsw i64 %indvars.iv.next274 to i32
@@ -272,7 +269,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
 151:                                              ; preds = %.lr.ph256, %195
   %indvars.iv276 = phi i64 [ 0, %.lr.ph256 ], [ %indvars.iv.next277, %195 ]
   %152 = load ptr, ptr %150, align 8, !tbaa !26
-  %153 = getelementptr inbounds nuw %struct._zend_op, ptr %152, i64 %indvars.iv276
+  %153 = getelementptr inbounds nuw [32 x i8], ptr %152, i64 %indvars.iv276
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 29
   %155 = load i8, ptr %154, align 1, !tbaa !27
   %156 = and i8 %155, 14
@@ -285,7 +282,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %160 = lshr i32 %159, 4
   %161 = add nsw i32 %160, -5
   %162 = zext i32 %161 to i64
-  %163 = getelementptr inbounds nuw i32, ptr %29, i64 %162
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %162
   %164 = load i32, ptr %163, align 4, !tbaa !36
   %165 = shl i32 %164, 4
   %166 = add i32 %165, 80
@@ -305,7 +302,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %174 = lshr i32 %173, 4
   %175 = add nsw i32 %174, -5
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds nuw i32, ptr %29, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %176
   %178 = load i32, ptr %177, align 4, !tbaa !36
   %179 = shl i32 %178, 4
   %180 = add i32 %179, 80
@@ -325,7 +322,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %188 = lshr i32 %187, 4
   %189 = add nsw i32 %188, -5
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw i32, ptr %29, i64 %190
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %190
   %192 = load i32, ptr %191, align 4, !tbaa !36
   %193 = shl i32 %192, 4
   %194 = add i32 %193, 80
@@ -374,17 +371,17 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
 209:                                              ; preds = %.lr.ph260, %zend_string_release_ex.exit
   %210 = phi i32 [ %206, %.lr.ph260 ], [ %229, %zend_string_release_ex.exit ]
   %indvars.iv279 = phi i64 [ 0, %.lr.ph260 ], [ %indvars.iv.next280, %zend_string_release_ex.exit ]
-  %211 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv279
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv279
   %212 = load i32, ptr %211, align 4, !tbaa !36
   %.not231 = icmp eq i32 %212, -1
   %213 = load ptr, ptr %208, align 8, !tbaa !37
-  %214 = getelementptr inbounds nuw ptr, ptr %213, i64 %indvars.iv279
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %indvars.iv279
   %215 = load ptr, ptr %214, align 8, !tbaa !38
   br i1 %.not231, label %219, label %216
 
 216:                                              ; preds = %209
   %217 = zext i32 %212 to i64
-  %218 = getelementptr inbounds nuw ptr, ptr %205, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %217
   store ptr %215, ptr %218, align 8, !tbaa !38
   br label %zend_string_release_ex.exit
 
@@ -420,7 +417,7 @@ zend_string_release_ex.exit:                      ; preds = %228, %223, %219, %2
   %233 = phi i32 [ %199, %.lr.ph263 ], [ %246, %zend_string_release_ex.exit239 ]
   %indvars.iv282 = phi i64 [ 0, %.lr.ph263 ], [ %indvars.iv.next283, %zend_string_release_ex.exit239 ]
   %234 = load ptr, ptr %202, align 8, !tbaa !37
-  %235 = getelementptr inbounds nuw ptr, ptr %234, i64 %indvars.iv282
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %indvars.iv282
   %236 = load ptr, ptr %235, align 8, !tbaa !38
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 4
   %238 = load i32, ptr %237, align 4, !tbaa !29

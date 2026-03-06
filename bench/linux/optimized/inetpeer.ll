@@ -93,9 +93,9 @@ define dso_local ptr @inet_getpeer(ptr noundef %0, ptr noundef readonly captures
 
 22:                                               ; preds = %38, %.lr.ph.split.us.i
   %23 = phi i64 [ 0, %.lr.ph.split.us.i ], [ %39, %38 ]
-  %24 = getelementptr i32, ptr %1, i64 %23
+  %24 = getelementptr [4 x i8], ptr %1, i64 %23
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr i32, ptr %18, i64 %23
+  %26 = getelementptr [4 x i8], ptr %18, i64 %23
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %25, %27
   br i1 %28, label %38, label %29
@@ -204,9 +204,9 @@ lookup.exit:                                      ; preds = %29, %32, %57, %.loo
 
 81:                                               ; preds = %78, %.lr.ph.split.i
   %82 = phi i64 [ 0, %.lr.ph.split.i ], [ %79, %78 ]
-  %83 = getelementptr i32, ptr %1, i64 %82
+  %83 = getelementptr [4 x i8], ptr %1, i64 %82
   %84 = load i32, ptr %83, align 4
-  %85 = getelementptr i32, ptr %77, i64 %82
+  %85 = getelementptr [4 x i8], ptr %77, i64 %82
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %84, %86
   br i1 %87, label %78, label %88
@@ -255,7 +255,7 @@ lookup.exit:                                      ; preds = %29, %32, %57, %.loo
 109:                                              ; preds = %88
   %110 = add nuw nsw i32 %.0, 1
   %111 = zext nneg i32 %.0 to i64
-  %112 = getelementptr ptr, ptr %4, i64 %111
+  %112 = getelementptr [8 x i8], ptr %4, i64 %111
   store ptr %75, ptr %112, align 8
   br label %113
 
@@ -348,7 +348,7 @@ lookup.exit16:                                    ; preds = %113, %66, %107, %se
 162:                                              ; preds = %177, %160
   %163 = phi i32 [ %178, %177 ], [ 0, %160 ]
   %164 = sext i32 %163 to i64
-  %165 = getelementptr ptr, ptr %4, i64 %164
+  %165 = getelementptr [8 x i8], ptr %4, i64 %164
   %166 = load ptr, ptr %165, align 8
   %167 = load volatile i64, ptr @jiffies, align 64
   %168 = trunc i64 %167 to i32
@@ -375,7 +375,7 @@ lookup.exit16:                                    ; preds = %113, %66, %107, %se
 .preheader:                                       ; preds = %177, %189
   %180 = phi i32 [ %190, %189 ], [ 0, %177 ]
   %181 = sext i32 %180 to i64
-  %182 = getelementptr ptr, ptr %4, i64 %181
+  %182 = getelementptr [8 x i8], ptr %4, i64 %181
   %183 = load ptr, ptr %182, align 8
   %184 = icmp eq ptr %183, null
   br i1 %184, label %189, label %185

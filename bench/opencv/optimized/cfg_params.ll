@@ -289,7 +289,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %23 = load i64, ptr %2, align 8, !tbaa !15
   store i64 %23, ptr %22, align 8, !tbaa !15
-  %24 = getelementptr inbounds nuw ptr, ptr @constinit, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @constinit, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !17
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -455,7 +455,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam23create_frames_pool_sizeEm(ptr dead
 
 12:                                               ; preds = %.noexc.i
   %13 = load i64, ptr %2, align 8, !tbaa !15, !noalias !37
-  %14 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !17, !noalias !37
   invoke void %15(ptr noundef nonnull %11)
           to label %29 unwind label %16
@@ -471,7 +471,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam23create_frames_pool_sizeEm(ptr dead
   %20 = landingpad { ptr, i32 }
           cleanup
   %21 = load i64, ptr %2, align 8, !tbaa !15, !noalias !37
-  %22 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !17, !noalias !37
   invoke void %23(ptr noundef nonnull %11)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %24
@@ -542,7 +542,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam24create_acceleration_modeEj(ptr dea
 
 11:                                               ; preds = %.noexc.i
   %12 = load i64, ptr %2, align 8, !tbaa !15, !noalias !40
-  %13 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !17, !noalias !40
   invoke void %14(ptr noundef nonnull %10)
           to label %28 unwind label %15
@@ -558,7 +558,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam24create_acceleration_modeEj(ptr dea
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %2, align 8, !tbaa !15, !noalias !40
-  %21 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !17, !noalias !40
   invoke void %22(ptr noundef nonnull %10)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %23
@@ -712,7 +712,7 @@ _ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 40:                                               ; preds = %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IS8_vEEOT_.exit.i
   %41 = load i64, ptr %2, align 8, !tbaa !15, !noalias !43
-  %42 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !17, !noalias !43
   invoke void %43(ptr noundef nonnull %29)
           to label %57 unwind label %44
@@ -728,7 +728,7 @@ _ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %48 = landingpad { ptr, i32 }
           cleanup
   %49 = load i64, ptr %2, align 8, !tbaa !15, !noalias !43
-  %50 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !17, !noalias !43
   invoke void %51(ptr noundef nonnull %29)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %52
@@ -825,7 +825,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam17create_decoder_idEj(ptr dead_on_un
 
 11:                                               ; preds = %.noexc.i
   %12 = load i64, ptr %2, align 8, !tbaa !15, !noalias !46
-  %13 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !17, !noalias !46
   invoke void %14(ptr noundef nonnull %10)
           to label %28 unwind label %15
@@ -841,7 +841,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam17create_decoder_idEj(ptr dead_on_un
   %19 = landingpad { ptr, i32 }
           cleanup
   %20 = load i64, ptr %2, align 8, !tbaa !15, !noalias !46
-  %21 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !17, !noalias !46
   invoke void %22(ptr noundef nonnull %10)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %23
@@ -995,7 +995,7 @@ _ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 40:                                               ; preds = %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IS8_vEEOT_.exit.i
   %41 = load i64, ptr %2, align 8, !tbaa !15, !noalias !49
-  %42 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !17, !noalias !49
   invoke void %43(ptr noundef nonnull %29)
           to label %57 unwind label %44
@@ -1011,7 +1011,7 @@ _ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %48 = landingpad { ptr, i32 }
           cleanup
   %49 = load i64, ptr %2, align 8, !tbaa !15, !noalias !49
-  %50 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !17, !noalias !49
   invoke void %51(ptr noundef nonnull %29)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %52
@@ -1109,7 +1109,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam21create_implementationEj(ptr dead_o
 
 12:                                               ; preds = %.noexc.i
   %13 = load i64, ptr %2, align 8, !tbaa !15, !noalias !52
-  %14 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !17, !noalias !52
   invoke void %15(ptr noundef nonnull %11)
           to label %29 unwind label %16
@@ -1125,7 +1125,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam21create_implementationEj(ptr dead_o
   %20 = landingpad { ptr, i32 }
           cleanup
   %21 = load i64, ptr %2, align 8, !tbaa !15, !noalias !52
-  %22 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !17, !noalias !52
   invoke void %23(ptr noundef nonnull %11)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %24
@@ -1280,7 +1280,7 @@ _ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 41:                                               ; preds = %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2IS8_vEEOT_.exit.i
   %42 = load i64, ptr %2, align 8, !tbaa !15, !noalias !55
-  %43 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !17, !noalias !55
   invoke void %44(ptr noundef nonnull %30)
           to label %58 unwind label %45
@@ -1296,7 +1296,7 @@ _ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %49 = landingpad { ptr, i32 }
           cleanup
   %50 = load i64, ptr %2, align 8, !tbaa !15, !noalias !55
-  %51 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !17, !noalias !55
   invoke void %52(ptr noundef nonnull %30)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %53
@@ -1394,7 +1394,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam27create_vpp_frames_pool_sizeEm(ptr 
 
 12:                                               ; preds = %.noexc.i
   %13 = load i64, ptr %2, align 8, !tbaa !15, !noalias !58
-  %14 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !17, !noalias !58
   invoke void %15(ptr noundef nonnull %11)
           to label %29 unwind label %16
@@ -1410,7 +1410,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam27create_vpp_frames_pool_sizeEm(ptr 
   %20 = landingpad { ptr, i32 }
           cleanup
   %21 = load i64, ptr %2, align 8, !tbaa !15, !noalias !58
-  %22 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !17, !noalias !58
   invoke void %23(ptr noundef nonnull %11)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %24
@@ -1473,7 +1473,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam19create_vpp_in_widthEt(ptr dead_on_
 
 8:                                                ; preds = %._crit_edge.i.i
   %9 = load i64, ptr %2, align 8, !tbaa !15, !noalias !61
-  %10 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !17, !noalias !61
   invoke void %11(ptr noundef nonnull %7)
           to label %25 unwind label %12
@@ -1489,7 +1489,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam19create_vpp_in_widthEt(ptr dead_on_
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load i64, ptr %2, align 8, !tbaa !15, !noalias !61
-  %18 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17, !noalias !61
   invoke void %19(ptr noundef nonnull %7)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %20
@@ -1552,7 +1552,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam20create_vpp_in_heightEt(ptr dead_on
 
 8:                                                ; preds = %._crit_edge.i.i
   %9 = load i64, ptr %2, align 8, !tbaa !15, !noalias !66
-  %10 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !17, !noalias !66
   invoke void %11(ptr noundef nonnull %7)
           to label %25 unwind label %12
@@ -1568,7 +1568,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam20create_vpp_in_heightEt(ptr dead_on
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load i64, ptr %2, align 8, !tbaa !15, !noalias !66
-  %18 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17, !noalias !66
   invoke void %19(ptr noundef nonnull %7)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %20
@@ -1631,7 +1631,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam20create_vpp_in_crop_xEt(ptr dead_on
 
 8:                                                ; preds = %._crit_edge.i.i
   %9 = load i64, ptr %2, align 8, !tbaa !15, !noalias !69
-  %10 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !17, !noalias !69
   invoke void %11(ptr noundef nonnull %7)
           to label %25 unwind label %12
@@ -1647,7 +1647,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam20create_vpp_in_crop_xEt(ptr dead_on
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load i64, ptr %2, align 8, !tbaa !15, !noalias !69
-  %18 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17, !noalias !69
   invoke void %19(ptr noundef nonnull %7)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %20
@@ -1710,7 +1710,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam20create_vpp_in_crop_yEt(ptr dead_on
 
 8:                                                ; preds = %._crit_edge.i.i
   %9 = load i64, ptr %2, align 8, !tbaa !15, !noalias !72
-  %10 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !17, !noalias !72
   invoke void %11(ptr noundef nonnull %7)
           to label %25 unwind label %12
@@ -1726,7 +1726,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam20create_vpp_in_crop_yEt(ptr dead_on
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load i64, ptr %2, align 8, !tbaa !15, !noalias !72
-  %18 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17, !noalias !72
   invoke void %19(ptr noundef nonnull %7)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %20
@@ -1789,7 +1789,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam20create_vpp_in_crop_wEt(ptr dead_on
 
 8:                                                ; preds = %._crit_edge.i.i
   %9 = load i64, ptr %2, align 8, !tbaa !15, !noalias !75
-  %10 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !17, !noalias !75
   invoke void %11(ptr noundef nonnull %7)
           to label %25 unwind label %12
@@ -1805,7 +1805,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam20create_vpp_in_crop_wEt(ptr dead_on
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load i64, ptr %2, align 8, !tbaa !15, !noalias !75
-  %18 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17, !noalias !75
   invoke void %19(ptr noundef nonnull %7)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %20
@@ -1868,7 +1868,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam20create_vpp_in_crop_hEt(ptr dead_on
 
 8:                                                ; preds = %._crit_edge.i.i
   %9 = load i64, ptr %2, align 8, !tbaa !15, !noalias !78
-  %10 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !17, !noalias !78
   invoke void %11(ptr noundef nonnull %7)
           to label %25 unwind label %12
@@ -1884,7 +1884,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam20create_vpp_in_crop_hEt(ptr dead_on
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load i64, ptr %2, align 8, !tbaa !15, !noalias !78
-  %18 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17, !noalias !78
   invoke void %19(ptr noundef nonnull %7)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %20
@@ -1947,7 +1947,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam21create_vpp_out_fourccEj(ptr dead_o
 
 8:                                                ; preds = %._crit_edge.i.i
   %9 = load i64, ptr %2, align 8, !tbaa !15, !noalias !81
-  %10 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !17, !noalias !81
   invoke void %11(ptr noundef nonnull %7)
           to label %25 unwind label %12
@@ -1963,7 +1963,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam21create_vpp_out_fourccEj(ptr dead_o
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load i64, ptr %2, align 8, !tbaa !15, !noalias !81
-  %18 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17, !noalias !81
   invoke void %19(ptr noundef nonnull %7)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %20
@@ -2035,7 +2035,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam28create_vpp_out_chroma_formatEt(ptr
 
 12:                                               ; preds = %.noexc.i
   %13 = load i64, ptr %2, align 8, !tbaa !15, !noalias !84
-  %14 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !17, !noalias !84
   invoke void %15(ptr noundef nonnull %11)
           to label %29 unwind label %16
@@ -2051,7 +2051,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam28create_vpp_out_chroma_formatEt(ptr
   %20 = landingpad { ptr, i32 }
           cleanup
   %21 = load i64, ptr %2, align 8, !tbaa !15, !noalias !84
-  %22 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !17, !noalias !84
   invoke void %23(ptr noundef nonnull %11)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %24
@@ -2114,7 +2114,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam20create_vpp_out_widthEt(ptr dead_on
 
 8:                                                ; preds = %._crit_edge.i.i
   %9 = load i64, ptr %2, align 8, !tbaa !15, !noalias !87
-  %10 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !17, !noalias !87
   invoke void %11(ptr noundef nonnull %7)
           to label %25 unwind label %12
@@ -2130,7 +2130,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam20create_vpp_out_widthEt(ptr dead_on
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load i64, ptr %2, align 8, !tbaa !15, !noalias !87
-  %18 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17, !noalias !87
   invoke void %19(ptr noundef nonnull %7)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %20
@@ -2193,7 +2193,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam21create_vpp_out_heightEt(ptr dead_o
 
 8:                                                ; preds = %._crit_edge.i.i
   %9 = load i64, ptr %2, align 8, !tbaa !15, !noalias !90
-  %10 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !17, !noalias !90
   invoke void %11(ptr noundef nonnull %7)
           to label %25 unwind label %12
@@ -2209,7 +2209,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam21create_vpp_out_heightEt(ptr dead_o
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load i64, ptr %2, align 8, !tbaa !15, !noalias !90
-  %18 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17, !noalias !90
   invoke void %19(ptr noundef nonnull %7)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %20
@@ -2272,7 +2272,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam21create_vpp_out_crop_xEt(ptr dead_o
 
 8:                                                ; preds = %._crit_edge.i.i
   %9 = load i64, ptr %2, align 8, !tbaa !15, !noalias !93
-  %10 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !17, !noalias !93
   invoke void %11(ptr noundef nonnull %7)
           to label %25 unwind label %12
@@ -2288,7 +2288,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam21create_vpp_out_crop_xEt(ptr dead_o
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load i64, ptr %2, align 8, !tbaa !15, !noalias !93
-  %18 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17, !noalias !93
   invoke void %19(ptr noundef nonnull %7)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %20
@@ -2351,7 +2351,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam21create_vpp_out_crop_yEt(ptr dead_o
 
 8:                                                ; preds = %._crit_edge.i.i
   %9 = load i64, ptr %2, align 8, !tbaa !15, !noalias !96
-  %10 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !17, !noalias !96
   invoke void %11(ptr noundef nonnull %7)
           to label %25 unwind label %12
@@ -2367,7 +2367,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam21create_vpp_out_crop_yEt(ptr dead_o
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load i64, ptr %2, align 8, !tbaa !15, !noalias !96
-  %18 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17, !noalias !96
   invoke void %19(ptr noundef nonnull %7)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %20
@@ -2430,7 +2430,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam21create_vpp_out_crop_wEt(ptr dead_o
 
 8:                                                ; preds = %._crit_edge.i.i
   %9 = load i64, ptr %2, align 8, !tbaa !15, !noalias !99
-  %10 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !17, !noalias !99
   invoke void %11(ptr noundef nonnull %7)
           to label %25 unwind label %12
@@ -2446,7 +2446,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam21create_vpp_out_crop_wEt(ptr dead_o
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load i64, ptr %2, align 8, !tbaa !15, !noalias !99
-  %18 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17, !noalias !99
   invoke void %19(ptr noundef nonnull %7)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %20
@@ -2509,7 +2509,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam21create_vpp_out_crop_hEt(ptr dead_o
 
 8:                                                ; preds = %._crit_edge.i.i
   %9 = load i64, ptr %2, align 8, !tbaa !15, !noalias !102
-  %10 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !17, !noalias !102
   invoke void %11(ptr noundef nonnull %7)
           to label %25 unwind label %12
@@ -2525,7 +2525,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam21create_vpp_out_crop_hEt(ptr dead_o
   %16 = landingpad { ptr, i32 }
           cleanup
   %17 = load i64, ptr %2, align 8, !tbaa !15, !noalias !102
-  %18 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17, !noalias !102
   invoke void %19(ptr noundef nonnull %7)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %20
@@ -2597,7 +2597,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam25create_vpp_out_pic_structEt(ptr de
 
 12:                                               ; preds = %.noexc.i
   %13 = load i64, ptr %2, align 8, !tbaa !15, !noalias !105
-  %14 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !17, !noalias !105
   invoke void %15(ptr noundef nonnull %11)
           to label %29 unwind label %16
@@ -2613,7 +2613,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam25create_vpp_out_pic_structEt(ptr de
   %20 = landingpad { ptr, i32 }
           cleanup
   %21 = load i64, ptr %2, align 8, !tbaa !15, !noalias !105
-  %22 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !17, !noalias !105
   invoke void %23(ptr noundef nonnull %11)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %24
@@ -2685,7 +2685,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam26create_vpp_out_framerate_nEj(ptr d
 
 12:                                               ; preds = %.noexc.i
   %13 = load i64, ptr %2, align 8, !tbaa !15, !noalias !108
-  %14 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !17, !noalias !108
   invoke void %15(ptr noundef nonnull %11)
           to label %29 unwind label %16
@@ -2701,7 +2701,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam26create_vpp_out_framerate_nEj(ptr d
   %20 = landingpad { ptr, i32 }
           cleanup
   %21 = load i64, ptr %2, align 8, !tbaa !15, !noalias !108
-  %22 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !17, !noalias !108
   invoke void %23(ptr noundef nonnull %11)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %24
@@ -2773,7 +2773,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam26create_vpp_out_framerate_dEj(ptr d
 
 12:                                               ; preds = %.noexc.i
   %13 = load i64, ptr %2, align 8, !tbaa !15, !noalias !111
-  %14 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !17, !noalias !111
   invoke void %15(ptr noundef nonnull %11)
           to label %29 unwind label %16
@@ -2789,7 +2789,7 @@ define void @_ZN2cv4gapi3wip6onevpl8CfgParam26create_vpp_out_framerate_dEj(ptr d
   %20 = landingpad { ptr, i32 }
           cleanup
   %21 = load i64, ptr %2, align 8, !tbaa !15, !noalias !111
-  %22 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !17, !noalias !111
   invoke void %23(ptr noundef nonnull %11)
           to label %_ZN2cv4util7variantIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit5.i unwind label %24
@@ -3439,7 +3439,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not.i.i, label %19, label %_ZNK2cv4gapi3wip6onevpl8CfgParam4PriveqERKS4_.exit
 
 19:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i
-  %20 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv4utileqIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEbRKNS0_7variantIJDpT_EEESE_E3eqs, i64 %17
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN2cv4utileqIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEbRKNS0_7variantIJDpT_EEESE_E3eqs, i64 %17
   %21 = load ptr, ptr %20, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -3482,7 +3482,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not.i.i.i, label %19, label %_ZNK2cv4gapi3wip6onevpl8CfgParam4PrivneERKS4_.exit
 
 19:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i
-  %20 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv4utileqIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEbRKNS0_7variantIJDpT_EEESE_E3eqs, i64 %17
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN2cv4utileqIJhatsjimlfdPvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEbRKNS0_7variantIJDpT_EEESE_E3eqs, i64 %17
   %21 = load ptr, ptr %20, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -4341,7 +4341,7 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #20
 define linkonce_odr hidden void @_ZN2cv4gapi3wip6onevpl8CfgParam4PrivD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %0) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !tbaa !15
-  %4 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   invoke void %5(ptr noundef nonnull %6)
@@ -4393,7 +4393,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv4gapi3wip6onevpl8Cf
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load i64, ptr %6, align 8, !tbaa !15
-  %8 = getelementptr inbounds nuw ptr, ptr @constinit.28, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @constinit.28, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
   invoke void %9(ptr noundef nonnull %10)

@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.sat::cut" = type { i32, i32, [5 x i32], i64, i64 }
 %class.hashtable = type { %class.core_hashtable.base, [4 x i8] }
 %class.core_hashtable.base = type <{ ptr, i32, i32, i32 }>
-%class.default_hash_entry = type { i32, i32, ptr }
-%"struct.sat::cut_val" = type { i64, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -79,7 +77,7 @@ define hidden noundef zeroext i1 @_ZN3sat7cut_set6insertERSt8functionIFvjRKNS_3c
   %.02158 = phi i32 [ 0, %.lr.ph ], [ %77, %_ZNK3sat3cut9subset_ofERKS0_.exit45 ]
   %15 = load ptr, ptr %11, align 8, !tbaa !11
   %16 = zext i32 %.02158 to i64
-  %17 = getelementptr inbounds nuw %"class.sat::cut", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %3, align 8, !tbaa !12
   %19 = load i32, ptr %17, align 8, !tbaa !12
   %20 = or i32 %19, %18
@@ -125,7 +123,7 @@ _ZNK3sat3cutixEj.exit.i:                          ; preds = %14
 _ZNK3sat3cutixEj.exit36.i:                        ; preds = %.lr.ph.i
   %34 = add i32 %.12539.i, 1
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %13, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !16
   %38 = icmp ugt i32 %30, %37
   br i1 %38, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
@@ -143,7 +141,7 @@ _ZNK3sat3cutixEj.exit36.i:                        ; preds = %.lr.ph.i
 
 41:                                               ; preds = %39
   %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %13, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !16
   br label %_ZNK3sat3cutixEj.exit38.i
 
@@ -196,7 +194,7 @@ _ZNK3sat3cutixEj.exit.i26:                        ; preds = %_ZNK3sat3cut9subset
 _ZNK3sat3cutixEj.exit36.i44:                      ; preds = %.lr.ph.i41
   %60 = add i32 %.12539.i42, 1
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %52, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !16
   %64 = icmp ugt i32 %56, %63
   br i1 %64, label %.lr.ph.i41, label %._crit_edge.i34, !llvm.loop !17
@@ -214,7 +212,7 @@ _ZNK3sat3cutixEj.exit36.i44:                      ; preds = %.lr.ph.i41
 
 67:                                               ; preds = %65
   %68 = zext i32 %66 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %52, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !16
   br label %_ZNK3sat3cutixEj.exit38.i39
 
@@ -228,7 +226,7 @@ _ZNK3sat3cutixEj.exit38.i39:                      ; preds = %67, %65
   %73 = add i32 %.02158, -1
   %74 = add i32 %.01859, -1
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %"class.sat::cut", ptr %15, i64 %75
+  %76 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %75
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %17, i64 48, i1 false), !tbaa.struct !19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %76, i64 48, i1 false), !tbaa.struct !19
@@ -250,11 +248,11 @@ _ZNK3sat3cut9subset_ofERKS0_.exit45:              ; preds = %._crit_edge.i34, %.
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = add i32 %.021.lcssa, 1
   %81 = zext i32 %.021.lcssa to i64
-  %82 = getelementptr inbounds nuw %"class.sat::cut", ptr %79, i64 %81
+  %82 = getelementptr inbounds nuw [48 x i8], ptr %79, i64 %81
   %83 = load i32, ptr %8, align 8, !tbaa !3
   %84 = add i32 %83, -1
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %"class.sat::cut", ptr %79, i64 %85
+  %86 = getelementptr inbounds nuw [48 x i8], ptr %79, i64 %85
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %82, i64 48, i1 false), !tbaa.struct !19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %82, ptr noundef nonnull align 8 dereferenceable(48) %86, i64 48, i1 false), !tbaa.struct !19
@@ -293,7 +291,7 @@ _ZNK3sat3cut9subset_ofERKS0_.exit45:              ; preds = %._crit_edge.i34, %.
   unreachable
 
 _ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i:  ; preds = %95
-  %100 = getelementptr inbounds nuw %"class.sat::cut", ptr %97, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw [48 x i8], ptr %97, i64 %indvars.iv.i
   %101 = load ptr, ptr %93, align 8, !tbaa !26
   call void %101(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(48) %100)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -332,7 +330,7 @@ define hidden void @_ZN3sat7cut_set9push_backERSt8functionIFvjRKNS_3cutEEES4_(pt
   br i1 %15, label %.loopexit12, label %16
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw %"class.sat::cut", ptr %14, i64 %10
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %14, i64 %10
   br label %18
 
 18:                                               ; preds = %18, %16
@@ -369,7 +367,7 @@ define hidden void @_ZN3sat7cut_set9push_backERSt8functionIFvjRKNS_3cutEEES4_(pt
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %30
-  %39 = getelementptr inbounds nuw %"class.sat::cut", ptr %36, i64 %32
+  %39 = getelementptr inbounds nuw [48 x i8], ptr %36, i64 %32
   br label %40
 
 40:                                               ; preds = %40, %38
@@ -429,7 +427,7 @@ _ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit:    ; preds = %51
   %61 = add i32 %60, 1
   store i32 %61, ptr %25, align 8, !tbaa !3
   %62 = zext i32 %60 to i64
-  %63 = getelementptr inbounds nuw %"class.sat::cut", ptr %59, i64 %62
+  %63 = getelementptr inbounds nuw [48 x i8], ptr %59, i64 %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false), !tbaa.struct !19
   ret void
 }
@@ -474,7 +472,7 @@ define hidden void @_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj(ptr nou
   unreachable
 
 _ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit:    ; preds = %15
-  %20 = getelementptr inbounds nuw %"class.sat::cut", ptr %17, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [48 x i8], ptr %17, i64 %indvars.iv
   %21 = load ptr, ptr %13, align 8, !tbaa !26
   call void %21(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(48) %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -644,7 +642,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI18default_hash_entryIPKN3sa
   %.idx = shl nuw nsw i64 %21, 4
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
   %23 = zext i32 %15 to i64
-  %24 = getelementptr inbounds nuw %class.default_hash_entry, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %23
   %.not88 = icmp eq i32 %19, %15
   br i1 %.not88, label %.preheader, label %.lr.ph
 
@@ -726,9 +724,9 @@ _ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i:              ; preds = %.preheader.i.i.i.i
 
 _ZNK3sat3cutixEj.exit.i.i.i.i:                    ; preds = %64, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %64 ]
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv.i.i.i.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv.i.i.i.i
   %66 = load i32, ptr %65, align 4, !tbaa !16
-  %67 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i.i.i.i
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i.i.i.i
   %68 = load i32, ptr %67, align 4, !tbaa !16
   %.not10.i.i.i.i = icmp eq i32 %66, %68
   br i1 %.not10.i.i.i.i, label %64, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit
@@ -827,9 +825,9 @@ _ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i55:            ; preds = %.preheader.i.i.i.i5
 
 _ZNK3sat3cutixEj.exit.i.i.i.i56:                  ; preds = %112, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i55
   %indvars.iv.i.i.i.i57 = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i55 ], [ %indvars.iv.next.i.i.i.i59, %112 ]
-  %113 = getelementptr inbounds nuw i32, ptr %111, i64 %indvars.iv.i.i.i.i57
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv.i.i.i.i57
   %114 = load i32, ptr %113, align 4, !tbaa !16
-  %115 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.i.i.i.i57
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.i.i.i.i57
   %116 = load i32, ptr %115, align 4, !tbaa !16
   %.not10.i.i.i.i58 = icmp eq i32 %114, %116
   br i1 %.not10.i.i.i.i58, label %112, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit61
@@ -969,7 +967,7 @@ _ZN3sat3cut13display_tableERSojm.exit:            ; preds = %18
 
 _ZNK3sat3cutixEj.exit:                            ; preds = %_ZNK3sat3cutixEj.exit.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph ], [ %indvars.iv.next, %32 ]
-  %25 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !16
   %27 = zext i32 %26 to i64
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %27)
@@ -1020,7 +1018,7 @@ define hidden void @_ZN3sat7cut_set5evictERSt8functionIFvjRKNS_3cutEEES4_(ptr no
 
 22:                                               ; preds = %.lr.ph, %_ZNK3sat3cuteqERKS0_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK3sat3cuteqERKS0_.exit ]
-  %23 = getelementptr inbounds nuw %"class.sat::cut", ptr %8, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load i64, ptr %24, align 8, !tbaa !44
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -1052,9 +1050,9 @@ _ZNK3sat3cutixEj.exit.lr.ph.i.i:                  ; preds = %.preheader.i.i
 
 _ZNK3sat3cutixEj.exit.i.i:                        ; preds = %37, %_ZNK3sat3cutixEj.exit.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %37 ]
-  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.i.i
   %39 = load i32, ptr %38, align 4, !tbaa !16
-  %40 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i.i
   %41 = load i32, ptr %40, align 4, !tbaa !16
   %.not10.i.i = icmp eq i32 %39, %41
   br i1 %.not10.i.i, label %37, label %_ZNK3sat3cuteqERKS0_.exit
@@ -1085,8 +1083,8 @@ _ZN3sat7cut_set5evictERSt8functionIFvjRKNS_3cutEEEj.exit: ; preds = %.loopexit, 
   %49 = add i32 %47, -1
   store i32 %49, ptr %5, align 8, !tbaa !3
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %"class.sat::cut", ptr %48, i64 %50
-  %52 = getelementptr inbounds nuw %"class.sat::cut", ptr %48, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [48 x i8], ptr %48, i64 %50
+  %52 = getelementptr inbounds nuw [48 x i8], ptr %48, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef nonnull align 8 dereferenceable(48) %51, i64 48, i1 false), !tbaa.struct !19
   br label %.loopexit7
 
@@ -1141,9 +1139,9 @@ _ZNK3sat3cutixEj.exit.lr.ph.i:                    ; preds = %.preheader.i
 
 _ZNK3sat3cutixEj.exit.i:                          ; preds = %_ZNK3sat3cutixEj.exit.i, %_ZNK3sat3cutixEj.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK3sat3cutixEj.exit.i ]
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv.i
   %30 = load i32, ptr %29, align 4, !tbaa !16
-  %31 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 4, !tbaa !16
   %.not10.i = icmp eq i32 %30, %32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1175,7 +1173,7 @@ _ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit:    ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !11
   %10 = zext i32 %2 to i64
-  %11 = getelementptr inbounds nuw %"class.sat::cut", ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [48 x i8], ptr %9, i64 %10
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %5, ptr %4, align 4, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1193,8 +1191,8 @@ _ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit:    ; preds = %3
   %19 = add i32 %18, -1
   store i32 %19, ptr %17, align 8, !tbaa !3
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %"class.sat::cut", ptr %16, i64 %20
-  %22 = getelementptr inbounds nuw %"class.sat::cut", ptr %16, i64 %.pre-phi
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %16, i64 %20
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %16, i64 %.pre-phi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !19
   ret void
 }
@@ -4312,7 +4310,7 @@ _ZL13compute_shiftmj.exit:                        ; preds = %._crit_edge, %22, %
 
 2662:                                             ; preds = %2658
   %2663 = zext i32 %2661 to i64
-  %2664 = getelementptr inbounds nuw i32, ptr %4, i64 %2663
+  %2664 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %2663
   %2665 = load i32, ptr %2664, align 4, !tbaa !16
   br label %_ZNK3sat3cutixEj.exit23
 
@@ -4326,7 +4324,7 @@ _ZNK3sat3cutixEj.exit23:                          ; preds = %2662, %2658, %2656
 
 2667:                                             ; preds = %_ZNK3sat3cutixEj.exit23
   %2668 = zext i32 %2666 to i64
-  %2669 = getelementptr inbounds nuw i32, ptr %8, i64 %2668
+  %2669 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %2668
   %2670 = load i32, ptr %2669, align 4, !tbaa !16
   br label %_ZNK3sat3cutixEj.exit25
 
@@ -4357,9 +4355,9 @@ _ZNK3sat3cutixEj.exit.lr.ph:                      ; preds = %.preheader
 
 _ZNK3sat3cutixEj.exit:                            ; preds = %_ZNK3sat3cutixEj.exit, %_ZNK3sat3cutixEj.exit.lr.ph
   %indvars.iv = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph ], [ %indvars.iv.next, %_ZNK3sat3cutixEj.exit ]
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !16
-  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !16
   %.not10 = icmp eq i32 %11, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4595,7 +4593,7 @@ define hidden noundef i32 @_ZNK3sat3cut4hashEv(ptr noundef nonnull readonly alig
 
 184:                                              ; preds = %181
   %185 = zext i32 %183 to i64
-  %186 = getelementptr inbounds nuw i32, ptr %17, i64 %185
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %185
   %187 = load i32, ptr %186, align 4, !tbaa !16
   br label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit384.i"
 
@@ -4607,7 +4605,7 @@ define hidden noundef i32 @_ZNK3sat3cut4hashEv(ptr noundef nonnull readonly alig
 
 190:                                              ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit384.i"
   %191 = zext i32 %189 to i64
-  %192 = getelementptr inbounds nuw i32, ptr %17, i64 %191
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %191
   %193 = load i32, ptr %192, align 4, !tbaa !16
   br label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit386.i"
 
@@ -4619,7 +4617,7 @@ define hidden noundef i32 @_ZNK3sat3cut4hashEv(ptr noundef nonnull readonly alig
   br i1 %.not.i.i387.wide.i, label %197, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit388.i"
 
 197:                                              ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit386.i"
-  %198 = getelementptr inbounds nuw i32, ptr %17, i64 %196
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %196
   %199 = load i32, ptr %198, align 4, !tbaa !16
   br label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit388.i"
 
@@ -4954,7 +4952,7 @@ define hidden noundef i32 @_ZNK3sat3cut8dom_hashEv(ptr noundef nonnull readonly 
 
 179:                                              ; preds = %176
   %180 = zext i32 %178 to i64
-  %181 = getelementptr inbounds nuw i32, ptr %7, i64 %180
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %180
   %182 = load i32, ptr %181, align 4, !tbaa !16
   br label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit384.i"
 
@@ -4966,7 +4964,7 @@ define hidden noundef i32 @_ZNK3sat3cut8dom_hashEv(ptr noundef nonnull readonly 
 
 185:                                              ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit384.i"
   %186 = zext i32 %184 to i64
-  %187 = getelementptr inbounds nuw i32, ptr %7, i64 %186
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !16
   br label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit386.i"
 
@@ -4978,7 +4976,7 @@ define hidden noundef i32 @_ZNK3sat3cut8dom_hashEv(ptr noundef nonnull readonly 
   br i1 %.not.i.i387.wide.i, label %192, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit388.i"
 
 192:                                              ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit386.i"
-  %193 = getelementptr inbounds nuw i32, ptr %7, i64 %191
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %191
   %194 = load i32, ptr %193, align 4, !tbaa !16
   br label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit388.i"
 
@@ -5178,10 +5176,10 @@ _ZN3sat3cut11effect_maskEj.exit:                  ; preds = %.lr.ph.i, %._crit_e
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %.0.in35 = phi i32 [ %1, %.lr.ph ], [ %28, %23 ]
-  %24 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !16
   %26 = zext i32 %.0.in35 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %26
   store i32 %25, ptr %27, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = trunc nuw i64 %indvars.iv to i32
@@ -5276,10 +5274,10 @@ define hidden { i64, i64 } @_ZNK3sat3cut4evalERK7svectorINS_7cut_valEjE(ptr noun
 18:                                               ; preds = %.preheader.us, %18
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %18 ]
   %.02330.us = phi i32 [ 0, %.preheader.us ], [ %28, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !16
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %16, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !59
   %24 = lshr i64 %23, %indvars.iv42
   %25 = and i64 %24, 1
@@ -5309,7 +5307,7 @@ define hidden { i64, i64 } @_ZNK3sat3cut4evalERK7svectorINS_7cut_valEjE(ptr noun
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i32, ptr %37, align 8, !tbaa !16
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %16, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %39
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !21
   %.sroa.0.0.in.sroa.speculate.load. = load i64, ptr %40, align 8, !tbaa !21
@@ -5535,7 +5533,7 @@ define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI18default_hash_entr
   %.idx = shl nuw nsw i64 %10, 4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %12 = zext i32 %6 to i64
-  %13 = getelementptr inbounds nuw %class.default_hash_entry, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %12
   %.not47 = icmp eq i32 %8, %6
   br i1 %.not47, label %.preheader, label %.lr.ph
 
@@ -5615,9 +5613,9 @@ _ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i:              ; preds = %.preheader.i.i.i.i
 
 _ZNK3sat3cutixEj.exit.i.i.i.i:                    ; preds = %53, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %53 ]
-  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv.i.i.i.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.i.i.i.i
   %55 = load i32, ptr %54, align 4, !tbaa !16
-  %56 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i.i.i.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv.i.i.i.i
   %57 = load i32, ptr %56, align 4, !tbaa !16
   %.not10.i.i.i.i = icmp eq i32 %55, %57
   br i1 %.not10.i.i.i.i, label %53, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit
@@ -5685,9 +5683,9 @@ _ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i33:            ; preds = %.preheader.i.i.i.i3
 
 _ZNK3sat3cutixEj.exit.i.i.i.i34:                  ; preds = %90, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i33
   %indvars.iv.i.i.i.i35 = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i33 ], [ %indvars.iv.next.i.i.i.i37, %90 ]
-  %91 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv.i.i.i.i35
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv.i.i.i.i35
   %92 = load i32, ptr %91, align 4, !tbaa !16
-  %93 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i.i.i.i35
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i.i.i.i35
   %94 = load i32, ptr %93, align 4, !tbaa !16
   %.not10.i.i.i.i36 = icmp eq i32 %92, %94
   br i1 %.not10.i.i.i.i36, label %90, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit39
@@ -5731,7 +5729,7 @@ _ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_pro
   %14 = zext i32 %12 to i64
   %.idx.i = shl nuw nsw i64 %14, 4
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
-  %16 = getelementptr inbounds nuw %class.default_hash_entry, ptr %7, i64 %5
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %12, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit, label %.lr.ph41.i
 

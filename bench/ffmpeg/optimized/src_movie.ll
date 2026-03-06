@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { i64 }
 %struct.AVFilterPad = type { ptr, i32, i32, %union.anon.1, ptr, ptr, ptr }
 %union.anon.1 = type { ptr }
-%struct.MovieStream = type { ptr, ptr, ptr, i64, i64, ptr, i32 }
 %struct.AVChannelLayout = type { i32, i32, %union.anon.2, ptr }
 %union.anon.2 = type { i64 }
 
@@ -239,7 +238,7 @@ define internal range(i32 -2147483648, 1) i32 @movie_common_init(ptr noundef %0)
 
 87:                                               ; preds = %.lr.ph, %87
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
-  %88 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8, !tbaa !56
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 68
   store i32 48, ptr %90, align 4, !tbaa !58
@@ -325,7 +324,7 @@ define internal range(i32 -2147483648, 1) i32 @movie_common_init(ptr noundef %0)
   %.04164.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %138 ]
   %.04263.i = phi i32 [ 0, %.lr.ph.i ], [ %.143.i, %138 ]
   %121 = load ptr, ptr %109, align 8, !tbaa !55
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv.i
   %123 = load ptr, ptr %122, align 8, !tbaa !56
   %124 = call i32 @avformat_match_stream_specifier(ptr noundef nonnull %104, ptr noundef %123, ptr noundef nonnull %102) #13
   %125 = icmp slt i32 %124, 0
@@ -341,7 +340,7 @@ define internal range(i32 -2147483648, 1) i32 @movie_common_init(ptr noundef %0)
 
 128:                                              ; preds = %127
   %129 = load ptr, ptr %109, align 8, !tbaa !55
-  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %indvars.iv.i
   %131 = load ptr, ptr %130, align 8, !tbaa !56
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 68
   %133 = load i32, ptr %132, align 4, !tbaa !58
@@ -413,7 +412,7 @@ find_stream.exit:                                 ; preds = %110
   %150 = getelementptr inbounds nuw i8, ptr %104, i64 48
   %151 = load ptr, ptr %150, align 8, !tbaa !55
   %152 = zext nneg i32 %115 to i64
-  %153 = getelementptr inbounds nuw ptr, ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %152
   %154 = load ptr, ptr %153, align 8, !tbaa !56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -426,7 +425,7 @@ find_stream.exit:                                 ; preds = %110
   %156 = getelementptr inbounds nuw i8, ptr %.0.i169, i64 68
   store i32 0, ptr %156, align 4, !tbaa !58
   %157 = load ptr, ptr %96, align 8, !tbaa !66
-  %158 = getelementptr inbounds nuw %struct.MovieStream, ptr %157, i64 %indvars.iv217
+  %158 = getelementptr inbounds nuw [56 x i8], ptr %157, i64 %indvars.iv217
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store ptr %.0.i169, ptr %159, align 8, !tbaa !74
   %160 = load i32, ptr %98, align 4, !tbaa !79
@@ -442,7 +441,7 @@ find_stream.exit:                                 ; preds = %110
   store i64 %166, ptr %167, align 8, !tbaa !82
   %168 = call ptr @av_frame_alloc() #13
   %169 = load ptr, ptr %96, align 8, !tbaa !66
-  %170 = getelementptr inbounds nuw %struct.MovieStream, ptr %169, i64 %indvars.iv217
+  %170 = getelementptr inbounds nuw [56 x i8], ptr %169, i64 %indvars.iv217
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 40
   store ptr %168, ptr %171, align 8, !tbaa !83
   %.not162 = icmp eq ptr %168, null
@@ -485,7 +484,7 @@ find_stream.exit:                                 ; preds = %110
 
 .lr.ph196:                                        ; preds = %.lr.ph196.preheader, %.lr.ph196
   %indvars.iv223 = phi i64 [ 0, %.lr.ph196.preheader ], [ %indvars.iv.next224, %.lr.ph196 ]
-  %185 = getelementptr inbounds nuw i32, ptr %178, i64 %indvars.iv223
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %178, i64 %indvars.iv223
   store i32 -1, ptr %185, align 4, !tbaa !68
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %.not157.not = icmp samesign ult i64 %indvars.iv223, %181
@@ -502,13 +501,13 @@ find_stream.exit:                                 ; preds = %110
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false)
   %188 = load ptr, ptr %179, align 8, !tbaa !84
   %189 = load ptr, ptr %96, align 8, !tbaa !66
-  %190 = getelementptr inbounds nuw %struct.MovieStream, ptr %189, i64 %indvars.iv226
+  %190 = getelementptr inbounds nuw [56 x i8], ptr %189, i64 %indvars.iv226
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = load ptr, ptr %191, align 8, !tbaa !74
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load i32, ptr %193, align 8, !tbaa !80
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds i32, ptr %188, i64 %195
+  %196 = getelementptr inbounds [4 x i8], ptr %188, i64 %195
   %197 = trunc nuw nsw i64 %indvars.iv226 to i32
   store i32 %197, ptr %196, align 4, !tbaa !68
   %198 = getelementptr inbounds nuw i8, ptr %192, i64 16
@@ -528,7 +527,7 @@ find_stream.exit:                                 ; preds = %110
 
 205:                                              ; preds = %202
   %206 = load ptr, ptr %96, align 8, !tbaa !66
-  %207 = getelementptr inbounds nuw %struct.MovieStream, ptr %206, i64 %indvars.iv226
+  %207 = getelementptr inbounds nuw [56 x i8], ptr %206, i64 %indvars.iv226
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %209 = load ptr, ptr %208, align 8, !tbaa !74
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 16
@@ -565,7 +564,7 @@ find_stream.exit:                                 ; preds = %110
 
 224:                                              ; preds = %._crit_edge232, %205, %218, %214
   %225 = phi ptr [ %.pre, %._crit_edge232 ], [ %206, %205 ], [ %206, %218 ], [ %206, %214 ]
-  %226 = getelementptr inbounds nuw %struct.MovieStream, ptr %225, i64 %indvars.iv226
+  %226 = getelementptr inbounds nuw [56 x i8], ptr %225, i64 %indvars.iv226
   %227 = load i32, ptr %184, align 8, !tbaa !93
   %228 = call fastcc i32 @open_stream(ptr noundef %0, ptr noundef %226, i32 noundef %227)
   %229 = icmp sgt i32 %228, -1
@@ -604,7 +603,7 @@ define internal void @movie_uninit(ptr noundef readonly captures(none) %0) #0 {
 7:                                                ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %8 = load ptr, ptr %6, align 8, !tbaa !66
-  %9 = getelementptr inbounds nuw %struct.MovieStream, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !74
   %.not14 = icmp eq ptr %11, null
@@ -618,7 +617,7 @@ define internal void @movie_uninit(ptr noundef readonly captures(none) %0) #0 {
 
 14:                                               ; preds = %12, %7
   %15 = phi ptr [ %.pre, %12 ], [ %8, %7 ]
-  %16 = getelementptr inbounds nuw %struct.MovieStream, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [56 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   tail call void @av_frame_free(ptr noundef nonnull %17) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -669,12 +668,12 @@ define internal range(i32 -2147483648, 1) i32 @movie_query_formats(ptr noundef r
 11:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
   %12 = load ptr, ptr %10, align 8, !tbaa !66
-  %13 = getelementptr inbounds nuw %struct.MovieStream, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !74
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !70
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !96
   %20 = load i32, ptr %17, align 8, !tbaa !71
   switch i32 %20, label %60 [
@@ -798,7 +797,7 @@ define internal i32 @process_command(ptr noundef readonly captures(none) %0, ptr
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %29 = load ptr, ptr %27, align 8, !tbaa !66
-  %30 = getelementptr inbounds nuw %struct.MovieStream, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [56 x i8], ptr %29, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !106
   call void @avcodec_flush_buffers(ptr noundef %32) #13
@@ -881,7 +880,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %.08095 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %10 ]
   %11 = load ptr, ptr %7, align 8, !tbaa !109
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !110
   %14 = tail call i32 @ff_outlink_frame_wanted(ptr noundef %13) #13
   %.not91 = icmp ne i32 %14, 0
@@ -931,7 +930,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   %.val = load ptr, ptr %3, align 8, !tbaa !4
   %32 = getelementptr i8, ptr %.val, i64 104
   %.val.val = load ptr, ptr %32, align 8, !tbaa !66
-  %33 = getelementptr inbounds nuw %struct.MovieStream, ptr %.val.val, i64 %indvars.iv136
+  %33 = getelementptr inbounds nuw [56 x i8], ptr %.val.val, i64 %indvars.iv136
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !106
   %36 = tail call i32 @avcodec_send_packet(ptr noundef %35, ptr noundef null) #13
@@ -954,7 +953,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %49 = load ptr, ptr %48, align 8, !tbaa !84
   %50 = sext i32 %43 to i64
-  %51 = getelementptr inbounds i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !68
   %53 = icmp sgt i32 %52, -1
   br i1 %53, label %54, label %.thread
@@ -980,7 +979,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   %60 = phi ptr [ %.pre, %.lr.ph99 ], [ %73, %71 ]
   %indvars.iv127 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next128, %71 ]
   %.07497 = phi i32 [ 0, %.lr.ph99 ], [ %76, %71 ]
-  %61 = getelementptr inbounds nuw %struct.MovieStream, ptr %60, i64 %indvars.iv127
+  %61 = getelementptr inbounds nuw [56 x i8], ptr %60, i64 %indvars.iv127
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %63 = load i32, ptr %62, align 8, !tbaa !115
   %.not90 = icmp eq i32 %63, 0
@@ -991,7 +990,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
   %66 = tail call fastcc i32 @decode_packet(ptr noundef nonnull %0, i32 noundef %65)
   %67 = icmp slt i32 %66, 1
   %.pre139 = load ptr, ptr %22, align 8, !tbaa !66
-  %68 = getelementptr inbounds nuw %struct.MovieStream, ptr %.pre139, i64 %indvars.iv127
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %.pre139, i64 %indvars.iv127
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   br i1 %67, label %70, label %._crit_edge142
 
@@ -1051,7 +1050,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef %0) #1 {
 96:                                               ; preds = %96, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %96 ]
   %97 = load ptr, ptr %95, align 8, !tbaa !66
-  %98 = getelementptr inbounds nuw %struct.MovieStream, ptr %97, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw [56 x i8], ptr %97, i64 %indvars.iv.i
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !106
   tail call void @avcodec_flush_buffers(ptr noundef %100) #13
@@ -1095,7 +1094,7 @@ rewind_file.exit:                                 ; preds = %83
 
 112:                                              ; preds = %.lr.ph105, %112
   %indvars.iv130 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next131, %112 ]
-  %113 = getelementptr inbounds nuw %struct.MovieStream, ptr %111, i64 %indvars.iv130
+  %113 = getelementptr inbounds nuw [56 x i8], ptr %111, i64 %indvars.iv130
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 48
   store i32 0, ptr %114, align 8, !tbaa !115
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
@@ -1122,7 +1121,7 @@ rewind_file.exit:                                 ; preds = %83
   %indvars.iv133 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next134, %133 ]
   %.1107 = phi i32 [ %.074.lcssa153, %.lr.ph110 ], [ %.2, %133 ]
   %122 = load ptr, ptr %117, align 8, !tbaa !66
-  %123 = getelementptr inbounds nuw %struct.MovieStream, ptr %122, i64 %indvars.iv133
+  %123 = getelementptr inbounds nuw [56 x i8], ptr %122, i64 %indvars.iv133
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 48
   %125 = load i32, ptr %124, align 8, !tbaa !115
   %.not89 = icmp eq i32 %125, 0
@@ -1130,7 +1129,7 @@ rewind_file.exit:                                 ; preds = %83
 
 126:                                              ; preds = %120
   %127 = load ptr, ptr %118, align 8, !tbaa !109
-  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv133
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv133
   %129 = load ptr, ptr %128, align 8, !tbaa !110
   %130 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %131 = load i64, ptr %130, align 8, !tbaa !119
@@ -1209,7 +1208,7 @@ define internal noundef i32 @movie_config_output_props(ptr noundef initializes((
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %14 = load ptr, ptr %13, align 8, !tbaa !66
   %15 = and i64 %12, 4294967295
-  %16 = getelementptr inbounds nuw %struct.MovieStream, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [56 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !74
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -1538,13 +1537,13 @@ define internal fastcc range(i32 -2147483648, 2) i32 @decode_packet(ptr noundef 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !109
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !110
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %11 = load ptr, ptr %10, align 8, !tbaa !66
-  %12 = getelementptr inbounds %struct.MovieStream, ptr %11, i64 %5
+  %12 = getelementptr inbounds [56 x i8], ptr %11, i64 %5
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !106
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 40

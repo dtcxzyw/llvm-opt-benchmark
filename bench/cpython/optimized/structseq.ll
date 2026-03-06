@@ -914,8 +914,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._err_stackitem = type { ptr, ptr }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i16 }
 %struct.anon.806 = type { %struct.PyGC_Head, %struct.PyVarObject, [2 x ptr] }
-%struct.PyStructSequence_Field = type { ptr, ptr }
-%struct.PyMemberDef = type { ptr, i32, i64, i32, ptr }
 %struct.PyType_Slot = type { i32, ptr }
 %struct.PyType_Spec = type { ptr, i32, i32, i32, ptr }
 
@@ -1031,7 +1029,7 @@ declare ptr @_PyObject_GC_NewVar(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @PyStructSequence_SetItem(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = getelementptr ptr, ptr %4, i64 %1
+  %5 = getelementptr [8 x i8], ptr %4, i64 %1
   store ptr %2, ptr %5, align 8, !tbaa !4
   ret void
 }
@@ -1039,7 +1037,7 @@ define dso_local void @PyStructSequence_SetItem(ptr noundef writeonly captures(n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @PyStructSequence_GetItem(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = getelementptr ptr, ptr %3, i64 %1
+  %4 = getelementptr [8 x i8], ptr %3, i64 %1
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   ret ptr %5
 }
@@ -1072,7 +1070,7 @@ define hidden range(i32 -1, 1) i32 @_PyStructSequence_InitBuiltinWithFlags(ptr n
   %spec.select = select i1 %14, i64 %15, i64 %.027
   %spec.select34 = select i1 %14, i64 %15, i64 %12
   %16 = add i64 %.09.i, 1
-  %17 = getelementptr %struct.PyStructSequence_Field, ptr %10, i64 %16
+  %17 = getelementptr [16 x i8], ptr %10, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !26
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %count_members.exit, label %.lr.ph.i, !llvm.loop !28
@@ -1117,13 +1115,13 @@ initialize_members.exit.thread:                   ; preds = %23, %27
 34:                                               ; preds = %49, %.lr.ph.i25
   %.035.i = phi i64 [ 0, %.lr.ph.i25 ], [ %.1.i, %49 ]
   %.02934.i = phi i64 [ 0, %.lr.ph.i25 ], [ %50, %49 ]
-  %35 = getelementptr %struct.PyStructSequence_Field, ptr %32, i64 %.02934.i
+  %35 = getelementptr [16 x i8], ptr %32, i64 %.02934.i
   %36 = load ptr, ptr %35, align 8, !tbaa !26
   %37 = icmp eq ptr %36, @.str
   br i1 %37, label %49, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr %struct.PyMemberDef, ptr %29, i64 %.035.i
+  %39 = getelementptr [40 x i8], ptr %29, i64 %.035.i
   store ptr %36, ptr %39, align 8, !tbaa !31
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 6, ptr %40, align 8, !tbaa !33
@@ -1147,7 +1145,7 @@ initialize_members.exit.thread:                   ; preds = %23, %27
   br i1 %exitcond.not.i, label %initialize_members.exit, label %34, !llvm.loop !38
 
 initialize_members.exit:                          ; preds = %49
-  %51 = getelementptr %struct.PyMemberDef, ptr %29, i64 %.1.i
+  %51 = getelementptr [40 x i8], ptr %29, i64 %.1.i
   store ptr null, ptr %51, align 8, !tbaa !31
   br label %52
 
@@ -1369,7 +1367,7 @@ Py_DECREF.exit52:                                 ; preds = %52, %53, %56
   %.03368 = phi i64 [ 0, %.lr.ph ], [ %.134, %76 ]
   %.03567 = phi i64 [ 0, %.lr.ph ], [ %78, %76 ]
   %67 = load ptr, ptr %63, align 8, !tbaa !23
-  %68 = getelementptr %struct.PyStructSequence_Field, ptr %67, i64 %.03567
+  %68 = getelementptr [16 x i8], ptr %67, i64 %.03567
   %69 = load ptr, ptr %68, align 8, !tbaa !26
   %70 = icmp eq ptr %69, @.str
   br i1 %70, label %76, label %71
@@ -1380,7 +1378,7 @@ Py_DECREF.exit52:                                 ; preds = %52, %53, %56
   br i1 %73, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %71
-  %74 = getelementptr ptr, ptr %64, i64 %.03368
+  %74 = getelementptr [8 x i8], ptr %64, i64 %.03368
   store ptr %72, ptr %74, align 8, !tbaa !4
   %75 = add i64 %.03368, 1
   %.pre = load i32, ptr %6, align 8, !tbaa !40
@@ -1477,7 +1475,7 @@ define dso_local range(i32 -1, 1) i32 @PyStructSequence_InitType2(ptr noundef %0
   %spec.select = select i1 %10, i64 %11, i64 %.017
   %spec.select22 = select i1 %10, i64 %11, i64 %8
   %12 = add i64 %.09.i, 1
-  %13 = getelementptr %struct.PyStructSequence_Field, ptr %6, i64 %12
+  %13 = getelementptr [16 x i8], ptr %6, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !26
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %count_members.exit, label %.lr.ph.i, !llvm.loop !28
@@ -1515,13 +1513,13 @@ initialize_members.exit.thread:                   ; preds = %count_members.exit,
 25:                                               ; preds = %40, %.lr.ph.i15
   %.035.i = phi i64 [ 0, %.lr.ph.i15 ], [ %.1.i, %40 ]
   %.02934.i = phi i64 [ 0, %.lr.ph.i15 ], [ %41, %40 ]
-  %26 = getelementptr %struct.PyStructSequence_Field, ptr %23, i64 %.02934.i
+  %26 = getelementptr [16 x i8], ptr %23, i64 %.02934.i
   %27 = load ptr, ptr %26, align 8, !tbaa !26
   %28 = icmp eq ptr %27, @.str
   br i1 %28, label %40, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr %struct.PyMemberDef, ptr %20, i64 %.035.i
+  %30 = getelementptr [40 x i8], ptr %20, i64 %.035.i
   store ptr %27, ptr %30, align 8, !tbaa !31
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 6, ptr %31, align 8, !tbaa !33
@@ -1545,7 +1543,7 @@ initialize_members.exit.thread:                   ; preds = %count_members.exit,
   br i1 %exitcond.not.i, label %initialize_members.exit, label %25, !llvm.loop !38
 
 initialize_members.exit:                          ; preds = %40
-  %42 = getelementptr %struct.PyMemberDef, ptr %20, i64 %.1.i
+  %42 = getelementptr [40 x i8], ptr %20, i64 %.1.i
   store ptr null, ptr %42, align 8, !tbaa !31
   br label %43
 
@@ -1689,7 +1687,7 @@ define dso_local ptr @_PyStructSequence_NewType(ptr noundef readonly captures(no
   %spec.select = select i1 %10, i64 %11, i64 %.045
   %spec.select49 = select i1 %10, i64 %11, i64 %8
   %12 = add i64 %.09.i, 1
-  %13 = getelementptr %struct.PyStructSequence_Field, ptr %6, i64 %12
+  %13 = getelementptr [16 x i8], ptr %6, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !26
   %.not.i41 = icmp eq ptr %14, null
   br i1 %.not.i41, label %count_members.exit, label %.lr.ph.i, !llvm.loop !28
@@ -1727,13 +1725,13 @@ initialize_members.exit.thread:                   ; preds = %count_members.exit,
 25:                                               ; preds = %40, %.lr.ph.i43
   %.035.i = phi i64 [ 0, %.lr.ph.i43 ], [ %.1.i, %40 ]
   %.02934.i = phi i64 [ 0, %.lr.ph.i43 ], [ %41, %40 ]
-  %26 = getelementptr %struct.PyStructSequence_Field, ptr %23, i64 %.02934.i
+  %26 = getelementptr [16 x i8], ptr %23, i64 %.02934.i
   %27 = load ptr, ptr %26, align 8, !tbaa !26
   %28 = icmp eq ptr %27, @.str
   br i1 %28, label %40, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr %struct.PyMemberDef, ptr %20, i64 %.035.i
+  %30 = getelementptr [40 x i8], ptr %20, i64 %.035.i
   store ptr %27, ptr %30, align 8, !tbaa !31
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 6, ptr %31, align 8, !tbaa !33
@@ -1757,7 +1755,7 @@ initialize_members.exit.thread:                   ; preds = %count_members.exit,
   br i1 %exitcond.not.i, label %initialize_members.exit, label %25, !llvm.loop !38
 
 initialize_members.exit:                          ; preds = %40
-  %42 = getelementptr %struct.PyMemberDef, ptr %20, i64 %.1.i
+  %42 = getelementptr [40 x i8], ptr %20, i64 %.1.i
   store ptr null, ptr %42, align 8, !tbaa !31
   br label %43
 
@@ -1880,7 +1878,7 @@ define internal void @structseq_dealloc(ptr noundef %0) #0 {
 
 10:                                               ; preds = %.lr.ph, %Py_XDECREF.exit
   %.014 = phi i64 [ 0, %.lr.ph ], [ %19, %Py_XDECREF.exit ]
-  %11 = getelementptr ptr, ptr %9, i64 %.014
+  %11 = getelementptr [8 x i8], ptr %9, i64 %.014
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %.not.i13 = icmp eq ptr %12, null
   br i1 %.not.i13, label %Py_XDECREF.exit, label %13
@@ -1986,7 +1984,7 @@ define internal ptr @structseq_repr(ptr noundef readonly captures(none) %0) #0 {
 
 29:                                               ; preds = %26, %22
   %30 = load ptr, ptr %20, align 8, !tbaa !51
-  %31 = getelementptr %struct.PyMemberDef, ptr %30, i64 %.03447
+  %31 = getelementptr [40 x i8], ptr %30, i64 %.03447
   %32 = load ptr, ptr %31, align 8, !tbaa !31
   %33 = icmp eq ptr %32, null
   br i1 %33, label %34, label %38
@@ -2008,7 +2006,7 @@ define internal ptr @structseq_repr(ptr noundef readonly captures(none) %0) #0 {
   br i1 %43, label %.thread42, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr ptr, ptr %21, i64 %.03447
+  %45 = getelementptr [8 x i8], ptr %21, i64 %.03447
   %46 = load ptr, ptr %45, align 8, !tbaa !4
   %47 = tail call i32 @PyUnicodeWriter_WriteRepr(ptr noundef nonnull %10, ptr noundef %46) #9
   %48 = icmp slt i32 %47, 0
@@ -2307,7 +2305,7 @@ get_type_attr_as_size.exit140.i:                  ; preds = %52, %48
 
 131:                                              ; preds = %129, %126
   %.pn.i = phi ptr [ %130, %129 ], [ %118, %126 ]
-  %.in.i = getelementptr ptr, ptr %.pn.i, i64 %.085150.i
+  %.in.i = getelementptr [8 x i8], ptr %.pn.i, i64 %.085150.i
   %132 = load ptr, ptr %.in.i, align 8, !tbaa !4
   %133 = load i32, ptr %132, align 8, !tbaa !52
   %134 = icmp slt i32 %133, 0
@@ -2319,7 +2317,7 @@ get_type_attr_as_size.exit140.i:                  ; preds = %52, %48
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %135, %131
-  %137 = getelementptr ptr, ptr %119, i64 %.085150.i
+  %137 = getelementptr [8 x i8], ptr %119, i64 %.085150.i
   store ptr %132, ptr %137, align 8, !tbaa !4
   %138 = add nuw nsw i64 %.085150.i, 1
   %exitcond.not.i = icmp eq i64 %138, %79
@@ -2365,7 +2363,7 @@ Py_DECREF.exit107.i:                              ; preds = %143, %140, %._crit_
   store ptr null, ptr %4, align 8, !tbaa !4
   %151 = load ptr, ptr %148, align 8, !tbaa !51
   %152 = sub i64 %.186151.i, %58
-  %153 = getelementptr %struct.PyMemberDef, ptr %151, i64 %152
+  %153 = getelementptr [40 x i8], ptr %151, i64 %152
   %154 = load ptr, ptr %153, align 8, !tbaa !31
   %155 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %.0, ptr noundef %154, ptr noundef nonnull %4) #9
   %156 = icmp sgt i32 %155, -1
@@ -2412,7 +2410,7 @@ Py_DECREF.exit105.thread.i:                       ; preds = %162, %159, %157
 _Py_NewRef.exit141.i:                             ; preds = %171, %169, %166
   %173 = phi ptr [ %164, %171 ], [ @_Py_NoneStruct, %166 ], [ @_Py_NoneStruct, %169 ]
   %.282.i = phi i64 [ %172, %171 ], [ %.080152.i, %166 ], [ %.080152.i, %169 ]
-  %174 = getelementptr ptr, ptr %149, i64 %.186151.i
+  %174 = getelementptr [8 x i8], ptr %149, i64 %.186151.i
   store ptr %173, ptr %174, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %175 = add i64 %.186151.i, 1
@@ -2463,7 +2461,7 @@ _Py_NewRef.exit141.i:                             ; preds = %171, %169, %166
   br label %_Py_NewRef.exit142.i
 
 _Py_NewRef.exit142.i:                             ; preds = %192, %189
-  %194 = getelementptr ptr, ptr %188, i64 %.287155.i
+  %194 = getelementptr [8 x i8], ptr %188, i64 %.287155.i
   store ptr @_Py_NoneStruct, ptr %194, align 8, !tbaa !4
   %195 = add nsw i64 %.287155.i, 1
   %exitcond159.not.i = icmp eq i64 %195, %46
@@ -2516,7 +2514,7 @@ define internal i32 @structseq_traverse(ptr noundef readonly captures(none) %0, 
 
 18:                                               ; preds = %.lr.ph, %23
   %.02334 = phi i64 [ 0, %.lr.ph ], [ %24, %23 ]
-  %19 = getelementptr ptr, ptr %17, i64 %.02334
+  %19 = getelementptr [8 x i8], ptr %17, i64 %.02334
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %.not28 = icmp eq ptr %20, null
   br i1 %.not28, label %23, label %21
@@ -2648,9 +2646,9 @@ get_type_attr_as_size.exit:                       ; preds = %10, %14
   %30 = getelementptr inbounds nuw i8, ptr %.val40, i64 240
   %31 = load ptr, ptr %30, align 8, !tbaa !51
   %32 = sub i64 %.03062, %20
-  %33 = getelementptr %struct.PyMemberDef, ptr %31, i64 %32
+  %33 = getelementptr [40 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !31
-  %35 = getelementptr ptr, ptr %23, i64 %.03062
+  %35 = getelementptr [8 x i8], ptr %23, i64 %.03062
   %36 = load ptr, ptr %35, align 8, !tbaa !4
   %37 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %26, ptr noundef %34, ptr noundef %36) #9
   %38 = icmp slt i32 %37, 0
@@ -2819,7 +2817,7 @@ get_type_attr_as_size.exit:                       ; preds = %16, %20
   %.val = load ptr, ptr %9, align 8, !tbaa !22
   %42 = getelementptr inbounds nuw i8, ptr %.val, i64 240
   %43 = load ptr, ptr %42, align 8, !tbaa !51
-  %44 = getelementptr %struct.PyMemberDef, ptr %43, i64 %.03864
+  %44 = getelementptr [40 x i8], ptr %43, i64 %.03864
   %45 = load ptr, ptr %44, align 8, !tbaa !31
   %46 = call i32 @PyDict_PopString(ptr noundef nonnull %2, ptr noundef %45, ptr noundef nonnull %4) #9
   %47 = icmp slt i32 %46, 0
@@ -2831,7 +2829,7 @@ get_type_attr_as_size.exit:                       ; preds = %16, %20
   br i1 %50, label %51, label %_Py_NewRef.exit
 
 51:                                               ; preds = %48
-  %52 = getelementptr ptr, ptr %37, i64 %.03864
+  %52 = getelementptr [8 x i8], ptr %37, i64 %.03864
   %53 = load ptr, ptr %52, align 8, !tbaa !4
   %54 = load i32, ptr %53, align 8, !tbaa !52
   %55 = icmp slt i32 %54, 0
@@ -2848,7 +2846,7 @@ get_type_attr_as_size.exit:                       ; preds = %16, %20
 
 _Py_NewRef.exit:                                  ; preds = %56, %51, %48
   %59 = phi ptr [ %49, %48 ], [ %53, %51 ], [ %53, %56 ]
-  %60 = getelementptr ptr, ptr %38, i64 %.03864
+  %60 = getelementptr [8 x i8], ptr %38, i64 %.03864
   store ptr %59, ptr %60, align 8, !tbaa !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %61 = add nuw nsw i64 %.03864, 1
@@ -2885,7 +2883,7 @@ _Py_NewRef.exit:                                  ; preds = %56, %51, %48
 
 74:                                               ; preds = %.lr.ph66, %_Py_NewRef.exit60
   %.165 = phi i64 [ 0, %.lr.ph66 ], [ %82, %_Py_NewRef.exit60 ]
-  %75 = getelementptr ptr, ptr %39, i64 %.165
+  %75 = getelementptr [8 x i8], ptr %39, i64 %.165
   %76 = load ptr, ptr %75, align 8, !tbaa !4
   %77 = load i32, ptr %76, align 8, !tbaa !52
   %78 = icmp slt i32 %77, 0
@@ -2897,7 +2895,7 @@ _Py_NewRef.exit:                                  ; preds = %56, %51, %48
   br label %_Py_NewRef.exit60
 
 _Py_NewRef.exit60:                                ; preds = %74, %79
-  %81 = getelementptr ptr, ptr %40, i64 %.165
+  %81 = getelementptr [8 x i8], ptr %40, i64 %.165
   store ptr %76, ptr %81, align 8, !tbaa !4
   %82 = add nuw nsw i64 %.165, 1
   %exitcond70.not = icmp eq i64 %82, %14

@@ -178,9 +178,9 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animat
   %38 = icmp eq i64 %37, 0
   %. = select i1 %38, i64 %8, i64 %37
   %39 = add nsw i64 %., -1
-  %40 = getelementptr inbounds nuw float, ptr %33, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %39
   %41 = load float, ptr %40, align 4, !tbaa !17
-  %42 = getelementptr inbounds nuw float, ptr %33, i64 %37
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %37
   %43 = load float, ptr %42, align 4, !tbaa !17
   %44 = fcmp ole float %41, %.val
   %45 = fcmp ogt float %43, %.val
@@ -209,7 +209,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animat
   br i1 %.not.i, label %62, label %59
 
 59:                                               ; preds = %49
-  %60 = getelementptr inbounds nuw float, ptr %6, i64 %37
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %37
   %61 = load float, ptr %60, align 4, !tbaa !17
   br label %73
 
@@ -220,9 +220,9 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animat
   %64 = fsub float %.val, %41
   %65 = fsub float %43, %41
   %66 = fdiv float %64, %65
-  %67 = getelementptr inbounds nuw float, ptr %6, i64 %39
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %39
   %68 = load float, ptr %67, align 4, !tbaa !17
-  %69 = getelementptr inbounds nuw float, ptr %6, i64 %37
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %37
   %70 = load float, ptr %69, align 4, !tbaa !17
   %71 = fsub float %70, %68
   %72 = tail call noundef float @llvm.fmuladd.f32(float %71, float %66, float %68)
@@ -244,7 +244,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animat
   br label %144
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds nuw float, ptr %6, i64 %37
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %37
   %80 = load float, ptr %79, align 4, !tbaa !17
   %81 = fadd float %31, %80
   %82 = fcmp ult float %81, %10
@@ -281,9 +281,9 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animat
   %94 = icmp eq i64 %93, 0
   %.22 = select i1 %94, i64 %8, i64 %93
   %95 = add nsw i64 %.22, -1
-  %96 = getelementptr inbounds nuw float, ptr %90, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %95
   %97 = load float, ptr %96, align 4, !tbaa !17
-  %98 = getelementptr inbounds nuw float, ptr %90, i64 %93
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %93
   %99 = load float, ptr %98, align 4, !tbaa !17
   %100 = fcmp ole float %97, %.val25
   %101 = fcmp ogt float %99, %.val25
@@ -312,7 +312,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animat
   br i1 %.not.i29, label %118, label %115
 
 115:                                              ; preds = %105
-  %116 = getelementptr inbounds nuw float, ptr %6, i64 %93
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %93
   %117 = load float, ptr %116, align 4, !tbaa !17
   br label %129
 
@@ -323,9 +323,9 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animat
   %120 = fsub float %.val25, %97
   %121 = fsub float %99, %97
   %122 = fdiv float %120, %121
-  %123 = getelementptr inbounds nuw float, ptr %6, i64 %95
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %95
   %124 = load float, ptr %123, align 4, !tbaa !17
-  %125 = getelementptr inbounds nuw float, ptr %6, i64 %93
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %93
   %126 = load float, ptr %125, align 4, !tbaa !17
   %127 = fsub float %126, %124
   %128 = tail call noundef float @llvm.fmuladd.f32(float %127, float %122, float %124)
@@ -347,7 +347,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN3ozz9animat
   br label %144
 
 _ZN3ozz9animation12_GLOBAL__N_110DetectEdgeEllbRKNS0_18TrackTriggeringJobEPNS2_4EdgeE.exit33: ; preds = %102, %129
-  %134 = getelementptr inbounds nuw float, ptr %6, i64 %93
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %93
   %135 = load float, ptr %134, align 4, !tbaa !17
   %136 = fadd float %88, %135
   %137 = fcmp ugt float %136, %10

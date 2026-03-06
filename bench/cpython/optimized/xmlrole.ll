@@ -1156,7 +1156,7 @@ define internal range(i32 -1, 60) i32 @attlist2(ptr noundef captures(none) %0, i
 7:                                                ; preds = %.preheader, %12
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
   %8 = load ptr, ptr %6, align 8, !tbaa !12
-  %9 = getelementptr ptr, ptr @attlist2.types, i64 %indvars.iv
+  %9 = getelementptr [8 x i8], ptr @attlist2.types, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !16
   %11 = tail call i32 %8(ptr noundef %4, ptr noundef %2, ptr noundef %3, ptr noundef %10) #5
   %.not = icmp eq i32 %11, 0

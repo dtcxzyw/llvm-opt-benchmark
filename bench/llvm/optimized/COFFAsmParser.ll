@@ -1144,7 +1144,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
 
 15:                                               ; preds = %4
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.std::pair.157", ptr %.pre3.i.pre.i.i, i64 %16
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.pre.i.i, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %18, align 8
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %17, i64 -24
@@ -1175,7 +1175,7 @@ _ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i: ; preds = %15, %4
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm10MCStreamer11pushSectionEv.exit.i, label %24, !prof !53
 
 24:                                               ; preds = %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i
-  %25 = getelementptr inbounds nuw %"struct.std::pair.157", ptr %.pre3.i.pre.i.i, i64 %.pre-phi.i.i
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.pre.i.i, i64 %.pre-phi.i.i
   %26 = icmp uge ptr %5, %.pre3.i.pre.i.i
   %27 = icmp ult ptr %5, %25
   %spec.select.i.i.i.i.i.i.i = and i1 %26, %27
@@ -1202,7 +1202,7 @@ _ZN4llvm10MCStreamer11pushSectionEv.exit.i:       ; preds = %.critedge.i.i.i.i.i
   %.016.i.i.i.i.i = phi ptr [ %5, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i ], [ %34, %28 ], [ %5, %.critedge.i.i.i.i.i ]
   %37 = load i32, ptr %13, align 8, !tbaa !51
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.std::pair.157", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i.i, i64 32, i1 false)
   %40 = load i32, ptr %13, align 8, !tbaa !51
   %41 = add i32 %40, 1

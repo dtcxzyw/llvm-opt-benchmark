@@ -411,8 +411,8 @@ define { ptr, i64 } @_ZN9anthropic5Model2id17hb72e6cbcd6427368E(ptr noalias noun
   %4 = icmp ult i64 %3, 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9anthropic5Model13tool_model_id17h3f706d8f6d72bce9E.16, i64 %3
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9anthropic5Model13tool_model_id17h3f706d8f6d72bce9E, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9anthropic5Model13tool_model_id17h3f706d8f6d72bce9E.16, i64 %3
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9anthropic5Model13tool_model_id17h3f706d8f6d72bce9E, i64 %3
   %.sroa.6.0.in = select i1 %4, ptr %switch.gep, ptr %6
   %.sroa.0.0.in = select i1 %4, ptr %switch.gep1, ptr %5
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8
@@ -433,8 +433,8 @@ define { ptr, i64 } @_ZN9anthropic5Model12display_name17he6f956ecd226e0edE(ptr n
   %. = select i1 %7, ptr %0, ptr %5
   %8 = getelementptr inbounds nuw i8, ptr %., i64 8
   %9 = getelementptr inbounds nuw i8, ptr %., i64 16
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9anthropic5Model12display_name17he6f956ecd226e0edE, i64 %3
-  %switch.gep4 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9anthropic5Model12display_name17he6f956ecd226e0edE.15, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9anthropic5Model12display_name17he6f956ecd226e0edE, i64 %3
+  %switch.gep4 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9anthropic5Model12display_name17he6f956ecd226e0edE.15, i64 %3
   %.sroa.6.0.in = select i1 %4, ptr %switch.gep, ptr %9
   %.sroa.0.0.in = select i1 %4, ptr %switch.gep4, ptr %8
   %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8
@@ -511,7 +511,7 @@ define noundef i32 @_ZN9anthropic5Model17max_output_tokens17h494ea549209f7c51E(p
   br label %10
 
 switch.lookup:                                    ; preds = %1
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN9anthropic5Model17max_output_tokens17h494ea549209f7c51E, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN9anthropic5Model17max_output_tokens17h494ea549209f7c51E, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 
@@ -566,8 +566,8 @@ define { ptr, i64 } @_ZN9anthropic5Model13tool_model_id17h3f706d8f6d72bce9E(ptr 
   br label %_ZN9anthropic5Model2id17hb72e6cbcd6427368E.exit
 
 switch.lookup:                                    ; preds = %7
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9anthropic5Model13tool_model_id17h3f706d8f6d72bce9E, i64 %8
-  %switch.gep4 = getelementptr inbounds nuw i64, ptr @switch.table._ZN9anthropic5Model13tool_model_id17h3f706d8f6d72bce9E.16, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9anthropic5Model13tool_model_id17h3f706d8f6d72bce9E, i64 %8
+  %switch.gep4 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9anthropic5Model13tool_model_id17h3f706d8f6d72bce9E.16, i64 %8
   br label %_ZN9anthropic5Model2id17hb72e6cbcd6427368E.exit
 
 _ZN9anthropic5Model2id17hb72e6cbcd6427368E.exit:  ; preds = %switch.lookup, %10, %13
@@ -949,7 +949,7 @@ define internal fastcc void @_ZN9anthropic10get_header17h8ecd7fd9eb231eb8E(ptr d
 23:                                               ; preds = %12
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %25 = load ptr, ptr %24, align 8, !alias.scope !114, !noalias !115, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %25, i64 %.sroa.52.0.copyload.i.i
+  %26 = getelementptr inbounds [104 x i8], ptr %25, i64 %.sroa.52.0.copyload.i.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = tail call { ptr, i64 } @_ZN4http6header5value11HeaderValue6to_str17hd9f09d81f3fd9171E(ptr noundef nonnull align 8 %27)
   %29 = extractvalue { ptr, i64 } %28, 0

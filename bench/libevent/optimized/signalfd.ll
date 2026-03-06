@@ -50,7 +50,7 @@ define internal range(i32 -1, 1) i32 @sigfd_add(ptr noundef %0, i32 noundef %1, 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %18, label %12
@@ -77,10 +77,10 @@ define internal range(i32 -1, 1) i32 @sigfd_add(ptr noundef %0, i32 noundef %1, 
   %22 = tail call ptr @event_mm_malloc_(i64 noundef 152) #7
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %9
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %9
   store ptr %22, ptr %25, align 8
   %26 = load ptr, ptr %23, align 8
-  %27 = getelementptr inbounds ptr, ptr %26, i64 %9
+  %27 = getelementptr inbounds [8 x i8], ptr %26, i64 %9
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %31
@@ -97,11 +97,11 @@ define internal range(i32 -1, 1) i32 @sigfd_add(ptr noundef %0, i32 noundef %1, 
 34:                                               ; preds = %31
   tail call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.3) #7
   %35 = load ptr, ptr %23, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %9
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %9
   %37 = load ptr, ptr %36, align 8
   tail call void @event_mm_free_(ptr noundef %37) #7
   %38 = load ptr, ptr %23, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %9
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %9
   store ptr null, ptr %39, align 8
   br label %64
 
@@ -186,7 +186,7 @@ define internal range(i32 -1, 1) i32 @sigfd_del(ptr noundef captures(none) %0, i
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %7
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %7
   %20 = load ptr, ptr %19, align 8
   %.not20 = icmp eq ptr %20, null
   br i1 %.not20, label %27, label %21
@@ -203,13 +203,13 @@ define internal range(i32 -1, 1) i32 @sigfd_del(ptr noundef captures(none) %0, i
 24:                                               ; preds = %21
   call void @event_mm_free_(ptr noundef nonnull %20) #7
   %25 = load ptr, ptr %17, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %7
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %7
   store ptr null, ptr %26, align 8
   br label %27
 
 27:                                               ; preds = %24, %16, %12
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %7
+  %29 = getelementptr inbounds [8 x i8], ptr %28, i64 %7
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 @event_del_nolock_(ptr noundef %30, i32 noundef 2) #7
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 56

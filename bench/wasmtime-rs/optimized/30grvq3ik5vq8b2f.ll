@@ -299,7 +299,7 @@ _ZN8smallvec10infallible17had635ac09e5b739cE.exit.i: ; preds = %74
   %81 = phi i64 [ %.pre.i, %_ZN8smallvec10infallible17had635ac09e5b739cE.exit.i ], [ %72, %57 ]
   %.05.i = phi ptr [ %14, %_ZN8smallvec10infallible17had635ac09e5b739cE.exit.i ], [ %.sink2.i.i, %57 ]
   %.0.i = phi ptr [ %80, %_ZN8smallvec10infallible17had635ac09e5b739cE.exit.i ], [ %.sink3.i.i, %57 ]
-  %82 = getelementptr inbounds { i32, i32 }, ptr %.0.i, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %81
   store i32 %68, ptr %82, align 4
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   store i32 %59, ptr %83, align 4
@@ -313,7 +313,7 @@ _ZN8smallvec10infallible17had635ac09e5b739cE.exit.i: ; preds = %74
   ret void
 
 86:                                               ; preds = %.noexc14
-  %87 = getelementptr inbounds { i32, i32 }, ptr %.sink3.i, i64 %.sroa.737.080
+  %87 = getelementptr inbounds [8 x i8], ptr %.sink3.i, i64 %.sroa.737.080
   store i32 %48, ptr %87, align 4
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   store i32 %39, ptr %88, align 4
@@ -483,7 +483,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %29 = load i64, ptr %28, align 8, !alias.scope !135, !noundef !15
-  %30 = getelementptr inbounds { [3 x i64] }, ptr %27, i64 %29
+  %30 = getelementptr inbounds [24 x i8], ptr %27, i64 %29
   %31 = load ptr, ptr %0, align 8, !nonnull !15, !noundef !15
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8, !noundef !15

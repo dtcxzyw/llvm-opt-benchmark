@@ -10,14 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<llvm::DwarfStringPoolEntryRef, std::allocator<llvm::DwarfStringPoolEntryRef>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::DwarfStringPoolEntryRef, std::allocator<llvm::DwarfStringPoolEntryRef>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::DwarfStringPoolEntryRef, std::allocator<llvm::DwarfStringPoolEntryRef>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<llvm::DwarfStringPoolEntryRef, std::allocator<llvm::DwarfStringPoolEntryRef>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvm::DwarfStringPoolEntryRef" = type { %"class.llvm::PointerUnion" }
-%"class.llvm::PointerUnion" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.0" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.0" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.1" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.1" = type { %"class.llvm::PointerIntPair" }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%"struct.std::pair.13" = type { ptr, i64 }
 
 $_ZN4llvm9StringMapINS_20DwarfStringPoolEntryENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJS1_EEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_ = comdat any
 
@@ -121,7 +113,7 @@ _ZNSt12_Vector_baseIN4llvm23DwarfStringPoolEntryRefESaIS1_EE13_M_deallocateEPS1_
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %0, align 8, !tbaa !37
   store ptr %8, ptr %9, align 8, !tbaa !40
-  %10 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %8, i64 %6
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %6
   store ptr %10, ptr %5, align 8, !tbaa !41
   br label %_ZNSt6vectorIN4llvm23DwarfStringPoolEntryRefESaIS1_EE7reserveEm.exit
 
@@ -150,7 +142,7 @@ _ZNSt6vectorIN4llvm23DwarfStringPoolEntryRefESaIS1_EE7reserveEm.exit: ; preds = 
 _ZNK4llvm9StringMapINS_20DwarfStringPoolEntryENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE5beginEv.exit: ; preds = %.preheader.i.i.i, %_ZNSt6vectorIN4llvm23DwarfStringPoolEntryRefESaIS1_EE7reserveEm.exit
   %.sroa.0.1.i = phi ptr [ %11, %_ZNSt6vectorIN4llvm23DwarfStringPoolEntryRefESaIS1_EE7reserveEm.exit ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
   %17 = zext i32 %13 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %17
   %.not1119 = icmp eq ptr %.sroa.0.1.i, %18
   br i1 %.not1119, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_20DwarfStringPoolEntryEEEKNS_14StringMapEntryIS2_EEEppEv.exit._crit_edge.thread, label %.lr.ph
 
@@ -344,7 +336,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntry
   %98 = sub i64 %97, %22
   %99 = ashr exact i64 %98, 3
   %100 = sub nsw i64 0, %99
-  %101 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %96, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %96, i64 %100
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %101, ptr noundef nonnull align 8 dereferenceable(1) %151, i64 %98, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_T0_.exit.i41.i.i.i.i.i"
 
@@ -466,7 +458,7 @@ _ZNSt6vectorIN4llvm23DwarfStringPoolEntryRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2
 
 _ZNSt6vectorIN4llvm23DwarfStringPoolEntryRefESaIS1_EE17_M_realloc_insertIJRKNS0_14StringMapEntryINS0_20DwarfStringPoolEntryEEEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %148, %_ZNSt6vectorIN4llvm23DwarfStringPoolEntryRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %147, ptr %19, align 8, !tbaa !40
-  %149 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %141, i64 %139
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %139
   br label %_ZNSt6vectorIN4llvm23DwarfStringPoolEntryRefESaIS1_EE12emplace_backIJRKNS0_14StringMapEntryINS0_20DwarfStringPoolEntryEEEEEERS1_DpOT_.exit
 
 _ZNSt6vectorIN4llvm23DwarfStringPoolEntryRefESaIS1_EE12emplace_backIJRKNS0_14StringMapEntryINS0_20DwarfStringPoolEntryEEEEEERS1_DpOT_.exit: ; preds = %_ZNSt6vectorIN4llvm23DwarfStringPoolEntryRefESaIS1_EE17_M_realloc_insertIJRKNS0_14StringMapEntryINS0_20DwarfStringPoolEntryEEEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %126, %118
@@ -494,7 +486,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapINS_20DwarfStringPoolE
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #14
   %7 = load ptr, ptr %0, align 8, !tbaa !42
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -577,7 +569,7 @@ _ZN4llvm14StringMapEntryINS_20DwarfStringPoolEntryEE6createINS_20BumpPtrAllocato
   %45 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #14
   %46 = load ptr, ptr %0, align 8, !tbaa !42
   %47 = zext i32 %45 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryINS_20DwarfStringPoolEntryEE6createINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEJS1_EEEPS2_NS_9StringRefERT_DpOT0_.exit
@@ -638,7 +630,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !68
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.13", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -679,7 +671,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !68
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !66
@@ -748,13 +740,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %18 = and i64 %.fr.i.i25.lcssa, 8
   %19 = icmp eq i64 %18, 0
   %20 = or disjoint i64 %14, 1
-  %21 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %20
-  %22 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %15
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.fr26, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.fr26, i64 %15
   br label %23
 
 23:                                               ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", %._crit_edge
   %.010.i.i.i = phi i64 [ %15, %._crit_edge ], [ %72, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i" ]
-  %24 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.010.i.i.i
+  %24 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %.010.i.i.i
   %.sroa.03.0.copyload.i.i.i = load i64, ptr %24, align 8
   %25 = icmp slt i64 %.010.i.i.i, %17
   br i1 %25, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
@@ -763,9 +755,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.036.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.010.i.i.i, %23 ]
   %26 = shl i64 %.036.i.i.i.i, 1
   %27 = add i64 %26, 2
-  %28 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %27
   %29 = or disjoint i64 %26, 1
-  %30 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %29
   %.sroa.01.0.copyload.i.i.i.i.i = load i64, ptr %28, align 8
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %30, align 8
   %31 = and i64 %.sroa.01.0.copyload.i.i.i.i.i, -8
@@ -786,8 +778,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %42 = load i32, ptr %41, align 8, !tbaa !8
   %43 = icmp ult i32 %36, %42
   %spec.select.i.i.i.i = select i1 %43, i64 %29, i64 %27
-  %44 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %spec.select.i.i.i.i
-  %45 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.036.i.i.i.i
+  %44 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %spec.select.i.i.i.i
+  %45 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %.036.i.i.i.i
   %46 = load i64, ptr %44, align 8
   store i64 %46, ptr %45, align 8
   %47 = icmp slt i64 %spec.select.i.i.i.i, %17
@@ -823,7 +815,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.011.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0912.i.i.i.i.i, %68 ]
   %.0912.in.i.i.i.i.i = add nsw i64 %.011.i.i.i.i.i, -1
   %.0912.i.i.i.i.i = sdiv i64 %.0912.in.i.i.i.i.i, 2
-  %59 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.0912.i.i.i.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.fr26, i64 %.0912.i.i.i.i.i
   %.sroa.01.0.copyload.i.i.i.i.i.i = load i64, ptr %59, align 8
   %60 = and i64 %.sroa.01.0.copyload.i.i.i.i.i.i, -8
   %61 = inttoptr i64 %60 to ptr
@@ -838,14 +830,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %67, label %68, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
 
 68:                                               ; preds = %58
-  %69 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.011.i.i.i.i.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.fr26, i64 %.011.i.i.i.i.i
   store i64 %.sroa.01.0.copyload.i.i.i.i.i.i, ptr %69, align 8
   %70 = icmp sgt i64 %.0912.i.i.i.i.i, %.010.i.i.i
   br i1 %70, label %58, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", !llvm.loop !71
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i": ; preds = %68, %58, %51
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %51 ], [ %.011.i.i.i.i.i, %58 ], [ %.0912.i.i.i.i.i, %68 ]
-  %71 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.0.lcssa.i.i.i.i.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.fr26, i64 %.0.lcssa.i.i.i.i.i
   store i64 %.sroa.03.0.copyload.i.i.i, ptr %71, align 8
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
   %72 = add nsw i64 %.010.i.i.i, -1
@@ -873,9 +865,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.036.i.i.i24.i = phi i64 [ %spec.select.i.i.i31.i, %.lr.ph.i.i.i23.i ], [ 0, %.lr.ph.i9.i ]
   %82 = shl i64 %.036.i.i.i24.i, 1
   %83 = add i64 %82, 2
-  %84 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %83
   %85 = or disjoint i64 %82, 1
-  %86 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %85
   %.sroa.01.0.copyload.i.i.i.i25.i = load i64, ptr %84, align 8
   %.sroa.0.0.copyload.i.i.i.i26.i = load i64, ptr %86, align 8
   %87 = and i64 %.sroa.01.0.copyload.i.i.i.i25.i, -8
@@ -896,8 +888,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %98 = load i32, ptr %97, align 8, !tbaa !8
   %99 = icmp ult i32 %92, %98
   %spec.select.i.i.i31.i = select i1 %99, i64 %85, i64 %83
-  %100 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %spec.select.i.i.i31.i
-  %101 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.036.i.i.i24.i
+  %100 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %spec.select.i.i.i31.i
+  %101 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %.036.i.i.i24.i
   %102 = load i64, ptr %100, align 8
   store i64 %102, ptr %101, align 8
   %103 = icmp slt i64 %spec.select.i.i.i31.i, %80
@@ -918,8 +910,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 .thread.i.i.i:                                    ; preds = %106
   %110 = shl nuw nsw i64 %.0.lcssa.i.i.i12.i, 1
   %111 = or disjoint i64 %110, 1
-  %112 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %111
-  %113 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.0.lcssa.i.i.i12.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %.fr26, i64 %111
+  %113 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %.0.lcssa.i.i.i12.i
   %114 = load i64, ptr %112, align 8
   store i64 %114, ptr %113, align 8
   br label %.lr.ph.i.i.i.i14.i
@@ -943,7 +935,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.011.i.i.i.i17.i = phi i64 [ %.1.i6.i.i.i, %.lr.ph.i.i.i.i14.i ], [ %.0912.i.i78.i.i.i, %131 ]
   %.0912.in.i.i.i.i18.i = add nsw i64 %.011.i.i.i.i17.i, -1
   %.0912.i.i78.i.i.i = lshr i64 %.0912.in.i.i.i.i18.i, 1
-  %122 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.0912.i.i78.i.i.i
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %.fr26, i64 %.0912.i.i78.i.i.i
   %.sroa.01.0.copyload.i.i.i.i.i19.i = load i64, ptr %122, align 8
   %123 = and i64 %.sroa.01.0.copyload.i.i.i.i.i19.i, -8
   %124 = inttoptr i64 %123 to ptr
@@ -958,14 +950,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %130, label %131, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i"
 
 131:                                              ; preds = %121
-  %132 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.011.i.i.i.i17.i
+  %132 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %.011.i.i.i.i17.i
   store i64 %.sroa.01.0.copyload.i.i.i.i.i19.i, ptr %132, align 8
   %.not9.i.i.i = icmp eq i64 %.0912.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i", label %121, !llvm.loop !71
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i": ; preds = %131, %121, %115
   %.0.lcssa.i.i.i.i22.i = phi i64 [ 0, %115 ], [ %.011.i.i.i.i17.i, %121 ], [ 0, %131 ]
-  %133 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.0.lcssa.i.i.i.i22.i
+  %133 = getelementptr inbounds [8 x i8], ptr %.fr26, i64 %.0.lcssa.i.i.i.i22.i
   store i64 %.sroa.03.0.copyload.i.i10.i, ptr %133, align 8
   %134 = icmp sgt i64 %77, 8
   br i1 %134, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !73
@@ -976,7 +968,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %135 = phi i64 [ %200, %11 ], [ %7, %.lr.ph ]
   %136 = add nsw i64 %.02446, -1
   %137 = lshr i64 %135, 1
-  %138 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %.fr26, i64 %137
   %139 = getelementptr inbounds i8, ptr %storemerge2347, i64 -8
   %.sroa.01.0.copyload.i.i.i = load i64, ptr %9, align 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %138, align 8

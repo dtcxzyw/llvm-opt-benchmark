@@ -344,7 +344,7 @@ define linkonce_odr void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_trait
 
 14:                                               ; preds = %18, %5
   %.08.i4.i.i.i.i.i.i = phi i64 [ 0, %5 ], [ %19, %18 ]
-  %15 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i.i
   %16 = load i64, ptr %15, align 8, !tbaa !32
   %17 = icmp ugt i64 %16, %13
   br i1 %17, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i.i, label %18, !prof !35
@@ -521,7 +521,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
 
 25:                                               ; preds = %29, %22
   %.08.i.i4.i.i.i = phi i64 [ 0, %22 ], [ %30, %29 ]
-  %26 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i
   %27 = load i64, ptr %26, align 8, !tbaa !32
   %28 = icmp ugt i64 %27, %24
   br i1 %28, label %.loopexit.i.i.i, label %29, !prof !35
@@ -546,7 +546,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   %34 = add i64 %.014.i5.i.i.i, -2
   %35 = udiv i64 %.0.i6.i.i.i, 100
   %36 = urem i64 %.0.i6.i.i.i, 100
-  %37 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !39
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 %34
   store i16 %38, ptr %39, align 1
@@ -557,7 +557,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   %41 = phi i64 [ %31, %.loopexit.i.i.i ], [ %33, %.lr.ph.i.i.i ]
   %.014.i.lcssa.i.i.i = phi i64 [ %31, %.loopexit.i.i.i ], [ %34, %.lr.ph.i.i.i ]
   %.0.i.lcssa.i.i.i = phi i64 [ %24, %.loopexit.i.i.i ], [ %35, %.lr.ph.i.i.i ]
-  %42 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i
+  %42 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i
   %43 = load i16, ptr %42, align 2, !tbaa !39
   %44 = icmp eq i64 %.014.i.lcssa.i.i.i, 2
   br i1 %44, label %45, label %46, !prof !35

@@ -3,10 +3,6 @@ source_filename = "bench/gromacs/original/kernel_ref_prune.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.gmx::nbnxn_ci_t" = type { i32, i32, i32, i32 }
-%"class.gmx::BasicVector" = type { [3 x float] }
-%"struct.gmx::nbnxn_cj_t" = type { i32, i32 }
-
 $_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPNS_16NbnxnPairlistCpuEPKNS_16nbnxn_atomdata_tENS_8ArrayRefIKNS_11BasicVectorIfEEEEf = comdat any
 
 $_ZNSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE6resizeEm = comdat any
@@ -76,10 +72,10 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
   %indvars.iv128 = phi i64 [ 0, %.lr.ph110.preheader ], [ %indvars.iv.next129, %._crit_edge.thread ]
   %.0108 = phi i32 [ 0, %.lr.ph110.preheader ], [ %.1, %._crit_edge.thread ]
   %.085107 = phi i32 [ 0, %.lr.ph110.preheader ], [ %.186.lcssa139, %._crit_edge.thread ]
-  %41 = getelementptr inbounds nuw %"struct.gmx::nbnxn_ci_t", ptr %25, i64 %indvars.iv128
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv128
   %42 = load i32, ptr %41, align 4, !tbaa !18
   %43 = sext i32 %.0108 to i64
-  %44 = getelementptr inbounds %"struct.gmx::nbnxn_ci_t", ptr %26, i64 %43
+  %44 = getelementptr inbounds [16 x i8], ptr %26, i64 %43
   store i32 %42, ptr %44, align 4, !tbaa !18
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !21
@@ -91,7 +87,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %50 = shl nsw i32 %42, 2
   %51 = zext nneg i32 %49 to i64
-  %52 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %2, i64 %51
+  %52 = getelementptr inbounds nuw [12 x i8], ptr %2, i64 %51
   %53 = sext i32 %50 to i64
   br label %.preheader98
 
@@ -123,12 +119,12 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
 
 63:                                               ; preds = %.preheader98, %63
   %indvars.iv = phi i64 [ 0, %.preheader98 ], [ %indvars.iv.next, %63 ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %64 = load float, ptr %gep, align 4, !tbaa !26
-  %65 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   %66 = load float, ptr %65, align 4, !tbaa !26
   %67 = fadd float %64, %66
-  %gep141 = getelementptr inbounds nuw float, ptr %invariant.gep140, i64 %indvars.iv
+  %gep141 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep140, i64 %indvars.iv
   store float %67, ptr %gep141, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -143,7 +139,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
   %69 = phi i32 [ %59, %.lr.ph.preheader ], [ %104, %103 ]
   %indvars.iv125 = phi i64 [ %61, %.lr.ph.preheader ], [ %indvars.iv.next126, %103 ]
   %.186105 = phi i32 [ %.085107, %.lr.ph.preheader ], [ %.2, %103 ]
-  %70 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %27, i64 %indvars.iv125
+  %70 = getelementptr inbounds [8 x i8], ptr %27, i64 %indvars.iv125
   %71 = load i32, ptr %70, align 4, !tbaa !29
   %72 = shl nsw i32 %71, 2
   %73 = sext i32 %72 to i64
@@ -195,7 +191,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE1EEEvPN
 98:                                               ; preds = %80
   %99 = add nsw i32 %.186105, 1
   %100 = sext i32 %.186105 to i64
-  %101 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %28, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %28, i64 %100
   %102 = load i64, ptr %70, align 4
   store i64 %102, ptr %101, align 4
   %.pre = load i32, ptr %58, align 4, !tbaa !23
@@ -295,9 +291,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_ci_tES2_NS0_30DefaultInit
 
 _ZNSt12_Vector_baseIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE13_M_deallocateEPS1_m.exit42.i: ; preds = %33, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_ci_tES2_NS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEET0_T_S7_S6_RT1_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !10
-  %35 = getelementptr inbounds nuw %"struct.gmx::nbnxn_ci_t", ptr %30, i64 %12
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %12
   store ptr %35, ptr %3, align 8, !tbaa !4
-  %36 = getelementptr inbounds nuw %"struct.gmx::nbnxn_ci_t", ptr %29, i64 %27
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %27
   store ptr %36, ptr %13, align 8, !tbaa !35
   br label %_ZNSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_default_appendEm.exit
 
@@ -306,7 +302,7 @@ _ZNSt12_Vector_baseIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_Sa
   br i1 %38, label %39, label %_ZNSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw %"struct.gmx::nbnxn_ci_t", ptr %5, i64 %1
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %40
   br i1 %.not.i4, label %_ZNSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_default_appendEm.exit, label %41
 
@@ -407,9 +403,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_cj_tES2_NS0_30DefaultInit
 
 _ZNSt12_Vector_baseIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE13_M_deallocateEPS1_m.exit42.i: ; preds = %34, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_cj_tES2_NS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEET0_T_S7_S6_RT1_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !14
-  %36 = getelementptr inbounds nuw %"struct.gmx::nbnxn_cj_t", ptr %30, i64 %12
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %12
   store ptr %36, ptr %3, align 8, !tbaa !11
-  %37 = getelementptr inbounds nuw %"struct.gmx::nbnxn_cj_t", ptr %29, i64 %27
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %37, ptr %13, align 8, !tbaa !39
   br label %_ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_default_appendEm.exit
 
@@ -418,7 +414,7 @@ _ZNSt12_Vector_baseIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_Sa
   br i1 %39, label %40, label %_ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw %"struct.gmx::nbnxn_cj_t", ptr %5, i64 %1
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %41
   br i1 %.not.i4, label %_ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_default_appendEm.exit, label %42
 
@@ -491,10 +487,10 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE6EEEvPN
   %indvars.iv116 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next117, %._crit_edge.thread ]
   %.0106 = phi i32 [ 0, %.lr.ph108 ], [ %.1, %._crit_edge.thread ]
   %.085105 = phi i32 [ 0, %.lr.ph108 ], [ %.186.lcssa124, %._crit_edge.thread ]
-  %43 = getelementptr inbounds nuw %"struct.gmx::nbnxn_ci_t", ptr %25, i64 %indvars.iv116
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv116
   %44 = load i32, ptr %43, align 4, !tbaa !18
   %45 = sext i32 %.0106 to i64
-  %46 = getelementptr inbounds %"struct.gmx::nbnxn_ci_t", ptr %26, i64 %45
+  %46 = getelementptr inbounds [16 x i8], ptr %26, i64 %45
   store i32 %44, ptr %46, align 4, !tbaa !18
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !21
@@ -506,9 +502,9 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE6EEEvPN
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = mul nsw i32 %44, 3
   %53 = zext nneg i32 %51 to i64
-  %54 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %2, i64 %53
+  %54 = getelementptr inbounds nuw [12 x i8], ptr %2, i64 %53
   %55 = sext i32 %52 to i64
-  %invariant.gep = getelementptr float, ptr %30, i64 %55
+  %invariant.gep = getelementptr [4 x i8], ptr %30, i64 %55
   br label %65
 
 .loopexit99:                                      ; preds = %65
@@ -528,12 +524,12 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE6EEEvPN
 
 65:                                               ; preds = %.preheader98, %65
   %indvars.iv = phi i64 [ 0, %.preheader98 ], [ %indvars.iv.next, %65 ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %66 = load float, ptr %gep, align 4, !tbaa !26
-  %67 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   %68 = load float, ptr %67, align 4, !tbaa !26
   %69 = fadd float %66, %68
-  %70 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store float %69, ptr %70, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -548,11 +544,11 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE6EEEvPN
   %72 = phi i32 [ %59, %.lr.ph ], [ %96, %95 ]
   %indvars.iv113 = phi i64 [ %64, %.lr.ph ], [ %indvars.iv.next114, %95 ]
   %.186103 = phi i32 [ %.085105, %.lr.ph ], [ %.2, %95 ]
-  %73 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %27, i64 %indvars.iv113
+  %73 = getelementptr inbounds [8 x i8], ptr %27, i64 %indvars.iv113
   %74 = load i32, ptr %73, align 4, !tbaa !29
   %75 = mul nsw i32 %74, 3
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds float, ptr %30, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %30, i64 %76
   %78 = load float, ptr %77, align 4, !tbaa !26
   %79 = fsub float %61, %78
   %80 = getelementptr i8, ptr %77, i64 4
@@ -570,7 +566,7 @@ define weak_odr void @_ZN3gmx19nbnxmRefPruneKernelILNS_15NbnxmKernelTypeE6EEEvPN
 90:                                               ; preds = %.preheader
   %91 = add nsw i32 %.186103, 1
   %92 = sext i32 %.186103 to i64
-  %93 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %28, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %28, i64 %92
   %94 = load i64, ptr %73, align 4
   store i64 %94, ptr %93, align 4
   %.pre = load i32, ptr %58, align 4, !tbaa !23

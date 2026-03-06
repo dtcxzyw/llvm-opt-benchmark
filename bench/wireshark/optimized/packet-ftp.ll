@@ -887,7 +887,7 @@ addresses_equal.exit347.thread:                   ; preds = %308, %addresses_equ
   %328 = load i8, ptr %324, align 1
   %329 = load ptr, ptr @g_ascii_table, align 8
   %330 = zext i8 %328 to i64
-  %331 = getelementptr i16, ptr %329, i64 %330
+  %331 = getelementptr [2 x i8], ptr %329, i64 %330
   %332 = load i16, ptr %331, align 2
   %333 = and i16 %332, 16
   %.not.i.i = icmp eq i16 %333, 0
@@ -1102,7 +1102,7 @@ parse_eprt_request.exit.thread:                   ; preds = %369, %345, %360, %3
 
 415:                                              ; preds = %413
   %416 = zext i8 %412 to i64
-  %417 = getelementptr i16, ptr %407, i64 %416
+  %417 = getelementptr [2 x i8], ptr %407, i64 %416
   %418 = load i16, ptr %417, align 2
   %419 = and i16 %418, 16
   %.not.i.i354 = icmp eq i16 %419, 0
@@ -1787,7 +1787,7 @@ proto_item_set_generated.exit112:                 ; preds = %112, %109, %105, %p
 
 143:                                              ; preds = %141
   %144 = zext i8 %142 to i64
-  %145 = getelementptr i16, ptr %140, i64 %144
+  %145 = getelementptr [2 x i8], ptr %140, i64 %144
   %146 = load i16, ptr %145, align 2
   %147 = and i16 %146, 64
   %.not100 = icmp eq i16 %147, 0
@@ -2585,7 +2585,7 @@ define internal fastcc noundef zeroext i1 @parse_port_pasv(ptr noundef %0, i32 n
   %22 = phi i8 [ %16, %.lr.ph.lr.ph ], [ %.be, %.lr.ph.backedge ]
   %.144 = phi ptr [ %14, %.lr.ph.lr.ph ], [ %.144.be, %.lr.ph.backedge ]
   %23 = zext i8 %22 to i64
-  %24 = getelementptr i16, ptr %17, i64 %23
+  %24 = getelementptr [2 x i8], ptr %17, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 8
   %.not34 = icmp eq i16 %26, 0
@@ -2673,7 +2673,7 @@ define internal fastcc noundef zeroext i1 @parse_port_pasv(ptr noundef %0, i32 n
   %84 = phi i8 [ %91, %89 ], [ %33, %.preheader ]
   %.249 = phi ptr [ %90, %89 ], [ %.144, %.preheader ]
   %85 = zext i8 %84 to i64
-  %86 = getelementptr i16, ptr %17, i64 %85
+  %86 = getelementptr [2 x i8], ptr %17, i64 %85
   %87 = load i16, ptr %86, align 2
   %88 = and i16 %87, 8
   %.not36 = icmp eq i16 %88, 0

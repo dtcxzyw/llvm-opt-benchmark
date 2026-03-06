@@ -217,7 +217,7 @@ _ZNK6vectorI8rationalLb1EjE4sizeEv.exit.i:        ; preds = %_ZNK6vectorI8ration
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %30 = add i32 %.0.i.i, -1
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %class.rational, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %31
   store i32 0, ptr %3, align 8, !tbaa !15
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 0, ptr %33, align 4
@@ -413,7 +413,7 @@ _ZL14mk_power_up_toR6vectorI8rationalLb1EjEj.exit: ; preds = %.noexc.i14.i
 103:                                              ; preds = %_ZL14mk_power_up_toR6vectorI8rationalLb1EjEj.exit, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit
   %104 = phi ptr [ %.pre16, %_ZL14mk_power_up_toR6vectorI8rationalLb1EjEj.exit ], [ %17, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit ]
   %105 = zext i32 %1 to i64
-  %106 = getelementptr inbounds nuw %class.rational, ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %104, i64 %105
   %107 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !3
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %109 = load i8, ptr %108, align 4
@@ -3543,7 +3543,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN6v
   %13 = phi i32 [ %.pre2, %11 ], [ %7, %5 ]
   %14 = phi ptr [ %.pre, %11 ], [ %3, %5 ]
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw %class.rational, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %15
   store i32 0, ptr %16, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i8, ptr %17, align 4

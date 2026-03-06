@@ -88,7 +88,7 @@ define dso_local void @_ZN4llvm13CGDataOStream5patchENS_8ArrayRefINS_15CGDataPat
 35:                                               ; preds = %.lr.ph45, %35
   %indvars.iv57 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next58, %35 ]
   %36 = load ptr, ptr %33, align 8, !tbaa !29
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv57
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv57
   %38 = load i64, ptr %37, align 8, !tbaa !30
   %39 = load ptr, ptr %24, align 8, !tbaa !31
   %40 = load i32, ptr %25, align 8, !tbaa !32
@@ -137,7 +137,7 @@ define dso_local void @_ZN4llvm13CGDataOStream5patchENS_8ArrayRefINS_15CGDataPat
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %57 = load ptr, ptr %54, align 8, !tbaa !29
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   %59 = load i64, ptr %58, align 8, !tbaa !30
   store i64 %59, ptr %5, align 8, !tbaa !30
   %60 = load i64, ptr %.03242, align 8, !tbaa !23
@@ -696,7 +696,7 @@ define linkonce_odr hidden void @_ZN4llvm17StableFunctionMapD2Ev(ptr noundef non
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %16 ]
   %10 = load ptr, ptr %2, align 8, !tbaa !92
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !93
   %magicptr.i = ptrtoint ptr %12 to i64
   switch i64 %magicptr.i, label %13 [

@@ -392,7 +392,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %.lr.ph70
   %60 = phi i32 [ %54, %53 ], [ %.pre.i, %56 ]
   %61 = load ptr, ptr %3, align 8, !tbaa !153
   %62 = zext i32 %60 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %62
   %64 = ptrtoint ptr %.sroa.051.069 to i64
   store i64 %64, ptr %63, align 1
   %65 = load i32, ptr %16, align 8, !tbaa !154
@@ -591,7 +591,7 @@ _ZNSt6vectorIPN4llvm8MCSymbolESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i:
 _ZNSt6vectorIPN4llvm8MCSymbolESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %152, %_ZNSt6vectorIPN4llvm8MCSymbolESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %147, ptr %94, align 8, !tbaa !210
   store ptr %151, ptr %95, align 8, !tbaa !206
-  %153 = getelementptr inbounds nuw ptr, ptr %147, i64 %145
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %145
   store ptr %153, ptr %96, align 8, !tbaa !207
   br label %_ZN4llvm15MachineFunction16addLongjmpTargetEPNS_8MCSymbolE.exit
 

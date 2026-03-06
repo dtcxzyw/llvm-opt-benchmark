@@ -19,11 +19,11 @@ define float @dt_image_distance_transform(ptr noundef readonly captures(none) %0
 
 .lr.ph:                                           ; preds = %.preheader86, %.lr.ph
   %.08087 = phi i64 [ %13, %.lr.ph ], [ 0, %.preheader86 ]
-  %8 = getelementptr inbounds nuw float, ptr %0, i64 %.08087
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.08087
   %9 = load float, ptr %8, align 4, !tbaa !6
   %10 = fcmp reassoc nsz arcp contract afn olt float %9, %4
   %11 = select i1 %10, float 0.000000e+00, float 0x4415AF1D80000000
-  %12 = getelementptr inbounds nuw float, ptr %1, i64 %.08087
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.08087
   store float %11, ptr %12, align 4, !tbaa !6
   %13 = add nuw i64 %.08087, 1
   %exitcond.not = icmp eq i64 %13, %7
@@ -56,15 +56,15 @@ define float @dt_image_distance_transform(ptr noundef readonly captures(none) %0
 
 .preheader85.us.us:                               ; preds = %.preheader85.lr.ph, %._crit_edge95.us.us
   %.07996.us.us = phi i64 [ %33, %._crit_edge95.us.us ], [ 0, %.preheader85.lr.ph ]
-  %invariant.gep.us.us = getelementptr float, ptr %1, i64 %.07996.us.us
+  %invariant.gep.us.us = getelementptr [4 x i8], ptr %1, i64 %.07996.us.us
   br label %28
 
 23:                                               ; preds = %._crit_edge.us.us, %23
   %.07792.us.us = phi i64 [ 0, %._crit_edge.us.us ], [ %27, %23 ]
-  %24 = getelementptr inbounds nuw float, ptr %20, i64 %.07792.us.us
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.07792.us.us
   %25 = load float, ptr %24, align 4, !tbaa !6
   %26 = mul i64 %.07792.us.us, %2
-  %gep91.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %26
+  %gep91.us.us = getelementptr [4 x i8], ptr %invariant.gep.us.us, i64 %26
   store float %25, ptr %gep91.us.us, align 4, !tbaa !6
   %27 = add nuw i64 %.07792.us.us, 1
   %exitcond120.not = icmp eq i64 %27, %3
@@ -73,9 +73,9 @@ define float @dt_image_distance_transform(ptr noundef readonly captures(none) %0
 28:                                               ; preds = %28, %.preheader85.us.us
   %.07888.us.us = phi i64 [ 0, %.preheader85.us.us ], [ %32, %28 ]
   %29 = mul i64 %.07888.us.us, %2
-  %gep.us.us = getelementptr float, ptr %invariant.gep.us.us, i64 %29
+  %gep.us.us = getelementptr [4 x i8], ptr %invariant.gep.us.us, i64 %29
   %30 = load float, ptr %gep.us.us, align 4, !tbaa !6
-  %31 = getelementptr inbounds nuw float, ptr %17, i64 %.07888.us.us
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.07888.us.us
   store float %30, ptr %31, align 4, !tbaa !6
   %32 = add nuw i64 %.07888.us.us, 1
   %exitcond119.not = icmp eq i64 %32, %3
@@ -108,17 +108,17 @@ define float @dt_image_distance_transform(ptr noundef readonly captures(none) %0
   %.076108.us = phi i64 [ %45, %._crit_edge.us112 ], [ 0, %.lr.ph106.us.preheader ]
   %.081107.us = phi float [ %43, %._crit_edge.us112 ], [ 0.000000e+00, %.lr.ph106.us.preheader ]
   %36 = mul i64 %.076108.us, %2
-  %37 = getelementptr inbounds nuw float, ptr %1, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %36
   tail call fastcc void @_image_distance_transform(ptr noundef %37, ptr noundef %19, ptr noundef nonnull %20, ptr noundef %21, i32 noundef %35)
   br label %38
 
 38:                                               ; preds = %.lr.ph106.us, %38
   %.075105.us = phi i64 [ 0, %.lr.ph106.us ], [ %44, %38 ]
   %.1104.us = phi float [ %.081107.us, %.lr.ph106.us ], [ %43, %38 ]
-  %39 = getelementptr inbounds nuw float, ptr %20, i64 %.075105.us
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.075105.us
   %40 = load float, ptr %39, align 4, !tbaa !6
   %41 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %40)
-  %42 = getelementptr float, ptr %37, i64 %.075105.us
+  %42 = getelementptr [4 x i8], ptr %37, i64 %.075105.us
   store float %41, ptr %42, align 4, !tbaa !6
   %43 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.1104.us, float %41)
   %44 = add nuw i64 %.075105.us, 1
@@ -179,7 +179,7 @@ define internal fastcc void @_image_distance_transform(ptr noundef readonly capt
   %7 = phi i32 [ 0, %.lr.ph74.preheader ], [ %10, %._crit_edge ]
   %indvars.iv84 = phi i64 [ 1, %.lr.ph74.preheader ], [ %indvars.iv.next85, %._crit_edge ]
   %.05871 = phi i32 [ 0, %.lr.ph74.preheader ], [ %46, %._crit_edge ]
-  %8 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv84
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv84
   %9 = load float, ptr %8, align 4, !tbaa !6
   %10 = trunc nuw nsw i64 %indvars.iv84 to i32
   %11 = uitofp nneg i32 %10 to float
@@ -187,13 +187,13 @@ define internal fastcc void @_image_distance_transform(ptr noundef readonly capt
   %13 = fadd reassoc nsz arcp contract afn float %9, %12
   %14 = sext i32 %.05871 to i64
   %15 = sext i32 %7 to i64
-  %16 = getelementptr inbounds float, ptr %0, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %0, i64 %15
   %17 = load float, ptr %16, align 4, !tbaa !6
   %18 = sitofp i32 %7 to float
   %19 = fmul reassoc nnan nsz arcp contract afn float %18, %18
   %20 = fadd reassoc nsz arcp contract afn float %19, %17
   %.05665 = fsub reassoc nsz arcp contract afn float %13, %20
-  %21 = getelementptr inbounds float, ptr %1, i64 %14
+  %21 = getelementptr inbounds [4 x i8], ptr %1, i64 %14
   %22 = load float, ptr %21, align 4, !tbaa !6
   %23 = sub nsw i32 %10, %7
   %24 = shl nsw i32 %23, 1
@@ -205,16 +205,16 @@ define internal fastcc void @_image_distance_transform(ptr noundef readonly capt
 .lr.ph:                                           ; preds = %.lr.ph74, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %14, %.lr.ph74 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %28 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next
+  %28 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv.next
   %29 = load i32, ptr %28, align 4, !tbaa !10
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds float, ptr %0, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %0, i64 %30
   %32 = load float, ptr %31, align 4, !tbaa !6
   %33 = sitofp i32 %29 to float
   %34 = fmul reassoc nnan nsz arcp contract afn float %33, %33
   %35 = fadd reassoc nsz arcp contract afn float %34, %32
   %.056 = fsub reassoc nsz arcp contract afn float %13, %35
-  %36 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.next
+  %36 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv.next
   %37 = load float, ptr %36, align 4, !tbaa !6
   %38 = sub nsw i32 %10, %29
   %39 = shl nsw i32 %38, 1
@@ -232,13 +232,13 @@ define internal fastcc void @_image_distance_transform(ptr noundef readonly capt
   %.1.lcssa = phi i32 [ %.05871, %.lr.ph74 ], [ %43, %._crit_edge.loopexit ]
   %.056.lcssa = phi float [ %.05665, %.lr.ph74 ], [ %.056, %._crit_edge.loopexit ]
   %.lcssa = phi float [ %25, %.lr.ph74 ], [ %40, %._crit_edge.loopexit ]
-  %44 = getelementptr inbounds float, ptr %1, i64 %.lcssa63
+  %44 = getelementptr inbounds [4 x i8], ptr %1, i64 %.lcssa63
   %45 = fdiv reassoc nsz arcp contract afn float %.056.lcssa, %.lcssa
   %46 = add nsw i32 %.1.lcssa, 1
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %3, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %3, i64 %47
   store i32 %10, ptr %48, align 4, !tbaa !10
-  %49 = getelementptr inbounds float, ptr %1, i64 %47
+  %49 = getelementptr inbounds [4 x i8], ptr %1, i64 %47
   store float %45, ptr %49, align 4, !tbaa !6
   %50 = getelementptr i8, ptr %44, i64 8
   store float 0x4415AF1D80000000, ptr %50, align 4, !tbaa !6
@@ -261,7 +261,7 @@ define internal fastcc void @_image_distance_transform(ptr noundef readonly capt
 54:                                               ; preds = %.preheader, %54
   %indvars.iv87 = phi i64 [ %53, %.preheader ], [ %indvars.iv.next88, %54 ]
   %indvars.iv.next88 = add nsw i64 %indvars.iv87, 1
-  %55 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.next88
+  %55 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv.next88
   %56 = load float, ptr %55, align 4, !tbaa !6
   %57 = fcmp reassoc nsz arcp contract afn olt float %56, %52
   br i1 %57, label %54, label %58
@@ -275,10 +275,10 @@ define internal fastcc void @_image_distance_transform(ptr noundef readonly capt
   %63 = sitofp i32 %62 to float
   %64 = fmul reassoc nnan nsz arcp contract afn float %63, %63
   %65 = sext i32 %61 to i64
-  %66 = getelementptr inbounds float, ptr %0, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %0, i64 %65
   %67 = load float, ptr %66, align 4, !tbaa !6
   %68 = fadd reassoc nsz arcp contract afn float %64, %67
-  %69 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv90
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv90
   store float %68, ptr %69, align 4, !tbaa !6
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93

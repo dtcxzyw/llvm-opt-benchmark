@@ -219,14 +219,14 @@ define void @lv_draw_sw_box_shadow(ptr noundef %0, ptr noundef readonly captures
 
 137:                                              ; preds = %132, %.lr.ph.i
   %.sink.i = phi i16 [ %136, %132 ], [ %126, %.lr.ph.i ]
-  %138 = getelementptr inbounds nuw i16, ptr %.095106.i, i64 %indvars.iv.i
+  %138 = getelementptr inbounds nuw [2 x i8], ptr %.095106.i, i64 %indvars.iv.i
   store i16 %.sink.i, ptr %138, align 2, !tbaa !29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit104.i, label %.lr.ph.i, !llvm.loop !31
 
 .loopexit104.i:                                   ; preds = %137, %120, %119
-  %139 = getelementptr inbounds nuw i16, ptr %.095106.i, i64 %111
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %.095106.i, i64 %111
   %140 = add nuw nsw i32 %.093108.i, 1
   %exitcond124.not.i = icmp eq i32 %140, %95
   br i1 %exitcond124.not.i, label %._crit_edge.i, label %115, !llvm.loop !33
@@ -249,7 +249,7 @@ define void @lv_draw_sw_box_shadow(ptr noundef %0, ptr noundef readonly captures
 
 .lr.ph118.i:                                      ; preds = %.lr.ph118.i, %.lr.ph118.preheader.i
   %indvars.iv135.i = phi i64 [ 0, %.lr.ph118.preheader.i ], [ %indvars.iv.next136.i, %.lr.ph118.i ]
-  %143 = getelementptr inbounds nuw i16, ptr %92, i64 %indvars.iv135.i
+  %143 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %indvars.iv135.i
   %144 = load i16, ptr %143, align 2, !tbaa !29
   %145 = lshr i16 %144, 6
   %146 = trunc i16 %145 to i8
@@ -276,7 +276,7 @@ define void @lv_draw_sw_box_shadow(ptr noundef %0, ptr noundef readonly captures
 
 153:                                              ; preds = %159, %.lr.ph112.i
   %indvars.iv125.i = phi i64 [ 0, %.lr.ph112.i ], [ %indvars.iv.next126.i, %159 ]
-  %154 = getelementptr inbounds nuw i16, ptr %92, i64 %indvars.iv125.i
+  %154 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %indvars.iv125.i
   %155 = load i16, ptr %154, align 2, !tbaa !29
   switch i16 %155, label %156 [
     i16 0, label %159
@@ -315,7 +315,7 @@ define void @lv_draw_sw_box_shadow(ptr noundef %0, ptr noundef readonly captures
 
 .lr.ph116.i:                                      ; preds = %.lr.ph116.i, %.lr.ph116.preheader.i
   %indvars.iv130.i = phi i64 [ 0, %.lr.ph116.preheader.i ], [ %indvars.iv.next131.i, %.lr.ph116.i ]
-  %160 = getelementptr inbounds nuw i16, ptr %92, i64 %indvars.iv130.i
+  %160 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %indvars.iv130.i
   %161 = load i16, ptr %160, align 2, !tbaa !29
   %162 = trunc i16 %161 to i8
   %163 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv130.i
@@ -1292,7 +1292,7 @@ define internal fastcc void @shadow_blur_corner(i32 noundef %0, i32 noundef rang
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %.0116134.us = phi ptr [ %34, %._crit_edge.us ], [ %2, %.lr.ph.us.preheader ]
   %.0118133.us = phi i32 [ %35, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
-  %13 = getelementptr i16, ptr %.0116134.us, i64 %12
+  %13 = getelementptr [2 x i8], ptr %.0116134.us, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -2
   %15 = load i16, ptr %14, align 2, !tbaa !29
   %16 = zext i16 %15 to i32
@@ -1304,14 +1304,14 @@ define internal fastcc void @shadow_blur_corner(i32 noundef %0, i32 noundef rang
   %.0115131.us = phi i32 [ %17, %.lr.ph.us ], [ %31, %27 ]
   %indvars.iv = add nsw i64 %indvars.iv.in, -1
   %19 = trunc i32 %.0115131.us to i16
-  %20 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv
   store i16 %19, ptr %20, align 2, !tbaa !29
   %21 = add nsw i64 %indvars.iv, %11
   %22 = icmp slt i64 %21, %6
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i16, ptr %.0116134.us, i64 %21
+  %24 = getelementptr inbounds [2 x i8], ptr %.0116134.us, i64 %21
   %25 = load i16, ptr %24, align 2, !tbaa !29
   %26 = zext i16 %25 to i32
   br label %27
@@ -1323,7 +1323,7 @@ define internal fastcc void @shadow_blur_corner(i32 noundef %0, i32 noundef rang
   %30 = sub i32 %29, %10
   %narrow.us = tail call i32 @llvm.smax.i32(i32 %30, i32 0)
   %.0113.in.in.idx.us = zext nneg i32 %narrow.us to i64
-  %.0113.in.in.us = getelementptr inbounds nuw i16, ptr %.0116134.us, i64 %.0113.in.in.idx.us
+  %.0113.in.in.us = getelementptr inbounds nuw [2 x i8], ptr %.0116134.us, i64 %.0113.in.in.idx.us
   %.0113.in.us = load i16, ptr %.0113.in.in.us, align 2, !tbaa !29
   %.0113.us = zext i16 %.0113.in.us to i32
   %31 = add i32 %28, %.0113.us
@@ -1332,7 +1332,7 @@ define internal fastcc void @shadow_blur_corner(i32 noundef %0, i32 noundef rang
 
 ._crit_edge.us:                                   ; preds = %27
   %33 = tail call ptr @lv_memcpy(ptr noundef nonnull %.0116134.us, ptr noundef nonnull %8, i64 noundef %7) #6
-  %34 = getelementptr inbounds nuw i16, ptr %.0116134.us, i64 %6
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %.0116134.us, i64 %6
   %35 = add nuw nsw i32 %.0118133.us, 1
   %exitcond.not = icmp eq i32 %35, %0
   br i1 %exitcond.not, label %._crit_edge137, label %.lr.ph.us, !llvm.loop !58
@@ -1359,12 +1359,12 @@ define internal fastcc void @shadow_blur_corner(i32 noundef %0, i32 noundef rang
 
 .lr.ph142.us:                                     ; preds = %._crit_edge.us149, %.lr.ph147
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %._crit_edge.us149 ], [ 0, %.lr.ph147 ]
-  %41 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv172
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv172
   %42 = load i16, ptr %41, align 2, !tbaa !29
   %43 = zext i16 %42 to i32
   %44 = mul nsw i32 %1, %43
-  %invariant.gep = getelementptr i16, ptr %2, i64 %indvars.iv172
-  %45 = getelementptr i16, ptr %2, i64 %indvars.iv172
+  %invariant.gep = getelementptr [2 x i8], ptr %2, i64 %indvars.iv172
+  %45 = getelementptr [2 x i8], ptr %2, i64 %indvars.iv172
   br label %49
 
 ._crit_edge.us149:                                ; preds = %.lr.ph145.us
@@ -1375,11 +1375,11 @@ define internal fastcc void @shadow_blur_corner(i32 noundef %0, i32 noundef rang
 .lr.ph145.us:                                     ; preds = %49, %.lr.ph145.us
   %indvars.iv167 = phi i64 [ %indvars.iv.next168, %.lr.ph145.us ], [ 0, %49 ]
   %.2144.us = phi ptr [ %48, %.lr.ph145.us ], [ %41, %49 ]
-  %46 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv167
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv167
   %47 = load i16, ptr %46, align 2, !tbaa !29
   store i16 %47, ptr %.2144.us, align 2, !tbaa !29
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %48 = getelementptr inbounds nuw i16, ptr %.2144.us, i64 %6
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %.2144.us, i64 %6
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count176
   br i1 %exitcond171.not, label %._crit_edge.us149, label %.lr.ph145.us, !llvm.loop !60
 
@@ -1390,12 +1390,12 @@ define internal fastcc void @shadow_blur_corner(i32 noundef %0, i32 noundef rang
   %50 = tail call i32 @llvm.smax.i32(i32 %.0109141.us, i32 0)
   %51 = lshr i32 %50, 6
   %52 = trunc i32 %51 to i16
-  %53 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv162
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv162
   store i16 %52, ptr %53, align 2, !tbaa !29
   %54 = sub nsw i64 %indvars.iv162, %40
   %55 = icmp slt i64 %54, 1
   %56 = mul nsw i64 %54, %6
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %56
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %56
   %.0108.in.in.us = select i1 %55, ptr %.1117140.us, ptr %gep
   %.0108.in.us = load i16, ptr %.0108.in.in.us, align 2, !tbaa !29
   %.0108.us = zext i16 %.0108.in.us to i32
@@ -1405,18 +1405,18 @@ define internal fastcc void @shadow_blur_corner(i32 noundef %0, i32 noundef rang
   %.pn129.us = tail call i32 @llvm.smin.i32(i32 %59, i32 %39)
   %.pn128.us = mul nsw i32 %.pn129.us, %0
   %60 = sext i32 %.pn128.us to i64
-  %.0.in.in.us = getelementptr i16, ptr %45, i64 %60
+  %.0.in.in.us = getelementptr [2 x i8], ptr %45, i64 %60
   %.0.in.us = load i16, ptr %.0.in.in.us, align 2, !tbaa !29
   %.0.us = zext i16 %.0.in.us to i32
   %61 = add i32 %57, %.0.us
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %62 = getelementptr inbounds nuw i16, ptr %.1117140.us, i64 %6
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %.1117140.us, i64 %6
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count176
   br i1 %exitcond166.not, label %.lr.ph145.us, label %49, !llvm.loop !61
 
 63:                                               ; preds = %.lr.ph, %69
   %indvars.iv158 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next159, %69 ]
-  %64 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv158
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv158
   %65 = load i16, ptr %64, align 2, !tbaa !29
   switch i16 %65, label %66 [
     i16 0, label %69

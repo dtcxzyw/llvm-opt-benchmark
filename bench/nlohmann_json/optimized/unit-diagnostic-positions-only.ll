@@ -7226,7 +7226,7 @@ _ZN8nlohmann19json_abi_dp_v3_11_36detail28json_sax_dom_callback_parserINS0_10bas
   %479 = zext i32 %474 to i64
   %480 = add nsw i64 %479, -1
   %481 = sdiv i64 %480, 64
-  %482 = getelementptr inbounds nuw i64, ptr %473, i64 %481
+  %482 = getelementptr inbounds nuw [8 x i8], ptr %473, i64 %481
   %483 = and i64 %480, -9223372036854775745
   %484 = icmp ugt i64 %483, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %484, i64 -8, i64 0
@@ -7934,7 +7934,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit389: ; preds = %_Z
   %689 = sub i64 %687, %688
   %690 = ashr exact i64 %689, 3
   %691 = sub nsw i64 0, %690
-  %692 = getelementptr inbounds i64, ptr %686, i64 %691
+  %692 = getelementptr inbounds [8 x i8], ptr %686, i64 %691
   call void @_ZdlPv(ptr noundef %692) #28
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -7955,7 +7955,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %.loopexit, %685
   %699 = sub i64 %697, %698
   %700 = ashr exact i64 %699, 3
   %701 = sub nsw i64 0, %700
-  %702 = getelementptr inbounds i64, ptr %696, i64 %701
+  %702 = getelementptr inbounds [8 x i8], ptr %696, i64 %701
   call void @_ZdlPv(ptr noundef %702) #28
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit394
 
@@ -8583,7 +8583,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %107
   %109 = zext nneg i32 %71 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8nlohmann19json_abi_dp_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE17exception_messageENS1_10lexer_baseISF_E10token_typeERKSB_, i64 %109
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8nlohmann19json_abi_dp_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE17exception_messageENS1_10lexer_baseISF_E10token_typeERKSB_, i64 %109
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN8nlohmann19json_abi_dp_v3_11_36detail10lexer_baseINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEE15token_type_nameENSG_10token_typeE.exit
 
@@ -8664,7 +8664,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %124
 switch.lookup98:                                  ; preds = %130
   %switch.tableidx = add i32 %2, -1
   %132 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep99 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8nlohmann19json_abi_dp_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE17exception_messageENS1_10lexer_baseISF_E10token_typeERKSB_.2, i64 %132
+  %switch.gep99 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8nlohmann19json_abi_dp_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE17exception_messageENS1_10lexer_baseISF_E10token_typeERKSB_.2, i64 %132
   %switch.load100 = load ptr, ptr %switch.gep99, align 8
   br label %_ZN8nlohmann19json_abi_dp_v3_11_36detail10lexer_baseINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEE15token_type_nameENSG_10token_typeE.exit59
 
@@ -8805,7 +8805,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN8nlohmann19json_
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 3
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds i64, ptr %20, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %20, i64 %25
   tail call void @_ZdlPv(ptr noundef %26) #28
   store ptr null, ptr %16, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -8831,7 +8831,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt14_Function_ba
   %34 = sub i64 %32, %33
   %35 = ashr exact i64 %34, 3
   %36 = sub nsw i64 0, %35
-  %37 = getelementptr inbounds i64, ptr %31, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %31, i64 %36
   tail call void @_ZdlPv(ptr noundef %37) #28
   store ptr null, ptr %27, align 8
   %.sroa.4.0..sroa_idx.i.i.i2 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -10325,7 +10325,7 @@ _ZN8nlohmann19json_abi_dp_v3_11_36detail19json_sax_dom_parserINS0_10basic_jsonIS
   %500 = zext i32 %495 to i64
   %501 = add nsw i64 %500, -1
   %502 = sdiv i64 %501, 64
-  %503 = getelementptr inbounds nuw i64, ptr %494, i64 %502
+  %503 = getelementptr inbounds nuw [8 x i8], ptr %494, i64 %502
   %504 = and i64 %501, -9223372036854775745
   %505 = icmp ugt i64 %504, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %505, i64 -8, i64 0
@@ -11066,7 +11066,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit409: ; preds = %_Z
   %728 = sub i64 %726, %727
   %729 = ashr exact i64 %728, 3
   %730 = sub nsw i64 0, %729
-  %731 = getelementptr inbounds i64, ptr %725, i64 %730
+  %731 = getelementptr inbounds [8 x i8], ptr %725, i64 %730
   call void @_ZdlPv(ptr noundef %731) #28
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -11087,7 +11087,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %.loopexit, %724
   %738 = sub i64 %736, %737
   %739 = ashr exact i64 %738, 3
   %740 = sub nsw i64 0, %739
-  %741 = getelementptr inbounds i64, ptr %735, i64 %740
+  %741 = getelementptr inbounds [8 x i8], ptr %735, i64 %740
   call void @_ZdlPv(ptr noundef %741) #28
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit414
 
@@ -11129,7 +11129,7 @@ define linkonce_odr dso_local void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef 
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   tail call void @_ZdlPv(ptr noundef %11) #28
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11173,7 +11173,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %12
   %22 = trunc i64 %21 to i32
   %23 = and i32 %22, 63
   %24 = lshr i64 %21, 6
-  %25 = getelementptr inbounds nuw i64, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %24
   br label %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i
 
 _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i:          ; preds = %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
@@ -11425,13 +11425,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
 136:                                              ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
   %137 = ashr exact i64 %60, 3
   %138 = sub nsw i64 0, %137
-  %139 = getelementptr inbounds i64, ptr %8, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %8, i64 %138
   tail call void @_ZdlPv(ptr noundef %139) #28
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %136
   %140 = lshr i64 %70, 6
-  %141 = getelementptr inbounds nuw i64, ptr %73, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %140
   store ptr %141, ptr %7, align 8, !tbaa !143
   store ptr %73, ptr %0, align 8
   %.sroa.588.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11587,7 +11587,7 @@ _ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112b
 _ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i: ; preds = %70, %_ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit16.i.i
   store ptr %65, ptr %8, align 8, !tbaa !105
   store ptr %69, ptr %9, align 8, !tbaa !159
-  %71 = getelementptr inbounds nuw ptr, ptr %65, i64 %63
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   store ptr %71, ptr %48, align 8, !tbaa !166
   %.pr = load ptr, ptr %66, align 8, !tbaa !100
   br label %_ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EE9push_backERKSE_.exit
@@ -11622,7 +11622,7 @@ _ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112b
 
 switch.lookup:                                    ; preds = %81
   %84 = zext nneg i8 %82 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN8nlohmann19json_abi_dp_v3_11_36detail19json_sax_dom_parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE11start_arrayEm, i64 %84
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8nlohmann19json_abi_dp_v3_11_36detail19json_sax_dom_parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE11start_arrayEm, i64 %84
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8max_sizeEv.exit
 
@@ -12412,7 +12412,7 @@ _ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112b
 _ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EE17_M_realloc_insertIJRKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i: ; preds = %70, %_ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit16.i.i
   store ptr %65, ptr %8, align 8, !tbaa !105
   store ptr %69, ptr %9, align 8, !tbaa !159
-  %71 = getelementptr inbounds nuw ptr, ptr %65, i64 %63
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   store ptr %71, ptr %48, align 8, !tbaa !166
   %.pr = load ptr, ptr %66, align 8, !tbaa !100
   br label %_ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EE9push_backERKSE_.exit
@@ -12447,7 +12447,7 @@ _ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112b
 
 switch.lookup:                                    ; preds = %81
   %84 = zext nneg i8 %82 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN8nlohmann19json_abi_dp_v3_11_36detail19json_sax_dom_parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE11start_arrayEm, i64 %84
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8nlohmann19json_abi_dp_v3_11_36detail19json_sax_dom_parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE11start_arrayEm, i64 %84
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8max_sizeEv.exit
 
@@ -13078,7 +13078,7 @@ define linkonce_odr dso_local { i8, ptr } @_ZN8nlohmann19json_abi_dp_v3_11_36det
   %10 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %11 = add nsw i64 %10, -1
   %12 = sdiv i64 %11, 64
-  %13 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %12
   %14 = and i64 %11, -9223372036854775745
   %15 = icmp ugt i64 %14, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %15, i64 -8, i64 0
@@ -13405,7 +13405,7 @@ _ZNSt6vectorIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112ba
   %155 = zext i32 %.sroa.2.0.copyload.i.i20 to i64
   %156 = add nsw i64 %155, -1
   %157 = sdiv i64 %156, 64
-  %158 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i18, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i18, i64 %157
   %159 = and i64 %156, -9223372036854775745
   %160 = icmp ugt i64 %159, -9223372036854775808
   %storemerge.idx.i.i.i.i.i21 = select i1 %160, i64 -8, i64 0
@@ -13989,7 +13989,7 @@ _ZNSt12_Vector_baseIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorN
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !202
   store ptr %.0.i19.lcssa, ptr %4, align 8, !tbaa !186
-  %48 = getelementptr inbounds nuw %"class.nlohmann::json_abi_dp_v3_11_3::basic_json", ptr %20, i64 %16
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %48, ptr %47, align 8, !tbaa !196
   ret void
 }
@@ -15616,7 +15616,7 @@ _ZNSt12_Vector_baseIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorN
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %56, ptr %3, align 8, !tbaa !202
   store ptr %56, ptr %57, align 8, !tbaa !186
-  %58 = getelementptr inbounds nuw %"class.nlohmann::json_abi_dp_v3_11_3::basic_json", ptr %56, i64 %51
+  %58 = getelementptr inbounds nuw [32 x i8], ptr %56, i64 %51
   store ptr %58, ptr %54, align 8, !tbaa !196
   br label %_ZNSt6vectorIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISD_EE7reserveEm.exit147
 
@@ -16722,7 +16722,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZNK8nlohmann19json_abi_dp_v3
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE9type_nameEv, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -17701,7 +17701,7 @@ define linkonce_odr dso_local { i8, ptr } @_ZN8nlohmann19json_abi_dp_v3_11_36det
   %10 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %11 = add nsw i64 %10, -1
   %12 = sdiv i64 %11, 64
-  %13 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %12
   %14 = and i64 %11, -9223372036854775745
   %15 = icmp ugt i64 %14, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %15, i64 -8, i64 0
@@ -17917,7 +17917,7 @@ _ZNSt6vectorIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112ba
   %118 = zext i32 %.sroa.2.0.copyload.i.i20 to i64
   %119 = add nsw i64 %118, -1
   %120 = sdiv i64 %119, 64
-  %121 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i18, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i18, i64 %120
   %122 = and i64 %119, -9223372036854775745
   %123 = icmp ugt i64 %122, -9223372036854775808
   %storemerge.idx.i.i.i.i.i21 = select i1 %123, i64 -8, i64 0
@@ -18025,7 +18025,7 @@ define linkonce_odr dso_local { i8, ptr } @_ZN8nlohmann19json_abi_dp_v3_11_36det
   %10 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %11 = add nsw i64 %10, -1
   %12 = sdiv i64 %11, 64
-  %13 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %12
   %14 = and i64 %11, -9223372036854775745
   %15 = icmp ugt i64 %14, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %15, i64 -8, i64 0
@@ -18223,7 +18223,7 @@ _ZNSt6vectorIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112ba
   %108 = zext i32 %.sroa.2.0.copyload.i.i20 to i64
   %109 = add nsw i64 %108, -1
   %110 = sdiv i64 %109, 64
-  %111 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i18, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i18, i64 %110
   %112 = and i64 %109, -9223372036854775745
   %113 = icmp ugt i64 %112, -9223372036854775808
   %storemerge.idx.i.i.i.i.i21 = select i1 %113, i64 -8, i64 0
@@ -18331,7 +18331,7 @@ define linkonce_odr dso_local { i8, ptr } @_ZN8nlohmann19json_abi_dp_v3_11_36det
   %10 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %11 = add nsw i64 %10, -1
   %12 = sdiv i64 %11, 64
-  %13 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %12
   %14 = and i64 %11, -9223372036854775745
   %15 = icmp ugt i64 %14, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %15, i64 -8, i64 0
@@ -18524,7 +18524,7 @@ _ZNSt6vectorIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112ba
   %107 = zext i32 %.sroa.2.0.copyload.i.i19 to i64
   %108 = add nsw i64 %107, -1
   %109 = sdiv i64 %108, 64
-  %110 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i17, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i17, i64 %109
   %111 = and i64 %108, -9223372036854775745
   %112 = icmp ugt i64 %111, -9223372036854775808
   %storemerge.idx.i.i.i.i.i20 = select i1 %112, i64 -8, i64 0
@@ -18632,7 +18632,7 @@ define linkonce_odr dso_local { i8, ptr } @_ZN8nlohmann19json_abi_dp_v3_11_36det
   %10 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %11 = add nsw i64 %10, -1
   %12 = sdiv i64 %11, 64
-  %13 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %12
   %14 = and i64 %11, -9223372036854775745
   %15 = icmp ugt i64 %14, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %15, i64 -8, i64 0
@@ -18848,7 +18848,7 @@ _ZNSt6vectorIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112ba
   %118 = zext i32 %.sroa.2.0.copyload.i.i20 to i64
   %119 = add nsw i64 %118, -1
   %120 = sdiv i64 %119, 64
-  %121 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i18, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i18, i64 %120
   %122 = and i64 %119, -9223372036854775745
   %123 = icmp ugt i64 %122, -9223372036854775808
   %storemerge.idx.i.i.i.i.i21 = select i1 %123, i64 -8, i64 0
@@ -18956,7 +18956,7 @@ define linkonce_odr dso_local { i8, ptr } @_ZN8nlohmann19json_abi_dp_v3_11_36det
   %10 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %11 = add nsw i64 %10, -1
   %12 = sdiv i64 %11, 64
-  %13 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %12
   %14 = and i64 %11, -9223372036854775745
   %15 = icmp ugt i64 %14, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %15, i64 -8, i64 0
@@ -19225,7 +19225,7 @@ _ZNSt6vectorIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112ba
   %138 = zext i32 %.sroa.2.0.copyload.i.i20 to i64
   %139 = add nsw i64 %138, -1
   %140 = sdiv i64 %139, 64
-  %141 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i18, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i18, i64 %140
   %142 = and i64 %139, -9223372036854775745
   %143 = icmp ugt i64 %142, -9223372036854775808
   %storemerge.idx.i.i.i.i.i21 = select i1 %143, i64 -8, i64 0
@@ -19335,7 +19335,7 @@ define linkonce_odr dso_local { i8, ptr } @_ZN8nlohmann19json_abi_dp_v3_11_36det
   %10 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %11 = add nsw i64 %10, -1
   %12 = sdiv i64 %11, 64
-  %13 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %12
   %14 = and i64 %11, -9223372036854775745
   %15 = icmp ugt i64 %14, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %15, i64 -8, i64 0
@@ -19551,7 +19551,7 @@ _ZNSt6vectorIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112ba
   %118 = zext i32 %.sroa.2.0.copyload.i.i20 to i64
   %119 = add nsw i64 %118, -1
   %120 = sdiv i64 %119, 64
-  %121 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i18, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i18, i64 %120
   %122 = and i64 %119, -9223372036854775745
   %123 = icmp ugt i64 %122, -9223372036854775808
   %storemerge.idx.i.i.i.i.i21 = select i1 %123, i64 -8, i64 0
@@ -20413,7 +20413,7 @@ _ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112b
 _ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i.i: ; preds = %32, %_ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit16.i.i.i
   store ptr %27, ptr %6, align 8, !tbaa !105
   store ptr %31, ptr %8, align 8, !tbaa !159
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %33, ptr %10, align 8, !tbaa !166
   br label %_ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EE9push_backEOSE_.exit
 
@@ -20448,7 +20448,7 @@ _ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112b
 
 switch.lookup:                                    ; preds = %44
   %49 = zext nneg i8 %47 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN8nlohmann19json_abi_dp_v3_11_36detail19json_sax_dom_parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE11start_arrayEm, i64 %49
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8nlohmann19json_abi_dp_v3_11_36detail19json_sax_dom_parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE11start_arrayEm, i64 %49
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8max_sizeEv.exit
 
@@ -20614,7 +20614,7 @@ _ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112b
 _ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EE17_M_realloc_insertIJSE_EEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i.i: ; preds = %32, %_ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit16.i.i.i
   store ptr %27, ptr %6, align 8, !tbaa !105
   store ptr %31, ptr %8, align 8, !tbaa !159
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %33, ptr %10, align 8, !tbaa !166
   br label %_ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES_IhSaIhEEvEESaISE_EE9push_backEOSE_.exit
 
@@ -20649,7 +20649,7 @@ _ZNSt6vectorIPN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapS_NSt7__cxx1112b
 
 switch.lookup:                                    ; preds = %44
   %49 = zext nneg i8 %47 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN8nlohmann19json_abi_dp_v3_11_36detail19json_sax_dom_parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE11start_arrayEm, i64 %49
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8nlohmann19json_abi_dp_v3_11_36detail19json_sax_dom_parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE11start_arrayEm, i64 %49
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE8max_sizeEv.exit
 
@@ -21357,7 +21357,7 @@ _ZNSt12_Vector_baseIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorN
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !202
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !186
-  %47 = getelementptr inbounds nuw %"class.nlohmann::json_abi_dp_v3_11_3::basic_json", ptr %20, i64 %16
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %47, ptr %46, align 8, !tbaa !196
   ret void
 
@@ -21880,7 +21880,7 @@ _ZNSt12_Vector_baseIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorN
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !202
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !186
-  %46 = getelementptr inbounds nuw %"class.nlohmann::json_abi_dp_v3_11_3::basic_json", ptr %20, i64 %16
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %46, ptr %45, align 8, !tbaa !196
   ret void
 }
@@ -22379,7 +22379,7 @@ _ZNSt12_Vector_baseIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorN
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !202
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !186
-  %46 = getelementptr inbounds nuw %"class.nlohmann::json_abi_dp_v3_11_3::basic_json", ptr %20, i64 %16
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %46, ptr %45, align 8, !tbaa !196
   ret void
 }
@@ -22866,7 +22866,7 @@ _ZNSt12_Vector_baseIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorN
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !202
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !186
-  %45 = getelementptr inbounds nuw %"class.nlohmann::json_abi_dp_v3_11_3::basic_json", ptr %20, i64 %16
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %45, ptr %44, align 8, !tbaa !196
   ret void
 }
@@ -23361,7 +23361,7 @@ _ZNSt12_Vector_baseIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorN
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !202
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !186
-  %46 = getelementptr inbounds nuw %"class.nlohmann::json_abi_dp_v3_11_3::basic_json", ptr %20, i64 %16
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %46, ptr %45, align 8, !tbaa !196
   ret void
 }
@@ -23894,7 +23894,7 @@ _ZNSt12_Vector_baseIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorN
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !202
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !186
-  %44 = getelementptr inbounds nuw %"class.nlohmann::json_abi_dp_v3_11_3::basic_json", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %44, ptr %43, align 8, !tbaa !196
   ret void
 
@@ -24418,7 +24418,7 @@ _ZNSt12_Vector_baseIN8nlohmann19json_abi_dp_v3_11_310basic_jsonISt3mapSt6vectorN
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !202
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !186
-  %46 = getelementptr inbounds nuw %"class.nlohmann::json_abi_dp_v3_11_3::basic_json", ptr %20, i64 %16
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %46, ptr %45, align 8, !tbaa !196
   ret void
 }

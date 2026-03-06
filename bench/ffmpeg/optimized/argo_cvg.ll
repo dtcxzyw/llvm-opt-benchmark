@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVOutputFormat = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr }
 %struct.ArgoCVGHeader = type { i32, i32, i32 }
 %union.anon.0 = type { i64 }
-%struct.ArgoCVGOverride = type { [13 x i8], %struct.ArgoCVGHeader, i32, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"argo_cvg\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"Argonaut Games CVG\00", align 1
@@ -190,7 +189,7 @@ argo_cvg_read_checksum.exit.thread:               ; preds = %41, %31, %37, %40
 
 68:                                               ; preds = %63, %89
   %.06377 = phi i64 [ 0, %63 ], [ %90, %89 ]
-  %69 = getelementptr inbounds nuw %struct.ArgoCVGOverride, ptr @overrides, i64 %.06377
+  %69 = getelementptr inbounds nuw [36 x i8], ptr @overrides, i64 %.06377
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i32, ptr %70, align 4, !tbaa !52
   %72 = load i32, ptr %8, align 4, !tbaa !31

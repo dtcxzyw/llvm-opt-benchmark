@@ -106,7 +106,7 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
   %16 = load ptr, ptr %15, align 8
   %17 = add i32 %1, -1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr ptr, ptr %16, i64 %18
+  %19 = getelementptr [8 x i8], ptr %16, i64 %18
   store ptr %6, ptr %19, align 8
   %20 = trunc i32 %1 to i8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 828
@@ -192,7 +192,7 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %15, align 8
-  %70 = getelementptr ptr, ptr %69, i64 %18
+  %70 = getelementptr [8 x i8], ptr %69, i64 %18
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %3, align 8
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 784
@@ -233,7 +233,7 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
   %96 = getelementptr inbounds nuw i8, ptr %72, i64 1210
   %97 = load i8, ptr %96, align 2
   %98 = zext i8 %97 to i64
-  %99 = getelementptr ptr, ptr %95, i64 %98
+  %99 = getelementptr [8 x i8], ptr %95, i64 %98
   %100 = getelementptr i8, ptr %99, i64 -8
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null
@@ -261,7 +261,7 @@ define dso_local i32 @usb_hub_create_port_device(ptr noundef %0, i32 noundef %1)
 115:                                              ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %109, i64 528
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr ptr, ptr %117, i64 %18
+  %118 = getelementptr [8 x i8], ptr %117, i64 %18
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, null
   br i1 %120, label %.critedge, label %121
@@ -387,7 +387,7 @@ define dso_local void @usb_hub_remove_port_device(ptr noundef readonly captures(
   %4 = load ptr, ptr %3, align 8
   %5 = add i32 %1, -1
   %6 = sext i32 %5 to i64
-  %7 = getelementptr ptr, ptr %4, i64 %6
+  %7 = getelementptr [8 x i8], ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 744
   %10 = load ptr, ptr %9, align 8
@@ -1242,7 +1242,7 @@ define internal noundef range(i32 0, 2) i32 @match_location(ptr noundef %0, ptr 
   %26 = phi i32 [ 1, %21 ], [ %39, %38 ]
   %27 = add i32 %26, -1
   %28 = sext i32 %27 to i64
-  %29 = getelementptr ptr, ptr %23, i64 %28
+  %29 = getelementptr [8 x i8], ptr %23, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %38, label %32

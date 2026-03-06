@@ -9,9 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::Twine" = type <{ %"union.llvh::Twine::Child", %"union.llvh::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvh::Twine::Child" = type { ptr }
 %"class.llvh::StringRef" = type { ptr, i64 }
-%"class.llvh::SMFixIt" = type { %"class.llvh::SMRange", %"class.std::__cxx11::basic_string" }
-%"class.llvh::SMRange" = type { %"class.llvh::SMLoc", %"class.llvh::SMLoc" }
-%"class.llvh::SMLoc" = type { ptr }
 
 $_ZNSt6vectorISt4pairIjjESaIS1_EEaSERKS3_ = comdat any
 
@@ -474,7 +471,7 @@ if.end11:                                         ; preds = %if.then4, %if.end11
   %conv.i21.pre-phi = phi i64 [ %.pre60, %if.end11.loopexit ], [ %conv.i19, %if.then4 ]
   %4 = phi ptr [ %.pre, %if.end11.loopexit ], [ %2, %if.then4 ]
   %NewEnd.0 = phi ptr [ %incdec.ptr1.i.i.i.i.i, %if.end11.loopexit ], [ %2, %if.then4 ]
-  %add.ptr.i59 = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %4, i64 %conv.i21.pre-phi
+  %add.ptr.i59 = getelementptr inbounds nuw [48 x i8], ptr %4, i64 %conv.i21.pre-phi
   %cmp.not3.i = icmp eq ptr %NewEnd.0, %add.ptr.i59
   br i1 %cmp.not3.i, label %return.sink.split, label %while.body.i
 
@@ -543,14 +540,14 @@ if.end28:                                         ; preds = %for.body.i.i.i.i.i4
   %9 = load ptr, ptr %RHS, align 8
   %10 = load i32, ptr %Size.i, align 8
   %conv.i54 = zext i32 %10 to i64
-  %add.ptr.i65 = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %9, i64 %conv.i54
+  %add.ptr.i65 = getelementptr inbounds nuw [48 x i8], ptr %9, i64 %conv.i54
   %cmp.not5.i.i.i.i = icmp eq i64 %CurSize.0, %conv.i54
   br i1 %cmp.not5.i.i.i.i, label %return.sink.split, label %for.body.i.i.i.i.preheader
 
 for.body.i.i.i.i.preheader:                       ; preds = %if.end28
   %11 = load ptr, ptr %this, align 8
-  %add.ptr33 = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %11, i64 %CurSize.0
-  %add.ptr30 = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %9, i64 %CurSize.0
+  %add.ptr33 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %CurSize.0
+  %add.ptr30 = getelementptr inbounds nuw [48 x i8], ptr %9, i64 %CurSize.0
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %for.body.i.i.i.i

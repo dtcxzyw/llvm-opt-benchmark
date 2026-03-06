@@ -685,7 +685,7 @@ _ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledBuffer12ensure_lines1
 
 18:                                               ; preds = %_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledBuffer12ensure_lines17h76db2291d1ba3565E.exit
   %19 = load ptr, ptr %16, align 8, !nonnull !12, !noundef !12
-  %20 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %19, i64 %1
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %1
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8, !noundef !12
   %23 = icmp ult i64 %22, 461168601842738791
@@ -713,7 +713,7 @@ _ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledBuffer12ensure_lines1
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %16, align 8, !nonnull !12, !noundef !12
-  %32 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %31, i64 %1
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %1
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i64, ptr %33, align 8, !noundef !12
   %35 = icmp ult i64 %2, %34
@@ -726,7 +726,7 @@ _ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledBuffer12ensure_lines1
 37:                                               ; preds = %30
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %39 = load ptr, ptr %38, align 8, !nonnull !12, !noundef !12
-  %40 = getelementptr inbounds nuw { i32, { { i8, [3 x i8] }, { i8, [3 x i8] }, { i8, [3 x i8] }, i16 }, [1 x i16] }, ptr %39, i64 %2
+  %40 = getelementptr inbounds nuw [20 x i8], ptr %39, i64 %2
   store i32 %3, ptr %40, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(14) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(14) %4, i64 14, i1 false)
@@ -893,7 +893,7 @@ define hidden void @_ZN22ruff_annotate_snippets8renderer13styled_buffer12StyledB
 51:                                               ; preds = %5
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load ptr, ptr %52, align 8, !nonnull !12, !noundef !12
-  %54 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %53, i64 %1
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %1
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8, !noundef !12
   %57 = icmp ult i64 %56, 461168601842738791

@@ -69,28 +69,28 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef readonly capture
   %14 = lshr i32 %.078.i, 1
   %15 = zext nneg i32 %.078.i to i64
   %16 = zext nneg i32 %14 to i64
-  %invariant.gep.i = getelementptr inbounds nuw i16, ptr %12, i64 %16
+  %invariant.gep.i = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %16
   br label %17
 
 17:                                               ; preds = %49, %.preheader75.i
   %indvars.iv.i = phi i64 [ 0, %.preheader75.i ], [ %indvars.iv.next.i, %49 ]
   %.07076.i = phi i32 [ 65536, %.preheader75.i ], [ %.171.i, %49 ]
-  %18 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv.i
   %19 = load i16, ptr %18, align 2, !tbaa !29
   %20 = sext i16 %19 to i32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, %15
-  %21 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv.next.i
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv.next.i
   %22 = load i16, ptr %21, align 2, !tbaa !29
   %23 = sext i16 %22 to i32
   %24 = add nsw i32 %23, %20
   %25 = sub nuw nsw i64 8192, %indvars.iv.i
-  %26 = getelementptr inbounds nuw i16, ptr %12, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !29
   %28 = sext i16 %27 to i32
   %29 = trunc nuw nsw i64 %25 to i32
   %30 = sub nsw i32 %29, %.078.i
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %12, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !29
   %34 = sext i16 %33 to i32
   %35 = add nsw i32 %34, %28
@@ -117,7 +117,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef readonly capture
   %51 = add i32 %50, 32767
   %52 = lshr i32 %51, 16
   %53 = trunc nuw i32 %52 to i16
-  %gep.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   store i16 %53, ptr %gep.i, align 2, !tbaa !29
   %54 = mul i32 %.171.i, %35
   %55 = add i32 %54, 32768
@@ -125,7 +125,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef readonly capture
   %57 = trunc nuw i32 %56 to i16
   %58 = sub nsw i32 %29, %14
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw i16, ptr %12, i64 %59
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %59
   store i16 %57, ptr %60, align 2, !tbaa !29
   %61 = icmp samesign ult i64 %indvars.iv.next.i, 4096
   br i1 %61, label %17, label %62, !llvm.loop !31
@@ -136,7 +136,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef readonly capture
 
 .preheader74.i:                                   ; preds = %62, %.preheader74.i
   %indvars.iv83.i = phi i64 [ %indvars.iv.next84.i, %.preheader74.i ], [ 0, %62 ]
-  %64 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv83.i
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv83.i
   %65 = load i16, ptr %64, align 2, !tbaa !29
   %66 = sext i16 %65 to i32
   %67 = add nsw i32 %66, 4
@@ -149,10 +149,10 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef readonly capture
 
 .preheader73.i:                                   ; preds = %.preheader74.i, %.preheader73.i
   %indvars.iv86.i = phi i64 [ %indvars.iv.next87.i, %.preheader73.i ], [ 0, %.preheader74.i ]
-  %70 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv86.i
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv86.i
   %71 = load i16, ptr %70, align 2, !tbaa !29
   %72 = sub nuw nsw i64 16384, %indvars.iv86.i
-  %73 = getelementptr inbounds nuw i16, ptr %12, i64 %72
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %72
   store i16 %71, ptr %73, align 2, !tbaa !29
   %indvars.iv.next87.i = add nuw nsw i64 %indvars.iv86.i, 1
   %exitcond89.not.i = icmp eq i64 %indvars.iv.next87.i, 8192
@@ -160,7 +160,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef readonly capture
 
 .preheader.i:                                     ; preds = %.preheader73.i, %.preheader.i
   %indvars.iv90.i = phi i64 [ %indvars.iv.next91.i, %.preheader.i ], [ 0, %.preheader73.i ]
-  %74 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv90.i
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv90.i
   %75 = load i16, ptr %74, align 2, !tbaa !29
   %76 = sub i16 0, %75
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 32768
@@ -352,9 +352,9 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %63 = phi i32 [ %.promoted, %.lr.ph ], [ %77, %sampling_advance.exit63 ]
   %64 = lshr i32 %63, 17
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %.pre, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %.pre, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !29
-  %68 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %indvars.iv
   store i16 %67, ptr %68, align 2, !tbaa !29
   %69 = add i32 %.pre72, %63
   %70 = add nsw i32 %62, %.pre73
@@ -379,7 +379,7 @@ sampling_advance.exit:                            ; preds = %61, %72
   %82 = load i32, ptr %55, align 4, !tbaa !66
   %83 = lshr i32 %82, 17
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw i16, ptr %.pre, i64 %84
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %.pre, i64 %84
   %86 = load i16, ptr %85, align 2, !tbaa !29
   %87 = shl i16 %86, 1
   %88 = add i16 %87, %67

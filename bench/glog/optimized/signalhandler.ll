@@ -1508,7 +1508,7 @@ _ZN6google12_GLOBAL__N_114DumpSignalInfoEiP9siginfo_t.exit: ; preds = %332, %_ZN
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv96 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next97, %.lr.ph ]
-  %358 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv96
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv96
   %359 = load ptr, ptr %358, align 8, !tbaa !41
   call fastcc void @_ZN6google12_GLOBAL__N_118DumpStackFrameInfoEPKcPv(ptr noundef nonnull @.str.3, ptr noundef %359)
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1

@@ -365,7 +365,7 @@ define range(i32 -9, 1) i32 @ff_dca_parse_core_frame_header(ptr noundef writeonl
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 7
   store i8 %121, ptr %122, align 1, !tbaa !26
   %123 = zext nneg i32 %118 to i64
-  %124 = getelementptr inbounds nuw i32, ptr @ff_dca_sample_rates, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr @ff_dca_sample_rates, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !27
   %.not61 = icmp eq i32 %125, 0
   br i1 %.not61, label %350, label %126

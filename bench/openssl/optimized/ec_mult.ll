@@ -656,7 +656,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %76, label %77, label %80
 
 77:                                               ; preds = %.lr.ph
-  %78 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0348492
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0348492
   %79 = load ptr, ptr %78, align 8, !tbaa !39
   br label %80
 
@@ -683,27 +683,27 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 92:                                               ; preds = %83, %85, %87, %80
   %93 = phi i64 [ 6, %80 ], [ 5, %83 ], [ %91, %87 ], [ 4, %85 ]
-  %94 = getelementptr inbounds nuw i64, ptr %66, i64 %.0348492
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.0348492
   store i64 %93, ptr %94, align 8, !tbaa !46
   %95 = add nsw i64 %93, -1
   %96 = shl nuw nsw i64 1, %95
   %97 = add i64 %96, %.0326494
   %98 = add nuw i64 %.0348492, 1
-  %99 = getelementptr inbounds nuw ptr, ptr %69, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %98
   store ptr null, ptr %99, align 8, !tbaa !45
   br i1 %76, label %100, label %103
 
 100:                                              ; preds = %92
-  %101 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0348492
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0348492
   %102 = load ptr, ptr %101, align 8, !tbaa !39
   br label %103
 
 103:                                              ; preds = %92, %100
   %104 = phi ptr [ %102, %100 ], [ %2, %92 ]
   %105 = trunc nuw nsw i64 %93 to i32
-  %106 = getelementptr inbounds nuw i64, ptr %67, i64 %.0348492
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.0348492
   %107 = tail call ptr @bn_compute_wNAF(ptr noundef %104, i32 noundef %105, ptr noundef %106) #9
-  %108 = getelementptr inbounds nuw ptr, ptr %69, i64 %.0348492
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %.0348492
   store ptr %107, ptr %108, align 8, !tbaa !45
   %109 = icmp eq ptr %107, null
   br i1 %109, label %.thread440, label %110
@@ -747,7 +747,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 118:                                              ; preds = %116
   %119 = getelementptr inbounds nuw i8, ptr %.0320, i64 24
   %120 = load i64, ptr %119, align 8, !tbaa !43
-  %121 = getelementptr inbounds nuw i64, ptr %66, i64 %3
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %3
   store i64 %120, ptr %121, align 8, !tbaa !46
   %122 = trunc i64 %120 to i32
   %123 = call ptr @bn_compute_wNAF(ptr noundef %2, i32 noundef %122, ptr noundef nonnull %8) #9
@@ -761,15 +761,15 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 126:                                              ; preds = %124
   %127 = add i64 %3, 1
-  %128 = getelementptr inbounds nuw ptr, ptr %69, i64 %3
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %3
   store ptr %123, ptr %128, align 8, !tbaa !45
-  %129 = getelementptr inbounds nuw ptr, ptr %69, i64 %127
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %127
   store ptr null, ptr %129, align 8, !tbaa !45
-  %130 = getelementptr inbounds nuw i64, ptr %67, i64 %3
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %3
   store i64 %125, ptr %130, align 8, !tbaa !46
   %131 = getelementptr inbounds nuw i8, ptr %.0320, i64 32
   %132 = load ptr, ptr %131, align 8, !tbaa !3
-  %133 = getelementptr inbounds nuw ptr, ptr %70, i64 %3
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %3
   store ptr %132, ptr %133, align 8, !tbaa !48
   br label %182
 
@@ -818,7 +818,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %153, label %154, label %161
 
 154:                                              ; preds = %152
-  %155 = getelementptr inbounds nuw i64, ptr %67, i64 %.1349497
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.1349497
   store i64 %.0356, ptr %155, align 8, !tbaa !46
   %156 = load i64, ptr %8, align 8, !tbaa !46
   %157 = icmp ult i64 %156, %.0356
@@ -838,17 +838,17 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 161:                                              ; preds = %152
   %162 = load i64, ptr %8, align 8, !tbaa !46
-  %163 = getelementptr inbounds nuw i64, ptr %67, i64 %.1349497
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.1349497
   store i64 %162, ptr %163, align 8, !tbaa !46
   br label %164
 
 164:                                              ; preds = %161, %159
   %165 = phi i64 [ %162, %161 ], [ %.0356, %159 ]
   %166 = add i64 %.1349497, 1
-  %167 = getelementptr inbounds nuw ptr, ptr %69, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %166
   store ptr null, ptr %167, align 8, !tbaa !45
   %168 = call noalias ptr @CRYPTO_malloc(i64 noundef %165, ptr noundef nonnull @.str, i32 noundef 626) #9
-  %169 = getelementptr inbounds nuw ptr, ptr %69, i64 %.1349497
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %.1349497
   store ptr %168, ptr %169, align 8, !tbaa !45
   %170 = icmp eq ptr %168, null
   br i1 %170, label %171, label %172
@@ -858,7 +858,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br label %.thread455
 
 172:                                              ; preds = %164
-  %173 = getelementptr inbounds nuw i64, ptr %67, i64 %.1349497
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.1349497
   %174 = load i64, ptr %173, align 8, !tbaa !46
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %168, ptr align 1 %.0315499, i64 %174, i1 false)
   %175 = load ptr, ptr %.0314500, align 8, !tbaa !12
@@ -874,9 +874,9 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 178:                                              ; preds = %172
   %spec.select431 = call i64 @llvm.umax.i64(i64 %174, i64 %.7498)
-  %179 = getelementptr inbounds nuw ptr, ptr %70, i64 %.1349497
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.1349497
   store ptr %.0314500, ptr %179, align 8, !tbaa !48
-  %180 = getelementptr inbounds nuw ptr, ptr %.0314500, i64 %.0353
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %.0314500, i64 %.0353
   %181 = getelementptr inbounds nuw i8, ptr %.0315499, i64 %.0356
   %exitcond557.not = icmp eq i64 %166, %.3360
   br i1 %exitcond557.not, label %._crit_edge503, label %152, !llvm.loop !49
@@ -907,16 +907,16 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %187, label %.thread440, label %188
 
 188:                                              ; preds = %183
-  %189 = getelementptr inbounds nuw ptr, ptr %186, i64 %.0326.lcssa
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %.0326.lcssa
   store ptr null, ptr %189, align 8, !tbaa !12
   br i1 %.not544, label %._crit_edge511, label %.lr.ph510
 
 .lr.ph510:                                        ; preds = %188, %201
   %.0322508 = phi ptr [ %196, %201 ], [ %186, %188 ]
   %.2350507 = phi i64 [ %202, %201 ], [ 0, %188 ]
-  %190 = getelementptr inbounds nuw ptr, ptr %70, i64 %.2350507
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.2350507
   store ptr %.0322508, ptr %190, align 8, !tbaa !48
-  %191 = getelementptr inbounds nuw i64, ptr %66, i64 %.2350507
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.2350507
   br label %192
 
 192:                                              ; preds = %.lr.ph510, %195
@@ -963,13 +963,13 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 .lr.ph517:                                        ; preds = %.preheader469, %.loopexit467
   %.3351516 = phi i64 [ %234, %.loopexit467 ], [ 0, %.preheader469 ]
   %208 = icmp ult i64 %.3351516, %3
-  %209 = getelementptr inbounds nuw ptr, ptr %70, i64 %.3351516
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.3351516
   %210 = load ptr, ptr %209, align 8, !tbaa !48
   %211 = load ptr, ptr %210, align 8, !tbaa !12
   br i1 %208, label %212, label %216
 
 212:                                              ; preds = %.lr.ph517
-  %213 = getelementptr inbounds nuw ptr, ptr %4, i64 %.3351516
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.3351516
   %214 = load ptr, ptr %213, align 8, !tbaa !12
   %215 = call i32 @EC_POINT_copy(ptr noundef %211, ptr noundef %214) #9
   %.not422 = icmp eq i32 %215, 0
@@ -981,7 +981,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not421, label %.thread440, label %218
 
 218:                                              ; preds = %216, %212
-  %219 = getelementptr inbounds nuw i64, ptr %66, i64 %.3351516
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %.3351516
   %220 = load i64, ptr %219, align 8, !tbaa !46
   %221 = icmp ugt i64 %220, 1
   br i1 %221, label %222, label %.loopexit467
@@ -1004,7 +1004,7 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 .lr.ph515:                                        ; preds = %.lr.ph515.preheader, %226
   %.1347514 = phi i64 [ %227, %226 ], [ 1, %.lr.ph515.preheader ]
-  %229 = getelementptr inbounds nuw ptr, ptr %210, i64 %.1347514
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %.1347514
   %230 = load ptr, ptr %229, align 8, !tbaa !12
   %231 = getelementptr i8, ptr %229, i64 -8
   %232 = load ptr, ptr %231, align 8, !tbaa !12
@@ -1060,13 +1060,13 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %.1335521.us = phi i32 [ %.4338.us, %276 ], [ %.0334528.us, %.lr.ph523.us.preheader ]
   %.1340520.us = phi i32 [ %.5344.us, %276 ], [ %.0339527.us, %.lr.ph523.us.preheader ]
   %.4352519.us = phi i64 [ %277, %276 ], [ 0, %.lr.ph523.us.preheader ]
-  %247 = getelementptr inbounds nuw i64, ptr %67, i64 %.4352519.us
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.4352519.us
   %248 = load i64, ptr %247, align 8, !tbaa !46
   %249 = icmp ugt i64 %248, %indvars.iv
   br i1 %249, label %250, label %276
 
 250:                                              ; preds = %.lr.ph523.us
-  %251 = getelementptr inbounds nuw ptr, ptr %69, i64 %.4352519.us
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %.4352519.us
   %252 = load ptr, ptr %251, align 8, !tbaa !45
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 %indvars.iv
   %254 = load i8, ptr %253, align 1, !tbaa !40
@@ -1097,11 +1097,11 @@ define i32 @ossl_ec_wNAF_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 263:                                              ; preds = %261, %255
   %.3342.us = phi i32 [ %262, %261 ], [ %.1340520.us, %255 ]
   %.not417.us = icmp eq i32 %.1335521.us, 0
-  %264 = getelementptr inbounds nuw ptr, ptr %70, i64 %.4352519.us
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.4352519.us
   %265 = load ptr, ptr %264, align 8, !tbaa !48
   %266 = lshr i8 %257, 1
   %267 = zext nneg i8 %266 to i64
-  %268 = getelementptr inbounds nuw ptr, ptr %265, i64 %267
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 %267
   %269 = load ptr, ptr %268, align 8, !tbaa !12
   br i1 %.not417.us, label %274, label %270
 
@@ -1316,7 +1316,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
   br i1 %35, label %.thread167, label %36
 
 36:                                               ; preds = %23
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %31
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %31
   store ptr null, ptr %37, align 8, !tbaa !12
   %.not233 = icmp eq i64 %31, 0
   br i1 %.not233, label %._crit_edge, label %.lr.ph
@@ -1329,7 +1329,7 @@ define range(i32 0, 2) i32 @ossl_ec_wNAF_precompute_mult(ptr noundef %0, ptr nou
 .lr.ph:                                           ; preds = %36, %38
   %.0129216 = phi i64 [ %39, %38 ], [ 0, %36 ]
   %40 = tail call ptr @EC_POINT_new(ptr noundef nonnull %0) #9
-  %41 = getelementptr inbounds nuw ptr, ptr %34, i64 %.0129216
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0129216
   store ptr %40, ptr %41, align 8, !tbaa !12
   %42 = icmp eq ptr %40, null
   br i1 %42, label %43, label %38

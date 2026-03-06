@@ -45,7 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::ento::Loc" = type { %"class.clang::ento::DefinedSVal.base", [7 x i8] }
 %"struct.std::pair" = type { %"class.llvm::IntrusiveRefCntPtr.625", %"class.llvm::IntrusiveRefCntPtr.625" }
 %"class.clang::Qualifiers" = type { i64 }
-%"struct.std::pair.709" = type { ptr, i64 }
 
 $_ZN5clang4ento11SValBuilder16makeNullWithTypeENS_8QualTypeE = comdat any
 
@@ -3489,7 +3488,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge.i: ; preds = %_ZN4llvm5APInt10get
   %87 = load ptr, ptr %7, align 8, !tbaa !171, !alias.scope !800, !noalias !792
   %88 = lshr i32 %76, 6
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw i64, ptr %87, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %89
   %91 = load i64, ptr %90, align 8, !tbaa !803, !noalias !792
   %92 = and i64 %91, %80
   store i64 %92, ptr %90, align 8, !tbaa !803, !noalias !792
@@ -5639,7 +5638,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %6, %11
   %15 = phi i32 [ %8, %6 ], [ %.pre.i.i, %11 ]
   %16 = load ptr, ptr %0, align 8, !tbaa !211
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   store i32 5, ptr %18, align 1
   %19 = load i32, ptr %7, align 8, !tbaa !213
   %20 = add i32 %19, 1
@@ -5662,7 +5661,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %24, %_ZN4llvm16F
   %28 = phi i32 [ %20, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit ], [ %.pre.i.i.i.i.i, %24 ]
   %29 = load ptr, ptr %0, align 8, !tbaa !211
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   store i32 %22, ptr %31, align 1
   %32 = load i32, ptr %7, align 8, !tbaa !213
   %33 = add i32 %32, 1
@@ -5685,7 +5684,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   %41 = trunc nuw i64 %40 to i32
   %42 = load ptr, ptr %0, align 8, !tbaa !211
   %43 = zext i32 %39 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 %41, ptr %44, align 1
   %45 = load i32, ptr %7, align 8, !tbaa !213
   %46 = add i32 %45, 1
@@ -5708,7 +5707,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i11: ; preds = %50, %_ZN4llvm1
   %54 = phi i32 [ %46, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit ], [ %.pre.i.i.i.i.i10, %50 ]
   %55 = load ptr, ptr %0, align 8, !tbaa !211
   %56 = zext i32 %54 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   store i32 %48, ptr %57, align 1
   %58 = load i32, ptr %7, align 8, !tbaa !213
   %59 = add i32 %58, 1
@@ -5731,7 +5730,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit14: ; preds = %_ZN4llvm16FoldingS
   %67 = trunc nuw i64 %66 to i32
   %68 = load ptr, ptr %0, align 8, !tbaa !211
   %69 = zext i32 %65 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %69
   store i32 %67, ptr %70, align 1
   %71 = load i32, ptr %7, align 8, !tbaa !213
   %72 = add i32 %71, 1
@@ -5753,7 +5752,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %75, %_ZN4l
   %79 = phi i32 [ %72, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit14 ], [ %.pre.i.i.i.i.i.i.i.i, %75 ]
   %80 = load ptr, ptr %0, align 8, !tbaa !211
   %81 = zext i32 %79 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %81
   store i32 %73, ptr %82, align 1
   %83 = load i32, ptr %7, align 8, !tbaa !213
   %84 = add i32 %83, 1
@@ -5776,7 +5775,7 @@ _ZN4llvm16FoldingSetNodeID3AddIN5clang8QualTypeEEEvRKT_.exit: ; preds = %_ZN4llv
   %92 = trunc nuw i64 %91 to i32
   %93 = load ptr, ptr %0, align 8, !tbaa !211
   %94 = zext i32 %90 to i64
-  %95 = getelementptr inbounds nuw i32, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %94
   store i32 %92, ptr %95, align 1
   %96 = load i32, ptr %7, align 8, !tbaa !213
   %97 = add i32 %96, 1
@@ -5797,7 +5796,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit17:  ; preds = %_ZN4llvm16FoldingSe
   %103 = phi i32 [ %97, %_ZN4llvm16FoldingSetNodeID3AddIN5clang8QualTypeEEEvRKT_.exit ], [ %.pre.i.i16, %99 ]
   %104 = load ptr, ptr %0, align 8, !tbaa !211
   %105 = zext i32 %103 to i64
-  %106 = getelementptr inbounds nuw i32, ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %105
   store i32 %4, ptr %106, align 1
   %107 = load i32, ptr %7, align 8, !tbaa !213
   %108 = add i32 %107, 1
@@ -5820,7 +5819,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i20: ; preds = %112, %_ZN4llvm
   %116 = phi i32 [ %108, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit17 ], [ %.pre.i.i.i.i.i19, %112 ]
   %117 = load ptr, ptr %0, align 8, !tbaa !211
   %118 = zext i32 %116 to i64
-  %119 = getelementptr inbounds nuw i32, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %118
   store i32 %110, ptr %119, align 1
   %120 = load i32, ptr %7, align 8, !tbaa !213
   %121 = add i32 %120, 1
@@ -5843,7 +5842,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit23: ; preds = %_ZN4llvm16FoldingS
   %129 = trunc nuw i64 %128 to i32
   %130 = load ptr, ptr %0, align 8, !tbaa !211
   %131 = zext i32 %127 to i64
-  %132 = getelementptr inbounds nuw i32, ptr %130, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %131
   store i32 %129, ptr %132, align 1
   %133 = load i32, ptr %7, align 8, !tbaa !213
   %134 = add i32 %133, 1
@@ -5887,7 +5886,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm10FoldingSetIN5clang4ento7SymExp
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !213
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %11
   %13 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %8, ptr noundef %12)
   %14 = trunc i64 %13 to i32
   ret i32 %14
@@ -6375,7 +6374,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !211
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.709", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -6416,7 +6415,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !211
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !213
@@ -7287,7 +7286,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %2, %7
   %11 = phi i32 [ %4, %2 ], [ %.pre.i.i, %7 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !211
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   store i32 7, ptr %14, align 1
   %15 = load i32, ptr %3, align 8, !tbaa !213
   %16 = add i32 %15, 1
@@ -7310,7 +7309,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %20, %_ZN4llvm16F
   %24 = phi i32 [ %16, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit ], [ %.pre.i.i.i.i.i, %20 ]
   %25 = load ptr, ptr %0, align 8, !tbaa !211
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 %18, ptr %27, align 1
   %28 = load i32, ptr %3, align 8, !tbaa !213
   %29 = add i32 %28, 1
@@ -7333,7 +7332,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   %37 = trunc nuw i64 %36 to i32
   %38 = load ptr, ptr %0, align 8, !tbaa !211
   %39 = zext i32 %35 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %39
   store i32 %37, ptr %40, align 1
   %41 = load i32, ptr %3, align 8, !tbaa !213
   %42 = add i32 %41, 1
@@ -7389,7 +7388,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %5, %10
   %14 = phi i32 [ %7, %5 ], [ %.pre.i.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !211
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 2, ptr %17, align 1
   %18 = load i32, ptr %6, align 8, !tbaa !213
   %19 = add i32 %18, 1
@@ -7412,7 +7411,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %23, %_ZN4llvm16F
   %27 = phi i32 [ %19, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit ], [ %.pre.i.i.i.i.i, %23 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !211
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   store i32 %21, ptr %30, align 1
   %31 = load i32, ptr %6, align 8, !tbaa !213
   %32 = add i32 %31, 1
@@ -7435,7 +7434,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   %40 = trunc nuw i64 %39 to i32
   %41 = load ptr, ptr %0, align 8, !tbaa !211
   %42 = zext i32 %38 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %42
   store i32 %40, ptr %43, align 1
   %44 = load i32, ptr %6, align 8, !tbaa !213
   %45 = add i32 %44, 1
@@ -7456,7 +7455,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %_ZN4llvm16FoldingSe
   %51 = phi i32 [ %45, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit ], [ %.pre.i.i8, %47 ]
   %52 = load ptr, ptr %0, align 8, !tbaa !211
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   store i32 %2, ptr %54, align 1
   %55 = load i32, ptr %6, align 8, !tbaa !213
   %56 = add i32 %55, 1
@@ -7479,7 +7478,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i11: ; preds = %60, %_ZN4llvm1
   %64 = phi i32 [ %56, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit ], [ %.pre.i.i.i.i.i10, %60 ]
   %65 = load ptr, ptr %0, align 8, !tbaa !211
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %66
   store i32 %58, ptr %67, align 1
   %68 = load i32, ptr %6, align 8, !tbaa !213
   %69 = add i32 %68, 1
@@ -7502,7 +7501,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit14: ; preds = %_ZN4llvm16FoldingS
   %77 = trunc nuw i64 %76 to i32
   %78 = load ptr, ptr %0, align 8, !tbaa !211
   %79 = zext i32 %75 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %79
   store i32 %77, ptr %80, align 1
   %81 = load i32, ptr %6, align 8, !tbaa !213
   %82 = add i32 %81, 1
@@ -7524,7 +7523,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %85, %_ZN4l
   %89 = phi i32 [ %82, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit14 ], [ %.pre.i.i.i.i.i.i.i.i, %85 ]
   %90 = load ptr, ptr %0, align 8, !tbaa !211
   %91 = zext i32 %89 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %91
   store i32 %83, ptr %92, align 1
   %93 = load i32, ptr %6, align 8, !tbaa !213
   %94 = add i32 %93, 1
@@ -7547,7 +7546,7 @@ _ZN4llvm16FoldingSetNodeID3AddIN5clang8QualTypeEEEvRKT_.exit: ; preds = %_ZN4llv
   %102 = trunc nuw i64 %101 to i32
   %103 = load ptr, ptr %0, align 8, !tbaa !211
   %104 = zext i32 %100 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %104
   store i32 %102, ptr %105, align 1
   %106 = load i32, ptr %6, align 8, !tbaa !213
   %107 = add i32 %106, 1
@@ -7657,7 +7656,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %5, %10
   %14 = phi i32 [ %7, %5 ], [ %.pre.i.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !211
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 1, ptr %17, align 1
   %18 = load i32, ptr %6, align 8, !tbaa !213
   %19 = add i32 %18, 1
@@ -7680,7 +7679,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %23, %_ZN4llvm16F
   %27 = phi i32 [ %19, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit ], [ %.pre.i.i.i.i.i, %23 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !211
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   store i32 %21, ptr %30, align 1
   %31 = load i32, ptr %6, align 8, !tbaa !213
   %32 = add i32 %31, 1
@@ -7703,7 +7702,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   %40 = trunc nuw i64 %39 to i32
   %41 = load ptr, ptr %0, align 8, !tbaa !211
   %42 = zext i32 %38 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %42
   store i32 %40, ptr %43, align 1
   %44 = load i32, ptr %6, align 8, !tbaa !213
   %45 = add i32 %44, 1
@@ -7724,7 +7723,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %_ZN4llvm16FoldingSe
   %51 = phi i32 [ %45, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit ], [ %.pre.i.i8, %47 ]
   %52 = load ptr, ptr %0, align 8, !tbaa !211
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   store i32 %2, ptr %54, align 1
   %55 = load i32, ptr %6, align 8, !tbaa !213
   %56 = add i32 %55, 1
@@ -7747,7 +7746,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i11: ; preds = %60, %_ZN4llvm1
   %64 = phi i32 [ %56, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit ], [ %.pre.i.i.i.i.i10, %60 ]
   %65 = load ptr, ptr %0, align 8, !tbaa !211
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %66
   store i32 %58, ptr %67, align 1
   %68 = load i32, ptr %6, align 8, !tbaa !213
   %69 = add i32 %68, 1
@@ -7770,7 +7769,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit14: ; preds = %_ZN4llvm16FoldingS
   %77 = trunc nuw i64 %76 to i32
   %78 = load ptr, ptr %0, align 8, !tbaa !211
   %79 = zext i32 %75 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %79
   store i32 %77, ptr %80, align 1
   %81 = load i32, ptr %6, align 8, !tbaa !213
   %82 = add i32 %81, 1
@@ -7792,7 +7791,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %85, %_ZN4l
   %89 = phi i32 [ %82, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit14 ], [ %.pre.i.i.i.i.i.i.i.i, %85 ]
   %90 = load ptr, ptr %0, align 8, !tbaa !211
   %91 = zext i32 %89 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %91
   store i32 %83, ptr %92, align 1
   %93 = load i32, ptr %6, align 8, !tbaa !213
   %94 = add i32 %93, 1
@@ -7815,7 +7814,7 @@ _ZN4llvm16FoldingSetNodeID3AddIN5clang8QualTypeEEEvRKT_.exit: ; preds = %_ZN4llv
   %102 = trunc nuw i64 %101 to i32
   %103 = load ptr, ptr %0, align 8, !tbaa !211
   %104 = zext i32 %100 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %104
   store i32 %102, ptr %105, align 1
   %106 = load i32, ptr %6, align 8, !tbaa !213
   %107 = add i32 %106, 1
@@ -7903,7 +7902,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %5, %10
   %14 = phi i32 [ %7, %5 ], [ %.pre.i.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !211
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 3, ptr %17, align 1
   %18 = load i32, ptr %6, align 8, !tbaa !213
   %19 = add i32 %18, 1
@@ -7926,7 +7925,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %23, %_ZN4llvm16F
   %27 = phi i32 [ %19, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit ], [ %.pre.i.i.i.i.i, %23 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !211
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   store i32 %21, ptr %30, align 1
   %31 = load i32, ptr %6, align 8, !tbaa !213
   %32 = add i32 %31, 1
@@ -7949,7 +7948,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   %40 = trunc nuw i64 %39 to i32
   %41 = load ptr, ptr %0, align 8, !tbaa !211
   %42 = zext i32 %38 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %42
   store i32 %40, ptr %43, align 1
   %44 = load i32, ptr %6, align 8, !tbaa !213
   %45 = add i32 %44, 1
@@ -7970,7 +7969,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %_ZN4llvm16FoldingSe
   %51 = phi i32 [ %45, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit ], [ %.pre.i.i8, %47 ]
   %52 = load ptr, ptr %0, align 8, !tbaa !211
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   store i32 %2, ptr %54, align 1
   %55 = load i32, ptr %6, align 8, !tbaa !213
   %56 = add i32 %55, 1
@@ -7993,7 +7992,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i11: ; preds = %60, %_ZN4llvm1
   %64 = phi i32 [ %56, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit ], [ %.pre.i.i.i.i.i10, %60 ]
   %65 = load ptr, ptr %0, align 8, !tbaa !211
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %66
   store i32 %58, ptr %67, align 1
   %68 = load i32, ptr %6, align 8, !tbaa !213
   %69 = add i32 %68, 1
@@ -8016,7 +8015,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit14: ; preds = %_ZN4llvm16FoldingS
   %77 = trunc nuw i64 %76 to i32
   %78 = load ptr, ptr %0, align 8, !tbaa !211
   %79 = zext i32 %75 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %79
   store i32 %77, ptr %80, align 1
   %81 = load i32, ptr %6, align 8, !tbaa !213
   %82 = add i32 %81, 1
@@ -8038,7 +8037,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %85, %_ZN4l
   %89 = phi i32 [ %82, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit14 ], [ %.pre.i.i.i.i.i.i.i.i, %85 ]
   %90 = load ptr, ptr %0, align 8, !tbaa !211
   %91 = zext i32 %89 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %91
   store i32 %83, ptr %92, align 1
   %93 = load i32, ptr %6, align 8, !tbaa !213
   %94 = add i32 %93, 1
@@ -8061,7 +8060,7 @@ _ZN4llvm16FoldingSetNodeID3AddIN5clang8QualTypeEEEvRKT_.exit: ; preds = %_ZN4llv
   %102 = trunc nuw i64 %101 to i32
   %103 = load ptr, ptr %0, align 8, !tbaa !211
   %104 = zext i32 %100 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %104
   store i32 %102, ptr %105, align 1
   %106 = load i32, ptr %6, align 8, !tbaa !213
   %107 = add i32 %106, 1
@@ -8160,7 +8159,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %4, %9
   %13 = phi i32 [ %6, %4 ], [ %.pre.i.i, %9 ]
   %14 = load ptr, ptr %0, align 8, !tbaa !211
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   store i32 0, ptr %16, align 1
   %17 = load i32, ptr %5, align 8, !tbaa !213
   %18 = add i32 %17, 1
@@ -8183,7 +8182,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %22, %_ZN4llvm16F
   %26 = phi i32 [ %18, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit ], [ %.pre.i.i.i.i.i, %22 ]
   %27 = load ptr, ptr %0, align 8, !tbaa !211
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   store i32 %20, ptr %29, align 1
   %30 = load i32, ptr %5, align 8, !tbaa !213
   %31 = add i32 %30, 1
@@ -8206,7 +8205,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   %39 = trunc nuw i64 %38 to i32
   %40 = load ptr, ptr %0, align 8, !tbaa !211
   %41 = zext i32 %37 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   store i32 %39, ptr %42, align 1
   %43 = load i32, ptr %5, align 8, !tbaa !213
   %44 = add i32 %43, 1
@@ -8227,7 +8226,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %_ZN4llvm16FoldingSe
   %50 = phi i32 [ %44, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit ], [ %.pre.i.i6, %46 ]
   %51 = load ptr, ptr %0, align 8, !tbaa !211
   %52 = zext i32 %50 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %52
   store i32 %2, ptr %53, align 1
   %54 = load i32, ptr %5, align 8, !tbaa !213
   %55 = add i32 %54, 1
@@ -8249,7 +8248,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %58, %_ZN4l
   %62 = phi i32 [ %55, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit ], [ %.pre.i.i.i.i.i.i.i.i, %58 ]
   %63 = load ptr, ptr %0, align 8, !tbaa !211
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %64
   store i32 %56, ptr %65, align 1
   %66 = load i32, ptr %5, align 8, !tbaa !213
   %67 = add i32 %66, 1
@@ -8272,7 +8271,7 @@ _ZN4llvm16FoldingSetNodeID3AddIN5clang8QualTypeEEEvRKT_.exit: ; preds = %_ZN4llv
   %75 = trunc nuw i64 %74 to i32
   %76 = load ptr, ptr %0, align 8, !tbaa !211
   %77 = zext i32 %73 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %77
   store i32 %75, ptr %78, align 1
   %79 = load i32, ptr %5, align 8, !tbaa !213
   %80 = add i32 %79, 1
@@ -8301,7 +8300,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %4, %9
   %13 = phi i32 [ %6, %4 ], [ %.pre.i.i, %9 ]
   %14 = load ptr, ptr %0, align 8, !tbaa !211
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   store i32 4, ptr %16, align 1
   %17 = load i32, ptr %5, align 8, !tbaa !213
   %18 = add i32 %17, 1
@@ -8324,7 +8323,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %22, %_ZN4llvm16F
   %26 = phi i32 [ %18, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit ], [ %.pre.i.i.i.i.i, %22 ]
   %27 = load ptr, ptr %0, align 8, !tbaa !211
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   store i32 %20, ptr %29, align 1
   %30 = load i32, ptr %5, align 8, !tbaa !213
   %31 = add i32 %30, 1
@@ -8347,7 +8346,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   %39 = trunc nuw i64 %38 to i32
   %40 = load ptr, ptr %0, align 8, !tbaa !211
   %41 = zext i32 %37 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   store i32 %39, ptr %42, align 1
   %43 = load i32, ptr %5, align 8, !tbaa !213
   %44 = add i32 %43, 1
@@ -8369,7 +8368,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %47, %_ZN4l
   %51 = phi i32 [ %44, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit ], [ %.pre.i.i.i.i.i.i.i.i, %47 ]
   %52 = load ptr, ptr %0, align 8, !tbaa !211
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   store i32 %45, ptr %54, align 1
   %55 = load i32, ptr %5, align 8, !tbaa !213
   %56 = add i32 %55, 1
@@ -8392,7 +8391,7 @@ _ZN4llvm16FoldingSetNodeID3AddIN5clang8QualTypeEEEvRKT_.exit: ; preds = %_ZN4llv
   %64 = trunc nuw i64 %63 to i32
   %65 = load ptr, ptr %0, align 8, !tbaa !211
   %66 = zext i32 %62 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %66
   store i32 %64, ptr %67, align 1
   %68 = load i32, ptr %5, align 8, !tbaa !213
   %69 = add i32 %68, 1
@@ -8414,7 +8413,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i8: ; preds = %72, %_ZN4
   %76 = phi i32 [ %69, %_ZN4llvm16FoldingSetNodeID3AddIN5clang8QualTypeEEEvRKT_.exit ], [ %.pre.i.i.i.i.i.i.i.i7, %72 ]
   %77 = load ptr, ptr %0, align 8, !tbaa !211
   %78 = zext i32 %76 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %78
   store i32 %70, ptr %79, align 1
   %80 = load i32, ptr %5, align 8, !tbaa !213
   %81 = add i32 %80, 1
@@ -8437,7 +8436,7 @@ _ZN4llvm16FoldingSetNodeID3AddIN5clang8QualTypeEEEvRKT_.exit11: ; preds = %_ZN4l
   %89 = trunc nuw i64 %88 to i32
   %90 = load ptr, ptr %0, align 8, !tbaa !211
   %91 = zext i32 %87 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %91
   store i32 %89, ptr %92, align 1
   %93 = load i32, ptr %5, align 8, !tbaa !213
   %94 = add i32 %93, 1
@@ -8466,7 +8465,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %2, %7
   %11 = phi i32 [ %4, %2 ], [ %.pre.i.i, %7 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !211
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   store i32 9, ptr %14, align 1
   %15 = load i32, ptr %3, align 8, !tbaa !213
   %16 = add i32 %15, 1
@@ -8489,7 +8488,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %20, %_ZN4llvm16F
   %24 = phi i32 [ %16, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit ], [ %.pre.i.i.i.i.i, %20 ]
   %25 = load ptr, ptr %0, align 8, !tbaa !211
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 %18, ptr %27, align 1
   %28 = load i32, ptr %3, align 8, !tbaa !213
   %29 = add i32 %28, 1
@@ -8512,7 +8511,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   %37 = trunc nuw i64 %36 to i32
   %38 = load ptr, ptr %0, align 8, !tbaa !211
   %39 = zext i32 %35 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %39
   store i32 %37, ptr %40, align 1
   %41 = load i32, ptr %3, align 8, !tbaa !213
   %42 = add i32 %41, 1
@@ -8541,7 +8540,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %7, %12
   %16 = phi i32 [ %9, %7 ], [ %.pre.i.i, %12 ]
   %17 = load ptr, ptr %0, align 8, !tbaa !211
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   store i32 8, ptr %19, align 1
   %20 = load i32, ptr %8, align 8, !tbaa !213
   %21 = add i32 %20, 1
@@ -8564,7 +8563,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %25, %_ZN4llvm16F
   %29 = phi i32 [ %21, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit ], [ %.pre.i.i.i.i.i, %25 ]
   %30 = load ptr, ptr %0, align 8, !tbaa !211
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   store i32 %23, ptr %32, align 1
   %33 = load i32, ptr %8, align 8, !tbaa !213
   %34 = add i32 %33, 1
@@ -8587,7 +8586,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   %42 = trunc nuw i64 %41 to i32
   %43 = load ptr, ptr %0, align 8, !tbaa !211
   %44 = zext i32 %40 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %44
   store i32 %42, ptr %45, align 1
   %46 = load i32, ptr %8, align 8, !tbaa !213
   %47 = add i32 %46, 1
@@ -8610,7 +8609,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i13: ; preds = %51, %_ZN4llvm1
   %55 = phi i32 [ %47, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit ], [ %.pre.i.i.i.i.i12, %51 ]
   %56 = load ptr, ptr %0, align 8, !tbaa !211
   %57 = zext i32 %55 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %57
   store i32 %49, ptr %58, align 1
   %59 = load i32, ptr %8, align 8, !tbaa !213
   %60 = add i32 %59, 1
@@ -8633,7 +8632,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit16: ; preds = %_ZN4llvm16FoldingS
   %68 = trunc nuw i64 %67 to i32
   %69 = load ptr, ptr %0, align 8, !tbaa !211
   %70 = zext i32 %66 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %70
   store i32 %68, ptr %71, align 1
   %72 = load i32, ptr %8, align 8, !tbaa !213
   %73 = add i32 %72, 1
@@ -8655,7 +8654,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i: ; preds = %76, %_ZN4l
   %80 = phi i32 [ %73, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit16 ], [ %.pre.i.i.i.i.i.i.i.i, %76 ]
   %81 = load ptr, ptr %0, align 8, !tbaa !211
   %82 = zext i32 %80 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %82
   store i32 %74, ptr %83, align 1
   %84 = load i32, ptr %8, align 8, !tbaa !213
   %85 = add i32 %84, 1
@@ -8678,7 +8677,7 @@ _ZN4llvm16FoldingSetNodeID3AddIN5clang8QualTypeEEEvRKT_.exit: ; preds = %_ZN4llv
   %93 = trunc nuw i64 %92 to i32
   %94 = load ptr, ptr %0, align 8, !tbaa !211
   %95 = zext i32 %91 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %95
   store i32 %93, ptr %96, align 1
   %97 = load i32, ptr %8, align 8, !tbaa !213
   %98 = add i32 %97, 1
@@ -8701,7 +8700,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i19: ; preds = %102, %_ZN4llvm
   %106 = phi i32 [ %98, %_ZN4llvm16FoldingSetNodeID3AddIN5clang8QualTypeEEEvRKT_.exit ], [ %.pre.i.i.i.i.i18, %102 ]
   %107 = load ptr, ptr %0, align 8, !tbaa !211
   %108 = zext i32 %106 to i64
-  %109 = getelementptr inbounds nuw i32, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %108
   store i32 %100, ptr %109, align 1
   %110 = load i32, ptr %8, align 8, !tbaa !213
   %111 = add i32 %110, 1
@@ -8724,7 +8723,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit22: ; preds = %_ZN4llvm16FoldingS
   %119 = trunc nuw i64 %118 to i32
   %120 = load ptr, ptr %0, align 8, !tbaa !211
   %121 = zext i32 %117 to i64
-  %122 = getelementptr inbounds nuw i32, ptr %120, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %121
   store i32 %119, ptr %122, align 1
   %123 = load i32, ptr %8, align 8, !tbaa !213
   %124 = add i32 %123, 1
@@ -8745,7 +8744,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit25:  ; preds = %_ZN4llvm16FoldingSe
   %130 = phi i32 [ %124, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit22 ], [ %.pre.i.i24, %126 ]
   %131 = load ptr, ptr %0, align 8, !tbaa !211
   %132 = zext i32 %130 to i64
-  %133 = getelementptr inbounds nuw i32, ptr %131, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %132
   store i32 %5, ptr %133, align 1
   %134 = load i32, ptr %8, align 8, !tbaa !213
   %135 = add i32 %134, 1
@@ -8768,7 +8767,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i28: ; preds = %139, %_ZN4llvm
   %143 = phi i32 [ %135, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit25 ], [ %.pre.i.i.i.i.i27, %139 ]
   %144 = load ptr, ptr %0, align 8, !tbaa !211
   %145 = zext i32 %143 to i64
-  %146 = getelementptr inbounds nuw i32, ptr %144, i64 %145
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %145
   store i32 %137, ptr %146, align 1
   %147 = load i32, ptr %8, align 8, !tbaa !213
   %148 = add i32 %147, 1
@@ -8791,7 +8790,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit31: ; preds = %_ZN4llvm16FoldingS
   %156 = trunc nuw i64 %155 to i32
   %157 = load ptr, ptr %0, align 8, !tbaa !211
   %158 = zext i32 %154 to i64
-  %159 = getelementptr inbounds nuw i32, ptr %157, i64 %158
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %158
   store i32 %156, ptr %159, align 1
   %160 = load i32, ptr %8, align 8, !tbaa !213
   %161 = add i32 %160, 1
@@ -8820,7 +8819,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %3, %8
   %12 = phi i32 [ %5, %3 ], [ %.pre.i.i, %8 ]
   %13 = load ptr, ptr %0, align 8, !tbaa !211
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   store i32 6, ptr %15, align 1
   %16 = load i32, ptr %4, align 8, !tbaa !213
   %17 = add i32 %16, 1
@@ -8843,7 +8842,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %21, %_ZN4llvm16F
   %25 = phi i32 [ %17, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit ], [ %.pre.i.i.i.i.i, %21 ]
   %26 = load ptr, ptr %0, align 8, !tbaa !211
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 %19, ptr %28, align 1
   %29 = load i32, ptr %4, align 8, !tbaa !213
   %30 = add i32 %29, 1
@@ -8866,7 +8865,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSe
   %38 = trunc nuw i64 %37 to i32
   %39 = load ptr, ptr %0, align 8, !tbaa !211
   %40 = zext i32 %36 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %40
   store i32 %38, ptr %41, align 1
   %42 = load i32, ptr %4, align 8, !tbaa !213
   %43 = add i32 %42, 1
@@ -8889,7 +8888,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i7: ; preds = %47, %_ZN4llvm16
   %51 = phi i32 [ %43, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit ], [ %.pre.i.i.i.i.i6, %47 ]
   %52 = load ptr, ptr %0, align 8, !tbaa !211
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   store i32 %45, ptr %54, align 1
   %55 = load i32, ptr %4, align 8, !tbaa !213
   %56 = add i32 %55, 1
@@ -8912,7 +8911,7 @@ _ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit10: ; preds = %_ZN4llvm16FoldingS
   %64 = trunc nuw i64 %63 to i32
   %65 = load ptr, ptr %0, align 8, !tbaa !211
   %66 = zext i32 %62 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %66
   store i32 %64, ptr %67, align 1
   %68 = load i32, ptr %4, align 8, !tbaa !213
   %69 = add i32 %68, 1

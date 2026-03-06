@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.archive_hmac = type { ptr, ptr, ptr, ptr }
 %struct.IPpmd8 = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.archive_rb_tree_ops = type { ptr, ptr }
-%struct.anon.1 = type { i32, ptr }
 %struct.archive_string = type { ptr, i64, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.archive_wstring = type { ptr, i64, i64 }
@@ -721,7 +720,7 @@ define internal range(i32 -30, 2) i32 @archive_read_format_zip_read_data(ptr nou
 
 65:                                               ; preds = %64, %62
   %indvars.iv.i = phi i64 [ 0, %62 ], [ %indvars.iv.next.i, %64 ]
-  %66 = getelementptr inbounds nuw %struct.anon.1, ptr @compression_methods, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw [16 x i8], ptr @compression_methods, i64 %indvars.iv.i
   %67 = load i32, ptr %66, align 16, !tbaa !83
   %68 = icmp eq i32 %67, %63
   br i1 %68, label %69, label %64
@@ -2241,7 +2240,7 @@ slurp_central_directory.exit.thread:              ; preds = %._crit_edge.i, %193
 
 335:                                              ; preds = %334, %332
   %indvars.iv.i.i = phi i64 [ 0, %332 ], [ %indvars.iv.next.i.i, %334 ]
-  %336 = getelementptr inbounds nuw %struct.anon.1, ptr @compression_methods, i64 %indvars.iv.i.i
+  %336 = getelementptr inbounds nuw [16 x i8], ptr @compression_methods, i64 %indvars.iv.i.i
   %337 = load i32, ptr %336, align 16, !tbaa !83
   %338 = icmp eq i32 %337, %333
   br i1 %338, label %339, label %334
@@ -2854,7 +2853,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
 
 .lr.ph:                                           ; preds = %166, %175
   %.0240356 = phi i64 [ %176, %175 ], [ 0, %166 ]
-  %171 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.0240356
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.0240356
   %172 = load i32, ptr %171, align 4, !tbaa !138
   %173 = icmp eq i32 %172, 92
   br i1 %173, label %174, label %175
@@ -2891,7 +2890,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   br i1 %.not291, label %.thread329, label %184
 
 184:                                              ; preds = %182
-  %185 = getelementptr i32, ptr %181, i64 %183
+  %185 = getelementptr [4 x i8], ptr %181, i64 %183
   %186 = getelementptr i8, ptr %185, i64 -4
   %187 = load i32, ptr %186, align 4, !tbaa !138
   %188 = icmp eq i32 %187, 47
@@ -2951,7 +2950,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   br i1 %.not297, label %.thread332, label %214
 
 214:                                              ; preds = %212
-  %215 = getelementptr i32, ptr %211, i64 %213
+  %215 = getelementptr [4 x i8], ptr %211, i64 %213
   %216 = getelementptr i8, ptr %215, i64 -4
   %217 = load i32, ptr %216, align 4, !tbaa !138
   %.not298 = icmp eq i32 %217, 47
@@ -3161,7 +3160,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
 
 295:                                              ; preds = %294, %.thread334
   %indvars.iv.i = phi i64 [ 0, %.thread334 ], [ %indvars.iv.next.i, %294 ]
-  %296 = getelementptr inbounds nuw %struct.anon.1, ptr @compression_methods, i64 %indvars.iv.i
+  %296 = getelementptr inbounds nuw [16 x i8], ptr @compression_methods, i64 %indvars.iv.i
   %297 = load i32, ptr %296, align 16, !tbaa !83
   %298 = icmp eq i32 %297, %293
   br i1 %298, label %299, label %294
@@ -3342,7 +3341,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
 
 376:                                              ; preds = %375, %367
   %indvars.iv.i322 = phi i64 [ 0, %367 ], [ %indvars.iv.next.i323, %375 ]
-  %377 = getelementptr inbounds nuw %struct.anon.1, ptr @compression_methods, i64 %indvars.iv.i322
+  %377 = getelementptr inbounds nuw [16 x i8], ptr @compression_methods, i64 %indvars.iv.i322
   %378 = load i32, ptr %377, align 16, !tbaa !83
   %379 = icmp eq i32 %378, %374
   br i1 %379, label %380, label %375

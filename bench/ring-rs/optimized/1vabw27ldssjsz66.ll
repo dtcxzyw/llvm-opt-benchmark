@@ -117,10 +117,10 @@ switch.lookup:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load i8, ptr %3, align 8, !range !14, !alias.scope !11, !noalias !15, !noundef !4
   %5 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h78cb264a86f852f6E", i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h78cb264a86f852f6E", i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = zext nneg i8 %4 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h78cb264a86f852f6E.14", i64 %6
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h78cb264a86f852f6E.14", i64 %6
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !11
   ret i1 %7

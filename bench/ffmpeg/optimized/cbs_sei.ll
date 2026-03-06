@@ -3,9 +3,6 @@ source_filename = "bench/ffmpeg/original/cbs_sei.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SEIRawMessage = type { i32, i32, ptr, ptr, ptr, i64 }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [30 x i8] c"Assertion %s failed at %s:%d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [69 x i8] c"message->payload == ((void*)0) && message->payload_ref == ((void*)0)\00", align 1
 @.str.2 = private unnamed_addr constant [21 x i8] c"libavcodec/cbs_sei.c\00", align 1
@@ -104,7 +101,7 @@ define range(i32 -12, 1) i32 @ff_cbs_sei_list_add(ptr noundef captures(none) %0)
   store ptr %13, ptr %0, align 8, !tbaa !21
   store i32 %10, ptr %2, align 4, !tbaa !17
   %15 = sext i32 %3 to i64
-  %16 = getelementptr inbounds %struct.SEIRawMessage, ptr %13, i64 %15
+  %16 = getelementptr inbounds [40 x i8], ptr %13, i64 %15
   %17 = sub nsw i32 %10, %3
   %18 = sext i32 %17 to i64
   %19 = mul nsw i64 %18, 40
@@ -143,7 +140,7 @@ define void @ff_cbs_sei_free_message_list(ptr noundef readonly captures(none) %0
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %6 = load ptr, ptr %0, align 8, !tbaa !21
-  %7 = getelementptr inbounds nuw %struct.SEIRawMessage, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @av_refstruct_unref(ptr noundef nonnull %8) #6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -210,7 +207,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
 
 22:                                               ; preds = %21, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %21 ]
-  %23 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %20, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 8, !tbaa !38
   %25 = icmp eq i32 %24, %.062.i
   br i1 %25, label %cbs_sei_get_unit.exit, label %21
@@ -234,7 +231,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
 
 .preheader76.i:                                   ; preds = %._crit_edge.i, %30
   %indvars.iv90.i = phi i64 [ %indvars.iv.next91.i, %30 ], [ 0, %._crit_edge.i ]
-  %27 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %20, i64 %indvars.iv90.i
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %indvars.iv90.i
   %28 = load i32, ptr %27, align 8, !tbaa !38
   %29 = icmp ult i32 %28, %.063.i
   br i1 %29, label %.loopexit.loopexit104.split.loop.exit107.i, label %30
@@ -253,7 +250,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
 34:                                               ; preds = %31
   %35 = add nsw i64 %indvars.iv95.i, -1
   %36 = load ptr, ptr %26, align 8, !tbaa !36
-  %37 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw [56 x i8], ptr %36, i64 %35
   %38 = load i32, ptr %37, align 8, !tbaa !38
   %39 = icmp ult i32 %38, %.063.i
   br i1 %39, label %.loopexit.i, label %31, !llvm.loop !41
@@ -272,7 +269,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_sei_add_message(ptr noundef %0, ptr
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %45 = load ptr, ptr %44, align 8, !tbaa !36
   %46 = sext i32 %.065.i to i64
-  %47 = getelementptr inbounds %struct.CodedBitstreamUnit, ptr %45, i64 %46
+  %47 = getelementptr inbounds [56 x i8], ptr %45, i64 %46
   store i32 %.062.i, ptr %47, align 8, !tbaa !38
   %48 = tail call i32 @ff_cbs_alloc_unit_content(ptr noundef %0, ptr noundef nonnull %47) #6
   %49 = icmp slt i32 %48, 0
@@ -389,7 +386,7 @@ cbs_sei_get_unit.exit:                            ; preds = %22, %61, %57, %53
   store ptr %87, ptr %75, align 8, !tbaa !21
   store i32 %84, ptr %76, align 4, !tbaa !17
   %89 = sext i32 %77 to i64
-  %90 = getelementptr inbounds %struct.SEIRawMessage, ptr %87, i64 %89
+  %90 = getelementptr inbounds [40 x i8], ptr %87, i64 %89
   %91 = sub nsw i32 %84, %77
   %92 = sext i32 %91 to i64
   %93 = mul nsw i64 %92, 40
@@ -414,7 +411,7 @@ cbs_sei_get_unit.exit:                            ; preds = %22, %61, %57, %53
   %.021 = phi ptr [ %98, %97 ], [ null, %94 ]
   %101 = load ptr, ptr %75, align 8, !tbaa !21
   %102 = sext i32 %100 to i64
-  %103 = getelementptr %struct.SEIRawMessage, ptr %101, i64 %102
+  %103 = getelementptr [40 x i8], ptr %101, i64 %102
   %104 = getelementptr i8, ptr %103, i64 -40
   store i32 %3, ptr %104, align 8, !tbaa !15
   %105 = getelementptr i8, ptr %103, i64 -32
@@ -451,7 +448,7 @@ define range(i32 -2, 1) i32 @ff_cbs_sei_find_message(ptr noundef readonly captur
 11:                                               ; preds = %.lr.ph50, %cbs_sei_get_message_list.exit.thread
   %indvars.iv53 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next54, %cbs_sei_get_message_list.exit.thread ]
   %.02548 = phi i32 [ 0, %.lr.ph50 ], [ %.126.ph, %cbs_sei_get_message_list.exit.thread ]
-  %12 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %9, i64 %indvars.iv53
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %indvars.iv53
   switch i32 %.val.val, label %cbs_sei_get_message_list.exit.thread [
     i32 27, label %13
     i32 173, label %15
@@ -492,7 +489,7 @@ cbs_sei_get_message_list.exit:                    ; preds = %13, %15, %17
 26:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %.22747 = phi i32 [ %.02548, %.lr.ph ], [ %.429.ph, %36 ]
-  %27 = getelementptr inbounds nuw %struct.SEIRawMessage, ptr %25, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %indvars.iv
   %28 = load i32, ptr %27, align 8, !tbaa !15
   %29 = icmp eq i32 %28, %2
   br i1 %29, label %30, label %36
@@ -546,7 +543,7 @@ define void @ff_cbs_sei_delete_message_type(ptr noundef readonly captures(none) 
   %10 = phi i32 [ %5, %.lr.ph22 ], [ %50, %cbs_sei_get_message_list.exit.thread ]
   %indvars.iv24 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next25, %cbs_sei_get_message_list.exit.thread ]
   %11 = load ptr, ptr %7, align 8, !tbaa !36
-  %12 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %11, i64 %indvars.iv24
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %11, i64 %indvars.iv24
   %.val = load ptr, ptr %8, align 8, !tbaa !24
   %.val.val = load i32, ptr %.val, align 8, !tbaa !28
   switch i32 %.val.val, label %cbs_sei_get_message_list.exit.thread [
@@ -589,7 +586,7 @@ define void @ff_cbs_sei_delete_message_type(ptr noundef readonly captures(none) 
   %indvars.iv = phi i64 [ %26, %.lr.ph.preheader ], [ %indvars.iv.next, %cbs_sei_delete_message.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %27 = load ptr, ptr %22, align 8, !tbaa !21
-  %28 = getelementptr inbounds nuw %struct.SEIRawMessage, ptr %27, i64 %indvars.iv.next
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %27, i64 %indvars.iv.next
   %29 = load i32, ptr %28, align 8, !tbaa !15
   %30 = icmp eq i32 %29, %2
   br i1 %30, label %31, label %cbs_sei_delete_message.exit
@@ -618,7 +615,7 @@ define void @ff_cbs_sei_delete_message_type(ptr noundef readonly captures(none) 
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr %22, align 8, !tbaa !21
-  %43 = getelementptr inbounds nuw %struct.SEIRawMessage, ptr %42, i64 %indvars.iv.next
+  %43 = getelementptr inbounds nuw [40 x i8], ptr %42, i64 %indvars.iv.next
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = trunc nuw nsw i64 %indvars.iv to i32
   %46 = sub nsw i32 %38, %45

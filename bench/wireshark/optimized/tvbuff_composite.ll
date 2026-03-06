@@ -248,7 +248,7 @@ define void @tvb_composite_finalize(ptr noundef %0) local_unnamed_addr #0 {
   %40 = load ptr, ptr %.0, align 8
   %41 = load i32, ptr %13, align 8
   %42 = load ptr, ptr %35, align 8
-  %43 = getelementptr i32, ptr %42, i64 %indvars.iv
+  %43 = getelementptr [4 x i8], ptr %42, i64 %indvars.iv
   store i32 %41, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %45 = load i32, ptr %44, align 8
@@ -266,7 +266,7 @@ define void @tvb_composite_finalize(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %54, ptr %23, align 8
   %55 = add i32 %46, -1
   %56 = load ptr, ptr %37, align 8
-  %57 = getelementptr i32, ptr %56, i64 %indvars.iv
+  %57 = getelementptr [4 x i8], ptr %56, i64 %indvars.iv
   store i32 %55, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -325,7 +325,7 @@ define internal ptr @composite_get_ptr(ptr noundef %0, i32 noundef %1, i32 nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %.03445 = phi ptr [ %.03443, %.lr.ph ], [ %.034, %12 ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr i32, ptr %9, i64 %indvars.iv
+  %10 = getelementptr [4 x i8], ptr %9, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %.not = icmp ugt i32 %1, %11
   br i1 %.not, label %12, label %18
@@ -360,7 +360,7 @@ define internal ptr @composite_get_ptr(ptr noundef %0, i32 noundef %1, i32 nound
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = sub i32 %1, %29
   %31 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef nonnull %19, i32 noundef %30, i32 noundef %2)
@@ -416,7 +416,7 @@ define internal ptr @composite_memcpy(ptr noundef captures(none) %0, ptr noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %.069 = phi ptr [ %.067, %.lr.ph ], [ %.0, %13 ]
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr i32, ptr %10, i64 %indvars.iv
+  %11 = getelementptr [4 x i8], ptr %10, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %.not = icmp ugt i32 %2, %12
   br i1 %.not, label %13, label %19
@@ -451,7 +451,7 @@ define internal ptr @composite_memcpy(ptr noundef captures(none) %0, ptr noundef
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr i32, ptr %28, i64 %indvars.iv
+  %29 = getelementptr [4 x i8], ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = sub i32 %2, %30
   %32 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef nonnull %20, i32 noundef %31, i32 noundef %3)

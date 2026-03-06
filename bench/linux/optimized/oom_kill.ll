@@ -2047,7 +2047,7 @@ define dso_local zeroext i1 @out_of_memory(ptr noundef %0) local_unnamed_addr #1
   %86 = phi i64 [ %93, %102 ], [ %61, %82 ]
   %87 = phi i32 [ %104, %102 ], [ %84, %82 ]
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr ptr, ptr @node_data, i64 %88
+  %89 = getelementptr [8 x i8], ptr @node_data, i64 %88
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 13104
   %92 = load i64, ptr %91, align 16
@@ -2147,7 +2147,7 @@ define dso_local zeroext i1 @out_of_memory(ptr noundef %0) local_unnamed_addr #1
   %151 = phi i64 [ %158, %167 ], [ %143, %147 ]
   %152 = phi i32 [ %169, %167 ], [ %149, %147 ]
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr ptr, ptr @node_data, i64 %153
+  %154 = getelementptr [8 x i8], ptr @node_data, i64 %153
   %155 = load ptr, ptr %154, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 13104
   %157 = load i64, ptr %156, align 16
@@ -2906,7 +2906,7 @@ queue_oom_reaper.exit:                            ; preds = %7, %26
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
-  %45 = getelementptr ptr, ptr @oom_constraint_text, i64 %44
+  %45 = getelementptr [8 x i8], ptr @oom_constraint_text, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8

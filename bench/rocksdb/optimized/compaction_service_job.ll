@@ -87,10 +87,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.rocksdb::AutoThreadOperationStageUpdater" = type { i32 }
 %"struct.rocksdb::DirFsyncOptions" = type { i8, %"class.std::__cxx11::basic_string" }
 %"struct.rocksdb::OutputIterator" = type { ptr, ptr, i8, i64 }
-%"struct.rocksdb::CompactionOutputs::Output" = type { %"struct.rocksdb::FileMetaData", %"class.rocksdb::OutputValidator", i8, %"class.std::shared_ptr.390" }
-%"class.rocksdb::OutputValidator" = type <{ ptr, %"class.std::__cxx11::basic_string", i64, i8, [7 x i8] }>
-%"class.std::shared_ptr.390" = type { %"class.std::__shared_ptr.391" }
-%"class.std::__shared_ptr.391" = type { ptr, %"class.std::__shared_count" }
 %"class.rocksdb::OptionTypeInfo" = type <{ i32, [4 x i8], %"class.std::function", %"class.std::function.409", %"class.std::function.411", %"class.std::function.413", %"class.std::function.415", i32, i32, i32, [4 x i8] }>
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
@@ -120,13 +116,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.465 = type { %"class.std::__cxx11::basic_string", ptr }
 %class.anon.466 = type { %"class.std::__cxx11::basic_string", ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
-%"struct.rocksdb::CompactionServiceOutputFile" = type { %"class.std::__cxx11::basic_string", i64, i64, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, i64, i64, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, i8, %"struct.std::array", %"struct.rocksdb::TableProperties" }
-%"struct.rocksdb::TableProperties" = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::map", %"class.std::map" }
-%"class.std::map" = type { %"class.std::_Rb_tree.333" }
-%"class.std::_Rb_tree.333" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"struct.rocksdb::ColumnFamilyOptions" = type { %"struct.rocksdb::AdvancedColumnFamilyOptions.base", ptr, %"class.std::shared_ptr.104", ptr, %"class.std::shared_ptr.107", i64, i8, i8, [6 x i8], %"struct.rocksdb::CompressionOptions", %"struct.rocksdb::CompressionOptions", i32, %"class.std::shared_ptr.118", i64, i64, i8, %"class.std::shared_ptr.127", %"class.std::vector.79", %"class.std::shared_ptr.121", %"class.std::shared_ptr.124", i32, i32 }
 %"struct.rocksdb::AdvancedColumnFamilyOptions.base" = type <{ i32, i32, i32, [4 x i8], i64, i8, [7 x i8], i64, double, ptr, double, i8, [7 x i8], i64, %"class.std::shared_ptr.118", i32, [4 x i8], i64, %"class.std::vector.140", i32, i32, i32, [4 x i8], i64, i32, i8, [3 x i8], double, %"class.std::vector.130", i64, i64, i64, i8, i8, [2 x i8], %"class.rocksdb::CompactionOptionsUniversal", [4 x i8], %"struct.rocksdb::CompactionOptionsFIFO", i64, %"class.std::shared_ptr.110", %"class.std::vector.113", i64, i8, i8, i8, i8, i8, [3 x i8], i64, i64, i64, i8, i8, i8, [5 x i8], i64, i64, i8, [7 x i8], i64, i64, i8, i8, [6 x i8], double, double, i64, i32, [4 x i8], %"class.std::shared_ptr.92", i8, [3 x i8], i32, i8, i8, [2 x i8], i32, i8 }>
 %"class.std::vector.140" = type { %"struct.std::_Vector_base.141" }
@@ -174,6 +163,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.483" = type { ptr }
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, rocksdb::OptionTypeInfo>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, rocksdb::OptionTypeInfo>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, std::hash<string>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
+%"struct.rocksdb::CompactionServiceOutputFile" = type { %"class.std::__cxx11::basic_string", i64, i64, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, i64, i64, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, i8, %"struct.std::array", %"struct.rocksdb::TableProperties" }
+%"struct.rocksdb::TableProperties" = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::map", %"class.std::map" }
+%"class.std::map" = type { %"class.std::_Rb_tree.333" }
+%"class.std::_Rb_tree.333" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
+%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
+%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
+%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"struct.rocksdb::(anonymous namespace)::StatusSerializationAdapter" = type { i8, i8, i8, %"class.std::__cxx11::basic_string" }
 
 $_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev = comdat any
@@ -1047,7 +1043,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26.i, %160
   store ptr %132, ptr %79, align 8, !tbaa !368
   store ptr %159, ptr %80, align 8, !tbaa !366
-  %164 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %132, i64 %128
+  %164 = getelementptr inbounds nuw [32 x i8], ptr %132, i64 %128
   store ptr %164, ptr %81, align 8, !tbaa !367
   %.pre646 = load ptr, ptr %15, align 8, !tbaa !11
   %165 = icmp eq ptr %.pre646, %82
@@ -6628,7 +6624,7 @@ _ZNK7rocksdb14OutputIteratorneERKS0_.exit:        ; preds = %_ZN7rocksdb14Output
 
 _ZNK7rocksdb14OutputIteratorneERKS0_.exit.thread: ; preds = %._ZNK7rocksdb14OutputIteratorneERKS0_.exit.thread_crit_edge, %_ZNK7rocksdb14OutputIteratorneERKS0_.exit
   %291 = phi ptr [ %.pre202, %._ZNK7rocksdb14OutputIteratorneERKS0_.exit.thread_crit_edge ], [ %282, %_ZNK7rocksdb14OutputIteratorneERKS0_.exit ]
-  %292 = getelementptr inbounds nuw %"struct.rocksdb::CompactionOutputs::Output", ptr %291, i64 %.sroa.12156.0
+  %292 = getelementptr inbounds nuw [392 x i8], ptr %291, i64 %.sroa.12156.0
   %293 = load ptr, ptr %28, align 8, !tbaa !570
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -24064,7 +24060,7 @@ _ZSt8_DestroyIPN7rocksdb17CompactionOutputs6OutputES2_EvT_S4_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN7rocksdb17CompactionOutputs6OutputESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN7rocksdb17CompactionOutputs6OutputES2_EvT_S4_RSaIT0_E.exit, %45
   store ptr %26, ptr %0, align 8, !tbaa !609
   store ptr %42, ptr %8, align 8, !tbaa !513
-  %49 = getelementptr inbounds nuw %"struct.rocksdb::CompactionOutputs::Output", ptr %26, i64 %20
+  %49 = getelementptr inbounds nuw [392 x i8], ptr %26, i64 %20
   store ptr %49, ptr %44, align 8, !tbaa !514
   ret void
 
@@ -27159,7 +27155,7 @@ _ZNSt6vectorIN7rocksdb27CompactionServiceOutputFileESaIS1_EE11_S_relocateEPS1_S4
 _ZNSt12_Vector_baseIN7rocksdb27CompactionServiceOutputFileESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN7rocksdb27CompactionServiceOutputFileESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit45, %43
   store ptr %35, ptr %0, align 8, !tbaa !538
   store ptr %.0.lcssa.i.i.i44, ptr %17, align 8, !tbaa !539
-  %47 = getelementptr inbounds nuw %"struct.rocksdb::CompactionServiceOutputFile", ptr %35, i64 %29
+  %47 = getelementptr inbounds nuw [944 x i8], ptr %35, i64 %29
   store ptr %47, ptr %42, align 8, !tbaa !541
   ret void
 
@@ -29888,7 +29884,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 34:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb14OptionTypeInfoEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS6_EEmRKT_.exit
   %35 = load ptr, ptr %0, align 8, !tbaa !632
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %37 = load ptr, ptr %36, align 8, !tbaa !757
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %.critedge, label %38
@@ -30045,7 +30041,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 224
   store i64 %2, ptr %32, align 8, !tbaa !758
   %33 = load ptr, ptr %0, align 8, !tbaa !632
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !757
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -30071,7 +30067,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 224
   %46 = load i64, ptr %45, align 8, !tbaa !758
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !757
   br label %49
 
@@ -30270,7 +30266,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 224
   %16 = load i64, ptr %15, align 8, !tbaa !758
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !757
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -30285,7 +30281,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !757
   br label %28
 
@@ -30756,7 +30752,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %163, %.noe
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %165, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %159, ptr %6, align 8, !tbaa !378
   store ptr %164, ptr %16, align 8, !tbaa !377
-  %166 = getelementptr inbounds nuw i64, ptr %159, i64 %157
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %157
   store ptr %166, ptr %76, align 8, !tbaa !379
   br label %_ZNSt6vectorImSaImEE12emplace_backIJRmEEES3_DpOT_.exit
 
@@ -32032,9 +32028,9 @@ define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN7rocksdb13
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %25
   %33 = phi ptr [ %28, %25 ], [ %13, %.preheader.i.i.i.i ]
   %.01618.i.i.i.i = phi i64 [ %26, %25 ], [ 0, %.preheader.i.i.i.i ]
-  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %.01618.i.i.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.01618.i.i.i.i
   %35 = load ptr, ptr %9, align 8, !tbaa !378
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %.01618.i.i.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.01618.i.i.i.i
   %37 = tail call noundef zeroext i1 @_ZNK7rocksdb14OptionTypeInfo8AreEqualERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_(ptr noundef nonnull align 8 dereferenceable(184) %7, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %34, ptr noundef nonnull %36, ptr noundef %10)
   br i1 %37, label %25, label %_ZSt10__invoke_rIbRZN7rocksdb14OptionTypeInfo6VectorImEES1_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKS1_cEUlRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSJ_PSF_E_JS9_SH_SJ_SJ_SK_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit
 
@@ -32858,7 +32854,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !368
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !366
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !367
   ret void
 
@@ -34043,9 +34039,9 @@ define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN7rocksdb13
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %25
   %33 = phi ptr [ %28, %25 ], [ %13, %.preheader.i.i.i.i ]
   %.01618.i.i.i.i = phi i64 [ %26, %25 ], [ 0, %.preheader.i.i.i.i ]
-  %34 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %33, i64 %.01618.i.i.i.i
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %.01618.i.i.i.i
   %35 = load ptr, ptr %9, align 8, !tbaa !368
-  %36 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %35, i64 %.01618.i.i.i.i
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %.01618.i.i.i.i
   %37 = tail call noundef zeroext i1 @_ZNK7rocksdb14OptionTypeInfo8AreEqualERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_(ptr noundef nonnull align 8 dereferenceable(184) %7, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %34, ptr noundef nonnull %36, ptr noundef %10)
   br i1 %37, label %25, label %_ZSt10__invoke_rIbRZN7rocksdb14OptionTypeInfo6VectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES1_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKS1_cEUlRKNS0_13ConfigOptionsERKS8_PKvSJ_PS8_E_JSF_SH_SJ_SJ_SK_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit
 
@@ -34296,7 +34292,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %76, %_ZNKSt14defaul
 
 85:                                               ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %86 = getelementptr inbounds nuw i64, ptr %6, i64 %.02496
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02496
   invoke void @_ZNK7rocksdb14OptionTypeInfo5ParseERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_Pv(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %13, ptr noundef nonnull align 8 dereferenceable(180) %2, ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %86)
           to label %87 unwind label %101
 
@@ -35698,8 +35694,8 @@ define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN7rocksdb13
 11:                                               ; preds = %11, %6
   %.not.i.i.i.i = phi i1 [ true, %6 ], [ false, %11 ]
   %.01113.i.i.i.i = phi i64 [ 0, %6 ], [ 1, %11 ]
-  %12 = getelementptr inbounds nuw i64, ptr %8, i64 %.01113.i.i.i.i
-  %13 = getelementptr inbounds nuw i64, ptr %9, i64 %.01113.i.i.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.01113.i.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.01113.i.i.i.i
   %14 = tail call noundef zeroext i1 @_ZNK7rocksdb14OptionTypeInfo8AreEqualERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_(ptr noundef nonnull align 8 dereferenceable(184) %7, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %10)
   %or.cond.i.i.i.i = and i1 %.not.i.i.i.i, %14
   br i1 %or.cond.i.i.i.i, label %11, label %_ZSt10__invoke_rIbRZN7rocksdb14OptionTypeInfo5ArrayImLm2EEES1_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKS1_cEUlRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSJ_PSF_E_JS9_SH_SJ_SJ_SK_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit, !llvm.loop !873
@@ -36798,7 +36794,7 @@ _ZNSt6vectorIN7rocksdb27CompactionServiceOutputFileESaIS1_EE11_S_relocateEPS1_S4
 _ZNSt12_Vector_baseIN7rocksdb27CompactionServiceOutputFileESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN7rocksdb27CompactionServiceOutputFileESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, %28
   store ptr %20, ptr %0, align 8, !tbaa !538
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !539
-  %32 = getelementptr inbounds nuw %"struct.rocksdb::CompactionServiceOutputFile", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [944 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8, !tbaa !541
   ret void
 
@@ -38316,9 +38312,9 @@ define linkonce_odr noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKN7rocksdb13
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i.i.i, %25
   %33 = phi ptr [ %28, %25 ], [ %13, %.preheader.i.i.i.i ]
   %.01618.i.i.i.i = phi i64 [ %26, %25 ], [ 0, %.preheader.i.i.i.i ]
-  %34 = getelementptr inbounds nuw %"struct.rocksdb::CompactionServiceOutputFile", ptr %33, i64 %.01618.i.i.i.i
+  %34 = getelementptr inbounds nuw [944 x i8], ptr %33, i64 %.01618.i.i.i.i
   %35 = load ptr, ptr %9, align 8, !tbaa !538
-  %36 = getelementptr inbounds nuw %"struct.rocksdb::CompactionServiceOutputFile", ptr %35, i64 %.01618.i.i.i.i
+  %36 = getelementptr inbounds nuw [944 x i8], ptr %35, i64 %.01618.i.i.i.i
   %37 = tail call noundef zeroext i1 @_ZNK7rocksdb14OptionTypeInfo8AreEqualERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSD_PS9_(ptr noundef nonnull align 8 dereferenceable(184) %7, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %34, ptr noundef nonnull %36, ptr noundef %10)
   br i1 %37, label %25, label %_ZSt10__invoke_rIbRZN7rocksdb14OptionTypeInfo6VectorINS0_27CompactionServiceOutputFileEEES1_iNS0_22OptionVerificationTypeENS0_15OptionTypeFlagsERKS1_cEUlRKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvSK_PSG_E_JSA_SI_SK_SK_SL_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESP_E4typeEOSQ_DpOSR_.exit
 

@@ -365,7 +365,7 @@ define dso_local zeroext i1 @percpu_is_read_locked(ptr noundef %0) #5 align 16 {
   %15 = load ptr, ptr %3, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %11, 63
-  %18 = getelementptr i64, ptr @__per_cpu_offset, i64 %17
+  %18 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %16
   %21 = inttoptr i64 %20 to ptr
@@ -483,7 +483,7 @@ define dso_local void @percpu_down_write(ptr noundef %0) #0 section ".sched.text
   %51 = load ptr, ptr %36, align 8
   %52 = ptrtoint ptr %51 to i64
   %53 = and i64 %47, 63
-  %54 = getelementptr i64, ptr @__per_cpu_offset, i64 %53
+  %54 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %53
   %55 = load i64, ptr %54, align 8
   %56 = add i64 %55, %52
   %57 = inttoptr i64 %56 to ptr

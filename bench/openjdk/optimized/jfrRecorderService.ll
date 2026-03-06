@@ -3164,7 +3164,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef no
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12VM_Operation6_namesE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12VM_Operation6_namesE, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }

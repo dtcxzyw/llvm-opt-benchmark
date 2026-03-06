@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %"class.cv::Range" = type { i32, i32 }
-%"class.cv::Point_" = type { float, float }
 %"struct.cv::Ptr" = type { %"class.std::shared_ptr" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
@@ -583,9 +582,9 @@ define internal fastcc noundef float @_ZN2cvL6_applyERKNS_3MatES2_id(ptr noundef
 .lr.ph:                                           ; preds = %.preheader48, %70
   %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 0, %.preheader48 ]
   %56 = load ptr, ptr %25, align 8, !tbaa !46
-  %57 = getelementptr inbounds nuw %"class.cv::Point_", ptr %56, i64 %indvars.iv60
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv60
   %58 = load ptr, ptr %26, align 8, !tbaa !46
-  %59 = getelementptr inbounds nuw %"class.cv::Point_", ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   %.val = load float, ptr %57, align 4, !tbaa !47
   %60 = getelementptr i8, ptr %57, i64 4
   %.val45 = load float, ptr %60, align 4, !tbaa !49
@@ -630,7 +629,7 @@ define internal fastcc noundef float @_ZN2cvL6_applyERKNS_3MatES2_id(ptr noundef
   %74 = load i64, ptr %73, align 8, !tbaa !56
   %75 = mul i64 %74, %indvars.iv60
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 %75
-  %77 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv
   store float %71, ptr %77, align 4, !tbaa !52
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

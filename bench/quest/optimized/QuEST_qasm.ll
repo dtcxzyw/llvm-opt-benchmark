@@ -343,7 +343,7 @@ define void @addGateToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 cap
   %12 = sub nsw i32 1024, %.048.lcssa
   %13 = sext i32 %12 to i64
   %14 = zext i32 %1 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @qasmGateLabels, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @qasmGateLabels, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !21
   %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %11, i64 noundef %13, ptr noundef nonnull @.str.3, ptr noundef %16) #15
   %18 = add nsw i32 %17, %.048.lcssa
@@ -391,7 +391,7 @@ define void @addGateToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 cap
   %45 = getelementptr inbounds i8, ptr %8, i64 %44
   %46 = sub nsw i32 1024, %.253
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %49 = load double, ptr %48, align 8, !tbaa !22
   %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %45, i64 noundef %47, ptr noundef nonnull @.str.7, double noundef %49) #15
   %51 = add nsw i32 %50, %.253
@@ -445,7 +445,7 @@ define void @addGateToQASM(ptr noundef readonly byval(%struct.Qureg) align 8 cap
   %75 = getelementptr inbounds i8, ptr %8, i64 %74
   %76 = sub nsw i32 1024, %.455
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv64
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv64
   %79 = load i32, ptr %78, align 4, !tbaa !24
   %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %75, i64 noundef %77, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef %79) #15
   %81 = add nsw i32 %80, %.455
@@ -1108,13 +1108,13 @@ qasm_recordMultiControlledUnitary.exit:           ; preds = %._crit_edge, %23
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %42 ]
-  %36 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !24
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %.lr.ph
-  %40 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !24
   tail call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef %41, ptr noundef null, i32 noundef 0)
   br label %42
@@ -1126,13 +1126,13 @@ qasm_recordMultiControlledUnitary.exit:           ; preds = %._crit_edge, %23
 
 .lr.ph20:                                         ; preds = %.lr.ph20.preheader, %49
   %indvars.iv22 = phi i64 [ 0, %.lr.ph20.preheader ], [ %indvars.iv.next23, %49 ]
-  %43 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv22
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv22
   %44 = load i32, ptr %43, align 4, !tbaa !24
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %.lr.ph20
-  %47 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv22
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv22
   %48 = load i32, ptr %47, align 4, !tbaa !24
   call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef %48, ptr noundef null, i32 noundef 0)
   br label %49
@@ -1168,7 +1168,7 @@ define void @qasm_recordMultiControlledMultiQubitNot(ptr noundef readonly byval(
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !24
   tail call void @addGateToQASM(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef 0, ptr noundef %1, i32 noundef %2, i32 noundef %15, ptr noundef null, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1479,7 +1479,7 @@ define void @qasm_recordPhaseFunc(ptr noundef readonly byval(%struct.Qureg) alig
   %30 = getelementptr inbounds i8, ptr %11, i64 %29
   %31 = sub nsw i32 1024, %.05263
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %34 = load double, ptr %33, align 8, !tbaa !22
   %35 = fcmp ogt double %34, 0.000000e+00
   %36 = select i1 %35, ptr @.str.42, ptr @.str.43
@@ -1487,7 +1487,7 @@ define void @qasm_recordPhaseFunc(ptr noundef readonly byval(%struct.Qureg) alig
   br i1 %.not56, label %41, label %37
 
 37:                                               ; preds = %28
-  %38 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %39 = load double, ptr %38, align 8, !tbaa !22
   %40 = tail call double @llvm.fabs.f64(double %39)
   br label %43
@@ -1508,7 +1508,7 @@ define void @qasm_recordPhaseFunc(ptr noundef readonly byval(%struct.Qureg) alig
   %50 = getelementptr inbounds i8, ptr %11, i64 %49
   %51 = sub nsw i32 1024, %46
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load double, ptr %54, align 8, !tbaa !22
   %56 = fcmp ogt double %55, 0.000000e+00
@@ -1605,7 +1605,7 @@ addStringToQASM.exit:                             ; preds = %62, %74
   %95 = sext i32 %94 to i64
   %96 = icmp samesign ult i64 %indvars.iv73, %89
   %97 = select i1 %96, ptr @.str.51, ptr @.str.52
-  %98 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv73
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv73
   %99 = load i32, ptr %98, align 4, !tbaa !24
   %100 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %93, i64 noundef %95, ptr noundef nonnull %97, i32 noundef %99) #15
   %101 = add nsw i32 %100, %.265
@@ -1665,11 +1665,11 @@ addStringToQASM.exit60:                           ; preds = %._crit_edge69.threa
 
 124:                                              ; preds = %123, %124
   %indvars.iv78 = phi i64 [ 0, %123 ], [ %indvars.iv.next79, %124 ]
-  %125 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv78
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv78
   %126 = load double, ptr %125, align 8, !tbaa !22
   %127 = fcmp oge double %126, 0.000000e+00
   %128 = select i1 %127, ptr @.str.54, ptr @.str.55
-  %129 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv78
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv78
   %130 = load i64, ptr %129, align 8, !tbaa !25
   call void (ptr, ptr, ...) @qasm_recordComment(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull %128, i64 noundef %130, double noundef %126)
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
@@ -1777,7 +1777,7 @@ getPhaseFuncSymbol.exit:                          ; preds = %16
 
 22:                                               ; preds = %19, %getPhaseFuncSymbol.exit
   %.030 = phi i32 [ %18, %getPhaseFuncSymbol.exit ], [ %21, %19 ]
-  %23 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv46
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv46
   %24 = load i32, ptr %23, align 4, !tbaa !24
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph.preheader, label %._crit_edge
@@ -1809,7 +1809,7 @@ getPhaseFuncSymbol.exit:                          ; preds = %16
   %35 = icmp slt i32 %.037, %34
   %36 = select i1 %35, ptr @.str.51, ptr @.str.52
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %37 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %37 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !24
   %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %31, i64 noundef %33, ptr noundef nonnull %36, i32 noundef %38) #15
   %40 = add nsw i32 %39, %.13135
@@ -1917,7 +1917,7 @@ getPhaseFuncSymbol.exit.us.us:                    ; preds = %.lr.ph.split.us, %g
   %23 = getelementptr inbounds nuw i8, ptr @getPhaseFuncSymbol.xyz, i64 %indvars.iv64
   %.0.i.us.us = load i8, ptr %23, align 1, !tbaa !26
   %24 = sext i8 %.0.i.us.us to i32
-  %25 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv66
+  %25 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv66
   %26 = load i64, ptr %25, align 8, !tbaa !25
   %27 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %18, i64 noundef %20, ptr noundef nonnull %22, i32 noundef %24, i64 noundef %26) #15
   %indvars.iv.next67 = add nsw i64 %indvars.iv66, 1
@@ -1939,7 +1939,7 @@ getPhaseFuncSymbol.exit.us:                       ; preds = %.lr.ph.split.us, %g
   %34 = getelementptr inbounds nuw i8, ptr @getPhaseFuncSymbol.abc, i64 %indvars.iv56
   %.0.i.us = load i8, ptr %34, align 1, !tbaa !26
   %35 = sext i8 %.0.i.us to i32
-  %36 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv58
+  %36 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv58
   %37 = load i64, ptr %36, align 8, !tbaa !25
   %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %29, i64 noundef %31, ptr noundef nonnull %33, i32 noundef %35, i64 noundef %37) #15
   %indvars.iv.next59 = add nsw i64 %indvars.iv58, 1
@@ -1967,7 +1967,7 @@ getPhaseFuncSymbol.exit.us:                       ; preds = %.lr.ph.split.us, %g
   %43 = getelementptr inbounds i8, ptr %6, i64 %42
   %44 = sub nsw i32 1024, %.037.lcssa
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv73
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv73
   %47 = load double, ptr %46, align 8, !tbaa !22
   %48 = fcmp oge double %47, 0.000000e+00
   %49 = select i1 %48, ptr @.str.64, ptr @.str.65
@@ -1986,7 +1986,7 @@ getPhaseFuncSymbol.exit.us:                       ; preds = %.lr.ph.split.us, %g
   %56 = sext i32 %55 to i64
   %57 = icmp slt i32 %.043, %10
   %58 = select i1 %57, ptr @.str.62, ptr @.str.63
-  %59 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %59 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv
   %60 = load i64, ptr %59, align 8, !tbaa !25
   %61 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %54, i64 noundef %56, ptr noundef nonnull %58, i32 noundef %.043, i64 noundef %60) #15
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -2070,7 +2070,7 @@ define void @addShiftValuesToQASM(ptr noundef readonly byval(%struct.Qureg) alig
 
 12:                                               ; preds = %.lr.ph, %addStringToQASM.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %addStringToQASM.exit ]
-  %13 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load double, ptr %14, align 8, !tbaa !22
   %16 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2167,13 +2167,13 @@ define void @qasm_recordMultiVarPhaseFunc(ptr noundef readonly byval(%struct.Qur
   %.06275 = phi i32 [ 0, %.lr.ph79 ], [ %.1.lcssa, %addStringToQASM.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %12, ptr noundef nonnull align 1 dereferenceable(12) @.str.70, i64 12, i1 false)
   %28 = sext i32 %.06275 to i64
-  %29 = getelementptr inbounds double, ptr %5, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %5, i64 %28
   %30 = load double, ptr %29, align 8, !tbaa !22
   %31 = fcmp ogt double %30, 0.000000e+00
   %32 = select i1 %31, ptr @.str.44, ptr @.str.45
   %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 1013, ptr noundef nonnull %32) #15
   %34 = add nsw i32 %33, 11
-  %35 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv87
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv87
   %36 = load i32, ptr %35, align 4, !tbaa !24
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph, label %._crit_edge
@@ -2199,11 +2199,11 @@ getPhaseFuncSymbol.exit.us:                       ; preds = %66, %.lr.ph.split.u
   %41 = getelementptr inbounds i8, ptr %12, i64 %40
   %42 = sub nsw i32 1024, %.06370.us
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds double, ptr %6, i64 %indvars.iv84
+  %44 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv84
   %45 = load double, ptr %44, align 8, !tbaa !22
   %46 = fcmp ogt double %45, 0.000000e+00
   %47 = select i1 %46, ptr @.str.71, ptr @.str.72
-  %48 = getelementptr double, ptr %5, i64 %indvars.iv84
+  %48 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv84
   %49 = load double, ptr %48, align 8, !tbaa !22
   %50 = call double @llvm.fabs.f64(double %49)
   %51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %41, i64 noundef %43, ptr noundef nonnull %47, double noundef %50, i32 noundef %39, double noundef %45) #15
@@ -2265,11 +2265,11 @@ getPhaseFuncSymbol.exit.us:                       ; preds = %66, %.lr.ph.split.u
   %80 = getelementptr inbounds i8, ptr %12, i64 %79
   %81 = sub nsw i32 1024, %.06370
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds double, ptr %6, i64 %indvars.iv
+  %83 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv
   %84 = load double, ptr %83, align 8, !tbaa !22
   %85 = fcmp ogt double %84, 0.000000e+00
   %86 = select i1 %85, ptr @.str.73, ptr @.str.74
-  %87 = getelementptr double, ptr %5, i64 %indvars.iv
+  %87 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv
   %88 = load double, ptr %87, align 8, !tbaa !22
   %89 = call double @llvm.fabs.f64(double %88)
   %90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %80, i64 noundef %82, ptr noundef nonnull %86, double noundef %89, i32 noundef %38, double noundef %84) #15
@@ -2433,7 +2433,7 @@ define void @qasm_recordNamedPhaseFunc(ptr noundef readonly byval(%struct.Qureg)
   %40 = getelementptr inbounds i8, ptr %12, i64 %39
   %41 = sub nsw i32 1024, %.2269.us
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv306
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv306
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load double, ptr %44, align 8, !tbaa !22
   %46 = fcmp olt double %45, 0.000000e+00
@@ -2692,7 +2692,7 @@ getPhaseFuncSymbol.exit233:                       ; preds = %.lr.ph266, %getPhas
   %186 = sub nsw i32 1024, %.12256.us
   %187 = sext i32 %186 to i64
   %188 = lshr exact i64 %indvars.iv290, 1
-  %189 = getelementptr inbounds nuw double, ptr %6, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %188
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %191 = load double, ptr %190, align 8, !tbaa !22
   %192 = fcmp olt double %191, 0.000000e+00

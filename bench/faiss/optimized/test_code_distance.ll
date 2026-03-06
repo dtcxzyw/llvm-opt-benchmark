@@ -395,7 +395,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %56
 
 .loopexit424:                                     ; preds = %60
   store ptr %62, ptr %8, align 8, !tbaa !17
-  %63 = getelementptr inbounds nuw float, ptr %62, i64 %57
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %57
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %63, ptr %64, align 8, !tbaa !20
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %62, i8 0, i64 %61, i1 false), !tbaa !21
@@ -495,7 +495,7 @@ select.unfold.i.i.i.i:                            ; preds = %select.unfold.i.i.i
 103:                                              ; preds = %101, %88
   %.016.i.i.i.i = phi float [ %102, %101 ], [ %89, %88 ]
   %104 = fadd float %.016.i.i.i.i, 0.000000e+00
-  %105 = getelementptr inbounds nuw float, ptr %62, i64 %.034428
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.034428
   store float %104, ptr %105, align 4, !tbaa !21
   %106 = add nuw i64 %.034428, 1
   %exitcond.not = icmp eq i64 %106, %67
@@ -533,7 +533,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i120: ; preds = %_ZNSt6vectorIf
 
 .noexc122:                                        ; preds = %112
   store ptr %114, ptr %10, align 8, !tbaa !17
-  %115 = getelementptr inbounds nuw float, ptr %114, i64 %109
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %109
   %116 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %115, ptr %116, align 8, !tbaa !20
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %114, i8 0, i64 %113, i1 false), !tbaa !21
@@ -574,7 +574,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i130: ; preds = %_ZNSt6vectorIf
 
 .noexc132:                                        ; preds = %123
   store ptr %125, ptr %11, align 8, !tbaa !17
-  %126 = getelementptr inbounds nuw float, ptr %125, i64 %120
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %120
   %127 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %126, ptr %127, align 8, !tbaa !20
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %125, i8 0, i64 %124, i1 false), !tbaa !21
@@ -650,7 +650,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i140: ; preds = %_ZNSt6vectorIf
 
 .noexc142:                                        ; preds = %150
   store ptr %152, ptr %12, align 8, !tbaa !17
-  %153 = getelementptr inbounds nuw float, ptr %152, i64 %147
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %147
   %154 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %153, ptr %154, align 8, !tbaa !20
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %152, i8 0, i64 %151, i1 false), !tbaa !21
@@ -709,7 +709,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i152: ; preds = %_ZNSt6vectorIf
 
 .noexc154:                                        ; preds = %171
   store ptr %173, ptr %13, align 8, !tbaa !17
-  %174 = getelementptr inbounds nuw float, ptr %173, i64 %168
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %168
   %175 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %174, ptr %175, align 8, !tbaa !20
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %173, i8 0, i64 %172, i1 false), !tbaa !21
@@ -768,7 +768,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i164: ; preds = %_ZNSt6vectorIf
 
 .noexc166:                                        ; preds = %192
   store ptr %194, ptr %14, align 8, !tbaa !17
-  %195 = getelementptr inbounds nuw float, ptr %194, i64 %189
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %189
   %196 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %195, ptr %196, align 8, !tbaa !20
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %194, i8 0, i64 %193, i1 false), !tbaa !21
@@ -2252,7 +2252,7 @@ _ZN5faiss28distance_single_code_genericINS_10PQDecoder8EEEfmmPKfPKh.exit.us.preh
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i, i64 1
   %32 = load i8, ptr %.sroa.0.013.i, align 1, !tbaa !15, !llvm.access.group !107
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw float, ptr %.01214.i, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %.01214.i, i64 %33
   %35 = load float, ptr %34, align 4, !tbaa !21, !llvm.access.group !107
   %36 = fadd float %.01115.i, %35
   %37 = getelementptr inbounds nuw i8, ptr %.01214.i, i64 1024
@@ -2261,7 +2261,7 @@ _ZN5faiss28distance_single_code_genericINS_10PQDecoder8EEEfmmPKfPKh.exit.us.preh
   br i1 %exitcond.not.i, label %_ZN5faiss28distance_single_code_genericINS_10PQDecoder8EEEfmmPKfPKh.exit.loopexit, label %.lr.ph.i, !llvm.loop !108
 
 _ZN5faiss28distance_single_code_genericINS_10PQDecoder8EEEfmmPKfPKh.exit.loopexit: ; preds = %.lr.ph.i
-  %39 = getelementptr inbounds nuw float, ptr %25, i64 %.017
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.017
   store float %36, ptr %39, align 4, !tbaa !21, !llvm.access.group !107
   %40 = add nuw i64 %.017, 1
   %exitcond.not = icmp eq i64 %.017, %19
@@ -2350,7 +2350,7 @@ _ZN5faiss28distance_single_code_genericINS_10PQDecoder8EEEfmmPKfPKh.exit.us.preh
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i, i64 1
   %32 = load i8, ptr %.sroa.0.013.i, align 1, !tbaa !15, !llvm.access.group !111
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw float, ptr %.01214.i, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %.01214.i, i64 %33
   %35 = load float, ptr %34, align 4, !tbaa !21, !llvm.access.group !111
   %36 = fadd float %.01115.i, %35
   %37 = getelementptr inbounds nuw i8, ptr %.01214.i, i64 1024
@@ -2359,7 +2359,7 @@ _ZN5faiss28distance_single_code_genericINS_10PQDecoder8EEEfmmPKfPKh.exit.us.preh
   br i1 %exitcond.not.i, label %_ZN5faiss28distance_single_code_genericINS_10PQDecoder8EEEfmmPKfPKh.exit.loopexit, label %.lr.ph.i, !llvm.loop !108
 
 _ZN5faiss28distance_single_code_genericINS_10PQDecoder8EEEfmmPKfPKh.exit.loopexit: ; preds = %.lr.ph.i
-  %39 = getelementptr inbounds nuw float, ptr %25, i64 %.017
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.017
   store float %36, ptr %39, align 4, !tbaa !21, !llvm.access.group !111
   %40 = add nuw i64 %.017, 1
   %exitcond.not = icmp eq i64 %.017, %19
@@ -2447,10 +2447,10 @@ _ZN5faiss27distance_four_codes_genericINS_10PQDecoder8EEEvmmPKfPKhS5_S5_S5_RfS6_
   %40 = or disjoint i64 %31, 3
   %41 = mul i64 %24, %40
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 %41
-  %43 = getelementptr inbounds nuw float, ptr %27, i64 %31
-  %44 = getelementptr inbounds nuw float, ptr %27, i64 %34
-  %45 = getelementptr inbounds nuw float, ptr %27, i64 %37
-  %46 = getelementptr inbounds nuw float, ptr %27, i64 %40
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %31
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %34
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %37
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %40
   call void @llvm.experimental.noalias.scope.decl(metadata !121)
   call void @llvm.experimental.noalias.scope.decl(metadata !122)
   call void @llvm.experimental.noalias.scope.decl(metadata !123)
@@ -2475,28 +2475,28 @@ _ZN5faiss27distance_four_codes_genericINS_10PQDecoder8EEEvmmPKfPKhS5_S5_S5_RfS6_
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.029.030.i, i64 1
   %52 = load i8, ptr %.sroa.029.030.i, align 1, !tbaa !15, !alias.scope !121, !noalias !125, !llvm.access.group !114
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw float, ptr %.02634.i, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.02634.i, i64 %53
   %55 = load float, ptr %54, align 4, !tbaa !21, !noalias !115, !llvm.access.group !114
   %56 = fadd float %55, %50
   store float %56, ptr %43, align 4, !tbaa !21, !noalias !115, !llvm.access.group !114
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.028.031.i, i64 1
   %58 = load i8, ptr %.sroa.028.031.i, align 1, !tbaa !15, !alias.scope !122, !noalias !126, !llvm.access.group !114
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw float, ptr %.02634.i, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.02634.i, i64 %59
   %61 = load float, ptr %60, align 4, !tbaa !21, !noalias !115, !llvm.access.group !114
   %62 = fadd float %61, %49
   store float %62, ptr %44, align 4, !tbaa !21, !noalias !115, !llvm.access.group !114
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.027.032.i, i64 1
   %64 = load i8, ptr %.sroa.027.032.i, align 1, !tbaa !15, !alias.scope !123, !noalias !127, !llvm.access.group !114
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw float, ptr %.02634.i, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %.02634.i, i64 %65
   %67 = load float, ptr %66, align 4, !tbaa !21, !noalias !115, !llvm.access.group !114
   %68 = fadd float %67, %48
   store float %68, ptr %45, align 4, !tbaa !21, !noalias !115, !llvm.access.group !114
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.033.i, i64 1
   %70 = load i8, ptr %.sroa.0.033.i, align 1, !tbaa !15, !alias.scope !124, !noalias !128, !llvm.access.group !114
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw float, ptr %.02634.i, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.02634.i, i64 %71
   %73 = load float, ptr %72, align 4, !tbaa !21, !noalias !115, !llvm.access.group !114
   %74 = fadd float %73, %47
   store float %74, ptr %46, align 4, !tbaa !21, !noalias !115, !llvm.access.group !114
@@ -2590,7 +2590,7 @@ _ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit.us.preheader: ;
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 1
   %32 = load i8, ptr %.sroa.0.013.i.i, align 1, !tbaa !15, !llvm.access.group !132
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw float, ptr %.01214.i.i, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %.01214.i.i, i64 %33
   %35 = load float, ptr %34, align 4, !tbaa !21, !llvm.access.group !132
   %36 = fadd float %.01115.i.i, %35
   %37 = getelementptr inbounds nuw i8, ptr %.01214.i.i, i64 1024
@@ -2599,7 +2599,7 @@ _ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit.us.preheader: ;
   br i1 %exitcond.not.i.i, label %_ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !108
 
 _ZN5faiss20distance_single_codeINS_10PQDecoder8EEEfmmPKfPKh.exit.loopexit: ; preds = %.lr.ph.i.i
-  %39 = getelementptr inbounds nuw float, ptr %25, i64 %.017
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.017
   store float %36, ptr %39, align 4, !tbaa !21, !llvm.access.group !132
   %40 = add nuw i64 %.017, 1
   %exitcond.not = icmp eq i64 %.017, %19
@@ -2687,10 +2687,10 @@ _ZN5faiss19distance_four_codesINS_10PQDecoder8EEEvmmPKfPKhS5_S5_S5_RfS6_S6_S6_.e
   %40 = or disjoint i64 %31, 3
   %41 = mul i64 %24, %40
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 %41
-  %43 = getelementptr inbounds nuw float, ptr %27, i64 %31
-  %44 = getelementptr inbounds nuw float, ptr %27, i64 %34
-  %45 = getelementptr inbounds nuw float, ptr %27, i64 %37
-  %46 = getelementptr inbounds nuw float, ptr %27, i64 %40
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %31
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %34
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %37
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %40
   call void @llvm.experimental.noalias.scope.decl(metadata !147)
   call void @llvm.experimental.noalias.scope.decl(metadata !148)
   call void @llvm.experimental.noalias.scope.decl(metadata !149)
@@ -2719,28 +2719,28 @@ _ZN5faiss19distance_four_codesINS_10PQDecoder8EEEvmmPKfPKhS5_S5_S5_RfS6_S6_S6_.e
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.029.030.i.i, i64 1
   %52 = load i8, ptr %.sroa.029.030.i.i, align 1, !tbaa !15, !alias.scope !155, !noalias !156, !llvm.access.group !135
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw float, ptr %.02634.i.i, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.02634.i.i, i64 %53
   %55 = load float, ptr %54, align 4, !tbaa !21, !noalias !136, !llvm.access.group !135
   %56 = fadd float %55, %50
   store float %56, ptr %43, align 4, !tbaa !21, !noalias !136, !llvm.access.group !135
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.028.031.i.i, i64 1
   %58 = load i8, ptr %.sroa.028.031.i.i, align 1, !tbaa !15, !alias.scope !157, !noalias !158, !llvm.access.group !135
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw float, ptr %.02634.i.i, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.02634.i.i, i64 %59
   %61 = load float, ptr %60, align 4, !tbaa !21, !noalias !136, !llvm.access.group !135
   %62 = fadd float %61, %49
   store float %62, ptr %44, align 4, !tbaa !21, !noalias !136, !llvm.access.group !135
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.027.032.i.i, i64 1
   %64 = load i8, ptr %.sroa.027.032.i.i, align 1, !tbaa !15, !alias.scope !159, !noalias !160, !llvm.access.group !135
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw float, ptr %.02634.i.i, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %.02634.i.i, i64 %65
   %67 = load float, ptr %66, align 4, !tbaa !21, !noalias !136, !llvm.access.group !135
   %68 = fadd float %67, %48
   store float %68, ptr %45, align 4, !tbaa !21, !noalias !136, !llvm.access.group !135
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.033.i.i, i64 1
   %70 = load i8, ptr %.sroa.0.033.i.i, align 1, !tbaa !15, !alias.scope !161, !noalias !162, !llvm.access.group !135
   %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw float, ptr %.02634.i.i, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.02634.i.i, i64 %71
   %73 = load float, ptr %72, align 4, !tbaa !21, !noalias !136, !llvm.access.group !135
   %74 = fadd float %73, %47
   store float %74, ptr %46, align 4, !tbaa !21, !noalias !136, !llvm.access.group !135

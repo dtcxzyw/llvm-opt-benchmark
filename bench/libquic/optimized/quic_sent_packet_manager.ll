@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.std::pair.44" = type <{ i64, i16, [6 x i8] }>
 %"struct.std::pair" = type <{ i64, i8, [7 x i8] }>
 %"struct.net::PendingRetransmission" = type <{ i64, ptr, i8, i8, i8, i8, i32, i8, i8, [6 x i8] }>
 %"struct.std::pair.61" = type { i64, %"struct.std::_List_iterator" }
@@ -1526,7 +1525,7 @@ _ZNSt6vectorISt4pairImtESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; pre
 _ZNSt6vectorISt4pairImtESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %61, %_ZNSt6vectorISt4pairImtESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %56, ptr %20, align 8, !tbaa !86
   store ptr %60, ptr %21, align 8, !tbaa !132
-  %62 = getelementptr inbounds nuw %"struct.std::pair.44", ptr %56, i64 %54
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %54
   store ptr %62, ptr %22, align 8, !tbaa !171
   br label %_ZNSt6vectorISt4pairImtESaIS1_EE9push_backEOS1_.exit
 
@@ -1777,7 +1776,7 @@ define linkonce_odr ptr @_ZN15linked_hash_mapImN3net16TransmissionTypeESt4hashIm
   %17 = load i64, ptr %16, align 8, !tbaa !16
   %18 = urem i64 %15, %17
   %19 = load ptr, ptr %0, align 8, !tbaa !6
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !186, !nonnull !95, !noundef !95
   %22 = load ptr, ptr %21, align 8, !tbaa !90
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -1824,7 +1823,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4h
   %41 = load i64, ptr %40, align 8, !tbaa !16
   %42 = urem i64 %39, %41
   %43 = load ptr, ptr %0, align 8, !tbaa !6
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %42
   %45 = load ptr, ptr %44, align 8, !tbaa !186
   br label %46
 
@@ -1851,7 +1850,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEE
   br i1 %.not9.i.i.i.i.i, label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE5eraseENSt8__detail14_Node_iteratorISB_Lb0ELb0EEE.exit, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw ptr, ptr %43, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %54
   store ptr %45, ptr %56, align 8, !tbaa !186
   br label %._crit_edge.i.i.i.i.i
 
@@ -1879,7 +1878,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEE
   br i1 %.not17.i.i.i.i, label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE5eraseENSt8__detail14_Node_iteratorISB_Lb0ELb0EEE.exit, label %66
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds nuw ptr, ptr %43, i64 %65
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %65
   store ptr %.0.i.i.i.i, ptr %67, align 8, !tbaa !186
   br label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE5eraseENSt8__detail14_Node_iteratorISB_Lb0ELb0EEE.exit
 
@@ -2193,7 +2192,7 @@ define void @_ZN3net21QuicSentPacketManager21MarkForRetransmissionEmNS_16Transmi
   %39 = load i64, ptr %38, align 8, !tbaa !16
   %40 = urem i64 %1, %39
   %41 = load ptr, ptr %27, align 8, !tbaa !6
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8, !tbaa !186
   %.not.i.i.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4base11ContainsKeyI15linked_hash_mapImN3net16TransmissionTypeESt4hashImEEmEEbRKT_RKT0_.exit.thread, label %44
@@ -2371,7 +2370,7 @@ define linkonce_odr noundef i64 @_ZN15linked_hash_mapImN3net16TransmissionTypeES
   %16 = load i64, ptr %15, align 8, !tbaa !16
   %17 = urem i64 %14, %16
   %18 = load ptr, ptr %0, align 8, !tbaa !6
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !186
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE4findERSA_.exit.thread, label %21
@@ -2419,7 +2418,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4h
   %41 = load i64, ptr %33, align 8, !tbaa !111
   %42 = urem i64 %41, %40
   %43 = load ptr, ptr %0, align 8, !tbaa !6
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %42
   %45 = load ptr, ptr %44, align 8, !tbaa !186
   br label %46
 
@@ -2446,7 +2445,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEE
   br i1 %.not9.i.i.i.i.i, label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE5eraseENSt8__detail14_Node_iteratorISB_Lb0ELb0EEE.exit, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw ptr, ptr %43, i64 %54
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %54
   store ptr %45, ptr %56, align 8, !tbaa !186
   br label %._crit_edge.i.i.i.i.i
 
@@ -2474,7 +2473,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEE
   br i1 %.not17.i.i.i.i, label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE5eraseENSt8__detail14_Node_iteratorISB_Lb0ELb0EEE.exit, label %66
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds nuw ptr, ptr %43, i64 %65
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %65
   store ptr %.0.i.i.i.i, ptr %67, align 8, !tbaa !186
   br label %_ZNSt13unordered_mapImSt14_List_iteratorISt4pairImN3net16TransmissionTypeEEESt4hashImESt8equal_toImESaIS1_IKmS5_EEE5eraseENSt8__detail14_Node_iteratorISB_Lb0ELb0EEE.exit
 
@@ -4238,7 +4237,7 @@ define linkonce_odr { ptr, i8 } @_ZN15linked_hash_mapImN3net16TransmissionTypeES
   %18 = load i64, ptr %17, align 8, !tbaa !16
   %19 = urem i64 %16, %18
   %20 = load ptr, ptr %0, align 8, !tbaa !6
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !186
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %23
@@ -4355,7 +4354,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImSt4pairIKmSt14_List_iterator
   %12 = load i64, ptr %11, align 8, !tbaa !16
   %13 = urem i64 %5, %12
   %14 = load ptr, ptr %0, align 8, !tbaa !6
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !186
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %.critedge27, label %28
@@ -4488,7 +4487,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEE
 31:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEESaIS7_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEESaIS7_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !6
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !186
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -4514,7 +4513,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEE
   %44 = load i64, ptr %9, align 8, !tbaa !16
   %45 = load i64, ptr %43, align 8, !tbaa !111
   %46 = urem i64 %45, %44
-  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %46
   store ptr %3, ptr %47, align 8, !tbaa !186
   br label %48
 
@@ -4582,7 +4581,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEE
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !111
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !186
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -4597,7 +4596,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIS0_ImN3net16TransmissionTypeEEEE
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !186
   br label %28
 

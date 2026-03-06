@@ -1395,7 +1395,7 @@ define internal fastcc ptr @CORD_from_file_lazy_inner(ptr noundef %0, i64 nounde
 
 21:                                               ; preds = %19, %21
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   store volatile ptr null, ptr %22, align 8, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -1535,7 +1535,7 @@ define internal signext i8 @CORD_lf_func(i64 noundef %0, ptr noundef %1) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = lshr i64 %0, 9
   %6 = and i64 %5, 31
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   %8 = load atomic volatile i64, ptr %7 acquire, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = icmp eq i64 %8, 0
@@ -1628,7 +1628,7 @@ define internal ptr @refill_cache(ptr noundef readonly captures(none) %0) #0 {
   %25 = and i64 %24, 31
   store i64 %24, ptr %8, align 8, !tbaa !26
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = ptrtoint ptr %8 to i64
   store atomic volatile i64 %28, ptr %27 release, align 8
   tail call void @GC_end_stubborn_change(ptr noundef nonnull %27) #16

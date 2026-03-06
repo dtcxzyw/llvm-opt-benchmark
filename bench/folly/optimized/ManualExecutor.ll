@@ -15,10 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.folly::detail::function::Data::BigTrivialLayout" = type { ptr, i64, i64 }
 %"class.std::chrono::time_point" = type { %"class.std::chrono::duration" }
 %"class.std::chrono::duration" = type { i64 }
-%"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot" = type { %"union.std::aligned_storage<16, 8>::type", %"struct.std::atomic.9", %"struct.std::atomic.9" }
-%"union.std::aligned_storage<16, 8>::type" = type { [16 x i8] }
-%"struct.std::atomic.9" = type { %"struct.std::__atomic_base.10" }
-%"struct.std::__atomic_base.10" = type { i32 }
 %"class.std::bad_function_call" = type { %"class.std::exception" }
 %"class.std::exception" = type { ptr }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { i8 }
@@ -31,8 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.20" }
 %"struct.std::_Head_base.20" = type { ptr }
 %"class.folly::WaitOptions" = type <{ %"class.std::chrono::duration", i8, [7 x i8] }>
-%"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::LocalList" = type { %"class.folly::AtomicStruct.11", [56 x i8] }
-%"class.folly::AtomicStruct.11" = type { %"struct.std::atomic" }
 %"class.std::logic_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"struct.std::__cow_string" = type { %union.anon.21 }
 %union.anon.21 = type { ptr }
@@ -943,7 +937,7 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxTo
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 64, !tbaa !58
   %15 = and i64 %2, 4294967295
-  %16 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load atomic i32, ptr %17 monotonic, align 4
   %19 = icmp eq i32 %18, 0
@@ -1005,7 +999,7 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxTo
   %42 = phi ptr [ %41, %40 ], [ %.0.i.i.i.i, %38 ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %44 = load ptr, ptr %43, align 64, !tbaa !58
-  %45 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %44, i64 %15
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %15
   %46 = cmpxchg ptr %45, i32 0, i32 1 release monotonic, align 4
   %47 = extractvalue { i32, i1 } %46, 1
   br i1 %47, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %48
@@ -1198,9 +1192,9 @@ define linkonce_odr void @_ZNSt5dequeIN5folly8FunctionIFvvEEESaIS3_EE17_M_reallo
   %19 = load ptr, ptr %0, align 8, !tbaa !52
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -1219,12 +1213,12 @@ define linkonce_odr void @_ZNSt5dequeIN5folly8FunctionIFvvEEESaIS3_EE17_M_reallo
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN5folly8FunctionIFvvEEES5_ET0_T_S7_S6_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN5folly8FunctionIFvvEEES5_ET0_T_S7_S6_.exit
 
@@ -1252,9 +1246,9 @@ _ZNSt11_Deque_baseIN5folly8FunctionIFvvEEESaIS3_EE15_M_allocate_mapEm.exit: ; pr
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #27
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN5folly8FunctionIFvvEEES5_ET0_T_S7_S6_.exit26, label %53
@@ -1282,7 +1276,7 @@ _ZSt4copyIPPN5folly8FunctionIFvvEEES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %28
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !43
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !44
   %64 = load ptr, ptr %63, align 8, !tbaa !49
@@ -1959,7 +1953,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %4
-  %.phi.trans.insert = getelementptr inbounds %"struct.folly::ManualExecutor::ScheduledFunc", ptr %0, i64 %1
+  %.phi.trans.insert = getelementptr inbounds [80 x i8], ptr %0, i64 %1
   %.phi.trans.insert46 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 72
   %.pre = load ptr, ptr %.phi.trans.insert46, align 8, !tbaa !20
   br label %.lr.ph
@@ -1969,9 +1963,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5
   %.045 = phi i64 [ %spec.select, %_ZN5folly14ManualExecutor13ScheduledFuncaSEOS1_.exit ], [ %1, %.lr.ph.preheader ]
   %11 = shl i64 %.045, 1
   %12 = add i64 %11, 2
-  %13 = getelementptr inbounds %"struct.folly::ManualExecutor::ScheduledFunc", ptr %0, i64 %12
+  %13 = getelementptr inbounds [80 x i8], ptr %0, i64 %12
   %14 = or disjoint i64 %11, 1
-  %15 = getelementptr inbounds %"struct.folly::ManualExecutor::ScheduledFunc", ptr %0, i64 %14
+  %15 = getelementptr inbounds [80 x i8], ptr %0, i64 %14
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %13, align 8, !tbaa !30
   %.sroa.0.0.copyload.i2.i.i.i.i = load i64, ptr %15, align 8, !tbaa !30
   %16 = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i.i, %.sroa.0.0.copyload.i2.i.i.i.i
@@ -1983,8 +1977,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5
   %22 = icmp slt i64 %.sroa.0.0.copyload.i2.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i
   %.0.i.i.i = select i1 %16, i1 %21, i1 %22
   %spec.select = select i1 %.0.i.i.i, i64 %14, i64 %12
-  %23 = getelementptr inbounds %"struct.folly::ManualExecutor::ScheduledFunc", ptr %0, i64 %spec.select
-  %24 = getelementptr inbounds %"struct.folly::ManualExecutor::ScheduledFunc", ptr %0, i64 %.045
+  %23 = getelementptr inbounds [80 x i8], ptr %0, i64 %spec.select
+  %24 = getelementptr inbounds [80 x i8], ptr %0, i64 %.045
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %24, ptr noundef nonnull align 16 dereferenceable(80) %23, i64 16, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -2043,8 +2037,8 @@ _ZN5folly14ManualExecutor13ScheduledFuncaSEOS1_.exit: ; preds = %_ZNK5folly8Func
 48:                                               ; preds = %44
   %49 = shl nsw i64 %.0.lcssa, 1
   %50 = or disjoint i64 %49, 1
-  %51 = getelementptr inbounds %"struct.folly::ManualExecutor::ScheduledFunc", ptr %0, i64 %50
-  %52 = getelementptr inbounds %"struct.folly::ManualExecutor::ScheduledFunc", ptr %0, i64 %.0.lcssa
+  %51 = getelementptr inbounds [80 x i8], ptr %0, i64 %50
+  %52 = getelementptr inbounds [80 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %52, ptr noundef nonnull align 16 dereferenceable(80) %51, i64 16, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -2158,7 +2152,7 @@ define linkonce_odr void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5fo
   %.025 = phi i64 [ %1, %.lr.ph ], [ %.0926, %_ZN5folly14ManualExecutor13ScheduledFuncaSEOS1_.exit ]
   %.0926.in = add nsw i64 %.025, -1
   %.0926 = sdiv i64 %.0926.in, 2
-  %9 = getelementptr inbounds %"struct.folly::ManualExecutor::ScheduledFunc", ptr %0, i64 %.0926
+  %9 = getelementptr inbounds [80 x i8], ptr %0, i64 %.0926
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %9, align 8, !tbaa !30
   %.sroa.0.0.copyload.i2.i.i.i.i = load i64, ptr %3, align 8, !tbaa !30
   %10 = icmp eq i64 %.sroa.0.0.copyload.i.i.i.i.i, %.sroa.0.0.copyload.i2.i.i.i.i
@@ -2171,7 +2165,7 @@ define linkonce_odr void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN5fo
   br i1 %.0.i.i.i, label %16, label %.critedge
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds %"struct.folly::ManualExecutor::ScheduledFunc", ptr %0, i64 %.025
+  %17 = getelementptr inbounds [80 x i8], ptr %0, i64 %.025
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %17, ptr noundef nonnull align 16 dereferenceable(80) %9, i64 16, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -2218,7 +2212,7 @@ _ZN5folly14ManualExecutor13ScheduledFuncaSEOS1_.exit: ; preds = %_ZNK5folly8Func
 
 .critedge:                                        ; preds = %8, %_ZN5folly14ManualExecutor13ScheduledFuncaSEOS1_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0926, %_ZN5folly14ManualExecutor13ScheduledFuncaSEOS1_.exit ], [ %.025, %8 ]
-  %36 = getelementptr inbounds %"struct.folly::ManualExecutor::ScheduledFunc", ptr %0, i64 %.0.lcssa
+  %36 = getelementptr inbounds [80 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %36, ptr noundef nonnull align 16 dereferenceable(80) %3, i64 16, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2365,7 +2359,7 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxTo
   %42 = phi ptr [ %41, %40 ], [ %.0.i.i.i.i, %38 ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %44 = load ptr, ptr %43, align 64, !tbaa !58
-  %45 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %44, i64 %5
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %5
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = trunc i64 %20 to i32
   %spec.select = select i1 %.not50, i32 0, i32 %47
@@ -2682,7 +2676,7 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxTo
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 64, !tbaa !58, !noalias !88
   %31 = zext i32 %23 to i64
-  %32 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store atomic i32 0, ptr %33 monotonic, align 4, !noalias !88
   store i32 0, ptr %32, align 4, !tbaa !70, !noalias !88
@@ -2947,7 +2941,7 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxTo
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %46 = load ptr, ptr %45, align 64, !tbaa !58
   %47 = and i64 %.sroa.0.0, 4294967295
-  %48 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load atomic i32, ptr %49 monotonic, align 4
   %.not49.not = icmp eq i32 %50, 0
@@ -2985,7 +2979,7 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxTo
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 64
   %61 = load ptr, ptr %60, align 64, !tbaa !58
   %62 = zext i32 %.0205064 to i64
-  %63 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load atomic i32, ptr %64 monotonic, align 4
   %.not.not = icmp eq i32 %65, 0
@@ -3065,7 +3059,7 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
   %13 = zext i8 %12 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %15 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::LocalList", ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2176
   br label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE10globalPushERNS7_4SlotEj.exit.i
@@ -3080,7 +3074,7 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
 19:                                               ; preds = %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE10globalPushERNS7_4SlotEj.exit.i
   %20 = load ptr, ptr %16, align 64, !tbaa !58
   %21 = and i64 %18, 4294967295
-  %22 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load atomic i32, ptr %23 monotonic, align 4
   %.sroa.2.0.insert.shift.i27.i = add i64 %.sroa.9.0.extract.shift.i, 1095216660480
@@ -3102,7 +3096,7 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
 29:                                               ; preds = %.preheader.i
   %30 = load ptr, ptr %16, align 64, !tbaa !58
   %31 = and i64 %27, 4294967295
-  %32 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %34 = load atomic i32, ptr %33 monotonic, align 4
   %35 = and i64 %27, -4294967296
@@ -3130,7 +3124,7 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
 
 _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE9globalPopEv.exit.i: ; preds = %29
   %48 = load ptr, ptr %16, align 64, !tbaa !58
-  %49 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %48, i64 %31
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %31
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load atomic i32, ptr %50 monotonic, align 4
   %52 = and i64 %18, -1099511627776
@@ -3159,7 +3153,7 @@ _ZN5folly12AtomicStructINS_14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomic
 _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit: ; preds = %43
   %61 = load ptr, ptr %16, align 64, !tbaa !58
   %62 = zext i32 %45 to i64
-  %63 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %62
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9
@@ -3173,7 +3167,7 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
   %.pre-phi = phi i64 [ %.pre, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9.loopexit ], [ %62, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit ]
   %.2.ph.i12 = phi i32 [ %.2.ph.i12.ph, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9.loopexit ], [ %45, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit ]
   %64 = load ptr, ptr %16, align 64, !tbaa !58
-  %65 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %64, i64 %.pre-phi
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %64, i64 %.pre-phi
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store atomic i32 -1, ptr %66 release, align 4
   br label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread
@@ -3503,10 +3497,10 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
   %30 = zext i8 %29 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 128
-  %32 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::LocalList", ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [64 x i8], ptr %31, i64 %30
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %34 = load ptr, ptr %33, align 64, !tbaa !58
-  %35 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %34, i64 %.0.i
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %.0.i
   %36 = load atomic i64, ptr %32 acquire, align 8
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %invariant.op.i = or disjoint i64 %.0.i, 1103806595072
@@ -3897,7 +3891,7 @@ _ZNSt6vectorIN5folly14ManualExecutor13ScheduledFuncESaIS2_EE11_S_relocateEPS2_S5
 _ZNSt12_Vector_baseIN5folly14ManualExecutor13ScheduledFuncESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5folly14ManualExecutor13ScheduledFuncESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38, %65
   store ptr %21, ptr %0, align 8, !tbaa !38
   store ptr %.0.lcssa.i.i.i37, ptr %5, align 8, !tbaa !26
-  %69 = getelementptr inbounds nuw %"struct.folly::ManualExecutor::ScheduledFunc", ptr %21, i64 %17
+  %69 = getelementptr inbounds nuw [80 x i8], ptr %21, i64 %17
   store ptr %69, ptr %64, align 8, !tbaa !29
   ret void
 }

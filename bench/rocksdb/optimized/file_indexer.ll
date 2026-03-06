@@ -7,17 +7,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl" }
 %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.rocksdb::FileIndexer::IndexLevel" = type { i64, ptr }
-%"struct.rocksdb::FileIndexer::IndexUnit" = type { i32, i32, i32, i32 }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.std::function.19" = type { %"class.std::_Function_base", ptr }
-%"class.std::vector.14" = type { %"struct.std::_Vector_base.15" }
-%"struct.std::_Vector_base.15" = type { %"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl" }
-%"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.rocksdb::Slice" = type { ptr, i64 }
 
 $_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev = comdat any
@@ -110,8 +104,8 @@ define noundef i64 @_ZNK7rocksdb11FileIndexer14LevelIndexSizeEm(ptr noundef nonn
   %15 = icmp ult i64 %1, 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw %"struct.rocksdb::FileIndexer::IndexLevel", ptr %17, i64 %1
-  %19 = getelementptr %"struct.rocksdb::FileIndexer::IndexLevel", ptr %8, i64 %1
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %1
+  %19 = getelementptr [16 x i8], ptr %8, i64 %1
   %20 = getelementptr i8, ptr %19, i64 -128
   %.0.i = select i1 %15, ptr %18, ptr %20
   %21 = load i64, ptr %.0.i, align 8, !tbaa !27
@@ -137,15 +131,15 @@ define void @_ZNK7rocksdb11FileIndexer17GetNextLevelIndexEmmiiPiS1_(ptr noundef 
   %13 = icmp ult i64 %1, 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw %"struct.rocksdb::FileIndexer::IndexLevel", ptr %15, i64 %1
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr %"struct.rocksdb::FileIndexer::IndexLevel", ptr %18, i64 %1
+  %19 = getelementptr [16 x i8], ptr %18, i64 %1
   %20 = getelementptr i8, ptr %19, i64 -128
   %.0.i = select i1 %13, ptr %16, ptr %20
   %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !32
-  %23 = getelementptr %"struct.rocksdb::FileIndexer::IndexUnit", ptr %22, i64 %2
+  %23 = getelementptr [16 x i8], ptr %22, i64 %2
   %24 = icmp slt i32 %3, 0
   br i1 %24, label %25, label %35
 
@@ -204,7 +198,7 @@ define void @_ZNK7rocksdb11FileIndexer17GetNextLevelIndexEmmiiPiS1_(ptr noundef 
 54:                                               ; preds = %47
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %56 = load ptr, ptr %55, align 8, !tbaa !38
-  %57 = getelementptr i32, ptr %56, i64 %1
+  %57 = getelementptr [4 x i8], ptr %56, i64 %1
   %58 = getelementptr i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4, !tbaa !30
   br label %60
@@ -265,7 +259,7 @@ define void @_ZN7rocksdb11FileIndexer11UpdateIndexEPNS_5ArenaEmPSt6vectorIPNS_12
   br i1 %34, label %35, label %_ZNSt6vectorIN7rocksdb11FileIndexer10IndexLevelESaIS2_EE6resizeEm.exit.i
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw %"struct.rocksdb::FileIndexer::IndexLevel", ptr %25, i64 %24
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %24
   %.not.i.i.i = icmp eq ptr %22, %36
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN7rocksdb11FileIndexer10IndexLevelESaIS2_EE6resizeEm.exit.i, label %37
 
@@ -287,7 +281,7 @@ _ZNSt6vectorIN7rocksdb11FileIndexer10IndexLevelESaIS2_EE6resizeEm.exit.i: ; pred
   %43 = load ptr, ptr %40, align 8, !tbaa !24
   %44 = add nuw nsw i64 %42, 1
   store i64 %44, ptr %18, align 8, !tbaa !23
-  %45 = getelementptr inbounds nuw %"struct.rocksdb::FileIndexer::IndexLevel", ptr %43, i64 %42
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %42
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   %46 = load i64, ptr %18, align 8, !tbaa !23
   %47 = icmp ult i64 %46, 8
@@ -321,7 +315,7 @@ _ZNSt6vectorIN7rocksdb11FileIndexer10IndexLevelESaIS2_EE5clearEv.exit.i: ; preds
   %57 = load ptr, ptr %53, align 8, !tbaa !24
   %58 = add nuw nsw i64 %56, 1
   store i64 %58, ptr %18, align 8, !tbaa !23
-  %59 = getelementptr inbounds nuw %"struct.rocksdb::FileIndexer::IndexLevel", ptr %57, i64 %56
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
   %60 = load i64, ptr %18, align 8, !tbaa !23
   %61 = icmp ult i64 %60, %2
@@ -385,7 +379,7 @@ _ZN7rocksdb10autovectorINS_11FileIndexer10IndexLevelELm8EE6resizeEm.exit: ; pred
   %95 = phi ptr [ %67, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
   %.lcssa103 = phi i64 [ %69, %.preheader ], [ %200, %._crit_edge.loopexit ]
   %.lcssa = phi i64 [ %71, %.preheader ], [ %201, %._crit_edge.loopexit ]
-  %96 = getelementptr inbounds nuw %"class.std::vector.14", ptr %3, i64 %.lcssa
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %.lcssa
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !44
   %99 = load ptr, ptr %96, align 8, !tbaa !48
@@ -395,14 +389,14 @@ _ZN7rocksdb10autovectorINS_11FileIndexer10IndexLevelELm8EE6resizeEm.exit: ; pred
   %103 = lshr exact i64 %102, 3
   %104 = trunc i64 %103 to i32
   %105 = add nsw i32 %104, -1
-  %106 = getelementptr i32, ptr %95, i64 %.lcssa103
+  %106 = getelementptr [4 x i8], ptr %95, i64 %.lcssa103
   %107 = getelementptr i8, ptr %106, i64 -4
   store i32 %105, ptr %107, align 4, !tbaa !30
   br label %259
 
 108:                                              ; preds = %.lr.ph179, %_ZNSt14_Function_baseD2Ev.exit67
   %.045178 = phi i64 [ 1, %.lr.ph179 ], [ %117, %_ZNSt14_Function_baseD2Ev.exit67 ]
-  %109 = getelementptr inbounds nuw %"class.std::vector.14", ptr %3, i64 %.045178
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %.045178
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8, !tbaa !44
   %112 = load ptr, ptr %109, align 8, !tbaa !48
@@ -411,11 +405,11 @@ _ZN7rocksdb10autovectorINS_11FileIndexer10IndexLevelELm8EE6resizeEm.exit: ; pred
   %115 = sub i64 %113, %114
   %116 = lshr exact i64 %115, 3
   %117 = add nuw i64 %.045178, 1
-  %118 = getelementptr inbounds nuw %"class.std::vector.14", ptr %3, i64 %117
+  %118 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %117
   %119 = trunc i64 %116 to i32
   %120 = add nsw i32 %119, -1
   %121 = load ptr, ptr %68, align 8, !tbaa !38
-  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %.045178
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %.045178
   store i32 %120, ptr %122, align 4, !tbaa !30
   %123 = and i64 %115, 34359738360
   %124 = icmp eq i64 %123, 0
@@ -424,9 +418,9 @@ _ZN7rocksdb10autovectorINS_11FileIndexer10IndexLevelELm8EE6resizeEm.exit: ; pred
 125:                                              ; preds = %108
   %126 = icmp ult i64 %.045178, 8
   %127 = load ptr, ptr %73, align 8
-  %128 = getelementptr inbounds nuw %"struct.rocksdb::FileIndexer::IndexLevel", ptr %127, i64 %.045178
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %127, i64 %.045178
   %129 = load ptr, ptr %20, align 8
-  %130 = getelementptr %"struct.rocksdb::FileIndexer::IndexLevel", ptr %129, i64 %.045178
+  %130 = getelementptr [16 x i8], ptr %129, i64 %.045178
   %131 = getelementptr i8, ptr %130, i64 -128
   %.0.i = select i1 %126, ptr %128, ptr %131
   %sext = shl i64 %115, 29
@@ -437,7 +431,7 @@ _ZN7rocksdb10autovectorINS_11FileIndexer10IndexLevelELm8EE6resizeEm.exit: ; pred
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
   %136 = load ptr, ptr %135, align 8
   %137 = call noundef ptr %136(ptr noundef nonnull align 16 dereferenceable(2288) %1, i64 noundef %133, i64 noundef 0, ptr noundef null)
-  %138 = getelementptr inbounds %"struct.rocksdb::FileIndexer::IndexUnit", ptr %137, i64 %132
+  %138 = getelementptr inbounds [16 x i8], ptr %137, i64 %132
   br label %139
 
 139:                                              ; preds = %139, %125
@@ -835,11 +829,11 @@ define void @_ZN7rocksdb11FileIndexer11CalculateLBERKSt6vectorIPNS_12FileMetaDat
   %.02738 = phi i32 [ 0, %.lr.ph ], [ %.128, %74 ]
   %45 = sext i32 %.039 to i64
   %46 = load ptr, ptr %1, align 8, !tbaa !48
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   %48 = load ptr, ptr %47, align 8, !tbaa !58
   %49 = sext i32 %.02738 to i64
   %50 = load ptr, ptr %2, align 8, !tbaa !48
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %49
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %49
   %52 = load ptr, ptr %51, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -862,7 +856,7 @@ _ZNKSt8functionIFiPKN7rocksdb12FileMetaDataES3_EEclES3_S3_.exit: ; preds = %44
   br i1 %57, label %58, label %64
 
 58:                                               ; preds = %_ZNKSt8functionIFiPKN7rocksdb12FileMetaDataES3_EEclES3_S3_.exit
-  %59 = getelementptr inbounds %"struct.rocksdb::FileIndexer::IndexUnit", ptr %32, i64 %45
+  %59 = getelementptr inbounds [16 x i8], ptr %32, i64 %45
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %59, ptr %11, align 8, !tbaa !60
@@ -892,7 +886,7 @@ _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit: ; preds = %
   br label %74
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds %"struct.rocksdb::FileIndexer::IndexUnit", ptr %32, i64 %45
+  %69 = getelementptr inbounds [16 x i8], ptr %32, i64 %45
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %69, ptr %9, align 8, !tbaa !60
@@ -923,7 +917,7 @@ _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit32: ; preds =
 
 78:                                               ; preds = %.lr.ph41, %_ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit34
   %indvars.iv = phi i64 [ %43, %.lr.ph41 ], [ %indvars.iv.next, %_ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit34 ]
-  %79 = getelementptr inbounds %"struct.rocksdb::FileIndexer::IndexUnit", ptr %32, i64 %indvars.iv
+  %79 = getelementptr inbounds [16 x i8], ptr %32, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %79, ptr %7, align 8, !tbaa !60
@@ -1009,11 +1003,11 @@ define void @_ZN7rocksdb11FileIndexer11CalculateRBERKSt6vectorIPNS_12FileMetaDat
   %.02536 = phi i32 [ %37, %.lr.ph ], [ %.126, %76 ]
   %47 = zext nneg i32 %.037 to i64
   %48 = load ptr, ptr %1, align 8, !tbaa !48
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %47
   %50 = load ptr, ptr %49, align 8, !tbaa !58
   %51 = zext nneg i32 %.02536 to i64
   %52 = load ptr, ptr %2, align 8, !tbaa !48
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -1036,7 +1030,7 @@ _ZNKSt8functionIFiPKN7rocksdb12FileMetaDataES3_EEclES3_S3_.exit: ; preds = %46
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %_ZNKSt8functionIFiPKN7rocksdb12FileMetaDataES3_EEclES3_S3_.exit
-  %61 = getelementptr inbounds nuw %"struct.rocksdb::FileIndexer::IndexUnit", ptr %33, i64 %47
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %47
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %61, ptr %11, align 8, !tbaa !60
@@ -1066,7 +1060,7 @@ _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit: ; preds = %
   br label %76
 
 70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw %"struct.rocksdb::FileIndexer::IndexUnit", ptr %33, i64 %47
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %47
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %71, ptr %9, align 8, !tbaa !60
@@ -1097,7 +1091,7 @@ _ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit30: ; preds =
 
 80:                                               ; preds = %.lr.ph39, %_ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit32
   %indvars.iv = phi i64 [ %45, %.lr.ph39 ], [ %indvars.iv.next, %_ZNKSt8functionIFvPN7rocksdb11FileIndexer9IndexUnitEiEEclES3_i.exit32 ]
-  %81 = getelementptr inbounds nuw %"struct.rocksdb::FileIndexer::IndexUnit", ptr %33, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %81, ptr %7, align 8, !tbaa !60
@@ -1214,9 +1208,9 @@ _ZNSt6vectorIN7rocksdb11FileIndexer10IndexLevelESaIS2_EE11_S_relocateEPS2_S5_S5_
 
 _ZNSt12_Vector_baseIN7rocksdb11FileIndexer10IndexLevelESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIN7rocksdb11FileIndexer10IndexLevelESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !26
-  %33 = getelementptr inbounds nuw %"struct.rocksdb::FileIndexer::IndexLevel", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !25
-  %34 = getelementptr inbounds nuw %"struct.rocksdb::FileIndexer::IndexLevel", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !65
   br label %35
 

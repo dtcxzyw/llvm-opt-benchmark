@@ -170,7 +170,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %35 = load i32, ptr @ws_optind, align 4
   %36 = add i32 %35, -1
   %37 = sext i32 %36 to i64
-  %38 = getelementptr ptr, ptr %1, i64 %37
+  %38 = getelementptr [8 x i8], ptr %1, i64 %37
   %39 = load ptr, ptr %38, align 8
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 432, ptr noundef nonnull @__func__.main, ptr noundef nonnull @.str.17, ptr noundef %39)
   br label %.preheader.backedge
@@ -189,7 +189,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %45 = load i32, ptr @ws_optind, align 4
   %46 = add i32 %45, -1
   %47 = sext i32 %46 to i64
-  %48 = getelementptr ptr, ptr %1, i64 %47
+  %48 = getelementptr [8 x i8], ptr %1, i64 %47
   %49 = load ptr, ptr %48, align 8
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 437, ptr noundef nonnull @__func__.main, ptr noundef nonnull @.str.18, ptr noundef %49)
   br label %72

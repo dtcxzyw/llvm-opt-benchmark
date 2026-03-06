@@ -879,7 +879,7 @@ common.resume:                                    ; preds = %40, %19
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !89
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !89
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 544
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %.sroa.3.0.copyload.i.i
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %.sroa.3.0.copyload.i.i
   %37 = load ptr, ptr %36, align 8, !noalias !93, !nonnull !4, !noundef !4
   %38 = add i64 %.sroa.2.0.copyload.i.i, -1
   invoke void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h7b445a606f6e195fE.llvm.9647367283458196159"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %37, i64 noundef %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
@@ -920,7 +920,7 @@ common.resume:                                    ; preds = %40, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !88
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !88
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.4.sroa.0.0.copyload12.i, i64 272
-  %43 = getelementptr inbounds { [3 x i64] }, ptr %42, i64 %.sroa.4.sroa.5.0.copyload15.i
+  %43 = getelementptr inbounds [24 x i8], ptr %42, i64 %.sroa.4.sroa.5.0.copyload15.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i), !noalias !97
   invoke void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h8cd350e98095ee73E"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64, { {} }, {} }) align 8 captures(none) dereferenceable(24) %.sroa.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) dereferenceable_or_null(24) %43)
           to label %45 unwind label %.loopexit.split-lp
@@ -1065,7 +1065,7 @@ common.resume:                                    ; preds = %41, %20
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !121
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !121
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 632
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %.sroa.3.0.copyload.i.i
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %.sroa.3.0.copyload.i.i
   %38 = load ptr, ptr %37, align 8, !noalias !125, !nonnull !4, !noundef !4
   %39 = add i64 %.sroa.2.0.copyload.i.i, -1
   invoke void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17he62933c74d5a9455E.llvm.9647367283458196159"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %6, ptr noundef nonnull %38, i64 noundef %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
@@ -1110,7 +1110,7 @@ common.resume:                                    ; preds = %41, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !120
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !120
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.4.sroa.0.0.copyload12.i, i64 360
-  %45 = getelementptr inbounds { [3 x i64] }, ptr %44, i64 %.sroa.4.sroa.5.0.copyload15.i
+  %45 = getelementptr inbounds [24 x i8], ptr %44, i64 %.sroa.4.sroa.5.0.copyload15.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i), !noalias !134
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h3c12d4dd1169f907E"(ptr noalias noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) dereferenceable_or_null(24) %45)
@@ -1251,7 +1251,7 @@ common.resume:                                    ; preds = %.body, %22
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !154
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !154
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 896
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %.sroa.3.0.copyload.i.i
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %.sroa.3.0.copyload.i.i
   %40 = load ptr, ptr %39, align 8, !noalias !158, !nonnull !4, !noundef !4
   %41 = add i64 %.sroa.2.0.copyload.i.i, -1
   invoke void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h255e72dc477e7e14E.llvm.9647367283458196159"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %8, ptr noundef nonnull %40, i64 noundef %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
@@ -1297,7 +1297,7 @@ common.resume:                                    ; preds = %.body, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !153
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !153
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.4.sroa.0.0.copyload12.i, i64 352
-  %46 = getelementptr inbounds { [6 x i64] }, ptr %45, i64 %.sroa.4.sroa.5.0.copyload15.i
+  %46 = getelementptr inbounds [48 x i8], ptr %45, i64 %.sroa.4.sroa.5.0.copyload15.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i)
@@ -1488,7 +1488,7 @@ common.resume:                                    ; preds = %137, %.body, %29
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !193
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !193
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 720
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %.sroa.3.0.copyload.i.i
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %.sroa.3.0.copyload.i.i
   %47 = load ptr, ptr %46, align 8, !noalias !197, !nonnull !4, !noundef !4
   %48 = add i64 %.sroa.2.0.copyload.i.i, -1
   invoke void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h2e224b9d07b3d0a9E.llvm.9647367283458196159"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %13, ptr noundef nonnull %47, i64 noundef %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2)
@@ -1527,7 +1527,7 @@ common.resume:                                    ; preds = %137, %.body, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !192
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !192
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.4.sroa.0.0.copyload12.i, i64 352
-  %57 = getelementptr inbounds { [4 x i64] }, ptr %56, i64 %.sroa.4.sroa.5.0.copyload15.i
+  %57 = getelementptr inbounds [32 x i8], ptr %56, i64 %.sroa.4.sroa.5.0.copyload15.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i8, ptr %58, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
@@ -1670,7 +1670,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.172960
   %.sroa.2.0.copyload.i.i35 = load i64, ptr %.sroa.2.0..sroa_idx.i.i31, align 8, !noalias !230
   %.sroa.3.0.copyload.i.i36 = load i64, ptr %.sroa.3.0..sroa_idx.i.i32, align 8, !noalias !230
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i34, i64 896
-  %104 = getelementptr inbounds ptr, ptr %103, i64 %.sroa.3.0.copyload.i.i36
+  %104 = getelementptr inbounds [8 x i8], ptr %103, i64 %.sroa.3.0.copyload.i.i36
   %105 = load ptr, ptr %104, align 8, !noalias !234, !nonnull !4, !noundef !4
   %106 = add i64 %.sroa.2.0.copyload.i.i35, -1
   invoke void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17h255e72dc477e7e14E.llvm.9647367283458196159"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %9, ptr noundef nonnull %105, i64 noundef %106, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %16)
@@ -1716,7 +1716,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.172960
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !229
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !229
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.4.sroa.0.0.copyload12.i26, i64 352
-  %111 = getelementptr inbounds { [6 x i64] }, ptr %110, i64 %.sroa.4.sroa.5.0.copyload15.i28
+  %111 = getelementptr inbounds [48 x i8], ptr %110, i64 %.sroa.4.sroa.5.0.copyload15.i28
   call void @llvm.experimental.noalias.scope.decl(metadata !237)
   call void @llvm.experimental.noalias.scope.decl(metadata !240)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i)

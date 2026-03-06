@@ -153,7 +153,7 @@ define void @_ZN3url18AppendStringOfTypeEPKtiNS_15SharedCharTypesEPNS_12CanonOut
 10:                                               ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit.i, %.lr.ph.i
   %storemerge12.i = phi i32 [ 0, %.lr.ph.i ], [ %52, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i ]
   %11 = sext i32 %storemerge12.i to i64
-  %12 = getelementptr inbounds i16, ptr %0, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %0, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !19
   %14 = icmp ugt i16 %13, 127
   br i1 %14, label %15, label %26
@@ -453,7 +453,7 @@ define void @_ZN3url25AppendInvalidNarrowStringEPKtiiPNS_12CanonOutputTIcEE(ptr 
 10:                                               ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit.i, %.lr.ph.i
   %storemerge17.i = phi i32 [ %1, %.lr.ph.i ], [ %49, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i ]
   %11 = sext i32 %storemerge17.i to i64
-  %12 = getelementptr inbounds i16, ptr %0, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %0, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !19
   %14 = icmp ugt i16 %13, 127
   br i1 %14, label %15, label %26
@@ -692,7 +692,7 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i: ; preds = %31, %20
   %.sink.i.i = phi i32 [ %35, %31 ], [ %24, %20 ]
   %.sink5.i.i = load ptr, ptr %.sink5.in.i.i, align 8, !tbaa !30
   %36 = sext i32 %.sink.i.i to i64
-  %37 = getelementptr inbounds i16, ptr %.sink5.i.i, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %.sink5.i.i, i64 %36
   store i16 %23, ptr %37, align 2, !tbaa !19
   %38 = add nsw i32 %.sink.i.i, 1
   store i32 %38, ptr %7, align 4, !tbaa !25
@@ -763,7 +763,7 @@ _ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split: ; preds = %_Z
   %.ph = phi i1 [ %.014, %_ZN3url12CanonOutputTItE9push_backEt.exit.i ], [ %49, %_ZN3url11ReadUTFCharEPKcPiiPj.exit.thread ], [ %.ph.ph, %_ZN3url16AppendUTF16ValueEjPNS_12CanonOutputTItEE.exit.sink.split.sink.split ]
   %.sink5.i14.i = load ptr, ptr %.sink5.in.i.i, align 8, !tbaa !30
   %63 = sext i32 %.sink.i12.i.sink43 to i64
-  %64 = getelementptr inbounds i16, ptr %.sink5.i14.i, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr %.sink5.i14.i, i64 %63
   store i16 %.sink, ptr %64, align 2, !tbaa !19
   %65 = add nsw i32 %.sink.i12.i.sink43, 1
   store i32 %65, ptr %7, align 4, !tbaa !25
@@ -957,7 +957,7 @@ define noundef zeroext i1 @_ZN3url28SetupUTF16OverrideComponentsEPKcRKNS_12Repla
   store i32 %30, ptr %4, align 4, !tbaa !49
   %31 = load i32, ptr %22, align 8, !tbaa !49
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i16, ptr %23, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %23, i64 %32
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 4, !tbaa !3
   %34 = icmp sgt i32 %26, 0
@@ -1040,7 +1040,7 @@ _ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12Ca
   store i32 %62, ptr %55, align 4, !tbaa !49
   %63 = load i32, ptr %54, align 8, !tbaa !49
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i16, ptr %53, i64 %64
+  %65 = getelementptr inbounds [2 x i8], ptr %53, i64 %64
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 4, !tbaa !3
   %66 = icmp sgt i32 %58, 0
@@ -1124,7 +1124,7 @@ _ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12Ca
   store i32 %95, ptr %88, align 4, !tbaa !49
   %96 = load i32, ptr %87, align 8, !tbaa !49
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds i16, ptr %86, i64 %97
+  %98 = getelementptr inbounds [2 x i8], ptr %86, i64 %97
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !3
   %99 = icmp sgt i32 %91, 0
@@ -1208,7 +1208,7 @@ _ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12Ca
   store i32 %128, ptr %121, align 4, !tbaa !49
   %129 = load i32, ptr %120, align 8, !tbaa !49
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i16, ptr %119, i64 %130
+  %131 = getelementptr inbounds [2 x i8], ptr %119, i64 %130
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 4, !tbaa !3
   %132 = icmp sgt i32 %124, 0
@@ -1292,7 +1292,7 @@ _ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12Ca
   store i32 %161, ptr %154, align 4, !tbaa !49
   %162 = load i32, ptr %153, align 8, !tbaa !49
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds i16, ptr %152, i64 %163
+  %164 = getelementptr inbounds [2 x i8], ptr %152, i64 %163
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !3
   %165 = icmp sgt i32 %157, 0
@@ -1376,7 +1376,7 @@ _ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12Ca
   store i32 %194, ptr %187, align 4, !tbaa !49
   %195 = load i32, ptr %186, align 8, !tbaa !49
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds i16, ptr %185, i64 %196
+  %197 = getelementptr inbounds [2 x i8], ptr %185, i64 %196
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !3
   %198 = icmp sgt i32 %190, 0
@@ -1460,7 +1460,7 @@ _ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12Ca
   store i32 %227, ptr %220, align 4, !tbaa !49
   %228 = load i32, ptr %219, align 8, !tbaa !49
   %229 = sext i32 %228 to i64
-  %230 = getelementptr inbounds i16, ptr %218, i64 %229
+  %230 = getelementptr inbounds [2 x i8], ptr %218, i64 %229
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !3
   %231 = icmp sgt i32 %223, 0
@@ -1544,7 +1544,7 @@ _ZN3url12_GLOBAL__N_129PrepareUTF16OverrideComponentEPKtRKNS_9ComponentEPNS_12Ca
   store i32 %260, ptr %253, align 4, !tbaa !49
   %261 = load i32, ptr %252, align 8, !tbaa !49
   %262 = sext i32 %261 to i64
-  %263 = getelementptr inbounds i16, ptr %251, i64 %262
+  %263 = getelementptr inbounds [2 x i8], ptr %251, i64 %262
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4, !tbaa !3
   %264 = icmp sgt i32 %256, 0
@@ -1751,7 +1751,7 @@ define noundef range(i32 0, 23) i32 @_ZN3url7_itow_sEiPtmi(i32 noundef %0, ptr n
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %10 = getelementptr inbounds i16, ptr %1, i64 %8
+  %10 = getelementptr inbounds [2 x i8], ptr %1, i64 %8
   store i16 0, ptr %10, align 2, !tbaa !19
   br label %15
 
@@ -1760,7 +1760,7 @@ define noundef range(i32 0, 23) i32 @_ZN3url7_itow_sEiPtmi(i32 noundef %0, ptr n
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1, !tbaa !7
   %13 = sext i8 %12 to i16
-  %14 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %13, ptr %14, align 2, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

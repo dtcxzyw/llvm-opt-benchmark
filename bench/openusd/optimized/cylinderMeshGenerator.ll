@@ -4,9 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" = type { [3 x float] }
-%"struct.std::array" = type { [2 x float] }
 %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d" = type { [3 x double] }
-%"struct.std::array.5" = type { [2 x double] }
 %"class.pxrInternal_v0_24__pxrReserved__::PxOsdMeshTopology" = type <{ %"class.pxrInternal_v0_24__pxrReserved__::TfToken", %"class.pxrInternal_v0_24__pxrReserved__::TfToken", %"class.pxrInternal_v0_24__pxrReserved__::VtArray", %"class.pxrInternal_v0_24__pxrReserved__::VtArray", %"class.pxrInternal_v0_24__pxrReserved__::VtArray", %"class.pxrInternal_v0_24__pxrReserved__::PxOsdSubdivTags", %"struct.pxrInternal_v0_24__pxrReserved__::PxOsdMeshTopology::_Validated", [7 x i8] }>
 %"class.pxrInternal_v0_24__pxrReserved__::TfToken" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" }
 %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" = type { ptr }
@@ -62,7 +60,7 @@ _ZNSt6vectorISt5arrayIfLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds =
 .noexc54:                                         ; preds = %_ZNSt6vectorISt5arrayIfLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %25 = shl nuw nsw i64 %23, 3
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #10
-  %27 = getelementptr inbounds nuw %"struct.std::array", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %23
   store i64 0, ptr %26, align 4
   %28 = add nsw i64 %23, -1
   %29 = icmp eq i64 %28, 0
@@ -92,7 +90,7 @@ _ZNSt6vectorISt5arrayIfLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds =
   %38 = fdiv float %37, %35
   %39 = fmul float %.0.i, %38
   %40 = tail call noundef float @cosf(float noundef %39) #11
-  %41 = getelementptr inbounds %"struct.std::array", ptr %26, i64 %.05090
+  %41 = getelementptr inbounds [8 x i8], ptr %26, i64 %.05090
   store float %40, ptr %41, align 4
   %42 = tail call noundef float @sinf(float noundef %39) #11
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 4
@@ -163,7 +161,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
 
 67:                                               ; preds = %.preheader89.us, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE5WriteERKS2_.exit61.us
   %.04691.us = phi i64 [ 0, %.preheader89.us ], [ %85, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE5WriteERKS2_.exit61.us ]
-  %68 = getelementptr inbounds %"struct.std::array", ptr %.sroa.0.0113, i64 %.04691.us
+  %68 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0113, i64 %.04691.us
   %69 = load float, ptr %68, align 4
   %70 = fmul float %1, %69
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 4
@@ -219,7 +217,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
 
 89:                                               ; preds = %.preheader.us, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE5WriteERKS2_.exit67.us
   %.095.us = phi i64 [ 0, %.preheader.us ], [ %107, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3fEE5WriteERKS2_.exit67.us ]
-  %90 = getelementptr inbounds %"struct.std::array", ptr %.sroa.0.0113, i64 %.095.us
+  %90 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0113, i64 %.095.us
   %91 = load float, ptr %90, align 4
   %92 = fmul float %2, %91
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 4
@@ -349,7 +347,7 @@ _ZNSt6vectorISt5arrayIdLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds =
 .noexc54:                                         ; preds = %_ZNSt6vectorISt5arrayIdLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %22 = shl nuw nsw i64 %20, 4
   %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #10
-  %24 = getelementptr inbounds nuw %"struct.std::array.5", ptr %23, i64 %20
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %25 = add nsw i64 %20, -1
   %26 = icmp eq i64 %25, 0
@@ -378,7 +376,7 @@ _ZNSt6vectorISt5arrayIdLm2EESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds =
   %34 = fdiv double %33, %31
   %35 = fmul double %.0.i, %34
   %36 = tail call double @cos(double noundef %35) #11
-  %37 = getelementptr inbounds %"struct.std::array.5", ptr %23, i64 %.05090
+  %37 = getelementptr inbounds [16 x i8], ptr %23, i64 %.05090
   store double %36, ptr %37, align 8
   %38 = tail call double @sin(double noundef %35) #11
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -434,7 +432,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
 
 59:                                               ; preds = %.preheader89.us, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3dEE5WriteERKS2_.exit61.us
   %.04691.us = phi i64 [ 0, %.preheader89.us ], [ %77, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3dEE5WriteERKS2_.exit61.us ]
-  %60 = getelementptr inbounds %"struct.std::array.5", ptr %.sroa.0.0113, i64 %.04691.us
+  %60 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0113, i64 %.04691.us
   %61 = load double, ptr %60, align 8
   %62 = fmul double %1, %61
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -490,7 +488,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterI
 
 81:                                               ; preds = %.preheader.us, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3dEE5WriteERKS2_.exit67.us
   %.095.us = phi i64 [ 0, %.preheader.us ], [ %99, %_ZNK32pxrInternal_v0_24__pxrReserved__25GeomUtilMeshGeneratorBase12_PointWriterINS_7GfVec3dEE5WriteERKS2_.exit67.us ]
-  %82 = getelementptr inbounds %"struct.std::array.5", ptr %.sroa.0.0113, i64 %.095.us
+  %82 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0113, i64 %.095.us
   %83 = load double, ptr %82, align 8
   %84 = fmul double %2, %83
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 8

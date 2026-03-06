@@ -4,10 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ObjectAddress = type { i32, i32, i32 }
-%union.ListCell = type { ptr }
 %struct.import_error_callback_arg = type { ptr, ptr }
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [22 x i8] c"option \22%s\22 not found\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"foreigncmds.c\00", align 1
@@ -89,7 +87,7 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
   %.04184127 = phi ptr [ %.1, %94 ], [ %5, %.lr.ph85 ]
   %indvars.iv95126 = phi i64 [ %indvars.iv.next96, %94 ], [ 0, %.lr.ph85 ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv95126
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv95126
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.04184127, i64 16
   %.not49 = icmp eq ptr %.04184127, null
@@ -124,7 +122,7 @@ define dso_local i64 @transformGenericOptions(i32 noundef %0, i64 noundef %1, pt
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph31.i ], [ 0, %.lr.ph.i ]
   %.0192529.i = phi ptr [ %44, %.lr.ph31.i ], [ null, %.lr.ph.i ]
   %25 = load ptr, ptr %22, align 8
-  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @defGetString(ptr noundef %27) #10
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -171,7 +169,7 @@ optionListToArray.exit:                           ; preds = %.critedge, %.lr.ph.
 
 52:                                               ; preds = %.lr.ph81, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next, %51 ]
-  %53 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
@@ -180,7 +178,7 @@ optionListToArray.exit:                           ; preds = %.critedge, %.lr.ph.
   br i1 %.not51, label %.thread.loopexit.split.loop.exit, label %51
 
 .thread.loopexit.split.loop.exit:                 ; preds = %52
-  %58 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   br label %.thread
 
 .thread:                                          ; preds = %51, %.thread.loopexit.split.loop.exit, %.lr.ph, %.lr.ph128
@@ -826,7 +824,7 @@ define internal fastcc void @parse_func_options(ptr noundef %0, ptr noundef read
 .lr.ph60:                                         ; preds = %.lr.ph, %56
   %indvars.iv59 = phi i64 [ %indvars.iv.next, %56 ], [ 0, %.lr.ph ]
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv59
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv59
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
@@ -2169,7 +2167,7 @@ define dso_local void @ImportForeignSchema(ptr noundef %0) local_unnamed_addr #0
 .lr.ph82:                                         ; preds = %.lr.ph68, %.critedge62
   %indvars.iv7281 = phi i64 [ %indvars.iv.next73, %.critedge62 ], [ 0, %.lr.ph68 ]
   %49 = load ptr, ptr %43, align 8
-  %50 = getelementptr inbounds nuw %union.ListCell, ptr %49, i64 %indvars.iv7281
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv7281
   %51 = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2197,7 +2195,7 @@ define dso_local void @ImportForeignSchema(ptr noundef %0) local_unnamed_addr #0
 .lr.ph66:                                         ; preds = %.lr.ph, %99
   %indvars.iv = phi i64 [ %indvars.iv.next, %99 ], [ 0, %.lr.ph ]
   %58 = load ptr, ptr %55, align 8
-  %59 = getelementptr inbounds nuw %union.ListCell, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8
@@ -2354,7 +2352,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
 
 17:                                               ; preds = %14
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr %struct.CompactAttribute, ptr %2, i64 %18
+  %19 = getelementptr [16 x i8], ptr %2, i64 %18
   %20 = getelementptr i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, -1

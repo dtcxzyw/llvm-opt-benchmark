@@ -9,10 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_count" = type { ptr }
 %"class.std::shared_ptr.4" = type { %"class.std::__shared_ptr.5" }
 %"class.std::__shared_ptr.5" = type { ptr, %"class.std::__shared_count" }
-%"class.Eigen::Matrix.55" = type { %"class.Eigen::PlainObjectBase.56" }
-%"class.Eigen::PlainObjectBase.56" = type { %"class.Eigen::DenseStorage.63" }
-%"class.Eigen::DenseStorage.63" = type { %"struct.Eigen::internal::plain_array.64" }
-%"struct.Eigen::internal::plain_array.64" = type { [3 x double] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -21,6 +17,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Eigen::PlainObjectBase.134" = type { %"class.Eigen::DenseStorage.141" }
 %"class.Eigen::DenseStorage.141" = type { %"struct.Eigen::internal::plain_array.142" }
 %"struct.Eigen::internal::plain_array.142" = type { [3 x i32] }
+%"class.Eigen::Matrix.55" = type { %"class.Eigen::PlainObjectBase.56" }
+%"class.Eigen::PlainObjectBase.56" = type { %"class.Eigen::DenseStorage.63" }
+%"class.Eigen::DenseStorage.63" = type { %"struct.Eigen::internal::plain_array.64" }
+%"struct.Eigen::internal::plain_array.64" = type { [3 x double] }
 
 $_ZNSt12__shared_ptrIN6open3d8geometry5ImageELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -515,7 +515,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   %209 = sext i32 %.170 to i64
   %210 = load ptr, ptr %167, align 8, !tbaa !58
-  %211 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %210, i64 %209
+  %211 = getelementptr inbounds nuw [24 x i8], ptr %210, i64 %209
   store <2 x double> %208, ptr %211, align 1, !tbaa !33
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %shift = shufflevector <2 x double> %.sroa.0.16..sroa.0.16..sroa.0.16., <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -543,7 +543,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit: ; p
   %218 = add nsw i32 %.170, 1
   %219 = sext i32 %.170 to i64
   %220 = load ptr, ptr %175, align 8, !tbaa !58
-  %221 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %220, i64 %219
+  %221 = getelementptr inbounds nuw [24 x i8], ptr %220, i64 %219
   store double 0x7FF8000000000000, ptr %221, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %221, i64 8
   store double 0x7FF8000000000000, ptr %.sroa.5.0..sroa_idx, align 8
@@ -769,9 +769,9 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %33, %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !58
-  %35 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %30, i64 %12
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %12
   store ptr %35, ptr %3, align 8, !tbaa !64
-  %36 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %29, i64 %27
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %27
   store ptr %36, ptr %13, align 8, !tbaa !65
   br label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
@@ -780,7 +780,7 @@ _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE13_M_deallocat
   br i1 %38, label %39, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %5, i64 %1
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %40
   br i1 %.not.i4, label %_ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE17_M_default_appendEm.exit, label %_ZSt8_DestroyIPN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEES2_EvT_S4_RSaIT0_E.exit.i
 
@@ -1347,7 +1347,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
   %240 = sext i32 %.195.i to i64
   %241 = load ptr, ptr %30, align 8, !tbaa !58, !noalias !77
-  %242 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %241, i64 %240
+  %242 = getelementptr inbounds nuw [24 x i8], ptr %241, i64 %240
   store <2 x double> %239, ptr %242, align 1, !tbaa !33, !noalias !77
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
   %shift = shufflevector <2 x double> %.sroa.0.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -1371,7 +1371,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   %.sroa.093.0.vec.insert.i = insertelement <2 x double> poison, double %245, i64 0
   %.sroa.093.8.vec.insert.i = insertelement <2 x double> %.sroa.093.0.vec.insert.i, double %248, i64 1
   %252 = load ptr, ptr %182, align 8, !tbaa !58, !noalias !77
-  %253 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %252, i64 %240
+  %253 = getelementptr inbounds nuw [24 x i8], ptr %252, i64 %240
   %254 = fdiv <2 x double> %.sroa.093.8.vec.insert.i, splat (double 2.550000e+02)
   store <2 x double> %254, ptr %253, align 1, !tbaa !33, !noalias !77
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 16
@@ -1386,7 +1386,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
 259:                                              ; preds = %258
   %260 = sext i32 %.195.i to i64
   %261 = load ptr, ptr %30, align 8, !tbaa !58, !noalias !77
-  %262 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %261, i64 %260
+  %262 = getelementptr inbounds nuw [24 x i8], ptr %261, i64 %260
   store double 0x7FF8000000000000, ptr %262, align 8, !noalias !77
   %.sroa.567.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %262, i64 8
   store double 0x7FF8000000000000, ptr %.sroa.567.0..sroa_idx.i, align 8, !noalias !77
@@ -1394,7 +1394,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i: ;
   store double 0x7FF8000000000000, ptr %.sroa.668.0..sroa_idx.i, align 8, !tbaa !33, !noalias !77
   %263 = add nsw i32 %.195.i, 1
   %264 = load ptr, ptr %182, align 8, !tbaa !58, !noalias !77
-  %265 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %264, i64 %260
+  %265 = getelementptr inbounds nuw [24 x i8], ptr %264, i64 %260
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %265, i8 0, i64 24, i1 false), !noalias !77
   br label %266
 
@@ -1758,7 +1758,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i30)
   %495 = sext i32 %.195.i66 to i64
   %496 = load ptr, ptr %285, align 8, !tbaa !58, !noalias !89
-  %497 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %496, i64 %495
+  %497 = getelementptr inbounds nuw [24 x i8], ptr %496, i64 %495
   store <2 x double> %494, ptr %497, align 1, !tbaa !33, !noalias !89
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 16
   %shift255 = shufflevector <2 x double> %.sroa.0.i30.16..sroa.0.i30.16..sroa.0.i30.16..sroa.0.16..sroa.0.16..i74, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -1782,7 +1782,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   %.sroa.093.0.vec.insert.i76 = insertelement <2 x double> poison, double %500, i64 0
   %.sroa.093.8.vec.insert.i77 = insertelement <2 x double> %.sroa.093.0.vec.insert.i76, double %503, i64 1
   %507 = load ptr, ptr %437, align 8, !tbaa !58, !noalias !89
-  %508 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %507, i64 %495
+  %508 = getelementptr inbounds nuw [24 x i8], ptr %507, i64 %495
   %509 = fdiv <2 x double> %.sroa.093.8.vec.insert.i77, splat (double 2.550000e+02)
   store <2 x double> %509, ptr %508, align 1, !tbaa !33, !noalias !89
   %510 = getelementptr inbounds nuw i8, ptr %508, i64 16
@@ -1797,7 +1797,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
 514:                                              ; preds = %513
   %515 = sext i32 %.195.i66 to i64
   %516 = load ptr, ptr %285, align 8, !tbaa !58, !noalias !89
-  %517 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %516, i64 %515
+  %517 = getelementptr inbounds nuw [24 x i8], ptr %516, i64 %515
   store double 0x7FF8000000000000, ptr %517, align 8, !noalias !89
   %.sroa.567.0..sroa_idx.i67 = getelementptr inbounds nuw i8, ptr %517, i64 8
   store double 0x7FF8000000000000, ptr %.sroa.567.0..sroa_idx.i67, align 8, !noalias !89
@@ -1805,7 +1805,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i46:
   store double 0x7FF8000000000000, ptr %.sroa.668.0..sroa_idx.i68, align 8, !tbaa !33, !noalias !89
   %518 = add nsw i32 %.195.i66, 1
   %519 = load ptr, ptr %437, align 8, !tbaa !58, !noalias !89
-  %520 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %519, i64 %515
+  %520 = getelementptr inbounds nuw [24 x i8], ptr %519, i64 %515
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %520, i8 0, i64 24, i1 false), !noalias !89
   br label %521
 
@@ -2170,7 +2170,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i93)
   %751 = sext i32 %.195.i129 to i64
   %752 = load ptr, ptr %541, align 8, !tbaa !58, !noalias !98
-  %753 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %752, i64 %751
+  %753 = getelementptr inbounds nuw [24 x i8], ptr %752, i64 %751
   store <2 x double> %750, ptr %753, align 1, !tbaa !33, !noalias !98
   %754 = getelementptr inbounds nuw i8, ptr %753, i64 16
   %shift270 = shufflevector <2 x double> %.sroa.0.i93.16..sroa.0.i93.16..sroa.0.i93.16..sroa.0.16..sroa.0.16..i137, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -2188,7 +2188,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
   %.sroa.093.0.vec.insert.i139 = insertelement <2 x double> poison, double %756, i64 0
   %.sroa.093.8.vec.insert.i140 = shufflevector <2 x double> %.sroa.093.0.vec.insert.i139, <2 x double> poison, <2 x i32> zeroinitializer
   %757 = load ptr, ptr %693, align 8, !tbaa !58, !noalias !98
-  %758 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %757, i64 %751
+  %758 = getelementptr inbounds nuw [24 x i8], ptr %757, i64 %751
   store <2 x double> %.sroa.093.8.vec.insert.i140, ptr %758, align 1, !tbaa !33, !noalias !98
   %759 = getelementptr inbounds nuw i8, ptr %758, i64 16
   store double %756, ptr %759, align 8, !tbaa !45, !noalias !98
@@ -2201,7 +2201,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
 762:                                              ; preds = %761
   %763 = sext i32 %.195.i129 to i64
   %764 = load ptr, ptr %541, align 8, !tbaa !58, !noalias !98
-  %765 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %764, i64 %763
+  %765 = getelementptr inbounds nuw [24 x i8], ptr %764, i64 %763
   store double 0x7FF8000000000000, ptr %765, align 8, !noalias !98
   %.sroa.567.0..sroa_idx.i130 = getelementptr inbounds nuw i8, ptr %765, i64 8
   store double 0x7FF8000000000000, ptr %.sroa.567.0..sroa_idx.i130, align 8, !noalias !98
@@ -2209,7 +2209,7 @@ _ZN6open3d12_GLOBAL__N_121CountValidDepthPixelsERKNS_8geometry5ImageEi.exit.i109
   store double 0x7FF8000000000000, ptr %.sroa.668.0..sroa_idx.i131, align 8, !tbaa !33, !noalias !98
   %766 = add nsw i32 %.195.i129, 1
   %767 = load ptr, ptr %693, align 8, !tbaa !58, !noalias !98
-  %768 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %767, i64 %763
+  %768 = getelementptr inbounds nuw [24 x i8], ptr %767, i64 %763
   store double 0x7FF8000000000000, ptr %768, align 8, !noalias !98
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %768, i64 8
   store double 0x7FF8000000000000, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !98
@@ -2353,14 +2353,14 @@ define void @_ZN6open3d8geometry10PointCloud19CreateFromVoxelGridERKNS0_9VoxelGr
   %.sroa.6.0 = phi double [ %50, %38 ], [ 0.000000e+00, %.noexc ]
   %.sroa.7.0 = phi double [ %55, %38 ], [ 0.000000e+00, %.noexc ]
   %59 = load ptr, ptr %33, align 8, !tbaa !58
-  %60 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %59, i64 %.01530
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %.01530
   store double %.sroa.0.0, ptr %60, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 8
   store double %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 16
   store double %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !33
   %61 = load ptr, ptr %19, align 8, !tbaa !58
-  %62 = getelementptr inbounds nuw %"class.Eigen::Matrix.55", ptr %61, i64 %.01530
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %.01530
   %63 = load <2 x double>, ptr %27, align 8, !tbaa !33
   store <2 x double> %63, ptr %62, align 1, !tbaa !33
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -2426,7 +2426,7 @@ _ZNKSt8__detail15_Hashtable_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIK
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %2 ]
   %.011.i.i = phi i64 [ %30, %.preheader ], [ 0, %2 ]
-  %22 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i.i
   %23 = load i32, ptr %22, align 4, !tbaa !34
   %24 = sext i32 %23 to i64
   %25 = shl i64 %.011.i.i, 6
@@ -2444,7 +2444,7 @@ _ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIK
   %32 = load i64, ptr %31, align 8, !tbaa !127
   %33 = urem i64 %30, %32
   %34 = load ptr, ptr %0, align 8, !tbaa !128
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !129
   %.not.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS2_N6open3d8geometry5VoxelEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_7utility10hash_eigenIS2_EENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit, label %37

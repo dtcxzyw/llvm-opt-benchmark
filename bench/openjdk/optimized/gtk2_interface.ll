@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.GtkRequisition = type { i32, i32 }
 %struct.GdkRectangle = type { i32, i32, i32, i32 }
 %union.jvalue = type { i64 }
-%struct.GdkColor = type { i32, i16, i16, i16 }
 %struct.GValue = type { i64, [2 x %union.anon] }
 %union.anon = type { i64 }
 
@@ -3687,7 +3686,7 @@ dl_symbol.exit106.i:                              ; preds = %dl_symbol.exit.i
 
 91:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %92 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv.next.i
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv.next.i
   %93 = load ptr, ptr %92, align 8
   %.not102.i = icmp eq ptr %93, null
   br i1 %.not102.i, label %update_supported_actions.exit, label %.lr.ph.i, !llvm.loop !8
@@ -4873,43 +4872,43 @@ init_containers.exit:                             ; preds = %4, %7
 21:                                               ; preds = %init_containers.exit
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %23 = zext i32 %2 to i64
-  %24 = getelementptr inbounds nuw %struct.GdkColor, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [12 x i8], ptr %22, i64 %23
   br label %53
 
 25:                                               ; preds = %init_containers.exit
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 84
   %27 = zext i32 %2 to i64
-  %28 = getelementptr inbounds nuw %struct.GdkColor, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 %27
   br label %53
 
 29:                                               ; preds = %init_containers.exit
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 324
   %31 = zext i32 %2 to i64
-  %32 = getelementptr inbounds nuw %struct.GdkColor, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [12 x i8], ptr %30, i64 %31
   br label %53
 
 33:                                               ; preds = %init_containers.exit
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 384
   %35 = zext i32 %2 to i64
-  %36 = getelementptr inbounds nuw %struct.GdkColor, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [12 x i8], ptr %34, i64 %35
   br label %53
 
 37:                                               ; preds = %init_containers.exit
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 144
   %39 = zext i32 %2 to i64
-  %40 = getelementptr inbounds nuw %struct.GdkColor, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [12 x i8], ptr %38, i64 %39
   br label %53
 
 41:                                               ; preds = %init_containers.exit
   %42 = getelementptr inbounds nuw i8, ptr %20, i64 204
   %43 = zext i32 %2 to i64
-  %44 = getelementptr inbounds nuw %struct.GdkColor, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [12 x i8], ptr %42, i64 %43
   br label %53
 
 45:                                               ; preds = %init_containers.exit
   %46 = getelementptr inbounds nuw i8, ptr %20, i64 264
   %47 = zext i32 %2 to i64
-  %48 = getelementptr inbounds nuw %struct.GdkColor, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [12 x i8], ptr %46, i64 %47
   br label %53
 
 49:                                               ; preds = %init_containers.exit, %init_containers.exit
@@ -5562,7 +5561,7 @@ define internal noundef i32 @gtk2_get_drawable_data(ptr noundef %0, ptr noundef 
   %68 = or disjoint i32 %67, %66
   %69 = or disjoint i32 %68, -16777216
   %70 = sext i32 %56 to i64
-  %71 = getelementptr inbounds i32, ptr %41, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %41, i64 %70
   store i32 %69, ptr %71, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

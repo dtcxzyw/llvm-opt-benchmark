@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 
 @OPT_SECTION_STR = external constant [0 x i8], align 1
 @.str = private unnamed_addr constant [18 x i8] c"General options:\0A\00", align 1
@@ -194,7 +193,7 @@ define dso_local range(i32 0, 2) i32 @genpkey_main(i32 noundef %0, ptr noundef %
 .lr.ph.i:                                         ; preds = %26, %param_datatype_2name.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %param_datatype_2name.exit.i ], [ 0, %26 ]
   %30 = phi ptr [ %40, %param_datatype_2name.exit.i ], [ %29, %26 ]
-  %31 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %24, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %24, i64 %indvars.iv.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !22
   %switch.tableidx = add i32 %33, -1
@@ -203,10 +202,10 @@ define dso_local range(i32 0, 2) i32 @genpkey_main(i32 noundef %0, ptr noundef %
 
 switch.lookup:                                    ; preds = %.lr.ph.i
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.genpkey_main, i64 %35
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.genpkey_main, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep381 = getelementptr inbounds nuw ptr, ptr @switch.table.genpkey_main.1, i64 %36
+  %switch.gep381 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.genpkey_main.1, i64 %36
   %switch.load382 = load ptr, ptr %switch.gep381, align 8
   %37 = load ptr, ptr @bio_err, align 8, !tbaa !17
   %38 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %37, ptr noundef nonnull @.str.61, ptr noundef nonnull %switch.load382, ptr noundef nonnull %30, ptr noundef nonnull %switch.load) #5
@@ -214,7 +213,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
 
 param_datatype_2name.exit.i:                      ; preds = %.lr.ph.i, %switch.lookup
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %39 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %24, i64 %indvars.iv.next.i
+  %39 = getelementptr inbounds nuw [40 x i8], ptr %24, i64 %indvars.iv.next.i
   %40 = load ptr, ptr %39, align 8, !tbaa !19
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !23

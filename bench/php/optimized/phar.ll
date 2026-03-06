@@ -36,7 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.smart_str = type { ptr, i64 }
 %struct._phar_entry_info = type { i32, i32, i32, i32, i32, i32, %struct._phar_metadata_tracker, ptr, i32, i64, i64, i64, ptr, ptr, i32, ptr, ptr, ptr, i8, i32, i16, i16 }
 %struct._phar_metadata_tracker = type { %struct._zval_struct, ptr }
-%struct._phar_entry_fp = type { ptr, ptr, ptr }
 %struct._phar_zip_file_header = type { [4 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8], [2 x i8], [4 x i8], [4 x i8], [4 x i8], [2 x i8], [2 x i8] }
 %struct._phar_zip_file_datadesc = type { [4 x i8], [4 x i8], [4 x i8], [4 x i8] }
 %struct._zend_file_handle = type { %union.anon.8, ptr, ptr, i8, i8, i8, ptr, i64 }
@@ -4798,7 +4797,7 @@ define hidden void @phar_request_initialize() local_unnamed_addr #0 {
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 312
   %30 = load i32, ptr %29, align 8, !tbaa !65
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %15, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %28, ptr %33, align 8, !tbaa !130
   br label %34
@@ -5600,7 +5599,7 @@ define hidden range(i32 -1, 1) i32 @phar_postprocess_file(ptr noundef captures(n
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 312
   %43 = load i32, ptr %42, align 8, !tbaa !65
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %39, i64 %44
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %44
   br label %phar_get_entrypfp.exit
 
 phar_get_entrypfp.exit:                           ; preds = %34, %38
@@ -5629,7 +5628,7 @@ phar_get_entrypfp.exit:                           ; preds = %34, %38
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 312
   %62 = load i32, ptr %61, align 8, !tbaa !65
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %58, i64 %63
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %63
   br label %phar_get_entrypfp.exit75
 
 phar_get_entrypfp.exit75:                         ; preds = %53, %57
@@ -5676,7 +5675,7 @@ phar_get_entrypfp.exit75:                         ; preds = %53, %57
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 312
   %91 = load i32, ptr %90, align 8, !tbaa !65
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %87, i64 %92
+  %93 = getelementptr inbounds nuw [24 x i8], ptr %87, i64 %92
   br label %phar_get_entrypfp.exit79
 
 phar_get_entrypfp.exit79:                         ; preds = %82, %86
@@ -5717,7 +5716,7 @@ phar_get_entrypfp.exit79:                         ; preds = %82, %86
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 312
   %122 = load i32, ptr %121, align 8, !tbaa !65
   %123 = zext i32 %122 to i64
-  %124 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %118, i64 %123
+  %124 = getelementptr inbounds nuw [24 x i8], ptr %118, i64 %123
   br label %phar_get_entrypfp.exit83
 
 phar_get_entrypfp.exit83:                         ; preds = %113, %117
@@ -9291,7 +9290,7 @@ zend_string_release.exit55:                       ; preds = %64, %63, %56, %52, 
   %91 = getelementptr inbounds nuw i8, ptr %23, i64 312
   %92 = load i32, ptr %91, align 8, !tbaa !65
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %90, i64 %93
+  %94 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !151
   %96 = call i32 @_php_stream_seek(ptr noundef %95, i64 noundef 0, i32 noundef 0) #24
   br label %101
@@ -9503,7 +9502,7 @@ define hidden noundef i32 @zm_deactivate_phar(i32 %0, i32 %1) #0 {
 .lr.ph:                                           ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader ]
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 112), align 8, !tbaa !133
-  %10 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !151
   %.not11 = icmp eq ptr %11, null
   br i1 %.not11, label %14, label %12
@@ -9515,7 +9514,7 @@ define hidden noundef i32 @zm_deactivate_phar(i32 %0, i32 %1) #0 {
 
 14:                                               ; preds = %12, %.lr.ph
   %15 = phi ptr [ %.pre, %12 ], [ %9, %.lr.ph ]
-  %16 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !167
   %.not12 = icmp eq ptr %18, null
@@ -9528,7 +9527,7 @@ define hidden noundef i32 @zm_deactivate_phar(i32 %0, i32 %1) #0 {
 
 21:                                               ; preds = %19, %14
   %22 = phi ptr [ %.pre16, %19 ], [ %15, %14 ]
-  %23 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !130
   tail call void @_efree(ptr noundef %25) #24
@@ -9916,7 +9915,7 @@ define internal i64 @phar_zend_stream_reader(ptr noundef readonly captures(none)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %12 = load i32, ptr %11, align 8, !tbaa !65
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct._phar_entry_fp, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %13
   br label %phar_get_pharfp.exit
 
 phar_get_pharfp.exit:                             ; preds = %7, %9

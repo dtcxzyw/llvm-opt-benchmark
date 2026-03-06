@@ -499,7 +499,7 @@ poll_descriptor_to_fd.exit10.i:                   ; preds = %77, %poll_descripto
   br i1 %28, label %.thread.i.i, label %97
 
 .thread.i.i:                                      ; preds = %93
-  %94 = getelementptr inbounds nuw %struct.pollfd, ptr %5, i64 %.045.i.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.045.i.i
   store i32 %13, ptr %94, align 8, !tbaa !33
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
   store i16 1, ptr %95, align 4, !tbaa !36

@@ -2838,7 +2838,7 @@ lean_dec.exit897:                                 ; preds = %87, %86, %84, %lean
   %89 = ptrtoint ptr %68 to i64
   %90 = lshr i64 %89, 1
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %90
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %90
   %93 = load ptr, ptr %92, align 8, !tbaa !4
   %94 = ptrtoint ptr %93 to i64
   %95 = trunc i64 %94 to i1
@@ -3105,7 +3105,7 @@ lean_dec.exit890:                                 ; preds = %lean_inc.exit820
   %204 = and i64 %203, 9223372036854775807
   %205 = select i1 %202, i64 0, i64 %204
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %207 = getelementptr inbounds nuw ptr, ptr %206, i64 %205
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %205
   %208 = load ptr, ptr %207, align 8, !tbaa !4
   %209 = ptrtoint ptr %208 to i64
   %210 = trunc i64 %209 to i1
@@ -3208,7 +3208,7 @@ lean_dec.exit885:                                 ; preds = %lean_inc.exit820
   %246 = inttoptr i64 %245 to ptr
   %247 = lshr i64 %245, 1
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %249 = getelementptr inbounds nuw ptr, ptr %248, i64 %247
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %247
   %250 = load ptr, ptr %249, align 8, !tbaa !4
   %251 = ptrtoint ptr %250 to i64
   %252 = trunc i64 %251 to i1
@@ -5470,7 +5470,7 @@ lean_dec.exit850:                                 ; preds = %1150, %1149, %1147,
   %1151 = load ptr, ptr @l_Lake_Monitor_spinnerFrames, align 8, !tbaa !4
   %1152 = lshr i64 %1075, 1
   %1153 = getelementptr inbounds nuw i8, ptr %1151, i64 24
-  %1154 = getelementptr inbounds nuw ptr, ptr %1153, i64 %1152
+  %1154 = getelementptr inbounds nuw [8 x i8], ptr %1153, i64 %1152
   %1155 = load ptr, ptr %1154, align 8, !tbaa !4
   %1156 = ptrtoint ptr %1155 to i64
   %1157 = trunc i64 %1156 to i1
@@ -5753,7 +5753,7 @@ lean_dec.exit843:                                 ; preds = %lean_inc.exit782
   %1269 = and i64 %1268, 9223372036854775807
   %1270 = select i1 %1267, i64 0, i64 %1269
   %1271 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %1272 = getelementptr inbounds nuw ptr, ptr %1271, i64 %1270
+  %1272 = getelementptr inbounds nuw [8 x i8], ptr %1271, i64 %1270
   %1273 = load ptr, ptr %1272, align 8, !tbaa !4
   %1274 = ptrtoint ptr %1273 to i64
   %1275 = trunc i64 %1274 to i1
@@ -5856,7 +5856,7 @@ lean_dec.exit838:                                 ; preds = %lean_inc.exit782
   %1311 = inttoptr i64 %1310 to ptr
   %1312 = lshr i64 %1310, 1
   %1313 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1314 = getelementptr inbounds nuw ptr, ptr %1313, i64 %1312
+  %1314 = getelementptr inbounds nuw [8 x i8], ptr %1313, i64 %1312
   %1315 = load ptr, ptr %1314, align 8, !tbaa !4
   %1316 = ptrtoint ptr %1315 to i64
   %1317 = trunc i64 %1316 to i1
@@ -7343,7 +7343,7 @@ declare ptr @l___private_Init_Data_Repr_0__Nat_reprFast(ptr noundef) local_unnam
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 6) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -7469,7 +7469,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake_Monitor_reportJo
   br label %lean_dec.exit45
 
 lean_dec.exit45:                                  ; preds = %23, %22, %20, %14
-  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %.03469
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.03469
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = ptrtoint ptr %25 to i64
   %27 = trunc i64 %26 to i1
@@ -7722,7 +7722,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake_Monitor_reportJo
   br label %lean_dec.exit45
 
 lean_dec.exit45:                                  ; preds = %22, %21, %19, %13
-  %23 = getelementptr inbounds nuw ptr, ptr %10, i64 %.03469
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.03469
   %24 = load ptr, ptr %23, align 8, !tbaa !4
   %25 = ptrtoint ptr %24 to i64
   %26 = trunc i64 %25 to i1
@@ -14586,7 +14586,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Monitor_poll___spec__1(ptr nound
   %.0394997 = phi ptr [ %3, %.lr.ph ], [ %.10404, %1228 ]
   %.0405996 = phi ptr [ %5, %.lr.ph ], [ %.10415, %1228 ]
   %.0418995 = phi ptr [ %6, %.lr.ph ], [ %.10428, %1228 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %.0381998
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0381998
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = ptrtoint ptr %13 to i64
   %15 = trunc i64 %14 to i1
@@ -66099,7 +66099,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake_Workspace_runFet
   br label %lean_dec.exit104
 
 lean_dec.exit104:                                 ; preds = %18, %17, %15, %9
-  %19 = getelementptr inbounds nuw ptr, ptr %7, i64 %.078160
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.078160
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i1

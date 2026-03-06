@@ -43,7 +43,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_irq_get_perc
 %struct.attribute = type { ptr, i16 }
 %struct.kernel_stat = type { i64, [10 x i32] }
 %struct.ma_state = type { ptr, i64, i64, ptr, i64, i64, ptr, i32, i8, i8, i8, i8 }
-%struct.irq_affinity_desc = type { %struct.cpumask, i8 }
 
 @__setup_str_irq_affinity_setup = internal constant [13 x i8] c"irqaffinity=\00", section ".init.rodata", align 1
 @__setup_irq_affinity_setup = internal global %struct.obs_kernel_param { ptr @__setup_str_irq_affinity_setup, ptr @irq_affinity_setup, i32 0 }, section ".init.setup", align 8
@@ -379,7 +378,7 @@ define internal fastcc noundef ptr @alloc_desc(i32 noundef %0, i32 noundef %1, i
   %47 = load ptr, ptr %11, align 32
   %48 = ptrtoint ptr %47 to i64
   %49 = and i64 %43, 63
-  %50 = getelementptr i64, ptr @__per_cpu_offset, i64 %49
+  %50 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %49
   %51 = load i64, ptr %50, align 8
   %52 = add i64 %51, %48
   %53 = inttoptr i64 %52 to ptr
@@ -831,7 +830,7 @@ define dso_local i32 @__irq_alloc_descs(i32 noundef %0, i32 noundef %1, i32 noun
 .preheader11:                                     ; preds = %39, %41
   %44 = phi i32 [ %42, %41 ], [ 0, %39 ]
   %45 = sext i32 %44 to i64
-  %46 = getelementptr %struct.irq_affinity_desc, ptr %5, i64 %45
+  %46 = getelementptr [16 x i8], ptr %5, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %47, 0
   br i1 %48, label %.loopexit, label %41
@@ -872,7 +871,7 @@ define dso_local i32 @__irq_alloc_descs(i32 noundef %0, i32 noundef %1, i32 noun
 
 73:                                               ; preds = %69, %61
   %74 = phi i64 [ %72, %69 ], [ 64, %61 ]
-  %75 = getelementptr i64, ptr @__per_cpu_offset, i64 %74
+  %75 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %74
   %76 = load i64, ptr %75, align 8
   %77 = add i64 %76, ptrtoint (ptr @numa_node to i64)
   %78 = inttoptr i64 %77 to ptr
@@ -1229,7 +1228,7 @@ define dso_local i32 @kstat_irqs_cpu(i32 noundef %0, i32 noundef %1) local_unnam
 10:                                               ; preds = %6
   %11 = ptrtoint ptr %8 to i64
   %12 = sext i32 %1 to i64
-  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
+  %13 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %11
   %16 = inttoptr i64 %15 to ptr
@@ -1295,7 +1294,7 @@ define dso_local i32 @kstat_irqs_usr(i32 noundef %0) local_unnamed_addr #1 align
 
 35:                                               ; preds = %31
   %36 = and i64 %32, 63
-  %37 = getelementptr i64, ptr @__per_cpu_offset, i64 %36
+  %37 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, %24
   %40 = inttoptr i64 %39 to ptr
@@ -1390,7 +1389,7 @@ define internal i64 @per_cpu_count_show(ptr noundef readonly captures(none) %0, 
 20:                                               ; preds = %17
   %21 = ptrtoint ptr %18 to i64
   %22 = and i64 %14, 63
-  %23 = getelementptr i64, ptr @__per_cpu_offset, i64 %22
+  %23 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %21
   %26 = inttoptr i64 %25 to ptr

@@ -6092,7 +6092,7 @@ define hidden void @"_ZN88_$LT$gpui..text_system..font_features..FontFeatures$u2
 14:                                               ; preds = %10
   %15 = extractvalue { ptr, i64 } %11, 0
   %16 = extractvalue { ptr, i64 } %11, 1
-  %17 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, ptr %15, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr %15, i64 %16
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
   br label %18
 
@@ -6843,7 +6843,7 @@ define hidden { i32, float } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = icmp ult i64 %4, 9
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw float, ptr %7, i64 %4
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %4
   %10 = load float, ptr %9, align 4, !noundef !5
   br label %"_ZN93_$LT$core..ops..index_range..IndexRange$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h38ef1b0408e779efE.llvm.3690220801748121327.exit.thread"
 

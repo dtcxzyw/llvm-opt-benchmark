@@ -72,7 +72,7 @@ define void @ubidi_setLine_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw i16, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %34, ptr %35, align 8, !tbaa !24
   %36 = sub nsw i32 %2, %1
@@ -137,7 +137,7 @@ define void @ubidi_setLine_77(ptr noundef %0, i32 noundef %1, i32 noundef %2, pt
 71:                                               ; preds = %.lr.ph, %79
   %72 = phi i32 [ 0, %.lr.ph ], [ %80, %79 ]
   %indvars.iv = phi i64 [ %33, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %73 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %indvars.iv
   %74 = load i16, ptr %73, align 2, !tbaa !38
   %.fr133 = freeze i16 %74
   %75 = and i16 %.fr133, -4
@@ -595,7 +595,7 @@ define void @ubidi_getLogicalRun_77(ptr noundef %0, i32 noundef %1, ptr noundef 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.04157 = phi i32 [ 0, %.lr.ph.preheader ], [ %.sroa.6.0.copyload4, %.lr.ph ]
-  %23 = getelementptr inbounds nuw %struct.Run, ptr %21, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [12 x i8], ptr %21, i64 %indvars.iv
   %.sroa.0.0.copyload2 = load i32, ptr %23, align 4, !tbaa !53
   %.sroa.6.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.6.0.copyload4 = load i32, ptr %.sroa.6.0..sroa_idx3, align 4, !tbaa !53
@@ -861,7 +861,7 @@ define signext range(i8 0, 2) i8 @ubidi_getRuns_77(ptr noundef %0, ptr readnone 
 
 .critedge:                                        ; preds = %61
   %65 = trunc nsw i64 %indvars.iv.next222 to i32
-  %66 = getelementptr inbounds nuw %struct.Run, ptr %53, i64 %indvars.iv224
+  %66 = getelementptr inbounds nuw [12 x i8], ptr %53, i64 %indvars.iv224
   store i32 %.1129, ptr %66, align 4, !tbaa !55
   %67 = sub nsw i32 %65, %.1129
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 4
@@ -875,7 +875,7 @@ define signext range(i8 0, 2) i8 @ubidi_getRuns_77(ptr noundef %0, ptr readnone 
   %71 = trunc nuw nsw i64 %indvars.iv224 to i32
   %72 = trunc nsw i64 %indvars.iv.next222 to i32
   %73 = and i64 %indvars.iv224, 4294967295
-  %74 = getelementptr inbounds nuw %struct.Run, ptr %53, i64 %73
+  %74 = getelementptr inbounds nuw [12 x i8], ptr %53, i64 %73
   store i32 %.1129, ptr %74, align 4, !tbaa !55
   %75 = sub nsw i32 %72, %.1129
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
@@ -887,7 +887,7 @@ define signext range(i8 0, 2) i8 @ubidi_getRuns_77(ptr noundef %0, ptr readnone 
 
 79:                                               ; preds = %70
   %80 = zext nneg i32 %78 to i64
-  %81 = getelementptr inbounds nuw %struct.Run, ptr %53, i64 %80
+  %81 = getelementptr inbounds nuw [12 x i8], ptr %53, i64 %80
   store i32 %28, ptr %81, align 4, !tbaa !55
   %82 = sub nsw i32 %24, %28
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 4
@@ -931,7 +931,7 @@ define signext range(i8 0, 2) i8 @ubidi_getRuns_77(ptr noundef %0, ptr readnone 
 99:                                               ; preds = %.lr.ph.us.i, %122
   %indvars.iv.i = phi i64 [ %124, %.lr.ph.us.i ], [ %indvars.iv.next.i, %122 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %100 = getelementptr inbounds %struct.Run, ptr %53, i64 %indvars.iv.i
+  %100 = getelementptr inbounds [12 x i8], ptr %53, i64 %indvars.iv.i
   %101 = load i32, ptr %100, align 4, !tbaa !55
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i8, ptr %90, i64 %102
@@ -946,7 +946,7 @@ define signext range(i8 0, 2) i8 @ubidi_getRuns_77(ptr noundef %0, ptr readnone 
   br i1 %106, label %107, label %.critedge2.us.i
 
 107:                                              ; preds = %.critedge.us.i
-  %108 = getelementptr inbounds %struct.Run, ptr %53, i64 %indvars.iv.next93.i
+  %108 = getelementptr inbounds [12 x i8], ptr %53, i64 %indvars.iv.next93.i
   %109 = load i32, ptr %108, align 4, !tbaa !55
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds i8, ptr %90, i64 %110
@@ -979,9 +979,9 @@ define signext range(i8 0, 2) i8 @ubidi_getRuns_77(ptr noundef %0, ptr readnone 
 .lr.ph81.us.i:                                    ; preds = %.critedge2.us.i, %.lr.ph81.us.i
   %indvars.iv102.i = phi i64 [ %indvars.iv.next103.i, %.lr.ph81.us.i ], [ %indvars.iv.i, %.critedge2.us.i ]
   %indvars.iv98.i = phi i64 [ %indvars.iv.next99.i, %.lr.ph81.us.i ], [ %indvars.iv92.i, %.critedge2.us.i ]
-  %119 = getelementptr inbounds %struct.Run, ptr %53, i64 %indvars.iv102.i
+  %119 = getelementptr inbounds [12 x i8], ptr %53, i64 %indvars.iv102.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %119, i64 12, i1 false), !tbaa.struct !66
-  %120 = getelementptr inbounds %struct.Run, ptr %53, i64 %indvars.iv98.i
+  %120 = getelementptr inbounds [12 x i8], ptr %53, i64 %indvars.iv98.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %119, ptr noundef nonnull align 4 dereferenceable(12) %120, i64 12, i1 false), !tbaa.struct !66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %120, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !66
   %indvars.iv.next103.i = add nsw i64 %indvars.iv102.i, 1
@@ -1024,9 +1024,9 @@ define signext range(i8 0, 2) i8 @ubidi_getRuns_77(ptr noundef %0, ptr readnone 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv109.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next110.i, %.lr.ph.i ]
   %indvars.iv107.i = phi i64 [ %132, %.lr.ph.preheader.i ], [ %indvars.iv.next108.i, %.lr.ph.i ]
-  %133 = getelementptr inbounds nuw %struct.Run, ptr %53, i64 %indvars.iv109.i
+  %133 = getelementptr inbounds nuw [12 x i8], ptr %53, i64 %indvars.iv109.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %133, i64 12, i1 false), !tbaa.struct !66
-  %134 = getelementptr inbounds %struct.Run, ptr %53, i64 %indvars.iv107.i
+  %134 = getelementptr inbounds [12 x i8], ptr %53, i64 %indvars.iv107.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %133, ptr noundef nonnull align 4 dereferenceable(12) %134, i64 12, i1 false), !tbaa.struct !66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %134, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !66
   %indvars.iv.next110.i = add nuw nsw i64 %indvars.iv109.i, 1
@@ -1046,7 +1046,7 @@ _ZL11reorderLineP5UBiDihh.exit:                   ; preds = %.lr.ph.i, %86, %._c
 .lr.ph201:                                        ; preds = %.lr.ph201.preheader, %.lr.ph201
   %indvars.iv227 = phi i64 [ 0, %.lr.ph201.preheader ], [ %indvars.iv.next228, %.lr.ph201 ]
   %.0127200 = phi i32 [ 0, %.lr.ph201.preheader ], [ %147, %.lr.ph201 ]
-  %136 = getelementptr inbounds nuw %struct.Run, ptr %53, i64 %indvars.iv227
+  %136 = getelementptr inbounds nuw [12 x i8], ptr %53, i64 %indvars.iv227
   %137 = load i32, ptr %136, align 4, !tbaa !55
   %138 = sext i32 %137 to i64
   %139 = getelementptr inbounds i8, ptr %26, i64 %138
@@ -1077,7 +1077,7 @@ _ZL11reorderLineP5UBiDihh.exit:                   ; preds = %.lr.ph.i, %86, %._c
   %154 = shl nuw i32 %153, 31
   %155 = zext nneg i32 %78 to i64
   %156 = select i1 %.not152, i64 %155, i64 0
-  %157 = getelementptr inbounds nuw %struct.Run, ptr %53, i64 %156
+  %157 = getelementptr inbounds nuw [12 x i8], ptr %53, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !55
   %159 = or i32 %154, %158
   store i32 %159, ptr %157, align 4, !tbaa !55
@@ -1110,7 +1110,7 @@ _ZL11reorderLineP5UBiDihh.exit:                   ; preds = %.lr.ph.i, %86, %._c
 .lr.ph.i168:                                      ; preds = %179, %.lr.ph.preheader.i167
   %indvars.iv.i169 = phi i64 [ 0, %.lr.ph.preheader.i167 ], [ %indvars.iv.next.i171, %179 ]
   %.03.i = phi i32 [ 0, %.lr.ph.preheader.i167 ], [ %172, %179 ]
-  %170 = getelementptr inbounds nuw %struct.Run, ptr %.val164, i64 %indvars.iv.i169
+  %170 = getelementptr inbounds nuw [12 x i8], ptr %.val164, i64 %indvars.iv.i169
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 4
   %172 = load i32, ptr %171, align 4, !tbaa !57
   %173 = load i32, ptr %170, align 4, !tbaa !55
@@ -1138,7 +1138,7 @@ _ZL22getRunFromLogicalIndexP5UBiDii.exit:         ; preds = %175
   %181 = load i32, ptr %180, align 4, !tbaa !76
   %sext184 = shl i64 %indvars.iv.i169, 32
   %182 = ashr exact i64 %sext184, 32
-  %183 = getelementptr inbounds %struct.Run, ptr %.val164, i64 %182
+  %183 = getelementptr inbounds [12 x i8], ptr %.val164, i64 %182
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load i32, ptr %184, align 4, !tbaa !58
   %186 = or i32 %185, %181
@@ -1207,7 +1207,7 @@ switch.early.test:                                ; preds = %202
 .lr.ph.i175:                                      ; preds = %221, %.lr.ph.preheader.i173
   %indvars.iv.i176 = phi i64 [ 0, %.lr.ph.preheader.i173 ], [ %indvars.iv.next.i179, %221 ]
   %.03.i177 = phi i32 [ 0, %.lr.ph.preheader.i173 ], [ %214, %221 ]
-  %212 = getelementptr inbounds nuw %struct.Run, ptr %.val166, i64 %indvars.iv.i176
+  %212 = getelementptr inbounds nuw [12 x i8], ptr %.val166, i64 %indvars.iv.i176
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 4
   %214 = load i32, ptr %213, align 4, !tbaa !57
   %215 = load i32, ptr %212, align 4, !tbaa !55
@@ -1233,7 +1233,7 @@ switch.early.test:                                ; preds = %202
 _ZL22getRunFromLogicalIndexP5UBiDii.exit181:      ; preds = %217
   %sext = shl i64 %indvars.iv.i176, 32
   %222 = ashr exact i64 %sext, 32
-  %223 = getelementptr inbounds %struct.Run, ptr %.val166, i64 %222
+  %223 = getelementptr inbounds [12 x i8], ptr %.val166, i64 %222
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %225 = load i32, ptr %224, align 4, !tbaa !58
   %226 = add nsw i32 %225, -1
@@ -1284,7 +1284,7 @@ define range(i32 0, 2) i32 @ubidi_getVisualRun_77(ptr noundef %0, i32 noundef %1
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %20 = load ptr, ptr %19, align 8, !tbaa !33
   %21 = zext nneg i32 %1 to i64
-  %22 = getelementptr inbounds nuw %struct.Run, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [12 x i8], ptr %20, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !55
   %.not33 = icmp eq ptr %2, null
   br i1 %.not33, label %26, label %24
@@ -1363,7 +1363,7 @@ define void @ubidi_reorderLogical_77(ptr noundef readonly captures(address_is_nu
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %.lr.ph.i ], [ %8, %12 ]
   %indvars.iv.next41.i = add nsw i64 %indvars.iv40.i, -1
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next41.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next41.i
   %15 = trunc nuw nsw i64 %indvars.iv.next41.i to i32
   store i32 %15, ptr %14, align 4, !tbaa !53
   %16 = icmp sgt i64 %indvars.iv40.i, 1
@@ -1420,7 +1420,7 @@ _ZL14prepareReorderPKhiPiPhS2_.exit:              ; preds = %.lr.ph.i
 
 33:                                               ; preds = %33, %.critedge2.us
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %33 ], [ %indvars.iv, %.critedge2.us ]
-  %34 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv73
+  %34 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv73
   %35 = load i32, ptr %34, align 4, !tbaa !53
   %36 = sub i32 %31, %35
   store i32 %36, ptr %34, align 4, !tbaa !53
@@ -1493,7 +1493,7 @@ define void @ubidi_reorderVisual_77(ptr noundef readonly captures(address_is_nul
 .lr.ph.i:                                         ; preds = %12, %.lr.ph.i
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %.lr.ph.i ], [ %8, %12 ]
   %indvars.iv.next41.i = add nsw i64 %indvars.iv40.i, -1
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next41.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next41.i
   %15 = trunc nuw nsw i64 %indvars.iv.next41.i to i32
   store i32 %15, ptr %14, align 4, !tbaa !53
   %16 = icmp sgt i64 %indvars.iv40.i, 1
@@ -1561,9 +1561,9 @@ _ZL14prepareReorderPKhiPiPhS2_.exit:              ; preds = %.lr.ph.i
 .lr.ph65.us:                                      ; preds = %.critedge2.us, %.lr.ph65.us
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.lr.ph65.us ], [ %indvars.iv74, %.critedge2.us ]
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %.lr.ph65.us ], [ %indvars.iv, %.critedge2.us ]
-  %36 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv82
+  %36 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv82
   %37 = load i32, ptr %36, align 4, !tbaa !53
-  %38 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv84
+  %38 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv84
   %39 = load i32, ptr %38, align 4, !tbaa !53
   store i32 %39, ptr %36, align 4, !tbaa !53
   store i32 %37, ptr %38, align 4, !tbaa !53
@@ -1678,7 +1678,7 @@ define i32 @ubidi_getVisualIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %38 ]
   %.0125160 = phi i32 [ 0, %.lr.ph.preheader ], [ %41, %38 ]
-  %39 = getelementptr inbounds nuw %struct.Run, ptr %34, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [12 x i8], ptr %34, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !57
   %42 = load i32, ptr %39, align 4, !tbaa !55
@@ -1737,7 +1737,7 @@ define i32 @ubidi_getVisualIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef 
   %71 = zext i1 %.not141 to i32
   %spec.select143 = add nsw i32 %spec.select179, %71
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  %72 = getelementptr inbounds nuw %struct.Run, ptr %60, i64 %indvars.iv.next207
+  %72 = getelementptr inbounds nuw [12 x i8], ptr %60, i64 %indvars.iv.next207
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %75 = load i32, ptr %74, align 4, !tbaa !58
@@ -1761,7 +1761,7 @@ define i32 @ubidi_getVisualIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef 
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !24
   %89 = zext nneg i32 %1 to i64
-  %90 = getelementptr inbounds nuw i16, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %88, i64 %89
   %91 = load i16, ptr %90, align 2, !tbaa !38
   %.fr153 = freeze i16 %91
   %92 = and i16 %.fr153, -4
@@ -1796,7 +1796,7 @@ switch.early.test:                                ; preds = %84
   %.0165 = phi i32 [ %100, %.lr.ph166 ], [ 0, %.preheader ]
   %100 = sub nsw i32 %.0165, %98
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
-  %101 = getelementptr inbounds nuw %struct.Run, ptr %86, i64 %indvars.iv.next199
+  %101 = getelementptr inbounds nuw [12 x i8], ptr %86, i64 %indvars.iv.next199
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
   %103 = load i32, ptr %102, align 4, !tbaa !57
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
@@ -1837,7 +1837,7 @@ switch.early.test:                                ; preds = %84
 .lr.ph174:                                        ; preds = %.lr.ph174.preheader, %.lr.ph174
   %indvars.iv201 = phi i64 [ %117, %.lr.ph174.preheader ], [ %indvars.iv.next202, %.lr.ph174 ]
   %.1172 = phi i32 [ %.0.lcssa, %.lr.ph174.preheader ], [ %.2, %.lr.ph174 ]
-  %118 = getelementptr inbounds i16, ptr %88, i64 %indvars.iv201
+  %118 = getelementptr inbounds [2 x i8], ptr %88, i64 %indvars.iv201
   %119 = load i16, ptr %118, align 2, !tbaa !38
   %120 = and i16 %119, -4
   %121 = icmp eq i16 %120, 8204
@@ -1958,7 +1958,7 @@ define i32 @ubidi_getLogicalIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef
   %indvars.iv214 = phi i64 [ %indvars.iv.next215, %70 ], [ 0, %42 ]
   %.0149 = phi i32 [ %51, %70 ], [ 0, %42 ]
   %.0142 = phi i32 [ %.2144, %70 ], [ 0, %42 ]
-  %49 = getelementptr inbounds nuw %struct.Run, ptr %44, i64 %indvars.iv214
+  %49 = getelementptr inbounds nuw [12 x i8], ptr %44, i64 %indvars.iv214
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !57
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -2026,7 +2026,7 @@ define i32 @ubidi_getLogicalIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef
   %.0145182 = phi i32 [ %82, %.lr.ph ], [ 0, %.preheader175 ]
   %82 = sub nsw i32 %.0145182, %80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %83 = getelementptr inbounds nuw %struct.Run, ptr %44, i64 %indvars.iv.next
+  %83 = getelementptr inbounds nuw [12 x i8], ptr %44, i64 %indvars.iv.next
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %85 = load i32, ptr %84, align 4, !tbaa !57
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
@@ -2063,19 +2063,19 @@ define i32 @ubidi_getLogicalIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef
 
 .lr.ph192.split.preheader:                        ; preds = %.lr.ph192
   %101 = zext nneg i32 %94 to i64
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %99, i64 %101
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %99, i64 %101
   br label %.lr.ph192.split
 
 .lr.ph192.split.us.preheader:                     ; preds = %.lr.ph192
   %102 = zext nneg i32 %95 to i64
-  %103 = getelementptr i16, ptr %99, i64 %102
+  %103 = getelementptr [2 x i8], ptr %99, i64 %102
   br label %.lr.ph192.split.us
 
 .lr.ph192.split.us:                               ; preds = %.lr.ph192.split.us.preheader, %.lr.ph192.split.us
   %indvars.iv211 = phi i64 [ 0, %.lr.ph192.split.us.preheader ], [ %indvars.iv.next212, %.lr.ph192.split.us ]
   %.1146189.us = phi i32 [ %.0145.lcssa, %.lr.ph192.split.us.preheader ], [ %.3148.us, %.lr.ph192.split.us ]
   %104 = xor i64 %indvars.iv211, -1
-  %105 = getelementptr i16, ptr %103, i64 %104
+  %105 = getelementptr [2 x i8], ptr %103, i64 %104
   %106 = load i16, ptr %105, align 2, !tbaa !38
   %107 = and i16 %106, -4
   %108 = icmp eq i16 %107, 8204
@@ -2099,7 +2099,7 @@ define i32 @ubidi_getLogicalIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef
 .lr.ph192.split:                                  ; preds = %.lr.ph192.split.preheader, %.lr.ph192.split
   %indvars.iv208 = phi i64 [ 0, %.lr.ph192.split.preheader ], [ %indvars.iv.next209, %.lr.ph192.split ]
   %.1146189 = phi i32 [ %.0145.lcssa, %.lr.ph192.split.preheader ], [ %.3148, %.lr.ph192.split ]
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv208
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv208
   %119 = load i16, ptr %gep, align 2, !tbaa !38
   %120 = and i16 %119, -4
   %121 = icmp eq i16 %120, 8204
@@ -2132,7 +2132,7 @@ define i32 @ubidi_getLogicalIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef
 
 .preheader:                                       ; preds = %132, %.preheader
   %indvars.iv217 = phi i64 [ %indvars.iv.next218, %.preheader ], [ 0, %132 ]
-  %134 = getelementptr inbounds nuw %struct.Run, ptr %44, i64 %indvars.iv217
+  %134 = getelementptr inbounds nuw [12 x i8], ptr %44, i64 %indvars.iv217
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 4
   %136 = load i32, ptr %135, align 4, !tbaa !57
   %.not167 = icmp slt i32 %.1133, %136
@@ -2144,7 +2144,7 @@ define i32 @ubidi_getLogicalIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef
   %137 = add nsw i32 %.0, %.0128.ph
   %138 = sdiv i32 %137, 2
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds %struct.Run, ptr %44, i64 %139
+  %140 = getelementptr inbounds [12 x i8], ptr %44, i64 %139
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
   %142 = load i32, ptr %141, align 4, !tbaa !57
   %.not165 = icmp slt i32 %.1133, %142
@@ -2179,7 +2179,7 @@ define i32 @ubidi_getLogicalIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef
 .loopexit:                                        ; preds = %147, %145, %.loopexit.loopexit
   %.pre-phi = phi i64 [ %.pre, %.loopexit.loopexit ], [ %139, %145 ], [ %139, %147 ]
   %.3140 = phi i32 [ %150, %.loopexit.loopexit ], [ %138, %145 ], [ %138, %147 ]
-  %151 = getelementptr inbounds %struct.Run, ptr %44, i64 %.pre-phi
+  %151 = getelementptr inbounds [12 x i8], ptr %44, i64 %.pre-phi
   %152 = load i32, ptr %151, align 4, !tbaa !55
   %153 = icmp sgt i32 %152, -1
   br i1 %153, label %154, label %164
@@ -2190,7 +2190,7 @@ define i32 @ubidi_getLogicalIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef
 
 156:                                              ; preds = %154
   %157 = zext nneg i32 %.3140 to i64
-  %158 = getelementptr %struct.Run, ptr %44, i64 %157
+  %158 = getelementptr [12 x i8], ptr %44, i64 %157
   %159 = getelementptr i8, ptr %158, i64 -8
   %160 = load i32, ptr %159, align 4, !tbaa !57
   %161 = sub nsw i32 %.1133, %160
@@ -2282,7 +2282,7 @@ ubidi_countRuns_77.exit:                          ; preds = %9, %13
 .lr.ph:                                           ; preds = %33, %.loopexit146
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %.loopexit146 ], [ 0, %33 ]
   %.0151 = phi i32 [ %.3, %.loopexit146 ], [ 0, %33 ]
-  %37 = getelementptr inbounds nuw %struct.Run, ptr %22, i64 %indvars.iv180
+  %37 = getelementptr inbounds nuw [12 x i8], ptr %22, i64 %indvars.iv180
   %38 = load i32, ptr %37, align 4, !tbaa !55
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !57
@@ -2298,7 +2298,7 @@ ubidi_countRuns_77.exit:                          ; preds = %9, %13
   %.1 = phi i32 [ %.0151, %.preheader145.preheader ], [ %43, %.preheader145 ]
   %43 = add nsw i32 %.1, 1
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %44 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv177
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv177
   store i32 %.1, ptr %44, align 4, !tbaa !53
   %45 = icmp slt i32 %43, %40
   br i1 %45, label %.preheader145, label %.loopexit146, !llvm.loop !100
@@ -2315,7 +2315,7 @@ ubidi_countRuns_77.exit:                          ; preds = %9, %13
   %.2 = phi i32 [ %52, %51 ], [ %.0151, %46 ]
   %52 = add nsw i32 %.2, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %53 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
+  %53 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv.next
   store i32 %.2, ptr %53, align 4, !tbaa !53
   %54 = icmp slt i32 %52, %40
   br i1 %54, label %51, label %.loopexit146, !llvm.loop !101
@@ -2347,7 +2347,7 @@ ubidi_countRuns_77.exit:                          ; preds = %9, %13
   %indvars.iv202 = phi i64 [ 0, %.lr.ph168.preheader ], [ %indvars.iv.next203, %.loopexit ]
   %.4167 = phi i32 [ 0, %.lr.ph168.preheader ], [ %64, %.loopexit ]
   %.0121165 = phi i32 [ 0, %.lr.ph168.preheader ], [ %spec.select133, %.loopexit ]
-  %62 = getelementptr inbounds nuw %struct.Run, ptr %22, i64 %indvars.iv202
+  %62 = getelementptr inbounds nuw [12 x i8], ptr %22, i64 %indvars.iv202
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !57
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -2374,7 +2374,7 @@ ubidi_countRuns_77.exit:                          ; preds = %9, %13
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %.lr.ph164
   %indvars.iv199 = phi i64 [ %77, %.lr.ph164.preheader ], [ %indvars.iv.next200, %.lr.ph164 ]
-  %78 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv199
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv199
   %79 = load i32, ptr %78, align 4, !tbaa !53
   %80 = add nsw i32 %79, %spec.select
   store i32 %80, ptr %78, align 4, !tbaa !53
@@ -2409,7 +2409,7 @@ ubidi_countRuns_77.exit:                          ; preds = %9, %13
   %indvars.iv194 = phi i64 [ 0, %.lr.ph161 ], [ %indvars.iv.next195, %.loopexit140 ]
   %.5160 = phi i32 [ 0, %.lr.ph161 ], [ %94, %.loopexit140 ]
   %.0117158 = phi i32 [ 0, %.lr.ph161 ], [ %.1118, %.loopexit140 ]
-  %92 = getelementptr inbounds nuw %struct.Run, ptr %22, i64 %indvars.iv194
+  %92 = getelementptr inbounds nuw [12 x i8], ptr %22, i64 %indvars.iv194
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %94 = load i32, ptr %93, align 4, !tbaa !57
   %95 = sub i32 %94, %.5160
@@ -2449,7 +2449,7 @@ ubidi_countRuns_77.exit:                          ; preds = %9, %13
   %.2119152.us = phi i32 [ %.0117158, %.lr.ph154.split.us.preheader ], [ %.3120.us, %122 ]
   %109 = xor i64 %indvars.iv186, -1
   %110 = add nsw i64 %108, %109
-  %111 = getelementptr inbounds i16, ptr %106, i64 %110
+  %111 = getelementptr inbounds [2 x i8], ptr %106, i64 %110
   %112 = load i16, ptr %111, align 2, !tbaa !38
   %.fr137.us = freeze i16 %112
   %113 = and i16 %.fr137.us, -4
@@ -2470,7 +2470,7 @@ switch.early.test.us:                             ; preds = %.lr.ph154.split.us
   ]
 
 115:                                              ; preds = %switch.early.test.us
-  %116 = getelementptr inbounds i32, ptr %1, i64 %110
+  %116 = getelementptr inbounds [4 x i8], ptr %1, i64 %110
   %117 = load i32, ptr %116, align 4, !tbaa !53
   %118 = sub nsw i32 %117, %.2119152.us
   store i32 %118, ptr %116, align 4, !tbaa !53
@@ -2478,7 +2478,7 @@ switch.early.test.us:                             ; preds = %.lr.ph154.split.us
 
 119:                                              ; preds = %.lr.ph154.split.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us, %switch.early.test.us
   %120 = add nsw i32 %.2119152.us, 1
-  %121 = getelementptr inbounds i32, ptr %1, i64 %110
+  %121 = getelementptr inbounds [4 x i8], ptr %1, i64 %110
   store i32 -1, ptr %121, align 4, !tbaa !53
   br label %122
 
@@ -2498,7 +2498,7 @@ switch.early.test.us:                             ; preds = %.lr.ph154.split.us
 
 .lr.ph157:                                        ; preds = %.lr.ph157.preheader, %.lr.ph157
   %indvars.iv191 = phi i64 [ %124, %.lr.ph157.preheader ], [ %indvars.iv.next192, %.lr.ph157 ]
-  %125 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv191
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv191
   %126 = load i32, ptr %125, align 4, !tbaa !53
   %127 = sub nsw i32 %126, %.0117158
   store i32 %127, ptr %125, align 4, !tbaa !53
@@ -2511,7 +2511,7 @@ switch.early.test.us:                             ; preds = %.lr.ph154.split.us
   %indvars.iv183 = phi i64 [ 0, %.lr.ph154.split.preheader ], [ %indvars.iv.next184, %142 ]
   %.2119152 = phi i32 [ %.0117158, %.lr.ph154.split.preheader ], [ %.3120, %142 ]
   %130 = add nuw nsw i64 %indvars.iv183, %107
-  %131 = getelementptr inbounds nuw i16, ptr %106, i64 %130
+  %131 = getelementptr inbounds nuw [2 x i8], ptr %106, i64 %130
   %132 = load i16, ptr %131, align 2, !tbaa !38
   %.fr137 = freeze i16 %132
   %133 = and i16 %.fr137, -4
@@ -2533,12 +2533,12 @@ switch.early.test:                                ; preds = %.lr.ph154.split
 
 135:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph154.split
   %136 = add nsw i32 %.2119152, 1
-  %137 = getelementptr inbounds nuw i32, ptr %1, i64 %130
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %130
   store i32 -1, ptr %137, align 4, !tbaa !53
   br label %142
 
 138:                                              ; preds = %switch.early.test
-  %139 = getelementptr inbounds nuw i32, ptr %1, i64 %130
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %130
   %140 = load i32, ptr %139, align 4, !tbaa !53
   %141 = sub nsw i32 %140, %.2119152
   store i32 %141, ptr %139, align 4, !tbaa !53
@@ -2693,7 +2693,7 @@ ubidi_countRuns_77.exit:                          ; preds = %11, %15
 .lr.ph191:                                        ; preds = %.lr.ph191.preheader, %.lr.ph191
   %indvars.iv242 = phi i64 [ 0, %.lr.ph191.preheader ], [ %indvars.iv.next243, %.lr.ph191 ]
   %.0135189 = phi i32 [ 0, %.lr.ph191.preheader ], [ %.2137, %.lr.ph191 ]
-  %57 = getelementptr inbounds nuw %struct.Run, ptr %22, i64 %indvars.iv242
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %22, i64 %indvars.iv242
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 4, !tbaa !58
   %60 = and i32 %59, 5
@@ -2722,7 +2722,7 @@ ubidi_countRuns_77.exit:                          ; preds = %11, %15
   %.3138205 = phi i32 [ %.2137, %.lr.ph208.preheader ], [ %.5, %103 ]
   %.0140204 = phi i32 [ %65, %.lr.ph208.preheader ], [ %.3143, %103 ]
   %indvars.iv.next257 = add nsw i64 %indvars.iv256, -1
-  %67 = getelementptr inbounds nuw %struct.Run, ptr %22, i64 %indvars.iv.next257
+  %67 = getelementptr inbounds nuw [12 x i8], ptr %22, i64 %indvars.iv.next257
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i32, ptr %68, align 4, !tbaa !58
   %70 = and i32 %69, 10
@@ -2732,7 +2732,7 @@ ubidi_countRuns_77.exit:                          ; preds = %11, %15
 71:                                               ; preds = %.lr.ph208
   %72 = add nsw i32 %.0140204, -1
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i32, ptr %1, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %1, i64 %73
   store i32 -1, ptr %74, align 4, !tbaa !53
   %75 = add nsw i32 %.3138205, -1
   br label %76
@@ -2745,7 +2745,7 @@ ubidi_countRuns_77.exit:                          ; preds = %11, %15
   br i1 %77, label %78, label %82
 
 78:                                               ; preds = %76
-  %79 = getelementptr %struct.Run, ptr %22, i64 %indvars.iv256
+  %79 = getelementptr [12 x i8], ptr %22, i64 %indvars.iv256
   %80 = getelementptr i8, ptr %79, i64 -20
   %81 = load i32, ptr %80, align 4, !tbaa !57
   br label %82
@@ -2769,10 +2769,10 @@ ubidi_countRuns_77.exit:                          ; preds = %11, %15
   %indvars.iv251 = phi i64 [ %90, %.lr.ph197.split.preheader ], [ %indvars.iv.next252, %.lr.ph197.split ]
   %indvars.iv249 = phi i64 [ %89, %.lr.ph197.split.preheader ], [ %indvars.iv.next250, %.lr.ph197.split ]
   %indvars.iv.next252 = add nsw i64 %indvars.iv251, -1
-  %92 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next252
+  %92 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv.next252
   %93 = load i32, ptr %92, align 4, !tbaa !53
   %indvars.iv.next250 = add nsw i64 %indvars.iv249, -1
-  %94 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next250
+  %94 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv.next250
   store i32 %93, ptr %94, align 4, !tbaa !53
   %95 = icmp sgt i64 %indvars.iv.next252, %91
   br i1 %95, label %.lr.ph197.split, label %._crit_edge198.loopexit, !llvm.loop !112
@@ -2790,7 +2790,7 @@ ubidi_countRuns_77.exit:                          ; preds = %11, %15
 98:                                               ; preds = %._crit_edge198
   %99 = add nsw i32 %.2142.lcssa, -1
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds i32, ptr %1, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %1, i64 %100
   store i32 -1, ptr %101, align 4, !tbaa !53
   %102 = add nsw i32 %.4139.fr, -1
   br label %103
@@ -2823,7 +2823,7 @@ ubidi_countRuns_77.exit:                          ; preds = %11, %15
   %indvars.iv237 = phi i64 [ 0, %.lr.ph187 ], [ %indvars.iv.next238, %.loopexit162 ]
   %.4185 = phi i32 [ 0, %.lr.ph187 ], [ %118, %.loopexit162 ]
   %.0123184 = phi i32 [ 0, %.lr.ph187 ], [ %.1124, %.loopexit162 ]
-  %116 = getelementptr inbounds nuw %struct.Run, ptr %22, i64 %indvars.iv237
+  %116 = getelementptr inbounds nuw [12 x i8], ptr %22, i64 %indvars.iv237
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 4
   %118 = load i32, ptr %117, align 4, !tbaa !57
   %119 = sub i32 %118, %.4185
@@ -2850,10 +2850,10 @@ ubidi_countRuns_77.exit:                          ; preds = %11, %15
 .lr.ph181:                                        ; preds = %.lr.ph181.preheader, %.lr.ph181
   %indvars.iv230 = phi i64 [ %127, %.lr.ph181.preheader ], [ %indvars.iv.next231, %.lr.ph181 ]
   %indvars.iv228 = phi i64 [ %126, %.lr.ph181.preheader ], [ %indvars.iv.next229, %.lr.ph181 ]
-  %128 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv230
+  %128 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv230
   %129 = load i32, ptr %128, align 4, !tbaa !53
   %indvars.iv.next229 = add nsw i64 %indvars.iv228, 1
-  %130 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv228
+  %130 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv228
   store i32 %129, ptr %130, align 4, !tbaa !53
   %indvars.iv.next231 = add nsw i64 %indvars.iv230, 1
   %exitcond236.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count235
@@ -2886,7 +2886,7 @@ ubidi_countRuns_77.exit:                          ; preds = %11, %15
   %.3126176.us = phi i32 [ %.0123184, %.lr.ph178.split.us.preheader ], [ %.4127.us, %151 ]
   %140 = xor i64 %indvars.iv222, -1
   %141 = add nsw i64 %139, %140
-  %142 = getelementptr inbounds i16, ptr %137, i64 %141
+  %142 = getelementptr inbounds [2 x i8], ptr %137, i64 %141
   %143 = load i16, ptr %142, align 2, !tbaa !38
   %.fr161.us = freeze i16 %143
   %144 = and i16 %.fr161.us, -4
@@ -2909,7 +2909,7 @@ switch.early.test.us:                             ; preds = %.lr.ph178.split.us
 146:                                              ; preds = %switch.early.test.us
   %147 = add nsw i32 %.3126176.us, 1
   %148 = sext i32 %.3126176.us to i64
-  %149 = getelementptr inbounds i32, ptr %1, i64 %148
+  %149 = getelementptr inbounds [4 x i8], ptr %1, i64 %148
   %150 = trunc nsw i64 %141 to i32
   store i32 %150, ptr %149, align 4, !tbaa !53
   br label %151
@@ -2924,7 +2924,7 @@ switch.early.test.us:                             ; preds = %.lr.ph178.split.us
   %indvars.iv = phi i64 [ 0, %.lr.ph178.split.preheader ], [ %indvars.iv.next, %162 ]
   %.3126176 = phi i32 [ %.0123184, %.lr.ph178.split.preheader ], [ %.4127, %162 ]
   %152 = add nuw nsw i64 %indvars.iv, %138
-  %153 = getelementptr inbounds nuw i16, ptr %137, i64 %152
+  %153 = getelementptr inbounds nuw [2 x i8], ptr %137, i64 %152
   %154 = load i16, ptr %153, align 2, !tbaa !38
   %.fr161 = freeze i16 %154
   %155 = and i16 %.fr161, -4
@@ -2947,7 +2947,7 @@ switch.early.test:                                ; preds = %.lr.ph178.split
 157:                                              ; preds = %switch.early.test
   %158 = add nsw i32 %.3126176, 1
   %159 = sext i32 %.3126176 to i64
-  %160 = getelementptr inbounds i32, ptr %1, i64 %159
+  %160 = getelementptr inbounds [4 x i8], ptr %1, i64 %159
   %161 = trunc nuw nsw i64 %152 to i32
   store i32 %161, ptr %160, align 4, !tbaa !53
   br label %162
@@ -3030,7 +3030,7 @@ define void @ubidi_invertMap_77(ptr noundef readonly captures(address) %0, ptr n
 
 22:                                               ; preds = %.lr.ph46
   %23 = zext nneg i32 %19 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %1, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %23
   store i32 %21, ptr %24, align 4, !tbaa !53
   br label %25
 

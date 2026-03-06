@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/rtp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.anon = type { i32, [6 x i8], i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [13 x i8] c"payload_type\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"rtpflags\00", align 1
 @.str.2 = private unnamed_addr constant [8 x i8] c"rfc2190\00", align 1
@@ -17,7 +15,7 @@ define range(i32 -1, 1) i32 @ff_rtp_get_codec_info(ptr noundef %0, i32 noundef %
 
 3:                                                ; preds = %2, %28
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %28 ]
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [28 x i8], ptr @rtp_payload_types, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = icmp eq i32 %5, %1
   br i1 %6, label %7, label %28
@@ -130,7 +128,7 @@ define i32 @ff_rtp_get_payload_type(ptr noundef readonly captures(address_is_nul
 
 .thread.split.us.split.split.us:                  ; preds = %.thread.split.us, %47
   %indvars.iv92 = phi i64 [ %indvars.iv.next93, %47 ], [ 0, %.thread.split.us ]
-  %29 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv92
+  %29 = getelementptr inbounds nuw [28 x i8], ptr @rtp_payload_types, i64 %indvars.iv92
   %30 = icmp eq i64 %indvars.iv92, 7
   br i1 %30, label %31, label %47
 
@@ -169,7 +167,7 @@ define i32 @ff_rtp_get_payload_type(ptr noundef readonly captures(address_is_nul
 
 .thread.split.us.split.split:                     ; preds = %.thread.split.us, %68
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %68 ], [ 0, %.thread.split.us ]
-  %48 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv89
+  %48 = getelementptr inbounds nuw [28 x i8], ptr @rtp_payload_types, i64 %indvars.iv89
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i32, ptr %49, align 4, !tbaa !18
   %51 = icmp eq i32 %50, %.fr74
@@ -212,7 +210,7 @@ define i32 @ff_rtp_get_payload_type(ptr noundef readonly captures(address_is_nul
 
 .thread.split:                                    ; preds = %.thread.split.preheader, %112
   %indvars.iv = phi i64 [ 0, %.thread.split.preheader ], [ %indvars.iv.next, %112 ]
-  %69 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [28 x i8], ptr @rtp_payload_types, i64 %indvars.iv
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i32, ptr %70, align 4, !tbaa !18
   %72 = load i32, ptr %20, align 4, !tbaa !19
@@ -343,7 +341,7 @@ define nonnull ptr @ff_rtp_enc_name(i32 noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [28 x i8], ptr @rtp_payload_types, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %2
@@ -363,7 +361,7 @@ define i32 @ff_rtp_codec_id(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 
 3:                                                ; preds = %2, %14
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %14 ]
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @rtp_payload_types, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [28 x i8], ptr @rtp_payload_types, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = tail call i32 @av_strcasecmp(ptr noundef %0, ptr noundef nonnull %5) #4
   %.not8 = icmp eq i32 %6, 0

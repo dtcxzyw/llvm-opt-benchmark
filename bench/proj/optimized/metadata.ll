@@ -5483,12 +5483,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not59, label %84, label %.lr.ph
 
 84:                                               ; preds = %.preheader
-  %85 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.26", ptr %79, i64 %.04049
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %.04049
   %86 = load ptr, ptr %85, align 8, !tbaa !72
   %87 = load ptr, ptr %12, align 8, !tbaa !127
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
   %89 = load ptr, ptr %88, align 8, !tbaa !146
-  %90 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.26", ptr %89, i64 %.04049
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %.04049
   %91 = load ptr, ptr %90, align 8, !tbaa !72
   %92 = icmp eq ptr %91, null
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
@@ -5515,12 +5515,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not65, label %108, label %.lr.ph55
 
 108:                                              ; preds = %.lr.ph
-  %109 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.42", ptr %103, i64 %.03951
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %103, i64 %.03951
   %110 = load ptr, ptr %109, align 8, !tbaa !109
   %111 = load ptr, ptr %12, align 8, !tbaa !127
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 64
   %113 = load ptr, ptr %112, align 8, !tbaa !159
-  %114 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.42", ptr %113, i64 %.03951
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %113, i64 %.03951
   %115 = load ptr, ptr %114, align 8, !tbaa !109
   %116 = icmp eq ptr %115, null
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 16
@@ -5547,12 +5547,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %.not66.not, label %.critedge5, label %132
 
 132:                                              ; preds = %.lr.ph55
-  %133 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.62", ptr %127, i64 %.054
+  %133 = getelementptr inbounds nuw [16 x i8], ptr %127, i64 %.054
   %134 = load ptr, ptr %133, align 8, !tbaa !122
   %135 = load ptr, ptr %12, align 8, !tbaa !127
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 88
   %137 = load ptr, ptr %136, align 8, !tbaa !171
-  %138 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.62", ptr %137, i64 %.054
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %137, i64 %.054
   %139 = load ptr, ptr %138, align 8, !tbaa !122
   %140 = icmp eq ptr %139, null
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 16

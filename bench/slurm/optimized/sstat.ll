@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
 %struct.sstat_parameters_t = type { i32, ptr, i32, ptr, i32, i32, i8, i32, i32 }
 %struct.assoc_mgr_lock_t = type { i32, i32, i32, i32, i32, i32, i32 }
-%struct.job_step_info_t = type { i32, i32, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i64, ptr, i32, i64, i16, i32, %struct.slurm_step_id_msg, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [10 x i8] c"AllocTRES\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"AveCPU\00", align 1
@@ -209,7 +208,7 @@ define dso_local noundef i32 @_do_stat(ptr noundef %0, ptr noundef %1, i32 nound
   %51 = phi ptr [ %.pre, %49 ], [ %47, %.lr.ph78 ]
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @step, i64 64), ptr noundef nonnull @.str.57, i32 noundef %55) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -507,7 +506,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.not33 = icmp eq i32 %.pre44, 0
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [264 x i8], ptr %47, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 176
   %50 = load i32, ptr %49, align 8
   %51 = icmp ugt i32 %50, -16
@@ -525,7 +524,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [264 x i8], ptr %55, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 160
   %58 = call zeroext i1 @verify_step_id(ptr noundef nonnull %57, ptr noundef nonnull %3) #5
   %.pre48 = load ptr, ptr %4, align 8
@@ -535,7 +534,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %59 = phi ptr [ %42, %52 ], [ %.pre48, %53 ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [264 x i8], ptr %61, i64 %indvars.iv
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 160
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 80
   %65 = load ptr, ptr %64, align 8

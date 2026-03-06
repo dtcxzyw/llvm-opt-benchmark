@@ -600,7 +600,7 @@ _ZNK8rawspeed10ByteStream12getSubStreamEjj.exit:  ; preds = %2
   %61 = icmp samesign ult i32 %1, %36
   %62 = mul nuw nsw i32 %39, %1
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw i16, ptr %29, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %63
   %65 = zext nneg i32 %34 to i64
   br label %66
 
@@ -725,7 +725,7 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit
 
 128:                                              ; preds = %124
   %129 = zext i8 %125 to i64
-  %130 = getelementptr inbounds nuw i16, ptr %3, i64 %129
+  %130 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %129
   %131 = load i16, ptr %130, align 2, !tbaa !131
   %132 = add i8 %125, 1
   %133 = icmp eq i16 %131, 3
@@ -740,12 +740,12 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit
   %.139.i = phi i32 [ %135, %128 ], [ %.038.i65, %124 ]
   %.136.i = phi i32 [ %136, %128 ], [ %.035.i67, %124 ]
   %139 = zext i8 %138 to i64
-  %140 = getelementptr inbounds nuw i16, ptr %3, i64 %139
+  %140 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %139
   %141 = load i16, ptr %140, align 2, !tbaa !131
   %142 = add i8 %138, 1
   %143 = and i32 %.037.i66, 1
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw i32, ptr %4, i64 %144
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !114
   %.not.i = icmp eq i32 %146, 0
   br i1 %.not.i, label %162, label %147
@@ -757,7 +757,7 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit
   br i1 %150, label %151, label %159
 
 151:                                              ; preds = %147
-  %152 = getelementptr inbounds nuw i32, ptr %5, i64 %144
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %144
   %153 = load i32, ptr %152, align 4, !tbaa !114
   %154 = icmp ugt i32 %153, %.139.i
   br i1 %154, label %155, label %159
@@ -771,7 +771,7 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit
 159:                                              ; preds = %155, %151, %147
   %.034.i = phi i16 [ %158, %155 ], [ %149, %151 ], [ %149, %147 ]
   %160 = zext i16 %.034.i to i32
-  %161 = getelementptr inbounds nuw i32, ptr %5, i64 %144
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %144
   store i32 %160, ptr %161, align 4, !tbaa !114
   br label %168
 
@@ -779,7 +779,7 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit
   %163 = zext i16 %141 to i32
   store i32 %163, ptr %145, align 4, !tbaa !114
   %.not42.i = icmp eq i16 %141, 0
-  %164 = getelementptr inbounds nuw i32, ptr %5, i64 %144
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %144
   br i1 %.not42.i, label %166, label %165
 
 165:                                              ; preds = %162
@@ -797,7 +797,7 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi12EEC2ENS_10ByteStreamE.exit
   %170 = icmp ult i32 %169, 16384
   %171 = icmp samesign ult i64 %indvars.iv72, %65
   tail call void @llvm.assume(i1 %171)
-  %172 = getelementptr inbounds nuw i16, ptr %64, i64 %indvars.iv72
+  %172 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %indvars.iv72
   %173 = trunc nuw nsw i32 %169 to i16
   %.sink = select i1 %170, i16 %173, i16 0
   store i16 %.sink, ptr %172, align 2, !tbaa !131
@@ -910,7 +910,7 @@ _ZNK8rawspeed10ByteStream12getSubStreamEjj.exit:  ; preds = %2
   %57 = icmp samesign ult i32 %1, %36
   %58 = mul nuw nsw i32 %39, %1
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw i16, ptr %29, i64 %59
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %59
   %61 = zext nneg i32 %34 to i64
   br label %62
 
@@ -1021,7 +1021,7 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit
 
 114:                                              ; preds = %110
   %115 = zext i8 %111 to i64
-  %116 = getelementptr inbounds nuw i16, ptr %3, i64 %115
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %115
   %117 = load i16, ptr %116, align 2, !tbaa !131
   %118 = add i8 %111, 1
   %119 = icmp eq i16 %117, 3
@@ -1036,12 +1036,12 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit
   %.139.i = phi i32 [ %121, %114 ], [ %.038.i60, %110 ]
   %.136.i = phi i32 [ %122, %114 ], [ %.035.i62, %110 ]
   %125 = zext i8 %124 to i64
-  %126 = getelementptr inbounds nuw i16, ptr %3, i64 %125
+  %126 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %125
   %127 = load i16, ptr %126, align 2, !tbaa !131
   %128 = add i8 %124, 1
   %129 = and i32 %.037.i61, 1
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw i32, ptr %4, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !114
   %.not.i = icmp eq i32 %132, 0
   br i1 %.not.i, label %148, label %133
@@ -1053,7 +1053,7 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit
   br i1 %136, label %137, label %145
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds nuw i32, ptr %5, i64 %130
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %130
   %139 = load i32, ptr %138, align 4, !tbaa !114
   %140 = icmp ugt i32 %139, %.139.i
   br i1 %140, label %141, label %145
@@ -1067,7 +1067,7 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit
 145:                                              ; preds = %141, %137, %133
   %.034.i = phi i16 [ %144, %141 ], [ %135, %137 ], [ %135, %133 ]
   %146 = zext i16 %.034.i to i32
-  %147 = getelementptr inbounds nuw i32, ptr %5, i64 %130
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %130
   store i32 %146, ptr %147, align 4, !tbaa !114
   br label %_ZNK8rawspeed10Array2DRefItEclEii.exit.i
 
@@ -1075,7 +1075,7 @@ _ZN8rawspeed12_GLOBAL__N_121pana_cs6_page_decoderILi14EEC2ENS_10ByteStreamE.exit
   %149 = zext i16 %127 to i32
   store i32 %149, ptr %131, align 4, !tbaa !114
   %.not42.i = icmp eq i16 %127, 0
-  %150 = getelementptr inbounds nuw i32, ptr %5, i64 %130
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %130
   br i1 %.not42.i, label %152, label %151
 
 151:                                              ; preds = %148
@@ -1092,7 +1092,7 @@ _ZNK8rawspeed10Array2DRefItEclEii.exit.i:         ; preds = %152, %151, %145
   %154 = add nsw i32 %.pre-phi, -15
   %155 = icmp samesign ult i64 %indvars.iv67, %61
   tail call void @llvm.assume(i1 %155)
-  %156 = getelementptr inbounds nuw i16, ptr %60, i64 %indvars.iv67
+  %156 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %indvars.iv67
   %.sink80 = tail call i32 @llvm.umin.i32(i32 %154, i32 65536)
   %.sink = trunc i32 %.sink80 to i16
   store i16 %.sink, ptr %156, align 2, !tbaa !131

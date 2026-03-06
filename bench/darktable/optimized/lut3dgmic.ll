@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cimg_library::CImg.1" = type { i32, i32, i32, i32, i8, ptr }
 %"struct.cimg_library::CImg.2" = type { i32, i32, i32, i32, i8, ptr }
 %"struct.cimg_library::CImg.3" = type { i32, i32, i32, i32, i8, ptr }
-%"struct.cimg_library::CImg.4" = type { i32, i32, i32, i32, i8, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -879,7 +878,7 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
 
 41:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %42 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %40, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !48
   %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %5) #19
@@ -923,7 +922,7 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
 54:                                               ; preds = %.lr.ph105, %59
   %indvars.iv117 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next118, %59 ]
   %55 = load ptr, ptr %51, align 8, !tbaa !44
-  %56 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %55, i64 %indvars.iv117
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %55, i64 %indvars.iv117
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8, !tbaa !48
   invoke void @lut3d_add_lutname_to_list(ptr noundef %4, ptr noundef %58)
@@ -945,7 +944,7 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !27
   %67 = zext i32 %.075 to i64
-  %68 = getelementptr inbounds nuw %"struct.cimg_library::CImg.4", ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %66, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !41
   store i32 %70, ptr %0, align 4, !tbaa !50
@@ -985,7 +984,7 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
 86:                                               ; preds = %.lr.ph112, %86
   %indvars.iv130 = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next131, %86 ]
   %87 = load ptr, ptr %83, align 8, !tbaa !30
-  %88 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv130
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv130
   %89 = load float, ptr %88, align 4, !tbaa !33
   %90 = fptoui float %89 to i8
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv130
@@ -1025,7 +1024,7 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
 104:                                              ; preds = %.lr.ph107, %104
   %indvars.iv120 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next121, %104 ]
   %105 = load ptr, ptr %97, align 8, !tbaa !30
-  %106 = getelementptr inbounds nuw float, ptr %105, i64 %indvars.iv120
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv120
   %107 = load float, ptr %106, align 4, !tbaa !33
   %108 = fptoui float %107 to i8
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv120
@@ -1038,7 +1037,7 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
   %indvars.iv125 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next126, %110 ]
   %111 = load ptr, ptr %98, align 8, !tbaa !30
   %112 = add nuw nsw i64 %indvars.iv125, %101
-  %113 = getelementptr inbounds nuw float, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %112
   %114 = load float, ptr %113, align 4, !tbaa !33
   %115 = fptoui float %114 to i8
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv125
@@ -1054,7 +1053,7 @@ define hidden range(i32 0, 2) i32 @lut3d_read_gmz(ptr noundef writeonly captures
 .thread91:                                        ; preds = %74, %.loopexit96, %92
   %117 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !44
-  %119 = getelementptr inbounds nuw %"struct.cimg_library::CImg.3", ptr %118, i64 %67
+  %119 = getelementptr inbounds nuw [32 x i8], ptr %118, i64 %67
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %121 = load ptr, ptr %120, align 8, !tbaa !48
   %122 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.075, ptr noundef %121)

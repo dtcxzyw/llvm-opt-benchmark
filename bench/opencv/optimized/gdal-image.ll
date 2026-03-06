@@ -16,13 +16,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::locale" = type { ptr }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [3 x i8] }
-%"struct.std::pair" = type { %"class.cv::Vec", double }
 %"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
 %"struct.cv::MatSize" = type { ptr }
 %"struct.cv::MatStep" = type { ptr, [2 x i64] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
+%"struct.std::pair" = type { %"class.cv::Vec", double }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
 %"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
@@ -136,7 +136,7 @@ define hidden void @_Z13get_dem_colorRKd(ptr dead_on_unwind noalias writable wri
 
 21:                                               ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds nuw %"struct.std::pair", ptr %4, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.next
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load double, ptr %23, align 8, !tbaa !15
   %25 = fcmp olt double %3, %24
@@ -145,7 +145,7 @@ define hidden void @_Z13get_dem_colorRKd(ptr dead_on_unwind noalias writable wri
 26:                                               ; preds = %21
   %27 = fsub double %24, %3
   %28 = and i64 %indvars.iv, 4294967295
-  %29 = getelementptr inbounds nuw %"struct.std::pair", ptr %4, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load double, ptr %30, align 8, !tbaa !15
   %32 = fsub double %24, %31
@@ -155,7 +155,7 @@ define hidden void @_Z13get_dem_colorRKd(ptr dead_on_unwind noalias writable wri
 .loopexit:                                        ; preds = %20, %26
   %.017 = phi double [ %33, %26 ], [ 0.000000e+00, %20 ]
   %.012 = phi i64 [ %28, %26 ], [ 0, %20 ]
-  %34 = getelementptr inbounds nuw %"struct.std::pair", ptr %4, i64 %.012
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.012
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %0, i8 0, i64 3, i1 false), !tbaa !25, !alias.scope !22
@@ -1089,13 +1089,13 @@ _ZNSt6vectorISt4pairIN2cv3VecIhLi3EEEdESaIS4_EE9push_backEOS4_.exit150: ; preds 
   %336 = load i64, ptr %335, align 8, !tbaa !62
   %337 = mul i64 %336, %indvars.iv239
   %338 = getelementptr inbounds nuw i8, ptr %334, i64 %337
-  %339 = getelementptr inbounds nuw %"class.cv::Vec", ptr %338, i64 %indvars.iv
+  %339 = getelementptr inbounds nuw [3 x i8], ptr %338, i64 %indvars.iv
   %340 = load ptr, ptr %223, align 8, !tbaa !84
   %341 = load ptr, ptr %224, align 8, !tbaa !85
   %342 = load i64, ptr %341, align 8, !tbaa !62
   %343 = mul i64 %342, %indvars.iv239
   %344 = getelementptr inbounds nuw i8, ptr %340, i64 %343
-  %345 = getelementptr inbounds nuw %"class.cv::Vec", ptr %344, i64 %indvars.iv
+  %345 = getelementptr inbounds nuw [3 x i8], ptr %344, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %345, ptr noundef nonnull align 1 dereferenceable(3) %339, i64 3, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.experimental.noalias.scope.decl(metadata !88)
@@ -1134,7 +1134,7 @@ _ZNSt6vectorISt4pairIN2cv3VecIhLi3EEEdESaIS4_EE9push_backEOS4_.exit150: ; preds 
 
 363:                                              ; preds = %362
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %364 = getelementptr inbounds nuw %"struct.std::pair", ptr %346, i64 %indvars.iv.next.i
+  %364 = getelementptr inbounds nuw [16 x i8], ptr %346, i64 %indvars.iv.next.i
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
   %366 = load double, ptr %365, align 8, !tbaa !15, !noalias !88
   %367 = fcmp olt double %storemerge59, %366
@@ -1143,7 +1143,7 @@ _ZNSt6vectorISt4pairIN2cv3VecIhLi3EEEdESaIS4_EE9push_backEOS4_.exit150: ; preds 
 368:                                              ; preds = %363
   %369 = fsub double %366, %storemerge59
   %370 = and i64 %indvars.iv.i, 4294967295
-  %371 = getelementptr inbounds nuw %"struct.std::pair", ptr %346, i64 %370
+  %371 = getelementptr inbounds nuw [16 x i8], ptr %346, i64 %370
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 8
   %373 = load double, ptr %372, align 8, !tbaa !15, !noalias !88
   %374 = fsub double %366, %373
@@ -1153,7 +1153,7 @@ _ZNSt6vectorISt4pairIN2cv3VecIhLi3EEEdESaIS4_EE9push_backEOS4_.exit150: ; preds 
 .loopexit.i:                                      ; preds = %362, %368
   %.017.i = phi double [ %375, %368 ], [ 0.000000e+00, %362 ]
   %.012.i = phi i64 [ %370, %368 ], [ 0, %362 ]
-  %376 = getelementptr inbounds nuw %"struct.std::pair", ptr %346, i64 %.012.i
+  %376 = getelementptr inbounds nuw [16 x i8], ptr %346, i64 %.012.i
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !91)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %17, i8 0, i64 3, i1 false), !tbaa !25, !alias.scope !94
@@ -1188,7 +1188,7 @@ _Z13get_dem_colorRKd.exit:                        ; preds = %379, %_ZN2cv3VecIhL
   %392 = load i64, ptr %391, align 8, !tbaa !62
   %393 = mul i64 %392, %indvars.iv239
   %394 = getelementptr inbounds nuw i8, ptr %390, i64 %393
-  %395 = getelementptr inbounds nuw %"class.cv::Vec", ptr %394, i64 %indvars.iv
+  %395 = getelementptr inbounds nuw [3 x i8], ptr %394, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %395, ptr noundef nonnull align 1 dereferenceable(3) %17, i64 3, i1 false)
   %396 = fcmp olt double %storemerge59, 1.000000e+01
   br i1 %396, label %397, label %408
@@ -1199,7 +1199,7 @@ _Z13get_dem_colorRKd.exit:                        ; preds = %379, %_ZN2cv3VecIhL
   %400 = load i64, ptr %399, align 8, !tbaa !62
   %401 = mul i64 %400, %indvars.iv239
   %402 = getelementptr inbounds nuw i8, ptr %398, i64 %401
-  %403 = getelementptr inbounds nuw %"class.cv::Vec", ptr %402, i64 %indvars.iv
+  %403 = getelementptr inbounds nuw [3 x i8], ptr %402, i64 %indvars.iv
   %404 = load i8, ptr %403, align 1, !tbaa !25
   %405 = icmp ult i8 %404, -91
   br i1 %405, label %406, label %_Z9add_colorRN2cv3VecIhLi3EEERKhS4_S4_.exit
@@ -1219,7 +1219,7 @@ _Z13get_dem_colorRKd.exit:                        ; preds = %379, %_ZN2cv3VecIhL
   %413 = load i64, ptr %412, align 8, !tbaa !62
   %414 = mul i64 %413, %indvars.iv239
   %415 = getelementptr inbounds nuw i8, ptr %411, i64 %414
-  %416 = getelementptr inbounds nuw %"class.cv::Vec", ptr %415, i64 %indvars.iv
+  %416 = getelementptr inbounds nuw [3 x i8], ptr %415, i64 %indvars.iv
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 1
   %418 = load i8, ptr %417, align 1, !tbaa !25
   %419 = icmp ult i8 %418, -91
@@ -1240,7 +1240,7 @@ _Z13get_dem_colorRKd.exit:                        ; preds = %379, %_ZN2cv3VecIhL
   %427 = load i64, ptr %426, align 8, !tbaa !62
   %428 = mul i64 %427, %indvars.iv239
   %429 = getelementptr inbounds nuw i8, ptr %425, i64 %428
-  %430 = getelementptr inbounds nuw %"class.cv::Vec", ptr %429, i64 %indvars.iv
+  %430 = getelementptr inbounds nuw [3 x i8], ptr %429, i64 %indvars.iv
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 2
   %432 = load i8, ptr %431, align 1, !tbaa !25
   %433 = icmp ult i8 %432, -91
@@ -1581,7 +1581,7 @@ _ZNSt12_Vector_baseISt4pairIN2cv3VecIhLi3EEEdESaIS4_EE13_M_deallocateEPS4_m.exit
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !74
-  %48 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i64 %16
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %48, ptr %47, align 8, !tbaa !75
   ret void
 }

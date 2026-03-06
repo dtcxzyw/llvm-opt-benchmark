@@ -253,7 +253,7 @@ sub_2:                                            ; preds = %sub_1
 
 33:                                               ; preds = %.lr.ph.i.tail
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %34 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i
   %35 = load ptr, ptr %34, align 8, !tbaa !29
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %get_xml_attr.exit.thread, label %.lr.ph.i, !llvm.loop !31
@@ -266,7 +266,7 @@ get_xml_attr.exit.thread:                         ; preds = %33, %17
 
 get_xml_attr.exit:                                ; preds = %.lr.ph.i.tail
   %38 = and i64 %indvars.iv.i, 4294967294
-  %39 = getelementptr inbounds nuw ptr, ptr %2, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !29
   br label %.lr.ph.i158
@@ -280,14 +280,14 @@ get_xml_attr.exit:                                ; preds = %.lr.ph.i.tail
 
 45:                                               ; preds = %.lr.ph.i158
   %indvars.iv.next.i160 = add nuw nsw i64 %indvars.iv.i159, 2
-  %46 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i160
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i160
   %47 = load ptr, ptr %46, align 8, !tbaa !29
   %.not.i161 = icmp eq ptr %47, null
   br i1 %.not.i161, label %get_xml_attr.exit163.thread, label %.lr.ph.i158, !llvm.loop !31
 
 get_xml_attr.exit163:                             ; preds = %.lr.ph.i158
   %48 = and i64 %indvars.iv.i159, 4294967294
-  %49 = getelementptr inbounds nuw ptr, ptr %2, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !29
   br label %get_xml_attr.exit163.thread
@@ -368,7 +368,7 @@ isAnonGraph.exit.thread:                          ; preds = %68, %74, %isAnonGra
 
 85:                                               ; preds = %.lr.ph.i166
   %indvars.iv.next.i168 = add nuw nsw i64 %indvars.iv.i167, 2
-  %86 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i168
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i168
   %87 = load ptr, ptr %86, align 8, !tbaa !29
   %.not.i169 = icmp eq ptr %87, null
   br i1 %.not.i169, label %get_xml_attr.exit171.thread, label %.lr.ph.i166, !llvm.loop !31
@@ -376,7 +376,7 @@ isAnonGraph.exit.thread:                          ; preds = %68, %74, %isAnonGra
 get_xml_attr.exit171:                             ; preds = %.lr.ph.i166
   %88 = load ptr, ptr @G, align 8, !tbaa !18
   %89 = and i64 %indvars.iv.i167, 4294967294
-  %90 = getelementptr inbounds nuw ptr, ptr %2, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !29
   call fastcc void @setGraphAttr(ptr noundef %88, ptr noundef nonnull @.str.15, ptr noundef %92, ptr noundef %0)
@@ -397,7 +397,7 @@ get_xml_attr.exit171.thread:                      ; preds = %85, %get_xml_attr.e
 
 96:                                               ; preds = %.lr.ph.i173
   %indvars.iv.next.i175 = add nuw nsw i64 %indvars.iv.i174, 2
-  %97 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i175
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i175
   %98 = load ptr, ptr %97, align 8, !tbaa !29
   %.not.i176 = icmp eq ptr %98, null
   br i1 %.not.i176, label %get_xml_attr.exit178.thread, label %.lr.ph.i173, !llvm.loop !31
@@ -405,7 +405,7 @@ get_xml_attr.exit171.thread:                      ; preds = %85, %get_xml_attr.e
 get_xml_attr.exit178:                             ; preds = %.lr.ph.i173
   %99 = load ptr, ptr @G, align 8, !tbaa !18
   %100 = and i64 %indvars.iv.i174, 4294967294
-  %101 = getelementptr inbounds nuw ptr, ptr %2, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %100
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !29
   call fastcc void @setGraphAttr(ptr noundef %99, ptr noundef nonnull @.str.17, ptr noundef %103, ptr noundef %0)
@@ -457,14 +457,14 @@ sub_2264:                                         ; preds = %sub_1263
 
 123:                                              ; preds = %.lr.ph.i180.tail
   %indvars.iv.next.i182 = add nuw nsw i64 %indvars.iv.i181, 2
-  %124 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i182
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i182
   %125 = load ptr, ptr %124, align 8, !tbaa !29
   %.not.i183 = icmp eq ptr %125, null
   br i1 %.not.i183, label %get_xml_attr.exit185.thread, label %.lr.ph.i180, !llvm.loop !31
 
 get_xml_attr.exit185:                             ; preds = %.lr.ph.i180.tail
   %126 = and i64 %indvars.iv.i181, 4294967294
-  %127 = getelementptr inbounds nuw ptr, ptr %2, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load ptr, ptr %128, align 8, !tbaa !29
   %.not154 = icmp eq ptr %129, null
@@ -501,14 +501,14 @@ get_xml_attr.exit185:                             ; preds = %.lr.ph.i180.tail
 
 142:                                              ; preds = %.lr.ph.i187
   %indvars.iv.next.i189 = add nuw nsw i64 %indvars.iv.i188, 2
-  %143 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i189
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i189
   %144 = load ptr, ptr %143, align 8, !tbaa !29
   %.not.i190 = icmp eq ptr %144, null
   br i1 %.not.i190, label %get_xml_attr.exit192.thread, label %.lr.ph.i187, !llvm.loop !31
 
 get_xml_attr.exit192:                             ; preds = %.lr.ph.i187
   %145 = and i64 %indvars.iv.i188, 4294967294
-  %146 = getelementptr inbounds nuw ptr, ptr %2, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load ptr, ptr %147, align 8, !tbaa !29
   br label %get_xml_attr.exit192.thread
@@ -548,14 +548,14 @@ sub_2268:                                         ; preds = %sub_1267
 
 163:                                              ; preds = %.lr.ph.i194.tail
   %indvars.iv.next.i196 = add nuw nsw i64 %indvars.iv.i195, 2
-  %164 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i196
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i196
   %165 = load ptr, ptr %164, align 8, !tbaa !29
   %.not.i197 = icmp eq ptr %165, null
   br i1 %.not.i197, label %get_xml_attr.exit199.thread, label %.lr.ph.i194, !llvm.loop !31
 
 get_xml_attr.exit199:                             ; preds = %.lr.ph.i194.tail
   %166 = and i64 %indvars.iv.i195, 4294967294
-  %167 = getelementptr inbounds nuw ptr, ptr %2, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %166
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load ptr, ptr %168, align 8, !tbaa !29
   br label %get_xml_attr.exit199.thread
@@ -637,7 +637,7 @@ mapLookup.exit204:                                ; preds = %mapLookup.exit, %18
 
 207:                                              ; preds = %.lr.ph.i206
   %indvars.iv.next.i208 = add nuw nsw i64 %indvars.iv.i207, 2
-  %208 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i208
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i208
   %209 = load ptr, ptr %208, align 8, !tbaa !29
   %.not.i209 = icmp eq ptr %209, null
   br i1 %.not.i209, label %get_xml_attr.exit211.thread, label %.lr.ph.i206, !llvm.loop !31
@@ -645,7 +645,7 @@ mapLookup.exit204:                                ; preds = %mapLookup.exit, %18
 get_xml_attr.exit211:                             ; preds = %.lr.ph.i206
   %210 = load ptr, ptr @E, align 8, !tbaa !45
   %211 = and i64 %indvars.iv.i207, 4294967294
-  %212 = getelementptr inbounds nuw ptr, ptr %2, i64 %211
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %211
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %214 = load ptr, ptr %213, align 8, !tbaa !29
   tail call fastcc void @setEdgeAttr(ptr noundef %210, ptr noundef nonnull @.str.23, ptr noundef %214, ptr noundef %0, i1 noundef zeroext false)
@@ -666,7 +666,7 @@ get_xml_attr.exit211.thread:                      ; preds = %207, %get_xml_attr.
 
 218:                                              ; preds = %.lr.ph.i213
   %indvars.iv.next.i215 = add nuw nsw i64 %indvars.iv.i214, 2
-  %219 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i215
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i215
   %220 = load ptr, ptr %219, align 8, !tbaa !29
   %.not.i216 = icmp eq ptr %220, null
   br i1 %.not.i216, label %get_xml_attr.exit218.thread, label %.lr.ph.i213, !llvm.loop !31
@@ -674,7 +674,7 @@ get_xml_attr.exit211.thread:                      ; preds = %207, %get_xml_attr.
 get_xml_attr.exit218:                             ; preds = %.lr.ph.i213
   %221 = load ptr, ptr @E, align 8, !tbaa !45
   %222 = and i64 %indvars.iv.i214, 4294967294
-  %223 = getelementptr inbounds nuw ptr, ptr %2, i64 %222
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %222
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %225 = load ptr, ptr %224, align 8, !tbaa !29
   tail call fastcc void @setEdgeAttr(ptr noundef %221, ptr noundef nonnull @.str.25, ptr noundef %225, ptr noundef %0, i1 noundef zeroext false)
@@ -717,7 +717,7 @@ sub_2272:                                         ; preds = %sub_1271
 
 240:                                              ; preds = %.lr.ph.i220.tail
   %indvars.iv.next.i222 = add nuw nsw i64 %indvars.iv.i221, 2
-  %241 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i222
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i222
   %242 = load ptr, ptr %241, align 8, !tbaa !29
   %.not.i223 = icmp eq ptr %242, null
   br i1 %.not.i223, label %get_xml_attr.exit185.thread, label %.lr.ph.i220, !llvm.loop !31
@@ -725,7 +725,7 @@ sub_2272:                                         ; preds = %sub_1271
 get_xml_attr.exit225:                             ; preds = %.lr.ph.i220.tail
   %243 = load ptr, ptr @E, align 8, !tbaa !45
   %244 = and i64 %indvars.iv.i221, 4294967294
-  %245 = getelementptr inbounds nuw ptr, ptr %2, i64 %244
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %244
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %247 = load ptr, ptr %246, align 8, !tbaa !29
   tail call fastcc void @setEdgeAttr(ptr noundef %243, ptr noundef nonnull @.str.26, ptr noundef %247, ptr noundef %0, i1 noundef zeroext false)
@@ -756,14 +756,14 @@ get_xml_attr.exit225:                             ; preds = %.lr.ph.i220.tail
 
 259:                                              ; preds = %.lr.ph.i227
   %indvars.iv.next.i229 = add nuw nsw i64 %indvars.iv.i228, 2
-  %260 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i229
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i229
   %261 = load ptr, ptr %260, align 8, !tbaa !29
   %.not.i230 = icmp eq ptr %261, null
   br i1 %.not.i230, label %get_xml_attr.exit232, label %.lr.ph.i227, !llvm.loop !31
 
 get_xml_attr.exit232:                             ; preds = %259, %251, %256
   %.07.i231 = phi i64 [ %258, %256 ], [ -1, %251 ], [ -1, %259 ]
-  %262 = getelementptr inbounds ptr, ptr %2, i64 %.07.i231
+  %262 = getelementptr inbounds [8 x i8], ptr %2, i64 %.07.i231
   %263 = load ptr, ptr %262, align 8, !tbaa !29
   %264 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %263) #27
   %265 = icmp eq i64 %264, 0
@@ -838,14 +838,14 @@ agxbput.exit:                                     ; preds = %get_xml_attr.exit23
 
 295:                                              ; preds = %.lr.ph.i234
   %indvars.iv.next.i236 = add nuw nsw i64 %indvars.iv.i235, 2
-  %296 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i236
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i236
   %297 = load ptr, ptr %296, align 8, !tbaa !29
   %.not.i237 = icmp eq ptr %297, null
   br i1 %.not.i237, label %get_xml_attr.exit239.thread, label %.lr.ph.i234, !llvm.loop !31
 
 get_xml_attr.exit239:                             ; preds = %.lr.ph.i234
   %298 = and i64 %indvars.iv.i235, 4294967294
-  %299 = getelementptr inbounds nuw ptr, ptr %2, i64 %298
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %298
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 8
   %301 = load ptr, ptr %300, align 8, !tbaa !29
   %302 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(5) @.str.18, ptr noundef nonnull dereferenceable(1) %301) #27
@@ -952,7 +952,7 @@ get_xml_attr.exit239.thread:                      ; preds = %295, %agxbput.exit
 
 356:                                              ; preds = %353
   %357 = zext nneg i32 %354 to i64
-  %358 = getelementptr inbounds nuw ptr, ptr %2, i64 %357
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %357
   %359 = load ptr, ptr %358, align 8, !tbaa !29
   tail call fastcc void @setAttr(ptr noundef nonnull @.str.41, ptr noundef %359, ptr noundef %0, i1 noundef zeroext false)
   br label %get_xml_attr.exit185.thread
@@ -969,7 +969,7 @@ get_xml_attr.exit239.thread:                      ; preds = %295, %agxbput.exit
 
 366:                                              ; preds = %363
   %367 = zext nneg i32 %364 to i64
-  %368 = getelementptr inbounds nuw ptr, ptr %2, i64 %367
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %367
   %369 = load ptr, ptr %368, align 8, !tbaa !29
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %370, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, ptr noundef %369)
@@ -1047,7 +1047,7 @@ define internal void @endElementHandler(ptr noundef %0, ptr noundef %1) #0 {
   %19 = add i64 %7, -2
   %20 = add i64 %19, %15
   %21 = urem i64 %20, %16
-  %22 = getelementptr inbounds nuw ptr, ptr %14, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !18
   store ptr %23, ptr @G, align 8, !tbaa !18
   br label %pop_subg.exit
@@ -1794,7 +1794,7 @@ define internal fastcc range(i32 1, 0) i32 @get_xml_attr(ptr noundef readonly ca
 
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8, !tbaa !29
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
@@ -1834,7 +1834,7 @@ define internal fastcc void @push_subg(ptr noundef %0) unnamed_addr #0 {
 
 13:                                               ; preds = %8
   %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @Gstack, i64 24), align 8, !tbaa !59
-  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %14
   %16 = sub i64 %spec.select.i.i.i, %14
   %17 = shl i64 %16, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %15, i8 0, i64 %17, i1 false)
@@ -1847,8 +1847,8 @@ define internal fastcc void @push_subg(ptr noundef %0) unnamed_addr #0 {
 22:                                               ; preds = %13
   %23 = sub i64 %14, %18
   %24 = sub i64 %spec.select.i.i.i, %23
-  %25 = getelementptr inbounds nuw ptr, ptr %11, i64 %24
-  %26 = getelementptr inbounds nuw ptr, ptr %11, i64 %18
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %18
   %27 = shl i64 %23, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 8 %26, i64 %27, i1 false)
   store i64 %24, ptr getelementptr inbounds nuw (i8, ptr @Gstack, i64 8), align 8, !tbaa !58
@@ -1875,7 +1875,7 @@ graph_stack_push_back.exit:                       ; preds = %._crit_edge.i.i.i, 
   %37 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %29, %28 ]
   %38 = add i64 %37, %36
   %39 = urem i64 %38, %35
-  %40 = getelementptr inbounds nuw ptr, ptr %34, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %39
   store ptr %0, ptr %40, align 8, !tbaa !18
   %41 = add i64 %36, 1
   store i64 %41, ptr getelementptr inbounds nuw (i8, ptr @Gstack, i64 16), align 8, !tbaa !32

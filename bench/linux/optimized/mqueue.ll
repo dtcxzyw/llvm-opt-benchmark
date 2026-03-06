@@ -1347,7 +1347,7 @@ define internal fastcc i32 @do_mq_open(ptr noundef %0, i32 noundef %1, i16 nound
 
 83:                                               ; preds = %80
   %84 = zext nneg i32 %81 to i64
-  %85 = getelementptr i32, ptr @prepare_open.oflag2acc, i64 %84
+  %85 = getelementptr [4 x i8], ptr @prepare_open.oflag2acc, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = load ptr, ptr %47, align 8
   %88 = tail call i32 @inode_permission(ptr noundef nonnull @nop_mnt_idmap, ptr noundef %87, i32 noundef %86) #15

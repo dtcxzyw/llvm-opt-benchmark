@@ -50,11 +50,11 @@ define internal range(i32 0, 2) i32 @test_cfq() #0 {
 
 .preheader81:                                     ; preds = %0, %3
   %.05483 = phi i64 [ %4, %3 ], [ 0, %0 ]
-  %5 = getelementptr inbounds nuw i32, ptr @ref_priority, i64 %.05483
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @ref_priority, i64 %.05483
   %6 = load i32, ptr %5, align 4, !tbaa !6
-  %7 = getelementptr inbounds nuw i32, ptr @ref_pn_space, i64 %.05483
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @ref_pn_space, i64 %.05483
   %8 = load i32, ptr %7, align 4, !tbaa !6
-  %9 = getelementptr inbounds nuw i64, ptr @ref_frame_type, i64 %.05483
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @ref_frame_type, i64 %.05483
   %10 = load i64, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr @ref_buf, i64 %.05483
   %12 = tail call ptr @ossl_quic_cfq_add_frame(ptr noundef %1, i32 noundef %6, i32 noundef %8, i64 noundef %10, i32 noundef 0, ptr noundef nonnull %11, i64 noundef 1, ptr noundef nonnull @free_cb, ptr noundef null) #3
@@ -129,12 +129,12 @@ define internal range(i32 0, 2) i32 @test_cfq() #0 {
 
 .preheader76:                                     ; preds = %34, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %34 ]
-  %38 = getelementptr inbounds nuw [10 x ptr], ptr @items, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [80 x i8], ptr @items, i64 %indvars.iv
   br label %39
 
 39:                                               ; preds = %.preheader76, %43
   %.15588 = phi i64 [ 0, %.preheader76 ], [ %44, %43 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %.15588
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.15588
   %41 = load ptr, ptr %40, align 8, !tbaa !15
   %.not65 = icmp eq ptr %41, null
   br i1 %.not65, label %43, label %42
@@ -160,12 +160,12 @@ define internal range(i32 0, 2) i32 @test_cfq() #0 {
 
 .preheader74:                                     ; preds = %46, %55
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %55 ], [ 0, %46 ]
-  %48 = getelementptr inbounds nuw [10 x ptr], ptr @items, i64 %indvars.iv101
+  %48 = getelementptr inbounds nuw [80 x i8], ptr @items, i64 %indvars.iv101
   br label %49
 
 49:                                               ; preds = %.preheader74, %53
   %.25690 = phi i64 [ 0, %.preheader74 ], [ %54, %53 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %.25690
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.25690
   %51 = load ptr, ptr %50, align 8, !tbaa !15
   %.not64 = icmp eq ptr %51, null
   br i1 %.not64, label %53, label %52
@@ -246,9 +246,9 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef %0) unnamed_addr #
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %3 = trunc nuw nsw i64 %indvars.iv to i32
   %4 = tail call ptr @ossl_quic_cfq_get_priority_head(ptr noundef %0, i32 noundef %3) #3
-  %5 = getelementptr inbounds nuw [11 x i32], ptr @expect, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [44 x i8], ptr @expect, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !6
-  %7 = getelementptr inbounds nuw [10 x ptr], ptr @items, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [80 x i8], ptr @items, i64 %indvars.iv
   br label %9
 
 ._crit_edge:                                      ; preds = %24
@@ -260,7 +260,7 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef %0) unnamed_addr #
   %10 = phi i32 [ %6, %.lr.ph ], [ %28, %24 ]
   %.02030 = phi i64 [ 0, %.lr.ph ], [ %25, %24 ]
   %.02129 = phi ptr [ %4, %.lr.ph ], [ %26, %24 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %.02030
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.02030
   store ptr %.02129, ptr %11, align 8, !tbaa !15
   %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 86, ptr noundef nonnull @.str.15, ptr noundef %.02129) #3
   %.not = icmp eq i32 %12, 0
@@ -289,7 +289,7 @@ define internal fastcc range(i32 0, 2) i32 @check(ptr noundef %0) unnamed_addr #
 24:                                               ; preds = %21
   %25 = add i64 %.02030, 1
   %26 = tail call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef %.02129, i32 noundef %3) #3
-  %27 = getelementptr inbounds nuw i32, ptr %5, i64 %25
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %25
   %28 = load i32, ptr %27, align 4, !tbaa !6
   %29 = icmp eq i32 %28, -1
   br i1 %29, label %._crit_edge, label %9

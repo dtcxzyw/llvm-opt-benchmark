@@ -1069,7 +1069,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %345
 
 .lr.ph:                                           ; preds = %.lr.ph150.split, %426
   %indvars.iv = phi i64 [ %indvars.iv.next, %426 ], [ 0, %.lr.ph150.split ]
-  %410 = getelementptr inbounds nuw i32, ptr %399, i64 %indvars.iv
+  %410 = getelementptr inbounds nuw [4 x i8], ptr %399, i64 %indvars.iv
   %411 = load i32, ptr %410, align 4, !tbaa !27
   %412 = sitofp i32 %411 to double
   %413 = call double @llvm.fmuladd.f64(double %412, double 0x3FE3C6EF372FE951, double 0x3FCF499FDC28E049)

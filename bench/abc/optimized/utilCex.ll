@@ -148,7 +148,7 @@ define noalias noundef ptr @Abc_CexCreate(i32 noundef %0, i32 noundef %1, ptr no
   %30 = phi i32 [ %9, %.lr.ph ], [ %44, %43 ]
   %indvars.iv = phi i64 [ %26, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %31 = sub nsw i64 %indvars.iv, %26
-  %32 = getelementptr inbounds i32, ptr %2, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %2, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !12
   %.not30 = icmp eq i32 %33, 0
   br i1 %.not30, label %43, label %34
@@ -159,7 +159,7 @@ define noalias noundef ptr @Abc_CexCreate(i32 noundef %0, i32 noundef %1, ptr no
   %37 = shl nuw i32 1, %36
   %38 = ashr i32 %35, 5
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i32, ptr %25, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %25, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !12
   %42 = or i32 %41, %37
   store i32 %42, ptr %40, align 4, !tbaa !12
@@ -175,7 +175,7 @@ define noalias noundef ptr @Abc_CexCreate(i32 noundef %0, i32 noundef %1, ptr no
 
 47:                                               ; preds = %.lr.ph35, %59
   %indvars.iv38 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next39, %59 ]
-  %48 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv38
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv38
   %49 = load i32, ptr %48, align 4, !tbaa !12
   %.not29 = icmp eq i32 %49, 0
   br i1 %.not29, label %59, label %50
@@ -186,7 +186,7 @@ define noalias noundef ptr @Abc_CexCreate(i32 noundef %0, i32 noundef %1, ptr no
   %53 = shl nuw i32 1, %52
   %54 = lshr i64 %indvars.iv38, 5
   %55 = and i64 %54, 134217727
-  %56 = getelementptr inbounds nuw i32, ptr %28, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !12
   %58 = or i32 %57, %53
   store i32 %58, ptr %56, align 4, !tbaa !12
@@ -251,7 +251,7 @@ define noundef ptr @Abc_CexDup(ptr noundef readonly captures(address) %0, i32 no
   %.026 = phi i32 [ %7, %.lr.ph ], [ %53, %52 ]
   %34 = ashr i32 %.026, 5
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i32, ptr %31, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %31, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !12
   %38 = and i32 %.026, 31
   %39 = shl nuw i32 1, %38
@@ -267,7 +267,7 @@ define noundef ptr @Abc_CexDup(ptr noundef readonly captures(address) %0, i32 no
   %46 = shl nuw i32 1, %45
   %47 = ashr i32 %44, 5
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr %32, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %32, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !12
   %51 = or i32 %46, %50
   store i32 %51, ptr %49, align 4, !tbaa !12
@@ -312,7 +312,7 @@ define noalias noundef ptr @Abc_CexDeriveFromCombModel(ptr noundef readonly capt
 
 19:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !12
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %31, label %22
@@ -323,7 +323,7 @@ define noalias noundef ptr @Abc_CexDeriveFromCombModel(ptr noundef readonly capt
   %25 = shl nuw i32 1, %24
   %26 = lshr i64 %indvars.iv, 5
   %27 = and i64 %26, 134217727
-  %28 = getelementptr inbounds nuw i32, ptr %18, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !12
   %30 = or i32 %29, %25
   store i32 %30, ptr %28, align 4, !tbaa !12
@@ -448,7 +448,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr noundef readonly captures(none) %0,
   %62 = add nsw i32 %60, %.079104.us
   %63 = ashr i32 %62, 5
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i32, ptr %57, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %57, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !12
   %67 = and i32 %62, 31
   %68 = shl nuw i32 1, %67
@@ -461,7 +461,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr noundef readonly captures(none) %0,
   %72 = shl nuw i32 1, %71
   %73 = ashr i32 %.2105.us, 5
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i32, ptr %58, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %58, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !12
   %77 = or i32 %76, %72
   store i32 %77, ptr %75, align 4, !tbaa !12
@@ -482,7 +482,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr noundef readonly captures(none) %0,
   %.0103 = phi i32 [ 0, %.lr.ph ], [ %95, %94 ]
   %83 = lshr i32 %.0103, 5
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %54, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !12
   %87 = and i32 %.0103, 31
   %88 = shl nuw i32 1, %87
@@ -491,7 +491,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr noundef readonly captures(none) %0,
   br i1 %.not93, label %94, label %90
 
 90:                                               ; preds = %82
-  %91 = getelementptr inbounds nuw i32, ptr %55, i64 %84
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %84
   %92 = load i32, ptr %91, align 4, !tbaa !12
   %93 = or i32 %92, %88
   store i32 %93, ptr %91, align 4, !tbaa !12
@@ -531,7 +531,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr noundef readonly captures(none) %0,
   %.reass.us = add i32 %.180111.us, %invariant.op.us
   %104 = ashr i32 %.reass.us, 5
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds i32, ptr %98, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %98, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !12
   %108 = and i32 %.reass.us, 31
   %109 = shl nuw i32 1, %108
@@ -544,7 +544,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr noundef readonly captures(none) %0,
   %113 = shl nuw i32 1, %112
   %114 = ashr i32 %.4112.us, 5
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i32, ptr %99, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %99, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !12
   %118 = or i32 %117, %113
   store i32 %118, ptr %116, align 4, !tbaa !12
@@ -585,7 +585,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr noundef readonly captures(none) %0,
   %129 = add nsw i32 %127, %.281120.us
   %130 = ashr i32 %129, 5
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds i32, ptr %124, i64 %131
+  %132 = getelementptr inbounds [4 x i8], ptr %124, i64 %131
   %133 = load i32, ptr %132, align 4, !tbaa !12
   %134 = and i32 %129, 31
   %135 = shl nuw i32 1, %134
@@ -598,7 +598,7 @@ define noalias noundef ptr @Abc_CexMerge(ptr noundef readonly captures(none) %0,
   %139 = shl nuw i32 1, %138
   %140 = ashr i32 %.6121.us, 5
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i32, ptr %125, i64 %141
+  %142 = getelementptr inbounds [4 x i8], ptr %125, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !12
   %144 = or i32 %143, %139
   store i32 %144, ptr %142, align 4, !tbaa !12
@@ -654,7 +654,7 @@ define void @Abc_CexPrintStats(ptr noundef %0) local_unnamed_addr #4 {
   %.01620 = phi i32 [ 0, %.lr.ph ], [ %17, %8 ]
   %9 = lshr i32 %.01620, 5
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !12
   %13 = and i32 %.01620, 31
   %14 = lshr i32 %12, %13
@@ -716,7 +716,7 @@ define void @Abc_CexPrintStatsInputs(ptr noundef %0, i32 noundef %1) local_unnam
   %.04250.us = phi i32 [ %18, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %10 = lshr i32 %.04250.us, 5
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !12
   %14 = and i32 %.04250.us, 31
   %15 = lshr i32 %13, %14
@@ -746,7 +746,7 @@ define void @Abc_CexPrintStatsInputs(ptr noundef %0, i32 noundef %1) local_unnam
   %.04250 = phi i32 [ 0, %.lr.ph.split ], [ %37, %23 ]
   %24 = lshr i32 %.04250, 5
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %6, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !12
   %28 = and i32 %.04250, 31
   %29 = lshr i32 %27, %28
@@ -836,7 +836,7 @@ define void @Abc_CexPrint(ptr noundef %0) local_unnamed_addr #4 {
   %.01620.i = phi i32 [ 0, %.lr.ph.i ], [ %16, %7 ]
   %8 = lshr i32 %.01620.i, 5
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !12
   %12 = and i32 %.01620.i, 31
   %13 = lshr i32 %11, %12
@@ -874,7 +874,7 @@ define void @Abc_CexPrint(ptr noundef %0) local_unnamed_addr #4 {
   %.021 = phi i32 [ 0, %.lr.ph ], [ %43, %34 ]
   %35 = lshr i32 %.021, 5
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !12
   %39 = and i32 %.021, 31
   %40 = lshr i32 %38, %39
@@ -910,7 +910,7 @@ define void @Abc_CexPrint(ptr noundef %0) local_unnamed_addr #4 {
   %52 = add nsw i32 %.223, 1
   %53 = ashr i32 %.223, 5
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %47, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %47, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !12
   %57 = and i32 %.223, 31
   %58 = lshr i32 %56, %57
@@ -1031,7 +1031,7 @@ define noundef ptr @Abc_CexTransformPhase(ptr noundef readonly captures(address)
   %.026.i = phi i32 [ %11, %.lr.ph.i ], [ %55, %54 ]
   %36 = ashr i32 %.026.i, 5
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i32, ptr %33, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %33, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !12
   %40 = and i32 %.026.i, 31
   %41 = shl nuw i32 1, %40
@@ -1047,7 +1047,7 @@ define noundef ptr @Abc_CexTransformPhase(ptr noundef readonly captures(address)
   %48 = shl nuw i32 1, %47
   %49 = ashr i32 %46, 5
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i32, ptr %34, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %34, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !12
   %53 = or i32 %48, %52
   store i32 %53, ptr %51, align 4, !tbaa !12
@@ -1134,7 +1134,7 @@ define noalias noundef ptr @Abc_CexTransformTempor(ptr noundef readonly captures
   %.reass.us = add i32 %.04249.us, %invariant.op.us
   %37 = ashr i32 %.reass.us, 5
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %30, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %30, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !12
   %41 = and i32 %.reass.us, 31
   %42 = shl nuw i32 1, %41
@@ -1147,7 +1147,7 @@ define noalias noundef ptr @Abc_CexTransformTempor(ptr noundef readonly captures
   %46 = shl nuw i32 1, %45
   %47 = ashr i32 %.14150.us, 5
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr %31, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %31, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !12
   %51 = or i32 %50, %46
   store i32 %51, ptr %49, align 4, !tbaa !12
@@ -1192,7 +1192,7 @@ define noalias noundef ptr @Abc_CexTransformTempor(ptr noundef readonly captures
   %.reass.us60 = add i32 %.14354.us, %invariant.op.us61
   %62 = ashr i32 %.reass.us60, 5
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i32, ptr %56, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %56, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !12
   %66 = and i32 %.reass.us60, 31
   %67 = shl nuw i32 1, %66
@@ -1205,7 +1205,7 @@ define noalias noundef ptr @Abc_CexTransformTempor(ptr noundef readonly captures
   %71 = shl nuw i32 1, %70
   %72 = ashr i32 %.355.us, 5
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i32, ptr %57, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %57, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !12
   %76 = or i32 %75, %71
   store i32 %76, ptr %74, align 4, !tbaa !12
@@ -1317,7 +1317,7 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr noundef readonly captures(n
   %45 = add i32 %44, %43
   %46 = ashr i32 %45, 5
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %32, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %32, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !12
   %50 = and i32 %45, 31
   %51 = shl nuw i32 1, %50
@@ -1331,7 +1331,7 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr noundef readonly captures(n
   %56 = shl nuw i32 1, %55
   %57 = lshr i64 %indvars.iv85, 5
   %58 = and i64 %57, 134217727
-  %59 = getelementptr inbounds nuw i32, ptr %34, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !12
   %61 = or i32 %60, %56
   store i32 %61, ptr %59, align 4, !tbaa !12
@@ -1367,7 +1367,7 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr noundef readonly captures(n
   %.reass = add i32 %.15672, %invariant.op
   %73 = ashr i32 %.reass, 5
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i32, ptr %35, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %35, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !12
   %77 = and i32 %.reass, 31
   %78 = shl nuw i32 1, %77
@@ -1380,7 +1380,7 @@ define noalias noundef ptr @Abc_CexTransformUndc(ptr noundef readonly captures(n
   %82 = shl nuw i32 1, %81
   %83 = lshr i32 %.273, 5
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %37, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !12
   %87 = or i32 %86, %82
   store i32 %87, ptr %85, align 4, !tbaa !12
@@ -1454,7 +1454,7 @@ define noalias noundef ptr @Abc_CexPermute(ptr noundef readonly captures(none) %
   %.024 = phi i32 [ %4, %.lr.ph ], [ %56, %55 ]
   %32 = ashr i32 %.024, 5
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i32, ptr %28, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %28, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !12
   %36 = and i32 %.024, 31
   %37 = shl nuw i32 1, %36
@@ -1468,7 +1468,7 @@ define noalias noundef ptr @Abc_CexPermute(ptr noundef readonly captures(none) %
   %41 = srem i32 %.fr, %6
   %.val = load ptr, ptr %29, align 8, !tbaa !43
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %.val, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %.val, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !12
   %45 = add i32 %.fr, %4
   %46 = sub i32 %45, %41
@@ -1477,7 +1477,7 @@ define noalias noundef ptr @Abc_CexPermute(ptr noundef readonly captures(none) %
   %49 = shl nuw i32 1, %48
   %50 = ashr i32 %47, 5
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %30, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %30, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !12
   %54 = or i32 %49, %53
   store i32 %54, ptr %52, align 4, !tbaa !12
@@ -1532,12 +1532,12 @@ Vec_IntStartFull.exit:                            ; preds = %3, %Vec_IntAlloc.ex
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.critedge.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %19 = getelementptr inbounds nuw i32, ptr %.val14, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.val14, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !12
-  %21 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = sext i32 %20 to i64
-  %24 = getelementptr inbounds i32, ptr %13, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %13, i64 %23
   store i32 %22, ptr %24, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = icmp samesign ult i64 %indvars.iv.next, %18
@@ -1584,7 +1584,7 @@ Vec_IntStartFull.exit:                            ; preds = %3, %Vec_IntAlloc.ex
   %.024.i = phi i32 [ %27, %.lr.ph.i ], [ %76, %75 ]
   %52 = ashr i32 %.024.i, 5
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i32, ptr %49, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %49, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !12
   %56 = and i32 %.024.i, 31
   %57 = shl nuw i32 1, %56
@@ -1597,7 +1597,7 @@ Vec_IntStartFull.exit:                            ; preds = %3, %Vec_IntAlloc.ex
   %.fr.i = freeze i32 %60
   %61 = srem i32 %.fr.i, %5
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i32, ptr %13, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %13, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !12
   %65 = add i32 %.fr.i, %27
   %66 = sub i32 %65, %61
@@ -1606,7 +1606,7 @@ Vec_IntStartFull.exit:                            ; preds = %3, %Vec_IntAlloc.ex
   %69 = shl nuw i32 1, %68
   %70 = ashr i32 %67, 5
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %50, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %50, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !12
   %74 = or i32 %69, %73
   store i32 %74, ptr %72, align 4, !tbaa !12
@@ -1649,7 +1649,7 @@ define i32 @Abc_CexCountOnes(ptr noundef readonly captures(none) %0) local_unnam
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.09 = phi i32 [ 0, %.lr.ph ], [ %15, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !12
   %14 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %13)
   %15 = add nuw nsw i32 %14, %.09

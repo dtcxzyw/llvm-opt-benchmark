@@ -1000,7 +1000,7 @@ define internal range(i32 0, 2) i32 @test_multi_shared_pkey_release() #1 {
   %21 = load i64, ptr @multi_num_threads, align 8, !tbaa !12
   %22 = add i64 %21, 1
   store i64 %22, ptr @multi_num_threads, align 8, !tbaa !12
-  %23 = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @multi_threads, i64 %21
   %24 = tail call i32 @pthread_create(ptr noundef nonnull %23, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef nonnull @thread_release_shared_pkey) #11
   %25 = icmp eq i32 %24, 0
   %26 = zext i1 %25 to i32
@@ -1021,7 +1021,7 @@ start_threads.exit:                               ; preds = %19
 
 .lr.ph.i:                                         ; preds = %start_threads.exit, %29
   %.05.i13 = phi i64 [ %30, %29 ], [ 0, %start_threads.exit ]
-  %33 = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %.05.i13
+  %33 = getelementptr inbounds nuw [8 x i8], ptr @multi_threads, i64 %.05.i13
   %34 = load i64, ptr %33, align 8, !tbaa !12
   %35 = tail call i32 @pthread_join(i64 noundef %34, ptr noundef null) #11
   %36 = icmp eq i32 %35, 0
@@ -1124,7 +1124,7 @@ thread_setup_libctx.exit:                         ; preds = %0
   %23 = load i64, ptr @multi_num_threads, align 8, !tbaa !12
   %24 = add i64 %23, 1
   store i64 %24, ptr @multi_num_threads, align 8, !tbaa !12
-  %25 = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @multi_threads, i64 %23
   %26 = tail call i32 @pthread_create(ptr noundef nonnull %25, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef nonnull @thread_provider_load_unload) #11
   %27 = icmp eq i32 %26, 0
   %28 = zext i1 %27 to i32
@@ -1146,7 +1146,7 @@ start_threads.exit:                               ; preds = %22
 
 .lr.ph.i:                                         ; preds = %start_threads.exit, %31
   %.05.i11 = phi i64 [ %32, %31 ], [ 0, %start_threads.exit ]
-  %35 = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %.05.i11
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @multi_threads, i64 %.05.i11
   %36 = load i64, ptr %35, align 8, !tbaa !12
   %37 = tail call i32 @pthread_join(i64 noundef %36, ptr noundef null) #11
   %38 = icmp eq i32 %37, 0
@@ -1280,7 +1280,7 @@ define internal fastcc range(i32 0, 2) i32 @thread_run_test(ptr noundef readonly
   %13 = load i64, ptr @multi_num_threads, align 8, !tbaa !12
   %14 = add i64 %13, 1
   store i64 %14, ptr @multi_num_threads, align 8, !tbaa !12
-  %15 = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @multi_threads, i64 %13
   %16 = tail call i32 @pthread_create(ptr noundef nonnull %15, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef %2) #11
   %17 = icmp eq i32 %16, 0
   %18 = zext i1 %17 to i32
@@ -1309,7 +1309,7 @@ start_threads.exit:                               ; preds = %11
 
 .lr.ph.i:                                         ; preds = %21, %23
   %.05.i11 = phi i64 [ %24, %23 ], [ 0, %21 ]
-  %27 = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %.05.i11
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @multi_threads, i64 %.05.i11
   %28 = load i64, ptr %27, align 8, !tbaa !12
   %29 = tail call i32 @pthread_join(i64 noundef %28, ptr noundef null) #11
   %30 = icmp eq i32 %29, 0
@@ -1404,7 +1404,7 @@ define internal fastcc range(i32 0, 2) i32 @thread_setup_libctx(i32 noundef rang
 
 11:                                               ; preds = %16
   %12 = add i64 %.017, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %1, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !6
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !29
@@ -1416,11 +1416,11 @@ define internal fastcc range(i32 0, 2) i32 @thread_setup_libctx(i32 noundef rang
   br i1 %.not14, label %23, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %.017
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.017
   %18 = load ptr, ptr @multi_libctx, align 8, !tbaa !16
   %19 = load ptr, ptr %17, align 8, !tbaa !6
   %20 = tail call ptr @OSSL_PROVIDER_load(ptr noundef %18, ptr noundef %19) #11
-  %21 = getelementptr inbounds nuw ptr, ptr @multi_provider, i64 %.017
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @multi_provider, i64 %.017
   store ptr %20, ptr %21, align 8, !tbaa !24
   %22 = tail call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 759, ptr noundef nonnull @.str.48, ptr noundef %20) #11
   %.not15 = icmp eq i32 %22, 0
@@ -2549,7 +2549,7 @@ define internal fastcc range(i32 0, 2) i32 @test_multi_shared_pkey_common(ptr no
   %13 = load i64, ptr @multi_num_threads, align 8, !tbaa !12
   %14 = add i64 %13, 1
   store i64 %14, ptr @multi_num_threads, align 8, !tbaa !12
-  %15 = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @multi_threads, i64 %13
   %16 = tail call i32 @pthread_create(ptr noundef nonnull %15, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef nonnull @thread_shared_evp_pkey) #11
   %17 = icmp eq i32 %16, 0
   %18 = zext i1 %17 to i32
@@ -2568,7 +2568,7 @@ start_threads.exit:                               ; preds = %.preheader.i.prehea
   %23 = load i64, ptr @multi_num_threads, align 8, !tbaa !12
   %24 = add i64 %23, 1
   store i64 %24, ptr @multi_num_threads, align 8, !tbaa !12
-  %25 = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @multi_threads, i64 %23
   %26 = tail call i32 @pthread_create(ptr noundef nonnull %25, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef %0) #11
   %27 = icmp eq i32 %26, 0
   %28 = zext i1 %27 to i32
@@ -2590,7 +2590,7 @@ start_threads.exit13:                             ; preds = %.preheader.i8.prehe
 
 .lr.ph.i:                                         ; preds = %start_threads.exit13, %31
   %.05.i14 = phi i64 [ %32, %31 ], [ 0, %start_threads.exit13 ]
-  %35 = getelementptr inbounds nuw i64, ptr @multi_threads, i64 %.05.i14
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @multi_threads, i64 %.05.i14
   %36 = load i64, ptr %35, align 8, !tbaa !12
   %37 = tail call i32 @pthread_join(i64 noundef %36, ptr noundef null) #11
   %38 = icmp eq i32 %37, 0

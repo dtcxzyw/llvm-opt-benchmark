@@ -354,7 +354,7 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   %67 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 119)
   %68 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 116)
   %69 = and <16 x i1> %67, %68
-  %70 = getelementptr inbounds nuw i16, ptr %8, i64 %.sroa.022.044.i.i
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %.sroa.022.044.i.i
   store <16 x i1> %69, ptr %70, align 2, !noalias !35
   %exitcond.not.i.i = icmp eq i64 %63, 4
   br i1 %exitcond.not.i.i, label %.preheader41.i.i, label %62
@@ -372,7 +372,7 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   %.sroa.028.046.i.i = phi i64 [ %76, %80 ], [ 0, %62 ]
   %.245.i.i = phi i8 [ %.3.i.i, %80 ], [ 0, %62 ]
   %76 = add nuw nsw i64 %.sroa.028.046.i.i, 1
-  %77 = getelementptr inbounds nuw i16, ptr %8, i64 %.sroa.028.046.i.i
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %.sroa.028.046.i.i
   %78 = load i16, ptr %77, align 2, !noalias !35, !noundef !4
   %79 = icmp eq i16 %78, 0
   br i1 %79, label %80, label %81

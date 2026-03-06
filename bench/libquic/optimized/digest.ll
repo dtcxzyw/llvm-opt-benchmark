@@ -1602,7 +1602,7 @@ _ZNSt12_Vector_baseI6SourceSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !38
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !27
-  %77 = getelementptr inbounds nuw %struct.Source, ptr %20, i64 %16
+  %77 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %77, ptr %76, align 8, !tbaa !30
   ret void
 }

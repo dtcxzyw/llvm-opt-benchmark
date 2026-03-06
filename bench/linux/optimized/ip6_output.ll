@@ -77,11 +77,8 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ip6_flush_pe
 %union.anon.30 = type { [4 x i32] }
 %struct.inetpeer_addr = type { %union.anon.105, i16 }
 %union.anon.105 = type { %struct.in6_addr }
-%struct.xfrm_offload = type { %struct.anon.104, i32, i32, i8, i8 }
-%struct.anon.104 = type { i32, i32 }
 %struct.ip6_frag_state = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i8 }
 %struct.ip6_fraglist_iter = type { ptr, ptr, i32, i32, i32, i8 }
-%struct.bio_vec = type { ptr, i32, i32 }
 %struct.inet6_cork = type { ptr, i8, i8 }
 
 @__UNIQUE_ID___addressable_ip6_output1017 = internal global ptr @ip6_output, section ".discard.addressable", align 8
@@ -1093,13 +1090,13 @@ define dso_local i32 @ip6_forward(ptr noundef %0) local_unnamed_addr #0 align 16
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 64
   %95 = add i32 %88, -1
   %96 = sext i32 %95 to i64
-  %97 = getelementptr %struct.xfrm_offload, ptr %94, i64 %96
+  %97 = getelementptr [20 x i8], ptr %94, i64 %96
   %98 = icmp eq ptr %97, null
   br i1 %98, label %.thread26, label %99
 
 99:                                               ; preds = %93
   %100 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %101 = getelementptr ptr, ptr %100, i64 %96
+  %101 = getelementptr [8 x i8], ptr %100, i64 %96
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 656
   %104 = load i8, ptr %103, align 8
@@ -3914,7 +3911,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @ip6_setup_cork(ptr nounde
 34:                                               ; preds = %30, %25
   %35 = phi i64 [ 0, %25 ], [ %33, %30 ]
   %36 = or i32 %27, 256
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %35
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %35
   %37 = getelementptr i8, ptr %.split, i64 48
   %38 = load ptr, ptr %37, align 16
   %39 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %38, i32 noundef %36, i64 noundef 64) #16
@@ -4766,7 +4763,7 @@ define internal fastcc i32 @__ip6_append_data(ptr noundef %0, ptr noundef %1, pt
 
 400:                                              ; preds = %396
   %401 = zext i8 %372 to i64
-  %402 = getelementptr %struct.bio_vec, ptr %389, i64 %401
+  %402 = getelementptr [16 x i8], ptr %389, i64 %401
   %403 = getelementptr i8, ptr %402, i64 32
   %404 = load ptr, ptr %403, align 8
   %405 = icmp eq ptr %404, %387
@@ -5860,11 +5857,11 @@ define dso_local ptr @__ip6_make_skb(ptr noundef %0, ptr noundef %1, ptr noundef
 305:                                              ; preds = %299
   %306 = getelementptr inbounds nuw i8, ptr %282, i64 928
   %307 = load ptr, ptr %306, align 8
-  %308 = getelementptr %struct.atomic64_t, ptr %307, i64 %304
+  %308 = getelementptr [8 x i8], ptr %307, i64 %304
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %308, ptr elementtype(i64) %308) #13, !srcloc !99
   %309 = getelementptr inbounds nuw i8, ptr %9, i64 496
   %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr %struct.atomic64_t, ptr %310, i64 %304
+  %311 = getelementptr [8 x i8], ptr %310, i64 %304
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %311, ptr elementtype(i64) %311) #13, !srcloc !99
   %312 = getelementptr inbounds nuw i8, ptr %282, i64 920
   %313 = load ptr, ptr %312, align 8
@@ -5875,7 +5872,7 @@ define dso_local ptr @__ip6_make_skb(ptr noundef %0, ptr noundef %1, ptr noundef
 315:                                              ; preds = %299
   %316 = getelementptr inbounds nuw i8, ptr %9, i64 496
   %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr %struct.atomic64_t, ptr %317, i64 %304
+  %318 = getelementptr [8 x i8], ptr %317, i64 %304
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %318, ptr elementtype(i64) %318) #13, !srcloc !99
   br label %319
 
@@ -6667,7 +6664,7 @@ define internal i32 @ip6_finish_output2(ptr noundef %0, ptr noundef %1, ptr noun
   %192 = lshr i32 %188, %191
   %193 = load ptr, ptr %161, align 8
   %194 = zext i32 %192 to i64
-  %195 = getelementptr ptr, ptr %193, i64 %194
+  %195 = getelementptr [8 x i8], ptr %193, i64 %194
   %196 = load volatile ptr, ptr %195, align 8
   %197 = icmp eq ptr %196, null
   br i1 %197, label %.thread18, label %.preheader19
@@ -7119,7 +7116,7 @@ define internal fastcc void @__skb_fill_page_desc(ptr noundef nonnull captures(n
   %10 = getelementptr i8, ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr %struct.bio_vec, ptr %11, i64 %12
+  %13 = getelementptr [16 x i8], ptr %11, i64 %12
   store ptr %2, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %3, ptr %14, align 4

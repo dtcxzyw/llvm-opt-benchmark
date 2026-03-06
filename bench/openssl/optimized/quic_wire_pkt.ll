@@ -34,7 +34,7 @@ define range(i32 0, 2) i32 @ossl_quic_hdr_protector_init(ptr noundef captures(no
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_quic_hdr_protector_init, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_quic_hdr_protector_init, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = tail call ptr @EVP_CIPHER_CTX_new() #10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16

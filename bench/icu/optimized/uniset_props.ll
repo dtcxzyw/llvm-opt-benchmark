@@ -1704,7 +1704,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %2
   %17 = load ptr, ptr %16, align 8
   %18 = select i1 %.not.i.i.i, ptr %17, ptr %15
   %19 = sext i32 %1 to i64
-  %20 = getelementptr inbounds i16, ptr %18, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %18, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !49
   %22 = icmp eq i16 %21, 91
   br i1 %22, label %_ZN6icu_7710UnicodeSet24resemblesPropertyPatternERKNS_13UnicodeStringEi.exit, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
@@ -1723,7 +1723,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i.i:     ; preds = %_ZNK6icu_7713Unicod
   %28 = load ptr, ptr %27, align 8
   %29 = select i1 %.not.i.i.i.i.i, ptr %28, ptr %26
   %30 = sext i32 %1 to i64
-  %31 = getelementptr inbounds i16, ptr %29, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %29, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !49
   switch i16 %32, label %_ZN6icu_7710UnicodeSet24resemblesPropertyPatternERKNS_13UnicodeStringEi.exit [
     i16 91, label %33
@@ -1736,7 +1736,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i.i:     ; preds = %_ZNK6icu_7713Unicod
 
 _ZN6icu_7712_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit.i: ; preds = %33
   %35 = sext i32 %3 to i64
-  %36 = getelementptr inbounds i16, ptr %29, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %29, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !49
   %.not.i = icmp eq i16 %37, 58
   br i1 %.not.i, label %_ZN6icu_7710UnicodeSet24resemblesPropertyPatternERKNS_13UnicodeStringEi.exit, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i11.i
@@ -1747,7 +1747,7 @@ _ZN6icu_7712_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit.i: ; preds = %
 
 _ZN6icu_7712_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit.i: ; preds = %38
   %40 = sext i32 %3 to i64
-  %41 = getelementptr inbounds i16, ptr %29, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %29, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !49
   %43 = and i16 %42, -33
   %.not19.i = icmp eq i16 %43, 80
@@ -1790,7 +1790,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %2
   %17 = load ptr, ptr %16, align 8
   %18 = select i1 %.not.i.i.i.i, ptr %17, ptr %15
   %19 = sext i32 %1 to i64
-  %20 = getelementptr inbounds i16, ptr %18, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %18, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !49
   switch i16 %21, label %_ZN6icu_7712_GLOBAL__N_110isNameOpenERKNS_13UnicodeStringEi.exit [
     i16 91, label %22
@@ -1804,7 +1804,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %2
 
 _ZN6icu_7712_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit: ; preds = %22
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds i16, ptr %18, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %18, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !49
   %.not = icmp eq i16 %27, 58
   br i1 %.not, label %_ZN6icu_7712_GLOBAL__N_110isNameOpenERKNS_13UnicodeStringEi.exit, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i11
@@ -1816,7 +1816,7 @@ _ZN6icu_7712_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit: ; preds = %22
 
 _ZN6icu_7712_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit: ; preds = %28
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds i16, ptr %18, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %18, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !49
   %34 = and i16 %33, -33
   %.not19 = icmp eq i16 %34, 80
@@ -1832,7 +1832,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i11:     ; preds = %22, %_ZN6icu_7712_G
 
 38:                                               ; preds = %35
   %39 = sext i32 %36 to i64
-  %40 = getelementptr inbounds i16, ptr %18, i64 %39
+  %40 = getelementptr inbounds [2 x i8], ptr %18, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !49
   %42 = icmp eq i16 %41, 78
   %43 = zext i1 %42 to i8
@@ -3129,7 +3129,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %24
   %29 = load ptr, ptr %28, align 8
   %30 = select i1 %.not.i.i.i.i, ptr %29, ptr %27
   %31 = sext i32 %9 to i64
-  %32 = getelementptr inbounds i16, ptr %30, i64 %31
+  %32 = getelementptr inbounds [2 x i8], ptr %30, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !49
   switch i16 %33, label %_ZN6icu_7712_GLOBAL__N_110isNameOpenERKNS_13UnicodeStringEi.exit.thread [
     i16 91, label %34
@@ -3143,7 +3143,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %24
 
 _ZN6icu_7712_GLOBAL__N_111isPOSIXOpenERKNS_13UnicodeStringEi.exit: ; preds = %34
   %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds i16, ptr %30, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %30, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !49
   %.not = icmp eq i16 %39, 58
   br i1 %.not, label %40, label %_ZN6icu_7712_GLOBAL__N_110isNameOpenERKNS_13UnicodeStringEi.exit.thread
@@ -3170,7 +3170,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %40
   %52 = load ptr, ptr %28, align 8
   %53 = select i1 %.not.i.i.i, ptr %52, ptr %27
   %54 = sext i32 %42 to i64
-  %55 = getelementptr inbounds i16, ptr %53, i64 %54
+  %55 = getelementptr inbounds [2 x i8], ptr %53, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !49
   %57 = icmp eq i16 %56, 94
   br i1 %57, label %58, label %thread-pre-split
@@ -3187,7 +3187,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %40
 
 _ZN6icu_7712_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit: ; preds = %60
   %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds i16, ptr %30, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr %30, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !49
   %66 = and i16 %65, -33
   %.not124 = icmp eq i16 %66, 80
@@ -3200,7 +3200,7 @@ _ZN6icu_7712_GLOBAL__N_110isPerlOpenERKNS_13UnicodeStringEi.exit: ; preds = %60
 
 _ZN6icu_7712_GLOBAL__N_110isNameOpenERKNS_13UnicodeStringEi.exit: ; preds = %67
   %70 = sext i32 %68 to i64
-  %71 = getelementptr inbounds i16, ptr %30, i64 %70
+  %71 = getelementptr inbounds [2 x i8], ptr %30, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !49
   %.not125 = icmp eq i16 %72, 78
   br i1 %.not125, label %_ZNK6icu_7713UnicodeString6charAtEi.exit66, label %_ZN6icu_7712_GLOBAL__N_110isNameOpenERKNS_13UnicodeStringEi.exit.thread
@@ -3233,7 +3233,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit69:       ; preds = %85
   %89 = load ptr, ptr %28, align 8
   %90 = select i1 %.not.i.i.i68, ptr %89, ptr %27
   %91 = sext i32 %77 to i64
-  %92 = getelementptr inbounds i16, ptr %90, i64 %91
+  %92 = getelementptr inbounds [2 x i8], ptr %90, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !49
   %.not55 = icmp eq i16 %93, 123
   br i1 %.not55, label %_ZNK6icu_7713UnicodeString7indexOfEDsi.exit, label %.critedge

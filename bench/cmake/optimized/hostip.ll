@@ -389,7 +389,7 @@ num_addresses.exit.i:                             ; preds = %.lr.ph.i.i
 
 31:                                               ; preds = %31, %30
   %indvars.iv.i = phi i64 [ 1, %30 ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr ptr, ptr %29, i64 %indvars.iv.i
+  %32 = getelementptr [8 x i8], ptr %29, i64 %indvars.iv.i
   %33 = getelementptr i8, ptr %32, i64 -8
   %34 = load ptr, ptr %33, align 8, !tbaa !107
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -413,15 +413,15 @@ num_addresses.exit.i:                             ; preds = %.lr.ph.i.i
 
 .preheader70.i:                                   ; preds = %41, %.preheader70.i
   %indvars.iv78.i = phi i64 [ %indvars.iv.next79.i, %.preheader70.i ], [ %indvars.iv76.i, %41 ]
-  %44 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv78.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv78.i
   %45 = load i32, ptr %44, align 4, !tbaa !113
   %46 = trunc i64 %indvars.iv78.i to i32
   %47 = add i32 %46, 1
   %48 = urem i32 %45, %47
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %29, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !107
-  %52 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv78.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv78.i
   %53 = load ptr, ptr %52, align 8, !tbaa !107
   store ptr %53, ptr %50, align 8, !tbaa !107
   store ptr %51, ptr %52, align 8, !tbaa !107
@@ -431,7 +431,7 @@ num_addresses.exit.i:                             ; preds = %.lr.ph.i.i
 
 .preheader.i:                                     ; preds = %.preheader70.i, %.preheader.i
   %indvars.iv81.i = phi i64 [ %indvars.iv.next82.i, %.preheader.i ], [ 1, %.preheader70.i ]
-  %55 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv81.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv81.i
   %56 = load ptr, ptr %55, align 8, !tbaa !107
   %57 = getelementptr i8, ptr %55, i64 -8
   %58 = load ptr, ptr %57, align 8, !tbaa !107
@@ -443,7 +443,7 @@ num_addresses.exit.i:                             ; preds = %.lr.ph.i.i
 
 60:                                               ; preds = %.preheader.i
   %61 = and i64 %indvars.iv76.i, 4294967295
-  %62 = getelementptr inbounds nuw ptr, ptr %29, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !107
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
   store ptr null, ptr %64, align 8, !tbaa !109

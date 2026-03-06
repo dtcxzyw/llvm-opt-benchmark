@@ -5,10 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
 %struct.hashmap_iter = type { ptr, ptr, i32 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.object_id = type { [32 x i8], i32 }
 %struct.regmatch_t = type { i32, i32 }
-%struct.pseudo_merge = type { ptr, ptr, i64, i64, i8 }
 
 @.str = private unnamed_addr constant [49 x i8] c"pseudo-merge group '%s' missing required pattern\00", align 1
 @.str.1 = private unnamed_addr constant [65 x i8] c"pseudo-merge group '%s' has unstable threshold before stable one\00", align 1
@@ -469,7 +467,7 @@ define dso_local void @select_pseudo_merges(ptr noundef %0) local_unnamed_addr #
   %.028 = phi i32 [ 0, %.lr.ph30 ], [ %252, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %24 = load ptr, ptr %4, align 8, !tbaa !62
-  %25 = getelementptr inbounds nuw %struct.string_list_item, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %23
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !33
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -579,7 +577,7 @@ push_pseudo_merge.exit.i:                         ; preds = %st_mult.exit.i.i, %
   %78 = load i64, ptr %31, align 8, !tbaa !65
   %79 = add i64 %78, 1
   store i64 %79, ptr %31, align 8, !tbaa !65
-  %80 = getelementptr inbounds nuw ptr, ptr %77, i64 %78
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %78
   store ptr %74, ptr %80, align 8, !tbaa !67
   %81 = getelementptr inbounds nuw i8, ptr %74, i64 48
   br label %82
@@ -595,7 +593,7 @@ push_pseudo_merge.exit.i:                         ; preds = %st_mult.exit.i.i, %
 85:                                               ; preds = %82
   %86 = load ptr, ptr %38, align 8, !tbaa !23
   %87 = add i32 %.187.i, 1
-  %88 = getelementptr inbounds nuw ptr, ptr %86, i64 %83
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %83
   %89 = load ptr, ptr %88, align 8, !tbaa !67
   %90 = load ptr, ptr %19, align 8, !tbaa !69
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 4
@@ -640,7 +638,7 @@ st_mult.exit.i:                                   ; preds = %99
   %109 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %106, %st_mult.exit.i ]
   %110 = load i32, ptr %20, align 8, !tbaa !75
   store i64 %.pre-phi156.i, ptr %93, align 8, !tbaa !70
-  %111 = getelementptr inbounds nuw i32, ptr %109, i64 %108
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %108
   store i32 %110, ptr %111, align 4, !tbaa !50
   %112 = call ptr @commit_list_append(ptr noundef nonnull %89, ptr noundef %.093.i) #15
   %113 = load i32, ptr %30, align 8, !tbaa !44
@@ -710,7 +708,7 @@ push_pseudo_merge.exit118.i:                      ; preds = %st_mult.exit.i117.i
   %144 = load i64, ptr %31, align 8, !tbaa !65
   %145 = add i64 %144, 1
   store i64 %145, ptr %31, align 8, !tbaa !65
-  %146 = getelementptr inbounds nuw ptr, ptr %143, i64 %144
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %144
   store ptr %140, ptr %146, align 8, !tbaa !67
   %147 = getelementptr inbounds nuw i8, ptr %140, i64 48
   %148 = load i32, ptr %34, align 8, !tbaa !42
@@ -880,7 +878,7 @@ pseudo_merge_group_size.exit.i:                   ; preds = %.lr.ph.i14.i.i, %18
 
 210:                                              ; preds = %.lr.ph139.i
   %211 = load ptr, ptr %60, align 8, !tbaa !25
-  %212 = getelementptr inbounds nuw ptr, ptr %211, i64 %indvars.iv.i
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %indvars.iv.i
   %213 = load ptr, ptr %212, align 8, !tbaa !67
   %214 = load double, ptr %35, align 8, !tbaa !43
   %215 = fdiv double 1.000000e+00, %214
@@ -933,7 +931,7 @@ st_mult.exit121.i:                                ; preds = %228
   %238 = phi ptr [ %.pre152.i, %._crit_edge151.i ], [ %235, %st_mult.exit121.i ]
   %239 = load i32, ptr %20, align 8, !tbaa !75
   store i64 %.pre-phi.i, ptr %222, align 8, !tbaa !70
-  %240 = getelementptr inbounds nuw i32, ptr %238, i64 %237
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %238, i64 %237
   store i32 %239, ptr %240, align 4, !tbaa !50
   %241 = call ptr @commit_list_append(ptr noundef nonnull %213, ptr noundef %.091137.i) #15
   br label %242
@@ -1052,7 +1050,7 @@ define internal noundef i32 @find_pseudo_merge_group_for_ref(ptr noundef %0, ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.find_pseudo_merge_group_for_ref.group_name, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %29 = load ptr, ptr %21, align 8, !tbaa !62
-  %30 = getelementptr inbounds nuw %struct.string_list_item, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !33
   %33 = load ptr, ptr %32, align 8, !tbaa !4
@@ -1089,7 +1087,7 @@ _.exit:                                           ; preds = %37, %39
 
 47:                                               ; preds = %41, %69
   %.06288 = phi i64 [ %46, %41 ], [ %70, %69 ]
-  %48 = getelementptr inbounds nuw %struct.regmatch_t, ptr %8, i64 %.06288
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.06288
   %49 = load i32, ptr %48, align 8, !tbaa !90
   %50 = icmp eq i32 %49, -1
   br i1 %50, label %69, label %51
@@ -1204,7 +1202,7 @@ st_mult.exit:                                     ; preds = %90
   %99 = phi i64 [ %85, %._crit_edge ], [ %.pre92, %st_mult.exit ]
   %100 = phi ptr [ %.pre91, %._crit_edge ], [ %97, %st_mult.exit ]
   store i64 %.pre-phi98, ptr %84, align 8, !tbaa !63
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %99
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %99
   store ptr %12, ptr %101, align 8, !tbaa !67
   br label %126
 
@@ -1257,7 +1255,7 @@ st_mult.exit86:                                   ; preds = %113
   %123 = phi i64 [ %108, %._crit_edge93 ], [ %.pre95, %st_mult.exit86 ]
   %124 = phi ptr [ %.pre94, %._crit_edge93 ], [ %121, %st_mult.exit86 ]
   store i64 %.pre-phi, ptr %107, align 8, !tbaa !64
-  %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %123
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %123
   store ptr %12, ptr %125, align 8, !tbaa !67
   br label %126
 
@@ -1292,11 +1290,11 @@ define dso_local void @free_pseudo_merge_map(ptr noundef readonly captures(none)
   %4 = phi i64 [ %13, %.lr.ph ], [ 0, %1 ]
   %.08 = phi i32 [ %12, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !105
-  %6 = getelementptr inbounds nuw %struct.pseudo_merge, ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8, !tbaa !106
   tail call void @ewah_pool_free(ptr noundef %7) #15
   %8 = load ptr, ptr %0, align 8, !tbaa !105
-  %9 = getelementptr inbounds nuw %struct.pseudo_merge, ptr %8, i64 %4
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !108
   tail call void @ewah_pool_free(ptr noundef %11) #15
@@ -1715,7 +1713,7 @@ define internal fastcc ptr @pseudo_merge_at(ptr noundef readonly captures(none) 
   %9 = sub nuw i64 %.02434, %.02135
   %10 = lshr i64 %9, 1
   %11 = add i64 %10, %.02135
-  %12 = getelementptr inbounds nuw %struct.pseudo_merge, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !114
   %.not = icmp eq i64 %14, %2
@@ -1915,7 +1913,7 @@ define dso_local i32 @cascade_pseudo_merges(ptr noundef readonly captures(none) 
   %.01325 = phi i32 [ %69, %68 ], [ 0, %.split ]
   %.11524 = phi i32 [ %spec.select38, %68 ], [ %.014, %.split ]
   %14 = load ptr, ptr %0, align 8, !tbaa !105
-  %15 = getelementptr inbounds nuw %struct.pseudo_merge, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i8, ptr %16, align 8
   %18 = and i8 %17, 2
@@ -2076,7 +2074,7 @@ define dso_local ptr @pseudo_merge_for_parents(ptr noundef readonly captures(non
 8:                                                ; preds = %.lr.ph, %32
   %.01626 = phi i64 [ 0, %.lr.ph ], [ %33, %32 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !105
-  %10 = getelementptr inbounds nuw %struct.pseudo_merge, ptr %9, i64 %.01626
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %.01626
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i8, ptr %11, align 8
   %13 = and i8 %12, 2
@@ -2290,7 +2288,7 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   %54 = load ptr, ptr %48, align 8, !tbaa !134
   %55 = lshr i32 %.1146.i, 4
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %54, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !50
   %59 = shl i32 %.1146.i, 1
   %60 = and i32 %59, 30
@@ -2303,12 +2301,12 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
   %65 = load ptr, ptr %49, align 8, !tbaa !132
   %66 = zext i32 %.1146.i to i64
-  %67 = getelementptr inbounds nuw %struct.object_id, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [36 x i8], ptr %65, i64 %66
   %.sroa.0.0.copyload.i = load i32, ptr %67, align 4
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.0..sroa_idx.i, i64 32, i1 false), !tbaa.struct !135
   %68 = load ptr, ptr %51, align 8, !tbaa !133
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %66
   %70 = load ptr, ptr %69, align 8, !tbaa !136
   %71 = shl nuw nsw i32 1, %60
   %72 = or i32 %71, %58
@@ -2322,7 +2320,7 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   %.095136.i = and i32 %.sroa.0.0.i, %50
   %75 = lshr i32 %.095136.i, 4
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %34, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !50
   %79 = shl i32 %.095136.i, 1
   %80 = and i32 %79, 30
@@ -2339,7 +2337,7 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   %.095.i = and i32 %84, %50
   %85 = lshr i32 %.095.i, 4
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %34, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !50
   %89 = shl i32 %.095.i, 1
   %90 = and i32 %89, 30
@@ -2354,7 +2352,7 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   %.lcssa131.i = phi i32 [ %78, %73 ], [ %88, %.lr.ph.i ]
   %.lcssa130.i = phi i32 [ %80, %73 ], [ %90, %.lr.ph.i ]
   %.lcssa.i = phi i32 [ %81, %73 ], [ %91, %.lr.ph.i ]
-  %93 = getelementptr inbounds nuw i32, ptr %34, i64 %.lcssa135.i
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %.lcssa135.i
   %94 = xor i32 %.lcssa.i, -1
   %95 = and i32 %.lcssa131.i, %94
   store i32 %95, ptr %93, align 4, !tbaa !50
@@ -2367,7 +2365,7 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   br label %split.i
 
 98:                                               ; preds = %._crit_edge.i
-  %99 = getelementptr inbounds nuw i32, ptr %74, i64 %.lcssa135.i
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %.lcssa135.i
   %100 = load i32, ptr %99, align 4, !tbaa !50
   %101 = shl nuw i32 3, %.lcssa130.i
   %102 = and i32 %100, %101
@@ -2378,7 +2376,7 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
 104:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
   %105 = zext i32 %.095.lcssa.i to i64
-  %106 = getelementptr inbounds nuw %struct.object_id, ptr %.pre158.i, i64 %105
+  %106 = getelementptr inbounds nuw [36 x i8], ptr %.pre158.i, i64 %105
   %.sroa.0121.0.copyload.i = load i32, ptr %106, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %106, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.0..sroa_idx.i, i64 32, i1 false), !tbaa.struct !135
@@ -2387,12 +2385,12 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.i, i64 32, i1 false), !tbaa.struct !135
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   %107 = load ptr, ptr %51, align 8, !tbaa !133
-  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %105
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %105
   %109 = load ptr, ptr %108, align 8, !tbaa !136
   store ptr %.098.i, ptr %108, align 8, !tbaa !136
   %110 = shl nuw nsw i32 1, %.lcssa130.i
   %111 = load ptr, ptr %48, align 8, !tbaa !134
-  %112 = getelementptr inbounds nuw i32, ptr %111, i64 %.lcssa135.i
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %.lcssa135.i
   %113 = load i32, ptr %112, align 4, !tbaa !50
   %114 = or i32 %113, %110
   store i32 %114, ptr %112, align 4, !tbaa !50
@@ -2401,12 +2399,12 @@ st_mult.exit.i:                                   ; preds = %.sink.split.i
 split.i:                                          ; preds = %98, %._crit_edge._crit_edge.i
   %115 = phi ptr [ %.pre157.i, %._crit_edge._crit_edge.i ], [ %.pre158.i, %98 ]
   %116 = zext i32 %.095.lcssa.i to i64
-  %117 = getelementptr inbounds nuw %struct.object_id, ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw [36 x i8], ptr %115, i64 %116
   store i32 %.sroa.0.0.i, ptr %117, align 4
   %.sroa.7.0..sroa_idx120.i = getelementptr inbounds nuw i8, ptr %117, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.0..sroa_idx120.i, ptr noundef nonnull align 4 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !tbaa.struct !135
   %118 = load ptr, ptr %51, align 8, !tbaa !133
-  %119 = getelementptr inbounds nuw ptr, ptr %118, i64 %116
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %116
   store ptr %.098.i, ptr %119, align 8, !tbaa !136
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   %.pre159.i = load i32, ptr %0, align 8, !tbaa !130
@@ -2454,7 +2452,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge149.thre
   %138 = load ptr, ptr %137, align 8, !tbaa !134
   %139 = lshr i32 %136, 4
   %140 = zext nneg i32 %139 to i64
-  %141 = getelementptr inbounds nuw i32, ptr %138, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !50
   %143 = shl i32 %136, 1
   %144 = and i32 %143, 30
@@ -2473,7 +2471,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge149.thre
   %.0.i = phi i32 [ %165, %.critedge2.i ], [ 0, %.preheader.i ]
   %149 = lshr i32 %.069.i, 4
   %150 = zext nneg i32 %149 to i64
-  %151 = getelementptr inbounds nuw i32, ptr %138, i64 %150
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %150
   %152 = load i32, ptr %151, align 4, !tbaa !50
   %153 = shl i32 %.069.i, 1
   %154 = and i32 %153, 30
@@ -2490,7 +2488,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge149.thre
 159:                                              ; preds = %157
   %160 = load ptr, ptr %147, align 8, !tbaa !132
   %161 = zext i32 %.069.i to i64
-  %162 = getelementptr inbounds nuw %struct.object_id, ptr %160, i64 %161
+  %162 = getelementptr inbounds nuw [36 x i8], ptr %160, i64 %161
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 4 dereferenceable(36) %162, i64 36, i1 false), !tbaa.struct !139
   %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %4, i64 32)
@@ -2532,7 +2530,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge149.thre
   %.068.i = phi i32 [ %spec.select.i, %.critedge.i ], [ %136, %kh_resize_oid_map.exit ], [ %spec.select87.i, %.critedge.thread.i ]
   %172 = lshr i32 %.068.i, 4
   %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds nuw i32, ptr %138, i64 %173
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %173
   %175 = load i32, ptr %174, align 4, !tbaa !50
   %176 = shl i32 %.068.i, 1
   %177 = and i32 %176, 30
@@ -2545,12 +2543,12 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge149.thre
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %182 = load ptr, ptr %181, align 8, !tbaa !132
   %183 = zext i32 %.068.i to i64
-  %184 = getelementptr inbounds nuw %struct.object_id, ptr %182, i64 %183
+  %184 = getelementptr inbounds nuw [36 x i8], ptr %182, i64 %183
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %184, ptr noundef nonnull readonly align 8 dereferenceable(36) %4, i64 36, i1 false), !tbaa.struct !139
   %185 = shl nuw i32 3, %177
   %186 = xor i32 %185, -1
   %187 = load ptr, ptr %137, align 8, !tbaa !134
-  %188 = getelementptr inbounds nuw i32, ptr %187, i64 %173
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %173
   %189 = load i32, ptr %188, align 4, !tbaa !50
   %190 = and i32 %189, %186
   store i32 %190, ptr %188, align 4, !tbaa !50
@@ -2572,12 +2570,12 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge149.thre
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %200 = load ptr, ptr %199, align 8, !tbaa !132
   %201 = zext i32 %.068.i to i64
-  %202 = getelementptr inbounds nuw %struct.object_id, ptr %200, i64 %201
+  %202 = getelementptr inbounds nuw [36 x i8], ptr %200, i64 %201
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %202, ptr noundef nonnull readonly align 8 dereferenceable(36) %4, i64 36, i1 false), !tbaa.struct !139
   %203 = shl nuw i32 3, %177
   %204 = xor i32 %203, -1
   %205 = load ptr, ptr %137, align 8, !tbaa !134
-  %206 = getelementptr inbounds nuw i32, ptr %205, i64 %173
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %173
   %207 = load i32, ptr %206, align 4, !tbaa !50
   %208 = and i32 %207, %204
   store i32 %208, ptr %206, align 4, !tbaa !50
@@ -2593,7 +2591,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge149.thre
   %213 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 24) #15
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %215 = load ptr, ptr %214, align 8, !tbaa !133
-  %216 = getelementptr inbounds nuw ptr, ptr %215, i64 %.pre-phi
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %.pre-phi
   store ptr %213, ptr %216, align 8, !tbaa !136
   br label %223
 
@@ -2602,7 +2600,7 @@ kh_resize_oid_map.exit:                           ; preds = %._crit_edge149.thre
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %219 = load ptr, ptr %218, align 8, !tbaa !133
   %220 = zext i32 %.068.i to i64
-  %221 = getelementptr inbounds nuw ptr, ptr %219, i64 %220
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %220
   %222 = load ptr, ptr %221, align 8, !tbaa !136
   br label %223
 

@@ -1438,7 +1438,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %2, %._ZNSt6vectorIi
   br i1 %20, label %21, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit6
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i32, ptr %9, i64 %7
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %7
   %.not.i.i4 = icmp eq ptr %10, %22
   br i1 %.not.i.i4, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit6, label %23
 
@@ -2708,9 +2708,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !92
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !89
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !97
   br label %41
 

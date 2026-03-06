@@ -3,9 +3,6 @@ source_filename = "bench/sdl/original/SDL_rotate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.tColorY = type { i8 }
-%struct.tColorRGBA = type { i8, i8, i8, i8 }
-
 ; Function Attrs: nounwind uwtable
 define hidden void @SDLgfx_rotozoomSurfaceSizeTrig(i32 noundef %0, i32 noundef %1, double noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 16)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, ptr noundef writeonly captures(none) initializes((0, 8)) %6) local_unnamed_addr #0 {
   %8 = fmul double %2, 0x3F91DF46A2529D39
@@ -612,9 +609,9 @@ get_colorkey.exit.i:                              ; preds = %214, %.thread195
   %276 = load i32, ptr %232, align 8
   %277 = mul nsw i32 %276, %.0.us.i
   %278 = sext i32 %277 to i64
-  %279 = getelementptr inbounds %struct.tColorY, ptr %275, i64 %278
+  %279 = getelementptr inbounds i8, ptr %275, i64 %278
   %280 = sext i32 %265 to i64
-  %281 = getelementptr inbounds %struct.tColorY, ptr %279, i64 %280
+  %281 = getelementptr inbounds i8, ptr %279, i64 %280
   %282 = load i8, ptr %281, align 1
   store i8 %282, ptr %.165.us.i, align 1
   %.pre75.i = load i32, ptr %201, align 8
@@ -657,9 +654,9 @@ get_colorkey.exit.i:                              ; preds = %214, %.thread195
   %305 = load i32, ptr %232, align 8
   %306 = mul nsw i32 %305, %.0.i
   %307 = sext i32 %306 to i64
-  %308 = getelementptr inbounds %struct.tColorY, ptr %304, i64 %307
+  %308 = getelementptr inbounds i8, ptr %304, i64 %307
   %309 = sext i32 %301 to i64
-  %310 = getelementptr inbounds %struct.tColorY, ptr %308, i64 %309
+  %310 = getelementptr inbounds i8, ptr %308, i64 %309
   %311 = load i8, ptr %310, align 1
   store i8 %311, ptr %.165.i, align 1
   %.pre.i122 = load i32, ptr %201, align 8
@@ -680,7 +677,7 @@ get_colorkey.exit.i:                              ; preds = %214, %.thread195
   %321 = phi i32 [ %237, %.lr.ph70.split.i ], [ %284, %283 ], [ %314, %312 ]
   %322 = phi i32 [ %238, %.lr.ph70.split.i ], [ %284, %283 ], [ %314, %312 ]
   %.1.lcssa.i120 = phi ptr [ %.05869.i, %.lr.ph70.split.i ], [ %287, %283 ], [ %317, %312 ]
-  %323 = getelementptr inbounds %struct.tColorY, ptr %.1.lcssa.i120, i64 %233
+  %323 = getelementptr inbounds i8, ptr %.1.lcssa.i120, i64 %233
   %324 = add nuw nsw i32 %.05968.i, 1
   %325 = load i32, ptr %92, align 4
   %326 = icmp slt i32 %324, %325
@@ -981,7 +978,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %500 = sext i32 %499 to i64
   %501 = getelementptr inbounds i8, ptr %497, i64 %500
   %502 = zext nneg i32 %spec.select.i165 to i64
-  %503 = getelementptr inbounds nuw %struct.tColorRGBA, ptr %501, i64 %502
+  %503 = getelementptr inbounds nuw [4 x i8], ptr %501, i64 %502
   %.sroa.0167.0.copyload.i = load i8, ptr %503, align 1
   %.sroa.9169.0..0.68.sroa_idx.i = getelementptr inbounds nuw i8, ptr %503, i64 1
   %.sroa.9169.0.copyload.i = load i8, ptr %.sroa.9169.0..0.68.sroa_idx.i, align 1
@@ -999,7 +996,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %.sroa.16.0.copyload.i = load i8, ptr %.sroa.16.0..0.70.sroa_idx.i, align 1
   %505 = sdiv i32 %498, 4
   %506 = sext i32 %505 to i64
-  %507 = getelementptr inbounds %struct.tColorRGBA, ptr %504, i64 %506
+  %507 = getelementptr inbounds [4 x i8], ptr %504, i64 %506
   %.sroa.0.0.copyload.i = load i8, ptr %507, align 1
   %.sroa.8.0..0.72.sroa_idx.i = getelementptr inbounds nuw i8, ptr %507, i64 1
   %.sroa.8.0.copyload.i = load i8, ptr %.sroa.8.0..0.72.sroa_idx.i, align 1
@@ -1234,7 +1231,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %648 = sext i32 %647 to i64
   %649 = getelementptr inbounds i8, ptr %645, i64 %648
   %650 = sext i32 %637 to i64
-  %651 = getelementptr inbounds %struct.tColorRGBA, ptr %649, i64 %650
+  %651 = getelementptr inbounds [4 x i8], ptr %649, i64 %650
   %652 = load i32, ptr %651, align 1
   store i32 %652, ptr %.3258.us.us.i, align 1
   %.pre281.i = load i32, ptr %418, align 8
@@ -1275,7 +1272,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %674 = sext i32 %673 to i64
   %675 = getelementptr inbounds i8, ptr %671, i64 %674
   %676 = sext i32 %662 to i64
-  %677 = getelementptr inbounds %struct.tColorRGBA, ptr %675, i64 %676
+  %677 = getelementptr inbounds [4 x i8], ptr %675, i64 %676
   %678 = load i32, ptr %677, align 1
   store i32 %678, ptr %.3258.us.i, align 1
   %.pre280.i = load i32, ptr %418, align 8
@@ -1320,7 +1317,7 @@ computeSourceIncrements90.exit.i128:              ; preds = %353, %348, %343, %3
   %703 = sext i32 %702 to i64
   %704 = getelementptr inbounds i8, ptr %700, i64 %703
   %705 = sext i32 %698 to i64
-  %706 = getelementptr inbounds %struct.tColorRGBA, ptr %704, i64 %705
+  %706 = getelementptr inbounds [4 x i8], ptr %704, i64 %705
   %707 = load i32, ptr %706, align 1
   store i32 %707, ptr %.3258.i, align 1
   %.pre279.i = load i32, ptr %418, align 8

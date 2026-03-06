@@ -915,7 +915,7 @@ define dso_local i32 @scsi_init_devinfo() local_unnamed_addr #4 section ".init.t
 
 6:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = getelementptr %struct.anon.3, ptr @scsi_static_device_list, i64 %indvars.iv.next
+  %7 = getelementptr [32 x i8], ptr @scsi_static_device_list, i64 %indvars.iv.next
   %8 = load ptr, ptr %7, align 16
   %9 = icmp eq i64 %indvars.iv.next, 182
   br i1 %9, label %18, label %.preheader, !llvm.loop !16
@@ -923,7 +923,7 @@ define dso_local i32 @scsi_init_devinfo() local_unnamed_addr #4 section ".init.t
 .preheader:                                       ; preds = %3, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %3 ]
   %10 = phi ptr [ %8, %6 ], [ @.str.11, %3 ]
-  %11 = getelementptr %struct.anon.3, ptr @scsi_static_device_list, i64 %indvars.iv
+  %11 = getelementptr [32 x i8], ptr @scsi_static_device_list, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24

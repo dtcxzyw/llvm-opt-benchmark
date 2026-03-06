@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_77::IcuToolErrorCode" = type { %"class.icu_77::ErrorCode.base", ptr }
 %"class.icu_77::ErrorCode.base" = type <{ ptr, i32 }>
-%"struct.icu_77::CompositionPair" = type { i32, i32 }
 
 $_ZN6icu_779HashtableD2Ev = comdat any
 
@@ -672,7 +671,7 @@ _ZNK6icu_774Norm19getCompositionPairsERi.exit:    ; preds = %14
 
 27:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
-  %28 = getelementptr inbounds nuw %"struct.icu_77::CompositionPair", ptr %21, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !54
   %31 = shl i32 %30, 1

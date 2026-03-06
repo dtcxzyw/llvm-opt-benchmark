@@ -5,15 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"struct.clang::extractapi::SymbolReference" = type { %"class.llvm::StringRef", %"class.llvm::StringRef", %"class.llvm::StringRef", ptr }
 %"class.llvm::StringRef" = type { ptr, i64 }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { %"class.llvm::StringRef", %"class.std::unique_ptr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.41" }
-%"struct.std::_Head_base.41" = type { ptr }
-%"struct.std::pair.48" = type { ptr, i64 }
 
 $_ZN5clang10extractapi20GlobalFunctionRecordD2Ev = comdat any
 
@@ -541,7 +532,7 @@ define dso_local noundef ptr @_ZNK5clang10extractapi6APISet16findRecordForUSREN4
   %.pn.i.us = phi i32 [ %22, %20 ], [ %12, %11 ]
   %.023.i.us = and i32 %.pn.i.us, %13
   %14 = zext i32 %.023.i.us to i64
-  %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %14
   %.sroa.03.0.copyload.i.us = load ptr, ptr %15, align 8, !tbaa !4
   %magicptr = ptrtoint ptr %.sroa.03.0.copyload.i.us to i64
   switch i64 %magicptr, label %16 [
@@ -574,7 +565,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us: ; pre
   %.pn.i.us11 = phi i32 [ %31, %29 ], [ %12, %11 ]
   %.023.i.us12 = and i32 %.pn.i.us11, %13
   %23 = zext i32 %.023.i.us12 to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %23
   %.sroa.03.0.copyload.i.us13 = load ptr, ptr %24, align 8, !tbaa !4
   %magicptr32 = ptrtoint ptr %.sroa.03.0.copyload.i.us13 to i64
   switch i64 %magicptr32, label %25 [
@@ -607,7 +598,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us20: ; p
   %.pn.i = phi i32 [ %40, %38 ], [ %12, %11 ]
   %.023.i = and i32 %.pn.i, %13
   %32 = zext i32 %.023.i to i64
-  %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %7, i64 %32
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %32
   %.sroa.03.0.copyload.i = load ptr, ptr %33, align 8, !tbaa !4
   %switch = icmp ugt ptr %.sroa.03.0.copyload.i, inttoptr (i64 -3 to ptr)
   br i1 %switch, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i, label %34
@@ -637,7 +628,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefESt10unique_ptrIN5clang10extrac
   %41 = load ptr, ptr %6, align 8, !tbaa !57
   %42 = load i32, ptr %8, align 8, !tbaa !60
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %43
   %.not8 = icmp eq ptr %.0.i, %44
   br i1 %.not8, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefESt10unique_ptrIN5clang10extractapi9APIRecordENS5_6APISet16APIRecordDeleterEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S9_EEEES2_S9_SB_SE_E6doFindIS2_EEPSE_RKT_.exit.thread, label %45
 
@@ -670,7 +661,7 @@ define dso_local { ptr, i64 } @_ZN5clang10extractapi6APISet10copyStringEN4llvm9S
 
 11:                                               ; preds = %._crit_edge.i, %.lr.ph.i
   %.03765.i = phi i64 [ 0, %.lr.ph.i ], [ %16, %._crit_edge.i ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %.03765.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.03765.i
   %13 = load ptr, ptr %12, align 8, !tbaa !70
   %.not.i = icmp uge ptr %1, %13
   %.pre.i = trunc i64 %.03765.i to i32
@@ -702,7 +693,7 @@ define dso_local { ptr, i64 } @_ZN5clang10extractapi6APISet10copyStringEN4llvm9S
 
 22:                                               ; preds = %29, %.lr.ph70.i
   %.04069.i = phi i64 [ 0, %.lr.ph70.i ], [ %30, %29 ]
-  %23 = getelementptr inbounds nuw %"struct.std::pair.48", ptr %21, i64 %.04069.i
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.04069.i
   %24 = load ptr, ptr %23, align 8, !tbaa !72
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !74
@@ -776,7 +767,7 @@ define dso_local void @_ZN5clang10extractapi6APISet21createSymbolReferenceEN4llv
 
 15:                                               ; preds = %._crit_edge.i.i, %.lr.ph.i.i
   %.03765.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %20, %._crit_edge.i.i ]
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %.03765.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.03765.i.i
   %17 = load ptr, ptr %16, align 8, !tbaa !70
   %.not.i.i = icmp uge ptr %2, %17
   %.pre.i.i = trunc i64 %.03765.i.i to i32
@@ -808,7 +799,7 @@ define dso_local void @_ZN5clang10extractapi6APISet21createSymbolReferenceEN4llv
 
 26:                                               ; preds = %33, %.lr.ph70.i.i
   %.04069.i.i = phi i64 [ 0, %.lr.ph70.i.i ], [ %34, %33 ]
-  %27 = getelementptr inbounds nuw %"struct.std::pair.48", ptr %25, i64 %.04069.i.i
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %.04069.i.i
   %28 = load ptr, ptr %27, align 8, !tbaa !72
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !74
@@ -872,7 +863,7 @@ _ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit: ; preds = %15, 
 
 57:                                               ; preds = %._crit_edge.i.i23, %.lr.ph.i.i14
   %.03765.i.i15 = phi i64 [ 0, %.lr.ph.i.i14 ], [ %62, %._crit_edge.i.i23 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %.03765.i.i15
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.03765.i.i15
   %59 = load ptr, ptr %58, align 8, !tbaa !70
   %.not.i.i16 = icmp uge ptr %4, %59
   %.pre.i.i17 = trunc i64 %.03765.i.i15 to i32
@@ -904,7 +895,7 @@ _ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit: ; preds = %15, 
 
 68:                                               ; preds = %75, %.lr.ph70.i.i27
   %.04069.i.i28 = phi i64 [ 0, %.lr.ph70.i.i27 ], [ %76, %75 ]
-  %69 = getelementptr inbounds nuw %"struct.std::pair.48", ptr %67, i64 %.04069.i.i28
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %.04069.i.i28
   %70 = load ptr, ptr %69, align 8, !tbaa !72
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %72 = load i64, ptr %71, align 8, !tbaa !74
@@ -971,7 +962,7 @@ _ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit39: ; preds = %57
 
 99:                                               ; preds = %._crit_edge.i.i50, %.lr.ph.i.i41
   %.03765.i.i42 = phi i64 [ 0, %.lr.ph.i.i41 ], [ %104, %._crit_edge.i.i50 ]
-  %100 = getelementptr inbounds nuw ptr, ptr %98, i64 %.03765.i.i42
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %.03765.i.i42
   %101 = load ptr, ptr %100, align 8, !tbaa !70
   %.not.i.i43 = icmp uge ptr %.sroa.0.0.copyload, %101
   %.pre.i.i44 = trunc i64 %.03765.i.i42 to i32
@@ -1003,7 +994,7 @@ _ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit39: ; preds = %57
 
 110:                                              ; preds = %117, %.lr.ph70.i.i54
   %.04069.i.i55 = phi i64 [ 0, %.lr.ph70.i.i54 ], [ %118, %117 ]
-  %111 = getelementptr inbounds nuw %"struct.std::pair.48", ptr %109, i64 %.04069.i.i55
+  %111 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %.04069.i.i55
   %112 = load ptr, ptr %111, align 8, !tbaa !72
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %114 = load i64, ptr %113, align 8, !tbaa !74
@@ -1094,7 +1085,7 @@ define dso_local void @_ZN5clang10extractapi6APISet12removeRecordEN4llvm9StringR
   %.pn.i.us.us = phi i32 [ %23, %21 ], [ %11, %.split.us ]
   %.023.i.us.us = and i32 %.pn.i.us.us, %12
   %16 = zext i32 %.023.i.us.us to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %16
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %16
   %.sroa.03.0.copyload.i.us.us = load ptr, ptr %17, align 8, !tbaa !4
   %magicptr.i.i.us.us = ptrtoint ptr %.sroa.03.0.copyload.i.us.us to i64
   switch i64 %magicptr.i.i.us.us, label %19 [
@@ -1128,7 +1119,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us.us: ; 
   %.pn.i.us.us64 = phi i32 [ %30, %28 ], [ %11, %.split.us.split ]
   %.023.i.us.us65 = and i32 %.pn.i.us.us64, %12
   %24 = zext i32 %.023.i.us.us65 to i64
-  %25 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %24
   %.sroa.03.0.copyload.i.us.us66 = load ptr, ptr %25, align 8, !tbaa !4
   %magicptr = ptrtoint ptr %.sroa.03.0.copyload.i.us.us66 to i64
   switch i64 %magicptr, label %26 [
@@ -1156,7 +1147,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us.us72: 
   %.pn.i.us = phi i32 [ %37, %35 ], [ %11, %.split.us.split ]
   %.023.i.us = and i32 %.pn.i.us, %12
   %31 = zext i32 %.023.i.us to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %31
   %.sroa.03.0.copyload.i.us = load ptr, ptr %32, align 8, !tbaa !4
   %switch92 = icmp ugt ptr %.sroa.03.0.copyload.i.us, inttoptr (i64 -3 to ptr)
   br i1 %switch92, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us, label %33
@@ -1181,7 +1172,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us: ; pre
   %.pn.i = phi i32 [ %47, %45 ], [ %11, %10 ]
   %.023.i = and i32 %.pn.i, %12
   %38 = zext i32 %.023.i to i64
-  %39 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %38
   %.sroa.03.0.copyload.i = load ptr, ptr %39, align 8, !tbaa !4
   %magicptr.i.i = ptrtoint ptr %.sroa.03.0.copyload.i to i64
   switch i64 %magicptr.i.i, label %41 [
@@ -1220,7 +1211,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefESt10unique_ptrIN5clang10extrac
   %48 = load ptr, ptr %5, align 8, !tbaa !57
   %49 = load i32, ptr %7, align 8, !tbaa !60
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %50
   %.not5354 = icmp eq ptr %.0.i37, %51
   br i1 %.not5354, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefESt10unique_ptrIN5clang10extractapi9APIRecordENS5_6APISet16APIRecordDeleterEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S9_EEEES2_S9_SB_SE_E6doFindIS2_EEPSE_RKT_.exit.thread, label %52
 
@@ -1449,7 +1440,7 @@ _ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaO
 
 _ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit: ; preds = %106, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit130, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit132, %126, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %137
   %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %103, %137 ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %126 ], [ %140, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit132 ], [ %138, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %139, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit130 ], [ %.02946.i.i.i.i, %106 ]
-  %141 = getelementptr inbounds nuw ptr, ptr %99, i64 %102
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %102
   %.not26 = icmp eq ptr %.028.i.i.i.i, %141
   br i1 %.not26, label %150, label %142
 
@@ -1509,7 +1500,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang10extractapi9APIRecordELb1EE9push_bac
   %166 = phi i32 [ %161, %160 ], [ %.pre.i36, %163 ]
   %167 = load ptr, ptr %98, align 8, !tbaa !69
   %168 = zext i32 %166 to i64
-  %169 = getelementptr inbounds nuw ptr, ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %168
   %170 = ptrtoint ptr %.01991 to i64
   store i64 %170, ptr %169, align 1
   %171 = load i32, ptr %100, align 8, !tbaa !67
@@ -2543,7 +2534,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !69
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.48", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -2584,7 +2575,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !69
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !67

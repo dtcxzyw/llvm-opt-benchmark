@@ -133,7 +133,7 @@ define dso_local zeroext i1 @intel_gmbus_is_valid_pin(ptr noundef readonly captu
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %30
-  %36 = getelementptr %struct.gmbus_pin, ptr %31, i64 %33
+  %36 = getelementptr [16 x i8], ptr %31, i64 %33
   %37 = load ptr, ptr %36, align 8
   %38 = icmp ne ptr %37, null
   %39 = icmp ne ptr %36, null
@@ -318,10 +318,10 @@ define internal fastcc i32 @do_gmbus_xfer(ptr noundef %0, ptr noundef readonly c
   br i1 %70, label %72, label %.preheader._crit_edge
 
 72:                                               ; preds = %.preheader
-  %73 = getelementptr %struct.i2c_msg, ptr %1, i64 %71
+  %73 = getelementptr [16 x i8], ptr %1, i64 %71
   %74 = load i16, ptr %73, align 8
   %75 = sext i32 %69 to i64
-  %76 = getelementptr %struct.i2c_msg, ptr %1, i64 %75
+  %76 = getelementptr [16 x i8], ptr %1, i64 %75
   %77 = load i16, ptr %76, align 8
   %78 = icmp eq i16 %74, %77
   br i1 %78, label %79, label %.preheader._crit_edge
@@ -510,7 +510,7 @@ define internal fastcc i32 @do_gmbus_xfer(ptr noundef %0, ptr noundef readonly c
   br label %201
 
 .preheader._crit_edge:                            ; preds = %.preheader, %89, %84, %79, %72
-  %190 = getelementptr %struct.i2c_msg, ptr %1, i64 %71
+  %190 = getelementptr [16 x i8], ptr %1, i64 %71
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 2
   %192 = load i16, ptr %191, align 2
   %193 = and i16 %192, 1
@@ -879,7 +879,7 @@ define internal fastcc i32 @do_gmbus_xfer(ptr noundef %0, ptr noundef readonly c
 394:                                              ; preds = %392, %387
   %395 = phi ptr [ %393, %392 ], [ null, %387 ]
   %396 = sext i32 %68 to i64
-  %397 = getelementptr %struct.i2c_msg, ptr %1, i64 %396
+  %397 = getelementptr [16 x i8], ptr %1, i64 %396
   %398 = load i16, ptr %397, align 8
   %399 = zext i16 %398 to i32
   %400 = getelementptr inbounds nuw i8, ptr %397, i64 2
@@ -1102,7 +1102,7 @@ define dso_local i32 @intel_gmbus_setup(ptr noundef %0) local_unnamed_addr #1 al
   br i1 %54, label %55, label %.thread
 
 55:                                               ; preds = %51
-  %56 = getelementptr %struct.gmbus_pin, ptr %52, i64 %26
+  %56 = getelementptr [16 x i8], ptr %52, i64 %26
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   %59 = icmp eq ptr %56, null
@@ -1184,7 +1184,7 @@ define dso_local i32 @intel_gmbus_setup(ptr noundef %0) local_unnamed_addr #1 al
   br label %.loopexit12
 
 104:                                              ; preds = %80
-  %105 = getelementptr ptr, ptr %24, i64 %26
+  %105 = getelementptr [8 x i8], ptr %24, i64 %26
   store ptr %62, ptr %105, align 8
   br label %.thread
 
@@ -1212,7 +1212,7 @@ define dso_local i32 @intel_gmbus_setup(ptr noundef %0) local_unnamed_addr #1 al
 
 118:                                              ; preds = %.loopexit12, %124
   %119 = phi i64 [ %125, %124 ], [ 0, %.loopexit12 ]
-  %120 = getelementptr ptr, ptr %24, i64 %119
+  %120 = getelementptr [8 x i8], ptr %24, i64 %119
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null
   br i1 %122, label %124, label %123
@@ -1255,7 +1255,7 @@ define dso_local void @intel_gmbus_teardown(ptr noundef captures(none) %0) local
 
 3:                                                ; preds = %9, %1
   %4 = phi i64 [ 0, %1 ], [ %10, %9 ]
-  %5 = getelementptr ptr, ptr %2, i64 %4
+  %5 = getelementptr [8 x i8], ptr %2, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
@@ -1283,7 +1283,7 @@ define dso_local ptr @intel_gmbus_get_adapter(ptr noundef readonly captures(none
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2416
-  %7 = getelementptr ptr, ptr %6, i64 %5
+  %7 = getelementptr [8 x i8], ptr %6, i64 %5
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %22, !prof !23

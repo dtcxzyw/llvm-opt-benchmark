@@ -13,9 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_tlsf_state_t = type { ptr, i64, i64, %struct.lv_ll_t }
 %struct.lv_ll_t = type { i32, ptr, ptr }
 %struct.lv_style_t = type { ptr, i32, i8 }
-%struct.lv_style_const_prop_t = type { i8, %union.lv_style_value_t }
 %union.lv_style_value_t = type { ptr }
-%struct._lv_obj_style_t = type { ptr, i32 }
 %struct._lv_anim_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, %union._lv_anim_path_para_t, i32, i32, i32, i8 }
 %union._lv_anim_path_para_t = type { %struct.lv_anim_bezier3_para_t }
 %struct.lv_anim_bezier3_para_t = type { i16, i16, i16, i16 }
@@ -85,7 +83,7 @@ define void @lv_obj_add_style(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
 17:                                               ; preds = %.lr.ph32.i
   %18 = add i32 %.02131.i, 1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.lv_style_const_prop_t, ptr %14, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %19
   %21 = load i8, ptr %20, align 8, !tbaa !32
   %.not.not.i = icmp eq i8 %21, 0
   br i1 %.not.not.i, label %style_has_flag.exit.thread, label %.lr.ph32.i, !llvm.loop !34
@@ -142,7 +140,7 @@ style_has_flag.exit.thread:                       ; preds = %29, %17, %15, %25, 
 
 43:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %44 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %42, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = and i32 %46, 50331648
@@ -203,10 +201,10 @@ style_has_flag.exit.thread:                       ; preds = %29, %17, %15, %25, 
   %indvars.iv69 = phi i64 [ %68, %.lr.ph63.preheader ], [ %indvars.iv.next70, %.lr.ph63 ]
   %.0.in60 = phi i32 [ %66, %.lr.ph63.preheader ], [ %75, %.lr.ph63 ]
   %69 = load ptr, ptr %57, align 8, !tbaa !38
-  %70 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %69, i64 %indvars.iv69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %indvars.iv69
   %71 = add i32 %.0.in60, -2
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %69, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false), !tbaa.struct !46
   %indvars.iv.next70 = add nsw i64 %indvars.iv69, -1
   %indvars = trunc i64 %indvars.iv.next70 to i32
@@ -221,10 +219,10 @@ style_has_flag.exit.thread:                       ; preds = %29, %17, %15, %25, 
 ._crit_edge64:                                    ; preds = %._crit_edge64.loopexit, %62
   %76 = phi ptr [ %.pre, %._crit_edge64.loopexit ], [ %61, %62 ]
   %77 = zext nneg i32 %.042.lcssa to i64
-  %78 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %77
   tail call void @lv_memset(ptr noundef %78, i8 noundef zeroext 0, i64 noundef 16) #9
   %79 = load ptr, ptr %57, align 8, !tbaa !38
-  %80 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %79, i64 %77
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %77
   store ptr %1, ptr %80, align 8, !tbaa !49
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load i32, ptr %81, align 8
@@ -287,7 +285,7 @@ define internal fastcc void @trans_delete(ptr noundef readonly captures(address)
   %23 = phi i16 [ %34, %33 ], [ %21, %.preheader.us ]
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %33 ], [ 0, %.preheader.us ]
   %24 = load ptr, ptr %10, align 8, !tbaa !38
-  %25 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %24, i64 %indvars.iv53
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv53
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 33554432
@@ -340,7 +338,7 @@ define internal fastcc void @trans_delete(ptr noundef readonly captures(address)
   %52 = phi i16 [ %65, %64 ], [ %50, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.preheader ]
   %53 = load ptr, ptr %10, align 8, !tbaa !38
-  %54 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %indvars.iv
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 8
   %57 = and i32 %56, 33554432
@@ -412,7 +410,7 @@ define void @lv_obj_remove_style(ptr noundef %0, ptr noundef readonly captures(a
 16:                                               ; preds = %.lr.ph32.i
   %17 = add i32 %.02131.i, 1
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %struct.lv_style_const_prop_t, ptr %13, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %18
   %20 = load i8, ptr %19, align 8, !tbaa !32
   %.not.not.i = icmp eq i8 %20, 0
   br i1 %.not.not.i, label %.thread, label %.lr.ph32.i, !llvm.loop !34
@@ -474,7 +472,7 @@ style_has_flag.exit:                              ; preds = %.lr.ph.i, %.lr.ph32
   %.06493 = phi i32 [ 0, %.lr.ph94 ], [ %.1, %96 ]
   %.06592 = phi i1 [ false, %.lr.ph94 ], [ %.166, %96 ]
   %44 = zext nneg i32 %.06493 to i64
-  %45 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = trunc i32 %47 to i16
@@ -508,7 +506,7 @@ style_has_flag.exit:                              ; preds = %.lr.ph.i, %.lr.ph32
 58:                                               ; preds = %56
   tail call fastcc void @trans_delete(ptr noundef nonnull %0, i32 noundef %5, i8 noundef zeroext -1, ptr noundef null)
   %.pre102 = load ptr, ptr %40, align 8, !tbaa !38
-  %.phi.trans.insert = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %.pre102, i64 %44
+  %.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %.pre102, i64 %44
   %.phi.trans.insert103 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 8
   %.pre104 = load i32, ptr %.phi.trans.insert103, align 8
   br label %59
@@ -521,7 +519,7 @@ style_has_flag.exit:                              ; preds = %.lr.ph.i, %.lr.ph32
   br i1 %or.cond83, label %71, label %63
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %61, i64 %44
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %44
   %65 = load ptr, ptr %64, align 8, !tbaa !49
   %.not79 = icmp eq ptr %65, null
   br i1 %.not79, label %67, label %66
@@ -529,7 +527,7 @@ style_has_flag.exit:                              ; preds = %.lr.ph.i, %.lr.ph32
 66:                                               ; preds = %63
   tail call void @lv_style_reset(ptr noundef nonnull %65) #9
   %.pre105 = load ptr, ptr %40, align 8, !tbaa !38
-  %.phi.trans.insert106 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %.pre105, i64 %44
+  %.phi.trans.insert106 = getelementptr inbounds nuw [16 x i8], ptr %.pre105, i64 %44
   %.pre107 = load ptr, ptr %.phi.trans.insert106, align 8, !tbaa !49
   br label %67
 
@@ -537,7 +535,7 @@ style_has_flag.exit:                              ; preds = %.lr.ph.i, %.lr.ph32
   %68 = phi ptr [ %.pre107, %66 ], [ null, %63 ]
   tail call void @lv_free(ptr noundef %68) #9
   %69 = load ptr, ptr %40, align 8, !tbaa !38
-  %70 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %69, i64 %44
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %44
   store ptr null, ptr %70, align 8, !tbaa !49
   br label %71
 
@@ -554,9 +552,9 @@ style_has_flag.exit:                              ; preds = %.lr.ph.i, %.lr.ph32
 .lr.ph:                                           ; preds = %71, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %44, %71 ]
   %79 = load ptr, ptr %40, align 8, !tbaa !38
-  %80 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %79, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %79, i64 %indvars.iv.next
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %indvars.iv.next
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !46
   %82 = load i16, ptr %37, align 2
   %83 = lshr i16 %82, 4
@@ -899,7 +897,7 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef read
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %32 ], [ 0, %.lr.ph.split.us ]
   %.04768.us.us = phi i1 [ %.1.us.us, %32 ], [ false, %.lr.ph.split.us ]
   %18 = load ptr, ptr %15, align 8, !tbaa !38
-  %19 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %18, i64 %indvars.iv90
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %indvars.iv90
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, 50331648
@@ -914,7 +912,7 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef read
 25:                                               ; preds = %23
   tail call void @lv_memset(ptr noundef nonnull %19, i8 noundef zeroext 0, i64 noundef 16) #9
   %26 = load ptr, ptr %15, align 8, !tbaa !38
-  %27 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %26, i64 %indvars.iv90
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %indvars.iv90
   store ptr %2, ptr %27, align 8, !tbaa !49
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8
@@ -939,7 +937,7 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef read
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %54 ], [ 0, %.lr.ph.split.us ]
   %.04768.us = phi i1 [ %.1.us, %54 ], [ false, %.lr.ph.split.us ]
   %39 = load ptr, ptr %15, align 8, !tbaa !38
-  %40 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %39, i64 %indvars.iv88
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %indvars.iv88
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 16711680
@@ -957,7 +955,7 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef read
 47:                                               ; preds = %45
   tail call void @lv_memset(ptr noundef nonnull %40, i8 noundef zeroext 0, i64 noundef 16) #9
   %48 = load ptr, ptr %15, align 8, !tbaa !38
-  %49 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %48, i64 %indvars.iv88
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv88
   store ptr %2, ptr %49, align 8, !tbaa !49
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 8
@@ -985,7 +983,7 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef read
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %76 ], [ 0, %.lr.ph.split ]
   %.04768.us71 = phi i1 [ %.1.us76, %76 ], [ false, %.lr.ph.split ]
   %61 = load ptr, ptr %15, align 8, !tbaa !38
-  %62 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %61, i64 %indvars.iv86
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %indvars.iv86
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i32, ptr %63, align 8
   %65 = and i32 %64, 50331648
@@ -1003,7 +1001,7 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef read
 69:                                               ; preds = %67
   tail call void @lv_memset(ptr noundef nonnull %62, i8 noundef zeroext 0, i64 noundef 16) #9
   %70 = load ptr, ptr %15, align 8, !tbaa !38
-  %71 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %70, i64 %indvars.iv86
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv86
   store ptr %2, ptr %71, align 8, !tbaa !49
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i32, ptr %72, align 8
@@ -1028,7 +1026,7 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef read
   %indvars.iv = phi i64 [ %indvars.iv.next, %99 ], [ 0, %.lr.ph.split ]
   %.04768 = phi i1 [ %.1, %99 ], [ false, %.lr.ph.split ]
   %83 = load ptr, ptr %15, align 8, !tbaa !38
-  %84 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %83, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 %indvars.iv
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i32, ptr %85, align 8
   %87 = and i32 %86, 16711680
@@ -1049,7 +1047,7 @@ define noundef zeroext i1 @lv_obj_replace_style(ptr noundef %0, ptr noundef read
 92:                                               ; preds = %90
   tail call void @lv_memset(ptr noundef nonnull %84, i8 noundef zeroext 0, i64 noundef 16) #9
   %93 = load ptr, ptr %15, align 8, !tbaa !38
-  %94 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %indvars.iv
   store ptr %2, ptr %94, align 8, !tbaa !49
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load i32, ptr %95, align 8
@@ -1115,7 +1113,7 @@ define void @lv_obj_report_style_change(ptr noundef readnone captures(address) %
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %8, align 8, !tbaa !82
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !83
   tail call fastcc void @report_style_change_core(ptr noundef %0, ptr noundef %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1161,7 +1159,7 @@ define internal fastcc void @report_style_change_core(ptr noundef readnone captu
 
 11:                                               ; preds = %.lr.ph.split, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %9, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !49
   %14 = icmp eq ptr %13, %0
   br i1 %14, label %.split, label %10
@@ -1184,7 +1182,7 @@ define internal fastcc void @report_style_change_core(ptr noundef readnone captu
   %indvars.iv23 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next24, %17 ]
   %18 = load ptr, ptr %16, align 8, !tbaa !87
   %19 = load ptr, ptr %18, align 8, !tbaa !88
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv23
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv23
   %21 = load ptr, ptr %20, align 8, !tbaa !83
   tail call fastcc void @report_style_change_core(ptr noundef %0, ptr noundef %21)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
@@ -1534,7 +1532,7 @@ define internal fastcc void @refresh_children_style(ptr noundef %0) unnamed_addr
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %4 ]
   %5 = load ptr, ptr %3, align 8, !tbaa !87
   %6 = load ptr, ptr %5, align 8, !tbaa !88
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !83
   tail call void @lv_obj_invalidate(ptr noundef %8) #9
   %9 = tail call i32 @lv_obj_send_event(ptr noundef %8, i32 noundef 50, ptr noundef null) #9
@@ -1746,7 +1744,7 @@ define void @lv_obj_set_local_style_prop(ptr noundef %0, i8 noundef zeroext %1, 
 
 13:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
-  %14 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %11, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 16777216
@@ -1802,7 +1800,7 @@ define void @lv_obj_set_local_style_prop(ptr noundef %0, i8 noundef zeroext %1, 
   %38 = load ptr, ptr %27, align 8, !tbaa !38
   %39 = add i32 %.1.in56.i, -2
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = and i32 %43, 50331648
@@ -1811,7 +1809,7 @@ define void @lv_obj_set_local_style_prop(ptr noundef %0, i8 noundef zeroext %1, 
 
 45:                                               ; preds = %.lr.ph59.i
   %46 = trunc nuw i64 %indvars.iv67.i to i32
-  %47 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %38, i64 %indvars.iv67.i
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %indvars.iv67.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !46
   %indvars.iv.next68.i = add nsw i64 %indvars.iv67.i, -1
   %48 = and i64 %indvars.iv.next68.i, 4294967295
@@ -1829,21 +1827,21 @@ define void @lv_obj_set_local_style_prop(ptr noundef %0, i8 noundef zeroext %1, 
 ._crit_edge60.i:                                  ; preds = %._crit_edge60.loopexitsplit.i, %.._crit_edge60.loopexit_crit_edge.i, %32
   %50 = phi ptr [ %31, %32 ], [ %.pre.pre.i, %.._crit_edge60.loopexit_crit_edge.i ], [ %38, %._crit_edge60.loopexitsplit.i ]
   %.1.lcssa.i = phi i64 [ 0, %32 ], [ 0, %.._crit_edge60.loopexit_crit_edge.i ], [ %49, %._crit_edge60.loopexitsplit.i ]
-  %51 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %50, i64 %.1.lcssa.i
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %.1.lcssa.i
   tail call void @lv_memset(ptr noundef %51, i8 noundef zeroext 0, i64 noundef 16) #9
   %52 = tail call ptr @lv_malloc_zeroed(i64 noundef 16) #9
   %53 = load ptr, ptr %27, align 8, !tbaa !38
-  %54 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %53, i64 %.1.lcssa.i
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %.1.lcssa.i
   store ptr %52, ptr %54, align 8, !tbaa !49
   tail call void @lv_style_init(ptr noundef %52) #9
   %55 = load ptr, ptr %27, align 8, !tbaa !38
-  %56 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %55, i64 %.1.lcssa.i
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %.1.lcssa.i
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i32, ptr %57, align 8
   %59 = or i32 %58, 16777216
   store i32 %59, ptr %57, align 8
   %60 = load ptr, ptr %27, align 8, !tbaa !38
-  %61 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %60, i64 %.1.lcssa.i
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %.1.lcssa.i
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = and i32 %3, 16777215
@@ -1851,7 +1849,7 @@ define void @lv_obj_set_local_style_prop(ptr noundef %0, i8 noundef zeroext %1, 
   %66 = or disjoint i32 %65, %64
   store i32 %66, ptr %62, align 8
   %67 = load ptr, ptr %27, align 8, !tbaa !38
-  %68 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %67, i64 %.1.lcssa.i
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %.1.lcssa.i
   br label %get_local_style.exit
 
 get_local_style.exit:                             ; preds = %13, %._crit_edge60.i
@@ -1900,7 +1898,7 @@ define i32 @lv_obj_get_local_style_prop(ptr noundef readonly captures(none) %0, 
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %13 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 16777216
@@ -1947,7 +1945,7 @@ define noundef zeroext i1 @lv_obj_remove_local_style_prop(ptr noundef %0, i8 nou
 
 11:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %12 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 16777216
@@ -1975,7 +1973,7 @@ define noundef zeroext i1 @lv_obj_remove_local_style_prop(ptr noundef %0, i8 nou
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !38
   %24 = zext nneg i32 %.021.lcssa to i64
-  %25 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !49
   %27 = tail call zeroext i1 @lv_style_remove_prop(ptr noundef %26, i8 noundef zeroext %1) #9
   br i1 %27, label %28, label %._crit_edge.thread
@@ -2199,7 +2197,7 @@ define internal fastcc ptr @get_trans_style(ptr noundef captures(none) %0, i32 n
 
 10:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %11 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 33554432
@@ -2227,7 +2225,7 @@ define internal fastcc ptr @get_trans_style(ptr noundef captures(none) %0, i32 n
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !38
   %22 = zext nneg i32 %.0.lcssa to i64
-  %23 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %22
   br label %62
 
 ._crit_edge.thread:                               ; preds = %17, %._crit_edge
@@ -2267,10 +2265,10 @@ define internal fastcc ptr @get_trans_style(ptr noundef captures(none) %0, i32 n
   %indvars.iv54 = phi i64 [ %40, %.lr.ph50.preheader ], [ %indvars.iv.next55, %.lr.ph50 ]
   %.1.in47 = phi i32 [ %39, %.lr.ph50.preheader ], [ %47, %.lr.ph50 ]
   %41 = load ptr, ptr %31, align 8, !tbaa !38
-  %42 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %41, i64 %indvars.iv54
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %indvars.iv54
   %43 = add i32 %.1.in47, -2
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !46
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, -1
   %46 = and i64 %indvars.iv.next55, 4294967295
@@ -2341,7 +2339,7 @@ define internal void @trans_anim_cb(ptr noundef readonly captures(none) %0, i32 
 
 12:                                               ; preds = %.lr.ph, %114
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %114 ]
-  %13 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 33554432
@@ -2495,7 +2493,7 @@ define internal void @trans_anim_cb(ptr noundef readonly captures(none) %0, i32 
   %.sroa.08.0 = phi ptr [ %71, %68 ], [ %75, %72 ], [ %85, %76 ], [ %29, %26 ], [ %33, %30 ], [ %38, %36 ], [ %41, %39 ], [ %61, %60 ], [ %66, %62 ], [ %., %50 ], [ %44, %48 ], [ %56, %54 ], [ %47, %42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
-  %89 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %88, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8, !tbaa !49
   %91 = call i32 @lv_style_get_prop(ptr noundef %90, i8 noundef zeroext %87, ptr noundef nonnull %3) #9
   %.not92 = icmp ne i32 %91, 0
@@ -2518,7 +2516,7 @@ define internal void @trans_anim_cb(ptr noundef readonly captures(none) %0, i32 
 
 .critedge:                                        ; preds = %94
   %101 = load ptr, ptr %9, align 8, !tbaa !38
-  %102 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %101, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %101, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8, !tbaa !49
   %104 = load i8, ptr %22, align 8, !tbaa !53
   call void @lv_style_set_prop(ptr noundef %103, i8 noundef zeroext %104, ptr %.sroa.08.0) #9
@@ -2526,7 +2524,7 @@ define internal void @trans_anim_cb(ptr noundef readonly captures(none) %0, i32 
 
 105:                                              ; preds = %94, %86
   %106 = load ptr, ptr %9, align 8, !tbaa !38
-  %107 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %106, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %106, i64 %indvars.iv
   %108 = load ptr, ptr %107, align 8, !tbaa !49
   %109 = load i8, ptr %22, align 8, !tbaa !53
   call void @lv_style_set_prop(ptr noundef %108, i8 noundef zeroext %109, ptr %.sroa.08.0) #9
@@ -2673,7 +2671,7 @@ define internal void @trans_anim_completed_cb(ptr noundef readonly captures(none
 
 32:                                               ; preds = %.lr.ph41, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next, %.critedge ]
-  %33 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %13, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 33554432
@@ -2690,11 +2688,11 @@ define internal void @trans_anim_completed_cb(ptr noundef readonly captures(none
   tail call void @lv_ll_remove(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 48), ptr noundef nonnull %2) #9
   tail call void @lv_free(ptr noundef nonnull %2) #9
   %42 = load ptr, ptr %12, align 8, !tbaa !38
-  %43 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !49
   %45 = tail call zeroext i1 @lv_style_remove_prop(ptr noundef %44, i8 noundef zeroext %5) #9
   %46 = load ptr, ptr %12, align 8, !tbaa !38
-  %47 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !49
   %49 = tail call zeroext i1 @lv_style_is_empty(ptr noundef %48) #9
   br i1 %49, label %50, label %.loopexit
@@ -2900,7 +2898,7 @@ define range(i32 0, 4) i32 @lv_obj_style_state_compare(ptr noundef readonly capt
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %88 ]
   %.05498 = phi i32 [ 0, %.lr.ph ], [ %.155, %88 ]
   %15 = load ptr, ptr %8, align 8, !tbaa !38
-  %16 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 33554432
@@ -3146,7 +3144,7 @@ define internal void @fade_in_anim_completed(ptr noundef readonly captures(none)
 
 10:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
-  %11 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 33554431
@@ -3171,7 +3169,7 @@ define internal void @fade_in_anim_completed(ptr noundef readonly captures(none)
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !38
   %21 = zext nneg i32 %.021.lcssa.i to i64
-  %22 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !49
   %24 = tail call zeroext i1 @lv_style_remove_prop(ptr noundef %23, i8 noundef zeroext 95) #9
   br i1 %24, label %25, label %lv_obj_remove_local_style_prop.exit
@@ -3794,7 +3792,7 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
 
 .lr.ph113.split.us:                               ; preds = %.lr.ph113, %.thread.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread.us ], [ 0, %.lr.ph113 ]
-  %18 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = and i32 %20, 33554432
@@ -3808,7 +3806,7 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
 
 .lr.ph113.split:                                  ; preds = %.lr.ph113, %.thread
   %indvars.iv144 = phi i64 [ %indvars.iv.next145, %.thread ], [ 0, %.lr.ph113 ]
-  %23 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %17, i64 %indvars.iv144
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv144
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 33554432
@@ -3848,7 +3846,7 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
   %.02635.i110 = phi i32 [ %43, %.lr.ph36.i ], [ 0, %.lr.ph36.i.preheader ]
   %43 = add i32 %.02635.i110, 1
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %struct.lv_style_const_prop_t, ptr %39, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %44
   %46 = load i8, ptr %45, align 8, !tbaa !32
   %.not.not.i = icmp eq i8 %46, 0
   br i1 %.not.not.i, label %.thread, label %.lr.ph36.i, !llvm.loop !117
@@ -3882,7 +3880,7 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
   br i1 %56, label %57, label %53
 
 57:                                               ; preds = %.lr.ph.i
-  %58 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %39, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i
   br label %.thread90
 
 .thread90:                                        ; preds = %57, %.lr.ph36.i.preheader._crit_edge
@@ -3919,7 +3917,7 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
   %indvars.iv149 = phi i64 [ %63, %.lr.ph124 ], [ %indvars.iv.next150, %.thread95 ]
   %.050122 = phi i32 [ -1, %.lr.ph124 ], [ %.151, %.thread95 ]
   %66 = load ptr, ptr %62, align 8, !tbaa !38
-  %67 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %66, i64 %indvars.iv149
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %indvars.iv149
   %68 = load ptr, ptr %67, align 8, !tbaa !49
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load i32, ptr %69, align 8, !tbaa !116
@@ -3963,7 +3961,7 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
   %.02635.i84118 = phi i32 [ %88, %.lr.ph36.i83 ], [ 0, %.lr.ph36.i83.preheader ]
   %88 = add i32 %.02635.i84118, 1
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw %struct.lv_style_const_prop_t, ptr %84, i64 %89
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %89
   %91 = load i8, ptr %90, align 8, !tbaa !32
   %.not.not.i85 = icmp eq i8 %91, 0
   br i1 %.not.not.i85, label %.thread95, label %.lr.ph36.i83, !llvm.loop !117
@@ -3997,7 +3995,7 @@ define internal fastcc range(i32 0, 2) i32 @get_prop_core(ptr noundef nonnull re
   br i1 %101, label %102, label %98
 
 102:                                              ; preds = %.lr.ph.i74
-  %103 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %84, i64 %indvars.iv.i75
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv.i75
   br label %104
 
 104:                                              ; preds = %102, %.lr.ph36.i83._crit_edge

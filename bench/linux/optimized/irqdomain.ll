@@ -959,7 +959,7 @@ define internal fastcc noundef i32 @irq_domain_associate_locked(ptr noundef %0, 
 42:                                               ; preds = %34
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !36
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %44 = getelementptr ptr, ptr %43, i64 %2
+  %44 = getelementptr [8 x i8], ptr %43, i64 %2
   store volatile ptr %4, ptr %44, align 8
   br label %48
 
@@ -1008,7 +1008,7 @@ define dso_local i32 @irq_create_mapping_affinity(ptr noundef %0, i64 noundef %1
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %19 = getelementptr ptr, ptr %18, i64 %1
+  %19 = getelementptr [8 x i8], ptr %18, i64 %1
   %20 = load volatile ptr, ptr %19, align 8
   br label %24
 
@@ -1102,9 +1102,9 @@ define dso_local void @of_phandle_args_to_fwspec(ptr noundef %0, ptr noundef rea
 12:                                               ; preds = %12, %10
   %13 = phi i32 [ 0, %10 ], [ %18, %12 ]
   %14 = sext i32 %13 to i64
-  %15 = getelementptr i32, ptr %1, i64 %14
+  %15 = getelementptr [4 x i8], ptr %1, i64 %14
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr i32, ptr %11, i64 %14
+  %17 = getelementptr [4 x i8], ptr %11, i64 %14
   store i32 %16, ptr %17, align 4
   %18 = add nuw i32 %13, 1
   %19 = icmp eq i32 %18, %2
@@ -1362,7 +1362,7 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
 
 137:                                              ; preds = %128
   %138 = getelementptr inbounds nuw i8, ptr %101, i64 176
-  %139 = getelementptr ptr, ptr %138, i64 %132
+  %139 = getelementptr [8 x i8], ptr %138, i64 %132
   %140 = load volatile ptr, ptr %139, align 8
   br label %144
 
@@ -1765,7 +1765,7 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0,
 139:                                              ; preds = %.preheader27
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !36
   %140 = getelementptr inbounds nuw i8, ptr %129, i64 176
-  %141 = getelementptr ptr, ptr %140, i64 %134
+  %141 = getelementptr [8 x i8], ptr %140, i64 %134
   store volatile ptr %127, ptr %141, align 8
   br label %145
 
@@ -1850,9 +1850,9 @@ define dso_local i32 @irq_create_of_mapping(ptr noundef readonly captures(none) 
 15:                                               ; preds = %15, %13
   %16 = phi i32 [ 0, %13 ], [ %21, %15 ]
   %17 = sext i32 %16 to i64
-  %18 = getelementptr i32, ptr %5, i64 %17
+  %18 = getelementptr [4 x i8], ptr %5, i64 %17
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr i32, ptr %14, i64 %17
+  %20 = getelementptr [4 x i8], ptr %14, i64 %17
   store i32 %19, ptr %20, align 4
   %21 = add nuw i32 %16, 1
   %22 = icmp eq i32 %21, %7
@@ -1955,7 +1955,7 @@ define dso_local void @irq_dispose_mapping(i32 noundef %0) #1 align 16 {
 
 45:                                               ; preds = %37
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 176
-  %47 = getelementptr ptr, ptr %46, i64 %27
+  %47 = getelementptr [8 x i8], ptr %46, i64 %27
   store volatile ptr null, ptr %47, align 8
   br label %51
 
@@ -2050,7 +2050,7 @@ define dso_local void @irq_domain_free_irqs(i32 noundef %0, i32 noundef %1) loca
 
 39:                                               ; preds = %.preheader17
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 176
-  %41 = getelementptr ptr, ptr %40, i64 %31
+  %41 = getelementptr [8 x i8], ptr %40, i64 %31
   store volatile ptr null, ptr %41, align 8
   br label %45
 
@@ -2165,7 +2165,7 @@ define dso_local ptr @__irq_resolve_mapping(ptr noundef %0, i64 noundef %1, ptr 
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %15 = getelementptr ptr, ptr %14, i64 %1
+  %15 = getelementptr [8 x i8], ptr %14, i64 %1
   %16 = load volatile ptr, ptr %15, align 8
   br label %20
 
@@ -2269,9 +2269,9 @@ define dso_local noundef range(i32 -22, 1) i32 @irq_domain_xlate_twocell(ptr rea
 13:                                               ; preds = %13, %11
   %14 = phi i32 [ 0, %11 ], [ %19, %13 ]
   %15 = sext i32 %14 to i64
-  %16 = getelementptr i32, ptr %2, i64 %15
+  %16 = getelementptr [4 x i8], ptr %2, i64 %15
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr i32, ptr %12, i64 %15
+  %18 = getelementptr [4 x i8], ptr %12, i64 %15
   store i32 %17, ptr %18, align 4
   %19 = add nuw i32 %14, 1
   %20 = icmp eq i32 %19, %3
@@ -2999,7 +2999,7 @@ define dso_local i32 @irq_domain_push_irq(ptr noundef %0, i32 noundef %1, ptr no
   %63 = load ptr, ptr %54, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 176
   %65 = load i64, ptr %55, align 8
-  %66 = getelementptr ptr, ptr %64, i64 %65
+  %66 = getelementptr [8 x i8], ptr %64, i64 %65
   store volatile ptr %34, ptr %66, align 8
   br label %74
 
@@ -3026,7 +3026,7 @@ define dso_local i32 @irq_domain_push_irq(ptr noundef %0, i32 noundef %1, ptr no
 80:                                               ; preds = %74
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !36
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %82 = getelementptr ptr, ptr %81, i64 %75
+  %82 = getelementptr [8 x i8], ptr %81, i64 %75
   store volatile ptr %4, ptr %82, align 8
   br label %86
 
@@ -3147,7 +3147,7 @@ define dso_local noundef range(i32 -22, 1) i32 @irq_domain_pop_irq(ptr noundef %
 
 49:                                               ; preds = %39
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %51 = getelementptr ptr, ptr %50, i64 %44
+  %51 = getelementptr [8 x i8], ptr %50, i64 %44
   store volatile ptr null, ptr %51, align 8
   br label %55
 
@@ -3204,7 +3204,7 @@ define dso_local noundef range(i32 -22, 1) i32 @irq_domain_pop_irq(ptr noundef %
   %83 = load ptr, ptr %30, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 176
   %85 = load i64, ptr %43, align 8
-  %86 = getelementptr ptr, ptr %84, i64 %85
+  %86 = getelementptr [8 x i8], ptr %84, i64 %85
   store volatile ptr %3, ptr %86, align 8
   br label %94
 

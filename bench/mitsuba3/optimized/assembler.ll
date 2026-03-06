@@ -127,7 +127,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler7sectionEPNS0_7
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %15 = zext i32 %9 to i64
   %16 = load ptr, ptr %14, align 8, !tbaa !41
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !42
   %19 = icmp eq ptr %18, %1
   br i1 %19, label %22, label %20
@@ -805,7 +805,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler10embedLabelERK
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %20 = zext i32 %14 to i64
   %21 = load ptr, ptr %19, align 8, !tbaa !41
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !42
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %27, !prof !74
@@ -1072,7 +1072,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %20 = zext i32 %14 to i64
   %21 = load ptr, ptr %19, align 8, !tbaa !41
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !42
   br label %24
 
@@ -1087,7 +1087,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %31 = zext i32 %27 to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !41
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8, !tbaa !42
   %35 = icmp eq ptr %25, null
   %36 = icmp eq ptr %34, null

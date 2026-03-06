@@ -63,7 +63,7 @@ define internal range(i32 -22, 1) i32 @swf_write_header(ptr noundef %0) #0 {
 18:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %19 = load ptr, ptr %13, align 8, !tbaa !33
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !34
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !35
@@ -102,7 +102,7 @@ define internal range(i32 -22, 1) i32 @swf_write_header(ptr noundef %0) #0 {
 
 37:                                               ; preds = %35, %35, %33
   %38 = load ptr, ptr %13, align 8, !tbaa !33
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !34
   store ptr %40, ptr %14, align 8, !tbaa !47
   store ptr %23, ptr %15, align 8, !tbaa !48
@@ -482,7 +482,7 @@ define internal range(i32 -1, 1) i32 @swf_write_packet(ptr noundef %0, ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4, !tbaa !73
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !34
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !35

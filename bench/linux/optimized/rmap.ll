@@ -138,20 +138,10 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_folio_mkclea
 %struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
 %struct.cpumask = type { [1 x i64] }
 %struct.trace_event_buffer = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.pgd_t = type { i64 }
-%struct.p4d_t = type { i64 }
-%struct.pud_t = type { i64 }
-%struct.pmd_t = type { i64 }
 %struct.folio_referenced_arg = type { i32, i32, i64, ptr }
 %struct.rmap_walk_control = type { ptr, i8, i8, ptr, ptr, ptr, ptr }
 %struct.page_vma_mapped_walk = type { i64, i64, i64, ptr, i64, ptr, ptr, ptr, i32 }
 %struct.mmu_notifier_range = type { ptr, i64, i64, i32, i32, ptr }
-%struct.page = type { i64, %union.anon.20, %union.anon.28, %struct.atomic_t, [8 x i8] }
-%union.anon.20 = type { %struct.anon.21 }
-%struct.anon.21 = type { %union.anon.22, ptr, %union.anon.24, i64 }
-%union.anon.22 = type { %struct.list_head }
-%union.anon.24 = type { i64 }
-%union.anon.28 = type { %struct.atomic_t }
 
 @__tpstrtab_tlb_flush = internal constant [10 x i8] c"tlb_flush\00", section "__tracepoints_strings", align 1
 @__SCK__tp_func_tlb_flush = dso_local global %struct.static_call_key { ptr @__traceiter_tlb_flush, %union.anon.0 { i64 1 } }, align 8
@@ -1956,7 +1946,7 @@ define dso_local ptr @mm_find_pmd(ptr noundef readonly captures(none) %0, i64 no
   %6 = zext nneg i32 %5 to i64
   %7 = lshr i64 %1, %6
   %8 = and i64 %7, 511
-  %9 = getelementptr %struct.pgd_t, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load i64, ptr %9, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #17
           to label %11 [label %11, label %14], !srcloc !38
@@ -1981,7 +1971,7 @@ define dso_local ptr @mm_find_pmd(ptr noundef readonly captures(none) %0, i64 no
   %23 = add i32 %22, -1
   %24 = zext i32 %23 to i64
   %25 = and i64 %21, %24
-  %26 = getelementptr %struct.p4d_t, ptr %20, i64 %25
+  %26 = getelementptr [8 x i8], ptr %20, i64 %25
   br label %27
 
 27:                                               ; preds = %15, %14
@@ -1998,7 +1988,7 @@ define dso_local ptr @mm_find_pmd(ptr noundef readonly captures(none) %0, i64 no
   %36 = inttoptr i64 %35 to ptr
   %37 = lshr i64 %1, 30
   %38 = and i64 %37, 511
-  %39 = getelementptr %struct.pud_t, ptr %36, i64 %38
+  %39 = getelementptr [8 x i8], ptr %36, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %40, 1
   %42 = icmp eq i64 %41, 0
@@ -2013,7 +2003,7 @@ define dso_local ptr @mm_find_pmd(ptr noundef readonly captures(none) %0, i64 no
   %49 = inttoptr i64 %48 to ptr
   %50 = lshr i64 %1, 21
   %51 = and i64 %50, 511
-  %52 = getelementptr %struct.pmd_t, ptr %49, i64 %51
+  %52 = getelementptr [8 x i8], ptr %49, i64 %51
   br label %53
 
 53:                                               ; preds = %43, %32, %27, %11
@@ -2867,7 +2857,7 @@ define dso_local i32 @folio_total_mapcount(ptr noundef %0) local_unnamed_addr #7
 19:                                               ; preds = %19, %.thread
   %20 = phi i64 [ 0, %.thread ], [ %25, %19 ]
   %21 = phi i32 [ %4, %.thread ], [ %24, %19 ]
-  %.split = getelementptr %struct.page, ptr %0, i64 %20
+  %.split = getelementptr [64 x i8], ptr %0, i64 %20
   %22 = getelementptr i8, ptr %.split, i64 48
   %23 = load volatile i32, ptr %22, align 4
   %24 = add i32 %23, %21
@@ -2940,7 +2930,7 @@ define dso_local void @folio_add_anon_rmap_ptes(ptr noundef %0, ptr noundef %1, 
 32:                                               ; preds = %30
   %33 = load i64, ptr %0, align 16
   %34 = lshr i64 %33, 58
-  %35 = getelementptr ptr, ptr @node_data, i64 %34
+  %35 = getelementptr [8 x i8], ptr @node_data, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = sext i32 %26 to i64
   tail call void @__mod_node_page_state(ptr noundef %36, i32 noundef 17, i64 noundef %37) #17
@@ -2975,7 +2965,7 @@ define dso_local void @folio_add_anon_rmap_ptes(ptr noundef %0, ptr noundef %1, 
 
 54:                                               ; preds = %54, %52
   %55 = phi i64 [ 0, %52 ], [ %57, %54 ]
-  %56 = getelementptr %struct.page, ptr %50, i64 %55
+  %56 = getelementptr [64 x i8], ptr %50, i64 %55
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %56, i32 2, ptr elementtype(i8) %56) #17, !srcloc !53
   %57 = add nuw nsw i64 %55, 1
   %58 = icmp eq i64 %57, %53
@@ -3069,7 +3059,7 @@ define dso_local void @folio_add_new_anon_rmap(ptr noundef %0, ptr noundef reado
 
 36:                                               ; preds = %36, %31
   %37 = phi i64 [ 0, %31 ], [ %41, %36 ]
-  %38 = getelementptr %struct.page, ptr %0, i64 %37
+  %38 = getelementptr [64 x i8], ptr %0, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   store volatile i32 0, ptr %39, align 4
   %40 = getelementptr i8, ptr %38, i64 2
@@ -3086,7 +3076,7 @@ define dso_local void @folio_add_new_anon_rmap(ptr noundef %0, ptr noundef reado
 44:                                               ; preds = %.loopexit, %33
   %45 = load i64, ptr %0, align 16
   %46 = lshr i64 %45, 58
-  %47 = getelementptr ptr, ptr @node_data, i64 %46
+  %47 = getelementptr [8 x i8], ptr @node_data, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = sext i32 %11 to i64
   tail call void @__mod_node_page_state(ptr noundef %48, i32 noundef 17, i64 noundef %49) #17
@@ -3172,7 +3162,7 @@ define dso_local void @folio_add_file_rmap_ptes(ptr noundef %0, ptr noundef %1, 
 30:                                               ; preds = %28
   %31 = load i64, ptr %0, align 16
   %32 = lshr i64 %31, 58
-  %33 = getelementptr ptr, ptr @node_data, i64 %32
+  %33 = getelementptr [8 x i8], ptr @node_data, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = sext i32 %24 to i64
   tail call void @__mod_node_page_state(ptr noundef %34, i32 noundef 18, i64 noundef %35) #17
@@ -3258,7 +3248,7 @@ define dso_local void @folio_remove_rmap_ptes(ptr noundef %0, ptr noundef %1, i3
   %37 = sub i32 0, %24
   %38 = load i64, ptr %0, align 16
   %39 = lshr i64 %38, 58
-  %40 = getelementptr ptr, ptr @node_data, i64 %39
+  %40 = getelementptr [8 x i8], ptr @node_data, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %37 to i64
   tail call void @__mod_node_page_state(ptr noundef %41, i32 noundef %36, i64 noundef %42) #17
@@ -3575,7 +3565,7 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   %156 = sub i64 %16, %155
   %157 = ashr exact i64 %156, 6
   %158 = sub nsw i64 %154, %157
-  %159 = getelementptr %struct.page, ptr %0, i64 %158
+  %159 = getelementptr [64 x i8], ptr %0, i64 %158
   %160 = load i64, ptr %33, align 8
   %161 = load ptr, ptr %88, align 8
   %162 = ptrtoint ptr %161 to i64
@@ -4202,7 +4192,7 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   %511 = icmp eq i64 %510, 0
   %512 = select i1 %511, i32 0, i32 3
   %513 = zext nneg i32 %512 to i64
-  %514 = getelementptr %struct.percpu_counter, ptr %114, i64 %513
+  %514 = getelementptr [40 x i8], ptr %114, i64 %513
   %515 = load i32, ptr @percpu_counter_batch, align 4
   call void @percpu_counter_add_batch(ptr noundef %514, i64 noundef -1, i32 noundef %515) #17
   call void @mm_trace_rss_stat(ptr noundef %13, i32 noundef %512) #17
@@ -4256,7 +4246,7 @@ define internal noundef zeroext i1 @try_to_unmap_one(ptr noundef %0, ptr noundef
   %541 = icmp eq i64 %540, 0
   %542 = select i1 %541, i32 18, i32 17
   %543 = lshr i64 %537, 58
-  %544 = getelementptr ptr, ptr @node_data, i64 %543
+  %544 = getelementptr [8 x i8], ptr @node_data, i64 %543
   %545 = load ptr, ptr %544, align 8
   call void @__mod_node_page_state(ptr noundef %545, i32 noundef %542, i64 noundef -1) #17
   %546 = load volatile i64, ptr %0, align 8
@@ -4610,7 +4600,7 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   %117 = sub i64 %16, %116
   %118 = ashr exact i64 %117, 6
   %119 = sub nsw i64 %115, %118
-  %120 = getelementptr %struct.page, ptr %0, i64 %119
+  %120 = getelementptr [64 x i8], ptr %0, i64 %119
   %121 = load i64, ptr %33, align 8
   %122 = load ptr, ptr %85, align 8
   %123 = ptrtoint ptr %122 to i64
@@ -5217,7 +5207,7 @@ define internal noundef zeroext i1 @try_to_migrate_one(ptr noundef %0, ptr nound
   %462 = icmp eq i64 %461, 0
   %463 = select i1 %462, i32 18, i32 17
   %464 = lshr i64 %458, 58
-  %465 = getelementptr ptr, ptr @node_data, i64 %464
+  %465 = getelementptr [8 x i8], ptr @node_data, i64 %464
   %466 = load ptr, ptr %465, align 8
   call void @__mod_node_page_state(ptr noundef %466, i32 noundef %463, i64 noundef -1) #17
   %467 = load volatile i64, ptr %0, align 8

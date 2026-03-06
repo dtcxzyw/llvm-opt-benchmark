@@ -248,7 +248,7 @@ define internal fastcc void @Abc_SclLibFree(ptr noundef nonnull captures(none) %
 5:                                                ; preds = %.lr.ph, %Abc_SclWireLoadFree.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_SclWireLoadFree.exit ]
   %.val63 = load ptr, ptr %4, align 8, !tbaa !27
-  %6 = getelementptr inbounds nuw ptr, ptr %.val63, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %.val63, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -323,7 +323,7 @@ Vec_PtrErase.exit:                                ; preds = %.critedge, %25
 29:                                               ; preds = %.lr.ph112, %Abc_SclWireLoadSelFree.exit
   %indvars.iv120 = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next121, %Abc_SclWireLoadSelFree.exit ]
   %.val64 = load ptr, ptr %28, align 8, !tbaa !27
-  %30 = getelementptr inbounds nuw ptr, ptr %.val64, i64 %indvars.iv120
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.val64, i64 %indvars.iv120
   %31 = load ptr, ptr %30, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -369,7 +369,7 @@ Vec_FltErase.exit10.i:                            ; preds = %40, %Vec_FltErase.e
   %.val18.i.i = phi i32 [ %.val15.i.i, %.lr.ph.i.i ], [ %.val.i.i, %51 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %51 ]
   %.val14.i.i = load ptr, ptr %45, align 8, !tbaa !27
-  %47 = getelementptr inbounds nuw ptr, ptr %.val14.i.i, i64 %indvars.iv.i.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.val14.i.i, i64 %indvars.iv.i.i
   %48 = load ptr, ptr %47, align 8, !tbaa !28
   %49 = icmp ult ptr %48, inttoptr (i64 3 to ptr)
   br i1 %49, label %51, label %50
@@ -443,7 +443,7 @@ Vec_PtrErase.exit72:                              ; preds = %.critedge2, %64
 68:                                               ; preds = %.lr.ph115, %Abc_SclTableTemplFree.exit
   %indvars.iv123 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next124, %Abc_SclTableTemplFree.exit ]
   %.val65 = load ptr, ptr %67, align 8, !tbaa !27
-  %69 = getelementptr inbounds nuw ptr, ptr %.val65, i64 %indvars.iv123
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.val65, i64 %indvars.iv123
   %70 = load ptr, ptr %69, align 8, !tbaa !28
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = getelementptr i8, ptr %70, i64 12
@@ -459,7 +459,7 @@ Vec_PtrErase.exit72:                              ; preds = %.critedge2, %64
   %.val18.i.i79 = phi i32 [ %.val15.i.i73, %.lr.ph.i.i78 ], [ %.val.i.i83, %80 ]
   %indvars.iv.i.i80 = phi i64 [ 0, %.lr.ph.i.i78 ], [ %indvars.iv.next.i.i84, %80 ]
   %.val14.i.i81 = load ptr, ptr %74, align 8, !tbaa !27
-  %76 = getelementptr inbounds nuw ptr, ptr %.val14.i.i81, i64 %indvars.iv.i.i80
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %.val14.i.i81, i64 %indvars.iv.i.i80
   %77 = load ptr, ptr %76, align 8, !tbaa !28
   %78 = icmp ult ptr %77, inttoptr (i64 3 to ptr)
   br i1 %78, label %80, label %79
@@ -504,7 +504,7 @@ Vec_PtrErase.exit.i76:                            ; preds = %85, %Vec_PtrFreeDat
   %.val13.i.i = phi i32 [ %.val10.i.i, %.lr.ph.i8.i ], [ %.val.i12.i, %97 ]
   %indvars.iv.i9.i = phi i64 [ 0, %.lr.ph.i8.i ], [ %indvars.iv.next.i13.i, %97 ]
   %.val8.i.i = load ptr, ptr %89, align 8, !tbaa !49
-  %91 = getelementptr inbounds nuw ptr, ptr %.val8.i.i, i64 %indvars.iv.i9.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %.val8.i.i, i64 %indvars.iv.i9.i
   %92 = load ptr, ptr %91, align 8, !tbaa !28
   %.not.i10.i = icmp eq ptr %92, null
   br i1 %.not.i10.i, label %97, label %93
@@ -588,7 +588,7 @@ Vec_PtrErase.exit86:                              ; preds = %.critedge4, %110
 114:                                              ; preds = %.lr.ph118, %Abc_SclCellFree.exit
   %indvars.iv126 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next127, %Abc_SclCellFree.exit ]
   %.val66 = load ptr, ptr %113, align 8, !tbaa !27
-  %115 = getelementptr inbounds nuw ptr, ptr %.val66, i64 %indvars.iv126
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %.val66, i64 %indvars.iv126
   %116 = load ptr, ptr %115, align 8, !tbaa !28
   %117 = getelementptr i8, ptr %116, i64 52
   %.val15.i = load i32, ptr %117, align 4, !tbaa !25
@@ -602,7 +602,7 @@ Vec_PtrErase.exit86:                              ; preds = %.critedge4, %110
 120:                                              ; preds = %Abc_SclPinFree.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Abc_SclPinFree.exit.i ]
   %.val12.i = load ptr, ptr %119, align 8, !tbaa !27
-  %121 = getelementptr inbounds nuw ptr, ptr %.val12.i, i64 %indvars.iv.i
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %.val12.i, i64 %indvars.iv.i
   %122 = load ptr, ptr %121, align 8, !tbaa !28
   %123 = getelementptr i8, ptr %122, i64 68
   %.val22.i.i = load i32, ptr %123, align 4, !tbaa !25
@@ -616,7 +616,7 @@ Vec_PtrErase.exit86:                              ; preds = %.critedge4, %110
 126:                                              ; preds = %Abc_SclTimingsFree.exit.i.i, %.lr.ph.i.i91
   %indvars.iv.i.i92 = phi i64 [ 0, %.lr.ph.i.i91 ], [ %indvars.iv.next.i.i95, %Abc_SclTimingsFree.exit.i.i ]
   %.val18.i.i93 = load ptr, ptr %125, align 8, !tbaa !27
-  %127 = getelementptr inbounds nuw ptr, ptr %.val18.i.i93, i64 %indvars.iv.i.i92
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %.val18.i.i93, i64 %indvars.iv.i.i92
   %128 = load ptr, ptr %127, align 8, !tbaa !28
   %129 = getelementptr i8, ptr %128, i64 12
   %.val15.i.i.i = load i32, ptr %129, align 4, !tbaa !25
@@ -630,7 +630,7 @@ Vec_PtrErase.exit86:                              ; preds = %.critedge4, %110
 132:                                              ; preds = %Abc_SclTimingFree.exit.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %Abc_SclTimingFree.exit.i.i.i ]
   %.val12.i.i.i = load ptr, ptr %131, align 8, !tbaa !27
-  %133 = getelementptr inbounds nuw ptr, ptr %.val12.i.i.i, i64 %indvars.iv.i.i.i
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %.val12.i.i.i, i64 %indvars.iv.i.i.i
   %134 = load ptr, ptr %133, align 8, !tbaa !28
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
   tail call fastcc void @Abc_SclSurfaceFree(ptr noundef nonnull %135)
@@ -950,7 +950,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
 
 12:                                               ; preds = %9
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds ptr, ptr %2, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %2, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !82
   %16 = tail call double @strtod(ptr noundef nonnull captures(none) %15, ptr noundef null) #14
   %17 = fptrunc double %16 to float
@@ -970,7 +970,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
 
 23:                                               ; preds = %20
   %24 = sext i32 %21 to i64
-  %25 = getelementptr inbounds ptr, ptr %2, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %2, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !82
   %27 = tail call double @strtod(ptr noundef nonnull captures(none) %26, ptr noundef null) #14
   %28 = fptrunc double %27 to float
@@ -990,7 +990,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
 
 34:                                               ; preds = %31
   %35 = sext i32 %32 to i64
-  %36 = getelementptr inbounds ptr, ptr %2, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %2, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !82
   %38 = tail call i64 @strtol(ptr noundef nonnull captures(none) %37, ptr noundef null, i32 noundef 10) #14
   %39 = trunc i64 %38 to i32
@@ -1025,10 +1025,10 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
 
 45:                                               ; preds = %42
   %46 = sext i32 %43 to i64
-  %47 = getelementptr inbounds ptr, ptr %2, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %2, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !82
   %49 = sext i32 %.sroa.0.0 to i64
-  %50 = getelementptr inbounds ptr, ptr %6, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %6, i64 %49
   store ptr %48, ptr %50, align 8, !tbaa !82
   %51 = add nsw i32 %.sroa.0.0, 1
   %52 = add nsw i32 %43, 1
@@ -1075,7 +1075,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadLib(ptr noundef captures(non
 
 73:                                               ; preds = %69
   %74 = sext i32 %70 to i64
-  %75 = getelementptr inbounds ptr, ptr %2, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %2, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !82
   %77 = tail call noalias ptr @fopen(ptr noundef %76, ptr noundef nonnull @.str.22)
   %78 = icmp eq ptr %77, null
@@ -1098,7 +1098,7 @@ Scl_ReadLibraryFile.exit:                         ; preds = %79, %.sink.split.i
   %.0.i = phi ptr [ %81, %79 ], [ null, %.sink.split.i ]
   %86 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
   %87 = sext i32 %86 to i64
-  %88 = getelementptr ptr, ptr %2, i64 %87
+  %88 = getelementptr [8 x i8], ptr %2, i64 %87
   %89 = getelementptr i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !82
   %91 = tail call noalias ptr @fopen(ptr noundef %90, ptr noundef nonnull @.str.22)
@@ -1162,7 +1162,7 @@ Scl_ReadLibraryFile.exit211:                      ; preds = %93, %.sink.split.i2
 
 113:                                              ; preds = %110
   %114 = sext i32 %70 to i64
-  %115 = getelementptr inbounds ptr, ptr %2, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %2, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !82
   %117 = tail call noalias ptr @fopen(ptr noundef %116, ptr noundef nonnull @.str.22)
   %118 = icmp eq ptr %117, null
@@ -1260,7 +1260,7 @@ Abc_SclLoad.exit:                                 ; preds = %149, %146
 154:                                              ; preds = %152
   %155 = load i32, ptr @globalUtilOptind, align 4, !tbaa !81
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds ptr, ptr %2, i64 %156
+  %157 = getelementptr inbounds [8 x i8], ptr %2, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !82
   %159 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %158, ptr noundef nonnull @.str.31) #14
   %160 = load ptr, ptr %147, align 8, !tbaa !85
@@ -1285,7 +1285,7 @@ Abc_SclLoad.exit:                                 ; preds = %149, %146
 
 165:                                              ; preds = %.lr.ph, %165
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %165 ]
-  %166 = getelementptr inbounds nuw ptr, ptr %.val207, i64 %indvars.iv
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %.val207, i64 %indvars.iv
   %167 = load ptr, ptr %166, align 8, !tbaa !28
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
   store float 1.000000e+00, ptr %168, align 8, !tbaa !86
@@ -1394,7 +1394,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteLib(ptr noundef readonly ca
 
 16:                                               ; preds = %8
   %17 = sext i32 %6 to i64
-  %18 = getelementptr inbounds ptr, ptr %2, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %2, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !82
   %20 = tail call noalias ptr @fopen(ptr noundef %19, ptr noundef nonnull @.str.55)
   %21 = icmp eq ptr %20, null
@@ -1470,7 +1470,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintLib(ptr noundef readonly ca
 
 8:                                                ; preds = %6
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds ptr, ptr %2, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !82
   %12 = tail call double @strtod(ptr noundef nonnull captures(none) %11, ptr noundef null) #14
   %13 = fptrunc double %12 to float
@@ -1486,7 +1486,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintLib(ptr noundef readonly ca
 
 18:                                               ; preds = %16
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !82
   %22 = tail call double @strtod(ptr noundef nonnull captures(none) %21, ptr noundef null) #14
   %23 = fptrunc double %22 to float
@@ -1588,7 +1588,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandLeak2Area(ptr noundef readonly c
 
 8:                                                ; preds = %6
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds ptr, ptr %2, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %2, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !82
   %12 = tail call double @strtod(ptr noundef nonnull captures(none) %11, ptr noundef null) #14
   %13 = fptrunc double %12 to float
@@ -1604,7 +1604,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandLeak2Area(ptr noundef readonly c
 
 18:                                               ; preds = %16
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %2, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !82
   %22 = tail call double @strtod(ptr noundef nonnull captures(none) %21, ptr noundef null) #14
   %23 = fptrunc double %22 to float
@@ -1690,7 +1690,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadScl(ptr noundef captures(non
 
 11:                                               ; preds = %8
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds ptr, ptr %2, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %2, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !82
   %15 = tail call noalias ptr @fopen(ptr noundef %14, ptr noundef nonnull @.str.22)
   %16 = icmp eq ptr %15, null
@@ -1791,7 +1791,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteScl(ptr noundef readonly ca
 
 16:                                               ; preds = %8
   %17 = sext i32 %6 to i64
-  %18 = getelementptr inbounds ptr, ptr %2, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %2, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !82
   %20 = tail call noalias ptr @fopen(ptr noundef %19, ptr noundef nonnull @.str.55)
   %21 = icmp eq ptr %20, null
@@ -1871,7 +1871,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
 
 9:                                                ; preds = %6
   %10 = sext i32 %7 to i64
-  %11 = getelementptr inbounds ptr, ptr %2, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %2, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !82
   %13 = tail call double @strtod(ptr noundef nonnull captures(none) %12, ptr noundef null) #14
   %14 = fptrunc double %13 to float
@@ -1891,7 +1891,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
 
 20:                                               ; preds = %17
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds ptr, ptr %2, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %2, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !82
   %24 = tail call double @strtod(ptr noundef nonnull captures(none) %23, ptr noundef null) #14
   %25 = fptrunc double %24 to float
@@ -1911,7 +1911,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
 
 31:                                               ; preds = %28
   %32 = sext i32 %29 to i64
-  %33 = getelementptr inbounds ptr, ptr %2, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %2, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !82
   %35 = tail call i64 @strtol(ptr noundef nonnull captures(none) %34, ptr noundef null, i32 noundef 10) #14
   %36 = trunc i64 %35 to i32
@@ -1944,7 +1944,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDumpGen(ptr noundef readonly cap
 
 53:                                               ; preds = %49
   %54 = sext i32 %50 to i64
-  %55 = getelementptr inbounds ptr, ptr %2, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %2, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !82
   br label %57
 
@@ -2102,7 +2102,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandStime(ptr noundef %0, i32 nounde
 
 9:                                                ; preds = %6
   %10 = sext i32 %7 to i64
-  %11 = getelementptr inbounds ptr, ptr %2, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %2, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !82
   %13 = tail call i64 @strtol(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #14
   %14 = trunc i64 %13 to i32
@@ -2438,7 +2438,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
 
 34:                                               ; preds = %32
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds ptr, ptr %2, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %2, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !82
   %38 = tail call i64 @strtol(ptr noundef nonnull captures(none) %37, ptr noundef null, i32 noundef 10) #14
   %39 = trunc i64 %38 to i32
@@ -2455,7 +2455,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
 
 45:                                               ; preds = %43
   %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds ptr, ptr %2, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %2, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !82
   %49 = tail call i64 @strtol(ptr noundef nonnull captures(none) %48, ptr noundef null, i32 noundef 10) #14
   %50 = trunc i64 %49 to i32
@@ -2472,7 +2472,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandBuffer(ptr noundef %0, i32 nound
 
 56:                                               ; preds = %54
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds ptr, ptr %2, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %2, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !82
   %60 = tail call i64 @strtol(ptr noundef nonnull captures(none) %59, ptr noundef null, i32 noundef 10) #14
   %61 = trunc i64 %60 to i32
@@ -2914,7 +2914,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 
 46:                                               ; preds = %43
   %47 = sext i32 %44 to i64
-  %48 = getelementptr inbounds ptr, ptr %2, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %2, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !82
   %50 = tail call i64 @strtol(ptr noundef nonnull captures(none) %49, ptr noundef null, i32 noundef 10) #14
   %51 = trunc i64 %50 to i32
@@ -2942,7 +2942,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 
 58:                                               ; preds = %55
   %59 = sext i32 %56 to i64
-  %60 = getelementptr inbounds ptr, ptr %2, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %2, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !82
   %62 = tail call i64 @strtol(ptr noundef nonnull captures(none) %61, ptr noundef null, i32 noundef 10) #14
   %63 = trunc i64 %62 to i32
@@ -2970,7 +2970,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 
 70:                                               ; preds = %67
   %71 = sext i32 %68 to i64
-  %72 = getelementptr inbounds ptr, ptr %2, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %2, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !82
   %74 = tail call i64 @strtol(ptr noundef nonnull captures(none) %73, ptr noundef null, i32 noundef 10) #14
   %75 = trunc i64 %74 to i32
@@ -2998,7 +2998,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 
 82:                                               ; preds = %79
   %83 = sext i32 %80 to i64
-  %84 = getelementptr inbounds ptr, ptr %2, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %2, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !82
   %86 = tail call i64 @strtol(ptr noundef nonnull captures(none) %85, ptr noundef null, i32 noundef 10) #14
   %87 = trunc i64 %86 to i32
@@ -3026,7 +3026,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 
 94:                                               ; preds = %91
   %95 = sext i32 %92 to i64
-  %96 = getelementptr inbounds ptr, ptr %2, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %2, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !82
   %98 = tail call i64 @strtol(ptr noundef nonnull captures(none) %97, ptr noundef null, i32 noundef 10) #14
   %99 = trunc i64 %98 to i32
@@ -3054,7 +3054,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 
 106:                                              ; preds = %103
   %107 = sext i32 %104 to i64
-  %108 = getelementptr inbounds ptr, ptr %2, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %2, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !82
   %110 = tail call i64 @strtol(ptr noundef nonnull captures(none) %109, ptr noundef null, i32 noundef 10) #14
   %111 = trunc i64 %110 to i32
@@ -3082,7 +3082,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 
 118:                                              ; preds = %115
   %119 = sext i32 %116 to i64
-  %120 = getelementptr inbounds ptr, ptr %2, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr %2, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !82
   %122 = tail call i64 @strtol(ptr noundef nonnull captures(none) %121, ptr noundef null, i32 noundef 10) #14
   %123 = trunc i64 %122 to i32
@@ -3108,7 +3108,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 
 129:                                              ; preds = %126
   %130 = sext i32 %127 to i64
-  %131 = getelementptr inbounds ptr, ptr %2, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %2, i64 %130
   %132 = load ptr, ptr %131, align 8, !tbaa !82
   %133 = tail call i64 @strtol(ptr noundef nonnull captures(none) %132, ptr noundef null, i32 noundef 10) #14
   %134 = trunc i64 %133 to i32
@@ -3135,7 +3135,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 
 141:                                              ; preds = %138
   %142 = sext i32 %139 to i64
-  %143 = getelementptr inbounds ptr, ptr %2, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %2, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !82
   %145 = tail call i64 @strtol(ptr noundef nonnull captures(none) %144, ptr noundef null, i32 noundef 10) #14
   %146 = trunc i64 %145 to i32
@@ -3162,7 +3162,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandUpsize(ptr noundef %0, i32 nound
 
 153:                                              ; preds = %150
   %154 = sext i32 %151 to i64
-  %155 = getelementptr inbounds ptr, ptr %2, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr %2, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !82
   %157 = tail call i64 @strtol(ptr noundef nonnull captures(none) %156, ptr noundef null, i32 noundef 10) #14
   %158 = trunc i64 %157 to i32
@@ -3451,7 +3451,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 
 41:                                               ; preds = %38
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds ptr, ptr %2, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %2, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !82
   %45 = tail call i64 @strtol(ptr noundef nonnull captures(none) %44, ptr noundef null, i32 noundef 10) #14
   %46 = trunc i64 %45 to i32
@@ -3478,7 +3478,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 
 53:                                               ; preds = %50
   %54 = sext i32 %51 to i64
-  %55 = getelementptr inbounds ptr, ptr %2, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %2, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !82
   %57 = tail call i64 @strtol(ptr noundef nonnull captures(none) %56, ptr noundef null, i32 noundef 10) #14
   %58 = trunc i64 %57 to i32
@@ -3505,7 +3505,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 
 65:                                               ; preds = %62
   %66 = sext i32 %63 to i64
-  %67 = getelementptr inbounds ptr, ptr %2, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %2, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !82
   %69 = tail call i64 @strtol(ptr noundef nonnull captures(none) %68, ptr noundef null, i32 noundef 10) #14
   %70 = trunc i64 %69 to i32
@@ -3532,7 +3532,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 
 77:                                               ; preds = %74
   %78 = sext i32 %75 to i64
-  %79 = getelementptr inbounds ptr, ptr %2, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %2, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !82
   %81 = tail call i64 @strtol(ptr noundef nonnull captures(none) %80, ptr noundef null, i32 noundef 10) #14
   %82 = trunc i64 %81 to i32
@@ -3559,7 +3559,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 
 89:                                               ; preds = %86
   %90 = sext i32 %87 to i64
-  %91 = getelementptr inbounds ptr, ptr %2, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %2, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !82
   %93 = tail call i64 @strtol(ptr noundef nonnull captures(none) %92, ptr noundef null, i32 noundef 10) #14
   %94 = trunc i64 %93 to i32
@@ -3585,7 +3585,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 
 100:                                              ; preds = %97
   %101 = sext i32 %98 to i64
-  %102 = getelementptr inbounds ptr, ptr %2, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %2, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !82
   %104 = tail call i64 @strtol(ptr noundef nonnull captures(none) %103, ptr noundef null, i32 noundef 10) #14
   %105 = trunc i64 %104 to i32
@@ -3612,7 +3612,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandDnsize(ptr noundef %0, i32 nound
 
 112:                                              ; preds = %109
   %113 = sext i32 %110 to i64
-  %114 = getelementptr inbounds ptr, ptr %2, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %2, i64 %113
   %115 = load ptr, ptr %114, align 8, !tbaa !82
   %116 = tail call i64 @strtol(ptr noundef nonnull captures(none) %115, ptr noundef null, i32 noundef 10) #14
   %117 = trunc i64 %116 to i32
@@ -3927,7 +3927,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadConstr(ptr noundef %0, i32 n
 
 11:                                               ; preds = %8
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds ptr, ptr %2, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %2, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !82
   %15 = tail call noalias ptr @fopen(ptr noundef %14, ptr noundef nonnull @.str.22)
   %16 = icmp eq ptr %15, null
@@ -4002,7 +4002,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteConstr(ptr noundef readonly
 
 16:                                               ; preds = %12
   %17 = sext i32 %13 to i64
-  %18 = getelementptr inbounds ptr, ptr %2, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %2, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !82
   br label %26
 
@@ -4201,7 +4201,7 @@ Vec_PtrErase.exit.i.i:                            ; preds = %7, %3
   %.val18.i.i.i = phi i32 [ %.val15.i.i.i, %.lr.ph.i.i.i ], [ %.val.i.i.i, %18 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %18 ]
   %.val14.i.i.i = load ptr, ptr %12, align 8, !tbaa !27
-  %14 = getelementptr inbounds nuw ptr, ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val14.i.i.i, i64 %indvars.iv.i.i.i
   %15 = load ptr, ptr %14, align 8, !tbaa !28
   %16 = icmp ult ptr %15, inttoptr (i64 3 to ptr)
   br i1 %16, label %18, label %17
@@ -4466,7 +4466,7 @@ Vec_IntErase.exit13:                              ; preds = %Vec_IntErase.exit, 
   %.val13.i = phi i32 [ %.val10.i, %.lr.ph.i ], [ %.val.i, %33 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
   %.val8.i = load ptr, ptr %25, align 8, !tbaa !49
-  %27 = getelementptr inbounds nuw ptr, ptr %.val8.i, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.val8.i, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8, !tbaa !28
   %.not.i14 = icmp eq ptr %28, null
   br i1 %.not.i14, label %33, label %29
@@ -4521,7 +4521,7 @@ Vec_VecErase.exit:                                ; preds = %.critedge.i, %38
   %.val13.i19 = phi i32 [ %.val10.i15, %.lr.ph.i18 ], [ %.val.i26, %50 ]
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i18 ], [ %indvars.iv.next.i27, %50 ]
   %.val8.i21 = load ptr, ptr %42, align 8, !tbaa !49
-  %44 = getelementptr inbounds nuw ptr, ptr %.val8.i21, i64 %indvars.iv.i20
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val8.i21, i64 %indvars.iv.i20
   %45 = load ptr, ptr %44, align 8, !tbaa !28
   %.not.i22 = icmp eq ptr %45, null
   br i1 %.not.i22, label %50, label %46
@@ -4873,7 +4873,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %.val177 = phi i32 [ %.val144, %.lr.ph ], [ %.val, %82 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
   %.val133 = load ptr, ptr %63, align 8, !tbaa !27
-  %70 = getelementptr inbounds nuw ptr, ptr %.val133, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %.val133, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8, !tbaa !28
   %.not130 = icmp eq ptr %71, null
   br i1 %.not130, label %82, label %72
@@ -4919,7 +4919,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %.val138179 = phi i32 [ %.val138146, %.lr.ph148 ], [ %.val138, %.critedge ]
   %indvars.iv162 = phi i64 [ 0, %.lr.ph148 ], [ %indvars.iv.next163.pre-phi, %.critedge ]
   %.val143 = load ptr, ptr %67, align 8, !tbaa !29
-  %90 = getelementptr inbounds nuw i32, ptr %.val143, i64 %indvars.iv162
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.val143, i64 %indvars.iv162
   %91 = load i32, ptr %90, align 4, !tbaa !81
   %92 = load i32, ptr %21, align 8, !tbaa !134
   %.not129 = icmp eq i32 %91, %92
@@ -4963,7 +4963,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %.val137181 = phi i32 [ %.val137149, %.lr.ph151 ], [ %.val137, %.critedge2 ]
   %indvars.iv165 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next166.pre-phi, %.critedge2 ]
   %.val142 = load ptr, ptr %87, align 8, !tbaa !29
-  %109 = getelementptr inbounds nuw i32, ptr %.val142, i64 %indvars.iv165
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %.val142, i64 %indvars.iv165
   %110 = load i32, ptr %109, align 4, !tbaa !81
   %111 = load i32, ptr %29, align 4, !tbaa !135
   %.not128 = icmp eq i32 %110, %111
@@ -5007,7 +5007,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %.val136183 = phi i32 [ %.val136152, %.lr.ph154 ], [ %.val136, %.critedge4 ]
   %indvars.iv168 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next169.pre-phi, %.critedge4 ]
   %.val141 = load ptr, ptr %106, align 8, !tbaa !29
-  %128 = getelementptr inbounds nuw i32, ptr %.val141, i64 %indvars.iv168
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %.val141, i64 %indvars.iv168
   %129 = load i32, ptr %128, align 4, !tbaa !81
   %130 = load i32, ptr %37, align 8, !tbaa !136
   %.not127 = icmp eq i32 %129, %130
@@ -5051,7 +5051,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %.val135185 = phi i32 [ %.val135155, %.lr.ph157 ], [ %.val135, %.critedge6 ]
   %indvars.iv171 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next172.pre-phi, %.critedge6 ]
   %.val140 = load ptr, ptr %125, align 8, !tbaa !29
-  %147 = getelementptr inbounds nuw i32, ptr %.val140, i64 %indvars.iv171
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %.val140, i64 %indvars.iv171
   %148 = load i32, ptr %147, align 4, !tbaa !81
   %149 = load i32, ptr %45, align 4, !tbaa !137
   %.not126 = icmp eq i32 %148, %149
@@ -5084,7 +5084,7 @@ define internal fastcc void @Scl_ConWrite(ptr noundef nonnull readonly captures(
   %.val134187 = phi i32 [ %.val134158, %.lr.ph160 ], [ %.val134, %.critedge8 ]
   %indvars.iv174 = phi i64 [ 0, %.lr.ph160 ], [ %indvars.iv.next175.pre-phi, %.critedge8 ]
   %.val139 = load ptr, ptr %144, align 8, !tbaa !29
-  %162 = getelementptr inbounds nuw i32, ptr %.val139, i64 %indvars.iv174
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %.val139, i64 %indvars.iv174
   %163 = load i32, ptr %162, align 4, !tbaa !81
   %164 = load i32, ptr %53, align 8, !tbaa !138
   %.not125 = icmp eq i32 %163, %164

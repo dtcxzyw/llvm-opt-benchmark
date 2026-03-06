@@ -747,7 +747,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %0) local_unna
   %168 = add i32 %0, -41
   %or.cond = icmp ult i32 %168, -40
   %169 = zext nneg i32 %0 to i64
-  %170 = getelementptr inbounds nuw %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 %169
+  %170 = getelementptr inbounds nuw [120 x i8], ptr @_ZZN5ZXing6QRCode7Version6Model2EiE11allVersions, i64 %169
   %171 = getelementptr inbounds i8, ptr %170, i64 -120
   %.0 = select i1 %or.cond, ptr null, ptr %171
   ret ptr %.0
@@ -2304,7 +2304,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version5MicroEi(i32 noundef %0) local_unnam
   %17 = add i32 %0, -5
   %or.cond = icmp ult i32 %17, -4
   %18 = zext nneg i32 %0 to i64
-  %19 = getelementptr inbounds nuw %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 %18
+  %19 = getelementptr inbounds nuw [120 x i8], ptr @_ZZN5ZXing6QRCode7Version5MicroEiE11allVersions, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 -120
   %.016 = select i1 %or.cond, ptr null, ptr %20
   ret ptr %.016
@@ -2883,7 +2883,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version4rMQREi(i32 noundef %0) local_unname
   %145 = add i32 %0, -33
   %or.cond = icmp ult i32 %145, -32
   %146 = zext nneg i32 %0 to i64
-  %147 = getelementptr inbounds nuw %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 %146
+  %147 = getelementptr inbounds nuw [120 x i8], ptr @_ZZN5ZXing6QRCode7Version4rMQREiE11allVersions, i64 %146
   %148 = getelementptr inbounds i8, ptr %147, i64 -120
   %.0 = select i1 %or.cond, ptr null, ptr %148
   ret ptr %.0
@@ -3947,7 +3947,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version6Model1Ei(i32 noundef %0) local_unna
   %37 = add i32 %0, -15
   %or.cond = icmp ult i32 %37, -14
   %38 = zext nneg i32 %0 to i64
-  %39 = getelementptr inbounds nuw %"class.ZXing::QRCode::Version", ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 %38
+  %39 = getelementptr inbounds nuw [120 x i8], ptr @_ZZN5ZXing6QRCode7Version6Model1EiE11allVersions, i64 %38
   %40 = getelementptr inbounds i8, ptr %39, i64 -120
   %.036 = select i1 %or.cond, ptr null, ptr %40
   ret ptr %.036
@@ -4184,7 +4184,7 @@ define void @_ZN5ZXing6QRCode7VersionC2EiSt16initializer_listIiERKSt5arrayINS0_8
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr void @_ZNSt6vectorIiSaIiEEC2ESt16initializer_listIiERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %5 = getelementptr inbounds nuw i32, ptr %1, i64 %2
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %2
   invoke void @_ZNSt6vectorIiSaIiEE19_M_range_initializeIPKiEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %5) #16
           to label %6 unwind label %7
 
@@ -4462,7 +4462,7 @@ define void @_ZNK5ZXing6QRCode7Version20buildFunctionPatternEv(ptr dead_on_unwin
 
 10:                                               ; preds = %7
   %11 = zext nneg i32 %6 to i64
-  %12 = getelementptr %"struct.ZXing::PointT", ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 %11
+  %12 = getelementptr [8 x i8], ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load i64, ptr %13, align 4
   %.sroa.15.0.extract.shift22.i = lshr i64 %14, 32
@@ -4523,7 +4523,7 @@ _ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE.exit: ; preds = %7, %10
 37:                                               ; preds = %.lr.ph84, %44
   %.06382 = phi i64 [ 0, %.lr.ph84 ], [ %45, %44 ]
   %38 = load ptr, ptr %23, align 8, !tbaa !13
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %.06382
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.06382
   %40 = load i32, ptr %39, align 4, !tbaa !8
   %41 = add nsw i32 %40, -1
   invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %41, i32 noundef 1, i32 noundef 3, i32 noundef 2) #16
@@ -4683,7 +4683,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit76:               ; preds = %72
 113:                                              ; preds = %.lr.ph, %120
   %.05681 = phi i64 [ 0, %.lr.ph ], [ %121, %120 ]
   %114 = load ptr, ptr %101, align 8, !tbaa !13
-  %115 = getelementptr inbounds nuw i32, ptr %114, i64 %.05681
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %.05681
   %116 = load i32, ptr %115, align 4, !tbaa !8
   %117 = add nsw i32 %116, -2
   %118 = icmp eq i64 %.05681, 0
@@ -4711,7 +4711,7 @@ _ZN5ZXing9BitMatrix3setEiib.exit76:               ; preds = %72
 
 .thread:                                          ; preds = %124, %126
   %127 = load ptr, ptr %101, align 8, !tbaa !13
-  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %.080
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %.080
   %129 = load i32, ptr %128, align 4, !tbaa !8
   %130 = add nsw i32 %129, -2
   invoke void @_ZN5ZXing9BitMatrix9setRegionEiiii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %130, i32 noundef %117, i32 noundef 5, i32 noundef 5) #16
@@ -4831,7 +4831,7 @@ define linkonce_odr i64 @_ZN5ZXing6QRCode7Version10SymbolSizeEiNS0_4TypeE(i32 no
 
 24:                                               ; preds = %21
   %25 = zext nneg i32 %0 to i64
-  %26 = getelementptr %"struct.ZXing::PointT", ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 %25
+  %26 = getelementptr [8 x i8], ptr @_ZN5ZXing6QRCodeL10RMQR_SIZESE, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -8
   %28 = load i64, ptr %27, align 4
   %.sroa.014.0.extract.trunc17 = trunc i64 %28 to i32

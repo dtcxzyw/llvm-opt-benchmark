@@ -108,17 +108,17 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %97 = tail call nsz float @llvm.fmuladd.f32(float %96, float %95, float %91)
   store float %97, ptr %3, align 4, !tbaa !8
   %98 = sub i64 0, %4
-  %.0187 = getelementptr inbounds float, ptr %3, i64 %4
+  %.0187 = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   br label %99
 
 99:                                               ; preds = %5, %99
   %indvars.iv = phi i64 [ 1, %5 ], [ %indvars.iv.next, %99 ]
   %.0192 = phi ptr [ %.0187, %5 ], [ %.0, %99 ]
-  %.pn178191 = phi ptr [ %1, %5 ], [ %.0174, %99 ]
+  %.pn191 = phi ptr [ %1, %5 ], [ %.0174, %99 ]
   %.0175190 = phi ptr [ %8, %5 ], [ %252, %99 ]
   %.0176189 = phi ptr [ %7, %5 ], [ %251, %99 ]
-  %.0174 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 4
-  %100 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
+  %.0174 = getelementptr inbounds nuw i8, ptr %.pn191, i64 4
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %101 = load float, ptr %100, align 4, !tbaa !8
   %102 = load float, ptr %.0174, align 4, !tbaa !8
   %103 = fmul nsz float %101, %102
@@ -127,7 +127,7 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %106 = fmul nsz float %101, %105
   %107 = getelementptr inbounds nuw i8, ptr %100, i64 256
   %108 = load float, ptr %107, align 4, !tbaa !8
-  %109 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 260
+  %109 = getelementptr inbounds nuw i8, ptr %.pn191, i64 260
   %110 = load float, ptr %109, align 4, !tbaa !8
   %111 = tail call nsz float @llvm.fmuladd.f32(float %110, float %108, float %103)
   %112 = getelementptr inbounds nuw i8, ptr %.0175190, i64 256
@@ -136,7 +136,7 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %115 = tail call nsz float @llvm.fmuladd.f32(float %114, float %108, float %106)
   %116 = getelementptr inbounds nuw i8, ptr %100, i64 512
   %117 = load float, ptr %116, align 4, !tbaa !8
-  %118 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 516
+  %118 = getelementptr inbounds nuw i8, ptr %.pn191, i64 516
   %119 = load float, ptr %118, align 4, !tbaa !8
   %120 = tail call nsz float @llvm.fmuladd.f32(float %119, float %117, float %111)
   %121 = getelementptr inbounds nuw i8, ptr %.0175190, i64 512
@@ -145,7 +145,7 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %124 = tail call nsz float @llvm.fmuladd.f32(float %123, float %117, float %115)
   %125 = getelementptr inbounds nuw i8, ptr %100, i64 768
   %126 = load float, ptr %125, align 4, !tbaa !8
-  %127 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 772
+  %127 = getelementptr inbounds nuw i8, ptr %.pn191, i64 772
   %128 = load float, ptr %127, align 4, !tbaa !8
   %129 = tail call nsz float @llvm.fmuladd.f32(float %128, float %126, float %120)
   %130 = getelementptr inbounds nuw i8, ptr %.0175190, i64 768
@@ -154,7 +154,7 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %133 = tail call nsz float @llvm.fmuladd.f32(float %132, float %126, float %124)
   %134 = getelementptr inbounds nuw i8, ptr %100, i64 1024
   %135 = load float, ptr %134, align 4, !tbaa !8
-  %136 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 1028
+  %136 = getelementptr inbounds nuw i8, ptr %.pn191, i64 1028
   %137 = load float, ptr %136, align 4, !tbaa !8
   %138 = tail call nsz float @llvm.fmuladd.f32(float %137, float %135, float %129)
   %139 = getelementptr inbounds nuw i8, ptr %.0175190, i64 1024
@@ -163,7 +163,7 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %142 = tail call nsz float @llvm.fmuladd.f32(float %141, float %135, float %133)
   %143 = getelementptr inbounds nuw i8, ptr %100, i64 1280
   %144 = load float, ptr %143, align 4, !tbaa !8
-  %145 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 1284
+  %145 = getelementptr inbounds nuw i8, ptr %.pn191, i64 1284
   %146 = load float, ptr %145, align 4, !tbaa !8
   %147 = tail call nsz float @llvm.fmuladd.f32(float %146, float %144, float %138)
   %148 = getelementptr inbounds nuw i8, ptr %.0175190, i64 1280
@@ -172,7 +172,7 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %151 = tail call nsz float @llvm.fmuladd.f32(float %150, float %144, float %142)
   %152 = getelementptr inbounds nuw i8, ptr %100, i64 1536
   %153 = load float, ptr %152, align 4, !tbaa !8
-  %154 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 1540
+  %154 = getelementptr inbounds nuw i8, ptr %.pn191, i64 1540
   %155 = load float, ptr %154, align 4, !tbaa !8
   %156 = tail call nsz float @llvm.fmuladd.f32(float %155, float %153, float %147)
   %157 = getelementptr inbounds nuw i8, ptr %.0175190, i64 1536
@@ -181,7 +181,7 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %160 = tail call nsz float @llvm.fmuladd.f32(float %159, float %153, float %151)
   %161 = getelementptr inbounds nuw i8, ptr %100, i64 1792
   %162 = load float, ptr %161, align 4, !tbaa !8
-  %163 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 1796
+  %163 = getelementptr inbounds nuw i8, ptr %.pn191, i64 1796
   %164 = load float, ptr %163, align 4, !tbaa !8
   %165 = tail call nsz float @llvm.fmuladd.f32(float %164, float %162, float %156)
   %166 = getelementptr inbounds nuw i8, ptr %.0175190, i64 1792
@@ -189,9 +189,9 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %168 = fneg nsz float %167
   %169 = tail call nsz float @llvm.fmuladd.f32(float %168, float %162, float %160)
   %170 = sub nsw i64 0, %indvars.iv
-  %171 = getelementptr inbounds float, ptr %50, i64 %170
+  %171 = getelementptr inbounds [4 x i8], ptr %50, i64 %170
   %172 = load float, ptr %171, align 4, !tbaa !8
-  %173 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 132
+  %173 = getelementptr inbounds nuw i8, ptr %.pn191, i64 132
   %174 = load float, ptr %173, align 4, !tbaa !8
   %175 = fneg nsz float %174
   %176 = tail call nsz float @llvm.fmuladd.f32(float %175, float %172, float %165)
@@ -201,7 +201,7 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %180 = tail call nsz float @llvm.fmuladd.f32(float %179, float %172, float %169)
   %181 = getelementptr inbounds nuw i8, ptr %171, i64 256
   %182 = load float, ptr %181, align 4, !tbaa !8
-  %183 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 388
+  %183 = getelementptr inbounds nuw i8, ptr %.pn191, i64 388
   %184 = load float, ptr %183, align 4, !tbaa !8
   %185 = fneg nsz float %184
   %186 = tail call nsz float @llvm.fmuladd.f32(float %185, float %182, float %176)
@@ -211,7 +211,7 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %190 = tail call nsz float @llvm.fmuladd.f32(float %189, float %182, float %180)
   %191 = getelementptr inbounds nuw i8, ptr %171, i64 512
   %192 = load float, ptr %191, align 4, !tbaa !8
-  %193 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 644
+  %193 = getelementptr inbounds nuw i8, ptr %.pn191, i64 644
   %194 = load float, ptr %193, align 4, !tbaa !8
   %195 = fneg nsz float %194
   %196 = tail call nsz float @llvm.fmuladd.f32(float %195, float %192, float %186)
@@ -221,7 +221,7 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %200 = tail call nsz float @llvm.fmuladd.f32(float %199, float %192, float %190)
   %201 = getelementptr inbounds nuw i8, ptr %171, i64 768
   %202 = load float, ptr %201, align 4, !tbaa !8
-  %203 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 900
+  %203 = getelementptr inbounds nuw i8, ptr %.pn191, i64 900
   %204 = load float, ptr %203, align 4, !tbaa !8
   %205 = fneg nsz float %204
   %206 = tail call nsz float @llvm.fmuladd.f32(float %205, float %202, float %196)
@@ -231,7 +231,7 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %210 = tail call nsz float @llvm.fmuladd.f32(float %209, float %202, float %200)
   %211 = getelementptr inbounds nuw i8, ptr %171, i64 1024
   %212 = load float, ptr %211, align 4, !tbaa !8
-  %213 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 1156
+  %213 = getelementptr inbounds nuw i8, ptr %.pn191, i64 1156
   %214 = load float, ptr %213, align 4, !tbaa !8
   %215 = fneg nsz float %214
   %216 = tail call nsz float @llvm.fmuladd.f32(float %215, float %212, float %206)
@@ -241,7 +241,7 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %220 = tail call nsz float @llvm.fmuladd.f32(float %219, float %212, float %210)
   %221 = getelementptr inbounds nuw i8, ptr %171, i64 1280
   %222 = load float, ptr %221, align 4, !tbaa !8
-  %223 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 1412
+  %223 = getelementptr inbounds nuw i8, ptr %.pn191, i64 1412
   %224 = load float, ptr %223, align 4, !tbaa !8
   %225 = fneg nsz float %224
   %226 = tail call nsz float @llvm.fmuladd.f32(float %225, float %222, float %216)
@@ -251,7 +251,7 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %230 = tail call nsz float @llvm.fmuladd.f32(float %229, float %222, float %220)
   %231 = getelementptr inbounds nuw i8, ptr %171, i64 1536
   %232 = load float, ptr %231, align 4, !tbaa !8
-  %233 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 1668
+  %233 = getelementptr inbounds nuw i8, ptr %.pn191, i64 1668
   %234 = load float, ptr %233, align 4, !tbaa !8
   %235 = fneg nsz float %234
   %236 = tail call nsz float @llvm.fmuladd.f32(float %235, float %232, float %226)
@@ -261,7 +261,7 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %240 = tail call nsz float @llvm.fmuladd.f32(float %239, float %232, float %230)
   %241 = getelementptr inbounds nuw i8, ptr %171, i64 1792
   %242 = load float, ptr %241, align 4, !tbaa !8
-  %243 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 1924
+  %243 = getelementptr inbounds nuw i8, ptr %.pn191, i64 1924
   %244 = load float, ptr %243, align 4, !tbaa !8
   %245 = fneg nsz float %244
   %246 = tail call nsz float @llvm.fmuladd.f32(float %245, float %242, float %236)
@@ -271,57 +271,57 @@ define hidden void @ff_mpadsp_apply_window_float(ptr noundef captures(none) %0, 
   %250 = tail call nsz float @llvm.fmuladd.f32(float %249, float %242, float %240)
   store float %246, ptr %.0192, align 4, !tbaa !8
   store float %250, ptr %.0176189, align 4, !tbaa !8
-  %251 = getelementptr inbounds float, ptr %.0176189, i64 %98
+  %251 = getelementptr inbounds [4 x i8], ptr %.0176189, i64 %98
   %252 = getelementptr inbounds i8, ptr %.0175190, i64 -4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.0 = getelementptr inbounds float, ptr %.0192, i64 %4
+  %.0 = getelementptr inbounds [4 x i8], ptr %.0192, i64 %4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %253, label %99, !llvm.loop !10
 
 253:                                              ; preds = %99
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %255 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 136
+  %255 = getelementptr inbounds nuw i8, ptr %.pn191, i64 136
   %256 = load float, ptr %255, align 4, !tbaa !8
   %257 = load float, ptr %254, align 4, !tbaa !8
   %258 = fneg nsz float %256
   %259 = fmul nsz float %257, %258
-  %260 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 392
+  %260 = getelementptr inbounds nuw i8, ptr %.pn191, i64 392
   %261 = load float, ptr %260, align 4, !tbaa !8
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %263 = load float, ptr %262, align 4, !tbaa !8
   %264 = fneg nsz float %261
   %265 = tail call nsz float @llvm.fmuladd.f32(float %264, float %263, float %259)
-  %266 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 648
+  %266 = getelementptr inbounds nuw i8, ptr %.pn191, i64 648
   %267 = load float, ptr %266, align 4, !tbaa !8
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %269 = load float, ptr %268, align 4, !tbaa !8
   %270 = fneg nsz float %267
   %271 = tail call nsz float @llvm.fmuladd.f32(float %270, float %269, float %265)
-  %272 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 904
+  %272 = getelementptr inbounds nuw i8, ptr %.pn191, i64 904
   %273 = load float, ptr %272, align 4, !tbaa !8
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %275 = load float, ptr %274, align 4, !tbaa !8
   %276 = fneg nsz float %273
   %277 = tail call nsz float @llvm.fmuladd.f32(float %276, float %275, float %271)
-  %278 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 1160
+  %278 = getelementptr inbounds nuw i8, ptr %.pn191, i64 1160
   %279 = load float, ptr %278, align 4, !tbaa !8
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %281 = load float, ptr %280, align 4, !tbaa !8
   %282 = fneg nsz float %279
   %283 = tail call nsz float @llvm.fmuladd.f32(float %282, float %281, float %277)
-  %284 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 1416
+  %284 = getelementptr inbounds nuw i8, ptr %.pn191, i64 1416
   %285 = load float, ptr %284, align 4, !tbaa !8
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   %287 = load float, ptr %286, align 4, !tbaa !8
   %288 = fneg nsz float %285
   %289 = tail call nsz float @llvm.fmuladd.f32(float %288, float %287, float %283)
-  %290 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 1672
+  %290 = getelementptr inbounds nuw i8, ptr %.pn191, i64 1672
   %291 = load float, ptr %290, align 4, !tbaa !8
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %293 = load float, ptr %292, align 4, !tbaa !8
   %294 = fneg nsz float %291
   %295 = tail call nsz float @llvm.fmuladd.f32(float %294, float %293, float %289)
-  %296 = getelementptr inbounds nuw i8, ptr %.pn178191, i64 1928
+  %296 = getelementptr inbounds nuw i8, ptr %.pn191, i64 1928
   %297 = load float, ptr %296, align 4, !tbaa !8
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %299 = load float, ptr %298, align 4, !tbaa !8
@@ -342,7 +342,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #2
 define hidden void @ff_mpa_synth_filter_float(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7) local_unnamed_addr #3 {
   %9 = load i32, ptr %2, align 4, !tbaa !4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds float, ptr %1, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %1, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   tail call void %13(ptr noundef %11, ptr noundef %7) #10
@@ -391,7 +391,7 @@ define hidden void @ff_imdct36_blocks_float(ptr noundef writeonly captures(none)
 
 13:                                               ; preds = %13, %12
   %indvars.iv.i = phi i64 [ 17, %12 ], [ %indvars.iv.next.i, %13 ]
-  %14 = getelementptr float, ptr %.01820, i64 %indvars.iv.i
+  %14 = getelementptr [4 x i8], ptr %.01820, i64 %indvars.iv.i
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load float, ptr %15, align 4, !tbaa !8
   %17 = load float, ptr %14, align 4, !tbaa !8
@@ -410,9 +410,9 @@ define hidden void @ff_imdct36_blocks_float(ptr noundef writeonly captures(none)
   %20 = phi float [ %.pre.i, %.preheader164.preheader.i ], [ %22, %.preheader164.i ]
   %indvars.iv171.i = phi i64 [ 17, %.preheader164.preheader.i ], [ %indvars.iv.next172.i, %.preheader164.i ]
   %indvars.iv.next172.i = add nsw i64 %indvars.iv171.i, -2
-  %21 = getelementptr inbounds nuw float, ptr %.01820, i64 %indvars.iv.next172.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.01820, i64 %indvars.iv.next172.i
   %22 = load float, ptr %21, align 4, !tbaa !8
-  %23 = getelementptr inbounds nuw float, ptr %.01820, i64 %indvars.iv171.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.01820, i64 %indvars.iv171.i
   %24 = fadd nsz float %20, %22
   store float %24, ptr %23, align 4, !tbaa !8
   %25 = icmp samesign ugt i64 %indvars.iv171.i, 4
@@ -422,7 +422,7 @@ define hidden void @ff_imdct36_blocks_float(ptr noundef writeonly captures(none)
   %26 = phi i1 [ false, %.preheader163.i ], [ true, %.preheader164.i ]
   %indvars.iv174.i.sroa.phi = phi ptr [ %indvars.iv174.i.sroa.gep, %.preheader163.i ], [ %7, %.preheader164.i ]
   %indvars.iv174.i = phi i64 [ 1, %.preheader163.i ], [ 0, %.preheader164.i ]
-  %27 = getelementptr inbounds nuw float, ptr %.01820, i64 %indvars.iv174.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.01820, i64 %indvars.iv174.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load float, ptr %28, align 4, !tbaa !8
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 64
@@ -502,13 +502,13 @@ define hidden void @ff_imdct36_blocks_float(ptr noundef writeonly captures(none)
   %91 = and i32 %90, 4
   %92 = add nsw i32 %89, %91
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds [40 x float], ptr @ff_mdct_win_float, i64 %93
+  %94 = getelementptr inbounds [160 x i8], ptr @ff_mdct_win_float, i64 %93
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
   %indvars.iv179.i = phi i64 [ %indvars.iv.next180.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
   %indvars.iv177.i = phi i64 [ %indvars.iv.next178.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
-  %95 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv177.i
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv177.i
   %96 = load float, ptr %95, align 16, !tbaa !8
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %98 = load float, ptr %97, align 8, !tbaa !8
@@ -518,20 +518,20 @@ define hidden void @ff_imdct36_blocks_float(ptr noundef writeonly captures(none)
   %102 = load float, ptr %101, align 4, !tbaa !8
   %103 = getelementptr inbounds nuw i8, ptr %95, i64 12
   %104 = load float, ptr %103, align 4, !tbaa !8
-  %105 = getelementptr inbounds nuw float, ptr @icos36h, i64 %indvars.iv179.i
+  %105 = getelementptr inbounds nuw [4 x i8], ptr @icos36h, i64 %indvars.iv179.i
   %106 = load float, ptr %105, align 4, !tbaa !8
   %107 = fmul nsz float %106, 2.000000e+00
   %108 = fadd nsz float %102, %104
   %109 = fmul nsz float %108, %107
   %110 = sub nuw nsw i64 8, %indvars.iv179.i
-  %111 = getelementptr inbounds nuw float, ptr @icos36, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr @icos36, i64 %110
   %112 = load float, ptr %111, align 4, !tbaa !8
   %113 = fsub nsz float %104, %102
   %114 = fmul nsz float %113, %112
   %115 = fadd nsz float %99, %109
   %116 = fsub nsz float %99, %109
   %117 = add nuw nsw i64 %indvars.iv179.i, 9
-  %118 = getelementptr inbounds nuw float, ptr %94, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %117
   %119 = load float, ptr %118, align 4, !tbaa !8
   %.idx.i = shl nuw nsw i64 %117, 4
   %120 = getelementptr inbounds nuw i8, ptr %.01622, i64 %.idx.i
@@ -540,7 +540,7 @@ define hidden void @ff_imdct36_blocks_float(ptr noundef writeonly captures(none)
   %.idx184.i = shl nuw nsw i64 %117, 7
   %123 = getelementptr inbounds nuw i8, ptr %.023, i64 %.idx184.i
   store float %122, ptr %123, align 4, !tbaa !8
-  %124 = getelementptr inbounds nuw float, ptr %94, i64 %110
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %110
   %125 = load float, ptr %124, align 4, !tbaa !8
   %.idx185.i = shl nuw nsw i64 %110, 4
   %126 = getelementptr inbounds nuw i8, ptr %.01622, i64 %.idx185.i
@@ -549,20 +549,20 @@ define hidden void @ff_imdct36_blocks_float(ptr noundef writeonly captures(none)
   %.idx186.i = shl nuw nsw i64 %110, 7
   %129 = getelementptr inbounds nuw i8, ptr %.023, i64 %.idx186.i
   store float %128, ptr %129, align 4, !tbaa !8
-  %130 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv179.i
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv179.i
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 116
   %132 = load float, ptr %131, align 4, !tbaa !8
   %133 = fmul nsz float %115, %132
   store float %133, ptr %120, align 4, !tbaa !8
   %134 = sub nuw nsw i64 28, %indvars.iv179.i
-  %135 = getelementptr inbounds nuw float, ptr %94, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %134
   %136 = load float, ptr %135, align 4, !tbaa !8
   %137 = fmul nsz float %115, %136
   store float %137, ptr %126, align 4, !tbaa !8
   %138 = fadd nsz float %100, %114
   %139 = fsub nsz float %100, %114
   %140 = sub nuw nsw i64 17, %indvars.iv179.i
-  %141 = getelementptr inbounds nuw float, ptr %94, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %140
   %142 = load float, ptr %141, align 4, !tbaa !8
   %.idx187.i = shl nuw nsw i64 %140, 4
   %143 = getelementptr inbounds nuw i8, ptr %.01622, i64 %.idx187.i
@@ -580,7 +580,7 @@ define hidden void @ff_imdct36_blocks_float(ptr noundef writeonly captures(none)
   %151 = getelementptr inbounds nuw i8, ptr %.023, i64 %.idx190.i
   store float %150, ptr %151, align 4, !tbaa !8
   %152 = sub nuw nsw i64 37, %indvars.iv179.i
-  %153 = getelementptr inbounds nuw float, ptr %94, i64 %152
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %152
   %154 = load float, ptr %153, align 4, !tbaa !8
   %155 = fmul nsz float %138, %154
   store float %155, ptr %143, align 4, !tbaa !8
@@ -626,7 +626,7 @@ imdct36.exit:                                     ; preds = %.preheader.i
   %183 = and i32 %.01721, 3
   %.not = icmp eq i32 %183, 3
   %184 = select i1 %.not, i64 69, i64 1
-  %185 = getelementptr inbounds nuw float, ptr %.01622, i64 %184
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %.01622, i64 %184
   %186 = getelementptr inbounds nuw i8, ptr %.023, i64 4
   %187 = add nuw nsw i32 %.01721, 1
   %exitcond.not = icmp eq i32 %187, %3
@@ -642,11 +642,11 @@ define internal fastcc void @mpa_synth_init() unnamed_addr #8 {
 
 1:                                                ; preds = %0, %12
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %12 ]
-  %2 = getelementptr inbounds nuw i32, ptr @ff_mpa_enwindow, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpa_enwindow, i64 %indvars.iv
   %3 = load i32, ptr %2, align 4, !tbaa !4
   %4 = sitofp i32 %3 to float
   %5 = fmul nnan nsz float %4, 0x3D80000000000000
-  %6 = getelementptr inbounds nuw float, ptr @ff_mpa_synth_window_float, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpa_synth_window_float, i64 %indvars.iv
   store float %5, ptr %6, align 4, !tbaa !8
   %.not35 = icmp eq i64 %indvars.iv, 0
   br i1 %.not35, label %12, label %7
@@ -657,7 +657,7 @@ define internal fastcc void @mpa_synth_init() unnamed_addr #8 {
   %9 = fneg nsz float %5
   %.0 = select nsz i1 %.not, float %5, float %9
   %10 = sub nuw nsw i64 512, %indvars.iv
-  %11 = getelementptr inbounds nuw float, ptr @ff_mpa_synth_window_float, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpa_synth_window_float, i64 %10
   store float %.0, ptr %11, align 4, !tbaa !8
   br label %12
 
@@ -677,9 +677,9 @@ define internal fastcc void @mpa_synth_init() unnamed_addr #8 {
 15:                                               ; preds = %.preheader2, %15
   %indvars.iv10 = phi i64 [ 0, %.preheader2 ], [ %indvars.iv.next11, %15 ]
   %16 = sub nuw nsw i64 %14, %indvars.iv10
-  %17 = getelementptr inbounds nuw float, ptr @ff_mpa_synth_window_float, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpa_synth_window_float, i64 %16
   %18 = load float, ptr %17, align 4, !tbaa !8
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv10
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv10
   %19 = getelementptr inbounds nuw i8, ptr %gep, i64 2048
   store float %18, ptr %19, align 4, !tbaa !8
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
@@ -702,9 +702,9 @@ define internal fastcc void @mpa_synth_init() unnamed_addr #8 {
 23:                                               ; preds = %.preheader, %23
   %indvars.iv18 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next19, %23 ]
   %24 = sub nuw nsw i64 %22, %indvars.iv18
-  %25 = getelementptr inbounds nuw float, ptr @ff_mpa_synth_window_float, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpa_synth_window_float, i64 %24
   %26 = load float, ptr %25, align 4, !tbaa !8
-  %gep28 = getelementptr inbounds nuw float, ptr %invariant.gep27, i64 %indvars.iv18
+  %gep28 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep27, i64 %indvars.iv18
   %27 = getelementptr inbounds nuw i8, ptr %gep28, i64 2560
   store float %26, ptr %27, align 4, !tbaa !8
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1

@@ -247,7 +247,7 @@ define dso_local void @LogRecoveryConflict(i32 noundef %0, i64 noundef %1, i64 n
 
 switch.lookup:                                    ; preds = %33
   %36 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.LogRecoveryConflict.1, i64 %36
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.LogRecoveryConflict.1, i64 %36
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_recovery_conflict_desc.exit
 
@@ -274,7 +274,7 @@ get_recovery_conflict_desc.exit:                  ; preds = %switch.lookup, %33
 
 switch.lookup33:                                  ; preds = %44
   %47 = zext nneg i32 %switch.tableidx32 to i64
-  %switch.gep34 = getelementptr inbounds nuw ptr, ptr @switch.table.LogRecoveryConflict.1, i64 %47
+  %switch.gep34 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.LogRecoveryConflict.1, i64 %47
   %switch.load35 = load ptr, ptr %switch.gep34, align 8
   br label %get_recovery_conflict_desc.exit25
 
@@ -702,7 +702,7 @@ GetStandbyLimitTime.exit:                         ; preds = %11, %14, %19, %22
   %.021 = phi i32 [ 1, %43 ], [ 0, %42 ]
   store volatile i32 0, ptr @got_standby_deadlock_timeout, align 4
   %47 = zext nneg i32 %.021 to i64
-  %48 = getelementptr inbounds nuw %struct.EnableTimeoutParams, ptr %7, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %47
   store i32 4, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 0, ptr %49, align 4
@@ -842,7 +842,7 @@ GetStandbyLimitTime.exit:                         ; preds = %6, %9, %14, %17
   %.0 = phi i32 [ 1, %27 ], [ 0, %26 ]
   store volatile i32 0, ptr @got_standby_deadlock_timeout, align 4
   %31 = zext nneg i32 %.0 to i64
-  %32 = getelementptr inbounds nuw %struct.EnableTimeoutParams, ptr %3, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %31
   store i32 4, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 0, ptr %33, align 4
@@ -1046,7 +1046,7 @@ StandbyReleaseLocks.exit:                         ; preds = %6, %9, %12
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %StandbyReleaseLocks.exit7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %StandbyReleaseLocks.exit7 ]
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %15, ptr %4, align 4
@@ -1228,7 +1228,7 @@ define dso_local void @standby_redo(ptr noundef readonly captures(none) %0) loca
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw %struct.xl_standby_lock, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [12 x i8], ptr %16, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4

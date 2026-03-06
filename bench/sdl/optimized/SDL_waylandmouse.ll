@@ -5,9 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.wl_callback_listener = type { ptr }
 %struct.wl_interface = type { ptr, i32, i32, ptr, i32, ptr }
-%struct.Wayland_SystemCursorFrame = type { ptr, i64 }
 %struct.DBusMessageIter = type { ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr }
-%struct.SDL_WaylandCursorTheme = type { ptr, i32 }
 
 @cursor_frame_listener = hidden global %struct.wl_callback_listener { ptr @cursor_frame_done }, align 8
 @sys_cursors = internal unnamed_addr global [10 x ptr] zeroinitializer, align 16
@@ -78,7 +76,7 @@ define internal void @cursor_frame_done(ptr noundef initializes((416, 424)) %0, 
   store i64 %27, ptr %25, align 8
   %28 = load ptr, ptr %5, align 8
   %29 = sext i32 %15 to i64
-  %30 = getelementptr inbounds %struct.Wayland_SystemCursorFrame, ptr %28, i64 %29
+  %30 = getelementptr inbounds [16 x i8], ptr %28, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 8
   %.not42 = icmp ugt i64 %32, %27
@@ -95,7 +93,7 @@ define internal void @cursor_frame_done(ptr noundef initializes((416, 424)) %0, 
   %36 = add nsw i32 %.03743, 1
   %37 = srem i32 %36, %34
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %struct.Wayland_SystemCursorFrame, ptr %28, i64 %38
+  %39 = getelementptr inbounds [16 x i8], ptr %28, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i64, ptr %40, align 8
   %.not41 = icmp eq i64 %41, 0
@@ -114,7 +112,7 @@ define internal void @cursor_frame_done(ptr noundef initializes((416, 424)) %0, 
   store i32 %.1, ptr %14, align 8
   %44 = load ptr, ptr %7, align 8
   %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds %struct.Wayland_SystemCursorFrame, ptr %45, i64 %.pre-phi
+  %46 = getelementptr inbounds [16 x i8], ptr %45, i64 %.pre-phi
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr @WAYLAND_wl_proxy_marshal_flags, align 8
   %49 = load ptr, ptr @WAYLAND_wl_proxy_get_version, align 8
@@ -502,7 +500,7 @@ default.unreachable:                              ; preds = %17
 
 Wayland_CreateSystemCursor.exit:                  ; preds = %86, %.thread.i66, %83, %79, %.thread.i61, %76, %72, %.thread.i56, %69, %65, %.thread.i51, %62, %58, %.thread.i46, %55, %51, %.thread.i41, %48, %44, %.thread.i36, %41, %37, %.thread.i31, %34, %30, %.thread.i26, %27, %23, %.thread.i, %20
   %.1.i65.sink = phi ptr [ null, %76 ], [ null, %69 ], [ null, %62 ], [ null, %55 ], [ null, %48 ], [ null, %41 ], [ null, %34 ], [ null, %27 ], [ null, %20 ], [ null, %.thread.i ], [ %19, %23 ], [ null, %.thread.i26 ], [ %19, %30 ], [ null, %.thread.i31 ], [ %19, %37 ], [ null, %.thread.i36 ], [ %19, %44 ], [ null, %.thread.i41 ], [ %19, %51 ], [ null, %.thread.i46 ], [ %19, %58 ], [ null, %.thread.i51 ], [ %19, %65 ], [ null, %.thread.i56 ], [ %19, %72 ], [ null, %.thread.i61 ], [ %19, %79 ], [ null, %.thread.i66 ], [ %19, %86 ], [ null, %83 ]
-  %90 = getelementptr inbounds nuw ptr, ptr @sys_cursors, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [8 x i8], ptr @sys_cursors, i64 %indvars.iv
   store ptr %.1.i65.sink, ptr %90, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -1271,7 +1269,7 @@ define hidden void @Wayland_FiniMouse(ptr noundef captures(none) %0) local_unnam
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %6 ]
   %7 = load ptr, ptr @WAYLAND_wl_cursor_theme_destroy, align 8
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %struct.SDL_WaylandCursorTheme, ptr %8, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   tail call void %7(ptr noundef %10) #6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1296,7 +1294,7 @@ Wayland_FreeCursorThemes.exit:                    ; preds = %6, %1
 
 18:                                               ; preds = %Wayland_FreeCursorThemes.exit, %18
   %indvars.iv = phi i64 [ 0, %Wayland_FreeCursorThemes.exit ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw ptr, ptr @sys_cursors, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @sys_cursors, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   tail call void @Wayland_FreeCursor(ptr noundef %20)
   store ptr null, ptr %19, align 8
@@ -1328,7 +1326,7 @@ define internal fastcc void @Wayland_FreeCursorThemes(ptr noundef captures(none)
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = load ptr, ptr @WAYLAND_wl_cursor_theme_destroy, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds nuw %struct.SDL_WaylandCursorTheme, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   tail call void %9(ptr noundef %12) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1378,7 +1376,7 @@ define hidden void @Wayland_SeatUpdateCursor(ptr noundef %0) local_unnamed_addr 
 
 22:                                               ; preds = %16
   %23 = zext i32 %18 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @sys_cursors, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @sys_cursors, i64 %23
   %25 = load ptr, ptr %24, align 8
   tail call fastcc void @Wayland_SeatSetCursor(ptr noundef nonnull %0, ptr noundef %25)
   br label %Wayland_SeatSetCursor.exit
@@ -1563,7 +1561,7 @@ define internal fastcc void @Wayland_SeatSetCursor(ptr noundef %0, ptr noundef r
 
 switch.lookup:                                    ; preds = %55
   %59 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Wayland_SeatSetCursor, i64 %59
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Wayland_SeatSetCursor, i64 %59
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Wayland_SetSystemCursorShape.exit
 
@@ -1638,7 +1636,7 @@ Wayland_SetSystemCursorShape.exit:                ; preds = %55, %switch.lookup
 
 97:                                               ; preds = %96, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %96 ]
-  %98 = getelementptr inbounds nuw %struct.SDL_WaylandCursorTheme, ptr %95, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %indvars.iv.i
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = icmp eq i32 %100, %90
@@ -1676,7 +1674,7 @@ Wayland_SetSystemCursorShape.exit:                ; preds = %55, %switch.lookup
   %117 = load ptr, ptr %94, align 8
   %118 = load i32, ptr %91, align 8
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds %struct.SDL_WaylandCursorTheme, ptr %117, i64 %119
+  %120 = getelementptr inbounds [16 x i8], ptr %117, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i32 %90, ptr %121, align 8
   %122 = load ptr, ptr %94, align 8
@@ -1684,7 +1682,7 @@ Wayland_SetSystemCursorShape.exit:                ; preds = %55, %switch.lookup
   %124 = add nsw i32 %123, 1
   store i32 %124, ptr %91, align 8
   %125 = sext i32 %123 to i64
-  %126 = getelementptr inbounds %struct.SDL_WaylandCursorTheme, ptr %122, i64 %125
+  %126 = getelementptr inbounds [16 x i8], ptr %122, i64 %125
   store ptr %116, ptr %126, align 8
   br label %127
 
@@ -1774,25 +1772,25 @@ Wayland_SetSystemCursorShape.exit:                ; preds = %55, %switch.lookup
   %indvars.iv147.i = phi i64 [ 0, %.lr.ph137.i ], [ %indvars.iv.next148.i, %167 ]
   %168 = load ptr, ptr @WAYLAND_wl_cursor_image_get_buffer, align 8
   %169 = load ptr, ptr %158, align 8
-  %170 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv147.i
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %indvars.iv147.i
   %171 = load ptr, ptr %170, align 8
   %172 = call ptr %168(ptr noundef %171) #6
   %173 = load ptr, ptr %11, align 8
-  %174 = getelementptr inbounds nuw %struct.Wayland_SystemCursorFrame, ptr %173, i64 %indvars.iv147.i
+  %174 = getelementptr inbounds nuw [16 x i8], ptr %173, i64 %indvars.iv147.i
   store ptr %172, ptr %174, align 8
   %175 = load ptr, ptr %158, align 8
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv147.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %indvars.iv147.i
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %179 = load i32, ptr %178, align 4
   %180 = zext i32 %179 to i64
   %181 = mul nuw nsw i64 %180, 1000000
   %182 = load ptr, ptr %11, align 8
-  %183 = getelementptr inbounds nuw %struct.Wayland_SystemCursorFrame, ptr %182, i64 %indvars.iv147.i
+  %183 = getelementptr inbounds nuw [16 x i8], ptr %182, i64 %indvars.iv147.i
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store i64 %181, ptr %184, align 8
   %185 = load ptr, ptr %11, align 8
-  %186 = getelementptr inbounds nuw %struct.Wayland_SystemCursorFrame, ptr %185, i64 %indvars.iv147.i
+  %186 = getelementptr inbounds nuw [16 x i8], ptr %185, i64 %indvars.iv147.i
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %188 = load i64, ptr %187, align 8
   %189 = load i64, ptr %156, align 8

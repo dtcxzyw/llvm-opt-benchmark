@@ -3,11 +3,6 @@ source_filename = "bench/postgres/original/brin_inclusion.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-
 @.str = private unnamed_addr constant [27 x i8] c"invalid strategy number %d\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"brin_inclusion.c\00", align 1
 @__func__.brin_inclusion_consistent = private unnamed_addr constant [26 x i8] c"brin_inclusion_consistent\00", align 1
@@ -63,7 +58,7 @@ define dso_local range(i64 0, 2) i64 @brin_inclusion_add_value(ptr noundef reado
   %14 = load ptr, ptr %13, align 8
   %15 = sext i16 %12 to i64
   %16 = getelementptr i8, ptr %14, i64 8
-  %17 = getelementptr %struct.CompactAttribute, ptr %16, i64 %15
+  %17 = getelementptr [16 x i8], ptr %16, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %19 = load i8, ptr %18, align 1, !range !4, !noundef !5
   %20 = trunc nuw i8 %19 to i1
@@ -100,7 +95,7 @@ define dso_local range(i64 0, 2) i64 @brin_inclusion_add_value(ptr noundef reado
 40:                                               ; preds = %35
   %41 = zext i16 %12 to i64
   %42 = getelementptr i8, ptr %4, i64 32
-  %43 = getelementptr ptr, ptr %42, i64 %41
+  %43 = getelementptr [8 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
@@ -525,7 +520,7 @@ define internal fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef readonly
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = zext i16 %1 to i64
   %7 = add nsw i64 %6, -1
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -536,7 +531,7 @@ define internal fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef readonly
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %4 ]
-  %14 = getelementptr %struct.FmgrInfo, ptr %11, i64 %indvars.iv
+  %14 = getelementptr [48 x i8], ptr %11, i64 %indvars.iv
   %15 = getelementptr i8, ptr %14, i64 160
   store i32 0, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -549,7 +544,7 @@ define internal fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef readonly
 
 17:                                               ; preds = %16, %4
   %18 = zext i16 %3 to i64
-  %19 = getelementptr %struct.FmgrInfo, ptr %11, i64 %18
+  %19 = getelementptr [48 x i8], ptr %11, i64 %18
   %20 = getelementptr i8, ptr %19, i64 152
   %21 = getelementptr i8, ptr %19, i64 160
   %22 = load i32, ptr %21, align 8
@@ -561,7 +556,7 @@ define internal fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef readonly
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 360
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i32, ptr %28, i64 %7
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %7
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
@@ -569,7 +564,7 @@ define internal fastcc ptr @inclusion_get_strategy_procinfo(ptr noundef readonly
   %34 = sext i32 %33 to i64
   %35 = shl nsw i64 %34, 4
   %36 = getelementptr i8, ptr %32, i64 %35
-  %37 = getelementptr %struct.FormData_pg_attribute, ptr %36, i64 %7
+  %37 = getelementptr [100 x i8], ptr %36, i64 %7
   %38 = zext i32 %30 to i64
   %39 = getelementptr i8, ptr %37, i64 92
   %40 = load i32, ptr %39, align 4
@@ -626,7 +621,7 @@ define dso_local noundef i64 @brin_inclusion_union(ptr noundef readonly captures
   %15 = load ptr, ptr %14, align 8
   %16 = sext i16 %13 to i64
   %17 = getelementptr i8, ptr %15, i64 8
-  %18 = getelementptr %struct.CompactAttribute, ptr %17, i64 %16
+  %18 = getelementptr [16 x i8], ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -669,7 +664,7 @@ define dso_local noundef i64 @brin_inclusion_union(ptr noundef readonly captures
 39:                                               ; preds = %33
   %40 = zext i16 %13 to i64
   %41 = getelementptr i8, ptr %4, i64 32
-  %42 = getelementptr ptr, ptr %41, i64 %40
+  %42 = getelementptr [8 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8

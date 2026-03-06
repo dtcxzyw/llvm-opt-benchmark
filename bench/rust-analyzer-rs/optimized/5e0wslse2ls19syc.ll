@@ -884,7 +884,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %15 = icmp samesign ult i64 %.sroa.6.0.lcssa, 11
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr i8, ptr %.sroa.0.0.lcssa, i64 552
-  %17 = getelementptr ptr, ptr %16, i64 %.sroa.6.0.lcssa
+  %17 = getelementptr [8 x i8], ptr %16, i64 %.sroa.6.0.lcssa
   %18 = load ptr, ptr %17, align 8, !noalias !49, !nonnull !5, !noundef !5
   %19 = add i64 %.sroa.5.0.lcssa, -1
   %.not11.i.i = icmp eq i64 %19, 0
@@ -1364,7 +1364,7 @@ default.unreachable:                              ; preds = %"_ZN68_$LT$alloc..s
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h19cef3b38cb75523E.exit": ; preds = %107, %._crit_edge.i
   %116 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %108, %107 ]
   %117 = load ptr, ptr %49, align 8, !alias.scope !118, !noalias !121, !nonnull !5, !noundef !5
-  %118 = getelementptr inbounds { { i64, [3 x i64] }, i8, [7 x i8] }, ptr %117, i64 %116
+  %118 = getelementptr inbounds [40 x i8], ptr %117, i64 %116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %118, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false)
   %119 = add i64 %116, 1
   store i64 %119, ptr %50, align 8

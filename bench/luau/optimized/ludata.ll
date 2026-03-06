@@ -56,7 +56,7 @@ define hidden void @_Z14luaU_freeudataP9lua_StateP5UdataP8lua_Page(ptr noundef %
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 3424
   %11 = zext nneg i8 %5 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !42
   %.not19 = icmp eq ptr %13, null
   br i1 %.not19, label %26, label %14

@@ -8,9 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.google::LogMessage" = type { ptr, ptr }
 %"struct.google::CheckOpString" = type { ptr }
 %"class.std::allocator" = type { i8 }
-%"class.std::shared_ptr.151" = type { %"class.std::__shared_ptr.152" }
-%"class.std::__shared_ptr.152" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"class.std::_Node_handle" = type { %"class.std::_Node_handle_common", ptr, ptr }
 %"class.std::_Node_handle_common" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -30,6 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.9" = type { ptr }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
 %"class.std::shared_ptr.10" = type { %"class.std::__shared_ptr.11" }
 %"class.std::__shared_ptr.11" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.13" = type { %"class.std::__shared_ptr.14" }
@@ -63,6 +61,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.147" = type { %"struct.std::_Vector_base<std::shared_ptr<const folly::File>, std::allocator<std::shared_ptr<const folly::File>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::shared_ptr<const folly::File>, std::allocator<std::shared_ptr<const folly::File>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<const folly::File>, std::allocator<std::shared_ptr<const folly::File>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::shared_ptr<const folly::File>, std::allocator<std::shared_ptr<const folly::File>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%class.anon = type { i8 }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<folly::File, std::allocator<folly::File>>::_Vector_impl" }
+%"struct.std::_Vector_base<folly::File, std::allocator<folly::File>>::_Vector_impl" = type { %"struct.std::_Vector_base<folly::File, std::allocator<folly::File>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<folly::File, std::allocator<folly::File>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.folly::SocketFds" = type { %"class.std::unique_ptr.24" }
 %"class.std::unique_ptr.24" = type { %"struct.std::__uniq_ptr_data.25" }
 %"struct.std::__uniq_ptr_data.25" = type { %"class.std::__uniq_ptr_impl.26" }
@@ -70,11 +73,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.27" = type { %"struct.std::_Tuple_impl.28" }
 %"struct.std::_Tuple_impl.28" = type { %"struct.std::_Head_base.31" }
 %"struct.std::_Head_base.31" = type { ptr }
-%class.anon = type { i8 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<folly::File, std::allocator<folly::File>>::_Vector_impl" }
-%"struct.std::_Vector_base<folly::File, std::allocator<folly::File>>::_Vector_impl" = type { %"struct.std::_Vector_base<folly::File, std::allocator<folly::File>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<folly::File, std::allocator<folly::File>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 %"class.folly::Optional" = type { %"struct.folly::Optional<std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>::StorageTriviallyDestructible" }
 %"struct.folly::Optional<std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>::StorageTriviallyDestructible" = type <{ %union.anon.81, i8, [7 x i8] }>
@@ -85,7 +83,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.google::base::CheckOpMessageBuilder" = type { ptr }
 %"struct.std::_Hashtable<folly::AsyncSocket::WriteRequestTag, std::pair<const folly::AsyncSocket::WriteRequestTag, std::vector<std::shared_ptr<const folly::File>>>, std::allocator<std::pair<const folly::AsyncSocket::WriteRequestTag, std::vector<std::shared_ptr<const folly::File>>>>, std::__detail::_Select1st, std::equal_to<folly::AsyncSocket::WriteRequestTag>, std::hash<folly::AsyncSocket::WriteRequestTag>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
 %"struct.std::pair" = type { %"class.std::vector", i64 }
-%"class.folly::File" = type <{ i32, i8, [3 x i8] }>
 
 $_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallbackD2Ev = comdat any
 
@@ -525,7 +522,7 @@ define void @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback16getAncillaryData
   %28 = load i64, ptr %27, align 8, !tbaa !24
   %29 = urem i64 %26, %28
   %30 = load ptr, ptr %25, align 8, !tbaa !23
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %29
   %32 = load ptr, ptr %31, align 8, !tbaa !30
   %.not.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i, label %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit.thread, label %33
@@ -694,10 +691,10 @@ _ZN6google12Check_NEImplIimEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.02055 = phi i64 [ %99, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %95 = getelementptr inbounds nuw %"class.std::shared_ptr.151", ptr %82, i64 %.02055
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %.02055
   %96 = load ptr, ptr %95, align 8, !tbaa !47
   %97 = load i32, ptr %96, align 4, !tbaa !52
-  %98 = getelementptr inbounds nuw i32, ptr %90, i64 %.02055
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %.02055
   store i32 %97, ptr %98, align 4, !tbaa !34
   %99 = add nuw i64 %.02055, 1
   %exitcond.not = icmp eq i64 %99, %91
@@ -800,7 +797,7 @@ define noundef range(i32 16, 9) i32 @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCa
   %19 = load i64, ptr %18, align 8, !tbaa !24
   %20 = urem i64 %17, %19
   %21 = load ptr, ptr %16, align 8, !tbaa !23
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !30
   %.not.i.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i.i, label %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit, label %24
@@ -3463,7 +3460,7 @@ _ZNSt11_Deque_baseIN5folly9SocketFdsESaIS1_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !282
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -3557,7 +3554,7 @@ _ZNSt11_Deque_baseIN5folly9SocketFdsESaIS1_EE15_M_create_nodesEPPS1_S5_.exit: ; 
   store ptr %48, ptr %49, align 8, !tbaa !288
   store ptr %39, ptr %37, align 8, !tbaa !289
   %50 = and i64 %1, 63
-  %51 = getelementptr inbounds nuw %"class.folly::SocketFds", ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !290
   ret void
 
@@ -3882,7 +3879,7 @@ _ZNSolsEm.exit16.i.i:                             ; preds = %_ZStlsISt11char_tra
 103:                                              ; preds = %_ZNSt6vectorIN5folly4FileESaIS1_EE12emplace_backIJRibEEERS1_DpOT_.exit.i.i, %.lr.ph.i.i
   %.018.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %112, %_ZNSt6vectorIN5folly4FileESaIS1_EE12emplace_backIJRibEEERS1_DpOT_.exit.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %104 = getelementptr inbounds nuw i32, ptr %102, i64 %.018.i.i
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %.018.i.i
   %105 = load i32, ptr %104, align 4, !tbaa !34
   store i32 %105, ptr %8, align 4, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -5810,7 +5807,7 @@ define { i64, ptr } @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgS
   %17 = load i64, ptr %16, align 8, !tbaa !24
   %18 = urem i64 %15, %17
   %19 = load ptr, ptr %14, align 8, !tbaa !23
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !30
   %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %22
@@ -5899,7 +5896,7 @@ define linkonce_odr void @_ZNSt10_HashtableIN5folly11AsyncSocket15WriteRequestTa
   %8 = load i64, ptr %7, align 8, !tbaa !24
   %9 = urem i64 %6, %8
   %10 = load ptr, ptr %1, align 8, !tbaa !23
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %9
   %12 = load ptr, ptr %11, align 8, !tbaa !30
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %_ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt10shared_ptrIKNS0_4FileEESaIS9_EEESaISC_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS4_m.exit.thread, label %13
@@ -5967,7 +5964,7 @@ _ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorIS
   br i1 %.not9.i.i, label %58, label %43
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds nuw ptr, ptr %10, i64 %42
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %42
   store ptr %12, ptr %44, align 8, !tbaa !30, !noalias !333
   br label %._crit_edge.i.i
 
@@ -5998,7 +5995,7 @@ _ZNKSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorIS
   br i1 %.not18.i19, label %58, label %56
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw ptr, ptr %10, i64 %55
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %55
   store ptr %.020.i, ptr %57, align 8, !tbaa !30, !noalias !333
   br label %58
 
@@ -6255,7 +6252,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt8__detail12_Insert_baseIN5folly11AsyncSock
   %9 = load i64, ptr %8, align 8, !tbaa !24
   %10 = urem i64 %7, %9
   %11 = load ptr, ptr %0, align 8, !tbaa !23
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %.critedge, label %14
@@ -6395,7 +6392,7 @@ _ZNSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2, ptr %32, align 8, !tbaa !31
   %33 = load ptr, ptr %0, align 8, !tbaa !23
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !30
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -6421,7 +6418,7 @@ _ZNSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %46 = load i64, ptr %45, align 8, !tbaa !31
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !30
   br label %49
 
@@ -6508,7 +6505,7 @@ _ZNSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 40
   %16 = load i64, ptr %15, align 8, !tbaa !31
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !30
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -6523,7 +6520,7 @@ _ZNSt10_HashtableIN5folly11AsyncSocket15WriteRequestTagESt4pairIKS2_St6vectorISt
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !30
   br label %28
 
@@ -6813,7 +6810,7 @@ _ZNSt6vectorIN5folly4FileESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23: ; preds =
 _ZNSt12_Vector_baseIN5folly4FileESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5folly4FileESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit23, %32
   store ptr %21, ptr %0, align 8, !tbaa !304
   store ptr %.0.lcssa.i.i.i22, ptr %5, align 8, !tbaa !296
-  %36 = getelementptr inbounds nuw %"class.folly::File", ptr %21, i64 %17
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %17
   store ptr %36, ptr %31, align 8, !tbaa !298
   ret void
 }
@@ -6944,9 +6941,9 @@ define linkonce_odr void @_ZNSt5dequeIN5folly9SocketFdsESaIS1_EE17_M_reallocate_
   %19 = load ptr, ptr %0, align 8, !tbaa !282
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -6965,12 +6962,12 @@ define linkonce_odr void @_ZNSt5dequeIN5folly9SocketFdsESaIS1_EE17_M_reallocate_
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN5folly9SocketFdsES3_ET0_T_S5_S4_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN5folly9SocketFdsES3_ET0_T_S5_S4_.exit
 
@@ -6998,9 +6995,9 @@ _ZNSt11_Deque_baseIN5folly9SocketFdsESaIS1_EE15_M_allocate_mapEm.exit: ; preds =
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #28
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN5folly9SocketFdsES3_ET0_T_S5_S4_.exit26, label %53
@@ -7028,7 +7025,7 @@ _ZSt4copyIPPN5folly9SocketFdsES3_ET0_T_S5_S4_.exit: ; preds = %32, %31, %28, %27
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !288
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !286
   %64 = load ptr, ptr %63, align 8, !tbaa !283

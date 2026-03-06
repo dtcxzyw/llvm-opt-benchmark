@@ -81,7 +81,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %11, align 4, !tbaa !14
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds ptr, ptr %37, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %37, i64 %40
   store ptr %2, ptr %41, align 8, !tbaa !19
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %43 = load i32, ptr %42, align 8, !tbaa !20
@@ -177,7 +177,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %12, align 4, !tbaa !14
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %38, i64 %41
   store ptr %7, ptr %42, align 8, !tbaa !19
   br label %43
 
@@ -265,7 +265,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %10, align 4, !tbaa !14
   %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %36, i64 %39
   store ptr %3, ptr %40, align 8, !tbaa !19
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %41, align 8, !tbaa !27
@@ -347,7 +347,7 @@ define noundef ptr @Hop_ObjCreate(ptr noundef %0, ptr noundef readonly captures(
   %.val = load i32, ptr %7, align 8
   %16 = and i32 %.val, 7
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !20
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4, !tbaa !20
@@ -537,7 +537,7 @@ define void @Hop_ObjDelete(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 7
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %3, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !20
   %10 = add nsw i32 %9, -1
   store i32 %10, ptr %8, align 4, !tbaa !20
@@ -608,7 +608,7 @@ Hop_ObjDisconnect.exit:                           ; preds = %26, %29
 49:                                               ; preds = %46
   %50 = add nsw i64 %indvars.iv.i, -1
   %51 = load ptr, ptr %44, align 8, !tbaa !18
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %50
   %53 = load ptr, ptr %52, align 8, !tbaa !19
   %54 = icmp eq ptr %53, %1
   br i1 %54, label %55, label %46, !llvm.loop !31
@@ -626,7 +626,7 @@ Hop_ObjDisconnect.exit:                           ; preds = %26, %29
 58:                                               ; preds = %58, %.lr.ph.i
   %indvars.iv18.i = phi i64 [ %57, %.lr.ph.i ], [ %indvars.iv.next19.i, %58 ]
   %59 = load ptr, ptr %44, align 8, !tbaa !18
-  %60 = getelementptr inbounds ptr, ptr %59, i64 %indvars.iv18.i
+  %60 = getelementptr inbounds [8 x i8], ptr %59, i64 %indvars.iv18.i
   %61 = load ptr, ptr %60, align 8, !tbaa !19
   %62 = getelementptr i8, ptr %60, i64 -8
   store ptr %61, ptr %62, align 8, !tbaa !19

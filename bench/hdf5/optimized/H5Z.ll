@@ -36,7 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5_user_cb_state_t = type { %struct.H5E_user_cb_state_t }
 %struct.H5E_user_cb_state_t = type { i32, %union.anon.2, ptr }
 %union.anon.2 = type { ptr }
-%struct.H5Z_filter_info_t = type { i32, i32, [12 x i8], ptr, i64, [4 x i32], ptr }
 
 @H5Z_init_g = local_unnamed_addr global i8 0, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
@@ -285,7 +284,7 @@ define noundef range(i32 -1, 1) i32 @H5Z_register(ptr noundef readonly captures(
 
 20:                                               ; preds = %.lr.ph, %25
   %.01831 = phi i64 [ 0, %.lr.ph ], [ %26, %25 ]
-  %21 = getelementptr inbounds nuw %struct.H5Z_class2_t, ptr %.pre36.pre, i64 %.01831
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %.pre36.pre, i64 %.01831
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !15
   %24 = icmp eq i32 %23, %19
@@ -326,7 +325,7 @@ define noundef range(i32 -1, 1) i32 @H5Z_register(ptr noundef readonly captures(
   %39 = phi i64 [ %.pre35, %.thread26 ], [ %17, %._crit_edge ]
   %40 = add i64 %39, 1
   store i64 %40, ptr @H5Z_table_used_g, align 8, !tbaa !10
-  %41 = getelementptr inbounds nuw %struct.H5Z_class2_t, ptr %38, i64 %39
+  %41 = getelementptr inbounds nuw [48 x i8], ptr %38, i64 %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
   br label %43
 
@@ -693,7 +692,7 @@ define range(i32 -1, 1) i32 @H5Z__unregister(i32 noundef %0) local_unnamed_addr 
 
 11:                                               ; preds = %.lr.ph, %16
   %.01620 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
-  %12 = getelementptr inbounds nuw %struct.H5Z_class2_t, ptr %10, i64 %.01620
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %10, i64 %.01620
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !15
   %15 = icmp eq i32 %14, %0
@@ -770,7 +769,7 @@ define range(i32 -1, 1) i32 @H5Z__unregister(i32 noundef %0) local_unnamed_addr 
 
 55:                                               ; preds = %48
   %56 = load ptr, ptr @H5Z_table_g, align 8, !tbaa !12
-  %57 = getelementptr %struct.H5Z_class2_t, ptr %56, i64 %.01620
+  %57 = getelementptr [48 x i8], ptr %56, i64 %.01620
   %58 = getelementptr i8, ptr %57, i64 48
   %59 = load i64, ptr @H5Z_table_used_g, align 8, !tbaa !10
   %60 = xor i64 %.01620, -1
@@ -1272,7 +1271,7 @@ define range(i32 -1, 2) i32 @H5Z_filter_avail(i32 noundef %0) local_unnamed_addr
 
 22:                                               ; preds = %.lr.ph, %20
   %.0810 = phi i64 [ 0, %.lr.ph ], [ %21, %20 ]
-  %23 = getelementptr inbounds nuw %struct.H5Z_class2_t, ptr %19, i64 %.0810
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %.0810
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !15
   %26 = icmp eq i32 %25, %0
@@ -1440,10 +1439,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5Z__prepare_prelude_callback_dcpl(
 
 50:                                               ; preds = %.lr.ph, %50
   %.03683 = phi i64 [ 0, %.lr.ph ], [ %55, %50 ]
-  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %.03683
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.03683
   %52 = load i32, ptr %51, align 4, !tbaa !43
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw i64, ptr %5, i64 %.03683
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.03683
   store i64 %53, ptr %54, align 8, !tbaa !10
   %55 = add nuw nsw i64 %.03683, 1
   %exitcond.not = icmp eq i64 %55, %48
@@ -1653,7 +1652,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5Z__prelude_callback(ptr noundef r
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %41
   %.04477.us = phi i64 [ %42, %41 ], [ 0, %.lr.ph ]
   %18 = load ptr, ptr %17, align 8, !tbaa !63
-  %19 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %18, i64 %.04477.us
+  %19 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 %.04477.us
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !64
   %22 = trunc i32 %21 to i1
@@ -1700,7 +1699,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5Z__prelude_callback(ptr noundef r
 .lr.ph.split:                                     ; preds = %.lr.ph, %103
   %.04477 = phi i64 [ %104, %103 ], [ 0, %.lr.ph ]
   %45 = load ptr, ptr %17, align 8, !tbaa !63
-  %46 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %45, i64 %.04477
+  %46 = getelementptr inbounds nuw [64 x i8], ptr %45, i64 %.04477
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !64
   %49 = trunc i32 %48 to i1
@@ -1777,7 +1776,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5Z__prelude_callback(ptr noundef r
 
 87:                                               ; preds = %85
   %88 = load ptr, ptr %17, align 8, !tbaa !63
-  %89 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %88, i64 %.04477
+  %89 = getelementptr inbounds nuw [64 x i8], ptr %88, i64 %.04477
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = load i32, ptr %90, align 4, !tbaa !64
   %92 = and i32 %91, 1
@@ -1965,7 +1964,7 @@ define range(i32 -1, 2) i32 @H5Z_ignore_filters(i64 noundef %0, ptr noundef %1, 
 
 50:                                               ; preds = %.preheader, %48
   %.02230 = phi i64 [ 0, %.preheader ], [ %49, %48 ]
-  %51 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %47, i64 %.02230
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %47, i64 %.02230
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !64
   %54 = and i32 %53, 1
@@ -2043,7 +2042,7 @@ define range(i32 -1, 1) i32 @H5Z_modify(ptr noundef readonly captures(none) %0, 
 
 25:                                               ; preds = %.lr.ph, %29
   %.05056 = phi i64 [ 0, %.lr.ph ], [ %30, %29 ]
-  %26 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %24, i64 %.05056
+  %26 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 %.05056
   %27 = load i32, ptr %26, align 8, !tbaa !67
   %28 = icmp eq i32 %27, %1
   br i1 %28, label %._crit_edge, label %29
@@ -2067,7 +2066,7 @@ define range(i32 -1, 1) i32 @H5Z_modify(ptr noundef readonly captures(none) %0, 
   %.050.lcssa74 = phi i64 [ %.05056, %._crit_edge ], [ 0, %.preheader ], [ %22, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %37 = load ptr, ptr %36, align 8, !tbaa !63
-  %38 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %37, i64 %.050.lcssa74
+  %38 = getelementptr inbounds nuw [64 x i8], ptr %37, i64 %.050.lcssa74
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 %2, ptr %39, align 4, !tbaa !64
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -2096,7 +2095,7 @@ define range(i32 -1, 1) i32 @H5Z_modify(ptr noundef readonly captures(none) %0, 
   %50 = shl i64 %3, 2
   %51 = tail call noalias ptr @malloc(i64 noundef %50) #11
   %52 = load ptr, ptr %36, align 8, !tbaa !63
-  %53 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %52, i64 %.050.lcssa74
+  %53 = getelementptr inbounds nuw [64 x i8], ptr %52, i64 %.050.lcssa74
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 56
   store ptr %51, ptr %54, align 8, !tbaa !72
   %55 = icmp eq ptr %51, null
@@ -2110,7 +2109,7 @@ define range(i32 -1, 1) i32 @H5Z_modify(ptr noundef readonly captures(none) %0, 
 
 60:                                               ; preds = %47
   %61 = load ptr, ptr %36, align 8, !tbaa !63
-  %62 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %61, i64 %.050.lcssa74
+  %62 = getelementptr inbounds nuw [64 x i8], ptr %61, i64 %.050.lcssa74
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 56
   store ptr %63, ptr %64, align 8, !tbaa !72
@@ -2122,9 +2121,9 @@ define range(i32 -1, 1) i32 @H5Z_modify(ptr noundef readonly captures(none) %0, 
 
 67:                                               ; preds = %65, %67
   %.04861 = phi i64 [ 0, %65 ], [ %71, %67 ]
-  %68 = getelementptr inbounds nuw i32, ptr %4, i64 %.04861
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.04861
   %69 = load i32, ptr %68, align 4, !tbaa !46
-  %70 = getelementptr inbounds nuw i32, ptr %66, i64 %.04861
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %.04861
   store i32 %69, ptr %70, align 4, !tbaa !46
   %71 = add nuw i64 %.04861, 1
   %exitcond63.not = icmp eq i64 %71, %3
@@ -2132,7 +2131,7 @@ define range(i32 -1, 1) i32 @H5Z_modify(ptr noundef readonly captures(none) %0, 
 
 72:                                               ; preds = %46
   %73 = load ptr, ptr %36, align 8, !tbaa !63
-  %74 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %73, i64 %.050.lcssa74
+  %74 = getelementptr inbounds nuw [64 x i8], ptr %73, i64 %.050.lcssa74
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 56
   store ptr null, ptr %75, align 8, !tbaa !72
   br label %.loopexit
@@ -2222,7 +2221,7 @@ define range(i32 -1, 1) i32 @H5Z_append(ptr noundef captures(none) %0, i32 nound
 
 .lr.ph:                                           ; preds = %.preheader91, %43
   %.07392 = phi i64 [ %44, %43 ], [ 0, %.preheader91 ]
-  %37 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %.pre102, i64 %.07392
+  %37 = getelementptr inbounds nuw [64 x i8], ptr %.pre102, i64 %.07392
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8, !tbaa !72
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -2254,7 +2253,7 @@ define range(i32 -1, 1) i32 @H5Z_append(ptr noundef captures(none) %0, i32 nound
 
 .lr.ph94:                                         ; preds = %.preheader, %57
   %.17493 = phi i64 [ %58, %57 ], [ 0, %.preheader ]
-  %51 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %48, i64 %.17493
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %48, i64 %.17493
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %53 = load ptr, ptr %52, align 8, !tbaa !72
   %54 = icmp eq ptr %53, inttoptr (i64 -1 to ptr)
@@ -2285,7 +2284,7 @@ define range(i32 -1, 1) i32 @H5Z_append(ptr noundef captures(none) %0, i32 nound
 63:                                               ; preds = %._crit_edge104, %.thread
   %64 = phi ptr [ %48, %.thread ], [ %.pre106, %._crit_edge104 ]
   %65 = phi i64 [ %.pre103, %.thread ], [ %23, %._crit_edge104 ]
-  %66 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [64 x i8], ptr %64, i64 %65
   store i32 %1, ptr %66, align 8, !tbaa !67
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i32 %2, ptr %67, align 4, !tbaa !64
@@ -2320,9 +2319,9 @@ define range(i32 -1, 1) i32 @H5Z_append(ptr noundef captures(none) %0, i32 nound
 
 82:                                               ; preds = %80, %82
   %.095 = phi i64 [ 0, %80 ], [ %86, %82 ]
-  %83 = getelementptr inbounds nuw i32, ptr %4, i64 %.095
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.095
   %84 = load i32, ptr %83, align 4, !tbaa !46
-  %85 = getelementptr inbounds nuw i32, ptr %81, i64 %.095
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %.095
   store i32 %84, ptr %85, align 4, !tbaa !46
   %86 = add nuw i64 %.095, 1
   %exitcond99.not = icmp eq i64 %86, %3
@@ -2396,7 +2395,7 @@ define range(i32 -1, 1) i32 @H5Z_find(i1 noundef zeroext %0, i32 noundef %1, ptr
 
 21:                                               ; preds = %26, %.lr.ph.i
   %.068.i = phi i64 [ 0, %.lr.ph.i ], [ %27, %26 ]
-  %22 = getelementptr inbounds nuw %struct.H5Z_class2_t, ptr %20, i64 %.068.i
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %.068.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !15
   %25 = icmp eq i32 %24, %1
@@ -2424,7 +2423,7 @@ H5Z__find_idx.exit.thread:                        ; preds = %26, %.preheader.i, 
 
 33:                                               ; preds = %H5Z__find_idx.exit
   %34 = and i64 %.068.i, 2147483647
-  %35 = getelementptr inbounds nuw %struct.H5Z_class2_t, ptr %20, i64 %34
+  %35 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %34
   store ptr %35, ptr %2, align 8, !tbaa !12
   br label %36
 
@@ -2512,7 +2511,7 @@ define range(i32 -1, 1) i32 @H5Z_pipeline(ptr noundef readonly captures(address_
 
 46:                                               ; preds = %38
   %47 = load ptr, ptr %35, align 8, !tbaa !63
-  %48 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %47, i64 %39
+  %48 = getelementptr inbounds nuw [64 x i8], ptr %47, i64 %39
   %49 = load i32, ptr %48, align 8, !tbaa !67
   %50 = load i8, ptr @H5Z_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %51 = trunc nuw i8 %50 to i1
@@ -2533,7 +2532,7 @@ define range(i32 -1, 1) i32 @H5Z_pipeline(ptr noundef readonly captures(address_
 
 58:                                               ; preds = %63, %.lr.ph.i
   %.068.i = phi i64 [ 0, %.lr.ph.i ], [ %64, %63 ]
-  %59 = getelementptr inbounds nuw %struct.H5Z_class2_t, ptr %57, i64 %.068.i
+  %59 = getelementptr inbounds nuw [48 x i8], ptr %57, i64 %.068.i
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !15
   %62 = icmp eq i32 %61, %49
@@ -2573,7 +2572,7 @@ H5Z__find_idx.exit.thread..thread.loopexit291_crit_edge: ; preds = %H5Z__find_id
 
 74:                                               ; preds = %67
   %75 = load ptr, ptr %35, align 8, !tbaa !63
-  %76 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %75, i64 %39
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %75, i64 %39
   %77 = load i32, ptr %76, align 8, !tbaa !67
   %78 = load i8, ptr @H5Z_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %79 = trunc nuw i8 %78 to i1
@@ -2594,7 +2593,7 @@ H5Z__find_idx.exit.thread..thread.loopexit291_crit_edge: ; preds = %H5Z__find_id
 
 86:                                               ; preds = %91, %.lr.ph.i184
   %.068.i185 = phi i64 [ 0, %.lr.ph.i184 ], [ %92, %91 ]
-  %87 = getelementptr inbounds nuw %struct.H5Z_class2_t, ptr %85, i64 %.068.i185
+  %87 = getelementptr inbounds nuw [48 x i8], ptr %85, i64 %.068.i185
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %89 = load i32, ptr %88, align 4, !tbaa !15
   %90 = icmp eq i32 %89, %77
@@ -2612,7 +2611,7 @@ H5Z__find_idx.exit.thread..thread.loopexit291_crit_edge: ; preds = %H5Z__find_id
 
 .thread:                                          ; preds = %.preheader.i182, %74, %93, %91, %H5Z__find_idx.exit.thread..thread.loopexit291_crit_edge
   %95 = phi ptr [ %75, %91 ], [ %.pre306.pre, %H5Z__find_idx.exit.thread..thread.loopexit291_crit_edge ], [ %75, %93 ], [ %75, %74 ], [ %75, %.preheader.i182 ]
-  %96 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %95, i64 %39
+  %96 = getelementptr inbounds nuw [64 x i8], ptr %95, i64 %39
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
   %98 = load ptr, ptr %97, align 8, !tbaa !78
   %.not170 = icmp eq ptr %98, null
@@ -2640,7 +2639,7 @@ H5Z__find_idx.exit.thread..thread.loopexit291_crit_edge: ; preds = %H5Z__find_id
   %107 = phi ptr [ %75, %105 ], [ %47, %H5Z__find_idx.exit ]
   %108 = phi ptr [ %85, %105 ], [ %57, %H5Z__find_idx.exit ]
   %.0143 = phi i64 [ %.068.i185, %105 ], [ %.068.i, %H5Z__find_idx.exit ]
-  %109 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %107, i64 %39
+  %109 = getelementptr inbounds nuw [64 x i8], ptr %107, i64 %39
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %111 = load i32, ptr %110, align 4, !tbaa !64
   call void @H5E_pause_stack() #9
@@ -2652,11 +2651,11 @@ H5Z__find_idx.exit.thread..thread.loopexit291_crit_edge: ; preds = %H5Z__find_id
 114:                                              ; preds = %106
   %.reass.reass = or i32 %111, %invariant.op
   %115 = and i64 %.0143, 4294967295
-  %116 = getelementptr inbounds nuw %struct.H5Z_class2_t, ptr %108, i64 %115
+  %116 = getelementptr inbounds nuw [48 x i8], ptr %108, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 40
   %118 = load ptr, ptr %117, align 8, !tbaa !35
   %119 = load ptr, ptr %35, align 8, !tbaa !63
-  %120 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %119, i64 %39
+  %120 = getelementptr inbounds nuw [64 x i8], ptr %119, i64 %39
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %122 = load i64, ptr %121, align 8, !tbaa !71
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 56
@@ -2693,7 +2692,7 @@ H5Z__find_idx.exit.thread..thread.loopexit291_crit_edge: ; preds = %H5Z__find_id
 
 138:                                              ; preds = %135
   %139 = load ptr, ptr %35, align 8, !tbaa !63
-  %140 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %139, i64 %39
+  %140 = getelementptr inbounds nuw [64 x i8], ptr %139, i64 %39
   %141 = load i32, ptr %140, align 8, !tbaa !67
   %142 = load ptr, ptr %8, align 8, !tbaa !81
   %143 = load i64, ptr %7, align 8, !tbaa !10
@@ -2773,7 +2772,7 @@ H5Z__find_idx.exit.thread..thread.loopexit291_crit_edge: ; preds = %H5Z__find_id
 
 176:                                              ; preds = %169
   %177 = load ptr, ptr %168, align 8, !tbaa !63
-  %178 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %177, i64 %.0152286
+  %178 = getelementptr inbounds nuw [64 x i8], ptr %177, i64 %.0152286
   %179 = load i32, ptr %178, align 8, !tbaa !67
   %180 = load i8, ptr @H5Z_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %181 = trunc nuw i8 %180 to i1
@@ -2794,7 +2793,7 @@ H5Z__find_idx.exit.thread..thread.loopexit291_crit_edge: ; preds = %H5Z__find_id
 
 188:                                              ; preds = %193, %.lr.ph.i191
   %.068.i192 = phi i64 [ 0, %.lr.ph.i191 ], [ %194, %193 ]
-  %189 = getelementptr inbounds nuw %struct.H5Z_class2_t, ptr %187, i64 %.068.i192
+  %189 = getelementptr inbounds nuw [48 x i8], ptr %187, i64 %.068.i192
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 4
   %191 = load i32, ptr %190, align 4, !tbaa !15
   %192 = icmp eq i32 %191, %179
@@ -2836,11 +2835,11 @@ H5Z__find_idx.exit194.thread:                     ; preds = %193, %.preheader.i1
 
 209:                                              ; preds = %206
   %210 = and i64 %.068.i192, 2147483647
-  %211 = getelementptr inbounds nuw %struct.H5Z_class2_t, ptr %187, i64 %210
+  %211 = getelementptr inbounds nuw [48 x i8], ptr %187, i64 %210
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 40
   %213 = load ptr, ptr %212, align 8, !tbaa !35
   %214 = load ptr, ptr %168, align 8, !tbaa !63
-  %215 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %214, i64 %.0152286
+  %215 = getelementptr inbounds nuw [64 x i8], ptr %214, i64 %.0152286
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 4
   %217 = load i32, ptr %216, align 4, !tbaa !64
   %218 = or i32 %217, %1
@@ -2871,7 +2870,7 @@ H5Z__find_idx.exit194.thread:                     ; preds = %193, %.preheader.i1
 
 232:                                              ; preds = %230
   %233 = load ptr, ptr %168, align 8, !tbaa !63
-  %234 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %233, i64 %.0152286
+  %234 = getelementptr inbounds nuw [64 x i8], ptr %233, i64 %.0152286
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 4
   %236 = load i32, ptr %235, align 4, !tbaa !64
   %237 = and i32 %236, 1
@@ -2889,7 +2888,7 @@ H5Z__find_idx.exit194.thread:                     ; preds = %193, %.preheader.i1
 
 243:                                              ; preds = %240
   %244 = load ptr, ptr %168, align 8, !tbaa !63
-  %245 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %244, i64 %.0152286
+  %245 = getelementptr inbounds nuw [64 x i8], ptr %244, i64 %.0152286
   %246 = load i32, ptr %245, align 8, !tbaa !67
   %247 = load ptr, ptr %8, align 8, !tbaa !81
   %248 = load i64, ptr %6, align 8, !tbaa !10
@@ -3011,7 +3010,7 @@ define noundef ptr @H5Z_filter_info(ptr noundef readonly captures(none) %0, i32 
 
 22:                                               ; preds = %.lr.ph, %26
   %.01214 = phi i64 [ 0, %.lr.ph ], [ %27, %26 ]
-  %23 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %21, i64 %.01214
+  %23 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %.01214
   %24 = load i32, ptr %23, align 8, !tbaa !67
   %25 = icmp eq i32 %24, %1
   br i1 %25, label %.loopexit, label %26
@@ -3086,7 +3085,7 @@ define range(i32 -1, 2) i32 @H5Z_filter_in_pline(ptr noundef readonly captures(n
 
 24:                                               ; preds = %.lr.ph, %22
   %.0910 = phi i64 [ 0, %.lr.ph ], [ %23, %22 ]
-  %25 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %21, i64 %.0910
+  %25 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %.0910
   %26 = load i32, ptr %25, align 8, !tbaa !67
   %27 = icmp eq i32 %26, %1
   br i1 %27, label %._crit_edge, label %22
@@ -3151,13 +3150,13 @@ define range(i32 -1, 2) i32 @H5Z_all_filters_avail(ptr noundef readonly captures
 
 .preheader.us:                                    ; preds = %33, %.preheader.lr.ph.split.us
   %.01118.us = phi i64 [ 0, %.preheader.lr.ph.split.us ], [ %34, %33 ]
-  %23 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %22, i64 %.01118.us
+  %23 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %.01118.us
   %24 = load i32, ptr %23, align 8, !tbaa !67
   br label %25
 
 25:                                               ; preds = %.preheader.us, %30
   %.01013.us = phi i64 [ 0, %.preheader.us ], [ %31, %30 ]
-  %26 = getelementptr inbounds nuw %struct.H5Z_class2_t, ptr %20, i64 %.01013.us
+  %26 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %.01013.us
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !15
   %29 = icmp eq i32 %28, %24
@@ -3246,7 +3245,7 @@ define range(i32 -1, 1) i32 @H5Z_delete(ptr noundef %0, i32 noundef %1) local_un
 
 33:                                               ; preds = %.preheader73, %37
   %.06276 = phi i64 [ 0, %.preheader73 ], [ %38, %37 ]
-  %34 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %25, i64 %.06276
+  %34 = getelementptr inbounds nuw [64 x i8], ptr %25, i64 %.06276
   %35 = load i32, ptr %34, align 8, !tbaa !67
   %36 = icmp eq i32 %35, %1
   br i1 %36, label %42, label %37
@@ -3272,14 +3271,14 @@ define range(i32 -1, 1) i32 @H5Z_delete(ptr noundef %0, i32 noundef %1) local_un
 46:                                               ; preds = %42
   %47 = tail call ptr @H5MM_xfree(ptr noundef %44) #9
   %48 = load ptr, ptr %24, align 8, !tbaa !63
-  %49 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %48, i64 %.06276
+  %49 = getelementptr inbounds nuw [64 x i8], ptr %48, i64 %.06276
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr %47, ptr %50, align 8, !tbaa !78
   br label %51
 
 51:                                               ; preds = %46, %42
   %52 = phi ptr [ %48, %46 ], [ %25, %42 ]
-  %53 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %52, i64 %.06276
+  %53 = getelementptr inbounds nuw [64 x i8], ptr %52, i64 %.06276
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %55 = load ptr, ptr %54, align 8, !tbaa !72
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 40
@@ -3289,7 +3288,7 @@ define range(i32 -1, 1) i32 @H5Z_delete(ptr noundef %0, i32 noundef %1) local_un
 57:                                               ; preds = %51
   %58 = tail call ptr @H5MM_xfree(ptr noundef %55) #9
   %59 = load ptr, ptr %24, align 8, !tbaa !63
-  %60 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %59, i64 %.06276
+  %60 = getelementptr inbounds nuw [64 x i8], ptr %59, i64 %.06276
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 56
   store ptr %58, ptr %61, align 8, !tbaa !72
   br label %62
@@ -3305,11 +3304,11 @@ define range(i32 -1, 1) i32 @H5Z_delete(ptr noundef %0, i32 noundef %1) local_un
   %67 = phi ptr [ %71, %88 ], [ %63, %62 ]
   %68 = phi i64 [ %89, %88 ], [ %64, %62 ]
   %.177 = phi i64 [ %68, %88 ], [ %.06276, %62 ]
-  %69 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %67, i64 %.177
-  %70 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [64 x i8], ptr %67, i64 %.177
+  %70 = getelementptr inbounds nuw [64 x i8], ptr %67, i64 %68
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %69, ptr noundef nonnull align 8 dereferenceable(64) %70, i64 64, i1 false), !tbaa.struct !89
   %71 = load ptr, ptr %24, align 8, !tbaa !63
-  %72 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %71, i64 %.177
+  %72 = getelementptr inbounds nuw [64 x i8], ptr %71, i64 %.177
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8, !tbaa !78
   %.not72 = icmp eq ptr %74, null
@@ -3349,7 +3348,7 @@ define range(i32 -1, 1) i32 @H5Z_delete(ptr noundef %0, i32 noundef %1) local_un
   %93 = phi i64 [ %65, %62 ], [ %90, %88 ]
   %94 = add i64 %93, -1
   store i64 %94, ptr %19, align 8, !tbaa !57
-  %95 = getelementptr inbounds nuw %struct.H5Z_filter_info_t, ptr %92, i64 %94
+  %95 = getelementptr inbounds nuw [64 x i8], ptr %92, i64 %94
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %95, i8 0, i64 64, i1 false)
   br label %96
 

@@ -202,10 +202,10 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local { ptr, i64 } @_ZN5clang16languageToStringENS_8LanguageE(i8 noundef zeroext %0) local_unnamed_addr #0 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang16languageToStringENS_8LanguageE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang16languageToStringENS_8LanguageE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang16languageToStringENS_8LanguageE.1, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang16languageToStringENS_8LanguageE.1, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -972,7 +972,7 @@ define dso_local noundef ptr @_ZN5clang12LangStandard22getLangStandardForNameEN4
 switch.lookup:
   %2 = tail call noundef i32 @_ZN5clang12LangStandard11getLangKindEN4llvm9StringRefE(ptr %0, i64 %1)
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang12LangStandard22getLangStandardForNameEN4llvm9StringRefE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang12LangStandard22getLangStandardForNameEN4llvm9StringRefE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

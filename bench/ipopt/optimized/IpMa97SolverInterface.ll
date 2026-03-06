@@ -8270,7 +8270,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328: ; preds = %48
 
 492:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307, %543
   %indvars.iv = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307 ], [ %indvars.iv.next, %543 ]
-  %493 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %indvars.iv
+  %493 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %indvars.iv
   %494 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %493, ptr noundef nonnull @.str.17) #16
   %495 = icmp eq i32 %494, 0
   br i1 %495, label %_ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %496
@@ -8293,9 +8293,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328: ; preds = %48
 
 _ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %502, %499, %496, %492
   %.0.i = phi i32 [ 2, %499 ], [ 0, %492 ], [ 1, %496 ], [ %..i, %502 ]
-  %505 = getelementptr inbounds nuw i32, ptr %447, i64 %indvars.iv
+  %505 = getelementptr inbounds nuw [4 x i8], ptr %447, i64 %indvars.iv
   store i32 %.0.i, ptr %505, align 4, !tbaa !57
-  %506 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %indvars.iv
+  %506 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %indvars.iv
   %507 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %506, ptr noundef nonnull @.str.37) #16
   %508 = icmp eq i32 %507, 0
   br i1 %508, label %.sink.split, label %511
@@ -8317,7 +8317,7 @@ _ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11
 
 .invoke:                                          ; preds = %514, %511
   %.sink = phi i32 [ 1, %511 ], [ 2, %514 ]
-  %517 = getelementptr inbounds nuw i32, ptr %448, i64 %indvars.iv
+  %517 = getelementptr inbounds nuw [4 x i8], ptr %448, i64 %indvars.iv
   store i32 %.sink, ptr %517, align 4, !tbaa !63
   %518 = load i32, ptr %505, align 4, !tbaa !57
   store i32 %518, ptr %359, align 4, !tbaa !62
@@ -8362,7 +8362,7 @@ _ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11
 
 .sink.split:                                      ; preds = %539, %536, %533, %530, %527, %524, %_ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.sink493 = phi i32 [ 0, %_ZN5Ipopt19Ma97SolverInterface14ScaleNameToNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 3, %524 ], [ 5, %530 ], [ 7, %536 ], [ 6, %533 ], [ 4, %527 ], [ 8, %539 ]
-  %542 = getelementptr inbounds nuw i32, ptr %448, i64 %indvars.iv
+  %542 = getelementptr inbounds nuw [4 x i8], ptr %448, i64 %indvars.iv
   store i32 %.sink493, ptr %542, align 4, !tbaa !63
   br label %543
 
@@ -8543,7 +8543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit350: ; preds = %61
   %618 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %619 = load i32, ptr %355, align 8, !tbaa !61
   %620 = sext i32 %619 to i64
-  %621 = getelementptr inbounds i32, ptr %618, i64 %620
+  %621 = getelementptr inbounds [4 x i8], ptr %618, i64 %620
   %622 = load i32, ptr %621, align 4, !tbaa !63
   %623 = icmp ult i32 %622, 9
   br i1 %623, label %switch.lookup, label %634
@@ -9301,7 +9301,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit45:                 ; preds = %159, %163
 
 218:                                              ; preds = %.lr.ph, %255
   %indvars.iv = phi i64 [ %215, %.lr.ph ], [ %indvars.iv.next, %255 ]
-  %219 = getelementptr inbounds i32, ptr %210, i64 %indvars.iv
+  %219 = getelementptr inbounds [4 x i8], ptr %210, i64 %indvars.iv
   %220 = load i32, ptr %219, align 4, !tbaa !63
   switch i32 %220, label %255 [
     i32 7, label %.thread53
@@ -9365,7 +9365,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit45:                 ; preds = %159, %163
 247:                                              ; preds = %239
   %248 = trunc nsw i64 %indvars.iv to i32
   store i32 %248, ptr %207, align 8, !tbaa !61
-  %249 = getelementptr inbounds i32, ptr %213, i64 %indvars.iv
+  %249 = getelementptr inbounds [4 x i8], ptr %213, i64 %indvars.iv
   %250 = load i32, ptr %249, align 4, !tbaa !57
   store i32 %250, ptr %214, align 4, !tbaa !62
   %251 = load ptr, ptr %145, align 8, !tbaa !36
@@ -9609,7 +9609,7 @@ define noundef zeroext i1 @_ZN5Ipopt19Ma97SolverInterface15IncreaseQualityEv(ptr
 
 16:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %17 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %17 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !63
   switch i32 %18, label %27 [
     i32 3, label %19
@@ -9622,7 +9622,7 @@ define noundef zeroext i1 @_ZN5Ipopt19Ma97SolverInterface15IncreaseQualityEv(ptr
   store i8 1, ptr %6, align 1, !tbaa !71
   %20 = trunc nsw i64 %indvars.iv to i32
   store i32 %20, ptr %2, align 8, !tbaa !61
-  %21 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %21 = getelementptr inbounds [4 x i8], ptr %7, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !57
   store i32 %22, ptr %8, align 4, !tbaa !62
   %23 = load ptr, ptr %9, align 8, !tbaa !36

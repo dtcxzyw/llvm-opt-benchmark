@@ -37,7 +37,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_parse_slice_header(ptr noundef capt
 26:                                               ; preds = %4
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %28 = zext nneg i8 %24 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !14
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %.critedge, label %31
@@ -46,7 +46,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_parse_slice_header(ptr noundef capt
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %33 = load i8, ptr %32, align 1, !tbaa !16
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %2, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !18
   %.not98 = icmp eq ptr %36, null
   br i1 %.not98, label %.critedge, label %37
@@ -355,7 +355,7 @@ get_ue_golomb_long.exit131:                       ; preds = %184, %226, %230
   %.0.i.i129 = phi i32 [ %227, %226 ], [ %247, %230 ], [ 0, %184 ]
   %248 = trunc i32 %.0.i.i129 to i16
   %249 = add i16 %248, -1
-  %250 = getelementptr inbounds nuw i16, ptr %183, i64 %indvars.iv
+  %250 = getelementptr inbounds nuw [2 x i8], ptr %183, i64 %indvars.iv
   store i16 %249, ptr %250, align 2, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -677,7 +677,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load i8, ptr %1, align 4, !tbaa !20
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !14
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.critedge, label %11
@@ -686,7 +686,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !16
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !18
   %.not83 = icmp eq ptr %16, null
   br i1 %.not83, label %.critedge, label %17

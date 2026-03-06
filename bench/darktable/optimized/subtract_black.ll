@@ -140,7 +140,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw23subtract_black_internalEv(
 .preheader93:                                     ; preds = %.preheader93.lr.ph, %60
   %indvars.iv115 = phi i64 [ 0, %.preheader93.lr.ph ], [ %indvars.iv.next116, %60 ]
   %.06699 = phi i32 [ 0, %.preheader93.lr.ph ], [ %spec.select, %60 ]
-  %58 = getelementptr inbounds nuw [4 x i16], ptr %57, i64 %indvars.iv115
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv115
   %59 = trunc nuw nsw i64 %indvars.iv115 to i32
   br label %61
 
@@ -152,7 +152,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw23subtract_black_internalEv(
 61:                                               ; preds = %.preheader93, %61
   %indvars.iv = phi i64 [ 0, %.preheader93 ], [ %indvars.iv.next, %61 ]
   %.16797 = phi i32 [ %.06699, %.preheader93 ], [ %spec.select, %61 ]
-  %62 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %indvars.iv
   %63 = load i16, ptr %62, align 2, !tbaa !81
   %64 = zext i16 %63 to i32
   %65 = load i16, ptr %54, align 2, !tbaa !75
@@ -165,9 +165,9 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw23subtract_black_internalEv(
   %72 = urem i32 %71, %56
   %73 = add i32 %70, %72
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw i32, ptr %15, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !73
-  %77 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4, !tbaa !73
   %79 = add i32 %76, %78
   %80 = sub i32 %64, %79
@@ -193,7 +193,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw23subtract_black_internalEv(
 .preheader:                                       ; preds = %.preheader.lr.ph, %88
   %indvars.iv123 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next124, %88 ]
   %.4103 = phi i32 [ 0, %.preheader.lr.ph ], [ %spec.select89, %88 ]
-  %87 = getelementptr inbounds nuw [4 x i16], ptr %86, i64 %indvars.iv123
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv123
   br label %89
 
 88:                                               ; preds = %89
@@ -204,10 +204,10 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw23subtract_black_internalEv(
 89:                                               ; preds = %.preheader, %89
   %indvars.iv119 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next120, %89 ]
   %.5101 = phi i32 [ %.4103, %.preheader ], [ %spec.select89, %89 ]
-  %90 = getelementptr inbounds nuw i16, ptr %87, i64 %indvars.iv119
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %87, i64 %indvars.iv119
   %91 = load i16, ptr %90, align 2, !tbaa !81
   %92 = zext i16 %91 to i32
-  %93 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv119
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv119
   %94 = load i32, ptr %93, align 4, !tbaa !73
   %95 = sub nsw i32 %92, %94
   %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
@@ -254,7 +254,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw23subtract_black_internalEv(
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv128 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next129, %.lr.ph ]
   %.058107 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select90, %.lr.ph ]
-  %116 = getelementptr inbounds nuw i16, ptr %107, i64 %indvars.iv128
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %107, i64 %indvars.iv128
   %117 = load i16, ptr %116, align 2, !tbaa !81
   %118 = zext i16 %117 to i32
   %spec.select90 = tail call i32 @llvm.umax.i32(i32 %.058107, i32 %118)

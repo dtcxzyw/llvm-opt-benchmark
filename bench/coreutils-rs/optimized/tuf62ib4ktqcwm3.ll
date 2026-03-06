@@ -203,7 +203,7 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11upd
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw { i64 }, ptr %0, i64 %.sroa.8.010
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.8.010
   %11 = load atomic i64, ptr %10 seq_cst, align 8
   %12 = icmp eq i64 %11, 0
   %13 = zext i1 %12 to i8
@@ -231,7 +231,7 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$11upd
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw { i64 }, ptr %0, i64 %.sroa.8.010
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.8.010
   %11 = load atomic i64, ptr %10 seq_cst, align 8
   %12 = icmp eq i64 %11, 0
   %13 = zext i1 %12 to i8
@@ -261,7 +261,7 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$13wri
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw { i64 }, ptr %0, i64 %.sroa.8.010.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.8.010.i
   %9 = load atomic i64, ptr %8 seq_cst, align 8, !noalias !50
   %10 = icmp eq i64 %9, 0
   %11 = zext i1 %10 to i8
@@ -324,7 +324,7 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$13wri
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw { i64 }, ptr %0, i64 %.sroa.8.010.i2
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.8.010.i2
   %33 = load atomic i64, ptr %32 seq_cst, align 8, !noalias !59
   %34 = icmp eq i64 %33, 0
   %35 = zext i1 %34 to i8
@@ -354,7 +354,7 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$13wri
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw { i64 }, ptr %0, i64 %.sroa.8.010.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.8.010.i
   %9 = load atomic i64, ptr %8 seq_cst, align 8, !noalias !62
   %10 = icmp eq i64 %9, 0
   %11 = zext i1 %10 to i8
@@ -417,7 +417,7 @@ define hidden void @"_ZN20signal_hook_registry9half_lock17HalfLock$LT$T$GT$13wri
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw { i64 }, ptr %0, i64 %.sroa.8.010.i2
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.8.010.i2
   %33 = load atomic i64, ptr %32 seq_cst, align 8, !noalias !71
   %34 = icmp eq i64 %33, 0
   %35 = zext i1 %34 to i8
@@ -578,7 +578,7 @@ common.resume:                                    ; preds = %8, %58
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw { i64 }, ptr %17, i64 %.sroa.8.010.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.sroa.8.010.i.i
   %24 = load atomic i64, ptr %23 seq_cst, align 8, !noalias !84
   %25 = icmp eq i64 %24, 0
   %26 = zext i1 %25 to i8
@@ -637,7 +637,7 @@ common.resume:                                    ; preds = %8, %58
   br i1 %44, label %50, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw { i64 }, ptr %17, i64 %.sroa.8.010.i2.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.sroa.8.010.i2.i
   %47 = load atomic i64, ptr %46 seq_cst, align 8, !noalias !93
   %48 = icmp eq i64 %47, 0
   %49 = zext i1 %48 to i8
@@ -714,7 +714,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16547901512627249430.e
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw { i64 }, ptr %13, i64 %.sroa.8.010.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.8.010.i.i
   %20 = load atomic i64, ptr %19 seq_cst, align 8, !noalias !123
   %21 = icmp eq i64 %20, 0
   %22 = zext i1 %21 to i8
@@ -773,7 +773,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.16547901512627249430.e
   br i1 %40, label %46, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw { i64 }, ptr %13, i64 %.sroa.8.010.i2.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.8.010.i2.i
   %43 = load atomic i64, ptr %42 seq_cst, align 8, !noalias !132
   %44 = icmp eq i64 %43, 0
   %45 = zext i1 %44 to i8

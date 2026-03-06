@@ -259,9 +259,9 @@ define void @_ZNK2cv3reg8MapShift11inverseWarpERKNS_11_InputArrayERKNS_12_Output
   %58 = uitofp nneg i32 %57 to double
   %59 = fadd double %35, %58
   %60 = fptrunc double %59 to float
-  %61 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   store float %60, ptr %61, align 4, !tbaa !35
-  %62 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   store float %53, ptr %62, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

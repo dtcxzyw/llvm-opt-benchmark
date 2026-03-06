@@ -857,10 +857,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !19, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !109, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hf48a5eba0a82438bE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hf48a5eba0a82438bE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hf48a5eba0a82438bE.38", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hf48a5eba0a82438bE.38", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -3828,7 +3828,7 @@ _ZN21uv_distribution_types9BuiltDist4file17h83bdb74c8b1ba9afE.exit7.thread: ; pr
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %29 = load ptr, ptr %28, align 8, !alias.scope !679, !nonnull !3, !noundef !3
-  %30 = getelementptr inbounds { { i64, [1 x i64] }, { { { [9 x i8], i8, [6 x i8] } }, ptr, { [21 x i8], i8, [2 x i8] } }, ptr }, ptr %29, i64 %22
+  %30 = getelementptr inbounds [72 x i8], ptr %29, i64 %22
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %32 = load ptr, ptr %31, align 8, !noalias !673, !nonnull !3, !align !103, !noundef !3
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -3870,7 +3870,7 @@ default.unreachable6:                             ; preds = %2
   %15 = load ptr, ptr %14, align 8, !nonnull !3, !align !103, !noundef !3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !3
-  %18 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %15, i64 %17
+  %18 = getelementptr inbounds [16 x i8], ptr %15, i64 %17
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h4f1ff9941ea3cd05E.llvm.8786022712873145750"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull %15, ptr noundef nonnull %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.fc61178d0e8daa862f9491f2c71ba98d.46)
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load ptr, ptr %19, align 8, !nonnull !3, !noundef !3
@@ -6777,9 +6777,9 @@ switch.lookup:
   %2 = add nsw i64 %1, -3
   %3 = icmp ult i64 %2, 5
   %4 = select i1 %3, i64 %2, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN21uv_distribution_types119_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..installed..InstalledDist$GT$11resource_id17hdd82a4fcb9ee8251E", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN21uv_distribution_types119_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..installed..InstalledDist$GT$11resource_id17hdd82a4fcb9ee8251E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN21uv_distribution_types119_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..installed..InstalledDist$GT$11resource_id17hdd82a4fcb9ee8251E.42", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN21uv_distribution_types119_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..installed..InstalledDist$GT$11resource_id17hdd82a4fcb9ee8251E.42", i64 %4
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load3
@@ -6797,7 +6797,7 @@ switch.lookup:
   %2 = add nsw i64 %1, -3
   %3 = icmp ult i64 %2, 5
   %4 = select i1 %3, i64 %2, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN119_$LT$uv_distribution_types..installed..InstalledDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h04232a04503b6546E", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN119_$LT$uv_distribution_types..installed..InstalledDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h04232a04503b6546E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   ret ptr %5
@@ -7856,9 +7856,9 @@ switch.lookup:
   %6 = add nsw i64 %5, -3
   %7 = icmp ult i64 %6, 5
   %8 = select i1 %7, i64 %6, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN21uv_distribution_types119_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..installed..InstalledDist$GT$11resource_id17hdd82a4fcb9ee8251E", i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN21uv_distribution_types119_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..installed..InstalledDist$GT$11resource_id17hdd82a4fcb9ee8251E", i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep9 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN21uv_distribution_types119_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..installed..InstalledDist$GT$11resource_id17hdd82a4fcb9ee8251E.42", i64 %8
+  %switch.gep9 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN21uv_distribution_types119_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..installed..InstalledDist$GT$11resource_id17hdd82a4fcb9ee8251E.42", i64 %8
   %switch.load10 = load i64, ptr %switch.gep9, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load10
@@ -8051,7 +8051,7 @@ switch.lookup:
   %2 = add nsw i64 %1, -3
   %3 = icmp ult i64 %2, 5
   %4 = select i1 %3, i64 %2, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN119_$LT$uv_distribution_types..installed..InstalledDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h04232a04503b6546E", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN119_$LT$uv_distribution_types..installed..InstalledDist$u20$as$u20$uv_distribution_types..traits..DistributionMetadata$GT$14version_or_url17h04232a04503b6546E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %6 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %5, 1
@@ -8093,7 +8093,7 @@ switch.lookup:
   %2 = add nsw i64 %1, -3
   %3 = icmp ult i64 %2, 5
   %4 = select i1 %3, i64 %2, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN103_$LT$uv_distribution_types..installed..InstalledDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h5181e6959bdc0577E", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN103_$LT$uv_distribution_types..installed..InstalledDist$u20$as$u20$uv_distribution_types..traits..Name$GT$4name17h5181e6959bdc0577E", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   ret ptr %5
@@ -9049,9 +9049,9 @@ switch.lookup:
   %3 = add nsw i64 %2, -3
   %4 = icmp ult i64 %3, 5
   %5 = select i1 %4, i64 %3, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN21uv_distribution_types119_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..installed..InstalledDist$GT$11resource_id17hdd82a4fcb9ee8251E", i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN21uv_distribution_types119_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..installed..InstalledDist$GT$11resource_id17hdd82a4fcb9ee8251E", i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN21uv_distribution_types119_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..installed..InstalledDist$GT$11resource_id17hdd82a4fcb9ee8251E.42", i64 %5
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN21uv_distribution_types119_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..installed..InstalledDist$GT$11resource_id17hdd82a4fcb9ee8251E.42", i64 %5
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load2
@@ -9070,9 +9070,9 @@ switch.lookup:
   %3 = add nsw i64 %2, -3
   %4 = icmp ult i64 %3, 5
   %5 = select i1 %4, i64 %3, i64 1
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN21uv_distribution_types119_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..installed..InstalledDist$GT$11resource_id17hdd82a4fcb9ee8251E", i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN21uv_distribution_types119_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..installed..InstalledDist$GT$11resource_id17hdd82a4fcb9ee8251E", i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN21uv_distribution_types119_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..installed..InstalledDist$GT$11resource_id17hdd82a4fcb9ee8251E.42", i64 %5
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN21uv_distribution_types119_$LT$impl$u20$uv_distribution_types..traits..Identifier$u20$for$u20$uv_distribution_types..installed..InstalledDist$GT$11resource_id17hdd82a4fcb9ee8251E.42", i64 %5
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load2

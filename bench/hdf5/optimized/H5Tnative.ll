@@ -11,10 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5T_vlen_alloc_info_t = type { ptr, ptr, ptr, ptr }
 %struct.H5T_conv_cb_t = type { ptr, ptr }
 %struct.H5VL_connector_prop_t = type { ptr, ptr }
-%struct.native_int_t = type { ptr, i64, ptr, i64, %struct.H5T_atomic_t }
-%struct.H5T_atomic_t = type { i32, i64, i64, i32, i32, %union.anon }
-%union.anon = type { %struct.anon.0 }
-%struct.anon.0 = type { i64, i64, i64, i64, i64, i64, i32, i32 }
 
 @H5_libinit_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
@@ -929,7 +925,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
 
 333:                                              ; preds = %.preheader507
   %334 = call noalias ptr @H5T__get_member_name(ptr noundef nonnull %0, i32 noundef %326) #8
-  %335 = getelementptr inbounds nuw ptr, ptr %319, i64 %indvars.iv536
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %319, i64 %indvars.iv536
   store ptr %334, ptr %335, align 8, !tbaa !32
   %336 = icmp eq ptr %334, null
   br i1 %336, label %337, label %341
@@ -941,9 +937,9 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
   br label %403
 
 341:                                              ; preds = %333
-  %342 = getelementptr inbounds nuw i64, ptr %312, i64 %indvars.iv536
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %indvars.iv536
   %343 = call fastcc ptr @H5T__get_native_type(ptr noundef %327, i32 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %342, ptr noundef %6)
-  %344 = getelementptr inbounds nuw ptr, ptr %305, i64 %indvars.iv536
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %305, i64 %indvars.iv536
   store ptr %343, ptr %344, align 8, !tbaa !34
   %345 = icmp eq ptr %343, null
   br i1 %345, label %346, label %350
@@ -1001,11 +997,11 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
 
 .preheader506:                                    ; preds = %364, %372
   %indvars.iv541 = phi i64 [ %indvars.iv.next542, %372 ], [ 0, %364 ]
-  %373 = getelementptr inbounds nuw ptr, ptr %319, i64 %indvars.iv541
+  %373 = getelementptr inbounds nuw [8 x i8], ptr %319, i64 %indvars.iv541
   %374 = load ptr, ptr %373, align 8, !tbaa !32
-  %375 = getelementptr inbounds nuw i64, ptr %312, i64 %indvars.iv541
+  %375 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %indvars.iv541
   %376 = load i64, ptr %375, align 8, !tbaa !3
-  %377 = getelementptr inbounds nuw ptr, ptr %305, i64 %indvars.iv541
+  %377 = getelementptr inbounds nuw [8 x i8], ptr %305, i64 %indvars.iv541
   %378 = load ptr, ptr %377, align 8, !tbaa !34
   %379 = call i32 @H5T__insert(ptr noundef nonnull %366, ptr noundef %374, i64 noundef %376, ptr noundef %378) #8
   %380 = icmp slt i32 %379, 0
@@ -1023,7 +1019,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
 
 386:                                              ; preds = %385, %395
   %indvars.iv546 = phi i64 [ 0, %385 ], [ %indvars.iv.next547, %395 ]
-  %387 = getelementptr inbounds nuw ptr, ptr %305, i64 %indvars.iv546
+  %387 = getelementptr inbounds nuw [8 x i8], ptr %305, i64 %indvars.iv546
   %388 = load ptr, ptr %387, align 8, !tbaa !34
   %389 = call i32 @H5T_close_real(ptr noundef %388) #8
   %390 = icmp slt i32 %389, 0
@@ -1036,7 +1032,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
   br label %403
 
 395:                                              ; preds = %386
-  %396 = getelementptr inbounds nuw ptr, ptr %319, i64 %indvars.iv546
+  %396 = getelementptr inbounds nuw [8 x i8], ptr %319, i64 %indvars.iv546
   %397 = load ptr, ptr %396, align 8, !tbaa !32
   %398 = call ptr @H5MM_xfree(ptr noundef %397) #8
   store ptr %398, ptr %396, align 8, !tbaa !32
@@ -1303,7 +1299,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
 .preheader509:                                    ; preds = %544, %.preheader509
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader509 ], [ 0, %544 ]
   %.0518 = phi i64 [ %553, %.preheader509 ], [ 1, %544 ]
-  %551 = getelementptr inbounds nuw i64, ptr %503, i64 %indvars.iv
+  %551 = getelementptr inbounds nuw [8 x i8], ptr %503, i64 %indvars.iv
   %552 = load i64, ptr %551, align 8, !tbaa !3
   %553 = mul i64 %552, %.0518
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1556,7 +1552,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %665
   %indvars.iv551 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next552, %665 ]
-  %656 = getelementptr inbounds nuw ptr, ptr %.0305410441, i64 %indvars.iv551
+  %656 = getelementptr inbounds nuw [8 x i8], ptr %.0305410441, i64 %indvars.iv551
   %657 = load ptr, ptr %656, align 8, !tbaa !34
   %.not377 = icmp eq ptr %657, null
   br i1 %.not377, label %665, label %658
@@ -1596,7 +1592,7 @@ H5T__get_native_bitfield.exit:                    ; preds = %221, %214, %143
 
 .lr.ph525:                                        ; preds = %.lr.ph525.preheader, %673
   %indvars.iv556 = phi i64 [ 0, %.lr.ph525.preheader ], [ %indvars.iv.next557, %673 ]
-  %669 = getelementptr inbounds nuw ptr, ptr %.0316405446, i64 %indvars.iv556
+  %669 = getelementptr inbounds nuw [8 x i8], ptr %.0316405446, i64 %indvars.iv556
   %670 = load ptr, ptr %669, align 8, !tbaa !32
   %.not376 = icmp eq ptr %670, null
   br i1 %.not376, label %673, label %671
@@ -1644,7 +1640,7 @@ define range(i32 -1, 1) i32 @H5T__init_native_internal() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %.critedge32
   %.02934 = phi i64 [ 0, %0 ], [ %29, %.critedge32 ]
-  %2 = getelementptr inbounds nuw %struct.native_int_table_t, ptr @H5T__init_native_internal.table_table, i64 %.02934
+  %2 = getelementptr inbounds nuw [16 x i8], ptr @H5T__init_native_internal.table_table, i64 %.02934
   %3 = load ptr, ptr %2, align 16, !tbaa !42
   br label %6
 
@@ -1666,7 +1662,7 @@ define range(i32 -1, 1) i32 @H5T__init_native_internal() local_unnamed_addr #0 {
   store i32 2, ptr %12, align 8, !tbaa !45
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 0, ptr %13, align 4, !tbaa !27
-  %14 = getelementptr inbounds nuw %struct.native_int_t, ptr %3, i64 %.03033
+  %14 = getelementptr inbounds nuw [120 x i8], ptr %3, i64 %.03033
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !46
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 16

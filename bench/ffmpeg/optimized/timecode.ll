@@ -464,7 +464,7 @@ fps_from_frame_rate.exit:                         ; preds = %1, %5
 
 13:                                               ; preds = %12, %fps_from_frame_rate.exit
   %indvars.iv.i = phi i64 [ 0, %fps_from_frame_rate.exit ], [ %indvars.iv.next.i, %12 ]
-  %14 = getelementptr inbounds nuw i32, ptr @check_fps.supported_fps, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @check_fps.supported_fps, i64 %indvars.iv.i
   %15 = load i32, ptr %14, align 4, !tbaa !12
   %16 = icmp eq i32 %.0.i, %15
   br i1 %16, label %check_fps.exit, label %12
@@ -535,7 +535,7 @@ fps_from_frame_rate.exit:                         ; preds = %5
 
 .preheader.i:                                     ; preds = %25, %29
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %29 ], [ 0, %25 ]
-  %30 = getelementptr inbounds nuw i32, ptr @check_fps.supported_fps, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @check_fps.supported_fps, i64 %indvars.iv.i.i
   %31 = load i32, ptr %30, align 4, !tbaa !12
   %32 = icmp eq i32 %31, %21
   br i1 %32, label %check_timecode.exit, label %29
@@ -611,7 +611,7 @@ fps_from_frame_rate.exit:                         ; preds = %8
 
 .preheader.i:                                     ; preds = %27, %31
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %31 ], [ 0, %27 ]
-  %32 = getelementptr inbounds nuw i32, ptr @check_fps.supported_fps, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @check_fps.supported_fps, i64 %indvars.iv.i.i
   %33 = load i32, ptr %32, align 4, !tbaa !12
   %34 = icmp eq i32 %33, %23
   br i1 %34, label %check_timecode.exit, label %31

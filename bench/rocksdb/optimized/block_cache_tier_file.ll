@@ -52,8 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::thread::id" = type { i64 }
 %"struct.rocksdb::ThreadedWriter::IO" = type { ptr, ptr, i64, i8, %"class.std::function" }
 %"class.std::function.89" = type { %"class.std::_Function_base", ptr }
-%"class.std::shared_ptr.102" = type { %"class.std::__shared_ptr.103" }
-%"class.std::__shared_ptr.103" = type { ptr, %"class.std::__shared_count" }
 
 $_ZNK7rocksdb14BlockCacheFile4PathB5cxx11Ev = comdat any
 
@@ -1073,7 +1071,7 @@ define noundef zeroext i1 @_ZN7rocksdb11CacheRecord9SerializeEPSt6vectorIPNS_16C
   br i1 %13, label %14, label %_ZN7rocksdb11CacheRecord6AppendEPSt6vectorIPNS_16CacheWriteBufferESaIS3_EEPmPKcm.exit
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %6
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %6
   %16 = load ptr, ptr %15, align 8, !tbaa !123
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !125
@@ -1144,7 +1142,7 @@ define noundef zeroext i1 @_ZN7rocksdb11CacheRecord9SerializeEPSt6vectorIPNS_16C
   br i1 %51, label %52, label %_ZN7rocksdb11CacheRecord6AppendEPSt6vectorIPNS_16CacheWriteBufferESaIS3_EEPmPKcm.exit
 
 52:                                               ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds nuw ptr, ptr %46, i64 %44
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %44
   %54 = load ptr, ptr %53, align 8, !tbaa !123
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !125
@@ -1215,7 +1213,7 @@ define noundef zeroext i1 @_ZN7rocksdb11CacheRecord9SerializeEPSt6vectorIPNS_16C
   br i1 %88, label %89, label %_ZN7rocksdb11CacheRecord6AppendEPSt6vectorIPNS_16CacheWriteBufferESaIS3_EEPmPKcm.exit
 
 89:                                               ; preds = %.lr.ph.i18
-  %90 = getelementptr inbounds nuw ptr, ptr %83, i64 %81
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %81
   %91 = load ptr, ptr %90, align 8, !tbaa !123
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load i64, ptr %92, align 8, !tbaa !125
@@ -1289,7 +1287,7 @@ define noundef zeroext i1 @_ZN7rocksdb11CacheRecord6AppendEPSt6vectorIPNS_16Cach
   br i1 %15, label %16, label %.critedge
 
 16:                                               ; preds = %7
-  %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %8
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %8
   %18 = load ptr, ptr %17, align 8, !tbaa !123
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i64, ptr %19, align 8, !tbaa !125
@@ -2816,7 +2814,7 @@ _ZN7rocksdb9WriteLockC2EPNS_4port7RWMutexE.exit:  ; preds = %1
   %21 = phi ptr [ %16, %.lr.ph.i ], [ %27, %.noexc ]
   %.05.i = phi i64 [ 0, %.lr.ph.i ], [ %25, %.noexc ]
   %22 = load ptr, ptr %17, align 8, !tbaa !221
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %.05.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.05.i
   %24 = load ptr, ptr %23, align 8, !tbaa !123
   invoke void @_ZN7rocksdb25CacheWriteBufferAllocator10DeallocateEPNS_16CacheWriteBufferE(ptr noundef nonnull align 8 dereferenceable(136) %22, ptr noundef %24)
           to label %.noexc unwind label %.loopexit
@@ -2931,7 +2929,7 @@ _ZNSt6vectorIPN7rocksdb16CacheWriteBufferESaIS2_EE5clearEv.exit: ; preds = %1, %
   %10 = phi ptr [ %5, %.lr.ph ], [ %16, %9 ]
   %.05 = phi i64 [ 0, %.lr.ph ], [ %14, %9 ]
   %11 = load ptr, ptr %6, align 8, !tbaa !221
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %.05
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.05
   %13 = load ptr, ptr %12, align 8, !tbaa !123
   tail call void @_ZN7rocksdb25CacheWriteBufferAllocator10DeallocateEPNS_16CacheWriteBufferE(ptr noundef nonnull align 8 dereferenceable(136) %11, ptr noundef %13)
   %14 = add nuw i64 %.05, 1
@@ -3606,7 +3604,7 @@ define noundef zeroext i1 @_ZN7rocksdb18WriteableCacheFile12ExpandBufferEm(ptr n
 .lr.ph:                                           ; preds = %2, %13
   %.01337 = phi i64 [ %14, %13 ], [ %4, %2 ]
   %.01436 = phi i64 [ %26, %13 ], [ 0, %2 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01337
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.01337
   %20 = load ptr, ptr %19, align 8, !tbaa !123
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8, !tbaa !125
@@ -3725,7 +3723,7 @@ _ZNSt6vectorIPN7rocksdb16CacheWriteBufferESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIPN7rocksdb16CacheWriteBufferESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %76, %_ZNSt6vectorIPN7rocksdb16CacheWriteBufferESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %71, ptr %5, align 8, !tbaa !122
   store ptr %75, ptr %6, align 8, !tbaa !119
-  %77 = getelementptr inbounds nuw ptr, ptr %71, i64 %69
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %69
   store ptr %77, ptr %18, align 8, !tbaa !223
   br label %_ZNSt6vectorIPN7rocksdb16CacheWriteBufferESaIS2_EE9push_backERKS2_.exit
 
@@ -3762,7 +3760,7 @@ define void @_ZN7rocksdb18WriteableCacheFile14DispatchBufferEv(ptr noundef nonnu
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %14 = load ptr, ptr %12, align 8, !tbaa !122
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.pre
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.pre
   %16 = load ptr, ptr %15, align 8, !tbaa !123
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %18 = load ptr, ptr %17, align 8, !tbaa !221
@@ -4002,7 +4000,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %9, %_
   %23 = phi ptr [ %18, %.lr.ph.i ], [ %29, %22 ]
   %.05.i = phi i64 [ 0, %.lr.ph.i ], [ %27, %22 ]
   %24 = load ptr, ptr %19, align 8, !tbaa !221
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %.05.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.05.i
   %26 = load ptr, ptr %25, align 8, !tbaa !123
   call void @_ZN7rocksdb25CacheWriteBufferAllocator10DeallocateEPNS_16CacheWriteBufferE(ptr noundef nonnull align 8 dereferenceable(136) %24, ptr noundef %26)
   %27 = add nuw i64 %.05.i, 1
@@ -4090,7 +4088,7 @@ define noundef zeroext i1 @_ZN7rocksdb18WriteableCacheFile10ReadBufferERKNS_19Lo
   br i1 %26, label %27, label %_ZN7rocksdb18WriteableCacheFile10ReadBufferERKNS_19LogicalBlockAddressEPc.exit
 
 27:                                               ; preds = %.lr.ph.i
-  %28 = getelementptr inbounds nuw ptr, ptr %21, i64 %.02632.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.02632.i
   %29 = load ptr, ptr %28, align 8, !tbaa !123
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load i64, ptr %30, align 8, !tbaa !133
@@ -4160,7 +4158,7 @@ define noundef zeroext i1 @_ZN7rocksdb18WriteableCacheFile10ReadBufferERKNS_19Lo
   br i1 %24, label %25, label %.critedge
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %.02632
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.02632
   %27 = load ptr, ptr %26, align 8, !tbaa !123
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i64, ptr %28, align 8, !tbaa !133
@@ -4407,7 +4405,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i: ; preds = %
 _ZNSt6vectorISt6threadSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i, %63
   store ptr %56, ptr %20, align 8, !tbaa !294
   store ptr %62, ptr %21, align 8, !tbaa !292
-  %64 = getelementptr inbounds nuw %"class.std::thread", ptr %56, i64 %54
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %54
   store ptr %64, ptr %22, align 8, !tbaa !293
   %.sroa.0.0.copyload.i.i.pr = load i64, ptr %5, align 8, !tbaa !99
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i.pr, 0
@@ -5612,7 +5610,7 @@ _ZN7rocksdb8ReadLockD2Ev.exit:                    ; preds = %18
   br i1 %43, label %44, label %_ZN7rocksdb18WriteableCacheFile10ReadBufferERKNS_19LogicalBlockAddressEPc.exit.i
 
 44:                                               ; preds = %.lr.ph.i.i
-  %45 = getelementptr inbounds nuw ptr, ptr %38, i64 %.02632.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.02632.i.i
   %46 = load ptr, ptr %45, align 8, !tbaa !123
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load i64, ptr %47, align 8, !tbaa !133
@@ -6565,7 +6563,7 @@ _ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_
 _ZNSt12_Vector_baseISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN7rocksdb13EventListenerEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !151
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !154
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.102", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !161
   ret void
 }

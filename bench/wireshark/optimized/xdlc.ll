@@ -139,7 +139,7 @@ switch.lookup:                                    ; preds = %22, %20
   %26 = lshr i32 %25, 2
   %27 = and i32 %26, 3
   %28 = zext nneg i32 %27 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_xdlc_control, i64 %28
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_xdlc_control, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   %29 = select i1 %10, ptr @.str.34, ptr @.str.35
   br i1 %11, label %30, label %35

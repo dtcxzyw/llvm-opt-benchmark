@@ -158,7 +158,7 @@ define dso_local void @_Z13makeMultiViewRKSt6vectorINSt7__cxx1112basic_stringIcS
   %.034175 = phi i64 [ 0, %.lr.ph ], [ %195, %_ZN7Imf_3_49InputFileD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %40 = load ptr, ptr %1, align 8, !tbaa !29
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.034175
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.034175
   %42 = load ptr, ptr %41, align 8, !tbaa !33
   %43 = invoke noundef i32 @_ZN7Imf_3_417globalThreadCountEv()
           to label %44 unwind label %89
@@ -176,7 +176,7 @@ define dso_local void @_Z13makeMultiViewRKSt6vectorINSt7__cxx1112basic_stringIcS
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %46
   %48 = load ptr, ptr %1, align 8, !tbaa !29
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %.034175
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.034175
   %50 = load ptr, ptr %49, align 8, !tbaa !33
   %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %51, label %59
@@ -203,7 +203,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit66: ; preds = %51, %
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit68: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit66
   %63 = load ptr, ptr %0, align 8, !tbaa !28
-  %64 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %63, i64 %.034175
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %63, i64 %.034175
   %65 = load ptr, ptr %64, align 8, !tbaa !46
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = load i64, ptr %66, align 8, !tbaa !49
@@ -304,7 +304,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc125, %45
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit74: ; preds = %97
   %100 = load ptr, ptr %1, align 8, !tbaa !29
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %.034175
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.034175
   %102 = load ptr, ptr %101, align 8, !tbaa !33
   %103 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef %102)
           to label %104 unwind label %110
@@ -648,7 +648,7 @@ _ZN7Imf_3_411ChannelListD2Ev.exit:                ; preds = %_ZN7Imf_3_411Channe
   %.033176 = phi i64 [ 0, %.lr.ph177 ], [ %458, %_ZN7Imf_3_49InputFileD2Ev.exit111 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %259 = load ptr, ptr %1, align 8, !tbaa !29
-  %260 = getelementptr inbounds nuw ptr, ptr %259, i64 %.033176
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %.033176
   %261 = load ptr, ptr %260, align 8, !tbaa !33
   %262 = invoke noundef i32 @_ZN7Imf_3_417globalThreadCountEv()
           to label %263 unwind label %308
@@ -666,7 +666,7 @@ _ZN7Imf_3_411ChannelListD2Ev.exit:                ; preds = %_ZN7Imf_3_411Channe
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit79: ; preds = %265
   %267 = load ptr, ptr %1, align 8, !tbaa !29
-  %268 = getelementptr inbounds nuw ptr, ptr %267, i64 %.033176
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %267, i64 %.033176
   %269 = load ptr, ptr %268, align 8, !tbaa !33
   %.not.i80 = icmp eq ptr %269, null
   br i1 %.not.i80, label %270, label %278
@@ -693,7 +693,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83: ; preds = %270, 
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit85: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit83
   %282 = load ptr, ptr %0, align 8, !tbaa !28
-  %283 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %282, i64 %.033176
+  %283 = getelementptr inbounds nuw [32 x i8], ptr %282, i64 %.033176
   %284 = load ptr, ptr %283, align 8, !tbaa !46
   %285 = getelementptr inbounds nuw i8, ptr %283, i64 8
   %286 = load i64, ptr %285, align 8, !tbaa !49

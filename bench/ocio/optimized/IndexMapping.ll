@@ -3,7 +3,6 @@ source_filename = "bench/ocio/original/IndexMapping.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.std::pair" = type { float, float }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -15,10 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::pair<float, float>, std::allocator<std::pair<float, float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<float, float>, std::allocator<std::pair<float, float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<float, float>, std::allocator<std::pair<float, float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<float, float>, std::allocator<std::pair<float, float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm = comdat any
 
@@ -231,9 +226,9 @@ _ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %
 
 _ZNSt12_Vector_baseISt4pairIffESaIS1_EE13_M_deallocateEPS1_m.exit36.i: ; preds = %34, %_ZNSt6vectorISt4pairIffESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
   store ptr %28, ptr %0, align 8, !tbaa !10
-  %36 = getelementptr inbounds nuw %"struct.std::pair", ptr %29, i64 %12
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %12
   store ptr %36, ptr %3, align 8, !tbaa !15
-  %37 = getelementptr inbounds nuw %"struct.std::pair", ptr %28, i64 %26
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   store ptr %37, ptr %13, align 8, !tbaa !14
   br label %_ZNSt6vectorISt4pairIffESaIS1_EE17_M_default_appendEm.exit
 
@@ -242,7 +237,7 @@ _ZNSt12_Vector_baseISt4pairIffESaIS1_EE13_M_deallocateEPS1_m.exit36.i: ; preds =
   br i1 %39, label %40, label %_ZNSt6vectorISt4pairIffESaIS1_EE17_M_default_appendEm.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw %"struct.std::pair", ptr %5, i64 %1
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %41
   br i1 %.not.i4, label %_ZNSt6vectorISt4pairIffESaIS1_EE17_M_default_appendEm.exit, label %42
 
@@ -405,7 +400,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev12IndexMapping7getPairEmRfS1_(ptr n
   tail call void @_ZNK19OpenColorIO_v2_5dev12IndexMapping13validateIndexEm(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !10
-  %7 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %1
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %1
   %8 = load float, ptr %7, align 4, !tbaa !30
   store float %8, ptr %2, align 4, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -419,7 +414,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12IndexMapping7setPairEmff(ptr nound
   tail call void @_ZNK19OpenColorIO_v2_5dev12IndexMapping13validateIndexEm(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !10
-  %7 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %1
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %1
   store float %2, ptr %7, align 4, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float %3, ptr %8, align 4, !tbaa !32
@@ -452,7 +447,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev12IndexMapping8validateEv(ptr nound
   %.010 = phi i32 [ 1, %.lr.ph ], [ %7, %6 ]
   tail call void @_ZNK19OpenColorIO_v2_5dev12IndexMapping13validateIndexEm(ptr noundef nonnull readonly align 8 dereferenceable(88) %0, i64 noundef %12)
   %13 = load ptr, ptr %5, align 8, !tbaa !10
-  %14 = getelementptr inbounds nuw %"struct.std::pair", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %15 = load float, ptr %14, align 4, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %17 = load float, ptr %16, align 4, !tbaa !32
@@ -460,7 +455,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev12IndexMapping8validateEv(ptr nound
   %19 = zext i32 %18 to i64
   tail call void @_ZNK19OpenColorIO_v2_5dev12IndexMapping13validateIndexEm(ptr noundef nonnull readonly align 8 dereferenceable(88) %0, i64 noundef %19)
   %20 = load ptr, ptr %5, align 8, !tbaa !10
-  %21 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %22 = load float, ptr %21, align 4, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load float, ptr %23, align 4, !tbaa !32
@@ -505,8 +500,8 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12IndexMappingeqERKS0
 
 11:                                               ; preds = %.preheader, %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZStneISt4pairIffESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit ]
-  %12 = getelementptr inbounds nuw %"class.std::vector", ptr %9, i64 %indvars.iv
-  %13 = getelementptr inbounds nuw %"class.std::vector", ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !15
   %16 = load ptr, ptr %12, align 8, !tbaa !10

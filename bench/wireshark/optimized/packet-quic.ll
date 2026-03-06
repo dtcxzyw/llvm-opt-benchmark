@@ -2950,7 +2950,7 @@ quic_create_decoders.exit.i:                      ; preds = %671, %662, %quic_ar
   store i32 0, ptr %12, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr null, ptr %13, align 8
-  %706 = getelementptr i16, ptr @quic_create_0rtt_decoder.tls13_ciphers, i64 %indvars.iv.i
+  %706 = getelementptr [2 x i8], ptr @quic_create_0rtt_decoder.tls13_ciphers, i64 %indvars.iv.i
   %707 = load i16, ptr %706, align 2
   %708 = call zeroext i1 @tls_get_cipher_info(ptr noundef null, i16 noundef zeroext %707, ptr noundef nonnull %26, ptr noundef nonnull %11, ptr noundef nonnull %12)
   br i1 %708, label %709, label %.critedge.i.i
@@ -3830,7 +3830,7 @@ proto_item_set_generated.exit160.i:               ; preds = %1150, %1147, %1141
 1193:                                             ; preds = %1176, %1170
   %1194 = getelementptr inbounds nuw i8, ptr %1171, i64 8
   %1195 = zext i1 %.0134.i to i64
-  %1196 = getelementptr %struct.quic_pp_cipher, ptr %1194, i64 %1195
+  %1196 = getelementptr [24 x i8], ptr %1194, i64 %1195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef readonly align 8 dereferenceable(24) %1196, i64 24, i1 false)
   br label %quic_get_pp_cipher.exit.i
 
@@ -3886,7 +3886,7 @@ quic_get_pp_cipher.exit.i:                        ; preds = %1193, %1180, %1166
 1225:                                             ; preds = %1221
   %1226 = getelementptr inbounds nuw i8, ptr %1216, i64 8
   %1227 = zext i1 %.0134.i to i64
-  %1228 = getelementptr %struct.quic_pp_cipher, ptr %1226, i64 %1227
+  %1228 = getelementptr [24 x i8], ptr %1226, i64 %1227
   %1229 = load ptr, ptr %1228, align 8
   call void @gcry_cipher_close(ptr noundef %1229)
   call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(24) %1228, i8 noundef 0, i64 noundef 24, i1 noundef false) #19
@@ -4206,7 +4206,7 @@ copy_address.exit56:                              ; preds = %copy_address.exit56
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %103 = load i8, ptr %12, align 8, !range !6, !noundef !7
   %104 = zext nneg i8 %103 to i64
-  %105 = getelementptr i32, ptr %102, i64 %104
+  %105 = getelementptr [4 x i8], ptr %102, i64 %104
   %106 = load i32, ptr %105, align 4
   %107 = add i32 %106, %101
   store i32 %107, ptr %105, align 4
@@ -7969,7 +7969,7 @@ quic_get_long_packet_type.exit:                   ; preds = %6
 
 switch.lookup:                                    ; preds = %6
   %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.quic_max_packet_number, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.quic_max_packet_number, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %quic_get_long_packet_type.exit.thread38
 
@@ -8038,12 +8038,12 @@ quic_get_long_packet_type.exit.thread38:          ; preds = %4, %switch.lookup, 
 
 49:                                               ; preds = %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %51 = getelementptr i64, ptr %50, i64 %.029
+  %51 = getelementptr [8 x i8], ptr %50, i64 %.029
   br label %55
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %54 = getelementptr i64, ptr %53, i64 %.029
+  %54 = getelementptr [8 x i8], ptr %53, i64 %.029
   br label %55
 
 55:                                               ; preds = %36, %40, %52, %49

@@ -3,7 +3,6 @@ source_filename = "bench/postgres/original/parse_node.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
 %struct.ParseCallbackState = type { ptr, i32, %struct.ErrorContextCallback }
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
 %struct.ErrorSaveContext = type { i32, i8, i8, ptr }
@@ -271,7 +270,7 @@ transformContainerType.exit:                      ; preds = %.sink.split.i, %9, 
 
 25:                                               ; preds = %25, %.lr.ph46
   %indvars.iv = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw %union.ListCell, ptr %17, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i8, ptr %28, align 4, !range !4, !noundef !5

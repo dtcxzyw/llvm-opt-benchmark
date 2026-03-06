@@ -190,19 +190,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.180" = type { %"struct.std::_Head_base.181" }
 %"struct.std::_Head_base.181" = type { i32 }
 %"struct.std::_Head_base.182" = type { i32 }
-%"union.absl::container_internal::map_slot_type" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { ptr, %"class.std::unique_ptr.160" }
-%"class.std::unique_ptr.160" = type { %"struct.std::__uniq_ptr_data.161" }
-%"struct.std::__uniq_ptr_data.161" = type { %"class.std::__uniq_ptr_impl.162" }
-%"class.std::__uniq_ptr_impl.162" = type { %"class.std::tuple.163" }
-%"class.std::tuple.163" = type { %"struct.std::_Tuple_impl.164" }
-%"struct.std::_Tuple_impl.164" = type { %"struct.std::_Head_base.167" }
-%"struct.std::_Head_base.167" = type { ptr }
 %"class.absl::container_internal::HashSetResizeHelper" = type <{ %"union.absl::container_internal::HeapOrSoo", i64, i8, i8, i8, i8, i8, [3 x i8] }>
 %"class.testing::internal::DummyMatchResultListener" = type { %"class.testing::MatchResultListener" }
 %"class.testing::MatchResultListener" = type { ptr, ptr }
-%"class.std::shared_ptr.225" = type { %"class.std::__shared_ptr.226" }
-%"class.std::__shared_ptr.226" = type { ptr, %"class.std::__shared_count" }
 %"class.testing::StringMatchResultListener" = type { %"class.testing::MatchResultListener", %"class.std::__cxx11::basic_stringstream" }
 %"class.testing::ExpectationSet" = type { %"class.std::set" }
 %"class.std::set" = type { %"class.std::_Rb_tree" }
@@ -214,6 +204,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.testing::internal::UntypedFunctionMockerBase::FailureCleanupHandler" = type <{ ptr, ptr, ptr, ptr, i8, i8, [6 x i8] }>
 %"class.absl::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
+%"class.std::shared_ptr.225" = type { %"class.std::__shared_ptr.226" }
+%"class.std::__shared_ptr.226" = type { ptr, %"class.std::__shared_count" }
 %"class.testing::Expectation" = type { %"class.std::shared_ptr.225" }
 %"class.testing::Cardinality" = type { %"class.std::shared_ptr" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
@@ -15438,9 +15430,9 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImEC
   %.022.i.i = phi i64 [ 60, %2 ], [ %26, %9 ]
   %10 = add nsw i64 %.022.i.i, -4
   %11 = lshr exact i64 %10, 1
-  %12 = getelementptr i32, ptr %3, i64 %.022.i.i
+  %12 = getelementptr [4 x i8], ptr %3, i64 %.022.i.i
   %13 = getelementptr i8, ptr %12, i64 -20
-  %14 = getelementptr i32, ptr %3, i64 %11
+  %14 = getelementptr [4 x i8], ptr %3, i64 %11
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load i32, ptr %13, align 4, !tbaa !31
   %17 = load i32, ptr %15, align 4, !tbaa !31
@@ -15459,7 +15451,7 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImEC
   store i32 %25, ptr %22, align 4, !tbaa !31
   store i32 %24, ptr %23, align 4, !tbaa !31
   %26 = add nsw i64 %.022.i.i, -8
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %26
   %28 = getelementptr i8, ptr %14, i64 -16
   %29 = load i32, ptr %27, align 16, !tbaa !31
   %30 = load i32, ptr %28, align 8, !tbaa !31
@@ -16478,7 +16470,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
   %43 = zext nneg i16 %42 to i64
   %44 = add i64 %.sroa.6.0.i.i.i, %43
   %45 = and i64 %44, %10
-  %46 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !102
   %48 = icmp eq ptr %47, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
   br i1 %48, label %.thread29.i.i.i, label %50, !prof !387
@@ -16566,7 +16558,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit.i
   %84 = load i64, ptr %73, align 8, !tbaa !362
   %85 = add i64 %84, 1
   store i64 %85, ptr %73, align 8, !tbaa !362
-  %86 = getelementptr inbounds nuw i64, ptr %72, i64 %84
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %84
   %87 = load i64, ptr %86, align 8, !tbaa !10
   %88 = add i32 %68, 1
   %89 = and i32 %88, %68
@@ -16659,7 +16651,7 @@ _ZN4absl15random_internal15FastUniformBitsIjE8GenerateINS_13MockingBitGenEEEjRT_
   %18 = load i64, ptr %7, align 8, !tbaa !362
   %19 = add i64 %18, 1
   store i64 %19, ptr %7, align 8, !tbaa !362
-  %20 = getelementptr inbounds nuw i64, ptr %6, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %21 = load i64, ptr %20, align 8, !tbaa !10
   %22 = trunc i64 %21 to i32
   ret i32 %22
@@ -16817,7 +16809,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %25 = tail call noundef i64 @_ZN4absl18container_internal21PrepareInsertAfterSooEmmRNS0_12CommonFieldsE(i64 noundef %24, i64 noundef 16, ptr noundef nonnull align 8 dereferenceable(32) %0), !noalias !401
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load ptr, ptr %26, align 8, !tbaa !14, !noalias !401
-  %27 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %25
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %25
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE22find_or_prepare_insertIS4_EESG_INSK_8iteratorEbERKT_.exit.i.i.thread
 
 28:                                               ; preds = %2
@@ -16861,7 +16853,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %54 = zext nneg i16 %53 to i64
   %55 = add i64 %.sroa.7.0.i, %54
   %56 = and i64 %55, %3
-  %57 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !102, !noalias !404
   %59 = icmp eq ptr %58, %31
   br i1 %59, label %_ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE11try_emplaceIS4_JETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS0_12raw_hash_setISB_SE_SF_SJ_E14const_iteratorEEE5valueEiE4typeELi0EEESG_INSP_8iteratorEbERKSN_DpOT0_.exit, label %.critedge.i, !prof !387
@@ -16885,7 +16877,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique
   %67 = and i64 %66, %3
   %68 = tail call noundef i64 @_ZN4absl18container_internal19PrepareInsertNonSooERNS0_12CommonFieldsEmNS0_8FindInfoERKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %38, i64 %67, i64 %.sroa.14.0.i, ptr noundef nonnull align 8 dereferenceable(56) @_ZZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE18GetPolicyFunctionsEvE5value), !noalias !404
   %.sroa.0.0.copyload.i.i.i.i22.i = load ptr, ptr %47, align 8, !tbaa !14, !noalias !404
-  %69 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %68
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE22find_or_prepare_insertIS4_EESG_INSK_8iteratorEbERKT_.exit.i.i.thread
 
 70:                                               ; preds = %.critedge19.i
@@ -16985,7 +16977,7 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal12raw_hash_setIN
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %.lr.ph.i
-  %46 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i13.i, i64 %.016.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i13.i, i64 %.016.i
   %47 = load ptr, ptr %46, align 8, !tbaa !408
   store ptr %47, ptr %.01217.i, align 8, !tbaa !408
   %48 = getelementptr inbounds nuw i8, ptr %.pn15.i, i64 24
@@ -17019,7 +17011,7 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal12raw_hash_setIN
   br i1 %61, label %62, label %107
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i13.i, i64 %.048
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i13.i, i64 %.048
   %64 = load ptr, ptr %63, align 8, !tbaa !102
   %65 = ptrtoint ptr %64 to i64
   %66 = xor i64 %65, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -17079,7 +17071,7 @@ define linkonce_odr dso_local void @_ZN4absl18container_internal12raw_hash_setIN
   %101 = getelementptr i8, ptr %72, i64 %100
   %102 = getelementptr i8, ptr %101, i64 %56
   store i8 %97, ptr %102, align 1, !tbaa !424
-  %103 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
   store ptr %64, ptr %103, align 8, !tbaa !408
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -18528,7 +18520,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFiiiEE
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us
   %.021.us = phi i64 [ %42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %4, align 8, !tbaa !507
-  %22 = getelementptr inbounds nuw %"class.std::shared_ptr.225", ptr %21, i64 %.021.us
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.021.us
   %23 = load ptr, ptr %22, align 8, !tbaa !452
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.108, i64 noundef 1)
   tail call void @_ZNK7testing8internal15ExpectationBase18DescribeLocationToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
@@ -20184,7 +20176,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %117
 133:                                              ; preds = %132
   %134 = load ptr, ptr %24, align 8, !tbaa !439
   %135 = sext i32 %8 to i64
-  %136 = getelementptr ptr, ptr %134, i64 %135
+  %136 = getelementptr [8 x i8], ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8, !tbaa !102
   br label %141
@@ -23232,7 +23224,7 @@ _ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_S_re
 _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN7testing8internal15ExpectationBaseEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !507
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !505
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.225", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !660
   ret void
 }
@@ -23497,7 +23489,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %58
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %55, ptr %26, align 8, !tbaa !439
   store ptr %59, ptr %35, align 8, !tbaa !441
-  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -25712,7 +25704,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
   %42 = zext nneg i16 %41 to i64
   %43 = add i64 %.sroa.6.0.i.i.i, %42
   %44 = and i64 %43, %9
-  %45 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !102
   %47 = icmp eq ptr %46, @_ZN4absl13base_internal11FastTypeTagIFdNS_15random_internal26UniformDistributionWrapperIdEESt5tupleIJddEEEE9dummy_varE
   br i1 %47, label %.thread29.i.i.i, label %49, !prof !387
@@ -25800,7 +25792,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i
   %80 = load i64, ptr %69, align 8, !tbaa !362
   %81 = add i64 %80, 1
   store i64 %81, ptr %69, align 8, !tbaa !362
-  %82 = getelementptr inbounds nuw i64, ptr %68, i64 %80
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %80
   %83 = load i64, ptr %82, align 8, !tbaa !10
   %84 = icmp eq i64 %83, 0
   br i1 %84, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us, label %85
@@ -25845,7 +25837,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i
   %102 = load i64, ptr %69, align 8, !tbaa !362
   %103 = add i64 %102, 1
   store i64 %103, ptr %69, align 8, !tbaa !362
-  %104 = getelementptr inbounds nuw i64, ptr %68, i64 %102
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %102
   %105 = load i64, ptr %104, align 8, !tbaa !10
   %106 = icmp eq i64 %105, 0
   br i1 %106, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, label %107
@@ -25906,7 +25898,7 @@ _ZN4absl15random_internal15FastUniformBitsImE8GenerateINS_13MockingBitGenEEEmRT_
   %18 = load i64, ptr %7, align 8, !tbaa !362
   %19 = add i64 %18, 1
   store i64 %19, ptr %7, align 8, !tbaa !362
-  %20 = getelementptr inbounds nuw i64, ptr %6, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %21 = load i64, ptr %20, align 8, !tbaa !10
   ret i64 %21
 }
@@ -27075,7 +27067,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFdddEE
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us
   %.021.us = phi i64 [ %42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %4, align 8, !tbaa !507
-  %22 = getelementptr inbounds nuw %"class.std::shared_ptr.225", ptr %21, i64 %.021.us
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.021.us
   %23 = load ptr, ptr %22, align 8, !tbaa !452
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.108, i64 noundef 1)
   tail call void @_ZNK7testing8internal15ExpectationBase18DescribeLocationToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
@@ -28528,7 +28520,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %117
 133:                                              ; preds = %132
   %134 = load ptr, ptr %24, align 8, !tbaa !439
   %135 = sext i32 %8 to i64
-  %136 = getelementptr ptr, ptr %134, i64 %135
+  %136 = getelementptr [8 x i8], ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8, !tbaa !102
   br label %141
@@ -30874,7 +30866,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %58
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %55, ptr %26, align 8, !tbaa !439
   store ptr %59, ptr %35, align 8, !tbaa !441
-  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -32788,7 +32780,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
   %39 = zext nneg i16 %38 to i64
   %40 = add i64 %.sroa.6.0.i.i.i, %39
   %41 = and i64 %40, %6
-  %42 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !102
   %44 = icmp eq ptr %43, @_ZN4absl13base_internal11FastTypeTagIFdNS_24exponential_distributionIdEESt5tupleIJdEEEE9dummy_varE
   br i1 %44, label %.thread29.i.i.i, label %46, !prof !387
@@ -32871,7 +32863,7 @@ _ZN4absl24exponential_distributionIdEclINS_13MockingBitGenEEEdRT_.exit: ; preds 
   %77 = load i64, ptr %66, align 8, !tbaa !362
   %78 = add i64 %77, 1
   store i64 %78, ptr %66, align 8, !tbaa !362
-  %79 = getelementptr inbounds nuw i64, ptr %65, i64 %77
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %77
   %80 = load i64, ptr %79, align 8, !tbaa !10
   %81 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %80, i1 false)
   %82 = and i64 %81, 63
@@ -33874,7 +33866,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFddEE2
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us
   %.021.us = phi i64 [ %42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %4, align 8, !tbaa !507
-  %22 = getelementptr inbounds nuw %"class.std::shared_ptr.225", ptr %21, i64 %.021.us
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.021.us
   %23 = load ptr, ptr %22, align 8, !tbaa !452
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.108, i64 noundef 1)
   tail call void @_ZNK7testing8internal15ExpectationBase18DescribeLocationToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
@@ -34994,7 +34986,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %117
 133:                                              ; preds = %132
   %134 = load ptr, ptr %24, align 8, !tbaa !439
   %135 = sext i32 %8 to i64
-  %136 = getelementptr ptr, ptr %134, i64 %135
+  %136 = getelementptr [8 x i8], ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8, !tbaa !102
   br label %141
@@ -36868,7 +36860,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %58
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %55, ptr %26, align 8, !tbaa !439
   store ptr %59, ptr %35, align 8, !tbaa !441
-  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -38133,7 +38125,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
   %40 = zext nneg i16 %39 to i64
   %41 = add i64 %.sroa.6.0.i.i.i, %40
   %42 = and i64 %41, %7
-  %43 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !102
   %45 = icmp eq ptr %44, @_ZN4absl13base_internal11FastTypeTagIFiNS_20poisson_distributionIiEESt5tupleIJdEEEE9dummy_varE
   br i1 %45, label %.thread29.i.i.i, label %47, !prof !387
@@ -38329,7 +38321,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit: 
   %24 = load i64, ptr %11, align 8, !tbaa !362
   %25 = add i64 %24, 1
   store i64 %25, ptr %11, align 8, !tbaa !362
-  %26 = getelementptr inbounds nuw i64, ptr %10, i64 %24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %24
   %27 = load i64, ptr %26, align 8, !tbaa !10
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit, label %29
@@ -38398,7 +38390,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit41
   %66 = load i64, ptr %51, align 8, !tbaa !362
   %67 = add i64 %66, 1
   store i64 %67, ptr %51, align 8, !tbaa !362
-  %68 = getelementptr inbounds nuw i64, ptr %50, i64 %66
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %66
   %69 = load i64, ptr %68, align 8, !tbaa !10
   %70 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %69, i1 false)
   %71 = and i64 %70, 63
@@ -38431,7 +38423,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit42
   %85 = load i64, ptr %51, align 8, !tbaa !362
   %86 = add i64 %85, 1
   store i64 %86, ptr %51, align 8, !tbaa !362
-  %87 = getelementptr inbounds nuw i64, ptr %50, i64 %85
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %85
   %88 = load i64, ptr %87, align 8, !tbaa !10
   %89 = and i64 %88, -9223372036854775808
   %90 = and i64 %88, 9223372036854775807
@@ -39332,7 +39324,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFidEE2
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us
   %.021.us = phi i64 [ %42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %4, align 8, !tbaa !507
-  %22 = getelementptr inbounds nuw %"class.std::shared_ptr.225", ptr %21, i64 %.021.us
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.021.us
   %23 = load ptr, ptr %22, align 8, !tbaa !452
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.108, i64 noundef 1)
   tail call void @_ZNK7testing8internal15ExpectationBase18DescribeLocationToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
@@ -40122,7 +40114,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %117
 133:                                              ; preds = %132
   %134 = load ptr, ptr %24, align 8, !tbaa !439
   %135 = sext i32 %8 to i64
-  %136 = getelementptr ptr, ptr %134, i64 %135
+  %136 = getelementptr [8 x i8], ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8, !tbaa !102
   br label %141
@@ -41919,7 +41911,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %58
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %55, ptr %26, align 8, !tbaa !439
   store ptr %59, ptr %35, align 8, !tbaa !441
-  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -43720,7 +43712,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl15random_internal18Dis
   %39 = zext nneg i16 %38 to i64
   %40 = add i64 %.sroa.6.0.i.i.i, %39
   %41 = and i64 %40, %6
-  %42 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !102
   %44 = icmp eq ptr %43, @_ZN4absl13base_internal11FastTypeTagIFbNS_22bernoulli_distributionESt5tupleIJdEEEE9dummy_varE
   br i1 %44, label %.thread29.i.i.i, label %46, !prof !387
@@ -43810,7 +43802,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit.i
   %80 = load i64, ptr %66, align 8, !tbaa !362
   %81 = add i64 %80, 1
   store i64 %81, ptr %66, align 8, !tbaa !362
-  %82 = getelementptr inbounds nuw i64, ptr %65, i64 %80
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %80
   %83 = load i64, ptr %82, align 8, !tbaa !10
   %84 = and i64 %83, 4294967295
   %.not.i.i = icmp eq i64 %84, %72
@@ -44663,7 +44655,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFbdEE2
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us
   %.021.us = phi i64 [ %42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %4, align 8, !tbaa !507
-  %22 = getelementptr inbounds nuw %"class.std::shared_ptr.225", ptr %21, i64 %.021.us
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.021.us
   %23 = load ptr, ptr %22, align 8, !tbaa !452
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.108, i64 noundef 1)
   tail call void @_ZNK7testing8internal15ExpectationBase18DescribeLocationToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
@@ -45453,7 +45445,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %117
 133:                                              ; preds = %132
   %134 = load ptr, ptr %24, align 8, !tbaa !439
   %135 = sext i32 %8 to i64
-  %136 = getelementptr ptr, ptr %134, i64 %135
+  %136 = getelementptr [8 x i8], ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8, !tbaa !102
   br label %141
@@ -47254,7 +47246,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %58
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %55, ptr %26, align 8, !tbaa !439
   store ptr %59, ptr %35, align 8, !tbaa !441
-  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -48525,7 +48517,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
   %46 = zext nneg i16 %45 to i64
   %47 = add i64 %.sroa.6.0.i.i.i, %46
   %48 = and i64 %47, %13
-  %49 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !102
   %51 = icmp eq ptr %50, @_ZN4absl13base_internal11FastTypeTagIFiNS_17zipf_distributionIiEESt5tupleIJiddEEEE9dummy_varE
   br i1 %51, label %.thread29.i.i.i, label %53, !prof !387
@@ -48788,7 +48780,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i
   %26 = load i64, ptr %8, align 8, !tbaa !362
   %27 = add i64 %26, 1
   store i64 %27, ptr %8, align 8, !tbaa !362
-  %28 = getelementptr inbounds nuw i64, ptr %7, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %26
   %29 = load i64, ptr %28, align 8, !tbaa !10
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
@@ -50187,7 +50179,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFiiddE
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us
   %.021.us = phi i64 [ %42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %4, align 8, !tbaa !507
-  %22 = getelementptr inbounds nuw %"class.std::shared_ptr.225", ptr %21, i64 %.021.us
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.021.us
   %23 = load ptr, ptr %22, align 8, !tbaa !452
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.108, i64 noundef 1)
   tail call void @_ZNK7testing8internal15ExpectationBase18DescribeLocationToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
@@ -51939,7 +51931,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %117
 133:                                              ; preds = %132
   %134 = load ptr, ptr %24, align 8, !tbaa !439
   %135 = sext i32 %8 to i64
-  %136 = getelementptr ptr, ptr %134, i64 %135
+  %136 = getelementptr [8 x i8], ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8, !tbaa !102
   br label %141
@@ -54041,7 +54033,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %58
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %55, ptr %26, align 8, !tbaa !439
   store ptr %59, ptr %35, align 8, !tbaa !441
-  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -55097,7 +55089,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
   %43 = zext nneg i16 %42 to i64
   %44 = add i64 %.sroa.6.0.i.i.i, %43
   %45 = and i64 %44, %10
-  %46 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !102
   %48 = icmp eq ptr %47, @_ZN4absl13base_internal11FastTypeTagIFdNS_21gaussian_distributionIdEESt5tupleIJddEEEE9dummy_varE
   br i1 %48, label %.thread29.i.i.i, label %50, !prof !387
@@ -55202,7 +55194,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit: 
   %19 = load i64, ptr %7, align 8, !tbaa !362
   %20 = add i64 %19, 1
   store i64 %20, ptr %7, align 8, !tbaa !362
-  %21 = getelementptr inbounds nuw i64, ptr %6, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %19
   %22 = load i64, ptr %21, align 8, !tbaa !10
   %23 = trunc i64 %22 to i32
   %24 = and i32 %23, 127
@@ -55219,13 +55211,13 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit: 
   %35 = xor i64 %34, 4607182418800017408
   %36 = bitcast i64 %35 to double
   %37 = and i64 %22, 127
-  %38 = getelementptr inbounds nuw double, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %37
   %39 = load double, ptr %38, align 8, !tbaa !65
   %40 = fmul double %39, %36
   %41 = tail call noundef double @llvm.fabs.f64(double %40)
   %42 = add nuw nsw i32 %24, 1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw double, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 %43
   %45 = load double, ptr %44, align 8, !tbaa !65
   %46 = fcmp olt double %41, %45
   br i1 %46, label %select.unfold, label %47
@@ -55262,7 +55254,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit23
   %60 = load i64, ptr %7, align 8, !tbaa !362
   %61 = add i64 %60, 1
   store i64 %61, ptr %7, align 8, !tbaa !362
-  %62 = getelementptr inbounds nuw i64, ptr %6, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %60
   %63 = load i64, ptr %62, align 8, !tbaa !10
   %64 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %63, i1 false)
   %65 = and i64 %64, 63
@@ -55273,9 +55265,9 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit23
   %reass.sub = sub nsw i64 %69, %68
   %70 = add nsw i64 %reass.sub, 4602678819172646912
   %71 = bitcast i64 %70 to double
-  %72 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %43
+  %72 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %43
   %73 = load double, ptr %72, align 8, !tbaa !65
-  %74 = getelementptr inbounds nuw double, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %37
+  %74 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15random_internal26gaussian_distribution_base3zg_E, i64 1032), i64 %37
   %75 = load double, ptr %74, align 8, !tbaa !65
   %76 = fsub double %75, %73
   %77 = tail call double @llvm.fmuladd.f64(double %71, double %76, double %73)
@@ -55326,7 +55318,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit: 
   %20 = load i64, ptr %8, align 8, !tbaa !362
   %21 = add i64 %20, 1
   store i64 %21, ptr %8, align 8, !tbaa !362
-  %22 = getelementptr inbounds nuw i64, ptr %7, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %20
   %23 = load i64, ptr %22, align 8, !tbaa !10
   %24 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %23, i1 false)
   %25 = and i64 %24, 63
@@ -55361,7 +55353,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit9:
   %41 = load i64, ptr %8, align 8, !tbaa !362
   %42 = add i64 %41, 1
   store i64 %42, ptr %8, align 8, !tbaa !362
-  %43 = getelementptr inbounds nuw i64, ptr %7, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %41
   %44 = load i64, ptr %43, align 8, !tbaa !10
   %45 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %44, i1 false)
   %46 = and i64 %45, 63
@@ -55495,7 +55487,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
   %46 = zext nneg i16 %45 to i64
   %47 = add i64 %.sroa.6.0.i.i.i, %46
   %48 = and i64 %47, %13
-  %49 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !102
   %51 = icmp eq ptr %50, @_ZN4absl13base_internal11FastTypeTagIFiNS_28log_uniform_int_distributionIiEESt5tupleIJiiiEEEE9dummy_varE
   br i1 %51, label %.thread29.i.i.i, label %53, !prof !387
@@ -55632,7 +55624,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit.i
   %23 = load i64, ptr %12, align 8, !tbaa !362
   %24 = add i64 %23, 1
   store i64 %24, ptr %12, align 8, !tbaa !362
-  %25 = getelementptr inbounds nuw i64, ptr %11, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %23
   %26 = load i64, ptr %25, align 8, !tbaa !10
   %27 = add i32 %7, 1
   %28 = and i32 %27, %7
@@ -55746,7 +55738,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit.i
   %86 = load i64, ptr %12, align 8, !tbaa !362
   %87 = add i64 %86, 1
   store i64 %87, ptr %12, align 8, !tbaa !362
-  %88 = getelementptr inbounds nuw i64, ptr %11, i64 %86
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %86
   %89 = load i64, ptr %88, align 8, !tbaa !10
   %90 = add i32 %75, 1
   %91 = and i32 %90, %75
@@ -57094,7 +57086,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFiiiiE
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us
   %.021.us = phi i64 [ %42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %4, align 8, !tbaa !507
-  %22 = getelementptr inbounds nuw %"class.std::shared_ptr.225", ptr %21, i64 %.021.us
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.021.us
   %23 = load ptr, ptr %22, align 8, !tbaa !452
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.108, i64 noundef 1)
   tail call void @_ZNK7testing8internal15ExpectationBase18DescribeLocationToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
@@ -58848,7 +58840,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %117
 133:                                              ; preds = %132
   %134 = load ptr, ptr %24, align 8, !tbaa !439
   %135 = sext i32 %8 to i64
-  %136 = getelementptr ptr, ptr %134, i64 %135
+  %136 = getelementptr [8 x i8], ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8, !tbaa !102
   br label %141
@@ -60952,7 +60944,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %58
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %55, ptr %26, align 8, !tbaa !439
   store ptr %59, ptr %35, align 8, !tbaa !441
-  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -71691,7 +71683,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %62
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %64, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %59, ptr %38, align 8, !tbaa !439
   store ptr %63, ptr %39, align 8, !tbaa !441
-  %65 = getelementptr inbounds nuw ptr, ptr %59, i64 %57
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %57
   store ptr %65, ptr %41, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -72235,7 +72227,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %62
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %64, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %59, ptr %38, align 8, !tbaa !439
   store ptr %63, ptr %39, align 8, !tbaa !441
-  %65 = getelementptr inbounds nuw ptr, ptr %59, i64 %57
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %57
   store ptr %65, ptr %41, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -72754,7 +72746,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %50
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %52, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %47, ptr %26, align 8, !tbaa !439
   store ptr %51, ptr %27, align 8, !tbaa !441
-  %53 = getelementptr inbounds nuw ptr, ptr %47, i64 %45
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %45
   store ptr %53, ptr %29, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -73274,7 +73266,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %50
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %52, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %47, ptr %26, align 8, !tbaa !439
   store ptr %51, ptr %27, align 8, !tbaa !441
-  %53 = getelementptr inbounds nuw ptr, ptr %47, i64 %45
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %45
   store ptr %53, ptr %29, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -73740,7 +73732,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %50
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %52, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %47, ptr %26, align 8, !tbaa !439
   store ptr %51, ptr %27, align 8, !tbaa !441
-  %53 = getelementptr inbounds nuw ptr, ptr %47, i64 %45
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %45
   store ptr %53, ptr %29, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -74310,7 +74302,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %74
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %76, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %71, ptr %50, align 8, !tbaa !439
   store ptr %75, ptr %51, align 8, !tbaa !441
-  %77 = getelementptr inbounds nuw ptr, ptr %71, i64 %69
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %69
   store ptr %77, ptr %53, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -74826,7 +74818,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %74
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %76, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %71, ptr %50, align 8, !tbaa !439
   store ptr %75, ptr %51, align 8, !tbaa !441
-  %77 = getelementptr inbounds nuw ptr, ptr %71, i64 %69
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %69
   store ptr %77, ptr %53, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -78595,7 +78587,7 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i: ; preds = %315, %311, %_ZN
   %357 = zext nneg i16 %356 to i64
   %358 = add i64 %.sroa.6.0.i.i.i.i, %357
   %359 = and i64 %358, %325
-  %360 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %359
+  %360 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %359
   %361 = load ptr, ptr %360, align 8, !tbaa !102
   %362 = icmp eq ptr %361, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
   br i1 %362, label %.thread29.i.i.i.i, label %364, !prof !387
@@ -78679,7 +78671,7 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i: ; preds = %_ZN4absl
   %395 = load i64, ptr %383, align 8, !tbaa !362
   %396 = add i64 %395, 1
   store i64 %396, ptr %383, align 8, !tbaa !362
-  %397 = getelementptr inbounds nuw i64, ptr %382, i64 %395
+  %397 = getelementptr inbounds nuw [8 x i8], ptr %382, i64 %395
   %398 = load i64, ptr %397, align 8, !tbaa !10
   %399 = and i64 %398, 4294967295
   %400 = mul nuw nsw i64 %399, 999999
@@ -79229,7 +79221,7 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i180: ; preds = %_ZNKSt14defa
   %586 = zext nneg i16 %585 to i64
   %587 = add i64 %.sroa.6.0.i.i.i.i482, %586
   %588 = and i64 %587, %554
-  %589 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i479, i64 %588
+  %589 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i479, i64 %588
   %590 = load ptr, ptr %589, align 8, !tbaa !102
   %591 = icmp eq ptr %590, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
   br i1 %591, label %.thread29.i.i.i.i496, label %593, !prof !387
@@ -79313,7 +79305,7 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i184: ; preds = %_ZN4a
   %624 = load i64, ptr %612, align 8, !tbaa !362
   %625 = add i64 %624, 1
   store i64 %625, ptr %612, align 8, !tbaa !362
-  %626 = getelementptr inbounds nuw i64, ptr %611, i64 %624
+  %626 = getelementptr inbounds nuw [8 x i8], ptr %611, i64 %624
   %627 = load i64, ptr %626, align 8, !tbaa !10
   %628 = and i64 %627, 4294967295
   %629 = mul nuw nsw i64 %628, 999999
@@ -79562,7 +79554,7 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i214: ; preds = %_ZNKSt14defa
   %719 = zext nneg i16 %718 to i64
   %720 = add i64 %.sroa.6.0.i.i.i.i508, %719
   %721 = and i64 %720, %687
-  %722 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i505, i64 %721
+  %722 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i505, i64 %721
   %723 = load ptr, ptr %722, align 8, !tbaa !102
   %724 = icmp eq ptr %723, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
   br i1 %724, label %.thread29.i.i.i.i522, label %726, !prof !387
@@ -79646,7 +79638,7 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i218: ; preds = %_ZN4a
   %757 = load i64, ptr %745, align 8, !tbaa !362
   %758 = add i64 %757, 1
   store i64 %758, ptr %745, align 8, !tbaa !362
-  %759 = getelementptr inbounds nuw i64, ptr %744, i64 %757
+  %759 = getelementptr inbounds nuw [8 x i8], ptr %744, i64 %757
   %760 = load i64, ptr %759, align 8, !tbaa !10
   %761 = and i64 %760, 4294967295
   %762 = mul nuw nsw i64 %761, 999999
@@ -79894,7 +79886,7 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i249: ; preds = %_ZNKSt14defa
   %851 = zext nneg i16 %850 to i64
   %852 = add i64 %.sroa.6.0.i.i.i.i534, %851
   %853 = and i64 %852, %819
-  %854 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i531, i64 %853
+  %854 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i531, i64 %853
   %855 = load ptr, ptr %854, align 8, !tbaa !102
   %856 = icmp eq ptr %855, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
   br i1 %856, label %.thread29.i.i.i.i548, label %858, !prof !387
@@ -79978,7 +79970,7 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i253: ; preds = %_ZN4a
   %889 = load i64, ptr %877, align 8, !tbaa !362
   %890 = add i64 %889, 1
   store i64 %890, ptr %877, align 8, !tbaa !362
-  %891 = getelementptr inbounds nuw i64, ptr %876, i64 %889
+  %891 = getelementptr inbounds nuw [8 x i8], ptr %876, i64 %889
   %892 = load i64, ptr %891, align 8, !tbaa !10
   %893 = and i64 %892, 4294967295
   %894 = mul nuw nsw i64 %893, 999999
@@ -80226,7 +80218,7 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.i.i.i.i285: ; preds = %_ZNKSt14defa
   %982 = zext nneg i16 %981 to i64
   %983 = add i64 %.sroa.6.0.i.i.i.i560, %982
   %984 = and i64 %983, %950
-  %985 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i557, i64 %984
+  %985 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i557, i64 %984
   %986 = load ptr, ptr %985, align 8, !tbaa !102
   %987 = icmp eq ptr %986, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
   br i1 %987, label %.thread29.i.i.i.i574, label %989, !prof !387
@@ -80310,7 +80302,7 @@ _ZN4absl9BitGenRef10InvokeMockEPKvPvS3_.exit.thread.i.i.i.i289: ; preds = %_ZN4a
   %1020 = load i64, ptr %1008, align 8, !tbaa !362
   %1021 = add i64 %1020, 1
   store i64 %1021, ptr %1008, align 8, !tbaa !362
-  %1022 = getelementptr inbounds nuw i64, ptr %1007, i64 %1020
+  %1022 = getelementptr inbounds nuw [8 x i8], ptr %1007, i64 %1020
   %1023 = load i64, ptr %1022, align 8, !tbaa !10
   %1024 = and i64 %1023, 4294967295
   %1025 = mul nuw nsw i64 %1024, 999999
@@ -81162,7 +81154,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl9BitGenRef8MockCallINS
   %41 = zext nneg i16 %40 to i64
   %42 = add i64 %.sroa.6.0.i.i.i, %41
   %43 = and i64 %42, %6
-  %44 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !102
   %46 = icmp eq ptr %45, %1
   br i1 %46, label %.thread29.i.i.i, label %48, !prof !387
@@ -81249,7 +81241,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit: 
   %18 = load i64, ptr %7, align 8, !tbaa !362
   %19 = add i64 %18, 1
   store i64 %19, ptr %7, align 8, !tbaa !362
-  %20 = getelementptr inbounds nuw i64, ptr %6, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %21 = load i64, ptr %20, align 8, !tbaa !10
   ret i64 %21
 }
@@ -83730,7 +83722,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFjvEE2
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us
   %.021.us = phi i64 [ %42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %4, align 8, !tbaa !507
-  %22 = getelementptr inbounds nuw %"class.std::shared_ptr.225", ptr %21, i64 %.021.us
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.021.us
   %23 = load ptr, ptr %22, align 8, !tbaa !452
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.108, i64 noundef 1)
   tail call void @_ZNK7testing8internal15ExpectationBase18DescribeLocationToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
@@ -84476,7 +84468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %117
 133:                                              ; preds = %132
   %134 = load ptr, ptr %24, align 8, !tbaa !439
   %135 = sext i32 %8 to i64
-  %136 = getelementptr ptr, ptr %134, i64 %135
+  %136 = getelementptr [8 x i8], ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8, !tbaa !102
   br label %141
@@ -86648,7 +86640,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
   %37 = zext nneg i16 %36 to i64
   %38 = add i64 %.sroa.6.0.i.i.i, %37
   %39 = and i64 %38, %4
-  %40 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !102
   %42 = icmp eq ptr %41, @_ZN4absl13base_internal11FastTypeTagIFjNS_15random_internal26UniformDistributionWrapperIjEESt5tupleIJEEEE9dummy_varE
   br i1 %42, label %.thread29.i.i.i, label %44, !prof !387
@@ -86730,7 +86722,7 @@ _ZN4absl24uniform_int_distributionIjEclINS_13MockingBitGenEEEjRT_.exit: ; preds 
   %74 = load i64, ptr %63, align 8, !tbaa !362
   %75 = add i64 %74, 1
   store i64 %75, ptr %63, align 8, !tbaa !362
-  %76 = getelementptr inbounds nuw i64, ptr %62, i64 %74
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %74
   %77 = load i64, ptr %76, align 8, !tbaa !10
   %.0.i.i.i = trunc i64 %77 to i32
   br label %78
@@ -86808,7 +86800,7 @@ define linkonce_odr dso_local noundef zeroext i16 @_ZN4absl15random_internal18Di
   %38 = zext nneg i16 %37 to i64
   %39 = add i64 %.sroa.6.0.i.i.i, %38
   %40 = and i64 %39, %5
-  %41 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !102
   %43 = icmp eq ptr %42, @_ZN4absl13base_internal11FastTypeTagIFtNS_15random_internal26UniformDistributionWrapperItEESt5tupleIJEEEE9dummy_varE
   br i1 %43, label %.thread29.i.i.i, label %45, !prof !387
@@ -86907,7 +86899,7 @@ _ZN4absl15random_internal15FastUniformBitsItEclINS_13MockingBitGenEEEtRT_.exit: 
   %20 = load i64, ptr %9, align 8, !tbaa !362
   %21 = add i64 %20, 1
   store i64 %21, ptr %9, align 8, !tbaa !362
-  %22 = getelementptr inbounds nuw i64, ptr %8, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %20
   %23 = load i64, ptr %22, align 8, !tbaa !10
   %24 = add i16 %2, 1
   %25 = zext i16 %24 to i32
@@ -86988,7 +86980,7 @@ _ZN4absl15random_internal15FastUniformBitsItE8GenerateINS_13MockingBitGenEEEtRT_
   %18 = load i64, ptr %7, align 8, !tbaa !362
   %19 = add i64 %18, 1
   store i64 %19, ptr %7, align 8, !tbaa !362
-  %20 = getelementptr inbounds nuw i64, ptr %6, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %21 = load i64, ptr %20, align 8, !tbaa !10
   %22 = trunc i64 %21 to i16
   ret i16 %22
@@ -91169,7 +91161,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFiN4ab
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us
   %.021.us = phi i64 [ %42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %4, align 8, !tbaa !507
-  %22 = getelementptr inbounds nuw %"class.std::shared_ptr.225", ptr %21, i64 %.021.us
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.021.us
   %23 = load ptr, ptr %22, align 8, !tbaa !452
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.108, i64 noundef 1)
   tail call void @_ZNK7testing8internal15ExpectationBase18DescribeLocationToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
@@ -92956,7 +92948,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %117
 133:                                              ; preds = %132
   %134 = load ptr, ptr %24, align 8, !tbaa !439
   %135 = sext i32 %8 to i64
-  %136 = getelementptr ptr, ptr %134, i64 %135
+  %136 = getelementptr [8 x i8], ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8, !tbaa !102
   br label %141
@@ -95369,7 +95361,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %58
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %55, ptr %26, align 8, !tbaa !439
   store ptr %59, ptr %35, align 8, !tbaa !441
-  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -96423,7 +96415,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
   %44 = zext nneg i16 %43 to i64
   %45 = add i64 %.sroa.6.0.i.i.i, %44
   %46 = and i64 %45, %11
-  %47 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %46
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !102
   %49 = icmp eq ptr %48, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJNS_23IntervalClosedClosedTagEiiEEEE9dummy_varE
   br i1 %49, label %.thread29.i.i.i, label %51, !prof !387
@@ -96508,7 +96500,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit.i
   %82 = load i64, ptr %71, align 8, !tbaa !362
   %83 = add i64 %82, 1
   store i64 %83, ptr %71, align 8, !tbaa !362
-  %84 = getelementptr inbounds nuw i64, ptr %70, i64 %82
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %82
   %85 = load i64, ptr %84, align 8, !tbaa !10
   %86 = add i32 %66, 1
   %87 = and i32 %86, %66
@@ -97345,7 +97337,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %58
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %55, ptr %26, align 8, !tbaa !439
   store ptr %59, ptr %35, align 8, !tbaa !441
-  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -100807,7 +100799,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %74
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %76, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %71, ptr %50, align 8, !tbaa !439
   store ptr %75, ptr %51, align 8, !tbaa !441
-  %77 = getelementptr inbounds nuw ptr, ptr %71, i64 %69
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %69
   store ptr %77, ptr %53, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -108220,7 +108212,7 @@ _ZN7testing6ActionIFmmmEED2Ev.exit35:             ; preds = %141, %137, %135
 150:                                              ; preds = %148
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %151 = getelementptr inbounds nuw i32, ptr %21, i64 %149
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %149
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 11, ptr %15, align 4, !tbaa !31
@@ -110533,7 +110525,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal14FunctionMockerIFmmmEE
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us
   %.021.us = phi i64 [ %42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.us ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %4, align 8, !tbaa !507
-  %22 = getelementptr inbounds nuw %"class.std::shared_ptr.225", ptr %21, i64 %.021.us
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %.021.us
   %23 = load ptr, ptr %22, align 8, !tbaa !452
   %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.108, i64 noundef 1)
   tail call void @_ZNK7testing8internal15ExpectationBase18DescribeLocationToEPSo(ptr noundef nonnull align 8 dereferenceable(264) %23, ptr noundef nonnull %2)
@@ -111988,7 +111980,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %117
 133:                                              ; preds = %132
   %134 = load ptr, ptr %24, align 8, !tbaa !439
   %135 = sext i32 %8 to i64
-  %136 = getelementptr ptr, ptr %134, i64 %135
+  %136 = getelementptr [8 x i8], ptr %134, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8, !tbaa !102
   br label %141
@@ -113740,7 +113732,7 @@ _ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %62
 _ZNSt6vectorIPKvSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %64, %_ZNSt6vectorIPKvSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %59, ptr %38, align 8, !tbaa !439
   store ptr %63, ptr %39, align 8, !tbaa !441
-  %65 = getelementptr inbounds nuw ptr, ptr %59, i64 %57
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %57
   store ptr %65, ptr %41, align 8, !tbaa !442
   br label %_ZNSt6vectorIPKvSaIS1_EE9push_backEOS1_.exit
 
@@ -114387,7 +114379,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4absl15random_internal18Distributi
   %43 = zext nneg i16 %42 to i64
   %44 = add i64 %.sroa.6.0.i.i.i, %43
   %45 = and i64 %44, %10
-  %46 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !102
   %48 = icmp eq ptr %47, @_ZN4absl13base_internal11FastTypeTagIFmNS_15random_internal26UniformDistributionWrapperImEESt5tupleIJmmEEEE9dummy_varE
   br i1 %48, label %.thread29.i.i.i, label %50, !prof !387
@@ -114495,7 +114487,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i
   %19 = load i64, ptr %8, align 8, !tbaa !362
   %20 = add i64 %19, 1
   store i64 %20, ptr %8, align 8, !tbaa !362
-  %21 = getelementptr inbounds nuw i64, ptr %7, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %19
   %22 = load i64, ptr %21, align 8, !tbaa !10
   %23 = add i64 %.sroa.2.0.copyload.i, 1
   %24 = and i64 %23, %.sroa.2.0.copyload.i
@@ -117894,7 +117886,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
   %43 = zext nneg i16 %42 to i64
   %44 = add i64 %.sroa.6.0.i.i.i, %43
   %45 = and i64 %44, %10
-  %46 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !102
   %48 = icmp eq ptr %47, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
   br i1 %48, label %.thread29.i.i.i, label %50, !prof !387
@@ -117982,7 +117974,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclIN7testing8NiceMockINS_13MockingB
   %84 = load i64, ptr %73, align 8, !tbaa !362
   %85 = add i64 %84, 1
   store i64 %85, ptr %73, align 8, !tbaa !362
-  %86 = getelementptr inbounds nuw i64, ptr %72, i64 %84
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %84
   %87 = load i64, ptr %86, align 8, !tbaa !10
   %88 = add i32 %68, 1
   %89 = and i32 %88, %68
@@ -118066,7 +118058,7 @@ _ZN4absl15random_internal15FastUniformBitsIjE8GenerateIN7testing8NiceMockINS_13M
   %18 = load i64, ptr %7, align 8, !tbaa !362
   %19 = add i64 %18, 1
   store i64 %19, ptr %7, align 8, !tbaa !362
-  %20 = getelementptr inbounds nuw i64, ptr %6, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %21 = load i64, ptr %20, align 8, !tbaa !10
   %22 = trunc i64 %21 to i32
   ret i32 %22
@@ -119482,7 +119474,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
   %43 = zext nneg i16 %42 to i64
   %44 = add i64 %.sroa.6.0.i.i.i, %43
   %45 = and i64 %44, %10
-  %46 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !102
   %48 = icmp eq ptr %47, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
   br i1 %48, label %.thread29.i.i.i, label %50, !prof !387
@@ -119570,7 +119562,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclIN7testing9NaggyMockINS_13Mocking
   %84 = load i64, ptr %73, align 8, !tbaa !362
   %85 = add i64 %84, 1
   store i64 %85, ptr %73, align 8, !tbaa !362
-  %86 = getelementptr inbounds nuw i64, ptr %72, i64 %84
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %84
   %87 = load i64, ptr %86, align 8, !tbaa !10
   %88 = add i32 %68, 1
   %89 = and i32 %88, %68
@@ -119654,7 +119646,7 @@ _ZN4absl15random_internal15FastUniformBitsIjE8GenerateIN7testing9NaggyMockINS_13
   %18 = load i64, ptr %7, align 8, !tbaa !362
   %19 = add i64 %18, 1
   store i64 %19, ptr %7, align 8, !tbaa !362
-  %20 = getelementptr inbounds nuw i64, ptr %6, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %21 = load i64, ptr %20, align 8, !tbaa !10
   %22 = trunc i64 %21 to i32
   ret i32 %22
@@ -121726,7 +121718,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
   %43 = zext nneg i16 %42 to i64
   %44 = add i64 %.sroa.6.0.i.i.i, %43
   %45 = and i64 %44, %10
-  %46 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !102
   %48 = icmp eq ptr %47, @_ZN4absl13base_internal11FastTypeTagIFiNS_15random_internal26UniformDistributionWrapperIiEESt5tupleIJiiEEEE9dummy_varE
   br i1 %48, label %.thread29.i.i.i, label %50, !prof !387
@@ -121814,7 +121806,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclIN7testing10StrictMockINS_13Mocki
   %84 = load i64, ptr %73, align 8, !tbaa !362
   %85 = add i64 %84, 1
   store i64 %85, ptr %73, align 8, !tbaa !362
-  %86 = getelementptr inbounds nuw i64, ptr %72, i64 %84
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %84
   %87 = load i64, ptr %86, align 8, !tbaa !10
   %88 = add i32 %68, 1
   %89 = and i32 %88, %68
@@ -121898,7 +121890,7 @@ _ZN4absl15random_internal15FastUniformBitsIjE8GenerateIN7testing10StrictMockINS_
   %18 = load i64, ptr %7, align 8, !tbaa !362
   %19 = add i64 %18, 1
   store i64 %19, ptr %7, align 8, !tbaa !362
-  %20 = getelementptr inbounds nuw i64, ptr %6, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %21 = load i64, ptr %20, align 8, !tbaa !10
   %22 = trunc i64 %21 to i32
   ret i32 %22

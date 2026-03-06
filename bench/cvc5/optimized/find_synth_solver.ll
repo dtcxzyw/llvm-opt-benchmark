@@ -5,12 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
-%"class.std::unique_ptr.349" = type { %"struct.std::__uniq_ptr_data.350" }
-%"struct.std::__uniq_ptr_data.350" = type { %"class.std::__uniq_ptr_impl.351" }
-%"class.std::__uniq_ptr_impl.351" = type { %"class.std::tuple.352" }
-%"class.std::tuple.352" = type { %"struct.std::_Tuple_impl.353" }
-%"struct.std::_Tuple_impl.353" = type { %"struct.std::_Head_base.356" }
-%"struct.std::_Head_base.356" = type { ptr }
 %"struct.std::__detail::_AllocNode" = type { ptr }
 
 $_ZN4cvc58internal12NodeTemplateILb1EED2Ev = comdat any
@@ -240,7 +234,7 @@ _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt1
 _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE17_M_realloc_insertIJPS5_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i
   store ptr %50, ptr %6, align 8, !tbaa !29
   store ptr %55, ptr %8, align 8, !tbaa !30
-  %57 = getelementptr inbounds nuw %"class.std::unique_ptr.349", ptr %50, i64 %48
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   store ptr %57, ptr %27, align 8, !tbaa !42
   br label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory11quantifiers11SynthFinderESt14default_deleteIS5_EESaIS8_EE12emplace_backIJPS5_EEERS8_DpOT_.exit
 
@@ -402,7 +396,7 @@ _ZNK4cvc58internal15ResourceManager3outEv.exit:   ; preds = %37
   %58 = load i64, ptr %32, align 8, !tbaa !16
   %59 = urem i64 %51, %58
   %60 = load ptr, ptr %19, align 8, !tbaa !6
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %59
   %62 = load ptr, ptr %61, align 8, !tbaa !57
   %.not.i.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %63
@@ -435,7 +429,7 @@ _ZNK4cvc58internal15ResourceManager3outEv.exit:   ; preds = %37
   br label %.loopexit, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader96, %..loopexit_crit_edge21.i.i.i.i, %57
-  %75 = getelementptr inbounds nuw %"class.std::unique_ptr.349", ptr %43, i64 %51
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %51
   %76 = load ptr, ptr %75, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN4cvc58internal6theory11quantifiers11SynthFinder10getCurrentEv(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %5, ptr noundef nonnull align 8 dereferenceable(120) %76)
@@ -1206,7 +1200,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
   %9 = load i64, ptr %8, align 8, !tbaa !16
   %10 = urem i64 %7, %9
   %11 = load ptr, ptr %0, align 8, !tbaa !6
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   %13 = load ptr, ptr %12, align 8, !tbaa !57
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %.critedge, label %26
@@ -1340,7 +1334,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
 31:                                               ; preds = %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !6
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !57
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -1366,7 +1360,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   %44 = load i64, ptr %9, align 8, !tbaa !16
   %45 = load i64, ptr %43, align 8, !tbaa !55
   %46 = urem i64 %45, %44
-  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %46
   store ptr %3, ptr %47, align 8, !tbaa !57
   br label %48
 
@@ -1434,7 +1428,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !55
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !57
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -1449,7 +1443,7 @@ _ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImESt4hashImENS1_18_M
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !57
   br label %28
 

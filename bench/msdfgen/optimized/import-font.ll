@@ -8,8 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.FT_Outline_Funcs_ = type { ptr, ptr, ptr, ptr, i32, i64 }
 %"class.msdfgen::EdgeHolder" = type { ptr }
 %struct.FT_Vector_ = type { i64, i64 }
-%struct.FT_Var_Axis_ = type { ptr, i64, i64, i64, i64, i32 }
-%"struct.msdfgen::FontVariationAxis" = type { ptr, double, double, double }
 
 $_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE17_M_default_appendEm = comdat any
 
@@ -786,7 +784,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %7, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx, align 8
   %call19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(1) %8) #19
   %tobool20.not = icmp eq i32 %call19, 0
@@ -795,7 +793,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 if.then21:                                        ; preds = %for.body
   %mul = fmul double %coordinate, 6.553600e+04
   %conv22 = fptosi double %mul to i64
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i9, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i9, i64 %indvars.iv
   store i64 %conv22, ptr %add.ptr.i, align 8
   br label %if.end26
 
@@ -885,7 +883,7 @@ if.else.i:                                        ; preds = %if.end
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds nuw %"struct.msdfgen::FontVariationAxis", ptr %5, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %conv
   %tobool.not.i.i = icmp eq ptr %4, %add.ptr.i
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit, label %invoke.cont.i.i
 
@@ -903,14 +901,14 @@ for.body:                                         ; preds = %_ZNSt6vectorIN7msdf
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit ]
   %8 = phi ptr [ %20, %for.body ], [ %6, %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE6resizeEm.exit ]
   %9 = load ptr, ptr %axes, align 8
-  %add.ptr.i12 = getelementptr inbounds nuw %"struct.msdfgen::FontVariationAxis", ptr %9, i64 %indvars.iv
+  %add.ptr.i12 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
   %axis7 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %axis7, align 8
-  %arrayidx = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %10, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [48 x i8], ptr %10, i64 %indvars.iv
   %11 = load ptr, ptr %arrayidx, align 8
   store ptr %11, ptr %add.ptr.i12, align 8
   %12 = load ptr, ptr %axis7, align 8
-  %arrayidx11 = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %12, i64 %indvars.iv
+  %arrayidx11 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %indvars.iv
   %minimum = getelementptr inbounds nuw i8, ptr %arrayidx11, i64 8
   %13 = load i64, ptr %minimum, align 8
   %conv12 = sitofp i64 %13 to double
@@ -920,7 +918,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIN7msdf
   %14 = load ptr, ptr %master, align 8
   %axis13 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %15 = load ptr, ptr %axis13, align 8
-  %arrayidx15 = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %15, i64 %indvars.iv
+  %arrayidx15 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %indvars.iv
   %maximum = getelementptr inbounds nuw i8, ptr %arrayidx15, i64 24
   %16 = load i64, ptr %maximum, align 8
   %conv16 = sitofp i64 %16 to double
@@ -930,7 +928,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIN7msdf
   %17 = load ptr, ptr %master, align 8
   %axis18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %18 = load ptr, ptr %axis18, align 8
-  %arrayidx20 = getelementptr inbounds nuw %struct.FT_Var_Axis_, ptr %18, i64 %indvars.iv
+  %arrayidx20 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %indvars.iv
   %def = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 16
   %19 = load i64, ptr %def, align 8
   %conv21 = sitofp i64 %19 to double
@@ -1076,9 +1074,9 @@ if.then.i38:                                      ; preds = %_ZNSt6vectorIN7msdf
 
 _ZNSt12_Vector_baseIN7msdfgen17FontVariationAxisESaIS1_EE13_M_deallocateEPS1_m.exit39: ; preds = %_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i38
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds nuw %"struct.msdfgen::FontVariationAxis", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [32 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds nuw %"struct.msdfgen::FontVariationAxis", ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
   br label %if.end44
 

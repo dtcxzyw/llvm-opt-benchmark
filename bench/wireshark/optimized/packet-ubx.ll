@@ -1165,8 +1165,8 @@ define hidden void @proto_register_ubx() local_unnamed_addr #0 {
 
 .preheader33:                                     ; preds = %.preheader33.preheader, %.preheader33
   %indvars.iv = phi i64 [ 0, %.preheader33.preheader ], [ %indvars.iv.next, %.preheader33 ]
-  %0 = getelementptr i32, ptr @ett_ubx_nav_sat_sv_info, i64 %indvars.iv
-  %1 = getelementptr ptr, ptr @proto_register_ubx.ett, i64 %indvars.iv
+  %0 = getelementptr [4 x i8], ptr @ett_ubx_nav_sat_sv_info, i64 %indvars.iv
+  %1 = getelementptr [8 x i8], ptr @proto_register_ubx.ett, i64 %indvars.iv
   %2 = getelementptr i8, ptr %1, i64 248
   store ptr %0, ptr %2, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1175,8 +1175,8 @@ define hidden void @proto_register_ubx() local_unnamed_addr #0 {
 
 .preheader32:                                     ; preds = %.preheader33, %.preheader32
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %.preheader32 ], [ 0, %.preheader33 ]
-  %3 = getelementptr i32, ptr @ett_ubx_cfg_gnss_block, i64 %indvars.iv42
-  %4 = getelementptr ptr, ptr @proto_register_ubx.ett, i64 %indvars.iv42
+  %3 = getelementptr [4 x i8], ptr @ett_ubx_cfg_gnss_block, i64 %indvars.iv42
+  %4 = getelementptr [8 x i8], ptr @proto_register_ubx.ett, i64 %indvars.iv42
   %5 = getelementptr i8, ptr %4, i64 2288
   store ptr %3, ptr %5, align 8
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
@@ -1185,8 +1185,8 @@ define hidden void @proto_register_ubx() local_unnamed_addr #0 {
 
 .preheader31:                                     ; preds = %.preheader32, %.preheader31
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.preheader31 ], [ 0, %.preheader32 ]
-  %6 = getelementptr i32, ptr @ett_ubx_nav_sbas_sv_info, i64 %indvars.iv46
-  %7 = getelementptr ptr, ptr @proto_register_ubx.ett, i64 %indvars.iv46
+  %6 = getelementptr [4 x i8], ptr @ett_ubx_nav_sbas_sv_info, i64 %indvars.iv46
+  %7 = getelementptr [8 x i8], ptr @proto_register_ubx.ett, i64 %indvars.iv46
   %8 = getelementptr i8, ptr %7, i64 4328
   store ptr %6, ptr %8, align 8
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
@@ -1195,8 +1195,8 @@ define hidden void @proto_register_ubx() local_unnamed_addr #0 {
 
 .preheader30:                                     ; preds = %.preheader31, %.preheader30
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.preheader30 ], [ 0, %.preheader31 ]
-  %9 = getelementptr i32, ptr @ett_ubx_rxm_rawx_meas, i64 %indvars.iv50
-  %10 = getelementptr ptr, ptr @proto_register_ubx.ett, i64 %indvars.iv50
+  %9 = getelementptr [4 x i8], ptr @ett_ubx_rxm_rawx_meas, i64 %indvars.iv50
+  %10 = getelementptr [8 x i8], ptr @proto_register_ubx.ett, i64 %indvars.iv50
   %11 = getelementptr i8, ptr %10, i64 6368
   store ptr %9, ptr %11, align 8
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
@@ -1205,8 +1205,8 @@ define hidden void @proto_register_ubx() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %.preheader30, %.preheader
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.preheader ], [ 0, %.preheader30 ]
-  %12 = getelementptr i32, ptr @ett_ubx_rxm_measx_meas, i64 %indvars.iv54
-  %13 = getelementptr ptr, ptr @proto_register_ubx.ett, i64 %indvars.iv54
+  %12 = getelementptr [4 x i8], ptr @ett_ubx_rxm_measx_meas, i64 %indvars.iv54
+  %13 = getelementptr [8 x i8], ptr @proto_register_ubx.ett, i64 %indvars.iv54
   %14 = getelementptr i8, ptr %13, i64 8408
   store ptr %12, ptr %14, align 8
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
@@ -1637,7 +1637,7 @@ define internal i32 @dissect_ubx_cfg_gnss(ptr noundef %0, ptr noundef readonly c
   %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %28)
   %30 = or disjoint i32 %25, 6
   %31 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %30)
-  %32 = getelementptr i32, ptr @ett_ubx_cfg_gnss_block, i64 %indvars.iv
+  %32 = getelementptr [4 x i8], ptr @ett_ubx_cfg_gnss_block, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %34 = zext i8 %27 to i32
   %35 = tail call ptr @val_to_str_const(i32 noundef %34, ptr noundef nonnull @UBX_GNSS_ID, ptr noundef nonnull @.str.777)
@@ -1661,7 +1661,7 @@ define internal i32 @dissect_ubx_cfg_gnss(ptr noundef %0, ptr noundef readonly c
 
 switch.lookup:                                    ; preds = %.lr.ph
   %52 = zext nneg i8 %27 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_ubx_cfg_gnss, i64 %52
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_ubx_cfg_gnss, i64 %52
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %53
 
@@ -2026,7 +2026,7 @@ define internal i32 @dissect_ubx_nav_sat(ptr noundef %0, ptr noundef readonly ca
   %31 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %30, i32 noundef -2147483648)
   %32 = lshr i32 %31, 3
   %33 = and i32 %32, 1
-  %34 = getelementptr i32, ptr @ett_ubx_nav_sat_sv_info, i64 %indvars.iv
+  %34 = getelementptr [4 x i8], ptr @ett_ubx_nav_sat_sv_info, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = zext i8 %27 to i32
   %37 = tail call ptr @val_to_str_const(i32 noundef %36, ptr noundef nonnull @UBX_GNSS_ID, ptr noundef nonnull @.str.777)
@@ -2104,7 +2104,7 @@ define internal i32 @dissect_ubx_nav_sbas(ptr noundef %0, ptr noundef readonly c
   %32 = mul nuw nsw i32 %31, 12
   %33 = add nuw nsw i32 %32, 12
   %34 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %33)
-  %35 = getelementptr i32, ptr @ett_ubx_nav_sbas_sv_info, i64 %indvars.iv
+  %35 = getelementptr [4 x i8], ptr @ett_ubx_nav_sbas_sv_info, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
   %37 = zext i8 %34 to i32
   %38 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %15, ptr noundef %0, i32 noundef %33, i32 noundef 12, i32 noundef %36, ptr noundef null, ptr noundef nonnull @.str.781, i32 noundef %37)
@@ -2310,7 +2310,7 @@ define internal i32 @dissect_ubx_rxm_measx(ptr noundef %0, ptr noundef readonly 
   %53 = trunc i64 %46 to i32
   %54 = add i32 %53, 46
   %55 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %54)
-  %56 = getelementptr i32, ptr @ett_ubx_rxm_measx_meas, i64 %indvars.iv
+  %56 = getelementptr [4 x i8], ptr @ett_ubx_rxm_measx_meas, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4
   %58 = zext i8 %49 to i32
   %59 = tail call ptr @val_to_str_const(i32 noundef %58, ptr noundef nonnull @UBX_GNSS_ID, ptr noundef nonnull @.str.777)
@@ -2417,7 +2417,7 @@ define internal i32 @dissect_ubx_rxm_rawx(ptr noundef %0, ptr noundef readonly c
   %38 = trunc i64 %31 to i32
   %39 = add i32 %38, 42
   %40 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %39)
-  %41 = getelementptr i32, ptr @ett_ubx_rxm_rawx_meas, i64 %indvars.iv
+  %41 = getelementptr [4 x i8], ptr @ett_ubx_rxm_rawx_meas, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4
   %43 = zext i8 %34 to i32
   %44 = tail call ptr @val_to_str_const(i32 noundef %43, ptr noundef nonnull @UBX_GNSS_ID, ptr noundef nonnull @.str.777)

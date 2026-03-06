@@ -2702,11 +2702,11 @@ define noundef i16 @"_ZN9softposit5p16e14math4sqrt41_$LT$impl$u20$softposit..p16
   %20 = and i16 %19, 14
   %21 = or disjoint i16 %16, %20
   %22 = zext nneg i16 %21 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %3, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %22
   %24 = load i16, ptr %23, align 2, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store <16 x i16> <i16 -23131, i16 -5566, i16 -29663, i16 -14803, i16 30863, i16 -21889, i16 26920, i16 -27466, i16 23751, i16 -31947, i16 21158, i16 29922, i16 19006, i16 26878, i16 17195, i16 24317>, ptr %2, align 2
-  %25 = getelementptr inbounds nuw i16, ptr %2, i64 %22
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %22
   %26 = load i16, ptr %25, align 2, !noundef !5
   %27 = zext i16 %26 to i32
   %28 = and i16 %17, 511

@@ -1937,7 +1937,7 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
 
 51:                                               ; preds = %48
   %52 = zext nneg i16 %49 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr @OPCODE_NAMES, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @OPCODE_NAMES, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !3
   br label %55
 
@@ -2150,7 +2150,7 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
 
 switch.lookup:                                    ; preds = %166
   %169 = zext nneg i8 %167 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.cli_extract_xlm_macros_and_images, i64 %169
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cli_extract_xlm_macros_and_images, i64 %169
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %170
 
@@ -2162,7 +2162,7 @@ switch.lookup:                                    ; preds = %166
 
 switch.lookup356:                                 ; preds = %170
   %173 = zext nneg i8 %171 to i64
-  %switch.gep357 = getelementptr inbounds nuw ptr, ptr @switch.table.cli_extract_xlm_macros_and_images.1, i64 %173
+  %switch.gep357 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cli_extract_xlm_macros_and_images.1, i64 %173
   %switch.load358 = load ptr, ptr %switch.gep357, align 8
   br label %174
 
@@ -2452,7 +2452,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr noundef nonnull c
 
 11:                                               ; preds = %.lr.ph
   %12 = zext nneg i8 %9 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr @TOKENS, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @TOKENS, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1223, ptr noundef %14) #11
   %16 = icmp slt i32 %15, 0
@@ -2762,7 +2762,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr noundef nonnull c
 
 157:                                              ; preds = %144
   %158 = zext nneg i32 %155 to i64
-  %159 = getelementptr inbounds nuw ptr, ptr @FUNCTIONS, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr @FUNCTIONS, i64 %158
   %160 = load ptr, ptr %159, align 8, !tbaa !3
   br label %get_function_name.exit
 
@@ -2773,7 +2773,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr noundef nonnull c
 
 163:                                              ; preds = %161
   %164 = zext nneg i32 %155 to i64
-  %165 = getelementptr ptr, ptr @EXTENDED_FUNCTIONS, i64 %164
+  %165 = getelementptr [8 x i8], ptr @EXTENDED_FUNCTIONS, i64 %164
   %166 = getelementptr i8, ptr %165, i64 -262144
   %167 = load ptr, ptr %166, align 8, !tbaa !3
   br label %get_function_name.exit
@@ -2821,7 +2821,7 @@ get_function_name.exit:                           ; preds = %157, %161, %163
 
 190:                                              ; preds = %177
   %191 = zext nneg i32 %188 to i64
-  %192 = getelementptr inbounds nuw ptr, ptr @FUNCTIONS, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr @FUNCTIONS, i64 %191
   %193 = load ptr, ptr %192, align 8, !tbaa !3
   br label %get_function_name.exit355
 
@@ -2832,7 +2832,7 @@ get_function_name.exit:                           ; preds = %157, %161, %163
 
 196:                                              ; preds = %194
   %197 = zext nneg i32 %188 to i64
-  %198 = getelementptr ptr, ptr @EXTENDED_FUNCTIONS, i64 %197
+  %198 = getelementptr [8 x i8], ptr @EXTENDED_FUNCTIONS, i64 %197
   %199 = getelementptr i8, ptr %198, i64 -262144
   %200 = load ptr, ptr %199, align 8, !tbaa !3
   br label %get_function_name.exit355
@@ -3256,7 +3256,7 @@ get_function_name.exit355:                        ; preds = %190, %194, %196
 
 470:                                              ; preds = %468
   %471 = zext nneg i8 %9 to i64
-  %472 = getelementptr inbounds nuw ptr, ptr @TOKENS, i64 %471
+  %472 = getelementptr inbounds nuw [8 x i8], ptr @TOKENS, i64 %471
   %473 = load ptr, ptr %472, align 8, !tbaa !3
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1270, ptr noundef %473) #11
   br label %.thread388

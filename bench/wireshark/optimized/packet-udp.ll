@@ -2915,7 +2915,7 @@ define internal nonnull ptr @udp_conv_get_filter_type(ptr noundef readonly captu
 
 switch.lookup:                                    ; preds = %2
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.udp_endpoint_get_filter_type, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.udp_endpoint_get_filter_type, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %16
 
@@ -2973,7 +2973,7 @@ define internal nonnull ptr @udp_endpoint_get_filter_type(ptr noundef readonly c
 
 switch.lookup:                                    ; preds = %2
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.udp_endpoint_get_filter_type, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.udp_endpoint_get_filter_type, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %16
 

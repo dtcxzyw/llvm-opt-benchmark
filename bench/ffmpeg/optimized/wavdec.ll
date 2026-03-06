@@ -664,7 +664,7 @@ wav_parse_bext_string.exit73.i:                   ; preds = %225
   %.090.i = phi i64 [ %240, %.preheader.i ], [ 0, %234 ]
   %237 = load ptr, ptr %12, align 8, !tbaa !12
   %238 = call i64 @avio_rb64(ptr noundef %237) #10
-  %239 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   store i64 %238, ptr %239, align 8, !tbaa !68
   %240 = or i64 %238, %.090.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -911,7 +911,7 @@ wav_parse_bext_tag.exit:                          ; preds = %262, %276
 
 357:                                              ; preds = %.lr.ph561, %356
   %indvars.iv = phi i64 [ 0, %.lr.ph561 ], [ %indvars.iv.next, %356 ]
-  %358 = getelementptr inbounds nuw ptr, ptr %354, i64 %indvars.iv
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %354, i64 %indvars.iv
   %359 = load ptr, ptr %358, align 8, !tbaa !81
   %360 = load i64, ptr %359, align 8, !tbaa !83
   %361 = icmp eq i64 %360, %355

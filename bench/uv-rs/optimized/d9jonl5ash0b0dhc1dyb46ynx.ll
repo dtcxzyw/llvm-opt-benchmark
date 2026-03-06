@@ -473,7 +473,7 @@ define hidden { i64, ptr } @"_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TI
 
 15:                                               ; preds = %3
   %16 = add i64 %.val11, -1
-  %17 = getelementptr inbounds i64, ptr %.val, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %.val, i64 %16
   %18 = load i64, ptr %17, align 8, !noundef !8
   %19 = icmp sgt i64 %1, %18
   br i1 %19, label %.thread, label %.preheader.i
@@ -486,7 +486,7 @@ define hidden { i64, ptr } @"_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TI
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %28, %.lr.ph.i ]
   %20 = icmp ult i64 %.sroa.05.0.lcssa.i, %.val11
   tail call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds i64, ptr %.val, i64 %.sroa.05.0.lcssa.i
+  %21 = getelementptr inbounds [8 x i8], ptr %.val, i64 %.sroa.05.0.lcssa.i
   %.val23.i = load i64, ptr %21, align 8, !alias.scope !88, !noalias !91, !noundef !8
   %22 = icmp eq i64 %.val23.i, %1
   br i1 %22, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hf43349820fcd9096E.exit.thread", label %31
@@ -498,7 +498,7 @@ define hidden { i64, ptr } @"_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TI
   %24 = add i64 %23, %.sroa.05.027.i
   %25 = icmp ult i64 %24, %.val11
   tail call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds i64, ptr %.val, i64 %24
+  %26 = getelementptr inbounds [8 x i8], ptr %.val, i64 %24
   %.val25.i = load i64, ptr %26, align 8, !alias.scope !88, !noalias !91, !noundef !8
   %27 = icmp sgt i64 %.val25.i, %1
   %28 = select i1 %27, i64 %.sroa.05.027.i, i64 %24, !unpredictable !8
@@ -560,7 +560,7 @@ define hidden { i64, ptr } @"_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TI
 53:                                               ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %.val6.i = load ptr, ptr %54, align 8, !alias.scope !94, !nonnull !8, !align !9, !noundef !8
-  %55 = getelementptr inbounds { i8, i8 }, ptr %.val6.i, i64 %.sroa.08.018
+  %55 = getelementptr inbounds [2 x i8], ptr %.val6.i, i64 %.sroa.08.018
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %57 = load i8, ptr %56, align 1, !noalias !94, !noundef !8
   %58 = zext i8 %57 to i64
@@ -576,7 +576,7 @@ define hidden { i64, ptr } @"_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TI
   unreachable
 
 "_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TIMESTAMPS$C$STARTS$C$ENDS$C$INFOS$GT$15local_time_type17h5c9105ad4198b814E.exit": ; preds = %53
-  %62 = getelementptr inbounds nuw { i32, { i8, i8 }, i8, i8 }, ptr %.val.i, i64 %58
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %58
   br label %63
 
 63:                                               ; preds = %.thread, %"_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TIMESTAMPS$C$STARTS$C$ENDS$C$INFOS$GT$15local_time_type17h5c9105ad4198b814E.exit"
@@ -615,7 +615,7 @@ define hidden { i64, ptr } @"_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TI
 
 17:                                               ; preds = %3
   %18 = add i64 %10, -1
-  %19 = getelementptr inbounds i64, ptr %8, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %8, i64 %18
   %20 = load i64, ptr %19, align 8, !noundef !8
   %21 = icmp sgt i64 %1, %20
   br i1 %21, label %.thread, label %.preheader.i
@@ -628,7 +628,7 @@ define hidden { i64, ptr } @"_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TI
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %30, %.lr.ph.i ]
   %22 = icmp ult i64 %.sroa.05.0.lcssa.i, %10
   tail call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds i64, ptr %8, i64 %.sroa.05.0.lcssa.i
+  %23 = getelementptr inbounds [8 x i8], ptr %8, i64 %.sroa.05.0.lcssa.i
   %.val23.i = load i64, ptr %23, align 8, !alias.scope !101, !noalias !104, !noundef !8
   %24 = icmp eq i64 %.val23.i, %1
   br i1 %24, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hf43349820fcd9096E.exit.thread", label %33
@@ -640,7 +640,7 @@ define hidden { i64, ptr } @"_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TI
   %26 = add i64 %25, %.sroa.05.027.i
   %27 = icmp ult i64 %26, %10
   tail call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds i64, ptr %8, i64 %26
+  %28 = getelementptr inbounds [8 x i8], ptr %8, i64 %26
   %.val25.i = load i64, ptr %28, align 8, !alias.scope !101, !noalias !104, !noundef !8
   %29 = icmp sgt i64 %.val25.i, %1
   %30 = select i1 %29, i64 %.sroa.05.027.i, i64 %26, !unpredictable !8
@@ -702,7 +702,7 @@ define hidden { i64, ptr } @"_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TI
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %60 = load ptr, ptr %59, align 8, !alias.scope !112, !nonnull !8, !noundef !8
-  %61 = getelementptr inbounds { i8, i8 }, ptr %60, i64 %.sroa.08.015
+  %61 = getelementptr inbounds [2 x i8], ptr %60, i64 %.sroa.08.015
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
   %63 = load i8, ptr %62, align 1, !noalias !106, !noundef !8
   %64 = zext i8 %63 to i64
@@ -718,7 +718,7 @@ define hidden { i64, ptr } @"_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TI
   unreachable
 
 "_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TIMESTAMPS$C$STARTS$C$ENDS$C$INFOS$GT$15local_time_type17hbea3a4103e870d06E.exit": ; preds = %58
-  %68 = getelementptr inbounds nuw { i32, { i8, i8 }, i8, i8 }, ptr %52, i64 %64
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %64
   br label %69
 
 69:                                               ; preds = %.thread, %"_ZN4jiff2tz4tzif69Tzif$LT$STR$C$ABBREV$C$TYPES$C$TIMESTAMPS$C$STARTS$C$ENDS$C$INFOS$GT$15local_time_type17hbea3a4103e870d06E.exit"
@@ -10103,7 +10103,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h9d9aad4285
   %28 = zext nneg i16 %27 to i64
   %29 = and i16 %26, %.lcssa.i
   %30 = sub nsw i64 0, %28
-  %31 = getelementptr inbounds { { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %.sroa.06.1, i64 %30
+  %31 = getelementptr inbounds [112 x i8], ptr %.sroa.06.1, i64 %30
   %32 = add i64 %.sroa.108.016, -1
   %33 = getelementptr inbounds i8, ptr %31, i64 -112
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1868
@@ -10209,7 +10209,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17he0cb7282fa
   %25 = zext nneg i16 %24 to i64
   %26 = and i16 %23, %.lcssa.i
   %27 = sub nsw i64 0, %25
-  %28 = getelementptr inbounds { ptr, { { { i64, ptr, {} }, {} }, i64 } }, ptr %.sroa.06.1, i64 %27
+  %28 = getelementptr inbounds [32 x i8], ptr %.sroa.06.1, i64 %27
   %29 = add i64 %.sroa.108.016, -1
   %30 = getelementptr inbounds i8, ptr %28, i64 -32
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.1922383081153832188"(ptr noalias noundef nonnull align 8 dereferenceable(32) %30)

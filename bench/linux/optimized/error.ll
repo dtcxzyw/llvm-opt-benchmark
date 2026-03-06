@@ -161,7 +161,7 @@ define dso_local noundef i32 @p9_error_init() #0 align 16 {
   %9 = and i32 %8, 31
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = zext nneg i32 %9 to i64
-  %12 = getelementptr %struct.hlist_head, ptr @hash_errmap, i64 %11
+  %12 = getelementptr [8 x i8], ptr @hash_errmap, i64 %11
   %13 = load ptr, ptr %12, align 8
   store volatile ptr %13, ptr %10, align 8
   %14 = icmp eq ptr %13, null
@@ -402,7 +402,7 @@ define dso_local range(i32 1, 0) i32 @p9_errstr2errno(ptr noundef %0, i32 nounde
   %3 = tail call fastcc i32 @jhash(ptr noundef %0, i32 noundef %1)
   %4 = and i32 %3, 31
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr %struct.hlist_head, ptr @hash_errmap, i64 %5
+  %6 = getelementptr [8 x i8], ptr @hash_errmap, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = getelementptr i8, ptr %7, i64 -16

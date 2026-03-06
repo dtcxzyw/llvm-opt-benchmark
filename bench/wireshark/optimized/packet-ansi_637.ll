@@ -663,8 +663,8 @@ define hidden void @proto_register_ansi_637() local_unnamed_addr #0 {
 
 6:                                                ; preds = %0, %6
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr i32, ptr @ett_ansi_637_tele_param, i64 %indvars.iv
-  %8 = getelementptr ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr [4 x i8], ptr @ett_ansi_637_tele_param, i64 %indvars.iv
+  %8 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %9 = getelementptr i8, ptr %8, i64 32
   store ptr %7, ptr %9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -673,8 +673,8 @@ define hidden void @proto_register_ansi_637() local_unnamed_addr #0 {
 
 .preheader20:                                     ; preds = %6, %.preheader20
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %.preheader20 ], [ 0, %6 ]
-  %10 = getelementptr i32, ptr @ett_ansi_637_trans_msg, i64 %indvars.iv26
-  %11 = getelementptr ptr, ptr %1, i64 %indvars.iv26
+  %10 = getelementptr [4 x i8], ptr @ett_ansi_637_trans_msg, i64 %indvars.iv26
+  %11 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv26
   %12 = getelementptr i8, ptr %11, i64 232
   store ptr %10, ptr %12, align 8
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
@@ -683,8 +683,8 @@ define hidden void @proto_register_ansi_637() local_unnamed_addr #0 {
 
 .preheader19:                                     ; preds = %.preheader20, %.preheader19
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.preheader19 ], [ 0, %.preheader20 ]
-  %13 = getelementptr i32, ptr @ett_ansi_637_trans_param, i64 %indvars.iv30
-  %14 = getelementptr ptr, ptr %1, i64 %indvars.iv30
+  %13 = getelementptr [4 x i8], ptr @ett_ansi_637_trans_param, i64 %indvars.iv30
+  %14 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv30
   %15 = getelementptr i8, ptr %14, i64 264
   store ptr %13, ptr %15, align 8
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
@@ -693,8 +693,8 @@ define hidden void @proto_register_ansi_637() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %.preheader19, %.preheader
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %.preheader ], [ 0, %.preheader19 ]
-  %16 = getelementptr i32, ptr @ett_tia_1149_cmas_param, i64 %indvars.iv34
-  %17 = getelementptr ptr, ptr %1, i64 %indvars.iv34
+  %16 = getelementptr [4 x i8], ptr @ett_tia_1149_cmas_param, i64 %indvars.iv34
+  %17 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv34
   %18 = getelementptr i8, ptr %17, i64 344
   store ptr %16, ptr %18, align 8
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
@@ -855,9 +855,9 @@ define internal i32 @dissect_ansi_637_tele(ptr noundef %0, ptr noundef %1, ptr n
 49:                                               ; preds = %.lr.ph.i
   %50 = load i32, ptr %5, align 4
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i32, ptr @ett_ansi_637_tele_param, i64 %51
+  %52 = getelementptr [4 x i8], ptr @ett_ansi_637_tele_param, i64 %51
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr ptr, ptr @ansi_637_tele_param_fcn, i64 %51
+  %54 = getelementptr [8 x i8], ptr @ansi_637_tele_param_fcn, i64 %51
   %55 = load ptr, ptr %54, align 8
   %56 = call ptr @proto_tree_add_subtree(ptr noundef %43, ptr noundef %0, i32 noundef %.018.i, i32 noundef -1, i32 noundef %53, ptr noundef nonnull %6, ptr noundef nonnull %48)
   %57 = load i32, ptr @hf_ansi_637_tele_subparam_id, align 4
@@ -945,7 +945,7 @@ define internal i32 @dissect_ansi_637_trans(ptr noundef %0, ptr noundef %1, ptr 
   %21 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.412, ptr noundef nonnull @.str.325, ptr noundef nonnull %13)
   %22 = load i32, ptr %7, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr i32, ptr @ett_ansi_637_trans_msg, i64 %23
+  %24 = getelementptr [4 x i8], ptr @ett_ansi_637_trans_msg, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %25)
   %27 = icmp eq i8 %11, 1
@@ -981,9 +981,9 @@ define internal i32 @dissect_ansi_637_trans(ptr noundef %0, ptr noundef %1, ptr 
 38:                                               ; preds = %34
   %39 = load i32, ptr %5, align 4
   %40 = sext i32 %39 to i64
-  %41 = getelementptr i32, ptr @ett_ansi_637_trans_param, i64 %40
+  %41 = getelementptr [4 x i8], ptr @ett_ansi_637_trans_param, i64 %40
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr ptr, ptr @ansi_637_trans_param_fcn, i64 %40
+  %43 = getelementptr [8 x i8], ptr @ansi_637_trans_param_fcn, i64 %40
   %44 = load ptr, ptr %43, align 8
   %45 = call ptr @proto_tree_add_subtree(ptr noundef %.0, ptr noundef %0, i32 noundef %.03138, i32 noundef -1, i32 noundef %42, ptr noundef nonnull %6, ptr noundef nonnull %37)
   %46 = load i32, ptr @hf_ansi_637_trans_param_id, align 4
@@ -1077,7 +1077,7 @@ define hidden void @proto_reg_handoff_ansi_637() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr %struct._value_string, ptr @ansi_tele_id_strings, i64 %indvars.iv
+  %3 = getelementptr [16 x i8], ptr @ansi_tele_id_strings, i64 %indvars.iv
   %4 = load i32, ptr %3, align 16
   %5 = load ptr, ptr @ansi_637_tele_handle, align 8
   tail call void @dissector_add_uint(ptr noundef nonnull @.str.205, i32 noundef %4, ptr noundef %5)
@@ -1192,7 +1192,7 @@ define internal void @tele_param_user_data_cmas(ptr noundef %0, ptr noundef %1, 
 switch.lookup:                                    ; preds = %.lr.ph
   %switch.idx.cast = zext nneg i8 %32 to i64
   %35 = zext nneg i8 %32 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.tele_param_user_data_cmas, i64 %35
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.tele_param_user_data_cmas, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %36
 
@@ -1203,7 +1203,7 @@ switch.lookup:                                    ; preds = %.lr.ph
   %38 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %27, i32 noundef %37)
   %39 = zext i8 %38 to i32
   %40 = add nuw nsw i32 %39, 2
-  %41 = getelementptr i32, ptr @ett_tia_1149_cmas_param, i64 %.0231
+  %41 = getelementptr [4 x i8], ptr @ett_tia_1149_cmas_param, i64 %.0231
   %42 = load i32, ptr %41, align 4
   %43 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %27, i32 noundef %.0228243, i32 noundef %40, i32 noundef %42, ptr noundef null, ptr noundef nonnull %.0)
   %44 = load i32, ptr @hf_ansi_637_tele_cmas_record_type, align 4
@@ -2582,7 +2582,7 @@ default.unreachable26:                            ; preds = %9
 
 switch.lookup:                                    ; preds = %18
   %34 = zext nneg i8 %16 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.tele_param_msg_status, i64 %34
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.tele_param_msg_status, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %35
 
@@ -2863,7 +2863,7 @@ define internal fastcc void @tele_param_timestamp_rel(ptr noundef %0, ptr nounde
 
 switch.lookup:                                    ; preds = %4
   %26 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.tele_param_timestamp_rel, i64 %26
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.tele_param_timestamp_rel, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %27
 

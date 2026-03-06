@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %class.symbol = type { ptr }
-%"struct.q::queue::entry" = type <{ ptr, float, i8, [3 x i8] }>
 %class.obj_ref = type { ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -1112,7 +1111,7 @@ _ZNK6vectorIN1q5queue5entryELb0EjE5emptyEv.exit.thread: ; preds = %2, %_ZNK6vect
   %26 = phi ptr [ %.pre.i.i.i, %.noexc5 ], [ %16, %18 ]
   %27 = getelementptr inbounds i8, ptr %26, i64 -4
   %28 = zext i32 %25 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %28
   store ptr %14, ptr %29, align 8, !tbaa !525
   %30 = add i32 %25, 1
   store i32 %30, ptr %27, align 4, !tbaa !459
@@ -1140,7 +1139,7 @@ _ZN6vectorIN1q5queue5entryELb0EjE9push_backEOS2_.exit: ; preds = %.thread, %38
   %39 = phi i32 [ %.pre2.i, %38 ], [ %34, %.thread ]
   %40 = phi ptr [ %.pre.i, %38 ], [ %32, %.thread ]
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw %"struct.q::queue::entry", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %41
   store ptr %1, ptr %42, align 8, !tbaa !527
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
   store float %3, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !462
@@ -1199,10 +1198,10 @@ define hidden void @_ZN1q5queue11instantiateERNS0_5entryE(ptr noundef nonnull al
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %28 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !534
   %30 = load ptr, ptr %29, align 8, !tbaa !535
-  %31 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   store ptr %30, ptr %31, align 8, !tbaa !472
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1422,7 +1421,7 @@ _ZN6vectorIN1q5queue5entryELb0EjE9push_backERKS2_.exit: ; preds = %47, %53
   %54 = phi i32 [ %.pre2.i, %53 ], [ %49, %47 ]
   %55 = phi ptr [ %.pre.i, %53 ], [ %45, %47 ]
   %56 = zext i32 %54 to i64
-  %57 = getelementptr inbounds nuw %"struct.q::queue::entry", ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %.02024, i64 16, i1 false), !tbaa.struct !601
   %58 = load ptr, ptr %13, align 8, !tbaa !468
   %59 = getelementptr inbounds i8, ptr %58, i64 -4
@@ -1460,7 +1459,7 @@ _ZN6vectorIN1q5queue5entryELb0EjE9push_backERKS2_.exit: ; preds = %47, %53
   %77 = phi ptr [ %.pre.i.i.i, %.noexc22 ], [ %67, %69 ]
   %78 = getelementptr inbounds i8, ptr %77, i64 -4
   %79 = zext i32 %76 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %77, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %79
   store ptr %65, ptr %80, align 8, !tbaa !525
   %81 = add i32 %76, 1
   store i32 %81, ptr %78, align 4, !tbaa !459
@@ -1563,7 +1562,7 @@ _ZNK6vectorIN1q5queue5entryELb0EjE4sizeEv.exit:   ; preds = %_ZNK6vectorIN1q5que
   br i1 %37, label %38, label %_ZNK6vectorIN1q5queue5entryELb0EjE5emptyEv.exit.thread
 
 38:                                               ; preds = %_ZNK6vectorIN1q5queue5entryELb0EjE4sizeEv.exit
-  %39 = getelementptr inbounds nuw %"struct.q::queue::entry", ptr %33, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = load i8, ptr %40, align 4, !tbaa !531, !range !598, !noundef !599
   %42 = trunc nuw i8 %41 to i1
@@ -1611,7 +1610,7 @@ _ZNK6vectorIN1q5queue5entryELb0EjE4sizeEv.exit:   ; preds = %_ZNK6vectorIN1q5que
   %64 = phi ptr [ %.pre.i.i.i, %.noexc33 ], [ %54, %56 ]
   %65 = getelementptr inbounds i8, ptr %64, i64 -4
   %66 = zext i32 %63 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %66
   store ptr %51, ptr %67, align 8, !tbaa !525
   %68 = add i32 %63, 1
   store i32 %68, ptr %65, align 4, !tbaa !459
@@ -2078,7 +2077,7 @@ define linkonce_odr hidden void @_ZN1q5queue18reset_instantiated4undoEv(ptr noun
   %6 = load i32, ptr %5, align 8, !tbaa !617
   %7 = load ptr, ptr %4, align 8, !tbaa !468
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw %"struct.q::queue::entry", ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i8 0, ptr %10, align 4, !tbaa !531
   ret void

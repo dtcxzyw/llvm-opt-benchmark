@@ -70,7 +70,7 @@ define hidden void @SDL_UnregisterTray(ptr noundef %0) local_unnamed_addr #0 {
 19:                                               ; preds = %14, %.lr.ph
   %.2 = phi i32 [ %.119, %.lr.ph ], [ %spec.select, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next
   %21 = load ptr, ptr %20, align 8
   %.not14 = icmp eq ptr %21, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !3
@@ -120,7 +120,7 @@ define hidden void @SDL_CleanupTrays() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   tail call void @SDL_DestroyTray_REAL(ptr noundef %12) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

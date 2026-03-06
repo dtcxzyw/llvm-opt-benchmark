@@ -303,7 +303,7 @@ define noundef i64 @_ZN5folly10symbolizer22getAsyncStackTraceSafeEPmm(ptr nounde
   br i1 %17, label %18, label %.critedge
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds nuw i64, ptr %0, i64 %.135
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.135
   %20 = sub i64 %1, %.135
   %21 = icmp ne i64 %20, 0
   %22 = and i1 %21, %15
@@ -326,7 +326,7 @@ define noundef i64 @_ZN5folly10symbolizer22getAsyncStackTraceSafeEPmm(ptr nounde
   %30 = load ptr, ptr %29, align 8, !tbaa !26
   %31 = ptrtoint ptr %30 to i64
   %32 = add nuw i64 %.01729.i, 1
-  %33 = getelementptr inbounds nuw i64, ptr %19, i64 %.01729.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.01729.i
   store i64 %31, ptr %33, align 8, !tbaa !7
   %exitcond.not.i = icmp eq i64 %32, %20
   br i1 %exitcond.not.i, label %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit, label %.lr.ph.i
@@ -334,7 +334,7 @@ define noundef i64 @_ZN5folly10symbolizer22getAsyncStackTraceSafeEPmm(ptr nounde
 _ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit: ; preds = %.lr.ph.i, %28, %18
   %.017.lcssa.i = phi i64 [ 0, %18 ], [ %20, %28 ], [ %.01729.i, %.lr.ph.i ]
   %34 = add i64 %.017.lcssa.i, %.135
-  %35 = getelementptr inbounds nuw i64, ptr %0, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %34
   %36 = sub i64 %1, %34
   %37 = icmp ne i64 %1, %34
   %38 = and i1 %16, %37
@@ -347,7 +347,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.ex
   %41 = load ptr, ptr %40, align 8, !tbaa !27, !noalias !29
   %42 = ptrtoint ptr %41 to i64
   %43 = add nuw i64 %39, 1
-  %44 = getelementptr inbounds nuw i64, ptr %35, i64 %39
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %39
   store i64 %42, ptr %44, align 8, !tbaa !7, !noalias !29
   %45 = load ptr, ptr %.01526.i, align 8, !tbaa !32, !noalias !29
   %46 = icmp eq ptr %45, null

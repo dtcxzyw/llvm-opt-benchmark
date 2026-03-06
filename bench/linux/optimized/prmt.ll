@@ -11,9 +11,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.qspinlock = type { %union.anon }
 %union.anon = type { %struct.atomic_t }
 %struct.atomic_t = type { i32 }
-%struct.prm_handler_info = type { %struct.guid_t, ptr, i64, i64, %struct.list_head }
-%struct.guid_t = type { [16 x i8] }
 %struct.prm_context_buffer = type { [4 x i8], i16, i16, %struct.guid_t, i64, ptr }
+%struct.guid_t = type { [16 x i8] }
 
 @.str = private unnamed_addr constant [5 x i8] c"PRMT\00", align 1
 @.str.1 = private unnamed_addr constant [25 x i8] c"\016PRM: found %u modules\0A\00", align 1
@@ -164,7 +163,7 @@ define internal noundef range(i32 -12, 1) i32 @acpi_parse_prmt(ptr noundef reado
 59:                                               ; preds = %59, %49
   %60 = phi ptr [ %57, %49 ], [ %81, %59 ]
   %61 = phi i64 [ 0, %49 ], [ %77, %59 ]
-  %62 = getelementptr %struct.prm_handler_info, ptr %58, i64 %61
+  %62 = getelementptr [56 x i8], ptr %58, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %62, ptr noundef nonnull align 1 dereferenceable(16) %63, i64 16, i1 false)
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 20
@@ -277,7 +276,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 
 36:                                               ; preds = %33, %30
   %37 = phi i64 [ 0, %30 ], [ %34, %33 ]
-  %38 = getelementptr %struct.prm_handler_info, ptr %31, i64 %37
+  %38 = getelementptr [56 x i8], ptr %31, i64 %37
   %39 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %21, ptr noundef dereferenceable(16) %38, i64 16)
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %.loopexit25, label %33
@@ -310,7 +309,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 
 55:                                               ; preds = %52, %49
   %56 = phi i64 [ 0, %49 ], [ %53, %52 ]
-  %57 = getelementptr %struct.prm_handler_info, ptr %50, i64 %56
+  %57 = getelementptr [56 x i8], ptr %50, i64 %56
   %58 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %21, ptr noundef dereferenceable(16) %57, i64 16)
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %52
@@ -386,7 +385,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 
 100:                                              ; preds = %97, %94
   %101 = phi i64 [ 0, %94 ], [ %98, %97 ]
-  %102 = getelementptr %struct.prm_handler_info, ptr %95, i64 %101
+  %102 = getelementptr [56 x i8], ptr %95, i64 %101
   %103 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %85, ptr noundef dereferenceable(16) %102, i64 16)
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %97
@@ -440,7 +439,7 @@ define internal noundef range(i32 0, 27) i32 @acpi_platformrt_space_handler(i32 
 
 130:                                              ; preds = %127, %124
   %131 = phi i64 [ 0, %124 ], [ %128, %127 ]
-  %132 = getelementptr %struct.prm_handler_info, ptr %125, i64 %131
+  %132 = getelementptr [56 x i8], ptr %125, i64 %131
   %133 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %115, ptr noundef dereferenceable(16) %132, i64 16)
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %127

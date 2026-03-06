@@ -38,8 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.obj_ref.55 = type { ptr, ptr }
 %class.svector.27 = type { %class.vector.28 }
 %class.vector.28 = type { ptr }
-%"class.obj_map<func_decl, recfun::def *>::obj_map_entry" = type { %"struct.obj_map<func_decl, recfun::def *>::key_data" }
-%"struct.obj_map<func_decl, recfun::def *>::key_data" = type { ptr, ptr }
 
 $_ZN7obj_refI4expr11ast_managerED2Ev = comdat any
 
@@ -131,7 +129,7 @@ _ZNK6recfun4util10is_definedEP9func_decl.exit:    ; preds = %_ZNK4decl13get_fami
   %.idx.i.i.i.i.i = shl nuw nsw i64 %35, 4
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx.i.i.i.i.i
   %37 = zext i32 %31 to i64
-  %38 = getelementptr inbounds nuw %"class.obj_map<func_decl, recfun::def *>::obj_map_entry", ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %37
   %.not34.i.i.i.i.i = icmp eq i32 %33, %31
   br i1 %.not34.i.i.i.i.i, label %.preheader.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
@@ -263,7 +261,7 @@ _ZN6recfun4util7get_defEP9func_decl.exit:         ; preds = %62, %72
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %.02661 = phi i1 [ true, %.preheader.preheader ], [ %spec.select, %.preheader ]
   %83 = load ptr, ptr %0, align 8, !tbaa !41
-  %84 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8, !tbaa !43
   %86 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %83, ptr noundef %85)
   %spec.select = select i1 %86, i1 %.02661, i1 false
@@ -301,7 +299,7 @@ _ZN6recfun4util7get_defEP9func_decl.exit:         ; preds = %62, %72
 
 102:                                              ; preds = %94, %_ZNK8datatype4util14is_constructorEPK4expr.exit.thread
   %indvars.iv69 = phi i64 [ 0, %94 ], [ %indvars.iv.next70, %_ZNK8datatype4util14is_constructorEPK4expr.exit.thread ]
-  %103 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv69
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv69
   %104 = load ptr, ptr %103, align 8, !tbaa !43
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %106 = load i32, ptr %105, align 4

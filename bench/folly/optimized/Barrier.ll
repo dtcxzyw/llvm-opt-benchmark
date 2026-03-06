@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.folly::detail::ScopeGuardImpl" = type { %"class.folly::detail::ScopeGuardImplBase", %class.anon.11 }
 %"class.folly::detail::ScopeGuardImplBase" = type { i8 }
 %class.anon.11 = type { ptr, ptr }
-%"class.folly::Promise" = type { i8, ptr }
 %class.anon = type { ptr }
 %"class.folly::exception_wrapper" = type { %"class.std::__exception_ptr::exception_ptr" }
 %"class.std::__exception_ptr::exception_ptr" = type { ptr }
@@ -271,7 +270,7 @@ define void @_ZN5folly7futures7BarrierC2Ej(ptr noundef nonnull writeonly align 8
 
 .lr.ph.i:                                         ; preds = %2, %14
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 0, %2 ]
-  %12 = getelementptr inbounds nuw %"class.folly::Promise", ptr %10, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv.i
   store i8 0, ptr %12, align 8, !tbaa !31
   %13 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #15
           to label %14 unwind label %24
@@ -346,7 +345,7 @@ define noundef nonnull ptr @_ZN5folly7futures7Barrier20allocateControlBlockEv(pt
 
 .lr.ph:                                           ; preds = %1, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %1 ]
-  %12 = getelementptr inbounds nuw %"class.folly::Promise", ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   store i8 0, ptr %12, align 8, !tbaa !31
   %13 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #15
           to label %14 unwind label %24
@@ -433,7 +432,7 @@ define void @_ZN5folly7futures7BarrierD2Ev(ptr noundef nonnull readonly align 8 
 .lr.ph.i:                                         ; preds = %_ZN5folly7PromiseIbED2Ev.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %14, %.lr.ph.preheader.i ], [ %18, %_ZN5folly7PromiseIbED2Ev.exit.i ]
   %18 = add nsw i64 %indvars.iv.i, -1
-  %19 = getelementptr inbounds nuw %"class.folly::Promise", ptr %12, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !48
   %.not.i.i.i = icmp eq ptr %21, null
@@ -484,7 +483,7 @@ _ZN5folly7futures7Barrier16freeControlBlockEPNS1_12ControlBlockE.exit: ; preds =
   call void @_ZN5folly6detail24make_exception_ptr_with_ERKNS0_28make_exception_ptr_with_arg_EPv(ptr dead_on_unwind nonnull writable sret(%"class.std::__exception_ptr::exception_ptr") align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK5folly26make_exception_ptr_with_fnclIZNKS0_4makeISt13runtime_errorJPKcEEEDaDpOT0_EUlvE_TnPDTclclscPDoFRT_vELDnEEEELPS3_0EEENSt15__exception_ptr13exception_ptrESA_E3arg, ptr noundef nonnull %2) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !66
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !59
-  %33 = getelementptr inbounds nuw %"class.folly::Promise", ptr %9, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %32
   invoke void @_ZN5folly7PromiseIbE12setExceptionENS_17exception_wrapperE(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull %4)
           to label %34 unwind label %40
 
@@ -617,7 +616,7 @@ define void @_ZN5folly7futures7Barrier16freeControlBlockEPNS1_12ControlBlockE(pt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5folly7PromiseIbED2Ev.exit
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %10, %_ZN5folly7PromiseIbED2Ev.exit ]
   %10 = add nsw i64 %indvars.iv, -1
-  %11 = getelementptr inbounds nuw %"class.folly::Promise", ptr %3, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !48
   %.not.i.i = icmp eq ptr %13, null
@@ -922,7 +921,7 @@ define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_7futures7Barr
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   %14 = add i32 %11, -1
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %"class.folly::Promise", ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !48
   %.not.i.i.i.i = icmp eq ptr %18, null
@@ -1265,7 +1264,7 @@ define void @_ZN5folly7futures7Barrier4waitEv(ptr dead_on_unwind noalias writabl
   %11 = atomicrmw add ptr %.0.i.i, i64 4294967297 acquire, align 8
   %12 = trunc i64 %11 to i32
   %13 = and i64 %11, 4294967295
-  %14 = getelementptr inbounds nuw %"class.folly::Promise", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %13
   tail call void @_ZN5folly7PromiseIbE9getFutureEv(ptr dead_on_unwind writable sret(%"class.folly::Future") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %14)
   %15 = add i32 %12, 1
   %16 = load i32, ptr %1, align 8, !tbaa !7
@@ -1296,7 +1295,7 @@ define void @_ZN5folly7futures7Barrier4waitEv(ptr dead_on_unwind noalias writabl
 
 .lr.ph.i:                                         ; preds = %.noexc, %27
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %27 ], [ 0, %.noexc ]
-  %25 = getelementptr inbounds nuw %"class.folly::Promise", ptr %23, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv.i
   store i8 0, ptr %25, align 8, !tbaa !31
   %26 = invoke noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #15
           to label %27 unwind label %37
@@ -1400,7 +1399,7 @@ _ZN5folly6detail7TryBaseIbED2Ev.exit5.i:          ; preds = %52, %50, %47
 
 59:                                               ; preds = %.lr.ph, %72
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %72 ]
-  %60 = getelementptr inbounds nuw %"class.folly::Promise", ptr %10, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8, !tbaa !76
   store i8 0, ptr %56, align 8, !tbaa !34
@@ -1471,7 +1470,7 @@ _ZN5folly6detail7TryBaseIbED2Ev.exit5.i23:        ; preds = %71, %69, %66
 .lr.ph.i30:                                       ; preds = %81, %_ZN5folly7PromiseIbED2Ev.exit.i
   %indvars.iv.i31 = phi i64 [ %85, %_ZN5folly7PromiseIbED2Ev.exit.i ], [ %78, %81 ]
   %85 = add nsw i64 %indvars.iv.i31, -1
-  %86 = getelementptr inbounds nuw %"class.folly::Promise", ptr %10, i64 %85
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !48
   %.not.i.i.i = icmp eq ptr %88, null

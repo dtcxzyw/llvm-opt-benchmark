@@ -13,14 +13,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_seq_expa
 %struct.anon.17 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.list_head = type { ptr, ptr }
-%struct.snd_seq_event_cell = type { %union.anon, ptr, ptr }
-%union.anon = type { %struct.snd_seq_event }
-%struct.snd_seq_event = type { i8, i8, i8, i8, %union.snd_seq_timestamp, %struct.snd_seq_addr, %struct.snd_seq_addr, %union.snd_seq_event_data }
-%union.snd_seq_timestamp = type { %struct.snd_seq_real_time }
-%struct.snd_seq_real_time = type { i32, i32 }
-%struct.snd_seq_addr = type { i8, i8 }
-%union.snd_seq_event_data = type { %struct.snd_seq_ev_ctrl }
-%struct.snd_seq_ev_ctrl = type { i8, i8, i8, i8, i32, i32 }
 
 @__UNIQUE_ID___addressable_snd_seq_dump_var_event343 = internal global ptr @snd_seq_dump_var_event, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_snd_seq_expand_var_event344 = internal global ptr @snd_seq_expand_var_event, section ".discard.addressable", align 8
@@ -988,7 +980,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_pool_init(ptr noundef %0
 .preheader:                                       ; preds = %18, %.preheader
   %22 = phi i64 [ %28, %.preheader ], [ 0, %18 ]
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr %struct.snd_seq_event_cell, ptr %23, i64 %22
+  %24 = getelementptr [48 x i8], ptr %23, i64 %22
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %0, ptr %25, align 8
   %26 = load ptr, ptr %19, align 8

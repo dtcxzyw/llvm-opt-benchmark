@@ -422,7 +422,7 @@ define i32 @ff_put_wav_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 
 169:                                              ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %170 = getelementptr inbounds nuw %struct.AVCodecGuid, ptr @ff_codec_wav_guids, i64 %indvars.iv.next.i
+  %170 = getelementptr inbounds nuw [20 x i8], ptr @ff_codec_wav_guids, i64 %indvars.iv.next.i
   %171 = load i32, ptr %170, align 4, !tbaa !42
   %.not.i = icmp eq i32 %171, 0
   br i1 %.not.i, label %ff_get_codec_guid.exit, label %.lr.ph.i, !llvm.loop !44
@@ -434,7 +434,7 @@ define i32 @ff_put_wav_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   br i1 %173, label %174, label %169
 
 174:                                              ; preds = %.lr.ph.i
-  %175 = getelementptr inbounds nuw %struct.AVCodecGuid, ptr @ff_codec_wav_guids, i64 %indvars.iv.i
+  %175 = getelementptr inbounds nuw [20 x i8], ptr @ff_codec_wav_guids, i64 %indvars.iv.i
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 4
   br label %ff_get_codec_guid.exit
 
@@ -522,7 +522,7 @@ define ptr @ff_get_codec_guid(i32 noundef %0, ptr noundef readonly captures(ret:
 
 4:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = getelementptr inbounds nuw %struct.AVCodecGuid, ptr %1, i64 %indvars.iv.next
+  %5 = getelementptr inbounds nuw [20 x i8], ptr %1, i64 %indvars.iv.next
   %6 = load i32, ptr %5, align 4, !tbaa !42
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !44
@@ -534,7 +534,7 @@ define ptr @ff_get_codec_guid(i32 noundef %0, ptr noundef readonly captures(ret:
   br i1 %8, label %9, label %4
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw %struct.AVCodecGuid, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [20 x i8], ptr %1, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   br label %.loopexit
 

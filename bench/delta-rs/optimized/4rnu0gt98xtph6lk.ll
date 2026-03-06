@@ -4205,7 +4205,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 22:                                               ; preds = %48, %6
   %.val18 = phi i64 [ %.promoted, %6 ], [ %50, %48 ]
   %.0 = phi i64 [ 0, %6 ], [ %51, %48 ]
-  %23 = getelementptr inbounds { i64, i64 }, ptr %0, i64 %.0
+  %23 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0
   call void @llvm.experimental.noalias.scope.decl(metadata !864)
   call void @llvm.experimental.noalias.scope.decl(metadata !867)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i), !noalias !869
@@ -4243,8 +4243,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 "_ZN12object_store4util15coalesce_ranges28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd79b06d3373702d1E.exit.i": ; preds = %31
   %36 = load ptr, ptr %16, align 8, !noalias !879, !nonnull !13, !noundef !13
   %37 = load ptr, ptr %13, align 8, !noalias !879, !nonnull !13, !noundef !13
-  %38 = getelementptr inbounds { i64, i64 }, ptr %37, i64 %28
-  %39 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %36, i64 %28
+  %38 = getelementptr inbounds [16 x i8], ptr %37, i64 %28
+  %39 = getelementptr inbounds [32 x i8], ptr %36, i64 %28
   %40 = load i64, ptr %23, align 8, !alias.scope !881, !noalias !882, !noundef !13
   %41 = load i64, ptr %38, align 8, !noalias !882, !noundef !13
   %42 = sub i64 %40, %41
@@ -4260,7 +4260,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 48:                                               ; preds = %"_ZN12object_store4util15coalesce_ranges28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd79b06d3373702d1E.exit.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !883)
   call void @llvm.experimental.noalias.scope.decl(metadata !886)
-  %49 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %18, i64 %.val18
+  %49 = getelementptr inbounds [32 x i8], ptr %18, i64 %.val18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.i, i64 32, i1 false), !noalias !889
   %50 = add i64 %.val18, 1
   store i64 %50, ptr %19, align 8, !alias.scope !889, !noalias !890

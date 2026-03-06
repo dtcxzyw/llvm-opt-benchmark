@@ -37,11 +37,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.zend_type = type { ptr, i32 }
 %struct.smart_str = type { ptr, i64 }
 %struct._zend_fcall_info_cache = type { ptr, ptr, ptr, ptr, ptr }
-%struct._zend_arg_info = type { ptr, %struct.zend_type, ptr }
 %struct._zend_fcall_info = type { i64, %struct._zval_struct, ptr, ptr, ptr, i32, ptr }
-%struct._zend_class_name = type { ptr, ptr }
 %struct.PHP_SHA1_CTX = type { [5 x i32], [2 x i32], [64 x i8] }
-%struct.zend_attribute_arg = type { ptr, %struct._zval_struct }
 %struct._zend_class_entry = type { i8, ptr, %union.anon, i32, i32, i32, i32, ptr, ptr, ptr, %struct._zend_array, %struct._zend_array, %struct._zend_array, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %union.anon.3, ptr, ptr, ptr, ptr, i32, i32, i32, i32, %union.anon.4, ptr, ptr, ptr, ptr, i32, ptr, ptr, %union.anon.5 }
 %union.anon = type { ptr }
 %union.anon.3 = type { ptr }
@@ -2694,7 +2691,7 @@ define hidden void @zim_ReflectionFunctionAbstract_getClosureUsedVariables(ptr n
   %51 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %52 = load i32, ptr %51, align 8, !tbaa !123
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw %struct._zend_op, ptr %50, i64 %53
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !124
   %57 = lshr i32 %56, 9
@@ -5999,7 +5996,7 @@ has_internal_arg_info.exit.preheader:             ; preds = %234, %231
 
 238:                                              ; preds = %.lr.ph269, %244
   %indvars.iv277 = phi i64 [ 0, %.lr.ph269 ], [ %indvars.iv.next278, %244 ]
-  %239 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %223, i64 %indvars.iv277
+  %239 = getelementptr inbounds nuw [32 x i8], ptr %223, i64 %indvars.iv277
   %240 = load ptr, ptr %239, align 8, !tbaa !153
   %.not192 = icmp eq ptr %240, null
   br i1 %.not192, label %244, label %241
@@ -6016,7 +6013,7 @@ has_internal_arg_info.exit.preheader:             ; preds = %234, %231
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %zend_string_equals.exit.thread259
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %zend_string_equals.exit.thread259 ]
-  %245 = getelementptr inbounds nuw %struct._zend_arg_info, ptr %223, i64 %indvars.iv
+  %245 = getelementptr inbounds nuw [32 x i8], ptr %223, i64 %indvars.iv
   %246 = load ptr, ptr %245, align 8, !tbaa !153
   %.not191 = icmp eq ptr %246, null
   br i1 %.not191, label %zend_string_equals.exit.thread259, label %247
@@ -6090,7 +6087,7 @@ zend_string_equals.exit.thread259:                ; preds = %250, %.lr.ph, %zend
 272:                                              ; preds = %271, %.thread262
   %273 = call noalias ptr @_emalloc_24() #13
   %274 = load i64, ptr %4, align 8, !tbaa !37
-  %275 = getelementptr inbounds %struct._zend_arg_info, ptr %223, i64 %274
+  %275 = getelementptr inbounds [32 x i8], ptr %223, i64 %274
   %276 = getelementptr inbounds nuw i8, ptr %273, i64 8
   store ptr %275, ptr %276, align 8, !tbaa !146
   %277 = trunc i64 %274 to i32
@@ -6136,7 +6133,7 @@ has_internal_arg_info.exit238:                    ; preds = %289
 
 zend_string_alloc.exit:                           ; preds = %has_internal_arg_info.exit238
   %297 = load i64, ptr %4, align 8, !tbaa !37
-  %298 = getelementptr inbounds %struct._zend_internal_arg_info, ptr %223, i64 %297
+  %298 = getelementptr inbounds [32 x i8], ptr %223, i64 %297
   %299 = load ptr, ptr %298, align 8, !tbaa !151
   %300 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %299) #16
   %301 = and i64 %300, -8
@@ -6160,7 +6157,7 @@ zend_string_alloc.exit:                           ; preds = %has_internal_arg_in
 
 has_internal_arg_info.exit238.thread:             ; preds = %289, %has_internal_arg_info.exit238
   %310 = load i64, ptr %4, align 8, !tbaa !37
-  %311 = getelementptr inbounds %struct._zend_arg_info, ptr %223, i64 %310
+  %311 = getelementptr inbounds [32 x i8], ptr %223, i64 %310
   %312 = load ptr, ptr %311, align 8, !tbaa !153
   store ptr %312, ptr %292, align 8, !tbaa !26
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 4
@@ -6831,7 +6828,7 @@ smart_str_alloc.exit57:                           ; preds = %has_internal_arg_in
   %151 = getelementptr i8, ptr %1, i64 104
   %.val77 = load ptr, ptr %151, align 8, !tbaa !122
   %152 = zext i32 %.val to i64
-  %153 = getelementptr inbounds nuw %struct._zend_op, ptr %.val77, i64 %152
+  %153 = getelementptr inbounds nuw [32 x i8], ptr %.val77, i64 %152
   %154 = add i32 %3, 1
   br label %155
 
@@ -8230,7 +8227,7 @@ define hidden void @zim_ReflectionParameter_isDefaultValueAvailable(ptr noundef 
   %41 = getelementptr i8, ptr %22, i64 104
   %.val17 = load ptr, ptr %41, align 8, !tbaa !122
   %42 = zext i32 %.val to i64
-  %43 = getelementptr inbounds nuw %struct._zend_op, ptr %.val17, i64 %42
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %.val17, i64 %42
   %44 = add i32 %39, 1
   br label %45
 
@@ -8323,7 +8320,7 @@ define hidden void @zim_ReflectionParameter_getDefaultValue(ptr noundef readonly
   %32 = getelementptr i8, ptr %22, i64 104
   %.val20.i = load ptr, ptr %32, align 8, !tbaa !122
   %33 = zext i32 %.val.i to i64
-  %34 = getelementptr inbounds nuw %struct._zend_op, ptr %.val20.i, i64 %33
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %.val20.i, i64 %33
   %35 = add i32 %30, 1
   br label %36
 
@@ -8463,7 +8460,7 @@ define hidden void @zim_ReflectionParameter_isDefaultValueConstant(ptr noundef r
   %33 = getelementptr i8, ptr %23, i64 104
   %.val20.i = load ptr, ptr %33, align 8, !tbaa !122
   %34 = zext i32 %.val.i to i64
-  %35 = getelementptr inbounds nuw %struct._zend_op, ptr %.val20.i, i64 %34
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %.val20.i, i64 %34
   %36 = add i32 %31, 1
   br label %37
 
@@ -8640,7 +8637,7 @@ define hidden void @zim_ReflectionParameter_getDefaultValueConstantName(ptr noun
   %33 = getelementptr i8, ptr %23, i64 104
   %.val20.i = load ptr, ptr %33, align 8, !tbaa !122
   %34 = zext i32 %.val.i to i64
-  %35 = getelementptr inbounds nuw %struct._zend_op, ptr %.val20.i, i64 %34
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %.val20.i, i64 %34
   %36 = add i32 %31, 1
   br label %37
 
@@ -13906,7 +13903,7 @@ define hidden void @zim_ReflectionClass_getStaticProperties(ptr noundef readonly
   %73 = phi ptr [ %71, %68 ], [ %65, %64 ]
   %74 = load i32, ptr %54, align 8, !tbaa !207
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %struct._zval_struct, ptr %73, i64 %75
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i8, ptr %77, align 8, !tbaa !26
   %79 = icmp eq i8 %78, 12
@@ -14359,7 +14356,7 @@ define internal fastcc void @add_class_vars(ptr noundef nonnull %0, i1 noundef z
   %34 = load ptr, ptr %33, align 8, !tbaa !211
   %35 = load i32, ptr %19, align 8, !tbaa !207
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %struct._zval_struct, ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i8, ptr %38, align 8, !tbaa !26
   %40 = icmp eq i8 %39, 12
@@ -14381,7 +14378,7 @@ define internal fastcc void @add_class_vars(ptr noundef nonnull %0, i1 noundef z
   %49 = add i32 %48, -40
   %50 = lshr i32 %49, 4
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw %struct._zval_struct, ptr %47, i64 %51
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %51
   br label %property_get_default.exit
 
 property_get_default.exit:                        ; preds = %41, %45
@@ -14808,7 +14805,7 @@ smart_str_appendc_ex.exit395:                     ; preds = %13, %19
 96:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %96 ]
   %97 = load ptr, ptr %95, align 8, !tbaa !26
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8, !tbaa !36
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !34
@@ -20387,7 +20384,7 @@ define hidden void @zim_ReflectionClass_getInterfaces(ptr noundef readonly captu
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %zend_reflection_class_factory.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %30 = load ptr, ptr %28, align 8, !tbaa !26
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !36
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 28
   %34 = load i32, ptr %33, align 4, !tbaa !4
@@ -20427,7 +20424,7 @@ zend_reflection_class_factory.exit:               ; preds = %29, %51
   store i32 %.sink.i, ptr %54, align 8, !tbaa !26
   %55 = load ptr, ptr %1, align 8, !tbaa !26
   %56 = load ptr, ptr %28, align 8, !tbaa !26
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8, !tbaa !36
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !34
@@ -20512,7 +20509,7 @@ define hidden void @zim_ReflectionClass_getInterfaceNames(ptr noundef readonly c
 30:                                               ; preds = %.lr.ph, %zend_string_copy.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %zend_string_copy.exit ]
   %31 = load ptr, ptr %29, align 8, !tbaa !26
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !36
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !34
@@ -20605,7 +20602,7 @@ define hidden void @zim_ReflectionClass_getTraits(ptr noundef readonly captures(
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %zend_reflection_class_factory.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %32 = load ptr, ptr %30, align 8, !tbaa !231
-  %33 = getelementptr inbounds nuw %struct._zend_class_name, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !232
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !234
@@ -20649,7 +20646,7 @@ zend_reflection_class_factory.exit:               ; preds = %31, %56
   store i32 %.sink.i, ptr %59, align 8, !tbaa !26
   %60 = load ptr, ptr %1, align 8, !tbaa !26
   %61 = load ptr, ptr %30, align 8, !tbaa !231
-  %62 = getelementptr inbounds nuw %struct._zend_class_name, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !232
   %64 = call ptr @zend_hash_update(ptr noundef %60, ptr noundef %63, ptr noundef nonnull %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -20728,7 +20725,7 @@ define hidden void @zim_ReflectionClass_getTraitNames(ptr noundef readonly captu
 30:                                               ; preds = %.lr.ph, %zend_string_copy.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %zend_string_copy.exit ]
   %31 = load ptr, ptr %29, align 8, !tbaa !231
-  %32 = getelementptr inbounds nuw %struct._zend_class_name, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !232
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !26
@@ -20844,7 +20841,7 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr noundef readonly cap
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %39 ]
   %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 64), align 8, !tbaa !243
   %48 = load ptr, ptr %29, align 8, !tbaa !231
-  %49 = getelementptr inbounds nuw %struct._zend_class_name, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !234
   %52 = tail call ptr @zend_hash_find(ptr noundef %47, ptr noundef %51) #13
@@ -20911,7 +20908,7 @@ zend_string_alloc.exit:                           ; preds = %zend_string_release
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %86 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %81, i64 noundef %82, ptr noundef nonnull @.str.56, ptr noundef nonnull %83, ptr noundef nonnull %85) #13
   %87 = load ptr, ptr %21, align 8, !tbaa !235
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %33
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %33
   %89 = load ptr, ptr %88, align 8, !tbaa !236
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8, !tbaa !238
@@ -20926,7 +20923,7 @@ zend_string_alloc.exit:                           ; preds = %zend_string_release
   %96 = phi ptr [ %.pre, %zend_string_alloc.exit ], [ %31, %30 ]
   %97 = add i32 %.04566, 1
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw ptr, ptr %96, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !236
   %.not54 = icmp eq ptr %100, null
   br i1 %.not54, label %.loopexit63, label %30
@@ -22643,7 +22640,7 @@ zend_string_release.exit:                         ; preds = %171, %170, %163, %s
   %184 = load ptr, ptr %183, align 8, !tbaa !211
   %185 = load i32, ptr %1, align 8, !tbaa !207
   %186 = zext i32 %185 to i64
-  %187 = getelementptr inbounds nuw %struct._zval_struct, ptr %184, i64 %186
+  %187 = getelementptr inbounds nuw [16 x i8], ptr %184, i64 %186
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load i8, ptr %188, align 8, !tbaa !26
   %190 = icmp eq i8 %189, 12
@@ -22665,7 +22662,7 @@ zend_string_release.exit:                         ; preds = %171, %170, %163, %s
   %199 = add i32 %198, -40
   %200 = lshr i32 %199, 4
   %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds nuw %struct._zval_struct, ptr %197, i64 %201
+  %202 = getelementptr inbounds nuw [16 x i8], ptr %197, i64 %201
   br label %property_get_default.exit
 
 property_get_default.exit:                        ; preds = %191, %195
@@ -25011,7 +25008,7 @@ thread-pre-split:                                 ; preds = %instanceof_function
   %61 = add i32 %60, -40
   %62 = lshr i32 %61, 4
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw %struct._zval_struct, ptr %58, i64 %63
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %63
   %65 = zext i32 %60 to i64
   %66 = getelementptr inbounds nuw i8, ptr %.0.lcssa84, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 12
@@ -25913,7 +25910,7 @@ define hidden void @zim_ReflectionProperty_hasDefaultValue(ptr noundef readonly 
   %33 = load ptr, ptr %32, align 8, !tbaa !211
   %34 = load i32, ptr %21, align 8, !tbaa !207
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %struct._zval_struct, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i8, ptr %37, align 8, !tbaa !26
   %39 = icmp eq i8 %38, 12
@@ -25935,7 +25932,7 @@ define hidden void @zim_ReflectionProperty_hasDefaultValue(ptr noundef readonly 
   %48 = add i32 %47, -40
   %49 = lshr i32 %48, 4
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw %struct._zval_struct, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %50
   br label %property_get_default.exit
 
 property_get_default.exit:                        ; preds = %40, %44
@@ -26018,7 +26015,7 @@ define hidden void @zim_ReflectionProperty_getDefaultValue(ptr noundef readonly 
   %31 = load ptr, ptr %30, align 8, !tbaa !211
   %32 = load i32, ptr %21, align 8, !tbaa !207
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %struct._zval_struct, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i8, ptr %35, align 8, !tbaa !26
   %37 = icmp eq i8 %36, 12
@@ -26040,7 +26037,7 @@ define hidden void @zim_ReflectionProperty_getDefaultValue(ptr noundef readonly 
   %46 = add i32 %45, -40
   %47 = lshr i32 %46, 4
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw %struct._zval_struct, ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %48
   br label %property_get_default.exit
 
 property_get_default.exit:                        ; preds = %38, %42
@@ -26491,7 +26488,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %zend_string_equals_
   br i1 %.not53, label %56, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %47
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %47
   %54 = load ptr, ptr %53, align 8, !tbaa !249
   %.not54 = icmp eq ptr %54, null
   %55 = select i1 %.not54, i32 2, i32 3
@@ -28895,10 +28892,10 @@ define hidden void @zim_ReflectionExtension_getDependencies(ptr noundef readonly
 
 switch.lookup:                                    ; preds = %.lr.ph
   %32 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.zim_ReflectionExtension_getDependencies, i64 %32
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.zim_ReflectionExtension_getDependencies, i64 %32
   %switch.load = load ptr, ptr %switch.gep, align 8
   %33 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep62 = getelementptr inbounds nuw i64, ptr @switch.table.zim_ReflectionExtension_getDependencies.14, i64 %33
+  %switch.gep62 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.zim_ReflectionExtension_getDependencies.14, i64 %33
   %switch.load63 = load i64, ptr %switch.gep62, align 8
   br label %34
 
@@ -30116,7 +30113,7 @@ smart_str_alloc.exit39:                           ; preds = %59, %61
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %3, ptr noundef nonnull @.str.88, i32 noundef %74) #13
   %75 = load ptr, ptr %29, align 8, !tbaa !134
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  %77 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %76, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8, !tbaa !283
   %.not28 = icmp eq ptr %78, null
   br i1 %.not28, label %106, label %79
@@ -30181,7 +30178,7 @@ smart_str_alloc.exit44:                           ; preds = %90, %99
 
 106:                                              ; preds = %smart_str_alloc.exit44, %.lr.ph
   %107 = phi ptr [ %.pre91, %smart_str_alloc.exit44 ], [ %75, %.lr.ph ]
-  %108 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %107, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [24 x i8], ptr %107, i64 %indvars.iv
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
   call fastcc void @format_default_value(ptr noundef %3, ptr noundef nonnull %109)
   %110 = load ptr, ptr %3, align 8, !tbaa !77
@@ -31167,7 +31164,7 @@ define hidden void @zim_ReflectionAttribute_getArguments(ptr noundef readonly ca
 34:                                               ; preds = %.lr.ph
   %35 = load ptr, ptr %25, align 8, !tbaa !134
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %37 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !283
   %.not22 = icmp eq ptr %38, null
   %39 = load ptr, ptr %1, align 8, !tbaa !26

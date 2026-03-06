@@ -4,20 +4,15 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ZSTD_customMem = type { ptr, ptr, ptr }
-%struct.ZSTDMT_jobDescription = type { i64, i64, %union.pthread_mutex_t, %union.pthread_cond_t, ptr, ptr, ptr, ptr, %struct.buffer_s, %struct.Range, %struct.Range, i32, i32, i32, %struct.ZSTD_CCtx_params_s, ptr, i64, i64, i32 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
 %struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
 %union.__atomic_wide_counter = type { i64 }
-%struct.buffer_s = type { ptr, i64 }
-%struct.Range = type { ptr, i64 }
-%struct.ZSTD_CCtx_params_s = type { i32, %struct.ZSTD_compressionParameters, %struct.ZSTD_frameParameters, i32, i32, i64, i32, i32, i32, i32, i64, i32, i32, %struct.ldmParams_t, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, %struct.ZSTD_customMem, i32, i32, ptr, ptr, i32 }
 %struct.ZSTD_compressionParameters = type { i32, i32, i32, i32, i32, i32, i32 }
+%struct.ZSTD_frameProgression = type { i64, i64, i64, i64, i32, i32 }
+%struct.ZSTD_CCtx_params_s = type { i32, %struct.ZSTD_compressionParameters, %struct.ZSTD_frameParameters, i32, i32, i64, i32, i32, i32, i32, i64, i32, i32, %struct.ldmParams_t, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, %struct.ZSTD_customMem, i32, i32, ptr, ptr, i32 }
 %struct.ZSTD_frameParameters = type { i32, i32, i32 }
 %struct.ldmParams_t = type { i32, i32, i32, i32, i32, i32 }
-%struct.ZSTD_frameProgression = type { i64, i64, i64, i64, i32, i32 }
 %struct.RawSeqStore_t = type { ptr, i64, i64, i64, i64 }
 
 @.str = private unnamed_addr constant [2 x i8] c" \00", align 1
@@ -205,7 +200,7 @@ define noundef i64 @ZSTDMT_freeCCtx(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %18 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %11, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [456 x i8], ptr %11, i64 %indvars.iv.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %19) #14
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 56
@@ -344,7 +339,7 @@ define internal fastcc void @ZSTDMT_releaseAllJobResources(ptr noundef captures(
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.01)
   %6 = load ptr, ptr %3, align 8, !tbaa !35
   %7 = zext i32 %.019 to i64
-  %8 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [456 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !49
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
@@ -373,7 +368,7 @@ define internal fastcc void @ZSTDMT_releaseAllJobResources(ptr noundef captures(
   %27 = add nuw i32 %20, 1
   store i32 %27, ptr %19, align 4, !tbaa !52
   %28 = zext i32 %20 to i64
-  %29 = getelementptr inbounds nuw %struct.buffer_s, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %28
   store ptr %13, ptr %29, align 8, !tbaa !12
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %15, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !55
@@ -399,14 +394,14 @@ define internal fastcc void @ZSTDMT_releaseAllJobResources(ptr noundef captures(
 
 ZSTDMT_releaseBuffer.exit:                        ; preds = %5, %24, %34, %36
   %37 = load ptr, ptr %3, align 8, !tbaa !35
-  %38 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %37, i64 %7
+  %38 = getelementptr inbounds nuw [456 x i8], ptr %37, i64 %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(456) %38, i8 0, i64 456, i1 false)
   %39 = load ptr, ptr %3, align 8, !tbaa !35
-  %40 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %39, i64 %7
+  %40 = getelementptr inbounds nuw [456 x i8], ptr %39, i64 %7
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01, i64 40, i1 false), !tbaa.struct !49
   %42 = load ptr, ptr %3, align 8, !tbaa !35
-  %43 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %42, i64 %7
+  %43 = getelementptr inbounds nuw [456 x i8], ptr %42, i64 %7
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0, i64 48, i1 false), !tbaa.struct !51
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
@@ -449,7 +444,7 @@ define internal fastcc void @ZSTDMT_freeBufferPool(ptr noundef %0) unnamed_addr 
 9:                                                ; preds = %.lr.ph, %ZSTD_customFree.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ZSTD_customFree.exit ]
   %10 = load ptr, ptr %3, align 8, !tbaa !54
-  %11 = getelementptr inbounds nuw %struct.buffer_s, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !57
   %.val = load ptr, ptr %7, align 8
   %.val14 = load ptr, ptr %8, align 8
@@ -540,7 +535,7 @@ define internal fastcc void @ZSTDMT_freeCCtxPool(ptr noundef %0) unnamed_addr #0
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %9 = load ptr, ptr %4, align 8, !tbaa !59
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !63
   %12 = tail call i64 @ZSTD_freeCCtx(ptr noundef %11) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -619,7 +614,7 @@ define i64 @ZSTDMT_sizeof_CCtx(ptr noundef readonly captures(address_is_null) %0
 14:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
   %.012.i = phi i64 [ 0, %.lr.ph.i ], [ %18, %14 ]
-  %15 = getelementptr inbounds nuw %struct.buffer_s, ptr %13, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !66
   %18 = add i64 %17, %.012.i
@@ -653,7 +648,7 @@ ZSTDMT_sizeof_bufferPool.exit:                    ; preds = %14, %3
   %indvars.iv.i12 = phi i64 [ 0, %.lr.ph.i10 ], [ %indvars.iv.next.i13, %32 ]
   %.01112.i = phi i64 [ 0, %.lr.ph.i10 ], [ %37, %32 ]
   %33 = load ptr, ptr %31, align 8, !tbaa !59
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.i12
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i12
   %35 = load ptr, ptr %34, align 8, !tbaa !63
   %36 = tail call i64 @ZSTD_sizeof_CCtx(ptr noundef %35) #14
   %37 = add i64 %36, %.01112.i
@@ -684,7 +679,7 @@ ZSTDMT_sizeof_CCtxPool.exit:                      ; preds = %32, %ZSTDMT_sizeof_
 49:                                               ; preds = %49, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %49 ]
   %.012.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %53, %49 ]
-  %50 = getelementptr inbounds nuw %struct.buffer_s, ptr %48, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv.i.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8, !tbaa !66
   %53 = add i64 %52, %.012.i.i
@@ -782,7 +777,7 @@ define void @ZSTDMT_getFrameProgression(ptr dead_on_unwind noalias writable writ
   %28 = and i32 %27, %.037
   %29 = load ptr, ptr %20, align 8, !tbaa !35
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [456 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %32) #14
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -809,7 +804,7 @@ define void @ZSTDMT_getFrameProgression(ptr dead_on_unwind noalias writable writ
   %51 = zext i1 %50 to i32
   %52 = add i32 %26, %51
   %53 = load ptr, ptr %20, align 8, !tbaa !35
-  %54 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %53, i64 %30
+  %54 = getelementptr inbounds nuw [456 x i8], ptr %53, i64 %30
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %55) #14
   %57 = add i32 %.037, 1
@@ -856,7 +851,7 @@ define i64 @ZSTDMT_toFlushNow(ptr noundef readonly captures(none) %0) local_unna
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !35
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [456 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %15) #14
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -874,7 +869,7 @@ define i64 @ZSTDMT_toFlushNow(ptr noundef readonly captures(none) %0) local_unna
   %25 = phi i64 [ %23, %21 ], [ 0, %7 ]
   %26 = sub i64 %20, %25
   %27 = load ptr, ptr %11, align 8, !tbaa !35
-  %28 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %27, i64 %13
+  %28 = getelementptr inbounds nuw [456 x i8], ptr %27, i64 %13
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %29) #14
   br label %31
@@ -939,7 +934,7 @@ define range(i64 -64, 1) i64 @ZSTDMT_initCStream_internal(ptr noundef %0, ptr no
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %37 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %32, i64 %indvars.iv.i.i.i
+  %37 = getelementptr inbounds nuw [456 x i8], ptr %32, i64 %indvars.iv.i.i.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %38) #14
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 56
@@ -1125,11 +1120,11 @@ ZSTDMT_resize.exit:                               ; preds = %79, %ZSTDMT_expandS
   %114 = and i32 %113, %112
   %115 = load ptr, ptr %110, align 8, !tbaa !35
   %116 = zext i32 %114 to i64
-  %117 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw [456 x i8], ptr %115, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %118) #14
   %120 = load ptr, ptr %110, align 8, !tbaa !35
-  %121 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %120, i64 %116
+  %121 = getelementptr inbounds nuw [456 x i8], ptr %120, i64 %116
   %122 = load i64, ptr %121, align 8, !tbaa !87
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 176
   %124 = load i64, ptr %123, align 8, !tbaa !86
@@ -1142,7 +1137,7 @@ ZSTDMT_resize.exit:                               ; preds = %79, %ZSTDMT_expandS
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %129 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %127, ptr noundef nonnull %128) #14
   %130 = load ptr, ptr %110, align 8, !tbaa !35
-  %131 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %130, i64 %116
+  %131 = getelementptr inbounds nuw [456 x i8], ptr %130, i64 %116
   %132 = load i64, ptr %131, align 8, !tbaa !87
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 176
   %134 = load i64, ptr %133, align 8, !tbaa !86
@@ -1151,7 +1146,7 @@ ZSTDMT_resize.exit:                               ; preds = %79, %ZSTDMT_expandS
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %111
   %136 = phi ptr [ %120, %111 ], [ %130, %.lr.ph.i ]
-  %137 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %136, i64 %116
+  %137 = getelementptr inbounds nuw [456 x i8], ptr %136, i64 %116
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %138) #14
   %140 = load i32, ptr %104, align 4, !tbaa !82
@@ -1216,7 +1211,7 @@ ZSTDMT_overlapLog.exit.i:                         ; preds = %157
 
 switch.lookup:                                    ; preds = %164
   %168 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ZSTDMT_initCStream_internal, i64 %168
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ZSTDMT_initCStream_internal, i64 %168
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %ZSTDMT_overlapLog.exit.thread.i
 
@@ -1850,16 +1845,16 @@ define i64 @ZSTDMT_compressStream_generic(ptr noundef %0, ptr noundef captures(n
   %42 = load i32, ptr %36, align 8, !tbaa !36
   %43 = and i32 %42, %.03440.i.i
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [456 x i8], ptr %41, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %46) #14
   %48 = load ptr, ptr %37, align 8, !tbaa !35
-  %49 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %48, i64 %44
+  %49 = getelementptr inbounds nuw [456 x i8], ptr %48, i64 %44
   %50 = load i64, ptr %49, align 8, !tbaa !87
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %51) #14
   %53 = load ptr, ptr %37, align 8, !tbaa !35
-  %54 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %53, i64 %44
+  %54 = getelementptr inbounds nuw [456 x i8], ptr %53, i64 %44
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 176
   %56 = load i64, ptr %55, align 8, !tbaa !86
   %.not.i.i = icmp ult i64 %50, %56
@@ -2331,7 +2326,7 @@ findSynchronizationPoint.exit.thread:             ; preds = %234, %ZSTD_rollingH
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %277 = load ptr, ptr %276, align 8, !tbaa !35
   %278 = zext i32 %264 to i64
-  %279 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %277, i64 %278
+  %279 = getelementptr inbounds nuw [456 x i8], ptr %277, i64 %278
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 168
   store ptr %275, ptr %280, align 8, !tbaa !139
   %281 = getelementptr inbounds nuw i8, ptr %279, i64 176
@@ -2339,7 +2334,7 @@ findSynchronizationPoint.exit.thread:             ; preds = %234, %ZSTD_rollingH
   %282 = getelementptr inbounds nuw i8, ptr %279, i64 152
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %282, ptr noundef nonnull align 8 dereferenceable(16) %273, i64 16, i1 false), !tbaa.struct !140
   %283 = load ptr, ptr %276, align 8, !tbaa !35
-  %284 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %283, i64 %278
+  %284 = getelementptr inbounds nuw [456 x i8], ptr %283, i64 %278
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 200
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %284, i8 0, i64 16, i1 false)
@@ -2356,7 +2351,7 @@ findSynchronizationPoint.exit.thread:             ; preds = %234, %ZSTD_rollingH
 292:                                              ; preds = %289, %272
   %293 = phi ptr [ %291, %289 ], [ null, %272 ]
   %294 = load ptr, ptr %276, align 8, !tbaa !35
-  %295 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %294, i64 %278
+  %295 = getelementptr inbounds nuw [456 x i8], ptr %294, i64 %278
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 424
   store ptr %293, ptr %296, align 8, !tbaa !141
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 3048
@@ -2368,7 +2363,7 @@ findSynchronizationPoint.exit.thread:             ; preds = %234, %ZSTD_rollingH
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %302 = load ptr, ptr %301, align 8, !tbaa !38
   %303 = load ptr, ptr %276, align 8, !tbaa !35
-  %304 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %303, i64 %278
+  %304 = getelementptr inbounds nuw [456 x i8], ptr %303, i64 %278
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 104
   store ptr %302, ptr %305, align 8, !tbaa !143
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2467,7 +2462,7 @@ ZSTDMT_writeLastEmptyBlock.exit.i:                ; preds = %346, %.critedge.i
   %.pre-phi.i = phi i64 [ %.pre102.i, %..thread100_crit_edge.i ], [ %278, %331 ], [ %278, %.thread99.i ], [ %278, %.thread.i ]
   %352 = phi ptr [ %.pre.i, %..thread100_crit_edge.i ], [ %303, %331 ], [ %303, %.thread99.i ], [ %303, %.thread.i ]
   %353 = load ptr, ptr %0, align 8, !tbaa !34
-  %354 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %352, i64 %.pre-phi.i
+  %354 = getelementptr inbounds nuw [456 x i8], ptr %352, i64 %.pre-phi.i
   %355 = tail call i32 @POOL_tryAdd(ptr noundef %353, ptr noundef nonnull @ZSTDMT_compressionJob, ptr noundef %354) #14
   %.not97.i = icmp eq i32 %355, 0
   br i1 %.not97.i, label %359, label %356
@@ -2492,7 +2487,7 @@ ZSTDMT_createCompressionJob.exit:                 ; preds = %359, %ZSTDMT_writeL
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %366 = load ptr, ptr %365, align 8, !tbaa !35
   %367 = zext i32 %364 to i64
-  %368 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %366, i64 %367
+  %368 = getelementptr inbounds nuw [456 x i8], ptr %366, i64 %367
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 16
   %370 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %369) #14
   br i1 %.056, label %..loopexit_crit_edge.i, label %371
@@ -2510,7 +2505,7 @@ ZSTDMT_createCompressionJob.exit:                 ; preds = %359, %ZSTDMT_writeL
   br i1 %375, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %371
-  %376 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre124.i, i64 %367
+  %376 = getelementptr inbounds nuw [456 x i8], ptr %.pre124.i, i64 %367
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 440
   %378 = load i64, ptr %377, align 8, !tbaa !85
   %379 = getelementptr inbounds nuw i8, ptr %376, i64 8
@@ -2538,7 +2533,7 @@ ZSTDMT_createCompressionJob.exit:                 ; preds = %359, %ZSTDMT_writeL
   %392 = getelementptr inbounds nuw i8, ptr %390, i64 16
   %393 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %391, ptr noundef nonnull %392) #14
   %394 = load ptr, ptr %365, align 8, !tbaa !35
-  %395 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %394, i64 %367
+  %395 = getelementptr inbounds nuw [456 x i8], ptr %394, i64 %367
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 440
   %397 = load i64, ptr %396, align 8, !tbaa !85
   %398 = getelementptr inbounds nuw i8, ptr %395, i64 8
@@ -2551,7 +2546,7 @@ ZSTDMT_createCompressionJob.exit:                 ; preds = %359, %ZSTDMT_writeL
 
 .loopexit.i:                                      ; preds = %.lr.ph.i82, %.lr.ph.i82.preheader, %..loopexit.i.loopexit_crit_edge, %.preheader.i, %371, %..loopexit_crit_edge.i
   %401 = phi ptr [ %.pre.i83, %..loopexit_crit_edge.i ], [ %.pre124.i, %371 ], [ %.pre124.i, %.preheader.i ], [ %394, %..loopexit.i.loopexit_crit_edge ], [ %.pre124.i, %.lr.ph.i82.preheader ], [ %394, %.lr.ph.i82 ]
-  %402 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %401, i64 %367
+  %402 = getelementptr inbounds nuw [456 x i8], ptr %401, i64 %367
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 8
   %404 = load i64, ptr %403, align 8, !tbaa !83
   %405 = load i64, ptr %402, align 8, !tbaa !87
@@ -2575,11 +2570,11 @@ ZSTDMT_createCompressionJob.exit:                 ; preds = %359, %ZSTDMT_writeL
   %418 = and i32 %417, %416
   %419 = load ptr, ptr %365, align 8, !tbaa !35
   %420 = zext i32 %418 to i64
-  %421 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %419, i64 %420
+  %421 = getelementptr inbounds nuw [456 x i8], ptr %419, i64 %420
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 16
   %423 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %422) #14
   %424 = load ptr, ptr %365, align 8, !tbaa !35
-  %425 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %424, i64 %420
+  %425 = getelementptr inbounds nuw [456 x i8], ptr %424, i64 %420
   %426 = load i64, ptr %425, align 8, !tbaa !87
   %427 = getelementptr inbounds nuw i8, ptr %425, i64 176
   %428 = load i64, ptr %427, align 8, !tbaa !86
@@ -2592,7 +2587,7 @@ ZSTDMT_createCompressionJob.exit:                 ; preds = %359, %ZSTDMT_writeL
   %432 = getelementptr inbounds nuw i8, ptr %430, i64 16
   %433 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %431, ptr noundef nonnull %432) #14
   %434 = load ptr, ptr %365, align 8, !tbaa !35
-  %435 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %434, i64 %420
+  %435 = getelementptr inbounds nuw [456 x i8], ptr %434, i64 %420
   %436 = load i64, ptr %435, align 8, !tbaa !87
   %437 = getelementptr inbounds nuw i8, ptr %435, i64 176
   %438 = load i64, ptr %437, align 8, !tbaa !86
@@ -2601,7 +2596,7 @@ ZSTDMT_createCompressionJob.exit:                 ; preds = %359, %ZSTDMT_writeL
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i77, %.lr.ph17.i.i
   %440 = phi ptr [ %424, %.lr.ph17.i.i ], [ %434, %.lr.ph.i.i77 ]
-  %441 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %440, i64 %420
+  %441 = getelementptr inbounds nuw [456 x i8], ptr %440, i64 %420
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 16
   %443 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %442) #14
   %444 = load i32, ptr %360, align 4, !tbaa !82
@@ -2621,7 +2616,7 @@ ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %._crit_edge.i.i, %4
   br i1 %449, label %450, label %464
 
 450:                                              ; preds = %448
-  %451 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre129.pre.i, i64 %367
+  %451 = getelementptr inbounds nuw [456 x i8], ptr %.pre129.pre.i, i64 %367
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 448
   %453 = load i32, ptr %452, align 8, !tbaa !151
   %.not112.i = icmp eq i32 %453, 0
@@ -2649,7 +2644,7 @@ ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %._crit_edge.i.i, %4
 
 465:                                              ; preds = %464, %.thread137.i
   %.0104140.i = phi i64 [ %462, %.thread137.i ], [ %404, %464 ]
-  %466 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre129.pre.i, i64 %367
+  %466 = getelementptr inbounds nuw [456 x i8], ptr %.pre129.pre.i, i64 %367
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 440
   %468 = load i64, ptr %467, align 8, !tbaa !85
   %469 = sub i64 %.0104140.i, %468
@@ -2671,7 +2666,7 @@ ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %._crit_edge.i.i, %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %477, ptr align 1 %480, i64 %..i78, i1 false)
   %.pre125.i = load i64, ptr %472, align 8, !tbaa !156
   %.pre126.i = load ptr, ptr %365, align 8, !tbaa !35
-  %.phi.trans.insert.i79 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.pre126.i, i64 %367
+  %.phi.trans.insert.i79 = getelementptr inbounds nuw [456 x i8], ptr %.pre126.i, i64 %367
   %.phi.trans.insert127.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.i79, i64 440
   %.pre128.i = load i64, ptr %.phi.trans.insert127.i, align 8, !tbaa !85
   br label %481
@@ -2682,7 +2677,7 @@ ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %._crit_edge.i.i, %4
   %484 = phi i64 [ %.pre125.i, %475 ], [ %473, %465 ]
   %485 = add i64 %484, %..i78
   store i64 %485, ptr %472, align 8, !tbaa !156
-  %486 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %483, i64 %367
+  %486 = getelementptr inbounds nuw [456 x i8], ptr %483, i64 %367
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 440
   %488 = add i64 %482, %..i78
   store i64 %488, ptr %487, align 8, !tbaa !85
@@ -2715,7 +2710,7 @@ ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %._crit_edge.i.i, %4
   %508 = add nuw i32 %501, 1
   store i32 %508, ptr %500, align 4, !tbaa !52
   %509 = zext i32 %501 to i64
-  %510 = getelementptr inbounds nuw %struct.buffer_s, ptr %507, i64 %509
+  %510 = getelementptr inbounds nuw [16 x i8], ptr %507, i64 %509
   store ptr %494, ptr %510, align 8, !tbaa !12
   %.sroa.4.0..sroa_idx.i.i81 = getelementptr inbounds nuw i8, ptr %510, i64 8
   store i64 %496, ptr %.sroa.4.0..sroa_idx.i.i81, align 8, !tbaa !55
@@ -2741,11 +2736,11 @@ ZSTDMT_waitForAllJobsCompleted.exit.i:            ; preds = %._crit_edge.i.i, %4
 
 ZSTDMT_releaseBuffer.exit.i:                      ; preds = %517, %515, %505, %490
   %518 = load ptr, ptr %365, align 8, !tbaa !35
-  %519 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %518, i64 %367
+  %519 = getelementptr inbounds nuw [456 x i8], ptr %518, i64 %367
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %520, i8 0, i64 16, i1 false)
   %521 = load ptr, ptr %365, align 8, !tbaa !35
-  %522 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %521, i64 %367
+  %522 = getelementptr inbounds nuw [456 x i8], ptr %521, i64 %367
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 8
   store i64 0, ptr %523, align 8, !tbaa !83
   %524 = getelementptr inbounds nuw i8, ptr %0, i64 3056
@@ -2859,7 +2854,7 @@ ZSTD_customCalloc.exit:                           ; preds = %11, %13
 17:                                               ; preds = %16, %17
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %17 ]
   %.028 = phi i32 [ 0, %16 ], [ %24, %17 ]
-  %18 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.0.i, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [456 x i8], ptr %.0.i, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %19, ptr noundef null) #14
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 56
@@ -2881,7 +2876,7 @@ ZSTD_customCalloc.exit:                           ; preds = %11, %13
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %27 = getelementptr inbounds nuw %struct.ZSTDMT_jobDescription, ptr %.0.i, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [456 x i8], ptr %.0.i, i64 %indvars.iv.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %28) #14
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 56
@@ -3151,7 +3146,7 @@ define internal void @ZSTDMT_compressionJob(ptr noundef %0) #0 {
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %13 = load ptr, ptr %12, align 8, !tbaa !59
   %14 = sext i32 %11 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !63
   %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #14
   br label %ZSTDMT_getCCtx.exit
@@ -3668,7 +3663,7 @@ ZSTDMT_serialState_ensureFinished.exit:           ; preds = %.thread196, %276
   %310 = add nuw i32 %303, 1
   store i32 %310, ptr %302, align 4, !tbaa !52
   %311 = zext i32 %303 to i64
-  %312 = getelementptr inbounds nuw %struct.buffer_s, ptr %309, i64 %311
+  %312 = getelementptr inbounds nuw [16 x i8], ptr %309, i64 %311
   store ptr %.val187, ptr %312, align 8, !tbaa !12
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %312, i64 8
   store i64 %298, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !55
@@ -3711,7 +3706,7 @@ ZSTDMT_releaseSeq.exit:                           ; preds = %ZSTDMT_serialState_
   %331 = add nsw i32 %324, 1
   store i32 %331, ptr %323, align 4, !tbaa !159
   %332 = sext i32 %324 to i64
-  %333 = getelementptr inbounds ptr, ptr %330, i64 %332
+  %333 = getelementptr inbounds [8 x i8], ptr %330, i64 %332
   store ptr %.0.i, ptr %333, align 8, !tbaa !63
   br label %336
 
@@ -3757,7 +3752,7 @@ define internal fastcc { ptr, i64 } @ZSTDMT_getBuffer(ptr noundef %0) unnamed_ad
   %10 = add i32 %6, -1
   store i32 %10, ptr %5, align 4, !tbaa !52
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.buffer_s, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %11
   %.sroa.0.0.copyload = load ptr, ptr %12, align 8, !tbaa !12
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !55

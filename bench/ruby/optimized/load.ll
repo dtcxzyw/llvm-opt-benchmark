@@ -2260,7 +2260,7 @@ rb_darray_size.exit:                              ; preds = %40
   br i1 %42, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %rb_darray_size.exit
-  %43 = getelementptr i64, ptr %31, i64 %.0122
+  %43 = getelementptr [8 x i8], ptr %31, i64 %.0122
   %44 = load i64, ptr %43, align 8, !tbaa !42
   br label %45
 
@@ -2277,7 +2277,7 @@ rb_darray_size.exit:                              ; preds = %40
 
 RARRAY_AREF.exit:                                 ; preds = %45, %48
   %.0.i.i = phi ptr [ %49, %48 ], [ %34, %45 ]
-  %50 = getelementptr i64, ptr %.0.i.i, i64 %.2120
+  %50 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.2120
   %51 = load i64, ptr %50, align 8, !tbaa !42
   store i64 %51, ptr %7, align 8, !tbaa !42
   %52 = call ptr @rb_string_value_ptr(ptr noundef nonnull %7) #6
@@ -2961,7 +2961,7 @@ rb_array_len.exit56.thread:                       ; preds = %24
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit56.thread, %32
   %.0.i.i = phi ptr [ %33, %32 ], [ %19, %rb_array_len.exit56.thread ]
-  %34 = getelementptr i64, ptr %.0.i.i, i64 %.0
+  %34 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.0
   %35 = load i64, ptr %34, align 8, !tbaa !42
   %36 = icmp eq i64 %35, 0
   %37 = and i64 %35, 7
@@ -3024,7 +3024,7 @@ RSTRING_PTR.exit:                                 ; preds = %rbimpl_RB_TYPE_P_fa
 
 RARRAY_AREF.exit60:                               ; preds = %56, %59
   %.0.i.i59 = phi ptr [ %60, %59 ], [ %22, %56 ]
-  %61 = getelementptr i64, ptr %.0.i.i59, i64 %.0
+  %61 = getelementptr [8 x i8], ptr %.0.i.i59, i64 %.0
   %62 = load i64, ptr %61, align 8, !tbaa !42
   br label %80
 
@@ -3509,7 +3509,7 @@ define internal noundef i32 @features_index_add_single_callback(ptr readnone cap
 
 RARRAY_AREF.exit:                                 ; preds = %21, %23
   %.0.i.i = phi ptr [ %22, %21 ], [ %25, %23 ]
-  %26 = getelementptr i64, ptr %.0.i.i, i64 %17
+  %26 = getelementptr [8 x i8], ptr %.0.i.i, i64 %17
   %27 = load i64, ptr %26, align 8, !tbaa !42
   %28 = tail call noalias nonnull dereferenceable(32) ptr @ruby_xcalloc(i64 noundef 1, i64 noundef 32) #30
   store i64 2, ptr %28, align 8, !tbaa !168
@@ -3549,12 +3549,12 @@ is_rbext_path.exit:                               ; preds = %RSTRING_PTR.exit.i,
   %45 = phi i32 [ 0, %RARRAY_AREF.exit ], [ %44, %RSTRING_PTR.exit.i ], [ 1, %30 ]
   %46 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr i64, ptr %46, i64 %47
+  %48 = getelementptr [8 x i8], ptr %46, i64 %47
   store i64 %17, ptr %48, align 8, !tbaa !42
   %49 = ashr i64 %8, 1
   %50 = xor i32 %45, 1
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr i64, ptr %46, i64 %51
+  %52 = getelementptr [8 x i8], ptr %46, i64 %51
   store i64 %49, ptr %52, align 8, !tbaa !42
   store i64 %.cast, ptr %1, align 8, !tbaa !42
   br label %151
@@ -3590,9 +3590,9 @@ rb_darray_size.exit.lr.ph:                        ; preds = %55
 
 RARRAY_AREF.exit47.us77:                          ; preds = %rb_darray_size.exit.us84, %.lr.ph.split.us
   %.0427476.us = phi i64 [ 0, %.lr.ph.split.us ], [ %89, %rb_darray_size.exit.us84 ]
-  %65 = getelementptr i64, ptr %58, i64 %.0427476.us
+  %65 = getelementptr [8 x i8], ptr %58, i64 %.0427476.us
   %66 = load i64, ptr %65, align 8, !tbaa !42
-  %67 = getelementptr i64, ptr %64, i64 %66
+  %67 = getelementptr [8 x i8], ptr %64, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !42
   %69 = icmp eq i64 %68, 0
   %70 = and i64 %68, 7
@@ -3638,9 +3638,9 @@ rb_darray_size.exit.us84:                         ; preds = %is_rbext_path.exit5
 
 RARRAY_AREF.exit47:                               ; preds = %.lr.ph, %rb_darray_size.exit
   %.0427476 = phi i64 [ %114, %rb_darray_size.exit ], [ 0, %.lr.ph ]
-  %90 = getelementptr i64, ptr %58, i64 %.0427476
+  %90 = getelementptr [8 x i8], ptr %58, i64 %.0427476
   %91 = load i64, ptr %90, align 8, !tbaa !42
-  %92 = getelementptr i64, ptr %60, i64 %91
+  %92 = getelementptr [8 x i8], ptr %60, i64 %91
   %93 = load i64, ptr %92, align 8, !tbaa !42
   %94 = icmp eq i64 %93, 0
   %95 = and i64 %93, 7
@@ -3759,7 +3759,7 @@ rb_darray_ensure_space.exit:                      ; preds = %rb_darray_size.exit
   %.364 = phi i64 [ %.363, %rb_darray_resize_capa_impl.exit.i ], [ %.365, %rb_darray_size.exit.i ]
   %136 = ashr i64 %8, 1
   %137 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %138 = getelementptr i64, ptr %137, i64 %135
+  %138 = getelementptr [8 x i8], ptr %137, i64 %135
   store i64 %136, ptr %138, align 8, !tbaa !42
   %139 = load i64, ptr %.0, align 8, !tbaa !168
   %140 = add i64 %139, 1
@@ -3780,7 +3780,7 @@ rb_darray_size.exit56:                            ; preds = %rb_darray_ensure_sp
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %rb_darray_size.exit56
-  %147 = getelementptr i64, ptr %137, i64 %.364
+  %147 = getelementptr [8 x i8], ptr %137, i64 %.364
   %148 = getelementptr i8, ptr %147, i64 8
   %149 = shl nuw i64 %144, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %147, ptr noundef nonnull align 1 %148, i64 noundef %149, i1 noundef false) #6
@@ -4286,7 +4286,7 @@ rb_array_len.exit.thread:                         ; preds = %56
 
 RARRAY_AREF.exit:                                 ; preds = %.thread, %64
   %.0.i.i = phi ptr [ %65, %64 ], [ %54, %.thread ]
-  %66 = getelementptr i64, ptr %.0.i.i, i64 %.053
+  %66 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.053
   %67 = load i64, ptr %66, align 8, !tbaa !42
   store i64 %67, ptr %7, align 8, !tbaa !42
   %68 = call ptr @rb_string_value_ptr(ptr noundef nonnull %7) #6

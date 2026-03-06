@@ -1258,7 +1258,7 @@ sub_1163:                                         ; preds = %sub_0162
 
 switch.lookup:                                    ; preds = %140
   %143 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ECPGdump_a_simple.1, i64 %143
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ECPGdump_a_simple.1, i64 %143
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_type.exit
 
@@ -1281,7 +1281,7 @@ get_type.exit:                                    ; preds = %switch.lookup, %142
 
 switch.lookup189:                                 ; preds = %145
   %148 = zext nneg i32 %switch.tableidx187 to i64
-  %switch.gep192 = getelementptr inbounds nuw ptr, ptr @switch.table.ECPGdump_a_simple.1, i64 %148
+  %switch.gep192 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ECPGdump_a_simple.1, i64 %148
   %switch.load193 = load ptr, ptr %switch.gep192, align 8
   br label %get_type.exit144
 
@@ -1428,7 +1428,7 @@ define dso_local noundef ptr @get_dtype(i32 noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_dtype, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.get_dtype, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 

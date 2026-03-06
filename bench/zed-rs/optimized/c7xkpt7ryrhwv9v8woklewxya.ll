@@ -10366,7 +10366,7 @@ common.ret.sink.split.i.i.i:                      ; preds = %666, %572
 
 .lr.ph.i.i.i:                                     ; preds = %879, %.lr.ph.i.i.i
   %.sroa.0.07.i.i.i = phi i64 [ %887, %.lr.ph.i.i.i ], [ 0, %879 ]
-  %886 = getelementptr inbounds i32, ptr %882, i64 %.sroa.0.07.i.i.i
+  %886 = getelementptr inbounds [4 x i8], ptr %882, i64 %.sroa.0.07.i.i.i
   %887 = add nuw i64 %.sroa.0.07.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4559)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4562)
@@ -24543,7 +24543,7 @@ default.unreachable55:                            ; preds = %199, %49, %3
 265:                                              ; preds = %262, %252
   %266 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %267 = load ptr, ptr %266, align 8, !alias.scope !7668, !noalias !7671, !nonnull !6, !noundef !6
-  %268 = getelementptr inbounds { ptr, i64 }, ptr %267, i64 %259
+  %268 = getelementptr inbounds [16 x i8], ptr %267, i64 %259
   store ptr %255, ptr %268, align 8, !noalias !7673
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
   store i64 %257, ptr %269, align 8, !noalias !7514
@@ -24594,7 +24594,7 @@ default.unreachable55:                            ; preds = %199, %49, %3
   %.sroa.590.0.copyload.i.i = load ptr, ptr %.sroa.590.0..sroa_idx.i.i, align 8, !noalias !7652, !nonnull !6, !noundef !6
   %.sroa.691.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 256
   %.sroa.691.0.copyload.i.i = load i64, ptr %.sroa.691.0..sroa_idx.i.i, align 8, !noalias !7652
-  %291 = getelementptr inbounds { ptr, i64 }, ptr %.sroa.590.0.copyload.i.i, i64 %.sroa.691.0.copyload.i.i
+  %291 = getelementptr inbounds [16 x i8], ptr %.sroa.590.0.copyload.i.i, i64 %.sroa.691.0.copyload.i.i
   store ptr %.sroa.590.0.copyload.i.i, ptr %226, align 8, !noalias !7652
   %.sroa.1087.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %.sroa.590.0.copyload.i.i, ptr %.sroa.1087.0..sroa_idx.i.i, align 8, !noalias !7652
@@ -29515,9 +29515,9 @@ _ZN8blocking8Executor5spawn17h456ce5d3c6485791E.exit.i.i.i: ; preds = %.noexc.i.
   store i64 %973, ptr %966, align 8, !alias.scope !8826, !noalias !8829
   %975 = getelementptr inbounds nuw i8, ptr %965, i64 32
   %976 = load ptr, ptr %975, align 8, !alias.scope !8826, !noalias !8829, !nonnull !6, !noundef !6
-  %977 = getelementptr inbounds { i64, [2 x i64] }, ptr %976, i64 %973
+  %977 = getelementptr inbounds [24 x i8], ptr %976, i64 %973
   %978 = sub i64 %967, %974
-  %979 = getelementptr inbounds { i64, [2 x i64] }, ptr %976, i64 %974
+  %979 = getelementptr inbounds [24 x i8], ptr %976, i64 %974
   %980 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr %977, ptr %980, align 8, !noalias !8687
   %.sroa.12181.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -37317,7 +37317,7 @@ _ZN8blocking8Executor5spawn17h5c27c25c54988072E.exit.i.i.i: ; preds = %.noexc.i.
 342:                                              ; preds = %333, %327
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 1888
   %344 = load ptr, ptr %343, align 8, !alias.scope !10270, !noalias !10273, !nonnull !6, !noundef !6
-  %345 = getelementptr inbounds { { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { [512 x i8] }, i64, i64, i64, i8, i8, i8, [5 x i8] }, {} }, ptr %344, i64 %330
+  %345 = getelementptr inbounds [664 x i8], ptr %344, i64 %330
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(664) %345, ptr noundef nonnull align 8 dereferenceable(664) %23, i64 664, i1 false)
   %346 = add i64 %330, 1
   store i64 %346, ptr %329, align 8, !alias.scope !10270, !noalias !10273
@@ -37357,7 +37357,7 @@ _ZN8blocking8Executor5spawn17h5c27c25c54988072E.exit.i.i.i: ; preds = %.noexc.i.
   %.sroa.5245.0.copyload.i = load ptr, ptr %.sroa.5245.0..sroa_idx.i, align 8, !noalias !10122, !nonnull !6, !noundef !6
   %.sroa.6246.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1896
   %.sroa.6246.0.copyload.i = load i64, ptr %.sroa.6246.0..sroa_idx.i, align 8, !noalias !10122
-  %359 = getelementptr inbounds { { { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { [512 x i8] }, i64, i64, i64, i8, i8, i8, [5 x i8] }, {} }, ptr %.sroa.5245.0.copyload.i, i64 %.sroa.6246.0.copyload.i
+  %359 = getelementptr inbounds [664 x i8], ptr %.sroa.5245.0.copyload.i, i64 %.sroa.6246.0.copyload.i
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 4496
   store ptr %.sroa.5245.0.copyload.i, ptr %360, align 8, !noalias !10122
   %.sroa.8241.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4504

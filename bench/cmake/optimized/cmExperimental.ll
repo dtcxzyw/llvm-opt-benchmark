@@ -189,7 +189,7 @@ define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull align 8 dereferenceable(157) ptr @_ZN14cmExperimental14DataForFeatureENS_7FeatureE(i32 noundef %0) local_unnamed_addr #7 align 2 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 %2
+  %3 = getelementptr inbounds nuw [160 x i8], ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 %2
   ret ptr %3
 }
 
@@ -239,7 +239,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 define dso_local noundef zeroext i1 @_ZN14cmExperimental17HasSupportEnabledERK10cmMakefileNS_7FeatureE(ptr noundef nonnull align 8 dereferenceable(2880) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = alloca %class.cmValue, align 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds nuw %"struct.cmExperimental::FeatureData", ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 %4
+  %5 = getelementptr inbounds nuw [160 x i8], ptr @_ZN12_GLOBAL__N_111LookupTableE, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = tail call ptr @_ZNK10cmMakefile13GetDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2880) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32

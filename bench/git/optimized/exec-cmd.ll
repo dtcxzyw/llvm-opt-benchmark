@@ -316,7 +316,7 @@ define dso_local noundef i32 @execl_git_cmd(ptr noundef %0, ...) local_unnamed_a
   %20 = phi ptr [ %13, %11 ], [ %8, %15 ]
   %21 = load ptr, ptr %20, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store ptr %21, ptr %22, align 8, !tbaa !7
   %23 = icmp ne ptr %21, null
   %24 = icmp samesign ult i64 %indvars.iv, 31
@@ -343,7 +343,7 @@ _.exit:                                           ; preds = %27, %29
   br label %35
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next
   store ptr null, ptr %33, align 8, !tbaa !7
   %34 = call i32 @execv_git_cmd(ptr noundef nonnull %2)
   br label %35

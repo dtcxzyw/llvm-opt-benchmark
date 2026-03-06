@@ -3,7 +3,6 @@ source_filename = "bench/velox/original/Allocation.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.facebook::velox::memory::Allocation::PageRun" = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -265,7 +264,7 @@ if.then.i20.i.i.i:                                ; preds = %_ZNSt6vectorIN8face
 _ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %if.then.i20.i.i.i, %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit19.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %runs_8, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"class.facebook::velox::memory::Allocation::PageRun", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt6vectorIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE9push_backEOS4_.exit
 
@@ -311,7 +310,7 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %if.end
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %if.end ]
   %skipped.011 = phi i64 [ 0, %for.body.preheader ], [ %add, %if.end ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.facebook::velox::memory::Allocation::PageRun", ptr %1, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %2 = load i64, ptr %add.ptr.i, align 8
   %3 = lshr i64 %2, 36
   %mul = and i64 %3, 268431360
@@ -637,7 +636,7 @@ _ZNSt12_Vector_baseIN8facebook5velox6memory10Allocation7PageRunESaIS4_EE13_M_dea
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i25, ptr %_M_finish.i.i, align 8
-  %add.ptr28 = getelementptr inbounds nuw %"class.facebook::velox::memory::Allocation::PageRun", ptr %cond.i17, i64 %cond.i
+  %add.ptr28 = getelementptr inbounds nuw [8 x i8], ptr %cond.i17, i64 %cond.i
   store ptr %add.ptr28, ptr %_M_end_of_storage, align 8
   ret void
 }

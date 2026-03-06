@@ -2038,7 +2038,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %23,
 35:                                               ; preds = %.lr.ph, %35
   %.02978 = phi i32 [ 0, %.lr.ph ], [ %.130, %35 ]
   %.03177 = phi i64 [ 0, %.lr.ph ], [ %42, %35 ]
-  %36 = getelementptr inbounds nuw i32, ptr %31, i64 %.03177
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.03177
   %37 = load i32, ptr %36, align 4, !tbaa !352
   %38 = add i32 %37, -32
   %or.cond = icmp ult i32 %38, -31
@@ -2630,7 +2630,7 @@ _ZNSt10unique_ptrIN3net12ChannelIDKeyESt14default_deleteIS1_EE5resetEPS1_.exit: 
 
 28:                                               ; preds = %26, %.lr.ph.i
   %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %27, %26 ]
-  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %.015.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.015.i
   %30 = load i32, ptr %29, align 4, !tbaa !352
   %31 = icmp eq i32 %30, 1145653315
   br i1 %31, label %32, label %26
@@ -3625,7 +3625,7 @@ define noundef zeroext i1 @_ZN3net22QuicCryptoClientStream17RequiresChannelIDEPN
 
 18:                                               ; preds = %18, %.lr.ph
   %.015 = phi i64 [ 0, %.lr.ph ], [ %22, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %.015
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.015
   %20 = load i32, ptr %19, align 4, !tbaa !352
   %21 = icmp eq i32 %20, 1145653315
   %22 = add nuw i64 %.015, 1

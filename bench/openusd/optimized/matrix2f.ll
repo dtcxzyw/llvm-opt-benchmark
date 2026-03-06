@@ -4,14 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::Tf_RegistryStaticInit" = type { i8 }
-%"class.std::vector.1" = type { %"struct.std::_Vector_base.2" }
-%"struct.std::_Vector_base.2" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.11" = type { %"struct.std::_Vector_base.12" }
-%"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -120,7 +112,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fC2ERKSt6vectorIS1_
   br i1 %exitcond19.not, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %11
-  %13 = getelementptr inbounds nuw %"class.std::vector.1", ptr %6, i64 %.01618
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %.01618
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
@@ -137,10 +129,10 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fC2ERKSt6vectorIS1_
   br i1 %exitcond.not, label %.critedge2, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw double, ptr %16, i64 %.017
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.017
   %25 = load double, ptr %24, align 8
   %26 = fptrunc double %25 to float
-  %27 = getelementptr inbounds nuw float, ptr %.01618.sroa.phi, i64 %.017
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.01618.sroa.phi, i64 %.017
   store float %26, ptr %27, align 4
   br i1 %22, label %21, label %.critedge2, !llvm.loop !4
 
@@ -190,7 +182,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fC2ERKSt6vectorIS1_
   br i1 %exitcond19.not, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %11
-  %13 = getelementptr inbounds nuw %"class.std::vector.11", ptr %6, i64 %.01618
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %.01618
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
@@ -207,9 +199,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fC2ERKSt6vectorIS1_
   br i1 %exitcond.not, label %.critedge2, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw float, ptr %16, i64 %.017
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.017
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds nuw float, ptr %.01618.sroa.phi, i64 %.017
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.01618.sroa.phi, i64 %.017
   store float %25, ptr %26, align 4
   br i1 %22, label %21, label %.critedge2, !llvm.loop !7
 
@@ -589,8 +581,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_
 .preheader:                                       ; preds = %3, %18
   %.not = phi i1 [ true, %3 ], [ false, %18 ]
   %.01116 = phi i64 [ 0, %3 ], [ 2, %18 ]
-  %4 = getelementptr inbounds nuw float, ptr %0, i64 %.01116
-  %5 = getelementptr inbounds nuw float, ptr %1, i64 %.01116
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.01116
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.01116
   br label %7
 
 6:                                                ; preds = %7
@@ -599,10 +591,10 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_
 7:                                                ; preds = %.preheader, %6
   %8 = phi i1 [ true, %.preheader ], [ false, %6 ]
   %.015 = phi i64 [ 0, %.preheader ], [ 1, %6 ]
-  %9 = getelementptr inbounds nuw float, ptr %4, i64 %.015
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.015
   %10 = load float, ptr %9, align 4
   %11 = fpext float %10 to double
-  %12 = getelementptr inbounds nuw float, ptr %5, i64 %.015
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.015
   %13 = load float, ptr %12, align 4
   %14 = fpext float %13 to double
   %15 = fsub double %11, %14

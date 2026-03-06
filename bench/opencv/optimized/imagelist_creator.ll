@@ -468,7 +468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %13
 138:                                              ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %139 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %140 = load ptr, ptr %139, align 8, !tbaa !44
   store ptr %121, ptr %15, align 8, !tbaa !4
   %141 = icmp eq ptr %140, null

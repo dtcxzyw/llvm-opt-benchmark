@@ -1674,7 +1674,7 @@ _ZNSt6vectorIySaIyEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %429
 
 .noexc306:                                        ; preds = %432
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %434, i8 0, i64 %433, i1 false), !tbaa !72
-  %435 = getelementptr inbounds nuw i64, ptr %434, i64 %428
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %434, i64 %428
   %436 = ptrtoint ptr %435 to i64
   br label %_ZNSt6vectorIySaIyEEC2EmRKyRKS0_.exit
 
@@ -1706,7 +1706,7 @@ _ZNSt6vectorIySaIyEE17_S_check_init_lenEmRKS0_.exit.i307: ; preds = %438
 
 .noexc315:                                        ; preds = %441
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %443, i8 0, i64 %442, i1 false), !tbaa !72
-  %444 = getelementptr inbounds nuw i64, ptr %443, i64 %437
+  %444 = getelementptr inbounds nuw [8 x i8], ptr %443, i64 %437
   %445 = ptrtoint ptr %444 to i64
   br label %_ZNSt6vectorIySaIyEEC2EmRKyRKS0_.exit316
 

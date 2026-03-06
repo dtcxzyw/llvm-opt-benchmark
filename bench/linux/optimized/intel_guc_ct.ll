@@ -1177,7 +1177,7 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
 62:                                               ; preds = %60, %58
   %63 = phi i32 [ %61, %60 ], [ %56, %58 ]
   %64 = zext i32 %12 to i64
-  %65 = getelementptr i32, ptr %18, i64 %64
+  %65 = getelementptr [4 x i8], ptr %18, i64 %64
   %66 = load i32, ptr %65, align 4
   store i32 %66, ptr %2, align 4
   %67 = add i32 %12, 1
@@ -1211,7 +1211,7 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   %89 = select i1 %86, i32 %87, i32 %88
   %90 = shl i32 %89, 2
   %91 = zext i32 %69 to i64
-  %92 = getelementptr i32, ptr %18, i64 %91
+  %92 = getelementptr [4 x i8], ptr %18, i64 %91
   %93 = xor i32 %16, -1
   %94 = add i32 %84, %93
   %95 = shl i32 %94, 2
@@ -1262,7 +1262,7 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   %125 = select i1 %122, i32 %123, i32 %124
   %126 = shl i32 %125, 2
   %127 = zext i32 %69 to i64
-  %128 = getelementptr i32, ptr %18, i64 %127
+  %128 = getelementptr [4 x i8], ptr %18, i64 %127
   %129 = xor i32 %16, -1
   %130 = add i32 %120, %129
   %131 = shl i32 %130, 2
@@ -1274,9 +1274,9 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   %134 = phi i64 [ 1, %107 ], [ %144, %133 ]
   %135 = phi i32 [ %69, %107 ], [ %143, %133 ]
   %136 = zext i32 %135 to i64
-  %137 = getelementptr i32, ptr %18, i64 %136
+  %137 = getelementptr [4 x i8], ptr %18, i64 %136
   %138 = load i32, ptr %137, align 4
-  %139 = getelementptr i32, ptr %105, i64 %134
+  %139 = getelementptr [4 x i8], ptr %105, i64 %134
   store i32 %138, ptr %139, align 4
   %140 = add i32 %135, 1
   %141 = icmp eq i32 %140, %16
@@ -1674,13 +1674,13 @@ define internal fastcc noundef range(i32 -32, 1) i32 @ct_write(ptr noundef %0, p
   %24 = and i32 %18, 268435455
   %25 = or disjoint i32 %24, %20
   %26 = zext i32 %17 to i64
-  %27 = getelementptr i32, ptr %12, i64 %26
+  %27 = getelementptr [4 x i8], ptr %12, i64 %26
   store i32 %23, ptr %27, align 4
   %28 = add i32 %17, 1
   %29 = urem i32 %28, %10
   %30 = freeze i32 %29
   %31 = zext i32 %30 to i64
-  %32 = getelementptr i32, ptr %12, i64 %31
+  %32 = getelementptr [4 x i8], ptr %12, i64 %31
   store i32 %25, ptr %32, align 4
   %33 = add i32 %30, 1
   %34 = icmp eq i32 %33, %10
@@ -1695,10 +1695,10 @@ define internal fastcc noundef range(i32 -32, 1) i32 @ct_write(ptr noundef %0, p
 39:                                               ; preds = %39, %37
   %40 = phi i64 [ 1, %37 ], [ %48, %39 ]
   %41 = phi i32 [ %35, %37 ], [ %47, %39 ]
-  %42 = getelementptr i32, ptr %1, i64 %40
+  %42 = getelementptr [4 x i8], ptr %1, i64 %40
   %43 = load i32, ptr %42, align 4
   %44 = zext i32 %41 to i64
-  %45 = getelementptr i32, ptr %12, i64 %44
+  %45 = getelementptr [4 x i8], ptr %12, i64 %44
   store i32 %43, ptr %45, align 4
   %46 = add i32 %41, 1
   %47 = urem i32 %46, %10

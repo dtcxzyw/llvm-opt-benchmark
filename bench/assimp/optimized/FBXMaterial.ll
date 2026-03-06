@@ -1654,7 +1654,7 @@ _ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EED2Ev.exit: ; preds = %._crit_edg
 23:                                               ; preds = %.lr.ph, %_ZNSt6vectorIPKN6Assimp3FBX7TextureESaIS4_EE9push_backERKS4_.exit
   %24 = phi ptr [ %10, %.lr.ph ], [ %78, %_ZNSt6vectorIPKN6Assimp3FBX7TextureESaIS4_EE9push_backERKS4_.exit ]
   %.043 = phi i64 [ 0, %.lr.ph ], [ %76, %_ZNSt6vectorIPKN6Assimp3FBX7TextureESaIS4_EE9push_backERKS4_.exit ]
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.043
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.043
   %26 = load ptr, ptr %25, align 8
   %27 = invoke noundef ptr @_ZNK6Assimp3FBX10Connection12SourceObjectEv(ptr noundef nonnull align 8 dereferenceable(64) %26)
           to label %28 unwind label %39
@@ -1791,7 +1791,7 @@ _ZNSt6vectorIPKN6Assimp3FBX7TextureESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.
 _ZNSt6vectorIPKN6Assimp3FBX7TextureESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIPKN6Assimp3FBX7TextureESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
   store ptr %69, ptr %12, align 8
   store ptr %73, ptr %13, align 8
-  %75 = getelementptr inbounds nuw ptr, ptr %69, i64 %67
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %67
   store ptr %75, ptr %14, align 8
   br label %_ZNSt6vectorIPKN6Assimp3FBX7TextureESaIS4_EE9push_backERKS4_.exit
 

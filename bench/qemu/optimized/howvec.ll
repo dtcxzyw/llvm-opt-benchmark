@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.qemu_plugin_u64 = type { ptr, i64 }
 %union._GMutex = type { ptr }
-%struct.ClassSelector = type { ptr, ptr, i32 }
-%struct.InsnClassExecCount = type { ptr, ptr, i32, i32, i32, %struct.qemu_plugin_u64 }
 
 @qemu_plugin_version = local_unnamed_addr global i32 4, align 4
 @class_table = internal unnamed_addr global ptr null, align 8
@@ -150,7 +148,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
 
 .lr.ph:                                           ; preds = %._crit_edge, %4
   %indvars.iv88 = phi i64 [ 0, %4 ], [ %indvars.iv.next89, %._crit_edge ]
-  %5 = getelementptr inbounds nuw %struct.ClassSelector, ptr @class_tables, i64 %indvars.iv88
+  %5 = getelementptr inbounds nuw [24 x i8], ptr @class_tables, i64 %indvars.iv88
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -171,7 +169,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = tail call ptr @qemu_plugin_scoreboard_new(i64 noundef 8) #9
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %11, ptr %14, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -187,7 +185,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
 
 .preheader.preheader:                             ; preds = %.preheader.preheader.preheader, %.preheader
   %indvars.iv92124 = phi i64 [ %indvars.iv.next93, %.preheader ], [ 0, %.preheader.preheader.preheader ]
-  %15 = getelementptr inbounds nuw %struct.ClassSelector, ptr @class_tables, i64 %indvars.iv92124
+  %15 = getelementptr inbounds nuw [24 x i8], ptr @class_tables, i64 %indvars.iv92124
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %9) #10
   %18 = icmp eq i32 %17, 0
@@ -210,7 +208,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %glib_auto_cleanup_GStrv.exit
   %indvars.iv100 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next101, %glib_auto_cleanup_GStrv.exit ]
-  %24 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv100
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv100
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @g_strsplit(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef -1) #9
   %27 = load ptr, ptr %26, align 8
@@ -266,7 +264,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
 
 55:                                               ; preds = %.lr.ph71, %54
   %indvars.iv95 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next96, %54 ]
-  %56 = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %53, i64 %indvars.iv95
+  %56 = getelementptr inbounds nuw [48 x i8], ptr %53, i64 %indvars.iv95
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select, ptr noundef nonnull dereferenceable(1) %58) #10
@@ -353,7 +351,7 @@ define internal void @vcpu_tb_trans(i64 %0, ptr noundef %1) #0 {
 
 15:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
-  %16 = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %9, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %9, i64 %indvars.iv.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, %10
@@ -470,7 +468,7 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
 .lr.ph:                                           ; preds = %2, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %2 ]
   %6 = load ptr, ptr @class_table, align 8
-  %7 = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [48 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %25 [
@@ -580,7 +578,7 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
 
 .lr.ph61:                                         ; preds = %._crit_edge62, %58
   %indvars.iv68 = phi i64 [ 0, %58 ], [ %indvars.iv.next69, %._crit_edge62 ]
-  %60 = getelementptr inbounds nuw %struct.ClassSelector, ptr @class_tables, i64 %indvars.iv68
+  %60 = getelementptr inbounds nuw [24 x i8], ptr @class_tables, i64 %indvars.iv68
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i32, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -596,7 +594,7 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
 
 65:                                               ; preds = %.lr.ph61, %65
   %indvars.iv65 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next66, %65 ]
-  %66 = getelementptr inbounds nuw %struct.InsnClassExecCount, ptr %64, i64 %indvars.iv65
+  %66 = getelementptr inbounds nuw [48 x i8], ptr %64, i64 %indvars.iv65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = load ptr, ptr %67, align 8
   tail call void @qemu_plugin_scoreboard_free(ptr noundef %68) #9

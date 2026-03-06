@@ -593,7 +593,7 @@ default.unreachable:                              ; preds = %9
 
 switch.lookup:                                    ; preds = %61
   %68 = zext nneg i32 %62 to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.asn1_get_real, i64 %68
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.asn1_get_real, i64 %68
   %switch.load = load double, ptr %switch.gep, align 8
   br label %.critedge
 

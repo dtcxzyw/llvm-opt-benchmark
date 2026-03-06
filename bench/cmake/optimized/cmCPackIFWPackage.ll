@@ -15263,7 +15263,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %1378 = phi ptr [ %1354, %.lr.ph1337 ], [ %1426, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit861 ]
   %.01581336 = phi i64 [ 1, %.lr.ph1337 ], [ %1438, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit861 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %104)
-  %1379 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1378, i64 %.01581336
+  %1379 = getelementptr inbounds nuw [32 x i8], ptr %1378, i64 %.01581336
   invoke void @_ZN5cmsys11SystemTools15GetFilenameNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %104, ptr noundef nonnull align 8 dereferenceable(32) %1379)
           to label %1380 unwind label %1445
 
@@ -15414,7 +15414,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i85
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit853: ; preds = %1419, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i851
   call void @llvm.lifetime.end.p0(ptr nonnull %106)
   %1426 = load ptr, ptr %103, align 8, !tbaa !69
-  %1427 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1426, i64 %.01581336
+  %1427 = getelementptr inbounds nuw [32 x i8], ptr %1426, i64 %.01581336
   %1428 = invoke { i64, i32 } @_ZN5cmsys11SystemTools19CopyFileIfDifferentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(32) %1427, ptr noundef nonnull align 8 dereferenceable(32) %105)
           to label %1429 unwind label %1454
 
@@ -15599,13 +15599,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i88
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit887: ; preds = %1482, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i885
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
-  %1487 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1481, i64 %.01341
+  %1487 = getelementptr inbounds nuw [32 x i8], ptr %1481, i64 %.01341
   invoke void @_ZN11cmXMLWriter9AttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRKT_(ptr noundef nonnull align 8 dereferenceable(83) %60, ptr noundef nonnull @.str.79, ptr noundef nonnull align 8 dereferenceable(32) %1487)
           to label %1488 unwind label %1507
 
 1488:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit887
   %1489 = load ptr, ptr %103, align 8, !tbaa !69
-  %1490 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1489, i64 %.01341
+  %1490 = getelementptr inbounds nuw [32 x i8], ptr %1489, i64 %.01341
   %1491 = getelementptr inbounds nuw i8, ptr %1490, i64 32
   invoke void @_ZN11cmXMLWriter9AttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRKT_(ptr noundef nonnull align 8 dereferenceable(83) %60, ptr noundef nonnull @.str.80, ptr noundef nonnull align 8 dereferenceable(32) %1491)
           to label %1492 unwind label %1507

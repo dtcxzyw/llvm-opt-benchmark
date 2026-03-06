@@ -652,7 +652,7 @@ define internal ptr @handle_need_offstr(ptr noundef captures(none) %0, i64 nound
 44:                                               ; preds = %.lr.ph126, %fmap_unneed_page.exit
   %.180125 = phi i64 [ %21, %.lr.ph126 ], [ %59, %fmap_unneed_page.exit ]
   %.val101 = load ptr, ptr %43, align 8, !tbaa !19
-  %45 = getelementptr inbounds nuw i64, ptr %.val101, i64 %.180125
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val101, i64 %.180125
   %46 = load i64, ptr %45, align 8, !tbaa !40
   %47 = and i64 %46, 3221225472
   %48 = icmp eq i64 %47, 3221225472
@@ -846,7 +846,7 @@ define internal void @handle_unneed_off(ptr noundef readonly captures(none) %0, 
 25:                                               ; preds = %.lr.ph, %fmap_unneed_page.exit
   %.048 = phi i64 [ %21, %.lr.ph ], [ %40, %fmap_unneed_page.exit ]
   %.val46 = load ptr, ptr %24, align 8, !tbaa !19
-  %26 = getelementptr inbounds nuw i64, ptr %.val46, i64 %.048
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.val46, i64 %.048
   %27 = load i64, ptr %26, align 8, !tbaa !40
   %28 = and i64 %27, 3221225472
   %29 = icmp eq i64 %28, 3221225472
@@ -1620,13 +1620,13 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
 .lr.ph:                                           ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %20 = load ptr, ptr %19, align 8, !tbaa !19
-  %21 = getelementptr inbounds nuw i64, ptr %2, i64 %spec.select
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %spec.select
   br label %22
 
 22:                                               ; preds = %.lr.ph, %56
   %.089 = phi i64 [ 0, %.lr.ph ], [ %57, %56 ]
   %.07488 = phi i64 [ 0, %.lr.ph ], [ %.175, %56 ]
-  %23 = getelementptr inbounds nuw i64, ptr %20, i64 %.089
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.089
   %24 = load i64, ptr %23, align 8, !tbaa !40
   %25 = and i64 %24, 3221225472
   %26 = icmp eq i64 %25, 1073741824
@@ -1659,7 +1659,7 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
 
 37:                                               ; preds = %34
   %38 = load i64, ptr %21, align 8, !tbaa !40
-  %39 = getelementptr inbounds nuw i64, ptr %20, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !40
   %41 = and i64 %40, 1073741823
   %42 = icmp samesign ugt i64 %41, %36
@@ -1671,9 +1671,9 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
 43:                                               ; preds = %.preheader100, %50
   %.076.in = phi i64 [ %.076, %50 ], [ %35, %.preheader100 ]
   %.076 = add i64 %.076.in, -1
-  %44 = getelementptr inbounds nuw i64, ptr %2, i64 %.076
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.076
   %45 = load i64, ptr %44, align 8, !tbaa !40
-  %46 = getelementptr inbounds nuw i64, ptr %20, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !40
   %48 = and i64 %47, 1073741823
   %49 = icmp samesign ugt i64 %48, %36
@@ -1687,7 +1687,7 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
 
 52:                                               ; preds = %50, %43
   %.177 = phi i64 [ -1, %50 ], [ %.076, %43 ]
-  %53 = getelementptr i64, ptr %2, i64 %.177
+  %53 = getelementptr [8 x i8], ptr %2, i64 %.177
   %54 = getelementptr i8, ptr %53, i64 8
   store i64 %.089, ptr %54, align 8, !tbaa !40
   %55 = zext i1 %.not85 to i64
@@ -1717,12 +1717,12 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
   %.07091 = phi ptr [ null, %.preheader ], [ %.171, %82 ]
   %.07290 = phi ptr [ null, %.preheader ], [ %84, %82 ]
   %64 = load ptr, ptr %60, align 8, !tbaa !20
-  %65 = getelementptr inbounds nuw i64, ptr %2, i64 %.192
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.192
   %66 = load i64, ptr %65, align 8, !tbaa !40
   %67 = mul i64 %63, %66
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 %67
   %69 = load ptr, ptr %61, align 8, !tbaa !19
-  %70 = getelementptr inbounds nuw i64, ptr %69, i64 %66
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %66
   store i64 2147483648, ptr %70, align 8, !tbaa !40
   %.not82 = icmp ne ptr %.07290, null
   %71 = icmp eq ptr %68, %.07290
@@ -1867,7 +1867,7 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr noundef captures(n
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %29, align 8, !tbaa !19
-  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %.0108189
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.0108189
   %43 = load i64, ptr %42, align 8, !tbaa !40
   %44 = and i64 %43, 1073741824
   %.not128 = icmp eq i64 %44, 0
@@ -1929,7 +1929,7 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr noundef captures(n
 
 67:                                               ; preds = %.lr.ph180, %64
   %.099178 = phi i64 [ %.094192, %.lr.ph180 ], [ %65, %64 ]
-  %68 = getelementptr inbounds nuw i64, ptr %63, i64 %.099178
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.099178
   %69 = load i64, ptr %68, align 8, !tbaa !40
   %70 = and i64 %69, 2147483648
   %.not138 = icmp eq i64 %70, 0

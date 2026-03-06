@@ -284,7 +284,7 @@ define hidden i32 @main() local_unnamed_addr #0 {
 209:                                              ; preds = %checkEquals.exit49.i, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %checkEquals.exit49.i ]
   %.051.i = phi i32 [ 0, %0 ], [ %289, %checkEquals.exit49.i ]
-  %210 = getelementptr inbounds nuw [12 x double], ptr @testcases, i64 %indvars.iv.i
+  %210 = getelementptr inbounds nuw [96 x i8], ptr @testcases, i64 %indvars.iv.i
   %211 = load double, ptr %210, align 16, !tbaa !4
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %213 = load double, ptr %212, align 8, !tbaa !4
@@ -449,7 +449,7 @@ testinverse.exit:                                 ; preds = %checkEquals.exit49.
 293:                                              ; preds = %checkEquals.exit54.i, %292
   %indvars.iv.i176 = phi i64 [ 0, %292 ], [ %indvars.iv.next.i179, %checkEquals.exit54.i ]
   %.03855.i = phi i32 [ 0, %292 ], [ %379, %checkEquals.exit54.i ]
-  %294 = getelementptr inbounds nuw [12 x double], ptr @testcases, i64 %indvars.iv.i176
+  %294 = getelementptr inbounds nuw [96 x i8], ptr @testcases, i64 %indvars.iv.i176
   %295 = load double, ptr %294, align 16, !tbaa !4
   %296 = getelementptr inbounds nuw i8, ptr %294, i64 8
   %297 = load double, ptr %296, align 8, !tbaa !4
@@ -628,7 +628,7 @@ testdirect.exit:                                  ; preds = %checkEquals.exit54.
 384:                                              ; preds = %checkEquals.exit58.i, %383
   %indvars.iv.i181 = phi i64 [ 0, %383 ], [ %indvars.iv.next.i198, %checkEquals.exit58.i ]
   %.04059.i = phi i32 [ 0, %383 ], [ %477, %checkEquals.exit58.i ]
-  %385 = getelementptr inbounds nuw [12 x double], ptr @testcases, i64 %indvars.iv.i181
+  %385 = getelementptr inbounds nuw [96 x i8], ptr @testcases, i64 %indvars.iv.i181
   %386 = load double, ptr %385, align 16, !tbaa !4
   %387 = getelementptr inbounds nuw i8, ptr %385, i64 8
   %388 = load double, ptr %387, align 8, !tbaa !4
@@ -3805,7 +3805,7 @@ GeodSolve96.exit.thread:                          ; preds = %1830
 
 1846:                                             ; preds = %1846, %1840
   %indvars.iv.i.i = phi i64 [ 0, %1840 ], [ %indvars.iv.next.i.i, %1846 ]
-  %1847 = getelementptr inbounds nuw [2 x double], ptr @__const.Planimeter0.pa, i64 %indvars.iv.i.i
+  %1847 = getelementptr inbounds nuw [16 x i8], ptr @__const.Planimeter0.pa, i64 %indvars.iv.i.i
   %1848 = getelementptr inbounds nuw i8, ptr %1847, i64 8
   %1849 = load double, ptr %1848, align 8, !tbaa !4
   call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %52, double noundef 8.900000e+01, double noundef %1849) #7
@@ -3846,7 +3846,7 @@ checkEquals.exit11.i:                             ; preds = %1861, %checkEquals.
 
 1863:                                             ; preds = %1863, %checkEquals.exit11.i
   %indvars.iv.i12.i = phi i64 [ 0, %checkEquals.exit11.i ], [ %indvars.iv.next.i13.i, %1863 ]
-  %1864 = getelementptr inbounds nuw [2 x double], ptr @__const.Planimeter0.pb, i64 %indvars.iv.i12.i
+  %1864 = getelementptr inbounds nuw [16 x i8], ptr @__const.Planimeter0.pb, i64 %indvars.iv.i12.i
   %1865 = getelementptr inbounds nuw i8, ptr %1864, i64 8
   %1866 = load double, ptr %1865, align 8, !tbaa !4
   call void @geod_polygon_addpoint(ptr noundef nonnull %55, ptr noundef nonnull %51, double noundef -8.900000e+01, double noundef %1866) #7
@@ -3887,7 +3887,7 @@ checkEquals.exit19.i:                             ; preds = %1878, %checkEquals.
 
 1880:                                             ; preds = %1880, %checkEquals.exit19.i
   %indvars.iv.i20.i = phi i64 [ 0, %checkEquals.exit19.i ], [ %indvars.iv.next.i21.i, %1880 ]
-  %1881 = getelementptr inbounds nuw [2 x double], ptr %53, i64 %indvars.iv.i20.i
+  %1881 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %indvars.iv.i20.i
   %1882 = load double, ptr %1881, align 16, !tbaa !4
   %1883 = getelementptr inbounds nuw i8, ptr %1881, i64 8
   %1884 = load double, ptr %1883, align 8, !tbaa !4
@@ -3929,7 +3929,7 @@ checkEquals.exit27.i:                             ; preds = %1896, %checkEquals.
 
 1898:                                             ; preds = %1898, %checkEquals.exit27.i
   %indvars.iv.i28.i = phi i64 [ 0, %checkEquals.exit27.i ], [ %indvars.iv.next.i29.i, %1898 ]
-  %1899 = getelementptr inbounds nuw [2 x double], ptr %54, i64 %indvars.iv.i28.i
+  %1899 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %indvars.iv.i28.i
   %1900 = load double, ptr %1899, align 16, !tbaa !4
   %1901 = getelementptr inbounds nuw i8, ptr %1899, i64 8
   %1902 = load double, ptr %1901, align 8, !tbaa !4
@@ -3971,7 +3971,7 @@ checkEquals.exit35.i438:                          ; preds = %1914, %checkEquals.
 
 1916:                                             ; preds = %1916, %checkEquals.exit35.i438
   %indvars.iv.i36.i = phi i64 [ 0, %checkEquals.exit35.i438 ], [ %indvars.iv.next.i37.i, %1916 ]
-  %1917 = getelementptr inbounds nuw [2 x double], ptr %54, i64 %indvars.iv.i36.i
+  %1917 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %indvars.iv.i36.i
   %1918 = load double, ptr %1917, align 16, !tbaa !4
   %1919 = getelementptr inbounds nuw i8, ptr %1917, i64 8
   %1920 = load double, ptr %1919, align 8, !tbaa !4
@@ -4040,7 +4040,7 @@ Planimeter0.exit:                                 ; preds = %polylength.exit.i, 
 
 1945:                                             ; preds = %1945, %1939
   %indvars.iv.i.i442 = phi i64 [ 0, %1939 ], [ %indvars.iv.next.i.i443, %1945 ]
-  %1946 = getelementptr inbounds nuw [2 x double], ptr %44, i64 %indvars.iv.i.i442
+  %1946 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %indvars.iv.i.i442
   %1947 = load double, ptr %1946, align 16, !tbaa !4
   %1948 = getelementptr inbounds nuw i8, ptr %1946, i64 8
   %1949 = load double, ptr %1948, align 8, !tbaa !4
@@ -4145,7 +4145,7 @@ Planimeter5.exit:                                 ; preds = %checkEquals.exit.i4
 
 1984:                                             ; preds = %1984, %1967
   %indvars.iv.i.i448 = phi i64 [ 0, %1967 ], [ %indvars.iv.next.i.i449, %1984 ]
-  %1985 = getelementptr inbounds nuw [2 x double], ptr %36, i64 %indvars.iv.i.i448
+  %1985 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv.i.i448
   %1986 = load double, ptr %1985, align 16, !tbaa !4
   %1987 = getelementptr inbounds nuw i8, ptr %1985, i64 8
   %1988 = load double, ptr %1987, align 8, !tbaa !4
@@ -4186,7 +4186,7 @@ checkEquals.exit10.i454:                          ; preds = %1999, %checkEquals.
 
 2001:                                             ; preds = %2001, %checkEquals.exit10.i454
   %indvars.iv.i11.i = phi i64 [ 0, %checkEquals.exit10.i454 ], [ %indvars.iv.next.i12.i, %2001 ]
-  %2002 = getelementptr inbounds nuw [2 x double], ptr %37, i64 %indvars.iv.i11.i
+  %2002 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %indvars.iv.i11.i
   %2003 = load double, ptr %2002, align 16, !tbaa !4
   %2004 = getelementptr inbounds nuw i8, ptr %2002, i64 8
   %2005 = load double, ptr %2004, align 8, !tbaa !4
@@ -4227,7 +4227,7 @@ checkEquals.exit18.i458:                          ; preds = %2016, %checkEquals.
 
 2018:                                             ; preds = %2018, %checkEquals.exit18.i458
   %indvars.iv.i19.i = phi i64 [ 0, %checkEquals.exit18.i458 ], [ %indvars.iv.next.i20.i, %2018 ]
-  %2019 = getelementptr inbounds nuw [2 x double], ptr %38, i64 %indvars.iv.i19.i
+  %2019 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %indvars.iv.i19.i
   %2020 = load double, ptr %2019, align 16, !tbaa !4
   %2021 = getelementptr inbounds nuw i8, ptr %2019, i64 8
   %2022 = load double, ptr %2021, align 8, !tbaa !4
@@ -4268,7 +4268,7 @@ checkEquals.exit26.i462:                          ; preds = %2033, %checkEquals.
 
 2035:                                             ; preds = %2035, %checkEquals.exit26.i462
   %indvars.iv.i27.i = phi i64 [ 0, %checkEquals.exit26.i462 ], [ %indvars.iv.next.i28.i, %2035 ]
-  %2036 = getelementptr inbounds nuw [2 x double], ptr %39, i64 %indvars.iv.i27.i
+  %2036 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %indvars.iv.i27.i
   %2037 = load double, ptr %2036, align 16, !tbaa !4
   %2038 = getelementptr inbounds nuw i8, ptr %2036, i64 8
   %2039 = load double, ptr %2038, align 8, !tbaa !4
@@ -4348,7 +4348,7 @@ Planimeter6.exit:                                 ; preds = %checkEquals.exit32.
 
 2067:                                             ; preds = %2067, %2062
   %indvars.iv.i.i468 = phi i64 [ 0, %2062 ], [ %indvars.iv.next.i.i469, %2067 ]
-  %2068 = getelementptr inbounds nuw [2 x double], ptr %28, i64 %indvars.iv.i.i468
+  %2068 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %indvars.iv.i.i468
   %2069 = load double, ptr %2068, align 16, !tbaa !4
   %2070 = getelementptr inbounds nuw i8, ptr %2068, i64 8
   %2071 = load double, ptr %2070, align 8, !tbaa !4
@@ -4419,7 +4419,7 @@ Planimeter12.exit:                                ; preds = %checkEquals.exit.i4
 
 2093:                                             ; preds = %2093, %2088
   %indvars.iv.i.i475 = phi i64 [ 0, %2088 ], [ %indvars.iv.next.i.i476, %2093 ]
-  %2094 = getelementptr inbounds nuw [2 x double], ptr %23, i64 %indvars.iv.i.i475
+  %2094 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv.i.i475
   %2095 = load double, ptr %2094, align 16, !tbaa !4
   %2096 = getelementptr inbounds nuw i8, ptr %2094, i64 8
   %2097 = load double, ptr %2096, align 8, !tbaa !4
@@ -4479,7 +4479,7 @@ Planimeter12r.exit:                               ; preds = %checkEquals.exit.i4
 
 2115:                                             ; preds = %2115, %2114
   %indvars.iv.i.i482 = phi i64 [ 0, %2114 ], [ %indvars.iv.next.i.i483, %2115 ]
-  %2116 = getelementptr inbounds nuw [2 x double], ptr @__const.Planimeter13.points, i64 %indvars.iv.i.i482
+  %2116 = getelementptr inbounds nuw [16 x i8], ptr @__const.Planimeter13.points, i64 %indvars.iv.i.i482
   %2117 = getelementptr inbounds nuw i8, ptr %2116, i64 8
   %2118 = load double, ptr %2117, align 8, !tbaa !4
   call void @geod_polygon_addpoint(ptr noundef nonnull %19, ptr noundef nonnull %18, double noundef 8.900000e+01, double noundef %2118) #7

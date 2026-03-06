@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.SDL_RenderDriver = type { ptr, ptr }
 %struct.SDL_Rect = type { i32, i32, i32, i32 }
-%struct.SDL_FPoint = type { float, float }
 
 @.str = private unnamed_addr constant [10 x i8] c"opengles2\00", align 1
 @GLES2_RenderDriver = hidden local_unnamed_addr global %struct.SDL_RenderDriver { ptr @GLES2_CreateRenderer, ptr @.str }, align 8
@@ -1188,7 +1187,7 @@ switch.edge:                                      ; preds = %62, %63, %62, %62, 
 
 switch.lookup:                                    ; preds = %.lr.ph.i
   %106 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %106
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %106
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %107
 
@@ -1258,7 +1257,7 @@ GL_CheckAllErrors.exit:                           ; preds = %107, %.critedge, %.
 
 switch.lookup339:                                 ; preds = %.lr.ph.i192
   %141 = zext nneg i32 %switch.tableidx338 to i64
-  %switch.gep340 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %141
+  %switch.gep340 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %141
   %switch.load341 = load ptr, ptr %switch.gep340, align 8
   br label %142
 
@@ -1329,7 +1328,7 @@ GL_CheckAllErrors.exit197.thread:                 ; preds = %.preheader.i190, %1
 
 switch.lookup343:                                 ; preds = %.lr.ph.i201
   %180 = zext nneg i32 %switch.tableidx342 to i64
-  %switch.gep344 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %180
+  %switch.gep344 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %180
   %switch.load345 = load ptr, ptr %switch.gep344, align 8
   br label %181
 
@@ -1378,7 +1377,7 @@ GL_CheckAllErrors.exit206.thread:                 ; preds = %.preheader.i199, %1
 
 switch.lookup347:                                 ; preds = %.lr.ph.i210
   %205 = zext nneg i32 %switch.tableidx346 to i64
-  %switch.gep348 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %205
+  %switch.gep348 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %205
   %switch.load349 = load ptr, ptr %switch.gep348, align 8
   br label %206
 
@@ -1449,7 +1448,7 @@ switch.lookup347:                                 ; preds = %.lr.ph.i210
 
 switch.lookup351:                                 ; preds = %.lr.ph.i219
   %241 = zext nneg i32 %switch.tableidx350 to i64
-  %switch.gep352 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %241
+  %switch.gep352 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %241
   %switch.load353 = load ptr, ptr %switch.gep352, align 8
   br label %242
 
@@ -1501,7 +1500,7 @@ GL_CheckAllErrors.exit224.thread:                 ; preds = %.preheader.i217, %2
 
 switch.lookup355:                                 ; preds = %.lr.ph.i228
   %269 = zext nneg i32 %switch.tableidx354 to i64
-  %switch.gep356 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %269
+  %switch.gep356 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %269
   %switch.load357 = load ptr, ptr %switch.gep356, align 8
   br label %270
 
@@ -1567,7 +1566,7 @@ switch.lookup355:                                 ; preds = %.lr.ph.i228
 
 switch.lookup359:                                 ; preds = %.lr.ph.i237
   %302 = zext nneg i32 %switch.tableidx358 to i64
-  %switch.gep360 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %302
+  %switch.gep360 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %302
   %switch.load361 = load ptr, ptr %switch.gep360, align 8
   br label %303
 
@@ -1622,7 +1621,7 @@ GL_CheckAllErrors.exit242.thread:                 ; preds = %.preheader.i235, %2
 
 switch.lookup363:                                 ; preds = %.lr.ph.i246
   %329 = zext nneg i32 %switch.tableidx362 to i64
-  %switch.gep364 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %329
+  %switch.gep364 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %329
   %switch.load365 = load ptr, ptr %switch.gep364, align 8
   br label %330
 
@@ -1718,7 +1717,7 @@ GLES2_GetFBO.exit:                                ; preds = %350, %GL_CheckAllEr
 
 switch.lookup367:                                 ; preds = %.lr.ph.i258
   %372 = zext nneg i32 %switch.tableidx366 to i64
-  %switch.gep368 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %372
+  %switch.gep368 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %372
   %switch.load369 = load ptr, ptr %switch.gep368, align 8
   br label %373
 
@@ -2135,7 +2134,7 @@ GLES2_TexSubImage2D.exit113:                      ; preds = %._crit_edge.i119, %
 
 switch.lookup:                                    ; preds = %.lr.ph.i130
   %216 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %216
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %216
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %217
 
@@ -2421,7 +2420,7 @@ GLES2_TexSubImage2D.exit72:                       ; preds = %GLES2_TexSubImage2D
 
 switch.lookup:                                    ; preds = %.lr.ph.i75
   %146 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %146
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %146
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %147
 
@@ -2639,7 +2638,7 @@ GLES2_TexSubImage2D.exit44:                       ; preds = %GLES2_TexSubImage2D
 
 switch.lookup:                                    ; preds = %.lr.ph.i47
   %109 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %109
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %109
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %110
 
@@ -2833,7 +2832,7 @@ define internal noundef zeroext i1 @GLES2_QueueDrawPoints(ptr noundef %0, ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03643 = phi ptr [ %16, %.lr.ph.preheader ], [ %34, %.lr.ph ]
-  %26 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %2, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %27 = load float, ptr %26, align 4
   %28 = fadd float %27, 5.000000e-01
   store float %28, ptr %.03643, align 4
@@ -2929,7 +2928,7 @@ define internal noundef zeroext i1 @GLES2_QueueDrawLines(ptr noundef %0, ptr nou
   %.06774 = phi float [ %29, %.lr.ph.preheader ], [ %45, %.lr.ph ]
   %.pn73 = phi ptr [ %16, %.lr.ph.preheader ], [ %.068, %.lr.ph ]
   %.068 = getelementptr inbounds nuw i8, ptr %.pn73, i64 24
-  %33 = getelementptr inbounds nuw %struct.SDL_FPoint, ptr %2, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %34 = load float, ptr %33, align 4
   %35 = fadd float %34, 5.000000e-01
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 4
@@ -3021,13 +3020,13 @@ define internal noundef zeroext i1 @GLES2_QueueGeometry(ptr noundef %0, ptr noun
   br label %47
 
 40:                                               ; preds = %.lr.ph.split.us
-  %41 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv146
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv146
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i32
   br label %47
 
 44:                                               ; preds = %.lr.ph.split.us
-  %45 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv146
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv146
   %46 = load i32, ptr %45, align 4
   br label %47
 
@@ -3091,12 +3090,12 @@ define internal noundef zeroext i1 @GLES2_QueueGeometry(ptr noundef %0, ptr noun
   ]
 
 74:                                               ; preds = %.lr.ph.split
-  %75 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %76 = load i32, ptr %75, align 4
   br label %85
 
 77:                                               ; preds = %.lr.ph.split
-  %78 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   %79 = load i16, ptr %78, align 2
   %80 = zext i16 %79 to i32
   br label %85
@@ -3187,13 +3186,13 @@ define internal noundef zeroext i1 @GLES2_QueueGeometry(ptr noundef %0, ptr noun
   br label %127
 
 120:                                              ; preds = %.lr.ph140.split.us
-  %121 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv156
+  %121 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv156
   %122 = load i16, ptr %121, align 2
   %123 = zext i16 %122 to i32
   br label %127
 
 124:                                              ; preds = %.lr.ph140.split.us
-  %125 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv156
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv156
   %126 = load i32, ptr %125, align 4
   br label %127
 
@@ -3247,12 +3246,12 @@ define internal noundef zeroext i1 @GLES2_QueueGeometry(ptr noundef %0, ptr noun
   ]
 
 146:                                              ; preds = %.lr.ph140.split
-  %147 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv151
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv151
   %148 = load i32, ptr %147, align 4
   br label %157
 
 149:                                              ; preds = %.lr.ph140.split
-  %150 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv151
+  %150 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv151
   %151 = load i16, ptr %150, align 2
   %152 = zext i16 %151 to i32
   br label %157
@@ -3899,7 +3898,7 @@ SetTextureScaleMode.exit.i:                       ; preds = %260
 switch.lookup:                                    ; preds = %260
   %267 = load i32, ptr %263, align 8
   %268 = zext nneg i32 %264 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.GLES2_RunCommandQueue.14, i64 %268
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.GLES2_RunCommandQueue.14, i64 %268
   %switch.load = load i32, ptr %switch.gep, align 4
   %269 = getelementptr inbounds nuw i8, ptr %.val189, i64 304
   %270 = load ptr, ptr %269, align 8
@@ -3945,7 +3944,7 @@ SetTextureScaleMode.exit110.i:                    ; preds = %280
   %.sink27.in.i.ph = phi ptr [ %261, %SetTextureScaleMode.exit.thread.i ], [ %281, %280 ]
   %.sink314 = load i32, ptr %.sink314.in, align 8
   %287 = zext nneg i32 %.sink319 to i64
-  %switch.gep310 = getelementptr inbounds nuw i32, ptr %switch.table.GLES2_RunCommandQueue.13.sink, i64 %287
+  %switch.gep310 = getelementptr inbounds nuw [4 x i8], ptr %switch.table.GLES2_RunCommandQueue.13.sink, i64 %287
   %switch.load311 = load i32, ptr %switch.gep310, align 4
   %288 = getelementptr inbounds nuw i8, ptr %.val189, i64 304
   %289 = load ptr, ptr %288, align 8
@@ -3974,7 +3973,7 @@ switch.lookup320:                                 ; preds = %291
   %295 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %296 = load i32, ptr %295, align 8
   %297 = zext nneg i32 %292 to i64
-  %switch.gep321 = getelementptr inbounds nuw i32, ptr @switch.table.GLES2_RunCommandQueue.14, i64 %297
+  %switch.gep321 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.GLES2_RunCommandQueue.14, i64 %297
   %switch.load322 = load i32, ptr %switch.gep321, align 4
   %298 = getelementptr inbounds nuw i8, ptr %.val189, i64 304
   %299 = load ptr, ptr %298, align 8
@@ -4141,7 +4140,7 @@ SetCopyState.exit.thread:                         ; preds = %SetTextureScaleMode
 
 switch.lookup323:                                 ; preds = %.lr.ph.i
   %373 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep324 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %373
+  %switch.gep324 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %373
   %switch.load325 = load ptr, ptr %switch.gep324, align 8
   br label %374
 
@@ -4237,7 +4236,7 @@ define internal ptr @GLES2_RenderReadPixels(ptr noundef %0, ptr noundef readonly
 
 switch.lookup:                                    ; preds = %.lr.ph.i
   %44 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %44
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %44
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %45
 
@@ -4445,7 +4444,7 @@ GLES2_ActivateRenderer.exit:                      ; preds = %17, %7, %12
 
 22:                                               ; preds = %GLES2_ActivateRenderer.exit, %27
   %indvars.iv = phi i64 [ 0, %GLES2_ActivateRenderer.exit ], [ %indvars.iv.next, %27 ]
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %.not34 = icmp eq i32 %24, 0
   br i1 %.not34, label %27, label %25
@@ -4528,7 +4527,7 @@ GLES2_ActivateRenderer.exit:                      ; preds = %17, %7, %12
 
 switch.lookup:                                    ; preds = %.lr.ph.i
   %57 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %57
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %57
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %58
 
@@ -4714,7 +4713,7 @@ define internal fastcc zeroext i1 @GLES2_CacheShader(ptr noundef captures(none) 
 58:                                               ; preds = %._crit_edge
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 484
   %60 = zext i32 %1 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %60
   store i32 %.042.lcssa, ptr %61, align 4
   br label %62
 
@@ -4761,7 +4760,7 @@ define internal fastcc void @GL_CheckAllErrors(ptr noundef %0, ptr readonly capt
 
 switch.lookup:                                    ; preds = %15
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.GL_CheckAllErrors, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %18
 
@@ -5083,7 +5082,7 @@ define internal fastcc noundef zeroext i1 @SetDrawState(ptr noundef %0, ptr noun
 
 switch.lookup:                                    ; preds = %154
   %161 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SetDrawState.18, i64 %161
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SetDrawState.18, i64 %161
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %GetBlendFunc.exit
 
@@ -5096,7 +5095,7 @@ GetBlendFunc.exit:                                ; preds = %154, %switch.lookup
 
 switch.lookup149:                                 ; preds = %GetBlendFunc.exit
   %164 = zext nneg i32 %switch.tableidx148 to i64
-  %switch.gep150 = getelementptr inbounds nuw i32, ptr @switch.table.SetDrawState.18, i64 %164
+  %switch.gep150 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SetDrawState.18, i64 %164
   %switch.load151 = load i32, ptr %switch.gep150, align 4
   br label %GetBlendFunc.exit117
 
@@ -5109,7 +5108,7 @@ GetBlendFunc.exit117:                             ; preds = %GetBlendFunc.exit, 
 
 switch.lookup153:                                 ; preds = %GetBlendFunc.exit117
   %167 = zext nneg i32 %switch.tableidx152 to i64
-  %switch.gep154 = getelementptr inbounds nuw i32, ptr @switch.table.SetDrawState.18, i64 %167
+  %switch.gep154 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SetDrawState.18, i64 %167
   %switch.load155 = load i32, ptr %switch.gep154, align 4
   br label %GetBlendFunc.exit119
 
@@ -5122,7 +5121,7 @@ GetBlendFunc.exit119:                             ; preds = %GetBlendFunc.exit11
 
 switch.lookup157:                                 ; preds = %GetBlendFunc.exit119
   %170 = zext nneg i32 %switch.tableidx156 to i64
-  %switch.gep158 = getelementptr inbounds nuw i32, ptr @switch.table.SetDrawState.18, i64 %170
+  %switch.gep158 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SetDrawState.18, i64 %170
   %switch.load159 = load i32, ptr %switch.gep158, align 4
   br label %GetBlendFunc.exit121
 
@@ -5138,7 +5137,7 @@ GetBlendFunc.exit121:                             ; preds = %GetBlendFunc.exit11
 
 switch.lookup161:                                 ; preds = %GetBlendFunc.exit121
   %175 = zext nneg i32 %switch.tableidx160 to i64
-  %switch.gep162 = getelementptr inbounds nuw i32, ptr @switch.table.SetDrawState.20, i64 %175
+  %switch.gep162 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SetDrawState.20, i64 %175
   %switch.load163 = load i32, ptr %switch.gep162, align 4
   br label %GetBlendEquation.exit
 
@@ -5151,7 +5150,7 @@ GetBlendEquation.exit:                            ; preds = %GetBlendFunc.exit12
 
 switch.lookup165:                                 ; preds = %GetBlendEquation.exit
   %178 = zext nneg i32 %switch.tableidx164 to i64
-  %switch.gep166 = getelementptr inbounds nuw i32, ptr @switch.table.SetDrawState.20, i64 %178
+  %switch.gep166 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SetDrawState.20, i64 %178
   %switch.load167 = load i32, ptr %switch.gep166, align 4
   br label %GetBlendEquation.exit124
 
@@ -5286,7 +5285,7 @@ define internal fastcc noundef zeroext i1 @GLES2_SelectProgram(ptr noundef captu
 45:                                               ; preds = %43, %40
   %.077 = phi i32 [ %42, %40 ], [ 1, %43 ]
   %46 = zext nneg i32 %.078 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %41, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %46
   %48 = load i32, ptr %47, align 4
   %.not93 = icmp eq i32 %48, 0
   br i1 %.not93, label %49, label %51
@@ -5436,10 +5435,10 @@ define internal fastcc noundef zeroext i1 @GLES2_SelectProgram(ptr noundef captu
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %115 ]
   %116 = load ptr, ptr %109, align 8
   %117 = load i32, ptr %90, align 8
-  %118 = getelementptr inbounds nuw ptr, ptr @GLES2_UniformNames, i64 %indvars.iv.i
+  %118 = getelementptr inbounds nuw [8 x i8], ptr @GLES2_UniformNames, i64 %indvars.iv.i
   %119 = load ptr, ptr %118, align 8
   %120 = call i32 %116(i32 noundef %117, ptr noundef %119) #10
-  %121 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv.i
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv.i
   store i32 %120, ptr %121, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7

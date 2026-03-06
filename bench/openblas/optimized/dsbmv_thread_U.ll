@@ -93,18 +93,18 @@ define noundef i32 @dsbmv_thread_U(i64 noundef %0, i64 noundef %1, double nounde
 52:                                               ; preds = %38, %51
   %.2 = phi i64 [ %spec.select, %51 ], [ %40, %38 ]
   %53 = sub nsw i64 16, %.0122137
-  %54 = getelementptr inbounds i64, ptr %15, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %15, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !17
   %56 = sub nsw i64 %55, %.2
   %57 = sub nsw i64 15, %.0122137
-  %58 = getelementptr inbounds i64, ptr %15, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %15, i64 %57
   store i64 %56, ptr %58, align 8, !tbaa !17
   %59 = mul nuw nsw i64 %.0122137, %37
-  %60 = getelementptr inbounds nuw i64, ptr %16, i64 %.0122137
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0122137
   %61 = mul nuw nsw i64 %.0122137, %0
   %spec.select132 = call i64 @llvm.smin.i64(i64 %59, i64 %61)
   store i64 %spec.select132, ptr %60, align 8, !tbaa !17
-  %62 = getelementptr inbounds nuw %struct.blas_queue, ptr %14, i64 %.0122137
+  %62 = getelementptr inbounds nuw [168 x i8], ptr %14, i64 %.0122137
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 160
   store i32 3, ptr %63, align 8, !tbaa !19
   store ptr @sbmv_kernel, ptr %62, align 8, !tbaa !22
@@ -116,7 +116,7 @@ define noundef i32 @dsbmv_thread_U(i64 noundef %0, i64 noundef %1, double nounde
   store ptr %60, ptr %66, align 8, !tbaa !25
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %68 = add nuw nsw i64 %.0122137, 1
-  %69 = getelementptr inbounds nuw %struct.blas_queue, ptr %14, i64 %68
+  %69 = getelementptr inbounds nuw [168 x i8], ptr %14, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %62, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
   store ptr %69, ptr %70, align 8, !tbaa !26
@@ -151,13 +151,13 @@ define noundef i32 @dsbmv_thread_U(i64 noundef %0, i64 noundef %1, double nounde
 
 87:                                               ; preds = %78
   %88 = zext i32 %85 to i64
-  %89 = getelementptr inbounds nuw i32, ptr @blas_quick_divide_table, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr @blas_quick_divide_table, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !18
   %91 = call { i32, i32 } asm sideeffect "mull $0", "={dx},={ax},0,1,~{dirflag},~{fpsr},~{flags}"(i32 %90, i32 %83) #7, !srcloc !29
   %92 = extractvalue { i32, i32 } %91, 0
   store volatile i32 %92, ptr %12, align 4, !tbaa !18
   %.0..0..0..0..0..0..i = load volatile i32, ptr %12, align 4, !tbaa !18
-  %.phi.trans.insert = getelementptr inbounds nuw i64, ptr %15, i64 %.2124135
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.2124135
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !17
   br label %blas_quickdivide.exit
 
@@ -168,17 +168,17 @@ blas_quickdivide.exit:                            ; preds = %78, %87
   %94 = call i32 @llvm.umax.i32(i32 %.0.i, i32 4)
   %spec.store.select1 = zext i32 %94 to i64
   %spec.select133 = call i64 @llvm.umin.i64(i64 %.1120136, i64 %spec.store.select1)
-  %95 = getelementptr inbounds nuw i64, ptr %15, i64 %.2124135
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.2124135
   %96 = add nsw i64 %spec.select133, %93
   %97 = add nuw nsw i64 %.2124135, 1
-  %98 = getelementptr inbounds nuw i64, ptr %15, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %97
   store i64 %96, ptr %98, align 8, !tbaa !17
   %99 = mul nuw nsw i64 %.2124135, %77
-  %100 = getelementptr inbounds nuw i64, ptr %16, i64 %.2124135
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.2124135
   %101 = mul nuw nsw i64 %.2124135, %0
   %storemerge = call i64 @llvm.smin.i64(i64 %99, i64 %101)
   store i64 %storemerge, ptr %100, align 8, !tbaa !17
-  %102 = getelementptr inbounds nuw %struct.blas_queue, ptr %14, i64 %.2124135
+  %102 = getelementptr inbounds nuw [168 x i8], ptr %14, i64 %.2124135
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 160
   store i32 3, ptr %103, align 8, !tbaa !19
   store ptr @sbmv_kernel, ptr %102, align 8, !tbaa !22
@@ -189,7 +189,7 @@ blas_quickdivide.exit:                            ; preds = %78, %87
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 40
   store ptr %100, ptr %106, align 8, !tbaa !25
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 48
-  %108 = getelementptr inbounds nuw %struct.blas_queue, ptr %14, i64 %97
+  %108 = getelementptr inbounds nuw [168 x i8], ptr %14, i64 %97
   %109 = getelementptr inbounds nuw i8, ptr %102, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, i8 0, i64 16, i1 false)
   store ptr %108, ptr %109, align 8, !tbaa !26
@@ -203,7 +203,7 @@ blas_quickdivide.exit:                            ; preds = %78, %87
   store ptr null, ptr %112, align 16, !tbaa !31
   %113 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr %9, ptr %113, align 8, !tbaa !32
-  %114 = getelementptr %struct.blas_queue, ptr %14, i64 %.1123
+  %114 = getelementptr [168 x i8], ptr %14, i64 %.1123
   %115 = getelementptr i8, ptr %114, i64 -104
   store ptr null, ptr %115, align 8, !tbaa !26
   %116 = call i32 @exec_blas(i64 noundef %.1123, ptr noundef nonnull %14) #7
@@ -212,7 +212,7 @@ blas_quickdivide.exit:                            ; preds = %78, %87
 
 .lr.ph142:                                        ; preds = %.loopexit, %.lr.ph142
   %.2121141 = phi i64 [ %122, %.lr.ph142 ], [ 1, %.loopexit ]
-  %118 = getelementptr inbounds nuw %struct.blas_queue, ptr %14, i64 %.2121141
+  %118 = getelementptr inbounds nuw [168 x i8], ptr %14, i64 %.2121141
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 56
   %120 = load ptr, ptr %119, align 8, !tbaa !32
   %121 = call i32 @daxpy_k(i64 noundef %0, i64 noundef 0, i64 noundef 0, double noundef 1.000000e+00, ptr noundef %120, i64 noundef 1, ptr noundef %9, i64 noundef 1, ptr noundef null, i64 noundef 0) #7
@@ -250,7 +250,7 @@ define internal noundef i32 @sbmv_kernel(ptr noundef readonly captures(none) %0,
   %17 = load i64, ptr %16, align 8, !tbaa !10
   %18 = add nsw i64 %15, 1023
   %19 = and i64 %18, -1024
-  %20 = getelementptr inbounds double, ptr %4, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %4, i64 %19
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %27, label %21
 
@@ -259,7 +259,7 @@ define internal noundef i32 @sbmv_kernel(ptr noundef readonly captures(none) %0,
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !17
   %25 = mul nsw i64 %22, %11
-  %26 = getelementptr inbounds double, ptr %7, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %7, i64 %25
   br label %27
 
 27:                                               ; preds = %21, %6
@@ -283,21 +283,21 @@ define internal noundef i32 @sbmv_kernel(ptr noundef readonly captures(none) %0,
   %.05262 = phi i64 [ %47, %.lr.ph ], [ %.054, %30 ]
   %.161 = phi ptr [ %46, %.lr.ph ], [ %.055, %30 ]
   %spec.select = tail call i64 @llvm.smin.i64(i64 %.05262, i64 %17)
-  %33 = getelementptr inbounds double, ptr %.056, i64 %.05262
+  %33 = getelementptr inbounds [8 x i8], ptr %.056, i64 %.05262
   %34 = load double, ptr %33, align 8, !tbaa !34
   %35 = sub nsw i64 %17, %spec.select
-  %36 = getelementptr inbounds double, ptr %.161, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %.161, i64 %35
   %37 = sub nsw i64 %.05262, %spec.select
-  %38 = getelementptr inbounds double, ptr %4, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %4, i64 %37
   %39 = tail call i32 @daxpy_k(i64 noundef %spec.select, i64 noundef 0, i64 noundef 0, double noundef %34, ptr noundef %36, i64 noundef 1, ptr noundef %38, i64 noundef 1, ptr noundef null, i64 noundef 0) #7
   %40 = add nsw i64 %spec.select, 1
-  %41 = getelementptr inbounds double, ptr %.056, i64 %37
+  %41 = getelementptr inbounds [8 x i8], ptr %.056, i64 %37
   %42 = tail call double @ddot_k(i64 noundef %40, ptr noundef %36, i64 noundef 1, ptr noundef %41, i64 noundef 1) #7
-  %43 = getelementptr inbounds double, ptr %4, i64 %.05262
+  %43 = getelementptr inbounds [8 x i8], ptr %4, i64 %.05262
   %44 = load double, ptr %43, align 8, !tbaa !34
   %45 = fadd double %42, %44
   store double %45, ptr %43, align 8, !tbaa !34
-  %46 = getelementptr inbounds double, ptr %.161, i64 %11
+  %46 = getelementptr inbounds [8 x i8], ptr %.161, i64 %11
   %47 = add i64 %.05262, 1
   %exitcond.not = icmp eq i64 %47, %.053
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36

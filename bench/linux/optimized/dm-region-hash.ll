@@ -180,7 +180,7 @@ define dso_local noundef ptr @dm_region_hash_create(ptr noundef %0, ptr noundef 
 .preheader:                                       ; preds = %47, %.preheader
   %51 = phi i64 [ %55, %.preheader ], [ 0, %47 ]
   %52 = load ptr, ptr %45, align 8
-  %53 = getelementptr %struct.list_head, ptr %52, i64 %51
+  %53 = getelementptr [16 x i8], ptr %52, i64 %51
   store volatile ptr %53, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store volatile ptr %53, ptr %54, align 8
@@ -275,7 +275,7 @@ define dso_local void @dm_region_hash_destroy(ptr noundef %0) #2 align 16 {
   %14 = phi i32 [ %7, %9 ], [ %31, %.loopexit ]
   %15 = phi ptr [ %.pre, %9 ], [ %32, %.loopexit ]
   %16 = phi i64 [ 0, %9 ], [ %33, %.loopexit ]
-  %17 = getelementptr %struct.list_head, ptr %15, i64 %16
+  %17 = getelementptr [16 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %17
   br i1 %19, label %.loopexit, label %.preheader
@@ -297,7 +297,7 @@ define dso_local void @dm_region_hash_destroy(ptr noundef %0) #2 align 16 {
   %27 = getelementptr i8, ptr %20, i64 -24
   tail call void @mempool_free(ptr noundef %27, ptr noundef nonnull %11) #15
   %28 = load ptr, ptr %10, align 8
-  %29 = getelementptr %struct.list_head, ptr %28, i64 %16
+  %29 = getelementptr [16 x i8], ptr %28, i64 %16
   %30 = icmp eq ptr %21, %29
   br i1 %30, label %.loopexit.loopexit, label %.preheader, !llvm.loop !15
 
@@ -368,7 +368,7 @@ define dso_local i32 @dm_rh_get_state(ptr noundef %0, i64 noundef %1, i32 nounde
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, %15
   %19 = zext i32 %18 to i64
-  %20 = getelementptr %struct.list_head, ptr %6, i64 %19
+  %20 = getelementptr [16 x i8], ptr %6, i64 %19
   br label %21
 
 21:                                               ; preds = %25, %3
@@ -553,7 +553,7 @@ define internal fastcc ptr @__rh_find(ptr noundef %0, i64 noundef %1) unnamed_ad
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, %13
   %17 = zext i32 %16 to i64
-  %18 = getelementptr %struct.list_head, ptr %4, i64 %17
+  %18 = getelementptr [16 x i8], ptr %4, i64 %17
   br label %19
 
 19:                                               ; preds = %23, %2
@@ -621,7 +621,7 @@ define internal fastcc ptr @__rh_find(ptr noundef %0, i64 noundef %1) unnamed_ad
   %61 = load i32, ptr %14, align 8
   %62 = and i32 %61, %60
   %63 = zext i32 %62 to i64
-  %64 = getelementptr %struct.list_head, ptr %53, i64 %63
+  %64 = getelementptr [16 x i8], ptr %53, i64 %63
   br label %65
 
 65:                                               ; preds = %69, %37
@@ -653,7 +653,7 @@ define internal fastcc ptr @__rh_find(ptr noundef %0, i64 noundef %1) unnamed_ad
   %81 = trunc i64 %80 to i32
   %82 = and i32 %61, %81
   %83 = zext i32 %82 to i64
-  %84 = getelementptr %struct.list_head, ptr %53, i64 %83
+  %84 = getelementptr [16 x i8], ptr %53, i64 %83
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr %77, ptr %86, align 8
@@ -1103,7 +1103,7 @@ define dso_local void @dm_rh_dec(ptr noundef %0, i64 noundef %1) #2 align 16 {
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, %14
   %18 = zext i32 %17 to i64
-  %19 = getelementptr %struct.list_head, ptr %5, i64 %18
+  %19 = getelementptr [16 x i8], ptr %5, i64 %18
   br label %20
 
 20:                                               ; preds = %24, %2

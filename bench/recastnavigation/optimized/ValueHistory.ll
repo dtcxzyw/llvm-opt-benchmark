@@ -21,7 +21,7 @@ define dso_local noundef float @_ZNK12ValueHistory12getSampleMinEv(ptr noundef n
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %3 ]
   %.068 = phi float [ %2, %1 ], [ %.1, %3 ]
-  %4 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = load float, ptr %4, align 4
   %6 = fcmp olt float %5, %.068
   %.1 = select i1 %6, float %5, float %.068
@@ -41,7 +41,7 @@ define dso_local noundef float @_ZNK12ValueHistory12getSampleMaxEv(ptr noundef n
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %3 ]
   %.068 = phi float [ %2, %1 ], [ %.1, %3 ]
-  %4 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = load float, ptr %4, align 4
   %6 = fcmp ogt float %5, %.068
   %.1 = select i1 %6, float %5, float %.068
@@ -60,7 +60,7 @@ define dso_local noundef float @_ZNK12ValueHistory10getAverageEv(ptr noundef non
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %.056 = phi float [ 0.000000e+00, %1 ], [ %5, %2 ]
-  %3 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %4 = load float, ptr %3, align 4
   %5 = fadd float %.056, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -242,7 +242,7 @@ define dso_local void @_Z9drawGraphPK11GraphParamsPK12ValueHistoryiPKcj(ptr noun
   %40 = add nsw i32 %39, %.04648
   %41 = srem i32 %40, 256
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds float, ptr %1, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %1, i64 %42
   %44 = load float, ptr %43, align 4
   %45 = tail call float @llvm.fmuladd.f32(float %44, float %24, float %34)
   %.not = icmp eq i32 %.04648, 0
@@ -276,7 +276,7 @@ define dso_local void @_Z9drawGraphPK11GraphParamsPK12ValueHistoryiPKcj(ptr noun
 60:                                               ; preds = %60, %49
   %indvars.iv.i = phi i64 [ 0, %49 ], [ %indvars.iv.next.i, %60 ]
   %.056.i = phi float [ 0.000000e+00, %49 ], [ %63, %60 ]
-  %61 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %62 = load float, ptr %61, align 4
   %63 = fadd float %.056.i, %62
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

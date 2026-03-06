@@ -1022,7 +1022,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hecc5fba64d62e563E.ll
   %10 = phi i64 [ %.pre, %8 ], [ %5, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i64, i64 }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [16 x i8], ptr %12, i64 %10
   store i64 %1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %2, ptr %14, align 8
@@ -1234,7 +1234,7 @@ define noundef zeroext i1 @"_ZN65_$LT$uu_ls..dired..BytePosition$u20$as$u20$core
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1) unnamed_addr #8 {
   %.not = icmp eq i64 %1, 0
-  %3 = getelementptr { i64, i64 }, ptr %0, i64 %1
+  %3 = getelementptr [16 x i8], ptr %0, i64 %1
   %4 = getelementptr i8, ptr %3, i64 -16
   %.not45 = icmp eq ptr %4, null
   %.not4 = or i1 %.not, %.not45
@@ -1254,7 +1254,7 @@ define hidden noundef i64 @_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i64, i64 } @_ZN5uu_ls5dired15calculate_dired17hc9480b5088dc1704E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #8 {
   %.not.i = icmp eq i64 %1, 0
-  %5 = getelementptr { i64, i64 }, ptr %0, i64 %1
+  %5 = getelementptr [16 x i8], ptr %0, i64 %1
   %6 = getelementptr i8, ptr %5, i64 -16
   %.not45.i = icmp eq ptr %6, null
   %.not4.i = or i1 %.not.i, %.not45.i
@@ -1365,7 +1365,7 @@ define hidden void @_ZN5uu_ls5dired18calculate_subdired17hed16c64084f7e9d0E(ptr 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
   %.not.i = icmp eq i64 %6, 0
-  %7 = getelementptr { i64, i64 }, ptr %4, i64 %6
+  %7 = getelementptr [16 x i8], ptr %4, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -16
   %.not45.i = icmp eq ptr %8, null
   %.not4.i = or i1 %.not.i, %.not45.i
@@ -1399,7 +1399,7 @@ _ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391
   %22 = add i64 %21, %1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8, !alias.scope !258, !nonnull !5, !noundef !5
-  %25 = getelementptr inbounds { i64, i64 }, ptr %24, i64 %19
+  %25 = getelementptr inbounds [16 x i8], ptr %24, i64 %19
   store i64 %21, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %22, ptr %26, align 8
@@ -1733,7 +1733,7 @@ define hidden void @_ZN5uu_ls5dired9add_total17hca5aad377567ee2fE(ptr noalias no
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !5
   %.not.i = icmp eq i64 %10, 0
-  %11 = getelementptr { i64, i64 }, ptr %8, i64 %10
+  %11 = getelementptr [16 x i8], ptr %8, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -16
   %.not45.i = icmp eq ptr %12, null
   %.not4.i = or i1 %.not.i, %.not45.i
@@ -1770,7 +1770,7 @@ define hidden void @_ZN5uu_ls5dired30calculate_and_update_positions17h5399937366
   %.not = icmp eq i64 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !5
-  %8 = getelementptr { i64, i64 }, ptr %7, i64 %5
+  %8 = getelementptr [16 x i8], ptr %7, i64 %5
   %9 = getelementptr i8, ptr %8, i64 -16
   %10 = icmp eq ptr %9, null
   %11 = select i1 %.not, i1 true, i1 %10
@@ -1803,7 +1803,7 @@ _ZN5uu_ls5dired16update_positions17he4b5f766fbc88189E.exit: ; preds = %"_ZN4core
   %24 = add i64 %23, %2
   %25 = add i64 %24, %16
   %26 = add i64 %16, %23
-  %27 = getelementptr inbounds { i64, i64 }, ptr %20, i64 %21
+  %27 = getelementptr inbounds [16 x i8], ptr %20, i64 %21
   store i64 %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %25, ptr %28, align 8
@@ -1842,7 +1842,7 @@ define hidden void @_ZN5uu_ls5dired16update_positions17he4b5f766fbc88189E(ptr no
   %13 = add i64 %5, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !330, !nonnull !5, !noundef !5
-  %16 = getelementptr inbounds { i64, i64 }, ptr %15, i64 %11
+  %16 = getelementptr inbounds [16 x i8], ptr %15, i64 %11
   store i64 %13, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %12, ptr %17, align 8

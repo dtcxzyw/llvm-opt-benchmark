@@ -51,10 +51,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Catch::BinaryExpr.28" = type { %"struct.Catch::ITransientExpression.base", ptr, %"class.Catch::StringRef", ptr }
 %"class.Catch::BinaryExpr.30" = type { %"struct.Catch::ITransientExpression.base", ptr, %"class.Catch::StringRef", ptr }
 %"class.Catch::BinaryExpr.32" = type { %"struct.Catch::ITransientExpression.base", ptr, %"class.Catch::StringRef", ptr }
-%"struct.vcpkg::ExpectedT" = type <{ %union.anon.27, i8, [7 x i8] }>
-%union.anon.27 = type { %"struct.vcpkg::ExpectedHolder" }
-%"struct.vcpkg::ExpectedHolder" = type { %"struct.vcpkg::ExitCodeAndOutput" }
-%"struct.vcpkg::ExitCodeAndOutput" = type { i32, %"class.std::__cxx11::basic_string" }
 %"class.Catch::BinaryExpr.34" = type { %"struct.Catch::ITransientExpression.base", ptr, %"class.Catch::StringRef", ptr }
 %"class.Catch::BinaryExpr.35" = type { %"struct.Catch::ITransientExpression.base", ptr, %"class.Catch::StringRef", ptr }
 %"class.Catch::ReusableStringStream" = type { %"class.Catch::NonCopyable", i64, ptr }
@@ -3233,7 +3229,7 @@ _ZNSt6vectorIN5vcpkg7CommandESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN5vc
   %168 = phi ptr [ %44, %.lr.ph ], [ %317, %_ZN5Catch16AssertionHandlerD2Ev.exit77 ]
   %.0125 = phi i64 [ 0, %.lr.ph ], [ %315, %_ZN5Catch16AssertionHandlerD2Ev.exit77 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %169 = getelementptr inbounds nuw %"struct.vcpkg::ExpectedT", ptr %168, i64 %.0125
+  %169 = getelementptr inbounds nuw [48 x i8], ptr %168, i64 %.0125
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 40
   %171 = load i8, ptr %170, align 8, !tbaa !115, !range !24, !noundef !25
   %172 = trunc nuw i8 %171 to i1
@@ -5763,7 +5759,7 @@ _ZNSt6vectorIN5vcpkg7CommandESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26: ; pred
 _ZNSt12_Vector_baseIN5vcpkg7CommandESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5vcpkg7CommandESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !104
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !107
-  %73 = getelementptr inbounds nuw %"struct.vcpkg::Command", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !112
   ret void
 }

@@ -46,7 +46,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.49 = type { ptr }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.dmlc::DateLogger" = type { [9 x i8] }
-%"struct.std::pair.44" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"struct.dmlc::ParamFieldInfo" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.std::set" = type { %"class.std::_Rb_tree.77" }
 %"class.std::_Rb_tree.77" = type { %"struct.std::_Rb_tree<dmlc::parameter::FieldAccessEntry *, dmlc::parameter::FieldAccessEntry *, std::_Identity<dmlc::parameter::FieldAccessEntry *>, std::less<dmlc::parameter::FieldAccessEntry *>>::_Rb_tree_impl" }
@@ -54,6 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map.101" = type { %"class.std::_Rb_tree.102" }
 %"class.std::_Rb_tree.102" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
+%"struct.std::pair.44" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, xgboost::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, xgboost::Json>>, std::less<void>>::_Auto_node" = type { ptr, ptr }
 %"class.xgboost::linalg::TensorView" = type <{ [1 x i64], [1 x i64], %"class.xgboost::common::Span", ptr, i64, %"struct.xgboost::DeviceOrd", [4 x i8] }>
@@ -689,7 +689,7 @@ _ZNSt6vectorIPKN7xgboost9MetricRegESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i
 _ZNSt6vectorIPKN7xgboost9MetricRegESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIPKN7xgboost9MetricRegESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %69, ptr %50, align 8, !tbaa !29
   store ptr %73, ptr %51, align 8, !tbaa !24
-  %75 = getelementptr inbounds nuw ptr, ptr %69, i64 %67
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %67
   store ptr %75, ptr %53, align 8, !tbaa !28
   br label %_ZNSt6vectorIPKN7xgboost9MetricRegESaIS3_EE9push_backERKS3_.exit
 
@@ -757,7 +757,7 @@ _ZNSt6vectorIPN7xgboost9MetricRegESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.
 _ZNSt6vectorIPN7xgboost9MetricRegESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %99, %_ZNSt6vectorIPN7xgboost9MetricRegESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %94, ptr %0, align 8, !tbaa !33
   store ptr %98, ptr %76, align 8, !tbaa !30
-  %100 = getelementptr inbounds nuw ptr, ptr %94, i64 %92
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %100, ptr %78, align 8, !tbaa !32
   br label %_ZNSt6vectorIPN7xgboost9MetricRegESaIS2_EE9push_backERKS2_.exit
 
@@ -3660,7 +3660,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !54
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -3716,7 +3716,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !176
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48
@@ -4922,7 +4922,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit41, %85
   store ptr %21, ptr %0, align 8, !tbaa !59
   store ptr %.0.lcssa.i.i.i40, ptr %5, align 8, !tbaa !62
-  %89 = getelementptr inbounds nuw %"struct.std::pair.44", ptr %21, i64 %17
+  %89 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %17
   store ptr %89, ptr %84, align 8, !tbaa !64
   ret void
 
@@ -5928,7 +5928,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter12ParamManager14PrintDocStringERSo(
   %21 = phi ptr [ %9, %.lr.ph ], [ %82, %_ZN4dmlc14ParamFieldInfoD2Ev.exit ]
   %.018 = phi i64 [ 0, %.lr.ph ], [ %80, %_ZN4dmlc14ParamFieldInfoD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.018
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.018
   %23 = load ptr, ptr %22, align 8, !tbaa !228
   %24 = load ptr, ptr %23, align 8, !tbaa !49
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
@@ -6286,7 +6286,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit40, %84
   store ptr %20, ptr %0, align 8, !tbaa !59
   store ptr %.0.lcssa.i.i.i39, ptr %4, align 8, !tbaa !62
-  %88 = getelementptr inbounds nuw %"struct.std::pair.44", ptr %20, i64 %16
+  %88 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %16
   store ptr %88, ptr %83, align 8, !tbaa !64
   ret void
 
@@ -7548,7 +7548,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit30, %114
   store ptr %22, ptr %0, align 8, !tbaa !59
   store ptr %.0.lcssa.i.i.i29, ptr %4, align 8, !tbaa !62
-  %118 = getelementptr inbounds nuw %"struct.std::pair.44", ptr %22, i64 %16
+  %118 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %118, ptr %113, align 8, !tbaa !64
   ret void
 }
@@ -9529,7 +9529,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_
 
 .noexc38:                                         ; preds = %47
   store ptr %49, ptr %11, align 8, !tbaa !346
-  %50 = getelementptr inbounds nuw double, ptr %49, i64 %44
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %44
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %50, ptr %51, align 8, !tbaa !348
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %49, i8 0, i64 %48, i1 false), !tbaa !118
@@ -9549,7 +9549,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i45: ; preds = %_ZNSt6vectorIdS
 
 .noexc47:                                         ; preds = %.noexc38
   store ptr %54, ptr %12, align 8, !tbaa !346
-  %56 = getelementptr inbounds nuw double, ptr %54, i64 %44
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %44
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %56, ptr %57, align 8, !tbaa !348
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %54, i8 0, i64 %48, i1 false), !tbaa !118
@@ -9748,7 +9748,7 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNKS_6metric35Element
   br i1 %25, label %_ZZNK7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_14EvalAFTNLogLikINS_6common18NormalDistributionEEEE16CpuReduceMetricsERKNS_16HostDeviceVectorIfEESA_SA_SA_iENKUlmE_clEm.exit, label %26
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds nuw float, ptr %22, i64 %.04994
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.04994
   %28 = load float, ptr %27, align 4, !tbaa !361
   %29 = fpext float %28 to double
   br label %_ZZNK7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_14EvalAFTNLogLikINS_6common18NormalDistributionEEEE16CpuReduceMetricsERKNS_16HostDeviceVectorIfEESA_SA_SA_iENKUlmE_clEm.exit
@@ -9757,17 +9757,17 @@ _ZZNK7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_14EvalAFTNLogLikIN
   %30 = phi double [ %29, %26 ], [ 1.000000e+00, %19 ]
   %31 = load ptr, ptr %14, align 8, !tbaa !362
   %32 = load ptr, ptr %31, align 8, !tbaa !363
-  %33 = getelementptr inbounds nuw float, ptr %32, i64 %.04994
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %.04994
   %34 = load float, ptr %33, align 4, !tbaa !361
   %35 = fpext float %34 to double
   %36 = load ptr, ptr %15, align 8, !tbaa !365
   %37 = load ptr, ptr %36, align 8, !tbaa !363
-  %38 = getelementptr inbounds nuw float, ptr %37, i64 %.04994
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.04994
   %39 = load float, ptr %38, align 4, !tbaa !361
   %40 = fpext float %39 to double
   %41 = load ptr, ptr %16, align 8, !tbaa !366
   %42 = load ptr, ptr %41, align 8, !tbaa !363
-  %43 = getelementptr inbounds nuw float, ptr %42, i64 %.04994
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.04994
   %44 = load float, ptr %43, align 4, !tbaa !361
   %45 = fpext float %44 to double
   %46 = tail call noundef double @_ZNK7xgboost6metric14EvalAFTNLogLikINS_6common18NormalDistributionEE7EvalRowEddd(ptr noundef nonnull align 4 dereferenceable(12) %20, double noundef %35, double noundef %40, double noundef %45)
@@ -10099,7 +10099,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost6metric35Element
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw float, ptr %11, i64 %2
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %2
   %17 = load float, ptr %16, align 4, !tbaa !361
   %18 = fpext float %17 to double
   br label %19
@@ -10109,19 +10109,19 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost6metric35Element
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !362
   %23 = load ptr, ptr %22, align 8, !tbaa !363
-  %24 = getelementptr inbounds nuw float, ptr %23, i64 %2
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %2
   %25 = load float, ptr %24, align 4, !tbaa !361
   %26 = fpext float %25 to double
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !365
   %29 = load ptr, ptr %28, align 8, !tbaa !363
-  %30 = getelementptr inbounds nuw float, ptr %29, i64 %2
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %2
   %31 = load float, ptr %30, align 4, !tbaa !361
   %32 = fpext float %31 to double
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !366
   %35 = load ptr, ptr %34, align 8, !tbaa !363
-  %36 = getelementptr inbounds nuw float, ptr %35, i64 %2
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %2
   %37 = load float, ptr %36, align 4, !tbaa !361
   %38 = fpext float %37 to double
   %39 = invoke noundef double @_ZNK7xgboost6metric14EvalAFTNLogLikINS_6common18NormalDistributionEE7EvalRowEddd(ptr noundef nonnull align 4 dereferenceable(12) %9, double noundef %26, double noundef %32, double noundef %38)
@@ -11476,7 +11476,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_
 
 .noexc38:                                         ; preds = %47
   store ptr %49, ptr %11, align 8, !tbaa !346
-  %50 = getelementptr inbounds nuw double, ptr %49, i64 %44
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %44
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %50, ptr %51, align 8, !tbaa !348
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %49, i8 0, i64 %48, i1 false), !tbaa !118
@@ -11496,7 +11496,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i45: ; preds = %_ZNSt6vectorIdS
 
 .noexc47:                                         ; preds = %.noexc38
   store ptr %54, ptr %12, align 8, !tbaa !346
-  %56 = getelementptr inbounds nuw double, ptr %54, i64 %44
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %44
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %56, ptr %57, align 8, !tbaa !348
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %54, i8 0, i64 %48, i1 false), !tbaa !118
@@ -11691,7 +11691,7 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNKS_6metric35Element
   br i1 %25, label %_ZZNK7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_14EvalAFTNLogLikINS_6common20LogisticDistributionEEEE16CpuReduceMetricsERKNS_16HostDeviceVectorIfEESA_SA_SA_iENKUlmE_clEm.exit, label %26
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds nuw float, ptr %22, i64 %.04994
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.04994
   %28 = load float, ptr %27, align 4, !tbaa !361
   %29 = fpext float %28 to double
   br label %_ZZNK7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_14EvalAFTNLogLikINS_6common20LogisticDistributionEEEE16CpuReduceMetricsERKNS_16HostDeviceVectorIfEESA_SA_SA_iENKUlmE_clEm.exit
@@ -11700,17 +11700,17 @@ _ZZNK7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_14EvalAFTNLogLikIN
   %30 = phi double [ %29, %26 ], [ 1.000000e+00, %19 ]
   %31 = load ptr, ptr %14, align 8, !tbaa !460
   %32 = load ptr, ptr %31, align 8, !tbaa !363
-  %33 = getelementptr inbounds nuw float, ptr %32, i64 %.04994
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %.04994
   %34 = load float, ptr %33, align 4, !tbaa !361
   %35 = fpext float %34 to double
   %36 = load ptr, ptr %15, align 8, !tbaa !461
   %37 = load ptr, ptr %36, align 8, !tbaa !363
-  %38 = getelementptr inbounds nuw float, ptr %37, i64 %.04994
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.04994
   %39 = load float, ptr %38, align 4, !tbaa !361
   %40 = fpext float %39 to double
   %41 = load ptr, ptr %16, align 8, !tbaa !462
   %42 = load ptr, ptr %41, align 8, !tbaa !363
-  %43 = getelementptr inbounds nuw float, ptr %42, i64 %.04994
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.04994
   %44 = load float, ptr %43, align 4, !tbaa !361
   %45 = fpext float %44 to double
   %46 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -12045,7 +12045,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost6metric35Element
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw float, ptr %11, i64 %2
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %2
   %17 = load float, ptr %16, align 4, !tbaa !361
   %18 = fpext float %17 to double
   br label %19
@@ -12055,19 +12055,19 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost6metric35Element
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !460
   %23 = load ptr, ptr %22, align 8, !tbaa !363
-  %24 = getelementptr inbounds nuw float, ptr %23, i64 %2
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %2
   %25 = load float, ptr %24, align 4, !tbaa !361
   %26 = fpext float %25 to double
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !461
   %29 = load ptr, ptr %28, align 8, !tbaa !363
-  %30 = getelementptr inbounds nuw float, ptr %29, i64 %2
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %2
   %31 = load float, ptr %30, align 4, !tbaa !361
   %32 = fpext float %31 to double
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !462
   %35 = load ptr, ptr %34, align 8, !tbaa !363
-  %36 = getelementptr inbounds nuw float, ptr %35, i64 %2
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %2
   %37 = load float, ptr %36, align 4, !tbaa !361
   %38 = fpext float %37 to double
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -12999,7 +12999,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_
 
 .noexc38:                                         ; preds = %47
   store ptr %49, ptr %11, align 8, !tbaa !346
-  %50 = getelementptr inbounds nuw double, ptr %49, i64 %44
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %44
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %50, ptr %51, align 8, !tbaa !348
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %49, i8 0, i64 %48, i1 false), !tbaa !118
@@ -13019,7 +13019,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i45: ; preds = %_ZNSt6vectorIdS
 
 .noexc47:                                         ; preds = %.noexc38
   store ptr %54, ptr %12, align 8, !tbaa !346
-  %56 = getelementptr inbounds nuw double, ptr %54, i64 %44
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %44
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %56, ptr %57, align 8, !tbaa !348
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %54, i8 0, i64 %48, i1 false), !tbaa !118
@@ -13214,7 +13214,7 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNKS_6metric35Element
   br i1 %25, label %_ZZNK7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_14EvalAFTNLogLikINS_6common19ExtremeDistributionEEEE16CpuReduceMetricsERKNS_16HostDeviceVectorIfEESA_SA_SA_iENKUlmE_clEm.exit, label %26
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds nuw float, ptr %22, i64 %.04994
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.04994
   %28 = load float, ptr %27, align 4, !tbaa !361
   %29 = fpext float %28 to double
   br label %_ZZNK7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_14EvalAFTNLogLikINS_6common19ExtremeDistributionEEEE16CpuReduceMetricsERKNS_16HostDeviceVectorIfEESA_SA_SA_iENKUlmE_clEm.exit
@@ -13223,17 +13223,17 @@ _ZZNK7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_14EvalAFTNLogLikIN
   %30 = phi double [ %29, %26 ], [ 1.000000e+00, %19 ]
   %31 = load ptr, ptr %14, align 8, !tbaa !506
   %32 = load ptr, ptr %31, align 8, !tbaa !363
-  %33 = getelementptr inbounds nuw float, ptr %32, i64 %.04994
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %.04994
   %34 = load float, ptr %33, align 4, !tbaa !361
   %35 = fpext float %34 to double
   %36 = load ptr, ptr %15, align 8, !tbaa !507
   %37 = load ptr, ptr %36, align 8, !tbaa !363
-  %38 = getelementptr inbounds nuw float, ptr %37, i64 %.04994
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.04994
   %39 = load float, ptr %38, align 4, !tbaa !361
   %40 = fpext float %39 to double
   %41 = load ptr, ptr %16, align 8, !tbaa !508
   %42 = load ptr, ptr %41, align 8, !tbaa !363
-  %43 = getelementptr inbounds nuw float, ptr %42, i64 %.04994
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.04994
   %44 = load float, ptr %43, align 4, !tbaa !361
   %45 = fpext float %44 to double
   %46 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -13568,7 +13568,7 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost6metric35Element
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds nuw float, ptr %11, i64 %2
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %2
   %17 = load float, ptr %16, align 4, !tbaa !361
   %18 = fpext float %17 to double
   br label %19
@@ -13578,19 +13578,19 @@ define linkonce_odr void @_ZN4dmlc12OMPException3RunIZNK7xgboost6metric35Element
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !506
   %23 = load ptr, ptr %22, align 8, !tbaa !363
-  %24 = getelementptr inbounds nuw float, ptr %23, i64 %2
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %2
   %25 = load float, ptr %24, align 4, !tbaa !361
   %26 = fpext float %25 to double
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !507
   %29 = load ptr, ptr %28, align 8, !tbaa !363
-  %30 = getelementptr inbounds nuw float, ptr %29, i64 %2
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %2
   %31 = load float, ptr %30, align 4, !tbaa !361
   %32 = fpext float %31 to double
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !508
   %35 = load ptr, ptr %34, align 8, !tbaa !363
-  %36 = getelementptr inbounds nuw float, ptr %35, i64 %2
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %2
   %37 = load float, ptr %36, align 4, !tbaa !361
   %38 = fpext float %37 to double
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -15368,7 +15368,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_
 
 .noexc38:                                         ; preds = %47
   store ptr %49, ptr %11, align 8, !tbaa !346
-  %50 = getelementptr inbounds nuw double, ptr %49, i64 %44
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %44
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %50, ptr %51, align 8, !tbaa !348
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %49, i8 0, i64 %48, i1 false), !tbaa !118
@@ -15388,7 +15388,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i45: ; preds = %_ZNSt6vectorIdS
 
 .noexc47:                                         ; preds = %.noexc38
   store ptr %54, ptr %12, align 8, !tbaa !346
-  %56 = getelementptr inbounds nuw double, ptr %54, i64 %44
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %44
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %56, ptr %57, align 8, !tbaa !348
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %54, i8 0, i64 %48, i1 false), !tbaa !118
@@ -15589,20 +15589,20 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNKS_6metric35Element
   br i1 %15, label %_ZZNK7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_30EvalIntervalRegressionAccuracyEE16CpuReduceMetricsERKNS_16HostDeviceVectorIfEES7_S7_S7_iENKUlmE_clEm.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw float, ptr %12, i64 %.049175
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.049175
   %34 = load float, ptr %33, align 4, !tbaa !361
   %35 = fpext float %34 to double
   br label %_ZZNK7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_30EvalIntervalRegressionAccuracyEE16CpuReduceMetricsERKNS_16HostDeviceVectorIfEES7_S7_S7_iENKUlmE_clEm.exit
 
 _ZZNK7xgboost6metric35ElementWiseSurvivalMetricsReductionINS0_30EvalIntervalRegressionAccuracyEE16CpuReduceMetricsERKNS_16HostDeviceVectorIfEES7_S7_S7_iENKUlmE_clEm.exit: ; preds = %31, %32
   %36 = phi double [ %35, %32 ], [ 1.000000e+00, %31 ]
-  %37 = getelementptr inbounds nuw float, ptr %18, i64 %.049175
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.049175
   %38 = load float, ptr %37, align 4, !tbaa !361
   %39 = fpext float %38 to double
-  %40 = getelementptr inbounds nuw float, ptr %21, i64 %.049175
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.049175
   %41 = load float, ptr %40, align 4, !tbaa !361
   %42 = fpext float %41 to double
-  %43 = getelementptr inbounds nuw float, ptr %24, i64 %.049175
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.049175
   %44 = load float, ptr %43, align 4, !tbaa !361
   %45 = fpext float %44 to double
   %46 = tail call double @exp(double noundef %45) #20, !tbaa !194
@@ -15780,20 +15780,20 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %91, label %102, label %98
 
 98:                                               ; preds = %97
-  %99 = getelementptr inbounds nuw float, ptr %88, i64 %.044173
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %.044173
   %100 = load float, ptr %99, align 4, !tbaa !361
   %101 = fpext float %100 to double
   br label %102
 
 102:                                              ; preds = %98, %97
   %103 = phi double [ %101, %98 ], [ 1.000000e+00, %97 ]
-  %104 = getelementptr inbounds nuw float, ptr %92, i64 %.044173
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %.044173
   %105 = load float, ptr %104, align 4, !tbaa !361
   %106 = fpext float %105 to double
-  %107 = getelementptr inbounds nuw float, ptr %93, i64 %.044173
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %.044173
   %108 = load float, ptr %107, align 4, !tbaa !361
   %109 = fpext float %108 to double
-  %110 = getelementptr inbounds nuw float, ptr %94, i64 %.044173
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %.044173
   %111 = load float, ptr %110, align 4, !tbaa !361
   %112 = fpext float %111 to double
   %113 = call double @exp(double noundef %112) #20, !tbaa !194
@@ -15873,20 +15873,20 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %137, label %148, label %144
 
 144:                                              ; preds = %143
-  %145 = getelementptr inbounds nuw float, ptr %134, i64 %.043171
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %.043171
   %146 = load float, ptr %145, align 4, !tbaa !361
   %147 = fpext float %146 to double
   br label %148
 
 148:                                              ; preds = %144, %143
   %149 = phi double [ %147, %144 ], [ 1.000000e+00, %143 ]
-  %150 = getelementptr inbounds nuw float, ptr %138, i64 %.043171
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %.043171
   %151 = load float, ptr %150, align 4, !tbaa !361
   %152 = fpext float %151 to double
-  %153 = getelementptr inbounds nuw float, ptr %139, i64 %.043171
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %.043171
   %154 = load float, ptr %153, align 4, !tbaa !361
   %155 = fpext float %154 to double
-  %156 = getelementptr inbounds nuw float, ptr %140, i64 %.043171
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %.043171
   %157 = load float, ptr %156, align 4, !tbaa !361
   %158 = fpext float %157 to double
   %159 = call double @exp(double noundef %158) #20, !tbaa !194
@@ -15909,20 +15909,20 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %128, label %174, label %170
 
 170:                                              ; preds = %169
-  %171 = getelementptr inbounds nuw float, ptr %125, i64 %.042169
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %.042169
   %172 = load float, ptr %171, align 4, !tbaa !361
   %173 = fpext float %172 to double
   br label %174
 
 174:                                              ; preds = %170, %169
   %175 = phi double [ %173, %170 ], [ 1.000000e+00, %169 ]
-  %176 = getelementptr inbounds nuw float, ptr %129, i64 %.042169
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %.042169
   %177 = load float, ptr %176, align 4, !tbaa !361
   %178 = fpext float %177 to double
-  %179 = getelementptr inbounds nuw float, ptr %130, i64 %.042169
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %.042169
   %180 = load float, ptr %179, align 4, !tbaa !361
   %181 = fpext float %180 to double
-  %182 = getelementptr inbounds nuw float, ptr %131, i64 %.042169
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %.042169
   %183 = load float, ptr %182, align 4, !tbaa !361
   %184 = fpext float %183 to double
   %185 = call double @exp(double noundef %184) #20, !tbaa !194
@@ -16002,20 +16002,20 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %209, label %220, label %216
 
 216:                                              ; preds = %215
-  %217 = getelementptr inbounds nuw float, ptr %206, i64 %.041167
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %.041167
   %218 = load float, ptr %217, align 4, !tbaa !361
   %219 = fpext float %218 to double
   br label %220
 
 220:                                              ; preds = %216, %215
   %221 = phi double [ %219, %216 ], [ 1.000000e+00, %215 ]
-  %222 = getelementptr inbounds nuw float, ptr %210, i64 %.041167
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %210, i64 %.041167
   %223 = load float, ptr %222, align 4, !tbaa !361
   %224 = fpext float %223 to double
-  %225 = getelementptr inbounds nuw float, ptr %211, i64 %.041167
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %.041167
   %226 = load float, ptr %225, align 4, !tbaa !361
   %227 = fpext float %226 to double
-  %228 = getelementptr inbounds nuw float, ptr %212, i64 %.041167
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %212, i64 %.041167
   %229 = load float, ptr %228, align 4, !tbaa !361
   %230 = fpext float %229 to double
   %231 = call double @exp(double noundef %230) #20, !tbaa !194
@@ -16038,20 +16038,20 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %200, label %246, label %242
 
 242:                                              ; preds = %241
-  %243 = getelementptr inbounds nuw float, ptr %197, i64 %.040165
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %197, i64 %.040165
   %244 = load float, ptr %243, align 4, !tbaa !361
   %245 = fpext float %244 to double
   br label %246
 
 246:                                              ; preds = %242, %241
   %247 = phi double [ %245, %242 ], [ 1.000000e+00, %241 ]
-  %248 = getelementptr inbounds nuw float, ptr %201, i64 %.040165
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 %.040165
   %249 = load float, ptr %248, align 4, !tbaa !361
   %250 = fpext float %249 to double
-  %251 = getelementptr inbounds nuw float, ptr %202, i64 %.040165
+  %251 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %.040165
   %252 = load float, ptr %251, align 4, !tbaa !361
   %253 = fpext float %252 to double
-  %254 = getelementptr inbounds nuw float, ptr %203, i64 %.040165
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %.040165
   %255 = load float, ptr %254, align 4, !tbaa !361
   %256 = fpext float %255 to double
   %257 = call double @exp(double noundef %256) #20, !tbaa !194
@@ -16074,20 +16074,20 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br i1 %82, label %272, label %268
 
 268:                                              ; preds = %267
-  %269 = getelementptr inbounds nuw float, ptr %79, i64 %.0164
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %.0164
   %270 = load float, ptr %269, align 4, !tbaa !361
   %271 = fpext float %270 to double
   br label %272
 
 272:                                              ; preds = %268, %267
   %273 = phi double [ %271, %268 ], [ 1.000000e+00, %267 ]
-  %274 = getelementptr inbounds nuw float, ptr %83, i64 %.0164
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %.0164
   %275 = load float, ptr %274, align 4, !tbaa !361
   %276 = fpext float %275 to double
-  %277 = getelementptr inbounds nuw float, ptr %84, i64 %.0164
+  %277 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %.0164
   %278 = load float, ptr %277, align 4, !tbaa !361
   %279 = fpext float %278 to double
-  %280 = getelementptr inbounds nuw float, ptr %85, i64 %.0164
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %.0164
   %281 = load float, ptr %280, align 4, !tbaa !361
   %282 = fpext float %281 to double
   %283 = call double @exp(double noundef %282) #20, !tbaa !194

@@ -47,7 +47,7 @@ define dso_local noundef zeroext i1 @_ZN5clang11SemaHexagon27CheckHexagonBuiltin
   %.04.i.i = phi ptr [ %.1.i.i, %10 ], [ @_ZZN5clang11SemaHexagon27CheckHexagonBuiltinArgumentEjPNS_8CallExprEE5Infos, %.preheader54 ]
   %.0103.i.i = phi i64 [ %.111.i.i, %10 ], [ 176, %.preheader54 ]
   %11 = lshr i64 %.0103.i.i, 1
-  %12 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %.04.i.i, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %.04.i.i, i64 %11
   %.val12.i.i = load i32, ptr %12, align 4, !tbaa !8
   %13 = icmp ult i32 %.val12.i.i, %1
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 12
@@ -156,7 +156,7 @@ define internal fastcc void @"_ZN4llvm4sortIRA176_ZN5clang11SemaHexagon27CheckHe
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) %.019.i.ptr.i.i.i.i, i64 12, i1 false), !tbaa.struct !24
   %5 = getelementptr inbounds nuw i8, ptr %.pn18.i.i.i.i.i, i64 24
   %.neg.i.i.i.i.i.i.i.i.i.i = sdiv exact i64 %.019.i.idx.i.i.i.i, -12
-  %6 = getelementptr inbounds %struct.BuiltinInfo, ptr %5, i64 %.neg.i.i.i.i.i.i.i.i.i.i
+  %6 = getelementptr inbounds [12 x i8], ptr %5, i64 %.neg.i.i.i.i.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %6, ptr noundef nonnull align 16 dereferenceable(1) @_ZZN5clang11SemaHexagon27CheckHexagonBuiltinArgumentEjPNS_8CallExprEE5Infos, i64 %.019.i.idx.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) @_ZZN5clang11SemaHexagon27CheckHexagonBuiltinArgumentEjPNS_8CallExprEE5Infos, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !tbaa.struct !24
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -276,13 +276,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN5clang11SemaHexagon27Che
   %25 = and i64 %20, 1
   %26 = icmp eq i64 %25, 0
   %27 = or disjoint i64 %21, 1
-  %28 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %27
-  %29 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %22
+  %28 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %27
+  %29 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %22
   br label %30
 
 30:                                               ; preds = %"_ZSt13__adjust_heapIPZN5clang11SemaHexagon27CheckHexagonBuiltinArgumentEjPNS0_8CallExprEE11BuiltinInfolS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_27CheckHexagonBuiltinArgumentEjS3_E3$_1EEEvT_T0_SC_T1_T2_.exit.i.i.i", %19
   %.017.i.i.i = phi i64 [ %22, %19 ], [ %53, %"_ZSt13__adjust_heapIPZN5clang11SemaHexagon27CheckHexagonBuiltinArgumentEjPNS0_8CallExprEE11BuiltinInfolS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_27CheckHexagonBuiltinArgumentEjS3_E3$_1EEEvT_T0_SC_T1_T2_.exit.i.i.i" ]
-  %31 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %.017.i.i.i
+  %31 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.017.i.i.i
   %.sroa.04.0.copyload.i.i.i = load i64, ptr %31, align 4
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.4.0.copyload.i.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4, !tbaa !26
@@ -293,16 +293,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN5clang11SemaHexagon27Che
   %.035.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.017.i.i.i, %30 ]
   %33 = shl i64 %.035.i.i.i.i, 1
   %34 = add i64 %33, 2
-  %35 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %34
-  %36 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %33
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %34
+  %36 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %33
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %.val.i.i.i.i = load i32, ptr %35, align 4, !tbaa !8
   %.val34.i.i.i.i = load i32, ptr %37, align 4, !tbaa !8
   %38 = icmp ult i32 %.val.i.i.i.i, %.val34.i.i.i.i
   %39 = or disjoint i64 %33, 1
   %spec.select.i.i.i.i = select i1 %38, i64 %39, i64 %34
-  %40 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %spec.select.i.i.i.i
-  %41 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %.035.i.i.i.i
+  %40 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %spec.select.i.i.i.i
+  %41 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.035.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %41, ptr noundef nonnull align 4 dereferenceable(12) %40, i64 12, i1 false), !tbaa.struct !24
   %42 = icmp slt i64 %spec.select.i.i.i.i, %24
   br i1 %42, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !30
@@ -327,20 +327,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN5clang11SemaHexagon27Che
   %.0133.i.i.i.i.i = phi i64 [ %.048.i.i.i.i.i, %49 ], [ %.1.i.i.i.i, %45 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.048.i.i.i.i.i = lshr i64 %.04.in.i.i.i.i.i, 1
-  %47 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %.048.i.i.i.i.i
+  %47 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.048.i.i.i.i.i
   %.val.i.i.i.i.i = load i32, ptr %47, align 4, !tbaa !8
   %48 = icmp ult i32 %.val.i.i.i.i.i, %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i
   br i1 %48, label %49, label %"_ZSt13__adjust_heapIPZN5clang11SemaHexagon27CheckHexagonBuiltinArgumentEjPNS0_8CallExprEE11BuiltinInfolS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_27CheckHexagonBuiltinArgumentEjS3_E3$_1EEEvT_T0_SC_T1_T2_.exit.i.i.i"
 
 49:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %50 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %.0133.i.i.i.i.i
+  %50 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.0133.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %50, ptr noundef nonnull align 4 dereferenceable(12) %47, i64 12, i1 false), !tbaa.struct !24
   %51 = icmp samesign ugt i64 %.048.i.i.i.i.i, %.017.i.i.i
   br i1 %51, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPZN5clang11SemaHexagon27CheckHexagonBuiltinArgumentEjPNS0_8CallExprEE11BuiltinInfolS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_27CheckHexagonBuiltinArgumentEjS3_E3$_1EEEvT_T0_SC_T1_T2_.exit.i.i.i", !llvm.loop !31
 
 "_ZSt13__adjust_heapIPZN5clang11SemaHexagon27CheckHexagonBuiltinArgumentEjPNS0_8CallExprEE11BuiltinInfolS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_27CheckHexagonBuiltinArgumentEjS3_E3$_1EEEvT_T0_SC_T1_T2_.exit.i.i.i": ; preds = %49, %.lr.ph.i.i.i.i.i, %45
   %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %45 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.048.i.i.i.i.i, %49 ]
-  %52 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %52 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store i64 %.sroa.04.0.copyload.i.i.i, ptr %52, align 4
   %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i32 %.sroa.4.0.copyload.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 4, !tbaa !26
@@ -367,16 +367,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN5clang11SemaHexagon27Che
   %.035.i.i.i20.i = phi i64 [ %spec.select.i.i.i23.i, %.lr.ph.i.i.i19.i ], [ 0, %.lr.ph.i5.i ]
   %61 = shl i64 %.035.i.i.i20.i, 1
   %62 = add i64 %61, 2
-  %63 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %62
-  %64 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %61
+  %63 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %62
+  %64 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %61
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 12
   %.val.i.i.i21.i = load i32, ptr %63, align 4, !tbaa !8
   %.val34.i.i.i22.i = load i32, ptr %65, align 4, !tbaa !8
   %66 = icmp ult i32 %.val.i.i.i21.i, %.val34.i.i.i22.i
   %67 = or disjoint i64 %61, 1
   %spec.select.i.i.i23.i = select i1 %66, i64 %67, i64 %62
-  %68 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %spec.select.i.i.i23.i
-  %69 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %.035.i.i.i20.i
+  %68 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %spec.select.i.i.i23.i
+  %69 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.035.i.i.i20.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %69, ptr noundef nonnull align 4 dereferenceable(12) %68, i64 12, i1 false), !tbaa.struct !24
   %70 = icmp slt i64 %spec.select.i.i.i23.i, %59
   br i1 %70, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i9.i, !llvm.loop !30
@@ -396,8 +396,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN5clang11SemaHexagon27Che
 .thread.i.i.i:                                    ; preds = %73
   %77 = shl nuw nsw i64 %.0.lcssa.i.i.i10.i, 1
   %78 = or disjoint i64 %77, 1
-  %79 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %78
-  %80 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %.0.lcssa.i.i.i10.i
+  %79 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %78
+  %80 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.0.lcssa.i.i.i10.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %80, ptr noundef nonnull align 4 dereferenceable(12) %79, i64 12, i1 false), !tbaa.struct !24
   br label %.lr.ph.i.i.preheader.i.i.i
 
@@ -414,20 +414,20 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN5clang11SemaHexagon27Che
   %.0133.i.i.i.i13.i = phi i64 [ %.048.i.i.i.i15.i, %84 ], [ %.1.i5.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
   %.04.in.i.i.i.i14.i = add nsw i64 %.0133.i.i.i.i13.i, -1
   %.048.i.i.i.i15.i = lshr i64 %.04.in.i.i.i.i14.i, 1
-  %82 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %.048.i.i.i.i15.i
+  %82 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.048.i.i.i.i15.i
   %.val.i.i.i.i16.i = load i32, ptr %82, align 4, !tbaa !8
   %83 = icmp ult i32 %.val.i.i.i.i16.i, %.sroa.0.sroa.0.0.extract.trunc.i.i6.i.i.i
   br i1 %83, label %84, label %"_ZSt10__pop_heapIPZN5clang11SemaHexagon27CheckHexagonBuiltinArgumentEjPNS0_8CallExprEE11BuiltinInfoN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_27CheckHexagonBuiltinArgumentEjS3_E3$_1EEEvT_SB_SB_RT0_.exit.i.i"
 
 84:                                               ; preds = %.lr.ph.i.i.i.i12.i
-  %85 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %.0133.i.i.i.i13.i
+  %85 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.0133.i.i.i.i13.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %85, ptr noundef nonnull align 4 dereferenceable(12) %82, i64 12, i1 false), !tbaa.struct !24
   %.not1.i.i.i = icmp eq i64 %.048.i.i.i.i15.i, 0
   br i1 %.not1.i.i.i, label %"_ZSt10__pop_heapIPZN5clang11SemaHexagon27CheckHexagonBuiltinArgumentEjPNS0_8CallExprEE11BuiltinInfoN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_27CheckHexagonBuiltinArgumentEjS3_E3$_1EEEvT_SB_SB_RT0_.exit.i.i", label %.lr.ph.i.i.i.i12.i, !llvm.loop !31
 
 "_ZSt10__pop_heapIPZN5clang11SemaHexagon27CheckHexagonBuiltinArgumentEjPNS0_8CallExprEE11BuiltinInfoN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_27CheckHexagonBuiltinArgumentEjS3_E3$_1EEEvT_SB_SB_RT0_.exit.i.i": ; preds = %84, %.lr.ph.i.i.i.i12.i, %81
   %.013.lcssa.i.i.i.i17.i = phi i64 [ 0, %81 ], [ %.0133.i.i.i.i13.i, %.lr.ph.i.i.i.i12.i ], [ 0, %84 ]
-  %86 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %.013.lcssa.i.i.i.i17.i
+  %86 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i17.i
   store i64 %.sroa.04.0.copyload.i.i6.i, ptr %86, align 4
   %.sroa.3.0..sroa_idx.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i32 %.sroa.4.0.copyload.i.i8.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i18.i, align 4, !tbaa !26
@@ -437,7 +437,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN5clang11SemaHexagon27Che
 88:                                               ; preds = %16
   %89 = add nsw i64 %.01724, -1
   %90 = udiv i64 %17, 24
-  %91 = getelementptr inbounds nuw %struct.BuiltinInfo, ptr %0, i64 %90
+  %91 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %90
   %92 = getelementptr inbounds i8, ptr %.025, i64 -12
   %.val29.i.i = load i32, ptr %15, align 4, !tbaa !8
   %.val30.i.i = load i32, ptr %91, align 4, !tbaa !8

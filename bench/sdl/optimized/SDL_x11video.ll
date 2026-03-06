@@ -3,8 +3,6 @@ source_filename = "bench/sdl/original/SDL_x11video.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
-
 @.str = private unnamed_addr constant [4 x i8] c"x11\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"SDL X11 video driver\00", align 1
 @X11_bootstrap = hidden local_unnamed_addr global { ptr, ptr, ptr, ptr, i8, [7 x i8] } { ptr @.str, ptr @.str.1, ptr @X11_CreateDevice, ptr @X11_ShowMessageBox, i8 0, [7 x i8] zeroinitializer }, align 8
@@ -678,7 +676,7 @@ define internal noundef zeroext i1 @X11_VideoInit(ptr noundef %0) #0 {
   %213 = getelementptr inbounds nuw i8, ptr %203, i64 224
   %214 = load i32, ptr %213, align 8
   %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds %struct.Screen, ptr %212, i64 %215
+  %216 = getelementptr inbounds [128 x i8], ptr %212, i64 %215
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 16
   %218 = load i64, ptr %217, align 8
   %219 = call i32 %210(ptr noundef %203, i64 noundef %218, i64 noundef %209, i64 noundef 0, i64 noundef 1, i32 noundef 0, i64 noundef 33, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #5

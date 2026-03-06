@@ -91,7 +91,7 @@ define ptr @ff_ebur128_init(i32 noundef %0, i64 noundef %1, i64 noundef %2, i32 
   br label %31
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds nuw i32, ptr %12, i64 %.035.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.035.i
   store i32 0, ptr %30, align 4, !tbaa !19
   br label %31
 
@@ -327,7 +327,7 @@ define internal void @init_histogram() #2 {
   %6 = fadd nsz double %5, 6.910000e-01
   %7 = fdiv nsz double %6, 1.000000e+01
   %8 = tail call nsz double @llvm.pow.f64(double 1.000000e+01, double %7)
-  %9 = getelementptr inbounds nuw double, ptr @histogram_energies, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @histogram_energies, i64 %indvars.iv
   store double %8, ptr %9, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1000
@@ -342,7 +342,7 @@ define internal void @init_histogram() #2 {
   %14 = fadd nsz double %13, 6.910000e-01
   %15 = fdiv nsz double %14, 1.000000e+01
   %16 = tail call nsz double @llvm.pow.f64(double 1.000000e+01, double %15)
-  %17 = getelementptr inbounds nuw double, ptr @histogram_energy_boundaries, i64 %indvars.iv11
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @histogram_energy_boundaries, i64 %indvars.iv11
   store double %16, ptr %17, align 8, !tbaa !29
   %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next12, 1001
@@ -422,7 +422,7 @@ define range(i32 0, 2) i32 @ff_ebur128_set_channel(ptr noundef readonly captures
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !13
   %14 = zext i32 %1 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   store i32 %2, ptr %15, align 4, !tbaa !19
   br label %16
 
@@ -448,8 +448,8 @@ define void @ff_ebur128_add_frames_double(ptr noundef readonly captures(none) %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store ptr %10, ptr %11, align 8, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -513,7 +513,7 @@ define void @ff_ebur128_add_frames_double(ptr noundef readonly captures(none) %0
 41:                                               ; preds = %79, %.lr.ph113.i.i
   %.078111.i.i = phi double [ 0.000000e+00, %.lr.ph113.i.i ], [ %.179.i.i, %79 ]
   %.080108.i.i = phi i64 [ 0, %.lr.ph113.i.i ], [ %80, %79 ]
-  %42 = getelementptr inbounds nuw i32, ptr %37, i64 %.080108.i.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.080108.i.i
   %43 = load i32, ptr %42, align 4, !tbaa !19
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %79, label %45
@@ -527,14 +527,14 @@ define void @ff_ebur128_add_frames_double(ptr noundef readonly captures(none) %0
 
 .lr.ph96.i.i:                                     ; preds = %.preheader.i.i
   %47 = load ptr, ptr %17, align 8, !tbaa !28
-  %invariant.gep99.i.i = getelementptr double, ptr %47, i64 %.080108.i.i
+  %invariant.gep99.i.i = getelementptr [8 x i8], ptr %47, i64 %.080108.i.i
   br label %48
 
 48:                                               ; preds = %48, %.lr.ph96.i.i
   %.095.i.i = phi double [ 0.000000e+00, %.lr.ph96.i.i ], [ %51, %48 ]
   %.08194.i.i = phi i64 [ 0, %.lr.ph96.i.i ], [ %52, %48 ]
   %49 = mul i64 %.08194.i.i, %24
-  %gep100.i.i = getelementptr double, ptr %invariant.gep99.i.i, i64 %49
+  %gep100.i.i = getelementptr [8 x i8], ptr %invariant.gep99.i.i, i64 %49
   %50 = load double, ptr %gep100.i.i, align 8, !tbaa !29
   %51 = tail call nsz double @llvm.fmuladd.f64(double %50, double %50, double %.095.i.i)
   %52 = add nuw i64 %.08194.i.i, 1
@@ -551,14 +551,14 @@ define void @ff_ebur128_add_frames_double(ptr noundef readonly captures(none) %0
 
 .lr.ph104.i.i:                                    ; preds = %._crit_edge.i.i
   %57 = load ptr, ptr %17, align 8, !tbaa !28
-  %invariant.gep106.i.i = getelementptr double, ptr %57, i64 %.080108.i.i
+  %invariant.gep106.i.i = getelementptr [8 x i8], ptr %57, i64 %.080108.i.i
   br label %58
 
 58:                                               ; preds = %58, %.lr.ph104.i.i
   %.1102.i.i = phi double [ %.0.lcssa.i.i, %.lr.ph104.i.i ], [ %61, %58 ]
   %.182101.i.i = phi i64 [ %55, %.lr.ph104.i.i ], [ %62, %58 ]
   %59 = mul i64 %.182101.i.i, %24
-  %gep107.i.i = getelementptr double, ptr %invariant.gep106.i.i, i64 %59
+  %gep107.i.i = getelementptr [8 x i8], ptr %invariant.gep106.i.i, i64 %59
   %60 = load double, ptr %gep107.i.i, align 8, !tbaa !29
   %61 = tail call nsz double @llvm.fmuladd.f64(double %60, double %60, double %.1102.i.i)
   %62 = add nuw i64 %.182101.i.i, 1
@@ -572,14 +572,14 @@ define void @ff_ebur128_add_frames_double(ptr noundef readonly captures(none) %0
 
 .lr.ph.i.i:                                       ; preds = %64
   %67 = load ptr, ptr %17, align 8, !tbaa !28
-  %invariant.gep.i.i = getelementptr double, ptr %67, i64 %.080108.i.i
+  %invariant.gep.i.i = getelementptr [8 x i8], ptr %67, i64 %.080108.i.i
   br label %68
 
 68:                                               ; preds = %68, %.lr.ph.i.i
   %.393.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i ], [ %71, %68 ]
   %.28392.i.i = phi i64 [ %65, %.lr.ph.i.i ], [ %72, %68 ]
   %69 = mul i64 %.28392.i.i, %24
-  %gep.i.i = getelementptr double, ptr %invariant.gep.i.i, i64 %69
+  %gep.i.i = getelementptr [8 x i8], ptr %invariant.gep.i.i, i64 %69
   %70 = load double, ptr %gep.i.i, align 8, !tbaa !29
   %71 = tail call nsz double @llvm.fmuladd.f64(double %70, double %70, double %.393.i.i)
   %72 = add nuw i64 %.28392.i.i, 1
@@ -634,7 +634,7 @@ define void @ff_ebur128_add_frames_double(ptr noundef readonly captures(none) %0
   %.0.i.i.i = phi i64 [ 0, %84 ], [ %.0..i.i.i, %87 ]
   %88 = add nuw i64 %.0.i.i.i, %.08.i.i.i
   %89 = lshr i64 %88, 1
-  %90 = getelementptr inbounds nuw double, ptr @histogram_energy_boundaries, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr @histogram_energy_boundaries, i64 %89
   %91 = load double, ptr %90, align 8, !tbaa !29
   %92 = fcmp nsz ult double %82, %91
   %..08.i.i.i = select i1 %92, i64 %89, i64 %.08.i.i.i
@@ -644,7 +644,7 @@ define void @ff_ebur128_add_frames_double(ptr noundef readonly captures(none) %0
   br i1 %.not.i.i.i, label %find_histogram_index.exit.i.i, label %87, !llvm.loop !47
 
 find_histogram_index.exit.i.i:                    ; preds = %87
-  %94 = getelementptr inbounds nuw i64, ptr %86, i64 %.0..i.i.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %.0..i.i.i
   %95 = load i64, ptr %94, align 8, !tbaa !48
   %96 = add i64 %95, 1
   store i64 %96, ptr %94, align 8, !tbaa !48
@@ -691,7 +691,7 @@ ebur128_calc_gating_block.exit._crit_edge.i:      ; preds = %ebur128_calc_gating
 116:                                              ; preds = %155, %.lr.ph113.i.i.i.i
   %.078111.i.i.i.i = phi double [ 0.000000e+00, %.lr.ph113.i.i.i.i ], [ %.179.i.i.i.i, %155 ]
   %.080108.i.i.i.i = phi i64 [ 0, %.lr.ph113.i.i.i.i ], [ %156, %155 ]
-  %117 = getelementptr inbounds nuw i32, ptr %114, i64 %.080108.i.i.i.i
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %.080108.i.i.i.i
   %118 = load i32, ptr %117, align 4, !tbaa !19
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %155, label %120
@@ -708,14 +708,14 @@ ebur128_calc_gating_block.exit._crit_edge.i:      ; preds = %ebur128_calc_gating
 
 .lr.ph96.i.i.i.i:                                 ; preds = %.preheader.i.i.i.i
   %124 = load ptr, ptr %17, align 8, !tbaa !28
-  %invariant.gep99.i.i.i.i = getelementptr double, ptr %124, i64 %.080108.i.i.i.i
+  %invariant.gep99.i.i.i.i = getelementptr [8 x i8], ptr %124, i64 %.080108.i.i.i.i
   br label %125
 
 125:                                              ; preds = %125, %.lr.ph96.i.i.i.i
   %.095.i.i.i.i = phi double [ 0.000000e+00, %.lr.ph96.i.i.i.i ], [ %128, %125 ]
   %.08194.i.i.i.i = phi i64 [ 0, %.lr.ph96.i.i.i.i ], [ %129, %125 ]
   %126 = mul i64 %.08194.i.i.i.i, %24
-  %gep100.i.i.i.i = getelementptr double, ptr %invariant.gep99.i.i.i.i, i64 %126
+  %gep100.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep99.i.i.i.i, i64 %126
   %127 = load double, ptr %gep100.i.i.i.i, align 8, !tbaa !29
   %128 = tail call nsz double @llvm.fmuladd.f64(double %127, double %127, double %.095.i.i.i.i)
   %129 = add nuw i64 %.08194.i.i.i.i, 1
@@ -731,14 +731,14 @@ ebur128_calc_gating_block.exit._crit_edge.i:      ; preds = %ebur128_calc_gating
 
 .lr.ph104.i.i.i.i:                                ; preds = %._crit_edge.i.i.i.i
   %133 = load ptr, ptr %17, align 8, !tbaa !28
-  %invariant.gep106.i.i.i.i = getelementptr double, ptr %133, i64 %.080108.i.i.i.i
+  %invariant.gep106.i.i.i.i = getelementptr [8 x i8], ptr %133, i64 %.080108.i.i.i.i
   br label %134
 
 134:                                              ; preds = %134, %.lr.ph104.i.i.i.i
   %.1102.i.i.i.i = phi double [ %.0.lcssa.i.i.i.i, %.lr.ph104.i.i.i.i ], [ %137, %134 ]
   %.182101.i.i.i.i = phi i64 [ %131, %.lr.ph104.i.i.i.i ], [ %138, %134 ]
   %135 = mul i64 %.182101.i.i.i.i, %24
-  %gep107.i.i.i.i = getelementptr double, ptr %invariant.gep106.i.i.i.i, i64 %135
+  %gep107.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep106.i.i.i.i, i64 %135
   %136 = load double, ptr %gep107.i.i.i.i, align 8, !tbaa !29
   %137 = tail call nsz double @llvm.fmuladd.f64(double %136, double %136, double %.1102.i.i.i.i)
   %138 = add nuw i64 %.182101.i.i.i.i, 1
@@ -752,14 +752,14 @@ ebur128_calc_gating_block.exit._crit_edge.i:      ; preds = %ebur128_calc_gating
 
 .lr.ph.i.i.i.i:                                   ; preds = %140
   %143 = load ptr, ptr %17, align 8, !tbaa !28
-  %invariant.gep.i.i.i.i = getelementptr double, ptr %143, i64 %.080108.i.i.i.i
+  %invariant.gep.i.i.i.i = getelementptr [8 x i8], ptr %143, i64 %.080108.i.i.i.i
   br label %144
 
 144:                                              ; preds = %144, %.lr.ph.i.i.i.i
   %.393.i.i.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i.i.i ], [ %147, %144 ]
   %.28392.i.i.i.i = phi i64 [ %141, %.lr.ph.i.i.i.i ], [ %148, %144 ]
   %145 = mul i64 %.28392.i.i.i.i, %24
-  %gep.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i, i64 %145
+  %gep.i.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i.i.i.i, i64 %145
   %146 = load double, ptr %gep.i.i.i.i, align 8, !tbaa !29
   %147 = tail call nsz double @llvm.fmuladd.f64(double %146, double %146, double %.393.i.i.i.i)
   %148 = add nuw i64 %.28392.i.i.i.i, 1
@@ -818,7 +818,7 @@ ebur128_energy_shortterm.exit.i:                  ; preds = %ebur128_calc_gating
   %.0.i.i = phi i64 [ 0, %160 ], [ %.0..i.i, %163 ]
   %164 = add nuw i64 %.0.i.i, %.08.i.i
   %165 = lshr i64 %164, 1
-  %166 = getelementptr inbounds nuw double, ptr @histogram_energy_boundaries, i64 %165
+  %166 = getelementptr inbounds nuw [8 x i8], ptr @histogram_energy_boundaries, i64 %165
   %167 = load double, ptr %166, align 8, !tbaa !29
   %168 = fcmp nsz ult double %.3.i, %167
   %..08.i.i = select i1 %168, i64 %165, i64 %.08.i.i
@@ -828,7 +828,7 @@ ebur128_energy_shortterm.exit.i:                  ; preds = %ebur128_calc_gating
   br i1 %.not.i.i, label %find_histogram_index.exit.i, label %163, !llvm.loop !47
 
 find_histogram_index.exit.i:                      ; preds = %163
-  %170 = getelementptr inbounds nuw i64, ptr %162, i64 %.0..i.i
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %.0..i.i
   %171 = load i64, ptr %170, align 8, !tbaa !48
   %172 = add i64 %171, 1
   store i64 %172, ptr %170, align 8, !tbaa !48
@@ -911,10 +911,10 @@ define range(i32 -22, 1) i32 @ff_ebur128_relative_threshold(ptr noundef readonly
   %.122.i = phi i32 [ 0, %5 ], [ %19, %10 ]
   %.02021.i = phi i64 [ 0, %5 ], [ %20, %10 ]
   %11 = phi double [ 0.000000e+00, %5 ], [ %17, %10 ]
-  %12 = getelementptr inbounds nuw i64, ptr %9, i64 %.02021.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.02021.i
   %13 = load i64, ptr %12, align 8, !tbaa !48
   %14 = uitofp i64 %13 to double
-  %15 = getelementptr inbounds nuw double, ptr @histogram_energies, i64 %.02021.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @histogram_energies, i64 %.02021.i
   %16 = load double, ptr %15, align 8, !tbaa !29
   %17 = tail call nsz double @llvm.fmuladd.f64(double %14, double %16, double %11)
   %18 = trunc i64 %13 to i32
@@ -964,10 +964,10 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_global(ptr noundef readonly ca
   %.122.i.i = phi i32 [ 0, %4 ], [ %18, %9 ]
   %.02021.i.i = phi i64 [ 0, %4 ], [ %19, %9 ]
   %10 = phi double [ 0.000000e+00, %4 ], [ %16, %9 ]
-  %11 = getelementptr inbounds nuw i64, ptr %8, i64 %.02021.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.02021.i.i
   %12 = load i64, ptr %11, align 8, !tbaa !48
   %13 = uitofp i64 %12 to double
-  %14 = getelementptr inbounds nuw double, ptr @histogram_energies, i64 %.02021.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @histogram_energies, i64 %.02021.i.i
   %15 = load double, ptr %14, align 8, !tbaa !29
   %16 = tail call nsz double @llvm.fmuladd.f64(double %13, double %15, double %10)
   %17 = trunc i64 %12 to i32
@@ -993,7 +993,7 @@ ebur128_calc_relative_threshold.exit.i:           ; preds = %9
   %.0.i.i = phi i64 [ %.0..i.i, %.preheader2.i ], [ 0, %23 ]
   %26 = add nuw i64 %.0.i.i, %.08.i.i
   %27 = lshr i64 %26, 1
-  %28 = getelementptr inbounds nuw double, ptr @histogram_energy_boundaries, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @histogram_energy_boundaries, i64 %27
   %29 = load double, ptr %28, align 8, !tbaa !29
   %30 = fcmp nsz ult double %22, %29
   %..08.i.i = select i1 %30, i64 %27, i64 %.08.i.i
@@ -1003,7 +1003,7 @@ ebur128_calc_relative_threshold.exit.i:           ; preds = %9
   br i1 %.not.i42.i, label %find_histogram_index.exit.i, label %.preheader2.i, !llvm.loop !47
 
 find_histogram_index.exit.i:                      ; preds = %.preheader2.i
-  %32 = getelementptr inbounds nuw double, ptr @histogram_energies, i64 %.0..i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @histogram_energies, i64 %.0..i.i
   %33 = load double, ptr %32, align 8, !tbaa !29
   %34 = fcmp nsz ogt double %22, %33
   %35 = zext i1 %34 to i64
@@ -1019,10 +1019,10 @@ find_histogram_index.exit.i:                      ; preds = %.preheader2.i
   %.0317.us.i = phi i64 [ %44, %.preheader.us.i ], [ %.0317.us.i.ph, %.preheader.us.i.preheader ]
   %.1346.us.i = phi i64 [ %43, %.preheader.us.i ], [ 0, %.preheader.us.i.preheader ]
   %.1365.us.i = phi double [ %42, %.preheader.us.i ], [ 0.000000e+00, %.preheader.us.i.preheader ]
-  %37 = getelementptr inbounds nuw i64, ptr %8, i64 %.0317.us.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0317.us.i
   %38 = load i64, ptr %37, align 8, !tbaa !48
   %39 = uitofp i64 %38 to double
-  %40 = getelementptr inbounds nuw double, ptr @histogram_energies, i64 %.0317.us.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @histogram_energies, i64 %.0317.us.i
   %41 = load double, ptr %40, align 8, !tbaa !29
   %42 = tail call nsz double @llvm.fmuladd.f64(double %39, double %41, double %.1365.us.i)
   %43 = add i64 %38, %.1346.us.i
@@ -1080,7 +1080,7 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_shortterm(ptr noundef readonly
 19:                                               ; preds = %58, %.lr.ph113.i.i.i
   %.078111.i.i.i = phi double [ 0.000000e+00, %.lr.ph113.i.i.i ], [ %.179.i.i.i, %58 ]
   %.080108.i.i.i = phi i64 [ 0, %.lr.ph113.i.i.i ], [ %59, %58 ]
-  %20 = getelementptr inbounds nuw i32, ptr %16, i64 %.080108.i.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.080108.i.i.i
   %21 = load i32, ptr %20, align 4, !tbaa !19
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %58, label %23
@@ -1097,14 +1097,14 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_shortterm(ptr noundef readonly
 
 .lr.ph96.i.i.i:                                   ; preds = %.preheader.i.i.i
   %27 = load ptr, ptr %4, align 8, !tbaa !28
-  %invariant.gep99.i.i.i = getelementptr double, ptr %27, i64 %.080108.i.i.i
+  %invariant.gep99.i.i.i = getelementptr [8 x i8], ptr %27, i64 %.080108.i.i.i
   br label %28
 
 28:                                               ; preds = %28, %.lr.ph96.i.i.i
   %.095.i.i.i = phi double [ 0.000000e+00, %.lr.ph96.i.i.i ], [ %31, %28 ]
   %.08194.i.i.i = phi i64 [ 0, %.lr.ph96.i.i.i ], [ %32, %28 ]
   %29 = mul i64 %.08194.i.i.i, %14
-  %gep100.i.i.i = getelementptr double, ptr %invariant.gep99.i.i.i, i64 %29
+  %gep100.i.i.i = getelementptr [8 x i8], ptr %invariant.gep99.i.i.i, i64 %29
   %30 = load double, ptr %gep100.i.i.i, align 8, !tbaa !29
   %31 = tail call nsz double @llvm.fmuladd.f64(double %30, double %30, double %.095.i.i.i)
   %32 = add nuw i64 %.08194.i.i.i, 1
@@ -1120,14 +1120,14 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_shortterm(ptr noundef readonly
 
 .lr.ph104.i.i.i:                                  ; preds = %._crit_edge.i.i.i
   %36 = load ptr, ptr %4, align 8, !tbaa !28
-  %invariant.gep106.i.i.i = getelementptr double, ptr %36, i64 %.080108.i.i.i
+  %invariant.gep106.i.i.i = getelementptr [8 x i8], ptr %36, i64 %.080108.i.i.i
   br label %37
 
 37:                                               ; preds = %37, %.lr.ph104.i.i.i
   %.1102.i.i.i = phi double [ %.0.lcssa.i.i.i, %.lr.ph104.i.i.i ], [ %40, %37 ]
   %.182101.i.i.i = phi i64 [ %34, %.lr.ph104.i.i.i ], [ %41, %37 ]
   %38 = mul i64 %.182101.i.i.i, %14
-  %gep107.i.i.i = getelementptr double, ptr %invariant.gep106.i.i.i, i64 %38
+  %gep107.i.i.i = getelementptr [8 x i8], ptr %invariant.gep106.i.i.i, i64 %38
   %39 = load double, ptr %gep107.i.i.i, align 8, !tbaa !29
   %40 = tail call nsz double @llvm.fmuladd.f64(double %39, double %39, double %.1102.i.i.i)
   %41 = add nuw i64 %.182101.i.i.i, 1
@@ -1141,14 +1141,14 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_shortterm(ptr noundef readonly
 
 .lr.ph.i.i.i:                                     ; preds = %43
   %46 = load ptr, ptr %4, align 8, !tbaa !28
-  %invariant.gep.i.i.i = getelementptr double, ptr %46, i64 %.080108.i.i.i
+  %invariant.gep.i.i.i = getelementptr [8 x i8], ptr %46, i64 %.080108.i.i.i
   br label %47
 
 47:                                               ; preds = %47, %.lr.ph.i.i.i
   %.393.i.i.i = phi double [ 0.000000e+00, %.lr.ph.i.i.i ], [ %50, %47 ]
   %.28392.i.i.i = phi i64 [ %44, %.lr.ph.i.i.i ], [ %51, %47 ]
   %48 = mul i64 %.28392.i.i.i, %14
-  %gep.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i, i64 %48
+  %gep.i.i.i = getelementptr [8 x i8], ptr %invariant.gep.i.i.i, i64 %48
   %49 = load double, ptr %gep.i.i.i, align 8, !tbaa !29
   %50 = tail call nsz double @llvm.fmuladd.f64(double %49, double %49, double %.393.i.i.i)
   %51 = add nuw i64 %.28392.i.i.i, 1
@@ -1218,7 +1218,7 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_range_multiple(ptr noundef rea
 
 .lr.ph:                                           ; preds = %3, %10
   %.06183 = phi i64 [ %11, %10 ], [ 0, %3 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %.06183
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.06183
   %6 = load ptr, ptr %5, align 8, !tbaa !39
   %.not78 = icmp eq ptr %6, null
   br i1 %.not78, label %10, label %7
@@ -1238,7 +1238,7 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_range_multiple(ptr noundef rea
   %.189 = phi i64 [ %30, %.loopexit ], [ 0, %10 ]
   %.06488 = phi i64 [ %.165, %.loopexit ], [ 0, %10 ]
   %.06887 = phi double [ %.169, %.loopexit ], [ 0.000000e+00, %10 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %.189
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.189
   %13 = load ptr, ptr %12, align 8, !tbaa !39
   %.not77 = icmp eq ptr %13, null
   br i1 %.not77, label %.loopexit, label %.preheader80
@@ -1254,15 +1254,15 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_range_multiple(ptr noundef rea
   %.06286 = phi i64 [ 0, %.preheader80 ], [ %29, %18 ]
   %.26685 = phi i64 [ %.06488, %.preheader80 ], [ %24, %18 ]
   %.27084 = phi double [ %.06887, %.preheader80 ], [ %28, %18 ]
-  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %.06286
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.06286
   %20 = load i64, ptr %19, align 8, !tbaa !48
-  %21 = getelementptr inbounds nuw i64, ptr %4, i64 %.06286
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.06286
   %22 = load i64, ptr %21, align 8, !tbaa !48
   %23 = add i64 %22, %20
   store i64 %23, ptr %21, align 8, !tbaa !48
   %24 = add i64 %20, %.26685
   %25 = uitofp i64 %20 to double
-  %26 = getelementptr inbounds nuw double, ptr @histogram_energies, i64 %.06286
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @histogram_energies, i64 %.06286
   %27 = load double, ptr %26, align 8, !tbaa !29
   %28 = tail call nsz double @llvm.fmuladd.f64(double %25, double %27, double %.27084)
   %29 = add nuw nsw i64 %.06286, 1
@@ -1293,7 +1293,7 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_range_multiple(ptr noundef rea
   %.0.i = phi i64 [ %.0..i, %.preheader ], [ 0, %31 ]
   %37 = add nuw i64 %.0.i, %.08.i
   %38 = lshr i64 %37, 1
-  %39 = getelementptr inbounds nuw double, ptr @histogram_energy_boundaries, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @histogram_energy_boundaries, i64 %38
   %40 = load double, ptr %39, align 8, !tbaa !29
   %41 = fcmp nsz ult double %34, %40
   %..08.i = select i1 %41, i64 %38, i64 %.08.i
@@ -1303,7 +1303,7 @@ define range(i32 -22, 1) i32 @ff_ebur128_loudness_range_multiple(ptr noundef rea
   br i1 %.not.i, label %find_histogram_index.exit, label %.preheader, !llvm.loop !47
 
 find_histogram_index.exit:                        ; preds = %.preheader
-  %43 = getelementptr inbounds nuw double, ptr @histogram_energies, i64 %.0..i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @histogram_energies, i64 %.0..i
   %44 = load double, ptr %43, align 8, !tbaa !29
   %45 = fcmp nsz ogt double %34, %44
   %46 = zext i1 %45 to i64
@@ -1318,7 +1318,7 @@ find_histogram_index.exit:                        ; preds = %.preheader
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
   %.16393 = phi i64 [ %51, %.lr.ph95 ], [ %.0131, %.lr.ph95.preheader ]
   %.36792 = phi i64 [ %50, %.lr.ph95 ], [ 0, %.lr.ph95.preheader ]
-  %48 = getelementptr inbounds nuw i64, ptr %4, i64 %.16393
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.16393
   %49 = load i64, ptr %48, align 8, !tbaa !48
   %50 = add i64 %49, %.36792
   %51 = add nuw i64 %.16393, 1
@@ -1340,7 +1340,7 @@ find_histogram_index.exit:                        ; preds = %.preheader
   %.299 = phi i64 [ %.0131, %52 ], [ %58, %57 ]
   %.498 = phi i64 [ 0, %52 ], [ %61, %57 ]
   %58 = add i64 %.299, 1
-  %59 = getelementptr inbounds nuw i64, ptr %4, i64 %.299
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.299
   %60 = load i64, ptr %59, align 8, !tbaa !48
   %61 = add i64 %60, %.498
   %.not75 = icmp ugt i64 %61, %56
@@ -1349,7 +1349,7 @@ find_histogram_index.exit:                        ; preds = %.preheader
 62:                                               ; preds = %57
   %63 = tail call nsz double @llvm.fmuladd.f64(double %54, double 0x3FEE666666666666, double 5.000000e-01)
   %64 = fptoui double %63 to i64
-  %65 = getelementptr double, ptr @histogram_energies, i64 %58
+  %65 = getelementptr [8 x i8], ptr @histogram_energies, i64 %58
   %66 = getelementptr i8, ptr %65, i64 -8
   %67 = load double, ptr %66, align 8, !tbaa !29
   %.not76100 = icmp ugt i64 %61, %64
@@ -1359,14 +1359,14 @@ find_histogram_index.exit:                        ; preds = %.preheader
   %.3102 = phi i64 [ %68, %.lr.ph104 ], [ %58, %62 ]
   %.5101 = phi i64 [ %71, %.lr.ph104 ], [ %61, %62 ]
   %68 = add i64 %.3102, 1
-  %69 = getelementptr inbounds nuw i64, ptr %4, i64 %.3102
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.3102
   %70 = load i64, ptr %69, align 8, !tbaa !48
   %71 = add i64 %70, %.5101
   %.not76 = icmp ugt i64 %71, %64
   br i1 %.not76, label %._crit_edge105.loopexit, label %.lr.ph104, !llvm.loop !58
 
 ._crit_edge105.loopexit:                          ; preds = %.lr.ph104
-  %.phi.trans.insert = getelementptr double, ptr @histogram_energies, i64 %68
+  %.phi.trans.insert = getelementptr [8 x i8], ptr @histogram_energies, i64 %68
   %.phi.trans.insert117 = getelementptr i8, ptr %.phi.trans.insert, i64 -8
   %.pre = load double, ptr %.phi.trans.insert117, align 8, !tbaa !29
   br label %._crit_edge105
@@ -1427,7 +1427,7 @@ define range(i32 -22, 1) i32 @ff_ebur128_sample_peak(ptr noundef readonly captur
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 352
   %13 = load ptr, ptr %12, align 8, !tbaa !22
   %14 = zext i32 %1 to i64
-  %15 = getelementptr inbounds nuw double, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load double, ptr %15, align 8, !tbaa !29
   store double %16, ptr %2, align 8, !tbaa !29
   br label %17
@@ -1447,7 +1447,7 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
   %8 = load ptr, ptr %7, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !35
-  %11 = getelementptr inbounds nuw double, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   %12 = load i32, ptr %0, align 8, !tbaa !25
   %13 = and i32 %12, 17
   %14 = icmp eq i32 %13, 17
@@ -1469,9 +1469,9 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %25
   %.0116124.us = phi i64 [ %26, %25 ], [ 0, %.preheader.lr.ph ]
-  %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0116124.us
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0116124.us
   %22 = load ptr, ptr %21, align 8, !tbaa !41
-  %23 = getelementptr double, ptr %22, i64 %2
+  %23 = getelementptr [8 x i8], ptr %22, i64 %2
   br label %27
 
 24:                                               ; preds = %._crit_edge.us
@@ -1487,7 +1487,7 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
   %.0123.us = phi i64 [ 0, %.preheader.us ], [ %37, %36 ]
   %.0114122.us = phi double [ 0.000000e+00, %.preheader.us ], [ %.1115.us, %36 ]
   %28 = mul i64 %.0123.us, %18
-  %29 = getelementptr double, ptr %23, i64 %28
+  %29 = getelementptr [8 x i8], ptr %23, i64 %28
   %30 = load double, ptr %29, align 8, !tbaa !29
   %31 = fcmp nsz ogt double %30, %.0114122.us
   br i1 %31, label %36, label %32
@@ -1507,14 +1507,14 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
   br i1 %exitcond.not, label %._crit_edge.us, label %27, !llvm.loop !60
 
 ._crit_edge.us:                                   ; preds = %36
-  %38 = getelementptr inbounds nuw double, ptr %20, i64 %.0116124.us
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0116124.us
   %39 = load double, ptr %38, align 8, !tbaa !29
   %40 = fcmp nsz ogt double %.1115.us, %39
   br i1 %40, label %24, label %25
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %45
   %.0116124 = phi i64 [ %46, %45 ], [ 0, %.preheader.lr.ph ]
-  %41 = getelementptr inbounds nuw double, ptr %20, i64 %.0116124
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0116124
   %42 = load double, ptr %41, align 8, !tbaa !29
   %43 = fcmp nsz olt double %42, 0.000000e+00
   br i1 %43, label %44, label %45
@@ -1552,7 +1552,7 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
 
 .lr.ph128.split.us:                               ; preds = %.lr.ph128, %111
   %.1117126.us = phi i64 [ %112, %111 ], [ 0, %.lr.ph128 ]
-  %61 = getelementptr inbounds nuw i32, ptr %49, i64 %.1117126.us
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.1117126.us
   %62 = load i32, ptr %61, align 4, !tbaa !19
   %63 = icmp slt i32 %62, 1
   br i1 %63, label %111, label %.lr.ph.us
@@ -1561,12 +1561,12 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
   %64 = add nsw i32 %62, -1
   %65 = icmp eq i32 %64, 5
   %spec.store.select.us = select i1 %65, i32 0, i32 %64
-  %invariant.gep.us = getelementptr double, ptr %11, i64 %.1117126.us
-  %66 = getelementptr inbounds nuw ptr, ptr %1, i64 %.1117126.us
+  %invariant.gep.us = getelementptr [8 x i8], ptr %11, i64 %.1117126.us
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.1117126.us
   %67 = load ptr, ptr %66, align 8, !tbaa !41
-  %68 = getelementptr double, ptr %67, i64 %2
+  %68 = getelementptr [8 x i8], ptr %67, i64 %2
   %69 = zext nneg i32 %spec.store.select.us to i64
-  %70 = getelementptr inbounds nuw [5 x double], ptr %52, i64 %69
+  %70 = getelementptr inbounds nuw [40 x i8], ptr %52, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 24
@@ -1584,7 +1584,7 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
   %79 = phi double [ %.pre141, %.lr.ph.us ], [ %109, %75 ]
   %.1125.us = phi i64 [ 0, %.lr.ph.us ], [ %110, %75 ]
   %80 = mul i64 %.1125.us, %50
-  %81 = getelementptr double, ptr %68, i64 %80
+  %81 = getelementptr [8 x i8], ptr %68, i64 %80
   %82 = load double, ptr %81, align 8, !tbaa !29
   %83 = load double, ptr %51, align 8, !tbaa !29
   %84 = fneg nsz double %83
@@ -1610,7 +1610,7 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
   %103 = load double, ptr %60, align 8, !tbaa !29
   %104 = tail call nsz double @llvm.fmuladd.f64(double %103, double %76, double %102)
   %105 = mul i64 %.1125.us, %47
-  %gep.us = getelementptr double, ptr %invariant.gep.us, i64 %105
+  %gep.us = getelementptr [8 x i8], ptr %invariant.gep.us, i64 %105
   store double %104, ptr %gep.us, align 8, !tbaa !29
   %106 = load double, ptr %73, align 8, !tbaa !29
   store double %106, ptr %74, align 8, !tbaa !29
@@ -1630,7 +1630,7 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
   br i1 %exitcond139.not, label %._crit_edge129, label %.lr.ph128.split.us, !llvm.loop !62
 
 ._crit_edge.us130:                                ; preds = %75
-  %113 = getelementptr inbounds nuw [5 x double], ptr %7, i64 %69
+  %113 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %69
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 160
   %115 = tail call nsz double @llvm.fabs.f64(double %106)
   %116 = fcmp nsz olt double %115, 0x10000000000000
@@ -1655,7 +1655,7 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
 
 .lr.ph128.split:                                  ; preds = %.lr.ph128, %158
   %.1117126 = phi i64 [ %159, %158 ], [ 0, %.lr.ph128 ]
-  %130 = getelementptr inbounds nuw i32, ptr %49, i64 %.1117126
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.1117126
   %131 = load i32, ptr %130, align 4, !tbaa !19
   %132 = icmp slt i32 %131, 1
   br i1 %132, label %158, label %133
@@ -1665,7 +1665,7 @@ define internal fastcc void @ebur128_filter_double(ptr noundef readonly captures
   %135 = icmp eq i32 %134, 5
   %spec.store.select = select i1 %135, i32 0, i32 %134
   %136 = zext nneg i32 %spec.store.select to i64
-  %137 = getelementptr inbounds nuw [5 x double], ptr %7, i64 %136
+  %137 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 160
   %139 = load double, ptr %138, align 8, !tbaa !29
   %140 = tail call nsz double @llvm.fabs.f64(double %139)

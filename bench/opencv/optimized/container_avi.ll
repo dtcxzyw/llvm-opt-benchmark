@@ -4529,7 +4529,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   %.pre = phi ptr [ %.pre.pre, %296 ], [ %253, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %291, ptr %252, align 8, !tbaa !156
   store ptr %295, ptr %272, align 8, !tbaa !159
-  %297 = getelementptr inbounds nuw i64, ptr %291, i64 %289
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %291, i64 %289
   store ptr %297, ptr %274, align 8, !tbaa !168
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 552
   %.pre70 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !133
@@ -5221,7 +5221,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   %.pre = phi ptr [ %.pre.pre, %95 ], [ %52, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %90, ptr %51, align 8, !tbaa !156
   store ptr %94, ptr %71, align 8, !tbaa !159
-  %96 = getelementptr inbounds nuw i64, ptr %90, i64 %88
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %88
   store ptr %96, ptr %73, align 8, !tbaa !168
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -5932,7 +5932,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   %.pre = phi ptr [ %.pre.pre, %384 ], [ %341, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i ]
   store ptr %379, ptr %340, align 8, !tbaa !156
   store ptr %383, ptr %360, align 8, !tbaa !159
-  %385 = getelementptr inbounds nuw i64, ptr %379, i64 %377
+  %385 = getelementptr inbounds nuw [8 x i8], ptr %379, i64 %377
   store ptr %385, ptr %362, align 8, !tbaa !168
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 552
   %.pre164 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !133
@@ -6973,7 +6973,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   %.pre165 = phi ptr [ %.pre165.pre, %987 ], [ %946, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i132 ]
   store ptr %982, ptr %340, align 8, !tbaa !156
   store ptr %986, ptr %360, align 8, !tbaa !159
-  %988 = getelementptr inbounds nuw i64, ptr %982, i64 %980
+  %988 = getelementptr inbounds nuw [8 x i8], ptr %982, i64 %980
   store ptr %988, ptr %362, align 8, !tbaa !168
   %.phi.trans.insert166 = getelementptr inbounds nuw i8, ptr %.pre165, i64 552
   %.pre167 = load ptr, ptr %.phi.trans.insert166, align 8, !tbaa !133
@@ -7475,7 +7475,7 @@ define noundef range(i32 1650728960, 1668300800) i32 @_ZN2cv17AVIWriteContainer1
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv17AVIWriteContainer10writeIndexEiNS_10StreamTypeE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN2cv17AVIWriteContainer10writeIndexEiNS_10StreamTypeE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -7521,7 +7521,7 @@ define void @_ZN2cv17AVIWriteContainer10writeIndexEiNS_10StreamTypeE(ptr noundef
   %switch.tableidx = add i32 %2, -1
   %22 = icmp ult i32 %switch.tableidx, 3
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv17AVIWriteContainer10writeIndexEiNS_10StreamTypeE, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN2cv17AVIWriteContainer10writeIndexEiNS_10StreamTypeE, i64 %23
   br label %24
 
 ._crit_edge:                                      ; preds = %_ZN2cv9BitStream6putIntEj.exit18, %3
@@ -7634,7 +7634,7 @@ _ZN2cv9BitStream10writeBlockEv.exit.i8:           ; preds = %75, %68
 _ZN2cv9BitStream6putIntEj.exit10:                 ; preds = %_ZN2cv9BitStream6putIntEj.exit, %_ZN2cv9BitStream10writeBlockEv.exit.i8
   %81 = load ptr, ptr %0, align 8, !tbaa !153
   %82 = load ptr, ptr %5, align 8, !tbaa !156
-  %83 = getelementptr inbounds nuw i64, ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv
   %84 = load i64, ptr %83, align 8, !tbaa !169
   %85 = trunc i64 %84 to i8
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 552
@@ -7689,7 +7689,7 @@ _ZN2cv9BitStream10writeBlockEv.exit.i12:          ; preds = %111, %104
 _ZN2cv9BitStream6putIntEj.exit14:                 ; preds = %_ZN2cv9BitStream6putIntEj.exit10, %_ZN2cv9BitStream10writeBlockEv.exit.i12
   %117 = load ptr, ptr %0, align 8, !tbaa !153
   %118 = load ptr, ptr %21, align 8, !tbaa !156
-  %119 = getelementptr inbounds nuw i64, ptr %118, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv
   %120 = load i64, ptr %119, align 8, !tbaa !169
   %121 = trunc i64 %120 to i8
   %122 = getelementptr inbounds nuw i8, ptr %117, i64 552
@@ -8150,7 +8150,7 @@ _ZNSt11_Deque_baseISt4pairImjESaIS1_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !54
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -8242,7 +8242,7 @@ _ZNSt11_Deque_baseISt4pairImjESaIS1_EE15_M_create_nodesEPPS1_S5_.exit: ; preds =
   store ptr %46, ptr %47, align 8, !tbaa !114
   store ptr %37, ptr %35, align 8, !tbaa !178
   %48 = and i64 %1, 31
-  %49 = getelementptr inbounds nuw %"struct.std::pair", ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !84
   ret void
 
@@ -8606,9 +8606,9 @@ define linkonce_odr void @_ZNSt5dequeISt4pairImjESaIS1_EE17_M_reallocate_mapEmb(
   %19 = load ptr, ptr %0, align 8, !tbaa !54
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -8627,12 +8627,12 @@ define linkonce_odr void @_ZNSt5dequeISt4pairImjESaIS1_EE17_M_reallocate_mapEmb(
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPSt4pairImjES3_ET0_T_S5_S4_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPSt4pairImjES3_ET0_T_S5_S4_.exit
 
@@ -8660,9 +8660,9 @@ _ZNSt11_Deque_baseISt4pairImjESaIS1_EE15_M_allocate_mapEm.exit: ; preds = %39
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #32
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPSt4pairImjES3_ET0_T_S5_S4_.exit26, label %53
@@ -8689,7 +8689,7 @@ _ZSt4copyIPPSt4pairImjES3_ET0_T_S5_S4_.exit:      ; preds = %32, %31, %28, %27, 
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 512
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %59, ptr %60, align 8, !tbaa !114
-  %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   store ptr %62, ptr %4, align 8, !tbaa !111
   %63 = load ptr, ptr %62, align 8, !tbaa !62

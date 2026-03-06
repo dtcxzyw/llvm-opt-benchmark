@@ -1163,7 +1163,7 @@ define internal fastcc void @recolor(i64 %0, i64 %1, ptr noundef readonly captur
 41:                                               ; preds = %.preheader90.us, %41
   %indvars.iv = phi i64 [ 0, %.preheader90.us ], [ %indvars.iv.next, %41 ]
   %.18593.us = phi ptr [ %.08495.us, %.preheader90.us ], [ %63, %41 ]
-  %42 = getelementptr inbounds nuw i16, ptr %.08396.us, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %.08396.us, i64 %indvars.iv
   %43 = load i16, ptr %42, align 2, !tbaa !76
   %44 = zext i16 %43 to i32
   %45 = lshr i32 %44, 11
@@ -1191,7 +1191,7 @@ define internal fastcc void @recolor(i64 %0, i64 %1, ptr noundef readonly captur
   br i1 %exitcond.not, label %._crit_edge.us, label %41, !llvm.loop !77
 
 ._crit_edge.us:                                   ; preds = %41
-  %64 = getelementptr inbounds i16, ptr %.08396.us, i64 %31
+  %64 = getelementptr inbounds [2 x i8], ptr %.08396.us, i64 %31
   %65 = add nuw nsw i32 %.08794.us, 1
   %exitcond123.not = icmp eq i32 %65, %11
   br i1 %exitcond123.not, label %.loopexit, label %.preheader90.us, !llvm.loop !78

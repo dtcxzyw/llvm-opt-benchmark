@@ -664,7 +664,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hc027c5589cd82e3dE.exit: ; 
   br label %96
 
 .lr.ph.i:                                         ; preds = %74
-  %87 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %80, i64 %82
+  %87 = getelementptr inbounds [24 x i8], ptr %80, i64 %82
   %88 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %90
 
@@ -760,7 +760,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hc027c5589cd82e3dE.exit: ; 
 110:                                              ; preds = %._crit_edge.i.i, %101
   %111 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %102, %101 ]
   %112 = load ptr, ptr %83, align 8, !alias.scope !111, !noalias !114, !nonnull !5, !noundef !5
-  %113 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %112, i64 %111
+  %113 = getelementptr inbounds [24 x i8], ptr %112, i64 %111
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !110
   %114 = load i64, ptr %84, align 8, !alias.scope !111, !noalias !114, !noundef !5
   %115 = add i64 %114, 1
@@ -1289,7 +1289,7 @@ define void @_ZN5uu_df17filter_mount_list17h16282f5412ac4a64E(ptr noalias nounde
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %29 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %25, i64 %27
+  %29 = getelementptr inbounds [24 x i8], ptr %25, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %32 = load i64, ptr %31, align 8, !range !15
@@ -1298,7 +1298,7 @@ define void @_ZN5uu_df17filter_mount_list17h16282f5412ac4a64E(ptr noalias nounde
   %34 = load ptr, ptr %33, align 8, !nonnull !5
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %34, i64 %36
+  %37 = getelementptr inbounds [24 x i8], ptr %34, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1740,7 +1740,7 @@ _ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit:       ; preds = %"_ZN5alloc3vec10par
 .critedge:                                        ; preds = %._crit_edge.i, %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit
   %160 = phi ptr [ %.pre, %._crit_edge.i ], [ %70, %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit ]
   %161 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %71, %_ZN5uu_df7is_best17h5ef56fd57a49f0e0E.exit ]
-  %162 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, i8, [6 x i8] }, ptr %160, i64 %161
+  %162 = getelementptr inbounds [152 x i8], ptr %160, i64 %161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %162, ptr noundef nonnull align 8 dereferenceable(152) %6, i64 152, i1 false)
   %163 = add i64 %161, 1
   store i64 %163, ptr %11, align 8, !alias.scope !251, !noalias !254
@@ -1826,7 +1826,7 @@ define void @_ZN5uu_df19get_all_filesystems17h1207f6464118ad1bE(ptr noalias noun
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !258, !noalias !261, !nonnull !5, !noundef !5
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !258, !noalias !261
-  %18 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i8, i8, [6 x i8] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %18 = getelementptr inbounds [152 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   store ptr %.sroa.4.0.copyload.i, ptr %3, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.sroa.4.0.copyload.i, ptr %.sroa.06.sroa.4.0..sroa_idx, align 8
@@ -2377,7 +2377,7 @@ define void @_ZN5uu_df6uu_app17hf26e9401bdc902a4E(ptr noalias noundef writeonly 
   %235 = phi i64 [ %.pre.i.i, %.noexc.i67 ], [ %226, %222 ]
   %236 = getelementptr inbounds nuw i8, ptr %131, i64 136
   %237 = load ptr, ptr %236, align 8, !alias.scope !359, !noalias !363, !nonnull !5, !noundef !5
-  %238 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %237, i64 %235
+  %238 = getelementptr inbounds [16 x i8], ptr %237, i64 %235
   store ptr @anon.4b3c5c93135882ec5f1e1d64646c2e81.15, ptr %238, align 8, !noalias !363
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
   store i64 3, ptr %239, align 8, !noalias !356
@@ -2780,7 +2780,7 @@ define void @_ZN5uu_df6uu_app17hf26e9401bdc902a4E(ptr noalias noundef writeonly 
   %343 = phi i64 [ %.pre.i.i113, %.noexc.i112 ], [ %334, %329 ]
   %344 = getelementptr inbounds nuw i8, ptr %125, i64 136
   %345 = load ptr, ptr %344, align 8, !alias.scope !512, !noalias !516, !nonnull !5, !noundef !5
-  %346 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %345, i64 %343
+  %346 = getelementptr inbounds [16 x i8], ptr %345, i64 %343
   store ptr @anon.4b3c5c93135882ec5f1e1d64646c2e81.17, ptr %346, align 8, !noalias !516
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 8
   store i64 5, ptr %347, align 8, !noalias !509
@@ -3300,7 +3300,7 @@ define void @_ZN5uu_df6uu_app17hf26e9401bdc902a4E(ptr noalias noundef writeonly 
   %472 = phi i64 [ %.pre.i.i182, %.noexc.i181 ], [ %463, %459 ]
   %473 = getelementptr inbounds nuw i8, ptr %116, i64 136
   %474 = load ptr, ptr %473, align 8, !alias.scope !721, !noalias !725, !nonnull !5, !noundef !5
-  %475 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %474, i64 %472
+  %475 = getelementptr inbounds [16 x i8], ptr %474, i64 %472
   store ptr @anon.4b3c5c93135882ec5f1e1d64646c2e81.20.llvm.10042742229872476538, ptr %475, align 8, !noalias !725
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 8
   store i64 6, ptr %476, align 8, !noalias !718
@@ -3642,7 +3642,7 @@ define void @_ZN5uu_df6uu_app17hf26e9401bdc902a4E(ptr noalias noundef writeonly 
   %562 = phi i64 [ %.pre.i.i228, %.noexc.i227 ], [ %553, %549 ]
   %563 = getelementptr inbounds nuw i8, ptr %110, i64 136
   %564 = load ptr, ptr %563, align 8, !alias.scope !853, !noalias !857, !nonnull !5, !noundef !5
-  %565 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %564, i64 %562
+  %565 = getelementptr inbounds [16 x i8], ptr %564, i64 %562
   store ptr @anon.4b3c5c93135882ec5f1e1d64646c2e81.22, ptr %565, align 8, !noalias !857
   %566 = getelementptr inbounds nuw i8, ptr %565, i64 8
   store i64 5, ptr %566, align 8, !noalias !850
@@ -4402,7 +4402,7 @@ define void @_ZN5uu_df6uu_app17hf26e9401bdc902a4E(ptr noalias noundef writeonly 
   %747 = phi i64 [ %.pre.i.i324, %.noexc.i323 ], [ %738, %734 ]
   %748 = getelementptr inbounds nuw i8, ptr %97, i64 136
   %749 = load ptr, ptr %748, align 8, !alias.scope !1118, !noalias !1122, !nonnull !5, !noundef !5
-  %750 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %749, i64 %747
+  %750 = getelementptr inbounds [16 x i8], ptr %749, i64 %747
   store ptr @anon.4b3c5c93135882ec5f1e1d64646c2e81.26.llvm.10042742229872476538, ptr %750, align 8, !noalias !1122
   %751 = getelementptr inbounds nuw i8, ptr %750, i64 8
   store i64 11, ptr %751, align 8, !noalias !1115
@@ -4977,7 +4977,7 @@ define void @_ZN5uu_df6uu_app17hf26e9401bdc902a4E(ptr noalias noundef writeonly 
   %898 = phi i64 [ %.pre.i.i406, %.noexc.i405 ], [ %889, %885 ]
   %899 = getelementptr inbounds nuw i8, ptr %88, i64 136
   %900 = load ptr, ptr %899, align 8, !alias.scope !1346, !noalias !1350, !nonnull !5, !noundef !5
-  %901 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %900, i64 %898
+  %901 = getelementptr inbounds [16 x i8], ptr %900, i64 %898
   store ptr @anon.4b3c5c93135882ec5f1e1d64646c2e81.29.llvm.10042742229872476538, ptr %901, align 8, !noalias !1350
   %902 = getelementptr inbounds nuw i8, ptr %901, i64 8
   store i64 10, ptr %902, align 8, !noalias !1343

@@ -880,7 +880,7 @@ if.then.i.i.i:                                    ; preds = %entry
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i.i.i
   tail call void @_ZdlPv(ptr noundef %add.ptr.i.i.i) #19
   store ptr null, ptr %constantArguments_, align 8
   %ref.tmp.sroa.2.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -1931,12 +1931,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %cumeDist_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %10 = sext i32 %resultOffset to i64
   %wide.trip.count = and i64 %div8, 2147483647
-  %invariant.gep = getelementptr double, ptr %call6, i64 %10
+  %invariant.gep = getelementptr [8 x i8], ptr %call6, i64 %10
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end ]
-  %arrayidx = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %11 = load i32, ptr %arrayidx, align 4
   %conv11 = sext i32 %11 to i64
   %12 = load i64, ptr %currentPeerGroupStart_, align 8
@@ -1949,7 +1949,7 @@ for.body.if.end_crit_edge:                        ; preds = %for.body
 
 if.then:                                          ; preds = %for.body
   store i64 %conv11, ptr %currentPeerGroupStart_, align 8
-  %arrayidx16 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %arrayidx16 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %13 = load i32, ptr %arrayidx16, align 4
   %reass.sub = sub i32 %13, %11
   %add = add i32 %reass.sub, 1
@@ -1966,7 +1966,7 @@ if.then:                                          ; preds = %for.body
 
 if.end:                                           ; preds = %for.body.if.end_crit_edge, %if.then
   %16 = phi double [ %.pre, %for.body.if.end_crit_edge ], [ %div22, %if.then ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   store double %16, ptr %gep, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

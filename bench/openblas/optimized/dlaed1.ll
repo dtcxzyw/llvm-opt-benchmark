@@ -20,7 +20,7 @@ define void @dlaed1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %15 = load i32, ptr %3, align 4, !tbaa !3
   %narrow = xor i32 %15, -1
   %16 = sext i32 %narrow to i64
-  %17 = getelementptr inbounds double, ptr %2, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %2, i64 %16
   %18 = getelementptr inbounds i8, ptr %4, i64 -4
   %19 = getelementptr inbounds i8, ptr %7, i64 -8
   %20 = getelementptr inbounds i8, ptr %8, i64 -4
@@ -63,7 +63,7 @@ define void @dlaed1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %39 = add nuw nsw i32 %38, %21
   %40 = add nsw i32 %30, %15
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds double, ptr %17, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %17, i64 %41
   tail call void @dcopy_(ptr noundef nonnull %6, ptr noundef %42, ptr noundef nonnull %3, ptr noundef %7, ptr noundef nonnull @c__1) #4
   %43 = load i32, ptr %6, align 4, !tbaa !3
   %44 = add nsw i32 %43, 1
@@ -73,20 +73,20 @@ define void @dlaed1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %47 = add i32 %15, 1
   %48 = mul i32 %44, %47
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds double, ptr %17, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %17, i64 %49
   %51 = sext i32 %43 to i64
-  %52 = getelementptr double, ptr %19, i64 %51
+  %52 = getelementptr [8 x i8], ptr %19, i64 %51
   %53 = getelementptr i8, ptr %52, i64 8
   call void @dcopy_(ptr noundef nonnull %11, ptr noundef %50, ptr noundef nonnull %3, ptr noundef %53, ptr noundef nonnull @c__1) #4
   %54 = zext nneg i32 %37 to i64
-  %55 = getelementptr inbounds nuw double, ptr %19, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %54
   %56 = zext nneg i32 %38 to i64
-  %57 = getelementptr inbounds nuw double, ptr %19, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %56
   %58 = zext nneg i32 %39 to i64
-  %59 = getelementptr inbounds nuw double, ptr %19, i64 %58
-  %60 = getelementptr inbounds nuw i32, ptr %20, i64 %54
-  %61 = getelementptr inbounds nuw i32, ptr %20, i64 %58
-  %62 = getelementptr inbounds nuw i32, ptr %20, i64 %56
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %58
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %54
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %58
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %56
   call void @dlaed2_(ptr noundef nonnull %12, ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef nonnull %55, ptr noundef nonnull %57, ptr noundef nonnull %59, ptr noundef %8, ptr noundef nonnull %60, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef nonnull %9) #4
   %63 = load i32, ptr %9, align 4, !tbaa !3
   %.not126 = icmp eq i32 %63, 0
@@ -113,7 +113,7 @@ define void @dlaed1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %79 = add i32 %72, %39
   %80 = add i32 %79, %78
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds double, ptr %19, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %19, i64 %81
   call void @dlaed3_(ptr noundef nonnull %12, ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %5, ptr noundef nonnull %55, ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %62, ptr noundef nonnull %57, ptr noundef nonnull %82, ptr noundef nonnull %9) #4
   %83 = load i32, ptr %9, align 4, !tbaa !3
   %.not129 = icmp eq i32 %83, 0
@@ -140,7 +140,7 @@ define void @dlaed1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %91 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %92 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %92, ptr %91, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

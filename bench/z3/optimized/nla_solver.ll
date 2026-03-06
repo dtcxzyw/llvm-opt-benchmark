@@ -184,7 +184,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i:            ; preds = %2
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.then.i:       ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %10
   %.pre.i.then.val.i = load i32, ptr %11, align 4, !tbaa !19
   %12 = icmp ne i32 %.pre.i.then.val.i, -1
   br label %_ZNK3nla4core12is_monic_varEj.exit

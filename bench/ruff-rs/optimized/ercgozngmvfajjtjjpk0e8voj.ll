@@ -1030,7 +1030,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit.i: ; preds = %193
           to label %316 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i, !noalias !25
 
 330:                                              ; preds = %324
-  %331 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %293, i64 %323
+  %331 = getelementptr inbounds nuw [12 x i8], ptr %293, i64 %323
   %332 = sub nuw i64 %294, %323
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !24
   br label %302
@@ -2540,10 +2540,10 @@ switch.lookup:
   %4 = alloca [24 x i8], align 8
   %5 = load i8, ptr %2, align 1, !range !172, !noundef !3
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN194_$LT$ruff_python_formatter..expression..expr_compare..FormatCmpOp$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..nodes..CmpOp$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17hea2a08454d881f31E", i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN194_$LT$ruff_python_formatter..expression..expr_compare..FormatCmpOp$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..nodes..CmpOp$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17hea2a08454d881f31E", i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN194_$LT$ruff_python_formatter..expression..expr_compare..FormatCmpOp$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..nodes..CmpOp$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17hea2a08454d881f31E.58", i64 %7
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN194_$LT$ruff_python_formatter..expression..expr_compare..FormatCmpOp$u20$as$u20$ruff_formatter..FormatRule$LT$ruff_python_ast..nodes..CmpOp$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$3fmt17hea2a08454d881f31E.58", i64 %7
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3568,7 +3568,7 @@ _ZN21ruff_python_formatter5range15is_logical_line17h2c83abde3aeba070E.exit.threa
   %20 = extractvalue { ptr, i64 } %19, 0
   %21 = extractvalue { ptr, i64 } %19, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %22 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [12 x i8], ptr %20, i64 %21
   call void @_ZN21ruff_python_formatter5range11NarrowRange6narrow17h23f6eb6b8ba7acf6E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %20, ptr noundef %22)
   br label %23
 
@@ -6281,7 +6281,7 @@ define internal fastcc noundef zeroext i1 @_ZN21ruff_python_formatter8verbatim18
   br i1 %17, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h136d520b1d44723dE.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e8cd089a61a0009E.exit23"
-  %18 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.02.012.i40.i3
+  %18 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.02.012.i40.i3
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e8cd089a61a0009E.exit"
@@ -6307,7 +6307,7 @@ define internal fastcc noundef zeroext i1 @_ZN21ruff_python_formatter8verbatim18
 26:                                               ; preds = %.lr.ph.i.i
   %27 = icmp ult i64 %.sroa.02.012.i.i, %.sroa.15.066
   tail call void @llvm.assume(i1 %27), !noalias !394
-  %28 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.0.067, i64 %.sroa.02.012.i.i
+  %28 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.0.067, i64 %.sroa.02.012.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = xor i64 %.sroa.02.012.i.i, -1
   %31 = add i64 %.sroa.15.066, %30
@@ -6331,7 +6331,7 @@ define internal fastcc noundef zeroext i1 @_ZN21ruff_python_formatter8verbatim18
 "_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e8cd089a61a0009E.exit": ; preds = %.lr.ph.i43.i
   %39 = icmp ult i64 %.sroa.02.012.i44.i, %31
   tail call void @llvm.assume(i1 %39), !noalias !394
-  %40 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %29, i64 %.sroa.02.012.i44.i
+  %40 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %.sroa.02.012.i44.i
   %41 = xor i64 %.sroa.02.012.i44.i, -1
   %42 = add i64 %31, %41
   %43 = icmp eq i64 %42, 0
@@ -6367,7 +6367,7 @@ define internal fastcc noundef zeroext i1 @_ZN21ruff_python_formatter8verbatim16
 14:                                               ; preds = %.lr.ph.i.i17
   %15 = icmp ult i64 %.sroa.02.012.i.i18, %1
   tail call void @llvm.assume(i1 %15), !noalias !413
-  %16 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.02.012.i.i18
+  %16 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.02.012.i.i18
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %18 = xor i64 %.sroa.02.012.i.i18, -1
   %19 = add i64 %1, %18
@@ -6397,7 +6397,7 @@ define internal fastcc noundef zeroext i1 @_ZN21ruff_python_formatter8verbatim16
   br i1 %31, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h136d520b1d44723dE.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e8cd089a61a0009E.exit23"
-  %32 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %17, i64 %.sroa.02.012.i44.i21
+  %32 = getelementptr inbounds nuw [12 x i8], ptr %17, i64 %.sroa.02.012.i44.i21
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e8cd089a61a0009E.exit"
@@ -6423,7 +6423,7 @@ define internal fastcc noundef zeroext i1 @_ZN21ruff_python_formatter8verbatim16
 40:                                               ; preds = %.lr.ph.i.i
   %41 = icmp ult i64 %.sroa.02.012.i.i, %.sroa.15.071
   tail call void @llvm.assume(i1 %41), !noalias !413
-  %42 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.0.072, i64 %.sroa.02.012.i.i
+  %42 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.0.072, i64 %.sroa.02.012.i.i
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %44 = xor i64 %.sroa.02.012.i.i, -1
   %45 = add i64 %.sroa.15.071, %44
@@ -6447,7 +6447,7 @@ define internal fastcc noundef zeroext i1 @_ZN21ruff_python_formatter8verbatim16
 "_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e8cd089a61a0009E.exit": ; preds = %.lr.ph.i43.i
   %54 = icmp ult i64 %.sroa.02.012.i44.i, %45
   tail call void @llvm.assume(i1 %54), !noalias !413
-  %55 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %43, i64 %.sroa.02.012.i44.i
+  %55 = getelementptr inbounds nuw [12 x i8], ptr %43, i64 %.sroa.02.012.i44.i
   %56 = xor i64 %.sroa.02.012.i44.i, -1
   %57 = add i64 %45, %56
   %58 = icmp eq i64 %57, 0
@@ -6602,7 +6602,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
 62:                                               ; preds = %.noexc3
   %63 = icmp ult i64 %.sroa.02.012.i40.i, %46
   call void @llvm.assume(i1 %63)
-  %64 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %45, i64 %.sroa.02.012.i40.i
+  %64 = getelementptr inbounds nuw [12 x i8], ptr %45, i64 %.sroa.02.012.i40.i
   %65 = xor i64 %.sroa.02.012.i40.i, -1
   %66 = add i64 %46, %65
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 12
@@ -6886,11 +6886,11 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
 80:                                               ; preds = %.noexc109
   %81 = icmp ult i64 %.sroa.02.012.i40.i, %64
   call void @llvm.assume(i1 %81)
-  %82 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %63, i64 %.sroa.02.012.i40.i
+  %82 = getelementptr inbounds nuw [12 x i8], ptr %63, i64 %.sroa.02.012.i40.i
   %83 = xor i64 %.sroa.02.012.i40.i, -1
   %84 = add i64 %64, %83
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 12
-  %86 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %85, i64 %84
+  %86 = getelementptr inbounds nuw [12 x i8], ptr %85, i64 %84
   br label %87
 
 87:                                               ; preds = %89, %80
@@ -7007,7 +7007,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
 123:                                              ; preds = %.noexc134
   %124 = icmp ult i64 %.sroa.02.012.i.i129, %.sroa.10157.0334
   call void @llvm.assume(i1 %124)
-  %125 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.0156.0333, i64 %.sroa.02.012.i.i129
+  %125 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.0156.0333, i64 %.sroa.02.012.i.i129
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 12
   %127 = xor i64 %.sroa.02.012.i.i129, -1
   %128 = add i64 %.sroa.10157.0334, %127
@@ -7036,7 +7036,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
   call void @llvm.assume(i1 %138)
   %139 = xor i64 %.sroa.02.012.i44.i132, -1
   %140 = add i64 %128, %139
-  %141 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %126, i64 %.sroa.02.012.i44.i132
+  %141 = getelementptr inbounds nuw [12 x i8], ptr %126, i64 %.sroa.02.012.i44.i132
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 12
   br label %.loopexit271
 
@@ -7062,7 +7062,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
           to label %156 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 153:                                              ; preds = %"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e8cd089a61a0009E.exit137"
-  %154 = getelementptr { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %63, i64 %64
+  %154 = getelementptr [12 x i8], ptr %63, i64 %64
   %155 = getelementptr i8, ptr %154, i64 -12
   %.not97 = icmp eq ptr %155, null
   br i1 %.not97, label %171, label %169
@@ -7182,7 +7182,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %4
   br i1 %191, label %"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9e8cd089a61a0009E.exit137", label %111
 
 192:                                              ; preds = %.loopexit271
-  %193 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %126, i64 %.sroa.16.1.ph.ph
+  %193 = getelementptr inbounds nuw [12 x i8], ptr %126, i64 %.sroa.16.1.ph.ph
   br label %194
 
 194:                                              ; preds = %196, %192
@@ -7589,7 +7589,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %7
 98:                                               ; preds = %.noexc
   %99 = icmp ult i64 %.sroa.02.012.i.i, %.sroa.10.0566
   call void @llvm.assume(i1 %99)
-  %100 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.0196.0567, i64 %.sroa.02.012.i.i
+  %100 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.0196.0567, i64 %.sroa.02.012.i.i
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 12
   %102 = xor i64 %.sroa.02.012.i.i, -1
   %103 = add i64 %.sroa.10.0566, %102
@@ -7618,7 +7618,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %7
   call void @llvm.assume(i1 %113)
   %114 = xor i64 %.sroa.02.012.i44.i, -1
   %115 = add i64 %103, %114
-  %116 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %101, i64 %.sroa.02.012.i44.i
+  %116 = getelementptr inbounds nuw [12 x i8], ptr %101, i64 %.sroa.02.012.i44.i
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 12
   br label %.loopexit444
 
@@ -7705,7 +7705,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %7
 147:                                              ; preds = %.noexc179
   %148 = icmp ult i64 %.sroa.02.012.i.i174, %.sroa.10210.0570
   call void @llvm.assume(i1 %148)
-  %149 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.0209.0569, i64 %.sroa.02.012.i.i174
+  %149 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.0209.0569, i64 %.sroa.02.012.i.i174
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 12
   %151 = xor i64 %.sroa.02.012.i.i174, -1
   %152 = add i64 %.sroa.10210.0570, %151
@@ -7734,7 +7734,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %7
   call void @llvm.assume(i1 %162)
   %163 = xor i64 %.sroa.02.012.i44.i177, -1
   %164 = add i64 %152, %163
-  %165 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %150, i64 %.sroa.02.012.i44.i177
+  %165 = getelementptr inbounds nuw [12 x i8], ptr %150, i64 %.sroa.02.012.i44.i177
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 12
   br label %.loopexit429
 
@@ -7819,7 +7819,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %7
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.not131 = icmp eq i64 %204, 0
   %205 = extractvalue { ptr, i64 } %202, 0
-  %206 = getelementptr { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %205, i64 %204
+  %206 = getelementptr [12 x i8], ptr %205, i64 %204
   %207 = getelementptr i8, ptr %206, i64 -12
   %.not132413 = icmp eq ptr %207, null
   %.not132 = select i1 %.not131, i1 true, i1 %.not132413
@@ -7946,7 +7946,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %7
   br label %249
 
 247:                                              ; preds = %138
-  %248 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.0209.0569, i64 %.sroa.10210.0570
+  %248 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.0209.0569, i64 %.sroa.10210.0570
   br label %292
 
 249:                                              ; preds = %251, %.loopexit429
@@ -8127,7 +8127,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %7
   br label %297
 
 295:                                              ; preds = %89
-  %296 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %.sroa.0196.0567, i64 %.sroa.10.0566
+  %296 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.0196.0567, i64 %.sroa.10.0566
   br label %360
 
 297:                                              ; preds = %299, %.loopexit444
@@ -8286,7 +8286,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h98c0da1369443da1E.exit: ; preds = %7
   %344 = extractvalue { ptr, i64 } %341, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  %345 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %343, i64 %344
+  %345 = getelementptr inbounds nuw [12 x i8], ptr %343, i64 %344
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %343) ]
   br label %346
 
@@ -8424,7 +8424,7 @@ define void @"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$a
   %33 = icmp ult i64 %.sroa.02.012.i40, %4
   tail call void @llvm.assume(i1 %33)
   store i8 1, ptr %8, align 8
-  %34 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %11, i64 %.sroa.02.012.i40
+  %34 = getelementptr inbounds nuw [12 x i8], ptr %11, i64 %.sroa.02.012.i40
   %35 = xor i64 %.sroa.02.012.i40, -1
   %36 = add i64 %4, %35
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 12
@@ -8464,7 +8464,7 @@ define void @"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$a
 41:                                               ; preds = %.lr.ph.i
   %42 = icmp ult i64 %.sroa.02.012.i, %4
   tail call void @llvm.assume(i1 %42)
-  %43 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %11, i64 %.sroa.02.012.i
+  %43 = getelementptr inbounds nuw [12 x i8], ptr %11, i64 %.sroa.02.012.i
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %45 = xor i64 %.sroa.02.012.i, -1
   %46 = add i64 %4, %45
@@ -8495,7 +8495,7 @@ define void @"_ZN108_$LT$ruff_python_formatter..verbatim..CommentRangeIter$u20$a
   tail call void @llvm.assume(i1 %57)
   %58 = xor i64 %.sroa.02.012.i44, -1
   %59 = add i64 %46, %58
-  %60 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %44, i64 %.sroa.02.012.i44
+  %60 = getelementptr inbounds nuw [12 x i8], ptr %44, i64 %.sroa.02.012.i44
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store ptr %61, ptr %1, align 8
   store i64 %59, ptr %3, align 8
@@ -8766,7 +8766,7 @@ define void @"_ZN159_$LT$ruff_python_formatter..verbatim..FormatVerbatimStatemen
   %27 = tail call { ptr, i64 } @_ZN18ruff_python_parser6Tokens8in_range17habebcf7d5f5b60e1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23, i32 noundef %24, i32 noundef %26)
   %28 = extractvalue { ptr, i64 } %27, 0
   %29 = extractvalue { ptr, i64 } %27, 1
-  %30 = getelementptr inbounds nuw { { i32, i32 }, i8, i8, [2 x i8] }, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [12 x i8], ptr %28, i64 %29
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %28, ptr %16, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8

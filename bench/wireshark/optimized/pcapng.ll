@@ -23,7 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.if_filter_opt_s = type { i32, %union.anon.3 }
 %union.anon.3 = type { %struct.wtap_bpf_insns }
 %struct.wtap_bpf_insns = type { i32, ptr }
-%struct.wtap_bpf_insn_s = type { i16, i8, i8, i32 }
 %struct.packet_verdict_opt_s = type { i32, %union.anon.4 }
 %union.anon.4 = type { ptr }
 %struct.packet_hash_opt_s = type { i8, ptr }
@@ -259,7 +258,7 @@ define void @register_pcapng_option_handler(i32 noundef %0, i32 noundef %1, ptr 
 
 11:                                               ; preds = %5, %10, %9, %8, %7, %6, %.sink.split.i
   %.0.ph = phi i64 [ 0, %.sink.split.i ], [ 5, %9 ], [ 4, %8 ], [ 3, %7 ], [ 2, %6 ], [ 6, %10 ], [ 1, %5 ]
-  %12 = getelementptr ptr, ptr @option_handlers, i64 %.0.ph
+  %12 = getelementptr [8 x i8], ptr @option_handlers, i64 %.0.ph
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
@@ -996,7 +995,7 @@ define hidden range(i32 -1, 2) i32 @pcapng_open(ptr noundef %0, ptr noundef %1, 
   %91 = load ptr, ptr %90, align 8
   %92 = load i32, ptr %59, align 8
   %93 = zext i32 %92 to i64
-  %94 = getelementptr %struct.section_info_t, ptr %91, i64 %93
+  %94 = getelementptr [48 x i8], ptr %91, i64 %93
   %95 = load i8, ptr %94, align 8, !range !6, !noundef !7
   %96 = trunc nuw i8 %95 to i1
   %97 = load i32, ptr %6, align 4
@@ -1252,7 +1251,7 @@ define internal noundef zeroext i1 @pcapng_read(ptr noundef %0, ptr noundef %1, 
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %9, align 8
   %19 = zext i32 %18 to i64
-  %20 = getelementptr %struct.section_info_t, ptr %17, i64 %19
+  %20 = getelementptr [48 x i8], ptr %17, i64 %19
   %21 = load ptr, ptr %0, align 8
   %22 = call fastcc zeroext i1 @pcapng_read_block(ptr noundef %0, ptr noundef %21, ptr noundef %20, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %2, ptr noundef %3)
   br i1 %22, label %26, label %23
@@ -1314,7 +1313,7 @@ define internal noundef zeroext i1 @pcapng_seek_read(ptr noundef captures(none) 
   %.0.in = phi i32 [ %18, %14 ], [ %.0, %20 ]
   %.0 = add i32 %.0.in, -1
   %21 = zext i32 %.0 to i64
-  %22 = getelementptr %struct.section_info_t, ptr %19, i64 %21
+  %22 = getelementptr [48 x i8], ptr %19, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i64, ptr %23, align 8
   %.not = icmp sgt i64 %24, %1
@@ -1378,7 +1377,7 @@ define internal void @pcapng_close(ptr noundef readonly captures(none) %0) #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %9 = phi ptr [ %15, %.lr.ph ], [ %5, %1 ]
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr %struct.section_info_t, ptr %10, i64 %indvars.iv
+  %11 = getelementptr [48 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @g_array_free(ptr noundef %13, i32 noundef 1)
@@ -1992,7 +1991,7 @@ pcapng_process_nrb.exit:                          ; preds = %74, %80
 93:                                               ; preds = %84
   %94 = load ptr, ptr %89, align 8
   %95 = zext i32 %92 to i64
-  %96 = getelementptr ptr, ptr %94, i64 %95
+  %96 = getelementptr [8 x i8], ptr %94, i64 %95
   %97 = load ptr, ptr %96, align 8
   %98 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %97)
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
@@ -2534,7 +2533,7 @@ define internal fastcc noundef zeroext i1 @pcapng_read_packet_block(ptr noundef 
 116:                                              ; preds = %106
   %117 = load ptr, ptr %108, align 8
   %118 = zext i32 %.sroa.33.0253 to i64
-  %119 = getelementptr %struct.interface_info_s, ptr %117, i64 %118
+  %119 = getelementptr [40 x i8], ptr %117, i64 %118
   %.sroa.0.0.copyload = load i32, ptr %119, align 8
   %.sroa.888.0..sroa_idx = getelementptr inbounds nuw i8, ptr %119, i64 8
   %.sroa.888.0.copyload = load i64, ptr %.sroa.888.0..sroa_idx, align 8
@@ -3899,7 +3898,7 @@ define internal noundef zeroext i1 @pcapng_process_if_descr_block_option(ptr nou
   %indvars.iv = phi i64 [ %indvars.iv.next, %91 ], [ 0, %.lr.ph.preheader ]
   %.0102115 = phi ptr [ %92, %91 ], [ %64, %.lr.ph.preheader ]
   %69 = load ptr, ptr %63, align 8
-  %70 = getelementptr %struct.wtap_bpf_insn_s, ptr %69, i64 %indvars.iv
+  %70 = getelementptr [8 x i8], ptr %69, i64 %indvars.iv
   %71 = load i16, ptr %.0102115, align 1
   store i16 %71, ptr %70, align 1
   %72 = load i8, ptr %1, align 8, !range !6, !noundef !7
@@ -4784,7 +4783,7 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.preheader30 ]
   %59 = phi ptr [ %54, %53 ], [ %50, %.preheader30 ]
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr ptr, ptr %60, i64 %indvars.iv
+  %61 = getelementptr [8 x i8], ptr %60, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8
   %63 = call fastcc zeroext i1 @pcapng_write_if_descr_block(ptr noundef %0, ptr noundef %62, ptr noundef %1)
   br i1 %63, label %53, label %.loopexit
@@ -4814,7 +4813,7 @@ pcapng_write_section_header_block.exit:           ; preds = %41, %write_options.
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %68 ], [ 0, %.preheader ]
   %74 = phi ptr [ %69, %68 ], [ %65, %.preheader ]
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr ptr, ptr %75, i64 %indvars.iv41
+  %76 = getelementptr [8 x i8], ptr %75, i64 %indvars.iv41
   %77 = load ptr, ptr %76, align 8
   %78 = call fastcc zeroext i1 @pcapng_write_decryption_secrets_block(ptr noundef %0, ptr noundef %77, ptr noundef %1)
   br i1 %78, label %68, label %.loopexit
@@ -5024,7 +5023,7 @@ define internal noundef zeroext i1 @pcapng_dump(ptr noundef %0, ptr noundef %1, 
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %104 = load i32, ptr %103, align 8
   %105 = zext i32 %104 to i64
-  %106 = getelementptr i32, ptr %102, i64 %105
+  %106 = getelementptr [4 x i8], ptr %102, i64 %105
   %107 = load i32, ptr %106, align 4
   %108 = add i32 %107, %96
   store i32 %108, ptr %27, align 4
@@ -5034,7 +5033,7 @@ define internal noundef zeroext i1 @pcapng_dump(ptr noundef %0, ptr noundef %1, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.lr.ph.i ]
   %110 = phi ptr [ %127, %126 ], [ %90, %.lr.ph.i ]
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr ptr, ptr %111, i64 %indvars.iv
+  %112 = getelementptr [8 x i8], ptr %111, i64 %indvars.iv
   %113 = load ptr, ptr %112, align 8
   store ptr %113, ptr %29, align 8
   %114 = call ptr @wtap_block_get_mandatory_data(ptr noundef %113)
@@ -5114,7 +5113,7 @@ define internal noundef zeroext i1 @pcapng_dump(ptr noundef %0, ptr noundef %1, 
 153:                                              ; preds = %142
   %154 = load ptr, ptr %145, align 8
   %155 = zext i32 %143 to i64
-  %156 = getelementptr ptr, ptr %154, i64 %155
+  %156 = getelementptr [8 x i8], ptr %154, i64 %155
   %157 = load ptr, ptr %156, align 8
   store ptr %157, ptr %29, align 8
   %158 = call ptr @wtap_block_get_mandatory_data(ptr noundef %157)
@@ -5622,7 +5621,7 @@ define internal noundef zeroext i1 @pcapng_dump_finish(ptr noundef %0, ptr nound
   %indvars.iv32 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next33, %.critedge ]
   %22 = phi ptr [ %11, %.lr.ph28 ], [ %56, %.critedge ]
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr ptr, ptr %23, i64 %indvars.iv32
+  %24 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv32
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @wtap_block_get_mandatory_data(ptr noundef %25)
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -5645,7 +5644,7 @@ define internal noundef zeroext i1 @pcapng_dump_finish(ptr noundef %0, ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %34 = load ptr, ptr %29, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr ptr, ptr %35, i64 %indvars.iv
+  %36 = getelementptr [8 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5905,7 +5904,7 @@ define internal fastcc noundef zeroext i1 @pcapng_write_internal_blocks(ptr noun
   %indvars.iv = phi i64 [ %13, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
   %14 = phi ptr [ %6, %.lr.ph.preheader ], [ %22, %19 ]
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = tail call fastcc zeroext i1 @pcapng_write_decryption_secrets_block(ptr noundef %0, ptr noundef %17, ptr noundef %1)
   br i1 %18, label %19, label %.critedge
@@ -5945,7 +5944,7 @@ define internal fastcc noundef zeroext i1 @pcapng_write_internal_blocks(ptr noun
   %indvars.iv99 = phi i64 [ %36, %.lr.ph91 ], [ %indvars.iv.next100, %62 ]
   %38 = phi ptr [ %28, %.lr.ph91 ], [ %65, %62 ]
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr ptr, ptr %39, i64 %indvars.iv99
+  %40 = getelementptr [8 x i8], ptr %39, i64 %indvars.iv99
   %41 = load ptr, ptr %40, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %42 = call ptr @wtap_block_get_mandatory_data(ptr noundef %41)
@@ -6084,7 +6083,7 @@ pcapng_write_meta_event_block.exit:               ; preds = %57, %58
   %indvars.iv102 = phi i64 [ %111, %.lr.ph93.preheader ], [ %indvars.iv.next103, %117 ]
   %112 = phi ptr [ %104, %.lr.ph93.preheader ], [ %120, %117 ]
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr ptr, ptr %113, i64 %indvars.iv102
+  %114 = getelementptr [8 x i8], ptr %113, i64 %indvars.iv102
   %115 = load ptr, ptr %114, align 8
   %116 = call fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr noundef %0, ptr noundef %115, ptr noundef %1)
   br i1 %116, label %117, label %.critedge
@@ -6160,7 +6159,7 @@ define internal i32 @compute_epb_option_size(ptr readnone captures(none) %0, i32
 
 switch.lookup:                                    ; preds = %14
   %24 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.write_wtap_epb_option, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.write_wtap_epb_option, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %pcapng_compute_packet_verdict_option_size.exit
 
@@ -7123,7 +7122,7 @@ pcapng_compute_packet_hash_option_size.exit.i:    ; preds = %82
 
 switch.lookup:                                    ; preds = %82
   %91 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.write_wtap_epb_option, i64 %91
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.write_wtap_epb_option, i64 %91
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %pcapng_compute_packet_hash_option_size.exit.thread.i
 

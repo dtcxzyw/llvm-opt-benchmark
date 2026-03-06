@@ -213,7 +213,7 @@ define range(i32 0, 2) i32 @h5tools_can_encode(i32 noundef %0) local_unnamed_add
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.h5tools_can_encode, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.h5tools_can_encode, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

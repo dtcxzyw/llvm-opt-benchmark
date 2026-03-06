@@ -1718,7 +1718,7 @@ get_label.exit:                                   ; preds = %2, %10
   %92 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.076, i1 true)
   %93 = load ptr, ptr %3, align 8, !tbaa !3
   %94 = zext nneg i32 %92 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lv_dropdown_open, i64 %94
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lv_dropdown_open, i64 %94
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void @lv_obj_align_to(ptr noundef %93, ptr noundef nonnull %0, i32 noundef %switch.load, i32 noundef 0, i32 noundef 0) #8
   br label %95

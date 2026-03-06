@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
 %union.anon.0 = type { i64 }
-%struct.FICThreadContext = type { [64 x i16], ptr, i32, i32, i32, i32, [8 x i8] }
 
 @.str = private unnamed_addr constant [4 x i8] c"fic\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"Mirillis FIC\00", align 1
@@ -327,7 +326,7 @@ define internal i32 @fic_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %152 = zext i32 %136 to i64
   %153 = getelementptr inbounds nuw i8, ptr %107, i64 %152
   %154 = load ptr, ptr %119, align 8, !tbaa !48
-  %155 = getelementptr inbounds nuw %struct.FICThreadContext, ptr %154, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [160 x i8], ptr %154, i64 %indvars.iv
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 128
   store ptr %153, ptr %156, align 16, !tbaa !49
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 140
@@ -371,7 +370,7 @@ define internal i32 @fic_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 
 177:                                              ; preds = %169, %176
   %indvars.iv203 = phi i64 [ 0, %169 ], [ %indvars.iv.next204, %176 ]
-  %178 = getelementptr inbounds nuw %struct.FICThreadContext, ptr %175, i64 %indvars.iv203
+  %178 = getelementptr inbounds nuw [160 x i8], ptr %175, i64 %indvars.iv203
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 148
   %180 = load i32, ptr %179, align 4, !tbaa !64
   %.not181 = icmp eq i32 %180, 0
@@ -505,10 +504,10 @@ define internal range(i32 -1094995529, 1) i32 @fic_decode_slice(ptr noundef read
 
 .preheader.lr.ph:                                 ; preds = %21
   %25 = load ptr, ptr %17, align 8, !tbaa !38
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv107
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv107
   %27 = load ptr, ptr %26, align 8, !tbaa !66
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 64
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv107
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv107
   %30 = load i32, ptr %29, align 4, !tbaa !65
   %31 = ashr i32 %10, %23
   %32 = mul nsw i32 %30, %31
@@ -656,7 +655,7 @@ get_se_golomb.exit.i:                             ; preds = %86, %76
   %120 = zext i8 %119 to i32
   %121 = mul nsw i32 %.0.i.i48, %120
   %122 = trunc i32 %121 to i16
-  %123 = getelementptr inbounds nuw i16, ptr %1, i64 %117
+  %123 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %117
   store i16 %122, ptr %123, align 2, !tbaa !67
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -987,7 +986,7 @@ get_se_golomb.exit.i:                             ; preds = %86, %76
 
 381:                                              ; preds = %381, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %381 ]
-  %382 = getelementptr inbounds nuw i16, ptr %.265.i.i, i64 %indvars.iv.i.i
+  %382 = getelementptr inbounds nuw [2 x i8], ptr %.265.i.i, i64 %indvars.iv.i.i
   %383 = load i16, ptr %382, align 2, !tbaa !67
   %384 = icmp ugt i16 %383, 255
   %isnotneg.i.i.i = icmp sgt i16 %383, -1
@@ -1186,9 +1185,9 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
 
 88:                                               ; preds = %.preheader93, %88
   %indvars.iv131 = phi i64 [ 0, %.preheader93 ], [ %indvars.iv.next132, %88 ]
-  %89 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv131
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv131
   %90 = load ptr, ptr %89, align 8, !tbaa !66
-  %91 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv131
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv131
   %92 = load i32, ptr %91, align 4, !tbaa !65
   %93 = icmp ne i64 %indvars.iv131, 0
   %94 = zext i1 %93 to i32
@@ -1201,7 +1200,7 @@ define internal fastcc void @fic_draw_cursor(ptr noundef readonly captures(none)
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 %100
   %102 = zext i1 %93 to i64
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 %102
-  %104 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv131
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv131
   store ptr %103, ptr %104, align 8, !tbaa !66
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next132, 3

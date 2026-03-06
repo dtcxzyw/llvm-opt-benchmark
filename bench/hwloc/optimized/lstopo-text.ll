@@ -3,10 +3,6 @@ source_filename = "bench/hwloc/original/lstopo-text.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.hwloc_info_s = type { ptr, ptr }
-%struct.hwloc_location = type { i32, %union.hwloc_location_u }
-%union.hwloc_location_u = type { ptr }
-
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [36 x i8] c"Failed to open %s for writing (%s)\0A\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"Only showing some %s objects\0A\00", align 1
@@ -284,7 +280,7 @@ define hidden range(i32 -1, 1) i32 @output_console(ptr noundef %0, ptr noundef %
 .lr.ph:                                           ; preds = %95, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %95 ]
   %98 = load ptr, ptr %70, align 8, !tbaa !35
-  %99 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %98, i64 %indvars.iv
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !36
   %102 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %101, i32 noundef 32) #22
@@ -379,7 +375,7 @@ define internal fastcc void @output_distances(ptr noundef readonly captures(none
 
 24:                                               ; preds = %.lr.ph, %hwloc_utils_print_distance_matrix.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %hwloc_utils_print_distance_matrix.exit ]
-  %25 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !42
   %27 = call ptr @hwloc_distances_get_name(ptr noundef %5, ptr noundef %26) #19
   %28 = load ptr, ptr %25, align 8, !tbaa !42
@@ -477,7 +473,7 @@ define internal fastcc void @output_distances(ptr noundef readonly captures(none
   %.086107.i = phi i64 [ 5, %.lr.ph.i ], [ %spec.select.i, %106 ]
   %.091109.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 17
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %78 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.i
   %79 = load ptr, ptr %78, align 8, !tbaa !51
   %.in.i = getelementptr inbounds nuw i8, ptr %79, i64 %.in.v.i
   %80 = load i32, ptr %.in.i, align 4, !tbaa !23
@@ -566,7 +562,7 @@ define internal fastcc void @output_distances(ptr noundef readonly captures(none
   %113 = trunc nuw i64 %indvars.iv132.i to i32
   %114 = add i32 %110, %113
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw i64, ptr %62, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %115
   %117 = load i64, ptr %116, align 8, !tbaa !62
   %118 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 17, ptr noundef nonnull @.str.32, i64 noundef %117) #19
   %119 = sext i32 %118 to i64
@@ -722,7 +718,7 @@ define internal fastcc void @output_cpukinds(ptr %.0.val) unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %7 ]
   %16 = phi ptr [ %23, %.lr.ph ], [ %13, %7 ]
   %17 = load ptr, ptr %16, align 8, !tbaa !35
-  %18 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !38
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !36
@@ -821,7 +817,7 @@ define internal fastcc void @output_only(ptr noundef %0, ptr noundef %1) unnamed
 
 34:                                               ; preds = %33, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %33 ]
-  %35 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %32, i64 %indvars.iv.i.i.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv.i.i.i
   %36 = load ptr, ptr %35, align 8, !tbaa !38
   %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(11) @.str.48) #22
   %.not.not.i.i.i = icmp eq i32 %37, 0
@@ -1627,7 +1623,7 @@ define internal fastcc range(i32 -1, 1) i32 @output_memattr(ptr noundef readonly
 
 44:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %45 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv92
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv92
   %46 = load ptr, ptr %45, align 8, !tbaa !51
   %47 = call i32 @hwloc_memattr_get_value(ptr noundef %13, i32 noundef %1, ptr noundef %46, ptr noundef null, i64 noundef 0, ptr noundef nonnull %11) #19
   %.not68 = icmp eq i32 %47, 0
@@ -1678,7 +1674,7 @@ output_memattr_obj.exit:                          ; preds = %60, %63
 68:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !23
-  %69 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv92
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv92
   %70 = load ptr, ptr %69, align 8, !tbaa !51
   %71 = call i32 @hwloc_memattr_get_initiators(ptr noundef %13, i32 noundef %1, ptr noundef %70, i64 noundef 0, ptr noundef nonnull %12, ptr noundef null, ptr noundef null) #19
   %.not69 = icmp eq i32 %71, 0
@@ -1740,10 +1736,10 @@ output_memattr_obj.exit:                          ; preds = %60, %63
 
 output_memattr_obj.exit77:                        ; preds = %97, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %102 = getelementptr inbounds nuw i64, ptr %78, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv
   %103 = load i64, ptr %102, align 8, !tbaa !62
   %104 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i64 noundef %103)
-  %105 = getelementptr inbounds nuw %struct.hwloc_location, ptr %76, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %indvars.iv
   %106 = load i32, ptr %105, align 8, !tbaa !107
   switch i32 %106, label %172 [
     i32 1, label %107

@@ -70,7 +70,7 @@ define dso_local noundef i32 @main() local_unnamed_addr #3 personality ptr @__gx
   %17 = trunc i64 %16 to i32
   %18 = tail call noundef i32 @llvm.fshr.i32(i32 %17, i32 %17, i32 %13)
   %19 = xor i32 %18, 256438689
-  %20 = getelementptr inbounds nuw i32, ptr %7, i64 %.06.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.06.i.i
   store i32 %19, ptr %20, align 4, !tbaa !9
   %21 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %21, 64
@@ -317,7 +317,7 @@ _ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 116:                                              ; preds = %._crit_edge, %111
   %117 = phi i64 [ %.pre43, %._crit_edge ], [ %112, %111 ]
   %118 = and i64 %112, 63
-  %119 = getelementptr inbounds nuw i32, ptr %7, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !9
   %121 = mul i64 %117, 6364136223846793005
   %122 = load i64, ptr %2, align 8, !tbaa !4
@@ -397,7 +397,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
   %17 = trunc i64 %16 to i32
   %18 = tail call noundef i32 @llvm.fshr.i32(i32 %17, i32 %17, i32 %13)
   %19 = xor i32 %18, 256438689
-  %20 = getelementptr inbounds nuw i32, ptr %7, i64 %.06.i.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.06.i.i
   store i32 %19, ptr %20, align 4, !tbaa !9
   %21 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %21, 64
@@ -557,7 +557,7 @@ define linkonce_odr dso_local void @_ZN10pcg_detail8extendedILh6ELh16ENS_6engine
 4:                                                ; preds = %1, %._crit_edge
   %.012 = phi i1 [ false, %1 ], [ %49, %._crit_edge ]
   %.0911 = phi i64 [ 0, %1 ], [ %29, %._crit_edge ]
-  %5 = getelementptr inbounds nuw i32, ptr %2, i64 %.0911
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.0911
   %6 = load i32, ptr %5, align 4, !tbaa !9
   br i1 %.012, label %7, label %._crit_edge
 
@@ -588,7 +588,7 @@ define linkonce_odr dso_local void @_ZN10pcg_detail8extendedILh6ELh16ENS_6engine
 ._crit_edge:                                      ; preds = %4, %7
   %27 = phi i32 [ %25, %7 ], [ %6, %4 ]
   %.1 = phi i1 [ %26, %7 ], [ false, %4 ]
-  %28 = getelementptr inbounds nuw i32, ptr %2, i64 %.0911
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.0911
   %29 = add nuw nsw i64 %.0911, 1
   %30 = lshr i32 %27, 22
   %31 = xor i32 %30, %27

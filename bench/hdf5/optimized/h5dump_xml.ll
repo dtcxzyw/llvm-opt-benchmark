@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5R_ref_t = type { %union.anon.0 }
 %union.anon.0 = type { i64, [56 x i8] }
 %union.anon.2 = type { ptr }
-%struct.obj_t = type { %struct.H5O_token_t, ptr, i8, i8 }
 %union.anon.3 = type { ptr }
 
 @.str = private unnamed_addr constant [6 x i8] c"hdf5:\00", align 1
@@ -889,7 +888,7 @@ define internal fastcc void @xml_print_datatype(i64 noundef %0, i32 noundef rang
 
 switch.lookup:                                    ; preds = %124
   %140 = zext nneg i32 %125 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.xml_print_datatype, i64 %140
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.xml_print_datatype, i64 %140
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %141
 
@@ -1002,7 +1001,7 @@ switch.lookup:                                    ; preds = %124
 
 switch.lookup218:                                 ; preds = %221
   %223 = zext nneg i32 %198 to i64
-  %switch.gep219 = getelementptr inbounds nuw ptr, ptr @switch.table.xml_print_datatype.1, i64 %223
+  %switch.gep219 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.xml_print_datatype.1, i64 %223
   %switch.load220 = load ptr, ptr %switch.gep219, align 8
   br label %224
 
@@ -1414,7 +1413,7 @@ switch.lookup218:                                 ; preds = %221
   store i32 1, ptr %509, align 8, !tbaa !41
   %522 = call ptr @h5tools_str_reset(ptr noundef nonnull %9) #14
   %523 = load ptr, ptr @xmlnsprefix, align 8, !tbaa !18
-  %524 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %524 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %525 = load i64, ptr %524, align 8, !tbaa !4
   %526 = trunc i64 %525 to i32
   %527 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %9, ptr noundef nonnull @.str.148, ptr noundef %523, i32 noundef %526) #14
@@ -1694,12 +1693,12 @@ define dso_local void @xml_dump_dataspace(i64 noundef %0) local_unnamed_addr #0 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %74 ]
-  %61 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8, !tbaa !4
   store i32 1, ptr %38, align 8, !tbaa !41
   %63 = call ptr @h5tools_str_reset(ptr noundef nonnull %4) #14
   %64 = load ptr, ptr @xmlnsprefix, align 8, !tbaa !18
-  %65 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %66 = load i64, ptr %65, align 8, !tbaa !4
   switch i64 %62, label %71 [
     i64 -1, label %67
@@ -3655,7 +3654,7 @@ sub_0:                                            ; preds = %47, %50
   %.0155186 = phi i32 [ %222, %220 ], [ 0, %.preheader ]
   %195 = getelementptr inbounds nuw i8, ptr %193, i64 24
   %196 = load ptr, ptr %195, align 8, !tbaa !74
-  %197 = getelementptr inbounds nuw %struct.obj_t, ptr %196, i64 %194
+  %197 = getelementptr inbounds nuw [32 x i8], ptr %196, i64 %194
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 25
   %199 = load i8, ptr %198, align 1, !tbaa !38, !range !39, !noundef !40
   %200 = trunc nuw i8 %199 to i1
@@ -3671,7 +3670,7 @@ sub_0:                                            ; preds = %47, %50
   %206 = load ptr, ptr @type_table, align 8, !tbaa !33
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 24
   %208 = load ptr, ptr %207, align 8, !tbaa !74
-  %209 = getelementptr inbounds nuw %struct.obj_t, ptr %208, i64 %194
+  %209 = getelementptr inbounds nuw [32 x i8], ptr %208, i64 %194
   %210 = call i32 @H5Otoken_to_str(i64 noundef %204, ptr noundef %209, ptr noundef nonnull %11) #14
   %211 = load ptr, ptr %11, align 8, !tbaa !18
   %212 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.48, ptr noundef %211) #14
@@ -3820,7 +3819,7 @@ sub_0:                                            ; preds = %47, %50
   %.0185 = phi i32 [ %318, %316 ], [ 0, %.preheader183 ]
   %291 = getelementptr inbounds nuw i8, ptr %289, i64 24
   %292 = load ptr, ptr %291, align 8, !tbaa !74
-  %293 = getelementptr inbounds nuw %struct.obj_t, ptr %292, i64 %290
+  %293 = getelementptr inbounds nuw [32 x i8], ptr %292, i64 %290
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 25
   %295 = load i8, ptr %294, align 1, !tbaa !38, !range !39, !noundef !40
   %296 = trunc nuw i8 %295 to i1
@@ -3836,7 +3835,7 @@ sub_0:                                            ; preds = %47, %50
   %302 = load ptr, ptr @type_table, align 8, !tbaa !33
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 24
   %304 = load ptr, ptr %303, align 8, !tbaa !74
-  %305 = getelementptr inbounds nuw %struct.obj_t, ptr %304, i64 %290
+  %305 = getelementptr inbounds nuw [32 x i8], ptr %304, i64 %290
   %306 = call i32 @H5Otoken_to_str(i64 noundef %300, ptr noundef %305, ptr noundef nonnull %12) #14
   %307 = load ptr, ptr %12, align 8, !tbaa !18
   %308 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.48, ptr noundef %307) #14
@@ -4795,7 +4794,7 @@ define dso_local void @xml_dump_dataset(i64 noundef %0, ptr noundef readonly cap
   store i32 1, ptr %79, align 8, !tbaa !41
   %132 = call ptr @h5tools_str_reset(ptr noundef nonnull %30) #14
   %133 = load ptr, ptr @xmlnsprefix, align 8, !tbaa !18
-  %134 = getelementptr inbounds nuw i64, ptr %102, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv
   %135 = load i64, ptr %134, align 8, !tbaa !4
   %136 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %30, ptr noundef nonnull @.str.57, ptr noundef %133, i64 noundef %135) #14
   %137 = load ptr, ptr @rawoutstream, align 8, !tbaa !42
@@ -5224,7 +5223,7 @@ check_filters.exit:                               ; preds = %174, %261
 
 switch.lookup:                                    ; preds = %364
   %376 = zext nneg i32 %374 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.xml_dump_dataset, i64 %376
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.xml_dump_dataset, i64 %376
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %377
 
@@ -5241,7 +5240,7 @@ switch.lookup:                                    ; preds = %364
 
 switch.lookup192:                                 ; preds = %377
   %384 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep193 = getelementptr inbounds nuw ptr, ptr @switch.table.xml_dump_dataset.2, i64 %384
+  %switch.gep193 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.xml_dump_dataset.2, i64 %384
   %switch.load194 = load ptr, ptr %switch.gep193, align 8
   br label %385
 
@@ -6441,7 +6440,7 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %67 ]
   %70 = trunc nuw i64 %indvars.iv to i32
   %71 = call ptr @H5Tget_member_name(i64 noundef %0, i32 noundef %70) #14
-  %72 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   store ptr %71, ptr %72, align 8, !tbaa !18
   %73 = call i64 @H5Tget_size(i64 noundef %0) #14
   %74 = mul i64 %73, %indvars.iv
@@ -6481,7 +6480,7 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
 
 86:                                               ; preds = %.lr.ph96, %.loopexit
   %indvars.iv108 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next109, %.loopexit ]
-  %87 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv108
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv108
   %88 = load ptr, ptr %87, align 8, !tbaa !18
   %89 = call fastcc ptr @xml_escape_the_name(ptr noundef %88)
   store i32 1, ptr %35, align 8, !tbaa !41
@@ -6594,7 +6593,7 @@ define internal fastcc void @xml_print_enum(i64 noundef %0) unnamed_addr #0 {
 
 .lr.ph100:                                        ; preds = %._crit_edge97, %.lr.ph100
   %indvars.iv113 = phi i64 [ %indvars.iv.next114, %.lr.ph100 ], [ 0, %._crit_edge97 ]
-  %156 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv113
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv113
   %157 = load ptr, ptr %156, align 8, !tbaa !18
   %158 = call i32 @H5free_memory(ptr noundef %157) #14
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1

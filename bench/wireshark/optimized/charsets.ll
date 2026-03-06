@@ -175,7 +175,7 @@ define ptr @get_iso_646_string(ptr noundef %0, ptr noundef readonly captures(non
 
 11:                                               ; preds = %.lr.ph
   %12 = zext nneg i8 %9 to i64
-  %13 = getelementptr i16, ptr %3, i64 %12
+  %13 = getelementptr [2 x i8], ptr %3, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
   br label %16
@@ -253,7 +253,7 @@ define ptr @get_unichar2_string(ptr noundef %0, ptr noundef readonly captures(no
 12:                                               ; preds = %.lr.ph
   %13 = and i8 %9, 127
   %14 = zext nneg i8 %13 to i64
-  %15 = getelementptr i16, ptr %3, i64 %14
+  %15 = getelementptr [2 x i8], ptr %3, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i32
   tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef %17)
@@ -752,7 +752,7 @@ define internal fastcc noundef zeroext i1 @handle_ts_23_038_char(ptr noundef %0,
 
 GSM_to_UNICHAR.exit:                              ; preds = %6
   %18 = zext nneg i8 %1 to i64
-  %19 = getelementptr i16, ptr @gsm_default_alphabet, i64 %18
+  %19 = getelementptr [2 x i8], ptr @gsm_default_alphabet, i64 %18
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i32
   br label %.sink.split
@@ -1007,7 +1007,7 @@ define ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr noundef readonly ca
   %.0910 = phi i32 [ %15, %.lr.ph ], [ %2, %4 ]
   %9 = load i8, ptr %.011, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr i16, ptr %3, i64 %10
+  %11 = getelementptr [2 x i8], ptr %3, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   tail call void @wmem_strbuf_append_unichar(ptr noundef %7, i32 noundef %13)
@@ -1181,7 +1181,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef readonly captures(none) %
   %.03649 = phi ptr [ %1, %.lr.ph ], [ %55, %54 ]
   %10 = load i8, ptr %.03649, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr i16, ptr @t61_tab, i64 %11
+  %12 = getelementptr [2 x i8], ptr @t61_tab, i64 %11
   %13 = load i16, ptr %12, align 2
   %.not = icmp eq i16 %13, 0
   br i1 %.not, label %14, label %15
@@ -1217,7 +1217,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef readonly captures(none) %
   br i1 %25, label %27, label %._crit_edge51
 
 27:                                               ; preds = %26
-  %28 = getelementptr i16, ptr @accents, i64 %.pre
+  %28 = getelementptr [2 x i8], ptr @accents, i64 %.pre
   %29 = load i16, ptr %28, align 2
   br label %49
 
@@ -1229,12 +1229,12 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef readonly captures(none) %
   br label %44
 
 31:                                               ; preds = %30
-  %32 = getelementptr ptr, ptr @cx_tab, i64 %.pre
+  %32 = getelementptr [8 x i8], ptr @cx_tab, i64 %.pre
   %33 = load ptr, ptr %32, align 8
   %34 = zext i8 %24 to i32
   %35 = lshr i32 %34, 5
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr ptr, ptr %33, i64 %36
+  %37 = getelementptr [8 x i8], ptr %33, i64 %36
   %38 = load ptr, ptr %37, align 8
   %.not47 = icmp eq ptr %38, null
   br i1 %.not47, label %44, label %39
@@ -1242,7 +1242,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef readonly captures(none) %
 39:                                               ; preds = %31
   %40 = and i32 %34, 31
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr i16, ptr %38, i64 %41
+  %42 = getelementptr [2 x i8], ptr %38, i64 %41
   %43 = load i16, ptr %42, align 2
   %.not48 = icmp eq i16 %43, 0
   br i1 %.not48, label %44, label %49
@@ -1252,7 +1252,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef readonly captures(none) %
   tail call void @wmem_strbuf_append_unichar(ptr noundef %6, i32 noundef %.pre-phi58)
   %45 = load i8, ptr %.03649, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr i16, ptr @t61_tab, i64 %46
+  %47 = getelementptr [2 x i8], ptr @t61_tab, i64 %46
   %48 = load i16, ptr %47, align 2
   br label %49
 
@@ -1298,7 +1298,7 @@ define ptr @get_dect_standard_8bits_string(ptr noundef %0, ptr noundef readonly 
 
 9:                                                ; preds = %.lr.ph
   %10 = zext nneg i8 %8 to i64
-  %11 = getelementptr i16, ptr @dect_standard_8bits_code_table, i64 %10
+  %11 = getelementptr [2 x i8], ptr @dect_standard_8bits_code_table, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i32
   br label %14

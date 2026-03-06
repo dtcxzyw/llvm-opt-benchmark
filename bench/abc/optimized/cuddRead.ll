@@ -200,7 +200,7 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
 .preheader231:                                    ; preds = %.preheader231.lr.ph, %126
   %indvars.iv = phi i64 [ %104, %.preheader231.lr.ph ], [ %indvars.iv.next, %126 ]
   %.0193253 = phi i32 [ %102, %.preheader231.lr.ph ], [ %133, %126 ]
-  %105 = getelementptr inbounds ptr, ptr %.0190, i64 %indvars.iv
+  %105 = getelementptr inbounds [8 x i8], ptr %.0190, i64 %indvars.iv
   br label %106
 
 106:                                              ; preds = %.preheader231, %106
@@ -223,7 +223,7 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
   %117 = load i32, ptr %116, align 4, !tbaa !34
   %118 = add i32 %117, 1
   store i32 %118, ptr %116, align 4, !tbaa !34
-  %119 = getelementptr inbounds ptr, ptr %.0188, i64 %indvars.iv
+  %119 = getelementptr inbounds [8 x i8], ptr %.0188, i64 %indvars.iv
   br label %120
 
 120:                                              ; preds = %120, %112
@@ -267,7 +267,7 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
 .preheader229:                                    ; preds = %.preheader229.lr.ph, %161
   %indvars.iv292 = phi i64 [ %139, %.preheader229.lr.ph ], [ %indvars.iv.next293, %161 ]
   %.1256 = phi i32 [ %137, %.preheader229.lr.ph ], [ %168, %161 ]
-  %140 = getelementptr inbounds ptr, ptr %.0189, i64 %indvars.iv292
+  %140 = getelementptr inbounds [8 x i8], ptr %.0189, i64 %indvars.iv292
   br label %141
 
 141:                                              ; preds = %.preheader229, %141
@@ -290,7 +290,7 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
   %152 = load i32, ptr %151, align 4, !tbaa !34
   %153 = add i32 %152, 1
   store i32 %153, ptr %151, align 4, !tbaa !34
-  %154 = getelementptr inbounds ptr, ptr %.0, i64 %indvars.iv292
+  %154 = getelementptr inbounds [8 x i8], ptr %.0, i64 %indvars.iv292
   br label %155
 
 155:                                              ; preds = %155, %147
@@ -390,7 +390,7 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
   %201 = and i32 %200, 1
   %.not228 = icmp eq i32 %201, 0
   %.0188..0190 = select i1 %.not228, ptr %.0188, ptr %.0190
-  %202 = getelementptr inbounds nuw ptr, ptr %.0188..0190, i64 %indvars.iv.next298
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %.0188..0190, i64 %indvars.iv.next298
   %203 = load ptr, ptr %202, align 8, !tbaa !32
   %204 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef %.0196259, ptr noundef %203) #6
   %205 = icmp eq ptr %204, null
@@ -423,7 +423,7 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
   %218 = and i32 %217, 1
   %.not227 = icmp eq i32 %218, 0
   %.0..0189 = select i1 %.not227, ptr %.0, ptr %.0189
-  %219 = getelementptr inbounds nuw ptr, ptr %.0..0189, i64 %indvars.iv.next301
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %.0..0189, i64 %indvars.iv.next301
   %220 = load ptr, ptr %219, align 8, !tbaa !32
   %221 = call ptr @Cudd_addApply(ptr noundef %1, ptr noundef nonnull @Cudd_addTimes, ptr noundef %.1197265, ptr noundef %220) #6
   %222 = icmp eq ptr %221, null
@@ -665,7 +665,7 @@ define range(i32 0, 2) i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nou
 .preheader171:                                    ; preds = %.preheader171.lr.ph, %82
   %indvars.iv = phi i64 [ %74, %.preheader171.lr.ph ], [ %indvars.iv.next, %82 ]
   %.0142185 = phi i32 [ %72, %.preheader171.lr.ph ], [ %89, %82 ]
-  %75 = getelementptr inbounds ptr, ptr %.0139, i64 %indvars.iv
+  %75 = getelementptr inbounds [8 x i8], ptr %.0139, i64 %indvars.iv
   br label %76
 
 76:                                               ; preds = %.preheader171, %76
@@ -709,7 +709,7 @@ define range(i32 0, 2) i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nou
 .preheader169:                                    ; preds = %.preheader169.lr.ph, %103
   %indvars.iv220 = phi i64 [ %95, %.preheader169.lr.ph ], [ %indvars.iv.next221, %103 ]
   %.1188 = phi i32 [ %93, %.preheader169.lr.ph ], [ %110, %103 ]
-  %96 = getelementptr inbounds ptr, ptr %.0, i64 %indvars.iv220
+  %96 = getelementptr inbounds [8 x i8], ptr %.0, i64 %indvars.iv220
   br label %97
 
 97:                                               ; preds = %.preheader169, %97
@@ -805,7 +805,7 @@ define range(i32 0, 2) i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nou
   %indvars.iv.next226 = add nsw i64 %indvars.iv225, -1
   %136 = and i32 %135, 1
   %.not168 = icmp eq i32 %136, 0
-  %137 = getelementptr inbounds nuw ptr, ptr %.0139, i64 %indvars.iv.next226
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %.0139, i64 %indvars.iv.next226
   %138 = load ptr, ptr %137, align 8, !tbaa !32
   %139 = ptrtoint ptr %138 to i64
   %140 = xor i64 %139, 1
@@ -841,7 +841,7 @@ define range(i32 0, 2) i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nou
   %indvars.iv.next229 = add nsw i64 %indvars.iv228, -1
   %156 = and i32 %155, 1
   %.not167 = icmp eq i32 %156, 0
-  %157 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv.next229
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %indvars.iv.next229
   %158 = load ptr, ptr %157, align 8, !tbaa !32
   %159 = ptrtoint ptr %158 to i64
   %160 = xor i64 %159, 1

@@ -16,7 +16,7 @@ define noundef i32 @_ZNK13llama_hparams6n_headEj(ptr noundef nonnull readonly al
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   ret i32 %10
 
@@ -38,7 +38,7 @@ define noundef i32 @_ZNK13llama_hparams9n_head_kvEj(ptr noundef nonnull readonly
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   ret i32 %10
 
@@ -57,7 +57,7 @@ define noundef i32 @_ZNK13llama_hparams4n_ffEj(ptr noundef nonnull readonly alig
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4160
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   ret i32 %10
 
@@ -80,14 +80,14 @@ define noundef i32 @_ZNK13llama_hparams5n_gqaEj(ptr noundef nonnull readonly ali
 _ZNK13llama_hparams9n_head_kvEj.exit:             ; preds = %2
   %7 = zext i32 %1 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2112
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %7
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %17, label %12
 
 12:                                               ; preds = %_ZNK13llama_hparams9n_head_kvEj.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %7
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %7
   %15 = load i32, ptr %14, align 4, !tbaa !17
   %16 = udiv i32 %15, %10
   br label %17
@@ -111,7 +111,7 @@ define noundef i32 @_ZNK13llama_hparams12n_embd_k_gqaEj(ptr noundef nonnull read
 _ZNK13llama_hparams9n_head_kvEj.exit:             ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4, !tbaa !18
@@ -133,7 +133,7 @@ define noundef i32 @_ZNK13llama_hparams12n_embd_v_gqaEj(ptr noundef nonnull read
 _ZNK13llama_hparams9n_head_kvEj.exit:             ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !17
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 4, !tbaa !19

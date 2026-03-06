@@ -884,7 +884,7 @@ define void @_ZN6icu_7721ConfusabledataBuilder5buildEPKciR10UErrorCode(ptr nound
   %114 = load ptr, ptr %67, align 8, !tbaa !41
   %115 = load ptr, ptr %20, align 8, !tbaa !39
   %116 = sext i32 %108 to i64
-  %117 = getelementptr inbounds i16, ptr %115, i64 %116
+  %117 = getelementptr inbounds [2 x i8], ptr %115, i64 %116
   invoke void @uregex_setText_77(ptr noundef %114, ptr noundef %117, i32 noundef %113, ptr noundef nonnull %3)
           to label %118 unwind label %127
 
@@ -925,7 +925,7 @@ define void @_ZN6icu_7721ConfusabledataBuilder5buildEPKciR10UErrorCode(ptr nound
 
 133:                                              ; preds = %132
   %134 = load ptr, ptr %20, align 8, !tbaa !39
-  %135 = getelementptr inbounds i16, ptr %134, i64 %116
+  %135 = getelementptr inbounds [2 x i8], ptr %134, i64 %116
   %136 = load ptr, ptr %67, align 8, !tbaa !41
   %137 = invoke i32 @uregex_start_77(ptr noundef %136, i32 noundef 1, ptr noundef nonnull %3)
           to label %138 unwind label %147
@@ -1273,7 +1273,7 @@ define void @_ZN6icu_7721ConfusabledataBuilder10outputDataER10UErrorCode(ptr nou
   %16 = load ptr, ptr %4, align 8, !tbaa !36
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = tail call noundef i32 @_ZNK6icu_777UVector10elementAtiEi(ptr noundef nonnull align 8 dereferenceable(40) %16, i32 noundef %17)
-  %19 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 %18, ptr %19, align 4, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1318,7 +1318,7 @@ define void @_ZN6icu_7721ConfusabledataBuilder10outputDataER10UErrorCode(ptr nou
   %41 = trunc nuw nsw i64 %indvars.iv58 to i32
   %42 = tail call noundef i32 @_ZNK6icu_777UVector10elementAtiEi(ptr noundef nonnull align 8 dereferenceable(40) %40, i32 noundef %41)
   %43 = trunc i32 %42 to i16
-  %44 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv58
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %indvars.iv58
   store i16 %43, ptr %44, align 2, !tbaa !77
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61

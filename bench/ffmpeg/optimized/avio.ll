@@ -987,7 +987,7 @@ define internal fastcc noundef ptr @url_find_protocol(ptr noundef %0) unnamed_ad
 
 36:                                               ; preds = %33, %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.next
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.next
   %38 = load ptr, ptr %37, align 8, !tbaa !76
   %.not30 = icmp eq ptr %38, null
   br i1 %.not30, label %._crit_edge, label %.lr.ph, !llvm.loop !77

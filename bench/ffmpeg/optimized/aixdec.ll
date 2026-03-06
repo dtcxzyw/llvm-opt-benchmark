@@ -124,7 +124,7 @@ define internal range(i32 -1094995529, 1) i32 @aix_read_header(ptr noundef %0) #
   %58 = load ptr, ptr %2, align 8, !tbaa !12
   %59 = tail call i64 @avio_skip(ptr noundef %58, i64 noundef 8) #3
   %60 = load ptr, ptr %49, align 8, !tbaa !42
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !43
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !27

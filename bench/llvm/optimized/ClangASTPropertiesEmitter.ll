@@ -32,8 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::set" = type { %"class.std::_Rb_tree.50" }
 %"class.std::_Rb_tree.50" = type { %"struct.std::_Rb_tree<clang::tblgen::HasProperties, clang::tblgen::HasProperties, std::_Identity<clang::tblgen::HasProperties>, std::less<clang::tblgen::HasProperties>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<clang::tblgen::HasProperties, clang::tblgen::HasProperties, std::_Identity<clang::tblgen::HasProperties>, std::less<clang::tblgen::HasProperties>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"class.clang::tblgen::Property" = type { %"class.clang::tblgen::WrappedRecord" }
-%"class.clang::tblgen::TypeCase" = type { %"class.clang::tblgen::HasProperties" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -41,6 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.146 = type { ptr, ptr, ptr, ptr }
 %class.anon.145 = type { ptr, ptr, ptr }
 %"struct.std::pair.136" = type { %"class.llvm::StringRef", %"class.clang::tblgen::Property" }
+%"class.clang::tblgen::Property" = type { %"class.clang::tblgen::WrappedRecord" }
 %"class.std::vector.151" = type { %"struct.std::_Vector_base.152" }
 %"struct.std::_Vector_base.152" = type { %"struct.std::_Vector_base<const llvm::Record *, std::allocator<const llvm::Record *>>::_Vector_impl" }
 %"struct.std::_Vector_base<const llvm::Record *, std::allocator<const llvm::Record *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const llvm::Record *, std::allocator<const llvm::Record *>>::_Vector_impl_data" }
@@ -596,7 +595,7 @@ _ZNSt6vectorIN5clang6tblgen8PropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
 _ZNSt6vectorIN5clang6tblgen8PropertyESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %79, %_ZNSt6vectorIN5clang6tblgen8PropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %72, ptr %50, align 8, !tbaa !46
   store ptr %78, ptr %51, align 8, !tbaa !42
-  %80 = getelementptr inbounds nuw %"class.clang::tblgen::Property", ptr %72, i64 %70
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %70
   store ptr %80, ptr %53, align 8, !tbaa !45
   br label %_ZNSt6vectorIN5clang6tblgen8PropertyESaIS2_EE9push_backERKS2_.exit
 
@@ -873,7 +872,7 @@ _ZNSt6vectorIN5clang6tblgen12PropertyTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt6vectorIN5clang6tblgen12PropertyTypeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %201, %_ZNSt6vectorIN5clang6tblgen12PropertyTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %194, ptr %33, align 8, !tbaa !22
   store ptr %200, ptr %140, align 8, !tbaa !109
-  %202 = getelementptr inbounds nuw %"class.clang::tblgen::PropertyType", ptr %194, i64 %192
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %192
   store ptr %202, ptr %141, align 8, !tbaa !25
   br label %_ZNSt6vectorIN5clang6tblgen12PropertyTypeESaIS2_EE9push_backERKS2_.exit
 
@@ -1413,7 +1412,7 @@ _ZNSt6vectorIN5clang6tblgen8TypeCaseESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
 _ZNSt6vectorIN5clang6tblgen8TypeCaseESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %380, %_ZNSt6vectorIN5clang6tblgen8TypeCaseESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %373, ptr %351, align 8, !tbaa !145
   store ptr %379, ptr %352, align 8, !tbaa !141
-  %381 = getelementptr inbounds nuw %"class.clang::tblgen::TypeCase", ptr %373, i64 %371
+  %381 = getelementptr inbounds nuw [8 x i8], ptr %373, i64 %371
   store ptr %381, ptr %354, align 8, !tbaa !144
   br label %_ZNSt6vectorIN5clang6tblgen8TypeCaseESaIS2_EE9push_backERKS2_.exit
 
@@ -6903,7 +6902,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %26, %28
 _ZN4llvm11raw_ostreamlsEPKc.exit35:               ; preds = %43, %45
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %48 = load ptr, ptr %8, align 8, !tbaa !263
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %.03
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.03
   %50 = load ptr, ptr %49, align 8, !tbaa !40
   store ptr %50, ptr %9, align 8, !tbaa !54
   %51 = load ptr, ptr %0, align 8, !tbaa !154

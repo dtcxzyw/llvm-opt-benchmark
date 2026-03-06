@@ -916,8 +916,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i16 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.ffi_cif = type { i32, i32, ptr, ptr, i32, i32 }
-%struct.argument = type { ptr, ptr, %union.result }
-%union.result = type { x86_fp80 }
 
 @PyExc_RuntimeError = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [24 x i8] c"cannot get thread state\00", align 1
@@ -1393,7 +1391,7 @@ define hidden ptr @_ctypes_callproc(ptr noundef %0, ptr noundef %1, ptr noundef 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %31
   %.093131.us = phi i64 [ %28, %31 ], [ 0, %.lr.ph.split.us.preheader ]
   %.094130.us = phi ptr [ %32, %31 ], [ %18, %.lr.ph.split.us.preheader ]
-  %26 = getelementptr ptr, ptr %25, i64 %.093131.us
+  %26 = getelementptr [8 x i8], ptr %25, i64 %.093131.us
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = add nuw nsw i64 %.093131.us, 1
   %29 = call fastcc i32 @ConvParam(ptr noundef %0, ptr noundef %27, i64 noundef %28, ptr noundef %.094130.us)
@@ -1408,13 +1406,13 @@ define hidden ptr @_ctypes_callproc(ptr noundef %0, ptr noundef %1, ptr noundef 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %63
   %.093131 = phi i64 [ %.pre-phi, %63 ], [ 0, %.lr.ph.split.preheader ]
   %.094130 = phi ptr [ %64, %63 ], [ %18, %.lr.ph.split.preheader ]
-  %33 = getelementptr ptr, ptr %23, i64 %.093131
+  %33 = getelementptr [8 x i8], ptr %23, i64 %.093131
   %34 = load ptr, ptr %33, align 8, !tbaa !3
   %35 = icmp sgt i64 %.val108, %.093131
   br i1 %35, label %36, label %57
 
 36:                                               ; preds = %.lr.ph.split
-  %37 = getelementptr ptr, ptr %24, i64 %.093131
+  %37 = getelementptr [8 x i8], ptr %24, i64 %.093131
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   %39 = tail call ptr @PyObject_CallOneArg(ptr noundef %38, ptr noundef %34) #10
   %40 = icmp eq ptr %39, null
@@ -1516,9 +1514,9 @@ _ctypes_get_ffi_type.exit:                        ; preds = %._crit_edge, %68, %
 
 .lr.ph133:                                        ; preds = %_ctypes_get_ffi_type.exit, %94
   %.1132 = phi i64 [ %96, %94 ], [ 0, %_ctypes_get_ffi_type.exit ]
-  %85 = getelementptr %struct.argument, ptr %18, i64 %.1132
+  %85 = getelementptr [32 x i8], ptr %18, i64 %.1132
   %86 = load ptr, ptr %85, align 16, !tbaa !37
-  %87 = getelementptr ptr, ptr %84, i64 %.1132
+  %87 = getelementptr [8 x i8], ptr %84, i64 %.1132
   store ptr %86, ptr %87, align 8, !tbaa !39
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 10
   %89 = load i16, ptr %88, align 2, !tbaa !40
@@ -1532,7 +1530,7 @@ _ctypes_get_ffi_type.exit:                        ; preds = %._crit_edge, %68, %
 
 94:                                               ; preds = %.lr.ph133, %92
   %.sink = phi ptr [ %93, %92 ], [ %91, %.lr.ph133 ]
-  %95 = getelementptr ptr, ptr %83, i64 %.1132
+  %95 = getelementptr [8 x i8], ptr %83, i64 %.1132
   store ptr %.sink, ptr %95, align 8, !tbaa !41
   %96 = add nuw nsw i64 %.1132, 1
   %exitcond146.not = icmp eq i64 %96, %.val
@@ -1770,7 +1768,7 @@ GetResult.exit:                                   ; preds = %185, %183, %Py_DECR
 
 .lr.ph136:                                        ; preds = %.lr.ph136.preheader, %Py_XDECREF.exit
   %.2135 = phi i64 [ %200, %Py_XDECREF.exit ], [ 0, %.lr.ph136.preheader ]
-  %191 = getelementptr %struct.argument, ptr %18, i64 %.2135
+  %191 = getelementptr [32 x i8], ptr %18, i64 %.2135
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load ptr, ptr %192, align 8, !tbaa !48
   %.not.i118 = icmp eq ptr %193, null
@@ -2463,10 +2461,10 @@ PyStgInfo_FromAny.exit:                           ; preds = %17, %11
 32:                                               ; preds = %.lr.ph, %32
   %.01118 = phi i64 [ 0, %.lr.ph ], [ %38, %32 ]
   %33 = load ptr, ptr %30, align 8, !tbaa !63
-  %34 = getelementptr i64, ptr %33, i64 %.01118
+  %34 = getelementptr [8 x i8], ptr %33, i64 %.01118
   %35 = load i64, ptr %34, align 8, !tbaa !64
   %36 = tail call ptr @PyLong_FromSsize_t(i64 noundef %35) #10
-  %37 = getelementptr ptr, ptr %31, i64 %.01118
+  %37 = getelementptr [8 x i8], ptr %31, i64 %.01118
   store ptr %36, ptr %37, align 8, !tbaa !3
   %38 = add nuw nsw i64 %.01118, 1
   %39 = load i32, ptr %23, align 8, !tbaa !62

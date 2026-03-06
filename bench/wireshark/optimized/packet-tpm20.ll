@@ -735,7 +735,7 @@ define internal i32 @dissect_tpm20(ptr noundef %0, ptr noundef %1, ptr noundef %
   %86 = getelementptr i8, ptr @tpm_handles_map, i64 %85
   %scevgep29.i.i = getelementptr i8, ptr %86, i64 40
   %scevgep.i.i = getelementptr i8, ptr %86, i64 8
-  %87 = getelementptr %struct.num_handles, ptr @tpm_handles_map, i64 %indvar.i.i
+  %87 = getelementptr [64 x i8], ptr @tpm_handles_map, i64 %indvar.i.i
   %88 = load i32, ptr %87, align 16
   %89 = icmp eq i32 %58, %88
   br i1 %89, label %90, label %.loopexit.i.i
@@ -791,7 +791,7 @@ get_num_hndl.exit.i:                              ; preds = %.loopexit.i.i
 108:                                              ; preds = %108, %103
   %indvars.iv.i = phi i64 [ 0, %103 ], [ %indvars.iv.next.i, %108 ]
   %.196.i = phi i32 [ 10, %103 ], [ %113, %108 ]
-  %109 = getelementptr ptr, ptr %80, i64 %indvars.iv.i
+  %109 = getelementptr [8 x i8], ptr %80, i64 %indvars.iv.i
   %110 = load ptr, ptr %109, align 8
   %111 = load i32, ptr %110, align 4
   %112 = tail call ptr @proto_tree_add_item(ptr noundef %107, i32 noundef %111, ptr noundef %0, i32 noundef %.196.i, i32 noundef 4, i32 noundef 0)
@@ -1116,7 +1116,7 @@ dissect_tpm20_tpm_command.exit:                   ; preds = %166, %167, %170, %d
   %292 = getelementptr i8, ptr @tpm_handles_map, i64 %291
   %scevgep29.i.i39 = getelementptr i8, ptr %292, i64 40
   %scevgep.i.i40 = getelementptr i8, ptr %292, i64 8
-  %293 = getelementptr %struct.num_handles, ptr @tpm_handles_map, i64 %indvar.i.i38
+  %293 = getelementptr [64 x i8], ptr @tpm_handles_map, i64 %indvar.i.i38
   %294 = load i32, ptr %293, align 16
   %295 = icmp eq i32 %284, %294
   br i1 %295, label %296, label %.loopexit.i.i41
@@ -1186,7 +1186,7 @@ get_num_hndl.exit.i44:                            ; preds = %.loopexit.i.i41
 313:                                              ; preds = %313, %308
   %indvars.iv.i46 = phi i64 [ 0, %308 ], [ %indvars.iv.next.i47, %313 ]
   %314 = phi i32 [ 10, %308 ], [ %319, %313 ]
-  %315 = getelementptr ptr, ptr %288, i64 %indvars.iv.i46
+  %315 = getelementptr [8 x i8], ptr %288, i64 %indvars.iv.i46
   %316 = load ptr, ptr %315, align 8
   %317 = load i32, ptr %316, align 4
   %318 = tail call ptr @proto_tree_add_item(ptr noundef %312, i32 noundef %317, ptr noundef %0, i32 noundef %314, i32 noundef 4, i32 noundef 0)

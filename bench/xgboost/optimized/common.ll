@@ -70,7 +70,7 @@ define noundef nonnull align 8 dereferenceable(5000) ptr @_ZN7xgboost6common12Gl
 4:                                                ; preds = %4, %3
   %store_forwarded = phi i64 [ 5489, %3 ], [ %10, %4 ]
   %.011.i.i.i.i.i = phi i64 [ 1, %3 ], [ %11, %4 ]
-  %5 = getelementptr i64, ptr @_ZZN4dmlc16ThreadLocalStoreIN7xgboost6common22RandomThreadLocalEntryEE3GetEvE4inst, i64 %.011.i.i.i.i.i
+  %5 = getelementptr [8 x i8], ptr @_ZZN4dmlc16ThreadLocalStoreIN7xgboost6common22RandomThreadLocalEntryEE3GetEvE4inst, i64 %.011.i.i.i.i.i
   %6 = lshr i64 %store_forwarded, 30
   %7 = xor i64 %6, %store_forwarded
   %8 = mul nuw nsw i64 %7, 1812433253

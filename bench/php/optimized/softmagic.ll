@@ -6,10 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.buffer = type { i32, %struct.stat, ptr, i64, i64, ptr, i64 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.magic = type { i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, %union.anon, %union.VALUETYPE, [64 x i8], [80 x i8], [8 x i8], [120 x i8] }
-%union.anon = type { i64 }
-%union.VALUETYPE = type { [2 x i64], [112 x i8] }
-%struct.level_info = type { i32, i32, i32, i32 }
 %struct.mlist = type { ptr, i64, ptr, ptr, ptr }
 %struct._zval_struct = type { %union._zend_value, %union.anon.2, %union.anon.5 }
 %union._zend_value = type { i64 }
@@ -183,7 +179,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i64 noundef %2
 33:                                               ; preds = %.lr.ph, %.critedge
   %34 = phi i64 [ 0, %.lr.ph ], [ %.pre-phi284, %.critedge ]
   %.0200270 = phi i32 [ 0, %.lr.ph ], [ %.pre-phi, %.critedge ]
-  %35 = getelementptr inbounds nuw %struct.magic, ptr %1, i64 %34
+  %35 = getelementptr inbounds nuw [432 x i8], ptr %1, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   %37 = load i8, ptr %36, align 2, !tbaa !26
   switch i8 %37, label %45 [
@@ -234,7 +230,7 @@ define internal fastcc i32 @match(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %51, label %54, label %.critedge
 
 54:                                               ; preds = %.critedge239
-  %55 = getelementptr inbounds nuw %struct.magic, ptr %1, i64 %53
+  %55 = getelementptr inbounds nuw [432 x i8], ptr %1, i64 %53
   %56 = load i16, ptr %55, align 8, !tbaa !30
   %.not233 = icmp eq i16 %56, 0
   br i1 %.not233, label %.critedge, label %.critedge239
@@ -347,7 +343,7 @@ print_sep.exit.thread:                            ; preds = %83, %print_sep.exit
   br i1 %99, label %100, label %.critedge2
 
 100:                                              ; preds = %96
-  %101 = getelementptr inbounds nuw %struct.magic, ptr %1, i64 %98
+  %101 = getelementptr inbounds nuw [432 x i8], ptr %1, i64 %98
   %102 = load i16, ptr %101, align 8, !tbaa !30
   %.not220 = icmp eq i16 %102, 0
   br i1 %.not220, label %.critedge2, label %103
@@ -376,7 +372,7 @@ print_sep.exit.thread:                            ; preds = %83, %print_sep.exit
 116:                                              ; preds = %112
   %117 = load ptr, ptr %30, align 8, !tbaa !39
   %118 = zext i16 %102 to i64
-  %119 = getelementptr %struct.level_info, ptr %117, i64 %118
+  %119 = getelementptr [16 x i8], ptr %117, i64 %118
   %120 = getelementptr i8, ptr %119, i64 -16
   %121 = load i32, ptr %120, align 4, !tbaa !40
   %122 = load i32, ptr %31, align 8, !tbaa !42
@@ -394,7 +390,7 @@ print_sep.exit.thread:                            ; preds = %83, %print_sep.exit
 128:                                              ; preds = %124
   %129 = load ptr, ptr %30, align 8, !tbaa !39
   %130 = zext i16 %102 to i64
-  %131 = getelementptr inbounds nuw %struct.level_info, ptr %129, i64 %130
+  %131 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load i32, ptr %132, align 4, !tbaa !44
   %134 = icmp eq i32 %133, 1
@@ -436,7 +432,7 @@ print_sep.exit.thread:                            ; preds = %83, %print_sep.exit
 148:                                              ; preds = %.critedge241
   %149 = load ptr, ptr %30, align 8, !tbaa !39
   %150 = zext i16 %102 to i64
-  %151 = getelementptr inbounds nuw %struct.level_info, ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   store i32 0, ptr %152, align 4, !tbaa !44
   br label %.outer.backedge
@@ -448,7 +444,7 @@ print_sep.exit.thread:                            ; preds = %83, %print_sep.exit
 .critedge241.thread:                              ; preds = %139, %.critedge241
   %153 = load ptr, ptr %30, align 8, !tbaa !39
   %154 = zext i16 %102 to i64
-  %155 = getelementptr inbounds nuw %struct.level_info, ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store i32 1, ptr %156, align 4, !tbaa !44
   %157 = getelementptr inbounds nuw i8, ptr %101, i64 6
@@ -546,7 +542,7 @@ print_sep.exit250.thread:                         ; preds = %178, %print_sep.exi
 
 194:                                              ; preds = %193, %174, %173
   %195 = load ptr, ptr %30, align 8, !tbaa !39
-  %196 = getelementptr inbounds nuw %struct.level_info, ptr %195, i64 %154
+  %196 = getelementptr inbounds nuw [16 x i8], ptr %195, i64 %154
   %.val247 = load i64, ptr %29, align 8, !tbaa !37
   %197 = call fastcc i32 @moffset(ptr noundef nonnull %0, ptr noundef nonnull %101, i64 %.val247, i64 noundef %4, ptr noundef nonnull %196)
   %switch243 = icmp slt i32 %197, 1
@@ -1678,7 +1674,7 @@ cvt_flip.exit589.thread:                          ; preds = %307, %cvt_flip.exit
   %543 = load ptr, ptr %542, align 8, !tbaa !39
   %544 = add i32 %6, -1
   %545 = zext i32 %544 to i64
-  %546 = getelementptr inbounds nuw %struct.level_info, ptr %543, i64 %545
+  %546 = getelementptr inbounds nuw [16 x i8], ptr %543, i64 %545
   %547 = load i32, ptr %546, align 4, !tbaa !40
   %548 = load i32, ptr %18, align 4, !tbaa !4
   %549 = add i32 %548, %547
@@ -5556,7 +5552,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
   %28 = tail call ptr @__ctype_b_loc() #25
   %29 = load ptr, ptr %28, align 8, !tbaa !75
   %30 = zext i8 %.pre.pre.pre.pre to i64
-  %31 = getelementptr inbounds nuw i16, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !8
   %33 = and i16 %32, 512
   %.not83 = icmp eq i16 %33, 0
@@ -5569,7 +5565,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
   %38 = getelementptr inbounds nuw i8, ptr %.160138, i64 1
   %39 = load i8, ptr %.160138, align 1, !tbaa !28
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !4
   %43 = getelementptr inbounds nuw i8, ptr %.158139, i64 1
   %.not96 = icmp eq i32 %42, %35
@@ -5582,7 +5578,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
   %46 = tail call ptr @__ctype_b_loc() #25
   %47 = load ptr, ptr %46, align 8, !tbaa !75
   %48 = zext i8 %.pre.pre.pre.pre to i64
-  %49 = getelementptr inbounds nuw i16, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !8
   %51 = and i16 %50, 256
   %.not85 = icmp eq i16 %51, 0
@@ -5595,7 +5591,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
   %56 = getelementptr inbounds nuw i8, ptr %.160138, i64 1
   %57 = load i8, ptr %.160138, align 1, !tbaa !28
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !4
   %61 = getelementptr inbounds nuw i8, ptr %.158139, i64 1
   %.not95 = icmp eq i32 %60, %53
@@ -5608,7 +5604,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
   %64 = tail call ptr @__ctype_b_loc() #25
   %65 = load ptr, ptr %64, align 8, !tbaa !75
   %66 = zext i8 %.pre.pre.pre.pre to i64
-  %67 = getelementptr inbounds nuw i16, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !8
   %69 = and i16 %68, 8192
   %.not87 = icmp eq i16 %69, 0
@@ -5618,7 +5614,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
   %71 = getelementptr inbounds nuw i8, ptr %.158139, i64 1
   %72 = load i8, ptr %.160138, align 1, !tbaa !28
   %73 = zext i8 %72 to i64
-  %74 = getelementptr inbounds nuw i16, ptr %65, i64 %73
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %73
   %75 = load i16, ptr %74, align 2, !tbaa !8
   %76 = and i16 %75, 8192
   %.not92 = icmp eq i16 %76, 0
@@ -5628,7 +5624,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
   %78 = getelementptr inbounds nuw i8, ptr %.160138, i64 1
   %79 = load i8, ptr %71, align 1, !tbaa !28
   %80 = zext i8 %79 to i64
-  %81 = getelementptr inbounds nuw i16, ptr %65, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %80
   %82 = load i16, ptr %81, align 2, !tbaa !8
   %83 = and i16 %82, 8192
   %.not93 = icmp eq i16 %83, 0
@@ -5641,7 +5637,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
   %.4117 = phi ptr [ %92, %91 ], [ %78, %77 ]
   %86 = load i8, ptr %.4117, align 1, !tbaa !28
   %87 = zext i8 %86 to i64
-  %88 = getelementptr inbounds nuw i16, ptr %65, i64 %87
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %87
   %89 = load i16, ptr %88, align 2, !tbaa !8
   %90 = and i16 %89, 8192
   %.not94 = icmp eq i16 %90, 0
@@ -5666,7 +5662,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
   %98 = tail call ptr @__ctype_b_loc() #25
   %99 = load ptr, ptr %98, align 8, !tbaa !75
   %100 = zext i8 %.pre.pre.pre.pre to i64
-  %101 = getelementptr inbounds nuw i16, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %99, i64 %100
   %102 = load i16, ptr %101, align 2, !tbaa !8
   %103 = and i16 %102, 8192
   %.not89 = icmp eq i16 %103, 0
@@ -5680,7 +5676,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
   %.7120 = phi ptr [ %111, %110 ], [ %.160138, %.lr.ph121.preheader ]
   %105 = load i8, ptr %.7120, align 1, !tbaa !28
   %106 = zext i8 %105 to i64
-  %107 = getelementptr inbounds nuw i16, ptr %99, i64 %106
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %99, i64 %106
   %108 = load i16, ptr %107, align 2, !tbaa !8
   %109 = and i16 %108, 8192
   %.not91 = icmp eq i16 %109, 0
@@ -5723,7 +5719,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @file_strncmp(ptr 
   %124 = tail call ptr @__ctype_b_loc() #25
   %125 = load ptr, ptr %124, align 8, !tbaa !75
   %126 = zext i8 %122 to i64
-  %127 = getelementptr inbounds nuw i16, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %125, i64 %126
   %128 = load i16, ptr %127, align 2, !tbaa !8
   %129 = and i16 %128, 8192
   %.not99 = icmp eq i16 %129, 0

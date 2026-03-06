@@ -138,7 +138,7 @@ define dso_local void @gov_update_cpu_data(ptr noundef readonly captures(address
 
 24:                                               ; preds = %20
   %25 = and i64 %21, 63
-  %26 = getelementptr i64, ptr @__per_cpu_offset, i64 %25
+  %26 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, ptrtoint (ptr @cpu_dbs to i64)
   %29 = inttoptr i64 %28 to ptr
@@ -211,7 +211,7 @@ define dso_local i32 @dbs_update(ptr noundef readonly captures(none) %0) #0 alig
 
 30:                                               ; preds = %26
   %31 = and i64 %27, 63
-  %32 = getelementptr i64, ptr @__per_cpu_offset, i64 %31
+  %32 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, ptrtoint (ptr @cpu_dbs to i64)
   %35 = inttoptr i64 %34 to ptr
@@ -371,7 +371,7 @@ define dso_local i32 @cpufreq_dbs_governor_init(ptr noundef %0) #0 align 16 {
 
 33:                                               ; preds = %29
   %34 = and i64 %30, 63
-  %35 = getelementptr i64, ptr @__per_cpu_offset, i64 %34
+  %35 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, ptrtoint (ptr @cpu_dbs to i64)
   %38 = inttoptr i64 %37 to ptr
@@ -493,7 +493,7 @@ define dso_local i32 @cpufreq_dbs_governor_init(ptr noundef %0) #0 align 16 {
 
 99:                                               ; preds = %95
   %100 = and i64 %96, 63
-  %101 = getelementptr i64, ptr @__per_cpu_offset, i64 %100
+  %101 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %100
   %102 = load i64, ptr %101, align 8
   %103 = add i64 %102, ptrtoint (ptr @cpu_dbs to i64)
   %104 = inttoptr i64 %103 to ptr
@@ -603,7 +603,7 @@ define dso_local void @cpufreq_dbs_governor_exit(ptr noundef captures(none) %0) 
 
 27:                                               ; preds = %23
   %28 = and i64 %24, 63
-  %29 = getelementptr i64, ptr @__per_cpu_offset, i64 %28
+  %29 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, ptrtoint (ptr @cpu_dbs to i64)
   %32 = inttoptr i64 %31 to ptr
@@ -674,7 +674,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_dbs_governor_start(ptr n
 
 35:                                               ; preds = %31
   %36 = and i64 %32, 63
-  %37 = getelementptr i64, ptr @__per_cpu_offset, i64 %36
+  %37 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, ptrtoint (ptr @cpu_dbs to i64)
   %40 = inttoptr i64 %39 to ptr
@@ -704,7 +704,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_dbs_governor_start(ptr n
 
 56:                                               ; preds = %52
   %57 = and i64 %53, 63
-  %58 = getelementptr i64, ptr @__per_cpu_offset, i64 %57
+  %58 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, ptrtoint (ptr @cpu_dbs to i64)
   %61 = inttoptr i64 %60 to ptr
@@ -754,7 +754,7 @@ define dso_local noundef range(i32 -22, 1) i32 @cpufreq_dbs_governor_start(ptr n
 
 91:                                               ; preds = %87
   %92 = and i64 %88, 63
-  %93 = getelementptr i64, ptr @__per_cpu_offset, i64 %92
+  %93 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %92
   %94 = load i64, ptr %93, align 8
   %95 = add i64 %94, ptrtoint (ptr @cpu_dbs to i64)
   %96 = inttoptr i64 %95 to ptr

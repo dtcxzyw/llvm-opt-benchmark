@@ -1112,7 +1112,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L19_fatalSignalHandle
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__L19_fatalSignalHandlerEiP9siginfo_tPv, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__L19_fatalSignalHandlerEiP9siginfo_tPv, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %9
 

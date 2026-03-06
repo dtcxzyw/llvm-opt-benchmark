@@ -241,7 +241,7 @@ define dso_local void @hashmap_partial_clear_(ptr noundef captures(address_is_nu
 
 14:                                               ; preds = %13
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %15 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv.i.i
   %.0.i.i = load ptr, ptr %15, align 8, !tbaa !24
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %13, label %.loopexit.i
@@ -314,7 +314,7 @@ define dso_local void @hashmap_clear_(ptr noundef captures(address_is_null) %0, 
 
 14:                                               ; preds = %13
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %15 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv.i.i
   %.0.i.i = load ptr, ptr %15, align 8, !tbaa !24
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %13, label %.loopexit.i
@@ -358,7 +358,7 @@ define dso_local ptr @hashmap_get(ptr noundef readonly captures(none) %0, ptr no
   %8 = add i32 %.val.i, -1
   %9 = and i32 %.val12.i, %8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %11, align 8, !tbaa !24
   %.not16.i = icmp eq ptr %13, null
@@ -467,7 +467,7 @@ define dso_local void @hashmap_add(ptr noundef captures(none) %0, ptr noundef in
   %13 = add i32 %.val, -1
   %14 = and i32 %.val16, %13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   store ptr %17, ptr %1, align 8, !tbaa !26
   store ptr %1, ptr %16, align 8, !tbaa !24
@@ -511,7 +511,7 @@ define dso_local void @hashmap_add(ptr noundef captures(none) %0, ptr noundef in
 
 .lr.ph25.i:                                       ; preds = %._crit_edge.i, %.lr.ph25.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph25.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %38 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !24
   %.not21.i = icmp eq ptr %39, null
   br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i
@@ -528,7 +528,7 @@ define dso_local void @hashmap_add(ptr noundef captures(none) %0, ptr noundef in
   %.020.val.i = load i32, ptr %43, align 8, !tbaa !30
   %44 = and i32 %.020.val.i, %40
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %31, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !24
   store ptr %47, ptr %.02022.i, align 8, !tbaa !26
   store ptr %.02022.i, ptr %46, align 8, !tbaa !24
@@ -562,7 +562,7 @@ define dso_local ptr @hashmap_remove(ptr noundef captures(none) %0, ptr noundef 
   %8 = add i32 %.val.i, -1
   %9 = and i32 %.val12.i, %8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %11, align 8, !tbaa !24
   %.not16.i = icmp eq ptr %13, null
@@ -651,7 +651,7 @@ find_entry_ptr.exit:                              ; preds = %entry_equals.exit.t
 
 .lr.ph25.i:                                       ; preds = %._crit_edge.i, %.lr.ph25.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph25.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %53 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i
   %54 = load ptr, ptr %53, align 8, !tbaa !24
   %.not21.i = icmp eq ptr %54, null
   br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i20
@@ -668,7 +668,7 @@ find_entry_ptr.exit:                              ; preds = %entry_equals.exit.t
   %.020.val.i = load i32, ptr %58, align 8, !tbaa !30
   %59 = and i32 %.020.val.i, %55
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %46, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !24
   store ptr %62, ptr %.02022.i, align 8, !tbaa !26
   store ptr %.02022.i, ptr %61, align 8, !tbaa !24
@@ -740,7 +740,7 @@ define dso_local noundef ptr @hashmap_iter_next(ptr noundef captures(none) %0) l
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %12, ptr %3, align 8, !tbaa !38
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %.0 = load ptr, ptr %13, align 8, !tbaa !24
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %9, label %._crit_edge
@@ -804,7 +804,7 @@ memhash.exit:                                     ; preds = %.lr.ph.i, %9
   %20 = add i32 %.val.i.i, -1
   %21 = and i32 %20, %.06.lcssa.i
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %18, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !24
   %.not16.i.i = icmp eq ptr %24, null
   %25 = icmp eq ptr %24, %3

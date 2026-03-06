@@ -106,7 +106,7 @@ define internal i32 @seqvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %49 = or disjoint i32 %43, %46
   %50 = or disjoint i32 %49, %48
   %51 = or disjoint i32 %50, -16777216
-  %52 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv110.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv110.i
   store i32 %51, ptr %52, align 4, !tbaa !40
   %indvars.iv.next111.i = add nuw nsw i64 %indvars.iv110.i, 1
   %exitcond113.not.i = icmp eq i64 %indvars.iv.next111.i, 256
@@ -214,7 +214,7 @@ define internal i32 @seqvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %104 = ashr exact i32 %103, 28
   %105 = add nsw i32 %.sroa.5.061.i.i.i, 4
   %106 = tail call i32 @llvm.umin.i32(i32 %93, i32 %105)
-  %107 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i.i
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i.i
   store i32 %104, ptr %107, align 4, !tbaa !40
   %108 = tail call i32 @llvm.abs.i32(i32 %104, i1 true)
   %109 = add nuw nsw i32 %108, %.063.i.i.i
@@ -236,7 +236,7 @@ define internal i32 @seqvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %.04566.i.i.i = phi i32 [ 64, %113 ], [ %141, %139 ]
   %.04665.i.i.i = phi ptr [ %7, %113 ], [ %140, %139 ]
   %.04864.i.i.i = phi ptr [ %117, %113 ], [ %.149.i.i.i, %139 ]
-  %119 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv70.i.i.i
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv70.i.i.i
   %120 = load i32, ptr %119, align 4, !tbaa !40
   %121 = icmp slt i32 %120, 0
   %122 = ptrtoint ptr %.04864.i.i.i to i64
@@ -332,7 +332,7 @@ seq_unpack_rle_block.exit.i.i:                    ; preds = %94, %139, %132, %12
   %169 = ashr exact i32 %168, 28
   %170 = add nsw i32 %.sroa.5.061.i63.i.i, 4
   %171 = tail call i32 @llvm.umin.i32(i32 %158, i32 %170)
-  %172 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i61.i.i
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i61.i.i
   store i32 %169, ptr %172, align 4, !tbaa !40
   %173 = tail call i32 @llvm.abs.i32(i32 %169, i1 true)
   %174 = add nuw nsw i32 %173, %.063.i62.i.i
@@ -354,7 +354,7 @@ seq_unpack_rle_block.exit.i.i:                    ; preds = %94, %139, %132, %12
   %.04566.i66.i.i = phi i32 [ 64, %178 ], [ %206, %204 ]
   %.04665.i67.i.i = phi ptr [ %7, %178 ], [ %205, %204 ]
   %.04864.i68.i.i = phi ptr [ %182, %178 ], [ %.149.i70.i.i, %204 ]
-  %184 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv70.i65.i.i
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv70.i65.i.i
   %185 = load i32, ptr %184, align 4, !tbaa !40
   %186 = icmp slt i32 %185, 0
   %187 = ptrtoint ptr %.04864.i68.i.i to i64

@@ -46,7 +46,7 @@ define noundef ptr @u_strFromUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr
 
 25:                                               ; preds = %24, %23
   %26 = zext nneg i32 %1 to i64
-  %27 = getelementptr inbounds nuw i16, ptr %0, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %26
   %28 = select i1 %17, ptr null, ptr %27
   %29 = icmp slt i32 %4, 0
   br i1 %29, label %.preheader, label %47
@@ -102,7 +102,7 @@ define noundef ptr @u_strFromUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr
 
 47:                                               ; preds = %25
   %48 = zext nneg i32 %4 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %3, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %48
   %50 = select i1 %12, ptr null, ptr %49
   br label %.critedge119
 
@@ -349,7 +349,7 @@ define noundef ptr @u_strToUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr n
 
 25:                                               ; preds = %24, %23
   %26 = zext nneg i32 %1 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %0, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %26
   %28 = select i1 %17, ptr null, ptr %27
   %29 = icmp slt i32 %4, 0
   br i1 %29, label %.preheader104, label %52
@@ -408,7 +408,7 @@ define noundef ptr @u_strToUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr n
 
 52:                                               ; preds = %25
   %53 = zext nneg i32 %4 to i64
-  %54 = getelementptr inbounds nuw i16, ptr %3, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %53
   %55 = select i1 %12, ptr null, ptr %54
   br label %.loopexit
 
@@ -1436,7 +1436,7 @@ define noundef ptr @u_strFromUTF8Lenient_77(ptr noundef %0, i32 noundef %1, ptr 
 
 20:                                               ; preds = %18
   %21 = zext nneg i32 %1 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %21
   %23 = select i1 %15, ptr null, ptr %22
   %24 = load i8, ptr %3, align 1, !tbaa !18
   %25 = icmp ne i8 %24, 0
@@ -2258,7 +2258,7 @@ _ZL11_appendUTF8Phi.exit:                         ; preds = %41, %48, %63, %103,
 
 199:                                              ; preds = %27
   %200 = zext nneg i32 %4 to i64
-  %201 = getelementptr inbounds nuw i16, ptr %3, i64 %200
+  %201 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %200
   %202 = select i1 %15, ptr null, ptr %201
   %203 = ptrtoint ptr %11 to i64
   %204 = ptrtoint ptr %202 to i64
@@ -3495,7 +3495,7 @@ define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, p
   %.0143 = phi ptr [ %.1144.lcssa, %40 ], [ %3, %18 ]
   %.not177 = icmp eq ptr %.0143, null
   %43 = sext i32 %.0145 to i64
-  %44 = getelementptr inbounds i16, ptr %.0143, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %.0143, i64 %43
   %45 = select i1 %.not177, ptr null, ptr %44
   %46 = ptrtoint ptr %20 to i64
   %47 = ptrtoint ptr %45 to i64

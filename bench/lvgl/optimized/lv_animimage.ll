@@ -202,7 +202,7 @@ define internal void @index_change(ptr noundef %0, i32 noundef %1) #0 {
   %10 = add nsw i32 %9, -1
   %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %10)
   %11 = sext i32 %spec.select to i64
-  %12 = getelementptr inbounds ptr, ptr %4, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   tail call void @lv_image_set_src(ptr noundef nonnull %0, ptr noundef %13) #5
   br label %14

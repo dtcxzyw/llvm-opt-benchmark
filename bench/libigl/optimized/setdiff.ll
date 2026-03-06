@@ -147,12 +147,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit5
   br i1 %or.cond83, label %.loopexit, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.preheader
-  %49 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv105
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv105
   %50 = load i32, ptr %49, align 4, !tbaa !14
   %51 = load ptr, ptr %12, align 8, !tbaa !13
   %52 = load i64, ptr %34, align 8
   %53 = sext i32 %.02898 to i64
-  %54 = getelementptr inbounds i32, ptr %51, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %51, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !14
   %56 = icmp sgt i32 %50, %55
   br i1 %56, label %.lr.ph93, label %.critedge
@@ -172,7 +172,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit5
   br label %179
 
 62:                                               ; preds = %.lr.ph93
-  %63 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.next
+  %63 = getelementptr inbounds [4 x i8], ptr %51, i64 %indvars.iv.next
   %64 = load i32, ptr %63, align 4, !tbaa !14
   %65 = icmp sgt i32 %50, %64
   br i1 %65, label %.lr.ph93, label %.critedge.loopexit, !llvm.loop !16
@@ -210,7 +210,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit5
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %.critedge
   %.12981 = phi i32 [ %.us-phi88, %.critedge ], [ %.02898, %.preheader ], [ %68, %.loopexit.loopexit ]
   %.12778 = phi i1 [ false, %.critedge ], [ %.02699, %.preheader ], [ true, %.loopexit.loopexit ]
-  %69 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv105
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv105
   %.not.i = icmp eq ptr %48, %47
   br i1 %.not.i, label %73, label %70
 
@@ -275,7 +275,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre107 = phi ptr [ %.pre107.pre, %90 ], [ %45, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i ]
   store ptr %84, ptr %15, align 8, !tbaa !21
   store ptr %89, ptr %40, align 8, !tbaa !18
-  %91 = getelementptr inbounds nuw i32, ptr %84, i64 %82
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %82
   store ptr %91, ptr %41, align 8, !tbaa !20
   br label %92
 
@@ -287,11 +287,11 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %96 = phi ptr [ %91, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %47, %70 ]
   %97 = phi ptr [ %89, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %72, %70 ]
   %98 = load ptr, ptr %13, align 8, !tbaa !13
-  %99 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv105
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv105
   %100 = load i32, ptr %99, align 4, !tbaa !14
   %101 = sext i32 %100 to i64
   %102 = load ptr, ptr %7, align 8, !tbaa !13
-  %103 = getelementptr inbounds i32, ptr %102, i64 %101
+  %103 = getelementptr inbounds [4 x i8], ptr %102, i64 %101
   %.not.i58 = icmp eq ptr %94, %93
   br i1 %.not.i58, label %107, label %104
 
@@ -346,7 +346,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i62: ; preds = %123, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i64: ; preds = %125, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i62
   store ptr %119, ptr %16, align 8, !tbaa !21
   store ptr %124, ptr %42, align 8, !tbaa !18
-  %126 = getelementptr inbounds nuw i32, ptr %119, i64 %117
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %117
   store ptr %126, ptr %43, align 8, !tbaa !20
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit67
 
@@ -640,12 +640,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit5
   br i1 %or.cond83, label %.loopexit, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.preheader
-  %49 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv105
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv105
   %50 = load i32, ptr %49, align 4, !tbaa !14
   %51 = load ptr, ptr %12, align 8, !tbaa !13
   %52 = load i64, ptr %34, align 8
   %53 = sext i32 %.02898 to i64
-  %54 = getelementptr inbounds i32, ptr %51, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %51, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !14
   %56 = icmp sgt i32 %50, %55
   br i1 %56, label %.lr.ph93, label %.critedge
@@ -665,7 +665,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit5
   br label %179
 
 62:                                               ; preds = %.lr.ph93
-  %63 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.next
+  %63 = getelementptr inbounds [4 x i8], ptr %51, i64 %indvars.iv.next
   %64 = load i32, ptr %63, align 4, !tbaa !14
   %65 = icmp sgt i32 %50, %64
   br i1 %65, label %.lr.ph93, label %.critedge.loopexit, !llvm.loop !23
@@ -703,7 +703,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit5
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %.critedge
   %.12981 = phi i32 [ %.us-phi88, %.critedge ], [ %.02898, %.preheader ], [ %68, %.loopexit.loopexit ]
   %.12778 = phi i1 [ false, %.critedge ], [ %.02699, %.preheader ], [ true, %.loopexit.loopexit ]
-  %69 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv105
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv105
   %.not.i = icmp eq ptr %48, %47
   br i1 %.not.i, label %73, label %70
 
@@ -768,7 +768,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre107 = phi ptr [ %.pre107.pre, %90 ], [ %45, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i ]
   store ptr %84, ptr %15, align 8, !tbaa !21
   store ptr %89, ptr %40, align 8, !tbaa !18
-  %91 = getelementptr inbounds nuw i32, ptr %84, i64 %82
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %82
   store ptr %91, ptr %41, align 8, !tbaa !20
   br label %92
 
@@ -780,11 +780,11 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %96 = phi ptr [ %91, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %47, %70 ]
   %97 = phi ptr [ %89, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %72, %70 ]
   %98 = load ptr, ptr %13, align 8, !tbaa !13
-  %99 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv105
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv105
   %100 = load i32, ptr %99, align 4, !tbaa !14
   %101 = sext i32 %100 to i64
   %102 = load ptr, ptr %7, align 8, !tbaa !13
-  %103 = getelementptr inbounds i32, ptr %102, i64 %101
+  %103 = getelementptr inbounds [4 x i8], ptr %102, i64 %101
   %.not.i58 = icmp eq ptr %94, %93
   br i1 %.not.i58, label %107, label %104
 
@@ -839,7 +839,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i62: ; preds = %123, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i64: ; preds = %125, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i62
   store ptr %119, ptr %16, align 8, !tbaa !21
   store ptr %124, ptr %42, align 8, !tbaa !18
-  %126 = getelementptr inbounds nuw i32, ptr %119, i64 %117
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %117
   store ptr %126, ptr %43, align 8, !tbaa !20
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit67
 
@@ -1127,12 +1127,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit5
   br i1 %or.cond83, label %.loopexit, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.preheader
-  %49 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv105
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv105
   %50 = load i32, ptr %49, align 4, !tbaa !14
   %51 = load ptr, ptr %12, align 8, !tbaa !13
   %52 = load i64, ptr %34, align 8
   %53 = sext i32 %.02898 to i64
-  %54 = getelementptr inbounds i32, ptr %51, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %51, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !14
   %56 = icmp sgt i32 %50, %55
   br i1 %56, label %.lr.ph93, label %.critedge
@@ -1152,7 +1152,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit5
   br label %179
 
 62:                                               ; preds = %.lr.ph93
-  %63 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.next
+  %63 = getelementptr inbounds [4 x i8], ptr %51, i64 %indvars.iv.next
   %64 = load i32, ptr %63, align 4, !tbaa !14
   %65 = icmp sgt i32 %50, %64
   br i1 %65, label %.lr.ph93, label %.critedge.loopexit, !llvm.loop !25
@@ -1190,7 +1190,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit5
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %.critedge
   %.12981 = phi i32 [ %.us-phi88, %.critedge ], [ %.02898, %.preheader ], [ %68, %.loopexit.loopexit ]
   %.12778 = phi i1 [ false, %.critedge ], [ %.02699, %.preheader ], [ true, %.loopexit.loopexit ]
-  %69 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv105
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv105
   %.not.i = icmp eq ptr %48, %47
   br i1 %.not.i, label %73, label %70
 
@@ -1255,7 +1255,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre107 = phi ptr [ %.pre107.pre, %90 ], [ %45, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i ]
   store ptr %84, ptr %15, align 8, !tbaa !21
   store ptr %89, ptr %40, align 8, !tbaa !18
-  %91 = getelementptr inbounds nuw i32, ptr %84, i64 %82
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %82
   store ptr %91, ptr %41, align 8, !tbaa !20
   br label %92
 
@@ -1267,11 +1267,11 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %96 = phi ptr [ %91, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %47, %70 ]
   %97 = phi ptr [ %89, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %72, %70 ]
   %98 = load ptr, ptr %13, align 8, !tbaa !13
-  %99 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv105
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv105
   %100 = load i32, ptr %99, align 4, !tbaa !14
   %101 = sext i32 %100 to i64
   %102 = load ptr, ptr %7, align 8, !tbaa !13
-  %103 = getelementptr inbounds i32, ptr %102, i64 %101
+  %103 = getelementptr inbounds [4 x i8], ptr %102, i64 %101
   %.not.i58 = icmp eq ptr %94, %93
   br i1 %.not.i58, label %107, label %104
 
@@ -1326,7 +1326,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i62: ; preds = %123, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i64: ; preds = %125, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i62
   store ptr %119, ptr %16, align 8, !tbaa !21
   store ptr %124, ptr %42, align 8, !tbaa !18
-  %126 = getelementptr inbounds nuw i32, ptr %119, i64 %117
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %117
   store ptr %126, ptr %43, align 8, !tbaa !20
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit67
 
@@ -1625,12 +1625,12 @@ _ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll.exit75: ; preds = %_ZN5
   br i1 %or.cond84, label %.loopexit, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.preheader
-  %58 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv106
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv106
   %59 = load i32, ptr %58, align 4, !tbaa !14
   %60 = load ptr, ptr %12, align 8, !tbaa !13
   %61 = load i64, ptr %43, align 8
   %62 = sext i32 %.02899 to i64
-  %63 = getelementptr inbounds i32, ptr %60, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %60, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !14
   %65 = icmp sgt i32 %59, %64
   br i1 %65, label %.lr.ph94, label %.critedge
@@ -1650,7 +1650,7 @@ _ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll.exit75: ; preds = %_ZN5
   br label %188
 
 71:                                               ; preds = %.lr.ph94
-  %72 = getelementptr inbounds i32, ptr %60, i64 %indvars.iv.next
+  %72 = getelementptr inbounds [4 x i8], ptr %60, i64 %indvars.iv.next
   %73 = load i32, ptr %72, align 4, !tbaa !14
   %74 = icmp sgt i32 %59, %73
   br i1 %74, label %.lr.ph94, label %.critedge.loopexit, !llvm.loop !31
@@ -1688,7 +1688,7 @@ _ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll.exit75: ; preds = %_ZN5
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %.critedge
   %.12982 = phi i32 [ %.us-phi89, %.critedge ], [ %.02899, %.preheader ], [ %77, %.loopexit.loopexit ]
   %.12779 = phi i1 [ false, %.critedge ], [ %.026100, %.preheader ], [ true, %.loopexit.loopexit ]
-  %78 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv106
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv106
   %.not.i = icmp eq ptr %57, %56
   br i1 %.not.i, label %82, label %79
 
@@ -1753,7 +1753,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre108 = phi ptr [ %.pre108.pre, %99 ], [ %54, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i ]
   store ptr %93, ptr %15, align 8, !tbaa !21
   store ptr %98, ptr %49, align 8, !tbaa !18
-  %100 = getelementptr inbounds nuw i32, ptr %93, i64 %91
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %91
   store ptr %100, ptr %50, align 8, !tbaa !20
   br label %101
 
@@ -1765,11 +1765,11 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %105 = phi ptr [ %100, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %56, %79 ]
   %106 = phi ptr [ %98, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %81, %79 ]
   %107 = load ptr, ptr %13, align 8, !tbaa !30
-  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %indvars.iv106
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %indvars.iv106
   %109 = load i32, ptr %108, align 4, !tbaa !14
   %110 = sext i32 %109 to i64
   %111 = load ptr, ptr %7, align 8, !tbaa !30
-  %112 = getelementptr inbounds i32, ptr %111, i64 %110
+  %112 = getelementptr inbounds [4 x i8], ptr %111, i64 %110
   %.not.i56 = icmp eq ptr %103, %102
   br i1 %.not.i56, label %116, label %113
 
@@ -1824,7 +1824,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i60: ; preds = %132, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i62: ; preds = %134, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i60
   store ptr %128, ptr %16, align 8, !tbaa !21
   store ptr %133, ptr %51, align 8, !tbaa !18
-  %135 = getelementptr inbounds nuw i32, ptr %128, i64 %126
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %126
   store ptr %135, ptr %52, align 8, !tbaa !20
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit65
 
@@ -2119,12 +2119,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit5
   br i1 %or.cond83, label %.loopexit, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.preheader
-  %52 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv105
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv105
   %53 = load i32, ptr %52, align 4, !tbaa !14
   %54 = load ptr, ptr %12, align 8, !tbaa !13
   %55 = load i64, ptr %37, align 8
   %56 = sext i32 %.02898 to i64
-  %57 = getelementptr inbounds i32, ptr %54, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %54, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !14
   %59 = icmp sgt i32 %53, %58
   br i1 %59, label %.lr.ph93, label %.critedge
@@ -2144,7 +2144,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit5
   br label %182
 
 65:                                               ; preds = %.lr.ph93
-  %66 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv.next
+  %66 = getelementptr inbounds [4 x i8], ptr %54, i64 %indvars.iv.next
   %67 = load i32, ptr %66, align 4, !tbaa !14
   %68 = icmp sgt i32 %53, %67
   br i1 %68, label %.lr.ph93, label %.critedge.loopexit, !llvm.loop !33
@@ -2182,7 +2182,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit5
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %.critedge
   %.12981 = phi i32 [ %.us-phi88, %.critedge ], [ %.02898, %.preheader ], [ %71, %.loopexit.loopexit ]
   %.12778 = phi i1 [ false, %.critedge ], [ %.02699, %.preheader ], [ true, %.loopexit.loopexit ]
-  %72 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv105
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv105
   %.not.i = icmp eq ptr %51, %50
   br i1 %.not.i, label %76, label %73
 
@@ -2247,7 +2247,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre107 = phi ptr [ %.pre107.pre, %93 ], [ %48, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i ]
   store ptr %87, ptr %15, align 8, !tbaa !21
   store ptr %92, ptr %43, align 8, !tbaa !18
-  %94 = getelementptr inbounds nuw i32, ptr %87, i64 %85
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %85
   store ptr %94, ptr %44, align 8, !tbaa !20
   br label %95
 
@@ -2259,11 +2259,11 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %99 = phi ptr [ %94, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %50, %73 ]
   %100 = phi ptr [ %92, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %75, %73 ]
   %101 = load ptr, ptr %13, align 8, !tbaa !13
-  %102 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv105
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv105
   %103 = load i32, ptr %102, align 4, !tbaa !14
   %104 = sext i32 %103 to i64
   %105 = load ptr, ptr %7, align 8, !tbaa !13
-  %106 = getelementptr inbounds i32, ptr %105, i64 %104
+  %106 = getelementptr inbounds [4 x i8], ptr %105, i64 %104
   %.not.i58 = icmp eq ptr %97, %96
   br i1 %.not.i58, label %110, label %107
 
@@ -2318,7 +2318,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i62: ; preds = %126, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i64: ; preds = %128, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i62
   store ptr %122, ptr %16, align 8, !tbaa !21
   store ptr %127, ptr %45, align 8, !tbaa !18
-  %129 = getelementptr inbounds nuw i32, ptr %122, i64 %120
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %120
   store ptr %129, ptr %46, align 8, !tbaa !20
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit67
 

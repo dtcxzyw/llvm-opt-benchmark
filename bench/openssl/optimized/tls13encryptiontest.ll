@@ -95,7 +95,7 @@ define internal range(i32 0, 2) i32 @test_tls13_encryption() #0 {
   %.067 = phi i64 [ 0, %0 ], [ %101, %95 ]
   %16 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %8) #5
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.RECORD_DATA, ptr @refdata, i64 %.067
+  %18 = getelementptr inbounds nuw [72 x i8], ptr @refdata, i64 %.067
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !17
@@ -333,7 +333,7 @@ define internal fastcc ptr @multihexstr2buf(ptr noundef readonly captures(none) 
 5:                                                ; preds = %2, %3
   %.03353 = phi i64 [ 0, %2 ], [ %4, %3 ]
   %.03652 = phi i64 [ 0, %2 ], [ %9, %3 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %.03353
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.03353
   %7 = load ptr, ptr %6, align 8, !tbaa !42
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #6
   %9 = add i64 %8, %.03652
@@ -350,7 +350,7 @@ define internal fastcc ptr @multihexstr2buf(ptr noundef readonly captures(none) 
 .preheader:                                       ; preds = %11, %._crit_edge
   %.13458 = phi i64 [ %38, %._crit_edge ], [ 0, %11 ]
   %.03857 = phi i64 [ %.139.lcssa, %._crit_edge ], [ 0, %11 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %.13458
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.13458
   %16 = load ptr, ptr %15, align 8, !tbaa !42
   %17 = load i8, ptr %16, align 1, !tbaa !43
   %.not54 = icmp eq i8 %17, 0

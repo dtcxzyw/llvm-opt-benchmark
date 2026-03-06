@@ -112,7 +112,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 18:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %.not75 = icmp eq ptr %20, null
   br i1 %.not75, label %.loopexit, label %.lr.ph, !llvm.loop !9
@@ -125,7 +125,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %23, label %24, label %18
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !4
   br label %.loopexit
@@ -297,7 +297,7 @@ pmix_obj_run_constructors.exit96:                 ; preds = %.lr.ph.i93, %81
   %97 = load ptr, ptr %96, align 8, !tbaa !38
   %98 = tail call i32 @pmix_pointer_array_add(ptr noundef nonnull @mca_types, ptr noundef %97) #9
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %99 = getelementptr inbounds nuw ptr, ptr @prte_frameworks, i64 %indvars.iv.next135
+  %99 = getelementptr inbounds nuw [8 x i8], ptr @prte_frameworks, i64 %indvars.iv.next135
   %100 = load ptr, ptr %99, align 8, !tbaa !36
   %.not82 = icmp eq ptr %100, null
   br i1 %.not82, label %._crit_edge, label %.lr.ph130, !llvm.loop !41
@@ -392,7 +392,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
   %123 = phi i32 [ %121, %pmix_pointer_array_get_item.exit.preheader ], [ %133, %132 ]
   %124 = phi ptr [ %.pre140, %pmix_pointer_array_get_item.exit.preheader ], [ %134, %132 ]
   %indvars.iv137 = phi i64 [ 0, %pmix_pointer_array_get_item.exit.preheader ], [ %indvars.iv.next138, %132 ]
-  %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv137
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv137
   %126 = load ptr, ptr %125, align 8, !tbaa !22
   %127 = icmp eq ptr %126, null
   br i1 %127, label %132, label %128

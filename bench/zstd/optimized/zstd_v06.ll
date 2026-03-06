@@ -4,11 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.algo_time_t = type { i32, i32 }
-%struct.FSEv06_decode_t = type { i16, i8, i8 }
-%struct.HUFv06_DEltX2 = type { i8, i8 }
 %struct.BITv06_DStream_t = type { i64, i32, ptr, ptr }
 %struct.sortedSymbol_t = type { i8, i8 }
-%struct.HUFv06_DEltX4 = type { i16, i8, i8 }
 %struct.seqState_t = type { %struct.BITv06_DStream_t, %struct.FSEv06_DState_t, %struct.FSEv06_DState_t, %struct.FSEv06_DState_t, [3 x i64] }
 %struct.FSEv06_DState_t = type { i64, ptr }
 
@@ -225,7 +222,7 @@ define i64 @FSEv06_readNCount(ptr noundef writeonly captures(none) %0, ptr nound
   %80 = sub nsw i32 %.0128196, %79
   %81 = add i32 %.1112, 1
   %82 = zext i32 %.1112 to i64
-  %83 = getelementptr inbounds nuw i16, ptr %0, i64 %82
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %82
   store i16 %77, ptr %83, align 2, !tbaa !10
   %84 = icmp ne i16 %77, 0
   %85 = icmp slt i32 %80, %.0126197
@@ -333,7 +330,7 @@ define range(i64 -46, 1) i64 @FSEv06_buildDTable(ptr noundef captures(none) %0, 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %.06481 = phi i32 [ %9, %.lr.ph ], [ %.165, %27 ]
   %.sroa.4.080 = phi i16 [ 1, %.lr.ph ], [ %.sroa.4.2, %27 ]
-  %16 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %17 = load i16, ptr %16, align 2, !tbaa !10
   %18 = icmp eq i16 %17, -1
   br i1 %18, label %19, label %25
@@ -342,7 +339,7 @@ define range(i64 -46, 1) i64 @FSEv06_buildDTable(ptr noundef captures(none) %0, 
   %20 = trunc i64 %indvars.iv to i8
   %21 = add i32 %.06481, -1
   %22 = zext i32 %.06481 to i64
-  %23 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %6, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store i8 %20, ptr %24, align 2, !tbaa !14
   br label %27
@@ -357,7 +354,7 @@ define range(i64 -46, 1) i64 @FSEv06_buildDTable(ptr noundef captures(none) %0, 
   %.sink = phi i16 [ 1, %19 ], [ %17, %25 ]
   %.sroa.4.2 = phi i16 [ %.sroa.4.080, %19 ], [ %spec.select, %25 ]
   %.165 = phi i32 [ %21, %19 ], [ %.06481, %25 ]
-  %28 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv
   store i16 %.sink, ptr %28, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -377,7 +374,7 @@ define range(i64 -46, 1) i64 @FSEv06_buildDTable(ptr noundef captures(none) %0, 
 .preheader78:                                     ; preds = %.preheader78.lr.ph, %._crit_edge86
   %indvars.iv94 = phi i64 [ 0, %.preheader78.lr.ph ], [ %indvars.iv.next95, %._crit_edge86 ]
   %.06889 = phi i32 [ 0, %.preheader78.lr.ph ], [ %.169.lcssa, %._crit_edge86 ]
-  %33 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv94
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv94
   %34 = load i16, ptr %33, align 2, !tbaa !10
   %35 = sext i16 %34 to i32
   %36 = icmp sgt i16 %34, 0
@@ -391,7 +388,7 @@ define range(i64 -46, 1) i64 @FSEv06_buildDTable(ptr noundef captures(none) %0, 
   %.06784 = phi i32 [ 0, %.lr.ph85 ], [ %45, %44 ]
   %.16983 = phi i32 [ %.06889, %.lr.ph85 ], [ %.2, %44 ]
   %39 = zext nneg i32 %.16983 to i64
-  %40 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %6, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   store i8 %37, ptr %41, align 2, !tbaa !14
   br label %42
@@ -424,11 +421,11 @@ define range(i64 -46, 1) i64 @FSEv06_buildDTable(ptr noundef captures(none) %0, 
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv99 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next100, %.preheader ]
-  %46 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %6, i64 %indvars.iv99
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv99
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 2
   %48 = load i8, ptr %47, align 2, !tbaa !14
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw i16, ptr %5, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !10
   %52 = add i16 %51, 1
   store i16 %52, ptr %50, align 2, !tbaa !10
@@ -488,7 +485,7 @@ define range(i64 -1, 1) i64 @FSEv06_buildDTable_raw(ptr noundef writeonly captur
 9:                                                ; preds = %5, %9
   %.024 = phi i32 [ 0, %5 ], [ %15, %9 ]
   %10 = zext i32 %.024 to i64
-  %11 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %3, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %10
   store i16 0, ptr %11, align 2, !tbaa !21
   %12 = trunc i32 %.024 to i8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 2
@@ -779,7 +776,7 @@ BITv06_reloadDStream.exit:                        ; preds = %125, %131
   br i1 %141, label %FSEv06_decompress_usingDTable_generic.exit, label %.lr.ph
 
 142:                                              ; preds = %BITv06_reloadDStream.exit
-  %143 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %103, i64 %.sroa.0209.0541
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %.sroa.0209.0541
   %.sroa.0.0.copyload.i = load i16, ptr %143, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %143, i64 2
   %.sroa.4.0.copyload.i = load i8, ptr %.sroa.4.0..sroa_idx.i, align 2, !tbaa !27
@@ -796,7 +793,7 @@ BITv06_reloadDStream.exit:                        ; preds = %125, %131
   %152 = add i32 %.sroa.29.7, %144
   %153 = zext i16 %.sroa.0.0.copyload.i to i64
   store i8 %.sroa.4.0.copyload.i, ptr %.038.i543, align 1, !tbaa !27
-  %154 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %103, i64 %.sroa.0.0542
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %.sroa.0.0542
   %.sroa.0.0.copyload.i33 = load i16, ptr %154, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i34 = getelementptr inbounds nuw i8, ptr %154, i64 2
   %.sroa.4.0.copyload.i35 = load i8, ptr %.sroa.4.0..sroa_idx.i34, align 2, !tbaa !27
@@ -814,8 +811,8 @@ BITv06_reloadDStream.exit:                        ; preds = %125, %131
   %164 = zext i16 %.sroa.0.0.copyload.i33 to i64
   %165 = getelementptr inbounds nuw i8, ptr %.038.i543, i64 1
   store i8 %.sroa.4.0.copyload.i35, ptr %165, align 1, !tbaa !27
-  %166 = getelementptr %struct.FSEv06_decode_t, ptr %103, i64 %151
-  %167 = getelementptr %struct.FSEv06_decode_t, ptr %166, i64 %153
+  %166 = getelementptr [4 x i8], ptr %103, i64 %151
+  %167 = getelementptr [4 x i8], ptr %166, i64 %153
   %.sroa.0.0.copyload.i40 = load i16, ptr %167, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i41 = getelementptr inbounds nuw i8, ptr %167, i64 2
   %.sroa.4.0.copyload.i42 = load i8, ptr %.sroa.4.0..sroa_idx.i41, align 2, !tbaa !27
@@ -834,8 +831,8 @@ BITv06_reloadDStream.exit:                        ; preds = %125, %131
   %178 = add i64 %175, %177
   %179 = getelementptr inbounds nuw i8, ptr %.038.i543, i64 2
   store i8 %.sroa.4.0.copyload.i42, ptr %179, align 1, !tbaa !27
-  %180 = getelementptr %struct.FSEv06_decode_t, ptr %103, i64 %162
-  %181 = getelementptr %struct.FSEv06_decode_t, ptr %180, i64 %164
+  %180 = getelementptr [4 x i8], ptr %103, i64 %162
+  %181 = getelementptr [4 x i8], ptr %180, i64 %164
   %.sroa.0.0.copyload.i47 = load i16, ptr %181, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i48 = getelementptr inbounds nuw i8, ptr %181, i64 2
   %.sroa.4.0.copyload.i49 = load i8, ptr %.sroa.4.0..sroa_idx.i48, align 2, !tbaa !27
@@ -865,7 +862,7 @@ BITv06_reloadDStream.exit:                        ; preds = %125, %131
   %.sroa.64220.1.idx420 = phi i64 [ %.sroa.64220.9.idx, %BITv06_reloadDStream.exit92 ], [ %.sroa.64220.7.idx485, %.preheader399 ]
   %.sroa.29.1419 = phi i32 [ %.sroa.29.9, %BITv06_reloadDStream.exit92 ], [ %.sroa.29.7484, %.preheader399 ]
   %.sroa.0217.1418 = phi i64 [ %.sroa.0217.8, %BITv06_reloadDStream.exit92 ], [ %.sroa.0217.6483, %.preheader399 ]
-  %196 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %103, i64 %.sroa.0209.1421
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %.sroa.0209.1421
   %.sroa.0.0.copyload.i54 = load i16, ptr %196, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i55 = getelementptr inbounds nuw i8, ptr %196, i64 2
   %.sroa.4.0.copyload.i56 = load i8, ptr %.sroa.4.0..sroa_idx.i55, align 2, !tbaa !27
@@ -918,7 +915,7 @@ BITv06_reloadDStream.exit:                        ; preds = %125, %131
   br label %225
 
 BITv06_reloadDStream.exit69:                      ; preds = %.lr.ph
-  %223 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %103, i64 %.sroa.0.1422
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %.sroa.0.1422
   %.sroa.4.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %223, i64 2
   %.sroa.4.0.copyload.i72 = load i8, ptr %.sroa.4.0..sroa_idx.i71, align 2, !tbaa !27
   %224 = getelementptr inbounds nuw i8, ptr %.139.i423, i64 2
@@ -933,7 +930,7 @@ BITv06_reloadDStream.exit69:                      ; preds = %.lr.ph
   br i1 %226, label %FSEv06_decompress_usingDTable_generic.exit, label %227
 
 227:                                              ; preds = %225
-  %228 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %103, i64 %.sroa.0.1422
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %.sroa.0.1422
   %.sroa.0.0.copyload.i77 = load i16, ptr %228, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i78 = getelementptr inbounds nuw i8, ptr %228, i64 2
   %.sroa.4.0.copyload.i79 = load i8, ptr %.sroa.4.0..sroa_idx.i78, align 2, !tbaa !27
@@ -993,7 +990,7 @@ BITv06_reloadDStream.exit92:                      ; preds = %247, %243, %249
   br i1 %255, label %FSEv06_decompress_usingDTable_generic.exit, label %.lr.ph
 
 256:                                              ; preds = %227
-  %257 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %103, i64 %207
+  %257 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %207
   %.sroa.4.0..sroa_idx.i94 = getelementptr inbounds nuw i8, ptr %257, i64 2
   %.sroa.4.0.copyload.i95 = load i8, ptr %.sroa.4.0..sroa_idx.i94, align 2, !tbaa !27
   %258 = getelementptr inbounds nuw i8, ptr %.139.i423, i64 3
@@ -1271,7 +1268,7 @@ BITv06_reloadDStream.exit128:                     ; preds = %377, %383
   br i1 %393, label %FSEv06_decompress_usingDTable_generic.exit, label %.lr.ph431
 
 394:                                              ; preds = %BITv06_reloadDStream.exit128
-  %395 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %355, i64 %.sroa.0258.0563
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %355, i64 %.sroa.0258.0563
   %.sroa.0.0.copyload.i129 = load i16, ptr %395, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i130 = getelementptr inbounds nuw i8, ptr %395, i64 2
   %.sroa.4.0.copyload.i131 = load i8, ptr %.sroa.4.0..sroa_idx.i130, align 2, !tbaa !27
@@ -1289,7 +1286,7 @@ BITv06_reloadDStream.exit128:                     ; preds = %377, %383
   %405 = add i32 %.sroa.29267.7, %396
   %406 = zext i16 %.sroa.0.0.copyload.i129 to i64
   store i8 %.sroa.4.0.copyload.i131, ptr %.038.i16568, align 1, !tbaa !27
-  %407 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %355, i64 %.sroa.0250.0564
+  %407 = getelementptr inbounds nuw [4 x i8], ptr %355, i64 %.sroa.0250.0564
   %.sroa.0.0.copyload.i136 = load i16, ptr %407, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i137 = getelementptr inbounds nuw i8, ptr %407, i64 2
   %.sroa.4.0.copyload.i138 = load i8, ptr %.sroa.4.0..sroa_idx.i137, align 2, !tbaa !27
@@ -1308,8 +1305,8 @@ BITv06_reloadDStream.exit128:                     ; preds = %377, %383
   %418 = zext i16 %.sroa.0.0.copyload.i136 to i64
   %419 = getelementptr inbounds nuw i8, ptr %.038.i16568, i64 1
   store i8 %.sroa.4.0.copyload.i138, ptr %419, align 1, !tbaa !27
-  %420 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %355, i64 %404
-  %421 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %420, i64 %406
+  %420 = getelementptr inbounds nuw [4 x i8], ptr %355, i64 %404
+  %421 = getelementptr inbounds nuw [4 x i8], ptr %420, i64 %406
   %.sroa.0.0.copyload.i143 = load i16, ptr %421, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i144 = getelementptr inbounds nuw i8, ptr %421, i64 2
   %.sroa.4.0.copyload.i145 = load i8, ptr %.sroa.4.0..sroa_idx.i144, align 2, !tbaa !27
@@ -1329,8 +1326,8 @@ BITv06_reloadDStream.exit128:                     ; preds = %377, %383
   %433 = add nuw i64 %430, %432
   %434 = getelementptr inbounds nuw i8, ptr %.038.i16568, i64 2
   store i8 %.sroa.4.0.copyload.i145, ptr %434, align 1, !tbaa !27
-  %435 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %355, i64 %416
-  %436 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %435, i64 %418
+  %435 = getelementptr inbounds nuw [4 x i8], ptr %355, i64 %416
+  %436 = getelementptr inbounds nuw [4 x i8], ptr %435, i64 %418
   %.sroa.0.0.copyload.i150 = load i16, ptr %436, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i151 = getelementptr inbounds nuw i8, ptr %436, i64 2
   %.sroa.4.0.copyload.i152 = load i8, ptr %.sroa.4.0..sroa_idx.i151, align 2, !tbaa !27
@@ -1361,7 +1358,7 @@ BITv06_reloadDStream.exit128:                     ; preds = %377, %383
   %.sroa.64271.1.idx427 = phi i64 [ %.sroa.64271.9.idx, %BITv06_reloadDStream.exit195 ], [ %.sroa.64271.7.idx490, %.preheader ]
   %.sroa.0250.1426 = phi i64 [ %497, %BITv06_reloadDStream.exit195 ], [ %.sroa.0250.0.lcssa, %.preheader ]
   %.sroa.0258.1425 = phi i64 [ %464, %BITv06_reloadDStream.exit195 ], [ %.sroa.0258.0.lcssa, %.preheader ]
-  %452 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %355, i64 %.sroa.0258.1425
+  %452 = getelementptr inbounds nuw [4 x i8], ptr %355, i64 %.sroa.0258.1425
   %.sroa.0.0.copyload.i157 = load i16, ptr %452, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i158 = getelementptr inbounds nuw i8, ptr %452, i64 2
   %.sroa.4.0.copyload.i159 = load i8, ptr %.sroa.4.0..sroa_idx.i158, align 2, !tbaa !27
@@ -1415,7 +1412,7 @@ BITv06_reloadDStream.exit128:                     ; preds = %377, %383
   br label %482
 
 BITv06_reloadDStream.exit172:                     ; preds = %.lr.ph431
-  %480 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %355, i64 %.sroa.0250.1426
+  %480 = getelementptr inbounds nuw [4 x i8], ptr %355, i64 %.sroa.0250.1426
   %.sroa.4.0..sroa_idx.i174 = getelementptr inbounds nuw i8, ptr %480, i64 2
   %.sroa.4.0.copyload.i175 = load i8, ptr %.sroa.4.0..sroa_idx.i174, align 2, !tbaa !27
   %481 = getelementptr inbounds nuw i8, ptr %.139.i17430, i64 2
@@ -1430,7 +1427,7 @@ BITv06_reloadDStream.exit172:                     ; preds = %.lr.ph431
   br i1 %483, label %FSEv06_decompress_usingDTable_generic.exit, label %484
 
 484:                                              ; preds = %482
-  %485 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %355, i64 %.sroa.0250.1426
+  %485 = getelementptr inbounds nuw [4 x i8], ptr %355, i64 %.sroa.0250.1426
   %.sroa.0.0.copyload.i180 = load i16, ptr %485, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i181 = getelementptr inbounds nuw i8, ptr %485, i64 2
   %.sroa.4.0.copyload.i182 = load i8, ptr %.sroa.4.0..sroa_idx.i181, align 2, !tbaa !27
@@ -1491,7 +1488,7 @@ BITv06_reloadDStream.exit195:                     ; preds = %505, %501, %507
   br i1 %513, label %FSEv06_decompress_usingDTable_generic.exit, label %.lr.ph431
 
 514:                                              ; preds = %484
-  %515 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %355, i64 %464
+  %515 = getelementptr inbounds nuw [4 x i8], ptr %355, i64 %464
   %.sroa.4.0..sroa_idx.i197 = getelementptr inbounds nuw i8, ptr %515, i64 2
   %.sroa.4.0.copyload.i198 = load i8, ptr %.sroa.4.0..sroa_idx.i197, align 2, !tbaa !27
   %516 = getelementptr inbounds nuw i8, ptr %.139.i17430, i64 3
@@ -1561,7 +1558,7 @@ define i64 @FSEv06_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
   %.06481.i = phi i32 [ %23, %.lr.ph.i ], [ %.165.i, %40 ]
   %.sroa.4.080.i = phi i16 [ 1, %.lr.ph.i ], [ %.sroa.4.2.i, %40 ]
-  %29 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv.i
   %30 = load i16, ptr %29, align 2, !tbaa !10
   %31 = icmp eq i16 %30, -1
   br i1 %31, label %32, label %38
@@ -1570,7 +1567,7 @@ define i64 @FSEv06_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   %33 = trunc i64 %indvars.iv.i to i8
   %34 = add i32 %.06481.i, -1
   %35 = zext i32 %.06481.i to i64
-  %36 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %20, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 2
   store i8 %33, ptr %37, align 2, !tbaa !14
   br label %40
@@ -1585,7 +1582,7 @@ define i64 @FSEv06_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   %.sink.i = phi i16 [ 1, %32 ], [ %30, %38 ]
   %.sroa.4.2.i = phi i16 [ %.sroa.4.080.i, %32 ], [ %spec.select.i, %38 ]
   %.165.i = phi i32 [ %34, %32 ], [ %.06481.i, %38 ]
-  %41 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv.i
   store i16 %.sink.i, ptr %41, align 2, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1605,7 +1602,7 @@ define i64 @FSEv06_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
 .preheader78.i:                                   ; preds = %._crit_edge86.i, %.preheader78.lr.ph.i
   %indvars.iv94.i = phi i64 [ 0, %.preheader78.lr.ph.i ], [ %indvars.iv.next95.i, %._crit_edge86.i ]
   %.06889.i = phi i32 [ 0, %.preheader78.lr.ph.i ], [ %.169.lcssa.i, %._crit_edge86.i ]
-  %47 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv94.i
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv94.i
   %48 = load i16, ptr %47, align 2, !tbaa !10
   %49 = sext i16 %48 to i32
   %50 = icmp sgt i16 %48, 0
@@ -1619,7 +1616,7 @@ define i64 @FSEv06_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   %.06784.i = phi i32 [ 0, %.lr.ph85.i ], [ %59, %58 ]
   %.16983.i = phi i32 [ %.06889.i, %.lr.ph85.i ], [ %.2.i, %58 ]
   %53 = zext nneg i32 %.16983.i to i64
-  %54 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %20, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 2
   store i8 %51, ptr %55, align 2, !tbaa !14
   br label %56
@@ -1652,11 +1649,11 @@ define i64 @FSEv06_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv99.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next100.i, %.preheader.i ]
-  %60 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %20, i64 %indvars.iv99.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv99.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 2
   %62 = load i8, ptr %61, align 2, !tbaa !14
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds nuw i16, ptr %5, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !10
   %66 = add i16 %65, 1
   store i16 %66, ptr %64, align 2, !tbaa !10
@@ -1743,7 +1740,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX2(ptr nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03438 = phi i32 [ 0, %.lr.ph.preheader ], [ %27, %.lr.ph ]
-  %22 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = trunc i64 %indvars.iv to i32
   %25 = add i32 %24, -1
@@ -1765,7 +1762,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX2(ptr nounde
   %34 = trunc i64 %indvars.iv49 to i8
   %35 = sub i8 %21, %30
   %36 = zext i8 %30 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %5, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !3
   %39 = add i32 %33, %38
   %40 = icmp ult i32 %38, %39
@@ -1778,7 +1775,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX2(ptr nounde
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
   %indvars.iv45 = phi i64 [ %41, %.lr.ph41.preheader ], [ %indvars.iv.next46, %.lr.ph41 ]
-  %42 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %8, i64 %indvars.iv45
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv45
   store i8 %34, ptr %42, align 1, !tbaa !27
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 1
   store i8 %35, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !27
@@ -1817,7 +1814,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUFv06_readSta
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %11
-  %14 = getelementptr i32, ptr @HUFv06_readStats.l, i64 %9
+  %14 = getelementptr [4 x i8], ptr @HUFv06_readStats.l, i64 %9
   %15 = getelementptr i8, ptr %14, i64 -968
   %16 = load i32, ptr %15, align 4, !tbaa !3
   %17 = zext i32 %16 to i64
@@ -1891,7 +1888,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUFv06_readSta
 
 43:                                               ; preds = %.lr.ph104
   %44 = zext nneg i8 %41 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %1, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !3
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4, !tbaa !3
@@ -1932,7 +1929,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUFv06_readSta
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 %.075119
   store i8 %68, ptr %69, align 1, !tbaa !27
   %70 = zext nneg i32 %67 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %1, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !3
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 4, !tbaa !3
@@ -2311,7 +2308,7 @@ BITv06_reloadDStream.exit:                        ; preds = %19, %27
   %47 = zext nneg i32 %46 to i64
   %48 = shl i64 %.val.i35, %47
   %49 = lshr i64 %48, %12
-  %50 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %3, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !42
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 1
   %53 = load i8, ptr %52, align 1, !tbaa !44
@@ -2326,7 +2323,7 @@ BITv06_reloadDStream.exit:                        ; preds = %19, %27
   %58 = zext nneg i32 %57 to i64
   %59 = shl i64 %.val.i36, %58
   %60 = lshr i64 %59, %12
-  %61 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %3, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %60
   %62 = load i8, ptr %61, align 1, !tbaa !42
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 1
   %64 = load i8, ptr %63, align 1, !tbaa !44
@@ -2341,7 +2338,7 @@ BITv06_reloadDStream.exit:                        ; preds = %19, %27
   %69 = zext nneg i32 %68 to i64
   %70 = shl i64 %.val.i38, %69
   %71 = lshr i64 %70, %12
-  %72 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %3, i64 %71
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !42
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %75 = load i8, ptr %74, align 1, !tbaa !44
@@ -2356,7 +2353,7 @@ BITv06_reloadDStream.exit:                        ; preds = %19, %27
   %80 = zext nneg i32 %79 to i64
   %81 = shl i64 %.val.i40, %80
   %82 = lshr i64 %81, %12
-  %83 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %3, i64 %82
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %82
   %84 = load i8, ptr %83, align 1, !tbaa !42
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 1
   %86 = load i8, ptr %85, align 1, !tbaa !44
@@ -2439,7 +2436,7 @@ BITv06_reloadDStream.exit50:                      ; preds = %96, %104
   %124 = zext nneg i32 %123 to i64
   %125 = shl i64 %.val.i51, %124
   %126 = lshr i64 %125, %12
-  %127 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %3, i64 %126
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %126
   %128 = load i8, ptr %127, align 1, !tbaa !42
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 1
   %130 = load i8, ptr %129, align 1, !tbaa !44
@@ -2460,7 +2457,7 @@ BITv06_reloadDStream.exit50:                      ; preds = %96, %104
   %136 = zext nneg i32 %135 to i64
   %137 = shl i64 %.val.i53, %136
   %138 = lshr i64 %137, %12
-  %139 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %3, i64 %138
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %138
   %140 = load i8, ptr %139, align 1, !tbaa !42
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 1
   %142 = load i8, ptr %141, align 1, !tbaa !44
@@ -2526,7 +2523,7 @@ define i64 @HUFv06_decompress1X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.03438.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %27, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = trunc i64 %indvars.iv.i to i32
   %25 = add i32 %24, -1
@@ -2547,7 +2544,7 @@ define i64 @HUFv06_decompress1X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   %35 = trunc i64 %indvars.iv49.i to i8
   %36 = sub i8 %21, %31
   %37 = zext i8 %31 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %6, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !3
   %40 = add i32 %34, %39
   %41 = icmp ult i32 %39, %40
@@ -2560,7 +2557,7 @@ define i64 @HUFv06_decompress1X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 
 .lr.ph41.i:                                       ; preds = %.lr.ph41.i, %.lr.ph41.preheader.i
   %indvars.iv45.i = phi i64 [ %42, %.lr.ph41.preheader.i ], [ %indvars.iv.next46.i, %.lr.ph41.i ]
-  %43 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %10, i64 %indvars.iv45.i
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv45.i
   store i8 %35, ptr %43, align 2, !tbaa !27
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 1
   store i8 %36, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !27
@@ -3071,7 +3068,7 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %293 = zext nneg i32 %292 to i64
   %294 = shl i64 %.val30.i248261, %293
   %295 = lshr i64 %294, %266
-  %296 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %13, i64 %295
+  %296 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %295
   %297 = load i8, ptr %296, align 1, !tbaa !42
   %298 = getelementptr inbounds nuw i8, ptr %296, i64 1
   %299 = load i8, ptr %298, align 1, !tbaa !44
@@ -3083,7 +3080,7 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %304 = zext nneg i32 %303 to i64
   %305 = shl i64 %.val30.i196251260, %304
   %306 = lshr i64 %305, %266
-  %307 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %13, i64 %306
+  %307 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %306
   %308 = load i8, ptr %307, align 1, !tbaa !42
   %309 = getelementptr inbounds nuw i8, ptr %307, i64 1
   %310 = load i8, ptr %309, align 1, !tbaa !44
@@ -3095,7 +3092,7 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %315 = zext nneg i32 %314 to i64
   %316 = shl i64 %.val30.i205254259, %315
   %317 = lshr i64 %316, %266
-  %318 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %13, i64 %317
+  %318 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %317
   %319 = load i8, ptr %318, align 1, !tbaa !42
   %320 = getelementptr inbounds nuw i8, ptr %318, i64 1
   %321 = load i8, ptr %320, align 1, !tbaa !44
@@ -3107,7 +3104,7 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %326 = zext nneg i32 %325 to i64
   %327 = shl i64 %.val30.i214257258, %326
   %328 = lshr i64 %327, %266
-  %329 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %13, i64 %328
+  %329 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %328
   %330 = load i8, ptr %329, align 1, !tbaa !42
   %331 = getelementptr inbounds nuw i8, ptr %329, i64 1
   %332 = load i8, ptr %331, align 1, !tbaa !44
@@ -3119,7 +3116,7 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %337 = zext nneg i32 %336 to i64
   %338 = shl i64 %.val30.i248261, %337
   %339 = lshr i64 %338, %266
-  %340 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %13, i64 %339
+  %340 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %339
   %341 = load i8, ptr %340, align 1, !tbaa !42
   %342 = getelementptr inbounds nuw i8, ptr %340, i64 1
   %343 = load i8, ptr %342, align 1, !tbaa !44
@@ -3130,7 +3127,7 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %347 = zext nneg i32 %346 to i64
   %348 = shl i64 %.val30.i196251260, %347
   %349 = lshr i64 %348, %266
-  %350 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %13, i64 %349
+  %350 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %349
   %351 = load i8, ptr %350, align 1, !tbaa !42
   %352 = getelementptr inbounds nuw i8, ptr %350, i64 1
   %353 = load i8, ptr %352, align 1, !tbaa !44
@@ -3142,7 +3139,7 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %358 = zext nneg i32 %357 to i64
   %359 = shl i64 %.val30.i205254259, %358
   %360 = lshr i64 %359, %266
-  %361 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %13, i64 %360
+  %361 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %360
   %362 = load i8, ptr %361, align 1, !tbaa !42
   %363 = getelementptr inbounds nuw i8, ptr %361, i64 1
   %364 = load i8, ptr %363, align 1, !tbaa !44
@@ -3154,7 +3151,7 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %369 = zext nneg i32 %368 to i64
   %370 = shl i64 %.val30.i214257258, %369
   %371 = lshr i64 %370, %266
-  %372 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %13, i64 %371
+  %372 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %371
   %373 = load i8, ptr %372, align 1, !tbaa !42
   %374 = getelementptr inbounds nuw i8, ptr %372, i64 1
   %375 = load i8, ptr %374, align 1, !tbaa !44
@@ -3167,7 +3164,7 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %381 = zext nneg i32 %380 to i64
   %382 = shl i64 %.val30.i248261, %381
   %383 = lshr i64 %382, %266
-  %384 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %13, i64 %383
+  %384 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %383
   %385 = load i8, ptr %384, align 1, !tbaa !42
   %386 = getelementptr inbounds nuw i8, ptr %384, i64 1
   %387 = load i8, ptr %386, align 1, !tbaa !44
@@ -3179,7 +3176,7 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %392 = zext nneg i32 %391 to i64
   %393 = shl i64 %.val30.i196251260, %392
   %394 = lshr i64 %393, %266
-  %395 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %13, i64 %394
+  %395 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %394
   %396 = load i8, ptr %395, align 1, !tbaa !42
   %397 = getelementptr inbounds nuw i8, ptr %395, i64 1
   %398 = load i8, ptr %397, align 1, !tbaa !44
@@ -3191,7 +3188,7 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %403 = zext nneg i32 %402 to i64
   %404 = shl i64 %.val30.i205254259, %403
   %405 = lshr i64 %404, %266
-  %406 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %13, i64 %405
+  %406 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %405
   %407 = load i8, ptr %406, align 1, !tbaa !42
   %408 = getelementptr inbounds nuw i8, ptr %406, i64 1
   %409 = load i8, ptr %408, align 1, !tbaa !44
@@ -3203,7 +3200,7 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %414 = zext nneg i32 %413 to i64
   %415 = shl i64 %.val30.i214257258, %414
   %416 = lshr i64 %415, %266
-  %417 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %13, i64 %416
+  %417 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %416
   %418 = load i8, ptr %417, align 1, !tbaa !42
   %419 = getelementptr inbounds nuw i8, ptr %417, i64 1
   %420 = load i8, ptr %419, align 1, !tbaa !44
@@ -3215,7 +3212,7 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %425 = zext nneg i32 %424 to i64
   %426 = shl i64 %.val30.i248261, %425
   %427 = lshr i64 %426, %266
-  %428 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %13, i64 %427
+  %428 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %427
   %429 = load i8, ptr %428, align 1, !tbaa !42
   %430 = getelementptr inbounds nuw i8, ptr %428, i64 1
   %431 = load i8, ptr %430, align 1, !tbaa !44
@@ -3227,7 +3224,7 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %436 = zext nneg i32 %435 to i64
   %437 = shl i64 %.val30.i196251260, %436
   %438 = lshr i64 %437, %266
-  %439 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %13, i64 %438
+  %439 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %438
   %440 = load i8, ptr %439, align 1, !tbaa !42
   %441 = getelementptr inbounds nuw i8, ptr %439, i64 1
   %442 = load i8, ptr %441, align 1, !tbaa !44
@@ -3239,7 +3236,7 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %447 = zext nneg i32 %446 to i64
   %448 = shl i64 %.val30.i205254259, %447
   %449 = lshr i64 %448, %266
-  %450 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %13, i64 %449
+  %450 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %449
   %451 = load i8, ptr %450, align 1, !tbaa !42
   %452 = getelementptr inbounds nuw i8, ptr %450, i64 1
   %453 = load i8, ptr %452, align 1, !tbaa !44
@@ -3251,7 +3248,7 @@ define i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %458 = zext nneg i32 %457 to i64
   %459 = shl i64 %.val30.i214257258, %458
   %460 = lshr i64 %459, %266
-  %461 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %13, i64 %460
+  %461 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %460
   %462 = load i8, ptr %461, align 1, !tbaa !42
   %463 = getelementptr inbounds nuw i8, ptr %461, i64 1
   %464 = load i8, ptr %463, align 1, !tbaa !44
@@ -3661,7 +3658,7 @@ define i64 @HUFv06_decompress4X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.03438.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %27, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = trunc i64 %indvars.iv.i to i32
   %25 = add i32 %24, -1
@@ -3682,7 +3679,7 @@ define i64 @HUFv06_decompress4X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   %35 = trunc i64 %indvars.iv49.i to i8
   %36 = sub i8 %21, %31
   %37 = zext i8 %31 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %6, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !3
   %40 = add i32 %34, %39
   %41 = icmp ult i32 %39, %40
@@ -3695,7 +3692,7 @@ define i64 @HUFv06_decompress4X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 
 .lr.ph41.i:                                       ; preds = %.lr.ph41.i, %.lr.ph41.preheader.i
   %indvars.iv45.i = phi i64 [ %42, %.lr.ph41.preheader.i ], [ %indvars.iv.next46.i, %.lr.ph41.i ]
-  %43 = getelementptr inbounds nuw %struct.HUFv06_DEltX2, ptr %10, i64 %indvars.iv45.i
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv45.i
   store i8 %35, ptr %43, align 2, !tbaa !27
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 1
   store i8 %36, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !27
@@ -3783,7 +3780,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX4(ptr nounde
   %indvars.iv99 = phi i32 [ %23, %.preheader76.preheader ], [ %indvars.iv.next100, %.preheader76 ]
   %.067 = phi i32 [ %21, %.preheader76.preheader ], [ %28, %.preheader76 ]
   %24 = zext i32 %.067 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %8, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !3
   %27 = icmp eq i32 %26, 0
   %28 = add i32 %.067, -1
@@ -3804,10 +3801,10 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX4(ptr nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.07177 = phi i32 [ 0, %.lr.ph.preheader ], [ %33, %.lr.ph ]
-  %31 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !3
   %33 = add i32 %32, %.07177
-  %34 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   store i32 %.07177, ptr %34, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3829,13 +3826,13 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX4(ptr nounde
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv101
   %37 = load i8, ptr %36, align 1, !tbaa !27
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %13, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !3
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 4, !tbaa !3
   %42 = trunc i64 %indvars.iv101 to i8
   %43 = zext i32 %40 to i64
-  %44 = getelementptr inbounds nuw %struct.sortedSymbol_t, ptr %7, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %43
   store i8 %42, ptr %44, align 2, !tbaa !42
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store i8 %37, ptr %45, align 1, !tbaa !44
@@ -3856,13 +3853,13 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX4(ptr nounde
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv106 = phi i64 [ 1, %.lr.ph87.preheader ], [ %indvars.iv.next107, %.lr.ph87 ]
   %.06984 = phi i32 [ 0, %.lr.ph87.preheader ], [ %53, %.lr.ph87 ]
-  %48 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv106
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv106
   %49 = load i32, ptr %48, align 4, !tbaa !3
   %50 = trunc nuw i64 %indvars.iv106 to i32
   %51 = add i32 %47, %50
   %52 = shl i32 %49, %51
   %53 = add i32 %52, %.06984
-  %54 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv106
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv106
   store i32 %.06984, ptr %54, align 4, !tbaa !3
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count110
@@ -3886,16 +3883,16 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX4(ptr nounde
 
 .lr.ph91.us:                                      ; preds = %.lr.ph91.us.preheader, %._crit_edge92.us
   %indvars.iv120 = phi i64 [ %59, %.lr.ph91.us.preheader ], [ %indvars.iv.next121, %._crit_edge92.us ]
-  %60 = getelementptr inbounds nuw [17 x i32], ptr %10, i64 %indvars.iv120
+  %60 = getelementptr inbounds nuw [68 x i8], ptr %10, i64 %indvars.iv120
   %61 = trunc nuw i64 %indvars.iv120 to i32
   br label %62
 
 62:                                               ; preds = %.lr.ph91.us, %62
   %indvars.iv112 = phi i64 [ 1, %.lr.ph91.us ], [ %indvars.iv.next113, %62 ]
-  %63 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv112
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv112
   %64 = load i32, ptr %63, align 4, !tbaa !3
   %65 = lshr i32 %64, %61
-  %66 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv112
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv112
   store i32 %65, ptr %66, align 4, !tbaa !3
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count116
@@ -3921,7 +3918,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX4(ptr nounde
 
 .lr.ph55.i:                                       ; preds = %.loopexit.i, %.lr.ph55.preheader.i
   %indvars.iv58.i = phi i64 [ 0, %.lr.ph55.preheader.i ], [ %indvars.iv.next59.i, %.loopexit.i ]
-  %69 = getelementptr inbounds nuw %struct.sortedSymbol_t, ptr %7, i64 %indvars.iv58.i
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv58.i
   %70 = load i8, ptr %69, align 2, !tbaa !42
   %71 = zext i8 %70 to i32
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 1
@@ -3929,7 +3926,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX4(ptr nounde
   %74 = zext i8 %73 to i32
   %75 = sub nsw i32 %23, %74
   %76 = zext i8 %73 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %5, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !3
   %79 = sub nsw i32 %14, %75
   %80 = shl nuw i32 1, %79
@@ -3940,14 +3937,14 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX4(ptr nounde
   %82 = add nsw i32 %75, %68
   %spec.store.select.i = call i32 @llvm.smax.i32(i32 %82, i32 1)
   %83 = zext nneg i32 %spec.store.select.i to i64
-  %84 = getelementptr inbounds nuw i32, ptr %9, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !3
   %86 = zext i32 %78 to i64
-  %87 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %15, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %86
   %88 = zext i32 %75 to i64
-  %89 = getelementptr inbounds nuw [17 x i32], ptr %10, i64 %88
+  %89 = getelementptr inbounds nuw [68 x i8], ptr %10, i64 %88
   %90 = zext i32 %85 to i64
-  %91 = getelementptr inbounds nuw %struct.sortedSymbol_t, ptr %7, i64 %90
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %90
   %92 = sub i32 %.071.lcssa, %85
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %4, ptr noundef nonnull readonly align 4 dereferenceable(68) %89, i64 68, i1 false)
@@ -3955,7 +3952,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX4(ptr nounde
   br i1 %93, label %94, label %.loopexit.i.i
 
 94:                                               ; preds = %81
-  %95 = getelementptr inbounds nuw i32, ptr %4, i64 %83
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %83
   %96 = load i32, ptr %95, align 4, !tbaa !3
   %.not.i.i = icmp eq i32 %96, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
@@ -3970,7 +3967,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX4(ptr nounde
 
 97:                                               ; preds = %97, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %97 ]
-  %98 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %87, i64 %indvars.iv.i.i
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv.i.i
   store i32 %.sroa.0.0.insert.insert40.i.i, ptr %98, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -3987,7 +3984,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX4(ptr nounde
 
 .lr.ph53.i.i:                                     ; preds = %120, %.lr.ph53.preheader.i.i
   %indvars.iv56.i.i = phi i64 [ 0, %.lr.ph53.preheader.i.i ], [ %indvars.iv.next57.i.i, %120 ]
-  %99 = getelementptr inbounds nuw %struct.sortedSymbol_t, ptr %91, i64 %indvars.iv56.i.i
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %indvars.iv56.i.i
   %100 = load i8, ptr %99, align 2, !tbaa !42
   %101 = zext i8 %100 to i32
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 1
@@ -3997,7 +3994,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX4(ptr nounde
   %106 = sub nsw i32 %79, %105
   %107 = shl nuw i32 1, %106
   %108 = zext i8 %103 to i64
-  %109 = getelementptr inbounds nuw i32, ptr %4, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !3
   %111 = add i32 %107, %110
   %112 = shl nuw nsw i32 %101, 8
@@ -4012,7 +4009,7 @@ define range(i64 -119, -9223372036854775808) i64 @HUFv06_readDTableX4(ptr nounde
   %.034.i.i = phi i32 [ %110, %.lr.ph53.i.i ], [ %116, %115 ]
   %116 = add i32 %.034.i.i, 1
   %117 = zext i32 %.034.i.i to i64
-  %118 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %87, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %117
   store i32 %.sroa.0.0.insert.insert.i.reass.i, ptr %118, align 2
   %119 = icmp ult i32 %116, %111
   br i1 %119, label %115, label %120, !llvm.loop !56
@@ -4044,7 +4041,7 @@ HUFv06_fillDTableX4Level2.exit.i:                 ; preds = %120, %.loopexit.i.i
 
 125:                                              ; preds = %125, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %124, %.lr.ph.i ], [ %indvars.iv.next.i, %125 ]
-  %126 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %15, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i
   store i32 %.sroa.0.0.insert.insert.i, ptr %126, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4295,7 +4292,7 @@ BITv06_reloadDStream.exit:                        ; preds = %18, %26
   %47 = zext nneg i32 %46 to i64
   %48 = shl i64 %.val.i47, %47
   %49 = lshr i64 %48, %12
-  %50 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %3, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %49
   %51 = load i16, ptr %50, align 2
   store i16 %51, ptr %.02, align 1
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 2
@@ -4313,7 +4310,7 @@ BITv06_reloadDStream.exit:                        ; preds = %18, %26
   %62 = zext nneg i32 %61 to i64
   %63 = shl i64 %.val.i48, %62
   %64 = lshr i64 %63, %12
-  %65 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %3, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %64
   %66 = load i16, ptr %65, align 2
   store i16 %66, ptr %60, align 1
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 2
@@ -4331,7 +4328,7 @@ BITv06_reloadDStream.exit:                        ; preds = %18, %26
   %77 = zext nneg i32 %76 to i64
   %78 = shl i64 %.val.i50, %77
   %79 = lshr i64 %78, %12
-  %80 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %3, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %79
   %81 = load i16, ptr %80, align 2
   store i16 %81, ptr %75, align 1
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 2
@@ -4349,7 +4346,7 @@ BITv06_reloadDStream.exit:                        ; preds = %18, %26
   %92 = zext nneg i32 %91 to i64
   %93 = shl i64 %.val.i52, %92
   %94 = lshr i64 %93, %12
-  %95 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %3, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %94
   %96 = load i16, ptr %95, align 2
   store i16 %96, ptr %90, align 1
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 2
@@ -4429,7 +4426,7 @@ BITv06_reloadDStream.exit62:                      ; preds = %111, %119
   %138 = zext nneg i32 %137 to i64
   %139 = shl i64 %.val.i63, %138
   %140 = lshr i64 %139, %12
-  %141 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %3, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %140
   %142 = load i16, ptr %141, align 2
   store i16 %142, ptr %.311, align 1
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 2
@@ -4453,7 +4450,7 @@ BITv06_reloadDStream.exit62:                      ; preds = %111, %119
   %154 = zext nneg i32 %153 to i64
   %155 = shl i64 %.val.i65, %154
   %156 = lshr i64 %155, %12
-  %157 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %3, i64 %156
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %156
   %158 = load i16, ptr %157, align 2
   store i16 %158, ptr %.471, align 1
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 2
@@ -4481,7 +4478,7 @@ BITv06_reloadDStream.exit62:                      ; preds = %111, %119
   %171 = zext nneg i32 %170 to i64
   %172 = shl i64 %.val.i67, %171
   %173 = lshr i64 %172, %12
-  %174 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %3, i64 %173
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %173
   %175 = load i8, ptr %174, align 2
   store i8 %175, ptr %.4.lcssa, align 1
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 3
@@ -5010,7 +5007,7 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %292 = zext nneg i32 %291 to i64
   %293 = shl i64 %.val30.i264277, %292
   %294 = lshr i64 %293, %265
-  %295 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %13, i64 %294
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %294
   %296 = load i16, ptr %295, align 2
   store i16 %296, ptr %.0149278, align 1
   %297 = getelementptr inbounds nuw i8, ptr %295, i64 2
@@ -5025,7 +5022,7 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %306 = zext nneg i32 %305 to i64
   %307 = shl i64 %.val30.i212267276, %306
   %308 = lshr i64 %307, %265
-  %309 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %13, i64 %308
+  %309 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %308
   %310 = load i16, ptr %309, align 2
   store i16 %310, ptr %.0146279, align 1
   %311 = getelementptr inbounds nuw i8, ptr %309, i64 2
@@ -5040,7 +5037,7 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %320 = zext nneg i32 %319 to i64
   %321 = shl i64 %.val30.i221270275, %320
   %322 = lshr i64 %321, %265
-  %323 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %13, i64 %322
+  %323 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %322
   %324 = load i16, ptr %323, align 2
   store i16 %324, ptr %.0143280, align 1
   %325 = getelementptr inbounds nuw i8, ptr %323, i64 2
@@ -5055,7 +5052,7 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %334 = zext nneg i32 %333 to i64
   %335 = shl i64 %.val30.i230273274, %334
   %336 = lshr i64 %335, %265
-  %337 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %13, i64 %336
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %336
   %338 = load i16, ptr %337, align 2
   store i16 %338, ptr %.0142281, align 1
   %339 = getelementptr inbounds nuw i8, ptr %337, i64 2
@@ -5070,7 +5067,7 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %348 = zext nneg i32 %347 to i64
   %349 = shl i64 %.val30.i264277, %348
   %350 = lshr i64 %349, %265
-  %351 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %13, i64 %350
+  %351 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %350
   %352 = load i16, ptr %351, align 2
   store i16 %352, ptr %304, align 1
   %353 = getelementptr inbounds nuw i8, ptr %351, i64 2
@@ -5083,7 +5080,7 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %360 = zext nneg i32 %359 to i64
   %361 = shl i64 %.val30.i212267276, %360
   %362 = lshr i64 %361, %265
-  %363 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %13, i64 %362
+  %363 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %362
   %364 = load i16, ptr %363, align 2
   store i16 %364, ptr %318, align 1
   %365 = getelementptr inbounds nuw i8, ptr %363, i64 2
@@ -5098,7 +5095,7 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %374 = zext nneg i32 %373 to i64
   %375 = shl i64 %.val30.i221270275, %374
   %376 = lshr i64 %375, %265
-  %377 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %13, i64 %376
+  %377 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %376
   %378 = load i16, ptr %377, align 2
   store i16 %378, ptr %332, align 1
   %379 = getelementptr inbounds nuw i8, ptr %377, i64 2
@@ -5113,7 +5110,7 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %388 = zext nneg i32 %387 to i64
   %389 = shl i64 %.val30.i230273274, %388
   %390 = lshr i64 %389, %265
-  %391 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %13, i64 %390
+  %391 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %390
   %392 = load i16, ptr %391, align 2
   store i16 %392, ptr %346, align 1
   %393 = getelementptr inbounds nuw i8, ptr %391, i64 2
@@ -5130,7 +5127,7 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %404 = zext nneg i32 %403 to i64
   %405 = shl i64 %.val30.i264277, %404
   %406 = lshr i64 %405, %265
-  %407 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %13, i64 %406
+  %407 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %406
   %408 = load i16, ptr %407, align 2
   store i16 %408, ptr %402, align 1
   %409 = getelementptr inbounds nuw i8, ptr %407, i64 2
@@ -5145,7 +5142,7 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %418 = zext nneg i32 %417 to i64
   %419 = shl i64 %.val30.i212267276, %418
   %420 = lshr i64 %419, %265
-  %421 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %13, i64 %420
+  %421 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %420
   %422 = load i16, ptr %421, align 2
   store i16 %422, ptr %372, align 1
   %423 = getelementptr inbounds nuw i8, ptr %421, i64 2
@@ -5160,7 +5157,7 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %432 = zext nneg i32 %431 to i64
   %433 = shl i64 %.val30.i221270275, %432
   %434 = lshr i64 %433, %265
-  %435 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %13, i64 %434
+  %435 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %434
   %436 = load i16, ptr %435, align 2
   store i16 %436, ptr %386, align 1
   %437 = getelementptr inbounds nuw i8, ptr %435, i64 2
@@ -5175,7 +5172,7 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %446 = zext nneg i32 %445 to i64
   %447 = shl i64 %.val30.i230273274, %446
   %448 = lshr i64 %447, %265
-  %449 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %13, i64 %448
+  %449 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %448
   %450 = load i16, ptr %449, align 2
   store i16 %450, ptr %400, align 1
   %451 = getelementptr inbounds nuw i8, ptr %449, i64 2
@@ -5190,7 +5187,7 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %460 = zext nneg i32 %459 to i64
   %461 = shl i64 %.val30.i264277, %460
   %462 = lshr i64 %461, %265
-  %463 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %13, i64 %462
+  %463 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %462
   %464 = load i16, ptr %463, align 2
   store i16 %464, ptr %416, align 1
   %465 = getelementptr inbounds nuw i8, ptr %463, i64 2
@@ -5205,7 +5202,7 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %474 = zext nneg i32 %473 to i64
   %475 = shl i64 %.val30.i212267276, %474
   %476 = lshr i64 %475, %265
-  %477 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %13, i64 %476
+  %477 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %476
   %478 = load i16, ptr %477, align 2
   store i16 %478, ptr %430, align 1
   %479 = getelementptr inbounds nuw i8, ptr %477, i64 2
@@ -5220,7 +5217,7 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %488 = zext nneg i32 %487 to i64
   %489 = shl i64 %.val30.i221270275, %488
   %490 = lshr i64 %489, %265
-  %491 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %13, i64 %490
+  %491 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %490
   %492 = load i16, ptr %491, align 2
   store i16 %492, ptr %444, align 1
   %493 = getelementptr inbounds nuw i8, ptr %491, i64 2
@@ -5235,7 +5232,7 @@ define i64 @HUFv06_decompress4X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
   %502 = zext nneg i32 %501 to i64
   %503 = shl i64 %.val30.i230273274, %502
   %504 = lshr i64 %503, %265
-  %505 = getelementptr inbounds nuw %struct.HUFv06_DEltX4, ptr %13, i64 %504
+  %505 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %504
   %506 = load i16, ptr %505, align 2
   store i16 %506, ptr %458, align 1
   %507 = getelementptr inbounds nuw i8, ptr %505, i64 2
@@ -5593,18 +5590,18 @@ define i64 @HUFv06_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   %19 = lshr i64 %1, 8
   %20 = trunc i64 %19 to i32
   %21 = and i64 %18, 4294967295
-  %22 = getelementptr inbounds nuw [3 x %struct.algo_time_t], ptr @algoTime, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr @algoTime, i64 %21
   br label %23
 
 23:                                               ; preds = %16, %23
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw %struct.algo_time_t, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %25 = load i32, ptr %24, align 8, !tbaa !64
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !66
   %28 = mul i32 %27, %20
   %29 = add i32 %28, %25
-  %30 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %29, ptr %30, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -5618,7 +5615,7 @@ define i64 @HUFv06_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   %36 = load i32, ptr %5, align 4, !tbaa !3
   %37 = icmp ult i32 %35, %36
   %38 = zext i1 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr @HUFv06_decompress.decompress, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr @HUFv06_decompress.decompress, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !68
   %41 = tail call i64 %40(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #29
   br label %42
@@ -5733,7 +5730,7 @@ ZSTDv06_frameHeaderSize.exit:                     ; preds = %5
   %7 = load i8, ptr %6, align 1, !tbaa !27
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i64
-  %10 = getelementptr inbounds nuw i64, ptr @ZSTDv06_fcs_fieldSize, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @ZSTDv06_fcs_fieldSize, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !75
   %12 = add i64 %11, 5
   %.not27 = icmp ult i64 %2, %12
@@ -6260,7 +6257,7 @@ ZSTDv06_decodeSeqHeaders.exit.i:                  ; preds = %268
 
 283:                                              ; preds = %283, %281
   %indvars.iv.i = phi i64 [ 0, %281 ], [ %indvars.iv.next.i, %283 ]
-  %284 = getelementptr inbounds nuw i64, ptr %282, i64 %indvars.iv.i
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %indvars.iv.i
   store i64 1, ptr %284, align 8, !tbaa !75
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -6663,25 +6660,25 @@ BITv06_reloadDStream.exit.i:                      ; preds = %BITv06_reloadDStrea
   %522 = add nsw i32 %.0.i, -1
   %.val.i109.i = load i64, ptr %357, align 8, !tbaa !85
   %.val65.i.i = load ptr, ptr %398, align 8, !tbaa !87
-  %523 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %.val65.i.i, i64 %.val.i109.i
+  %523 = getelementptr inbounds nuw [4 x i8], ptr %.val65.i.i, i64 %.val.i109.i
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %523, i64 2
   %.sroa.3.0.copyload.i.i.i = load i8, ptr %.sroa.3.0..sroa_idx.i.i.i, align 2, !tbaa !27
   %.val66.i.i = load i64, ptr %440, align 8, !tbaa !85
   %.val67.i.i = load ptr, ptr %479, align 8, !tbaa !87
-  %524 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %.val67.i.i, i64 %.val66.i.i
+  %524 = getelementptr inbounds nuw [4 x i8], ptr %.val67.i.i, i64 %.val66.i.i
   %.sroa.3.0..sroa_idx.i70.i.i = getelementptr inbounds nuw i8, ptr %524, i64 2
   %.sroa.3.0.copyload.i71.i.i = load i8, ptr %.sroa.3.0..sroa_idx.i70.i.i, align 2, !tbaa !27
   %.val68.i.i = load i64, ptr %399, align 8, !tbaa !85
   %.val69.i.i = load ptr, ptr %439, align 8, !tbaa !87
-  %525 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %.val69.i.i, i64 %.val68.i.i
+  %525 = getelementptr inbounds nuw [4 x i8], ptr %.val69.i.i, i64 %.val68.i.i
   %.sroa.3.0..sroa_idx.i72.i.i = getelementptr inbounds nuw i8, ptr %525, i64 2
   %.sroa.3.0.copyload.i73.i.i = load i8, ptr %.sroa.3.0..sroa_idx.i72.i.i, align 2, !tbaa !27
   %526 = zext i8 %.sroa.3.0.copyload.i73.i.i to i32
   %527 = zext i8 %.sroa.3.0.copyload.i.i.i to i64
-  %528 = getelementptr inbounds nuw i32, ptr @LL_bits, i64 %527
+  %528 = getelementptr inbounds nuw [4 x i8], ptr @LL_bits, i64 %527
   %529 = load i32, ptr %528, align 4, !tbaa !3
   %530 = zext i8 %.sroa.3.0.copyload.i71.i.i to i64
-  %531 = getelementptr inbounds nuw i32, ptr @ML_bits, i64 %530
+  %531 = getelementptr inbounds nuw [4 x i8], ptr @ML_bits, i64 %530
   %532 = load i32, ptr %531, align 4, !tbaa !3
   %533 = add i32 %529, %526
   %534 = add i32 %533, %532
@@ -6690,7 +6687,7 @@ BITv06_reloadDStream.exit.i:                      ; preds = %BITv06_reloadDStrea
 
 535:                                              ; preds = %521
   %536 = zext i8 %.sroa.3.0.copyload.i73.i.i to i64
-  %537 = getelementptr inbounds nuw i32, ptr @ZSTDv06_decodeSequence.OF_base, i64 %536
+  %537 = getelementptr inbounds nuw [4 x i8], ptr @ZSTDv06_decodeSequence.OF_base, i64 %536
   %538 = load i32, ptr %537, align 4, !tbaa !3
   %539 = zext i32 %538 to i64
   %.val.i.i111.i = load i64, ptr %6, align 8, !tbaa !40
@@ -6719,7 +6716,7 @@ BITv06_reloadDStream.exit.i:                      ; preds = %BITv06_reloadDStrea
   br i1 %.not63.i.i, label %561, label %554
 
 554:                                              ; preds = %.thread.i116.i
-  %555 = getelementptr inbounds nuw i64, ptr %282, i64 %spec.select.i.i
+  %555 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %spec.select.i.i
   %556 = load i64, ptr %555, align 8, !tbaa !75
   %.not64.i.i = icmp eq i64 %spec.select.i.i, 1
   br i1 %.not64.i.i, label %559, label %557
@@ -6751,7 +6748,7 @@ BITv06_reloadDStream.exit.i:                      ; preds = %BITv06_reloadDStrea
 567:                                              ; preds = %563, %561, %559
   %.val4.i75.i.i = phi i32 [ %.val4.i75.i201.i, %559 ], [ %.val4.i75.i201.i, %561 ], [ %548, %563 ]
   %.2.i.i = phi i64 [ %556, %559 ], [ %562, %561 ], [ %564, %563 ]
-  %568 = getelementptr inbounds nuw i32, ptr @ZSTDv06_decodeSequence.ML_base, i64 %530
+  %568 = getelementptr inbounds nuw [4 x i8], ptr @ZSTDv06_decodeSequence.ML_base, i64 %530
   %569 = load i32, ptr %568, align 4, !tbaa !3
   %570 = add i32 %569, 3
   %571 = zext i32 %570 to i64
@@ -6775,7 +6772,7 @@ BITv06_reloadDStream.exit.i:                      ; preds = %BITv06_reloadDStrea
   %.val4.i77.i.i = phi i32 [ %582, %573 ], [ %.val4.i75.i.i, %567 ]
   %584 = phi i64 [ %581, %573 ], [ 0, %567 ]
   %585 = add nuw i64 %584, %571
-  %586 = getelementptr inbounds nuw i32, ptr @ZSTDv06_decodeSequence.LL_base, i64 %527
+  %586 = getelementptr inbounds nuw [4 x i8], ptr @ZSTDv06_decodeSequence.LL_base, i64 %527
   %587 = load i32, ptr %586, align 4, !tbaa !3
   %588 = zext i32 %587 to i64
   %589 = icmp ugt i8 %.sroa.3.0.copyload.i.i.i, 15
@@ -6991,7 +6988,7 @@ ZSTDv06_wildcopy.exit.i.i:                        ; preds = %.preheader123.i.i
   br i1 %709, label %710, label %731
 
 710:                                              ; preds = %.thread.i118.i
-  %711 = getelementptr inbounds nuw i32, ptr @ZSTDv06_execSequence.dec64table, i64 %.2.i.i
+  %711 = getelementptr inbounds nuw [4 x i8], ptr @ZSTDv06_execSequence.dec64table, i64 %.2.i.i
   %712 = load i32, ptr %711, align 4, !tbaa !3
   %713 = load i8, ptr %.092.i.i, align 1, !tbaa !27
   store i8 %713, ptr %.089.i.i, align 1, !tbaa !27
@@ -7007,7 +7004,7 @@ ZSTDv06_wildcopy.exit.i.i:                        ; preds = %.preheader123.i.i
   %721 = load i8, ptr %720, align 1, !tbaa !27
   %722 = getelementptr inbounds nuw i8, ptr %.089.i.i, i64 3
   store i8 %721, ptr %722, align 1, !tbaa !27
-  %723 = getelementptr inbounds nuw i32, ptr @ZSTDv06_execSequence.dec32table, i64 %.2.i.i
+  %723 = getelementptr inbounds nuw [4 x i8], ptr @ZSTDv06_execSequence.dec32table, i64 %.2.i.i
   %724 = load i32, ptr %723, align 4, !tbaa !3
   %725 = zext i32 %724 to i64
   %726 = getelementptr inbounds nuw i8, ptr %.092.i.i, i64 %725
@@ -7176,7 +7173,7 @@ define internal fastcc i64 @ZSTDv06_decompressFrame(ptr noundef %0, ptr noundef 
   %11 = load i8, ptr %10, align 1, !tbaa !27
   %12 = lshr i8 %11, 6
   %13 = zext nneg i8 %12 to i64
-  %14 = getelementptr inbounds nuw i64, ptr @ZSTDv06_fcs_fieldSize, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @ZSTDv06_fcs_fieldSize, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !75
   %16 = add i64 %15, 5
   %17 = icmp ult i64 %16, -119
@@ -7457,7 +7454,7 @@ define range(i64 -30, 1) i64 @ZSTDv06_decompressBegin_usingDict(ptr noundef capt
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %59 ]
   %.06481.i.i.i = phi i32 [ %43, %.lr.ph.i.i.i ], [ %.165.i.i.i, %59 ]
   %.sroa.4.080.i.i.i = phi i16 [ 1, %.lr.ph.i.i.i ], [ %.sroa.4.2.i.i.i, %59 ]
-  %48 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i.i.i
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv.i.i.i
   %49 = load i16, ptr %48, align 2, !tbaa !10
   %50 = icmp eq i16 %49, -1
   br i1 %50, label %51, label %57
@@ -7466,7 +7463,7 @@ define range(i64 -30, 1) i64 @ZSTDv06_decompressBegin_usingDict(ptr noundef capt
   %52 = trunc i64 %indvars.iv.i.i.i to i8
   %53 = add i32 %.06481.i.i.i, -1
   %54 = zext i32 %.06481.i.i.i to i64
-  %55 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %41, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 2
   store i8 %52, ptr %56, align 2, !tbaa !14
   br label %59
@@ -7481,7 +7478,7 @@ define range(i64 -30, 1) i64 @ZSTDv06_decompressBegin_usingDict(ptr noundef capt
   %.sink.i.i.i = phi i16 [ 1, %51 ], [ %49, %57 ]
   %.sroa.4.2.i.i.i = phi i16 [ %.sroa.4.080.i.i.i, %51 ], [ %spec.select.i.i.i, %57 ]
   %.165.i.i.i = phi i32 [ %53, %51 ], [ %.06481.i.i.i, %57 ]
-  %60 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i.i.i
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv.i.i.i
   store i16 %.sink.i.i.i, ptr %60, align 2, !tbaa !10
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -7501,7 +7498,7 @@ define range(i64 -30, 1) i64 @ZSTDv06_decompressBegin_usingDict(ptr noundef capt
 .preheader78.i.i.i:                               ; preds = %._crit_edge86.i.i.i, %.preheader78.lr.ph.i.i.i
   %indvars.iv94.i.i.i = phi i64 [ 0, %.preheader78.lr.ph.i.i.i ], [ %indvars.iv.next95.i.i.i, %._crit_edge86.i.i.i ]
   %.06889.i.i.i = phi i32 [ 0, %.preheader78.lr.ph.i.i.i ], [ %.169.lcssa.i.i.i, %._crit_edge86.i.i.i ]
-  %66 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv94.i.i.i
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv94.i.i.i
   %67 = load i16, ptr %66, align 2, !tbaa !10
   %68 = sext i16 %67 to i32
   %69 = icmp sgt i16 %67, 0
@@ -7515,7 +7512,7 @@ define range(i64 -30, 1) i64 @ZSTDv06_decompressBegin_usingDict(ptr noundef capt
   %.06784.i.i.i = phi i32 [ 0, %.lr.ph85.i.i.i ], [ %78, %77 ]
   %.16983.i.i.i = phi i32 [ %.06889.i.i.i, %.lr.ph85.i.i.i ], [ %.2.i.i.i, %77 ]
   %72 = zext nneg i32 %.16983.i.i.i to i64
-  %73 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %41, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 2
   store i8 %70, ptr %74, align 2, !tbaa !14
   br label %75
@@ -7548,11 +7545,11 @@ define range(i64 -30, 1) i64 @ZSTDv06_decompressBegin_usingDict(ptr noundef capt
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %.preheader.preheader.i.i.i
   %indvars.iv99.i.i.i = phi i64 [ 0, %.preheader.preheader.i.i.i ], [ %indvars.iv.next100.i.i.i, %.preheader.i.i.i ]
-  %79 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %41, i64 %indvars.iv99.i.i.i
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv99.i.i.i
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 2
   %81 = load i8, ptr %80, align 2, !tbaa !14
   %82 = zext i8 %81 to i64
-  %83 = getelementptr inbounds nuw i16, ptr %4, i64 %82
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !10
   %85 = add i16 %84, 1
   store i16 %85, ptr %83, align 2, !tbaa !10
@@ -7759,7 +7756,7 @@ ZSTDv06_frameHeaderSize.exit:                     ; preds = %4
   %7 = load i8, ptr %6, align 1, !tbaa !27
   %8 = lshr i8 %7, 6
   %9 = zext nneg i8 %8 to i64
-  %10 = getelementptr inbounds nuw i64, ptr @ZSTDv06_fcs_fieldSize, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @ZSTDv06_fcs_fieldSize, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !75
   %12 = add i64 %11, 5
   %13 = icmp ult i64 %12, -119
@@ -7930,7 +7927,7 @@ ZSTDv06_checkContinuity.exit._crit_edge:          ; preds = %ZSTDv06_checkContin
   %25 = load i8, ptr %24, align 1, !tbaa !27
   %26 = lshr i8 %25, 6
   %27 = zext nneg i8 %26 to i64
-  %28 = getelementptr inbounds nuw i64, ptr @ZSTDv06_fcs_fieldSize, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @ZSTDv06_fcs_fieldSize, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !75
   %30 = add i64 %29, 5
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 21560
@@ -7973,7 +7970,7 @@ ZSTDv06_frameHeaderSize.exit.i.i:                 ; preds = %44
   %47 = load i8, ptr %46, align 1, !tbaa !27
   %48 = lshr i8 %47, 6
   %49 = zext nneg i8 %48 to i64
-  %50 = getelementptr inbounds nuw i64, ptr @ZSTDv06_fcs_fieldSize, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @ZSTDv06_fcs_fieldSize, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !75
   %52 = add i64 %51, 5
   %.not27.i.i = icmp ult i64 %39, %52
@@ -8285,7 +8282,7 @@ ZSTDv06_frameHeaderSize.exit.i:                   ; preds = %31
   %32 = load i8, ptr %14, align 1, !tbaa !27
   %33 = lshr i8 %32, 6
   %34 = zext nneg i8 %33 to i64
-  %35 = getelementptr inbounds nuw i64, ptr @ZSTDv06_fcs_fieldSize, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @ZSTDv06_fcs_fieldSize, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !75
   %37 = add i64 %36, 5
   %.not27.i = icmp ult i64 %29, %37
@@ -8684,7 +8681,7 @@ define internal fastcc range(i64 -72, -119) i64 @ZSTDv06_buildSeqTable(ptr nound
   %indvars.iv.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i, %43 ]
   %.06481.i = phi i32 [ %29, %25 ], [ %.165.i, %43 ]
   %.sroa.4.080.i = phi i16 [ 1, %25 ], [ %.sroa.4.2.i, %43 ]
-  %32 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv.i
   %33 = load i16, ptr %32, align 2, !tbaa !10
   %34 = icmp eq i16 %33, -1
   br i1 %34, label %35, label %41
@@ -8693,7 +8690,7 @@ define internal fastcc range(i64 -72, -119) i64 @ZSTDv06_buildSeqTable(ptr nound
   %36 = trunc i64 %indvars.iv.i to i8
   %37 = add i32 %.06481.i, -1
   %38 = zext i32 %.06481.i to i64
-  %39 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %26, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
   store i8 %36, ptr %40, align 2, !tbaa !14
   br label %43
@@ -8708,7 +8705,7 @@ define internal fastcc range(i64 -72, -119) i64 @ZSTDv06_buildSeqTable(ptr nound
   %.sink.i = phi i16 [ 1, %35 ], [ %33, %41 ]
   %.sroa.4.2.i = phi i16 [ %.sroa.4.080.i, %35 ], [ %spec.select.i, %41 ]
   %.165.i = phi i32 [ %37, %35 ], [ %.06481.i, %41 ]
-  %44 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv.i
   store i16 %.sink.i, ptr %44, align 2, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -8728,7 +8725,7 @@ define internal fastcc range(i64 -72, -119) i64 @ZSTDv06_buildSeqTable(ptr nound
 .preheader78.i:                                   ; preds = %._crit_edge86.i, %.preheader78.lr.ph.i
   %indvars.iv94.i = phi i64 [ 0, %.preheader78.lr.ph.i ], [ %indvars.iv.next95.i, %._crit_edge86.i ]
   %.06889.i = phi i32 [ 0, %.preheader78.lr.ph.i ], [ %.169.lcssa.i, %._crit_edge86.i ]
-  %50 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv94.i
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv94.i
   %51 = load i16, ptr %50, align 2, !tbaa !10
   %52 = sext i16 %51 to i32
   %53 = icmp sgt i16 %51, 0
@@ -8742,7 +8739,7 @@ define internal fastcc range(i64 -72, -119) i64 @ZSTDv06_buildSeqTable(ptr nound
   %.06784.i = phi i32 [ 0, %.lr.ph85.i ], [ %62, %61 ]
   %.16983.i = phi i32 [ %.06889.i, %.lr.ph85.i ], [ %.2.i, %61 ]
   %56 = zext nneg i32 %.16983.i to i64
-  %57 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %26, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 2
   store i8 %54, ptr %58, align 2, !tbaa !14
   br label %59
@@ -8775,11 +8772,11 @@ define internal fastcc range(i64 -72, -119) i64 @ZSTDv06_buildSeqTable(ptr nound
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv99.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next100.i, %.preheader.i ]
-  %63 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %26, i64 %indvars.iv99.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv99.i
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 2
   %65 = load i8, ptr %64, align 2, !tbaa !14
   %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds nuw i16, ptr %11, i64 %66
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !10
   %69 = add i16 %68, 1
   store i16 %69, ptr %67, align 2, !tbaa !10
@@ -8843,7 +8840,7 @@ default.unreachable:                              ; preds = %9
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i28, %107 ]
   %.06481.i21 = phi i32 [ %91, %.lr.ph.i ], [ %.165.i27, %107 ]
   %.sroa.4.080.i22 = phi i16 [ 1, %.lr.ph.i ], [ %.sroa.4.2.i26, %107 ]
-  %96 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv.i20
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %indvars.iv.i20
   %97 = load i16, ptr %96, align 2, !tbaa !10
   %98 = icmp eq i16 %97, -1
   br i1 %98, label %99, label %105
@@ -8852,7 +8849,7 @@ default.unreachable:                              ; preds = %9
   %100 = trunc i64 %indvars.iv.i20 to i8
   %101 = add i32 %.06481.i21, -1
   %102 = zext i32 %.06481.i21 to i64
-  %103 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %89, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 2
   store i8 %100, ptr %104, align 2, !tbaa !14
   br label %107
@@ -8867,7 +8864,7 @@ default.unreachable:                              ; preds = %9
   %.sink.i25 = phi i16 [ 1, %99 ], [ %97, %105 ]
   %.sroa.4.2.i26 = phi i16 [ %.sroa.4.080.i22, %99 ], [ %spec.select.i24, %105 ]
   %.165.i27 = phi i32 [ %101, %99 ], [ %.06481.i21, %105 ]
-  %108 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv.i20
+  %108 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv.i20
   store i16 %.sink.i25, ptr %108, align 2, !tbaa !10
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i28, %wide.trip.count.i19
@@ -8887,7 +8884,7 @@ default.unreachable:                              ; preds = %9
 .preheader78.i33:                                 ; preds = %._crit_edge86.i36, %.preheader78.lr.ph.i30
   %indvars.iv94.i34 = phi i64 [ 0, %.preheader78.lr.ph.i30 ], [ %indvars.iv.next95.i38, %._crit_edge86.i36 ]
   %.06889.i35 = phi i32 [ 0, %.preheader78.lr.ph.i30 ], [ %.169.lcssa.i37, %._crit_edge86.i36 ]
-  %114 = getelementptr inbounds nuw i16, ptr %14, i64 %indvars.iv94.i34
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %indvars.iv94.i34
   %115 = load i16, ptr %114, align 2, !tbaa !10
   %116 = sext i16 %115 to i32
   %117 = icmp sgt i16 %115, 0
@@ -8901,7 +8898,7 @@ default.unreachable:                              ; preds = %9
   %.06784.i50 = phi i32 [ 0, %.lr.ph85.i49 ], [ %126, %125 ]
   %.16983.i51 = phi i32 [ %.06889.i35, %.lr.ph85.i49 ], [ %.2.i54, %125 ]
   %120 = zext nneg i32 %.16983.i51 to i64
-  %121 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %89, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 2
   store i8 %118, ptr %122, align 2, !tbaa !14
   br label %123
@@ -8934,11 +8931,11 @@ default.unreachable:                              ; preds = %9
 
 .preheader.i45:                                   ; preds = %.preheader.i45, %.preheader.preheader.i43
   %indvars.iv99.i46 = phi i64 [ 0, %.preheader.preheader.i43 ], [ %indvars.iv.next100.i47, %.preheader.i45 ]
-  %127 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %89, i64 %indvars.iv99.i46
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv99.i46
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 2
   %129 = load i8, ptr %128, align 2, !tbaa !14
   %130 = zext i8 %129 to i64
-  %131 = getelementptr inbounds nuw i16, ptr %10, i64 %130
+  %131 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %130
   %132 = load i16, ptr %131, align 2, !tbaa !10
   %133 = add i16 %132, 1
   store i16 %133, ptr %131, align 2, !tbaa !10

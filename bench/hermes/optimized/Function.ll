@@ -269,7 +269,7 @@ if.then.i.i67:                                    ; preds = %_ZN4llvh9StringRefC
 if.end.i.i53:                                     ; preds = %if.then.i.i67, %_ZN4llvh9StringRefC2EPKc.exit99
   %conv.i9.pre-phi.i.i54 = phi i64 [ %.pre14.i.i71, %if.then.i.i67 ], [ %conv.i5.i.i50, %_ZN4llvh9StringRefC2EPKc.exit99 ]
   %29 = load ptr, ptr %strBuf, align 8
-  %add.ptr.i.i1.i55 = getelementptr inbounds nuw i16, ptr %29, i64 %conv.i9.pre-phi.i.i54
+  %add.ptr.i.i1.i55 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %conv.i9.pre-phi.i.i54
   br label %for.body.i.i.i.i.i.i.i.i.i.i56
 
 for.body.i.i.i.i.i.i.i.i.i.i56:                   ; preds = %for.body.i.i.i.i.i.i.i.i.i.i56, %if.end.i.i53
@@ -466,7 +466,7 @@ if.then.i.i208:                                   ; preds = %_ZN4llvh9StringRefC
 if.end.i.i194:                                    ; preds = %if.then.i.i208, %_ZN4llvh9StringRefC2EPKc.exit139
   %conv.i9.pre-phi.i.i195 = phi i64 [ %.pre14.i.i212, %if.then.i.i208 ], [ %conv.i5.i.i191, %_ZN4llvh9StringRefC2EPKc.exit139 ]
   %51 = load ptr, ptr %strBuf33, align 8
-  %add.ptr.i.i1.i196 = getelementptr inbounds nuw i16, ptr %51, i64 %conv.i9.pre-phi.i.i195
+  %add.ptr.i.i1.i196 = getelementptr inbounds nuw [2 x i8], ptr %51, i64 %conv.i9.pre-phi.i.i195
   br label %for.body.i.i.i.i.i.i.i.i.i.i197
 
 for.body.i.i.i.i.i.i.i.i.i.i197:                  ; preds = %for.body.i.i.i.i.i.i.i.i.i.i197, %if.end.i.i194
@@ -496,7 +496,7 @@ _ZN6hermes2vm12SmallXStringIDsLj64EE6appendEc.exit: ; preds = %if.else59, %if.th
   %55 = phi i32 [ %.pre.i.i218, %if.then.i.i216 ], [ %53, %if.else59 ]
   %56 = load ptr, ptr %strBuf33, align 8
   %conv.i3.i.i = zext i32 %55 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw i16, ptr %56, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %conv.i3.i.i
   store i16 40, ptr %add.ptr.i.i.i, align 1
   %57 = load i32, ptr %Size.i.i.i.i.i.i76, align 8
   %add.i.i219 = add i32 %57, 1
@@ -548,7 +548,7 @@ if.then.i.i243:                                   ; preds = %_ZN4llvh9StringRefC
 if.end.i.i229:                                    ; preds = %if.then.i.i243, %_ZN4llvh9StringRefC2EPKc.exit149
   %conv.i9.pre-phi.i.i230 = phi i64 [ %.pre14.i.i247, %if.then.i.i243 ], [ %conv.i5.i.i226, %_ZN4llvh9StringRefC2EPKc.exit149 ]
   %62 = load ptr, ptr %strBuf33, align 8
-  %add.ptr.i.i1.i231 = getelementptr inbounds nuw i16, ptr %62, i64 %conv.i9.pre-phi.i.i230
+  %add.ptr.i.i1.i231 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %conv.i9.pre-phi.i.i230
   br label %for.body.i.i.i.i.i.i.i.i.i.i232
 
 for.body.i.i.i.i.i.i.i.i.i.i232:                  ; preds = %for.body.i.i.i.i.i.i.i.i.i.i232, %if.end.i.i229
@@ -595,7 +595,7 @@ if.end.i.i255:                                    ; preds = %if.then.i.i269, %if
 
 for.body.i.i.i.i.i.i.i.i.preheader.i.i:           ; preds = %if.end.i.i255
   %67 = load ptr, ptr %strBuf33, align 8
-  %add.ptr.i.i1.i258 = getelementptr inbounds nuw i16, ptr %67, i64 %conv.i9.pre-phi.i.i256
+  %add.ptr.i.i1.i258 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %conv.i9.pre-phi.i.i256
   %scevgep348 = getelementptr i8, ptr %scevgep, i64 %call.i158
   br label %for.body.i.i.i.i.i.i.i.i.i.i259
 
@@ -642,7 +642,7 @@ if.then.i.i297:                                   ; preds = %_ZN4llvh9StringRefC
 if.end.i.i281:                                    ; preds = %if.then.i.i297, %_ZN4llvh9StringRefC2EPKc.exit169
   %conv.i9.pre-phi.i.i282 = phi i64 [ %.pre14.i.i301, %if.then.i.i297 ], [ %conv.i5.i.i278, %_ZN4llvh9StringRefC2EPKc.exit169 ]
   %73 = load ptr, ptr %strBuf33, align 8
-  %add.ptr.i.i1.i284 = getelementptr inbounds nuw i16, ptr %73, i64 %conv.i9.pre-phi.i.i282
+  %add.ptr.i.i1.i284 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %conv.i9.pre-phi.i.i282
   br label %for.body.i.i.i.i.i.i.i.i.i.i285
 
 for.body.i.i.i.i.i.i.i.i.i.i285:                  ; preds = %for.body.i.i.i.i.i.i.i.i.i.i285, %if.end.i.i281
@@ -862,7 +862,7 @@ if.end20:                                         ; preds = %_ZNK6hermes2vm10Nat
   %bf.load.i.i.i.i = load i32, ptr %19, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i30 = zext nneg i32 %bf.lshr.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 %conv.i.i.i.i30
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 %conv.i.i.i.i30
   %20 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   %call3.i = getelementptr inbounds nuw i8, ptr %20, i64 112
   %21 = load ptr, ptr %call3.i, align 8
@@ -1006,7 +1006,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit:         ; preds = %if.end, %cond.true.
 
 _ZN6hermes2vm21ScopedNativeCallFrameC2ERNS0_7RuntimeEjPNS0_8CallableEbNS0_11HermesValueE.exit: ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit
   %or.i.i.i.i = or i64 %5, -281474976710656
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::PinnedHermesValue", ptr %9, i64 %conv2.i.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %conv2.i.i.i.i
   store ptr %add.ptr.i.i.i, ptr %stackPointer_.i.i.i, align 8
   %currentFrame_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 9496
   %agg.tmp.sroa.0.0.copyload.i.i = load ptr, ptr %currentFrame_.i.i, align 8
@@ -1042,7 +1042,7 @@ cond.true.i16:                                    ; preds = %for.body
   %14 = load ptr, ptr %args, align 8, !noalias !22
   %conv.i = zext i32 %i.035 to i64
   %idx.neg.i.i.i = sub nsw i64 0, %conv.i
-  %add.ptr.i.i.i17 = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %14, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i17 = getelementptr inbounds [8 x i8], ptr %14, i64 %idx.neg.i.i.i
   %incdec.ptr.i.i.i18 = getelementptr inbounds i8, ptr %add.ptr.i.i.i17, i64 -8
   %retval.sroa.0.0.copyload.i19 = load i64, ptr %incdec.ptr.i.i.i18, align 8
   br label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit20
@@ -1052,7 +1052,7 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit20:       ; preds = %for.body, %cond.tru
   %sub20 = add i32 %i.035, -1
   %conv.i22 = sext i32 %sub20 to i64
   %idx.neg.i.i.i23 = sub nsw i64 0, %conv.i22
-  %add.ptr.i.i.i24 = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %add.ptr.i.i.i, i64 %idx.neg.i.i.i23
+  %add.ptr.i.i.i24 = getelementptr [8 x i8], ptr %add.ptr.i.i.i, i64 %idx.neg.i.i.i23
   %incdec.ptr.i.i.i25 = getelementptr i8, ptr %add.ptr.i.i.i24, i64 -64
   store i64 %retval.sroa.0.0.i15, ptr %incdec.ptr.i.i.i25, align 8
   %inc = add nuw i32 %i.035, 1
@@ -1066,7 +1066,7 @@ for.end:                                          ; preds = %_ZNK6hermes2vm10Nat
   %bf.load.i.i.i.i = load i32, ptr %15, align 4
   %bf.lshr.i.i.i.i = lshr i32 %bf.load.i.i.i.i, 24
   %conv.i.i.i.i27 = zext nneg i32 %bf.lshr.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 %conv.i.i.i.i27
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 %conv.i.i.i.i27
   %16 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   %call3.i = getelementptr inbounds nuw i8, ptr %16, i64 112
   %17 = load ptr, ptr %call3.i, align 8

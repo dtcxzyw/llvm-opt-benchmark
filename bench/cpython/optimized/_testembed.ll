@@ -1416,7 +1416,7 @@ define internal range(i32 0, 2) i32 @test_repeated_init_exec() #0 {
 
 21:                                               ; preds = %13
   %22 = load ptr, ptr @main_argv, align 8, !tbaa !8
-  %23 = getelementptr ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr [8 x i8], ptr %22, i64 %indvars.iv
   %24 = getelementptr i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !11
   br label %26
@@ -4132,14 +4132,14 @@ init_from_config_clear.exit:                      ; preds = %16
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %28 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %33, %24 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
-  %29 = getelementptr ptr, ptr %28, i64 %indvars.iv
+  %29 = getelementptr [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !82
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.286, i32 noundef %31, ptr noundef %30)
   %33 = load ptr, ptr %8, align 8, !tbaa !80
-  %34 = getelementptr ptr, ptr %33, i64 %indvars.iv
+  %34 = getelementptr [8 x i8], ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !82
-  %36 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %36 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !82
   %38 = call i32 @wcscmp(ptr noundef %35, ptr noundef %37) #19
   %39 = icmp eq i32 %38, 0

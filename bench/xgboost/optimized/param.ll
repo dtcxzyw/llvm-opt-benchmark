@@ -92,10 +92,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.59" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::allocator<std::pair<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.xgboost::RegTree::Node" = type { i32, i32, i32, i32, %"union.xgboost::RegTree::Node::Info" }
-%"union.xgboost::RegTree::Node::Info" = type { float }
-%"struct.xgboost::RTreeNodeStat" = type { float, float, float, i32 }
-%"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment" = type { i64, i64 }
 %"struct.dmlc::Error" = type { %"class.std::runtime_error" }
 %"class.std::runtime_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"class.std::exception" = type { ptr }
@@ -105,7 +101,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Rb_tree.65" = type { %"struct.std::_Rb_tree<dmlc::parameter::FieldAccessEntry *, dmlc::parameter::FieldAccessEntry *, std::_Identity<dmlc::parameter::FieldAccessEntry *>, std::less<dmlc::parameter::FieldAccessEntry *>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<dmlc::parameter::FieldAccessEntry *, dmlc::parameter::FieldAccessEntry *, std::_Identity<dmlc::parameter::FieldAccessEntry *>, std::less<dmlc::parameter::FieldAccessEntry *>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.dmlc::ParamFieldInfo" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"struct.std::pair.72" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.dmlc::DateLogger" = type { [9 x i8] }
 %"class.std::tuple.115" = type { %"struct.std::_Tuple_impl.116" }
@@ -1218,7 +1213,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
   br i1 %29, label %30, label %_ZNSt6vectorIN7xgboost7RegTree4NodeESaIS2_EE6resizeEm.exit
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %.pre27, i64 %19
+  %31 = getelementptr inbounds nuw [20 x i8], ptr %.pre27, i64 %19
   %.not.i.i = icmp eq ptr %.pre26, %31
   br i1 %.not.i.i, label %_ZNSt6vectorIN7xgboost7RegTree4NodeESaIS2_EE6resizeEm.exit, label %32
 
@@ -1254,7 +1249,7 @@ _ZNSt6vectorIN7xgboost7RegTree4NodeESaIS2_EE6resizeEm.exit: ; preds = %._ZNSt6ve
   br i1 %45, label %46, label %_ZNSt6vectorIN7xgboost13RTreeNodeStatESaIS1_EE6resizeEm.exit
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %36, i64 %.pre-phi
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %.pre-phi
   %.not.i.i11 = icmp eq ptr %35, %47
   br i1 %.not.i.i11, label %_ZNSt6vectorIN7xgboost13RTreeNodeStatESaIS1_EE6resizeEm.exit, label %48
 
@@ -1327,7 +1322,7 @@ _ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EE6resizeEmRKS1_.exit: ; preds = %._ZN
   br i1 %76, label %77, label %_ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE6resizeEm.exit
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %67, i64 %.pre-phi37
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %.pre-phi37
   %.not.i.i15 = icmp eq ptr %66, %78
   br i1 %.not.i.i15, label %_ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE6resizeEm.exit, label %79
 
@@ -1368,7 +1363,7 @@ _ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE6resizeEm
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %88 = phi ptr [ %.pre32, %.lr.ph.preheader ], [ %93, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %89 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %88, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [20 x i8], ptr %88, i64 %indvars.iv
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store float 0.000000e+00, ptr %90, align 4, !tbaa !12
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 4
@@ -1376,7 +1371,7 @@ _ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE6resizeEm
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i32 -1, ptr %92, align 4, !tbaa !135
   %93 = load ptr, ptr %11, align 8, !tbaa !124
-  %94 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [20 x i8], ptr %93, i64 %indvars.iv
   store i32 -1, ptr %94, align 4, !tbaa !136
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %5, align 4, !tbaa !84
@@ -1952,7 +1947,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %24 = phi ptr [ %34, %33 ], [ %5, %1 ]
   %25 = phi ptr [ %35, %33 ], [ %4, %1 ]
   %.04 = phi i64 [ %36, %33 ], [ 0, %1 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.04
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.04
   %27 = load ptr, ptr %26, align 8, !tbaa !164
   %28 = icmp eq ptr %27, null
   br i1 %28, label %33, label %29
@@ -2698,7 +2693,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter12ParamManager14PrintDocStringERSo(
   %21 = phi ptr [ %9, %.lr.ph ], [ %82, %_ZN4dmlc14ParamFieldInfoD2Ev.exit ]
   %.018 = phi i64 [ 0, %.lr.ph ], [ %80, %_ZN4dmlc14ParamFieldInfoD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.018
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.018
   %23 = load ptr, ptr %22, align 8, !tbaa !164
   %24 = load ptr, ptr %23, align 8, !tbaa !42
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
@@ -3082,7 +3077,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit40, %84
   store ptr %20, ptr %0, align 8, !tbaa !171
   store ptr %.0.lcssa.i.i.i39, ptr %4, align 8, !tbaa !174
-  %88 = getelementptr inbounds nuw %"struct.std::pair.72", ptr %20, i64 %16
+  %88 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %16
   store ptr %88, ptr %83, align 8, !tbaa !176
   ret void
 
@@ -3458,9 +3453,9 @@ _ZNSt6vectorIN7xgboost7RegTree4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ;
 
 _ZNSt12_Vector_baseIN7xgboost7RegTree4NodeESaIS2_EE13_M_deallocateEPS2_m.exit41: ; preds = %_ZNSt6vectorIN7xgboost7RegTree4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %39
   store ptr %30, ptr %0, align 8, !tbaa !124
-  %41 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %31, i64 %1
+  %41 = getelementptr inbounds nuw [20 x i8], ptr %31, i64 %1
   store ptr %41, ptr %4, align 8, !tbaa !123
-  %42 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %30, i64 %28
+  %42 = getelementptr inbounds nuw [20 x i8], ptr %30, i64 %28
   store ptr %42, ptr %11, align 8, !tbaa !147
   br label %43
 
@@ -3541,9 +3536,9 @@ _ZNSt6vectorIN7xgboost13RTreeNodeStatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit:
 
 _ZNSt12_Vector_baseIN7xgboost13RTreeNodeStatESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorIN7xgboost13RTreeNodeStatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !126
-  %33 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !125
-  %34 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !144
   br label %35
 
@@ -3771,9 +3766,9 @@ _ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE11_S_relo
 
 _ZNSt12_Vector_baseIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE13_M_deallocateEPS3_m.exit37: ; preds = %_ZNSt6vectorIN7xgboost7RegTree22CategoricalSplitMatrix7SegmentESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !132
-  %33 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !131
-  %34 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !140
   br label %35
 
@@ -3995,7 +3990,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !241
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -4051,7 +4046,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !242
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48
@@ -5699,7 +5694,7 @@ _ZNSt6vectorIPN4dmlc9parameter16FieldAccessEntryESaIS3_EE11_S_relocateEPS3_S6_S6
 _ZNSt6vectorIPN4dmlc9parameter16FieldAccessEntryESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %77, %_ZNSt6vectorIPN4dmlc9parameter16FieldAccessEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %72, ptr %5, align 8, !tbaa !162
   store ptr %76, ptr %6, align 8, !tbaa !158
-  %78 = getelementptr inbounds nuw ptr, ptr %72, i64 %70
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %70
   store ptr %78, ptr %55, align 8, !tbaa !163
   br label %_ZNSt6vectorIPN4dmlc9parameter16FieldAccessEntryESaIS3_EE9push_backERKS3_.exit
 

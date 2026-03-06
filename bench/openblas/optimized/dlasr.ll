@@ -20,7 +20,7 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %13 = load i32, ptr %8, align 4, !tbaa !3
   %narrow = xor i32 %13, -1
   %14 = sext i32 %narrow to i64
-  %15 = getelementptr inbounds double, ptr %7, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %7, i64 %14
   store i32 0, ptr %10, align 4, !tbaa !3
   %16 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #5
   %.not = icmp eq i32 %16, 0
@@ -115,9 +115,9 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %indvars.iv695 = phi i64 [ 1, %.lr.ph611.preheader ], [ %indvars.iv.next696, %.loopexit604 ]
   %51 = shl nuw nsw i64 %indvar889, 3
   %scevgep891 = getelementptr i8, ptr %7, i64 %51
-  %52 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv695
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv695
   %53 = load double, ptr %52, align 8, !tbaa !7
-  %54 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv695
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv695
   %55 = load double, ptr %54, align 8, !tbaa !7
   %56 = fcmp une double %53, 1.000000e+00
   %57 = fcmp une double %55, 0.000000e+00
@@ -132,17 +132,17 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 .lver.check:                                      ; preds = %58
   %60 = add nuw i32 %59, 1
   %wide.trip.count = zext i32 %60 to i64
-  %61 = getelementptr double, ptr %15, i64 %indvars.iv695
+  %61 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv695
   %62 = getelementptr i8, ptr %61, i64 8
-  %invariant.gep = getelementptr double, ptr %15, i64 %indvars.iv695
+  %invariant.gep = getelementptr [8 x i8], ptr %15, i64 %indvars.iv695
   br i1 %ident.check887.not, label %.ph, label %.ph.lver.orig
 
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
   %indvars.iv.lver.orig = phi i64 [ %indvars.iv.next.lver.orig, %.ph.lver.orig ], [ 1, %.lver.check ]
   %63 = mul nsw i64 %indvars.iv.lver.orig, %50
-  %64 = getelementptr double, ptr %62, i64 %63
+  %64 = getelementptr [8 x i8], ptr %62, i64 %63
   %65 = load double, ptr %64, align 8, !tbaa !7
-  %gep.lver.orig = getelementptr double, ptr %invariant.gep, i64 %63
+  %gep.lver.orig = getelementptr [8 x i8], ptr %invariant.gep, i64 %63
   %66 = load double, ptr %gep.lver.orig, align 8, !tbaa !7
   %67 = fneg double %66
   %68 = fmul double %55, %67
@@ -163,9 +163,9 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %store_forwarded893 = phi double [ %load_initial892, %.ph ], [ %78, %72 ]
   %indvars.iv = phi i64 [ 1, %.ph ], [ %indvars.iv.next, %72 ]
   %73 = mul nuw nsw i64 %indvars.iv, %50
-  %74 = getelementptr double, ptr %62, i64 %73
+  %74 = getelementptr [8 x i8], ptr %62, i64 %73
   %75 = load double, ptr %74, align 8, !tbaa !7
-  %gep = getelementptr double, ptr %invariant.gep, i64 %73
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %73
   %76 = fneg double %store_forwarded893
   %77 = fmul double %55, %76
   %78 = tail call double @llvm.fmuladd.f64(double %53, double %75, double %77)
@@ -208,9 +208,9 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %91 = sub i64 %89, %90
   %scevgep = getelementptr i8, ptr %7, i64 %91
   %indvars.iv.next706 = add nsw i64 %indvars.iv705, -1
-  %92 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next706
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next706
   %93 = load double, ptr %92, align 8, !tbaa !7
-  %94 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.next706
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.next706
   %95 = load double, ptr %94, align 8, !tbaa !7
   %96 = fcmp une double %93, 1.000000e+00
   %97 = fcmp une double %95, 0.000000e+00
@@ -225,16 +225,16 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 .lr.ph614.lver.check:                             ; preds = %98
   %100 = add nuw i32 %99, 1
   %wide.trip.count703 = zext i32 %100 to i64
-  %invariant.gep834 = getelementptr double, ptr %15, i64 %indvars.iv705
-  %invariant.gep836 = getelementptr double, ptr %15, i64 %indvars.iv.next706
+  %invariant.gep834 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv705
+  %invariant.gep836 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv.next706
   br i1 %ident.check.not, label %.lr.ph614.ph, label %.lr.ph614.lver.orig
 
 .lr.ph614.lver.orig:                              ; preds = %.lr.ph614.lver.check, %.lr.ph614.lver.orig
   %indvars.iv700.lver.orig = phi i64 [ %indvars.iv.next701.lver.orig, %.lr.ph614.lver.orig ], [ 1, %.lr.ph614.lver.check ]
   %101 = mul nsw i64 %indvars.iv700.lver.orig, %86
-  %gep835.lver.orig = getelementptr double, ptr %invariant.gep834, i64 %101
+  %gep835.lver.orig = getelementptr [8 x i8], ptr %invariant.gep834, i64 %101
   %102 = load double, ptr %gep835.lver.orig, align 8, !tbaa !7
-  %gep837.lver.orig = getelementptr double, ptr %invariant.gep836, i64 %101
+  %gep837.lver.orig = getelementptr [8 x i8], ptr %invariant.gep836, i64 %101
   %103 = load double, ptr %gep837.lver.orig, align 8, !tbaa !7
   %104 = fneg double %103
   %105 = fmul double %95, %104
@@ -255,9 +255,9 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %store_forwarded = phi double [ %load_initial, %.lr.ph614.ph ], [ %113, %.lr.ph614 ]
   %indvars.iv700 = phi i64 [ 1, %.lr.ph614.ph ], [ %indvars.iv.next701, %.lr.ph614 ]
   %109 = mul nuw nsw i64 %indvars.iv700, %86
-  %gep835 = getelementptr double, ptr %invariant.gep834, i64 %109
+  %gep835 = getelementptr [8 x i8], ptr %invariant.gep834, i64 %109
   %110 = load double, ptr %gep835, align 8, !tbaa !7
-  %gep837 = getelementptr double, ptr %invariant.gep836, i64 %109
+  %gep837 = getelementptr [8 x i8], ptr %invariant.gep836, i64 %109
   %111 = fneg double %store_forwarded
   %112 = fmul double %95, %111
   %113 = tail call double @llvm.fmuladd.f64(double %93, double %110, double %112)
@@ -298,9 +298,9 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 .lr.ph625:                                        ; preds = %.lr.ph625.preheader, %.loopexit600
   %indvars.iv713 = phi i64 [ 2, %.lr.ph625.preheader ], [ %indvars.iv.next714, %.loopexit600 ]
   %125 = add nsw i64 %indvars.iv713, -1
-  %126 = getelementptr inbounds double, ptr %11, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %11, i64 %125
   %127 = load double, ptr %126, align 8, !tbaa !7
-  %128 = getelementptr inbounds double, ptr %12, i64 %125
+  %128 = getelementptr inbounds [8 x i8], ptr %12, i64 %125
   %129 = load double, ptr %128, align 8, !tbaa !7
   %130 = fcmp une double %127, 1.000000e+00
   %131 = fcmp une double %129, 0.000000e+00
@@ -315,15 +315,15 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 .lr.ph621.preheader:                              ; preds = %132
   %134 = add nuw i32 %133, 1
   %wide.trip.count711 = zext i32 %134 to i64
-  %invariant.gep838 = getelementptr double, ptr %15, i64 %indvars.iv713
+  %invariant.gep838 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv713
   br label %.lr.ph621
 
 .lr.ph621:                                        ; preds = %.lr.ph621.preheader, %.lr.ph621
   %indvars.iv708 = phi i64 [ 1, %.lr.ph621.preheader ], [ %indvars.iv.next709, %.lr.ph621 ]
   %135 = mul nsw i64 %indvars.iv708, %123
-  %gep839 = getelementptr double, ptr %invariant.gep838, i64 %135
+  %gep839 = getelementptr [8 x i8], ptr %invariant.gep838, i64 %135
   %136 = load double, ptr %gep839, align 8, !tbaa !7
-  %137 = getelementptr double, ptr %15, i64 %135
+  %137 = getelementptr [8 x i8], ptr %15, i64 %135
   %138 = getelementptr i8, ptr %137, i64 8
   %139 = load double, ptr %138, align 8, !tbaa !7
   %140 = fneg double %139
@@ -361,9 +361,9 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 .lr.ph630:                                        ; preds = %.lr.ph630.preheader, %.loopexit598
   %indvars.iv723 = phi i64 [ %152, %.lr.ph630.preheader ], [ %indvars.iv.next724, %.loopexit598 ]
   %indvars.iv.next724 = add nsw i64 %indvars.iv723, -1
-  %153 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next724
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next724
   %154 = load double, ptr %153, align 8, !tbaa !7
-  %155 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.next724
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.next724
   %156 = load double, ptr %155, align 8, !tbaa !7
   %157 = fcmp une double %154, 1.000000e+00
   %158 = fcmp une double %156, 0.000000e+00
@@ -378,15 +378,15 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 .lr.ph628.preheader:                              ; preds = %159
   %161 = add nuw i32 %160, 1
   %wide.trip.count721 = zext i32 %161 to i64
-  %invariant.gep840 = getelementptr double, ptr %15, i64 %indvars.iv723
+  %invariant.gep840 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv723
   br label %.lr.ph628
 
 .lr.ph628:                                        ; preds = %.lr.ph628.preheader, %.lr.ph628
   %indvars.iv718 = phi i64 [ 1, %.lr.ph628.preheader ], [ %indvars.iv.next719, %.lr.ph628 ]
   %162 = mul nsw i64 %indvars.iv718, %151
-  %gep841 = getelementptr double, ptr %invariant.gep840, i64 %162
+  %gep841 = getelementptr [8 x i8], ptr %invariant.gep840, i64 %162
   %163 = load double, ptr %gep841, align 8, !tbaa !7
-  %164 = getelementptr double, ptr %15, i64 %162
+  %164 = getelementptr [8 x i8], ptr %15, i64 %162
   %165 = getelementptr i8, ptr %164, i64 8
   %166 = load double, ptr %165, align 8, !tbaa !7
   %167 = fneg double %166
@@ -424,14 +424,14 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %180 = sext i32 %13 to i64
   %181 = zext nneg i32 %179 to i64
   %wide.trip.count734 = zext nneg i32 %179 to i64
-  %invariant.gep844 = getelementptr double, ptr %15, i64 %181
+  %invariant.gep844 = getelementptr [8 x i8], ptr %15, i64 %181
   br label %.lr.ph637
 
 .lr.ph637:                                        ; preds = %.lr.ph637.preheader, %.loopexit596
   %indvars.iv731 = phi i64 [ 1, %.lr.ph637.preheader ], [ %indvars.iv.next732, %.loopexit596 ]
-  %182 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv731
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv731
   %183 = load double, ptr %182, align 8, !tbaa !7
-  %184 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv731
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv731
   %185 = load double, ptr %184, align 8, !tbaa !7
   %186 = fcmp une double %183, 1.000000e+00
   %187 = fcmp une double %185, 0.000000e+00
@@ -446,15 +446,15 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 .lr.ph633.preheader:                              ; preds = %188
   %190 = add nuw i32 %189, 1
   %wide.trip.count729 = zext i32 %190 to i64
-  %invariant.gep842 = getelementptr double, ptr %15, i64 %indvars.iv731
+  %invariant.gep842 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv731
   br label %.lr.ph633
 
 .lr.ph633:                                        ; preds = %.lr.ph633.preheader, %.lr.ph633
   %indvars.iv726 = phi i64 [ 1, %.lr.ph633.preheader ], [ %indvars.iv.next727, %.lr.ph633 ]
   %191 = mul nsw i64 %indvars.iv726, %180
-  %gep843 = getelementptr double, ptr %invariant.gep842, i64 %191
+  %gep843 = getelementptr [8 x i8], ptr %invariant.gep842, i64 %191
   %192 = load double, ptr %gep843, align 8, !tbaa !7
-  %gep845 = getelementptr double, ptr %invariant.gep844, i64 %191
+  %gep845 = getelementptr [8 x i8], ptr %invariant.gep844, i64 %191
   %193 = load double, ptr %gep845, align 8, !tbaa !7
   %194 = fmul double %183, %192
   %195 = tail call double @llvm.fmuladd.f64(double %185, double %193, double %194)
@@ -486,15 +486,15 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 .lr.ph643.preheader:                              ; preds = %202
   %205 = sext i32 %13 to i64
   %206 = zext nneg i32 %203 to i64
-  %invariant.gep848 = getelementptr double, ptr %15, i64 %206
+  %invariant.gep848 = getelementptr [8 x i8], ptr %15, i64 %206
   br label %.lr.ph643
 
 .lr.ph643:                                        ; preds = %.lr.ph643.preheader, %.loopexit594
   %indvars.iv741 = phi i64 [ %206, %.lr.ph643.preheader ], [ %indvars.iv.next742, %.loopexit594 ]
   %indvars.iv.next742 = add nsw i64 %indvars.iv741, -1
-  %207 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next742
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next742
   %208 = load double, ptr %207, align 8, !tbaa !7
-  %209 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.next742
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.next742
   %210 = load double, ptr %209, align 8, !tbaa !7
   %211 = fcmp une double %208, 1.000000e+00
   %212 = fcmp une double %210, 0.000000e+00
@@ -509,15 +509,15 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 .lr.ph640.preheader:                              ; preds = %213
   %215 = add nuw i32 %214, 1
   %wide.trip.count739 = zext i32 %215 to i64
-  %invariant.gep846 = getelementptr double, ptr %15, i64 %indvars.iv.next742
+  %invariant.gep846 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv.next742
   br label %.lr.ph640
 
 .lr.ph640:                                        ; preds = %.lr.ph640.preheader, %.lr.ph640
   %indvars.iv736 = phi i64 [ 1, %.lr.ph640.preheader ], [ %indvars.iv.next737, %.lr.ph640 ]
   %216 = mul nsw i64 %indvars.iv736, %205
-  %gep847 = getelementptr double, ptr %invariant.gep846, i64 %216
+  %gep847 = getelementptr [8 x i8], ptr %invariant.gep846, i64 %216
   %217 = load double, ptr %gep847, align 8, !tbaa !7
-  %gep849 = getelementptr double, ptr %invariant.gep848, i64 %216
+  %gep849 = getelementptr [8 x i8], ptr %invariant.gep848, i64 %216
   %218 = load double, ptr %gep849, align 8, !tbaa !7
   %219 = fmul double %208, %217
   %220 = tail call double @llvm.fmuladd.f64(double %210, double %218, double %219)
@@ -562,9 +562,9 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 .lr.ph650:                                        ; preds = %.lr.ph650.preheader, %.loopexit592
   %indvars.iv749 = phi i64 [ 1, %.lr.ph650.preheader ], [ %indvars.iv.next750, %.loopexit592 ]
-  %235 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv749
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv749
   %236 = load double, ptr %235, align 8, !tbaa !7
-  %237 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv749
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv749
   %238 = load double, ptr %237, align 8, !tbaa !7
   %239 = fcmp une double %236, 1.000000e+00
   %240 = fcmp une double %238, 0.000000e+00
@@ -582,15 +582,15 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %245 = mul nsw i64 %indvars.iv749, %234
   %246 = add nuw i32 %242, 1
   %wide.trip.count747 = zext i32 %246 to i64
-  %invariant.gep850 = getelementptr double, ptr %15, i64 %244
-  %invariant.gep852 = getelementptr double, ptr %15, i64 %245
+  %invariant.gep850 = getelementptr [8 x i8], ptr %15, i64 %244
+  %invariant.gep852 = getelementptr [8 x i8], ptr %15, i64 %245
   br label %247
 
 247:                                              ; preds = %.lr.ph646, %247
   %indvars.iv744 = phi i64 [ 1, %.lr.ph646 ], [ %indvars.iv.next745, %247 ]
-  %gep851 = getelementptr double, ptr %invariant.gep850, i64 %indvars.iv744
+  %gep851 = getelementptr [8 x i8], ptr %invariant.gep850, i64 %indvars.iv744
   %248 = load double, ptr %gep851, align 8, !tbaa !7
-  %gep853 = getelementptr double, ptr %invariant.gep852, i64 %indvars.iv744
+  %gep853 = getelementptr [8 x i8], ptr %invariant.gep852, i64 %indvars.iv744
   %249 = load double, ptr %gep853, align 8, !tbaa !7
   %250 = fneg double %249
   %251 = fmul double %238, %250
@@ -627,9 +627,9 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 .lr.ph657:                                        ; preds = %.lr.ph657.preheader, %.loopexit590
   %indvars.iv759 = phi i64 [ %261, %.lr.ph657.preheader ], [ %indvars.iv.next760, %.loopexit590 ]
   %indvars.iv.next760 = add nsw i64 %indvars.iv759, -1
-  %263 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next760
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next760
   %264 = load double, ptr %263, align 8, !tbaa !7
-  %265 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.next760
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.next760
   %266 = load double, ptr %265, align 8, !tbaa !7
   %267 = fcmp une double %264, 1.000000e+00
   %268 = fcmp une double %266, 0.000000e+00
@@ -646,15 +646,15 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %272 = mul nsw i64 %indvars.iv.next760, %262
   %273 = add nuw i32 %270, 1
   %wide.trip.count757 = zext i32 %273 to i64
-  %invariant.gep854 = getelementptr double, ptr %15, i64 %271
-  %invariant.gep856 = getelementptr double, ptr %15, i64 %272
+  %invariant.gep854 = getelementptr [8 x i8], ptr %15, i64 %271
+  %invariant.gep856 = getelementptr [8 x i8], ptr %15, i64 %272
   br label %274
 
 274:                                              ; preds = %.lr.ph653, %274
   %indvars.iv754 = phi i64 [ 1, %.lr.ph653 ], [ %indvars.iv.next755, %274 ]
-  %gep855 = getelementptr double, ptr %invariant.gep854, i64 %indvars.iv754
+  %gep855 = getelementptr [8 x i8], ptr %invariant.gep854, i64 %indvars.iv754
   %275 = load double, ptr %gep855, align 8, !tbaa !7
-  %gep857 = getelementptr double, ptr %invariant.gep856, i64 %indvars.iv754
+  %gep857 = getelementptr [8 x i8], ptr %invariant.gep856, i64 %indvars.iv754
   %276 = load double, ptr %gep857, align 8, !tbaa !7
   %277 = fneg double %276
   %278 = fmul double %266, %277
@@ -691,15 +691,15 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %290 = sext i32 %13 to i64
   %291 = add nuw i32 %289, 1
   %wide.trip.count770 = zext i32 %291 to i64
-  %invariant.gep860 = getelementptr double, ptr %15, i64 %290
+  %invariant.gep860 = getelementptr [8 x i8], ptr %15, i64 %290
   br label %.lr.ph664
 
 .lr.ph664:                                        ; preds = %.lr.ph664.preheader, %.loopexit588
   %indvars.iv767 = phi i64 [ 2, %.lr.ph664.preheader ], [ %indvars.iv.next768, %.loopexit588 ]
   %292 = add nsw i64 %indvars.iv767, -1
-  %293 = getelementptr inbounds double, ptr %11, i64 %292
+  %293 = getelementptr inbounds [8 x i8], ptr %11, i64 %292
   %294 = load double, ptr %293, align 8, !tbaa !7
-  %295 = getelementptr inbounds double, ptr %12, i64 %292
+  %295 = getelementptr inbounds [8 x i8], ptr %12, i64 %292
   %296 = load double, ptr %295, align 8, !tbaa !7
   %297 = fcmp une double %294, 1.000000e+00
   %298 = fcmp une double %296, 0.000000e+00
@@ -715,14 +715,14 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %301 = mul nsw i64 %indvars.iv767, %290
   %302 = add nuw i32 %300, 1
   %wide.trip.count765 = zext i32 %302 to i64
-  %invariant.gep858 = getelementptr double, ptr %15, i64 %301
+  %invariant.gep858 = getelementptr [8 x i8], ptr %15, i64 %301
   br label %303
 
 303:                                              ; preds = %.lr.ph660, %303
   %indvars.iv762 = phi i64 [ 1, %.lr.ph660 ], [ %indvars.iv.next763, %303 ]
-  %gep859 = getelementptr double, ptr %invariant.gep858, i64 %indvars.iv762
+  %gep859 = getelementptr [8 x i8], ptr %invariant.gep858, i64 %indvars.iv762
   %304 = load double, ptr %gep859, align 8, !tbaa !7
-  %gep861 = getelementptr double, ptr %invariant.gep860, i64 %indvars.iv762
+  %gep861 = getelementptr [8 x i8], ptr %invariant.gep860, i64 %indvars.iv762
   %305 = load double, ptr %gep861, align 8, !tbaa !7
   %306 = fneg double %305
   %307 = fmul double %296, %306
@@ -754,15 +754,15 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 .lr.ph669.preheader:                              ; preds = %314
   %317 = sext i32 %13 to i64
   %318 = zext nneg i32 %315 to i64
-  %invariant.gep864 = getelementptr double, ptr %15, i64 %317
+  %invariant.gep864 = getelementptr [8 x i8], ptr %15, i64 %317
   br label %.lr.ph669
 
 .lr.ph669:                                        ; preds = %.lr.ph669.preheader, %.loopexit586
   %indvars.iv777 = phi i64 [ %318, %.lr.ph669.preheader ], [ %indvars.iv.next778, %.loopexit586 ]
   %indvars.iv.next778 = add nsw i64 %indvars.iv777, -1
-  %319 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next778
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next778
   %320 = load double, ptr %319, align 8, !tbaa !7
-  %321 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.next778
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.next778
   %322 = load double, ptr %321, align 8, !tbaa !7
   %323 = fcmp une double %320, 1.000000e+00
   %324 = fcmp une double %322, 0.000000e+00
@@ -778,14 +778,14 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %327 = mul nsw i64 %indvars.iv777, %317
   %328 = add nuw i32 %326, 1
   %wide.trip.count775 = zext i32 %328 to i64
-  %invariant.gep862 = getelementptr double, ptr %15, i64 %327
+  %invariant.gep862 = getelementptr [8 x i8], ptr %15, i64 %327
   br label %329
 
 329:                                              ; preds = %.lr.ph667, %329
   %indvars.iv772 = phi i64 [ 1, %.lr.ph667 ], [ %indvars.iv.next773, %329 ]
-  %gep863 = getelementptr double, ptr %invariant.gep862, i64 %indvars.iv772
+  %gep863 = getelementptr [8 x i8], ptr %invariant.gep862, i64 %indvars.iv772
   %330 = load double, ptr %gep863, align 8, !tbaa !7
-  %gep865 = getelementptr double, ptr %invariant.gep864, i64 %indvars.iv772
+  %gep865 = getelementptr [8 x i8], ptr %invariant.gep864, i64 %indvars.iv772
   %331 = load double, ptr %gep865, align 8, !tbaa !7
   %332 = fneg double %331
   %333 = fmul double %322, %332
@@ -823,14 +823,14 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %346 = sext i32 %345 to i64
   %347 = sext i32 %13 to i64
   %wide.trip.count788 = zext nneg i32 %344 to i64
-  %invariant.gep868 = getelementptr double, ptr %15, i64 %346
+  %invariant.gep868 = getelementptr [8 x i8], ptr %15, i64 %346
   br label %348
 
 348:                                              ; preds = %.lr.ph676, %.loopexit584
   %indvars.iv785 = phi i64 [ 1, %.lr.ph676 ], [ %indvars.iv.next786, %.loopexit584 ]
-  %349 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv785
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv785
   %350 = load double, ptr %349, align 8, !tbaa !7
-  %351 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv785
+  %351 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv785
   %352 = load double, ptr %351, align 8, !tbaa !7
   %353 = fcmp une double %350, 1.000000e+00
   %354 = fcmp une double %352, 0.000000e+00
@@ -846,14 +846,14 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %357 = mul nsw i64 %indvars.iv785, %347
   %358 = add nuw i32 %356, 1
   %wide.trip.count783 = zext i32 %358 to i64
-  %invariant.gep866 = getelementptr double, ptr %15, i64 %357
+  %invariant.gep866 = getelementptr [8 x i8], ptr %15, i64 %357
   br label %359
 
 359:                                              ; preds = %.lr.ph672, %359
   %indvars.iv780 = phi i64 [ 1, %.lr.ph672 ], [ %indvars.iv.next781, %359 ]
-  %gep867 = getelementptr double, ptr %invariant.gep866, i64 %indvars.iv780
+  %gep867 = getelementptr [8 x i8], ptr %invariant.gep866, i64 %indvars.iv780
   %360 = load double, ptr %gep867, align 8, !tbaa !7
-  %gep869 = getelementptr double, ptr %invariant.gep868, i64 %indvars.iv780
+  %gep869 = getelementptr [8 x i8], ptr %invariant.gep868, i64 %indvars.iv780
   %361 = load double, ptr %gep869, align 8, !tbaa !7
   %362 = fmul double %350, %360
   %363 = tail call double @llvm.fmuladd.f64(double %352, double %361, double %362)
@@ -887,15 +887,15 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %374 = sext i32 %373 to i64
   %375 = zext nneg i32 %371 to i64
   %376 = sext i32 %13 to i64
-  %invariant.gep872 = getelementptr double, ptr %15, i64 %374
+  %invariant.gep872 = getelementptr [8 x i8], ptr %15, i64 %374
   br label %377
 
 377:                                              ; preds = %.lr.ph682, %.loopexit
   %indvars.iv795 = phi i64 [ %375, %.lr.ph682 ], [ %indvars.iv.next796, %.loopexit ]
   %indvars.iv.next796 = add nsw i64 %indvars.iv795, -1
-  %378 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next796
+  %378 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next796
   %379 = load double, ptr %378, align 8, !tbaa !7
-  %380 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.next796
+  %380 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.next796
   %381 = load double, ptr %380, align 8, !tbaa !7
   %382 = fcmp une double %379, 1.000000e+00
   %383 = fcmp une double %381, 0.000000e+00
@@ -911,14 +911,14 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %386 = mul nsw i64 %indvars.iv.next796, %376
   %387 = add nuw i32 %385, 1
   %wide.trip.count793 = zext i32 %387 to i64
-  %invariant.gep870 = getelementptr double, ptr %15, i64 %386
+  %invariant.gep870 = getelementptr [8 x i8], ptr %15, i64 %386
   br label %388
 
 388:                                              ; preds = %.lr.ph679, %388
   %indvars.iv790 = phi i64 [ 1, %.lr.ph679 ], [ %indvars.iv.next791, %388 ]
-  %gep871 = getelementptr double, ptr %invariant.gep870, i64 %indvars.iv790
+  %gep871 = getelementptr [8 x i8], ptr %invariant.gep870, i64 %indvars.iv790
   %389 = load double, ptr %gep871, align 8, !tbaa !7
-  %gep873 = getelementptr double, ptr %invariant.gep872, i64 %indvars.iv790
+  %gep873 = getelementptr [8 x i8], ptr %invariant.gep872, i64 %indvars.iv790
   %390 = load double, ptr %gep873, align 8, !tbaa !7
   %391 = fmul double %379, %389
   %392 = tail call double @llvm.fmuladd.f64(double %381, double %390, double %391)

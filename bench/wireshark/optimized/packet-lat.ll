@@ -2159,7 +2159,7 @@ define internal fastcc noundef i32 @dissect_lat_channel_char(ptr noundef %0, i32
   %5 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %3)
   %6 = load ptr, ptr @g_ascii_table, align 8
   %7 = zext i8 %5 to i64
-  %8 = getelementptr i16, ptr %6, i64 %7
+  %8 = getelementptr [2 x i8], ptr %6, i64 %7
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, 64
   %.not = icmp eq i16 %10, 0

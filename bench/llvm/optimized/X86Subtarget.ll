@@ -6701,7 +6701,7 @@ switch.edge1962.fold.split2123:                   ; preds = %._crit_edge, %._cri
   br label %switch.edge1962
 
 switch.lookup:                                    ; preds = %630
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm19X86GenSubtargetInfo17resolveSchedClassEjPKNS_12MachineInstrEPKNS_16TargetSchedModelE, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK4llvm19X86GenSubtargetInfo17resolveSchedClassEjPKNS_12MachineInstrEPKNS_16TargetSchedModelE, i64 %switch.tableidx
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %switch.edge1962
 
@@ -7798,7 +7798,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %26 = phi i32 [ %21, %4 ], [ %.pre.i.i, %23 ]
   %27 = load ptr, ptr %10, align 8, !tbaa !384
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = ptrtoint ptr %20 to i64
   store i64 %30, ptr %29, align 1
   %31 = load i32, ptr %12, align 8, !tbaa !385
@@ -9331,7 +9331,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EE
 _ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %30, %_ZNSt6vectorISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %23, ptr %1, align 8, !tbaa !559
   store ptr %29, ptr %4, align 8, !tbaa !553
-  %31 = getelementptr inbounds nuw %"class.std::unique_ptr.281", ptr %23, i64 %21
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %31, ptr %6, align 8, !tbaa !556
   %.pr = load ptr, ptr %3, align 8, !tbaa !557
   %.not.i = icmp eq ptr %.pr, null
@@ -9376,7 +9376,7 @@ _ZSt7advanceIPKN4llvm18SubtargetSubTypeKVElEvRT_T0_.exit.i.i.i: ; preds = %3, %_
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ], [ %5, %3 ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ], [ %7, %3 ]
   %8 = lshr i64 %.01116.i.i.i, 1
-  %9 = getelementptr inbounds nuw %"struct.llvm::SubtargetSubTypeKV", ptr %.017.i.i.i, i64 %8
+  %9 = getelementptr inbounds nuw [96 x i8], ptr %.017.i.i.i, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !567
   %.not.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i, label %11
@@ -9421,7 +9421,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9String
 
 _ZN4llvm11lower_boundIRKNS_8ArrayRefINS_18SubtargetSubTypeKVEEERNS_9StringRefEEEDaOT_OT0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i, %3
   %.0.lcssa.i.i.i = phi ptr [ %5, %3 ], [ %.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ]
-  %25 = getelementptr inbounds nuw %"struct.llvm::SubtargetSubTypeKV", ptr %5, i64 %7
+  %25 = getelementptr inbounds nuw [96 x i8], ptr %5, i64 %7
   %.not = icmp eq ptr %.0.lcssa.i.i.i, %25
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %26
 

@@ -3,14 +3,6 @@ source_filename = "bench/ffmpeg/original/movenchint.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.MOVTrack = type { i32, i32, i32, i32, i64, i64, i32, i64, i64, i64, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, i32, i32, i32, i32, i32, i64, i64, i64, i32, i64, i32, i32, ptr, i32, i64, i32, i64, i32, i32, %struct.HintSampleQueue, ptr, ptr, i64, i32, i32, i32, ptr, i32, %struct.anon, ptr, %struct.MOVMuxCencContext, [256 x i32], i32, i32, i32, %struct.PacketList, ptr, i32, i32, ptr }
-%struct.HintSampleQueue = type { i32, i32, ptr }
-%struct.anon = type { i32, i32, i32, i32, i32, i32, i32 }
-%struct.MOVMuxCencContext = type { ptr, ptr, i64, i64, i32, i32, i16, i64, ptr, i64, ptr, i32, i32, ptr, %struct.CodedBitstreamFragment }
-%struct.CodedBitstreamFragment = type { ptr, i64, i64, ptr, i32, i32, ptr }
-%struct.PacketList = type { ptr, ptr }
-%struct.HintSample = type { ptr, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [43 x i8] c"Unable to initialize hinting of stream %d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"rtpo\00", align 1
 
@@ -21,12 +13,12 @@ define range(i32 -2147483648, 1) i32 @ff_mov_init_hinting(ptr noundef %0, i32 no
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %struct.MOVTrack, ptr %7, i64 %8
+  %9 = getelementptr inbounds [1600 x i8], ptr %7, i64 %8
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds %struct.MOVTrack, ptr %7, i64 %10
+  %11 = getelementptr inbounds [1600 x i8], ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !30
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %10
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %10
   %15 = load ptr, ptr %14, align 8, !tbaa !31
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 88
   store i32 544240754, ptr %16, align 8, !tbaa !33
@@ -91,7 +83,7 @@ define i32 @ff_mov_add_hinted_packet(ptr noundef %0, ptr noundef %1, i32 noundef
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = sext i32 %2 to i64
-  %14 = getelementptr inbounds %struct.MOVTrack, ptr %12, i64 %13
+  %14 = getelementptr inbounds [1600 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 224
   %16 = load ptr, ptr %15, align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -195,7 +187,7 @@ sample_queue_push.exit.sink.split:                ; preds = %sample_queue_push.e
   %.sink = phi i32 [ %5, %29 ], [ %42, %47 ], [ %.sink.ph, %sample_queue_push.exit.sink.split.sink.split ]
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 276
   %57 = sext i32 %.sink200 to i64
-  %58 = getelementptr inbounds %struct.HintSample, ptr %.sink198, i64 %57
+  %58 = getelementptr inbounds [24 x i8], ptr %.sink198, i64 %57
   store ptr %.sink196, ptr %58, align 8, !tbaa !75
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i32 %.sink, ptr %59, align 8, !tbaa !77
@@ -747,7 +739,7 @@ write_hint_packets.exit:                          ; preds = %84, %262, %73
   %.02124.i = phi i32 [ 0, %.lr.ph.i59 ], [ %.1.i62, %319 ]
   %293 = load ptr, ptr %291, align 8, !tbaa !70
   %294 = sext i32 %.02124.i to i64
-  %295 = getelementptr inbounds %struct.HintSample, ptr %293, i64 %294
+  %295 = getelementptr inbounds [24 x i8], ptr %293, i64 %294
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 20
   %297 = load i32, ptr %296, align 4, !tbaa !80
   %.not.i60 = icmp eq i32 %297, 0
@@ -763,7 +755,7 @@ write_hint_packets.exit:                          ; preds = %84, %262, %73
 
 .thread.i63:                                      ; preds = %298
   %303 = load ptr, ptr %291, align 8, !tbaa !70
-  %304 = getelementptr inbounds %struct.HintSample, ptr %303, i64 %294
+  %304 = getelementptr inbounds [24 x i8], ptr %303, i64 %294
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 24
   %306 = load i32, ptr %288, align 4, !tbaa !72
   %307 = xor i32 %.02124.i, -1
@@ -840,7 +832,7 @@ define void @ff_mov_close_hinting(ptr noundef %0) local_unnamed_addr #0 {
   %11 = phi i32 [ %7, %.lr.ph.i ], [ %18, %17 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
   %12 = load ptr, ptr %9, align 8, !tbaa !70
-  %13 = getelementptr inbounds nuw %struct.HintSample, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %15 = load i32, ptr %14, align 4, !tbaa !80
   %.not.i = icmp eq i32 %15, 0

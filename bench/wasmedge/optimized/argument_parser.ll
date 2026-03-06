@@ -28,41 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cxx20::detail::expected_view_base.54" = type { %"struct.cxx20::detail::expected_storage_base.55" }
 %"struct.cxx20::detail::expected_storage_base.55" = type { i8, %union.anon.56 }
 %union.anon.56 = type { %"class.cxx20::unexpected" }
-%"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor" = type { ptr, %"class.std::vector", %"class.std::vector.4", %"class.std::vector.9", %"class.std::unordered_map", %"class.std::unordered_map.19", %"class.std::unordered_map.19", %"class.std::vector.39", %"class.std::vector.39", %"class.std::vector.39", %"class.std::unique_ptr" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.4" = type { %"struct.std::_Vector_base.5" }
-%"struct.std::_Vector_base.5" = type { %"struct.std::_Vector_base<const char *, std::allocator<const char *>>::_Vector_impl" }
-%"struct.std::_Vector_base<const char *, std::allocator<const char *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const char *, std::allocator<const char *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<const char *, std::allocator<const char *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.9" = type { %"struct.std::_Vector_base.10" }
-%"struct.std::_Vector_base.10" = type { %"struct.std::_Vector_base<WasmEdge::PO::ArgumentParser::ArgumentDescriptor, std::allocator<WasmEdge::PO::ArgumentParser::ArgumentDescriptor>>::_Vector_impl" }
-%"struct.std::_Vector_base<WasmEdge::PO::ArgumentParser::ArgumentDescriptor, std::allocator<WasmEdge::PO::ArgumentParser::ArgumentDescriptor>>::_Vector_impl" = type { %"struct.std::_Vector_base<WasmEdge::PO::ArgumentParser::ArgumentDescriptor, std::allocator<WasmEdge::PO::ArgumentParser::ArgumentDescriptor>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<WasmEdge::PO::ArgumentParser::ArgumentDescriptor, std::allocator<WasmEdge::PO::ArgumentParser::ArgumentDescriptor>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::unordered_map.19" = type { %"class.std::_Hashtable.20" }
-%"class.std::_Hashtable.20" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::vector.39" = type { %"struct.std::_Vector_base.40" }
-%"struct.std::_Vector_base.40" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.45" }
-%"struct.std::_Head_base.45" = type { ptr }
-%"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor" = type { %"class.std::basic_string_view", %"class.std::basic_string_view", i64, i64, i64, %"class.std::vector", %"class.std::function", %"class.std::function.46", i8, ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::function.46" = type { %"class.std::_Function_base", ptr }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"class.cxx20::expected.69" = type { %"struct.cxx20::detail::expected_move_assign_base.70" }
 %"struct.cxx20::detail::expected_move_assign_base.70" = type { %"struct.cxx20::detail::expected_copy_assign_base.71" }
@@ -191,12 +156,12 @@ _ZNSt12_Vector_baseIPKcSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %45, %_ZN
   store ptr %42, ptr %24, align 8
   %46 = getelementptr inbounds i8, ptr %42, i64 %40
   store ptr %46, ptr %37, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %42, i64 %25
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %25
   store ptr %47, ptr %29, align 8
   br label %_ZNSt6vectorIPKcSaIS1_EE7reserveEm.exit
 
 _ZNSt6vectorIPKcSaIS1_EE7reserveEm.exit:          ; preds = %_ZNSt12_Vector_baseIPKcSaIS1_EE13_M_deallocateEPS1_m.exit.i, %28
-  %48 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %48 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   invoke void @_ZNSt6vectorIPKcSaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef %3, ptr noundef %48)
           to label %_ZNSt6vectorIPKcSaIS1_EE6assignIPS1_vEEvT_S6_.exit unwind label %.loopexit.split-lp118
 
@@ -206,7 +171,7 @@ _ZNSt6vectorIPKcSaIS1_EE6assignIPS1_vEEvT_S6_.exit: ; preds = %_ZNSt6vectorIPKcS
 
 50:                                               ; preds = %_ZNSt6vectorIPKcSaIS1_EE6assignIPS1_vEEvT_S6_.exit
   %51 = sext i32 %7 to i64
-  %52 = getelementptr inbounds ptr, ptr %6, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %6, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %29, align 8
@@ -265,7 +230,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %76, 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %78, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %72, ptr %24, align 8
   store ptr %77, ptr %53, align 8
-  %79 = getelementptr inbounds nuw ptr, ptr %72, i64 %70
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %70
   store ptr %79, ptr %29, align 8
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backERKS1_.exit
 
@@ -306,7 +271,7 @@ _ZNSt6vectorIPKcSaIS1_EE9push_backERKS1_.exit:    ; preds = %_ZNSt6vectorIPKcSaI
   %.053147 = phi i1 [ true, %.lr.ph ], [ %.255, %_ZN5cxx208expectedIPN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorENS2_5ErrorEED2Ev.exit84 ]
   %.056146 = phi i1 [ false, %.lr.ph ], [ %.157, %_ZN5cxx208expectedIPN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorENS2_5ErrorEED2Ev.exit84 ]
   %.sroa.0107.0145 = phi ptr [ %82, %.lr.ph ], [ %.sroa.0107.1, %_ZN5cxx208expectedIPN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorENS2_5ErrorEED2Ev.exit84 ]
-  %105 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %105 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv
   %106 = load ptr, ptr %105, align 8
   %107 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #19
   store i64 %107, ptr %12, align 8
@@ -551,7 +516,7 @@ _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEmSt4hashIS3_ESt8e
   %185 = trunc nsw i64 %indvars.iv to i32
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %187 = load i64, ptr %186, align 8
-  %188 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %1, i64 %187
+  %188 = getelementptr inbounds [328 x i8], ptr %1, i64 %187
   %189 = load ptr, ptr %188, align 8
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 16
   store i8 1, ptr %190, align 8
@@ -646,7 +611,7 @@ _ZN5cxx208expectedIPN8WasmEdge2PO14ArgumentParser18ArgumentDescriptorENS2_5Error
 220:                                              ; preds = %211
   %221 = load i64, ptr %.sroa.0107.0145, align 8
   %222 = load ptr, ptr %99, align 8
-  %223 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %222, i64 %221
+  %223 = getelementptr inbounds [160 x i8], ptr %222, i64 %221
   %.sroa.0.0.copyload = load i64, ptr %12, align 8
   %.sroa.2.0.copyload = load ptr, ptr %83, align 8
   call void @_ZN8WasmEdge2PO14ArgumentParser20SubCommandDescriptor16consume_argumentERNS1_18ArgumentDescriptorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.48") align 8 %22, ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(160) %223, i64 %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload) #19
@@ -1390,7 +1355,7 @@ define void @_ZNK8WasmEdge2PO14ArgumentParser20SubCommandDescriptor4helpEP8_IO_F
           to label %36 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::SubCommandDescriptor", ptr %0, i64 %35
+  %37 = getelementptr inbounds [328 x i8], ptr %0, i64 %35
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -1481,7 +1446,7 @@ define void @_ZNK8WasmEdge2PO14ArgumentParser20SubCommandDescriptor4helpEP8_IO_F
   %.sroa.0474.0530 = phi ptr [ %55, %.lr.ph532 ], [ %90, %89 ]
   %64 = load i64, ptr %.sroa.0474.0530, align 8
   %65 = load ptr, ptr %58, align 8
-  %66 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %65, i64 %64
+  %66 = getelementptr inbounds [160 x i8], ptr %65, i64 %64
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 144
   %68 = load i8, ptr %67, align 1
   %69 = trunc i8 %68 to i1
@@ -1680,7 +1645,7 @@ define void @_ZNK8WasmEdge2PO14ArgumentParser20SubCommandDescriptor5usageEP8_IO_
   %.sroa.0329.0351 = phi ptr [ %39, %.lr.ph354 ], [ %78, %77 ]
   %46 = load i64, ptr %.sroa.0329.0351, align 8
   %47 = load ptr, ptr %42, align 8
-  %48 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %47, i64 %46
+  %48 = getelementptr inbounds [160 x i8], ptr %47, i64 %46
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 144
   %50 = load i8, ptr %49, align 1
   %51 = trunc i8 %50 to i1
@@ -1710,7 +1675,7 @@ define void @_ZNK8WasmEdge2PO14ArgumentParser20SubCommandDescriptor5usageEP8_IO_
 60:                                               ; preds = %59, %58
   %61 = load i64, ptr %.sroa.0329.0351, align 8
   %62 = load ptr, ptr %42, align 8
-  %63 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %62, i64 %61
+  %63 = getelementptr inbounds [160 x i8], ptr %62, i64 %61
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %65 = load i64, ptr %64, align 8
   switch i64 %65, label %72 [
@@ -2065,7 +2030,7 @@ _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEmSt4hashIS3_ESt8e
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %48 = load i64, ptr %47, align 8
   %49 = load ptr, ptr %46, align 8
-  %50 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %49, i64 %48
+  %50 = getelementptr inbounds [160 x i8], ptr %49, i64 %48
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
@@ -2226,7 +2191,7 @@ _ZNSt13unordered_mapISt17basic_string_viewIcSt11char_traitsIcEEmSt4hashIS3_ESt8e
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %48 = load i64, ptr %47, align 8
   %49 = load ptr, ptr %46, align 8
-  %50 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %49, i64 %48
+  %50 = getelementptr inbounds [160 x i8], ptr %49, i64 %48
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %52 = load i64, ptr %51, align 8
   %53 = icmp eq i64 %52, 0
@@ -2574,7 +2539,7 @@ _ZNKSt8__detail15_Hash_code_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pa
   %24 = load i64, ptr %23, align 8
   %25 = urem i64 %19, %24
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds ptr, ptr %26, i64 %25
+  %27 = getelementptr inbounds [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8
   %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %_ZNKSt8__detail15_Hashtable_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_mENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE13_M_key_equalsERS6_RKNS_16_Hash_node_valueIS7_Lb1EEE.exit, label %29

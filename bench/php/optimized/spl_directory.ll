@@ -4313,7 +4313,7 @@ spl_intern_is_glob.exit.thread.i:                 ; preds = %121, %115, %spl_int
   %152 = getelementptr inbounds i8, ptr %9, i64 -4056
   %153 = load i8, ptr %152, align 8, !tbaa !18
   %154 = zext i8 %153 to i64
-  %155 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr @zend_one_char_string, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !37
   store ptr %156, ptr %4, align 8, !tbaa !18
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 4
@@ -4327,7 +4327,7 @@ spl_intern_is_glob.exit.thread.i:                 ; preds = %121, %115, %spl_int
   %162 = getelementptr inbounds i8, ptr %9, i64 -4055
   %163 = load i8, ptr %162, align 1, !tbaa !18
   %164 = zext i8 %163 to i64
-  %165 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr @zend_one_char_string, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !37
   store ptr %166, ptr %4, align 8, !tbaa !18
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 4
@@ -7275,7 +7275,7 @@ spl_filesystem_file_free_line.exit:               ; preds = %24, %28
 38:                                               ; preds = %spl_filesystem_file_free_line.exit, %34
   %39 = and i32 %31, 255
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr @zend_one_char_string, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @zend_one_char_string, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !37
   store ptr %42, ptr %1, align 8, !tbaa !18
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4

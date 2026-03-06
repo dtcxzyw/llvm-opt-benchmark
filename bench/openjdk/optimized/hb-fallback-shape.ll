@@ -3,9 +3,6 @@ source_filename = "bench/openjdk/original/hb-fallback-shape.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.hb_glyph_info_t = type { i32, i32, i32, %union._hb_var_int_t, %union._hb_var_int_t }
-%union._hb_var_int_t = type { i32 }
-%struct.hb_glyph_position_t = type { i32, i32, i32, i32, %union._hb_var_int_t }
 %struct.hb_font_extents_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 $_ZN18hb_unicode_funcs_t20is_default_ignorableEj = comdat any
@@ -83,7 +80,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %5, %17
   br i1 %.not, label %41, label %33
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %27, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [20 x i8], ptr %27, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = call noundef i32 @_ZN18hb_unicode_funcs_t20is_default_ignorableEj(i32 noundef %35)
   %.not42 = icmp eq i32 %36, 0
@@ -92,14 +89,14 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %5, %17
 37:                                               ; preds = %33
   %38 = load i32, ptr %8, align 4
   store i32 %38, ptr %34, align 4
-  %39 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %29, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [20 x i8], ptr %29, i64 %indvars.iv
   store i32 0, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 0, ptr %40, align 4
   br label %90
 
 41:                                               ; preds = %33, %32
-  %42 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %27, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [20 x i8], ptr %27, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4
   store i32 0, ptr %42, align 4
   %44 = load ptr, ptr %9, align 8
@@ -120,7 +117,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit44:     ; preds = %41, %50
   %53 = phi ptr [ %52, %50 ], [ null, %41 ]
   %54 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %47, i32 noundef %43, ptr noundef nonnull %42, ptr noundef %53)
   %55 = load i32, ptr %42, align 4
-  %56 = getelementptr inbounds nuw %struct.hb_glyph_position_t, ptr %29, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [20 x i8], ptr %29, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store i32 0, ptr %57, align 4
   store i32 0, ptr %56, align 4
@@ -208,7 +205,7 @@ _ZN9hb_font_t35subtract_glyph_origin_for_directionEj14hb_direction_tPiS1_.exit: 
 .lr.ph.i:                                         ; preds = %94, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %94 ]
   %96 = load ptr, ptr %26, align 8
-  %97 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %96, i64 %indvars.iv.i
+  %97 = getelementptr inbounds nuw [20 x i8], ptr %96, i64 %indvars.iv.i
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, -8

@@ -167,7 +167,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc8:                                          ; preds = %64, %56
   %60 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !32, !noalias !36, !nonnull !9, !noundef !9
-  %61 = getelementptr inbounds { ptr, i64 }, ptr %60, i64 %57
+  %61 = getelementptr inbounds [16 x i8], ptr %60, i64 %57
   store ptr %.sroa.0.0.i.i14.i.i, ptr %61, align 8, !noalias !36
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 %.sroa.4.0.i.i13.i.i, ptr %62, align 8, !noalias !36
@@ -275,7 +275,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc9:                                          ; preds = %37, %.lr.ph.i.i
   %30 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !52, !noalias !57, !nonnull !9, !noundef !9
-  %31 = getelementptr inbounds { ptr, i64 }, ptr %30, i64 %27
+  %31 = getelementptr inbounds [16 x i8], ptr %30, i64 %27
   store ptr %25, ptr %31, align 8, !noalias !57
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %26, ptr %32, align 8, !noalias !57
@@ -399,7 +399,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc9:                                          ; preds = %37, %.lr.ph.i.i
   %30 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !75, !noalias !80, !nonnull !9, !noundef !9
-  %31 = getelementptr inbounds { ptr, i64 }, ptr %30, i64 %27
+  %31 = getelementptr inbounds [16 x i8], ptr %30, i64 %27
   store ptr %25, ptr %31, align 8, !noalias !80
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %26, ptr %32, align 8, !noalias !80
@@ -765,7 +765,7 @@ select.unfold.i.i:                                ; preds = %"_ZN73_$LT$$u5b$A$u
 
 .noexc9:                                          ; preds = %115, %select.unfold.i.i
   %111 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !138, !noalias !139, !nonnull !9, !noundef !9
-  %112 = getelementptr inbounds { ptr, i64 }, ptr %111, i64 %108
+  %112 = getelementptr inbounds [16 x i8], ptr %111, i64 %108
   store ptr %.sroa.0.0.i.i.i.i, ptr %112, align 8, !noalias !139
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store i64 %.sroa.4.0.i.i.i.i, ptr %113, align 8, !noalias !139
@@ -1117,7 +1117,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hc67b5dd4ebfa
   %11 = phi i64 [ %.pre, %16 ], [ %6, %4 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !9, !noundef !9
-  %14 = getelementptr inbounds { i16, i16 }, ptr %13, i64 %11
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %11
   %15 = icmp ugt i64 %1, 1
   br i1 %15, label %.lr.ph, label %._crit_edge
 

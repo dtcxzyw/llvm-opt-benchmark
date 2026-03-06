@@ -82,17 +82,17 @@ define range(i32 0, 2) i32 @lu_decompose(ptr noundef readonly captures(none) %0,
 
 .preheader89.us:                                  ; preds = %.preheader89.us.preheader, %35
   %indvars.iv112 = phi i64 [ 0, %.preheader89.us.preheader ], [ %indvars.iv.next113, %35 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv112
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv112
   %32 = load ptr, ptr %31, align 8, !tbaa !12
-  %33 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv112
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv112
   %34 = load ptr, ptr %33, align 8, !tbaa !12
   br label %40
 
 35:                                               ; preds = %._crit_edge.us
   %36 = fdiv double 1.000000e+00, %45
-  %37 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv112
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv112
   store double %36, ptr %37, align 8, !tbaa !14
-  %38 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv112
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv112
   %39 = trunc nuw nsw i64 %indvars.iv112 to i32
   store i32 %39, ptr %38, align 4, !tbaa !16
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
@@ -102,9 +102,9 @@ define range(i32 0, 2) i32 @lu_decompose(ptr noundef readonly captures(none) %0,
 40:                                               ; preds = %.preheader89.us, %40
   %indvars.iv = phi i64 [ 0, %.preheader89.us ], [ %indvars.iv.next, %40 ]
   %.06693.us = phi double [ 0.000000e+00, %.preheader89.us ], [ %45, %40 ]
-  %41 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %42 = load double, ptr %41, align 8, !tbaa !14
-  %43 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   store double %42, ptr %43, align 8, !tbaa !14
   %44 = tail call double @llvm.fabs.f64(double %42)
   %45 = tail call double @llvm.maxnum.f64(double %.06693.us, double %44)
@@ -129,7 +129,7 @@ define range(i32 0, 2) i32 @lu_decompose(ptr noundef readonly captures(none) %0,
 
 .split.us:                                        ; preds = %._crit_edge.us
   %49 = and i64 %indvars.iv112, 4294967295
-  %50 = getelementptr inbounds nuw double, ptr %22, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %49
   store double 0.000000e+00, ptr %50, align 8, !tbaa !14
   br label %.loopexit88
 
@@ -149,15 +149,15 @@ define range(i32 0, 2) i32 @lu_decompose(ptr noundef readonly captures(none) %0,
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.lr.ph ], [ %indvars.iv117, %.preheader ]
   %.16796 = phi double [ %.268, %.lr.ph ], [ 0.000000e+00, %.preheader ]
   %.17295 = phi i32 [ %.273, %.lr.ph ], [ %.071107, %.preheader ]
-  %52 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv119
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv119
   %53 = load i32, ptr %52, align 4, !tbaa !16
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %6, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %6, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !12
-  %57 = getelementptr inbounds nuw double, ptr %56, i64 %indvars.iv117
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv117
   %58 = load double, ptr %57, align 8, !tbaa !14
   %59 = tail call double @llvm.fabs.f64(double %58)
-  %60 = getelementptr inbounds double, ptr %22, i64 %54
+  %60 = getelementptr inbounds [8 x i8], ptr %22, i64 %54
   %61 = load double, ptr %60, align 8, !tbaa !14
   %62 = fmul double %59, %61
   %63 = fcmp olt double %.16796, %62
@@ -178,34 +178,34 @@ define range(i32 0, 2) i32 @lu_decompose(ptr noundef readonly captures(none) %0,
   br i1 %.not80, label %.lr.ph101.us.preheader, label %68
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv117
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv117
   %70 = load i32, ptr %69, align 4, !tbaa !16
   %71 = sext i32 %.273 to i64
-  %72 = getelementptr inbounds i32, ptr %14, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %14, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !16
   store i32 %73, ptr %69, align 4, !tbaa !16
   store i32 %70, ptr %72, align 4, !tbaa !16
   br label %.lr.ph101.us.preheader
 
 .lr.ph101.us.preheader:                           ; preds = %66, %68
-  %74 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv117
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv117
   %75 = load i32, ptr %74, align 4, !tbaa !16
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds ptr, ptr %6, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %6, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !12
-  %79 = getelementptr inbounds nuw double, ptr %78, i64 %indvars.iv117
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv117
   %80 = load double, ptr %79, align 8, !tbaa !14
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   br label %.lr.ph101.us
 
 .lr.ph101.us:                                     ; preds = %.lr.ph101.us.preheader, %._crit_edge102.us
   %indvars.iv131 = phi i64 [ %indvars.iv124, %.lr.ph101.us.preheader ], [ %indvars.iv.next132, %._crit_edge102.us ]
-  %81 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv131
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv131
   %82 = load i32, ptr %81, align 4, !tbaa !16
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds ptr, ptr %6, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %6, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !12
-  %86 = getelementptr inbounds nuw double, ptr %85, i64 %indvars.iv117
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv117
   %87 = load double, ptr %86, align 8, !tbaa !14
   %88 = fdiv double %87, %80
   store double %88, ptr %86, align 8, !tbaa !14
@@ -214,9 +214,9 @@ define range(i32 0, 2) i32 @lu_decompose(ptr noundef readonly captures(none) %0,
 
 90:                                               ; preds = %.lr.ph101.us, %90
   %indvars.iv126 = phi i64 [ %indvars.iv124, %.lr.ph101.us ], [ %indvars.iv.next127, %90 ]
-  %91 = getelementptr inbounds nuw double, ptr %78, i64 %indvars.iv126
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv126
   %92 = load double, ptr %91, align 8, !tbaa !14
-  %93 = getelementptr inbounds nuw double, ptr %85, i64 %indvars.iv126
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv126
   %94 = load double, ptr %93, align 8, !tbaa !14
   %95 = tail call double @llvm.fmuladd.f64(double %89, double %92, double %94)
   store double %95, ptr %93, align 8, !tbaa !14
@@ -233,12 +233,12 @@ define range(i32 0, 2) i32 @lu_decompose(ptr noundef readonly captures(none) %0,
   %96 = phi i32 [ -1, %.preheader87.thread ], [ %47, %.preheader87 ], [ %47, %.loopexit ]
   %97 = phi ptr [ %28, %.preheader87.thread ], [ %14, %.preheader87 ], [ %14, %.loopexit ]
   %98 = sext i32 %96 to i64
-  %99 = getelementptr inbounds i32, ptr %97, i64 %98
+  %99 = getelementptr inbounds [4 x i8], ptr %97, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !16
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds ptr, ptr %6, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %6, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !12
-  %104 = getelementptr inbounds double, ptr %103, i64 %98
+  %104 = getelementptr inbounds [8 x i8], ptr %103, i64 %98
   %105 = load double, ptr %104, align 8, !tbaa !14
   %106 = fcmp une double %105, 0.000000e+00
   %. = zext i1 %106 to i32
@@ -287,10 +287,10 @@ define void @lu_solve(ptr noundef captures(none) %0, ptr noundef readonly captur
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader40
-  %7 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv55
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv55
   %8 = load i32, ptr %7, align 4, !tbaa !16
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %5, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %5, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   br label %16
 
@@ -304,9 +304,9 @@ define void @lu_solve(ptr noundef captures(none) %0, ptr noundef readonly captur
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.042 = phi double [ 0.000000e+00, %.lr.ph ], [ %21, %16 ]
-  %17 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %18 = load double, ptr %17, align 8, !tbaa !14
-  %19 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %20 = load double, ptr %19, align 8, !tbaa !14
   %21 = tail call double @llvm.fmuladd.f64(double %18, double %20, double %.042)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -316,10 +316,10 @@ define void @lu_solve(ptr noundef captures(none) %0, ptr noundef readonly captur
 ._crit_edge:                                      ; preds = %16, %.preheader40.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre71, %.preheader40.._crit_edge_crit_edge ], [ %9, %16 ]
   %.0.lcssa = phi double [ 0.000000e+00, %.preheader40.._crit_edge_crit_edge ], [ %21, %16 ]
-  %22 = getelementptr inbounds double, ptr %1, i64 %.pre-phi
+  %22 = getelementptr inbounds [8 x i8], ptr %1, i64 %.pre-phi
   %23 = load double, ptr %22, align 8, !tbaa !14
   %24 = fsub double %23, %.0.lcssa
-  %25 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv55
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv55
   store double %24, ptr %25, align 8, !tbaa !14
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
@@ -329,19 +329,19 @@ define void @lu_solve(ptr noundef captures(none) %0, ptr noundef readonly captur
   %indvars.iv60 = phi i64 [ %14, %.preheader.lr.ph ], [ %indvars.iv.next61, %._crit_edge47 ]
   %indvars.iv.next61 = add nsw i64 %indvars.iv60, -1
   %26 = icmp slt i64 %indvars.iv60, %15
-  %27 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next61
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.next61
   %28 = load i32, ptr %27, align 4, !tbaa !16
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %12, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %12, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !12
   br i1 %26, label %.lr.ph46, label %._crit_edge47
 
 .lr.ph46:                                         ; preds = %.preheader, %.lr.ph46
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph46 ], [ %indvars.iv60, %.preheader ]
   %.145 = phi double [ %36, %.lr.ph46 ], [ 0.000000e+00, %.preheader ]
-  %32 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv62
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv62
   %33 = load double, ptr %32, align 8, !tbaa !14
-  %34 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv62
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv62
   %35 = load double, ptr %34, align 8, !tbaa !14
   %36 = tail call double @llvm.fmuladd.f64(double %33, double %35, double %.145)
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
@@ -351,10 +351,10 @@ define void @lu_solve(ptr noundef captures(none) %0, ptr noundef readonly captur
 
 ._crit_edge47:                                    ; preds = %.lr.ph46, %.preheader
   %.1.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %36, %.lr.ph46 ]
-  %39 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.next61
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next61
   %40 = load double, ptr %39, align 8, !tbaa !14
   %41 = fsub double %40, %.1.lcssa
-  %42 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv.next61
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.next61
   %43 = load double, ptr %42, align 8, !tbaa !14
   %44 = fdiv double %41, %43
   store double %44, ptr %39, align 8, !tbaa !14

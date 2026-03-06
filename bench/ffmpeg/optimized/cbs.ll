@@ -4,13 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.CodedBitstreamType = type { i32, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 %struct.PutBitContext = type { i32, i32, ptr, ptr, ptr }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
-%struct.CodedBitstreamUnitTypeDescriptor = type { i32, %union.anon.1, i32, i64, %union.anon.2 }
-%union.anon.1 = type { [3 x i32] }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { i32, [2 x i64] }
 
 @ff_cbs_all_codec_ids = local_unnamed_addr constant [10 x i32] [i32 273, i32 225, i32 27, i32 173, i32 196, i32 7, i32 2, i32 139, i32 167, i32 0], align 16
 @cbs_type_table = internal unnamed_addr constant [9 x ptr] [ptr @ff_cbs_type_apv, ptr @ff_cbs_type_av1, ptr @ff_cbs_type_h264, ptr @ff_cbs_type_h265, ptr @ff_cbs_type_h266, ptr @ff_cbs_type_jpeg, ptr @ff_cbs_type_mpeg2, ptr @ff_cbs_type_vp8, ptr @ff_cbs_type_vp9], align 16
@@ -74,7 +69,7 @@ define range(i32 -22, 1) i32 @ff_cbs_init(ptr noundef writeonly captures(none) %
 
 6:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr inbounds nuw ptr, ptr @cbs_type_table, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @cbs_type_table, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   %9 = load i32, ptr %8, align 8, !tbaa !11
   %10 = icmp eq i32 %9, %1
@@ -221,7 +216,7 @@ define void @ff_cbs_fragment_reset(ptr noundef %0) local_unnamed_addr #2 {
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !38
-  %8 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [56 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   tail call void @av_refstruct_unref(ptr noundef nonnull %9) #10
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -344,7 +339,7 @@ cbs_fill_fragment_data.exit:                      ; preds = %18
 40:                                               ; preds = %.loopexit.i, %.lr.ph56.i
   %indvars.iv63.i = phi i64 [ 0, %.lr.ph56.i ], [ %indvars.iv.next64.i, %.loopexit.i ]
   %41 = load ptr, ptr %37, align 8, !tbaa !38
-  %42 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %41, i64 %indvars.iv63.i
+  %42 = getelementptr inbounds nuw [56 x i8], ptr %41, i64 %indvars.iv63.i
   %43 = load ptr, ptr %38, align 8, !tbaa !28
   %.not.i25 = icmp eq ptr %43, null
   br i1 %.not.i25, label %.thread.i, label %.preheader.i
@@ -366,7 +361,7 @@ cbs_fill_fragment_data.exit:                      ; preds = %18
 
 48:                                               ; preds = %47, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %47 ]
-  %49 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4, !tbaa !59
   %51 = icmp eq i32 %50, %46
   br i1 %51, label %.thread.i, label %47
@@ -506,7 +501,7 @@ define range(i32 -2147483648, 1) i32 @ff_cbs_write_fragment_data(ptr noundef %0,
   %16 = phi i32 [ %5, %.lr.ph ], [ %112, %111 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %111 ]
   %17 = load ptr, ptr %7, align 8, !tbaa !38
-  %18 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [56 x i8], ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !39
   %.not33 = icmp eq ptr %20, null
@@ -974,7 +969,7 @@ define void @ff_cbs_trace_read_log(ptr noundef readonly captures(none) %0, ptr n
   %48 = getelementptr inbounds i8, ptr %7, i64 %47
   %49 = sub nsw i64 256, %47
   %50 = zext nneg i32 %46 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %4, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !59
   %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %48, i64 noundef %49, ptr noundef nonnull @.str.9, i32 noundef %52) #10
   %54 = icmp sgt i32 %53, 0
@@ -1962,7 +1957,7 @@ define range(i32 -12, 1) i32 @ff_cbs_insert_unit_content(ptr noundef captures(no
 
 24:                                               ; preds = %20
   %25 = zext nneg i32 %.019 to i64
-  %26 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [56 x i8], ptr %22, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %28 = sub nuw nsw i32 %14, %.019
   %29 = zext nneg i32 %28 to i64
@@ -2001,11 +1996,11 @@ define range(i32 -12, 1) i32 @ff_cbs_insert_unit_content(ptr noundef captures(no
 
 48:                                               ; preds = %45
   %49 = zext nneg i32 %.019 to i64
-  %50 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %35, i64 %49
+  %50 = getelementptr inbounds nuw [56 x i8], ptr %35, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %53 = load ptr, ptr %52, align 8, !tbaa !38
-  %54 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %53, i64 %49
+  %54 = getelementptr inbounds nuw [56 x i8], ptr %53, i64 %49
   %55 = sub nsw i32 %46, %.019
   %56 = zext nneg i32 %55 to i64
   %57 = mul nuw nsw i64 %56, 56
@@ -2022,7 +2017,7 @@ define range(i32 -12, 1) i32 @ff_cbs_insert_unit_content(ptr noundef captures(no
 61:                                               ; preds = %58, %24, %20
   %.0.i = phi ptr [ %22, %24 ], [ %22, %20 ], [ %35, %58 ]
   %62 = zext nneg i32 %.019 to i64
-  %63 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %.0.i, i64 %62
+  %63 = getelementptr inbounds nuw [56 x i8], ptr %.0.i, i64 %62
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %63, i8 0, i64 56, i1 false)
   %64 = load i32, ptr %13, align 8, !tbaa !34
   %65 = add nsw i32 %64, 1
@@ -2038,7 +2033,7 @@ define range(i32 -12, 1) i32 @ff_cbs_insert_unit_content(ptr noundef captures(no
   %.020 = phi ptr [ %67, %66 ], [ null, %61 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %70 = load ptr, ptr %69, align 8, !tbaa !38
-  %71 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %70, i64 %62
+  %71 = getelementptr inbounds nuw [56 x i8], ptr %70, i64 %62
   store i32 %2, ptr %71, align 8, !tbaa !57
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 40
   store ptr %3, ptr %72, align 8, !tbaa !39
@@ -2103,7 +2098,7 @@ define range(i32 -12, 1) i32 @ff_cbs_append_unit_data(ptr noundef captures(none)
 
 26:                                               ; preds = %22
   %27 = zext nneg i32 %8 to i64
-  %28 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = sub nsw i32 %18, %8
   %31 = zext nneg i32 %30 to i64
@@ -2142,11 +2137,11 @@ define range(i32 -12, 1) i32 @ff_cbs_append_unit_data(ptr noundef captures(none)
 
 50:                                               ; preds = %47
   %51 = zext nneg i32 %8 to i64
-  %52 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %37, i64 %51
+  %52 = getelementptr inbounds nuw [56 x i8], ptr %37, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !38
-  %56 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %55, i64 %51
+  %56 = getelementptr inbounds nuw [56 x i8], ptr %55, i64 %51
   %57 = sub nsw i32 %48, %8
   %58 = zext nneg i32 %57 to i64
   %59 = mul nuw nsw i64 %58, 56
@@ -2167,14 +2162,14 @@ define range(i32 -12, 1) i32 @ff_cbs_append_unit_data(ptr noundef captures(none)
 64:                                               ; preds = %60, %26, %22
   %.0.i.i = phi ptr [ %24, %26 ], [ %24, %22 ], [ %37, %60 ]
   %65 = zext nneg i32 %8 to i64
-  %66 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %.0.i.i, i64 %65
+  %66 = getelementptr inbounds nuw [56 x i8], ptr %.0.i.i, i64 %65
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %66, i8 0, i64 56, i1 false)
   %67 = load i32, ptr %7, align 8, !tbaa !34
   %68 = add nsw i32 %67, 1
   store i32 %68, ptr %7, align 8, !tbaa !34
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %70 = load ptr, ptr %69, align 8, !tbaa !38
-  %71 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %70, i64 %65
+  %71 = getelementptr inbounds nuw [56 x i8], ptr %70, i64 %65
   store i32 %1, ptr %71, align 8, !tbaa !57
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %2, ptr %72, align 8, !tbaa !60
@@ -2210,7 +2205,7 @@ define void @ff_cbs_delete_unit(ptr noundef captures(none) %0, i32 noundef %1) l
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !38
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [56 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   tail call void @av_refstruct_unref(ptr noundef nonnull %14) #10
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -2227,7 +2222,7 @@ define void @ff_cbs_delete_unit(ptr noundef captures(none) %0, i32 noundef %1) l
 
 21:                                               ; preds = %9
   %22 = load ptr, ptr %10, align 8, !tbaa !38
-  %23 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %22, i64 %12
+  %23 = getelementptr inbounds nuw [56 x i8], ptr %22, i64 %12
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = sub nsw i32 %19, %1
   %26 = sext i32 %25 to i64
@@ -2270,7 +2265,7 @@ define range(i32 -38, 1) i32 @ff_cbs_alloc_unit_content(ptr noundef readonly cap
 
 .preheader2.i:                                    ; preds = %9, %.loopexit.i
   %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %.loopexit.i ], [ 0, %9 ]
-  %12 = getelementptr inbounds nuw %struct.CodedBitstreamUnitTypeDescriptor, ptr %.val.val, i64 %indvars.iv9.i
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %.val.val, i64 %indvars.iv9.i
   %13 = load i32, ptr %12, align 8, !tbaa !112
   switch i32 %13, label %.preheader.i [
     i32 0, label %cbs_find_unit_type_desc.exit.thread
@@ -2307,7 +2302,7 @@ define range(i32 -38, 1) i32 @ff_cbs_alloc_unit_content(ptr noundef readonly cap
 
 25:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
-  %26 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i
   %27 = load i32, ptr %26, align 4, !tbaa !91
   %28 = icmp eq i32 %27, %16
   br i1 %28, label %cbs_find_unit_type_desc.exit, label %24
@@ -2386,7 +2381,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_clone_unit_content(ptr
 
 .preheader2.i:                                    ; preds = %1, %.loopexit.i
   %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %.loopexit.i ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw %struct.CodedBitstreamUnitTypeDescriptor, ptr %.8.val.24.val, i64 %indvars.iv9.i
+  %4 = getelementptr inbounds nuw [56 x i8], ptr %.8.val.24.val, i64 %indvars.iv9.i
   %5 = load i32, ptr %4, align 8, !tbaa !112
   switch i32 %5, label %.preheader.i [
     i32 0, label %cbs_find_unit_type_desc.exit.thread
@@ -2423,7 +2418,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_clone_unit_content(ptr
 
 17:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %18 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   %19 = load i32, ptr %18, align 4, !tbaa !91
   %20 = icmp eq i32 %19, %8
   br i1 %20, label %cbs_find_unit_type_desc.exit, label %16
@@ -2478,7 +2473,7 @@ cbs_alloc_content.exit.i:                         ; preds = %23
 
 36:                                               ; preds = %36, %.lr.ph.i19
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i21, %36 ]
-  %37 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv.i20
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i20
   %38 = load i64, ptr %37, align 8, !tbaa !91
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -2492,7 +2487,7 @@ cbs_alloc_content.exit.i:                         ; preds = %23
 .lr.ph6.i:                                        ; preds = %.preheader.i22, %58
   %44 = phi i32 [ %59, %58 ], [ %41, %.preheader.i22 ]
   %indvars.iv8.i = phi i64 [ %indvars.iv.next9.i, %58 ], [ 0, %.preheader.i22 ]
-  %45 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv8.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv8.i
   %46 = load i64, ptr %45, align 8, !tbaa !91
   %47 = getelementptr inbounds nuw i8, ptr %.val17, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -2658,7 +2653,7 @@ define void @ff_cbs_discard_units(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8, !tbaa !120
   %19 = load ptr, ptr %13, align 8, !tbaa !38
-  %20 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %19, i64 %indvars.iv21
+  %20 = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %indvars.iv21
   %21 = tail call i32 %18(ptr noundef nonnull %0, ptr noundef %20, i32 noundef %2) #10
   %.not12.us = icmp eq i32 %21, 0
   br i1 %.not12.us, label %ff_cbs_delete_unit.exit.us, label %.split.us
@@ -2675,7 +2670,7 @@ ff_cbs_delete_unit.exit.us:                       ; preds = %.lr.ph.split.us
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8, !tbaa !120
   %26 = load ptr, ptr %13, align 8, !tbaa !38
-  %27 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %indvars.iv
   %28 = tail call i32 %25(ptr noundef nonnull %0, ptr noundef %27, i32 noundef %2) #10
   %.not12 = icmp eq i32 %28, 0
   br i1 %.not12, label %ff_cbs_delete_unit.exit, label %29
@@ -2693,7 +2688,7 @@ ff_cbs_delete_unit.exit.us:                       ; preds = %.lr.ph.split.us
 .lr.ph.i:                                         ; preds = %.split.us, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.split.us ]
   %33 = load ptr, ptr %13, align 8, !tbaa !38
-  %34 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %33, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [56 x i8], ptr %33, i64 %indvars.iv.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   tail call void @av_refstruct_unref(ptr noundef nonnull %35) #10
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -2725,7 +2720,7 @@ ff_cbs_fragment_reset.exit:                       ; preds = %.lr.ph.i, %.split.u
 
 45:                                               ; preds = %29
   %46 = load ptr, ptr %13, align 8, !tbaa !38
-  %47 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [56 x i8], ptr %46, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   tail call void @av_refstruct_unref(ptr noundef nonnull %48) #10
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 40
@@ -2742,7 +2737,7 @@ ff_cbs_fragment_reset.exit:                       ; preds = %.lr.ph.i, %.split.u
 
 55:                                               ; preds = %45
   %56 = load ptr, ptr %13, align 8, !tbaa !38
-  %57 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [56 x i8], ptr %56, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
   %59 = sub nsw i32 %52, %.0.in17
   %60 = sext i32 %59 to i64
@@ -2788,7 +2783,7 @@ define internal void @cbs_default_free_unit_content(ptr readonly captures(none) 
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !91
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8

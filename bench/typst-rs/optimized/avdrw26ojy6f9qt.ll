@@ -196,7 +196,7 @@ define hidden noundef i64 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C
   %12 = sub nuw i64 %10, %11
   %13 = lshr exact i64 %12, 4
   %.not.i.not.i.i = icmp ult i64 %9, %13
-  %14 = getelementptr inbounds nuw { ptr, i64 }, ptr %6, i64 %9
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %9
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   br i1 %.not.i.not.i.i, label %._crit_edge.i.i, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf420de0cd25dfac9E.exit"
 
@@ -217,7 +217,7 @@ define hidden noundef i64 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C
 25:                                               ; preds = %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2def676d716eca96E.exit.i.i.i", %18
   %.017.i.i.i = phi i64 [ %1, %18 ], [ %.0.i.i.i.i, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2def676d716eca96E.exit.i.i.i" ]
   %.016.i.i.i = phi i64 [ 0, %18 ], [ %96, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2def676d716eca96E.exit.i.i.i" ]
-  %26 = getelementptr inbounds { ptr, i64 }, ptr %16, i64 %.016.i.i.i
+  %26 = getelementptr inbounds [16 x i8], ptr %16, i64 %.016.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %27 = load ptr, ptr %26, align 8, !alias.scope !8, !noalias !11, !nonnull !7, !align !18, !noundef !7
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -1747,7 +1747,7 @@ define hidden noundef nonnull ptr @"_ZN4core5slice4iter13Iter$LT$T$GT$11pre_dec_
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !7, !noundef !7
   %5 = sub nsw i64 0, %1
-  %6 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %4, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %4, i64 %5
   store ptr %6, ptr %3, align 8
   ret ptr %6
 }
@@ -2924,10 +2924,10 @@ define { ptr, i64 } @_ZN12typst_syntax4kind10SyntaxKind4name17h2c6fe99778272aeaE
 switch.lookup:
   %switch.tableidx = xor i8 %0, -128
   %1 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12typst_syntax4kind10SyntaxKind4name17h2c6fe99778272aeaE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12typst_syntax4kind10SyntaxKind4name17h2c6fe99778272aeaE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext i8 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12typst_syntax4kind10SyntaxKind4name17h2c6fe99778272aeaE.48, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12typst_syntax4kind10SyntaxKind4name17h2c6fe99778272aeaE.48, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1

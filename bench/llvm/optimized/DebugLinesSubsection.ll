@@ -19,28 +19,17 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<unsigned long>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<unsigned long>::_Storage" = type { i64 }
-%"struct.llvm::codeview::LineNumberEntry" = type { %"struct.llvm::support::detail::packed_endian_specific_integral", %"struct.llvm::support::detail::packed_endian_specific_integral" }
-%"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
-%struct.anon = type { [4 x i8] }
-%"struct.llvm::codeview::ColumnNumberEntry" = type { %"struct.llvm::support::detail::packed_endian_specific_integral.0", %"struct.llvm::support::detail::packed_endian_specific_integral.0" }
+%"struct.llvm::codeview::LineFragmentHeader" = type { %"struct.llvm::support::detail::packed_endian_specific_integral", %"struct.llvm::support::detail::packed_endian_specific_integral.0", %"struct.llvm::support::detail::packed_endian_specific_integral.0", %"struct.llvm::support::detail::packed_endian_specific_integral" }
 %"struct.llvm::support::detail::packed_endian_specific_integral.0" = type { %struct.anon.1 }
 %struct.anon.1 = type { [2 x i8] }
-%"struct.llvm::codeview::LineFragmentHeader" = type { %"struct.llvm::support::detail::packed_endian_specific_integral", %"struct.llvm::support::detail::packed_endian_specific_integral.0", %"struct.llvm::support::detail::packed_endian_specific_integral.0", %"struct.llvm::support::detail::packed_endian_specific_integral" }
+%"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
+%struct.anon = type { [4 x i8] }
 %"struct.llvm::codeview::LineBlockFragmentHeader" = type { %"struct.llvm::support::detail::packed_endian_specific_integral", %"struct.llvm::support::detail::packed_endian_specific_integral", %"struct.llvm::support::detail::packed_endian_specific_integral" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
-%"struct.llvm::codeview::DebugLinesSubsection::Block" = type { i32, %"class.std::vector.14", %"class.std::vector.19" }
-%"class.std::vector.14" = type { %"struct.std::_Vector_base.15" }
-%"struct.std::_Vector_base.15" = type { %"struct.std::_Vector_base<llvm::codeview::LineNumberEntry, std::allocator<llvm::codeview::LineNumberEntry>>::_Vector_impl" }
-%"struct.std::_Vector_base<llvm::codeview::LineNumberEntry, std::allocator<llvm::codeview::LineNumberEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::codeview::LineNumberEntry, std::allocator<llvm::codeview::LineNumberEntry>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<llvm::codeview::LineNumberEntry, std::allocator<llvm::codeview::LineNumberEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.19" = type { %"struct.std::_Vector_base.20" }
-%"struct.std::_Vector_base.20" = type { %"struct.std::_Vector_base<llvm::codeview::ColumnNumberEntry, std::allocator<llvm::codeview::ColumnNumberEntry>>::_Vector_impl" }
-%"struct.std::_Vector_base<llvm::codeview::ColumnNumberEntry, std::allocator<llvm::codeview::ColumnNumberEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::codeview::ColumnNumberEntry, std::allocator<llvm::codeview::ColumnNumberEntry>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<llvm::codeview::ColumnNumberEntry, std::allocator<llvm::codeview::ColumnNumberEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN4llvm18BinaryStreamReader9readArrayINS_8codeview15LineNumberEntryEEENS_5ErrorERNS_16FixedStreamArrayIT_EEj = comdat any
 
@@ -1661,7 +1650,7 @@ _ZNSt6vectorIN4llvm8codeview15LineNumberEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS
 _ZNSt6vectorIN4llvm8codeview15LineNumberEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %33, %_ZNSt6vectorIN4llvm8codeview15LineNumberEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %28, ptr %7, align 8, !tbaa !125
   store ptr %32, ptr %8, align 8, !tbaa !123
-  %34 = getelementptr inbounds nuw %"struct.llvm::codeview::LineNumberEntry", ptr %28, i64 %26
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   store ptr %34, ptr %10, align 8, !tbaa !124
   br label %_ZNSt6vectorIN4llvm8codeview15LineNumberEntryESaIS2_EE9push_backERKS2_.exit
 
@@ -1741,7 +1730,7 @@ _ZNSt6vectorIN4llvm8codeview15LineNumberEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS
 _ZNSt6vectorIN4llvm8codeview15LineNumberEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %35, %_ZNSt6vectorIN4llvm8codeview15LineNumberEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %30, ptr %9, align 8, !tbaa !125
   store ptr %34, ptr %10, align 8, !tbaa !123
-  %36 = getelementptr inbounds nuw %"struct.llvm::codeview::LineNumberEntry", ptr %30, i64 %28
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %36, ptr %12, align 8, !tbaa !124
   br label %_ZN4llvm8codeview20DebugLinesSubsection11addLineInfoEjRKNS0_8LineInfoE.exit
 
@@ -1811,7 +1800,7 @@ _ZNSt6vectorIN4llvm8codeview17ColumnNumberEntryESaIS2_EE11_S_relocateEPS2_S5_S5_
 _ZNSt6vectorIN4llvm8codeview17ColumnNumberEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %63, %_ZNSt6vectorIN4llvm8codeview17ColumnNumberEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %58, ptr %37, align 8, !tbaa !128
   store ptr %62, ptr %38, align 8, !tbaa !126
-  %64 = getelementptr inbounds nuw %"struct.llvm::codeview::ColumnNumberEntry", ptr %58, i64 %56
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %56
   store ptr %64, ptr %40, align 8, !tbaa !127
   br label %_ZNSt6vectorIN4llvm8codeview17ColumnNumberEntryESaIS2_EE9push_backERKS2_.exit
 
@@ -2671,7 +2660,7 @@ _ZNSt6vectorIN4llvm8codeview20DebugLinesSubsection5BlockESaIS3_EE11_S_relocateEP
 _ZNSt12_Vector_baseIN4llvm8codeview20DebugLinesSubsection5BlockESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN4llvm8codeview20DebugLinesSubsection5BlockESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %68
   store ptr %20, ptr %0, align 8, !tbaa !135
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !106
-  %72 = getelementptr inbounds nuw %"struct.llvm::codeview::DebugLinesSubsection::Block", ptr %20, i64 %16
+  %72 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %72, ptr %67, align 8, !tbaa !107
   ret void
 }

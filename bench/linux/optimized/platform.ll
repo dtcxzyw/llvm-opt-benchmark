@@ -69,8 +69,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_platform_fin
 %struct.attribute_group = type { ptr, ptr, ptr, ptr, ptr }
 %struct.device_attribute = type { %struct.attribute, ptr, ptr }
 %struct.attribute = type { ptr, i16 }
-%struct.irq_affinity_desc = type { %struct.cpumask, i8 }
-%struct.cpumask = type { [1 x i64] }
 
 @.str = private unnamed_addr constant [9 x i8] c"platform\00", align 1
 @platform_bus = dso_local global %struct.device { %struct.kobject zeroinitializer, ptr null, ptr null, ptr @.str, ptr null, ptr null, ptr null, ptr null, ptr null, %struct.mutex zeroinitializer, %struct.dev_links_info zeroinitializer, %struct.dev_pm_info zeroinitializer, ptr null, %struct.dev_msi_info zeroinitializer, ptr null, ptr null, i64 0, i64 0, ptr null, ptr null, %struct.list_head zeroinitializer, ptr null, %struct.dev_archdata zeroinitializer, ptr null, ptr null, i32 0, i32 0, i32 0, %struct.spinlock zeroinitializer, %struct.list_head zeroinitializer, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, i32 0, i8 0 }, align 8
@@ -158,7 +156,7 @@ define dso_local ptr @platform_get_resource(ptr noundef readonly captures(none) 
 12:                                               ; preds = %21, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %7 ]
   %13 = phi i32 [ %23, %21 ], [ %2, %7 ]
-  %14 = getelementptr %struct.resource, ptr %9, i64 %indvars.iv
+  %14 = getelementptr [64 x i8], ptr %9, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 7936
@@ -195,7 +193,7 @@ define dso_local ptr @platform_get_mem_or_io(ptr noundef readonly captures(none)
 10:                                               ; preds = %19, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %6 ]
   %11 = phi i32 [ %22, %19 ], [ %1, %6 ]
-  %12 = getelementptr %struct.resource, ptr %8, i64 %indvars.iv
+  %12 = getelementptr [64 x i8], ptr %8, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 768
@@ -233,7 +231,7 @@ define dso_local ptr @devm_platform_get_and_ioremap_resource(ptr noundef %0, i32
 11:                                               ; preds = %21, %7
   %12 = phi i64 [ %24, %21 ], [ 0, %7 ]
   %13 = phi i32 [ %23, %21 ], [ %1, %7 ]
-  %14 = getelementptr %struct.resource, ptr %9, i64 %12
+  %14 = getelementptr [64 x i8], ptr %9, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, 7936
@@ -283,7 +281,7 @@ define dso_local ptr @devm_platform_ioremap_resource(ptr noundef %0, i32 noundef
 10:                                               ; preds = %20, %6
   %11 = phi i64 [ %23, %20 ], [ 0, %6 ]
   %12 = phi i32 [ %22, %20 ], [ %1, %6 ]
-  %13 = getelementptr %struct.resource, ptr %8, i64 %11
+  %13 = getelementptr [64 x i8], ptr %8, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 7936
@@ -321,7 +319,7 @@ define dso_local ptr @devm_platform_ioremap_resource_byname(ptr noundef %0, ptr 
 
 10:                                               ; preds = %24, %6
   %11 = phi i64 [ 0, %6 ], [ %25, %24 ]
-  %12 = getelementptr %struct.resource, ptr %8, i64 %11
+  %12 = getelementptr [64 x i8], ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
@@ -367,7 +365,7 @@ define dso_local ptr @platform_get_resource_byname(ptr noundef readonly captures
 
 12:                                               ; preds = %26, %7
   %13 = phi i64 [ 0, %7 ], [ %27, %26 ]
-  %14 = getelementptr %struct.resource, ptr %9, i64 %13
+  %14 = getelementptr [64 x i8], ptr %9, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
@@ -413,7 +411,7 @@ define dso_local range(i32 1, 0) i32 @platform_get_irq_optional(ptr noundef %0, 
 12:                                               ; preds = %22, %8
   %13 = phi i64 [ %25, %22 ], [ 0, %8 ]
   %14 = phi i32 [ %24, %22 ], [ %1, %8 ]
-  %15 = getelementptr %struct.resource, ptr %10, i64 %13
+  %15 = getelementptr [64 x i8], ptr %10, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 7936
@@ -630,7 +628,7 @@ define dso_local i32 @devm_platform_get_irqs_affinity(ptr noundef %0, ptr nounde
 
 .thread:                                          ; preds = %35, %40
   %43 = phi i32 [ %41, %40 ], [ %38, %35 ]
-  %44 = getelementptr i32, ptr %33, i64 %36
+  %44 = getelementptr [4 x i8], ptr %33, i64 %36
   store i32 %43, ptr %44, align 4
   %45 = add nuw nsw i64 %36, 1
   %46 = icmp eq i64 %45, %34
@@ -653,15 +651,15 @@ define dso_local i32 @devm_platform_get_irqs_affinity(ptr noundef %0, ptr nounde
 
 .preheader58:                                     ; preds = %47, %52
   %55 = phi i64 [ %53, %52 ], [ 0, %47 ]
-  %56 = getelementptr i32, ptr %33, i64 %55
+  %56 = getelementptr [4 x i8], ptr %33, i64 %55
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr %struct.irq_affinity_desc, ptr %48, i64 %55
+  %58 = getelementptr [16 x i8], ptr %48, i64 %55
   %59 = tail call i32 @irq_update_affinity_desc(i32 noundef %57, ptr noundef %58) #15
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %52, label %61
 
 61:                                               ; preds = %.preheader58
-  %62 = getelementptr i32, ptr %33, i64 %55
+  %62 = getelementptr [4 x i8], ptr %33, i64 %55
   %63 = load i32, ptr %62, align 4
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %32, ptr noundef nonnull @.str.5, i32 noundef %63, i32 noundef %59) #16
   tail call void @kfree(ptr noundef nonnull %48) #15
@@ -707,7 +705,7 @@ define internal void @devm_platform_get_irqs_affinity_release(ptr noundef %0, pt
 9:                                                ; preds = %.thread, %5
   %10 = phi i32 [ 0, %5 ], [ %42, %.thread ]
   %11 = sext i32 %10 to i64
-  %12 = getelementptr i32, ptr %6, i64 %11
+  %12 = getelementptr [4 x i8], ptr %6, i64 %11
   %13 = load i32, ptr %12, align 4
   tail call void @irq_dispose_mapping(i32 noundef %13) #15
   %14 = tail call ptr @__dev_fwnode(ptr noundef %0) #15
@@ -727,7 +725,7 @@ define internal void @devm_platform_get_irqs_affinity_release(ptr noundef %0, pt
 22:                                               ; preds = %32, %19
   %23 = phi i64 [ %35, %32 ], [ 0, %19 ]
   %24 = phi i32 [ %34, %32 ], [ %10, %19 ]
-  %25 = getelementptr %struct.resource, ptr %20, i64 %23
+  %25 = getelementptr [64 x i8], ptr %20, i64 %23
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 7936
@@ -825,7 +823,7 @@ define internal fastcc i32 @__platform_get_irq_byname(ptr noundef %0, ptr nounde
 
 17:                                               ; preds = %31, %13
   %18 = phi i64 [ 0, %13 ], [ %32, %31 ]
-  %19 = getelementptr %struct.resource, ptr %15, i64 %18
+  %19 = getelementptr [64 x i8], ptr %15, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
@@ -893,7 +891,7 @@ define dso_local i32 @platform_add_devices(ptr noundef readonly captures(none) %
 6:                                                ; preds = %67, %4
   %indvars.iv = phi i32 [ %indvars.iv.next, %67 ], [ -1, %4 ]
   %7 = phi i64 [ %68, %67 ], [ 0, %4 ]
-  %8 = getelementptr ptr, ptr %0, i64 %7
+  %8 = getelementptr [8 x i8], ptr %0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @device_initialize(ptr noundef nonnull %10) #15
@@ -938,7 +936,7 @@ define dso_local i32 @platform_add_devices(ptr noundef readonly captures(none) %
 
 .preheader:                                       ; preds = %.preheader.preheader, %65
   %indvars.iv16 = phi i64 [ %30, %.preheader.preheader ], [ %indvars.iv.next17, %65 ]
-  %31 = getelementptr ptr, ptr %0, i64 %indvars.iv16
+  %31 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv16
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   %34 = icmp ugt ptr %32, inttoptr (i64 -4096 to ptr)
@@ -974,7 +972,7 @@ define dso_local i32 @platform_add_devices(ptr noundef readonly captures(none) %
   %51 = phi i32 [ %46, %48 ], [ %61, %60 ]
   %52 = phi i64 [ 0, %48 ], [ %62, %60 ]
   %53 = load ptr, ptr %49, align 8
-  %54 = getelementptr %struct.resource, ptr %53, i64 %52
+  %54 = getelementptr [64 x i8], ptr %53, i64 %52
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
@@ -1081,7 +1079,7 @@ define dso_local void @platform_device_unregister(ptr noundef %0) #1 align 16 {
   %20 = phi i32 [ %15, %17 ], [ %30, %29 ]
   %21 = phi i64 [ 0, %17 ], [ %31, %29 ]
   %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr %struct.resource, ptr %22, i64 %21
+  %23 = getelementptr [64 x i8], ptr %22, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
@@ -1312,7 +1310,7 @@ define dso_local i32 @platform_device_add(ptr noundef initializes((112, 120)) %0
 31:                                               ; preds = %55, %28
   %32 = phi i64 [ 0, %28 ], [ %56, %55 ]
   %33 = load ptr, ptr %29, align 8
-  %34 = getelementptr %struct.resource, ptr %33, i64 %32
+  %34 = getelementptr [64 x i8], ptr %33, i64 %32
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
@@ -1405,7 +1403,7 @@ select.unfold:                                    ; preds = %49, %select.unfold.
   %82 = phi i64 [ %80, %78 ], [ %83, %91 ]
   %83 = add nsw i64 %82, -1
   %84 = load ptr, ptr %79, align 8
-  %85 = getelementptr %struct.resource, ptr %84, i64 %83
+  %85 = getelementptr [64 x i8], ptr %84, i64 %83
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
@@ -1475,7 +1473,7 @@ define dso_local void @platform_device_del(ptr noundef %0) #1 align 16 {
   %20 = phi i32 [ %15, %17 ], [ %30, %29 ]
   %21 = phi i64 [ 0, %17 ], [ %31, %29 ]
   %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr %struct.resource, ptr %22, i64 %21
+  %23 = getelementptr [64 x i8], ptr %22, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
@@ -1889,7 +1887,7 @@ define dso_local ptr @__platform_create_bundle(ptr noundef %0, ptr noundef %1, p
   %83 = phi i32 [ %93, %92 ], [ %81, %80 ]
   %84 = phi i64 [ %94, %92 ], [ 0, %80 ]
   %85 = load ptr, ptr %41, align 8
-  %86 = getelementptr %struct.resource, ptr %85, i64 %84
+  %86 = getelementptr [64 x i8], ptr %85, i64 %84
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
@@ -1941,7 +1939,7 @@ define dso_local range(i32 -2147483648, 1) i32 @__platform_register_drivers(ptr 
 
 7:                                                ; preds = %22, %5
   %8 = phi i64 [ 0, %5 ], [ %23, %22 ]
-  %9 = getelementptr ptr, ptr %0, i64 %8
+  %9 = getelementptr [8 x i8], ptr %0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 64
@@ -1953,7 +1951,7 @@ define dso_local range(i32 -2147483648, 1) i32 @__platform_register_drivers(ptr 
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %7
-  %17 = getelementptr ptr, ptr %0, i64 %8
+  %17 = getelementptr [8 x i8], ptr %0, i64 %8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %18, i32 noundef %14) #16
   %20 = and i64 %8, 4294967295
@@ -1968,7 +1966,7 @@ define dso_local range(i32 -2147483648, 1) i32 @__platform_register_drivers(ptr 
 .preheader:                                       ; preds = %16, %.preheader
   %25 = phi i64 [ %26, %.preheader ], [ %8, %16 ]
   %26 = add nsw i64 %25, -1
-  %27 = getelementptr ptr, ptr %0, i64 %26
+  %27 = getelementptr [8 x i8], ptr %0, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   tail call void @driver_unregister(ptr noundef nonnull %29) #15
@@ -1992,7 +1990,7 @@ define dso_local void @platform_unregister_drivers(ptr noundef readonly captures
 6:                                                ; preds = %6, %4
   %7 = phi i64 [ %5, %4 ], [ %8, %6 ]
   %8 = add nsw i64 %7, -1
-  %9 = getelementptr ptr, ptr %0, i64 %8
+  %9 = getelementptr [8 x i8], ptr %0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   tail call void @driver_unregister(ptr noundef nonnull %11) #15

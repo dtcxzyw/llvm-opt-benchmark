@@ -2409,7 +2409,7 @@ define internal i64 @strio_pread(i32 noundef %0, ptr noundef readonly captures(n
   %exitcond.not = phi i1 [ true, %.preheader38 ], [ false, %3 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader38 ], [ %4, %3 ]
   %indvars.iv = phi i64 [ 1, %.preheader38 ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !6
   store i64 %8, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   br i1 %exitcond.not, label %.preheader, label %.preheader38, !llvm.loop !66
@@ -2969,7 +2969,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %3
 
 13:                                               ; preds = %rb_scan_args_n_opt.exit
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr i64, ptr %1, i64 %14
+  %15 = getelementptr [8 x i8], ptr %1, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load i64, ptr %16, align 8, !tbaa !6
   %18 = tail call i32 @rb_keyword_given_p() #16
@@ -3205,7 +3205,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !6
   %9 = tail call i32 @rb_keyword_given_p() #16
@@ -3275,7 +3275,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !6
   %9 = tail call i32 @rb_keyword_given_p() #16
@@ -3426,7 +3426,7 @@ rb_scan_args_n_opt.exit:
 
 9:                                                ; preds = %rb_scan_args_n_opt.exit
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr i64, ptr %1, i64 %10
+  %11 = getelementptr [8 x i8], ptr %1, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8, !tbaa !6
   %14 = tail call i32 @rb_keyword_given_p() #16
@@ -3456,7 +3456,7 @@ rb_scan_args_n_opt.exit:
 
 21:                                               ; preds = %.preheader
   %22 = sext i32 %.185.i25 to i64
-  %23 = getelementptr inbounds i64, ptr %1, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %1, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !6
   store i64 %24, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %25 = add nsw i32 %.185.i25, 1
@@ -3838,7 +3838,7 @@ rb_scan_args_n_opt.exit:
 
 8:                                                ; preds = %rb_scan_args_n_opt.exit
   %9 = zext nneg i32 %2 to i64
-  %10 = getelementptr i64, ptr %3, i64 %9
+  %10 = getelementptr [8 x i8], ptr %3, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load i64, ptr %11, align 8, !tbaa !6
   %13 = tail call i32 @rb_keyword_given_p() #16
@@ -3868,7 +3868,7 @@ rb_scan_args_n_opt.exit:
 
 20:                                               ; preds = %.preheader
   %21 = sext i32 %.185.i42 to i64
-  %22 = getelementptr inbounds i64, ptr %3, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %3, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !6
   store i64 %23, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %24 = add nsw i32 %.185.i42, 1
@@ -4555,7 +4555,7 @@ RSTRING_PTR.exit213:                              ; preds = %215, %219
 
 221:                                              ; preds = %221, %RSTRING_PTR.exit213
   %indvars.iv.i = phi i64 [ 0, %RSTRING_PTR.exit213 ], [ %indvars.iv.next.i, %221 ]
-  %222 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   store i64 %73, ptr %222, align 8, !tbaa !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -4567,7 +4567,7 @@ RSTRING_PTR.exit213:                              ; preds = %215, %219
   %224 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 1
   %225 = load i8, ptr %.0913.i, align 1, !tbaa !33
   %226 = zext i8 %225 to i64
-  %227 = getelementptr inbounds nuw i64, ptr %3, i64 %226
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %226
   store i64 %223, ptr %227, align 8, !tbaa !6
   %228 = add nsw i64 %223, -1
   %.not.i = icmp eq i64 %228, 0
@@ -4685,7 +4685,7 @@ define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64
   %14 = getelementptr inbounds i8, ptr %2, i64 %.01925.us
   %15 = load i8, ptr %14, align 1, !tbaa !33
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i64, ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !6
   %19 = add nsw i64 %18, %.01925.us
   %20 = icmp slt i64 %19, %3

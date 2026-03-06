@@ -18,7 +18,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   %5 = phi i8 [ %12, %10 ], [ %4, %3 ]
   %.0101143 = phi ptr [ %11, %10 ], [ %0, %3 ]
   %6 = zext i8 %5 to i64
-  %7 = getelementptr i32, ptr @_Py_ctype_table, i64 %6
+  %7 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !7
   %9 = and i32 %8, 8
   %.not121 = icmp eq i32 %9, 0
@@ -129,7 +129,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   %.3 = phi ptr [ %53, %.preheader138 ], [ %.3.ph, %.preheader138.preheader ]
   %48 = load i8, ptr %.3, align 1, !tbaa !4
   %49 = zext i8 %48 to i64
-  %50 = getelementptr i32, ptr @_Py_ctype_table, i64 %49
+  %50 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !7
   %52 = and i32 %51, 8
   %.not125 = icmp eq i32 %52, 0
@@ -264,9 +264,9 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly capture
   br i1 %108, label %.lr.ph154, label %._crit_edge
 
 .lr.ph154:                                        ; preds = %102
-  %109 = getelementptr i32, ptr @digitlimit, i64 %103
+  %109 = getelementptr [4 x i8], ptr @digitlimit, i64 %103
   %110 = load i32, ptr %109, align 4, !tbaa !7
-  %111 = getelementptr i64, ptr @smallmax, i64 %103
+  %111 = getelementptr [8 x i8], ptr @smallmax, i64 %103
   br label %112
 
 112:                                              ; preds = %.lr.ph154, %129
@@ -363,7 +363,7 @@ define dso_local i64 @PyOS_strtol(ptr noundef %0, ptr noundef writeonly captures
   %5 = phi i8 [ %12, %10 ], [ %4, %3 ]
   %.028 = phi ptr [ %11, %10 ], [ %0, %3 ]
   %6 = zext i8 %5 to i64
-  %7 = getelementptr i32, ptr @_Py_ctype_table, i64 %6
+  %7 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !7
   %9 = and i32 %8, 8
   %.not24 = icmp eq i32 %9, 0

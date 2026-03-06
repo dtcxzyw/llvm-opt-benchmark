@@ -2954,7 +2954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %98,
   %124 = phi i32 [ %123, %.preheader.split.us ], [ %.lcssa91107129, %.preheader ]
   %125 = getelementptr inbounds nuw i8, ptr %.1.i87.us, i64 4
   %126 = load i32, ptr %.1.i87.us, align 4, !tbaa !57
-  %127 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv170
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv170
   store i32 %126, ptr %127, align 4, !tbaa !57
   %128 = call i32 @llvm.fshl.i32(i32 %117, i32 %117, i32 26)
   %129 = call i32 @llvm.fshl.i32(i32 %117, i32 %117, i32 21)
@@ -2964,7 +2964,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %98,
   %133 = and i32 %118, %117
   %134 = xor i32 %117, -1
   %135 = and i32 %119, %134
-  %136 = getelementptr inbounds nuw i32, ptr @_ZL7sha256K, i64 %indvars.iv170
+  %136 = getelementptr inbounds nuw [4 x i8], ptr @_ZL7sha256K, i64 %indvars.iv170
   %137 = load i32, ptr %136, align 4, !tbaa !57
   %138 = add i32 %132, %133
   %139 = add i32 %138, %120
@@ -3032,7 +3032,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %98,
   %162 = phi i32 [ %.lcssa91107129, %.preheader.split.preheader ], [ %161, %.preheader.split ]
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %163 = and i64 %indvars.iv.next167, 15
-  %164 = getelementptr inbounds nuw i32, ptr %7, i64 %163
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %163
   %165 = load i32, ptr %164, align 4, !tbaa !57
   %166 = call i32 @llvm.fshl.i32(i32 %165, i32 %165, i32 25)
   %167 = call i32 @llvm.fshl.i32(i32 %165, i32 %165, i32 14)
@@ -3041,19 +3041,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %98,
   %170 = xor i32 %168, %169
   %171 = add nuw i64 %indvars.iv166, 14
   %172 = and i64 %171, 15
-  %173 = getelementptr inbounds nuw i32, ptr %7, i64 %172
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %172
   %174 = load i32, ptr %173, align 4, !tbaa !57
   %175 = call i32 @llvm.fshl.i32(i32 %174, i32 %174, i32 15)
   %176 = call i32 @llvm.fshl.i32(i32 %174, i32 %174, i32 13)
   %177 = xor i32 %175, %176
   %178 = lshr i32 %174, 10
   %179 = xor i32 %177, %178
-  %180 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv166
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv166
   %181 = load i32, ptr %180, align 4, !tbaa !57
   %182 = add i32 %170, %181
   %183 = add nuw i64 %indvars.iv166, 9
   %184 = and i64 %183, 15
-  %185 = getelementptr inbounds nuw i32, ptr %7, i64 %184
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %184
   %186 = load i32, ptr %185, align 4, !tbaa !57
   %187 = add i32 %182, %186
   %188 = add i32 %187, %179
@@ -3066,7 +3066,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %98,
   %194 = and i32 %156, %155
   %195 = xor i32 %155, -1
   %196 = and i32 %157, %195
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv166
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv166
   %197 = load i32, ptr %gep, align 4, !tbaa !57
   %198 = add i32 %193, %194
   %199 = add i32 %198, %158
@@ -3090,9 +3090,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %98,
 
 .preheader75:                                     ; preds = %.split.us, %.preheader75
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %.preheader75 ], [ 0, %.split.us ]
-  %215 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv178
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv178
   %216 = load i32, ptr %215, align 4, !tbaa !57
-  %217 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv178
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv178
   %218 = load i32, ptr %217, align 4, !tbaa !57
   %219 = add i32 %218, %216
   store i32 %219, ptr %217, align 4, !tbaa !57
@@ -3129,7 +3129,7 @@ _ZL11sha256BlockPjPKj.exit:                       ; preds = %.preheader75
   %238 = shl nuw i32 %237, 24
   %239 = or disjoint i32 %235, %238
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %240 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store i32 %239, ptr %240, align 4, !tbaa !57
   %indvars.iv.next159 = add nsw i64 %indvars.iv158, 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -3394,7 +3394,7 @@ define internal void @_ZL11sha256BlockPjPKj(ptr noundef captures(none) %0, ptr n
   %20 = phi i32 [ %19, %.preheader42.split.us ], [ %.lcssa567294, %.preheader42 ]
   %21 = getelementptr inbounds nuw i8, ptr %.152.us, i64 4
   %22 = load i32, ptr %.152.us, align 4, !tbaa !57
-  %23 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv120
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv120
   store i32 %22, ptr %23, align 4, !tbaa !57
   %24 = tail call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 26)
   %25 = tail call i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 21)
@@ -3404,7 +3404,7 @@ define internal void @_ZL11sha256BlockPjPKj(ptr noundef captures(none) %0, ptr n
   %29 = and i32 %14, %13
   %30 = xor i32 %13, -1
   %31 = and i32 %15, %30
-  %32 = getelementptr inbounds nuw i32, ptr @_ZL7sha256K, i64 %indvars.iv120
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @_ZL7sha256K, i64 %indvars.iv120
   %33 = load i32, ptr %32, align 4, !tbaa !57
   %34 = add i32 %28, %29
   %35 = add i32 %34, %16
@@ -3472,7 +3472,7 @@ define internal void @_ZL11sha256BlockPjPKj(ptr noundef captures(none) %0, ptr n
   %58 = phi i32 [ %.lcssa567294, %.preheader42.split.preheader ], [ %57, %.preheader42.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = and i64 %indvars.iv.next, 15
-  %60 = getelementptr inbounds nuw i32, ptr %4, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !57
   %62 = tail call i32 @llvm.fshl.i32(i32 %61, i32 %61, i32 25)
   %63 = tail call i32 @llvm.fshl.i32(i32 %61, i32 %61, i32 14)
@@ -3481,19 +3481,19 @@ define internal void @_ZL11sha256BlockPjPKj(ptr noundef captures(none) %0, ptr n
   %66 = xor i32 %64, %65
   %67 = add nuw i64 %indvars.iv, 14
   %68 = and i64 %67, 15
-  %69 = getelementptr inbounds nuw i32, ptr %4, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !57
   %71 = tail call i32 @llvm.fshl.i32(i32 %70, i32 %70, i32 15)
   %72 = tail call i32 @llvm.fshl.i32(i32 %70, i32 %70, i32 13)
   %73 = xor i32 %71, %72
   %74 = lshr i32 %70, 10
   %75 = xor i32 %73, %74
-  %76 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %77 = load i32, ptr %76, align 4, !tbaa !57
   %78 = add i32 %66, %77
   %79 = add nuw i64 %indvars.iv, 9
   %80 = and i64 %79, 15
-  %81 = getelementptr inbounds nuw i32, ptr %4, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !57
   %83 = add i32 %78, %82
   %84 = add i32 %83, %75
@@ -3506,7 +3506,7 @@ define internal void @_ZL11sha256BlockPjPKj(ptr noundef captures(none) %0, ptr n
   %90 = and i32 %52, %51
   %91 = xor i32 %51, -1
   %92 = and i32 %53, %91
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %93 = load i32, ptr %gep, align 4, !tbaa !57
   %94 = add i32 %89, %90
   %95 = add i32 %94, %54
@@ -3535,9 +3535,9 @@ define internal void @_ZL11sha256BlockPjPKj(ptr noundef captures(none) %0, ptr n
 
 .preheader:                                       ; preds = %.split.us, %.preheader
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %.preheader ], [ 0, %.split.us ]
-  %112 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv128
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv128
   %113 = load i32, ptr %112, align 4, !tbaa !57
-  %114 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv128
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv128
   %115 = load i32, ptr %114, align 4, !tbaa !57
   %116 = add i32 %115, %113
   store i32 %116, ptr %114, align 4, !tbaa !57
@@ -3623,7 +3623,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %21,
   %33 = xor i32 %32, 24
   %34 = shl nsw i32 %30, %33
   %35 = lshr i64 %.01540, 2
-  %36 = getelementptr inbounds nuw i32, ptr %7, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !57
   %38 = or i32 %34, %37
   store i32 %38, ptr %36, align 4, !tbaa !57
@@ -3638,7 +3638,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %21,
   %42 = xor i32 %41, 24
   %43 = shl nuw i32 128, %42
   %44 = lshr i64 %19, 2
-  %45 = getelementptr inbounds nuw i32, ptr %7, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !57
   %47 = or i32 %46, %43
   store i32 %47, ptr %45, align 4, !tbaa !57
@@ -3699,7 +3699,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %21,
   %65 = phi i32 [ %64, %.preheader35.split.us ], [ %.lcssa577395, %.preheader35 ]
   %66 = getelementptr inbounds nuw i8, ptr %.1.i2652.us, i64 4
   %67 = load i32, ptr %.1.i2652.us, align 4, !tbaa !57
-  %68 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv207
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv207
   store i32 %67, ptr %68, align 4, !tbaa !57
   %69 = call i32 @llvm.fshl.i32(i32 %58, i32 %58, i32 26)
   %70 = call i32 @llvm.fshl.i32(i32 %58, i32 %58, i32 21)
@@ -3709,7 +3709,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %21,
   %74 = and i32 %59, %58
   %75 = xor i32 %58, -1
   %76 = and i32 %60, %75
-  %77 = getelementptr inbounds nuw i32, ptr @_ZL7sha256K, i64 %indvars.iv207
+  %77 = getelementptr inbounds nuw [4 x i8], ptr @_ZL7sha256K, i64 %indvars.iv207
   %78 = load i32, ptr %77, align 4, !tbaa !57
   %79 = add i32 %73, %74
   %80 = add i32 %79, %61
@@ -3777,7 +3777,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %21,
   %103 = phi i32 [ %.lcssa577395, %.preheader35.split.preheader ], [ %102, %.preheader35.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %104 = and i64 %indvars.iv.next, 15
-  %105 = getelementptr inbounds nuw i32, ptr %3, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !57
   %107 = call i32 @llvm.fshl.i32(i32 %106, i32 %106, i32 25)
   %108 = call i32 @llvm.fshl.i32(i32 %106, i32 %106, i32 14)
@@ -3786,19 +3786,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %21,
   %111 = xor i32 %109, %110
   %112 = add nuw i64 %indvars.iv, 14
   %113 = and i64 %112, 15
-  %114 = getelementptr inbounds nuw i32, ptr %3, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !57
   %116 = call i32 @llvm.fshl.i32(i32 %115, i32 %115, i32 15)
   %117 = call i32 @llvm.fshl.i32(i32 %115, i32 %115, i32 13)
   %118 = xor i32 %116, %117
   %119 = lshr i32 %115, 10
   %120 = xor i32 %118, %119
-  %121 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %122 = load i32, ptr %121, align 4, !tbaa !57
   %123 = add i32 %111, %122
   %124 = add nuw i64 %indvars.iv, 9
   %125 = and i64 %124, 15
-  %126 = getelementptr inbounds nuw i32, ptr %3, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !57
   %128 = add i32 %123, %127
   %129 = add i32 %128, %120
@@ -3811,7 +3811,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %21,
   %135 = and i32 %97, %96
   %136 = xor i32 %96, -1
   %137 = and i32 %98, %136
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %138 = load i32, ptr %gep, align 4, !tbaa !57
   %139 = add i32 %134, %135
   %140 = add i32 %139, %99
@@ -3835,9 +3835,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %21,
 
 .preheader34:                                     ; preds = %.split.us, %.preheader34
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %.preheader34 ], [ 0, %.split.us ]
-  %156 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv215
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv215
   %157 = load i32, ptr %156, align 4, !tbaa !57
-  %158 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv215
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv215
   %159 = load i32, ptr %158, align 4, !tbaa !57
   %160 = add i32 %159, %157
   store i32 %160, ptr %158, align 4, !tbaa !57
@@ -3911,7 +3911,7 @@ _ZL11sha256BlockPjPKj.exit28:                     ; preds = %.preheader34
   %180 = phi i32 [ %179, %.preheader33.split.us ], [ %.lcssa122139161, %.preheader33 ]
   %181 = getelementptr inbounds nuw i8, ptr %.1.i114.us, i64 4
   %182 = load i32, ptr %.1.i114.us, align 4, !tbaa !57
-  %183 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv229
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv229
   store i32 %182, ptr %183, align 4, !tbaa !57
   %184 = call i32 @llvm.fshl.i32(i32 %173, i32 %173, i32 26)
   %185 = call i32 @llvm.fshl.i32(i32 %173, i32 %173, i32 21)
@@ -3921,7 +3921,7 @@ _ZL11sha256BlockPjPKj.exit28:                     ; preds = %.preheader34
   %189 = and i32 %174, %173
   %190 = xor i32 %173, -1
   %191 = and i32 %175, %190
-  %192 = getelementptr inbounds nuw i32, ptr @_ZL7sha256K, i64 %indvars.iv229
+  %192 = getelementptr inbounds nuw [4 x i8], ptr @_ZL7sha256K, i64 %indvars.iv229
   %193 = load i32, ptr %192, align 4, !tbaa !57
   %194 = add i32 %188, %189
   %195 = add i32 %194, %176
@@ -3989,7 +3989,7 @@ _ZL11sha256BlockPjPKj.exit28:                     ; preds = %.preheader34
   %218 = phi i32 [ %.lcssa122139161, %.preheader33.split.preheader ], [ %217, %.preheader33.split ]
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %219 = and i64 %indvars.iv.next226, 15
-  %220 = getelementptr inbounds nuw i32, ptr %5, i64 %219
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %219
   %221 = load i32, ptr %220, align 4, !tbaa !57
   %222 = call i32 @llvm.fshl.i32(i32 %221, i32 %221, i32 25)
   %223 = call i32 @llvm.fshl.i32(i32 %221, i32 %221, i32 14)
@@ -3998,19 +3998,19 @@ _ZL11sha256BlockPjPKj.exit28:                     ; preds = %.preheader34
   %226 = xor i32 %224, %225
   %227 = add nuw i64 %indvars.iv225, 14
   %228 = and i64 %227, 15
-  %229 = getelementptr inbounds nuw i32, ptr %5, i64 %228
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %228
   %230 = load i32, ptr %229, align 4, !tbaa !57
   %231 = call i32 @llvm.fshl.i32(i32 %230, i32 %230, i32 15)
   %232 = call i32 @llvm.fshl.i32(i32 %230, i32 %230, i32 13)
   %233 = xor i32 %231, %232
   %234 = lshr i32 %230, 10
   %235 = xor i32 %233, %234
-  %236 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv225
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv225
   %237 = load i32, ptr %236, align 4, !tbaa !57
   %238 = add i32 %226, %237
   %239 = add nuw i64 %indvars.iv225, 9
   %240 = and i64 %239, 15
-  %241 = getelementptr inbounds nuw i32, ptr %5, i64 %240
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %240
   %242 = load i32, ptr %241, align 4, !tbaa !57
   %243 = add i32 %238, %242
   %244 = add i32 %243, %235
@@ -4023,7 +4023,7 @@ _ZL11sha256BlockPjPKj.exit28:                     ; preds = %.preheader34
   %250 = and i32 %212, %211
   %251 = xor i32 %211, -1
   %252 = and i32 %213, %251
-  %gep279 = getelementptr inbounds nuw i32, ptr %invariant.gep278, i64 %indvars.iv225
+  %gep279 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep278, i64 %indvars.iv225
   %253 = load i32, ptr %gep279, align 4, !tbaa !57
   %254 = add i32 %249, %250
   %255 = add i32 %254, %214
@@ -4047,9 +4047,9 @@ _ZL11sha256BlockPjPKj.exit28:                     ; preds = %.preheader34
 
 .preheader:                                       ; preds = %.split116.us, %.preheader
   %indvars.iv237 = phi i64 [ %indvars.iv.next238, %.preheader ], [ 0, %.split116.us ]
-  %271 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv237
+  %271 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv237
   %272 = load i32, ptr %271, align 4, !tbaa !57
-  %273 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv237
+  %273 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv237
   %274 = load i32, ptr %273, align 4, !tbaa !57
   %275 = add i32 %274, %272
   store i32 %275, ptr %273, align 4, !tbaa !57
@@ -4089,7 +4089,7 @@ define dso_local void @_ZN11VHashSha25612digestBinaryB5cxx11Ev(ptr dead_on_unwin
 .preheader:                                       ; preds = %2, %25
   %.010 = phi i64 [ %30, %25 ], [ 0, %2 ]
   %7 = lshr i64 %.010, 2
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !57
   %.0.tr = trunc nuw nsw i64 %.010 to i32
   %10 = shl nuw nsw i32 %.0.tr, 3
@@ -7917,7 +7917,7 @@ define dso_local noundef i32 @_ZN11VSpellCheck12editDistanceERKNSt7__cxx1112basi
 .preheader81:                                     ; preds = %18, %.preheader81
   %.05582 = phi i64 [ %26, %.preheader81 ], [ 0, %18 ]
   %24 = trunc nuw nsw i64 %.05582 to i32
-  %25 = getelementptr inbounds nuw i32, ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_one_ago, i64 %.05582
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_one_ago, i64 %.05582
   store i32 %24, ptr %25, align 4, !tbaa !57
   %26 = add nuw i64 %.05582, 1
   %exitcond.not = icmp eq i64 %.05582, %4
@@ -7928,7 +7928,7 @@ define dso_local noundef i32 @_ZN11VSpellCheck12editDistanceERKNSt7__cxx1112basi
   br i1 %exitcond91.not, label %27, label %30, !llvm.loop !91
 
 27:                                               ; preds = %.loopexit
-  %28 = getelementptr inbounds nuw i32, ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8s_v_next, i64 %4
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8s_v_next, i64 %4
   %29 = load i32, ptr %28, align 4, !tbaa !57
   br label %82
 
@@ -7961,13 +7961,13 @@ define dso_local noundef i32 @_ZN11VSpellCheck12editDistanceERKNSt7__cxx1112basi
   %42 = zext i1 %41 to i32
   %43 = add i32 %38, 1
   %44 = add nuw nsw i64 %.05383.us, 1
-  %45 = getelementptr inbounds nuw i32, ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_one_ago, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_one_ago, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !57
   %47 = add i32 %46, 1
   %48 = add i32 %37, %42
   %.sroa.speculated74.us = tail call i32 @llvm.umin.i32(i32 %47, i32 %43)
   %.sroa.speculated66.us = tail call i32 @llvm.umin.i32(i32 %48, i32 %.sroa.speculated74.us)
-  %49 = getelementptr inbounds nuw i32, ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8s_v_next, i64 %44
+  %49 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8s_v_next, i64 %44
   store i32 %.sroa.speculated66.us, ptr %49, align 4, !tbaa !57
   %exitcond89.not = icmp eq i64 %44, %4
   br i1 %exitcond89.not, label %.preheader.preheader, label %.split.us, !llvm.loop !92
@@ -7982,7 +7982,7 @@ define dso_local noundef i32 @_ZN11VSpellCheck12editDistanceERKNSt7__cxx1112basi
   %55 = zext i1 %54 to i32
   %56 = add i32 %51, 1
   %57 = add nuw nsw i64 %.05383, 1
-  %58 = getelementptr inbounds nuw i32, ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_one_ago, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_one_ago, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !57
   %60 = add i32 %59, 1
   %61 = add i32 %50, %55
@@ -8004,7 +8004,7 @@ define dso_local noundef i32 @_ZN11VSpellCheck12editDistanceERKNSt7__cxx1112basi
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds nuw i32, ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_two_ago, i64 %66
+  %71 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_two_ago, i64 %66
   %72 = load i32, ptr %71, align 4, !tbaa !57
   %73 = add i32 %72, 1
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %73, i32 %.sroa.speculated66)
@@ -8012,7 +8012,7 @@ define dso_local noundef i32 @_ZN11VSpellCheck12editDistanceERKNSt7__cxx1112basi
 
 74:                                               ; preds = %70, %65, %62, %.split
   %.079 = phi i32 [ %.sroa.speculated, %70 ], [ %.sroa.speculated66, %65 ], [ %.sroa.speculated66, %62 ], [ %.sroa.speculated66, %.split ]
-  %75 = getelementptr inbounds nuw i32, ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8s_v_next, i64 %57
+  %75 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8s_v_next, i64 %57
   store i32 %.079, ptr %75, align 4, !tbaa !57
   %exitcond88.not = icmp eq i64 %57, %4
   br i1 %exitcond88.not, label %.preheader.preheader, label %.split, !llvm.loop !92
@@ -8022,11 +8022,11 @@ define dso_local noundef i32 @_ZN11VSpellCheck12editDistanceERKNSt7__cxx1112basi
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.05284 = phi i64 [ %81, %.preheader ], [ 0, %.preheader.preheader ]
-  %76 = getelementptr inbounds nuw i32, ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_one_ago, i64 %.05284
+  %76 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_one_ago, i64 %.05284
   %77 = load i32, ptr %76, align 4, !tbaa !57
-  %78 = getelementptr inbounds nuw i32, ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_two_ago, i64 %.05284
+  %78 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E11s_v_two_ago, i64 %.05284
   store i32 %77, ptr %78, align 4, !tbaa !57
-  %79 = getelementptr inbounds nuw i32, ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8s_v_next, i64 %.05284
+  %79 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN11VSpellCheck12editDistanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_E8s_v_next, i64 %.05284
   %80 = load i32, ptr %79, align 4, !tbaa !57
   store i32 %80, ptr %76, align 4, !tbaa !57
   %81 = add nuw i64 %.05284, 1
@@ -10881,7 +10881,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !128
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !129
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !131
   ret void
 

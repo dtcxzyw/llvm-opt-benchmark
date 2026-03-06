@@ -9,22 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.instr_time = type { i64 }
 %struct.RmgrData = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.PgStat_CheckpointerStats = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
-%union.WALInsertLockPadded = type { %struct.WALInsertLock, [96 x i8] }
-%struct.WALInsertLock = type { %struct.LWLock, %struct.pg_atomic_uint64, i64 }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.proclist_head = type { i32, i32 }
-%struct.pg_atomic_uint64 = type { i64 }
-%struct.PGPROC = type { %struct.dlist_node, ptr, ptr, i32, %struct.Latch, i32, i32, i32, i32, %struct.anon, i32, i32, i32, i8, i8, i8, i8, %struct.proclist_node, %struct.proclist_node, ptr, ptr, i32, i32, %struct.pg_atomic_uint64, i32, i8, i64, i32, %struct.dlist_node, [16 x %struct.dlist_head], %struct.XidCacheStatus, %struct.XidCache, i8, %struct.pg_atomic_uint32, i32, i32, i8, %struct.pg_atomic_uint32, i32, i32, i64, i64, %struct.LWLock, ptr, ptr, i8, i32, ptr, %struct.dlist_head, %struct.dlist_node }
-%struct.Latch = type { i32, i32, i8, i32 }
-%struct.anon = type { i32, i32 }
-%struct.proclist_node = type { i32, i32 }
-%struct.XidCacheStatus = type { i8, i8 }
-%struct.XidCache = type { [64 x i32] }
-%struct.dlist_head = type { %struct.dlist_node }
-%struct.dlist_node = type { ptr, ptr }
 %struct.timespec = type { i64, i64 }
-%union.ListCell = type { ptr }
 %struct.timeval = type { i64, i64 }
 %struct.xl_parameter_change = type { i32, i32, i32, i32, i32, i32, i8, i8 }
 %struct.xl_end_of_recovery = type { i64, i32, i32, i32 }
@@ -35,8 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.CheckPoint = type { i64, i32, i32, i8, i32, %struct.FullTransactionId, i32, i32, i32, i32, i32, i32, i32, i64, i32, i32, i32 }
 %struct.FullTransactionId = type { i64 }
 %struct.xl_restore_point = type { i64, [64 x i8] }
-%struct.DecodedBkpBlock = type { i8, %struct.RelFileLocator, i32, i32, i32, i8, i8, i8, ptr, i16, i16, i16, i8, i8, ptr, i16, i16 }
-%struct.RelFileLocator = type { i32, i32, i32 }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
@@ -499,7 +482,7 @@ XLogInsertAllowed.exit.thread67:                  ; preds = %RecoveryInProgress.
   store i32 %47, ptr @MyLockNo, align 4
   %48 = load ptr, ptr @WALInsertLocks, align 8
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds %union.WALInsertLockPadded, ptr %48, i64 %49
+  %50 = getelementptr inbounds [128 x i8], ptr %48, i64 %49
   %51 = tail call zeroext i1 @LWLockAcquire(ptr noundef %50, i32 noundef 0) #26
   br i1 %51, label %WALInsertLockAcquire.exit, label %52
 
@@ -554,7 +537,7 @@ WALInsertLockAcquire.exit:                        ; preds = %46, %52
 .preheader.i:                                     ; preds = %73, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %73 ]
   %74 = load ptr, ptr @WALInsertLocks, align 8
-  %75 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %74, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [128 x i8], ptr %74, i64 %indvars.iv.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   tail call void @LWLockReleaseClearVar(ptr noundef %75, ptr noundef nonnull %76, i64 noundef 0) #26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -569,7 +552,7 @@ WALInsertLockAcquire.exit:                        ; preds = %46, %52
   %79 = load ptr, ptr @WALInsertLocks, align 8
   %80 = load i32, ptr @MyLockNo, align 4
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds %union.WALInsertLockPadded, ptr %79, i64 %81
+  %82 = getelementptr inbounds [128 x i8], ptr %79, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   tail call void @LWLockReleaseClearVar(ptr noundef %82, ptr noundef nonnull %83, i64 noundef 0) #26
   br label %WALInsertLockRelease.exit
@@ -816,7 +799,7 @@ ReserveXLogInsertLocation.exit54:                 ; preds = %156, %161
   %219 = load ptr, ptr %218, align 8
   %sext.i.i = shl i64 %215, 32
   %220 = ashr exact i64 %sext.i.i, 32
-  %221 = getelementptr inbounds %struct.pg_atomic_uint64, ptr %219, i64 %220
+  %221 = getelementptr inbounds [8 x i8], ptr %219, i64 %220
   %222 = load volatile i64, ptr %221, align 8
   %.not.i.i = icmp eq i64 %217, %222
   br i1 %.not.i.i, label %259, label %223
@@ -862,7 +845,7 @@ ReserveXLogInsertLocation.exit54:                 ; preds = %156, %161
 243:                                              ; preds = %238
   %244 = load i32, ptr @MyLockNo, align 4
   %245 = sext i32 %244 to i64
-  %246 = getelementptr inbounds %union.WALInsertLockPadded, ptr %239, i64 %245
+  %246 = getelementptr inbounds [128 x i8], ptr %239, i64 %245
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 16
   tail call void @LWLockUpdateVar(ptr noundef %246, ptr noundef nonnull %247, i64 noundef %.027.i.i) #26
   br label %WALInsertLockUpdateInsertingAt.exit.i.i
@@ -872,7 +855,7 @@ WALInsertLockUpdateInsertingAt.exit.i.i:          ; preds = %243, %240
   %248 = load ptr, ptr @XLogCtl, align 8
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 304
   %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds %struct.pg_atomic_uint64, ptr %250, i64 %220
+  %251 = getelementptr inbounds [8 x i8], ptr %250, i64 %220
   %252 = load volatile i64, ptr %251, align 8
   %.not30.i.i = icmp eq i64 %217, %252
   br i1 %.not30.i.i, label %260, label %253
@@ -997,7 +980,7 @@ CopyXLogRecordToWAL.exit:                         ; preds = %.loopexit88.i
   %312 = load ptr, ptr @WALInsertLocks, align 8
   %313 = sext i32 %311 to i64
   %314 = select i1 %.b.i60.pre98, i64 0, i64 %313
-  %315 = getelementptr inbounds %union.WALInsertLockPadded, ptr %312, i64 %314
+  %315 = getelementptr inbounds [128 x i8], ptr %312, i64 %314
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 24
   store i64 %179, ptr %316, align 8
   br i1 %.b.i60.pre98, label %.preheader.i61.preheader, label %322
@@ -1012,7 +995,7 @@ CopyXLogRecordToWAL.exit:                         ; preds = %.loopexit88.i
 .preheader.i61:                                   ; preds = %.preheader.i61.preheader, %.preheader.i61
   %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %.preheader.i61 ], [ 0, %.preheader.i61.preheader ]
   %318 = load ptr, ptr @WALInsertLocks, align 8
-  %319 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %318, i64 %indvars.iv.i62
+  %319 = getelementptr inbounds nuw [128 x i8], ptr %318, i64 %indvars.iv.i62
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 16
   tail call void @LWLockReleaseClearVar(ptr noundef %319, ptr noundef nonnull %320, i64 noundef 0) #26
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
@@ -1028,7 +1011,7 @@ CopyXLogRecordToWAL.exit:                         ; preds = %.loopexit88.i
   %323 = load ptr, ptr @WALInsertLocks, align 8
   %324 = load i32, ptr @MyLockNo, align 4
   %325 = sext i32 %324 to i64
-  %326 = getelementptr inbounds %union.WALInsertLockPadded, ptr %323, i64 %325
+  %326 = getelementptr inbounds [128 x i8], ptr %323, i64 %325
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 16
   tail call void @LWLockReleaseClearVar(ptr noundef %326, ptr noundef nonnull %327, i64 noundef 0) #26
   br label %WALInsertLockRelease.exit65
@@ -1203,10 +1186,10 @@ define internal fastcc void @WALInsertLockAcquireExclusive() unnamed_addr #0 {
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %2 = load ptr, ptr @WALInsertLocks, align 8
-  %3 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %2, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [128 x i8], ptr %2, i64 %indvars.iv
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef %3, i32 noundef 0) #26
   %5 = load ptr, ptr @WALInsertLocks, align 8
-  %6 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @LWLockUpdateVar(ptr noundef %6, ptr noundef nonnull %7, i64 noundef -1) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1689,7 +1672,7 @@ RecoveryInProgress.exit.thread:                   ; preds = %4, %RecoveryInProgr
   %37 = add i64 %36, %.04462
   %sext = shl i64 %35, 32
   %38 = ashr exact i64 %sext, 32
-  %39 = getelementptr inbounds %struct.pg_atomic_uint64, ptr %27, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %27, i64 %38
   %40 = load volatile i64, ptr %39, align 8
   %.not53 = icmp eq i64 %37, %40
   br i1 %.not53, label %41, label %.thread
@@ -1707,7 +1690,7 @@ RecoveryInProgress.exit.thread:                   ; preds = %4, %RecoveryInProgr
   %48 = load ptr, ptr @XLogCtl, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 304
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds %struct.pg_atomic_uint64, ptr %50, i64 %38
+  %51 = getelementptr inbounds [8 x i8], ptr %50, i64 %38
   %52 = load volatile i64, ptr %51, align 8
   %.not54 = icmp eq i64 %37, %52
   br i1 %.not54, label %53, label %.thread
@@ -1934,7 +1917,7 @@ define dso_local void @XLogSetAsyncXactLSN(i64 noundef %0) local_unnamed_addr #0
 40:                                               ; preds = %.critedge
   %41 = load ptr, ptr %37, align 8
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds %struct.PGPROC, ptr %41, i64 %42
+  %43 = getelementptr inbounds [832 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 36
   tail call void @SetLatch(ptr noundef nonnull %44) #26
   br label %45
@@ -2179,7 +2162,7 @@ XLogBytePosToEndRecPtr.exit:                      ; preds = %24, %33, %35
 56:                                               ; preds = %62, %55
   %57 = phi i64 [ %.fr, %62 ], [ 0, %55 ]
   %58 = load ptr, ptr @WALInsertLocks, align 8
-  %59 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [128 x i8], ptr %58, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = call zeroext i1 @LWLockWaitForVar(ptr noundef %59, ptr noundef nonnull %60, i64 noundef %57, ptr noundef nonnull %2) #26
   br i1 %61, label %.loopexit.thread, label %62
@@ -2278,7 +2261,7 @@ define internal fastcc void @XLogWrite(i64 %0, i64 %1, i32 noundef %2, i1 nounde
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 304
   %27 = load ptr, ptr %26, align 8
   %28 = sext i32 %.062 to i64
-  %29 = getelementptr inbounds %struct.pg_atomic_uint64, ptr %27, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %27, i64 %28
   %30 = load volatile i64, ptr %29, align 8
   %.not = icmp ult i64 %23, %30
   br i1 %.not, label %41, label %31
@@ -2980,7 +2963,7 @@ define internal fastcc void @AdvanceXLInsertBuffer(i64 noundef %0, i32 noundef %
   %23 = load ptr, ptr %22, align 8
   %sext.us = shl i64 %21, 32
   %24 = ashr exact i64 %sext.us, 32
-  %25 = getelementptr inbounds %struct.pg_atomic_uint64, ptr %23, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %23, i64 %24
   %26 = load volatile i64, ptr %25, align 8
   %27 = load i64, ptr @LogwrtResult.0, align 8
   %28 = icmp ult i64 %27, %26
@@ -2999,7 +2982,7 @@ define internal fastcc void @AdvanceXLInsertBuffer(i64 noundef %0, i32 noundef %
   %38 = load ptr, ptr %37, align 8
   %sext = shl i64 %36, 32
   %39 = ashr exact i64 %sext, 32
-  %40 = getelementptr inbounds %struct.pg_atomic_uint64, ptr %38, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %38, i64 %39
   %41 = load volatile i64, ptr %40, align 8
   %42 = load i64, ptr @LogwrtResult.0, align 8
   %43 = icmp ult i64 %42, %41
@@ -3107,7 +3090,7 @@ define internal fastcc void @AdvanceXLInsertBuffer(i64 noundef %0, i32 noundef %
   %100 = load ptr, ptr %99, align 8
   %101 = ashr exact i64 %.us-phi, 19
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 %101
-  %103 = getelementptr inbounds %struct.pg_atomic_uint64, ptr %94, i64 %.us-phi52
+  %103 = getelementptr inbounds [8 x i8], ptr %94, i64 %.us-phi52
   store volatile i64 0, ptr %103, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !49
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 2
@@ -3153,7 +3136,7 @@ define internal fastcc void @AdvanceXLInsertBuffer(i64 noundef %0, i32 noundef %
   %125 = load ptr, ptr @XLogCtl, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 304
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds %struct.pg_atomic_uint64, ptr %127, i64 %.us-phi52
+  %128 = getelementptr inbounds [8 x i8], ptr %127, i64 %.us-phi52
   store volatile i64 %98, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 288
   store i64 %98, ptr %129, align 8
@@ -4039,7 +4022,7 @@ define dso_local noundef zeroext i1 @check_wal_consistency_checking(ptr noundef 
 .lr.ph98:                                         ; preds = %.lr.ph, %.loopexit
   %indvars.iv9197 = phi i64 [ %indvars.iv.next92, %.loopexit ], [ 0, %.lr.ph ]
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds nuw %union.ListCell, ptr %20, i64 %indvars.iv9197
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv9197
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @pg_strcasecmp(ptr noundef %22, ptr noundef nonnull @.str.25) #26
   %24 = icmp eq i32 %23, 0
@@ -4047,7 +4030,7 @@ define dso_local noundef zeroext i1 @check_wal_consistency_checking(ptr noundef 
 
 .preheader:                                       ; preds = %.lr.ph98, %29
   %indvars.iv87 = phi i64 [ %indvars.iv.next88, %29 ], [ 0, %.lr.ph98 ]
-  %25 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %indvars.iv87
+  %25 = getelementptr inbounds nuw [64 x i8], ptr @RmgrTable, i64 %indvars.iv87
   %26 = load ptr, ptr %25, align 8
   %.not77 = icmp eq ptr %26, null
   br i1 %.not77, label %29, label %GetRmgr.exit
@@ -4070,7 +4053,7 @@ GetRmgr.exit:                                     ; preds = %.preheader
 
 .preheader78:                                     ; preds = %.lr.ph98, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.lr.ph98 ]
-  %30 = getelementptr inbounds nuw %struct.RmgrData, ptr @RmgrTable, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [64 x i8], ptr @RmgrTable, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %.not76 = icmp eq ptr %31, null
   br i1 %.not76, label %37, label %GetRmgr.exit68
@@ -4718,7 +4701,7 @@ define dso_local void @XLOGShmemInit() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %27 = load ptr, ptr %21, align 8
-  %28 = getelementptr inbounds nuw %struct.pg_atomic_uint64, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store volatile i64 0, ptr %28, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4737,10 +4720,10 @@ define dso_local void @XLOGShmemInit() local_unnamed_addr #0 {
 34:                                               ; preds = %._crit_edge, %34
   %35 = phi ptr [ %32, %._crit_edge ], [ %37, %34 ]
   %indvars.iv27 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next28, %34 ]
-  %36 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %35, i64 %indvars.iv27
+  %36 = getelementptr inbounds nuw [128 x i8], ptr %35, i64 %indvars.iv27
   call void @LWLockInitialize(ptr noundef %36, i32 noundef 60) #26
   %37 = load ptr, ptr @WALInsertLocks, align 8
-  %38 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %37, i64 %indvars.iv27
+  %38 = getelementptr inbounds nuw [128 x i8], ptr %37, i64 %indvars.iv27
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store volatile i64 0, ptr %39, align 8
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
@@ -6574,7 +6557,7 @@ GetXLogInsertRecPtr.exit.i:                       ; preds = %712, %710
   store i32 %739, ptr @MyLockNo, align 4
   %740 = load ptr, ptr @WALInsertLocks, align 8
   %741 = sext i32 %739 to i64
-  %742 = getelementptr inbounds %union.WALInsertLockPadded, ptr %740, i64 %741
+  %742 = getelementptr inbounds [128 x i8], ptr %740, i64 %741
   %743 = call zeroext i1 @LWLockAcquire(ptr noundef %742, i32 noundef 0) #26
   br i1 %743, label %WALInsertLockAcquire.exit.i, label %744
 
@@ -6597,7 +6580,7 @@ WALInsertLockAcquire.exit.i:                      ; preds = %744, %738
 .preheader.i.i101:                                ; preds = %WALInsertLockAcquire.exit.i, %.preheader.i.i101
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i.i101 ], [ 0, %WALInsertLockAcquire.exit.i ]
   %752 = load ptr, ptr @WALInsertLocks, align 8
-  %753 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %752, i64 %indvars.iv.i.i
+  %753 = getelementptr inbounds nuw [128 x i8], ptr %752, i64 %indvars.iv.i.i
   %754 = getelementptr inbounds nuw i8, ptr %753, i64 16
   call void @LWLockReleaseClearVar(ptr noundef %753, ptr noundef nonnull %754, i64 noundef 0) #26
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -6612,7 +6595,7 @@ WALInsertLockAcquire.exit.i:                      ; preds = %744, %738
   %757 = load ptr, ptr @WALInsertLocks, align 8
   %758 = load i32, ptr @MyLockNo, align 4
   %759 = sext i32 %758 to i64
-  %760 = getelementptr inbounds %union.WALInsertLockPadded, ptr %757, i64 %759
+  %760 = getelementptr inbounds [128 x i8], ptr %757, i64 %759
   %761 = getelementptr inbounds nuw i8, ptr %760, i64 16
   call void @LWLockReleaseClearVar(ptr noundef %760, ptr noundef nonnull %761, i64 noundef 0) #26
   br label %WALInsertLockRelease.exit.i
@@ -6698,10 +6681,10 @@ RecoveryInProgress.exit.thread.i.i:               ; preds = %RecoveryInProgress.
 799:                                              ; preds = %799, %795
   %indvars.iv.i.i.i = phi i64 [ 0, %795 ], [ %indvars.iv.next.i.i.i, %799 ]
   %800 = load ptr, ptr @WALInsertLocks, align 8
-  %801 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %800, i64 %indvars.iv.i.i.i
+  %801 = getelementptr inbounds nuw [128 x i8], ptr %800, i64 %indvars.iv.i.i.i
   %802 = call zeroext i1 @LWLockAcquire(ptr noundef %801, i32 noundef 0) #26
   %803 = load ptr, ptr @WALInsertLocks, align 8
-  %804 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %803, i64 %indvars.iv.i.i.i
+  %804 = getelementptr inbounds nuw [128 x i8], ptr %803, i64 %indvars.iv.i.i.i
   %805 = getelementptr inbounds nuw i8, ptr %804, i64 16
   call void @LWLockUpdateVar(ptr noundef %804, ptr noundef nonnull %805, i64 noundef -1) #26
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -6727,7 +6710,7 @@ WALInsertLockAcquireExclusive.exit.i.i:           ; preds = %799
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i, %WALInsertLockAcquireExclusive.exit.i.i
   %indvars.iv.i2.i.i = phi i64 [ %indvars.iv.next.i3.i.i, %.preheader.i.i.i ], [ 0, %WALInsertLockAcquireExclusive.exit.i.i ]
   %816 = load ptr, ptr @WALInsertLocks, align 8
-  %817 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %816, i64 %indvars.iv.i2.i.i
+  %817 = getelementptr inbounds nuw [128 x i8], ptr %816, i64 %indvars.iv.i2.i.i
   %818 = getelementptr inbounds nuw i8, ptr %817, i64 16
   call void @LWLockReleaseClearVar(ptr noundef %817, ptr noundef nonnull %818, i64 noundef 0) #26
   %indvars.iv.next.i3.i.i = add nuw nsw i64 %indvars.iv.i2.i.i, 1
@@ -7199,10 +7182,10 @@ RecoveryInProgress.exit:                          ; preds = %6, %9
 .preheader17:                                     ; preds = %RecoveryInProgress.exit, %.preheader17
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader17 ], [ 0, %RecoveryInProgress.exit ]
   %17 = load ptr, ptr @WALInsertLocks, align 8
-  %18 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [128 x i8], ptr %17, i64 %indvars.iv.i
   %19 = tail call zeroext i1 @LWLockAcquire(ptr noundef %18, i32 noundef 0) #26
   %20 = load ptr, ptr @WALInsertLocks, align 8
-  %21 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %20, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [128 x i8], ptr %20, i64 %indvars.iv.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   tail call void @LWLockUpdateVar(ptr noundef %21, ptr noundef nonnull %22, i64 noundef -1) #26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -7220,7 +7203,7 @@ WALInsertLockAcquireExclusive.exit:               ; preds = %.preheader17
 .preheader.i:                                     ; preds = %WALInsertLockAcquireExclusive.exit, %.preheader.i
   %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i5, %.preheader.i ], [ 0, %WALInsertLockAcquireExclusive.exit ]
   %26 = load ptr, ptr @WALInsertLocks, align 8
-  %27 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %26, i64 %indvars.iv.i4
+  %27 = getelementptr inbounds nuw [128 x i8], ptr %26, i64 %indvars.iv.i4
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   tail call void @LWLockReleaseClearVar(ptr noundef %27, ptr noundef nonnull %28, i64 noundef 0) #26
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
@@ -7251,10 +7234,10 @@ WALInsertLockRelease.exit:                        ; preds = %.preheader.i
 .preheader:                                       ; preds = %34, %.preheader
   %indvars.iv.i7 = phi i64 [ %indvars.iv.next.i8, %.preheader ], [ 0, %34 ]
   %37 = load ptr, ptr @WALInsertLocks, align 8
-  %38 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %37, i64 %indvars.iv.i7
+  %38 = getelementptr inbounds nuw [128 x i8], ptr %37, i64 %indvars.iv.i7
   %39 = tail call zeroext i1 @LWLockAcquire(ptr noundef %38, i32 noundef 0) #26
   %40 = load ptr, ptr @WALInsertLocks, align 8
-  %41 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %40, i64 %indvars.iv.i7
+  %41 = getelementptr inbounds nuw [128 x i8], ptr %40, i64 %indvars.iv.i7
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   tail call void @LWLockUpdateVar(ptr noundef %41, ptr noundef nonnull %42, i64 noundef -1) #26
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
@@ -7272,7 +7255,7 @@ WALInsertLockAcquireExclusive.exit10:             ; preds = %.preheader
 .preheader.i12:                                   ; preds = %WALInsertLockAcquireExclusive.exit10, %.preheader.i12
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i14, %.preheader.i12 ], [ 0, %WALInsertLockAcquireExclusive.exit10 ]
   %46 = load ptr, ptr @WALInsertLocks, align 8
-  %47 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %46, i64 %indvars.iv.i13
+  %47 = getelementptr inbounds nuw [128 x i8], ptr %46, i64 %indvars.iv.i13
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   tail call void @LWLockReleaseClearVar(ptr noundef %47, ptr noundef nonnull %48, i64 noundef 0) #26
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
@@ -7532,10 +7515,10 @@ define dso_local i64 @GetLastImportantRecPtr() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %.012 = phi i64 [ 0, %0 ], [ %spec.select, %1 ]
   %2 = load ptr, ptr @WALInsertLocks, align 8
-  %3 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %2, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [128 x i8], ptr %2, i64 %indvars.iv
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef %3, i32 noundef 0) #26
   %5 = load ptr, ptr @WALInsertLocks, align 8
-  %6 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i64, ptr %7, align 8
   tail call void @LWLockRelease(ptr noundef %6) #26
@@ -7728,10 +7711,10 @@ RecoveryInProgress.exit.thread:                   ; preds = %14, %RecoveryInProg
 .preheader:                                       ; preds = %34, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %34 ]
   %56 = load ptr, ptr @WALInsertLocks, align 8
-  %57 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %56, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [128 x i8], ptr %56, i64 %indvars.iv.i
   %58 = tail call zeroext i1 @LWLockAcquire(ptr noundef %57, i32 noundef 0) #26
   %59 = load ptr, ptr @WALInsertLocks, align 8
-  %60 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %59, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [128 x i8], ptr %59, i64 %indvars.iv.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   tail call void @LWLockUpdateVar(ptr noundef %60, ptr noundef nonnull %61, i64 noundef -1) #26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -7752,7 +7735,7 @@ WALInsertLockAcquireExclusive.exit:               ; preds = %.preheader
 .preheader.i:                                     ; preds = %WALInsertLockAcquireExclusive.exit, %.preheader.i
   %indvars.iv.i64 = phi i64 [ %indvars.iv.next.i65, %.preheader.i ], [ 0, %WALInsertLockAcquireExclusive.exit ]
   %67 = load ptr, ptr @WALInsertLocks, align 8
-  %68 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %67, i64 %indvars.iv.i64
+  %68 = getelementptr inbounds nuw [128 x i8], ptr %67, i64 %indvars.iv.i64
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   tail call void @LWLockReleaseClearVar(ptr noundef %68, ptr noundef nonnull %69, i64 noundef 0) #26
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i64, 1
@@ -8182,10 +8165,10 @@ RecoveryInProgress.exit:                          ; preds = %1
   %indvars.iv.i = phi i64 [ 0, %43 ], [ %indvars.iv.next.i, %45 ]
   %.012.i = phi i64 [ 0, %43 ], [ %spec.select.i, %45 ]
   %46 = load ptr, ptr @WALInsertLocks, align 8
-  %47 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %46, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [128 x i8], ptr %46, i64 %indvars.iv.i
   %48 = tail call zeroext i1 @LWLockAcquire(ptr noundef %47, i32 noundef 0) #26
   %49 = load ptr, ptr @WALInsertLocks, align 8
-  %50 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %49, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [128 x i8], ptr %49, i64 %indvars.iv.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load i64, ptr %51, align 8
   tail call void @LWLockRelease(ptr noundef %50) #26
@@ -8252,10 +8235,10 @@ GetLastImportantRecPtr.exit:                      ; preds = %45
 83:                                               ; preds = %83, %80
   %indvars.iv.i98 = phi i64 [ 0, %80 ], [ %indvars.iv.next.i99, %83 ]
   %84 = load ptr, ptr @WALInsertLocks, align 8
-  %85 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %84, i64 %indvars.iv.i98
+  %85 = getelementptr inbounds nuw [128 x i8], ptr %84, i64 %indvars.iv.i98
   %86 = tail call zeroext i1 @LWLockAcquire(ptr noundef %85, i32 noundef 0) #26
   %87 = load ptr, ptr @WALInsertLocks, align 8
-  %88 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %87, i64 %indvars.iv.i98
+  %88 = getelementptr inbounds nuw [128 x i8], ptr %87, i64 %indvars.iv.i98
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   tail call void @LWLockUpdateVar(ptr noundef %88, ptr noundef nonnull %89, i64 noundef -1) #26
   %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i98, 1
@@ -8337,7 +8320,7 @@ XLogBytePosToRecPtr.exit:                         ; preds = %106, %108
 .preheader.i:                                     ; preds = %131, %.preheader.i
   %indvars.iv.i102 = phi i64 [ %indvars.iv.next.i103, %.preheader.i ], [ 0, %131 ]
   %134 = load ptr, ptr @WALInsertLocks, align 8
-  %135 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %134, i64 %indvars.iv.i102
+  %135 = getelementptr inbounds nuw [128 x i8], ptr %134, i64 %indvars.iv.i102
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   tail call void @LWLockReleaseClearVar(ptr noundef %135, ptr noundef nonnull %136, i64 noundef 0) #26
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i102, 1
@@ -8351,7 +8334,7 @@ WALInsertLockRelease.exit:                        ; preds = %.preheader.i
 .preheader.i106:                                  ; preds = %WALInsertLockAcquireExclusive.exit, %.preheader.i106
   %indvars.iv.i107 = phi i64 [ %indvars.iv.next.i108, %.preheader.i106 ], [ 0, %WALInsertLockAcquireExclusive.exit ]
   %137 = load ptr, ptr @WALInsertLocks, align 8
-  %138 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %137, i64 %indvars.iv.i107
+  %138 = getelementptr inbounds nuw [128 x i8], ptr %137, i64 %indvars.iv.i107
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   tail call void @LWLockReleaseClearVar(ptr noundef %138, ptr noundef nonnull %139, i64 noundef 0) #26
   %indvars.iv.next.i108 = add nuw nsw i64 %indvars.iv.i107, 1
@@ -9703,7 +9686,7 @@ define dso_local void @xlog_redo(ptr noundef %0) local_unnamed_addr #0 {
   %.06379.us = phi i8 [ %214, %212 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %205 = zext i8 %.06379.us to i64
-  %206 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %204, i64 %205
+  %206 = getelementptr inbounds nuw [64 x i8], ptr %204, i64 %205
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 117
   %208 = load i8, ptr %207, align 1, !range !4, !noundef !5
   %209 = trunc nuw i8 %208 to i1
@@ -9731,7 +9714,7 @@ define dso_local void @xlog_redo(ptr noundef %0) local_unnamed_addr #0 {
   %.06379 = phi i8 [ %235, %233 ], [ 0, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %220 = zext i8 %.06379 to i64
-  %221 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %219, i64 %220
+  %221 = getelementptr inbounds nuw [64 x i8], ptr %219, i64 %220
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 117
   %223 = load i8, ptr %222, align 1, !range !4, !noundef !5
   %224 = trunc nuw i8 %223 to i1
@@ -10262,10 +10245,10 @@ RecoveryInProgress.exit:                          ; preds = %5, %13
 35:                                               ; preds = %35, %33
   %indvars.iv.i = phi i64 [ 0, %33 ], [ %indvars.iv.next.i, %35 ]
   %36 = load ptr, ptr @WALInsertLocks, align 8
-  %37 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %36, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [128 x i8], ptr %36, i64 %indvars.iv.i
   %38 = call zeroext i1 @LWLockAcquire(ptr noundef %37, i32 noundef 0) #26
   %39 = load ptr, ptr @WALInsertLocks, align 8
-  %40 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %39, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [128 x i8], ptr %39, i64 %indvars.iv.i
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   call void @LWLockUpdateVar(ptr noundef %40, ptr noundef nonnull %41, i64 noundef -1) #26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -10287,7 +10270,7 @@ WALInsertLockAcquireExclusive.exit:               ; preds = %35
 .preheader.i:                                     ; preds = %WALInsertLockAcquireExclusive.exit, %.preheader.i
   %indvars.iv.i81 = phi i64 [ %indvars.iv.next.i82, %.preheader.i ], [ 0, %WALInsertLockAcquireExclusive.exit ]
   %49 = load ptr, ptr @WALInsertLocks, align 8
-  %50 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %49, i64 %indvars.iv.i81
+  %50 = getelementptr inbounds nuw [128 x i8], ptr %49, i64 %indvars.iv.i81
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   call void @LWLockReleaseClearVar(ptr noundef %50, ptr noundef nonnull %51, i64 noundef 0) #26
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i81, 1
@@ -10385,10 +10368,10 @@ WALInsertLockRelease.exit:                        ; preds = %.preheader.i
 101:                                              ; preds = %.preheader, %101
   %indvars.iv.i84 = phi i64 [ %indvars.iv.next.i85, %101 ], [ 0, %.preheader ]
   %102 = load ptr, ptr @WALInsertLocks, align 8
-  %103 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %102, i64 %indvars.iv.i84
+  %103 = getelementptr inbounds nuw [128 x i8], ptr %102, i64 %indvars.iv.i84
   %104 = call zeroext i1 @LWLockAcquire(ptr noundef %103, i32 noundef 0) #26
   %105 = load ptr, ptr @WALInsertLocks, align 8
-  %106 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %105, i64 %indvars.iv.i84
+  %106 = getelementptr inbounds nuw [128 x i8], ptr %105, i64 %indvars.iv.i84
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   call void @LWLockUpdateVar(ptr noundef %106, ptr noundef nonnull %107, i64 noundef -1) #26
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
@@ -10418,7 +10401,7 @@ WALInsertLockAcquireExclusive.exit87:             ; preds = %101
 .preheader.i89:                                   ; preds = %117, %.preheader.i89
   %indvars.iv.i90 = phi i64 [ %indvars.iv.next.i91, %.preheader.i89 ], [ 0, %117 ]
   %118 = load ptr, ptr @WALInsertLocks, align 8
-  %119 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %118, i64 %indvars.iv.i90
+  %119 = getelementptr inbounds nuw [128 x i8], ptr %118, i64 %indvars.iv.i90
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   call void @LWLockReleaseClearVar(ptr noundef %119, ptr noundef nonnull %120, i64 noundef 0) #26
   %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i90, 1
@@ -10650,10 +10633,10 @@ define dso_local void @do_pg_abort_backup(i32 %0, i64 noundef %1) #0 {
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %2 ]
   %4 = load ptr, ptr @WALInsertLocks, align 8
-  %5 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %4, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 %indvars.iv.i
   %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 0) #26
   %7 = load ptr, ptr @WALInsertLocks, align 8
-  %8 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @LWLockUpdateVar(ptr noundef %8, ptr noundef nonnull %9, i64 noundef -1) #26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -10676,7 +10659,7 @@ WALInsertLockAcquireExclusive.exit:               ; preds = %.preheader
 .preheader.i:                                     ; preds = %WALInsertLockAcquireExclusive.exit, %.preheader.i
   %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i5, %.preheader.i ], [ 0, %WALInsertLockAcquireExclusive.exit ]
   %17 = load ptr, ptr @WALInsertLocks, align 8
-  %18 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %17, i64 %indvars.iv.i4
+  %18 = getelementptr inbounds nuw [128 x i8], ptr %17, i64 %indvars.iv.i4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   tail call void @LWLockReleaseClearVar(ptr noundef %18, ptr noundef nonnull %19, i64 noundef 0) #26
   %indvars.iv.next.i5 = add nuw nsw i64 %indvars.iv.i4, 1
@@ -10771,10 +10754,10 @@ RecoveryInProgress.exit:                          ; preds = %2, %9
 .preheader:                                       ; preds = %RecoveryInProgress.exit, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %RecoveryInProgress.exit ]
   %22 = load ptr, ptr @WALInsertLocks, align 8
-  %23 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %22, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [128 x i8], ptr %22, i64 %indvars.iv.i
   %24 = tail call zeroext i1 @LWLockAcquire(ptr noundef %23, i32 noundef 0) #26
   %25 = load ptr, ptr @WALInsertLocks, align 8
-  %26 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %25, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [128 x i8], ptr %25, i64 %indvars.iv.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   tail call void @LWLockUpdateVar(ptr noundef %26, ptr noundef nonnull %27, i64 noundef -1) #26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -10797,7 +10780,7 @@ WALInsertLockAcquireExclusive.exit:               ; preds = %.preheader
 .preheader.i:                                     ; preds = %WALInsertLockAcquireExclusive.exit, %.preheader.i
   %indvars.iv.i69 = phi i64 [ %indvars.iv.next.i70, %.preheader.i ], [ 0, %WALInsertLockAcquireExclusive.exit ]
   %35 = load ptr, ptr @WALInsertLocks, align 8
-  %36 = getelementptr inbounds nuw %union.WALInsertLockPadded, ptr %35, i64 %indvars.iv.i69
+  %36 = getelementptr inbounds nuw [128 x i8], ptr %35, i64 %indvars.iv.i69
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   tail call void @LWLockReleaseClearVar(ptr noundef %36, ptr noundef nonnull %37, i64 noundef 0) #26
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
@@ -11352,7 +11335,7 @@ define internal fastcc ptr @GetXLogBuffer(i64 noundef %0, i32 noundef %1) unname
   %20 = load ptr, ptr %19, align 8
   %sext = shl i64 %16, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds %struct.pg_atomic_uint64, ptr %20, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %21
   %23 = load volatile i64, ptr %22, align 8
   %.not = icmp eq i64 %18, %23
   br i1 %.not, label %60, label %24
@@ -11398,7 +11381,7 @@ define internal fastcc ptr @GetXLogBuffer(i64 noundef %0, i32 noundef %1) unname
 44:                                               ; preds = %39
   %45 = load i32, ptr @MyLockNo, align 4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds %union.WALInsertLockPadded, ptr %40, i64 %46
+  %47 = getelementptr inbounds [128 x i8], ptr %40, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   tail call void @LWLockUpdateVar(ptr noundef %47, ptr noundef nonnull %48, i64 noundef %.027) #26
   br label %WALInsertLockUpdateInsertingAt.exit
@@ -11408,7 +11391,7 @@ WALInsertLockUpdateInsertingAt.exit:              ; preds = %41, %44
   %49 = load ptr, ptr @XLogCtl, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 304
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds %struct.pg_atomic_uint64, ptr %51, i64 %21
+  %52 = getelementptr inbounds [8 x i8], ptr %51, i64 %21
   %53 = load volatile i64, ptr %52, align 8
   %.not30 = icmp eq i64 %18, %53
   br i1 %.not30, label %61, label %54

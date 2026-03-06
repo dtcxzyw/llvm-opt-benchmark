@@ -31,7 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.colvarmodule::atom" = type { i32, i32, double, double, %"class.colvarmodule::rvector", %"class.colvarmodule::rvector", %"class.colvarmodule::rvector", %"class.colvarmodule::rvector" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -1271,7 +1270,7 @@ define void @_ZN6colvar12dipole_angle14calc_gradientsEv(ptr noundef nonnull alig
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.059 = phi i64 [ %104, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %90 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %74, i64 %.059
+  %90 = getelementptr inbounds nuw [120 x i8], ptr %74, i64 %.059
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load double, ptr %91, align 8, !tbaa !164
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
@@ -1314,7 +1313,7 @@ define void @_ZN6colvar12dipole_angle14calc_gradientsEv(ptr noundef nonnull alig
 
 116:                                              ; preds = %.lr.ph61, %116
   %.160 = phi i64 [ 0, %.lr.ph61 ], [ %132, %116 ]
-  %117 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %84, i64 %.160
+  %117 = getelementptr inbounds nuw [120 x i8], ptr %84, i64 %.160
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load double, ptr %118, align 8, !tbaa !166
   %120 = load double, ptr %89, align 8, !tbaa !161
@@ -1340,7 +1339,7 @@ define void @_ZN6colvar12dipole_angle14calc_gradientsEv(ptr noundef nonnull alig
 
 133:                                              ; preds = %.lr.ph63, %133
   %.262 = phi i64 [ 0, %.lr.ph63 ], [ %146, %133 ]
-  %134 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %110, i64 %.262
+  %134 = getelementptr inbounds nuw [120 x i8], ptr %110, i64 %.262
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load double, ptr %135, align 8, !tbaa !166
   %137 = load double, ptr %115, align 8, !tbaa !161
@@ -2685,7 +2684,7 @@ _ZNSt12_Vector_baseIN12colvarmodule4atomESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNS
   store ptr %9, ptr %0, align 8, !tbaa !163
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8, !tbaa !162
-  %11 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw [120 x i8], ptr %9, i64 %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8, !tbaa !229
   br label %.lr.ph.i.i.i.i.i

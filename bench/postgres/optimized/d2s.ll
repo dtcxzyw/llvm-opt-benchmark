@@ -96,7 +96,7 @@ define i32 @double_to_shortest_decimal_bufn(double noundef %0, ptr noundef captu
   %46 = mul nsw i32 %45, 1217359
   %47 = lshr i32 %46, 19
   %48 = zext i32 %45 to i64
-  %49 = getelementptr inbounds nuw [2 x i64], ptr @DOUBLE_POW5_INV_SPLIT, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr @DOUBLE_POW5_INV_SPLIT, i64 %48
   %.val.i = load i64, ptr %49, align 16
   %50 = getelementptr i8, ptr %49, i64 8
   %.val168.i = load i64, ptr %50, align 8
@@ -186,7 +186,7 @@ multipleOfPowerOf5.exit175.i:                     ; preds = %.preheader231.i
   %105 = lshr i32 %104, 19
   %106 = add nsw i32 %102, %.0.i20
   %107 = sext i32 %103 to i64
-  %108 = getelementptr inbounds [2 x i64], ptr @DOUBLE_POW5_SPLIT, i64 %107
+  %108 = getelementptr inbounds [16 x i8], ptr @DOUBLE_POW5_SPLIT, i64 %107
   %.val169.i = load i64, ptr %108, align 16
   %109 = getelementptr i8, ptr %108, i64 8
   %.val170.i = load i64, ptr %109, align 8

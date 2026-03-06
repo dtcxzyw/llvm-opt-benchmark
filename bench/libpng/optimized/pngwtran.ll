@@ -341,9 +341,9 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   %162 = zext i8 %161 to i32
   %163 = sub nsw i32 %137, %162
   %164 = zext nneg i32 %.0.i to i64
-  %165 = getelementptr inbounds nuw i32, ptr %3, i64 %164
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %164
   store i32 %163, ptr %165, align 4, !tbaa !40
-  %166 = getelementptr inbounds nuw i32, ptr %4, i64 %164
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %164
   store i32 %162, ptr %166, align 4, !tbaa !40
   %167 = add nuw nsw i32 %.0.i, 1
   br label %168
@@ -422,9 +422,9 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   %197 = load i8, ptr %.0122144.i, align 1, !tbaa !30
   %198 = zext i8 %197 to i32
   %199 = zext nneg i32 %196 to i64
-  %200 = getelementptr inbounds nuw i32, ptr %3, i64 %199
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %199
   %201 = load i32, ptr %200, align 4, !tbaa !40
-  %202 = getelementptr inbounds nuw i32, ptr %4, i64 %199
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %199
   %203 = load i32, ptr %202, align 4, !tbaa !40
   %204 = sub nsw i32 0, %203
   %205 = icmp sgt i32 %201, %204
@@ -469,9 +469,9 @@ png_do_pack.exit:                                 ; preds = %114, %47, %38, %35
   %221 = zext i8 %220 to i32
   %222 = or disjoint i32 %218, %221
   %223 = zext nneg i32 %215 to i64
-  %224 = getelementptr inbounds nuw i32, ptr %3, i64 %223
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %223
   %225 = load i32, ptr %224, align 4, !tbaa !40
-  %226 = getelementptr inbounds nuw i32, ptr %4, i64 %223
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %223
   %227 = load i32, ptr %226, align 4, !tbaa !40
   %228 = sub nsw i32 0, %227
   %229 = icmp sgt i32 %225, %228

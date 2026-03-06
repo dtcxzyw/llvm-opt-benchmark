@@ -68,14 +68,14 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatdC2ERKNS_7GfQuatfE(ptr 
 define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatdC2ERKNS_7GfQuathE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(8) %1) unnamed_addr #2 align 2 {
   %3 = load i16, ptr %1, align 2
   %4 = zext i16 %3 to i64
-  %5 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %4
   %6 = load float, ptr %5, align 4
   %7 = fpext float %6 to double
   store double %7, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %10
   %12 = load float, ptr %11, align 4
   %13 = fpext float %12 to double
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -83,7 +83,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatdC2ERKNS_7GfQuathE(ptr 
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i64
-  %18 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %17
   %19 = load float, ptr %18, align 4
   %20 = fpext float %19 to double
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -92,7 +92,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatdC2ERKNS_7GfQuathE(ptr 
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %.sroa.0.0.copyload.i = load i16, ptr %23, align 2
   %24 = zext i16 %.sroa.0.0.copyload.i to i64
-  %25 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %24
   %26 = load float, ptr %25, align 4
   %27 = fpext float %26 to double
   store double %27, ptr %22, align 8

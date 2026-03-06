@@ -2645,8 +2645,8 @@ _ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsub
 
 28:                                               ; preds = %28, %27
   %.017.i.i.i = phi i64 [ 0, %27 ], [ %31, %28 ]
-  %29 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %0, i64 %.017.i.i.i
-  %30 = getelementptr inbounds nuw float, ptr %29, i64 %.017.i.i.i
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.017.i.i.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.017.i.i.i
   store float 1.000000e+00, ptr %30, align 4, !alias.scope !12
   %31 = add nuw nsw i64 %.017.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %31, 3
@@ -2658,8 +2658,8 @@ _ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 33:                                               ; preds = %33, %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i.i
   %.017.i26.i.i = phi i64 [ 0, %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i.i ], [ %36, %33 ]
-  %34 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %32, i64 %.017.i26.i.i
-  %35 = getelementptr inbounds nuw float, ptr %34, i64 %.017.i26.i.i
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %.017.i26.i.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %.017.i26.i.i
   store float 1.000000e+00, ptr %35, align 4, !alias.scope !16
   %36 = add nuw nsw i64 %.017.i26.i.i, 1
   %exitcond.not.i27.i.i = icmp eq i64 %36, 3
@@ -2667,10 +2667,10 @@ _ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 _ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i: ; preds = %33, %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i
   %.02532.i.i = phi i64 [ %40, %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i ], [ 0, %33 ]
-  %37 = getelementptr inbounds nuw %"struct.drjit::Array.15", ptr %6, i64 %.02532.i.i
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.02532.i.i
   %.sroa.024.0.copyload.i.i = load <4 x double>, ptr %37, align 32, !noalias !9
   %38 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %.sroa.024.0.copyload.i.i)
-  %39 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %4, i64 %.02532.i.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.02532.i.i
   store <4 x float> %38, ptr %39, align 16, !noalias !9
   %40 = add nuw nsw i64 %.02532.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %40, 3
@@ -2683,10 +2683,10 @@ _ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 43:                                               ; preds = %43, %41
   %.033.i.i = phi i64 [ 0, %41 ], [ %47, %43 ]
-  %44 = getelementptr inbounds nuw %"struct.drjit::Array.15", ptr %42, i64 %.033.i.i
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %.033.i.i
   %.sroa.0.0.copyload.i.i = load <4 x double>, ptr %44, align 32, !noalias !9
   %45 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %.sroa.0.0.copyload.i.i)
-  %46 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %5, i64 %.033.i.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.033.i.i
   store <4 x float> %45, ptr %46, align 16, !noalias !9
   %47 = add nuw nsw i64 %.033.i.i, 1
   %exitcond34.not.i.i = icmp eq i64 %47, 3
@@ -2762,8 +2762,8 @@ _ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsub
 
 24:                                               ; preds = %24, %23
   %.017.i.i.i = phi i64 [ 0, %23 ], [ %27, %24 ]
-  %25 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %0, i64 %.017.i.i.i
-  %26 = getelementptr inbounds nuw float, ptr %25, i64 %.017.i.i.i
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.017.i.i.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.017.i.i.i
   store float 1.000000e+00, ptr %26, align 4, !alias.scope !23
   %27 = add nuw nsw i64 %.017.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %27, 3
@@ -2775,8 +2775,8 @@ _ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 29:                                               ; preds = %29, %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i.i
   %.017.i26.i.i = phi i64 [ 0, %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i.i ], [ %32, %29 ]
-  %30 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %28, i64 %.017.i26.i.i
-  %31 = getelementptr inbounds nuw float, ptr %30, i64 %.017.i26.i.i
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.017.i26.i.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.017.i26.i.i
   store float 1.000000e+00, ptr %31, align 4, !alias.scope !26
   %32 = add nuw nsw i64 %.017.i26.i.i, 1
   %exitcond.not.i27.i.i = icmp eq i64 %32, 3
@@ -2784,10 +2784,10 @@ _ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 _ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i: ; preds = %29, %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i
   %.02532.i.i = phi i64 [ %36, %_ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i ], [ 0, %29 ]
-  %33 = getelementptr inbounds nuw %"struct.drjit::Array.15", ptr %7, i64 %.02532.i.i
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %.02532.i.i
   %.sroa.024.0.copyload.i.i = load <4 x double>, ptr %33, align 32, !noalias !20
   %34 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %.sroa.024.0.copyload.i.i)
-  %35 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %5, i64 %.02532.i.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.02532.i.i
   store <4 x float> %34, ptr %35, align 16, !noalias !20
   %36 = add nuw nsw i64 %.02532.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %36, 3
@@ -2800,10 +2800,10 @@ _ZN5drjit8identityINS_6MatrixIfLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 39:                                               ; preds = %39, %37
   %.033.i.i = phi i64 [ 0, %37 ], [ %43, %39 ]
-  %40 = getelementptr inbounds nuw %"struct.drjit::Array.15", ptr %38, i64 %.033.i.i
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %.033.i.i
   %.sroa.0.0.copyload.i.i = load <4 x double>, ptr %40, align 32, !noalias !20
   %41 = tail call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %.sroa.0.0.copyload.i.i)
-  %42 = getelementptr inbounds nuw %"struct.drjit::Array", ptr %6, i64 %.033.i.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.033.i.i
   store <4 x float> %41, ptr %42, align 16, !noalias !20
   %43 = add nuw nsw i64 %.033.i.i, 1
   %exitcond34.not.i.i = icmp eq i64 %43, 3
@@ -3017,8 +3017,8 @@ _ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsub
 
 28:                                               ; preds = %28, %27
   %.017.i.i.i = phi i64 [ 0, %27 ], [ %31, %28 ]
-  %29 = getelementptr inbounds nuw %"struct.drjit::Array.60", ptr %0, i64 %.017.i.i.i
-  %30 = getelementptr inbounds nuw float, ptr %29, i64 %.017.i.i.i
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.017.i.i.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.017.i.i.i
   store float 1.000000e+00, ptr %30, align 4, !alias.scope !32
   %31 = add nuw nsw i64 %.017.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %31, 4
@@ -3030,8 +3030,8 @@ _ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 33:                                               ; preds = %33, %_ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i.i
   %.017.i26.i.i = phi i64 [ 0, %_ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i.i ], [ %36, %33 ]
-  %34 = getelementptr inbounds nuw %"struct.drjit::Array.60", ptr %32, i64 %.017.i26.i.i
-  %35 = getelementptr inbounds nuw float, ptr %34, i64 %.017.i26.i.i
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %.017.i26.i.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %.017.i26.i.i
   store float 1.000000e+00, ptr %35, align 4, !alias.scope !36
   %36 = add nuw nsw i64 %.017.i26.i.i, 1
   %exitcond.not.i27.i.i = icmp eq i64 %36, 4
@@ -3039,10 +3039,10 @@ _ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 _ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i: ; preds = %33, %_ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i
   %.02532.i.i = phi i64 [ %40, %_ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i ], [ 0, %33 ]
-  %37 = getelementptr inbounds nuw %"struct.drjit::Array.69", ptr %6, i64 %.02532.i.i
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %.02532.i.i
   %.sroa.020.0.copyload.i.i = load <4 x double>, ptr %37, align 32, !noalias !29
   %38 = call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %.sroa.020.0.copyload.i.i)
-  %39 = getelementptr inbounds nuw %"struct.drjit::Array.60", ptr %4, i64 %.02532.i.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.02532.i.i
   store <4 x float> %38, ptr %39, align 16, !noalias !29
   %40 = add nuw nsw i64 %.02532.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %40, 4
@@ -3055,10 +3055,10 @@ _ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 43:                                               ; preds = %43, %41
   %.033.i.i = phi i64 [ 0, %41 ], [ %47, %43 ]
-  %44 = getelementptr inbounds nuw %"struct.drjit::Array.69", ptr %42, i64 %.033.i.i
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %.033.i.i
   %.sroa.0.0.copyload.i.i = load <4 x double>, ptr %44, align 32, !noalias !29
   %45 = call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %.sroa.0.0.copyload.i.i)
-  %46 = getelementptr inbounds nuw %"struct.drjit::Array.60", ptr %5, i64 %.033.i.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.033.i.i
   store <4 x float> %45, ptr %46, align 16, !noalias !29
   %47 = add nuw nsw i64 %.033.i.i, 1
   %exitcond34.not.i.i = icmp eq i64 %47, 4
@@ -3134,8 +3134,8 @@ _ZNSt3__13mapINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsub
 
 24:                                               ; preds = %24, %23
   %.017.i.i.i = phi i64 [ 0, %23 ], [ %27, %24 ]
-  %25 = getelementptr inbounds nuw %"struct.drjit::Array.60", ptr %0, i64 %.017.i.i.i
-  %26 = getelementptr inbounds nuw float, ptr %25, i64 %.017.i.i.i
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.017.i.i.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.017.i.i.i
   store float 1.000000e+00, ptr %26, align 4, !alias.scope !43
   %27 = add nuw nsw i64 %.017.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %27, 4
@@ -3147,8 +3147,8 @@ _ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 29:                                               ; preds = %29, %_ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i.i
   %.017.i26.i.i = phi i64 [ 0, %_ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i.i ], [ %32, %29 ]
-  %30 = getelementptr inbounds nuw %"struct.drjit::Array.60", ptr %28, i64 %.017.i26.i.i
-  %31 = getelementptr inbounds nuw float, ptr %30, i64 %.017.i26.i.i
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %.017.i26.i.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.017.i26.i.i
   store float 1.000000e+00, ptr %31, align 4, !alias.scope !46
   %32 = add nuw nsw i64 %.017.i26.i.i, 1
   %exitcond.not.i27.i.i = icmp eq i64 %32, 4
@@ -3156,10 +3156,10 @@ _ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 _ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i: ; preds = %29, %_ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i
   %.02532.i.i = phi i64 [ %36, %_ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit28.i.i ], [ 0, %29 ]
-  %33 = getelementptr inbounds nuw %"struct.drjit::Array.69", ptr %7, i64 %.02532.i.i
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %.02532.i.i
   %.sroa.020.0.copyload.i.i = load <4 x double>, ptr %33, align 32, !noalias !40
   %34 = call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %.sroa.020.0.copyload.i.i)
-  %35 = getelementptr inbounds nuw %"struct.drjit::Array.60", ptr %5, i64 %.02532.i.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.02532.i.i
   store <4 x float> %34, ptr %35, align 16, !noalias !40
   %36 = add nuw nsw i64 %.02532.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %36, 4
@@ -3172,10 +3172,10 @@ _ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 39:                                               ; preds = %39, %37
   %.033.i.i = phi i64 [ 0, %37 ], [ %43, %39 ]
-  %40 = getelementptr inbounds nuw %"struct.drjit::Array.69", ptr %38, i64 %.033.i.i
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %.033.i.i
   %.sroa.0.0.copyload.i.i = load <4 x double>, ptr %40, align 32, !noalias !40
   %41 = call contract noundef <4 x float> @llvm.x86.avx.cvt.pd2.ps.256(<4 x double> %.sroa.0.0.copyload.i.i)
-  %42 = getelementptr inbounds nuw %"struct.drjit::Array.60", ptr %6, i64 %.033.i.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.033.i.i
   store <4 x float> %41, ptr %42, align 16, !noalias !40
   %43 = add nuw nsw i64 %.033.i.i, 1
   %exitcond34.not.i.i = icmp eq i64 %43, 4
@@ -3755,8 +3755,8 @@ _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_t
 
 27:                                               ; preds = %27, %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSG_EEv.exit
   %.017.i.i = phi i64 [ 0, %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSG_EEv.exit ], [ %30, %27 ]
-  %28 = getelementptr inbounds nuw %"struct.drjit::Array.15", ptr %0, i64 %.017.i.i
-  %29 = getelementptr inbounds nuw double, ptr %28, i64 %.017.i.i
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %.017.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.017.i.i
   store double 1.000000e+00, ptr %29, align 8, !alias.scope !54
   %30 = add nuw nsw i64 %.017.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %30, 3
@@ -3769,8 +3769,8 @@ _ZN5drjit8identityINS_6MatrixIdLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 32:                                               ; preds = %32, %_ZN5drjit8identityINS_6MatrixIdLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i
   %.017.i1.i = phi i64 [ 0, %_ZN5drjit8identityINS_6MatrixIdLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES5_m.exit.i ], [ %35, %32 ]
-  %33 = getelementptr inbounds nuw %"struct.drjit::Array.15", ptr %31, i64 %.017.i1.i
-  %34 = getelementptr inbounds nuw double, ptr %33, i64 %.017.i1.i
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %.017.i1.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.017.i1.i
   store double 1.000000e+00, ptr %34, align 8, !alias.scope !61
   %35 = add nuw nsw i64 %.017.i1.i, 1
   %exitcond.not.i2.i = icmp eq i64 %35, 3
@@ -3794,14 +3794,14 @@ _ZN7mitsuba9TransformINS_5PointIdLm3EEEEC2Ev.exit.preheader: ; preds = %32
   %scevgep125 = getelementptr i8, ptr %42, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %scevgep, ptr noundef nonnull align 8 dereferenceable(16) %scevgep125, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %scevgep126, ptr noundef nonnull align 8 dereferenceable(16) %scevgep127, i64 16, i1 false)
-  %43 = getelementptr inbounds nuw double, ptr %36, i64 %.0124
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.0124
   %44 = load double, ptr %43, align 8
-  %45 = getelementptr inbounds nuw double, ptr %37, i64 %.0124
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.0124
   store double %44, ptr %45, align 8
-  %46 = getelementptr inbounds nuw %"struct.drjit::Array.69", ptr %23, i64 %.0124
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %.0124
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 152
   %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds nuw %"struct.drjit::Array.15", ptr %0, i64 %.0124
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %.0124
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
   store double %48, ptr %50, align 16
   br i1 %38, label %.preheader, label %51, !llvm.loop !62
@@ -6970,9 +6970,9 @@ _ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   %18 = mul nuw i64 %1, 48
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #29
   %20 = getelementptr inbounds i8, ptr %19, i64 %17
-  %21 = getelementptr inbounds nuw %"struct.std::__1::pair.86", ptr %19, i64 %1
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %1
   %.neg.i = sdiv exact i64 %17, -48
-  %22 = getelementptr inbounds %"struct.std::__1::pair.86", ptr %20, i64 %.neg.i
+  %22 = getelementptr inbounds [48 x i8], ptr %20, i64 %.neg.i
   %.not13.i.i = icmp eq ptr %5, %15
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba14NamedReferenceEEERNS5_ISA_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
@@ -7225,9 +7225,9 @@ _ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   %19 = shl nuw i64 %1, 5
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #29
   %21 = getelementptr inbounds i8, ptr %20, i64 %17
-  %22 = getelementptr inbounds nuw %"struct.std::__1::pair.94", ptr %20, i64 %1
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %1
   %23 = sub nsw i64 0, %18
-  %24 = getelementptr inbounds %"struct.std::__1::pair.94", ptr %21, i64 %23
+  %24 = getelementptr inbounds [32 x i8], ptr %21, i64 %23
   %.not13.i.i = icmp eq ptr %5, %15
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEERNS5_ISC_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
@@ -11154,7 +11154,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 67:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKc.exit
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %2, i64 %68
   %70 = load i8, ptr %8, align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %77, label %72
@@ -11712,7 +11712,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %153 = add nsw i32 %150, 1
   store i32 %153, ptr %5, align 4
   %154 = sext i32 %150 to i64
-  %155 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %154
+  %155 = getelementptr inbounds [24 x i8], ptr %4, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %155, align 8
@@ -11805,7 +11805,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %206 = add nsw i32 %203, 1
   store i32 %206, ptr %5, align 4
   %207 = sext i32 %203 to i64
-  %208 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %207
+  %208 = getelementptr inbounds [24 x i8], ptr %4, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %208, align 8
@@ -13065,7 +13065,7 @@ _ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIc
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %28, ptr %30, align 8
-  %31 = getelementptr inbounds nuw %"class.std::__1::basic_string", ptr %storemerge.i, i64 %.0.i
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %storemerge.i, i64 %.0.i
   store ptr %31, ptr %20, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEE5clearB8ne190000Ev.exit.i unwind label %40
@@ -13078,7 +13078,7 @@ _ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIc
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %.neg.i = sdiv exact i64 %37, -24
-  %38 = getelementptr inbounds %"class.std::__1::basic_string", ptr %28, i64 %.neg.i
+  %38 = getelementptr inbounds [24 x i8], ptr %28, i64 %.neg.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %38, ptr align 8 %34, i64 %37, i1 false)
   store ptr %38, ptr %0, align 8
   store ptr %32, ptr %5, align 8
@@ -13212,7 +13212,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_strin
   %22 = mul nuw i64 %.0.i, 48
   %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #29
   %24 = getelementptr inbounds i8, ptr %23, i64 %9
-  %25 = getelementptr inbounds nuw %"struct.std::__1::pair.86", ptr %23, i64 %.0.i
+  %25 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 24, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
@@ -13226,7 +13226,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_strin
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
   %.neg.i = sdiv exact i64 %33, -48
-  %34 = getelementptr inbounds %"struct.std::__1::pair.86", ptr %24, i64 %.neg.i
+  %34 = getelementptr inbounds [48 x i8], ptr %24, i64 %.neg.i
   %.not13.i.i = icmp eq ptr %30, %29
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba14NamedReferenceEEERNS5_ISA_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
@@ -13318,7 +13318,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_strin
   %21 = shl nuw i64 %.0.i, 5
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #29
   %23 = getelementptr inbounds i8, ptr %22, i64 %9
-  %24 = getelementptr inbounds nuw %"struct.std::__1::pair.94", ptr %22, i64 %.0.i
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -13334,7 +13334,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_strin
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 5
   %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds %"struct.std::__1::pair.94", ptr %23, i64 %35
+  %36 = getelementptr inbounds [32 x i8], ptr %23, i64 %35
   %.not13.i.i = icmp eq ptr %30, %29
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba3refINS8_6ObjectEEEEERNS5_ISC_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
@@ -13476,13 +13476,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7mitsuba6detail14variant_helpe
 
 50:                                               ; preds = %50, %49
   %.0114.i.i.i = phi i64 [ 0, %49 ], [ %58, %50 ]
-  %51 = getelementptr inbounds nuw %"struct.drjit::Array.15", ptr %1, i64 %.0114.i.i.i
-  %52 = getelementptr inbounds nuw %"struct.drjit::Array.15", ptr %2, i64 %.0114.i.i.i
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %.0114.i.i.i
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %.0114.i.i.i
   %53 = load <4 x double>, ptr %51, align 32
   %54 = load <4 x double>, ptr %52, align 32
   %55 = fcmp contract oeq <4 x double> %53, %54
   %56 = shufflevector <4 x i1> %55, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %57 = getelementptr inbounds nuw %"struct.drjit::Mask", ptr %4, i64 %.0114.i.i.i
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 %.0114.i.i.i
   store <8 x i1> %56, ptr %57, align 1
   %58 = add nuw nsw i64 %.0114.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %58, 3
@@ -13498,7 +13498,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7mitsuba6detail14variant_helpe
 62:                                               ; preds = %62, %59
   %.028.i.i.i.i.i = phi i64 [ 1, %59 ], [ %67, %62 ]
   %63 = phi <8 x i1> [ %61, %59 ], [ %66, %62 ]
-  %64 = getelementptr inbounds nuw %"struct.drjit::Mask", ptr %6, i64 %.028.i.i.i.i.i
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 %.028.i.i.i.i.i
   %65 = load <8 x i1>, ptr %64, align 1
   %66 = and <8 x i1> %63, %65
   %67 = add nuw nsw i64 %.028.i.i.i.i.i, 1
@@ -13518,13 +13518,13 @@ _ZN5drjit10all_nestedIvNS_4MaskINS1_IdLm3EEELm3EEEEEDaRKT0_.exit.i.i.i: ; preds 
 
 74:                                               ; preds = %74, %71
   %.0106115.i.i.i = phi i64 [ 0, %71 ], [ %82, %74 ]
-  %75 = getelementptr inbounds nuw %"struct.drjit::Array.15", ptr %72, i64 %.0106115.i.i.i
-  %76 = getelementptr inbounds nuw %"struct.drjit::Array.15", ptr %73, i64 %.0106115.i.i.i
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %.0106115.i.i.i
+  %76 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %.0106115.i.i.i
   %77 = load <4 x double>, ptr %75, align 32
   %78 = load <4 x double>, ptr %76, align 32
   %79 = fcmp contract oeq <4 x double> %77, %78
   %80 = shufflevector <4 x i1> %79, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %81 = getelementptr inbounds nuw %"struct.drjit::Mask", ptr %5, i64 %.0106115.i.i.i
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 %.0106115.i.i.i
   store <8 x i1> %80, ptr %81, align 1
   %82 = add nuw nsw i64 %.0106115.i.i.i, 1
   %exitcond117.not.i.i.i = icmp eq i64 %82, 3
@@ -13540,7 +13540,7 @@ _ZN5drjit10all_nestedIvNS_4MaskINS1_IdLm3EEELm3EEEEEDaRKT0_.exit.i.i.i: ; preds 
 86:                                               ; preds = %86, %83
   %.028.i.i110.i.i.i = phi i64 [ 1, %83 ], [ %91, %86 ]
   %87 = phi <8 x i1> [ %85, %83 ], [ %90, %86 ]
-  %88 = getelementptr inbounds nuw %"struct.drjit::Mask", ptr %7, i64 %.028.i.i110.i.i.i
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 %.028.i.i110.i.i.i
   %89 = load <8 x i1>, ptr %88, align 1
   %90 = and <8 x i1> %87, %89
   %91 = add nuw nsw i64 %.028.i.i110.i.i.i, 1
@@ -13588,13 +13588,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7mitsuba6detail14variant_helpe
 
 10:                                               ; preds = %10, %9
   %.0103.i = phi i64 [ 0, %9 ], [ %18, %10 ]
-  %11 = getelementptr inbounds nuw %"struct.drjit::Array.69", ptr %1, i64 %.0103.i
-  %12 = getelementptr inbounds nuw %"struct.drjit::Array.69", ptr %2, i64 %.0103.i
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %.0103.i
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %.0103.i
   %13 = load <4 x double>, ptr %11, align 32
   %14 = load <4 x double>, ptr %12, align 32
   %15 = fcmp contract oeq <4 x double> %13, %14
   %16 = shufflevector <4 x i1> %15, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %17 = getelementptr inbounds nuw %"struct.drjit::Mask.147", ptr %4, i64 %.0103.i
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %.0103.i
   store <8 x i1> %16, ptr %17, align 1
   %18 = add nuw nsw i64 %.0103.i, 1
   %exitcond.not.i = icmp eq i64 %18, 4
@@ -13610,7 +13610,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN7mitsuba6detail14variant_helpe
 22:                                               ; preds = %22, %19
   %.028.i.i.i = phi i64 [ 1, %19 ], [ %27, %22 ]
   %23 = phi <8 x i1> [ %21, %19 ], [ %26, %22 ]
-  %24 = getelementptr inbounds nuw %"struct.drjit::Mask.147", ptr %6, i64 %.028.i.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 %.028.i.i.i
   %25 = load <8 x i1>, ptr %24, align 1
   %26 = and <8 x i1> %23, %25
   %27 = add nuw nsw i64 %.028.i.i.i, 1
@@ -13630,13 +13630,13 @@ _ZN5drjit10all_nestedIvNS_4MaskINS1_IdLm4EEELm4EEEEEDaRKT0_.exit.i: ; preds = %2
 
 34:                                               ; preds = %34, %31
   %.095104.i = phi i64 [ 0, %31 ], [ %42, %34 ]
-  %35 = getelementptr inbounds nuw %"struct.drjit::Array.69", ptr %32, i64 %.095104.i
-  %36 = getelementptr inbounds nuw %"struct.drjit::Array.69", ptr %33, i64 %.095104.i
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %.095104.i
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %.095104.i
   %37 = load <4 x double>, ptr %35, align 32
   %38 = load <4 x double>, ptr %36, align 32
   %39 = fcmp contract oeq <4 x double> %37, %38
   %40 = shufflevector <4 x i1> %39, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %41 = getelementptr inbounds nuw %"struct.drjit::Mask.147", ptr %5, i64 %.095104.i
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 %.095104.i
   store <8 x i1> %40, ptr %41, align 1
   %42 = add nuw nsw i64 %.095104.i, 1
   %exitcond106.not.i = icmp eq i64 %42, 4
@@ -13652,7 +13652,7 @@ _ZN5drjit10all_nestedIvNS_4MaskINS1_IdLm4EEELm4EEEEEDaRKT0_.exit.i: ; preds = %2
 46:                                               ; preds = %46, %43
   %.028.i.i99.i = phi i64 [ 1, %43 ], [ %51, %46 ]
   %47 = phi <8 x i1> [ %45, %43 ], [ %50, %46 ]
-  %48 = getelementptr inbounds nuw %"struct.drjit::Mask.147", ptr %7, i64 %.028.i.i99.i
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 %.028.i.i99.i
   %49 = load <8 x i1>, ptr %48, align 1
   %50 = and <8 x i1> %47, %49
   %51 = add nuw nsw i64 %.028.i.i99.i, 1
@@ -13815,7 +13815,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %9
 
 .lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %51
   %.013 = phi i64 [ %30, %51 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
-  %27 = getelementptr inbounds double, ptr %1, i64 %.013
+  %27 = getelementptr inbounds [8 x i8], ptr %1, i64 %.013
   %28 = load double, ptr %27, align 8
   %29 = tail call noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5drjit12StringBuffer3fmtEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.28, double noundef %28)
   %30 = add nuw i64 %.013, 1
@@ -14164,14 +14164,14 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %4, %10
   store i8 91, ptr %24, align 1
   %26 = load ptr, ptr %5, align 8
   store i8 0, ptr %26, align 1
-  %invariant.gep = getelementptr double, ptr %1, i64 %3
+  %invariant.gep = getelementptr [8 x i8], ptr %1, i64 %3
   %27 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %51
   %.014 = phi i64 [ %30, %51 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
-  %gep = getelementptr %"struct.drjit::Array.15", ptr %invariant.gep, i64 %.014
+  %gep = getelementptr [32 x i8], ptr %invariant.gep, i64 %.014
   %28 = load double, ptr %gep, align 8
   %29 = tail call noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5drjit12StringBuffer3fmtEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.28, double noundef %28)
   %30 = add nuw i64 %.014, 1
@@ -14453,14 +14453,14 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %4, %10
   store i8 91, ptr %24, align 1
   %26 = load ptr, ptr %5, align 8
   store i8 0, ptr %26, align 1
-  %invariant.gep = getelementptr double, ptr %1, i64 %3
+  %invariant.gep = getelementptr [8 x i8], ptr %1, i64 %3
   %27 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %51
   %.014 = phi i64 [ %30, %51 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
-  %gep = getelementptr %"struct.drjit::Array.69", ptr %invariant.gep, i64 %.014
+  %gep = getelementptr [32 x i8], ptr %invariant.gep, i64 %.014
   %28 = load double, ptr %gep, align 8
   %29 = tail call noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5drjit12StringBuffer3fmtEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.28, double noundef %28)
   %30 = add nuw i64 %.014, 1
@@ -14588,7 +14588,7 @@ _ZN5drjit12StringBuffer3putEc.exit:               ; preds = %3, %9
 
 .lr.ph:                                           ; preds = %_ZN5drjit12StringBuffer3putEc.exit, %51
   %.013 = phi i64 [ %30, %51 ], [ 0, %_ZN5drjit12StringBuffer3putEc.exit ]
-  %27 = getelementptr inbounds double, ptr %1, i64 %.013
+  %27 = getelementptr inbounds [8 x i8], ptr %1, i64 %.013
   %28 = load double, ptr %27, align 8
   %29 = tail call noundef nonnull align 8 dereferenceable(24) ptr (ptr, ptr, ...) @_ZN5drjit12StringBuffer3fmtEPKcz(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.28, double noundef %28)
   %30 = add nuw i64 %.013, 1

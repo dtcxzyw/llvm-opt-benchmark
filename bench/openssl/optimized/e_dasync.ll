@@ -788,14 +788,14 @@ define internal range(i32 -2147483647, -2147483648) i32 @dasync_digests(ptr read
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr @dasync_digest_nids.pos, align 4, !tbaa !14
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds i32, ptr @dasync_digest_nids.digest_nids, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr @dasync_digest_nids.digest_nids, i64 %12
   store i32 %9, ptr %13, align 4, !tbaa !14
   br label %14
 
 14:                                               ; preds = %8, %._crit_edge.i
   %15 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %11, %8 ]
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr @dasync_digest_nids.digest_nids, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr @dasync_digest_nids.digest_nids, i64 %16
   store i32 0, ptr %17, align 4, !tbaa !14
   store i1 true, ptr @dasync_digest_nids.init, align 4
   br label %dasync_digest_nids.exit
@@ -1354,13 +1354,13 @@ define internal fastcc i32 @dasync_cipher_helper(ptr noundef %0, ptr noundef %1,
 34:                                               ; preds = %33
   %35 = tail call ptr @EVP_CIPHER_meth_get_do_cipher(ptr noundef %4) #9
   %36 = load ptr, ptr %24, align 8, !tbaa !30
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !31
   %39 = load ptr, ptr %25, align 8, !tbaa !33
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !31
   %42 = load ptr, ptr %26, align 8, !tbaa !34
-  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8, !tbaa !35
   %45 = tail call i32 %35(ptr noundef %0, ptr noundef %38, ptr noundef %41, i64 noundef %44) #9
   %46 = icmp ne i32 %45, 0

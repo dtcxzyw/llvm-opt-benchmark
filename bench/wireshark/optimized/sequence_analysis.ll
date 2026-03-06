@@ -3,7 +3,6 @@ source_filename = "bench/wireshark/original/sequence_analysis.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._address = type { i32, i32, ptr, ptr }
 %struct.sainfo_counter = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [29 x i8] c"%s:%u: failed assertion \22%s\22\00", align 1
@@ -466,7 +465,7 @@ define void @sequence_analysis_info_free(ptr noundef %0) local_unnamed_addr #0 {
 
 14:                                               ; preds = %free_address.exit.i.i, %11
   %indvars.iv.i.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i.i, %free_address.exit.i.i ]
-  %15 = getelementptr %struct._address, ptr %13, i64 %indvars.iv.i.i
+  %15 = getelementptr [24 x i8], ptr %13, i64 %indvars.iv.i.i
   %16 = load i32, ptr %15, align 8
   %.not.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i.i, label %free_address.exit.i.i, label %17
@@ -549,7 +548,7 @@ define void @sequence_analysis_list_free(ptr noundef captures(address_is_null) %
 
 14:                                               ; preds = %free_address.exit.i, %11
   %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %free_address.exit.i ]
-  %15 = getelementptr %struct._address, ptr %13, i64 %indvars.iv.i
+  %15 = getelementptr [24 x i8], ptr %13, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 8
   %.not.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i, label %free_address.exit.i, label %17
@@ -704,7 +703,7 @@ define void @sequence_analysis_free_nodes(ptr noundef captures(none) %0) local_u
 
 3:                                                ; preds = %1, %free_address.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %free_address.exit ]
-  %4 = getelementptr %struct._address, ptr %2, i64 %indvars.iv
+  %4 = getelementptr [24 x i8], ptr %2, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %free_address.exit, label %6
@@ -835,7 +834,7 @@ add_or_get_node_local.exit.thread:                ; preds = %37
   br i1 %exitcond.not.i, label %.critedge.i, label %48
 
 48:                                               ; preds = %47
-  %49 = getelementptr %struct._address, ptr %42, i64 %indvars.iv.i
+  %49 = getelementptr [24 x i8], ptr %42, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 8
   %or.cond.not.i = icmp eq i32 %50, %12
   br i1 %or.cond.not.i, label %51, label %cmp_address.exit.thread.i
@@ -871,7 +870,7 @@ cmp_address.exit.thread.i:                        ; preds = %cmp_address.exit.th
 .critedge.i:                                      ; preds = %47
   %62 = add i32 %41, 1
   store i32 %62, ptr %40, align 8
-  %63 = getelementptr %struct._address, ptr %42, i64 %45
+  %63 = getelementptr [24 x i8], ptr %42, i64 %45
   %64 = load i32, ptr %10, align 8
   %65 = load i32, ptr %16, align 4
   %66 = load ptr, ptr %43, align 8
@@ -925,7 +924,7 @@ add_or_get_node_local.exit:                       ; preds = %cmp_address.exit.th
   br i1 %exitcond.not.i29, label %.critedge.i40, label %87
 
 87:                                               ; preds = %86
-  %88 = getelementptr %struct._address, ptr %82, i64 %indvars.iv.i28
+  %88 = getelementptr [24 x i8], ptr %82, i64 %indvars.iv.i28
   %89 = load i32, ptr %88, align 8
   %or.cond.not.i30 = icmp eq i32 %89, %76
   br i1 %or.cond.not.i30, label %90, label %cmp_address.exit.thread.i31
@@ -964,7 +963,7 @@ cmp_address.exit.thread.i31:                      ; preds = %cmp_address.exit.th
 .critedge.i40:                                    ; preds = %86
   %104 = add i32 %81, 1
   store i32 %104, ptr %80, align 8
-  %105 = getelementptr %struct._address, ptr %82, i64 %85
+  %105 = getelementptr [24 x i8], ptr %82, i64 %85
   %106 = load i32, ptr %11, align 8
   %107 = load i32, ptr %18, align 4
   %108 = load ptr, ptr %83, align 8
@@ -1018,7 +1017,7 @@ add_or_get_node_local.exit58.thread:              ; preds = %118
   br i1 %exitcond.not.i45, label %.critedge.i56, label %129
 
 129:                                              ; preds = %128
-  %130 = getelementptr %struct._address, ptr %123, i64 %indvars.iv.i44
+  %130 = getelementptr [24 x i8], ptr %123, i64 %indvars.iv.i44
   %131 = load i32, ptr %130, align 8
   %or.cond.not.i46 = icmp eq i32 %131, %12
   br i1 %or.cond.not.i46, label %132, label %cmp_address.exit.thread.i47
@@ -1054,7 +1053,7 @@ cmp_address.exit.thread.i47:                      ; preds = %cmp_address.exit.th
 .critedge.i56:                                    ; preds = %128
   %143 = add i32 %122, 1
   store i32 %143, ptr %121, align 8
-  %144 = getelementptr %struct._address, ptr %123, i64 %126
+  %144 = getelementptr [24 x i8], ptr %123, i64 %126
   %145 = load i32, ptr %10, align 8
   %146 = load i32, ptr %16, align 4
   %147 = load ptr, ptr %124, align 8
@@ -1108,7 +1107,7 @@ add_or_get_node_local.exit58:                     ; preds = %cmp_address.exit.th
   br i1 %exitcond.not.i61, label %.critedge.i72, label %168
 
 168:                                              ; preds = %167
-  %169 = getelementptr %struct._address, ptr %163, i64 %indvars.iv.i60
+  %169 = getelementptr [24 x i8], ptr %163, i64 %indvars.iv.i60
   %170 = load i32, ptr %169, align 8
   %or.cond.not.i62 = icmp eq i32 %170, %157
   br i1 %or.cond.not.i62, label %171, label %cmp_address.exit.thread.i63
@@ -1147,7 +1146,7 @@ cmp_address.exit.thread.i63:                      ; preds = %cmp_address.exit.th
 .critedge.i72:                                    ; preds = %167
   %185 = add i32 %162, 1
   store i32 %185, ptr %161, align 8
-  %186 = getelementptr %struct._address, ptr %163, i64 %166
+  %186 = getelementptr [24 x i8], ptr %163, i64 %166
   %187 = load i32, ptr %11, align 8
   %188 = load i32, ptr %18, align 4
   %189 = load ptr, ptr %164, align 8
@@ -1196,7 +1195,7 @@ addresses_equal.exit:                             ; preds = %23, %15, %6
   br i1 %exitcond.not.i77, label %.critedge.i84, label %208
 
 208:                                              ; preds = %207
-  %209 = getelementptr %struct._address, ptr %203, i64 %indvars.iv.i76
+  %209 = getelementptr [24 x i8], ptr %203, i64 %indvars.iv.i76
   %210 = load i32, ptr %209, align 8
   %or.cond.not.i78 = icmp eq i32 %210, %12
   br i1 %or.cond.not.i78, label %211, label %cmp_address.exit.thread.i79
@@ -1229,7 +1228,7 @@ cmp_address.exit.thread.i79:                      ; preds = %cmp_address.exit.i8
 .critedge.i84:                                    ; preds = %207
   %222 = add i32 %202, 1
   store i32 %222, ptr %201, align 8
-  %223 = getelementptr %struct._address, ptr %203, i64 %206
+  %223 = getelementptr [24 x i8], ptr %203, i64 %206
   %224 = load i32, ptr %10, align 8
   %225 = load i32, ptr %204, align 4
   %226 = load ptr, ptr %205, align 8
@@ -1281,7 +1280,7 @@ add_or_get_node.exit:                             ; preds = %cmp_address.exit.th
   br i1 %exitcond.not.i87, label %.critedge.i99, label %247
 
 247:                                              ; preds = %246
-  %248 = getelementptr %struct._address, ptr %242, i64 %indvars.iv.i86
+  %248 = getelementptr [24 x i8], ptr %242, i64 %indvars.iv.i86
   %249 = load i32, ptr %248, align 8
   %or.cond.not.i88 = icmp eq i32 %249, %237
   br i1 %or.cond.not.i88, label %250, label %cmp_address.exit.thread.i89
@@ -1314,7 +1313,7 @@ cmp_address.exit.thread.i89:                      ; preds = %cmp_address.exit.i9
 .critedge.i99:                                    ; preds = %246
   %261 = add i32 %241, 1
   store i32 %261, ptr %240, align 8
-  %262 = getelementptr %struct._address, ptr %242, i64 %245
+  %262 = getelementptr [24 x i8], ptr %242, i64 %245
   %263 = load i32, ptr %11, align 8
   %264 = load i32, ptr %243, align 4
   %265 = load ptr, ptr %244, align 8
@@ -1432,7 +1431,7 @@ define void @sequence_analysis_dump_to_file(ptr noundef %0, ptr noundef %1, i32 
   %.0149231 = phi i32 [ 0, %.lr.ph ], [ %75, %enlarge_string.exit180 ]
   %37 = add i32 %.0149231, %2
   %38 = zext i32 %37 to i64
-  %39 = getelementptr %struct._address, ptr %33, i64 %38
+  %39 = getelementptr [24 x i8], ptr %33, i64 %38
   %40 = tail call ptr @address_to_display(ptr noundef null, ptr noundef %39)
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %25, ptr noundef nonnull @.str.9, ptr noundef %40)
   tail call void @wmem_free(ptr noundef null, ptr noundef %40)
@@ -1566,7 +1565,7 @@ enlarge_string.exit185:                           ; preds = %g_string_append_c_i
   %.1150232 = phi i32 [ 1, %.lr.ph233 ], [ %157, %enlarge_string.exit200 ]
   %102 = add i32 %.1150232, %2
   %103 = zext i32 %102 to i64
-  %104 = getelementptr %struct._address, ptr %99, i64 %103
+  %104 = getelementptr [24 x i8], ptr %99, i64 %103
   %105 = tail call ptr @address_to_display(ptr noundef null, ptr noundef %104)
   tail call void (ptr, ptr, ...) @g_string_printf(ptr noundef %25, ptr noundef nonnull @.str.9, ptr noundef %105)
   tail call void @wmem_free(ptr noundef null, ptr noundef %105)

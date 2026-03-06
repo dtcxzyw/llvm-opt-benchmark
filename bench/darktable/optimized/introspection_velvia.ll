@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"velvia\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"saturation\00", align 1
@@ -172,8 +169,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 46:                                               ; preds = %.lr.ph, %98
   %.092108 = phi i64 [ 0, %.lr.ph ], [ %99, %98 ]
   %47 = shl i64 %.092108, 2
-  %48 = getelementptr inbounds nuw float, ptr %2, i64 %47
-  %49 = getelementptr inbounds nuw float, ptr %3, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %47
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %47
   %50 = load float, ptr %48, align 4, !tbaa !41
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %52 = load float, ptr %51, align 4, !tbaa !41
@@ -244,12 +241,12 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 90:                                               ; preds = %82, %90
   %.091106 = phi i64 [ 0, %82 ], [ %97, %90 ]
-  %91 = getelementptr inbounds nuw float, ptr %8, i64 %.091106
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.091106
   %92 = load float, ptr %91, align 4, !tbaa !41
-  %93 = getelementptr inbounds nuw float, ptr %9, i64 %.091106
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.091106
   %94 = load float, ptr %93, align 4, !tbaa !41
   %95 = fadd reassoc nsz arcp contract afn float %94, %92
-  %96 = getelementptr inbounds nuw float, ptr %10, i64 %.091106
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.091106
   store float %95, ptr %96, align 4, !tbaa !41
   %97 = add nuw nsw i64 %.091106, 1
   %exitcond.not = icmp eq i64 %97, 4
@@ -269,9 +266,9 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 100:                                              ; preds = %88, %113
   %.0107 = phi i64 [ 0, %88 ], [ %116, %113 ]
-  %101 = getelementptr inbounds nuw float, ptr %7, i64 %.0107
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0107
   %102 = load float, ptr %101, align 4, !tbaa !41
-  %103 = getelementptr inbounds nuw float, ptr %10, i64 %.0107
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.0107
   %104 = load float, ptr %103, align 4, !tbaa !41
   %105 = fmul reassoc nsz arcp contract afn float %104, 5.000000e-01
   %106 = fsub reassoc nsz arcp contract afn float %102, %105
@@ -289,7 +286,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 113:                                              ; preds = %100, %112, %110
   %114 = phi reassoc nsz arcp contract afn float [ 1.000000e+00, %110 ], [ %108, %112 ], [ 0.000000e+00, %100 ]
-  %115 = getelementptr inbounds nuw float, ptr %11, i64 %.0107
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.0107
   store float %114, ptr %115, align 4, !tbaa !41
   %116 = add nuw nsw i64 %.0107, 1
   %exitcond110.not = icmp eq i64 %116, 4
@@ -436,7 +433,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

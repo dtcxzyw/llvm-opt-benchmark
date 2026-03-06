@@ -13,8 +13,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.v8::LocalBase.256" = type { %"class.v8::IndirectHandleBase" }
 %"class.v8::IndirectHandleBase" = type { ptr }
 %"class.node::MaybeStackBuffer" = type { i64, i64, ptr, [16 x %"class.v8::Local.255"] }
-%struct.uv_buf_t = type { ptr, i64 }
 %"class.node::ArrayBufferViewContents" = type <{ [64 x i8], ptr, i64, i8, [7 x i8] }>
+%struct.uv_buf_t = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.83 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.83 = type { i64, [8 x i8] }
@@ -879,7 +879,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %8 = load ptr, ptr %realm_.i, align 8
   %env_.i.i14 = getelementptr inbounds nuw i8, ptr %8, i64 176
   %9 = load ptr, ptr %env_.i.i14, align 8
-  %arrayidx = getelementptr inbounds %struct.uv_buf_t, ptr %bufs, i64 %i.040
+  %arrayidx = getelementptr inbounds [16 x i8], ptr %bufs, i64 %i.040
   %10 = load ptr, ptr %arrayidx, align 8
   %len = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %11 = load i64, ptr %len, align 8
@@ -903,7 +903,7 @@ do.body4.i:                                       ; preds = %_ZN2v810MaybeLocalI
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit: ; preds = %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
   %13 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds %"class.v8::Local.255", ptr %13, i64 %i.040
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %13, i64 %i.040
   store ptr %call19, ptr %arrayidx.i, align 8
   %inc = add nuw i64 %i.040, 1
   %exitcond.not = icmp eq i64 %inc, %count

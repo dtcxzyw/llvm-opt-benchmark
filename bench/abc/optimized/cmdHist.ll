@@ -132,7 +132,7 @@ switch.early.test:                                ; preds = %22
 
 43:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ %42, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %44 = getelementptr inbounds ptr, ptr %.val51, i64 %indvars.iv
+  %44 = getelementptr inbounds [8 x i8], ptr %.val51, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !28
   %46 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %3) #17
   %.not47 = icmp eq i32 %46, 0
@@ -245,7 +245,7 @@ Vec_PtrGrow.exit11:                               ; preds = %.Vec_PtrGrow.exit11
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %3, align 4, !tbaa !25
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %29, i64 %32
   store ptr %1, ptr %33, align 8, !tbaa !28
   ret void
 }
@@ -281,7 +281,7 @@ define void @Cmd_HistoryWrite(ptr noundef readonly captures(none) %0, i32 nounde
   %14 = phi ptr [ %8, %.lr.ph.preheader ], [ %19, %.lr.ph ]
   %15 = getelementptr i8, ptr %14, i64 8
   %.val13 = load ptr, ptr %15, align 8, !tbaa !27
-  %16 = getelementptr inbounds nuw ptr, ptr %.val13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val13, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !28
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.14, ptr noundef %17) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -318,7 +318,7 @@ define internal fastcc void @Vec_PtrRemove(ptr noundef captures(none) %0, ptr no
 10:                                               ; preds = %7
   %11 = add nsw i64 %indvars.iv, -1
   %12 = load ptr, ptr %5, align 8, !tbaa !27
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !28
   %15 = icmp eq ptr %14, %1
   br i1 %15, label %16, label %7, !llvm.loop !33
@@ -336,7 +336,7 @@ define internal fastcc void @Vec_PtrRemove(ptr noundef captures(none) %0, ptr no
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv18 = phi i64 [ %18, %.lr.ph ], [ %indvars.iv.next19, %19 ]
   %20 = load ptr, ptr %5, align 8, !tbaa !27
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv18
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %indvars.iv18
   %22 = load ptr, ptr %21, align 8, !tbaa !28
   %23 = getelementptr i8, ptr %21, i64 -8
   store ptr %22, ptr %23, align 8, !tbaa !28
@@ -448,7 +448,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %18, align 4, !tbaa !25
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds ptr, ptr %44, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %44, i64 %47
   store ptr %17, ptr %48, align 8, !tbaa !28
   %49 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 32768, ptr noundef nonnull %3)
   %.not = icmp eq ptr %49, null
@@ -550,7 +550,7 @@ define void @Cmd_HistoryPrint(ptr noundef readonly captures(none) %0, i32 nounde
   %12 = phi ptr [ %8, %.lr.ph.preheader ], [ %16, %.lr.ph ]
   %13 = getelementptr i8, ptr %12, i64 8
   %.val11 = load ptr, ptr %13, align 8, !tbaa !27
-  %14 = getelementptr inbounds nuw ptr, ptr %.val11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val11, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !28
   %puts9 = tail call i32 @puts(ptr nonnull dereferenceable(1) %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

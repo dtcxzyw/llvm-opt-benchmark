@@ -1077,7 +1077,7 @@ rvalue_stack_push.exit:                           ; preds = %37, %45
   %48 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !47
   %50 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %51 = getelementptr inbounds i64, ptr %49, i64 %47
+  %51 = getelementptr inbounds [8 x i8], ptr %49, i64 %47
   store i64 4, ptr %51, align 8, !tbaa !6
   %52 = load i64, ptr %50, align 8, !tbaa !46
   %53 = add nsw i64 %52, 1
@@ -1122,7 +1122,7 @@ rvalue_stack_push.exit306:                        ; preds = %60, %68
   %71 = getelementptr inbounds nuw i8, ptr %.0.i305, i64 24
   %72 = load ptr, ptr %71, align 8, !tbaa !47
   %73 = getelementptr inbounds nuw i8, ptr %.0.i305, i64 16
-  %74 = getelementptr inbounds i64, ptr %72, i64 %70
+  %74 = getelementptr inbounds [8 x i8], ptr %72, i64 %70
   store i64 20, ptr %74, align 8, !tbaa !6
   %75 = load i64, ptr %73, align 8, !tbaa !46
   %76 = add nsw i64 %75, 1
@@ -1168,7 +1168,7 @@ rvalue_stack_push.exit311:                        ; preds = %84, %92
   %95 = getelementptr inbounds nuw i8, ptr %.0.i310, i64 24
   %96 = load ptr, ptr %95, align 8, !tbaa !47
   %97 = getelementptr inbounds nuw i8, ptr %.0.i310, i64 16
-  %98 = getelementptr inbounds i64, ptr %96, i64 %94
+  %98 = getelementptr inbounds [8 x i8], ptr %96, i64 %94
   store i64 0, ptr %98, align 8, !tbaa !6
   %99 = load i64, ptr %97, align 8, !tbaa !46
   %100 = add nsw i64 %99, 1
@@ -1219,7 +1219,7 @@ rvalue_stack_push.exit316:                        ; preds = %111, %120
   %123 = getelementptr inbounds nuw i8, ptr %.0.i315, i64 24
   %124 = load ptr, ptr %123, align 8, !tbaa !47
   %125 = getelementptr inbounds nuw i8, ptr %.0.i315, i64 16
-  %126 = getelementptr inbounds i64, ptr %124, i64 %122
+  %126 = getelementptr inbounds [8 x i8], ptr %124, i64 %122
   store i64 %115, ptr %126, align 8, !tbaa !6
   %127 = load i64, ptr %125, align 8, !tbaa !46
   %128 = add nsw i64 %127, 1
@@ -1269,7 +1269,7 @@ rvalue_stack_push.exit321:                        ; preds = %138, %147
   %150 = getelementptr inbounds nuw i8, ptr %.0.i320, i64 24
   %151 = load ptr, ptr %150, align 8, !tbaa !47
   %152 = getelementptr inbounds nuw i8, ptr %.0.i320, i64 16
-  %153 = getelementptr inbounds i64, ptr %151, i64 %149
+  %153 = getelementptr inbounds [8 x i8], ptr %151, i64 %149
   store i64 %142, ptr %153, align 8, !tbaa !6
   %154 = load i64, ptr %152, align 8, !tbaa !46
   %155 = add nsw i64 %154, 1
@@ -1551,7 +1551,7 @@ rvalue_stack_push.exit327:                        ; preds = %json_decode_integer
   %270 = getelementptr inbounds nuw i8, ptr %.0.i326, i64 24
   %271 = load ptr, ptr %270, align 8, !tbaa !47
   %272 = getelementptr inbounds nuw i8, ptr %.0.i326, i64 16
-  %273 = getelementptr inbounds i64, ptr %271, i64 %269
+  %273 = getelementptr inbounds [8 x i8], ptr %271, i64 %269
   store i64 %.0.i322, ptr %273, align 8, !tbaa !6
   %274 = load i64, ptr %272, align 8, !tbaa !46
   %275 = add nsw i64 %274, 1
@@ -1626,7 +1626,7 @@ rvalue_stack_push.exit334:                        ; preds = %json_decode_float.e
   %306 = getelementptr inbounds nuw i8, ptr %.0.i333, i64 24
   %307 = load ptr, ptr %306, align 8, !tbaa !47
   %308 = getelementptr inbounds nuw i8, ptr %.0.i333, i64 16
-  %309 = getelementptr inbounds i64, ptr %307, i64 %305
+  %309 = getelementptr inbounds [8 x i8], ptr %307, i64 %305
   store i64 %.0.i329, ptr %309, align 8, !tbaa !6
   %310 = load i64, ptr %308, align 8, !tbaa !46
   %311 = add nsw i64 %310, 1
@@ -1807,14 +1807,14 @@ json_eat_whitespace.exit344:                      ; preds = %.lr.ph.i340, %381, 
   %406 = getelementptr i8, ptr %404, i64 24
   %.val19.i = load ptr, ptr %406, align 8, !tbaa !47
   %407 = sub nsw i64 %.val.i, %395
-  %408 = getelementptr inbounds i64, ptr %.val19.i, i64 %407
+  %408 = getelementptr inbounds [8 x i8], ptr %.val19.i, i64 %407
   %409 = icmp sgt i64 %395, 0
   br i1 %409, label %.lr.ph.i346, label %.loopexit.i
 
 .lr.ph.i346:                                      ; preds = %402, %.lr.ph.i346
   %.022.i = phi i64 [ %414, %.lr.ph.i346 ], [ 0, %402 ]
   %410 = load i64, ptr @i_leftshift, align 8, !tbaa !6
-  %411 = getelementptr inbounds nuw i64, ptr %408, i64 %.022.i
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %408, i64 %.022.i
   %412 = load i64, ptr %411, align 8, !tbaa !6
   %413 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %403, i64 noundef %410, i32 noundef 1, i64 noundef %412) #20
   %414 = add nuw nsw i64 %.022.i, 1
@@ -1824,7 +1824,7 @@ json_eat_whitespace.exit344:                      ; preds = %.lr.ph.i340, %381, 
 415:                                              ; preds = %390
   %416 = getelementptr i8, ptr %392, i64 24
   %.val21.i = load ptr, ptr %416, align 8, !tbaa !47
-  %417 = getelementptr inbounds i64, ptr %.val21.i, i64 %351
+  %417 = getelementptr inbounds [8 x i8], ptr %.val21.i, i64 %351
   %418 = tail call i64 @rb_ary_new_from_values(i64 noundef %395, ptr noundef %417) #20
   br label %.loopexit.i
 
@@ -1863,7 +1863,7 @@ rvalue_stack_push.exit351:                        ; preds = %json_decode_array.e
   %433 = getelementptr inbounds nuw i8, ptr %.0.i350, i64 24
   %434 = load ptr, ptr %433, align 8, !tbaa !47
   %435 = getelementptr inbounds nuw i8, ptr %.0.i350, i64 16
-  %436 = getelementptr inbounds i64, ptr %434, i64 %432
+  %436 = getelementptr inbounds [8 x i8], ptr %434, i64 %432
   store i64 %.017.i, ptr %436, align 8, !tbaa !6
   %437 = load i64, ptr %435, align 8, !tbaa !46
   %438 = add nsw i64 %437, 1
@@ -2167,7 +2167,7 @@ rvalue_stack_push.exit376:                        ; preds = %571, %583
   %586 = getelementptr inbounds nuw i8, ptr %.0.i375, i64 24
   %587 = load ptr, ptr %586, align 8, !tbaa !47
   %588 = getelementptr inbounds nuw i8, ptr %.0.i375, i64 16
-  %589 = getelementptr inbounds i64, ptr %587, i64 %585
+  %589 = getelementptr inbounds [8 x i8], ptr %587, i64 %585
   store i64 %579, ptr %589, align 8, !tbaa !6
   %590 = load i64, ptr %588, align 8, !tbaa !46
   %591 = add nsw i64 %590, 1
@@ -2381,7 +2381,7 @@ define internal fastcc noundef i64 @rvalue_stack_push(ptr noundef captures(none)
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !47
   %15 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %16 = getelementptr inbounds i64, ptr %14, i64 %12
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %12
   store i64 %1, ptr %16, align 8, !tbaa !6
   %17 = load i64, ptr %15, align 8, !tbaa !46
   %18 = add nsw i64 %17, 1
@@ -2907,7 +2907,7 @@ rvalue_stack_push.exit:                           ; preds = %json_decode_string.
   %273 = getelementptr inbounds nuw i8, ptr %.0.i25, i64 24
   %274 = load ptr, ptr %273, align 8, !tbaa !47
   %275 = getelementptr inbounds nuw i8, ptr %.0.i25, i64 16
-  %276 = getelementptr inbounds i64, ptr %274, i64 %272
+  %276 = getelementptr inbounds [8 x i8], ptr %274, i64 %272
   store i64 %.1.i, ptr %276, align 8, !tbaa !6
   %277 = load i64, ptr %275, align 8, !tbaa !46
   %278 = add nsw i64 %277, 1
@@ -2959,14 +2959,14 @@ define internal fastcc i64 @json_decode_array(ptr noundef nonnull readonly captu
   %11 = getelementptr i8, ptr %9, i64 24
   %.val19 = load ptr, ptr %11, align 8, !tbaa !47
   %12 = sub nsw i64 %.val, %2
-  %13 = getelementptr inbounds i64, ptr %.val19, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %.val19, i64 %12
   %14 = icmp sgt i64 %2, 0
   br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.022 = phi i64 [ %19, %.lr.ph ], [ 0, %6 ]
   %15 = load i64, ptr @i_leftshift, align 8, !tbaa !6
-  %16 = getelementptr inbounds nuw i64, ptr %13, i64 %.022
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.022
   %17 = load i64, ptr %16, align 8, !tbaa !6
   %18 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %7, i64 noundef %15, i32 noundef 1, i64 noundef %17) #20
   %19 = add nuw nsw i64 %.022, 1
@@ -2981,7 +2981,7 @@ define internal fastcc i64 @json_decode_array(ptr noundef nonnull readonly captu
   %24 = getelementptr i8, ptr %22, i64 24
   %.val21 = load ptr, ptr %24, align 8, !tbaa !47
   %25 = sub nsw i64 %.val20, %2
-  %26 = getelementptr inbounds i64, ptr %.val21, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %.val21, i64 %25
   %27 = tail call i64 @rb_ary_new_from_values(i64 noundef %2, ptr noundef %26) #20
   br label %.loopexit
 
@@ -3022,13 +3022,13 @@ define internal fastcc i64 @json_decode_object(ptr noundef nonnull readonly capt
   %11 = getelementptr i8, ptr %9, i64 24
   %.val38 = load ptr, ptr %11, align 8, !tbaa !47
   %12 = sub nsw i64 %.val, %2
-  %13 = getelementptr inbounds i64, ptr %.val38, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %.val38, i64 %12
   %14 = icmp sgt i64 %2, 0
   br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.03542 = phi i64 [ %17, %.lr.ph ], [ 0, %7 ]
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %.03542
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.03542
   %16 = load i64, ptr %15, align 8, !tbaa !6
   %17 = add nuw nsw i64 %.03542, 2
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -3046,7 +3046,7 @@ define internal fastcc i64 @json_decode_object(ptr noundef nonnull readonly capt
   %27 = getelementptr i8, ptr %25, i64 24
   %.val40 = load ptr, ptr %27, align 8, !tbaa !47
   %28 = sub nsw i64 %.val39, %2
-  %29 = getelementptr inbounds i64, ptr %.val40, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %.val40, i64 %28
   tail call void @rb_hash_bulk_insert(i64 noundef %2, ptr noundef %29, i64 noundef %24) #20
   br label %.loopexit
 
@@ -3309,7 +3309,7 @@ define internal void @rvalue_stack_mark(ptr noundef readonly captures(none) %0) 
 6:                                                ; preds = %.lr.ph, %6
   %.05 = phi i64 [ 0, %.lr.ph ], [ %10, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !47
-  %8 = getelementptr inbounds nuw i64, ptr %7, i64 %.05
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.05
   %9 = load i64, ptr %8, align 8, !tbaa !6
   tail call void @rb_gc_mark(i64 noundef %9) #20
   %10 = add nuw nsw i64 %.05, 1
@@ -3470,7 +3470,7 @@ define internal fastcc i64 @rsymbol_cache_fetch(ptr noundef nonnull %0, ptr noun
   %7 = load ptr, ptr %6, align 8, !tbaa !77
   %8 = load i8, ptr %1, align 1, !tbaa !62
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw i16, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !79
   %12 = and i16 %11, 1024
   %.not = icmp eq i16 %12, 0
@@ -3492,7 +3492,7 @@ define internal fastcc i64 @rsymbol_cache_fetch(ptr noundef nonnull %0, ptr noun
   %18 = add nuw nsw i32 %.03051, %.03650
   %19 = lshr i32 %18, 1
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i64, ptr %16, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   %23 = tail call i64 @rb_sym2str(i64 noundef %22) #20
   %24 = inttoptr i64 %23 to ptr
@@ -3570,7 +3570,7 @@ rstring_cache_cmp.exit:                           ; preds = %RSTRING_PTR.exit.i,
 rvalue_cache_insert_at.exit:                      ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = zext nneg i32 %spec.select to i64
-  %57 = getelementptr inbounds nuw i64, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = shl nuw nsw i64 %52, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %58, ptr noundef nonnull align 1 %57, i64 noundef %59, i1 noundef false) #20
@@ -3595,7 +3595,7 @@ define internal fastcc i64 @rstring_cache_fetch(ptr noundef nonnull %0, ptr noun
   %7 = load ptr, ptr %6, align 8, !tbaa !77
   %8 = load i8, ptr %1, align 1, !tbaa !62
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw i16, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !79
   %12 = and i16 %11, 1024
   %.not = icmp eq i16 %12, 0
@@ -3617,7 +3617,7 @@ define internal fastcc i64 @rstring_cache_fetch(ptr noundef nonnull %0, ptr noun
   %18 = add nuw nsw i32 %.03051, %.03650
   %19 = lshr i32 %18, 1
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i64, ptr %16, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   %23 = inttoptr i64 %22 to ptr
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -3693,7 +3693,7 @@ rstring_cache_cmp.exit:                           ; preds = %RSTRING_PTR.exit.i,
 rvalue_cache_insert_at.exit:                      ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = zext nneg i32 %spec.select to i64
-  %55 = getelementptr inbounds nuw i64, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = shl nuw nsw i64 %50, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 %56, ptr noundef nonnull align 1 %55, i64 noundef %57, i1 noundef false) #20

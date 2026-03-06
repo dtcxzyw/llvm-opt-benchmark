@@ -36,49 +36,9 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ahci_host_ac
 %struct.ata_port_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.device_attribute = type { %struct.attribute, ptr, ptr }
 %struct.attribute = type { ptr, i16 }
-%struct.ahci_sg = type { i32, i32, i32, i32 }
-%struct.ahci_cmd_hdr = type { i32, i32, i32, i32, [4 x i32] }
-%struct.ahci_em_priv = type { i32, %struct.timer_list, i64, i64, i64, ptr }
-%struct.timer_list = type { %struct.hlist_node, i64, ptr, i32 }
-%struct.hlist_node = type { ptr, ptr }
-%struct.ata_queued_cmd = type { ptr, ptr, ptr, ptr, %struct.ata_taskfile, [16 x i8], i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, %struct.scatterlist, ptr, ptr, i32, i32, %struct.ata_taskfile, ptr, ptr, ptr }
-%struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
 %struct.ata_taskfile = type { i64, i8, i8, i8, i8, i8, i8, i8, %union.anon.3, i8, i8, i8, i8, i8, %union.anon.4, i32 }
 %union.anon.3 = type { i8 }
 %union.anon.4 = type { i8 }
-%struct.ata_link = type { ptr, i32, %struct.device, i32, i32, i32, i32, i32, i32, i32, i32, %struct.ata_eh_info, %struct.ata_eh_context, [32 x i8], [2 x %struct.ata_device], i64, [56 x i8] }
-%struct.device = type { %struct.kobject, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.mutex, %struct.dev_links_info, %struct.dev_pm_info, ptr, %struct.dev_msi_info, ptr, ptr, i64, i64, ptr, ptr, %struct.list_head, ptr, %struct.dev_archdata, ptr, ptr, i32, i32, i32, %struct.spinlock, %struct.list_head, ptr, ptr, ptr, ptr, ptr, ptr, i32, i8 }
-%struct.kobject = type { ptr, %struct.list_head, ptr, ptr, ptr, ptr, %struct.kref, i8 }
-%struct.kref = type { %struct.refcount_struct }
-%struct.refcount_struct = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%struct.mutex = type { %struct.atomic64_t, %struct.raw_spinlock, %struct.optimistic_spin_queue, %struct.list_head }
-%struct.atomic64_t = type { i64 }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.1 }
-%union.anon.1 = type { %struct.atomic_t }
-%struct.optimistic_spin_queue = type { %struct.atomic_t }
-%struct.dev_links_info = type { %struct.list_head, %struct.list_head, %struct.list_head, i32 }
-%struct.dev_pm_info = type { %struct.pm_message, i16, i32, %struct.spinlock, %struct.list_head, %struct.completion, ptr, i8, %struct.hrtimer, i64, %struct.work_struct, %struct.wait_queue_head, ptr, %struct.atomic_t, %struct.atomic_t, i16, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, ptr, ptr, ptr }
-%struct.pm_message = type { i32 }
-%struct.completion = type { i32, %struct.swait_queue_head }
-%struct.swait_queue_head = type { %struct.raw_spinlock, %struct.list_head }
-%struct.hrtimer = type { %struct.timerqueue_node, i64, ptr, ptr, i8, i8, i8, i8 }
-%struct.timerqueue_node = type { %struct.rb_node, i64 }
-%struct.rb_node = type { i64, ptr, ptr }
-%struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
-%struct.wait_queue_head = type { %struct.spinlock, %struct.list_head }
-%struct.dev_msi_info = type { ptr, ptr }
-%struct.dev_archdata = type {}
-%struct.spinlock = type { %union.anon.0 }
-%union.anon.0 = type { %struct.raw_spinlock }
-%struct.list_head = type { ptr, ptr }
-%struct.ata_eh_info = type { ptr, i32, i32, i32, [2 x i32], i32, i32, [80 x i8], i32 }
-%struct.ata_eh_context = type { %struct.ata_eh_info, [2 x i32], [2 x [8 x i32]], [2 x i32], i32, i32, i32, [2 x i8], i64 }
-%struct.ata_device = type { ptr, i32, i32, i64, ptr, ptr, ptr, i32, %struct.device, i64, i64, i32, i64, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i16, i16, i16, [42 x i8], %union.anon.5, [8 x i8], [20 x i8], [64 x i8], i32, i32, i32, i32, ptr, [512 x i8], i32, %struct.ata_ering, [56 x i8] }
-%union.anon.5 = type { [128 x i32] }
-%struct.ata_ering = type { i32, [32 x %struct.ata_ering_entry] }
-%struct.ata_ering_entry = type { i32, i32, i64 }
 
 @ahci_ignore_sss = dso_local global i32 0, align 4
 @__UNIQUE_ID___addressable_ahci_ignore_sss461 = internal global ptr @ahci_ignore_sss, section ".discard.addressable", align 8
@@ -356,7 +316,7 @@ define internal noundef i32 @ahci_qc_prep(ptr noundef %0) #0 align 16 {
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %49 = load i32, ptr %48, align 8
-  %50 = getelementptr %struct.ahci_sg, ptr %36, i64 %44
+  %50 = getelementptr [16 x i8], ptr %36, i64 %44
   store i64 %47, ptr %50, align 4
   %51 = add i32 %49, -1
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 12
@@ -398,21 +358,21 @@ define internal noundef i32 @ahci_qc_prep(ptr noundef %0) #0 align 16 {
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = zext i32 %77 to i64
-  %86 = getelementptr %struct.ahci_cmd_hdr, ptr %84, i64 %85
+  %86 = getelementptr [32 x i8], ptr %84, i64 %85
   store i32 %76, ptr %86, align 4
   %87 = load ptr, ptr %83, align 8
-  %.split = getelementptr %struct.ahci_cmd_hdr, ptr %87, i64 %85
+  %.split = getelementptr [32 x i8], ptr %87, i64 %85
   %88 = getelementptr i8, ptr %.split, i64 4
   store i32 0, ptr %88, align 4
   %89 = trunc i64 %82 to i32
   %90 = load ptr, ptr %83, align 8
-  %.split1 = getelementptr %struct.ahci_cmd_hdr, ptr %90, i64 %85
+  %.split1 = getelementptr [32 x i8], ptr %90, i64 %85
   %91 = getelementptr i8, ptr %.split1, i64 8
   store i32 %89, ptr %91, align 4
   %92 = lshr i64 %82, 32
   %93 = trunc nuw i64 %92 to i32
   %94 = load ptr, ptr %83, align 8
-  %.split2 = getelementptr %struct.ahci_cmd_hdr, ptr %94, i64 %85
+  %.split2 = getelementptr [32 x i8], ptr %94, i64 %85
   %95 = getelementptr i8, ptr %.split2, i64 12
   store i32 %93, ptr %95, align 4
   ret i32 0
@@ -509,7 +469,7 @@ define dso_local noundef i32 @ahci_qc_issue(ptr noundef readonly captures(none) 
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %72 = load i32, ptr %71, align 8
   %73 = sext i32 %72 to i64
-  %74 = getelementptr %struct.ahci_em_priv, ptr %70, i64 %73
+  %74 = getelementptr [80 x i8], ptr %70, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 56
   %76 = load i64, ptr %75, align 8
   %77 = add i64 %76, 1
@@ -671,7 +631,7 @@ define internal void @ahci_qc_ncq_fill_rtf(ptr noundef captures(address) %0, i64
   %35 = trunc i64 %34 to i32
   %36 = icmp ugt i32 %35, 32
   %37 = and i64 %34, 4294967295
-  %38 = getelementptr %struct.ata_queued_cmd, ptr %31, i64 %37
+  %38 = getelementptr [240 x i8], ptr %31, i64 %37
   %39 = icmp eq ptr %38, null
   %40 = select i1 %36, i1 true, i1 %39
   br i1 %40, label %.thread, label %41, !prof !13
@@ -712,7 +672,7 @@ define internal void @ahci_qc_ncq_fill_rtf(ptr noundef captures(address) %0, i64
   %62 = trunc i64 %61 to i32
   %63 = icmp ugt i32 %62, 32
   %64 = and i64 %61, 4294967295
-  %65 = getelementptr %struct.ata_queued_cmd, ptr %15, i64 %64
+  %65 = getelementptr [240 x i8], ptr %15, i64 %64
   %66 = icmp eq ptr %65, null
   %67 = select i1 %63, i1 true, i1 %66
   br i1 %67, label %.thread11, label %68, !prof !13
@@ -1058,7 +1018,7 @@ define internal noundef range(i32 -22, 1) i32 @ahci_scr_read(ptr noundef readonl
   br i1 %25, label %.thread, label %26
 
 26:                                               ; preds = %21, %19
-  %27 = getelementptr i32, ptr @ahci_scr_offset.offset, i64 %17
+  %27 = getelementptr [4 x i8], ptr @ahci_scr_offset.offset, i64 %17
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr i8, ptr %16, i64 %29
@@ -1102,7 +1062,7 @@ define internal noundef range(i32 -22, 1) i32 @ahci_scr_write(ptr noundef readon
   br i1 %25, label %.thread, label %26
 
 26:                                               ; preds = %21, %19
-  %27 = getelementptr i32, ptr @ahci_scr_offset.offset, i64 %17
+  %27 = getelementptr [4 x i8], ptr @ahci_scr_offset.offset, i64 %17
   %28 = load i32, ptr %27, align 4
   %29 = sext i32 %28 to i64
   %30 = getelementptr i8, ptr %16, i64 %29
@@ -1829,7 +1789,7 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %120 = load i32, ptr %119, align 8
   %121 = sext i32 %120 to i64
-  %122 = getelementptr %struct.ahci_em_priv, ptr %118, i64 %121
+  %122 = getelementptr [80 x i8], ptr %118, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 48
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 0, i64 16, i1 false)
@@ -2293,7 +2253,7 @@ define internal i64 @ahci_led_store(ptr noundef %0, ptr noundef %1, i64 noundef 
   %18 = and i32 %12, %17
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %20 = zext nneg i32 %18 to i64
-  %21 = getelementptr %struct.ahci_em_priv, ptr %19, i64 %20
+  %21 = getelementptr [80 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   %.pre = load i32, ptr %4, align 4
@@ -2329,7 +2289,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_activity_sh
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct.ahci_em_priv, ptr %7, i64 %10
+  %11 = getelementptr [80 x i8], ptr %7, i64 %10
   %12 = load i32, ptr %11, align 8
   %13 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.76, i32 noundef %12) #12
   %14 = sext i32 %13 to i64
@@ -2346,7 +2306,7 @@ define internal noundef i64 @ahci_activity_store(ptr noundef readonly captures(n
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct.ahci_em_priv, ptr %7, i64 %10
+  %11 = getelementptr [80 x i8], ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
@@ -3068,7 +3028,7 @@ define internal range(i32 0, 2) i32 @ahci_single_level_irq_intr(i32 %0, ptr noun
   br i1 %24, label %49, label %25
 
 25:                                               ; preds = %19
-  %26 = getelementptr ptr, ptr %17, i64 %20
+  %26 = getelementptr [8 x i8], ptr %17, i64 %20
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %44, label %29
@@ -3392,7 +3352,7 @@ define dso_local void @ahci_init_controller(ptr noundef readonly captures(none) 
 12:                                               ; preds = %89, %9
   %13 = phi i32 [ 0, %9 ], [ %90, %89 ]
   %14 = sext i32 %13 to i64
-  %15 = getelementptr ptr, ptr %10, i64 %14
+  %15 = getelementptr [8 x i8], ptr %10, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14776
   %18 = load ptr, ptr %17, align 8
@@ -3548,21 +3508,21 @@ define dso_local void @ahci_fill_cmd_slot(ptr noundef readonly captures(none) %0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %1 to i64
-  %12 = getelementptr %struct.ahci_cmd_hdr, ptr %10, i64 %11
+  %12 = getelementptr [32 x i8], ptr %10, i64 %11
   store i32 %2, ptr %12, align 4
   %13 = load ptr, ptr %9, align 8
-  %.split = getelementptr %struct.ahci_cmd_hdr, ptr %13, i64 %11
+  %.split = getelementptr [32 x i8], ptr %13, i64 %11
   %14 = getelementptr i8, ptr %.split, i64 4
   store i32 0, ptr %14, align 4
   %15 = trunc i64 %8 to i32
   %16 = load ptr, ptr %9, align 8
-  %.split1 = getelementptr %struct.ahci_cmd_hdr, ptr %16, i64 %11
+  %.split1 = getelementptr [32 x i8], ptr %16, i64 %11
   %17 = getelementptr i8, ptr %.split1, i64 8
   store i32 %15, ptr %17, align 4
   %18 = lshr i64 %8, 32
   %19 = trunc nuw i64 %18 to i32
   %20 = load ptr, ptr %9, align 8
-  %.split2 = getelementptr %struct.ahci_cmd_hdr, ptr %20, i64 %11
+  %.split2 = getelementptr [32 x i8], ptr %20, i64 %11
   %21 = getelementptr i8, ptr %.split2, i64 12
   store i32 %19, ptr %21, align 4
   ret void
@@ -4356,7 +4316,7 @@ define dso_local range(i32 0, 2) i32 @ahci_handle_port_intr(ptr noundef readonly
   br i1 %15, label %40, label %16
 
 16:                                               ; preds = %9
-  %17 = getelementptr ptr, ptr %7, i64 %10
+  %17 = getelementptr [8 x i8], ptr %7, i64 %10
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %35, label %20
@@ -4634,7 +4594,7 @@ define dso_local i32 @ahci_host_activate(ptr noundef %0, ptr noundef %1) #0 alig
 36:                                               ; preds = %58, %32
   %37 = phi i32 [ 0, %32 ], [ %59, %58 ]
   %38 = sext i32 %37 to i64
-  %39 = getelementptr ptr, ptr %33, i64 %38
+  %39 = getelementptr [8 x i8], ptr %33, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 15888
   %42 = load ptr, ptr %41, align 16
@@ -5364,7 +5324,7 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 14736
   %33 = load ptr, ptr %32, align 16
   %34 = zext nneg i32 %24 to i64
-  %35 = getelementptr %struct.ata_link, ptr %33, i64 %34
+  %35 = getelementptr [6464 x i8], ptr %33, i64 %34
   br label %.critedge
 
 36:                                               ; preds = %2
@@ -5400,7 +5360,7 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %55 = icmp ugt i32 %54, 32
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %57 = zext i32 %54 to i64
-  %58 = getelementptr %struct.ata_queued_cmd, ptr %56, i64 %57
+  %58 = getelementptr [240 x i8], ptr %56, i64 %57
   %59 = icmp eq ptr %58, null
   %60 = select i1 %55, i1 true, i1 %59
   br i1 %60, label %67, label %61, !prof !13

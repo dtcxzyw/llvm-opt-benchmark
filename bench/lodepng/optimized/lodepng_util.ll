@@ -19,10 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.13" = type { %"struct.std::_Vector_base.14" }
 %"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<unsigned char>, std::allocator<std::vector<unsigned char>>>::_Vector_impl_data" }
@@ -376,7 +372,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %100, %_Z
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %102, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %97, ptr %1, align 8, !tbaa !32
   store ptr %101, ptr %25, align 8, !tbaa !28
-  %103 = getelementptr inbounds nuw i64, ptr %97, i64 %95
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %95
   store ptr %103, ptr %26, align 8, !tbaa !31
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -531,7 +527,7 @@ define noundef range(i32 0, 2) i32 @_ZN7lodepng9getChunksEPSt6vectorINSt7__cxx11
 
 55:                                               ; preds = %54
   %56 = zext nneg i32 %.025 to i64
-  %57 = getelementptr inbounds nuw %"class.std::vector.3", ptr %0, i64 %56
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !24
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
@@ -651,7 +647,7 @@ _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
   %95 = phi ptr [ null, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i ], [ %86, %.noexc4.i ]
   %96 = phi ptr [ %84, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i.i ], [ %87, %.noexc4.i ]
   store ptr %96, ptr %17, align 8, !tbaa !38
-  %97 = getelementptr inbounds nuw %"class.std::vector.13", ptr %1, i64 %56
+  %97 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %56
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !39
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 16
@@ -974,7 +970,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
   %94 = phi ptr [ %108, %105 ], [ %78, %.preheader149 ]
   %.0100171 = phi i64 [ %106, %105 ], [ 0, %.preheader149 ]
   %95 = load ptr, ptr %74, align 8, !tbaa !3
-  %96 = getelementptr inbounds nuw %"class.std::vector", ptr %94, i64 %.0100171
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %94, i64 %.0100171
   %97 = load ptr, ptr %96, align 8, !tbaa !3
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !3
@@ -1032,7 +1028,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
   %131 = phi ptr [ %145, %142 ], [ %91, %.preheader148 ]
   %.0101174 = phi i64 [ %143, %142 ], [ 0, %.preheader148 ]
   %132 = load ptr, ptr %74, align 8, !tbaa !3
-  %133 = getelementptr inbounds nuw %"class.std::vector", ptr %131, i64 %.0101174
+  %133 = getelementptr inbounds nuw [24 x i8], ptr %131, i64 %.0101174
   %134 = load ptr, ptr %133, align 8, !tbaa !3
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %136 = load ptr, ptr %135, align 8, !tbaa !3
@@ -1082,7 +1078,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
   %164 = phi ptr [ %178, %175 ], [ %128, %.preheader ]
   %.095177 = phi i64 [ %176, %175 ], [ 0, %.preheader ]
   %165 = load ptr, ptr %74, align 8, !tbaa !3
-  %166 = getelementptr inbounds nuw %"class.std::vector", ptr %164, i64 %.095177
+  %166 = getelementptr inbounds nuw [24 x i8], ptr %164, i64 %.095177
   %167 = load ptr, ptr %166, align 8, !tbaa !3
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %169 = load ptr, ptr %168, align 8, !tbaa !3
@@ -1777,12 +1773,12 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit:    ; preds = %197, %199, %200, %_
   %.066156 = phi i64 [ 0, %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit ], [ %273, %.loopexit140 ]
   %.067155 = phi i64 [ 0, %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit ], [ %.168, %.loopexit140 ]
   %212 = load i32, ptr %6, align 4, !tbaa !9
-  %213 = getelementptr inbounds nuw i32, ptr @_ZZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_E8ADAM7_IX, i64 %.066156
+  %213 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_E8ADAM7_IX, i64 %.066156
   %214 = load i32, ptr %213, align 4, !tbaa !9
   %215 = load i32, ptr %7, align 4, !tbaa !9
-  %216 = getelementptr inbounds nuw i32, ptr @_ZZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_E8ADAM7_IY, i64 %.066156
+  %216 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_E8ADAM7_IY, i64 %.066156
   %217 = load i32, ptr %216, align 4, !tbaa !9
-  %218 = getelementptr inbounds nuw i32, ptr @_ZZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_E8ADAM7_DY, i64 %.066156
+  %218 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_E8ADAM7_DY, i64 %.066156
   %219 = load i32, ptr %218, align 4, !tbaa !9
   %220 = xor i32 %217, -1
   %221 = add i32 %215, %220
@@ -1794,7 +1790,7 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit:    ; preds = %197, %199, %200, %_
   br i1 %or.cond103, label %224, label %.loopexit140
 
 224:                                              ; preds = %211
-  %225 = getelementptr inbounds nuw i32, ptr @_ZZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_E8ADAM7_DX, i64 %.066156
+  %225 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7lodepng24getFilterTypesInterlacedERSt6vectorIS0_IhSaIhEESaIS2_EERKS2_E8ADAM7_DX, i64 %.066156
   %226 = load i32, ptr %225, align 4, !tbaa !9
   %227 = xor i32 %214, -1
   %228 = add i32 %212, %227
@@ -1818,7 +1814,7 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit:    ; preds = %197, %199, %200, %_
   %.0152 = phi i64 [ %271, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit125 ], [ 0, %232 ]
   %.269151 = phi i64 [ %270, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit125 ], [ %.067155, %232 ]
   %237 = load ptr, ptr %0, align 8, !tbaa !45
-  %238 = getelementptr inbounds nuw %"class.std::vector", ptr %237, i64 %.066156
+  %238 = getelementptr inbounds nuw [24 x i8], ptr %237, i64 %.066156
   %239 = load ptr, ptr %12, align 8, !tbaa !37
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 %.269151
   %241 = getelementptr inbounds nuw i8, ptr %238, i64 8
@@ -2042,7 +2038,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm(ptr noundef n
   br i1 %14, label %15, label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %"class.std::vector", ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE15_M_erase_at_endEPS1_.exit, label %.lr.ph.i.i.i.i
 
@@ -2181,12 +2177,12 @@ define noundef range(i32 0, 2) i32 @_ZN7lodepng14getFilterTypesERSt6vectorIhSaIh
   %50 = phi ptr [ %.pre, %.lr.ph ], [ %89, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit ]
   %.031 = phi i64 [ 0, %.lr.ph ], [ %90, %_ZNSt6vectorIhSaIhEE9push_backERKh.exit ]
   %51 = and i64 %.031, 7
-  %52 = getelementptr inbounds nuw i32, ptr %..sroa.sel, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %..sroa.sel, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !9
   %54 = zext i32 %53 to i64
   %55 = load ptr, ptr %3, align 8, !tbaa !45
-  %56 = getelementptr inbounds nuw %"class.std::vector", ptr %55, i64 %54
-  %57 = getelementptr inbounds nuw i32, ptr %.sroa.sel, i64 %51
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %54
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.sel, i64 %51
   %58 = load i32, ptr %57, align 4, !tbaa !9
   %59 = zext nneg i32 %58 to i64
   %60 = lshr i64 %.031, %59
@@ -2601,14 +2597,14 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %36, %35, %30, %28,
   %57 = uitofp nneg i64 %.050.i to float
   %58 = fmul float %54, %57
   %59 = call fastcc noundef float @_ZN7lodepngL13iccForwardTRCEPKNS_15LodePNGICCCurveEf(ptr noundef readonly %55, float noundef %58)
-  %60 = getelementptr inbounds nuw float, ptr %51, i64 %.050.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %.050.i
   store float %59, ptr %60, align 4, !tbaa !79
   %61 = add nuw nsw i64 %.050.i, 1
   %exitcond.not.i = icmp eq i64 %61, %14
   br i1 %exitcond.not.i, label %_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE.exit, label %56, !llvm.loop !80
 
 _ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE.exit: ; preds = %56
-  %62 = getelementptr inbounds nuw float, ptr %51, i64 %14
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %14
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 184
   br label %64
 
@@ -2617,7 +2613,7 @@ _ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE.ex
   %65 = uitofp nneg i64 %.050.i132 to float
   %66 = fmul float %54, %65
   %67 = call fastcc noundef float @_ZN7lodepngL13iccForwardTRCEPKNS_15LodePNGICCCurveEf(ptr noundef readonly %63, float noundef %66)
-  %68 = getelementptr inbounds nuw float, ptr %62, i64 %.050.i132
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.050.i132
   store float %67, ptr %68, align 4, !tbaa !79
   %69 = add nuw nsw i64 %.050.i132, 1
   %exitcond.not.i133 = icmp eq i64 %69, %14
@@ -2634,7 +2630,7 @@ _ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE.ex
   %73 = uitofp nneg i64 %.050.i135 to float
   %74 = fmul float %54, %73
   %75 = call fastcc noundef float @_ZN7lodepngL13iccForwardTRCEPKNS_15LodePNGICCCurveEf(ptr noundef readonly %71, float noundef %74)
-  %76 = getelementptr inbounds nuw float, ptr %70, i64 %.050.i135
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %.050.i135
   store float %75, ptr %76, align 4, !tbaa !79
   %77 = add nuw nsw i64 %.050.i135, 1
   %exitcond.not.i136 = icmp eq i64 %77, %14
@@ -2670,7 +2666,7 @@ _ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE.ex
   %87 = zext i8 %86 to i64
   %.idx125 = shl nuw nsw i64 %84, 10
   %88 = getelementptr inbounds nuw i8, ptr %.0108, i64 %.idx125
-  %89 = getelementptr inbounds nuw float, ptr %88, i64 %87
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %87
   %90 = load float, ptr %89, align 4, !tbaa !79
   %.idx144 = shl i64 %.0111148, 4
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx144
@@ -2683,7 +2679,7 @@ _ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE.ex
   %97 = zext i8 %96 to i64
   %.idx126 = shl nuw nsw i64 %94, 10
   %98 = getelementptr inbounds nuw i8, ptr %.0107, i64 %.idx126
-  %99 = getelementptr inbounds nuw float, ptr %98, i64 %97
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %97
   %100 = load float, ptr %99, align 4, !tbaa !79
   %101 = getelementptr inbounds nuw i8, ptr %91, i64 4
   store float %100, ptr %101, align 4, !tbaa !79
@@ -2695,7 +2691,7 @@ _ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE.ex
   %107 = zext i8 %106 to i64
   %.idx127 = shl nuw nsw i64 %104, 10
   %108 = getelementptr inbounds nuw i8, ptr %.0, i64 %.idx127
-  %109 = getelementptr inbounds nuw float, ptr %108, i64 %107
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %107
   %110 = load float, ptr %109, align 4, !tbaa !79
   %111 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store float %110, ptr %111, align 4, !tbaa !79
@@ -2721,32 +2717,32 @@ _ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE.ex
   %125 = getelementptr inbounds nuw i8, ptr %44, i64 %124
   %126 = load i8, ptr %125, align 1, !tbaa !18
   %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds nuw float, ptr %.0108, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %.0108, i64 %127
   %129 = load float, ptr %128, align 4, !tbaa !79
-  %130 = getelementptr inbounds nuw float, ptr %0, i64 %124
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %124
   store float %129, ptr %130, align 4, !tbaa !79
   %131 = or disjoint i64 %124, 1
   %132 = getelementptr inbounds nuw i8, ptr %44, i64 %131
   %133 = load i8, ptr %132, align 1, !tbaa !18
   %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds nuw float, ptr %.0107, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %.0107, i64 %134
   %136 = load float, ptr %135, align 4, !tbaa !79
-  %137 = getelementptr inbounds nuw float, ptr %0, i64 %131
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %131
   store float %136, ptr %137, align 4, !tbaa !79
   %138 = or disjoint i64 %124, 2
   %139 = getelementptr inbounds nuw i8, ptr %44, i64 %138
   %140 = load i8, ptr %139, align 1, !tbaa !18
   %141 = zext i8 %140 to i64
-  %142 = getelementptr inbounds nuw float, ptr %.0, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %141
   %143 = load float, ptr %142, align 4, !tbaa !79
-  %144 = getelementptr inbounds nuw float, ptr %0, i64 %138
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %138
   store float %143, ptr %144, align 4, !tbaa !79
   %145 = or disjoint i64 %124, 3
   %146 = getelementptr inbounds nuw i8, ptr %44, i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !18
   %148 = uitofp i8 %147 to float
   %149 = fmul nnan float %148, 0x3F70101020000000
-  %150 = getelementptr inbounds nuw float, ptr %0, i64 %145
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %145
   store float %149, ptr %150, align 4, !tbaa !79
   %151 = add nuw i64 %.1112147, 1
   %exitcond.not = icmp eq i64 %151, %mul.i141
@@ -3518,7 +3514,7 @@ _ZN7lodepngL9isICCwordEPKhmmPKc.exit284.thread:   ; preds = %189, %_ZN7lodepngL9
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit292:  ; preds = %519, %522
   %.0.i.i291 = phi float [ %542, %522 ], [ 0.000000e+00, %519 ]
-  %543 = getelementptr inbounds nuw float, ptr %134, i64 %.0213397
+  %543 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %.0213397
   store float %.0.i.i291, ptr %543, align 4, !tbaa !79
   %544 = add nuw nsw i64 %.0213397, 1
   %exitcond.not = icmp eq i64 %544, 9
@@ -3561,7 +3557,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit292:  ; preds = %519, %522
 
 562:                                              ; preds = %554
   %563 = zext nneg i32 %560 to i64
-  %564 = getelementptr inbounds nuw %"struct.lodepng::LodePNGICCCurve", ptr %9, i64 %563
+  %564 = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %563
   store i32 1, ptr %7, align 4, !tbaa !78
   %565 = add nuw nsw i64 %.0.i256, 12
   %566 = icmp ugt i64 %565, %2
@@ -3662,7 +3658,7 @@ _ZN7lodepngL15decodeICCUint16EPKhmPm.exit:        ; preds = %587, %590
 
 _ZN7lodepngL15decodeICCUint16EPKhmPm.exit297:     ; preds = %.lr.ph, %613
   %.0.i296 = phi float [ %623, %613 ], [ 0.000000e+00, %.lr.ph ]
-  %624 = getelementptr inbounds nuw float, ptr %609, i64 %.1214399
+  %624 = getelementptr inbounds nuw [4 x i8], ptr %609, i64 %.1214399
   store float %.0.i296, ptr %624, align 4, !tbaa !79
   %625 = add nuw nsw i64 %.1214399, 1
   %exitcond414.not = icmp eq i64 %625, %586
@@ -3676,7 +3672,7 @@ _ZN7lodepngL15decodeICCUint16EPKhmPm.exit297:     ; preds = %.lr.ph, %613
 
 627:                                              ; preds = %.loopexit
   %628 = zext nneg i32 %560 to i64
-  %629 = getelementptr inbounds nuw %"struct.lodepng::LodePNGICCCurve", ptr %9, i64 %628
+  %629 = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %628
   store i32 1, ptr %7, align 4, !tbaa !78
   %630 = add i64 %.2, 10
   %631 = icmp ugt i64 %630, %2
@@ -3957,7 +3953,7 @@ define internal fastcc void @_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11Lode
 
 .preheader48:                                     ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %11 = getelementptr inbounds nuw %"struct.lodepng::LodePNGICCCurve", ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %2
   br label %12
 
 12:                                               ; preds = %.preheader48, %12
@@ -3965,7 +3961,7 @@ define internal fastcc void @_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11Lode
   %13 = uitofp nneg i64 %.050 to float
   %14 = fmul float %9, %13
   %15 = tail call fastcc noundef float @_ZN7lodepngL13iccForwardTRCEPKNS_15LodePNGICCCurveEf(ptr noundef %11, float noundef %14)
-  %16 = getelementptr inbounds nuw float, ptr %0, i64 %.050
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.050
   store float %15, ptr %16, align 4, !tbaa !79
   %17 = add nuw nsw i64 %.050, 1
   %exitcond.not = icmp eq i64 %17, %1
@@ -3996,7 +3992,7 @@ define internal fastcc void @_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11Lode
   %.152 = phi i64 [ %31, %.preheader ], [ 0, %24 ]
   %28 = uitofp nneg i64 %.152 to float
   %29 = fmul float %9, %28
-  %30 = getelementptr inbounds nuw float, ptr %0, i64 %.152
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.152
   store float %29, ptr %30, align 4, !tbaa !79
   %31 = add nuw nsw i64 %.152, 1
   %exitcond58.not = icmp eq i64 %31, %1
@@ -4012,7 +4008,7 @@ define internal fastcc void @_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11Lode
   %36 = uitofp nneg i64 %.251 to float
   %37 = fmul float %9, %36
   %38 = tail call fastcc noundef float @_ZN7lodepngL12lodepng_powfEff(float noundef %37, float noundef %34)
-  %39 = getelementptr inbounds nuw float, ptr %0, i64 %.251
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.251
   store float %38, ptr %39, align 4, !tbaa !79
   %40 = add nuw nsw i64 %.251, 1
   %exitcond57.not = icmp eq i64 %40, %1
@@ -4037,7 +4033,7 @@ define internal fastcc void @_ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11Lode
 
 51:                                               ; preds = %47, %45
   %52 = phi float [ %46, %45 ], [ %50, %47 ]
-  %53 = getelementptr inbounds nuw float, ptr %0, i64 %.353
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.353
   store float %52, ptr %53, align 4, !tbaa !79
   %54 = add nuw nsw i64 %.353, 1
   %exitcond59.not = icmp eq i64 %54, %1
@@ -4206,9 +4202,9 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %29, %28, %23, %21,
 
 .lr.ph.i:                                         ; preds = %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit, %.lr.ph.i
   %.05274.i = phi i64 [ %38, %.lr.ph.i ], [ 0, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ]
-  %35 = getelementptr inbounds nuw float, ptr %2, i64 %.05274.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.05274.i
   %36 = load float, ptr %35, align 4, !tbaa !79
-  %37 = getelementptr inbounds nuw float, ptr %0, i64 %.05274.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.05274.i
   store float %36, ptr %37, align 4, !tbaa !79
   %38 = add nuw i64 %.05274.i, 1
   %exitcond.not.i = icmp eq i64 %38, %34
@@ -4233,12 +4229,12 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %29, %28, %23, %21,
 
 41:                                               ; preds = %41, %.preheader71.i
   %.05375.i = phi i64 [ 0, %.preheader71.i ], [ %48, %41 ]
-  %42 = getelementptr inbounds nuw %"struct.lodepng::LodePNGICCCurve", ptr %39, i64 %.05375.i
+  %42 = getelementptr inbounds nuw [56 x i8], ptr %39, i64 %.05375.i
   %43 = add nuw nsw i64 %.05375.i, %40
-  %44 = getelementptr inbounds nuw float, ptr %2, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %43
   %45 = load float, ptr %44, align 4, !tbaa !79
   %46 = call fastcc noundef float @_ZN7lodepngL13iccForwardTRCEPKNS_15LodePNGICCCurveEf(ptr noundef readonly %42, float noundef %45)
-  %47 = getelementptr inbounds nuw float, ptr %0, i64 %43
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %43
   store float %46, ptr %47, align 4, !tbaa !79
   %48 = add nuw nsw i64 %.05375.i, 1
   %exitcond86.not.i = icmp eq i64 %48, 3
@@ -4281,7 +4277,7 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %29, %28, %23, %21,
 64:                                               ; preds = %71, %.preheader69.i
   %.15477.i = phi i64 [ 0, %.preheader69.i ], [ %74, %71 ]
   %65 = add nuw nsw i64 %.15477.i, %63
-  %66 = getelementptr inbounds nuw float, ptr %2, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %65
   %67 = load float, ptr %66, align 4, !tbaa !79
   %68 = fcmp ugt float %67, 0.000000e+00
   br i1 %68, label %69, label %71
@@ -4292,7 +4288,7 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %29, %28, %23, %21,
 
 71:                                               ; preds = %69, %64
   %72 = phi float [ %70, %69 ], [ %67, %64 ]
-  %73 = getelementptr inbounds nuw float, ptr %0, i64 %65
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %65
   store float %72, ptr %73, align 4, !tbaa !79
   %74 = add nuw nsw i64 %.15477.i, 1
   %exitcond88.not.i = icmp eq i64 %74, 3
@@ -4315,7 +4311,7 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %29, %28, %23, %21,
 79:                                               ; preds = %90, %.preheader.i
   %.25579.i = phi i64 [ 0, %.preheader.i ], [ %93, %90 ]
   %80 = add nuw nsw i64 %.25579.i, %78
-  %81 = getelementptr inbounds nuw float, ptr %2, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !79
   %83 = fcmp olt float %82, 0x3FA4B5DCC0000000
   br i1 %83, label %84, label %86
@@ -4332,7 +4328,7 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %29, %28, %23, %21,
 
 90:                                               ; preds = %86, %84
   %91 = phi float [ %85, %84 ], [ %89, %86 ]
-  %92 = getelementptr inbounds nuw float, ptr %0, i64 %80
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %80
   store float %91, ptr %92, align 4, !tbaa !79
   %93 = add nuw nsw i64 %.25579.i, 1
   %exitcond90.not.i = icmp eq i64 %93, 3
@@ -4464,7 +4460,7 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %36, %35, %30, %28,
 53:                                               ; preds = %.preheader, %53
   %.097142 = phi i64 [ 0, %.preheader ], [ %67, %53 ]
   %54 = shl nuw nsw i64 %.097142, 1
-  %55 = getelementptr inbounds nuw float, ptr %51, i64 %.097142
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %.097142
   %56 = load float, ptr %55, align 4, !tbaa !79
   %57 = fcmp olt float %56, 0.000000e+00
   %58 = fcmp uge float %56, 1.000000e+00
@@ -4506,7 +4502,7 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %36, %35, %30, %28,
 73:                                               ; preds = %.preheader139, %73
   %.198140 = phi i64 [ 0, %.preheader139 ], [ %83, %73 ]
   %74 = add nuw nsw i64 %.198140, %72
-  %75 = getelementptr inbounds nuw float, ptr %43, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %74
   %76 = load float, ptr %75, align 4, !tbaa !79
   %77 = fcmp olt float %76, 0.000000e+00
   %78 = fcmp uge float %76, 1.000000e+00
@@ -4738,18 +4734,18 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL19convertFromXYZ
 151:                                              ; preds = %.lr.ph50, %151
   %.04049 = phi i64 [ 0, %.lr.ph50 ], [ %183, %151 ]
   %152 = shl i64 %.04049, 2
-  %153 = getelementptr inbounds nuw float, ptr %0, i64 %152
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %152
   %154 = or disjoint i64 %152, 1
-  %155 = getelementptr inbounds nuw float, ptr %0, i64 %154
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %154
   %156 = or disjoint i64 %152, 2
-  %157 = getelementptr inbounds nuw float, ptr %0, i64 %156
-  %158 = getelementptr inbounds nuw float, ptr %1, i64 %152
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %156
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %152
   %159 = load float, ptr %158, align 4, !tbaa !79
   %160 = fpext float %159 to double
-  %161 = getelementptr inbounds nuw float, ptr %1, i64 %154
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %154
   %162 = load float, ptr %161, align 4, !tbaa !79
   %163 = fpext float %162 to double
-  %164 = getelementptr inbounds nuw float, ptr %1, i64 %156
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %156
   %165 = load float, ptr %164, align 4, !tbaa !79
   %166 = fpext float %165 to double
   %167 = fmul double %163, %129
@@ -4768,9 +4764,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL19convertFromXYZ
   %178 = fptrunc double %177 to float
   store float %178, ptr %157, align 4, !tbaa !79
   %179 = or disjoint i64 %152, 3
-  %180 = getelementptr inbounds nuw float, ptr %1, i64 %179
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %179
   %181 = load float, ptr %180, align 4, !tbaa !79
-  %182 = getelementptr inbounds nuw float, ptr %0, i64 %179
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %179
   store float %181, ptr %182, align 4, !tbaa !79
   %183 = add nuw i64 %.04049, 1
   %exitcond53.not = icmp eq i64 %183, %mul.i46
@@ -4778,9 +4774,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL19convertFromXYZ
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.14148 = phi i64 [ %187, %.lr.ph ], [ 0, %.preheader ]
-  %184 = getelementptr inbounds nuw float, ptr %1, i64 %.14148
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.14148
   %185 = load float, ptr %184, align 4, !tbaa !79
-  %186 = getelementptr inbounds nuw float, ptr %0, i64 %.14148
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.14148
   store float %185, ptr %186, align 4, !tbaa !79
   %187 = add nuw i64 %.14148, 1
   %exitcond.not = icmp eq i64 %187, %123
@@ -4817,8 +4813,8 @@ define internal fastcc noundef range(i32 0, 93) i32 @_ZN7lodepngL20convertFromXY
 
 11:                                               ; preds = %.preheader63, %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
   %.04568 = phi i64 [ 0, %.preheader63 ], [ %149, %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit ]
-  %12 = getelementptr inbounds nuw %"struct.lodepng::LodePNGICCCurve", ptr %9, i64 %.04568
-  %13 = getelementptr inbounds nuw float, ptr %10, i64 %.04568
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %.04568
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.04568
   %14 = load float, ptr %13, align 4, !tbaa !79
   %15 = load i32, ptr %12, align 8, !tbaa !84
   switch i32 %15, label %148 [
@@ -4851,7 +4847,7 @@ define internal fastcc noundef range(i32 0, 93) i32 @_ZN7lodepngL20convertFromXY
 ._crit_edge.i:                                    ; preds = %42, %.._crit_edge_crit_edge.i
   %23 = phi ptr [ %.pre.i, %.._crit_edge_crit_edge.i ], [ %45, %42 ]
   %.087.lcssa.i = phi i64 [ 0, %.._crit_edge_crit_edge.i ], [ %..089.i, %42 ]
-  %24 = getelementptr inbounds nuw float, ptr %23, i64 %.087.lcssa.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.087.lcssa.i
   %25 = load float, ptr %24, align 4, !tbaa !79
   br label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit
 
@@ -4864,9 +4860,9 @@ define internal fastcc noundef range(i32 0, 93) i32 @_ZN7lodepngL20convertFromXY
 
 28:                                               ; preds = %.lr.ph.i
   %29 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !66
-  %30 = getelementptr inbounds nuw float, ptr %29, i64 %.087101.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.087101.i
   %31 = load float, ptr %30, align 4, !tbaa !79
-  %32 = getelementptr inbounds nuw float, ptr %29, i64 %.089100.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.089100.i
   %33 = load float, ptr %32, align 4, !tbaa !79
   %34 = fcmp oeq float %31, %33
   br i1 %34, label %_ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit, label %35
@@ -4884,7 +4880,7 @@ define internal fastcc noundef range(i32 0, 93) i32 @_ZN7lodepngL20convertFromXY
   %43 = add i64 %.089100.i, %.087101.i
   %44 = lshr i64 %43, 1
   %45 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !66
-  %46 = getelementptr inbounds nuw float, ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %44
   %47 = load float, ptr %46, align 4, !tbaa !79
   %48 = fcmp ogt float %47, %14
   %..089.i = select i1 %48, i64 %44, i64 %.089100.i
@@ -5069,7 +5065,7 @@ _ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit: ; preds = %11, %16, 
 
 165:                                              ; preds = %.preheader61, %171
   %.14670 = phi i64 [ 0, %.preheader61 ], [ %172, %171 ]
-  %166 = getelementptr inbounds nuw float, ptr %164, i64 %.14670
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %.14670
   %167 = load float, ptr %166, align 4, !tbaa !79
   %168 = fcmp ogt float %167, 0.000000e+00
   br i1 %168, label %169, label %171
@@ -5101,7 +5097,7 @@ _ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit: ; preds = %11, %16, 
 
 177:                                              ; preds = %.preheader, %186
   %.24772 = phi i64 [ 0, %.preheader ], [ %188, %186 ]
-  %178 = getelementptr inbounds nuw float, ptr %176, i64 %.24772
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %.24772
   %179 = load float, ptr %178, align 4, !tbaa !79
   %180 = fcmp olt float %179, 0x3F69A5C380000000
   br i1 %180, label %181, label %183
@@ -5687,14 +5683,14 @@ define internal fastcc noundef float @_ZN7lodepngL13iccForwardTRCEPKNS_15LodePNG
   br i1 %.not79, label %16, label %117
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds nuw float, ptr %6, i64 %15
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %15
   %18 = load float, ptr %17, align 4, !tbaa !79
   %19 = add nuw i64 %15, 1
   %20 = icmp ult i64 %19, %11
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds nuw float, ptr %6, i64 %19
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %19
   %23 = load float, ptr %22, align 4, !tbaa !79
   br label %24
 
@@ -6683,10 +6679,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL9invMatrixEPf(pt
 
 77:                                               ; preds = %44, %77
   %indvars.iv = phi i64 [ 0, %44 ], [ %indvars.iv.next, %77 ]
-  %78 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %79 = load double, ptr %78, align 8, !tbaa !142
   %80 = fptrunc double %79 to float
-  %81 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store float %80, ptr %81, align 4, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
@@ -6737,22 +6733,22 @@ define internal fastcc void @_ZN7lodepngL19getAdaptationMatrixEPfiffffff(ptr nou
 
 41:                                               ; preds = %7, %41
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw float, ptr @_ZZN7lodepngL19getAdaptationMatrixEPfiffffffE8bradford, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7lodepngL19getAdaptationMatrixEPfiffffffE8bradford, i64 %indvars.iv
   %43 = load float, ptr %42, align 4, !tbaa !79
   %44 = fmul float %38, %43
-  %45 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store float %44, ptr %45, align 4, !tbaa !79
   %46 = add nuw nsw i64 %indvars.iv, 3
-  %47 = getelementptr inbounds nuw float, ptr @_ZZN7lodepngL19getAdaptationMatrixEPfiffffffE8bradford, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7lodepngL19getAdaptationMatrixEPfiffffffE8bradford, i64 %46
   %48 = load float, ptr %47, align 4, !tbaa !79
   %49 = fmul float %39, %48
-  %50 = getelementptr inbounds nuw float, ptr %0, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %46
   store float %49, ptr %50, align 4, !tbaa !79
   %51 = add nuw nsw i64 %indvars.iv, 6
-  %52 = getelementptr inbounds nuw float, ptr @_ZZN7lodepngL19getAdaptationMatrixEPfiffffffE8bradford, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7lodepngL19getAdaptationMatrixEPfiffffffE8bradford, i64 %51
   %53 = load float, ptr %52, align 4, !tbaa !79
   %54 = fmul float %40, %53
-  %55 = getelementptr inbounds nuw float, ptr %0, i64 %51
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %51
   store float %54, ptr %55, align 4, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -7032,7 +7028,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !146
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !24
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !27
   ret void
 }
@@ -7241,7 +7237,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !146
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !24
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !27
   ret void
 
@@ -7386,7 +7382,7 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds = %.
 _ZNSt12_Vector_baseISt6vectorIhSaIhEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_IhSaIhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !45
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !39
-  %53 = getelementptr inbounds nuw %"class.std::vector", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !42
   ret void
 }
@@ -7934,9 +7930,9 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr
 
 _ZNSt12_Vector_baseISt6vectorIhSaIhEESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIS_IhSaIhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !45
-  %42 = getelementptr inbounds nuw %"class.std::vector", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !39
-  %43 = getelementptr inbounds nuw %"class.std::vector", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8, !tbaa !42
   br label %44
 

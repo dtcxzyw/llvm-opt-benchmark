@@ -7,21 +7,20 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pm_encoding_t = type { ptr, ptr, ptr, ptr, ptr, i8 }
 %struct.pm_options = type { ptr, ptr, %struct.pm_string_t, i32, %struct.pm_string_t, i64, ptr, i32, i8, i8, i8, i8, i8, i8 }
 %struct.pm_string_t = type { ptr, i64, i32 }
-%struct.pm_lex_mode = type { i32, %union.anon, ptr }
-%union.anon = type { %struct.anon.3 }
-%struct.anon.3 = type { %struct.pm_heredoc_lex_mode_t, ptr, ptr, i8 }
-%struct.pm_heredoc_lex_mode_t = type { ptr, i64, i32, i32 }
 %struct.pm_token_t = type { i32, ptr, ptr }
 %struct.pm_node_list = type { i64, i64, ptr }
 %struct.pm_constant_id_list_t = type { i64, i64, ptr }
 %struct.pm_parser = type { i32, i32, i32, i32, i32, i32, i32, %struct.anon, ptr, ptr, %struct.pm_token_t, %struct.pm_token_t, ptr, ptr, %struct.pm_list_t, %struct.pm_list_t, %struct.pm_location_t, %struct.pm_list_t, %struct.pm_list_t, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.pm_string_t, %struct.pm_constant_pool_t, %struct.pm_newline_list_t, i16, %struct.pm_string_t, i32, ptr, ptr, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
 %struct.anon = type { ptr, [4 x %struct.pm_lex_mode], i64 }
+%struct.pm_lex_mode = type { i32, %union.anon, ptr }
+%union.anon = type { %struct.anon.3 }
+%struct.anon.3 = type { %struct.pm_heredoc_lex_mode_t, ptr, ptr, i8 }
+%struct.pm_heredoc_lex_mode_t = type { ptr, i64, i32, i32 }
 %struct.pm_location_t = type { ptr, ptr }
 %struct.pm_list_t = type { i64, ptr, ptr }
 %struct.pm_constant_pool_t = type { ptr, ptr, i32, i32 }
 %struct.pm_newline_list_t = type { ptr, i64, i64, ptr }
 %struct.pm_buffer_t = type { i64, i64, ptr }
-%struct.pm_local_t = type { i32, %struct.pm_location_t, i32, i32, i32 }
 %struct.pm_token_buffer_t = type { %struct.pm_buffer_t, ptr }
 %struct.pm_regexp_token_buffer_t = type { %struct.pm_token_buffer_t, %struct.pm_buffer_t }
 %struct.pm_static_literals_t = type { %struct.pm_node_hash_t, %struct.pm_node_hash_t, %struct.pm_node_hash_t, %struct.pm_node_hash_t, %struct.pm_node_hash_t, %struct.pm_node_hash_t, ptr, ptr, ptr, ptr }
@@ -1089,7 +1088,7 @@ define internal fastcc void @lex_mode_pop(ptr noundef %0) unnamed_addr #8 {
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = getelementptr %struct.pm_lex_mode, ptr %12, i64 %10
+  %13 = getelementptr [64 x i8], ptr %12, i64 %10
   store ptr %13, ptr %2, align 8, !tbaa !89
   br label %18
 
@@ -1151,7 +1150,7 @@ pm_parser_scope_push.exit.i:                      ; preds = %10, %8, %1
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !99
   %22 = load i64, ptr %19, align 8, !tbaa !102
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -8
   %25 = load ptr, ptr %24, align 8, !tbaa !103
   call fastcc void @pm_void_statement_check(ptr noundef nonnull %0, ptr noundef %25)
@@ -1359,7 +1358,7 @@ pm_statements_node_body_update.exit.i.i.i:        ; preds = %105, %101
 106:                                              ; preds = %pm_statements_node_body_update.exit.i.i.i
   %107 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 40
   %108 = load ptr, ptr %107, align 8, !tbaa !99
-  %109 = getelementptr ptr, ptr %108, i64 %95
+  %109 = getelementptr [8 x i8], ptr %108, i64 %95
   %110 = getelementptr i8, ptr %109, i64 -8
   %111 = load ptr, ptr %110, align 8, !tbaa !103
   %112 = load i16, ptr %111, align 8, !tbaa !113
@@ -1973,7 +1972,7 @@ wrap_statements.exit.i:                           ; preds = %pm_statements_node_
   %.01113.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %356, %350 ]
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 16
   %342 = load ptr, ptr %341, align 8, !tbaa !137
-  %343 = getelementptr ptr, ptr %342, i64 %.01113.i.i
+  %343 = getelementptr [8 x i8], ptr %342, i64 %.01113.i.i
   %344 = load ptr, ptr %343, align 8, !tbaa !103
   %.not.i27.i = icmp eq ptr %344, null
   br i1 %.not.i27.i, label %flush_block_exits.exit.i, label %345
@@ -2466,7 +2465,7 @@ define hidden range(i32 -1, 2) i32 @pm_string_query_local(ptr noundef %0, i64 no
 switch.lookup:
   %3 = tail call i32 @pm_slice_type(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %4 = sext i32 %3 to i64
-  %5 = getelementptr i32, ptr @switch.table.pm_string_query_local, i64 %4
+  %5 = getelementptr [4 x i8], ptr @switch.table.pm_string_query_local, i64 %4
   %switch.gep = getelementptr i8, ptr %5, i64 4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
@@ -2477,7 +2476,7 @@ define hidden range(i32 -1, 2) i32 @pm_string_query_constant(ptr noundef %0, i64
 switch.lookup:
   %3 = tail call i32 @pm_slice_type(ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %4 = sext i32 %3 to i64
-  %5 = getelementptr i32, ptr @switch.table.pm_string_query_constant, i64 %4
+  %5 = getelementptr [4 x i8], ptr @switch.table.pm_string_query_constant, i64 %4
   %switch.gep = getelementptr i8, ptr %5, i64 4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
@@ -2674,7 +2673,7 @@ define internal fastcc void @pm_parser_local_add(ptr captures(none) %.496.val, i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %50
   %indvars.iv47.i.i = phi i64 [ %indvars.iv.next48.i.i, %50 ], [ 0, %.lr.ph.i.i ]
-  %31 = getelementptr %struct.pm_local_t, ptr %30, i64 %indvars.iv47.i.i
+  %31 = getelementptr [40 x i8], ptr %30, i64 %indvars.iv47.i.i
   %32 = load i32, ptr %31, align 8, !tbaa !154
   %.not.us.i.i = icmp eq i32 %32, 0
   br i1 %.not.us.i.i, label %50, label %33
@@ -2696,7 +2695,7 @@ define internal fastcc void @pm_parser_local_add(ptr captures(none) %.496.val, i
   %.0.us.i.i = phi i32 [ %41, %33 ], [ %48, %43 ]
   %44 = and i32 %.0.us.i.i, %27
   %45 = zext i32 %44 to i64
-  %46 = getelementptr %struct.pm_local_t, ptr %15, i64 %45
+  %46 = getelementptr [40 x i8], ptr %15, i64 %45
   %47 = load i32, ptr %46, align 8, !tbaa !154
   %.not39.us.i.i = icmp eq i32 %47, 0
   %48 = add i32 %.0.us.i.i, 1
@@ -2713,7 +2712,7 @@ define internal fastcc void @pm_parser_local_add(ptr captures(none) %.496.val, i
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %63
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %63 ], [ 0, %.lr.ph.i.i ]
-  %51 = getelementptr %struct.pm_local_t, ptr %30, i64 %indvars.iv.i.i
+  %51 = getelementptr [40 x i8], ptr %30, i64 %indvars.iv.i.i
   %52 = load i32, ptr %51, align 8, !tbaa !154
   %.not.i.i = icmp eq i32 %52, 0
   br i1 %.not.i.i, label %63, label %53
@@ -2727,7 +2726,7 @@ define internal fastcc void @pm_parser_local_add(ptr captures(none) %.496.val, i
   %.0.i.i = phi i32 [ %55, %53 ], [ %61, %56 ]
   %57 = and i32 %.0.i.i, %27
   %58 = zext i32 %57 to i64
-  %59 = getelementptr %struct.pm_local_t, ptr %15, i64 %58
+  %59 = getelementptr [40 x i8], ptr %15, i64 %58
   %60 = load i32, ptr %59, align 8, !tbaa !154
   %.not39.i.i = icmp eq i32 %60, 0
   %61 = add i32 %.0.i.i, 1
@@ -2774,7 +2773,7 @@ pm_locals_resize.exit.i:                          ; preds = %64, %.loopexit.i.i,
 
 73:                                               ; preds = %77, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %77 ]
-  %74 = getelementptr %struct.pm_local_t, ptr %72, i64 %indvars.iv.i
+  %74 = getelementptr [40 x i8], ptr %72, i64 %indvars.iv.i
   %75 = load i32, ptr %74, align 8, !tbaa !154
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %.thread65.sink.split.i, label %77
@@ -2804,7 +2803,7 @@ pm_locals_resize.exit.i:                          ; preds = %64, %.loopexit.i.i,
   %.056.i = phi i32 [ %87, %78 ], [ %98, %97 ]
   %91 = and i32 %.056.i, %79
   %92 = zext i32 %91 to i64
-  %93 = getelementptr %struct.pm_local_t, ptr %89, i64 %92
+  %93 = getelementptr [40 x i8], ptr %89, i64 %92
   %94 = load i32, ptr %93, align 8, !tbaa !154
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %.thread65.sink.split.i, label %96
@@ -4785,7 +4784,7 @@ match.exit2157.thread:                            ; preds = %662, %peek.exit.i21
 
 757:                                              ; preds = %754
   %758 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %759 = getelementptr %struct.pm_lex_mode, ptr %758, i64 %756
+  %759 = getelementptr [64 x i8], ptr %758, i64 %756
   store ptr %759, ptr %18, align 8, !tbaa !89
   br label %lex_mode_pop.exit
 
@@ -5543,7 +5542,7 @@ match.exit2281:                                   ; preds = %peek.exit.i2280
 
 1067:                                             ; preds = %1054
   %1068 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1069 = getelementptr %struct.pm_lex_mode, ptr %1068, i64 %1061
+  %1069 = getelementptr [64 x i8], ptr %1068, i64 %1061
   store i32 3, ptr %1069, align 8, !tbaa !7
   %.sroa.52881.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1069, i64 4
   store i32 0, ptr %.sroa.52881.0..sroa_idx, align 4
@@ -5562,7 +5561,7 @@ match.exit2281:                                   ; preds = %peek.exit.i2280
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.112899.0..sroa_idx, i8 0, i64 16, i1 false)
   store ptr %1058, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !11
   %1070 = load i64, ptr %1059, align 8, !tbaa !88
-  %1071 = getelementptr %struct.pm_lex_mode, ptr %1068, i64 %1070
+  %1071 = getelementptr [64 x i8], ptr %1068, i64 %1070
   store ptr %1071, ptr %18, align 8, !tbaa !89
   br label %lex_mode_push.exit
 
@@ -5914,7 +5913,7 @@ match.exit2324.thread:                            ; preds = %1176, %peek.exit.i2
 
 1204:                                             ; preds = %1189
   %1205 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1206 = getelementptr %struct.pm_lex_mode, ptr %1205, i64 %1198
+  %1206 = getelementptr [64 x i8], ptr %1205, i64 %1198
   store i32 6, ptr %1206, align 8
   %.sroa.62909.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1206, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.62909.0..sroa_idx, i8 0, i64 12, i1 false)
@@ -5937,7 +5936,7 @@ match.exit2324.thread:                            ; preds = %1176, %peek.exit.i2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.132931.0..sroa_idx, i8 0, i64 31, i1 false)
   store ptr %1195, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !11
   %1207 = load i64, ptr %1196, align 8, !tbaa !88
-  %1208 = getelementptr %struct.pm_lex_mode, ptr %1205, i64 %1207
+  %1208 = getelementptr [64 x i8], ptr %1205, i64 %1207
   store ptr %1208, ptr %18, align 8, !tbaa !89
   br label %lex_mode_push_string.exit
 
@@ -6037,7 +6036,7 @@ lex_mode_push_string.exit:                        ; preds = %1200, %1203, %1204
 
 1241:                                             ; preds = %1230
   %1242 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1243 = getelementptr %struct.pm_lex_mode, ptr %1242, i64 %1235
+  %1243 = getelementptr [64 x i8], ptr %1242, i64 %1235
   store i32 6, ptr %1243, align 8
   %.sroa.62942.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1243, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.62942.0..sroa_idx, i8 0, i64 12, i1 false)
@@ -6060,7 +6059,7 @@ lex_mode_push_string.exit:                        ; preds = %1200, %1203, %1204
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.132964.0..sroa_idx, i8 0, i64 31, i1 false)
   store ptr %1232, ptr %.sroa.5.0..sroa_idx.i2336, align 8, !tbaa !11
   %1244 = load i64, ptr %1233, align 8, !tbaa !88
-  %1245 = getelementptr %struct.pm_lex_mode, ptr %1242, i64 %1244
+  %1245 = getelementptr [64 x i8], ptr %1242, i64 %1244
   store ptr %1245, ptr %18, align 8, !tbaa !89
   br label %lex_mode_push_string.exit2339
 
@@ -6129,7 +6128,7 @@ lex_mode_push_string.exit2339:                    ; preds = %1237, %1240, %1241
 
 1266:                                             ; preds = %1251
   %1267 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1268 = getelementptr %struct.pm_lex_mode, ptr %1267, i64 %1260
+  %1268 = getelementptr [64 x i8], ptr %1267, i64 %1260
   store i32 6, ptr %1268, align 8
   %.sroa.62975.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1268, i64 4
   %.sroa.72980.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1268, i64 17
@@ -6148,7 +6147,7 @@ lex_mode_push_string.exit2339:                    ; preds = %1237, %1240, %1241
   %.sroa.5.0..sroa_idx.i2343 = getelementptr inbounds nuw i8, ptr %1268, i64 56
   store ptr %1257, ptr %.sroa.5.0..sroa_idx.i2343, align 8, !tbaa !11
   %1269 = load i64, ptr %1258, align 8, !tbaa !88
-  %1270 = getelementptr %struct.pm_lex_mode, ptr %1267, i64 %1269
+  %1270 = getelementptr [64 x i8], ptr %1267, i64 %1269
   store ptr %1270, ptr %18, align 8, !tbaa !89
   br label %lex_mode_push_string.exit2346
 
@@ -7290,7 +7289,7 @@ peek.exit2528.thread:                             ; preds = %peek.exit2520, %172
 
 1759:                                             ; preds = %1748
   %1760 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1761 = getelementptr %struct.pm_lex_mode, ptr %1760, i64 %1753
+  %1761 = getelementptr [64 x i8], ptr %1760, i64 %1753
   store i32 5, ptr %1761, align 8
   %.sroa.63004.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1761, i64 4
   %.sroa.73009.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1761, i64 17
@@ -7305,7 +7304,7 @@ peek.exit2528.thread:                             ; preds = %peek.exit2520, %172
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %.sroa.103018.0..sroa_idx, i8 0, i64 33, i1 false)
   store ptr %1750, ptr %.sroa.5.0..sroa_idx.i2535, align 8, !tbaa !11
   %1762 = load i64, ptr %1751, align 8, !tbaa !88
-  %1763 = getelementptr %struct.pm_lex_mode, ptr %1760, i64 %1762
+  %1763 = getelementptr [64 x i8], ptr %1760, i64 %1762
   store ptr %1763, ptr %18, align 8, !tbaa !89
   br label %lex_mode_push_regexp.exit
 
@@ -8445,7 +8444,7 @@ lex_global_variable.exit:                         ; preds = %.preheader.split.us
 
 2206:                                             ; preds = %2203
   %2207 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2208 = getelementptr %struct.pm_lex_mode, ptr %2207, i64 %2205
+  %2208 = getelementptr [64 x i8], ptr %2207, i64 %2205
   store ptr %2208, ptr %18, align 8, !tbaa !89
   br label %lex_mode_pop.exit2647
 
@@ -8691,7 +8690,7 @@ char_is_identifier.exit.thread56.i:               ; preds = %char_is_identifier.
 
 2338:                                             ; preds = %2335
   %2339 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2340 = getelementptr %struct.pm_lex_mode, ptr %2339, i64 %2337
+  %2340 = getelementptr [64 x i8], ptr %2339, i64 %2337
   store ptr %2340, ptr %18, align 8, !tbaa !89
   br label %lex_at_variable.exit
 
@@ -10157,7 +10156,7 @@ match_eol.exit:                                   ; preds = %peek_at.exit11.i.i2
 
 2812:                                             ; preds = %2815, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %2815 ]
-  %2813 = getelementptr %struct.pm_local_t, ptr %2811, i64 %indvars.iv.i.i.i
+  %2813 = getelementptr [40 x i8], ptr %2811, i64 %indvars.iv.i.i.i
   %2814 = load i32, ptr %2813, align 8, !tbaa !154
   %.not39.i.i.i = icmp eq i32 %2814, %2795
   br i1 %.not39.i.i.i, label %.thread.loopexit.split.loop.exit66.i.i.i, label %2815
@@ -10177,7 +10176,7 @@ match_eol.exit:                                   ; preds = %peek_at.exit11.i.i2
   %.031.i.i.i = phi i32 [ %2803, %2816 ], [ %2829, %2828 ]
   %2821 = and i32 %.031.i.i.i, %2817
   %2822 = zext i32 %2821 to i64
-  %2823 = getelementptr %struct.pm_local_t, ptr %2819, i64 %2822
+  %2823 = getelementptr [40 x i8], ptr %2819, i64 %2822
   %2824 = load i32, ptr %2823, align 8, !tbaa !154
   %2825 = icmp eq i32 %2824, 0
   br i1 %2825, label %pm_locals_find.exit.thread.i.i, label %2826
@@ -10877,7 +10876,7 @@ match_eol_at.exit2743:                            ; preds = %peek_at.exit11.i274
 
 3140:                                             ; preds = %3137
   %3141 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3142 = getelementptr %struct.pm_lex_mode, ptr %3141, i64 %3139
+  %3142 = getelementptr [64 x i8], ptr %3141, i64 %3139
   store ptr %3142, ptr %18, align 8, !tbaa !89
   br label %lex_mode_pop.exit2744
 
@@ -11501,7 +11500,7 @@ peek.exit2781.thread:                             ; preds = %3383, %peek_offset.
 
 3403:                                             ; preds = %3400
   %3404 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3405 = getelementptr %struct.pm_lex_mode, ptr %3404, i64 %3402
+  %3405 = getelementptr [64 x i8], ptr %3404, i64 %3402
   store ptr %3405, ptr %18, align 8, !tbaa !89
   br label %lex_mode_pop.exit2787
 
@@ -11984,7 +11983,7 @@ parser_lex_callback.exit2812:                     ; preds = %parser_lex_callback
 
 3629:                                             ; preds = %3626
   %3630 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3631 = getelementptr %struct.pm_lex_mode, ptr %3630, i64 %3628
+  %3631 = getelementptr [64 x i8], ptr %3630, i64 %3628
   store ptr %3631, ptr %18, align 8, !tbaa !89
   br label %lex_mode_pop.exit2816
 
@@ -12811,7 +12810,7 @@ pm_statements_node_body_update.exit.i:            ; preds = %44, %39
 
 45:                                               ; preds = %pm_statements_node_body_update.exit.i
   %46 = load ptr, ptr %24, align 8, !tbaa !99
-  %47 = getelementptr ptr, ptr %46, i64 %35
+  %47 = getelementptr [8 x i8], ptr %46, i64 %35
   %48 = getelementptr i8, ptr %47, i64 -8
   %49 = load ptr, ptr %48, align 8, !tbaa !103
   %50 = load i16, ptr %49, align 8, !tbaa !113
@@ -12944,7 +12943,7 @@ select.unfold:                                    ; preds = %61, %63, %70, %sele
 .lr.ph.i:                                         ; preds = %select.unfold, %.lr.ph.i
   %.07.i = phi i64 [ %87, %.lr.ph.i ], [ 0, %select.unfold ]
   %84 = load ptr, ptr %24, align 8, !tbaa !99
-  %85 = getelementptr ptr, ptr %84, i64 %.07.i
+  %85 = getelementptr [8 x i8], ptr %84, i64 %.07.i
   %86 = load ptr, ptr %85, align 8, !tbaa !103
   tail call fastcc void @pm_void_statement_check(ptr noundef nonnull %0, ptr noundef %86)
   %87 = add nuw i64 %.07.i, 1
@@ -13180,7 +13179,7 @@ define internal fastcc void @pm_locals_order(ptr noundef %0, ptr noundef readonl
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %63
   %indvars.iv44 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next45, %63 ]
   %30 = load ptr, ptr %24, align 8, !tbaa !92
-  %31 = getelementptr %struct.pm_local_t, ptr %30, i64 %indvars.iv44
+  %31 = getelementptr [40 x i8], ptr %30, i64 %indvars.iv44
   %32 = load i32, ptr %31, align 8, !tbaa !154
   %.not35.us = icmp eq i32 %32, 0
   br i1 %.not35.us, label %63, label %33
@@ -13241,7 +13240,7 @@ define internal fastcc void @pm_locals_order(ptr noundef %0, ptr noundef readonl
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %71
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %71 ]
   %64 = load ptr, ptr %29, align 8, !tbaa !92
-  %65 = getelementptr %struct.pm_local_t, ptr %64, i64 %indvars.iv
+  %65 = getelementptr [40 x i8], ptr %64, i64 %indvars.iv
   %66 = load i32, ptr %65, align 8, !tbaa !154
   %.not35 = icmp eq i32 %66, 0
   br i1 %.not35, label %71, label %67
@@ -13276,7 +13275,7 @@ define internal fastcc void @flush_block_exits(ptr noundef %0, ptr noundef %1) u
   %.01113 = phi i64 [ 0, %.lr.ph ], [ %24, %18 ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !137
-  %11 = getelementptr ptr, ptr %10, i64 %.01113
+  %11 = getelementptr [8 x i8], ptr %10, i64 %.01113
   %12 = load ptr, ptr %11, align 8, !tbaa !103
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.critedge, label %13
@@ -13876,12 +13875,12 @@ define internal fastcc void @lex_mode_push_string(ptr noundef initializes((672, 
 
 35:                                               ; preds = %23
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %37 = getelementptr %struct.pm_lex_mode, ptr %36, i64 %29
+  %37 = getelementptr [64 x i8], ptr %36, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %37, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 56
   store ptr %26, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !11
   %38 = load i64, ptr %27, align 8, !tbaa !88
-  %39 = getelementptr %struct.pm_lex_mode, ptr %36, i64 %38
+  %39 = getelementptr [64 x i8], ptr %36, i64 %38
   store ptr %39, ptr %25, align 8, !tbaa !89
   br label %lex_mode_push.exit
 
@@ -14535,12 +14534,12 @@ define internal fastcc void @lex_mode_push_regexp(ptr noundef initializes((672, 
 
 25:                                               ; preds = %13
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %27 = getelementptr %struct.pm_lex_mode, ptr %26, i64 %19
+  %27 = getelementptr [64 x i8], ptr %26, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %27, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 56
   store ptr %16, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !11
   %28 = load i64, ptr %17, align 8, !tbaa !88
-  %29 = getelementptr %struct.pm_lex_mode, ptr %26, i64 %28
+  %29 = getelementptr [64 x i8], ptr %26, i64 %28
   store ptr %29, ptr %15, align 8, !tbaa !89
   br label %lex_mode_push.exit
 
@@ -14716,12 +14715,12 @@ lex_mode_terminator.exit:                         ; preds = %lex_mode_incremento
 
 36:                                               ; preds = %24
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %38 = getelementptr %struct.pm_lex_mode, ptr %37, i64 %30
+  %38 = getelementptr [64 x i8], ptr %37, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull align 8 dereferenceable(56) %4, i64 56, i1 false)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 56
   store ptr %27, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !11
   %39 = load i64, ptr %28, align 8, !tbaa !88
-  %40 = getelementptr %struct.pm_lex_mode, ptr %37, i64 %39
+  %40 = getelementptr [64 x i8], ptr %37, i64 %39
   store ptr %40, ptr %26, align 8, !tbaa !89
   br label %lex_mode_push.exit
 
@@ -14762,7 +14761,7 @@ define internal fastcc void @lex_mode_push_list_eof(ptr noundef initializes((672
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = getelementptr %struct.pm_lex_mode, ptr %14, i64 %7
+  %15 = getelementptr [64 x i8], ptr %14, i64 %7
   store i32 4, ptr %15, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 19
@@ -14773,7 +14772,7 @@ define internal fastcc void @lex_mode_push_list_eof(ptr noundef initializes((672
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 56
   store ptr %4, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !11
   %16 = load i64, ptr %5, align 8, !tbaa !88
-  %17 = getelementptr %struct.pm_lex_mode, ptr %14, i64 %16
+  %17 = getelementptr [64 x i8], ptr %14, i64 %16
   store ptr %17, ptr %3, align 8, !tbaa !89
   br label %lex_mode_push_list.exit
 
@@ -14814,7 +14813,7 @@ define internal fastcc void @lex_mode_push_string_eof(ptr noundef initializes((6
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = getelementptr %struct.pm_lex_mode, ptr %14, i64 %7
+  %15 = getelementptr [64 x i8], ptr %14, i64 %7
   store i32 6, ptr %15, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -14825,7 +14824,7 @@ define internal fastcc void @lex_mode_push_string_eof(ptr noundef initializes((6
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 56
   store ptr %4, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !11
   %16 = load i64, ptr %5, align 8, !tbaa !88
-  %17 = getelementptr %struct.pm_lex_mode, ptr %14, i64 %16
+  %17 = getelementptr [64 x i8], ptr %14, i64 %16
   store ptr %17, ptr %3, align 8, !tbaa !89
   br label %lex_mode_push_string.exit
 
@@ -16742,14 +16741,14 @@ char_is_identifier_start.exit.thread119:          ; preds = %27, %33, %char_is_i
 
 69:                                               ; preds = %58
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %71 = getelementptr %struct.pm_lex_mode, ptr %70, i64 %63
+  %71 = getelementptr [64 x i8], ptr %70, i64 %63
   store i32 2, ptr %71, align 8, !tbaa !7
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.5.0..sroa_idx, i8 0, i64 52, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 56
   store ptr %60, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !11
   %72 = load i64, ptr %61, align 8, !tbaa !88
-  %73 = getelementptr %struct.pm_lex_mode, ptr %70, i64 %72
+  %73 = getelementptr [64 x i8], ptr %70, i64 %72
   store ptr %73, ptr %59, align 8, !tbaa !89
   br label %lex_mode_push.exit
 
@@ -16870,7 +16869,7 @@ char_is_global_name_punctuation.exit:             ; preds = %125
   %129 = add nsw i32 %128, -32
   %130 = lshr i32 %129, 5
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr i32, ptr @pm_global_name_punctuation_hash, i64 %131
+  %132 = getelementptr [4 x i8], ptr @pm_global_name_punctuation_hash, i64 %131
   %133 = load i32, ptr %132, align 4, !tbaa !7
   %134 = and i32 %128, 31
   %135 = lshr i32 %133, %134
@@ -16914,14 +16913,14 @@ char_is_identifier_start.exit87.thread125:        ; preds = %96, %102, %char_is_
 
 153:                                              ; preds = %142
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %155 = getelementptr %struct.pm_lex_mode, ptr %154, i64 %147
+  %155 = getelementptr [64 x i8], ptr %154, i64 %147
   store i32 2, ptr %155, align 8, !tbaa !7
   %.sroa.5104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.5104.0..sroa_idx, i8 0, i64 52, i1 false)
   %.sroa.6106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 56
   store ptr %144, ptr %.sroa.6106.0..sroa_idx, align 8, !tbaa !11
   %156 = load i64, ptr %145, align 8, !tbaa !88
-  %157 = getelementptr %struct.pm_lex_mode, ptr %154, i64 %156
+  %157 = getelementptr [64 x i8], ptr %154, i64 %156
   store ptr %157, ptr %143, align 8, !tbaa !89
   br label %lex_mode_push.exit90
 
@@ -16976,14 +16975,14 @@ char_is_global_name_punctuation.exit.thread:      ; preds = %125, %char_is_globa
 
 180:                                              ; preds = %166
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %182 = getelementptr %struct.pm_lex_mode, ptr %181, i64 %174
+  %182 = getelementptr [64 x i8], ptr %181, i64 %174
   store i32 1, ptr %182, align 8, !tbaa !7
   %.sroa.5111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %182, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.5111.0..sroa_idx, i8 0, i64 52, i1 false)
   %.sroa.6113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %182, i64 56
   store ptr %171, ptr %.sroa.6113.0..sroa_idx, align 8, !tbaa !11
   %183 = load i64, ptr %172, align 8, !tbaa !88
-  %184 = getelementptr %struct.pm_lex_mode, ptr %181, i64 %183
+  %184 = getelementptr [64 x i8], ptr %181, i64 %183
   store ptr %184, ptr %170, align 8, !tbaa !89
   br label %lex_mode_push.exit92
 
@@ -17955,7 +17954,7 @@ define internal fastcc ptr @parse_expression(ptr noundef %0, i32 noundef %1, i1 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %23 = load i32, ptr %22, align 8, !tbaa !169
   %24 = zext i32 %23 to i64
-  %25 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %24
+  %25 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !266
   %27 = icmp ugt i32 %26, 6
   br i1 %27, label %pm_call_node_command_p.exit.thread90, label %pm_call_node_command_p.exit.thread
@@ -17964,7 +17963,7 @@ define internal fastcc ptr @parse_expression(ptr noundef %0, i32 noundef %1, i1 
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %30 = load i32, ptr %29, align 8, !tbaa !169
   %31 = zext i32 %30 to i64
-  %32 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %31
+  %32 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !266
   %34 = icmp ugt i32 %33, 8
   br i1 %34, label %35, label %pm_call_node_command_p.exit.thread
@@ -18008,7 +18007,7 @@ pm_call_node_command_p.exit.thread:               ; preds = %48, %35, %43, %18, 
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %54 = load i32, ptr %53, align 8, !tbaa !169
   %55 = zext i32 %54 to i64
-  %56 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %55
+  %56 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %55
   %.sroa.0.0.copyload101 = load i32, ptr %56, align 4, !tbaa !7
   %.sroa.6.0..sroa_idx102 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %.sroa.6.0.copyload103 = load i8, ptr %.sroa.6.0..sroa_idx102, align 4, !tbaa !17
@@ -18047,7 +18046,7 @@ pm_call_node_command_p.exit.thread:               ; preds = %48, %35, %43, %18, 
 65:                                               ; preds = %60
   %66 = load i32, ptr %53, align 8, !tbaa !169
   %67 = zext i32 %66 to i64
-  %68 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %67
+  %68 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !266
   %70 = icmp ugt i32 %69, 6
   br i1 %70, label %pm_call_node_command_p.exit.thread90, label %91
@@ -18062,7 +18061,7 @@ pm_call_node_command_p.exit.thread:               ; preds = %48, %35, %43, %18, 
 75:                                               ; preds = %71
   %76 = load i32, ptr %53, align 8, !tbaa !169
   %77 = zext i32 %76 to i64
-  %78 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %77
+  %78 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !266
   %80 = icmp ugt i32 %79, 6
   br i1 %80, label %pm_call_node_command_p.exit.thread90, label %91
@@ -18077,7 +18076,7 @@ pm_call_node_command_p.exit.thread:               ; preds = %48, %35, %43, %18, 
 85:                                               ; preds = %81
   %86 = load i32, ptr %53, align 8, !tbaa !169
   %87 = zext i32 %86 to i64
-  %88 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %87
+  %88 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !266
   %90 = icmp ugt i32 %89, 6
   br i1 %90, label %pm_call_node_command_p.exit.thread90, label %91
@@ -18133,14 +18132,14 @@ pm_call_node_command_p.exit.thread:               ; preds = %48, %35, %43, %18, 
 
 120:                                              ; preds = %110
   %121 = zext i32 %.val to i64
-  %122 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %121
+  %122 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !266
   %124 = icmp ugt i32 %123, 37
   br i1 %124, label %pm_call_node_command_p.exit.thread90, label %129
 
 125:                                              ; preds = %106, %104
   %126 = zext i32 %.val to i64
-  %127 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %126
+  %127 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !266
   %.not81 = icmp ugt i32 %.sroa.0.0.copyload108, %128
   br i1 %.not81, label %129, label %pm_call_node_command_p.exit.thread90
@@ -18224,7 +18223,7 @@ pm_call_node_command_p.exit.thread:               ; preds = %48, %35, %43, %18, 
   %.172 = phi i1 [ false, %169 ], [ false, %129 ], [ true, %130 ], [ true, %141 ], [ true, %155 ], [ true, %159 ], [ true, %165 ], [ false, %168 ]
   %171 = load i32, ptr %53, align 8, !tbaa !169
   %172 = zext i32 %171 to i64
-  %173 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %172
+  %173 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %172
   %.sroa.0.0.copyload = load i32, ptr %173, align 4, !tbaa !7
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %173, i64 8
   %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !17
@@ -18276,7 +18275,7 @@ pm_statements_node_body_update.exit:              ; preds = %12, %18
 19:                                               ; preds = %pm_statements_node_body_update.exit
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !99
-  %22 = getelementptr ptr, ptr %21, i64 %6
+  %22 = getelementptr [8 x i8], ptr %21, i64 %6
   %23 = getelementptr i8, ptr %22, i64 -8
   %24 = load ptr, ptr %23, align 8, !tbaa !103
   %25 = load i16, ptr %24, align 8, !tbaa !113
@@ -19265,7 +19264,7 @@ pm_statements_node_body_update.exit.i:            ; preds = %368, %363
 
 369:                                              ; preds = %pm_statements_node_body_update.exit.i
   %370 = load ptr, ptr %354, align 8, !tbaa !99
-  %371 = getelementptr ptr, ptr %370, i64 %359
+  %371 = getelementptr [8 x i8], ptr %370, i64 %359
   %372 = getelementptr i8, ptr %371, i64 -8
   %373 = load ptr, ptr %372, align 8, !tbaa !103
   %374 = load i16, ptr %373, align 8, !tbaa !113
@@ -19353,7 +19352,7 @@ accept2.exit2259.backedge:                        ; preds = %accept2.exit2259, %
   call fastcc void @expect1(ptr noundef nonnull %0, i32 noundef 125, i32 noundef 105)
   %399 = load ptr, ptr %354, align 8, !tbaa !99
   %400 = load i64, ptr %351, align 8, !tbaa !102
-  %401 = getelementptr ptr, ptr %399, i64 %400
+  %401 = getelementptr [8 x i8], ptr %399, i64 %400
   %402 = getelementptr i8, ptr %401, i64 -8
   %403 = load ptr, ptr %402, align 8, !tbaa !103
   %404 = load i16, ptr %403, align 8, !tbaa !113
@@ -19365,7 +19364,7 @@ accept2.exit2259.backedge:                        ; preds = %accept2.exit2259, %
   call fastcc void @pm_multi_target_node_targets_append(ptr noundef nonnull %0, ptr noundef %407, ptr noundef nonnull %403)
   %408 = load ptr, ptr %354, align 8, !tbaa !99
   %409 = load i64, ptr %351, align 8, !tbaa !102
-  %410 = getelementptr ptr, ptr %408, i64 %409
+  %410 = getelementptr [8 x i8], ptr %408, i64 %409
   %411 = getelementptr i8, ptr %410, i64 -8
   store ptr %407, ptr %411, align 8, !tbaa !103
   %.pr = load i16, ptr %407, align 8, !tbaa !113
@@ -19392,7 +19391,7 @@ accept2.exit2259.backedge:                        ; preds = %accept2.exit2259, %
   %422 = call fastcc ptr @pm_multi_write_node_create(ptr noundef nonnull %0, ptr noundef nonnull %.01796, ptr noundef %12, ptr noundef nonnull %421)
   %423 = load ptr, ptr %354, align 8, !tbaa !99
   %424 = load i64, ptr %351, align 8, !tbaa !102
-  %425 = getelementptr ptr, ptr %423, i64 %424
+  %425 = getelementptr [8 x i8], ptr %423, i64 %424
   %426 = getelementptr i8, ptr %425, i64 -8
   store ptr %422, ptr %426, align 8, !tbaa !103
   %427 = getelementptr i8, ptr %422, i64 8
@@ -19414,7 +19413,7 @@ accept2.exit2259.backedge:                        ; preds = %accept2.exit2259, %
 .lr.ph.i2264:                                     ; preds = %430, %.lr.ph.i2264
   %.07.i = phi i64 [ %436, %.lr.ph.i2264 ], [ 0, %430 ]
   %433 = load ptr, ptr %354, align 8, !tbaa !99
-  %434 = getelementptr ptr, ptr %433, i64 %.07.i
+  %434 = getelementptr [8 x i8], ptr %433, i64 %.07.i
   %435 = load ptr, ptr %434, align 8, !tbaa !103
   call fastcc void @pm_void_statement_check(ptr noundef nonnull %0, ptr noundef %435)
   %436 = add nuw i64 %.07.i, 1
@@ -19672,7 +19671,7 @@ parse_unescaped_encoding.exit:                    ; preds = %479, %481, %485
   tail call fastcc void @parser_lex(ptr noundef nonnull %0)
   %540 = load i32, ptr %20, align 8, !tbaa !124
   %541 = zext i32 %540 to i64
-  %542 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %541
+  %542 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %541
   %543 = load i32, ptr %542, align 4, !tbaa !266
   %544 = add i16 %5, 1
   %545 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef %543, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 93, i16 noundef zeroext %544)
@@ -21201,7 +21200,7 @@ pm_begin_node_end_keyword_set.exit:               ; preds = %accept2.exit2368, %
 
 1123:                                             ; preds = %1117
   %1124 = zext i32 %1119 to i64
-  %1125 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %1124
+  %1125 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %1124
   %1126 = load i32, ptr %1125, align 4, !tbaa !266
   %1127 = add i32 %1126, -22
   %or.cond14 = icmp ult i32 %1127, -21
@@ -25214,7 +25213,7 @@ pm_interpolated_xstring_node_closing_set.exit2704: ; preds = %2529, %.thread3044
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(24) %2560, i64 24, i1 false), !tbaa.struct !162
   %2561 = load i32, ptr %2560, align 8, !tbaa !196
   %2562 = zext i32 %2561 to i64
-  %2563 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %2562
+  %2563 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %2562
   %2564 = getelementptr inbounds nuw i8, ptr %2563, i64 4
   %2565 = load i32, ptr %2564, align 4, !tbaa !336
   %2566 = icmp ult i32 %1, 12
@@ -25240,7 +25239,7 @@ pm_interpolated_xstring_node_closing_set.exit2704: ; preds = %2529, %.thread3044
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, ptr noundef nonnull align 8 dereferenceable(24) %2574, i64 24, i1 false), !tbaa.struct !162
   %2575 = load i32, ptr %2574, align 8, !tbaa !196
   %2576 = zext i32 %2575 to i64
-  %2577 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %2576
+  %2577 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %2576
   %2578 = getelementptr inbounds nuw i8, ptr %2577, i64 4
   %2579 = load i32, ptr %2578, align 4, !tbaa !336
   %2580 = add i16 %5, 1
@@ -25264,7 +25263,7 @@ pm_interpolated_xstring_node_closing_set.exit2704: ; preds = %2529, %.thread3044
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %2587, i64 24, i1 false), !tbaa.struct !162
   %2588 = load i32, ptr %2587, align 8, !tbaa !196
   %2589 = zext i32 %2588 to i64
-  %2590 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %2589
+  %2590 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %2589
   %2591 = getelementptr inbounds nuw i8, ptr %2590, i64 4
   %2592 = load i32, ptr %2591, align 4, !tbaa !336
   %2593 = add i16 %5, 1
@@ -25280,7 +25279,7 @@ pm_interpolated_xstring_node_closing_set.exit2704: ; preds = %2529, %.thread3044
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef nonnull align 8 dereferenceable(24) %2597, i64 24, i1 false), !tbaa.struct !162
   %2598 = load i32, ptr %2597, align 8, !tbaa !196
   %2599 = zext i32 %2598 to i64
-  %2600 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %2599
+  %2600 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %2599
   %2601 = getelementptr inbounds nuw i8, ptr %2600, i64 4
   %2602 = load i32, ptr %2601, align 4, !tbaa !336
   %2603 = add i16 %5, 1
@@ -25295,7 +25294,7 @@ pm_interpolated_xstring_node_closing_set.exit2704: ; preds = %2529, %.thread3044
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %2597, i64 24, i1 false), !tbaa.struct !162
   %2607 = load i32, ptr %107, align 8, !tbaa !124
   %2608 = zext i32 %2607 to i64
-  %2609 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %2608
+  %2609 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %2608
   %2610 = getelementptr inbounds nuw i8, ptr %2609, i64 4
   %2611 = load i32, ptr %2610, align 4, !tbaa !336
   %2612 = tail call fastcc ptr @parse_expression(ptr noundef nonnull %0, i32 noundef %2611, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 86, i16 noundef zeroext %2603)
@@ -25556,7 +25555,7 @@ pm_parser_scope_toplevel_p.exit:                  ; preds = %2682, %2685
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %112, ptr noundef nonnull align 8 dereferenceable(24) %2699, i64 24, i1 false), !tbaa.struct !162
   %2700 = load i32, ptr %2699, align 8, !tbaa !196
   %2701 = zext i32 %2700 to i64
-  %2702 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %2701
+  %2702 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %2701
   %2703 = getelementptr inbounds nuw i8, ptr %2702, i64 4
   %2704 = load i32, ptr %2703, align 4, !tbaa !336
   %2705 = add i16 %5, 1
@@ -26774,7 +26773,7 @@ pm_or_node_create.exit:                           ; preds = %pm_assert_value_exp
   %.08851142 = phi i64 [ 0, %.lr.ph ], [ %533, %530 ]
   %.08861141 = phi i64 [ 0, %.lr.ph ], [ %534, %530 ]
   %524 = load ptr, ptr %522, align 8, !tbaa !137
-  %525 = getelementptr ptr, ptr %524, i64 %.08861141
+  %525 = getelementptr [8 x i8], ptr %524, i64 %.08861141
   %526 = load ptr, ptr %525, align 8, !tbaa !103
   %.not926 = icmp eq ptr %526, null
   br i1 %.not926, label %.critedge, label %527
@@ -26817,7 +26816,7 @@ pm_or_node_create.exit:                           ; preds = %pm_assert_value_exp
   %.08871146 = phi ptr [ %555, %551 ], [ %540, %.preheader ]
   %.08881145 = phi i64 [ %556, %551 ], [ 0, %.preheader ]
   %543 = load ptr, ptr %541, align 8, !tbaa !137
-  %544 = getelementptr ptr, ptr %543, i64 %.08881145
+  %544 = getelementptr [8 x i8], ptr %543, i64 %.08881145
   %545 = load ptr, ptr %544, align 8, !tbaa !103
   %.not928 = icmp eq ptr %545, null
   br i1 %.not928, label %.critedge5, label %551
@@ -28084,7 +28083,7 @@ pm_constant_read_node_create.exit:                ; preds = %89
 
 122:                                              ; preds = %125, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %125 ]
-  %123 = getelementptr %struct.pm_local_t, ptr %121, i64 %indvars.iv.i.i.i
+  %123 = getelementptr [40 x i8], ptr %121, i64 %indvars.iv.i.i.i
   %124 = load i32, ptr %123, align 8, !tbaa !154
   %.not39.i.i.i = icmp eq i32 %124, %105
   br i1 %.not39.i.i.i, label %.thread.loopexit.split.loop.exit66.i.i.i, label %125
@@ -28104,7 +28103,7 @@ pm_constant_read_node_create.exit:                ; preds = %89
   %.031.i.i.i = phi i32 [ %113, %126 ], [ %139, %138 ]
   %131 = and i32 %.031.i.i.i, %127
   %132 = zext i32 %131 to i64
-  %133 = getelementptr %struct.pm_local_t, ptr %129, i64 %132
+  %133 = getelementptr [40 x i8], ptr %129, i64 %132
   %134 = load i32, ptr %133, align 8, !tbaa !154
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %pm_locals_find.exit.thread.i.i, label %136
@@ -28751,7 +28750,7 @@ define internal fastcc void @pop_block_exits(ptr noundef %0, ptr noundef %1) unn
   %.01113.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %24 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !137
-  %17 = getelementptr ptr, ptr %16, i64 %.01113.i
+  %17 = getelementptr [8 x i8], ptr %16, i64 %.01113.i
   %18 = load ptr, ptr %17, align 8, !tbaa !103
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %flush_block_exits.exit, label %19
@@ -30539,7 +30538,7 @@ define internal fastcc zeroext i1 @token_begins_expression_p(i32 noundef %0) unn
 
 3:                                                ; preds = %1
   %4 = zext i32 %0 to i64
-  %5 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %4
+  %5 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !266
   %7 = icmp eq i32 %6, 0
   br label %8
@@ -31767,7 +31766,7 @@ define internal fastcc void @parse_target_implicit_parameter(ptr captures(none) 
 
 6:                                                ; preds = %.lr.ph, %19
   %.04 = phi i64 [ 0, %.lr.ph ], [ %20, %19 ]
-  %7 = getelementptr ptr, ptr %5, i64 %.04
+  %7 = getelementptr [8 x i8], ptr %5, i64 %.04
   %8 = load ptr, ptr %7, align 8, !tbaa !103
   %9 = icmp eq ptr %8, %0
   br i1 %9, label %10, label %19
@@ -31778,7 +31777,7 @@ define internal fastcc void @parse_target_implicit_parameter(ptr captures(none) 
   br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr ptr, ptr %5, i64 %.04
+  %13 = getelementptr [8 x i8], ptr %5, i64 %.04
   %14 = getelementptr i8, ptr %13, i64 8
   %15 = xor i64 %.04, -1
   %16 = add i64 %3, %15
@@ -31822,7 +31821,7 @@ define internal fastcc void @pm_locals_unread(ptr noundef readonly captures(none
 
 7:                                                ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
-  %8 = getelementptr %struct.pm_local_t, ptr %.pre, i64 %indvars.iv.i
+  %8 = getelementptr [40 x i8], ptr %.pre, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 8, !tbaa !154
   %.not39.i = icmp eq i32 %9, %1
   br i1 %.not39.i, label %.thread.loopexit.split.loop.exit66.i, label %10
@@ -31850,7 +31849,7 @@ define internal fastcc void @pm_locals_unread(ptr noundef readonly captures(none
   %.031.i = phi i32 [ %20, %11 ], [ %32, %31 ]
   %24 = and i32 %.031.i, %12
   %25 = zext i32 %24 to i64
-  %26 = getelementptr %struct.pm_local_t, ptr %22, i64 %25
+  %26 = getelementptr [40 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 8, !tbaa !154
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %pm_locals_find.exit, label %29
@@ -31874,7 +31873,7 @@ pm_locals_find.exit:                              ; preds = %23, %29, %31, %10, 
   %36 = phi ptr [ %.pre, %10 ], [ %.pre, %.preheader.i ], [ %.pre, %.thread.loopexit.split.loop.exit66.i ], [ %22, %31 ], [ %22, %29 ], [ %22, %23 ]
   %.3.i = phi i32 [ -1, %10 ], [ -1, %.preheader.i ], [ %35, %.thread.loopexit.split.loop.exit66.i ], [ %24, %29 ], [ -1, %31 ], [ -1, %23 ]
   %37 = zext i32 %.3.i to i64
-  %38 = getelementptr %struct.pm_local_t, ptr %36, i64 %37
+  %38 = getelementptr [40 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 28
   %40 = load i32, ptr %39, align 4, !tbaa !249
   %41 = add i32 %40, -1
@@ -32674,7 +32673,7 @@ pm_node_alloc.exit:                               ; preds = %4
 .lr.ph:                                           ; preds = %.preheader, %35
   %.029 = phi i64 [ %36, %35 ], [ 0, %.preheader ]
   %32 = load ptr, ptr %30, align 8, !tbaa !137
-  %33 = getelementptr ptr, ptr %32, i64 %.029
+  %33 = getelementptr [8 x i8], ptr %32, i64 %.029
   %34 = load ptr, ptr %33, align 8, !tbaa !103
   %.not26 = icmp eq ptr %34, null
   br i1 %.not26, label %.critedge, label %35
@@ -32702,7 +32701,7 @@ define internal fastcc void @parse_heredoc_dedent(ptr noundef %0, ptr noundef no
   %.02025 = phi i64 [ %51, %50 ], [ 0, %3 ]
   %.02124 = phi i64 [ %.122, %50 ], [ 0, %3 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !137
-  %7 = getelementptr ptr, ptr %6, i64 %.02025
+  %7 = getelementptr [8 x i8], ptr %6, i64 %.02025
   %8 = load ptr, ptr %7, align 8, !tbaa !103
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.critedge, label %9
@@ -32719,7 +32718,7 @@ define internal fastcc void @parse_heredoc_dedent(ptr noundef %0, ptr noundef no
 
 12:                                               ; preds = %9
   %13 = add i64 %.02124, 1
-  %14 = getelementptr ptr, ptr %6, i64 %.02124
+  %14 = getelementptr [8 x i8], ptr %6, i64 %.02124
   store ptr %8, ptr %14, align 8, !tbaa !103
   br label %50
 
@@ -32802,7 +32801,7 @@ parse_heredoc_dedent_string.exit:                 ; preds = %16, %.critedge.loop
 46:                                               ; preds = %42
   %47 = load ptr, ptr %4, align 8, !tbaa !137
   %48 = add i64 %.02124, 1
-  %49 = getelementptr ptr, ptr %47, i64 %.02124
+  %49 = getelementptr [8 x i8], ptr %47, i64 %.02124
   store ptr %8, ptr %49, align 8, !tbaa !103
   br label %50
 
@@ -32894,7 +32893,7 @@ pm_node_alloc.exit:                               ; preds = %3
 
 switch.lookup:                                    ; preds = %.split
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.pm_integer_node_rational_create, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.pm_integer_node_rational_create, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %22
 
@@ -32962,7 +32961,7 @@ pm_node_alloc.exit.i:                             ; preds = %pm_node_alloc.exit
 
 switch.lookup:                                    ; preds = %.split.i
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.pm_integer_node_rational_create, i64 %28
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.pm_integer_node_rational_create, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %pm_integer_node_create.exit
 
@@ -33029,7 +33028,7 @@ pm_node_alloc.exit:                               ; preds = %3
 
 switch.lookup:                                    ; preds = %.split
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.pm_integer_node_rational_create, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.pm_integer_node_rational_create, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %22
 
@@ -33563,7 +33562,7 @@ token_newline_index.exit:                         ; preds = %13, %17
   %.val36 = load ptr, ptr %26, align 8, !tbaa !462
   %27 = getelementptr i8, ptr %2, i64 8
   %.val37 = load ptr, ptr %27, align 8, !tbaa !125
-  %28 = getelementptr i64, ptr %.val36, i64 %1
+  %28 = getelementptr [8 x i8], ptr %.val36, i64 %1
   %29 = load i64, ptr %28, align 8, !tbaa !20
   %30 = getelementptr i8, ptr %.val, i64 %29
   %31 = icmp eq i64 %1, 0
@@ -33660,7 +33659,7 @@ token_column.exit.thread:                         ; preds = %43, %token_column.e
   %.018.i54 = phi i64 [ %.018.i, %token_column.exit ], [ 0, %43 ]
   %66 = getelementptr i8, ptr %0, i64 352
   %.val40 = load ptr, ptr %66, align 8, !tbaa !125
-  %67 = getelementptr i64, ptr %.val36, i64 %.0.i
+  %67 = getelementptr [8 x i8], ptr %.val36, i64 %.0.i
   %68 = load i64, ptr %67, align 8, !tbaa !20
   %69 = getelementptr i8, ptr %.val, i64 %68
   %70 = icmp eq i64 %.0.i, 0
@@ -34066,7 +34065,7 @@ accept1.exit:                                     ; preds = %accept1.exit.loopex
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %98 = load ptr, ptr %97, align 8, !tbaa !137
   %99 = load i64, ptr %6, align 8, !tbaa !136
-  %100 = getelementptr ptr, ptr %98, i64 %99
+  %100 = getelementptr [8 x i8], ptr %98, i64 %99
   %101 = getelementptr i8, ptr %100, i64 -8
   %102 = load ptr, ptr %101, align 8, !tbaa !103
   %103 = load i16, ptr %102, align 8, !tbaa !113
@@ -34147,7 +34146,7 @@ pm_missing_node_create.exit.i:                    ; preds = %113
 .lr.ph.i136:                                      ; preds = %124, %.lr.ph.i136
   %.024.i = phi i64 [ %135, %.lr.ph.i136 ], [ 1, %124 ]
   %132 = load ptr, ptr %97, align 8, !tbaa !137
-  %133 = getelementptr ptr, ptr %132, i64 %.024.i
+  %133 = getelementptr [8 x i8], ptr %132, i64 %.024.i
   %134 = load ptr, ptr %133, align 8, !tbaa !103
   call void @pm_node_list_append(ptr noundef nonnull %.sroa.8.0..sroa_idx.i130, ptr noundef %134) #32
   %135 = add nuw i64 %.024.i, 1
@@ -34189,7 +34188,7 @@ pm_node_alloc.exit.i:                             ; preds = %144
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load ptr, ptr %155, align 8, !tbaa !131
   %157 = load i64, ptr %6, align 8, !tbaa !136
-  %158 = getelementptr ptr, ptr %153, i64 %157
+  %158 = getelementptr [8 x i8], ptr %153, i64 %157
   %159 = getelementptr i8, ptr %158, i64 -8
   %160 = load ptr, ptr %159, align 8, !tbaa !103
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
@@ -34211,7 +34210,7 @@ pm_node_alloc.exit.i:                             ; preds = %144
   %.027.i = phi i64 [ %172, %171 ], [ 0, %pm_node_alloc.exit.i ]
   %.02126.i = phi i1 [ %.1.i, %171 ], [ false, %pm_node_alloc.exit.i ]
   %163 = load ptr, ptr %152, align 8, !tbaa !137
-  %164 = getelementptr ptr, ptr %163, i64 %.027.i
+  %164 = getelementptr [8 x i8], ptr %163, i64 %.027.i
   %165 = load ptr, ptr %164, align 8, !tbaa !103
   %.not.i114 = icmp eq ptr %165, null
   br i1 %.not.i114, label %pm_array_pattern_node_node_list_create.exit, label %166
@@ -34592,7 +34591,7 @@ define internal fastcc void @parse_rescues(ptr noundef %0, i64 noundef %1, ptr n
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %20 = zext nneg i32 %4 to i64
-  %21 = getelementptr i32, ptr @switch.table.parse_rescues, i64 %20
+  %21 = getelementptr [4 x i8], ptr @switch.table.parse_rescues, i64 %20
   %switch.gep = getelementptr i8, ptr %21, i64 -4
   br label %22
 
@@ -34968,7 +34967,7 @@ switch.lookup273:                                 ; preds = %accept2.exit163
   %135 = shl i32 %134, 1
   store i32 %135, ptr %133, align 4, !tbaa !7
   %136 = zext nneg i32 %4 to i64
-  %137 = getelementptr i32, ptr @switch.table.parse_rescues.123, i64 %136
+  %137 = getelementptr [4 x i8], ptr @switch.table.parse_rescues.123, i64 %136
   %switch.gep274 = getelementptr i8, ptr %137, i64 -4
   %switch.load275 = load i32, ptr %switch.gep274, align 4
   %138 = add i16 %5, 1
@@ -35096,7 +35095,7 @@ switch.lookup277:                                 ; preds = %accept2.exit177
   %176 = shl i32 %175, 1
   store i32 %176, ptr %174, align 4, !tbaa !7
   %177 = zext nneg i32 %4 to i64
-  %178 = getelementptr i32, ptr @switch.table.parse_rescues.124, i64 %177
+  %178 = getelementptr [4 x i8], ptr @switch.table.parse_rescues.124, i64 %177
   %switch.gep278 = getelementptr i8, ptr %178, i64 -4
   %switch.load279 = load i32, ptr %switch.gep278, align 4
   %179 = add i16 %5, 1
@@ -35259,7 +35258,7 @@ define internal fastcc void @parse_arguments(ptr noundef %0, ptr noundef nonnull
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %11 = load i32, ptr %10, align 8, !tbaa !169
   %12 = zext i32 %11 to i64
-  %13 = getelementptr %struct.pm_binding_powers_t, ptr @pm_binding_powers, i64 %12
+  %13 = getelementptr [12 x i8], ptr @pm_binding_powers, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !266
   %15 = icmp eq i32 %11, %3
   %16 = icmp eq i32 %11, 1
@@ -37749,7 +37748,7 @@ context_push.exit:                                ; preds = %200, %202
 
 214:                                              ; preds = %217, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %217 ]
-  %215 = getelementptr %struct.pm_local_t, ptr %.pre.i, i64 %indvars.iv.i.i
+  %215 = getelementptr [40 x i8], ptr %.pre.i, i64 %indvars.iv.i.i
   %216 = load i32, ptr %215, align 8, !tbaa !154
   %.not39.i.i = icmp eq i32 %216, %204
   br i1 %.not39.i.i, label %.thread.loopexit.split.loop.exit66.i.i, label %217
@@ -37777,7 +37776,7 @@ context_push.exit:                                ; preds = %200, %202
   %.031.i.i = phi i32 [ %227, %218 ], [ %239, %238 ]
   %231 = and i32 %.031.i.i, %219
   %232 = zext i32 %231 to i64
-  %233 = getelementptr %struct.pm_local_t, ptr %229, i64 %232
+  %233 = getelementptr [40 x i8], ptr %229, i64 %232
   %234 = load i32, ptr %233, align 8, !tbaa !154
   %235 = icmp eq i32 %234, 0
   br i1 %235, label %pm_locals_reads.exit, label %236
@@ -37801,7 +37800,7 @@ pm_locals_reads.exit:                             ; preds = %230, %236, %238, %2
   %243 = phi ptr [ %.pre.i, %217 ], [ %.pre.i, %.preheader.i.i ], [ %.pre.i, %.thread.loopexit.split.loop.exit66.i.i ], [ %229, %238 ], [ %229, %236 ], [ %229, %230 ]
   %.3.i.i = phi i32 [ -1, %217 ], [ -1, %.preheader.i.i ], [ %242, %.thread.loopexit.split.loop.exit66.i.i ], [ %231, %236 ], [ -1, %238 ], [ -1, %230 ]
   %244 = zext i32 %.3.i.i to i64
-  %245 = getelementptr %struct.pm_local_t, ptr %243, i64 %244
+  %245 = getelementptr [40 x i8], ptr %243, i64 %244
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 28
   %247 = load i32, ptr %246, align 4, !tbaa !249
   br label %248
@@ -37924,7 +37923,7 @@ pm_optional_parameter_node_create.exit:           ; preds = %263
 
 296:                                              ; preds = %299, %.lr.ph.i.i321
   %indvars.iv.i.i323 = phi i64 [ 0, %.lr.ph.i.i321 ], [ %indvars.iv.next.i.i325, %299 ]
-  %297 = getelementptr %struct.pm_local_t, ptr %.pre.i320, i64 %indvars.iv.i.i323
+  %297 = getelementptr [40 x i8], ptr %.pre.i320, i64 %indvars.iv.i.i323
   %298 = load i32, ptr %297, align 8, !tbaa !154
   %.not39.i.i324 = icmp eq i32 %298, %204
   br i1 %.not39.i.i324, label %.thread.loopexit.split.loop.exit66.i.i327, label %299
@@ -37952,7 +37951,7 @@ pm_optional_parameter_node_create.exit:           ; preds = %263
   %.031.i.i314 = phi i32 [ %309, %300 ], [ %321, %320 ]
   %313 = and i32 %.031.i.i314, %301
   %314 = zext i32 %313 to i64
-  %315 = getelementptr %struct.pm_local_t, ptr %311, i64 %314
+  %315 = getelementptr [40 x i8], ptr %311, i64 %314
   %316 = load i32, ptr %315, align 8, !tbaa !154
   %317 = icmp eq i32 %316, 0
   br i1 %317, label %pm_locals_reads.exit328, label %318
@@ -37976,7 +37975,7 @@ pm_locals_reads.exit328:                          ; preds = %312, %318, %320, %2
   %325 = phi ptr [ %.pre.i320, %299 ], [ %.pre.i320, %.preheader.i.i317 ], [ %.pre.i320, %.thread.loopexit.split.loop.exit66.i.i327 ], [ %311, %320 ], [ %311, %318 ], [ %311, %312 ]
   %.3.i.i316 = phi i32 [ -1, %299 ], [ -1, %.preheader.i.i317 ], [ %324, %.thread.loopexit.split.loop.exit66.i.i327 ], [ %313, %318 ], [ -1, %320 ], [ -1, %312 ]
   %326 = zext i32 %.3.i.i316 to i64
-  %327 = getelementptr %struct.pm_local_t, ptr %325, i64 %326
+  %327 = getelementptr [40 x i8], ptr %325, i64 %326
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 28
   %329 = load i32, ptr %328, align 4, !tbaa !249
   %.not241 = icmp eq i32 %329, %249
@@ -38288,7 +38287,7 @@ pm_required_keyword_parameter_node_create.exit366: ; preds = %424
 
 446:                                              ; preds = %449, %.lr.ph.i.i376
   %indvars.iv.i.i378 = phi i64 [ 0, %.lr.ph.i.i376 ], [ %indvars.iv.next.i.i380, %449 ]
-  %447 = getelementptr %struct.pm_local_t, ptr %.pre.i375, i64 %indvars.iv.i.i378
+  %447 = getelementptr [40 x i8], ptr %.pre.i375, i64 %indvars.iv.i.i378
   %448 = load i32, ptr %447, align 8, !tbaa !154
   %.not39.i.i379 = icmp eq i32 %448, %436
   br i1 %.not39.i.i379, label %.thread.loopexit.split.loop.exit66.i.i382, label %449
@@ -38316,7 +38315,7 @@ pm_required_keyword_parameter_node_create.exit366: ; preds = %424
   %.031.i.i369 = phi i32 [ %459, %450 ], [ %471, %470 ]
   %463 = and i32 %.031.i.i369, %451
   %464 = zext i32 %463 to i64
-  %465 = getelementptr %struct.pm_local_t, ptr %461, i64 %464
+  %465 = getelementptr [40 x i8], ptr %461, i64 %464
   %466 = load i32, ptr %465, align 8, !tbaa !154
   %467 = icmp eq i32 %466, 0
   br i1 %467, label %pm_locals_reads.exit383, label %468
@@ -38340,7 +38339,7 @@ pm_locals_reads.exit383:                          ; preds = %462, %468, %470, %4
   %475 = phi ptr [ %.pre.i375, %449 ], [ %.pre.i375, %.preheader.i.i372 ], [ %.pre.i375, %.thread.loopexit.split.loop.exit66.i.i382 ], [ %461, %470 ], [ %461, %468 ], [ %461, %462 ]
   %.3.i.i371 = phi i32 [ -1, %449 ], [ -1, %.preheader.i.i372 ], [ %474, %.thread.loopexit.split.loop.exit66.i.i382 ], [ %463, %468 ], [ -1, %470 ], [ -1, %462 ]
   %476 = zext i32 %.3.i.i371 to i64
-  %477 = getelementptr %struct.pm_local_t, ptr %475, i64 %476
+  %477 = getelementptr [40 x i8], ptr %475, i64 %476
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 28
   %479 = load i32, ptr %478, align 4, !tbaa !249
   br label %480
@@ -38404,7 +38403,7 @@ pm_assert_value_expression.exit494:               ; preds = %485, %488
 
 505:                                              ; preds = %508, %.lr.ph.i.i391
   %indvars.iv.i.i393 = phi i64 [ 0, %.lr.ph.i.i391 ], [ %indvars.iv.next.i.i395, %508 ]
-  %506 = getelementptr %struct.pm_local_t, ptr %.pre.i390, i64 %indvars.iv.i.i393
+  %506 = getelementptr [40 x i8], ptr %.pre.i390, i64 %indvars.iv.i.i393
   %507 = load i32, ptr %506, align 8, !tbaa !154
   %.not39.i.i394 = icmp eq i32 %507, %436
   br i1 %.not39.i.i394, label %.thread.loopexit.split.loop.exit66.i.i397, label %508
@@ -38432,7 +38431,7 @@ pm_assert_value_expression.exit494:               ; preds = %485, %488
   %.031.i.i384 = phi i32 [ %518, %509 ], [ %530, %529 ]
   %522 = and i32 %.031.i.i384, %510
   %523 = zext i32 %522 to i64
-  %524 = getelementptr %struct.pm_local_t, ptr %520, i64 %523
+  %524 = getelementptr [40 x i8], ptr %520, i64 %523
   %525 = load i32, ptr %524, align 8, !tbaa !154
   %526 = icmp eq i32 %525, 0
   br i1 %526, label %pm_locals_reads.exit398, label %527
@@ -38456,7 +38455,7 @@ pm_locals_reads.exit398:                          ; preds = %521, %527, %529, %5
   %534 = phi ptr [ %.pre.i390, %508 ], [ %.pre.i390, %.preheader.i.i387 ], [ %.pre.i390, %.thread.loopexit.split.loop.exit66.i.i397 ], [ %520, %529 ], [ %520, %527 ], [ %520, %521 ]
   %.3.i.i386 = phi i32 [ -1, %508 ], [ -1, %.preheader.i.i387 ], [ %533, %.thread.loopexit.split.loop.exit66.i.i397 ], [ %522, %527 ], [ -1, %529 ], [ -1, %521 ]
   %535 = zext i32 %.3.i.i386 to i64
-  %536 = getelementptr %struct.pm_local_t, ptr %534, i64 %535
+  %536 = getelementptr [40 x i8], ptr %534, i64 %535
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 28
   %538 = load i32, ptr %537, align 4, !tbaa !249
   %.not = icmp eq i32 %538, %481
@@ -39186,7 +39185,7 @@ tailrecurse.i:                                    ; preds = %21, %tailrecurse.ba
   %33 = getelementptr inbounds nuw i8, ptr %.tr18.i, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !99
   %35 = load i64, ptr %32, align 8, !tbaa !102
-  %36 = getelementptr ptr, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -8
   %38 = load ptr, ptr %37, align 8, !tbaa !103
   br label %tailrecurse.backedge.i
@@ -39675,7 +39674,7 @@ pm_token_is_numbered_parameter.exit:              ; preds = %70
 
 84:                                               ; preds = %97, %.lr.ph.i129
   %.04.i = phi i64 [ 0, %.lr.ph.i129 ], [ %98, %97 ]
-  %85 = getelementptr ptr, ptr %83, i64 %.04.i
+  %85 = getelementptr [8 x i8], ptr %83, i64 %.04.i
   %86 = load ptr, ptr %85, align 8, !tbaa !103
   %87 = icmp eq ptr %86, %1
   br i1 %87, label %88, label %97
@@ -39686,7 +39685,7 @@ pm_token_is_numbered_parameter.exit:              ; preds = %70
   br i1 %.not.i130, label %96, label %90
 
 90:                                               ; preds = %88
-  %91 = getelementptr ptr, ptr %83, i64 %.04.i
+  %91 = getelementptr [8 x i8], ptr %83, i64 %.04.i
   %92 = getelementptr i8, ptr %91, i64 8
   %93 = xor i64 %.04.i, -1
   %94 = add i64 %81, %93
@@ -39742,7 +39741,7 @@ pm_parser_scope_find.exit:                        ; preds = %104
 
 111:                                              ; preds = %114, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %114 ]
-  %112 = getelementptr %struct.pm_local_t, ptr %.pre.i133, i64 %indvars.iv.i.i
+  %112 = getelementptr [40 x i8], ptr %.pre.i133, i64 %indvars.iv.i.i
   %113 = load i32, ptr %112, align 8, !tbaa !154
   %.not39.i.i = icmp eq i32 %113, %100
   br i1 %.not39.i.i, label %.thread.loopexit.split.loop.exit66.i.i, label %114
@@ -39770,7 +39769,7 @@ pm_parser_scope_find.exit:                        ; preds = %104
   %.031.i.i = phi i32 [ %124, %115 ], [ %136, %135 ]
   %128 = and i32 %.031.i.i, %116
   %129 = zext i32 %128 to i64
-  %130 = getelementptr %struct.pm_local_t, ptr %126, i64 %129
+  %130 = getelementptr [40 x i8], ptr %126, i64 %129
   %131 = load i32, ptr %130, align 8, !tbaa !154
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %pm_locals_unread.exit, label %133
@@ -39794,7 +39793,7 @@ pm_locals_unread.exit:                            ; preds = %127, %133, %135, %1
   %140 = phi ptr [ %.pre.i133, %114 ], [ %.pre.i133, %.preheader.i.i ], [ %.pre.i133, %.thread.loopexit.split.loop.exit66.i.i ], [ %126, %135 ], [ %126, %133 ], [ %126, %127 ]
   %.3.i.i = phi i32 [ -1, %114 ], [ -1, %.preheader.i.i ], [ %139, %.thread.loopexit.split.loop.exit66.i.i ], [ %128, %133 ], [ -1, %135 ], [ -1, %127 ]
   %141 = zext i32 %.3.i.i to i64
-  %142 = getelementptr %struct.pm_local_t, ptr %140, i64 %141
+  %142 = getelementptr [40 x i8], ptr %140, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 28
   %144 = load i32, ptr %143, align 4, !tbaa !249
   %145 = add i32 %144, -1
@@ -39833,7 +39832,7 @@ pm_parser_local_add_constant.exit:                ; preds = %146, %149
 
 160:                                              ; preds = %173, %.lr.ph.i137
   %.04.i138 = phi i64 [ 0, %.lr.ph.i137 ], [ %174, %173 ]
-  %161 = getelementptr ptr, ptr %159, i64 %.04.i138
+  %161 = getelementptr [8 x i8], ptr %159, i64 %.04.i138
   %162 = load ptr, ptr %161, align 8, !tbaa !103
   %163 = icmp eq ptr %162, %1
   br i1 %163, label %164, label %173
@@ -39844,7 +39843,7 @@ pm_parser_local_add_constant.exit:                ; preds = %146, %149
   br i1 %.not.i140, label %172, label %166
 
 166:                                              ; preds = %164
-  %167 = getelementptr ptr, ptr %159, i64 %.04.i138
+  %167 = getelementptr [8 x i8], ptr %159, i64 %.04.i138
   %168 = getelementptr i8, ptr %167, i64 8
   %169 = xor i64 %.04.i138, -1
   %170 = add i64 %157, %169
@@ -40050,7 +40049,7 @@ pm_node_alloc.exit.i:                             ; preds = %246
 
 269:                                              ; preds = %267, %.lr.ph.i.i147
   %.023.i.i = phi i64 [ 0, %.lr.ph.i.i147 ], [ %268, %267 ]
-  %270 = getelementptr ptr, ptr %266, i64 %.023.i.i
+  %270 = getelementptr [8 x i8], ptr %266, i64 %.023.i.i
   %271 = load ptr, ptr %270, align 8, !tbaa !103
   %.not18.i.i = icmp eq ptr %271, null
   br i1 %.not18.i.i, label %.critedge.i.i, label %272
@@ -40778,7 +40777,7 @@ expect1.exit133:                                  ; preds = %accept1.exit.i131, 
   %.01113.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %224, %218 ]
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8, !tbaa !137
-  %211 = getelementptr ptr, ptr %210, i64 %.01113.i.i
+  %211 = getelementptr [8 x i8], ptr %210, i64 %.01113.i.i
   %212 = load ptr, ptr %211, align 8, !tbaa !103
   %.not.i.i = icmp eq ptr %212, null
   br i1 %.not.i.i, label %pop_block_exits.exit, label %213
@@ -41795,7 +41794,7 @@ pm_node_alloc.exit:                               ; preds = %4
 .lr.ph:                                           ; preds = %.preheader, %33
   %.022 = phi i64 [ %34, %33 ], [ 0, %.preheader ]
   %30 = load ptr, ptr %28, align 8, !tbaa !137
-  %31 = getelementptr ptr, ptr %30, i64 %.022
+  %31 = getelementptr [8 x i8], ptr %30, i64 %.022
   %32 = load ptr, ptr %31, align 8, !tbaa !103
   %.not21 = icmp eq ptr %32, null
   br i1 %.not21, label %.critedge, label %33
@@ -43550,7 +43549,7 @@ define internal fastcc noundef ptr @parse_blocklike_parameters(ptr noundef %0, p
   %.05384 = phi i8 [ 0, %.lr.ph ], [ %.05384.be, %.backedge.backedge ]
   %.05583 = phi i8 [ 0, %.lr.ph ], [ %.05583.be, %.backedge.backedge ]
   %29 = load ptr, ptr %27, align 8, !tbaa !137
-  %30 = getelementptr ptr, ptr %29, i64 %.05285
+  %30 = getelementptr [8 x i8], ptr %29, i64 %.05285
   %31 = load ptr, ptr %30, align 8, !tbaa !103
   %32 = load i16, ptr %31, align 8, !tbaa !113
   switch i16 %32, label %pm_token_is_numbered_parameter.exit.thread [
@@ -44715,7 +44714,7 @@ define internal fastcc noundef nonnull ptr @context_human(i32 noundef range(i32 
 switch.lookup:                                    ; preds = %1
   %switch.tableidx = add i32 %0, -1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.context_human, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.context_human, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -44865,7 +44864,7 @@ define internal fastcc ptr @pm_check_value_expression(ptr noundef %0, ptr nounde
   %46 = getelementptr inbounds nuw i8, ptr %.091188, i64 40
   %47 = load ptr, ptr %46, align 8, !tbaa !99
   %48 = load i64, ptr %45, align 8, !tbaa !102
-  %49 = getelementptr ptr, ptr %47, i64 %48
+  %49 = getelementptr [8 x i8], ptr %47, i64 %48
   %50 = getelementptr i8, ptr %49, i64 -8
   %51 = load ptr, ptr %50, align 8, !tbaa !103
   br label %.thread156
@@ -44967,7 +44966,7 @@ define internal fastcc ptr @pm_check_value_expression(ptr noundef %0, ptr nounde
 
 101:                                              ; preds = %104, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %104 ]
-  %102 = getelementptr %struct.pm_local_t, ptr %.pre.i, i64 %indvars.iv.i.i
+  %102 = getelementptr [40 x i8], ptr %.pre.i, i64 %indvars.iv.i.i
   %103 = load i32, ptr %102, align 8, !tbaa !154
   %.not39.i.i = icmp eq i32 %103, %95
   br i1 %.not39.i.i, label %.thread.loopexit.split.loop.exit66.i.i, label %104
@@ -44995,7 +44994,7 @@ define internal fastcc ptr @pm_check_value_expression(ptr noundef %0, ptr nounde
   %.031.i.i = phi i32 [ %114, %105 ], [ %126, %125 ]
   %118 = and i32 %.031.i.i, %106
   %119 = zext i32 %118 to i64
-  %120 = getelementptr %struct.pm_local_t, ptr %116, i64 %119
+  %120 = getelementptr [40 x i8], ptr %116, i64 %119
   %121 = load i32, ptr %120, align 8, !tbaa !154
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %pm_locals_read.exit, label %123
@@ -45019,7 +45018,7 @@ pm_locals_read.exit:                              ; preds = %117, %123, %125, %1
   %130 = phi ptr [ %.pre.i, %104 ], [ %.pre.i, %.preheader.i.i ], [ %.pre.i, %.thread.loopexit.split.loop.exit66.i.i ], [ %116, %125 ], [ %116, %123 ], [ %116, %117 ]
   %.3.i.i = phi i32 [ -1, %104 ], [ -1, %.preheader.i.i ], [ %129, %.thread.loopexit.split.loop.exit66.i.i ], [ %118, %123 ], [ -1, %125 ], [ -1, %117 ]
   %131 = zext i32 %.3.i.i to i64
-  %132 = getelementptr %struct.pm_local_t, ptr %130, i64 %131
+  %132 = getelementptr [40 x i8], ptr %130, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 28
   %134 = load i32, ptr %133, align 4, !tbaa !249
   %135 = add i32 %134, 1
@@ -45334,7 +45333,7 @@ pm_parser_scope_find.exit:                        ; preds = %8
 
 15:                                               ; preds = %18, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %18 ]
-  %16 = getelementptr %struct.pm_local_t, ptr %.pre.i, i64 %indvars.iv.i.i
+  %16 = getelementptr [40 x i8], ptr %.pre.i, i64 %indvars.iv.i.i
   %17 = load i32, ptr %16, align 8, !tbaa !154
   %.not39.i.i = icmp eq i32 %17, %2
   br i1 %.not39.i.i, label %.thread.loopexit.split.loop.exit66.i.i, label %18
@@ -45362,7 +45361,7 @@ pm_parser_scope_find.exit:                        ; preds = %8
   %.031.i.i = phi i32 [ %28, %19 ], [ %40, %39 ]
   %32 = and i32 %.031.i.i, %20
   %33 = zext i32 %32 to i64
-  %34 = getelementptr %struct.pm_local_t, ptr %30, i64 %33
+  %34 = getelementptr [40 x i8], ptr %30, i64 %33
   %35 = load i32, ptr %34, align 8, !tbaa !154
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %pm_locals_read.exit, label %37
@@ -45386,7 +45385,7 @@ pm_locals_read.exit:                              ; preds = %31, %37, %39, %18, 
   %44 = phi ptr [ %.pre.i, %18 ], [ %.pre.i, %.preheader.i.i ], [ %.pre.i, %.thread.loopexit.split.loop.exit66.i.i ], [ %30, %39 ], [ %30, %37 ], [ %30, %31 ]
   %.3.i.i = phi i32 [ -1, %18 ], [ -1, %.preheader.i.i ], [ %43, %.thread.loopexit.split.loop.exit66.i.i ], [ %32, %37 ], [ -1, %39 ], [ -1, %31 ]
   %45 = zext i32 %.3.i.i to i64
-  %46 = getelementptr %struct.pm_local_t, ptr %44, i64 %45
+  %46 = getelementptr [40 x i8], ptr %44, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %48 = load i32, ptr %47, align 4, !tbaa !249
   %49 = add i32 %48, 1
@@ -46018,7 +46017,7 @@ pm_token_is_numbered_parameter.exit.thread:       ; preds = %1, %16, %19, %pm_to
 
 40:                                               ; preds = %43, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %43 ]
-  %41 = getelementptr %struct.pm_local_t, ptr %39, i64 %indvars.iv.i.i
+  %41 = getelementptr [40 x i8], ptr %39, i64 %indvars.iv.i.i
   %42 = load i32, ptr %41, align 8, !tbaa !154
   %.not39.i.i = icmp eq i32 %42, %9
   br i1 %.not39.i.i, label %.thread.loopexit.split.loop.exit66.i.i, label %43
@@ -46038,7 +46037,7 @@ pm_token_is_numbered_parameter.exit.thread:       ; preds = %1, %16, %19, %pm_to
   %.031.i.i = phi i32 [ %31, %44 ], [ %57, %56 ]
   %49 = and i32 %.031.i.i, %45
   %50 = zext i32 %49 to i64
-  %51 = getelementptr %struct.pm_local_t, ptr %47, i64 %50
+  %51 = getelementptr [40 x i8], ptr %47, i64 %50
   %52 = load i32, ptr %51, align 8, !tbaa !154
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %pm_locals_find.exit.thread.i, label %54
@@ -46123,7 +46122,7 @@ pm_parser_local_depth_constant_id.exit.thread:    ; preds = %64, %pm_locals_find
 87:                                               ; preds = %.lr.ph, %pm_parser_local_add_constant.exit
   %.03754 = phi i8 [ 1, %.lr.ph ], [ %95, %pm_parser_local_add_constant.exit ]
   %88 = zext i8 %.03754 to i64
-  %89 = getelementptr ptr, ptr @pm_numbered_parameter_names, i64 %88
+  %89 = getelementptr [8 x i8], ptr @pm_numbered_parameter_names, i64 %88
   %90 = getelementptr i8, ptr %89, i64 -8
   %91 = load ptr, ptr %90, align 8, !tbaa !14
   %92 = tail call i32 @pm_constant_pool_insert_constant(ptr noundef nonnull %5, ptr noundef %91, i64 noundef 2) #32
@@ -46668,7 +46667,7 @@ pm_node_alloc.exit.i:                             ; preds = %accept1.exit
   br i1 %.not27.i, label %134, label %140
 
 134:                                              ; preds = %129
-  %135 = getelementptr ptr, ptr %131, i64 %128
+  %135 = getelementptr [8 x i8], ptr %131, i64 %128
   %136 = getelementptr i8, ptr %135, i64 -8
   %137 = load ptr, ptr %136, align 8, !tbaa !103
   br label %140
@@ -46702,7 +46701,7 @@ pm_node_alloc.exit.i:                             ; preds = %accept1.exit
 .lr.ph.i:                                         ; preds = %140, %147
   %.029.i = phi i64 [ %148, %147 ], [ 0, %140 ]
   %144 = load ptr, ptr %143, align 8, !tbaa !137
-  %145 = getelementptr ptr, ptr %144, i64 %.029.i
+  %145 = getelementptr [8 x i8], ptr %144, i64 %.029.i
   %146 = load ptr, ptr %145, align 8, !tbaa !103
   %.not28.i = icmp eq ptr %146, null
   br i1 %.not28.i, label %pm_hash_pattern_node_node_list_create.exit, label %147
@@ -46820,7 +46819,7 @@ pm_no_keywords_parameter_node_create.exit:        ; preds = %5
 
 38:                                               ; preds = %41, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %41 ]
-  %39 = getelementptr %struct.pm_local_t, ptr %37, i64 %indvars.iv.i.i
+  %39 = getelementptr [40 x i8], ptr %37, i64 %indvars.iv.i.i
   %40 = load i32, ptr %39, align 8, !tbaa !154
   %.not39.i.i = icmp eq i32 %40, %20
   br i1 %.not39.i.i, label %.thread.loopexit.split.loop.exit66.i.i, label %41
@@ -46840,7 +46839,7 @@ pm_no_keywords_parameter_node_create.exit:        ; preds = %5
   %.031.i.i = phi i32 [ %29, %42 ], [ %55, %54 ]
   %47 = and i32 %.031.i.i, %43
   %48 = zext i32 %47 to i64
-  %49 = getelementptr %struct.pm_local_t, ptr %45, i64 %48
+  %49 = getelementptr [40 x i8], ptr %45, i64 %48
   %50 = load i32, ptr %49, align 8, !tbaa !154
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %pm_locals_find.exit.thread.i, label %52
@@ -47061,7 +47060,7 @@ define internal fastcc ptr @parse_pattern_primitive(ptr noundef %0, ptr noundef 
 
 37:                                               ; preds = %40, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %40 ]
-  %38 = getelementptr %struct.pm_local_t, ptr %36, i64 %indvars.iv.i.i
+  %38 = getelementptr [40 x i8], ptr %36, i64 %indvars.iv.i.i
   %39 = load i32, ptr %38, align 8, !tbaa !154
   %.not39.i.i = icmp eq i32 %39, %19
   br i1 %.not39.i.i, label %.thread.loopexit.split.loop.exit66.i.i, label %40
@@ -47081,7 +47080,7 @@ define internal fastcc ptr @parse_pattern_primitive(ptr noundef %0, ptr noundef 
   %.031.i.i = phi i32 [ %28, %41 ], [ %54, %53 ]
   %46 = and i32 %.031.i.i, %42
   %47 = zext i32 %46 to i64
-  %48 = getelementptr %struct.pm_local_t, ptr %44, i64 %47
+  %48 = getelementptr [40 x i8], ptr %44, i64 %47
   %49 = load i32, ptr %48, align 8, !tbaa !154
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %pm_locals_find.exit.thread.i, label %51
@@ -48063,7 +48062,7 @@ expect1.exit111:                                  ; preds = %accept1.exit.thread
 
 104:                                              ; preds = %107, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %107 ]
-  %105 = getelementptr %struct.pm_local_t, ptr %103, i64 %indvars.iv.i.i
+  %105 = getelementptr [40 x i8], ptr %103, i64 %indvars.iv.i.i
   %106 = load i32, ptr %105, align 8, !tbaa !154
   %.not39.i.i = icmp eq i32 %106, %87
   br i1 %.not39.i.i, label %.thread.loopexit.split.loop.exit66.i.i, label %107
@@ -48083,7 +48082,7 @@ expect1.exit111:                                  ; preds = %accept1.exit.thread
   %.031.i.i = phi i32 [ %95, %108 ], [ %121, %120 ]
   %113 = and i32 %.031.i.i, %109
   %114 = zext i32 %113 to i64
-  %115 = getelementptr %struct.pm_local_t, ptr %111, i64 %114
+  %115 = getelementptr [40 x i8], ptr %111, i64 %114
   %116 = load i32, ptr %115, align 8, !tbaa !154
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %pm_locals_find.exit.thread.i, label %118
@@ -48257,7 +48256,7 @@ define internal fastcc noalias nonnull ptr @parse_pattern_rest(ptr noundef %0, p
 
 29:                                               ; preds = %32, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %32 ]
-  %30 = getelementptr %struct.pm_local_t, ptr %28, i64 %indvars.iv.i.i
+  %30 = getelementptr [40 x i8], ptr %28, i64 %indvars.iv.i.i
   %31 = load i32, ptr %30, align 8, !tbaa !154
   %.not39.i.i = icmp eq i32 %31, %11
   br i1 %.not39.i.i, label %.thread.loopexit.split.loop.exit66.i.i, label %32
@@ -48277,7 +48276,7 @@ define internal fastcc noalias nonnull ptr @parse_pattern_rest(ptr noundef %0, p
   %.031.i.i = phi i32 [ %20, %33 ], [ %46, %45 ]
   %38 = and i32 %.031.i.i, %34
   %39 = zext i32 %38 to i64
-  %40 = getelementptr %struct.pm_local_t, ptr %36, i64 %39
+  %40 = getelementptr [40 x i8], ptr %36, i64 %39
   %41 = load i32, ptr %40, align 8, !tbaa !154
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %pm_locals_find.exit.thread.i, label %43
@@ -48445,7 +48444,7 @@ define internal fastcc noalias nonnull ptr @parse_pattern_hash_implicit_value(pt
 
 34:                                               ; preds = %37, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %37 ]
-  %35 = getelementptr %struct.pm_local_t, ptr %33, i64 %indvars.iv.i.i
+  %35 = getelementptr [40 x i8], ptr %33, i64 %indvars.iv.i.i
   %36 = load i32, ptr %35, align 8, !tbaa !154
   %.not39.i.i = icmp eq i32 %36, %12
   br i1 %.not39.i.i, label %.thread.loopexit.split.loop.exit66.i.i, label %37
@@ -48465,7 +48464,7 @@ define internal fastcc noalias nonnull ptr @parse_pattern_hash_implicit_value(pt
   %.031.i.i = phi i32 [ %25, %38 ], [ %51, %50 ]
   %43 = and i32 %.031.i.i, %39
   %44 = zext i32 %43 to i64
-  %45 = getelementptr %struct.pm_local_t, ptr %41, i64 %44
+  %45 = getelementptr [40 x i8], ptr %41, i64 %44
   %46 = load i32, ptr %45, align 8, !tbaa !154
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %pm_locals_find.exit.thread.i, label %48
@@ -49356,7 +49355,7 @@ pm_array_pattern_node_constant_create.exit134:    ; preds = %93
 define internal fastcc noundef zeroext i1 @update_parameter_state(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #1 {
   %4 = load i32, ptr %1, align 8, !tbaa !124
   %5 = zext i32 %4 to i64
-  %6 = getelementptr i32, ptr @parameters_ordering, i64 %5
+  %6 = getelementptr [4 x i8], ptr @parameters_ordering, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !7
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %45, label %9
@@ -49847,7 +49846,7 @@ pm_refute_numbered_parameter.exit:                ; preds = %2, %11, %14, %pm_to
 
 35:                                               ; preds = %38, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %38 ]
-  %36 = getelementptr %struct.pm_local_t, ptr %34, i64 %indvars.iv.i
+  %36 = getelementptr [40 x i8], ptr %34, i64 %indvars.iv.i
   %37 = load i32, ptr %36, align 8, !tbaa !154
   %.not39.i = icmp eq i32 %37, %25
   br i1 %.not39.i, label %.thread.loopexit.split.loop.exit66.i, label %38
@@ -49875,7 +49874,7 @@ pm_refute_numbered_parameter.exit:                ; preds = %2, %11, %14, %pm_to
   %.031.i = phi i32 [ %48, %39 ], [ %60, %59 ]
   %52 = and i32 %.031.i, %40
   %53 = zext i32 %52 to i64
-  %54 = getelementptr %struct.pm_local_t, ptr %50, i64 %53
+  %54 = getelementptr [40 x i8], ptr %50, i64 %53
   %55 = load i32, ptr %54, align 8, !tbaa !154
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %pm_locals_find.exit.thread, label %57
@@ -50370,7 +50369,7 @@ define internal fastcc noundef zeroext i1 @pm_conditional_predicate_warn_write_l
 
 11:                                               ; preds = %11, %.lr.ph49
   %.02448 = phi i64 [ 0, %.lr.ph49 ], [ %15, %11 ]
-  %12 = getelementptr ptr, ptr %10, i64 %.02448
+  %12 = getelementptr [8 x i8], ptr %10, i64 %.02448
   %13 = load ptr, ptr %12, align 8, !tbaa !103
   %14 = tail call fastcc zeroext i1 @pm_conditional_predicate_warn_write_literal_p(ptr noundef %13)
   %15 = add nuw i64 %.02448, 1
@@ -50403,7 +50402,7 @@ define internal fastcc noundef zeroext i1 @pm_conditional_predicate_warn_write_l
 
 26:                                               ; preds = %.lr.ph, %24
   %.02540 = phi i64 [ 0, %.lr.ph ], [ %25, %24 ]
-  %27 = getelementptr ptr, ptr %23, i64 %.02540
+  %27 = getelementptr [8 x i8], ptr %23, i64 %.02540
   %28 = load ptr, ptr %27, align 8, !tbaa !103
   %29 = load i16, ptr %28, align 8, !tbaa !113
   %30 = icmp eq i16 %29, 8
@@ -51425,7 +51424,7 @@ pm_token_is_numbered_parameter.exit:              ; preds = %196
 
 213:                                              ; preds = %226, %.lr.ph.i241
   %.04.i = phi i64 [ 0, %.lr.ph.i241 ], [ %227, %226 ]
-  %214 = getelementptr ptr, ptr %212, i64 %.04.i
+  %214 = getelementptr [8 x i8], ptr %212, i64 %.04.i
   %215 = load ptr, ptr %214, align 8, !tbaa !103
   %216 = icmp eq ptr %215, %1
   br i1 %216, label %217, label %226
@@ -51436,7 +51435,7 @@ pm_token_is_numbered_parameter.exit:              ; preds = %196
   br i1 %.not.i242, label %225, label %219
 
 219:                                              ; preds = %217
-  %220 = getelementptr ptr, ptr %212, i64 %.04.i
+  %220 = getelementptr [8 x i8], ptr %212, i64 %.04.i
   %221 = getelementptr i8, ptr %220, i64 8
   %222 = xor i64 %.04.i, -1
   %223 = add i64 %210, %222
@@ -51476,7 +51475,7 @@ parse_target_implicit_parameter.exit:             ; preds = %226, %pm_parser_sco
 
 233:                                              ; preds = %236, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %236 ]
-  %234 = getelementptr %struct.pm_local_t, ptr %.pre.i244, i64 %indvars.iv.i.i
+  %234 = getelementptr [40 x i8], ptr %.pre.i244, i64 %indvars.iv.i.i
   %235 = load i32, ptr %234, align 8, !tbaa !154
   %.not39.i.i = icmp eq i32 %235, %182
   br i1 %.not39.i.i, label %.thread.loopexit.split.loop.exit66.i.i, label %236
@@ -51504,7 +51503,7 @@ parse_target_implicit_parameter.exit:             ; preds = %226, %pm_parser_sco
   %.031.i.i = phi i32 [ %246, %237 ], [ %258, %257 ]
   %250 = and i32 %.031.i.i, %238
   %251 = zext i32 %250 to i64
-  %252 = getelementptr %struct.pm_local_t, ptr %248, i64 %251
+  %252 = getelementptr [40 x i8], ptr %248, i64 %251
   %253 = load i32, ptr %252, align 8, !tbaa !154
   %254 = icmp eq i32 %253, 0
   br i1 %254, label %pm_locals_unread.exit, label %255
@@ -51528,7 +51527,7 @@ pm_locals_unread.exit:                            ; preds = %249, %255, %257, %2
   %262 = phi ptr [ %.pre.i244, %236 ], [ %.pre.i244, %.preheader.i.i ], [ %.pre.i244, %.thread.loopexit.split.loop.exit66.i.i ], [ %248, %257 ], [ %248, %255 ], [ %248, %249 ]
   %.3.i.i = phi i32 [ -1, %236 ], [ -1, %.preheader.i.i ], [ %261, %.thread.loopexit.split.loop.exit66.i.i ], [ %250, %255 ], [ -1, %257 ], [ -1, %249 ]
   %263 = zext i32 %.3.i.i to i64
-  %264 = getelementptr %struct.pm_local_t, ptr %262, i64 %263
+  %264 = getelementptr [40 x i8], ptr %262, i64 %263
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 28
   %266 = load i32, ptr %265, align 4, !tbaa !249
   %267 = add i32 %266, -1
@@ -51699,7 +51698,7 @@ pm_local_variable_write_node_create.exit277:      ; preds = %pm_implicit_array_w
 
 328:                                              ; preds = %341, %.lr.ph.i279
   %.04.i280 = phi i64 [ 0, %.lr.ph.i279 ], [ %342, %341 ]
-  %329 = getelementptr ptr, ptr %327, i64 %.04.i280
+  %329 = getelementptr [8 x i8], ptr %327, i64 %.04.i280
   %330 = load ptr, ptr %329, align 8, !tbaa !103
   %331 = icmp eq ptr %330, %1
   br i1 %331, label %332, label %341
@@ -51710,7 +51709,7 @@ pm_local_variable_write_node_create.exit277:      ; preds = %pm_implicit_array_w
   br i1 %.not.i282, label %340, label %334
 
 334:                                              ; preds = %332
-  %335 = getelementptr ptr, ptr %327, i64 %.04.i280
+  %335 = getelementptr [8 x i8], ptr %327, i64 %.04.i280
   %336 = getelementptr i8, ptr %335, i64 8
   %337 = xor i64 %.04.i280, -1
   %338 = add i64 %325, %337
@@ -52049,7 +52048,7 @@ pm_arguments_node_arguments_append.exit:          ; preds = %465, %.sink.split.i
 
 496:                                              ; preds = %494, %.lr.ph.i307
   %.023.i = phi i64 [ 0, %.lr.ph.i307 ], [ %495, %494 ]
-  %497 = getelementptr ptr, ptr %493, i64 %.023.i
+  %497 = getelementptr [8 x i8], ptr %493, i64 %.023.i
   %498 = load ptr, ptr %497, align 8, !tbaa !103
   %.not18.i = icmp eq ptr %498, null
   br i1 %.not18.i, label %.critedge.i, label %499
@@ -52723,7 +52722,7 @@ pm_node_alloc.exit:                               ; preds = %4
 
 27:                                               ; preds = %25, %.lr.ph.i
   %.023.i = phi i64 [ 0, %.lr.ph.i ], [ %26, %25 ]
-  %28 = getelementptr ptr, ptr %24, i64 %.023.i
+  %28 = getelementptr [8 x i8], ptr %24, i64 %.023.i
   %29 = load ptr, ptr %28, align 8, !tbaa !103
   %.not18.i = icmp eq ptr %29, null
   br i1 %.not18.i, label %.critedge.i, label %30
@@ -53359,7 +53358,7 @@ pm_node_alloc.exit:                               ; preds = %4
 
 27:                                               ; preds = %25, %.lr.ph.i
   %.023.i = phi i64 [ 0, %.lr.ph.i ], [ %26, %25 ]
-  %28 = getelementptr ptr, ptr %24, i64 %.023.i
+  %28 = getelementptr [8 x i8], ptr %24, i64 %.023.i
   %29 = load ptr, ptr %28, align 8, !tbaa !103
   %.not18.i = icmp eq ptr %29, null
   br i1 %.not18.i, label %.critedge.i, label %30
@@ -53818,7 +53817,7 @@ pm_node_alloc.exit:                               ; preds = %4
 
 27:                                               ; preds = %25, %.lr.ph.i
   %.023.i = phi i64 [ 0, %.lr.ph.i ], [ %26, %25 ]
-  %28 = getelementptr ptr, ptr %24, i64 %.023.i
+  %28 = getelementptr [8 x i8], ptr %24, i64 %.023.i
   %29 = load ptr, ptr %28, align 8, !tbaa !103
   %.not18.i = icmp eq ptr %29, null
   br i1 %.not18.i, label %.critedge.i, label %30
@@ -54394,7 +54393,7 @@ pm_node_alloc.exit:                               ; preds = %5
 
 16:                                               ; preds = %23, %.lr.ph.i
   %17 = phi i64 [ %13, %.lr.ph.i ], [ %24, %23 ]
-  %18 = getelementptr ptr, ptr %15, i64 %17
+  %18 = getelementptr [8 x i8], ptr %15, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -8
   %20 = load ptr, ptr %19, align 8, !tbaa !103
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -54467,7 +54466,7 @@ pm_node_alloc.exit:                               ; preds = %5
 
 16:                                               ; preds = %23, %.lr.ph.i
   %17 = phi i64 [ %13, %.lr.ph.i ], [ %24, %23 ]
-  %18 = getelementptr ptr, ptr %15, i64 %17
+  %18 = getelementptr [8 x i8], ptr %15, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -8
   %20 = load ptr, ptr %19, align 8, !tbaa !103
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -54979,7 +54978,7 @@ pm_parser_scope_find.exit:                        ; preds = %14
 
 23:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
-  %24 = getelementptr %struct.pm_local_t, ptr %.pre.i, i64 %indvars.iv.i.i
+  %24 = getelementptr [40 x i8], ptr %.pre.i, i64 %indvars.iv.i.i
   %25 = load i32, ptr %24, align 8, !tbaa !154
   %.not39.i.i = icmp eq i32 %25, %17
   br i1 %.not39.i.i, label %.thread.loopexit.split.loop.exit66.i.i, label %26
@@ -55007,7 +55006,7 @@ pm_parser_scope_find.exit:                        ; preds = %14
   %.031.i.i = phi i32 [ %36, %27 ], [ %48, %47 ]
   %40 = and i32 %.031.i.i, %28
   %41 = zext i32 %40 to i64
-  %42 = getelementptr %struct.pm_local_t, ptr %38, i64 %41
+  %42 = getelementptr [40 x i8], ptr %38, i64 %41
   %43 = load i32, ptr %42, align 8, !tbaa !154
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %pm_locals_read.exit, label %45
@@ -55031,7 +55030,7 @@ pm_locals_read.exit:                              ; preds = %39, %45, %47, %26, 
   %52 = phi ptr [ %.pre.i, %26 ], [ %.pre.i, %.preheader.i.i ], [ %.pre.i, %.thread.loopexit.split.loop.exit66.i.i ], [ %38, %47 ], [ %38, %45 ], [ %38, %39 ]
   %.3.i.i = phi i32 [ -1, %26 ], [ -1, %.preheader.i.i ], [ %51, %.thread.loopexit.split.loop.exit66.i.i ], [ %40, %45 ], [ -1, %47 ], [ -1, %39 ]
   %53 = zext i32 %.3.i.i to i64
-  %54 = getelementptr %struct.pm_local_t, ptr %52, i64 %53
+  %54 = getelementptr [40 x i8], ptr %52, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 28
   %56 = load i32, ptr %55, align 4, !tbaa !249
   %57 = add i32 %56, 1
@@ -55047,7 +55046,7 @@ pm_locals_read.exit:                              ; preds = %39, %45, %47, %26, 
 .lr.ph:                                           ; preds = %.preheader, %64
   %.031 = phi i64 [ %65, %64 ], [ 0, %.preheader ]
   %61 = load ptr, ptr %4, align 8, !tbaa !99
-  %62 = getelementptr ptr, ptr %61, i64 %.031
+  %62 = getelementptr [8 x i8], ptr %61, i64 %.031
   %63 = load ptr, ptr %62, align 8, !tbaa !103
   %.not = icmp eq ptr %63, null
   br i1 %.not, label %.critedge, label %64
@@ -55259,7 +55258,7 @@ define internal void @parse_regular_expression_named_capture(ptr noundef %0, ptr
 
 67:                                               ; preds = %70, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %70 ]
-  %68 = getelementptr %struct.pm_local_t, ptr %66, i64 %indvars.iv.i.i
+  %68 = getelementptr [40 x i8], ptr %66, i64 %indvars.iv.i.i
   %69 = load i32, ptr %68, align 8, !tbaa !154
   %.not39.i.i = icmp eq i32 %69, %.058
   br i1 %.not39.i.i, label %.thread.loopexit.split.loop.exit66.i.i, label %70
@@ -55279,7 +55278,7 @@ define internal void @parse_regular_expression_named_capture(ptr noundef %0, ptr
   %.031.i.i = phi i32 [ %58, %71 ], [ %84, %83 ]
   %76 = and i32 %.031.i.i, %72
   %77 = zext i32 %76 to i64
-  %78 = getelementptr %struct.pm_local_t, ptr %74, i64 %77
+  %78 = getelementptr [40 x i8], ptr %74, i64 %77
   %79 = load i32, ptr %78, align 8, !tbaa !154
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %pm_locals_find.exit.thread.i, label %81

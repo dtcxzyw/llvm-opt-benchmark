@@ -9,8 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.12 }
 %union.anon.12 = type { i64 }
 %struct.ext4_iloc = type { ptr, i64, i32 }
-%struct.ext4_orphan_block = type { %struct.atomic_t, ptr }
-%struct.atomic_t = type { i32 }
 %struct.anon.13 = type { %struct.shash_desc, [4 x i8] }
 %struct.shash_desc = type { ptr, [0 x ptr] }
 
@@ -148,7 +146,7 @@ define dso_local i32 @ext4_orphan_add(ptr noundef %0, ptr noundef %1) local_unna
   %62 = phi i32 [ %58, %45 ], [ %82, %._crit_edge ]
   %63 = load ptr, ptr %59, align 8
   %64 = sext i32 %62 to i64
-  %65 = getelementptr %struct.ext4_orphan_block, ptr %63, i64 %64
+  %65 = getelementptr [16 x i8], ptr %63, i64 %64
   %66 = load volatile i32, ptr %65, align 4
   %67 = add i32 %66, -1
   %68 = icmp slt i32 %67, 0
@@ -185,13 +183,13 @@ define dso_local i32 @ext4_orphan_add(ptr noundef %0, ptr noundef %1) local_unna
 84:                                               ; preds = %.lr.ph
   %85 = load ptr, ptr %4, align 8
   %86 = load ptr, ptr %59, align 8
-  %.split = getelementptr %struct.ext4_orphan_block, ptr %86, i64 %64
+  %.split = getelementptr [16 x i8], ptr %86, i64 %64
   %87 = getelementptr i8, ptr %.split, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = tail call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_orphan_file_add, i32 noundef 48, ptr noundef %0, ptr noundef %85, ptr noundef %88, i32 noundef 0) #9
   %90 = icmp eq i32 %89, 0
   %91 = load ptr, ptr %59, align 8
-  %.split13 = getelementptr %struct.ext4_orphan_block, ptr %91, i64 %64
+  %.split13 = getelementptr [16 x i8], ptr %91, i64 %64
   br i1 %90, label %93, label %92
 
 92:                                               ; preds = %84
@@ -218,7 +216,7 @@ define dso_local i32 @ext4_orphan_add(ptr noundef %0, ptr noundef %1) local_unna
 
 105:                                              ; preds = %103
   %106 = load ptr, ptr %59, align 8
-  %107 = getelementptr %struct.ext4_orphan_block, ptr %106, i64 %64
+  %107 = getelementptr [16 x i8], ptr %106, i64 %64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %107, ptr elementtype(i32) %107) #9, !srcloc !21
   br label %.thread17
 
@@ -228,7 +226,7 @@ define dso_local i32 @ext4_orphan_add(ptr noundef %0, ptr noundef %1) local_unna
 
 110:                                              ; preds = %108, %99
   %111 = sext i32 %101 to i64
-  %112 = getelementptr i32, ptr %97, i64 %111
+  %112 = getelementptr [4 x i8], ptr %97, i64 %111
   %113 = load i32, ptr %112, align 4
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %.loopexit, label %.preheader
@@ -242,7 +240,7 @@ define dso_local i32 @ext4_orphan_add(ptr noundef %0, ptr noundef %1) local_unna
   %120 = add i32 %116, %119
   %121 = select i1 %118, i32 0, i32 %117
   %122 = sext i32 %121 to i64
-  %123 = getelementptr i32, ptr %97, i64 %122
+  %123 = getelementptr [4 x i8], ptr %97, i64 %122
   %124 = load i32, ptr %123, align 4
   %125 = icmp eq i32 %124, 0
   br i1 %125, label %.loopexit, label %.preheader, !llvm.loop !22
@@ -251,7 +249,7 @@ define dso_local i32 @ext4_orphan_add(ptr noundef %0, ptr noundef %1) local_unna
   %126 = phi i64 [ %111, %110 ], [ %122, %.preheader ]
   %127 = phi i32 [ %100, %110 ], [ %120, %.preheader ]
   %128 = phi i32 [ %101, %110 ], [ %121, %.preheader ]
-  %129 = getelementptr i32, ptr %97, i64 %126
+  %129 = getelementptr [4 x i8], ptr %97, i64 %126
   %130 = load i64, ptr %98, align 8
   %131 = trunc i64 %130 to i32
   %132 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %129, i32 %131, i32 0, ptr elementtype(i32) %129) #9, !srcloc !23
@@ -265,7 +263,7 @@ define dso_local i32 @ext4_orphan_add(ptr noundef %0, ptr noundef %1) local_unna
   %137 = getelementptr i8, ptr %1, i64 -211
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %137, i32 8, ptr elementtype(i8) %137) #9, !srcloc !25
   %138 = load ptr, ptr %59, align 8
-  %.split14 = getelementptr %struct.ext4_orphan_block, ptr %138, i64 %64
+  %.split14 = getelementptr [16 x i8], ptr %138, i64 %64
   %139 = getelementptr i8, ptr %.split14, i64 8
   %140 = load ptr, ptr %139, align 8
   %141 = tail call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_orphan_file_add, i32 noundef 84, ptr noundef %0, ptr noundef null, ptr noundef %140) #9
@@ -510,7 +508,7 @@ define dso_local i32 @ext4_orphan_del(ptr noundef %0, ptr noundef %1) local_unna
   %52 = getelementptr inbounds nuw i8, ptr %35, i64 624
   %53 = load ptr, ptr %52, align 8
   %54 = sext i32 %46 to i64
-  %.split = getelementptr %struct.ext4_orphan_block, ptr %53, i64 %54
+  %.split = getelementptr [16 x i8], ptr %53, i64 %54
   %55 = getelementptr i8, ptr %.split, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = tail call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.ext4_orphan_file_del, i32 noundef 208, ptr noundef nonnull %0, ptr noundef %33, ptr noundef %56, i32 noundef 0) #9
@@ -519,19 +517,19 @@ define dso_local i32 @ext4_orphan_del(ptr noundef %0, ptr noundef %1) local_unna
 
 59:                                               ; preds = %51
   %60 = load ptr, ptr %52, align 8
-  %.split11 = getelementptr %struct.ext4_orphan_block, ptr %60, i64 %54
+  %.split11 = getelementptr [16 x i8], ptr %60, i64 %54
   %61 = getelementptr i8, ptr %.split11, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %64 = load ptr, ptr %63, align 8
   %65 = sext i32 %47 to i64
-  %66 = getelementptr i32, ptr %64, i64 %65
+  %66 = getelementptr [4 x i8], ptr %64, i64 %65
   store i32 0, ptr %66, align 4
   %67 = load ptr, ptr %52, align 8
-  %68 = getelementptr %struct.ext4_orphan_block, ptr %67, i64 %54
+  %68 = getelementptr [16 x i8], ptr %67, i64 %54
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %68, ptr elementtype(i32) %68) #9, !srcloc !21
   %69 = load ptr, ptr %52, align 8
-  %.split12 = getelementptr %struct.ext4_orphan_block, ptr %69, i64 %54
+  %.split12 = getelementptr [16 x i8], ptr %69, i64 %54
   %70 = getelementptr i8, ptr %.split12, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = tail call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.ext4_orphan_file_del, i32 noundef 215, ptr noundef nonnull %0, ptr noundef null, ptr noundef %71) #9
@@ -804,7 +802,7 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr noundef captures(
   %79 = phi i32 [ %93, %92 ], [ %.ph, %.thread.preheader ]
   %80 = load ptr, ptr %7, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 656
-  %82 = getelementptr ptr, ptr %81, i64 %78
+  %82 = getelementptr [8 x i8], ptr %81, i64 %78
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %92, label %85
@@ -876,7 +874,7 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr noundef captures(
 .split18.us:                                      ; preds = %118, %.loopexit15.us
   %122 = phi i64 [ %147, %.loopexit15.us ], [ 0, %118 ]
   %123 = load ptr, ptr %119, align 8
-  %.split.us = getelementptr %struct.ext4_orphan_block, ptr %123, i64 %122
+  %.split.us = getelementptr [16 x i8], ptr %123, i64 %122
   %124 = getelementptr i8, ptr %.split.us, i64 8
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 40
@@ -887,7 +885,7 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr noundef captures(
 
 130:                                              ; preds = %144, %.split18.us
   %131 = phi i64 [ 0, %.split18.us ], [ %145, %144 ]
-  %132 = getelementptr i32, ptr %127, i64 %131
+  %132 = getelementptr [4 x i8], ptr %127, i64 %131
   %133 = load i32, ptr %132, align 4
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %144, label %135
@@ -952,7 +950,7 @@ define dso_local void @ext4_orphan_cleanup(ptr noundef %0, ptr noundef captures(
 
 166:                                              ; preds = %174, %164
   %167 = phi i64 [ 0, %164 ], [ %175, %174 ]
-  %168 = getelementptr ptr, ptr %165, i64 %167
+  %168 = getelementptr [8 x i8], ptr %165, i64 %167
   %169 = load ptr, ptr %168, align 8
   %170 = icmp eq ptr %169, null
   br i1 %170, label %174, label %171
@@ -1080,7 +1078,7 @@ define dso_local void @ext4_release_orphan_info(ptr noundef readonly captures(no
   %12 = phi i32 [ %5, %9 ], [ %20, %19 ]
   %13 = phi i64 [ 0, %9 ], [ %21, %19 ]
   %14 = load ptr, ptr %10, align 8
-  %.split = getelementptr %struct.ext4_orphan_block, ptr %14, i64 %13
+  %.split = getelementptr [16 x i8], ptr %14, i64 %13
   %15 = getelementptr i8, ptr %.split, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
@@ -1275,11 +1273,11 @@ define dso_local i32 @ext4_init_orphan_info(ptr noundef %0) local_unnamed_addr #
   %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = call ptr @ext4_bread(ptr noundef null, ptr noundef %23, i32 noundef %53, i32 noundef 0) #9
   %55 = load ptr, ptr %42, align 8
-  %.split = getelementptr %struct.ext4_orphan_block, ptr %55, i64 %indvars.iv
+  %.split = getelementptr [16 x i8], ptr %55, i64 %indvars.iv
   %56 = getelementptr i8, ptr %.split, i64 8
   store ptr %54, ptr %56, align 8
   %57 = load ptr, ptr %42, align 8
-  %.split7 = getelementptr %struct.ext4_orphan_block, ptr %57, i64 %indvars.iv
+  %.split7 = getelementptr [16 x i8], ptr %57, i64 %indvars.iv
   %58 = getelementptr i8, ptr %.split7, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = icmp ugt ptr %59, inttoptr (i64 -4096 to ptr)
@@ -1429,7 +1427,7 @@ define dso_local i32 @ext4_init_orphan_info(ptr noundef %0) local_unnamed_addr #
 
 129:                                              ; preds = %.critedge, %124
   %130 = load ptr, ptr %42, align 8
-  %.split8 = getelementptr %struct.ext4_orphan_block, ptr %130, i64 %indvars.iv
+  %.split8 = getelementptr [16 x i8], ptr %130, i64 %indvars.iv
   %131 = getelementptr i8, ptr %.split8, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 40
@@ -1439,7 +1437,7 @@ define dso_local i32 @ext4_init_orphan_info(ptr noundef %0) local_unnamed_addr #
 .preheader:                                       ; preds = %129, %.preheader
   %135 = phi i64 [ %142, %.preheader ], [ 0, %129 ]
   %136 = phi i32 [ %141, %.preheader ], [ 0, %129 ]
-  %137 = getelementptr i32, ptr %134, i64 %135
+  %137 = getelementptr [4 x i8], ptr %134, i64 %135
   %138 = load i32, ptr %137, align 4
   %139 = icmp eq i32 %138, 0
   %140 = zext i1 %139 to i32
@@ -1474,7 +1472,7 @@ define dso_local i32 @ext4_init_orphan_info(ptr noundef %0) local_unnamed_addr #
 153:                                              ; preds = %160, %150
   %154 = phi i64 [ %152, %150 ], [ %161, %160 ]
   %155 = load ptr, ptr %42, align 8
-  %.split9 = getelementptr %struct.ext4_orphan_block, ptr %155, i64 %154
+  %.split9 = getelementptr [16 x i8], ptr %155, i64 %154
   %156 = getelementptr i8, ptr %.split9, i64 8
   %157 = load ptr, ptr %156, align 8
   %158 = icmp eq ptr %157, null
@@ -1552,7 +1550,7 @@ define dso_local noundef range(i32 0, 2) i32 @ext4_orphan_file_empty(ptr noundef
 
 25:                                               ; preds = %23, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %19 ]
-  %26 = getelementptr %struct.ext4_orphan_block, ptr %21, i64 %indvars.iv
+  %26 = getelementptr [16 x i8], ptr %21, i64 %indvars.iv
   %27 = load volatile i32, ptr %26, align 4
   %28 = icmp eq i32 %27, %8
   br i1 %28, label %23, label %.loopexit

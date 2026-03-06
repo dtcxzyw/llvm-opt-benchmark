@@ -50,7 +50,7 @@ define void @H5LD_clean_vector(ptr noundef captures(none) %0) local_unnamed_addr
   store ptr null, ptr %4, align 8, !tbaa !3
   %21 = add i32 %.023, 1
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !3
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -152,7 +152,7 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr noundef captures(none) %1,
   %34 = load ptr, ptr %16, align 8, !tbaa !8
   %35 = add nuw nsw i32 %.052105.ph, 1
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %36
   store ptr %33, ptr %37, align 8, !tbaa !15
   br label %.outer, !llvm.loop !18
 
@@ -171,12 +171,12 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr noundef captures(none) %1,
   %.370132138.ph = phi ptr [ %.269102, %23 ], [ %39, %38 ]
   %42 = load ptr, ptr %16, align 8, !tbaa !8
   %43 = zext nneg i32 %.052105.ph to i64
-  %44 = getelementptr ptr, ptr %42, i64 %43
+  %44 = getelementptr [8 x i8], ptr %42, i64 %43
   %45 = getelementptr i8, ptr %44, i64 8
   store ptr null, ptr %45, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = add nuw nsw i32 %.075, 1
-  %47 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %10, ptr %47, align 8, !tbaa !3
   %48 = call i64 @H5Tcopy(i64 noundef %2) #9
   %49 = load ptr, ptr %16, align 8, !tbaa !8
@@ -188,7 +188,7 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr noundef captures(none) %1,
   %52 = add i32 %.02436.i, 1
   %53 = load ptr, ptr %16, align 8, !tbaa !8
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !15
   %.not.i = icmp eq ptr %56, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
@@ -285,7 +285,7 @@ H5LD_construct_info.exit:                         ; preds = %86, %88
 .thread91:                                        ; preds = %H5LD_construct_info.exit, %.thread91.loopexit.split.loop.exit, %.thread91.loopexit.split.loop.exit170, %.loopexit
   %.176.ph = phi i32 [ %90, %.loopexit ], [ %93, %.thread91.loopexit.split.loop.exit170 ], [ %92, %.thread91.loopexit.split.loop.exit ], [ %46, %H5LD_construct_info.exit ]
   %94 = sext i32 %.176.ph to i64
-  %95 = getelementptr inbounds ptr, ptr %1, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %1, i64 %94
   store ptr null, ptr %95, align 8, !tbaa !3
   %96 = load ptr, ptr %1, align 8, !tbaa !3
   %.not22.i = icmp eq ptr %96, null
@@ -294,7 +294,7 @@ H5LD_construct_info.exit:                         ; preds = %86, %88
 97:                                               ; preds = %7
   %98 = trunc nuw nsw i64 %indvars.iv to i32
   %99 = and i64 %indvars.iv, 4294967295
-  %100 = getelementptr inbounds nuw ptr, ptr %1, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %99
   store ptr null, ptr %100, align 8, !tbaa !3
   br label %H5LD_clean_vector.exit
 
@@ -334,7 +334,7 @@ H5LD_construct_info.exit:                         ; preds = %86, %88
   store ptr null, ptr %102, align 8, !tbaa !3
   %119 = add i32 %.023.i84, 1
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw ptr, ptr %1, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %120
   %122 = load ptr, ptr %121, align 8, !tbaa !3
   %.not.i85 = icmp eq ptr %122, null
   br i1 %.not.i85, label %H5LD_clean_vector.exit, label %.lr.ph.i83, !llvm.loop !13
@@ -474,7 +474,7 @@ define internal fastcc i64 @H5LD_get_dset_type_size(i64 noundef %0, ptr noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02849 = phi i64 [ 0, %.lr.ph.preheader ], [ %33, %.lr.ph ]
-  %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !21
@@ -522,7 +522,7 @@ define internal fastcc i64 @H5LD_get_dset_type_size(i64 noundef %0, ptr noundef 
   store ptr null, ptr %36, align 8, !tbaa !3
   %50 = add i32 %.023.i, 1
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %24, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !3
   %.not.i = icmp eq ptr %53, null
   br i1 %.not.i, label %H5LD_clean_vector.exit, label %.lr.ph.i, !llvm.loop !13
@@ -631,18 +631,18 @@ define range(i32 -1, 1) i32 @H5LDget_dset_elmts(i64 noundef %0, ptr noundef %1, 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0104155.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1105.i, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %23 = load i64, ptr %22, align 8, !tbaa !26
-  %24 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %25 = load i64, ptr %24, align 8, !tbaa !26
   %26 = icmp ugt i64 %23, %25
   %27 = select i1 %26, i64 %25, i64 0
   %.sink172.i = sub nuw i64 %23, %27
   %28 = zext i1 %26 to i32
   %.1105.i = add i32 %.0104155.i, %28
-  %29 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   store i64 %.sink172.i, ptr %29, align 8, !tbaa !26
-  %30 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   store i64 %27, ptr %30, align 8, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -768,7 +768,7 @@ define range(i32 -1, 1) i32 @H5LDget_dset_elmts(i64 noundef %0, ptr noundef %1, 
   %indvars.iv169.i = phi i64 [ %indvars.iv.next170.i, %.lr.ph160.i ], [ 0, %.preheader.i ]
   %88 = phi ptr [ %99, %.lr.ph160.i ], [ %86, %.preheader.i ]
   %.1158.i = phi ptr [ %97, %.lr.ph160.i ], [ %.099164.i, %.preheader.i ]
-  %89 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv169.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv169.i
   %90 = load i64, ptr %88, align 8, !tbaa !20
   %91 = getelementptr inbounds nuw i8, ptr %.098165.i, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
@@ -779,7 +779,7 @@ define range(i32 -1, 1) i32 @H5LDget_dset_elmts(i64 noundef %0, ptr noundef %1, 
   %96 = load i64, ptr %95, align 8, !tbaa !21
   %97 = getelementptr inbounds nuw i8, ptr %.1158.i, i64 %96
   %indvars.iv.next170.i = add nuw nsw i64 %indvars.iv169.i, 1
-  %98 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv.next170.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv.next170.i
   %99 = load ptr, ptr %98, align 8, !tbaa !3
   %.not143.i = icmp eq ptr %99, null
   br i1 %.not143.i, label %._crit_edge161.loopexit.i, label %.lr.ph160.i, !llvm.loop !28

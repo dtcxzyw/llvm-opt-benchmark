@@ -271,11 +271,11 @@ Compare.exit.us:                                  ; preds = %.loopexit42.i.loope
   %.2.i = phi ptr [ %54, %53 ], [ %.028.i, %.preheader44.i ]
   %44 = load i8, ptr %.2.i, align 1, !tbaa !23
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !13
   %48 = load i8, ptr %.231.i, align 1, !tbaa !23
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %42, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !13
   %52 = icmp eq i32 %47, %51
   br i1 %52, label %53, label %.loopexit42.i.loopexit93
@@ -420,11 +420,11 @@ Compare.exit62.us:                                ; preds = %.loopexit42.i54.loo
   %.2.i53 = phi ptr [ %110, %109 ], [ %.028.i48, %.preheader44.i51 ]
   %100 = load i8, ptr %.2.i53, align 1, !tbaa !23
   %101 = zext i8 %100 to i64
-  %102 = getelementptr inbounds nuw i32, ptr %98, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !13
   %104 = load i8, ptr %.231.i52, align 1, !tbaa !23
   %105 = zext i8 %104 to i64
-  %106 = getelementptr inbounds nuw i32, ptr %98, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !13
   %108 = icmp eq i32 %103, %107
   br i1 %108, label %109, label %.loopexit42.i54.loopexit88
@@ -556,11 +556,11 @@ define internal noundef zeroext i1 @Next_Enum(ptr noundef %0, ptr noundef readon
   %.2.i = phi ptr [ %43, %42 ], [ %.028.i, %.preheader44.i ]
   %33 = load i8, ptr %.2.i, align 1, !tbaa !23
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %24, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !13
   %37 = load i8, ptr %.231.i, align 1, !tbaa !23
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %24, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !13
   %41 = icmp eq i32 %36, %40
   br i1 %41, label %42, label %.loopexit42.i
@@ -647,11 +647,11 @@ select.unfold:                                    ; preds = %52, %20, %42, %28
   %.2.i30 = phi ptr [ %84, %83 ], [ @dummy, %.preheader44.i28 ]
   %74 = load i8, ptr %.2.i30, align 1, !tbaa !23
   %75 = zext i8 %74 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %65, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !13
   %78 = load i8, ptr %.231.i29, align 1, !tbaa !23
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %65, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !13
   %82 = icmp eq i32 %77, %81
   br i1 %82, label %83, label %.loopexit42.i31
@@ -702,7 +702,7 @@ define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr noundef re
   %4 = load i32, ptr %3, align 8, !tbaa !18
   %5 = load ptr, ptr %1, align 8, !tbaa !9
   %6 = sext i32 %4 to i64
-  %7 = getelementptr ptr, ptr %5, i64 %6
+  %7 = getelementptr [8 x i8], ptr %5, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i8, ptr %9, align 4, !tbaa !14, !range !21, !noundef !22
@@ -719,7 +719,7 @@ define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr noundef re
   %13 = load ptr, ptr %1, align 8, !tbaa !9
   %14 = load i32, ptr %3, align 8, !tbaa !18
   %15 = sext i32 %14 to i64
-  %16 = getelementptr ptr, ptr %13, i64 %15
+  %16 = getelementptr [8 x i8], ptr %13, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -8
   br label %69
 
@@ -780,11 +780,11 @@ define internal noundef zeroext i1 @Previous_Enum(ptr noundef %0, ptr noundef re
   %.2.i = phi ptr [ %50, %49 ], [ %.028.i, %.preheader44.i ]
   %40 = load i8, ptr %.2.i, align 1, !tbaa !23
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %31, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !13
   %44 = load i8, ptr %.231.i, align 1, !tbaa !23
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %31, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !13
   %48 = icmp eq i32 %43, %47
   br i1 %48, label %49, label %.loopexit42.i
@@ -830,7 +830,7 @@ select.unfold:                                    ; preds = %59, %27, %49, %35
   %63 = load ptr, ptr %1, align 8, !tbaa !9
   %64 = load i32, ptr %3, align 8, !tbaa !18
   %65 = sext i32 %64 to i64
-  %66 = getelementptr ptr, ptr %63, i64 %65
+  %66 = getelementptr [8 x i8], ptr %63, i64 %65
   %67 = getelementptr i8, ptr %66, i64 -8
   %68 = icmp eq i32 %.01989, 1
   br i1 %68, label %.thread45, label %69
@@ -875,11 +875,11 @@ select.unfold:                                    ; preds = %59, %27, %49, %35
   %.2.i32 = phi ptr [ %95, %94 ], [ @dummy, %.preheader44.i30 ]
   %85 = load i8, ptr %.2.i32, align 1, !tbaa !23
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %76, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !13
   %89 = load i8, ptr %.231.i31, align 1, !tbaa !23
   %90 = zext i8 %89 to i64
-  %91 = getelementptr inbounds nuw i32, ptr %76, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !13
   %93 = icmp eq i32 %88, %92
   br i1 %93, label %94, label %.loopexit42.i33

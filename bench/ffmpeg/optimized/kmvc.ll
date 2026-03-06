@@ -51,7 +51,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_init(ptr noundef %0) #0 {
 
 18:                                               ; preds = %12, %18
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %20 = trunc i64 %indvars.iv to i32
   %21 = mul i32 %20, 65793
   %22 = add i32 %21, -16777216
@@ -104,7 +104,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_init(ptr noundef %0) #0 {
   %indvars.iv39 = phi i64 [ 0, %41 ], [ %indvars.iv.next40, %45 ]
   %.037 = phi ptr [ %44, %41 ], [ %48, %45 ]
   %46 = load i32, ptr %.037, align 1, !tbaa !41
-  %47 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv39
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv39
   store i32 %46, ptr %47, align 4, !tbaa !35
   %48 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
@@ -196,7 +196,7 @@ bytestream2_peek_byte.exit:                       ; preds = %bytestream2_get_byt
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 %..i
   %41 = and i32 %.0.i, 129
   %42 = zext nneg i32 %41 to i64
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %21, i64 %42
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %42
   br label %43
 
 43:                                               ; preds = %39, %bytestream2_get_be24.exit
@@ -230,7 +230,7 @@ bytestream2_get_be24.exit:                        ; preds = %43, %48
   %.pre-phi158 = phi i64 [ %.pre157, %48 ], [ %25, %43 ]
   %63 = phi ptr [ %49, %48 ], [ %23, %43 ]
   %.0.i85 = phi i32 [ %62, %48 ], [ -16777216, %43 ]
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %.0.i85, ptr %gep, align 4, !tbaa !35
   %64 = sub i64 %25, %.pre-phi158
   %..i84 = tail call i64 @llvm.smin.i64(i64 %64, i64 1)
@@ -315,7 +315,7 @@ bytestream2_peek_byte.exit.thread:                ; preds = %bytestream2_get_byt
 bytestream2_get_be24.exit87:                      ; preds = %89, %90
   %105 = phi ptr [ %23, %89 ], [ %91, %90 ]
   %.0.i86 = phi i32 [ -16777216, %89 ], [ %104, %90 ]
-  %106 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv145
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv145
   store i32 %.0.i86, ptr %106, align 4, !tbaa !35
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %.not79.not = icmp samesign ult i64 %indvars.iv145, %83

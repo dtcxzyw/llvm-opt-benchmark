@@ -16,14 +16,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_perf_get_aux
 %union.anon.32 = type { i64 }
 %struct.anon.31 = type { %struct.perf_event_header, i64, i64 }
 %struct.perf_event_header = type { i32, i16, i16 }
-%struct.page = type { i64, %union.anon.22, %union.anon.30, %struct.atomic_t, [8 x i8] }
-%union.anon.22 = type { %struct.anon.23 }
-%struct.anon.23 = type { %union.anon.24, ptr, %union.anon.26, i64 }
-%union.anon.24 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.26 = type { i64 }
-%union.anon.30 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
 
 @.str = private unnamed_addr constant [28 x i8] c"kernel/events/ring_buffer.c\00", align 1
 @__UNIQUE_ID___addressable_perf_aux_output_flag398 = internal global ptr @perf_aux_output_flag, section ".discard.addressable", align 8
@@ -176,7 +168,7 @@ define dso_local noundef range(i32 -28, 1) i32 @perf_output_begin_forward(ptr no
   %93 = and i64 %56, 4095
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 240
   %95 = sext i32 %91 to i64
-  %96 = getelementptr ptr, ptr %94, i64 %95
+  %96 = getelementptr [8 x i8], ptr %94, i64 %95
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr i8, ptr %97, i64 %93
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -357,7 +349,7 @@ define dso_local noundef range(i32 -28, 1) i32 @perf_output_begin_backward(ptr n
   %93 = and i64 %72, 4095
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 240
   %95 = sext i32 %91 to i64
-  %96 = getelementptr ptr, ptr %94, i64 %95
+  %96 = getelementptr [8 x i8], ptr %94, i64 %95
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr i8, ptr %97, i64 %93
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -581,7 +573,7 @@ define dso_local noundef range(i32 -28, 1) i32 @perf_output_begin(ptr noundef %0
   %123 = and i64 %107, 4095
   %124 = getelementptr inbounds nuw i8, ptr %15, i64 240
   %125 = sext i32 %121 to i64
-  %126 = getelementptr ptr, ptr %124, i64 %125
+  %126 = getelementptr [8 x i8], ptr %124, i64 %125
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr i8, ptr %127, i64 %123
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -667,7 +659,7 @@ define dso_local noundef i32 @perf_output_copy(ptr noundef captures(none) %0, pt
   store i32 %29, ptr %8, align 8
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 240
   %31 = sext i32 %29 to i64
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %6, align 8
   store i64 4096, ptr %5, align 8
@@ -719,7 +711,7 @@ define dso_local noundef i32 @perf_output_skip(ptr noundef captures(none) %0, i3
   store i32 %26, ptr %9, align 8
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 240
   %28 = sext i32 %26 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %5, align 8
   store i64 4096, ptr %4, align 8
@@ -1370,7 +1362,7 @@ define dso_local i64 @perf_output_copy_aux(ptr noundef readonly captures(none) %
 29:                                               ; preds = %19
   %30 = load ptr, ptr %14, align 8
   %31 = lshr i64 %21, 12
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %33, i64 %22
   %.pre = load i64, ptr %15, align 8
@@ -1407,7 +1399,7 @@ define dso_local i64 @perf_output_copy_aux(ptr noundef readonly captures(none) %
   store i32 %55, ptr %18, align 8
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 240
   %57 = sext i32 %55 to i64
-  %58 = getelementptr ptr, ptr %56, i64 %57
+  %58 = getelementptr [8 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr %16, align 8
   store i64 4096, ptr %15, align 8
@@ -1446,7 +1438,7 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
 
 12:                                               ; preds = %6
   %13 = sext i32 %10 to i64
-  %14 = getelementptr i64, ptr @__per_cpu_offset, i64 %13
+  %14 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, ptrtoint (ptr @numa_node to i64)
   %17 = inttoptr i64 %16 to ptr
@@ -1562,7 +1554,7 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
   %86 = inttoptr i64 %85 to ptr
   %87 = load ptr, ptr %53, align 8
   %88 = sext i32 %77 to i64
-  %89 = getelementptr ptr, ptr %87, i64 %88
+  %89 = getelementptr [8 x i8], ptr %87, i64 %88
   store ptr %86, ptr %89, align 8
   %90 = load i32, ptr %60, align 8
   %91 = add i32 %90, 1
@@ -1656,7 +1648,7 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
   %134 = inttoptr i64 %133 to ptr
   %135 = load ptr, ptr %53, align 8
   %136 = sext i32 %125 to i64
-  %137 = getelementptr ptr, ptr %135, i64 %136
+  %137 = getelementptr [8 x i8], ptr %135, i64 %136
   store ptr %134, ptr %137, align 8
   %138 = load i32, ptr %60, align 8
   %139 = add i32 %138, 1
@@ -1692,7 +1684,7 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
   %159 = select i1 %155, i64 %156, i64 %158
   %160 = add i64 %154, %159
   %161 = lshr i64 %160, 12
-  %.split = getelementptr %struct.page, ptr %151, i64 %161
+  %.split = getelementptr [64 x i8], ptr %151, i64 %161
   %162 = getelementptr i8, ptr %.split, i64 40
   %163 = load i64, ptr %162, align 8
   %164 = sext i32 %39 to i64
@@ -1775,7 +1767,7 @@ define internal fastcc void @__rb_free_aux(ptr noundef captures(none) %0) unname
   %23 = load i64, ptr @vmemmap_base, align 8
   %24 = inttoptr i64 %23 to ptr
   %25 = load ptr, ptr %20, align 8
-  %26 = getelementptr ptr, ptr %25, i64 %22
+  %26 = getelementptr [8 x i8], ptr %25, i64 %22
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = add i64 %28, 2147483648
@@ -1786,7 +1778,7 @@ define internal fastcc void @__rb_free_aux(ptr noundef captures(none) %0) unname
   %34 = select i1 %30, i64 %31, i64 %33
   %35 = add i64 %29, %34
   %36 = lshr i64 %35, 12
-  %37 = getelementptr %struct.page, ptr %24, i64 %36
+  %37 = getelementptr [64 x i8], ptr %24, i64 %36
   %38 = getelementptr i8, ptr %37, i64 1
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %38, i32 -129, ptr elementtype(i8) %38) #13, !srcloc !53
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -1835,7 +1827,7 @@ define dso_local ptr @rb_alloc(i32 noundef %0, i64 noundef %1, i32 noundef %2, i
 
 .thread:                                          ; preds = %14
   %19 = sext i32 %2 to i64
-  %20 = getelementptr i64, ptr @__per_cpu_offset, i64 %19
+  %20 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, ptrtoint (ptr @numa_node to i64)
   %23 = inttoptr i64 %22 to ptr
@@ -1888,7 +1880,7 @@ define dso_local ptr @rb_alloc(i32 noundef %0, i64 noundef %1, i32 noundef %2, i
 
 53:                                               ; preds = %51
   %54 = sext i32 %2 to i64
-  %55 = getelementptr i64, ptr @__per_cpu_offset, i64 %54
+  %55 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %36, i64 240
   %57 = zext nneg i32 %0 to i64
   br i1 %15, label %.thread13.us, label %.split
@@ -1908,7 +1900,7 @@ define dso_local ptr @rb_alloc(i32 noundef %0, i64 noundef %1, i32 noundef %2, i
   %67 = load i64, ptr @page_offset_base, align 8
   %68 = add i64 %66, %67
   %69 = inttoptr i64 %68 to ptr
-  %70 = getelementptr ptr, ptr %56, i64 %58
+  %70 = getelementptr [8 x i8], ptr %56, i64 %58
   store ptr %69, ptr %70, align 8
   %71 = icmp eq i64 %68, 0
   br i1 %71, label %.loopexit15, label %72
@@ -1939,7 +1931,7 @@ define dso_local ptr @rb_alloc(i32 noundef %0, i64 noundef %1, i32 noundef %2, i
 
 .thread14:                                        ; preds = %82, %.thread13.us
   %.us-phi = phi i64 [ %58, %.thread13.us ], [ %75, %82 ]
-  %86 = getelementptr ptr, ptr %56, i64 %.us-phi
+  %86 = getelementptr [8 x i8], ptr %56, i64 %.us-phi
   store ptr null, ptr %86, align 8
   br label %.loopexit15
 
@@ -1951,7 +1943,7 @@ define dso_local ptr @rb_alloc(i32 noundef %0, i64 noundef %1, i32 noundef %2, i
   %92 = load i64, ptr @page_offset_base, align 8
   %93 = add i64 %91, %92
   %94 = inttoptr i64 %93 to ptr
-  %95 = getelementptr ptr, ptr %56, i64 %75
+  %95 = getelementptr [8 x i8], ptr %56, i64 %75
   store ptr %94, ptr %95, align 8
   %96 = icmp eq i64 %93, 0
   br i1 %96, label %.loopexit15, label %102
@@ -2024,7 +2016,7 @@ define dso_local ptr @rb_alloc(i32 noundef %0, i64 noundef %1, i32 noundef %2, i
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ %101, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %128 = getelementptr ptr, ptr %56, i64 %indvars.iv
+  %128 = getelementptr [8 x i8], ptr %56, i64 %indvars.iv
   %129 = load ptr, ptr %128, align 8
   %130 = load i64, ptr @vmemmap_base, align 8
   %131 = inttoptr i64 %130 to ptr
@@ -2037,7 +2029,7 @@ define dso_local ptr @rb_alloc(i32 noundef %0, i64 noundef %1, i32 noundef %2, i
   %138 = select i1 %134, i64 %135, i64 %137
   %139 = add i64 %133, %138
   %140 = lshr i64 %139, 12
-  %141 = getelementptr %struct.page, ptr %131, i64 %140
+  %141 = getelementptr [64 x i8], ptr %131, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 24
   store ptr null, ptr %142, align 8
   tail call void @__free_pages(ptr noundef %141, i32 noundef 0) #13
@@ -2058,7 +2050,7 @@ define dso_local ptr @rb_alloc(i32 noundef %0, i64 noundef %1, i32 noundef %2, i
   %152 = select i1 %148, i64 %149, i64 %151
   %153 = add i64 %147, %152
   %154 = lshr i64 %153, 12
-  %155 = getelementptr %struct.page, ptr %145, i64 %154
+  %155 = getelementptr [64 x i8], ptr %145, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
   store ptr null, ptr %156, align 8
   tail call void @__free_pages(ptr noundef %155, i32 noundef 0) #13
@@ -2091,7 +2083,7 @@ define dso_local void @rb_free(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %12 = select i1 %8, i64 %9, i64 %11
   %13 = add i64 %7, %12
   %14 = lshr i64 %13, 12
-  %15 = getelementptr %struct.page, ptr %5, i64 %14
+  %15 = getelementptr [64 x i8], ptr %5, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr null, ptr %16, align 8
   tail call void @__free_pages(ptr noundef %15, i32 noundef 0) #13
@@ -2106,7 +2098,7 @@ define dso_local void @rb_free(ptr noundef %0) local_unnamed_addr #0 align 16 {
 
 22:                                               ; preds = %22, %20
   %23 = phi i64 [ 0, %20 ], [ %39, %22 ]
-  %24 = getelementptr ptr, ptr %21, i64 %23
+  %24 = getelementptr [8 x i8], ptr %21, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = load i64, ptr @vmemmap_base, align 8
   %27 = inttoptr i64 %26 to ptr
@@ -2119,7 +2111,7 @@ define dso_local void @rb_free(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %34 = select i1 %30, i64 %31, i64 %33
   %35 = add i64 %29, %34
   %36 = lshr i64 %35, 12
-  %37 = getelementptr %struct.page, ptr %27, i64 %36
+  %37 = getelementptr [64 x i8], ptr %27, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store ptr null, ptr %38, align 8
   tail call void @__free_pages(ptr noundef %37, i32 noundef 0) #13
@@ -2174,7 +2166,7 @@ define dso_local ptr @perf_mmap_to_page(ptr noundef readonly captures(none) %0, 
   %32 = select i1 %28, i64 %29, i64 %31
   %33 = add i64 %27, %32
   %34 = lshr i64 %33, 12
-  %35 = getelementptr %struct.page, ptr %19, i64 %34
+  %35 = getelementptr [64 x i8], ptr %19, i64 %34
   br label %71
 
 36:                                               ; preds = %12, %2
@@ -2202,11 +2194,11 @@ define dso_local ptr @perf_mmap_to_page(ptr noundef readonly captures(none) %0, 
   %54 = select i1 %50, i64 %51, i64 %53
   %55 = add i64 %49, %54
   %56 = lshr i64 %55, 12
-  %57 = getelementptr %struct.page, ptr %44, i64 %56
+  %57 = getelementptr [64 x i8], ptr %44, i64 %56
   br label %71
 
 58:                                               ; preds = %41
-  %59 = getelementptr ptr, ptr %45, i64 %1
+  %59 = getelementptr [8 x i8], ptr %45, i64 %1
   %60 = load ptr, ptr %59, align 8
   %61 = ptrtoint ptr %60 to i64
   %62 = add i64 %61, 2147483648
@@ -2217,7 +2209,7 @@ define dso_local ptr @perf_mmap_to_page(ptr noundef readonly captures(none) %0, 
   %67 = select i1 %63, i64 %64, i64 %66
   %68 = add i64 %62, %67
   %69 = lshr i64 %68, 12
-  %70 = getelementptr %struct.page, ptr %44, i64 %69
+  %70 = getelementptr [64 x i8], ptr %44, i64 %69
   br label %71
 
 71:                                               ; preds = %58, %46, %36, %14, %6

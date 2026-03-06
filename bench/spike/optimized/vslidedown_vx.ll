@@ -141,7 +141,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24fast_rv32i_vslidedown
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %44 = lshr i64 %1, 15
   %45 = and i64 %44, 31
-  %46 = getelementptr inbounds nuw i64, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !140
   %48 = zext i64 %47 to i128
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 266800
@@ -527,7 +527,7 @@ define noundef i64 @_Z24fast_rv64i_vslidedown_vxP11processor_t6insn_tm(ptr nound
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %44 = lshr i64 %1, 15
   %45 = and i64 %44, 31
-  %46 = getelementptr inbounds nuw i64, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !140
   %48 = zext i64 %47 to i128
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 266800
@@ -793,7 +793,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z26logged_rv32i_vslidedo
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %44 = lshr i64 %1, 15
   %45 = and i64 %44, 31
-  %46 = getelementptr inbounds nuw i64, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !140
   %48 = zext i64 %47 to i128
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 266800
@@ -1061,7 +1061,7 @@ define noundef i64 @_Z26logged_rv64i_vslidedown_vxP11processor_t6insn_tm(ptr nou
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %44 = lshr i64 %1, 15
   %45 = and i64 %44, 31
-  %46 = getelementptr inbounds nuw i64, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !140
   %48 = zext i64 %47 to i128
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 266800
@@ -1343,7 +1343,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z24fast_rv32e_vslidedown
 
 51:                                               ; preds = %42
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %44
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %44
   %54 = load i64, ptr %53, align 8, !tbaa !140
   %55 = zext i64 %54 to i128
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 266800
@@ -1627,7 +1627,7 @@ define noundef i64 @_Z24fast_rv64e_vslidedown_vxP11processor_t6insn_tm(ptr nound
 
 51:                                               ; preds = %42
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %44
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %44
   %54 = load i64, ptr %53, align 8, !tbaa !140
   %55 = zext i64 %54 to i128
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 266800
@@ -1909,7 +1909,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z26logged_rv32e_vslidedo
 
 51:                                               ; preds = %42
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %44
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %44
   %54 = load i64, ptr %53, align 8, !tbaa !140
   %55 = zext i64 %54 to i128
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 266800
@@ -2193,7 +2193,7 @@ define noundef i64 @_Z26logged_rv64e_vslidedown_vxP11processor_t6insn_tm(ptr nou
 
 51:                                               ; preds = %42
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %53 = getelementptr inbounds nuw i64, ptr %52, i64 %44
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %44
   %54 = load i64, ptr %53, align 8, !tbaa !140
   %55 = zext i64 %54 to i128
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 266800

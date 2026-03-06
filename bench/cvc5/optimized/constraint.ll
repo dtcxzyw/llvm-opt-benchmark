@@ -797,7 +797,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit17
   %306 = phi i64 [ 0, %.lr.ph567 ], [ %564, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit339 ]
   %.041566 = phi i32 [ 0, %.lr.ph567 ], [ %563, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit339 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %307 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %305, i64 %306
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %305, i64 %306
   %308 = load ptr, ptr %307, align 8, !tbaa !20
   store ptr %308, ptr %18, align 8, !tbaa !20
   %309 = load i64, ptr %308, align 8
@@ -1529,7 +1529,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit352: ; preds =
   %619 = phi i64 [ 0, %.lr.ph569 ], [ %693, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit383 ]
   %.0568 = phi i32 [ 0, %.lr.ph569 ], [ %692, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit383 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %620 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %618, i64 %619
+  %620 = getelementptr inbounds nuw [8 x i8], ptr %618, i64 %619
   %621 = load ptr, ptr %620, align 8, !tbaa !20
   store ptr %621, ptr %22, align 8, !tbaa !20
   %622 = load i64, ptr %621, align 8
@@ -2378,7 +2378,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !30
   store ptr %42, ptr %4, align 8, !tbaa !29
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !25
   ret void
 

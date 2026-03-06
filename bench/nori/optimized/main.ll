@@ -63,7 +63,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.tbb::aligned_space" = type { [16 x %"struct.tbb::internal::type_with_alignment"] }
 %"struct.tbb::internal::type_with_alignment" = type { %"struct.tbb::internal::__TBB_machine_type_with_alignment_8" }
 %"struct.tbb::internal::__TBB_machine_type_with_alignment_8" = type { [2 x i32] }
-%"class.tbb::blocked_range" = type { i32, i32, i64 }
 %"struct.nori::TPoint.136" = type { %"class.Eigen::Matrix.137" }
 %"class.Eigen::Matrix.137" = type { %"class.Eigen::PlainObjectBase.138" }
 %"class.Eigen::PlainObjectBase.138" = type { %"class.Eigen::DenseStorage.145" }
@@ -301,7 +300,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %.1120 = phi i32 [ 0, %.lr.ph ], [ %.2106, %144 ]
   %.048119 = phi i32 [ 1, %.lr.ph ], [ %145, %144 ]
   %44 = sext i32 %.048119 to i64
-  %45 = getelementptr inbounds ptr, ptr %1, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %1, i64 %44
   %46 = load ptr, ptr %45, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #24
   %47 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16)
@@ -409,7 +408,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit75: ; 
 
 70:                                               ; preds = %60
   %71 = sext i32 %61 to i64
-  %72 = getelementptr inbounds ptr, ptr %1, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %1, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = call i32 @atoi(ptr noundef %73) #26
   store i32 %74, ptr @_ZL11threadCount, align 4
@@ -1444,7 +1443,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 45:                                               ; preds = %.lr.ph, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
   %.016 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ]
   %46 = load ptr, ptr %14, align 8
-  %47 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %46, i64 %.016
+  %47 = getelementptr inbounds [32 x i8], ptr %46, i64 %.016
   %48 = load ptr, ptr %43, align 8
   %49 = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %48, %49
@@ -2604,7 +2603,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8
   ret void
 }
@@ -2752,7 +2751,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
   %57 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
   %58 = sub nuw nsw i64 %9, %20
-  %59 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %57, i64 %58
+  %59 = getelementptr inbounds [32 x i8], ptr %57, i64 %58
   store ptr %59, ptr %12, align 8
   %.not11.i.i.i.i.i53 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i53, label %_ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit59, label %.lr.ph.i.i.i.i.i54
@@ -2917,7 +2916,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, %105
   store ptr %86, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i90, ptr %12, align 8
-  %106 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %86, i64 %82
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %86, i64 %82
   store ptr %106, ptr %10, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit
 
@@ -3544,7 +3543,7 @@ _ZNSt12_Vector_baseIN10filesystem4pathESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8
-  %97 = getelementptr inbounds nuw %"class.filesystem::path", ptr %22, i64 %16
+  %97 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %97, ptr %96, align 8
   ret void
 
@@ -3895,7 +3894,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8
   ret void
 
@@ -4410,7 +4409,7 @@ _ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divis
   %106 = phi i8 [ %121, %104 ], [ %100, %.lr.ph.i.i.i ]
   %107 = phi i8 [ %135, %104 ], [ %99, %.lr.ph.i.i.i ]
   %108 = zext i8 %106 to i64
-  %109 = getelementptr inbounds nuw %"class.tbb::blocked_range", ptr %93, i64 %108
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %111 = load i64, ptr %110, align 8
   %112 = load i32, ptr %109, align 8
@@ -4426,7 +4425,7 @@ _ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divis
   %120 = add i8 %106, 1
   %121 = and i8 %120, 7
   %122 = zext nneg i8 %121 to i64
-  %123 = getelementptr inbounds nuw %"class.tbb::blocked_range", ptr %93, i64 %122
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %122
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(16) %109, i64 16, i1 false)
   %124 = load i32, ptr %123, align 8
   store i32 %124, ptr %109, align 8
@@ -4482,7 +4481,7 @@ _ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to
 
 .noexc.i.i:                                       ; preds = %144
   %148 = zext nneg i8 %98 to i64
-  %149 = getelementptr inbounds nuw %"class.tbb::blocked_range", ptr %93, i64 %148
+  %149 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %148
   %150 = getelementptr inbounds nuw i8, ptr %92, i64 %148
   %151 = load i8, ptr %150, align 1
   %152 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3tbb8internal27allocate_continuation_proxy8allocateEm(ptr noundef nonnull align 8 dereferenceable(72) %0, i64 noundef 16)
@@ -4535,7 +4534,7 @@ _ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to
   br i1 %179, label %_ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divisibleEh.exit.i.i, label %_ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divisibleEh.exit.thread.i.i
 
 _ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divisibleEh.exit.i.i: ; preds = %175
-  %180 = getelementptr inbounds nuw %"class.tbb::blocked_range", ptr %93, i64 %176
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %176
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load i64, ptr %181, align 8
   %183 = load i32, ptr %180, align 8
@@ -4548,7 +4547,7 @@ _ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divis
 
 _ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divisibleEh.exit.thread.i.i: ; preds = %_ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divisibleEh.exit.i.i, %175, %_ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to_fillEh.exit._ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i
   %.pre-phi.i.i = phi i64 [ %.pre.i.i, %_ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to_fillEh.exit._ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i ], [ %176, %175 ], [ %176, %_ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE12is_divisibleEh.exit.i.i ]
-  %189 = getelementptr inbounds nuw %"class.tbb::blocked_range", ptr %93, i64 %.pre-phi.i.i
+  %189 = getelementptr inbounds nuw [16 x i8], ptr %93, i64 %.pre-phi.i.i
   call fastcc void @"_ZN3tbb10interface98internal9start_forINS_13blocked_rangeIiEEZZL6renderPN4nori5SceneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEvEUlRKS4_E_KNS_16auto_partitionerEE8run_bodyERS4_"(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(16) %189)
   %190 = add i8 %138, -1
   store i8 %190, ptr %91, align 2

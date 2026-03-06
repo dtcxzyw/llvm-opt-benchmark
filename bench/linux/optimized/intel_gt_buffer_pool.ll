@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.lock_class_key = type {}
-%struct.list_head = type { ptr, ptr }
 
 @node_create.__mkey = internal global %struct.lock_class_key zeroinitializer, align 1
 @node_create.__wkey = internal global %struct.lock_class_key zeroinitializer, align 1
@@ -46,7 +45,7 @@ define dso_local ptr @intel_gt_get_buffer_pool(ptr noundef %0, i64 noundef %1, i
   %10 = tail call i32 @llvm.umin.i32(i32 %9, i32 3)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4712
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr %struct.list_head, ptr %11, i64 %12
+  %13 = getelementptr [16 x i8], ptr %11, i64 %12
   tail call void @__rcu_read_lock() #5
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %13
@@ -196,7 +195,7 @@ define dso_local void @intel_gt_init_buffer_pool(ptr noundef initializes((4704, 
 
 4:                                                ; preds = %4, %1
   %5 = phi i64 [ 0, %1 ], [ %8, %4 ]
-  %6 = getelementptr %struct.list_head, ptr %3, i64 %5
+  %6 = getelementptr [16 x i8], ptr %3, i64 %5
   store volatile ptr %6, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store volatile ptr %6, ptr %7, align 8
@@ -258,7 +257,7 @@ define dso_local void @intel_gt_flush_buffer_pool(ptr noundef %0) local_unnamed_
   %8 = phi i64 [ 0, %1 ], [ %.be, %.backedge ]
   %9 = phi ptr [ null, %1 ], [ %.be12, %.backedge ]
   %10 = phi i8 [ 0, %1 ], [ %.be13, %.backedge ]
-  %11 = getelementptr %struct.list_head, ptr %4, i64 %8
+  %11 = getelementptr [16 x i8], ptr %4, i64 %8
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %11
   br i1 %13, label %46, label %14
@@ -393,7 +392,7 @@ define internal fastcc zeroext i1 @pool_free_older_than(ptr noundef %0, i64 noun
   %7 = phi i64 [ 0, %2 ], [ %51, %48 ]
   %8 = phi ptr [ null, %2 ], [ %50, %48 ]
   %9 = phi i8 [ 0, %2 ], [ %49, %48 ]
-  %10 = getelementptr %struct.list_head, ptr %3, i64 %7
+  %10 = getelementptr [16 x i8], ptr %3, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %10
   br i1 %12, label %48, label %13
@@ -558,7 +557,7 @@ define internal void @pool_retire(ptr noundef initializes((168, 184)) %0) #0 ali
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = tail call i32 @llvm.umin.i32(i32 %10, i32 3)
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr %struct.list_head, ptr %18, i64 %20
+  %21 = getelementptr [16 x i8], ptr %18, i64 %20
   %22 = getelementptr i8, ptr %3, i64 -4704
   %23 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #5
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 168

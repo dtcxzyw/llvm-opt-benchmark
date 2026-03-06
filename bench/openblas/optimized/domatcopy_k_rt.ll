@@ -45,9 +45,9 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %.0301.us.us = phi i64 [ %35, %.preheader329.split.us.split.us.split ], [ %11, %.preheader329.split.us.split.us ]
   %.1296.us.us = phi ptr [ %22, %.preheader329.split.us.split.us.split ], [ %3, %.preheader329.split.us.split.us ]
   %.1272.us.us = phi ptr [ %23, %.preheader329.split.us.split.us.split ], [ %5, %.preheader329.split.us.split.us ]
-  %19 = getelementptr inbounds double, ptr %.1296.us.us, i64 %4
-  %20 = getelementptr inbounds double, ptr %19, i64 %4
-  %21 = getelementptr inbounds double, ptr %20, i64 %4
+  %19 = getelementptr inbounds [8 x i8], ptr %.1296.us.us, i64 %4
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %4
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %4
   %22 = getelementptr inbounds i8, ptr %.1296.us.us, i64 %.idx
   %23 = getelementptr inbounds nuw i8, ptr %.1272.us.us, i64 32
   %24 = load double, ptr %.1296.us.us, align 8, !tbaa !3
@@ -73,11 +73,11 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %.0301.us = phi i64 [ %87, %86 ], [ %11, %.preheader329.split.us ]
   %.1296.us = phi ptr [ %40, %86 ], [ %3, %.preheader329.split.us ]
   %.1272.us = phi ptr [ %42, %86 ], [ %5, %.preheader329.split.us ]
-  %37 = getelementptr inbounds double, ptr %.1296.us, i64 %4
-  %38 = getelementptr inbounds double, ptr %37, i64 %4
-  %39 = getelementptr inbounds double, ptr %38, i64 %4
+  %37 = getelementptr inbounds [8 x i8], ptr %.1296.us, i64 %4
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %4
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %4
   %40 = getelementptr inbounds i8, ptr %.1296.us, i64 %.idx
-  %41 = getelementptr inbounds double, ptr %.1272.us, i64 %6
+  %41 = getelementptr inbounds [8 x i8], ptr %.1272.us, i64 %6
   %42 = getelementptr inbounds nuw i8, ptr %.1272.us, i64 32
   %43 = load double, ptr %.1296.us, align 8, !tbaa !3
   %44 = fmul double %2, %43
@@ -147,12 +147,12 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %.0301 = phi i64 [ %210, %209 ], [ %11, %.preheader329 ]
   %.1296 = phi ptr [ %162, %209 ], [ %3, %.preheader329 ]
   %.1272 = phi ptr [ %163, %209 ], [ %5, %.preheader329 ]
-  %89 = getelementptr inbounds double, ptr %.1296, i64 %4
-  %90 = getelementptr inbounds double, ptr %89, i64 %4
-  %91 = getelementptr inbounds double, ptr %90, i64 %4
-  %92 = getelementptr inbounds double, ptr %.1272, i64 %6
-  %93 = getelementptr inbounds double, ptr %92, i64 %6
-  %94 = getelementptr inbounds double, ptr %93, i64 %6
+  %89 = getelementptr inbounds [8 x i8], ptr %.1296, i64 %4
+  %90 = getelementptr inbounds [8 x i8], ptr %89, i64 %4
+  %91 = getelementptr inbounds [8 x i8], ptr %90, i64 %4
+  %92 = getelementptr inbounds [8 x i8], ptr %.1272, i64 %6
+  %93 = getelementptr inbounds [8 x i8], ptr %92, i64 %6
+  %94 = getelementptr inbounds [8 x i8], ptr %93, i64 %6
   br label %95
 
 95:                                               ; preds = %.preheader327, %95
@@ -241,10 +241,10 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %153 = getelementptr inbounds nuw i8, ptr %.1281, i64 32
   %154 = getelementptr inbounds nuw i8, ptr %.1278, i64 32
   %155 = getelementptr inbounds nuw i8, ptr %.1275, i64 32
-  %156 = getelementptr inbounds double, ptr %.1266, i64 %15
-  %157 = getelementptr inbounds double, ptr %.1263, i64 %15
-  %158 = getelementptr inbounds double, ptr %.0259, i64 %15
-  %159 = getelementptr inbounds double, ptr %.0, i64 %15
+  %156 = getelementptr inbounds [8 x i8], ptr %.1266, i64 %15
+  %157 = getelementptr inbounds [8 x i8], ptr %.1263, i64 %15
+  %158 = getelementptr inbounds [8 x i8], ptr %.0259, i64 %15
+  %159 = getelementptr inbounds [8 x i8], ptr %.0, i64 %15
   %160 = add nsw i64 %.0298, -1
   %161 = icmp samesign ugt i64 %.0298, 1
   br i1 %161, label %95, label %.loopexit328, !llvm.loop !9
@@ -335,18 +335,18 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   br i1 %.not314, label %282, label %213
 
 213:                                              ; preds = %.loopexit330
-  %214 = getelementptr inbounds double, ptr %.0295, i64 %4
+  %214 = getelementptr inbounds [8 x i8], ptr %.0295, i64 %4
   %.idx315 = shl nsw i64 %4, 4
   %215 = getelementptr inbounds i8, ptr %.0295, i64 %.idx315
-  %216 = getelementptr inbounds double, ptr %.0271, i64 %6
+  %216 = getelementptr inbounds [8 x i8], ptr %.0271, i64 %6
   %217 = getelementptr inbounds nuw i8, ptr %.0271, i64 16
   %218 = lshr i64 %1, 2
   %.not316 = icmp eq i64 %218, 0
   br i1 %.not316, label %.loopexit326, label %.preheader325
 
 .preheader325:                                    ; preds = %213
-  %219 = getelementptr inbounds double, ptr %216, i64 %6
-  %220 = getelementptr inbounds double, ptr %219, i64 %6
+  %219 = getelementptr inbounds [8 x i8], ptr %216, i64 %6
+  %220 = getelementptr inbounds [8 x i8], ptr %219, i64 %6
   %221 = shl nsw i64 %6, 2
   br label %222
 
@@ -394,10 +394,10 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   store double %247, ptr %248, align 8, !tbaa !3
   %249 = getelementptr inbounds nuw i8, ptr %.4290, i64 32
   %250 = getelementptr inbounds nuw i8, ptr %.4284, i64 32
-  %251 = getelementptr inbounds double, ptr %.4269, i64 %221
-  %252 = getelementptr inbounds double, ptr %.3, i64 %221
-  %253 = getelementptr inbounds double, ptr %.1260, i64 %221
-  %254 = getelementptr inbounds double, ptr %.1, i64 %221
+  %251 = getelementptr inbounds [8 x i8], ptr %.4269, i64 %221
+  %252 = getelementptr inbounds [8 x i8], ptr %.3, i64 %221
+  %253 = getelementptr inbounds [8 x i8], ptr %.1260, i64 %221
+  %254 = getelementptr inbounds [8 x i8], ptr %.1, i64 %221
   %255 = add nsw i64 %.1299, -1
   %256 = icmp samesign ugt i64 %.1299, 1
   br i1 %256, label %222, label %.loopexit326, !llvm.loop !10
@@ -460,14 +460,14 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   br i1 %.not320, label %323, label %284
 
 284:                                              ; preds = %282
-  %285 = getelementptr inbounds double, ptr %.2273, i64 %6
+  %285 = getelementptr inbounds [8 x i8], ptr %.2273, i64 %6
   %286 = lshr i64 %1, 2
   %.not321 = icmp eq i64 %286, 0
   br i1 %.not321, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %284
-  %287 = getelementptr inbounds double, ptr %285, i64 %6
-  %288 = getelementptr inbounds double, ptr %287, i64 %6
+  %287 = getelementptr inbounds [8 x i8], ptr %285, i64 %6
+  %288 = getelementptr inbounds [8 x i8], ptr %287, i64 %6
   %289 = shl nsw i64 %6, 2
   br label %290
 
@@ -494,10 +494,10 @@ define noundef i32 @domatcopy_k_rt(i64 noundef %0, i64 noundef %1, double nounde
   %301 = fmul double %2, %300
   store double %301, ptr %.2, align 8, !tbaa !3
   %302 = getelementptr inbounds nuw i8, ptr %.7293, i64 32
-  %303 = getelementptr inbounds double, ptr %.7, i64 %289
-  %304 = getelementptr inbounds double, ptr %.5, i64 %289
-  %305 = getelementptr inbounds double, ptr %.2261, i64 %289
-  %306 = getelementptr inbounds double, ptr %.2, i64 %289
+  %303 = getelementptr inbounds [8 x i8], ptr %.7, i64 %289
+  %304 = getelementptr inbounds [8 x i8], ptr %.5, i64 %289
+  %305 = getelementptr inbounds [8 x i8], ptr %.2261, i64 %289
+  %306 = getelementptr inbounds [8 x i8], ptr %.2, i64 %289
   %307 = add nsw i64 %.2300, -1
   %308 = icmp samesign ugt i64 %.2300, 1
   br i1 %308, label %290, label %.loopexit, !llvm.loop !11

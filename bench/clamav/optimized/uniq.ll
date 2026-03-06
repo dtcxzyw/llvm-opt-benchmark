@@ -3,8 +3,6 @@ source_filename = "bench/clamav/original/uniq.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.UNIQMD5 = type { ptr, i32, [16 x i8], [33 x i8] }
-
 @.str = private unnamed_addr constant [4 x i8] c"md5\00", align 1
 @__const.uniq_add.HEX = private unnamed_addr constant [16 x i8] c"0123456789abcdef", align 16
 
@@ -93,10 +91,10 @@ define range(i32 0, 27) i32 @uniq_add(ptr noundef captures(address_is_null) %0, 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load i8, ptr %6, align 16, !tbaa !15
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !16
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.UNIQMD5, ptr %19, i64 %27
+  %28 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = load i8, ptr %29, align 4, !tbaa !15
   %31 = icmp eq i8 %30, %23
@@ -120,15 +118,15 @@ define range(i32 0, 27) i32 @uniq_add(ptr noundef captures(address_is_null) %0, 
 
 .thread63:                                        ; preds = %35, %21
   %37 = zext i32 %18 to i64
-  %38 = getelementptr inbounds nuw %struct.UNIQMD5, ptr %19, i64 %37
+  %38 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 0, ptr %39, align 8, !tbaa !13
   %40 = load i8, ptr %6, align 16, !tbaa !15
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %22, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !16
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %struct.UNIQMD5, ptr %19, i64 %44
+  %45 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %47 = load i8, ptr %46, align 4, !tbaa !15
   %48 = icmp eq i8 %47, %40
@@ -142,7 +140,7 @@ define range(i32 0, 27) i32 @uniq_add(ptr noundef captures(address_is_null) %0, 
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %52 = load i8, ptr %6, align 16, !tbaa !15
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %53
   store i32 %18, ptr %54, align 4, !tbaa !16
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 28
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 12
@@ -241,11 +239,11 @@ define range(i32 0, 27) i32 @uniq_get(ptr noundef readonly captures(address_is_n
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %18 = load i8, ptr %6, align 16, !tbaa !15
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !16
   %22 = load ptr, ptr %0, align 8, !tbaa !3
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %struct.UNIQMD5, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %26 = load i8, ptr %25, align 4, !tbaa !15
   %.not24 = icmp eq i8 %26, %18

@@ -1925,7 +1925,7 @@ define dso_local void @_ZNK4Luau6Lexeme8toStringB5cxx11Ev(ptr dead_on_unwind noa
 
 158:                                              ; preds = %156
   %159 = zext nneg i32 %15 to i64
-  %160 = getelementptr ptr, ptr @_ZN4LuauL9kReservedE, i64 %159
+  %160 = getelementptr [8 x i8], ptr @_ZN4LuauL9kReservedE, i64 %159
   %161 = getelementptr i8, ptr %160, i64 -2320
   %162 = load ptr, ptr %161, align 8, !tbaa !25
   tail call void (ptr, ptr, ...) @_ZN4Luau6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.89, ptr noundef %162)
@@ -2073,7 +2073,7 @@ define dso_local void @_ZN4Luau12AstNameTableC2ERNS_9AllocatorE(ptr noundef nonn
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %2
   %.05.i.i.i = phi i64 [ %8, %.lr.ph.i.i.i ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %"struct.Luau::AstNameTable::Entry", ptr %6, i64 %.05.i.i.i
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %.05.i.i.i
   store ptr @.str.101, ptr %7, align 8, !tbaa !25
   %.sroa.5.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx8, align 8, !tbaa !4
@@ -2095,7 +2095,7 @@ _ZN4Luau12DenseHashSetINS_12AstNameTable5EntryENS1_9EntryHashESt8equal_toIS2_EEC
 
 13:                                               ; preds = %_ZN4Luau12DenseHashSetINS_12AstNameTable5EntryENS1_9EntryHashESt8equal_toIS2_EEC2ERKS2_m.exit, %21
   %indvars.iv = phi i64 [ 290, %_ZN4Luau12DenseHashSetINS_12AstNameTable5EntryENS1_9EntryHashESt8equal_toIS2_EEC2ERKS2_m.exit ], [ %indvars.iv.next, %21 ]
-  %14 = getelementptr ptr, ptr @_ZN4LuauL9kReservedE, i64 %indvars.iv
+  %14 = getelementptr [8 x i8], ptr @_ZN4LuauL9kReservedE, i64 %indvars.iv
   %15 = getelementptr i8, ptr %14, i64 -2320
   %16 = load ptr, ptr %15, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2210,7 +2210,7 @@ _ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i: ; preds = %._crit_edge
   %.07.lcssa.i.pn.i = phi i64 [ %.07.lcssa.i.i, %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i ], [ %44, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit27.thread.i ]
   %.02233.i = phi i64 [ 0, %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i ], [ %43, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit27.thread.i ]
   %.02334.i = and i64 %.07.lcssa.i.pn.i, %13
-  %31 = getelementptr inbounds nuw %"struct.Luau::AstNameTable::Entry", ptr %24, i64 %.02334.i
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %.02334.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !26
   %34 = icmp eq i32 %33, %26
@@ -3952,7 +3952,7 @@ _ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.
 _ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %51, ptr %13, align 8, !tbaa !88
   store ptr %55, ptr %14, align 8, !tbaa !83
-  %57 = getelementptr inbounds nuw i32, ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %49
   store ptr %57, ptr %39, align 8, !tbaa !89
   br label %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backERKS2_.exit
 
@@ -3977,7 +3977,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau5Lexer10isReservedERKNSt7__cxx1112b
 
 2:                                                ; preds = %2, %1
   %indvars.iv = phi i64 [ 290, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr ptr, ptr @_ZN4LuauL9kReservedE, i64 %indvars.iv
+  %3 = getelementptr [8 x i8], ptr @_ZN4LuauL9kReservedE, i64 %indvars.iv
   %4 = getelementptr i8, ptr %3, i64 -2320
   %5 = load ptr, ptr %4, align 8, !tbaa !25
   %6 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5) #25
@@ -5011,7 +5011,7 @@ _ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_
   %.pre = phi i32 [ %.pre.pre, %98 ], [ %17, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i ]
   store ptr %93, ptr %73, align 8, !tbaa !88
   store ptr %97, ptr %74, align 8, !tbaa !83
-  %99 = getelementptr inbounds nuw i32, ptr %93, i64 %91
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %91
   store ptr %99, ptr %76, align 8, !tbaa !89
   br label %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE9push_backEOS2_.exit
 
@@ -5184,7 +5184,7 @@ _ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.
 _ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %23, ptr %0, align 8, !tbaa !88
   store ptr %28, ptr %3, align 8, !tbaa !83
-  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !89
   br label %_ZNSt6vectorIN4Luau5Lexer9BraceTypeESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
 
@@ -6113,7 +6113,7 @@ _ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit: ; preds = %_ZNKSt8equal_
   %.07.lcssa.i.pn = phi i64 [ %.07.lcssa.i, %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit ], [ %40, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit27.thread ]
   %.02032 = phi i64 [ 0, %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit ], [ %39, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit27.thread ]
   %.02133 = and i64 %.07.lcssa.i.pn, %18
-  %30 = getelementptr inbounds nuw %"struct.Luau::AstNameTable::Entry", ptr %26, i64 %.02133
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %.02133
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !26
   %33 = icmp eq i32 %32, %9
@@ -6167,7 +6167,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableINS_12AstName
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %7
   %.05.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ 0, %7 ]
-  %10 = getelementptr inbounds nuw %"struct.Luau::AstNameTable::Entry", ptr %9, i64 %.05.i.i
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.05.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !46
   %11 = add nuw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %11, %spec.select
@@ -6206,7 +6206,7 @@ _ZN4Luau6detail14DenseHashTableINS_12AstNameTable5EntryES3_S3_NS0_16ItemInterfac
 
 17:                                               ; preds = %.lr.ph, %45
   %.025 = phi i64 [ 0, %.lr.ph ], [ %46, %45 ]
-  %18 = getelementptr inbounds nuw %"struct.Luau::AstNameTable::Entry", ptr %.pre29, i64 %.025
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %.pre29, i64 %.025
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !26
   %21 = load i32, ptr %.sroa.20.24..sroa_idx, align 8, !tbaa !26
@@ -6254,7 +6254,7 @@ _ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i: ; preds = %_ZNK4Luau12
   %.07.lcssa.i.pn.i = phi i64 [ %44, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit27.thread.i ], [ %.07.lcssa.i.pn.i.ph, %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i.preheader ]
   %.02233.i = phi i64 [ %43, %_ZNKSt8equal_toIN4Luau12AstNameTable5EntryEEclERKS2_S5_.exit27.thread.i ], [ 0, %_ZNK4Luau12AstNameTable9EntryHashclERKNS0_5EntryE.exit.i.preheader ]
   %.02334.i = and i64 %.07.lcssa.i.pn.i, %13
-  %33 = getelementptr inbounds nuw %"struct.Luau::AstNameTable::Entry", ptr %.sroa.0.0, i64 %.02334.i
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0, i64 %.02334.i
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !26
   %36 = icmp eq i32 %35, %.sroa.20.24.copyload

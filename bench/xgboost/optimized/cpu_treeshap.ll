@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.xgboost::PathElement" = type { i32, float, float, float }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -35,10 +34,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.xgboost::common::Span" = type { i64, ptr }
 %"class.xgboost::common::Span.38" = type { i64, ptr }
 %"class.xgboost::common::Span.39" = type { i64, ptr }
-%"struct.xgboost::RTreeNodeStat" = type { float, float, float, i32 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.dmlc::DateLogger" = type { [9 x i8] }
-%"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment" = type { i64, i64 }
 
 $_ZN4dmlc15LogMessageFatalD2Ev = comdat any
 
@@ -127,7 +124,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN7xgboost10ExtendPathEPNS_11PathElementEjffi(ptr noundef captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %6
   store i32 %4, ptr %7, align 4, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float %2, ptr %8, align 4, !tbaa !9
@@ -153,7 +150,7 @@ define void @_ZN7xgboost10ExtendPathEPNS_11PathElementEjffi(ptr noundef captures
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv32 = phi i64 [ %6, %.lr.ph ], [ %indvars.iv.next33, %17 ]
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %20 = load float, ptr %19, align 4, !tbaa !11
   %21 = fmul float %3, %20
@@ -161,7 +158,7 @@ define void @_ZN7xgboost10ExtendPathEPNS_11PathElementEjffi(ptr noundef captures
   %23 = uitofp nneg i32 %22 to float
   %24 = fmul float %21, %23
   %25 = fdiv float %24, %15
-  %26 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %0, i64 %indvars.iv32
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv32
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %28 = load float, ptr %27, align 4, !tbaa !11
   %29 = fadd float %28, %25
@@ -182,7 +179,7 @@ define void @_ZN7xgboost10ExtendPathEPNS_11PathElementEjffi(ptr noundef captures
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN7xgboost10UnwindPathEPNS_11PathElementEjj(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = zext i32 %2 to i64
-  %5 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load float, ptr %6, align 4, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -203,7 +200,7 @@ define void @_ZN7xgboost10UnwindPathEPNS_11PathElementEjj(ptr noundef captures(n
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %15 = zext i32 %1 to i64
-  %16 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %18 = load float, ptr %17, align 4, !tbaa !11
   %19 = zext nneg i32 %.04951 to i64
@@ -213,7 +210,7 @@ define void @_ZN7xgboost10UnwindPathEPNS_11PathElementEjj(ptr noundef captures(n
   %indvars.iv59 = phi i64 [ %19, %.lr.ph.split.us.preheader ], [ %indvars.iv.next60, %.lr.ph.split.us ]
   %.04853.us = phi float [ %18, %.lr.ph.split.us.preheader ], [ %33, %.lr.ph.split.us ]
   %.049.in52.us = phi i32 [ %1, %.lr.ph.split.us.preheader ], [ %28, %.lr.ph.split.us ]
-  %20 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %0, i64 %indvars.iv59
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv59
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %22 = load float, ptr %21, align 4, !tbaa !11
   %23 = fmul float %.04853.us, %13
@@ -242,7 +239,7 @@ define void @_ZN7xgboost10UnwindPathEPNS_11PathElementEjj(ptr noundef captures(n
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ %14, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %35 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %0, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %37 = load float, ptr %36, align 4, !tbaa !11
   %38 = fmul float %37, %13
@@ -262,9 +259,9 @@ define void @_ZN7xgboost10UnwindPathEPNS_11PathElementEjj(ptr noundef captures(n
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.lr.ph56
   %indvars.iv62 = phi i64 [ %4, %.lr.ph56.preheader ], [ %indvars.iv.next63, %.lr.ph56 ]
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %44 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %0, i64 %indvars.iv.next63
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv.next63
   %45 = load i32, ptr %44, align 4, !tbaa !3
-  %46 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %0, i64 %indvars.iv62
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv62
   store i32 %45, ptr %46, align 4, !tbaa !3
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %48 = load float, ptr %47, align 4, !tbaa !9
@@ -284,7 +281,7 @@ define noundef float @_ZN7xgboost14UnwoundPathSumEPKNS_11PathElementEjj(ptr noun
   %5 = alloca i32, align 4
   %6 = alloca %"class.dmlc::LogMessageFatal", align 1
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load float, ptr %9, align 4, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -302,7 +299,7 @@ define noundef float @_ZN7xgboost14UnwoundPathSumEPKNS_11PathElementEjj(ptr noun
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %18 = zext i32 %1 to i64
-  %19 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %21 = load float, ptr %20, align 4, !tbaa !11
   %22 = zext nneg i32 %.03860 to i64
@@ -318,7 +315,7 @@ define noundef float @_ZN7xgboost14UnwoundPathSumEPKNS_11PathElementEjj(ptr noun
   %25 = fmul float %10, %24
   %26 = fdiv float %23, %25
   %27 = fadd float %.03961.us, %26
-  %28 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %0, i64 %indvars.iv78
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv78
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = load float, ptr %29, align 4, !tbaa !11
   %31 = trunc nuw nsw i64 %indvars.iv78 to i32
@@ -339,7 +336,7 @@ define noundef float @_ZN7xgboost14UnwoundPathSumEPKNS_11PathElementEjj(ptr noun
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.lr.ph.split.split.us
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.lr.ph.split.split.us ], [ %38, %.lr.ph.split ]
   %.03961.us66 = phi float [ %48, %.lr.ph.split.split.us ], [ 0.000000e+00, %.lr.ph.split ]
-  %39 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %0, i64 %indvars.iv75
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv75
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = load float, ptr %40, align 4, !tbaa !11
   %42 = fdiv float %41, %12
@@ -360,7 +357,7 @@ define noundef float @_ZN7xgboost14UnwoundPathSumEPKNS_11PathElementEjj(ptr noun
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit ], [ %38, %.lr.ph.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %49 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !17
@@ -628,7 +625,7 @@ define void @_ZN7xgboost8TreeShapERKNS_7RegTreeERKNS0_4FVecEPfijPNS_11PathElemen
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %16 = sext i32 %3 to i64
   %17 = load ptr, ptr %15, align 8, !tbaa !33
-  %18 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [20 x i8], ptr %17, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %13, ptr noundef nonnull align 4 dereferenceable(20) %18, i64 20, i1 false), !tbaa.struct !36
   %19 = fcmp oeq float %11, 0.000000e+00
   br i1 %19, label %.loopexit, label %_ZSt4copyIPN7xgboost11PathElementES2_ET0_T_S4_S3_.exit
@@ -646,7 +643,7 @@ _ZSt4copyIPN7xgboost11PathElementES2_ET0_T_S4_S3_.exit: ; preds = %12
   br i1 %or.cond, label %_ZN7xgboost10ExtendPathEPNS_11PathElementEjffi.exit, label %25
 
 25:                                               ; preds = %_ZSt4copyIPN7xgboost11PathElementES2_ET0_T_S4_S3_.exit
-  %26 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %20
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %20
   store i32 %8, ptr %26, align 4, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store float %6, ptr %27, align 4, !tbaa !9
@@ -669,7 +666,7 @@ _ZSt4copyIPN7xgboost11PathElementES2_ET0_T_S4_S3_.exit: ; preds = %12
 36:                                               ; preds = %36, %.lr.ph.i
   %indvars.iv32.i = phi i64 [ %20, %.lr.ph.i ], [ %indvars.iv.next33.i, %36 ]
   %indvars.iv.i = phi i64 [ %35, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
-  %37 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %39 = load float, ptr %38, align 4, !tbaa !11
   %40 = fmul float %7, %39
@@ -677,7 +674,7 @@ _ZSt4copyIPN7xgboost11PathElementES2_ET0_T_S4_S3_.exit: ; preds = %12
   %42 = uitofp nneg i32 %41 to float
   %43 = fmul float %40, %42
   %44 = fdiv float %43, %34
-  %45 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %indvars.iv32.i
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv32.i
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %47 = load float, ptr %46, align 4, !tbaa !11
   %48 = fadd float %47, %44
@@ -716,7 +713,7 @@ _ZN7xgboost10ExtendPathEPNS_11PathElementEjffi.exit: ; preds = %36, %25, %_ZSt4c
   %.0106122 = phi i32 [ 1, %.lr.ph ], [ %79, %63 ]
   %64 = tail call noundef float @_ZN7xgboost14UnwoundPathSumEPKNS_11PathElementEjj(ptr noundef nonnull %22, i32 noundef %4, i32 noundef %.0106122)
   %65 = zext i32 %.0106122 to i64
-  %66 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load float, ptr %67, align 4, !tbaa !10
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 4
@@ -726,7 +723,7 @@ _ZN7xgboost10ExtendPathEPNS_11PathElementEjffi.exit: ; preds = %36, %25, %_ZSt4c
   %73 = fmul float %62, %72
   %74 = load i32, ptr %66, align 4, !tbaa !3
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds float, ptr %2, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %2, i64 %75
   %77 = load float, ptr %76, align 4, !tbaa !18
   %78 = tail call float @llvm.fmuladd.f32(float %73, float %11, float %77)
   store float %78, ptr %76, align 4, !tbaa !18
@@ -773,7 +770,7 @@ _ZN7xgboost10ExtendPathEPNS_11PathElementEjffi.exit: ; preds = %36, %25, %_ZSt4c
   store ptr %100, ptr %.sroa.4.0..sroa_idx1.i, align 8, !tbaa !57, !alias.scope !41
   %106 = zext nneg i32 %57 to i64
   %107 = load ptr, ptr %1, align 8, !tbaa !58
-  %108 = getelementptr inbounds nuw float, ptr %107, i64 %106
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %106
   %109 = load float, ptr %108, align 4, !tbaa !18
   %110 = fcmp uno float %109, 0.000000e+00
   br i1 %110, label %111, label %116
@@ -803,16 +800,16 @@ _ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22Cate
   %124 = select i1 %123, i32 %121, i32 %122
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %126 = load ptr, ptr %125, align 8, !tbaa !61
-  %127 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %126, i64 %16
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %126, i64 %16
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %129 = load float, ptr %128, align 4, !tbaa !64
   %130 = sext i32 %.0.i to i64
-  %131 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %126, i64 %130
+  %131 = getelementptr inbounds nuw [16 x i8], ptr %126, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %133 = load float, ptr %132, align 4, !tbaa !64
   %134 = fdiv float %133, %129
   %135 = sext i32 %124 to i64
-  %136 = getelementptr inbounds nuw %"struct.xgboost::RTreeNodeStat", ptr %126, i64 %135
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %126, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %138 = load float, ptr %137, align 4, !tbaa !64
   %139 = fdiv float %138, %129
@@ -821,7 +818,7 @@ _ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22Cate
 140:                                              ; preds = %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit, %145
   %.0102120 = phi i32 [ 0, %_ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22CategoricalSplitMatrixE.exit ], [ %146, %145 ]
   %141 = zext i32 %.0102120 to i64
-  %142 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %141
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !3
   %144 = icmp eq i32 %143, %57
   br i1 %144, label %147, label %145
@@ -839,7 +836,7 @@ _ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22Cate
 
 149:                                              ; preds = %147
   %150 = zext i32 %.0102.lcssa to i64
-  %151 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %150
+  %151 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %153 = load float, ptr %152, align 4, !tbaa !9
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -858,7 +855,7 @@ _ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22Cate
   br label %.lr.ph.split.i
 
 .lr.ph.split.us.preheader.i:                      ; preds = %.lr.ph.i114
-  %160 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %20
+  %160 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %20
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 12
   %162 = load float, ptr %161, align 4, !tbaa !11
   %163 = zext nneg i32 %.04951.i to i64
@@ -868,7 +865,7 @@ _ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22Cate
   %indvars.iv59.i = phi i64 [ %163, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next60.i, %.lr.ph.split.us.i ]
   %.04853.us.i = phi float [ %162, %.lr.ph.split.us.preheader.i ], [ %177, %.lr.ph.split.us.i ]
   %.049.in52.us.i = phi i32 [ %4, %.lr.ph.split.us.preheader.i ], [ %172, %.lr.ph.split.us.i ]
-  %164 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %indvars.iv59.i
+  %164 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv59.i
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 12
   %166 = load float, ptr %165, align 4, !tbaa !11
   %167 = fmul float %.04853.us.i, %158
@@ -893,7 +890,7 @@ _ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22Cate
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.split.preheader.i
   %indvars.iv.i115 = phi i64 [ %159, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i116, %.lr.ph.split.i ]
-  %179 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %indvars.iv.i115
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv.i115
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 12
   %181 = load float, ptr %180, align 4, !tbaa !11
   %182 = fmul float %181, %158
@@ -910,9 +907,9 @@ _ZN7xgboost9predictor11GetNextNodeILb1ELb1EEEiRKNS_7RegTree4NodeEifbRKNS2_22Cate
 .lr.ph56.i:                                       ; preds = %.preheader.i, %.lr.ph56.i
   %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %.lr.ph56.i ], [ %150, %.preheader.i ]
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
-  %188 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %indvars.iv.next63.i
+  %188 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv.next63.i
   %189 = load i32, ptr %188, align 4, !tbaa !3
-  %190 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %22, i64 %indvars.iv62.i
+  %190 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %indvars.iv62.i
   store i32 %189, ptr %190, align 4, !tbaa !3
   %191 = getelementptr inbounds nuw i8, ptr %188, i64 4
   %192 = load float, ptr %191, align 4, !tbaa !9
@@ -1010,7 +1007,7 @@ _ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ;
 .noexc16:                                         ; preds = %_ZNSt6vectorIN7xgboost11PathElementESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %29 = shl nuw nsw i64 %26, 4
   %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #31
-  %31 = getelementptr inbounds nuw %"struct.xgboost::PathElement", ptr %30, i64 %26
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %32 = add nsw i64 %26, -1
   %33 = icmp eq i64 %32, 0
@@ -1071,7 +1068,7 @@ define linkonce_odr noundef i32 @_ZNK7xgboost7RegTree8MaxDepthEi(ptr noundef non
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !33
-  %6 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [20 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !39
   %9 = icmp eq i32 %8, -1
@@ -1084,7 +1081,7 @@ common.ret7:                                      ; preds = %2, %10
 10:                                               ; preds = %2
   %11 = tail call noundef i32 @_ZNK7xgboost7RegTree8MaxDepthEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %8)
   %12 = load ptr, ptr %3, align 8, !tbaa !33
-  %13 = getelementptr inbounds nuw %"class.xgboost::RegTree::Node", ptr %12, i64 %4
+  %13 = getelementptr inbounds nuw [20 x i8], ptr %12, i64 %4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 4, !tbaa !70
   %16 = tail call noundef i32 @_ZNK7xgboost7RegTree8MaxDepthEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %15)
@@ -1330,7 +1327,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !47
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -1386,7 +1383,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !92
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48
@@ -2566,7 +2563,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
 _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744073709551615EEixEm.exit13: ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !129
-  %22 = getelementptr inbounds nuw %"struct.xgboost::RegTree::CategoricalSplitMatrix::Segment", ptr %21, i64 %16
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %16
   %23 = load i64, ptr %22, align 8, !tbaa !130
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !132
@@ -2606,7 +2603,7 @@ _ZNK7xgboost6common4SpanIKNS_7RegTree22CategoricalSplitMatrix7SegmentELm18446744
   unreachable
 
 _ZNK7xgboost6common4SpanIKjLm18446744073709551615EE7subspanEmm.exit: ; preds = %35
-  %42 = getelementptr inbounds nuw i32, ptr %37, i64 %23
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %23
   %43 = fcmp olt float %2, 0.000000e+00
   %44 = fcmp oge float %2, 0x4170000000000000
   %45 = or i1 %43, %44
@@ -2624,7 +2621,7 @@ _ZNK7xgboost6common4SpanIKjLm18446744073709551615EE7subspanEmm.exit: ; preds = %
   %52 = lshr i64 %51, 5
   %53 = and i32 %50, 31
   %54 = xor i32 %53, 31
-  %55 = getelementptr inbounds nuw i32, ptr %42, i64 %52
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %52
   %56 = load i32, ptr %55, align 4, !tbaa !17
   %57 = shl nuw i32 1, %54
   %58 = and i32 %56, %57

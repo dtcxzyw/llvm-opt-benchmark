@@ -3,10 +3,6 @@ source_filename = "bench/llvm/original/LazyRandomTypeCollection.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry" = type { %"class.llvm::codeview::CVRecord", i32, %"class.llvm::StringRef" }
-%"class.llvm::codeview::CVRecord" = type { %"class.llvm::ArrayRef" }
-%"class.llvm::ArrayRef" = type { ptr, i64 }
-%"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::Error" = type { ptr }
 %class.anon.24 = type { i8 }
 %"class.llvm::BinaryStreamRef" = type { %"class.llvm::BinaryStreamRefBase" }
@@ -25,6 +21,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.9" = type { %"struct.std::_Optional_payload_base.base.11", [7 x i8] }
 %"struct.std::_Optional_payload_base.base.11" = type <{ %"union.std::_Optional_payload_base<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>>::_Storage" = type { %"class.llvm::codeview::CVRecord" }
+%"class.llvm::codeview::CVRecord" = type { %"class.llvm::ArrayRef" }
+%"class.llvm::ArrayRef" = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -34,12 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::FixedStreamArrayIterator" = type <{ %"class.llvm::FixedStreamArray", i32, [4 x i8] }>
 %"class.llvm::FixedStreamArray" = type { %"class.llvm::BinaryStreamRef" }
 %"class.llvm::VarStreamArrayIterator" = type { %"class.llvm::codeview::CVRecord", %"class.llvm::BinaryStreamRef", [8 x i8], ptr, i32, i32, i8, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.27" }
-%"struct.std::_Head_base.27" = type { ptr }
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
 %"class.llvm::Expected" = type { %union.anon.59, i8, [7 x i8] }
@@ -290,7 +282,7 @@ _ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEEC2ERKS3_.exit: ; preds
   br i1 %62, label %63, label %_ZNSt6vectorIN4llvm8codeview24LazyRandomTypeCollection10CacheEntryESaIS3_EE6resizeEm.exit
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %48, i64 %52
+  %64 = getelementptr inbounds nuw [40 x i8], ptr %48, i64 %52
   %.not.i.i = icmp eq ptr %49, %64
   br i1 %.not.i.i, label %_ZNSt6vectorIN4llvm8codeview24LazyRandomTypeCollection10CacheEntryESaIS3_EE6resizeEm.exit, label %65
 
@@ -1125,7 +1117,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2, %_ZL5errorON4llv
   %20 = add nsw i32 %19, -4096
   %21 = zext i32 %20 to i64
   %22 = load ptr, ptr %18, align 8, !tbaa !39
-  %23 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !80
   ret i32 %25
@@ -1199,7 +1191,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2, %_ZN4llvm5ErrorD
   %20 = and i32 %1, 2147483647
   %21 = add nsw i32 %20, -4096
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %22
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !68
   %.sroa.01.0.copyload = load ptr, ptr %23, align 8, !tbaa !88
@@ -1270,7 +1262,7 @@ _ZN4llvm8codeview24LazyRandomTypeCollection16ensureTypeExistsENS0_9TypeIndexE.ex
   %26 = add nsw i32 %25, -4096
   %27 = zext i32 %26 to i64
   %28 = load ptr, ptr %24, align 8, !tbaa !39
-  %29 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %28, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !94
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %30, align 8, !tbaa !89
@@ -1371,7 +1363,7 @@ _ZN4llvm8codeview24LazyRandomTypeCollection16ensureTypeExistsENS0_9TypeIndexE.ex
   br i1 %48, label %49, label %_ZN4llvm8codeview24LazyRandomTypeCollection17ensureCapacityForENS0_9TypeIndexE.exit
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %39, i64 %36
+  %50 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %36
   %.not.i.i.i10 = icmp eq ptr %38, %50
   br i1 %.not.i.i.i10, label %_ZN4llvm8codeview24LazyRandomTypeCollection17ensureCapacityForENS0_9TypeIndexE.exit, label %51
 
@@ -1383,7 +1375,7 @@ _ZN4llvm8codeview24LazyRandomTypeCollection17ensureCapacityForENS0_9TypeIndexE.e
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %53 = zext i32 %26 to i64
   %54 = load ptr, ptr %52, align 8, !tbaa !39
-  %55 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %54, i64 %53
+  %55 = getelementptr inbounds nuw [40 x i8], ptr %54, i64 %53
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = load ptr, ptr %56, align 8, !tbaa !98
   %58 = icmp eq ptr %57, null
@@ -1418,7 +1410,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %72 = load ptr, ptr %52, align 8, !tbaa !39
-  %73 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %72, i64 %53
+  %73 = getelementptr inbounds nuw [40 x i8], ptr %72, i64 %53
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store ptr %65, ptr %74, align 8, !tbaa !88
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 32
@@ -1471,7 +1463,7 @@ define dso_local void @_ZN4llvm8codeview24LazyRandomTypeCollection17ensureCapaci
   br i1 %25, label %26, label %_ZNSt6vectorIN4llvm8codeview24LazyRandomTypeCollection10CacheEntryESaIS3_EE6resizeEm.exit
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %16, i64 %13
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %13
   %.not.i.i = icmp eq ptr %15, %27
   br i1 %.not.i.i, label %_ZNSt6vectorIN4llvm8codeview24LazyRandomTypeCollection10CacheEntryESaIS3_EE6resizeEm.exit, label %28
 
@@ -1506,7 +1498,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8codeview24LazyRandomTypeCollection
   br i1 %.not, label %16, label %_ZNK4llvm8codeview8CVRecordINS0_12TypeLeafKindEE5validEv.exit
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %8, i64 %15
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !103
   %20 = icmp ult i64 %19, 4
@@ -2908,7 +2900,7 @@ define dso_local void @_ZN4llvm8codeview24LazyRandomTypeCollection15fullScanForT
   %17 = add nsw i32 %16, -4096
   %18 = zext i32 %17 to i64
   %19 = load ptr, ptr %14, align 8, !tbaa !39
-  %20 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 8, !tbaa !80
   %23 = add i32 %.0.copyload.i.i.i.i.i, 1
@@ -3110,7 +3102,7 @@ _ZN4llvm22VarStreamArrayIteratorINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_2
   br i1 %116, label %117, label %_ZN4llvm8codeview24LazyRandomTypeCollection17ensureCapacityForENS0_9TypeIndexE.exit
 
 117:                                              ; preds = %115
-  %118 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %.pre33, i64 %106
+  %118 = getelementptr inbounds nuw [40 x i8], ptr %.pre33, i64 %106
   %.not.i.i.i5 = icmp eq ptr %107, %118
   br i1 %.not.i.i.i5, label %_ZN4llvm8codeview24LazyRandomTypeCollection17ensureCapacityForENS0_9TypeIndexE.exit, label %119
 
@@ -3125,11 +3117,11 @@ _ZN4llvm8codeview24LazyRandomTypeCollection17ensureCapacityForENS0_9TypeIndexE.e
   store i32 %.sroa.speculated, ptr %94, align 4, !tbaa !34
   %121 = add nsw i32 %97, -4096
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %120, i64 %122
+  %123 = getelementptr inbounds nuw [40 x i8], ptr %120, i64 %122
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !94
   %124 = load i32, ptr %95, align 4, !tbaa !162
   %125 = load ptr, ptr %92, align 8, !tbaa !39
-  %126 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %125, i64 %122
+  %126 = getelementptr inbounds nuw [40 x i8], ptr %125, i64 %122
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store i32 %124, ptr %127, align 8, !tbaa !80
   %128 = load i32, ptr %11, align 8, !tbaa !40
@@ -3258,7 +3250,7 @@ define dso_local void @_ZN4llvm8codeview24LazyRandomTypeCollection10visitRangeEN
   br i1 %30, label %31, label %_ZN4llvm8codeview24LazyRandomTypeCollection17ensureCapacityForENS0_9TypeIndexE.exit
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %21, i64 %18
+  %32 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %18
   %.not.i.i.i = icmp eq ptr %20, %32
   br i1 %.not.i.i.i, label %_ZN4llvm8codeview24LazyRandomTypeCollection17ensureCapacityForENS0_9TypeIndexE.exit, label %33
 
@@ -3286,11 +3278,11 @@ _ZN4llvm8codeview24LazyRandomTypeCollection17ensureCapacityForENS0_9TypeIndexE.e
   %40 = add nsw i32 %39, -4096
   %41 = zext i32 %40 to i64
   %42 = load ptr, ptr %35, align 8, !tbaa !39
-  %43 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [40 x i8], ptr %42, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !94
   %44 = load i32, ptr %36, align 4, !tbaa !162
   %45 = load ptr, ptr %35, align 8, !tbaa !39
-  %46 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %45, i64 %41
+  %46 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %41
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i32 %44, ptr %47, align 8, !tbaa !80
   %48 = load i32, ptr %37, align 8, !tbaa !40
@@ -3987,7 +3979,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !210
   store ptr %67, ptr %41, align 8, !tbaa !207
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !209
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -4137,7 +4129,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !210
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !207
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !209
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -4260,7 +4252,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !210
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !207
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !209
   ret void
 }
@@ -4617,9 +4609,9 @@ _ZNSt6vectorIN4llvm8codeview24LazyRandomTypeCollection10CacheEntryESaIS3_EE11_S_
 
 _ZNSt12_Vector_baseIN4llvm8codeview24LazyRandomTypeCollection10CacheEntryESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN4llvm8codeview24LazyRandomTypeCollection10CacheEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !39
-  %33 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !36
-  %34 = getelementptr inbounds nuw %"struct.llvm::codeview::LazyRandomTypeCollection::CacheEntry", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !176
   br label %35
 

@@ -104,7 +104,7 @@ define internal void @_ZL11_LMBCSCloseP10UConverter(ptr noundef captures(none) %
 
 .preheader:                                       ; preds = %1, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   %.not13 = icmp eq ptr %5, null
   br i1 %.not13, label %7, label %6
@@ -510,7 +510,7 @@ _ZL17FindLMBCSUniRangeDs.exit.thread:             ; preds = %56, %_ZL17FindLMBCS
 
 88:                                               ; preds = %86
   %89 = zext nneg i8 %59 to i64
-  %90 = getelementptr inbounds nuw ptr, ptr %17, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %92 = zext i16 %.fr438 to i32
@@ -826,7 +826,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit250: ; preds = %
   %.12367398 = phi i8 [ %.12367.ph, %.thread394 ], [ 0, %219 ]
   %225 = load i8, ptr %23, align 1, !tbaa !38
   %226 = zext i8 %225 to i64
-  %227 = getelementptr inbounds nuw ptr, ptr %17, i64 %226
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %226
   %228 = load ptr, ptr %227, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %229 = call i32 @ucnv_MBCSFromUChar32_77(ptr noundef %228, i32 noundef %150, ptr noundef nonnull %8, i8 noundef signext 0)
@@ -930,7 +930,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit273: ; preds = %
 
 273:                                              ; preds = %145
   %274 = zext i8 %146 to i64
-  %275 = getelementptr inbounds nuw ptr, ptr %17, i64 %274
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %274
   %276 = load ptr, ptr %275, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %277 = zext i16 %.fr438 to i32
@@ -1058,7 +1058,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit286: ; preds = %
 
 327:                                              ; preds = %324, %321, %325
   %328 = zext i8 %320 to i64
-  %329 = getelementptr inbounds nuw ptr, ptr %17, i64 %328
+  %329 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %328
   %330 = load ptr, ptr %329, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %331 = zext i16 %.fr438 to i32
@@ -1181,7 +1181,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit299: ; preds = %
 
 385:                                              ; preds = %381, %378
   %386 = zext i8 %.5361 to i64
-  %387 = getelementptr inbounds nuw ptr, ptr %17, i64 %386
+  %387 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %386
   %388 = load ptr, ptr %387, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %389 = zext i16 %.fr438 to i32
@@ -1300,7 +1300,7 @@ _ZL21LMBCSConversionWorkerP19UConverterDataLMBCShPhPDsS1_Pa.exit312: ; preds = %
   %.0181443 = phi i8 [ %435, %.thread419 ], [ %490, %489 ]
   %.8364442 = phi i8 [ %.5361, %.thread419 ], [ %.9365, %489 ]
   %443 = zext nneg i8 %.0181443 to i64
-  %444 = getelementptr inbounds nuw ptr, ptr %17, i64 %443
+  %444 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %443
   %445 = load ptr, ptr %444, align 8, !tbaa !12
   %.not218 = icmp eq ptr %445, null
   br i1 %.not218, label %489, label %446
@@ -1618,7 +1618,7 @@ define internal noundef ptr @_ZL15_LMBCSSafeClonePK10UConverterPvPiP10UErrorCode
 
 12:                                               ; preds = %8, %16
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %16 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %16, label %15
@@ -1681,10 +1681,10 @@ define internal fastcc void @_ZL16_LMBCSOpenWorkerP10UConverterP18UConverterLoad
   br i1 %.not27.not, label %19, label %24
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw ptr, ptr @_ZL20OptGroupByteToCPName, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZL20OptGroupByteToCPName, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !61
   %22 = call ptr @ucnv_loadSharedData_77(ptr noundef %21, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %23 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store ptr %22, ptr %23, align 8, !tbaa !12
   br label %24
 
@@ -1710,7 +1710,7 @@ define internal fastcc void @_ZL16_LMBCSOpenWorkerP10UConverterP18UConverterLoad
 
 .preheader.i:                                     ; preds = %.critedge29, %32
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %32 ], [ 0, %.critedge29 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8, !tbaa !12
   %.not13.i = icmp eq ptr %30, null
   br i1 %.not13.i, label %32, label %31
@@ -1906,7 +1906,7 @@ switch.early.test:                                ; preds = %9
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !3
   %42 = zext nneg i8 %.fr to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !12
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %47
@@ -1971,7 +1971,7 @@ switch.early.test:                                ; preds = %9
   %74 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %75 = load ptr, ptr %74, align 8, !tbaa !68
   %76 = zext i8 %71 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !32
   %79 = and i32 %78, 65535
   br label %.thread
@@ -1994,7 +1994,7 @@ switch.early.test:                                ; preds = %9
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 160
   %90 = load i8, ptr %89, align 8, !tbaa !48
   %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw ptr, ptr %88, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !12
   %94 = icmp ugt i8 %90, 15
   br i1 %94, label %95, label %115
@@ -2043,7 +2043,7 @@ switch.early.test:                                ; preds = %9
   %116 = getelementptr inbounds nuw i8, ptr %93, i64 56
   %117 = load ptr, ptr %116, align 8, !tbaa !68
   %118 = zext i8 %.fr to i64
-  %119 = getelementptr inbounds nuw i32, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !32
   %121 = and i32 %120, 65535
   br label %.thread

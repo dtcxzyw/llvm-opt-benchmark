@@ -2475,7 +2475,7 @@ thread-pre-split:                                 ; preds = %43, %118, %60
   %switch.tableidx = add i8 %711, -1
   %789 = icmp ult i8 %switch.tableidx, 3
   %790 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_dvb_s2_table, i64 %790
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_dvb_s2_table, i64 %790
   br label %.lr.ph395.i
 
 .lr.ph395.i:                                      ; preds = %.lr.ph395.i.preheader, %792

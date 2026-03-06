@@ -1186,7 +1186,7 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
   %.15571 = phi ptr [ %.05475, %.preheader ], [ %32, %25 ]
   %20 = load i8, ptr %.15571, align 1, !tbaa !12
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr @sfparse_base64decode.index_tbl, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @sfparse_base64decode.index_tbl, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !25
   %.not60 = icmp eq i32 %23, -1
   br i1 %.not60, label %24, label %25
@@ -1267,14 +1267,14 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
   %62 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 1
   %63 = load i8, ptr %.054.lcssa, align 1, !tbaa !12
   %64 = zext i8 %63 to i64
-  %65 = getelementptr inbounds nuw i32, ptr @sfparse_base64decode.index_tbl, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr @sfparse_base64decode.index_tbl, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !25
   %.tr = trunc i32 %66 to i8
   %67 = shl i8 %.tr, 2
   store i8 %67, ptr %.0.lcssa, align 1, !tbaa !12
   %68 = load i8, ptr %62, align 1, !tbaa !12
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds nuw i32, ptr @sfparse_base64decode.index_tbl, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr @sfparse_base64decode.index_tbl, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !25
   %72 = lshr i32 %71, 4
   %73 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
@@ -1287,19 +1287,19 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
   %76 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 1
   %77 = load i8, ptr %.054.lcssa, align 1, !tbaa !12
   %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw i32, ptr @sfparse_base64decode.index_tbl, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr @sfparse_base64decode.index_tbl, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !25
   %81 = shl i32 %80, 10
   %82 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 2
   %83 = load i8, ptr %76, align 1, !tbaa !12
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw i32, ptr @sfparse_base64decode.index_tbl, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr @sfparse_base64decode.index_tbl, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !25
   %87 = shl i32 %86, 4
   %88 = add i32 %87, %81
   %89 = load i8, ptr %82, align 1, !tbaa !12
   %90 = zext i8 %89 to i64
-  %91 = getelementptr inbounds nuw i32, ptr @sfparse_base64decode.index_tbl, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr @sfparse_base64decode.index_tbl, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !25
   %93 = ashr i32 %92, 2
   %94 = add i32 %88, %93
@@ -1759,7 +1759,7 @@ switch.lookup:                                    ; preds = %42
   %44 = mul nsw i64 %.146.lcssa, %.047
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %44, ptr %45, align 8, !tbaa !12
-  %46 = getelementptr i64, ptr @switch.table.parser_number, i64 %40
+  %46 = getelementptr [8 x i8], ptr @switch.table.parser_number, i64 %40
   %switch.gep = getelementptr i8, ptr %46, i64 -8
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %.loopexit.sink.split

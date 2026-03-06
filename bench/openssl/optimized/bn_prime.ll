@@ -108,12 +108,12 @@ define range(i32 0, 2) i32 @BN_generate_prime_ex2(ptr noundef %0, i32 noundef %1
   %.mux139 = select i1 %25, i64 64, i64 128
   %spec.select140 = select i1 %27, i64 384, i64 %..i.i70
   %.0.i.i72 = select i1 %26, i64 %.mux139, i64 %spec.select140
-  %35 = getelementptr i16, ptr @primes, i64 %.0.i.i72
+  %35 = getelementptr [2 x i8], ptr @primes, i64 %.0.i.i72
   %36 = getelementptr i8, ptr %35, i64 -2
   %.mux = select i1 %25, i64 64, i64 128
   %spec.select = select i1 %27, i64 384, i64 %..i.i70
   %.0.i.i = select i1 %26, i64 %.mux, i64 %spec.select
-  %37 = getelementptr i16, ptr @primes, i64 %.0.i.i
+  %37 = getelementptr [2 x i8], ptr @primes, i64 %.0.i.i
   %38 = getelementptr i8, ptr %37, i64 -2
   br label %.backedge
 
@@ -142,7 +142,7 @@ calc_trial_divisions.exit.i:                      ; preds = %.backedge
 
 .lr.ph.split.us.split.split.us.i:                 ; preds = %.lr.ph.split.us.split.i, %.lr.ph.split.us.split.split.us.i.backedge
   %indvars.iv145.i = phi i64 [ %indvars.iv145.i.be, %.lr.ph.split.us.split.split.us.i.backedge ], [ 1, %.lr.ph.split.us.split.i ]
-  %45 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv145.i
+  %45 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv145.i
   %46 = load i16, ptr %45, align 2, !tbaa !11
   %47 = zext i16 %46 to i64
   %48 = tail call i64 @BN_mod_word(ptr noundef %0, i64 noundef %47) #5
@@ -151,7 +151,7 @@ calc_trial_divisions.exit.i:                      ; preds = %.backedge
 
 49:                                               ; preds = %.lr.ph.split.us.split.split.us.i
   %50 = trunc i64 %48 to i16
-  %51 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv145.i
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv145.i
   store i16 %50, ptr %51, align 2, !tbaa !11
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
   %exitcond150.not.i = icmp eq i64 %indvars.iv.next146.i, %.0.i.i
@@ -178,11 +178,11 @@ calc_trial_divisions.exit.i:                      ; preds = %.backedge
 
 .split.us.split.us80.us.us.i:                     ; preds = %.split.us.us.us.us94.i, %64
   %indvars.iv151.i = phi i64 [ %indvars.iv.next152.i, %64 ], [ 1, %.split.us.us.us.us94.i ]
-  %55 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv151.i
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv151.i
   %56 = load i16, ptr %55, align 2, !tbaa !11
   %57 = zext i16 %56 to i64
   %58 = add i64 %.047.us.us.us95.i, %57
-  %59 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv151.i
+  %59 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv151.i
   %60 = load i16, ptr %59, align 2, !tbaa !11
   %61 = zext i16 %60 to i64
   %62 = urem i64 %58, %61
@@ -201,7 +201,7 @@ calc_trial_divisions.exit.i:                      ; preds = %.backedge
 
 .split.us.split.us.us.us.us.i:                    ; preds = %.split.us.us.us.us94.i, %81
   %indvars.iv156.i = phi i64 [ %indvars.iv.next157.i, %81 ], [ 1, %.split.us.us.us.us94.i ]
-  %67 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv156.i
+  %67 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv156.i
   %68 = load i16, ptr %67, align 2, !tbaa !11
   %69 = zext i16 %68 to i64
   %70 = mul nuw nsw i64 %69, %69
@@ -211,7 +211,7 @@ calc_trial_divisions.exit.i:                      ; preds = %.backedge
   br i1 %73, label %.split61.us.us.us.i, label %74
 
 74:                                               ; preds = %.split.us.split.us.us.us.us.i
-  %75 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv156.i
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv156.i
   %76 = load i16, ptr %75, align 2, !tbaa !11
   %77 = zext i16 %76 to i64
   %78 = add nuw nsw i64 %.047.us.us.us95.i, %77
@@ -231,7 +231,7 @@ calc_trial_divisions.exit.i:                      ; preds = %.backedge
 
 .lr.ph.split.us.split.split.i:                    ; preds = %.lr.ph.split.us.split.i, %.lr.ph.split.us.split.split.i.backedge
   %indvars.iv134.i = phi i64 [ %indvars.iv134.i.be, %.lr.ph.split.us.split.split.i.backedge ], [ 1, %.lr.ph.split.us.split.i ]
-  %84 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv134.i
+  %84 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv134.i
   %85 = load i16, ptr %84, align 2, !tbaa !11
   %86 = zext i16 %85 to i64
   %87 = tail call i64 @BN_mod_word(ptr noundef %0, i64 noundef %86) #5
@@ -240,7 +240,7 @@ calc_trial_divisions.exit.i:                      ; preds = %.backedge
 
 88:                                               ; preds = %.lr.ph.split.us.split.split.i
   %89 = trunc i64 %87 to i16
-  %90 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv134.i
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv134.i
   store i16 %89, ptr %90, align 2, !tbaa !11
   %indvars.iv.next135.i = add nuw nsw i64 %indvars.iv134.i, 1
   %exitcond139.not.i = icmp eq i64 %indvars.iv.next135.i, %.0.i.i
@@ -261,11 +261,11 @@ calc_trial_divisions.exit.i:                      ; preds = %.backedge
 
 92:                                               ; preds = %102, %.split.us.us.us.us.i
   %indvars.iv140.i = phi i64 [ 1, %.split.us.us.us.us.i ], [ %indvars.iv.next141.i, %102 ]
-  %93 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv140.i
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv140.i
   %94 = load i16, ptr %93, align 2, !tbaa !11
   %95 = zext i16 %94 to i64
   %96 = add i64 %.047.us.us.us.i, %95
-  %97 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv140.i
+  %97 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv140.i
   %98 = load i16, ptr %97, align 2, !tbaa !11
   %99 = zext i16 %98 to i64
   %100 = urem i64 %96, %99
@@ -294,7 +294,7 @@ calc_trial_divisions.exit.i:                      ; preds = %.backedge
 
 .preheader.i:                                     ; preds = %.lr.ph.split.i, %111
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %111 ], [ 1, %.lr.ph.split.i ]
-  %107 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv.i
   %108 = load i16, ptr %107, align 2, !tbaa !11
   %109 = zext i16 %108 to i64
   %110 = tail call i64 @BN_mod_word(ptr noundef %0, i64 noundef %109) #5
@@ -303,7 +303,7 @@ calc_trial_divisions.exit.i:                      ; preds = %.backedge
 
 111:                                              ; preds = %.preheader.i
   %112 = trunc i64 %110 to i16
-  %113 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv.i
   store i16 %112, ptr %113, align 2, !tbaa !11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %.0.i.i
@@ -318,11 +318,11 @@ calc_trial_divisions.exit.i:                      ; preds = %.backedge
 
 .split.split.i.us:                                ; preds = %.split.i.us, %123
   %indvars.iv124.i.us = phi i64 [ %indvars.iv.next125.i.us, %123 ], [ 1, %.split.i.us ]
-  %114 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv124.i.us
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv124.i.us
   %115 = load i16, ptr %114, align 2, !tbaa !11
   %116 = zext i16 %115 to i64
   %117 = add i64 %.047.i.us, %116
-  %118 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv124.i.us
+  %118 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv124.i.us
   %119 = load i16, ptr %118, align 2, !tbaa !11
   %120 = zext i16 %119 to i64
   %121 = urem i64 %117, %120
@@ -346,7 +346,7 @@ calc_trial_divisions.exit.i:                      ; preds = %.backedge
 
 .split.split.us.i:                                ; preds = %.split.i, %141
   %indvars.iv129.i = phi i64 [ %indvars.iv.next130.i, %141 ], [ 1, %.split.i ]
-  %127 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv129.i
+  %127 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv129.i
   %128 = load i16, ptr %127, align 2, !tbaa !11
   %129 = zext i16 %128 to i64
   %130 = mul nuw nsw i64 %129, %129
@@ -356,7 +356,7 @@ calc_trial_divisions.exit.i:                      ; preds = %.backedge
   br i1 %133, label %.split61.i, label %134
 
 134:                                              ; preds = %.split.split.us.i
-  %135 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv129.i
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv129.i
   %136 = load i16, ptr %135, align 2, !tbaa !11
   %137 = zext i16 %136 to i64
   %138 = add nuw nsw i64 %.047.i, %137
@@ -371,11 +371,11 @@ calc_trial_divisions.exit.i:                      ; preds = %.backedge
 
 .split.split.i:                                   ; preds = %.split.i, %153
   %indvars.iv124.i = phi i64 [ %indvars.iv.next125.i, %153 ], [ 1, %.split.i ]
-  %142 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv124.i
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv124.i
   %143 = load i16, ptr %142, align 2, !tbaa !11
   %144 = zext i16 %143 to i64
   %145 = add i64 %.047.i, %144
-  %146 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv124.i
+  %146 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv124.i
   %147 = load i16, ptr %146, align 2, !tbaa !11
   %148 = zext i16 %147 to i64
   %149 = urem i64 %145, %148
@@ -489,11 +489,11 @@ calc_trial_divisions.exit.i71:                    ; preds = %.backedge
 
 .split.us.split.us112.i:                          ; preds = %.split.us.us.i, %196
   %indvars.iv143.i = phi i64 [ %indvars.iv.next144.i, %196 ], [ 1, %.split.us.us.i ]
-  %187 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv143.i
+  %187 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv143.i
   %188 = load i16, ptr %187, align 2, !tbaa !11
   %189 = zext i16 %188 to i64
   %190 = add i64 %.070.us.i, %189
-  %191 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv143.i
+  %191 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv143.i
   %192 = load i16, ptr %191, align 2, !tbaa !11
   %193 = zext i16 %192 to i64
   %194 = urem i64 %190, %193
@@ -513,7 +513,7 @@ calc_trial_divisions.exit.i71:                    ; preds = %.backedge
 
 .split.us.split.us.us.i:                          ; preds = %.split.us.us.i, %214
   %indvars.iv148.i = phi i64 [ %indvars.iv.next149.i, %214 ], [ 1, %.split.us.us.i ]
-  %200 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv148.i
+  %200 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv148.i
   %201 = load i16, ptr %200, align 2, !tbaa !11
   %202 = zext i16 %201 to i64
   %203 = mul nuw nsw i64 %202, %202
@@ -523,7 +523,7 @@ calc_trial_divisions.exit.i71:                    ; preds = %.backedge
   br i1 %206, label %probable_prime_dh.exit, label %207
 
 207:                                              ; preds = %.split.us.split.us.us.i
-  %208 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv148.i
+  %208 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv148.i
   %209 = load i16, ptr %208, align 2, !tbaa !11
   %210 = zext i16 %209 to i64
   %211 = add nuw nsw i64 %.070.us.i, %210
@@ -538,7 +538,7 @@ calc_trial_divisions.exit.i71:                    ; preds = %.backedge
 
 215:                                              ; preds = %.preheader279, %221
   %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i75, %221 ], [ 1, %.preheader279 ]
-  %216 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv.i74
+  %216 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv.i74
   %217 = load i16, ptr %216, align 2, !tbaa !11
   %218 = zext i16 %217 to i64
   %219 = tail call i64 @BN_mod_word(ptr noundef %0, i64 noundef %218) #5
@@ -547,7 +547,7 @@ calc_trial_divisions.exit.i71:                    ; preds = %.backedge
 
 221:                                              ; preds = %215
   %222 = trunc i64 %219 to i16
-  %223 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv.i74
+  %223 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv.i74
   store i16 %222, ptr %223, align 2, !tbaa !11
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i75, %.0.i.i72
@@ -561,7 +561,7 @@ calc_trial_divisions.exit.i71:                    ; preds = %.backedge
 
 .split.split.us.i82:                              ; preds = %.split.i78, %239
   %indvars.iv138.i = phi i64 [ %indvars.iv.next139.i, %239 ], [ 1, %.split.i78 ]
-  %225 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv138.i
+  %225 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv138.i
   %226 = load i16, ptr %225, align 2, !tbaa !11
   %227 = zext i16 %226 to i64
   %228 = mul nuw nsw i64 %227, %227
@@ -571,7 +571,7 @@ calc_trial_divisions.exit.i71:                    ; preds = %.backedge
   br i1 %231, label %probable_prime_dh.exit, label %232
 
 232:                                              ; preds = %.split.split.us.i82
-  %233 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv138.i
+  %233 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv138.i
   %234 = load i16, ptr %233, align 2, !tbaa !11
   %235 = zext i16 %234 to i64
   %236 = add nuw nsw i64 %.070.i, %235
@@ -586,11 +586,11 @@ calc_trial_divisions.exit.i71:                    ; preds = %.backedge
 
 .split.split.i80:                                 ; preds = %.split.i78, %252
   %indvars.iv133.i = phi i64 [ %indvars.iv.next134.i, %252 ], [ 1, %.split.i78 ]
-  %240 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv133.i
+  %240 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv133.i
   %241 = load i16, ptr %240, align 2, !tbaa !11
   %242 = zext i16 %241 to i64
   %243 = add i64 %.070.i, %242
-  %244 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv133.i
+  %244 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv133.i
   %245 = load i16, ptr %244, align 2, !tbaa !11
   %246 = zext i16 %245 to i64
   %247 = urem i64 %243, %246
@@ -787,7 +787,7 @@ calc_trial_divisions.exit:                        ; preds = %17, %20, %22, %24
 
 26:                                               ; preds = %calc_trial_divisions.exit, %33
   %indvars.iv = phi i64 [ 1, %calc_trial_divisions.exit ], [ %indvars.iv.next, %33 ]
-  %27 = getelementptr inbounds nuw i16, ptr @primes, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [2 x i8], ptr @primes, i64 %indvars.iv
   %28 = load i16, ptr %27, align 2, !tbaa !11
   %29 = zext i16 %28 to i64
   %30 = tail call i64 @BN_mod_word(ptr noundef %0, i64 noundef %29) #5

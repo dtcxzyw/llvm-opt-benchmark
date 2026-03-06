@@ -82,7 +82,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
 24:                                               ; preds = %14
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !23
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %16
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %16
   %28 = shl i64 %18, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %27, ptr nonnull align 4 %12, i64 %28, i1 false)
   %29 = load i64, ptr %17, align 8, !tbaa !21
@@ -154,7 +154,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
 62:                                               ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !23
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %39
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %39
   %66 = shl i64 %58, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %65, ptr nonnull align 4 %54, i64 %66, i1 false)
   %67 = load i64, ptr %57, align 8, !tbaa !21
@@ -217,7 +217,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
   %98 = load ptr, ptr %84, align 8, !tbaa !23
   %99 = add nuw i64 %89, 1
   store i64 %99, ptr %80, align 8, !tbaa !20
-  %100 = getelementptr inbounds nuw i32, ptr %98, i64 %89
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %89
   store i32 %95, ptr %100, align 4, !tbaa !26
   br label %.backedge
 
@@ -251,7 +251,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
 
 114:                                              ; preds = %109
   %115 = load ptr, ptr %84, align 8, !tbaa !23
-  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %89
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %89
   %117 = shl i64 %110, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %116, ptr nonnull align 4 %107, i64 %117, i1 false)
   %118 = load i64, ptr %83, align 8, !tbaa !21
@@ -330,7 +330,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
 
 144:                                              ; preds = %139
   %145 = load ptr, ptr %84, align 8, !tbaa !23
-  %146 = getelementptr inbounds nuw i32, ptr %145, i64 %89
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %89
   %147 = shl i64 %140, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %146, ptr nonnull align 4 %137, i64 %147, i1 false)
   %148 = load i64, ptr %83, align 8, !tbaa !21
@@ -371,7 +371,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
 
 165:                                              ; preds = %160
   %166 = load ptr, ptr %84, align 8, !tbaa !23
-  %167 = getelementptr inbounds nuw i32, ptr %166, i64 %89
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %89
   %168 = shl i64 %161, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %167, ptr nonnull align 4 %158, i64 %168, i1 false)
   %169 = load i64, ptr %83, align 8, !tbaa !21
@@ -453,7 +453,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
 
 198:                                              ; preds = %193
   %199 = load ptr, ptr %84, align 8, !tbaa !23
-  %200 = getelementptr inbounds nuw i32, ptr %199, i64 %89
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %89
   %201 = shl i64 %194, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %200, ptr nonnull align 4 %191, i64 %201, i1 false)
   %202 = load i64, ptr %83, align 8, !tbaa !21
@@ -494,7 +494,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
 
 219:                                              ; preds = %214
   %220 = load ptr, ptr %84, align 8, !tbaa !23
-  %221 = getelementptr inbounds nuw i32, ptr %220, i64 %89
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %220, i64 %89
   %222 = shl i64 %215, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %221, ptr nonnull align 4 %212, i64 %222, i1 false)
   %223 = load i64, ptr %83, align 8, !tbaa !21
@@ -528,7 +528,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
 
 239:                                              ; preds = %234
   %240 = load ptr, ptr %84, align 8, !tbaa !23
-  %241 = getelementptr inbounds nuw i32, ptr %240, i64 %89
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %240, i64 %89
   %242 = shl i64 %235, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %241, ptr nonnull align 4 %232, i64 %242, i1 false)
   %243 = load i64, ptr %83, align 8, !tbaa !21
@@ -585,7 +585,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %266 = load ptr, ptr %265, align 8, !tbaa !23
-  %267 = getelementptr inbounds nuw i32, ptr %266, i64 %247
+  %267 = getelementptr inbounds nuw [4 x i8], ptr %266, i64 %247
   %268 = shl i64 %259, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %267, ptr nonnull align 4 %255, i64 %268, i1 false)
   %269 = load i64, ptr %258, align 8, !tbaa !21
@@ -612,7 +612,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_utf_8(ptr noundef initia
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %285 = add i64 %247, 1
   store i64 %285, ptr %284, align 8, !tbaa !20
-  %286 = getelementptr inbounds nuw i32, ptr %283, i64 %247
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %283, i64 %247
   store i32 %278, ptr %286, align 4, !tbaa !26
   br label %.preheader
 
@@ -680,7 +680,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !23
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %17
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %17
   %29 = shl i64 %19, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %28, ptr nonnull align 4 %13, i64 %29, i1 false)
   %30 = load i64, ptr %18, align 8, !tbaa !21
@@ -707,11 +707,11 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
 43:                                               ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !23
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %38
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %38
   store i32 %6, ptr %46, align 4, !tbaa !26
   %47 = load i32, ptr %34, align 4, !tbaa !27
   store i64 %39, ptr %37, align 8, !tbaa !20
-  %48 = getelementptr i32, ptr %45, i64 %38
+  %48 = getelementptr [4 x i8], ptr %45, i64 %38
   %49 = getelementptr i8, ptr %48, i64 4
   store i32 %47, ptr %49, align 4, !tbaa !26
   store i32 0, ptr %5, align 8, !tbaa !24
@@ -774,7 +774,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
   %77 = load ptr, ptr %66, align 8, !tbaa !23
   %78 = add nuw i64 %68, 1
   store i64 %78, ptr %62, align 8, !tbaa !20
-  %79 = getelementptr inbounds nuw i32, ptr %77, i64 %68
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %68
   store i32 %74, ptr %79, align 4, !tbaa !26
   br label %.backedge
 
@@ -806,7 +806,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
 
 94:                                               ; preds = %89
   %95 = load ptr, ptr %66, align 8, !tbaa !23
-  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %68
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %68
   %97 = shl i64 %90, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %96, ptr nonnull align 4 %87, i64 %97, i1 false)
   %98 = load i64, ptr %65, align 8, !tbaa !21
@@ -872,10 +872,10 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %128 = load ptr, ptr %127, align 8, !tbaa !23
-  %129 = getelementptr inbounds nuw i32, ptr %128, i64 %105
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %105
   store i32 202, ptr %129, align 4, !tbaa !26
   store i64 %121, ptr %126, align 8, !tbaa !20
-  %130 = getelementptr inbounds nuw i32, ptr %128, i64 %105
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %105
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
   store i32 772, ptr %131, align 4, !tbaa !26
   br label %.preheader
@@ -895,10 +895,10 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !23
-  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %105
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %105
   store i32 202, ptr %141, align 4, !tbaa !26
   store i64 %133, ptr %138, align 8, !tbaa !20
-  %142 = getelementptr inbounds nuw i32, ptr %140, i64 %105
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %105
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   store i32 780, ptr %143, align 4, !tbaa !26
   br label %.preheader
@@ -918,10 +918,10 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %152 = load ptr, ptr %151, align 8, !tbaa !23
-  %153 = getelementptr inbounds nuw i32, ptr %152, i64 %105
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %105
   store i32 234, ptr %153, align 4, !tbaa !26
   store i64 %145, ptr %150, align 8, !tbaa !20
-  %154 = getelementptr inbounds nuw i32, ptr %152, i64 %105
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %105
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
   store i32 772, ptr %155, align 4, !tbaa !26
   br label %.preheader
@@ -941,10 +941,10 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %164 = load ptr, ptr %163, align 8, !tbaa !23
-  %165 = getelementptr inbounds nuw i32, ptr %164, i64 %105
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %105
   store i32 234, ptr %165, align 4, !tbaa !26
   store i64 %157, ptr %162, align 8, !tbaa !20
-  %166 = getelementptr inbounds nuw i32, ptr %164, i64 %105
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %105
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 4
   store i32 780, ptr %167, align 4, !tbaa !26
   br label %.preheader
@@ -980,7 +980,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %184 = load ptr, ptr %183, align 8, !tbaa !23
-  %185 = getelementptr inbounds nuw i32, ptr %184, i64 %105
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %105
   %186 = shl i64 %176, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %185, ptr nonnull align 4 %172, i64 %186, i1 false)
   %187 = load i64, ptr %175, align 8, !tbaa !21
@@ -991,7 +991,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
 
 190:                                              ; preds = %114
   %191 = zext i32 %119 to i64
-  %192 = getelementptr inbounds nuw %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_multi_index_big5, i64 %191
+  %192 = getelementptr inbounds nuw [12 x i8], ptr @lxb_encoding_multi_index_big5, i64 %191
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load i32, ptr %193, align 4, !tbaa !28
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1030,7 +1030,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %214 = load ptr, ptr %213, align 8, !tbaa !23
-  %215 = getelementptr inbounds nuw i32, ptr %214, i64 %105
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %105
   %216 = shl i64 %206, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %215, ptr nonnull align 4 %202, i64 %216, i1 false)
   %217 = load i64, ptr %205, align 8, !tbaa !21
@@ -1045,7 +1045,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %224 = add nuw i64 %105, 1
   store i64 %224, ptr %223, align 8, !tbaa !20
-  %225 = getelementptr inbounds nuw i32, ptr %222, i64 %105
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %222, i64 %105
   store i32 %194, ptr %225, align 4, !tbaa !26
   br label %.preheader
 
@@ -1099,7 +1099,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_jp(ptr noundef initi
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !23
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %17
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %17
   %29 = shl i64 %19, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %28, ptr nonnull align 4 %13, i64 %29, i1 false)
   %30 = load i64, ptr %18, align 8, !tbaa !21
@@ -1172,7 +1172,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_jp(ptr noundef initi
   %65 = load ptr, ptr %54, align 8, !tbaa !23
   %66 = add nuw i64 %56, 1
   store i64 %66, ptr %50, align 8, !tbaa !20
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %56
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %56
   store i32 %64, ptr %67, align 4, !tbaa !26
   br label %.backedge
 
@@ -1207,7 +1207,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_jp(ptr noundef initi
 
 84:                                               ; preds = %79
   %85 = load ptr, ptr %54, align 8, !tbaa !23
-  %86 = getelementptr inbounds nuw i32, ptr %85, i64 %56
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %56
   %87 = shl i64 %80, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %86, ptr nonnull align 4 %77, i64 %87, i1 false)
   %88 = load i64, ptr %53, align 8, !tbaa !21
@@ -1251,7 +1251,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_jp(ptr noundef initi
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %108 = add nuw i64 %98, 1
   store i64 %108, ptr %107, align 8, !tbaa !20
-  %109 = getelementptr inbounds nuw i32, ptr %106, i64 %98
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %98
   store i32 %104, ptr %109, align 4, !tbaa !26
   br label %.preheader
 
@@ -1326,7 +1326,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_jp(ptr noundef initi
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %147 = load ptr, ptr %146, align 8, !tbaa !23
-  %148 = getelementptr inbounds nuw i32, ptr %147, i64 %122
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %122
   %149 = shl i64 %139, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %148, ptr nonnull align 4 %135, i64 %149, i1 false)
   %150 = load i64, ptr %138, align 8, !tbaa !21
@@ -1371,7 +1371,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_jp(ptr noundef initi
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %175 = load ptr, ptr %174, align 8, !tbaa !23
-  %176 = getelementptr inbounds nuw i32, ptr %175, i64 %122
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %122
   %177 = shl i64 %167, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %176, ptr nonnull align 4 %163, i64 %177, i1 false)
   %178 = load i64, ptr %166, align 8, !tbaa !21
@@ -1383,7 +1383,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_jp(ptr noundef initi
 181:                                              ; preds = %153, %159
   %lxb_encoding_multi_index_jis0208.sink = phi ptr [ @lxb_encoding_multi_index_jis0212, %159 ], [ @lxb_encoding_multi_index_jis0208, %153 ]
   %182 = zext nneg i32 %157 to i64
-  %183 = getelementptr inbounds nuw %struct.lxb_encoding_single_index_t, ptr %lxb_encoding_multi_index_jis0208.sink, i64 %182
+  %183 = getelementptr inbounds nuw [12 x i8], ptr %lxb_encoding_multi_index_jis0208.sink, i64 %182
   %storemerge.in = getelementptr inbounds nuw i8, ptr %183, i64 8
   %storemerge = load i32, ptr %storemerge.in, align 4, !tbaa !28
   store i32 %storemerge, ptr %158, align 8, !tbaa !25
@@ -1413,7 +1413,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_jp(ptr noundef initi
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %199 = load ptr, ptr %198, align 8, !tbaa !23
-  %200 = getelementptr inbounds nuw i32, ptr %199, i64 %122
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %122
   %201 = shl i64 %191, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %200, ptr nonnull align 4 %187, i64 %201, i1 false)
   %202 = load i64, ptr %190, align 8, !tbaa !21
@@ -1428,7 +1428,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_jp(ptr noundef initi
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %209 = add nuw i64 %122, 1
   store i64 %209, ptr %208, align 8, !tbaa !20
-  %210 = getelementptr inbounds nuw i32, ptr %207, i64 %122
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %207, i64 %122
   store i32 %storemerge, ptr %210, align 4, !tbaa !26
   br label %.preheader
 
@@ -1479,7 +1479,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_kr(ptr noundef captu
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !23
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %17
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %17
   %29 = shl i64 %19, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %28, ptr nonnull align 4 %13, i64 %29, i1 false)
   %30 = load i64, ptr %18, align 8, !tbaa !21
@@ -1544,7 +1544,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_kr(ptr noundef captu
   %60 = load ptr, ptr %49, align 8, !tbaa !23
   %61 = add nuw i64 %51, 1
   store i64 %61, ptr %45, align 8, !tbaa !20
-  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %51
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %51
   store i32 %57, ptr %62, align 4, !tbaa !26
   br label %.backedge
 
@@ -1576,7 +1576,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_kr(ptr noundef captu
 
 77:                                               ; preds = %72
   %78 = load ptr, ptr %49, align 8, !tbaa !23
-  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %51
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %51
   %80 = shl i64 %73, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %79, ptr nonnull align 4 %70, i64 %80, i1 false)
   %81 = load i64, ptr %48, align 8, !tbaa !21
@@ -1639,7 +1639,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_kr(ptr noundef captu
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %113 = load ptr, ptr %112, align 8, !tbaa !23
-  %114 = getelementptr inbounds nuw i32, ptr %113, i64 %89
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %89
   %115 = shl i64 %105, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %114, ptr nonnull align 4 %101, i64 %115, i1 false)
   %116 = load i64, ptr %104, align 8, !tbaa !21
@@ -1689,7 +1689,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_kr(ptr noundef captu
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !23
-  %144 = getelementptr inbounds nuw i32, ptr %143, i64 %89
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %89
   %145 = shl i64 %135, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %144, ptr nonnull align 4 %131, i64 %145, i1 false)
   %146 = load i64, ptr %134, align 8, !tbaa !21
@@ -1700,7 +1700,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_kr(ptr noundef captu
 
 149:                                              ; preds = %119
   %150 = zext nneg i32 %123 to i64
-  %151 = getelementptr inbounds nuw %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_multi_index_euc_kr, i64 %150
+  %151 = getelementptr inbounds nuw [12 x i8], ptr @lxb_encoding_multi_index_euc_kr, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = load i32, ptr %152, align 4, !tbaa !28
   store i32 %153, ptr %124, align 8, !tbaa !25
@@ -1738,7 +1738,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_kr(ptr noundef captu
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %172 = load ptr, ptr %171, align 8, !tbaa !23
-  %173 = getelementptr inbounds nuw i32, ptr %172, i64 %89
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %89
   %174 = shl i64 %164, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %173, ptr nonnull align 4 %160, i64 %174, i1 false)
   %175 = load i64, ptr %163, align 8, !tbaa !21
@@ -1753,7 +1753,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_kr(ptr noundef captu
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %182 = add nuw i64 %89, 1
   store i64 %182, ptr %181, align 8, !tbaa !20
-  %183 = getelementptr inbounds nuw i32, ptr %180, i64 %89
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %89
   store i32 %153, ptr %183, align 4, !tbaa !26
   br label %.preheader
 
@@ -1802,7 +1802,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef init
 22:                                               ; preds = %12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !23
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %14
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %14
   %26 = shl i64 %16, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %25, ptr nonnull align 4 %10, i64 %26, i1 false)
   %27 = load i64, ptr %15, align 8, !tbaa !21
@@ -1859,7 +1859,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef init
   %53 = load ptr, ptr %52, align 8, !tbaa !23
   %54 = add nuw i64 %38, 1
   store i64 %54, ptr %37, align 8, !tbaa !20
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %38
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %38
   store i32 %51, ptr %55, align 4, !tbaa !26
   %56 = icmp eq i64 %54, %40
   br i1 %56, label %57, label %58
@@ -1928,7 +1928,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef init
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %85 = add i64 %78, 1
   store i64 %85, ptr %84, align 8, !tbaa !20
-  %86 = getelementptr inbounds nuw i32, ptr %83, i64 %78
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %78
   store i32 %81, ptr %86, align 4, !tbaa !26
   br label %66
 
@@ -1944,7 +1944,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef init
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %92 = add i64 %78, 1
   store i64 %92, ptr %91, align 8, !tbaa !20
-  %93 = getelementptr inbounds nuw i32, ptr %90, i64 %78
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %78
   store i32 8364, ptr %93, align 4, !tbaa !26
   br label %66
 
@@ -1973,7 +1973,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef init
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %111 = load ptr, ptr %110, align 8, !tbaa !23
-  %112 = getelementptr inbounds nuw i32, ptr %111, i64 %78
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %78
   %113 = shl i64 %100, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %112, ptr nonnull align 4 %96, i64 %113, i1 false)
   %114 = load i64, ptr %99, align 8, !tbaa !21
@@ -2020,7 +2020,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef init
   %138 = add nuw nsw i64 %137, %126
   %139 = add nuw nsw i64 %138, %.neg
   %140 = and i64 %139, 4294967295
-  %141 = getelementptr inbounds nuw %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_multi_index_gb18030, i64 %140
+  %141 = getelementptr inbounds nuw [12 x i8], ptr @lxb_encoding_multi_index_gb18030, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load i32, ptr %142, align 4, !tbaa !28
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2059,7 +2059,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef init
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %164 = load ptr, ptr %163, align 8, !tbaa !23
-  %165 = getelementptr inbounds nuw i32, ptr %164, i64 %122
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %122
   %166 = shl i64 %155, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %165, ptr nonnull align 4 %151, i64 %166, i1 false)
   %167 = load i64, ptr %154, align 8, !tbaa !21
@@ -2099,7 +2099,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef init
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %188 = load ptr, ptr %187, align 8, !tbaa !23
-  %189 = getelementptr inbounds nuw i32, ptr %188, i64 %122
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %188, i64 %122
   %190 = shl i64 %179, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %189, ptr nonnull align 4 %175, i64 %190, i1 false)
   %191 = load i64, ptr %178, align 8, !tbaa !21
@@ -2114,7 +2114,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef init
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %198 = add i64 %122, 1
   store i64 %198, ptr %197, align 8, !tbaa !20
-  %199 = getelementptr inbounds nuw i32, ptr %196, i64 %122
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %196, i64 %122
   store i32 %143, ptr %199, align 4, !tbaa !26
   br label %66
 
@@ -2168,7 +2168,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef init
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %227 = load ptr, ptr %226, align 8, !tbaa !23
-  %228 = getelementptr inbounds nuw i32, ptr %227, i64 %205
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %227, i64 %205
   %229 = shl i64 %217, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %228, ptr nonnull align 4 %213, i64 %229, i1 false)
   %230 = load i64, ptr %216, align 8, !tbaa !21
@@ -2231,7 +2231,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef init
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %262 = load ptr, ptr %261, align 8, !tbaa !23
-  %263 = getelementptr inbounds nuw i32, ptr %262, i64 %239
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %262, i64 %239
   %264 = shl i64 %251, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %263, ptr nonnull align 4 %247, i64 %264, i1 false)
   %265 = load i64, ptr %250, align 8, !tbaa !21
@@ -2241,7 +2241,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_gb18030(ptr noundef init
   %269 = load ptr, ptr %261, align 8, !tbaa !23
   %270 = add i64 %267, 1
   store i64 %270, ptr %260, align 8, !tbaa !20
-  %271 = getelementptr inbounds nuw i32, ptr %269, i64 %267
+  %271 = getelementptr inbounds nuw [4 x i8], ptr %269, i64 %267
   store i32 %268, ptr %271, align 4, !tbaa !26
   %272 = load i64, ptr %253, align 8, !tbaa !22
   %273 = icmp eq i64 %270, %272
@@ -2299,7 +2299,7 @@ lxb_encoding_decode_gb18030_range.exit.thread220: ; preds = %296
   %299 = sub nuw i64 %.03245.i, %.03344.i
   %300 = lshr i64 %299, 1
   %301 = add i64 %300, %.03344.i
-  %302 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %301
+  %302 = getelementptr inbounds nuw [8 x i8], ptr @lxb_encoding_range_index_gb18030, i64 %301
   %303 = load i32, ptr %302, align 8, !tbaa !31
   %304 = icmp ult i32 %303, %291
   br i1 %304, label %305, label %312
@@ -2310,7 +2310,7 @@ lxb_encoding_decode_gb18030_range.exit.thread220: ; preds = %296
   br i1 %307, label %308, label %319
 
 308:                                              ; preds = %305
-  %309 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %306
+  %309 = getelementptr inbounds nuw [8 x i8], ptr @lxb_encoding_range_index_gb18030, i64 %306
   %310 = load i32, ptr %309, align 8, !tbaa !31
   %311 = icmp ugt i32 %310, %291
   br i1 %311, label %lxb_encoding_decode_gb18030_range.exit, label %319
@@ -2325,7 +2325,7 @@ lxb_encoding_decode_gb18030_range.exit.thread220: ; preds = %296
   br i1 %.not.i, label %lxb_encoding_decode_gb18030_range.exit, label %316
 
 316:                                              ; preds = %314
-  %317 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %315
+  %317 = getelementptr inbounds nuw [8 x i8], ptr @lxb_encoding_range_index_gb18030, i64 %315
   %318 = load i32, ptr %317, align 8, !tbaa !31
   %.not43.i = icmp ugt i32 %318, %291
   br i1 %.not43.i, label %319, label %lxb_encoding_decode_gb18030_range.exit
@@ -2339,7 +2339,7 @@ lxb_encoding_decode_gb18030_range.exit.thread220: ; preds = %296
 lxb_encoding_decode_gb18030_range.exit:           ; preds = %308, %312, %314, %316, %319
   %321 = phi i32 [ %303, %319 ], [ %303, %308 ], [ %318, %316 ], [ %303, %312 ], [ %303, %314 ]
   %.136.i = phi i64 [ %301, %319 ], [ %301, %308 ], [ %315, %316 ], [ %301, %312 ], [ 1, %314 ]
-  %322 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %.136.i
+  %322 = getelementptr inbounds nuw [8 x i8], ptr @lxb_encoding_range_index_gb18030, i64 %.136.i
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 4
   %324 = load i32, ptr %323, align 4, !tbaa !33
   %325 = sub i32 %291, %321
@@ -2368,7 +2368,7 @@ lxb_encoding_decode_gb18030_range.exit:           ; preds = %308, %312, %314, %3
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %343 = load ptr, ptr %342, align 8, !tbaa !23
-  %344 = getelementptr inbounds nuw i32, ptr %343, i64 %239
+  %344 = getelementptr inbounds nuw [4 x i8], ptr %343, i64 %239
   %345 = shl i64 %335, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %344, ptr nonnull align 4 %331, i64 %345, i1 false)
   %346 = load i64, ptr %334, align 8, !tbaa !21
@@ -2384,7 +2384,7 @@ lxb_encoding_decode_gb18030_range.exit:           ; preds = %308, %312, %314, %3
   %352 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %353 = add i64 %239, 1
   store i64 %353, ptr %352, align 8, !tbaa !20
-  %354 = getelementptr inbounds nuw i32, ptr %351, i64 %239
+  %354 = getelementptr inbounds nuw [4 x i8], ptr %351, i64 %239
   store i32 %.0.i222, ptr %354, align 4, !tbaa !26
   br label %66
 
@@ -2428,7 +2428,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_ibm866(ptr noundef captu
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_ibm866, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_ibm866, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -2450,7 +2450,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_ibm866(ptr noundef captu
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -2477,7 +2477,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_ibm866(ptr noundef captu
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -2527,7 +2527,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
 23:                                               ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !23
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %15
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %15
   %27 = shl i64 %17, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %26, ptr nonnull align 4 %11, i64 %27, i1 false)
   %28 = load i64, ptr %16, align 8, !tbaa !21
@@ -2639,7 +2639,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   %74 = load ptr, ptr %59, align 8, !tbaa !23
   %75 = add i64 %61, 1
   store i64 %75, ptr %56, align 8, !tbaa !20
-  %76 = getelementptr inbounds nuw i32, ptr %74, i64 %61
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %61
   store i32 %64, ptr %76, align 4, !tbaa !26
   %77 = load ptr, ptr %1, align 8, !tbaa !4
   %.not318 = icmp ult ptr %77, %2
@@ -2663,7 +2663,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
 
 87:                                               ; preds = %81
   %88 = load ptr, ptr %59, align 8, !tbaa !23
-  %89 = getelementptr inbounds nuw i32, ptr %88, i64 %61
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %61
   %90 = shl i64 %82, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %89, ptr nonnull align 4 %79, i64 %90, i1 false)
   %91 = load i64, ptr %57, align 8, !tbaa !21
@@ -2699,7 +2699,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   %101 = load ptr, ptr %59, align 8, !tbaa !23
   %102 = add i64 %61, 1
   store i64 %102, ptr %56, align 8, !tbaa !20
-  %103 = getelementptr inbounds nuw i32, ptr %101, i64 %61
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %61
   store i32 165, ptr %103, align 4, !tbaa !26
   %104 = load ptr, ptr %1, align 8, !tbaa !4
   %.not313 = icmp ult ptr %104, %2
@@ -2710,7 +2710,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   %106 = load ptr, ptr %59, align 8, !tbaa !23
   %107 = add i64 %61, 1
   store i64 %107, ptr %56, align 8, !tbaa !20
-  %108 = getelementptr inbounds nuw i32, ptr %106, i64 %61
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %61
   store i32 8254, ptr %108, align 4, !tbaa !26
   %109 = load ptr, ptr %1, align 8, !tbaa !4
   %.not312 = icmp ult ptr %109, %2
@@ -2725,7 +2725,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   %113 = load ptr, ptr %59, align 8, !tbaa !23
   %114 = add i64 %61, 1
   store i64 %114, ptr %56, align 8, !tbaa !20
-  %115 = getelementptr inbounds nuw i32, ptr %113, i64 %61
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %61
   store i32 %96, ptr %115, align 4, !tbaa !26
   %116 = load ptr, ptr %1, align 8, !tbaa !4
   %.not316 = icmp ult ptr %116, %2
@@ -2750,7 +2750,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
 
 126:                                              ; preds = %120
   %127 = load ptr, ptr %59, align 8, !tbaa !23
-  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %61
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %61
   %129 = shl i64 %121, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %128, ptr nonnull align 4 %118, i64 %129, i1 false)
   %130 = load i64, ptr %57, align 8, !tbaa !21
@@ -2787,7 +2787,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   %145 = load ptr, ptr %59, align 8, !tbaa !23
   %146 = add i64 %61, 1
   store i64 %146, ptr %56, align 8, !tbaa !20
-  %147 = getelementptr inbounds nuw i32, ptr %145, i64 %61
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %61
   store i32 %144, ptr %147, align 4, !tbaa !26
   %148 = load ptr, ptr %1, align 8, !tbaa !4
   %.not310 = icmp ult ptr %148, %2
@@ -2811,7 +2811,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
 
 158:                                              ; preds = %152
   %159 = load ptr, ptr %59, align 8, !tbaa !23
-  %160 = getelementptr inbounds nuw i32, ptr %159, i64 %61
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %159, i64 %61
   %161 = shl i64 %153, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %160, ptr nonnull align 4 %150, i64 %161, i1 false)
   %162 = load i64, ptr %57, align 8, !tbaa !21
@@ -2871,7 +2871,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
 
 186:                                              ; preds = %180
   %187 = load ptr, ptr %59, align 8, !tbaa !23
-  %188 = getelementptr inbounds nuw i32, ptr %187, i64 %61
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %61
   %189 = shl i64 %181, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %188, ptr nonnull align 4 %178, i64 %189, i1 false)
   %190 = load i64, ptr %57, align 8, !tbaa !21
@@ -2906,7 +2906,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
 
 206:                                              ; preds = %200
   %207 = load ptr, ptr %59, align 8, !tbaa !23
-  %208 = getelementptr inbounds nuw i32, ptr %207, i64 %61
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %207, i64 %61
   %209 = shl i64 %201, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %208, ptr nonnull align 4 %198, i64 %209, i1 false)
   %210 = load i64, ptr %57, align 8, !tbaa !21
@@ -2931,7 +2931,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   %222 = add nuw nsw i64 %221, %220
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %224 = and i64 %222, 4294967295
-  %225 = getelementptr inbounds nuw %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_multi_index_jis0208, i64 %224
+  %225 = getelementptr inbounds nuw [12 x i8], ptr @lxb_encoding_multi_index_jis0208, i64 %224
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
   %227 = load i32, ptr %226, align 4, !tbaa !28
   store i32 %227, ptr %223, align 8, !tbaa !25
@@ -2942,7 +2942,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
   %229 = load ptr, ptr %59, align 8, !tbaa !23
   %230 = add i64 %61, 1
   store i64 %230, ptr %56, align 8, !tbaa !20
-  %231 = getelementptr inbounds nuw i32, ptr %229, i64 %61
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %229, i64 %61
   store i32 %227, ptr %231, align 4, !tbaa !26
   %232 = load ptr, ptr %1, align 8, !tbaa !4
   %.not304 = icmp ult ptr %232, %2
@@ -2967,7 +2967,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
 
 242:                                              ; preds = %236
   %243 = load ptr, ptr %59, align 8, !tbaa !23
-  %244 = getelementptr inbounds nuw i32, ptr %243, i64 %61
+  %244 = getelementptr inbounds nuw [4 x i8], ptr %243, i64 %61
   %245 = shl i64 %237, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %244, ptr nonnull align 4 %234, i64 %245, i1 false)
   %246 = load i64, ptr %57, align 8, !tbaa !21
@@ -3020,7 +3020,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
 
 266:                                              ; preds = %260
   %267 = load ptr, ptr %59, align 8, !tbaa !23
-  %268 = getelementptr inbounds nuw i32, ptr %267, i64 %61
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %267, i64 %61
   %269 = shl i64 %261, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %268, ptr nonnull align 4 %258, i64 %269, i1 false)
   %270 = load i64, ptr %57, align 8, !tbaa !21
@@ -3075,7 +3075,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
 
 290:                                              ; preds = %284
   %291 = load ptr, ptr %59, align 8, !tbaa !23
-  %292 = getelementptr inbounds nuw i32, ptr %291, i64 %61
+  %292 = getelementptr inbounds nuw [4 x i8], ptr %291, i64 %61
   %293 = shl i64 %285, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %292, ptr nonnull align 4 %282, i64 %293, i1 false)
   %294 = load i64, ptr %57, align 8, !tbaa !21
@@ -3119,7 +3119,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_2022_jp(ptr noundef 
 
 310:                                              ; preds = %304
   %311 = load ptr, ptr %59, align 8, !tbaa !23
-  %312 = getelementptr inbounds nuw i32, ptr %311, i64 %61
+  %312 = getelementptr inbounds nuw [4 x i8], ptr %311, i64 %61
   %313 = shl i64 %305, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %312, ptr nonnull align 4 %302, i64 %313, i1 false)
   %314 = load i64, ptr %57, align 8, !tbaa !21
@@ -3180,7 +3180,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_10(ptr noundef 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_10, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_10, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -3202,7 +3202,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_10(ptr noundef 
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -3229,7 +3229,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_10(ptr noundef 
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -3279,7 +3279,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_13(ptr noundef 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_13, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_13, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -3301,7 +3301,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_13(ptr noundef 
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -3328,7 +3328,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_13(ptr noundef 
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -3378,7 +3378,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_14(ptr noundef 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_14, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_14, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -3400,7 +3400,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_14(ptr noundef 
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -3427,7 +3427,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_14(ptr noundef 
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -3477,7 +3477,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_15(ptr noundef 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_15, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_15, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -3499,7 +3499,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_15(ptr noundef 
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -3526,7 +3526,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_15(ptr noundef 
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -3576,7 +3576,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_16(ptr noundef 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_16, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_16, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -3598,7 +3598,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_16(ptr noundef 
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -3625,7 +3625,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_16(ptr noundef 
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -3675,7 +3675,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_2(ptr noundef c
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_2, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_2, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -3697,7 +3697,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_2(ptr noundef c
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -3724,7 +3724,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_2(ptr noundef c
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -3774,7 +3774,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_3(ptr noundef c
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_3, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_3, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -3796,7 +3796,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_3(ptr noundef c
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -3823,7 +3823,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_3(ptr noundef c
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -3873,7 +3873,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_4(ptr noundef c
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_4, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_4, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -3895,7 +3895,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_4(ptr noundef c
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -3922,7 +3922,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_4(ptr noundef c
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -3972,7 +3972,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_5(ptr noundef c
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_5, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_5, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -3994,7 +3994,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_5(ptr noundef c
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -4021,7 +4021,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_5(ptr noundef c
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -4071,7 +4071,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_6(ptr noundef c
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_6, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_6, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -4093,7 +4093,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_6(ptr noundef c
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -4120,7 +4120,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_6(ptr noundef c
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -4170,7 +4170,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_7(ptr noundef c
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_7, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_7, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -4192,7 +4192,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_7(ptr noundef c
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -4219,7 +4219,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_7(ptr noundef c
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -4269,7 +4269,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_8(ptr noundef c
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_8, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_8, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -4291,7 +4291,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_8(ptr noundef c
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -4318,7 +4318,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_8(ptr noundef c
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -4368,7 +4368,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_8_i(ptr noundef
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_8, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_8, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -4390,7 +4390,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_8_i(ptr noundef
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -4417,7 +4417,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_iso_8859_8_i(ptr noundef
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -4467,7 +4467,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_koi8_r(ptr noundef captu
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_koi8_r, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_koi8_r, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -4489,7 +4489,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_koi8_r(ptr noundef captu
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -4516,7 +4516,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_koi8_r(ptr noundef captu
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -4566,7 +4566,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_koi8_u(ptr noundef captu
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_koi8_u, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_koi8_u, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -4588,7 +4588,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_koi8_u(ptr noundef captu
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -4615,7 +4615,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_koi8_u(ptr noundef captu
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -4672,7 +4672,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_shift_jis(ptr noundef in
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !23
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %17
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %17
   %29 = shl i64 %19, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %28, ptr nonnull align 4 %13, i64 %29, i1 false)
   %30 = load i64, ptr %18, align 8, !tbaa !21
@@ -4738,7 +4738,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_shift_jis(ptr noundef in
   %60 = load ptr, ptr %49, align 8, !tbaa !23
   %61 = add nuw i64 %51, 1
   store i64 %61, ptr %45, align 8, !tbaa !20
-  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %51
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %51
   store i32 %57, ptr %62, align 4, !tbaa !26
   br label %.backedge
 
@@ -4758,7 +4758,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_shift_jis(ptr noundef in
   %71 = load ptr, ptr %49, align 8, !tbaa !23
   %72 = add nuw i64 %51, 1
   store i64 %72, ptr %45, align 8, !tbaa !20
-  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %51
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %51
   store i32 %70, ptr %73, align 4, !tbaa !26
   br label %.backedge
 
@@ -4789,7 +4789,7 @@ switch.early.test:                                ; preds = %74
 
 84:                                               ; preds = %79
   %85 = load ptr, ptr %49, align 8, !tbaa !23
-  %86 = getelementptr inbounds nuw i32, ptr %85, i64 %51
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %51
   %87 = shl i64 %80, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %86, ptr nonnull align 4 %77, i64 %87, i1 false)
   %88 = load i64, ptr %48, align 8, !tbaa !21
@@ -4861,7 +4861,7 @@ switch.early.test:                                ; preds = %74
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %124 = load ptr, ptr %123, align 8, !tbaa !23
-  %125 = getelementptr inbounds nuw i32, ptr %124, i64 %95
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %95
   %126 = shl i64 %116, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %125, ptr nonnull align 4 %112, i64 %126, i1 false)
   %127 = load i64, ptr %115, align 8, !tbaa !21
@@ -4913,7 +4913,7 @@ switch.early.test:                                ; preds = %74
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %156 = load ptr, ptr %155, align 8, !tbaa !23
-  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %95
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %95
   %158 = shl i64 %148, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %157, ptr nonnull align 4 %144, i64 %158, i1 false)
   %159 = load i64, ptr %147, align 8, !tbaa !21
@@ -4934,12 +4934,12 @@ switch.early.test:                                ; preds = %74
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %170 = add nuw i64 %95, 1
   store i64 %170, ptr %169, align 8, !tbaa !20
-  %171 = getelementptr inbounds nuw i32, ptr %168, i64 %95
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %95
   store i32 %166, ptr %171, align 4, !tbaa !26
   br label %.preheader
 
 172:                                              ; preds = %162
-  %173 = getelementptr inbounds nuw %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_multi_index_jis0208, i64 %137
+  %173 = getelementptr inbounds nuw [12 x i8], ptr @lxb_encoding_multi_index_jis0208, i64 %137
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %175 = load i32, ptr %174, align 4, !tbaa !28
   store i32 %175, ptr %100, align 8, !tbaa !25
@@ -4977,7 +4977,7 @@ switch.early.test:                                ; preds = %74
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %194 = load ptr, ptr %193, align 8, !tbaa !23
-  %195 = getelementptr inbounds nuw i32, ptr %194, i64 %95
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %95
   %196 = shl i64 %186, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %195, ptr nonnull align 4 %182, i64 %196, i1 false)
   %197 = load i64, ptr %185, align 8, !tbaa !21
@@ -4992,7 +4992,7 @@ switch.early.test:                                ; preds = %74
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %204 = add nuw i64 %95, 1
   store i64 %204, ptr %203, align 8, !tbaa !20
-  %205 = getelementptr inbounds nuw i32, ptr %202, i64 %95
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %95
   store i32 %175, ptr %205, align 4, !tbaa !26
   br label %.preheader
 
@@ -5041,7 +5041,7 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
 23:                                               ; preds = %13
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !23
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %15
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %15
   %27 = shl i64 %17, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %26, ptr nonnull align 4 %11, i64 %27, i1 false)
   %28 = load i64, ptr %16, align 8, !tbaa !21
@@ -5152,7 +5152,7 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
 
 84:                                               ; preds = %79
   %85 = load ptr, ptr %64, align 8, !tbaa !23
-  %86 = getelementptr inbounds nuw i32, ptr %85, i64 %76
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %76
   %87 = shl i64 %80, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %86, ptr nonnull align 4 %77, i64 %87, i1 false)
   %88 = load i64, ptr %62, align 8, !tbaa !21
@@ -5214,7 +5214,7 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
   %114 = load ptr, ptr %64, align 8, !tbaa !23
   %115 = add i64 %108, 1
   store i64 %115, ptr %61, align 8, !tbaa !20
-  %116 = getelementptr inbounds nuw i32, ptr %114, i64 %108
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %108
   store i32 %112, ptr %116, align 4, !tbaa !26
   br label %43
 
@@ -5242,7 +5242,7 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
 
 127:                                              ; preds = %121
   %128 = load ptr, ptr %64, align 8, !tbaa !23
-  %129 = getelementptr inbounds nuw i32, ptr %128, i64 %118
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %118
   %130 = shl i64 %122, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %129, ptr nonnull align 4 %119, i64 %130, i1 false)
   %131 = load i64, ptr %62, align 8, !tbaa !21
@@ -5299,7 +5299,7 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
 
 159:                                              ; preds = %153
   %160 = load ptr, ptr %64, align 8, !tbaa !23
-  %161 = getelementptr inbounds nuw i32, ptr %160, i64 %143
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %143
   %162 = shl i64 %154, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %161, ptr nonnull align 4 %151, i64 %162, i1 false)
   %163 = load i64, ptr %62, align 8, !tbaa !21
@@ -5322,7 +5322,7 @@ define internal fastcc range(i32 0, 16) i32 @lxb_encoding_decode_utf_16(ptr noun
   %169 = load ptr, ptr %64, align 8, !tbaa !23
   %170 = add i64 %143, 1
   store i64 %170, ptr %61, align 8, !tbaa !20
-  %171 = getelementptr inbounds nuw i32, ptr %169, i64 %143
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %143
   store i32 %.us-phi, ptr %171, align 4, !tbaa !26
   br label %43
 
@@ -5375,7 +5375,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_macintosh(ptr noundef ca
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_macintosh, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_macintosh, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -5397,7 +5397,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_macintosh(ptr noundef ca
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -5424,7 +5424,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_macintosh(ptr noundef ca
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -5480,7 +5480,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1250(ptr noundef
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1250, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1250, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -5502,7 +5502,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1250(ptr noundef
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -5529,7 +5529,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1250(ptr noundef
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -5579,7 +5579,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1251(ptr noundef
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1251, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1251, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -5601,7 +5601,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1251(ptr noundef
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -5628,7 +5628,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1251(ptr noundef
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -5678,7 +5678,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1252(ptr noundef
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1252, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1252, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -5700,7 +5700,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1252(ptr noundef
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -5727,7 +5727,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1252(ptr noundef
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -5777,7 +5777,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1253(ptr noundef
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1253, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1253, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -5799,7 +5799,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1253(ptr noundef
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -5826,7 +5826,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1253(ptr noundef
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -5876,7 +5876,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1254(ptr noundef
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1254, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1254, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -5898,7 +5898,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1254(ptr noundef
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -5925,7 +5925,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1254(ptr noundef
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -5975,7 +5975,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1255(ptr noundef
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1255, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1255, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -5997,7 +5997,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1255(ptr noundef
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -6024,7 +6024,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1255(ptr noundef
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -6074,7 +6074,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1256(ptr noundef
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1256, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1256, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -6096,7 +6096,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1256(ptr noundef
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -6123,7 +6123,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1256(ptr noundef
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -6173,7 +6173,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1257(ptr noundef
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1257, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1257, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -6195,7 +6195,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1257(ptr noundef
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -6222,7 +6222,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1257(ptr noundef
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -6272,7 +6272,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1258(ptr noundef
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1258, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1258, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -6294,7 +6294,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1258(ptr noundef
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -6321,7 +6321,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_1258(ptr noundef
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -6371,7 +6371,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_874(ptr noundef 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_874, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_874, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -6393,7 +6393,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_874(ptr noundef 
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -6420,7 +6420,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_windows_874(ptr noundef 
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -6470,7 +6470,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_x_mac_cyrillic(ptr nound
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %.03652, i64 1
   %22 = zext i8 %12 to i64
-  %23 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_x_mac_cyrillic, i64 %22
+  %23 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_x_mac_cyrillic, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1528
   %25 = load i32, ptr %24, align 4, !tbaa !28
   store i32 %25, ptr %5, align 8, !tbaa !25
@@ -6492,7 +6492,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_x_mac_cyrillic(ptr nound
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %8, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %39 = shl i64 %32, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %38, ptr nonnull align 4 %28, i64 %39, i1 false)
   %40 = load i64, ptr %10, align 8, !tbaa !21
@@ -6519,7 +6519,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_x_mac_cyrillic(ptr nound
   %47 = load ptr, ptr %8, align 8, !tbaa !23
   %48 = add nuw i64 %.sink73, 1
   store i64 %48, ptr %6, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %.sink73
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.sink73
   store i32 %.sink, ptr %49, align 4, !tbaa !26
   store ptr %.1, ptr %1, align 8, !tbaa !4
   br label %.backedge
@@ -6583,7 +6583,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_x_user_defined(ptr nound
   %27 = load ptr, ptr %7, align 8, !tbaa !23
   %28 = add nuw i64 %10, 1
   store i64 %28, ptr %4, align 8, !tbaa !20
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %10
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %10
   store i32 %.sink, ptr %29, align 4, !tbaa !26
   %30 = icmp ult ptr %26, %2
   br i1 %30, label %9, label %._crit_edge
@@ -6987,7 +6987,7 @@ define hidden i32 @lxb_encoding_decode_big5_single(ptr noundef captures(none) %0
 
 52:                                               ; preds = %34
   %53 = zext i32 %39 to i64
-  %54 = getelementptr inbounds nuw %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_multi_index_big5, i64 %53
+  %54 = getelementptr inbounds nuw [12 x i8], ptr @lxb_encoding_multi_index_big5, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 4, !tbaa !28
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7131,7 +7131,7 @@ define hidden i32 @lxb_encoding_decode_euc_jp_single(ptr noundef captures(none) 
 59:                                               ; preds = %51, %57
   %lxb_encoding_multi_index_jis0208.sink = phi ptr [ @lxb_encoding_multi_index_jis0212, %57 ], [ @lxb_encoding_multi_index_jis0208, %51 ]
   %60 = zext nneg i32 %55 to i64
-  %61 = getelementptr inbounds nuw %struct.lxb_encoding_single_index_t, ptr %lxb_encoding_multi_index_jis0208.sink, i64 %60
+  %61 = getelementptr inbounds nuw [12 x i8], ptr %lxb_encoding_multi_index_jis0208.sink, i64 %60
   %storemerge.in = getelementptr inbounds nuw i8, ptr %61, i64 8
   %storemerge = load i32, ptr %storemerge.in, align 4, !tbaa !28
   store i32 %storemerge, ptr %56, align 8, !tbaa !25
@@ -7214,7 +7214,7 @@ define hidden i32 @lxb_encoding_decode_euc_kr_single(ptr noundef captures(none) 
 
 34:                                               ; preds = %27
   %35 = zext nneg i32 %31 to i64
-  %36 = getelementptr inbounds nuw %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_multi_index_euc_kr, i64 %35
+  %36 = getelementptr inbounds nuw [12 x i8], ptr @lxb_encoding_multi_index_euc_kr, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i32, ptr %37, align 4, !tbaa !28
   store i32 %38, ptr %32, align 8, !tbaa !25
@@ -7353,7 +7353,7 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr noundef captures(none)
   %53 = add nuw nsw i64 %52, %41
   %54 = add nuw nsw i64 %53, %.neg
   %55 = and i64 %54, 4294967295
-  %56 = getelementptr inbounds nuw %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_multi_index_gb18030, i64 %55
+  %56 = getelementptr inbounds nuw [12 x i8], ptr @lxb_encoding_multi_index_gb18030, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i32, ptr %57, align 4, !tbaa !28
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7453,7 +7453,7 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr noundef captures(none)
   %107 = sub nuw i64 %.03245.i, %.03344.i
   %108 = lshr i64 %107, 1
   %109 = add i64 %108, %.03344.i
-  %110 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr @lxb_encoding_range_index_gb18030, i64 %109
   %111 = load i32, ptr %110, align 8, !tbaa !31
   %112 = icmp ult i32 %111, %101
   br i1 %112, label %113, label %120
@@ -7464,7 +7464,7 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr noundef captures(none)
   br i1 %115, label %116, label %127
 
 116:                                              ; preds = %113
-  %117 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %114
+  %117 = getelementptr inbounds nuw [8 x i8], ptr @lxb_encoding_range_index_gb18030, i64 %114
   %118 = load i32, ptr %117, align 8, !tbaa !31
   %119 = icmp ugt i32 %118, %101
   br i1 %119, label %._crit_edge.i, label %127
@@ -7479,7 +7479,7 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr noundef captures(none)
   br i1 %.not.i, label %._crit_edge.i, label %124
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %123
+  %125 = getelementptr inbounds nuw [8 x i8], ptr @lxb_encoding_range_index_gb18030, i64 %123
   %126 = load i32, ptr %125, align 8, !tbaa !31
   %.not43.i = icmp ugt i32 %126, %101
   br i1 %.not43.i, label %127, label %._crit_edge.i
@@ -7493,7 +7493,7 @@ define hidden i32 @lxb_encoding_decode_gb18030_single(ptr noundef captures(none)
 ._crit_edge.i:                                    ; preds = %127, %124, %122, %120, %116
   %129 = phi i32 [ %111, %127 ], [ %111, %116 ], [ %126, %124 ], [ %111, %120 ], [ %111, %122 ]
   %.136.i = phi i64 [ %109, %127 ], [ %109, %116 ], [ %123, %124 ], [ %109, %120 ], [ 1, %122 ]
-  %130 = getelementptr inbounds nuw %struct.lxb_encoding_range_index_t, ptr @lxb_encoding_range_index_gb18030, i64 %.136.i
+  %130 = getelementptr inbounds nuw [8 x i8], ptr @lxb_encoding_range_index_gb18030, i64 %.136.i
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
   %132 = load i32, ptr %131, align 4, !tbaa !33
   %133 = sub i32 %101, %129
@@ -7532,7 +7532,7 @@ define hidden i32 @lxb_encoding_decode_ibm866_single(ptr noundef readnone captur
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_ibm866, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_ibm866, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -7698,7 +7698,7 @@ define hidden i32 @lxb_encoding_decode_iso_2022_jp_single(ptr noundef captures(n
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %66, ptr %67, align 8, !tbaa !25
   %68 = zext i32 %66 to i64
-  %69 = getelementptr inbounds nuw %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_multi_index_jis0208, i64 %68
+  %69 = getelementptr inbounds nuw [12 x i8], ptr @lxb_encoding_multi_index_jis0208, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i32, ptr %70, align 4, !tbaa !28
   br label %102
@@ -7804,7 +7804,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_10_single(ptr noundef readnone c
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_10, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_10, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -7830,7 +7830,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_13_single(ptr noundef readnone c
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_13, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_13, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -7856,7 +7856,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_14_single(ptr noundef readnone c
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_14, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_14, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -7882,7 +7882,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_15_single(ptr noundef readnone c
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_15, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_15, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -7908,7 +7908,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_16_single(ptr noundef readnone c
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_16, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_16, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -7934,7 +7934,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_2_single(ptr noundef readnone ca
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_2, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_2, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -7960,7 +7960,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_3_single(ptr noundef readnone ca
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_3, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_3, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -7986,7 +7986,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_4_single(ptr noundef readnone ca
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_4, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_4, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8012,7 +8012,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_5_single(ptr noundef readnone ca
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_5, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_5, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8038,7 +8038,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_6_single(ptr noundef readnone ca
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_6, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_6, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8064,7 +8064,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_7_single(ptr noundef readnone ca
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_7, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_7, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8090,7 +8090,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_8_single(ptr noundef readnone ca
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_8, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_8, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8116,7 +8116,7 @@ define hidden i32 @lxb_encoding_decode_iso_8859_8_i_single(ptr noundef readnone 
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_iso_8859_8, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_iso_8859_8, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8142,7 +8142,7 @@ define hidden i32 @lxb_encoding_decode_koi8_r_single(ptr noundef readnone captur
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_koi8_r, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_koi8_r, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8168,7 +8168,7 @@ define hidden i32 @lxb_encoding_decode_koi8_u_single(ptr noundef readnone captur
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_koi8_u, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_koi8_u, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8270,7 +8270,7 @@ switch.early.test:                                ; preds = %19
   br label %57
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds nuw %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_multi_index_jis0208, i64 %42
+  %50 = getelementptr inbounds nuw [12 x i8], ptr @lxb_encoding_multi_index_jis0208, i64 %42
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i32, ptr %51, align 4, !tbaa !28
   store i32 %52, ptr %28, align 8, !tbaa !25
@@ -8729,7 +8729,7 @@ define hidden i32 @lxb_encoding_decode_macintosh_single(ptr noundef readnone cap
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_macintosh, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_macintosh, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8760,7 +8760,7 @@ define hidden i32 @lxb_encoding_decode_windows_1250_single(ptr noundef readnone 
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1250, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1250, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8786,7 +8786,7 @@ define hidden i32 @lxb_encoding_decode_windows_1251_single(ptr noundef readnone 
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1251, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1251, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8812,7 +8812,7 @@ define hidden i32 @lxb_encoding_decode_windows_1252_single(ptr noundef readnone 
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1252, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1252, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8838,7 +8838,7 @@ define hidden i32 @lxb_encoding_decode_windows_1253_single(ptr noundef readnone 
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1253, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1253, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8864,7 +8864,7 @@ define hidden i32 @lxb_encoding_decode_windows_1254_single(ptr noundef readnone 
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1254, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1254, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8890,7 +8890,7 @@ define hidden i32 @lxb_encoding_decode_windows_1255_single(ptr noundef readnone 
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1255, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1255, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8916,7 +8916,7 @@ define hidden i32 @lxb_encoding_decode_windows_1256_single(ptr noundef readnone 
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1256, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1256, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8942,7 +8942,7 @@ define hidden i32 @lxb_encoding_decode_windows_1257_single(ptr noundef readnone 
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1257, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1257, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8968,7 +8968,7 @@ define hidden i32 @lxb_encoding_decode_windows_1258_single(ptr noundef readnone 
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_1258, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_1258, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -8994,7 +8994,7 @@ define hidden i32 @lxb_encoding_decode_windows_874_single(ptr noundef readnone c
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_windows_874, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_windows_874, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16
@@ -9020,7 +9020,7 @@ define hidden i32 @lxb_encoding_decode_x_mac_cyrillic_single(ptr noundef readnon
 
 11:                                               ; preds = %3
   %12 = zext i8 %8 to i64
-  %13 = getelementptr %struct.lxb_encoding_single_index_t, ptr @lxb_encoding_single_index_x_mac_cyrillic, i64 %12
+  %13 = getelementptr [12 x i8], ptr @lxb_encoding_single_index_x_mac_cyrillic, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -1528
   %15 = load i32, ptr %14, align 4, !tbaa !28
   br label %16

@@ -636,7 +636,7 @@ _ZSt8_DestroyIPSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EES6_EvT_S8_R
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %116, %122, %124
   %126 = load ptr, ptr %69, align 8, !tbaa !47
-  %127 = getelementptr inbounds nuw %"class.std::vector.307", ptr %126, i64 %.046215
+  %127 = getelementptr inbounds nuw [24 x i8], ptr %126, i64 %.046215
   %128 = invoke noundef ptr @_ZN4cvc58internal6theory11quantifiers4inst15TriggerDatabase9mkTriggerENS0_12NodeTemplateILb1EEERKSt6vectorIS6_SaIS6_EEbimb(ptr noundef nonnull align 8 dereferenceable(120) %109, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(24) %127, i1 noundef zeroext true, i32 noundef 2, i64 noundef 0, i1 noundef zeroext true)
           to label %129 unwind label %228
 
@@ -779,7 +779,7 @@ _ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst7TriggerESaIS6_EE11_S_relo
 _ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst7TriggerESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %187, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst7TriggerESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i
   store ptr %182, ptr %162, align 8, !tbaa !67
   store ptr %186, ptr %163, align 8, !tbaa !64
-  %188 = getelementptr inbounds nuw ptr, ptr %182, i64 %180
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %180
   store ptr %188, ptr %165, align 8, !tbaa !66
   br label %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst7TriggerESaIS6_EE9push_backERKS6_.exit
 
@@ -1047,7 +1047,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt6vectorIN4cvc5
   %86 = load i64, ptr %85, align 8
   %87 = lshr i64 %86, 32
   %88 = and i64 %87, 67108863
-  %89 = getelementptr inbounds nuw ptr, ptr %84, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %88
   %.not302312 = icmp eq ptr %spec.select.i.i, %89
   br i1 %.not302312, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit154, label %.lr.ph
 
@@ -1780,7 +1780,7 @@ _ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst7TriggerESaIS6_EE11_S_relo
 _ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst7TriggerESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %404, %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst7TriggerESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i
   store ptr %399, ptr %379, align 8, !tbaa !67
   store ptr %403, ptr %380, align 8, !tbaa !64
-  %405 = getelementptr inbounds nuw ptr, ptr %399, i64 %397
+  %405 = getelementptr inbounds nuw [8 x i8], ptr %399, i64 %397
   store ptr %405, ptr %382, align 8, !tbaa !66
   br label %_ZNSt6vectorIPN4cvc58internal6theory11quantifiers4inst7TriggerESaIS6_EE9push_backERKS6_.exit
 
@@ -3968,7 +3968,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !48
   store ptr %42, ptr %4, align 8, !tbaa !50
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !52
   ret void
 
@@ -4274,7 +4274,7 @@ _ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EE11_S_relocat
 _ZNSt12_Vector_baseISt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33, %65
   store ptr %20, ptr %0, align 8, !tbaa !47
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !44
-  %69 = getelementptr inbounds nuw %"class.std::vector.307", ptr %20, i64 %16
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %69, ptr %64, align 8, !tbaa !76
   ret void
 

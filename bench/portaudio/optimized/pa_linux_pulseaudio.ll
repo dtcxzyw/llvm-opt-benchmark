@@ -3,7 +3,6 @@ source_filename = "bench/portaudio/original/pa_linux_pulseaudio.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.PaDeviceInfo = type { i32, ptr, i32, i32, i32, double, double, double, double, double }
 %struct.PaStreamCallbackTimeInfo = type { double, double, double }
 
 @.str = private unnamed_addr constant [88 x i8] c"PaPulseAudio_HostApiRepresentation: Can't allocate memory required for using PulseAudio\00", align 1
@@ -295,7 +294,7 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 82240
   %15 = load i32, ptr %14, align 8, !tbaa !24
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.PaDeviceInfo, ptr %13, i64 %16
+  %17 = getelementptr inbounds [72 x i8], ptr %13, i64 %16
   store i32 2, ptr %17, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %19 = load i32, ptr %18, align 8, !tbaa !35
@@ -310,7 +309,7 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 74008
   %27 = load i32, ptr %14, align 8, !tbaa !24
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %26, i64 %28
   store ptr %25, ptr %29, align 8, !tbaa !23
   %30 = load ptr, ptr %21, align 8, !tbaa !28
   %31 = shl i64 %12, 32
@@ -319,7 +318,7 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
   %33 = tail call ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef %30, i64 noundef %32) #14
   %34 = load i32, ptr %14, align 8, !tbaa !24
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %26, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %26, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !23
   %38 = icmp ne ptr %37, null
   %39 = icmp ne ptr %33, null
@@ -339,7 +338,7 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
   %45 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef %32, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #14
   %46 = load i32, ptr %14, align 8, !tbaa !24
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds %struct.PaDeviceInfo, ptr %13, i64 %47
+  %48 = getelementptr inbounds [72 x i8], ptr %13, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %33, ptr %49, align 8, !tbaa !37
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 20
@@ -644,8 +643,8 @@ PaPulseAudio_CheckConnection.exit:                ; preds = %select.unfold.prehe
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %74 = getelementptr inbounds nuw %struct.PaDeviceInfo, ptr %28, i64 %indvars.iv
-  %75 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [72 x i8], ptr %28, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv
   store ptr %74, ptr %75, align 8, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -780,7 +779,7 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !89
   %42 = sext i32 %37 to i64
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !90
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %46 = load i32, ptr %45, align 4, !tbaa !38
@@ -868,7 +867,7 @@ define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, 
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %92 = load ptr, ptr %91, align 8, !tbaa !89
   %93 = sext i32 %88 to i64
-  %94 = getelementptr inbounds ptr, ptr %92, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %92, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !90
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %97 = load i32, ptr %96, align 8, !tbaa !39
@@ -1023,7 +1022,7 @@ define range(i32 -9998, 1) i32 @IsFormatSupported(ptr noundef readonly captures(
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !89
   %17 = sext i32 %12 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !90
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %21 = load i32, ptr %20, align 4, !tbaa !38
@@ -1058,7 +1057,7 @@ define range(i32 -9998, 1) i32 @IsFormatSupported(ptr noundef readonly captures(
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !89
   %39 = sext i32 %34 to i64
-  %40 = getelementptr inbounds ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !90
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load i32, ptr %42, align 8, !tbaa !39

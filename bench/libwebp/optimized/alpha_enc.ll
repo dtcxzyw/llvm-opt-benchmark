@@ -550,7 +550,7 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   %15 = sext i32 %14 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %16 = sext i32 %4 to i64
-  %17 = getelementptr inbounds ptr, ptr @WebPFilters, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr @WebPFilters, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !86
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %20, label %19

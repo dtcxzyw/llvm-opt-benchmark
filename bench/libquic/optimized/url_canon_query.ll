@@ -526,13 +526,13 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIttE
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %6, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i
+  %9 = getelementptr inbounds [2 x i8], ptr %0, i64 %indvars.iv.i
   %10 = load i16, ptr %9, align 2, !tbaa !27
   %11 = icmp ult i16 %10, 128
   br i1 %11, label %8, label %_ZN3url12_GLOBAL__N_110IsAllASCIIIttEEbPKT_RKNS_9ComponentE.exit
 
 .lr.ph.i19:                                       ; preds = %8
-  %12 = getelementptr inbounds i16, ptr %0, i64 %6
+  %12 = getelementptr inbounds [2 x i8], ptr %0, i64 %6
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sink5.in.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -541,7 +541,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_124DoConvertToQueryEncodingIttE
 
 15:                                               ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit.i, %.lr.ph.i19
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i21, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i ]
-  %16 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv.i20
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv.i20
   %17 = load i16, ptr %16, align 2, !tbaa !27
   %18 = trunc i16 %17 to i8
   %.mask.i = and i16 %17, 255
@@ -612,7 +612,7 @@ _ZN3url12_GLOBAL__N_110IsAllASCIIIttEEbPKT_RKNS_9ComponentE.exit: ; preds = %.lr
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %44, ptr %42, align 8, !tbaa !17
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url14RawCanonOutputILi1024EEE, i64 16), ptr %4, align 8, !tbaa !15
-  %45 = getelementptr inbounds i16, ptr %0, i64 %6
+  %45 = getelementptr inbounds [2 x i8], ptr %0, i64 %6
   %46 = load ptr, ptr %1, align 8, !tbaa !15
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
@@ -743,7 +743,7 @@ _ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit40:    ; preds = %83, %86
   resume { ptr, i32 } %lpad.phi
 
 87:                                               ; preds = %_ZN3url12_GLOBAL__N_110IsAllASCIIIttEEbPKT_RKNS_9ComponentE.exit
-  %88 = getelementptr inbounds i16, ptr %0, i64 %6
+  %88 = getelementptr inbounds [2 x i8], ptr %0, i64 %6
   tail call void @_ZN3url18AppendStringOfTypeEPKtiNS_15SharedCharTypesEPNS_12CanonOutputTIcEE(ptr noundef %88, i32 noundef %.4.val, i32 noundef 1, ptr noundef %2)
   br label %_ZN3url12_GLOBAL__N_124AppendRaw8BitQueryStringItEEvPKT_iPNS_12CanonOutputTIcEE.exit
 

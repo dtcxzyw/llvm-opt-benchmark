@@ -130,7 +130,7 @@ zend_string_alloc.exit14:
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %43
   %indvars.iv.i = phi i64 [ 0, %43 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %44 = getelementptr inbounds nuw %struct._zval_struct, ptr %3, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.i
   call void @zval_ptr_dtor(ptr noundef nonnull %44) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
@@ -386,7 +386,7 @@ define hidden range(i32 -1, 1) i32 @ps_write_user(ptr readnone captures(none) %0
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %38
   %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %39 = getelementptr inbounds nuw %struct._zval_struct, ptr %5, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.i
   call void @zval_ptr_dtor(ptr noundef nonnull %39) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
@@ -784,7 +784,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr readnone captur
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %39
   %indvars.iv.i = phi i64 [ 0, %39 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %40 = getelementptr inbounds nuw %struct._zval_struct, ptr %5, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.i
   call void @zval_ptr_dtor(ptr noundef nonnull %40) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
@@ -821,7 +821,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr readnone captur
 
 .lr.ph.i15:                                       ; preds = %.lr.ph.i15, %52
   %indvars.iv.i16 = phi i64 [ 0, %52 ], [ %indvars.iv.next.i17, %.lr.ph.i15 ]
-  %53 = getelementptr inbounds nuw %struct._zval_struct, ptr %5, i64 %indvars.iv.i16
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.i16
   call void @zval_ptr_dtor(ptr noundef nonnull %53) #10
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, 2

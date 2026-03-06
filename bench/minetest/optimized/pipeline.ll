@@ -7,8 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.TextureBuffer::TextureDefinition" = type <{ i8, i8, i8, i8, %"class.irr::core::vector2d", %"class.irr::core::dimension2d", [4 x i8], %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
-%"class.irr::core::vector2d" = type { float, float }
 %"class.irr::core::dimension2d" = type { i32, i32 }
 %"class.irr::core::string" = type { %"class.std::__cxx11::basic_string" }
 
@@ -407,7 +405,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %11 = phi ptr [ %4, %for.body.lr.ph ], [ %16, %for.inc ]
   %12 = load ptr, ptr %m_driver, align 8, !tbaa !27
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !33
   %vtable6 = load ptr, ptr %12, align 8, !tbaa !11
   %vfn = getelementptr inbounds nuw i8, ptr %vtable6, i64 176
@@ -506,7 +504,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %conv.i6 = zext i8 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %conv.i6
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i6
   %2 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !33
   br label %return
 
@@ -540,7 +538,7 @@ if.then.i:                                        ; preds = %entry
 if.end:                                           ; preds = %if.then.i, %entry
   %2 = phi ptr [ %.pre, %if.then.i ], [ %1, %entry ]
   %frombool = zext i1 %clear to i8
-  %add.ptr.i22 = getelementptr inbounds nuw %"struct.TextureBuffer::TextureDefinition", ptr %2, i64 %conv
+  %add.ptr.i22 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %conv
   store i8 1, ptr %add.ptr.i22, align 8, !tbaa !35
   %dirty = getelementptr inbounds nuw i8, ptr %add.ptr.i22, i64 2
   store i8 1, ptr %dirty, align 2, !tbaa !42
@@ -585,7 +583,7 @@ if.then.i:                                        ; preds = %entry
 if.end:                                           ; preds = %if.then.i, %entry
   %2 = phi ptr [ %.pre, %if.then.i ], [ %1, %entry ]
   %frombool = zext i1 %clear to i8
-  %add.ptr.i22 = getelementptr inbounds nuw %"struct.TextureBuffer::TextureDefinition", ptr %2, i64 %conv
+  %add.ptr.i22 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %conv
   store i8 1, ptr %add.ptr.i22, align 8, !tbaa !35
   %dirty = getelementptr inbounds nuw i8, ptr %add.ptr.i22, i64 2
   store i8 1, ptr %dirty, align 2, !tbaa !42
@@ -684,7 +682,7 @@ if.else.i.i:                                      ; preds = %for.cond.cleanup
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end26
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %.lcssa, i64 %conv.i80
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %.lcssa, i64 %conv.i80
   %tobool.not.i.i.i = icmp eq ptr %.lcssa106, %add.ptr.i.i
   br i1 %tobool.not.i.i.i, label %if.end26, label %invoke.cont.i.i.i
 
@@ -696,7 +694,7 @@ for.body:                                         ; preds = %if.then5, %for.inc
   %9 = phi ptr [ %14, %for.inc ], [ %4, %if.then5 ]
   %10 = phi ptr [ %15, %for.inc ], [ %3, %if.then5 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ %sub.ptr.div.i, %if.then5 ]
-  %add.ptr.i.i82 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %add.ptr.i.i82 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %add.ptr.i.i82, align 8, !tbaa !33
   %tobool14.not = icmp eq ptr %11, null
   br i1 %tobool14.not, label %for.inc, label %if.then15
@@ -805,7 +803,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %m_textures, align 8, !tbaa !15
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !13
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !55
   br label %_ZN3irr4core5arrayIPNS_5video8ITextureEE9push_backEOS4_.exit
 
@@ -835,11 +833,11 @@ for.body41:                                       ; preds = %for.cond35.preheade
   %conv36133 = phi i64 [ %conv36, %for.body41 ], [ 0, %for.cond35.preheader ]
   %i34.0132 = phi i32 [ %inc52, %for.body41 ], [ 0, %for.cond35.preheader ]
   %33 = load ptr, ptr %m_textures, align 8, !tbaa !15
-  %add.ptr.i.i103 = getelementptr inbounds nuw ptr, ptr %33, i64 %conv36133
-  %add.ptr.i = getelementptr inbounds nuw %"struct.TextureBuffer::TextureDefinition", ptr %32, i64 %conv36133
+  %add.ptr.i.i103 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %conv36133
+  %add.ptr.i = getelementptr inbounds nuw [64 x i8], ptr %32, i64 %conv36133
   %call47 = tail call noundef zeroext i1 @_ZN13TextureBuffer13ensureTextureEPPN3irr5video8ITextureERKNS_17TextureDefinitionER15PipelineContext(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %add.ptr.i.i103, ptr noundef nonnull align 8 dereferenceable(60) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(47) %context)
   %34 = load ptr, ptr %m_definitions, align 8, !tbaa !22
-  %dirty.split = getelementptr inbounds nuw %"struct.TextureBuffer::TextureDefinition", ptr %34, i64 %conv36133
+  %dirty.split = getelementptr inbounds nuw [64 x i8], ptr %34, i64 %conv36133
   %dirty = getelementptr inbounds nuw i8, ptr %dirty.split, i64 2
   store i8 0, ptr %dirty, align 2, !tbaa !42
   %inc52 = add i32 %i34.0132, 1
@@ -970,7 +968,7 @@ if.then31:                                        ; preds = %if.then29
 
 switch.lookup:                                    ; preds = %if.then31
   %26 = zext nneg i32 %22 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN13TextureBuffer13ensureTextureEPPN3irr5video8ITextureERKNS_17TextureDefinitionER15PipelineContext, i64 %26
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN13TextureBuffer13ensureTextureEPPN3irr5video8ITextureERKNS_17TextureDefinitionER15PipelineContext, i64 %26
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
@@ -1120,14 +1118,14 @@ entry:
   %m_textures = getelementptr inbounds nuw i8, ptr %this, i64 40
   %conv.i = zext i8 %texture_a to i64
   %0 = load ptr, ptr %m_textures, align 8, !tbaa !15
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %0, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv.i
   %1 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !33
   %conv.i13 = zext i8 %texture_b to i64
-  %add.ptr.i.i14 = getelementptr inbounds nuw ptr, ptr %0, i64 %conv.i13
+  %add.ptr.i.i14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %conv.i13
   %2 = load ptr, ptr %add.ptr.i.i14, align 8, !tbaa !33
   store ptr %2, ptr %add.ptr.i.i, align 8, !tbaa !33
   %3 = load ptr, ptr %m_textures, align 8, !tbaa !15
-  %add.ptr.i.i18 = getelementptr inbounds nuw ptr, ptr %3, i64 %conv.i13
+  %add.ptr.i.i18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %conv.i13
   store ptr %1, ptr %add.ptr.i.i18, align 8, !tbaa !33
   ret void
 }
@@ -1959,7 +1957,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIPN3irr
   br label %_ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i96, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i96, i64 %cond.i.i.i.i
   br label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %_ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %if.then.i.i
@@ -2393,14 +2391,14 @@ entry:
   %m_textures.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %conv.i.i = zext i8 %1 to i64
   %3 = load ptr, ptr %m_textures.i, align 8, !tbaa !15
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %conv.i.i
   %4 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !33
   %conv.i13.i = zext i8 %2 to i64
-  %add.ptr.i.i14.i = getelementptr inbounds nuw ptr, ptr %3, i64 %conv.i13.i
+  %add.ptr.i.i14.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %conv.i13.i
   %5 = load ptr, ptr %add.ptr.i.i14.i, align 8, !tbaa !33
   store ptr %5, ptr %add.ptr.i.i.i, align 8, !tbaa !33
   %6 = load ptr, ptr %m_textures.i, align 8, !tbaa !15
-  %add.ptr.i.i18.i = getelementptr inbounds nuw ptr, ptr %6, i64 %conv.i13.i
+  %add.ptr.i.i18.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %conv.i13.i
   store ptr %4, ptr %add.ptr.i.i18.i, align 8, !tbaa !33
   ret void
 }
@@ -3079,9 +3077,9 @@ if.then.i81:                                      ; preds = %_ZNSt6vectorIN13Tex
 
 _ZNSt12_Vector_baseIN13TextureBuffer17TextureDefinitionESaIS1_EE13_M_deallocateEPS1_m.exit82: ; preds = %if.then.i81, %_ZNSt6vectorIN13TextureBuffer17TextureDefinitionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !22
-  %add.ptr37 = getelementptr inbounds nuw %"struct.TextureBuffer::TextureDefinition", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [64 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !24
-  %add.ptr40 = getelementptr inbounds nuw %"struct.TextureBuffer::TextureDefinition", ptr %call5.i.i.i, i64 %14
+  %add.ptr40 = getelementptr inbounds nuw [64 x i8], ptr %call5.i.i.i, i64 %14
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !120
   br label %if.end44
 
@@ -3135,7 +3133,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 3
   %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !33
-  %add.ptr.i.i.i.i.i = getelementptr ptr, ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr [8 x i8], ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPPN3irr5video8ITextureEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN3irr5video8ITextureEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i
@@ -3187,9 +3185,9 @@ if.then.i78:                                      ; preds = %_ZNSt6vectorIPN3irr
 
 _ZNSt12_Vector_baseIPN3irr5video8ITextureESaIS3_EE13_M_deallocateEPS3_m.exit79: ; preds = %if.then.i78, %_ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !15
-  %add.ptr37 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !13
-  %add.ptr40 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %5
+  %add.ptr40 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !55
   br label %if.end44
 

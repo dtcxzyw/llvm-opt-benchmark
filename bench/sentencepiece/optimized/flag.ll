@@ -5880,14 +5880,14 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 
 _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit: ; preds = %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit.preheader, %30
   %.01218 = phi i64 [ %31, %30 ], [ 0, %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit.preheader ]
-  %32 = getelementptr inbounds nuw ptr, ptr @__const._ZN13sentencepiece11string_util12lexical_castIbEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.kTrue, i64 %.01218
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN13sentencepiece11string_util12lexical_castIbEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.kTrue, i64 %.01218
   %33 = load ptr, ptr %32, align 8, !tbaa !186
   %34 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %33) #26
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.critedge.sink.split, label %36
 
 36:                                               ; preds = %_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_PDoFiiEET0_T_SD_SC_T1_.exit
-  %37 = getelementptr inbounds nuw ptr, ptr @__const._ZN13sentencepiece11string_util12lexical_castIbEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.kFalse, i64 %.01218
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN13sentencepiece11string_util12lexical_castIbEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_.kFalse, i64 %.01218
   %38 = load ptr, ptr %37, align 8, !tbaa !186
   %39 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %38) #26
   %40 = icmp eq i32 %39, 0
@@ -6003,7 +6003,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit:     ; preds = %_ZNSt12_Vector_base
   %.0125 = phi i32 [ 1, %.lr.ph ], [ %271, %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit44 ]
   %44 = sub nsw i32 %1, %.0125
   %45 = sext i32 %.0125 to i64
-  %46 = getelementptr inbounds ptr, ptr %2, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %2, i64 %45
   store i64 0, ptr %18, align 8, !tbaa !14
   %47 = load ptr, ptr %10, align 8, !tbaa !11
   store i8 0, ptr %47, align 1, !tbaa !16
@@ -6474,7 +6474,7 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i39: ; preds = %196
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i41: ; preds = %198, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i39
   store ptr %193, ptr %0, align 8, !tbaa !187
   store ptr %197, ptr %28, align 8, !tbaa !192
-  %199 = getelementptr inbounds nuw ptr, ptr %193, i64 %191
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %191
   store ptr %199, ptr %24, align 8, !tbaa !191
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit44
 
@@ -7786,7 +7786,7 @@ _ZNSt6vectorISt10shared_ptrIN4absl8internal8FlagFuncEESaIS4_EE11_S_relocateEPS4_
 _ZNSt12_Vector_baseISt10shared_ptrIN4absl8internal8FlagFuncEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN4absl8internal8FlagFuncEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !225
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !52
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !55
   ret void
 }

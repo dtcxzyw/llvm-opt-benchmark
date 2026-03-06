@@ -44,7 +44,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<const Edge *, const Edge *, std::_Identity<const Edge *>, std::less<const Edge *>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.std::pair" = type { %struct.StringPiece, ptr }
 %"class.std::tuple.142" = type { %"struct.std::_Tuple_impl.143" }
 %"struct.std::_Tuple_impl.143" = type { %"struct.std::_Head_base.144" }
 %"struct.std::_Head_base.144" = type { ptr }
@@ -1969,7 +1968,7 @@ _ZNSt3setIPK4EdgeSt4lessIS2_ESaIS2_EE6insertIN9__gnu_cxx17__normal_iteratorIPKPS
   %318 = load i32, ptr %247, align 8, !tbaa !108
   %319 = load ptr, ptr %246, align 8, !tbaa !24
   %320 = sext i32 %318 to i64
-  %321 = getelementptr inbounds %"struct.std::pair", ptr %319, i64 %320
+  %321 = getelementptr inbounds [24 x i8], ptr %319, i64 %320
   %.not142 = icmp eq ptr %317, %321
   br i1 %.not142, label %._crit_edge189.loopexit, label %.lr.ph188, !llvm.loop !114
 
@@ -4304,7 +4303,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !152
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !143
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !144
   ret void
 

@@ -25,12 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.282" = type { %"struct.std::_Head_base.283" }
 %"struct.std::_Head_base.283" = type { %"class.std::__cxx11::basic_string" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, cmExportSet::PackageDependency>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, cmExportSet::PackageDependency>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.17" }
-%"struct.std::_Head_base.17" = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, cmExportSet>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, cmExportSet>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 
 $_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN11cmExportSet17PackageDependencyESt4lessIS5_ESaISt4pairIKS5_S7_EEEixERSB_ = comdat any
@@ -1148,7 +1142,7 @@ _ZNSt6vectorIPK24cmInstallExportGeneratorSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 _ZNSt6vectorIPK24cmInstallExportGeneratorSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIPK24cmInstallExportGeneratorSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %23, ptr %3, align 8, !tbaa !42
   store ptr %27, ptr %4, align 8, !tbaa !280
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %29, ptr %6, align 8, !tbaa !43
   br label %_ZNSt6vectorIPK24cmInstallExportGeneratorSaIS2_EE9push_backERKS2_.exit
 
@@ -2374,7 +2368,7 @@ _ZNSt6vectorISt10unique_ptrI14cmTargetExportSt14default_deleteIS1_EESaIS4_EE11_S
 _ZNSt12_Vector_baseISt10unique_ptrI14cmTargetExportSt14default_deleteIS1_EESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrI14cmTargetExportSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !44
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !45
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !46
   ret void
 }

@@ -660,7 +660,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
 
 100:                                              ; preds = %100, %96
   %indvars.iv.i58 = phi i64 [ 0, %96 ], [ %indvars.iv.next.i59, %100 ]
-  %101 = getelementptr inbounds nuw i16, ptr %86, i64 %indvars.iv.i58
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %indvars.iv.i58
   %102 = load i16, ptr %101, align 2
   %103 = tail call zeroext i16 @outStream_writeChar(ptr noundef %1, i16 noundef zeroext %102) #4
   %indvars.iv.next.i59 = add nuw nsw i64 %indvars.iv.i58, 1
@@ -710,7 +710,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
 
 123:                                              ; preds = %123, %119
   %indvars.iv.i63 = phi i64 [ 0, %119 ], [ %indvars.iv.next.i64, %123 ]
-  %124 = getelementptr inbounds nuw float, ptr %108, i64 %indvars.iv.i63
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %indvars.iv.i63
   %125 = load float, ptr %124, align 4
   %126 = tail call zeroext i16 @outStream_writeFloat(ptr noundef %1, float noundef %125) #4
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
@@ -760,7 +760,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
 
 146:                                              ; preds = %146, %142
   %indvars.iv.i68 = phi i64 [ 0, %142 ], [ %indvars.iv.next.i69, %146 ]
-  %147 = getelementptr inbounds nuw double, ptr %131, i64 %indvars.iv.i68
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %indvars.iv.i68
   %148 = load double, ptr %147, align 8
   %149 = tail call zeroext i16 @outStream_writeDouble(ptr noundef %1, double noundef %148) #4
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
@@ -810,7 +810,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
 
 169:                                              ; preds = %169, %165
   %indvars.iv.i73 = phi i64 [ 0, %165 ], [ %indvars.iv.next.i74, %169 ]
-  %170 = getelementptr inbounds nuw i32, ptr %154, i64 %indvars.iv.i73
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %154, i64 %indvars.iv.i73
   %171 = load i32, ptr %170, align 4
   %172 = tail call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %171) #4
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i73, 1
@@ -860,7 +860,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
 
 192:                                              ; preds = %192, %188
   %indvars.iv.i78 = phi i64 [ 0, %188 ], [ %indvars.iv.next.i79, %192 ]
-  %193 = getelementptr inbounds nuw i64, ptr %177, i64 %indvars.iv.i78
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %indvars.iv.i78
   %194 = load i64, ptr %193, align 8
   %195 = tail call zeroext i16 @outStream_writeLong(ptr noundef %1, i64 noundef %194) #4
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
@@ -910,7 +910,7 @@ writeObjectComponents.exit:                       ; preds = %._crit_edge.i, %57
 
 214:                                              ; preds = %214, %210
   %indvars.iv.i84 = phi i64 [ 0, %210 ], [ %indvars.iv.next.i85, %214 ]
-  %215 = getelementptr inbounds nuw i16, ptr %200, i64 %indvars.iv.i84
+  %215 = getelementptr inbounds nuw [2 x i8], ptr %200, i64 %indvars.iv.i84
   %216 = load i16, ptr %215, align 2
   %217 = tail call zeroext i16 @outStream_writeShort(ptr noundef %1, i16 noundef signext %216) #4
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1

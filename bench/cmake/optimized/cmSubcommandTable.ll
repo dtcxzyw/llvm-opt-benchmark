@@ -188,7 +188,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairISt17basic_string_viewIcSt1
   %.04.i.i = phi i64 [ %.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK17cmSubcommandTableclESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EER17cmExecutionStatusE3$_0EclINS_17__normal_iteratorIPKSt4pairIS6_PFbSF_SH_EES7_ISP_SaISP_EEEEKS6_EEbT_RT0_.exit.i.i" ], [ %15, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEEPFbRKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EER17cmExecutionStatusEES7_ISK_SaISK_EEEElEvRT_T0_.exit.preheader.i.i ]
   %.sroa.02.03.i.i = phi ptr [ %.sroa.02.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK17cmSubcommandTableclESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EER17cmExecutionStatusE3$_0EclINS_17__normal_iteratorIPKSt4pairIS6_PFbSF_SH_EES7_ISP_SaISP_EEEEKS6_EEbT_RT0_.exit.i.i" ], [ %8, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairISt17basic_string_viewIcSt11char_traitsIcEEPFbRKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EER17cmExecutionStatusEES7_ISK_SaISK_EEEElEvRT_T0_.exit.preheader.i.i ]
   %16 = lshr i64 %.04.i.i, 1
-  %17 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sroa.02.03.i.i, i64 %16
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.02.03.i.i, i64 %16
   %.val.i.i.i = load i64, ptr %17, align 8, !tbaa !13
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %.val.i.i.i)
   %18 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
@@ -361,7 +361,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 28:                                               ; preds = %28, %24
   %.08.i.i.i = phi i64 [ %27, %24 ], [ %30, %28 ]
-  %29 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.08.i.i.i
+  %29 = getelementptr inbounds [24 x i8], ptr %0, i64 %.08.i.i.i
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEEPFbRKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EER17cmExecutionStatusEES7_ISK_SaISK_EEEElSK_NS0_5__ops15_Iter_comp_iterIZN17cmSubcommandTableC1ESt16initializer_listIS2_IN2cm18static_string_viewESJ_EEE3$_0EEEvT_T0_S10_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %25, ptr noundef nonnull byval(%"struct.std::pair") align 8 %29)
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
   %30 = add nsw i64 %.08.i.i.i, -1
@@ -387,7 +387,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 38:                                               ; preds = %21
   %39 = add nsw i64 %.025, -1
   %40 = udiv i64 %22, 48
-  %41 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %40
   %42 = getelementptr inbounds i8, ptr %storemerge24, i64 -24
   %.val.i.i.i = load i64, ptr %16, align 8, !tbaa !13
   %.val2.i.i.i = load i64, ptr %41, align 8, !tbaa !13
@@ -699,9 +699,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.040 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EER17cmExecutionStatusEEEE3$_0EclINS_17__normal_iteratorIPS4_ISt17basic_string_viewIcSB_ESL_ES7_ISU_SaISU_EEEESY_EEbT_T0_.exit" ], [ %1, %4 ]
   %8 = shl i64 %.040, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %9
+  %10 = getelementptr inbounds [24 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %11
+  %12 = getelementptr inbounds [24 x i8], ptr %0, i64 %11
   %.val.i = load i64, ptr %10, align 8, !tbaa !13
   %.val2.i = load i64, ptr %12, align 8, !tbaa !13
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.val2.i, i64 %.val.i)
@@ -728,8 +728,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
   %.0.i.i.i.i = phi i32 [ %.0.i4.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ], [ %16, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   %19 = icmp slt i32 %.0.i.i.i.i, 0
   %spec.select = select i1 %19, i64 %11, i64 %9
-  %20 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select
-  %21 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.040
+  %20 = getelementptr inbounds [24 x i8], ptr %0, i64 %spec.select
+  %21 = getelementptr inbounds [24 x i8], ptr %0, i64 %.040
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 16, i1 false), !tbaa.struct !12
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !25
@@ -753,8 +753,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
 32:                                               ; preds = %28
   %33 = shl nsw i64 %.0.lcssa, 1
   %34 = or disjoint i64 %33, 1
-  %35 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %34
-  %36 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa
+  %35 = getelementptr inbounds [24 x i8], ptr %0, i64 %34
+  %36 = getelementptr inbounds [24 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 16, i1 false), !tbaa.struct !12
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !25
@@ -776,7 +776,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11cha
   %.010.i = phi i64 [ %.0911.i, %49 ], [ %.1, %40 ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %42 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0911.i
+  %42 = getelementptr inbounds [24 x i8], ptr %0, i64 %.0911.i
   %.val.i.i = load i64, ptr %42, align 8, !tbaa !13
   %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.039.0.copyload, i64 %.val.i.i)
   %43 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
@@ -802,7 +802,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZNSt11c
   br i1 %48, label %49, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEEPFbRKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EER17cmExecutionStatusEES7_ISK_SaISK_EEEElSK_NS0_5__ops14_Iter_comp_valIZN17cmSubcommandTableC1ESt16initializer_listIS2_IN2cm18static_string_viewESJ_EEE3$_0EEEvT_T0_S10_T1_RT2_.exit"
 
 49:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EER17cmExecutionStatusEEEE3$_0EclINS_17__normal_iteratorIPS4_ISt17basic_string_viewIcSB_ESL_ES7_ISU_SaISU_EEEESU_EEbT_RT0_.exit.i"
-  %50 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.010.i
+  %50 = getelementptr inbounds [24 x i8], ptr %0, i64 %.010.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 16, i1 false), !tbaa.struct !12
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !25
@@ -813,7 +813,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZNSt11c
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt17basic_string_viewIcSt11char_traitsIcEEPFbRKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EER17cmExecutionStatusEES7_ISK_SaISK_EEEElSK_NS0_5__ops14_Iter_comp_valIZN17cmSubcommandTableC1ESt16initializer_listIS2_IN2cm18static_string_viewESJ_EEE3$_0EEEvT_T0_S10_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EER17cmExecutionStatusEEEE3$_0EclINS_17__normal_iteratorIPS4_ISt17basic_string_viewIcSB_ESL_ES7_ISU_SaISU_EEEESU_EEbT_RT0_.exit.i", %49, %40
   %.0.lcssa.i = phi i64 [ %.1, %40 ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EER17cmExecutionStatusEEEE3$_0EclINS_17__normal_iteratorIPS4_ISt17basic_string_viewIcSB_ESL_ES7_ISU_SaISU_EEEESU_EEbT_RT0_.exit.i" ], [ %.0911.i, %49 ]
-  %55 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i
+  %55 = getelementptr inbounds [24 x i8], ptr %0, i64 %.0.lcssa.i
   store i64 %.sroa.039.0.copyload, ptr %55, align 8, !tbaa !13
   %.sroa.5.0..sroa_idx37 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %.sroa.2.0.copyload, ptr %.sroa.5.0..sroa_idx37, align 8, !tbaa !15

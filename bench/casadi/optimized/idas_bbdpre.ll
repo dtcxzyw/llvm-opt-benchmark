@@ -305,11 +305,11 @@ define internal range(i32 -1, 2) i32 @IDABBDPrecSetup(double noundef %0, ptr nou
 
 .lr.ph.i:                                         ; preds = %61, %123
   %.0183208.i = phi i64 [ %130, %123 ], [ %63, %61 ]
-  %64 = getelementptr inbounds double, ptr %17, i64 %.0183208.i
+  %64 = getelementptr inbounds [8 x i8], ptr %17, i64 %.0183208.i
   %65 = load double, ptr %64, align 8, !tbaa !48
-  %66 = getelementptr inbounds double, ptr %18, i64 %.0183208.i
+  %66 = getelementptr inbounds [8 x i8], ptr %18, i64 %.0183208.i
   %67 = load double, ptr %66, align 8, !tbaa !48
-  %68 = getelementptr inbounds double, ptr %22, i64 %.0183208.i
+  %68 = getelementptr inbounds [8 x i8], ptr %22, i64 %.0183208.i
   %69 = load double, ptr %68, align 8, !tbaa !48
   %70 = load double, ptr %57, align 8, !tbaa !37
   %71 = tail call double @SUNRabs(double noundef %65) #7
@@ -363,7 +363,7 @@ define internal range(i32 -1, 2) i32 @IDABBDPrecSetup(double noundef %0, ptr nou
   br i1 %.not207.i, label %123, label %103
 
 103:                                              ; preds = %93
-  %104 = getelementptr inbounds double, ptr %.0180.i, i64 %.0183208.i
+  %104 = getelementptr inbounds [8 x i8], ptr %.0180.i, i64 %.0183208.i
   %105 = load double, ptr %104, align 8, !tbaa !48
   %106 = tail call double @SUNRabs(double noundef %105) #7
   %107 = fcmp oeq double %106, 1.000000e+00
@@ -396,11 +396,11 @@ define internal range(i32 -1, 2) i32 @IDABBDPrecSetup(double noundef %0, ptr nou
 
 123:                                              ; preds = %121, %117, %114, %112, %108, %93
   %.1.i = phi double [ %113, %112 ], [ %101, %108 ], [ %122, %121 ], [ %101, %117 ], [ %101, %114 ], [ %101, %93 ]
-  %124 = getelementptr inbounds double, ptr %28, i64 %.0183208.i
+  %124 = getelementptr inbounds [8 x i8], ptr %28, i64 %.0183208.i
   %125 = load double, ptr %124, align 8, !tbaa !48
   %126 = fadd double %.1.i, %125
   store double %126, ptr %124, align 8, !tbaa !48
-  %127 = getelementptr inbounds double, ptr %29, i64 %.0183208.i
+  %127 = getelementptr inbounds [8 x i8], ptr %29, i64 %.0183208.i
   %128 = load double, ptr %127, align 8, !tbaa !48
   %129 = tail call double @llvm.fmuladd.f64(double %4, double %.1.i, double %128)
   store double %129, ptr %127, align 8, !tbaa !48
@@ -427,15 +427,15 @@ define internal range(i32 -1, 2) i32 @IDABBDPrecSetup(double noundef %0, ptr nou
 
 .lr.ph215.i:                                      ; preds = %.preheader.i, %._crit_edge213.i
   %.1184214.i = phi i64 [ %226, %._crit_edge213.i ], [ %63, %.preheader.i ]
-  %139 = getelementptr inbounds double, ptr %17, i64 %.1184214.i
+  %139 = getelementptr inbounds [8 x i8], ptr %17, i64 %.1184214.i
   %140 = load double, ptr %139, align 8, !tbaa !48
-  %141 = getelementptr inbounds double, ptr %28, i64 %.1184214.i
+  %141 = getelementptr inbounds [8 x i8], ptr %28, i64 %.1184214.i
   store double %140, ptr %141, align 8, !tbaa !48
-  %142 = getelementptr inbounds double, ptr %18, i64 %.1184214.i
+  %142 = getelementptr inbounds [8 x i8], ptr %18, i64 %.1184214.i
   %143 = load double, ptr %142, align 8, !tbaa !48
-  %144 = getelementptr inbounds double, ptr %29, i64 %.1184214.i
+  %144 = getelementptr inbounds [8 x i8], ptr %29, i64 %.1184214.i
   store double %143, ptr %144, align 8, !tbaa !48
-  %145 = getelementptr inbounds double, ptr %22, i64 %.1184214.i
+  %145 = getelementptr inbounds [8 x i8], ptr %22, i64 %.1184214.i
   %146 = load double, ptr %145, align 8, !tbaa !48
   %147 = load double, ptr %57, align 8, !tbaa !37
   %148 = tail call double @SUNRabs(double noundef %140) #7
@@ -489,7 +489,7 @@ define internal range(i32 -1, 2) i32 @IDABBDPrecSetup(double noundef %0, ptr nou
   br i1 %.not205.i, label %200, label %180
 
 180:                                              ; preds = %170
-  %181 = getelementptr inbounds double, ptr %.0180.i, i64 %.1184214.i
+  %181 = getelementptr inbounds [8 x i8], ptr %.0180.i, i64 %.1184214.i
   %182 = load double, ptr %181, align 8, !tbaa !48
   %183 = tail call double @SUNRabs(double noundef %182) #7
   %184 = fcmp oeq double %183, 1.000000e+00
@@ -526,11 +526,11 @@ define internal range(i32 -1, 2) i32 @IDABBDPrecSetup(double noundef %0, ptr nou
   %202 = load ptr, ptr %12, align 8, !tbaa !33
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 72
   %204 = load ptr, ptr %203, align 8, !tbaa !52
-  %205 = getelementptr inbounds ptr, ptr %204, i64 %.1184214.i
+  %205 = getelementptr inbounds [8 x i8], ptr %204, i64 %.1184214.i
   %206 = load ptr, ptr %205, align 8, !tbaa !55
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 48
   %208 = load i64, ptr %207, align 8, !tbaa !56
-  %209 = getelementptr inbounds double, ptr %206, i64 %208
+  %209 = getelementptr inbounds [8 x i8], ptr %206, i64 %208
   %210 = load i64, ptr %59, align 8, !tbaa !31
   %211 = sub nsw i64 %.1184214.i, %210
   %spec.select.i = tail call i64 @llvm.smax.i64(i64 %211, i64 0)
@@ -544,14 +544,14 @@ define internal range(i32 -1, 2) i32 @IDABBDPrecSetup(double noundef %0, ptr nou
 
 .lr.ph212.i:                                      ; preds = %200, %.lr.ph212.i
   %.0182210.i = phi i64 [ %225, %.lr.ph212.i ], [ %spec.select.i, %200 ]
-  %217 = getelementptr inbounds nuw double, ptr %19, i64 %.0182210.i
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.0182210.i
   %218 = load double, ptr %217, align 8, !tbaa !48
-  %219 = getelementptr inbounds nuw double, ptr %30, i64 %.0182210.i
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.0182210.i
   %220 = load double, ptr %219, align 8, !tbaa !48
   %221 = fsub double %218, %220
   %222 = fmul double %201, %221
   %223 = sub nsw i64 %.0182210.i, %.1184214.i
-  %224 = getelementptr inbounds double, ptr %209, i64 %223
+  %224 = getelementptr inbounds [8 x i8], ptr %209, i64 %223
   store double %222, ptr %224, align 8, !tbaa !48
   %225 = add nuw nsw i64 %.0182210.i, 1
   %.not206.not.i = icmp slt i64 %.0182210.i, %216

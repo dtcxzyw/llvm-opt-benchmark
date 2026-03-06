@@ -4,12 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.std::unique_ptr.12" = type { %"struct.std::__uniq_ptr_data.13" }
-%"struct.std::__uniq_ptr_data.13" = type { %"class.std::__uniq_ptr_impl.14" }
-%"class.std::__uniq_ptr_impl.14" = type { %"class.std::tuple.15" }
-%"class.std::tuple.15" = type { %"struct.std::_Tuple_impl.16" }
-%"struct.std::_Tuple_impl.16" = type { %"struct.std::_Head_base.19" }
-%"struct.std::_Head_base.19" = type { ptr }
 
 $_ZN5draco17PointCloudDecoderD2Ev = comdat any
 
@@ -113,7 +107,7 @@ define noundef zeroext i1 @_ZN5draco23PointCloudKdTreeDecoder23CreateAttributesD
   br i1 %23, label %24, label %_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EE6resizeEm.exit.i
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %10, i64 %18
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %18
   %.not.i.i.i = icmp eq ptr %9, %25
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EE6resizeEm.exit.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -143,7 +137,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_de
 _ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EE6resizeEm.exit.i: ; preds = %20, %_ZSt8_DestroyIPSt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i.i, %24, %22, %6
   %31 = zext nneg i32 %1 to i64
   %32 = load ptr, ptr %7, align 8, !tbaa !47
-  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8, !tbaa !48
   store ptr %3, ptr %33, align 8, !tbaa !48
   %.not.i.i.i.i.i = icmp eq ptr %34, null
@@ -419,9 +413,9 @@ _ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_dele
 
 _ZNSt12_Vector_baseISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit37: ; preds = %_ZNSt6vectorISt10unique_ptrIN5draco26AttributesDecoderInterfaceESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %32
   store ptr %26, ptr %0, align 8, !tbaa !47
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %27, i64 %1
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %1
   store ptr %34, ptr %4, align 8, !tbaa !46
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %26, i64 %24
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %35, ptr %11, align 8, !tbaa !56
   br label %36
 

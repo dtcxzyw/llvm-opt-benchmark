@@ -31,7 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.prte_state_base_module_1_0_0_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.prte_rml_base_t = type { i32, i32, i32, i32, %struct.pmix_list_t, %struct.pmix_list_t, i32, %struct.pmix_list_t, i32, i8 }
 %struct.pmix_topology_t = type { ptr, ptr }
-%struct.hwloc_info_s = type { ptr, ptr }
 
 @plm_in_use = internal unnamed_addr global i1 false, align 1
 @epipe_handler = internal global %struct.event zeroinitializer, align 8
@@ -169,7 +168,7 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
   %22 = getelementptr inbounds nuw i8, ptr %.0118210, i64 152
   %23 = load i32, ptr %22, align 8, !tbaa !22
   %24 = load ptr, ptr @forward_signals_events, align 8, !tbaa !19
-  %25 = getelementptr inbounds nuw %struct.event, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [128 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr @prte_event_base, align 8, !tbaa !8
   %27 = tail call i32 @prte_event_assign(ptr noundef %25, ptr noundef %26, i32 noundef %23, i16 noundef signext 24, ptr noundef nonnull @signal_forward_callback, ptr noundef %25) #18
   %28 = tail call i32 @event_add(ptr noundef %25, ptr noundef null) #18
@@ -213,7 +212,7 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
 
 43:                                               ; preds = %.lr.ph212, %72
   %indvars.iv223 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next224, %72 ]
-  %44 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %42, i64 %indvars.iv223
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %indvars.iv223
   %45 = load ptr, ptr %44, align 8, !tbaa !37
   %46 = icmp eq ptr %45, null
   br i1 %46, label %72, label %47
@@ -233,7 +232,7 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
   %55 = trunc nuw i64 %indvars.iv223 to i32
   tail call void @free(ptr noundef nonnull %45) #18
   %56 = load ptr, ptr %41, align 8, !tbaa !36
-  %57 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %56, i64 %indvars.iv223
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %indvars.iv223
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !39
   tail call void @free(ptr noundef %59) #18
@@ -249,9 +248,9 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
 .lr.ph214:                                        ; preds = %54, %.lr.ph214
   %indvars.iv227 = phi i64 [ %indvars.iv.next228, %.lr.ph214 ], [ %indvars.iv223, %54 ]
   %63 = load ptr, ptr %41, align 8, !tbaa !36
-  %64 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %63, i64 %indvars.iv227
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv227
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
-  %65 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %63, i64 %indvars.iv.next228
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv.next228
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %65, i64 16, i1 false), !tbaa.struct !40
   %66 = load i32, ptr %39, align 8, !tbaa !29
   %67 = add i32 %66, -1
@@ -263,7 +262,7 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
   %.pre-phi = phi i64 [ %.pre231, %.._crit_edge_crit_edge ], [ %68, %.lr.ph214 ]
   %.lcssa = phi i32 [ %61, %.._crit_edge_crit_edge ], [ %67, %.lr.ph214 ]
   %70 = load ptr, ptr %41, align 8, !tbaa !36
-  %71 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %70, i64 %.pre-phi
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %.pre-phi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
   store i32 %.lcssa, ptr %39, align 8, !tbaa !29
   br label %.loopexit
@@ -391,7 +390,7 @@ define range(i32 -43, 1) i32 @prte_ess_base_prted_setup() local_unnamed_addr #0 
 
 127:                                              ; preds = %104
   %128 = zext nneg i32 %126 to i64
-  %129 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %128
+  %129 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %131 = load i32, ptr %130, align 4, !tbaa !69
   %132 = icmp sgt i32 %131, 1
@@ -785,7 +784,7 @@ define internal void @shutdown_signal(i32 %0, i16 signext %1, ptr readnone captu
 
 9:                                                ; preds = %7
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %10
+  %11 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !69
   %14 = icmp sgt i32 %13, 0
@@ -822,7 +821,7 @@ define internal void @shutdown_signal(i32 %0, i16 signext %1, ptr readnone captu
 
 31:                                               ; preds = %21
   %32 = zext nneg i32 %30 to i64
-  %33 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %32
+  %33 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !69
   %36 = icmp sgt i32 %35, 0
@@ -902,7 +901,7 @@ define internal void @signal_forward_callback(i32 %0, i16 signext %1, ptr nounde
 
 26:                                               ; preds = %24
   %27 = zext nneg i32 %25 to i64
-  %28 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %27
+  %28 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !69
   %31 = icmp sgt i32 %30, 1
@@ -1097,7 +1096,7 @@ define noundef i32 @prte_ess_base_prted_finalize() local_unnamed_addr #0 {
   %.08 = phi i32 [ %9, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr @forward_signals_events, align 8, !tbaa !19
   %6 = zext i32 %.08 to i64
-  %7 = getelementptr inbounds nuw %struct.event, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 %6
   %8 = tail call i32 @event_del(ptr noundef %7) #18
   %9 = add i32 %.08, 1
   %10 = getelementptr inbounds nuw i8, ptr %.039, i64 120

@@ -44,20 +44,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.boost::iterator_property_map.92" = type { %"class.__gnu_cxx::__normal_iterator.94", %"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::prop_map" }
 %"class.__gnu_cxx::__normal_iterator.94" = type { ptr }
 %"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::prop_map" = type { i64 }
-%"struct.std::pair.127" = type { %"class.ue2::graph_detail::vertex_descriptor", %"struct.std::pair.129" }
-%"struct.std::pair.129" = type { %"class.boost::optional", %"struct.std::pair.53" }
-%"class.boost::optional" = type { %"class.boost::optional_detail::optional_base" }
-%"class.boost::optional_detail::optional_base" = type { i8, [7 x i8], %"class.boost::optional_detail::aligned_storage" }
-%"class.boost::optional_detail::aligned_storage" = type { %"union.boost::optional_detail::aligned_storage<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>>::dummy_u" }
-%"union.boost::optional_detail::aligned_storage<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>>::dummy_u" = type { [16 x i8] }
-%"struct.std::pair.53" = type { %"class.boost::iterators::filter_iterator.42", %"class.boost::iterators::filter_iterator.42" }
-%"class.boost::iterators::filter_iterator.42" = type { %"class.boost::iterators::iterator_adaptor.43", %"struct.boost::detail::out_edge_predicate", %"class.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::out_edge_iterator" }
-%"class.boost::iterators::iterator_adaptor.43" = type { %"class.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::out_edge_iterator" }
-%"struct.boost::detail::out_edge_predicate" = type { %"struct.ue2::(anonymous namespace)::SpecialEdgeFilter", [8 x i8], ptr }
-%"class.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::out_edge_iterator" = type { %"class.boost::iterators::iterator_adaptor.47" }
-%"class.boost::iterators::iterator_adaptor.47" = type { %"class.boost::intrusive::list_iterator.51" }
-%"class.boost::intrusive::list_iterator.51" = type { %"struct.boost::intrusive::iiterator_members.52" }
-%"struct.boost::intrusive::iiterator_members.52" = type { ptr }
 %"class.boost::exception_detail::refcount_ptr" = type { ptr }
 
 $_ZNK3ue25depthmiERKS0_ = comdat any
@@ -447,7 +433,7 @@ _ZNSt6vectorIN3ue25depthESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %1
   unreachable
 
 31:                                               ; preds = %.loopexit
-  %32 = getelementptr inbounds nuw %"class.ue2::depth", ptr %.sroa.06.0, i64 %26
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.06.0, i64 %26
   store i32 0, ptr %32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %17, ptr %9, align 8
@@ -697,7 +683,7 @@ _ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHol
   %147 = load ptr, ptr %146, align 8, !noalias !18
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.038.0.i.i.i.i.i.i.i, i64 72
   %149 = load i64, ptr %148, align 8, !noalias !23
-  %150 = getelementptr inbounds nuw i32, ptr %147, i64 %149
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %149
   %151 = icmp sgt i64 %149, 0
   br i1 %151, label %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -705,7 +691,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.
   %152 = phi ptr [ %160, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %147, %145 ]
   %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %149, %145 ]
   %153 = lshr i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  %154 = getelementptr inbounds nuw i32, ptr %152, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %153
   %155 = load i32, ptr %154, align 4, !noalias !28
   %156 = icmp ult i32 %155, %.sroa.472.12.extract.trunc.i.i.i.i.i.i.i
   %157 = getelementptr inbounds nuw i8, ptr %154, i64 4
@@ -769,7 +755,7 @@ _ZN5boost9out_edgesIN3ue28NGHolderENS1_12_GLOBAL__N_117SpecialEdgeFilterENS_8kee
   %.val63.i.i.i.i.i.i = load ptr, ptr %186, align 8
   %187 = getelementptr inbounds nuw i8, ptr %.val63.i.i.i.i.i.i, i64 80
   %188 = load i64, ptr %187, align 8
-  %189 = getelementptr inbounds %"class.ue2::depth", ptr %.sroa.06.0, i64 %188
+  %189 = getelementptr inbounds [4 x i8], ptr %.sroa.06.0, i64 %188
   %190 = load i32, ptr %189, align 4
   %.off = add i32 %190, -2147483647
   %switch = icmp ult i32 %.off, 2
@@ -792,7 +778,7 @@ _ZN5boost11bfs_visitorINS_17distance_recorderINS_21iterator_property_mapIN9__gnu
   %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %192, %191 ], [ %190, %185 ]
   %196 = getelementptr inbounds nuw i8, ptr %169, i64 80
   %197 = load i64, ptr %196, align 8
-  %198 = getelementptr inbounds %"class.ue2::depth", ptr %.sroa.06.0, i64 %197
+  %198 = getelementptr inbounds [4 x i8], ptr %.sroa.06.0, i64 %197
   store i32 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i, ptr %198, align 4
   %199 = load i64, ptr %173, align 8
   %200 = lshr i64 %199, 2
@@ -875,7 +861,7 @@ _ZN5boost11bfs_visitorINS_17distance_recorderINS_21iterator_property_mapIN9__gnu
 254:                                              ; preds = %249
   %255 = sub i64 %242, %251
   %256 = lshr i64 %255, 1
-  %257 = getelementptr inbounds nuw ptr, ptr %243, i64 %256
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %256
   %258 = icmp ult ptr %257, %218
   %259 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %.not.i.i.i.i.i.i81.i.i.i.i.i.i = icmp eq ptr %259, %218
@@ -894,12 +880,12 @@ _ZN5boost11bfs_visitorINS_17distance_recorderINS_21iterator_property_mapIN9__gnu
   br i1 %.not.i.i.i.i.i.i81.i.i.i.i.i.i, label %_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE17_M_reallocate_mapEmb.exit.i.i.i.i.i.i, label %265
 
 265:                                              ; preds = %264
-  %266 = getelementptr inbounds nuw ptr, ptr %257, i64 %250
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %257, i64 %250
   %267 = ptrtoint ptr %259 to i64
   %268 = sub i64 %267, %220
   %269 = ashr exact i64 %268, 3
   %270 = sub nsw i64 0, %269
-  %271 = getelementptr inbounds ptr, ptr %266, i64 %270
+  %271 = getelementptr inbounds [8 x i8], ptr %266, i64 %270
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %271, ptr align 8 %218, i64 %268, i1 false)
   br label %_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE17_M_reallocate_mapEmb.exit.i.i.i.i.i.i
 
@@ -936,7 +922,7 @@ _ZNSt11_Deque_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NG
 .noexc18.i.i.i.i.i:                               ; preds = %_ZNSt11_Deque_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE15_M_allocate_mapEm.exit.i.i.i.i.i.i.i
   %280 = sub nsw i64 %274, %251
   %281 = lshr i64 %280, 1
-  %282 = getelementptr inbounds nuw ptr, ptr %279, i64 %281
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %281
   %283 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %.not.i.i.i.i.i25.i.i.i.i.i.i.i = icmp eq ptr %283, %218
   br i1 %.not.i.i.i.i.i25.i.i.i.i.i.i.i, label %_ZSt4copyIPPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESA_ET0_T_SC_SB_.exit26.i.i.i.i.i.i.i, label %284
@@ -960,7 +946,7 @@ _ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderE
   store ptr %287, ptr %95, align 8
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 512
   store ptr %288, ptr %94, align 8
-  %289 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i.i.i, i64 %250
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i.i.i, i64 %250
   %290 = getelementptr inbounds i8, ptr %289, i64 -8
   store ptr %290, ptr %97, align 8
   %291 = load ptr, ptr %290, align 8
@@ -1042,7 +1028,7 @@ _ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHol
   %323 = load ptr, ptr %322, align 8, !noalias !37
   %324 = getelementptr inbounds nuw i8, ptr %.sroa.096.1.i.i.i.i.i.i, i64 72
   %325 = load i64, ptr %324, align 8, !noalias !42
-  %326 = getelementptr inbounds nuw i32, ptr %323, i64 %325
+  %326 = getelementptr inbounds nuw [4 x i8], ptr %323, i64 %325
   %327 = icmp sgt i64 %325, 0
   br i1 %327, label %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -1050,7 +1036,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.
   %328 = phi ptr [ %336, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %323, %321 ]
   %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %325, %321 ]
   %329 = lshr i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  %330 = getelementptr inbounds nuw i32, ptr %328, i64 %329
+  %330 = getelementptr inbounds nuw [4 x i8], ptr %328, i64 %329
   %331 = load i32, ptr %330, align 4, !noalias !47
   %332 = icmp ult i32 %331, %.sroa.472.12.extract.trunc.i.i.i.i.i.i.i
   %333 = getelementptr inbounds nuw i8, ptr %330, i64 4
@@ -1602,7 +1588,7 @@ _ZNSt11_Deque_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NG
   store ptr %7, ptr %0, align 8
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -1694,7 +1680,7 @@ _ZNSt11_Deque_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NG
   store ptr %46, ptr %47, align 8
   store ptr %37, ptr %35, align 8
   %48 = and i64 %1, 31
-  %49 = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8
   ret void
 
@@ -1805,9 +1791,9 @@ define linkonce_odr hidden void @_ZNSt5dequeIN3ue212graph_detail17vertex_descrip
   %19 = load ptr, ptr %0, align 8
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -1826,12 +1812,12 @@ define linkonce_odr hidden void @_ZNSt5dequeIN3ue212graph_detail17vertex_descrip
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESA_ET0_T_SC_SB_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESA_ET0_T_SC_SB_.exit
 
@@ -1859,9 +1845,9 @@ _ZNSt11_Deque_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NG
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #24
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESA_ET0_T_SC_SB_.exit26, label %53
@@ -1888,7 +1874,7 @@ _ZSt4copyIPPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderE
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 512
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %59, ptr %60, align 8
-  %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   store ptr %62, ptr %4, align 8
   %63 = load ptr, ptr %62, align 8
@@ -2372,7 +2358,7 @@ _ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8N
           to label %.noexc27.i.i.i unwind label %775
 
 .noexc27.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_M_allocateEm.exit.i.i.i.i.i
-  %152 = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %151, i64 %.val.val.i.i.i.i
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %151, i64 %.val.val.i.i.i.i
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE7reserveEm.exit.i.i.i.i
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE7reserveEm.exit.i.i.i.i: ; preds = %.noexc27.i.i.i, %149
@@ -2528,7 +2514,7 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_
   %221 = load ptr, ptr %220, align 8, !noalias !76
   %222 = getelementptr inbounds nuw i8, ptr %.sroa.038.0.i.i.i.i.i.i.i, i64 72
   %223 = load i64, ptr %222, align 8, !noalias !81
-  %224 = getelementptr inbounds nuw i32, ptr %221, i64 %223
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %221, i64 %223
   %225 = icmp sgt i64 %223, 0
   br i1 %225, label %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -2536,7 +2522,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.
   %226 = phi ptr [ %234, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %221, %219 ]
   %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %223, %219 ]
   %227 = lshr i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  %228 = getelementptr inbounds nuw i32, ptr %226, i64 %227
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %227
   %229 = load i32, ptr %228, align 4, !noalias !86
   %230 = icmp ult i32 %229, %.sroa.472.12.extract.trunc.i.i.i.i.i.i.i
   %231 = getelementptr inbounds nuw i8, ptr %228, i64 4
@@ -2784,7 +2770,7 @@ _ZN5boost8optionalIN3ue212graph_detail15edge_descriptorINS1_9ue2_graphINS1_8NGHo
   %316 = load ptr, ptr %315, align 8, !noalias !94
   %317 = getelementptr inbounds nuw i8, ptr %.sroa.0137.1.i.i.i.i.i.i, i64 72
   %318 = load i64, ptr %317, align 8, !noalias !99
-  %319 = getelementptr inbounds nuw i32, ptr %316, i64 %318
+  %319 = getelementptr inbounds nuw [4 x i8], ptr %316, i64 %318
   %320 = icmp sgt i64 %318, 0
   br i1 %320, label %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -2792,7 +2778,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.
   %321 = phi ptr [ %329, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %316, %314 ]
   %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %318, %314 ]
   %322 = lshr i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  %323 = getelementptr inbounds nuw i32, ptr %321, i64 %322
+  %323 = getelementptr inbounds nuw [4 x i8], ptr %321, i64 %322
   %324 = load i32, ptr %323, align 4, !noalias !104
   %325 = icmp ult i32 %324, %.sroa.30.sroa.11168.0223.i.i.i.i.i.i
   %326 = getelementptr inbounds nuw i8, ptr %323, i64 4
@@ -3026,7 +3012,7 @@ _ZSt8_DestroyIPSt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1
 _ZNSt6vectorISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INSA_9iterators15filter_iteratorINSA_6detail18out_edge_predicateINS1_12_GLOBAL__N_117SpecialEdgeFilterENSA_8keep_allENSA_14filtered_graphIS5_SK_SL_EEEENS8_17out_edge_iteratorEEESQ_EEESaIST_EE17_M_realloc_insertIJST_EEEvN9__gnu_cxx17__normal_iteratorIPST_SV_EEDpOT_.exit.i.i.i.i.i.i.i.i: ; preds = %402, %_ZSt8_DestroyIPSt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEES0_IN5boost8optionalINS2_15edge_descriptorIS8_EEEES0_INSA_9iterators15filter_iteratorINSA_6detail18out_edge_predicateINS1_12_GLOBAL__N_117SpecialEdgeFilterENSA_8keep_allENSA_14filtered_graphIS5_SK_SL_EEEENS8_17out_edge_iteratorEEESQ_EEEST_EvT_SV_RSaIT0_E.exit.i.i.i.i.i.i.i.i.i
   store ptr %360, ptr %9, align 8
   store ptr %401, ptr %242, align 8
-  %403 = getelementptr inbounds nuw %"struct.std::pair.127", ptr %360, i64 %358
+  %403 = getelementptr inbounds nuw [136 x i8], ptr %360, i64 %358
   store ptr %403, ptr %243, align 8
   br label %_ZNSt4pairIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES_IN5boost8optionalINS1_15edge_descriptorIS7_EEEES_INS9_9iterators15filter_iteratorINS9_6detail18out_edge_predicateINS0_12_GLOBAL__N_117SpecialEdgeFilterENS9_8keep_allENS9_14filtered_graphIS4_SJ_SK_EEEENS7_17out_edge_iteratorEEESP_EEED2Ev.exit123.i.i.i.i.i.i
 
@@ -3108,7 +3094,7 @@ _ZNSt4pairIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderEN
   %448 = load ptr, ptr %447, align 8, !noalias !122
   %449 = getelementptr inbounds nuw i8, ptr %.sroa.038.0.i133.i.i.i.i.i.i, i64 72
   %450 = load i64, ptr %449, align 8, !noalias !127
-  %451 = getelementptr inbounds nuw i32, ptr %448, i64 %450
+  %451 = getelementptr inbounds nuw [4 x i8], ptr %448, i64 %450
   %452 = icmp sgt i64 %450, 0
   br i1 %452, label %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i148.i.i.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i.i.i.i.i144.i.i.i.i.i.i
 
@@ -3116,7 +3102,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.
   %453 = phi ptr [ %461, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i148.i.i.i.i.i.i ], [ %448, %446 ]
   %.012.i.i.i.i.i.i.i.i.i149.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i.i.i.i152.i.i.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i148.i.i.i.i.i.i ], [ %450, %446 ]
   %454 = lshr i64 %.012.i.i.i.i.i.i.i.i.i149.i.i.i.i.i.i, 1
-  %455 = getelementptr inbounds nuw i32, ptr %453, i64 %454
+  %455 = getelementptr inbounds nuw [4 x i8], ptr %453, i64 %454
   %456 = load i32, ptr %455, align 4, !noalias !132
   %457 = icmp ult i32 %456, %.sroa.472.12.extract.trunc.i130.i.i.i.i.i.i
   %458 = getelementptr inbounds nuw i8, ptr %455, i64 4
@@ -3297,7 +3283,7 @@ _ZN5boost9not_a_dagC2Ev.exit.i.i.i.i.i.i.i:       ; preds = %476, %_ZNKSt7__cxx1
   %518 = load ptr, ptr %517, align 8, !noalias !138
   %519 = getelementptr inbounds nuw i8, ptr %.sroa.0137.3.i.i.i.i.i.i, i64 72
   %520 = load i64, ptr %519, align 8, !noalias !143
-  %521 = getelementptr inbounds nuw i32, ptr %518, i64 %520
+  %521 = getelementptr inbounds nuw [4 x i8], ptr %518, i64 %520
   %522 = icmp sgt i64 %520, 0
   br i1 %522, label %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i176.i.i.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i.i.i.i.i.i172.i.i.i.i.i.i
 
@@ -3305,7 +3291,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.
   %523 = phi ptr [ %531, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i176.i.i.i.i.i.i ], [ %518, %516 ]
   %.012.i.i.i.i.i.i.i.i.i.i177.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i.i.i.i.i180.i.i.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i176.i.i.i.i.i.i ], [ %520, %516 ]
   %524 = lshr i64 %.012.i.i.i.i.i.i.i.i.i.i177.i.i.i.i.i.i, 1
-  %525 = getelementptr inbounds nuw i32, ptr %523, i64 %524
+  %525 = getelementptr inbounds nuw [4 x i8], ptr %523, i64 %524
   %526 = load i32, ptr %525, align 4, !noalias !148
   %527 = icmp ult i32 %526, %.sroa.30.sroa.11168.0223.i.i.i.i.i.i
   %528 = getelementptr inbounds nuw i8, ptr %525, i64 4
@@ -3451,7 +3437,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i.i.i.i.i
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i.i.i.i.i: ; preds = %577, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i.i.i.i.i.i.i.i
-  %578 = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %573, i64 %571
+  %578 = getelementptr inbounds nuw [16 x i8], ptr %573, i64 %571
   br label %_ZN5boost17topo_sort_visitorISt20back_insert_iteratorISt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaISB_EEEE13finish_vertexISB_KNS_14filtered_graphIS7_NS3_12_GLOBAL__N_117SpecialEdgeFilterENS_8keep_allEEEEEvRKT_RT0_.exit.i.i.i.i.i.i
 
 _ZN5boost17topo_sort_visitorISt20back_insert_iteratorISt6vectorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEESaISB_EEEE13finish_vertexISB_KNS_14filtered_graphIS7_NS3_12_GLOBAL__N_117SpecialEdgeFilterENS_8keep_allEEEEEvRKT_RT0_.exit.i.i.i.i.i.i: ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i.i.i.i.i, %560
@@ -3586,7 +3572,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
   %628 = getelementptr inbounds nuw i8, ptr %.sroa.038.075.i.i.i.i, i64 16
   %629 = getelementptr inbounds i8, ptr %628, i64 %.sroa.2.0.copyload.i41
   %630 = load i64, ptr %629, align 8
-  %631 = getelementptr inbounds i32, ptr %.sroa.01.0.copyload.i, i64 %630
+  %631 = getelementptr inbounds [4 x i8], ptr %.sroa.01.0.copyload.i, i64 %630
   store i32 2147483647, ptr %631, align 4
   %.sroa.038.0.i.i.i.i = load ptr, ptr %.sroa.038.075.i.i.i.i, align 8
   %.not55.i.i.i.i = icmp eq ptr %.sroa.038.0.i.i.i.i, %627
@@ -3595,7 +3581,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %626
   %632 = getelementptr inbounds i8, ptr %179, i64 %.sroa.2.0.copyload.i41
   %633 = load i64, ptr %632, align 8
-  %634 = getelementptr inbounds i32, ptr %.sroa.01.0.copyload.i, i64 %633
+  %634 = getelementptr inbounds [4 x i8], ptr %.sroa.01.0.copyload.i, i64 %633
   store i32 0, ptr %634, align 4
   %.not5680.i.i.i.i = icmp eq ptr %.sroa.11.2.i.i.i.i, %.sroa.0.2.i.i.i.i
   br i1 %.not5680.i.i.i.i, label %._crit_edge84.i.i.i.i, label %.lr.ph83.i.preheader.i.i.i
@@ -3669,7 +3655,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
   %664 = load ptr, ptr %663, align 8, !noalias !171
   %665 = getelementptr inbounds nuw i8, ptr %.sroa.038.0.i.i.i.i.i, i64 72
   %666 = load i64, ptr %665, align 8, !noalias !176
-  %667 = getelementptr inbounds nuw i32, ptr %664, i64 %666
+  %667 = getelementptr inbounds nuw [4 x i8], ptr %664, i64 %666
   %668 = icmp sgt i64 %666, 0
   br i1 %668, label %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i.i.i.i.i.i.i.i.i
 
@@ -3677,7 +3663,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.
   %669 = phi ptr [ %677, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %664, %662 ]
   %.012.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %666, %662 ]
   %670 = lshr i64 %.012.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  %671 = getelementptr inbounds nuw i32, ptr %669, i64 %670
+  %671 = getelementptr inbounds nuw [4 x i8], ptr %669, i64 %670
   %672 = load i32, ptr %671, align 4, !noalias !181
   %673 = icmp ult i32 %672, %.sroa.472.12.extract.trunc.i.i.i.i.i
   %674 = getelementptr inbounds nuw i8, ptr %671, i64 4
@@ -3728,12 +3714,12 @@ _ZN3ue28containsINS_8flat_setIjSt4lessIjESaIjEEEEEbRKT_RKNS6_8key_typeE.exit.i.i
   %693 = getelementptr inbounds nuw i8, ptr %692, i64 16
   %694 = getelementptr inbounds i8, ptr %693, i64 %.sroa.2.0.copyload.i41
   %695 = load i64, ptr %694, align 8
-  %696 = getelementptr inbounds i32, ptr %.sroa.01.0.copyload.i, i64 %695
+  %696 = getelementptr inbounds [4 x i8], ptr %.sroa.01.0.copyload.i, i64 %695
   %697 = load i32, ptr %696, align 4
   %698 = getelementptr inbounds nuw i8, ptr %690, i64 16
   %699 = getelementptr inbounds i8, ptr %698, i64 %.sroa.2.0.copyload.i41
   %700 = load i64, ptr %699, align 8
-  %701 = getelementptr inbounds i32, ptr %.sroa.01.0.copyload.i, i64 %700
+  %701 = getelementptr inbounds [4 x i8], ptr %.sroa.01.0.copyload.i, i64 %700
   %702 = load i32, ptr %701, align 4
   %703 = icmp eq i32 %697, 2147483647
   %704 = add nsw i32 %697, %.val.i
@@ -3793,7 +3779,7 @@ _ZN5boost5relaxINS_14filtered_graphIN3ue28NGHolderENS2_12_GLOBAL__N_117SpecialEd
   %729 = load ptr, ptr %728, align 8, !noalias !187
   %730 = getelementptr inbounds nuw i8, ptr %.sroa.048.1.i.i.i.i, i64 72
   %731 = load i64, ptr %730, align 8, !noalias !192
-  %732 = getelementptr inbounds nuw i32, ptr %729, i64 %731
+  %732 = getelementptr inbounds nuw [4 x i8], ptr %729, i64 %731
   %733 = icmp sgt i64 %731, 0
   br i1 %733, label %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -3801,7 +3787,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.
   %734 = phi ptr [ %742, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %729, %727 ]
   %.012.i.i.i.i.i.i.i.i.i.i102.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %731, %727 ]
   %735 = lshr i64 %.012.i.i.i.i.i.i.i.i.i.i102.i.i.i.i, 1
-  %736 = getelementptr inbounds nuw i32, ptr %734, i64 %735
+  %736 = getelementptr inbounds nuw [4 x i8], ptr %734, i64 %735
   %737 = load i32, ptr %736, align 4, !noalias !197
   %738 = icmp ult i32 %737, %.sroa.472.12.extract.trunc.i.i.i.i.i
   %739 = getelementptr inbounds nuw i8, ptr %736, i64 4

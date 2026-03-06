@@ -2267,7 +2267,7 @@ define dso_local range(i32 -2147483648, 1) i32 @i915_request_await_deps(ptr noun
   %11 = phi i32 [ %8, %7 ], [ 0, %2 ]
   %12 = load ptr, ptr %3, align 8
   %13 = sext i32 %11 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @i915_request_await_dma_fence(ptr noundef %0, ptr noundef %15), !range !49
   %17 = icmp eq i32 %16, 0

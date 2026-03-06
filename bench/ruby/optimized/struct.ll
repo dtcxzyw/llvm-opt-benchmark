@@ -289,7 +289,7 @@ define dso_local i64 @rb_struct_getmember(i64 noundef %0, i64 noundef %1) local_
 internal_RSTRUCT_GET.exit:                        ; preds = %9, %11
   %.0.i.i = phi ptr [ %10, %9 ], [ %13, %11 ]
   %14 = sext i32 %4 to i64
-  %15 = getelementptr i64, ptr %.0.i.i, i64 %14
+  %15 = getelementptr [8 x i8], ptr %.0.i.i, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !7
   ret i64 %16
 
@@ -414,7 +414,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %42, %45
 
 RARRAY_AREF.exit.us:                              ; preds = %55, %.lr.ph87.split.us
   %.03786.us = phi i64 [ 0, %.lr.ph87.split.us ], [ %56, %55 ]
-  %52 = getelementptr i64, ptr %51, i64 %.03786.us
+  %52 = getelementptr [8 x i8], ptr %51, i64 %.03786.us
   %53 = load i64, ptr %52, align 8, !tbaa !7
   %54 = icmp eq i64 %53, %1
   br i1 %54, label %.split89.us, label %55
@@ -432,7 +432,7 @@ RARRAY_AREF.exit.us:                              ; preds = %55, %.lr.ph87.split
 
 RARRAY_AREF.exit:                                 ; preds = %.lr.ph87, %64
   %.03786 = phi i64 [ %65, %64 ], [ 0, %.lr.ph87 ]
-  %60 = getelementptr i64, ptr %49, i64 %.03786
+  %60 = getelementptr [8 x i8], ptr %49, i64 %.03786
   %61 = load i64, ptr %60, align 8, !tbaa !7
   %62 = icmp eq i64 %61, %1
   br i1 %62, label %.split89.us, label %64
@@ -476,7 +476,7 @@ internal_RSTRUCT_LEN.exit49:                      ; preds = %67, %70
 
 RARRAY_AREF.exit52:                               ; preds = %74, %76
   %.0.i.i51 = phi ptr [ %75, %74 ], [ %78, %76 ]
-  %79 = getelementptr i64, ptr %.0.i.i51, i64 %73
+  %79 = getelementptr [8 x i8], ptr %.0.i.i51, i64 %73
   %80 = load i64, ptr %79, align 8, !tbaa !7
   %81 = tail call i64 @rb_fix2int(i64 noundef %80) #20
   %sext = shl i64 %81, 32
@@ -502,7 +502,7 @@ RARRAY_AREF.exit52:                               ; preds = %74, %76
 
 RARRAY_AREF.exit55:                               ; preds = %87, %89
   %.0.i.i54 = phi ptr [ %88, %87 ], [ %91, %89 ]
-  %92 = getelementptr i64, ptr %.0.i.i54, i64 %73
+  %92 = getelementptr [8 x i8], ptr %.0.i.i54, i64 %73
   %93 = load i64, ptr %92, align 8, !tbaa !7
   %94 = tail call fastcc i32 @RB_FIX2INT(i64 noundef %93)
   %95 = tail call fastcc i64 @internal_RSTRUCT_LEN(i64 noundef %0)
@@ -523,7 +523,7 @@ RARRAY_AREF.exit55:                               ; preds = %87, %89
   %103 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %104 = load ptr, ptr %103, align 8, !tbaa !13
   %.138.us82 = and i64 %99, %97
-  %105 = getelementptr i64, ptr %104, i64 %.138.us82
+  %105 = getelementptr [8 x i8], ptr %104, i64 %.138.us82
   %106 = load i64, ptr %105, align 8, !tbaa !7
   %107 = icmp eq i64 %106, %1
   br i1 %107, label %RARRAY_AREF.exit61, label %.lr.ph84
@@ -539,14 +539,14 @@ RARRAY_AREF.exit58.us:                            ; preds = %.lr.ph84
   %110 = mul i64 %.138.us83, 5
   %111 = add i64 %110, 2
   %.138.us = and i64 %111, %97
-  %112 = getelementptr i64, ptr %104, i64 %.138.us
+  %112 = getelementptr [8 x i8], ptr %104, i64 %.138.us
   %113 = load i64, ptr %112, align 8, !tbaa !7
   %114 = icmp eq i64 %113, %1
   br i1 %114, label %RARRAY_AREF.exit61, label %.lr.ph84
 
 .split:                                           ; preds = %96
   %.13880 = and i64 %99, %97
-  %115 = getelementptr i64, ptr %102, i64 %.13880
+  %115 = getelementptr [8 x i8], ptr %102, i64 %.13880
   %116 = load i64, ptr %115, align 8, !tbaa !7
   %117 = icmp eq i64 %116, %1
   br i1 %117, label %RARRAY_AREF.exit61, label %.lr.ph
@@ -554,7 +554,7 @@ RARRAY_AREF.exit58.us:                            ; preds = %.lr.ph84
 RARRAY_AREF.exit61:                               ; preds = %RARRAY_AREF.exit58.thread, %RARRAY_AREF.exit58.us, %.split.us, %.split
   %.13877 = phi i64 [ %.138.us, %RARRAY_AREF.exit58.us ], [ %.13880, %.split ], [ %.138.us82, %.split.us ], [ %.138, %RARRAY_AREF.exit58.thread ]
   %.0.i.i60 = phi ptr [ %104, %RARRAY_AREF.exit58.us ], [ %102, %.split ], [ %104, %.split.us ], [ %102, %RARRAY_AREF.exit58.thread ]
-  %118 = getelementptr i64, ptr %.0.i.i60, i64 %.13877
+  %118 = getelementptr [8 x i8], ptr %.0.i.i60, i64 %.13877
   %119 = getelementptr i8, ptr %118, i64 8
   %120 = load i64, ptr %119, align 8, !tbaa !7
   %121 = tail call i64 @rb_fix2int(i64 noundef %120) #20
@@ -572,7 +572,7 @@ RARRAY_AREF.exit58.thread:                        ; preds = %.lr.ph
   %125 = mul i64 %.13881, 5
   %126 = add i64 %125, 2
   %.138 = and i64 %126, %97
-  %127 = getelementptr i64, ptr %102, i64 %.138
+  %127 = getelementptr [8 x i8], ptr %102, i64 %.138
   %128 = load i64, ptr %127, align 8, !tbaa !7
   %129 = icmp eq i64 %128, %1
   br i1 %129, label %RARRAY_AREF.exit61, label %.lr.ph
@@ -884,7 +884,7 @@ rb_array_len.exit:                                ; preds = %7, %10
 
 RARRAY_AREF.exit:                                 ; preds = %16, %19
   %.0.i.i = phi ptr [ %20, %19 ], [ %14, %16 ]
-  %21 = getelementptr i64, ptr %.0.i.i, i64 %.024
+  %21 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.024
   %22 = load i64, ptr %21, align 8, !tbaa !7
   %23 = tail call i64 @rb_sym2id(i64 noundef %22) #20
   %24 = add nuw i64 %.024, 4611686018427387904
@@ -1217,7 +1217,7 @@ RSTRING_PTR.exit:                                 ; preds = %80, %88
 
 98:                                               ; preds = %.lr.ph, %internal_RSTRUCT_SET.exit
   %.056 = phi i64 [ 0, %.lr.ph ], [ %111, %internal_RSTRUCT_SET.exit ]
-  %99 = getelementptr i64, ptr %1, i64 %.056
+  %99 = getelementptr [8 x i8], ptr %1, i64 %.056
   %100 = load i64, ptr %99, align 8, !tbaa !7
   %101 = load i64, ptr %10, align 8, !tbaa !11
   %102 = and i64 %101, 1040384
@@ -1230,7 +1230,7 @@ RSTRING_PTR.exit:                                 ; preds = %80, %88
 
 RSTRUCT_CONST_PTR.exit.i:                         ; preds = %98, %103
   %.0.i.i48 = phi ptr [ %104, %103 ], [ %93, %98 ]
-  %105 = getelementptr i64, ptr %.0.i.i48, i64 %.056
+  %105 = getelementptr [8 x i8], ptr %.0.i.i48, i64 %.056
   store i64 %100, ptr %105, align 8, !tbaa !7
   %106 = icmp eq i64 %100, 0
   %107 = and i64 %100, 7
@@ -1264,7 +1264,7 @@ internal_RSTRUCT_SET.exit:                        ; preds = %RSTRUCT_CONST_PTR.e
 
 RSTRUCT_CONST_PTR.exit51:                         ; preds = %115, %117
   %.0.i50 = phi ptr [ %116, %115 ], [ %119, %117 ]
-  %120 = getelementptr i64, ptr %.0.i50, i64 %90
+  %120 = getelementptr [8 x i8], ptr %.0.i50, i64 %90
   %121 = sub i64 %18, %90
   tail call void @rb_mem_clear(ptr noundef %120, i64 noundef %121) #24
   br label %122
@@ -1400,7 +1400,7 @@ RARRAY_PTR.exit:                                  ; preds = %rb_long2int_inline.
   %34 = phi i32 [ %29, %25 ], [ %23, %30 ]
   %35 = phi ptr [ %28, %25 ], [ %31, %30 ]
   %36 = load i64, ptr %35, align 8, !tbaa !7
-  %37 = getelementptr i64, ptr %.01017, i64 %indvars.iv
+  %37 = getelementptr [8 x i8], ptr %.01017, i64 %indvars.iv
   store i64 %36, ptr %37, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1575,7 +1575,7 @@ internal_RSTRUCT_LEN.exit25:                      ; preds = %26, %29
 
 internal_RSTRUCT_GET.exit:                        ; preds = %37, %40
   %.0.i.i = phi ptr [ %41, %40 ], [ %33, %37 ]
-  %42 = getelementptr i64, ptr %.0.i.i, i64 %.01728
+  %42 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.01728
   %43 = load i64, ptr %42, align 8, !tbaa !7
   %44 = load i64, ptr %5, align 8, !tbaa !11
   %45 = and i64 %44, 1040384
@@ -1588,7 +1588,7 @@ internal_RSTRUCT_GET.exit:                        ; preds = %37, %40
 
 RSTRUCT_CONST_PTR.exit.i:                         ; preds = %internal_RSTRUCT_GET.exit, %46
   %.0.i.i27 = phi ptr [ %47, %46 ], [ %35, %internal_RSTRUCT_GET.exit ]
-  %48 = getelementptr i64, ptr %.0.i.i27, i64 %.01728
+  %48 = getelementptr [8 x i8], ptr %.0.i.i27, i64 %.01728
   store i64 %43, ptr %48, align 8, !tbaa !7
   %49 = icmp eq i64 %43, 0
   %50 = and i64 %43, 7
@@ -1643,7 +1643,7 @@ define dso_local i64 @rb_struct_aref(i64 noundef %0, i64 noundef %1) #0 {
 internal_RSTRUCT_GET.exit:                        ; preds = %12, %14
   %.0.i.i = phi ptr [ %13, %12 ], [ %16, %14 ]
   %17 = zext nneg i32 %4 to i64
-  %18 = getelementptr i64, ptr %.0.i.i, i64 %17
+  %18 = getelementptr [8 x i8], ptr %.0.i.i, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !7
   ret i64 %19
 }
@@ -1864,7 +1864,7 @@ rb_struct_modify.exit:                            ; preds = %rbimpl_RB_TYPE_P_fa
 
 RSTRUCT_CONST_PTR.exit.i:                         ; preds = %27, %25
   %.0.i.i = phi ptr [ %26, %25 ], [ %29, %27 ]
-  %30 = getelementptr i64, ptr %.0.i.i, i64 %23
+  %30 = getelementptr [8 x i8], ptr %.0.i.i, i64 %23
   store i64 %2, ptr %30, align 8, !tbaa !7
   %31 = icmp eq i64 %2, 0
   %32 = and i64 %2, 7
@@ -1913,7 +1913,7 @@ define internal fastcc i64 @rb_struct_lookup_default(i64 noundef %0, i64 noundef
 
 internal_RSTRUCT_GET.exit:                        ; preds = %11, %13
   %.0.i.i = phi ptr [ %12, %11 ], [ %15, %13 ]
-  %16 = getelementptr i64, ptr %.0.i.i, i64 %7
+  %16 = getelementptr [8 x i8], ptr %.0.i.i, i64 %7
   %17 = load i64, ptr %16, align 8, !tbaa !7
   br label %18
 
@@ -2018,7 +2018,7 @@ rb_array_len.exit:                                ; preds = %8, %11
 
 RARRAY_AREF.exit:                                 ; preds = %17, %20
   %.0.i.i = phi ptr [ %21, %20 ], [ %15, %17 ]
-  %22 = getelementptr i64, ptr %.0.i.i, i64 %.021
+  %22 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.021
   %23 = load i64, ptr %22, align 8, !tbaa !7
   %24 = add nuw i64 %.021, 4611686018427387904
   %or.cond.i = icmp sgt i64 %24, -1
@@ -2195,7 +2195,7 @@ rb_scan_args_n_opt.exit:
 
 5:                                                ; preds = %rb_scan_args_n_opt.exit
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr i64, ptr %1, i64 %6
+  %7 = getelementptr [8 x i8], ptr %1, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load i64, ptr %8, align 8, !tbaa !7
   %10 = tail call i32 @rb_keyword_given_p() #20
@@ -2306,7 +2306,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %36
 
 .lr.ph:                                           ; preds = %44, %61
   %.03448 = phi i64 [ %63, %61 ], [ 0, %44 ]
-  %50 = getelementptr i64, ptr %.032, i64 %.03448
+  %50 = getelementptr [8 x i8], ptr %.032, i64 %.03448
   %51 = load i64, ptr %50, align 8, !tbaa !7
   %52 = call i64 @rb_to_symbol(i64 noundef %51) #20
   %53 = call i32 @rb_is_attrset_sym(i64 noundef %52) #21
@@ -2579,7 +2579,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %8, %11
 
 internal_RSTRUCT_GET.exit:                        ; preds = %17, %20
   %.0.i.i = phi ptr [ %21, %20 ], [ %15, %17 ]
-  %22 = getelementptr i64, ptr %.0.i.i, i64 %.015
+  %22 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.015
   %23 = load i64, ptr %22, align 8, !tbaa !7
   %24 = tail call i64 @rb_hash(i64 noundef %23) #20
   %25 = trunc i64 %24 to i1
@@ -2754,7 +2754,7 @@ internal_RSTRUCT_LEN.exit20.us:                   ; preds = %rb_struct_members.e
 internal_RSTRUCT_GET.exit.us:                     ; preds = %46, %42
   %49 = phi i64 [ %43, %42 ], [ %47, %46 ]
   %.0.i.i22.us = phi ptr [ %35, %42 ], [ %48, %46 ]
-  %50 = getelementptr i64, ptr %.0.i.i22.us, i64 %.0.us
+  %50 = getelementptr [8 x i8], ptr %.0.i.i22.us, i64 %.0.us
   %51 = load i64, ptr %50, align 8, !tbaa !7
   %52 = tail call i64 @rb_hash_aset(i64 noundef %11, i64 noundef %49, i64 noundef %51) #20
   %53 = add nuw nsw i64 %.0.us, 1
@@ -2790,7 +2790,7 @@ internal_RSTRUCT_LEN.exit20.thread:               ; preds = %rb_struct_members.e
 internal_RSTRUCT_GET.exit:                        ; preds = %61, %63
   %66 = phi i64 [ %62, %61 ], [ %64, %63 ]
   %.0.i.i22 = phi ptr [ %35, %61 ], [ %65, %63 ]
-  %67 = getelementptr i64, ptr %.0.i.i22, i64 %.0
+  %67 = getelementptr [8 x i8], ptr %.0.i.i22, i64 %.0
   %68 = load i64, ptr %67, align 8, !tbaa !7
   %69 = tail call i64 (i32, ...) @rb_yield_values(i32 noundef 2, i64 noundef %66, i64 noundef %68) #20
   %70 = tail call i64 @rb_hash_set_pair(i64 noundef %11, i64 noundef %69) #20
@@ -2843,7 +2843,7 @@ internal_RSTRUCT_LEN.exit.thread:                 ; preds = %10
 
 internal_RSTRUCT_GET.exit:                        ; preds = %internal_RSTRUCT_LEN.exit.thread, %18
   %.0.i.i = phi ptr [ %19, %18 ], [ %4, %internal_RSTRUCT_LEN.exit.thread ]
-  %20 = getelementptr i64, ptr %.0.i.i, i64 %.0
+  %20 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.0
   %21 = load i64, ptr %20, align 8, !tbaa !7
   %22 = tail call i64 @rb_yield(i64 noundef %21) #20
   %23 = add nuw nsw i64 %.0, 1
@@ -2951,7 +2951,7 @@ internal_RSTRUCT_LEN.exit.thread:                 ; preds = %.preheader36
 internal_RSTRUCT_GET.exit:                        ; preds = %41, %43
   %46 = phi i64 [ %42, %41 ], [ %44, %43 ]
   %.0.i.i26 = phi ptr [ %32, %41 ], [ %45, %43 ]
-  %47 = getelementptr i64, ptr %.0.i.i26, i64 %.022
+  %47 = getelementptr [8 x i8], ptr %.0.i.i26, i64 %.022
   %48 = load i64, ptr %47, align 8, !tbaa !7
   %49 = tail call i64 (i32, ...) @rb_yield_values(i32 noundef 2, i64 noundef %46, i64 noundef %48) #20
   %50 = add nuw nsw i64 %.022, 1
@@ -2987,7 +2987,7 @@ internal_RSTRUCT_LEN.exit29.thread:               ; preds = %.preheader
 internal_RSTRUCT_GET.exit32:                      ; preds = %58, %60
   %63 = phi i64 [ %59, %58 ], [ %61, %60 ]
   %.0.i.i31 = phi ptr [ %32, %58 ], [ %62, %60 ]
-  %64 = getelementptr i64, ptr %.0.i.i31, i64 %.1
+  %64 = getelementptr [8 x i8], ptr %.0.i.i31, i64 %.1
   %65 = load i64, ptr %64, align 8, !tbaa !7
   %66 = tail call i64 @rb_assoc_new(i64 noundef %63, i64 noundef %65) #20
   %67 = tail call i64 @rb_yield(i64 noundef %66) #20
@@ -3050,7 +3050,7 @@ internal_RSTRUCT_LEN.exit.thread:                 ; preds = %15
 
 internal_RSTRUCT_GET.exit:                        ; preds = %internal_RSTRUCT_LEN.exit.thread, %23
   %.0.i.i = phi ptr [ %24, %23 ], [ %13, %internal_RSTRUCT_LEN.exit.thread ]
-  %25 = getelementptr i64, ptr %.0.i.i, i64 %.0
+  %25 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.0
   %26 = load i64, ptr %25, align 8, !tbaa !7
   %27 = tail call i64 @rb_yield(i64 noundef %26) #20
   %28 = and i64 %27, -5
@@ -3069,7 +3069,7 @@ internal_RSTRUCT_GET.exit:                        ; preds = %internal_RSTRUCT_LE
 
 internal_RSTRUCT_GET.exit15:                      ; preds = %29, %32
   %.0.i.i14 = phi ptr [ %33, %32 ], [ %13, %29 ]
-  %34 = getelementptr i64, ptr %.0.i.i14, i64 %.0
+  %34 = getelementptr [8 x i8], ptr %.0.i.i14, i64 %.0
   %35 = load i64, ptr %34, align 8, !tbaa !7
   %36 = tail call i64 @rb_ary_push(i64 noundef %11, i64 noundef %35) #20
   br label %37
@@ -3250,7 +3250,7 @@ rb_array_len.exit30.thread:                       ; preds = %44
 
 RARRAY_AREF.exit:                                 ; preds = %.thread, %52
   %.0.i.i = phi ptr [ %53, %52 ], [ %40, %.thread ]
-  %54 = getelementptr i64, ptr %.0.i.i, i64 %.022
+  %54 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.022
   %55 = load i64, ptr %54, align 8, !tbaa !7
   store i64 %55, ptr %3, align 8, !tbaa !7
   %56 = call fastcc i32 @rb_struct_pos(i64 noundef %0, ptr noundef %3)
@@ -3275,7 +3275,7 @@ RARRAY_AREF.exit:                                 ; preds = %.thread, %52
 
 66:                                               ; preds = %58, %63
   %.0.i.i32 = phi ptr [ %64, %63 ], [ %42, %58 ]
-  %67 = getelementptr i64, ptr %.0.i.i32, i64 %60
+  %67 = getelementptr [8 x i8], ptr %.0.i.i32, i64 %60
   %68 = load i64, ptr %67, align 8, !tbaa !7
   %69 = call i64 @rb_hash_aset(i64 noundef %39, i64 noundef %59, i64 noundef %68) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -3301,7 +3301,7 @@ define internal noundef i64 @rb_data_s_def(i32 noundef %0, ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %3, %20
   %.023 = phi i64 [ %22, %20 ], [ 0, %3 ]
-  %9 = getelementptr i64, ptr %1, i64 %.023
+  %9 = getelementptr [8 x i8], ptr %1, i64 %.023
   %10 = load i64, ptr %9, align 8, !tbaa !7
   %11 = tail call i64 @rb_to_symbol(i64 noundef %10) #20
   %12 = tail call i32 @rb_is_attrset_sym(i64 noundef %11) #21
@@ -3568,7 +3568,7 @@ rb_scan_args_n_opt.exit:
 
 5:                                                ; preds = %rb_scan_args_n_opt.exit
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr i64, ptr %1, i64 %6
+  %7 = getelementptr [8 x i8], ptr %1, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load i64, ptr %8, align 8, !tbaa !7
   %10 = tail call i32 @rb_keyword_given_p() #20
@@ -3728,7 +3728,7 @@ rb_array_len.exit:                                ; preds = %6, %9
 
 RARRAY_AREF.exit:                                 ; preds = %27, %30
   %.0.i.i = phi ptr [ %31, %30 ], [ %22, %27 ]
-  %32 = getelementptr i64, ptr %.0.i.i, i64 %.03649
+  %32 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.03649
   %33 = load i64, ptr %32, align 8, !tbaa !7
   %34 = tail call i64 @rb_sym2id(i64 noundef %33) #20
   %35 = lshr i64 %34, 3
@@ -3740,7 +3740,7 @@ RARRAY_AREF.exit:                                 ; preds = %27, %30
 RARRAY_AREF.exit.split.us:                        ; preds = %RARRAY_AREF.exit
   %38 = load ptr, ptr %26, align 8, !tbaa !13
   %.035.us44 = and i64 %35, %21
-  %39 = getelementptr i64, ptr %38, i64 %.035.us44
+  %39 = getelementptr [8 x i8], ptr %38, i64 %.035.us44
   %40 = load i64, ptr %39, align 8, !tbaa !7
   %41 = and i64 %40, -5
   %.not.us45 = icmp eq i64 %41, 0
@@ -3751,7 +3751,7 @@ RARRAY_AREF.exit40.us:                            ; preds = %RARRAY_AREF.exit.sp
   %42 = mul i64 %.035.us46, 5
   %43 = add i64 %42, 2
   %.035.us = and i64 %43, %21
-  %44 = getelementptr i64, ptr %38, i64 %.035.us
+  %44 = getelementptr [8 x i8], ptr %38, i64 %.035.us
   %45 = load i64, ptr %44, align 8, !tbaa !7
   %46 = and i64 %45, -5
   %.not.us = icmp eq i64 %46, 0
@@ -3759,7 +3759,7 @@ RARRAY_AREF.exit40.us:                            ; preds = %RARRAY_AREF.exit.sp
 
 RARRAY_AREF.exit.split:                           ; preds = %RARRAY_AREF.exit
   %.03541 = and i64 %35, %21
-  %47 = getelementptr i64, ptr %25, i64 %.03541
+  %47 = getelementptr [8 x i8], ptr %25, i64 %.03541
   %48 = load i64, ptr %47, align 8, !tbaa !7
   %49 = and i64 %48, -5
   %.not42 = icmp eq i64 %49, 0
@@ -3781,7 +3781,7 @@ RARRAY_AREF.exit40:                               ; preds = %RARRAY_AREF.exit.sp
   %54 = mul i64 %.03543, 5
   %55 = add i64 %54, 2
   %.035 = and i64 %55, %21
-  %56 = getelementptr i64, ptr %25, i64 %.035
+  %56 = getelementptr [8 x i8], ptr %25, i64 %.035
   %57 = load i64, ptr %56, align 8, !tbaa !7
   %58 = and i64 %57, -5
   %.not = icmp eq i64 %58, 0
@@ -3989,7 +3989,7 @@ rb_struct_modify.exit:                            ; preds = %rbimpl_RB_TYPE_P_fa
 
 RSTRUCT_CONST_PTR.exit.i:                         ; preds = %39, %37
   %.0.i.i = phi ptr [ %38, %37 ], [ %41, %39 ]
-  %42 = getelementptr i64, ptr %.0.i.i, i64 %35
+  %42 = getelementptr [8 x i8], ptr %.0.i.i, i64 %35
   store i64 %1, ptr %42, align 8, !tbaa !7
   %43 = icmp eq i64 %1, 0
   %44 = and i64 %1, 7
@@ -4160,7 +4160,7 @@ rb_check_arity.exit:                              ; preds = %49
 .lr.ph:                                           ; preds = %rb_check_arity.exit, %.lr.ph
   %.02125 = phi i64 [ %59, %.lr.ph ], [ 0, %rb_check_arity.exit ]
   %55 = tail call i64 @rb_ary_entry(i64 noundef %.0.i23, i64 noundef %.02125) #21
-  %56 = getelementptr i64, ptr %1, i64 %.02125
+  %56 = getelementptr [8 x i8], ptr %1, i64 %.02125
   %57 = load i64, ptr %56, align 8, !tbaa !7
   %58 = tail call i64 @rb_hash_aset(i64 noundef %53, i64 noundef %55, i64 noundef %57) #20
   %59 = add nuw nsw i64 %.02125, 1
@@ -4252,7 +4252,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %8, %11
 
 internal_RSTRUCT_GET.exit:                        ; preds = %22, %25
   %.0.i.i = phi ptr [ %26, %25 ], [ %15, %22 ]
-  %27 = getelementptr i64, ptr %.0.i.i, i64 %.01015
+  %27 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.01015
   %28 = load i64, ptr %27, align 8, !tbaa !7
   %29 = load i64, ptr %17, align 8, !tbaa !11
   %30 = and i64 %29, 1040384
@@ -4265,7 +4265,7 @@ internal_RSTRUCT_GET.exit:                        ; preds = %22, %25
 
 internal_RSTRUCT_GET.exit14:                      ; preds = %internal_RSTRUCT_GET.exit, %31
   %.0.i.i13 = phi ptr [ %32, %31 ], [ %18, %internal_RSTRUCT_GET.exit ]
-  %33 = getelementptr i64, ptr %.0.i.i13, i64 %.01015
+  %33 = getelementptr [8 x i8], ptr %.0.i.i13, i64 %.01015
   %34 = load i64, ptr %33, align 8, !tbaa !7
   %35 = tail call i64 @rb_equal(i64 noundef %28, i64 noundef %34) #20
   %.not11 = icmp eq i64 %35, 0
@@ -4331,7 +4331,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %8, %11
 
 internal_RSTRUCT_GET.exit:                        ; preds = %22, %25
   %.0.i.i = phi ptr [ %26, %25 ], [ %15, %22 ]
-  %27 = getelementptr i64, ptr %.0.i.i, i64 %.01015
+  %27 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.01015
   %28 = load i64, ptr %27, align 8, !tbaa !7
   %29 = load i64, ptr %17, align 8, !tbaa !11
   %30 = and i64 %29, 1040384
@@ -4344,7 +4344,7 @@ internal_RSTRUCT_GET.exit:                        ; preds = %22, %25
 
 internal_RSTRUCT_GET.exit14:                      ; preds = %internal_RSTRUCT_GET.exit, %31
   %.0.i.i13 = phi ptr [ %32, %31 ], [ %18, %internal_RSTRUCT_GET.exit ]
-  %33 = getelementptr i64, ptr %.0.i.i13, i64 %.01015
+  %33 = getelementptr [8 x i8], ptr %.0.i.i13, i64 %.01015
   %34 = load i64, ptr %33, align 8, !tbaa !7
   %35 = tail call i32 @rb_eql(i64 noundef %28, i64 noundef %34) #20
   %.not11 = icmp eq i32 %35, 0
@@ -4501,7 +4501,7 @@ internal_RSTRUCT_LEN.exit:                        ; preds = %41, %44
 
 RARRAY_AREF.exit:                                 ; preds = %58, %61
   %.0.i.i41 = phi ptr [ %62, %61 ], [ %48, %58 ]
-  %63 = getelementptr i64, ptr %.0.i.i41, i64 %.03645
+  %63 = getelementptr [8 x i8], ptr %.0.i.i41, i64 %.03645
   %64 = load i64, ptr %63, align 8, !tbaa !7
   %65 = tail call i64 @rb_sym2id(i64 noundef %64) #20
   %66 = tail call i32 @rb_is_local_id(i64 noundef %65) #28
@@ -4536,7 +4536,7 @@ RARRAY_AREF.exit:                                 ; preds = %58, %61
 
 internal_RSTRUCT_GET.exit:                        ; preds = %73, %78
   %.0.i.i43 = phi ptr [ %79, %78 ], [ %50, %73 ]
-  %80 = getelementptr i64, ptr %.0.i.i43, i64 %.03645
+  %80 = getelementptr [8 x i8], ptr %.0.i.i43, i64 %.03645
   %81 = load i64, ptr %80, align 8, !tbaa !7
   %82 = tail call i64 @rb_inspect(i64 noundef %81) #20
   %83 = tail call i64 @rb_str_append(i64 noundef %1, i64 noundef %82) #20
@@ -4656,7 +4656,7 @@ rb_long2num_inline.exit:                          ; preds = %5, %8
 rb_struct_aref.exit:                              ; preds = %18, %20
   %.0.i.i.i = phi ptr [ %19, %18 ], [ %22, %20 ]
   %23 = zext nneg i32 %10 to i64
-  %24 = getelementptr i64, ptr %.0.i.i.i, i64 %23
+  %24 = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %25

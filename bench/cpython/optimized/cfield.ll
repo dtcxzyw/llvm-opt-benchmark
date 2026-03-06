@@ -492,7 +492,7 @@ switch.hole_check:                                ; preds = %1
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %4 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ctypes_get_fielddesc, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ctypes_get_fielddesc, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = load i8, ptr %switch.load, align 8, !tbaa !41
   %.not6 = icmp eq i8 %5, 0
@@ -3368,7 +3368,7 @@ define internal ptr @U_get(ptr noundef %0, i64 noundef %1) #0 {
 
 .lr.ph:                                           ; preds = %2, %6
   %.08 = phi i64 [ %7, %6 ], [ 0, %2 ]
-  %4 = getelementptr i32, ptr %0, i64 %.08
+  %4 = getelementptr [4 x i8], ptr %0, i64 %.08
   %5 = load i32, ptr %4, align 4, !tbaa !104
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %6

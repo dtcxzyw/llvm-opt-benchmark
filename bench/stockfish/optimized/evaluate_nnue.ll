@@ -201,7 +201,7 @@ define weak_odr dso_local noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7Ne
 
 15:                                               ; preds = %4
   %16 = sext i32 %12 to i64
-  %17 = getelementptr inbounds %"class.std::unique_ptr.4", ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = load i8, ptr @_ZGVZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKhE6buffer, align 8
   %20 = icmp eq i8 %19, 0
@@ -220,7 +220,7 @@ define weak_odr dso_local noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7Ne
 25:                                               ; preds = %51, %22
   %indvars.iv82.i.i.i = phi i64 [ 0, %22 ], [ %indvars.iv.next83.i.i.i, %51 ]
   %26 = mul nuw nsw i64 %indvars.iv82.i.i.i, 2560
-  %27 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv82.i.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv82.i.i.i
   %28 = load i32, ptr %27, align 4
   %29 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %28, i64 0
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 %26
@@ -230,9 +230,9 @@ define weak_odr dso_local noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7Ne
   %indvars.iv.i.i.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i.i.i, %31 ]
   %.074.in78.i.i.i = phi <4 x i32> [ %29, %25 ], [ %49, %31 ]
   %32 = phi <4 x i32> [ zeroinitializer, %25 ], [ %50, %31 ]
-  %33 = getelementptr inbounds nuw <2 x i64>, ptr %30, i64 %indvars.iv.i.i.i
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %indvars.iv.i.i.i
   %34 = load <16 x i8>, ptr %33, align 16
-  %35 = getelementptr inbounds nuw <2 x i64>, ptr %5, i64 %indvars.iv.i.i.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.i.i.i
   %36 = load <16 x i8>, ptr %35, align 16
   %37 = shufflevector <16 x i8> %34, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
   %38 = bitcast <16 x i8> %37 to <8 x i16>
@@ -259,7 +259,7 @@ define weak_odr dso_local noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7Ne
   %55 = shufflevector <4 x i32> %54, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %56 = add <4 x i32> %54, %55
   %57 = extractelement <4 x i32> %56, i64 0
-  %58 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv82.i.i.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv82.i.i.i
   store i32 %57, ptr %58, align 4
   %indvars.iv.next83.i.i.i = add nuw nsw i64 %indvars.iv82.i.i.i, 1
   %exitcond85.not.i.i.i = icmp eq i64 %indvars.iv.next83.i.i.i, 16
@@ -300,7 +300,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propag
 85:                                               ; preds = %112, %_ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propagateEPKhPi.exit.i
   %indvars.iv82.i.i3.i = phi i64 [ 0, %_ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propagateEPKhPi.exit.i ], [ %indvars.iv.next83.i.i6.i, %112 ]
   %86 = shl nuw nsw i64 %indvars.iv82.i.i3.i, 5
-  %87 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv82.i.i3.i
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv82.i.i3.i
   %88 = load i32, ptr %87, align 4
   %89 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %88, i64 0
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 %86
@@ -311,9 +311,9 @@ _ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propag
   %indvars.iv.i.i4.i = phi i64 [ 0, %85 ], [ 1, %91 ]
   %.074.in78.i.i5.i = phi <4 x i32> [ %89, %85 ], [ %110, %91 ]
   %93 = phi <4 x i32> [ zeroinitializer, %85 ], [ %111, %91 ]
-  %94 = getelementptr inbounds nuw <2 x i64>, ptr %90, i64 %indvars.iv.i.i4.i
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %90, i64 %indvars.iv.i.i4.i
   %95 = load <16 x i8>, ptr %94, align 16
-  %96 = getelementptr inbounds nuw <2 x i64>, ptr %59, i64 %indvars.iv.i.i4.i
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %indvars.iv.i.i4.i
   %97 = load <16 x i8>, ptr %96, align 16
   %98 = shufflevector <16 x i8> %95, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
   %99 = bitcast <16 x i8> %98 to <8 x i16>
@@ -338,7 +338,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propag
   %116 = shufflevector <4 x i32> %115, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %117 = add <4 x i32> %115, %116
   %118 = extractelement <4 x i32> %117, i64 0
-  %119 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv82.i.i3.i
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv82.i.i3.i
   store i32 %118, ptr %119, align 4
   %indvars.iv.next83.i.i6.i = add nuw nsw i64 %indvars.iv82.i.i3.i, 1
   %exitcond.not.i.i7.i = icmp eq i64 %indvars.iv.next83.i.i6.i, 32
@@ -365,7 +365,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exi
   %133 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %130, <4 x i32> %132)
   %134 = ashr <8 x i16> %133, splat (i16 6)
   %135 = call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %128, <8 x i16> %134)
-  %136 = getelementptr inbounds nuw <2 x i64>, ptr %120, i64 %indvars.iv.i.i
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %120, i64 %indvars.iv.i.i
   %137 = call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %135, <16 x i8> splat (i8 -128))
   %138 = bitcast <16 x i8> %137 to <2 x i64>
   %139 = and <2 x i64> %138, splat (i64 9187201950435737471)
@@ -384,9 +384,9 @@ _ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i: ; pr
   %indvars.iv.i.i8.i = phi i64 [ 0, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i ], [ 1, %144 ]
   %.074.in78.i.i9.i = phi <4 x i32> [ %143, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i ], [ %163, %144 ]
   %146 = phi <4 x i32> [ zeroinitializer, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i ], [ %164, %144 ]
-  %147 = getelementptr inbounds nuw <2 x i64>, ptr %141, i64 %indvars.iv.i.i8.i
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %141, i64 %indvars.iv.i.i8.i
   %148 = load <16 x i8>, ptr %147, align 16
-  %149 = getelementptr inbounds nuw <2 x i64>, ptr %120, i64 %indvars.iv.i.i8.i
+  %149 = getelementptr inbounds nuw [16 x i8], ptr %120, i64 %indvars.iv.i.i8.i
   %150 = load <16 x i8>, ptr %149, align 16
   %151 = shufflevector <16 x i8> %148, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
   %152 = bitcast <16 x i8> %151 to <8 x i16>
@@ -550,13 +550,13 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 10432
   %54 = zext i32 %49 to i64
-  %55 = getelementptr inbounds nuw [8 x i32], ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %54
   %56 = sext i32 %3 to i64
-  %57 = getelementptr inbounds i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %55, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = zext i32 %50 to i64
-  %60 = getelementptr inbounds nuw [8 x i32], ptr %53, i64 %59
-  %61 = getelementptr inbounds i32, ptr %60, i64 %56
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %59
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %56
   %62 = load i32, ptr %61, align 4
   br i1 %4, label %.loopexit, label %63
 
@@ -569,7 +569,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %indvars.iv101.sroa.phi.sroa.speculated = phi i32 [ %49, %63 ], [ %50, %96 ]
   %indvars.iv101 = phi i64 [ 0, %63 ], [ 1280, %96 ]
   %67 = zext i32 %indvars.iv101.sroa.phi.sroa.speculated to i64
-  %68 = getelementptr inbounds nuw [2560 x i16], ptr %64, i64 %67
+  %68 = getelementptr inbounds nuw [5120 x i8], ptr %64, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 2560
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv101
   br label %71
@@ -577,20 +577,20 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
 71:                                               ; preds = %65, %71
   %indvars.iv = phi i64 [ 0, %65 ], [ %indvars.iv.next, %71 ]
   %72 = shl nuw nsw i64 %indvars.iv, 1
-  %73 = getelementptr inbounds nuw <2 x i64>, ptr %68, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %72
   %74 = load <8 x i16>, ptr %73, align 16
   %75 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %74, <8 x i16> zeroinitializer)
   %76 = call <8 x i16> @llvm.umin.v8i16(<8 x i16> %75, <8 x i16> splat (i16 127))
   %77 = or disjoint i64 %72, 1
-  %78 = getelementptr inbounds nuw <2 x i64>, ptr %68, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %77
   %79 = load <8 x i16>, ptr %78, align 16
   %80 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %79, <8 x i16> zeroinitializer)
   %81 = call <8 x i16> @llvm.umin.v8i16(<8 x i16> %80, <8 x i16> splat (i16 127))
-  %82 = getelementptr inbounds nuw <2 x i64>, ptr %69, i64 %72
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %72
   %83 = load <8 x i16>, ptr %82, align 16
   %84 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %83, <8 x i16> zeroinitializer)
   %85 = call <8 x i16> @llvm.umin.v8i16(<8 x i16> %84, <8 x i16> splat (i16 127))
-  %86 = getelementptr inbounds nuw <2 x i64>, ptr %69, i64 %77
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %77
   %87 = load <8 x i16>, ptr %86, align 16
   %88 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %87, <8 x i16> zeroinitializer)
   %89 = call <8 x i16> @llvm.umin.v8i16(<8 x i16> %88, <8 x i16> splat (i16 127))
@@ -599,7 +599,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %92 = lshr <8 x i16> %90, splat (i16 7)
   %93 = lshr <8 x i16> %91, splat (i16 7)
   %94 = call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %92, <8 x i16> %93)
-  %95 = getelementptr inbounds nuw <2 x i64>, ptr %70, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv
   store <16 x i8> %94, ptr %95, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 80
@@ -637,13 +637,13 @@ define weak_odr dso_local noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7Ne
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 11072
   %20 = zext i32 %15 to i64
-  %21 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %20
   %22 = sext i32 %12 to i64
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %16 to i64
-  %26 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 %25
-  %27 = getelementptr inbounds i32, ptr %26, i64 %22
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %25
+  %27 = getelementptr inbounds [4 x i8], ptr %26, i64 %22
   %28 = load i32, ptr %27, align 4
   %indvars.iv100.i.sroa.gep29 = getelementptr inbounds nuw i8, ptr %5, i64 64
   br i1 %3, label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEE9transformERKNS_8PositionEPhib.exit.thread.thread, label %29
@@ -657,27 +657,27 @@ define weak_odr dso_local noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7Ne
   %indvars.iv100.i.sroa.phi.sroa.speculated = phi i32 [ %15, %29 ], [ %16, %61 ]
   %indvars.iv100.i.sroa.phi = phi ptr [ %5, %29 ], [ %indvars.iv100.i.sroa.gep29, %61 ]
   %33 = zext i32 %indvars.iv100.i.sroa.phi.sroa.speculated to i64
-  %34 = getelementptr inbounds nuw [128 x i16], ptr %30, i64 %33
+  %34 = getelementptr inbounds nuw [256 x i8], ptr %30, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 128
   br label %36
 
 36:                                               ; preds = %36, %31
   %indvars.iv.i = phi i64 [ 0, %31 ], [ %indvars.iv.next.i, %36 ]
   %37 = shl nuw nsw i64 %indvars.iv.i, 1
-  %38 = getelementptr inbounds nuw <2 x i64>, ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %37
   %39 = load <8 x i16>, ptr %38, align 16
   %40 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %39, <8 x i16> zeroinitializer)
   %41 = tail call <8 x i16> @llvm.umin.v8i16(<8 x i16> %40, <8 x i16> splat (i16 127))
   %42 = or disjoint i64 %37, 1
-  %43 = getelementptr inbounds nuw <2 x i64>, ptr %34, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %42
   %44 = load <8 x i16>, ptr %43, align 16
   %45 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %44, <8 x i16> zeroinitializer)
   %46 = tail call <8 x i16> @llvm.umin.v8i16(<8 x i16> %45, <8 x i16> splat (i16 127))
-  %47 = getelementptr inbounds nuw <2 x i64>, ptr %35, i64 %37
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %37
   %48 = load <8 x i16>, ptr %47, align 16
   %49 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %48, <8 x i16> zeroinitializer)
   %50 = tail call <8 x i16> @llvm.umin.v8i16(<8 x i16> %49, <8 x i16> splat (i16 127))
-  %51 = getelementptr inbounds nuw <2 x i64>, ptr %35, i64 %42
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %42
   %52 = load <8 x i16>, ptr %51, align 16
   %53 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %52, <8 x i16> zeroinitializer)
   %54 = tail call <8 x i16> @llvm.umin.v8i16(<8 x i16> %53, <8 x i16> splat (i16 127))
@@ -686,7 +686,7 @@ define weak_odr dso_local noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7Ne
   %57 = lshr <8 x i16> %55, splat (i16 7)
   %58 = lshr <8 x i16> %56, splat (i16 7)
   %59 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %57, <8 x i16> %58)
-  %60 = getelementptr inbounds nuw <2 x i64>, ptr %indvars.iv100.i.sroa.phi, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %indvars.iv100.i.sroa.phi, i64 %indvars.iv.i
   store <16 x i8> %59, ptr %60, align 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -696,7 +696,7 @@ define weak_odr dso_local noundef i32 @_ZN9Stockfish4Eval4NNUE8evaluateILNS1_7Ne
   br i1 %32, label %31, label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEE9transformERKNS_8PositionEPhib.exit, !llvm.loop !16
 
 _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEE9transformERKNS_8PositionEPhib.exit: ; preds = %61
-  %62 = getelementptr inbounds %"class.std::unique_ptr.23", ptr @_ZN9Stockfish4Eval4NNUE12networkSmallE, i64 %22
+  %62 = getelementptr inbounds [8 x i8], ptr @_ZN9Stockfish4Eval4NNUE12networkSmallE, i64 %22
   %63 = load ptr, ptr %62, align 8
   %64 = load i8, ptr @_ZGVZN9Stockfish4Eval4NNUE7NetworkILj128ELi15ELi32EE9propagateEPKhE6buffer, align 8
   %65 = icmp eq i8 %64, 0
@@ -715,7 +715,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumula
 70:                                               ; preds = %96, %67
   %indvars.iv82.i.i.i = phi i64 [ 0, %67 ], [ %indvars.iv.next83.i.i.i, %96 ]
   %71 = shl nuw nsw i64 %indvars.iv82.i.i.i, 7
-  %72 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv82.i.i.i
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv82.i.i.i
   %73 = load i32, ptr %72, align 4
   %74 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %73, i64 0
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 %71
@@ -725,9 +725,9 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumula
   %indvars.iv.i.i.i = phi i64 [ 0, %70 ], [ %indvars.iv.next.i.i.i, %76 ]
   %.074.in78.i.i.i = phi <4 x i32> [ %74, %70 ], [ %94, %76 ]
   %77 = phi <4 x i32> [ zeroinitializer, %70 ], [ %95, %76 ]
-  %78 = getelementptr inbounds nuw <2 x i64>, ptr %75, i64 %indvars.iv.i.i.i
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %75, i64 %indvars.iv.i.i.i
   %79 = load <16 x i8>, ptr %78, align 16
-  %80 = getelementptr inbounds nuw <2 x i64>, ptr %5, i64 %indvars.iv.i.i.i
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.i.i.i
   %81 = load <16 x i8>, ptr %80, align 16
   %82 = shufflevector <16 x i8> %79, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
   %83 = bitcast <16 x i8> %82 to <8 x i16>
@@ -754,7 +754,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumula
   %100 = shufflevector <4 x i32> %99, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %101 = add <4 x i32> %99, %100
   %102 = extractelement <4 x i32> %101, i64 0
-  %103 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv82.i.i.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv82.i.i.i
   store i32 %102, ptr %103, align 4
   %indvars.iv.next83.i.i.i = add nuw nsw i64 %indvars.iv82.i.i.i, 1
   %exitcond85.not.i.i.i = icmp eq i64 %indvars.iv.next83.i.i.i, 16
@@ -795,7 +795,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj128ELj16EE9propaga
 130:                                              ; preds = %157, %_ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj128ELj16EE9propagateEPKhPi.exit.i
   %indvars.iv82.i.i3.i = phi i64 [ 0, %_ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj128ELj16EE9propagateEPKhPi.exit.i ], [ %indvars.iv.next83.i.i6.i, %157 ]
   %131 = shl nuw nsw i64 %indvars.iv82.i.i3.i, 5
-  %132 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv82.i.i3.i
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv82.i.i3.i
   %133 = load i32, ptr %132, align 4
   %134 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %133, i64 0
   %135 = getelementptr inbounds nuw i8, ptr %129, i64 %131
@@ -806,9 +806,9 @@ _ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj128ELj16EE9propaga
   %indvars.iv.i.i4.i = phi i64 [ 0, %130 ], [ 1, %136 ]
   %.074.in78.i.i5.i = phi <4 x i32> [ %134, %130 ], [ %155, %136 ]
   %138 = phi <4 x i32> [ zeroinitializer, %130 ], [ %156, %136 ]
-  %139 = getelementptr inbounds nuw <2 x i64>, ptr %135, i64 %indvars.iv.i.i4.i
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %indvars.iv.i.i4.i
   %140 = load <16 x i8>, ptr %139, align 16
-  %141 = getelementptr inbounds nuw <2 x i64>, ptr %104, i64 %indvars.iv.i.i4.i
+  %141 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %indvars.iv.i.i4.i
   %142 = load <16 x i8>, ptr %141, align 16
   %143 = shufflevector <16 x i8> %140, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
   %144 = bitcast <16 x i8> %143 to <8 x i16>
@@ -833,7 +833,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj128ELj16EE9propaga
   %161 = shufflevector <4 x i32> %160, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %162 = add <4 x i32> %160, %161
   %163 = extractelement <4 x i32> %162, i64 0
-  %164 = getelementptr inbounds nuw i32, ptr %128, i64 %indvars.iv82.i.i3.i
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %indvars.iv82.i.i3.i
   store i32 %163, ptr %164, align 4
   %indvars.iv.next83.i.i6.i = add nuw nsw i64 %indvars.iv82.i.i3.i, 1
   %exitcond.not.i.i7.i = icmp eq i64 %indvars.iv.next83.i.i6.i, 32
@@ -860,7 +860,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exi
   %178 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %175, <4 x i32> %177)
   %179 = ashr <8 x i16> %178, splat (i16 6)
   %180 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %173, <8 x i16> %179)
-  %181 = getelementptr inbounds nuw <2 x i64>, ptr %165, i64 %indvars.iv.i.i
+  %181 = getelementptr inbounds nuw [16 x i8], ptr %165, i64 %indvars.iv.i.i
   %182 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %180, <16 x i8> splat (i8 -128))
   %183 = bitcast <16 x i8> %182 to <2 x i64>
   %184 = and <2 x i64> %183, splat (i64 9187201950435737471)
@@ -879,9 +879,9 @@ _ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i: ; pr
   %indvars.iv.i.i8.i = phi i64 [ 0, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i ], [ 1, %189 ]
   %.074.in78.i.i9.i = phi <4 x i32> [ %188, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i ], [ %208, %189 ]
   %191 = phi <4 x i32> [ zeroinitializer, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i ], [ %209, %189 ]
-  %192 = getelementptr inbounds nuw <2 x i64>, ptr %186, i64 %indvars.iv.i.i8.i
+  %192 = getelementptr inbounds nuw [16 x i8], ptr %186, i64 %indvars.iv.i.i8.i
   %193 = load <16 x i8>, ptr %192, align 16
-  %194 = getelementptr inbounds nuw <2 x i64>, ptr %165, i64 %indvars.iv.i.i8.i
+  %194 = getelementptr inbounds nuw [16 x i8], ptr %165, i64 %indvars.iv.i.i8.i
   %195 = load <16 x i8>, ptr %194, align 16
   %196 = shufflevector <16 x i8> %193, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
   %197 = bitcast <16 x i8> %196 to <8 x i16>
@@ -1398,7 +1398,7 @@ define dso_local void @_ZN9Stockfish4Eval4NNUE5traceB5cxx11ERNS_8PositionE(ptr d
   %indvars.iv189 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next190, %"_ZZN9Stockfish4Eval4NNUE5traceB5cxx11ERNS_8PositionEENK3$_0clENS_4FileENS_4RankENS_5PieceEi.exit" ]
   %48 = shl nuw nsw i64 %indvars.iv189, 3
   %49 = add nuw nsw i64 %48, %indvars.iv193
-  %50 = getelementptr inbounds nuw i32, ptr %1, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %49
   %51 = load i32, ptr %50, align 4
   %.not = icmp eq i32 %51, 0
   br i1 %.not, label %435, label %52
@@ -1415,25 +1415,25 @@ define dso_local void @_ZN9Stockfish4Eval4NNUE5traceB5cxx11ERNS_8PositionE(ptr d
   %58 = xor i64 %57, %56
   store i64 %58, ptr %25, align 8
   %59 = zext nneg i32 %53 to i64
-  %60 = getelementptr inbounds nuw i64, ptr %25, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = xor i64 %61, %56
   store i64 %62, ptr %60, align 8
   %63 = ashr i32 %51, 3
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw i64, ptr %26, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %64
   %66 = load i64, ptr %65, align 8
   %67 = xor i64 %66, %56
   store i64 %67, ptr %65, align 8
   store i32 0, ptr %50, align 4
   %68 = zext i32 %51 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %27, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = add nsw i32 %70, -1
   store i32 %71, ptr %69, align 4
   %72 = and i32 %51, -8
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %27, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %73
   %75 = load i32, ptr %74, align 8
   %76 = add nsw i32 %75, -1
   store i32 %76, ptr %74, align 8
@@ -1536,14 +1536,14 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %121 = mul i32 %120, 2560
   %122 = add i32 %121, %119
   %123 = zext i32 %122 to i64
-  %124 = getelementptr inbounds nuw i16, ptr %115, i64 %123
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %115, i64 %123
   br label %125
 
 125:                                              ; preds = %125, %.lr.ph.i92
   %indvars.iv.i94 = phi i64 [ 0, %.lr.ph.i92 ], [ %indvars.iv.next.i95, %125 ]
-  %126 = getelementptr inbounds nuw <2 x i64>, ptr %3, i64 %indvars.iv.i94
+  %126 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.i94
   %127 = load <8 x i16>, ptr %126, align 16
-  %128 = getelementptr inbounds nuw <2 x i64>, ptr %124, i64 %indvars.iv.i94
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %indvars.iv.i94
   %129 = load <8 x i16>, ptr %128, align 16
   %130 = add <8 x i16> %129, %127
   store <8 x i16> %130, ptr %126, align 16
@@ -1583,7 +1583,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %136 = load i32, ptr %.07489.i104, align 4
   %137 = shl i32 %136, 3
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw i32, ptr %133, i64 %138
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %138
   %140 = load <4 x i32>, ptr %139, align 16
   %141 = add <4 x i32> %140, %134
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 16
@@ -1715,14 +1715,14 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %191 = mul i32 %190, 2560
   %192 = add i32 %191, %189
   %193 = zext i32 %192 to i64
-  %194 = getelementptr inbounds nuw i16, ptr %185, i64 %193
+  %194 = getelementptr inbounds nuw [2 x i8], ptr %185, i64 %193
   br label %195
 
 195:                                              ; preds = %195, %.lr.ph.i
   %indvars.iv.i79 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i80, %195 ]
-  %196 = getelementptr inbounds nuw <2 x i64>, ptr %5, i64 %indvars.iv.i79
+  %196 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.i79
   %197 = load <8 x i16>, ptr %196, align 16
-  %198 = getelementptr inbounds nuw <2 x i64>, ptr %194, i64 %indvars.iv.i79
+  %198 = getelementptr inbounds nuw [16 x i8], ptr %194, i64 %indvars.iv.i79
   %199 = load <8 x i16>, ptr %198, align 16
   %200 = add <8 x i16> %199, %197
   store <8 x i16> %200, ptr %196, align 16
@@ -1762,7 +1762,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %206 = load i32, ptr %.07489.i, align 4
   %207 = shl i32 %206, 3
   %208 = zext i32 %207 to i64
-  %209 = getelementptr inbounds nuw i32, ptr %203, i64 %208
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %208
   %210 = load <4 x i32>, ptr %209, align 16
   %211 = add <4 x i32> %210, %204
   %212 = getelementptr inbounds nuw i8, ptr %209, i64 16
@@ -1809,13 +1809,13 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %226 = load ptr, ptr %24, align 8
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 10432
   %228 = zext i32 %224 to i64
-  %229 = getelementptr inbounds nuw [8 x i32], ptr %227, i64 %228
+  %229 = getelementptr inbounds nuw [32 x i8], ptr %227, i64 %228
   %230 = sext i32 %82 to i64
-  %231 = getelementptr inbounds i32, ptr %229, i64 %230
+  %231 = getelementptr inbounds [4 x i8], ptr %229, i64 %230
   %232 = load i32, ptr %231, align 4
   %233 = zext i32 %225 to i64
-  %234 = getelementptr inbounds nuw [8 x i32], ptr %227, i64 %233
-  %235 = getelementptr inbounds i32, ptr %234, i64 %230
+  %234 = getelementptr inbounds nuw [32 x i8], ptr %227, i64 %233
+  %235 = getelementptr inbounds [4 x i8], ptr %234, i64 %230
   %236 = load i32, ptr %235, align 4
   %237 = getelementptr inbounds nuw i8, ptr %226, i64 192
   br label %238
@@ -1825,27 +1825,27 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %indvars.iv101.i.sroa.phi.sroa.speculated = phi i32 [ %224, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE18update_accumulatorILNS_5ColorE1EEEvRKNS_8PositionEb.exit.i ], [ %225, %268 ]
   %indvars.iv101.i.sroa.phi = phi ptr [ %10, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE18update_accumulatorILNS_5ColorE1EEEvRKNS_8PositionEb.exit.i ], [ %indvars.iv101.i.sroa.gep202, %268 ]
   %240 = zext i32 %indvars.iv101.i.sroa.phi.sroa.speculated to i64
-  %241 = getelementptr inbounds nuw [2560 x i16], ptr %237, i64 %240
+  %241 = getelementptr inbounds nuw [5120 x i8], ptr %237, i64 %240
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 2560
   br label %243
 
 243:                                              ; preds = %243, %238
   %indvars.iv.i76 = phi i64 [ 0, %238 ], [ %indvars.iv.next.i77, %243 ]
   %244 = shl nuw nsw i64 %indvars.iv.i76, 1
-  %245 = getelementptr inbounds nuw <2 x i64>, ptr %241, i64 %244
+  %245 = getelementptr inbounds nuw [16 x i8], ptr %241, i64 %244
   %246 = load <8 x i16>, ptr %245, align 16
   %247 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %246, <8 x i16> zeroinitializer)
   %248 = call <8 x i16> @llvm.umin.v8i16(<8 x i16> %247, <8 x i16> splat (i16 127))
   %249 = or disjoint i64 %244, 1
-  %250 = getelementptr inbounds nuw <2 x i64>, ptr %241, i64 %249
+  %250 = getelementptr inbounds nuw [16 x i8], ptr %241, i64 %249
   %251 = load <8 x i16>, ptr %250, align 16
   %252 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %251, <8 x i16> zeroinitializer)
   %253 = call <8 x i16> @llvm.umin.v8i16(<8 x i16> %252, <8 x i16> splat (i16 127))
-  %254 = getelementptr inbounds nuw <2 x i64>, ptr %242, i64 %244
+  %254 = getelementptr inbounds nuw [16 x i8], ptr %242, i64 %244
   %255 = load <8 x i16>, ptr %254, align 16
   %256 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %255, <8 x i16> zeroinitializer)
   %257 = call <8 x i16> @llvm.umin.v8i16(<8 x i16> %256, <8 x i16> splat (i16 127))
-  %258 = getelementptr inbounds nuw <2 x i64>, ptr %242, i64 %249
+  %258 = getelementptr inbounds nuw [16 x i8], ptr %242, i64 %249
   %259 = load <8 x i16>, ptr %258, align 16
   %260 = call <8 x i16> @llvm.smax.v8i16(<8 x i16> %259, <8 x i16> zeroinitializer)
   %261 = call <8 x i16> @llvm.umin.v8i16(<8 x i16> %260, <8 x i16> splat (i16 127))
@@ -1854,7 +1854,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %264 = lshr <8 x i16> %262, splat (i16 7)
   %265 = lshr <8 x i16> %263, splat (i16 7)
   %266 = call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %264, <8 x i16> %265)
-  %267 = getelementptr inbounds nuw <2 x i64>, ptr %indvars.iv101.i.sroa.phi, i64 %indvars.iv.i76
+  %267 = getelementptr inbounds nuw [16 x i8], ptr %indvars.iv101.i.sroa.phi, i64 %indvars.iv.i76
   store <16 x i8> %266, ptr %267, align 16
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next.i77, 80
@@ -1866,7 +1866,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
 _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE9transformERKNS_8PositionEPhib.exit: ; preds = %268
   %269 = sub nsw i32 %232, %236
   %270 = sdiv i32 %269, 2
-  %271 = getelementptr inbounds %"class.std::unique_ptr.4", ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 %230
+  %271 = getelementptr inbounds [8 x i8], ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 %230
   %272 = load ptr, ptr %271, align 8
   %273 = load i8, ptr @_ZGVZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKhE6buffer, align 8
   %274 = icmp eq i8 %273, 0
@@ -1884,7 +1884,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
 278:                                              ; preds = %304, %276
   %indvars.iv82.i.i.i.i = phi i64 [ 0, %276 ], [ %indvars.iv.next83.i.i.i.i, %304 ]
   %279 = mul nuw nsw i64 %indvars.iv82.i.i.i.i, 2560
-  %280 = getelementptr inbounds nuw i32, ptr %272, i64 %indvars.iv82.i.i.i.i
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %272, i64 %indvars.iv82.i.i.i.i
   %281 = load i32, ptr %280, align 4
   %282 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %281, i64 0
   %283 = getelementptr inbounds nuw i8, ptr %277, i64 %279
@@ -1894,9 +1894,9 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %indvars.iv.i.i.i.i = phi i64 [ 0, %278 ], [ %indvars.iv.next.i.i.i.i, %284 ]
   %.074.in78.i.i.i.i = phi <4 x i32> [ %282, %278 ], [ %302, %284 ]
   %285 = phi <4 x i32> [ zeroinitializer, %278 ], [ %303, %284 ]
-  %286 = getelementptr inbounds nuw <2 x i64>, ptr %283, i64 %indvars.iv.i.i.i.i
+  %286 = getelementptr inbounds nuw [16 x i8], ptr %283, i64 %indvars.iv.i.i.i.i
   %287 = load <16 x i8>, ptr %286, align 16
-  %288 = getelementptr inbounds nuw <2 x i64>, ptr %10, i64 %indvars.iv.i.i.i.i
+  %288 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv.i.i.i.i
   %289 = load <16 x i8>, ptr %288, align 16
   %290 = shufflevector <16 x i8> %287, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
   %291 = bitcast <16 x i8> %290 to <8 x i16>
@@ -1923,7 +1923,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %308 = shufflevector <4 x i32> %307, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %309 = add <4 x i32> %307, %308
   %310 = extractelement <4 x i32> %309, i64 0
-  %311 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv82.i.i.i.i
+  %311 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv82.i.i.i.i
   store i32 %310, ptr %311, align 4
   %indvars.iv.next83.i.i.i.i = add nuw nsw i64 %indvars.iv82.i.i.i.i, 1
   %exitcond85.not.i.i.i.i = icmp eq i64 %indvars.iv.next83.i.i.i.i, 16
@@ -1957,7 +1957,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propag
 331:                                              ; preds = %358, %_ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propagateEPKhPi.exit.i.i
   %indvars.iv82.i.i3.i.i = phi i64 [ 0, %_ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propagateEPKhPi.exit.i.i ], [ %indvars.iv.next83.i.i6.i.i, %358 ]
   %332 = shl nuw nsw i64 %indvars.iv82.i.i3.i.i, 5
-  %333 = getelementptr inbounds nuw i32, ptr %329, i64 %indvars.iv82.i.i3.i.i
+  %333 = getelementptr inbounds nuw [4 x i8], ptr %329, i64 %indvars.iv82.i.i3.i.i
   %334 = load i32, ptr %333, align 4
   %335 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %334, i64 0
   %336 = getelementptr inbounds nuw i8, ptr %330, i64 %332
@@ -1968,9 +1968,9 @@ _ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propag
   %indvars.iv.i.i4.i.i = phi i64 [ 0, %331 ], [ 1, %337 ]
   %.074.in78.i.i5.i.i = phi <4 x i32> [ %335, %331 ], [ %356, %337 ]
   %339 = phi <4 x i32> [ zeroinitializer, %331 ], [ %357, %337 ]
-  %340 = getelementptr inbounds nuw <2 x i64>, ptr %336, i64 %indvars.iv.i.i4.i.i
+  %340 = getelementptr inbounds nuw [16 x i8], ptr %336, i64 %indvars.iv.i.i4.i.i
   %341 = load <16 x i8>, ptr %340, align 16
-  %342 = getelementptr inbounds nuw <2 x i64>, ptr %36, i64 %indvars.iv.i.i4.i.i
+  %342 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv.i.i4.i.i
   %343 = load <16 x i8>, ptr %342, align 16
   %344 = shufflevector <16 x i8> %341, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
   %345 = bitcast <16 x i8> %344 to <8 x i16>
@@ -1995,7 +1995,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propag
   %362 = shufflevector <4 x i32> %361, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %363 = add <4 x i32> %361, %362
   %364 = extractelement <4 x i32> %363, i64 0
-  %365 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv82.i.i3.i.i
+  %365 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv82.i.i3.i.i
   store i32 %364, ptr %365, align 4
   %indvars.iv.next83.i.i6.i.i = add nuw nsw i64 %indvars.iv82.i.i3.i.i, 1
   %exitcond.not.i.i7.i.i = icmp eq i64 %indvars.iv.next83.i.i6.i.i, 32
@@ -2018,7 +2018,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exi
   %377 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %374, <4 x i32> %376)
   %378 = ashr <8 x i16> %377, splat (i16 6)
   %379 = call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %372, <8 x i16> %378)
-  %380 = getelementptr inbounds nuw <2 x i64>, ptr %43, i64 %indvars.iv.i.i.i
+  %380 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %indvars.iv.i.i.i
   %381 = call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %379, <16 x i8> splat (i8 -128))
   %382 = bitcast <16 x i8> %381 to <2 x i64>
   %383 = and <2 x i64> %382, splat (i64 9187201950435737471)
@@ -2037,9 +2037,9 @@ _ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i: ; 
   %indvars.iv.i.i8.i.i = phi i64 [ 0, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i ], [ 1, %388 ]
   %.074.in78.i.i9.i.i = phi <4 x i32> [ %387, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i ], [ %407, %388 ]
   %390 = phi <4 x i32> [ zeroinitializer, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i ], [ %408, %388 ]
-  %391 = getelementptr inbounds nuw <2 x i64>, ptr %385, i64 %indvars.iv.i.i8.i.i
+  %391 = getelementptr inbounds nuw [16 x i8], ptr %385, i64 %indvars.iv.i.i8.i.i
   %392 = load <16 x i8>, ptr %391, align 16
-  %393 = getelementptr inbounds nuw <2 x i64>, ptr %43, i64 %indvars.iv.i.i8.i.i
+  %393 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %indvars.iv.i.i8.i.i
   %394 = load <16 x i8>, ptr %393, align 16
   %395 = shufflevector <16 x i8> %392, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
   %396 = bitcast <16 x i8> %395 to <8 x i16>
@@ -2277,7 +2277,7 @@ _ZN9Stockfish4Eval4NNUEL17format_cp_compactEiPc.exit.i: ; preds = %496, %483, %4
   %527 = load ptr, ptr @_ZN9Stockfish4Eval4NNUE21featureTransformerBigE, align 8, !noalias !31
   %528 = trunc nuw nsw i64 %indvars.iv.i51 to i32
   %529 = call noundef i32 @_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE9transformERKNS_8PositionEPhib(ptr noundef nonnull align 64 dereferenceable(116069376) %527, ptr noundef nonnull align 8 dereferenceable(865) %1, ptr noundef nonnull %9, i32 noundef %528, i1 noundef zeroext false), !noalias !31
-  %530 = getelementptr inbounds nuw %"class.std::unique_ptr.4", ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 %indvars.iv.i51
+  %530 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 %indvars.iv.i51
   %531 = load ptr, ptr %530, align 8, !noalias !31
   %532 = load i8, ptr @_ZGVZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKhE6buffer, align 8, !noalias !31
   %533 = icmp eq i8 %532, 0
@@ -2295,7 +2295,7 @@ _ZN9Stockfish4Eval4NNUEL17format_cp_compactEiPc.exit.i: ; preds = %496, %483, %4
 537:                                              ; preds = %563, %535
   %indvars.iv82.i.i.i.i52 = phi i64 [ 0, %535 ], [ %indvars.iv.next83.i.i.i.i57, %563 ]
   %538 = mul nuw nsw i64 %indvars.iv82.i.i.i.i52, 2560
-  %539 = getelementptr inbounds nuw i32, ptr %531, i64 %indvars.iv82.i.i.i.i52
+  %539 = getelementptr inbounds nuw [4 x i8], ptr %531, i64 %indvars.iv82.i.i.i.i52
   %540 = load i32, ptr %539, align 4, !noalias !31
   %541 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %540, i64 0
   %542 = getelementptr inbounds nuw i8, ptr %536, i64 %538
@@ -2305,9 +2305,9 @@ _ZN9Stockfish4Eval4NNUEL17format_cp_compactEiPc.exit.i: ; preds = %496, %483, %4
   %indvars.iv.i.i.i.i53 = phi i64 [ 0, %537 ], [ %indvars.iv.next.i.i.i.i55, %543 ]
   %.074.in78.i.i.i.i54 = phi <4 x i32> [ %541, %537 ], [ %561, %543 ]
   %544 = phi <4 x i32> [ zeroinitializer, %537 ], [ %562, %543 ]
-  %545 = getelementptr inbounds nuw <2 x i64>, ptr %542, i64 %indvars.iv.i.i.i.i53
+  %545 = getelementptr inbounds nuw [16 x i8], ptr %542, i64 %indvars.iv.i.i.i.i53
   %546 = load <16 x i8>, ptr %545, align 16, !noalias !31
-  %547 = getelementptr inbounds nuw <2 x i64>, ptr %9, i64 %indvars.iv.i.i.i.i53
+  %547 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv.i.i.i.i53
   %548 = load <16 x i8>, ptr %547, align 16, !noalias !31
   %549 = shufflevector <16 x i8> %546, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
   %550 = bitcast <16 x i8> %549 to <8 x i16>
@@ -2334,7 +2334,7 @@ _ZN9Stockfish4Eval4NNUEL17format_cp_compactEiPc.exit.i: ; preds = %496, %483, %4
   %567 = shufflevector <4 x i32> %566, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %568 = add <4 x i32> %566, %567
   %569 = extractelement <4 x i32> %568, i64 0
-  %570 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv82.i.i.i.i52
+  %570 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv82.i.i.i.i52
   store i32 %569, ptr %570, align 4, !noalias !31
   %indvars.iv.next83.i.i.i.i57 = add nuw nsw i64 %indvars.iv82.i.i.i.i52, 1
   %exitcond85.not.i.i.i.i58 = icmp eq i64 %indvars.iv.next83.i.i.i.i57, 16
@@ -2368,7 +2368,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propag
 590:                                              ; preds = %617, %_ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propagateEPKhPi.exit.i.i59
   %indvars.iv82.i.i3.i.i60 = phi i64 [ 0, %_ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propagateEPKhPi.exit.i.i59 ], [ %indvars.iv.next83.i.i6.i.i63, %617 ]
   %591 = shl nuw nsw i64 %indvars.iv82.i.i3.i.i60, 5
-  %592 = getelementptr inbounds nuw i32, ptr %588, i64 %indvars.iv82.i.i3.i.i60
+  %592 = getelementptr inbounds nuw [4 x i8], ptr %588, i64 %indvars.iv82.i.i3.i.i60
   %593 = load i32, ptr %592, align 4, !noalias !31
   %594 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %593, i64 0
   %595 = getelementptr inbounds nuw i8, ptr %589, i64 %591
@@ -2379,9 +2379,9 @@ _ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propag
   %indvars.iv.i.i4.i.i61 = phi i64 [ 0, %590 ], [ 1, %596 ]
   %.074.in78.i.i5.i.i62 = phi <4 x i32> [ %594, %590 ], [ %615, %596 ]
   %598 = phi <4 x i32> [ zeroinitializer, %590 ], [ %616, %596 ]
-  %599 = getelementptr inbounds nuw <2 x i64>, ptr %595, i64 %indvars.iv.i.i4.i.i61
+  %599 = getelementptr inbounds nuw [16 x i8], ptr %595, i64 %indvars.iv.i.i4.i.i61
   %600 = load <16 x i8>, ptr %599, align 16, !noalias !31
-  %601 = getelementptr inbounds nuw <2 x i64>, ptr %36, i64 %indvars.iv.i.i4.i.i61
+  %601 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv.i.i4.i.i61
   %602 = load <16 x i8>, ptr %601, align 16, !noalias !31
   %603 = shufflevector <16 x i8> %600, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
   %604 = bitcast <16 x i8> %603 to <8 x i16>
@@ -2406,7 +2406,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers26AffineTransformSparseInputILj2560ELj16EE9propag
   %621 = shufflevector <4 x i32> %620, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %622 = add <4 x i32> %620, %621
   %623 = extractelement <4 x i32> %622, i64 0
-  %624 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv82.i.i3.i.i60
+  %624 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv82.i.i3.i.i60
   store i32 %623, ptr %624, align 4, !noalias !31
   %indvars.iv.next83.i.i6.i.i63 = add nuw nsw i64 %indvars.iv82.i.i3.i.i60, 1
   %exitcond.not.i.i7.i.i64 = icmp eq i64 %indvars.iv.next83.i.i6.i.i63, 32
@@ -2429,7 +2429,7 @@ _ZNK9Stockfish4Eval4NNUE6Layers15AffineTransformILj30ELj32EE9propagateEPKhPi.exi
   %636 = call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %633, <4 x i32> %635)
   %637 = ashr <8 x i16> %636, splat (i16 6)
   %638 = call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %631, <8 x i16> %637)
-  %639 = getelementptr inbounds nuw <2 x i64>, ptr %43, i64 %indvars.iv.i.i.i66
+  %639 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %indvars.iv.i.i.i66
   %640 = call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %638, <16 x i8> splat (i8 -128))
   %641 = bitcast <16 x i8> %640 to <2 x i64>
   %642 = and <2 x i64> %641, splat (i64 9187201950435737471)
@@ -2448,9 +2448,9 @@ _ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68: 
   %indvars.iv.i.i8.i.i69 = phi i64 [ 0, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68 ], [ 1, %647 ]
   %.074.in78.i.i9.i.i70 = phi <4 x i32> [ %646, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68 ], [ %666, %647 ]
   %649 = phi <4 x i32> [ zeroinitializer, %_ZNK9Stockfish4Eval4NNUE6Layers11ClippedReLUILj32EE9propagateEPKiPh.exit.i.i68 ], [ %667, %647 ]
-  %650 = getelementptr inbounds nuw <2 x i64>, ptr %644, i64 %indvars.iv.i.i8.i.i69
+  %650 = getelementptr inbounds nuw [16 x i8], ptr %644, i64 %indvars.iv.i.i8.i.i69
   %651 = load <16 x i8>, ptr %650, align 16, !noalias !31
-  %652 = getelementptr inbounds nuw <2 x i64>, ptr %43, i64 %indvars.iv.i.i8.i.i69
+  %652 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %indvars.iv.i.i8.i.i69
   %653 = load <16 x i8>, ptr %652, align 16, !noalias !31
   %654 = shufflevector <16 x i8> %651, <16 x i8> poison, <16 x i32> <i32 0, i32 0, i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 6, i32 6, i32 7, i32 7>
   %655 = bitcast <16 x i8> %654 to <8 x i16>
@@ -2481,10 +2481,10 @@ _ZN9Stockfish4Eval4NNUE7NetworkILj2560ELi15ELi32EE9propagateEPKh.exit.i: ; preds
   %676 = sdiv i32 %675, 8128
   %677 = add nsw i32 %674, %676
   %678 = sdiv i32 %529, 16
-  %679 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i51
+  %679 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i51
   store i32 %678, ptr %679, align 4, !alias.scope !31
   %680 = sdiv i32 %677, 16
-  %681 = getelementptr inbounds nuw i32, ptr %525, i64 %indvars.iv.i51
+  %681 = getelementptr inbounds nuw [4 x i8], ptr %525, i64 %indvars.iv.i51
   store i32 %680, ptr %681, align 4, !alias.scope !31
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i72 = icmp eq i64 %indvars.iv.next.i71, 8
@@ -2511,7 +2511,7 @@ _ZN9Stockfish4Eval4NNUEL14trace_evaluateERKNS_8PositionE.exit: ; preds = %_ZN9St
   %694 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %693, i64 noundef %.0172) #16
   %695 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %694, ptr noundef nonnull @.str.15) #16
   %696 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %510, ptr noundef nonnull @.str.16) #16
-  %697 = getelementptr inbounds nuw i32, ptr %13, i64 %.0172
+  %697 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.0172
   %698 = load i32, ptr %697, align 4
   %699 = call noundef i32 @_ZN9Stockfish3UCI5to_cpEi(i32 noundef %698) #16
   %700 = sitofp i32 %699 to double
@@ -2528,7 +2528,7 @@ _ZN9Stockfish4Eval4NNUEL14trace_evaluateERKNS_8PositionE.exit: ; preds = %_ZN9St
   %710 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %709, double noundef %702) #16
   %711 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %510, ptr noundef nonnull @.str.17) #16
   %712 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %711, ptr noundef nonnull @.str.16) #16
-  %713 = getelementptr inbounds nuw i32, ptr %525, i64 %.0172
+  %713 = getelementptr inbounds nuw [4 x i8], ptr %525, i64 %.0172
   %714 = load i32, ptr %713, align 4
   %715 = call noundef i32 @_ZN9Stockfish3UCI5to_cpEi(i32 noundef %714) #16
   %716 = sitofp i32 %715 to double
@@ -2636,7 +2636,7 @@ _ZN9Stockfish4Eval4NNUE6Detail10initializeINS1_18FeatureTransformerILj128EXadL_Z
 
 21:                                               ; preds = %_ZN9Stockfish4Eval4NNUE6Detail10initializeINS1_7NetworkILj128ELi15ELi32EEEEEvRSt10unique_ptrIT_NS1_14AlignedDeleterIS7_EEE.exit.i, %_ZN9Stockfish4Eval4NNUE6Detail10initializeINS1_18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEEEEEvRSt10unique_ptrIT_NS1_16LargePageDeleterIS8_EEE.exit.i
   %.0716.i = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE6Detail10initializeINS1_18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEEEEEvRSt10unique_ptrIT_NS1_16LargePageDeleterIS8_EEE.exit.i ], [ %27, %_ZN9Stockfish4Eval4NNUE6Detail10initializeINS1_7NetworkILj128ELi15ELi32EEEEEvRSt10unique_ptrIT_NS1_14AlignedDeleterIS7_EEE.exit.i ]
-  %22 = getelementptr inbounds nuw %"class.std::unique_ptr.23", ptr @_ZN9Stockfish4Eval4NNUE12networkSmallE, i64 %.0716.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9Stockfish4Eval4NNUE12networkSmallE, i64 %.0716.i
   %23 = tail call noundef ptr @_ZN9Stockfish17std_aligned_allocEmm(i64 noundef 64, i64 noundef 3520) #16
   %24 = load ptr, ptr %22, align 8
   store ptr %23, ptr %22, align 8
@@ -2674,7 +2674,7 @@ _ZN9Stockfish4Eval4NNUE6Detail10initializeINS1_18FeatureTransformerILj2560EXadL_
 
 33:                                               ; preds = %_ZN9Stockfish4Eval4NNUE6Detail10initializeINS1_7NetworkILj2560ELi15ELi32EEEEEvRSt10unique_ptrIT_NS1_14AlignedDeleterIS7_EEE.exit.i, %_ZN9Stockfish4Eval4NNUE6Detail10initializeINS1_18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEEEEEvRSt10unique_ptrIT_NS1_16LargePageDeleterIS8_EEE.exit.i
   %.015.i = phi i64 [ 0, %_ZN9Stockfish4Eval4NNUE6Detail10initializeINS1_18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEEEEEvRSt10unique_ptrIT_NS1_16LargePageDeleterIS8_EEE.exit.i ], [ %39, %_ZN9Stockfish4Eval4NNUE6Detail10initializeINS1_7NetworkILj2560ELi15ELi32EEEEEvRSt10unique_ptrIT_NS1_14AlignedDeleterIS7_EEE.exit.i ]
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.4", ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 %.015.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 %.015.i
   %35 = tail call noundef ptr @_ZN9Stockfish17std_aligned_allocEmm(i64 noundef 64, i64 noundef 42432) #16
   %36 = load ptr, ptr %34, align 8
   store ptr %35, ptr %34, align 8
@@ -2811,7 +2811,7 @@ _ZN9Stockfish4Eval4NNUEL11read_headerERSiPjPNSt7__cxx1112basic_stringIcSt11char_
 
 93:                                               ; preds = %_ZN9Stockfish4Eval4NNUEL11read_headerERSiPjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   %94 = sext i32 %2 to i64
-  %95 = getelementptr inbounds i32, ptr @_ZN9Stockfish4Eval4NNUEL9HashValueE, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr @_ZN9Stockfish4Eval4NNUEL9HashValueE, i64 %94
   %96 = load i32, ptr %95, align 4
   %.not.i = icmp eq i32 %65, %96
   br i1 %.not.i, label %97, label %_ZN9Stockfish4Eval4NNUEL15read_parametersERSiNS1_7NetSizeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
@@ -2842,7 +2842,7 @@ _ZN9Stockfish4Eval4NNUEL11read_headerERSiPjPNSt7__cxx1112basic_stringIcSt11char_
   br i1 %98, label %108, label %130
 
 108:                                              ; preds = %107
-  %109 = getelementptr inbounds nuw %"class.std::unique_ptr.4", ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 %.041.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 %.041.i
   %110 = load ptr, ptr %109, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2892,7 +2892,7 @@ _ZN9Stockfish4Eval4NNUE6Detail15read_parametersINS1_7NetworkILj2560ELi15ELi32EEE
   br i1 %106, label %131, label %153
 
 131:                                              ; preds = %130
-  %132 = getelementptr inbounds nuw %"class.std::unique_ptr.23", ptr @_ZN9Stockfish4Eval4NNUE12networkSmallE, i64 %.041.i
+  %132 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9Stockfish4Eval4NNUE12networkSmallE, i64 %.041.i
   %133 = load ptr, ptr %132, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3000,7 +3000,7 @@ define dso_local noundef zeroext i1 @_ZN9Stockfish4Eval4NNUE9save_evalERSoNS1_7N
 
 23:                                               ; preds = %20
   %24 = sext i32 %1 to i64
-  %25 = getelementptr inbounds i32, ptr @_ZN9Stockfish4Eval4NNUEL9HashValueE, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr @_ZN9Stockfish4Eval4NNUEL9HashValueE, i64 %24
   %26 = load i32, ptr %25, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -3203,7 +3203,7 @@ _ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj128E
   br i1 %64, label %105, label %116
 
 105:                                              ; preds = %104
-  %106 = getelementptr inbounds nuw %"class.std::unique_ptr.4", ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 %.046.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9Stockfish4Eval4NNUE10networkBigE, i64 %.046.i
   %107 = load ptr, ptr %106, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -3239,7 +3239,7 @@ _ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_7NetworkILj2560ELi15ELi32EE
   br i1 %101, label %117, label %128
 
 117:                                              ; preds = %116
-  %118 = getelementptr inbounds nuw %"class.std::unique_ptr.23", ptr @_ZN9Stockfish4Eval4NNUE12networkSmallE, i64 %.046.i
+  %118 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9Stockfish4Eval4NNUE12networkSmallE, i64 %.046.i
   %119 = load ptr, ptr %118, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -3340,7 +3340,7 @@ _ZNKRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.e
   %28 = load i64, ptr %27, align 8
   %29 = urem i64 %26, %28
   %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %29
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %29
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %33
@@ -3427,7 +3427,7 @@ _ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt
   %70 = load i64, ptr %69, align 8
   %71 = urem i64 %68, %70
   %72 = load ptr, ptr %2, align 8
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %71
+  %73 = getelementptr inbounds [8 x i8], ptr %72, i64 %71
   %74 = load ptr, ptr %73, align 8
   %.not.i.i.i.i.i11 = icmp eq ptr %74, null
   br i1 %.not.i.i.i.i.i11, label %.loopexit.i.i17, label %75
@@ -3502,7 +3502,7 @@ _ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt
   %98 = phi ptr [ %.pre75, %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit22._crit_edge ], [ %72, %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit22.thread ]
   %99 = phi i64 [ %.pre, %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit22._crit_edge ], [ %70, %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit22.thread ]
   %100 = phi ptr [ %89, %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit22._crit_edge ], [ %80, %_ZNKSt13unordered_mapIN9Stockfish4Eval4NNUE7NetSizeENS1_8EvalFileESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE2atERSA_.exit22.thread ]
-  %101 = getelementptr inbounds ptr, ptr %98, i64 %.pre-phi78
+  %101 = getelementptr inbounds [8 x i8], ptr %98, i64 %.pre-phi78
   %102 = load ptr, ptr %101, align 8
   %.not.i.i.i.i.i24 = icmp eq ptr %102, null
   br i1 %.not.i.i.i.i.i24, label %.loopexit.i.i30, label %103
@@ -3868,7 +3868,7 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit: ; preds = %13, %9
   %45 = select i1 %or.cond, i32 0, i32 %notmask
   %46 = or i32 %38, %45
   %47 = trunc i32 %46 to i16
-  %48 = getelementptr inbounds i16, ptr %1, i64 %.02246
+  %48 = getelementptr inbounds [2 x i8], ptr %1, i64 %.02246
   store i16 %47, ptr %48, align 2
   br label %.loopexit
 
@@ -3970,7 +3970,7 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIjEET_RSi.exit: ; preds = %13, %9
   %notmask = shl nsw i32 -1, %43
   %44 = select i1 %or.cond, i32 0, i32 %notmask
   %45 = or i32 %37, %44
-  %46 = getelementptr inbounds i32, ptr %1, i64 %.02244
+  %46 = getelementptr inbounds [4 x i8], ptr %1, i64 %.02244
   store i32 %45, ptr %46, align 4
   br label %.loopexit
 
@@ -4116,7 +4116,7 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i: ; preds = %13, %9
   %21 = phi i32 [ %.pre.i.i, %9 ], [ %19, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %.08.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.08.i
   store i32 %21, ptr %22, align 4
   %23 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %23, 16
@@ -4202,7 +4202,7 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i: ; preds = %13, %9
   %21 = phi i32 [ %.pre.i.i, %9 ], [ %19, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %.08.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.08.i
   store i32 %21, ptr %22, align 4
   %23 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %23, 32
@@ -4367,7 +4367,7 @@ _ZN9Stockfish4Eval4NNUE18read_little_endianIiEET_RSi.exit.i: ; preds = %13, %9
   %21 = phi i32 [ %.pre.i.i, %9 ], [ %19, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %.08.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.08.i
   store i32 %21, ptr %22, align 4
   %23 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %23, 16
@@ -4425,7 +4425,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish4Eval4NNUE13write_leb_128IsEEvR
 .lr.ph:                                           ; preds = %3, %14
   %.058 = phi i32 [ %12, %14 ], [ 0, %3 ]
   %.02857 = phi i64 [ %15, %14 ], [ 0, %3 ]
-  %8 = getelementptr inbounds i16, ptr %1, i64 %.02857
+  %8 = getelementptr inbounds [2 x i8], ptr %1, i64 %.02857
   %9 = load i16, ptr %8, align 2
   br label %10
 
@@ -4480,7 +4480,7 @@ _ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit: ; preds = %._crit_e
 .lr.ph61:                                         ; preds = %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit
   %.02760 = phi i64 [ %42, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit ], [ 0, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit ]
   %.05359 = phi i32 [ %.2, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit ], [ 0, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit ]
-  %25 = getelementptr inbounds i16, ptr %1, i64 %.02760
+  %25 = getelementptr inbounds [2 x i8], ptr %1, i64 %.02760
   %26 = load i16, ptr %25, align 2
   br label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IsEEvRSoPKT_mENKUlhE_clEh.exit32
 
@@ -4561,7 +4561,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish4Eval4NNUE13write_leb_128IiEEvR
 .lr.ph:                                           ; preds = %3, %14
   %.058 = phi i32 [ %12, %14 ], [ 0, %3 ]
   %.02857 = phi i64 [ %15, %14 ], [ 0, %3 ]
-  %8 = getelementptr inbounds i32, ptr %1, i64 %.02857
+  %8 = getelementptr inbounds [4 x i8], ptr %1, i64 %.02857
   %9 = load i32, ptr %8, align 4
   br label %10
 
@@ -4616,7 +4616,7 @@ _ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit: ; preds = %._crit_e
 .lr.ph62:                                         ; preds = %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit
   %.02761 = phi i64 [ %43, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit ], [ 0, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit ]
   %.05360 = phi i32 [ %.2, %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit ], [ 0, %_ZN9Stockfish4Eval4NNUE19write_little_endianIjEEvRSoT_.exit ]
-  %25 = getelementptr inbounds i32, ptr %1, i64 %.02761
+  %25 = getelementptr inbounds [4 x i8], ptr %1, i64 %.02761
   %26 = load i32, ptr %25, align 4
   br label %_ZZN9Stockfish4Eval4NNUE13write_leb_128IiEEvRSoPKT_mENKUlhE_clEh.exit32
 
@@ -4798,7 +4798,7 @@ thread-pre-split.i:                               ; preds = %_ZN9Stockfish4Eval4
 10:                                               ; preds = %thread-pre-split.i, %.preheader.i
   %.b.i.i = phi i1 [ %.b.i.pr.i, %thread-pre-split.i ], [ false, %.preheader.i ]
   %.08.i = phi i64 [ %21, %thread-pre-split.i ], [ 0, %.preheader.i ]
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %.08.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.08.i
   %12 = load i32, ptr %11, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -4892,7 +4892,7 @@ thread-pre-split.i:                               ; preds = %_ZN9Stockfish4Eval4
 10:                                               ; preds = %thread-pre-split.i, %.preheader.i
   %.b.i.i = phi i1 [ %.b.i.pr.i, %thread-pre-split.i ], [ false, %.preheader.i ]
   %.08.i = phi i64 [ %21, %thread-pre-split.i ], [ 0, %.preheader.i ]
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %.08.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.08.i
   %12 = load i32, ptr %11, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -5074,7 +5074,7 @@ thread-pre-split.i:                               ; preds = %_ZN9Stockfish4Eval4
 10:                                               ; preds = %thread-pre-split.i, %.preheader.i
   %.b.i.i = phi i1 [ %.b.i.pr.i, %thread-pre-split.i ], [ false, %.preheader.i ]
   %.08.i = phi i64 [ %21, %thread-pre-split.i ], [ 0, %.preheader.i ]
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %.08.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.08.i
   %12 = load i32, ptr %11, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -5234,14 +5234,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %45 = load i32, ptr %.07186.i, align 4
   %46 = shl i32 %45, 7
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i16, ptr %43, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %47
   br label %49
 
 49:                                               ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
-  %50 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.i
   %51 = load <8 x i16>, ptr %50, align 16
-  %52 = getelementptr inbounds nuw <2 x i64>, ptr %48, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv.i
   %53 = load <8 x i16>, ptr %52, align 16
   %54 = add <8 x i16> %53, %51
   store <8 x i16> %54, ptr %50, align 16
@@ -5268,7 +5268,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %61 = load i32, ptr %.07491.i, align 4
   %62 = shl i32 %61, 3
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %57, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %63
   %65 = load <4 x i32>, ptr %64, align 32
   %66 = add <4 x i32> %65, %59
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
@@ -5384,14 +5384,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %45 = load i32, ptr %.07185.i, align 4
   %46 = shl i32 %45, 7
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i16, ptr %42, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %47
   br label %49
 
 49:                                               ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
-  %50 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.i
   %51 = load <8 x i16>, ptr %50, align 16
-  %52 = getelementptr inbounds nuw <2 x i64>, ptr %48, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv.i
   %53 = load <8 x i16>, ptr %52, align 16
   %54 = add <8 x i16> %53, %51
   store <8 x i16> %54, ptr %50, align 16
@@ -5422,7 +5422,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %61 = load i32, ptr %.07490.i, align 4
   %62 = shl i32 %61, 3
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %57, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %63
   %65 = load <4 x i32>, ptr %64, align 32
   %66 = add <4 x i32> %65, %59
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
@@ -5567,7 +5567,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 .preheader268:                                    ; preds = %.preheader269.preheader, %.preheader268
   %indvars.iv322 = phi i32 [ 0, %.preheader269.preheader ], [ %indvars.iv.next323, %.preheader268 ]
   %indvars.iv = phi i64 [ 0, %.preheader269.preheader ], [ %indvars.iv.next, %.preheader268 ]
-  %17 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %17 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -5585,7 +5585,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %24 = xor i1 %4, true
   %25 = zext i1 %24 to i8
   %26 = zext i32 %indvars.iv322 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 11136
   store i8 %25, ptr %29, align 64
@@ -5606,8 +5606,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not245270, label %._crit_edge275, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
-  %38 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %26
-  %39 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %26
+  %38 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %26
+  %39 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %26
   br label %40
 
 40:                                               ; preds = %.lr.ph, %40
@@ -5646,24 +5646,24 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %59 = shl i32 %58, 7
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %61
   %63 = load i32, ptr %8, align 16
   %64 = shl i32 %63, 7
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %60, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %65
   br i1 %49, label %.preheader257, label %76
 
 .preheader257:                                    ; preds = %54, %.preheader257
   %indvars.iv344 = phi i64 [ %indvars.iv.next345, %.preheader257 ], [ 0, %54 ]
-  %67 = getelementptr inbounds nuw <2 x i64>, ptr %55, i64 %indvars.iv344
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %indvars.iv344
   %68 = load <8 x i16>, ptr %67, align 16
-  %69 = getelementptr inbounds nuw <2 x i64>, ptr %62, i64 %indvars.iv344
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %indvars.iv344
   %70 = load <8 x i16>, ptr %69, align 16
   %71 = sub <8 x i16> %68, %70
-  %72 = getelementptr inbounds nuw <2 x i64>, ptr %66, i64 %indvars.iv344
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %indvars.iv344
   %73 = load <8 x i16>, ptr %72, align 16
   %74 = add <8 x i16> %71, %73
-  %75 = getelementptr inbounds nuw <2 x i64>, ptr %57, i64 %indvars.iv344
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %indvars.iv344
   store <8 x i16> %74, ptr %75, align 16
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
   %exitcond347.not = icmp eq i64 %indvars.iv.next345, 16
@@ -5674,23 +5674,23 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %78 = load i32, ptr %77, align 4
   %79 = shl i32 %78, 7
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw i16, ptr %60, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %80
   br label %82
 
 82:                                               ; preds = %76, %82
   %indvars.iv340 = phi i64 [ 0, %76 ], [ %indvars.iv.next341, %82 ]
-  %83 = getelementptr inbounds nuw <2 x i64>, ptr %55, i64 %indvars.iv340
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %indvars.iv340
   %84 = load <8 x i16>, ptr %83, align 16
-  %85 = getelementptr inbounds nuw <2 x i64>, ptr %66, i64 %indvars.iv340
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %indvars.iv340
   %86 = load <8 x i16>, ptr %85, align 16
-  %87 = getelementptr inbounds nuw <2 x i64>, ptr %62, i64 %indvars.iv340
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %indvars.iv340
   %88 = load <8 x i16>, ptr %87, align 16
-  %89 = getelementptr inbounds nuw <2 x i64>, ptr %81, i64 %indvars.iv340
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %indvars.iv340
   %90 = load <8 x i16>, ptr %89, align 16
   %.neg250 = add <8 x i16> %86, %84
   %91 = add <8 x i16> %88, %90
   %92 = sub <8 x i16> %.neg250, %91
-  %93 = getelementptr inbounds nuw <2 x i64>, ptr %57, i64 %indvars.iv340
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %indvars.iv340
   store <8 x i16> %92, ptr %93, align 16
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   %exitcond343.not = icmp eq i64 %indvars.iv.next341, 16
@@ -5704,11 +5704,11 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %98 = shl i32 %97, 3
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 5767424
   %100 = zext i32 %98 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %100
   %102 = load i32, ptr %8, align 16
   %103 = shl i32 %102, 3
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %99, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %104
   %106 = load i64, ptr %15, align 16
   %107 = icmp eq i64 %106, 1
   br i1 %107, label %.preheader, label %122
@@ -5737,24 +5737,24 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %124 = load i32, ptr %123, align 4
   %125 = shl i32 %124, 3
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw i32, ptr %99, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %126
   br label %128
 
 128:                                              ; preds = %122, %128
   %129 = phi i1 [ true, %122 ], [ false, %128 ]
   %.0223312 = phi i64 [ 0, %122 ], [ 1, %128 ]
-  %130 = getelementptr inbounds nuw <2 x i64>, ptr %94, i64 %.0223312
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %.0223312
   %131 = load <4 x i32>, ptr %130, align 16
-  %132 = getelementptr inbounds nuw <2 x i64>, ptr %105, i64 %.0223312
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %.0223312
   %133 = load <4 x i32>, ptr %132, align 16
-  %134 = getelementptr inbounds nuw <2 x i64>, ptr %101, i64 %.0223312
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %101, i64 %.0223312
   %135 = load <4 x i32>, ptr %134, align 16
-  %136 = getelementptr inbounds nuw <2 x i64>, ptr %127, i64 %.0223312
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %127, i64 %.0223312
   %137 = load <4 x i32>, ptr %136, align 16
   %.neg254 = add <4 x i32> %133, %131
   %138 = add <4 x i32> %135, %137
   %139 = sub <4 x i32> %.neg254, %138
-  %140 = getelementptr inbounds nuw <2 x i64>, ptr %96, i64 %.0223312
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 %.0223312
   store <4 x i32> %139, ptr %140, align 16
   br i1 %129, label %128, label %.loopexit, !llvm.loop !78
 
@@ -5773,7 +5773,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %144 = phi ptr [ %182, %._crit_edge288 ], [ %.pre348, %.preheader265 ]
   %145 = phi i64 [ %180, %._crit_edge288 ], [ 0, %.preheader265 ]
   %.0227291 = phi i32 [ %179, %._crit_edge288 ], [ 0, %.preheader265 ]
-  %146 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %145
+  %146 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 128
   %148 = load i64, ptr %147, align 8
   %.idx = shl nsw i64 %148, 2
@@ -5786,14 +5786,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %150 = load i32, ptr %.0228279, align 4
   %151 = shl i32 %150, 7
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds nuw i16, ptr %143, i64 %152
+  %153 = getelementptr inbounds nuw [2 x i8], ptr %143, i64 %152
   br label %154
 
 154:                                              ; preds = %.lr.ph281, %154
   %indvars.iv330 = phi i64 [ 0, %.lr.ph281 ], [ %indvars.iv.next331, %154 ]
-  %155 = getelementptr inbounds nuw <2 x i64>, ptr %6, i64 %indvars.iv330
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv330
   %156 = load <8 x i16>, ptr %155, align 16
-  %157 = getelementptr inbounds nuw <2 x i64>, ptr %153, i64 %indvars.iv330
+  %157 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %indvars.iv330
   %158 = load <8 x i16>, ptr %157, align 16
   %159 = sub <8 x i16> %156, %158
   store <8 x i16> %159, ptr %155, align 16
@@ -5807,7 +5807,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not240, label %._crit_edge282, label %.lr.ph281
 
 ._crit_edge282:                                   ; preds = %160, %.lr.ph292
-  %162 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %145
+  %162 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %145
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 128
   %164 = load i64, ptr %163, align 8
   %.idx314 = shl nsw i64 %164, 2
@@ -5820,14 +5820,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %166 = load i32, ptr %.0233285, align 4
   %167 = shl i32 %166, 7
   %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds nuw i16, ptr %143, i64 %168
+  %169 = getelementptr inbounds nuw [2 x i8], ptr %143, i64 %168
   br label %170
 
 170:                                              ; preds = %.lr.ph287, %170
   %indvars.iv333 = phi i64 [ 0, %.lr.ph287 ], [ %indvars.iv.next334, %170 ]
-  %171 = getelementptr inbounds nuw <2 x i64>, ptr %6, i64 %indvars.iv333
+  %171 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv333
   %172 = load <8 x i16>, ptr %171, align 16
-  %173 = getelementptr inbounds nuw <2 x i64>, ptr %169, i64 %indvars.iv333
+  %173 = getelementptr inbounds nuw [16 x i8], ptr %169, i64 %indvars.iv333
   %174 = load <8 x i16>, ptr %173, align 16
   %175 = add <8 x i16> %174, %172
   store <8 x i16> %175, ptr %171, align 16
@@ -5845,7 +5845,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %178, ptr noundef nonnull align 16 dereferenceable(256) %6, i64 256, i1 false)
   %179 = add i32 %.0227291, 1
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds nuw ptr, ptr %3, i64 %180
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %180
   %182 = load ptr, ptr %181, align 8
   %.not = icmp eq ptr %182, null
   br i1 %.not, label %.loopexit264.loopexit, label %.lr.ph292, !llvm.loop !81
@@ -5873,7 +5873,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %186 = phi ptr [ %183, %.lr.ph309.preheader ], [ %220, %._crit_edge305 ]
   %187 = phi i64 [ 0, %.lr.ph309.preheader ], [ %218, %._crit_edge305 ]
   %.0231308 = phi i32 [ 0, %.lr.ph309.preheader ], [ %217, %._crit_edge305 ]
-  %188 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %187
+  %188 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %187
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 128
   %190 = load i64, ptr %189, align 8
   %.idx315 = shl nsw i64 %190, 2
@@ -5888,7 +5888,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %192 = load i32, ptr %.0229296, align 4
   %193 = shl i32 %192, 3
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds nuw i32, ptr %184, i64 %194
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %194
   %196 = load <4 x i32>, ptr %195, align 32
   %197 = sub <4 x i32> %.sroa.0.1, %196
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 16
@@ -5901,7 +5901,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 ._crit_edge299:                                   ; preds = %.lr.ph298, %.lr.ph309
   %.sroa.6.2 = phi <4 x i32> [ %.sroa.6.0, %.lr.ph309 ], [ %200, %.lr.ph298 ]
   %.sroa.0.2 = phi <4 x i32> [ %.sroa.0.0, %.lr.ph309 ], [ %197, %.lr.ph298 ]
-  %202 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %187
+  %202 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %187
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 128
   %204 = load i64, ptr %203, align 8
   %.idx316 = shl nsw i64 %204, 2
@@ -5916,7 +5916,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %206 = load i32, ptr %.0222302, align 4
   %207 = shl i32 %206, 3
   %208 = zext i32 %207 to i64
-  %209 = getelementptr inbounds nuw i32, ptr %184, i64 %208
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %208
   %210 = load <4 x i32>, ptr %209, align 32
   %211 = add <4 x i32> %210, %.sroa.0.3
   %212 = getelementptr inbounds nuw i8, ptr %209, i64 16
@@ -5935,7 +5935,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx370, align 16
   %217 = add i32 %.0231308, 1
   %218 = zext i32 %217 to i64
-  %219 = getelementptr inbounds nuw ptr, ptr %3, i64 %218
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %218
   %220 = load ptr, ptr %219, align 8
   %.not242 = icmp eq ptr %220, null
   br i1 %.not242, label %.loopexit, label %.lr.ph309, !llvm.loop !82
@@ -6072,7 +6072,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 .preheader268:                                    ; preds = %.preheader269.preheader, %.preheader268
   %indvars.iv322 = phi i32 [ 0, %.preheader269.preheader ], [ %indvars.iv.next323, %.preheader268 ]
   %indvars.iv = phi i64 [ 0, %.preheader269.preheader ], [ %indvars.iv.next, %.preheader268 ]
-  %17 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %17 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -6090,7 +6090,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %24 = xor i1 %4, true
   %25 = zext i1 %24 to i8
   %26 = zext i32 %indvars.iv322 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 11137
   store i8 %25, ptr %29, align 1
@@ -6111,8 +6111,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not245270, label %._crit_edge275, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
-  %38 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %26
-  %39 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %26
+  %38 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %26
+  %39 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %26
   br label %40
 
 40:                                               ; preds = %.lr.ph, %40
@@ -6151,24 +6151,24 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %59 = shl i32 %58, 7
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %61
   %63 = load i32, ptr %8, align 16
   %64 = shl i32 %63, 7
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %60, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %65
   br i1 %49, label %.preheader257, label %76
 
 .preheader257:                                    ; preds = %54, %.preheader257
   %indvars.iv344 = phi i64 [ %indvars.iv.next345, %.preheader257 ], [ 0, %54 ]
-  %67 = getelementptr inbounds nuw <2 x i64>, ptr %55, i64 %indvars.iv344
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %indvars.iv344
   %68 = load <8 x i16>, ptr %67, align 16
-  %69 = getelementptr inbounds nuw <2 x i64>, ptr %62, i64 %indvars.iv344
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %indvars.iv344
   %70 = load <8 x i16>, ptr %69, align 16
   %71 = sub <8 x i16> %68, %70
-  %72 = getelementptr inbounds nuw <2 x i64>, ptr %66, i64 %indvars.iv344
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %indvars.iv344
   %73 = load <8 x i16>, ptr %72, align 16
   %74 = add <8 x i16> %71, %73
-  %75 = getelementptr inbounds nuw <2 x i64>, ptr %57, i64 %indvars.iv344
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %indvars.iv344
   store <8 x i16> %74, ptr %75, align 16
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
   %exitcond347.not = icmp eq i64 %indvars.iv.next345, 16
@@ -6179,23 +6179,23 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %78 = load i32, ptr %77, align 4
   %79 = shl i32 %78, 7
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw i16, ptr %60, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %80
   br label %82
 
 82:                                               ; preds = %76, %82
   %indvars.iv340 = phi i64 [ 0, %76 ], [ %indvars.iv.next341, %82 ]
-  %83 = getelementptr inbounds nuw <2 x i64>, ptr %55, i64 %indvars.iv340
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %indvars.iv340
   %84 = load <8 x i16>, ptr %83, align 16
-  %85 = getelementptr inbounds nuw <2 x i64>, ptr %66, i64 %indvars.iv340
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %indvars.iv340
   %86 = load <8 x i16>, ptr %85, align 16
-  %87 = getelementptr inbounds nuw <2 x i64>, ptr %62, i64 %indvars.iv340
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %indvars.iv340
   %88 = load <8 x i16>, ptr %87, align 16
-  %89 = getelementptr inbounds nuw <2 x i64>, ptr %81, i64 %indvars.iv340
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %indvars.iv340
   %90 = load <8 x i16>, ptr %89, align 16
   %.neg250 = add <8 x i16> %86, %84
   %91 = add <8 x i16> %88, %90
   %92 = sub <8 x i16> %.neg250, %91
-  %93 = getelementptr inbounds nuw <2 x i64>, ptr %57, i64 %indvars.iv340
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %indvars.iv340
   store <8 x i16> %92, ptr %93, align 16
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   %exitcond343.not = icmp eq i64 %indvars.iv.next341, 16
@@ -6209,11 +6209,11 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %98 = shl i32 %97, 3
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 5767424
   %100 = zext i32 %98 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %100
   %102 = load i32, ptr %8, align 16
   %103 = shl i32 %102, 3
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %99, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %104
   %106 = load i64, ptr %15, align 16
   %107 = icmp eq i64 %106, 1
   br i1 %107, label %.preheader, label %122
@@ -6242,24 +6242,24 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %124 = load i32, ptr %123, align 4
   %125 = shl i32 %124, 3
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw i32, ptr %99, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %126
   br label %128
 
 128:                                              ; preds = %122, %128
   %129 = phi i1 [ true, %122 ], [ false, %128 ]
   %.0223312 = phi i64 [ 0, %122 ], [ 1, %128 ]
-  %130 = getelementptr inbounds nuw <2 x i64>, ptr %94, i64 %.0223312
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %.0223312
   %131 = load <4 x i32>, ptr %130, align 16
-  %132 = getelementptr inbounds nuw <2 x i64>, ptr %105, i64 %.0223312
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %.0223312
   %133 = load <4 x i32>, ptr %132, align 16
-  %134 = getelementptr inbounds nuw <2 x i64>, ptr %101, i64 %.0223312
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %101, i64 %.0223312
   %135 = load <4 x i32>, ptr %134, align 16
-  %136 = getelementptr inbounds nuw <2 x i64>, ptr %127, i64 %.0223312
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %127, i64 %.0223312
   %137 = load <4 x i32>, ptr %136, align 16
   %.neg254 = add <4 x i32> %133, %131
   %138 = add <4 x i32> %135, %137
   %139 = sub <4 x i32> %.neg254, %138
-  %140 = getelementptr inbounds nuw <2 x i64>, ptr %96, i64 %.0223312
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 %.0223312
   store <4 x i32> %139, ptr %140, align 16
   br i1 %129, label %128, label %.loopexit, !llvm.loop !88
 
@@ -6278,7 +6278,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %144 = phi ptr [ %182, %._crit_edge288 ], [ %.pre348, %.preheader265 ]
   %145 = phi i64 [ %180, %._crit_edge288 ], [ 0, %.preheader265 ]
   %.0227291 = phi i32 [ %179, %._crit_edge288 ], [ 0, %.preheader265 ]
-  %146 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %145
+  %146 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 128
   %148 = load i64, ptr %147, align 8
   %.idx = shl nsw i64 %148, 2
@@ -6291,14 +6291,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %150 = load i32, ptr %.0228279, align 4
   %151 = shl i32 %150, 7
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds nuw i16, ptr %143, i64 %152
+  %153 = getelementptr inbounds nuw [2 x i8], ptr %143, i64 %152
   br label %154
 
 154:                                              ; preds = %.lr.ph281, %154
   %indvars.iv330 = phi i64 [ 0, %.lr.ph281 ], [ %indvars.iv.next331, %154 ]
-  %155 = getelementptr inbounds nuw <2 x i64>, ptr %6, i64 %indvars.iv330
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv330
   %156 = load <8 x i16>, ptr %155, align 16
-  %157 = getelementptr inbounds nuw <2 x i64>, ptr %153, i64 %indvars.iv330
+  %157 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %indvars.iv330
   %158 = load <8 x i16>, ptr %157, align 16
   %159 = sub <8 x i16> %156, %158
   store <8 x i16> %159, ptr %155, align 16
@@ -6312,7 +6312,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not240, label %._crit_edge282, label %.lr.ph281
 
 ._crit_edge282:                                   ; preds = %160, %.lr.ph292
-  %162 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %145
+  %162 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %145
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 128
   %164 = load i64, ptr %163, align 8
   %.idx314 = shl nsw i64 %164, 2
@@ -6325,14 +6325,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %166 = load i32, ptr %.0233285, align 4
   %167 = shl i32 %166, 7
   %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds nuw i16, ptr %143, i64 %168
+  %169 = getelementptr inbounds nuw [2 x i8], ptr %143, i64 %168
   br label %170
 
 170:                                              ; preds = %.lr.ph287, %170
   %indvars.iv333 = phi i64 [ 0, %.lr.ph287 ], [ %indvars.iv.next334, %170 ]
-  %171 = getelementptr inbounds nuw <2 x i64>, ptr %6, i64 %indvars.iv333
+  %171 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv333
   %172 = load <8 x i16>, ptr %171, align 16
-  %173 = getelementptr inbounds nuw <2 x i64>, ptr %169, i64 %indvars.iv333
+  %173 = getelementptr inbounds nuw [16 x i8], ptr %169, i64 %indvars.iv333
   %174 = load <8 x i16>, ptr %173, align 16
   %175 = add <8 x i16> %174, %172
   store <8 x i16> %175, ptr %171, align 16
@@ -6350,7 +6350,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %178, ptr noundef nonnull align 16 dereferenceable(256) %6, i64 256, i1 false)
   %179 = add i32 %.0227291, 1
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds nuw ptr, ptr %3, i64 %180
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %180
   %182 = load ptr, ptr %181, align 8
   %.not = icmp eq ptr %182, null
   br i1 %.not, label %.loopexit264.loopexit, label %.lr.ph292, !llvm.loop !91
@@ -6378,7 +6378,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %186 = phi ptr [ %183, %.lr.ph309.preheader ], [ %220, %._crit_edge305 ]
   %187 = phi i64 [ 0, %.lr.ph309.preheader ], [ %218, %._crit_edge305 ]
   %.0231308 = phi i32 [ 0, %.lr.ph309.preheader ], [ %217, %._crit_edge305 ]
-  %188 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %187
+  %188 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %187
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 128
   %190 = load i64, ptr %189, align 8
   %.idx315 = shl nsw i64 %190, 2
@@ -6393,7 +6393,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %192 = load i32, ptr %.0229296, align 4
   %193 = shl i32 %192, 3
   %194 = zext i32 %193 to i64
-  %195 = getelementptr inbounds nuw i32, ptr %184, i64 %194
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %194
   %196 = load <4 x i32>, ptr %195, align 32
   %197 = sub <4 x i32> %.sroa.0.1, %196
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 16
@@ -6406,7 +6406,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 ._crit_edge299:                                   ; preds = %.lr.ph298, %.lr.ph309
   %.sroa.6.2 = phi <4 x i32> [ %.sroa.6.0, %.lr.ph309 ], [ %200, %.lr.ph298 ]
   %.sroa.0.2 = phi <4 x i32> [ %.sroa.0.0, %.lr.ph309 ], [ %197, %.lr.ph298 ]
-  %202 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %187
+  %202 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %187
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 128
   %204 = load i64, ptr %203, align 8
   %.idx316 = shl nsw i64 %204, 2
@@ -6421,7 +6421,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %206 = load i32, ptr %.0222302, align 4
   %207 = shl i32 %206, 3
   %208 = zext i32 %207 to i64
-  %209 = getelementptr inbounds nuw i32, ptr %184, i64 %208
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %208
   %210 = load <4 x i32>, ptr %209, align 32
   %211 = add <4 x i32> %210, %.sroa.0.3
   %212 = getelementptr inbounds nuw i8, ptr %209, i64 16
@@ -6440,7 +6440,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx370, align 16
   %217 = add i32 %.0231308, 1
   %218 = zext i32 %217 to i64
-  %219 = getelementptr inbounds nuw ptr, ptr %3, i64 %218
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %218
   %220 = load ptr, ptr %219, align 8
   %.not242 = icmp eq ptr %220, null
   br i1 %.not242, label %.loopexit, label %.lr.ph309, !llvm.loop !92
@@ -6568,7 +6568,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 .preheader267:                                    ; preds = %.preheader268.preheader, %.preheader267
   %indvars.iv323 = phi i32 [ 0, %.preheader268.preheader ], [ %indvars.iv.next324, %.preheader267 ]
   %indvars.iv = phi i64 [ 0, %.preheader268.preheader ], [ %indvars.iv.next, %.preheader267 ]
-  %17 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %17 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -6586,7 +6586,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %24 = xor i1 %4, true
   %25 = zext i1 %24 to i8
   %26 = zext i32 %indvars.iv323 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 10496
   store i8 %25, ptr %29, align 64
@@ -6607,8 +6607,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not245269, label %._crit_edge274, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
-  %38 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %26
-  %39 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %26
+  %38 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %26
+  %39 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %26
   br label %40
 
 40:                                               ; preds = %.lr.ph, %40
@@ -6647,24 +6647,24 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %59 = mul i32 %58, 2560
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 5120
   %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %61
   %63 = load i32, ptr %8, align 16
   %64 = mul i32 %63, 2560
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %60, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %65
   br i1 %49, label %.preheader257, label %76
 
 .preheader257:                                    ; preds = %54, %.preheader257
   %indvars.iv347 = phi i64 [ %indvars.iv.next348, %.preheader257 ], [ 0, %54 ]
-  %67 = getelementptr inbounds nuw <2 x i64>, ptr %55, i64 %indvars.iv347
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %indvars.iv347
   %68 = load <8 x i16>, ptr %67, align 16
-  %69 = getelementptr inbounds nuw <2 x i64>, ptr %62, i64 %indvars.iv347
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %indvars.iv347
   %70 = load <8 x i16>, ptr %69, align 16
   %71 = sub <8 x i16> %68, %70
-  %72 = getelementptr inbounds nuw <2 x i64>, ptr %66, i64 %indvars.iv347
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %indvars.iv347
   %73 = load <8 x i16>, ptr %72, align 16
   %74 = add <8 x i16> %71, %73
-  %75 = getelementptr inbounds nuw <2 x i64>, ptr %57, i64 %indvars.iv347
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %indvars.iv347
   store <8 x i16> %74, ptr %75, align 16
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
   %exitcond350.not = icmp eq i64 %indvars.iv.next348, 320
@@ -6675,23 +6675,23 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %78 = load i32, ptr %77, align 4
   %79 = mul i32 %78, 2560
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw i16, ptr %60, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %80
   br label %82
 
 82:                                               ; preds = %76, %82
   %indvars.iv343 = phi i64 [ 0, %76 ], [ %indvars.iv.next344, %82 ]
-  %83 = getelementptr inbounds nuw <2 x i64>, ptr %55, i64 %indvars.iv343
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %indvars.iv343
   %84 = load <8 x i16>, ptr %83, align 16
-  %85 = getelementptr inbounds nuw <2 x i64>, ptr %66, i64 %indvars.iv343
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %indvars.iv343
   %86 = load <8 x i16>, ptr %85, align 16
-  %87 = getelementptr inbounds nuw <2 x i64>, ptr %62, i64 %indvars.iv343
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %indvars.iv343
   %88 = load <8 x i16>, ptr %87, align 16
-  %89 = getelementptr inbounds nuw <2 x i64>, ptr %81, i64 %indvars.iv343
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %indvars.iv343
   %90 = load <8 x i16>, ptr %89, align 16
   %.neg250 = add <8 x i16> %86, %84
   %91 = add <8 x i16> %88, %90
   %92 = sub <8 x i16> %.neg250, %91
-  %93 = getelementptr inbounds nuw <2 x i64>, ptr %57, i64 %indvars.iv343
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %indvars.iv343
   store <8 x i16> %92, ptr %93, align 16
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond346.not = icmp eq i64 %indvars.iv.next344, 320
@@ -6705,11 +6705,11 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %98 = shl i32 %97, 3
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 115348480
   %100 = zext i32 %98 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %100
   %102 = load i32, ptr %8, align 16
   %103 = shl i32 %102, 3
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %99, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %104
   %106 = load i64, ptr %15, align 16
   %107 = icmp eq i64 %106, 1
   br i1 %107, label %.preheader, label %122
@@ -6738,24 +6738,24 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %124 = load i32, ptr %123, align 4
   %125 = shl i32 %124, 3
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw i32, ptr %99, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %126
   br label %128
 
 128:                                              ; preds = %122, %128
   %129 = phi i1 [ true, %122 ], [ false, %128 ]
   %.0223313 = phi i64 [ 0, %122 ], [ 1, %128 ]
-  %130 = getelementptr inbounds nuw <2 x i64>, ptr %94, i64 %.0223313
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %.0223313
   %131 = load <4 x i32>, ptr %130, align 16
-  %132 = getelementptr inbounds nuw <2 x i64>, ptr %105, i64 %.0223313
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %.0223313
   %133 = load <4 x i32>, ptr %132, align 16
-  %134 = getelementptr inbounds nuw <2 x i64>, ptr %101, i64 %.0223313
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %101, i64 %.0223313
   %135 = load <4 x i32>, ptr %134, align 16
-  %136 = getelementptr inbounds nuw <2 x i64>, ptr %127, i64 %.0223313
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %127, i64 %.0223313
   %137 = load <4 x i32>, ptr %136, align 16
   %.neg254 = add <4 x i32> %133, %131
   %138 = add <4 x i32> %135, %137
   %139 = sub <4 x i32> %.neg254, %138
-  %140 = getelementptr inbounds nuw <2 x i64>, ptr %96, i64 %.0223313
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 %.0223313
   store <4 x i32> %139, ptr %140, align 16
   br i1 %129, label %128, label %.loopexit, !llvm.loop !97
 
@@ -6786,7 +6786,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %149 = phi ptr [ %190, %._crit_edge287 ], [ %146, %.lr.ph291.preheader ]
   %150 = phi i64 [ %188, %._crit_edge287 ], [ 0, %.lr.ph291.preheader ]
   %.0227290 = phi i32 [ %187, %._crit_edge287 ], [ 0, %.lr.ph291.preheader ]
-  %151 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %150
+  %151 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 128
   %153 = load i64, ptr %152, align 8
   %.idx = shl nsw i64 %153, 2
@@ -6800,14 +6800,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %156 = mul i32 %155, 2560
   %157 = add i32 %156, %147
   %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds nuw i16, ptr %142, i64 %158
+  %159 = getelementptr inbounds nuw [2 x i8], ptr %142, i64 %158
   br label %160
 
 160:                                              ; preds = %.lr.ph280, %160
   %indvars.iv331 = phi i64 [ 0, %.lr.ph280 ], [ %indvars.iv.next332, %160 ]
-  %161 = getelementptr inbounds nuw <2 x i64>, ptr %6, i64 %indvars.iv331
+  %161 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv331
   %162 = load <8 x i16>, ptr %161, align 16
-  %163 = getelementptr inbounds nuw <2 x i64>, ptr %159, i64 %indvars.iv331
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %159, i64 %indvars.iv331
   %164 = load <8 x i16>, ptr %163, align 16
   %165 = sub <8 x i16> %162, %164
   store <8 x i16> %165, ptr %161, align 16
@@ -6821,7 +6821,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not240, label %._crit_edge281, label %.lr.ph280
 
 ._crit_edge281:                                   ; preds = %166, %.lr.ph291
-  %168 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %150
+  %168 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %150
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 128
   %170 = load i64, ptr %169, align 8
   %.idx315 = shl nsw i64 %170, 2
@@ -6835,14 +6835,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %173 = mul i32 %172, 2560
   %174 = add i32 %173, %148
   %175 = zext i32 %174 to i64
-  %176 = getelementptr inbounds nuw i16, ptr %142, i64 %175
+  %176 = getelementptr inbounds nuw [2 x i8], ptr %142, i64 %175
   br label %177
 
 177:                                              ; preds = %.lr.ph286, %177
   %indvars.iv334 = phi i64 [ 0, %.lr.ph286 ], [ %indvars.iv.next335, %177 ]
-  %178 = getelementptr inbounds nuw <2 x i64>, ptr %6, i64 %indvars.iv334
+  %178 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv334
   %179 = load <8 x i16>, ptr %178, align 16
-  %180 = getelementptr inbounds nuw <2 x i64>, ptr %176, i64 %indvars.iv334
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %176, i64 %indvars.iv334
   %181 = load <8 x i16>, ptr %180, align 16
   %182 = add <8 x i16> %181, %179
   store <8 x i16> %182, ptr %178, align 16
@@ -6857,11 +6857,11 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 ._crit_edge287:                                   ; preds = %183, %._crit_edge281
   %185 = getelementptr inbounds nuw i8, ptr %149, i64 192
-  %186 = getelementptr inbounds nuw i16, ptr %185, i64 %145
+  %186 = getelementptr inbounds nuw [2 x i8], ptr %185, i64 %145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %186, ptr noundef nonnull align 16 dereferenceable(256) %6, i64 256, i1 false)
   %187 = add i32 %.0227290, 1
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds nuw ptr, ptr %3, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %188
   %190 = load ptr, ptr %189, align 8
   %.not = icmp eq ptr %190, null
   br i1 %.not, label %._crit_edge292, label %.lr.ph291, !llvm.loop !100
@@ -6890,7 +6890,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %194 = phi ptr [ %192, %.lr.ph310.preheader ], [ %228, %._crit_edge306 ]
   %195 = phi i64 [ 0, %.lr.ph310.preheader ], [ %226, %._crit_edge306 ]
   %.0231309 = phi i32 [ 0, %.lr.ph310.preheader ], [ %225, %._crit_edge306 ]
-  %196 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %195
+  %196 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %195
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 128
   %198 = load i64, ptr %197, align 8
   %.idx316 = shl nsw i64 %198, 2
@@ -6905,7 +6905,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %200 = load i32, ptr %.0229297, align 4
   %201 = shl i32 %200, 3
   %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds nuw i32, ptr %191, i64 %202
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %202
   %204 = load <4 x i32>, ptr %203, align 32
   %205 = sub <4 x i32> %.sroa.0.1, %204
   %206 = getelementptr inbounds nuw i8, ptr %203, i64 16
@@ -6918,7 +6918,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 ._crit_edge300:                                   ; preds = %.lr.ph299, %.lr.ph310
   %.sroa.6.2 = phi <4 x i32> [ %.sroa.6.0, %.lr.ph310 ], [ %208, %.lr.ph299 ]
   %.sroa.0.2 = phi <4 x i32> [ %.sroa.0.0, %.lr.ph310 ], [ %205, %.lr.ph299 ]
-  %210 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %195
+  %210 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %195
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 128
   %212 = load i64, ptr %211, align 8
   %.idx317 = shl nsw i64 %212, 2
@@ -6933,7 +6933,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %214 = load i32, ptr %.0222303, align 4
   %215 = shl i32 %214, 3
   %216 = zext i32 %215 to i64
-  %217 = getelementptr inbounds nuw i32, ptr %191, i64 %216
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %216
   %218 = load <4 x i32>, ptr %217, align 32
   %219 = add <4 x i32> %218, %.sroa.0.3
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 16
@@ -6952,7 +6952,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx372, align 16
   %225 = add i32 %.0231309, 1
   %226 = zext i32 %225 to i64
-  %227 = getelementptr inbounds nuw ptr, ptr %3, i64 %226
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %226
   %228 = load ptr, ptr %227, align 8
   %.not242 = icmp eq ptr %228, null
   br i1 %.not242, label %.loopexit, label %.lr.ph310, !llvm.loop !102
@@ -7007,14 +7007,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %20 = mul i32 %19, 2560
   %21 = add i32 %20, %18
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %13, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %22
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   %26 = load <8 x i16>, ptr %25, align 16
-  %27 = getelementptr inbounds nuw <2 x i64>, ptr %23, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv
   %28 = load <8 x i16>, ptr %27, align 16
   %29 = add <8 x i16> %28, %26
   store <8 x i16> %29, ptr %25, align 16
@@ -7047,7 +7047,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %34 = load i32, ptr %.07489, align 4
   %35 = shl i32 %34, 3
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %32, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %36
   %38 = load <4 x i32>, ptr %37, align 32
   %39 = add <4 x i32> %38, %.sroa.0.0
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -7182,7 +7182,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 .preheader267:                                    ; preds = %.preheader268.preheader, %.preheader267
   %indvars.iv323 = phi i32 [ 0, %.preheader268.preheader ], [ %indvars.iv.next324, %.preheader267 ]
   %indvars.iv = phi i64 [ 0, %.preheader268.preheader ], [ %indvars.iv.next, %.preheader267 ]
-  %17 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %17 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -7200,7 +7200,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %24 = xor i1 %4, true
   %25 = zext i1 %24 to i8
   %26 = zext i32 %indvars.iv323 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 10497
   store i8 %25, ptr %29, align 1
@@ -7221,8 +7221,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not245269, label %._crit_edge274, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
-  %38 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %26
-  %39 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %26
+  %38 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %26
+  %39 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %26
   br label %40
 
 40:                                               ; preds = %.lr.ph, %40
@@ -7261,24 +7261,24 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %59 = mul i32 %58, 2560
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 5120
   %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %61
   %63 = load i32, ptr %8, align 16
   %64 = mul i32 %63, 2560
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %60, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %65
   br i1 %49, label %.preheader257, label %76
 
 .preheader257:                                    ; preds = %54, %.preheader257
   %indvars.iv347 = phi i64 [ %indvars.iv.next348, %.preheader257 ], [ 0, %54 ]
-  %67 = getelementptr inbounds nuw <2 x i64>, ptr %55, i64 %indvars.iv347
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %indvars.iv347
   %68 = load <8 x i16>, ptr %67, align 16
-  %69 = getelementptr inbounds nuw <2 x i64>, ptr %62, i64 %indvars.iv347
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %indvars.iv347
   %70 = load <8 x i16>, ptr %69, align 16
   %71 = sub <8 x i16> %68, %70
-  %72 = getelementptr inbounds nuw <2 x i64>, ptr %66, i64 %indvars.iv347
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %indvars.iv347
   %73 = load <8 x i16>, ptr %72, align 16
   %74 = add <8 x i16> %71, %73
-  %75 = getelementptr inbounds nuw <2 x i64>, ptr %57, i64 %indvars.iv347
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %indvars.iv347
   store <8 x i16> %74, ptr %75, align 16
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
   %exitcond350.not = icmp eq i64 %indvars.iv.next348, 320
@@ -7289,23 +7289,23 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %78 = load i32, ptr %77, align 4
   %79 = mul i32 %78, 2560
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw i16, ptr %60, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %80
   br label %82
 
 82:                                               ; preds = %76, %82
   %indvars.iv343 = phi i64 [ 0, %76 ], [ %indvars.iv.next344, %82 ]
-  %83 = getelementptr inbounds nuw <2 x i64>, ptr %55, i64 %indvars.iv343
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %indvars.iv343
   %84 = load <8 x i16>, ptr %83, align 16
-  %85 = getelementptr inbounds nuw <2 x i64>, ptr %66, i64 %indvars.iv343
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %indvars.iv343
   %86 = load <8 x i16>, ptr %85, align 16
-  %87 = getelementptr inbounds nuw <2 x i64>, ptr %62, i64 %indvars.iv343
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %indvars.iv343
   %88 = load <8 x i16>, ptr %87, align 16
-  %89 = getelementptr inbounds nuw <2 x i64>, ptr %81, i64 %indvars.iv343
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %indvars.iv343
   %90 = load <8 x i16>, ptr %89, align 16
   %.neg250 = add <8 x i16> %86, %84
   %91 = add <8 x i16> %88, %90
   %92 = sub <8 x i16> %.neg250, %91
-  %93 = getelementptr inbounds nuw <2 x i64>, ptr %57, i64 %indvars.iv343
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %indvars.iv343
   store <8 x i16> %92, ptr %93, align 16
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond346.not = icmp eq i64 %indvars.iv.next344, 320
@@ -7319,11 +7319,11 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %98 = shl i32 %97, 3
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 115348480
   %100 = zext i32 %98 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %100
   %102 = load i32, ptr %8, align 16
   %103 = shl i32 %102, 3
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %99, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %104
   %106 = load i64, ptr %15, align 16
   %107 = icmp eq i64 %106, 1
   br i1 %107, label %.preheader, label %122
@@ -7352,24 +7352,24 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %124 = load i32, ptr %123, align 4
   %125 = shl i32 %124, 3
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw i32, ptr %99, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %126
   br label %128
 
 128:                                              ; preds = %122, %128
   %129 = phi i1 [ true, %122 ], [ false, %128 ]
   %.0223313 = phi i64 [ 0, %122 ], [ 1, %128 ]
-  %130 = getelementptr inbounds nuw <2 x i64>, ptr %94, i64 %.0223313
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %.0223313
   %131 = load <4 x i32>, ptr %130, align 16
-  %132 = getelementptr inbounds nuw <2 x i64>, ptr %105, i64 %.0223313
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %.0223313
   %133 = load <4 x i32>, ptr %132, align 16
-  %134 = getelementptr inbounds nuw <2 x i64>, ptr %101, i64 %.0223313
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %101, i64 %.0223313
   %135 = load <4 x i32>, ptr %134, align 16
-  %136 = getelementptr inbounds nuw <2 x i64>, ptr %127, i64 %.0223313
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %127, i64 %.0223313
   %137 = load <4 x i32>, ptr %136, align 16
   %.neg254 = add <4 x i32> %133, %131
   %138 = add <4 x i32> %135, %137
   %139 = sub <4 x i32> %.neg254, %138
-  %140 = getelementptr inbounds nuw <2 x i64>, ptr %96, i64 %.0223313
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 %.0223313
   store <4 x i32> %139, ptr %140, align 16
   br i1 %129, label %128, label %.loopexit, !llvm.loop !107
 
@@ -7400,7 +7400,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %149 = phi ptr [ %190, %._crit_edge287 ], [ %146, %.lr.ph291.preheader ]
   %150 = phi i64 [ %188, %._crit_edge287 ], [ 0, %.lr.ph291.preheader ]
   %.0227290 = phi i32 [ %187, %._crit_edge287 ], [ 0, %.lr.ph291.preheader ]
-  %151 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %150
+  %151 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 128
   %153 = load i64, ptr %152, align 8
   %.idx = shl nsw i64 %153, 2
@@ -7414,14 +7414,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %156 = mul i32 %155, 2560
   %157 = add i32 %156, %147
   %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds nuw i16, ptr %142, i64 %158
+  %159 = getelementptr inbounds nuw [2 x i8], ptr %142, i64 %158
   br label %160
 
 160:                                              ; preds = %.lr.ph280, %160
   %indvars.iv331 = phi i64 [ 0, %.lr.ph280 ], [ %indvars.iv.next332, %160 ]
-  %161 = getelementptr inbounds nuw <2 x i64>, ptr %6, i64 %indvars.iv331
+  %161 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv331
   %162 = load <8 x i16>, ptr %161, align 16
-  %163 = getelementptr inbounds nuw <2 x i64>, ptr %159, i64 %indvars.iv331
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %159, i64 %indvars.iv331
   %164 = load <8 x i16>, ptr %163, align 16
   %165 = sub <8 x i16> %162, %164
   store <8 x i16> %165, ptr %161, align 16
@@ -7435,7 +7435,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not240, label %._crit_edge281, label %.lr.ph280
 
 ._crit_edge281:                                   ; preds = %166, %.lr.ph291
-  %168 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %150
+  %168 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %150
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 128
   %170 = load i64, ptr %169, align 8
   %.idx315 = shl nsw i64 %170, 2
@@ -7449,14 +7449,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %173 = mul i32 %172, 2560
   %174 = add i32 %173, %148
   %175 = zext i32 %174 to i64
-  %176 = getelementptr inbounds nuw i16, ptr %142, i64 %175
+  %176 = getelementptr inbounds nuw [2 x i8], ptr %142, i64 %175
   br label %177
 
 177:                                              ; preds = %.lr.ph286, %177
   %indvars.iv334 = phi i64 [ 0, %.lr.ph286 ], [ %indvars.iv.next335, %177 ]
-  %178 = getelementptr inbounds nuw <2 x i64>, ptr %6, i64 %indvars.iv334
+  %178 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv334
   %179 = load <8 x i16>, ptr %178, align 16
-  %180 = getelementptr inbounds nuw <2 x i64>, ptr %176, i64 %indvars.iv334
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %176, i64 %indvars.iv334
   %181 = load <8 x i16>, ptr %180, align 16
   %182 = add <8 x i16> %181, %179
   store <8 x i16> %182, ptr %178, align 16
@@ -7471,11 +7471,11 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 ._crit_edge287:                                   ; preds = %183, %._crit_edge281
   %185 = getelementptr inbounds nuw i8, ptr %149, i64 5312
-  %186 = getelementptr inbounds nuw i16, ptr %185, i64 %145
+  %186 = getelementptr inbounds nuw [2 x i8], ptr %185, i64 %145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %186, ptr noundef nonnull align 16 dereferenceable(256) %6, i64 256, i1 false)
   %187 = add i32 %.0227290, 1
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds nuw ptr, ptr %3, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %188
   %190 = load ptr, ptr %189, align 8
   %.not = icmp eq ptr %190, null
   br i1 %.not, label %._crit_edge292, label %.lr.ph291, !llvm.loop !110
@@ -7504,7 +7504,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %194 = phi ptr [ %192, %.lr.ph310.preheader ], [ %228, %._crit_edge306 ]
   %195 = phi i64 [ 0, %.lr.ph310.preheader ], [ %226, %._crit_edge306 ]
   %.0231309 = phi i32 [ 0, %.lr.ph310.preheader ], [ %225, %._crit_edge306 ]
-  %196 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %195
+  %196 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %195
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 128
   %198 = load i64, ptr %197, align 8
   %.idx316 = shl nsw i64 %198, 2
@@ -7519,7 +7519,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %200 = load i32, ptr %.0229297, align 4
   %201 = shl i32 %200, 3
   %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds nuw i32, ptr %191, i64 %202
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %202
   %204 = load <4 x i32>, ptr %203, align 32
   %205 = sub <4 x i32> %.sroa.0.1, %204
   %206 = getelementptr inbounds nuw i8, ptr %203, i64 16
@@ -7532,7 +7532,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 ._crit_edge300:                                   ; preds = %.lr.ph299, %.lr.ph310
   %.sroa.6.2 = phi <4 x i32> [ %.sroa.6.0, %.lr.ph310 ], [ %208, %.lr.ph299 ]
   %.sroa.0.2 = phi <4 x i32> [ %.sroa.0.0, %.lr.ph310 ], [ %205, %.lr.ph299 ]
-  %210 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %195
+  %210 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %195
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 128
   %212 = load i64, ptr %211, align 8
   %.idx317 = shl nsw i64 %212, 2
@@ -7547,7 +7547,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %214 = load i32, ptr %.0222303, align 4
   %215 = shl i32 %214, 3
   %216 = zext i32 %215 to i64
-  %217 = getelementptr inbounds nuw i32, ptr %191, i64 %216
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %216
   %218 = load <4 x i32>, ptr %217, align 32
   %219 = add <4 x i32> %218, %.sroa.0.3
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 16
@@ -7566,7 +7566,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx372, align 16
   %225 = add i32 %.0231309, 1
   %226 = zext i32 %225 to i64
-  %227 = getelementptr inbounds nuw ptr, ptr %3, i64 %226
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %226
   %228 = load ptr, ptr %227, align 8
   %.not242 = icmp eq ptr %228, null
   br i1 %.not242, label %.loopexit, label %.lr.ph310, !llvm.loop !112
@@ -7621,14 +7621,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %20 = mul i32 %19, 2560
   %21 = add i32 %20, %18
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %13, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %22
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   %26 = load <8 x i16>, ptr %25, align 16
-  %27 = getelementptr inbounds nuw <2 x i64>, ptr %23, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %indvars.iv
   %28 = load <8 x i16>, ptr %27, align 16
   %29 = add <8 x i16> %28, %26
   store <8 x i16> %29, ptr %25, align 16
@@ -7661,7 +7661,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %34 = load i32, ptr %.07489, align 4
   %35 = shl i32 %34, 3
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %32, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %36
   %38 = load <4 x i32>, ptr %37, align 32
   %39 = add <4 x i32> %38, %.sroa.0.0
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -7759,14 +7759,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %37 = load i32, ptr %.07186.i, align 4
   %38 = shl i32 %37, 7
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i16, ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %39
   br label %41
 
 41:                                               ; preds = %41, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
-  %42 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.i
   %43 = load <8 x i16>, ptr %42, align 16
-  %44 = getelementptr inbounds nuw <2 x i64>, ptr %40, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %indvars.iv.i
   %45 = load <8 x i16>, ptr %44, align 16
   %46 = add <8 x i16> %45, %43
   store <8 x i16> %46, ptr %42, align 16
@@ -7793,7 +7793,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %53 = load i32, ptr %.07491.i, align 4
   %54 = shl i32 %53, 3
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %49, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %55
   %57 = load <4 x i32>, ptr %56, align 32
   %58 = add <4 x i32> %57, %51
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -7897,14 +7897,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %37 = load i32, ptr %.07185.i, align 4
   %38 = shl i32 %37, 7
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i16, ptr %34, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %39
   br label %41
 
 41:                                               ; preds = %41, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
-  %42 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.i
   %43 = load <8 x i16>, ptr %42, align 16
-  %44 = getelementptr inbounds nuw <2 x i64>, ptr %40, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %indvars.iv.i
   %45 = load <8 x i16>, ptr %44, align 16
   %46 = add <8 x i16> %45, %43
   store <8 x i16> %46, ptr %42, align 16
@@ -7935,7 +7935,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %53 = load i32, ptr %.07490.i, align 4
   %54 = shl i32 %53, 3
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %49, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %55
   %57 = load <4 x i32>, ptr %56, align 32
   %58 = add <4 x i32> %57, %51
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -8002,7 +8002,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 .preheader273:                                    ; preds = %.preheader274, %.preheader273
   %indvars.iv328 = phi i32 [ %indvars.iv.next329, %.preheader273 ], [ 1, %.preheader274 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader273 ], [ 1, %.preheader274 ]
-  %21 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %21 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -8025,7 +8025,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 31:                                               ; preds = %.lr.ph279, %._crit_edge
   %indvars.iv330 = phi i64 [ %30, %.lr.ph279 ], [ %indvars.iv.next331, %._crit_edge ]
   %.0217277 = phi ptr [ %22, %.lr.ph279 ], [ %.1218.lcssa, %._crit_edge ]
-  %32 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv330
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv330
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 11136
   store i8 %29, ptr %34, align 64
@@ -8046,8 +8046,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not250275, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
-  %43 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %indvars.iv330
-  %44 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %indvars.iv330
+  %43 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %indvars.iv330
+  %44 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %indvars.iv330
   br label %45
 
 45:                                               ; preds = %.lr.ph, %45
@@ -8094,24 +8094,24 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %67 = shl i32 %66, 7
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %69 = zext i32 %67 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %69
   %71 = load i32, ptr %8, align 16
   %72 = shl i32 %71, 7
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw i16, ptr %68, i64 %73
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %73
   br i1 %56, label %.preheader262, label %84
 
 .preheader262:                                    ; preds = %62, %.preheader262
   %indvars.iv350 = phi i64 [ %indvars.iv.next351, %.preheader262 ], [ 0, %62 ]
-  %75 = getelementptr inbounds nuw <2 x i64>, ptr %63, i64 %indvars.iv350
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv350
   %76 = load <8 x i16>, ptr %75, align 16
-  %77 = getelementptr inbounds nuw <2 x i64>, ptr %70, i64 %indvars.iv350
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv350
   %78 = load <8 x i16>, ptr %77, align 16
   %79 = sub <8 x i16> %76, %78
-  %80 = getelementptr inbounds nuw <2 x i64>, ptr %74, i64 %indvars.iv350
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %indvars.iv350
   %81 = load <8 x i16>, ptr %80, align 16
   %82 = add <8 x i16> %79, %81
-  %83 = getelementptr inbounds nuw <2 x i64>, ptr %65, i64 %indvars.iv350
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %indvars.iv350
   store <8 x i16> %82, ptr %83, align 16
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %exitcond353.not = icmp eq i64 %indvars.iv.next351, 16
@@ -8122,23 +8122,23 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %86 = load i32, ptr %85, align 4
   %87 = shl i32 %86, 7
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw i16, ptr %68, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %88
   br label %90
 
 90:                                               ; preds = %84, %90
   %indvars.iv346 = phi i64 [ 0, %84 ], [ %indvars.iv.next347, %90 ]
-  %91 = getelementptr inbounds nuw <2 x i64>, ptr %63, i64 %indvars.iv346
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv346
   %92 = load <8 x i16>, ptr %91, align 16
-  %93 = getelementptr inbounds nuw <2 x i64>, ptr %74, i64 %indvars.iv346
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %indvars.iv346
   %94 = load <8 x i16>, ptr %93, align 16
-  %95 = getelementptr inbounds nuw <2 x i64>, ptr %70, i64 %indvars.iv346
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv346
   %96 = load <8 x i16>, ptr %95, align 16
-  %97 = getelementptr inbounds nuw <2 x i64>, ptr %89, i64 %indvars.iv346
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %indvars.iv346
   %98 = load <8 x i16>, ptr %97, align 16
   %.neg255 = add <8 x i16> %94, %92
   %99 = add <8 x i16> %96, %98
   %100 = sub <8 x i16> %.neg255, %99
-  %101 = getelementptr inbounds nuw <2 x i64>, ptr %65, i64 %indvars.iv346
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %indvars.iv346
   store <8 x i16> %100, ptr %101, align 16
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next347, 16
@@ -8152,11 +8152,11 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %106 = shl i32 %105, 3
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 5767424
   %108 = zext i32 %106 to i64
-  %109 = getelementptr inbounds nuw i32, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %108
   %110 = load i32, ptr %8, align 16
   %111 = shl i32 %110, 3
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %107, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %112
   %114 = load i64, ptr %54, align 16
   %115 = icmp eq i64 %114, 1
   br i1 %115, label %.preheader, label %130
@@ -8185,24 +8185,24 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %132 = load i32, ptr %131, align 4
   %133 = shl i32 %132, 3
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %107, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %134
   br label %136
 
 136:                                              ; preds = %130, %136
   %137 = phi i1 [ true, %130 ], [ false, %136 ]
   %.0223317 = phi i64 [ 0, %130 ], [ 1, %136 ]
-  %138 = getelementptr inbounds nuw <2 x i64>, ptr %102, i64 %.0223317
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %102, i64 %.0223317
   %139 = load <4 x i32>, ptr %138, align 16
-  %140 = getelementptr inbounds nuw <2 x i64>, ptr %113, i64 %.0223317
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %113, i64 %.0223317
   %141 = load <4 x i32>, ptr %140, align 16
-  %142 = getelementptr inbounds nuw <2 x i64>, ptr %109, i64 %.0223317
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %.0223317
   %143 = load <4 x i32>, ptr %142, align 16
-  %144 = getelementptr inbounds nuw <2 x i64>, ptr %135, i64 %.0223317
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %.0223317
   %145 = load <4 x i32>, ptr %144, align 16
   %.neg259 = add <4 x i32> %141, %139
   %146 = add <4 x i32> %143, %145
   %147 = sub <4 x i32> %.neg259, %146
-  %148 = getelementptr inbounds nuw <2 x i64>, ptr %104, i64 %.0223317
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %.0223317
   store <4 x i32> %147, ptr %148, align 16
   br i1 %137, label %136, label %.loopexit, !llvm.loop !118
 
@@ -8221,7 +8221,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %152 = phi ptr [ %190, %._crit_edge293 ], [ %.pre354, %.preheader270 ]
   %153 = phi i64 [ %188, %._crit_edge293 ], [ 0, %.preheader270 ]
   %.0227296 = phi i32 [ %187, %._crit_edge293 ], [ 0, %.preheader270 ]
-  %154 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %153
+  %154 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %153
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 128
   %156 = load i64, ptr %155, align 8
   %.idx319 = shl nsw i64 %156, 2
@@ -8234,14 +8234,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %158 = load i32, ptr %.0228284, align 4
   %159 = shl i32 %158, 7
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw i16, ptr %151, i64 %160
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %151, i64 %160
   br label %162
 
 162:                                              ; preds = %.lr.ph286, %162
   %indvars.iv336 = phi i64 [ 0, %.lr.ph286 ], [ %indvars.iv.next337, %162 ]
-  %163 = getelementptr inbounds nuw <2 x i64>, ptr %6, i64 %indvars.iv336
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv336
   %164 = load <8 x i16>, ptr %163, align 16
-  %165 = getelementptr inbounds nuw <2 x i64>, ptr %161, i64 %indvars.iv336
+  %165 = getelementptr inbounds nuw [16 x i8], ptr %161, i64 %indvars.iv336
   %166 = load <8 x i16>, ptr %165, align 16
   %167 = sub <8 x i16> %164, %166
   store <8 x i16> %167, ptr %163, align 16
@@ -8255,7 +8255,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not245, label %._crit_edge287, label %.lr.ph286
 
 ._crit_edge287:                                   ; preds = %168, %.lr.ph297
-  %170 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %153
+  %170 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %153
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 128
   %172 = load i64, ptr %171, align 8
   %.idx320 = shl nsw i64 %172, 2
@@ -8268,14 +8268,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %174 = load i32, ptr %.0233290, align 4
   %175 = shl i32 %174, 7
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds nuw i16, ptr %151, i64 %176
+  %177 = getelementptr inbounds nuw [2 x i8], ptr %151, i64 %176
   br label %178
 
 178:                                              ; preds = %.lr.ph292, %178
   %indvars.iv339 = phi i64 [ 0, %.lr.ph292 ], [ %indvars.iv.next340, %178 ]
-  %179 = getelementptr inbounds nuw <2 x i64>, ptr %6, i64 %indvars.iv339
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv339
   %180 = load <8 x i16>, ptr %179, align 16
-  %181 = getelementptr inbounds nuw <2 x i64>, ptr %177, i64 %indvars.iv339
+  %181 = getelementptr inbounds nuw [16 x i8], ptr %177, i64 %indvars.iv339
   %182 = load <8 x i16>, ptr %181, align 16
   %183 = add <8 x i16> %182, %180
   store <8 x i16> %183, ptr %179, align 16
@@ -8293,7 +8293,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %186, ptr noundef nonnull align 16 dereferenceable(256) %6, i64 256, i1 false)
   %187 = add i32 %.0227296, 1
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds nuw ptr, ptr %3, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %188
   %190 = load ptr, ptr %189, align 8
   %.not = icmp eq ptr %190, null
   br i1 %.not, label %.loopexit269.loopexit, label %.lr.ph297, !llvm.loop !121
@@ -8321,7 +8321,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %194 = phi ptr [ %191, %.lr.ph314.preheader ], [ %228, %._crit_edge310 ]
   %195 = phi i64 [ 0, %.lr.ph314.preheader ], [ %226, %._crit_edge310 ]
   %.0231313 = phi i32 [ 0, %.lr.ph314.preheader ], [ %225, %._crit_edge310 ]
-  %196 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %195
+  %196 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %195
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 128
   %198 = load i64, ptr %197, align 8
   %.idx321 = shl nsw i64 %198, 2
@@ -8336,7 +8336,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %200 = load i32, ptr %.0229301, align 4
   %201 = shl i32 %200, 3
   %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds nuw i32, ptr %192, i64 %202
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %202
   %204 = load <4 x i32>, ptr %203, align 32
   %205 = sub <4 x i32> %.sroa.0.1, %204
   %206 = getelementptr inbounds nuw i8, ptr %203, i64 16
@@ -8349,7 +8349,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 ._crit_edge304:                                   ; preds = %.lr.ph303, %.lr.ph314
   %.sroa.6.2 = phi <4 x i32> [ %.sroa.6.0, %.lr.ph314 ], [ %208, %.lr.ph303 ]
   %.sroa.0.2 = phi <4 x i32> [ %.sroa.0.0, %.lr.ph314 ], [ %205, %.lr.ph303 ]
-  %210 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %195
+  %210 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %195
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 128
   %212 = load i64, ptr %211, align 8
   %.idx322 = shl nsw i64 %212, 2
@@ -8364,7 +8364,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %214 = load i32, ptr %.0222307, align 4
   %215 = shl i32 %214, 3
   %216 = zext i32 %215 to i64
-  %217 = getelementptr inbounds nuw i32, ptr %192, i64 %216
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %216
   %218 = load <4 x i32>, ptr %217, align 32
   %219 = add <4 x i32> %218, %.sroa.0.3
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 16
@@ -8383,7 +8383,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx380, align 16
   %225 = add i32 %.0231313, 1
   %226 = zext i32 %225 to i64
-  %227 = getelementptr inbounds nuw ptr, ptr %3, i64 %226
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %226
   %228 = load ptr, ptr %227, align 8
   %.not247 = icmp eq ptr %228, null
   br i1 %.not247, label %.loopexit, label %.lr.ph314, !llvm.loop !122
@@ -8429,7 +8429,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 .preheader273:                                    ; preds = %.preheader274, %.preheader273
   %indvars.iv328 = phi i32 [ %indvars.iv.next329, %.preheader273 ], [ 1, %.preheader274 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader273 ], [ 1, %.preheader274 ]
-  %21 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %21 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -8452,7 +8452,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 31:                                               ; preds = %.lr.ph279, %._crit_edge
   %indvars.iv330 = phi i64 [ %30, %.lr.ph279 ], [ %indvars.iv.next331, %._crit_edge ]
   %.0217277 = phi ptr [ %22, %.lr.ph279 ], [ %.1218.lcssa, %._crit_edge ]
-  %32 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv330
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv330
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 11137
   store i8 %29, ptr %34, align 1
@@ -8473,8 +8473,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not250275, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
-  %43 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %indvars.iv330
-  %44 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %indvars.iv330
+  %43 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %indvars.iv330
+  %44 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %indvars.iv330
   br label %45
 
 45:                                               ; preds = %.lr.ph, %45
@@ -8521,24 +8521,24 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %67 = shl i32 %66, 7
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %69 = zext i32 %67 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %69
   %71 = load i32, ptr %8, align 16
   %72 = shl i32 %71, 7
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw i16, ptr %68, i64 %73
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %73
   br i1 %56, label %.preheader262, label %84
 
 .preheader262:                                    ; preds = %62, %.preheader262
   %indvars.iv350 = phi i64 [ %indvars.iv.next351, %.preheader262 ], [ 0, %62 ]
-  %75 = getelementptr inbounds nuw <2 x i64>, ptr %63, i64 %indvars.iv350
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv350
   %76 = load <8 x i16>, ptr %75, align 16
-  %77 = getelementptr inbounds nuw <2 x i64>, ptr %70, i64 %indvars.iv350
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv350
   %78 = load <8 x i16>, ptr %77, align 16
   %79 = sub <8 x i16> %76, %78
-  %80 = getelementptr inbounds nuw <2 x i64>, ptr %74, i64 %indvars.iv350
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %indvars.iv350
   %81 = load <8 x i16>, ptr %80, align 16
   %82 = add <8 x i16> %79, %81
-  %83 = getelementptr inbounds nuw <2 x i64>, ptr %65, i64 %indvars.iv350
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %indvars.iv350
   store <8 x i16> %82, ptr %83, align 16
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %exitcond353.not = icmp eq i64 %indvars.iv.next351, 16
@@ -8549,23 +8549,23 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %86 = load i32, ptr %85, align 4
   %87 = shl i32 %86, 7
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw i16, ptr %68, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %88
   br label %90
 
 90:                                               ; preds = %84, %90
   %indvars.iv346 = phi i64 [ 0, %84 ], [ %indvars.iv.next347, %90 ]
-  %91 = getelementptr inbounds nuw <2 x i64>, ptr %63, i64 %indvars.iv346
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv346
   %92 = load <8 x i16>, ptr %91, align 16
-  %93 = getelementptr inbounds nuw <2 x i64>, ptr %74, i64 %indvars.iv346
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %indvars.iv346
   %94 = load <8 x i16>, ptr %93, align 16
-  %95 = getelementptr inbounds nuw <2 x i64>, ptr %70, i64 %indvars.iv346
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv346
   %96 = load <8 x i16>, ptr %95, align 16
-  %97 = getelementptr inbounds nuw <2 x i64>, ptr %89, i64 %indvars.iv346
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %indvars.iv346
   %98 = load <8 x i16>, ptr %97, align 16
   %.neg255 = add <8 x i16> %94, %92
   %99 = add <8 x i16> %96, %98
   %100 = sub <8 x i16> %.neg255, %99
-  %101 = getelementptr inbounds nuw <2 x i64>, ptr %65, i64 %indvars.iv346
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %indvars.iv346
   store <8 x i16> %100, ptr %101, align 16
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next347, 16
@@ -8579,11 +8579,11 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %106 = shl i32 %105, 3
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 5767424
   %108 = zext i32 %106 to i64
-  %109 = getelementptr inbounds nuw i32, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %108
   %110 = load i32, ptr %8, align 16
   %111 = shl i32 %110, 3
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %107, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %112
   %114 = load i64, ptr %54, align 16
   %115 = icmp eq i64 %114, 1
   br i1 %115, label %.preheader, label %130
@@ -8612,24 +8612,24 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %132 = load i32, ptr %131, align 4
   %133 = shl i32 %132, 3
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %107, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %134
   br label %136
 
 136:                                              ; preds = %130, %136
   %137 = phi i1 [ true, %130 ], [ false, %136 ]
   %.0223317 = phi i64 [ 0, %130 ], [ 1, %136 ]
-  %138 = getelementptr inbounds nuw <2 x i64>, ptr %102, i64 %.0223317
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %102, i64 %.0223317
   %139 = load <4 x i32>, ptr %138, align 16
-  %140 = getelementptr inbounds nuw <2 x i64>, ptr %113, i64 %.0223317
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %113, i64 %.0223317
   %141 = load <4 x i32>, ptr %140, align 16
-  %142 = getelementptr inbounds nuw <2 x i64>, ptr %109, i64 %.0223317
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %.0223317
   %143 = load <4 x i32>, ptr %142, align 16
-  %144 = getelementptr inbounds nuw <2 x i64>, ptr %135, i64 %.0223317
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %.0223317
   %145 = load <4 x i32>, ptr %144, align 16
   %.neg259 = add <4 x i32> %141, %139
   %146 = add <4 x i32> %143, %145
   %147 = sub <4 x i32> %.neg259, %146
-  %148 = getelementptr inbounds nuw <2 x i64>, ptr %104, i64 %.0223317
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %.0223317
   store <4 x i32> %147, ptr %148, align 16
   br i1 %137, label %136, label %.loopexit, !llvm.loop !128
 
@@ -8648,7 +8648,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %152 = phi ptr [ %190, %._crit_edge293 ], [ %.pre354, %.preheader270 ]
   %153 = phi i64 [ %188, %._crit_edge293 ], [ 0, %.preheader270 ]
   %.0227296 = phi i32 [ %187, %._crit_edge293 ], [ 0, %.preheader270 ]
-  %154 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %153
+  %154 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %153
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 128
   %156 = load i64, ptr %155, align 8
   %.idx319 = shl nsw i64 %156, 2
@@ -8661,14 +8661,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %158 = load i32, ptr %.0228284, align 4
   %159 = shl i32 %158, 7
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw i16, ptr %151, i64 %160
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %151, i64 %160
   br label %162
 
 162:                                              ; preds = %.lr.ph286, %162
   %indvars.iv336 = phi i64 [ 0, %.lr.ph286 ], [ %indvars.iv.next337, %162 ]
-  %163 = getelementptr inbounds nuw <2 x i64>, ptr %6, i64 %indvars.iv336
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv336
   %164 = load <8 x i16>, ptr %163, align 16
-  %165 = getelementptr inbounds nuw <2 x i64>, ptr %161, i64 %indvars.iv336
+  %165 = getelementptr inbounds nuw [16 x i8], ptr %161, i64 %indvars.iv336
   %166 = load <8 x i16>, ptr %165, align 16
   %167 = sub <8 x i16> %164, %166
   store <8 x i16> %167, ptr %163, align 16
@@ -8682,7 +8682,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not245, label %._crit_edge287, label %.lr.ph286
 
 ._crit_edge287:                                   ; preds = %168, %.lr.ph297
-  %170 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %153
+  %170 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %153
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 128
   %172 = load i64, ptr %171, align 8
   %.idx320 = shl nsw i64 %172, 2
@@ -8695,14 +8695,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %174 = load i32, ptr %.0233290, align 4
   %175 = shl i32 %174, 7
   %176 = zext i32 %175 to i64
-  %177 = getelementptr inbounds nuw i16, ptr %151, i64 %176
+  %177 = getelementptr inbounds nuw [2 x i8], ptr %151, i64 %176
   br label %178
 
 178:                                              ; preds = %.lr.ph292, %178
   %indvars.iv339 = phi i64 [ 0, %.lr.ph292 ], [ %indvars.iv.next340, %178 ]
-  %179 = getelementptr inbounds nuw <2 x i64>, ptr %6, i64 %indvars.iv339
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv339
   %180 = load <8 x i16>, ptr %179, align 16
-  %181 = getelementptr inbounds nuw <2 x i64>, ptr %177, i64 %indvars.iv339
+  %181 = getelementptr inbounds nuw [16 x i8], ptr %177, i64 %indvars.iv339
   %182 = load <8 x i16>, ptr %181, align 16
   %183 = add <8 x i16> %182, %180
   store <8 x i16> %183, ptr %179, align 16
@@ -8720,7 +8720,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %186, ptr noundef nonnull align 16 dereferenceable(256) %6, i64 256, i1 false)
   %187 = add i32 %.0227296, 1
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds nuw ptr, ptr %3, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %188
   %190 = load ptr, ptr %189, align 8
   %.not = icmp eq ptr %190, null
   br i1 %.not, label %.loopexit269.loopexit, label %.lr.ph297, !llvm.loop !131
@@ -8748,7 +8748,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %194 = phi ptr [ %191, %.lr.ph314.preheader ], [ %228, %._crit_edge310 ]
   %195 = phi i64 [ 0, %.lr.ph314.preheader ], [ %226, %._crit_edge310 ]
   %.0231313 = phi i32 [ 0, %.lr.ph314.preheader ], [ %225, %._crit_edge310 ]
-  %196 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %195
+  %196 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %195
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 128
   %198 = load i64, ptr %197, align 8
   %.idx321 = shl nsw i64 %198, 2
@@ -8763,7 +8763,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %200 = load i32, ptr %.0229301, align 4
   %201 = shl i32 %200, 3
   %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds nuw i32, ptr %192, i64 %202
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %202
   %204 = load <4 x i32>, ptr %203, align 32
   %205 = sub <4 x i32> %.sroa.0.1, %204
   %206 = getelementptr inbounds nuw i8, ptr %203, i64 16
@@ -8776,7 +8776,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 ._crit_edge304:                                   ; preds = %.lr.ph303, %.lr.ph314
   %.sroa.6.2 = phi <4 x i32> [ %.sroa.6.0, %.lr.ph314 ], [ %208, %.lr.ph303 ]
   %.sroa.0.2 = phi <4 x i32> [ %.sroa.0.0, %.lr.ph314 ], [ %205, %.lr.ph303 ]
-  %210 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %195
+  %210 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %195
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 128
   %212 = load i64, ptr %211, align 8
   %.idx322 = shl nsw i64 %212, 2
@@ -8791,7 +8791,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %214 = load i32, ptr %.0222307, align 4
   %215 = shl i32 %214, 3
   %216 = zext i32 %215 to i64
-  %217 = getelementptr inbounds nuw i32, ptr %192, i64 %216
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %216
   %218 = load <4 x i32>, ptr %217, align 32
   %219 = add <4 x i32> %218, %.sroa.0.3
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 16
@@ -8810,7 +8810,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx380, align 16
   %225 = add i32 %.0231313, 1
   %226 = zext i32 %225 to i64
-  %227 = getelementptr inbounds nuw ptr, ptr %3, i64 %226
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %226
   %228 = load ptr, ptr %227, align 8
   %.not247 = icmp eq ptr %228, null
   br i1 %.not247, label %.loopexit, label %.lr.ph314, !llvm.loop !132
@@ -8862,7 +8862,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 .preheader272:                                    ; preds = %.preheader273, %.preheader272
   %indvars.iv329 = phi i32 [ %indvars.iv.next330, %.preheader272 ], [ 1, %.preheader273 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader272 ], [ 1, %.preheader273 ]
-  %21 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %21 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -8885,7 +8885,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 31:                                               ; preds = %.lr.ph278, %._crit_edge
   %indvars.iv331 = phi i64 [ %30, %.lr.ph278 ], [ %indvars.iv.next332, %._crit_edge ]
   %.0217276 = phi ptr [ %22, %.lr.ph278 ], [ %.1218.lcssa, %._crit_edge ]
-  %32 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv331
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv331
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 10496
   store i8 %29, ptr %34, align 64
@@ -8906,8 +8906,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not250274, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
-  %43 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %indvars.iv331
-  %44 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %indvars.iv331
+  %43 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %indvars.iv331
+  %44 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %indvars.iv331
   br label %45
 
 45:                                               ; preds = %.lr.ph, %45
@@ -8954,24 +8954,24 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %67 = mul i32 %66, 2560
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 5120
   %69 = zext i32 %67 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %69
   %71 = load i32, ptr %8, align 16
   %72 = mul i32 %71, 2560
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw i16, ptr %68, i64 %73
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %73
   br i1 %56, label %.preheader262, label %84
 
 .preheader262:                                    ; preds = %62, %.preheader262
   %indvars.iv353 = phi i64 [ %indvars.iv.next354, %.preheader262 ], [ 0, %62 ]
-  %75 = getelementptr inbounds nuw <2 x i64>, ptr %63, i64 %indvars.iv353
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv353
   %76 = load <8 x i16>, ptr %75, align 16
-  %77 = getelementptr inbounds nuw <2 x i64>, ptr %70, i64 %indvars.iv353
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv353
   %78 = load <8 x i16>, ptr %77, align 16
   %79 = sub <8 x i16> %76, %78
-  %80 = getelementptr inbounds nuw <2 x i64>, ptr %74, i64 %indvars.iv353
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %indvars.iv353
   %81 = load <8 x i16>, ptr %80, align 16
   %82 = add <8 x i16> %79, %81
-  %83 = getelementptr inbounds nuw <2 x i64>, ptr %65, i64 %indvars.iv353
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %indvars.iv353
   store <8 x i16> %82, ptr %83, align 16
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %exitcond356.not = icmp eq i64 %indvars.iv.next354, 320
@@ -8982,23 +8982,23 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %86 = load i32, ptr %85, align 4
   %87 = mul i32 %86, 2560
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw i16, ptr %68, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %88
   br label %90
 
 90:                                               ; preds = %84, %90
   %indvars.iv349 = phi i64 [ 0, %84 ], [ %indvars.iv.next350, %90 ]
-  %91 = getelementptr inbounds nuw <2 x i64>, ptr %63, i64 %indvars.iv349
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv349
   %92 = load <8 x i16>, ptr %91, align 16
-  %93 = getelementptr inbounds nuw <2 x i64>, ptr %74, i64 %indvars.iv349
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %indvars.iv349
   %94 = load <8 x i16>, ptr %93, align 16
-  %95 = getelementptr inbounds nuw <2 x i64>, ptr %70, i64 %indvars.iv349
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv349
   %96 = load <8 x i16>, ptr %95, align 16
-  %97 = getelementptr inbounds nuw <2 x i64>, ptr %89, i64 %indvars.iv349
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %indvars.iv349
   %98 = load <8 x i16>, ptr %97, align 16
   %.neg255 = add <8 x i16> %94, %92
   %99 = add <8 x i16> %96, %98
   %100 = sub <8 x i16> %.neg255, %99
-  %101 = getelementptr inbounds nuw <2 x i64>, ptr %65, i64 %indvars.iv349
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %indvars.iv349
   store <8 x i16> %100, ptr %101, align 16
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
   %exitcond352.not = icmp eq i64 %indvars.iv.next350, 320
@@ -9012,11 +9012,11 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %106 = shl i32 %105, 3
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 115348480
   %108 = zext i32 %106 to i64
-  %109 = getelementptr inbounds nuw i32, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %108
   %110 = load i32, ptr %8, align 16
   %111 = shl i32 %110, 3
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %107, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %112
   %114 = load i64, ptr %54, align 16
   %115 = icmp eq i64 %114, 1
   br i1 %115, label %.preheader, label %130
@@ -9045,24 +9045,24 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %132 = load i32, ptr %131, align 4
   %133 = shl i32 %132, 3
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %107, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %134
   br label %136
 
 136:                                              ; preds = %130, %136
   %137 = phi i1 [ true, %130 ], [ false, %136 ]
   %.0223318 = phi i64 [ 0, %130 ], [ 1, %136 ]
-  %138 = getelementptr inbounds nuw <2 x i64>, ptr %102, i64 %.0223318
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %102, i64 %.0223318
   %139 = load <4 x i32>, ptr %138, align 16
-  %140 = getelementptr inbounds nuw <2 x i64>, ptr %113, i64 %.0223318
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %113, i64 %.0223318
   %141 = load <4 x i32>, ptr %140, align 16
-  %142 = getelementptr inbounds nuw <2 x i64>, ptr %109, i64 %.0223318
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %.0223318
   %143 = load <4 x i32>, ptr %142, align 16
-  %144 = getelementptr inbounds nuw <2 x i64>, ptr %135, i64 %.0223318
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %.0223318
   %145 = load <4 x i32>, ptr %144, align 16
   %.neg259 = add <4 x i32> %141, %139
   %146 = add <4 x i32> %143, %145
   %147 = sub <4 x i32> %.neg259, %146
-  %148 = getelementptr inbounds nuw <2 x i64>, ptr %104, i64 %.0223318
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %.0223318
   store <4 x i32> %147, ptr %148, align 16
   br i1 %137, label %136, label %.loopexit, !llvm.loop !138
 
@@ -9093,7 +9093,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %157 = phi ptr [ %198, %._crit_edge292 ], [ %154, %.lr.ph296.preheader ]
   %158 = phi i64 [ %196, %._crit_edge292 ], [ 0, %.lr.ph296.preheader ]
   %.0227295 = phi i32 [ %195, %._crit_edge292 ], [ 0, %.lr.ph296.preheader ]
-  %159 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %158
+  %159 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 128
   %161 = load i64, ptr %160, align 8
   %.idx320 = shl nsw i64 %161, 2
@@ -9107,14 +9107,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %164 = mul i32 %163, 2560
   %165 = add i32 %164, %155
   %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds nuw i16, ptr %150, i64 %166
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %150, i64 %166
   br label %168
 
 168:                                              ; preds = %.lr.ph285, %168
   %indvars.iv337 = phi i64 [ 0, %.lr.ph285 ], [ %indvars.iv.next338, %168 ]
-  %169 = getelementptr inbounds nuw <2 x i64>, ptr %6, i64 %indvars.iv337
+  %169 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv337
   %170 = load <8 x i16>, ptr %169, align 16
-  %171 = getelementptr inbounds nuw <2 x i64>, ptr %167, i64 %indvars.iv337
+  %171 = getelementptr inbounds nuw [16 x i8], ptr %167, i64 %indvars.iv337
   %172 = load <8 x i16>, ptr %171, align 16
   %173 = sub <8 x i16> %170, %172
   store <8 x i16> %173, ptr %169, align 16
@@ -9128,7 +9128,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not245, label %._crit_edge286, label %.lr.ph285
 
 ._crit_edge286:                                   ; preds = %174, %.lr.ph296
-  %176 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %158
+  %176 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %158
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 128
   %178 = load i64, ptr %177, align 8
   %.idx321 = shl nsw i64 %178, 2
@@ -9142,14 +9142,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %181 = mul i32 %180, 2560
   %182 = add i32 %181, %156
   %183 = zext i32 %182 to i64
-  %184 = getelementptr inbounds nuw i16, ptr %150, i64 %183
+  %184 = getelementptr inbounds nuw [2 x i8], ptr %150, i64 %183
   br label %185
 
 185:                                              ; preds = %.lr.ph291, %185
   %indvars.iv340 = phi i64 [ 0, %.lr.ph291 ], [ %indvars.iv.next341, %185 ]
-  %186 = getelementptr inbounds nuw <2 x i64>, ptr %6, i64 %indvars.iv340
+  %186 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv340
   %187 = load <8 x i16>, ptr %186, align 16
-  %188 = getelementptr inbounds nuw <2 x i64>, ptr %184, i64 %indvars.iv340
+  %188 = getelementptr inbounds nuw [16 x i8], ptr %184, i64 %indvars.iv340
   %189 = load <8 x i16>, ptr %188, align 16
   %190 = add <8 x i16> %189, %187
   store <8 x i16> %190, ptr %186, align 16
@@ -9164,11 +9164,11 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 ._crit_edge292:                                   ; preds = %191, %._crit_edge286
   %193 = getelementptr inbounds nuw i8, ptr %157, i64 192
-  %194 = getelementptr inbounds nuw i16, ptr %193, i64 %153
+  %194 = getelementptr inbounds nuw [2 x i8], ptr %193, i64 %153
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %194, ptr noundef nonnull align 16 dereferenceable(256) %6, i64 256, i1 false)
   %195 = add i32 %.0227295, 1
   %196 = zext i32 %195 to i64
-  %197 = getelementptr inbounds nuw ptr, ptr %3, i64 %196
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %196
   %198 = load ptr, ptr %197, align 8
   %.not = icmp eq ptr %198, null
   br i1 %.not, label %._crit_edge297, label %.lr.ph296, !llvm.loop !141
@@ -9197,7 +9197,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %202 = phi ptr [ %200, %.lr.ph315.preheader ], [ %236, %._crit_edge311 ]
   %203 = phi i64 [ 0, %.lr.ph315.preheader ], [ %234, %._crit_edge311 ]
   %.0231314 = phi i32 [ 0, %.lr.ph315.preheader ], [ %233, %._crit_edge311 ]
-  %204 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %203
+  %204 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %203
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 128
   %206 = load i64, ptr %205, align 8
   %.idx322 = shl nsw i64 %206, 2
@@ -9212,7 +9212,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %208 = load i32, ptr %.0229302, align 4
   %209 = shl i32 %208, 3
   %210 = zext i32 %209 to i64
-  %211 = getelementptr inbounds nuw i32, ptr %199, i64 %210
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %210
   %212 = load <4 x i32>, ptr %211, align 32
   %213 = sub <4 x i32> %.sroa.0.1, %212
   %214 = getelementptr inbounds nuw i8, ptr %211, i64 16
@@ -9225,7 +9225,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 ._crit_edge305:                                   ; preds = %.lr.ph304, %.lr.ph315
   %.sroa.6.2 = phi <4 x i32> [ %.sroa.6.0, %.lr.ph315 ], [ %216, %.lr.ph304 ]
   %.sroa.0.2 = phi <4 x i32> [ %.sroa.0.0, %.lr.ph315 ], [ %213, %.lr.ph304 ]
-  %218 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %203
+  %218 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %203
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 128
   %220 = load i64, ptr %219, align 8
   %.idx323 = shl nsw i64 %220, 2
@@ -9240,7 +9240,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %222 = load i32, ptr %.0222308, align 4
   %223 = shl i32 %222, 3
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds nuw i32, ptr %199, i64 %224
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %224
   %226 = load <4 x i32>, ptr %225, align 32
   %227 = add <4 x i32> %226, %.sroa.0.3
   %228 = getelementptr inbounds nuw i8, ptr %225, i64 16
@@ -9259,7 +9259,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx382, align 16
   %233 = add i32 %.0231314, 1
   %234 = zext i32 %233 to i64
-  %235 = getelementptr inbounds nuw ptr, ptr %3, i64 %234
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %234
   %236 = load ptr, ptr %235, align 8
   %.not247 = icmp eq ptr %236, null
   br i1 %.not247, label %.loopexit, label %.lr.ph315, !llvm.loop !143
@@ -9305,7 +9305,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 .preheader272:                                    ; preds = %.preheader273, %.preheader272
   %indvars.iv329 = phi i32 [ %indvars.iv.next330, %.preheader272 ], [ 1, %.preheader273 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader272 ], [ 1, %.preheader273 ]
-  %21 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %21 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -9328,7 +9328,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 31:                                               ; preds = %.lr.ph278, %._crit_edge
   %indvars.iv331 = phi i64 [ %30, %.lr.ph278 ], [ %indvars.iv.next332, %._crit_edge ]
   %.0217276 = phi ptr [ %22, %.lr.ph278 ], [ %.1218.lcssa, %._crit_edge ]
-  %32 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv331
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv331
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 10497
   store i8 %29, ptr %34, align 1
@@ -9349,8 +9349,8 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not250274, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41
-  %43 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %indvars.iv331
-  %44 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %indvars.iv331
+  %43 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %indvars.iv331
+  %44 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %indvars.iv331
   br label %45
 
 45:                                               ; preds = %.lr.ph, %45
@@ -9397,24 +9397,24 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %67 = mul i32 %66, 2560
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 5120
   %69 = zext i32 %67 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %69
   %71 = load i32, ptr %8, align 16
   %72 = mul i32 %71, 2560
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw i16, ptr %68, i64 %73
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %73
   br i1 %56, label %.preheader262, label %84
 
 .preheader262:                                    ; preds = %62, %.preheader262
   %indvars.iv353 = phi i64 [ %indvars.iv.next354, %.preheader262 ], [ 0, %62 ]
-  %75 = getelementptr inbounds nuw <2 x i64>, ptr %63, i64 %indvars.iv353
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv353
   %76 = load <8 x i16>, ptr %75, align 16
-  %77 = getelementptr inbounds nuw <2 x i64>, ptr %70, i64 %indvars.iv353
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv353
   %78 = load <8 x i16>, ptr %77, align 16
   %79 = sub <8 x i16> %76, %78
-  %80 = getelementptr inbounds nuw <2 x i64>, ptr %74, i64 %indvars.iv353
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %indvars.iv353
   %81 = load <8 x i16>, ptr %80, align 16
   %82 = add <8 x i16> %79, %81
-  %83 = getelementptr inbounds nuw <2 x i64>, ptr %65, i64 %indvars.iv353
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %indvars.iv353
   store <8 x i16> %82, ptr %83, align 16
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %exitcond356.not = icmp eq i64 %indvars.iv.next354, 320
@@ -9425,23 +9425,23 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %86 = load i32, ptr %85, align 4
   %87 = mul i32 %86, 2560
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw i16, ptr %68, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %88
   br label %90
 
 90:                                               ; preds = %84, %90
   %indvars.iv349 = phi i64 [ 0, %84 ], [ %indvars.iv.next350, %90 ]
-  %91 = getelementptr inbounds nuw <2 x i64>, ptr %63, i64 %indvars.iv349
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv349
   %92 = load <8 x i16>, ptr %91, align 16
-  %93 = getelementptr inbounds nuw <2 x i64>, ptr %74, i64 %indvars.iv349
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %indvars.iv349
   %94 = load <8 x i16>, ptr %93, align 16
-  %95 = getelementptr inbounds nuw <2 x i64>, ptr %70, i64 %indvars.iv349
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv349
   %96 = load <8 x i16>, ptr %95, align 16
-  %97 = getelementptr inbounds nuw <2 x i64>, ptr %89, i64 %indvars.iv349
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %indvars.iv349
   %98 = load <8 x i16>, ptr %97, align 16
   %.neg255 = add <8 x i16> %94, %92
   %99 = add <8 x i16> %96, %98
   %100 = sub <8 x i16> %.neg255, %99
-  %101 = getelementptr inbounds nuw <2 x i64>, ptr %65, i64 %indvars.iv349
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %indvars.iv349
   store <8 x i16> %100, ptr %101, align 16
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
   %exitcond352.not = icmp eq i64 %indvars.iv.next350, 320
@@ -9455,11 +9455,11 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %106 = shl i32 %105, 3
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 115348480
   %108 = zext i32 %106 to i64
-  %109 = getelementptr inbounds nuw i32, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %108
   %110 = load i32, ptr %8, align 16
   %111 = shl i32 %110, 3
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %107, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %112
   %114 = load i64, ptr %54, align 16
   %115 = icmp eq i64 %114, 1
   br i1 %115, label %.preheader, label %130
@@ -9488,24 +9488,24 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %132 = load i32, ptr %131, align 4
   %133 = shl i32 %132, 3
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw i32, ptr %107, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %134
   br label %136
 
 136:                                              ; preds = %130, %136
   %137 = phi i1 [ true, %130 ], [ false, %136 ]
   %.0223318 = phi i64 [ 0, %130 ], [ 1, %136 ]
-  %138 = getelementptr inbounds nuw <2 x i64>, ptr %102, i64 %.0223318
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %102, i64 %.0223318
   %139 = load <4 x i32>, ptr %138, align 16
-  %140 = getelementptr inbounds nuw <2 x i64>, ptr %113, i64 %.0223318
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %113, i64 %.0223318
   %141 = load <4 x i32>, ptr %140, align 16
-  %142 = getelementptr inbounds nuw <2 x i64>, ptr %109, i64 %.0223318
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %.0223318
   %143 = load <4 x i32>, ptr %142, align 16
-  %144 = getelementptr inbounds nuw <2 x i64>, ptr %135, i64 %.0223318
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %.0223318
   %145 = load <4 x i32>, ptr %144, align 16
   %.neg259 = add <4 x i32> %141, %139
   %146 = add <4 x i32> %143, %145
   %147 = sub <4 x i32> %.neg259, %146
-  %148 = getelementptr inbounds nuw <2 x i64>, ptr %104, i64 %.0223318
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %.0223318
   store <4 x i32> %147, ptr %148, align 16
   br i1 %137, label %136, label %.loopexit, !llvm.loop !149
 
@@ -9536,7 +9536,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %157 = phi ptr [ %198, %._crit_edge292 ], [ %154, %.lr.ph296.preheader ]
   %158 = phi i64 [ %196, %._crit_edge292 ], [ 0, %.lr.ph296.preheader ]
   %.0227295 = phi i32 [ %195, %._crit_edge292 ], [ 0, %.lr.ph296.preheader ]
-  %159 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %158
+  %159 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 128
   %161 = load i64, ptr %160, align 8
   %.idx320 = shl nsw i64 %161, 2
@@ -9550,14 +9550,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %164 = mul i32 %163, 2560
   %165 = add i32 %164, %155
   %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds nuw i16, ptr %150, i64 %166
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %150, i64 %166
   br label %168
 
 168:                                              ; preds = %.lr.ph285, %168
   %indvars.iv337 = phi i64 [ 0, %.lr.ph285 ], [ %indvars.iv.next338, %168 ]
-  %169 = getelementptr inbounds nuw <2 x i64>, ptr %6, i64 %indvars.iv337
+  %169 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv337
   %170 = load <8 x i16>, ptr %169, align 16
-  %171 = getelementptr inbounds nuw <2 x i64>, ptr %167, i64 %indvars.iv337
+  %171 = getelementptr inbounds nuw [16 x i8], ptr %167, i64 %indvars.iv337
   %172 = load <8 x i16>, ptr %171, align 16
   %173 = sub <8 x i16> %170, %172
   store <8 x i16> %173, ptr %169, align 16
@@ -9571,7 +9571,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   br i1 %.not245, label %._crit_edge286, label %.lr.ph285
 
 ._crit_edge286:                                   ; preds = %174, %.lr.ph296
-  %176 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %158
+  %176 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %158
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 128
   %178 = load i64, ptr %177, align 8
   %.idx321 = shl nsw i64 %178, 2
@@ -9585,14 +9585,14 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %181 = mul i32 %180, 2560
   %182 = add i32 %181, %156
   %183 = zext i32 %182 to i64
-  %184 = getelementptr inbounds nuw i16, ptr %150, i64 %183
+  %184 = getelementptr inbounds nuw [2 x i8], ptr %150, i64 %183
   br label %185
 
 185:                                              ; preds = %.lr.ph291, %185
   %indvars.iv340 = phi i64 [ 0, %.lr.ph291 ], [ %indvars.iv.next341, %185 ]
-  %186 = getelementptr inbounds nuw <2 x i64>, ptr %6, i64 %indvars.iv340
+  %186 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv340
   %187 = load <8 x i16>, ptr %186, align 16
-  %188 = getelementptr inbounds nuw <2 x i64>, ptr %184, i64 %indvars.iv340
+  %188 = getelementptr inbounds nuw [16 x i8], ptr %184, i64 %indvars.iv340
   %189 = load <8 x i16>, ptr %188, align 16
   %190 = add <8 x i16> %189, %187
   store <8 x i16> %190, ptr %186, align 16
@@ -9607,11 +9607,11 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 
 ._crit_edge292:                                   ; preds = %191, %._crit_edge286
   %193 = getelementptr inbounds nuw i8, ptr %157, i64 5312
-  %194 = getelementptr inbounds nuw i16, ptr %193, i64 %153
+  %194 = getelementptr inbounds nuw [2 x i8], ptr %193, i64 %153
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %194, ptr noundef nonnull align 16 dereferenceable(256) %6, i64 256, i1 false)
   %195 = add i32 %.0227295, 1
   %196 = zext i32 %195 to i64
-  %197 = getelementptr inbounds nuw ptr, ptr %3, i64 %196
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %196
   %198 = load ptr, ptr %197, align 8
   %.not = icmp eq ptr %198, null
   br i1 %.not, label %._crit_edge297, label %.lr.ph296, !llvm.loop !152
@@ -9640,7 +9640,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %202 = phi ptr [ %200, %.lr.ph315.preheader ], [ %236, %._crit_edge311 ]
   %203 = phi i64 [ 0, %.lr.ph315.preheader ], [ %234, %._crit_edge311 ]
   %.0231314 = phi i32 [ 0, %.lr.ph315.preheader ], [ %233, %._crit_edge311 ]
-  %204 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %7, i64 %203
+  %204 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %203
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 128
   %206 = load i64, ptr %205, align 8
   %.idx322 = shl nsw i64 %206, 2
@@ -9655,7 +9655,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %208 = load i32, ptr %.0229302, align 4
   %209 = shl i32 %208, 3
   %210 = zext i32 %209 to i64
-  %211 = getelementptr inbounds nuw i32, ptr %199, i64 %210
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %210
   %212 = load <4 x i32>, ptr %211, align 32
   %213 = sub <4 x i32> %.sroa.0.1, %212
   %214 = getelementptr inbounds nuw i8, ptr %211, i64 16
@@ -9668,7 +9668,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
 ._crit_edge305:                                   ; preds = %.lr.ph304, %.lr.ph315
   %.sroa.6.2 = phi <4 x i32> [ %.sroa.6.0, %.lr.ph315 ], [ %216, %.lr.ph304 ]
   %.sroa.0.2 = phi <4 x i32> [ %.sroa.0.0, %.lr.ph315 ], [ %213, %.lr.ph304 ]
-  %218 = getelementptr inbounds nuw %"class.Stockfish::ValueList", ptr %8, i64 %203
+  %218 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %203
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 128
   %220 = load i64, ptr %219, align 8
   %.idx323 = shl nsw i64 %220, 2
@@ -9683,7 +9683,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   %222 = load i32, ptr %.0222308, align 4
   %223 = shl i32 %222, 3
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds nuw i32, ptr %199, i64 %224
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %224
   %226 = load <4 x i32>, ptr %225, align 32
   %227 = add <4 x i32> %226, %.sroa.0.3
   %228 = getelementptr inbounds nuw i8, ptr %225, i64 16
@@ -9702,7 +9702,7 @@ define linkonce_odr dso_local void @_ZNK9Stockfish4Eval4NNUE18FeatureTransformer
   store <4 x i32> %.sroa.6.4, ptr %.sroa.6.0..sroa_idx382, align 16
   %233 = add i32 %.0231314, 1
   %234 = zext i32 %233 to i64
-  %235 = getelementptr inbounds nuw ptr, ptr %3, i64 %234
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %234
   %236 = load ptr, ptr %235, align 8
   %.not247 = icmp eq ptr %236, null
   br i1 %.not247, label %.loopexit, label %.lr.ph315, !llvm.loop !154

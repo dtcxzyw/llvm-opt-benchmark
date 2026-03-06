@@ -7048,7 +7048,7 @@ define void @_ZN7xgboost10collective4Coll10AllgatherVERKNS0_4CommENS_6common4Spa
   unreachable
 
 _ZNK7xgboost6common4SpanIlLm18446744073709551615EEixEm.exit: ; preds = %9
-  %18 = getelementptr inbounds nuw i64, ptr %.sroa.26.0.copyload, i64 %15
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.26.0.copyload, i64 %15
   %19 = load i64, ptr %18, align 8, !tbaa !18
   %20 = icmp eq i64 %3, -1
   br i1 %20, label %21, label %23
@@ -7731,9 +7731,9 @@ _ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw float, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load float, ptr %44, align 4, !tbaa !472
-  %46 = getelementptr inbounds nuw float, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load float, ptr %46, align 4, !tbaa !472
   %48 = fcmp olt float %45, %47
   %.sroa.speculated.i.i.i.i.i = select i1 %48, float %47, float %45
@@ -8099,9 +8099,9 @@ _ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw float, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load float, ptr %44, align 4, !tbaa !472
-  %46 = getelementptr inbounds nuw float, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load float, ptr %46, align 4, !tbaa !472
   %48 = fcmp olt float %47, %45
   %.sroa.speculated.i.i.i.i.i = select i1 %48, float %47, float %45
@@ -8287,8 +8287,8 @@ _ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIfaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw float, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw float, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load float, ptr %44, align 4, !tbaa !472
   %47 = load float, ptr %45, align 4, !tbaa !472
   %48 = fadd float %46, %47
@@ -8476,9 +8476,9 @@ _ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw double, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load double, ptr %44, align 8, !tbaa !492
-  %46 = getelementptr inbounds nuw double, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load double, ptr %46, align 8, !tbaa !492
   %48 = fcmp olt double %45, %47
   %.sroa.speculated.i.i.i.i.i = select i1 %48, double %47, double %45
@@ -8664,9 +8664,9 @@ _ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw double, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load double, ptr %44, align 8, !tbaa !492
-  %46 = getelementptr inbounds nuw double, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load double, ptr %46, align 8, !tbaa !492
   %48 = fcmp olt double %47, %45
   %.sroa.speculated.i.i.i.i.i = select i1 %48, double %47, double %45
@@ -8852,8 +8852,8 @@ _ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIdaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw double, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw double, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load double, ptr %44, align 8, !tbaa !492
   %47 = load double, ptr %45, align 8, !tbaa !492
   %48 = fadd double %46, %47
@@ -9039,9 +9039,9 @@ _ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw x86_fp80, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load x86_fp80, ptr %44, align 16, !tbaa !497
-  %46 = getelementptr inbounds nuw x86_fp80, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load x86_fp80, ptr %46, align 16, !tbaa !497
   %48 = fcmp olt x86_fp80 %45, %47
   %49 = select i1 %48, x86_fp80 %47, x86_fp80 %45
@@ -9227,9 +9227,9 @@ _ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %50, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw x86_fp80, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load x86_fp80, ptr %44, align 16, !tbaa !497
-  %46 = getelementptr inbounds nuw x86_fp80, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load x86_fp80, ptr %46, align 16, !tbaa !497
   %48 = fcmp olt x86_fp80 %47, %45
   %49 = select i1 %48, x86_fp80 %47, x86_fp80 %45
@@ -9415,8 +9415,8 @@ _ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIeaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw x86_fp80, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw x86_fp80, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load x86_fp80, ptr %44, align 16, !tbaa !497
   %47 = load x86_fp80, ptr %45, align 16, !tbaa !497
   %48 = fadd x86_fp80 %46, %47
@@ -10718,9 +10718,9 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load i16, ptr %44, align 2, !tbaa !508
-  %46 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load i16, ptr %46, align 2, !tbaa !508
   %.sroa.speculated.i.i.i.i.i = call noundef i16 @llvm.smax.i16(i16 %45, i16 %47)
   store i16 %.sroa.speculated.i.i.i.i.i, ptr %46, align 2, !tbaa !508
@@ -10905,9 +10905,9 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load i16, ptr %44, align 2, !tbaa !508
-  %46 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load i16, ptr %46, align 2, !tbaa !508
   %.sroa.speculated.i.i.i.i.i = call noundef i16 @llvm.smin.i16(i16 %47, i16 %45)
   store i16 %.sroa.speculated.i.i.i.i.i, ptr %46, align 2, !tbaa !508
@@ -11092,8 +11092,8 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i16, ptr %44, align 2, !tbaa !508
   %47 = load i16, ptr %45, align 2, !tbaa !508
   %48 = add i16 %47, %46
@@ -11279,8 +11279,8 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i16, ptr %44, align 2, !tbaa !508
   %47 = load i16, ptr %45, align 2, !tbaa !508
   %48 = and i16 %47, %46
@@ -11466,8 +11466,8 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i16, ptr %44, align 2, !tbaa !508
   %47 = load i16, ptr %45, align 2, !tbaa !508
   %48 = or i16 %47, %46
@@ -11653,8 +11653,8 @@ _ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIsaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i16, ptr %44, align 2, !tbaa !508
   %47 = load i16, ptr %45, align 2, !tbaa !508
   %48 = xor i16 %47, %46
@@ -11840,9 +11840,9 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !447
-  %46 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load i32, ptr %46, align 4, !tbaa !447
   %.sroa.speculated.i.i.i.i.i = call noundef i32 @llvm.smax.i32(i32 %45, i32 %47)
   store i32 %.sroa.speculated.i.i.i.i.i, ptr %46, align 4, !tbaa !447
@@ -12027,9 +12027,9 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !447
-  %46 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load i32, ptr %46, align 4, !tbaa !447
   %.sroa.speculated.i.i.i.i.i = call noundef i32 @llvm.smin.i32(i32 %47, i32 %45)
   store i32 %.sroa.speculated.i.i.i.i.i, ptr %46, align 4, !tbaa !447
@@ -12214,8 +12214,8 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i32, ptr %44, align 4, !tbaa !447
   %47 = load i32, ptr %45, align 4, !tbaa !447
   %48 = add nsw i32 %47, %46
@@ -12401,8 +12401,8 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i32, ptr %44, align 4, !tbaa !447
   %47 = load i32, ptr %45, align 4, !tbaa !447
   %48 = and i32 %47, %46
@@ -12588,8 +12588,8 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i32, ptr %44, align 4, !tbaa !447
   %47 = load i32, ptr %45, align 4, !tbaa !447
   %48 = or i32 %47, %46
@@ -12775,8 +12775,8 @@ _ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIiaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i32, ptr %44, align 4, !tbaa !447
   %47 = load i32, ptr %45, align 4, !tbaa !447
   %48 = xor i32 %47, %46
@@ -12962,9 +12962,9 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !18
-  %46 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load i64, ptr %46, align 8, !tbaa !18
   %.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.smax.i64(i64 %45, i64 %47)
   store i64 %.sroa.speculated.i.i.i.i.i, ptr %46, align 8, !tbaa !18
@@ -13149,9 +13149,9 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !18
-  %46 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load i64, ptr %46, align 8, !tbaa !18
   %.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.smin.i64(i64 %47, i64 %45)
   store i64 %.sroa.speculated.i.i.i.i.i, ptr %46, align 8, !tbaa !18
@@ -13336,8 +13336,8 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i64, ptr %44, align 8, !tbaa !18
   %47 = load i64, ptr %45, align 8, !tbaa !18
   %48 = add nsw i64 %47, %46
@@ -13523,8 +13523,8 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i64, ptr %44, align 8, !tbaa !18
   %47 = load i64, ptr %45, align 8, !tbaa !18
   %48 = and i64 %47, %46
@@ -13710,8 +13710,8 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i64, ptr %44, align 8, !tbaa !18
   %47 = load i64, ptr %45, align 8, !tbaa !18
   %48 = or i64 %47, %46
@@ -13897,8 +13897,8 @@ _ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIlaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i64, ptr %44, align 8, !tbaa !18
   %47 = load i64, ptr %45, align 8, !tbaa !18
   %48 = xor i64 %47, %46
@@ -15200,9 +15200,9 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load i16, ptr %44, align 2, !tbaa !508
-  %46 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load i16, ptr %46, align 2, !tbaa !508
   %.sroa.speculated.i.i.i.i.i = call noundef i16 @llvm.umax.i16(i16 %45, i16 %47)
   store i16 %.sroa.speculated.i.i.i.i.i, ptr %46, align 2, !tbaa !508
@@ -15387,9 +15387,9 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load i16, ptr %44, align 2, !tbaa !508
-  %46 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load i16, ptr %46, align 2, !tbaa !508
   %.sroa.speculated.i.i.i.i.i = call noundef i16 @llvm.umin.i16(i16 %47, i16 %45)
   store i16 %.sroa.speculated.i.i.i.i.i, ptr %46, align 2, !tbaa !508
@@ -15574,8 +15574,8 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i16, ptr %44, align 2, !tbaa !508
   %47 = load i16, ptr %45, align 2, !tbaa !508
   %48 = add i16 %47, %46
@@ -15761,8 +15761,8 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i16, ptr %44, align 2, !tbaa !508
   %47 = load i16, ptr %45, align 2, !tbaa !508
   %48 = and i16 %47, %46
@@ -15948,8 +15948,8 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i16, ptr %44, align 2, !tbaa !508
   %47 = load i16, ptr %45, align 2, !tbaa !508
   %48 = or i16 %47, %46
@@ -16135,8 +16135,8 @@ _ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeItaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i16, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i16, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i16, ptr %44, align 2, !tbaa !508
   %47 = load i16, ptr %45, align 2, !tbaa !508
   %48 = xor i16 %47, %46
@@ -16322,9 +16322,9 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !447
-  %46 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load i32, ptr %46, align 4, !tbaa !447
   %.sroa.speculated.i.i.i.i.i = call noundef i32 @llvm.umax.i32(i32 %45, i32 %47)
   store i32 %.sroa.speculated.i.i.i.i.i, ptr %46, align 4, !tbaa !447
@@ -16509,9 +16509,9 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !447
-  %46 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load i32, ptr %46, align 4, !tbaa !447
   %.sroa.speculated.i.i.i.i.i = call noundef i32 @llvm.umin.i32(i32 %47, i32 %45)
   store i32 %.sroa.speculated.i.i.i.i.i, ptr %46, align 4, !tbaa !447
@@ -16696,8 +16696,8 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i32, ptr %44, align 4, !tbaa !447
   %47 = load i32, ptr %45, align 4, !tbaa !447
   %48 = add i32 %47, %46
@@ -16883,8 +16883,8 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i32, ptr %44, align 4, !tbaa !447
   %47 = load i32, ptr %45, align 4, !tbaa !447
   %48 = and i32 %47, %46
@@ -17070,8 +17070,8 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i32, ptr %44, align 4, !tbaa !447
   %47 = load i32, ptr %45, align 4, !tbaa !447
   %48 = or i32 %47, %46
@@ -17257,8 +17257,8 @@ _ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeIjaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i32, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i32, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i32, ptr %44, align 4, !tbaa !447
   %47 = load i32, ptr %45, align 4, !tbaa !447
   %48 = xor i32 %47, %46
@@ -17444,9 +17444,9 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !18
-  %46 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load i64, ptr %46, align 8, !tbaa !18
   %.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.umax.i64(i64 %45, i64 %47)
   store i64 %.sroa.speculated.i.i.i.i.i, ptr %46, align 8, !tbaa !18
@@ -17631,9 +17631,9 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %48, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val3, i64 %.02.i.i.i.i
   %45 = load i64, ptr %44, align 8, !tbaa !18
-  %46 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.02.i.i.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %47 = load i64, ptr %46, align 8, !tbaa !18
   %.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %47, i64 %45)
   store i64 %.sroa.speculated.i.i.i.i.i, ptr %46, align 8, !tbaa !18
@@ -17818,8 +17818,8 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i64, ptr %44, align 8, !tbaa !18
   %47 = load i64, ptr %45, align 8, !tbaa !18
   %48 = add i64 %47, %46
@@ -18005,8 +18005,8 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i64, ptr %44, align 8, !tbaa !18
   %47 = load i64, ptr %45, align 8, !tbaa !18
   %48 = and i64 %47, %46
@@ -18192,8 +18192,8 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i64, ptr %44, align 8, !tbaa !18
   %47 = load i64, ptr %45, align 8, !tbaa !18
   %48 = or i64 %47, %46
@@ -18379,8 +18379,8 @@ _ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i, %.lr.ph.i.i.i.i
   %.02.i.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i.i ], [ 0, %_ZN7xgboost6common11RestoreTypeImaEENS0_4SpanIT_Lm18446744073709551615EEENS2_IT0_Lm18446744073709551615EEE.exit.i.i.i ]
-  %44 = getelementptr inbounds nuw i64, ptr %.val3, i64 %.02.i.i.i.i
-  %45 = getelementptr inbounds nuw i64, ptr %.val5, i64 %.02.i.i.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val3, i64 %.02.i.i.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val5, i64 %.02.i.i.i.i
   %46 = load i64, ptr %44, align 8, !tbaa !18
   %47 = load i64, ptr %45, align 8, !tbaa !18
   %48 = xor i64 %47, %46
@@ -18482,11 +18482,11 @@ _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIlLm18446744073709551615EEELb0EEdeEv.exit: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1EEdeEv.exit
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %1
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %1
   %20 = load i64, ptr %19, align 8, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !467
-  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %5
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %5
   store i64 %20, ptr %23, align 8, !tbaa !18
   %24 = load i64, ptr %0, align 8, !tbaa !552
   %.not.i39 = icmp eq i64 %1, %24
@@ -18507,7 +18507,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1
   br i1 %28, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1EEdeEv.exit16.us, label %.split.us, !prof !441
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1EEdeEv.exit16.us: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1EEppEv.exit.us
-  %29 = getelementptr inbounds nuw i64, ptr %15, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %27
   %30 = load i64, ptr %29, align 8, !tbaa !18
   %31 = add nsw i64 %30, %.042.us
   %32 = load i64, ptr %4, align 8, !tbaa !465
@@ -18520,7 +18520,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIlLm18446744073709551615EEELb0E
   br i1 %34, label %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIlLm18446744073709551615EEELb0EEdeEv.exit18.us, label %.split46.us, !prof !441
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIlLm18446744073709551615EEELb0EEdeEv.exit18.us: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIlLm18446744073709551615EEELb0EEppEv.exit.us
-  %35 = getelementptr inbounds nuw i64, ptr %22, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %33
   store i64 %31, ptr %35, align 8, !tbaa !18
   %36 = load i64, ptr %0, align 8, !tbaa !552
   %.not.i.us = icmp eq i64 %27, %36
@@ -18548,7 +18548,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKlLm18446744073709551615EEELb1EEdeEv.exit16: ; preds = %39
-  %41 = getelementptr inbounds nuw i64, ptr %15, i64 %38
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %38
   %42 = load i64, ptr %41, align 8, !tbaa !18
   %43 = add nsw i64 %42, %.042
   %44 = load i64, ptr %4, align 8, !tbaa !465
@@ -18569,7 +18569,7 @@ _ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIlLm18446744073709551615EEELb0E
   unreachable
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIlLm18446744073709551615EEELb0EEdeEv.exit18: ; preds = %_ZN7xgboost6common6detail12SpanIteratorINS0_4SpanIlLm18446744073709551615EEELb0EEppEv.exit
-  %47 = getelementptr inbounds nuw i64, ptr %22, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %45
   store i64 %43, ptr %47, align 8, !tbaa !18
   %48 = load i64, ptr %0, align 8, !tbaa !552
   %.not.i = icmp eq i64 %38, %48
@@ -18940,7 +18940,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !9
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -18996,7 +18996,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !48
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48

@@ -6606,7 +6606,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %select.unfold.
 .lr.ph173:                                        ; preds = %.lr.ph173.preheader, %135
   %indvars.iv = phi i64 [ 0, %.lr.ph173.preheader ], [ %indvars.iv.next, %135 ]
   %101 = load ptr, ptr %9, align 8
-  %102 = getelementptr %struct._md4_pass, ptr %101, i64 %indvars.iv
+  %102 = getelementptr [273 x i8], ptr %101, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(273) %10, ptr noundef align 1 dereferenceable(273) %102, i64 273, i1 false)
   %103 = call i32 @ws_hmac_buffer(i32 noundef 8, ptr noundef nonnull %13, ptr noundef nonnull %12, i64 noundef 16, ptr noundef nonnull %10, i64 noundef 16)
   %.not127 = icmp eq i32 %103, 0
@@ -6748,7 +6748,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %select.unfold.
 151:                                              ; preds = %.lr.ph176, %158
   %indvars.iv219 = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next220, %158 ]
   %152 = load ptr, ptr %9, align 8
-  %153 = getelementptr %struct._md4_pass, ptr %152, i64 %indvars.iv219
+  %153 = getelementptr [273 x i8], ptr %152, i64 %indvars.iv219
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(273) %10, ptr noundef align 1 dereferenceable(273) %153, i64 273, i1 false)
   %154 = call i32 @ws_hmac_buffer(i32 noundef 1, ptr noundef nonnull %11, ptr noundef nonnull %18, i64 noundef 16, ptr noundef nonnull %10, i64 noundef 16)
   %.not126 = icmp eq i32 %154, 0
@@ -6808,7 +6808,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %select.unfold.
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 noundef 0, i64 noundef 16, i1 noundef false) #19
   %172 = load ptr, ptr %9, align 8
-  %173 = getelementptr %struct._md4_pass, ptr %172, i64 %indvars.iv224
+  %173 = getelementptr [273 x i8], ptr %172, i64 %indvars.iv224
   call void @crypt_des_ecb(ptr noundef nonnull %23, ptr noundef nonnull %22, ptr noundef %173)
   %174 = getelementptr i8, ptr %173, i64 9
   call void @crypt_des_ecb(ptr noundef nonnull %11, ptr noundef nonnull %23, ptr noundef %174)

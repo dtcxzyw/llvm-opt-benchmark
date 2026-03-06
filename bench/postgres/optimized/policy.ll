@@ -5,9 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 %struct.ObjectAddress = type { i32, i32, i32 }
-%union.ListCell = type { ptr }
 
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [24 x i8] c"row security descriptor\00", align 1
@@ -240,7 +238,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
 
 17:                                               ; preds = %14
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr %struct.CompactAttribute, ptr %2, i64 %18
+  %19 = getelementptr [16 x i8], ptr %2, i64 %18
   %20 = getelementptr i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, -1
@@ -517,7 +515,7 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %57 ]
   %.05162 = phi i32 [ 0, %.lr.ph.preheader ], [ %.152, %57 ]
-  %50 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4
   %.not61 = icmp eq i32 %51, %0
   br i1 %.not61, label %57, label %52
@@ -526,7 +524,7 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
   %53 = zext i32 %51 to i64
   %54 = add i32 %.05162, 1
   %55 = sext i32 %.05162 to i64
-  %56 = getelementptr inbounds i64, ptr %48, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %48, i64 %55
   store i64 %53, ptr %56, align 8
   br label %57
 
@@ -572,7 +570,7 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
 
 70:                                               ; preds = %59, %75
   %indvars.iv66 = phi i64 [ 0, %59 ], [ %indvars.iv.next67, %75 ]
-  %71 = getelementptr inbounds nuw i64, ptr %48, i64 %indvars.iv66
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv66
   %72 = load i64, ptr %71, align 8
   %73 = trunc i64 %72 to i32
   store i32 %73, ptr %69, align 4
@@ -875,7 +873,7 @@ parse_policy_command.exit.thread:                 ; preds = %13, %22, %31, %pars
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %127
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %127 ]
-  %123 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %124 = load i64, ptr %123, align 8
   %125 = trunc i64 %124 to i32
   store i32 %125, ptr %114, align 4
@@ -948,7 +946,7 @@ define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly captu
 13:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
@@ -979,7 +977,7 @@ define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly captu
   %29 = tail call i32 @get_rolespec_oid(ptr noundef nonnull %16, i1 noundef zeroext false) #9
   %30 = zext i32 %29 to i64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store i64 %30, ptr %31, align 8
   %32 = load i32, ptr %7, align 4
   %33 = sext i32 %32 to i64
@@ -1303,10 +1301,10 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %112 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv
   %113 = load i32, ptr %112, align 4
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw i64, ptr %110, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv
   store i64 %114, ptr %115, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1431,7 +1429,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
 
 .lr.ph135:                                        ; preds = %.lr.ph135.preheader, %173
   %indvars.iv138 = phi i64 [ 0, %.lr.ph135.preheader ], [ %indvars.iv.next139, %173 ]
-  %169 = getelementptr inbounds nuw i64, ptr %.1, i64 %indvars.iv138
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %.1, i64 %indvars.iv138
   %170 = load i64, ptr %169, align 8
   %171 = trunc i64 %170 to i32
   store i32 %171, ptr %163, align 4

@@ -32,13 +32,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.ns_common = type { %struct.atomic64_t, ptr, i32, %struct.refcount_struct }
 %struct.atomic64_t = type { i64 }
 %struct.refcount_struct = type { %struct.atomic_t }
-%struct.ipc_ids = type { i32, i16, %struct.rw_semaphore, %struct.idr, i32, i32, %struct.rhashtable }
-%struct.rw_semaphore = type { %struct.atomic64_t, %struct.atomic64_t, %struct.optimistic_spin_queue, %struct.raw_spinlock, %struct.list_head }
-%struct.optimistic_spin_queue = type { %struct.atomic_t }
-%struct.list_head = type { ptr, ptr }
-%struct.rhashtable = type { ptr, i32, i32, %struct.rhashtable_params, i8, %struct.work_struct, %struct.mutex, %struct.spinlock, %struct.atomic_t }
-%struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
-%struct.mutex = type { %struct.atomic64_t, %struct.raw_spinlock, %struct.optimistic_spin_queue, %struct.list_head }
 
 @__UNIQUE_ID___addressable_ipc_init407 = internal global ptr @ipc_init, section ".discard.addressable", align 8
 @ipc_init_ids.__key = internal global %struct.lock_class_key zeroinitializer, align 1
@@ -293,7 +286,7 @@ define dso_local i32 @ipc_addid(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
 113:                                              ; preds = %70
   %114 = getelementptr inbounds nuw i8, ptr %73, i64 64
   %115 = zext i32 %107 to i64
-  %116 = getelementptr ptr, ptr %114, i64 %115
+  %116 = getelementptr [8 x i8], ptr %114, i64 %115
   br label %117
 
 117:                                              ; preds = %113, %111
@@ -657,7 +650,7 @@ define internal fastcc void @ipc_kht_remove(ptr noundef %0, ptr noundef readonly
 56:                                               ; preds = %17
   %57 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %58 = zext i32 %50 to i64
-  %59 = getelementptr ptr, ptr %57, i64 %58
+  %59 = getelementptr [8 x i8], ptr %57, i64 %58
   br label %60
 
 60:                                               ; preds = %56, %54
@@ -1279,7 +1272,7 @@ define dso_local i32 @ipcget(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 56:                                               ; preds = %22
   %57 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %58 = zext i32 %50 to i64
-  %59 = getelementptr ptr, ptr %57, i64 %58
+  %59 = getelementptr [8 x i8], ptr %57, i64 %58
   br label %60
 
 60:                                               ; preds = %56, %54
@@ -1773,7 +1766,7 @@ define internal ptr @sysvipc_proc_start(ptr noundef readonly captures(none) %0, 
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr %struct.ipc_ids, ptr %8, i64 %11
+  %12 = getelementptr [216 x i8], ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   tail call void @down_read(ptr noundef nonnull %13) #15
   %14 = load i64, ptr %1, align 8
@@ -1831,7 +1824,7 @@ define internal void @sysvipc_proc_stop(ptr noundef readonly captures(none) %0, 
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %.split = getelementptr %struct.ipc_ids, ptr %10, i64 %13
+  %.split = getelementptr [216 x i8], ptr %10, i64 %13
   %14 = getelementptr i8, ptr %.split, i64 8
   tail call void @up_read(ptr noundef %14) #15
   ret void
@@ -1864,7 +1857,7 @@ define internal ptr @sysvipc_proc_next(ptr noundef readonly captures(none) %0, p
   %18 = trunc i64 %13 to i32
   %19 = add i32 %18, -1
   store i32 %19, ptr %4, align 4
-  %.split = getelementptr %struct.ipc_ids, ptr %14, i64 %17
+  %.split = getelementptr [216 x i8], ptr %14, i64 %17
   %20 = getelementptr i8, ptr %.split, i64 48
   %21 = call ptr @idr_get_next(ptr noundef %20, ptr noundef nonnull %4) #15
   %22 = icmp eq ptr %21, null

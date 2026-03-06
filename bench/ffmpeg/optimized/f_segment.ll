@@ -85,7 +85,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
 .critedge:                                        ; preds = %.critedge.lr.ph, %16
   %indvars.iv = phi i64 [ %15, %.critedge.lr.ph ], [ %indvars.iv.next, %16 ]
   %19 = load ptr, ptr %14, align 8, !tbaa !32
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !21
   %22 = tail call i32 @ff_outlink_get_status(ptr noundef %21) #10
   %.not = icmp eq i32 %22, 0
@@ -100,7 +100,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
 .lr.ph116:                                        ; preds = %.preheader, %.lr.ph116
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.lr.ph116 ], [ 0, %.preheader ]
   %25 = load ptr, ptr %5, align 8, !tbaa !20
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv125
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv125
   %27 = load ptr, ptr %26, align 8, !tbaa !21
   tail call void @ff_inlink_set_status(ptr noundef %27, i32 noundef %22) #10
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
@@ -126,7 +126,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   %37 = load ptr, ptr %36, align 8, !tbaa !44
   %38 = load i32, ptr %10, align 4, !tbaa !25
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i64, ptr %37, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %37, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !45
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 256
   %43 = load i64, ptr %42, align 8, !tbaa !46
@@ -143,7 +143,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   %49 = phi i32 [ %38, %.lr.ph ], [ %56, %58 ]
   %50 = load ptr, ptr %46, align 8, !tbaa !32
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !21
   %54 = load i64, ptr %47, align 8, !tbaa !48
   tail call void @ff_avfilter_link_set_in_status(ptr noundef %53, i32 noundef -541478725, i64 noundef %54) #10
@@ -157,7 +157,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
 58:                                               ; preds = %48
   %59 = load ptr, ptr %36, align 8, !tbaa !44
   %60 = sext i32 %56 to i64
-  %61 = getelementptr inbounds i64, ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   %62 = load i64, ptr %61, align 8, !tbaa !45
   %63 = load i64, ptr %42, align 8, !tbaa !46
   %64 = sub nsw i64 %62, %63
@@ -233,7 +233,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   %100 = getelementptr inbounds nuw i8, ptr %.val96, i64 28
   %101 = load i32, ptr %100, align 4, !tbaa !25
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i64, ptr %99, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %99, i64 %102
   %104 = load i64, ptr %103, align 8, !tbaa !45
   %.not154 = icmp slt i64 %97, %104
   %.pre135143 = load i32, ptr %10, align 4, !tbaa !25
@@ -259,7 +259,7 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   %113 = getelementptr inbounds nuw i8, ptr %.val96, i64 28
   %114 = load i32, ptr %113, align 4, !tbaa !25
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i64, ptr %112, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %112, i64 %115
   %117 = load i64, ptr %116, align 8, !tbaa !45
   %118 = icmp sgt i64 %110, %117
   %.pre135146 = load i32, ptr %10, align 4, !tbaa !25
@@ -277,7 +277,7 @@ current_segment_finished.exit:                    ; preds = %105
   %127 = getelementptr inbounds nuw i8, ptr %.val96, i64 28
   %128 = load i32, ptr %127, align 4, !tbaa !25
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds i64, ptr %126, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %126, i64 %129
   %131 = load i64, ptr %130, align 8, !tbaa !45
   %.not155 = icmp slt i64 %124, %131
   %.pre135 = load i32, ptr %10, align 4, !tbaa !25
@@ -287,7 +287,7 @@ current_segment_finished.exit:                    ; preds = %105
   %.pre135144 = phi i32 [ %.pre135143, %95 ], [ %.pre135, %current_segment_finished.exit ], [ %.pre135146, %108 ]
   %133 = load ptr, ptr %90, align 8, !tbaa !32
   %134 = sext i32 %.pre135144 to i64
-  %135 = getelementptr inbounds ptr, ptr %133, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %133, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !21
   %137 = getelementptr inbounds nuw i8, ptr %92, i64 136
   %138 = load i64, ptr %137, align 8, !tbaa !52
@@ -311,7 +311,7 @@ current_segment_finished.exit.thread:             ; preds = %current_segment_fin
 144:                                              ; preds = %current_segment_finished.exit.thread
   %145 = load ptr, ptr %90, align 8, !tbaa !32
   %146 = sext i32 %141 to i64
-  %147 = getelementptr inbounds ptr, ptr %145, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %145, i64 %146
   %148 = load ptr, ptr %147, align 8, !tbaa !21
   %149 = call i32 @ff_filter_frame(ptr noundef %148, ptr noundef %92) #10
   br label %150
@@ -340,7 +340,7 @@ current_segment_finished.exit.thread:             ; preds = %current_segment_fin
 160:                                              ; preds = %.lr.ph111, %160
   %indvars.iv128 = phi i64 [ %159, %.lr.ph111 ], [ %indvars.iv.next129, %160 ]
   %161 = load ptr, ptr %158, align 8, !tbaa !32
-  %162 = getelementptr inbounds ptr, ptr %161, i64 %indvars.iv128
+  %162 = getelementptr inbounds [8 x i8], ptr %161, i64 %indvars.iv128
   %163 = load ptr, ptr %162, align 8, !tbaa !21
   %164 = load i32, ptr %3, align 4, !tbaa !60
   %165 = load i64, ptr %4, align 8, !tbaa !45
@@ -362,7 +362,7 @@ current_segment_finished.exit.thread:             ; preds = %current_segment_fin
 172:                                              ; preds = %.lr.ph114, %178
   %indvars.iv131 = phi i64 [ %171, %.lr.ph114 ], [ %indvars.iv.next132, %178 ]
   %173 = load ptr, ptr %170, align 8, !tbaa !32
-  %174 = getelementptr inbounds ptr, ptr %173, i64 %indvars.iv131
+  %174 = getelementptr inbounds [8 x i8], ptr %173, i64 %indvars.iv131
   %175 = load ptr, ptr %174, align 8, !tbaa !21
   %176 = call i32 @ff_outlink_frame_wanted(ptr noundef %175) #10
   %.not93 = icmp eq i32 %176, 0
@@ -421,7 +421,7 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8, !tbaa !45
   %18 = tail call i64 @av_rescale_q(i64 noundef %17, i64 4294967296000001, i64 %.sroa.04.0.copyload) #11
   store i64 %18, ptr %16, align 8, !tbaa !45
@@ -536,7 +536,7 @@ count_points.exit:                                ; preds = %19
   %spec.select40.i = select i1 %40, i64 %.02950.i, i64 0
   %41 = load i32, ptr %35, align 8, !tbaa !50
   %.not37.i = icmp eq i32 %41, 0
-  %42 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i
   br i1 %.not37.i, label %43, label %45
 
 43:                                               ; preds = %38
@@ -577,7 +577,7 @@ parse_points.exit.thread:                         ; preds = %36, %.thread.i
   %51 = phi ptr [ %.pre, %.loopexit53.loopexit ], [ %29, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %52 = sext i32 %50 to i64
-  %53 = getelementptr i64, ptr %51, i64 %52
+  %53 = getelementptr [8 x i8], ptr %51, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -8
   store i64 9223372036854775807, ptr %54, align 8, !tbaa !45
   %.not4755 = icmp sgt i32 %50, 0

@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::UMutex" = type { [40 x i8], %"struct.std::atomic", ptr }
 %"struct.std::atomic" = type { %"struct.std::__atomic_base" }
 %"struct.std::__atomic_base" = type { ptr }
-%"struct.icu_77::CharacterNode" = type { ptr, i16, i16, i16, i8, i8 }
 %"class.icu_77::UnicodeString" = type { %"class.icu_77::Replaceable", %"union.icu_77::UnicodeString::StackBufferOrFields" }
 %"class.icu_77::Replaceable" = type { %"class.icu_77::UObject" }
 %"class.icu_77::UObject" = type { ptr }
@@ -824,7 +823,7 @@ define void @_ZN6icu_7711TextTrieMapD2Ev(ptr noundef nonnull align 8 captures(no
   %8 = phi i32 [ %3, %.lr.ph ], [ %22, %_ZN6icu_7713CharacterNode12deleteValuesEPFvPvE.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6icu_7713CharacterNode12deleteValuesEPFvPvE.exit ]
   %9 = load ptr, ptr %5, align 8, !tbaa !33
-  %10 = getelementptr inbounds nuw %"struct.icu_77::CharacterNode", ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %6, align 8, !tbaa !31
   %12 = load ptr, ptr %10, align 8, !tbaa !15
   %13 = icmp eq ptr %12, null
@@ -1179,7 +1178,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit26:    ; preds = %43, %49, %51
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %66 ]
   %.01628 = phi ptr [ %61, %.lr.ph.preheader ], [ %65, %66 ]
-  %63 = getelementptr inbounds nuw i16, ptr %.020, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %.020, i64 %indvars.iv
   %64 = load i16, ptr %63, align 2, !tbaa !42
   %65 = invoke noundef ptr @_ZN6icu_7711TextTrieMap12addChildNodeEPNS_13CharacterNodeEDsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %.01628, i16 noundef zeroext %64, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %66 unwind label %.loopexit
@@ -1246,7 +1245,7 @@ define noundef ptr @_ZN6icu_7711TextTrieMap12addChildNodeEPNS_13CharacterNodeEDs
   %.03464 = phi i16 [ %.03461, %.lr.ph ], [ %.034, %19 ]
   %.03163 = phi i16 [ 0, %.lr.ph ], [ %.03464, %19 ]
   %12 = zext i16 %.03464 to i64
-  %13 = getelementptr inbounds nuw %"struct.icu_77::CharacterNode", ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i16, ptr %14, align 8, !tbaa !45
   %16 = icmp eq i16 %15, %2
@@ -1305,7 +1304,7 @@ define noundef ptr @_ZN6icu_7711TextTrieMap12addChildNodeEPNS_13CharacterNodeEDs
   %43 = sub i64 %41, %42
   %sext = shl i64 %43, 28
   %44 = ashr i64 %sext, 32
-  %45 = getelementptr inbounds %"struct.icu_77::CharacterNode", ptr %34, i64 %44
+  %45 = getelementptr inbounds [16 x i8], ptr %34, i64 %44
   %.pre70 = load i32, ptr %21, align 4, !tbaa !32
   br label %.thread46._crit_edge
 
@@ -1314,7 +1313,7 @@ define noundef ptr @_ZN6icu_7711TextTrieMap12addChildNodeEPNS_13CharacterNodeEDs
   %47 = phi ptr [ %34, %36 ], [ %27, %.thread46 ]
   %.027 = phi ptr [ %45, %36 ], [ %1, %.thread46 ]
   %48 = sext i32 %46 to i64
-  %49 = getelementptr inbounds %"struct.icu_77::CharacterNode", ptr %47, i64 %48
+  %49 = getelementptr inbounds [16 x i8], ptr %47, i64 %48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i16 %2, ptr %50, align 8, !tbaa !45
@@ -1336,7 +1335,7 @@ define noundef ptr @_ZN6icu_7711TextTrieMap12addChildNodeEPNS_13CharacterNodeEDs
   %60 = trunc i32 %59 to i16
   %61 = load ptr, ptr %58, align 8, !tbaa !33
   %62 = zext i16 %.031.lcssa to i64
-  %63 = getelementptr inbounds nuw %"struct.icu_77::CharacterNode", ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
   store i16 %60, ptr %64, align 4, !tbaa !46
   br label %65
@@ -1404,7 +1403,7 @@ define noundef ptr @_ZNK6icu_7711TextTrieMap12getChildNodeEPNS_13CharacterNodeED
 7:                                                ; preds = %.lr.ph, %15
   %.01327 = phi i16 [ %.01325, %.lr.ph ], [ %.013, %15 ]
   %8 = zext i16 %.01327 to i64
-  %9 = getelementptr inbounds nuw %"struct.icu_77::CharacterNode", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i16, ptr %10, align 8, !tbaa !45
   %12 = icmp eq i16 %11, %2
@@ -1624,7 +1623,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %.lr.ph, %_ZNK6icu_7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK6icu_7711TextTrieMap12getChildNodeEPNS_13CharacterNodeEDs.exit.loopexit ]
   %.079 = phi ptr [ %1, %.lr.ph ], [ %48, %_ZNK6icu_7711TextTrieMap12getChildNodeEPNS_13CharacterNodeEDs.exit.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv
   %45 = load i16, ptr %44, align 2, !tbaa !42
   %46 = getelementptr inbounds nuw i8, ptr %.079, i64 10
   %.01325.i = load i16, ptr %46, align 2, !tbaa !44
@@ -1634,7 +1633,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %.lr.ph, %_ZNK6icu_7
 .lr.ph.i:                                         ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit, %54
   %.01327.i = phi i16 [ %.013.i, %54 ], [ %.01325.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit ]
   %47 = zext i16 %.01327.i to i64
-  %48 = getelementptr inbounds nuw %"struct.icu_77::CharacterNode", ptr %43, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i16, ptr %49, align 8, !tbaa !45
   %51 = icmp eq i16 %50, %45
@@ -1682,7 +1681,7 @@ _ZNK6icu_7711TextTrieMap12getChildNodeEPNS_13CharacterNodeEDs.exit57.thread68: ;
   %72 = load ptr, ptr %71, align 8
   %73 = select i1 %.not.i.i.i48, ptr %72, ptr %70
   %74 = sext i32 %4 to i64
-  %75 = getelementptr inbounds i16, ptr %73, i64 %74
+  %75 = getelementptr inbounds [2 x i8], ptr %73, i64 %74
   %76 = load i16, ptr %75, align 2, !tbaa !42
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit49
 
@@ -1701,7 +1700,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit49:       ; preds = %58, %68
 80:                                               ; preds = %88, %.lr.ph.i52
   %.01327.i53 = phi i16 [ %.01325.i50, %.lr.ph.i52 ], [ %.013.i54, %88 ]
   %81 = zext i16 %.01327.i53 to i64
-  %82 = getelementptr inbounds nuw %"struct.icu_77::CharacterNode", ptr %79, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i16, ptr %83, align 8, !tbaa !45
   %85 = icmp eq i16 %84, %.0.i.i47
@@ -1893,7 +1892,7 @@ define noundef ptr @_ZN6icu_7712ZNStringPool3getEPKDsR10UErrorCode(ptr noundef n
   %28 = phi ptr [ %20, %25 ], [ %12, %10 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = sext i32 %27 to i64
-  %31 = getelementptr inbounds i16, ptr %29, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %29, i64 %30
   %32 = tail call ptr @u_strcpy_77(ptr noundef nonnull %31, ptr noundef %1)
   %33 = add nsw i32 %11, 1
   %34 = load ptr, ptr %0, align 8, !tbaa !57
@@ -2517,7 +2516,7 @@ define void @_ZN6icu_7717TimeZoneNamesImpl10initializeERKNS_6LocaleER10UErrorCod
 
 .preheader.i.i:                                   ; preds = %49, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %54, %.preheader.i.i ], [ 0, %49 ]
-  %51 = getelementptr inbounds nuw i16, ptr %48, i64 %.0.i.i.i.i
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %.0.i.i.i.i
   %52 = load i16, ptr %51, align 2, !tbaa !42
   %53 = icmp eq i16 %52, 0
   %54 = add i64 %.0.i.i.i.i, 1
@@ -2798,7 +2797,7 @@ define noundef ptr @_ZN6icu_7717TimeZoneNamesImpl17loadTimeZoneNamesERKNS_13Unic
   %23 = load ptr, ptr %5, align 8, !tbaa !97
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %23) #23, !srcloc !99
   %24 = sext i32 %21 to i64
-  %25 = getelementptr inbounds i16, ptr %4, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %4, i64 %24
   store i16 0, ptr %25, align 2, !tbaa !42
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %27 = load ptr, ptr %26, align 8, !tbaa !91
@@ -2822,7 +2821,7 @@ define noundef ptr @_ZN6icu_7717TimeZoneNamesImpl17loadTimeZoneNamesERKNS_13Unic
 
 36:                                               ; preds = %41, %34
   %indvars.iv.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i, %41 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8, !tbaa !96
   %39 = icmp eq ptr %38, @_ZN6icu_77L7NO_NAMEE
   br i1 %39, label %40, label %41
@@ -2932,7 +2931,7 @@ define noundef ptr @_ZN6icu_7717TimeZoneNamesImpl17loadMetaZoneNamesERKNS_13Unic
   %36 = load i32, ptr %17, align 4
   %37 = select i1 %33, i32 %36, i32 %35
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i16, ptr %6, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %6, i64 %38
   store i16 0, ptr %39, align 2, !tbaa !42
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %41 = load ptr, ptr %40, align 8, !tbaa !90
@@ -3016,7 +3015,7 @@ _ZN6icu_776ZNames12ZNamesLoader12loadMetaZoneEPK15UResourceBundleRKNS_13UnicodeS
 
 73:                                               ; preds = %78, %_ZN6icu_776ZNames12ZNamesLoader12loadMetaZoneEPK15UResourceBundleRKNS_13UnicodeStringER10UErrorCode.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN6icu_776ZNames12ZNamesLoader12loadMetaZoneEPK15UResourceBundleRKNS_13UnicodeStringER10UErrorCode.exit ], [ %indvars.iv.next.i, %78 ]
-  %74 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i
   %75 = load ptr, ptr %74, align 8, !tbaa !96
   %76 = icmp eq ptr %75, @_ZN6icu_77L7NO_NAMEE
   br i1 %76, label %77, label %78
@@ -3633,9 +3632,9 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %12
 
 switch.lookup:                                    ; preds = %.split.i.i
   %27 = zext nneg i32 %25 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK6icu_7717TimeZoneNamesImpl15getDisplayNamesERKNS_13UnicodeStringEPK17UTimeZoneNameTypeidPS1_R10UErrorCode.2, i64 %27
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK6icu_7717TimeZoneNamesImpl15getDisplayNamesERKNS_13UnicodeStringEPK17UTimeZoneNameTypeidPS1_R10UErrorCode.2, i64 %27
   %switch.load = load i64, ptr %switch.gep, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %switch.load
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %switch.load
   %29 = load ptr, ptr %28, align 8, !tbaa !96
   %.not23 = icmp eq ptr %29, null
   br i1 %.not23, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread, label %30
@@ -3729,9 +3728,9 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %12
 
 switch.lookup:                                    ; preds = %.split.i.i
   %27 = zext nneg i32 %25 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK6icu_7717TimeZoneNamesImpl15getDisplayNamesERKNS_13UnicodeStringEPK17UTimeZoneNameTypeidPS1_R10UErrorCode.2, i64 %27
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK6icu_7717TimeZoneNamesImpl15getDisplayNamesERKNS_13UnicodeStringEPK17UTimeZoneNameTypeidPS1_R10UErrorCode.2, i64 %27
   %switch.load = load i64, ptr %switch.gep, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %11, i64 %switch.load
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %switch.load
   %29 = load ptr, ptr %28, align 8, !tbaa !96
   %.not23 = icmp eq ptr %29, null
   br i1 %.not23, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread, label %30
@@ -3877,7 +3876,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7713Unicod
   %.not.i.i.i = icmp eq i16 %23, 0
   %24 = load ptr, ptr %18, align 8
   %25 = select i1 %.not.i.i.i, ptr %24, ptr %17
-  %26 = getelementptr inbounds nuw i16, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %indvars.iv
   %27 = load i16, ptr %26, align 2, !tbaa !42
   %28 = icmp eq i16 %27, 47
   br i1 %28, label %29, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
@@ -4345,7 +4344,7 @@ define void @_ZN6icu_7717TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode(pt
 27:                                               ; preds = %.backedge.i.i, %26
   %28 = phi i32 [ %40, %.backedge.i.i ], [ %21, %26 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.backedge.i.i ], [ 0, %26 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8, !tbaa !96
   %.not25.i.i = icmp eq ptr %30, null
   br i1 %.not25.i.i, label %.critedge28.i.i, label %31
@@ -4361,7 +4360,7 @@ switch.lookup:                                    ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr null, ptr %35, align 8, !tbaa !81
   %36 = and i64 %indvars.iv.i, 4294967295
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_7717TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 %36
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6icu_7717TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %32, align 8, !tbaa !78
   call void @_ZN6icu_7711TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull %30, ptr noundef nonnull %32, ptr noundef nonnull align 4 dereferenceable(4) %1)
@@ -4430,7 +4429,7 @@ _ZN6icu_776ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exi
 63:                                               ; preds = %.backedge.i.i32, %62
   %64 = phi i32 [ %76, %.backedge.i.i32 ], [ %57, %62 ]
   %indvars.iv.i27 = phi i64 [ %indvars.iv.next.i33, %.backedge.i.i32 ], [ 0, %62 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.i27
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i27
   %66 = load ptr, ptr %65, align 8, !tbaa !96
   %.not25.i.i28 = icmp eq ptr %66, null
   br i1 %.not25.i.i28, label %.critedge28.i.i36, label %67
@@ -4446,7 +4445,7 @@ switch.lookup64:                                  ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %56, ptr %71, align 8, !tbaa !81
   %72 = and i64 %indvars.iv.i27, 4294967295
-  %switch.gep65 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_7717TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 %72
+  %switch.gep65 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6icu_7717TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 %72
   %switch.load66 = load i32, ptr %switch.gep65, align 4
   store i32 %switch.load66, ptr %68, align 8, !tbaa !78
   call void @_ZN6icu_7711TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %46, ptr noundef nonnull %66, ptr noundef nonnull %68, ptr noundef nonnull align 4 dereferenceable(4) %1)
@@ -4827,7 +4826,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %17
 30:                                               ; preds = %.lr.ph, %83
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
   %.05294 = phi ptr [ null, %.lr.ph ], [ %.15383, %83 ]
-  %31 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !118
   %33 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %32)
   %34 = icmp ne i32 %33, 1
@@ -4840,9 +4839,9 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %17
 
 switch.lookup:                                    ; preds = %.split.i.i
   %37 = zext nneg i32 %35 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK6icu_7717TimeZoneNamesImpl15getDisplayNamesERKNS_13UnicodeStringEPK17UTimeZoneNameTypeidPS1_R10UErrorCode.2, i64 %37
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK6icu_7717TimeZoneNamesImpl15getDisplayNamesERKNS_13UnicodeStringEPK17UTimeZoneNameTypeidPS1_R10UErrorCode.2, i64 %37
   %switch.load = load i64, ptr %switch.gep, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %16, i64 %switch.load
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %switch.load
   %39 = load ptr, ptr %38, align 8, !tbaa !96
   %40 = icmp eq ptr %39, null
   br i1 %40, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit.thread, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread85
@@ -4940,9 +4939,9 @@ _ZN6icu_775MutexD2Ev.exit73:                      ; preds = %61, %63, %50
 
 switch.lookup100:                                 ; preds = %.split.i.i74
   %72 = zext nneg i32 %70 to i64
-  %switch.gep101 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK6icu_7717TimeZoneNamesImpl15getDisplayNamesERKNS_13UnicodeStringEPK17UTimeZoneNameTypeidPS1_R10UErrorCode.2, i64 %72
+  %switch.gep101 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK6icu_7717TimeZoneNamesImpl15getDisplayNamesERKNS_13UnicodeStringEPK17UTimeZoneNameTypeidPS1_R10UErrorCode.2, i64 %72
   %switch.load102 = load i64, ptr %switch.gep101, align 8
-  %73 = getelementptr inbounds nuw ptr, ptr %.254, i64 %switch.load102
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.254, i64 %switch.load102
   %74 = load ptr, ptr %73, align 8, !tbaa !96
   %.not66 = icmp eq ptr %74, null
   br i1 %.not66, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread, label %_ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread85
@@ -4950,7 +4949,7 @@ switch.lookup100:                                 ; preds = %.split.i.i74
 _ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread85: ; preds = %switch.lookup, %switch.lookup100
   %.090 = phi ptr [ %74, %switch.lookup100 ], [ %39, %switch.lookup ]
   %.15389 = phi ptr [ %.254, %switch.lookup100 ], [ %.05294, %switch.lookup ]
-  %75 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %5, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %indvars.iv
   store ptr %.090, ptr %9, align 8, !tbaa !48
   %76 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %75, i8 noundef signext 1, ptr noundef nonnull %9, i32 noundef -1)
           to label %77 unwind label %79
@@ -4968,7 +4967,7 @@ _ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread85: ; preds = %switc
   br label %_ZN6icu_775MutexD2Ev.exit71
 
 _ZNK6icu_776ZNames7getNameE17UTimeZoneNameType.exit76.thread: ; preds = %.split.i.i74, %69, %switch.lookup100
-  %82 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %5, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %indvars.iv
   call void @_ZN6icu_7713UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %82)
   br label %83
 
@@ -5061,7 +5060,7 @@ _ZN6icu_7717TimeZoneNamesImpl17ZoneStringsLoader10isMetaZoneEPKc.exit: ; preds =
 
 41:                                               ; preds = %46, %32
   %indvars.iv.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i, %46 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 8, !tbaa !96
   %44 = icmp eq ptr %43, @_ZN6icu_77L7NO_NAMEE
   br i1 %44, label %45, label %46
@@ -5153,7 +5152,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %_ZN6icu_7717TimeZon
   %.not.i.i.i.i = icmp eq i16 %74, 0
   %75 = load ptr, ptr %19, align 8, !alias.scope !125
   %76 = select i1 %.not.i.i.i.i, ptr %75, ptr %18
-  %77 = getelementptr inbounds nuw i16, ptr %76, i64 %indvars.iv.i26
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %76, i64 %indvars.iv.i26
   %78 = load i16, ptr %77, align 2, !tbaa !42
   %79 = icmp eq i16 %78, 58
   br i1 %79, label %80, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.i
@@ -5189,7 +5188,7 @@ _ZN6icu_7717TimeZoneNamesImpl17ZoneStringsLoader11tzIDFromKeyEPKc.exit: ; preds 
 
 95:                                               ; preds = %100, %_ZN6icu_7717TimeZoneNamesImpl17ZoneStringsLoader11tzIDFromKeyEPKc.exit
   %indvars.iv.i28 = phi i64 [ 0, %_ZN6icu_7717TimeZoneNamesImpl17ZoneStringsLoader11tzIDFromKeyEPKc.exit ], [ %indvars.iv.next.i29, %100 ]
-  %96 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv.i28
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv.i28
   %97 = load ptr, ptr %96, align 8, !tbaa !96
   %98 = icmp eq ptr %97, @_ZN6icu_77L7NO_NAMEE
   br i1 %98, label %99, label %100
@@ -5552,7 +5551,7 @@ define noundef ptr @_ZN6icu_779TZDBNames14createInstanceEP15UResourceBundlePKc(p
 .preheader106:                                    ; preds = %.preheader106.outer, %27
   %indvars.iv = phi i64 [ 1, %27 ], [ %indvars.iv.ph, %.preheader106.outer ]
   store i32 0, ptr %3, align 4, !tbaa !13
-  %18 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L14TZDBNAMES_KEYSE, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_77L14TZDBNAMES_KEYSE, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !136
   %20 = call ptr @ures_getStringByKey_77(ptr noundef %11, ptr noundef %19, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %21 = load i32, ptr %3, align 4, !tbaa !13
@@ -5560,7 +5559,7 @@ define noundef ptr @_ZN6icu_779TZDBNames14createInstanceEP15UResourceBundlePKc(p
   %23 = load i32, ptr %4, align 4
   %24 = icmp eq i32 %23, 0
   %or.cond3 = select i1 %22, i1 true, i1 %24
-  %25 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %26 = icmp eq i64 %indvars.iv, 0
   br i1 %or.cond3, label %27, label %.thread131
 
@@ -5861,7 +5860,7 @@ _ZNK6icu_7713CharacterNode8getValueEi.exit:       ; preds = %20, %23
 .lr.ph:                                           ; preds = %.preheader, %39
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.preheader ]
   %42 = load ptr, ptr %32, align 8, !tbaa !148
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef %44)
@@ -6429,7 +6428,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %_
   %41 = load i32, ptr %40, align 4
   %42 = select i1 %37, i32 %41, i32 %39
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i16, ptr %3, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %3, i64 %43
   store i16 0, ptr %44, align 2, !tbaa !42
   %45 = call signext i8 @uprv_isInvariantUString_77(ptr noundef nonnull %3, i32 noundef %42)
   %.not45 = icmp eq i8 %45, 0
@@ -6974,7 +6973,7 @@ _ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i: ; preds = %45, %39,
 _ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.thread11.i: ; preds = %_ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i, %39, %33
   %.0.i13.i = phi i32 [ %.0.i.i, %_ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i ], [ 1, %33 ], [ 4, %39 ]
   %49 = zext nneg i32 %.0.i13.i to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %15, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !96
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %_ZN6icu_776ZNames12ZNamesLoader14setNameIfEmptyEPKcPKNS_13ResourceValueER10UErrorCode.exit
@@ -7035,7 +7034,7 @@ _ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i13: ; preds = %75, %6
 _ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.thread11.i15: ; preds = %_ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i13, %69, %63
   %.0.i13.i16 = phi i32 [ %.0.i.i14, %_ZN6icu_776ZNames12ZNamesLoader15nameTypeFromKeyEPKc.exit.i13 ], [ 1, %63 ], [ 4, %69 ]
   %79 = zext nneg i32 %.0.i13.i16 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %15, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !96
   %82 = icmp eq ptr %81, null
   br i1 %82, label %83, label %_ZN6icu_776ZNames12ZNamesLoader14setNameIfEmptyEPKcPKNS_13ResourceValueER10UErrorCode.exit
@@ -7360,7 +7359,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %_ZNK6icu_7713Unicod
   %.not.i.i.i.i = icmp eq i16 %53, 0
   %54 = load ptr, ptr %48, align 8, !alias.scope !166
   %55 = select i1 %.not.i.i.i.i, ptr %54, ptr %47
-  %56 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %indvars.iv.i
   %57 = load i16, ptr %56, align 2, !tbaa !42
   %58 = icmp eq i16 %57, 58
   br i1 %58, label %59, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread.i

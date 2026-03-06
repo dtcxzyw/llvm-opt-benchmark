@@ -1206,7 +1206,7 @@ define hidden void @"_ZN113_$LT$rayon..iter..collect..consumer..CollectResult$LT
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr %1, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw { { ptr, i64 }, { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { { i32 } }, { { i8 } }, [3 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, i64 } }, ptr %16, i64 %6
+  %17 = getelementptr inbounds nuw [136 x i8], ptr %16, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %17, ptr noundef nonnull align 8 dereferenceable(136) %2, i64 136, i1 false)
   %18 = add nuw i64 %6, 1
   store i64 %18, ptr %5, align 8
@@ -1263,7 +1263,7 @@ define hidden void @"_ZN113_$LT$rayon..iter..collect..consumer..CollectResult$LT
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr %1, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %16, i64 %6
+  %17 = getelementptr inbounds nuw [88 x i8], ptr %16, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %17, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 88, i1 false)
   %18 = add nuw i64 %6, 1
   store i64 %18, ptr %5, align 8
@@ -1319,7 +1319,7 @@ define hidden void @"_ZN113_$LT$rayon..iter..collect..consumer..CollectResult$LT
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr %1, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { i64, [5 x i64] } }, ptr %16, i64 %6
+  %17 = getelementptr inbounds nuw [72 x i8], ptr %16, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %17, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false)
   %18 = add nuw i64 %6, 1
   store i64 %18, ptr %5, align 8
@@ -1359,7 +1359,7 @@ define hidden void @"_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$
   unreachable
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { i64, [5 x i64] } }, ptr %1, i64 %3
+  %7 = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %3
   %8 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1381,7 +1381,7 @@ define hidden void @"_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$
   unreachable
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %1, i64 %3
+  %7 = getelementptr inbounds nuw [88 x i8], ptr %1, i64 %3
   %8 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11877,7 +11877,7 @@ define hidden void @"_ZN159_$LT$rayon..iter..collect..consumer..CollectReducer$u
   %5 = load ptr, ptr %1, align 8, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [88 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %2, align 8, !noundef !3
   %10 = icmp eq ptr %8, %9
   br i1 %10, label %12, label %11
@@ -11934,7 +11934,7 @@ define hidden void @"_ZN159_$LT$rayon..iter..collect..consumer..CollectReducer$u
   %5 = load ptr, ptr %1, align 8, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { i64, [5 x i64] } }, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [72 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %2, align 8, !noundef !3
   %10 = icmp eq ptr %8, %9
   br i1 %10, label %12, label %11
@@ -11991,7 +11991,7 @@ define hidden void @"_ZN159_$LT$rayon..iter..collect..consumer..CollectReducer$u
   %5 = load ptr, ptr %1, align 8, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds nuw { { ptr, i64 }, { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { { i32 } }, { { i8 } }, [3 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, i64 } }, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [136 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %2, align 8, !noundef !3
   %10 = icmp eq ptr %8, %9
   br i1 %10, label %12, label %11
@@ -14093,7 +14093,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %4 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4core3fmt9Formatter10debug_list17h707f9a0a1c7e66ccE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %5 = getelementptr inbounds nuw { i64, [6 x i64] }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %1
   %6 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h1ff6d201c9cda619E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0, ptr noundef nonnull %5)
   %7 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17ha93605e0e88ab8f4E(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -16514,8 +16514,8 @@ define hidden void @"_ZN5alloc11collections11linked_list19LinkedList$LT$T$GT$6ap
 
 .preheader:                                       ; preds = %2, %.preheader
   %.sroa.0.05.i.i.i = phi i64 [ %11, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.0.05.i.i.i
-  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %.sroa.0.05.i.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.05.i.i.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.0.05.i.i.i
   %9 = load i64, ptr %7, align 8
   %10 = load i64, ptr %8, align 8
   store i64 %10, ptr %7, align 8
@@ -16561,8 +16561,8 @@ define hidden void @"_ZN5alloc11collections11linked_list19LinkedList$LT$T$GT$6ap
 
 .preheader:                                       ; preds = %2, %.preheader
   %.sroa.0.05.i.i.i = phi i64 [ %11, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.0.05.i.i.i
-  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %.sroa.0.05.i.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.05.i.i.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.0.05.i.i.i
   %9 = load i64, ptr %7, align 8
   %10 = load i64, ptr %8, align 8
   store i64 %10, ptr %7, align 8
@@ -16608,8 +16608,8 @@ define hidden void @"_ZN5alloc11collections11linked_list19LinkedList$LT$T$GT$6ap
 
 .preheader:                                       ; preds = %2, %.preheader
   %.sroa.0.05.i.i.i = phi i64 [ %11, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.0.05.i.i.i
-  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %.sroa.0.05.i.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.05.i.i.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.0.05.i.i.i
   %9 = load i64, ptr %7, align 8
   %10 = load i64, ptr %8, align 8
   store i64 %10, ptr %7, align 8
@@ -17066,7 +17066,7 @@ define hidden { ptr, i64 } @"_ZN5rayon4iter7collect8consumer24CollectConsumer$LT
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  %12 = getelementptr inbounds nuw { { ptr, i64 }, { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { { i32 } }, { { i8 } }, [3 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, i64 } }, ptr %11, i64 %4
+  %12 = getelementptr inbounds nuw [136 x i8], ptr %11, i64 %4
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %1, 1
   ret { ptr, i64 } %14
@@ -17090,7 +17090,7 @@ define hidden { ptr, i64 } @"_ZN5rayon4iter7collect8consumer24CollectConsumer$LT
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  %12 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %11, i64 %4
+  %12 = getelementptr inbounds nuw [88 x i8], ptr %11, i64 %4
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %1, 1
   ret { ptr, i64 } %14
@@ -17114,7 +17114,7 @@ define hidden { ptr, i64 } @"_ZN5rayon4iter7collect8consumer24CollectConsumer$LT
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !3, !noundef !3
-  %12 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { i64, [5 x i64] } }, ptr %11, i64 %4
+  %12 = getelementptr inbounds nuw [72 x i8], ptr %11, i64 %4
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %1, 1
   ret { ptr, i64 } %14

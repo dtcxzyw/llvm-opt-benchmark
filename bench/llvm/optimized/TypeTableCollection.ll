@@ -3,11 +3,9 @@ source_filename = "bench/llvm/original/TypeTableCollection.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::ArrayRef.6" = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.llvm::StringRef" = type { ptr, i64 }
 
 $_ZN4llvm8codeview19TypeTableCollectionD2Ev = comdat any
 
@@ -100,7 +98,7 @@ define dso_local { ptr, i64 } @_ZN4llvm8codeview19TypeTableCollection7getTypeENS
   %5 = add nsw i32 %4, -4096
   %6 = zext i32 %5 to i64
   %7 = load ptr, ptr %3, align 8, !tbaa !31
-  %8 = getelementptr inbounds nuw %"class.llvm::ArrayRef.6", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %6
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8, !tbaa !33
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !30
@@ -125,7 +123,7 @@ define dso_local { ptr, i64 } @_ZN4llvm8codeview19TypeTableCollection11getTypeNa
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = zext i32 %9 to i64
   %12 = load ptr, ptr %10, align 8, !tbaa !34
-  %13 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !37
   %15 = icmp eq ptr %14, null
   br i1 %15, label %18, label %._crit_edge
@@ -161,7 +159,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %31 = load ptr, ptr %10, align 8, !tbaa !34
-  %32 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %31, i64 %11
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %11
   store ptr %24, ptr %32, align 8, !tbaa !33
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %25, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !30
@@ -421,9 +419,9 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds
 
 _ZNSt12_Vector_baseIN4llvm9StringRefESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !34
-  %33 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !52
-  %34 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !45
   br label %35
 

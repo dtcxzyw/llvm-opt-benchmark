@@ -249,27 +249,27 @@ define range(i32 -22, 1) i32 @CVodeSetNonlinearSolverSensSim(ptr noundef %0, ptr
 
 119:                                              ; preds = %.lr.ph, %119
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %119 ]
-  %120 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv
   %121 = load ptr, ptr %120, align 8, !tbaa !36
   %122 = load ptr, ptr %94, align 8, !tbaa !33
   %123 = load ptr, ptr %122, align 8, !tbaa !37
   %124 = load ptr, ptr %123, align 8, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv.next
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv.next
   store ptr %121, ptr %125, align 8, !tbaa !36
-  %126 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv
   %127 = load ptr, ptr %126, align 8, !tbaa !36
   %128 = load ptr, ptr %100, align 8, !tbaa !34
   %129 = load ptr, ptr %128, align 8, !tbaa !37
   %130 = load ptr, ptr %129, align 8, !tbaa !40
-  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv.next
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv.next
   store ptr %127, ptr %131, align 8, !tbaa !36
-  %132 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv
   %133 = load ptr, ptr %132, align 8, !tbaa !36
   %134 = load ptr, ptr %106, align 8, !tbaa !35
   %135 = load ptr, ptr %134, align 8, !tbaa !37
   %136 = load ptr, ptr %135, align 8, !tbaa !40
-  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv.next
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv.next
   store ptr %133, ptr %137, align 8, !tbaa !36
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %119
@@ -515,10 +515,10 @@ define internal range(i32 -41, 16) i32 @cvNlsFPFunctionSensSim(ptr noundef reado
 63:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
   %64 = load double, ptr %31, align 8, !tbaa !62
-  %65 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !36
   %67 = load ptr, ptr %62, align 8, !tbaa !44
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8, !tbaa !36
   tail call void @N_VLinearSum(double noundef %64, ptr noundef %66, double noundef -1.000000e+00, ptr noundef %69, ptr noundef %66) #3
   %70 = load double, ptr %35, align 8, !tbaa !55
@@ -865,10 +865,10 @@ define internal range(i32 -21, 903) i32 @cvNlsLSolveSensSim(ptr noundef readonly
 32:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %33 = load ptr, ptr %9, align 8, !tbaa !70
-  %34 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !36
   %36 = load ptr, ptr %27, align 8, !tbaa !46
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !36
   %39 = load ptr, ptr %13, align 8, !tbaa !50
   %40 = load ptr, ptr %15, align 8, !tbaa !52

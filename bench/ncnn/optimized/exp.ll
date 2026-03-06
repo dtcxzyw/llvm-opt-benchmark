@@ -155,7 +155,7 @@ define internal void @_ZNK4ncnn3Exp15forward_inplaceERNS_3MatERKNS_6OptionE.omp_
 31:                                               ; preds = %.noexc.us, %31
   %indvars.iv = phi i64 [ 0, %.noexc.us ], [ %indvars.iv.next, %31 ]
   %32 = load float, ptr %26, align 8, !tbaa !28
-  %33 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %34 = load float, ptr %33, align 4, !tbaa !47
   %35 = load float, ptr %27, align 4, !tbaa !27
   %36 = fmul fast float %35, %34
@@ -263,7 +263,7 @@ define internal void @_ZNK4ncnn3Exp15forward_inplaceERNS_3MatERKNS_6OptionE.omp_
   %indvars.iv = phi i64 [ 0, %.noexc.us ], [ %indvars.iv.next, %32 ]
   %33 = load float, ptr %26, align 8, !tbaa !4
   %34 = load float, ptr %27, align 8, !tbaa !28
-  %35 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %36 = load float, ptr %35, align 4, !tbaa !47
   %37 = load float, ptr %28, align 4, !tbaa !27
   %38 = fmul fast float %37, %36

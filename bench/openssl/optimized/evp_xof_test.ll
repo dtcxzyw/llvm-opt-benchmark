@@ -496,7 +496,7 @@ define internal range(i32 0, 2) i32 @shake_squeeze_dup_test(i32 noundef %0) #0 {
 
 19:                                               ; preds = %14
   %20 = sext i32 %0 to i64
-  %21 = getelementptr inbounds i64, ptr @dupoffset_tests, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr @dupoffset_tests, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !8
   %23 = call fastcc ptr @shake_setup(ptr noundef nonnull @.str.42)
   %24 = call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 450, ptr noundef nonnull @.str.43, ptr noundef %23) #5
@@ -754,7 +754,7 @@ declare i32 @test_uchar_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @do_shake_squeeze_test(i32 noundef %0, ptr noundef %1, i64 noundef range(i64 16, 33) %2, ptr noundef %3, i64 noundef range(i64 250, 2001) %4) unnamed_addr #0 {
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.anon, ptr @stride_tests, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr @stride_tests, i64 %6
   %8 = load i64, ptr %7, align 16, !tbaa !20
   %9 = tail call fastcc ptr @shake_setup(ptr noundef nonnull @.str.11)
   %10 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 379, ptr noundef nonnull @.str.10, ptr noundef %9) #5

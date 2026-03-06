@@ -5,17 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.rlimit = type { i64, i64 }
 %struct.wtap_dump_params = type { i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.merge_in_file_s = type { ptr, ptr, %struct.wtap_rec, i32, i32, i64, ptr, i32, i32 }
-%struct.wtap_rec = type { i32, i32, i32, %struct.nstime_t, i32, %struct.nstime_t, i8, %union.anon, ptr, i8, %struct.Buffer, %struct.Buffer }
-%struct.nstime_t = type { i64, i32 }
-%union.anon = type { %struct.wtap_packet_header }
-%struct.wtap_packet_header = type { i32, i32, i32, i32, %union.wtap_pseudo_header }
-%union.wtap_pseudo_header = type { %struct.erf_mc_phdr }
-%struct.erf_mc_phdr = type { %struct.erf_phdr, [16 x %struct.erf_ehdr], %union.anon.1 }
-%struct.erf_phdr = type { i64, i8, i8, i16, i16, i16 }
-%struct.erf_ehdr = type { i64 }
-%union.anon.1 = type { i32 }
-%struct.Buffer = type { ptr, i64, i64, i64 }
 
 @idb_merge_mode_strings = internal unnamed_addr constant [4 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4], align 16
 @.str = private unnamed_addr constant [78 x i8] c"Output file %s is same as input file %s; appending would create infinite loop\00", align 1
@@ -40,7 +29,7 @@ define range(i32 0, 4) i32 @merge_string_to_idb_merge_mode(ptr noundef %0) local
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr ptr, ptr @idb_merge_mode_strings, i64 %indvars.iv
+  %3 = getelementptr [8 x i8], ptr @idb_merge_mode_strings, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @g_strcmp0(ptr noundef %0, ptr noundef %4)
   %6 = icmp eq i32 %5, 0
@@ -70,7 +59,7 @@ define ptr @merge_idb_merge_mode_to_string(i32 noundef %0) local_unnamed_addr #2
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr ptr, ptr @idb_merge_mode_strings, i64 %3
+  %4 = getelementptr [8 x i8], ptr @idb_merge_mode_strings, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -96,13 +85,13 @@ define zeroext i1 @merge_files(ptr noundef %0, i32 noundef %1, ptr noundef reado
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr ptr, ptr %2, i64 %indvars.iv
+  %13 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i1 @files_identical(ptr noundef %0, ptr noundef %14)
   br i1 %15, label %16, label %12
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr ptr, ptr %2, i64 %indvars.iv
+  %17 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str, ptr noundef %0, ptr noundef %18)
   br label %20
@@ -187,7 +176,7 @@ define internal fastcc zeroext i1 @merge_files_common(ptr noundef %0, ptr nounde
 43:                                               ; preds = %38
   %44 = sub i32 %5, %.0121321
   %45 = zext i32 %.0121321 to i64
-  %46 = getelementptr ptr, ptr %4, i64 %45
+  %46 = getelementptr [8 x i8], ptr %4, i64 %45
   %47 = zext i32 %44 to i64
   %48 = mul nuw nsw i64 %47, 360
   %49 = call noalias ptr @g_malloc0(i64 noundef %48) #14
@@ -198,8 +187,8 @@ define internal fastcc zeroext i1 @merge_files_common(ptr noundef %0, ptr nounde
   %indvars.iv195.i = phi i32 [ %indvars.iv.next196.i, %.outer.i ], [ 1, %43 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.outer.i ], [ 0, %43 ]
   %.0.ph164.i = phi i1 [ %.us-phi108.i, %.outer.i ], [ false, %43 ]
-  %50 = getelementptr ptr, ptr %46, i64 %indvars.iv.i
-  %51 = getelementptr %struct.merge_in_file_s, ptr %49, i64 %indvars.iv.i
+  %50 = getelementptr [8 x i8], ptr %46, i64 %indvars.iv.i
+  %51 = getelementptr [360 x i8], ptr %49, i64 %indvars.iv.i
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 328
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 332
@@ -287,7 +276,7 @@ raise_limit.exit.thread.i:                        ; preds = %71, %67, %64
 
 .lr.ph167.i:                                      ; preds = %.lr.ph167.i, %.lr.ph167.preheader.i
   %indvars.iv187.i = phi i64 [ 0, %.lr.ph167.preheader.i ], [ %indvars.iv.next188.i, %.lr.ph167.i ]
-  %82 = getelementptr %struct.merge_in_file_s, ptr %49, i64 %indvars.iv187.i
+  %82 = getelementptr [360 x i8], ptr %49, i64 %indvars.iv187.i
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
   call void @wtap_close(ptr noundef %84)
@@ -319,7 +308,7 @@ raise_limit.exit.thread.i:                        ; preds = %71, %67, %64
 
 91:                                               ; preds = %91, %.preheader84.i
   %indvars.iv192.i = phi i64 [ 0, %.preheader84.i ], [ %indvars.iv.next193.i, %91 ]
-  %92 = getelementptr %struct.merge_in_file_s, ptr %49, i64 %indvars.iv192.i
+  %92 = getelementptr [360 x i8], ptr %49, i64 %indvars.iv192.i
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
   call void @wtap_close(ptr noundef %94)
@@ -373,7 +362,7 @@ merge_open_in_files.exit.thread.loopexit:         ; preds = %merge_open_in_files
 merge_open_in_files.exit.thread:                  ; preds = %merge_open_in_files.exit.thread.loopexit, %._crit_edge.i, %99
   %109 = phi i32 [ %.pre378, %merge_open_in_files.exit.thread.loopexit ], [ %56, %._crit_edge.i ], [ %56, %99 ]
   %110 = zext i32 %109 to i64
-  %111 = getelementptr ptr, ptr %4, i64 %110
+  %111 = getelementptr [8 x i8], ptr %4, i64 %110
   %112 = load ptr, ptr %111, align 8
   %113 = load i32, ptr %20, align 4
   %114 = load ptr, ptr %21, align 8
@@ -400,7 +389,7 @@ merge_open_in_files.exit.thread:                  ; preds = %merge_open_in_files
 .lr.ph.i178:                                      ; preds = %128, %.lr.ph.preheader.i
   %indvars.iv.i179 = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i180, %128 ]
   %.01520.i = phi i32 [ %119, %.lr.ph.preheader.i ], [ %.217.i, %128 ]
-  %122 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv.i179
+  %122 = getelementptr [360 x i8], ptr %.073.i, i64 %indvars.iv.i179
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = call i32 @wtap_file_encap(ptr noundef %124)
@@ -455,7 +444,7 @@ merge_select_frame_type.exit:                     ; preds = %.lr.ph.i178, %merge
 141:                                              ; preds = %141, %135
   %indvars.iv.i183 = phi i64 [ 0, %135 ], [ %indvars.iv.next.i184, %141 ]
   %indvars.iv.next.i184 = add nuw nsw i64 %indvars.iv.i183, 1
-  %142 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv.i183
+  %142 = getelementptr [360 x i8], ptr %.073.i, i64 %indvars.iv.i183
   %143 = load ptr, ptr %142, align 8
   %144 = trunc nuw i64 %indvars.iv.next.i184 to i32
   call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %140, ptr noundef nonnull @.str.11, i32 noundef %144, ptr noundef %143)
@@ -518,7 +507,7 @@ create_shb_header.exit:                           ; preds = %158, %159
 
 .lr.ph35.i.us.i:                                  ; preds = %.lr.ph35.preheader.i.i, %.preheader.i.us.i
   %indvars.iv42.i.us.i = phi i64 [ %indvars.iv.next43.i.us.i, %.preheader.i.us.i ], [ 1, %.lr.ph35.preheader.i.i ]
-  %173 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv42.i.us.i
+  %173 = getelementptr [360 x i8], ptr %.073.i, i64 %indvars.iv42.i.us.i
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %175 = load ptr, ptr %174, align 8
   %176 = call ptr @wtap_file_get_idb_info(ptr noundef %175)
@@ -536,7 +525,7 @@ create_shb_header.exit:                           ; preds = %158, %159
 
 .lr.ph35.i.i:                                     ; preds = %.lr.ph35.preheader.i.i, %._crit_edge.i.loopexit.i
   %indvars.iv42.i.i = phi i64 [ %indvars.iv.next43.i.i, %._crit_edge.i.loopexit.i ], [ 1, %.lr.ph35.preheader.i.i ]
-  %180 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv42.i.i
+  %180 = getelementptr [360 x i8], ptr %.073.i, i64 %indvars.iv42.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load ptr, ptr %181, align 8
   %183 = call ptr @wtap_file_get_idb_info(ptr noundef %182)
@@ -555,11 +544,11 @@ create_shb_header.exit:                           ; preds = %158, %159
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %187 ], [ 0, %.lr.ph35.i.i ]
   %188 = load ptr, ptr %168, align 8
   %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr ptr, ptr %189, i64 %indvars.iv.i.i
+  %190 = getelementptr [8 x i8], ptr %189, i64 %indvars.iv.i.i
   %191 = load ptr, ptr %190, align 8
   %192 = load ptr, ptr %183, align 8
   %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr ptr, ptr %193, i64 %indvars.iv.i.i
+  %194 = getelementptr [8 x i8], ptr %193, i64 %indvars.iv.i.i
   %195 = load ptr, ptr %194, align 8
   %196 = call fastcc zeroext i1 @is_duplicate_idb(ptr noundef %191, ptr noundef %195)
   br i1 %196, label %187, label %all_idbs_are_duplicates.exit.i
@@ -617,7 +606,7 @@ all_idbs_are_duplicates.exit.i:                   ; preds = %.lr.ph35.i.i, %.lr.
 
 .lr.ph84.i:                                       ; preds = %202, %216
   %indvars.iv99.i = phi i64 [ %indvars.iv.next100.i, %216 ], [ 1, %202 ]
-  %212 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv99.i
+  %212 = getelementptr [360 x i8], ptr %.073.i, i64 %indvars.iv99.i
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %214 = load ptr, ptr %213, align 8
   %215 = call ptr @wtap_get_next_interface_description(ptr noundef %214)
@@ -646,7 +635,7 @@ all_idbs_are_duplicates.exit.i:                   ; preds = %.lr.ph35.i.i, %.lr.
 
 222:                                              ; preds = %._crit_edge.i190, %._crit_edge104.i
   %indvars.iv.i187 = phi i64 [ 0, %._crit_edge104.i ], [ %indvars.iv.next.i191, %._crit_edge.i190 ]
-  %223 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv.i187
+  %223 = getelementptr [360 x i8], ptr %.073.i, i64 %indvars.iv.i187
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %.pn79.i = load ptr, ptr %224, align 8
   %225 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn79.i)
@@ -666,7 +655,7 @@ all_idbs_are_duplicates.exit.i:                   ; preds = %.lr.ph35.i.i, %.lr.
 .lr.ph.i66.i.us:                                  ; preds = %.lr.ph.i188.split.us, %233
   %indvars.iv.i67.i.us = phi i64 [ %indvars.iv.next.i68.i.us, %233 ], [ 0, %.lr.ph.i188.split.us ]
   %229 = load ptr, ptr %164, align 8
-  %230 = getelementptr ptr, ptr %229, i64 %indvars.iv.i67.i.us
+  %230 = getelementptr [8 x i8], ptr %229, i64 %indvars.iv.i67.i.us
   %231 = load ptr, ptr %230, align 8
   %232 = call fastcc zeroext i1 @is_duplicate_idb(ptr noundef nonnull %227, ptr noundef %231)
   br i1 %232, label %237, label %233
@@ -837,7 +826,7 @@ generate_merged_idbs.exit:                        ; preds = %._crit_edge.i190, %
 
 .lr.ph.i198:                                      ; preds = %.lr.ph.i198, %.lr.ph.preheader.i196
   %indvars.iv.i199 = phi i64 [ 0, %.lr.ph.preheader.i196 ], [ %indvars.iv.next.i200, %.lr.ph.i198 ]
-  %291 = getelementptr %struct.merge_in_file_s, ptr %.073.i, i64 %indvars.iv.i199
+  %291 = getelementptr [360 x i8], ptr %.073.i, i64 %indvars.iv.i199
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
   %293 = load ptr, ptr %292, align 8
   call void @wtap_close(ptr noundef %293)
@@ -939,7 +928,7 @@ merge_close_in_files.exit:                        ; preds = %.lr.ph.i198, %289
 323:                                              ; preds = %._crit_edge
   %324 = load i32, ptr %22, align 4
   %325 = zext i32 %324 to i64
-  %326 = getelementptr ptr, ptr %4, i64 %325
+  %326 = getelementptr [8 x i8], ptr %4, i64 %325
   %327 = load ptr, ptr %326, align 8
   %328 = load i32, ptr %20, align 4
   %329 = load ptr, ptr %21, align 8
@@ -955,7 +944,7 @@ merge_close_in_files.exit:                        ; preds = %.lr.ph.i198, %289
 333:                                              ; preds = %._crit_edge
   %334 = load i32, ptr %22, align 4
   %335 = zext i32 %334 to i64
-  %336 = getelementptr ptr, ptr %4, i64 %335
+  %336 = getelementptr [8 x i8], ptr %4, i64 %335
   %337 = load ptr, ptr %336, align 8
   %338 = load i32, ptr %20, align 4
   %339 = load ptr, ptr %21, align 8
@@ -966,7 +955,7 @@ merge_close_in_files.exit:                        ; preds = %.lr.ph.i198, %289
   %341 = load i32, ptr %23, align 4
   %342 = load i32, ptr %22, align 4
   %343 = zext i32 %342 to i64
-  %344 = getelementptr ptr, ptr %4, i64 %343
+  %344 = getelementptr [8 x i8], ptr %4, i64 %343
   %345 = load ptr, ptr %344, align 8
   call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.6, i32 noundef %341, ptr noundef %345)
   br label %358
@@ -974,7 +963,7 @@ merge_close_in_files.exit:                        ; preds = %.lr.ph.i198, %289
 346:                                              ; preds = %._crit_edge
   %347 = load i32, ptr %22, align 4
   %348 = zext i32 %347 to i64
-  %349 = getelementptr ptr, ptr %4, i64 %348
+  %349 = getelementptr [8 x i8], ptr %4, i64 %348
   %350 = load ptr, ptr %349, align 8
   %351 = load i32, ptr %20, align 4
   %352 = load ptr, ptr %21, align 8
@@ -1129,7 +1118,7 @@ define internal fastcc range(i32 0, 8) i32 @merge_process_packets(ptr noundef no
 
 .lr.ph.i:                                         ; preds = %27, %41
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %27 ]
-  %28 = getelementptr %struct.merge_in_file_s, ptr %2, i64 %indvars.iv.i
+  %28 = getelementptr [360 x i8], ptr %2, i64 %indvars.iv.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 328
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 2
@@ -1173,7 +1162,7 @@ define internal fastcc range(i32 0, 8) i32 @merge_process_packets(ptr noundef no
   %.0.lcssa37.i = phi i64 [ %indvars.iv.i, %._crit_edge.i ], [ 0, %27 ]
   store i32 0, ptr %11, align 4
   %44 = and i64 %.0.lcssa37.i, 4294967295
-  %45 = getelementptr %struct.merge_in_file_s, ptr %2, i64 %44
+  %45 = getelementptr [360 x i8], ptr %2, i64 %44
   br label %merge_append_read_packet.exit
 
 merge_append_read_packet.exit:                    ; preds = %39, %._crit_edge.thread.i, %._crit_edge.thread35.i
@@ -1190,7 +1179,7 @@ merge_append_read_packet.exit:                    ; preds = %39, %._crit_edge.th
   %.sroa.0.081.i = phi i64 [ %.sroa.0.1.ph.i, %is_earlier.exit.thread51.i ], [ 9223372036854775807, %46 ]
   %.sroa.5.080.i = phi i32 [ %.sroa.5.1.ph.i, %is_earlier.exit.thread51.i ], [ 2147483647, %46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %47 = getelementptr %struct.merge_in_file_s, ptr %2, i64 %indvars.iv.i186
+  %47 = getelementptr [360 x i8], ptr %2, i64 %indvars.iv.i186
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 328
   %49 = load i32, ptr %48, align 8
   switch i32 %49, label %is_earlier.exit.thread51.i [
@@ -1273,7 +1262,7 @@ merge_read_packet.exit.thread:                    ; preds = %46, %._crit_edge.i1
 70:                                               ; preds = %._crit_edge.i189, %.thread69.i
   %.14171.i = phi i32 [ %68, %.thread69.i ], [ %.242.ph.i, %._crit_edge.i189 ]
   %71 = sext i32 %.14171.i to i64
-  %72 = getelementptr %struct.merge_in_file_s, ptr %2, i64 %71
+  %72 = getelementptr [360 x i8], ptr %2, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 328
   store i32 1, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 332
@@ -1387,7 +1376,7 @@ map_rec_interface_id.exit.thread299.thread:       ; preds = %86
 map_rec_interface_id.exit.thread:                 ; preds = %121
   %126 = load ptr, ptr %123, align 8
   %127 = zext i32 %.012.i to i64
-  %128 = getelementptr i32, ptr %126, i64 %127
+  %128 = getelementptr [4 x i8], ptr %126, i64 %127
   %129 = load i32, ptr %128, align 4
   %130 = getelementptr inbounds nuw i8, ptr %.0143, i64 92
   store i32 %129, ptr %130, align 4
@@ -1423,7 +1412,7 @@ map_rec_interface_id.exit.thread:                 ; preds = %121
   %indvars.iv = phi i64 [ %145, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %146 = load ptr, ptr %138, align 8
-  %147 = getelementptr ptr, ptr %146, i64 %indvars.iv
+  %147 = getelementptr [8 x i8], ptr %146, i64 %indvars.iv
   %148 = load ptr, ptr %147, align 8
   store ptr %148, ptr %18, align 8
   %149 = call ptr @g_array_append_vals(ptr noundef nonnull %9, ptr noundef nonnull %18, i32 noundef 1)
@@ -1464,7 +1453,7 @@ map_rec_interface_id.exit.thread:                 ; preds = %121
   %indvars.iv263 = phi i64 [ %166, %.lr.ph231.preheader ], [ %indvars.iv.next264, %.lr.ph231 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %167 = load ptr, ptr %159, align 8
-  %168 = getelementptr ptr, ptr %167, i64 %indvars.iv263
+  %168 = getelementptr [8 x i8], ptr %167, i64 %indvars.iv263
   %169 = load ptr, ptr %168, align 8
   store ptr %169, ptr %19, align 8
   %170 = call ptr @g_array_append_vals(ptr noundef nonnull %10, ptr noundef nonnull %19, i32 noundef 1)
@@ -1526,7 +1515,7 @@ map_rec_interface_id.exit.thread299:              ; preds = %map_rec_interface_i
 
 .preheader203:                                    ; preds = %190, %.loopexit202
   %indvars.iv269 = phi i64 [ %indvars.iv.next270, %.loopexit202 ], [ 0, %190 ]
-  %191 = getelementptr %struct.merge_in_file_s, ptr %2, i64 %indvars.iv269
+  %191 = getelementptr [360 x i8], ptr %2, i64 %indvars.iv269
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 64
@@ -1550,7 +1539,7 @@ map_rec_interface_id.exit.thread299:              ; preds = %map_rec_interface_i
   %indvars.iv266 = phi i64 [ %202, %.lr.ph233.preheader ], [ %indvars.iv.next267, %.lr.ph233 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %203 = load ptr, ptr %195, align 8
-  %204 = getelementptr ptr, ptr %203, i64 %indvars.iv266
+  %204 = getelementptr [8 x i8], ptr %203, i64 %indvars.iv266
   %205 = load ptr, ptr %204, align 8
   store ptr %205, ptr %20, align 8
   %206 = call ptr @g_array_append_vals(ptr noundef nonnull %9, ptr noundef nonnull %20, i32 noundef 1)
@@ -1575,7 +1564,7 @@ map_rec_interface_id.exit.thread299:              ; preds = %map_rec_interface_i
 
 .preheader:                                       ; preds = %.loopexit204, %.loopexit
   %indvars.iv275 = phi i64 [ %indvars.iv.next276, %.loopexit ], [ 0, %.loopexit204 ]
-  %212 = getelementptr %struct.merge_in_file_s, ptr %2, i64 %indvars.iv275
+  %212 = getelementptr [360 x i8], ptr %2, i64 %indvars.iv275
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %214 = load ptr, ptr %213, align 8
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 72
@@ -1599,7 +1588,7 @@ map_rec_interface_id.exit.thread299:              ; preds = %map_rec_interface_i
   %indvars.iv272 = phi i64 [ %223, %.lr.ph236.preheader ], [ %indvars.iv.next273, %.lr.ph236 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %224 = load ptr, ptr %216, align 8
-  %225 = getelementptr ptr, ptr %224, i64 %indvars.iv272
+  %225 = getelementptr [8 x i8], ptr %224, i64 %indvars.iv272
   %226 = load ptr, ptr %225, align 8
   store ptr %226, ptr %21, align 8
   %227 = call ptr @g_array_append_vals(ptr noundef nonnull %10, ptr noundef nonnull %21, i32 noundef 1)
@@ -1647,7 +1636,7 @@ map_rec_interface_id.exit.thread299:              ; preds = %map_rec_interface_i
 
 .lr.ph.i195:                                      ; preds = %238, %.lr.ph.i195
   %indvars.iv.i196 = phi i64 [ %indvars.iv.next.i197, %.lr.ph.i195 ], [ 0, %238 ]
-  %239 = getelementptr %struct.merge_in_file_s, ptr %2, i64 %indvars.iv.i196
+  %239 = getelementptr [360 x i8], ptr %2, i64 %indvars.iv.i196
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
   %241 = load ptr, ptr %240, align 8
   call void @wtap_close(ptr noundef %241)
@@ -2023,7 +2012,7 @@ define internal fastcc noundef zeroext i1 @process_new_idbs(ptr noundef nonnull 
 
 .split.us:                                        ; preds = %7, %._crit_edge.split.us.us
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %._crit_edge.split.us.us ], [ 0, %7 ]
-  %12 = getelementptr %struct.merge_in_file_s, ptr %1, i64 %indvars.iv45
+  %12 = getelementptr [360 x i8], ptr %1, i64 %indvars.iv45
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.pn34.us = load ptr, ptr %13, align 8
   %14 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn34.us)
@@ -2051,7 +2040,7 @@ define internal fastcc noundef zeroext i1 @process_new_idbs(ptr noundef nonnull 
   %indvars.iv.i.us.us = phi i64 [ %indvars.iv.next.i.us.us, %26 ], [ 0, %16 ]
   %21 = phi ptr [ %27, %26 ], [ %18, %16 ]
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr ptr, ptr %22, i64 %indvars.iv.i.us.us
+  %23 = getelementptr [8 x i8], ptr %22, i64 %indvars.iv.i.us.us
   %24 = load ptr, ptr %23, align 8
   %25 = call fastcc zeroext i1 @is_duplicate_idb(ptr noundef nonnull %17, ptr noundef %24)
   br i1 %25, label %32, label %26
@@ -2115,7 +2104,7 @@ find_duplicate_idb.exit.thread.us.us:             ; preds = %26, %16
 
 .split:                                           ; preds = %7, %._crit_edge.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split ], [ 0, %7 ]
-  %53 = getelementptr %struct.merge_in_file_s, ptr %1, i64 %indvars.iv
+  %53 = getelementptr [360 x i8], ptr %1, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.pn34 = load ptr, ptr %54, align 8
   %55 = call ptr @wtap_get_next_interface_description(ptr noundef %.pn34)

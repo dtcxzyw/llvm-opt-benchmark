@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.llvm::MCValue" = type <{ ptr, ptr, i64, i32, [4 x i8] }>
-%"struct.std::pair" = type { ptr, i64 }
 
 $_ZN4llvm12MCTargetExprD2Ev = comdat any
 
@@ -129,10 +128,10 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %10, %12
   %14 = load i32, ptr %4, align 8, !tbaa !36
   %switch.tableidx = add nsw i32 %14, -1
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep20 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE.3, i64 %16
+  %switch.gep20 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE.3, i64 %16
   %switch.load21 = load ptr, ptr %switch.gep20, align 8
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !42
@@ -210,10 +209,10 @@ define dso_local { ptr, i64 } @_ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11V
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE.3, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm11RISCVMCExpr18getVariantKindNameENS0_11VariantKindE.3, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -696,7 +695,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !60
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -737,7 +736,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !60
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !61

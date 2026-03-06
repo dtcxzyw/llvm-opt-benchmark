@@ -296,7 +296,7 @@ _ZNSt10unique_ptrI10cmMakefileSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNS
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 3
   %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds i64, ptr %15, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %15, i64 %20
   tail call void @_ZdlPvm(ptr noundef %21, i64 noundef %18) #24
   store ptr null, ptr %11, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -541,10 +541,10 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN20cmCTestScriptHandler14Proces
   %10 = phi ptr [ %5, %.lr.ph ], [ %26, %9 ]
   %.010 = phi i64 [ 0, %.lr.ph ], [ %24, %9 ]
   %.079 = phi i32 [ 0, %.lr.ph ], [ %23, %9 ]
-  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %10, i64 %.010
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %.010
   %12 = load ptr, ptr %6, align 8, !tbaa !44
   %13 = sdiv i64 %.010, 64
-  %14 = getelementptr inbounds i64, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = and i64 %.010, -9223372036854775745
   %16 = icmp ugt i64 %15, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %16, i64 -8, i64 0
@@ -1622,7 +1622,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 .lr.ph:                                           ; preds = %.preheader370, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit130
   %177 = phi ptr [ %202, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit130 ], [ %151, %.preheader370 ]
   %.056402 = phi i64 [ %200, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit130 ], [ 1, %.preheader370 ]
-  %178 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %177, i64 %.056402
+  %178 = getelementptr inbounds nuw [32 x i8], ptr %177, i64 %.056402
   %179 = load ptr, ptr %34, align 8, !tbaa !53
   %180 = load ptr, ptr %36, align 8, !tbaa !62
   %.not.i124 = icmp eq ptr %179, %180
@@ -6614,10 +6614,10 @@ define dso_local noundef zeroext i1 @_ZN20cmCTestScriptHandler9RunScriptEP7cmCTe
   %21 = phi ptr [ %16, %.lr.ph.i ], [ %37, %.noexc ]
   %.010.i = phi i64 [ 0, %.lr.ph.i ], [ %35, %.noexc ]
   %.079.i = phi i32 [ 0, %.lr.ph.i ], [ %34, %.noexc ]
-  %22 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %21, i64 %.010.i
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %.010.i
   %23 = load ptr, ptr %17, align 8, !tbaa !44
   %24 = sdiv i64 %.010.i, 64
-  %25 = getelementptr inbounds i64, ptr %23, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %23, i64 %24
   %26 = and i64 %.010.i, -9223372036854775745
   %27 = icmp ugt i64 %26, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i = select i1 %27, i64 -8, i64 0
@@ -6964,7 +6964,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !52
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !53
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !62
   ret void
 
@@ -7184,7 +7184,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !52
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !53
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !62
   ret void
 }
@@ -7222,7 +7222,7 @@ _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader: ; preds = %12
   %22 = trunc i64 %21 to i32
   %23 = and i32 %22, 63
   %24 = lshr i64 %21, 6
-  %25 = getelementptr inbounds nuw i64, ptr %6, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %24
   br label %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i
 
 _ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i:          ; preds = %_ZNSt13_Bit_iteratormmEv.exit.i.i.i.i.i.preheader, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i
@@ -7474,13 +7474,13 @@ _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referen
 136:                                              ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
   %137 = ashr exact i64 %60, 3
   %138 = sub nsw i64 0, %137
-  %139 = getelementptr inbounds i64, ptr %8, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %8, i64 %138
   tail call void @_ZdlPvm(ptr noundef %139, i64 noundef %60) #24
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %136
   %140 = lshr i64 %70, 6
-  %141 = getelementptr inbounds nuw i64, ptr %73, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %140
   store ptr %141, ptr %7, align 8, !tbaa !51
   store ptr %73, ptr %0, align 8
   %.sroa.588.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %0, i64 8

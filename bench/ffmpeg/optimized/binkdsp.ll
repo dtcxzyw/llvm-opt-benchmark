@@ -23,8 +23,8 @@ define internal void @bink_idct_add_c(ptr noundef captures(none) %0, i32 noundef
 
 5:                                                ; preds = %bink_idct_col.exit.i, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %bink_idct_col.exit.i ]
-  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
-  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i32, ptr %8, align 4, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -128,7 +128,7 @@ bink_idct_col.exit.i:                             ; preds = %32, %30
 .preheader.i:                                     ; preds = %bink_idct_col.exit.i, %.preheader.i
   %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %.preheader.i ], [ 0, %bink_idct_col.exit.i ]
   %80 = shl nuw nsw i64 %indvars.iv87.i, 3
-  %81 = getelementptr inbounds nuw i32, ptr %4, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %80
   %82 = load i32, ptr %81, align 16, !tbaa !12
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %84 = load i32, ptr %83, align 16, !tbaa !12
@@ -174,7 +174,7 @@ bink_idct_col.exit.i:                             ; preds = %32, %30
   %124 = add i32 %123, %85
   %125 = add i32 %107, %124
   %126 = ashr i32 %125, 8
-  %127 = getelementptr inbounds nuw i32, ptr %2, i64 %80
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %80
   store i32 %126, ptr %127, align 4, !tbaa !12
   %128 = add i32 %86, 127
   %129 = sub i32 %128, %91
@@ -228,7 +228,7 @@ bink_idct_c.exit:                                 ; preds = %.preheader.i
 
 157:                                              ; preds = %.preheader, %157
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %157 ]
-  %158 = getelementptr inbounds nuw i32, ptr %.01217, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %.01217, i64 %indvars.iv
   %159 = load i32, ptr %158, align 4, !tbaa !12
   %160 = getelementptr inbounds nuw i8, ptr %.01316, i64 %indvars.iv
   %161 = load i8, ptr %160, align 1, !tbaa !17
@@ -258,8 +258,8 @@ define internal void @bink_idct_put_c(ptr noundef writeonly captures(none) %0, i
 
 5:                                                ; preds = %3, %bink_idct_col.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %bink_idct_col.exit ]
-  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
-  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i32, ptr %8, align 4, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -488,9 +488,9 @@ define internal void @scale_block_c(ptr noundef readonly captures(none) %0, ptr 
   %8 = load i8, ptr %7, align 1, !tbaa !17
   %9 = zext i8 %8 to i16
   %10 = mul nuw i16 %9, 257
-  %11 = getelementptr inbounds nuw i16, ptr %.025, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %.025, i64 %indvars.iv
   store i16 %10, ptr %11, align 2, !tbaa !22
-  %12 = getelementptr inbounds nuw i16, ptr %.01724, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %.01724, i64 %indvars.iv
   store i16 %10, ptr %12, align 2, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -498,8 +498,8 @@ define internal void @scale_block_c(ptr noundef readonly captures(none) %0, ptr 
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %.02022, i64 8
-  %15 = getelementptr inbounds i16, ptr %.01724, i64 %4
-  %16 = getelementptr inbounds i16, ptr %.025, i64 %4
+  %15 = getelementptr inbounds [2 x i8], ptr %.01724, i64 %4
+  %16 = getelementptr inbounds [2 x i8], ptr %.025, i64 %4
   %17 = add nuw nsw i32 %.01823, 1
   %exitcond27.not = icmp eq i32 %17, 8
   br i1 %exitcond27.not, label %18, label %.preheader, !llvm.loop !25

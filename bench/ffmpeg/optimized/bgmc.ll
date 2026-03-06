@@ -112,7 +112,7 @@ define void @ff_bgmc_decode(ptr noundef captures(none) %0, i32 noundef %1, ptr n
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 %13
   %15 = zext nneg i32 %.0.i.i to i64
-  %16 = getelementptr inbounds nuw i32, ptr %9, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !15
   %.not.i = icmp eq i32 %17, %3
   br i1 %.not.i, label %bgmc_lut_getp.exit, label %18
@@ -124,7 +124,7 @@ define void @ff_bgmc_decode(ptr noundef captures(none) %0, i32 noundef %1, ptr n
 .preheader.i.i:                                   ; preds = %35, %18
   %indvars.iv.i.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i.i, %35 ]
   %.01521.i.i = phi ptr [ %14, %18 ], [ %34, %35 ]
-  %20 = getelementptr inbounds nuw ptr, ptr @cf_table, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @cf_table, i64 %indvars.iv.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !19
   br label %22
 
@@ -139,7 +139,7 @@ define void @ff_bgmc_decode(ptr noundef captures(none) %0, i32 noundef %1, ptr n
 25:                                               ; preds = %25, %22
   %.0.i10.i = phi i32 [ %19, %22 ], [ %30, %25 ]
   %26 = zext i32 %.0.i10.i to i64
-  %27 = getelementptr inbounds nuw i16, ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !21
   %29 = icmp ult i16 %24, %28
   %30 = add i32 %.0.i10.i, %19
@@ -174,7 +174,7 @@ bgmc_lut_getp.exit:                               ; preds = %10, %bgmc_lut_fillp
 
 .lr.ph75:                                         ; preds = %bgmc_lut_getp.exit
   %42 = zext i32 %4 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr @cf_table, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @cf_table, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !19
   %45 = shl nuw i32 1, %3
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -200,7 +200,7 @@ bgmc_lut_getp.exit:                               ; preds = %10, %bgmc_lut_fillp
   %59 = zext i8 %58 to i32
   %60 = shl i32 %59, %3
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %44, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %61
   %63 = load i16, ptr %62, align 2, !tbaa !21
   %64 = zext i16 %63 to i32
   %65 = icmp ult i32 %54, %64
@@ -210,7 +210,7 @@ bgmc_lut_getp.exit:                               ; preds = %10, %bgmc_lut_fillp
   %.068 = phi i32 [ %66, %.lr.ph ], [ %60, %48 ]
   %66 = add i32 %.068, %45
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw i16, ptr %44, i64 %67
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %67
   %69 = load i16, ptr %68, align 2, !tbaa !21
   %70 = zext i16 %69 to i32
   %71 = icmp samesign ult i32 %54, %70
@@ -222,7 +222,7 @@ bgmc_lut_getp.exit:                               ; preds = %10, %bgmc_lut_fillp
   %73 = add i32 %72, -1
   %74 = shl i32 %73, %3
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw i16, ptr %44, i64 %75
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %75
   %77 = load i16, ptr %76, align 2, !tbaa !21
   %78 = zext i16 %77 to i32
   %79 = mul i32 %50, %78
@@ -231,7 +231,7 @@ bgmc_lut_getp.exit:                               ; preds = %10, %bgmc_lut_fillp
   %82 = add i32 %81, %.06171
   %83 = shl i32 %72, %3
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw i16, ptr %44, i64 %84
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %84
   %86 = load i16, ptr %85, align 2, !tbaa !21
   %87 = zext i16 %86 to i32
   %88 = mul i32 %50, %87

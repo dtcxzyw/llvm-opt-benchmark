@@ -60358,7 +60358,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
 
 93:                                               ; preds = %._crit_edge.i.i
   %94 = load ptr, ptr %62, align 8, !noalias !1837, !nonnull !3, !noundef !3
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %90
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %90
   store i64 %.sroa.01.0.lcssa.i.i, ptr %95, align 8, !noalias !1837
   %96 = load i64, ptr %39, align 8, !noalias !1837, !noundef !3
   %97 = load i64, ptr %79, align 8, !noalias !1837, !noundef !3
@@ -60379,7 +60379,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
 
 102:                                              ; preds = %93
   %103 = load ptr, ptr %78, align 8, !noalias !1837, !nonnull !3, !noundef !3
-  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %96
   store i64 %.sroa.01.0.lcssa.i.i, ptr %104, align 8, !noalias !1837
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1837
   %105 = load i64, ptr %39, align 8, !noalias !1837, !noundef !3
@@ -60610,7 +60610,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
 
 173:                                              ; preds = %122
   %174 = load ptr, ptr %115, align 8, !noalias !1837, !nonnull !3, !noundef !3
-  %175 = getelementptr inbounds nuw i64, ptr %174, i64 %.sroa.028.0121.i.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %.sroa.028.0121.i.i
   store i64 %.sroa.01.1122.i.i, ptr %175, align 8, !noalias !1837
   %176 = load i64, ptr %39, align 8, !noalias !1837, !noundef !3
   %.not129.i.i = icmp eq i64 %176, 0
@@ -60620,7 +60620,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
   %177 = load i64, ptr %118, align 8, !noalias !1837, !noundef !3
   %178 = icmp ult i64 %.sroa.028.0121.i.i, %177
   %179 = load ptr, ptr %119, align 8, !noalias !1837, !nonnull !3
-  %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
+  %180 = getelementptr inbounds nuw [24 x i8], ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
@@ -60639,7 +60639,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr %181, align 8, !noalias !1837, !nonnull !3, !noundef !3
-  %189 = getelementptr inbounds nuw i64, ptr %188, i64 %.sroa.030.0117.i.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %.sroa.030.0117.i.i
   %190 = load i64, ptr %189, align 8, !noalias !1837, !noundef !3
   %191 = add i64 %190, %.sroa.01.2116.i.i
   %192 = add i64 %186, 1
@@ -60663,7 +60663,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
 
 198:                                              ; preds = %85
   %199 = load ptr, ptr %78, align 8, !noalias !1837, !nonnull !3, !noundef !3
-  %200 = getelementptr inbounds nuw i64, ptr %199, i64 %.sroa.024.0111.i.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %.sroa.024.0111.i.i
   store i64 %.sroa.01.0112.i.i, ptr %200, align 8, !noalias !1837
   %201 = load i64, ptr %46, align 8, !noalias !1837, !noundef !3
   %.not127.i.i = icmp eq i64 %201, 0
@@ -60682,7 +60682,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
 
 208:                                              ; preds = %.lr.ph.i.i
   %209 = load ptr, ptr %62, align 8, !noalias !1837, !nonnull !3, !noundef !3
-  %210 = getelementptr inbounds nuw i64, ptr %209, i64 %205
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %205
   store i64 %.sroa.01.3110.i.i, ptr %210, align 8, !noalias !1837
   %211 = load i64, ptr %81, align 8, !noalias !1837, !noundef !3
   %212 = icmp ult i64 %.sroa.026.0109.i.i, %211
@@ -60690,7 +60690,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
 
 213:                                              ; preds = %208
   %214 = load ptr, ptr %82, align 8, !noalias !1837, !nonnull !3, !noundef !3
-  %215 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %214, i64 %.sroa.026.0109.i.i
+  %215 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %.sroa.026.0109.i.i
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %217 = load i64, ptr %216, align 8, !noalias !1837, !noundef !3
   %218 = icmp ult i64 %.sroa.024.0111.i.i, %217
@@ -60699,7 +60699,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
 219:                                              ; preds = %213
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %221 = load ptr, ptr %220, align 8, !noalias !1837, !nonnull !3, !noundef !3
-  %222 = getelementptr inbounds nuw i64, ptr %221, i64 %.sroa.024.0111.i.i
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %.sroa.024.0111.i.i
   %223 = load i64, ptr %222, align 8, !noalias !1837, !noundef !3
   %224 = add i64 %223, %.sroa.01.3110.i.i
   %225 = add i64 %202, 1
@@ -61220,7 +61220,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
 
 93:                                               ; preds = %._crit_edge.i.i
   %94 = load ptr, ptr %62, align 8, !noalias !1924, !nonnull !3, !noundef !3
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %90
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %90
   store i64 %.sroa.01.0.lcssa.i.i, ptr %95, align 8, !noalias !1924
   %96 = load i64, ptr %39, align 8, !noalias !1924, !noundef !3
   %97 = load i64, ptr %79, align 8, !noalias !1924, !noundef !3
@@ -61241,7 +61241,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
 
 102:                                              ; preds = %93
   %103 = load ptr, ptr %78, align 8, !noalias !1924, !nonnull !3, !noundef !3
-  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %96
   store i64 %.sroa.01.0.lcssa.i.i, ptr %104, align 8, !noalias !1924
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1924
   %105 = load i64, ptr %39, align 8, !noalias !1924, !noundef !3
@@ -61472,7 +61472,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
 
 173:                                              ; preds = %122
   %174 = load ptr, ptr %115, align 8, !noalias !1924, !nonnull !3, !noundef !3
-  %175 = getelementptr inbounds nuw i64, ptr %174, i64 %.sroa.028.0121.i.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %.sroa.028.0121.i.i
   store i64 %.sroa.01.1122.i.i, ptr %175, align 8, !noalias !1924
   %176 = load i64, ptr %39, align 8, !noalias !1924, !noundef !3
   %.not129.i.i = icmp eq i64 %176, 0
@@ -61482,7 +61482,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
   %177 = load i64, ptr %118, align 8, !noalias !1924, !noundef !3
   %178 = icmp ult i64 %.sroa.028.0121.i.i, %177
   %179 = load ptr, ptr %119, align 8, !noalias !1924, !nonnull !3
-  %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
+  %180 = getelementptr inbounds nuw [24 x i8], ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
@@ -61501,7 +61501,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr %181, align 8, !noalias !1924, !nonnull !3, !noundef !3
-  %189 = getelementptr inbounds nuw i64, ptr %188, i64 %.sroa.030.0117.i.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %.sroa.030.0117.i.i
   %190 = load i64, ptr %189, align 8, !noalias !1924, !noundef !3
   %191 = add i64 %190, %.sroa.01.2116.i.i
   %192 = add i64 %186, 1
@@ -61525,7 +61525,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
 
 198:                                              ; preds = %85
   %199 = load ptr, ptr %78, align 8, !noalias !1924, !nonnull !3, !noundef !3
-  %200 = getelementptr inbounds nuw i64, ptr %199, i64 %.sroa.024.0111.i.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %.sroa.024.0111.i.i
   store i64 %.sroa.01.0112.i.i, ptr %200, align 8, !noalias !1924
   %201 = load i64, ptr %46, align 8, !noalias !1924, !noundef !3
   %.not127.i.i = icmp eq i64 %201, 0
@@ -61544,7 +61544,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
 
 208:                                              ; preds = %.lr.ph.i.i
   %209 = load ptr, ptr %62, align 8, !noalias !1924, !nonnull !3, !noundef !3
-  %210 = getelementptr inbounds nuw i64, ptr %209, i64 %205
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %205
   store i64 %.sroa.01.3110.i.i, ptr %210, align 8, !noalias !1924
   %211 = load i64, ptr %81, align 8, !noalias !1924, !noundef !3
   %212 = icmp ult i64 %.sroa.026.0109.i.i, %211
@@ -61552,7 +61552,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
 
 213:                                              ; preds = %208
   %214 = load ptr, ptr %82, align 8, !noalias !1924, !nonnull !3, !noundef !3
-  %215 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %214, i64 %.sroa.026.0109.i.i
+  %215 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %.sroa.026.0109.i.i
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %217 = load i64, ptr %216, align 8, !noalias !1924, !noundef !3
   %218 = icmp ult i64 %.sroa.024.0111.i.i, %217
@@ -61561,7 +61561,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
 219:                                              ; preds = %213
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %221 = load ptr, ptr %220, align 8, !noalias !1924, !nonnull !3, !noundef !3
-  %222 = getelementptr inbounds nuw i64, ptr %221, i64 %.sroa.024.0111.i.i
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %.sroa.024.0111.i.i
   %223 = load i64, ptr %222, align 8, !noalias !1924, !noundef !3
   %224 = add i64 %223, %.sroa.01.3110.i.i
   %225 = add i64 %202, 1
@@ -61923,7 +61923,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
 
 93:                                               ; preds = %._crit_edge.i.i
   %94 = load ptr, ptr %62, align 8, !noalias !1984, !nonnull !3, !noundef !3
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %90
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %90
   store i64 %.sroa.01.0.lcssa.i.i, ptr %95, align 8, !noalias !1984
   %96 = load i64, ptr %39, align 8, !noalias !1984, !noundef !3
   %97 = load i64, ptr %79, align 8, !noalias !1984, !noundef !3
@@ -61944,7 +61944,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
 
 102:                                              ; preds = %93
   %103 = load ptr, ptr %78, align 8, !noalias !1984, !nonnull !3, !noundef !3
-  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %96
   store i64 %.sroa.01.0.lcssa.i.i, ptr %104, align 8, !noalias !1984
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1984
   %105 = load i64, ptr %39, align 8, !noalias !1984, !noundef !3
@@ -62175,7 +62175,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
 
 173:                                              ; preds = %122
   %174 = load ptr, ptr %115, align 8, !noalias !1984, !nonnull !3, !noundef !3
-  %175 = getelementptr inbounds nuw i64, ptr %174, i64 %.sroa.028.0121.i.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %.sroa.028.0121.i.i
   store i64 %.sroa.01.1122.i.i, ptr %175, align 8, !noalias !1984
   %176 = load i64, ptr %39, align 8, !noalias !1984, !noundef !3
   %.not129.i.i = icmp eq i64 %176, 0
@@ -62185,7 +62185,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
   %177 = load i64, ptr %118, align 8, !noalias !1984, !noundef !3
   %178 = icmp ult i64 %.sroa.028.0121.i.i, %177
   %179 = load ptr, ptr %119, align 8, !noalias !1984, !nonnull !3
-  %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
+  %180 = getelementptr inbounds nuw [24 x i8], ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
@@ -62204,7 +62204,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr %181, align 8, !noalias !1984, !nonnull !3, !noundef !3
-  %189 = getelementptr inbounds nuw i64, ptr %188, i64 %.sroa.030.0117.i.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %.sroa.030.0117.i.i
   %190 = load i64, ptr %189, align 8, !noalias !1984, !noundef !3
   %191 = add i64 %190, %.sroa.01.2116.i.i
   %192 = add i64 %186, 1
@@ -62228,7 +62228,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
 
 198:                                              ; preds = %85
   %199 = load ptr, ptr %78, align 8, !noalias !1984, !nonnull !3, !noundef !3
-  %200 = getelementptr inbounds nuw i64, ptr %199, i64 %.sroa.024.0111.i.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %.sroa.024.0111.i.i
   store i64 %.sroa.01.0112.i.i, ptr %200, align 8, !noalias !1984
   %201 = load i64, ptr %46, align 8, !noalias !1984, !noundef !3
   %.not127.i.i = icmp eq i64 %201, 0
@@ -62247,7 +62247,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
 
 208:                                              ; preds = %.lr.ph.i.i
   %209 = load ptr, ptr %62, align 8, !noalias !1984, !nonnull !3, !noundef !3
-  %210 = getelementptr inbounds nuw i64, ptr %209, i64 %205
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %205
   store i64 %.sroa.01.3110.i.i, ptr %210, align 8, !noalias !1984
   %211 = load i64, ptr %81, align 8, !noalias !1984, !noundef !3
   %212 = icmp ult i64 %.sroa.026.0109.i.i, %211
@@ -62255,7 +62255,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
 
 213:                                              ; preds = %208
   %214 = load ptr, ptr %82, align 8, !noalias !1984, !nonnull !3, !noundef !3
-  %215 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %214, i64 %.sroa.026.0109.i.i
+  %215 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %.sroa.026.0109.i.i
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %217 = load i64, ptr %216, align 8, !noalias !1984, !noundef !3
   %218 = icmp ult i64 %.sroa.024.0111.i.i, %217
@@ -62264,7 +62264,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
 219:                                              ; preds = %213
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %221 = load ptr, ptr %220, align 8, !noalias !1984, !nonnull !3, !noundef !3
-  %222 = getelementptr inbounds nuw i64, ptr %221, i64 %.sroa.024.0111.i.i
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %.sroa.024.0111.i.i
   %223 = load i64, ptr %222, align 8, !noalias !1984, !noundef !3
   %224 = add i64 %223, %.sroa.01.3110.i.i
   %225 = add i64 %202, 1
@@ -62922,7 +62922,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
 
 93:                                               ; preds = %._crit_edge.i.i
   %94 = load ptr, ptr %62, align 8, !noalias !2089, !nonnull !3, !noundef !3
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %90
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %90
   store i64 %.sroa.01.0.lcssa.i.i, ptr %95, align 8, !noalias !2089
   %96 = load i64, ptr %39, align 8, !noalias !2089, !noundef !3
   %97 = load i64, ptr %79, align 8, !noalias !2089, !noundef !3
@@ -62943,7 +62943,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
 
 102:                                              ; preds = %93
   %103 = load ptr, ptr %78, align 8, !noalias !2089, !nonnull !3, !noundef !3
-  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %96
   store i64 %.sroa.01.0.lcssa.i.i, ptr %104, align 8, !noalias !2089
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2089
   %105 = load i64, ptr %39, align 8, !noalias !2089, !noundef !3
@@ -63174,7 +63174,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
 
 173:                                              ; preds = %122
   %174 = load ptr, ptr %115, align 8, !noalias !2089, !nonnull !3, !noundef !3
-  %175 = getelementptr inbounds nuw i64, ptr %174, i64 %.sroa.028.0121.i.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %.sroa.028.0121.i.i
   store i64 %.sroa.01.1122.i.i, ptr %175, align 8, !noalias !2089
   %176 = load i64, ptr %39, align 8, !noalias !2089, !noundef !3
   %.not129.i.i = icmp eq i64 %176, 0
@@ -63184,7 +63184,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
   %177 = load i64, ptr %118, align 8, !noalias !2089, !noundef !3
   %178 = icmp ult i64 %.sroa.028.0121.i.i, %177
   %179 = load ptr, ptr %119, align 8, !noalias !2089, !nonnull !3
-  %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
+  %180 = getelementptr inbounds nuw [24 x i8], ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
@@ -63203,7 +63203,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr %181, align 8, !noalias !2089, !nonnull !3, !noundef !3
-  %189 = getelementptr inbounds nuw i64, ptr %188, i64 %.sroa.030.0117.i.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %.sroa.030.0117.i.i
   %190 = load i64, ptr %189, align 8, !noalias !2089, !noundef !3
   %191 = add i64 %190, %.sroa.01.2116.i.i
   %192 = add i64 %186, 1
@@ -63227,7 +63227,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
 
 198:                                              ; preds = %85
   %199 = load ptr, ptr %78, align 8, !noalias !2089, !nonnull !3, !noundef !3
-  %200 = getelementptr inbounds nuw i64, ptr %199, i64 %.sroa.024.0111.i.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %.sroa.024.0111.i.i
   store i64 %.sroa.01.0112.i.i, ptr %200, align 8, !noalias !2089
   %201 = load i64, ptr %46, align 8, !noalias !2089, !noundef !3
   %.not127.i.i = icmp eq i64 %201, 0
@@ -63246,7 +63246,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
 
 208:                                              ; preds = %.lr.ph.i.i
   %209 = load ptr, ptr %62, align 8, !noalias !2089, !nonnull !3, !noundef !3
-  %210 = getelementptr inbounds nuw i64, ptr %209, i64 %205
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %205
   store i64 %.sroa.01.3110.i.i, ptr %210, align 8, !noalias !2089
   %211 = load i64, ptr %81, align 8, !noalias !2089, !noundef !3
   %212 = icmp ult i64 %.sroa.026.0109.i.i, %211
@@ -63254,7 +63254,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
 
 213:                                              ; preds = %208
   %214 = load ptr, ptr %82, align 8, !noalias !2089, !nonnull !3, !noundef !3
-  %215 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %214, i64 %.sroa.026.0109.i.i
+  %215 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %.sroa.026.0109.i.i
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %217 = load i64, ptr %216, align 8, !noalias !2089, !noundef !3
   %218 = icmp ult i64 %.sroa.024.0111.i.i, %217
@@ -63263,7 +63263,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
 219:                                              ; preds = %213
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %221 = load ptr, ptr %220, align 8, !noalias !2089, !nonnull !3, !noundef !3
-  %222 = getelementptr inbounds nuw i64, ptr %221, i64 %.sroa.024.0111.i.i
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %.sroa.024.0111.i.i
   %223 = load i64, ptr %222, align 8, !noalias !2089, !noundef !3
   %224 = add i64 %223, %.sroa.01.3110.i.i
   %225 = add i64 %202, 1
@@ -63638,7 +63638,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
 
 93:                                               ; preds = %._crit_edge.i.i
   %94 = load ptr, ptr %62, align 8, !noalias !2142, !nonnull !3, !noundef !3
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %90
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %90
   store i64 %.sroa.01.0.lcssa.i.i, ptr %95, align 8, !noalias !2142
   %96 = load i64, ptr %39, align 8, !noalias !2142, !noundef !3
   %97 = load i64, ptr %79, align 8, !noalias !2142, !noundef !3
@@ -63659,7 +63659,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
 
 102:                                              ; preds = %93
   %103 = load ptr, ptr %78, align 8, !noalias !2142, !nonnull !3, !noundef !3
-  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %96
   store i64 %.sroa.01.0.lcssa.i.i, ptr %104, align 8, !noalias !2142
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2142
   %105 = load i64, ptr %39, align 8, !noalias !2142, !noundef !3
@@ -63890,7 +63890,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
 
 173:                                              ; preds = %122
   %174 = load ptr, ptr %115, align 8, !noalias !2142, !nonnull !3, !noundef !3
-  %175 = getelementptr inbounds nuw i64, ptr %174, i64 %.sroa.028.0121.i.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %.sroa.028.0121.i.i
   store i64 %.sroa.01.1122.i.i, ptr %175, align 8, !noalias !2142
   %176 = load i64, ptr %39, align 8, !noalias !2142, !noundef !3
   %.not129.i.i = icmp eq i64 %176, 0
@@ -63900,7 +63900,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
   %177 = load i64, ptr %118, align 8, !noalias !2142, !noundef !3
   %178 = icmp ult i64 %.sroa.028.0121.i.i, %177
   %179 = load ptr, ptr %119, align 8, !noalias !2142, !nonnull !3
-  %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
+  %180 = getelementptr inbounds nuw [24 x i8], ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
@@ -63919,7 +63919,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr %181, align 8, !noalias !2142, !nonnull !3, !noundef !3
-  %189 = getelementptr inbounds nuw i64, ptr %188, i64 %.sroa.030.0117.i.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %.sroa.030.0117.i.i
   %190 = load i64, ptr %189, align 8, !noalias !2142, !noundef !3
   %191 = add i64 %190, %.sroa.01.2116.i.i
   %192 = add i64 %186, 1
@@ -63943,7 +63943,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
 
 198:                                              ; preds = %85
   %199 = load ptr, ptr %78, align 8, !noalias !2142, !nonnull !3, !noundef !3
-  %200 = getelementptr inbounds nuw i64, ptr %199, i64 %.sroa.024.0111.i.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %.sroa.024.0111.i.i
   store i64 %.sroa.01.0112.i.i, ptr %200, align 8, !noalias !2142
   %201 = load i64, ptr %46, align 8, !noalias !2142, !noundef !3
   %.not127.i.i = icmp eq i64 %201, 0
@@ -63962,7 +63962,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
 
 208:                                              ; preds = %.lr.ph.i.i
   %209 = load ptr, ptr %62, align 8, !noalias !2142, !nonnull !3, !noundef !3
-  %210 = getelementptr inbounds nuw i64, ptr %209, i64 %205
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %205
   store i64 %.sroa.01.3110.i.i, ptr %210, align 8, !noalias !2142
   %211 = load i64, ptr %81, align 8, !noalias !2142, !noundef !3
   %212 = icmp ult i64 %.sroa.026.0109.i.i, %211
@@ -63970,7 +63970,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
 
 213:                                              ; preds = %208
   %214 = load ptr, ptr %82, align 8, !noalias !2142, !nonnull !3, !noundef !3
-  %215 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %214, i64 %.sroa.026.0109.i.i
+  %215 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %.sroa.026.0109.i.i
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %217 = load i64, ptr %216, align 8, !noalias !2142, !noundef !3
   %218 = icmp ult i64 %.sroa.024.0111.i.i, %217
@@ -63979,7 +63979,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
 219:                                              ; preds = %213
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %221 = load ptr, ptr %220, align 8, !noalias !2142, !nonnull !3, !noundef !3
-  %222 = getelementptr inbounds nuw i64, ptr %221, i64 %.sroa.024.0111.i.i
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %.sroa.024.0111.i.i
   %223 = load i64, ptr %222, align 8, !noalias !2142, !noundef !3
   %224 = add i64 %223, %.sroa.01.3110.i.i
   %225 = add i64 %202, 1
@@ -64358,7 +64358,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
 
 93:                                               ; preds = %._crit_edge.i.i
   %94 = load ptr, ptr %62, align 8, !noalias !2200, !nonnull !3, !noundef !3
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %90
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %90
   store i64 %.sroa.01.0.lcssa.i.i, ptr %95, align 8, !noalias !2200
   %96 = load i64, ptr %39, align 8, !noalias !2200, !noundef !3
   %97 = load i64, ptr %79, align 8, !noalias !2200, !noundef !3
@@ -64379,7 +64379,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
 
 102:                                              ; preds = %93
   %103 = load ptr, ptr %78, align 8, !noalias !2200, !nonnull !3, !noundef !3
-  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %96
   store i64 %.sroa.01.0.lcssa.i.i, ptr %104, align 8, !noalias !2200
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2200
   %105 = load i64, ptr %39, align 8, !noalias !2200, !noundef !3
@@ -64610,7 +64610,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
 
 173:                                              ; preds = %122
   %174 = load ptr, ptr %115, align 8, !noalias !2200, !nonnull !3, !noundef !3
-  %175 = getelementptr inbounds nuw i64, ptr %174, i64 %.sroa.028.0121.i.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %.sroa.028.0121.i.i
   store i64 %.sroa.01.1122.i.i, ptr %175, align 8, !noalias !2200
   %176 = load i64, ptr %39, align 8, !noalias !2200, !noundef !3
   %.not129.i.i = icmp eq i64 %176, 0
@@ -64620,7 +64620,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
   %177 = load i64, ptr %118, align 8, !noalias !2200, !noundef !3
   %178 = icmp ult i64 %.sroa.028.0121.i.i, %177
   %179 = load ptr, ptr %119, align 8, !noalias !2200, !nonnull !3
-  %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
+  %180 = getelementptr inbounds nuw [24 x i8], ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
@@ -64639,7 +64639,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr %181, align 8, !noalias !2200, !nonnull !3, !noundef !3
-  %189 = getelementptr inbounds nuw i64, ptr %188, i64 %.sroa.030.0117.i.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %.sroa.030.0117.i.i
   %190 = load i64, ptr %189, align 8, !noalias !2200, !noundef !3
   %191 = add i64 %190, %.sroa.01.2116.i.i
   %192 = add i64 %186, 1
@@ -64663,7 +64663,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
 
 198:                                              ; preds = %85
   %199 = load ptr, ptr %78, align 8, !noalias !2200, !nonnull !3, !noundef !3
-  %200 = getelementptr inbounds nuw i64, ptr %199, i64 %.sroa.024.0111.i.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %.sroa.024.0111.i.i
   store i64 %.sroa.01.0112.i.i, ptr %200, align 8, !noalias !2200
   %201 = load i64, ptr %46, align 8, !noalias !2200, !noundef !3
   %.not127.i.i = icmp eq i64 %201, 0
@@ -64682,7 +64682,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
 
 208:                                              ; preds = %.lr.ph.i.i
   %209 = load ptr, ptr %62, align 8, !noalias !2200, !nonnull !3, !noundef !3
-  %210 = getelementptr inbounds nuw i64, ptr %209, i64 %205
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %205
   store i64 %.sroa.01.3110.i.i, ptr %210, align 8, !noalias !2200
   %211 = load i64, ptr %81, align 8, !noalias !2200, !noundef !3
   %212 = icmp ult i64 %.sroa.026.0109.i.i, %211
@@ -64690,7 +64690,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
 
 213:                                              ; preds = %208
   %214 = load ptr, ptr %82, align 8, !noalias !2200, !nonnull !3, !noundef !3
-  %215 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %214, i64 %.sroa.026.0109.i.i
+  %215 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %.sroa.026.0109.i.i
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %217 = load i64, ptr %216, align 8, !noalias !2200, !noundef !3
   %218 = icmp ult i64 %.sroa.024.0111.i.i, %217
@@ -64699,7 +64699,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
 219:                                              ; preds = %213
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %221 = load ptr, ptr %220, align 8, !noalias !2200, !nonnull !3, !noundef !3
-  %222 = getelementptr inbounds nuw i64, ptr %221, i64 %.sroa.024.0111.i.i
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %.sroa.024.0111.i.i
   %223 = load i64, ptr %222, align 8, !noalias !2200, !noundef !3
   %224 = add i64 %223, %.sroa.01.3110.i.i
   %225 = add i64 %202, 1
@@ -65126,7 +65126,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
 
 93:                                               ; preds = %._crit_edge.i.i
   %94 = load ptr, ptr %62, align 8, !noalias !2267, !nonnull !3, !noundef !3
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %90
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %90
   store i64 %.sroa.01.0.lcssa.i.i, ptr %95, align 8, !noalias !2267
   %96 = load i64, ptr %39, align 8, !noalias !2267, !noundef !3
   %97 = load i64, ptr %79, align 8, !noalias !2267, !noundef !3
@@ -65147,7 +65147,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
 
 102:                                              ; preds = %93
   %103 = load ptr, ptr %78, align 8, !noalias !2267, !nonnull !3, !noundef !3
-  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %96
   store i64 %.sroa.01.0.lcssa.i.i, ptr %104, align 8, !noalias !2267
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2267
   %105 = load i64, ptr %39, align 8, !noalias !2267, !noundef !3
@@ -65378,7 +65378,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
 
 173:                                              ; preds = %122
   %174 = load ptr, ptr %115, align 8, !noalias !2267, !nonnull !3, !noundef !3
-  %175 = getelementptr inbounds nuw i64, ptr %174, i64 %.sroa.028.0121.i.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %.sroa.028.0121.i.i
   store i64 %.sroa.01.1122.i.i, ptr %175, align 8, !noalias !2267
   %176 = load i64, ptr %39, align 8, !noalias !2267, !noundef !3
   %.not129.i.i = icmp eq i64 %176, 0
@@ -65388,7 +65388,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
   %177 = load i64, ptr %118, align 8, !noalias !2267, !noundef !3
   %178 = icmp ult i64 %.sroa.028.0121.i.i, %177
   %179 = load ptr, ptr %119, align 8, !noalias !2267, !nonnull !3
-  %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
+  %180 = getelementptr inbounds nuw [24 x i8], ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
@@ -65407,7 +65407,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr %181, align 8, !noalias !2267, !nonnull !3, !noundef !3
-  %189 = getelementptr inbounds nuw i64, ptr %188, i64 %.sroa.030.0117.i.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %.sroa.030.0117.i.i
   %190 = load i64, ptr %189, align 8, !noalias !2267, !noundef !3
   %191 = add i64 %190, %.sroa.01.2116.i.i
   %192 = add i64 %186, 1
@@ -65431,7 +65431,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
 
 198:                                              ; preds = %85
   %199 = load ptr, ptr %78, align 8, !noalias !2267, !nonnull !3, !noundef !3
-  %200 = getelementptr inbounds nuw i64, ptr %199, i64 %.sroa.024.0111.i.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %.sroa.024.0111.i.i
   store i64 %.sroa.01.0112.i.i, ptr %200, align 8, !noalias !2267
   %201 = load i64, ptr %46, align 8, !noalias !2267, !noundef !3
   %.not127.i.i = icmp eq i64 %201, 0
@@ -65450,7 +65450,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
 
 208:                                              ; preds = %.lr.ph.i.i
   %209 = load ptr, ptr %62, align 8, !noalias !2267, !nonnull !3, !noundef !3
-  %210 = getelementptr inbounds nuw i64, ptr %209, i64 %205
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %205
   store i64 %.sroa.01.3110.i.i, ptr %210, align 8, !noalias !2267
   %211 = load i64, ptr %81, align 8, !noalias !2267, !noundef !3
   %212 = icmp ult i64 %.sroa.026.0109.i.i, %211
@@ -65458,7 +65458,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
 
 213:                                              ; preds = %208
   %214 = load ptr, ptr %82, align 8, !noalias !2267, !nonnull !3, !noundef !3
-  %215 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %214, i64 %.sroa.026.0109.i.i
+  %215 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %.sroa.026.0109.i.i
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %217 = load i64, ptr %216, align 8, !noalias !2267, !noundef !3
   %218 = icmp ult i64 %.sroa.024.0111.i.i, %217
@@ -65467,7 +65467,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
 219:                                              ; preds = %213
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %221 = load ptr, ptr %220, align 8, !noalias !2267, !nonnull !3, !noundef !3
-  %222 = getelementptr inbounds nuw i64, ptr %221, i64 %.sroa.024.0111.i.i
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %.sroa.024.0111.i.i
   %223 = load i64, ptr %222, align 8, !noalias !2267, !noundef !3
   %224 = add i64 %223, %.sroa.01.3110.i.i
   %225 = add i64 %202, 1
@@ -66015,7 +66015,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
 
 93:                                               ; preds = %._crit_edge.i.i
   %94 = load ptr, ptr %62, align 8, !noalias !2348, !nonnull !3, !noundef !3
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %90
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %90
   store i64 %.sroa.01.0.lcssa.i.i, ptr %95, align 8, !noalias !2348
   %96 = load i64, ptr %39, align 8, !noalias !2348, !noundef !3
   %97 = load i64, ptr %79, align 8, !noalias !2348, !noundef !3
@@ -66036,7 +66036,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
 
 102:                                              ; preds = %93
   %103 = load ptr, ptr %78, align 8, !noalias !2348, !nonnull !3, !noundef !3
-  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %96
   store i64 %.sroa.01.0.lcssa.i.i, ptr %104, align 8, !noalias !2348
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2348
   %105 = load i64, ptr %39, align 8, !noalias !2348, !noundef !3
@@ -66267,7 +66267,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
 
 173:                                              ; preds = %122
   %174 = load ptr, ptr %115, align 8, !noalias !2348, !nonnull !3, !noundef !3
-  %175 = getelementptr inbounds nuw i64, ptr %174, i64 %.sroa.028.0121.i.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %.sroa.028.0121.i.i
   store i64 %.sroa.01.1122.i.i, ptr %175, align 8, !noalias !2348
   %176 = load i64, ptr %39, align 8, !noalias !2348, !noundef !3
   %.not129.i.i = icmp eq i64 %176, 0
@@ -66277,7 +66277,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
   %177 = load i64, ptr %118, align 8, !noalias !2348, !noundef !3
   %178 = icmp ult i64 %.sroa.028.0121.i.i, %177
   %179 = load ptr, ptr %119, align 8, !noalias !2348, !nonnull !3
-  %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
+  %180 = getelementptr inbounds nuw [24 x i8], ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
@@ -66296,7 +66296,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr %181, align 8, !noalias !2348, !nonnull !3, !noundef !3
-  %189 = getelementptr inbounds nuw i64, ptr %188, i64 %.sroa.030.0117.i.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %.sroa.030.0117.i.i
   %190 = load i64, ptr %189, align 8, !noalias !2348, !noundef !3
   %191 = add i64 %190, %.sroa.01.2116.i.i
   %192 = add i64 %186, 1
@@ -66320,7 +66320,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
 
 198:                                              ; preds = %85
   %199 = load ptr, ptr %78, align 8, !noalias !2348, !nonnull !3, !noundef !3
-  %200 = getelementptr inbounds nuw i64, ptr %199, i64 %.sroa.024.0111.i.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %.sroa.024.0111.i.i
   store i64 %.sroa.01.0112.i.i, ptr %200, align 8, !noalias !2348
   %201 = load i64, ptr %46, align 8, !noalias !2348, !noundef !3
   %.not127.i.i = icmp eq i64 %201, 0
@@ -66339,7 +66339,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
 
 208:                                              ; preds = %.lr.ph.i.i
   %209 = load ptr, ptr %62, align 8, !noalias !2348, !nonnull !3, !noundef !3
-  %210 = getelementptr inbounds nuw i64, ptr %209, i64 %205
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %205
   store i64 %.sroa.01.3110.i.i, ptr %210, align 8, !noalias !2348
   %211 = load i64, ptr %81, align 8, !noalias !2348, !noundef !3
   %212 = icmp ult i64 %.sroa.026.0109.i.i, %211
@@ -66347,7 +66347,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
 
 213:                                              ; preds = %208
   %214 = load ptr, ptr %82, align 8, !noalias !2348, !nonnull !3, !noundef !3
-  %215 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %214, i64 %.sroa.026.0109.i.i
+  %215 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %.sroa.026.0109.i.i
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %217 = load i64, ptr %216, align 8, !noalias !2348, !noundef !3
   %218 = icmp ult i64 %.sroa.024.0111.i.i, %217
@@ -66356,7 +66356,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
 219:                                              ; preds = %213
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %221 = load ptr, ptr %220, align 8, !noalias !2348, !nonnull !3, !noundef !3
-  %222 = getelementptr inbounds nuw i64, ptr %221, i64 %.sroa.024.0111.i.i
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %.sroa.024.0111.i.i
   %223 = load i64, ptr %222, align 8, !noalias !2348, !noundef !3
   %224 = add i64 %223, %.sroa.01.3110.i.i
   %225 = add i64 %202, 1
@@ -67850,7 +67850,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
 
 93:                                               ; preds = %._crit_edge.i.i
   %94 = load ptr, ptr %62, align 8, !noalias !2604, !nonnull !3, !noundef !3
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %90
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %90
   store i64 %.sroa.01.0.lcssa.i.i, ptr %95, align 8, !noalias !2604
   %96 = load i64, ptr %39, align 8, !noalias !2604, !noundef !3
   %97 = load i64, ptr %79, align 8, !noalias !2604, !noundef !3
@@ -67871,7 +67871,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
 
 102:                                              ; preds = %93
   %103 = load ptr, ptr %78, align 8, !noalias !2604, !nonnull !3, !noundef !3
-  %104 = getelementptr inbounds nuw i64, ptr %103, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %96
   store i64 %.sroa.01.0.lcssa.i.i, ptr %104, align 8, !noalias !2604
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !2604
   %105 = load i64, ptr %39, align 8, !noalias !2604, !noundef !3
@@ -68102,7 +68102,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
 
 173:                                              ; preds = %122
   %174 = load ptr, ptr %115, align 8, !noalias !2604, !nonnull !3, !noundef !3
-  %175 = getelementptr inbounds nuw i64, ptr %174, i64 %.sroa.028.0121.i.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %.sroa.028.0121.i.i
   store i64 %.sroa.01.1122.i.i, ptr %175, align 8, !noalias !2604
   %176 = load i64, ptr %39, align 8, !noalias !2604, !noundef !3
   %.not129.i.i = icmp eq i64 %176, 0
@@ -68112,7 +68112,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
   %177 = load i64, ptr %118, align 8, !noalias !2604, !noundef !3
   %178 = icmp ult i64 %.sroa.028.0121.i.i, %177
   %179 = load ptr, ptr %119, align 8, !noalias !2604, !nonnull !3
-  %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
+  %180 = getelementptr inbounds nuw [24 x i8], ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
@@ -68131,7 +68131,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
 
 187:                                              ; preds = %185
   %188 = load ptr, ptr %181, align 8, !noalias !2604, !nonnull !3, !noundef !3
-  %189 = getelementptr inbounds nuw i64, ptr %188, i64 %.sroa.030.0117.i.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %.sroa.030.0117.i.i
   %190 = load i64, ptr %189, align 8, !noalias !2604, !noundef !3
   %191 = add i64 %190, %.sroa.01.2116.i.i
   %192 = add i64 %186, 1
@@ -68155,7 +68155,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
 
 198:                                              ; preds = %85
   %199 = load ptr, ptr %78, align 8, !noalias !2604, !nonnull !3, !noundef !3
-  %200 = getelementptr inbounds nuw i64, ptr %199, i64 %.sroa.024.0111.i.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %.sroa.024.0111.i.i
   store i64 %.sroa.01.0112.i.i, ptr %200, align 8, !noalias !2604
   %201 = load i64, ptr %46, align 8, !noalias !2604, !noundef !3
   %.not127.i.i = icmp eq i64 %201, 0
@@ -68174,7 +68174,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
 
 208:                                              ; preds = %.lr.ph.i.i
   %209 = load ptr, ptr %62, align 8, !noalias !2604, !nonnull !3, !noundef !3
-  %210 = getelementptr inbounds nuw i64, ptr %209, i64 %205
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %205
   store i64 %.sroa.01.3110.i.i, ptr %210, align 8, !noalias !2604
   %211 = load i64, ptr %81, align 8, !noalias !2604, !noundef !3
   %212 = icmp ult i64 %.sroa.026.0109.i.i, %211
@@ -68182,7 +68182,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
 
 213:                                              ; preds = %208
   %214 = load ptr, ptr %82, align 8, !noalias !2604, !nonnull !3, !noundef !3
-  %215 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %214, i64 %.sroa.026.0109.i.i
+  %215 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %.sroa.026.0109.i.i
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %217 = load i64, ptr %216, align 8, !noalias !2604, !noundef !3
   %218 = icmp ult i64 %.sroa.024.0111.i.i, %217
@@ -68191,7 +68191,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
 219:                                              ; preds = %213
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %221 = load ptr, ptr %220, align 8, !noalias !2604, !nonnull !3, !noundef !3
-  %222 = getelementptr inbounds nuw i64, ptr %221, i64 %.sroa.024.0111.i.i
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %.sroa.024.0111.i.i
   %223 = load i64, ptr %222, align 8, !noalias !2604, !noundef !3
   %224 = add i64 %223, %.sroa.01.3110.i.i
   %225 = add i64 %202, 1

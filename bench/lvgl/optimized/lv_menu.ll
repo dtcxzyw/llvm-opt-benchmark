@@ -485,7 +485,7 @@ define internal fastcc void @lv_menu_refr_main_header_mode(ptr noundef nonnull r
 
 switch.lookup:                                    ; preds = %9
   %15 = zext nneg i8 %13 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lv_menu_refr_sidebar_header_mode, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lv_menu_refr_sidebar_header_mode, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   %16 = shl nuw nsw i8 %13, 3
   %switch.shiftamt = zext nneg i8 %16 to i24
@@ -731,7 +731,7 @@ define internal fastcc void @lv_menu_refr_sidebar_header_mode(ptr noundef nonnul
 
 switch.lookup:                                    ; preds = %9
   %15 = zext nneg i8 %13 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lv_menu_refr_sidebar_header_mode, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lv_menu_refr_sidebar_header_mode, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   %16 = shl nuw nsw i8 %13, 3
   %switch.shiftamt = zext nneg i8 %16 to i24

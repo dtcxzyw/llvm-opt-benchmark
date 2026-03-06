@@ -55,7 +55,7 @@ define hidden void @luaX_init(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @luaX_tokens, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @luaX_tokens, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %6 = tail call ptr @luaS_newlstr(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %5) #8
@@ -88,7 +88,7 @@ define hidden ptr @luaX_token2str(ptr noundef readonly captures(none) %0, i32 no
   %5 = tail call ptr @__ctype_b_loc() #9
   %6 = load ptr, ptr %5, align 8, !tbaa !12
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds i16, ptr %6, i64 %7
+  %8 = getelementptr inbounds [2 x i8], ptr %6, i64 %7
   %9 = load i16, ptr %8, align 2, !tbaa !14
   %10 = and i16 %9, 2
   %.not = icmp eq i16 %10, 0
@@ -106,7 +106,7 @@ define hidden ptr @luaX_token2str(ptr noundef readonly captures(none) %0, i32 no
 
 17:                                               ; preds = %2
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr ptr, ptr @luaX_tokens, i64 %18
+  %19 = getelementptr [8 x i8], ptr @luaX_tokens, i64 %18
   %20 = getelementptr i8, ptr %19, i64 -2056
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   br label %22
@@ -158,7 +158,7 @@ define hidden void @luaX_lexerror(ptr noundef readonly captures(none) %0, ptr no
   %22 = tail call ptr @__ctype_b_loc() #9
   %23 = load ptr, ptr %22, align 8, !tbaa !12
   %24 = sext i32 %2 to i64
-  %25 = getelementptr inbounds i16, ptr %23, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %23, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = and i16 %26, 2
   %.not.i = icmp eq i16 %27, 0
@@ -174,7 +174,7 @@ define hidden void @luaX_lexerror(ptr noundef readonly captures(none) %0, ptr no
 
 32:                                               ; preds = %19
   %33 = zext nneg i32 %2 to i64
-  %34 = getelementptr ptr, ptr @luaX_tokens, i64 %33
+  %34 = getelementptr [8 x i8], ptr @luaX_tokens, i64 %33
   %35 = getelementptr i8, ptr %34, i64 -2056
   %36 = load ptr, ptr %35, align 8, !tbaa !4
   br label %txtToken.exit
@@ -872,7 +872,7 @@ thread-pre-split.i:                               ; preds = %327, %314, %276, %2
   %258 = tail call ptr @__ctype_b_loc() #9
   %259 = load ptr, ptr %258, align 8, !tbaa !12
   %260 = sext i32 %249 to i64
-  %261 = getelementptr inbounds i16, ptr %259, i64 %260
+  %261 = getelementptr inbounds [2 x i8], ptr %259, i64 %260
   %262 = load i16, ptr %261, align 2, !tbaa !14
   %263 = and i16 %262, 2048
   %.not66.i = icmp eq i16 %263, 0
@@ -942,7 +942,7 @@ thread-pre-split.i:                               ; preds = %327, %314, %276, %2
   %296 = add nuw nsw i32 %.0.i, 1
   %297 = load ptr, ptr %258, align 8, !tbaa !12
   %298 = sext i32 %294 to i64
-  %299 = getelementptr inbounds i16, ptr %297, i64 %298
+  %299 = getelementptr inbounds [2 x i8], ptr %297, i64 %298
   %300 = load i16, ptr %299, align 2, !tbaa !14
   %301 = and i16 %300, 2048
   %.not69.i = icmp eq i16 %301, 0
@@ -1191,7 +1191,7 @@ check_next.exit162:                               ; preds = %415, %421
   %425 = tail call ptr @__ctype_b_loc() #9
   %426 = load ptr, ptr %425, align 8, !tbaa !12
   %427 = sext i32 %394 to i64
-  %428 = getelementptr inbounds i16, ptr %426, i64 %427
+  %428 = getelementptr inbounds [2 x i8], ptr %426, i64 %427
   %429 = load i16, ptr %428, align 2, !tbaa !14
   %430 = and i16 %429, 2048
   %.not128 = icmp eq i16 %430, 0
@@ -1205,7 +1205,7 @@ check_next.exit162:                               ; preds = %415, %421
   %433 = tail call ptr @__ctype_b_loc() #9
   %434 = load ptr, ptr %433, align 8, !tbaa !12
   %435 = sext i32 %12 to i64
-  %436 = getelementptr inbounds i16, ptr %434, i64 %435
+  %436 = getelementptr inbounds [2 x i8], ptr %434, i64 %435
   %437 = load i16, ptr %436, align 2, !tbaa !14
   %438 = zext i16 %437 to i32
   %439 = and i32 %438, 8192
@@ -1282,7 +1282,7 @@ check_next.exit162:                               ; preds = %415, %421
   store i32 %473, ptr %0, align 8, !tbaa !63
   %474 = load ptr, ptr %433, align 8, !tbaa !12
   %475 = sext i32 %473 to i64
-  %476 = getelementptr inbounds i16, ptr %474, i64 %475
+  %476 = getelementptr inbounds [2 x i8], ptr %474, i64 %475
   %477 = load i16, ptr %476, align 2, !tbaa !14
   %478 = and i16 %477, 8
   %.not152 = icmp ne i16 %478, 0
@@ -2035,7 +2035,7 @@ define internal fastcc void @read_numeral(ptr noundef captures(none) %0, ptr nou
   %19 = tail call ptr @__ctype_b_loc() #9
   %20 = load ptr, ptr %19, align 8, !tbaa !12
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds i16, ptr %20, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %20, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !14
   %24 = and i16 %23, 2048
   %.not27 = icmp ne i16 %24, 0
@@ -2116,7 +2116,7 @@ check_next.exit37:                                ; preds = %26, %57, %39
   %59 = phi i32 [ %40, %39 ], [ %58, %57 ], [ %18, %26 ]
   %60 = load ptr, ptr %19, align 8, !tbaa !12
   %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds i16, ptr %60, i64 %61
+  %62 = getelementptr inbounds [2 x i8], ptr %60, i64 %61
   %63 = load i16, ptr %62, align 2, !tbaa !14
   %64 = and i16 %63, 8
   %.not2949 = icmp ne i16 %64, 0
@@ -2152,7 +2152,7 @@ check_next.exit37:                                ; preds = %26, %57, %39
   store i32 %79, ptr %0, align 8, !tbaa !63
   %80 = load ptr, ptr %19, align 8, !tbaa !12
   %81 = sext i32 %79 to i64
-  %82 = getelementptr inbounds i16, ptr %80, i64 %81
+  %82 = getelementptr inbounds [2 x i8], ptr %80, i64 %81
   %83 = load i16, ptr %82, align 2, !tbaa !14
   %84 = and i16 %83, 8
   %.not29 = icmp ne i16 %84, 0

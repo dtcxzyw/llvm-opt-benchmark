@@ -632,7 +632,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE2atEm.exit:         ; preds = %_ZNSt6vectorIN2cv3M
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !78
   store i32 0, ptr %21, align 4, !tbaa !80
-  %42 = getelementptr inbounds nuw %"class.cv::Mat", ptr %41, i64 %.01353
+  %42 = getelementptr inbounds nuw [96 x i8], ptr %41, i64 %.01353
   call void @_ZNK2cv3Mat9locateROIERNS_5Size_IiEERNS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %42, ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
   %43 = load i32, ptr %22, align 8, !tbaa !6
   %44 = add i32 %43, -1
@@ -680,7 +680,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE2atEm.exit:         ; preds = %_ZNSt6vectorIN2cv3M
   unreachable
 
 61:                                               ; preds = %49
-  %62 = getelementptr inbounds nuw %"class.cv::Mat", ptr %55, i64 %.01353
+  %62 = getelementptr inbounds nuw [96 x i8], ptr %55, i64 %.01353
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 12
   %64 = load i32, ptr %63, align 4, !tbaa !87
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -1709,7 +1709,7 @@ _ZNSt12_Vector_baseIN2cv3PtrINS0_6detail8tracking18TrackerTargetStateEEESaIS5_EE
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !125
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !61
-  %41 = getelementptr inbounds nuw %"struct.cv::Ptr.19", ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %41, ptr %40, align 8, !tbaa !62
   ret void
 }
@@ -2007,7 +2007,7 @@ _ZNSt12_Vector_baseISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEE
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !138
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !107
-  %50 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i64 %16
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %50, ptr %49, align 8, !tbaa !108
   ret void
 }

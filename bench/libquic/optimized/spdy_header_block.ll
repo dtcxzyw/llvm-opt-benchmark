@@ -283,7 +283,7 @@ _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_str
   %24 = load i64, ptr %23, align 8, !tbaa !39
   %25 = urem i64 %.06.lcssa.i.i.i.i, %24
   %26 = load ptr, ptr %0, align 8, !tbaa !40
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8, !tbaa !41
   %.not.i.i6.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i6.i.i, label %_ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14_List_iteratorISt4pairIS8_S8_EENS0_15StringPieceHashESt8equal_toIS8_ESaISA_IKS8_SC_EEE4findERSG_.exit.thread, label %29
@@ -532,7 +532,7 @@ define linkonce_odr void @_ZN15linked_hash_mapIN4base16BasicStringPieceINSt7__cx
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %37 = load i64, ptr %36, align 8, !tbaa !42
   %38 = urem i64 %37, %35
-  %39 = getelementptr inbounds nuw ptr, ptr %34, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %38
   store ptr %22, ptr %39, align 8, !tbaa !41
   br label %_ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt4pairIKS8_St14_List_iteratorIS9_IS8_S8_EEESaISE_ENSt8__detail10_Select1stESt8equal_toIS8_ENS0_15StringPieceHashENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_update_bbeginEv.exit.i.i
 
@@ -547,7 +547,7 @@ _ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_t
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %45 = load i64, ptr %44, align 8, !tbaa !42
   %46 = urem i64 %45, %43
-  %47 = getelementptr inbounds nuw ptr, ptr %42, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %46
   store ptr %23, ptr %47, align 8, !tbaa !41
   br label %_ZNSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14_List_iteratorISt4pairIS8_S8_EENS0_15StringPieceHashESt8equal_toIS8_ESaISA_IKS8_SC_EEE4swapERSJ_.exit
 
@@ -1644,7 +1644,7 @@ _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_str
   %26 = load i64, ptr %25, align 8, !tbaa !39
   %27 = urem i64 %.06.lcssa.i.i.i.i.i, %26
   %28 = load ptr, ptr %0, align 8, !tbaa !40
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8, !tbaa !41
   %.not.i.i6.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i6.i.i.i, label %_ZN15linked_hash_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_NS0_15StringPieceHashEE4findERKS8_.exit.thread, label %31
@@ -1774,7 +1774,7 @@ _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_str
   %23 = load i64, ptr %22, align 8, !tbaa !39
   %24 = urem i64 %.06.lcssa.i.i.i.i.i, %23
   %25 = load ptr, ptr %1, align 8, !tbaa !40
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8, !tbaa !41
   %.not.i.i6.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i6.i.i.i, label %_ZN15linked_hash_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_NS0_15StringPieceHashEE4findERKS8_.exit.thread, label %28
@@ -1945,7 +1945,7 @@ _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_str
   %22 = load i64, ptr %21, align 8, !tbaa !39
   %23 = urem i64 %.06.lcssa.i.i.i.i.i, %22
   %24 = load ptr, ptr %0, align 8, !tbaa !40
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   %26 = load ptr, ptr %25, align 8, !tbaa !41
   %.not.i.i6.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i6.i.i.i, label %_ZNK15linked_hash_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_NS0_15StringPieceHashEE4findERKS8_.exit.thread, label %27
@@ -2060,7 +2060,7 @@ _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_str
   %27 = load i64, ptr %26, align 8, !tbaa !39
   %28 = urem i64 %.06.lcssa.i.i.i.i.i, %27
   %29 = load ptr, ptr %0, align 8, !tbaa !40
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8, !tbaa !41
   %.not.i.i6.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i6.i.i.i, label %_ZN15linked_hash_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES8_NS0_15StringPieceHashEE4findERKS8_.exit.thread, label %32
@@ -2576,7 +2576,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4base16BasicStringPieceINSt7__cxx1112basic_str
 
 31:                                               ; preds = %.loopexit
   %32 = load ptr, ptr %0, align 8, !tbaa !40
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %29
   %34 = load ptr, ptr %33, align 8, !tbaa !41
   %.not.i.i28 = icmp eq ptr %34, null
   br i1 %.not.i.i28, label %.critedge27, label %35
@@ -2709,7 +2709,7 @@ _ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_t
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %2, ptr %32, align 8, !tbaa !42
   %33 = load ptr, ptr %0, align 8, !tbaa !40
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !41
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -2735,7 +2735,7 @@ _ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_t
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %46 = load i64, ptr %45, align 8, !tbaa !42
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !41
   br label %49
 
@@ -2803,7 +2803,7 @@ _ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_t
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !42
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !41
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -2818,7 +2818,7 @@ _ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_t
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !41
   br label %28
 
@@ -2925,7 +2925,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4base16BasicStringPieceINSt7__cxx1112basic_str
 
 28:                                               ; preds = %.loopexit
   %29 = load ptr, ptr %0, align 8, !tbaa !40
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %26
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %26
   %31 = load ptr, ptr %30, align 8, !tbaa !41
   %.not.i.i28 = icmp eq ptr %31, null
   br i1 %.not.i.i28, label %.critedge27, label %32

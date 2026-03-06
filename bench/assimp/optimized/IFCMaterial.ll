@@ -1376,7 +1376,7 @@ _ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; p
 _ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %410, %_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %405, ptr %384, align 8
   store ptr %409, ptr %385, align 8
-  %411 = getelementptr inbounds nuw ptr, ptr %405, i64 %403
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %405, i64 %403
   store ptr %411, ptr %387, align 8
   br label %_ZNSt6vectorIP10aiMaterialSaIS1_EE9push_backEOS1_.exit
 
@@ -1586,7 +1586,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %.0297 = phi i64 [ 0, %.lr.ph299 ], [ %487, %_ZNK8aiStringeqERKS_.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %29, i8 0, i64 1028, i1 false)
-  %480 = getelementptr inbounds nuw ptr, ptr %479, i64 %.0297
+  %480 = getelementptr inbounds nuw [8 x i8], ptr %479, i64 %.0297
   %481 = load ptr, ptr %480, align 8
   %482 = call noundef i32 @aiGetMaterialString(ptr noundef nonnull align 8 dereferenceable(16) %481, ptr noundef nonnull @.str.3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(1028) %29)
   %483 = load i32, ptr %29, align 4
@@ -1704,7 +1704,7 @@ _ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i158: 
 _ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i160: ; preds = %526, %_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i158
   store ptr %521, ptr %473, align 8
   store ptr %525, ptr %474, align 8
-  %527 = getelementptr inbounds nuw ptr, ptr %521, i64 %519
+  %527 = getelementptr inbounds nuw [8 x i8], ptr %521, i64 %519
   store ptr %527, ptr %503, align 8
   br label %_ZNSt10unique_ptrI10aiMaterialSt14default_deleteIS0_EED2Ev.exit166
 

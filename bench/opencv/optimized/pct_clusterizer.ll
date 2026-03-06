@@ -1052,9 +1052,9 @@ _ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERK
 
 221:                                              ; preds = %_ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERKNS_3MatES5_i.exit, %221
   %indvars.iv = phi i64 [ 1, %_ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERKNS_3MatES5_i.exit ], [ %indvars.iv.next, %221 ]
-  %222 = getelementptr inbounds nuw float, ptr %204, i64 %indvars.iv
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %204, i64 %indvars.iv
   %223 = load float, ptr %222, align 4, !tbaa !7
-  %224 = getelementptr inbounds nuw float, ptr %209, i64 %indvars.iv
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %209, i64 %indvars.iv
   %225 = load float, ptr %224, align 4, !tbaa !7
   %226 = fadd float %223, %225
   store float %226, ptr %224, align 4, !tbaa !7
@@ -1097,11 +1097,11 @@ _ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl18findClosestClusterERK
 
 242:                                              ; preds = %.preheader, %242
   %indvars.iv139 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next140, %242 ]
-  %243 = getelementptr inbounds nuw float, ptr %235, i64 %indvars.iv139
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %235, i64 %indvars.iv139
   %244 = load float, ptr %243, align 4, !tbaa !7
   %245 = load float, ptr %230, align 4, !tbaa !7
   %246 = fdiv float %244, %245
-  %247 = getelementptr inbounds nuw float, ptr %238, i64 %indvars.iv139
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %238, i64 %indvars.iv139
   store float %246, ptr %247, align 4, !tbaa !7
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next140, 8
@@ -1594,7 +1594,7 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d14pct_signatures19PCTCluster
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %27 = phi ptr [ %18, %.lr.ph ], [ %33, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !101
   %30 = add nsw i32 %29, 1
@@ -2054,9 +2054,9 @@ define internal fastcc noundef float @_ZN2cv11xfeatures2d14pct_signaturesL15comp
 15:                                               ; preds = %15, %6
   %indvars.iv.i = phi i64 [ 1, %6 ], [ %indvars.iv.next.i, %15 ]
   %.06.i = phi float [ 0.000000e+00, %6 ], [ %22, %15 ]
-  %16 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i
   %17 = load float, ptr %16, align 4, !tbaa !7
-  %18 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i
   %19 = load float, ptr %18, align 4, !tbaa !7
   %20 = fsub float %17, %19
   %21 = tail call noundef float @llvm.fabs.f32(float %20)
@@ -2086,9 +2086,9 @@ _ZN2cv11xfeatures2d14pct_signaturesL13distanceL0_25ERKNS_3MatEiS4_i.exit: ; pred
 34:                                               ; preds = %34, %25
   %indvars.iv.i61 = phi i64 [ 1, %25 ], [ %indvars.iv.next.i64, %34 ]
   %.06.i62 = phi float [ 0.000000e+00, %25 ], [ %41, %34 ]
-  %35 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv.i61
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv.i61
   %36 = load float, ptr %35, align 4, !tbaa !7
-  %37 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i61
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.i61
   %38 = load float, ptr %37, align 4, !tbaa !7
   %39 = fsub float %36, %38
   %40 = tail call noundef float @llvm.fabs.f32(float %39)
@@ -2116,9 +2116,9 @@ _ZN2cv11xfeatures2d14pct_signaturesL12distanceL0_5ERKNS_3MatEiS4_i.exit: ; preds
 52:                                               ; preds = %52, %43
   %indvars.iv.i66 = phi i64 [ 1, %43 ], [ %indvars.iv.next.i68, %52 ]
   %.06.i67 = phi float [ 0.000000e+00, %43 ], [ %59, %52 ]
-  %53 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i66
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i66
   %54 = load float, ptr %53, align 4, !tbaa !7
-  %55 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv.i66
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i66
   %56 = load float, ptr %55, align 4, !tbaa !7
   %57 = fsub float %54, %56
   %58 = tail call noundef float @llvm.fabs.f32(float %57)
@@ -2141,9 +2141,9 @@ _ZN2cv11xfeatures2d14pct_signaturesL12distanceL0_5ERKNS_3MatEiS4_i.exit: ; preds
 69:                                               ; preds = %69, %60
   %indvars.iv.i70 = phi i64 [ 1, %60 ], [ %indvars.iv.next.i72, %69 ]
   %.06.i71 = phi float [ 0.000000e+00, %60 ], [ %75, %69 ]
-  %70 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv.i70
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv.i70
   %71 = load float, ptr %70, align 4, !tbaa !7
-  %72 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv.i70
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv.i70
   %73 = load float, ptr %72, align 4, !tbaa !7
   %74 = fsub float %71, %73
   %75 = tail call float @llvm.fmuladd.f32(float %74, float %74, float %.06.i71)
@@ -2169,9 +2169,9 @@ _ZN2cv11xfeatures2d14pct_signaturesL10distanceL2ERKNS_3MatEiS4_i.exit: ; preds =
 86:                                               ; preds = %86, %77
   %indvars.iv.i74 = phi i64 [ 1, %77 ], [ %indvars.iv.next.i76, %86 ]
   %.06.i75 = phi float [ 0.000000e+00, %77 ], [ %92, %86 ]
-  %87 = getelementptr inbounds nuw float, ptr %81, i64 %indvars.iv.i74
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv.i74
   %88 = load float, ptr %87, align 4, !tbaa !7
-  %89 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv.i74
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv.i74
   %90 = load float, ptr %89, align 4, !tbaa !7
   %91 = fsub float %88, %90
   %92 = tail call float @llvm.fmuladd.f32(float %91, float %91, float %.06.i75)
@@ -2193,9 +2193,9 @@ _ZN2cv11xfeatures2d14pct_signaturesL10distanceL2ERKNS_3MatEiS4_i.exit: ; preds =
 102:                                              ; preds = %102, %93
   %indvars.iv.i78 = phi i64 [ 1, %93 ], [ %indvars.iv.next.i80, %102 ]
   %.06.i79 = phi float [ 0.000000e+00, %93 ], [ %112, %102 ]
-  %103 = getelementptr inbounds nuw float, ptr %97, i64 %indvars.iv.i78
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %indvars.iv.i78
   %104 = load float, ptr %103, align 4, !tbaa !7
-  %105 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv.i78
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv.i78
   %106 = load float, ptr %105, align 4, !tbaa !7
   %107 = fsub float %104, %106
   %108 = tail call noundef float @llvm.fabs.f32(float %107)
@@ -2225,9 +2225,9 @@ _ZN2cv11xfeatures2d14pct_signaturesL10distanceL5ERKNS_3MatEiS4_i.exit: ; preds =
 123:                                              ; preds = %123, %114
   %indvars.iv.i82 = phi i64 [ 1, %114 ], [ %indvars.iv.next.i84, %123 ]
   %.06.i83 = phi float [ 0.000000e+00, %114 ], [ %.1.i, %123 ]
-  %124 = getelementptr inbounds nuw float, ptr %118, i64 %indvars.iv.i82
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i82
   %125 = load float, ptr %124, align 4, !tbaa !7
-  %126 = getelementptr inbounds nuw float, ptr %122, i64 %indvars.iv.i82
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv.i82
   %127 = load float, ptr %126, align 4, !tbaa !7
   %128 = fsub float %125, %127
   %129 = fcmp ogt float %128, %.06.i83

@@ -13,8 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"class.llvm::Argument" = type <{ %"class.llvm::Value", ptr, i32, [4 x i8] }>
-%"class.llvm::Value" = type { i8, i8, i16, i32, ptr, ptr }
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
@@ -54,7 +52,7 @@ _ZN4llvm8Function4argsEv.exit.i:                  ; preds = %16, %_ZN4llvm8Funct
   %17 = phi ptr [ %14, %_ZN4llvm8Function9arg_beginEv.exit.i.i ], [ %.pre1.i.i, %16 ]
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %19 = load i64, ptr %18, align 8, !tbaa !43
-  %20 = getelementptr inbounds nuw %"class.llvm::Argument", ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %17, i64 %19
   %.not41.i = icmp eq ptr %14, %20
   br i1 %.not41.i, label %._crit_edge.i, label %.lr.ph.i
 

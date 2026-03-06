@@ -3,9 +3,6 @@ source_filename = "bench/postgres/original/network_spgist.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef i64 @inet_spg_config(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -270,7 +267,7 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr noundef readonly captures(n
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 1, %1 ]
   %.06985 = phi i32 [ %46, %23 ], [ %20, %1 ]
   %27 = load ptr, ptr %8, align 8
-  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8
   %30 = inttoptr i64 %29 to ptr
   %31 = tail call ptr @pg_detoast_datum_packed(ptr noundef %30) #4
@@ -329,7 +326,7 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr noundef readonly captures(n
 .lr.ph98:                                         ; preds = %59, %.lr.ph98
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %.lr.ph98 ], [ 0, %59 ]
   %63 = load ptr, ptr %8, align 8
-  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %indvars.iv104
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv104
   %65 = load i64, ptr %64, align 8
   %66 = inttoptr i64 %65 to ptr
   %67 = tail call ptr @pg_detoast_datum_packed(ptr noundef %66) #4
@@ -342,11 +339,11 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr noundef readonly captures(n
   %72 = icmp ne i8 %71, 2
   %73 = zext i1 %72 to i32
   %74 = load ptr, ptr %53, align 8
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv104
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv104
   store i32 %73, ptr %75, align 4
   %76 = ptrtoint ptr %67 to i64
   %77 = load ptr, ptr %58, align 8
-  %78 = getelementptr inbounds nuw i64, ptr %77, i64 %indvars.iv104
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv104
   store i64 %76, ptr %78, align 8
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %79 = load i32, ptr %4, align 8
@@ -376,7 +373,7 @@ define dso_local noundef i64 @inet_spg_picksplit(ptr noundef readonly captures(n
 93:                                               ; preds = %.lr.ph95, %inet_spg_node_number.exit
   %indvars.iv101 = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next102, %inet_spg_node_number.exit ]
   %94 = load ptr, ptr %8, align 8
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %indvars.iv101
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv101
   %96 = load i64, ptr %95, align 8
   %97 = inttoptr i64 %96 to ptr
   %98 = tail call ptr @pg_detoast_datum_packed(ptr noundef %97) #4
@@ -409,11 +406,11 @@ inet_spg_node_number.exit:                        ; preds = %93, %106
   %116 = or disjoint i32 %.0.i, 2
   %spec.select18.i = select i1 %115, i32 %116, i32 %.0.i
   %117 = load ptr, ptr %53, align 8
-  %118 = getelementptr inbounds nuw i32, ptr %117, i64 %indvars.iv101
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv101
   store i32 %spec.select18.i, ptr %118, align 4
   %119 = ptrtoint ptr %98 to i64
   %120 = load ptr, ptr %58, align 8
-  %121 = getelementptr inbounds nuw i64, ptr %120, i64 %indvars.iv101
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv101
   store i64 %119, ptr %121, align 8
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %122 = load i32, ptr %4, align 8
@@ -450,7 +447,7 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr noundef readonly cap
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.preheader ]
   %.04053 = phi i32 [ %.141, %46 ], [ 3, %.preheader ]
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [72 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 6
   %17 = load i16, ptr %16, align 2
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 64
@@ -568,7 +565,7 @@ define dso_local noundef i64 @inet_spg_inner_consistent(ptr noundef readonly cap
   %76 = load ptr, ptr %69, align 8
   %77 = load i32, ptr %7, align 8
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i32, ptr %76, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %76, i64 %78
   store i32 %.155, ptr %79, align 4
   %80 = load i32, ptr %7, align 8
   %81 = add i32 %80, 1
@@ -613,7 +610,7 @@ define internal fastcc noundef i32 @inet_spg_consistent_bitmap(ptr noundef %0, i
 19:                                               ; preds = %.lr.ph, %.thread312
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread312 ]
   %.1.fr330 = phi i32 [ %., %.lr.ph ], [ %.1.fr, %.thread312 ]
-  %20 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %2, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [72 x i8], ptr %2, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load i64, ptr %21, align 8
   %23 = inttoptr i64 %22 to ptr

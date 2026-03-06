@@ -910,7 +910,7 @@ define linkonce_odr hidden void @_ZN4cvc57context6CDListINS_8internal12NodeTempl
 .loopexit.i:                                      ; preds = %.loopexit.sink.split.i, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !284
-  %11 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate.424", ptr %10, i64 %4
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !284
   %.not.i.i.i = icmp eq ptr %11, %13

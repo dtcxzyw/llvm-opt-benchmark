@@ -361,7 +361,7 @@ qos_push.exit.i:                                  ; preds = %1
   %7 = add i32 %4, 1
   store i32 %7, ptr @qos_node_tos, align 4
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds %struct.QOSStackElement, ptr @qos_node_stack, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr @qos_node_stack, i64 %8
   store ptr %3, ptr %9, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = icmp ult i32 %4, 2147483647
@@ -380,7 +380,7 @@ qos_push.exit.i:                                  ; preds = %1
   %indvars.iv.i = phi i64 [ %11, %.lr.ph.i ], [ %indvars.iv.next.i, %qos_pop.exit.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %13 = and i64 %indvars.iv.next.i, 4294967295
-  %14 = getelementptr inbounds nuw %struct.QOSStackElement, ptr @qos_node_stack, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr @qos_node_stack, i64 %13
   %15 = load ptr, ptr %14, align 16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 5
   %17 = load i8, ptr %16, align 1, !range !4, !noundef !5
@@ -417,7 +417,7 @@ qos_pop.exit.i:                                   ; preds = %12
 qos_pop.exit30.i:                                 ; preds = %26
   %30 = add i32 %27, -1
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %struct.QOSStackElement, ptr @qos_node_stack, i64 %31
+  %32 = getelementptr inbounds [32 x i8], ptr @qos_node_stack, i64 %31
   %33 = load ptr, ptr %32, align 16
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 5
   store i8 0, ptr %34, align 1
@@ -526,7 +526,7 @@ qos_push.exit35.i:                                ; preds = %80
   %86 = add i32 %81, 1
   store i32 %86, ptr @qos_node_tos, align 4
   %87 = sext i32 %81 to i64
-  %88 = getelementptr inbounds %struct.QOSStackElement, ptr @qos_node_stack, i64 %87
+  %88 = getelementptr inbounds [32 x i8], ptr @qos_node_stack, i64 %87
   store ptr %64, ptr %88, align 16
   %.sroa.2.0..sroa_idx.i31.i = getelementptr inbounds nuw i8, ptr %88, i64 8
   store ptr %14, ptr %.sroa.2.0..sroa_idx.i31.i, align 8

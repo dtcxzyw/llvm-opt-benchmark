@@ -30,10 +30,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
+%"class.cv::Mat_" = type { %"class.cv::Mat" }
 %"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
 %"struct.cv::MatSize" = type { ptr }
 %"struct.cv::MatStep" = type { ptr, [2 x i64] }
-%"class.cv::Mat_" = type { %"class.cv::Mat" }
 %"class.std::vector.27" = type { %"struct.std::_Vector_base.28" }
 %"struct.std::_Vector_base.28" = type { %"struct.std::_Vector_base<cv::detail::tracking::contrib_feature::CvHaarEvaluator::FeatureHaar, std::allocator<cv::detail::tracking::contrib_feature::CvHaarEvaluator::FeatureHaar>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::detail::tracking::contrib_feature::CvHaarEvaluator::FeatureHaar, std::allocator<cv::detail::tracking::contrib_feature::CvHaarEvaluator::FeatureHaar>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::detail::tracking::contrib_feature::CvHaarEvaluator::FeatureHaar, std::allocator<cv::detail::tracking::contrib_feature::CvHaarEvaluator::FeatureHaar>>::_Vector_impl_data" }
@@ -1487,7 +1487,7 @@ define noundef nonnull align 8 dereferenceable(136) ptr @_ZN2cv6detail8tracking2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 240
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !82
-  %8 = getelementptr inbounds nuw %"class.cv::detail::tracking::contrib_feature::CvHaarEvaluator::FeatureHaar", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [136 x i8], ptr %7, i64 %6
   ret ptr %8
 }
 
@@ -1498,7 +1498,7 @@ define noundef zeroext i1 @_ZN2cv6detail8tracking25TrackerContribFeatureHAAR11sw
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 240
   %7 = sext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !82
-  %9 = getelementptr inbounds nuw %"class.cv::detail::tracking::contrib_feature::CvHaarEvaluator::FeatureHaar", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [136 x i8], ptr %8, i64 %7
   %10 = load i64, ptr %2, align 8
   store i64 %10, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1532,14 +1532,14 @@ define noundef zeroext i1 @_ZN2cv6detail8tracking25TrackerContribFeatureHAAR11sw
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 240
   %8 = sext i32 %1 to i64
   %9 = load ptr, ptr %7, align 8, !tbaa !82
-  %10 = getelementptr inbounds nuw %"class.cv::detail::tracking::contrib_feature::CvHaarEvaluator::FeatureHaar", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [136 x i8], ptr %9, i64 %8
   call void @_ZN2cv6detail8tracking15contrib_feature15CvHaarEvaluator11FeatureHaarC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(136) %10)
   %11 = load ptr, ptr %5, align 8, !tbaa !80
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 240
   %13 = sext i32 %2 to i64
   %14 = load ptr, ptr %12, align 8, !tbaa !82
-  %15 = getelementptr inbounds nuw %"class.cv::detail::tracking::contrib_feature::CvHaarEvaluator::FeatureHaar", ptr %14, i64 %13
-  %16 = getelementptr inbounds nuw %"class.cv::detail::tracking::contrib_feature::CvHaarEvaluator::FeatureHaar", ptr %14, i64 %8
+  %15 = getelementptr inbounds nuw [136 x i8], ptr %14, i64 %13
+  %16 = getelementptr inbounds nuw [136 x i8], ptr %14, i64 %8
   %17 = load i64, ptr %15, align 8
   store i64 %17, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1576,7 +1576,7 @@ _ZN2cv6detail8tracking15contrib_feature15CvHaarEvaluator11FeatureHaaraSERKS4_.ex
   %35 = load ptr, ptr %5, align 8, !tbaa !80
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 240
   %37 = load ptr, ptr %36, align 8, !tbaa !82
-  %38 = getelementptr inbounds nuw %"class.cv::detail::tracking::contrib_feature::CvHaarEvaluator::FeatureHaar", ptr %37, i64 %13
+  %38 = getelementptr inbounds nuw [136 x i8], ptr %37, i64 %13
   %39 = load i64, ptr %4, align 8
   store i64 %39, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -2026,7 +2026,7 @@ define noundef zeroext i1 @_ZN2cv6detail8tracking25TrackerContribFeatureHAAR15ex
   %.pre = phi ptr [ %58, %._crit_edge.us ], [ %.pre.pre, %.lr.ph.us.preheader ]
   %38 = phi ptr [ %70, %._crit_edge.us ], [ %33, %.lr.ph.us.preheader ]
   %.02832.us = phi i64 [ %68, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
-  %39 = getelementptr inbounds nuw %"class.cv::Mat", ptr %38, i64 %.02832.us
+  %39 = getelementptr inbounds nuw [96 x i8], ptr %38, i64 %.02832.us
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = load i32, ptr %40, align 4, !tbaa !123
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -2045,18 +2045,18 @@ define noundef zeroext i1 @_ZN2cv6detail8tracking25TrackerContribFeatureHAAR15ex
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !125
   %47 = load ptr, ptr %13, align 8, !tbaa !80
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv
   %49 = load i32, ptr %48, align 4, !tbaa !54
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 240
   %51 = sext i32 %49 to i64
   %52 = load ptr, ptr %50, align 8, !tbaa !82
-  %53 = getelementptr inbounds nuw %"class.cv::detail::tracking::contrib_feature::CvHaarEvaluator::FeatureHaar", ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [136 x i8], ptr %52, i64 %51
   %54 = load ptr, ptr %2, align 8, !tbaa !122
-  %55 = getelementptr inbounds nuw %"class.cv::Mat", ptr %54, i64 %.02832.us
+  %55 = getelementptr inbounds nuw [96 x i8], ptr %54, i64 %.02832.us
   %56 = call noundef zeroext i1 @_ZNK2cv6detail8tracking15contrib_feature15CvHaarEvaluator11FeatureHaar4evalERKNS_3MatENS_5Rect_IiEEPf(ptr noundef nonnull align 8 dereferenceable(136) %53, ptr noundef nonnull align 8 dereferenceable(96) %55, i64 0, i64 %.sroa.3.8.insert.insert.us, ptr noundef nonnull %7)
   %57 = load float, ptr %7, align 4, !tbaa !125
   %58 = load ptr, ptr %1, align 8, !tbaa !114
-  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4, !tbaa !54
   %61 = load ptr, ptr %36, align 8, !tbaa !127
   %62 = load ptr, ptr %37, align 8, !tbaa !128
@@ -3240,7 +3240,7 @@ define linkonce_odr hidden void @_ZNK2cv6detail8tracking16Parallel_computeclERKN
 
 .lr.ph:                                           ; preds = %.lr.ph19.split
   %23 = load ptr, ptr %8, align 8, !tbaa !122
-  %24 = getelementptr inbounds nuw %"class.cv::Mat", ptr %23, i64 %indvars.iv23
+  %24 = getelementptr inbounds nuw [96 x i8], ptr %23, i64 %indvars.iv23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !124
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 12
@@ -3270,9 +3270,9 @@ define linkonce_odr hidden void @_ZNK2cv6detail8tracking16Parallel_computeclERKN
   store float 0.000000e+00, ptr %3, align 4, !tbaa !125
   %34 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK2cv6detail8tracking15contrib_feature15CvHaarEvaluator11getFeaturesEv(ptr noundef nonnull align 8 dereferenceable(360) %33)
   %35 = load ptr, ptr %34, align 8, !tbaa !82
-  %36 = getelementptr inbounds nuw %"class.cv::detail::tracking::contrib_feature::CvHaarEvaluator::FeatureHaar", ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [136 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %8, align 8, !tbaa !122
-  %38 = getelementptr inbounds nuw %"class.cv::Mat", ptr %37, i64 %indvars.iv23
+  %38 = getelementptr inbounds nuw [96 x i8], ptr %37, i64 %indvars.iv23
   %39 = call noundef zeroext i1 @_ZNK2cv6detail8tracking15contrib_feature15CvHaarEvaluator11FeatureHaar4evalERKNS_3MatENS_5Rect_IiEEPf(ptr noundef nonnull align 8 dereferenceable(136) %36, ptr noundef nonnull align 8 dereferenceable(96) %38, i64 0, i64 %.sroa.3.8.insert.insert, ptr noundef nonnull %3)
   %40 = load float, ptr %3, align 4, !tbaa !125
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3296,7 +3296,7 @@ _ZN2cv4Mat_IfEC2ERKNS_3MatE.exit:                 ; preds = %32
   %49 = load i64, ptr %48, align 8, !tbaa !18
   %50 = mul i64 %49, %indvars.iv
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 %50
-  %52 = getelementptr inbounds float, ptr %51, i64 %indvars.iv23
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %indvars.iv23
   store float %40, ptr %52, align 4, !tbaa !125
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

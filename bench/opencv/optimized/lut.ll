@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::ParallelLoopBody" = type { ptr }
 %"class.cv::Range" = type { i32, i32 }
 %"class.cv::NAryMatIterator" = type { ptr, ptr, ptr, i32, i64, i64, i32, i64 }
-%"class.cv::hfloat" = type { i16 }
 
 $_ZNK2cv15LUTParallelBodyclERKNS_5RangeE = comdat any
 
@@ -265,7 +264,7 @@ _ZNK2cv11_InputArray6getMatEi.exit84:             ; preds = %56, %59
   %95 = load i32, ptr %8, align 8, !tbaa !41
   %96 = and i32 %95, 7
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds nuw ptr, ptr @_ZN2cvL6lutTabE, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL6lutTabE, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !42
   %100 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store ptr %99, ptr %100, align 8, !tbaa !43
@@ -334,7 +333,7 @@ _ZNK2cv11_InputArray6getMatEi.exit84:             ; preds = %56, %59
   %123 = load i32, ptr %8, align 8, !tbaa !41
   %124 = and i32 %123, 7
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw ptr, ptr @_ZN2cvL6lutTabE, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL6lutTabE, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %7, ptr %13, align 16, !tbaa !40
@@ -881,10 +880,10 @@ define internal void @_ZN2cvL9LUT8u_16uEPKhPKtPtiii(ptr noundef readonly capture
   %16 = zext i8 %15 to i32
   %17 = mul nuw nsw i32 %4, %16
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i
-  %20 = getelementptr inbounds nuw i16, ptr %19, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %18
   %21 = load i16, ptr %20, align 2, !tbaa !82
-  %22 = getelementptr inbounds nuw i16, ptr %2, i64 %13
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %13
   store i16 %21, ptr %22, align 2, !tbaa !82
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %11
@@ -908,9 +907,9 @@ define internal void @_ZN2cvL9LUT8u_16uEPKhPKtPtiii(ptr noundef readonly capture
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv41.i
   %26 = load i8, ptr %25, align 1, !tbaa !75
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %1, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !82
-  %30 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv41.i
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv41.i
   store i16 %29, ptr %30, align 2, !tbaa !82
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count44.i
@@ -948,10 +947,10 @@ define internal void @_ZN2cvL9LUT8u_16sEPKhPKsPsiii(ptr noundef readonly capture
   %16 = zext i8 %15 to i32
   %17 = mul nuw nsw i32 %4, %16
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i
-  %20 = getelementptr inbounds nuw i16, ptr %19, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %18
   %21 = load i16, ptr %20, align 2, !tbaa !82
-  %22 = getelementptr inbounds nuw i16, ptr %2, i64 %13
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %13
   store i16 %21, ptr %22, align 2, !tbaa !82
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %11
@@ -975,9 +974,9 @@ define internal void @_ZN2cvL9LUT8u_16sEPKhPKsPsiii(ptr noundef readonly capture
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv41.i
   %26 = load i8, ptr %25, align 1, !tbaa !75
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %1, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !82
-  %30 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv41.i
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv41.i
   store i16 %29, ptr %30, align 2, !tbaa !82
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count44.i
@@ -1015,10 +1014,10 @@ define internal void @_ZN2cvL9LUT8u_32sEPKhPKiPiiii(ptr noundef readonly capture
   %16 = zext i8 %15 to i32
   %17 = mul nuw nsw i32 %4, %16
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %18
   %21 = load i32, ptr %20, align 4, !tbaa !90
-  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %13
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %13
   store i32 %21, ptr %22, align 4, !tbaa !90
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %11
@@ -1042,9 +1041,9 @@ define internal void @_ZN2cvL9LUT8u_32sEPKhPKiPiiii(ptr noundef readonly capture
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv41.i
   %26 = load i8, ptr %25, align 1, !tbaa !75
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %1, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !90
-  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv41.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv41.i
   store i32 %29, ptr %30, align 4, !tbaa !90
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count44.i
@@ -1082,10 +1081,10 @@ define internal void @_ZN2cvL9LUT8u_32fEPKhPKfPfiii(ptr noundef readonly capture
   %16 = zext i8 %15 to i32
   %17 = mul nuw nsw i32 %4, %16
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
-  %20 = getelementptr inbounds nuw float, ptr %19, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %18
   %21 = load float, ptr %20, align 4, !tbaa !94
-  %22 = getelementptr inbounds nuw float, ptr %2, i64 %13
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %13
   store float %21, ptr %22, align 4, !tbaa !94
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %11
@@ -1109,9 +1108,9 @@ define internal void @_ZN2cvL9LUT8u_32fEPKhPKfPfiii(ptr noundef readonly capture
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv41.i
   %26 = load i8, ptr %25, align 1, !tbaa !75
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw float, ptr %1, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %27
   %29 = load float, ptr %28, align 4, !tbaa !94
-  %30 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv41.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv41.i
   store float %29, ptr %30, align 4, !tbaa !94
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count44.i
@@ -1149,10 +1148,10 @@ define internal void @_ZN2cvL9LUT8u_64fEPKhPKdPdiii(ptr noundef readonly capture
   %16 = zext i8 %15 to i32
   %17 = mul nuw nsw i32 %4, %16
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i
-  %20 = getelementptr inbounds nuw double, ptr %19, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load double, ptr %20, align 8, !tbaa !99
-  %22 = getelementptr inbounds nuw double, ptr %2, i64 %13
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %13
   store double %21, ptr %22, align 8, !tbaa !99
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %11
@@ -1176,9 +1175,9 @@ define internal void @_ZN2cvL9LUT8u_64fEPKhPKdPdiii(ptr noundef readonly capture
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv41.i
   %26 = load i8, ptr %25, align 1, !tbaa !75
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw double, ptr %1, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %27
   %29 = load double, ptr %28, align 8, !tbaa !99
-  %30 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv41.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv41.i
   store double %29, ptr %30, align 8, !tbaa !99
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count44.i
@@ -1216,9 +1215,9 @@ define internal void @_ZN2cvL9LUT8u_16fEPKhPKNS_6hfloatEPS2_iii(ptr noundef read
   %16 = zext i8 %15 to i32
   %17 = mul nuw nsw i32 %4, %16
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %1, i64 %indvars.iv.i
-  %20 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %19, i64 %18
-  %21 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %2, i64 %13
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %18
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %13
   %22 = load i16, ptr %20, align 2, !tbaa !82
   store i16 %22, ptr %21, align 2, !tbaa !82
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1243,8 +1242,8 @@ define internal void @_ZN2cvL9LUT8u_16fEPKhPKNS_6hfloatEPS2_iii(ptr noundef read
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv41.i
   %26 = load i8, ptr %25, align 1, !tbaa !75
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %1, i64 %27
-  %29 = getelementptr inbounds nuw %"class.cv::hfloat", ptr %2, i64 %indvars.iv41.i
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %27
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv41.i
   %30 = load i16, ptr %28, align 2, !tbaa !82
   store i16 %30, ptr %29, align 2, !tbaa !82
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1

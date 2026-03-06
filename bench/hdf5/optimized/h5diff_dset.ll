@@ -1062,7 +1062,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.07171082 = phi i64 [ 1, %.lr.ph.preheader ], [ %433, %.lr.ph ]
-  %431 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
+  %431 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %432 = load i64, ptr %431, align 8, !tbaa !18
   %433 = mul i64 %432, %.07171082
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1072,7 +1072,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 .lr.ph1086:                                       ; preds = %.lr.ph1086.preheader, %.lr.ph1086
   %indvars.iv1283 = phi i64 [ 0, %.lr.ph1086.preheader ], [ %indvars.iv.next1284, %.lr.ph1086 ]
   %.07161084 = phi i64 [ 1, %.lr.ph1086.preheader ], [ %436, %.lr.ph1086 ]
-  %434 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv1283
+  %434 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv1283
   %435 = load i64, ptr %434, align 8, !tbaa !18
   %436 = mul i64 %435, %.07161084
   %indvars.iv.next1284 = add nuw nsw i64 %indvars.iv1283, 1
@@ -1264,9 +1264,9 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 
 522:                                              ; preds = %.lr.ph1102, %522
   %indvars.iv1301 = phi i64 [ 0, %.lr.ph1102 ], [ %indvars.iv.next1302, %522 ]
-  %523 = getelementptr inbounds nuw i64, ptr %515, i64 %indvars.iv1301
+  %523 = getelementptr inbounds nuw [8 x i8], ptr %515, i64 %indvars.iv1301
   %524 = load i64, ptr %523, align 8, !tbaa !18
-  %525 = getelementptr inbounds nuw i64, ptr %521, i64 %indvars.iv1301
+  %525 = getelementptr inbounds nuw [8 x i8], ptr %521, i64 %indvars.iv1301
   store i64 %524, ptr %525, align 8, !tbaa !18
   %indvars.iv.next1302 = add nuw nsw i64 %indvars.iv1301, 1
   %exitcond1305.not = icmp eq i64 %indvars.iv.next1302, %wide.trip.count1304
@@ -1529,7 +1529,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 
 .lr.ph1106:                                       ; preds = %.lr.ph1106.preheader, %.lr.ph1106
   %indvars.iv1306 = phi i64 [ 0, %.lr.ph1106.preheader ], [ %indvars.iv.next1307, %.lr.ph1106 ]
-  %628 = getelementptr inbounds nuw i64, ptr %626, i64 %indvars.iv1306
+  %628 = getelementptr inbounds nuw [8 x i8], ptr %626, i64 %indvars.iv1306
   store i64 1, ptr %628, align 8, !tbaa !18
   %indvars.iv.next1307 = add nuw nsw i64 %indvars.iv1306, 1
   %exitcond1311.not = icmp eq i64 %indvars.iv.next1307, %wide.trip.count1310
@@ -1558,7 +1558,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 
 .lr.ph1109:                                       ; preds = %.lr.ph1109.preheader, %.lr.ph1109
   %indvars.iv1312 = phi i64 [ 0, %.lr.ph1109.preheader ], [ %indvars.iv.next1313, %.lr.ph1109 ]
-  %638 = getelementptr inbounds nuw i64, ptr %636, i64 %indvars.iv1312
+  %638 = getelementptr inbounds nuw [8 x i8], ptr %636, i64 %indvars.iv1312
   store i64 1, ptr %638, align 8, !tbaa !18
   %indvars.iv.next1313 = add nuw nsw i64 %indvars.iv1312, 1
   %exitcond1317.not = icmp eq i64 %indvars.iv.next1313, %wide.trip.count1316
@@ -1614,7 +1614,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 
 .lr.ph1112:                                       ; preds = %.lr.ph1112.preheader, %.lr.ph1112
   %indvars.iv1318 = phi i64 [ 0, %.lr.ph1112.preheader ], [ %indvars.iv.next1319, %.lr.ph1112 ]
-  %657 = getelementptr inbounds nuw i64, ptr %655, i64 %indvars.iv1318
+  %657 = getelementptr inbounds nuw [8 x i8], ptr %655, i64 %indvars.iv1318
   store i64 1, ptr %657, align 8, !tbaa !18
   %indvars.iv.next1319 = add nuw nsw i64 %indvars.iv1318, 1
   %exitcond1323.not = icmp eq i64 %indvars.iv.next1319, %wide.trip.count1322
@@ -1632,16 +1632,16 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 660:                                              ; preds = %.lr.ph1115, %688
   %661 = phi ptr [ %631, %.lr.ph1115 ], [ %689, %688 ]
   %indvars.iv1324 = phi i64 [ 0, %.lr.ph1115 ], [ %indvars.iv.next1325, %688 ]
-  %662 = getelementptr inbounds nuw i64, ptr %658, i64 %indvars.iv1324
+  %662 = getelementptr inbounds nuw [8 x i8], ptr %658, i64 %indvars.iv1324
   %663 = load i64, ptr %662, align 8, !tbaa !18
   %664 = icmp ugt i64 %663, 1
   br i1 %664, label %665, label %688
 
 665:                                              ; preds = %660
   %666 = load ptr, ptr %629, align 8, !tbaa !44
-  %667 = getelementptr inbounds nuw i64, ptr %666, i64 %indvars.iv1324
+  %667 = getelementptr inbounds nuw [8 x i8], ptr %666, i64 %indvars.iv1324
   %668 = load i64, ptr %667, align 8, !tbaa !18
-  %669 = getelementptr inbounds nuw i64, ptr %659, i64 %indvars.iv1324
+  %669 = getelementptr inbounds nuw [8 x i8], ptr %659, i64 %indvars.iv1324
   %670 = load i64, ptr %669, align 8, !tbaa !18
   %671 = icmp ult i64 %668, %670
   br i1 %671, label %672, label %688
@@ -1697,26 +1697,26 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 694:                                              ; preds = %.lr.ph1118, %694
   %indvars.iv1330 = phi i64 [ 0, %.lr.ph1118 ], [ %indvars.iv.next1331, %694 ]
   %695 = phi i64 [ 1, %.lr.ph1118 ], [ %709, %694 ]
-  %696 = getelementptr inbounds nuw i64, ptr %693, i64 %indvars.iv1330
+  %696 = getelementptr inbounds nuw [8 x i8], ptr %693, i64 %indvars.iv1330
   %697 = load i64, ptr %696, align 8, !tbaa !18
-  %698 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv1330
+  %698 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv1330
   store i64 %697, ptr %698, align 8, !tbaa !18
-  %699 = getelementptr inbounds nuw i64, ptr %692, i64 %indvars.iv1330
+  %699 = getelementptr inbounds nuw [8 x i8], ptr %692, i64 %indvars.iv1330
   %700 = load i64, ptr %699, align 8, !tbaa !18
-  %701 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv1330
+  %701 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv1330
   store i64 %700, ptr %701, align 8, !tbaa !18
-  %702 = getelementptr inbounds nuw i64, ptr %691, i64 %indvars.iv1330
+  %702 = getelementptr inbounds nuw [8 x i8], ptr %691, i64 %indvars.iv1330
   %703 = load i64, ptr %702, align 8, !tbaa !18
-  %704 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv1330
+  %704 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv1330
   store i64 %703, ptr %704, align 8, !tbaa !18
-  %705 = getelementptr inbounds nuw i64, ptr %690, i64 %indvars.iv1330
+  %705 = getelementptr inbounds nuw [8 x i8], ptr %690, i64 %indvars.iv1330
   %706 = load i64, ptr %705, align 8, !tbaa !18
-  %707 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv1330
+  %707 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv1330
   store i64 %706, ptr %707, align 8, !tbaa !18
   %708 = mul i64 %706, %703
   %709 = mul i64 %708, %695
   store i64 %709, ptr %491, align 8, !tbaa !35
-  %710 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv1330
+  %710 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv1330
   store i64 0, ptr %710, align 8, !tbaa !18
   %indvars.iv.next1331 = add nuw nsw i64 %indvars.iv1330, 1
   %exitcond1335.not = icmp eq i64 %indvars.iv.next1331, %wide.trip.count1334
@@ -1787,7 +1787,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 
 .lr.ph1121:                                       ; preds = %.lr.ph1121.preheader, %.lr.ph1121
   %indvars.iv1336 = phi i64 [ 0, %.lr.ph1121.preheader ], [ %indvars.iv.next1337, %.lr.ph1121 ]
-  %736 = getelementptr inbounds nuw i64, ptr %734, i64 %indvars.iv1336
+  %736 = getelementptr inbounds nuw [8 x i8], ptr %734, i64 %indvars.iv1336
   store i64 1, ptr %736, align 8, !tbaa !18
   %indvars.iv.next1337 = add nuw nsw i64 %indvars.iv1336, 1
   %exitcond1341.not = icmp eq i64 %indvars.iv.next1337, %wide.trip.count1340
@@ -1816,7 +1816,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 
 .lr.ph1124:                                       ; preds = %.lr.ph1124.preheader, %.lr.ph1124
   %indvars.iv1342 = phi i64 [ 0, %.lr.ph1124.preheader ], [ %indvars.iv.next1343, %.lr.ph1124 ]
-  %746 = getelementptr inbounds nuw i64, ptr %744, i64 %indvars.iv1342
+  %746 = getelementptr inbounds nuw [8 x i8], ptr %744, i64 %indvars.iv1342
   store i64 1, ptr %746, align 8, !tbaa !18
   %indvars.iv.next1343 = add nuw nsw i64 %indvars.iv1342, 1
   %exitcond1347.not = icmp eq i64 %indvars.iv.next1343, %wide.trip.count1346
@@ -1872,7 +1872,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 
 .lr.ph1127:                                       ; preds = %.lr.ph1127.preheader, %.lr.ph1127
   %indvars.iv1348 = phi i64 [ 0, %.lr.ph1127.preheader ], [ %indvars.iv.next1349, %.lr.ph1127 ]
-  %765 = getelementptr inbounds nuw i64, ptr %763, i64 %indvars.iv1348
+  %765 = getelementptr inbounds nuw [8 x i8], ptr %763, i64 %indvars.iv1348
   store i64 1, ptr %765, align 8, !tbaa !18
   %indvars.iv.next1349 = add nuw nsw i64 %indvars.iv1348, 1
   %exitcond1353.not = icmp eq i64 %indvars.iv.next1349, %wide.trip.count1352
@@ -1890,16 +1890,16 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 768:                                              ; preds = %.lr.ph1130, %796
   %769 = phi ptr [ %739, %.lr.ph1130 ], [ %797, %796 ]
   %indvars.iv1354 = phi i64 [ 0, %.lr.ph1130 ], [ %indvars.iv.next1355, %796 ]
-  %770 = getelementptr inbounds nuw i64, ptr %766, i64 %indvars.iv1354
+  %770 = getelementptr inbounds nuw [8 x i8], ptr %766, i64 %indvars.iv1354
   %771 = load i64, ptr %770, align 8, !tbaa !18
   %772 = icmp ugt i64 %771, 1
   br i1 %772, label %773, label %796
 
 773:                                              ; preds = %768
   %774 = load ptr, ptr %737, align 8, !tbaa !44
-  %775 = getelementptr inbounds nuw i64, ptr %774, i64 %indvars.iv1354
+  %775 = getelementptr inbounds nuw [8 x i8], ptr %774, i64 %indvars.iv1354
   %776 = load i64, ptr %775, align 8, !tbaa !18
-  %777 = getelementptr inbounds nuw i64, ptr %767, i64 %indvars.iv1354
+  %777 = getelementptr inbounds nuw [8 x i8], ptr %767, i64 %indvars.iv1354
   %778 = load i64, ptr %777, align 8, !tbaa !18
   %779 = icmp ult i64 %776, %778
   br i1 %779, label %780, label %796
@@ -1949,23 +1949,23 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 
 802:                                              ; preds = %.lr.ph1133, %802
   %indvars.iv1360 = phi i64 [ 0, %.lr.ph1133 ], [ %indvars.iv.next1361, %802 ]
-  %803 = getelementptr inbounds nuw i64, ptr %801, i64 %indvars.iv1360
+  %803 = getelementptr inbounds nuw [8 x i8], ptr %801, i64 %indvars.iv1360
   %804 = load i64, ptr %803, align 8, !tbaa !18
-  %805 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv1360
+  %805 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv1360
   store i64 %804, ptr %805, align 8, !tbaa !18
-  %806 = getelementptr inbounds nuw i64, ptr %800, i64 %indvars.iv1360
+  %806 = getelementptr inbounds nuw [8 x i8], ptr %800, i64 %indvars.iv1360
   %807 = load i64, ptr %806, align 8, !tbaa !18
-  %808 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv1360
+  %808 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv1360
   store i64 %807, ptr %808, align 8, !tbaa !18
-  %809 = getelementptr inbounds nuw i64, ptr %799, i64 %indvars.iv1360
+  %809 = getelementptr inbounds nuw [8 x i8], ptr %799, i64 %indvars.iv1360
   %810 = load i64, ptr %809, align 8, !tbaa !18
-  %811 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv1360
+  %811 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv1360
   store i64 %810, ptr %811, align 8, !tbaa !18
-  %812 = getelementptr inbounds nuw i64, ptr %798, i64 %indvars.iv1360
+  %812 = getelementptr inbounds nuw [8 x i8], ptr %798, i64 %indvars.iv1360
   %813 = load i64, ptr %812, align 8, !tbaa !18
-  %814 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv1360
+  %814 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv1360
   store i64 %813, ptr %814, align 8, !tbaa !18
-  %815 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv1360
+  %815 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv1360
   store i64 0, ptr %815, align 8, !tbaa !18
   %indvars.iv.next1361 = add nuw nsw i64 %indvars.iv1360, 1
   %exitcond1365.not = icmp eq i64 %indvars.iv.next1361, %wide.trip.count1364
@@ -1993,9 +1993,9 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   br i1 %.not880, label %833, label %826
 
 826:                                              ; preds = %822
-  %827 = getelementptr inbounds nuw i64, ptr %19, i64 %825
+  %827 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %825
   %828 = load i64, ptr %827, align 8, !tbaa !18
-  %829 = getelementptr inbounds nuw i64, ptr %18, i64 %825
+  %829 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %825
   %830 = load i64, ptr %829, align 8, !tbaa !18
   %831 = mul i64 %830, %828
   %.spec.store.select = call i64 @llvm.umin.i64(i64 %831, i64 %spec.store.select)
@@ -2003,7 +2003,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   br label %836
 
 833:                                              ; preds = %822
-  %834 = getelementptr inbounds nuw i64, ptr %515, i64 %825
+  %834 = getelementptr inbounds nuw [8 x i8], ptr %515, i64 %825
   %835 = load i64, ptr %834, align 8, !tbaa !18
   %.spec.store.select954 = call i64 @llvm.umin.i64(i64 %835, i64 %spec.store.select)
   br label %836
@@ -2011,7 +2011,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 836:                                              ; preds = %826, %833
   %.sink = phi i64 [ %832, %826 ], [ %.spec.store.select954, %833 ]
   %837 = phi i64 [ %.spec.store.select, %826 ], [ %.spec.store.select954, %833 ]
-  %838 = getelementptr inbounds nuw i64, ptr %14, i64 %825
+  %838 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %825
   store i64 %.sink, ptr %838, align 8, !tbaa !18
   %839 = mul i64 %837, %.06531135
   %840 = icmp sgt i64 %indvars.iv1366, 1
@@ -2117,15 +2117,15 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 
 .lr.ph1137:                                       ; preds = %.preheader981, %.lr.ph1137
   %indvars.iv1369 = phi i64 [ %indvars.iv.next1370, %.lr.ph1137 ], [ 0, %.preheader981 ]
-  %886 = getelementptr inbounds nuw i64, ptr %515, i64 %indvars.iv1369
+  %886 = getelementptr inbounds nuw [8 x i8], ptr %515, i64 %indvars.iv1369
   %887 = load i64, ptr %886, align 8, !tbaa !18
-  %888 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv1369
+  %888 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv1369
   %889 = load i64, ptr %888, align 8, !tbaa !18
   %890 = sub i64 %887, %889
-  %891 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv1369
+  %891 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv1369
   %892 = load i64, ptr %891, align 8, !tbaa !18
   %. = call i64 @llvm.umin.i64(i64 %890, i64 %892)
-  %893 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv1369
+  %893 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv1369
   store i64 %., ptr %893, align 8, !tbaa !18
   %indvars.iv.next1370 = add nuw nsw i64 %indvars.iv1369, 1
   %exitcond1374.not = icmp eq i64 %indvars.iv.next1370, %wide.trip.count1373
@@ -2164,15 +2164,15 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 
 .lr.ph1140:                                       ; preds = %.preheader980, %.lr.ph1140
   %indvars.iv1375 = phi i64 [ %indvars.iv.next1376, %.lr.ph1140 ], [ 0, %.preheader980 ]
-  %912 = getelementptr inbounds nuw i64, ptr %515, i64 %indvars.iv1375
+  %912 = getelementptr inbounds nuw [8 x i8], ptr %515, i64 %indvars.iv1375
   %913 = load i64, ptr %912, align 8, !tbaa !18
-  %914 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv1375
+  %914 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv1375
   %915 = load i64, ptr %914, align 8, !tbaa !18
   %916 = sub i64 %913, %915
-  %917 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv1375
+  %917 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv1375
   %918 = load i64, ptr %917, align 8, !tbaa !18
   %.955 = call i64 @llvm.umin.i64(i64 %916, i64 %918)
-  %919 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv1375
+  %919 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv1375
   store i64 %.955, ptr %919, align 8, !tbaa !18
   %indvars.iv.next1376 = add nuw nsw i64 %indvars.iv1375, 1
   %exitcond1380.not = icmp eq i64 %indvars.iv.next1376, %wide.trip.count1379
@@ -2316,15 +2316,15 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 
 .lr.ph1143:                                       ; preds = %.preheader979, %.lr.ph1143
   %indvars.iv1381 = phi i64 [ %indvars.iv.next1382, %.lr.ph1143 ], [ 0, %.preheader979 ]
-  %997 = getelementptr inbounds nuw i64, ptr %515, i64 %indvars.iv1381
+  %997 = getelementptr inbounds nuw [8 x i8], ptr %515, i64 %indvars.iv1381
   %998 = load i64, ptr %997, align 8, !tbaa !18
-  %999 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv1381
+  %999 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv1381
   %1000 = load i64, ptr %999, align 8, !tbaa !18
   %1001 = sub i64 %998, %1000
-  %1002 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv1381
+  %1002 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv1381
   %1003 = load i64, ptr %1002, align 8, !tbaa !18
   %.956 = call i64 @llvm.umin.i64(i64 %1001, i64 %1003)
-  %1004 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv1381
+  %1004 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv1381
   store i64 %.956, ptr %1004, align 8, !tbaa !18
   %indvars.iv.next1382 = add nuw nsw i64 %indvars.iv1381, 1
   %exitcond1386.not = icmp eq i64 %indvars.iv.next1382, %wide.trip.count1385
@@ -2363,15 +2363,15 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 
 .lr.ph1146:                                       ; preds = %.preheader978, %.lr.ph1146
   %indvars.iv1387 = phi i64 [ %indvars.iv.next1388, %.lr.ph1146 ], [ 0, %.preheader978 ]
-  %1023 = getelementptr inbounds nuw i64, ptr %515, i64 %indvars.iv1387
+  %1023 = getelementptr inbounds nuw [8 x i8], ptr %515, i64 %indvars.iv1387
   %1024 = load i64, ptr %1023, align 8, !tbaa !18
-  %1025 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv1387
+  %1025 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv1387
   %1026 = load i64, ptr %1025, align 8, !tbaa !18
   %1027 = sub i64 %1024, %1026
-  %1028 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv1387
+  %1028 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv1387
   %1029 = load i64, ptr %1028, align 8, !tbaa !18
   %.957 = call i64 @llvm.umin.i64(i64 %1027, i64 %1029)
-  %1030 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv1387
+  %1030 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv1387
   store i64 %.957, ptr %1030, align 8, !tbaa !18
   %indvars.iv.next1388 = add nuw nsw i64 %indvars.iv1387, 1
   %exitcond1392.not = icmp eq i64 %indvars.iv.next1388, %wide.trip.count1391
@@ -2651,56 +2651,56 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 1186:                                             ; preds = %.lr.ph1154, %1219
   %indvars.iv1396 = phi i64 [ %1185, %.lr.ph1154 ], [ %1187, %1219 ]
   %1187 = add nsw i64 %indvars.iv1396, -1
-  %1188 = getelementptr inbounds nuw i64, ptr %21, i64 %1187
+  %1188 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %1187
   %1189 = load i64, ptr %1188, align 8, !tbaa !18
   br i1 %.not896, label %1196, label %1190
 
 1190:                                             ; preds = %1186
-  %1191 = getelementptr inbounds nuw i64, ptr %19, i64 %1187
+  %1191 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %1187
   %1192 = load i64, ptr %1191, align 8, !tbaa !18
   %.not897 = icmp ult i64 %1189, %1192
   br i1 %.not897, label %1193, label %1196
 
 1193:                                             ; preds = %1190
-  %1194 = getelementptr inbounds nuw i64, ptr %20, i64 %1187
+  %1194 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %1187
   %1195 = load i64, ptr %1194, align 8, !tbaa !18
   br label %1196
 
 1196:                                             ; preds = %1186, %1190, %1193
   %.sink1657 = phi i64 [ %1189, %1190 ], [ %1195, %1193 ], [ %1189, %1186 ]
-  %1197 = getelementptr inbounds nuw i64, ptr %17, i64 %1187
+  %1197 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %1187
   %1198 = load i64, ptr %1197, align 8, !tbaa !18
   %1199 = add i64 %1198, %.sink1657
   store i64 %1199, ptr %1197, align 8, !tbaa !18
-  %1200 = getelementptr inbounds nuw i64, ptr %515, i64 %1187
+  %1200 = getelementptr inbounds nuw [8 x i8], ptr %515, i64 %1187
   %1201 = load i64, ptr %1200, align 8, !tbaa !18
   %.not898 = icmp uge i64 %1199, %1201
   br i1 %.not898, label %1202, label %1204
 
 1202:                                             ; preds = %1196
-  %1203 = getelementptr inbounds nuw i64, ptr %17, i64 %1187
+  %1203 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %1187
   store i64 0, ptr %1203, align 8, !tbaa !18
   br label %1204
 
 1204:                                             ; preds = %1196, %1202
-  %1205 = getelementptr inbounds nuw i64, ptr %26, i64 %1187
+  %1205 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %1187
   %1206 = load i64, ptr %1205, align 8, !tbaa !18
   br i1 %.not899, label %1213, label %1207
 
 1207:                                             ; preds = %1204
-  %1208 = getelementptr inbounds nuw i64, ptr %24, i64 %1187
+  %1208 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %1187
   %1209 = load i64, ptr %1208, align 8, !tbaa !18
   %.not900 = icmp ult i64 %1206, %1209
   br i1 %.not900, label %1210, label %1213
 
 1210:                                             ; preds = %1207
-  %1211 = getelementptr inbounds nuw i64, ptr %25, i64 %1187
+  %1211 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %1187
   %1212 = load i64, ptr %1211, align 8, !tbaa !18
   br label %1213
 
 1213:                                             ; preds = %1204, %1207, %1210
   %.sink1662 = phi i64 [ %1206, %1207 ], [ %1212, %1210 ], [ %1206, %1204 ]
-  %1214 = getelementptr inbounds nuw i64, ptr %22, i64 %1187
+  %1214 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %1187
   %1215 = load i64, ptr %1214, align 8, !tbaa !18
   %1216 = add i64 %1215, %.sink1662
   store i64 %1216, ptr %1214, align 8, !tbaa !18
@@ -2708,7 +2708,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   br i1 %.not901, label %1219, label %1217
 
 1217:                                             ; preds = %1213
-  %1218 = getelementptr inbounds nuw i64, ptr %22, i64 %1187
+  %1218 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %1187
   store i64 0, ptr %1218, align 8, !tbaa !18
   br label %1219
 
@@ -3151,15 +3151,15 @@ define noundef range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %
   %indvars.iv264 = phi i64 [ %indvars.iv.next265, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.0168254.us = phi i32 [ %spec.select.us, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.0171253.us = phi i32 [ %spec.select241.us, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %104 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv264
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv264
   %105 = load i64, ptr %104, align 8, !tbaa !18
-  %106 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv264
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv264
   %107 = load i64, ptr %106, align 8, !tbaa !18
   %.not225.us = icmp eq i64 %105, %107
   %spec.select.us = select i1 %.not225.us, i32 %.0168254.us, i32 1
-  %108 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv264
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv264
   %109 = load i64, ptr %108, align 8, !tbaa !18
-  %110 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv264
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv264
   %111 = load i64, ptr %110, align 8, !tbaa !18
   %.not226.us = icmp eq i64 %109, %111
   %spec.select241.us = select i1 %.not226.us, i32 %.0171253.us, i32 1
@@ -3213,9 +3213,9 @@ define noundef range(i32 -1, 2) i32 @diff_can_type(i64 noundef %0, i64 noundef %
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.0171253 = phi i32 [ %spec.select241, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %128 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %129 = load i64, ptr %128, align 8, !tbaa !18
-  %130 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %131 = load i64, ptr %130, align 8, !tbaa !18
   %.not226 = icmp eq i64 %129, %131
   %spec.select241 = select i1 %.not226, i32 %.0171253, i32 1

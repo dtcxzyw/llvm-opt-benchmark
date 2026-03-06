@@ -313,7 +313,7 @@ _ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit.i.i..lr.ph.preheader.i.
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i, %122
   %124 = phi ptr [ %.pre.i62, %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i ], [ %118, %122 ]
   %.pre-phi.i.i3.i = phi i64 [ %.pre13.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i ], [ 0, %122 ]
-  %125 = getelementptr ptr, ptr %124, i64 %.pre-phi.i.i3.i
+  %125 = getelementptr [8 x i8], ptr %124, i64 %.pre-phi.i.i3.i
   %126 = sub nsw i64 %117, %.pre-phi.i.i3.i
   %127 = shl nsw i64 %126, 3
   call void @llvm.memset.p0.i64(ptr align 8 %125, i8 0, i64 %127, i1 false), !tbaa !700
@@ -352,11 +352,11 @@ _ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit63: ; preds = %._crit_edge, %1
   %.073 = phi i32 [ 0, %.lr.ph ], [ %143, %135 ]
   %136 = zext i32 %.073 to i64
   %137 = load ptr, ptr %128, align 8, !tbaa !681
-  %138 = getelementptr inbounds nuw ptr, ptr %137, i64 %136
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %136
   %139 = load ptr, ptr %138, align 8, !tbaa !685
   %140 = call noundef ptr @_ZN5clang7CodeGen24initializationPatternForERNS0_13CodeGenModuleEPN4llvm4TypeE(ptr noundef nonnull align 8 dereferenceable(3608) %0, ptr noundef %139)
   %141 = load ptr, ptr %8, align 8, !tbaa !697
-  %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %136
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %136
   store ptr %140, ptr %142, align 8, !tbaa !700
   %143 = add i32 %.073, 1
   %144 = load i32, ptr %119, align 8, !tbaa !699

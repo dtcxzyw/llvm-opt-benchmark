@@ -51,12 +51,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl.15" = type { %"struct.std::_Head_base.16" }
 %"struct.std::_Head_base.16" = type { i64 }
 %"class.std::allocator" = type { i8 }
-%"struct.llvh::TimerGroup::PrintRecord" = type { %"class.llvh::TimeRecord", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.llvh::format_object.34" = type { %"class.llvh::format_object_base", %"class.std::tuple.35" }
 %"class.std::tuple.35" = type { %"struct.std::_Tuple_impl.base", [4 x i8] }
 %"struct.std::_Tuple_impl.base" = type <{ %"struct.std::_Tuple_impl.31", %"struct.std::_Head_base.37" }>
 %"struct.std::_Head_base.37" = type { i32 }
 %"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
+%"struct.llvh::TimerGroup::PrintRecord" = type { %"class.llvh::TimeRecord", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"class.llvh::Twine" = type <{ %"union.llvh::Twine::Child", %"union.llvh::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvh::Twine::Child" = type { ptr }
 
@@ -1404,7 +1404,7 @@ while.body.i.i.i.i:                               ; preds = %while.cond.i.i.i.i,
 _ZNK4llvh9StringMapINS_10TimeRecordENS_15MallocAllocatorEE5beginEv.exit: ; preds = %while.cond.i.i.i.i, %entry
   %retval.sroa.0.1.i = phi ptr [ %1, %entry ], [ %retval.sroa.0.0.i, %while.cond.i.i.i.i ]
   %idx.ext.i = zext i32 %2 to i64
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %1, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %idx.ext.i
   %cmp.i.i.not11 = icmp eq ptr %retval.sroa.0.1.i, %add.ptr.i
   br i1 %cmp.i.i.not11, label %for.end, label %for.body.lr.ph
 
@@ -1546,7 +1546,7 @@ _ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE13_M_deallocateEPS2_
   store ptr %call5.i.i.i.i, ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i7
   store ptr %add.ptr, ptr %_M_finish.i, align 8
-  %add.ptr26 = getelementptr inbounds nuw %"struct.llvh::TimerGroup::PrintRecord", ptr %call5.i.i.i.i, i64 %__n
+  %add.ptr26 = getelementptr inbounds nuw [96 x i8], ptr %call5.i.i.i.i, i64 %__n
   store ptr %add.ptr26, ptr %_M_end_of_storage.i, align 8
   br label %if.end29
 
@@ -3179,7 +3179,7 @@ entry:
   %call = tail call noundef i32 @_ZN4llvh13StringMapImpl15LookupBucketForENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %Key.coerce0, i64 %Key.coerce1) #22
   %0 = load ptr, ptr %this, align 8
   %idxprom = zext i32 %call to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %magicptr = ptrtoint ptr %1 to i64
   switch i64 %magicptr, label %while.cond.i.i.i [
@@ -3243,7 +3243,7 @@ _ZN4llvh14StringMapEntryISt4pairIPNS_10TimerGroupENS_9StringMapINS_5TimerENS_15M
   %call12 = tail call noundef i32 @_ZN4llvh13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %call) #22
   %5 = load ptr, ptr %this, align 8
   %idx.ext15 = zext i32 %call12 to i64
-  %add.ptr16 = getelementptr inbounds nuw ptr, ptr %5, i64 %idx.ext15
+  %add.ptr16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %idx.ext15
   br label %while.cond.i.i.i9
 
 while.cond.i.i.i9:                                ; preds = %while.body.i.i.i12, %_ZN4llvh14StringMapEntryISt4pairIPNS_10TimerGroupENS_9StringMapINS_5TimerENS_15MallocAllocatorEEEEE6CreateIS6_JEEEPS9_NS_9StringRefERT_DpOT0_.exit
@@ -3282,7 +3282,7 @@ entry:
   %call = tail call noundef i32 @_ZN4llvh13StringMapImpl15LookupBucketForENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %Key.coerce0, i64 %Key.coerce1) #22
   %0 = load ptr, ptr %this, align 8
   %idxprom = zext i32 %call to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
   %magicptr = ptrtoint ptr %1 to i64
   switch i64 %magicptr, label %while.cond.i.i.i [
@@ -3350,7 +3350,7 @@ _ZN4llvh14StringMapEntryINS_5TimerEE6CreateINS_15MallocAllocatorEJEEEPS2_NS_9Str
   %call12 = tail call noundef i32 @_ZN4llvh13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %call) #22
   %5 = load ptr, ptr %this, align 8
   %idx.ext15 = zext i32 %call12 to i64
-  %add.ptr16 = getelementptr inbounds nuw ptr, ptr %5, i64 %idx.ext15
+  %add.ptr16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %idx.ext15
   br label %while.cond.i.i.i9
 
 while.cond.i.i.i9:                                ; preds = %while.body.i.i.i12, %_ZN4llvh14StringMapEntryINS_5TimerEE6CreateINS_15MallocAllocatorEJEEEPS2_NS_9StringRefERT_DpOT0_.exit
@@ -3830,7 +3830,7 @@ _ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE13_M_deallocateEPS2_
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i12, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr24 = getelementptr inbounds nuw %"struct.llvh::TimerGroup::PrintRecord", ptr %cond.i12, i64 %cond.i
+  %add.ptr24 = getelementptr inbounds nuw [96 x i8], ptr %cond.i12, i64 %cond.i
   store ptr %add.ptr24, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -3991,7 +3991,7 @@ _ZNSt12_Vector_baseIN4llvh10TimerGroup11PrintRecordESaIS2_EE13_M_deallocateEPS2_
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i24, ptr %_M_finish.i.i, align 8
-  %add.ptr24 = getelementptr inbounds nuw %"struct.llvh::TimerGroup::PrintRecord", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr24 = getelementptr inbounds nuw [96 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr24, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -4041,7 +4041,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRe
 if.end:                                           ; preds = %while.body
   %dec = add nsw i64 %__depth_limit.addr.09, -1
   %div.i = udiv i64 %sub.ptr.sub.i10, 192
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %div.i
+  %add.ptr.i.i = getelementptr inbounds nuw [96 x i8], ptr %__first.coerce, i64 %div.i
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %storemerge8, i64 -96
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_(ptr %__first.coerce, ptr nonnull %add.ptr.i1.i, ptr %add.ptr.i.i, ptr nonnull %add.ptr.i2.i)
   %call25.i = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_SC_T0_(ptr nonnull %add.ptr.i1.i, ptr %storemerge8, ptr %__first.coerce)
@@ -4078,7 +4078,7 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %while.body, %if.end
   %__parent.0 = phi i64 [ %div2021, %if.end ], [ %dec, %while.body ]
-  %add.ptr.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__parent.0
+  %add.ptr.i = getelementptr inbounds [96 x i8], ptr %__first.coerce, i64 %__parent.0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %__value, ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i, i64 32, i1 false)
   %Name3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i, ptr noundef nonnull align 8 dereferenceable(32) %Name3.i) #22
@@ -4147,15 +4147,15 @@ while.body:                                       ; preds = %entry, %while.body
   %__holeIndex.addr.040 = phi i64 [ %spec.select, %while.body ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.040, 1
   %mul = add i64 %add, 2
-  %add.ptr.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %mul
+  %add.ptr.i = getelementptr inbounds [96 x i8], ptr %__first.coerce, i64 %mul
   %sub3 = or disjoint i64 %add, 1
-  %add.ptr.i17 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %sub3
+  %add.ptr.i17 = getelementptr inbounds [96 x i8], ptr %__first.coerce, i64 %sub3
   %0 = load double, ptr %add.ptr.i, align 8
   %1 = load double, ptr %add.ptr.i17, align 8
   %cmp.i.i.i = fcmp olt double %0, %1
   %spec.select = select i1 %cmp.i.i.i, i64 %sub3, i64 %mul
-  %add.ptr.i18 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %spec.select
-  %add.ptr.i19 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__holeIndex.addr.040
+  %add.ptr.i18 = getelementptr inbounds [96 x i8], ptr %__first.coerce, i64 %spec.select
+  %add.ptr.i19 = getelementptr inbounds [96 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.040
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i19, ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i18, i64 32, i1 false)
   %Name.i = getelementptr inbounds nuw i8, ptr %add.ptr.i19, i64 32
   %Name3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i18, i64 32
@@ -4181,8 +4181,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then21:                                        ; preds = %land.lhs.true
   %add22 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub25 = or disjoint i64 %add22, 1
-  %add.ptr.i20 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %sub25
-  %add.ptr.i21 = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i20 = getelementptr inbounds [96 x i8], ptr %__first.coerce, i64 %sub25
+  %add.ptr.i21 = getelementptr inbounds [96 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i21, ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i20, i64 32, i1 false)
   %Name.i22 = getelementptr inbounds nuw i8, ptr %add.ptr.i21, i64 32
   %Name3.i23 = getelementptr inbounds nuw i8, ptr %add.ptr.i20, i64 32
@@ -4208,14 +4208,14 @@ land.rhs.i:                                       ; preds = %if.end35, %while.bo
   %__holeIndex.addr.022.i = phi i64 [ %__parent.023.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end35 ]
   %__parent.023.in.i = add nsw i64 %__holeIndex.addr.022.i, -1
   %__parent.023.i = sdiv i64 %__parent.023.in.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__parent.023.i
+  %add.ptr.i.i = getelementptr inbounds [96 x i8], ptr %__first.coerce, i64 %__parent.023.i
   %2 = load double, ptr %add.ptr.i.i, align 8
   %3 = load double, ptr %agg.tmp38, align 8
   %cmp.i.i.i.i = fcmp olt double %2, %3
   br i1 %cmp.i.i.i.i, label %while.body.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_less_valEEvT_T0_SD_T1_RT2_.exit
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %add.ptr.i8.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__holeIndex.addr.022.i
+  %add.ptr.i8.i = getelementptr inbounds [96 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.022.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i8.i, ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i.i, i64 32, i1 false)
   %Name.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i8.i, i64 32
   %Name3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 32
@@ -4228,7 +4228,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN4llvh10TimerGroup11PrintRecordESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops14_Iter_less_valEEvT_T0_SD_T1_RT2_.exit: ; preds = %land.rhs.i, %while.body.i, %if.end35
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.022.i, %land.rhs.i ], [ %__parent.023.i, %while.body.i ]
-  %add.ptr.i9.i = getelementptr inbounds %"struct.llvh::TimerGroup::PrintRecord", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr.i9.i = getelementptr inbounds [96 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i9.i, ptr noundef nonnull align 8 dereferenceable(96) %agg.tmp38, i64 32, i1 false)
   %Name.i10.i = getelementptr inbounds nuw i8, ptr %add.ptr.i9.i, i64 32
   %call.i12.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %Name.i10.i, ptr noundef nonnull align 8 dereferenceable(32) %Name.i28) #22
@@ -4641,7 +4641,7 @@ while.body.i.i.i.i.i:                             ; preds = %while.cond.i.i.i.i.
 _ZN4llvh9StringMapISt4pairIPNS_10TimerGroupENS0_INS_5TimerENS_15MallocAllocatorEEEES5_E5beginEv.exit.i: ; preds = %while.cond.i.i.i.i.i, %delete.notnull
   %retval.sroa.0.1.i.i = phi ptr [ %0, %delete.notnull ], [ %retval.sroa.0.0.i.i, %while.cond.i.i.i.i.i ]
   %idx.ext.i.i = zext i32 %1 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %0, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %idx.ext.i.i
   %cmp.i.i.not6.i = icmp eq ptr %retval.sroa.0.1.i.i, %add.ptr.i.i
   br i1 %cmp.i.i.not6.i, label %for.end.i, label %for.body.preheader.i
 
@@ -4701,7 +4701,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i.i
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %9 = load ptr, ptr %Ptr, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i
   %10 = load ptr, ptr %arrayidx.i.i, align 8
   %magicptr.i.i = ptrtoint ptr %10 to i64
   switch i64 %magicptr.i.i, label %if.then4.i.i [
@@ -4750,7 +4750,7 @@ for.body.preheader.i.i.i:                         ; preds = %if.then.i.i.i
 for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for.body.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %for.body.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %for.inc.i.i.i ]
   %3 = load ptr, ptr %second.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i.i
   %4 = load ptr, ptr %arrayidx.i.i.i, align 8
   %magicptr.i.i.i = ptrtoint ptr %4 to i64
   switch i64 %magicptr.i.i.i, label %if.then4.i.i.i [

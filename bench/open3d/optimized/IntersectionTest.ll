@@ -37,24 +37,24 @@ define noundef range(i32 0, 2) i32 @_Z16coplanar_tri_triPdS_S_S_S_S_S_(ptr nound
 21:                                               ; preds = %19, %17
   %.0596 = phi i64 [ %., %17 ], [ %.674, %19 ]
   %.0595 = phi i64 [ %.673, %17 ], [ 0, %19 ]
-  %22 = getelementptr inbounds nuw double, ptr %2, i64 %.0595
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0595
   %23 = load double, ptr %22, align 8, !tbaa !4
-  %24 = getelementptr inbounds nuw double, ptr %1, i64 %.0595
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0595
   %25 = load double, ptr %24, align 8, !tbaa !4
   %26 = fsub double %23, %25
-  %27 = getelementptr inbounds nuw double, ptr %2, i64 %.0596
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0596
   %28 = load double, ptr %27, align 8, !tbaa !4
-  %29 = getelementptr inbounds nuw double, ptr %1, i64 %.0596
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0596
   %30 = load double, ptr %29, align 8, !tbaa !4
   %31 = fsub double %28, %30
-  %32 = getelementptr inbounds nuw double, ptr %4, i64 %.0595
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0595
   %33 = load double, ptr %32, align 8, !tbaa !4
-  %34 = getelementptr inbounds nuw double, ptr %5, i64 %.0595
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0595
   %35 = load double, ptr %34, align 8, !tbaa !4
   %36 = fsub double %33, %35
-  %37 = getelementptr inbounds nuw double, ptr %4, i64 %.0596
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0596
   %38 = load double, ptr %37, align 8, !tbaa !4
-  %39 = getelementptr inbounds nuw double, ptr %5, i64 %.0596
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0596
   %40 = load double, ptr %39, align 8, !tbaa !4
   %41 = fsub double %38, %40
   %42 = fsub double %25, %33
@@ -99,10 +99,10 @@ define noundef range(i32 0, 2) i32 @_Z16coplanar_tri_triPdS_S_S_S_S_S_(ptr nound
   br i1 %or.cond678, label %69, label %.critedge
 
 69:                                               ; preds = %63, %66, %54
-  %70 = getelementptr inbounds nuw double, ptr %6, i64 %.0595
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0595
   %71 = load double, ptr %70, align 8, !tbaa !4
   %72 = fsub double %35, %71
-  %73 = getelementptr inbounds nuw double, ptr %6, i64 %.0596
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0596
   %74 = load double, ptr %73, align 8, !tbaa !4
   %75 = fsub double %40, %74
   %76 = fsub double %25, %35
@@ -191,10 +191,10 @@ define noundef range(i32 0, 2) i32 @_Z16coplanar_tri_triPdS_S_S_S_S_S_(ptr nound
   br i1 %or.cond686, label %133, label %.critedge
 
 133:                                              ; preds = %127, %130, %118
-  %134 = getelementptr inbounds nuw double, ptr %3, i64 %.0595
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0595
   %135 = load double, ptr %134, align 8, !tbaa !4
   %136 = fsub double %135, %23
-  %137 = getelementptr inbounds nuw double, ptr %3, i64 %.0596
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0596
   %138 = load double, ptr %137, align 8, !tbaa !4
   %139 = fsub double %138, %28
   %140 = fsub double %23, %33
@@ -676,17 +676,17 @@ define noundef range(i32 0, 2) i32 @_Z16NoDivTriTriIsectPdS_S_S_S_S_(ptr noundef
   %.0320 = select i1 %134, double %132, double %131
   %135 = fcmp ogt double %133, %.0320
   %.1328 = select i1 %135, i64 2, i64 %.0327
-  %136 = getelementptr inbounds nuw double, ptr %0, i64 %.1328
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.1328
   %137 = load double, ptr %136, align 8, !tbaa !4
-  %138 = getelementptr inbounds nuw double, ptr %1, i64 %.1328
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.1328
   %139 = load double, ptr %138, align 8, !tbaa !4
-  %140 = getelementptr inbounds nuw double, ptr %2, i64 %.1328
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.1328
   %141 = load double, ptr %140, align 8, !tbaa !4
-  %142 = getelementptr inbounds nuw double, ptr %3, i64 %.1328
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.1328
   %143 = load double, ptr %142, align 8, !tbaa !4
-  %144 = getelementptr inbounds nuw double, ptr %4, i64 %.1328
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.1328
   %145 = load double, ptr %144, align 8, !tbaa !4
-  %146 = getelementptr inbounds nuw double, ptr %5, i64 %.1328
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.1328
   %147 = load double, ptr %146, align 8, !tbaa !4
   br i1 %119, label %148, label %155
 
@@ -879,21 +879,21 @@ define noundef range(i32 0, 2) i32 @_Z15planeBoxOverlapPdS_S_(ptr noundef readon
 
 6:                                                ; preds = %3, %6
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load double, ptr %7, align 8, !tbaa !4
-  %9 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %10 = load double, ptr %9, align 8, !tbaa !4
   %11 = fcmp ogt double %10, 0.000000e+00
-  %12 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %13 = load double, ptr %12, align 8, !tbaa !4
   %14 = fneg double %13
   %.33 = select i1 %11, double %14, double %13
   %.34 = select i1 %11, double %13, double %14
   %.sink = fsub double %.34, %8
   %.sink31 = fsub double %.33, %8
-  %15 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store double %.sink31, ptr %15, align 8, !tbaa !4
-  %16 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store double %.sink, ptr %16, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

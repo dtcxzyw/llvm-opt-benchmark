@@ -40,17 +40,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_istream.base" = type { ptr, i64 }
 %"class.boost::math::evaluation_error" = type { %"class.std::runtime_error" }
 %"class.boost::math::rounding_error" = type { %"class.std::runtime_error" }
-%"class.boost::math::students_t_distribution" = type { double }
-%"class.QuantLib::CumulativeBehrensFisher" = type { %"class.std::vector.15", %"class.std::vector.0", %"class.std::vector.23", %"class.std::vector.0", double, double }
-%"class.std::vector.15" = type { %"struct.std::_Vector_base.16" }
-%"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.23" = type { %"struct.std::_Vector_base.24" }
-%"struct.std::_Vector_base.24" = type { %"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.QuantLib::InverseCumulativeBehrensFisher" = type { double, double, %"class.QuantLib::CumulativeBehrensFisher" }
 %"class.boost::math::policies::policy" = type { i8 }
 %"struct.boost::math::detail::ibeta_roots" = type <{ x86_fp80, x86_fp80, x86_fp80, i8, [15 x i8] }>
 %"struct.boost::math::detail::temme_root_finder" = type { x86_fp80, x86_fp80 }
@@ -1102,7 +1091,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i60, ptr %varianceFactors_, align 8, !tbaa !24
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !20
-  %add.ptr19.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i.i60, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i60, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !22
   br label %invoke.cont41
 
@@ -1543,7 +1532,7 @@ if.then.i18.i.i.i150:                             ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i151: ; preds = %if.then.i18.i.i.i150, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i147
   store ptr %call5.i.i.i.i.i.i157, ptr %normFactorWeights, align 8, !tbaa !24
   store ptr %incdec.ptr.i.i.i148, ptr %_M_finish.i.i160, align 8, !tbaa !20
-  %add.ptr19.i.i.i152 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i.i157, i64 %cond.i.i.i.i142
+  %add.ptr19.i.i.i152 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i157, i64 %cond.i.i.i.i142
   store ptr %add.ptr19.i.i.i152, ptr %_M_end_of_storage.i.i161, align 8, !tbaa !22
   br label %invoke.cont185
 
@@ -1553,10 +1542,10 @@ for.body169:                                      ; preds = %do.end162, %invoke.
   %88 = phi ptr [ %96, %invoke.cont175 ], [ null, %do.end162 ]
   %89 = phi ptr [ %97, %invoke.cont175 ], [ null, %do.end162 ]
   %iFactor.0311 = phi i64 [ %inc, %invoke.cont175 ], [ 0, %do.end162 ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %86, i64 %iFactor.0311
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %iFactor.0311
   %90 = load double, ptr %add.ptr.i, align 8, !tbaa !23
   %91 = load ptr, ptr %varianceFactors_, align 8, !tbaa !24
-  %add.ptr.i159 = getelementptr inbounds nuw double, ptr %91, i64 %iFactor.0311
+  %add.ptr.i159 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %iFactor.0311
   %92 = load double, ptr %add.ptr.i159, align 8, !tbaa !23
   %mul = fmul double %90, %92
   %cmp.not.i.i162 = icmp eq ptr %89, %88
@@ -1617,7 +1606,7 @@ if.then.i18.i.i.i183:                             ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i184: ; preds = %if.then.i18.i.i.i183, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i180
   store ptr %call5.i.i.i.i.i.i190, ptr %normFactorWeights, align 8, !tbaa !24
   store ptr %incdec.ptr.i.i.i181, ptr %_M_finish.i.i160, align 8, !tbaa !20
-  %add.ptr19.i.i.i185 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i.i190, i64 %cond.i.i.i.i175
+  %add.ptr19.i.i.i185 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i190, i64 %cond.i.i.i.i175
   store ptr %add.ptr19.i.i.i185, ptr %_M_end_of_storage.i.i161, align 8, !tbaa !22
   %.pre316 = load ptr, ptr %__begin149.sroa.0.0313, align 8, !tbaa !24
   br label %invoke.cont175
@@ -3951,7 +3940,7 @@ _ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %conv.i = fptosi x86_fp80 %retval.0.i.i.i to i32
   %4 = zext i32 %conv.i to i64
   %conv.i15 = select i1 %or.cond.not.i, i64 %4, i64 0
-  %arrayidx.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i15
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i15
   %5 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !50
   %div8 = fdiv x86_fp80 %mul5, %5
   store x86_fp80 %div8, ptr %pderivative, align 16, !tbaa !50
@@ -6789,7 +6778,7 @@ _ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %14 = add nsw i32 %conv.i, -1
   %15 = zext i32 %14 to i64
   %conv.i24 = select i1 %or.cond.not.i, i64 %15, i64 4294967295
-  %arrayidx.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i24
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i24
   %16 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !50
   %mul43 = fmul x86_fp80 %result.0, %16
   br label %cleanup110
@@ -9131,7 +9120,7 @@ if.then.i27:                                      ; preds = %_ZNSt6vectorIN5boos
 _ZNSt12_Vector_baseIN5boost4math23students_t_distributionIdNS1_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorIN5boost4math23students_t_distributionIdNS1_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26, %if.then.i27
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !37
   store ptr %__cur.0.lcssa.i.i.i25, ptr %_M_finish.i.i, align 8, !tbaa !14
-  %add.ptr26 = getelementptr inbounds nuw %"class.boost::math::students_t_distribution", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !16
   ret void
 
@@ -9758,7 +9747,7 @@ if.then.i51:                                      ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt12_Vector_baseIN8QuantLib23CumulativeBehrensFisherESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN8QuantLib23CumulativeBehrensFisherESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit50, %if.then.i51
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !46
   store ptr %__cur.0.lcssa.i.i.i49, ptr %_M_finish.i.i, align 8, !tbaa !31
-  %add.ptr28 = getelementptr inbounds nuw %"class.QuantLib::CumulativeBehrensFisher", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr28 = getelementptr inbounds nuw [112 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr28, ptr %_M_end_of_storage, align 8, !tbaa !33
   ret void
 
@@ -10082,7 +10071,7 @@ if.then.i53:                                      ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt12_Vector_baseIN8QuantLib30InverseCumulativeBehrensFisherESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN8QuantLib30InverseCumulativeBehrensFisherESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit52, %if.then.i53
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !45
   store ptr %__cur.0.lcssa.i.i.i51, ptr %_M_finish.i.i, align 8, !tbaa !34
-  %add.ptr28 = getelementptr inbounds nuw %"class.QuantLib::InverseCumulativeBehrensFisher", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr28 = getelementptr inbounds nuw [128 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr28, ptr %_M_end_of_storage, align 8, !tbaa !36
   ret void
 
@@ -10221,7 +10210,7 @@ entry:
   %df.i = alloca double, align 8
   %ref.tmp17.i = alloca %"class.boost::math::policies::policy", align 1
   %0 = load ptr, ptr %this, align 8, !tbaa !37
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::math::students_t_distribution", ptr %0, i64 %iFactor
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %iFactor
   call void @llvm.lifetime.start.p0(ptr nonnull %probability.i)
   store double %p, ptr %probability.i, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %df.i)
@@ -10280,7 +10269,7 @@ _ZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S
   call void @llvm.lifetime.end.p0(ptr nonnull %probability.i)
   %varianceFactors_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load ptr, ptr %varianceFactors_, align 8, !tbaa !24
-  %add.ptr.i2 = getelementptr inbounds nuw double, ptr %7, i64 %iFactor
+  %add.ptr.i2 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %iFactor
   %8 = load double, ptr %add.ptr.i2, align 8, !tbaa !23
   %mul = fmul double %retval.0.i, %8
   ret double %mul
@@ -12238,7 +12227,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %indvars.iv.i = phi i64 [ 3, %if.then297 ], [ %indvars.iv.next.i, %for.body.i ]
   %sum.09.i = phi x86_fp80 [ %div342, %if.then297 ], [ %add.i, %for.body.i ]
   %mul.i142 = fmul x86_fp80 %call.i141, %sum.09.i
-  %arrayidx5.i = getelementptr inbounds nuw x86_fp80, ptr %terms, i64 %indvars.iv.i
+  %arrayidx5.i = getelementptr inbounds nuw [16 x i8], ptr %terms, i64 %indvars.iv.i
   %28 = load x86_fp80, ptr %arrayidx5.i, align 16, !tbaa !50
   %add.i = fadd x86_fp80 %mul.i142, %28
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -12571,7 +12560,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 3, %entry ], [ %indvars.iv.next.i, %for.body.i ]
   %sum.09.i = phi x86_fp80 [ %div19, %entry ], [ %add.i, %for.body.i ]
   %mul.i = fmul x86_fp80 %div3, %sum.09.i
-  %arrayidx5.i = getelementptr inbounds nuw x86_fp80, ptr %workspace, i64 %indvars.iv.i
+  %arrayidx5.i = getelementptr inbounds nuw [16 x i8], ptr %workspace, i64 %indvars.iv.i
   %1 = load x86_fp80, ptr %arrayidx5.i, align 16, !tbaa !50
   %add.i = fadd x86_fp80 %mul.i, %1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -12619,7 +12608,7 @@ for.body.i51:                                     ; preds = %for.body.i51, %_ZN5
   %indvars.iv.i52 = phi i64 [ 5, %_ZN5boost4math5tools19evaluate_polynomialIeeEET0_PKT_RKS3_m.exit ], [ %indvars.iv.next.i57, %for.body.i51 ]
   %sum.09.i53 = phi x86_fp80 [ %div54, %_ZN5boost4math5tools19evaluate_polynomialIeeEET0_PKT_RKS3_m.exit ], [ %add.i56, %for.body.i51 ]
   %mul.i54 = fmul x86_fp80 %div3, %sum.09.i53
-  %arrayidx5.i55 = getelementptr inbounds nuw x86_fp80, ptr %workspace, i64 %indvars.iv.i52
+  %arrayidx5.i55 = getelementptr inbounds nuw [16 x i8], ptr %workspace, i64 %indvars.iv.i52
   %10 = load x86_fp80, ptr %arrayidx5.i55, align 16, !tbaa !50
   %add.i56 = fadd x86_fp80 %mul.i54, %10
   %indvars.iv.next.i57 = add nsw i64 %indvars.iv.i52, -1
@@ -12660,7 +12649,7 @@ for.body.i61:                                     ; preds = %for.body.i61, %_ZN5
   %indvars.iv.i62 = phi i64 [ 2, %_ZN5boost4math5tools19evaluate_polynomialIeeEET0_PKT_RKS3_m.exit59 ], [ %indvars.iv.next.i67, %for.body.i61 ]
   %sum.09.i63 = phi x86_fp80 [ %div84, %_ZN5boost4math5tools19evaluate_polynomialIeeEET0_PKT_RKS3_m.exit59 ], [ %add.i66, %for.body.i61 ]
   %mul.i64 = fmul x86_fp80 %div3, %sum.09.i63
-  %arrayidx5.i65 = getelementptr inbounds nuw x86_fp80, ptr %workspace, i64 %indvars.iv.i62
+  %arrayidx5.i65 = getelementptr inbounds nuw [16 x i8], ptr %workspace, i64 %indvars.iv.i62
   %17 = load x86_fp80, ptr %arrayidx5.i65, align 16, !tbaa !50
   %add.i66 = fadd x86_fp80 %mul.i64, %17
   %indvars.iv.next.i67 = add nsw i64 %indvars.iv.i62, -1
@@ -12677,7 +12666,7 @@ for.body.i71:                                     ; preds = %for.body.i71, %_ZN5
   %indvars.iv.i72 = phi i64 [ 2, %_ZN5boost4math5tools19evaluate_polynomialIeeEET0_PKT_RKS3_m.exit69 ], [ %indvars.iv.next.i77, %for.body.i71 ]
   %sum.09.i73 = phi x86_fp80 [ %add.i66, %_ZN5boost4math5tools19evaluate_polynomialIeeEET0_PKT_RKS3_m.exit69 ], [ %add.i76, %for.body.i71 ]
   %mul.i74 = fmul x86_fp80 %div90, %sum.09.i73
-  %arrayidx5.i75 = getelementptr inbounds nuw x86_fp80, ptr %terms, i64 %indvars.iv.i72
+  %arrayidx5.i75 = getelementptr inbounds nuw [16 x i8], ptr %terms, i64 %indvars.iv.i72
   %18 = load x86_fp80, ptr %arrayidx5.i75, align 16, !tbaa !50
   %add.i76 = fadd x86_fp80 %mul.i74, %18
   %indvars.iv.next.i77 = add nsw i64 %indvars.iv.i72, -1
@@ -12778,7 +12767,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   %indvars.iv.i.i = phi i64 [ 1, %entry ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %sum.09.i.i = phi x86_fp80 [ 0xK4001A000000000000000, %entry ], [ %add.i.i, %for.body.i.i ]
   %mul.i.i = fmul x86_fp80 %mul.i, %sum.09.i.i
-  %arrayidx6.i.i = getelementptr inbounds nuw i32, ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co1, i64 %indvars.iv.i.i
+  %arrayidx6.i.i = getelementptr inbounds nuw [4 x i8], ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co1, i64 %indvars.iv.i.i
   %3 = load i32, ptr %arrayidx6.i.i, align 4, !tbaa !7
   %conv7.i.i = sitofp i32 %3 to x86_fp80
   %add.i.i = fadd x86_fp80 %mul.i.i, %conv7.i.i
@@ -12800,7 +12789,7 @@ for.body.i.i79:                                   ; preds = %for.body.i.i79, %_Z
   %indvars.iv.i.i80 = phi i64 [ 2, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit ], [ %indvars.iv.next.i.i86, %for.body.i.i79 ]
   %sum.09.i.i81 = phi x86_fp80 [ 0xK4004B800000000000000, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit ], [ %add.i.i85, %for.body.i.i79 ]
   %mul.i.i82 = fmul x86_fp80 %mul.i, %sum.09.i.i81
-  %arrayidx6.i.i83 = getelementptr inbounds nuw i32, ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co2, i64 %indvars.iv.i.i80
+  %arrayidx6.i.i83 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co2, i64 %indvars.iv.i.i80
   %4 = load i32, ptr %arrayidx6.i.i83, align 4, !tbaa !7
   %conv7.i.i84 = sitofp i32 %4 to x86_fp80
   %add.i.i85 = fadd x86_fp80 %mul.i.i82, %conv7.i.i84
@@ -12820,7 +12809,7 @@ for.body.i.i90:                                   ; preds = %for.body.i.i90, %_Z
   %indvars.iv.i.i91 = phi i64 [ 3, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit88 ], [ %indvars.iv.next.i.i97, %for.body.i.i90 ]
   %sum.09.i.i92 = phi x86_fp80 [ 0xK4003F800000000000000, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit88 ], [ %add.i.i96, %for.body.i.i90 ]
   %mul.i.i93 = fmul x86_fp80 %mul.i, %sum.09.i.i92
-  %arrayidx6.i.i94 = getelementptr inbounds nuw i32, ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co3, i64 %indvars.iv.i.i91
+  %arrayidx6.i.i94 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co3, i64 %indvars.iv.i.i91
   %5 = load i32, ptr %arrayidx6.i.i94, align 4, !tbaa !7
   %conv7.i.i95 = sitofp i32 %5 to x86_fp80
   %add.i.i96 = fadd x86_fp80 %mul.i.i93, %conv7.i.i95
@@ -12841,7 +12830,7 @@ for.body.i.i101:                                  ; preds = %for.body.i.i101, %_
   %indvars.iv.i.i102 = phi i64 [ 4, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit99 ], [ %indvars.iv.next.i.i108, %for.body.i.i101 ]
   %sum.09.i.i103 = phi x86_fp80 [ 0xK4004B800000000000000, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit99 ], [ %add.i.i107, %for.body.i.i101 ]
   %mul.i.i104 = fmul x86_fp80 %mul.i, %sum.09.i.i103
-  %arrayidx6.i.i105 = getelementptr inbounds nuw i32, ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co4, i64 %indvars.iv.i.i102
+  %arrayidx6.i.i105 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co4, i64 %indvars.iv.i.i102
   %6 = load i32, ptr %arrayidx6.i.i105, align 4, !tbaa !7
   %conv7.i.i106 = sitofp i32 %6 to x86_fp80
   %add.i.i107 = fadd x86_fp80 %mul.i.i104, %conv7.i.i106
@@ -12861,7 +12850,7 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN5bo
   %indvars.iv.i = phi i64 [ 3, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit110 ], [ %indvars.iv.next.i, %for.body.i ]
   %sum.09.i = phi x86_fp80 [ %div34, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit110 ], [ %add.i, %for.body.i ]
   %mul.i111 = fmul x86_fp80 %div3, %sum.09.i
-  %arrayidx5.i = getelementptr inbounds nuw x86_fp80, ptr %workspace, i64 %indvars.iv.i
+  %arrayidx5.i = getelementptr inbounds nuw [16 x i8], ptr %workspace, i64 %indvars.iv.i
   %7 = load x86_fp80, ptr %arrayidx5.i, align 16, !tbaa !50
   %add.i = fadd x86_fp80 %mul.i111, %7
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -12877,7 +12866,7 @@ for.body.i.i113:                                  ; preds = %for.body.i.i113, %_
   %indvars.iv.i.i114 = phi i64 [ 2, %_ZN5boost4math5tools19evaluate_polynomialIeeEET0_PKT_RKS3_m.exit ], [ %indvars.iv.next.i.i120, %for.body.i.i113 ]
   %sum.09.i.i115 = phi x86_fp80 [ 0xK4004D000000000000000, %_ZN5boost4math5tools19evaluate_polynomialIeeEET0_PKT_RKS3_m.exit ], [ %add.i.i119, %for.body.i.i113 ]
   %mul.i.i116 = fmul x86_fp80 %mul.i, %sum.09.i.i115
-  %arrayidx6.i.i117 = getelementptr inbounds nuw i32, ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co5, i64 %indvars.iv.i.i114
+  %arrayidx6.i.i117 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co5, i64 %indvars.iv.i.i114
   %8 = load i32, ptr %arrayidx6.i.i117, align 4, !tbaa !7
   %conv7.i.i118 = sitofp i32 %8 to x86_fp80
   %add.i.i119 = fadd x86_fp80 %mul.i.i116, %conv7.i.i118
@@ -12896,7 +12885,7 @@ for.body.i.i124:                                  ; preds = %for.body.i.i124, %_
   %indvars.iv.i.i125 = phi i64 [ 3, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit122 ], [ %indvars.iv.next.i.i131, %for.body.i.i124 ]
   %sum.09.i.i126 = phi x86_fp80 [ 0xK4006B900000000000000, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit122 ], [ %add.i.i130, %for.body.i.i124 ]
   %mul.i.i127 = fmul x86_fp80 %mul.i, %sum.09.i.i126
-  %arrayidx6.i.i128 = getelementptr inbounds nuw i32, ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co6, i64 %indvars.iv.i.i125
+  %arrayidx6.i.i128 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co6, i64 %indvars.iv.i.i125
   %9 = load i32, ptr %arrayidx6.i.i128, align 4, !tbaa !7
   %conv7.i.i129 = sitofp i32 %9 to x86_fp80
   %add.i.i130 = fadd x86_fp80 %mul.i.i127, %conv7.i.i129
@@ -12914,7 +12903,7 @@ for.body.i.i135:                                  ; preds = %for.body.i.i135, %_
   %indvars.iv.i.i136 = phi i64 [ 4, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit133 ], [ %indvars.iv.next.i.i142, %for.body.i.i135 ]
   %sum.09.i.i137 = phi x86_fp80 [ 0xK400BA910000000000000, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit133 ], [ %add.i.i141, %for.body.i.i135 ]
   %mul.i.i138 = fmul x86_fp80 %mul.i, %sum.09.i.i137
-  %arrayidx6.i.i139 = getelementptr inbounds nuw i32, ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co7, i64 %indvars.iv.i.i136
+  %arrayidx6.i.i139 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co7, i64 %indvars.iv.i.i136
   %10 = load i32, ptr %arrayidx6.i.i139, align 4, !tbaa !7
   %conv7.i.i140 = sitofp i32 %10 to x86_fp80
   %add.i.i141 = fadd x86_fp80 %mul.i.i138, %conv7.i.i140
@@ -12933,7 +12922,7 @@ for.body.i.i146:                                  ; preds = %for.body.i.i146, %_
   %indvars.iv.i.i147 = phi i64 [ 5, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit144 ], [ %indvars.iv.next.i.i153, %for.body.i.i146 ]
   %sum.09.i.i148 = phi x86_fp80 [ 0xK400CEB7C000000000000, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit144 ], [ %add.i.i152, %for.body.i.i146 ]
   %mul.i.i149 = fmul x86_fp80 %mul.i, %sum.09.i.i148
-  %arrayidx6.i.i150 = getelementptr inbounds nuw i32, ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co8, i64 %indvars.iv.i.i147
+  %arrayidx6.i.i150 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co8, i64 %indvars.iv.i.i147
   %11 = load i32, ptr %arrayidx6.i.i150, align 4, !tbaa !7
   %conv7.i.i151 = sitofp i32 %11 to x86_fp80
   %add.i.i152 = fadd x86_fp80 %mul.i.i149, %conv7.i.i151
@@ -12953,7 +12942,7 @@ for.body.i157:                                    ; preds = %for.body.i157, %_ZN
   %indvars.iv.i158 = phi i64 [ 2, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit155 ], [ %indvars.iv.next.i163, %for.body.i157 ]
   %sum.09.i159 = phi x86_fp80 [ %div55, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit155 ], [ %add.i162, %for.body.i157 ]
   %mul.i160 = fmul x86_fp80 %div3, %sum.09.i159
-  %arrayidx5.i161 = getelementptr inbounds nuw x86_fp80, ptr %workspace, i64 %indvars.iv.i158
+  %arrayidx5.i161 = getelementptr inbounds nuw [16 x i8], ptr %workspace, i64 %indvars.iv.i158
   %12 = load x86_fp80, ptr %arrayidx5.i161, align 16, !tbaa !50
   %add.i162 = fadd x86_fp80 %mul.i160, %12
   %indvars.iv.next.i163 = add nsw i64 %indvars.iv.i158, -1
@@ -12969,7 +12958,7 @@ for.body.i.i167:                                  ; preds = %for.body.i.i167, %_
   %indvars.iv.i.i168 = phi i64 [ 4, %_ZN5boost4math5tools19evaluate_polynomialIeeEET0_PKT_RKS3_m.exit165 ], [ %indvars.iv.next.i.i174, %for.body.i.i167 ]
   %sum.09.i.i169 = phi x86_fp80 [ 0xK400AE780000000000000, %_ZN5boost4math5tools19evaluate_polynomialIeeEET0_PKT_RKS3_m.exit165 ], [ %add.i.i173, %for.body.i.i167 ]
   %mul.i.i170 = fmul x86_fp80 %mul.i, %sum.09.i.i169
-  %arrayidx6.i.i171 = getelementptr inbounds nuw i32, ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co9, i64 %indvars.iv.i.i168
+  %arrayidx6.i.i171 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E3co9, i64 %indvars.iv.i.i168
   %13 = load i32, ptr %arrayidx6.i.i171, align 4, !tbaa !7
   %conv7.i.i172 = sitofp i32 %13 to x86_fp80
   %add.i.i173 = fadd x86_fp80 %mul.i.i170, %conv7.i.i172
@@ -12987,7 +12976,7 @@ for.body.i.i178:                                  ; preds = %for.body.i.i178, %_
   %indvars.iv.i.i179 = phi i64 [ 5, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit176 ], [ %indvars.iv.next.i.i185, %for.body.i.i178 ]
   %sum.09.i.i180 = phi x86_fp80 [ 0xK4012B738F00000000000, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit176 ], [ %add.i.i184, %for.body.i.i178 ]
   %mul.i.i181 = fmul x86_fp80 %mul.i, %sum.09.i.i180
-  %arrayidx6.i.i182 = getelementptr inbounds nuw i32, ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E4co10, i64 %indvars.iv.i.i179
+  %arrayidx6.i.i182 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E4co10, i64 %indvars.iv.i.i179
   %14 = load i32, ptr %arrayidx6.i.i182, align 4, !tbaa !7
   %conv7.i.i183 = sitofp i32 %14 to x86_fp80
   %add.i.i184 = fadd x86_fp80 %mul.i.i181, %conv7.i.i183
@@ -13006,7 +12995,7 @@ for.body.i.i189:                                  ; preds = %for.body.i.i189, %_
   %indvars.iv.i.i190 = phi i64 [ 6, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit187 ], [ %indvars.iv.next.i.i196, %for.body.i.i189 ]
   %sum.09.i.i191 = phi x86_fp80 [ 0xK4012B229A00000000000, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit187 ], [ %add.i.i195, %for.body.i.i189 ]
   %mul.i.i192 = fmul x86_fp80 %mul.i, %sum.09.i.i191
-  %arrayidx6.i.i193 = getelementptr inbounds nuw i32, ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E4co11, i64 %indvars.iv.i.i190
+  %arrayidx6.i.i193 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E4co11, i64 %indvars.iv.i.i190
   %15 = load i32, ptr %arrayidx6.i.i193, align 4, !tbaa !7
   %conv7.i.i194 = sitofp i32 %15 to x86_fp80
   %add.i.i195 = fadd x86_fp80 %mul.i.i192, %conv7.i.i194
@@ -13025,7 +13014,7 @@ for.body.i200:                                    ; preds = %for.body.i200, %_ZN
   %indvars.iv.i201 = phi i64 [ 1, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit198 ], [ %indvars.iv.next.i206, %for.body.i200 ]
   %sum.09.i202 = phi x86_fp80 [ %div71, %_ZN5boost4math5tools24evaluate_even_polynomialIieEET0_PKT_S3_m.exit198 ], [ %add.i205, %for.body.i200 ]
   %mul.i203 = fmul x86_fp80 %div3, %sum.09.i202
-  %arrayidx5.i204 = getelementptr inbounds nuw x86_fp80, ptr %workspace, i64 %indvars.iv.i201
+  %arrayidx5.i204 = getelementptr inbounds nuw [16 x i8], ptr %workspace, i64 %indvars.iv.i201
   %16 = load x86_fp80, ptr %arrayidx5.i204, align 16, !tbaa !50
   %add.i205 = fadd x86_fp80 %mul.i203, %16
   %indvars.iv.next.i206 = add nsw i64 %indvars.iv.i201, -1
@@ -13042,7 +13031,7 @@ for.body.i210:                                    ; preds = %for.body.i210, %_ZN
   %indvars.iv.i211 = phi i64 [ 2, %_ZN5boost4math5tools19evaluate_polynomialIeeEET0_PKT_RKS3_m.exit208 ], [ %indvars.iv.next.i216, %for.body.i210 ]
   %sum.09.i212 = phi x86_fp80 [ %add.i205, %_ZN5boost4math5tools19evaluate_polynomialIeeEET0_PKT_RKS3_m.exit208 ], [ %add.i215, %for.body.i210 ]
   %mul.i213 = fmul x86_fp80 %div77, %sum.09.i212
-  %arrayidx5.i214 = getelementptr inbounds nuw x86_fp80, ptr %terms, i64 %indvars.iv.i211
+  %arrayidx5.i214 = getelementptr inbounds nuw [16 x i8], ptr %terms, i64 %indvars.iv.i211
   %17 = load x86_fp80, ptr %arrayidx5.i214, align 16, !tbaa !50
   %add.i215 = fadd x86_fp80 %mul.i213, %17
   %indvars.iv.next.i216 = add nsw i64 %indvars.iv.i211, -1
@@ -13079,7 +13068,7 @@ for.body.i221:                                    ; preds = %for.body.i221, %if.
   %indvars.iv.i222 = phi i64 [ 1, %if.then ], [ %indvars.iv.next.i226, %for.body.i221 ]
   %sum.09.i223 = phi x86_fp80 [ 0xK4002D000000000000000, %if.then ], [ %add.i225, %for.body.i221 ]
   %mul.i224 = fmul x86_fp80 %mul.i, %sum.09.i223
-  %arrayidx6.i = getelementptr inbounds nuw i32, ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E4co12, i64 %indvars.iv.i222
+  %arrayidx6.i = getelementptr inbounds nuw [4 x i8], ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E4co12, i64 %indvars.iv.i222
   %21 = load i32, ptr %arrayidx6.i, align 4, !tbaa !7
   %conv7.i = sitofp i32 %21 to x86_fp80
   %add.i225 = fadd x86_fp80 %mul.i224, %conv7.i
@@ -13098,7 +13087,7 @@ for.body.i227:                                    ; preds = %for.body.i227, %_ZN
   %indvars.iv.i228 = phi i64 [ 2, %_ZN5boost4math5tools19evaluate_polynomialIieEET0_PKT_RKS3_m.exit ], [ %indvars.iv.next.i234, %for.body.i227 ]
   %sum.09.i229 = phi x86_fp80 [ 0xK4004B800000000000000, %_ZN5boost4math5tools19evaluate_polynomialIieEET0_PKT_RKS3_m.exit ], [ %add.i233, %for.body.i227 ]
   %mul.i230 = fmul x86_fp80 %mul.i, %sum.09.i229
-  %arrayidx6.i231 = getelementptr inbounds nuw i32, ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E4co13, i64 %indvars.iv.i228
+  %arrayidx6.i231 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN5boost4math6detail28temme_method_2_ibeta_inverseIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_RKT0_E4co13, i64 %indvars.iv.i228
   %22 = load i32, ptr %arrayidx6.i231, align 4, !tbaa !7
   %conv7.i232 = sitofp i32 %22 to x86_fp80
   %add.i233 = fadd x86_fp80 %mul.i230, %conv7.i232
@@ -13118,7 +13107,7 @@ for.body.i238:                                    ; preds = %for.body.i238, %_ZN
   %indvars.iv.i239 = phi i64 [ 3, %_ZN5boost4math5tools19evaluate_polynomialIieEET0_PKT_RKS3_m.exit236 ], [ %indvars.iv.next.i244, %for.body.i238 ]
   %sum.09.i240 = phi x86_fp80 [ %div113, %_ZN5boost4math5tools19evaluate_polynomialIieEET0_PKT_RKS3_m.exit236 ], [ %add.i243, %for.body.i238 ]
   %mul.i241 = fmul x86_fp80 %add.i215, %sum.09.i240
-  %arrayidx5.i242 = getelementptr inbounds nuw x86_fp80, ptr %workspace, i64 %indvars.iv.i239
+  %arrayidx5.i242 = getelementptr inbounds nuw [16 x i8], ptr %workspace, i64 %indvars.iv.i239
   %23 = load x86_fp80, ptr %arrayidx5.i242, align 16, !tbaa !50
   %add.i243 = fadd x86_fp80 %mul.i241, %23
   %indvars.iv.next.i244 = add nsw i64 %indvars.iv.i239, -1
@@ -13158,7 +13147,7 @@ for.body.i249:                                    ; preds = %for.body.i249, %if.
   %indvars.iv.i250 = phi i64 [ 4, %if.else ], [ %indvars.iv.next.i255, %for.body.i249 ]
   %sum.09.i251 = phi x86_fp80 [ %div140, %if.else ], [ %add.i254, %for.body.i249 ]
   %mul.i252 = fmul x86_fp80 %call.i247, %sum.09.i251
-  %arrayidx5.i253 = getelementptr inbounds nuw x86_fp80, ptr %workspace, i64 %indvars.iv.i250
+  %arrayidx5.i253 = getelementptr inbounds nuw [16 x i8], ptr %workspace, i64 %indvars.iv.i250
   %31 = load x86_fp80, ptr %arrayidx5.i253, align 16, !tbaa !50
   %add.i254 = fadd x86_fp80 %mul.i252, %31
   %indvars.iv.next.i255 = add nsw i64 %indvars.iv.i250, -1
@@ -14238,7 +14227,7 @@ if.end22.thread:                                  ; preds = %if.then11
   %div18 = fdiv x86_fp80 %add21.i.i, %conv17
   %rem23 = srem i32 %4, 3
   %9 = sext i32 %rem23 to i64
-  %10 = getelementptr x86_fp80, ptr @_ZZN5boost4math6detail8cbrt_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_RKT0_E10correction, i64 %9
+  %10 = getelementptr [16 x i8], ptr @_ZZN5boost4math6detail8cbrt_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_RKT0_E10correction, i64 %9
   %arrayidx24 = getelementptr i8, ptr %10, i64 32
   %11 = load x86_fp80, ptr %arrayidx24, align 16, !tbaa !50
   %mul2325 = fmul x86_fp80 %div18, %11
@@ -14251,7 +14240,7 @@ if.else20:                                        ; preds = %if.end4
 if.end22:                                         ; preds = %if.then13, %if.else20
   %guess.0 = phi x86_fp80 [ %mul, %if.then13 ], [ %call.i, %if.else20 ]
   %12 = sext i32 %rem to i64
-  %13 = getelementptr x86_fp80, ptr @_ZZN5boost4math6detail8cbrt_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_RKT0_E10correction, i64 %12
+  %13 = getelementptr [16 x i8], ptr @_ZZN5boost4math6detail8cbrt_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_RKT0_E10correction, i64 %12
   %arrayidx = getelementptr i8, ptr %13, i64 32
   %14 = load x86_fp80, ptr %arrayidx, align 16, !tbaa !50
   %mul23 = fmul x86_fp80 %guess.0, %14
@@ -14625,7 +14614,7 @@ _ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %4 = add i32 %conv.i, -1
   %5 = zext i32 %4 to i64
   %conv.i26 = select i1 %cmp.i, i64 %5, i64 4294967295
-  %arrayidx.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i26
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i26
   %6 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   store x86_fp80 %add17.pre-phi, ptr %ref.tmp, align 16, !tbaa !50
@@ -14668,7 +14657,7 @@ _ZN5boost4math6itruncIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14prom
   %11 = add i32 %conv.i37, -1
   %12 = zext i32 %11 to i64
   %conv.i42 = select i1 %or.cond.not.i35, i64 %12, i64 4294967295
-  %arrayidx.i.i.i43 = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i42
+  %arrayidx.i.i.i43 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i42
   %13 = load x86_fp80, ptr %arrayidx.i.i.i43, align 16, !tbaa !50
   %div21 = fdiv x86_fp80 %6, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
@@ -18944,7 +18933,7 @@ for.body:                                         ; preds = %cond.end, %_ZN5boos
   %sum.074 = phi x86_fp80 [ %2, %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit ], [ %add69, %cond.end ]
   %lxp.073 = phi x86_fp80 [ 0xK3FFF8000000000000000, %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit ], [ %mul63, %cond.end ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 2
-  %arrayidx = getelementptr inbounds nuw x86_fp80, ptr %p, i64 %indvars.iv84
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %p, i64 %indvars.iv84
   store x86_fp80 0xK00000000000000000000, ptr %arrayidx, align 16, !tbaa !50
   %3 = trunc nuw nsw i64 %indvars.iv84 to i32
   %conv28 = uitofp nneg i32 %3 to x86_fp80
@@ -18958,7 +18947,7 @@ for.body33.lr.ph:                                 ; preds = %for.body
 for.cond.cleanup32:                               ; preds = %for.body33, %for.body
   %4 = phi x86_fp80 [ 0xK00000000000000000000, %for.body ], [ %add45, %for.body33 ]
   %div50 = fdiv x86_fp80 %4, %conv28
-  %arrayidx.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %indvars.iv.next87
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %indvars.iv.next87
   %5 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !50
   %div52 = fdiv x86_fp80 %sub, %5
   %add55 = fadd x86_fp80 %div50, %div52
@@ -18987,10 +18976,10 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   %conv34 = uitofp i32 %8 to x86_fp80
   %9 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %conv34, x86_fp80 %b, x86_fp80 %neg)
   %10 = sub nuw nsw i64 %indvars.iv84, %indvars.iv
-  %arrayidx39 = getelementptr inbounds nuw x86_fp80, ptr %p, i64 %10
+  %arrayidx39 = getelementptr inbounds nuw [16 x i8], ptr %p, i64 %10
   %11 = load x86_fp80, ptr %arrayidx39, align 16, !tbaa !50
   %mul40 = fmul x86_fp80 %9, %11
-  %arrayidx.i.i.i67 = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %indvars.iv79
+  %arrayidx.i.i.i67 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %indvars.iv79
   %12 = load x86_fp80, ptr %arrayidx.i.i.i67, align 16, !tbaa !50
   %div42 = fdiv x86_fp80 %mul40, %12
   %add45 = fadd x86_fp80 %add4571, %div42
@@ -20066,15 +20055,15 @@ if.end10:                                         ; preds = %if.end4
 
 if.then12:                                        ; preds = %if.end10
   %conv.i = zext nneg i32 %n to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i
   %1 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !50
   %sub14 = sub i32 %n, %k
   %conv.i32 = zext i32 %sub14 to i64
-  %arrayidx.i.i.i33 = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i32
+  %arrayidx.i.i.i33 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i32
   %2 = load x86_fp80, ptr %arrayidx.i.i.i33, align 16, !tbaa !50
   %div = fdiv x86_fp80 %1, %2
   %conv.i34 = zext i32 %k to i64
-  %arrayidx.i.i.i35 = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i34
+  %arrayidx.i.i.i35 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i34
   %3 = load x86_fp80, ptr %arrayidx.i.i.i35, align 16, !tbaa !50
   %div17 = fdiv x86_fp80 %div, %3
   br label %if.end42
@@ -22001,7 +21990,7 @@ if.end22.thread:                                  ; preds = %if.then11
   %div18 = fdiv x86_fp80 %add21.i.i, %conv17
   %rem23 = srem i32 %4, 3
   %9 = sext i32 %rem23 to i64
-  %10 = getelementptr x86_fp80, ptr @_ZZN5boost4math6detail8cbrt_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_RKT0_E10correction, i64 %9
+  %10 = getelementptr [16 x i8], ptr @_ZZN5boost4math6detail8cbrt_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_RKT0_E10correction, i64 %9
   %arrayidx24 = getelementptr i8, ptr %10, i64 32
   %11 = load x86_fp80, ptr %arrayidx24, align 16, !tbaa !50
   %mul2325 = fmul x86_fp80 %div18, %11
@@ -22014,7 +22003,7 @@ if.else20:                                        ; preds = %if.end4
 if.end22:                                         ; preds = %if.then13, %if.else20
   %guess.0 = phi x86_fp80 [ %mul, %if.then13 ], [ %call.i, %if.else20 ]
   %12 = sext i32 %rem to i64
-  %13 = getelementptr x86_fp80, ptr @_ZZN5boost4math6detail8cbrt_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_RKT0_E10correction, i64 %12
+  %13 = getelementptr [16 x i8], ptr @_ZZN5boost4math6detail8cbrt_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_RKT0_E10correction, i64 %12
   %arrayidx = getelementptr i8, ptr %13, i64 32
   %14 = load x86_fp80, ptr %arrayidx, align 16, !tbaa !50
   %mul23 = fmul x86_fp80 %guess.0, %14
@@ -22473,7 +22462,7 @@ for.body:                                         ; preds = %cond.end, %_ZN5boos
   %sum.074 = phi x86_fp80 [ %2, %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeES8_S9_RKT1_.exit ], [ %add69, %cond.end ]
   %lxp.073 = phi x86_fp80 [ 0xK3FFF8000000000000000, %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeES8_S9_RKT1_.exit ], [ %mul63, %cond.end ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 2
-  %arrayidx = getelementptr inbounds nuw x86_fp80, ptr %p, i64 %indvars.iv84
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %p, i64 %indvars.iv84
   store x86_fp80 0xK00000000000000000000, ptr %arrayidx, align 16, !tbaa !50
   %3 = trunc nuw nsw i64 %indvars.iv84 to i32
   %conv28 = uitofp nneg i32 %3 to x86_fp80
@@ -22487,7 +22476,7 @@ for.body33.lr.ph:                                 ; preds = %for.body
 for.cond.cleanup32:                               ; preds = %for.body33, %for.body
   %4 = phi x86_fp80 [ 0xK00000000000000000000, %for.body ], [ %add45, %for.body33 ]
   %div50 = fdiv x86_fp80 %4, %conv28
-  %arrayidx.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %indvars.iv.next87
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %indvars.iv.next87
   %5 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !50
   %div52 = fdiv x86_fp80 %sub, %5
   %add55 = fadd x86_fp80 %div50, %div52
@@ -22516,10 +22505,10 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   %conv34 = uitofp i32 %8 to x86_fp80
   %9 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %conv34, x86_fp80 %b, x86_fp80 %neg)
   %10 = sub nuw nsw i64 %indvars.iv84, %indvars.iv
-  %arrayidx39 = getelementptr inbounds nuw x86_fp80, ptr %p, i64 %10
+  %arrayidx39 = getelementptr inbounds nuw [16 x i8], ptr %p, i64 %10
   %11 = load x86_fp80, ptr %arrayidx39, align 16, !tbaa !50
   %mul40 = fmul x86_fp80 %9, %11
-  %arrayidx.i.i.i67 = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %indvars.iv79
+  %arrayidx.i.i.i67 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %indvars.iv79
   %12 = load x86_fp80, ptr %arrayidx.i.i.i67, align 16, !tbaa !50
   %div42 = fdiv x86_fp80 %mul40, %12
   %add45 = fadd x86_fp80 %add4571, %div42
@@ -24224,7 +24213,7 @@ _ZN5boost4math6itruncIeNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_
   %14 = add nsw i32 %conv.i, -1
   %15 = zext i32 %14 to i64
   %conv.i24 = select i1 %or.cond.not.i, i64 %15, i64 4294967295
-  %arrayidx.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i24
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i24
   %16 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !50
   %mul43 = fmul x86_fp80 %result.0, %16
   br label %cleanup110
@@ -24506,15 +24495,15 @@ if.end10:                                         ; preds = %if.end4
 
 if.then12:                                        ; preds = %if.end10
   %conv.i = zext nneg i32 %n to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i
   %1 = load x86_fp80, ptr %arrayidx.i.i.i, align 16, !tbaa !50
   %sub14 = sub i32 %n, %k
   %conv.i32 = zext i32 %sub14 to i64
-  %arrayidx.i.i.i33 = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i32
+  %arrayidx.i.i.i33 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i32
   %2 = load x86_fp80, ptr %arrayidx.i.i.i33, align 16, !tbaa !50
   %div = fdiv x86_fp80 %1, %2
   %conv.i34 = zext i32 %k to i64
-  %arrayidx.i.i.i35 = getelementptr inbounds nuw x86_fp80, ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i34
+  %arrayidx.i.i.i35 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5boost4math24unchecked_factorial_dataIeLb1EE10factorialsE, i64 %conv.i34
   %3 = load x86_fp80, ptr %arrayidx.i.i.i35, align 16, !tbaa !50
   %div17 = fdiv x86_fp80 %div, %3
   br label %if.end42

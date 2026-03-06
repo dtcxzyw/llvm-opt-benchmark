@@ -335,10 +335,10 @@ define internal void @_ZNK4ncnn9PReLU_x8615forward_inplaceERNS_3MatERKNS_6Option
   %21 = add nsw i32 %19, %20
   %22 = load ptr, ptr %4, align 8, !tbaa !40
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds float, ptr %22, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %22, i64 %23
   %25 = load <4 x float>, ptr %24, align 16, !tbaa !47
   %26 = load ptr, ptr %5, align 8, !tbaa !40
-  %27 = getelementptr inbounds float, ptr %26, i64 %23
+  %27 = getelementptr inbounds [4 x i8], ptr %26, i64 %23
   %28 = load <4 x float>, ptr %27, align 1, !tbaa !47
   %29 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %25)
   %30 = call fast noundef nofpclass(nan inf) <4 x float> @llvm.x86.sse.min.ps(<4 x float> zeroinitializer, <4 x float> nofpclass(nan inf) %25)
@@ -431,14 +431,14 @@ define internal void @_ZNK4ncnn9PReLU_x8615forward_inplaceERNS_3MatERKNS_6Option
   %.021 = phi i32 [ %20, %.lr.ph ], [ %37, %36 ]
   %26 = add i32 %.021, %11
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds float, ptr %23, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %23, i64 %27
   %29 = load float, ptr %28, align 4, !tbaa !44
   %30 = fcmp fast olt float %29, 0.000000e+00
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %25
   %32 = load ptr, ptr %24, align 8, !tbaa !16
-  %33 = getelementptr inbounds nuw float, ptr %32, i64 %27
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %27
   %34 = load float, ptr %33, align 4, !tbaa !44
   %35 = fmul fast float %34, %29
   store float %35, ptr %28, align 4, !tbaa !44
@@ -500,7 +500,7 @@ define internal void @_ZNK4ncnn9PReLU_x8615forward_inplaceERNS_3MatERKNS_6Option
   %21 = add nsw i32 %19, %20
   %22 = load ptr, ptr %4, align 8, !tbaa !40
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds float, ptr %22, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %22, i64 %23
   %25 = load <4 x float>, ptr %24, align 16, !tbaa !47
   %26 = load float, ptr %5, align 4, !tbaa !44
   %27 = insertelement <4 x float> poison, float %26, i64 0
@@ -566,7 +566,7 @@ define internal void @_ZNK4ncnn9PReLU_x8615forward_inplaceERNS_3MatERKNS_6Option
   %.021 = phi i32 [ %20, %.lr.ph ], [ %34, %33 ]
   %25 = add i32 %.021, %11
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds float, ptr %23, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %23, i64 %26
   %28 = load float, ptr %27, align 4, !tbaa !44
   %29 = fcmp fast olt float %28, 0.000000e+00
   br i1 %29, label %30, label %33
@@ -651,7 +651,7 @@ define internal void @_ZNK4ncnn9PReLU_x8615forward_inplaceERNS_3MatERKNS_6Option
   br label %46
 
 38:                                               ; preds = %26
-  %39 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   %40 = load float, ptr %39, align 4, !tbaa !44
   %41 = load i32, ptr %5, align 4
   %42 = icmp eq i32 %41, 4
@@ -791,7 +791,7 @@ define internal void @_ZNK4ncnn9PReLU_x8615forward_inplaceERNS_3MatERKNS_6Option
   br label %44
 
 36:                                               ; preds = %.noexc
-  %37 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   %38 = load float, ptr %37, align 4, !tbaa !44
   %39 = load i32, ptr %5, align 4
   %40 = icmp eq i32 %39, 4

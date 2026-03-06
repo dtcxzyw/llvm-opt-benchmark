@@ -20,7 +20,7 @@ define hidden void @newhope_helprec(ptr noundef writeonly captures(none) %0, ptr
   %11 = zext i8 %10 to i32
   %12 = and i32 %6, 7
   %13 = lshr i32 %11, %12
-  %14 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %15 = load i16, ptr %14, align 2, !tbaa !9
   %16 = zext i16 %15 to i32
   %17 = shl nuw nsw i32 %16, 3
@@ -45,7 +45,7 @@ define hidden void @newhope_helprec(ptr noundef writeonly captures(none) %0, ptr
   %33 = add nsw i32 %.neg20.i, %20
   %34 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %33, i1 true)
   %35 = or disjoint i64 %indvars.iv, 256
-  %36 = getelementptr inbounds nuw i16, ptr %1, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !9
   %38 = zext i16 %37 to i32
   %39 = shl nuw nsw i32 %38, 3
@@ -69,7 +69,7 @@ define hidden void @newhope_helprec(ptr noundef writeonly captures(none) %0, ptr
   %54 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %53, i1 true)
   %55 = add nuw nsw i32 %34, %54
   %56 = or disjoint i64 %indvars.iv, 512
-  %57 = getelementptr inbounds nuw i16, ptr %1, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !9
   %59 = zext i16 %58 to i32
   %60 = shl nuw nsw i32 %59, 3
@@ -93,7 +93,7 @@ define hidden void @newhope_helprec(ptr noundef writeonly captures(none) %0, ptr
   %75 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %74, i1 true)
   %76 = add nuw nsw i32 %55, %75
   %77 = or disjoint i64 %indvars.iv, 768
-  %78 = getelementptr inbounds nuw i16, ptr %1, i64 %77
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !9
   %80 = zext i16 %79 to i32
   %81 = shl nuw nsw i32 %80, 3
@@ -125,23 +125,23 @@ define hidden void @newhope_helprec(ptr noundef writeonly captures(none) %0, ptr
   %103 = sub i32 %99, %102
   %104 = trunc i32 %103 to i16
   %105 = and i16 %104, 3
-  %106 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %105, ptr %106, align 2, !tbaa !9
   %107 = sub i32 %100, %102
   %108 = trunc i32 %107 to i16
   %109 = and i16 %108, 3
-  %110 = getelementptr inbounds nuw i16, ptr %0, i64 %35
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %35
   store i16 %109, ptr %110, align 2, !tbaa !9
   %111 = sub i32 %101, %102
   %112 = trunc i32 %111 to i16
   %113 = and i16 %112, 3
-  %114 = getelementptr inbounds nuw i16, ptr %0, i64 %56
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %56
   store i16 %113, ptr %114, align 2, !tbaa !9
   %115 = shl nsw i32 %102, 1
   %.masked = and i32 %115, 2
   %116 = or disjoint i32 %.masked, %.neg
   %117 = trunc nuw nsw i32 %116 to i16
-  %118 = getelementptr inbounds nuw i16, ptr %0, i64 %77
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %77
   store i16 %117, ptr %118, align 2, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -161,29 +161,29 @@ define hidden void @newhope_reconcile(ptr noundef captures(none) initializes((0,
 
 4:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2, !tbaa !9
   %7 = zext i16 %6 to i32
   %8 = shl nuw nsw i32 %7, 3
   %9 = add nuw nsw i32 %8, 196624
-  %10 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %11 = load i16, ptr %10, align 2, !tbaa !9
   %12 = zext i16 %11 to i32
   %13 = shl nuw nsw i32 %12, 1
   %14 = or disjoint i64 %indvars.iv, 768
-  %15 = getelementptr inbounds nuw i16, ptr %2, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !9
   %17 = zext i16 %16 to i32
   %18 = add nuw nsw i32 %13, %17
   %.neg = mul i32 %18, -12289
   %19 = add i32 %9, %.neg
   %20 = or disjoint i64 %indvars.iv, 256
-  %21 = getelementptr inbounds nuw i16, ptr %1, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !9
   %23 = zext i16 %22 to i32
   %24 = shl nuw nsw i32 %23, 3
   %25 = add nuw nsw i32 %24, 196624
-  %26 = getelementptr inbounds nuw i16, ptr %2, i64 %20
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %20
   %27 = load i16, ptr %26, align 2, !tbaa !9
   %28 = zext i16 %27 to i32
   %29 = shl nuw nsw i32 %28, 1
@@ -191,19 +191,19 @@ define hidden void @newhope_reconcile(ptr noundef captures(none) initializes((0,
   %.neg27 = mul i32 %30, -12289
   %31 = add i32 %25, %.neg27
   %32 = or disjoint i64 %indvars.iv, 512
-  %33 = getelementptr inbounds nuw i16, ptr %1, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !9
   %35 = zext i16 %34 to i32
   %36 = shl nuw nsw i32 %35, 3
   %37 = add nuw nsw i32 %36, 196624
-  %38 = getelementptr inbounds nuw i16, ptr %2, i64 %32
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %32
   %39 = load i16, ptr %38, align 2, !tbaa !9
   %40 = zext i16 %39 to i32
   %41 = shl nuw nsw i32 %40, 1
   %42 = add nuw nsw i32 %41, %17
   %.neg28 = mul i32 %42, -12289
   %43 = add i32 %37, %.neg28
-  %44 = getelementptr inbounds nuw i16, ptr %1, i64 %14
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %14
   %45 = load i16, ptr %44, align 2, !tbaa !9
   %46 = zext i16 %45 to i32
   %47 = shl nuw nsw i32 %46, 3

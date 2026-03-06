@@ -57,7 +57,7 @@ define dso_local noalias noundef ptr @slowlogCreateEntry(ptr noundef %0, ptr nou
   %14 = sub i32 %13, %spec.store.select
   %15 = zext i32 %12 to i64
   %wide.trip.count = zext nneg i32 %spec.store.select to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %15
   br label %17
 
 17:                                               ; preds = %.lr.ph, %93
@@ -74,7 +74,7 @@ define dso_local noalias noundef ptr @slowlogCreateEntry(ptr noundef %0, ptr nou
   br label %93
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !16
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 15
@@ -180,7 +180,7 @@ sdslen.exit57:                                    ; preds = %54, %63, %66, %70, 
   %81 = add i64 %.0.i56, -128
   %82 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %55, ptr noundef nonnull @.str.1, i64 noundef %81) #9
   %83 = tail call ptr @createObject(i32 noundef 0, ptr noundef %82) #9
-  %84 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store ptr %83, ptr %84, align 8, !tbaa !16
   br label %93
 
@@ -191,13 +191,13 @@ sdslen.exit.thread:                               ; preds = %32, %29, %sdslen.ex
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %sdslen.exit.thread
-  %89 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store ptr %25, ptr %89, align 8, !tbaa !16
   br label %93
 
 90:                                               ; preds = %sdslen.exit.thread
   %91 = tail call ptr @dupStringObject(ptr noundef nonnull %25) #9
-  %92 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store ptr %91, ptr %92, align 8, !tbaa !16
   br label %93
 
@@ -273,7 +273,7 @@ define dso_local void @slowlogFreeEntry(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !15
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !16
   tail call void @decrRefCount(ptr noundef %7) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -548,7 +548,7 @@ slowlogReset.exit:                                ; preds = %.lr.ph.i, %18
 .lr.ph:                                           ; preds = %.lr.ph54, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph54 ]
   %76 = load ptr, ptr %64, align 8, !tbaa !15
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8, !tbaa !16
   call void @addReplyBulk(ptr noundef nonnull %0, ptr noundef %78) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

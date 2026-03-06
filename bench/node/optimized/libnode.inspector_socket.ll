@@ -36,7 +36,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl.40" = type { %"struct.std::_Head_base.41" }
 %"struct.std::_Head_base.41" = type { ptr }
 %"class.std::tuple.42" = type { i8 }
-%"class.node::inspector::(anonymous namespace)::HttpEvent" = type { %"class.std::__cxx11::basic_string", i8, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 
 $_ZN4node9inspector15ProtocolHandlerD2Ev = comdat any
 
@@ -1057,7 +1056,7 @@ if.then.i28.i.i:                                  ; preds = %_ZNSt6vectorIN4node
 _ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE17_M_realloc_insertIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i28.i.i, %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit27.i.i
   store ptr %call5.i.i.i.i.i, ptr %events_, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr27.i.i = getelementptr inbounds nuw %"class.node::inspector::(anonymous namespace)::HttpEvent", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr27.i.i = getelementptr inbounds nuw [104 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr27.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIN4node9inspector12_GLOBAL__N_19HttpEventESaIS3_EE12emplace_backIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERhbSC_SC_EEERS3_DpOT_.exit
 

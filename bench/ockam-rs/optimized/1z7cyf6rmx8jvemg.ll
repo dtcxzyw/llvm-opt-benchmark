@@ -1334,7 +1334,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hb65f798218d97aa
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h886a1e74ba3f2fbfE.exit.thread"
 
 "_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h886a1e74ba3f2fbfE.exit": ; preds = %.loopexit
-  %29 = getelementptr inbounds nuw { { { [8 x i64] } } }, ptr %18, i64 %20
+  %29 = getelementptr inbounds nuw [64 x i8], ptr %18, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %29, i64 64, i1 false)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !214
@@ -1408,7 +1408,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hd9a752489570a0e
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h3cd095248b8489cbE.exit"
 
 28:                                               ; preds = %.loopexit
-  %29 = getelementptr inbounds nuw { { { [29 x i64] } } }, ptr %17, i64 %19
+  %29 = getelementptr inbounds nuw [232 x i8], ptr %17, i64 %19
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %30, ptr noundef nonnull align 8 dereferenceable(232) %29, i64 232, i1 false)
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h3cd095248b8489cbE.exit"
@@ -1485,7 +1485,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17hfd0a5485a35a284
   br label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h538122ce0dfe40c3E.exit.thread"
 
 "_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h538122ce0dfe40c3E.exit": ; preds = %.loopexit
-  %28 = getelementptr inbounds nuw { { { [11 x i64] } } }, ptr %17, i64 %19
+  %28 = getelementptr inbounds nuw [88 x i8], ptr %17, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %28, i64 88, i1 false)
   %.pre = load i8, ptr %0, align 8, !range !227
   %29 = icmp samesign ugt i8 %.pre, 14
@@ -2060,7 +2060,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$4push17h966a46be2cf9f5
 
 8:                                                ; preds = %5
   %9 = and i64 %6, 31
-  %10 = getelementptr inbounds nuw { { { [11 x i64] } } }, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [88 x i8], ptr %7, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %10, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 2832
   %12 = tail call noundef nonnull align 8 ptr @"_ZN87_$LT$tokio..loom..std..atomic_usize..AtomicUsize$u20$as$u20$core..ops..deref..Deref$GT$5deref17h1f03e945e5a0a55fE"(ptr noundef nonnull align 8 %11)

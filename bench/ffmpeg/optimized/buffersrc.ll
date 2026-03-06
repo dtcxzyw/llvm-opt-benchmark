@@ -310,7 +310,7 @@ define range(i32 -2147483648, 1) i32 @av_buffersrc_parameters_set(ptr noundef re
 114:                                              ; preds = %.lr.ph, %111
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %111 ]
   %115 = load ptr, ptr %110, align 8, !tbaa !61
-  %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %indvars.iv
   %117 = load ptr, ptr %116, align 8, !tbaa !62
   %118 = tail call i32 @av_frame_side_data_clone(ptr noundef nonnull %108, ptr noundef nonnull %109, ptr noundef %117, i32 noundef 0) #6
   %119 = icmp sgt i32 %118, -1
@@ -1325,7 +1325,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef %0) #0 {
 42:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %43 = load ptr, ptr %38, align 8, !tbaa !125
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !62
   %46 = tail call i32 @av_frame_side_data_clone(ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef %45, i32 noundef 0) #6
   %47 = icmp sgt i32 %46, -1

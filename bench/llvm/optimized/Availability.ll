@@ -625,7 +625,7 @@ _ZNK5clang4Decl19specific_attr_beginINS_16AvailabilityAttrEEENS_22specific_attr_
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load i32, ptr %40, align 8, !tbaa !39
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %42
   br label %_ZNK5clang4Decl14specific_attrsINS_16AvailabilityAttrEEEN4llvm14iterator_rangeINS_22specific_attr_iteratorIT_NS3_11SmallVectorIPNS_4AttrELj4EEEEEEEv.exit.i
 
 _ZNK5clang4Decl14specific_attrsINS_16AvailabilityAttrEEEN4llvm14iterator_rangeINS_22specific_attr_iteratorIT_NS3_11SmallVectorIPNS_4AttrELj4EEEEEEEv.exit.i: ; preds = %37, %_ZNK5clang4Decl19specific_attr_beginINS_16AvailabilityAttrEEENS_22specific_attr_iteratorIT_N4llvm11SmallVectorIPNS_4AttrELj4EEEEEv.exit.i.i, %30
@@ -880,7 +880,7 @@ _ZN5clang16AvailabilityInfoC2EOS0_.exit.i.i:      ; preds = %_ZN4llvm23SmallVect
 
 135:                                              ; preds = %131
   %136 = zext i32 %.val6.i.i to i64
-  %137 = getelementptr inbounds nuw %"struct.clang::AvailabilityInfo", ptr %.val.i.i, i64 %136
+  %137 = getelementptr inbounds nuw [112 x i8], ptr %.val.i.i, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
   store ptr %138, ptr %137, align 8, !tbaa !14
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
@@ -1353,7 +1353,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatfor
 
 _ZN4llvm7find_ifIRNS_11SmallVectorIN5clang16AvailabilityInfoELj1EEEZN12_GLOBAL__N_115AvailabilitySet14getForPlatformENS_9StringRefEEUlRKS3_E_EEDaOT_T0_.exit: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i55.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit59.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i61.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit65.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i67.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit71.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i73.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit77.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i79.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit83.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i85.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit89.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit89.thread.i.i.i.i
   %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit83.i.i.i.i ], [ %.2.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit89.i.i.i.i ], [ %.2.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i85.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i73.i.i.i.i ], [ %4, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit89.thread.i.i.i.i ], [ %.1.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i79.i.i.i.i ], [ %.029.lcssa.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit77.i.i.i.i ], [ %21, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i67.i.i.i.i ], [ %16, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i61.i.i.i.i ], [ %11, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i55.i.i.i.i ], [ %.029109.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %21, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit71.i.i.i.i ], [ %16, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit65.i.i.i.i ], [ %11, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit59.i.i.i.i ], [ %.029109.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit.i.i.i.i ]
-  %47 = getelementptr inbounds nuw %"struct.clang::AvailabilityInfo", ptr %.8.val, i64 %3
+  %47 = getelementptr inbounds nuw [112 x i8], ptr %.8.val, i64 %3
   %48 = icmp eq ptr %.028.i.i.i.i, %47
   %49 = select i1 %48, ptr null, ptr %.028.i.i.i.i
   ret ptr %49
@@ -1381,7 +1381,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(107) ptr @_ZN
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !39
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.clang::AvailabilityInfo", ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [112 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %10, ptr %9, align 8, !tbaa !14
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1487,7 +1487,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16AvailabilityInfoELb0EE21takeAllocatio
   %48 = add i32 %47, 1
   store i32 %48, ptr %6, align 8, !tbaa !39
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"struct.clang::AvailabilityInfo", ptr %5, i64 %49
+  %50 = getelementptr inbounds nuw [112 x i8], ptr %5, i64 %49
   %51 = getelementptr inbounds i8, ptr %50, i64 -112
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %51

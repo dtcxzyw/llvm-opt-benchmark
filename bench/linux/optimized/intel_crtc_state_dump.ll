@@ -3,8 +3,6 @@ source_filename = "bench/linux/original/intel_crtc_state_dump.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.__drm_planes_state = type { ptr, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [8 x i8] c"invalid\00", align 1
 @output_format_str = internal unnamed_addr constant [3 x ptr] [ptr @.str.40, ptr @.str.41, ptr @.str.42], align 16
 @.str.1 = private unnamed_addr constant [30 x i8] c"[CRTC:%d:%s] enable: %s [%s]\0A\00", align 1
@@ -94,7 +92,7 @@ define dso_local ptr @intel_output_format_name(i32 noundef %0) local_unnamed_add
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr ptr, ptr @output_format_str, i64 %4
+  %5 = getelementptr [8 x i8], ptr @output_format_str, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -154,7 +152,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 36:                                               ; preds = %27
   %37 = icmp eq ptr %31, %4
   %38 = select i1 %37, ptr @.str.35, ptr @.str.45
-  %39 = getelementptr ptr, ptr @output_type_str, i64 %28
+  %39 = getelementptr [8 x i8], ptr @output_type_str, i64 %28
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %31, i64 noundef %29, ptr noundef nonnull @.str.44, ptr noundef nonnull %38, ptr noundef %40) #6
   %42 = sext i32 %41 to i64
@@ -209,7 +207,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 
 72:                                               ; preds = %63
   %73 = zext nneg i32 %70 to i64
-  %74 = getelementptr ptr, ptr @output_format_str, i64 %73
+  %74 = getelementptr [8 x i8], ptr @output_format_str, i64 %73
   %75 = load ptr, ptr %74, align 8
   br label %76
 
@@ -222,7 +220,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 
 81:                                               ; preds = %76
   %82 = zext nneg i32 %79 to i64
-  %83 = getelementptr ptr, ptr @output_format_str, i64 %82
+  %83 = getelementptr [8 x i8], ptr @output_format_str, i64 %82
   %84 = load ptr, ptr %83, align 8
   br label %85
 
@@ -1475,7 +1473,7 @@ define dso_local void @intel_crtc_state_dump(ptr noundef %0, ptr noundef readonl
 933:                                              ; preds = %1046, %930
   %934 = phi i64 [ 0, %930 ], [ %1047, %1046 ]
   %935 = load ptr, ptr %931, align 8
-  %936 = getelementptr %struct.__drm_planes_state, ptr %935, i64 %934
+  %936 = getelementptr [32 x i8], ptr %935, i64 %934
   %937 = load ptr, ptr %936, align 8
   %938 = getelementptr inbounds nuw i8, ptr %936, i64 24
   %939 = load ptr, ptr %938, align 8

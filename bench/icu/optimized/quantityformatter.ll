@@ -510,7 +510,7 @@ define void @_ZN6icu_7717QuantityFormatterC2ERKS0_(ptr noundef nonnull writeonly
 
 4:                                                ; preds = %2, %_ZN6icu_7715SimpleFormatterC2ERKS0_.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_ZN6icu_7715SimpleFormatterC2ERKS0_.exit ]
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZN6icu_7715SimpleFormatterC2ERKS0_.exit, label %8
@@ -535,7 +535,7 @@ define void @_ZN6icu_7717QuantityFormatterC2ERKS0_(ptr noundef nonnull writeonly
 
 _ZN6icu_7715SimpleFormatterC2ERKS0_.exit:         ; preds = %8, %11, %4
   %.sink = phi ptr [ null, %4 ], [ %9, %11 ], [ %9, %8 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store ptr %.sink, ptr %17, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -555,7 +555,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7717QuantityForm
 
 .preheader:                                       ; preds = %2, %_ZN6icu_7715SimpleFormatterC2ERKS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6icu_7715SimpleFormatterC2ERKS0_.exit ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
@@ -566,7 +566,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7717QuantityForm
   br label %8
 
 8:                                                ; preds = %7, %.preheader
-  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = icmp eq ptr %10, null
   br i1 %11, label %_ZN6icu_7715SimpleFormatterC2ERKS0_.exit, label %12
@@ -612,7 +612,7 @@ define void @_ZN6icu_7717QuantityFormatterD2Ev(ptr noundef nonnull readonly alig
 
 3:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
@@ -637,7 +637,7 @@ define void @_ZN6icu_7717QuantityFormatter5resetEv(ptr noundef nonnull align 8 c
 
 3:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
@@ -663,7 +663,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7717QuantityFormatter11addIfAb
 
 8:                                                ; preds = %4
   %9 = sext i32 %5 to i64
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %.not19 = icmp eq ptr %11, null
   br i1 %.not19, label %12, label %25
@@ -728,7 +728,7 @@ define noundef ptr @_ZNK6icu_7717QuantityFormatter12getByVariantEPKc(ptr noundef
   %4 = icmp sgt i32 %3, -1
   %5 = select i1 %4, i32 %3, i32 5
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   %9 = icmp eq ptr %8, null
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -761,7 +761,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7717QuantityFor
 
 18:                                               ; preds = %13
   %19 = zext nneg i32 %12 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !15
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %28

@@ -17,19 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.arrow::compute::SortKey" = type { %"class.arrow::FieldRef", i32, [4 x i8] }
-%"class.arrow::FieldRef" = type { %"class.std::variant" }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type { %"union.std::__detail::__variant::_Variadic_union", i8 }
-%"union.std::__detail::__variant::_Variadic_union" = type { %"union.std::__detail::__variant::_Variadic_union.2" }
-%"union.std::__detail::__variant::_Variadic_union.2" = type { %"struct.std::__detail::__variant::_Uninitialized.3" }
-%"struct.std::__detail::__variant::_Uninitialized.3" = type { %"struct.__gnu_cxx::__aligned_membuf.4" }
-%"struct.__gnu_cxx::__aligned_membuf.4" = type { [32 x i8] }
 
 $_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZSteqIJN5arrow9FieldPathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS4_8FieldRefESaISD_EEEEbRKSt7variantIJDpT_EESL_EUlOT_T0_E_JRKSG_IJS5_SB_SF_EEEEDcOSO_DpOT1_ = comdat any
 
@@ -329,9 +316,9 @@ define noundef zeroext i1 @_ZNK5arrow7compute8Ordering12IsSuborderOfERKS1_(ptr n
 39:                                               ; preds = %.lr.ph, %31
   %40 = phi ptr [ %5, %.lr.ph ], [ %34, %31 ]
   %.0913 = phi i64 [ 0, %.lr.ph ], [ %32, %31 ]
-  %41 = getelementptr inbounds nuw %"class.arrow::compute::SortKey", ptr %40, i64 %.0913
+  %41 = getelementptr inbounds nuw [48 x i8], ptr %40, i64 %.0913
   %42 = load ptr, ptr %1, align 8, !tbaa !68
-  %43 = getelementptr inbounds nuw %"class.arrow::compute::SortKey", ptr %42, i64 %.0913
+  %43 = getelementptr inbounds nuw [48 x i8], ptr %42, i64 %.0913
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

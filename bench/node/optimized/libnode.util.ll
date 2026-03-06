@@ -27,7 +27,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::basic_string_view<char>, std::allocator<std::basic_string_view<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::basic_string_view" = type { i64, ptr }
 %struct.uv_timeval64_t = type { i64, i32 }
 %struct.uv_buf_t = type { ptr, i64 }
 %struct.uv_fs_s = type { ptr, i32, [6 x ptr], i32, ptr, ptr, i64, ptr, ptr, %struct.uv_stat_t, ptr, i32, i32, i32, i32, ptr, i64, i32, i32, double, double, %struct.uv__work, [4 x %struct.uv_buf_t] }
@@ -421,7 +420,7 @@ do.body4.i.i10:                                   ; preds = %do.end5.i
 _ZN4node16MaybeStackBufferItLm1024EE25SetLengthAndZeroTerminateEm.exit: ; preds = %do.end5.i
   store i64 %conv26, ptr %this, align 8
   %5 = load ptr, ptr %buf_.i, align 8
-  %arrayidx.i = getelementptr inbounds i16, ptr %5, i64 %conv26
+  %arrayidx.i = getelementptr inbounds [2 x i8], ptr %5, i64 %conv26
   store i16 0, ptr %arrayidx.i, align 2
   br label %return
 
@@ -809,7 +808,7 @@ if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorISt17ba
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRPKclEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i.i
   store ptr %call5.i.i.i.i.i, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr21.i.i = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr21.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i, align 8
   br label %for.inc
 

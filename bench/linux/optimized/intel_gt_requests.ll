@@ -192,7 +192,7 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
 
 14:                                               ; preds = %30, %12
   %15 = phi i64 [ 0, %12 ], [ %31, %30 ]
-  %16 = getelementptr ptr, ptr %13, i64 %15
+  %16 = getelementptr [8 x i8], ptr %13, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %30, label %19
@@ -482,7 +482,7 @@ define dso_local i64 @intel_gt_retire_requests_timeout(ptr noundef %0, i64 nound
 164:                                              ; preds = %184, %162
   %165 = phi i64 [ 0, %162 ], [ %186, %184 ]
   %166 = phi i8 [ 0, %162 ], [ %185, %184 ]
-  %167 = getelementptr ptr, ptr %163, i64 %165
+  %167 = getelementptr [8 x i8], ptr %163, i64 %165
   %168 = load ptr, ptr %167, align 8
   %169 = icmp eq ptr %168, null
   br i1 %169, label %184, label %170

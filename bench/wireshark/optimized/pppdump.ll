@@ -255,7 +255,7 @@ define internal noundef zeroext i1 @pppdump_seek_read(ptr noundef readonly captu
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16512
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr ptr, ptr %12, i64 %1
+  %13 = getelementptr [8 x i8], ptr %12, i64 %1
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %15, label %17
@@ -380,7 +380,7 @@ define internal void @pppdump_close(ptr noundef readonly captures(none) %0) #0 {
 
 15:                                               ; preds = %.preheader
   %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   tail call void @g_free(ptr noundef %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -1266,7 +1266,7 @@ define ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef %1) local_unnamed_
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i16
-  %48 = getelementptr inbounds nuw i16, ptr %.02129.i.i, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %.02129.i.i, i64 %indvars.iv.i.i
   store i16 %47, ptr %48, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -1346,7 +1346,7 @@ newSizedString8859_1.exit.i:                      ; preds = %53, %._crit_edge.i.
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i22
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i16
-  %86 = getelementptr inbounds nuw i16, ptr %.02129.i.i19, i64 %indvars.iv.i.i22
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %.02129.i.i19, i64 %indvars.iv.i.i22
   store i16 %85, ptr %86, align 2
   %indvars.iv.next.i.i23 = add nuw nsw i64 %indvars.iv.i.i22, 1
   %exitcond.not.i.i24 = icmp eq i64 %indvars.iv.next.i.i23, %wide.trip.count.i.i20
@@ -1424,7 +1424,7 @@ newString8859_1.exit:                             ; preds = %56, %71, %76, %._cr
   %121 = icmp sgt i8 %120, -1
   %narrow.i = select i1 %121, i8 %120, i8 63
   %spec.select.i = zext i8 %narrow.i to i16
-  %122 = getelementptr inbounds nuw i16, ptr %.02637.i, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %.02637.i, i64 %indvars.iv.i
   store i16 %spec.select.i, ptr %122, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1505,7 +1505,7 @@ newString646_US.exit:                             ; preds = %92, %107, %112, %._
 157:                                              ; preds = %.lr.ph.i34
   %158 = and i8 %156, 31
   %159 = zext nneg i8 %158 to i64
-  %160 = getelementptr inbounds nuw i32, ptr @cp1252c1chars, i64 %159
+  %160 = getelementptr inbounds nuw [4 x i8], ptr @cp1252c1chars, i64 %159
   %161 = load i32, ptr %160, align 4
   %162 = trunc i32 %161 to i16
   br label %165
@@ -1516,7 +1516,7 @@ newString646_US.exit:                             ; preds = %92, %107, %112, %._
 
 165:                                              ; preds = %163, %157
   %.sink.i = phi i16 [ %162, %157 ], [ %164, %163 ]
-  %166 = getelementptr inbounds nuw i16, ptr %.03042.i, i64 %indvars.iv.i35
+  %166 = getelementptr inbounds nuw [2 x i8], ptr %.03042.i, i64 %indvars.iv.i35
   store i16 %.sink.i, ptr %166, align 2
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %wide.trip.count.i33
@@ -1806,7 +1806,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 
 .lr.ph.split.us.i30:                              ; preds = %.lr.ph.i23, %.lr.ph.split.us.i30
   %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.lr.ph.split.us.i30 ], [ 0, %.lr.ph.i23 ]
-  %117 = getelementptr inbounds nuw i16, ptr %108, i64 %indvars.iv56.i
+  %117 = getelementptr inbounds nuw [2 x i8], ptr %108, i64 %indvars.iv56.i
   %118 = load i16, ptr %117, align 2
   %119 = icmp ult i16 %118, 256
   %120 = trunc nuw i16 %118 to i8
@@ -1838,7 +1838,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 
 .lr.ph.split.i24:                                 ; preds = %.lr.ph.i23, %150
   %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i26, %150 ], [ 0, %.lr.ph.i23 ]
-  %134 = getelementptr inbounds nuw i16, ptr %108, i64 %indvars.iv.i25
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %108, i64 %indvars.iv.i25
   %135 = load i16, ptr %134, align 2
   %136 = icmp eq i16 %135, 0
   br i1 %136, label %137, label %150
@@ -1918,7 +1918,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 
 .lr.ph.split.us.i49:                              ; preds = %.lr.ph.i37, %.lr.ph.split.us.i49
   %indvars.iv56.i50 = phi i64 [ %indvars.iv.next57.i52, %.lr.ph.split.us.i49 ], [ 0, %.lr.ph.i37 ]
-  %175 = getelementptr inbounds nuw i16, ptr %166, i64 %indvars.iv56.i50
+  %175 = getelementptr inbounds nuw [2 x i8], ptr %166, i64 %indvars.iv56.i50
   %176 = load i16, ptr %175, align 2
   %177 = icmp ult i16 %176, 128
   %178 = trunc nuw nsw i16 %176 to i8
@@ -1950,7 +1950,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 
 .lr.ph.split.i40:                                 ; preds = %.lr.ph.i37, %208
   %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i43, %208 ], [ 0, %.lr.ph.i37 ]
-  %192 = getelementptr inbounds nuw i16, ptr %166, i64 %indvars.iv.i41
+  %192 = getelementptr inbounds nuw [2 x i8], ptr %166, i64 %indvars.iv.i41
   %193 = load i16, ptr %192, align 2
   %194 = icmp eq i16 %193, 0
   br i1 %194, label %195, label %208
@@ -2049,7 +2049,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 
 246:                                              ; preds = %302, %.lr.ph.i59
   %indvars.iv.i60 = phi i64 [ 0, %.lr.ph.i59 ], [ %indvars.iv.next.i61, %302 ]
-  %247 = getelementptr inbounds nuw i16, ptr %224, i64 %indvars.iv.i60
+  %247 = getelementptr inbounds nuw [2 x i8], ptr %224, i64 %indvars.iv.i60
   %248 = load i16, ptr %247, align 2
   %249 = icmp eq i16 %248, 0
   %or.cond4.i = select i1 %233, i1 %249, i1 false

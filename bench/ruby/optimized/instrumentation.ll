@@ -103,7 +103,7 @@ define internal i64 @thread_unregister_callback(i64 %0) #0 {
 .lr.ph:                                           ; preds = %5, %event_symbol.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %event_symbol.exit ], [ 0, %5 ]
   %10 = tail call i64 @rb_ary_new_capa(i64 noundef 2) #7
-  %11 = getelementptr inbounds nuw %struct.thread_event, ptr @event_timeline, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr @event_timeline, i64 %indvars.iv
   %12 = load i64, ptr %11, align 16, !tbaa !15
   %13 = tail call i64 @rb_ary_push(i64 noundef %10, i64 noundef %12) #7
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -213,7 +213,7 @@ define internal range(i64 0, 21) i64 @thread_register_and_unregister_callback(i6
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
   %8 = tail call ptr @rb_internal_thread_add_event_hook(ptr noundef nonnull @ex_callback, i32 noundef 2, ptr noundef null) #7
-  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store ptr %8, ptr %9, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -257,7 +257,7 @@ define internal void @event_timeline_gc_mark(ptr readnone captures(none) %0) #0 
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw %struct.thread_event, ptr @event_timeline, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [16 x i8], ptr @event_timeline, i64 %indvars.iv
   %4 = load i64, ptr %3, align 16, !tbaa !15
   tail call void @rb_gc_mark(i64 noundef %4) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -284,7 +284,7 @@ define internal void @ex_callback(i32 noundef %0, ptr noundef readonly captures(
 .preheader.i:                                     ; preds = %3, %10
   %.0.i = phi i32 [ %11, %10 ], [ %5, %3 ]
   %6 = zext i32 %.0.i to i64
-  %7 = getelementptr inbounds nuw %struct.thread_event, ptr @event_timeline, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @event_timeline, i64 %6
   %8 = load i64, ptr %7, align 16, !tbaa !15
   %9 = icmp eq i64 %8, %4
   br i1 %9, label %find_last_event.exit, label %10
@@ -326,7 +326,7 @@ find_last_event.exit:                             ; preds = %.preheader.i
 
 switch.lookup:                                    ; preds = %.split.i.i
   %22 = zext nneg i32 %20 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ex_callback.5, i64 %22
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ex_callback.5, i64 %22
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %event_name.exit.i
 
@@ -361,7 +361,7 @@ unexpected.exit:                                  ; preds = %event_name.exit.i
 
 switch.lookup65:                                  ; preds = %.split.i.i39
   %32 = zext nneg i32 %30 to i64
-  %switch.gep66 = getelementptr inbounds nuw ptr, ptr @switch.table.ex_callback.5, i64 %32
+  %switch.gep66 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ex_callback.5, i64 %32
   %switch.load67 = load ptr, ptr %switch.gep66, align 8
   br label %event_name.exit.i37
 
@@ -394,7 +394,7 @@ unexpected.exit40:                                ; preds = %event_name.exit.i37
 
 switch.lookup68:                                  ; preds = %.split.i.i43
   %42 = zext nneg i32 %40 to i64
-  %switch.gep69 = getelementptr inbounds nuw ptr, ptr @switch.table.ex_callback.5, i64 %42
+  %switch.gep69 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ex_callback.5, i64 %42
   %switch.load70 = load ptr, ptr %switch.gep69, align 8
   br label %event_name.exit.i41
 
@@ -427,7 +427,7 @@ unexpected.exit44:                                ; preds = %event_name.exit.i41
 
 switch.lookup71:                                  ; preds = %.split.i.i47
   %52 = zext nneg i32 %50 to i64
-  %switch.gep72 = getelementptr inbounds nuw ptr, ptr @switch.table.ex_callback.5, i64 %52
+  %switch.gep72 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ex_callback.5, i64 %52
   %switch.load73 = load ptr, ptr %switch.gep72, align 8
   br label %event_name.exit.i45
 
@@ -462,7 +462,7 @@ unexpected.exit48:                                ; preds = %event_name.exit.i45
 
 switch.lookup74:                                  ; preds = %.split.i.i51
   %62 = zext nneg i32 %60 to i64
-  %switch.gep75 = getelementptr inbounds nuw ptr, ptr @switch.table.ex_callback.5, i64 %62
+  %switch.gep75 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ex_callback.5, i64 %62
   %switch.load76 = load ptr, ptr %switch.gep75, align 8
   br label %event_name.exit.i49
 
@@ -496,7 +496,7 @@ find_last_event.exit.thread:                      ; preds = %10, %find_last_even
 71:                                               ; preds = %find_last_event.exit.thread
   %72 = load i64, ptr %1, align 8, !tbaa !23
   %73 = zext nneg i32 %68 to i64
-  %74 = getelementptr inbounds nuw %struct.thread_event, ptr @event_timeline, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr @event_timeline, i64 %73
   store i64 %72, ptr %74, align 16, !tbaa !15
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 %0, ptr %75, align 8, !tbaa !17

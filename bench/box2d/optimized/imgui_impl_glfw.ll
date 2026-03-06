@@ -751,7 +751,7 @@ _ZL34ImGui_ImplGlfw_ShouldChainCallbackP10GLFWwindow.exit.thread: ; preds = %_ZL
   %51 = ptrtoint ptr %49 to i64
   %52 = ptrtoint ptr %5 to i64
   %53 = sub i64 %51, %52
-  %54 = getelementptr inbounds i32, ptr @__const._ZL39ImGui_ImplGlfw_TranslateUntranslatedKeyii.char_keys, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr @__const._ZL39ImGui_ImplGlfw_TranslateUntranslatedKeyii.char_keys, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !33
   br label %56
 
@@ -1244,7 +1244,7 @@ _Z9IM_DELETEI19ImGui_ImplGlfw_DataEvPT_.exit:     ; preds = %20
 
 20:                                               ; preds = %13, %20
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !48
   tail call void @glfwDestroyCursor(ptr noundef %22)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1414,7 +1414,7 @@ _ZL29ImGui_ImplGlfw_GetBackendDatav.exit.i19:     ; preds = %72, %_ZL30ImGui_Imp
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %93 = sext i32 %84 to i64
-  %94 = getelementptr inbounds ptr, ptr %92, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %92, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !48
   %.not13.i = icmp eq ptr %95, null
   br i1 %.not13.i, label %96, label %98

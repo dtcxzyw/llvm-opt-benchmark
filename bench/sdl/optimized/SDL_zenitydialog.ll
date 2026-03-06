@@ -3,8 +3,6 @@ source_filename = "bench/sdl/original/SDL_zenitydialog.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SDL_DialogFileFilter = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [21 x i8] c"SDL_ZenityFileDialog\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"zenity\00", align 1
 @.str.2 = private unnamed_addr constant [10 x i8] c"--version\00", align 1
@@ -146,7 +144,7 @@ define hidden void @SDL_Zenity_ShowFileDialogWithProperties(i32 noundef %0, ptr 
 
 42:                                               ; preds = %41
   %43 = zext nneg i32 %.0119.i to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %13, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %43
   store ptr @.str.16, ptr %44, align 8
   %45 = add nuw nsw i32 %.0119.i, 2
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -156,7 +154,7 @@ define hidden void @SDL_Zenity_ShowFileDialogWithProperties(i32 noundef %0, ptr 
 47:                                               ; preds = %41
   %48 = add nuw nsw i32 %.0119.i, 1
   %49 = zext nneg i32 %.0119.i to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %13, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %49
   store ptr @.str.18, ptr %50, align 8
   br label %51
 
@@ -169,7 +167,7 @@ define hidden void @SDL_Zenity_ShowFileDialogWithProperties(i32 noundef %0, ptr 
 
 54:                                               ; preds = %51
   %55 = zext nneg i32 %.1120.i to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %13, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %55
   store ptr @.str.19, ptr %56, align 8
   %57 = add nuw nsw i32 %.1120.i, 2
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -200,7 +198,7 @@ get_x11_window_handle.exit:                       ; preds = %64
 
 68:                                               ; preds = %get_x11_window_handle.exit
   %69 = zext nneg i32 %.2121.i to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %13, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %69
   store ptr @.str.20, ptr %70, align 8
   %71 = getelementptr i8, ptr %70, i64 8
   store ptr @.str.21, ptr %71, align 8
@@ -218,7 +216,7 @@ get_x11_window_handle.exit.thread:                ; preds = %64, %62, %59, %68, 
 
 76:                                               ; preds = %get_x11_window_handle.exit.thread
   %77 = zext nneg i32 %.3122.i to i64
-  %78 = getelementptr inbounds nuw ptr, ptr %13, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %77
   store ptr @.str.22, ptr %78, align 8
   %79 = add nuw nsw i32 %.3122.i, 2
   %80 = getelementptr i8, ptr %78, i64 8
@@ -234,7 +232,7 @@ get_x11_window_handle.exit.thread:                ; preds = %64, %62, %59, %68, 
 
 84:                                               ; preds = %81
   %85 = zext nneg i32 %.4123.i to i64
-  %86 = getelementptr inbounds nuw ptr, ptr %13, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %85
   store ptr @.str.23, ptr %86, align 8
   %87 = add nuw nsw i32 %.4123.i, 2
   %88 = getelementptr i8, ptr %86, i64 8
@@ -250,7 +248,7 @@ get_x11_window_handle.exit.thread:                ; preds = %64, %62, %59, %68, 
 
 92:                                               ; preds = %89
   %93 = zext nneg i32 %.5124.i to i64
-  %94 = getelementptr inbounds nuw ptr, ptr %13, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %93
   store ptr @.str.24, ptr %94, align 8
   %95 = add nuw nsw i32 %.5124.i, 2
   %96 = getelementptr i8, ptr %94, i64 8
@@ -265,7 +263,7 @@ get_x11_window_handle.exit.thread:                ; preds = %64, %62, %59, %68, 
 
 99:                                               ; preds = %97
   %100 = zext nneg i32 %.6.i to i64
-  %101 = getelementptr inbounds nuw ptr, ptr %13, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %100
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %101, ptr %102, align 8
   %103 = load i32, ptr %10, align 4
@@ -274,7 +272,7 @@ get_x11_window_handle.exit.thread:                ; preds = %64, %62, %59, %68, 
 
 .lr.ph:                                           ; preds = %99, %.loopexit.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit.i ], [ 0, %99 ]
-  %105 = getelementptr inbounds nuw %struct.SDL_DialogFileFilter, ptr %98, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %98, i64 %indvars.iv
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %108 = load ptr, ptr %107, align 8
@@ -290,7 +288,7 @@ get_x11_window_handle.exit.thread:                ; preds = %64, %62, %59, %68, 
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %indvars.iv, %.preheader.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %110 = load ptr, ptr %102, align 8
-  %111 = getelementptr inbounds ptr, ptr %110, i64 %indvars.iv.next.i
+  %111 = getelementptr inbounds [8 x i8], ptr %110, i64 %indvars.iv.next.i
   %112 = load ptr, ptr %111, align 8
   tail call void @SDL_free_REAL(ptr noundef %112) #7
   %.not148.i = icmp eq i64 %indvars.iv.next.i, 0
@@ -298,7 +296,7 @@ get_x11_window_handle.exit.thread:                ; preds = %64, %62, %59, %68, 
 
 .loopexit.i:                                      ; preds = %.lr.ph
   %113 = load ptr, ptr %102, align 8
-  %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %indvars.iv
   store ptr %109, ptr %114, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %115 = load i32, ptr %10, align 4
@@ -335,7 +333,7 @@ get_x11_window_handle.exit.thread:                ; preds = %64, %62, %59, %68, 
 128:                                              ; preds = %.thread163.i, %97
   %.7.i = phi i32 [ %118, %.thread163.i ], [ %.6.i, %97 ]
   %129 = sext i32 %.7.i to i64
-  %130 = getelementptr inbounds ptr, ptr %13, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %13, i64 %129
   store ptr null, ptr %130, align 8
   %131 = tail call ptr @SDL_CreateThreadRuntime_REAL(ptr noundef nonnull @run_zenity_thread, ptr noundef nonnull @.str, ptr noundef nonnull %5, ptr noundef null, ptr noundef null) #7
   %.not13 = icmp eq ptr %131, null
@@ -428,7 +426,7 @@ define internal noundef i32 @run_zenity_thread(ptr noundef %0) #0 {
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  %41 = getelementptr inbounds nuw ptr, ptr %.16084.i, i64 %.06183.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.16084.i, i64 %.06183.i
   store ptr %40, ptr %41, align 8
   %42 = shl i64 %.06183.i, 3
   %43 = add i64 %42, 16
@@ -438,7 +436,7 @@ define internal noundef i32 @run_zenity_thread(ptr noundef %0) #0 {
 
 45:                                               ; preds = %39
   %46 = add i64 %.06183.i, 1
-  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %46
   store ptr null, ptr %47, align 8
   %.pre.i = load i64, ptr %3, align 8
   br label %48
@@ -504,7 +502,7 @@ define internal fastcc void @free_zenity_args(ptr noundef %0) unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   tail call void @SDL_free_REAL(ptr noundef %9) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

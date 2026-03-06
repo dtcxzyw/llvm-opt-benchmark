@@ -28,8 +28,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.boost::shared_ptr.18" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.boost::detail::shared_count" = type { ptr }
 %"class.std::valarray" = type { i64, ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -1050,7 +1048,7 @@ entry:
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load i64, ptr %currentIndex_, align 8, !tbaa !57
   %1 = load ptr, ptr %payoffs_, align 8, !tbaa !45
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.18", ptr %1, i64 %0
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %0
   %2 = load ptr, ptr %add.ptr.i, align 8, !tbaa !58
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib6PayoffEEdeEv.exit, !prof !41

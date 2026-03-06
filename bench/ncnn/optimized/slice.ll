@@ -797,7 +797,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn5Slice7forwardERKSt6vecto
   br label %76
 
 59:                                               ; preds = %54
-  %60 = getelementptr inbounds nuw i32, ptr %33, i64 %.0323445
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.0323445
   %61 = load i32, ptr %60, align 4, !tbaa !44
   %62 = icmp slt i32 %61, 0
   %63 = select i1 %62, i32 %42, i32 0
@@ -806,7 +806,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn5Slice7forwardERKSt6vecto
   br label %76
 
 66:                                               ; preds = %51
-  %67 = getelementptr inbounds nuw i32, ptr %31, i64 %.0323445
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.0323445
   %68 = load i32, ptr %67, align 4, !tbaa !44
   %69 = icmp eq i32 %68, -233
   br i1 %69, label %70, label %76
@@ -821,7 +821,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn5Slice7forwardERKSt6vecto
 
 76:                                               ; preds = %66, %70, %57, %59
   %.0339 = phi i32 [ %58, %57 ], [ %65, %59 ], [ %75, %70 ], [ %68, %66 ]
-  %77 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %53, i64 %.0323445
+  %77 = getelementptr inbounds nuw [72 x i8], ptr %53, i64 %.0323445
   %78 = load ptr, ptr %50, align 8, !tbaa !45
   tail call void @_ZN4ncnn3Mat6createEimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %77, i32 noundef %.0339, i64 noundef %29, ptr noundef %78)
   %79 = load ptr, ptr %77, align 8, !tbaa !16
@@ -900,7 +900,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %76
   br label %144
 
 127:                                              ; preds = %122
-  %128 = getelementptr inbounds nuw i32, ptr %33, i64 %.0342437
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.0342437
   %129 = load i32, ptr %128, align 4, !tbaa !44
   %130 = icmp slt i32 %129, 0
   %131 = select i1 %130, i32 %110, i32 0
@@ -909,7 +909,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %76
   br label %144
 
 134:                                              ; preds = %119
-  %135 = getelementptr inbounds nuw i32, ptr %31, i64 %.0342437
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.0342437
   %136 = load i32, ptr %135, align 4, !tbaa !44
   %137 = icmp eq i32 %136, -233
   br i1 %137, label %138, label %144
@@ -924,7 +924,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %76
 
 144:                                              ; preds = %134, %138, %125, %127
   %.0344 = phi i32 [ %126, %125 ], [ %133, %127 ], [ %143, %138 ], [ %136, %134 ]
-  %145 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %121, i64 %.0342437
+  %145 = getelementptr inbounds nuw [72 x i8], ptr %121, i64 %.0342437
   %146 = load ptr, ptr %118, align 8, !tbaa !45
   tail call void @_ZN4ncnn3Mat6createEiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %145, i32 noundef %108, i32 noundef %.0344, i64 noundef %29, ptr noundef %146)
   %147 = load ptr, ptr %145, align 8, !tbaa !16
@@ -1013,7 +1013,7 @@ _ZNK4ncnn3Mat5emptyEv.exit397:                    ; preds = %144
   br label %.sink.split
 
 201:                                              ; preds = %196
-  %202 = getelementptr inbounds nuw i32, ptr %33, i64 %.0345434
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.0345434
   %203 = load i32, ptr %202, align 4, !tbaa !44
   %204 = icmp slt i32 %203, 0
   %205 = select i1 %204, i32 %180, i32 0
@@ -1022,7 +1022,7 @@ _ZNK4ncnn3Mat5emptyEv.exit397:                    ; preds = %144
   br label %.sink.split
 
 208:                                              ; preds = %192
-  %209 = getelementptr inbounds nuw i32, ptr %31, i64 %.0345434
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.0345434
   %210 = load i32, ptr %209, align 4, !tbaa !44
   store i32 %210, ptr %8, align 4, !tbaa !44
   %211 = icmp eq i32 %210, -233
@@ -1043,7 +1043,7 @@ _ZNK4ncnn3Mat5emptyEv.exit397:                    ; preds = %144
 
 218:                                              ; preds = %.sink.split, %208
   %219 = phi i32 [ %210, %208 ], [ %.sink, %.sink.split ]
-  %220 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %195, i64 %.0345434
+  %220 = getelementptr inbounds nuw [72 x i8], ptr %195, i64 %.0345434
   %221 = load i32, ptr %6, align 4, !tbaa !44
   %222 = load i64, ptr %5, align 8, !tbaa !42
   %223 = load ptr, ptr %190, align 8, !tbaa !45
@@ -1141,7 +1141,7 @@ _ZNK4ncnn3Mat5emptyEv.exit398:                    ; preds = %218
   br label %292
 
 275:                                              ; preds = %270
-  %276 = getelementptr inbounds nuw i32, ptr %33, i64 %.0348427
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.0348427
   %277 = load i32, ptr %276, align 4, !tbaa !44
   %278 = icmp slt i32 %277, 0
   %279 = select i1 %278, i32 %257, i32 0
@@ -1150,7 +1150,7 @@ _ZNK4ncnn3Mat5emptyEv.exit398:                    ; preds = %218
   br label %292
 
 282:                                              ; preds = %267
-  %283 = getelementptr inbounds nuw i32, ptr %31, i64 %.0348427
+  %283 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.0348427
   %284 = load i32, ptr %283, align 4, !tbaa !44
   %285 = icmp eq i32 %284, -233
   br i1 %285, label %286, label %292
@@ -1165,7 +1165,7 @@ _ZNK4ncnn3Mat5emptyEv.exit398:                    ; preds = %218
 
 292:                                              ; preds = %282, %286, %273, %275
   %.0350 = phi i32 [ %274, %273 ], [ %281, %275 ], [ %291, %286 ], [ %284, %282 ]
-  %293 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %269, i64 %.0348427
+  %293 = getelementptr inbounds nuw [72 x i8], ptr %269, i64 %.0348427
   %294 = load ptr, ptr %265, align 8, !tbaa !45
   tail call void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %293, i32 noundef %251, i32 noundef %253, i32 noundef %255, i32 noundef %.0350, i64 noundef %29, ptr noundef %294)
   %295 = load ptr, ptr %293, align 8, !tbaa !16
@@ -1268,7 +1268,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZNK4ncnn3Mat5empty
   br label %.sink.split500
 
 354:                                              ; preds = %349
-  %355 = getelementptr inbounds nuw i32, ptr %33, i64 %.0349424
+  %355 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.0349424
   %356 = load i32, ptr %355, align 4, !tbaa !44
   %357 = icmp slt i32 %356, 0
   %358 = select i1 %357, i32 %331, i32 0
@@ -1277,7 +1277,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZNK4ncnn3Mat5empty
   br label %.sink.split500
 
 361:                                              ; preds = %345
-  %362 = getelementptr inbounds nuw i32, ptr %31, i64 %.0349424
+  %362 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.0349424
   %363 = load i32, ptr %362, align 4, !tbaa !44
   store i32 %363, ptr %13, align 4, !tbaa !44
   %364 = icmp eq i32 %363, -233
@@ -1298,7 +1298,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZNK4ncnn3Mat5empty
 
 371:                                              ; preds = %.sink.split500, %361
   %372 = phi i32 [ %363, %361 ], [ %.sink502, %.sink.split500 ]
-  %373 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %348, i64 %.0349424
+  %373 = getelementptr inbounds nuw [72 x i8], ptr %348, i64 %.0349424
   %374 = load i32, ptr %9, align 4, !tbaa !44
   %375 = load i32, ptr %10, align 4, !tbaa !44
   %376 = load i32, ptr %11, align 4, !tbaa !44
@@ -1410,7 +1410,7 @@ _ZNK4ncnn3Mat5emptyEv.exit400:                    ; preds = %371
   br label %.sink.split503
 
 430:                                              ; preds = %425
-  %431 = getelementptr inbounds nuw i32, ptr %33, i64 %.0343421
+  %431 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.0343421
   %432 = load i32, ptr %431, align 4, !tbaa !44
   %433 = icmp slt i32 %432, 0
   %434 = select i1 %433, i32 %405, i32 0
@@ -1419,7 +1419,7 @@ _ZNK4ncnn3Mat5emptyEv.exit400:                    ; preds = %371
   br label %.sink.split503
 
 437:                                              ; preds = %421
-  %438 = getelementptr inbounds nuw i32, ptr %31, i64 %.0343421
+  %438 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.0343421
   %439 = load i32, ptr %438, align 4, !tbaa !44
   store i32 %439, ptr %18, align 4, !tbaa !44
   %440 = icmp eq i32 %439, -233
@@ -1440,7 +1440,7 @@ _ZNK4ncnn3Mat5emptyEv.exit400:                    ; preds = %371
 
 447:                                              ; preds = %.sink.split503, %437
   %448 = phi i32 [ %439, %437 ], [ %.sink505, %.sink.split503 ]
-  %449 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %424, i64 %.0343421
+  %449 = getelementptr inbounds nuw [72 x i8], ptr %424, i64 %.0343421
   %450 = load i32, ptr %14, align 4, !tbaa !44
   %451 = load i32, ptr %15, align 4, !tbaa !44
   %452 = load i32, ptr %16, align 4, !tbaa !44
@@ -1549,7 +1549,7 @@ _ZNK4ncnn3Mat5emptyEv.exit401:                    ; preds = %447
   br label %.sink.split506
 
 505:                                              ; preds = %500
-  %506 = getelementptr inbounds nuw i32, ptr %33, i64 %.0324419
+  %506 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.0324419
   %507 = load i32, ptr %506, align 4, !tbaa !44
   %508 = icmp slt i32 %507, 0
   %509 = select i1 %508, i32 %484, i32 0
@@ -1558,7 +1558,7 @@ _ZNK4ncnn3Mat5emptyEv.exit401:                    ; preds = %447
   br label %.sink.split506
 
 512:                                              ; preds = %496
-  %513 = getelementptr inbounds nuw i32, ptr %31, i64 %.0324419
+  %513 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.0324419
   %514 = load i32, ptr %513, align 4, !tbaa !44
   store i32 %514, ptr %23, align 4, !tbaa !44
   %515 = icmp eq i32 %514, -233
@@ -1579,7 +1579,7 @@ _ZNK4ncnn3Mat5emptyEv.exit401:                    ; preds = %447
 
 522:                                              ; preds = %.sink.split506, %512
   %523 = phi i32 [ %514, %512 ], [ %.sink508, %.sink.split506 ]
-  %524 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %499, i64 %.0324419
+  %524 = getelementptr inbounds nuw [72 x i8], ptr %499, i64 %.0324419
   %525 = load i32, ptr %19, align 4, !tbaa !44
   %526 = load i32, ptr %20, align 4, !tbaa !44
   %527 = load i32, ptr %21, align 4, !tbaa !44

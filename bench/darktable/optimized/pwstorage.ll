@@ -211,7 +211,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
 
 switch.lookup:                                    ; preds = %63
   %66 = zext nneg i32 %64 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dt_pwstorage_new, i64 %66
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dt_pwstorage_new, i64 %66
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.2, ptr noundef nonnull %switch.load) #6
   br label %67

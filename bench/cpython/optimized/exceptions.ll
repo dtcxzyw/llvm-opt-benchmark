@@ -1621,7 +1621,7 @@ Py_SIZE.exit.i:                                   ; preds = %22
   unreachable
 
 27:                                               ; preds = %Py_SIZE.exit.i
-  %28 = getelementptr ptr, ptr %8, i64 %indvars.iv
+  %28 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %10, ptr %28, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -3,11 +3,6 @@ source_filename = "bench/lua/original/lfunc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.StackValue = type { %struct.TValue }
-%struct.TValue = type { %union.Value, i8 }
-%union.Value = type { ptr }
-%struct.LocVar = type { ptr, i32, i32 }
-
 @.str = private unnamed_addr constant [2 x i8] c"?\00", align 1
 @.str.1 = private unnamed_addr constant [39 x i8] c"variable '%s' got a non-closable value\00", align 1
 
@@ -75,7 +70,7 @@ define hidden void @luaF_initupvals(ptr noundef %0, ptr noundef %1) local_unname
   store ptr %9, ptr %10, align 8, !tbaa !16
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 0, ptr %11, align 8, !tbaa !17
-  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %8, ptr %12, align 8, !tbaa !14
   %13 = load i8, ptr %6, align 1, !tbaa !19
   %14 = and i8 %13, 32
@@ -433,7 +428,7 @@ luaF_closeupval.exit:                             ; preds = %.lr.ph.i, %39, %4
   %49 = load i16, ptr %48, align 2, !tbaa !16
   %50 = zext i16 %49 to i64
   %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds %union.StackValue, ptr %47, i64 %51
+  %52 = getelementptr inbounds [16 x i8], ptr %47, i64 %51
   %53 = icmp ugt ptr %52, %46
   br i1 %53, label %.lr.ph.i15.us, label %poptbclist.exit.us
 
@@ -507,7 +502,7 @@ prepcallclosemth.exit.us:                         ; preds = %62, %60
   %88 = load i16, ptr %87, align 2, !tbaa !16
   %89 = zext i16 %88 to i64
   %90 = sub nsw i64 0, %89
-  %91 = getelementptr inbounds %union.StackValue, ptr %86, i64 %90
+  %91 = getelementptr inbounds [16 x i8], ptr %86, i64 %90
   %92 = icmp ugt ptr %91, %85
   br i1 %92, label %.lr.ph.i15.us18, label %poptbclist.exit.us20
 
@@ -566,7 +561,7 @@ poptbclist.exit.us20:                             ; preds = %.lr.ph.i15.us18, %9
   %124 = load i16, ptr %123, align 2, !tbaa !16
   %125 = zext i16 %124 to i64
   %126 = sub nsw i64 0, %125
-  %127 = getelementptr inbounds %union.StackValue, ptr %122, i64 %126
+  %127 = getelementptr inbounds [16 x i8], ptr %122, i64 %126
   %128 = icmp ugt ptr %127, %121
   br i1 %128, label %.lr.ph.i15, label %poptbclist.exit
 
@@ -769,7 +764,7 @@ define hidden ptr @luaF_getlocalname(ptr noundef readonly captures(none) %0, i32
 9:                                                ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %.01821 = phi i32 [ %1, %.lr.ph ], [ %.1, %28 ]
-  %10 = getelementptr inbounds nuw %struct.LocVar, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !69
   %.not = icmp sgt i32 %12, %2

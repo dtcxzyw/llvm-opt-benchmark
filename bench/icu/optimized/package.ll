@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.UDataInfo = type { i16, i16, i8, i8, i8, i8, [4 x i8], [4 x i8], [4 x i8] }
-%"struct.icu_77::Item" = type { ptr, ptr, i32, i8, i8 }
 %struct.UDataOffsetTOCEntry = type { i32, i32 }
 
 $__clang_call_terminate = comdat any
@@ -206,7 +205,7 @@ define void @_ZN6icu_777PackageD2Ev(ptr noundef nonnull readonly align 8 capture
   %9 = phi i32 [ %5, %.lr.ph ], [ %18, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !30
-  %11 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %13 = load i8, ptr %12, align 4, !tbaa !31
   %.not = icmp eq i8 %13, 0
@@ -488,7 +487,7 @@ _ZN6icu_777Package15setItemCapacityEi.exit:       ; preds = %87, %110
   %118 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %119 = load ptr, ptr %118, align 8, !tbaa !45
   %120 = sext i32 %111 to i64
-  %121 = getelementptr %struct.UDataOffsetTOCEntry, ptr %84, i64 %120
+  %121 = getelementptr [8 x i8], ptr %84, i64 %120
   %122 = getelementptr i8, ptr %121, i64 -4
   %123 = load i32, ptr %122, align 4, !tbaa !46
   %124 = call noundef i32 %119(i32 noundef %123)
@@ -732,7 +731,7 @@ _ZN6icu_777Package15setItemCapacityEi.exit:       ; preds = %87, %110
 .lr.ph189:                                        ; preds = %244, %329
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %329 ], [ 0, %244 ]
   %248 = load ptr, ptr %145, align 8, !tbaa !45
-  %249 = getelementptr inbounds nuw %struct.UDataOffsetTOCEntry, ptr %84, i64 %indvars.iv199
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv199
   %250 = load i32, ptr %249, align 4, !tbaa !52
   %251 = call noundef i32 %248(i32 noundef %250)
   %252 = sub nsw i32 %251, %144
@@ -756,7 +755,7 @@ _ZN6icu_777Package15setItemCapacityEi.exit:       ; preds = %87, %110
 
 263:                                              ; preds = %256
   %264 = load ptr, ptr %183, align 8, !tbaa !30
-  %265 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %264, i64 %indvars.iv199
+  %265 = getelementptr inbounds nuw [24 x i8], ptr %264, i64 %indvars.iv199
   store ptr %257, ptr %265, align 8, !tbaa !54
   %266 = load ptr, ptr %145, align 8, !tbaa !45
   %267 = getelementptr inbounds nuw i8, ptr %249, i64 4
@@ -765,7 +764,7 @@ _ZN6icu_777Package15setItemCapacityEi.exit:       ; preds = %87, %110
   %270 = zext i32 %269 to i64
   %271 = getelementptr inbounds nuw i8, ptr %83, i64 %270
   %272 = load ptr, ptr %183, align 8, !tbaa !30
-  %273 = getelementptr %"struct.icu_77::Item", ptr %272, i64 %indvars.iv199
+  %273 = getelementptr [24 x i8], ptr %272, i64 %indvars.iv199
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
   store ptr %271, ptr %274, align 8, !tbaa !33
   %.not147 = icmp eq i64 %indvars.iv199, 0
@@ -886,7 +885,7 @@ _ZL23getTypeEnumForInputDataPKhiP10UErrorCode.exit.thread: ; preds = %275, %_ZL2
 ._crit_edge:                                      ; preds = %329, %.._crit_edge_crit_edge
   %.pre-phi207 = phi i64 [ %.pre206, %.._crit_edge_crit_edge ], [ %332, %329 ]
   %334 = load ptr, ptr %145, align 8, !tbaa !45
-  %335 = getelementptr %struct.UDataOffsetTOCEntry, ptr %84, i64 %.pre-phi207
+  %335 = getelementptr [8 x i8], ptr %84, i64 %.pre-phi207
   %336 = getelementptr i8, ptr %335, i64 -4
   %337 = load i32, ptr %336, align 4, !tbaa !46
   %338 = call noundef i32 %334(i32 noundef %337)
@@ -894,7 +893,7 @@ _ZL23getTypeEnumForInputDataPKhiP10UErrorCode.exit.thread: ; preds = %275, %_ZL2
   %340 = load ptr, ptr %183, align 8, !tbaa !30
   %341 = load i32, ptr %90, align 4, !tbaa !29
   %342 = sext i32 %341 to i64
-  %343 = getelementptr %"struct.icu_77::Item", ptr %340, i64 %342
+  %343 = getelementptr [24 x i8], ptr %340, i64 %342
   %344 = getelementptr i8, ptr %343, i64 -8
   store i32 %339, ptr %344, align 8, !tbaa !55
   %345 = getelementptr i8, ptr %343, i64 -16
@@ -1474,7 +1473,7 @@ define void @_ZN6icu_777Package12writePackageEPKccS2_(ptr noundef nonnull align 
 
 .preheader157:                                    ; preds = %66, %81
   %indvars.iv = phi i64 [ %indvars.iv.next, %81 ], [ 0, %66 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %77 = load ptr, ptr %76, align 8, !tbaa !59
   %.not150 = icmp eq ptr %77, null
   br i1 %.not150, label %81, label %78
@@ -1656,7 +1655,7 @@ _ZN6icu_777Package9sortItemsEv.exit:              ; preds = %155
 175:                                              ; preds = %.lr.ph, %_ZN6icu_777Package11allocStringEai.exit
   %176 = phi ptr [ %.pre, %.lr.ph ], [ %196, %_ZN6icu_777Package11allocStringEai.exit ]
   %indvars.iv188 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next189, %_ZN6icu_777Package11allocStringEai.exit ]
-  %177 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %176, i64 %indvars.iv188
+  %177 = getelementptr inbounds nuw [24 x i8], ptr %176, i64 %indvars.iv188
   %178 = load ptr, ptr %177, align 8, !tbaa !54
   %179 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %178) #24
   %180 = trunc i64 %179 to i32
@@ -1679,14 +1678,14 @@ _ZN6icu_777Package11allocStringEai.exit:          ; preds = %175
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %189, ptr nonnull align 16 %6, i64 %129, i1 false)
   %190 = getelementptr inbounds i8, ptr %189, i64 %129
   %191 = load ptr, ptr %171, align 8, !tbaa !30
-  %192 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %191, i64 %indvars.iv188
+  %192 = getelementptr inbounds nuw [24 x i8], ptr %191, i64 %indvars.iv188
   %193 = load ptr, ptr %192, align 8, !tbaa !54
   %194 = shl i64 %179, 32
   %sext149 = add i64 %194, 4294967296
   %195 = ashr exact i64 %sext149, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %190, ptr align 1 %193, i64 %195, i1 false)
   %196 = load ptr, ptr %171, align 8, !tbaa !30
-  %197 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %196, i64 %indvars.iv188
+  %197 = getelementptr inbounds nuw [24 x i8], ptr %196, i64 %indvars.iv188
   store ptr %189, ptr %197, align 8, !tbaa !54
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %198 = load i32, ptr %168, align 4, !tbaa !29
@@ -1781,7 +1780,7 @@ _ZN6icu_777Package11allocStringEai.exit151:       ; preds = %207
   %246 = phi ptr [ %.pre199, %.lr.ph172 ], [ %270, %269 ]
   %indvars.iv191 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next192, %269 ]
   %.1113170 = phi i32 [ %.0112, %.lr.ph172 ], [ %274, %269 ]
-  %247 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %246, i64 %indvars.iv191
+  %247 = getelementptr inbounds nuw [24 x i8], ptr %246, i64 %indvars.iv191
   %248 = load ptr, ptr %247, align 8, !tbaa !54
   %249 = ptrtoint ptr %248 to i64
   %250 = sub i64 %249, %239
@@ -1820,7 +1819,7 @@ _ZN6icu_777Package11allocStringEai.exit151:       ; preds = %207
 
 269:                                              ; preds = %263
   %270 = load ptr, ptr %237, align 8, !tbaa !30
-  %271 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %270, i64 %indvars.iv191
+  %271 = getelementptr inbounds nuw [24 x i8], ptr %270, i64 %indvars.iv191
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 16
   %273 = load i32, ptr %272, align 8, !tbaa !55
   %274 = add nsw i32 %273, %.1113170
@@ -1867,7 +1866,7 @@ _ZN6icu_777Package11allocStringEai.exit151:       ; preds = %207
   %297 = select i1 %296, i64 3, i64 -1
   %298 = select i1 %295, i64 1, i64 %297
   %299 = select i1 %294, i64 0, i64 %298
-  %300 = getelementptr inbounds ptr, ptr %8, i64 %299
+  %300 = getelementptr inbounds [8 x i8], ptr %8, i64 %299
   %301 = load ptr, ptr %300, align 8, !tbaa !59
   %.not144 = icmp eq ptr %301, null
   br i1 %.not144, label %316, label %302
@@ -1934,7 +1933,7 @@ _ZN6icu_777Package11allocStringEai.exit151:       ; preds = %207
 
 340:                                              ; preds = %338, %340
   %indvars.iv194 = phi i64 [ 0, %338 ], [ %indvars.iv.next195, %340 ]
-  %341 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv194
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv194
   %342 = load ptr, ptr %341, align 8, !tbaa !59
   call void @udata_closeSwapper_77(ptr noundef %342)
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
@@ -2025,7 +2024,7 @@ define noundef range(i32 -1073741825, 1073741824) i32 @_ZNK6icu_777Package8findI
   %11 = add nuw nsw i32 %.02538.us, %.02637.us
   %12 = lshr i32 %11, 1
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %13
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !54
   %16 = tail call i32 @strncmp(ptr noundef %1, ptr noundef %15, i64 noundef %10) #24
   %17 = icmp eq i32 %16, 0
@@ -2045,7 +2044,7 @@ define noundef range(i32 -1073741825, 1073741824) i32 @_ZNK6icu_777Package8findI
   %22 = add nuw nsw i32 %.02538, %.02637
   %23 = lshr i32 %22, 1
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !54
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %26) #24
   %28 = icmp eq i32 %27, 0
@@ -2063,7 +2062,7 @@ define noundef range(i32 -1073741825, 1073741824) i32 @_ZNK6icu_777Package8findI
 
 31:                                               ; preds = %.preheader, %37
   %indvars.iv = phi i64 [ %30, %.preheader ], [ %indvars.iv.next, %37 ]
-  %32 = getelementptr %"struct.icu_77::Item", ptr %9, i64 %indvars.iv
+  %32 = getelementptr [24 x i8], ptr %9, i64 %indvars.iv
   %33 = getelementptr i8, ptr %32, i64 -24
   %34 = load ptr, ptr %33, align 8, !tbaa !54
   %35 = tail call i32 @strncmp(ptr noundef %1, ptr noundef %34, i64 noundef %10) #24
@@ -2217,7 +2216,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN6icu_777Package12findN
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %28 = trunc i64 %indvars.iv.next95 to i32
   store i32 %28, ptr %2, align 8, !tbaa !27
-  %29 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv94
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv94
   %30 = load ptr, ptr %29, align 8, !tbaa !54
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #24
   %32 = trunc i64 %31 to i32
@@ -2246,7 +2245,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN6icu_777Package12findN
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %39 = trunc i64 %indvars.iv.next90 to i32
   store i32 %39, ptr %2, align 8, !tbaa !27
-  %40 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv89
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv89
   %41 = load ptr, ptr %40, align 8, !tbaa !54
   %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #24
   %43 = trunc i64 %42 to i32
@@ -2270,7 +2269,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN6icu_777Package12findN
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %49 = trunc i64 %indvars.iv.next85 to i32
   store i32 %49, ptr %2, align 8, !tbaa !27
-  %50 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv84
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv84
   %51 = load ptr, ptr %50, align 8, !tbaa !54
   %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #24
   %53 = trunc i64 %52 to i32
@@ -2298,7 +2297,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN6icu_777Package12findN
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %58 = trunc i64 %indvars.iv.next80 to i32
   store i32 %58, ptr %2, align 8, !tbaa !27
-  %59 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv79
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv79
   %60 = load ptr, ptr %59, align 8, !tbaa !54
   %61 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #24
   %62 = trunc i64 %61 to i32
@@ -2348,7 +2347,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN6icu_777Package12findN
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %80 = trunc i64 %indvars.iv.next75 to i32
   store i32 %80, ptr %2, align 8, !tbaa !27
-  %81 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv74
+  %81 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv74
   %82 = load ptr, ptr %81, align 8, !tbaa !54
   %83 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #24
   %84 = trunc i64 %83 to i32
@@ -2384,7 +2383,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN6icu_777Package12findN
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %97 = trunc i64 %indvars.iv.next to i32
   store i32 %97, ptr %2, align 8, !tbaa !27
-  %98 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8, !tbaa !54
   %100 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #24
   %101 = trunc i64 %100 to i32
@@ -2470,7 +2469,7 @@ define void @_ZN6icu_777Package7addItemEPKcPhiac(ptr noundef nonnull align 8 der
   %12 = add nuw nsw i32 %.02637.i, %.02538.i
   %13 = lshr i32 %12, 1
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !54
   %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %16) #24
   %18 = icmp eq i32 %17, 0
@@ -2542,7 +2541,7 @@ _ZN6icu_777Package18ensureItemCapacityEv.exit._crit_edge: ; preds = %_ZN6icu_777
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %49 = load ptr, ptr %48, align 8, !tbaa !30
   %50 = zext nneg i32 %23 to i64
-  %51 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = sub nsw i32 %45, %23
   %54 = zext nneg i32 %53 to i64
@@ -2558,7 +2557,7 @@ _ZN6icu_777Package18ensureItemCapacityEv.exit._crit_edge: ; preds = %_ZN6icu_777
   store i32 %58, ptr %7, align 4, !tbaa !29
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %60 = load ptr, ptr %59, align 8, !tbaa !30
-  %61 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %60, i64 %.pre-phi35
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %60, i64 %.pre-phi35
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 24, i1 false)
   %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %63 = trunc i64 %62 to i32
@@ -2581,13 +2580,13 @@ _ZN6icu_777Package11allocStringEai.exit:          ; preds = %56
   %74 = getelementptr inbounds i8, ptr %72, i64 %73
   store i32 %67, ptr %64, align 8, !tbaa !50
   %75 = load ptr, ptr %59, align 8, !tbaa !30
-  %76 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %75, i64 %.pre-phi35
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %75, i64 %.pre-phi35
   store ptr %74, ptr %76, align 8, !tbaa !54
   %77 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(1) %1) #23
   br label %84
 
 _ZNK6icu_777Package8findItemEPKci.exit.thread:    ; preds = %.lr.ph.split.i
-  %78 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %11, i64 %14
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %14
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 20
   %80 = load i8, ptr %79, align 4, !tbaa !31
   %.not = icmp eq i8 %80, 0
@@ -2603,7 +2602,7 @@ _ZNK6icu_777Package8findItemEPKci.exit.thread:    ; preds = %.lr.ph.split.i
   %.pre-phi = phi i64 [ %14, %_ZNK6icu_777Package8findItemEPKci.exit.thread ], [ %14, %81 ], [ %.pre-phi35, %_ZN6icu_777Package11allocStringEai.exit ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %86 = load ptr, ptr %85, align 8, !tbaa !30
-  %87 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %86, i64 %.pre-phi
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %.pre-phi
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store ptr %2, ptr %88, align 8, !tbaa !33
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 16
@@ -2725,7 +2724,7 @@ define void @_ZN6icu_777Package10removeItemEi(ptr noundef nonnull align 8 captur
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %6 = load ptr, ptr %5, align 8, !tbaa !30
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %10 = load i8, ptr %9, align 4, !tbaa !31
   %.not = icmp eq i8 %10, 0
@@ -2746,7 +2745,7 @@ define void @_ZN6icu_777Package10removeItemEi(ptr noundef nonnull align 8 captur
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %5, align 8, !tbaa !30
-  %21 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %20, i64 %7
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %7
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = sub nsw i32 %17, %15
   %24 = zext nneg i32 %23 to i64
@@ -2790,7 +2789,7 @@ define void @_ZN6icu_777Package11removeItemsEPKc(ptr noundef nonnull align 8 cap
   %9 = phi i32 [ %3, %.lr.ph ], [ %35, %_ZN6icu_777Package10removeItemEi.exit ]
   %10 = load ptr, ptr %5, align 8, !tbaa !30
   %11 = zext nneg i32 %9 to i64
-  %12 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %14 = load i8, ptr %13, align 4, !tbaa !31
   %.not.i = icmp eq i8 %14, 0
@@ -2810,7 +2809,7 @@ define void @_ZN6icu_777Package11removeItemsEPKc(ptr noundef nonnull align 8 cap
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %5, align 8, !tbaa !30
-  %24 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %23, i64 %11
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %11
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = sub nsw i32 %20, %19
   %27 = zext nneg i32 %26 to i64
@@ -2869,7 +2868,7 @@ define void @_ZN6icu_777Package11removeItemsERKS0_(ptr noundef nonnull align 8 c
   %15 = phi i32 [ %41, %_ZN6icu_777Package10removeItemEi.exit.i ], [ %13, %11 ]
   %16 = load ptr, ptr %8, align 8, !tbaa !30
   %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %20 = load i8, ptr %19, align 4, !tbaa !31
   %.not.i.i = icmp eq i8 %20, 0
@@ -2889,7 +2888,7 @@ define void @_ZN6icu_777Package11removeItemsERKS0_(ptr noundef nonnull align 8 c
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %8, align 8, !tbaa !30
-  %30 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %29, i64 %17
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %17
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = sub nsw i32 %26, %25
   %33 = zext nneg i32 %32 to i64
@@ -2944,7 +2943,7 @@ define void @_ZN6icu_777Package11extractItemEPKcS2_ic(ptr noundef nonnull readon
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = zext nneg i32 %3 to i64
-  %16 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %15
   %.not31 = icmp eq i8 %4, 0
   br i1 %.not31, label %66, label %17
 
@@ -3106,7 +3105,7 @@ define void @_ZN6icu_777Package11extractItemEPKcic(ptr noundef nonnull readonly 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %6 = load ptr, ptr %5, align 8, !tbaa !30
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds %"struct.icu_77::Item", ptr %6, i64 %7
+  %8 = getelementptr inbounds [24 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !54
   tail call void @_ZN6icu_777Package11extractItemEPKcS2_ic(ptr noundef nonnull align 8 dereferenceable(201237) %0, ptr noundef %1, ptr noundef %9, i32 noundef %2, i8 noundef signext %3)
   ret void
@@ -3127,7 +3126,7 @@ define void @_ZN6icu_777Package12extractItemsEPKcS2_c(ptr noundef nonnull align 
   %9 = phi i32 [ %5, %.lr.ph ], [ %14, %8 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !30
   %11 = zext nneg i32 %9 to i64
-  %12 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !54
   tail call void @_ZN6icu_777Package11extractItemEPKcS2_ic(ptr noundef nonnull readonly align 8 dereferenceable(201237) %0, ptr noundef %1, ptr noundef %13, i32 noundef %9, i8 noundef signext %3)
   %14 = tail call noundef i32 @_ZN6icu_777Package12findNextItemEv(ptr noundef nonnull align 8 dereferenceable(201237) %0)
@@ -3164,7 +3163,7 @@ define void @_ZN6icu_777Package12extractItemsEPKcRKS0_c(ptr noundef nonnull alig
   %15 = phi i32 [ %20, %.lr.ph.i ], [ %13, %11 ]
   %16 = load ptr, ptr %10, align 8, !tbaa !30
   %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !54
   tail call void @_ZN6icu_777Package11extractItemEPKcS2_ic(ptr noundef nonnull readonly align 8 dereferenceable(201237) %0, ptr noundef %1, ptr noundef %19, i32 noundef %15, i8 noundef signext %3)
   %20 = tail call noundef i32 @_ZN6icu_777Package12findNextItemEv(ptr noundef nonnull align 8 dereferenceable(201237) %0)
@@ -3199,7 +3198,7 @@ define noundef ptr @_ZNK6icu_777Package7getItemEi(ptr noundef nonnull readonly a
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %8 = load ptr, ptr %7, align 8
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %9
   %.0 = select i1 %or.cond, ptr %10, ptr null
   ret ptr %.0
 }
@@ -3222,7 +3221,7 @@ define void @_ZN6icu_777Package15checkDependencyEPvPKcS3_(ptr noundef captures(n
   %9 = add nuw nsw i32 %.02637.i, %.02538.i
   %10 = lshr i32 %9, 1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %13) #24
   %15 = icmp eq i32 %14, 0
@@ -3263,7 +3262,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777Package17checkDependenciesE
 7:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
   %8 = load ptr, ptr %6, align 8, !tbaa !30
-  %9 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %8, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv.i
   tail call void @_ZN6icu_777Package16enumDependenciesEPNS_4ItemEPvPFvS3_PKcS5_E(ptr noundef nonnull align 8 dereferenceable(201237) %0, ptr noundef %9, ptr noundef nonnull %0, ptr noundef nonnull @_ZN6icu_777Package15checkDependencyEPvPKcS3_)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %10 = load i32, ptr %3, align 4, !tbaa !29
@@ -3296,7 +3295,7 @@ define void @_ZN6icu_777Package16enumDependenciesEPvPFvS1_PKcS3_E(ptr noundef no
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !30
-  %10 = getelementptr inbounds nuw %"struct.icu_77::Item", ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv
   tail call void @_ZN6icu_777Package16enumDependenciesEPNS_4ItemEPvPFvS3_PKcS5_E(ptr noundef nonnull align 8 dereferenceable(201237) %0, ptr noundef %10, ptr noundef %1, ptr noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %4, align 4, !tbaa !29

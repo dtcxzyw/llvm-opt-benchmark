@@ -1790,7 +1790,7 @@ _ZNSt12_Vector_baseIP6_frameN8nanobind6detail12py_allocatorIS1_EEE13_M_deallocat
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i22, ptr %4, align 8
-  %40 = getelementptr inbounds nuw ptr, ptr %20, i64 %16
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %40, ptr %39, align 8
   ret void
 }

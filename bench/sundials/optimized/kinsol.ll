@@ -4063,14 +4063,14 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   %35 = load ptr, ptr %34, align 8, !tbaa !78
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %37 = load ptr, ptr %36, align 8, !tbaa !80
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %31
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %31
   %39 = load ptr, ptr %38, align 8, !tbaa !143
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1, double noundef -1.000000e+00, ptr noundef %35, ptr noundef %39) #15
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %41 = load ptr, ptr %40, align 8, !tbaa !77
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %43 = load ptr, ptr %42, align 8, !tbaa !79
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %31
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %31
   %45 = load ptr, ptr %44, align 8, !tbaa !143
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %2, double noundef -1.000000e+00, ptr noundef %41, ptr noundef %45) #15
   br label %46
@@ -4109,7 +4109,7 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
 61:                                               ; preds = %46
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %63 = load ptr, ptr %62, align 8, !tbaa !79
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %31
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %31
   %65 = load ptr, ptr %64, align 8, !tbaa !143
   %66 = tail call double @N_VDotProd(ptr noundef %65, ptr noundef %65) #15
   %67 = fcmp ugt double %66, 0.000000e+00
@@ -4117,7 +4117,7 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
 
 68:                                               ; preds = %61
   %69 = load ptr, ptr %62, align 8, !tbaa !79
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %31
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %31
   %71 = load ptr, ptr %70, align 8, !tbaa !143
   %72 = tail call double @N_VDotProd(ptr noundef %71, ptr noundef %71) #15
   %73 = tail call double @sqrt(double noundef %72) #15, !tbaa !138
@@ -4128,11 +4128,11 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   store double %75, ptr %6, align 8, !tbaa !144
   %76 = fdiv double 1.000000e+00, %75
   %77 = load ptr, ptr %62, align 8, !tbaa !79
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %31
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %31
   %79 = load ptr, ptr %78, align 8, !tbaa !143
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %81 = load ptr, ptr %80, align 8, !tbaa !81
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %31
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %31
   %83 = load ptr, ptr %82, align 8, !tbaa !143
   tail call void @N_VScale(double noundef %76, ptr noundef %79, ptr noundef %83) #15
   store i64 0, ptr %27, align 8, !tbaa !63
@@ -4158,7 +4158,7 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   %92 = load ptr, ptr %91, align 8, !tbaa !81
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %94 = load ptr, ptr %93, align 8, !tbaa !79
-  %95 = getelementptr inbounds ptr, ptr %94, i64 %31
+  %95 = getelementptr inbounds [8 x i8], ptr %94, i64 %31
   %96 = load ptr, ptr %95, align 8, !tbaa !143
   %97 = trunc i64 %5 to i32
   %98 = add nsw i32 %97, -1
@@ -4170,7 +4170,7 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
 
 .lr.ph:                                           ; preds = %88, %.lr.ph
   %.0304342 = phi i64 [ %104, %.lr.ph ], [ 0, %88 ]
-  %103 = getelementptr inbounds nuw i64, ptr %27, i64 %.0304342
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.0304342
   store i64 %.0304342, ptr %103, align 8, !tbaa !63
   %104 = add nuw nsw i64 %.0304342, 1
   %exitcond.not = icmp eq i64 %104, %5
@@ -4183,17 +4183,17 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
 .preheader336.us:                                 ; preds = %.preheader337, %._crit_edge352.us
   %.1302353.us = phi i64 [ %116, %._crit_edge352.us ], [ 1, %.preheader337 ]
   %106 = mul nuw nsw i64 %.1302353.us, %169
-  %107 = getelementptr double, ptr %6, i64 %106
+  %107 = getelementptr [8 x i8], ptr %6, i64 %106
   %108 = add nsw i64 %.1302353.us, -1
   %109 = mul nsw i64 %108, %169
-  %110 = getelementptr double, ptr %6, i64 %109
+  %110 = getelementptr [8 x i8], ptr %6, i64 %109
   br label %111
 
 111:                                              ; preds = %.preheader336.us, %111
   %.2306350.us = phi i64 [ 0, %.preheader336.us ], [ %115, %111 ]
-  %112 = getelementptr double, ptr %107, i64 %.2306350.us
+  %112 = getelementptr [8 x i8], ptr %107, i64 %.2306350.us
   %113 = load double, ptr %112, align 8, !tbaa !144
-  %114 = getelementptr double, ptr %110, i64 %.2306350.us
+  %114 = getelementptr [8 x i8], ptr %110, i64 %.2306350.us
   store double %113, ptr %114, align 8, !tbaa !144
   %115 = add nuw nsw i64 %.2306350.us, 1
   %exitcond404.not = icmp eq i64 %115, %170
@@ -4212,8 +4212,8 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   %scevgep = getelementptr i8, ptr %120, i64 16
   %121 = add nuw nsw i64 %.0301347, 1
   %122 = mul nsw i64 %121, %118
-  %123 = getelementptr double, ptr %6, i64 %122
-  %124 = getelementptr double, ptr %123, i64 %.0301347
+  %123 = getelementptr [8 x i8], ptr %6, i64 %122
+  %124 = getelementptr [8 x i8], ptr %123, i64 %.0301347
   %125 = load double, ptr %124, align 8, !tbaa !144
   %126 = getelementptr i8, ptr %124, i64 8
   %127 = load double, ptr %126, align 8, !tbaa !144
@@ -4227,7 +4227,7 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   store double %131, ptr %124, align 8, !tbaa !144
   store double 0.000000e+00, ptr %126, align 8, !tbaa !144
   %134 = add nuw nsw i64 %.0301347, 2
-  %invariant.gep = getelementptr double, ptr %6, i64 %.0301347
+  %invariant.gep = getelementptr [8 x i8], ptr %6, i64 %.0301347
   %135 = icmp slt i64 %134, %118
   %136 = fneg double %133
   br i1 %135, label %.lr.ph346.lver.check, label %._crit_edge
@@ -4239,7 +4239,7 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
 .lr.ph346.lver.orig:                              ; preds = %.lr.ph346.lver.check, %.lr.ph346.lver.orig
   %.1305345.lver.orig = phi i64 [ %145, %.lr.ph346.lver.orig ], [ %134, %.lr.ph346.lver.check ]
   %137 = mul nsw i64 %.1305345.lver.orig, %118
-  %gep.lver.orig = getelementptr double, ptr %invariant.gep, i64 %137
+  %gep.lver.orig = getelementptr [8 x i8], ptr %invariant.gep, i64 %137
   %138 = load double, ptr %gep.lver.orig, align 8, !tbaa !144
   %139 = getelementptr i8, ptr %gep.lver.orig, i64 8
   %140 = load double, ptr %139, align 8, !tbaa !144
@@ -4261,7 +4261,7 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   %store_forwarded = phi double [ %load_initial, %.lr.ph346.ph ], [ %152, %.lr.ph346 ]
   %.1305345 = phi i64 [ %134, %.lr.ph346.ph ], [ %153, %.lr.ph346 ]
   %146 = mul nuw nsw i64 %.1305345, %118
-  %gep = getelementptr double, ptr %invariant.gep, i64 %146
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %146
   %147 = getelementptr i8, ptr %gep, i64 8
   %148 = load double, ptr %147, align 8, !tbaa !144
   %149 = fmul double %133, %148
@@ -4276,21 +4276,21 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
 
 ._crit_edge:                                      ; preds = %.lr.ph346.lver.orig, %.lr.ph346, %117
   %154 = load ptr, ptr %87, align 8, !tbaa !81
-  %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %.0301347
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %.0301347
   %156 = load ptr, ptr %155, align 8, !tbaa !143
-  %157 = getelementptr inbounds nuw ptr, ptr %154, i64 %121
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %121
   %158 = load ptr, ptr %157, align 8, !tbaa !143
   %159 = load ptr, ptr %13, align 8, !tbaa !70
   tail call void @N_VLinearSum(double noundef %132, ptr noundef %156, double noundef %133, ptr noundef %158, ptr noundef %159) #15
   %160 = load ptr, ptr %87, align 8, !tbaa !81
-  %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %.0301347
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %.0301347
   %162 = load ptr, ptr %161, align 8, !tbaa !143
-  %163 = getelementptr inbounds nuw ptr, ptr %160, i64 %121
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %121
   %164 = load ptr, ptr %163, align 8, !tbaa !143
   tail call void @N_VLinearSum(double noundef %136, ptr noundef %162, double noundef %132, ptr noundef %164, ptr noundef %164) #15
   %165 = load ptr, ptr %13, align 8, !tbaa !70
   %166 = load ptr, ptr %87, align 8, !tbaa !81
-  %167 = getelementptr inbounds nuw ptr, ptr %166, i64 %.0301347
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %.0301347
   %168 = load ptr, ptr %167, align 8, !tbaa !143
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %165, ptr noundef %168) #15
   %169 = load i64, ptr %29, align 8, !tbaa !71
@@ -4327,11 +4327,11 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   %183 = trunc i64 %.2303356 to i32
   %184 = load ptr, ptr %179, align 8, !tbaa !81
   %185 = add nsw i64 %.2303356, -1
-  %186 = getelementptr inbounds ptr, ptr %184, i64 %185
+  %186 = getelementptr inbounds [8 x i8], ptr %184, i64 %185
   %187 = load ptr, ptr %186, align 8, !tbaa !143
   %188 = load ptr, ptr %180, align 8, !tbaa !85
   %189 = mul nsw i64 %185, %182
-  %190 = getelementptr inbounds double, ptr %188, i64 %189
+  %190 = getelementptr inbounds [8 x i8], ptr %188, i64 %189
   %191 = tail call i32 @N_VDotProdMultiLocal(i32 noundef %183, ptr noundef %187, ptr noundef %184, ptr noundef %190) #15
   %192 = add nuw nsw i64 %.2303356, 1
   %193 = load i64, ptr %29, align 8, !tbaa !71
@@ -4348,7 +4348,7 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   %.lcssa = phi i32 [ 4, %.preheader335 ], [ %196, %._crit_edge358.loopexit ]
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %198 = load ptr, ptr %197, align 8, !tbaa !81
-  %199 = getelementptr ptr, ptr %198, i64 %.2303.lcssa
+  %199 = getelementptr [8 x i8], ptr %198, i64 %.2303.lcssa
   %200 = getelementptr i8, ptr %199, i64 -8
   %201 = load ptr, ptr %200, align 8, !tbaa !143
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -4372,7 +4372,7 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   %.3361 = phi i64 [ 1, %.lr.ph363 ], [ %215, %211 ]
   %212 = add nsw i64 %.3361, -1
   %213 = mul i64 %210, %212
-  %214 = getelementptr inbounds double, ptr %209, i64 %213
+  %214 = getelementptr inbounds [8 x i8], ptr %209, i64 %213
   store double 1.000000e+00, ptr %214, align 8, !tbaa !144
   %215 = add nuw nsw i64 %.3361, 1
   %exitcond406.not = icmp eq i64 %215, %206
@@ -4397,16 +4397,16 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   %225 = add nsw i32 %224, -1
   %226 = load ptr, ptr %220, align 8, !tbaa !81
   %227 = add nsw i64 %.4364, -1
-  %228 = getelementptr inbounds ptr, ptr %226, i64 %227
+  %228 = getelementptr inbounds [8 x i8], ptr %226, i64 %227
   %229 = load ptr, ptr %228, align 8, !tbaa !143
   %230 = mul nsw i64 %227, %223
-  %231 = getelementptr inbounds double, ptr %222, i64 %230
+  %231 = getelementptr inbounds [8 x i8], ptr %222, i64 %230
   %232 = tail call i32 @N_VDotProdMulti(i32 noundef %225, ptr noundef %229, ptr noundef %226, ptr noundef %231) #15
   %233 = load ptr, ptr %217, align 8, !tbaa !85
   %234 = load i64, ptr %29, align 8, !tbaa !71
   %235 = add i64 %234, 1
   %236 = mul i64 %235, %227
-  %237 = getelementptr inbounds double, ptr %233, i64 %236
+  %237 = getelementptr inbounds [8 x i8], ptr %233, i64 %236
   store double 1.000000e+00, ptr %237, align 8, !tbaa !144
   %238 = add nuw nsw i64 %.4364, 1
   %239 = icmp slt i64 %238, %234
@@ -4420,7 +4420,7 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   %244 = load ptr, ptr %243, align 8, !tbaa !81
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %246 = load ptr, ptr %245, align 8, !tbaa !79
-  %247 = getelementptr inbounds ptr, ptr %246, i64 %31
+  %247 = getelementptr inbounds [8 x i8], ptr %246, i64 %31
   %248 = load ptr, ptr %247, align 8, !tbaa !143
   %249 = trunc i64 %240 to i32
   %250 = add nsw i32 %249, -1
@@ -4441,7 +4441,7 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   %.5369 = phi i64 [ %.5, %.lr.ph371 ], [ %.5367, %.loopexit333 ]
   %.3307368 = phi i64 [ %256, %.lr.ph371 ], [ 0, %.loopexit333 ]
   %256 = add nuw nsw i64 %.3307368, 1
-  %257 = getelementptr inbounds nuw i64, ptr %27, i64 %.3307368
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.3307368
   store i64 %.5369, ptr %257, align 8, !tbaa !63
   %.5 = add nsw i64 %.5369, 1
   %258 = load i64, ptr %29, align 8, !tbaa !71
@@ -4452,7 +4452,7 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   %.6375 = phi i64 [ %262, %.lr.ph376 ], [ 0, %.preheader331 ]
   %.4308374 = phi i64 [ %260, %.lr.ph376 ], [ %.3307.lcssa, %.preheader331 ]
   %260 = add nuw nsw i64 %.4308374, 1
-  %261 = getelementptr inbounds nuw i64, ptr %27, i64 %.4308374
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.4308374
   store i64 %.6375, ptr %261, align 8, !tbaa !63
   %262 = add nuw i64 %.6375, 1
   %exitcond407.not = icmp eq i64 %.6375, %31
@@ -4485,10 +4485,10 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge382
   %indvars.iv = phi i64 [ 1, %.preheader.lr.ph ], [ %indvars.iv.next, %._crit_edge382 ]
   %.7383 = phi i64 [ %269, %.preheader.lr.ph ], [ %296, %._crit_edge382 ]
-  %invariant.gep377 = getelementptr double, ptr %6, i64 %.7383
+  %invariant.gep377 = getelementptr [8 x i8], ptr %6, i64 %.7383
   %.5309379 = add nuw nsw i64 %.7383, 1
   %274 = icmp slt i64 %.5309379, %spec.select330
-  %275 = getelementptr inbounds nuw double, ptr %7, i64 %.7383
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.7383
   %.promoted = load double, ptr %275, align 8, !tbaa !144
   br i1 %274, label %.lr.ph381, label %._crit_edge382
 
@@ -4496,9 +4496,9 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   %276 = phi double [ %282, %.lr.ph381 ], [ %.promoted, %.preheader ]
   %.5309380 = phi i64 [ %.5309, %.lr.ph381 ], [ %.5309379, %.preheader ]
   %277 = mul nsw i64 %271, %.5309380
-  %gep378 = getelementptr double, ptr %invariant.gep377, i64 %277
+  %gep378 = getelementptr [8 x i8], ptr %invariant.gep377, i64 %277
   %278 = load double, ptr %gep378, align 8, !tbaa !144
-  %279 = getelementptr inbounds nuw double, ptr %7, i64 %.5309380
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.5309380
   %280 = load double, ptr %279, align 8, !tbaa !144
   %281 = fneg double %278
   %282 = tail call double @llvm.fmuladd.f64(double %281, double %280, double %276)
@@ -4509,20 +4509,20 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
 
 ._crit_edge382:                                   ; preds = %.lr.ph381, %.preheader
   %283 = phi double [ %.promoted, %.preheader ], [ %282, %.lr.ph381 ]
-  %284 = getelementptr inbounds nuw double, ptr %7, i64 %.7383
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.7383
   %285 = mul i64 %.7328, %.7383
-  %286 = getelementptr inbounds double, ptr %6, i64 %285
+  %286 = getelementptr inbounds [8 x i8], ptr %6, i64 %285
   %287 = load double, ptr %286, align 8, !tbaa !144
   %288 = fdiv double %283, %287
   store double %288, ptr %284, align 8, !tbaa !144
   %289 = fneg double %288
-  %290 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store double %289, ptr %290, align 8, !tbaa !144
-  %291 = getelementptr inbounds nuw i64, ptr %27, i64 %.7383
+  %291 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.7383
   %292 = load i64, ptr %291, align 8, !tbaa !63
-  %293 = getelementptr inbounds ptr, ptr %273, i64 %292
+  %293 = getelementptr inbounds [8 x i8], ptr %273, i64 %292
   %294 = load ptr, ptr %293, align 8, !tbaa !143
-  %295 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %294, ptr %295, align 8, !tbaa !143
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %296 = add nsw i64 %.7383, -1
@@ -4547,9 +4547,9 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   %304 = fsub double 1.000000e+00, %303
   %305 = fneg double %304
   %306 = zext nneg i32 %.0299.lcssa to i64
-  %307 = getelementptr inbounds nuw double, ptr %10, i64 %306
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %306
   store double %305, ptr %307, align 8, !tbaa !144
-  %308 = getelementptr inbounds nuw ptr, ptr %12, i64 %306
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %306
   store ptr %2, ptr %308, align 8, !tbaa !143
   %.2387 = add i32 %.0299.lcssa, 1
   br i1 %270, label %.lr.ph391, label %.loopexit
@@ -4563,16 +4563,16 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
 312:                                              ; preds = %.lr.ph391, %312
   %indvars.iv411 = phi i64 [ %311, %.lr.ph391 ], [ %indvars.iv.next412, %312 ]
   %.8388 = phi i64 [ %269, %.lr.ph391 ], [ %322, %312 ]
-  %313 = getelementptr inbounds nuw double, ptr %7, i64 %.8388
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.8388
   %314 = load double, ptr %313, align 8, !tbaa !144
   %315 = fmul double %304, %314
-  %316 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv411
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv411
   store double %315, ptr %316, align 8, !tbaa !144
-  %317 = getelementptr inbounds nuw i64, ptr %27, i64 %.8388
+  %317 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.8388
   %318 = load i64, ptr %317, align 8, !tbaa !63
-  %319 = getelementptr inbounds ptr, ptr %310, i64 %318
+  %319 = getelementptr inbounds [8 x i8], ptr %310, i64 %318
   %320 = load ptr, ptr %319, align 8, !tbaa !143
-  %321 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv411
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv411
   store ptr %320, ptr %321, align 8, !tbaa !143
   %322 = add nsw i64 %.8388, -1
   %indvars.iv.next412 = add nuw nsw i64 %indvars.iv411, 1

@@ -668,14 +668,14 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
   %199 = load ptr, ptr %198, align 8
   %200 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %201 = load i64, ptr %200, align 8
-  %202 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %199, i64 %201
+  %202 = getelementptr inbounds [24 x i8], ptr %199, i64 %201
   store ptr %199, ptr %86, align 8
   %203 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr %202, ptr %203, align 8
   %204 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %205 = load ptr, ptr %204, align 8
   %206 = load i64, ptr %149, align 8
-  %207 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %205, i64 %206
+  %207 = getelementptr inbounds [32 x i8], ptr %205, i64 %206
   store ptr %205, ptr %85, align 8
   %208 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr %207, ptr %208, align 8
@@ -941,7 +941,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
 275:                                              ; preds = %274
   %276 = load ptr, ptr %198, align 8
   %277 = load i64, ptr %200, align 8
-  %278 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %276, i64 %277
+  %278 = getelementptr inbounds [24 x i8], ptr %276, i64 %277
   store ptr %276, ptr %76, align 8
   %279 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %278, ptr %279, align 8
@@ -1036,14 +1036,14 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
   %304 = load ptr, ptr %303, align 8
   %305 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %306 = load i64, ptr %305, align 8
-  %307 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %304, i64 %306
+  %307 = getelementptr inbounds [24 x i8], ptr %304, i64 %306
   store ptr %304, ptr %72, align 8
   %308 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr %307, ptr %308, align 8
   %309 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %310 = load ptr, ptr %309, align 8
   %311 = load i64, ptr %149, align 8
-  %312 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %310, i64 %311
+  %312 = getelementptr inbounds [32 x i8], ptr %310, i64 %311
   store ptr %310, ptr %71, align 8
   %313 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr %312, ptr %313, align 8
@@ -1317,7 +1317,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
 382:                                              ; preds = %381
   %383 = load ptr, ptr %303, align 8
   %384 = load i64, ptr %305, align 8
-  %385 = getelementptr inbounds { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %383, i64 %384
+  %385 = getelementptr inbounds [24 x i8], ptr %383, i64 %384
   store ptr %383, ptr %62, align 8
   %386 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %385, ptr %386, align 8
@@ -1529,7 +1529,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
   %443 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %444 = load ptr, ptr %443, align 8
   %445 = load i64, ptr %149, align 8
-  %446 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %444, i64 %445
+  %446 = getelementptr inbounds [32 x i8], ptr %444, i64 %445
   store ptr %444, ptr %53, align 8
   %447 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %446, ptr %447, align 8
@@ -1612,7 +1612,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
   %473 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %474 = load ptr, ptr %473, align 8
   %475 = load i64, ptr %149, align 8
-  %476 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %474, i64 %475
+  %476 = getelementptr inbounds [32 x i8], ptr %474, i64 %475
   store ptr %474, ptr %49, align 8
   %477 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %476, ptr %477, align 8
@@ -2269,7 +2269,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
   %653 = load ptr, ptr %652, align 8
   %654 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %655 = load i64, ptr %654, align 8
-  %656 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %653, i64 %655
+  %656 = getelementptr inbounds [32 x i8], ptr %653, i64 %655
   store ptr %653, ptr %20, align 8
   %657 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %656, ptr %657, align 8
@@ -2353,7 +2353,7 @@ define hidden void @"_ZN19pyo3_macros_backend6method6FnSpec20get_wrapper_functio
   %684 = load ptr, ptr %683, align 8
   %685 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %686 = load i64, ptr %685, align 8
-  %687 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %684, i64 %686
+  %687 = getelementptr inbounds [32 x i8], ptr %684, i64 %686
   store ptr %684, ptr %16, align 8
   %688 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %687, ptr %688, align 8

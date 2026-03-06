@@ -42,7 +42,7 @@ define internal void @CollectHistogram_SSE41(ptr noalias noundef %0, ptr noalias
   %indvars.iv25 = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next26, %33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = load ptr, ptr @VP8FTransform, align 8, !tbaa !3
-  %13 = getelementptr inbounds i32, ptr @VP8DspScan, i64 %indvars.iv25
+  %13 = getelementptr inbounds [4 x i8], ptr @VP8DspScan, i64 %indvars.iv25
   %14 = load i32, ptr %13, align 4, !tbaa !7
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
@@ -62,10 +62,10 @@ define internal void @CollectHistogram_SSE41(ptr noalias noundef %0, ptr noalias
 
 26:                                               ; preds = %11, %26
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv
   %28 = load i16, ptr %27, align 2, !tbaa !10
   %29 = sext i16 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %6, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %6, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !7
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %30, align 4, !tbaa !7

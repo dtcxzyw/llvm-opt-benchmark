@@ -553,12 +553,12 @@ define void @_ZN3cfg7CfgDiff3new17hf2e517149e3e901fE(ptr noalias noundef writeon
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !4
-  %11 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [48 x i8], ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !4
-  %16 = getelementptr inbounds { [24 x i8], i8, [23 x i8] }, ptr %13, i64 %15
+  %16 = getelementptr inbounds [48 x i8], ptr %13, i64 %15
   store ptr %8, ptr %5, align 8, !alias.scope !130
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %17, align 8, !alias.scope !130

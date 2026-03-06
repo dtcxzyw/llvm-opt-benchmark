@@ -106,7 +106,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.0229554 = phi i32 [ %.3232, %.thread323 ], [ 0, %2 ]
   %.0235553 = phi i32 [ %.3238, %.thread323 ], [ 0, %2 ]
   %14 = sext i32 %.0158565 to i64
-  %15 = getelementptr inbounds ptr, ptr %1, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %1, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !7
   %17 = load i8, ptr %16, align 1, !tbaa !12
   %18 = icmp eq i8 %17, 45
@@ -210,7 +210,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 49:                                               ; preds = %47
   %50 = add nsw i32 %.3, 1
   %51 = sext i32 %.3 to i64
-  %52 = getelementptr inbounds ptr, ptr %1, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %1, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !7
   br label %.thread323
 
@@ -259,10 +259,10 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %72 = zext nneg i32 %.3189 to i64
   %73 = add nsw i32 %.3, 1
   %74 = sext i32 %.3 to i64
-  %75 = getelementptr inbounds ptr, ptr %1, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %1, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !7
   %77 = add nuw nsw i32 %.3189, 1
-  %78 = getelementptr inbounds nuw ptr, ptr %4, i64 %72
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %72
   store ptr %76, ptr %78, align 8, !tbaa !7
   br label %.backedge
 
@@ -398,7 +398,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 125:                                              ; preds = %121
   %126 = add nsw i32 %.3, 1
   %127 = sext i32 %.3 to i64
-  %128 = getelementptr inbounds ptr, ptr %1, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %1, i64 %127
   %129 = load ptr, ptr %128, align 8, !tbaa !7
   %130 = tail call double @strtod(ptr noundef captures(none) %129, ptr noundef null) #17
   %131 = fptoui double %130 to i64
@@ -422,7 +422,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 138:                                              ; preds = %134
   %139 = add nsw i32 %.3, 1
   %140 = sext i32 %.3 to i64
-  %141 = getelementptr inbounds ptr, ptr %1, i64 %140
+  %141 = getelementptr inbounds [8 x i8], ptr %1, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !7
   %143 = tail call double @strtod(ptr noundef captures(none) %142, ptr noundef null) #17
   %144 = fptoui double %143 to i64
@@ -584,7 +584,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 190:                                              ; preds = %187, %186
   %191 = sub i32 %0, %.1
   %192 = sext i32 %.1 to i64
-  %193 = getelementptr inbounds ptr, ptr %1, i64 %192
+  %193 = getelementptr inbounds [8 x i8], ptr %1, i64 %192
   call void @js_std_add_helpers(ptr noundef nonnull %175, i32 noundef %191, ptr noundef nonnull %193) #17
   br i1 %.0205.lcssa, label %196, label %194
 
@@ -607,7 +607,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 .lr.ph621:                                        ; preds = %.lr.ph621.preheader, %198
   %indvars.iv = phi i64 [ 0, %.lr.ph621.preheader ], [ %indvars.iv.next, %198 ]
-  %199 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %200 = load ptr, ptr %199, align 8, !tbaa !7
   %201 = call fastcc i32 @eval_file(ptr noundef %175, ptr noundef %200, i32 noundef %.0211.lcssa)
   %.not285 = icmp eq i32 %201, 0
@@ -723,7 +723,7 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
 
 .split.us:                                        ; preds = %234, %.split.us
   %indvars.iv742 = phi i64 [ %indvars.iv.next743, %.split.us ], [ 4, %234 ]
-  %243 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv742
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv742
   %244 = load i64, ptr %243, align 8, !tbaa !24
   %245 = getelementptr i8, ptr %243, i64 -8
   %246 = load i64, ptr %245, align 8, !tbaa !24
@@ -731,7 +731,7 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   %248 = sitofp i64 %247 to double
   %249 = fmul nnan double %248, 1.000000e+03
   %250 = fdiv double %249, 1.000000e+06
-  %251 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv742
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv742
   store double %250, ptr %251, align 8, !tbaa !26
   %indvars.iv.next743 = add nsw i64 %indvars.iv742, -1
   %252 = icmp samesign ugt i64 %indvars.iv742, 1
@@ -739,7 +739,7 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
 
 .split:                                           ; preds = %234, %265
   %indvars.iv739 = phi i64 [ %indvars.iv.next740, %265 ], [ 4, %234 ]
-  %253 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv739
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv739
   %254 = load i64, ptr %253, align 8, !tbaa !24
   %255 = getelementptr i8, ptr %253, i64 -8
   %256 = load i64, ptr %255, align 8, !tbaa !24
@@ -747,7 +747,7 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   %258 = sitofp i64 %257 to double
   %259 = fmul nnan double %258, 1.000000e+03
   %260 = fdiv double %259, 1.000000e+06
-  %261 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv739
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv739
   %262 = load double, ptr %261, align 8, !tbaa !26
   %263 = fcmp ogt double %262, %260
   br i1 %263, label %264, label %265

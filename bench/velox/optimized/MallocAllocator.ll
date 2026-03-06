@@ -3,11 +3,6 @@ source_filename = "bench/velox/original/MallocAllocator.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.facebook::velox::memory::SizeClassStats" = type { i32, %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic.0", %"struct.std::atomic.0" }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { i64 }
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %"class.fmt::v8::format_arg_store" = type { %"struct.fmt::v8::detail::arg_data" }
 %"struct.fmt::v8::detail::arg_data" = type { [2 x %"class.fmt::v8::detail::value"] }
@@ -21,7 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.std::__exception_ptr::exception_ptr" = type { ptr }
 %class.anon.22 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"class.facebook::velox::memory::Allocation::PageRun" = type { i64 }
 %"class.fmt::v8::format_arg_store.35" = type { %"struct.fmt::v8::detail::arg_data.36" }
 %"struct.fmt::v8::detail::arg_data.36" = type { [3 x %"class.fmt::v8::detail::value"] }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
@@ -37,6 +31,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::allocator.14" = type { i8 }
 %"struct.facebook::velox::memory::Stats" = type { %"struct.std::array", i64 }
 %"struct.std::array" = type { [20 x %"struct.facebook::velox::memory::SizeClassStats"] }
+%"struct.facebook::velox::memory::SizeClassStats" = type { i32, %"struct.std::atomic", %"struct.std::atomic", %"struct.std::atomic.0", %"struct.std::atomic.0" }
+%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
+%"struct.std::__atomic_base" = type { i64 }
+%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
+%"struct.std::__atomic_base.1" = type { i64 }
 %struct._Guard = type { ptr }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
@@ -175,7 +174,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZNS
   %indvars.iv.i.i = phi i64 [ 0, %_ZNSt5arrayIN8facebook5velox6memory14SizeClassStatsELm20EEC2Ev.exit.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %1 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %shl.i.i = shl nuw i32 1, %1
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"struct.facebook::velox::memory::SizeClassStats", ptr %stats_.i, i64 %indvars.iv.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [40 x i8], ptr %stats_.i, i64 %indvars.iv.i.i
   store i32 %shl.i.i, ptr %arrayidx.i.i.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 20
@@ -480,7 +479,7 @@ _ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i: ; preds = %if.end.i69
           to label %for.body.lr.ph unwind label %lpad57.loopexit.split-lp
 
 for.body.lr.ph:                                   ; preds = %_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm.exit.i
-  %add.ptr21.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i74, i64 %conv56
+  %add.ptr21.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i74, i64 %conv56
   %sizeCounts = getelementptr inbounds nuw i8, ptr %mix, i64 48
   %sizeClassSizes_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %injectedFailure_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -492,14 +491,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %pages.sroa.0.1179 = phi ptr [ %call5.i.i.i.i74, %for.body.lr.ph ], [ %pages.sroa.0.4, %for.inc ]
   %pages.sroa.10.0178 = phi ptr [ %call5.i.i.i.i74, %for.body.lr.ph ], [ %pages.sroa.10.2, %for.inc ]
   %pages.sroa.19.0177 = phi ptr [ %add.ptr21.i, %for.body.lr.ph ], [ %pages.sroa.19.2, %for.inc ]
-  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %sizeCounts, i64 %indvars.iv
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr %sizeCounts, i64 %indvars.iv
   %25 = load i32, ptr %arrayidx.i.i, align 4
   %conv63 = sext i32 %25 to i64
-  %arrayidx.i.i75 = getelementptr inbounds nuw i32, ptr %mix, i64 %indvars.iv
+  %arrayidx.i.i75 = getelementptr inbounds nuw [4 x i8], ptr %mix, i64 %indvars.iv
   %26 = load i32, ptr %arrayidx.i.i75, align 4
   %conv66 = sext i32 %26 to i64
   %27 = load ptr, ptr %sizeClassSizes_, align 8
-  %add.ptr.i76 = getelementptr inbounds i64, ptr %27, i64 %conv66
+  %add.ptr.i76 = getelementptr inbounds [8 x i8], ptr %27, i64 %conv66
   %28 = load i64, ptr %add.ptr.i76, align 8
   %mul = mul i64 %28, %conv63
   %29 = load i32, ptr %injectedFailure_.i, align 8
@@ -543,7 +542,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i82
 
 _ZN8facebook5velox10ClockTimerD2Ev.exit.i:        ; preds = %if.end.i.i.i, %if.then.i82
   %retval.0.i.i = phi i64 [ 0, %if.then.i82 ], [ %37, %if.end.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.facebook::velox::memory::SizeClassStats", ptr %stats_, i64 %retval.0.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [40 x i8], ptr %stats_, i64 %retval.0.i.i
   %allocateClocks.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   %38 = call noundef i64 @llvm.x86.rdtsc()
   %mul.i.i8.i = shl i64 %mul, 12
@@ -713,7 +712,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPvSaIS
   br label %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
 
 _ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i
-  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i92, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i92, i64 %cond.i.i.i
   br label %invoke.cont114
 
 invoke.cont114:                                   ; preds = %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %if.then.i86
@@ -1076,7 +1075,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
 
 _ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i: ; preds = %if.end.i.i.i, %if.then.i
   %retval.0.i.i = phi i64 [ 0, %if.then.i ], [ %6, %if.end.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.facebook::velox::memory::SizeClassStats", ptr %stats_, i64 %retval.0.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [40 x i8], ptr %stats_, i64 %retval.0.i.i
   %allocateClocks.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 8
   %7 = call noundef i64 @llvm.x86.rdtsc()
   invoke fastcc void @"_ZZN8facebook5velox6memory15MallocAllocator30allocateContiguousWithoutRetryEmPNS1_10AllocationERNS1_20ContiguousAllocationESt8functionIFvlbEEmENK3$_0clEv"(ptr noundef nonnull readonly align 8 dereferenceable(56) %agg.tmp1)
@@ -1548,7 +1547,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %"_
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
   %6 = phi ptr [ %1, %for.body.lr.ph ], [ %22, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
   %numFreed.047 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %"_ZN8facebook5velox6memory5Stats10recordFreeIZNS1_15MallocAllocator17freeNonContiguousERNS1_10AllocationEE3$_0EEvlT_.exit" ]
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.facebook::velox::memory::Allocation::PageRun", ptr %6, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %retval.sroa.0.0.copyload.i = load i64, ptr %add.ptr.i.i, align 8
   %shr.i = lshr i64 %retval.sroa.0.0.copyload.i, 48
   %add = add i64 %shr.i, %numFreed.047
@@ -1614,7 +1613,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
 
 _ZN8facebook5velox10ClockTimerD2Ev.exit.i:        ; preds = %if.end.i.i.i, %if.then.i
   %retval.0.i.i = phi i64 [ 0, %if.then.i ], [ %17, %if.end.i.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.facebook::velox::memory::SizeClassStats", ptr %this, i64 %retval.0.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [40 x i8], ptr %this, i64 %retval.0.i.i
   %freeClocks.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 88
   %18 = call noundef i64 @llvm.x86.rdtsc()
   %op.val.val.i = load ptr, ptr %ptr, align 8
@@ -1709,7 +1708,7 @@ if.end.i.i.i:                                     ; preds = %if.end.i.i
 
 _ZN8facebook5velox6memory5Stats9sizeIndexEl.exit.i: ; preds = %if.end.i.i.i, %if.end.i.i, %if.then.i
   %retval.0.i.i = phi i64 [ 0, %if.then.i ], [ %7, %if.end.i.i.i ], [ -1, %if.end.i.i ]
-  %arrayidx.i.i.i = getelementptr %"struct.facebook::velox::memory::SizeClassStats", ptr %this, i64 %retval.0.i.i
+  %arrayidx.i.i.i = getelementptr [40 x i8], ptr %this, i64 %retval.0.i.i
   %freeClocks.i = getelementptr i8, ptr %arrayidx.i.i.i, i64 88
   %8 = tail call noundef i64 @llvm.x86.rdtsc()
   invoke void @_ZN8facebook5velox6memory15MallocAllocator18freeContiguousImplERNS1_20ContiguousAllocationE(ptr noundef nonnull align 8 dereferenceable(1016) %this, ptr noundef nonnull align 8 dereferenceable(32) %allocation)
@@ -2813,8 +2812,8 @@ entry:
 
 arrayinit.body.i.i:                               ; preds = %arrayinit.body.i.i, %entry
   %arrayinit.index.i.i = phi i64 [ 0, %entry ], [ %arrayinit.next.i.i, %arrayinit.body.i.i ]
-  %0 = getelementptr inbounds nuw %"struct.facebook::velox::memory::SizeClassStats", ptr %agg.result, i64 %arrayinit.index.i.i
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.facebook::velox::memory::SizeClassStats", ptr %stats_, i64 %arrayinit.index.i.i
+  %0 = getelementptr inbounds nuw [40 x i8], ptr %agg.result, i64 %arrayinit.index.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [40 x i8], ptr %stats_, i64 %arrayinit.index.i.i
   %allocateClocks.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %freeClocks.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %numAllocations.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3058,7 +3057,7 @@ if.end13.thread:                                  ; preds = %entry
   %3 = load i64, ptr %_M_bucket_count.i22, align 8
   %rem.i.i.i23 = urem i64 %2, %3
   %4 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %4, i64 %rem.i.i.i23
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %4, i64 %rem.i.i.i23
   %5 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i, label %if.end25, label %if.end.i.i
@@ -3196,7 +3195,7 @@ _ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_
 if.end:                                           ; preds = %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %entry
   %__bkt.addr.0 = phi i64 [ %rem.i.i.i, %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %__bkt, %entry ]
   %12 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %__bkt.addr.0
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %__bkt.addr.0
   %13 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %13, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -3205,7 +3204,7 @@ if.then.i:                                        ; preds = %if.end
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %__node, align 8
   %15 = load ptr, ptr %this, align 8
-  %arrayidx6.i = getelementptr inbounds ptr, ptr %15, i64 %__bkt.addr.0
+  %arrayidx6.i = getelementptr inbounds [8 x i8], ptr %15, i64 %__bkt.addr.0
   %16 = load ptr, ptr %arrayidx6.i, align 8
   store ptr %__node, ptr %16, align 8
   br label %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS2_10_Hash_nodeIS0_Lb0EEE.exit
@@ -3226,13 +3225,13 @@ if.then14.i:                                      ; preds = %if.else.i
   %21 = load ptr, ptr %add.ptr.i, align 8
   %22 = ptrtoint ptr %21 to i64
   %rem.i.i.i.i = urem i64 %22, %20
-  %arrayidx17.i = getelementptr inbounds ptr, ptr %19, i64 %rem.i.i.i.i
+  %arrayidx17.i = getelementptr inbounds [8 x i8], ptr %19, i64 %rem.i.i.i.i
   store ptr %__node, ptr %arrayidx17.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then14.i, %if.else.i
   %23 = load ptr, ptr %this, align 8
-  %arrayidx20.i = getelementptr inbounds ptr, ptr %23, i64 %__bkt.addr.0
+  %arrayidx20.i = getelementptr inbounds [8 x i8], ptr %23, i64 %__bkt.addr.0
   store ptr %_M_before_begin.i, ptr %arrayidx20.i, align 8
   br label %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS2_10_Hash_nodeIS0_Lb0EEE.exit
 
@@ -3296,7 +3295,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIP
   %2 = load ptr, ptr %add.ptr, align 8
   %3 = ptrtoint ptr %2 to i64
   %rem.i.i = urem i64 %3, %__bkt_count
-  %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %rem.i.i
   %4 = load ptr, ptr %arrayidx, align 8
   %tobool5.not = icmp eq ptr %4, null
   br i1 %tobool5.not, label %if.then, label %if.else
@@ -3311,7 +3310,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 
@@ -3491,7 +3490,7 @@ if.end:                                           ; preds = %for.body.i, %for.co
   %8 = ptrtoint ptr %2 to i64
   %rem.i.i.i = urem i64 %8, %7
   %.pre = load ptr, ptr %this, align 8
-  %arrayidx.i15.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %rem.i.i.i
+  %arrayidx.i15.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pre, i64 %rem.i.i.i
   %.pre37 = load ptr, ptr %arrayidx.i15.phi.trans.insert, align 8
   br label %if.end13
 
@@ -3502,7 +3501,7 @@ if.else:                                          ; preds = %entry
   %11 = load i64, ptr %_M_bucket_count.i10, align 8
   %rem.i.i.i11 = urem i64 %10, %11
   %12 = load ptr, ptr %this, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %rem.i.i.i11
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %12, i64 %rem.i.i.i11
   %13 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i12 = icmp eq ptr %13, null
   br i1 %tobool.not.i12, label %return, label %if.end.i
@@ -3571,10 +3570,10 @@ cond.end.i:                                       ; preds = %if.end13.thread, %i
   br i1 %cmp.not.i.i, label %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS2_15_Hash_node_baseEPNS2_10_Hash_nodeIS0_Lb0EEE.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
-  %arrayidx5.i.i = getelementptr inbounds ptr, ptr %26, i64 %rem.i.i.i.i21
+  %arrayidx5.i.i = getelementptr inbounds [8 x i8], ptr %26, i64 %rem.i.i.i.i21
   store ptr %25, ptr %arrayidx5.i.i, align 8
   %.pre.i = load ptr, ptr %this, align 8
-  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %__bkt.05258
+  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds [8 x i8], ptr %.pre.i, i64 %__bkt.05258
   %.pre23.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8
   br label %if.end.i.i
 
@@ -3586,7 +3585,7 @@ if.end.i.i:                                       ; preds = %if.end13.thread, %i
   %31 = phi ptr [ %21, %if.then.i ], [ %.pre23.i, %if.then3.i.i ], [ %13, %if.end13.thread ]
   %32 = phi ptr [ %22, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %12, %if.end13.thread ]
   %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %arrayidx7.i.i = getelementptr inbounds ptr, ptr %32, i64 %__bkt.05259
+  %arrayidx7.i.i = getelementptr inbounds [8 x i8], ptr %32, i64 %__bkt.05259
   %cmp8.i.i = icmp eq ptr %_M_before_begin.i.i, %31
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end11.i.i
 
@@ -3610,7 +3609,7 @@ if.then6.i:                                       ; preds = %if.else.i
   br i1 %cmp10.not.i, label %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS2_15_Hash_node_baseEPNS2_10_Hash_nodeIS0_Lb0EEE.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then6.i
-  %arrayidx13.i = getelementptr inbounds ptr, ptr %22, i64 %rem.i.i.i14.i
+  %arrayidx13.i = getelementptr inbounds [8 x i8], ptr %22, i64 %rem.i.i.i14.i
   store ptr %__prev_n.0, ptr %arrayidx13.i, align 8
   br label %_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0_ENS2_18_Mod_range_hashingENS2_20_Default_ranged_hashENS2_20_Prime_rehash_policyENS2_17_Hashtable_traitsILb0ELb1ELb1EEEE8_M_eraseEmPNS2_15_Hash_node_baseEPNS2_10_Hash_nodeIS0_Lb0EEE.exit
 

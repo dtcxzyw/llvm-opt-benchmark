@@ -24,14 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::PcpLayerStackIdentifier, std::allocator<pxrInternal_v0_24__pxrReserved__::PcpLayerStackIdentifier>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext" = type <{ ptr, ptr, i64, ptr, i8, [7 x i8] }>
 %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::NoCache" = type { %"class.pxrInternal_v0_24__pxrReserved__::PcpExpressionVariables" }
-%"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackIdentifier" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr", %"class.pxrInternal_v0_24__pxrReserved__::ArResolverContext", %"class.pxrInternal_v0_24__pxrReserved__::PcpExpressionVariablesSource", i64 }
-%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr" = type { ptr, %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr" }
-%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr" = type { ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::ArResolverContext" = type { %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArResolverContext::_Untyped>, std::allocator<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArResolverContext::_Untyped>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArResolverContext::_Untyped>, std::allocator<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArResolverContext::_Untyped>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArResolverContext::_Untyped>, std::allocator<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArResolverContext::_Untyped>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArResolverContext::_Untyped>, std::allocator<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArResolverContext::_Untyped>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtValue" = type { %"union.std::aligned_storage<8, 8>::type", %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" }
 %"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
 %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits" = type { ptr }
@@ -335,7 +327,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESaIS1_
   %.144.sroa.phi.i = phi ptr [ %.1.lcssa60.i.sroa.gep32, %.lr.ph.i ], [ %.1.lcssa60.i.sroa.gep33, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i ]
   %88 = add i64 %.in.i, -1
   %89 = load ptr, ptr %6, align 8
-  %90 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackIdentifier", ptr %89, i64 %88
+  %90 = getelementptr inbounds [80 x i8], ptr %89, i64 %88
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34Pcp_ComposeExpressionVariablesOverERKNS_23PcpLayerStackIdentifierEPKNS_12VtDictionaryE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(80) %90, ptr noundef %.144.sroa.phi.i)
           to label %91 unwind label %.loopexit.i
 
@@ -354,7 +346,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESaIS1_
 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %6, align 8
-  %98 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackIdentifier", ptr %97, i64 %88
+  %98 = getelementptr inbounds [80 x i8], ptr %97, i64 %88
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpExpressionVariablesSourceC1ERKNS_23PcpLayerStackIdentifierES3_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(80) %98, ptr noundef nonnull align 8 dereferenceable(80) %2)
           to label %99 unwind label %94
 
@@ -1292,7 +1284,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24__
   %35 = load i64, ptr %15, align 8
   %36 = urem i64 %34, %35
   %37 = load ptr, ptr %11, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %36
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %36
   %39 = load ptr, ptr %38, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i.i.i.i, label %.loopexit3.i, label %40
@@ -1421,7 +1413,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESaIS1_
   %.131.i = phi ptr [ %.023.i, %.lr.ph.i ], [ %.2.i, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit.i ]
   %81 = add i64 %.in.i, -1
   %82 = load ptr, ptr %6, align 8
-  %83 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackIdentifier", ptr %82, i64 %81
+  %83 = getelementptr inbounds [80 x i8], ptr %82, i64 %81
   %84 = getelementptr inbounds nuw i8, ptr %.131.i, i64 16
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34Pcp_ComposeExpressionVariablesOverERKNS_23PcpLayerStackIdentifierEPKNS_12VtDictionaryE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(80) %83, ptr noundef %84)
           to label %85 unwind label %.loopexit.i
@@ -1432,7 +1424,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESaIS1_
 
 87:                                               ; preds = %85
   %88 = load ptr, ptr %6, align 8
-  %89 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackIdentifier", ptr %88, i64 %81
+  %89 = getelementptr inbounds [80 x i8], ptr %88, i64 %81
   br i1 %86, label %90, label %97
 
 90:                                               ; preds = %87
@@ -1497,7 +1489,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22PcpExpressionVariablesC2EONS_28PcpExpress
   store ptr null, ptr %7, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpExpressionVariablesSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #14
   %110 = load ptr, ptr %6, align 8
-  %111 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackIdentifier", ptr %110, i64 %81
+  %111 = getelementptr inbounds [80 x i8], ptr %110, i64 %81
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %112 = invoke { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESt4pairIKS1_NS0_22PcpExpressionVariablesEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE10_M_emplaceIJRS3_S4_EEES2_INS7_14_Node_iteratorIS5_Lb0ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(80) %111, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %.noexc44.i unwind label %124
@@ -2155,7 +2147,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierES1_E
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierES1_EvT_S3_RSaIT0_E.exit, %49
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::PcpLayerStackIdentifier", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [80 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8
   ret void
 
@@ -2585,7 +2577,7 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__23PcpLayerSt
   %33 = phi ptr [ %14, %.loopexit31.thread ], [ %28, %.loopexit31 ]
   %34 = phi i64 [ %13, %.loopexit31.thread ], [ %27, %.loopexit31 ]
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %32
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %32
   %37 = load ptr, ptr %36, align 8
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESt4pairIKS1_NS0_22PcpExpressionVariablesEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, label %38
@@ -2732,7 +2724,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierES
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 112
   store i64 %2, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %41, label %36
@@ -2741,7 +2733,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierES
   %37 = load ptr, ptr %35, align 8
   store ptr %37, ptr %3, align 8
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %.0
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %.0
   %40 = load ptr, ptr %39, align 8
   store ptr %3, ptr %40, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESt4pairIKS1_NS0_22PcpExpressionVariablesEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS7_10_Hash_nodeIS5_Lb1EEE.exit
@@ -2761,13 +2753,13 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierES
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 112
   %49 = load i64, ptr %48, align 8
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %46, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %45, %41
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0
   store ptr %42, ptr %54, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESt4pairIKS1_NS0_22PcpExpressionVariablesEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS7_10_Hash_nodeIS5_Lb1EEE.exit
 
@@ -2954,7 +2946,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierES
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 112
   %16 = load i64, ptr %15, align 8
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -2969,7 +2961,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierES
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8
   br label %28
 
@@ -3083,7 +3075,7 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__23PcpLayerSt
   %33 = phi ptr [ %14, %.loopexit31.thread ], [ %28, %.loopexit31 ]
   %34 = phi i64 [ %13, %.loopexit31.thread ], [ %27, %.loopexit31 ]
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %32
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %32
   %37 = load ptr, ptr %36, align 8
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__23PcpLayerStackIdentifierESt4pairIKS1_NS0_22PcpExpressionVariablesEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ENS0_6TfHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS3_m.exit.thread, label %38

@@ -3,8 +3,6 @@ source_filename = "bench/llvm/original/ThreadSafetyTIL.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.std::pair" = type { ptr, i64 }
-
 $_ZN5clang12threadSafety3til11SimpleArrayIPNS1_10BasicBlockEE12reserveCheckEmNS1_12MemRegionRefE = comdat any
 
 $_ZN5clang12threadSafety3til11SimpleArrayIPNS1_5SExprEE12reserveCheckEmNS1_12MemRegionRefE = comdat any
@@ -43,7 +41,7 @@ define dso_local { ptr, i64 } @_ZN5clang12threadSafety3til20getUnaryOpcodeString
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang12threadSafety3til20getUnaryOpcodeStringENS1_15TIL_UnaryOpcodeE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang12threadSafety3til20getUnaryOpcodeStringENS1_15TIL_UnaryOpcodeE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -62,10 +60,10 @@ define dso_local { ptr, i64 } @_ZN5clang12threadSafety3til21getBinaryOpcodeStrin
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang12threadSafety3til21getBinaryOpcodeStringENS1_16TIL_BinaryOpcodeE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang12threadSafety3til21getBinaryOpcodeStringENS1_16TIL_BinaryOpcodeE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang12threadSafety3til21getBinaryOpcodeStringENS1_16TIL_BinaryOpcodeE.1, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang12threadSafety3til21getBinaryOpcodeStringENS1_16TIL_BinaryOpcodeE.1, i64 %4
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   br label %5
 
@@ -103,7 +101,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock14addPredec
   %8 = load i64, ptr %4, align 8, !tbaa !18
   %9 = add i64 %8, 1
   store i64 %9, ptr %4, align 8, !tbaa !18
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   store ptr %1, ptr %10, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !26
@@ -134,7 +132,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock14addPredec
   %23 = load i64, ptr %22, align 8, !tbaa !29
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8, !tbaa !29
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %23
   store ptr null, ptr %25, align 8, !tbaa !30
   br label %26
 
@@ -657,7 +655,7 @@ _ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit: ; preds =
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
   %27 = load ptr, ptr %3, align 8, !tbaa !26
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !30
   br label %.backedge
 
@@ -825,7 +823,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock15topologic
   store i32 %19, ptr %4, align 8
   %20 = load ptr, ptr %1, align 8, !tbaa !24
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   store ptr %0, ptr %22, align 8, !tbaa !25
   br label %26
 
@@ -883,7 +881,7 @@ define dso_local noundef i32 @_ZN5clang12threadSafety3til10BasicBlock20topologic
   store i32 %23, ptr %4, align 8
   %24 = load ptr, ptr %1, align 8, !tbaa !24
   %25 = zext nneg i32 %21 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   store ptr %0, ptr %26, align 8, !tbaa !25
   br label %30
 
@@ -1178,9 +1176,9 @@ define dso_local void @_ZN5clang12threadSafety3til4SCFG17computeNormalFormEv(ptr
   %indvars.iv = phi i64 [ %12, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %15 = sub nuw nsw i64 %indvars.iv, %12
   %16 = load ptr, ptr %4, align 8, !tbaa !24
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !25
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   store ptr %18, ptr %19, align 8, !tbaa !25
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %21 = load i32, ptr %20, align 8
@@ -1554,7 +1552,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !81
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -1595,7 +1593,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !81
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !79

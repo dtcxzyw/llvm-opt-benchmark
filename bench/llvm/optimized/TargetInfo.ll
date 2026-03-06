@@ -24,8 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.126" = type { %"class.llvm::SmallVectorTemplateCommon.127" }
 %"class.llvm::SmallVectorTemplateCommon.127" = type { %"class.llvm::SmallVectorBase.44" }
 %"struct.llvm::SmallVectorStorage.720" = type { [16 x i8] }
-%"class.llvm::Argument" = type <{ %"class.llvm::Value", ptr, i32, [4 x i8] }>
-%"class.llvm::Value" = type { i8, i8, i16, i32, ptr, ptr }
 %"class.std::unique_ptr.249" = type { %"struct.std::__uniq_ptr_data.250" }
 %"struct.std::__uniq_ptr_data.250" = type { %"class.std::__uniq_ptr_impl.251" }
 %"class.std::__uniq_ptr_impl.251" = type { %"class.std::tuple.252" }
@@ -47,7 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::CodeGen::LValueBaseInfo" = type { i32 }
 %"struct.clang::CodeGen::TBAAAccessInfo" = type { i32, ptr, ptr, i64, i64 }
 %"class.llvm::ArrayRef" = type { ptr, i64 }
-%"struct.std::pair.752" = type { i32, ptr }
 
 $_ZNK5clang7CodeGen17TargetCodeGenInfo19setTargetAttributesEPKNS_4DeclEPN4llvm11GlobalValueERNS0_13CodeGenModuleE = comdat any
 
@@ -1123,7 +1120,7 @@ _ZN4llvm8Function4argsEv.exit:                    ; preds = %_ZN4llvm8Function9a
   %106 = phi ptr [ %103, %_ZN4llvm8Function9arg_beginEv.exit.i ], [ %.pre1.i, %105 ]
   %107 = getelementptr inbounds nuw i8, ptr %75, i64 104
   %108 = load i64, ptr %107, align 8, !tbaa !685
-  %109 = getelementptr inbounds nuw %"class.llvm::Argument", ptr %106, i64 %108
+  %109 = getelementptr inbounds nuw [40 x i8], ptr %106, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %110, ptr %13, align 8, !tbaa !653
   %111 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -1151,7 +1148,7 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i: ; preds = %118, %_ZN4
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i
   %121 = zext i32 %119 to i64
-  %122 = getelementptr inbounds nuw ptr, ptr %.pre56, i64 %121
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %.pre56, i64 %121
   %123 = udiv exact i64 %115, 40
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
@@ -2253,7 +2250,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !653
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.std::pair.752", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store i32 %4, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -2262,7 +2259,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   store i32 %19, ptr %6, align 8, !tbaa !654
   %20 = load ptr, ptr %0, align 8, !tbaa !653
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.std::pair.752", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   ret ptr %23
 }

@@ -65,7 +65,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   br i1 %34, label %.loopexit, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.next300
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next300
   %37 = load double, ptr %36, align 8
   %38 = fptrunc double %37 to float
   br i1 %21, label %.preheader187.lr.ph, label %.preheader190
@@ -89,7 +89,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   %44 = mul i32 %19, %43
   %45 = add i32 %41, %44
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds float, ptr %.val181, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %.val181, i64 %46
   store float %38, ptr %47, align 4
   %indvars.iv.next272 = add nsw i64 %indvars.iv271, 1
   %48 = icmp slt i64 %indvars.iv.next272, %30
@@ -121,7 +121,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   %57 = mul i32 %19, %56
   %58 = add i32 %54, %57
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds float, ptr %.val181, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %.val181, i64 %59
   store float %38, ptr %60, align 4
   %indvars.iv.next276 = add nsw i64 %indvars.iv275, 1
   %61 = icmp slt i64 %indvars.iv.next276, %30
@@ -139,19 +139,19 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   br i1 %26, label %.loopexit, label %.preheader185.us.preheader
 
 .preheader185.us.preheader:                       ; preds = %.preheader185.lr.ph
-  %invariant.gep306 = getelementptr float, ptr %.val181, i64 %indvars.iv.next300
+  %invariant.gep306 = getelementptr [4 x i8], ptr %.val181, i64 %indvars.iv.next300
   br label %.preheader185.us
 
 .preheader185.us:                                 ; preds = %.preheader185.us.preheader, %._crit_edge.us226
   %indvars.iv284 = phi i64 [ 0, %.preheader185.us.preheader ], [ %indvars.iv.next285, %._crit_edge.us226 ]
   %63 = mul nsw i64 %indvars.iv284, %29
-  %gep307 = getelementptr float, ptr %invariant.gep306, i64 %63
+  %gep307 = getelementptr [4 x i8], ptr %invariant.gep306, i64 %63
   br label %64
 
 64:                                               ; preds = %.preheader185.us, %64
   %indvars.iv279 = phi i64 [ 0, %.preheader185.us ], [ %indvars.iv.next280, %64 ]
   %65 = mul nuw nsw i64 %indvars.iv279, %31
-  %66 = getelementptr float, ptr %gep307, i64 %65
+  %66 = getelementptr [4 x i8], ptr %gep307, i64 %65
   store float %38, ptr %66, align 4
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %exitcond283.not = icmp eq i64 %indvars.iv.next280, %wide.trip.count282
@@ -166,7 +166,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   br i1 %brmerge311, label %.loopexit, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader188
-  %67 = getelementptr float, ptr %.val181, i64 %indvars.iv.next300
+  %67 = getelementptr [4 x i8], ptr %.val181, i64 %indvars.iv.next300
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us230
@@ -176,13 +176,13 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   %70 = add i32 %.val178, %69
   %71 = mul nsw i32 %70, %19
   %72 = sext i32 %71 to i64
-  %73 = getelementptr float, ptr %67, i64 %72
+  %73 = getelementptr [4 x i8], ptr %67, i64 %72
   br label %74
 
 74:                                               ; preds = %.preheader.us, %74
   %indvars.iv289 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next290, %74 ]
   %75 = mul nuw nsw i64 %indvars.iv289, %31
-  %76 = getelementptr float, ptr %73, i64 %75
+  %76 = getelementptr [4 x i8], ptr %73, i64 %75
   store float %38, ptr %76, align 4
   %indvars.iv.next290 = add nuw nsw i64 %indvars.iv289, 1
   %exitcond293.not = icmp eq i64 %indvars.iv.next290, %wide.trip.count292
@@ -236,7 +236,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   br i1 %96, label %.loopexit197, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.next269
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next269
   %99 = load double, ptr %98, align 8
   br i1 %83, label %.preheader195.lr.ph, label %.preheader199
 
@@ -259,7 +259,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   %105 = mul i32 %81, %104
   %106 = add i32 %102, %105
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds double, ptr %.val182, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %.val182, i64 %107
   store double %99, ptr %108, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %109 = icmp slt i64 %indvars.iv.next, %92
@@ -291,7 +291,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   %118 = mul i32 %81, %117
   %119 = add i32 %115, %118
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds double, ptr %.val182, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %.val182, i64 %120
   store double %99, ptr %121, align 8
   %indvars.iv.next246 = add nsw i64 %indvars.iv245, 1
   %122 = icmp slt i64 %indvars.iv.next246, %92
@@ -309,19 +309,19 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   br i1 %88, label %.loopexit197, label %.preheader193.us.preheader
 
 .preheader193.us.preheader:                       ; preds = %.preheader193.lr.ph
-  %invariant.gep = getelementptr double, ptr %.val182, i64 %indvars.iv.next269
+  %invariant.gep = getelementptr [8 x i8], ptr %.val182, i64 %indvars.iv.next269
   br label %.preheader193.us
 
 .preheader193.us:                                 ; preds = %.preheader193.us.preheader, %._crit_edge.us208
   %indvars.iv253 = phi i64 [ 0, %.preheader193.us.preheader ], [ %indvars.iv.next254, %._crit_edge.us208 ]
   %124 = mul nsw i64 %indvars.iv253, %91
-  %gep = getelementptr double, ptr %invariant.gep, i64 %124
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %124
   br label %125
 
 125:                                              ; preds = %.preheader193.us, %125
   %indvars.iv249 = phi i64 [ 0, %.preheader193.us ], [ %indvars.iv.next250, %125 ]
   %126 = mul nuw nsw i64 %indvars.iv249, %93
-  %127 = getelementptr double, ptr %gep, i64 %126
+  %127 = getelementptr [8 x i8], ptr %gep, i64 %126
   store double %99, ptr %127, align 8
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next250, %wide.trip.count
@@ -336,7 +336,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   br i1 %brmerge317, label %.loopexit197, label %.preheader192.us.preheader
 
 .preheader192.us.preheader:                       ; preds = %.preheader196
-  %128 = getelementptr double, ptr %.val182, i64 %indvars.iv.next269
+  %128 = getelementptr [8 x i8], ptr %.val182, i64 %indvars.iv.next269
   br label %.preheader192.us
 
 .preheader192.us:                                 ; preds = %.preheader192.us.preheader, %._crit_edge.us211
@@ -346,13 +346,13 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Fp(ptr noundef readon
   %131 = add i32 %.val178, %130
   %132 = mul nsw i32 %131, %81
   %133 = sext i32 %132 to i64
-  %134 = getelementptr double, ptr %128, i64 %133
+  %134 = getelementptr [8 x i8], ptr %128, i64 %133
   br label %135
 
 135:                                              ; preds = %.preheader192.us, %135
   %indvars.iv258 = phi i64 [ 0, %.preheader192.us ], [ %indvars.iv.next259, %135 ]
   %136 = mul nuw nsw i64 %indvars.iv258, %93
-  %137 = getelementptr double, ptr %134, i64 %136
+  %137 = getelementptr [8 x i8], ptr %134, i64 %136
   store double %99, ptr %137, align 8
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %exitcond262.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count261

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %class.aiVector3t = type { float, float, float }
-%struct.aiFace = type { i32, ptr }
 %class.aiMatrix3x3t = type { float, float, float, float, float, float, float, float, float }
 %class.aiMatrix4x4t = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
 %"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
@@ -106,7 +105,7 @@ define hidden void @_Z13RemoveUVSeamsP6aiMeshP10aiVector3tIfE(ptr noundef readon
 6:                                                ; preds = %.lr.ph96, %.loopexit
   %indvars.iv106 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next107, %.loopexit ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw %struct.aiFace, ptr %7, i64 %indvars.iv106
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv106
   %9 = load i32, ptr %8, align 8
   %10 = icmp ult i32 %9, 3
   br i1 %10, label %.loopexit, label %.preheader87
@@ -131,10 +130,10 @@ define hidden void @_Z13RemoveUVSeamsP6aiMeshP10aiVector3tIfE(ptr noundef readon
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %27
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %27 ], [ 0, %.lr.ph ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv103
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv103
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %class.aiVector3t, ptr %1, i64 %17
+  %18 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %17
   %19 = load float, ptr %18, align 4
   %20 = fcmp ule float %19, 0x3FECCCCCC0000000
   %or.cond.us = select i1 %20, i1 true, i1 %.171
@@ -174,10 +173,10 @@ define hidden void @_Z13RemoveUVSeamsP6aiMeshP10aiVector3tIfE(ptr noundef readon
   %.07090 = phi i1 [ false, %.preheader87 ], [ %.171, %45 ]
   %.07289 = phi i32 [ %9, %.preheader87 ], [ %.173, %45 ]
   %.07488 = phi i32 [ %9, %.preheader87 ], [ %.175, %45 ]
-  %32 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %class.aiVector3t, ptr %1, i64 %34
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %34
   %36 = load float, ptr %35, align 4
   %37 = fcmp olt float %36, 0x3FB99999A0000000
   %38 = fcmp ugt float %36, 0x3F847AE140000000
@@ -207,10 +206,10 @@ define hidden void @_Z13RemoveUVSeamsP6aiMeshP10aiVector3tIfE(ptr noundef readon
 .lr.ph.split:                                     ; preds = %.lr.ph, %55
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %55 ], [ 0, %.lr.ph ]
   %46 = load ptr, ptr %11, align 8
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv100
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv100
   %48 = load i32, ptr %47, align 4
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %class.aiVector3t, ptr %1, i64 %49
+  %50 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %49
   %51 = load float, ptr %50, align 4
   %52 = fcmp ule float %51, 0x3FECCCCCC0000000
   %or.cond = select i1 %52, i1 true, i1 %.171
@@ -293,7 +292,7 @@ define hidden void @_ZN6Assimp23ComputeUVMappingProcess20ComputeSphereMappingEP6
 30:                                               ; preds = %.lr.ph, %_ZN10aiVector3tIfE9NormalizeEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN10aiVector3tIfE9NormalizeEv.exit ]
   %31 = load ptr, ptr %26, align 8
-  %32 = getelementptr inbounds nuw %class.aiVector3t, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [12 x i8], ptr %31, i64 %indvars.iv
   %33 = load float, ptr %32, align 4
   %34 = fsub float %33, %27
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 4
@@ -331,7 +330,7 @@ _ZN10aiVector3tIfE9NormalizeEv.exit:              ; preds = %30, %_ZN10aiVector3
   %52 = call noundef float @asinf(float noundef %.sroa.0129.0.vec.extract132) #21
   %53 = fadd float %52, 0x3FF921FB60000000
   %54 = fdiv float %53, 0x400921FB60000000
-  %55 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv
   store float %51, ptr %55, align 4
   %.sroa.4127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 4
   store float %54, ptr %.sroa.4127.0..sroa_idx, align 4
@@ -365,7 +364,7 @@ _ZN10aiVector3tIfE9NormalizeEv.exit:              ; preds = %30, %_ZN10aiVector3
 69:                                               ; preds = %.lr.ph144, %_ZN10aiVector3tIfE9NormalizeEv.exit69
   %indvars.iv156 = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next157, %_ZN10aiVector3tIfE9NormalizeEv.exit69 ]
   %70 = load ptr, ptr %65, align 8
-  %71 = getelementptr inbounds nuw %class.aiVector3t, ptr %70, i64 %indvars.iv156
+  %71 = getelementptr inbounds nuw [12 x i8], ptr %70, i64 %indvars.iv156
   %72 = load float, ptr %71, align 4
   %73 = fsub float %72, %66
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 4
@@ -403,7 +402,7 @@ _ZN10aiVector3tIfE9NormalizeEv.exit69:            ; preds = %69, %_ZN10aiVector3
   %91 = call noundef float @asinf(float noundef %.sroa.0118.4.vec.extract124) #21
   %92 = fadd float %91, 0x3FF921FB60000000
   %93 = fdiv float %92, 0x400921FB60000000
-  %94 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv156
+  %94 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv156
   store float %90, ptr %94, align 4
   %.sroa.4116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 4
   store float %93, ptr %.sroa.4116.0..sroa_idx, align 4
@@ -437,7 +436,7 @@ _ZN10aiVector3tIfE9NormalizeEv.exit69:            ; preds = %69, %_ZN10aiVector3
 108:                                              ; preds = %.lr.ph146, %_ZN10aiVector3tIfE9NormalizeEv.exit76
   %indvars.iv159 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next160, %_ZN10aiVector3tIfE9NormalizeEv.exit76 ]
   %109 = load ptr, ptr %104, align 8
-  %110 = getelementptr inbounds nuw %class.aiVector3t, ptr %109, i64 %indvars.iv159
+  %110 = getelementptr inbounds nuw [12 x i8], ptr %109, i64 %indvars.iv159
   %111 = load float, ptr %110, align 4
   %112 = fsub float %111, %105
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 4
@@ -475,7 +474,7 @@ _ZN10aiVector3tIfE9NormalizeEv.exit76:            ; preds = %108, %_ZN10aiVector
   %130 = call noundef float @asinf(float noundef %.sroa.9114.0) #21
   %131 = fadd float %130, 0x3FF921FB60000000
   %132 = fdiv float %131, 0x400921FB60000000
-  %133 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv159
+  %133 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv159
   store float %129, ptr %133, align 4
   %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %133, i64 4
   store float %132, ptr %.sroa.4105.0..sroa_idx, align 4
@@ -532,7 +531,7 @@ _ZN10aiVector3tIfE9NormalizeEv.exit76:            ; preds = %108, %_ZN10aiVector
 162:                                              ; preds = %.lr.ph148, %_ZN10aiVector3tIfE9NormalizeEv.exit87
   %indvars.iv162 = phi i64 [ 0, %.lr.ph148 ], [ %indvars.iv.next163, %_ZN10aiVector3tIfE9NormalizeEv.exit87 ]
   %163 = load ptr, ptr %158, align 8
-  %164 = getelementptr inbounds nuw %class.aiVector3t, ptr %163, i64 %indvars.iv162
+  %164 = getelementptr inbounds nuw [12 x i8], ptr %163, i64 %indvars.iv162
   %165 = load float, ptr %164, align 4
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %167 = load float, ptr %166, align 4
@@ -582,7 +581,7 @@ _ZN10aiVector3tIfE9NormalizeEv.exit87:            ; preds = %162, %_ZN10aiVector
   %196 = call noundef float @asinf(float noundef %.sroa.9.0) #21
   %197 = fadd float %196, 0x3FF921FB60000000
   %198 = fdiv float %197, 0x400921FB60000000
-  %199 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv162
+  %199 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv162
   store float %195, ptr %199, align 4
   %.sroa.4.0..sroa_idx88 = getelementptr inbounds nuw i8, ptr %199, i64 4
   store float %198, ptr %.sroa.4.0..sroa_idx88, align 4
@@ -662,8 +661,8 @@ define hidden void @_ZN6Assimp23ComputeUVMappingProcess22ComputeCylinderMappingE
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %35 = load ptr, ptr %31, align 8
-  %36 = getelementptr inbounds nuw %class.aiVector3t, ptr %35, i64 %indvars.iv
-  %37 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [12 x i8], ptr %35, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv
   %38 = load float, ptr %36, align 4
   %39 = fsub float %38, %27
   %40 = fdiv float %39, %28
@@ -710,8 +709,8 @@ define hidden void @_ZN6Assimp23ComputeUVMappingProcess22ComputeCylinderMappingE
 67:                                               ; preds = %.lr.ph66, %67
   %indvars.iv77 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next78, %67 ]
   %68 = load ptr, ptr %64, align 8
-  %69 = getelementptr inbounds nuw %class.aiVector3t, ptr %68, i64 %indvars.iv77
-  %70 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv77
+  %69 = getelementptr inbounds nuw [12 x i8], ptr %68, i64 %indvars.iv77
+  %70 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv77
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %72 = load float, ptr %71, align 4
   %73 = fsub float %72, %60
@@ -758,8 +757,8 @@ define hidden void @_ZN6Assimp23ComputeUVMappingProcess22ComputeCylinderMappingE
 100:                                              ; preds = %.lr.ph68, %100
   %indvars.iv80 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next81, %100 ]
   %101 = load ptr, ptr %97, align 8
-  %102 = getelementptr inbounds nuw %class.aiVector3t, ptr %101, i64 %indvars.iv80
-  %103 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv80
+  %102 = getelementptr inbounds nuw [12 x i8], ptr %101, i64 %indvars.iv80
+  %103 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv80
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %105 = load float, ptr %104, align 4
   %106 = fsub float %105, %93
@@ -871,7 +870,7 @@ define hidden void @_ZN6Assimp23ComputeUVMappingProcess22ComputeCylinderMappingE
 165:                                              ; preds = %.lr.ph70, %165
   %indvars.iv83 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next84, %165 ]
   %166 = load ptr, ptr %150, align 8
-  %167 = getelementptr inbounds nuw %class.aiVector3t, ptr %166, i64 %indvars.iv83
+  %167 = getelementptr inbounds nuw [12 x i8], ptr %166, i64 %indvars.iv83
   %168 = load float, ptr %167, align 4
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 4
   %170 = load float, ptr %169, align 4
@@ -889,7 +888,7 @@ define hidden void @_ZN6Assimp23ComputeUVMappingProcess22ComputeCylinderMappingE
   %182 = call float @llvm.fmuladd.f32(float %159, float %168, float %181)
   %183 = call float @llvm.fmuladd.f32(float %161, float %174, float %182)
   %184 = fadd float %162, %183
-  %185 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv83
+  %185 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv83
   %186 = fsub float %180, %146
   %187 = fdiv float %186, %147
   %188 = getelementptr inbounds nuw i8, ptr %185, i64 4
@@ -972,8 +971,8 @@ define hidden void @_ZN6Assimp23ComputeUVMappingProcess19ComputePlaneMappingEP6a
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds nuw %class.aiVector3t, ptr %36, i64 %indvars.iv
-  %38 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [12 x i8], ptr %36, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load float, ptr %39, align 4
   %41 = fsub float %40, %27
@@ -1019,8 +1018,8 @@ define hidden void @_ZN6Assimp23ComputeUVMappingProcess19ComputePlaneMappingEP6a
 66:                                               ; preds = %.lr.ph57, %66
   %indvars.iv68 = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next69, %66 ]
   %67 = load ptr, ptr %65, align 8
-  %68 = getelementptr inbounds nuw %class.aiVector3t, ptr %67, i64 %indvars.iv68
-  %69 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv68
+  %68 = getelementptr inbounds nuw [12 x i8], ptr %67, i64 %indvars.iv68
+  %69 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv68
   %70 = load float, ptr %68, align 4
   %71 = fsub float %70, %58
   %72 = fdiv float %71, %59
@@ -1065,8 +1064,8 @@ define hidden void @_ZN6Assimp23ComputeUVMappingProcess19ComputePlaneMappingEP6a
 96:                                               ; preds = %.lr.ph59, %96
   %indvars.iv71 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next72, %96 ]
   %97 = load ptr, ptr %95, align 8
-  %98 = getelementptr inbounds nuw %class.aiVector3t, ptr %97, i64 %indvars.iv71
-  %99 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv71
+  %98 = getelementptr inbounds nuw [12 x i8], ptr %97, i64 %indvars.iv71
+  %99 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv71
   %100 = load float, ptr %98, align 4
   %101 = fsub float %100, %88
   %102 = fdiv float %101, %89
@@ -1172,7 +1171,7 @@ define hidden void @_ZN6Assimp23ComputeUVMappingProcess19ComputePlaneMappingEP6a
 154:                                              ; preds = %.lr.ph61, %154
   %indvars.iv74 = phi i64 [ 0, %.lr.ph61 ], [ %indvars.iv.next75, %154 ]
   %155 = load ptr, ptr %145, align 8
-  %156 = getelementptr inbounds nuw %class.aiVector3t, ptr %155, i64 %indvars.iv74
+  %156 = getelementptr inbounds nuw [12 x i8], ptr %155, i64 %indvars.iv74
   %157 = load float, ptr %156, align 4
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 4
   %159 = load float, ptr %158, align 4
@@ -1186,7 +1185,7 @@ define hidden void @_ZN6Assimp23ComputeUVMappingProcess19ComputePlaneMappingEP6a
   %167 = call float @llvm.fmuladd.f32(float %150, float %157, float %166)
   %168 = call float @llvm.fmuladd.f32(float %152, float %163, float %167)
   %169 = fadd float %153, %168
-  %170 = getelementptr inbounds nuw %class.aiVector3t, ptr %3, i64 %indvars.iv74
+  %170 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv74
   %171 = fsub float %165, %138
   %172 = fdiv float %171, %139
   %173 = fsub float %169, %141
@@ -1293,7 +1292,7 @@ _ZNSt7__cxx114listIN6Assimp23ComputeUVMappingProcess11MappingInfoESaIS3_EE5clear
   store ptr %4, ptr %4, align 8
   store i64 0, ptr %17, align 8
   %31 = load ptr, ptr %20, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv142
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv142
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %37, label %.preheader117
@@ -1320,7 +1319,7 @@ _ZNSt7__cxx114listIN6Assimp23ComputeUVMappingProcess11MappingInfoESaIS3_EE5clear
 .lr.ph124:                                        ; preds = %.preheader117, %.critedge
   %indvars.iv139 = phi i64 [ %indvars.iv.next140, %.critedge ], [ 0, %.preheader117 ]
   %42 = load ptr, ptr %33, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv139
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv139
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(13) @.str.6) #24
@@ -1394,7 +1393,7 @@ _ZNSt7__cxx114listIN6Assimp23ComputeUVMappingProcess11MappingInfoESaIS3_EE5clear
 
 78:                                               ; preds = %.lr.ph, %93
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %93 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 1028
   %82 = load i32, ptr %81, align 4
@@ -1511,7 +1510,7 @@ _ZNSt7__cxx114listIN6Assimp23ComputeUVMappingProcess11MappingInfoESaIS3_EE9push_
 .lr.ph122:                                        ; preds = %.preheader, %_Z18FindEmptyUVChannelP6aiMesh.exit.thread
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %_Z18FindEmptyUVChannelP6aiMesh.exit.thread ], [ 0, %.preheader ]
   %125 = load ptr, ptr %26, align 8
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv136
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %indvars.iv136
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 232
   %129 = load i32, ptr %128, align 8
@@ -1525,7 +1524,7 @@ _ZNSt7__cxx114listIN6Assimp23ComputeUVMappingProcess11MappingInfoESaIS3_EE9push_
 
 133:                                              ; preds = %136, %131
   %indvars.iv.i = phi i64 [ 0, %131 ], [ %indvars.iv.next.i, %136 ]
-  %134 = getelementptr inbounds nuw ptr, ptr %132, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %indvars.iv.i
   %135 = load ptr, ptr %134, align 8
   %.not.i = icmp eq ptr %135, null
   br i1 %.not.i, label %_Z18FindEmptyUVChannelP6aiMesh.exit, label %136
@@ -1568,7 +1567,7 @@ _Z18FindEmptyUVChannelP6aiMesh.exit:              ; preds = %133
   %152 = add nuw nsw i64 %151, 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %147, i8 0, i64 %152, i1 false)
   %153 = and i64 %indvars.iv.i, 4294967295
-  %154 = getelementptr inbounds nuw ptr, ptr %132, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %153
   store ptr %147, ptr %154, align 8
   %155 = load i32, ptr %49, align 4
   switch i32 %155, label %_ZN6Assimp23ComputeUVMappingProcess17ComputeBoxMappingEP6aiMeshP10aiVector3tIfE.exit [
@@ -2263,7 +2262,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(36) ptr @_ZN1
 
 _ZN12aiMatrix3x3tIfEixEj.exit:                    ; preds = %60, %61, %62
   %.0.i = phi ptr [ %57, %61 ], [ %58, %62 ], [ %2, %60 ]
-  %63 = getelementptr inbounds nuw float, ptr %.0.i, i64 %indvars.iv148
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv148
   %64 = load float, ptr %63, align 4
   %65 = fadd float %64, 1.000000e+00
   store float %65, ptr %63, align 4
@@ -2372,7 +2371,7 @@ _ZN10aiVector3tIfEixEj.exit105:                   ; preds = %_ZN10aiVector3tIfEi
 
 _ZN12aiMatrix3x3tIfEixEj.exit107:                 ; preds = %_ZN10aiVector3tIfEixEj.exit105, %87, %88
   %.0.i106 = phi ptr [ %57, %87 ], [ %58, %88 ], [ %2, %_ZN10aiVector3tIfEixEj.exit105 ]
-  %89 = getelementptr inbounds nuw float, ptr %.0.i106, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.0.i106, i64 %indvars.iv
   store float %86, ptr %89, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

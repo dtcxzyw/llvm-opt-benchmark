@@ -34,7 +34,7 @@ define range(i32 -1, 2147483647) i32 @Mvc_CoverAnyLiteral(ptr noundef readonly c
   %.14156.us = phi ptr [ %.14153.us, %.lr.ph.us ], [ %.141.us, %18 ]
   %.255.us = phi i32 [ 0, %.lr.ph.us ], [ %.3.us, %18 ]
   %13 = getelementptr inbounds nuw i8, ptr %.14156.us, i64 16
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %10
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %10
   %15 = load i32, ptr %14, align 4, !tbaa !15
   %16 = and i32 %15, %11
   %.not48.us = icmp eq i32 %16, 0
@@ -59,7 +59,7 @@ define range(i32 -1, 2147483647) i32 @Mvc_CoverAnyLiteral(ptr noundef readonly c
   %.13958 = phi i32 [ %.139, %.loopexit ], [ %.13957, %.lr.ph59 ]
   %20 = lshr i32 %.13958, 5
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %6, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !15
   %24 = and i32 %.13958, 31
   %25 = shl nuw i32 1, %24
@@ -76,7 +76,7 @@ define range(i32 -1, 2147483647) i32 @Mvc_CoverAnyLiteral(ptr noundef readonly c
   %.14156 = phi ptr [ %.141, %33 ], [ %.14153, %27 ]
   %.255 = phi i32 [ %.3, %33 ], [ 0, %27 ]
   %28 = getelementptr inbounds nuw i8, ptr %.14156, i64 16
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %21
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %21
   %30 = load i32, ptr %29, align 4, !tbaa !15
   %31 = and i32 %30, %25
   %.not48 = icmp eq i32 %31, 0
@@ -133,7 +133,7 @@ define i32 @Mvc_CoverBestLiteral(ptr noundef readonly captures(none) %0, ptr nou
   %.03343.us = phi ptr [ %.03340.us, %.lr.ph.us ], [ %.033.us, %11 ]
   %.02742.us = phi i32 [ 0, %.lr.ph.us ], [ %spec.select.us, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.03343.us, i64 16
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %10
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %10
   %14 = load i32, ptr %13, align 4, !tbaa !15
   %15 = lshr i32 %14, %9
   %16 = and i32 %15, 1
@@ -156,7 +156,7 @@ define i32 @Mvc_CoverBestLiteral(ptr noundef readonly captures(none) %0, ptr nou
   %.03244 = phi i32 [ %34, %33 ], [ 0, %.lr.ph48 ]
   %19 = lshr i32 %.03244, 5
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %6, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !15
   %23 = and i32 %.03244, 31
   %24 = shl nuw i32 1, %23
@@ -173,7 +173,7 @@ define i32 @Mvc_CoverBestLiteral(ptr noundef readonly captures(none) %0, ptr nou
   %.03343 = phi ptr [ %.033, %.lr.ph ], [ %.03340, %26 ]
   %.02742 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %26 ]
   %27 = getelementptr inbounds nuw i8, ptr %.03343, i64 16
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %20
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %20
   %29 = load i32, ptr %28, align 4, !tbaa !15
   %30 = lshr i32 %29, %23
   %31 = and i32 %30, 1
@@ -240,7 +240,7 @@ define i32 @Mvc_CoverWorstLiteral(ptr noundef readonly captures(none) %0, ptr no
   %.03444.us = phi ptr [ %.03441.us, %.lr.ph.us ], [ %.034.us, %11 ]
   %.02843.us = phi i32 [ 0, %.lr.ph.us ], [ %spec.select.us, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.03444.us, i64 16
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %10
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %10
   %14 = load i32, ptr %13, align 4, !tbaa !15
   %15 = lshr i32 %14, %9
   %16 = and i32 %15, 1
@@ -265,7 +265,7 @@ define i32 @Mvc_CoverWorstLiteral(ptr noundef readonly captures(none) %0, ptr no
   %.03345 = phi i32 [ %36, %35 ], [ 0, %.lr.ph49 ]
   %20 = lshr i32 %.03345, 5
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %6, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !15
   %24 = and i32 %.03345, 31
   %25 = shl nuw i32 1, %24
@@ -282,7 +282,7 @@ define i32 @Mvc_CoverWorstLiteral(ptr noundef readonly captures(none) %0, ptr no
   %.03444 = phi ptr [ %.034, %.lr.ph ], [ %.03441, %27 ]
   %.02843 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %27 ]
   %28 = getelementptr inbounds nuw i8, ptr %.03444, i64 16
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %21
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %21
   %30 = load i32, ptr %29, align 4, !tbaa !15
   %31 = lshr i32 %30, %24
   %32 = and i32 %31, 1
@@ -382,7 +382,7 @@ define noundef ptr @Mvc_CoverBestLiteralCover(ptr noundef %0, ptr noundef %1) lo
   %.03343.us.i = phi ptr [ %.03340.us.i, %.lr.ph.us.i ], [ %.033.us.i, %24 ]
   %.02742.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %spec.select.us.i, %24 ]
   %25 = getelementptr inbounds nuw i8, ptr %.03343.us.i, i64 16
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %23
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %23
   %27 = load i32, ptr %26, align 4, !tbaa !15
   %28 = lshr i32 %27, %22
   %29 = and i32 %28, 1
@@ -405,7 +405,7 @@ define noundef ptr @Mvc_CoverBestLiteralCover(ptr noundef %0, ptr noundef %1) lo
   %.03244.i = phi i32 [ %47, %46 ], [ 0, %.lr.ph48.i ]
   %32 = lshr i32 %.03244.i, 5
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %19, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !15
   %36 = and i32 %.03244.i, 31
   %37 = shl nuw i32 1, %36
@@ -422,7 +422,7 @@ define noundef ptr @Mvc_CoverBestLiteralCover(ptr noundef %0, ptr noundef %1) lo
   %.03343.i = phi ptr [ %.033.i, %.lr.ph.i ], [ %.03340.i, %39 ]
   %.02742.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 0, %39 ]
   %40 = getelementptr inbounds nuw i8, ptr %.03343.i, i64 16
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %33
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %33
   %42 = load i32, ptr %41, align 4, !tbaa !15
   %43 = lshr i32 %42, %36
   %44 = and i32 %43, 1
@@ -460,7 +460,7 @@ Mvc_CoverBestLiteral.exit:                        ; preds = %.loopexit, %.lr.ph4
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %53 = ashr i32 %49, 5
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %52, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %52, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !15
   %57 = or i32 %51, %56
   store i32 %57, ptr %55, align 4, !tbaa !15
@@ -509,7 +509,7 @@ define range(i32 -2147483648, 2147483647) i32 @Mvc_CoverFirstCubeFirstLit(ptr no
   %.0910 = phi i32 [ %15, %14 ], [ 0, %1 ]
   %7 = lshr i32 %.0910, 5
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !15
   %11 = and i32 %.0910, 31
   %12 = shl nuw i32 1, %11
@@ -552,7 +552,7 @@ define i32 @Mvc_CoverCountLiterals(ptr noundef readonly captures(none) %0) local
   %.01621 = phi ptr [ %.01618, %.lr.ph ], [ %.016, %9 ]
   %.020 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %9 ]
   %10 = getelementptr inbounds nuw i8, ptr %.01621, i64 16
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %8
   %12 = load i32, ptr %11, align 4, !tbaa !15
   %13 = lshr i32 %12, %7
   %14 = and i32 %13, 1
@@ -594,7 +594,7 @@ define range(i32 0, 2) i32 @Mvc_CoverIsOneLiteral(ptr noundef %0) local_unnamed_
   %.01114 = phi i32 [ 0, %.lr.ph ], [ %19, %18 ]
   %10 = lshr i32 %.01114, 5
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !15
   %14 = and i32 %.01114, 31
   %15 = shl nuw i32 1, %14

@@ -814,7 +814,7 @@ default.unreachable:                              ; preds = %26
 .noexc17:                                         ; preds = %58, %._crit_edge.i.i.i
   %67 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %59, %58 ]
   %68 = load ptr, ptr %53, align 8, !alias.scope !291, !noalias !294, !nonnull !13, !noundef !13
-  %69 = getelementptr inbounds { i64, [8 x i64] }, ptr %68, i64 %67
+  %69 = getelementptr inbounds [72 x i8], ptr %68, i64 %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %69, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   %70 = add i64 %67, 1
   store i64 %70, ptr %52, align 8, !alias.scope !291, !noalias !294

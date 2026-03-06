@@ -192,10 +192,10 @@ define dso_local void @_ZNSt3__18ios_base16__call_callbacksENS0_5eventE(ptr noun
   %.06 = phi i64 [ %4, %.lr.ph ], [ %8, %7 ]
   %8 = add i64 %.06, -1
   %9 = load ptr, ptr %5, align 8, !tbaa !21
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !22
   %12 = load ptr, ptr %6, align 8, !tbaa !23
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %8
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %8
   %14 = load i32, ptr %13, align 4, !tbaa !8
   tail call void %11(i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %14)
   %.not = icmp eq i64 %8, 0
@@ -221,10 +221,10 @@ define dso_local void @_ZNSt3__18ios_base5imbueERKNS_6localeE(ptr dead_on_unwind
   %.06.i = phi i64 [ %7, %.lr.ph.i ], [ %11, %.noexc ]
   %11 = add i64 %.06.i, -1
   %12 = load ptr, ptr %8, align 8, !tbaa !21
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !22
   %15 = load ptr, ptr %9, align 8, !tbaa !23
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %11
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %11
   %17 = load i32, ptr %16, align 4, !tbaa !8
   invoke void %14(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(136) %1, i32 noundef %17)
           to label %.noexc unwind label %18
@@ -323,7 +323,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__18ios_b
   br i1 %27, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %24
-  %28 = getelementptr i64, ptr %14, i64 %26
+  %28 = getelementptr [8 x i8], ptr %14, i64 %26
   %29 = shl i64 %26, 3
   %30 = add i64 %29, %15
   %31 = add i64 %30, 8
@@ -347,7 +347,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__18ios_b
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %40, i64 %4)
   store i64 %.sroa.speculated, ptr %41, align 8, !tbaa !31
-  %42 = getelementptr inbounds i64, ptr %39, i64 %3
+  %42 = getelementptr inbounds [8 x i8], ptr %39, i64 %3
   br label %43
 
 43:                                               ; preds = %.thread, %38
@@ -416,7 +416,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__18ios_b
   br i1 %29, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %26
-  %30 = getelementptr ptr, ptr %16, i64 %28
+  %30 = getelementptr [8 x i8], ptr %16, i64 %28
   %31 = shl i64 %28, 3
   %32 = add i64 %31, %17
   %33 = add i64 %32, 8
@@ -440,7 +440,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__18ios_b
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %42, i64 %4)
   store i64 %.sroa.speculated, ptr %43, align 8, !tbaa !34
-  %44 = getelementptr inbounds ptr, ptr %41, i64 %3
+  %44 = getelementptr inbounds [8 x i8], ptr %41, i64 %3
   br label %45
 
 45:                                               ; preds = %.thread, %40
@@ -521,11 +521,11 @@ _ZNSt3__18ios_base8setstateB8ne210000Ej.exit15:   ; preds = %31, %_ZNSt3__18ios_
   %40 = phi i64 [ %.pre, %_ZNSt3__18ios_base8setstateB8ne210000Ej.exit15 ], [ %5, %3 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load ptr, ptr %41, align 8, !tbaa !21
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %1, ptr %43, align 8, !tbaa !22
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = load ptr, ptr %44, align 8, !tbaa !23
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %40
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %40
   store i32 %2, ptr %46, align 4, !tbaa !8
   store i64 %.pre-phi, ptr %4, align 8, !tbaa !15
   ret void
@@ -554,10 +554,10 @@ define dso_local void @_ZNSt3__18ios_baseD2Ev(ptr noundef nonnull align 8 derefe
   %.06.i = phi i64 [ %6, %.lr.ph.i ], [ %10, %.noexc ]
   %10 = add i64 %.06.i, -1
   %11 = load ptr, ptr %7, align 8, !tbaa !21
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   %13 = load ptr, ptr %12, align 8, !tbaa !22
   %14 = load ptr, ptr %8, align 8, !tbaa !23
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %10
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %10
   %16 = load i32, ptr %15, align 4, !tbaa !8
   invoke void %13(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %16)
           to label %.noexc unwind label %26
@@ -839,16 +839,16 @@ _ZNSt3__110unique_ptrIPvPFvS1_EE5resetB8ne210000EPS1_.exit: ; preds = %28
 67:                                               ; preds = %.lr.ph, %67
   %storemerge120 = phi i64 [ 0, %.lr.ph ], [ %78, %67 ]
   %68 = load ptr, ptr %63, align 8, !tbaa !21
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %storemerge120
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %storemerge120
   %70 = load ptr, ptr %69, align 8, !tbaa !22
   %71 = load ptr, ptr %64, align 8, !tbaa !21
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %storemerge120
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %storemerge120
   store ptr %70, ptr %72, align 8, !tbaa !22
   %73 = load ptr, ptr %65, align 8, !tbaa !23
-  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %storemerge120
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %storemerge120
   %75 = load i32, ptr %74, align 4, !tbaa !8
   %76 = load ptr, ptr %66, align 8, !tbaa !23
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %storemerge120
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %storemerge120
   store i32 %75, ptr %77, align 4, !tbaa !8
   %78 = add nuw i64 %storemerge120, 1
   store i64 %78, ptr %61, align 8, !tbaa !15
@@ -888,9 +888,9 @@ _ZNSt3__110unique_ptrIPvPFvS1_EE5resetB8ne210000EPS1_.exit: ; preds = %28
 
 95:                                               ; preds = %.lr.ph123, %95
   %storemerge43121 = phi i64 [ 0, %.lr.ph123 ], [ %100, %95 ]
-  %96 = getelementptr inbounds nuw i64, ptr %92, i64 %storemerge43121
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %storemerge43121
   %97 = load i64, ptr %96, align 8, !tbaa !27
-  %98 = getelementptr inbounds nuw i64, ptr %94, i64 %storemerge43121
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %storemerge43121
   store i64 %97, ptr %98, align 8, !tbaa !27
   %99 = load i64, ptr %89, align 8, !tbaa !31
   %100 = add i64 %99, 1
@@ -930,10 +930,10 @@ _ZNSt3__110unique_ptrIPvPFvS1_EE5resetB8ne210000EPS1_.exit: ; preds = %28
 115:                                              ; preds = %.lr.ph127, %115
   %storemerge44125 = phi i64 [ 0, %.lr.ph127 ], [ %121, %115 ]
   %116 = load ptr, ptr %113, align 8, !tbaa !33
-  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %storemerge44125
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %storemerge44125
   %118 = load ptr, ptr %117, align 8, !tbaa !22
   %119 = load ptr, ptr %114, align 8, !tbaa !33
-  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %storemerge44125
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %storemerge44125
   store ptr %118, ptr %120, align 8, !tbaa !22
   %121 = add nuw i64 %storemerge44125, 1
   store i64 %121, ptr %111, align 8, !tbaa !34

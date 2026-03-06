@@ -59,7 +59,7 @@ define void @_ZN5folly6fibers6detail32createABDTokenNotDispatchedExMsgB5cxx11ERK
   %.01164 = phi i64 [ 1, %.noexc15.lr.ph ], [ %37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %22 = load ptr, ptr %1, align 8, !tbaa !13
-  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %.01164
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.01164
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !19
   %24 = load i64, ptr %23, align 8, !tbaa !17
   store i64 %24, ptr %4, align 16, !noalias !19

@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pcap_ppp_phdr = type { i8 }
 %struct.pcap_bt_monitor_phdr = type { i16, i16 }
 %struct.pcap_bt_phdr = type { i32 }
-%struct.erf_ehdr = type { i64 }
-%struct.linux_usb_isodesc = type { i32, i32, i32, i32 }
 
 @pcap_to_wtap_map = internal unnamed_addr constant [162 x %struct.anon] [%struct.anon { i32 0, i32 15 }, %struct.anon { i32 1, i32 1 }, %struct.anon { i32 2, i32 184 }, %struct.anon { i32 3, i32 148 }, %struct.anon { i32 6, i32 2 }, %struct.anon { i32 7, i32 8 }, %struct.anon { i32 8, i32 3 }, %struct.anon { i32 9, i32 4 }, %struct.anon { i32 10, i32 6 }, %struct.anon { i32 32, i32 69 }, %struct.anon { i32 50, i32 4 }, %struct.anon { i32 51, i32 139 }, %struct.anon { i32 99, i32 61 }, %struct.anon { i32 100, i32 10 }, %struct.anon { i32 101, i32 7 }, %struct.anon { i32 104, i32 28 }, %struct.anon { i32 105, i32 20 }, %struct.anon { i32 106, i32 11 }, %struct.anon { i32 107, i32 26 }, %struct.anon { i32 108, i32 174 }, %struct.anon { i32 109, i32 38 }, %struct.anon { i32 112, i32 28 }, %struct.anon { i32 113, i32 25 }, %struct.anon { i32 114, i32 30 }, %struct.anon { i32 117, i32 39 }, %struct.anon { i32 118, i32 29 }, %struct.anon { i32 119, i32 21 }, %struct.anon { i32 121, i32 32 }, %struct.anon { i32 122, i32 18 }, %struct.anon { i32 123, i32 13 }, %struct.anon { i32 127, i32 23 }, %struct.anon { i32 128, i32 37 }, %struct.anon { i32 129, i32 9 }, %struct.anon { i32 130, i32 81 }, %struct.anon { i32 131, i32 82 }, %struct.anon { i32 133, i32 87 }, %struct.anon { i32 135, i32 68 }, %struct.anon { i32 136, i32 151 }, %struct.anon { i32 137, i32 67 }, %struct.anon { i32 138, i32 62 }, %struct.anon { i32 139, i32 75 }, %struct.anon { i32 140, i32 42 }, %struct.anon { i32 141, i32 43 }, %struct.anon { i32 142, i32 101 }, %struct.anon { i32 143, i32 33 }, %struct.anon { i32 144, i32 44 }, %struct.anon { i32 147, i32 45 }, %struct.anon { i32 148, i32 46 }, %struct.anon { i32 149, i32 47 }, %struct.anon { i32 150, i32 48 }, %struct.anon { i32 151, i32 49 }, %struct.anon { i32 152, i32 50 }, %struct.anon { i32 153, i32 51 }, %struct.anon { i32 154, i32 52 }, %struct.anon { i32 155, i32 53 }, %struct.anon { i32 156, i32 54 }, %struct.anon { i32 157, i32 55 }, %struct.anon { i32 158, i32 56 }, %struct.anon { i32 159, i32 57 }, %struct.anon { i32 160, i32 58 }, %struct.anon { i32 161, i32 59 }, %struct.anon { i32 162, i32 60 }, %struct.anon { i32 163, i32 24 }, %struct.anon { i32 165, i32 63 }, %struct.anon { i32 167, i32 76 }, %struct.anon { i32 169, i32 66 }, %struct.anon { i32 170, i32 178 }, %struct.anon { i32 171, i32 179 }, %struct.anon { i32 172, i32 77 }, %struct.anon { i32 173, i32 78 }, %struct.anon { i32 177, i32 88 }, %struct.anon { i32 178, i32 83 }, %struct.anon { i32 179, i32 84 }, %struct.anon { i32 180, i32 85 }, %struct.anon { i32 181, i32 86 }, %struct.anon { i32 183, i32 91 }, %struct.anon { i32 184, i32 181 }, %struct.anon { i32 186, i32 92 }, %struct.anon { i32 187, i32 41 }, %struct.anon { i32 188, i32 93 }, %struct.anon { i32 189, i32 95 }, %struct.anon { i32 190, i32 109 }, %struct.anon { i32 192, i32 97 }, %struct.anon { i32 195, i32 104 }, %struct.anon { i32 196, i32 100 }, %struct.anon { i32 197, i32 98 }, %struct.anon { i32 199, i32 103 }, %struct.anon { i32 200, i32 197 }, %struct.anon { i32 201, i32 99 }, %struct.anon { i32 202, i32 147 }, %struct.anon { i32 203, i32 131 }, %struct.anon { i32 204, i32 19 }, %struct.anon { i32 209, i32 112 }, %struct.anon { i32 210, i32 106 }, %struct.anon { i32 211, i32 108 }, %struct.anon { i32 212, i32 107 }, %struct.anon { i32 213, i32 111 }, %struct.anon { i32 214, i32 105 }, %struct.anon { i32 215, i32 113 }, %struct.anon { i32 220, i32 115 }, %struct.anon { i32 224, i32 121 }, %struct.anon { i32 225, i32 122 }, %struct.anon { i32 226, i32 124 }, %struct.anon { i32 227, i32 125 }, %struct.anon { i32 228, i32 129 }, %struct.anon { i32 229, i32 130 }, %struct.anon { i32 230, i32 127 }, %struct.anon { i32 231, i32 146 }, %struct.anon { i32 235, i32 132 }, %struct.anon { i32 236, i32 133 }, %struct.anon { i32 237, i32 157 }, %struct.anon { i32 239, i32 141 }, %struct.anon { i32 240, i32 135 }, %struct.anon { i32 241, i32 136 }, %struct.anon { i32 242, i32 180 }, %struct.anon { i32 243, i32 138 }, %struct.anon { i32 245, i32 140 }, %struct.anon { i32 248, i32 149 }, %struct.anon { i32 249, i32 152 }, %struct.anon { i32 250, i32 153 }, %struct.anon { i32 251, i32 154 }, %struct.anon { i32 252, i32 155 }, %struct.anon { i32 253, i32 158 }, %struct.anon { i32 254, i32 159 }, %struct.anon { i32 255, i32 160 }, %struct.anon { i32 256, i32 161 }, %struct.anon { i32 258, i32 171 }, %struct.anon { i32 259, i32 172 }, %struct.anon { i32 260, i32 173 }, %struct.anon { i32 264, i32 177 }, %struct.anon { i32 266, i32 182 }, %struct.anon { i32 268, i32 36 }, %struct.anon { i32 270, i32 183 }, %struct.anon { i32 271, i32 185 }, %struct.anon { i32 272, i32 186 }, %struct.anon { i32 273, i32 199 }, %struct.anon { i32 274, i32 198 }, %struct.anon { i32 275, i32 200 }, %struct.anon { i32 276, i32 210 }, %struct.anon { i32 279, i32 204 }, %struct.anon { i32 280, i32 205 }, %struct.anon { i32 283, i32 206 }, %struct.anon { i32 287, i32 211 }, %struct.anon { i32 288, i32 208 }, %struct.anon { i32 289, i32 220 }, %struct.anon { i32 290, i32 212 }, %struct.anon { i32 292, i32 214 }, %struct.anon { i32 293, i32 215 }, %struct.anon { i32 294, i32 216 }, %struct.anon { i32 295, i32 217 }, %struct.anon { i32 296, i32 219 }, %struct.anon { i32 298, i32 222 }, %struct.anon { i32 299, i32 221 }, %struct.anon { i32 300, i32 223 }, %struct.anon { i32 301, i32 225 }, %struct.anon { i32 11, i32 10 }, %struct.anon { i32 12, i32 7 }, %struct.anon { i32 13, i32 38 }, %struct.anon { i32 14, i32 7 }, %struct.anon { i32 16, i32 11 }, %struct.anon { i32 18, i32 11 }, %struct.anon { i32 19, i32 11 }], align 16
 @.str = private unnamed_addr constant [99 x i8] c"pcap/pcapng: Nokia IPSO ATM file has a %u-byte packet, too small to have even an ATM pseudo-header\00", align 1
@@ -43,13 +41,13 @@ define i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef %0) local_unnamed_addr #0 
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr %struct.anon, ptr @pcap_to_wtap_map, i64 %indvars.iv
+  %4 = getelementptr [8 x i8], ptr @pcap_to_wtap_map, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %2
 
 7:                                                ; preds = %3
-  %8 = getelementptr %struct.anon, ptr @pcap_to_wtap_map, i64 %indvars.iv
+  %8 = getelementptr [8 x i8], ptr @pcap_to_wtap_map, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   br label %.loopexit
@@ -82,7 +80,7 @@ define hidden i32 @wtap_wtap_encap_to_pcap_encap(i32 noundef %0) local_unnamed_a
 
 .preheader:                                       ; preds = %1, %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %4 ], [ 0, %1 ]
-  %5 = getelementptr %struct.anon, ptr @pcap_to_wtap_map, i64 %indvars.iv
+  %5 = getelementptr [8 x i8], ptr @pcap_to_wtap_map, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, %0
@@ -831,7 +829,7 @@ pcap_read_ppp_pseudoheader.exit:                  ; preds = %227
   %335 = load i8, ptr %292, align 1
   %336 = zext i8 %335 to i64
   %337 = or i64 %334, %336
-  %338 = getelementptr %struct.erf_ehdr, ptr %293, i64 %indvars.iv.i
+  %338 = getelementptr [8 x i8], ptr %293, i64 %indvars.iv.i
   store i64 %337, ptr %338, align 1
   br label %339
 
@@ -1393,7 +1391,7 @@ define hidden void @pcap_read_post_process(i1 noundef zeroext %0, i32 noundef %1
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %179 ], [ 0, %161 ]
   %.046.i.i = phi i32 [ %180, %179 ], [ %150, %161 ]
   %.03544.i.i = phi i32 [ %.1.i.i, %179 ], [ 0, %161 ]
-  %172 = getelementptr %struct.linux_usb_isodesc, ptr %162, i64 %indvars.iv.i.i
+  %172 = getelementptr [16 x i8], ptr %162, i64 %indvars.iv.i.i
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load i32, ptr %173, align 4
   %.not43.i.i = icmp eq i32 %174, 0
@@ -2000,7 +1998,7 @@ define hidden range(i32 8, 6) i32 @pcap_get_phdr_size(i32 noundef %0, ptr nounde
 11:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %.2 = phi i32 [ 16, %.preheader ], [ %14, %11 ]
-  %12 = getelementptr %struct.erf_ehdr, ptr %10, i64 %indvars.iv
+  %12 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8
   %14 = add nuw nsw i32 %.2, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2287,7 +2285,7 @@ pcap_write_bt_pseudoheader.exit:                  ; preds = %4
 119:                                              ; preds = %119, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %119 ]
   %.2.i.i = phi i32 [ 16, %.preheader.i.i ], [ %122, %119 ]
-  %120 = getelementptr %struct.erf_ehdr, ptr %118, i64 %indvars.iv.i.i
+  %120 = getelementptr [8 x i8], ptr %118, i64 %indvars.iv.i.i
   %121 = load i64, ptr %120, align 8
   %122 = add nuw nsw i32 %.2.i.i, 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2342,7 +2340,7 @@ pcap_get_phdr_size.exit.i:                        ; preds = %131, %129, %127, %.
 137:                                              ; preds = %137, %.preheader.i74.i
   %indvars.iv.i75.i = phi i64 [ 0, %.preheader.i74.i ], [ %indvars.iv.next.i77.i, %137 ]
   %.2.i76.i = phi i32 [ 16, %.preheader.i74.i ], [ %140, %137 ]
-  %138 = getelementptr %struct.erf_ehdr, ptr %136, i64 %indvars.iv.i75.i
+  %138 = getelementptr [8 x i8], ptr %136, i64 %indvars.iv.i75.i
   %139 = load i64, ptr %138, align 8
   %140 = add nuw nsw i32 %.2.i76.i, 8
   %indvars.iv.next.i77.i = add nuw nsw i64 %indvars.iv.i75.i, 1
@@ -2400,7 +2398,7 @@ pcap_get_phdr_size.exit81.i:                      ; preds = %148, %146, %144, %.
 157:                                              ; preds = %157, %.preheader.i83.i
   %indvars.iv.i84.i = phi i64 [ 0, %.preheader.i83.i ], [ %indvars.iv.next.i86.i, %157 ]
   %.2.i85.i = phi i32 [ 16, %.preheader.i83.i ], [ %160, %157 ]
-  %158 = getelementptr %struct.erf_ehdr, ptr %156, i64 %indvars.iv.i84.i
+  %158 = getelementptr [8 x i8], ptr %156, i64 %indvars.iv.i84.i
   %159 = load i64, ptr %158, align 8
   %160 = add nuw nsw i32 %.2.i85.i, 8
   %indvars.iv.next.i86.i = add nuw nsw i64 %indvars.iv.i84.i, 1
@@ -2454,7 +2452,7 @@ pcap_get_phdr_size.exit90.i:                      ; preds = %168, %166, %164, %.
 174:                                              ; preds = %174, %.preheader.i92.i
   %indvars.iv.i93.i = phi i64 [ 0, %.preheader.i92.i ], [ %indvars.iv.next.i95.i, %174 ]
   %.2.i94.i = phi i32 [ 16, %.preheader.i92.i ], [ %177, %174 ]
-  %175 = getelementptr %struct.erf_ehdr, ptr %173, i64 %indvars.iv.i93.i
+  %175 = getelementptr [8 x i8], ptr %173, i64 %indvars.iv.i93.i
   %176 = load i64, ptr %175, align 8
   %177 = add nuw nsw i32 %.2.i94.i, 8
   %indvars.iv.next.i95.i = add nuw nsw i64 %indvars.iv.i93.i, 1
@@ -2540,7 +2538,7 @@ pcap_get_phdr_size.exit99.i:                      ; preds = %185, %183, %181, %.
 
 216:                                              ; preds = %239, %207
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %239 ], [ 0, %207 ]
-  %217 = getelementptr %struct.erf_ehdr, ptr %208, i64 %indvars.iv.i
+  %217 = getelementptr [8 x i8], ptr %208, i64 %indvars.iv.i
   %218 = load i64, ptr %217, align 8
   %219 = lshr i64 %218, 56
   %220 = trunc nuw i64 %219 to i8

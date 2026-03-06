@@ -89,7 +89,7 @@ define dso_local ptr @ztrymalloc_usable(i64 noundef %0, ptr noundef writeonly ca
 
 update_zmalloc_stat_alloc.exit.i:                 ; preds = %12, %7
   %15 = phi i64 [ %10, %7 ], [ %14, %12 ]
-  %16 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %15
+  %16 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %15
   %17 = atomicrmw add ptr %16, i64 %8 monotonic, align 64
   br label %ztrymalloc_usable_internal.exit
 
@@ -134,7 +134,7 @@ define dso_local noalias ptr @zmalloc(i64 noundef %0) local_unnamed_addr #4 {
 
 ztrymalloc_usable_internal.exit:                  ; preds = %6, %11
   %14 = phi i64 [ %9, %6 ], [ %13, %11 ]
-  %15 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %14
+  %15 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %14
   %16 = atomicrmw add ptr %15, i64 %7 monotonic, align 64
   br label %19
 
@@ -175,7 +175,7 @@ define dso_local noalias ptr @ztrymalloc(i64 noundef %0) local_unnamed_addr #4 {
 
 update_zmalloc_stat_alloc.exit.i:                 ; preds = %11, %6
   %14 = phi i64 [ %9, %6 ], [ %13, %11 ]
-  %15 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %14
+  %15 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %14
   %16 = atomicrmw add ptr %15, i64 %7 monotonic, align 64
   br label %ztrymalloc_usable_internal.exit
 
@@ -211,7 +211,7 @@ define dso_local ptr @zmalloc_usable(i64 noundef %0, ptr noundef writeonly captu
 
 .split:                                           ; preds = %12, %7
   %15 = phi i64 [ %10, %7 ], [ %14, %12 ]
-  %16 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %15
+  %16 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %15
   %17 = atomicrmw add ptr %16, i64 %8 monotonic, align 64
   br label %19
 
@@ -269,7 +269,7 @@ define dso_local ptr @zmalloc_with_flags(i64 noundef %0, i32 noundef %1) local_u
 
 update_zmalloc_stat_alloc.exit:                   ; preds = %10, %15
   %18 = phi i64 [ %13, %10 ], [ %17, %15 ]
-  %19 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %18
+  %19 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %18
   %20 = atomicrmw add ptr %19, i64 %11 monotonic, align 64
   ret ptr %7
 }
@@ -302,7 +302,7 @@ define dso_local ptr @zrealloc_with_flags(ptr noundef %0, i64 noundef %1, i32 no
 
 zfree_with_flags.exit:                            ; preds = %6, %11
   %14 = phi i64 [ %9, %6 ], [ %13, %11 ]
-  %15 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %14
+  %15 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %14
   %16 = atomicrmw sub ptr %15, i64 %7 monotonic, align 64
   tail call void @je_dallocx(ptr noundef nonnull %0, i32 noundef %2) #26
   br label %75
@@ -345,7 +345,7 @@ zfree_with_flags.exit:                            ; preds = %6, %11
 
 zmalloc_with_flags.exit:                          ; preds = %27, %32
   %35 = phi i64 [ %30, %27 ], [ %34, %32 ]
-  %36 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %35
+  %36 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %35
   %37 = atomicrmw add ptr %36, i64 %28 monotonic, align 64
   br label %75
 
@@ -367,7 +367,7 @@ zmalloc_with_flags.exit:                          ; preds = %27, %32
 
 zfree_with_flags.exit28:                          ; preds = %40, %44
   %47 = phi i64 [ %42, %40 ], [ %46, %44 ]
-  %48 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %47
+  %48 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %47
   %49 = atomicrmw sub ptr %48, i64 %39 monotonic, align 64
   tail call void @je_dallocx(ptr noundef nonnull %0, i32 noundef %2) #26
   %50 = load ptr, ptr @zmalloc_oom_handler, align 8, !tbaa !10
@@ -398,7 +398,7 @@ zfree_with_flags.exit28:                          ; preds = %40, %44
 
 update_zmalloc_stat_free.exit:                    ; preds = %56, %60
   %63 = phi i64 [ %58, %56 ], [ %62, %60 ]
-  %64 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %63
+  %64 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %63
   %65 = atomicrmw sub ptr %64, i64 %39 monotonic, align 64
   %66 = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %52) #26
   %67 = load i64, ptr %57, align 8, !tbaa !5
@@ -413,7 +413,7 @@ update_zmalloc_stat_free.exit:                    ; preds = %56, %60
 
 update_zmalloc_stat_alloc.exit:                   ; preds = %update_zmalloc_stat_free.exit, %69
   %72 = phi i64 [ %67, %update_zmalloc_stat_free.exit ], [ %71, %69 ]
-  %73 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %72
+  %73 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %72
   %74 = atomicrmw add ptr %73, i64 %66 monotonic, align 64
   br label %75
 
@@ -442,7 +442,7 @@ define dso_local void @zfree_with_flags(ptr noundef %0, i32 noundef %1) local_un
 
 update_zmalloc_stat_free.exit:                    ; preds = %4, %9
   %12 = phi i64 [ %7, %4 ], [ %11, %9 ]
-  %13 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %12
+  %13 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %12
   %14 = atomicrmw sub ptr %13, i64 %5 monotonic, align 64
   tail call void @je_dallocx(ptr noundef nonnull %0, i32 noundef %1) #26
   br label %15
@@ -492,7 +492,7 @@ define dso_local noalias ptr @zmalloc_no_tcache(i64 noundef %0) local_unnamed_ad
 
 update_zmalloc_stat_alloc.exit:                   ; preds = %9, %14
   %17 = phi i64 [ %12, %9 ], [ %16, %14 ]
-  %18 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %17
+  %18 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %17
   %19 = atomicrmw add ptr %18, i64 %10 monotonic, align 64
   ret ptr %6
 }
@@ -517,7 +517,7 @@ define dso_local void @zfree_no_tcache(ptr noundef %0) local_unnamed_addr #3 {
 
 update_zmalloc_stat_free.exit:                    ; preds = %3, %8
   %11 = phi i64 [ %6, %3 ], [ %10, %8 ]
-  %12 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %11
+  %12 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %11
   %13 = atomicrmw sub ptr %12, i64 %4 monotonic, align 64
   tail call void @je_dallocx(ptr noundef nonnull %0, i32 noundef 256) #26
   br label %14
@@ -553,7 +553,7 @@ define dso_local ptr @ztrycalloc_usable(i64 noundef %0, ptr noundef writeonly ca
 
 update_zmalloc_stat_alloc.exit.i:                 ; preds = %13, %8
   %16 = phi i64 [ %11, %8 ], [ %15, %13 ]
-  %17 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %16
   %18 = atomicrmw add ptr %17, i64 %9 monotonic, align 64
   br label %ztrycalloc_usable_internal.exit
 
@@ -613,7 +613,7 @@ define dso_local noalias ptr @zcalloc_num(i64 noundef %0, i64 noundef %1) local_
 
 ztrycalloc_usable_internal.exit:                  ; preds = %14, %19
   %22 = phi i64 [ %17, %14 ], [ %21, %19 ]
-  %23 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %22
+  %23 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %22
   %24 = atomicrmw add ptr %23, i64 %15 monotonic, align 64
   br label %27
 
@@ -654,7 +654,7 @@ define dso_local noalias ptr @zcalloc(i64 noundef %0) local_unnamed_addr #4 {
 
 ztrycalloc_usable_internal.exit:                  ; preds = %7, %12
   %15 = phi i64 [ %10, %7 ], [ %14, %12 ]
-  %16 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %15
+  %16 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %15
   %17 = atomicrmw add ptr %16, i64 %8 monotonic, align 64
   br label %20
 
@@ -695,7 +695,7 @@ define dso_local noalias ptr @ztrycalloc(i64 noundef %0) local_unnamed_addr #4 {
 
 update_zmalloc_stat_alloc.exit.i:                 ; preds = %12, %7
   %15 = phi i64 [ %10, %7 ], [ %14, %12 ]
-  %16 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %15
+  %16 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %15
   %17 = atomicrmw add ptr %16, i64 %8 monotonic, align 64
   br label %ztrycalloc_usable_internal.exit
 
@@ -731,7 +731,7 @@ define dso_local ptr @zcalloc_usable(i64 noundef %0, ptr noundef writeonly captu
 
 .split:                                           ; preds = %13, %8
   %16 = phi i64 [ %11, %8 ], [ %15, %13 ]
-  %17 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %16
   %18 = atomicrmw add ptr %17, i64 %9 monotonic, align 64
   br label %20
 
@@ -795,7 +795,7 @@ define internal fastcc ptr @ztryrealloc_usable_internal(ptr noundef %0, i64 noun
 
 zfree.exit:                                       ; preds = %6, %11
   %14 = phi i64 [ %9, %6 ], [ %13, %11 ]
-  %15 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %14
+  %15 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %14
   %16 = atomicrmw sub ptr %15, i64 %7 monotonic, align 64
   tail call void @je_free(ptr noundef nonnull %0) #26
   %.not33 = icmp eq ptr %2, null
@@ -830,7 +830,7 @@ zfree.exit:                                       ; preds = %6, %11
 
 update_zmalloc_stat_alloc.exit.i.i:               ; preds = %29, %24
   %32 = phi i64 [ %27, %24 ], [ %31, %29 ]
-  %33 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %32
+  %33 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %32
   %34 = atomicrmw add ptr %33, i64 %25 monotonic, align 64
   br label %ztrymalloc_usable_internal.exit.i
 
@@ -858,7 +858,7 @@ ztrymalloc_usable_internal.exit.i:                ; preds = %update_zmalloc_stat
 
 zfree.exit35:                                     ; preds = %37, %41
   %44 = phi i64 [ %39, %37 ], [ %43, %41 ]
-  %45 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %44
+  %45 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %44
   %46 = atomicrmw sub ptr %45, i64 %36 monotonic, align 64
   tail call void @je_free(ptr noundef nonnull %0) #26
   %.not32 = icmp eq ptr %2, null
@@ -887,7 +887,7 @@ zfree.exit35:                                     ; preds = %37, %41
 
 update_zmalloc_stat_free.exit:                    ; preds = %51, %55
   %58 = phi i64 [ %53, %51 ], [ %57, %55 ]
-  %59 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %58
+  %59 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %58
   %60 = atomicrmw sub ptr %59, i64 %36 monotonic, align 64
   %61 = tail call i64 @je_malloc_usable_size(ptr noundef nonnull %48) #26
   %62 = load i64, ptr %52, align 8, !tbaa !5
@@ -902,7 +902,7 @@ update_zmalloc_stat_free.exit:                    ; preds = %51, %55
 
 update_zmalloc_stat_alloc.exit:                   ; preds = %update_zmalloc_stat_free.exit, %64
   %67 = phi i64 [ %62, %update_zmalloc_stat_free.exit ], [ %66, %64 ]
-  %68 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %67
+  %68 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %67
   %69 = atomicrmw add ptr %68, i64 %61 monotonic, align 64
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %ztrymalloc_usable.exit, label %ztrymalloc_usable.exit.sink.split
@@ -991,7 +991,7 @@ define dso_local void @zfree(ptr noundef %0) local_unnamed_addr #3 {
 
 update_zmalloc_stat_free.exit:                    ; preds = %3, %8
   %11 = phi i64 [ %6, %3 ], [ %10, %8 ]
-  %12 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %11
+  %12 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %11
   %13 = atomicrmw sub ptr %12, i64 %4 monotonic, align 64
   tail call void @je_free(ptr noundef nonnull %0) #26
   br label %14
@@ -1024,7 +1024,7 @@ define dso_local void @zfree_usable(ptr noundef %0, ptr noundef writeonly captur
 
 update_zmalloc_stat_free.exit:                    ; preds = %4, %9
   %12 = phi i64 [ %7, %4 ], [ %11, %9 ]
-  %13 = getelementptr inbounds %struct.used_memory_entry, ptr @used_memory, i64 %12
+  %13 = getelementptr inbounds [64 x i8], ptr @used_memory, i64 %12
   %14 = atomicrmw sub ptr %13, i64 %5 monotonic, align 64
   tail call void @je_free(ptr noundef nonnull %0) #26
   br label %15
@@ -1062,7 +1062,7 @@ define dso_local i64 @zmalloc_used_memory() local_unnamed_addr #13 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %.012 = phi i64 [ %4, %.lr.ph ], [ 0, %0 ]
   %.01011 = phi i64 [ %5, %.lr.ph ], [ 0, %0 ]
-  %2 = getelementptr inbounds nuw %struct.used_memory_entry, ptr @used_memory, i64 %.01011
+  %2 = getelementptr inbounds nuw [64 x i8], ptr @used_memory, i64 %.01011
   %3 = load atomic i64, ptr %2 monotonic, align 64
   %4 = add nsw i64 %3, %.012
   %5 = add nuw nsw i64 %.01011, 1

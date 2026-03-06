@@ -3,7 +3,6 @@ source_filename = "bench/openjdk/original/X11FontScaler_md.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 %struct.XCharStruct = type { i16, i16, i16, i16, i16, i16 }
 
 @awt_display = external local_unnamed_addr global ptr, align 8
@@ -24,7 +23,7 @@ define hidden range(i32 0, 12) i32 @CreatePixmapAndGC(i32 noundef %0, i32 nounde
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct.Screen, ptr %5, i64 %8
+  %9 = getelementptr inbounds [128 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %0, i32 100)
@@ -429,7 +428,7 @@ define ptr @AWTFontPerChar(ptr noundef readonly captures(none) %0, i32 noundef %
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.XCharStruct, ptr %4, i64 %6
+  %7 = getelementptr inbounds [12 x i8], ptr %4, i64 %6
   %.0 = select i1 %5, ptr null, ptr %7
   ret ptr %.0
 }

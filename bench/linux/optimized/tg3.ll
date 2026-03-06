@@ -58,34 +58,12 @@ module asm ".previous\09\09\09\09\09"
 %struct.tg3_dev_id.98 = type { i32, i32 }
 %struct.subsys_tbl_ent = type { i16, i16, i32 }
 %struct.ptp_clock_info = type { ptr, [32 x i8], i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.tg3_napi = type { %struct.napi_struct, ptr, ptr, i32, i32, i32, i32, i32, [12 x i8], i32, i32, i32, ptr, %struct.tg3_rx_prodring_set, ptr, i64, [24 x i8], i32, i32, i32, i32, i32, ptr, ptr, i64, i64, i64, i64, [16 x i8], i32, [36 x i8] }
-%struct.tg3_rx_prodring_set = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, i64, i64 }
-%struct.netdev_queue = type { ptr, %struct.netdevice_tracker, ptr, ptr, %struct.kobject, i32, i64, %struct.atomic64_t, ptr, ptr, %struct.spinlock, i32, i64, i64, [40 x i8], %struct.dql }
-%struct.netdevice_tracker = type {}
-%struct.kobject = type { ptr, %struct.list_head, ptr, ptr, ptr, ptr, %struct.kref, i8 }
-%struct.kref = type { %struct.refcount_struct }
-%struct.refcount_struct = type { %struct.atomic_t }
-%struct.atomic64_t = type { i64 }
-%struct.dql = type { i32, i32, i32, [52 x i8], i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, [20 x i8] }
-%struct.tg3_rx_buffer_desc = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.tg3_ext_rx_buffer_desc = type { [3 x %struct.anon.59], i32, i32, %struct.tg3_rx_buffer_desc }
-%struct.anon.59 = type { i32, i32 }
 %struct.ethtool_eee = type { i32, i32, i32, i32, i32, i32, i32, i32, [2 x i32] }
-%struct.tg3_tx_ring_info = type { ptr, i64, i8 }
-%struct.ring_info = type { ptr, i64 }
-%struct.page = type { i64, %union.anon.60, %union.anon.68, %struct.atomic_t, [8 x i8] }
-%union.anon.60 = type { %struct.anon.61 }
-%struct.anon.61 = type { %union.anon.62, ptr, %union.anon.64, i64 }
-%union.anon.62 = type { %struct.list_head }
-%union.anon.64 = type { i64 }
-%union.anon.68 = type { %struct.atomic_t }
-%struct.tg3_tx_buffer_desc = type { i32, i32, i32, i32 }
 %struct.tg3_ocir = type { i32, i16, i16, i32, i32, i32, i16, i16, i16, i16, i16, i16, i16, i16, [2 x i32], i32, i32, i32, i32, i32 }
 %struct.msix_entry = type { i32, i16 }
 %struct.skb_shared_hwtstamps = type { %union.anon.34 }
 %union.anon.34 = type { i64 }
 %struct.hwtstamp_config = type { i32, i32, i32 }
-%struct.bio_vec = type { ptr, i32, i32 }
 %struct.tg3_internal_buffer_desc = type { i32, i32, i32, i16, i16, i32, i32, i32, i32 }
 
 @__UNIQUE_ID_author771 = internal constant [82 x i8] c"tg3.author=David S. Miller (davem@redhat.com) and Jeff Garzik (jgarzik@pobox.com)\00", section ".modinfo", align 1
@@ -693,7 +671,7 @@ define internal i32 @tg3_init_one(ptr noundef %0, ptr noundef readonly captures(
   %202 = phi i32 [ 772, %192 ], [ %196, %194 ]
   %203 = phi i32 [ 0, %192 ], [ %197, %194 ]
   %204 = sext i32 %203 to i64
-  %205 = getelementptr %struct.tg3_napi, ptr %193, i64 %204
+  %205 = getelementptr [704 x i8], ptr %193, i64 %204
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 400
   store ptr %20, ptr %206, align 16
   %207 = getelementptr inbounds nuw i8, ptr %205, i64 584
@@ -1252,7 +1230,7 @@ define internal void @tg3_reset_task(ptr noundef %0) #2 align 16 {
 75:                                               ; preds = %75, %73
   %76 = phi i32 [ 0, %73 ], [ %79, %75 ]
   %77 = sext i32 %76 to i64
-  %78 = getelementptr %struct.tg3_napi, ptr %74, i64 %77
+  %78 = getelementptr [704 x i8], ptr %74, i64 %77
   tail call void @napi_enable(ptr noundef %78) #28
   %79 = add nuw i32 %76, 1
   %80 = load i32, ptr %39, align 4
@@ -1281,7 +1259,7 @@ define internal void @tg3_reset_task(ptr noundef %0) #2 align 16 {
 91:                                               ; preds = %91, %89
   %92 = phi i64 [ 0, %89 ], [ %95, %91 ]
   %93 = load ptr, ptr %90, align 8
-  %94 = getelementptr %struct.netdev_queue, ptr %93, i64 %92
+  %94 = getelementptr [320 x i8], ptr %93, i64 %92
   tail call void @netif_tx_wake_queue(ptr noundef %94) #28
   %95 = add nuw nsw i64 %92, 1
   %96 = load i32, ptr %86, align 8
@@ -1312,7 +1290,7 @@ define internal void @tg3_reset_task(ptr noundef %0) #2 align 16 {
 109:                                              ; preds = %109, %107
   %110 = phi i32 [ 0, %107 ], [ %113, %109 ]
   %111 = sext i32 %110 to i64
-  %112 = getelementptr %struct.tg3_napi, ptr %108, i64 %111
+  %112 = getelementptr [704 x i8], ptr %108, i64 %111
   tail call void @napi_enable(ptr noundef %112) #28
   %113 = add nuw i32 %110, 1
   %114 = load i32, ptr %39, align 4
@@ -5055,7 +5033,7 @@ switch.lookup293:                                 ; preds = %1825
 
 1952:                                             ; preds = %1962, %1947
   %1953 = phi i64 [ 0, %1947 ], [ %1963, %1962 ]
-  %1954 = getelementptr %struct.subsys_tbl_ent, ptr @subsys_id_to_phy_id, i64 %1953
+  %1954 = getelementptr [8 x i8], ptr @subsys_id_to_phy_id, i64 %1953
   %1955 = load i16, ptr %1954, align 8
   %1956 = icmp eq i16 %1955, %1950
   br i1 %1956, label %1957, label %1962
@@ -6684,7 +6662,7 @@ default.unreachable2:                             ; preds = %18, %8
 
 37:                                               ; preds = %37, %32
   %38 = phi i64 [ 0, %32 ], [ %42, %37 ]
-  %39 = getelementptr %struct.tg3_napi, ptr %36, i64 %38
+  %39 = getelementptr [704 x i8], ptr %36, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 544
   store i64 0, ptr %40, align 32
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 616
@@ -6889,7 +6867,7 @@ define internal fastcc range(i32 -19, 1) i32 @tg3_test_dma(ptr noundef %0) unnam
 
 .thread6:                                         ; preds = %.thread6.backedge, %116
   %120 = phi i64 [ 0, %116 ], [ %.be, %.thread6.backedge ]
-  %121 = getelementptr i32, ptr %7, i64 %120
+  %121 = getelementptr [4 x i8], ptr %7, i64 %120
   %122 = trunc i64 %120 to i32
   store i32 %122, ptr %121, align 4
   %123 = add nuw nsw i64 %120, 1
@@ -6922,7 +6900,7 @@ define internal fastcc range(i32 -19, 1) i32 @tg3_test_dma(ptr noundef %0) unnam
 
 .preheader:                                       ; preds = %132, %154
   %139 = phi i64 [ %155, %154 ], [ 0, %132 ]
-  %140 = getelementptr i32, ptr %7, i64 %139
+  %140 = getelementptr [4 x i8], ptr %7, i64 %139
   %141 = load i32, ptr %140, align 4
   %142 = zext i32 %141 to i64
   %143 = icmp eq i64 %139, %142
@@ -7435,7 +7413,7 @@ define internal fastcc void @tg3_netif_stop(ptr noundef %0) unnamed_addr #7 alig
 
 19:                                               ; preds = %19, %16
   %20 = phi i64 [ %18, %16 ], [ %22, %19 ]
-  %21 = getelementptr %struct.tg3_napi, ptr %17, i64 %20
+  %21 = getelementptr [704 x i8], ptr %17, i64 %20
   tail call void @napi_disable(ptr noundef %21) #28
   %22 = add nsw i64 %20, -1
   %.not = icmp eq i64 %20, 0
@@ -7463,7 +7441,7 @@ define internal fastcc void @tg3_netif_stop(ptr noundef %0) unnamed_addr #7 alig
 33:                                               ; preds = %33, %31
   %34 = phi i64 [ 0, %31 ], [ %40, %33 ]
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr %struct.netdev_queue, ptr %35, i64 %34
+  %36 = getelementptr [320 x i8], ptr %35, i64 %34
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 128
   tail call void @_raw_spin_lock(ptr noundef nonnull %37) #28
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 132
@@ -7571,7 +7549,7 @@ define internal fastcc void @tg3_netif_start(ptr noundef %0) unnamed_addr #7 ali
 9:                                                ; preds = %9, %7
   %10 = phi i64 [ 0, %7 ], [ %13, %9 ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr %struct.netdev_queue, ptr %11, i64 %10
+  %12 = getelementptr [320 x i8], ptr %11, i64 %10
   tail call void @netif_tx_wake_queue(ptr noundef %12) #28
   %13 = add nuw nsw i64 %10, 1
   %14 = load i32, ptr %4, align 8
@@ -7603,7 +7581,7 @@ define internal fastcc void @tg3_netif_start(ptr noundef %0) unnamed_addr #7 ali
 28:                                               ; preds = %28, %26
   %29 = phi i32 [ 0, %26 ], [ %32, %28 ]
   %30 = sext i32 %29 to i64
-  %31 = getelementptr %struct.tg3_napi, ptr %27, i64 %30
+  %31 = getelementptr [704 x i8], ptr %27, i64 %30
   tail call void @napi_enable(ptr noundef %31) #28
   %32 = add nuw i32 %29, 1
   %33 = load i32, ptr %23, align 4
@@ -8635,7 +8613,7 @@ define internal fastcc i32 @tg3_reset_hw(ptr noundef %0, i1 noundef zeroext %1) 
   %448 = phi i32 [ 0, %441 ], [ %456, %447 ]
   %449 = load ptr, ptr %406, align 8
   %450 = zext i32 %448 to i64
-  %451 = getelementptr %struct.tg3_rx_buffer_desc, ptr %449, i64 %450
+  %451 = getelementptr [32 x i8], ptr %449, i64 %450
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 8
   store i32 %442, ptr %452, align 4
   %453 = getelementptr inbounds nuw i8, ptr %451, i64 12
@@ -8712,7 +8690,7 @@ define internal fastcc i32 @tg3_reset_hw(ptr noundef %0, i1 noundef zeroext %1) 
   %491 = phi i32 [ %498, %.preheader58 ], [ 0, %478 ]
   %492 = load ptr, ptr %479, align 8
   %493 = zext i32 %491 to i64
-  %.split33 = getelementptr %struct.tg3_ext_rx_buffer_desc, ptr %492, i64 %493
+  %.split33 = getelementptr [64 x i8], ptr %492, i64 %493
   %494 = getelementptr i8, ptr %.split33, i64 40
   store i32 9046, ptr %494, align 4
   %495 = getelementptr i8, ptr %.split33, i64 44
@@ -9379,7 +9357,7 @@ select.unfold:                                    ; preds = %838, %834, %830, %8
 900:                                              ; preds = %934, %898
   %901 = phi i32 [ 1, %898 ], [ %938, %934 ]
   %902 = sext i32 %901 to i64
-  %903 = getelementptr %struct.tg3_napi, ptr %826, i64 %902
+  %903 = getelementptr [704 x i8], ptr %826, i64 %902
   %904 = getelementptr inbounds nuw i8, ptr %903, i64 576
   store i32 0, ptr %904, align 64
   %905 = getelementptr inbounds nuw i8, ptr %903, i64 580
@@ -9546,7 +9524,7 @@ select.unfold:                                    ; preds = %838, %834, %830, %8
   %1009 = phi i32 [ %1031, %1029 ], [ 256, %.loopexit53 ]
   %1010 = phi i32 [ %1030, %1029 ], [ %1006, %.loopexit53 ]
   %1011 = sext i32 %1010 to i64
-  %1012 = getelementptr %struct.tg3_napi, ptr %826, i64 %1011
+  %1012 = getelementptr [704 x i8], ptr %826, i64 %1011
   %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 600
   %1014 = load ptr, ptr %1013, align 8
   %1015 = icmp eq ptr %1014, null
@@ -9597,7 +9575,7 @@ select.unfold:                                    ; preds = %838, %834, %830, %8
   %1043 = phi i32 [ 512, %1040 ], [ %1068, %1066 ]
   %1044 = phi i32 [ %1038, %1040 ], [ %1067, %1066 ]
   %1045 = sext i32 %1044 to i64
-  %1046 = getelementptr %struct.tg3_napi, ptr %826, i64 %1045
+  %1046 = getelementptr [704 x i8], ptr %826, i64 %1045
   %1047 = getelementptr inbounds nuw i8, ptr %1046, i64 536
   %1048 = load ptr, ptr %1047, align 8
   %1049 = icmp eq ptr %1048, null
@@ -10796,7 +10774,7 @@ select.unfold:                                    ; preds = %838, %834, %830, %8
 1777:                                             ; preds = %1777, %1776
   %1778 = phi i64 [ 0, %1776 ], [ %1785, %1777 ]
   %1779 = load ptr, ptr %11, align 8
-  %1780 = getelementptr i32, ptr %8, i64 %1778
+  %1780 = getelementptr [4 x i8], ptr %8, i64 %1778
   %1781 = load i32, ptr %1780, align 4
   %1782 = trunc i64 %1778 to i32
   %1783 = shl i32 %1782, 2
@@ -12382,12 +12360,12 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   %156 = load i8, ptr %52, align 4
   %157 = zext i8 %156 to i32
   %158 = tail call fastcc noundef i32 @__tg3_writephy(ptr noundef %0, i32 noundef %157, i32 noundef 22, i32 noundef 2), !range !31
-  %.split = getelementptr [6 x i32], ptr @tg3_phy_write_and_check_testpat.test_pat, i64 %149
+  %.split = getelementptr [24 x i8], ptr @tg3_phy_write_and_check_testpat.test_pat, i64 %149
   br label %159
 
 159:                                              ; preds = %159, %148
   %160 = phi i64 [ 0, %148 ], [ %166, %159 ]
-  %161 = getelementptr i32, ptr %.split, i64 %160
+  %161 = getelementptr [4 x i8], ptr %.split, i64 %160
   %162 = load i32, ptr %161, align 4
   %163 = load i8, ptr %52, align 4
   %164 = zext i8 %163 to i32
@@ -12534,7 +12512,7 @@ define internal fastcc range(i32 -16, 1) i32 @tg3_phy_reset(ptr noundef %0) unna
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %245 = load i32, ptr %17, align 4
   %246 = and i32 %245, 32767
-  %247 = getelementptr i32, ptr %.split, i64 %222
+  %247 = getelementptr [4 x i8], ptr %.split, i64 %222
   %248 = load i32, ptr %247, align 8
   %249 = icmp eq i32 %246, %248
   br i1 %249, label %250, label %256
@@ -13586,7 +13564,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @tg3_chip_reset(ptr noundef
   %103 = phi i32 [ %98, %100 ], [ %114, %113 ]
   %104 = phi i32 [ 0, %100 ], [ %117, %113 ]
   %105 = sext i32 %104 to i64
-  %106 = getelementptr %struct.tg3_napi, ptr %101, i64 %105
+  %106 = getelementptr [704 x i8], ptr %101, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 408
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null
@@ -18378,7 +18356,7 @@ define internal fastcc void @__tg3_set_rx_mode(ptr noundef %0) unnamed_addr #2 a
   %49 = trunc i32 %46 to i8
   %indexer.lo = xor i8 %48, %49
   %indexer.ext = zext i8 %indexer.lo to i64
-  %tbl.ptradd = getelementptr inbounds nuw i32, ptr @.crctable.2, i64 %indexer.ext
+  %tbl.ptradd = getelementptr inbounds nuw [4 x i8], ptr @.crctable.2, i64 %indexer.ext
   %tbl.ld = load i32, ptr %tbl.ptradd, align 4
   %crc.next = xor i32 %crc.le.shift, %tbl.ld
   %50 = add nuw nsw i64 %45, 1
@@ -18391,7 +18369,7 @@ define internal fastcc void @__tg3_set_rx_mode(ptr noundef %0) unnamed_addr #2 a
   %55 = and i32 %crc.next, 31
   %56 = shl nuw i32 1, %55
   %57 = zext nneg i32 %54 to i64
-  %58 = getelementptr i32, ptr %2, i64 %57
+  %58 = getelementptr [4 x i8], ptr %2, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = or i32 %59, %56
   store i32 %60, ptr %58, align 4
@@ -19631,7 +19609,7 @@ define internal fastcc void @tg3_free_rings(ptr noundef %0) unnamed_addr #2 alig
 8:                                                ; preds = %105, %5
   %9 = phi i32 [ 0, %5 ], [ %106, %105 ]
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct.tg3_napi, ptr %6, i64 %10
+  %11 = getelementptr [704 x i8], ptr %6, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 472
   tail call fastcc void @tg3_rx_prodring_free(ptr noundef %0, ptr noundef nonnull %12)
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 608
@@ -19646,7 +19624,7 @@ define internal fastcc void @tg3_free_rings(ptr noundef %0) unnamed_addr #2 alig
 17:                                               ; preds = %.preheader, %94
   %18 = phi i64 [ %95, %94 ], [ 0, %.preheader ]
   %19 = load ptr, ptr %13, align 32
-  %20 = getelementptr %struct.tg3_tx_ring_info, ptr %19, i64 %18
+  %20 = getelementptr [24 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %94, label %23
@@ -19697,7 +19675,7 @@ define internal fastcc void @tg3_free_rings(ptr noundef %0) unnamed_addr #2 alig
   %54 = and i32 %53, 511
   %55 = load ptr, ptr %13, align 32
   %56 = zext nneg i32 %54 to i64
-  %.split.i = getelementptr %struct.tg3_tx_ring_info, ptr %55, i64 %56
+  %.split.i = getelementptr [24 x i8], ptr %55, i64 %56
   %57 = getelementptr i8, ptr %.split.i, i64 16
   %58 = load i8, ptr %57, align 8, !range !13, !noundef !14
   %59 = icmp eq i8 %58, 0
@@ -19714,7 +19692,7 @@ define internal fastcc void @tg3_free_rings(ptr noundef %0) unnamed_addr #2 alig
   %67 = and i32 %66, 511
   %68 = load ptr, ptr %13, align 32
   %69 = zext nneg i32 %67 to i64
-  %70 = getelementptr %struct.tg3_tx_ring_info, ptr %68, i64 %69
+  %70 = getelementptr [24 x i8], ptr %68, i64 %69
   %71 = load ptr, ptr %16, align 16
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 72
   %73 = load ptr, ptr %72, align 8
@@ -19740,7 +19718,7 @@ define internal fastcc void @tg3_free_rings(ptr noundef %0) unnamed_addr #2 alig
   %87 = and i32 %86, 511
   %88 = load ptr, ptr %13, align 32
   %89 = zext nneg i32 %87 to i64
-  %.split2.i = getelementptr %struct.tg3_tx_ring_info, ptr %88, i64 %89
+  %.split2.i = getelementptr [24 x i8], ptr %88, i64 %89
   %90 = getelementptr i8, ptr %.split2.i, i64 16
   %91 = load i8, ptr %90, align 8, !range !13, !noundef !14
   %92 = icmp eq i8 %91, 0
@@ -19766,7 +19744,7 @@ tg3_tx_skb_unmap.exit:                            ; preds = %.loopexit.i, %.loop
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = load ptr, ptr %99, align 8
   %101 = zext i32 %9 to i64
-  %102 = getelementptr %struct.netdev_queue, ptr %100, i64 %101
+  %102 = getelementptr [320 x i8], ptr %100, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 144
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %103, i32 -3, ptr nonnull elementtype(i8) %103) #28, !srcloc !12
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 192
@@ -19815,7 +19793,7 @@ define internal fastcc void @tg3_rx_prodring_free(ptr noundef %0, ptr noundef re
   %22 = phi i32 [ %12, %15 ], [ %47, %43 ]
   %23 = load ptr, ptr %16, align 8
   %24 = sext i32 %22 to i64
-  %25 = getelementptr %struct.ring_info, ptr %23, i64 %24
+  %25 = getelementptr [16 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %43, label %28
@@ -19882,7 +19860,7 @@ define internal fastcc void @tg3_rx_prodring_free(ptr noundef %0, ptr noundef re
   %65 = phi i32 [ %55, %59 ], [ %81, %77 ]
   %66 = load ptr, ptr %60, align 8
   %67 = sext i32 %65 to i64
-  %68 = getelementptr %struct.ring_info, ptr %66, i64 %67
+  %68 = getelementptr [16 x i8], ptr %66, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %77, label %71
@@ -19911,7 +19889,7 @@ define internal fastcc void @tg3_rx_prodring_free(ptr noundef %0, ptr noundef re
   %84 = phi i32 [ 0, %5 ], [ %106, %105 ]
   %85 = load ptr, ptr %7, align 8
   %86 = sext i32 %84 to i64
-  %87 = getelementptr %struct.ring_info, ptr %85, i64 %86
+  %87 = getelementptr [16 x i8], ptr %85, i64 %86
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
   br i1 %89, label %105, label %90
@@ -19972,7 +19950,7 @@ define internal fastcc void @tg3_rx_prodring_free(ptr noundef %0, ptr noundef re
   %123 = phi i32 [ 0, %119 ], [ %136, %135 ]
   %124 = load ptr, ptr %121, align 8
   %125 = sext i32 %123 to i64
-  %126 = getelementptr %struct.ring_info, ptr %124, i64 %125
+  %126 = getelementptr [16 x i8], ptr %124, i64 %125
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
   br i1 %128, label %135, label %129
@@ -20003,7 +19981,7 @@ define internal fastcc void @tg3_tx_skb_unmap(ptr noundef readonly captures(none
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %5 = load ptr, ptr %4, align 32
   %6 = zext i32 %1 to i64
-  %7 = getelementptr %struct.tg3_tx_ring_info, ptr %5, i64 %6
+  %7 = getelementptr [24 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   store ptr null, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -20043,7 +20021,7 @@ define internal fastcc void @tg3_tx_skb_unmap(ptr noundef readonly captures(none
   %33 = and i32 %32, 511
   %34 = load ptr, ptr %4, align 32
   %35 = zext nneg i32 %33 to i64
-  %.split = getelementptr %struct.tg3_tx_ring_info, ptr %34, i64 %35
+  %.split = getelementptr [24 x i8], ptr %34, i64 %35
   %36 = getelementptr i8, ptr %.split, i64 16
   %37 = load i8, ptr %36, align 8, !range !13, !noundef !14
   %38 = icmp eq i8 %37, 0
@@ -20061,7 +20039,7 @@ define internal fastcc void @tg3_tx_skb_unmap(ptr noundef readonly captures(none
   %48 = and i32 %47, 511
   %49 = load ptr, ptr %4, align 32
   %50 = zext nneg i32 %48 to i64
-  %51 = getelementptr %struct.tg3_tx_ring_info, ptr %49, i64 %50
+  %51 = getelementptr [24 x i8], ptr %49, i64 %50
   %52 = load ptr, ptr %9, align 16
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 72
   %54 = load ptr, ptr %53, align 8
@@ -20087,7 +20065,7 @@ define internal fastcc void @tg3_tx_skb_unmap(ptr noundef readonly captures(none
   %68 = and i32 %67, 511
   %69 = load ptr, ptr %4, align 32
   %70 = zext nneg i32 %68 to i64
-  %.split2 = getelementptr %struct.tg3_tx_ring_info, ptr %69, i64 %70
+  %.split2 = getelementptr [24 x i8], ptr %69, i64 %70
   %71 = getelementptr i8, ptr %.split2, i64 16
   %72 = load i8, ptr %71, align 8, !range !13, !noundef !14
   %73 = icmp eq i8 %72, 0
@@ -20132,11 +20110,11 @@ define internal fastcc i32 @tg3_alloc_rx_data(ptr noundef readonly captures(none
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %8 to i64
-  %.split = getelementptr %struct.tg3_ext_rx_buffer_desc, ptr %10, i64 %11
+  %.split = getelementptr [64 x i8], ptr %10, i64 %11
   %12 = getelementptr i8, ptr %.split, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr %struct.ring_info, ptr %14, i64 %11
+  %15 = getelementptr [16 x i8], ptr %14, i64 %11
   br label %35
 
 16:                                               ; preds = %5
@@ -20146,10 +20124,10 @@ define internal fastcc i32 @tg3_alloc_rx_data(ptr noundef readonly captures(none
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %19 to i64
-  %23 = getelementptr %struct.tg3_rx_buffer_desc, ptr %21, i64 %22
+  %23 = getelementptr [32 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr %struct.ring_info, ptr %25, i64 %22
+  %26 = getelementptr [16 x i8], ptr %25, i64 %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 3880
   %28 = load i32, ptr %27, align 8
   %29 = add i32 %28, 127
@@ -20231,7 +20209,7 @@ define internal fastcc i32 @tg3_alloc_rx_data(ptr noundef readonly captures(none
   %79 = select i1 %75, i64 %76, i64 %78
   %80 = add i64 %74, %79
   %81 = lshr i64 %80, 12
-  %82 = getelementptr %struct.page, ptr %72, i64 %81
+  %82 = getelementptr [64 x i8], ptr %72, i64 %81
   %83 = and i64 %73, 4095
   %84 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %53, ptr noundef %82, i64 noundef %83, i64 noundef %55, i32 noundef 2, i64 noundef 0) #28
   %85 = icmp eq i64 %84, -1
@@ -20514,7 +20492,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @tg3_load_firmware_cpu(ptr 
   %143 = shl i32 %142, 2
   %144 = add i32 %143, %2
   %145 = add i32 %144, %141
-  %146 = getelementptr i32, ptr %117, i64 %121
+  %146 = getelementptr [4 x i8], ptr %117, i64 %121
   %147 = load i32, ptr %146, align 4
   %148 = tail call i32 @llvm.bswap.i32(i32 %147)
   tail call void %27(ptr noundef %0, i32 noundef %145, i32 noundef %148) #28, !callees !124
@@ -21937,7 +21915,7 @@ define internal fastcc void @tg3_enable_ints(ptr noundef initializes((0, 4)) %0)
 20:                                               ; preds = %67, %14
   %21 = phi i32 [ 0, %14 ], [ %72, %67 ]
   %22 = sext i32 %21 to i64
-  %23 = getelementptr %struct.tg3_napi, ptr %15, i64 %22
+  %23 = getelementptr [704 x i8], ptr %15, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 428
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 420
@@ -24134,7 +24112,7 @@ define internal i32 @tg3_set_pauseparam(ptr noundef %0, ptr noundef %1) #2 align
 136:                                              ; preds = %136, %134
   %137 = phi i64 [ 0, %134 ], [ %140, %136 ]
   %138 = load ptr, ptr %135, align 8
-  %139 = getelementptr %struct.netdev_queue, ptr %138, i64 %137
+  %139 = getelementptr [320 x i8], ptr %138, i64 %137
   tail call void @netif_tx_wake_queue(ptr noundef %139) #28
   %140 = add nuw nsw i64 %137, 1
   %141 = load i32, ptr %131, align 8
@@ -24166,7 +24144,7 @@ define internal i32 @tg3_set_pauseparam(ptr noundef %0, ptr noundef %1) #2 align
 155:                                              ; preds = %155, %153
   %156 = phi i32 [ 0, %153 ], [ %159, %155 ]
   %157 = sext i32 %156 to i64
-  %158 = getelementptr %struct.tg3_napi, ptr %154, i64 %157
+  %158 = getelementptr [704 x i8], ptr %154, i64 %157
   tail call void @napi_enable(ptr noundef %158) #28
   %159 = add nuw i32 %156, 1
   %160 = load i32, ptr %150, align 4
@@ -24342,7 +24320,7 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
 .preheader59:                                     ; preds = %68, %75
   %78 = phi i32 [ %83, %75 ], [ 0, %68 ]
   %79 = phi i64 [ %84, %75 ], [ 0, %68 ]
-  %80 = getelementptr i32, ptr %66, i64 %79
+  %80 = getelementptr [4 x i8], ptr %66, i64 %79
   %81 = load i32, ptr %5, align 4
   %82 = tail call i32 @llvm.bswap.i32(i32 %81)
   store i32 %82, ptr %80, align 4
@@ -24555,7 +24533,7 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   %213 = trunc i32 %210 to i8
   %indexer.lo = xor i8 %212, %213
   %indexer.ext = zext i8 %indexer.lo to i64
-  %tbl.ptradd = getelementptr inbounds nuw i32, ptr @.crctable.2, i64 %indexer.ext
+  %tbl.ptradd = getelementptr inbounds nuw [4 x i8], ptr @.crctable.2, i64 %indexer.ext
   %tbl.ld = load i32, ptr %tbl.ptradd, align 4
   %crc.next = xor i32 %crc.le.shift, %tbl.ld
   %214 = add nuw nsw i64 %209, 1
@@ -24582,7 +24560,7 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   %228 = trunc i32 %225 to i8
   %indexer.lo90 = xor i8 %227, %228
   %indexer.ext91 = zext i8 %indexer.lo90 to i64
-  %tbl.ptradd92 = getelementptr inbounds nuw i32, ptr @.crctable.2, i64 %indexer.ext91
+  %tbl.ptradd92 = getelementptr inbounds nuw [4 x i8], ptr @.crctable.2, i64 %indexer.ext91
   %tbl.ld93 = load i32, ptr %tbl.ptradd92, align 4
   %crc.next95 = xor i32 %crc.le.shift94, %tbl.ld93
   %229 = add nuw nsw i64 %224, 1
@@ -24948,7 +24926,7 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
 424:                                              ; preds = %471, %420
   %425 = phi i64 [ 0, %420 ], [ %472, %471 ]
   %426 = phi i16 [ 1024, %420 ], [ %474, %471 ]
-  %427 = getelementptr %struct.anon.81, ptr @tg3_test_registers.reg_tbl, i64 %425
+  %427 = getelementptr [12 x i8], ptr @tg3_test_registers.reg_tbl, i64 %425
   %428 = shl nuw i64 1, %425
   br i1 %415, label %431, label %429
 
@@ -25017,7 +24995,7 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
 
 471:                                              ; preds = %439, %433, %469, %431, %429
   %472 = add nuw nsw i64 %425, 1
-  %473 = getelementptr %struct.anon.81, ptr @tg3_test_registers.reg_tbl, i64 %472
+  %473 = getelementptr [12 x i8], ptr @tg3_test_registers.reg_tbl, i64 %472
   %474 = load i16, ptr %473, align 4
   %475 = icmp eq i64 %472, 60
   br i1 %475, label %.loopexit47, label %424, !llvm.loop !153
@@ -25095,7 +25073,7 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
 .split74:                                         ; preds = %.loopexit45, %523
   %518 = add i32 %526, 1
   %519 = sext i32 %518 to i64
-  %520 = getelementptr %struct.mem_entry, ptr %512, i64 %519
+  %520 = getelementptr [8 x i8], ptr %512, i64 %519
   %521 = load i32, ptr %520, align 4
   %522 = icmp eq i32 %521, -1
   br i1 %522, label %.thread37, label %523, !llvm.loop !154
@@ -25111,7 +25089,7 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
 
 .split:                                           ; preds = %523, %.loopexit45
   %530 = phi i64 [ %592, %.loopexit45 ], [ 0, %523 ]
-  %531 = getelementptr i32, ptr @tg3_do_mem_test.test_pattern, i64 %530
+  %531 = getelementptr [4 x i8], ptr @tg3_do_mem_test.test_pattern, i64 %530
   %532 = load i32, ptr %531, align 4
   br label %536
 
@@ -25606,7 +25584,7 @@ tg3_read_mem.exit:                                ; preds = %536, %589
 818:                                              ; preds = %818, %816
   %819 = phi i64 [ 0, %816 ], [ %822, %818 ]
   %820 = load ptr, ptr %817, align 8
-  %821 = getelementptr %struct.netdev_queue, ptr %820, i64 %819
+  %821 = getelementptr [320 x i8], ptr %820, i64 %819
   call void @netif_tx_wake_queue(ptr noundef %821) #28
   %822 = add nuw nsw i64 %819, 1
   %823 = load i32, ptr %813, align 8
@@ -25638,7 +25616,7 @@ tg3_read_mem.exit:                                ; preds = %536, %589
 837:                                              ; preds = %837, %835
   %838 = phi i32 [ 0, %835 ], [ %841, %837 ]
   %839 = sext i32 %838 to i64
-  %840 = getelementptr %struct.tg3_napi, ptr %836, i64 %839
+  %840 = getelementptr [704 x i8], ptr %836, i64 %839
   call void @napi_enable(ptr noundef %840) #28
   %841 = add nuw i32 %838, 1
   %842 = load i32, ptr %832, align 4
@@ -25890,7 +25868,7 @@ define internal noundef i32 @tg3_get_rxfh(ptr noundef readonly captures(none) %0
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr i32, ptr %13, i64 %9
+  %14 = getelementptr [4 x i8], ptr %13, i64 %9
   store i32 %12, ptr %14, align 4
   %15 = add nuw nsw i64 %9, 1
   %16 = icmp eq i64 %15, 128
@@ -25926,7 +25904,7 @@ define internal noundef range(i32 -95, 1) i32 @tg3_set_rxfh(ptr noundef %0, ptr 
 17:                                               ; preds = %17, %15
   %18 = phi i64 [ 0, %15 ], [ %24, %17 ]
   %19 = load ptr, ptr %12, align 8
-  %20 = getelementptr i32, ptr %19, i64 %18
+  %20 = getelementptr [4 x i8], ptr %19, i64 %18
   %21 = load i32, ptr %20, align 4
   %22 = trunc i32 %21 to i8
   %23 = getelementptr i8, ptr %16, i64 %18
@@ -27366,7 +27344,7 @@ define internal fastcc i32 @tg3_restart_hw(ptr noundef %0, i1 noundef zeroext %1
 24:                                               ; preds = %24, %22
   %25 = phi i32 [ 0, %22 ], [ %28, %24 ]
   %26 = sext i32 %25 to i64
-  %27 = getelementptr %struct.tg3_napi, ptr %23, i64 %26
+  %27 = getelementptr [704 x i8], ptr %23, i64 %26
   tail call void @napi_enable(ptr noundef %27) #28
   %28 = add nuw i32 %25, 1
   %29 = load i32, ptr %19, align 4
@@ -29630,7 +29608,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @tg3_run_loopback(ptr nound
   %138 = select i1 %134, i64 %135, i64 %137
   %139 = add i64 %133, %138
   %140 = lshr i64 %139, 12
-  %141 = getelementptr %struct.page, ptr %131, i64 %140
+  %141 = getelementptr [64 x i8], ptr %131, i64 %140
   %142 = and i64 %132, 4095
   %143 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %111, ptr noundef %141, i64 noundef %142, i64 noundef %114, i32 noundef 1, i64 noundef 0) #28
   %144 = icmp eq i64 %143, -1
@@ -29643,10 +29621,10 @@ define internal fastcc noundef range(i32 -12, 1) i32 @tg3_run_loopback(ptr nound
   %148 = getelementptr inbounds nuw i8, ptr %22, i64 608
   %149 = load ptr, ptr %148, align 32
   %150 = zext i32 %147 to i64
-  %151 = getelementptr %struct.tg3_tx_ring_info, ptr %149, i64 %150
+  %151 = getelementptr [24 x i8], ptr %149, i64 %150
   store ptr %30, ptr %151, align 8
   %152 = load ptr, ptr %148, align 32
-  %.split = getelementptr %struct.tg3_tx_ring_info, ptr %152, i64 %150
+  %.split = getelementptr [24 x i8], ptr %152, i64 %150
   %153 = getelementptr i8, ptr %.split, i64 8
   store i64 %143, ptr %153, align 8
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 4848
@@ -29705,7 +29683,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @tg3_run_loopback(ptr nound
   %192 = load ptr, ptr %148, align 32
   %193 = load i32, ptr %4, align 4
   %194 = zext i32 %193 to i64
-  %195 = getelementptr %struct.tg3_tx_ring_info, ptr %192, i64 %194
+  %195 = getelementptr [24 x i8], ptr %192, i64 %194
   store ptr null, ptr %195, align 8
   br label %.loopexit11.sink.split
 
@@ -29784,7 +29762,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @tg3_run_loopback(ptr nound
   %247 = add i32 %239, -1
   %248 = load ptr, ptr %148, align 32
   %249 = zext i32 %247 to i64
-  %250 = getelementptr %struct.tg3_tx_ring_info, ptr %248, i64 %249
+  %250 = getelementptr [24 x i8], ptr %248, i64 %249
   %251 = load ptr, ptr %250, align 8
   store ptr null, ptr %250, align 8
   %252 = getelementptr inbounds nuw i8, ptr %22, i64 400
@@ -29814,7 +29792,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @tg3_run_loopback(ptr nound
   %271 = and i32 %270, 511
   %272 = load ptr, ptr %148, align 32
   %273 = zext nneg i32 %271 to i64
-  %.split10 = getelementptr %struct.tg3_tx_ring_info, ptr %272, i64 %273
+  %.split10 = getelementptr [24 x i8], ptr %272, i64 %273
   %274 = getelementptr i8, ptr %.split10, i64 16
   %275 = load i8, ptr %274, align 8, !range !13, !noundef !14
   %276 = icmp eq i8 %275, 0
@@ -29850,7 +29828,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @tg3_run_loopback(ptr nound
   %293 = load ptr, ptr %283, align 8
   %294 = add i32 %291, 1
   %295 = zext i32 %291 to i64
-  %296 = getelementptr %struct.tg3_rx_buffer_desc, ptr %293, i64 %295
+  %296 = getelementptr [32 x i8], ptr %293, i64 %295
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 28
   %298 = load i32, ptr %297, align 4
   %299 = and i32 %298, 65535
@@ -29910,7 +29888,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @tg3_run_loopback(ptr nound
   %330 = phi ptr [ %285, %328 ], [ %286, %313 ], [ %286, %327 ]
   %331 = load ptr, ptr %330, align 8
   %332 = zext nneg i32 %299 to i64
-  %333 = getelementptr %struct.ring_info, ptr %331, i64 %332
+  %333 = getelementptr [16 x i8], ptr %331, i64 %332
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 8
   %335 = load i64, ptr %334, align 8
   %336 = load ptr, ptr %333, align 8
@@ -30304,13 +30282,13 @@ define internal fastcc zeroext i1 @tg3_tx_frag_set(ptr noundef readonly captures
   %61 = select i1 %57, i32 %58, i32 %55
   %62 = load ptr, ptr %42, align 32
   %63 = zext i32 %52 to i64
-  %.split = getelementptr %struct.tg3_tx_ring_info, ptr %62, i64 %63
+  %.split = getelementptr [24 x i8], ptr %62, i64 %63
   %64 = getelementptr i8, ptr %.split, i64 16
   store i8 1, ptr %64, align 8
   %65 = load ptr, ptr %43, align 8
   %66 = load i32, ptr %1, align 4
   %67 = zext i32 %66 to i64
-  %68 = getelementptr %struct.tg3_tx_buffer_desc, ptr %65, i64 %67
+  %68 = getelementptr [16 x i8], ptr %65, i64 %67
   %69 = lshr i64 %54, 32
   %70 = trunc nuw i64 %69 to i32
   store i32 %70, ptr %68, align 4
@@ -30353,7 +30331,7 @@ define internal fastcc zeroext i1 @tg3_tx_frag_set(ptr noundef readonly captures
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %94 = load ptr, ptr %93, align 8
   %95 = zext i32 %86 to i64
-  %96 = getelementptr %struct.tg3_tx_buffer_desc, ptr %94, i64 %95
+  %96 = getelementptr [16 x i8], ptr %94, i64 %95
   %97 = lshr i64 %88, 32
   %98 = trunc nuw i64 %97 to i32
   store i32 %98, ptr %96, align 4
@@ -30383,7 +30361,7 @@ define internal fastcc zeroext i1 @tg3_tx_frag_set(ptr noundef readonly captures
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %115 = load ptr, ptr %114, align 32
   %116 = zext i32 %113 to i64
-  %.split7 = getelementptr %struct.tg3_tx_ring_info, ptr %115, i64 %116
+  %.split7 = getelementptr [24 x i8], ptr %115, i64 %116
   %117 = getelementptr i8, ptr %.split7, i64 16
   store i8 0, ptr %117, align 8
   br label %137
@@ -30393,7 +30371,7 @@ define internal fastcc zeroext i1 @tg3_tx_frag_set(ptr noundef readonly captures
   %120 = load ptr, ptr %119, align 8
   %121 = load i32, ptr %1, align 4
   %122 = zext i32 %121 to i64
-  %123 = getelementptr %struct.tg3_tx_buffer_desc, ptr %120, i64 %122
+  %123 = getelementptr [16 x i8], ptr %120, i64 %122
   %124 = lshr i64 %3, 32
   %125 = trunc nuw i64 %124 to i32
   store i32 %125, ptr %123, align 4
@@ -30512,7 +30490,7 @@ define internal noundef range(i32 0, 2) i32 @tg3_test_isr(i32 %0, ptr noundef re
 define internal fastcc i32 @tg3_request_irq(ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = sext i32 %1 to i64
-  %5 = getelementptr %struct.tg3_napi, ptr %3, i64 %4
+  %5 = getelementptr [704 x i8], ptr %3, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 5212
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 1
@@ -30602,7 +30580,7 @@ define internal noundef i32 @tg3_msi(i32 %0, ptr noundef %1) #2 align 16 {
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 452
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct.tg3_rx_buffer_desc, ptr %8, i64 %13
+  %14 = getelementptr [32 x i8], ptr %8, i64 %13
   tail call void @llvm.prefetch.p0(ptr %14, i32 0, i32 3, i32 1)
   br label %15
 
@@ -30644,7 +30622,7 @@ define internal noundef i32 @tg3_msi_1shot(i32 %0, ptr noundef %1) #2 align 16 {
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 452
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct.tg3_rx_buffer_desc, ptr %8, i64 %13
+  %14 = getelementptr [32 x i8], ptr %8, i64 %13
   tail call void @llvm.prefetch.p0(ptr %14, i32 0, i32 3, i32 1)
   br label %15
 
@@ -30787,7 +30765,7 @@ select.unfold..thread_crit_edge:                  ; preds = %select.unfold
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %82 = load ptr, ptr %81, align 8
   %83 = zext i32 %80 to i64
-  %84 = getelementptr %struct.tg3_rx_buffer_desc, ptr %82, i64 %83
+  %84 = getelementptr [32 x i8], ptr %82, i64 %83
   tail call void @llvm.prefetch.p0(ptr %84, i32 0, i32 3, i32 1)
   %85 = tail call zeroext i1 @napi_schedule_prep(ptr noundef %1) #28
   br i1 %85, label %86, label %88
@@ -30875,7 +30853,7 @@ define internal noundef range(i32 0, 2) i32 @tg3_interrupt_tagged(i32 %0, ptr no
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 452
   %51 = load i32, ptr %50, align 4
   %52 = zext i32 %51 to i64
-  %53 = getelementptr %struct.tg3_rx_buffer_desc, ptr %49, i64 %52
+  %53 = getelementptr [32 x i8], ptr %49, i64 %52
   tail call void @llvm.prefetch.p0(ptr %53, i32 0, i32 3, i32 1)
   %54 = tail call zeroext i1 @napi_schedule_prep(ptr noundef %1) #28
   br i1 %54, label %55, label %56
@@ -32697,7 +32675,7 @@ define internal fastcc void @tg3_stop(ptr noundef %0) unnamed_addr #2 align 16 {
 
 91:                                               ; preds = %91, %88
   %92 = phi i64 [ %90, %88 ], [ %97, %91 ]
-  %93 = getelementptr %struct.tg3_napi, ptr %89, i64 %92
+  %93 = getelementptr [704 x i8], ptr %89, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 664
   %95 = load i32, ptr %94, align 8
   %96 = tail call ptr @free_irq(i32 noundef %95, ptr noundef %93) #28
@@ -32746,7 +32724,7 @@ define internal fastcc void @tg3_stop(ptr noundef %0) unnamed_addr #2 align 16 {
 117:                                              ; preds = %117, %115
   %118 = phi i32 [ 0, %115 ], [ %121, %117 ]
   %119 = sext i32 %118 to i64
-  %120 = getelementptr %struct.tg3_napi, ptr %116, i64 %119
+  %120 = getelementptr [704 x i8], ptr %116, i64 %119
   tail call void @__netif_napi_del(ptr noundef %120) #28
   tail call void @synchronize_net() #28
   %121 = add nuw i32 %118, 1
@@ -32869,7 +32847,7 @@ define internal fastcc i32 @tg3_start(ptr noundef %0, i1 noundef zeroext %1, i1 
   %63 = phi i32 [ %68, %.preheader64 ], [ 0, %57 ]
   %64 = trunc i32 %63 to i16
   %65 = sext i32 %63 to i64
-  %66 = getelementptr %struct.msix_entry, ptr %7, i64 %65
+  %66 = getelementptr [8 x i8], ptr %7, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i16 %64, ptr %67, align 4
   store i32 0, ptr %66, align 8
@@ -32919,7 +32897,7 @@ define internal fastcc i32 @tg3_start(ptr noundef %0, i1 noundef zeroext %1, i1 
 91:                                               ; preds = %.preheader62, %91
   %92 = phi i32 [ %97, %91 ], [ 0, %.preheader62 ]
   %93 = sext i32 %92 to i64
-  %94 = getelementptr %struct.msix_entry, ptr %7, i64 %93
+  %94 = getelementptr [8 x i8], ptr %7, i64 %93
   %95 = load i32, ptr %94, align 8
   %.idx = mul nsw i64 %93, 704
   %96 = getelementptr i8, ptr %90, i64 %.idx
@@ -33139,7 +33117,7 @@ define internal fastcc i32 @tg3_start(ptr noundef %0, i1 noundef zeroext %1, i1 
 225:                                              ; preds = %250, %223
   %226 = phi i32 [ 0, %223 ], [ %253, %250 ]
   %227 = sext i32 %226 to i64
-  %228 = getelementptr %struct.tg3_napi, ptr %224, i64 %227
+  %228 = getelementptr [704 x i8], ptr %224, i64 %227
   %229 = load ptr, ptr %213, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 184
   %231 = getelementptr inbounds nuw i8, ptr %228, i64 624
@@ -33242,7 +33220,7 @@ define internal fastcc i32 @tg3_start(ptr noundef %0, i1 noundef zeroext %1, i1 
 .preheader54:                                     ; preds = %284, %299
   %288 = phi i32 [ %302, %299 ], [ 0, %284 ]
   %289 = sext i32 %288 to i64
-  %290 = getelementptr %struct.tg3_napi, ptr %256, i64 %289
+  %290 = getelementptr [704 x i8], ptr %256, i64 %289
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 600
   %292 = load ptr, ptr %291, align 8
   %293 = icmp eq ptr %292, null
@@ -33286,7 +33264,7 @@ define internal fastcc i32 @tg3_start(ptr noundef %0, i1 noundef zeroext %1, i1 
 
 317:                                              ; preds = %384, %313
   %318 = phi i64 [ 0, %313 ], [ %385, %384 ]
-  %319 = getelementptr %struct.tg3_napi, ptr %256, i64 %318
+  %319 = getelementptr [704 x i8], ptr %256, i64 %318
   %320 = load volatile i64, ptr %10, align 8
   %321 = and i64 %320, 18014398509481984
   %322 = icmp eq i64 %321, 0
@@ -33391,7 +33369,7 @@ select.unfold:                                    ; preds = %373, %317, %365
 .preheader51:                                     ; preds = %select.unfold, %406
   %390 = phi i32 [ %407, %406 ], [ 0, %select.unfold ]
   %391 = sext i32 %390 to i64
-  %392 = getelementptr %struct.tg3_napi, ptr %256, i64 %391
+  %392 = getelementptr [704 x i8], ptr %256, i64 %391
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 472
   call fastcc void @tg3_rx_prodring_fini(ptr noundef %0, ptr noundef nonnull %393)
   %394 = getelementptr inbounds nuw i8, ptr %392, i64 536
@@ -33429,7 +33407,7 @@ select.unfold:                                    ; preds = %373, %317, %365
   %413 = phi i32 [ %417, %.preheader49 ], [ 1, %.loopexit53 ]
   %414 = load ptr, ptr %8, align 64
   %415 = sext i32 %413 to i64
-  %416 = getelementptr %struct.tg3_napi, ptr %256, i64 %415
+  %416 = getelementptr [704 x i8], ptr %256, i64 %415
   call void @netif_napi_add_weight(ptr noundef %414, ptr noundef %416, ptr noundef nonnull @tg3_poll_msix, i32 noundef 64) #28
   %417 = add nuw i32 %413, 1
   %418 = load i32, ptr %185, align 4
@@ -33444,7 +33422,7 @@ select.unfold:                                    ; preds = %373, %317, %365
 .preheader47:                                     ; preds = %.loopexit50, %.preheader47
   %421 = phi i32 [ %424, %.preheader47 ], [ 0, %.loopexit50 ]
   %422 = sext i32 %421 to i64
-  %423 = getelementptr %struct.tg3_napi, ptr %256, i64 %422
+  %423 = getelementptr [704 x i8], ptr %256, i64 %422
   call void @napi_enable(ptr noundef %423) #28
   %424 = add nuw i32 %421, 1
   %425 = load i32, ptr %185, align 4
@@ -33464,7 +33442,7 @@ thread-pre-split31:                               ; preds = %.loopexit48
   %430 = phi i1 [ %428, %thread-pre-split31 ], [ false, %482 ]
   %431 = phi i32 [ 0, %thread-pre-split31 ], [ %483, %482 ]
   %432 = sext i32 %431 to i64
-  %433 = getelementptr %struct.tg3_napi, ptr %256, i64 %432
+  %433 = getelementptr [704 x i8], ptr %256, i64 %432
   br i1 %430, label %434, label %437
 
 434:                                              ; preds = %429
@@ -33537,7 +33515,7 @@ tg3_request_irq.exit:                             ; preds = %458, %463
 
 .preheader44:                                     ; preds = %.preheader44.preheader, %.preheader44
   %indvars.iv94 = phi i64 [ %477, %.preheader44.preheader ], [ %indvars.iv.next95, %.preheader44 ]
-  %478 = getelementptr %struct.tg3_napi, ptr %256, i64 %indvars.iv94
+  %478 = getelementptr [704 x i8], ptr %256, i64 %indvars.iv94
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 664
   %480 = load i32, ptr %479, align 8
   %481 = call ptr @free_irq(i32 noundef %480, ptr noundef %478) #28
@@ -33783,7 +33761,7 @@ tg3_phy_start.exit:                               ; preds = %562, %598
 .preheader:                                       ; preds = %613, %631
   %618 = phi i64 [ %633, %631 ], [ 0, %613 ]
   %619 = phi i32 [ %632, %631 ], [ 0, %613 ]
-  %620 = getelementptr %struct.tg3_ocir, ptr %5, i64 %618
+  %620 = getelementptr [64 x i8], ptr %5, i64 %618
   %621 = getelementptr inbounds nuw i8, ptr %620, i64 26
   %622 = load i16, ptr %621, align 2
   %623 = icmp eq i16 %622, 0
@@ -33858,7 +33836,7 @@ tg3_phy_start.exit:                               ; preds = %562, %598
 663:                                              ; preds = %663, %661
   %664 = phi i64 [ 0, %661 ], [ %667, %663 ]
   %665 = load ptr, ptr %662, align 8
-  %.split = getelementptr %struct.netdev_queue, ptr %665, i64 %664
+  %.split = getelementptr [320 x i8], ptr %665, i64 %664
   %666 = getelementptr i8, ptr %.split, i64 144
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %666, i32 -2, ptr elementtype(i8) %666) #28, !srcloc !12
   %667 = add nuw nsw i64 %664, 1
@@ -33880,7 +33858,7 @@ tg3_phy_start.exit:                               ; preds = %562, %598
 
 676:                                              ; preds = %676, %502
   %677 = phi i64 [ %503, %502 ], [ %682, %676 ]
-  %678 = getelementptr %struct.tg3_napi, ptr %256, i64 %677
+  %678 = getelementptr [704 x i8], ptr %256, i64 %677
   %679 = getelementptr inbounds nuw i8, ptr %678, i64 664
   %680 = load i32, ptr %679, align 8
   %681 = call ptr @free_irq(i32 noundef %680, ptr noundef %678) #28
@@ -33901,7 +33879,7 @@ tg3_phy_start.exit:                               ; preds = %562, %598
 
 689:                                              ; preds = %689, %687
   %690 = phi i64 [ %688, %687 ], [ %692, %689 ]
-  %691 = getelementptr %struct.tg3_napi, ptr %256, i64 %690
+  %691 = getelementptr [704 x i8], ptr %256, i64 %690
   call void @napi_disable(ptr noundef %691) #28
   %692 = add nsw i64 %690, -1
   %.not40 = icmp eq i64 %690, 0
@@ -33919,7 +33897,7 @@ thread-pre-split37:                               ; preds = %689
 .preheader41:                                     ; preds = %693, %.preheader41
   %696 = phi i32 [ %699, %.preheader41 ], [ 0, %693 ]
   %697 = sext i32 %696 to i64
-  %698 = getelementptr %struct.tg3_napi, ptr %256, i64 %697
+  %698 = getelementptr [704 x i8], ptr %256, i64 %697
   call void @__netif_napi_del(ptr noundef %698) #28
   call void @synchronize_net() #28
   %699 = add nuw i32 %696, 1
@@ -33981,7 +33959,7 @@ define internal fastcc void @tg3_free_consistent(ptr noundef %0) unnamed_addr #2
   %9 = phi i32 [ %3, %5 ], [ %22, %21 ]
   %10 = phi i32 [ 0, %5 ], [ %23, %21 ]
   %11 = sext i32 %10 to i64
-  %12 = getelementptr %struct.tg3_napi, ptr %6, i64 %11
+  %12 = getelementptr [704 x i8], ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
@@ -34018,7 +33996,7 @@ define internal fastcc void @tg3_free_consistent(ptr noundef %0) unnamed_addr #2
 32:                                               ; preds = %49, %28
   %33 = phi i32 [ 0, %28 ], [ %50, %49 ]
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.tg3_napi, ptr %29, i64 %34
+  %35 = getelementptr [704 x i8], ptr %29, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 472
   tail call fastcc void @tg3_rx_prodring_fini(ptr noundef %0, ptr noundef nonnull %36)
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 536
@@ -34052,7 +34030,7 @@ define internal fastcc void @tg3_free_consistent(ptr noundef %0) unnamed_addr #2
 .preheader:                                       ; preds = %53, %66
   %55 = phi i32 [ %69, %66 ], [ 0, %53 ]
   %56 = sext i32 %55 to i64
-  %57 = getelementptr %struct.tg3_napi, ptr %29, i64 %56
+  %57 = getelementptr [704 x i8], ptr %29, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 600
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
@@ -34845,7 +34823,7 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = and i64 %28, 4294967295
-  %34 = getelementptr %struct.netdev_queue, ptr %32, i64 %33
+  %34 = getelementptr [320 x i8], ptr %32, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -34865,14 +34843,14 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
 47:                                               ; preds = %43
   %48 = load ptr, ptr %35, align 32
   %49 = zext i32 %45 to i64
-  %50 = getelementptr %struct.tg3_tx_ring_info, ptr %48, i64 %49
+  %50 = getelementptr [24 x i8], ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.critedge, label %53, !prof !181
 
 53:                                               ; preds = %47
   %54 = load ptr, ptr %36, align 8
-  %.split = getelementptr %struct.tg3_tx_buffer_desc, ptr %54, i64 %49
+  %.split = getelementptr [16 x i8], ptr %54, i64 %49
   %55 = getelementptr i8, ptr %.split, i64 8
   %56 = load i32, ptr %55, align 4
   %57 = and i32 %56, 32
@@ -34953,7 +34931,7 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %106 = and i32 %105, 511
   %107 = load ptr, ptr %35, align 32
   %108 = zext nneg i32 %106 to i64
-  %.split47 = getelementptr %struct.tg3_tx_ring_info, ptr %107, i64 %108
+  %.split47 = getelementptr [24 x i8], ptr %107, i64 %108
   %109 = getelementptr i8, ptr %.split47, i64 16
   %110 = load i8, ptr %109, align 8, !range !13, !noundef !14
   %111 = icmp eq i8 %110, 0
@@ -34966,7 +34944,7 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %115 = phi i32 [ %125, %.loopexit65 ], [ 0, %.loopexit69 ]
   %116 = load ptr, ptr %35, align 32
   %117 = zext nneg i32 %114 to i64
-  %118 = getelementptr %struct.tg3_tx_ring_info, ptr %116, i64 %117
+  %118 = getelementptr [24 x i8], ptr %116, i64 %117
   %119 = load ptr, ptr %118, align 8
   %120 = icmp ne ptr %119, null
   %121 = icmp eq i32 %114, %14
@@ -35001,7 +34979,7 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %140 = and i32 %139, 511
   %141 = load ptr, ptr %35, align 32
   %142 = zext nneg i32 %140 to i64
-  %.split48 = getelementptr %struct.tg3_tx_ring_info, ptr %141, i64 %142
+  %.split48 = getelementptr [24 x i8], ptr %141, i64 %142
   %143 = getelementptr i8, ptr %.split48, i64 16
   %144 = load i8, ptr %143, align 8, !range !13, !noundef !14
   %145 = icmp eq i8 %144, 0
@@ -35196,7 +35174,7 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %264 = phi i32 [ %232, %239 ], [ %528, %539 ]
   %265 = load ptr, ptr %240, align 8
   %266 = zext i32 %261 to i64
-  %267 = getelementptr %struct.tg3_rx_buffer_desc, ptr %265, i64 %266
+  %267 = getelementptr [32 x i8], ptr %265, i64 %266
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 28
   %269 = load i32, ptr %268, align 4
   %270 = and i32 %269, 65535
@@ -35209,14 +35187,14 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
 272:                                              ; preds = %257
   %273 = load ptr, ptr %242, align 8
   %274 = zext nneg i32 %270 to i64
-  %275 = getelementptr %struct.ring_info, ptr %273, i64 %274
+  %275 = getelementptr [16 x i8], ptr %273, i64 %274
   %276 = add i32 %262, 1
   br label %281
 
 277:                                              ; preds = %257
   %278 = load ptr, ptr %241, align 8
   %279 = zext nneg i32 %270 to i64
-  %280 = getelementptr %struct.ring_info, ptr %278, i64 %279
+  %280 = getelementptr [16 x i8], ptr %278, i64 %279
   br label %281
 
 281:                                              ; preds = %277, %272
@@ -35247,13 +35225,13 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %299 = and i32 %298, %294
   %300 = load ptr, ptr %246, align 8
   %301 = sext i32 %299 to i64
-  %302 = getelementptr %struct.tg3_rx_buffer_desc, ptr %300, i64 %301
+  %302 = getelementptr [32 x i8], ptr %300, i64 %301
   %303 = load ptr, ptr %247, align 8
-  %304 = getelementptr %struct.ring_info, ptr %303, i64 %301
+  %304 = getelementptr [16 x i8], ptr %303, i64 %301
   %305 = getelementptr inbounds nuw i8, ptr %295, i64 808
   %306 = load ptr, ptr %305, align 8
   %307 = zext nneg i32 %270 to i64
-  %308 = getelementptr %struct.tg3_rx_buffer_desc, ptr %306, i64 %307
+  %308 = getelementptr [32 x i8], ptr %306, i64 %307
   br label %322
 
 309:                                              ; preds = %293
@@ -35262,14 +35240,14 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %312 = and i32 %311, %294
   %313 = load ptr, ptr %244, align 8
   %314 = sext i32 %312 to i64
-  %.split51 = getelementptr %struct.tg3_ext_rx_buffer_desc, ptr %313, i64 %314
+  %.split51 = getelementptr [64 x i8], ptr %313, i64 %314
   %315 = getelementptr i8, ptr %.split51, i64 32
   %316 = load ptr, ptr %245, align 8
-  %317 = getelementptr %struct.ring_info, ptr %316, i64 %314
+  %317 = getelementptr [16 x i8], ptr %316, i64 %314
   %318 = getelementptr inbounds nuw i8, ptr %295, i64 816
   %319 = load ptr, ptr %318, align 16
   %320 = zext nneg i32 %270 to i64
-  %.split52 = getelementptr %struct.tg3_ext_rx_buffer_desc, ptr %319, i64 %320
+  %.split52 = getelementptr [64 x i8], ptr %319, i64 %320
   %321 = getelementptr i8, ptr %.split52, i64 32
   br label %322
 
@@ -35281,7 +35259,7 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %327 = phi ptr [ %317, %309 ], [ %304, %296 ]
   %328 = getelementptr inbounds nuw i8, ptr %295, i64 %323
   %329 = load ptr, ptr %328, align 8
-  %330 = getelementptr %struct.ring_info, ptr %329, i64 %324
+  %330 = getelementptr [16 x i8], ptr %329, i64 %324
   %331 = load ptr, ptr %330, align 8
   store ptr %331, ptr %327, align 8
   %332 = getelementptr inbounds nuw i8, ptr %330, i64 8
@@ -35407,13 +35385,13 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %393 = and i32 %392, %388
   %394 = load ptr, ptr %246, align 8
   %395 = sext i32 %393 to i64
-  %396 = getelementptr %struct.tg3_rx_buffer_desc, ptr %394, i64 %395
+  %396 = getelementptr [32 x i8], ptr %394, i64 %395
   %397 = load ptr, ptr %247, align 8
-  %398 = getelementptr %struct.ring_info, ptr %397, i64 %395
+  %398 = getelementptr [16 x i8], ptr %397, i64 %395
   %399 = getelementptr inbounds nuw i8, ptr %389, i64 808
   %400 = load ptr, ptr %399, align 8
   %401 = zext nneg i32 %270 to i64
-  %402 = getelementptr %struct.tg3_rx_buffer_desc, ptr %400, i64 %401
+  %402 = getelementptr [32 x i8], ptr %400, i64 %401
   br label %416
 
 403:                                              ; preds = %387
@@ -35422,14 +35400,14 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %406 = and i32 %405, %388
   %407 = load ptr, ptr %244, align 8
   %408 = sext i32 %406 to i64
-  %.split49 = getelementptr %struct.tg3_ext_rx_buffer_desc, ptr %407, i64 %408
+  %.split49 = getelementptr [64 x i8], ptr %407, i64 %408
   %409 = getelementptr i8, ptr %.split49, i64 32
   %410 = load ptr, ptr %245, align 8
-  %411 = getelementptr %struct.ring_info, ptr %410, i64 %408
+  %411 = getelementptr [16 x i8], ptr %410, i64 %408
   %412 = getelementptr inbounds nuw i8, ptr %389, i64 816
   %413 = load ptr, ptr %412, align 16
   %414 = zext nneg i32 %270 to i64
-  %.split50 = getelementptr %struct.tg3_ext_rx_buffer_desc, ptr %413, i64 %414
+  %.split50 = getelementptr [64 x i8], ptr %413, i64 %414
   %415 = getelementptr i8, ptr %.split50, i64 32
   br label %416
 
@@ -35441,7 +35419,7 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %421 = phi ptr [ %411, %403 ], [ %398, %390 ]
   %422 = getelementptr inbounds nuw i8, ptr %389, i64 %417
   %423 = load ptr, ptr %422, align 8
-  %424 = getelementptr %struct.ring_info, ptr %423, i64 %418
+  %424 = getelementptr [16 x i8], ptr %423, i64 %418
   %425 = load ptr, ptr %424, align 8
   store ptr %425, ptr %421, align 8
   %426 = getelementptr inbounds nuw i8, ptr %424, i64 8
@@ -35787,7 +35765,7 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
 638:                                              ; preds = %646, %636
   %639 = phi i32 [ %631, %636 ], [ %647, %646 ]
   %640 = sext i32 %639 to i64
-  %641 = getelementptr %struct.ring_info, ptr %637, i64 %640
+  %641 = getelementptr [16 x i8], ptr %637, i64 %640
   %642 = load ptr, ptr %641, align 8
   %643 = icmp eq ptr %642, null
   br i1 %643, label %646, label %644
@@ -35811,10 +35789,10 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !225
   %653 = load ptr, ptr %608, align 8
   %654 = zext i32 %631 to i64
-  %655 = getelementptr %struct.ring_info, ptr %653, i64 %654
+  %655 = getelementptr [16 x i8], ptr %653, i64 %654
   %656 = load ptr, ptr %623, align 8
   %657 = zext i32 %626 to i64
-  %658 = getelementptr %struct.ring_info, ptr %656, i64 %657
+  %658 = getelementptr [16 x i8], ptr %656, i64 %657
   %659 = zext i32 %650 to i64
   %660 = shl nuw nsw i64 %659, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %655, ptr align 8 %658, i64 %660, i1 false)
@@ -35826,10 +35804,10 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %664 = phi i32 [ 0, %652 ], [ %675, %661 ]
   %665 = load ptr, ptr %624, align 8
   %666 = zext i32 %662 to i64
-  %667 = getelementptr %struct.tg3_rx_buffer_desc, ptr %665, i64 %666
+  %667 = getelementptr [32 x i8], ptr %665, i64 %666
   %668 = load ptr, ptr %609, align 8
   %669 = zext i32 %663 to i64
-  %670 = getelementptr %struct.tg3_rx_buffer_desc, ptr %668, i64 %669
+  %670 = getelementptr [32 x i8], ptr %668, i64 %669
   %671 = load i32, ptr %667, align 4
   store i32 %671, ptr %670, align 4
   %672 = getelementptr inbounds nuw i8, ptr %667, i64 4
@@ -35896,7 +35874,7 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
 712:                                              ; preds = %720, %710
   %713 = phi i32 [ %705, %710 ], [ %721, %720 ]
   %714 = sext i32 %713 to i64
-  %715 = getelementptr %struct.ring_info, ptr %711, i64 %714
+  %715 = getelementptr [16 x i8], ptr %711, i64 %714
   %716 = load ptr, ptr %715, align 8
   %717 = icmp eq ptr %716, null
   br i1 %717, label %720, label %718
@@ -35920,10 +35898,10 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !230
   %727 = load ptr, ptr %611, align 8
   %728 = zext i32 %705 to i64
-  %729 = getelementptr %struct.ring_info, ptr %727, i64 %728
+  %729 = getelementptr [16 x i8], ptr %727, i64 %728
   %730 = load ptr, ptr %697, align 8
   %731 = zext i32 %700 to i64
-  %732 = getelementptr %struct.ring_info, ptr %730, i64 %731
+  %732 = getelementptr [16 x i8], ptr %730, i64 %731
   %733 = zext i32 %724 to i64
   %734 = shl nuw nsw i64 %733, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %729, ptr align 8 %732, i64 %734, i1 false)
@@ -35935,11 +35913,11 @@ define internal fastcc i32 @tg3_poll_work(ptr noundef %0, i32 noundef %1, i32 no
   %738 = phi i32 [ 0, %726 ], [ %749, %735 ]
   %739 = load ptr, ptr %698, align 8
   %740 = zext i32 %736 to i64
-  %.split54 = getelementptr %struct.tg3_ext_rx_buffer_desc, ptr %739, i64 %740
+  %.split54 = getelementptr [64 x i8], ptr %739, i64 %740
   %741 = getelementptr i8, ptr %.split54, i64 32
   %742 = load ptr, ptr %612, align 8
   %743 = zext i32 %737 to i64
-  %.split55 = getelementptr %struct.tg3_ext_rx_buffer_desc, ptr %742, i64 %743
+  %.split55 = getelementptr [64 x i8], ptr %742, i64 %743
   %744 = getelementptr i8, ptr %.split55, i64 32
   %745 = load i32, ptr %741, align 4
   store i32 %745, ptr %744, align 4
@@ -36117,7 +36095,7 @@ define internal fastcc void @tg3_dump_state(ptr noundef %0) unnamed_addr #2 alig
 
 30:                                               ; preds = %54, %.loopexit1
   %31 = phi i64 [ 0, %.loopexit1 ], [ %55, %54 ]
-  %32 = getelementptr i32, ptr %11, i64 %31
+  %32 = getelementptr [4 x i8], ptr %11, i64 %31
   %33 = load i32, ptr %32, align 16
   %34 = icmp eq i32 %33, 0
   %35 = getelementptr i8, ptr %32, i64 4
@@ -36169,7 +36147,7 @@ define internal fastcc void @tg3_dump_state(ptr noundef %0) unnamed_addr #2 alig
 63:                                               ; preds = %63, %61
   %64 = phi i32 [ 0, %61 ], [ %109, %63 ]
   %65 = sext i32 %64 to i64
-  %66 = getelementptr %struct.tg3_napi, ptr %62, i64 %65
+  %66 = getelementptr [704 x i8], ptr %62, i64 %65
   %67 = load ptr, ptr %29, align 64
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 408
   %69 = load ptr, ptr %68, align 8
@@ -36788,7 +36766,7 @@ define internal range(i32 0, 17) i32 @tg3_start_xmit(ptr noundef %0, ptr noundef
   br i1 %9, label %._crit_edge, label %10
 
 10:                                               ; preds = %2
-  %.split = getelementptr %struct.netdev_queue, ptr %6, i64 %.pre
+  %.split = getelementptr [320 x i8], ptr %6, i64 %.pre
   %11 = getelementptr i8, ptr %.split, i64 144
   %12 = load i64, ptr %11, align 16
   %13 = and i64 %12, 3
@@ -36798,7 +36776,7 @@ define internal range(i32 0, 17) i32 @tg3_start_xmit(ptr noundef %0, ptr noundef
 ._crit_edge:                                      ; preds = %2, %10
   %15 = getelementptr i8, ptr %1, i64 2304
   %16 = getelementptr i8, ptr %1, i64 2624
-  %17 = getelementptr %struct.tg3_napi, ptr %16, i64 %.pre
+  %17 = getelementptr [704 x i8], ptr %16, i64 %.pre
   %18 = getelementptr i8, ptr %1, i64 6984
   %19 = load volatile i64, ptr %18, align 8
   %20 = and i64 %19, 2305843009213693952
@@ -37424,7 +37402,7 @@ define internal i32 @tg3_change_mtu(ptr noundef %0, i32 noundef %1) #2 align 16 
 85:                                               ; preds = %85, %83
   %86 = phi i64 [ 0, %83 ], [ %89, %85 ]
   %87 = load ptr, ptr %84, align 8
-  %88 = getelementptr %struct.netdev_queue, ptr %87, i64 %86
+  %88 = getelementptr [320 x i8], ptr %87, i64 %86
   tail call void @netif_tx_wake_queue(ptr noundef %88) #28
   %89 = add nuw nsw i64 %86, 1
   %90 = load i32, ptr %80, align 8
@@ -37455,7 +37433,7 @@ define internal i32 @tg3_change_mtu(ptr noundef %0, i32 noundef %1) #2 align 16 
 103:                                              ; preds = %103, %101
   %104 = phi i32 [ 0, %101 ], [ %107, %103 ]
   %105 = sext i32 %104 to i64
-  %106 = getelementptr %struct.tg3_napi, ptr %102, i64 %105
+  %106 = getelementptr [704 x i8], ptr %102, i64 %105
   tail call void @napi_enable(ptr noundef %106) #28
   %107 = add nuw i32 %104, 1
   %108 = load i32, ptr %60, align 4
@@ -37612,7 +37590,7 @@ define internal void @tg3_poll_controller(ptr noundef %0) #2 align 16 {
 11:                                               ; preds = %11, %9
   %12 = phi i32 [ 0, %9 ], [ %16, %11 ]
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct.tg3_napi, ptr %10, i64 %13
+  %14 = getelementptr [704 x i8], ptr %10, i64 %13
   %15 = tail call i32 @tg3_interrupt(i32 poison, ptr noundef %14), !range !247
   %16 = add nuw i32 %12, 1
   %17 = load i32, ptr %6, align 4
@@ -37686,9 +37664,9 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = zext i16 %7 to i64
-  %11 = getelementptr %struct.netdev_queue, ptr %9, i64 %10
+  %11 = getelementptr [320 x i8], ptr %9, i64 %10
   %12 = getelementptr i8, ptr %1, i64 2624
-  %13 = getelementptr %struct.tg3_napi, ptr %12, i64 %10
+  %13 = getelementptr [704 x i8], ptr %12, i64 %10
   %14 = getelementptr i8, ptr %1, i64 6984
   %15 = load volatile i64, ptr %14, align 8
   %16 = and i64 %15, 2305843009213693952
@@ -38139,7 +38117,7 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   %326 = select i1 %322, i64 %323, i64 %325
   %327 = add i64 %321, %326
   %328 = lshr i64 %327, 12
-  %329 = getelementptr %struct.page, ptr %319, i64 %328
+  %329 = getelementptr [64 x i8], ptr %319, i64 %328
   %330 = and i64 %320, 4095
   %331 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %299, ptr noundef %329, i64 noundef %330, i64 noundef %302, i32 noundef 1, i64 noundef 0) #28
   %332 = icmp eq i64 %331, -1
@@ -38149,10 +38127,10 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   %334 = getelementptr inbounds nuw i8, ptr %19, i64 608
   %335 = load ptr, ptr %334, align 32
   %336 = zext i32 %23 to i64
-  %337 = getelementptr %struct.tg3_tx_ring_info, ptr %335, i64 %336
+  %337 = getelementptr [24 x i8], ptr %335, i64 %336
   store ptr %0, ptr %337, align 8
   %338 = load ptr, ptr %334, align 32
-  %.split = getelementptr %struct.tg3_tx_ring_info, ptr %338, i64 %336
+  %.split = getelementptr [24 x i8], ptr %338, i64 %336
   %339 = getelementptr i8, ptr %.split, i64 8
   store i64 %331, ptr %339, align 8
   %340 = load volatile i64, ptr %14, align 8
@@ -38211,7 +38189,7 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   %381 = getelementptr i8, ptr %378, i64 %380
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 48
   %383 = sext i32 %377 to i64
-  %384 = getelementptr %struct.bio_vec, ptr %382, i64 %383
+  %384 = getelementptr [16 x i8], ptr %382, i64 %383
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 8
   %386 = load i32, ptr %385, align 8
   %387 = load ptr, ptr %297, align 8
@@ -38225,10 +38203,10 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   %395 = load ptr, ptr %334, align 32
   %396 = load i32, ptr %3, align 4
   %397 = zext i32 %396 to i64
-  %398 = getelementptr %struct.tg3_tx_ring_info, ptr %395, i64 %397
+  %398 = getelementptr [24 x i8], ptr %395, i64 %397
   store ptr null, ptr %398, align 8
   %399 = load ptr, ptr %334, align 32
-  %.split12 = getelementptr %struct.tg3_tx_ring_info, ptr %399, i64 %397
+  %.split12 = getelementptr [24 x i8], ptr %399, i64 %397
   %400 = getelementptr i8, ptr %.split12, i64 8
   store i64 %394, ptr %400, align 8
   %401 = icmp eq i64 %394, -1
@@ -38399,7 +38377,7 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   %507 = select i1 %503, i64 %504, i64 %506
   %508 = add i64 %502, %507
   %509 = lshr i64 %508, 12
-  %510 = getelementptr %struct.page, ptr %500, i64 %509
+  %510 = getelementptr [64 x i8], ptr %500, i64 %509
   %511 = and i64 %501, 4095
   %512 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %478, ptr noundef %510, i64 noundef %511, i64 noundef %483, i32 noundef 1, i64 noundef 0) #28
   %513 = icmp eq i64 %512, -1
@@ -38409,10 +38387,10 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   %515 = or i32 %291, 4
   %516 = load ptr, ptr %334, align 32
   %517 = zext i32 %438 to i64
-  %518 = getelementptr %struct.tg3_tx_ring_info, ptr %516, i64 %517
+  %518 = getelementptr [24 x i8], ptr %516, i64 %517
   store ptr %473, ptr %518, align 8
   %519 = load ptr, ptr %334, align 32
-  %.split13 = getelementptr %struct.tg3_tx_ring_info, ptr %519, i64 %517
+  %.split13 = getelementptr [24 x i8], ptr %519, i64 %517
   %520 = getelementptr i8, ptr %.split13, i64 8
   store i64 %512, ptr %520, align 8
   %521 = load i32, ptr %481, align 8
@@ -38421,7 +38399,7 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
 
 523:                                              ; preds = %514
   %524 = load ptr, ptr %334, align 32
-  %525 = getelementptr %struct.tg3_tx_ring_info, ptr %524, i64 %517
+  %525 = getelementptr [24 x i8], ptr %524, i64 %517
   %526 = load ptr, ptr %525, align 8
   store ptr null, ptr %525, align 8
   %527 = load ptr, ptr %445, align 16
@@ -38450,7 +38428,7 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   %545 = and i32 %544, 511
   %546 = load ptr, ptr %334, align 32
   %547 = zext nneg i32 %545 to i64
-  %.split14 = getelementptr %struct.tg3_tx_ring_info, ptr %546, i64 %547
+  %.split14 = getelementptr [24 x i8], ptr %546, i64 %547
   %548 = getelementptr i8, ptr %.split14, i64 16
   %549 = load i8, ptr %548, align 8, !range !13, !noundef !14
   %550 = icmp eq i8 %549, 0
@@ -38558,7 +38536,7 @@ define internal fastcc range(i32 0, 17) i32 @__tg3_start_xmit(ptr noundef %0, pt
   %610 = load ptr, ptr %334, align 32
   %611 = load i32, ptr %22, align 64
   %612 = zext i32 %611 to i64
-  %613 = getelementptr %struct.tg3_tx_ring_info, ptr %610, i64 %612
+  %613 = getelementptr [24 x i8], ptr %610, i64 %612
   store ptr null, ptr %613, align 8
   br label %.thread18
 
@@ -39012,7 +38990,7 @@ define internal fastcc void @tg3_get_nstats(ptr noundef %0, ptr noundef writeonl
   %286 = phi i32 [ 0, %282 ], [ %296, %284 ]
   %287 = phi i64 [ %278, %282 ], [ %295, %284 ]
   %288 = sext i32 %286 to i64
-  %289 = getelementptr %struct.tg3_napi, ptr %283, i64 %288
+  %289 = getelementptr [704 x i8], ptr %283, i64 %288
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 544
   %291 = load i64, ptr %290, align 32
   %292 = add i64 %291, %285
@@ -40745,7 +40723,7 @@ define internal fastcc range(i32 -19, 1) i32 @tg3_do_test_dma(ptr noundef %0, i6
 
 58:                                               ; preds = %58, %55
   %59 = phi i64 [ 0, %55 ], [ %69, %58 ]
-  %60 = getelementptr i32, ptr %4, i64 %59
+  %60 = getelementptr [4 x i8], ptr %4, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = load ptr, ptr %57, align 8
   %63 = trunc i64 %59 to i32
@@ -40837,7 +40815,7 @@ define internal void @tg3_timer(ptr noundef %0) #2 align 16 {
 
 28:                                               ; preds = %97, %26
   %29 = phi i64 [ 0, %26 ], [ %104, %97 ]
-  %30 = getelementptr %struct.tg3_napi, ptr %27, i64 %29
+  %30 = getelementptr [704 x i8], ptr %27, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 400
   %32 = load ptr, ptr %31, align 16
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 408
@@ -40926,7 +40904,7 @@ select.unfold..thread_crit_edge:                  ; preds = %select.unfold
 
 84:                                               ; preds = %80
   %85 = zext i32 %66 to i64
-  %86 = getelementptr %struct.tg3_rx_buffer_desc, ptr %82, i64 %85
+  %86 = getelementptr [32 x i8], ptr %82, i64 %85
   tail call void @llvm.prefetch.p0(ptr %86, i32 0, i32 3, i32 1)
   br label %87
 
@@ -42521,7 +42499,7 @@ define internal noundef range(i32 3, 5) i32 @tg3_io_error_detected(ptr noundef %
 53:                                               ; preds = %53, %51
   %54 = phi i32 [ 0, %51 ], [ %57, %53 ]
   %55 = sext i32 %54 to i64
-  %56 = getelementptr %struct.tg3_napi, ptr %52, i64 %55
+  %56 = getelementptr [704 x i8], ptr %52, i64 %55
   tail call void @napi_enable(ptr noundef %56) #28
   %57 = add nuw i32 %54, 1
   %58 = load i32, ptr %48, align 4
@@ -42613,7 +42591,7 @@ define internal noundef range(i32 4, 6) i32 @tg3_io_slot_reset(ptr noundef %0) #
 39:                                               ; preds = %39, %37
   %40 = phi i32 [ 0, %37 ], [ %43, %39 ]
   %41 = sext i32 %40 to i64
-  %42 = getelementptr %struct.tg3_napi, ptr %38, i64 %41
+  %42 = getelementptr [704 x i8], ptr %38, i64 %41
   tail call void @napi_enable(ptr noundef %42) #28
   %43 = add nuw i32 %40, 1
   %44 = load i32, ptr %34, align 4
@@ -42695,7 +42673,7 @@ define internal void @tg3_io_resume(ptr noundef readonly captures(none) %0) #2 a
 38:                                               ; preds = %38, %36
   %39 = phi i64 [ 0, %36 ], [ %42, %38 ]
   %40 = load ptr, ptr %37, align 8
-  %41 = getelementptr %struct.netdev_queue, ptr %40, i64 %39
+  %41 = getelementptr [320 x i8], ptr %40, i64 %39
   tail call void @netif_tx_wake_queue(ptr noundef %41) #28
   %42 = add nuw nsw i64 %39, 1
   %43 = load i32, ptr %33, align 8
@@ -42727,7 +42705,7 @@ define internal void @tg3_io_resume(ptr noundef readonly captures(none) %0) #2 a
 57:                                               ; preds = %57, %55
   %58 = phi i32 [ 0, %55 ], [ %61, %57 ]
   %59 = sext i32 %58 to i64
-  %60 = getelementptr %struct.tg3_napi, ptr %56, i64 %59
+  %60 = getelementptr [704 x i8], ptr %56, i64 %59
   tail call void @napi_enable(ptr noundef %60) #28
   %61 = add nuw i32 %58, 1
   %62 = load i32, ptr %52, align 4
@@ -43022,7 +43000,7 @@ define internal i32 @tg3_resume(ptr noundef readonly captures(none) %0) #2 align
 39:                                               ; preds = %39, %37
   %40 = phi i64 [ 0, %37 ], [ %43, %39 ]
   %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr %struct.netdev_queue, ptr %41, i64 %40
+  %42 = getelementptr [320 x i8], ptr %41, i64 %40
   tail call void @netif_tx_wake_queue(ptr noundef %42) #28
   %43 = add nuw nsw i64 %40, 1
   %44 = load i32, ptr %34, align 8
@@ -43054,7 +43032,7 @@ define internal i32 @tg3_resume(ptr noundef readonly captures(none) %0) #2 align
 58:                                               ; preds = %58, %56
   %59 = phi i32 [ 0, %56 ], [ %62, %58 ]
   %60 = sext i32 %59 to i64
-  %61 = getelementptr %struct.tg3_napi, ptr %57, i64 %60
+  %61 = getelementptr [704 x i8], ptr %57, i64 %60
   tail call void @napi_enable(ptr noundef %61) #28
   %62 = add nuw i32 %59, 1
   %63 = load i32, ptr %53, align 4

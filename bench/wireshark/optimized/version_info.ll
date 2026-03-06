@@ -664,7 +664,7 @@ define internal fastcc void @features_to_columns(ptr noundef readonly captures(n
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr ptr, ptr %40, i64 %37
+  %41 = getelementptr [8 x i8], ptr %40, i64 %37
   %42 = load ptr, ptr %41, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %1, ptr noundef nonnull @.str.36, i32 noundef %18, ptr noundef %42)
   br label %43

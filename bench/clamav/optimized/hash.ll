@@ -71,7 +71,7 @@ define dso_local void @onas_free_ht(ptr noundef captures(address_is_null) %0) lo
   %8 = phi i32 [ %33, %onas_free_bucket.exit ], [ %4, %6 ]
   %9 = phi ptr [ %34, %onas_free_bucket.exit ], [ %7, %6 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %onas_free_bucket.exit ], [ 0, %6 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %onas_free_bucket.exit, label %.preheader.i
@@ -141,7 +141,7 @@ onas_free_element.exit:                           ; preds = %14, %onas_free_dirl
 onas_free_bucket.exit:                            ; preds = %.lr.ph, %._crit_edge.i
   %33 = phi i32 [ %8, %.lr.ph ], [ %.pre19, %._crit_edge.i ]
   %34 = phi ptr [ %9, %.lr.ph ], [ %.pre, %._crit_edge.i ]
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   store ptr null, ptr %35, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = zext i32 %33 to i64
@@ -318,7 +318,7 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i, %7
   %31 = and i32 %.08.lcssa.i, %30
   %32 = load ptr, ptr %0, align 8, !tbaa !11
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !16
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %38
@@ -445,7 +445,7 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i
   %32 = add i32 %13, -1
   %33 = and i32 %28, %32
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr %11, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %11, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !16
   %.not31 = icmp eq ptr %36, null
   br i1 %.not31, label %.critedge34, label %37
@@ -531,7 +531,7 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i
   %30 = add i32 %11, -1
   %31 = and i32 %26, %30
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %9, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %9, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !16
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %onas_ht_get.exit.thread, label %.lr.ph.i.i
@@ -562,7 +562,7 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i
 onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
   %53 = and i32 %49, %30
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %9, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %9, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !16
   %.not31.i = icmp eq ptr %56, null
   br i1 %.not31.i, label %onas_ht_get.exit.thread, label %57
@@ -898,7 +898,7 @@ onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
   %49 = add i32 %30, -1
   %50 = and i32 %45, %49
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %28, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %28, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !16
   %.not31.i = icmp eq ptr %53, null
   br i1 %.not31.i, label %onas_ht_get.exit.thread, label %54
@@ -1071,7 +1071,7 @@ onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
   %49 = add i32 %30, -1
   %50 = and i32 %45, %49
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %28, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %28, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !16
   %.not31.i = icmp eq ptr %53, null
   br i1 %.not31.i, label %onas_add_hashnode_child.exit, label %54
@@ -1523,7 +1523,7 @@ onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
   %30 = add i32 %11, -1
   %31 = and i32 %26, %30
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %9, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %9, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !16
   %.not31.i = icmp eq ptr %34, null
   br i1 %.not31.i, label %.critedge, label %35

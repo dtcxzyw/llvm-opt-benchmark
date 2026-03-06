@@ -922,7 +922,7 @@ _ZN10serde_json3ser9Formatter10write_null17h7659524ff21d466eE.llvm.7682522193326
   %.val.i = load ptr, ptr %203, align 8, !alias.scope !350, !noalias !353, !nonnull !9, !noundef !9
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val5.i = load i64, ptr %204, align 8, !alias.scope !350, !noalias !353, !noundef !9
-  %205 = getelementptr inbounds { i8, [31 x i8] }, ptr %.val.i, i64 %.val5.i
+  %205 = getelementptr inbounds [32 x i8], ptr %.val.i, i64 %.val5.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !355)
   %.val.i22 = load ptr, ptr %1, align 8, !alias.scope !358, !noalias !361, !nonnull !9, !align !10, !noundef !9
   %206 = getelementptr inbounds nuw i8, ptr %.val.i22, i64 16
@@ -1643,8 +1643,8 @@ _ZN10serde_json3ser9Formatter10end_object17hbb4f1a0d729481baE.exit.i.i.i.i.i.i.i
 103:                                              ; preds = %85
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !694
   %104 = getelementptr inbounds nuw i8, ptr %82, i64 360
-  %105 = getelementptr inbounds { [3 x i64] }, ptr %104, i64 %.sroa.4.sroa.4.0.copyload.i.i.i.i.i
-  %106 = getelementptr inbounds { [4 x i64] }, ptr %82, i64 %.sroa.4.sroa.4.0.copyload.i.i.i.i.i
+  %105 = getelementptr inbounds [24 x i8], ptr %104, i64 %.sroa.4.sroa.4.0.copyload.i.i.i.i.i
+  %106 = getelementptr inbounds [32 x i8], ptr %82, i64 %.sroa.4.sroa.4.0.copyload.i.i.i.i.i
   %.sroa.018.0.copyload.i.i = load ptr, ptr %5, align 8, !noalias !691
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !691
   %.sroa.519.0.copyload.i.i = load i64, ptr %.sroa.519.0..sroa_idx.i.i, align 8, !noalias !691
@@ -3714,7 +3714,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$G
   %8 = and i16 %7, %.lcssa
   store i16 %8, ptr %2, align 8, !alias.scope !1806
   %9 = sub nsw i64 0, %6
-  %10 = getelementptr inbounds i64, ptr %.val3, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %.val3, i64 %9
   ret ptr %10
 
 11:                                               ; preds = %.lr.ph, %11
@@ -3756,7 +3756,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$G
   %8 = and i16 %7, %.lcssa
   store i16 %8, ptr %2, align 8, !alias.scope !1812
   %9 = sub nsw i64 0, %6
-  %10 = getelementptr inbounds i64, ptr %.val3, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %.val3, i64 %9
   ret ptr %10
 
 11:                                               ; preds = %.lr.ph, %11

@@ -709,7 +709,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   %172 = add i32 %132, %171
   %173 = add i32 %136, 1
   %174 = zext i32 %136 to i64
-  %175 = getelementptr inbounds nuw i32, ptr %118, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %174
   store i32 %172, ptr %175, align 4, !tbaa !102
   %176 = sub nuw i32 %111, %.084.us
   %177 = mul i32 %176, %128
@@ -717,42 +717,42 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   %179 = add i32 %177, %178
   %180 = add i32 %136, 2
   %181 = zext i32 %173 to i64
-  %182 = getelementptr inbounds nuw i32, ptr %118, i64 %181
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %181
   store i32 %179, ptr %182, align 4, !tbaa !102
   %183 = add i32 %134, %171
   %184 = add i32 %136, 3
   %185 = zext i32 %180 to i64
-  %186 = getelementptr inbounds nuw i32, ptr %118, i64 %185
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %185
   store i32 %183, ptr %186, align 4, !tbaa !102
   %187 = add i32 %.084.us, %111
   %188 = mul i32 %187, %128
   %189 = add i32 %188, %178
   %190 = add i32 %136, 4
   %191 = zext i32 %184 to i64
-  %192 = getelementptr inbounds nuw i32, ptr %118, i64 %191
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %191
   store i32 %189, ptr %192, align 4, !tbaa !102
   %193 = sub i32 %109, %.087121.us
   %194 = add i32 %132, %193
   %195 = add i32 %136, 5
   %196 = zext i32 %190 to i64
-  %197 = getelementptr inbounds nuw i32, ptr %118, i64 %196
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %196
   store i32 %194, ptr %197, align 4, !tbaa !102
   %198 = sub nuw i32 %113, %.083.us
   %199 = add i32 %177, %198
   %200 = add i32 %136, 6
   %201 = zext i32 %195 to i64
-  %202 = getelementptr inbounds nuw i32, ptr %118, i64 %201
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %201
   store i32 %199, ptr %202, align 4, !tbaa !102
   %203 = add i32 %134, %193
   %204 = add i32 %136, 7
   %205 = zext i32 %200 to i64
-  %206 = getelementptr inbounds nuw i32, ptr %118, i64 %205
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %205
   store i32 %203, ptr %206, align 4, !tbaa !102
   %207 = add i32 %188, %198
   %208 = add i32 %136, 8
   store i32 %208, ptr %119, align 8, !tbaa !31
   %209 = zext i32 %204 to i64
-  %210 = getelementptr inbounds nuw i32, ptr %118, i64 %209
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %209
   store i32 %207, ptr %210, align 4, !tbaa !102
   br label %211
 
@@ -1061,7 +1061,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   %100 = trunc nuw i64 %indvars.iv to i32
   %101 = uitofp i32 %100 to double
   %102 = fmul double %95, %101
-  %103 = getelementptr inbounds nuw double, ptr %92, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv
   store double %102, ptr %103, align 8, !tbaa !120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1097,7 +1097,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   %115 = trunc nuw i64 %indvars.iv115 to i32
   %116 = uitofp i32 %115 to double
   %117 = fmul double %107, %116
-  %118 = getelementptr inbounds nuw double, ptr %99, i64 %indvars.iv115
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv115
   store double %117, ptr %118, align 8, !tbaa !120
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
@@ -1133,7 +1133,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   br i1 %.not112, label %._crit_edge105, label %.lr.ph104
 
 .lr.ph104:                                        ; preds = %.preheader
-  %133 = getelementptr inbounds nuw double, ptr %92, i64 %indvars.iv123
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv123
   %134 = load double, ptr %133, align 8, !tbaa !120
   %135 = trunc nuw i64 %indvars.iv123 to i32
   br label %152
@@ -1197,7 +1197,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
 152:                                              ; preds = %.lr.ph104, %194
   %indvars.iv120 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next121, %194 ]
   %153 = tail call double @sinh(double noundef %134) #16, !tbaa !102
-  %154 = getelementptr inbounds nuw double, ptr %99, i64 %indvars.iv120
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv120
   %155 = load double, ptr %154, align 8, !tbaa !120
   %156 = tail call double @cos(double noundef %155) #16, !tbaa !102
   %157 = tail call double @llvm.fmuladd.f64(double %153, double %156, double 1.000000e+00)
@@ -1238,14 +1238,14 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   %185 = load i32, ptr %120, align 8, !tbaa !31
   %186 = add i32 %185, 1
   %187 = zext i32 %185 to i64
-  %188 = getelementptr inbounds nuw i32, ptr %112, i64 %187
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %187
   store i32 %184, ptr %188, align 4, !tbaa !102
   %189 = mul i32 %174, %128
   %190 = add i32 %189, %170
   %191 = add i32 %185, 2
   store i32 %191, ptr %120, align 8, !tbaa !31
   %192 = zext i32 %186 to i64
-  %193 = getelementptr inbounds nuw i32, ptr %112, i64 %192
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %192
   store i32 %190, ptr %193, align 4, !tbaa !102
   br label %194
 
@@ -1394,7 +1394,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load i64, ptr %23, align 8, !tbaa !139
   %25 = and i64 %24, 4294967295
-  %26 = getelementptr inbounds nuw float, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %25
   %27 = load ptr, ptr %10, align 8, !tbaa !138
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !12
@@ -1407,13 +1407,13 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
   %35 = load ptr, ptr %34, align 8, !tbaa !12
   %36 = load i64, ptr %23, align 8, !tbaa !139
   %37 = and i64 %36, 4294967295
-  %38 = getelementptr inbounds nuw float, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %37
   tail call void @_ZN2cv11bioinspired17BasicRetinaFilter33_spatiotemporalLPfilter_IrregularEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull %32, ptr noundef nonnull %38, i32 noundef 0)
   %39 = load ptr, ptr %8, align 8, !tbaa !12
   %40 = load i64, ptr %23, align 8, !tbaa !139
   %41 = shl i64 %40, 1
   %42 = and i64 %41, 4294967294
-  %43 = getelementptr inbounds nuw float, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %42
   %44 = load ptr, ptr %10, align 8, !tbaa !138
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !12
@@ -1427,7 +1427,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
   %53 = load i64, ptr %23, align 8, !tbaa !139
   %54 = shl i64 %53, 1
   %55 = and i64 %54, 4294967294
-  %56 = getelementptr inbounds nuw float, ptr %52, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %55
   tail call void @_ZN2cv11bioinspired17BasicRetinaFilter33_spatiotemporalLPfilter_IrregularEPKfPfj(ptr noundef nonnull align 8 dereferenceable(168) %7, ptr noundef nonnull %49, ptr noundef nonnull %56, i32 noundef 0)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %58 = load i32, ptr %57, align 8, !tbaa !31
@@ -1458,27 +1458,27 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
   %75 = getelementptr inbounds nuw i8, ptr %.02226, i64 4
   %76 = load i32, ptr %75, align 4, !tbaa !102
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw float, ptr %63, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %77
   %79 = load float, ptr %78, align 4, !tbaa !34
   %80 = load i32, ptr %.02226, align 4, !tbaa !102
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw float, ptr %65, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %81
   store float %79, ptr %82, align 4, !tbaa !34
   %83 = add i32 %76, %67
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw float, ptr %63, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %84
   %86 = load float, ptr %85, align 4, !tbaa !34
   %87 = add i32 %69, %80
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw float, ptr %65, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %88
   store float %86, ptr %89, align 4, !tbaa !34
   %90 = add i32 %71, %76
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds nuw float, ptr %63, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %91
   %93 = load float, ptr %92, align 4, !tbaa !34
   %94 = add i32 %73, %80
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw float, ptr %65, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %95
   store float %93, ptr %96, align 4, !tbaa !34
   %97 = add nuw i32 %.02127, 2
   %98 = getelementptr inbounds nuw i8, ptr %.02226, i64 8
@@ -1508,11 +1508,11 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11bioinspir
   %111 = getelementptr inbounds nuw i8, ptr %.02024, i64 4
   %112 = load i32, ptr %111, align 4, !tbaa !102
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw float, ptr %107, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %113
   %115 = load float, ptr %114, align 4, !tbaa !34
   %116 = load i32, ptr %.02024, align 4, !tbaa !102
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds nuw float, ptr %109, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %117
   store float %115, ptr %118, align 4, !tbaa !34
   %119 = add nuw i32 %.025, 2
   %120 = getelementptr inbounds nuw i8, ptr %.02024, i64 8

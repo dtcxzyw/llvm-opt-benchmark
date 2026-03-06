@@ -501,7 +501,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %4
 .lr.ph82:                                         ; preds = %37, %.lr.ph82
   %50 = phi ptr [ %55, %.lr.ph82 ], [ %44, %37 ]
   %.06880 = phi i64 [ %53, %.lr.ph82 ], [ 2, %37 ]
-  %51 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %50, i64 %.06880
+  %51 = getelementptr inbounds nuw [72 x i8], ptr %50, i64 %.06880
   %52 = load i32, ptr %40, align 4, !tbaa !45
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %10, i32 %52)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE.omp_outlined.1, ptr nonnull %5, ptr nonnull %51, ptr nonnull %22, ptr nonnull %6)
@@ -542,7 +542,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %4
 .lr.ph79:                                         ; preds = %68, %.lr.ph79
   %79 = phi ptr [ %84, %.lr.ph79 ], [ %73, %68 ]
   %.07077 = phi i64 [ %82, %.lr.ph79 ], [ 2, %68 ]
-  %80 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %79, i64 %.07077
+  %80 = getelementptr inbounds nuw [72 x i8], ptr %79, i64 %.07077
   %81 = load i32, ptr %69, align 4, !tbaa !45
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %10, i32 %81)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE.omp_outlined.3, ptr nonnull %5, ptr nonnull %80, ptr nonnull %22, ptr nonnull %6)
@@ -587,10 +587,10 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %4
 .lr.ph76:                                         ; preds = %90, %.lr.ph76
   %105 = phi ptr [ %113, %.lr.ph76 ], [ %99, %90 ]
   %.06975 = phi i64 [ %111, %.lr.ph76 ], [ 2, %90 ]
-  %106 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %105, i64 %.06975
+  %106 = getelementptr inbounds nuw [72 x i8], ptr %105, i64 %.06975
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %107 = load ptr, ptr %62, align 8, !tbaa !16
-  %108 = getelementptr inbounds nuw float, ptr %107, i64 %.06975
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %.06975
   %109 = load float, ptr %108, align 4, !tbaa !51
   store float %109, ptr %9, align 4, !tbaa !51
   %110 = load i32, ptr %95, align 4, !tbaa !45
@@ -627,7 +627,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %4
 .lr.ph:                                           ; preds = %119, %.lr.ph
   %132 = phi ptr [ %137, %.lr.ph ], [ %126, %119 ]
   %.06774 = phi i64 [ %135, %.lr.ph ], [ 2, %119 ]
-  %133 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %132, i64 %.06774
+  %133 = getelementptr inbounds nuw [72 x i8], ptr %132, i64 %.06774
   %134 = load i32, ptr %122, align 4, !tbaa !45
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %10, i32 %134)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 4, ptr nonnull @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE.omp_outlined.7, ptr nonnull %5, ptr nonnull %133, ptr nonnull %22, ptr nonnull %6)
@@ -769,12 +769,12 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
 
 42:                                               ; preds = %.noexc44.us, %42
   %indvars.iv = phi i64 [ 0, %.noexc44.us ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %44 = load float, ptr %43, align 4, !tbaa !51
-  %45 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load float, ptr %45, align 4, !tbaa !51
   %47 = fmul fast float %46, %44
-  %48 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   store float %47, ptr %48, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -875,9 +875,9 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
 
 35:                                               ; preds = %.noexc32.us, %35
   %indvars.iv = phi i64 [ 0, %.noexc32.us ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %37 = load float, ptr %36, align 4, !tbaa !51
-  %38 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   %39 = load float, ptr %38, align 4, !tbaa !51
   %40 = fmul fast float %39, %37
   store float %40, ptr %38, align 4, !tbaa !51
@@ -973,12 +973,12 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
 
 42:                                               ; preds = %.noexc45.us, %42
   %indvars.iv = phi i64 [ 0, %.noexc45.us ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %44 = load float, ptr %43, align 4, !tbaa !51
-  %45 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %46 = load float, ptr %45, align 4, !tbaa !51
   %47 = fadd fast float %46, %44
-  %48 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   store float %47, ptr %48, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1064,9 +1064,9 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
 
 35:                                               ; preds = %.noexc32.us, %35
   %indvars.iv = phi i64 [ 0, %.noexc32.us ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %37 = load float, ptr %36, align 4, !tbaa !51
-  %38 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   %39 = load float, ptr %38, align 4, !tbaa !51
   %40 = fadd fast float %39, %37
   store float %40, ptr %38, align 4, !tbaa !51
@@ -1162,16 +1162,16 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
 
 44:                                               ; preds = %.noexc47.us, %44
   %indvars.iv = phi i64 [ 0, %.noexc47.us ], [ %indvars.iv.next, %44 ]
-  %45 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   %46 = load float, ptr %45, align 4, !tbaa !51
   %47 = load float, ptr %7, align 4, !tbaa !51
   %48 = fmul fast float %47, %46
-  %49 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   %50 = load float, ptr %49, align 4, !tbaa !51
   %51 = load float, ptr %8, align 4, !tbaa !51
   %52 = fmul fast float %51, %50
   %53 = fadd fast float %52, %48
-  %54 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   store float %53, ptr %54, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1257,11 +1257,11 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
 
 36:                                               ; preds = %.noexc33.us, %36
   %indvars.iv = phi i64 [ 0, %.noexc33.us ], [ %indvars.iv.next, %36 ]
-  %37 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   %38 = load float, ptr %37, align 4, !tbaa !51
   %39 = load float, ptr %6, align 4, !tbaa !51
   %40 = fmul fast float %39, %38
-  %41 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   %42 = load float, ptr %41, align 4, !tbaa !51
   %43 = fadd fast float %42, %40
   store float %43, ptr %41, align 4, !tbaa !51
@@ -1357,13 +1357,13 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
 
 42:                                               ; preds = %.noexc45.us, %42
   %indvars.iv = phi i64 [ 0, %.noexc45.us ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv
-  %44 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %45 = load float, ptr %43, align 4, !tbaa !51
   %46 = load float, ptr %44, align 4, !tbaa !51
   %47 = fcmp fast olt float %45, %46
   %48 = select i1 %47, float %46, float %45
-  %49 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   store float %48, ptr %49, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1449,8 +1449,8 @@ define internal void @_ZNK4ncnn7Eltwise7forwardERKSt6vectorINS_3MatESaIS2_EERS4_
 
 35:                                               ; preds = %.noexc34.us, %35
   %indvars.iv = phi i64 [ 0, %.noexc34.us ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
-  %37 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %38 = load float, ptr %36, align 4, !tbaa !51
   %39 = load float, ptr %37, align 4, !tbaa !51
   %40 = fcmp fast olt float %38, %39

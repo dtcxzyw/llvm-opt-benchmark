@@ -2050,10 +2050,10 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE11rota
 
 switch.lookup:                                    ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE11rotate_leftEPNS0_12avltree_nodeIS3_EES8_S8_S8_.exit.i
   %41 = zext nneg i32 %39 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rebalance_after_insertionEPNS0_12avltree_nodeIS3_EES8_.27, i64 %41
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rebalance_after_insertionEPNS0_12avltree_nodeIS3_EES8_.27, i64 %41
   %switch.load = load i32, ptr %switch.gep, align 4
   %42 = zext nneg i32 %39 to i64
-  %switch.gep110 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rebalance_after_insertionEPNS0_12avltree_nodeIS3_EES8_.28, i64 %42
+  %switch.gep110 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rebalance_after_insertionEPNS0_12avltree_nodeIS3_EES8_.28, i64 %42
   %switch.load111 = load i32, ptr %switch.gep110, align 4
   store i32 %switch.load, ptr %15, align 8, !tbaa !118
   store i32 %switch.load111, ptr %8, align 8, !tbaa !118
@@ -2178,10 +2178,10 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE12rota
 
 switch.lookup112:                                 ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE12rotate_rightEPNS0_12avltree_nodeIS3_EES8_S8_S8_.exit.i
   %87 = zext nneg i32 %85 to i64
-  %switch.gep113 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rebalance_after_insertionEPNS0_12avltree_nodeIS3_EES8_.27, i64 %87
+  %switch.gep113 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rebalance_after_insertionEPNS0_12avltree_nodeIS3_EES8_.27, i64 %87
   %switch.load114 = load i32, ptr %switch.gep113, align 4
   %88 = zext nneg i32 %85 to i64
-  %switch.gep115 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rebalance_after_insertionEPNS0_12avltree_nodeIS3_EES8_.28, i64 %88
+  %switch.gep115 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5boost9intrusive18avltree_algorithmsINS0_19avltree_node_traitsIPvLb0EEEE25rebalance_after_insertionEPNS0_12avltree_nodeIS3_EES8_.28, i64 %88
   %switch.load116 = load i32, ptr %switch.gep115, align 4
   store i32 %switch.load114, ptr %8, align 8, !tbaa !118
   store i32 %switch.load116, ptr %62, align 8, !tbaa !118
@@ -2423,7 +2423,7 @@ _ZNKSt8__detail15_Hashtable_baseIN5folly5RangeIPKcEESt4pairIKS5_St10shared_ptrIN
   %37 = load i64, ptr %36, align 8, !tbaa !149
   %38 = urem i64 %35, %37
   %39 = load ptr, ptr %0, align 8, !tbaa !150
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %38
   %41 = load ptr, ptr %40, align 8, !tbaa !151
   %.not.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIN5folly5RangeIPKcEESt4pairIKS4_St10shared_ptrINS0_10symbolizer8ElfCache5EntryEEESaISC_ENSt8__detail10_Select1stESt8equal_toIS4_ENS0_4HashENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS6_m.exit, label %42
@@ -2698,7 +2698,7 @@ _ZNKSt8__detail15_Hashtable_baseIN5folly5RangeIPKcEESt4pairIKS5_St10shared_ptrIN
 
 46:                                               ; preds = %40
   %47 = load ptr, ptr %0, align 8, !tbaa !150
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %44
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %44
   %49 = load ptr, ptr %48, align 8, !tbaa !151
   %.not.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i, label %.critedge28, label %50
@@ -2919,7 +2919,7 @@ _ZNSt10_HashtableIN5folly5RangeIPKcEESt4pairIKS4_St10shared_ptrINS0_10symbolizer
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2, ptr %32, align 8, !tbaa !152
   %33 = load ptr, ptr %0, align 8, !tbaa !150
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !151
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -2945,7 +2945,7 @@ _ZNSt10_HashtableIN5folly5RangeIPKcEESt4pairIKS4_St10shared_ptrINS0_10symbolizer
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %46 = load i64, ptr %45, align 8, !tbaa !152
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !151
   br label %49
 
@@ -3074,7 +3074,7 @@ _ZNSt10_HashtableIN5folly5RangeIPKcEESt4pairIKS4_St10shared_ptrINS0_10symbolizer
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 40
   %16 = load i64, ptr %15, align 8, !tbaa !152
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !151
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -3089,7 +3089,7 @@ _ZNSt10_HashtableIN5folly5RangeIPKcEESt4pairIKS4_St10shared_ptrINS0_10symbolizer
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !151
   br label %28
 

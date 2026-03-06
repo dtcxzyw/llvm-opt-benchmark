@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.reassembly_table = type { ptr, ptr, ptr, ptr, ptr }
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.fm_analog_info = type { [7 x i8], i8, i8, i16, float }
 %struct.nstime_t = type { i64, i32 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 
@@ -1225,7 +1224,7 @@ fastser_uns_wordbit_save.exit:                    ; preds = %47, %.sink.split.i
   tail call void @wmem_tree_insert32(ptr noundef %51, i32 noundef %.016631, ptr noundef %42)
   %52 = add i32 %.016631, 1
   %53 = sext i32 %52 to i64
-  %54 = getelementptr ptr, ptr %37, i64 %53
+  %54 = getelementptr [8 x i8], ptr %37, i64 %53
   %55 = load ptr, ptr %54, align 8
   %.not176 = icmp eq ptr %55, null
   br i1 %.not176, label %fastser_uns_wordbit_save.exit181, label %.lr.ph, !llvm.loop !10
@@ -1309,7 +1308,7 @@ fastser_uns_wordbit_save.exit181:                 ; preds = %fastser_uns_wordbit
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %.06162.us.i = phi i32 [ %115, %.lr.ph.split.us.i ], [ 16, %.lr.ph.i ]
-  %100 = getelementptr %struct.fm_analog_info, ptr %97, i64 %indvars.iv67.i
+  %100 = getelementptr [16 x i8], ptr %97, i64 %indvars.iv67.i
   %101 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %100, i32 noundef %.06162.us.i, i64 noundef 6)
   %102 = getelementptr i8, ptr %100, i64 6
   store i8 0, ptr %102, align 2
@@ -1337,7 +1336,7 @@ fastser_uns_wordbit_save.exit181:                 ; preds = %fastser_uns_wordbit
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
   %.06162.i = phi i32 [ %129, %.lr.ph.split.i ], [ 16, %.lr.ph.i ]
-  %116 = getelementptr %struct.fm_analog_info, ptr %97, i64 %indvars.iv.i
+  %116 = getelementptr [16 x i8], ptr %97, i64 %indvars.iv.i
   %117 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %116, i32 noundef %.06162.i, i64 noundef 6)
   %118 = getelementptr i8, ptr %116, i64 6
   store i8 0, ptr %118, align 2
@@ -3351,7 +3350,7 @@ define internal fastcc i32 @dissect_fmdata_frame(ptr noundef %0, ptr noundef %1,
   %.4245 = phi i32 [ %.3249, %81 ], [ %.5, %142 ]
   %.1216244 = phi i32 [ %.0215248, %81 ], [ %.2217, %142 ]
   %84 = load ptr, ptr %51, align 8
-  %85 = getelementptr %struct.fm_analog_info, ptr %84, i64 %indvars.iv
+  %85 = getelementptr [16 x i8], ptr %84, i64 %indvars.iv
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 7
   %87 = load i8, ptr %86, align 1
   %88 = icmp ult i8 %87, 3
@@ -3359,7 +3358,7 @@ define internal fastcc i32 @dissect_fmdata_frame(ptr noundef %0, ptr noundef %1,
 
 switch.lookup:                                    ; preds = %82
   %89 = zext nneg i8 %87 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_fmdata_frame, i64 %89
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_fmdata_frame, i64 %89
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %90
 

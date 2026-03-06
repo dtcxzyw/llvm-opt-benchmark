@@ -7,9 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.tsearch_readline_state = type { ptr, ptr, i32, %struct.StringInfoData, ptr, %struct.ErrorContextCallback }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
-%union.ListCell = type { ptr }
-%struct.TheLexeme = type { ptr, ptr }
-%struct.TheSubstitute = type { i16, i16, ptr }
 
 @.str = private unnamed_addr constant [9 x i8] c"dictfile\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"multiple DictFile parameters\00", align 1
@@ -67,7 +64,7 @@ define dso_local i64 @thesaurus_init(ptr noundef readonly captures(none) %0) loc
   %.0101275 = phi ptr [ %.1, %225 ], [ null, %.lr.ph ]
   %indvars.iv274 = phi i64 [ %indvars.iv.next, %225 ], [ 0, %.lr.ph ]
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv274
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv274
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
@@ -126,7 +123,7 @@ define dso_local i64 @thesaurus_init(ptr noundef readonly captures(none) %0) loc
   %.081139.i = phi ptr [ %39, %.lr.ph.i ], [ %52, %49 ]
   %44 = load ptr, ptr %41, align 8
   %45 = zext i8 %43 to i64
-  %46 = getelementptr inbounds nuw i16, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %45
   %47 = load i16, ptr %46, align 2
   %48 = and i16 %47, 8192
   %.not95.i = icmp eq i16 %48, 0
@@ -183,7 +180,7 @@ define dso_local i64 @thesaurus_init(ptr noundef readonly captures(none) %0) loc
 63:                                               ; preds = %55
   %64 = load ptr, ptr %41, align 8
   %65 = zext i8 %54 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = and i16 %67, 8192
   %.not102.i = icmp eq i16 %68, 0
@@ -231,7 +228,7 @@ newLexeme.exit.i:                                 ; preds = %80, %78, %._crit_ed
   %86 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %79, %78 ], [ %85, %80 ]
   %87 = load i32, ptr %10, align 8
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds %struct.TheLexeme, ptr %86, i64 %88
+  %89 = getelementptr inbounds [16 x i8], ptr %86, i64 %88
   %90 = add i32 %87, 1
   store i32 %90, ptr %10, align 8
   %91 = ptrtoint ptr %.182142.i to i64
@@ -259,7 +256,7 @@ newLexeme.exit.i:                                 ; preds = %80, %78, %._crit_ed
 104:                                              ; preds = %69
   %105 = load ptr, ptr %41, align 8
   %106 = zext i8 %54 to i64
-  %107 = getelementptr inbounds nuw i16, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %105, i64 %106
   %108 = load i16, ptr %107, align 2
   %109 = and i16 %108, 8192
   %.not101.i = icmp eq i16 %109, 0
@@ -301,7 +298,7 @@ newLexeme.exit109.i:                              ; preds = %119, %117, %._crit_
   %125 = phi ptr [ %.pre.i108.i, %._crit_edge.i106.i ], [ %118, %117 ], [ %124, %119 ]
   %126 = load i32, ptr %10, align 8
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds %struct.TheLexeme, ptr %125, i64 %127
+  %128 = getelementptr inbounds [16 x i8], ptr %125, i64 %127
   %129 = add i32 %126, 1
   store i32 %129, ptr %10, align 8
   %130 = ptrtoint ptr %.182142.i to i64
@@ -347,7 +344,7 @@ newLexeme.exit109.i:                              ; preds = %119, %117, %._crit_
 152:                                              ; preds = %143
   %153 = load ptr, ptr %41, align 8
   %154 = zext i8 %54 to i64
-  %155 = getelementptr inbounds nuw i16, ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [2 x i8], ptr %153, i64 %154
   %156 = load i16, ptr %155, align 2
   %157 = and i16 %156, 8192
   %.not100.i = icmp eq i16 %157, 0
@@ -359,7 +356,7 @@ newLexeme.exit109.i:                              ; preds = %119, %117, %._crit_
 159:                                              ; preds = %.lr.ph147.i
   %160 = load ptr, ptr %41, align 8
   %161 = zext i8 %54 to i64
-  %162 = getelementptr inbounds nuw i16, ptr %160, i64 %161
+  %162 = getelementptr inbounds nuw [2 x i8], ptr %160, i64 %161
   %163 = load i16, ptr %162, align 2
   %164 = and i16 %163, 8192
   %.not99.i = icmp eq i16 %164, 0
@@ -546,7 +543,7 @@ sub_0.i:                                          ; preds = %.loopexit.i, %sub_0
   %.0123184.i = phi i32 [ 16, %sub_0.lr.ph.i ], [ %.1124.i, %.loopexit.i ]
   %.0129183.i = phi i32 [ 0, %sub_0.lr.ph.i ], [ %.1130.i, %.loopexit.i ]
   %247 = load ptr, ptr %246, align 8
-  %248 = getelementptr inbounds nuw %struct.TheLexeme, ptr %247, i64 %indvars.iv.i
+  %248 = getelementptr inbounds nuw [16 x i8], ptr %247, i64 %indvars.iv.i
   %249 = load ptr, ptr %248, align 8
   %250 = load i8, ptr %249, align 1
   %.not201.i = icmp eq i8 %250, 63
@@ -576,7 +573,7 @@ addCompiledLexeme.exit.i:                         ; preds = %257, %254
   %.0.i.i = phi ptr [ %.085185.i, %254 ], [ %261, %257 ]
   %262 = call ptr @palloc(i64 noundef 24) #9
   %263 = sext i32 %.0129183.i to i64
-  %264 = getelementptr inbounds %struct.TheLexeme, ptr %.0.i.i, i64 %263
+  %264 = getelementptr inbounds [16 x i8], ptr %.0.i.i, i64 %263
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   store ptr %262, ptr %265, align 8
   store ptr null, ptr %264, align 8
@@ -614,7 +611,7 @@ addCompiledLexeme.exit.i:                         ; preds = %257, %254
   %286 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %287 = call i32 @errcode(i32 noundef 22) #9
   %288 = load ptr, ptr %246, align 8
-  %289 = getelementptr inbounds nuw %struct.TheLexeme, ptr %288, i64 %indvars.iv.i
+  %289 = getelementptr inbounds nuw [16 x i8], ptr %288, i64 %indvars.iv.i
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr inbounds nuw i8, ptr %289, i64 8
   %292 = load ptr, ptr %291, align 8
@@ -635,7 +632,7 @@ addCompiledLexeme.exit.i:                         ; preds = %257, %254
   %301 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %302 = call i32 @errcode(i32 noundef 22) #9
   %303 = load ptr, ptr %246, align 8
-  %304 = getelementptr inbounds nuw %struct.TheLexeme, ptr %303, i64 %indvars.iv.i
+  %304 = getelementptr inbounds nuw [16 x i8], ptr %303, i64 %indvars.iv.i
   %305 = load ptr, ptr %304, align 8
   %306 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %307 = load ptr, ptr %306, align 8
@@ -689,7 +686,7 @@ addCompiledLexeme.exit.i:                         ; preds = %257, %254
 
 324:                                              ; preds = %.lr.ph164.i
   %325 = load ptr, ptr %246, align 8
-  %326 = getelementptr inbounds nuw %struct.TheLexeme, ptr %325, i64 %indvars.iv.i
+  %326 = getelementptr inbounds nuw [16 x i8], ptr %325, i64 %indvars.iv.i
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 8
   %328 = load ptr, ptr %327, align 8
   %.not.i99.i = icmp slt i32 %.3132159.i, %.3126160.i
@@ -707,7 +704,7 @@ addCompiledLexeme.exit.i:                         ; preds = %257, %254
   %.0.i100.i = phi ptr [ %.3161.i, %324 ], [ %333, %329 ]
   %335 = call ptr @palloc(i64 noundef 24) #9
   %336 = sext i32 %.3132159.i to i64
-  %337 = getelementptr inbounds %struct.TheLexeme, ptr %.0.i100.i, i64 %336
+  %337 = getelementptr inbounds [16 x i8], ptr %.0.i100.i, i64 %336
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
   store ptr %335, ptr %338, align 8
   %339 = load ptr, ptr %321, align 8
@@ -759,11 +756,11 @@ addCompiledLexeme.exit101.i:                      ; preds = %340, %334
   %.1124.i = phi i32 [ %.4127.i, %addCompiledLexeme.exit.i ], [ %.3126.lcssa.ph.i, %.critedge.i35 ]
   %.186.i = phi ptr [ %.0.i.i, %addCompiledLexeme.exit.i ], [ %.3.lcssa.ph.i, %.critedge.i35 ]
   %358 = load ptr, ptr %246, align 8
-  %359 = getelementptr inbounds nuw %struct.TheLexeme, ptr %358, i64 %indvars.iv.i
+  %359 = getelementptr inbounds nuw [16 x i8], ptr %358, i64 %indvars.iv.i
   %360 = load ptr, ptr %359, align 8
   call void @pfree(ptr noundef %360) #9
   %361 = load ptr, ptr %246, align 8
-  %362 = getelementptr inbounds nuw %struct.TheLexeme, ptr %361, i64 %indvars.iv.i
+  %362 = getelementptr inbounds nuw [16 x i8], ptr %361, i64 %indvars.iv.i
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 8
   %364 = load ptr, ptr %363, align 8
   call void @pfree(ptr noundef %364) #9
@@ -932,12 +929,12 @@ compileTheLexeme.exit:                            ; preds = %371, %._crit_edge19
 438:                                              ; preds = %553, %.lr.ph118.i
   %indvars.iv143 = phi i64 [ %indvars.iv.next144, %553 ], [ 0, %.lr.ph118.i ]
   %439 = load ptr, ptr %435, align 8
-  %440 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %439, i64 %indvars.iv143
+  %440 = getelementptr inbounds nuw [16 x i8], ptr %439, i64 %indvars.iv143
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 8
   %442 = load ptr, ptr %441, align 8
   %443 = call ptr @palloc(i64 noundef 32) #9
   %444 = load ptr, ptr %435, align 8
-  %445 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %444, i64 %indvars.iv143
+  %445 = getelementptr inbounds nuw [16 x i8], ptr %444, i64 %indvars.iv143
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 8
   store ptr %443, ptr %446, align 8
   %447 = getelementptr inbounds nuw i8, ptr %443, i64 8
@@ -994,7 +991,7 @@ compileTheLexeme.exit:                            ; preds = %371, %._crit_edge19
 
 .lr.ph.preheader.i:                               ; preds = %466
   %469 = load ptr, ptr %435, align 8
-  %470 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %469, i64 %indvars.iv143
+  %470 = getelementptr inbounds nuw [16 x i8], ptr %469, i64 %indvars.iv143
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 8
   %472 = load ptr, ptr %471, align 8
   br label %.lr.ph.i40
@@ -1005,7 +1002,7 @@ compileTheLexeme.exit:                            ; preds = %371, %._crit_edge19
   %.173104.i = phi ptr [ %503, %498 ], [ %.07294.i, %.lr.ph.preheader.i ]
   %.175103.i = phi i32 [ %.276.i, %498 ], [ %.074109.i108, %.lr.ph.preheader.i ]
   %474 = load ptr, ptr %435, align 8
-  %475 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %474, i64 %indvars.iv143
+  %475 = getelementptr inbounds nuw [16 x i8], ptr %474, i64 %indvars.iv143
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 8
   %477 = load ptr, ptr %476, align 8
   %478 = ptrtoint ptr %.1105.i to i64
@@ -1023,16 +1020,16 @@ compileTheLexeme.exit:                            ; preds = %371, %._crit_edge19
   %487 = shl nsw i64 %486, 4
   %488 = call ptr @repalloc(ptr noundef %477, i64 noundef %487) #9
   %489 = load ptr, ptr %435, align 8
-  %490 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %489, i64 %indvars.iv143
+  %490 = getelementptr inbounds nuw [16 x i8], ptr %489, i64 %indvars.iv143
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 8
   store ptr %488, ptr %491, align 8
   %492 = load ptr, ptr %435, align 8
-  %493 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %492, i64 %indvars.iv143
+  %493 = getelementptr inbounds nuw [16 x i8], ptr %492, i64 %indvars.iv143
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 8
   %495 = load ptr, ptr %494, align 8
   %sext.i41 = shl i64 %480, 28
   %496 = ashr i64 %sext.i41, 32
-  %497 = getelementptr inbounds %struct.TSLexeme, ptr %495, i64 %496
+  %497 = getelementptr inbounds [16 x i8], ptr %495, i64 %496
   br label %498
 
 498:                                              ; preds = %484, %.lr.ph.i40
@@ -1063,11 +1060,11 @@ compileTheLexeme.exit:                            ; preds = %371, %._crit_edge19
 
 513:                                              ; preds = %._crit_edge.i43
   %514 = load ptr, ptr %435, align 8
-  %515 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %514, i64 %indvars.iv143
+  %515 = getelementptr inbounds nuw [16 x i8], ptr %514, i64 %indvars.iv143
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 8
   %517 = load ptr, ptr %516, align 8
   %518 = zext nneg i32 %511 to i64
-  %519 = getelementptr inbounds nuw %struct.TSLexeme, ptr %517, i64 %518
+  %519 = getelementptr inbounds nuw [16 x i8], ptr %517, i64 %518
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 2
   %521 = load i16, ptr %520, align 2
   %522 = or i16 %521, 1
@@ -1114,7 +1111,7 @@ compileTheLexeme.exit:                            ; preds = %371, %._crit_edge19
 .critedge.i44:                                    ; preds = %.lr.ph112.i, %.lr.ph112.i.preheader, %438
   %.071.lcssa.i = phi ptr [ %443, %438 ], [ %443, %.lr.ph112.i.preheader ], [ %502, %.lr.ph112.i ]
   %542 = load ptr, ptr %435, align 8
-  %543 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %542, i64 %indvars.iv143
+  %543 = getelementptr inbounds nuw [16 x i8], ptr %542, i64 %indvars.iv143
   %544 = getelementptr inbounds nuw i8, ptr %543, i64 8
   %545 = load ptr, ptr %544, align 8
   %546 = icmp eq ptr %.071.lcssa.i, %545
@@ -1293,7 +1290,7 @@ define dso_local i64 @thesaurus_lexize(ptr noundef readonly captures(none) %0) l
 
 .lr.ph141:                                        ; preds = %.critedge, %62
   %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %.critedge ]
-  %63 = getelementptr inbounds nuw %struct.TSLexeme, ptr %.061143, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %.061143, i64 %indvars.iv
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = load i32, ptr %49, align 8
@@ -1352,7 +1349,7 @@ cmpLexemeQ.exit.thread.i:                         ; preds = %88, %cmpLexemeQ.exi
   br i1 %90, label %.lr.ph.i.i, label %findTheLexeme.exit.thread, !llvm.loop !20
 
 findTheLexeme.exit.thread:                        ; preds = %.lr.ph141, %cmpLexemeQ.exit.thread.i, %cmpLexemeQ.exit.thread.us.i
-  %91 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   store ptr null, ptr %91, align 8
   br label %.loopexit
 
@@ -1361,7 +1358,7 @@ findTheLexeme.exit:                               ; preds = %87, %.lr.ph.i.us.i
   %92 = getelementptr inbounds nuw i8, ptr %69, i64 %.us-phi.i
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   store ptr %94, ptr %95, align 8
   %96 = icmp eq ptr %94, null
   br i1 %96, label %.loopexit, label %62
@@ -1517,7 +1514,7 @@ matchIdSubst.exit81.us.i:                         ; preds = %128, %.loopexit.us.
   %.not11.i312 = icmp eq ptr %156, null
   %157 = load i32, ptr %.2, align 8
   %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %154, i64 %158
+  %159 = getelementptr inbounds nuw [16 x i8], ptr %154, i64 %158
   %160 = load i16, ptr %159, align 8
   %161 = icmp eq i16 %160, %.063
   br i1 %161, label %._crit_edge, label %.lr.ph314
@@ -1528,7 +1525,7 @@ matchIdSubst.exit81.us.i:                         ; preds = %128, %.loopexit.us.
   %.not11.i = icmp eq ptr %164, null
   %165 = load i32, ptr %192, align 8
   %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %154, i64 %166
+  %167 = getelementptr inbounds nuw [16 x i8], ptr %154, i64 %166
   %168 = load i16, ptr %167, align 8
   %169 = icmp eq i16 %168, %.063
   br i1 %169, label %._crit_edge, label %.lr.ph314, !llvm.loop !26
@@ -1554,12 +1551,12 @@ matchIdSubst.exit81.us.i:                         ; preds = %128, %.loopexit.us.
 
 178:                                              ; preds = %178, %.lr.ph.i.i91
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i91 ], [ %indvars.iv.next.i.i, %178 ]
-  %179 = getelementptr inbounds nuw %struct.TSLexeme, ptr %175, i64 %indvars.iv.i.i
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %175, i64 %indvars.iv.i.i
   %180 = load ptr, ptr %177, align 8
-  %181 = getelementptr inbounds nuw %struct.TSLexeme, ptr %180, i64 %indvars.iv.i.i
+  %181 = getelementptr inbounds nuw [16 x i8], ptr %180, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %179, ptr noundef nonnull align 8 dereferenceable(16) %181, i64 16, i1 false)
   %182 = load ptr, ptr %177, align 8
-  %183 = getelementptr inbounds nuw %struct.TSLexeme, ptr %182, i64 %indvars.iv.i.i
+  %183 = getelementptr inbounds nuw [16 x i8], ptr %182, i64 %indvars.iv.i.i
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load ptr, ptr %184, align 8
   %186 = tail call ptr @pstrdup(ptr noundef %185) #9
@@ -1572,7 +1569,7 @@ matchIdSubst.exit81.us.i:                         ; preds = %128, %.loopexit.us.
   br i1 %190, label %178, label %checkMatch.exit.thread99, !llvm.loop !27
 
 checkMatch.exit.thread99:                         ; preds = %178
-  %191 = getelementptr inbounds nuw %struct.TSLexeme, ptr %175, i64 %189
+  %191 = getelementptr inbounds nuw [16 x i8], ptr %175, i64 %189
   br label %checkMatch.exit
 
 .lr.ph314:                                        ; preds = %152, %162
@@ -1668,7 +1665,7 @@ matchIdSubst.exit81.us:                           ; preds = %17, %.loopexit.us
 
 .lr.ph112.us:                                     ; preds = %.lr.ph112.us.preheader, %.lr.ph112.us
   %indvars.iv = phi i64 [ 0, %.lr.ph112.us.preheader ], [ %indvars.iv.next, %.lr.ph112.us ]
-  %21 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
@@ -1737,7 +1734,7 @@ matchIdSubst.exit81.us:                           ; preds = %17, %.loopexit.us
   %.062106.us = phi ptr [ %6, %.preheader85.lr.ph.us ], [ %.1.us, %49 ]
   %.063105.us = phi i32 [ 0, %.preheader85.lr.ph.us ], [ %.164.us, %49 ]
   %53 = sext i32 %.063105.us to i64
-  %54 = getelementptr inbounds ptr, ptr %3, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %3, i64 %53
   %55 = load ptr, ptr %54, align 8
   %.not102.us = icmp eq ptr %55, null
   br i1 %.not102.us, label %.split114.us, label %.lr.ph.us
@@ -1847,7 +1844,7 @@ define internal fastcc void @addWrd(ptr noundef captures(none) %0, ptr noundef %
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %3 to i64
-  %27 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %26
   %28 = add i16 %5, -1
   store i16 %28, ptr %27, align 8
   %29 = load i32, ptr @addWrd.nres, align 4
@@ -1890,33 +1887,33 @@ define internal fastcc void @addWrd(ptr noundef captures(none) %0, ptr noundef %
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr @addWrd.nres, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %struct.TSLexeme, ptr %50, i64 %52
+  %53 = getelementptr inbounds [16 x i8], ptr %50, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %48, ptr %54, align 8
   %55 = load ptr, ptr %49, align 8
-  %56 = getelementptr inbounds %struct.TSLexeme, ptr %55, i64 %52
+  %56 = getelementptr inbounds [16 x i8], ptr %55, i64 %52
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr align 1 %1, i64 %46, i1 false)
   %59 = load ptr, ptr %49, align 8
-  %60 = getelementptr inbounds %struct.TSLexeme, ptr %59, i64 %52
+  %60 = getelementptr inbounds [16 x i8], ptr %59, i64 %52
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 %46
   store i8 0, ptr %63, align 1
   %64 = load ptr, ptr %49, align 8
-  %65 = getelementptr inbounds %struct.TSLexeme, ptr %64, i64 %52
+  %65 = getelementptr inbounds [16 x i8], ptr %64, i64 %52
   store i16 %4, ptr %65, align 8
   %. = select i1 %6, i16 4096, i16 0
   %66 = load ptr, ptr %49, align 8
-  %67 = getelementptr inbounds %struct.TSLexeme, ptr %66, i64 %52
+  %67 = getelementptr inbounds [16 x i8], ptr %66, i64 %52
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 2
   store i16 %., ptr %68, align 2
   %69 = load ptr, ptr %49, align 8
   %70 = add i32 %51, 1
   store i32 %70, ptr @addWrd.nres, align 4
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds %struct.TSLexeme, ptr %69, i64 %71
+  %72 = getelementptr inbounds [16 x i8], ptr %69, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr null, ptr %73, align 8
   ret void

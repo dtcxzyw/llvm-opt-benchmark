@@ -9847,7 +9847,7 @@ _ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit122: ; preds = %.
   %.9 = phi i64 [ %109, %108 ], [ %.173, %.loopexit ]
   %.1 = phi i8 [ %spec.select116, %108 ], [ %1, %.loopexit ]
   %93 = sext i8 %.1 to i64
-  %94 = getelementptr inbounds i32, ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !328
   %96 = icmp eq i8 %.1, 2
   %97 = and i64 %.1091, 3
@@ -85095,7 +85095,7 @@ _ZN7testing15AssertionResultD2Ev.exit121:         ; preds = %178, %_ZNKSt14defau
 
 192:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit121, %_ZN7testing15AssertionResultD2Ev.exit179
   %indvars.iv = phi i64 [ 0, %_ZN7testing15AssertionResultD2Ev.exit121 ], [ %indvars.iv.next, %_ZN7testing15AssertionResultD2Ev.exit179 ]
-  %193 = getelementptr inbounds nuw %struct.anon, ptr @__const._ZN12_GLOBAL__N_124CivilTime_LeapYears_Test8TestBodyEv.kLeapYearTable, i64 %indvars.iv
+  %193 = getelementptr inbounds nuw [16 x i8], ptr @__const._ZN12_GLOBAL__N_124CivilTime_LeapYears_Test8TestBodyEv.kLeapYearTable, i64 %indvars.iv
   %194 = load i32, ptr %193, align 16, !tbaa !1833
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %195 = getelementptr inbounds nuw i8, ptr %193, i64 8
@@ -85577,14 +85577,14 @@ define internal void @_ZN12_GLOBAL__N_135CivilTime_FirstThursdayInMonth_Test8Tes
   %27 = sub nsw i64 %26, %.zext.i.i.i
   %28 = add nsw i64 %27, %.zext10.i.i.i
   %29 = srem i64 %28, 7
-  %30 = getelementptr i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %29
+  %30 = getelementptr [4 x i8], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %29
   %31 = getelementptr i8, ptr %30, i64 24
   %32 = load i32, ptr %31, align 4, !tbaa !1855
   br label %33
 
 33:                                               ; preds = %33, %1
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %33 ], [ 0, %1 ]
-  %34 = getelementptr inbounds nuw i32, ptr @__const._ZN4absl13time_internal4cctz6detail12next_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.k_weekdays_forw, i64 %indvars.iv.i.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN4absl13time_internal4cctz6detail12next_weekdayENS2_10civil_timeINS2_7day_tagEEENS2_7weekdayE.k_weekdays_forw, i64 %indvars.iv.i.i
   %35 = load i32, ptr %34, align 4, !tbaa !1855
   %36 = icmp eq i32 %32, %35
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

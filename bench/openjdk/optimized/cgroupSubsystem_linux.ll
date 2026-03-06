@@ -184,7 +184,7 @@ define hidden noundef ptr @_ZN22CgroupSubsystemFactory6createEv() local_unnamed_
 
 50:                                               ; preds = %.preheader115, %50
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %50 ], [ 0, %.preheader115 ]
-  %51 = getelementptr inbounds nuw %class.CgroupInfo, ptr %1, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8
   call void @_ZN2os4freeEPv(ptr noundef %52) #14
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -242,7 +242,7 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
   %.072111 = phi ptr [ %.173, %145 ], [ null, %12 ]
   %.074110 = phi ptr [ %.175, %145 ], [ null, %12 ]
   %.076109 = phi ptr [ %.177, %145 ], [ null, %12 ]
-  %75 = getelementptr inbounds nuw %class.CgroupInfo, ptr %1, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv
   %.sroa.0.0.copyload = load ptr, ptr %75, align 8
   %.sroa.65.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 13
   %.sroa.65.0.copyload = load i8, ptr %.sroa.65.0..sroa_idx, align 1
@@ -379,7 +379,7 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
   br i1 %.not, label %145, label %142
 
 142:                                              ; preds = %140
-  %143 = getelementptr inbounds nuw ptr, ptr @_ZL18cg_controller_name, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [8 x i8], ptr @_ZL18cg_controller_name, i64 %indvars.iv
   %144 = load ptr, ptr %143, align 8
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.12, ptr noundef %144)
   br label %145
@@ -396,7 +396,7 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
 
 .preheader:                                       ; preds = %145, %.preheader
   %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i81, %.preheader ], [ 0, %145 ]
-  %146 = getelementptr inbounds nuw %class.CgroupInfo, ptr %1, i64 %indvars.iv.i80
+  %146 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv.i80
   %147 = load ptr, ptr %146, align 8
   call void @_ZN2os4freeEPv(ptr noundef %147) #14
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 16
@@ -624,7 +624,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   br i1 %95, label %96, label %102
 
 96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load i32, ptr %98, align 8
   %100 = icmp eq i32 %99, 0
@@ -637,7 +637,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   br i1 %104, label %105, label %109
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 12
   %108 = load i8, ptr %107, align 4
   br label %109
@@ -650,7 +650,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   br i1 %.not226, label %121, label %111
 
 111:                                              ; preds = %109
-  %112 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 12
   %114 = load i8, ptr %113, align 4
   %115 = trunc i8 %114 to i1
@@ -662,7 +662,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   br i1 %.not227, label %121, label %118
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds nuw ptr, ptr @_ZL18cg_controller_name, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [8 x i8], ptr @_ZL18cg_controller_name, i64 %indvars.iv
   %120 = load ptr, ptr %119, align 8
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.19, ptr noundef %120)
   br label %121
@@ -690,7 +690,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
 
 127:                                              ; preds = %.preheader323, %127
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %127 ], [ 0, %.preheader323 ]
-  %128 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv.i
+  %128 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv.i
   %129 = load ptr, ptr %128, align 8
   call void @_ZN2os4freeEPv(ptr noundef %129) #14
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 16
@@ -743,7 +743,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
 
 152:                                              ; preds = %.preheader317, %152
   %indvars.iv.i161 = phi i64 [ %indvars.iv.next.i162, %152 ], [ 0, %.preheader317 ]
-  %153 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv.i161
+  %153 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv.i161
   %154 = load ptr, ptr %153, align 8
   call void @_ZN2os4freeEPv(ptr noundef %154) #14
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 16
@@ -840,7 +840,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
 .preheader231:                                    ; preds = %.critedge160, %.preheader231
   %indvars.iv283 = phi i64 [ %indvars.iv.next284, %.preheader231 ], [ 0, %.critedge160 ]
   %195 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %165, i8 noundef zeroext 9) #14
-  %196 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv283
+  %196 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv283
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 16
   store ptr %195, ptr %197, align 8
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
@@ -891,7 +891,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
 
 215:                                              ; preds = %.preheader318, %215
   %indvars.iv.i165 = phi i64 [ %indvars.iv.next.i166, %215 ], [ 0, %.preheader318 ]
-  %216 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv.i165
+  %216 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv.i165
   %217 = load ptr, ptr %216, align 8
   call void @_ZN2os4freeEPv(ptr noundef %217) #14
   %218 = getelementptr inbounds nuw i8, ptr %216, i64 16
@@ -1229,7 +1229,7 @@ _ZL11find_ro_optPc.exit208:                       ; preds = %sub_2.i207, %.backe
 
 319:                                              ; preds = %.preheader320, %319
   %indvars.iv.i209 = phi i64 [ %indvars.iv.next.i210, %319 ], [ 0, %.preheader320 ]
-  %320 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv.i209
+  %320 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv.i209
   %321 = load ptr, ptr %320, align 8
   call void @_ZN2os4freeEPv(ptr noundef %321) #14
   %322 = getelementptr inbounds nuw i8, ptr %320, i64 16
@@ -1384,7 +1384,7 @@ define hidden void @_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo(ptr nounde
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef %4) #14
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1415,7 +1415,7 @@ declare void @_ZN18CgroupV1Controller18set_subsystem_pathEPc(ptr noundef nonnull
 define hidden void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupInfoiPKcPcS4_b(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = zext i1 %5 to i8
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %class.CgroupInfo, ptr %0, i64 %8
+  %9 = getelementptr inbounds [40 x i8], ptr %0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null

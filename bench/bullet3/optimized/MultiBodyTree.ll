@@ -3,19 +3,12 @@ source_filename = "bench/bullet3/original/MultiBodyTree.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%class.b3AlignedObjectArray.2 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%"struct.btInverseDynamicsBullet3::RigidBody" = type { float, %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", i32, %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3", i32, float, %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::mat3x", %"class.btInverseDynamicsBullet3::mat3x", %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::vec3" }
+%"class.btInverseDynamicsBullet3::vec3" = type { %class.btVector3 }
+%class.btVector3 = type { [4 x float] }
+%"struct.btInverseDynamicsBullet3::InertiaData" = type { float, %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33" }
 %"class.btInverseDynamicsBullet3::mat33" = type { %class.btMatrix3x3 }
 %class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%class.btVector3 = type { [4 x float] }
-%"class.btInverseDynamicsBullet3::mat3x" = type { %struct.btMatrixX }
-%struct.btMatrixX = type { i32, i32, i32, i32, i32, [4 x i8], %class.btAlignedObjectArray, %class.btAlignedObjectArray.10 }
-%class.btAlignedObjectArray = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedObjectArray.10 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%"class.btInverseDynamicsBullet3::vec3" = type { %class.btVector3 }
-%"struct.btInverseDynamicsBullet3::InertiaData" = type { float, %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33" }
 %"struct.btInverseDynamicsBullet3::JointData" = type { i32, i32, i32, %"class.btInverseDynamicsBullet3::vec3", %"class.btInverseDynamicsBullet3::mat33", %"class.btInverseDynamicsBullet3::vec3" }
-%class.btAlignedObjectArray.12 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 
 $_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImplD2Ev = comdat any
 
@@ -309,7 +302,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit14:          ; preds = %_ZN20b3AlignedObjec
 73:                                               ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i.i.i ]
   %74 = load ptr, ptr %72, align 8, !tbaa !35
-  %75 = getelementptr inbounds nuw %class.b3AlignedObjectArray.2, ptr %74, i64 %indvars.iv.i.i.i
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %74, i64 %indvars.iv.i.i.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !24
   %.not.i.i.i.i.i.i = icmp ne ptr %77, null
@@ -408,7 +401,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit19:          ; preds = %_ZN20b3AlignedObjec
 113:                                              ; preds = %113, %.lr.ph.i.i.i22
   %indvars.iv.i.i.i24 = phi i64 [ 0, %.lr.ph.i.i.i22 ], [ %indvars.iv.next.i.i.i25, %113 ]
   %114 = load ptr, ptr %112, align 8, !tbaa !44
-  %115 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %114, i64 %indvars.iv.i.i.i24
+  %115 = getelementptr inbounds nuw [816 x i8], ptr %114, i64 %indvars.iv.i.i.i24
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 696
   tail call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %116) #15
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 608
@@ -1296,7 +1289,7 @@ _ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpldlEPv.exit: ; preds =
   %54 = load ptr, ptr %17, align 8, !tbaa !15
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %56 = load ptr, ptr %55, align 8, !tbaa !44
-  %57 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [816 x i8], ptr %56, i64 %indvars.iv
   %58 = load float, ptr %2, align 4, !tbaa !82
   store float %58, ptr %57, align 8, !tbaa !86
   %59 = load float, ptr %31, align 4, !tbaa !76
@@ -1677,7 +1670,7 @@ define linkonce_odr dso_local void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull ali
 6:                                                ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i ]
   %7 = load ptr, ptr %5, align 8, !tbaa !96
-  %8 = getelementptr inbounds nuw %class.btAlignedObjectArray.12, ptr %7, i64 %indvars.iv.i.i.i
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv.i.i.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !97
   %.not.i.i.i.i.i.i = icmp ne ptr %10, null
@@ -1818,8 +1811,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %12
 
 21:                                               ; preds = %21, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %21 ]
-  %22 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i.i
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i.i.i
   %24 = load i32, ptr %23, align 4, !tbaa !78
   store i32 %24, ptr %22, align 4, !tbaa !78
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1883,9 +1876,9 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %.lr.ph.i, %2
 
 41:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !78
-  %44 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   store i32 %43, ptr %44, align 4, !tbaa !78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -76,7 +76,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 17:                                               ; preds = %2, %29
   %.not129 = phi i1 [ true, %2 ], [ false, %29 ]
   %indvars.iv = phi i64 [ 0, %2 ], [ 1, %29 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !20
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %25, label %20
@@ -138,10 +138,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 43:                                               ; preds = %43, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %43 ]
   %.01316.i.i = phi i32 [ 0, %.preheader.i.i ], [ %51, %43 ]
-  %44 = getelementptr inbounds nuw i16, ptr %.01518.i.i, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %.01518.i.i, i64 %indvars.iv.i.i
   %45 = load i16, ptr %44, align 2, !tbaa !43
   %46 = sext i16 %45 to i32
-  %47 = getelementptr inbounds nuw i16, ptr %.val, i64 %indvars.iv.i.i
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %.val, i64 %indvars.iv.i.i
   %48 = load i16, ptr %47, align 2, !tbaa !43
   %49 = sext i16 %48 to i32
   %50 = mul nsw i32 %49, %46
@@ -183,10 +183,10 @@ scalarproduct.exit.i:                             ; preds = %52, %31
 65:                                               ; preds = %65, %.preheader.i33.i
   %indvars.iv.i36.i = phi i64 [ 0, %.preheader.i33.i ], [ %indvars.iv.next.i38.i, %65 ]
   %.01316.i37.i = phi i32 [ 0, %.preheader.i33.i ], [ %73, %65 ]
-  %66 = getelementptr inbounds nuw i16, ptr %.01518.i35.i, i64 %indvars.iv.i36.i
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %.01518.i35.i, i64 %indvars.iv.i36.i
   %67 = load i16, ptr %66, align 2, !tbaa !43
   %68 = sext i16 %67 to i32
-  %69 = getelementptr inbounds nuw i16, ptr %.val, i64 %indvars.iv.i36.i
+  %69 = getelementptr inbounds nuw [2 x i8], ptr %.val, i64 %indvars.iv.i36.i
   %70 = load i16, ptr %69, align 2, !tbaa !43
   %71 = sext i16 %70 to i32
   %72 = mul nsw i32 %71, %68
@@ -212,7 +212,7 @@ scalarproduct.exit41.i:                           ; preds = %74, %61
 
 81:                                               ; preds = %scalarproduct.exit.i
   %82 = sext i32 %59 to i64
-  %83 = getelementptr inbounds i16, ptr %33, i64 %82
+  %83 = getelementptr inbounds [2 x i8], ptr %33, i64 %82
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %33, ptr noundef nonnull align 2 dereferenceable(64) %83, i64 64, i1 false)
   br label %convolve.exit
 
@@ -243,10 +243,10 @@ convolve.exit:                                    ; preds = %scalarproduct.exit4
 96:                                               ; preds = %96, %.preheader.i.i53
   %indvars.iv.i.i56 = phi i64 [ 0, %.preheader.i.i53 ], [ %indvars.iv.next.i.i58, %96 ]
   %.01316.i.i57 = phi i32 [ 0, %.preheader.i.i53 ], [ %104, %96 ]
-  %97 = getelementptr inbounds nuw i16, ptr %.01518.i.i55, i64 %indvars.iv.i.i56
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %.01518.i.i55, i64 %indvars.iv.i.i56
   %98 = load i16, ptr %97, align 2, !tbaa !43
   %99 = sext i16 %98 to i32
-  %100 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv.i.i56
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %indvars.iv.i.i56
   %101 = load i16, ptr %100, align 2, !tbaa !43
   %102 = sext i16 %101 to i32
   %103 = mul nsw i32 %102, %99
@@ -288,10 +288,10 @@ scalarproduct.exit.i40:                           ; preds = %105, %convolve.exit
 118:                                              ; preds = %118, %.preheader.i33.i44
   %indvars.iv.i36.i47 = phi i64 [ 0, %.preheader.i33.i44 ], [ %indvars.iv.next.i38.i49, %118 ]
   %.01316.i37.i48 = phi i32 [ 0, %.preheader.i33.i44 ], [ %126, %118 ]
-  %119 = getelementptr inbounds nuw i16, ptr %.01518.i35.i46, i64 %indvars.iv.i36.i47
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %.01518.i35.i46, i64 %indvars.iv.i36.i47
   %120 = load i16, ptr %119, align 2, !tbaa !43
   %121 = sext i16 %120 to i32
-  %122 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv.i36.i47
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %indvars.iv.i36.i47
   %123 = load i16, ptr %122, align 2, !tbaa !43
   %124 = sext i16 %123 to i32
   %125 = mul nsw i32 %124, %121
@@ -317,7 +317,7 @@ scalarproduct.exit41.i52:                         ; preds = %127, %114
 
 134:                                              ; preds = %scalarproduct.exit.i40
   %135 = sext i32 %112 to i64
-  %136 = getelementptr inbounds i16, ptr %84, i64 %135
+  %136 = getelementptr inbounds [2 x i8], ptr %84, i64 %135
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %84, ptr noundef nonnull align 2 dereferenceable(64) %136, i64 64, i1 false)
   br label %convolve.exit61
 
@@ -347,10 +347,10 @@ convolve.exit61:                                  ; preds = %scalarproduct.exit4
 148:                                              ; preds = %148, %.preheader.i.i77
   %indvars.iv.i.i80 = phi i64 [ 0, %.preheader.i.i77 ], [ %indvars.iv.next.i.i82, %148 ]
   %.01316.i.i81 = phi i32 [ 0, %.preheader.i.i77 ], [ %156, %148 ]
-  %149 = getelementptr inbounds nuw i16, ptr %.01518.i.i79, i64 %indvars.iv.i.i80
+  %149 = getelementptr inbounds nuw [2 x i8], ptr %.01518.i.i79, i64 %indvars.iv.i.i80
   %150 = load i16, ptr %149, align 2, !tbaa !43
   %151 = sext i16 %150 to i32
-  %152 = getelementptr inbounds nuw i16, ptr %.val32, i64 %indvars.iv.i.i80
+  %152 = getelementptr inbounds nuw [2 x i8], ptr %.val32, i64 %indvars.iv.i.i80
   %153 = load i16, ptr %152, align 2, !tbaa !43
   %154 = sext i16 %153 to i32
   %155 = mul nsw i32 %154, %151
@@ -392,10 +392,10 @@ scalarproduct.exit.i64:                           ; preds = %157, %convolve.exit
 170:                                              ; preds = %170, %.preheader.i33.i68
   %indvars.iv.i36.i71 = phi i64 [ 0, %.preheader.i33.i68 ], [ %indvars.iv.next.i38.i73, %170 ]
   %.01316.i37.i72 = phi i32 [ 0, %.preheader.i33.i68 ], [ %178, %170 ]
-  %171 = getelementptr inbounds nuw i16, ptr %.01518.i35.i70, i64 %indvars.iv.i36.i71
+  %171 = getelementptr inbounds nuw [2 x i8], ptr %.01518.i35.i70, i64 %indvars.iv.i36.i71
   %172 = load i16, ptr %171, align 2, !tbaa !43
   %173 = sext i16 %172 to i32
-  %174 = getelementptr inbounds nuw i16, ptr %.val32, i64 %indvars.iv.i36.i71
+  %174 = getelementptr inbounds nuw [2 x i8], ptr %.val32, i64 %indvars.iv.i36.i71
   %175 = load i16, ptr %174, align 2, !tbaa !43
   %176 = sext i16 %175 to i32
   %177 = mul nsw i32 %176, %173
@@ -421,7 +421,7 @@ scalarproduct.exit41.i76:                         ; preds = %179, %166
 
 186:                                              ; preds = %scalarproduct.exit.i64
   %187 = sext i32 %164 to i64
-  %188 = getelementptr inbounds i16, ptr %137, i64 %187
+  %188 = getelementptr inbounds [2 x i8], ptr %137, i64 %187
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %137, ptr noundef nonnull align 2 dereferenceable(64) %188, i64 64, i1 false)
   br label %convolve.exit85
 
@@ -452,10 +452,10 @@ convolve.exit85:                                  ; preds = %scalarproduct.exit4
 201:                                              ; preds = %201, %.preheader.i.i101
   %indvars.iv.i.i104 = phi i64 [ 0, %.preheader.i.i101 ], [ %indvars.iv.next.i.i106, %201 ]
   %.01316.i.i105 = phi i32 [ 0, %.preheader.i.i101 ], [ %209, %201 ]
-  %202 = getelementptr inbounds nuw i16, ptr %.01518.i.i103, i64 %indvars.iv.i.i104
+  %202 = getelementptr inbounds nuw [2 x i8], ptr %.01518.i.i103, i64 %indvars.iv.i.i104
   %203 = load i16, ptr %202, align 2, !tbaa !43
   %204 = sext i16 %203 to i32
-  %205 = getelementptr inbounds nuw i16, ptr %199, i64 %indvars.iv.i.i104
+  %205 = getelementptr inbounds nuw [2 x i8], ptr %199, i64 %indvars.iv.i.i104
   %206 = load i16, ptr %205, align 2, !tbaa !43
   %207 = sext i16 %206 to i32
   %208 = mul nsw i32 %207, %204
@@ -497,10 +497,10 @@ scalarproduct.exit.i88:                           ; preds = %210, %convolve.exit
 223:                                              ; preds = %223, %.preheader.i33.i92
   %indvars.iv.i36.i95 = phi i64 [ 0, %.preheader.i33.i92 ], [ %indvars.iv.next.i38.i97, %223 ]
   %.01316.i37.i96 = phi i32 [ 0, %.preheader.i33.i92 ], [ %231, %223 ]
-  %224 = getelementptr inbounds nuw i16, ptr %.01518.i35.i94, i64 %indvars.iv.i36.i95
+  %224 = getelementptr inbounds nuw [2 x i8], ptr %.01518.i35.i94, i64 %indvars.iv.i36.i95
   %225 = load i16, ptr %224, align 2, !tbaa !43
   %226 = sext i16 %225 to i32
-  %227 = getelementptr inbounds nuw i16, ptr %199, i64 %indvars.iv.i36.i95
+  %227 = getelementptr inbounds nuw [2 x i8], ptr %199, i64 %indvars.iv.i36.i95
   %228 = load i16, ptr %227, align 2, !tbaa !43
   %229 = sext i16 %228 to i32
   %230 = mul nsw i32 %229, %226
@@ -526,7 +526,7 @@ scalarproduct.exit41.i100:                        ; preds = %232, %219
 
 239:                                              ; preds = %scalarproduct.exit.i88
   %240 = sext i32 %217 to i64
-  %241 = getelementptr inbounds i16, ptr %189, i64 %240
+  %241 = getelementptr inbounds [2 x i8], ptr %189, i64 %240
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %189, ptr noundef nonnull align 2 dereferenceable(64) %241, i64 64, i1 false)
   br label %convolve.exit109
 
@@ -551,12 +551,12 @@ convolve.exit109:                                 ; preds = %scalarproduct.exit4
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %251 = getelementptr inbounds nuw i16, ptr %245, i64 %indvars.iv.i
+  %251 = getelementptr inbounds nuw [2 x i8], ptr %245, i64 %indvars.iv.i
   %252 = load i16, ptr %251, align 2, !tbaa !43
-  %253 = getelementptr inbounds nuw i16, ptr %246, i64 %indvars.iv.i
+  %253 = getelementptr inbounds nuw [2 x i8], ptr %246, i64 %indvars.iv.i
   %254 = load i16, ptr %253, align 2, !tbaa !43
   %255 = tail call i16 @llvm.sadd.sat.i16(i16 %252, i16 %254)
-  %256 = getelementptr inbounds nuw i16, ptr %247, i64 %indvars.iv.i
+  %256 = getelementptr inbounds nuw [2 x i8], ptr %247, i64 %indvars.iv.i
   store i16 %255, ptr %256, align 2, !tbaa !43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -572,12 +572,12 @@ convolve.exit109:                                 ; preds = %scalarproduct.exit4
 
 .lr.ph.i112:                                      ; preds = %.lr.ph.i112, %.lr.ph.preheader.i110
   %indvars.iv.i113 = phi i64 [ 0, %.lr.ph.preheader.i110 ], [ %indvars.iv.next.i114, %.lr.ph.i112 ]
-  %262 = getelementptr inbounds nuw i16, ptr %257, i64 %indvars.iv.i113
+  %262 = getelementptr inbounds nuw [2 x i8], ptr %257, i64 %indvars.iv.i113
   %263 = load i16, ptr %262, align 2, !tbaa !43
-  %264 = getelementptr inbounds nuw i16, ptr %259, i64 %indvars.iv.i113
+  %264 = getelementptr inbounds nuw [2 x i8], ptr %259, i64 %indvars.iv.i113
   %265 = load i16, ptr %264, align 2, !tbaa !43
   %266 = tail call i16 @llvm.sadd.sat.i16(i16 %263, i16 %265)
-  %267 = getelementptr inbounds nuw i16, ptr %261, i64 %indvars.iv.i113
+  %267 = getelementptr inbounds nuw [2 x i8], ptr %261, i64 %indvars.iv.i113
   store i16 %266, ptr %267, align 2, !tbaa !43
   %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i113, 1
   %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, %wide.trip.count.i
@@ -612,12 +612,12 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %10 = getelementptr inbounds nuw i8, ptr @filt, i64 %9
   %11 = load i8, ptr %10, align 2, !tbaa !48
   %12 = sext i8 %11 to i16
-  %13 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv
   store i16 %12, ptr %13, align 2, !tbaa !43
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !48
   %16 = sext i8 %15 to i16
-  %17 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv
   store i16 %16, ptr %17, align 2, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32

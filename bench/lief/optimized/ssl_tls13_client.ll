@@ -764,7 +764,7 @@ ssl_tls13_get_default_group_id.exit.i.sink.split: ; preds = %106, %84
   %switch.tableidx88.sink = phi i16 [ %switch.tableidx, %84 ], [ %switch.tableidx88, %106 ]
   %switch.table.mbedtls_ssl_tls13_write_client_hello_exts.18.sink = phi ptr [ @switch.table.mbedtls_ssl_tls13_write_client_hello_exts.18, %84 ], [ @switch.table.mbedtls_ssl_tls13_write_client_hello_exts.18, %106 ]
   %111 = zext nneg i16 %switch.tableidx88.sink to i64
-  %switch.gep95 = getelementptr inbounds nuw i16, ptr %switch.table.mbedtls_ssl_tls13_write_client_hello_exts.18.sink, i64 %111
+  %switch.gep95 = getelementptr inbounds nuw [2 x i8], ptr %switch.table.mbedtls_ssl_tls13_write_client_hello_exts.18.sink, i64 %111
   %switch.load96 = load i16, ptr %switch.gep95, align 2
   br label %ssl_tls13_get_default_group_id.exit.i
 
@@ -1245,7 +1245,7 @@ ssl_tls13_preprocess_server_hello.exit.thread49.i: ; preds = %ssl_tls13_preproce
 
 131:                                              ; preds = %131, %129
   %.08.i.i.i = phi i64 [ 0, %129 ], [ %135, %131 ]
-  %132 = getelementptr inbounds nuw i32, ptr %.val151.val.i.i, i64 %.08.i.i.i
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %.val151.val.i.i, i64 %.08.i.i.i
   %133 = load i32, ptr %132, align 4, !tbaa !80
   %.not.i153.i.i = icmp eq i32 %133, 0
   %134 = icmp eq i32 %133, %123
@@ -2581,13 +2581,13 @@ define internal fastcc i32 @ssl_tls13_postprocess_server_hello(ptr noundef %0) u
   br i1 %.not38, label %switch.lookup, label %switch.lookup44
 
 switch.lookup:                                    ; preds = %10
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ssl_tls13_postprocess_server_hello.19, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ssl_tls13_postprocess_server_hello.19, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1909, ptr noundef nonnull @.str.67, ptr noundef nonnull %switch.load) #12
   br label %27
 
 switch.lookup44:                                  ; preds = %10
-  %switch.gep45 = getelementptr inbounds nuw ptr, ptr @switch.table.ssl_tls13_postprocess_server_hello.19, i64 %15
+  %switch.gep45 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ssl_tls13_postprocess_server_hello.19, i64 %15
   %switch.load46 = load ptr, ptr %switch.gep45, align 8
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1915, ptr noundef nonnull @.str.68, ptr noundef nonnull %switch.load46) #12
   %16 = tail call i32 @mbedtls_ssl_tls13_key_schedule_stage_early(ptr noundef nonnull %0) #12

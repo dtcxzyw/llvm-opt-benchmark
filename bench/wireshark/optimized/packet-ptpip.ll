@@ -774,7 +774,7 @@ dissect_ptpIP_operation_request.exit:             ; preds = %105, %106, %108, %1
 
 switch.lookup:                                    ; preds = %124
   %127 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_ptpIP, i64 %127
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_ptpIP, i64 %127
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %128
 

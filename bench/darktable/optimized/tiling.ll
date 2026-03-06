@@ -998,7 +998,7 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
 659:                                              ; preds = %659, %.critedge.thread.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.critedge.thread.i.i ], [ %indvars.iv.next.i.i.i.i, %659 ]
   %660 = call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #14
-  %661 = getelementptr inbounds nuw ptr, ptr %652, i64 %indvars.iv.i.i.i.i
+  %661 = getelementptr inbounds nuw [8 x i8], ptr %652, i64 %indvars.iv.i.i.i.i
   store ptr %660, ptr %661, align 8, !tbaa !111
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 5
@@ -1007,8 +1007,8 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
 .preheader17.i.i.i.i:                             ; preds = %677, %.preheader19.i.i.i.i
   %indvars.iv62.i.i.i.i = phi i64 [ %indvars.iv.next63.i.i.i.i, %677 ], [ 1, %.preheader19.i.i.i.i ]
   %662 = add nsw i64 %indvars.iv62.i.i.i.i, -1
-  %663 = getelementptr inbounds nuw ptr, ptr %652, i64 %indvars.iv62.i.i.i.i
-  %664 = getelementptr inbounds nuw double, ptr %28, i64 %662
+  %663 = getelementptr inbounds nuw [8 x i8], ptr %652, i64 %indvars.iv62.i.i.i.i
+  %664 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %662
   %665 = load ptr, ptr %663, align 8, !tbaa !111
   br label %666
 
@@ -1023,7 +1023,7 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
   br label %675
 
 671:                                              ; preds = %666
-  %672 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv58.i.i.i.i
+  %672 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv58.i.i.i.i
   %673 = load double, ptr %672, align 8, !tbaa !109
   %674 = fadd reassoc nsz arcp contract afn double %673, 0x3FCBF8120F357AD9
   br label %675
@@ -1031,7 +1031,7 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
 675:                                              ; preds = %671, %668
   %.sink149.i.i.i.i = phi i64 [ %662, %668 ], [ %indvars.iv58.i.i.i.i, %671 ]
   %.sink.i.i.i.i = phi double [ %670, %668 ], [ %674, %671 ]
-  %676 = getelementptr inbounds nuw double, ptr %665, i64 %.sink149.i.i.i.i
+  %676 = getelementptr inbounds nuw [8 x i8], ptr %665, i64 %.sink149.i.i.i.i
   store double %.sink.i.i.i.i, ptr %676, align 8, !tbaa !109
   %indvars.iv.next59.i.i.i.i = add nuw nsw i64 %indvars.iv58.i.i.i.i, 1
   %exitcond61.not.i.i.i.i = icmp eq i64 %indvars.iv.next59.i.i.i.i, 4
@@ -1059,7 +1059,7 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
 
 .preheader16.i.i.i.i:                             ; preds = %677, %.preheader16.i.i.i.i
   %indvars.iv66.i.i.i.i = phi i64 [ %indvars.iv.next67.i.i.i.i, %.preheader16.i.i.i.i ], [ 0, %677 ]
-  %689 = getelementptr inbounds nuw ptr, ptr %652, i64 %indvars.iv66.i.i.i.i
+  %689 = getelementptr inbounds nuw [8 x i8], ptr %652, i64 %indvars.iv66.i.i.i.i
   %690 = load ptr, ptr %689, align 8, !tbaa !111
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %26, ptr noundef nonnull align 4 dereferenceable(20) %38, i64 20, i1 false), !tbaa.struct !106
@@ -1115,7 +1115,7 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
   %733 = fadd reassoc nsz arcp contract afn double %727, %732
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  %734 = getelementptr inbounds nuw double, ptr %653, i64 %indvars.iv66.i.i.i.i
+  %734 = getelementptr inbounds nuw [8 x i8], ptr %653, i64 %indvars.iv66.i.i.i.i
   store double %733, ptr %734, align 8, !tbaa !109
   %indvars.iv.next67.i.i.i.i = add nuw nsw i64 %indvars.iv66.i.i.i.i, 1
   %exitcond69.not.i.i.i.i = icmp eq i64 %indvars.iv.next67.i.i.i.i, 5
@@ -1128,10 +1128,10 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
 735:                                              ; preds = %735, %.preheader14.i.i.i.i
   %indvars.iv70.i.i.i.i = phi i64 [ 0, %.preheader14.i.i.i.i ], [ %indvars.iv.next71.i.i.i.i, %735 ]
   %.033526.i.i.i.i = phi i32 [ 0, %.preheader14.i.i.i.i ], [ %.1336.i.i.i.i, %735 ]
-  %736 = getelementptr inbounds nuw double, ptr %653, i64 %indvars.iv70.i.i.i.i
+  %736 = getelementptr inbounds nuw [8 x i8], ptr %653, i64 %indvars.iv70.i.i.i.i
   %737 = load double, ptr %736, align 8, !tbaa !109
   %738 = zext nneg i32 %.033526.i.i.i.i to i64
-  %739 = getelementptr inbounds nuw double, ptr %653, i64 %738
+  %739 = getelementptr inbounds nuw [8 x i8], ptr %653, i64 %738
   %740 = load double, ptr %739, align 8, !tbaa !109
   %741 = fcmp reassoc nsz arcp contract afn ogt double %737, %740
   %742 = trunc nuw nsw i64 %indvars.iv70.i.i.i.i to i32
@@ -1142,16 +1142,16 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
 
 .preheader12.i.i.i.i:                             ; preds = %.preheader13.i.i.i.i
   %743 = zext i32 %.1336.i.i.i.i to i64
-  %744 = getelementptr inbounds nuw double, ptr %653, i64 %743
+  %744 = getelementptr inbounds nuw [8 x i8], ptr %653, i64 %743
   br label %752
 
 .preheader13.i.i.i.i:                             ; preds = %735, %.preheader13.i.i.i.i
   %indvars.iv74.i.i.i.i = phi i64 [ %indvars.iv.next75.i.i.i.i, %.preheader13.i.i.i.i ], [ 0, %735 ]
   %.033028.i.i.i.i = phi i32 [ %.1331.i.i.i.i, %.preheader13.i.i.i.i ], [ 0, %735 ]
-  %745 = getelementptr inbounds nuw double, ptr %653, i64 %indvars.iv74.i.i.i.i
+  %745 = getelementptr inbounds nuw [8 x i8], ptr %653, i64 %indvars.iv74.i.i.i.i
   %746 = load double, ptr %745, align 8, !tbaa !109
   %747 = zext nneg i32 %.033028.i.i.i.i to i64
-  %748 = getelementptr inbounds nuw double, ptr %653, i64 %747
+  %748 = getelementptr inbounds nuw [8 x i8], ptr %653, i64 %747
   %749 = load double, ptr %748, align 8, !tbaa !109
   %750 = fcmp reassoc nsz arcp contract afn olt double %746, %749
   %751 = trunc nuw nsw i64 %indvars.iv74.i.i.i.i to i32
@@ -1163,10 +1163,10 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
 752:                                              ; preds = %764, %.preheader12.i.i.i.i
   %indvars.iv78.i.i.i.i = phi i64 [ 0, %.preheader12.i.i.i.i ], [ %indvars.iv.next79.i.i.i.i, %764 ]
   %.033330.i.i.i.i = phi i32 [ %.1331.i.i.i.i, %.preheader12.i.i.i.i ], [ %.1334.i.i.i.i, %764 ]
-  %753 = getelementptr inbounds nuw double, ptr %653, i64 %indvars.iv78.i.i.i.i
+  %753 = getelementptr inbounds nuw [8 x i8], ptr %653, i64 %indvars.iv78.i.i.i.i
   %754 = load double, ptr %753, align 8, !tbaa !109
   %755 = sext i32 %.033330.i.i.i.i to i64
-  %756 = getelementptr inbounds double, ptr %653, i64 %755
+  %756 = getelementptr inbounds [8 x i8], ptr %653, i64 %755
   %757 = load double, ptr %756, align 8, !tbaa !109
   %758 = fcmp reassoc nsz arcp contract afn ogt double %754, %757
   br i1 %758, label %759, label %764
@@ -1187,7 +1187,7 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
   br i1 %exitcond81.not.i.i.i.i, label %.preheader1.i.i.i.i, label %752
 
 .preheader10.i.i.i.i:                             ; preds = %775
-  %765 = getelementptr inbounds nuw ptr, ptr %652, i64 %743
+  %765 = getelementptr inbounds nuw [8 x i8], ptr %652, i64 %743
   %766 = load ptr, ptr %765, align 8, !tbaa !111
   br label %778
 
@@ -1202,9 +1202,9 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
   br i1 %.not363.i.i.i.i, label %774, label %768
 
 768:                                              ; preds = %767
-  %769 = getelementptr inbounds nuw ptr, ptr %652, i64 %indvars.iv82.i.i.i.i
+  %769 = getelementptr inbounds nuw [8 x i8], ptr %652, i64 %indvars.iv82.i.i.i.i
   %770 = load ptr, ptr %769, align 8, !tbaa !111
-  %771 = getelementptr inbounds nuw double, ptr %770, i64 %indvars.iv86.i.i.i.i
+  %771 = getelementptr inbounds nuw [8 x i8], ptr %770, i64 %indvars.iv86.i.i.i.i
   %772 = load double, ptr %771, align 8, !tbaa !109
   %773 = fadd reassoc nsz arcp contract afn double %772, %.032.i.i.i.i
   br label %774
@@ -1217,7 +1217,7 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
 
 775:                                              ; preds = %774
   %776 = fmul reassoc nsz arcp contract afn double %.1.i.i.i.i, 2.500000e-01
-  %777 = getelementptr inbounds nuw double, ptr %657, i64 %indvars.iv86.i.i.i.i
+  %777 = getelementptr inbounds nuw [8 x i8], ptr %657, i64 %indvars.iv86.i.i.i.i
   store double %776, ptr %777, align 8, !tbaa !109
   %indvars.iv.next87.i.i.i.i = add nuw nsw i64 %indvars.iv86.i.i.i.i, 1
   %exitcond89.not.i.i.i.i = icmp eq i64 %indvars.iv.next87.i.i.i.i, 4
@@ -1225,13 +1225,13 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
 
 778:                                              ; preds = %778, %.preheader10.i.i.i.i
   %indvars.iv90.i.i.i.i = phi i64 [ 0, %.preheader10.i.i.i.i ], [ %indvars.iv.next91.i.i.i.i, %778 ]
-  %779 = getelementptr inbounds nuw double, ptr %657, i64 %indvars.iv90.i.i.i.i
+  %779 = getelementptr inbounds nuw [8 x i8], ptr %657, i64 %indvars.iv90.i.i.i.i
   %780 = load double, ptr %779, align 8, !tbaa !109
-  %781 = getelementptr inbounds nuw double, ptr %766, i64 %indvars.iv90.i.i.i.i
+  %781 = getelementptr inbounds nuw [8 x i8], ptr %766, i64 %indvars.iv90.i.i.i.i
   %782 = load double, ptr %781, align 8, !tbaa !109
   %factor.i.i.i.i = fmul reassoc nsz arcp contract afn double %780, 2.000000e+00
   %783 = fsub reassoc nsz arcp contract afn double %factor.i.i.i.i, %782
-  %784 = getelementptr inbounds nuw double, ptr %654, i64 %indvars.iv90.i.i.i.i
+  %784 = getelementptr inbounds nuw [8 x i8], ptr %654, i64 %indvars.iv90.i.i.i.i
   store double %783, ptr %784, align 8, !tbaa !109
   %indvars.iv.next91.i.i.i.i = add nuw nsw i64 %indvars.iv90.i.i.i.i, 1
   %exitcond93.not.i.i.i.i = icmp eq i64 %indvars.iv.next91.i.i.i.i, 4
@@ -1290,14 +1290,14 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %826 = sext i32 %.1334.i.i.i.i to i64
-  %827 = getelementptr inbounds double, ptr %653, i64 %826
+  %827 = getelementptr inbounds [8 x i8], ptr %653, i64 %826
   %828 = load double, ptr %827, align 8, !tbaa !109
   %829 = fcmp reassoc nsz arcp contract afn olt double %825, %828
   %830 = zext i32 %.1331.i.i.i.i to i64
   br i1 %829, label %831, label %._crit_edge.i.i.i.i
 
 831:                                              ; preds = %785
-  %832 = getelementptr inbounds nuw double, ptr %653, i64 %830
+  %832 = getelementptr inbounds nuw [8 x i8], ptr %653, i64 %830
   %833 = load double, ptr %832, align 8, !tbaa !109
   %834 = fcmp reassoc nsz arcp contract afn ult double %825, %833
   br i1 %834, label %._crit_edge.i.i.i.i, label %.preheader9.i.i.i.i
@@ -1308,21 +1308,21 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.preheader9.i.i.i.i, %831, %785
-  %835 = getelementptr inbounds nuw double, ptr %653, i64 %830
+  %835 = getelementptr inbounds nuw [8 x i8], ptr %653, i64 %830
   %836 = load double, ptr %835, align 8, !tbaa !109
   %837 = fcmp reassoc nsz arcp contract afn olt double %825, %836
   br i1 %837, label %.preheader8.i.i.i.i, label %887
 
 .preheader8.i.i.i.i:                              ; preds = %._crit_edge.i.i.i.i, %.preheader8.i.i.i.i
   %indvars.iv97.i.i.i.i = phi i64 [ %indvars.iv.next98.i.i.i.i, %.preheader8.i.i.i.i ], [ 0, %._crit_edge.i.i.i.i ]
-  %838 = getelementptr inbounds nuw double, ptr %657, i64 %indvars.iv97.i.i.i.i
+  %838 = getelementptr inbounds nuw [8 x i8], ptr %657, i64 %indvars.iv97.i.i.i.i
   %839 = load double, ptr %838, align 8, !tbaa !109
-  %840 = getelementptr inbounds nuw double, ptr %654, i64 %indvars.iv97.i.i.i.i
+  %840 = getelementptr inbounds nuw [8 x i8], ptr %654, i64 %indvars.iv97.i.i.i.i
   %841 = load double, ptr %840, align 8, !tbaa !109
   %842 = fsub reassoc nsz arcp contract afn double %841, %839
   %843 = fmul reassoc nsz arcp contract afn double %842, 2.000000e+00
   %844 = fadd reassoc nsz arcp contract afn double %843, %839
-  %845 = getelementptr inbounds nuw double, ptr %655, i64 %indvars.iv97.i.i.i.i
+  %845 = getelementptr inbounds nuw [8 x i8], ptr %655, i64 %indvars.iv97.i.i.i.i
   store double %844, ptr %845, align 8, !tbaa !109
   %indvars.iv.next98.i.i.i.i = add nuw nsw i64 %indvars.iv97.i.i.i.i, 1
   %exitcond100.not.i.i.i.i = icmp eq i64 %indvars.iv.next98.i.i.i.i, 4
@@ -1399,14 +1399,14 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
 
 .preheader4.i.i.i.i:                              ; preds = %890, %.preheader4.i.i.i.i
   %indvars.iv111.i.i.i.i = phi i64 [ %indvars.iv.next112.i.i.i.i, %.preheader4.i.i.i.i ], [ 0, %890 ]
-  %893 = getelementptr inbounds nuw double, ptr %657, i64 %indvars.iv111.i.i.i.i
+  %893 = getelementptr inbounds nuw [8 x i8], ptr %657, i64 %indvars.iv111.i.i.i.i
   %894 = load double, ptr %893, align 8, !tbaa !109
-  %895 = getelementptr inbounds nuw double, ptr %654, i64 %indvars.iv111.i.i.i.i
+  %895 = getelementptr inbounds nuw [8 x i8], ptr %654, i64 %indvars.iv111.i.i.i.i
   %896 = load double, ptr %895, align 8, !tbaa !109
   %897 = fsub reassoc nsz arcp contract afn double %896, %894
   %898 = fmul reassoc nsz arcp contract afn double %897, 5.000000e-01
   %899 = fadd reassoc nsz arcp contract afn double %898, %894
-  %900 = getelementptr inbounds nuw double, ptr %656, i64 %indvars.iv111.i.i.i.i
+  %900 = getelementptr inbounds nuw [8 x i8], ptr %656, i64 %indvars.iv111.i.i.i.i
   store double %899, ptr %900, align 8, !tbaa !109
   %indvars.iv.next112.i.i.i.i = add nuw nsw i64 %indvars.iv111.i.i.i.i, 1
   %exitcond114.not.i.i.i.i = icmp eq i64 %indvars.iv.next112.i.i.i.i, 4
@@ -1468,14 +1468,14 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
 
 .preheader5.i.i.i.i:                              ; preds = %890, %.preheader5.i.i.i.i
   %indvars.iv107.i.i.i.i = phi i64 [ %indvars.iv.next108.i.i.i.i, %.preheader5.i.i.i.i ], [ 0, %890 ]
-  %942 = getelementptr inbounds nuw double, ptr %657, i64 %indvars.iv107.i.i.i.i
+  %942 = getelementptr inbounds nuw [8 x i8], ptr %657, i64 %indvars.iv107.i.i.i.i
   %943 = load double, ptr %942, align 8, !tbaa !109
-  %944 = getelementptr inbounds nuw double, ptr %766, i64 %indvars.iv107.i.i.i.i
+  %944 = getelementptr inbounds nuw [8 x i8], ptr %766, i64 %indvars.iv107.i.i.i.i
   %945 = load double, ptr %944, align 8, !tbaa !109
   %946 = fsub reassoc nsz arcp contract afn double %943, %945
   %947 = fmul reassoc nsz arcp contract afn double %946, 5.000000e-01
   %948 = fsub reassoc nsz arcp contract afn double %943, %947
-  %949 = getelementptr inbounds nuw double, ptr %656, i64 %indvars.iv107.i.i.i.i
+  %949 = getelementptr inbounds nuw [8 x i8], ptr %656, i64 %indvars.iv107.i.i.i.i
   store double %948, ptr %949, align 8, !tbaa !109
   %indvars.iv.next108.i.i.i.i = add nuw nsw i64 %indvars.iv107.i.i.i.i, 1
   %exitcond110.not.i.i.i.i = icmp eq i64 %indvars.iv.next108.i.i.i.i, 4
@@ -1541,7 +1541,7 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
   br i1 %992, label %.preheader2.i.i.i.i, label %.preheader3.i.i.i.i
 
 .preheader3.i.i.i.i:                              ; preds = %991
-  %993 = getelementptr inbounds nuw ptr, ptr %652, i64 %830
+  %993 = getelementptr inbounds nuw [8 x i8], ptr %652, i64 %830
   br label %994
 
 .preheader2.i.i.i.i:                              ; preds = %991
@@ -1556,15 +1556,15 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
 
 .preheader.i.i.i.i:                               ; preds = %994
   %995 = load ptr, ptr %993, align 8, !tbaa !111
-  %996 = getelementptr inbounds nuw ptr, ptr %652, i64 %indvars.iv119.i.i.i.i
+  %996 = getelementptr inbounds nuw [8 x i8], ptr %652, i64 %indvars.iv119.i.i.i.i
   %997 = load ptr, ptr %996, align 8, !tbaa !111
   br label %998
 
 998:                                              ; preds = %998, %.preheader.i.i.i.i
   %indvars.iv115.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ %indvars.iv.next116.i.i.i.i, %998 ]
-  %999 = getelementptr inbounds nuw double, ptr %995, i64 %indvars.iv115.i.i.i.i
+  %999 = getelementptr inbounds nuw [8 x i8], ptr %995, i64 %indvars.iv115.i.i.i.i
   %1000 = load double, ptr %999, align 8, !tbaa !109
-  %1001 = getelementptr inbounds nuw double, ptr %997, i64 %indvars.iv115.i.i.i.i
+  %1001 = getelementptr inbounds nuw [8 x i8], ptr %997, i64 %indvars.iv115.i.i.i.i
   %1002 = load double, ptr %1001, align 8, !tbaa !109
   %1003 = fsub reassoc nsz arcp contract afn double %1002, %1000
   %1004 = fmul reassoc nsz arcp contract afn double %1003, 5.000000e-01
@@ -1635,7 +1635,7 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store double %1049, ptr %744, align 8, !tbaa !109
-  %1050 = getelementptr inbounds ptr, ptr %652, i64 %826
+  %1050 = getelementptr inbounds [8 x i8], ptr %652, i64 %826
   %1051 = load ptr, ptr %1050, align 8, !tbaa !111
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %14, ptr noundef nonnull align 4 dereferenceable(20) %38, i64 20, i1 false), !tbaa.struct !106
@@ -1700,7 +1700,7 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
 1095:                                             ; preds = %.preheader, %1095
   %indvars.iv126.i.i.i.i = phi i64 [ %indvars.iv.next127.i.i.i.i, %1095 ], [ 0, %.preheader ]
   %.033245.i.i.i.i = phi double [ %1098, %1095 ], [ 0.000000e+00, %.preheader ]
-  %1096 = getelementptr inbounds nuw double, ptr %653, i64 %indvars.iv126.i.i.i.i
+  %1096 = getelementptr inbounds nuw [8 x i8], ptr %653, i64 %indvars.iv126.i.i.i.i
   %1097 = load double, ptr %1096, align 8, !tbaa !109
   %1098 = fadd reassoc nsz arcp contract afn double %1097, %.033245.i.i.i.i
   %indvars.iv.next127.i.i.i.i = add nuw nsw i64 %indvars.iv126.i.i.i.i, 1
@@ -1714,7 +1714,7 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
 1101:                                             ; preds = %1101, %1099
   %indvars.iv130.i.i.i.i = phi i64 [ 0, %1099 ], [ %indvars.iv.next131.i.i.i.i, %1101 ]
   %.032947.i.i.i.i = phi double [ 0.000000e+00, %1099 ], [ %1107, %1101 ]
-  %1102 = getelementptr inbounds nuw double, ptr %653, i64 %indvars.iv130.i.i.i.i
+  %1102 = getelementptr inbounds nuw [8 x i8], ptr %653, i64 %indvars.iv130.i.i.i.i
   %1103 = load double, ptr %1102, align 8, !tbaa !109
   %1104 = fsub reassoc nsz arcp contract afn double %1103, %1100
   %1105 = fmul reassoc nsz arcp contract afn double %1104, %1104
@@ -1745,7 +1745,7 @@ _fit_output_to_input_roi.exit.thread.i:           ; preds = %.critedge.i.i
 
 1114:                                             ; preds = %1114, %1113
   %indvars.iv138.i.i.i.i = phi i64 [ 0, %1113 ], [ %indvars.iv.next139.i.i.i.i, %1114 ]
-  %1115 = getelementptr inbounds nuw ptr, ptr %652, i64 %indvars.iv138.i.i.i.i
+  %1115 = getelementptr inbounds nuw [8 x i8], ptr %652, i64 %indvars.iv138.i.i.i.i
   %1116 = load ptr, ptr %1115, align 8, !tbaa !111
   call void @free(ptr noundef %1116) #13
   %indvars.iv.next139.i.i.i.i = add nuw nsw i64 %indvars.iv138.i.i.i.i, 1
@@ -2065,10 +2065,10 @@ _print_roi.exit523.i:                             ; preds = %1207, %_print_roi.e
   br i1 %.not495.i, label %1328, label %1313
 
 1313:                                             ; preds = %1312
-  %1314 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i
+  %1314 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i
   %1315 = load float, ptr %1314, align 4, !tbaa !101
   %1316 = getelementptr inbounds nuw i8, ptr %.pre614.i, i64 272
-  %1317 = getelementptr inbounds nuw float, ptr %1316, i64 %indvars.iv.i
+  %1317 = getelementptr inbounds nuw [4 x i8], ptr %1316, i64 %indvars.iv.i
   %1318 = load float, ptr %1317, align 4, !tbaa !101
   %1319 = fsub reassoc nsz arcp contract afn float %1315, %1318
   %1320 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %1319)
@@ -2091,9 +2091,9 @@ _print_roi.exit523.i:                             ; preds = %1207, %_print_roi.e
 1328:                                             ; preds = %1325, %1322, %1313, %1312
   %.pre614616.i = phi ptr [ %.pre614.i, %1322 ], [ %.pre613.i, %1325 ], [ %.pre614.i, %1313 ], [ %.pre614.i, %1312 ]
   %1329 = getelementptr inbounds nuw i8, ptr %.pre614616.i, i64 272
-  %1330 = getelementptr inbounds nuw float, ptr %1329, i64 %indvars.iv.i
+  %1330 = getelementptr inbounds nuw [4 x i8], ptr %1329, i64 %indvars.iv.i
   %1331 = load float, ptr %1330, align 4, !tbaa !101
-  %1332 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i
+  %1332 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i
   store float %1331, ptr %1332, align 4, !tbaa !101
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -2725,10 +2725,10 @@ _lcm.exit.i24:                                    ; preds = %.lr.ph.i.i.i20, %15
 .split.us378.i:                                   ; preds = %.preheader358.us.i, %1715
   %1697 = phi ptr [ %1717, %1715 ], [ %1731, %.preheader358.us.i ]
   %indvars.iv.i28 = phi i64 [ %indvars.iv.next.i29, %1715 ], [ 0, %.preheader358.us.i ]
-  %1698 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i28
+  %1698 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i28
   %1699 = load float, ptr %1698, align 4, !tbaa !101
   %1700 = getelementptr inbounds nuw i8, ptr %1697, i64 272
-  %1701 = getelementptr inbounds nuw float, ptr %1700, i64 %indvars.iv.i28
+  %1701 = getelementptr inbounds nuw [4 x i8], ptr %1700, i64 %indvars.iv.i28
   %1702 = load float, ptr %1701, align 4, !tbaa !101
   %1703 = fsub reassoc nsz arcp contract afn float %1699, %1702
   %1704 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %1703)
@@ -2750,7 +2750,7 @@ _lcm.exit.i24:                                    ; preds = %.lr.ph.i.i.i20, %15
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.37, ptr noundef %1712, i32 noundef %1714, ptr noundef nonnull %1637, ptr noundef %1713) #13
   %.pre403.i = load ptr, ptr %1368, align 8, !tbaa !28
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre403.i, i64 272
-  %.phi.trans.insert404.i = getelementptr inbounds nuw float, ptr %.phi.trans.insert.i, i64 %indvars.iv.i28
+  %.phi.trans.insert404.i = getelementptr inbounds nuw [4 x i8], ptr %.phi.trans.insert.i, i64 %indvars.iv.i28
   %.pre405.i = load float, ptr %.phi.trans.insert404.i, align 4, !tbaa !101
   br label %1715
 

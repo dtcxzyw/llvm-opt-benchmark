@@ -223,7 +223,7 @@ define hidden ptr @SDL_GetWindowFromEvent_REAL(ptr noundef readonly captures(non
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.SDL_GetWindowFromEvent_REAL, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDL_GetWindowFromEvent_REAL, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0 = load i32, ptr %6, align 4

@@ -36,10 +36,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !6, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h656d3e1ac6743a58E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h656d3e1ac6743a58E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h656d3e1ac6743a58E.15", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h656d3e1ac6743a58E.15", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -1324,7 +1324,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
 
 35:                                               ; preds = %24
   %36 = sub nuw i64 %20, %32
-  %37 = getelementptr inbounds nuw i64, ptr %26, i64 %32
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, 63
@@ -1353,19 +1353,19 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
           to label %116 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i64, ptr %37, i64 %42
+  %46 = getelementptr inbounds [8 x i8], ptr %37, i64 %42
   %47 = sub nuw i64 %36, %42
   %.not.i15 = icmp ugt i64 %18, %47
   br i1 %.not.i15, label %.invoke, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i64, ptr %46, i64 %18
+  %49 = getelementptr inbounds [8 x i8], ptr %46, i64 %18
   %50 = sub nuw i64 %47, %18
   %.not.i18 = icmp ugt i64 %18, %50
   br i1 %.not.i18, label %.invoke, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i64, ptr %49, i64 %18
+  %52 = getelementptr inbounds [8 x i8], ptr %49, i64 %18
   %53 = sub nuw i64 %50, %18
   %.not.i21 = icmp eq i64 %18, %1
   br i1 %.not.i21, label %55, label %54
@@ -1677,7 +1677,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
 
 35:                                               ; preds = %24
   %36 = sub nuw i64 %20, %32
-  %37 = getelementptr inbounds nuw i64, ptr %26, i64 %32
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, 63
@@ -1706,19 +1706,19 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
           to label %116 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i64, ptr %37, i64 %42
+  %46 = getelementptr inbounds [8 x i8], ptr %37, i64 %42
   %47 = sub nuw i64 %36, %42
   %.not.i15 = icmp ugt i64 %18, %47
   br i1 %.not.i15, label %.invoke, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i64, ptr %46, i64 %18
+  %49 = getelementptr inbounds [8 x i8], ptr %46, i64 %18
   %50 = sub nuw i64 %47, %18
   %.not.i18 = icmp ugt i64 %18, %50
   br i1 %.not.i18, label %.invoke, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i64, ptr %49, i64 %18
+  %52 = getelementptr inbounds [8 x i8], ptr %49, i64 %18
   %53 = sub nuw i64 %50, %18
   %.not.i21 = icmp eq i64 %18, %1
   br i1 %.not.i21, label %55, label %54
@@ -2257,7 +2257,7 @@ _ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i: ; preds = %_ZN4ring6diges
 .preheader.preheader.i:                           ; preds = %77, %.preheader.preheader.i
   %.sroa.07.0107.i = phi i64 [ %63, %.preheader.preheader.i ], [ 16, %77 ]
   %63 = add nuw nsw i64 %.sroa.07.0107.i, 1
-  %64 = getelementptr i32, ptr %4, i64 %.sroa.07.0107.i
+  %64 = getelementptr [4 x i8], ptr %4, i64 %.sroa.07.0107.i
   %65 = getelementptr i8, ptr %64, i64 -12
   %66 = load i32, ptr %65, align 4, !noalias !192, !noundef !4
   %67 = getelementptr i8, ptr %64, i64 -32
@@ -2280,7 +2280,7 @@ _ZN4ring6digest4sha15step317h22389009e32aaaedE.exit.i: ; preds = %_ZN4ring6diges
   %79 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0132.i, i64 %.sroa.02.0106.i
   %80 = load i32, ptr %79, align 1, !alias.scope !189, !noalias !207
   %81 = tail call i32 @llvm.bswap.i32(i32 %80)
-  %82 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.02.0106.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.02.0106.i
   store i32 %81, ptr %82, align 4, !noalias !192
   %exitcond.not.i = icmp eq i64 %78, 16
   br i1 %exitcond.not.i, label %.preheader.preheader.i, label %77

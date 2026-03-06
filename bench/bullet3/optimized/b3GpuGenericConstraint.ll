@@ -7,10 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.b3Matrix3x3 = type { [3 x %class.b3Vector3] }
 %class.b3Vector3 = type { %union.anon }
 %union.anon = type { [4 x float] }
-%struct.b3RigidBodyData = type { %class.b3Vector3, %class.b3Quaternion, %class.b3Vector3, %class.b3Vector3, i32, float, float, float }
-%class.b3Quaternion = type { %class.b3QuadWord }
-%class.b3QuadWord = type { %union.anon.0 }
-%union.anon.0 = type { [4 x float] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN22b3GpuGenericConstraint8getInfo1EPjPK15b3RigidBodyData(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(80) %0, ptr noundef writeonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
@@ -36,7 +32,7 @@ define dso_local void @_Z19getInfo2Point2PointP22b3GpuGenericConstraintP20b3GpuC
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.b3RigidBodyData, ptr %2, i64 %10
+  %11 = getelementptr inbounds [80 x i8], ptr %2, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull align 16 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !15
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -80,7 +76,7 @@ define dso_local void @_Z19getInfo2Point2PointP22b3GpuGenericConstraintP20b3GpuC
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load i32, ptr %50, align 8, !tbaa !17
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %struct.b3RigidBodyData, ptr %2, i64 %52
+  %53 = getelementptr inbounds [80 x i8], ptr %2, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %54, ptr noundef nonnull align 16 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !15
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -126,12 +122,12 @@ define dso_local void @_Z19getInfo2Point2PointP22b3GpuGenericConstraintP20b3GpuC
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %95 = load i32, ptr %94, align 8, !tbaa !24
   %96 = sext i32 %95 to i64
-  %97 = getelementptr float, ptr %93, i64 %96
+  %97 = getelementptr [4 x i8], ptr %93, i64 %96
   %98 = getelementptr i8, ptr %97, i64 4
   store float 1.000000e+00, ptr %98, align 4, !tbaa !23
   %99 = shl nsw i32 %95, 1
   %100 = sext i32 %99 to i64
-  %101 = getelementptr float, ptr %93, i64 %100
+  %101 = getelementptr [4 x i8], ptr %93, i64 %100
   %102 = getelementptr i8, ptr %101, i64 8
   store float 1.000000e+00, ptr %102, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -158,8 +154,8 @@ define dso_local void @_Z19getInfo2Point2PointP22b3GpuGenericConstraintP20b3GpuC
   store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %118, align 8
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %120 = load ptr, ptr %119, align 8, !tbaa !25
-  %121 = getelementptr inbounds float, ptr %120, i64 %96
-  %122 = getelementptr inbounds float, ptr %120, i64 %100
+  %121 = getelementptr inbounds [4 x i8], ptr %120, i64 %96
+  %122 = getelementptr inbounds [4 x i8], ptr %120, i64 %100
   %123 = fneg float %111
   %124 = fneg float %114
   %125 = fneg float %117
@@ -199,12 +195,12 @@ define dso_local void @_Z19getInfo2Point2PointP22b3GpuGenericConstraintP20b3GpuC
 137:                                              ; preds = %3
   store float -1.000000e+00, ptr %136, align 4, !tbaa !23
   %138 = sext i32 %.pre to i64
-  %139 = getelementptr float, ptr %136, i64 %138
+  %139 = getelementptr [4 x i8], ptr %136, i64 %138
   %140 = getelementptr i8, ptr %139, i64 4
   store float -1.000000e+00, ptr %140, align 4, !tbaa !23
   %141 = shl nsw i32 %.pre, 1
   %142 = sext i32 %141 to i64
-  %143 = getelementptr float, ptr %136, i64 %142
+  %143 = getelementptr [4 x i8], ptr %136, i64 %142
   %144 = getelementptr i8, ptr %143, i64 8
   store float -1.000000e+00, ptr %144, align 4, !tbaa !23
   br label %145
@@ -236,8 +232,8 @@ define dso_local void @_Z19getInfo2Point2PointP22b3GpuGenericConstraintP20b3GpuC
   store <2 x float> %.sroa.3.12.vec.insert.i.i57, ptr %161, align 8
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %163 = load ptr, ptr %162, align 8, !tbaa !27
-  %164 = getelementptr inbounds float, ptr %163, i64 %.pre-phi
-  %165 = getelementptr inbounds float, ptr %163, i64 %.pre-phi72
+  %164 = getelementptr inbounds [4 x i8], ptr %163, i64 %.pre-phi
+  %165 = getelementptr inbounds [4 x i8], ptr %163, i64 %.pre-phi72
   %166 = fneg float %160
   store float 0.000000e+00, ptr %163, align 16, !tbaa !16
   %167 = getelementptr inbounds nuw i8, ptr %163, i64 4
@@ -274,20 +270,20 @@ define dso_local void @_Z19getInfo2Point2PointP22b3GpuGenericConstraintP20b3GpuC
 
 186:                                              ; preds = %145, %186
   %indvars.iv = phi i64 [ 0, %145 ], [ %indvars.iv.next, %186 ]
-  %187 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %188 = load float, ptr %187, align 4, !tbaa !23
-  %189 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv
   %190 = load float, ptr %189, align 4, !tbaa !23
   %191 = fadd float %188, %190
-  %192 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %193 = load float, ptr %192, align 4, !tbaa !23
   %194 = fsub float %191, %193
-  %195 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %196 = load float, ptr %195, align 4, !tbaa !23
   %197 = fsub float %194, %196
   %198 = fmul float %181, %197
   %199 = mul nsw i64 %indvars.iv, %185
-  %200 = getelementptr inbounds float, ptr %183, i64 %199
+  %200 = getelementptr inbounds [4 x i8], ptr %183, i64 %199
   store float %198, ptr %200, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

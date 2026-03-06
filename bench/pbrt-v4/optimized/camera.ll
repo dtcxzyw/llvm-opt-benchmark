@@ -36,9 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pbrt::SampledWavelengths" = type { %"class.pstd::array.30", %"class.pstd::array.30" }
 %"class.pstd::optional.33" = type { %"union.std::aligned_storage<56, 8>::type", i8, [7 x i8] }
 %"union.std::aligned_storage<56, 8>::type" = type { [56 x i8] }
-%"struct.pbrt::Float4" = type { [4 x float] }
-%"class.pbrt::Medium" = type { %"class.pbrt::TaggedPointer.37" }
-%"class.pbrt::TaggedPointer.37" = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -52,16 +49,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.pbrt::PiecewiseConstant1D" = type <{ %"class.pstd::vector.55", %"class.pstd::vector.55", float, float, float, [4 x i8] }>
-%"class.pstd::vector.55" = type { %"class.pstd::pmr::polymorphic_allocator.56", ptr, i64, i64 }
-%"class.pstd::pmr::polymorphic_allocator.56" = type { ptr }
 %"class.pbrt::IndependentSampler" = type { i32, i32, %"class.pbrt::RNG" }
 %"class.pbrt::RNG" = type { i64, i64 }
 %"class.pbrt::Filter" = type { %"class.pbrt::TaggedPointer" }
 %"class.pbrt::TaggedPointer" = type { i64 }
 %"class.pbrt::StratifiedSampler" = type { i32, i32, i32, i8, %"class.pbrt::RNG", %"class.pbrt::Point2", i32, i32 }
 %"class.pbrt::HaltonSampler" = type <{ i32, i32, ptr, %"class.pbrt::Point2", %"class.pbrt::Point2", [2 x i32], i64, i32, [4 x i8] }>
-%"class.pbrt::DigitPermutation" = type { i32, i32, ptr }
 %"class.pbrt::PaddedSobolSampler" = type { i32, i32, i32, %"class.pbrt::Point2", i32, i32 }
 %"class.pbrt::SobolSampler" = type { i32, i32, i32, i32, %"class.pbrt::Point2", i32, i64 }
 %"class.pbrt::ZSobolSampler" = type <{ i32, i32, i32, i32, i64, i32, [4 x i8] }>
@@ -747,11 +740,11 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 144
   %30 = load ptr, ptr %29, align 8, !tbaa !121
   %31 = sext i32 %1 to i64
-  %32 = getelementptr inbounds i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %30, i64 %31
   store i32 %24, ptr %32, align 4, !tbaa !103
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 152
   %34 = load ptr, ptr %33, align 8, !tbaa !122
-  %35 = getelementptr inbounds i32, ptr %34, i64 %31
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %31
   store i32 %28, ptr %35, align 4, !tbaa !103
   %.not.i = icmp sgt i32 %23, -1
   %36 = icmp slt i32 %24, %.sroa.7120.8.extract.trunc
@@ -829,7 +822,7 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !148, !noalias !141
-  %81 = getelementptr inbounds nuw %"class.pbrt::Point2.31", ptr %80, i64 %78
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %78
   %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %81, align 4, !noalias !141
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !141
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %9, align 8, !noalias !141
@@ -1061,13 +1054,13 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 204:                                              ; preds = %197, %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
   %205 = getelementptr inbounds nuw i8, ptr %17, i64 208
   %206 = load ptr, ptr %205, align 8, !tbaa !168
-  %207 = getelementptr inbounds %"struct.pbrt::Float4", ptr %206, i64 %31
+  %207 = getelementptr inbounds [16 x i8], ptr %206, i64 %31
   %208 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %209 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %210 = getelementptr inbounds nuw i8, ptr %17, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %207, i8 0, i64 16, i1 false)
   %211 = load ptr, ptr %210, align 8, !tbaa !169
-  %212 = getelementptr inbounds %"struct.pbrt::Float4", ptr %211, i64 %31
+  %212 = getelementptr inbounds [16 x i8], ptr %211, i64 %31
   %213 = load <4 x float>, ptr %15, align 16
   %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %213, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %214 = load <4 x float>, ptr %208, align 8
@@ -1077,7 +1070,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.35.12.vec.insert.i, ptr %.sroa.2.0..0..sroa_idx.i.i39, align 8, !tbaa !104
   %215 = getelementptr inbounds nuw i8, ptr %17, i64 176
   %216 = load ptr, ptr %215, align 8, !tbaa !170
-  %217 = getelementptr inbounds %"struct.pbrt::Float4", ptr %216, i64 %31
+  %217 = getelementptr inbounds [16 x i8], ptr %216, i64 %31
   %218 = load <4 x float>, ptr %209, align 16
   %.sroa.0.4.vec.insert.i40 = shufflevector <4 x float> %218, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i41 = shufflevector <4 x float> %218, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -1086,7 +1079,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.3.12.vec.insert.i41, ptr %.sroa.2.0..0..sroa_idx.i28.i, align 8, !tbaa !104
   %219 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %220 = load ptr, ptr %219, align 8, !tbaa !171
-  %221 = getelementptr inbounds float, ptr %220, i64 %31
+  %221 = getelementptr inbounds [4 x i8], ptr %220, i64 %31
   store float %.sroa.1195.0, ptr %221, align 4, !tbaa !130
   %222 = load i8, ptr %17, align 8, !tbaa !172, !range !99, !noundef !100
   %223 = trunc nuw i8 %222 to i1
@@ -1099,79 +1092,79 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store i8 0, ptr %227, align 1, !tbaa !174
   %228 = getelementptr inbounds nuw i8, ptr %17, i64 272
   %229 = load ptr, ptr %228, align 8, !tbaa !175
-  %230 = getelementptr inbounds float, ptr %229, i64 %31
+  %230 = getelementptr inbounds [4 x i8], ptr %229, i64 %31
   store float 0.000000e+00, ptr %230, align 4, !tbaa !130
   %231 = getelementptr inbounds nuw i8, ptr %17, i64 280
   %232 = load ptr, ptr %231, align 8, !tbaa !176
-  %233 = getelementptr inbounds float, ptr %232, i64 %31
+  %233 = getelementptr inbounds [4 x i8], ptr %232, i64 %31
   store float 0.000000e+00, ptr %233, align 4, !tbaa !130
   %234 = getelementptr inbounds nuw i8, ptr %17, i64 288
   %235 = load ptr, ptr %234, align 8, !tbaa !177
-  %236 = getelementptr inbounds float, ptr %235, i64 %31
+  %236 = getelementptr inbounds [4 x i8], ptr %235, i64 %31
   store float 0.000000e+00, ptr %236, align 4, !tbaa !130
   %237 = getelementptr inbounds nuw i8, ptr %17, i64 304
   %238 = load ptr, ptr %237, align 8, !tbaa !178
-  %239 = getelementptr inbounds float, ptr %238, i64 %31
+  %239 = getelementptr inbounds [4 x i8], ptr %238, i64 %31
   store float 0.000000e+00, ptr %239, align 4, !tbaa !130
   %240 = getelementptr inbounds nuw i8, ptr %17, i64 312
   %241 = load ptr, ptr %240, align 8, !tbaa !179
-  %242 = getelementptr inbounds float, ptr %241, i64 %31
+  %242 = getelementptr inbounds [4 x i8], ptr %241, i64 %31
   store float 0.000000e+00, ptr %242, align 4, !tbaa !130
   %243 = getelementptr inbounds nuw i8, ptr %17, i64 320
   %244 = load ptr, ptr %243, align 8, !tbaa !180
-  %245 = getelementptr inbounds float, ptr %244, i64 %31
+  %245 = getelementptr inbounds [4 x i8], ptr %244, i64 %31
   store float 0.000000e+00, ptr %245, align 4, !tbaa !130
   %246 = getelementptr inbounds nuw i8, ptr %17, i64 336
   %247 = load ptr, ptr %246, align 8, !tbaa !178
-  %248 = getelementptr inbounds float, ptr %247, i64 %31
+  %248 = getelementptr inbounds [4 x i8], ptr %247, i64 %31
   store float 0.000000e+00, ptr %248, align 4, !tbaa !130
   %249 = getelementptr inbounds nuw i8, ptr %17, i64 344
   %250 = load ptr, ptr %249, align 8, !tbaa !179
-  %251 = getelementptr inbounds float, ptr %250, i64 %31
+  %251 = getelementptr inbounds [4 x i8], ptr %250, i64 %31
   store float 0.000000e+00, ptr %251, align 4, !tbaa !130
   %252 = getelementptr inbounds nuw i8, ptr %17, i64 352
   %253 = load ptr, ptr %252, align 8, !tbaa !180
-  %254 = getelementptr inbounds float, ptr %253, i64 %31
+  %254 = getelementptr inbounds [4 x i8], ptr %253, i64 %31
   store float 0.000000e+00, ptr %254, align 4, !tbaa !130
   %255 = getelementptr inbounds nuw i8, ptr %17, i64 368
   %256 = load ptr, ptr %255, align 8, !tbaa !181
-  %257 = getelementptr inbounds float, ptr %256, i64 %31
+  %257 = getelementptr inbounds [4 x i8], ptr %256, i64 %31
   store float 0.000000e+00, ptr %257, align 4, !tbaa !130
   %258 = getelementptr inbounds nuw i8, ptr %17, i64 376
   %259 = load ptr, ptr %258, align 8, !tbaa !182
-  %260 = getelementptr inbounds float, ptr %259, i64 %31
+  %260 = getelementptr inbounds [4 x i8], ptr %259, i64 %31
   store float 0.000000e+00, ptr %260, align 4, !tbaa !130
   %261 = getelementptr inbounds nuw i8, ptr %17, i64 384
   %262 = load ptr, ptr %261, align 8, !tbaa !183
-  %263 = getelementptr inbounds float, ptr %262, i64 %31
+  %263 = getelementptr inbounds [4 x i8], ptr %262, i64 %31
   store float 0.000000e+00, ptr %263, align 4, !tbaa !130
   %264 = getelementptr inbounds nuw i8, ptr %17, i64 400
   %265 = load ptr, ptr %264, align 8, !tbaa !184
-  %266 = getelementptr inbounds float, ptr %265, i64 %31
+  %266 = getelementptr inbounds [4 x i8], ptr %265, i64 %31
   store float 0.000000e+00, ptr %266, align 4, !tbaa !130
   %267 = getelementptr inbounds nuw i8, ptr %17, i64 408
   %268 = load ptr, ptr %267, align 8, !tbaa !185
-  %269 = getelementptr inbounds float, ptr %268, i64 %31
+  %269 = getelementptr inbounds [4 x i8], ptr %268, i64 %31
   store float 0.000000e+00, ptr %269, align 4, !tbaa !130
   %270 = getelementptr inbounds nuw i8, ptr %17, i64 416
   %271 = load ptr, ptr %270, align 8, !tbaa !186
-  %272 = getelementptr inbounds float, ptr %271, i64 %31
+  %272 = getelementptr inbounds [4 x i8], ptr %271, i64 %31
   store float 0.000000e+00, ptr %272, align 4, !tbaa !130
   %273 = getelementptr inbounds nuw i8, ptr %17, i64 432
   %274 = load ptr, ptr %273, align 8, !tbaa !184
-  %275 = getelementptr inbounds float, ptr %274, i64 %31
+  %275 = getelementptr inbounds [4 x i8], ptr %274, i64 %31
   store float 0.000000e+00, ptr %275, align 4, !tbaa !130
   %276 = getelementptr inbounds nuw i8, ptr %17, i64 440
   %277 = load ptr, ptr %276, align 8, !tbaa !185
-  %278 = getelementptr inbounds float, ptr %277, i64 %31
+  %278 = getelementptr inbounds [4 x i8], ptr %277, i64 %31
   store float 0.000000e+00, ptr %278, align 4, !tbaa !130
   %279 = getelementptr inbounds nuw i8, ptr %17, i64 448
   %280 = load ptr, ptr %279, align 8, !tbaa !186
-  %281 = getelementptr inbounds float, ptr %280, i64 %31
+  %281 = getelementptr inbounds [4 x i8], ptr %280, i64 %31
   store float 0.000000e+00, ptr %281, align 4, !tbaa !130
   %282 = getelementptr inbounds nuw i8, ptr %17, i64 464
   %283 = load ptr, ptr %282, align 8, !tbaa !168
-  %284 = getelementptr inbounds %"struct.pbrt::Float4", ptr %283, i64 %31
+  %284 = getelementptr inbounds [16 x i8], ptr %283, i64 %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %284, i8 0, i64 16, i1 false)
   br label %285
 
@@ -1189,61 +1182,61 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %294 = getelementptr inbounds nuw i8, ptr %290, i64 24
   %295 = load ptr, ptr %294, align 8, !tbaa !175
   %296 = sext i32 %292 to i64
-  %297 = getelementptr inbounds float, ptr %295, i64 %296
+  %297 = getelementptr inbounds [4 x i8], ptr %295, i64 %296
   store float %293, ptr %297, align 4, !tbaa !130
   %298 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %299 = load float, ptr %298, align 4, !tbaa !189
   %300 = getelementptr inbounds nuw i8, ptr %290, i64 32
   %301 = load ptr, ptr %300, align 8, !tbaa !176
-  %302 = getelementptr inbounds float, ptr %301, i64 %296
+  %302 = getelementptr inbounds [4 x i8], ptr %301, i64 %296
   store float %299, ptr %302, align 4, !tbaa !130
   %303 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %304 = load float, ptr %303, align 8, !tbaa !190
   %305 = getelementptr inbounds nuw i8, ptr %290, i64 40
   %306 = load ptr, ptr %305, align 8, !tbaa !177
-  %307 = getelementptr inbounds float, ptr %306, i64 %296
+  %307 = getelementptr inbounds [4 x i8], ptr %306, i64 %296
   store float %304, ptr %307, align 4, !tbaa !130
   %308 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %309 = load float, ptr %308, align 4, !tbaa !191
   %310 = getelementptr inbounds nuw i8, ptr %290, i64 56
   %311 = load ptr, ptr %310, align 8, !tbaa !184
-  %312 = getelementptr inbounds float, ptr %311, i64 %296
+  %312 = getelementptr inbounds [4 x i8], ptr %311, i64 %296
   store float %309, ptr %312, align 4, !tbaa !130
   %313 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %314 = load float, ptr %313, align 16, !tbaa !193
   %315 = getelementptr inbounds nuw i8, ptr %290, i64 64
   %316 = load ptr, ptr %315, align 8, !tbaa !185
-  %317 = getelementptr inbounds float, ptr %316, i64 %296
+  %317 = getelementptr inbounds [4 x i8], ptr %316, i64 %296
   store float %314, ptr %317, align 4, !tbaa !130
   %318 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %319 = load float, ptr %318, align 4, !tbaa !194
   %320 = getelementptr inbounds nuw i8, ptr %290, i64 72
   %321 = load ptr, ptr %320, align 8, !tbaa !186
-  %322 = getelementptr inbounds float, ptr %321, i64 %296
+  %322 = getelementptr inbounds [4 x i8], ptr %321, i64 %296
   store float %319, ptr %322, align 4, !tbaa !130
   %323 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %324 = load float, ptr %323, align 8, !tbaa !195
   %325 = getelementptr inbounds nuw i8, ptr %290, i64 80
   %326 = load ptr, ptr %325, align 8, !tbaa !201
-  %327 = getelementptr inbounds float, ptr %326, i64 %296
+  %327 = getelementptr inbounds [4 x i8], ptr %326, i64 %296
   store float %324, ptr %327, align 4, !tbaa !130
   %328 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %329 = getelementptr inbounds nuw i8, ptr %290, i64 88
   %330 = load ptr, ptr %329, align 8, !tbaa !204
-  %331 = getelementptr inbounds %"class.pbrt::Medium", ptr %330, i64 %296
+  %331 = getelementptr inbounds [8 x i8], ptr %330, i64 %296
   %332 = load i64, ptr %328, align 16, !tbaa !205
   store i64 %332, ptr %331, align 8, !tbaa !205
   %333 = getelementptr inbounds nuw i8, ptr %290, i64 96
   %334 = load ptr, ptr %333, align 8, !tbaa !206
-  %335 = getelementptr inbounds i32, ptr %334, i64 %296
+  %335 = getelementptr inbounds [4 x i8], ptr %334, i64 %296
   store i32 0, ptr %335, align 4, !tbaa !103
   %336 = getelementptr inbounds nuw i8, ptr %290, i64 104
   %337 = load ptr, ptr %336, align 8, !tbaa !211
-  %338 = getelementptr inbounds i32, ptr %337, i64 %296
+  %338 = getelementptr inbounds [4 x i8], ptr %337, i64 %296
   store i32 %1, ptr %338, align 4, !tbaa !103
   %339 = getelementptr inbounds nuw i8, ptr %290, i64 120
   %340 = load ptr, ptr %339, align 8, !tbaa !169
-  %341 = getelementptr inbounds %"struct.pbrt::Float4", ptr %340, i64 %296
+  %341 = getelementptr inbounds [16 x i8], ptr %340, i64 %296
   %342 = load <4 x float>, ptr %15, align 16
   %.sroa.03.4.vec.insert.i.i = shufflevector <4 x float> %342, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %343 = load <4 x float>, ptr %208, align 8
@@ -1253,7 +1246,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.35.12.vec.insert.i.i, ptr %.sroa.2.0..0..sroa_idx.i.i.i47, align 8, !tbaa !104
   %344 = getelementptr inbounds nuw i8, ptr %290, i64 128
   %345 = load ptr, ptr %344, align 8, !tbaa !170
-  %346 = getelementptr inbounds %"struct.pbrt::Float4", ptr %345, i64 %296
+  %346 = getelementptr inbounds [16 x i8], ptr %345, i64 %296
   %347 = load <4 x float>, ptr %209, align 16
   %.sroa.0.4.vec.insert.i.i48 = shufflevector <4 x float> %347, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i.i49 = shufflevector <4 x float> %347, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -1266,7 +1259,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 
 348:                                              ; preds = %348, %288
   %indvars.iv.i.i.i = phi i64 [ 0, %288 ], [ %indvars.iv.next.i.i.i, %348 ]
-  %349 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i.i
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.i.i
   store float 1.000000e+00, ptr %349, align 4, !tbaa !130
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -1275,7 +1268,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %348
   %350 = getelementptr inbounds nuw i8, ptr %290, i64 160
   %351 = load ptr, ptr %350, align 8, !tbaa !168
-  %352 = getelementptr inbounds %"struct.pbrt::Float4", ptr %351, i64 %296
+  %352 = getelementptr inbounds [16 x i8], ptr %351, i64 %296
   %353 = load <4 x float>, ptr %3, align 16
   %.sroa.0.4.vec.insert.i18.i = shufflevector <4 x float> %353, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i19.i = shufflevector <4 x float> %353, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -1285,11 +1278,11 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %348
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %354 = getelementptr inbounds nuw i8, ptr %290, i64 376
   %355 = load ptr, ptr %354, align 8, !tbaa !213
-  %356 = getelementptr inbounds float, ptr %355, i64 %296
+  %356 = getelementptr inbounds [4 x i8], ptr %355, i64 %296
   store float 1.000000e+00, ptr %356, align 4, !tbaa !130
   %357 = getelementptr inbounds nuw i8, ptr %290, i64 392
   %358 = load ptr, ptr %357, align 8, !tbaa !214
-  %359 = getelementptr inbounds i32, ptr %358, i64 %296
+  %359 = getelementptr inbounds [4 x i8], ptr %358, i64 %296
   store i32 0, ptr %359, align 4, !tbaa !103
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !tbaa !130
@@ -1297,7 +1290,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %348
 
 360:                                              ; preds = %360, %_ZN4pbrt15SampledSpectrumC2Ef.exit.i
   %indvars.iv.i.i21.i = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit.i ], [ %indvars.iv.next.i.i22.i, %360 ]
-  %361 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i21.i
+  %361 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.i21.i
   store float 1.000000e+00, ptr %361, align 4, !tbaa !130
   %indvars.iv.next.i.i22.i = add nuw nsw i64 %indvars.iv.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i64 %indvars.iv.next.i.i22.i, 4
@@ -1306,7 +1299,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %348
 _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %360
   %362 = getelementptr inbounds nuw i8, ptr %290, i64 184
   %363 = load ptr, ptr %362, align 8, !tbaa !168
-  %364 = getelementptr inbounds %"struct.pbrt::Float4", ptr %363, i64 %296
+  %364 = getelementptr inbounds [16 x i8], ptr %363, i64 %296
   %365 = load <4 x float>, ptr %4, align 16
   %.sroa.0.4.vec.insert.i27.i = shufflevector <4 x float> %365, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i28.i = shufflevector <4 x float> %365, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -1320,7 +1313,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %360
 
 366:                                              ; preds = %366, %_ZN4pbrt15SampledSpectrumC2Ef.exit24.i
   %indvars.iv.i.i30.i = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit24.i ], [ %indvars.iv.next.i.i31.i, %366 ]
-  %367 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i30.i
+  %367 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i30.i
   store float 1.000000e+00, ptr %367, align 4, !tbaa !130
   %indvars.iv.next.i.i31.i = add nuw nsw i64 %indvars.iv.i.i30.i, 1
   %exitcond.not.i.i32.i = icmp eq i64 %indvars.iv.next.i.i31.i, 4
@@ -1329,7 +1322,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %360
 368:                                              ; preds = %366
   %369 = getelementptr inbounds nuw i8, ptr %290, i64 208
   %370 = load ptr, ptr %369, align 8, !tbaa !168
-  %371 = getelementptr inbounds %"struct.pbrt::Float4", ptr %370, i64 %296
+  %371 = getelementptr inbounds [16 x i8], ptr %370, i64 %296
   %372 = load <4 x float>, ptr %5, align 16
   %.sroa.0.4.vec.insert.i36.i = shufflevector <4 x float> %372, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i37.i = shufflevector <4 x float> %372, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -1339,7 +1332,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %360
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %373 = getelementptr inbounds nuw i8, ptr %290, i64 384
   %374 = load ptr, ptr %373, align 8, !tbaa !215
-  %375 = getelementptr inbounds i32, ptr %374, i64 %296
+  %375 = getelementptr inbounds [4 x i8], ptr %374, i64 %296
   store i32 0, ptr %375, align 4, !tbaa !103
   %376 = load i8, ptr %113, align 8, !tbaa !160, !range !99, !noundef !100
   %377 = trunc nuw i8 %376 to i1
@@ -1353,7 +1346,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %360
   %379 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %380 = getelementptr inbounds nuw i8, ptr %17, i64 232
   %381 = load ptr, ptr %380, align 8, !tbaa !168
-  %382 = getelementptr inbounds %"struct.pbrt::Float4", ptr %381, i64 %31
+  %382 = getelementptr inbounds [16 x i8], ptr %381, i64 %31
   %383 = load <4 x float>, ptr %379, align 8
   %.sroa.0.4.vec.insert.i54 = shufflevector <4 x float> %383, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i55 = shufflevector <4 x float> %383, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -1365,7 +1358,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %360
 384:                                              ; preds = %285
   %385 = getelementptr inbounds nuw i8, ptr %17, i64 232
   %386 = load ptr, ptr %385, align 8, !tbaa !168
-  %387 = getelementptr inbounds %"struct.pbrt::Float4", ptr %386, i64 %31
+  %387 = getelementptr inbounds [16 x i8], ptr %386, i64 %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %387, i8 0, i64 16, i1 false)
   br label %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit
 
@@ -1493,9 +1486,9 @@ _ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit:          ; preds = %_ZN4pbrt18Permutati
   %78 = and i64 %.sroa.01.0.copyload, 127
   %79 = and i64 %.sroa.3.0.extract.shift.i, 127
   %80 = zext nneg i32 %77 to i64
-  %81 = getelementptr inbounds nuw [128 x [128 x i16]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 %80
-  %82 = getelementptr inbounds nuw [128 x i16], ptr %81, i64 %78
-  %83 = getelementptr inbounds nuw i16, ptr %82, i64 %79
+  %81 = getelementptr inbounds nuw [32768 x i8], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 %80
+  %82 = getelementptr inbounds nuw [256 x i8], ptr %81, i64 %78
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %82, i64 %79
   %84 = load i16, ptr %83, align 2, !tbaa !219
   %85 = uitofp i16 %84 to float
   %86 = fdiv float %85, 6.553500e+04
@@ -2046,7 +2039,7 @@ define linkonce_odr dso_local void @_ZN4pbrt6detail8DispatchIRZNKS_4Film17Sample
   %18 = tail call noundef float @atanhf(float noundef %17) #28, !tbaa !103, !noalias !264
   %19 = fmul float %18, 0x40615C71C0000000
   %20 = fsub float 5.380000e+02, %19
-  %21 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i.i.i
   store float %20, ptr %21, align 4, !tbaa !130, !alias.scope !264
   %22 = fcmp olt float %20, 3.600000e+02
   %23 = fcmp ogt float %20, 8.300000e+02
@@ -2063,7 +2056,7 @@ define linkonce_odr dso_local void @_ZN4pbrt6detail8DispatchIRZNKS_4Film17Sample
 
 _ZN4pbrt21VisibleWavelengthsPDFEf.exit.i.i.i:     ; preds = %24, %9
   %.0.i.i.i.i = phi float [ %29, %24 ], [ 0.000000e+00, %9 ]
-  %30 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i.i.i
   store float %.0.i.i.i.i, ptr %30, align 4, !tbaa !130, !alias.scope !264
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -2093,7 +2086,7 @@ _ZN4pbrt21VisibleWavelengthsPDFEf.exit.i.i.i:     ; preds = %24, %9
   %44 = tail call noundef float @atanhf(float noundef %43) #28, !tbaa !103, !noalias !275
   %45 = fmul float %44, 0x40615C71C0000000
   %46 = fsub float 5.380000e+02, %45
-  %47 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i.i.i6
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i.i.i6
   store float %46, ptr %47, align 4, !tbaa !130, !alias.scope !275
   %48 = fcmp olt float %46, 3.600000e+02
   %49 = fcmp ogt float %46, 8.300000e+02
@@ -2110,7 +2103,7 @@ _ZN4pbrt21VisibleWavelengthsPDFEf.exit.i.i.i:     ; preds = %24, %9
 
 _ZN4pbrt21VisibleWavelengthsPDFEf.exit.i.i.i9:    ; preds = %50, %35
   %.0.i.i.i.i10 = phi float [ %55, %50 ], [ 0.000000e+00, %35 ]
-  %56 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i.i.i6
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i.i.i6
   store float %.0.i.i.i.i10, ptr %56, align 4, !tbaa !130, !alias.scope !275
   %indvars.iv.next.i.i.i11 = add nuw nsw i64 %indvars.iv.i.i.i6, 1
   %exitcond.not.i.i.i12 = icmp eq i64 %indvars.iv.next.i.i.i11, 4
@@ -2144,7 +2137,7 @@ _ZN4pbrt21VisibleWavelengthsPDFEf.exit.i.i.i9:    ; preds = %50, %35
 73:                                               ; preds = %73, %57
   %store_forwarded = phi float [ %68, %57 ], [ %storemerge.i.i.i, %73 ]
   %indvars.iv.i.i.i13 = phi i64 [ 1, %57 ], [ %indvars.iv.next.i.i.i14, %73 ]
-  %74 = getelementptr float, ptr %0, i64 %indvars.iv.i.i.i13
+  %74 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv.i.i.i13
   %75 = fadd float %70, %store_forwarded
   %76 = fcmp ogt float %75, %63
   %77 = fsub float %75, %63
@@ -2157,7 +2150,7 @@ _ZN4pbrt21VisibleWavelengthsPDFEf.exit.i.i.i9:    ; preds = %50, %35
 
 79:                                               ; preds = %79, %.preheader.i.i.i
   %indvars.iv25.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next26.i.i.i, %79 ]
-  %80 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv25.i.i.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv25.i.i.i
   store float %71, ptr %80, align 4, !tbaa !130, !alias.scope !294
   %indvars.iv.next26.i.i.i = add nuw nsw i64 %indvars.iv25.i.i.i, 1
   %exitcond28.not.i.i.i = icmp eq i64 %indvars.iv.next26.i.i.i, 4
@@ -2293,10 +2286,10 @@ _ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit10:        ; preds = %._crit_edge
   %79 = lshr i32 %6, 1
   %80 = urem i32 %79, 5
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw [65536 x [2 x i32]], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 %81
+  %82 = getelementptr inbounds nuw [524288 x i8], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 %81
   %83 = srem i32 %.0, 65536
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds [2 x i32], ptr %82, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %82, i64 %84
   %86 = load i32, ptr %85, align 8, !tbaa !103
   %87 = uitofp i32 %86 to double
   %88 = fmul nnan double %87, 0x3DF0000000000000
@@ -2311,18 +2304,18 @@ _ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit10:        ; preds = %._crit_edge
   %96 = and i64 %.sroa.02.0.copyload, 127
   %97 = and i64 %.sroa.3.0.extract.shift.i, 127
   %98 = zext nneg i32 %95 to i64
-  %99 = getelementptr inbounds nuw [128 x [128 x i16]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 %98
-  %100 = getelementptr inbounds nuw [128 x i16], ptr %99, i64 %96
-  %101 = getelementptr inbounds nuw i16, ptr %100, i64 %97
+  %99 = getelementptr inbounds nuw [32768 x i8], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 %98
+  %100 = getelementptr inbounds nuw [256 x i8], ptr %99, i64 %96
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %100, i64 %97
   %102 = load i16, ptr %101, align 2, !tbaa !219
   %103 = uitofp i16 %102 to float
   %104 = fdiv float %103, 6.553500e+04
   %105 = add nuw nsw i32 %6, 1
   %106 = urem i32 %105, 48
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw [128 x [128 x i16]], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 %107
-  %109 = getelementptr inbounds nuw [128 x i16], ptr %108, i64 %96
-  %110 = getelementptr inbounds nuw i16, ptr %109, i64 %97
+  %108 = getelementptr inbounds nuw [32768 x i8], ptr @_ZN4pbrt17BlueNoiseTexturesE, i64 %107
+  %109 = getelementptr inbounds nuw [256 x i8], ptr %108, i64 %96
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %97
   %111 = load i16, ptr %110, align 2, !tbaa !219
   %112 = uitofp i16 %111 to float
   %113 = fdiv float %112, 6.553500e+04
@@ -2412,7 +2405,7 @@ define linkonce_odr dso_local { <2 x float>, float } @_ZN4pbrt6detail8DispatchIR
   %37 = mul nsw i32 %36, %31
   %38 = add nsw i32 %28, %37
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds float, ptr %33, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %33, i64 %39
   %41 = load float, ptr %40, align 4, !tbaa !130
   %42 = load float, ptr %8, align 4, !tbaa !130
   %43 = fdiv float %41, %42
@@ -2446,7 +2439,7 @@ define linkonce_odr dso_local { <2 x float>, float } @_ZN4pbrt6detail8DispatchIR
   %58 = mul nsw i32 %57, %52
   %59 = add nsw i32 %49, %58
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds float, ptr %54, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %54, i64 %60
   %62 = load float, ptr %61, align 4, !tbaa !130
   %63 = load float, ptr %6, align 4, !tbaa !130
   %64 = fdiv float %62, %63
@@ -2480,7 +2473,7 @@ define linkonce_odr dso_local { <2 x float>, float } @_ZN4pbrt6detail8DispatchIR
   %79 = mul nsw i32 %78, %73
   %80 = add nsw i32 %70, %79
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds float, ptr %75, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %75, i64 %81
   %83 = load float, ptr %82, align 4, !tbaa !130
   %84 = load float, ptr %4, align 4, !tbaa !130
   %85 = fdiv float %83, %84
@@ -2540,7 +2533,7 @@ define linkonce_odr dso_local <2 x float> @_ZNK4pbrt19PiecewiseConstant2D6Sample
 
 _ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i: ; preds = %4, %._crit_edge.i.i
   %24 = phi i64 [ %spec.select.i.i, %._crit_edge.i.i ], [ 0, %4 ]
-  %25 = getelementptr inbounds nuw float, ptr %11, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %24
   %26 = load float, ptr %25, align 4, !tbaa !130
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %28 = load float, ptr %27, align 4, !tbaa !130
@@ -2552,7 +2545,7 @@ _ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exi
 32:                                               ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8, !tbaa !309
-  %35 = getelementptr inbounds nuw float, ptr %34, i64 %24
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %24
   %36 = load float, ptr %35, align 4, !tbaa !130
   %37 = fdiv float %36, %30
   br label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit
@@ -2567,7 +2560,7 @@ _ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit: ; preds = %_ZN4pbrt12FindInter
   %44 = load float, ptr %43, align 4, !tbaa !314
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = load ptr, ptr %45, align 8, !tbaa !315
-  %47 = getelementptr inbounds nuw %"class.pbrt::PiecewiseConstant1D", ptr %46, i64 %24
+  %47 = getelementptr inbounds nuw [80 x i8], ptr %46, i64 %24
   %.sroa.024.0.vec.extract = extractelement <2 x float> %1, i64 0
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %49 = load i64, ptr %48, align 8, !tbaa !306
@@ -2607,7 +2600,7 @@ _ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit: ; preds = %_ZN4pbrt12FindInter
 
 _ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10: ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit, %._crit_edge.i.i18
   %67 = phi i64 [ %spec.select.i.i21, %._crit_edge.i.i18 ], [ 0, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
-  %68 = getelementptr inbounds nuw float, ptr %54, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %67
   %69 = load float, ptr %68, align 4, !tbaa !130
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load float, ptr %70, align 4, !tbaa !130
@@ -2619,7 +2612,7 @@ _ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exi
 75:                                               ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10
   %76 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !309
-  %78 = getelementptr inbounds nuw float, ptr %77, i64 %67
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %67
   %79 = load float, ptr %78, align 4, !tbaa !130
   %80 = fdiv float %79, %73
   br label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit22
@@ -2732,7 +2725,7 @@ _ZN4pbrt13NextFloatDownEf.exit.i.i:               ; preds = %12, %11, %._crit_ed
 17:                                               ; preds = %17, %_ZN4pbrt13NextFloatDownEf.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %17 ], [ 0, %_ZN4pbrt13NextFloatDownEf.exit.i.i ]
   %.0.i.i = phi float [ %20, %17 ], [ 0.000000e+00, %_ZN4pbrt13NextFloatDownEf.exit.i.i ]
-  %18 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.i
   %19 = load float, ptr %18, align 4, !tbaa !130
   %20 = fadd float %.0.i.i, %19
   %21 = fcmp ugt float %20, %.031.i.i
@@ -2828,7 +2821,7 @@ _ZN4pbrt13NextFloatDownEf.exit.i.i8:              ; preds = %55, %54, %._crit_ed
 60:                                               ; preds = %60, %_ZN4pbrt13NextFloatDownEf.exit.i.i8
   %indvars.iv.i.i10 = phi i64 [ %indvars.iv.next.i.i12, %60 ], [ 0, %_ZN4pbrt13NextFloatDownEf.exit.i.i8 ]
   %.0.i.i11 = phi float [ %63, %60 ], [ 0.000000e+00, %_ZN4pbrt13NextFloatDownEf.exit.i.i8 ]
-  %61 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i10
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.i10
   %62 = load float, ptr %61, align 4, !tbaa !130
   %63 = fadd float %.0.i.i11, %62
   %64 = fcmp ugt float %63, %.031.i.i9
@@ -4460,11 +4453,11 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %28 = load ptr, ptr %27, align 8, !tbaa !121
   %29 = sext i32 %1 to i64
-  %30 = getelementptr inbounds i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %28, i64 %29
   store i32 %22, ptr %30, align 4, !tbaa !103
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %32 = load ptr, ptr %31, align 8, !tbaa !122
-  %33 = getelementptr inbounds i32, ptr %32, i64 %29
+  %33 = getelementptr inbounds [4 x i8], ptr %32, i64 %29
   store i32 %26, ptr %33, align 4, !tbaa !103
   %.sroa.8110.0.insert.ext115 = zext i32 %26 to i64
   %.sroa.8110.0.insert.shift116 = shl nuw i64 %.sroa.8110.0.insert.ext115, 32
@@ -4779,13 +4772,13 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 206:                                              ; preds = %199, %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
   %207 = getelementptr inbounds nuw i8, ptr %15, i64 208
   %208 = load ptr, ptr %207, align 8, !tbaa !168
-  %209 = getelementptr inbounds %"struct.pbrt::Float4", ptr %208, i64 %29
+  %209 = getelementptr inbounds [16 x i8], ptr %208, i64 %29
   %210 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %211 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %212 = getelementptr inbounds nuw i8, ptr %15, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %209, i8 0, i64 16, i1 false)
   %213 = load ptr, ptr %212, align 8, !tbaa !169
-  %214 = getelementptr inbounds %"struct.pbrt::Float4", ptr %213, i64 %29
+  %214 = getelementptr inbounds [16 x i8], ptr %213, i64 %29
   %215 = load <4 x float>, ptr %10, align 16
   %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %215, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %216 = load <4 x float>, ptr %210, align 8
@@ -4795,7 +4788,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.35.12.vec.insert.i, ptr %.sroa.2.0..0..sroa_idx.i.i37, align 8, !tbaa !104
   %217 = getelementptr inbounds nuw i8, ptr %15, i64 176
   %218 = load ptr, ptr %217, align 8, !tbaa !170
-  %219 = getelementptr inbounds %"struct.pbrt::Float4", ptr %218, i64 %29
+  %219 = getelementptr inbounds [16 x i8], ptr %218, i64 %29
   %220 = load <4 x float>, ptr %211, align 16
   %.sroa.0.4.vec.insert.i38 = shufflevector <4 x float> %220, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i39 = shufflevector <4 x float> %220, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -4806,7 +4799,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %222 = load float, ptr %221, align 4, !tbaa !348
   %223 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %224 = load ptr, ptr %223, align 8, !tbaa !171
-  %225 = getelementptr inbounds float, ptr %224, i64 %29
+  %225 = getelementptr inbounds [4 x i8], ptr %224, i64 %29
   store float %222, ptr %225, align 4, !tbaa !130
   %226 = load i8, ptr %15, align 8, !tbaa !172, !range !99, !noundef !100
   %227 = trunc nuw i8 %226 to i1
@@ -4819,79 +4812,79 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store i8 0, ptr %231, align 1, !tbaa !174
   %232 = getelementptr inbounds nuw i8, ptr %15, i64 272
   %233 = load ptr, ptr %232, align 8, !tbaa !175
-  %234 = getelementptr inbounds float, ptr %233, i64 %29
+  %234 = getelementptr inbounds [4 x i8], ptr %233, i64 %29
   store float 0.000000e+00, ptr %234, align 4, !tbaa !130
   %235 = getelementptr inbounds nuw i8, ptr %15, i64 280
   %236 = load ptr, ptr %235, align 8, !tbaa !176
-  %237 = getelementptr inbounds float, ptr %236, i64 %29
+  %237 = getelementptr inbounds [4 x i8], ptr %236, i64 %29
   store float 0.000000e+00, ptr %237, align 4, !tbaa !130
   %238 = getelementptr inbounds nuw i8, ptr %15, i64 288
   %239 = load ptr, ptr %238, align 8, !tbaa !177
-  %240 = getelementptr inbounds float, ptr %239, i64 %29
+  %240 = getelementptr inbounds [4 x i8], ptr %239, i64 %29
   store float 0.000000e+00, ptr %240, align 4, !tbaa !130
   %241 = getelementptr inbounds nuw i8, ptr %15, i64 304
   %242 = load ptr, ptr %241, align 8, !tbaa !178
-  %243 = getelementptr inbounds float, ptr %242, i64 %29
+  %243 = getelementptr inbounds [4 x i8], ptr %242, i64 %29
   store float 0.000000e+00, ptr %243, align 4, !tbaa !130
   %244 = getelementptr inbounds nuw i8, ptr %15, i64 312
   %245 = load ptr, ptr %244, align 8, !tbaa !179
-  %246 = getelementptr inbounds float, ptr %245, i64 %29
+  %246 = getelementptr inbounds [4 x i8], ptr %245, i64 %29
   store float 0.000000e+00, ptr %246, align 4, !tbaa !130
   %247 = getelementptr inbounds nuw i8, ptr %15, i64 320
   %248 = load ptr, ptr %247, align 8, !tbaa !180
-  %249 = getelementptr inbounds float, ptr %248, i64 %29
+  %249 = getelementptr inbounds [4 x i8], ptr %248, i64 %29
   store float 0.000000e+00, ptr %249, align 4, !tbaa !130
   %250 = getelementptr inbounds nuw i8, ptr %15, i64 336
   %251 = load ptr, ptr %250, align 8, !tbaa !178
-  %252 = getelementptr inbounds float, ptr %251, i64 %29
+  %252 = getelementptr inbounds [4 x i8], ptr %251, i64 %29
   store float 0.000000e+00, ptr %252, align 4, !tbaa !130
   %253 = getelementptr inbounds nuw i8, ptr %15, i64 344
   %254 = load ptr, ptr %253, align 8, !tbaa !179
-  %255 = getelementptr inbounds float, ptr %254, i64 %29
+  %255 = getelementptr inbounds [4 x i8], ptr %254, i64 %29
   store float 0.000000e+00, ptr %255, align 4, !tbaa !130
   %256 = getelementptr inbounds nuw i8, ptr %15, i64 352
   %257 = load ptr, ptr %256, align 8, !tbaa !180
-  %258 = getelementptr inbounds float, ptr %257, i64 %29
+  %258 = getelementptr inbounds [4 x i8], ptr %257, i64 %29
   store float 0.000000e+00, ptr %258, align 4, !tbaa !130
   %259 = getelementptr inbounds nuw i8, ptr %15, i64 368
   %260 = load ptr, ptr %259, align 8, !tbaa !181
-  %261 = getelementptr inbounds float, ptr %260, i64 %29
+  %261 = getelementptr inbounds [4 x i8], ptr %260, i64 %29
   store float 0.000000e+00, ptr %261, align 4, !tbaa !130
   %262 = getelementptr inbounds nuw i8, ptr %15, i64 376
   %263 = load ptr, ptr %262, align 8, !tbaa !182
-  %264 = getelementptr inbounds float, ptr %263, i64 %29
+  %264 = getelementptr inbounds [4 x i8], ptr %263, i64 %29
   store float 0.000000e+00, ptr %264, align 4, !tbaa !130
   %265 = getelementptr inbounds nuw i8, ptr %15, i64 384
   %266 = load ptr, ptr %265, align 8, !tbaa !183
-  %267 = getelementptr inbounds float, ptr %266, i64 %29
+  %267 = getelementptr inbounds [4 x i8], ptr %266, i64 %29
   store float 0.000000e+00, ptr %267, align 4, !tbaa !130
   %268 = getelementptr inbounds nuw i8, ptr %15, i64 400
   %269 = load ptr, ptr %268, align 8, !tbaa !184
-  %270 = getelementptr inbounds float, ptr %269, i64 %29
+  %270 = getelementptr inbounds [4 x i8], ptr %269, i64 %29
   store float 0.000000e+00, ptr %270, align 4, !tbaa !130
   %271 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %272 = load ptr, ptr %271, align 8, !tbaa !185
-  %273 = getelementptr inbounds float, ptr %272, i64 %29
+  %273 = getelementptr inbounds [4 x i8], ptr %272, i64 %29
   store float 0.000000e+00, ptr %273, align 4, !tbaa !130
   %274 = getelementptr inbounds nuw i8, ptr %15, i64 416
   %275 = load ptr, ptr %274, align 8, !tbaa !186
-  %276 = getelementptr inbounds float, ptr %275, i64 %29
+  %276 = getelementptr inbounds [4 x i8], ptr %275, i64 %29
   store float 0.000000e+00, ptr %276, align 4, !tbaa !130
   %277 = getelementptr inbounds nuw i8, ptr %15, i64 432
   %278 = load ptr, ptr %277, align 8, !tbaa !184
-  %279 = getelementptr inbounds float, ptr %278, i64 %29
+  %279 = getelementptr inbounds [4 x i8], ptr %278, i64 %29
   store float 0.000000e+00, ptr %279, align 4, !tbaa !130
   %280 = getelementptr inbounds nuw i8, ptr %15, i64 440
   %281 = load ptr, ptr %280, align 8, !tbaa !185
-  %282 = getelementptr inbounds float, ptr %281, i64 %29
+  %282 = getelementptr inbounds [4 x i8], ptr %281, i64 %29
   store float 0.000000e+00, ptr %282, align 4, !tbaa !130
   %283 = getelementptr inbounds nuw i8, ptr %15, i64 448
   %284 = load ptr, ptr %283, align 8, !tbaa !186
-  %285 = getelementptr inbounds float, ptr %284, i64 %29
+  %285 = getelementptr inbounds [4 x i8], ptr %284, i64 %29
   store float 0.000000e+00, ptr %285, align 4, !tbaa !130
   %286 = getelementptr inbounds nuw i8, ptr %15, i64 464
   %287 = load ptr, ptr %286, align 8, !tbaa !168
-  %288 = getelementptr inbounds %"struct.pbrt::Float4", ptr %287, i64 %29
+  %288 = getelementptr inbounds [16 x i8], ptr %287, i64 %29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %288, i8 0, i64 16, i1 false)
   br label %289
 
@@ -4909,61 +4902,61 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %298 = getelementptr inbounds nuw i8, ptr %294, i64 24
   %299 = load ptr, ptr %298, align 8, !tbaa !175
   %300 = sext i32 %296 to i64
-  %301 = getelementptr inbounds float, ptr %299, i64 %300
+  %301 = getelementptr inbounds [4 x i8], ptr %299, i64 %300
   store float %297, ptr %301, align 4, !tbaa !130
   %302 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %303 = load float, ptr %302, align 4, !tbaa !189
   %304 = getelementptr inbounds nuw i8, ptr %294, i64 32
   %305 = load ptr, ptr %304, align 8, !tbaa !176
-  %306 = getelementptr inbounds float, ptr %305, i64 %300
+  %306 = getelementptr inbounds [4 x i8], ptr %305, i64 %300
   store float %303, ptr %306, align 4, !tbaa !130
   %307 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %308 = load float, ptr %307, align 8, !tbaa !190
   %309 = getelementptr inbounds nuw i8, ptr %294, i64 40
   %310 = load ptr, ptr %309, align 8, !tbaa !177
-  %311 = getelementptr inbounds float, ptr %310, i64 %300
+  %311 = getelementptr inbounds [4 x i8], ptr %310, i64 %300
   store float %308, ptr %311, align 4, !tbaa !130
   %312 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %313 = load float, ptr %312, align 4, !tbaa !191
   %314 = getelementptr inbounds nuw i8, ptr %294, i64 56
   %315 = load ptr, ptr %314, align 8, !tbaa !184
-  %316 = getelementptr inbounds float, ptr %315, i64 %300
+  %316 = getelementptr inbounds [4 x i8], ptr %315, i64 %300
   store float %313, ptr %316, align 4, !tbaa !130
   %317 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %318 = load float, ptr %317, align 16, !tbaa !193
   %319 = getelementptr inbounds nuw i8, ptr %294, i64 64
   %320 = load ptr, ptr %319, align 8, !tbaa !185
-  %321 = getelementptr inbounds float, ptr %320, i64 %300
+  %321 = getelementptr inbounds [4 x i8], ptr %320, i64 %300
   store float %318, ptr %321, align 4, !tbaa !130
   %322 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %323 = load float, ptr %322, align 4, !tbaa !194
   %324 = getelementptr inbounds nuw i8, ptr %294, i64 72
   %325 = load ptr, ptr %324, align 8, !tbaa !186
-  %326 = getelementptr inbounds float, ptr %325, i64 %300
+  %326 = getelementptr inbounds [4 x i8], ptr %325, i64 %300
   store float %323, ptr %326, align 4, !tbaa !130
   %327 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %328 = load float, ptr %327, align 8, !tbaa !195
   %329 = getelementptr inbounds nuw i8, ptr %294, i64 80
   %330 = load ptr, ptr %329, align 8, !tbaa !201
-  %331 = getelementptr inbounds float, ptr %330, i64 %300
+  %331 = getelementptr inbounds [4 x i8], ptr %330, i64 %300
   store float %328, ptr %331, align 4, !tbaa !130
   %332 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %333 = getelementptr inbounds nuw i8, ptr %294, i64 88
   %334 = load ptr, ptr %333, align 8, !tbaa !204
-  %335 = getelementptr inbounds %"class.pbrt::Medium", ptr %334, i64 %300
+  %335 = getelementptr inbounds [8 x i8], ptr %334, i64 %300
   %336 = load i64, ptr %332, align 16, !tbaa !205
   store i64 %336, ptr %335, align 8, !tbaa !205
   %337 = getelementptr inbounds nuw i8, ptr %294, i64 96
   %338 = load ptr, ptr %337, align 8, !tbaa !206
-  %339 = getelementptr inbounds i32, ptr %338, i64 %300
+  %339 = getelementptr inbounds [4 x i8], ptr %338, i64 %300
   store i32 0, ptr %339, align 4, !tbaa !103
   %340 = getelementptr inbounds nuw i8, ptr %294, i64 104
   %341 = load ptr, ptr %340, align 8, !tbaa !211
-  %342 = getelementptr inbounds i32, ptr %341, i64 %300
+  %342 = getelementptr inbounds [4 x i8], ptr %341, i64 %300
   store i32 %1, ptr %342, align 4, !tbaa !103
   %343 = getelementptr inbounds nuw i8, ptr %294, i64 120
   %344 = load ptr, ptr %343, align 8, !tbaa !169
-  %345 = getelementptr inbounds %"struct.pbrt::Float4", ptr %344, i64 %300
+  %345 = getelementptr inbounds [16 x i8], ptr %344, i64 %300
   %346 = load <4 x float>, ptr %10, align 16
   %.sroa.03.4.vec.insert.i.i = shufflevector <4 x float> %346, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %347 = load <4 x float>, ptr %210, align 8
@@ -4973,7 +4966,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.35.12.vec.insert.i.i, ptr %.sroa.2.0..0..sroa_idx.i.i.i45, align 8, !tbaa !104
   %348 = getelementptr inbounds nuw i8, ptr %294, i64 128
   %349 = load ptr, ptr %348, align 8, !tbaa !170
-  %350 = getelementptr inbounds %"struct.pbrt::Float4", ptr %349, i64 %300
+  %350 = getelementptr inbounds [16 x i8], ptr %349, i64 %300
   %351 = load <4 x float>, ptr %211, align 16
   %.sroa.0.4.vec.insert.i.i46 = shufflevector <4 x float> %351, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i.i47 = shufflevector <4 x float> %351, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -4986,7 +4979,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 
 352:                                              ; preds = %352, %292
   %indvars.iv.i.i.i = phi i64 [ 0, %292 ], [ %indvars.iv.next.i.i.i, %352 ]
-  %353 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i.i
+  %353 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.i.i
   store float 1.000000e+00, ptr %353, align 4, !tbaa !130
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -4995,7 +4988,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %352
   %354 = getelementptr inbounds nuw i8, ptr %294, i64 160
   %355 = load ptr, ptr %354, align 8, !tbaa !168
-  %356 = getelementptr inbounds %"struct.pbrt::Float4", ptr %355, i64 %300
+  %356 = getelementptr inbounds [16 x i8], ptr %355, i64 %300
   %357 = load <4 x float>, ptr %3, align 16
   %.sroa.0.4.vec.insert.i18.i = shufflevector <4 x float> %357, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i19.i = shufflevector <4 x float> %357, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -5005,11 +4998,11 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %352
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %358 = getelementptr inbounds nuw i8, ptr %294, i64 376
   %359 = load ptr, ptr %358, align 8, !tbaa !213
-  %360 = getelementptr inbounds float, ptr %359, i64 %300
+  %360 = getelementptr inbounds [4 x i8], ptr %359, i64 %300
   store float 1.000000e+00, ptr %360, align 4, !tbaa !130
   %361 = getelementptr inbounds nuw i8, ptr %294, i64 392
   %362 = load ptr, ptr %361, align 8, !tbaa !214
-  %363 = getelementptr inbounds i32, ptr %362, i64 %300
+  %363 = getelementptr inbounds [4 x i8], ptr %362, i64 %300
   store i32 0, ptr %363, align 4, !tbaa !103
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !tbaa !130
@@ -5017,7 +5010,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %352
 
 364:                                              ; preds = %364, %_ZN4pbrt15SampledSpectrumC2Ef.exit.i
   %indvars.iv.i.i21.i = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit.i ], [ %indvars.iv.next.i.i22.i, %364 ]
-  %365 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i21.i
+  %365 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.i21.i
   store float 1.000000e+00, ptr %365, align 4, !tbaa !130
   %indvars.iv.next.i.i22.i = add nuw nsw i64 %indvars.iv.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i64 %indvars.iv.next.i.i22.i, 4
@@ -5026,7 +5019,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %352
 _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %364
   %366 = getelementptr inbounds nuw i8, ptr %294, i64 184
   %367 = load ptr, ptr %366, align 8, !tbaa !168
-  %368 = getelementptr inbounds %"struct.pbrt::Float4", ptr %367, i64 %300
+  %368 = getelementptr inbounds [16 x i8], ptr %367, i64 %300
   %369 = load <4 x float>, ptr %4, align 16
   %.sroa.0.4.vec.insert.i27.i = shufflevector <4 x float> %369, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i28.i = shufflevector <4 x float> %369, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -5040,7 +5033,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %364
 
 370:                                              ; preds = %370, %_ZN4pbrt15SampledSpectrumC2Ef.exit24.i
   %indvars.iv.i.i30.i = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit24.i ], [ %indvars.iv.next.i.i31.i, %370 ]
-  %371 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i30.i
+  %371 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i30.i
   store float 1.000000e+00, ptr %371, align 4, !tbaa !130
   %indvars.iv.next.i.i31.i = add nuw nsw i64 %indvars.iv.i.i30.i, 1
   %exitcond.not.i.i32.i = icmp eq i64 %indvars.iv.next.i.i31.i, 4
@@ -5049,7 +5042,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %364
 372:                                              ; preds = %370
   %373 = getelementptr inbounds nuw i8, ptr %294, i64 208
   %374 = load ptr, ptr %373, align 8, !tbaa !168
-  %375 = getelementptr inbounds %"struct.pbrt::Float4", ptr %374, i64 %300
+  %375 = getelementptr inbounds [16 x i8], ptr %374, i64 %300
   %376 = load <4 x float>, ptr %5, align 16
   %.sroa.0.4.vec.insert.i36.i = shufflevector <4 x float> %376, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i37.i = shufflevector <4 x float> %376, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -5059,7 +5052,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %364
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %377 = getelementptr inbounds nuw i8, ptr %294, i64 384
   %378 = load ptr, ptr %377, align 8, !tbaa !215
-  %379 = getelementptr inbounds i32, ptr %378, i64 %300
+  %379 = getelementptr inbounds [4 x i8], ptr %378, i64 %300
   store i32 0, ptr %379, align 4, !tbaa !103
   %380 = load i8, ptr %115, align 8, !tbaa !160, !range !99, !noundef !100
   %381 = trunc nuw i8 %380 to i1
@@ -5073,7 +5066,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %364
   %383 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %384 = getelementptr inbounds nuw i8, ptr %15, i64 232
   %385 = load ptr, ptr %384, align 8, !tbaa !168
-  %386 = getelementptr inbounds %"struct.pbrt::Float4", ptr %385, i64 %29
+  %386 = getelementptr inbounds [16 x i8], ptr %385, i64 %29
   %387 = load <4 x float>, ptr %383, align 8
   %.sroa.0.4.vec.insert.i52 = shufflevector <4 x float> %387, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i53 = shufflevector <4 x float> %387, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -5085,7 +5078,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %364
 388:                                              ; preds = %289
   %389 = getelementptr inbounds nuw i8, ptr %15, i64 232
   %390 = load ptr, ptr %389, align 8, !tbaa !168
-  %391 = getelementptr inbounds %"struct.pbrt::Float4", ptr %390, i64 %29
+  %391 = getelementptr inbounds [16 x i8], ptr %390, i64 %29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %391, i8 0, i64 16, i1 false)
   br label %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit
 
@@ -5427,11 +5420,11 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 144
   %30 = load ptr, ptr %29, align 8, !tbaa !121
   %31 = sext i32 %1 to i64
-  %32 = getelementptr inbounds i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %30, i64 %31
   store i32 %24, ptr %32, align 4, !tbaa !103
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 152
   %34 = load ptr, ptr %33, align 8, !tbaa !122
-  %35 = getelementptr inbounds i32, ptr %34, i64 %31
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %31
   store i32 %28, ptr %35, align 4, !tbaa !103
   %.not.i = icmp sgt i32 %23, -1
   %36 = icmp slt i32 %24, %.sroa.7120.8.extract.trunc
@@ -5795,13 +5788,13 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 229:                                              ; preds = %222, %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
   %230 = getelementptr inbounds nuw i8, ptr %17, i64 208
   %231 = load ptr, ptr %230, align 8, !tbaa !168
-  %232 = getelementptr inbounds %"struct.pbrt::Float4", ptr %231, i64 %31
+  %232 = getelementptr inbounds [16 x i8], ptr %231, i64 %31
   %233 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %234 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %235 = getelementptr inbounds nuw i8, ptr %17, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %232, i8 0, i64 16, i1 false)
   %236 = load ptr, ptr %235, align 8, !tbaa !169
-  %237 = getelementptr inbounds %"struct.pbrt::Float4", ptr %236, i64 %31
+  %237 = getelementptr inbounds [16 x i8], ptr %236, i64 %31
   %238 = load <4 x float>, ptr %15, align 16
   %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %238, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %239 = load <4 x float>, ptr %233, align 8
@@ -5811,7 +5804,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.35.12.vec.insert.i, ptr %.sroa.2.0..0..sroa_idx.i.i39, align 8, !tbaa !104
   %240 = getelementptr inbounds nuw i8, ptr %17, i64 176
   %241 = load ptr, ptr %240, align 8, !tbaa !170
-  %242 = getelementptr inbounds %"struct.pbrt::Float4", ptr %241, i64 %31
+  %242 = getelementptr inbounds [16 x i8], ptr %241, i64 %31
   %243 = load <4 x float>, ptr %234, align 16
   %.sroa.0.4.vec.insert.i40 = shufflevector <4 x float> %243, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i41 = shufflevector <4 x float> %243, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -5820,7 +5813,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.3.12.vec.insert.i41, ptr %.sroa.2.0..0..sroa_idx.i28.i, align 8, !tbaa !104
   %244 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %245 = load ptr, ptr %244, align 8, !tbaa !171
-  %246 = getelementptr inbounds float, ptr %245, i64 %31
+  %246 = getelementptr inbounds [4 x i8], ptr %245, i64 %31
   store float %.sroa.1195.0, ptr %246, align 4, !tbaa !130
   %247 = load i8, ptr %17, align 8, !tbaa !172, !range !99, !noundef !100
   %248 = trunc nuw i8 %247 to i1
@@ -5833,79 +5826,79 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store i8 0, ptr %252, align 1, !tbaa !174
   %253 = getelementptr inbounds nuw i8, ptr %17, i64 272
   %254 = load ptr, ptr %253, align 8, !tbaa !175
-  %255 = getelementptr inbounds float, ptr %254, i64 %31
+  %255 = getelementptr inbounds [4 x i8], ptr %254, i64 %31
   store float 0.000000e+00, ptr %255, align 4, !tbaa !130
   %256 = getelementptr inbounds nuw i8, ptr %17, i64 280
   %257 = load ptr, ptr %256, align 8, !tbaa !176
-  %258 = getelementptr inbounds float, ptr %257, i64 %31
+  %258 = getelementptr inbounds [4 x i8], ptr %257, i64 %31
   store float 0.000000e+00, ptr %258, align 4, !tbaa !130
   %259 = getelementptr inbounds nuw i8, ptr %17, i64 288
   %260 = load ptr, ptr %259, align 8, !tbaa !177
-  %261 = getelementptr inbounds float, ptr %260, i64 %31
+  %261 = getelementptr inbounds [4 x i8], ptr %260, i64 %31
   store float 0.000000e+00, ptr %261, align 4, !tbaa !130
   %262 = getelementptr inbounds nuw i8, ptr %17, i64 304
   %263 = load ptr, ptr %262, align 8, !tbaa !178
-  %264 = getelementptr inbounds float, ptr %263, i64 %31
+  %264 = getelementptr inbounds [4 x i8], ptr %263, i64 %31
   store float 0.000000e+00, ptr %264, align 4, !tbaa !130
   %265 = getelementptr inbounds nuw i8, ptr %17, i64 312
   %266 = load ptr, ptr %265, align 8, !tbaa !179
-  %267 = getelementptr inbounds float, ptr %266, i64 %31
+  %267 = getelementptr inbounds [4 x i8], ptr %266, i64 %31
   store float 0.000000e+00, ptr %267, align 4, !tbaa !130
   %268 = getelementptr inbounds nuw i8, ptr %17, i64 320
   %269 = load ptr, ptr %268, align 8, !tbaa !180
-  %270 = getelementptr inbounds float, ptr %269, i64 %31
+  %270 = getelementptr inbounds [4 x i8], ptr %269, i64 %31
   store float 0.000000e+00, ptr %270, align 4, !tbaa !130
   %271 = getelementptr inbounds nuw i8, ptr %17, i64 336
   %272 = load ptr, ptr %271, align 8, !tbaa !178
-  %273 = getelementptr inbounds float, ptr %272, i64 %31
+  %273 = getelementptr inbounds [4 x i8], ptr %272, i64 %31
   store float 0.000000e+00, ptr %273, align 4, !tbaa !130
   %274 = getelementptr inbounds nuw i8, ptr %17, i64 344
   %275 = load ptr, ptr %274, align 8, !tbaa !179
-  %276 = getelementptr inbounds float, ptr %275, i64 %31
+  %276 = getelementptr inbounds [4 x i8], ptr %275, i64 %31
   store float 0.000000e+00, ptr %276, align 4, !tbaa !130
   %277 = getelementptr inbounds nuw i8, ptr %17, i64 352
   %278 = load ptr, ptr %277, align 8, !tbaa !180
-  %279 = getelementptr inbounds float, ptr %278, i64 %31
+  %279 = getelementptr inbounds [4 x i8], ptr %278, i64 %31
   store float 0.000000e+00, ptr %279, align 4, !tbaa !130
   %280 = getelementptr inbounds nuw i8, ptr %17, i64 368
   %281 = load ptr, ptr %280, align 8, !tbaa !181
-  %282 = getelementptr inbounds float, ptr %281, i64 %31
+  %282 = getelementptr inbounds [4 x i8], ptr %281, i64 %31
   store float 0.000000e+00, ptr %282, align 4, !tbaa !130
   %283 = getelementptr inbounds nuw i8, ptr %17, i64 376
   %284 = load ptr, ptr %283, align 8, !tbaa !182
-  %285 = getelementptr inbounds float, ptr %284, i64 %31
+  %285 = getelementptr inbounds [4 x i8], ptr %284, i64 %31
   store float 0.000000e+00, ptr %285, align 4, !tbaa !130
   %286 = getelementptr inbounds nuw i8, ptr %17, i64 384
   %287 = load ptr, ptr %286, align 8, !tbaa !183
-  %288 = getelementptr inbounds float, ptr %287, i64 %31
+  %288 = getelementptr inbounds [4 x i8], ptr %287, i64 %31
   store float 0.000000e+00, ptr %288, align 4, !tbaa !130
   %289 = getelementptr inbounds nuw i8, ptr %17, i64 400
   %290 = load ptr, ptr %289, align 8, !tbaa !184
-  %291 = getelementptr inbounds float, ptr %290, i64 %31
+  %291 = getelementptr inbounds [4 x i8], ptr %290, i64 %31
   store float 0.000000e+00, ptr %291, align 4, !tbaa !130
   %292 = getelementptr inbounds nuw i8, ptr %17, i64 408
   %293 = load ptr, ptr %292, align 8, !tbaa !185
-  %294 = getelementptr inbounds float, ptr %293, i64 %31
+  %294 = getelementptr inbounds [4 x i8], ptr %293, i64 %31
   store float 0.000000e+00, ptr %294, align 4, !tbaa !130
   %295 = getelementptr inbounds nuw i8, ptr %17, i64 416
   %296 = load ptr, ptr %295, align 8, !tbaa !186
-  %297 = getelementptr inbounds float, ptr %296, i64 %31
+  %297 = getelementptr inbounds [4 x i8], ptr %296, i64 %31
   store float 0.000000e+00, ptr %297, align 4, !tbaa !130
   %298 = getelementptr inbounds nuw i8, ptr %17, i64 432
   %299 = load ptr, ptr %298, align 8, !tbaa !184
-  %300 = getelementptr inbounds float, ptr %299, i64 %31
+  %300 = getelementptr inbounds [4 x i8], ptr %299, i64 %31
   store float 0.000000e+00, ptr %300, align 4, !tbaa !130
   %301 = getelementptr inbounds nuw i8, ptr %17, i64 440
   %302 = load ptr, ptr %301, align 8, !tbaa !185
-  %303 = getelementptr inbounds float, ptr %302, i64 %31
+  %303 = getelementptr inbounds [4 x i8], ptr %302, i64 %31
   store float 0.000000e+00, ptr %303, align 4, !tbaa !130
   %304 = getelementptr inbounds nuw i8, ptr %17, i64 448
   %305 = load ptr, ptr %304, align 8, !tbaa !186
-  %306 = getelementptr inbounds float, ptr %305, i64 %31
+  %306 = getelementptr inbounds [4 x i8], ptr %305, i64 %31
   store float 0.000000e+00, ptr %306, align 4, !tbaa !130
   %307 = getelementptr inbounds nuw i8, ptr %17, i64 464
   %308 = load ptr, ptr %307, align 8, !tbaa !168
-  %309 = getelementptr inbounds %"struct.pbrt::Float4", ptr %308, i64 %31
+  %309 = getelementptr inbounds [16 x i8], ptr %308, i64 %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %309, i8 0, i64 16, i1 false)
   br label %310
 
@@ -5923,61 +5916,61 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %319 = getelementptr inbounds nuw i8, ptr %315, i64 24
   %320 = load ptr, ptr %319, align 8, !tbaa !175
   %321 = sext i32 %317 to i64
-  %322 = getelementptr inbounds float, ptr %320, i64 %321
+  %322 = getelementptr inbounds [4 x i8], ptr %320, i64 %321
   store float %318, ptr %322, align 4, !tbaa !130
   %323 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %324 = load float, ptr %323, align 4, !tbaa !189
   %325 = getelementptr inbounds nuw i8, ptr %315, i64 32
   %326 = load ptr, ptr %325, align 8, !tbaa !176
-  %327 = getelementptr inbounds float, ptr %326, i64 %321
+  %327 = getelementptr inbounds [4 x i8], ptr %326, i64 %321
   store float %324, ptr %327, align 4, !tbaa !130
   %328 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %329 = load float, ptr %328, align 8, !tbaa !190
   %330 = getelementptr inbounds nuw i8, ptr %315, i64 40
   %331 = load ptr, ptr %330, align 8, !tbaa !177
-  %332 = getelementptr inbounds float, ptr %331, i64 %321
+  %332 = getelementptr inbounds [4 x i8], ptr %331, i64 %321
   store float %329, ptr %332, align 4, !tbaa !130
   %333 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %334 = load float, ptr %333, align 4, !tbaa !191
   %335 = getelementptr inbounds nuw i8, ptr %315, i64 56
   %336 = load ptr, ptr %335, align 8, !tbaa !184
-  %337 = getelementptr inbounds float, ptr %336, i64 %321
+  %337 = getelementptr inbounds [4 x i8], ptr %336, i64 %321
   store float %334, ptr %337, align 4, !tbaa !130
   %338 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %339 = load float, ptr %338, align 16, !tbaa !193
   %340 = getelementptr inbounds nuw i8, ptr %315, i64 64
   %341 = load ptr, ptr %340, align 8, !tbaa !185
-  %342 = getelementptr inbounds float, ptr %341, i64 %321
+  %342 = getelementptr inbounds [4 x i8], ptr %341, i64 %321
   store float %339, ptr %342, align 4, !tbaa !130
   %343 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %344 = load float, ptr %343, align 4, !tbaa !194
   %345 = getelementptr inbounds nuw i8, ptr %315, i64 72
   %346 = load ptr, ptr %345, align 8, !tbaa !186
-  %347 = getelementptr inbounds float, ptr %346, i64 %321
+  %347 = getelementptr inbounds [4 x i8], ptr %346, i64 %321
   store float %344, ptr %347, align 4, !tbaa !130
   %348 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %349 = load float, ptr %348, align 8, !tbaa !195
   %350 = getelementptr inbounds nuw i8, ptr %315, i64 80
   %351 = load ptr, ptr %350, align 8, !tbaa !201
-  %352 = getelementptr inbounds float, ptr %351, i64 %321
+  %352 = getelementptr inbounds [4 x i8], ptr %351, i64 %321
   store float %349, ptr %352, align 4, !tbaa !130
   %353 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %354 = getelementptr inbounds nuw i8, ptr %315, i64 88
   %355 = load ptr, ptr %354, align 8, !tbaa !204
-  %356 = getelementptr inbounds %"class.pbrt::Medium", ptr %355, i64 %321
+  %356 = getelementptr inbounds [8 x i8], ptr %355, i64 %321
   %357 = load i64, ptr %353, align 16, !tbaa !205
   store i64 %357, ptr %356, align 8, !tbaa !205
   %358 = getelementptr inbounds nuw i8, ptr %315, i64 96
   %359 = load ptr, ptr %358, align 8, !tbaa !206
-  %360 = getelementptr inbounds i32, ptr %359, i64 %321
+  %360 = getelementptr inbounds [4 x i8], ptr %359, i64 %321
   store i32 0, ptr %360, align 4, !tbaa !103
   %361 = getelementptr inbounds nuw i8, ptr %315, i64 104
   %362 = load ptr, ptr %361, align 8, !tbaa !211
-  %363 = getelementptr inbounds i32, ptr %362, i64 %321
+  %363 = getelementptr inbounds [4 x i8], ptr %362, i64 %321
   store i32 %1, ptr %363, align 4, !tbaa !103
   %364 = getelementptr inbounds nuw i8, ptr %315, i64 120
   %365 = load ptr, ptr %364, align 8, !tbaa !169
-  %366 = getelementptr inbounds %"struct.pbrt::Float4", ptr %365, i64 %321
+  %366 = getelementptr inbounds [16 x i8], ptr %365, i64 %321
   %367 = load <4 x float>, ptr %15, align 16
   %.sroa.03.4.vec.insert.i.i = shufflevector <4 x float> %367, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %368 = load <4 x float>, ptr %233, align 8
@@ -5987,7 +5980,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.35.12.vec.insert.i.i, ptr %.sroa.2.0..0..sroa_idx.i.i.i47, align 8, !tbaa !104
   %369 = getelementptr inbounds nuw i8, ptr %315, i64 128
   %370 = load ptr, ptr %369, align 8, !tbaa !170
-  %371 = getelementptr inbounds %"struct.pbrt::Float4", ptr %370, i64 %321
+  %371 = getelementptr inbounds [16 x i8], ptr %370, i64 %321
   %372 = load <4 x float>, ptr %234, align 16
   %.sroa.0.4.vec.insert.i.i48 = shufflevector <4 x float> %372, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i.i49 = shufflevector <4 x float> %372, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -6000,7 +5993,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 
 373:                                              ; preds = %373, %313
   %indvars.iv.i.i.i = phi i64 [ 0, %313 ], [ %indvars.iv.next.i.i.i, %373 ]
-  %374 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i.i
+  %374 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.i.i
   store float 1.000000e+00, ptr %374, align 4, !tbaa !130
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -6009,7 +6002,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %373
   %375 = getelementptr inbounds nuw i8, ptr %315, i64 160
   %376 = load ptr, ptr %375, align 8, !tbaa !168
-  %377 = getelementptr inbounds %"struct.pbrt::Float4", ptr %376, i64 %321
+  %377 = getelementptr inbounds [16 x i8], ptr %376, i64 %321
   %378 = load <4 x float>, ptr %3, align 16
   %.sroa.0.4.vec.insert.i18.i = shufflevector <4 x float> %378, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i19.i = shufflevector <4 x float> %378, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -6019,11 +6012,11 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %373
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %379 = getelementptr inbounds nuw i8, ptr %315, i64 376
   %380 = load ptr, ptr %379, align 8, !tbaa !213
-  %381 = getelementptr inbounds float, ptr %380, i64 %321
+  %381 = getelementptr inbounds [4 x i8], ptr %380, i64 %321
   store float 1.000000e+00, ptr %381, align 4, !tbaa !130
   %382 = getelementptr inbounds nuw i8, ptr %315, i64 392
   %383 = load ptr, ptr %382, align 8, !tbaa !214
-  %384 = getelementptr inbounds i32, ptr %383, i64 %321
+  %384 = getelementptr inbounds [4 x i8], ptr %383, i64 %321
   store i32 0, ptr %384, align 4, !tbaa !103
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !tbaa !130
@@ -6031,7 +6024,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %373
 
 385:                                              ; preds = %385, %_ZN4pbrt15SampledSpectrumC2Ef.exit.i
   %indvars.iv.i.i21.i = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit.i ], [ %indvars.iv.next.i.i22.i, %385 ]
-  %386 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i21.i
+  %386 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.i21.i
   store float 1.000000e+00, ptr %386, align 4, !tbaa !130
   %indvars.iv.next.i.i22.i = add nuw nsw i64 %indvars.iv.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i64 %indvars.iv.next.i.i22.i, 4
@@ -6040,7 +6033,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %373
 _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %385
   %387 = getelementptr inbounds nuw i8, ptr %315, i64 184
   %388 = load ptr, ptr %387, align 8, !tbaa !168
-  %389 = getelementptr inbounds %"struct.pbrt::Float4", ptr %388, i64 %321
+  %389 = getelementptr inbounds [16 x i8], ptr %388, i64 %321
   %390 = load <4 x float>, ptr %4, align 16
   %.sroa.0.4.vec.insert.i27.i = shufflevector <4 x float> %390, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i28.i = shufflevector <4 x float> %390, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -6054,7 +6047,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %385
 
 391:                                              ; preds = %391, %_ZN4pbrt15SampledSpectrumC2Ef.exit24.i
   %indvars.iv.i.i30.i = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit24.i ], [ %indvars.iv.next.i.i31.i, %391 ]
-  %392 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i30.i
+  %392 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i30.i
   store float 1.000000e+00, ptr %392, align 4, !tbaa !130
   %indvars.iv.next.i.i31.i = add nuw nsw i64 %indvars.iv.i.i30.i, 1
   %exitcond.not.i.i32.i = icmp eq i64 %indvars.iv.next.i.i31.i, 4
@@ -6063,7 +6056,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %385
 393:                                              ; preds = %391
   %394 = getelementptr inbounds nuw i8, ptr %315, i64 208
   %395 = load ptr, ptr %394, align 8, !tbaa !168
-  %396 = getelementptr inbounds %"struct.pbrt::Float4", ptr %395, i64 %321
+  %396 = getelementptr inbounds [16 x i8], ptr %395, i64 %321
   %397 = load <4 x float>, ptr %5, align 16
   %.sroa.0.4.vec.insert.i36.i = shufflevector <4 x float> %397, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i37.i = shufflevector <4 x float> %397, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -6073,7 +6066,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %385
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %398 = getelementptr inbounds nuw i8, ptr %315, i64 384
   %399 = load ptr, ptr %398, align 8, !tbaa !215
-  %400 = getelementptr inbounds i32, ptr %399, i64 %321
+  %400 = getelementptr inbounds [4 x i8], ptr %399, i64 %321
   store i32 0, ptr %400, align 4, !tbaa !103
   %401 = load i8, ptr %138, align 8, !tbaa !160, !range !99, !noundef !100
   %402 = trunc nuw i8 %401 to i1
@@ -6087,7 +6080,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %385
   %404 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %405 = getelementptr inbounds nuw i8, ptr %17, i64 232
   %406 = load ptr, ptr %405, align 8, !tbaa !168
-  %407 = getelementptr inbounds %"struct.pbrt::Float4", ptr %406, i64 %31
+  %407 = getelementptr inbounds [16 x i8], ptr %406, i64 %31
   %408 = load <4 x float>, ptr %404, align 8
   %.sroa.0.4.vec.insert.i54 = shufflevector <4 x float> %408, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i55 = shufflevector <4 x float> %408, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -6099,7 +6092,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %385
 409:                                              ; preds = %310
   %410 = getelementptr inbounds nuw i8, ptr %17, i64 232
   %411 = load ptr, ptr %410, align 8, !tbaa !168
-  %412 = getelementptr inbounds %"struct.pbrt::Float4", ptr %411, i64 %31
+  %412 = getelementptr inbounds [16 x i8], ptr %411, i64 %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %412, i8 0, i64 16, i1 false)
   br label %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit
 
@@ -6604,11 +6597,11 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %28 = load ptr, ptr %27, align 8, !tbaa !121
   %29 = sext i32 %1 to i64
-  %30 = getelementptr inbounds i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %28, i64 %29
   store i32 %22, ptr %30, align 4, !tbaa !103
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %32 = load ptr, ptr %31, align 8, !tbaa !122
-  %33 = getelementptr inbounds i32, ptr %32, i64 %29
+  %33 = getelementptr inbounds [4 x i8], ptr %32, i64 %29
   store i32 %26, ptr %33, align 4, !tbaa !103
   %.not.i = icmp sgt i32 %21, -1
   %34 = icmp slt i32 %22, %.sroa.7111.8.extract.trunc
@@ -6844,13 +6837,13 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 161:                                              ; preds = %154, %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
   %162 = getelementptr inbounds nuw i8, ptr %15, i64 208
   %163 = load ptr, ptr %162, align 8, !tbaa !168
-  %164 = getelementptr inbounds %"struct.pbrt::Float4", ptr %163, i64 %29
+  %164 = getelementptr inbounds [16 x i8], ptr %163, i64 %29
   %165 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %166 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %167 = getelementptr inbounds nuw i8, ptr %15, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %164, i8 0, i64 16, i1 false)
   %168 = load ptr, ptr %167, align 8, !tbaa !169
-  %169 = getelementptr inbounds %"struct.pbrt::Float4", ptr %168, i64 %29
+  %169 = getelementptr inbounds [16 x i8], ptr %168, i64 %29
   %170 = load <4 x float>, ptr %11, align 16
   %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %170, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %171 = load <4 x float>, ptr %165, align 8
@@ -6860,7 +6853,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.35.12.vec.insert.i, ptr %.sroa.2.0..0..sroa_idx.i.i37, align 8, !tbaa !104
   %172 = getelementptr inbounds nuw i8, ptr %15, i64 176
   %173 = load ptr, ptr %172, align 8, !tbaa !170
-  %174 = getelementptr inbounds %"struct.pbrt::Float4", ptr %173, i64 %29
+  %174 = getelementptr inbounds [16 x i8], ptr %173, i64 %29
   %175 = load <4 x float>, ptr %166, align 16
   %.sroa.0.4.vec.insert.i38 = shufflevector <4 x float> %175, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i39 = shufflevector <4 x float> %175, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -6871,7 +6864,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %177 = load float, ptr %176, align 4, !tbaa !348
   %178 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %179 = load ptr, ptr %178, align 8, !tbaa !171
-  %180 = getelementptr inbounds float, ptr %179, i64 %29
+  %180 = getelementptr inbounds [4 x i8], ptr %179, i64 %29
   store float %177, ptr %180, align 4, !tbaa !130
   %181 = load i8, ptr %15, align 8, !tbaa !172, !range !99, !noundef !100
   %182 = trunc nuw i8 %181 to i1
@@ -6884,79 +6877,79 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store i8 0, ptr %186, align 1, !tbaa !174
   %187 = getelementptr inbounds nuw i8, ptr %15, i64 272
   %188 = load ptr, ptr %187, align 8, !tbaa !175
-  %189 = getelementptr inbounds float, ptr %188, i64 %29
+  %189 = getelementptr inbounds [4 x i8], ptr %188, i64 %29
   store float 0.000000e+00, ptr %189, align 4, !tbaa !130
   %190 = getelementptr inbounds nuw i8, ptr %15, i64 280
   %191 = load ptr, ptr %190, align 8, !tbaa !176
-  %192 = getelementptr inbounds float, ptr %191, i64 %29
+  %192 = getelementptr inbounds [4 x i8], ptr %191, i64 %29
   store float 0.000000e+00, ptr %192, align 4, !tbaa !130
   %193 = getelementptr inbounds nuw i8, ptr %15, i64 288
   %194 = load ptr, ptr %193, align 8, !tbaa !177
-  %195 = getelementptr inbounds float, ptr %194, i64 %29
+  %195 = getelementptr inbounds [4 x i8], ptr %194, i64 %29
   store float 0.000000e+00, ptr %195, align 4, !tbaa !130
   %196 = getelementptr inbounds nuw i8, ptr %15, i64 304
   %197 = load ptr, ptr %196, align 8, !tbaa !178
-  %198 = getelementptr inbounds float, ptr %197, i64 %29
+  %198 = getelementptr inbounds [4 x i8], ptr %197, i64 %29
   store float 0.000000e+00, ptr %198, align 4, !tbaa !130
   %199 = getelementptr inbounds nuw i8, ptr %15, i64 312
   %200 = load ptr, ptr %199, align 8, !tbaa !179
-  %201 = getelementptr inbounds float, ptr %200, i64 %29
+  %201 = getelementptr inbounds [4 x i8], ptr %200, i64 %29
   store float 0.000000e+00, ptr %201, align 4, !tbaa !130
   %202 = getelementptr inbounds nuw i8, ptr %15, i64 320
   %203 = load ptr, ptr %202, align 8, !tbaa !180
-  %204 = getelementptr inbounds float, ptr %203, i64 %29
+  %204 = getelementptr inbounds [4 x i8], ptr %203, i64 %29
   store float 0.000000e+00, ptr %204, align 4, !tbaa !130
   %205 = getelementptr inbounds nuw i8, ptr %15, i64 336
   %206 = load ptr, ptr %205, align 8, !tbaa !178
-  %207 = getelementptr inbounds float, ptr %206, i64 %29
+  %207 = getelementptr inbounds [4 x i8], ptr %206, i64 %29
   store float 0.000000e+00, ptr %207, align 4, !tbaa !130
   %208 = getelementptr inbounds nuw i8, ptr %15, i64 344
   %209 = load ptr, ptr %208, align 8, !tbaa !179
-  %210 = getelementptr inbounds float, ptr %209, i64 %29
+  %210 = getelementptr inbounds [4 x i8], ptr %209, i64 %29
   store float 0.000000e+00, ptr %210, align 4, !tbaa !130
   %211 = getelementptr inbounds nuw i8, ptr %15, i64 352
   %212 = load ptr, ptr %211, align 8, !tbaa !180
-  %213 = getelementptr inbounds float, ptr %212, i64 %29
+  %213 = getelementptr inbounds [4 x i8], ptr %212, i64 %29
   store float 0.000000e+00, ptr %213, align 4, !tbaa !130
   %214 = getelementptr inbounds nuw i8, ptr %15, i64 368
   %215 = load ptr, ptr %214, align 8, !tbaa !181
-  %216 = getelementptr inbounds float, ptr %215, i64 %29
+  %216 = getelementptr inbounds [4 x i8], ptr %215, i64 %29
   store float 0.000000e+00, ptr %216, align 4, !tbaa !130
   %217 = getelementptr inbounds nuw i8, ptr %15, i64 376
   %218 = load ptr, ptr %217, align 8, !tbaa !182
-  %219 = getelementptr inbounds float, ptr %218, i64 %29
+  %219 = getelementptr inbounds [4 x i8], ptr %218, i64 %29
   store float 0.000000e+00, ptr %219, align 4, !tbaa !130
   %220 = getelementptr inbounds nuw i8, ptr %15, i64 384
   %221 = load ptr, ptr %220, align 8, !tbaa !183
-  %222 = getelementptr inbounds float, ptr %221, i64 %29
+  %222 = getelementptr inbounds [4 x i8], ptr %221, i64 %29
   store float 0.000000e+00, ptr %222, align 4, !tbaa !130
   %223 = getelementptr inbounds nuw i8, ptr %15, i64 400
   %224 = load ptr, ptr %223, align 8, !tbaa !184
-  %225 = getelementptr inbounds float, ptr %224, i64 %29
+  %225 = getelementptr inbounds [4 x i8], ptr %224, i64 %29
   store float 0.000000e+00, ptr %225, align 4, !tbaa !130
   %226 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %227 = load ptr, ptr %226, align 8, !tbaa !185
-  %228 = getelementptr inbounds float, ptr %227, i64 %29
+  %228 = getelementptr inbounds [4 x i8], ptr %227, i64 %29
   store float 0.000000e+00, ptr %228, align 4, !tbaa !130
   %229 = getelementptr inbounds nuw i8, ptr %15, i64 416
   %230 = load ptr, ptr %229, align 8, !tbaa !186
-  %231 = getelementptr inbounds float, ptr %230, i64 %29
+  %231 = getelementptr inbounds [4 x i8], ptr %230, i64 %29
   store float 0.000000e+00, ptr %231, align 4, !tbaa !130
   %232 = getelementptr inbounds nuw i8, ptr %15, i64 432
   %233 = load ptr, ptr %232, align 8, !tbaa !184
-  %234 = getelementptr inbounds float, ptr %233, i64 %29
+  %234 = getelementptr inbounds [4 x i8], ptr %233, i64 %29
   store float 0.000000e+00, ptr %234, align 4, !tbaa !130
   %235 = getelementptr inbounds nuw i8, ptr %15, i64 440
   %236 = load ptr, ptr %235, align 8, !tbaa !185
-  %237 = getelementptr inbounds float, ptr %236, i64 %29
+  %237 = getelementptr inbounds [4 x i8], ptr %236, i64 %29
   store float 0.000000e+00, ptr %237, align 4, !tbaa !130
   %238 = getelementptr inbounds nuw i8, ptr %15, i64 448
   %239 = load ptr, ptr %238, align 8, !tbaa !186
-  %240 = getelementptr inbounds float, ptr %239, i64 %29
+  %240 = getelementptr inbounds [4 x i8], ptr %239, i64 %29
   store float 0.000000e+00, ptr %240, align 4, !tbaa !130
   %241 = getelementptr inbounds nuw i8, ptr %15, i64 464
   %242 = load ptr, ptr %241, align 8, !tbaa !168
-  %243 = getelementptr inbounds %"struct.pbrt::Float4", ptr %242, i64 %29
+  %243 = getelementptr inbounds [16 x i8], ptr %242, i64 %29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %243, i8 0, i64 16, i1 false)
   br label %244
 
@@ -6974,61 +6967,61 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %253 = getelementptr inbounds nuw i8, ptr %249, i64 24
   %254 = load ptr, ptr %253, align 8, !tbaa !175
   %255 = sext i32 %251 to i64
-  %256 = getelementptr inbounds float, ptr %254, i64 %255
+  %256 = getelementptr inbounds [4 x i8], ptr %254, i64 %255
   store float %252, ptr %256, align 4, !tbaa !130
   %257 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %258 = load float, ptr %257, align 4, !tbaa !189
   %259 = getelementptr inbounds nuw i8, ptr %249, i64 32
   %260 = load ptr, ptr %259, align 8, !tbaa !176
-  %261 = getelementptr inbounds float, ptr %260, i64 %255
+  %261 = getelementptr inbounds [4 x i8], ptr %260, i64 %255
   store float %258, ptr %261, align 4, !tbaa !130
   %262 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %263 = load float, ptr %262, align 8, !tbaa !190
   %264 = getelementptr inbounds nuw i8, ptr %249, i64 40
   %265 = load ptr, ptr %264, align 8, !tbaa !177
-  %266 = getelementptr inbounds float, ptr %265, i64 %255
+  %266 = getelementptr inbounds [4 x i8], ptr %265, i64 %255
   store float %263, ptr %266, align 4, !tbaa !130
   %267 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %268 = load float, ptr %267, align 4, !tbaa !191
   %269 = getelementptr inbounds nuw i8, ptr %249, i64 56
   %270 = load ptr, ptr %269, align 8, !tbaa !184
-  %271 = getelementptr inbounds float, ptr %270, i64 %255
+  %271 = getelementptr inbounds [4 x i8], ptr %270, i64 %255
   store float %268, ptr %271, align 4, !tbaa !130
   %272 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %273 = load float, ptr %272, align 16, !tbaa !193
   %274 = getelementptr inbounds nuw i8, ptr %249, i64 64
   %275 = load ptr, ptr %274, align 8, !tbaa !185
-  %276 = getelementptr inbounds float, ptr %275, i64 %255
+  %276 = getelementptr inbounds [4 x i8], ptr %275, i64 %255
   store float %273, ptr %276, align 4, !tbaa !130
   %277 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %278 = load float, ptr %277, align 4, !tbaa !194
   %279 = getelementptr inbounds nuw i8, ptr %249, i64 72
   %280 = load ptr, ptr %279, align 8, !tbaa !186
-  %281 = getelementptr inbounds float, ptr %280, i64 %255
+  %281 = getelementptr inbounds [4 x i8], ptr %280, i64 %255
   store float %278, ptr %281, align 4, !tbaa !130
   %282 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %283 = load float, ptr %282, align 8, !tbaa !195
   %284 = getelementptr inbounds nuw i8, ptr %249, i64 80
   %285 = load ptr, ptr %284, align 8, !tbaa !201
-  %286 = getelementptr inbounds float, ptr %285, i64 %255
+  %286 = getelementptr inbounds [4 x i8], ptr %285, i64 %255
   store float %283, ptr %286, align 4, !tbaa !130
   %287 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %288 = getelementptr inbounds nuw i8, ptr %249, i64 88
   %289 = load ptr, ptr %288, align 8, !tbaa !204
-  %290 = getelementptr inbounds %"class.pbrt::Medium", ptr %289, i64 %255
+  %290 = getelementptr inbounds [8 x i8], ptr %289, i64 %255
   %291 = load i64, ptr %287, align 16, !tbaa !205
   store i64 %291, ptr %290, align 8, !tbaa !205
   %292 = getelementptr inbounds nuw i8, ptr %249, i64 96
   %293 = load ptr, ptr %292, align 8, !tbaa !206
-  %294 = getelementptr inbounds i32, ptr %293, i64 %255
+  %294 = getelementptr inbounds [4 x i8], ptr %293, i64 %255
   store i32 0, ptr %294, align 4, !tbaa !103
   %295 = getelementptr inbounds nuw i8, ptr %249, i64 104
   %296 = load ptr, ptr %295, align 8, !tbaa !211
-  %297 = getelementptr inbounds i32, ptr %296, i64 %255
+  %297 = getelementptr inbounds [4 x i8], ptr %296, i64 %255
   store i32 %1, ptr %297, align 4, !tbaa !103
   %298 = getelementptr inbounds nuw i8, ptr %249, i64 120
   %299 = load ptr, ptr %298, align 8, !tbaa !169
-  %300 = getelementptr inbounds %"struct.pbrt::Float4", ptr %299, i64 %255
+  %300 = getelementptr inbounds [16 x i8], ptr %299, i64 %255
   %301 = load <4 x float>, ptr %11, align 16
   %.sroa.03.4.vec.insert.i.i = shufflevector <4 x float> %301, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %302 = load <4 x float>, ptr %165, align 8
@@ -7038,7 +7031,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.35.12.vec.insert.i.i, ptr %.sroa.2.0..0..sroa_idx.i.i.i45, align 8, !tbaa !104
   %303 = getelementptr inbounds nuw i8, ptr %249, i64 128
   %304 = load ptr, ptr %303, align 8, !tbaa !170
-  %305 = getelementptr inbounds %"struct.pbrt::Float4", ptr %304, i64 %255
+  %305 = getelementptr inbounds [16 x i8], ptr %304, i64 %255
   %306 = load <4 x float>, ptr %166, align 16
   %.sroa.0.4.vec.insert.i.i46 = shufflevector <4 x float> %306, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i.i47 = shufflevector <4 x float> %306, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -7051,7 +7044,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 
 307:                                              ; preds = %307, %247
   %indvars.iv.i.i.i = phi i64 [ 0, %247 ], [ %indvars.iv.next.i.i.i, %307 ]
-  %308 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i.i
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.i.i
   store float 1.000000e+00, ptr %308, align 4, !tbaa !130
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -7060,7 +7053,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %307
   %309 = getelementptr inbounds nuw i8, ptr %249, i64 160
   %310 = load ptr, ptr %309, align 8, !tbaa !168
-  %311 = getelementptr inbounds %"struct.pbrt::Float4", ptr %310, i64 %255
+  %311 = getelementptr inbounds [16 x i8], ptr %310, i64 %255
   %312 = load <4 x float>, ptr %3, align 16
   %.sroa.0.4.vec.insert.i18.i = shufflevector <4 x float> %312, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i19.i = shufflevector <4 x float> %312, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -7070,11 +7063,11 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %307
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %313 = getelementptr inbounds nuw i8, ptr %249, i64 376
   %314 = load ptr, ptr %313, align 8, !tbaa !213
-  %315 = getelementptr inbounds float, ptr %314, i64 %255
+  %315 = getelementptr inbounds [4 x i8], ptr %314, i64 %255
   store float 1.000000e+00, ptr %315, align 4, !tbaa !130
   %316 = getelementptr inbounds nuw i8, ptr %249, i64 392
   %317 = load ptr, ptr %316, align 8, !tbaa !214
-  %318 = getelementptr inbounds i32, ptr %317, i64 %255
+  %318 = getelementptr inbounds [4 x i8], ptr %317, i64 %255
   store i32 0, ptr %318, align 4, !tbaa !103
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !tbaa !130
@@ -7082,7 +7075,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %307
 
 319:                                              ; preds = %319, %_ZN4pbrt15SampledSpectrumC2Ef.exit.i
   %indvars.iv.i.i21.i = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit.i ], [ %indvars.iv.next.i.i22.i, %319 ]
-  %320 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i21.i
+  %320 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.i21.i
   store float 1.000000e+00, ptr %320, align 4, !tbaa !130
   %indvars.iv.next.i.i22.i = add nuw nsw i64 %indvars.iv.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i64 %indvars.iv.next.i.i22.i, 4
@@ -7091,7 +7084,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %307
 _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %319
   %321 = getelementptr inbounds nuw i8, ptr %249, i64 184
   %322 = load ptr, ptr %321, align 8, !tbaa !168
-  %323 = getelementptr inbounds %"struct.pbrt::Float4", ptr %322, i64 %255
+  %323 = getelementptr inbounds [16 x i8], ptr %322, i64 %255
   %324 = load <4 x float>, ptr %4, align 16
   %.sroa.0.4.vec.insert.i27.i = shufflevector <4 x float> %324, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i28.i = shufflevector <4 x float> %324, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -7105,7 +7098,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %319
 
 325:                                              ; preds = %325, %_ZN4pbrt15SampledSpectrumC2Ef.exit24.i
   %indvars.iv.i.i30.i = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit24.i ], [ %indvars.iv.next.i.i31.i, %325 ]
-  %326 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i30.i
+  %326 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i30.i
   store float 1.000000e+00, ptr %326, align 4, !tbaa !130
   %indvars.iv.next.i.i31.i = add nuw nsw i64 %indvars.iv.i.i30.i, 1
   %exitcond.not.i.i32.i = icmp eq i64 %indvars.iv.next.i.i31.i, 4
@@ -7114,7 +7107,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %319
 327:                                              ; preds = %325
   %328 = getelementptr inbounds nuw i8, ptr %249, i64 208
   %329 = load ptr, ptr %328, align 8, !tbaa !168
-  %330 = getelementptr inbounds %"struct.pbrt::Float4", ptr %329, i64 %255
+  %330 = getelementptr inbounds [16 x i8], ptr %329, i64 %255
   %331 = load <4 x float>, ptr %5, align 16
   %.sroa.0.4.vec.insert.i36.i = shufflevector <4 x float> %331, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i37.i = shufflevector <4 x float> %331, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -7124,7 +7117,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %319
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %332 = getelementptr inbounds nuw i8, ptr %249, i64 384
   %333 = load ptr, ptr %332, align 8, !tbaa !215
-  %334 = getelementptr inbounds i32, ptr %333, i64 %255
+  %334 = getelementptr inbounds [4 x i8], ptr %333, i64 %255
   store i32 0, ptr %334, align 4, !tbaa !103
   %335 = load i8, ptr %70, align 8, !tbaa !160, !range !99, !noundef !100
   %336 = trunc nuw i8 %335 to i1
@@ -7138,7 +7131,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %319
   %338 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %339 = getelementptr inbounds nuw i8, ptr %15, i64 232
   %340 = load ptr, ptr %339, align 8, !tbaa !168
-  %341 = getelementptr inbounds %"struct.pbrt::Float4", ptr %340, i64 %29
+  %341 = getelementptr inbounds [16 x i8], ptr %340, i64 %29
   %342 = load <4 x float>, ptr %338, align 8
   %.sroa.0.4.vec.insert.i52 = shufflevector <4 x float> %342, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i53 = shufflevector <4 x float> %342, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -7150,7 +7143,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %319
 343:                                              ; preds = %244
   %344 = getelementptr inbounds nuw i8, ptr %15, i64 232
   %345 = load ptr, ptr %344, align 8, !tbaa !168
-  %346 = getelementptr inbounds %"struct.pbrt::Float4", ptr %345, i64 %29
+  %346 = getelementptr inbounds [16 x i8], ptr %345, i64 %29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %346, i8 0, i64 16, i1 false)
   br label %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit
 
@@ -7230,7 +7223,7 @@ _ZN4pbrt21InverseRadicalInverseEmii.exit.us.us:   ; preds = %.lr.ph.i19.us.us, %
   %35 = sdiv i32 %9, %34
   %36 = sext i32 %35 to i64
   %37 = mul i64 %33, %36
-  %38 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv69
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv69
   %39 = load i32, ptr %38, align 4, !tbaa !103
   %40 = sext i32 %39 to i64
   %41 = mul i64 %37, %40
@@ -7262,7 +7255,7 @@ _ZN4pbrt21InverseRadicalInverseEmii.exit.us:      ; preds = %.lr.ph.i19.us, %.sp
   %52 = sdiv i32 %9, %51
   %53 = sext i32 %52 to i64
   %54 = mul i64 %50, %53
-  %55 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv66
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv66
   %56 = load i32, ptr %55, align 4, !tbaa !103
   %57 = sext i32 %56 to i64
   %58 = mul i64 %54, %57
@@ -7297,7 +7290,7 @@ _ZN4pbrt21InverseRadicalInverseEmii.exit.us44:    ; preds = %.lr.ph.i.us39, %.sp
   %69 = sdiv i32 %9, %68
   %70 = sext i32 %69 to i64
   %71 = mul i64 %67, %70
-  %72 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %73 = load i32, ptr %72, align 4, !tbaa !103
   %74 = sext i32 %73 to i64
   %75 = mul i64 %71, %74
@@ -7491,7 +7484,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt13HaltonSampler15SampleDim
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i64, ptr %6, align 8, !tbaa !400
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds i32, ptr @_ZN4pbrt6PrimesE, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr @_ZN4pbrt6PrimesE, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !103
   %11 = zext i32 %10 to i64
   %12 = udiv i64 -1, %11
@@ -7528,7 +7521,7 @@ _ZN4pbrt14RadicalInverseEim.exit:                 ; preds = %5, %._crit_edge.loo
 
 26:                                               ; preds = %2
   %27 = sext i32 %1 to i64
-  %28 = getelementptr inbounds i32, ptr @_ZN4pbrt6PrimesE, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr @_ZN4pbrt6PrimesE, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !103
   %30 = zext i32 %29 to i64
   %31 = udiv i64 -1, %30
@@ -7546,7 +7539,7 @@ _ZN4pbrt14RadicalInverseEim.exit:                 ; preds = %5, %._crit_edge.loo
   %40 = load ptr, ptr %39, align 8, !tbaa !403
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !404
-  %43 = getelementptr inbounds nuw %"class.pbrt::DigitPermutation", ptr %42, i64 %27
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %27
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load i64, ptr %44, align 8, !tbaa !400
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -7567,7 +7560,7 @@ _ZN4pbrt14RadicalInverseEim.exit:                 ; preds = %5, %._crit_edge.loo
   %54 = mul nsw i32 %.02427.i, %48
   %55 = add nsw i32 %54, %52
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i16, ptr %47, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %47, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !219
   %59 = zext i16 %58 to i64
   %60 = add i64 %53, %59
@@ -7618,7 +7611,7 @@ _ZN4pbrt23ScrambledRadicalInverseEimRKNS_16DigitPermutationE.exit: ; preds = %26
 define linkonce_odr dso_local noundef float @_ZN4pbrt27OwenScrambledRadicalInverseEimj(i32 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #21 comdat {
 .lr.ph:
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds i32, ptr @_ZN4pbrt6PrimesE, i64 %3
+  %4 = getelementptr inbounds [4 x i8], ptr @_ZN4pbrt6PrimesE, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !103
   %6 = zext i32 %5 to i64
   %7 = udiv i64 -1, %6
@@ -7914,11 +7907,11 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 144
   %30 = load ptr, ptr %29, align 8, !tbaa !121
   %31 = sext i32 %1 to i64
-  %32 = getelementptr inbounds i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %30, i64 %31
   store i32 %24, ptr %32, align 4, !tbaa !103
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 152
   %34 = load ptr, ptr %33, align 8, !tbaa !122
-  %35 = getelementptr inbounds i32, ptr %34, i64 %31
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %31
   store i32 %28, ptr %35, align 4, !tbaa !103
   %.not.i = icmp sgt i32 %23, -1
   %36 = icmp slt i32 %24, %.sroa.7120.8.extract.trunc
@@ -8207,13 +8200,13 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 184:                                              ; preds = %177, %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
   %185 = getelementptr inbounds nuw i8, ptr %17, i64 208
   %186 = load ptr, ptr %185, align 8, !tbaa !168
-  %187 = getelementptr inbounds %"struct.pbrt::Float4", ptr %186, i64 %31
+  %187 = getelementptr inbounds [16 x i8], ptr %186, i64 %31
   %188 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %189 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %190 = getelementptr inbounds nuw i8, ptr %17, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %187, i8 0, i64 16, i1 false)
   %191 = load ptr, ptr %190, align 8, !tbaa !169
-  %192 = getelementptr inbounds %"struct.pbrt::Float4", ptr %191, i64 %31
+  %192 = getelementptr inbounds [16 x i8], ptr %191, i64 %31
   %193 = load <4 x float>, ptr %15, align 16
   %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %193, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %194 = load <4 x float>, ptr %188, align 8
@@ -8223,7 +8216,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.35.12.vec.insert.i, ptr %.sroa.2.0..0..sroa_idx.i.i39, align 8, !tbaa !104
   %195 = getelementptr inbounds nuw i8, ptr %17, i64 176
   %196 = load ptr, ptr %195, align 8, !tbaa !170
-  %197 = getelementptr inbounds %"struct.pbrt::Float4", ptr %196, i64 %31
+  %197 = getelementptr inbounds [16 x i8], ptr %196, i64 %31
   %198 = load <4 x float>, ptr %189, align 16
   %.sroa.0.4.vec.insert.i40 = shufflevector <4 x float> %198, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i41 = shufflevector <4 x float> %198, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -8232,7 +8225,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.3.12.vec.insert.i41, ptr %.sroa.2.0..0..sroa_idx.i28.i, align 8, !tbaa !104
   %199 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %200 = load ptr, ptr %199, align 8, !tbaa !171
-  %201 = getelementptr inbounds float, ptr %200, i64 %31
+  %201 = getelementptr inbounds [4 x i8], ptr %200, i64 %31
   store float %.sroa.1195.0, ptr %201, align 4, !tbaa !130
   %202 = load i8, ptr %17, align 8, !tbaa !172, !range !99, !noundef !100
   %203 = trunc nuw i8 %202 to i1
@@ -8245,79 +8238,79 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store i8 0, ptr %207, align 1, !tbaa !174
   %208 = getelementptr inbounds nuw i8, ptr %17, i64 272
   %209 = load ptr, ptr %208, align 8, !tbaa !175
-  %210 = getelementptr inbounds float, ptr %209, i64 %31
+  %210 = getelementptr inbounds [4 x i8], ptr %209, i64 %31
   store float 0.000000e+00, ptr %210, align 4, !tbaa !130
   %211 = getelementptr inbounds nuw i8, ptr %17, i64 280
   %212 = load ptr, ptr %211, align 8, !tbaa !176
-  %213 = getelementptr inbounds float, ptr %212, i64 %31
+  %213 = getelementptr inbounds [4 x i8], ptr %212, i64 %31
   store float 0.000000e+00, ptr %213, align 4, !tbaa !130
   %214 = getelementptr inbounds nuw i8, ptr %17, i64 288
   %215 = load ptr, ptr %214, align 8, !tbaa !177
-  %216 = getelementptr inbounds float, ptr %215, i64 %31
+  %216 = getelementptr inbounds [4 x i8], ptr %215, i64 %31
   store float 0.000000e+00, ptr %216, align 4, !tbaa !130
   %217 = getelementptr inbounds nuw i8, ptr %17, i64 304
   %218 = load ptr, ptr %217, align 8, !tbaa !178
-  %219 = getelementptr inbounds float, ptr %218, i64 %31
+  %219 = getelementptr inbounds [4 x i8], ptr %218, i64 %31
   store float 0.000000e+00, ptr %219, align 4, !tbaa !130
   %220 = getelementptr inbounds nuw i8, ptr %17, i64 312
   %221 = load ptr, ptr %220, align 8, !tbaa !179
-  %222 = getelementptr inbounds float, ptr %221, i64 %31
+  %222 = getelementptr inbounds [4 x i8], ptr %221, i64 %31
   store float 0.000000e+00, ptr %222, align 4, !tbaa !130
   %223 = getelementptr inbounds nuw i8, ptr %17, i64 320
   %224 = load ptr, ptr %223, align 8, !tbaa !180
-  %225 = getelementptr inbounds float, ptr %224, i64 %31
+  %225 = getelementptr inbounds [4 x i8], ptr %224, i64 %31
   store float 0.000000e+00, ptr %225, align 4, !tbaa !130
   %226 = getelementptr inbounds nuw i8, ptr %17, i64 336
   %227 = load ptr, ptr %226, align 8, !tbaa !178
-  %228 = getelementptr inbounds float, ptr %227, i64 %31
+  %228 = getelementptr inbounds [4 x i8], ptr %227, i64 %31
   store float 0.000000e+00, ptr %228, align 4, !tbaa !130
   %229 = getelementptr inbounds nuw i8, ptr %17, i64 344
   %230 = load ptr, ptr %229, align 8, !tbaa !179
-  %231 = getelementptr inbounds float, ptr %230, i64 %31
+  %231 = getelementptr inbounds [4 x i8], ptr %230, i64 %31
   store float 0.000000e+00, ptr %231, align 4, !tbaa !130
   %232 = getelementptr inbounds nuw i8, ptr %17, i64 352
   %233 = load ptr, ptr %232, align 8, !tbaa !180
-  %234 = getelementptr inbounds float, ptr %233, i64 %31
+  %234 = getelementptr inbounds [4 x i8], ptr %233, i64 %31
   store float 0.000000e+00, ptr %234, align 4, !tbaa !130
   %235 = getelementptr inbounds nuw i8, ptr %17, i64 368
   %236 = load ptr, ptr %235, align 8, !tbaa !181
-  %237 = getelementptr inbounds float, ptr %236, i64 %31
+  %237 = getelementptr inbounds [4 x i8], ptr %236, i64 %31
   store float 0.000000e+00, ptr %237, align 4, !tbaa !130
   %238 = getelementptr inbounds nuw i8, ptr %17, i64 376
   %239 = load ptr, ptr %238, align 8, !tbaa !182
-  %240 = getelementptr inbounds float, ptr %239, i64 %31
+  %240 = getelementptr inbounds [4 x i8], ptr %239, i64 %31
   store float 0.000000e+00, ptr %240, align 4, !tbaa !130
   %241 = getelementptr inbounds nuw i8, ptr %17, i64 384
   %242 = load ptr, ptr %241, align 8, !tbaa !183
-  %243 = getelementptr inbounds float, ptr %242, i64 %31
+  %243 = getelementptr inbounds [4 x i8], ptr %242, i64 %31
   store float 0.000000e+00, ptr %243, align 4, !tbaa !130
   %244 = getelementptr inbounds nuw i8, ptr %17, i64 400
   %245 = load ptr, ptr %244, align 8, !tbaa !184
-  %246 = getelementptr inbounds float, ptr %245, i64 %31
+  %246 = getelementptr inbounds [4 x i8], ptr %245, i64 %31
   store float 0.000000e+00, ptr %246, align 4, !tbaa !130
   %247 = getelementptr inbounds nuw i8, ptr %17, i64 408
   %248 = load ptr, ptr %247, align 8, !tbaa !185
-  %249 = getelementptr inbounds float, ptr %248, i64 %31
+  %249 = getelementptr inbounds [4 x i8], ptr %248, i64 %31
   store float 0.000000e+00, ptr %249, align 4, !tbaa !130
   %250 = getelementptr inbounds nuw i8, ptr %17, i64 416
   %251 = load ptr, ptr %250, align 8, !tbaa !186
-  %252 = getelementptr inbounds float, ptr %251, i64 %31
+  %252 = getelementptr inbounds [4 x i8], ptr %251, i64 %31
   store float 0.000000e+00, ptr %252, align 4, !tbaa !130
   %253 = getelementptr inbounds nuw i8, ptr %17, i64 432
   %254 = load ptr, ptr %253, align 8, !tbaa !184
-  %255 = getelementptr inbounds float, ptr %254, i64 %31
+  %255 = getelementptr inbounds [4 x i8], ptr %254, i64 %31
   store float 0.000000e+00, ptr %255, align 4, !tbaa !130
   %256 = getelementptr inbounds nuw i8, ptr %17, i64 440
   %257 = load ptr, ptr %256, align 8, !tbaa !185
-  %258 = getelementptr inbounds float, ptr %257, i64 %31
+  %258 = getelementptr inbounds [4 x i8], ptr %257, i64 %31
   store float 0.000000e+00, ptr %258, align 4, !tbaa !130
   %259 = getelementptr inbounds nuw i8, ptr %17, i64 448
   %260 = load ptr, ptr %259, align 8, !tbaa !186
-  %261 = getelementptr inbounds float, ptr %260, i64 %31
+  %261 = getelementptr inbounds [4 x i8], ptr %260, i64 %31
   store float 0.000000e+00, ptr %261, align 4, !tbaa !130
   %262 = getelementptr inbounds nuw i8, ptr %17, i64 464
   %263 = load ptr, ptr %262, align 8, !tbaa !168
-  %264 = getelementptr inbounds %"struct.pbrt::Float4", ptr %263, i64 %31
+  %264 = getelementptr inbounds [16 x i8], ptr %263, i64 %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %264, i8 0, i64 16, i1 false)
   br label %265
 
@@ -8335,61 +8328,61 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %274 = getelementptr inbounds nuw i8, ptr %270, i64 24
   %275 = load ptr, ptr %274, align 8, !tbaa !175
   %276 = sext i32 %272 to i64
-  %277 = getelementptr inbounds float, ptr %275, i64 %276
+  %277 = getelementptr inbounds [4 x i8], ptr %275, i64 %276
   store float %273, ptr %277, align 4, !tbaa !130
   %278 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %279 = load float, ptr %278, align 4, !tbaa !189
   %280 = getelementptr inbounds nuw i8, ptr %270, i64 32
   %281 = load ptr, ptr %280, align 8, !tbaa !176
-  %282 = getelementptr inbounds float, ptr %281, i64 %276
+  %282 = getelementptr inbounds [4 x i8], ptr %281, i64 %276
   store float %279, ptr %282, align 4, !tbaa !130
   %283 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %284 = load float, ptr %283, align 8, !tbaa !190
   %285 = getelementptr inbounds nuw i8, ptr %270, i64 40
   %286 = load ptr, ptr %285, align 8, !tbaa !177
-  %287 = getelementptr inbounds float, ptr %286, i64 %276
+  %287 = getelementptr inbounds [4 x i8], ptr %286, i64 %276
   store float %284, ptr %287, align 4, !tbaa !130
   %288 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %289 = load float, ptr %288, align 4, !tbaa !191
   %290 = getelementptr inbounds nuw i8, ptr %270, i64 56
   %291 = load ptr, ptr %290, align 8, !tbaa !184
-  %292 = getelementptr inbounds float, ptr %291, i64 %276
+  %292 = getelementptr inbounds [4 x i8], ptr %291, i64 %276
   store float %289, ptr %292, align 4, !tbaa !130
   %293 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %294 = load float, ptr %293, align 16, !tbaa !193
   %295 = getelementptr inbounds nuw i8, ptr %270, i64 64
   %296 = load ptr, ptr %295, align 8, !tbaa !185
-  %297 = getelementptr inbounds float, ptr %296, i64 %276
+  %297 = getelementptr inbounds [4 x i8], ptr %296, i64 %276
   store float %294, ptr %297, align 4, !tbaa !130
   %298 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %299 = load float, ptr %298, align 4, !tbaa !194
   %300 = getelementptr inbounds nuw i8, ptr %270, i64 72
   %301 = load ptr, ptr %300, align 8, !tbaa !186
-  %302 = getelementptr inbounds float, ptr %301, i64 %276
+  %302 = getelementptr inbounds [4 x i8], ptr %301, i64 %276
   store float %299, ptr %302, align 4, !tbaa !130
   %303 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %304 = load float, ptr %303, align 8, !tbaa !195
   %305 = getelementptr inbounds nuw i8, ptr %270, i64 80
   %306 = load ptr, ptr %305, align 8, !tbaa !201
-  %307 = getelementptr inbounds float, ptr %306, i64 %276
+  %307 = getelementptr inbounds [4 x i8], ptr %306, i64 %276
   store float %304, ptr %307, align 4, !tbaa !130
   %308 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %309 = getelementptr inbounds nuw i8, ptr %270, i64 88
   %310 = load ptr, ptr %309, align 8, !tbaa !204
-  %311 = getelementptr inbounds %"class.pbrt::Medium", ptr %310, i64 %276
+  %311 = getelementptr inbounds [8 x i8], ptr %310, i64 %276
   %312 = load i64, ptr %308, align 16, !tbaa !205
   store i64 %312, ptr %311, align 8, !tbaa !205
   %313 = getelementptr inbounds nuw i8, ptr %270, i64 96
   %314 = load ptr, ptr %313, align 8, !tbaa !206
-  %315 = getelementptr inbounds i32, ptr %314, i64 %276
+  %315 = getelementptr inbounds [4 x i8], ptr %314, i64 %276
   store i32 0, ptr %315, align 4, !tbaa !103
   %316 = getelementptr inbounds nuw i8, ptr %270, i64 104
   %317 = load ptr, ptr %316, align 8, !tbaa !211
-  %318 = getelementptr inbounds i32, ptr %317, i64 %276
+  %318 = getelementptr inbounds [4 x i8], ptr %317, i64 %276
   store i32 %1, ptr %318, align 4, !tbaa !103
   %319 = getelementptr inbounds nuw i8, ptr %270, i64 120
   %320 = load ptr, ptr %319, align 8, !tbaa !169
-  %321 = getelementptr inbounds %"struct.pbrt::Float4", ptr %320, i64 %276
+  %321 = getelementptr inbounds [16 x i8], ptr %320, i64 %276
   %322 = load <4 x float>, ptr %15, align 16
   %.sroa.03.4.vec.insert.i.i = shufflevector <4 x float> %322, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %323 = load <4 x float>, ptr %188, align 8
@@ -8399,7 +8392,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.35.12.vec.insert.i.i, ptr %.sroa.2.0..0..sroa_idx.i.i.i47, align 8, !tbaa !104
   %324 = getelementptr inbounds nuw i8, ptr %270, i64 128
   %325 = load ptr, ptr %324, align 8, !tbaa !170
-  %326 = getelementptr inbounds %"struct.pbrt::Float4", ptr %325, i64 %276
+  %326 = getelementptr inbounds [16 x i8], ptr %325, i64 %276
   %327 = load <4 x float>, ptr %189, align 16
   %.sroa.0.4.vec.insert.i.i48 = shufflevector <4 x float> %327, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i.i49 = shufflevector <4 x float> %327, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -8412,7 +8405,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 
 328:                                              ; preds = %328, %268
   %indvars.iv.i.i.i = phi i64 [ 0, %268 ], [ %indvars.iv.next.i.i.i, %328 ]
-  %329 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i.i
+  %329 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.i.i
   store float 1.000000e+00, ptr %329, align 4, !tbaa !130
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -8421,7 +8414,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %328
   %330 = getelementptr inbounds nuw i8, ptr %270, i64 160
   %331 = load ptr, ptr %330, align 8, !tbaa !168
-  %332 = getelementptr inbounds %"struct.pbrt::Float4", ptr %331, i64 %276
+  %332 = getelementptr inbounds [16 x i8], ptr %331, i64 %276
   %333 = load <4 x float>, ptr %3, align 16
   %.sroa.0.4.vec.insert.i18.i = shufflevector <4 x float> %333, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i19.i = shufflevector <4 x float> %333, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -8431,11 +8424,11 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %328
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %334 = getelementptr inbounds nuw i8, ptr %270, i64 376
   %335 = load ptr, ptr %334, align 8, !tbaa !213
-  %336 = getelementptr inbounds float, ptr %335, i64 %276
+  %336 = getelementptr inbounds [4 x i8], ptr %335, i64 %276
   store float 1.000000e+00, ptr %336, align 4, !tbaa !130
   %337 = getelementptr inbounds nuw i8, ptr %270, i64 392
   %338 = load ptr, ptr %337, align 8, !tbaa !214
-  %339 = getelementptr inbounds i32, ptr %338, i64 %276
+  %339 = getelementptr inbounds [4 x i8], ptr %338, i64 %276
   store i32 0, ptr %339, align 4, !tbaa !103
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !tbaa !130
@@ -8443,7 +8436,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %328
 
 340:                                              ; preds = %340, %_ZN4pbrt15SampledSpectrumC2Ef.exit.i
   %indvars.iv.i.i21.i = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit.i ], [ %indvars.iv.next.i.i22.i, %340 ]
-  %341 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i21.i
+  %341 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.i21.i
   store float 1.000000e+00, ptr %341, align 4, !tbaa !130
   %indvars.iv.next.i.i22.i = add nuw nsw i64 %indvars.iv.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i64 %indvars.iv.next.i.i22.i, 4
@@ -8452,7 +8445,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %328
 _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %340
   %342 = getelementptr inbounds nuw i8, ptr %270, i64 184
   %343 = load ptr, ptr %342, align 8, !tbaa !168
-  %344 = getelementptr inbounds %"struct.pbrt::Float4", ptr %343, i64 %276
+  %344 = getelementptr inbounds [16 x i8], ptr %343, i64 %276
   %345 = load <4 x float>, ptr %4, align 16
   %.sroa.0.4.vec.insert.i27.i = shufflevector <4 x float> %345, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i28.i = shufflevector <4 x float> %345, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -8466,7 +8459,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %340
 
 346:                                              ; preds = %346, %_ZN4pbrt15SampledSpectrumC2Ef.exit24.i
   %indvars.iv.i.i30.i = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit24.i ], [ %indvars.iv.next.i.i31.i, %346 ]
-  %347 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i30.i
+  %347 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i30.i
   store float 1.000000e+00, ptr %347, align 4, !tbaa !130
   %indvars.iv.next.i.i31.i = add nuw nsw i64 %indvars.iv.i.i30.i, 1
   %exitcond.not.i.i32.i = icmp eq i64 %indvars.iv.next.i.i31.i, 4
@@ -8475,7 +8468,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %340
 348:                                              ; preds = %346
   %349 = getelementptr inbounds nuw i8, ptr %270, i64 208
   %350 = load ptr, ptr %349, align 8, !tbaa !168
-  %351 = getelementptr inbounds %"struct.pbrt::Float4", ptr %350, i64 %276
+  %351 = getelementptr inbounds [16 x i8], ptr %350, i64 %276
   %352 = load <4 x float>, ptr %5, align 16
   %.sroa.0.4.vec.insert.i36.i = shufflevector <4 x float> %352, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i37.i = shufflevector <4 x float> %352, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -8485,7 +8478,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %340
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %353 = getelementptr inbounds nuw i8, ptr %270, i64 384
   %354 = load ptr, ptr %353, align 8, !tbaa !215
-  %355 = getelementptr inbounds i32, ptr %354, i64 %276
+  %355 = getelementptr inbounds [4 x i8], ptr %354, i64 %276
   store i32 0, ptr %355, align 4, !tbaa !103
   %356 = load i8, ptr %93, align 8, !tbaa !160, !range !99, !noundef !100
   %357 = trunc nuw i8 %356 to i1
@@ -8499,7 +8492,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %340
   %359 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %360 = getelementptr inbounds nuw i8, ptr %17, i64 232
   %361 = load ptr, ptr %360, align 8, !tbaa !168
-  %362 = getelementptr inbounds %"struct.pbrt::Float4", ptr %361, i64 %31
+  %362 = getelementptr inbounds [16 x i8], ptr %361, i64 %31
   %363 = load <4 x float>, ptr %359, align 8
   %.sroa.0.4.vec.insert.i54 = shufflevector <4 x float> %363, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i55 = shufflevector <4 x float> %363, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -8511,7 +8504,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %340
 364:                                              ; preds = %265
   %365 = getelementptr inbounds nuw i8, ptr %17, i64 232
   %366 = load ptr, ptr %365, align 8, !tbaa !168
-  %367 = getelementptr inbounds %"struct.pbrt::Float4", ptr %366, i64 %31
+  %367 = getelementptr inbounds [16 x i8], ptr %366, i64 %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %367, i8 0, i64 16, i1 false)
   br label %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit
 
@@ -8665,7 +8658,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18PaddedSobolSampler15Samp
   br i1 %.not11.i, label %18, label %14
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i
+  %15 = getelementptr inbounds [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4, !tbaa !103
   %17 = xor i32 %16, %.0914.i
   br label %18
@@ -8699,7 +8692,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18PaddedSobolSampler15Samp
   br i1 %.not11.i19, label %30, label %26
 
 26:                                               ; preds = %.lr.ph.i15
-  %27 = getelementptr inbounds i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i16
+  %27 = getelementptr inbounds [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i16
   %28 = load i32, ptr %27, align 4, !tbaa !103
   %29 = xor i32 %28, %.0914.i17
   br label %30
@@ -8739,7 +8732,7 @@ _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit: ; preds = %20, %
   br i1 %.not11.i32, label %44, label %40
 
 40:                                               ; preds = %.lr.ph.i28
-  %41 = getelementptr inbounds i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i29
+  %41 = getelementptr inbounds [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i29
   %42 = load i32, ptr %41, align 4, !tbaa !103
   %43 = xor i32 %42, %.0914.i30
   br label %44
@@ -8819,7 +8812,7 @@ _ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit: ; preds = %34, %._cri
   br i1 %.not11.i45, label %89, label %85
 
 85:                                               ; preds = %.lr.ph.i41
-  %86 = getelementptr inbounds i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i42
+  %86 = getelementptr inbounds [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i42
   %87 = load i32, ptr %86, align 4, !tbaa !103
   %88 = xor i32 %87, %.0914.i43
   br label %89
@@ -9145,11 +9138,11 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %28 = load ptr, ptr %27, align 8, !tbaa !121
   %29 = sext i32 %1 to i64
-  %30 = getelementptr inbounds i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %28, i64 %29
   store i32 %22, ptr %30, align 4, !tbaa !103
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %32 = load ptr, ptr %31, align 8, !tbaa !122
-  %33 = getelementptr inbounds i32, ptr %32, i64 %29
+  %33 = getelementptr inbounds [4 x i8], ptr %32, i64 %29
   store i32 %26, ptr %33, align 4, !tbaa !103
   %.sroa.8101.0.insert.ext106 = zext i32 %26 to i64
   %.sroa.8101.0.insert.shift107 = shl nuw i64 %.sroa.8101.0.insert.ext106, 32
@@ -9198,7 +9191,7 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
 .lr.ph.i.i:                                       ; preds = %51
   %55 = sub nuw nsw i32 30, %47
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw [52 x i64], ptr @_ZN4pbrt16VdCSobolMatricesE, i64 %56
+  %57 = getelementptr inbounds nuw [416 x i8], ptr @_ZN4pbrt16VdCSobolMatricesE, i64 %56
   br label %65
 
 ._crit_edge.i.i:                                  ; preds = %71, %51
@@ -9213,7 +9206,7 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %61 = xor i64 %.025.lcssa.i.i, %60
   %62 = sub nuw nsw i32 30, %47
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw [52 x i64], ptr @_ZN4pbrt19VdCSobolMatricesInvE, i64 %63
+  %64 = getelementptr inbounds nuw [416 x i8], ptr @_ZN4pbrt19VdCSobolMatricesInvE, i64 %63
   br label %73
 
 65:                                               ; preds = %71, %.lr.ph.i.i
@@ -9225,7 +9218,7 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   br i1 %.not33.i.i, label %71, label %67
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv.i.i
   %69 = load i64, ptr %68, align 8, !tbaa !93
   %70 = xor i64 %69, %.02536.i.i
   br label %71
@@ -9246,7 +9239,7 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   br i1 %.not32.i.i, label %79, label %75
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw i64, ptr %64, i64 %indvars.iv46.i.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv46.i.i
   %77 = load i64, ptr %76, align 8, !tbaa !93
   %78 = xor i64 %77, %.02639.i.i
   br label %79
@@ -9464,13 +9457,13 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 196:                                              ; preds = %189, %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
   %197 = getelementptr inbounds nuw i8, ptr %15, i64 208
   %198 = load ptr, ptr %197, align 8, !tbaa !168
-  %199 = getelementptr inbounds %"struct.pbrt::Float4", ptr %198, i64 %29
+  %199 = getelementptr inbounds [16 x i8], ptr %198, i64 %29
   %200 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %201 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %202 = getelementptr inbounds nuw i8, ptr %15, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %199, i8 0, i64 16, i1 false)
   %203 = load ptr, ptr %202, align 8, !tbaa !169
-  %204 = getelementptr inbounds %"struct.pbrt::Float4", ptr %203, i64 %29
+  %204 = getelementptr inbounds [16 x i8], ptr %203, i64 %29
   %205 = load <4 x float>, ptr %11, align 16
   %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %205, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %206 = load <4 x float>, ptr %200, align 8
@@ -9480,7 +9473,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.35.12.vec.insert.i, ptr %.sroa.2.0..0..sroa_idx.i.i39, align 8, !tbaa !104
   %207 = getelementptr inbounds nuw i8, ptr %15, i64 176
   %208 = load ptr, ptr %207, align 8, !tbaa !170
-  %209 = getelementptr inbounds %"struct.pbrt::Float4", ptr %208, i64 %29
+  %209 = getelementptr inbounds [16 x i8], ptr %208, i64 %29
   %210 = load <4 x float>, ptr %201, align 16
   %.sroa.0.4.vec.insert.i40 = shufflevector <4 x float> %210, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i41 = shufflevector <4 x float> %210, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -9491,7 +9484,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %212 = load float, ptr %211, align 4, !tbaa !348
   %213 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %214 = load ptr, ptr %213, align 8, !tbaa !171
-  %215 = getelementptr inbounds float, ptr %214, i64 %29
+  %215 = getelementptr inbounds [4 x i8], ptr %214, i64 %29
   store float %212, ptr %215, align 4, !tbaa !130
   %216 = load i8, ptr %15, align 8, !tbaa !172, !range !99, !noundef !100
   %217 = trunc nuw i8 %216 to i1
@@ -9504,79 +9497,79 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store i8 0, ptr %221, align 1, !tbaa !174
   %222 = getelementptr inbounds nuw i8, ptr %15, i64 272
   %223 = load ptr, ptr %222, align 8, !tbaa !175
-  %224 = getelementptr inbounds float, ptr %223, i64 %29
+  %224 = getelementptr inbounds [4 x i8], ptr %223, i64 %29
   store float 0.000000e+00, ptr %224, align 4, !tbaa !130
   %225 = getelementptr inbounds nuw i8, ptr %15, i64 280
   %226 = load ptr, ptr %225, align 8, !tbaa !176
-  %227 = getelementptr inbounds float, ptr %226, i64 %29
+  %227 = getelementptr inbounds [4 x i8], ptr %226, i64 %29
   store float 0.000000e+00, ptr %227, align 4, !tbaa !130
   %228 = getelementptr inbounds nuw i8, ptr %15, i64 288
   %229 = load ptr, ptr %228, align 8, !tbaa !177
-  %230 = getelementptr inbounds float, ptr %229, i64 %29
+  %230 = getelementptr inbounds [4 x i8], ptr %229, i64 %29
   store float 0.000000e+00, ptr %230, align 4, !tbaa !130
   %231 = getelementptr inbounds nuw i8, ptr %15, i64 304
   %232 = load ptr, ptr %231, align 8, !tbaa !178
-  %233 = getelementptr inbounds float, ptr %232, i64 %29
+  %233 = getelementptr inbounds [4 x i8], ptr %232, i64 %29
   store float 0.000000e+00, ptr %233, align 4, !tbaa !130
   %234 = getelementptr inbounds nuw i8, ptr %15, i64 312
   %235 = load ptr, ptr %234, align 8, !tbaa !179
-  %236 = getelementptr inbounds float, ptr %235, i64 %29
+  %236 = getelementptr inbounds [4 x i8], ptr %235, i64 %29
   store float 0.000000e+00, ptr %236, align 4, !tbaa !130
   %237 = getelementptr inbounds nuw i8, ptr %15, i64 320
   %238 = load ptr, ptr %237, align 8, !tbaa !180
-  %239 = getelementptr inbounds float, ptr %238, i64 %29
+  %239 = getelementptr inbounds [4 x i8], ptr %238, i64 %29
   store float 0.000000e+00, ptr %239, align 4, !tbaa !130
   %240 = getelementptr inbounds nuw i8, ptr %15, i64 336
   %241 = load ptr, ptr %240, align 8, !tbaa !178
-  %242 = getelementptr inbounds float, ptr %241, i64 %29
+  %242 = getelementptr inbounds [4 x i8], ptr %241, i64 %29
   store float 0.000000e+00, ptr %242, align 4, !tbaa !130
   %243 = getelementptr inbounds nuw i8, ptr %15, i64 344
   %244 = load ptr, ptr %243, align 8, !tbaa !179
-  %245 = getelementptr inbounds float, ptr %244, i64 %29
+  %245 = getelementptr inbounds [4 x i8], ptr %244, i64 %29
   store float 0.000000e+00, ptr %245, align 4, !tbaa !130
   %246 = getelementptr inbounds nuw i8, ptr %15, i64 352
   %247 = load ptr, ptr %246, align 8, !tbaa !180
-  %248 = getelementptr inbounds float, ptr %247, i64 %29
+  %248 = getelementptr inbounds [4 x i8], ptr %247, i64 %29
   store float 0.000000e+00, ptr %248, align 4, !tbaa !130
   %249 = getelementptr inbounds nuw i8, ptr %15, i64 368
   %250 = load ptr, ptr %249, align 8, !tbaa !181
-  %251 = getelementptr inbounds float, ptr %250, i64 %29
+  %251 = getelementptr inbounds [4 x i8], ptr %250, i64 %29
   store float 0.000000e+00, ptr %251, align 4, !tbaa !130
   %252 = getelementptr inbounds nuw i8, ptr %15, i64 376
   %253 = load ptr, ptr %252, align 8, !tbaa !182
-  %254 = getelementptr inbounds float, ptr %253, i64 %29
+  %254 = getelementptr inbounds [4 x i8], ptr %253, i64 %29
   store float 0.000000e+00, ptr %254, align 4, !tbaa !130
   %255 = getelementptr inbounds nuw i8, ptr %15, i64 384
   %256 = load ptr, ptr %255, align 8, !tbaa !183
-  %257 = getelementptr inbounds float, ptr %256, i64 %29
+  %257 = getelementptr inbounds [4 x i8], ptr %256, i64 %29
   store float 0.000000e+00, ptr %257, align 4, !tbaa !130
   %258 = getelementptr inbounds nuw i8, ptr %15, i64 400
   %259 = load ptr, ptr %258, align 8, !tbaa !184
-  %260 = getelementptr inbounds float, ptr %259, i64 %29
+  %260 = getelementptr inbounds [4 x i8], ptr %259, i64 %29
   store float 0.000000e+00, ptr %260, align 4, !tbaa !130
   %261 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %262 = load ptr, ptr %261, align 8, !tbaa !185
-  %263 = getelementptr inbounds float, ptr %262, i64 %29
+  %263 = getelementptr inbounds [4 x i8], ptr %262, i64 %29
   store float 0.000000e+00, ptr %263, align 4, !tbaa !130
   %264 = getelementptr inbounds nuw i8, ptr %15, i64 416
   %265 = load ptr, ptr %264, align 8, !tbaa !186
-  %266 = getelementptr inbounds float, ptr %265, i64 %29
+  %266 = getelementptr inbounds [4 x i8], ptr %265, i64 %29
   store float 0.000000e+00, ptr %266, align 4, !tbaa !130
   %267 = getelementptr inbounds nuw i8, ptr %15, i64 432
   %268 = load ptr, ptr %267, align 8, !tbaa !184
-  %269 = getelementptr inbounds float, ptr %268, i64 %29
+  %269 = getelementptr inbounds [4 x i8], ptr %268, i64 %29
   store float 0.000000e+00, ptr %269, align 4, !tbaa !130
   %270 = getelementptr inbounds nuw i8, ptr %15, i64 440
   %271 = load ptr, ptr %270, align 8, !tbaa !185
-  %272 = getelementptr inbounds float, ptr %271, i64 %29
+  %272 = getelementptr inbounds [4 x i8], ptr %271, i64 %29
   store float 0.000000e+00, ptr %272, align 4, !tbaa !130
   %273 = getelementptr inbounds nuw i8, ptr %15, i64 448
   %274 = load ptr, ptr %273, align 8, !tbaa !186
-  %275 = getelementptr inbounds float, ptr %274, i64 %29
+  %275 = getelementptr inbounds [4 x i8], ptr %274, i64 %29
   store float 0.000000e+00, ptr %275, align 4, !tbaa !130
   %276 = getelementptr inbounds nuw i8, ptr %15, i64 464
   %277 = load ptr, ptr %276, align 8, !tbaa !168
-  %278 = getelementptr inbounds %"struct.pbrt::Float4", ptr %277, i64 %29
+  %278 = getelementptr inbounds [16 x i8], ptr %277, i64 %29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %278, i8 0, i64 16, i1 false)
   br label %279
 
@@ -9594,61 +9587,61 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %288 = getelementptr inbounds nuw i8, ptr %284, i64 24
   %289 = load ptr, ptr %288, align 8, !tbaa !175
   %290 = sext i32 %286 to i64
-  %291 = getelementptr inbounds float, ptr %289, i64 %290
+  %291 = getelementptr inbounds [4 x i8], ptr %289, i64 %290
   store float %287, ptr %291, align 4, !tbaa !130
   %292 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %293 = load float, ptr %292, align 4, !tbaa !189
   %294 = getelementptr inbounds nuw i8, ptr %284, i64 32
   %295 = load ptr, ptr %294, align 8, !tbaa !176
-  %296 = getelementptr inbounds float, ptr %295, i64 %290
+  %296 = getelementptr inbounds [4 x i8], ptr %295, i64 %290
   store float %293, ptr %296, align 4, !tbaa !130
   %297 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %298 = load float, ptr %297, align 8, !tbaa !190
   %299 = getelementptr inbounds nuw i8, ptr %284, i64 40
   %300 = load ptr, ptr %299, align 8, !tbaa !177
-  %301 = getelementptr inbounds float, ptr %300, i64 %290
+  %301 = getelementptr inbounds [4 x i8], ptr %300, i64 %290
   store float %298, ptr %301, align 4, !tbaa !130
   %302 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %303 = load float, ptr %302, align 4, !tbaa !191
   %304 = getelementptr inbounds nuw i8, ptr %284, i64 56
   %305 = load ptr, ptr %304, align 8, !tbaa !184
-  %306 = getelementptr inbounds float, ptr %305, i64 %290
+  %306 = getelementptr inbounds [4 x i8], ptr %305, i64 %290
   store float %303, ptr %306, align 4, !tbaa !130
   %307 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %308 = load float, ptr %307, align 16, !tbaa !193
   %309 = getelementptr inbounds nuw i8, ptr %284, i64 64
   %310 = load ptr, ptr %309, align 8, !tbaa !185
-  %311 = getelementptr inbounds float, ptr %310, i64 %290
+  %311 = getelementptr inbounds [4 x i8], ptr %310, i64 %290
   store float %308, ptr %311, align 4, !tbaa !130
   %312 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %313 = load float, ptr %312, align 4, !tbaa !194
   %314 = getelementptr inbounds nuw i8, ptr %284, i64 72
   %315 = load ptr, ptr %314, align 8, !tbaa !186
-  %316 = getelementptr inbounds float, ptr %315, i64 %290
+  %316 = getelementptr inbounds [4 x i8], ptr %315, i64 %290
   store float %313, ptr %316, align 4, !tbaa !130
   %317 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %318 = load float, ptr %317, align 8, !tbaa !195
   %319 = getelementptr inbounds nuw i8, ptr %284, i64 80
   %320 = load ptr, ptr %319, align 8, !tbaa !201
-  %321 = getelementptr inbounds float, ptr %320, i64 %290
+  %321 = getelementptr inbounds [4 x i8], ptr %320, i64 %290
   store float %318, ptr %321, align 4, !tbaa !130
   %322 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %323 = getelementptr inbounds nuw i8, ptr %284, i64 88
   %324 = load ptr, ptr %323, align 8, !tbaa !204
-  %325 = getelementptr inbounds %"class.pbrt::Medium", ptr %324, i64 %290
+  %325 = getelementptr inbounds [8 x i8], ptr %324, i64 %290
   %326 = load i64, ptr %322, align 16, !tbaa !205
   store i64 %326, ptr %325, align 8, !tbaa !205
   %327 = getelementptr inbounds nuw i8, ptr %284, i64 96
   %328 = load ptr, ptr %327, align 8, !tbaa !206
-  %329 = getelementptr inbounds i32, ptr %328, i64 %290
+  %329 = getelementptr inbounds [4 x i8], ptr %328, i64 %290
   store i32 0, ptr %329, align 4, !tbaa !103
   %330 = getelementptr inbounds nuw i8, ptr %284, i64 104
   %331 = load ptr, ptr %330, align 8, !tbaa !211
-  %332 = getelementptr inbounds i32, ptr %331, i64 %290
+  %332 = getelementptr inbounds [4 x i8], ptr %331, i64 %290
   store i32 %1, ptr %332, align 4, !tbaa !103
   %333 = getelementptr inbounds nuw i8, ptr %284, i64 120
   %334 = load ptr, ptr %333, align 8, !tbaa !169
-  %335 = getelementptr inbounds %"struct.pbrt::Float4", ptr %334, i64 %290
+  %335 = getelementptr inbounds [16 x i8], ptr %334, i64 %290
   %336 = load <4 x float>, ptr %11, align 16
   %.sroa.03.4.vec.insert.i.i = shufflevector <4 x float> %336, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %337 = load <4 x float>, ptr %200, align 8
@@ -9658,7 +9651,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.35.12.vec.insert.i.i, ptr %.sroa.2.0..0..sroa_idx.i.i.i47, align 8, !tbaa !104
   %338 = getelementptr inbounds nuw i8, ptr %284, i64 128
   %339 = load ptr, ptr %338, align 8, !tbaa !170
-  %340 = getelementptr inbounds %"struct.pbrt::Float4", ptr %339, i64 %290
+  %340 = getelementptr inbounds [16 x i8], ptr %339, i64 %290
   %341 = load <4 x float>, ptr %201, align 16
   %.sroa.0.4.vec.insert.i.i48 = shufflevector <4 x float> %341, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i.i49 = shufflevector <4 x float> %341, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -9671,7 +9664,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 
 342:                                              ; preds = %342, %282
   %indvars.iv.i.i.i = phi i64 [ 0, %282 ], [ %indvars.iv.next.i.i.i, %342 ]
-  %343 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i.i
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.i.i
   store float 1.000000e+00, ptr %343, align 4, !tbaa !130
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -9680,7 +9673,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %342
   %344 = getelementptr inbounds nuw i8, ptr %284, i64 160
   %345 = load ptr, ptr %344, align 8, !tbaa !168
-  %346 = getelementptr inbounds %"struct.pbrt::Float4", ptr %345, i64 %290
+  %346 = getelementptr inbounds [16 x i8], ptr %345, i64 %290
   %347 = load <4 x float>, ptr %3, align 16
   %.sroa.0.4.vec.insert.i18.i = shufflevector <4 x float> %347, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i19.i = shufflevector <4 x float> %347, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -9690,11 +9683,11 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %342
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %348 = getelementptr inbounds nuw i8, ptr %284, i64 376
   %349 = load ptr, ptr %348, align 8, !tbaa !213
-  %350 = getelementptr inbounds float, ptr %349, i64 %290
+  %350 = getelementptr inbounds [4 x i8], ptr %349, i64 %290
   store float 1.000000e+00, ptr %350, align 4, !tbaa !130
   %351 = getelementptr inbounds nuw i8, ptr %284, i64 392
   %352 = load ptr, ptr %351, align 8, !tbaa !214
-  %353 = getelementptr inbounds i32, ptr %352, i64 %290
+  %353 = getelementptr inbounds [4 x i8], ptr %352, i64 %290
   store i32 0, ptr %353, align 4, !tbaa !103
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !tbaa !130
@@ -9702,7 +9695,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %342
 
 354:                                              ; preds = %354, %_ZN4pbrt15SampledSpectrumC2Ef.exit.i
   %indvars.iv.i.i21.i = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit.i ], [ %indvars.iv.next.i.i22.i, %354 ]
-  %355 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i21.i
+  %355 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.i21.i
   store float 1.000000e+00, ptr %355, align 4, !tbaa !130
   %indvars.iv.next.i.i22.i = add nuw nsw i64 %indvars.iv.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i64 %indvars.iv.next.i.i22.i, 4
@@ -9711,7 +9704,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %342
 _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %354
   %356 = getelementptr inbounds nuw i8, ptr %284, i64 184
   %357 = load ptr, ptr %356, align 8, !tbaa !168
-  %358 = getelementptr inbounds %"struct.pbrt::Float4", ptr %357, i64 %290
+  %358 = getelementptr inbounds [16 x i8], ptr %357, i64 %290
   %359 = load <4 x float>, ptr %4, align 16
   %.sroa.0.4.vec.insert.i27.i = shufflevector <4 x float> %359, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i28.i = shufflevector <4 x float> %359, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -9725,7 +9718,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %354
 
 360:                                              ; preds = %360, %_ZN4pbrt15SampledSpectrumC2Ef.exit24.i
   %indvars.iv.i.i30.i = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit24.i ], [ %indvars.iv.next.i.i31.i, %360 ]
-  %361 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i30.i
+  %361 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i30.i
   store float 1.000000e+00, ptr %361, align 4, !tbaa !130
   %indvars.iv.next.i.i31.i = add nuw nsw i64 %indvars.iv.i.i30.i, 1
   %exitcond.not.i.i32.i = icmp eq i64 %indvars.iv.next.i.i31.i, 4
@@ -9734,7 +9727,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %354
 362:                                              ; preds = %360
   %363 = getelementptr inbounds nuw i8, ptr %284, i64 208
   %364 = load ptr, ptr %363, align 8, !tbaa !168
-  %365 = getelementptr inbounds %"struct.pbrt::Float4", ptr %364, i64 %290
+  %365 = getelementptr inbounds [16 x i8], ptr %364, i64 %290
   %366 = load <4 x float>, ptr %5, align 16
   %.sroa.0.4.vec.insert.i36.i = shufflevector <4 x float> %366, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i37.i = shufflevector <4 x float> %366, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -9744,7 +9737,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %354
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %367 = getelementptr inbounds nuw i8, ptr %284, i64 384
   %368 = load ptr, ptr %367, align 8, !tbaa !215
-  %369 = getelementptr inbounds i32, ptr %368, i64 %290
+  %369 = getelementptr inbounds [4 x i8], ptr %368, i64 %290
   store i32 0, ptr %369, align 4, !tbaa !103
   %370 = load i8, ptr %105, align 8, !tbaa !160, !range !99, !noundef !100
   %371 = trunc nuw i8 %370 to i1
@@ -9758,7 +9751,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %354
   %373 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %374 = getelementptr inbounds nuw i8, ptr %15, i64 232
   %375 = load ptr, ptr %374, align 8, !tbaa !168
-  %376 = getelementptr inbounds %"struct.pbrt::Float4", ptr %375, i64 %29
+  %376 = getelementptr inbounds [16 x i8], ptr %375, i64 %29
   %377 = load <4 x float>, ptr %373, align 8
   %.sroa.0.4.vec.insert.i54 = shufflevector <4 x float> %377, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i55 = shufflevector <4 x float> %377, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -9770,7 +9763,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %354
 378:                                              ; preds = %279
   %379 = getelementptr inbounds nuw i8, ptr %15, i64 232
   %380 = load ptr, ptr %379, align 8, !tbaa !168
-  %381 = getelementptr inbounds %"struct.pbrt::Float4", ptr %380, i64 %29
+  %381 = getelementptr inbounds [16 x i8], ptr %380, i64 %29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %381, i8 0, i64 16, i1 false)
   br label %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit
 
@@ -9808,7 +9801,7 @@ define linkonce_odr dso_local void @_ZN4pbrt15GetCameraSampleINS_12SobolSamplerE
   br i1 %.not11.i.i, label %14, label %10
 
 10:                                               ; preds = %.lr.ph.i.i
-  %11 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i.i
   %12 = load i32, ptr %11, align 4, !tbaa !103
   %13 = xor i32 %12, %.0914.i.i
   br label %14
@@ -9838,7 +9831,7 @@ define linkonce_odr dso_local void @_ZN4pbrt15GetCameraSampleINS_12SobolSamplerE
   br i1 %.not11.i11.i, label %26, label %22
 
 22:                                               ; preds = %.lr.ph.i7.i
-  %23 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i8.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i8.i
   %24 = load i32, ptr %23, align 4, !tbaa !103
   %25 = xor i32 %24, %.0914.i9.i
   br label %26
@@ -9997,7 +9990,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt12SobolSampler15SampleDime
   br i1 %.not11.i, label %18, label %14
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i
+  %15 = getelementptr inbounds [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4, !tbaa !103
   %17 = xor i32 %16, %.0914.i
   br label %18
@@ -10057,7 +10050,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt12SobolSampler15SampleDime
   br i1 %.not11.i16, label %46, label %42
 
 42:                                               ; preds = %.lr.ph.i12
-  %43 = getelementptr inbounds i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i13
+  %43 = getelementptr inbounds [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i13
   %44 = load i32, ptr %43, align 4, !tbaa !103
   %45 = xor i32 %44, %.0914.i14
   br label %46
@@ -10096,7 +10089,7 @@ _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit: ; preds = %37, %
   br i1 %.not11.i29, label %59, label %55
 
 55:                                               ; preds = %.lr.ph.i25
-  %56 = getelementptr inbounds i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i26
+  %56 = getelementptr inbounds [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i26
   %57 = load i32, ptr %56, align 4, !tbaa !103
   %58 = xor i32 %57, %.0914.i27
   br label %59
@@ -10175,7 +10168,7 @@ _ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit: ; preds = %50, %._cri
   br i1 %.not11.i42, label %103, label %99
 
 99:                                               ; preds = %.lr.ph.i38
-  %100 = getelementptr inbounds i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i39
+  %100 = getelementptr inbounds [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i39
   %101 = load i32, ptr %100, align 4, !tbaa !103
   %102 = xor i32 %101, %.0914.i40
   br label %103
@@ -10394,11 +10387,11 @@ define linkonce_odr dso_local void @_ZZN4pbrt23WavefrontPathIntegrator18Generate
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 144
   %30 = load ptr, ptr %29, align 8, !tbaa !121
   %31 = sext i32 %1 to i64
-  %32 = getelementptr inbounds i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %30, i64 %31
   store i32 %24, ptr %32, align 4, !tbaa !103
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 152
   %34 = load ptr, ptr %33, align 8, !tbaa !122
-  %35 = getelementptr inbounds i32, ptr %34, i64 %31
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %31
   store i32 %28, ptr %35, align 4, !tbaa !103
   %.not.i = icmp sgt i32 %23, -1
   %36 = icmp slt i32 %24, %.sroa.7120.8.extract.trunc
@@ -10721,13 +10714,13 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 221:                                              ; preds = %214, %_ZNK4pbrt6Camera11GenerateRayENS_12CameraSampleERNS_18SampledWavelengthsE.exit
   %222 = getelementptr inbounds nuw i8, ptr %17, i64 208
   %223 = load ptr, ptr %222, align 8, !tbaa !168
-  %224 = getelementptr inbounds %"struct.pbrt::Float4", ptr %223, i64 %31
+  %224 = getelementptr inbounds [16 x i8], ptr %223, i64 %31
   %225 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %226 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %227 = getelementptr inbounds nuw i8, ptr %17, i64 168
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %224, i8 0, i64 16, i1 false)
   %228 = load ptr, ptr %227, align 8, !tbaa !169
-  %229 = getelementptr inbounds %"struct.pbrt::Float4", ptr %228, i64 %31
+  %229 = getelementptr inbounds [16 x i8], ptr %228, i64 %31
   %230 = load <4 x float>, ptr %15, align 16
   %.sroa.03.4.vec.insert.i = shufflevector <4 x float> %230, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %231 = load <4 x float>, ptr %225, align 8
@@ -10737,7 +10730,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.35.12.vec.insert.i, ptr %.sroa.2.0..0..sroa_idx.i.i39, align 8, !tbaa !104
   %232 = getelementptr inbounds nuw i8, ptr %17, i64 176
   %233 = load ptr, ptr %232, align 8, !tbaa !170
-  %234 = getelementptr inbounds %"struct.pbrt::Float4", ptr %233, i64 %31
+  %234 = getelementptr inbounds [16 x i8], ptr %233, i64 %31
   %235 = load <4 x float>, ptr %226, align 16
   %.sroa.0.4.vec.insert.i40 = shufflevector <4 x float> %235, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i41 = shufflevector <4 x float> %235, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -10746,7 +10739,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.3.12.vec.insert.i41, ptr %.sroa.2.0..0..sroa_idx.i28.i, align 8, !tbaa !104
   %236 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %237 = load ptr, ptr %236, align 8, !tbaa !171
-  %238 = getelementptr inbounds float, ptr %237, i64 %31
+  %238 = getelementptr inbounds [4 x i8], ptr %237, i64 %31
   store float %.sroa.1195.0, ptr %238, align 4, !tbaa !130
   %239 = load i8, ptr %17, align 8, !tbaa !172, !range !99, !noundef !100
   %240 = trunc nuw i8 %239 to i1
@@ -10759,79 +10752,79 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store i8 0, ptr %244, align 1, !tbaa !174
   %245 = getelementptr inbounds nuw i8, ptr %17, i64 272
   %246 = load ptr, ptr %245, align 8, !tbaa !175
-  %247 = getelementptr inbounds float, ptr %246, i64 %31
+  %247 = getelementptr inbounds [4 x i8], ptr %246, i64 %31
   store float 0.000000e+00, ptr %247, align 4, !tbaa !130
   %248 = getelementptr inbounds nuw i8, ptr %17, i64 280
   %249 = load ptr, ptr %248, align 8, !tbaa !176
-  %250 = getelementptr inbounds float, ptr %249, i64 %31
+  %250 = getelementptr inbounds [4 x i8], ptr %249, i64 %31
   store float 0.000000e+00, ptr %250, align 4, !tbaa !130
   %251 = getelementptr inbounds nuw i8, ptr %17, i64 288
   %252 = load ptr, ptr %251, align 8, !tbaa !177
-  %253 = getelementptr inbounds float, ptr %252, i64 %31
+  %253 = getelementptr inbounds [4 x i8], ptr %252, i64 %31
   store float 0.000000e+00, ptr %253, align 4, !tbaa !130
   %254 = getelementptr inbounds nuw i8, ptr %17, i64 304
   %255 = load ptr, ptr %254, align 8, !tbaa !178
-  %256 = getelementptr inbounds float, ptr %255, i64 %31
+  %256 = getelementptr inbounds [4 x i8], ptr %255, i64 %31
   store float 0.000000e+00, ptr %256, align 4, !tbaa !130
   %257 = getelementptr inbounds nuw i8, ptr %17, i64 312
   %258 = load ptr, ptr %257, align 8, !tbaa !179
-  %259 = getelementptr inbounds float, ptr %258, i64 %31
+  %259 = getelementptr inbounds [4 x i8], ptr %258, i64 %31
   store float 0.000000e+00, ptr %259, align 4, !tbaa !130
   %260 = getelementptr inbounds nuw i8, ptr %17, i64 320
   %261 = load ptr, ptr %260, align 8, !tbaa !180
-  %262 = getelementptr inbounds float, ptr %261, i64 %31
+  %262 = getelementptr inbounds [4 x i8], ptr %261, i64 %31
   store float 0.000000e+00, ptr %262, align 4, !tbaa !130
   %263 = getelementptr inbounds nuw i8, ptr %17, i64 336
   %264 = load ptr, ptr %263, align 8, !tbaa !178
-  %265 = getelementptr inbounds float, ptr %264, i64 %31
+  %265 = getelementptr inbounds [4 x i8], ptr %264, i64 %31
   store float 0.000000e+00, ptr %265, align 4, !tbaa !130
   %266 = getelementptr inbounds nuw i8, ptr %17, i64 344
   %267 = load ptr, ptr %266, align 8, !tbaa !179
-  %268 = getelementptr inbounds float, ptr %267, i64 %31
+  %268 = getelementptr inbounds [4 x i8], ptr %267, i64 %31
   store float 0.000000e+00, ptr %268, align 4, !tbaa !130
   %269 = getelementptr inbounds nuw i8, ptr %17, i64 352
   %270 = load ptr, ptr %269, align 8, !tbaa !180
-  %271 = getelementptr inbounds float, ptr %270, i64 %31
+  %271 = getelementptr inbounds [4 x i8], ptr %270, i64 %31
   store float 0.000000e+00, ptr %271, align 4, !tbaa !130
   %272 = getelementptr inbounds nuw i8, ptr %17, i64 368
   %273 = load ptr, ptr %272, align 8, !tbaa !181
-  %274 = getelementptr inbounds float, ptr %273, i64 %31
+  %274 = getelementptr inbounds [4 x i8], ptr %273, i64 %31
   store float 0.000000e+00, ptr %274, align 4, !tbaa !130
   %275 = getelementptr inbounds nuw i8, ptr %17, i64 376
   %276 = load ptr, ptr %275, align 8, !tbaa !182
-  %277 = getelementptr inbounds float, ptr %276, i64 %31
+  %277 = getelementptr inbounds [4 x i8], ptr %276, i64 %31
   store float 0.000000e+00, ptr %277, align 4, !tbaa !130
   %278 = getelementptr inbounds nuw i8, ptr %17, i64 384
   %279 = load ptr, ptr %278, align 8, !tbaa !183
-  %280 = getelementptr inbounds float, ptr %279, i64 %31
+  %280 = getelementptr inbounds [4 x i8], ptr %279, i64 %31
   store float 0.000000e+00, ptr %280, align 4, !tbaa !130
   %281 = getelementptr inbounds nuw i8, ptr %17, i64 400
   %282 = load ptr, ptr %281, align 8, !tbaa !184
-  %283 = getelementptr inbounds float, ptr %282, i64 %31
+  %283 = getelementptr inbounds [4 x i8], ptr %282, i64 %31
   store float 0.000000e+00, ptr %283, align 4, !tbaa !130
   %284 = getelementptr inbounds nuw i8, ptr %17, i64 408
   %285 = load ptr, ptr %284, align 8, !tbaa !185
-  %286 = getelementptr inbounds float, ptr %285, i64 %31
+  %286 = getelementptr inbounds [4 x i8], ptr %285, i64 %31
   store float 0.000000e+00, ptr %286, align 4, !tbaa !130
   %287 = getelementptr inbounds nuw i8, ptr %17, i64 416
   %288 = load ptr, ptr %287, align 8, !tbaa !186
-  %289 = getelementptr inbounds float, ptr %288, i64 %31
+  %289 = getelementptr inbounds [4 x i8], ptr %288, i64 %31
   store float 0.000000e+00, ptr %289, align 4, !tbaa !130
   %290 = getelementptr inbounds nuw i8, ptr %17, i64 432
   %291 = load ptr, ptr %290, align 8, !tbaa !184
-  %292 = getelementptr inbounds float, ptr %291, i64 %31
+  %292 = getelementptr inbounds [4 x i8], ptr %291, i64 %31
   store float 0.000000e+00, ptr %292, align 4, !tbaa !130
   %293 = getelementptr inbounds nuw i8, ptr %17, i64 440
   %294 = load ptr, ptr %293, align 8, !tbaa !185
-  %295 = getelementptr inbounds float, ptr %294, i64 %31
+  %295 = getelementptr inbounds [4 x i8], ptr %294, i64 %31
   store float 0.000000e+00, ptr %295, align 4, !tbaa !130
   %296 = getelementptr inbounds nuw i8, ptr %17, i64 448
   %297 = load ptr, ptr %296, align 8, !tbaa !186
-  %298 = getelementptr inbounds float, ptr %297, i64 %31
+  %298 = getelementptr inbounds [4 x i8], ptr %297, i64 %31
   store float 0.000000e+00, ptr %298, align 4, !tbaa !130
   %299 = getelementptr inbounds nuw i8, ptr %17, i64 464
   %300 = load ptr, ptr %299, align 8, !tbaa !168
-  %301 = getelementptr inbounds %"struct.pbrt::Float4", ptr %300, i64 %31
+  %301 = getelementptr inbounds [16 x i8], ptr %300, i64 %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %301, i8 0, i64 16, i1 false)
   br label %302
 
@@ -10849,61 +10842,61 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   %311 = getelementptr inbounds nuw i8, ptr %307, i64 24
   %312 = load ptr, ptr %311, align 8, !tbaa !175
   %313 = sext i32 %309 to i64
-  %314 = getelementptr inbounds float, ptr %312, i64 %313
+  %314 = getelementptr inbounds [4 x i8], ptr %312, i64 %313
   store float %310, ptr %314, align 4, !tbaa !130
   %315 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %316 = load float, ptr %315, align 4, !tbaa !189
   %317 = getelementptr inbounds nuw i8, ptr %307, i64 32
   %318 = load ptr, ptr %317, align 8, !tbaa !176
-  %319 = getelementptr inbounds float, ptr %318, i64 %313
+  %319 = getelementptr inbounds [4 x i8], ptr %318, i64 %313
   store float %316, ptr %319, align 4, !tbaa !130
   %320 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %321 = load float, ptr %320, align 8, !tbaa !190
   %322 = getelementptr inbounds nuw i8, ptr %307, i64 40
   %323 = load ptr, ptr %322, align 8, !tbaa !177
-  %324 = getelementptr inbounds float, ptr %323, i64 %313
+  %324 = getelementptr inbounds [4 x i8], ptr %323, i64 %313
   store float %321, ptr %324, align 4, !tbaa !130
   %325 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %326 = load float, ptr %325, align 4, !tbaa !191
   %327 = getelementptr inbounds nuw i8, ptr %307, i64 56
   %328 = load ptr, ptr %327, align 8, !tbaa !184
-  %329 = getelementptr inbounds float, ptr %328, i64 %313
+  %329 = getelementptr inbounds [4 x i8], ptr %328, i64 %313
   store float %326, ptr %329, align 4, !tbaa !130
   %330 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %331 = load float, ptr %330, align 16, !tbaa !193
   %332 = getelementptr inbounds nuw i8, ptr %307, i64 64
   %333 = load ptr, ptr %332, align 8, !tbaa !185
-  %334 = getelementptr inbounds float, ptr %333, i64 %313
+  %334 = getelementptr inbounds [4 x i8], ptr %333, i64 %313
   store float %331, ptr %334, align 4, !tbaa !130
   %335 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %336 = load float, ptr %335, align 4, !tbaa !194
   %337 = getelementptr inbounds nuw i8, ptr %307, i64 72
   %338 = load ptr, ptr %337, align 8, !tbaa !186
-  %339 = getelementptr inbounds float, ptr %338, i64 %313
+  %339 = getelementptr inbounds [4 x i8], ptr %338, i64 %313
   store float %336, ptr %339, align 4, !tbaa !130
   %340 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %341 = load float, ptr %340, align 8, !tbaa !195
   %342 = getelementptr inbounds nuw i8, ptr %307, i64 80
   %343 = load ptr, ptr %342, align 8, !tbaa !201
-  %344 = getelementptr inbounds float, ptr %343, i64 %313
+  %344 = getelementptr inbounds [4 x i8], ptr %343, i64 %313
   store float %341, ptr %344, align 4, !tbaa !130
   %345 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %346 = getelementptr inbounds nuw i8, ptr %307, i64 88
   %347 = load ptr, ptr %346, align 8, !tbaa !204
-  %348 = getelementptr inbounds %"class.pbrt::Medium", ptr %347, i64 %313
+  %348 = getelementptr inbounds [8 x i8], ptr %347, i64 %313
   %349 = load i64, ptr %345, align 16, !tbaa !205
   store i64 %349, ptr %348, align 8, !tbaa !205
   %350 = getelementptr inbounds nuw i8, ptr %307, i64 96
   %351 = load ptr, ptr %350, align 8, !tbaa !206
-  %352 = getelementptr inbounds i32, ptr %351, i64 %313
+  %352 = getelementptr inbounds [4 x i8], ptr %351, i64 %313
   store i32 0, ptr %352, align 4, !tbaa !103
   %353 = getelementptr inbounds nuw i8, ptr %307, i64 104
   %354 = load ptr, ptr %353, align 8, !tbaa !211
-  %355 = getelementptr inbounds i32, ptr %354, i64 %313
+  %355 = getelementptr inbounds [4 x i8], ptr %354, i64 %313
   store i32 %1, ptr %355, align 4, !tbaa !103
   %356 = getelementptr inbounds nuw i8, ptr %307, i64 120
   %357 = load ptr, ptr %356, align 8, !tbaa !169
-  %358 = getelementptr inbounds %"struct.pbrt::Float4", ptr %357, i64 %313
+  %358 = getelementptr inbounds [16 x i8], ptr %357, i64 %313
   %359 = load <4 x float>, ptr %15, align 16
   %.sroa.03.4.vec.insert.i.i = shufflevector <4 x float> %359, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %360 = load <4 x float>, ptr %225, align 8
@@ -10913,7 +10906,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
   store <2 x float> %.sroa.35.12.vec.insert.i.i, ptr %.sroa.2.0..0..sroa_idx.i.i.i47, align 8, !tbaa !104
   %361 = getelementptr inbounds nuw i8, ptr %307, i64 128
   %362 = load ptr, ptr %361, align 8, !tbaa !170
-  %363 = getelementptr inbounds %"struct.pbrt::Float4", ptr %362, i64 %313
+  %363 = getelementptr inbounds [16 x i8], ptr %362, i64 %313
   %364 = load <4 x float>, ptr %226, align 16
   %.sroa.0.4.vec.insert.i.i48 = shufflevector <4 x float> %364, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i.i49 = shufflevector <4 x float> %364, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -10926,7 +10919,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 
 365:                                              ; preds = %365, %305
   %indvars.iv.i.i.i = phi i64 [ 0, %305 ], [ %indvars.iv.next.i.i.i, %365 ]
-  %366 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i.i
+  %366 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.i.i
   store float 1.000000e+00, ptr %366, align 4, !tbaa !130
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -10935,7 +10928,7 @@ _ZN4pstd8optionalIN4pbrt9CameraRayEEptEv.exit:    ; preds = %_ZNK4pbrt6Camera11G
 _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %365
   %367 = getelementptr inbounds nuw i8, ptr %307, i64 160
   %368 = load ptr, ptr %367, align 8, !tbaa !168
-  %369 = getelementptr inbounds %"struct.pbrt::Float4", ptr %368, i64 %313
+  %369 = getelementptr inbounds [16 x i8], ptr %368, i64 %313
   %370 = load <4 x float>, ptr %3, align 16
   %.sroa.0.4.vec.insert.i18.i = shufflevector <4 x float> %370, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i19.i = shufflevector <4 x float> %370, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -10945,11 +10938,11 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %365
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %371 = getelementptr inbounds nuw i8, ptr %307, i64 376
   %372 = load ptr, ptr %371, align 8, !tbaa !213
-  %373 = getelementptr inbounds float, ptr %372, i64 %313
+  %373 = getelementptr inbounds [4 x i8], ptr %372, i64 %313
   store float 1.000000e+00, ptr %373, align 4, !tbaa !130
   %374 = getelementptr inbounds nuw i8, ptr %307, i64 392
   %375 = load ptr, ptr %374, align 8, !tbaa !214
-  %376 = getelementptr inbounds i32, ptr %375, i64 %313
+  %376 = getelementptr inbounds [4 x i8], ptr %375, i64 %313
   store i32 0, ptr %376, align 4, !tbaa !103
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !tbaa !130
@@ -10957,7 +10950,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %365
 
 377:                                              ; preds = %377, %_ZN4pbrt15SampledSpectrumC2Ef.exit.i
   %indvars.iv.i.i21.i = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit.i ], [ %indvars.iv.next.i.i22.i, %377 ]
-  %378 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i21.i
+  %378 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.i21.i
   store float 1.000000e+00, ptr %378, align 4, !tbaa !130
   %indvars.iv.next.i.i22.i = add nuw nsw i64 %indvars.iv.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i64 %indvars.iv.next.i.i22.i, 4
@@ -10966,7 +10959,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.i:             ; preds = %365
 _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %377
   %379 = getelementptr inbounds nuw i8, ptr %307, i64 184
   %380 = load ptr, ptr %379, align 8, !tbaa !168
-  %381 = getelementptr inbounds %"struct.pbrt::Float4", ptr %380, i64 %313
+  %381 = getelementptr inbounds [16 x i8], ptr %380, i64 %313
   %382 = load <4 x float>, ptr %4, align 16
   %.sroa.0.4.vec.insert.i27.i = shufflevector <4 x float> %382, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i28.i = shufflevector <4 x float> %382, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -10980,7 +10973,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %377
 
 383:                                              ; preds = %383, %_ZN4pbrt15SampledSpectrumC2Ef.exit24.i
   %indvars.iv.i.i30.i = phi i64 [ 0, %_ZN4pbrt15SampledSpectrumC2Ef.exit24.i ], [ %indvars.iv.next.i.i31.i, %383 ]
-  %384 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i30.i
+  %384 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i30.i
   store float 1.000000e+00, ptr %384, align 4, !tbaa !130
   %indvars.iv.next.i.i31.i = add nuw nsw i64 %indvars.iv.i.i30.i, 1
   %exitcond.not.i.i32.i = icmp eq i64 %indvars.iv.next.i.i31.i, 4
@@ -10989,7 +10982,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %377
 385:                                              ; preds = %383
   %386 = getelementptr inbounds nuw i8, ptr %307, i64 208
   %387 = load ptr, ptr %386, align 8, !tbaa !168
-  %388 = getelementptr inbounds %"struct.pbrt::Float4", ptr %387, i64 %313
+  %388 = getelementptr inbounds [16 x i8], ptr %387, i64 %313
   %389 = load <4 x float>, ptr %5, align 16
   %.sroa.0.4.vec.insert.i36.i = shufflevector <4 x float> %389, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i37.i = shufflevector <4 x float> %389, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -10999,7 +10992,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %377
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %390 = getelementptr inbounds nuw i8, ptr %307, i64 384
   %391 = load ptr, ptr %390, align 8, !tbaa !215
-  %392 = getelementptr inbounds i32, ptr %391, i64 %313
+  %392 = getelementptr inbounds [4 x i8], ptr %391, i64 %313
   store i32 0, ptr %392, align 4, !tbaa !103
   %393 = load i8, ptr %130, align 8, !tbaa !160, !range !99, !noundef !100
   %394 = trunc nuw i8 %393 to i1
@@ -11013,7 +11006,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %377
   %396 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %397 = getelementptr inbounds nuw i8, ptr %17, i64 232
   %398 = load ptr, ptr %397, align 8, !tbaa !168
-  %399 = getelementptr inbounds %"struct.pbrt::Float4", ptr %398, i64 %31
+  %399 = getelementptr inbounds [16 x i8], ptr %398, i64 %31
   %400 = load <4 x float>, ptr %396, align 8
   %.sroa.0.4.vec.insert.i54 = shufflevector <4 x float> %400, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %.sroa.3.12.vec.insert.i55 = shufflevector <4 x float> %400, <4 x float> poison, <2 x i32> <i32 2, i32 3>
@@ -11025,7 +11018,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit24.i:           ; preds = %377
 401:                                              ; preds = %302
   %402 = getelementptr inbounds nuw i8, ptr %17, i64 232
   %403 = load ptr, ptr %402, align 8, !tbaa !168
-  %404 = getelementptr inbounds %"struct.pbrt::Float4", ptr %403, i64 %31
+  %404 = getelementptr inbounds [16 x i8], ptr %403, i64 %31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %404, i8 0, i64 16, i1 false)
   br label %_ZN4pstd8optionalIN4pbrt9CameraRayEED2Ev.exit
 
@@ -11172,7 +11165,7 @@ _ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %._crit_edge.i._ZNK4
   br i1 %.not11.i, label %86, label %82
 
 82:                                               ; preds = %.lr.ph.i9
-  %83 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i10
+  %83 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i10
   %84 = load i32, ptr %83, align 4, !tbaa !103
   %85 = xor i32 %84, %.0914.i
   br label %86
@@ -11200,7 +11193,7 @@ _ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %._crit_edge.i._ZNK4
   br i1 %.not11.i21, label %95, label %91
 
 91:                                               ; preds = %.lr.ph.i17
-  %92 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i18
+  %92 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i18
   %93 = load i32, ptr %92, align 4, !tbaa !103
   %94 = xor i32 %93, %.0914.i19
   br label %95
@@ -11234,7 +11227,7 @@ _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit: ; preds = %88, %
   br i1 %.not11.i35, label %106, label %102
 
 102:                                              ; preds = %.lr.ph.i31
-  %103 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i32
+  %103 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i32
   %104 = load i32, ptr %103, align 4, !tbaa !103
   %105 = xor i32 %104, %.0914.i33
   br label %106
@@ -11308,7 +11301,7 @@ _ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit: ; preds = %99, %._cri
   br i1 %.not11.i49, label %148, label %144
 
 144:                                              ; preds = %.lr.ph.i45
-  %145 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i46
+  %145 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i46
   %146 = load i32, ptr %145, align 4, !tbaa !103
   %147 = xor i32 %146, %.0914.i47
   br label %148
@@ -11462,7 +11455,7 @@ _ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %._crit_edge.i._ZNK4
   br i1 %.not11.i, label %86, label %82
 
 82:                                               ; preds = %.lr.ph.i14
-  %83 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i15
+  %83 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i15
   %84 = load i32, ptr %83, align 4, !tbaa !103
   %85 = xor i32 %84, %.0914.i
   br label %86
@@ -11492,7 +11485,7 @@ _ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %._crit_edge.i._ZNK4
   br i1 %.not11.i26, label %98, label %94
 
 94:                                               ; preds = %.lr.ph.i22
-  %95 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i23
+  %95 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i23
   %96 = load i32, ptr %95, align 4, !tbaa !103
   %97 = xor i32 %96, %.0914.i24
   br label %98
@@ -11523,7 +11516,7 @@ _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread: ; preds =
   br i1 %.not11.i41, label %109, label %105
 
 105:                                              ; preds = %.lr.ph.i37
-  %106 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i38
+  %106 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i38
   %107 = load i32, ptr %106, align 4, !tbaa !103
   %108 = xor i32 %107, %.0914.i39
   br label %109
@@ -11553,7 +11546,7 @@ _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread: ; preds =
   br i1 %.not11.i55, label %121, label %117
 
 117:                                              ; preds = %.lr.ph.i51
-  %118 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i52
+  %118 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i52
   %119 = load i32, ptr %118, align 4, !tbaa !103
   %120 = xor i32 %119, %.0914.i53
   br label %121
@@ -11588,7 +11581,7 @@ _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit63: ; preds = %_ZN
   br i1 %.not11.i70, label %132, label %128
 
 128:                                              ; preds = %.lr.ph.i66
-  %129 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i67
+  %129 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i67
   %130 = load i32, ptr %129, align 4, !tbaa !103
   %131 = xor i32 %130, %.0914.i68
   br label %132
@@ -11632,7 +11625,7 @@ _ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit: ; preds = %125, %._cr
   br i1 %.not11.i84, label %154, label %150
 
 150:                                              ; preds = %.lr.ph.i80
-  %151 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i81
+  %151 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i81
   %152 = load i32, ptr %151, align 4, !tbaa !103
   %153 = xor i32 %152, %.0914.i82
   br label %154
@@ -11706,7 +11699,7 @@ _ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit92: ; preds = %_ZN4pbrt
   br i1 %.not11.i99, label %196, label %192
 
 192:                                              ; preds = %.lr.ph.i95
-  %193 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i96
+  %193 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i96
   %194 = load i32, ptr %193, align 4, !tbaa !103
   %195 = xor i32 %194, %.0914.i97
   br label %196
@@ -11767,7 +11760,7 @@ _ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit: ; preds = %171
   br i1 %.not11.i112, label %227, label %223
 
 223:                                              ; preds = %.lr.ph.i108
-  %224 = getelementptr inbounds nuw i32, ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i109
+  %224 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4pbrt15SobolMatrices32E, i64 %indvars.iv.i109
   %225 = load i32, ptr %224, align 4, !tbaa !103
   %226 = xor i32 %225, %.0914.i110
   br label %227

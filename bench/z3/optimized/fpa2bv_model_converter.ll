@@ -8,12 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.core_hashtable.base.47 = type <{ ptr, i32, i32, i32 }>
 %class.ptr_vector.71 = type { %class.vector.72 }
 %class.vector.72 = type { ptr }
-%class.obj_hash_entry = type { ptr }
-%"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry" = type { %"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data" }
-%"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data" = type { ptr, %"struct.std::pair" }
-%"struct.std::pair" = type { i32, ptr }
-%"class.obj_map<func_decl, func_interp *>::obj_map_entry" = type { %"struct.obj_map<func_decl, func_interp *>::key_data" }
-%"struct.obj_map<func_decl, func_interp *>::key_data" = type { ptr, ptr }
 %class.ref = type { ptr }
 
 $_ZN6vectorIP4exprLb0EjED2Ev = comdat any
@@ -182,7 +176,7 @@ _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %._crit_edge
 37:                                               ; preds = %.lr.ph, %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ]
   %38 = load ptr, ptr %19, align 8, !tbaa !42
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !46
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %42 = load i32, ptr %41, align 4, !tbaa !47
@@ -194,7 +188,7 @@ _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %._crit_edge
   %.idx.i.i = shl nuw nsw i64 %47, 3
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i
   %49 = zext i32 %43 to i64
-  %50 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %46, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %49
   %.not34.i.i = icmp eq i32 %45, %43
   br i1 %.not34.i.i, label %.preheader.i.i, label %.lr.ph.i.i
 
@@ -264,7 +258,7 @@ _ZNK10model_core17get_num_functionsEv.exit:       ; preds = %._crit_edge
   %.idx.i.i.i.i = mul nuw nsw i64 %76, 24
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 %.idx.i.i.i.i
   %78 = zext i32 %72 to i64
-  %79 = getelementptr inbounds nuw %"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry", ptr %75, i64 %78
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %75, i64 %78
   %.not34.i.i.i.i = icmp eq i32 %74, %72
   br i1 %.not34.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -360,7 +354,7 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
 111:                                              ; preds = %.lr.ph115, %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit72
   %indvars.iv134 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next135, %_ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit72 ]
   %112 = load ptr, ptr %26, align 8, !tbaa !42
-  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv134
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv134
   %114 = load ptr, ptr %113, align 8, !tbaa !46
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 12
   %116 = load i32, ptr %115, align 4, !tbaa !47
@@ -372,7 +366,7 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   %.idx.i.i53 = shl nuw nsw i64 %121, 3
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 %.idx.i.i53
   %123 = zext i32 %117 to i64
-  %124 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %120, i64 %123
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %123
   %.not34.i.i54 = icmp eq i32 %119, %117
   br i1 %.not34.i.i54, label %.preheader.i.i60, label %.lr.ph.i.i55
 
@@ -439,7 +433,7 @@ _ZNK14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_E
   %148 = and i32 %147, %116
   %149 = load ptr, ptr %31, align 8, !tbaa !68
   %150 = zext i32 %146 to i64
-  %151 = getelementptr inbounds nuw %"class.obj_map<func_decl, func_interp *>::obj_map_entry", ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %150
   %.not34.i.i.i.i74 = icmp eq i32 %148, %146
   br i1 %.not34.i.i.i.i74, label %.lr.ph38.i.i.i.i81.preheader, label %.lr.ph.i.i.i.i75.preheader
 

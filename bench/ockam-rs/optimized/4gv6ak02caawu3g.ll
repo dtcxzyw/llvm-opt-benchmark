@@ -495,7 +495,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.6783306594713324768.exit.th
   %37 = add i64 %27, -1
   store i64 %37, ptr %26, align 8, !alias.scope !131
   %38 = load ptr, ptr %30, align 8, !alias.scope !131, !nonnull !18, !noundef !18
-  %39 = getelementptr inbounds i64, ptr %38, i64 %32
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %32
   %40 = load i64, ptr %39, align 8, !noalias !131, !noundef !18
   br label %41
 
@@ -563,7 +563,7 @@ define hidden { i64, i64 } @"_ZN12sharded_slab3tid12Registration8register28_$u7b
   %14 = add i64 %4, -1
   store i64 %14, ptr %3, align 8, !alias.scope !139
   %15 = load ptr, ptr %7, align 8, !alias.scope !139, !nonnull !18, !noundef !18
-  %16 = getelementptr inbounds i64, ptr %15, i64 %9
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %9
   %17 = load i64, ptr %16, align 8, !noalias !139, !noundef !18
   br label %18
 
@@ -4123,7 +4123,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
 
 113:                                              ; preds = %109
   %.val9.i.i.i = load ptr, ptr %98, align 8, !noalias !783, !nonnull !18, !noundef !18
-  %114 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { ptr, i64 }, i64 } } }, [4 x i64] }, ptr %.val9.i.i.i, i64 %103
+  %114 = getelementptr inbounds [64 x i8], ptr %.val9.i.i.i, i64 %103
   %115 = cmpxchg ptr %114, i32 0, i32 1 acquire monotonic, align 4, !noalias !786
   %.sroa.18.0.in.i.i.i.i.i = extractvalue { i32, i1 } %115, 1
   br i1 %.sroa.18.0.in.i.i.i.i.i, label %116, label %.noexc25.i.i
@@ -4186,7 +4186,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
 139:                                              ; preds = %._crit_edge.i.i.i.i, %127
   %140 = phi i64 [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %130, %127 ]
   %141 = load ptr, ptr %128, align 8, !alias.scope !793, !noalias !796, !nonnull !18, !noundef !18
-  %142 = getelementptr inbounds ptr, ptr %141, i64 %140
+  %142 = getelementptr inbounds [8 x i8], ptr %141, i64 %140
   store ptr %88, ptr %142, align 8, !noalias !796
   %143 = load i64, ptr %129, align 8, !alias.scope !793, !noalias !798, !noundef !18
   %144 = add i64 %143, 1

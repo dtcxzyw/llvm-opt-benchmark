@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__1::__compressed_pair_elem" = type { ptr }
 %"struct.std::__1::__compressed_pair_elem.22" = type { ptr }
 %class.anon = type { ptr, i64 }
-%"class.std::__1::thread" = type { i64 }
 %"class.std::__1::unique_lock" = type <{ ptr, i8, [7 x i8] }>
 %"class.std::__1::chrono::duration" = type { i64 }
 %struct.timespec = type { i64, i64 }
@@ -264,7 +263,7 @@ _ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEEC2EmmS4_.exit.i.i: ; p
   %49 = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 %35
   store ptr %49, ptr %21, align 8
   store ptr %49, ptr %22, align 8
-  %50 = getelementptr inbounds %"class.std::__1::thread", ptr %storemerge.i.i.i, i64 %.0.i.i.i
+  %50 = getelementptr inbounds [8 x i8], ptr %storemerge.i.i.i, i64 %.0.i.i.i
   store ptr %50, ptr %19, align 8
   invoke fastcc void @"_ZNSt3__116allocator_traitsINS_9allocatorINS_6threadEEEE9constructB8ne190000IS2_JZN3tev10ThreadPool12startThreadsEmE3$_0EvTnNS_9enable_ifIXntsr15__has_constructIS3_PT_DpT0_EE5valueEiE4typeELi0EEEvRS3_SB_DpOSC_"(ptr noundef %49, ptr noundef nonnull readonly align 8 dereferenceable(16) %4)
           to label %51 unwind label %67
@@ -278,7 +277,7 @@ _ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEEC2EmmS4_.exit.i.i: ; p
   %57 = sub i64 %55, %56
   %58 = ashr exact i64 %57, 3
   %59 = sub nsw i64 0, %58
-  %60 = getelementptr inbounds %"class.std::__1::thread", ptr %49, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %49, i64 %59
   %.not29.i.i.i.i = icmp eq ptr %54, %53
   br i1 %.not29.i.i.i.i, label %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -1549,7 +1548,7 @@ _ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit:      ; preds = %13, %19, %23
 29:                                               ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit.i, %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit
   %.sroa.09.0.i = phi ptr [ %0, %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit ], [ %.sroa.09.1.i, %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit.i ]
   %.0.i = phi i64 [ 0, %_ZN3tev10ThreadPool10QueuedTaskC2EOS1_.exit ], [ %.1.i, %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit.i ]
-  %30 = getelementptr %"struct.tev::ThreadPool::QueuedTask", ptr %.sroa.09.0.i, i64 %.0.i
+  %30 = getelementptr [64 x i8], ptr %.sroa.09.0.i, i64 %.0.i
   %31 = getelementptr i8, ptr %30, i64 64
   %32 = shl nsw i64 %.0.i, 1
   %33 = or disjoint i64 %32, 1
@@ -1869,7 +1868,7 @@ define linkonce_odr hidden void @_ZNSt3__19__sift_upB8ne190000INS_17_ClassicAlgP
 7:                                                ; preds = %4
   %8 = add nsw i64 %3, -2
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw %"struct.tev::ThreadPool::QueuedTask", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %9
   %11 = getelementptr inbounds i8, ptr %1, i64 -64
   %12 = load i32, ptr %10, align 16
   %13 = load i32, ptr %11, align 16
@@ -1988,7 +1987,7 @@ _ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit:      ; preds = %48, %51, %56
 61:                                               ; preds = %_ZN3tev10ThreadPool10QueuedTaskaSEOS1_.exit
   %62 = add nsw i64 %.0, -1
   %63 = lshr i64 %62, 1
-  %64 = getelementptr inbounds nuw %"struct.tev::ThreadPool::QueuedTask", ptr %0, i64 %63
+  %64 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %63
   %65 = load i32, ptr %64, align 16
   %66 = icmp slt i32 %65, %.pre37
   br i1 %66, label %34, label %67, !llvm.loop !12

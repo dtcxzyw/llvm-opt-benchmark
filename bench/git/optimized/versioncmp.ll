@@ -3,8 +3,6 @@ source_filename = "bench/git/original/versioncmp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.string_list_item = type { ptr, ptr }
-
 @versioncmp.next_state = internal unnamed_addr constant [12 x i8] c"\00\03\09\00\03\03\00\06\06\00\06\09", align 1
 @versioncmp.result_type = internal unnamed_addr constant [36 x i8] c"\02\02\02\02\03\02\02\02\02\02\FF\FF\01\03\03\01\03\03\02\02\02\02\02\02\02\02\02\02\01\01\FF\02\02\FF\02\02", align 16
 @sane_ctype = external local_unnamed_addr constant [256 x i8], align 16
@@ -148,7 +146,7 @@ define dso_local i32 @versioncmp(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %.sroa.545.050.i = phi i32 [ %.sroa.545.1.i, %find_better_matching_suffix.exit43.i ], [ %55, %50 ]
   %.sroa.846.049.i = phi i32 [ %.sroa.846.1.i, %find_better_matching_suffix.exit43.i ], [ -1, %50 ]
   %62 = load ptr, ptr %61, align 8, !tbaa !19
-  %63 = getelementptr inbounds nuw %struct.string_list_item, ptr %62, i64 %.02955.i
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %.02955.i
   %64 = load ptr, ptr %63, align 8, !tbaa !20
   %65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #5
   %66 = trunc i64 %65 to i32

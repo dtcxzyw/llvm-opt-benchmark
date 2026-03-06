@@ -842,7 +842,7 @@ switch.hole_check:                                ; preds = %12
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %22 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.pm_regexp_parse_quantifier, i64 %22
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.pm_regexp_parse_quantifier, i64 %22
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %23
 

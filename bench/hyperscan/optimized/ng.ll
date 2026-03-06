@@ -1401,7 +1401,7 @@ _ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5
   br i1 %286, label %287, label %289
 
 287:                                              ; preds = %285
-  %288 = getelementptr inbounds nuw %"class.std::unique_ptr.91", ptr %266, i64 %282
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %266, i64 %282
   br label %_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit
 
 289:                                              ; preds = %285
@@ -1414,11 +1414,11 @@ _ZNSt15_Deque_iteratorISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EERS5
 
 293:                                              ; preds = %291, %289
   %294 = phi i64 [ %290, %289 ], [ %292, %291 ]
-  %295 = getelementptr inbounds ptr, ptr %248, i64 %294
+  %295 = getelementptr inbounds [8 x i8], ptr %248, i64 %294
   %296 = load ptr, ptr %295, align 8, !noalias !26
   %297 = shl nsw i64 %294, 6
   %298 = sub nsw i64 %283, %297
-  %299 = getelementptr inbounds %"class.std::unique_ptr.91", ptr %296, i64 %298
+  %299 = getelementptr inbounds [8 x i8], ptr %296, i64 %298
   br label %_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit
 
 _ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit: ; preds = %287, %293
@@ -1658,26 +1658,26 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L17processComponentsERNS_2NGER
 
 _ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit: ; preds = %59
   %61 = lshr i64 %57, 6
-  %62 = getelementptr inbounds nuw ptr, ptr %52, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %61
   %63 = load ptr, ptr %62, align 8, !noalias !30
   %64 = and i64 %57, 63
-  %65 = getelementptr inbounds nuw %"class.std::unique_ptr.91", ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %64
   %66 = load ptr, ptr %65, align 8
   %.not35 = icmp eq ptr %66, null
   br i1 %.not35, label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EE5resetEPS1_.exit, label %.thread33
 
 _ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit.thread32: ; preds = %49
   %67 = ashr i64 %57, 6
-  %68 = getelementptr inbounds ptr, ptr %52, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %52, i64 %67
   %69 = load ptr, ptr %68, align 8, !noalias !30
   %70 = and i64 %57, 63
-  %71 = getelementptr inbounds nuw %"class.std::unique_ptr.91", ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %70
   %72 = load ptr, ptr %71, align 8
   %.not34 = icmp eq ptr %72, null
   br i1 %.not34, label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EE5resetEPS1_.exit, label %.thread33
 
 _ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit.thread: ; preds = %59
-  %73 = getelementptr inbounds nuw %"class.std::unique_ptr.91", ptr %50, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8
   %.not36 = icmp eq ptr %74, null
   br i1 %.not36, label %_ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EE5resetEPS1_.exit, label %_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit25
@@ -1687,7 +1687,7 @@ _ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.e
   %76 = phi i64 [ %61, %_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit ], [ %67, %_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit.thread32 ]
   %77 = shl nsw i64 %76, 6
   %78 = sub nsw i64 %57, %77
-  %79 = getelementptr inbounds %"class.std::unique_ptr.91", ptr %75, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %75, i64 %78
   %.pre = load ptr, ptr %79, align 8
   br label %_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit25
 
@@ -1988,7 +1988,7 @@ _ZN3ue2L12addComponentERNS_2NGERNS_8NGHolderERKNS_14ExpressionInfoENS_8som_typeE
   br i1 %201, label %202, label %204
 
 202:                                              ; preds = %200
-  %203 = getelementptr inbounds nuw %"class.std::unique_ptr.91", ptr %191, i64 %indvars.iv
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %indvars.iv
   br label %_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit27
 
 204:                                              ; preds = %200
@@ -2001,11 +2001,11 @@ _ZN3ue2L12addComponentERNS_2NGERNS_8NGHolderERKNS_14ExpressionInfoENS_8som_typeE
 
 208:                                              ; preds = %206, %204
   %209 = phi i64 [ %205, %204 ], [ %207, %206 ]
-  %210 = getelementptr inbounds ptr, ptr %193, i64 %209
+  %210 = getelementptr inbounds [8 x i8], ptr %193, i64 %209
   %211 = load ptr, ptr %210, align 8, !noalias !34
   %212 = shl nsw i64 %209, 6
   %213 = sub nsw i64 %198, %212
-  %214 = getelementptr inbounds %"class.std::unique_ptr.91", ptr %211, i64 %213
+  %214 = getelementptr inbounds [8 x i8], ptr %211, i64 %213
   br label %_ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit27
 
 _ZNSt5dequeISt10unique_ptrIN3ue28NGHolderESt14default_deleteIS2_EESaIS5_EEixEm.exit27: ; preds = %202, %208
@@ -2325,7 +2325,7 @@ define hidden noundef zeroext i1 @_ZN3ue22NG10addLiteralERKNS_11ue2_literalEjjbN
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.6.019.i.i
   %24 = load i8, ptr %23, align 1
   %25 = lshr i64 %.sroa.6.019.i.i, 6
-  %26 = getelementptr inbounds nuw i64, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %.sroa.6.019.i.i, 63
   %29 = lshr i64 %27, %28
@@ -2744,7 +2744,7 @@ define linkonce_odr hidden void @_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj(p
   %6 = load ptr, ptr %1, align 8, !noalias !58
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !noalias !61
-  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %8
   %10 = ptrtoint ptr %6 to i64
   %11 = icmp sgt i64 %8, 0
   br i1 %11, label %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit
@@ -2757,7 +2757,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i: ; preds
   %13 = phi ptr [ %21, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i ], [ %6, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i ]
   %.012.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i ], [ %8, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i ]
   %14 = lshr i64 %.012.i.i, 1
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !noalias !64
   %17 = icmp ult i32 %16, %12
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -2831,7 +2831,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIv
   %48 = sub i64 %47, %40
   %49 = ashr exact i64 %48, 2
   %50 = sub nsw i64 0, %49
-  %51 = getelementptr inbounds i32, ptr %9, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %9, i64 %50
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %51, ptr nonnull align 4 %23, i64 %48, i1 false), !noalias !70
   br label %_ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i.i.i
 
@@ -2921,7 +2921,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEm
 .thread.i:                                        ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
   %38 = load i32, ptr %4, align 4
   store i32 %38, ptr %37, align 4
-  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %3
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %3
   br label %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE40priv_forward_range_insert_new_allocationINS0_3dtl17insert_copy_proxyIS4_PjEEEEvS9_mS9_mT_.exit
 
 40:                                               ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
@@ -2937,8 +2937,8 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEm
   %.0.i.i.i = phi ptr [ %42, %41 ], [ %37, %40 ]
   %44 = load i32, ptr %4, align 4
   store i32 %44, ptr %.0.i.i.i, align 4
-  %45 = getelementptr inbounds nuw i32, ptr %.0.i.i.i, i64 %3
-  %46 = getelementptr inbounds nuw i32, ptr %7, i64 %15
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %3
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %15
   %47 = icmp ne ptr %6, %46
   %48 = icmp ne ptr %6, null
   %spec.select.i.i21.i = and i1 %48, %47

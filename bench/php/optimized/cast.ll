@@ -314,7 +314,7 @@ php_stream_mode_sanitize_fdopen_fopencookie.exit: ; preds = %60, %61
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %98 = load ptr, ptr %97, align 8, !tbaa !32
   %99 = zext nneg i32 %7 to i64
-  %100 = getelementptr inbounds nuw ptr, ptr @_php_stream_cast.cast_names, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr @_php_stream_cast.cast_names, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !33
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef %98, ptr noundef %101) #8
   br label %124

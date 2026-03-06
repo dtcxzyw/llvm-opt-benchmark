@@ -3,10 +3,6 @@ source_filename = "bench/abc/original/fretInit.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Flow_Data_t_ = type { i16, %union.anon, i32 }
-%union.anon = type { ptr }
-%struct.NodeLag_T_ = type { i32, i32 }
-
 @pManMR = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [39 x i8] c"\09initial states {0,1,x} = {%d, %d, %d}\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c" + %d UNKNOWN\00", align 1
@@ -118,7 +114,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %6, %Vec_IntFill.exi
   %31 = phi ptr [ %60, %59 ], [ %28, %Abc_NtkIncrementTravId.exit ]
   %32 = getelementptr i8, ptr %31, i64 8
   %.val16.val = load ptr, ptr %32, align 8, !tbaa !41
-  %33 = getelementptr inbounds nuw ptr, ptr %.val16.val, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.val16.val, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !42
   %35 = getelementptr i8, ptr %34, i64 20
   %.val17 = load i32, ptr %35, align 4
@@ -136,7 +132,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %6, %Vec_IntFill.exi
   %40 = getelementptr i8, ptr %.val18.val, i64 8
   %.val18.val.val = load ptr, ptr %40, align 8, !tbaa !41
   %41 = sext i32 %.val19.val to i64
-  %42 = getelementptr inbounds ptr, ptr %.val18.val.val, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %.val18.val.val, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !42
   tail call fastcc void @Abc_FlowRetime_UpdateForwardInit_rec(ptr noundef %43)
   %44 = load ptr, ptr @pManMR, align 8, !tbaa !3
@@ -145,7 +141,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %6, %Vec_IntFill.exi
   %47 = getelementptr i8, ptr %43, i64 16
   %.val20 = load i32, ptr %47, align 8, !tbaa !48
   %48 = zext i32 %.val20 to i64
-  %49 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %48
   %50 = load i16, ptr %49, align 8
   %51 = and i16 %50, 32
   %.not14 = icmp eq i16 %51, 0
@@ -228,7 +224,7 @@ define void @Abc_FlowRetime_UpdateBackwardInit(ptr noundef readonly captures(non
   %indvars.iv = phi i64 [ %indvars.iv.next, %129 ], [ 0, %1 ]
   %27 = getelementptr i8, ptr %22, i64 8
   %.val73.val = load ptr, ptr %27, align 8, !tbaa !41
-  %28 = getelementptr inbounds nuw ptr, ptr %.val73.val, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.val73.val, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !42
   %30 = icmp eq ptr %29, null
   br i1 %30, label %129, label %31
@@ -247,7 +243,7 @@ define void @Abc_FlowRetime_UpdateBackwardInit(ptr noundef readonly captures(non
   %38 = getelementptr i8, ptr %29, i64 16
   %.val70 = load i32, ptr %38, align 8, !tbaa !48
   %39 = zext i32 %.val70 to i64
-  %40 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !49
   %43 = tail call ptr @Abc_NtkCreateNodeBuf(ptr noundef %12, ptr noundef null) #18
@@ -278,7 +274,7 @@ define void @Abc_FlowRetime_UpdateBackwardInit(ptr noundef readonly captures(non
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 160
   store ptr %56, ptr %58, align 8, !tbaa !55
   %59 = sext i32 %47 to i64
-  %60 = getelementptr inbounds %struct.NodeLag_T_, ptr %56, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %56, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 168
   %62 = load i32, ptr %61, align 8, !tbaa !54
   %63 = sub nsw i32 %62, %47
@@ -290,7 +286,7 @@ define void @Abc_FlowRetime_UpdateBackwardInit(ptr noundef readonly captures(non
 Abc_FlowRetime_ClearInitToOrig.exit:              ; preds = %._crit_edge.i, %48
   %66 = phi ptr [ %56, %48 ], [ %.pre.i, %._crit_edge.i ]
   %67 = sext i32 %.val75 to i64
-  %68 = getelementptr inbounds %struct.NodeLag_T_, ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   store i32 -1, ptr %68, align 4, !tbaa !56
   tail call void @Abc_ObjBetterTransferFanout(ptr noundef %42, ptr noundef nonnull %43, i32 noundef 0) #18
   %69 = load ptr, ptr @pManMR, align 8, !tbaa !3
@@ -298,7 +294,7 @@ Abc_FlowRetime_ClearInitToOrig.exit:              ; preds = %._crit_edge.i, %48
   %71 = load ptr, ptr %70, align 8, !tbaa !47
   %.val71 = load i32, ptr %38, align 8, !tbaa !48
   %72 = zext i32 %.val71 to i64
-  %73 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %71, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store ptr %43, ptr %74, align 8, !tbaa !49
   %75 = load i32, ptr %32, align 4
@@ -362,7 +358,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %100 = add nsw i32 %26, 1
   store i32 %100, ptr %3, align 4, !tbaa !33
   %101 = sext i32 %26 to i64
-  %102 = getelementptr inbounds ptr, ptr %99, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %99, i64 %101
   store ptr %29, ptr %102, align 8, !tbaa !42
   %103 = icmp eq i32 %24, %23
   br i1 %103, label %104, label %.Vec_PtrGrow.exit11_crit_edge.i80
@@ -422,7 +418,7 @@ Vec_PtrPush.exit86:                               ; preds = %.Vec_PtrGrow.exit11
   %126 = add nsw i32 %24, 1
   store i32 %126, ptr %7, align 4, !tbaa !33
   %127 = sext i32 %24 to i64
-  %128 = getelementptr inbounds ptr, ptr %125, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %125, i64 %127
   store ptr %42, ptr %128, align 8, !tbaa !42
   %.pre = load ptr, ptr %13, align 8, !tbaa !32
   br label %129
@@ -455,7 +451,7 @@ Vec_PtrPush.exit86:                               ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %.critedge2 ], [ 0, %.critedge.preheader ]
   %141 = getelementptr i8, ptr %139, i64 8
   %.val67.val = load ptr, ptr %141, align 8, !tbaa !41
-  %142 = getelementptr inbounds nuw ptr, ptr %.val67.val, i64 %indvars.iv102
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %.val67.val, i64 %indvars.iv102
   %143 = load ptr, ptr %142, align 8, !tbaa !42
   %144 = getelementptr i8, ptr %143, i64 20
   %.val68 = load i32, ptr %144, align 4
@@ -468,7 +464,7 @@ Vec_PtrPush.exit86:                               ; preds = %.Vec_PtrGrow.exit11
   %148 = add nsw i32 %140, -1
   store i32 %148, ptr %7, align 4, !tbaa !33
   %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds ptr, ptr %147, i64 %149
+  %150 = getelementptr inbounds [8 x i8], ptr %147, i64 %149
   %151 = load ptr, ptr %150, align 8, !tbaa !42
   %152 = or i32 %.val68, 48
   store i32 %152, ptr %144, align 4
@@ -478,7 +474,7 @@ Vec_PtrPush.exit86:                               ; preds = %.Vec_PtrGrow.exit11
   %156 = getelementptr i8, ptr %143, i64 16
   %.val72 = load i32, ptr %156, align 8, !tbaa !48
   %157 = zext i32 %.val72 to i64
-  %158 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %155, i64 %157
+  %158 = getelementptr inbounds nuw [24 x i8], ptr %155, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
   store ptr %151, ptr %159, align 8, !tbaa !49
   %160 = getelementptr inbounds nuw i8, ptr %143, i64 56
@@ -505,7 +501,7 @@ Vec_PtrPush.exit86:                               ; preds = %.Vec_PtrGrow.exit11
 
 .critedge4:                                       ; preds = %.lr.ph97, %.critedge4
   %indvars.iv105 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next106, %.critedge4 ]
-  %169 = getelementptr inbounds nuw ptr, ptr %.val66, i64 %indvars.iv105
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %.val66, i64 %indvars.iv105
   %170 = load ptr, ptr %169, align 8, !tbaa !42
   %171 = tail call fastcc ptr @Abc_FlowRetime_UpdateBackwardInit_rec(ptr noundef %170)
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
@@ -517,7 +513,7 @@ Vec_PtrPush.exit86:                               ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.critedge6 ], [ 0, %.critedge6.preheader ]
   %173 = getelementptr i8, ptr %172, i64 8
   %.val74.val = load ptr, ptr %173, align 8, !tbaa !41
-  %174 = getelementptr inbounds nuw ptr, ptr %.val74.val, i64 %indvars.iv108
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %.val74.val, i64 %indvars.iv108
   %175 = load ptr, ptr %174, align 8, !tbaa !42
   %176 = icmp eq ptr %175, null
   br i1 %176, label %.critedge6, label %177
@@ -588,7 +584,7 @@ define void @Abc_FlowRetime_PrintInitStateInfo(ptr noundef readonly captures(non
   %.01840 = phi i32 [ 0, %.lr.ph ], [ %.119, %23 ]
   %.02039 = phi i32 [ 0, %.lr.ph ], [ %.121, %23 ]
   %.02238 = phi i32 [ 0, %.lr.ph ], [ %.123, %23 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %.val28.val, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.val28.val, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !42
   %11 = getelementptr i8, ptr %10, i64 20
   %.val29 = load i32, ptr %11, align 4
@@ -763,7 +759,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %52 = getelementptr i8, ptr %.val10, i64 232
   %.val.i.i.i = load ptr, ptr %52, align 8, !tbaa !36
   %53 = sext i32 %.val11 to i64
-  %54 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i, i64 %53
   store i32 %11, ptr %54, align 4, !tbaa !37
   %55 = getelementptr i8, ptr %0, i64 28
   %.val1215 = load i32, ptr %55, align 4, !tbaa !63
@@ -782,10 +778,10 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %.val13.val = load ptr, ptr %59, align 8, !tbaa !32
   %60 = getelementptr i8, ptr %.val13.val, i64 8
   %.val13.val.val = load ptr, ptr %60, align 8, !tbaa !41
-  %61 = getelementptr inbounds nuw i32, ptr %.val14, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.val14, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !37
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %.val13.val.val, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %.val13.val.val, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !42
   tail call fastcc void @Abc_FlowRetime_UpdateForwardInit_rec(ptr noundef %65)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -822,7 +818,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %82 = load ptr, ptr %81, align 8, !tbaa !47
   %.val6.i.i = load i32, ptr %9, align 8, !tbaa !48
   %83 = zext i32 %.val6.i.i to i64
-  %84 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %82, i64 %83
   %85 = load i16, ptr %84, align 8
   %86 = and i16 %85, -97
   store i16 %86, ptr %84, align 8
@@ -831,7 +827,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %89 = load ptr, ptr %88, align 8, !tbaa !47
   %.val.i.i = load i32, ptr %9, align 8, !tbaa !48
   %90 = zext i32 %.val.i.i to i64
-  %91 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [24 x i8], ptr %89, i64 %90
   %92 = load i16, ptr %91, align 8
   %93 = or i16 %92, 64
   store i16 %93, ptr %91, align 8
@@ -854,7 +850,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %101 = load ptr, ptr %100, align 8, !tbaa !47
   %.val6.i162.i = load i32, ptr %9, align 8, !tbaa !48
   %102 = zext i32 %.val6.i162.i to i64
-  %103 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %101, i64 %102
+  %103 = getelementptr inbounds nuw [24 x i8], ptr %101, i64 %102
   %104 = load i16, ptr %103, align 8
   %105 = and i16 %104, -97
   store i16 %105, ptr %103, align 8
@@ -863,7 +859,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %108 = load ptr, ptr %107, align 8, !tbaa !47
   %.val.i163.i = load i32, ptr %9, align 8, !tbaa !48
   %109 = zext i32 %.val.i163.i to i64
-  %110 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [24 x i8], ptr %108, i64 %109
   %111 = load i16, ptr %110, align 8
   %112 = or i16 %111, 32
   store i16 %112, ptr %110, align 8
@@ -880,7 +876,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %118 = load ptr, ptr %117, align 8, !tbaa !47
   %.val6.i164.i = load i32, ptr %9, align 8, !tbaa !48
   %119 = zext i32 %.val6.i164.i to i64
-  %120 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %118, i64 %119
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %118, i64 %119
   %121 = load i16, ptr %120, align 8
   %122 = and i16 %121, -97
   store i16 %122, ptr %120, align 8
@@ -889,7 +885,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %125 = load ptr, ptr %124, align 8, !tbaa !47
   %.val.i165.i = load i32, ptr %9, align 8, !tbaa !48
   %126 = zext i32 %.val.i165.i to i64
-  %127 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [24 x i8], ptr %125, i64 %126
   %128 = load i16, ptr %127, align 8
   %129 = or i16 %128, 64
   store i16 %129, ptr %127, align 8
@@ -911,7 +907,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %135 = getelementptr i8, ptr %.val123.val.i, i64 8
   %.val123.val.val.i = load ptr, ptr %135, align 8, !tbaa !41
   %136 = sext i32 %.val124.val.i to i64
-  %137 = getelementptr inbounds ptr, ptr %.val123.val.val.i, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %.val123.val.val.i, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !42
   %139 = load ptr, ptr @pManMR, align 8, !tbaa !3
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 112
@@ -919,13 +915,13 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %142 = getelementptr i8, ptr %138, i64 16
   %.val135.i = load i32, ptr %142, align 8, !tbaa !48
   %143 = zext i32 %.val135.i to i64
-  %144 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %141, i64 %143
+  %144 = getelementptr inbounds nuw [24 x i8], ptr %141, i64 %143
   %145 = load i16, ptr %144, align 8
   %146 = and i16 %145, 96
   %.not103.not.i = icmp eq i16 %146, 0
   %.val6.i166.i = load i32, ptr %9, align 8, !tbaa !48
   %147 = zext i32 %.val6.i166.i to i64
-  %148 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %141, i64 %147
+  %148 = getelementptr inbounds nuw [24 x i8], ptr %141, i64 %147
   %149 = load i16, ptr %148, align 8
   %150 = and i16 %149, -97
   store i16 %150, ptr %148, align 8
@@ -943,7 +939,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %157 = load ptr, ptr %156, align 8, !tbaa !47
   %.val.i167.i = load i32, ptr %9, align 8, !tbaa !48
   %158 = zext i32 %.val.i167.i to i64
-  %159 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %157, i64 %158
+  %159 = getelementptr inbounds nuw [24 x i8], ptr %157, i64 %158
   %160 = load i16, ptr %159, align 8
   %..i.i = select i1 %.not4.i.i, i16 32, i16 64
   %161 = or i16 %160, %..i.i
@@ -982,10 +978,10 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %.val143.val.i = load ptr, ptr %168, align 8, !tbaa !32
   %169 = getelementptr i8, ptr %.val143.val.i, i64 8
   %.val143.val.val.i = load ptr, ptr %169, align 8, !tbaa !41
-  %170 = getelementptr inbounds nuw i32, ptr %.val144.i, i64 %indvars.iv208.i
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %.val144.i, i64 %indvars.iv208.i
   %171 = load i32, ptr %170, align 4, !tbaa !37
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds ptr, ptr %.val143.val.val.i, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %.val143.val.val.i, i64 %172
   %174 = load ptr, ptr %173, align 8, !tbaa !42
   %175 = trunc nuw nsw i64 %indvars.iv208.i to i32
   %176 = tail call ptr @Cudd_bddIthVar(ptr noundef %69, i32 noundef %175) #18
@@ -995,7 +991,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %180 = getelementptr i8, ptr %174, i64 16
   %.val133.i = load i32, ptr %180, align 8, !tbaa !48
   %181 = zext i32 %.val133.i to i64
-  %182 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %179, i64 %181
+  %182 = getelementptr inbounds nuw [24 x i8], ptr %179, i64 %181
   %183 = load i16, ptr %182, align 8
   %184 = and i16 %183, 96
   %.not120.i = icmp eq i16 %184, 0
@@ -1032,7 +1028,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %200 = load ptr, ptr %199, align 8, !tbaa !47
   %.val6.i168.i = load i32, ptr %9, align 8, !tbaa !48
   %201 = zext i32 %.val6.i168.i to i64
-  %202 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %200, i64 %201
+  %202 = getelementptr inbounds nuw [24 x i8], ptr %200, i64 %201
   %203 = load i16, ptr %202, align 8
   %204 = and i16 %203, -97
   store i16 %204, ptr %202, align 8
@@ -1045,7 +1041,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %208 = load ptr, ptr %207, align 8, !tbaa !47
   %.val.i172.i = load i32, ptr %9, align 8, !tbaa !48
   %209 = zext i32 %.val.i172.i to i64
-  %210 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %208, i64 %209
+  %210 = getelementptr inbounds nuw [24 x i8], ptr %208, i64 %209
   %211 = load i16, ptr %210, align 8
   %..i173.i = select i1 %205, i16 64, i16 32
   %212 = or i16 %211, %..i173.i
@@ -1076,21 +1072,21 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %.val141.val.i = load ptr, ptr %219, align 8, !tbaa !32
   %220 = getelementptr i8, ptr %.val141.val.i, i64 8
   %.val141.val.val.i = load ptr, ptr %220, align 8, !tbaa !41
-  %221 = getelementptr inbounds nuw i32, ptr %.val142.i, i64 %indvars.iv.i
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %.val142.i, i64 %indvars.iv.i
   %222 = load i32, ptr %221, align 4, !tbaa !37
   %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds ptr, ptr %.val141.val.val.i, i64 %223
+  %224 = getelementptr inbounds [8 x i8], ptr %.val141.val.val.i, i64 %223
   %225 = load ptr, ptr %224, align 8, !tbaa !42
   %226 = load ptr, ptr %217, align 8, !tbaa !47
   %227 = getelementptr i8, ptr %225, i64 16
   %.val131.i = load i32, ptr %227, align 8, !tbaa !48
   %228 = zext i32 %.val131.i to i64
-  %229 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %226, i64 %228
+  %229 = getelementptr inbounds nuw [24 x i8], ptr %226, i64 %228
   %230 = load i16, ptr %229, align 8
   %.val155.i = load ptr, ptr %69, align 8, !tbaa !73
   %231 = getelementptr i8, ptr %.val155.i, i64 8
   %.val155.val.i = load ptr, ptr %231, align 8, !tbaa !41
-  %232 = getelementptr inbounds nuw ptr, ptr %.val155.val.i, i64 %indvars.iv.i
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %.val155.val.i, i64 %indvars.iv.i
   %233 = load ptr, ptr %232, align 8, !tbaa !42
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 32
   %235 = load i32, ptr %234, align 8
@@ -1103,14 +1099,14 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %241 = load ptr, ptr %217, align 8, !tbaa !47
   %.val130.i = load i32, ptr %227, align 8, !tbaa !48
   %242 = zext i32 %.val130.i to i64
-  %243 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %241, i64 %242
+  %243 = getelementptr inbounds nuw [24 x i8], ptr %241, i64 %242
   %244 = load i16, ptr %243, align 8
   %245 = and i16 %244, 96
   %.not110.not.i = icmp eq i16 %245, 0
   %.val156.i = load ptr, ptr %69, align 8, !tbaa !73
   %246 = getelementptr i8, ptr %.val156.i, i64 8
   %.val156.val.i = load ptr, ptr %246, align 8, !tbaa !41
-  %247 = getelementptr inbounds nuw ptr, ptr %.val156.val.i, i64 %indvars.iv.i
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %.val156.val.i, i64 %indvars.iv.i
   %248 = load ptr, ptr %247, align 8, !tbaa !42
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 32
   %250 = load i32, ptr %249, align 8
@@ -1139,7 +1135,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %.val157.i = load ptr, ptr %69, align 8, !tbaa !73
   %260 = getelementptr i8, ptr %.val157.i, i64 8
   %.val157.val.i = load ptr, ptr %260, align 8, !tbaa !41
-  %261 = getelementptr inbounds nuw ptr, ptr %.val157.val.i, i64 %indvars.iv205.i
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %.val157.val.i, i64 %indvars.iv205.i
   %262 = load ptr, ptr %261, align 8, !tbaa !42
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 32
   %264 = load i32, ptr %263, align 8
@@ -1148,7 +1144,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %.val158.i = load ptr, ptr %69, align 8, !tbaa !73
   %266 = getelementptr i8, ptr %.val158.i, i64 8
   %.val158.val.i = load ptr, ptr %266, align 8, !tbaa !41
-  %267 = getelementptr inbounds nuw ptr, ptr %.val158.val.i, i64 %indvars.iv205.i
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %.val158.val.i, i64 %indvars.iv205.i
   %268 = load ptr, ptr %267, align 8, !tbaa !42
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 32
   %270 = load i32, ptr %269, align 8
@@ -1175,7 +1171,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %278 = getelementptr i8, ptr %.val.val.i, i64 8
   %.val.val.val.i = load ptr, ptr %278, align 8, !tbaa !41
   %279 = sext i32 %.val122.val.i to i64
-  %280 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %279
+  %280 = getelementptr inbounds [8 x i8], ptr %.val.val.val.i, i64 %279
   %281 = load ptr, ptr %280, align 8, !tbaa !42
   %282 = load ptr, ptr @pManMR, align 8, !tbaa !3
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 112
@@ -1183,7 +1179,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %285 = getelementptr i8, ptr %281, i64 16
   %.val129.i = load i32, ptr %285, align 8, !tbaa !48
   %286 = zext i32 %.val129.i to i64
-  %287 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %284, i64 %286
+  %287 = getelementptr inbounds nuw [24 x i8], ptr %284, i64 %286
   %288 = load i16, ptr %287, align 8
   %289 = and i16 %288, 32
   %.not114.i = icmp eq i16 %289, 0
@@ -1193,12 +1189,12 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %292 = getelementptr i8, ptr %.val122.i, i64 4
   %.val160.val.i = load i32, ptr %292, align 4, !tbaa !37
   %293 = sext i32 %.val160.val.i to i64
-  %294 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %293
+  %294 = getelementptr inbounds [8 x i8], ptr %.val.val.val.i, i64 %293
   %295 = load ptr, ptr %294, align 8, !tbaa !42
   %296 = getelementptr i8, ptr %295, i64 16
   %.val127.i = load i32, ptr %296, align 8, !tbaa !48
   %297 = zext i32 %.val127.i to i64
-  %298 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %284, i64 %297
+  %298 = getelementptr inbounds nuw [24 x i8], ptr %284, i64 %297
   %299 = load i16, ptr %298, align 8
   %300 = and i16 %299, 32
   %.not117.i = icmp eq i16 %300, 0
@@ -1218,7 +1214,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %.not192.i = and i1 %.not113.i, %.not116.i
   %.val6.i175.i = load i32, ptr %9, align 8, !tbaa !48
   %307 = zext i32 %.val6.i175.i to i64
-  %308 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %284, i64 %307
+  %308 = getelementptr inbounds nuw [24 x i8], ptr %284, i64 %307
   %309 = load i16, ptr %308, align 8
   %310 = and i16 %309, -97
   store i16 %310, ptr %308, align 8
@@ -1230,7 +1226,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %313 = load ptr, ptr %312, align 8, !tbaa !47
   %.val.i178.i = load i32, ptr %9, align 8, !tbaa !48
   %314 = zext i32 %.val.i178.i to i64
-  %315 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %313, i64 %314
+  %315 = getelementptr inbounds nuw [24 x i8], ptr %313, i64 %314
   %316 = load i16, ptr %315, align 8
   %317 = or i16 %316, 64
   store i16 %317, ptr %315, align 8
@@ -1239,7 +1235,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
 .split94.i:                                       ; preds = %.thread.i
   %.val6.i180.i = load i32, ptr %9, align 8, !tbaa !48
   %318 = zext i32 %.val6.i180.i to i64
-  %319 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %284, i64 %318
+  %319 = getelementptr inbounds nuw [24 x i8], ptr %284, i64 %318
   %320 = load i16, ptr %319, align 8
   %321 = and i16 %320, -97
   store i16 %321, ptr %319, align 8
@@ -1248,7 +1244,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %8, %._crit_edge.i.i
   %324 = load ptr, ptr %323, align 8, !tbaa !47
   %.val.i182.i = load i32, ptr %9, align 8, !tbaa !48
   %325 = zext i32 %.val.i182.i to i64
-  %326 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %324, i64 %325
+  %326 = getelementptr inbounds nuw [24 x i8], ptr %324, i64 %325
   %327 = load i16, ptr %326, align 8
   %328 = or i16 %327, 32
   store i16 %328, ptr %326, align 8
@@ -1324,7 +1320,7 @@ define void @Abc_FlowRetime_SetupBackwardInit(ptr noundef readonly captures(none
   %indvars.iv = phi i64 [ %indvars.iv.next, %91 ], [ 0, %14 ]
   %25 = getelementptr i8, ptr %21, i64 8
   %.val29.val = load ptr, ptr %25, align 8, !tbaa !41
-  %26 = getelementptr inbounds nuw ptr, ptr %.val29.val, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.val29.val, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !42
   %28 = getelementptr i8, ptr %27, i64 20
   %.val30 = load i32, ptr %28, align 4
@@ -1463,7 +1459,7 @@ Vec_PtrGrow.exit.i40:                             ; preds = %70, %68
   %84 = add nsw i32 %24, 1
   store i32 %84, ptr %3, align 4, !tbaa !33
   %85 = sext i32 %24 to i64
-  %86 = getelementptr inbounds ptr, ptr %.sink64, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %.sink64, i64 %85
   store ptr %.sink62, ptr %86, align 8, !tbaa !42
   br label %87
 
@@ -1569,7 +1565,7 @@ Vec_PtrFree.exit:                                 ; preds = %1
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %Vec_PtrFree.exit ]
   %18 = getelementptr i8, ptr %17, i64 8
   %.val78.val = load ptr, ptr %18, align 8, !tbaa !41
-  %19 = getelementptr inbounds nuw ptr, ptr %.val78.val, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val78.val, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !42
   %21 = getelementptr i8, ptr %20, i64 20
   %.val81 = load i32, ptr %21, align 4
@@ -1697,7 +1693,7 @@ Vec_PtrFree.exit:                                 ; preds = %1
   %.val86105 = phi ptr [ %.val86, %.lr.ph106 ], [ %.val86102, %65 ]
   %77 = getelementptr i8, ptr %.val86105, i64 8
   %.val88.val = load ptr, ptr %77, align 8, !tbaa !41
-  %78 = getelementptr inbounds nuw ptr, ptr %.val88.val, i64 %indvars.iv116
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %.val88.val, i64 %indvars.iv116
   %79 = load ptr, ptr %78, align 8, !tbaa !42
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
   store ptr null, ptr %80, align 8, !tbaa !49
@@ -1733,7 +1729,7 @@ Vec_PtrFree.exit:                                 ; preds = %1
   %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.critedge4 ], [ 0, %.critedge4.preheader ]
   %93 = getelementptr i8, ptr %92, i64 8
   %.val77.val = load ptr, ptr %93, align 8, !tbaa !41
-  %94 = getelementptr inbounds nuw ptr, ptr %.val77.val, i64 %indvars.iv119
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %.val77.val, i64 %indvars.iv119
   %95 = load ptr, ptr %94, align 8, !tbaa !42
   %96 = getelementptr i8, ptr %95, i64 20
   %.val80 = load i32, ptr %96, align 4
@@ -1765,7 +1761,7 @@ Vec_PtrFree.exit:                                 ; preds = %1
   %105 = phi ptr [ %115, %.critedge6 ], [ %86, %.critedge6.preheader ]
   %106 = getelementptr i8, ptr %.val87113, i64 8
   %.val89.val = load ptr, ptr %106, align 8, !tbaa !41
-  %107 = getelementptr inbounds nuw ptr, ptr %.val89.val, i64 %indvars.iv122
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %.val89.val, i64 %indvars.iv122
   %108 = load ptr, ptr %107, align 8, !tbaa !42
   %109 = getelementptr i8, ptr %108, i64 64
   %.val92 = load ptr, ptr %109, align 8, !tbaa !49
@@ -1775,7 +1771,7 @@ Vec_PtrFree.exit:                                 ; preds = %1
 .critedge6.sink.split:                            ; preds = %.lr.ph114
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 304
   %111 = load ptr, ptr %110, align 8, !tbaa !89
-  %112 = getelementptr inbounds nuw i32, ptr %111, i64 %indvars.iv122
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv122
   %113 = load i32, ptr %112, align 4, !tbaa !37
   %.not65 = icmp eq i32 %113, 0
   %114 = getelementptr inbounds nuw i8, ptr %.val92, i64 56
@@ -1851,7 +1847,7 @@ define internal fastcc void @Abc_FlowRetime_ClearInitToOrig(i32 %.16.val) unname
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 160
   store ptr %12, ptr %14, align 8, !tbaa !55
   %15 = sext i32 %3 to i64
-  %16 = getelementptr inbounds %struct.NodeLag_T_, ptr %12, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %18 = load i32, ptr %17, align 8, !tbaa !54
   %19 = sub nsw i32 %18, %3
@@ -1863,7 +1859,7 @@ define internal fastcc void @Abc_FlowRetime_ClearInitToOrig(i32 %.16.val) unname
 22:                                               ; preds = %._crit_edge, %4
   %23 = phi ptr [ %12, %4 ], [ %.pre, %._crit_edge ]
   %24 = sext i32 %.16.val to i64
-  %25 = getelementptr inbounds %struct.NodeLag_T_, ptr %23, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %23, i64 %24
   store i32 -1, ptr %25, align 4, !tbaa !56
   ret void
 }
@@ -1878,7 +1874,7 @@ define internal fastcc ptr @Abc_FlowRetime_UpdateBackwardInit_rec(ptr noundef %0
   %5 = getelementptr i8, ptr %0, i64 16
   %.val25 = load i32, ptr %5, align 8, !tbaa !48
   %6 = zext i32 %.val25 to i64
-  %7 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %6
   %8 = load i16, ptr %7, align 8
   %9 = and i16 %8, 256
   %.not = icmp eq i16 %9, 0
@@ -1915,7 +1911,7 @@ define internal fastcc ptr @Abc_FlowRetime_UpdateBackwardInit_rec(ptr noundef %0
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 160
   store ptr %28, ptr %30, align 8, !tbaa !55
   %31 = sext i32 %19 to i64
-  %32 = getelementptr inbounds %struct.NodeLag_T_, ptr %28, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %28, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 168
   %34 = load i32, ptr %33, align 8, !tbaa !54
   %35 = sub nsw i32 %34, %19
@@ -1960,7 +1956,7 @@ define internal fastcc ptr @Abc_FlowRetime_UpdateBackwardInit_rec(ptr noundef %0
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 160
   store ptr %52, ptr %54, align 8, !tbaa !55
   %55 = sext i32 %43 to i64
-  %56 = getelementptr inbounds %struct.NodeLag_T_, ptr %52, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %52, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 168
   %58 = load i32, ptr %57, align 8, !tbaa !54
   %59 = sub nsw i32 %58, %43
@@ -1973,7 +1969,7 @@ Abc_FlowRetime_ClearInitToOrig.exit.i:            ; preds = %44, %._crit_edge.i.
   %62 = phi ptr [ %53, %44 ], [ %39, %._crit_edge.i.i ]
   %63 = phi ptr [ %52, %44 ], [ %.pre.i.i, %._crit_edge.i.i ]
   %64 = sext i32 %.val15.i to i64
-  %65 = getelementptr inbounds %struct.NodeLag_T_, ptr %63, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %63, i64 %64
   store i32 -1, ptr %65, align 4, !tbaa !56
   br label %Abc_FlowRetime_SetInitToOrig.exit
 
@@ -2048,7 +2044,7 @@ Abc_NtkIncrementTravId.exit.i.i:                  ; preds = %Vec_IntFill.exit.i.
   %91 = getelementptr i8, ptr %.val20.val.i.i, i64 8
   %.val20.val.val.i.i = load ptr, ptr %91, align 8, !tbaa !41
   %92 = sext i32 %.val21.val.i.i to i64
-  %93 = getelementptr inbounds ptr, ptr %.val20.val.val.i.i, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %.val20.val.val.i.i, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !42
   %95 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef %94)
   %.not17.i.i = icmp eq i32 %95, 0
@@ -2154,7 +2150,7 @@ Abc_NodeSetTravIdCurrent.exit.i.i:                ; preds = %._crit_edge.i.i.i.i
   %140 = getelementptr i8, ptr %.val24.i.i, i64 232
   %.val.i.i.i.i.i = load ptr, ptr %140, align 8, !tbaa !36
   %141 = sext i32 %.val25.i.i to i64
-  %142 = getelementptr inbounds i32, ptr %.val.i.i.i.i.i, i64 %141
+  %142 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i.i.i, i64 %141
   store i32 %99, ptr %142, align 4, !tbaa !37
   %143 = getelementptr i8, ptr %94, i64 20
   %.val.i.i = load i32, ptr %143, align 4
@@ -2173,14 +2169,14 @@ Abc_FlowRetime_ObjFirstNonLatchBox.exit.i:        ; preds = %.critedge.i.i, %87
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 160
   %149 = load ptr, ptr %148, align 8, !tbaa !55
   %150 = sext i32 %.val14.i to i64
-  %151 = getelementptr inbounds %struct.NodeLag_T_, ptr %149, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %149, i64 %150
   store i32 %.val13.i, ptr %151, align 4, !tbaa !56
   %152 = tail call i32 @Abc_FlowRetime_GetLag(ptr noundef %.1.i) #18
   %153 = add nsw i32 %152, %.0.i.i
   %154 = load ptr, ptr @pManMR, align 8, !tbaa !3
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 160
   %156 = load ptr, ptr %155, align 8, !tbaa !55
-  %157 = getelementptr inbounds %struct.NodeLag_T_, ptr %156, i64 %150
+  %157 = getelementptr inbounds [8 x i8], ptr %156, i64 %150
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 4
   store i32 %153, ptr %158, align 4, !tbaa !92
   br label %Abc_FlowRetime_SetInitToOrig.exit
@@ -2191,7 +2187,7 @@ Abc_FlowRetime_SetInitToOrig.exit:                ; preds = %Abc_FlowRetime_Clea
   %161 = load ptr, ptr %160, align 8, !tbaa !47
   %.val24 = load i32, ptr %5, align 8, !tbaa !48
   %162 = zext i32 %.val24 to i64
-  %163 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %161, i64 %162
+  %163 = getelementptr inbounds nuw [24 x i8], ptr %161, i64 %162
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   store ptr %15, ptr %164, align 8, !tbaa !49
   %165 = load i32, ptr %11, align 4
@@ -2229,10 +2225,10 @@ Abc_FlowRetime_SetInitToOrig.exit:                ; preds = %Abc_FlowRetime_Clea
   %.val27.val = load ptr, ptr %177, align 8, !tbaa !32
   %178 = getelementptr i8, ptr %.val27.val, i64 8
   %.val27.val.val = load ptr, ptr %178, align 8, !tbaa !41
-  %179 = getelementptr inbounds nuw i32, ptr %.val28, i64 %indvars.iv
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %.val28, i64 %indvars.iv
   %180 = load i32, ptr %179, align 4, !tbaa !37
   %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds ptr, ptr %.val27.val.val, i64 %181
+  %182 = getelementptr inbounds [8 x i8], ptr %.val27.val.val, i64 %181
   %183 = load ptr, ptr %182, align 8, !tbaa !42
   %184 = tail call fastcc ptr @Abc_FlowRetime_UpdateBackwardInit_rec(ptr noundef %183)
   tail call void @Abc_ObjAddFanin(ptr noundef %.020, ptr noundef %184) #18
@@ -2302,7 +2298,7 @@ define ptr @Abc_FlowRetime_CopyNodeToInitNtk(ptr noundef %0) local_unnamed_addr 
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 160
   store ptr %25, ptr %27, align 8, !tbaa !55
   %28 = sext i32 %16 to i64
-  %29 = getelementptr inbounds %struct.NodeLag_T_, ptr %25, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %25, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 168
   %31 = load i32, ptr %30, align 8, !tbaa !54
   %32 = sub nsw i32 %31, %16
@@ -2314,7 +2310,7 @@ define ptr @Abc_FlowRetime_CopyNodeToInitNtk(ptr noundef %0) local_unnamed_addr 
 Abc_FlowRetime_ClearInitToOrig.exit:              ; preds = %._crit_edge.i, %17
   %35 = phi ptr [ %25, %17 ], [ %.pre.i, %._crit_edge.i ]
   %36 = sext i32 %.val51 to i64
-  %37 = getelementptr inbounds %struct.NodeLag_T_, ptr %35, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %35, i64 %36
   store i32 -1, ptr %37, align 4, !tbaa !56
   br label %88
 
@@ -2448,7 +2444,7 @@ define range(i32 0, 2) i32 @Abc_FlowRetime_PartialSat(ptr noundef readonly captu
 14:                                               ; preds = %.lr.ph54, %.critedge2
   %indvars.iv56 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next57, %.critedge2 ]
   %.val41 = load ptr, ptr %12, align 8, !tbaa !41
-  %15 = getelementptr inbounds nuw ptr, ptr %.val41, i64 %indvars.iv56
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.val41, i64 %indvars.iv56
   %16 = load ptr, ptr %15, align 8, !tbaa !42
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %18 = load i32, ptr %17, align 4
@@ -2495,10 +2491,10 @@ define range(i32 0, 2) i32 @Abc_FlowRetime_PartialSat(ptr noundef readonly captu
   %.val45.val = load ptr, ptr %40, align 8, !tbaa !32
   %41 = getelementptr i8, ptr %.val45.val, i64 8
   %.val45.val.val = load ptr, ptr %41, align 8, !tbaa !41
-  %42 = getelementptr inbounds nuw i32, ptr %.val46, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.val46, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !37
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %.val45.val.val, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %.val45.val.val, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !42
   %47 = getelementptr i8, ptr %46, i64 64
   %.val48 = load ptr, ptr %47, align 8, !tbaa !49
@@ -2532,7 +2528,7 @@ define range(i32 0, 2) i32 @Abc_FlowRetime_PartialSat(ptr noundef readonly captu
   %57 = getelementptr i8, ptr %.val42.val, i64 8
   %.val42.val.val = load ptr, ptr %57, align 8, !tbaa !41
   %58 = sext i32 %.val43.val to i64
-  %59 = getelementptr inbounds ptr, ptr %.val42.val.val, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %.val42.val.val, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !42
   %61 = getelementptr i8, ptr %60, i64 64
   %.val47 = load ptr, ptr %61, align 8, !tbaa !49
@@ -2594,7 +2590,7 @@ define void @Abc_FlowRetime_ConstrainInit() local_unnamed_addr #0 {
   %.val5784 = phi ptr [ %.val5781, %.lr.ph ], [ %.val57, %Vec_PtrPush.exit ]
   %20 = getelementptr i8, ptr %.val5784, i64 8
   %.val58.val = load ptr, ptr %20, align 8, !tbaa !41
-  %21 = getelementptr inbounds nuw ptr, ptr %.val58.val, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.val58.val, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !42
   %23 = icmp eq i32 %19, %18
   br i1 %23, label %24, label %.Vec_PtrGrow.exit11_crit_edge.i
@@ -2655,7 +2651,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %10, align 4, !tbaa !33
   %48 = sext i32 %46 to i64
-  %49 = getelementptr inbounds ptr, ptr %45, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %45, i64 %48
   store ptr %22, ptr %49, align 8, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load ptr, ptr @pManMR, align 8, !tbaa !3
@@ -2704,12 +2700,12 @@ Vec_PtrReorder.exit:                              ; preds = %.critedge, %69
   %71 = phi i32 [ %.pre10.i, %69 ], [ %58, %.critedge ]
   %72 = phi ptr [ %70, %69 ], [ %61, %.critedge ]
   %73 = sext i32 %71 to i64
-  %74 = getelementptr inbounds ptr, ptr %72, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %72, i64 %73
   %75 = sext i32 %.val52 to i64
   %76 = shl nsw i64 %75, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %74, ptr align 8 %72, i64 %76, i1 false)
   %77 = load ptr, ptr %60, align 8, !tbaa !41
-  %78 = getelementptr inbounds ptr, ptr %77, i64 %75
+  %78 = getelementptr inbounds [8 x i8], ptr %77, i64 %75
   %79 = load i32, ptr %10, align 4, !tbaa !33
   %80 = sext i32 %79 to i64
   %81 = shl nsw i64 %80, 3
@@ -2769,7 +2765,7 @@ Vec_PtrReorder.exit:                              ; preds = %.critedge, %69
   %.0.lcssa = phi i32 [ 0, %92 ], [ %..087, %99 ]
   %.val53 = load ptr, ptr %60, align 8, !tbaa !41
   %103 = sext i32 %.0.lcssa to i64
-  %104 = getelementptr inbounds ptr, ptr %.val53, i64 %103
+  %104 = getelementptr inbounds [8 x i8], ptr %.val53, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !42
   tail call void @Abc_NtkMarkCone_rec(ptr noundef %105, i32 noundef 1) #18
   %106 = load ptr, ptr @pManMR, align 8, !tbaa !3
@@ -2790,7 +2786,7 @@ Vec_PtrReorder.exit:                              ; preds = %.critedge, %69
   %115 = getelementptr i8, ptr %105, i64 16
   %.val1018.i = load i32, ptr %115, align 8, !tbaa !48
   %116 = sext i32 %.val1018.i to i64
-  %117 = getelementptr inbounds %struct.NodeLag_T_, ptr %114, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %114, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !56
   %119 = icmp slt i32 %118, 0
   br i1 %119, label %tailrecurse.i, label %Abc_FlowRetime_GetInitToOrig.exit
@@ -2806,12 +2802,12 @@ tailrecurse.i:                                    ; preds = %111, %tailrecurse.i
   %122 = getelementptr i8, ptr %.val.val.i, i64 8
   %.val.val.val.i = load ptr, ptr %122, align 8, !tbaa !41
   %123 = sext i32 %.val9.val.i to i64
-  %124 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr %.val.val.val.i, i64 %123
   %125 = load ptr, ptr %124, align 8, !tbaa !42
   %126 = getelementptr i8, ptr %125, i64 16
   %.val10.i = load i32, ptr %126, align 8, !tbaa !48
   %127 = sext i32 %.val10.i to i64
-  %128 = getelementptr inbounds %struct.NodeLag_T_, ptr %114, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %114, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !56
   %130 = icmp slt i32 %129, 0
   br i1 %130, label %tailrecurse.i, label %Abc_FlowRetime_GetInitToOrig.exit
@@ -2819,7 +2815,7 @@ tailrecurse.i:                                    ; preds = %111, %tailrecurse.i
 Abc_FlowRetime_GetInitToOrig.exit:                ; preds = %tailrecurse.i, %111
   %.lcssa17.i = phi i64 [ %116, %111 ], [ %127, %tailrecurse.i ]
   %.lcssa.i = phi i32 [ %118, %111 ], [ %129, %tailrecurse.i ]
-  %131 = getelementptr inbounds %struct.NodeLag_T_, ptr %114, i64 %.lcssa17.i
+  %131 = getelementptr inbounds [8 x i8], ptr %114, i64 %.lcssa17.i
   %132 = getelementptr inbounds nuw i8, ptr %112, i64 48
   %133 = load ptr, ptr %132, align 8, !tbaa !94
   %134 = getelementptr i8, ptr %133, i64 32
@@ -2827,7 +2823,7 @@ Abc_FlowRetime_GetInitToOrig.exit:                ; preds = %tailrecurse.i, %111
   %135 = getelementptr i8, ptr %.val11.i, i64 8
   %.val11.val.i = load ptr, ptr %135, align 8, !tbaa !41
   %136 = zext nneg i32 %.lcssa.i to i64
-  %137 = getelementptr inbounds nuw ptr, ptr %.val11.val.i, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %.val11.val.i, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !42
   %139 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %140 = load i32, ptr %139, align 4, !tbaa !92
@@ -2904,7 +2900,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %172 = add nsw i32 %148, 1
   store i32 %172, ptr %83, align 4, !tbaa !38
   %173 = sext i32 %148 to i64
-  %174 = getelementptr inbounds i32, ptr %171, i64 %173
+  %174 = getelementptr inbounds [4 x i8], ptr %171, i64 %173
   store i32 %.val54, ptr %174, align 4, !tbaa !37
   %175 = load i32, ptr %85, align 4, !tbaa !38
   %176 = load i32, ptr %84, align 8, !tbaa !35
@@ -2965,7 +2961,7 @@ Vec_IntPush.exit70:                               ; preds = %.Vec_IntGrow.exit10
   %199 = add nsw i32 %175, 1
   store i32 %199, ptr %85, align 4, !tbaa !38
   %200 = sext i32 %175 to i64
-  %201 = getelementptr inbounds i32, ptr %198, i64 %200
+  %201 = getelementptr inbounds [4 x i8], ptr %198, i64 %200
   store i32 %140, ptr %201, align 4, !tbaa !37
   %.val50 = load i32, ptr %10, align 4, !tbaa !33
   %202 = tail call i32 @Abc_FlowRetime_PartialSat(ptr noundef nonnull %9, i32 noundef %.val50)
@@ -3041,7 +3037,7 @@ Vec_PtrPush.exit77:                               ; preds = %.Vec_PtrGrow.exit11
   %235 = add nsw i32 %234, 1
   store i32 %235, ptr %207, align 4, !tbaa !33
   %236 = sext i32 %234 to i64
-  %237 = getelementptr inbounds ptr, ptr %233, i64 %236
+  %237 = getelementptr inbounds [8 x i8], ptr %233, i64 %236
   store ptr %calloc, ptr %237, align 8, !tbaa !42
   %238 = load ptr, ptr @pManMR, align 8, !tbaa !3
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 144
@@ -3059,7 +3055,7 @@ Vec_PtrPush.exit77:                               ; preds = %.Vec_PtrGrow.exit11
   %246 = phi ptr [ %258, %255 ], [ %242, %Vec_PtrPush.exit77 ]
   %247 = getelementptr i8, ptr %246, i64 8
   %.val56.val = load ptr, ptr %247, align 8, !tbaa !41
-  %248 = getelementptr inbounds nuw ptr, ptr %.val56.val, i64 %indvars.iv94
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %.val56.val, i64 %indvars.iv94
   %249 = load ptr, ptr %248, align 8, !tbaa !42
   %250 = icmp eq ptr %249, null
   br i1 %250, label %255, label %251
@@ -3123,7 +3119,7 @@ define void @Abc_FlowRetime_RemoveInitBias() local_unnamed_addr #0 {
   %7 = phi ptr [ %16, %13 ], [ %3, %0 ]
   %8 = getelementptr i8, ptr %7, i64 8
   %.val7 = load ptr, ptr %8, align 8, !tbaa !41
-  %9 = getelementptr inbounds nuw ptr, ptr %.val7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.val7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !42
   %11 = load ptr, ptr %10, align 8, !tbaa !101
   store ptr null, ptr %10, align 8, !tbaa !101
@@ -3196,7 +3192,7 @@ define void @Abc_FlowRetime_AddInitBias() local_unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 112
   store ptr %25, ptr %26, align 8, !tbaa !47
   %27 = sext i32 %23 to i64
-  %28 = getelementptr inbounds %struct.Flow_Data_t_, ptr %25, i64 %27
+  %28 = getelementptr inbounds [24 x i8], ptr %25, i64 %27
   %29 = sext i32 %.pre-phi51 to i64
   %30 = mul nsw i64 %29, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %28, i8 0, i64 %30, i1 false)
@@ -3228,7 +3224,7 @@ define void @Abc_FlowRetime_AddInitBias() local_unnamed_addr #0 {
   %43 = phi ptr [ %38, %.lr.ph39 ], [ %294, %.critedge2 ]
   %44 = getelementptr i8, ptr %43, i64 8
   %.val26 = load ptr, ptr %44, align 8, !tbaa !41
-  %45 = getelementptr inbounds nuw ptr, ptr %.val26, i64 %indvars.iv42
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val26, i64 %indvars.iv42
   %46 = load ptr, ptr %45, align 8, !tbaa !42
   %47 = load ptr, ptr %46, align 8, !tbaa !101
   %.not24 = icmp eq ptr %47, null
@@ -3249,16 +3245,16 @@ define void @Abc_FlowRetime_AddInitBias() local_unnamed_addr #0 {
 54:                                               ; preds = %.lr.ph, %Abc_FlowRetime_ConnectBiasNode.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_FlowRetime_ConnectBiasNode.exit ]
   %.val27 = load ptr, ptr %52, align 8, !tbaa !36
-  %55 = getelementptr inbounds nuw i32, ptr %.val27, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.val27, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4, !tbaa !37
   %.val29 = load ptr, ptr %41, align 8, !tbaa !32
   %57 = getelementptr i8, ptr %.val29, i64 8
   %.val29.val = load ptr, ptr %57, align 8, !tbaa !41
   %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds ptr, ptr %.val29.val, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %.val29.val, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !42
   %.val28 = load ptr, ptr %53, align 8, !tbaa !36
-  %61 = getelementptr inbounds nuw i32, ptr %.val28, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.val28, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !37
   %63 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
@@ -3334,13 +3330,13 @@ Vec_IntFill.exit.i.i:                             ; preds = %.lr.ph.i.i.i, %Vec_
   %93 = add nsw i32 %.val11.i, -1
   store i32 %93, ptr %64, align 4, !tbaa !33
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds ptr, ptr %92, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %92, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !42
   %97 = load i32, ptr %68, align 4, !tbaa !38
   %98 = add nsw i32 %97, -1
   store i32 %98, ptr %68, align 4, !tbaa !38
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds i32, ptr %91, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %91, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !37
   %.val2.i = load ptr, ptr %96, align 8, !tbaa !43
   %102 = getelementptr i8, ptr %96, i64 16
@@ -3441,7 +3437,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %.lr.ph12.i, %._crit
   %143 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i = load ptr, ptr %143, align 8, !tbaa !36
   %144 = sext i32 %.val3.i to i64
-  %145 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %144
+  %145 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !37
   %147 = getelementptr inbounds nuw i8, ptr %.val47.i, i64 216
   %148 = load i32, ptr %147, align 8, !tbaa !39
@@ -3550,7 +3546,7 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   %191 = getelementptr i8, ptr %.val47.i, i64 232
   %.val.i.i.i.i = load ptr, ptr %191, align 8, !tbaa !36
   %192 = sext i32 %.val48.i to i64
-  %193 = getelementptr inbounds i32, ptr %.val.i.i.i.i, i64 %192
+  %193 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i.i, i64 %192
   store i32 %148, ptr %193, align 4, !tbaa !37
   %194 = getelementptr i8, ptr %96, i64 20
   %.val41.i = load i32, ptr %194, align 4
@@ -3572,7 +3568,7 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   %203 = load ptr, ptr %202, align 8, !tbaa !47
   %.val46.i = load i32, ptr %102, align 8, !tbaa !48
   %204 = zext i32 %.val46.i to i64
-  %205 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %203, i64 %204
+  %205 = getelementptr inbounds nuw [24 x i8], ptr %203, i64 %204
   %206 = load i16, ptr %205, align 8
   %207 = or i16 %206, 16
   store i16 %207, ptr %205, align 8
@@ -3598,10 +3594,10 @@ Abc_NodeSetTravIdCurrent.exit.i:                  ; preds = %._crit_edge.i.i.i.i
   %.val51.val.i = load ptr, ptr %214, align 8, !tbaa !32
   %215 = getelementptr i8, ptr %.val51.val.i, i64 8
   %.val51.val.val.i = load ptr, ptr %215, align 8, !tbaa !41
-  %216 = getelementptr inbounds nuw i32, ptr %.val52.i, i64 %indvars.iv.i
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %.val52.i, i64 %indvars.iv.i
   %217 = load i32, ptr %216, align 4, !tbaa !37
   %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds ptr, ptr %.val51.val.val.i, i64 %218
+  %219 = getelementptr inbounds [8 x i8], ptr %.val51.val.val.i, i64 %218
   %220 = load ptr, ptr %219, align 8, !tbaa !42
   %221 = getelementptr i8, ptr %220, i64 20
   %.val49.i = load i32, ptr %221, align 4
@@ -3678,7 +3674,7 @@ Vec_PtrPush.exit63.i:                             ; preds = %247, %Vec_PtrGrow.e
   %250 = add nsw i32 %226, 1
   store i32 %250, ptr %64, align 4, !tbaa !33
   %251 = sext i32 %226 to i64
-  %252 = getelementptr inbounds ptr, ptr %249, i64 %251
+  %252 = getelementptr inbounds [8 x i8], ptr %249, i64 %251
   store ptr %220, ptr %252, align 8, !tbaa !42
   %.val39.i = load i32, ptr %221, align 4
   %253 = and i32 %.val39.i, 15
@@ -3745,7 +3741,7 @@ Vec_IntPush.exit70.i:                             ; preds = %278, %Vec_IntGrow.e
   %281 = add nsw i32 %257, 1
   store i32 %281, ptr %68, align 4, !tbaa !38
   %282 = sext i32 %257 to i64
-  %283 = getelementptr inbounds i32, ptr %280, i64 %282
+  %283 = getelementptr inbounds [4 x i8], ptr %280, i64 %282
   store i32 %256, ptr %283, align 4, !tbaa !37
   %.val50.pre.i = load i32, ptr %209, align 4, !tbaa !109
   br label %284
@@ -3903,7 +3899,7 @@ Abc_NodeTravId.exit:                              ; preds = %1, %._crit_edge.i.i
   %43 = getelementptr i8, ptr %.val2, i64 232
   %.val.i.i = load ptr, ptr %43, align 8, !tbaa !36
   %44 = sext i32 %.val3 to i64
-  %45 = getelementptr inbounds i32, ptr %.val.i.i, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %.val.i.i, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !37
   %47 = getelementptr inbounds nuw i8, ptr %.val, i64 216
   %48 = load i32, ptr %47, align 8, !tbaa !39
@@ -3920,7 +3916,7 @@ define internal fastcc void @Abc_FlowRetime_SetInitValue(ptr noundef readonly ca
   %7 = getelementptr i8, ptr %0, i64 16
   %.val6 = load i32, ptr %7, align 8, !tbaa !48
   %8 = zext i32 %.val6 to i64
-  %9 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %8
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, -97
   store i16 %11, ptr %9, align 8
@@ -3934,7 +3930,7 @@ define internal fastcc void @Abc_FlowRetime_SetInitValue(ptr noundef readonly ca
   %14 = load ptr, ptr %13, align 8, !tbaa !47
   %.val = load i32, ptr %7, align 8, !tbaa !48
   %15 = zext i32 %.val to i64
-  %16 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %15
   %17 = load i16, ptr %16, align 8
   %. = select i1 %.not4, i16 32, i16 64
   %18 = or i16 %17, %.
@@ -3987,10 +3983,10 @@ define internal fastcc void @Abc_FlowRetime_SimulateSop(ptr noundef readonly cap
   %.val53.val = load ptr, ptr %13, align 8, !tbaa !32
   %14 = getelementptr i8, ptr %.val53.val, i64 8
   %.val53.val.val = load ptr, ptr %14, align 8, !tbaa !41
-  %15 = getelementptr inbounds nuw i32, ptr %.val54, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %.val54, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !37
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %.val53.val.val, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.val53.val.val, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !42
   switch i8 %11, label %31 [
     i8 48, label %21
@@ -4006,7 +4002,7 @@ define internal fastcc void @Abc_FlowRetime_SimulateSop(ptr noundef readonly cap
   %23 = getelementptr i8, ptr %19, i64 16
   %.val51 = load i32, ptr %23, align 8, !tbaa !48
   %24 = zext i32 %.val51 to i64
-  %25 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %24
   %26 = load i16, ptr %25, align 8
   %27 = and i16 %26, 96
   %.not49 = icmp eq i16 %27, 0
@@ -4055,7 +4051,7 @@ define internal fastcc void @Abc_FlowRetime_SimulateSop(ptr noundef readonly cap
   %41 = getelementptr i8, ptr %0, i64 16
   %.val6.i = load i32, ptr %41, align 8, !tbaa !48
   %42 = zext i32 %.val6.i to i64
-  %43 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %42
   %44 = load i16, ptr %43, align 8
   %45 = and i16 %44, -97
   store i16 %45, ptr %43, align 8
@@ -4071,7 +4067,7 @@ define internal fastcc void @Abc_FlowRetime_SimulateSop(ptr noundef readonly cap
   %49 = load ptr, ptr %48, align 8, !tbaa !47
   %.val.i = load i32, ptr %41, align 8, !tbaa !48
   %50 = zext i32 %.val.i to i64
-  %51 = getelementptr inbounds nuw %struct.Flow_Data_t_, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %50
   %52 = load i16, ptr %51, align 8
   %..i = select i1 %.not4.i, i16 32, i16 64
   %53 = or i16 %52, %..i

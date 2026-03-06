@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { i64 }
 %struct.ASSCodesCallbacks = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.Box = type { ptr }
-%struct.ASSStyle = type { ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, float, float, float, float, i32, float, float, i32, i32, i32, i32, i32, i32 }
-%struct.StyleBox = type { i16, i16, i8, i16, i8, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"mov_text\00", align 1
 @.str.1 = private unnamed_addr constant [25 x i8] c"3GPP Timed Text subtitle\00", align 1
@@ -245,7 +243,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_text_encode_init(ptr noundef 
   %135 = phi ptr [ %.pre181.i, %.lr.ph171.i ], [ %154, %.loopexit.i ]
   %indvars.iv175.i = phi i64 [ 0, %.lr.ph171.i ], [ %indvars.iv.next176.i, %.loopexit.i ]
   %.1102169.i = phi i32 [ %.0101.i, %.lr.ph171.i ], [ %.2.i, %.loopexit.i ]
-  %136 = getelementptr inbounds nuw %struct.ASSStyle, ptr %135, i64 %indvars.iv175.i
+  %136 = getelementptr inbounds nuw [104 x i8], ptr %135, i64 %indvars.iv175.i
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = load ptr, ptr %137, align 8, !tbaa !61
   %.not121.i = icmp eq ptr %138, null
@@ -268,7 +266,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_text_encode_init(ptr noundef 
 
 142:                                              ; preds = %141, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %141 ]
-  %143 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv.i
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %indvars.iv.i
   %144 = load ptr, ptr %143, align 8, !tbaa !66
   %145 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %144, ptr noundef nonnull dereferenceable(1) %138) #9
   %.not122.i = icmp eq i32 %145, 0
@@ -277,7 +275,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_text_encode_init(ptr noundef 
 .critedge.i:                                      ; preds = %141, %.preheader.i
   call void @av_dynarray_add(ptr noundef nonnull %132, ptr noundef nonnull %131, ptr noundef nonnull %138) #8
   %146 = load ptr, ptr %130, align 8, !tbaa !50
-  %147 = getelementptr inbounds nuw %struct.ASSStyle, ptr %146, i64 %indvars.iv175.i
+  %147 = getelementptr inbounds nuw [104 x i8], ptr %146, i64 %indvars.iv175.i
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8, !tbaa !61
   %150 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %149) #9
@@ -328,7 +326,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_text_encode_init(ptr noundef 
 173:                                              ; preds = %173, %.lr.ph173.i
   %indvars.iv178.i = phi i64 [ 0, %.lr.ph173.i ], [ %indvars.iv.next179.i, %173 ]
   %174 = load ptr, ptr %171, align 8, !tbaa !63
-  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv178.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %indvars.iv178.i
   %176 = load ptr, ptr %175, align 8, !tbaa !66
   %177 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %176) #9
   %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
@@ -340,7 +338,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_text_encode_init(ptr noundef 
   store i8 %181, ptr %172, align 2, !tbaa !58
   call void @av_bprint_append_data(ptr noundef nonnull %12, ptr noundef nonnull %2, i32 noundef 3) #8
   %182 = load ptr, ptr %171, align 8, !tbaa !63
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %indvars.iv178.i
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %indvars.iv178.i
   %184 = load ptr, ptr %183, align 8, !tbaa !66
   call void @av_bprint_append_data(ptr noundef nonnull %12, ptr noundef %184, i32 noundef %180) #8
   %185 = load i32, ptr %160, align 8, !tbaa !62
@@ -419,7 +417,7 @@ define internal range(i32 3, 1) i32 @mov_text_encode_frame(ptr noundef %0, ptr n
 21:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %22 = load ptr, ptr %18, align 8, !tbaa !80
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !81
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 76
   %26 = load i32, ptr %25, align 4, !tbaa !83
@@ -476,7 +474,7 @@ define internal range(i32 3, 1) i32 @mov_text_encode_frame(ptr noundef %0, ptr n
 
 52:                                               ; preds = %47, %52
   %.048 = phi i64 [ 0, %47 ], [ %55, %52 ]
-  %53 = getelementptr inbounds nuw %struct.Box, ptr @box_types, i64 %.048
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @box_types, i64 %.048
   %54 = load ptr, ptr %53, align 8, !tbaa !93
   call void %54(ptr noundef nonnull %7) #8
   %55 = add nuw nsw i64 %.048, 1
@@ -688,7 +686,7 @@ mov_text_font_size_set.exit:                      ; preds = %mov_text_alpha_set.
 
 79:                                               ; preds = %83, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %83 ]
-  %80 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.i.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.i.i
   %81 = load ptr, ptr %80, align 8, !tbaa !66
   %82 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %73, ptr noundef nonnull dereferenceable(1) %81) #9
   %.not12.i.i = icmp eq i32 %82, 0
@@ -796,7 +794,7 @@ define internal fastcc range(i32 0, 2) i32 @mov_text_style_start(ptr noundef %0)
   %43 = add i32 %42, 1
   store i32 %43, ptr %29, align 8, !tbaa !75
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw %struct.StyleBox, ptr %39, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !104
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %47 = load i8, ptr %46, align 8, !tbaa !76
@@ -1150,7 +1148,7 @@ define internal void @mov_text_font_name_cb(ptr noundef %0, ptr noundef readonly
 
 8:                                                ; preds = %12, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %12 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   %10 = load ptr, ptr %9, align 8, !tbaa !66
   %11 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %10) #9
   %.not12.i.i = icmp eq i32 %11, 0
@@ -1295,7 +1293,7 @@ define internal void @encode_styl(ptr noundef %0) #1 {
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %24 = load ptr, ptr %19, align 8, !tbaa !102
-  %25 = getelementptr inbounds nuw %struct.StyleBox, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv
   %26 = load i16, ptr %25, align 4, !tbaa !111
   %27 = call i16 @llvm.bswap.i16(i16 %26)
   store i16 %27, ptr %2, align 4, !tbaa !58

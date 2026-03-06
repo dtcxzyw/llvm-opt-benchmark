@@ -106,7 +106,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::lts_20240722::internal_statusor::StatusOrData.134" = type { %union.anon.135, %union.anon.136 }
 %union.anon.135 = type { %"class.absl::lts_20240722::Status" }
 %union.anon.136 = type { %"class.std::__cxx11::basic_string" }
-%"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress" = type { [128 x i8], i32 }
 %"class.grpc_core::ChannelArgs::Pointer" = type { ptr, ptr }
 %"class.grpc_core::RefCountedPtr.151" = type { ptr }
 %"class.grpc_core::RefCountedPtr.153" = type { ptr }
@@ -144,6 +143,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.24" = type { %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::ResolvedAddress, std::allocator<grpc_event_engine::experimental::EventEngine::ResolvedAddress>>::_Vector_impl" }
 %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::ResolvedAddress, std::allocator<grpc_event_engine::experimental::EventEngine::ResolvedAddress>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::ResolvedAddress, std::allocator<grpc_event_engine::experimental::EventEngine::ResolvedAddress>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::ResolvedAddress, std::allocator<grpc_event_engine::experimental::EventEngine::ResolvedAddress>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress" = type { [128 x i8], i32 }
 %"class.absl::lts_20240722::StatusOr.208" = type { %"class.absl::lts_20240722::internal_statusor::StatusOrData.209" }
 %"class.absl::lts_20240722::internal_statusor::StatusOrData.209" = type { %union.anon.210, %union.anon.211 }
 %union.anon.210 = type { %"class.absl::lts_20240722::Status" }
@@ -4090,7 +4090,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 4672
   %56 = load i64, ptr %55, align 8, !tbaa !209
   %57 = load ptr, ptr %54, align 8, !tbaa !163
-  %58 = getelementptr %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", ptr %57, i64 %56
+  %58 = getelementptr [132 x i8], ptr %57, i64 %56
   %59 = getelementptr i8, ptr %58, i64 -132
   call void @_ZN17grpc_event_engine12experimental20ResolvedAddressToURIB5cxx11ERKNS0_11EventEngine15ResolvedAddressE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::StatusOr.133") align 8 %6, ptr noundef nonnull align 4 dereferenceable(132) %59)
   %60 = load i64, ptr %6, align 8, !tbaa !138
@@ -4423,7 +4423,7 @@ define void @_ZN9grpc_core11HttpRequest14OnReadInternalEN4absl12lts_202407226Sta
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit: ; preds = %24
   %25 = load ptr, ptr %18, align 8, !tbaa !211
-  %26 = getelementptr inbounds nuw %struct.grpc_slice, ptr %25, i64 %.050
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %.050
   %27 = load ptr, ptr %26, align 8, !tbaa !185
   %.not.i = icmp eq ptr %27, null
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -4444,7 +4444,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit: ; pr
 
 .critedge29:                                      ; preds = %21, %.critedge
   %37 = load ptr, ptr %18, align 8, !tbaa !211
-  %38 = getelementptr inbounds nuw %struct.grpc_slice, ptr %37, i64 %.050
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %.050
   %39 = load ptr, ptr %38, align 8, !tbaa !185
   %.not = icmp eq ptr %39, null
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -5101,7 +5101,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit10:         ; preds = %100, %103
 110:                                              ; preds = %65
   %111 = add i64 %67, 1
   store i64 %111, ptr %66, align 8, !tbaa !209
-  %112 = getelementptr inbounds nuw %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", ptr %71, i64 %67
+  %112 = getelementptr inbounds nuw [132 x i8], ptr %71, i64 %67
   tail call void @_ZN9grpc_core11HttpRequest11DoHandshakeERKN17grpc_event_engine12experimental11EventEngine15ResolvedAddressE(ptr noundef nonnull align 8 dereferenceable(5248) %0, ptr noundef nonnull align 4 dereferenceable(132) %112)
   br label %113
 
@@ -6732,7 +6732,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !262
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !259
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !263
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -7808,7 +7808,7 @@ _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESa
   br label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i
 
 _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i: ; preds = %55, %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i.i
-  %56 = getelementptr inbounds nuw %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", ptr %51, i64 %49
+  %56 = getelementptr inbounds nuw [132 x i8], ptr %51, i64 %49
   br label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE9push_backEOS3_.exit.i.i.i
 
 _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE9push_backEOS3_.exit.i.i.i: ; preds = %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i.i, %38

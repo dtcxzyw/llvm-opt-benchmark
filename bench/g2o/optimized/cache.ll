@@ -525,7 +525,7 @@ _ZNSt6vectorIPN3g2o9ParameterESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds
   %14 = shl nuw nsw i64 %11, 1
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #29
   store ptr %15, ptr %4, align 8, !tbaa !18
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %12
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %12
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %16, ptr %17, align 8, !tbaa !20
   store ptr null, ptr %15, align 8, !tbaa !38
@@ -561,7 +561,7 @@ _ZSt6fill_nIPPN3g2o9ParameterEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; pred
 
 33:                                               ; preds = %.lr.ph, %37
   %.01698 = phi i64 [ 0, %.lr.ph ], [ %42, %37 ]
-  %34 = getelementptr inbounds nuw i32, ptr %8, i64 %.01698
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.01698
   %35 = load i32, ptr %34, align 4, !tbaa !77
   %36 = icmp sgt i32 %35, -1
   %.not = icmp slt i32 %35, %32
@@ -570,9 +570,9 @@ _ZSt6fill_nIPPN3g2o9ParameterEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; pred
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %35 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %27, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !38
-  %41 = getelementptr inbounds nuw ptr, ptr %15, i64 %.01698
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.01698
   store ptr %40, ptr %41, align 8, !tbaa !38
   %42 = add nuw i64 %.01698, 1
   %exitcond.not = icmp eq i64 %42, %12
@@ -881,7 +881,7 @@ _ZNSt6vectorIPN3g2o5CacheESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; pre
 _ZNSt6vectorIPN3g2o5CacheESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %163, %_ZNSt6vectorIPN3g2o5CacheESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %158, ptr %138, align 8, !tbaa !87
   store ptr %162, ptr %139, align 8, !tbaa !85
-  %164 = getelementptr inbounds nuw ptr, ptr %158, i64 %156
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %156
   store ptr %164, ptr %141, align 8, !tbaa !86
   br label %_ZNSt6vectorIPN3g2o5CacheESaIS2_EE9push_backERKS2_.exit
 

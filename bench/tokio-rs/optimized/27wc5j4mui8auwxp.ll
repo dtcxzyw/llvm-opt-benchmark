@@ -10619,7 +10619,7 @@ define void @"_ZN5tokio3net4addr122_$LT$impl$u20$tokio..net..addr..sealed..ToSoc
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   %9 = shl i64 %5, 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %8, ptr nonnull readonly align 4 %3, i64 %9, i1 false), !noalias !1549
-  %10 = getelementptr inbounds { i16, [15 x i16] }, ptr %8, i64 %5
+  %10 = getelementptr inbounds [32 x i8], ptr %8, i64 %5
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -10805,7 +10805,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler6inject15rt_multi_thread76_$LT$i
   %20 = load i64, ptr %19, align 8, !alias.scope !1584, !noundef !4
   %21 = add i64 %20, %10
   %22 = and i64 %21, 255
-  %23 = getelementptr inbounds nuw ptr, ptr %6, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %22
   %24 = load ptr, ptr %23, align 8, !noalias !1584, !nonnull !4, !noundef !4
   %25 = add i64 %10, 1
   store i64 %25, ptr %9, align 8, !alias.scope !1584
@@ -10821,7 +10821,7 @@ define hidden void @"_ZN5tokio7runtime9scheduler6inject15rt_multi_thread76_$LT$i
   %29 = phi i64 [ %34, %.lr.ph.i.i.i ], [ %25, %18 ]
   %30 = add i64 %29, %20
   %31 = and i64 %30, 255
-  %32 = getelementptr inbounds nuw ptr, ptr %6, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %31
   %33 = load ptr, ptr %32, align 8, !noalias !1592, !nonnull !4, !noundef !4
   %34 = add i64 %29, 1
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -12164,10 +12164,10 @@ switch.lookup:
   %5 = load i8, ptr %0, align 1, !range !1751, !noundef !4
   %switch.tableidx = add nsw i8 %5, -1
   %6 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN64_$LT$tokio..time..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h06095024cddf6b27E", i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN64_$LT$tokio..time..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h06095024cddf6b27E", i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN64_$LT$tokio..time..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h06095024cddf6b27E.95", i64 %7
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN64_$LT$tokio..time..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h06095024cddf6b27E.95", i64 %7
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %switch.load, ptr %4, align 8

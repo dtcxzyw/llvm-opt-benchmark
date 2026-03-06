@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ccan_list_node = type { ptr, ptr }
 %struct.open_struct = type { i64, i32, i32, i32, i32 }
 %struct.rlimit = type { i64, i64 }
-%struct.run_exec_dup2_fd_pair = type { i32, i32, i64, i64, i32 }
 %struct.rb_process_status = type { i32, i32, i32 }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.child_handler_disabler_state = type { %struct.__sigset_t }
@@ -1598,7 +1597,7 @@ rb_array_len.exit72.thread.i:                     ; preds = %413
 
 RARRAY_AREF.exit.i:                               ; preds = %422, %rb_array_len.exit72.thread.i
   %.0.i.i.i = phi ptr [ %423, %422 ], [ %411, %rb_array_len.exit72.thread.i ]
-  %424 = getelementptr i64, ptr %.0.i.i.i, i64 %415
+  %424 = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %415
   %425 = load i64, ptr %424, align 8, !tbaa !43
   %426 = call fastcc i64 @check_exec_redirect_fd(i64 noundef %425)
   %427 = call i64 @rb_fix2int(i64 noundef %426) #28
@@ -1910,7 +1909,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   %29 = shl nuw nsw i64 %.pre-phi72, 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %28, ptr noundef nonnull readonly align 1 %1, i64 noundef range(i64 1, 0) %29, i1 noundef false) #28
   %30 = zext nneg i32 %0 to i64
-  %31 = getelementptr i64, ptr %28, i64 %30
+  %31 = getelementptr [8 x i8], ptr %28, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -8
   %33 = load i64, ptr %32, align 8, !tbaa !43
   %34 = icmp eq i64 %33, 0
@@ -2045,7 +2044,7 @@ RARRAY_AREF.exit19.i.i:                           ; preds = %76, %74
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %85 = getelementptr i64, ptr %.0, i64 %indvars.iv.i.i
+  %85 = getelementptr [8 x i8], ptr %.0, i64 %indvars.iv.i.i
   %86 = call i64 @rb_string_value(ptr noundef %85) #28
   %87 = load i64, ptr %85, align 8, !tbaa !43
   %88 = call i64 @rb_str_new_frozen(i64 noundef %87) #28
@@ -2448,7 +2447,7 @@ RSTRING_PTR.exit148.i:                            ; preds = %217, %RSTRING_PTR.e
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %233 = getelementptr i64, ptr %.0, i64 %indvars.iv.i
+  %233 = getelementptr [8 x i8], ptr %.0, i64 %indvars.iv.i
   %234 = load i64, ptr %233, align 8, !tbaa !43
   store i64 %234, ptr %9, align 8, !tbaa !43
   %235 = call ptr @rb_string_value_cstr(ptr noundef nonnull %9) #28
@@ -2692,7 +2691,7 @@ rb_array_len.exit.thread:                         ; preds = %18
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.thread, %27
   %.0.i.i = phi ptr [ %28, %27 ], [ %12, %rb_array_len.exit.thread ]
-  %29 = getelementptr i64, ptr %.0.i.i, i64 %.0
+  %29 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.0
   %30 = load i64, ptr %29, align 8, !tbaa !43
   %31 = inttoptr i64 %30 to ptr
   %32 = load i64, ptr %31, align 8, !tbaa !69
@@ -2928,7 +2927,7 @@ rb_array_len.exit.thread.i:                       ; preds = %130
 
 RARRAY_AREF.exit.i:                               ; preds = %138, %rb_array_len.exit.thread.i
   %.0.i.i.i = phi ptr [ %139, %138 ], [ %128, %rb_array_len.exit.thread.i ]
-  %140 = getelementptr i64, ptr %.0.i.i.i, i64 %.053.i
+  %140 = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %.053.i
   %141 = load i64, ptr %140, align 8, !tbaa !43
   %142 = inttoptr i64 %141 to ptr
   %143 = load i64, ptr %142, align 8, !tbaa !69
@@ -3169,7 +3168,7 @@ rb_array_len.exit110.thread:                      ; preds = %247
 
 RARRAY_AREF.exit113:                              ; preds = %rb_array_len.exit110.thread, %255
   %.0.i.i112 = phi ptr [ %256, %255 ], [ %245, %rb_array_len.exit110.thread ]
-  %257 = getelementptr i64, ptr %.0.i.i112, i64 %.073
+  %257 = getelementptr [8 x i8], ptr %.0.i.i112, i64 %.073
   %258 = load i64, ptr %257, align 8, !tbaa !43
   %259 = inttoptr i64 %258 to ptr
   %260 = load i64, ptr %259, align 8, !tbaa !69
@@ -3402,7 +3401,7 @@ rb_array_len.exit.thread:                         ; preds = %12
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.thread, %20
   %.0.i.i = phi ptr [ %21, %20 ], [ %10, %rb_array_len.exit.thread ]
-  %22 = getelementptr i64, ptr %.0.i.i, i64 %.0
+  %22 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.0
   %23 = load i64, ptr %22, align 8, !tbaa !43
   %24 = inttoptr i64 %23 to ptr
   %25 = load i64, ptr %24, align 8, !tbaa !69
@@ -3822,7 +3821,7 @@ rb_array_len.exit.thread.i:                       ; preds = %43
 
 RARRAY_AREF.exit.i:                               ; preds = %51, %rb_array_len.exit.thread.i
   %.0.i.i.i = phi ptr [ %52, %51 ], [ %39, %rb_array_len.exit.thread.i ]
-  %53 = getelementptr i64, ptr %.0.i.i.i, i64 %.034.i
+  %53 = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %.034.i
   %54 = load i64, ptr %53, align 8, !tbaa !43
   %55 = inttoptr i64 %54 to ptr
   %56 = load i64, ptr %55, align 8, !tbaa !69
@@ -4101,7 +4100,7 @@ rb_array_len.exit.i101:                           ; preds = %172, %169
 
 RARRAY_AREF.exit.i102:                            ; preds = %181, %178
   %.0.i.i.i103 = phi ptr [ %182, %181 ], [ %176, %178 ]
-  %183 = getelementptr i64, ptr %.0.i.i.i103, i64 %.0179272.i
+  %183 = getelementptr [8 x i8], ptr %.0.i.i.i103, i64 %.0179272.i
   %184 = load i64, ptr %183, align 8, !tbaa !43
   %185 = inttoptr i64 %184 to ptr
   %186 = load i64, ptr %185, align 8, !tbaa !69
@@ -4124,7 +4123,7 @@ RARRAY_AREF.exit214.i:                            ; preds = %190, %188
   %194 = load i64, ptr %193, align 8, !tbaa !43
   %195 = call i64 @rb_fix2int(i64 noundef %194) #28
   %196 = trunc i64 %195 to i32
-  %197 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %.0179272.i
+  %197 = getelementptr [32 x i8], ptr %165, i64 %.0179272.i
   store i32 %196, ptr %197, align 8, !tbaa !177
   %198 = load i64, ptr %185, align 8, !tbaa !69
   %199 = and i64 %198, 8192
@@ -4194,12 +4193,12 @@ RARRAY_AREF.exit223.i:                            ; preds = %217, %.thread.i
 ._crit_edge.i:                                    ; preds = %225
   %intcmp.intrcmp.i = select i1 %.not, ptr @intcmp, ptr @intrcmp
   call void @qsort(ptr noundef nonnull %165, i64 noundef %.0.i.i, i64 noundef 32, ptr noundef nonnull %intcmp.intrcmp.i) #28
-  %230 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %.0.i.i
+  %230 = getelementptr [32 x i8], ptr %165, i64 %.0.i.i
   br label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.critedge2.i, %._crit_edge.i
   %.1180277.i = phi i64 [ 0, %._crit_edge.i ], [ %264, %.critedge2.i ]
-  %231 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %.1180277.i
+  %231 = getelementptr [32 x i8], ptr %165, i64 %.1180277.i
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
   %233 = load i32, ptr %232, align 4, !tbaa !179
   br label %.lr.ph.i.i
@@ -4279,7 +4278,7 @@ bsearch.exit.i:                                   ; preds = %241
 
 .lr.ph283.preheader.i:                            ; preds = %.critedge2.i, %.critedge4.i
   %.2286.i = phi i64 [ %315, %.critedge4.i ], [ 0, %.critedge2.i ]
-  %265 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %.2286.i
+  %265 = getelementptr [32 x i8], ptr %165, i64 %.2286.i
   %266 = load i32, ptr %265, align 8, !tbaa !177
   %.not205.i144 = icmp eq i32 %266, -1
   br i1 %.not205.i144, label %.critedge4.i, label %.lr.ph.preheader
@@ -4375,7 +4374,7 @@ fd_set_cloexec.exit.i:                            ; preds = %299, %297, %287
   br i1 %cond.i, label %.critedge4.i, label %.lr.ph283.i
 
 .lr.ph283.i:                                      ; preds = %fd_set_cloexec.exit.i
-  %310 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %309
+  %310 = getelementptr [32 x i8], ptr %165, i64 %309
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 16
   %312 = load i64, ptr %311, align 8, !tbaa !183
   %313 = add i64 %312, -1
@@ -4392,7 +4391,7 @@ fd_set_cloexec.exit.i:                            ; preds = %299, %297, %287
 316:                                              ; preds = %.loopexit.i, %.preheader.i
   %.3292.i = phi i64 [ 0, %.preheader.i ], [ %387, %.loopexit.i ]
   %.0181291.i = phi i32 [ -1, %.preheader.i ], [ %.1182.i, %.loopexit.i ]
-  %317 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %.3292.i
+  %317 = getelementptr [32 x i8], ptr %165, i64 %.3292.i
   %318 = load i32, ptr %317, align 8, !tbaa !177
   %319 = icmp eq i32 %318, -1
   br i1 %319, label %.loopexit.i, label %320
@@ -4531,7 +4530,7 @@ fd_set_cloexec.exit242.i:                         ; preds = %367, %360, %357, %f
 
 .lr.ph290.i:                                      ; preds = %fd_set_cloexec.exit242.i, %384
   %.0288.i = phi i64 [ %386, %384 ], [ %374, %fd_set_cloexec.exit242.i ]
-  %375 = getelementptr %struct.run_exec_dup2_fd_pair, ptr %165, i64 %.0288.i
+  %375 = getelementptr [32 x i8], ptr %165, i64 %.0288.i
   %376 = load i32, ptr %375, align 8, !tbaa !177
   %377 = getelementptr inbounds nuw i8, ptr %375, i64 4
   %378 = load i32, ptr %377, align 4, !tbaa !179
@@ -4629,7 +4628,7 @@ rb_array_len.exit.thread.i108:                    ; preds = %403
 
 RARRAY_AREF.exit.i110:                            ; preds = %411, %rb_array_len.exit.thread.i108
   %.0.i.i.i111 = phi ptr [ %412, %411 ], [ %401, %rb_array_len.exit.thread.i108 ]
-  %413 = getelementptr i64, ptr %.0.i.i.i111, i64 %.015.i
+  %413 = getelementptr [8 x i8], ptr %.0.i.i.i111, i64 %.015.i
   %414 = load i64, ptr %413, align 8, !tbaa !43
   %415 = inttoptr i64 %414 to ptr
   %416 = load i64, ptr %415, align 8, !tbaa !69
@@ -4724,7 +4723,7 @@ rb_array_len.exit.thread.i118:                    ; preds = %448
 
 RARRAY_AREF.exit.i121:                            ; preds = %456, %rb_array_len.exit.thread.i118
   %.0.i.i.i122 = phi ptr [ %457, %456 ], [ %446, %rb_array_len.exit.thread.i118 ]
-  %458 = getelementptr i64, ptr %.0.i.i.i122, i64 %.022.i
+  %458 = getelementptr [8 x i8], ptr %.0.i.i.i122, i64 %.022.i
   %459 = load i64, ptr %458, align 8, !tbaa !43
   %460 = inttoptr i64 %459 to ptr
   %461 = load i64, ptr %460, align 8, !tbaa !69
@@ -8484,7 +8483,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %14
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %31 = getelementptr i32, ptr %22, i64 %indvars.iv
+  %31 = getelementptr [4 x i8], ptr %22, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !60
   %33 = zext i32 %32 to i64
   %34 = shl nuw nsw i64 %33, 1
@@ -8625,10 +8624,10 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %39
 
 RARRAY_AREF.exit:                                 ; preds = %51, %54
   %.0.i.i21 = phi ptr [ %55, %54 ], [ %49, %51 ]
-  %56 = getelementptr i64, ptr %.0.i.i21, i64 %indvars.iv
+  %56 = getelementptr [8 x i8], ptr %.0.i.i21, i64 %indvars.iv
   %57 = load i64, ptr %56, align 8, !tbaa !43
   %58 = call fastcc i32 @obj2gid(i64 noundef %57, ptr noundef %4)
-  %59 = getelementptr i32, ptr %47, i64 %indvars.iv
+  %59 = getelementptr [4 x i8], ptr %47, i64 %indvars.iv
   store i32 %58, ptr %59, align 4, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -10692,7 +10691,7 @@ rb_array_len.exit.thread:                         ; preds = %25
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.thread, %34
   %.0.i.i = phi ptr [ %35, %34 ], [ %18, %rb_array_len.exit.thread ]
-  %36 = getelementptr i64, ptr %.0.i.i, i64 %27
+  %36 = getelementptr [8 x i8], ptr %.0.i.i, i64 %27
   %37 = load i64, ptr %36, align 8, !tbaa !43
   %38 = tail call fastcc i64 @check_exec_redirect_fd(i64 noundef %37)
   %39 = tail call i64 @rb_assoc_new(i64 noundef %38, i64 noundef %2) #28
@@ -11119,7 +11118,7 @@ rb_array_len.exit.thread:                         ; preds = %10
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.thread, %18
   %.0.i.i = phi ptr [ %19, %18 ], [ %6, %rb_array_len.exit.thread ]
-  %20 = getelementptr i64, ptr %.0.i.i, i64 %.032
+  %20 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.032
   %21 = load i64, ptr %20, align 8, !tbaa !43
   %22 = inttoptr i64 %21 to ptr
   %23 = load i64, ptr %22, align 8, !tbaa !69

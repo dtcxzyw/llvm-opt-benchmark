@@ -247,7 +247,7 @@ ossl_encoder_ctx_setup_for_pkey.exit.thread38:    ; preds = %42
   %79 = trunc nuw nsw i64 %indvars.iv.i to i32
   %80 = call ptr @OPENSSL_sk_value(ptr noundef %78, i32 noundef %79) #5
   %81 = call i32 @ossl_namemap_name2num(ptr noundef %68, ptr noundef %80) #5
-  %82 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv.i
   store i32 %81, ptr %82, align 4, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %72
@@ -460,7 +460,7 @@ define internal void @collect_encoder(ptr noundef %0, ptr noundef captures(none)
 
 26:                                               ; preds = %.backedge
   %27 = load ptr, ptr %19, align 8, !tbaa !46
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !9
   %30 = load i32, ptr %20, align 8, !tbaa !55
   %.not37 = icmp eq i32 %29, %30

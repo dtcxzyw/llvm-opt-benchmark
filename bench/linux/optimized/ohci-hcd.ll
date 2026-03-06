@@ -21,7 +21,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.hc_driver = type { ptr, ptr, i64, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.lock_class_key = type {}
-%struct.usb_iso_packet_descriptor = type { i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [30 x i8] c"bogus NDP, rereads as NDP=%d\0A\00", align 1
 @__UNIQUE_ID___addressable_ohci_hub_status_data422 = internal global ptr @ohci_hub_status_data, section ".discard.addressable", align 8
@@ -290,7 +289,7 @@ define dso_local range(i32 0, 3) i32 @ohci_hub_status_data(ptr noundef %0, ptr n
   %71 = phi i32 [ %50, %66 ], [ %110, %108 ]
   %72 = load ptr, ptr %43, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 84
-  %74 = getelementptr i32, ptr %73, i64 %69
+  %74 = getelementptr [4 x i8], ptr %73, i64 %69
   %75 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %74) #14, !srcloc !5
   %76 = icmp eq i32 %75, -1
   br i1 %76, label %.thread3, label %77
@@ -311,7 +310,7 @@ define dso_local range(i32 0, 3) i32 @ohci_hub_status_data(ptr noundef %0, ptr n
 .preheader:                                       ; preds = %77, %.preheader
   %84 = load ptr, ptr %43, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 84
-  %86 = getelementptr i32, ptr %85, i64 %69
+  %86 = getelementptr [4 x i8], ptr %85, i64 %69
   %87 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %86) #14, !srcloc !5
   %88 = and i32 %87, -2032416
   %89 = icmp eq i32 %88, 0
@@ -618,7 +617,7 @@ define dso_local noundef range(i32 -108, 1) i32 @ohci_hub_control(ptr noundef ca
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 84
   %39 = zext i16 %26 to i64
-  %40 = getelementptr i32, ptr %38, i64 %39
+  %40 = getelementptr [4 x i8], ptr %38, i64 %39
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %35, ptr elementtype(i32) %40) #14, !srcloc !9
   br label %161
 
@@ -730,7 +729,7 @@ define dso_local noundef range(i32 -108, 1) i32 @ohci_hub_control(ptr noundef ca
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 84
   %115 = zext i16 %111 to i64
-  %116 = getelementptr i32, ptr %114, i64 %115
+  %116 = getelementptr [4 x i8], ptr %114, i64 %115
   %117 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %116) #14, !srcloc !5
   %118 = icmp eq i32 %117, -1
   br i1 %118, label %119, label %121
@@ -753,7 +752,7 @@ define dso_local noundef range(i32 -108, 1) i32 @ohci_hub_control(ptr noundef ca
 .preheader3:                                      ; preds = %121, %.preheader3
   %129 = load ptr, ptr %112, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 84
-  %131 = getelementptr i32, ptr %130, i64 %115
+  %131 = getelementptr [4 x i8], ptr %130, i64 %115
   %132 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %131) #14, !srcloc !5
   %133 = and i32 %132, -2032416
   %134 = icmp eq i32 %133, 0
@@ -788,7 +787,7 @@ define dso_local noundef range(i32 -108, 1) i32 @ohci_hub_control(ptr noundef ca
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 84
   %149 = zext i16 %144 to i64
-  %150 = getelementptr i32, ptr %148, i64 %149
+  %150 = getelementptr [4 x i8], ptr %148, i64 %149
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 4, ptr elementtype(i32) %150) #14, !srcloc !9
   br label %161
 
@@ -797,7 +796,7 @@ define dso_local noundef range(i32 -108, 1) i32 @ohci_hub_control(ptr noundef ca
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 84
   %155 = zext i16 %144 to i64
-  %156 = getelementptr i32, ptr %154, i64 %155
+  %156 = getelementptr [4 x i8], ptr %154, i64 %155
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 256, ptr elementtype(i32) %156) #14, !srcloc !9
   br label %161
 
@@ -820,7 +819,7 @@ define internal fastcc noundef range(i32 -108, 1) i32 @root_port_reset(ptr nound
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 84
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr i32, ptr %5, i64 %6
+  %7 = getelementptr [4 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %9 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8) #14, !srcloc !5
   %10 = trunc i32 %9 to i16
@@ -1192,7 +1191,7 @@ define dso_local noundef range(i32 -75, 1) i32 @ohci_restart(ptr noundef initial
 36:                                               ; preds = %36, %.loopexit
   %37 = phi i64 [ 0, %.loopexit ], [ %40, %36 ]
   %38 = load ptr, ptr %35, align 8
-  %39 = getelementptr i32, ptr %38, i64 %37
+  %39 = getelementptr [4 x i8], ptr %38, i64 %37
   store i32 0, ptr %39, align 4
   %40 = add nuw nsw i64 %37, 1
   %41 = icmp eq i64 %40, 32
@@ -1397,7 +1396,7 @@ define internal fastcc void @ed_deschedule(ptr noundef captures(none) %0, ptr no
 107:                                              ; preds = %132, %98
   %108 = phi i32 [ %99, %98 ], [ %140, %132 ]
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr ptr, ptr %100, i64 %109
+  %110 = getelementptr [8 x i8], ptr %100, i64 %109
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
   %113 = icmp eq ptr %111, %1
@@ -1420,7 +1419,7 @@ define internal fastcc void @ed_deschedule(ptr noundef captures(none) %0, ptr no
 
 124:                                              ; preds = %107
   %125 = load ptr, ptr %101, align 8
-  %126 = getelementptr i32, ptr %125, i64 %109
+  %126 = getelementptr [4 x i8], ptr %125, i64 %109
   br i1 %112, label %132, label %127
 
 127:                                              ; preds = %121, %124
@@ -1435,7 +1434,7 @@ define internal fastcc void @ed_deschedule(ptr noundef captures(none) %0, ptr no
 132:                                              ; preds = %121, %127, %124
   %133 = load i16, ptr %104, align 2
   %134 = zext i16 %133 to i32
-  %135 = getelementptr i32, ptr %105, i64 %109
+  %135 = getelementptr [4 x i8], ptr %105, i64 %109
   %136 = load i32, ptr %135, align 4
   %137 = sub i32 %136, %134
   store i32 %137, ptr %135, align 4
@@ -1585,7 +1584,7 @@ define internal fastcc void @ohci_work(ptr noundef %0) unnamed_addr #0 align 16 
   %86 = getelementptr i8, ptr %85, i64 8
   store i32 %77, ptr %86, align 8
   %87 = zext nneg i32 %76 to i64
-  %88 = getelementptr i32, ptr @cc_to_error, i64 %87
+  %88 = getelementptr [4 x i8], ptr @cc_to_error, i64 %87
   %89 = load i32, ptr %88, align 4
   %90 = load i8, ptr %82, align 4
   %91 = zext i8 %90 to i64
@@ -1620,7 +1619,7 @@ define internal fastcc void @ohci_work(ptr noundef %0) unnamed_addr #0 align 16 
 
 111:                                              ; preds = %107
   %112 = zext nneg i32 %108 to i64
-  %113 = getelementptr i32, ptr @cc_to_error, i64 %112
+  %113 = getelementptr [4 x i8], ptr @cc_to_error, i64 %112
   %114 = load i32, ptr %113, align 4
   br label %115
 
@@ -1700,7 +1699,7 @@ td_done.exit:                                     ; preds = %53, %75, %118, %124
 
 165:                                              ; preds = %196, %162
   %166 = phi i64 [ 0, %162 ], [ %197, %196 ]
-  %167 = getelementptr ptr, ptr %163, i64 %166
+  %167 = getelementptr [8 x i8], ptr %163, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = icmp eq ptr %168, null
   br i1 %169, label %196, label %170
@@ -1711,7 +1710,7 @@ td_done.exit:                                     ; preds = %53, %75, %118, %124
   %173 = lshr i64 %172, 6
   %174 = xor i64 %173, %172
   %175 = and i64 %174, 63
-  %176 = getelementptr ptr, ptr %23, i64 %175
+  %176 = getelementptr [8 x i8], ptr %23, i64 %175
   br label %177
 
 177:                                              ; preds = %177, %170
@@ -2117,7 +2116,7 @@ finish_urb.exit:                                  ; preds = %240, %237, %td_done
   %413 = getelementptr i8, ptr %412, i64 8
   store i32 %404, ptr %413, align 8
   %414 = zext nneg i32 %403 to i64
-  %415 = getelementptr i32, ptr @cc_to_error, i64 %414
+  %415 = getelementptr [4 x i8], ptr @cc_to_error, i64 %414
   %416 = load i32, ptr %415, align 4
   %417 = load i8, ptr %409, align 4
   %418 = zext i8 %417 to i64
@@ -2204,7 +2203,7 @@ td_done.exit13:                                   ; preds = %380, %402, %427, %4
 
 472:                                              ; preds = %503, %469
   %473 = phi i64 [ 0, %469 ], [ %504, %503 ]
-  %474 = getelementptr ptr, ptr %470, i64 %473
+  %474 = getelementptr [8 x i8], ptr %470, i64 %473
   %475 = load ptr, ptr %474, align 8
   %476 = icmp eq ptr %475, null
   br i1 %476, label %503, label %477
@@ -2215,7 +2214,7 @@ td_done.exit13:                                   ; preds = %380, %402, %427, %4
   %480 = lshr i64 %479, 6
   %481 = xor i64 %480, %479
   %482 = and i64 %481, 63
-  %483 = getelementptr ptr, ptr %23, i64 %482
+  %483 = getelementptr [8 x i8], ptr %23, i64 %482
   br label %484
 
 484:                                              ; preds = %484, %477
@@ -2958,7 +2957,7 @@ define dso_local noundef i32 @ohci_resume(ptr noundef %0, i1 noundef zeroext %1)
   %30 = phi i64 [ %34, %.preheader ], [ 0, %23 ]
   %31 = load ptr, ptr %16, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 84
-  %33 = getelementptr i32, ptr %32, i64 %30
+  %33 = getelementptr [4 x i8], ptr %32, i64 %30
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 256, ptr elementtype(i32) %33) #14, !srcloc !9
   %34 = add nuw nsw i64 %30, 1
   %35 = load i32, ptr %24, align 4
@@ -3766,7 +3765,7 @@ define internal void @io_watchdog_func(ptr noundef %0) #0 align 16 {
   %163 = phi i32 [ 0, %159 ], [ %187, %.loopexit ]
   %164 = load ptr, ptr %4, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 84
-  %166 = getelementptr i32, ptr %165, i64 %162
+  %166 = getelementptr [4 x i8], ptr %165, i64 %162
   %167 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %166) #14, !srcloc !5
   %168 = icmp eq i32 %167, -1
   br i1 %168, label %169, label %170
@@ -3787,7 +3786,7 @@ define internal void @io_watchdog_func(ptr noundef %0) #0 align 16 {
 .preheader:                                       ; preds = %170, %.preheader
   %177 = load ptr, ptr %4, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 84
-  %179 = getelementptr i32, ptr %178, i64 %162
+  %179 = getelementptr [4 x i8], ptr %178, i64 %162
   %180 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %179) #14, !srcloc !5
   %181 = and i32 %180, -2032416
   %182 = icmp eq i32 %181, 0
@@ -4009,7 +4008,7 @@ define internal fastcc void @ohci_dump(ptr noundef captures(none) %0) unnamed_ad
   %57 = load ptr, ptr %2, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 84
   %59 = sext i32 %56 to i64
-  %60 = getelementptr i32, ptr %58, i64 %59
+  %60 = getelementptr [4 x i8], ptr %58, i64 %59
   %61 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %60) #14, !srcloc !5
   %62 = icmp eq i32 %61, -1
   br i1 %62, label %63, label %64
@@ -4030,7 +4029,7 @@ define internal fastcc void @ohci_dump(ptr noundef captures(none) %0) unnamed_ad
 .preheader:                                       ; preds = %64, %.preheader
   %71 = load ptr, ptr %2, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 84
-  %73 = getelementptr i32, ptr %72, i64 %59
+  %73 = getelementptr [4 x i8], ptr %72, i64 %59
   %74 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %73) #14, !srcloc !5
   %75 = and i32 %74, -2032416
   %76 = icmp eq i32 %75, 0
@@ -4414,14 +4413,14 @@ define internal range(i64 -4294963199, 4097) i64 @fill_periodic_buffer(ptr nound
   %19 = phi ptr [ %13, %5 ], [ %113, %110 ]
   %20 = phi i32 [ 0, %5 ], [ %112, %110 ]
   %21 = phi i32 [ %11, %5 ], [ %111, %110 ]
-  %22 = getelementptr ptr, ptr %15, i64 %18
+  %22 = getelementptr [8 x i8], ptr %15, i64 %18
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %110, label %25
 
 25:                                               ; preds = %17
   %26 = zext i32 %21 to i64
-  %27 = getelementptr i32, ptr %16, i64 %18
+  %27 = getelementptr [4 x i8], ptr %16, i64 %18
   %28 = load i32, ptr %27, align 4
   %29 = trunc i64 %18 to i32
   %30 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %19, i64 noundef %26, ptr noundef nonnull @.str.92, i32 noundef %29, i32 noundef %28) #14
@@ -4452,7 +4451,7 @@ define internal range(i64 -4294963199, 4097) i64 @fill_periodic_buffer(ptr nound
 
 .preheader:                                       ; preds = %.preheader.preheader, %52
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %52 ]
-  %49 = getelementptr ptr, ptr %3, i64 %indvars.iv
+  %49 = getelementptr [8 x i8], ptr %3, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, %35
   br i1 %51, label %.loopexit, label %52
@@ -4514,7 +4513,7 @@ define internal range(i64 -4294963199, 4097) i64 @fill_periodic_buffer(ptr nound
 93:                                               ; preds = %64
   %94 = add nuw nsw i32 %37, 1
   %95 = zext nneg i32 %37 to i64
-  %96 = getelementptr ptr, ptr %3, i64 %95
+  %96 = getelementptr [8 x i8], ptr %3, i64 %95
   store ptr %35, ptr %96, align 8
   br label %97
 
@@ -5057,7 +5056,7 @@ default.unreachable29:                            ; preds = %47
   %394 = load ptr, ptr %5, align 8
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 84
   %396 = sext i32 %393 to i64
-  %397 = getelementptr i32, ptr %395, i64 %396
+  %397 = getelementptr [4 x i8], ptr %395, i64 %396
   %398 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %397) #14, !srcloc !5
   %399 = icmp eq i32 %398, -1
   br i1 %399, label %400, label %401
@@ -5078,7 +5077,7 @@ default.unreachable29:                            ; preds = %47
 .preheader:                                       ; preds = %401, %.preheader
   %408 = load ptr, ptr %5, align 8
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 84
-  %410 = getelementptr i32, ptr %409, i64 %396
+  %410 = getelementptr [4 x i8], ptr %409, i64 %396
   %411 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %410) #14, !srcloc !5
   %412 = and i32 %411, -2032416
   %413 = icmp eq i32 %412, 0
@@ -5160,7 +5159,7 @@ define internal fastcc void @urb_free_priv(ptr noundef captures(none) %0, ptr no
 
 12:                                               ; preds = %43, %6
   %13 = phi i64 [ 0, %6 ], [ %44, %43 ]
-  %14 = getelementptr ptr, ptr %7, i64 %13
+  %14 = getelementptr [8 x i8], ptr %7, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %43, label %17
@@ -5171,7 +5170,7 @@ define internal fastcc void @urb_free_priv(ptr noundef captures(none) %0, ptr no
   %20 = lshr i64 %19, 6
   %21 = xor i64 %20, %19
   %22 = and i64 %21, 63
-  %23 = getelementptr ptr, ptr %8, i64 %22
+  %23 = getelementptr [8 x i8], ptr %8, i64 %22
   br label %24
 
 24:                                               ; preds = %24, %17
@@ -5430,9 +5429,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ed_schedule(ptr noundef ca
 
 107:                                              ; preds = %103
   %108 = zext nneg i32 %105 to i64
-  %109 = getelementptr i32, ptr %101, i64 %108
+  %109 = getelementptr [4 x i8], ptr %101, i64 %108
   %110 = load i32, ptr %109, align 4
-  %111 = getelementptr i32, ptr %101, i64 %104
+  %111 = getelementptr [4 x i8], ptr %101, i64 %104
   %112 = load i32, ptr %111, align 4
   %113 = icmp sgt i32 %110, %112
   br i1 %113, label %114, label %.loopexit13
@@ -5448,7 +5447,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ed_schedule(ptr noundef ca
 
 119:                                              ; preds = %116, %114
   %120 = phi i64 [ %104, %114 ], [ %117, %116 ]
-  %121 = getelementptr i32, ptr %101, i64 %120
+  %121 = getelementptr [4 x i8], ptr %101, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = add i32 %122, %97
   %124 = icmp sgt i32 %123, 900
@@ -5482,9 +5481,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ed_schedule(ptr noundef ca
   %140 = phi i16 [ %94, %134 ], [ %190, %184 ]
   %141 = phi i32 [ %135, %134 ], [ %192, %184 ]
   %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr ptr, ptr %136, i64 %142
+  %143 = getelementptr [8 x i8], ptr %136, i64 %142
   %144 = load ptr, ptr %137, align 8
-  %145 = getelementptr i32, ptr %144, i64 %142
+  %145 = getelementptr [4 x i8], ptr %144, i64 %142
   %146 = load ptr, ptr %143, align 8
   %147 = icmp ne ptr %146, null
   %148 = icmp ne ptr %146, %1
@@ -5561,7 +5560,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ed_schedule(ptr noundef ca
 184:                                              ; preds = %166, %179, %169
   %185 = load i16, ptr %95, align 2
   %186 = zext i16 %185 to i32
-  %187 = getelementptr i32, ptr %101, i64 %142
+  %187 = getelementptr [4 x i8], ptr %101, i64 %142
   %188 = load i32, ptr %187, align 4
   %189 = add i32 %188, %186
   store i32 %189, ptr %187, align 4
@@ -5627,7 +5626,7 @@ define internal fastcc void @update_done_list(ptr noundef captures(none) %0) unn
   %14 = lshr i64 %12, 6
   %15 = xor i64 %13, %14
   %16 = and i64 %15, 63
-  %17 = getelementptr ptr, ptr %6, i64 %16
+  %17 = getelementptr [8 x i8], ptr %6, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.thread11, label %.preheader13
@@ -6290,7 +6289,7 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %184 = lshr i32 %9, 15
   %185 = and i32 %184, 15
   %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr ptr, ptr %183, i64 %186
+  %187 = getelementptr [8 x i8], ptr %183, i64 %186
   %188 = load ptr, ptr %187, align 8, !nonnull !20, !noundef !20
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
   %190 = load i16, ptr %189, align 1
@@ -6374,7 +6373,7 @@ define internal i32 @ohci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %238 = getelementptr inbounds nuw i8, ptr %232, i64 56
   store i64 %235, ptr %238, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %239 = getelementptr ptr, ptr %220, i64 %223
+  %239 = getelementptr [8 x i8], ptr %220, i64 %223
   store ptr %232, ptr %239, align 8
   %240 = add nuw nsw i64 %223, 1
   %241 = icmp eq i64 %240, %221
@@ -6714,7 +6713,7 @@ define internal void @ohci_endpoint_disable(ptr noundef %0, ptr noundef captures
   %37 = lshr i64 %36, 6
   %38 = xor i64 %37, %36
   %39 = and i64 %38, 63
-  %40 = getelementptr ptr, ptr %34, i64 %39
+  %40 = getelementptr [8 x i8], ptr %34, i64 %39
   br label %41
 
 41:                                               ; preds = %41, %31
@@ -6794,7 +6793,7 @@ define internal void @ohci_endpoint_disable(ptr noundef %0, ptr noundef captures
   %87 = lshr i64 %86, 6
   %88 = xor i64 %87, %86
   %89 = and i64 %88, 63
-  %90 = getelementptr ptr, ptr %84, i64 %89
+  %90 = getelementptr [8 x i8], ptr %84, i64 %89
   br label %91
 
 91:                                               ; preds = %91, %.loopexit
@@ -6942,7 +6941,7 @@ define internal fastcc void @td_submit_urb(ptr noundef %0, ptr noundef %1) unnam
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 60
   %18 = zext nneg i32 %14 to i64
-  %19 = getelementptr i32, ptr %17, i64 %18
+  %19 = getelementptr [4 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = lshr i32 %10, 15
   %22 = and i32 %21, 15
@@ -7090,7 +7089,7 @@ define internal fastcc void @td_submit_urb(ptr noundef %0, ptr noundef %1) unnam
   %120 = phi i32 [ %118, %117 ], [ %105, %113 ]
   %121 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %122 = sext i32 %90 to i64
-  %123 = getelementptr ptr, ptr %121, i64 %122
+  %123 = getelementptr [8 x i8], ptr %121, i64 %122
   %124 = load ptr, ptr %123, align 8
   %125 = load ptr, ptr %106, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
@@ -7156,7 +7155,7 @@ td_fill.exit:                                     ; preds = %119, %141
   %164 = lshr i64 %163, 6
   %165 = xor i64 %164, %163
   %166 = and i64 %165, 63
-  %167 = getelementptr ptr, ptr %77, i64 %166
+  %167 = getelementptr [8 x i8], ptr %77, i64 %166
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds nuw i8, ptr %127, i64 32
   store ptr %168, ptr %169, align 32
@@ -7217,7 +7216,7 @@ td_fill.exit:                                     ; preds = %119, %141
   %211 = select i1 %209, i32 %105, i32 %210
   %212 = getelementptr inbounds nuw i8, ptr %201, i64 32
   %213 = sext i32 %177 to i64
-  %214 = getelementptr ptr, ptr %212, i64 %213
+  %214 = getelementptr [8 x i8], ptr %212, i64 %213
   %215 = load ptr, ptr %214, align 8
   %216 = load ptr, ptr %201, align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 24
@@ -7270,7 +7269,7 @@ td_fill.exit:                                     ; preds = %119, %141
   %244 = lshr i64 %243, 6
   %245 = xor i64 %244, %243
   %246 = and i64 %245, 63
-  %247 = getelementptr ptr, ptr %77, i64 %246
+  %247 = getelementptr [8 x i8], ptr %77, i64 %246
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr inbounds nuw i8, ptr %218, i64 32
   store ptr %248, ptr %249, align 32
@@ -7365,7 +7364,7 @@ td_fill.exit:                                     ; preds = %119, %141
   %306 = xor i64 %305, %304
   %307 = and i64 %306, 63
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %309 = getelementptr ptr, ptr %308, i64 %307
+  %309 = getelementptr [8 x i8], ptr %308, i64 %307
   %310 = load ptr, ptr %309, align 8
   %311 = getelementptr inbounds nuw i8, ptr %281, i64 32
   store ptr %310, ptr %311, align 32
@@ -7445,7 +7444,7 @@ td_fill.exit6:                                    ; preds = %321, %326
   %358 = lshr i64 %357, 6
   %359 = xor i64 %358, %357
   %360 = and i64 %359, 63
-  %361 = getelementptr ptr, ptr %308, i64 %360
+  %361 = getelementptr [8 x i8], ptr %308, i64 %360
   %362 = load ptr, ptr %361, align 8
   %363 = getelementptr inbounds nuw i8, ptr %333, i64 32
   store ptr %362, ptr %363, align 32
@@ -7485,7 +7484,7 @@ td_fill.exit6:                                    ; preds = %321, %326
   %386 = phi i32 [ %384, %383 ], [ %371, %378 ]
   %387 = getelementptr inbounds nuw i8, ptr %372, i64 32
   %388 = zext nneg i32 %368 to i64
-  %389 = getelementptr ptr, ptr %387, i64 %388
+  %389 = getelementptr [8 x i8], ptr %387, i64 %388
   %390 = load ptr, ptr %389, align 8
   %391 = load ptr, ptr %372, align 8
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 24
@@ -7528,7 +7527,7 @@ td_fill.exit6:                                    ; preds = %321, %326
   %414 = lshr i64 %413, 6
   %415 = xor i64 %414, %413
   %416 = and i64 %415, 63
-  %417 = getelementptr ptr, ptr %308, i64 %416
+  %417 = getelementptr [8 x i8], ptr %308, i64 %416
   %418 = load ptr, ptr %417, align 8
   %419 = getelementptr inbounds nuw i8, ptr %393, i64 32
   store ptr %418, ptr %419, align 32
@@ -7571,7 +7570,7 @@ td_fill.exit6:                                    ; preds = %321, %326
   %445 = mul i32 %443, %444
   %446 = add i32 %445, %442
   %447 = and i32 %446, 65535
-  %448 = getelementptr %struct.usb_iso_packet_descriptor, ptr %436, i64 %441
+  %448 = getelementptr [16 x i8], ptr %436, i64 %441
   %449 = load i32, ptr %448, align 8
   %450 = zext i32 %449 to i64
   %451 = add i64 %59, %450
@@ -7659,7 +7658,7 @@ td_fill.exit8:                                    ; preds = %460, %465
   %509 = lshr i64 %508, 6
   %510 = xor i64 %509, %508
   %511 = and i64 %510, 63
-  %512 = getelementptr ptr, ptr %439, i64 %511
+  %512 = getelementptr [8 x i8], ptr %439, i64 %511
   %513 = load ptr, ptr %512, align 8
   %514 = getelementptr inbounds nuw i8, ptr %474, i64 32
   store ptr %513, ptr %514, align 32

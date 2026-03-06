@@ -222,7 +222,7 @@ define internal void @_ZN5arrow4util8internalL20InitializeLargeTableEv() #2 {
   %12 = udiv i8 %11, 12
   %13 = zext nneg i8 %12 to i16
   %14 = shl nuw nsw i16 %13, 8
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i16 %14, ptr %gep, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -262,27 +262,27 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
   %15 = lshr i64 %.0.copyload.i, 16
   %16 = lshr i64 %.0.copyload.i, 8
   %17 = and i64 %.0.copyload.i, 255
-  %18 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !10
   %20 = zext i16 %19 to i64
   %21 = and i64 %16, 255
-  %22 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %20
-  %23 = getelementptr inbounds nuw i16, ptr %22, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %20
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %21
   %24 = load i16, ptr %23, align 2, !tbaa !10
   %25 = zext i16 %24 to i64
   %26 = and i64 %15, 255
-  %27 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %25
-  %28 = getelementptr inbounds nuw i16, ptr %27, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %25
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %26
   %29 = load i16, ptr %28, align 2, !tbaa !10
   %30 = zext i16 %29 to i64
   %31 = and i64 %14, 255
-  %32 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %30
-  %33 = getelementptr inbounds nuw i16, ptr %32, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %30
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %31
   %34 = load i16, ptr %33, align 2, !tbaa !10
   %35 = zext i16 %34 to i64
   %36 = and i64 %13, 255
-  %37 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %35
-  %38 = getelementptr inbounds nuw i16, ptr %37, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %35
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %36
   %39 = load i16, ptr %38, align 2, !tbaa !10
   %40 = icmp eq i16 %39, 0
   br i1 %40, label %41, label %44
@@ -295,8 +295,8 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
 44:                                               ; preds = %12
   %45 = zext i16 %39 to i64
   %46 = and i64 %6, 255
-  %47 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %45
-  %48 = getelementptr inbounds nuw i16, ptr %47, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %45
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %46
   %49 = load i16, ptr %48, align 2, !tbaa !10
   %50 = icmp eq i16 %49, 0
   br i1 %50, label %51, label %54
@@ -309,8 +309,8 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
 54:                                               ; preds = %44
   %55 = zext i16 %49 to i64
   %56 = and i64 %7, 255
-  %57 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %55
-  %58 = getelementptr inbounds nuw i16, ptr %57, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %55
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %56
   %59 = load i16, ptr %58, align 2, !tbaa !10
   %60 = icmp eq i16 %59, 0
   br i1 %60, label %61, label %64
@@ -323,8 +323,8 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEP
 64:                                               ; preds = %54
   %65 = getelementptr inbounds nuw i8, ptr %.079103, i64 8
   %66 = zext i16 %59 to i64
-  %67 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %66
-  %68 = getelementptr inbounds nuw i16, ptr %67, i64 %8
+  %67 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %66
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %8
   %69 = load i16, ptr %68, align 2, !tbaa !10
   %70 = add nsw i64 %.082102, -8
   %71 = icmp eq i16 %69, 0
@@ -399,7 +399,7 @@ select.unfold:                                    ; preds = %64, %41, %51, %61, 
 
 104:                                              ; preds = %100
   %105 = and i64 %103, 255
-  %106 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %105
+  %106 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !10
   %108 = zext i16 %107 to i64
   br label %109
@@ -410,8 +410,8 @@ select.unfold:                                    ; preds = %64, %41, %51, %61, 
   %111 = getelementptr i8, ptr %110, i64 -6
   %112 = load i8, ptr %111, align 1, !tbaa !9
   %113 = zext i8 %112 to i64
-  %114 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.0
-  %115 = getelementptr inbounds nuw i16, ptr %114, i64 %113
+  %114 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.0
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %114, i64 %113
   %116 = load i16, ptr %115, align 2, !tbaa !10
   %117 = zext i16 %116 to i64
   br label %118
@@ -422,8 +422,8 @@ select.unfold:                                    ; preds = %64, %41, %51, %61, 
   %120 = getelementptr i8, ptr %119, i64 -5
   %121 = load i8, ptr %120, align 1, !tbaa !9
   %122 = zext i8 %121 to i64
-  %123 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.1
-  %124 = getelementptr inbounds nuw i16, ptr %123, i64 %122
+  %123 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.1
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %123, i64 %122
   %125 = load i16, ptr %124, align 2, !tbaa !10
   %126 = zext i16 %125 to i64
   br label %127
@@ -434,8 +434,8 @@ select.unfold:                                    ; preds = %64, %41, %51, %61, 
   %129 = getelementptr i8, ptr %128, i64 -4
   %130 = load i8, ptr %129, align 1, !tbaa !9
   %131 = zext i8 %130 to i64
-  %132 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.2
-  %133 = getelementptr inbounds nuw i16, ptr %132, i64 %131
+  %132 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.2
+  %133 = getelementptr inbounds nuw [2 x i8], ptr %132, i64 %131
   %134 = load i16, ptr %133, align 2, !tbaa !10
   %135 = zext i16 %134 to i64
   br label %136
@@ -446,8 +446,8 @@ select.unfold:                                    ; preds = %64, %41, %51, %61, 
   %138 = getelementptr i8, ptr %137, i64 -3
   %139 = load i8, ptr %138, align 1, !tbaa !9
   %140 = zext i8 %139 to i64
-  %141 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.3
-  %142 = getelementptr inbounds nuw i16, ptr %141, i64 %140
+  %141 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.3
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %141, i64 %140
   %143 = load i16, ptr %142, align 2, !tbaa !10
   %144 = zext i16 %143 to i64
   br label %145
@@ -455,8 +455,8 @@ select.unfold:                                    ; preds = %64, %41, %51, %61, 
 145:                                              ; preds = %136, %100
   %.4 = phi i64 [ %144, %136 ], [ 0, %100 ]
   %146 = and i64 %102, 255
-  %147 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.4
-  %148 = getelementptr inbounds nuw i16, ptr %147, i64 %146
+  %147 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.4
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %147, i64 %146
   %149 = load i16, ptr %148, align 2, !tbaa !10
   %150 = zext i16 %149 to i64
   br label %.thread97
@@ -465,8 +465,8 @@ select.unfold:                                    ; preds = %64, %41, %51, %61, 
   %151 = phi i8 [ %101, %145 ], [ %98, %97 ]
   %.5 = phi i64 [ %150, %145 ], [ 0, %97 ]
   %152 = zext i8 %151 to i64
-  %153 = getelementptr inbounds nuw i16, ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.5
-  %154 = getelementptr inbounds nuw i16, ptr %153, i64 %152
+  %153 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5arrow4util8internal16utf8_large_tableE, i64 %.5
+  %154 = getelementptr inbounds nuw [2 x i8], ptr %153, i64 %152
   %155 = load i16, ptr %154, align 2, !tbaa !10
   %156 = icmp eq i16 %155, 0
   br label %.thread
@@ -710,10 +710,10 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i.i.i: 
 
 _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEaSEOw.exit.i.i: ; preds = %.noexc3.i, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i.i.i
   %24 = phi ptr [ %.pre.i.i.i.i, %.noexc3.i ], [ %16, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE8capacityEv.exit.i.i.i.i ]
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %14
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %14
   store i32 %13, ptr %25, align 4, !tbaa !45
   store i64 %15, ptr %9, align 8, !tbaa !43, !alias.scope !37
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %15
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %15
   store i32 0, ptr %26, align 4, !tbaa !45
   %27 = load ptr, ptr %4, align 8, !tbaa !18, !noalias !37
   %28 = icmp ult ptr %27, %10
@@ -1232,7 +1232,7 @@ define void @_ZN5arrow4util17UTF16StringToUTF8B5cxx11ESt17basic_string_viewIDsSt
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %8, align 8, !tbaa !58, !alias.scope !60
   store i8 0, ptr %7, align 8, !tbaa !9, !alias.scope !60
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %1
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %1
   %10 = invoke ptr @_ZN4utf88utf16to8IPKDsSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET0_T_SC_SB_(ptr noundef %2, ptr noundef %9, ptr nonnull align 8 %4)
           to label %_ZN5arrow4util12_GLOBAL__N_125UTF16StringToUTF8InternalB5cxx11ESt17basic_string_viewIDsSt11char_traitsIDsEE.exit unwind label %11
 
@@ -2444,10 +2444,10 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i: ;
 
 _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEaSEODs.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i, %24
   %25 = phi ptr [ %.pre.i.i, %24 ], [ %17, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i ]
-  %26 = getelementptr inbounds nuw i16, ptr %25, i64 %15
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %15
   store i16 %14, ptr %26, align 2, !tbaa !71
   store i64 %16, ptr %6, align 8, !tbaa !69
-  %27 = getelementptr inbounds nuw i16, ptr %25, i64 %16
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %16
   store i16 0, ptr %27, align 2, !tbaa !71
   %28 = trunc i32 %9 to i16
   %29 = and i16 %28, 1023
@@ -2474,10 +2474,10 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i7: 
 
 _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEaSEODs.exit9: ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i7, %38
   %39 = phi ptr [ %.pre.i.i8, %38 ], [ %25, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i7 ]
-  %40 = getelementptr inbounds nuw i16, ptr %39, i64 %16
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %16
   store i16 %30, ptr %40, align 2, !tbaa !71
   store i64 %31, ptr %6, align 8, !tbaa !69
-  %41 = getelementptr inbounds nuw i16, ptr %39, i64 %31
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %31
   store i16 0, ptr %41, align 2, !tbaa !71
   br label %57
 
@@ -2507,10 +2507,10 @@ _ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i11:
 
 _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEEEaSEODs.exit13: ; preds = %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i11, %53
   %54 = phi ptr [ %.pre.i.i12, %53 ], [ %46, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE8capacityEv.exit.i.i11 ]
-  %55 = getelementptr inbounds nuw i16, ptr %54, i64 %44
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %44
   store i16 %43, ptr %55, align 2, !tbaa !71
   store i64 %45, ptr %6, align 8, !tbaa !69
-  %56 = getelementptr inbounds nuw i16, ptr %54, i64 %45
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %45
   store i16 0, ptr %56, align 2, !tbaa !71
   br label %57
 
@@ -2591,7 +2591,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit: 
   br i1 %or.cond, label %36, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit26
 
 36:                                               ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit
-  %37 = getelementptr inbounds nuw i16, ptr %29, i64 %1
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %1
   %cond = icmp eq i64 %4, 1
   br i1 %cond, label %38, label %40
 
@@ -2610,10 +2610,10 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit26
   br i1 %.not25, label %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit27, label %42
 
 42:                                               ; preds = %_ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE7_S_copyEPDsPKDsm.exit26
-  %43 = getelementptr inbounds nuw i16, ptr %29, i64 %1
-  %44 = getelementptr inbounds nuw i16, ptr %43, i64 %4
-  %45 = getelementptr inbounds nuw i16, ptr %12, i64 %1
-  %46 = getelementptr inbounds nuw i16, ptr %45, i64 %2
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %1
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %4
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %1
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %2
   %cond29 = icmp eq i64 %9, 1
   br i1 %cond29, label %47, label %49
 

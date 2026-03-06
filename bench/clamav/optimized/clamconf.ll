@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.cli_environment = type { i32, i32, i32, i32, i32, i32, i32, [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct._cfgfile = type { ptr, i32 }
-%struct.clam_option = type { ptr, ptr, i8, i32, ptr, i64, ptr, i32, i32, ptr, ptr }
 
 @.str.1 = private unnamed_addr constant [5 x i8] c"help\00", align 1
 @.str.2 = private unnamed_addr constant [8 x i8] c"version\00", align 1
@@ -221,7 +219,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 34:                                               ; preds = %33, %30
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %33 ]
-  %35 = getelementptr inbounds nuw %struct._cfgfile, ptr @cfgfile, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [16 x i8], ptr @cfgfile, i64 %indvars.iv.i
   %36 = load ptr, ptr %35, align 16, !tbaa !15
   %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %36) #12
   %.not57.i = icmp eq i32 %37, 0
@@ -248,7 +246,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 47:                                               ; preds = %47, %.thread.i
   %indvars.iv97.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next98.i, %47 ]
-  %48 = getelementptr inbounds nuw %struct._cfgfile, ptr @cfgfile, i64 %indvars.iv97.i
+  %48 = getelementptr inbounds nuw [16 x i8], ptr @cfgfile, i64 %indvars.iv97.i
   %49 = load ptr, ptr %48, align 16, !tbaa !15
   %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, ptr noundef %49)
   %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
@@ -297,7 +295,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv100.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next101.i, %.lr.ph.i ]
-  %69 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv100.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv100.i
   %70 = load ptr, ptr %69, align 8, !tbaa !26
   %71 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, ptr noundef %70)
   %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
@@ -405,7 +403,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 .lr.ph89.i:                                       ; preds = %.lr.ph89.i, %.lr.ph89.preheader.i
   %indvars.iv103.i = phi i64 [ 0, %.lr.ph89.preheader.i ], [ %indvars.iv.next104.i, %.lr.ph89.i ]
   %112 = load ptr, ptr %54, align 8, !tbaa !22
-  %113 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv103.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv103.i
   %114 = load ptr, ptr %113, align 8, !tbaa !26
   %115 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, ptr noundef %112, ptr noundef %114)
   %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 1
@@ -421,7 +419,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 .loopexit.i:                                      ; preds = %.lr.ph89.i, %116, %107, %58, %52
   %indvars.iv.next109.i = add nuw nsw i64 %indvars.iv108.i, 1
   %119 = load ptr, ptr @clam_options, align 8, !tbaa !18
-  %120 = getelementptr inbounds nuw %struct.clam_option, ptr %119, i64 %indvars.iv.next109.i
+  %120 = getelementptr inbounds nuw [72 x i8], ptr %119, i64 %indvars.iv.next109.i
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 52
   %122 = load i32, ptr %121, align 4, !tbaa !20
   %.not60.i = icmp eq i32 %122, 0
@@ -447,7 +445,7 @@ printconf.exit:                                   ; preds = %.loopexit.i, %38, %
 
 131:                                              ; preds = %123, %234
   %indvars.iv = phi i64 [ 0, %123 ], [ %indvars.iv.next, %234 ]
-  %132 = getelementptr inbounds nuw %struct._cfgfile, ptr @cfgfile, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [16 x i8], ptr @cfgfile, i64 %indvars.iv
   %133 = load ptr, ptr %132, align 16, !tbaa !15
   %134 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 512, ptr noundef nonnull @.str.7, ptr noundef %126, ptr noundef %133) #11
   store i8 0, ptr %128, align 1, !tbaa !25
@@ -508,7 +506,7 @@ printconf.exit:                                   ; preds = %.loopexit.i, %38, %
   %158 = getelementptr inbounds nuw i8, ptr %.03254.i, i64 44
   %159 = load i32, ptr %158, align 4, !tbaa !33
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds %struct.clam_option, ptr %157, i64 %160
+  %161 = getelementptr inbounds [72 x i8], ptr %157, i64 %160
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 52
   %163 = load i32, ptr %162, align 4, !tbaa !20
   %164 = and i32 %163, 1024
@@ -1134,7 +1132,7 @@ print_platform.exit:                              ; preds = %438, %441
 
 switch.lookup:                                    ; preds = %print_platform.exit
   %455 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.main, i64 %455
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.main, i64 %455
   %switch.load = load ptr, ptr %switch.gep, align 8
   %456 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %457 = load i32, ptr %456, align 4, !tbaa !56

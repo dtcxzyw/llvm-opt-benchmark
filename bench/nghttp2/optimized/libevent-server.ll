@@ -878,7 +878,7 @@ define internal noundef i32 @on_header_callback(ptr noundef %0, ptr noundef read
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %40 = load i8, ptr %39, align 1, !tbaa !9
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw i16, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !54
   %44 = and i16 %43, 4096
   %.not34.i = icmp eq i16 %44, 0
@@ -888,7 +888,7 @@ define internal noundef i32 @on_header_callback(ptr noundef %0, ptr noundef read
   %46 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %47 = load i8, ptr %46, align 1, !tbaa !9
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw i16, ptr %38, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !54
   %51 = and i16 %50, 4096
   %.not35.i = icmp eq i16 %51, 0

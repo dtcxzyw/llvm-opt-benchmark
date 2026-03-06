@@ -146,10 +146,10 @@ lexbor_diyfp_normalize.exit.i:                    ; preds = %.lr.ph.i.i90.i, %.p
 switch.lookup:                                    ; preds = %72
   %switch.tableidx = add nsw i32 %73, -1
   %75 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lexbor_strtod_internal, i64 %75
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lexbor_strtod_internal, i64 %75
   %switch.load = load i32, ptr %switch.gep, align 4
   %76 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep81 = getelementptr inbounds nuw i64, ptr @switch.table.lexbor_strtod_internal.1, i64 %76
+  %switch.gep81 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.lexbor_strtod_internal.1, i64 %76
   %switch.load82 = load i64, ptr %switch.gep81, align 8
   br label %lexbor_strtod_adjust_pow10.exit.i
 

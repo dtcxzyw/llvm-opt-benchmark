@@ -769,7 +769,7 @@ _ZN5Ipopt14DenseSymMatrix6ValuesEv.exit:          ; preds = %_ZN5Ipopt8SmartPtrI
 
 233:                                              ; preds = %.lr.ph, %233
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %233 ]
-  %234 = getelementptr inbounds nuw double, ptr %210, i64 %indvars.iv
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %indvars.iv
   %235 = load double, ptr %234, align 8, !tbaa !57
   %236 = fmul double %235, %220
   store double %236, ptr %234, align 8, !tbaa !57

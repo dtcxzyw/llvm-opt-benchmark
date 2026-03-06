@@ -3787,7 +3787,7 @@ _ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38
 _ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %168, %_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
   store ptr %71, ptr %0, align 8, !tbaa !75
   store ptr %167, ptr %3, align 8, !tbaa !77
-  %172 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ToWrite", ptr %71, i64 %67
+  %172 = getelementptr inbounds nuw [104 x i8], ptr %71, i64 %67
   store ptr %172, ptr %5, align 8, !tbaa !79
   br label %_ZNSt6vectorIN12_GLOBAL__N_17ToWriteESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
 

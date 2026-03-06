@@ -326,14 +326,14 @@ define noundef i64 @_ZN5arrow8ree_util16LogicalNullCountERKNS_9ArraySpanE(ptr no
   ]
 
 20:                                               ; preds = %1
-  %21 = getelementptr inbounds i16, ptr %15, i64 %13
+  %21 = getelementptr inbounds [2 x i8], ptr %15, i64 %13
   br i1 %19, label %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i11.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE5beginEv.exit.i
 
 _ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i11.i:     ; preds = %20, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i11.i
   %.017.i.i.i.i.i12.i = phi ptr [ %.1.i.i.i.i.i17.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i11.i ], [ %21, %20 ]
   %.01116.i.i.i.i.i13.i = phi i64 [ %.112.i.i.i.i.i16.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i11.i ], [ %18, %20 ]
   %22 = lshr i64 %.01116.i.i.i.i.i13.i, 1
-  %23 = getelementptr inbounds nuw i16, ptr %.017.i.i.i.i.i12.i, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %.017.i.i.i.i.i12.i, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !66, !noalias !67
   %25 = sext i16 %24 to i64
   %26 = icmp slt i64 %9, %25
@@ -375,7 +375,7 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE5beginEv.exit.i: ; preds = %_ZSt7a
   %43 = and i8 %42, 7
   %44 = lshr i8 %41, %43
   %45 = trunc i8 %44 to i1
-  %.phi.trans.insert.i = getelementptr inbounds i16, ptr %21, i64 %.sroa.9.040.i
+  %.phi.trans.insert.i = getelementptr inbounds [2 x i8], ptr %21, i64 %.sroa.9.040.i
   %.pre.i = load i16, ptr %.phi.trans.insert.i, align 2, !tbaa !66
   %.pre44.i = sext i16 %.pre.i to i64
   %.pre45.i = sub nsw i64 %.pre44.i, %9
@@ -389,14 +389,14 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIsE5beginEv.exit.i: ; preds = %_ZSt7a
   br i1 %.not36.not.i, label %.critedge.i, label %_ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit, !llvm.loop !74
 
 49:                                               ; preds = %1
-  %50 = getelementptr inbounds i32, ptr %15, i64 %13
+  %50 = getelementptr inbounds [4 x i8], ptr %15, i64 %13
   br i1 %19, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i
 
 _ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i:     ; preds = %49, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i
   %.017.i.i.i.i.i12.i24 = phi ptr [ %.1.i.i.i.i.i17.i29, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i ], [ %50, %49 ]
   %.01116.i.i.i.i.i13.i25 = phi i64 [ %.112.i.i.i.i.i16.i28, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i11.i ], [ %18, %49 ]
   %51 = lshr i64 %.01116.i.i.i.i.i13.i25, 1
-  %52 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i.i12.i24, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i.i.i12.i24, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !75, !noalias !76
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %9, %54
@@ -438,7 +438,7 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i: ; preds = %_ZSt7a
   %72 = and i8 %71, 7
   %73 = lshr i8 %70, %72
   %74 = trunc i8 %73 to i1
-  %.phi.trans.insert.i15 = getelementptr inbounds i32, ptr %50, i64 %.sroa.9.040.i13
+  %.phi.trans.insert.i15 = getelementptr inbounds [4 x i8], ptr %50, i64 %.sroa.9.040.i13
   %.pre.i16 = load i32, ptr %.phi.trans.insert.i15, align 4, !tbaa !75
   %.pre44.i17 = sext i32 %.pre.i16 to i64
   %.pre45.i18 = sub nsw i64 %.pre44.i17, %9
@@ -452,14 +452,14 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIiE5beginEv.exit.i: ; preds = %_ZSt7a
   br i1 %.not36.not.i22, label %.critedge.i11, label %_ZN5arrow8ree_util12_GLOBAL__N_116LogicalNullCountIsEElRKNS_9ArraySpanE.exit, !llvm.loop !80
 
 78:                                               ; preds = %1
-  %79 = getelementptr inbounds i64, ptr %15, i64 %13
+  %79 = getelementptr inbounds [8 x i8], ptr %15, i64 %13
   br i1 %19, label %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i, label %_ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i
 
 _ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i:     ; preds = %78, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i
   %.017.i.i.i.i.i12.i45 = phi ptr [ %.1.i.i.i.i.i17.i50, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i ], [ %79, %78 ]
   %.01116.i.i.i.i.i13.i46 = phi i64 [ %.112.i.i.i.i.i16.i49, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i11.i ], [ %18, %78 ]
   %80 = lshr i64 %.01116.i.i.i.i.i13.i46, 1
-  %81 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i.i12.i45, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i.i12.i45, i64 %80
   %82 = load i64, ptr %81, align 8, !tbaa !81, !noalias !82
   %83 = icmp slt i64 %9, %82
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -500,7 +500,7 @@ _ZNK5arrow8ree_util22RunEndEncodedArraySpanIlE5beginEv.exit.i: ; preds = %_ZSt7a
   %100 = and i8 %99, 7
   %101 = lshr i8 %98, %100
   %102 = trunc i8 %101 to i1
-  %.phi.trans.insert.i38 = getelementptr inbounds i64, ptr %79, i64 %.sroa.9.040.i36
+  %.phi.trans.insert.i38 = getelementptr inbounds [8 x i8], ptr %79, i64 %.sroa.9.040.i36
   %.pre.i39 = load i64, ptr %.phi.trans.insert.i38, align 8, !tbaa !81
   %.pre44.i40 = sub nsw i64 %.pre.i39, %9
   %.pre45.i41 = tail call i64 @llvm.smax.i64(i64 %.pre44.i40, i64 0)
@@ -526,7 +526,7 @@ define noundef i64 @_ZN5arrow8ree_util8internal23FindPhysicalIndexImpl16ERNS1_19
   %7 = load ptr, ptr %6, align 8, !tbaa !90
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load i64, ptr %8, align 8, !tbaa !91
-  %10 = getelementptr inbounds i16, ptr %7, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %7, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !66
   %12 = sext i16 %11 to i64
   %13 = icmp slt i64 %5, %12
@@ -551,7 +551,7 @@ _ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i:           ; preds = %20, %_ZSt7advanceIP
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i ], [ %7, %20 ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i ], [ %9, %20 ]
   %22 = lshr i64 %.01116.i.i.i.i, 1
-  %23 = getelementptr inbounds nuw i16, ptr %.017.i.i.i.i, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %.017.i.i.i.i, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !66
   %25 = sext i16 %24 to i64
   %26 = icmp slt i64 %5, %25
@@ -577,7 +577,7 @@ _ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i: ; preds = %_Z
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !60
   %40 = add nsw i64 %9, 1
-  %41 = getelementptr inbounds i16, ptr %7, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %7, i64 %40
   %42 = sub nsw i64 %39, %40
   %43 = icmp sgt i64 %42, 0
   br i1 %43, label %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i30.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit37.i
@@ -586,7 +586,7 @@ _ZSt7advanceIPKslEvRT_T0_.exit.i.i.i30.i:         ; preds = %35, %_ZSt7advanceIP
   %.017.i.i.i31.i = phi ptr [ %.1.i.i.i36.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i30.i ], [ %41, %35 ]
   %.01116.i.i.i32.i = phi i64 [ %.112.i.i.i35.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i30.i ], [ %42, %35 ]
   %44 = lshr i64 %.01116.i.i.i32.i, 1
-  %45 = getelementptr inbounds nuw i16, ptr %.017.i.i.i31.i, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %.017.i.i.i31.i, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !66
   %47 = sext i16 %46 to i64
   %48 = icmp slt i64 %5, %47
@@ -626,7 +626,7 @@ define noundef i64 @_ZN5arrow8ree_util8internal23FindPhysicalIndexImpl32ERNS1_19
   %7 = load ptr, ptr %6, align 8, !tbaa !96
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load i64, ptr %8, align 8, !tbaa !97
-  %10 = getelementptr inbounds i32, ptr %7, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %7, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !75
   %12 = sext i32 %11 to i64
   %13 = icmp slt i64 %5, %12
@@ -651,7 +651,7 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i:           ; preds = %20, %_ZSt7advanceIP
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i ], [ %7, %20 ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i ], [ %9, %20 ]
   %22 = lshr i64 %.01116.i.i.i.i, 1
-  %23 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i.i, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !75
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %5, %25
@@ -677,7 +677,7 @@ _ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i: ; preds = %_Z
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !60
   %40 = add nsw i64 %9, 1
-  %41 = getelementptr inbounds i32, ptr %7, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %7, i64 %40
   %42 = sub nsw i64 %39, %40
   %43 = icmp sgt i64 %42, 0
   br i1 %43, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i30.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit37.i
@@ -686,7 +686,7 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i.i30.i:         ; preds = %35, %_ZSt7advanceIP
   %.017.i.i.i31.i = phi ptr [ %.1.i.i.i36.i, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i30.i ], [ %41, %35 ]
   %.01116.i.i.i32.i = phi i64 [ %.112.i.i.i35.i, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i30.i ], [ %42, %35 ]
   %44 = lshr i64 %.01116.i.i.i32.i, 1
-  %45 = getelementptr inbounds nuw i32, ptr %.017.i.i.i31.i, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i31.i, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !75
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %5, %47
@@ -726,7 +726,7 @@ define noundef i64 @_ZN5arrow8ree_util8internal23FindPhysicalIndexImpl64ERNS1_19
   %7 = load ptr, ptr %6, align 8, !tbaa !101
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load i64, ptr %8, align 8, !tbaa !102
-  %10 = getelementptr inbounds i64, ptr %7, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %7, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !81
   %12 = icmp slt i64 %5, %11
   br i1 %12, label %13, label %32, !prof !92
@@ -749,7 +749,7 @@ _ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i:           ; preds = %18, %_ZSt7advanceIP
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i ], [ %7, %18 ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i ], [ %9, %18 ]
   %20 = lshr i64 %.01116.i.i.i.i, 1
-  %21 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !81
   %23 = icmp slt i64 %5, %22
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -774,7 +774,7 @@ _ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i: ; preds = %_Z
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !60
   %37 = add nsw i64 %9, 1
-  %38 = getelementptr inbounds i64, ptr %7, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %7, i64 %37
   %39 = sub nsw i64 %36, %37
   %40 = icmp sgt i64 %39, 0
   br i1 %40, label %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i30.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit37.i
@@ -783,7 +783,7 @@ _ZSt7advanceIPKllEvRT_T0_.exit.i.i.i30.i:         ; preds = %32, %_ZSt7advanceIP
   %.017.i.i.i31.i = phi ptr [ %.1.i.i.i36.i, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i30.i ], [ %38, %32 ]
   %.01116.i.i.i32.i = phi i64 [ %.112.i.i.i35.i, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i30.i ], [ %39, %32 ]
   %41 = lshr i64 %.01116.i.i.i32.i, 1
-  %42 = getelementptr inbounds nuw i64, ptr %.017.i.i.i31.i, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i31.i, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !81
   %44 = icmp slt i64 %5, %43
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -834,14 +834,14 @@ define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN5arr
   ]
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i16, ptr %14, i64 %12
+  %18 = getelementptr inbounds [2 x i8], ptr %14, i64 %12
   br i1 %16, label %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElRKNS_9ArraySpanEll.exit
 
 _ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i:           ; preds = %17, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i ], [ %18, %17 ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i ], [ %10, %17 ]
   %19 = lshr i64 %.01116.i.i.i.i, 1
-  %20 = getelementptr inbounds nuw i16, ptr %.017.i.i.i.i, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %.017.i.i.i.i, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !66
   %22 = sext i16 %21 to i64
   %23 = icmp slt i64 %15, %22
@@ -854,14 +854,14 @@ _ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i:           ; preds = %17, %_ZSt7advanceIP
   br i1 %27, label %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElRKNS_9ArraySpanEll.exit, !llvm.loop !70
 
 28:                                               ; preds = %3
-  %29 = getelementptr inbounds i32, ptr %14, i64 %12
+  %29 = getelementptr inbounds [4 x i8], ptr %14, i64 %12
   br i1 %16, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElRKNS_9ArraySpanEll.exit
 
 _ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i:           ; preds = %28, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i
   %.017.i.i.i.i14 = phi ptr [ %.1.i.i.i.i19, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i ], [ %29, %28 ]
   %.01116.i.i.i.i15 = phi i64 [ %.112.i.i.i.i18, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i ], [ %10, %28 ]
   %30 = lshr i64 %.01116.i.i.i.i15, 1
-  %31 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i14, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i.i14, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !75
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %15, %33
@@ -874,14 +874,14 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i:           ; preds = %28, %_ZSt7advanceIP
   br i1 %38, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElRKNS_9ArraySpanEll.exit, !llvm.loop !79
 
 39:                                               ; preds = %3
-  %40 = getelementptr inbounds i64, ptr %14, i64 %12
+  %40 = getelementptr inbounds [8 x i8], ptr %14, i64 %12
   br i1 %16, label %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElRKNS_9ArraySpanEll.exit
 
 _ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i:           ; preds = %39, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i
   %.017.i.i.i.i21 = phi ptr [ %.1.i.i.i.i26, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i ], [ %40, %39 ]
   %.01116.i.i.i.i22 = phi i64 [ %.112.i.i.i.i25, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i ], [ %10, %39 ]
   %41 = lshr i64 %.01116.i.i.i.i22, 1
-  %42 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i21, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i21, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !81
   %44 = icmp slt i64 %15, %43
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -927,14 +927,14 @@ define noundef range(i64 -4611686018427387903, 4611686018427387905) i64 @_ZN5arr
   ]
 
 18:                                               ; preds = %1
-  %19 = getelementptr inbounds i16, ptr %10, i64 %8
+  %19 = getelementptr inbounds [2 x i8], ptr %10, i64 %8
   br i1 %17, label %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i.i.i
 
 _ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i.i:       ; preds = %18, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i.i
   %.017.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i.i ], [ %19, %18 ]
   %.01116.i.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i.i.i ], [ %12, %18 ]
   %20 = lshr i64 %.01116.i.i.i.i.i.i, 1
-  %21 = getelementptr inbounds nuw i16, ptr %.017.i.i.i.i.i.i, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %.017.i.i.i.i.i.i, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !66
   %23 = sext i16 %22 to i64
   %24 = icmp slt i64 %16, %23
@@ -970,7 +970,7 @@ _ZSt7advanceIPKslEvRT_T0_.exit.i.i.i9.i.i.i:      ; preds = %_ZSt7advanceIPKslEv
   %.017.i.i.i10.i.i.i = phi ptr [ %.1.i.i.i15.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i9.i.i.i ], [ %39, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i9.preheader.i.i.i ]
   %.01116.i.i.i11.i.i.i = phi i64 [ %.112.i.i.i14.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i9.i.i.i ], [ %35, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i9.preheader.i.i.i ]
   %40 = lshr i64 %.01116.i.i.i11.i.i.i, 1
-  %41 = getelementptr inbounds nuw i16, ptr %.017.i.i.i10.i.i.i, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %.017.i.i.i10.i.i.i, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !66
   %43 = sext i16 %42 to i64
   %44 = icmp slt i64 %37, %43
@@ -994,14 +994,14 @@ _ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit16.i.i.i: ; preds
   br label %_ZN5arrow8ree_util8internal18FindPhysicalLengthIsEElRKNS_9ArraySpanE.exit
 
 53:                                               ; preds = %1
-  %54 = getelementptr inbounds i32, ptr %10, i64 %8
+  %54 = getelementptr inbounds [4 x i8], ptr %10, i64 %8
   br i1 %17, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i.i.i
 
 _ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i.i:       ; preds = %53, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i.i
   %.017.i.i.i.i.i.i16 = phi ptr [ %.1.i.i.i.i.i.i21, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i.i ], [ %54, %53 ]
   %.01116.i.i.i.i.i.i17 = phi i64 [ %.112.i.i.i.i.i.i20, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i.i.i ], [ %12, %53 ]
   %55 = lshr i64 %.01116.i.i.i.i.i.i17, 1
-  %56 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i.i.i16, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i.i.i.i16, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !75
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %16, %58
@@ -1037,7 +1037,7 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i.i9.i.i.i:      ; preds = %_ZSt7advanceIPKilEv
   %.017.i.i.i10.i.i.i10 = phi ptr [ %.1.i.i.i15.i.i.i15, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i9.i.i.i ], [ %74, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i9.preheader.i.i.i ]
   %.01116.i.i.i11.i.i.i11 = phi i64 [ %.112.i.i.i14.i.i.i14, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i9.i.i.i ], [ %70, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i9.preheader.i.i.i ]
   %75 = lshr i64 %.01116.i.i.i11.i.i.i11, 1
-  %76 = getelementptr inbounds nuw i32, ptr %.017.i.i.i10.i.i.i10, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i10.i.i.i10, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !75
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %72, %78
@@ -1061,14 +1061,14 @@ _ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit16.i.i.i: ; preds
   br label %_ZN5arrow8ree_util8internal18FindPhysicalLengthIsEElRKNS_9ArraySpanE.exit
 
 88:                                               ; preds = %1
-  %89 = getelementptr inbounds i64, ptr %10, i64 %8
+  %89 = getelementptr inbounds [8 x i8], ptr %10, i64 %8
   br i1 %17, label %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i.i.i
 
 _ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i.i:       ; preds = %88, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i.i
   %.017.i.i.i.i.i.i31 = phi ptr [ %.1.i.i.i.i.i.i36, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i.i ], [ %89, %88 ]
   %.01116.i.i.i.i.i.i32 = phi i64 [ %.112.i.i.i.i.i.i35, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i.i.i ], [ %12, %88 ]
   %90 = lshr i64 %.01116.i.i.i.i.i.i32, 1
-  %91 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i.i.i31, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i.i.i31, i64 %90
   %92 = load i64, ptr %91, align 8, !tbaa !81
   %93 = icmp slt i64 %16, %92
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -1103,7 +1103,7 @@ _ZSt7advanceIPKllEvRT_T0_.exit.i.i.i9.i.i.i:      ; preds = %_ZSt7advanceIPKllEv
   %.017.i.i.i10.i.i.i25 = phi ptr [ %.1.i.i.i15.i.i.i30, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i9.i.i.i ], [ %108, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i9.preheader.i.i.i ]
   %.01116.i.i.i11.i.i.i26 = phi i64 [ %.112.i.i.i14.i.i.i29, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i9.i.i.i ], [ %104, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i9.preheader.i.i.i ]
   %109 = lshr i64 %.01116.i.i.i11.i.i.i26, 1
-  %110 = getelementptr inbounds nuw i64, ptr %.017.i.i.i10.i.i.i25, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i10.i.i.i25, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !81
   %112 = icmp slt i64 %106, %111
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
@@ -1150,14 +1150,14 @@ define { i64, i64 } @_ZN5arrow8ree_util17FindPhysicalRangeERKNS_9ArraySpanEll(pt
   ]
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i16, ptr %12, i64 %10
+  %17 = getelementptr inbounds [2 x i8], ptr %12, i64 %10
   br i1 %15, label %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit.i
 
 _ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i:           ; preds = %16, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i ], [ %17, %16 ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i.i ], [ %14, %16 ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
-  %19 = getelementptr inbounds nuw i16, ptr %.017.i.i.i.i, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %.017.i.i.i.i, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !66
   %21 = sext i16 %20 to i64
   %22 = icmp slt i64 %1, %21
@@ -1193,7 +1193,7 @@ _ZSt7advanceIPKslEvRT_T0_.exit.i.i.i9.i:          ; preds = %_ZSt7advanceIPKslEv
   %.017.i.i.i10.i = phi ptr [ %.1.i.i.i15.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i9.i ], [ %37, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i9.preheader.i ]
   %.01116.i.i.i11.i = phi i64 [ %.112.i.i.i14.i, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i9.i ], [ %33, %_ZSt7advanceIPKslEvRT_T0_.exit.i.i.i9.preheader.i ]
   %38 = lshr i64 %.01116.i.i.i11.i, 1
-  %39 = getelementptr inbounds nuw i16, ptr %.017.i.i.i10.i, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %.017.i.i.i10.i, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !66
   %41 = sext i16 %40 to i64
   %42 = icmp slt i64 %35, %41
@@ -1217,14 +1217,14 @@ _ZN5arrow8ree_util8internal17FindPhysicalIndexIsEElPKT_lll.exit16.i: ; preds = %
   br label %_ZN5arrow8ree_util8internal17FindPhysicalRangeIsEESt4pairIllEPKT_lll.exit
 
 51:                                               ; preds = %3
-  %52 = getelementptr inbounds i32, ptr %12, i64 %10
+  %52 = getelementptr inbounds [4 x i8], ptr %12, i64 %10
   br i1 %15, label %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit.i
 
 _ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i:           ; preds = %51, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i
   %.017.i.i.i.i30 = phi ptr [ %.1.i.i.i.i35, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i ], [ %52, %51 ]
   %.01116.i.i.i.i31 = phi i64 [ %.112.i.i.i.i34, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i.i ], [ %14, %51 ]
   %53 = lshr i64 %.01116.i.i.i.i31, 1
-  %54 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i30, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i.i30, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !75
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %1, %56
@@ -1260,7 +1260,7 @@ _ZSt7advanceIPKilEvRT_T0_.exit.i.i.i9.i:          ; preds = %_ZSt7advanceIPKilEv
   %.017.i.i.i10.i24 = phi ptr [ %.1.i.i.i15.i29, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i9.i ], [ %72, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i9.preheader.i ]
   %.01116.i.i.i11.i25 = phi i64 [ %.112.i.i.i14.i28, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i9.i ], [ %68, %_ZSt7advanceIPKilEvRT_T0_.exit.i.i.i9.preheader.i ]
   %73 = lshr i64 %.01116.i.i.i11.i25, 1
-  %74 = getelementptr inbounds nuw i32, ptr %.017.i.i.i10.i24, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i10.i24, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !75
   %76 = sext i32 %75 to i64
   %77 = icmp slt i64 %70, %76
@@ -1284,14 +1284,14 @@ _ZN5arrow8ree_util8internal17FindPhysicalIndexIiEElPKT_lll.exit16.i: ; preds = %
   br label %_ZN5arrow8ree_util8internal17FindPhysicalRangeIsEESt4pairIllEPKT_lll.exit
 
 86:                                               ; preds = %3
-  %87 = getelementptr inbounds i64, ptr %12, i64 %10
+  %87 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   br i1 %15, label %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i, label %_ZN5arrow8ree_util8internal17FindPhysicalIndexIlEElPKT_lll.exit.i
 
 _ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i:           ; preds = %86, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i
   %.017.i.i.i.i47 = phi ptr [ %.1.i.i.i.i52, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i ], [ %87, %86 ]
   %.01116.i.i.i.i48 = phi i64 [ %.112.i.i.i.i51, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i.i ], [ %14, %86 ]
   %88 = lshr i64 %.01116.i.i.i.i48, 1
-  %89 = getelementptr inbounds nuw i64, ptr %.017.i.i.i.i47, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i.i47, i64 %88
   %90 = load i64, ptr %89, align 8, !tbaa !81
   %91 = icmp slt i64 %1, %90
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -1326,7 +1326,7 @@ _ZSt7advanceIPKllEvRT_T0_.exit.i.i.i9.i:          ; preds = %_ZSt7advanceIPKllEv
   %.017.i.i.i10.i41 = phi ptr [ %.1.i.i.i15.i46, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i9.i ], [ %106, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i9.preheader.i ]
   %.01116.i.i.i11.i42 = phi i64 [ %.112.i.i.i14.i45, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i9.i ], [ %102, %_ZSt7advanceIPKllEvRT_T0_.exit.i.i.i9.preheader.i ]
   %107 = lshr i64 %.01116.i.i.i11.i42, 1
-  %108 = getelementptr inbounds nuw i64, ptr %.017.i.i.i10.i41, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %.017.i.i.i10.i41, i64 %107
   %109 = load i64, ptr %108, align 8, !tbaa !81
   %110 = icmp slt i64 %104, %109
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 8
@@ -1658,8 +1658,8 @@ _ZNK5arrow9ArrayData9GetValuesIsEEPKT_i.exit.i:   ; preds = %141
   %151 = load i64, ptr %150, align 8, !tbaa !174, !noalias !110
   %152 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %153 = load ptr, ptr %152, align 8, !noalias !110
-  %154 = getelementptr inbounds i16, ptr %153, i64 %151
-  %155 = getelementptr i16, ptr %154, i64 %127
+  %154 = getelementptr inbounds [2 x i8], ptr %153, i64 %151
+  %155 = getelementptr [2 x i8], ptr %154, i64 %127
   %156 = getelementptr i8, ptr %155, i64 -2
   %157 = load i16, ptr %156, align 2, !tbaa !66, !noalias !110
   %158 = sext i16 %157 to i64
@@ -1940,8 +1940,8 @@ _ZNK5arrow9ArrayData9GetValuesIiEEPKT_i.exit.i:   ; preds = %261
   %271 = load i64, ptr %270, align 8, !tbaa !174, !noalias !178
   %272 = getelementptr inbounds nuw i8, ptr %265, i64 16
   %273 = load ptr, ptr %272, align 8, !noalias !178
-  %274 = getelementptr inbounds i32, ptr %273, i64 %271
-  %275 = getelementptr i32, ptr %274, i64 %247
+  %274 = getelementptr inbounds [4 x i8], ptr %273, i64 %271
+  %275 = getelementptr [4 x i8], ptr %274, i64 %247
   %276 = getelementptr i8, ptr %275, i64 -4
   %277 = load i32, ptr %276, align 4, !tbaa !75, !noalias !178
   %278 = sext i32 %277 to i64
@@ -2171,8 +2171,8 @@ _ZNK5arrow9ArrayData9GetValuesIlEEPKT_i.exit.i:   ; preds = %364
   %374 = load i64, ptr %373, align 8, !tbaa !174, !noalias !205
   %375 = getelementptr inbounds nuw i8, ptr %368, i64 16
   %376 = load ptr, ptr %375, align 8, !noalias !205
-  %377 = getelementptr inbounds i64, ptr %376, i64 %374
-  %378 = getelementptr i64, ptr %377, i64 %350
+  %377 = getelementptr inbounds [8 x i8], ptr %376, i64 %374
+  %378 = getelementptr [8 x i8], ptr %377, i64 %350
   %379 = getelementptr i8, ptr %378, i64 -8
   %380 = load i64, ptr %379, align 8, !tbaa !81, !noalias !205
   %381 = add nsw i64 %6, %2

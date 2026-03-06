@@ -309,7 +309,7 @@ define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 68:                                               ; preds = %63
   %69 = load i64, ptr %20, align 8, !tbaa !71
-  %70 = getelementptr inbounds nuw ptr, ptr %66, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %69
   %71 = sub i64 %spec.select.i.i.i, %69
   %72 = shl i64 %71, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %70, i8 0, i64 %72, i1 false)
@@ -322,8 +322,8 @@ define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 77:                                               ; preds = %68
   %78 = sub i64 %69, %73
   %79 = sub i64 %spec.select.i.i.i, %78
-  %80 = getelementptr inbounds nuw ptr, ptr %66, i64 %79
-  %81 = getelementptr inbounds nuw ptr, ptr %66, i64 %73
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %79
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %73
   %82 = shl i64 %78, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %80, ptr nonnull align 8 %81, i64 %82, i1 false)
   store i64 %79, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !72
@@ -350,7 +350,7 @@ estack_push_back.exit:                            ; preds = %._crit_edge.i.i.i, 
   %92 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %84, %83 ]
   %93 = add i64 %92, %91
   %94 = urem i64 %93, %90
-  %95 = getelementptr inbounds nuw ptr, ptr %89, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %94
   store ptr %.091, ptr %95, align 8, !tbaa !73
   %96 = add i64 %91, 1
   store i64 %96, ptr %19, align 8, !tbaa !70
@@ -389,7 +389,7 @@ estack_push_back.exit:                            ; preds = %._crit_edge.i.i.i, 
   %122 = add i64 %121, %119
   %123 = load i64, ptr %20, align 8, !tbaa !71
   %124 = urem i64 %122, %123
-  %125 = getelementptr inbounds nuw ptr, ptr %120, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %124
   %126 = load ptr, ptr %125, align 8, !tbaa !73
   store i64 %119, ptr %19, align 8, !tbaa !70
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16

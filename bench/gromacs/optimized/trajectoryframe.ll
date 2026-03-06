@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ExceptionInfo" = type { %"class.gmx::internal::IExceptionInfo", %"struct.gmx::ThrowLocation" }
 %"class.gmx::internal::IExceptionInfo" = type { ptr }
 %"struct.gmx::ThrowLocation" = type <{ ptr, ptr, i32, [4 x i8] }>
-%"struct.std::array.0" = type { [3 x float] }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -28,7 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.5" }
 %"struct.std::_Head_base.5" = type { ptr }
 %"struct.std::type_index" = type { ptr }
-%"class.gmx::BasicVector" = type { [3 x float] }
 
 $_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE = comdat any
 
@@ -463,8 +461,8 @@ define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr noundef nonnull write
 
 .preheader:                                       ; preds = %.preheader56, %44
   %indvars.iv61 = phi i64 [ 0, %.preheader56 ], [ %indvars.iv.next62, %44 ]
-  %42 = getelementptr inbounds nuw [3 x float], ptr %41, i64 %indvars.iv61
-  %43 = getelementptr inbounds nuw %"struct.std::array.0", ptr %9, i64 %indvars.iv61
+  %42 = getelementptr inbounds nuw [12 x i8], ptr %41, i64 %indvars.iv61
+  %43 = getelementptr inbounds nuw [12 x i8], ptr %9, i64 %indvars.iv61
   br label %45
 
 44:                                               ; preds = %45
@@ -474,9 +472,9 @@ define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr noundef nonnull write
 
 45:                                               ; preds = %.preheader, %45
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   %47 = load float, ptr %46, align 4, !tbaa !46
-  %48 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   store float %47, ptr %48, align 4, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -873,7 +871,7 @@ define { ptr, ptr } @_ZNK3gmx15TrajectoryFrame1xEv(ptr noundef nonnull readonly 
   %10 = load i32, ptr %9, align 8, !tbaa !17
   %11 = sext i32 %10 to i64
   %.not.i = icmp eq ptr %8, null
-  %12 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %8, i64 %11
   %spec.select.i = select i1 %.not.i, ptr null, ptr %12
   %13 = ptrtoint ptr %spec.select.i to i64
   %14 = ptrtoint ptr %8 to i64
@@ -904,7 +902,7 @@ define { ptr, ptr } @_ZNK3gmx15TrajectoryFrame1vEv(ptr noundef nonnull readonly 
   %10 = load i32, ptr %9, align 8, !tbaa !17
   %11 = sext i32 %10 to i64
   %.not.i = icmp eq ptr %8, null
-  %12 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %8, i64 %11
   %spec.select.i = select i1 %.not.i, ptr null, ptr %12
   %13 = ptrtoint ptr %spec.select.i to i64
   %14 = ptrtoint ptr %8 to i64
@@ -935,7 +933,7 @@ define { ptr, ptr } @_ZNK3gmx15TrajectoryFrame1fEv(ptr noundef nonnull readonly 
   %10 = load i32, ptr %9, align 8, !tbaa !17
   %11 = sext i32 %10 to i64
   %.not.i = icmp eq ptr %8, null
-  %12 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %8, i64 %11
   %spec.select.i = select i1 %.not.i, ptr null, ptr %12
   %13 = ptrtoint ptr %spec.select.i to i64
   %14 = ptrtoint ptr %8 to i64

@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
 %union.pthread_attr_t = type { i64, [48 x i8] }
 %struct.log_options_t = type { i32, i32, i32, i8, i8, i8, i32 }
-%struct.MPIR_PROCDESC = type { ptr, ptr, i32 }
 
 @global_rc = dso_local local_unnamed_addr global i32 0, align 4
 @__const.sattach.logopt = private unnamed_addr constant { i32, i32, i32, i8, i8, i8, i8, i32 } { i32 3, i32 0, i32 0, i8 1, i8 0, i8 0, i8 0, i32 0 }, align 8
@@ -223,14 +222,14 @@ _mpir_init.exit:                                  ; preds = %53
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.preheader.lr.ph.i
   %indvars.iv23.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.next24.i, %._crit_edge.i ]
-  %77 = getelementptr inbounds nuw i16, ptr %75, i64 %indvars.iv23.i
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %indvars.iv23.i
   %78 = load i16, ptr %77, align 2
   %.not20.i = icmp eq i16 %78, 0
   br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %79 = load ptr, ptr %76, align 8
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv23.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv23.i
   %81 = load ptr, ptr %80, align 8
   %wide.trip.count.i = zext i16 %78 to i64
   br label %83
@@ -242,7 +241,7 @@ _mpir_init.exit:                                  ; preds = %53
 
 83:                                               ; preds = %82, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %82 ]
-  %84 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv.i
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %85, %71
   br i1 %86, label %87, label %82
@@ -380,7 +379,7 @@ _generate_io_key.exit:                            ; preds = %92
 141:                                              ; preds = %136
   %142 = load i16, ptr %7, align 2
   %143 = load ptr, ptr %129, align 8
-  %144 = getelementptr inbounds nuw i16, ptr %143, i64 %indvars.iv.i32
+  %144 = getelementptr inbounds nuw [2 x i8], ptr %143, i64 %indvars.iv.i32
   store i16 %142, ptr %144, align 2
   %145 = load i32, ptr %6, align 4
   %146 = call ptr @eio_obj_create(i32 noundef %145, ptr noundef nonnull @message_socket_ops, ptr noundef %103) #14
@@ -579,7 +578,7 @@ _attach_to_tasks.exit:                            ; preds = %226, %228
   br i1 %235, label %236, label %244
 
 236:                                              ; preds = %.lr.ph.i38
-  %237 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %233, i64 %indvars.iv.i39
+  %237 = getelementptr inbounds nuw [24 x i8], ptr %233, i64 %indvars.iv.i39
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %240 = load i32, ptr %239, align 8
@@ -727,10 +726,10 @@ _msg_thr_destroy.exit:                            ; preds = %295, %297
 .lr.ph.i47:                                       ; preds = %_msg_thr_destroy.exit, %.lr.ph.i47
   %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i49, %.lr.ph.i47 ], [ 0, %_msg_thr_destroy.exit ]
   %300 = load ptr, ptr @MPIR_proctable, align 8
-  %301 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %300, i64 %indvars.iv.i48
+  %301 = getelementptr inbounds nuw [24 x i8], ptr %300, i64 %indvars.iv.i48
   call void @slurm_xfree(ptr noundef %301) #14
   %302 = load ptr, ptr @MPIR_proctable, align 8
-  %303 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %302, i64 %indvars.iv.i48
+  %303 = getelementptr inbounds nuw [24 x i8], ptr %302, i64 %indvars.iv.i48
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 8
   call void @slurm_xfree(ptr noundef nonnull %304) #14
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
@@ -796,12 +795,12 @@ define internal fastcc void @print_layout_info(ptr noundef nonnull readonly capt
   %15 = trunc nuw nsw i64 %indvars.iv29 to i32
   %16 = tail call ptr @hostlist_nth(ptr noundef %10, i32 noundef %15) #14
   %17 = load ptr, ptr %12, align 8
-  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv29
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %indvars.iv29
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i32
   %21 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %15, ptr noundef %16, i32 noundef %20)
   %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv29
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv29
   %24 = load i16, ptr %23, align 2
   %.not27 = icmp eq i16 %24, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
@@ -809,14 +808,14 @@ define internal fastcc void @print_layout_info(ptr noundef nonnull readonly capt
 .lr.ph:                                           ; preds = %14, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %14 ]
   %25 = load ptr, ptr %13, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv29
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv29
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %29)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load ptr, ptr %12, align 8
-  %32 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv29
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %indvars.iv29
   %33 = load i16, ptr %32, align 2
   %34 = zext i16 %33 to i64
   %35 = icmp samesign ult i64 %indvars.iv.next, %34
@@ -935,27 +934,27 @@ define dso_local void @_handle_response_msg(i32 noundef %0, ptr noundef readonly
 24:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
   %25 = load ptr, ptr %21, align 8
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   tail call void @bit_set(ptr noundef %2, i64 noundef %28) #14
   %29 = load ptr, ptr @MPIR_proctable, align 8
   %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %struct.MPIR_PROCDESC, ptr %29, i64 %33
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %33
   %35 = load ptr, ptr %1, align 8
   %36 = tail call ptr @xstrdup(ptr noundef %35) #14
   store ptr %36, ptr %34, align 8
   %37 = load ptr, ptr %22, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @xstrdup(ptr noundef %39) #14
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %40, ptr %41, align 8
   %42 = load ptr, ptr %23, align 8
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 %44, ptr %45, align 8
@@ -965,13 +964,13 @@ define dso_local void @_handle_response_msg(i32 noundef %0, ptr noundef readonly
 
 48:                                               ; preds = %24
   %49 = load ptr, ptr %21, align 8
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   %51 = load i32, ptr %50, align 4
   %52 = load ptr, ptr %23, align 8
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4
   %55 = load ptr, ptr %22, align 8
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.5, i32 noundef %51, i32 noundef %54, ptr noundef %57) #14
   br label %58
@@ -1219,7 +1218,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef readonly captures(
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %28 ]
   %29 = load ptr, ptr %24, align 8
   %30 = load ptr, ptr %25, align 8
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
   tail call void @bit_set(ptr noundef %29, i64 noundef %33) #14
@@ -1319,7 +1318,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef readonly captures(
 
 77:                                               ; preds = %74
   %78 = load ptr, ptr %70, align 8
-  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv.i17
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv.i17
   %80 = load i32, ptr %79, align 4
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.39, i32 noundef %80) #14
   br label %81
@@ -1327,7 +1326,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef readonly captures(
 81:                                               ; preds = %77, %74
   %82 = load ptr, ptr %71, align 8
   %83 = load ptr, ptr %70, align 8
-  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.i17
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv.i17
   %85 = load i32, ptr %84, align 4
   %86 = zext i32 %85 to i64
   tail call void @bit_set(ptr noundef %82, i64 noundef %86) #14
@@ -1376,7 +1375,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef readonly captures(
 105:                                              ; preds = %105, %.lr.ph7.i
   %indvars.iv16.i = phi i64 [ 0, %.lr.ph7.i ], [ %indvars.iv.next17.i, %105 ]
   %106 = load ptr, ptr %104, align 8
-  %107 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv16.i
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv16.i
   %108 = load i32, ptr %107, align 4
   %109 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.41, i32 noundef %108, i32 noundef %102) #14
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
@@ -1408,7 +1407,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef readonly captures(
 
 120:                                              ; preds = %117
   %121 = load ptr, ptr %116, align 8
-  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv13.i
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv13.i
   %123 = load i32, ptr %122, align 4
   %124 = load i32, ptr %97, align 8
   %125 = and i32 %124, 127

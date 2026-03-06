@@ -489,7 +489,7 @@ _ZNKSt8__detail15_Hash_code_baseIN4base16BasicStringPieceINSt7__cxx1112basic_str
   %47 = load i64, ptr %46, align 8, !tbaa !82
   %48 = urem i64 %.06.lcssa.i.i.i.i.i.i, %47
   %49 = load ptr, ptr %27, align 8, !tbaa !83
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %48
   %51 = load ptr, ptr %50, align 8, !tbaa !84
   %.not.i.i6.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i6.i.i.i.i, label %_ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread, label %52

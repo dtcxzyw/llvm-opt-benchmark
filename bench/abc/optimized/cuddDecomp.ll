@@ -172,7 +172,7 @@ define range(i32 0, 3) i32 @Cudd_bddApproxDisjDecomp(ptr noundef %0, ptr noundef
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = ptrtoint ptr %11 to i64
   %13 = xor i64 %12, 1
@@ -453,7 +453,7 @@ define range(i32 0, 3) i32 @Cudd_bddIterDisjDecomp(ptr noundef %0, ptr noundef %
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = ptrtoint ptr %11 to i64
   %13 = xor i64 %12, 1
@@ -975,7 +975,7 @@ define range(i32 0, 3) i32 @Cudd_bddGenDisjDecomp(ptr noundef initializes((448, 
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = ptrtoint ptr %11 to i64
   %13 = xor i64 %12, 1
@@ -1177,7 +1177,7 @@ define range(i32 0, 3) i32 @Cudd_bddVarDisjDecomp(ptr noundef %0, ptr noundef %1
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = ptrtoint ptr %11 to i64
   %13 = xor i64 %12, 1
@@ -1727,7 +1727,7 @@ define internal fastcc ptr @BuildConjuncts(ptr noundef %0, ptr noundef %1, ptr n
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %209 = load ptr, ptr %208, align 8, !tbaa !63
   %210 = sext i32 %207 to i64
-  %211 = getelementptr inbounds ptr, ptr %209, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %209, i64 %210
   %212 = load ptr, ptr %211, align 8, !tbaa !27
   %213 = load ptr, ptr %.1344, align 8, !tbaa !42
   %214 = load ptr, ptr %.1346, align 8, !tbaa !42
@@ -2007,7 +2007,7 @@ define internal fastcc noundef ptr @ZeroCase(ptr noundef %0, ptr noundef %1, ptr
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %14 = load ptr, ptr %13, align 8, !tbaa !63
   %15 = sext i32 %12 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !27
   %.not = icmp eq i32 %5, 0
   %18 = ptrtoint ptr %17 to i64

@@ -1450,7 +1450,7 @@ init_static_types.exit.preheader:                 ; preds = %10, %7
 
 12:                                               ; preds = %10, %9
   %.01012.i = phi i64 [ 0, %9 ], [ %11, %10 ]
-  %13 = getelementptr ptr, ptr @capi_types, i64 %.01012.i
+  %13 = getelementptr [8 x i8], ptr @capi_types, i64 %.01012.i
   %14 = load ptr, ptr %13, align 8, !tbaa !29
   %15 = call i32 @_PyStaticType_InitForExtension(ptr noundef %4, ptr noundef %14) #18
   %16 = icmp sgt i32 %15, -1
@@ -1463,7 +1463,7 @@ init_static_types.exit.preheader:                 ; preds = %10, %7
 
 init_static_types.exit:                           ; preds = %init_static_types.exit.preheader, %17
   %.0128299 = phi i64 [ %18, %17 ], [ 0, %init_static_types.exit.preheader ]
-  %19 = getelementptr ptr, ptr @capi_types, i64 %.0128299
+  %19 = getelementptr [8 x i8], ptr @capi_types, i64 %.0128299
   %20 = load ptr, ptr %19, align 8, !tbaa !29
   %21 = call ptr @_PyType_Name(ptr noundef %20) #18
   %22 = call i32 @PyModule_AddObjectRef(ptr noundef %0, ptr noundef %21, ptr noundef %20) #18
@@ -2373,7 +2373,7 @@ define internal ptr @new_date_ex(i32 noundef %0, i32 noundef %1, i32 noundef %2,
 
 is_leap.exit.thread.i.i:                          ; preds = %19, %15
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr i32, ptr @_days_in_month, i64 %22
+  %23 = getelementptr [4 x i8], ptr @_days_in_month, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !16
   br label %days_in_month.exit.i
 
@@ -2575,7 +2575,7 @@ define internal ptr @new_datetime_ex2(i32 noundef %0, i32 noundef %1, i32 nounde
 
 is_leap.exit.thread.i.i:                          ; preds = %27, %23
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr i32, ptr @_days_in_month, i64 %30
+  %31 = getelementptr [4 x i8], ptr @_days_in_month, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !16
   br label %days_in_month.exit.i
 
@@ -3885,7 +3885,7 @@ define internal fastcc range(i32 -1, 1) i32 @normalize_date(ptr noundef nonnull 
 
 is_leap.exit.thread.i.i:                          ; preds = %9, %3
   %12 = sext i32 %5 to i64
-  %13 = getelementptr i32, ptr @_days_in_month, i64 %12
+  %13 = getelementptr [4 x i8], ptr @_days_in_month, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !16
   br label %days_in_month.exit.i
 
@@ -3925,7 +3925,7 @@ days_in_month.exit.i:                             ; preds = %is_leap.exit.thread
 
 is_leap.exit.thread.i43.i:                        ; preds = %28, %24
   %31 = zext nneg i32 %21 to i64
-  %32 = getelementptr i32, ptr @_days_in_month, i64 %31
+  %32 = getelementptr [4 x i8], ptr @_days_in_month, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !16
   br label %days_in_month.exit48.i
 
@@ -3963,7 +3963,7 @@ days_in_month.exit48.i:                           ; preds = %is_leap.exit.thread
 
 46:                                               ; preds = %36
   %47 = sext i32 %5 to i64
-  %48 = getelementptr i32, ptr @_days_before_month, i64 %47
+  %48 = getelementptr [4 x i8], ptr @_days_before_month, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !16
   %50 = icmp sgt i32 %5, 2
   br i1 %50, label %51, label %ymd_to_ord.exit.i
@@ -4078,7 +4078,7 @@ define internal fastcc void @ord_to_ymd(i32 noundef %0, ptr noundef nonnull capt
   %34 = ashr i32 %33, 5
   store i32 %34, ptr %2, align 4, !tbaa !16
   %35 = sext i32 %34 to i64
-  %36 = getelementptr i32, ptr @_days_before_month, i64 %35
+  %36 = getelementptr [4 x i8], ptr @_days_before_month, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !16
   %38 = icmp sgt i32 %34, 2
   %39 = select i1 %38, i1 %32, i1 false
@@ -4107,7 +4107,7 @@ define internal fastcc void @ord_to_ymd(i32 noundef %0, ptr noundef nonnull capt
 
 is_leap.exit.thread.i:                            ; preds = %49, %43
   %52 = sext i32 %44 to i64
-  %53 = getelementptr i32, ptr @_days_in_month, i64 %52
+  %53 = getelementptr [4 x i8], ptr @_days_in_month, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !16
   br label %days_in_month.exit
 
@@ -6326,7 +6326,7 @@ Py_DECREF.exit12.sink.split.i:                    ; preds = %28, %20
 get_float_as_integer_ratio.exit:                  ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %32 = zext nneg i32 %2 to i64
-  %33 = getelementptr ptr, ptr %31, i64 %32
+  %33 = getelementptr [8 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !14
   %35 = call ptr @PyNumber_Multiply(ptr noundef nonnull %5, ptr noundef %34) #18
   %36 = load i32, ptr %5, align 8, !tbaa !15
@@ -6350,7 +6350,7 @@ Py_DECREF.exit30:                                 ; preds = %get_float_as_intege
 42:                                               ; preds = %Py_DECREF.exit30
   %43 = xor i32 %2, 1
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr ptr, ptr %31, i64 %44
+  %45 = getelementptr [8 x i8], ptr %31, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !14
   %47 = call ptr @_PyLong_DivmodNear(ptr noundef nonnull %35, ptr noundef %46) #18
   %48 = icmp eq ptr %47, null
@@ -7787,7 +7787,7 @@ PyObject_TypeCheck.exit31.thread:                 ; preds = %PyObject_TypeCheck.
   %22 = load i8, ptr %21, align 1, !tbaa !15
   %23 = zext i8 %22 to i32
   %24 = zext i8 %20 to i64
-  %25 = getelementptr i32, ptr @_days_before_month, i64 %24
+  %25 = getelementptr [4 x i8], ptr @_days_before_month, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !16
   %27 = icmp ugt i8 %20, 2
   br i1 %27, label %28, label %ymd_to_ord.exit
@@ -7842,7 +7842,7 @@ ymd_to_ord.exit:                                  ; preds = %PyObject_TypeCheck.
   %56 = load i8, ptr %55, align 1, !tbaa !15
   %57 = zext i8 %56 to i32
   %58 = zext i8 %54 to i64
-  %59 = getelementptr i32, ptr @_days_before_month, i64 %58
+  %59 = getelementptr [4 x i8], ptr @_days_before_month, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !16
   %61 = icmp ugt i8 %54, 2
   br i1 %61, label %62, label %ymd_to_ord.exit39
@@ -8086,7 +8086,7 @@ define internal ptr @date_fromordinal(ptr noundef %0, ptr noundef %1) #0 {
   %40 = add nuw nsw i32 %.sext46.i, 50
   %41 = lshr i32 %40, 5
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr i32, ptr @_days_before_month, i64 %42
+  %43 = getelementptr [4 x i8], ptr @_days_before_month, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !16
   %45 = icmp samesign ugt i16 %20, 45
   %46 = select i1 %45, i1 %39, i1 false
@@ -8113,7 +8113,7 @@ define internal ptr @date_fromordinal(ptr noundef %0, ptr noundef %1) #0 {
 
 is_leap.exit.thread.i.i:                          ; preds = %55, %50
   %58 = zext nneg i32 %51 to i64
-  %59 = getelementptr i32, ptr @_days_in_month, i64 %58
+  %59 = getelementptr [4 x i8], ptr @_days_in_month, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !16
   br label %days_in_month.exit.i
 
@@ -8434,7 +8434,7 @@ define internal ptr @date_ctime(ptr noundef readonly captures(none) %0, ptr read
   %13 = getelementptr i8, ptr %0, i64 28
   %14 = load i8, ptr %13, align 1, !tbaa !15
   %15 = zext i8 %12 to i64
-  %16 = getelementptr i32, ptr @_days_before_month, i64 %15
+  %16 = getelementptr [4 x i8], ptr @_days_before_month, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !16
   %18 = icmp ugt i8 %12, 2
   br i1 %18, label %19, label %format_ctime.exit
@@ -8479,9 +8479,9 @@ format_ctime.exit:                                ; preds = %2, %is_leap.exit.th
   %37 = add i32 %36, %.0.i.i.i.i
   %38 = srem i32 %37, 7
   %39 = sext i32 %38 to i64
-  %40 = getelementptr ptr, ptr @format_ctime.DayNames, i64 %39
+  %40 = getelementptr [8 x i8], ptr @format_ctime.DayNames, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !74
-  %42 = getelementptr ptr, ptr @format_ctime.MonthNames, i64 %15
+  %42 = getelementptr [8 x i8], ptr @format_ctime.MonthNames, i64 %15
   %43 = getelementptr i8, ptr %42, i64 -8
   %44 = load ptr, ptr %43, align 8, !tbaa !74
   %45 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.154, ptr noundef %41, ptr noundef %44, i32 noundef %27, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %10) #18
@@ -8614,7 +8614,7 @@ define internal ptr @date_isocalendar(ptr noundef readonly captures(none) %0, pt
   %27 = load i8, ptr %26, align 1, !tbaa !15
   %28 = zext i8 %27 to i32
   %29 = zext i8 %25 to i64
-  %30 = getelementptr i32, ptr @_days_before_month, i64 %29
+  %30 = getelementptr [4 x i8], ptr @_days_before_month, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !16
   %32 = icmp ugt i8 %25, 2
   br i1 %32, label %33, label %ymd_to_ord.exit
@@ -8811,7 +8811,7 @@ define internal ptr @date_isoweekday(ptr noundef readonly captures(none) %0, ptr
   %13 = getelementptr i8, ptr %0, i64 28
   %14 = load i8, ptr %13, align 1, !tbaa !15
   %15 = zext i8 %12 to i64
-  %16 = getelementptr i32, ptr @_days_before_month, i64 %15
+  %16 = getelementptr [4 x i8], ptr @_days_before_month, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !16
   %18 = icmp ugt i8 %12, 2
   br i1 %18, label %19, label %weekday.exit
@@ -8876,7 +8876,7 @@ define internal ptr @date_toordinal(ptr noundef readonly captures(none) %0, ptr 
   %13 = getelementptr i8, ptr %0, i64 28
   %14 = load i8, ptr %13, align 1, !tbaa !15
   %15 = zext i8 %12 to i64
-  %16 = getelementptr i32, ptr @_days_before_month, i64 %15
+  %16 = getelementptr [4 x i8], ptr @_days_before_month, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !16
   %18 = icmp ugt i8 %12, 2
   br i1 %18, label %19, label %ymd_to_ord.exit
@@ -8938,7 +8938,7 @@ define internal ptr @date_weekday(ptr noundef readonly captures(none) %0, ptr re
   %13 = getelementptr i8, ptr %0, i64 28
   %14 = load i8, ptr %13, align 1, !tbaa !15
   %15 = zext i8 %12 to i64
-  %16 = getelementptr i32, ptr @_days_before_month, i64 %15
+  %16 = getelementptr [4 x i8], ptr @_days_before_month, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !16
   %18 = icmp ugt i8 %12, 2
   br i1 %18, label %19, label %weekday.exit
@@ -9537,7 +9537,7 @@ _PyUnicode_DATA.exit.i:                           ; preds = %34, %32
 
 _PyUnicode_DATA.exit17.i:                         ; preds = %41, %39
   %.0.i15.i = phi ptr [ %.0.i.i14.i, %39 ], [ %.val4.i16.i, %41 ]
-  %42 = getelementptr i16, ptr %.0.i15.i, i64 %25
+  %42 = getelementptr [2 x i8], ptr %.0.i15.i, i64 %25
   %43 = load i16, ptr %42, align 2, !tbaa !72
   %44 = zext i16 %43 to i32
   br label %PyUnicode_READ_CHAR.exit
@@ -9558,7 +9558,7 @@ _PyUnicode_DATA.exit17.i:                         ; preds = %41, %39
 
 _PyUnicode_DATA.exit25.i:                         ; preds = %48, %46
   %.0.i23.i = phi ptr [ %.0.i.i22.i, %46 ], [ %.val4.i24.i, %48 ]
-  %49 = getelementptr i32, ptr %.0.i23.i, i64 %25
+  %49 = getelementptr [4 x i8], ptr %.0.i23.i, i64 %25
   %50 = load i32, ptr %49, align 4, !tbaa !16
   br label %PyUnicode_READ_CHAR.exit
 
@@ -9628,7 +9628,7 @@ _PyUnicode_DATA.exit.i195:                        ; preds = %63, %61
 
 _PyUnicode_DATA.exit17.i188:                      ; preds = %70, %68
   %.0.i15.i189 = phi ptr [ %.0.i.i14.i187, %68 ], [ %.val4.i16.i191, %70 ]
-  %71 = getelementptr i16, ptr %.0.i15.i189, i64 %51
+  %71 = getelementptr [2 x i8], ptr %.0.i15.i189, i64 %51
   %72 = load i16, ptr %71, align 2, !tbaa !72
   %73 = zext i16 %72 to i32
   br label %PyUnicode_READ_CHAR.exit204
@@ -9649,7 +9649,7 @@ _PyUnicode_DATA.exit17.i188:                      ; preds = %70, %68
 
 _PyUnicode_DATA.exit25.i201:                      ; preds = %77, %75
   %.0.i23.i202 = phi ptr [ %.0.i.i22.i200, %75 ], [ %.val4.i24.i203, %77 ]
-  %78 = getelementptr i32, ptr %.0.i23.i202, i64 %51
+  %78 = getelementptr [4 x i8], ptr %.0.i23.i202, i64 %51
   %79 = load i32, ptr %78, align 4, !tbaa !16
   br label %PyUnicode_READ_CHAR.exit204
 
@@ -10409,7 +10409,7 @@ define internal fastcc ptr @build_struct_time(i32 noundef range(i32 0, 65536) %0
 
 10:                                               ; preds = %7
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr i32, ptr @_days_before_month, i64 %11
+  %12 = getelementptr [4 x i8], ptr @_days_before_month, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !16
   %14 = icmp samesign ugt i32 %1, 2
   br i1 %14, label %15, label %weekday.exit
@@ -11792,7 +11792,7 @@ define internal ptr @time_isoformat(ptr noundef readonly captures(none) %0, ptr 
 
 .preheader:                                       ; preds = %25, %38
   %.133 = phi i64 [ %39, %38 ], [ 0, %25 ]
-  %30 = getelementptr [2 x ptr], ptr @time_isoformat.specs, i64 %.133
+  %30 = getelementptr [16 x i8], ptr @time_isoformat.specs, i64 %.133
   %31 = load ptr, ptr %30, align 16, !tbaa !74
   %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %31) #19
   %33 = icmp eq i32 %32, 0
@@ -11819,7 +11819,7 @@ define internal ptr @time_isoformat(ptr noundef readonly captures(none) %0, ptr 
 .thread:                                          ; preds = %34, %36, %28
   %.031 = phi i64 [ %.27, %28 ], [ %.133, %34 ], [ 3, %36 ]
   %.02030 = phi i32 [ %20, %28 ], [ %20, %34 ], [ %37, %36 ]
-  %43 = getelementptr [2 x ptr], ptr @time_isoformat.specs, i64 %.031
+  %43 = getelementptr [16 x i8], ptr @time_isoformat.specs, i64 %.031
   %44 = getelementptr i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !74
   %46 = load i8, ptr %7, align 1, !tbaa !15
@@ -12774,7 +12774,7 @@ define internal fastcc range(i32 -4, 2) i32 @parse_hh_mm_ss_ff(ptr noundef %0, p
   %.048114 = phi ptr [ %0, %6 ], [ %.250, %select.unfold ]
   %.054113 = phi i64 [ 0, %6 ], [ %38, %select.unfold ]
   %.055112 = phi i8 [ 1, %6 ], [ %.156, %select.unfold ]
-  %11 = getelementptr ptr, ptr %7, i64 %.054113
+  %11 = getelementptr [8 x i8], ptr %7, i64 %.054113
   %12 = load ptr, ptr %11, align 8, !tbaa !84
   br label %.lr.ph.i
 
@@ -12880,7 +12880,7 @@ parse_digits.exit72.thread:                       ; preds = %.thread83
 
 .thread:                                          ; preds = %parse_digits.exit72.thread, %54
   %56 = phi ptr [ %47, %54 ], [ %.14988, %parse_digits.exit72.thread ]
-  %57 = getelementptr i32, ptr @parse_hh_mm_ss_ff.correction, i64 %spec.store.select
+  %57 = getelementptr [4 x i8], ptr @parse_hh_mm_ss_ff.correction, i64 %spec.store.select
   %58 = getelementptr i8, ptr %57, i64 -4
   %59 = load i32, ptr %58, align 4, !tbaa !16
   %60 = load i32, ptr %5, align 4, !tbaa !16
@@ -13563,7 +13563,7 @@ Py_DECREF.exit68:                                 ; preds = %datetime_utcoffset.
   %92 = load i8, ptr %91, align 1, !tbaa !15
   %93 = zext i8 %92 to i32
   %94 = zext i8 %90 to i64
-  %95 = getelementptr i32, ptr @_days_before_month, i64 %94
+  %95 = getelementptr [4 x i8], ptr @_days_before_month, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !16
   %97 = icmp ugt i8 %90, 2
   br i1 %97, label %98, label %ymd_to_ord.exit
@@ -14805,7 +14805,7 @@ Py_DECREF.exit85:                                 ; preds = %22, %_Py_NewRef.exi
   %114 = load i8, ptr %113, align 1, !tbaa !15
   %115 = zext i8 %114 to i32
   %116 = zext i8 %112 to i64
-  %117 = getelementptr i32, ptr @_days_before_month, i64 %116
+  %117 = getelementptr [4 x i8], ptr @_days_before_month, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !16
   %119 = icmp ugt i8 %112, 2
   br i1 %119, label %120, label %ymd_to_ord.exit
@@ -14854,7 +14854,7 @@ ymd_to_ord.exit:                                  ; preds = %Py_DECREF.exit85, %
   %142 = load i8, ptr %141, align 1, !tbaa !15
   %143 = zext i8 %142 to i32
   %144 = zext i8 %140 to i64
-  %145 = getelementptr i32, ptr @_days_before_month, i64 %144
+  %145 = getelementptr [4 x i8], ptr @_days_before_month, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !16
   %147 = icmp ugt i8 %140, 2
   br i1 %147, label %148, label %ymd_to_ord.exit122
@@ -15872,7 +15872,7 @@ _PyUnicode_DATA.exit.i:                           ; preds = %26, %24
 
 _PyUnicode_DATA.exit.split.us36.i:                ; preds = %_PyUnicode_DATA.exit.i, %32
   %.02335.us37.i = phi i64 [ %33, %32 ], [ 0, %_PyUnicode_DATA.exit.i ]
-  %29 = getelementptr i64, ptr @_sanitize_isoformat_str.potential_separators, i64 %.02335.us37.i
+  %29 = getelementptr [8 x i8], ptr @_sanitize_isoformat_str.potential_separators, i64 %.02335.us37.i
   %30 = load i64, ptr %29, align 8, !tbaa !73
   %31 = icmp ugt i64 %30, %19
   br i1 %31, label %.thread.thread.i, label %34
@@ -15883,7 +15883,7 @@ _PyUnicode_DATA.exit.split.us36.i:                ; preds = %_PyUnicode_DATA.exi
   br i1 %exitcond.not.i, label %.thread.thread.i, label %_PyUnicode_DATA.exit.split.us36.i, !llvm.loop !93
 
 34:                                               ; preds = %_PyUnicode_DATA.exit.split.us36.i
-  %35 = getelementptr i16, ptr %.0.i.i, i64 %30
+  %35 = getelementptr [2 x i8], ptr %.0.i.i, i64 %30
   %36 = load i16, ptr %35, align 2, !tbaa !72
   %37 = and i16 %36, -2048
   %.not.us40.i = icmp eq i16 %37, -10240
@@ -15896,13 +15896,13 @@ _PyUnicode_DATA.exit.split.us36.i:                ; preds = %_PyUnicode_DATA.exi
 
 _PyUnicode_DATA.exit.split.i:                     ; preds = %_PyUnicode_DATA.exit.i, %38
   %.02335.i = phi i64 [ %39, %38 ], [ 0, %_PyUnicode_DATA.exit.i ]
-  %40 = getelementptr i64, ptr @_sanitize_isoformat_str.potential_separators, i64 %.02335.i
+  %40 = getelementptr [8 x i8], ptr @_sanitize_isoformat_str.potential_separators, i64 %.02335.i
   %41 = load i64, ptr %40, align 8, !tbaa !73
   %42 = icmp ugt i64 %41, %19
   br i1 %42, label %.thread.thread.i, label %43
 
 43:                                               ; preds = %_PyUnicode_DATA.exit.split.i
-  %44 = getelementptr i32, ptr %.0.i.i, i64 %41
+  %44 = getelementptr [4 x i8], ptr %.0.i.i, i64 %41
   %45 = load i32, ptr %44, align 4, !tbaa !16
   %46 = and i32 %45, -2048
   %.not.i67 = icmp eq i32 %46, 55296
@@ -16129,7 +16129,7 @@ _find_isoformat_datetime_separator.exit:          ; preds = %68, %71, %.preheade
 
 is_leap.exit.thread.i:                            ; preds = %135, %131
   %138 = sext i32 %129 to i64
-  %139 = getelementptr i32, ptr @_days_in_month, i64 %138
+  %139 = getelementptr [4 x i8], ptr @_days_in_month, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !16
   br label %days_in_month.exit
 
@@ -16440,7 +16440,7 @@ define internal ptr @datetime_ctime(ptr noundef readonly captures(none) %0, ptr 
   %19 = getelementptr i8, ptr %0, i64 28
   %20 = load i8, ptr %19, align 1, !tbaa !15
   %21 = zext i8 %18 to i64
-  %22 = getelementptr i32, ptr @_days_before_month, i64 %21
+  %22 = getelementptr [4 x i8], ptr @_days_before_month, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !16
   %24 = icmp ugt i8 %18, 2
   br i1 %24, label %25, label %format_ctime.exit
@@ -16488,9 +16488,9 @@ format_ctime.exit:                                ; preds = %2, %is_leap.exit.th
   %46 = add i32 %45, %.0.i.i.i.i
   %47 = srem i32 %46, 7
   %48 = sext i32 %47 to i64
-  %49 = getelementptr ptr, ptr @format_ctime.DayNames, i64 %48
+  %49 = getelementptr [8 x i8], ptr @format_ctime.DayNames, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !74
-  %51 = getelementptr ptr, ptr @format_ctime.MonthNames, i64 %21
+  %51 = getelementptr [8 x i8], ptr @format_ctime.MonthNames, i64 %21
   %52 = getelementptr i8, ptr %51, i64 -8
   %53 = load ptr, ptr %52, align 8, !tbaa !74
   %54 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.154, ptr noundef %50, ptr noundef %53, i32 noundef %36, i32 noundef range(i32 0, 256) %35, i32 noundef range(i32 0, 256) %34, i32 noundef range(i32 0, 256) %33, i32 noundef %16) #18
@@ -16900,7 +16900,7 @@ define internal ptr @datetime_isoformat(ptr noundef %0, ptr noundef %1, ptr noun
 
 .preheader:                                       ; preds = %26, %39
   %.137 = phi i64 [ %40, %39 ], [ 0, %26 ]
-  %31 = getelementptr [2 x ptr], ptr @datetime_isoformat.specs, i64 %.137
+  %31 = getelementptr [16 x i8], ptr @datetime_isoformat.specs, i64 %.137
   %32 = load ptr, ptr %31, align 16, !tbaa !74
   %33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %32) #19
   %34 = icmp eq i32 %33, 0
@@ -16927,7 +16927,7 @@ define internal ptr @datetime_isoformat(ptr noundef %0, ptr noundef %1, ptr noun
 .thread:                                          ; preds = %35, %37, %29
   %.035 = phi i64 [ %.31, %29 ], [ %.137, %35 ], [ 3, %37 ]
   %.02434 = phi i32 [ %21, %29 ], [ %21, %35 ], [ %38, %37 ]
-  %44 = getelementptr [2 x ptr], ptr @datetime_isoformat.specs, i64 %.035
+  %44 = getelementptr [16 x i8], ptr @datetime_isoformat.specs, i64 %.035
   %45 = getelementptr i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !74
   %47 = load i8, ptr %8, align 1, !tbaa !15
@@ -17956,7 +17956,7 @@ utc_to_seconds.exit.thread:                       ; preds = %25
 
 29:                                               ; preds = %25
   %30 = sext i32 %14 to i64
-  %31 = getelementptr i32, ptr @_days_before_month, i64 %30
+  %31 = getelementptr [4 x i8], ptr @_days_before_month, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !16
   %33 = icmp sgt i32 %14, 2
   br i1 %33, label %34, label %utc_to_seconds.exit
@@ -18094,7 +18094,7 @@ define internal fastcc range(i64 -193404524822528, 193404524732468) i64 @local(i
   %22 = load i32, ptr %21, align 8, !tbaa !77
   %23 = add i32 %22, 1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr i32, ptr @_days_before_month, i64 %24
+  %25 = getelementptr [4 x i8], ptr @_days_before_month, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !16
   %27 = icmp sgt i32 %23, 2
   br i1 %27, label %28, label %ymd_to_ord.exit.i
@@ -18177,7 +18177,7 @@ define internal fastcc range(i64 -943436811112934, 943436813834522) i64 @local_t
 
 12:                                               ; preds = %7
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr i32, ptr @_days_before_month, i64 %13
+  %14 = getelementptr [4 x i8], ptr @_days_before_month, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !16
   %16 = icmp samesign ugt i32 %1, 2
   br i1 %16, label %17, label %ymd_to_ord.exit.i

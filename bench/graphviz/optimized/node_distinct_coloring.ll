@@ -172,14 +172,14 @@ gv_calloc.exit96:                                 ; preds = %67
 82:                                               ; preds = %.lr.ph99, %._crit_edge
   %indvars.iv102 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next103, %._crit_edge ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %83 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv.next103
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv.next103
   %84 = load i32, ptr %83, align 4, !tbaa !8
-  %85 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv102
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv102
   %86 = load i32, ptr %85, align 4, !tbaa !8
   %87 = sub nsw i32 %84, %86
   %88 = load ptr, ptr %12, align 8, !tbaa !3
   %89 = sext i32 %86 to i64
-  %90 = getelementptr inbounds i32, ptr %88, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %88, i64 %89
   %91 = call ptr @SparseMatrix_get_submatrix(ptr noundef %74, i32 noundef %87, i32 noundef %87, ptr noundef %90, ptr noundef %90) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -224,14 +224,14 @@ node_distinct_coloring_internal.exit:             ; preds = %93, %82
   %104 = sub nsw i32 %103, %102
   %105 = load ptr, ptr %7, align 8, !tbaa !18
   %106 = load ptr, ptr %12, align 8, !tbaa !3
-  %107 = getelementptr inbounds i32, ptr %106, i64 %indvars.iv
+  %107 = getelementptr inbounds [4 x i8], ptr %106, i64 %indvars.iv
   %108 = load i32, ptr %107, align 4, !tbaa !8
   %109 = mul nsw i32 %108, %.081
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds double, ptr %105, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %105, i64 %110
   %112 = mul nsw i32 %104, %.081
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds double, ptr %68, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %68, i64 %113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %111, ptr noundef nonnull align 8 dereferenceable(1) %114, i64 %81, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %115 = load i32, ptr %83, align 4, !tbaa !8
@@ -399,7 +399,7 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef range(
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %7, i8 0, i64 %45, i1 false), !tbaa !20
   %scevgep = getelementptr i8, ptr %7, i64 %45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %45, i1 false), !tbaa !20
-  %46 = getelementptr inbounds nuw double, ptr %7, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %44
   store double 5.000000e-01, ptr %46, align 8, !tbaa !20
   %47 = uitofp nneg i32 %4 to double
   %sqrt191 = call double @llvm.sqrt.f64(double %47)
@@ -409,7 +409,7 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef range(
   call void @QuadTree_get_nearest(ptr noundef %1, ptr noundef nonnull %15, ptr noundef %7, ptr noundef nonnull %17, ptr noundef nonnull %16) #15
   call void @LAB2RGB_real_01(ptr noundef %7) #15
   %49 = zext nneg i32 %4 to i64
-  %50 = getelementptr inbounds nuw double, ptr %7, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %49
   call void @QuadTree_get_nearest(ptr noundef %1, ptr noundef nonnull %14, ptr noundef nonnull %50, ptr noundef nonnull %17, ptr noundef nonnull %16) #15
   call void @LAB2RGB_real_01(ptr noundef nonnull %50) #15
   br label %51
@@ -456,7 +456,7 @@ define internal fastcc void @node_distinct_coloring_internal2(i32 noundef range(
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %69 = call double @drand() #15
   %70 = fmul double %69, 0x3FE6666666666666
-  %71 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store double %70, ptr %71, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -559,10 +559,10 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
   %indvars.iv241 = phi i64 [ %indvars.iv.next242, %131 ], [ 0, %.lr.ph211 ]
   %.1167208.us = phi double [ %.2168.us, %131 ], [ %.0166220, %.lr.ph211 ]
   %.1172207.us = phi double [ %.2173.us, %131 ], [ %.0171218, %.lr.ph211 ]
-  %113 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv241
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv241
   %114 = load i32, ptr %113, align 4, !tbaa !8
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
-  %115 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.next242
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.next242
   %116 = load i32, ptr %115, align 4, !tbaa !8
   %117 = icmp slt i32 %114, %116
   br i1 %117, label %.lr.ph202.us.preheader, label %._crit_edge203.split.us.us
@@ -574,7 +574,7 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
 ._crit_edge203.split.us.us:                       ; preds = %149, %.lr.ph211.split.us
   %.0163.lcssa.us = phi i32 [ 0, %.lr.ph211.split.us ], [ %.1164.us.us, %149 ]
   %119 = mul nuw nsw i64 %indvars.iv241, %105
-  %120 = getelementptr inbounds nuw double, ptr %7, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %119
   store ptr %120, ptr %13, align 8, !tbaa !18
   br i1 %104, label %123, label %121
 
@@ -610,7 +610,7 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
   %132 = phi i32 [ %116, %.lr.ph202.us.preheader ], [ %150, %149 ]
   %indvars.iv238 = phi i64 [ %118, %.lr.ph202.us.preheader ], [ %indvars.iv.next239, %149 ]
   %.0163199.us.us = phi i32 [ 0, %.lr.ph202.us.preheader ], [ %.1164.us.us, %149 ]
-  %133 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv238
+  %133 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv238
   %134 = load i32, ptr %133, align 4, !tbaa !8
   %135 = zext i32 %134 to i64
   %136 = icmp eq i64 %indvars.iv241, %135
@@ -619,15 +619,15 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
 137:                                              ; preds = %.lr.ph202.us
   %138 = mul nsw i32 %.0163199.us.us, %4
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds double, ptr %80, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr %80, i64 %139
   %141 = mul nsw i32 %134, %4
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds double, ptr %7, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %7, i64 %142
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %140, ptr noundef nonnull align 8 dereferenceable(1) %143, i64 %101, i1 false)
-  %144 = getelementptr inbounds double, ptr %.0165, i64 %indvars.iv238
+  %144 = getelementptr inbounds [8 x i8], ptr %.0165, i64 %indvars.iv238
   %145 = load double, ptr %144, align 8, !tbaa !20
   %146 = sext i32 %.0163199.us.us to i64
-  %147 = getelementptr inbounds double, ptr %98, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %98, i64 %146
   store double %145, ptr %147, align 8, !tbaa !20
   %148 = add nsw i32 %.0163199.us.us, 1
   %.pre252 = load i32, ptr %115, align 4, !tbaa !8
@@ -645,10 +645,10 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
   %indvars.iv233 = phi i64 [ %indvars.iv.next234, %188 ], [ 0, %.lr.ph211 ]
   %.1167208 = phi double [ %.2168, %188 ], [ %.0166220, %.lr.ph211 ]
   %.1172207 = phi double [ %.2173, %188 ], [ %.0171218, %.lr.ph211 ]
-  %153 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv233
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv233
   %154 = load i32, ptr %153, align 4, !tbaa !8
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
-  %155 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.next234
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.next234
   %156 = load i32, ptr %155, align 4, !tbaa !8
   %157 = icmp slt i32 %154, %156
   br i1 %157, label %.lr.ph202.preheader, label %._crit_edge203.split
@@ -661,7 +661,7 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
   %159 = phi i32 [ %156, %.lr.ph202.preheader ], [ %173, %172 ]
   %indvars.iv230 = phi i64 [ %158, %.lr.ph202.preheader ], [ %indvars.iv.next231, %172 ]
   %.0163199 = phi i32 [ 0, %.lr.ph202.preheader ], [ %.1164, %172 ]
-  %160 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv230
+  %160 = getelementptr inbounds [4 x i8], ptr %56, i64 %indvars.iv230
   %161 = load i32, ptr %160, align 4, !tbaa !8
   %162 = zext i32 %161 to i64
   %163 = icmp eq i64 %indvars.iv233, %162
@@ -670,10 +670,10 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
 164:                                              ; preds = %.lr.ph202
   %165 = mul nsw i32 %.0163199, %4
   %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds double, ptr %80, i64 %166
+  %167 = getelementptr inbounds [8 x i8], ptr %80, i64 %166
   %168 = mul nsw i32 %161, %4
   %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds double, ptr %7, i64 %169
+  %170 = getelementptr inbounds [8 x i8], ptr %7, i64 %169
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %167, ptr noundef nonnull align 8 dereferenceable(1) %170, i64 %101, i1 false)
   %171 = add nsw i32 %.0163199, 1
   %.pre = load i32, ptr %155, align 4, !tbaa !8
@@ -690,7 +690,7 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
 ._crit_edge203.split:                             ; preds = %172, %.lr.ph211.split
   %.0163.lcssa = phi i32 [ 0, %.lr.ph211.split ], [ %.1164, %172 ]
   %176 = mul nuw nsw i64 %indvars.iv233, %105
-  %177 = getelementptr inbounds nuw double, ptr %7, i64 %176
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %176
   store ptr %177, ptr %13, align 8, !tbaa !18
   br i1 %104, label %178, label %179
 
@@ -757,7 +757,7 @@ gv_calloc.exit188:                                ; preds = %91, %gv_calloc.exit
 196:                                              ; preds = %.lr.ph223, %196
   %indvars.iv247 = phi i64 [ 0, %.lr.ph223 ], [ %indvars.iv.next248, %196 ]
   %197 = mul nuw nsw i64 %indvars.iv247, %105
-  %198 = getelementptr inbounds nuw double, ptr %7, i64 %197
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %197
   %199 = load double, ptr %198, align 8, !tbaa !20
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %201 = load double, ptr %200, align 8, !tbaa !20

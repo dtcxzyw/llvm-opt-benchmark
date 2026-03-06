@@ -351,7 +351,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 define hidden noundef i64 @_ZN8uu_split8strategy10NumberType10num_chunks17h709f2b3ed91e35bbE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #3 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !63, !noundef !5
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN8uu_split8strategy10NumberType10num_chunks17h709f2b3ed91e35bbE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8uu_split8strategy10NumberType10num_chunks17h709f2b3ed91e35bbE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %.0 = load i64, ptr %2, align 8, !noundef !5

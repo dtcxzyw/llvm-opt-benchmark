@@ -29,11 +29,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.scsi_sense_hdr = type { i8, i8, i8, i8, i8, i8, i8, i8 }
 %struct.scsi_mode_data = type { i32, i16, i8, i8, i8, i8 }
 %struct.scsi_exec_args = type { ptr, i32, ptr, i32, i32, ptr }
-%struct.blk_independent_access_range = type { %struct.kobject, i64, i64 }
-%struct.kobject = type { ptr, %struct.list_head, ptr, ptr, ptr, ptr, %struct.kref, i8 }
-%struct.list_head = type { ptr, ptr }
-%struct.kref = type { %struct.refcount_struct }
-%struct.refcount_struct = type { %struct.atomic_t }
 
 @__UNIQUE_ID_author426 = internal constant [29 x i8] c"sd_mod.author=Eric Youngdale\00", section ".modinfo", align 1
 @__UNIQUE_ID_description427 = internal constant [41 x i8] c"sd_mod.description=SCSI disk (sd) driver\00", section ".modinfo", align 1
@@ -2829,7 +2824,7 @@ define internal fastcc void @sd_revalidate_disk(ptr noundef %0) unnamed_addr #2 
   %615 = add i32 %613, -9
   %616 = zext nneg i32 %615 to i64
   %617 = shl i64 %614, %616
-  %618 = getelementptr %struct.blk_independent_access_range, ptr %592, i64 %595
+  %618 = getelementptr [80 x i8], ptr %592, i64 %595
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 64
   store i64 %617, ptr %619, align 8
   %620 = getelementptr i8, ptr %596, i64 16
@@ -4927,7 +4922,7 @@ define internal range(i32 -2147483648, 983041) i32 @sd_pr_read_keys(ptr noundef 
   %32 = getelementptr i8, ptr %8, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = tail call i64 @llvm.bswap.i64(i64 %33)
-  %35 = getelementptr i64, ptr %26, i64 %29
+  %35 = getelementptr [8 x i8], ptr %26, i64 %29
   store i64 %34, ptr %35, align 8
   %36 = add i32 %30, 8
   %37 = add nuw nsw i64 %29, 1
@@ -6838,9 +6833,9 @@ define internal fastcc noundef zeroext range(i8 0, 33) i8 @sd_setup_protect_cmnd
   %10 = zext nneg i32 %9 to i64
   %11 = select i1 %6, i64 0, i64 2
   %12 = zext i1 %7 to i64
-  %13 = getelementptr i32, ptr @sd_prot_op.ops, i64 %11
-  %14 = getelementptr i32, ptr %13, i64 %12
-  %15 = getelementptr i32, ptr %14, i64 %10
+  %13 = getelementptr [4 x i8], ptr @sd_prot_op.ops, i64 %11
+  %14 = getelementptr [4 x i8], ptr %13, i64 %12
+  %15 = getelementptr [4 x i8], ptr %14, i64 %10
   %16 = load i32, ptr %15, align 4
   br i1 %6, label %21, label %17
 
@@ -6876,7 +6871,7 @@ define internal fastcc noundef zeroext range(i8 0, 33) i8 @sd_setup_protect_cmnd
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 153
   store i8 %32, ptr %33, align 1
   %34 = zext i32 %16 to i64
-  %35 = getelementptr i32, ptr @sd_prot_flag_mask.flag_mask, i64 %34
+  %35 = getelementptr [4 x i8], ptr @sd_prot_flag_mask.flag_mask, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 154
   %38 = trunc i32 %36 to i8
@@ -7033,7 +7028,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @cache_type_show(
   %9 = and i32 %8, 2
   %10 = or disjoint i32 %7, %9
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr ptr, ptr @sd_cache_types, i64 %11
+  %12 = getelementptr [8 x i8], ptr @sd_cache_types, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.96, ptr noundef %13) #19
   %15 = sext i32 %14 to i64
@@ -7546,7 +7541,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @provisioning_mod
   %4 = getelementptr i8, ptr %0, i64 811
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr ptr, ptr @lbp_mode, i64 %6
+  %7 = getelementptr [8 x i8], ptr @lbp_mode, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.96, ptr noundef %8) #19
   %10 = sext i32 %9 to i64
@@ -7624,7 +7619,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @zeroing_mode_sho
   %4 = getelementptr i8, ptr %0, i64 812
   %5 = load i8, ptr %4, align 4
   %6 = zext i8 %5 to i64
-  %7 = getelementptr ptr, ptr @zeroing_mode, i64 %6
+  %7 = getelementptr [8 x i8], ptr @zeroing_mode, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.96, ptr noundef %8) #19
   %10 = sext i32 %9 to i64

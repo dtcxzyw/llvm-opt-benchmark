@@ -18,8 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.Imath_3_2::Vec2.3" = type { float, float }
-%"struct.Imf_3_4::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
-%"class.Imath_3_2::half" = type { i16 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -182,7 +180,7 @@ define dso_local void @_Z11makeCubeMapR11EnvmapImageRN7Imf_3_46HeaderENS1_12Rgba
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKcm.exit.i.i: ; preds = %67
-  %74 = getelementptr inbounds nuw ptr, ptr @_ZZN12_GLOBAL__N_119makeCubeMapSixFilesER11EnvmapImageRN7Imf_3_46HeaderENS2_12RgbaChannelsEPKciiNS2_11CompressionEifibE9faceNames, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN12_GLOBAL__N_119makeCubeMapSixFilesER11EnvmapImageRN7Imf_3_46HeaderENS2_12RgbaChannelsEPKciiNS2_11CompressionEifibE9faceNames, i64 %indvars.iv.i
   %75 = load ptr, ptr %74, align 8, !tbaa !23
   %76 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #12
   %77 = icmp ne i64 %71, %31
@@ -376,7 +374,7 @@ _ZNSolsEPFRSoS_E.exit.i:                          ; preds = %.noexc79.i, %_ZNSt7
   br i1 %137, label %.preheader.i, label %138
 
 138:                                              ; preds = %136
-  %139 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %.03450.i, i64 %52
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %.03450.i, i64 %52
   call void @_ZN7Imf_3_419TiledRgbaOutputFileD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %140 = load ptr, ptr %23, align 8, !tbaa !19

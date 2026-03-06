@@ -350,7 +350,7 @@ define internal range(i32 0, 2) i32 @test_dsa_param_keygen(i32 noundef %0) #1 {
 
 11:                                               ; preds = %1
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr @__const.getname.name, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @__const.getname.name, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   br label %getname.exit
 
@@ -361,7 +361,7 @@ getname.exit:                                     ; preds = %1, %11
 
 15:                                               ; preds = %getname.exit
   %16 = zext nneg i32 %5 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr @__const.getname.name, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @__const.getname.name, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !15
   br label %getname.exit52
 
@@ -372,7 +372,7 @@ getname.exit52:                                   ; preds = %getname.exit, %15
 
 19:                                               ; preds = %getname.exit52
   %20 = zext nneg i32 %6 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr @__const.getname.name, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @__const.getname.name, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !15
   br label %getname.exit55
 
@@ -392,7 +392,7 @@ getname.exit55:                                   ; preds = %getname.exit52, %19
 
 28:                                               ; preds = %25
   %29 = sext i32 %3 to i64
-  %30 = getelementptr inbounds ptr, ptr @test_dsa_param_keygen.bn, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr @test_dsa_param_keygen.bn, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !17
   %32 = tail call ptr @BN_dup(ptr noundef %31) #7
   %33 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 147, ptr noundef nonnull @.str.39, ptr noundef %32) #7
@@ -401,7 +401,7 @@ getname.exit55:                                   ; preds = %getname.exit52, %19
 
 34:                                               ; preds = %28
   %35 = sext i32 %5 to i64
-  %36 = getelementptr inbounds ptr, ptr @test_dsa_param_keygen.bn, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr @test_dsa_param_keygen.bn, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !17
   %38 = tail call ptr @BN_dup(ptr noundef %37) #7
   %39 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 148, ptr noundef nonnull @.str.40, ptr noundef %38) #7
@@ -410,7 +410,7 @@ getname.exit55:                                   ; preds = %getname.exit52, %19
 
 40:                                               ; preds = %34
   %41 = sext i32 %6 to i64
-  %42 = getelementptr inbounds ptr, ptr @test_dsa_param_keygen.bn, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr @test_dsa_param_keygen.bn, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !17
   %44 = tail call ptr @BN_dup(ptr noundef %43) #7
   %45 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 149, ptr noundef nonnull @.str.41, ptr noundef %44) #7
@@ -512,7 +512,7 @@ define internal range(i32 0, 2) i32 @test_dh_safeprime_param_keygen(i32 noundef 
 
 11:                                               ; preds = %1
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr @__const.getname.name, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @__const.getname.name, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   br label %getname.exit.i
 
@@ -523,7 +523,7 @@ getname.exit.i:                                   ; preds = %11, %1
 
 15:                                               ; preds = %getname.exit.i
   %16 = zext nneg i32 %5 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr @__const.getname.name, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @__const.getname.name, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !15
   br label %getname.exit55.i
 
@@ -534,7 +534,7 @@ getname.exit55.i:                                 ; preds = %15, %getname.exit.i
 
 19:                                               ; preds = %getname.exit55.i
   %20 = zext nneg i32 %6 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr @__const.getname.name, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @__const.getname.name, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !15
   br label %getname.exit58.i
 
@@ -554,7 +554,7 @@ getname.exit58.i:                                 ; preds = %19, %getname.exit55
 
 28:                                               ; preds = %25
   %29 = sext i32 %3 to i64
-  %30 = getelementptr inbounds ptr, ptr @test_dh_safeprime_param_keygen.bn, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr @test_dh_safeprime_param_keygen.bn, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !17
   %32 = tail call ptr @BN_dup(ptr noundef %31) #7
   %33 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 210, ptr noundef nonnull @.str.39, ptr noundef %32) #7
@@ -563,7 +563,7 @@ getname.exit58.i:                                 ; preds = %19, %getname.exit55
 
 34:                                               ; preds = %28
   %35 = sext i32 %5 to i64
-  %36 = getelementptr inbounds ptr, ptr @test_dh_safeprime_param_keygen.bn, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr @test_dh_safeprime_param_keygen.bn, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !17
   %38 = tail call ptr @BN_dup(ptr noundef %37) #7
   %39 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 211, ptr noundef nonnull @.str.40, ptr noundef %38) #7
@@ -572,7 +572,7 @@ getname.exit58.i:                                 ; preds = %19, %getname.exit55
 
 40:                                               ; preds = %34
   %41 = sext i32 %6 to i64
-  %42 = getelementptr inbounds ptr, ptr @test_dh_safeprime_param_keygen.bn, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr @test_dh_safeprime_param_keygen.bn, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !17
   %44 = tail call ptr @BN_dup(ptr noundef %43) #7
   %45 = tail call i32 @test_ptr(ptr noundef nonnull @.str.24, i32 noundef 212, ptr noundef nonnull @.str.41, ptr noundef %44) #7

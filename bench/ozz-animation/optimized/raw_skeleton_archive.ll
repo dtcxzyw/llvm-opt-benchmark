@@ -3,19 +3,6 @@ source_filename = "bench/ozz-animation/original/raw_skeleton_archive.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.ozz::animation::offline::RawSkeleton" = type { %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ozz::animation::offline::RawSkeleton::Joint" = type { %"class.std::vector", %"class.std::__cxx11::basic_string", %"struct.ozz::math::Transform" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"struct.ozz::math::Transform" = type { %"struct.ozz::math::Float3", %"struct.ozz::math::Quaternion", %"struct.ozz::math::Float3" }
-%"struct.ozz::math::Quaternion" = type { float, float, float, float }
-%"struct.ozz::math::Float3" = type { float, float, float }
-
 $_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRT_ = comdat any
 
 $_ZN3ozz2io6ExternINS_9animation7offline11RawSkeleton5JointEE4SaveERNS0_8OArchiveEPKS5_m = comdat any
@@ -46,7 +33,7 @@ define dso_local void @_ZN3ozz2io6ExternINS_9animation7offline11RawSkeletonEE4Sa
 
 7:                                                ; preds = %.lr.ph, %_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRKT_.exit
   %.06 = phi i64 [ 0, %.lr.ph ], [ %34, %_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRKT_.exit ]
-  %8 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton", ptr %1, i64 %.06
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %.06
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = load ptr, ptr %8, align 8, !tbaa !10
@@ -103,7 +90,7 @@ define dso_local void @_ZN3ozz2io6ExternINS_9animation7offline11RawSkeletonEE4Lo
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.06 = phi i64 [ %6, %.lr.ph ], [ 0, %4 ]
-  %5 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton", ptr %1, i64 %.06
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %.06
   tail call void @_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %6 = add nuw i64 %.06, 1
   %exitcond.not = icmp eq i64 %6, %2
@@ -148,7 +135,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io8IArchiversISt6vectorINS_9animatio
   br i1 %27, label %28, label %_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE6resizeEm.exit
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %18, i64 %15
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %18, i64 %15
   %.not.i.i = icmp eq ptr %17, %29
   br i1 %.not.i.i, label %_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE6resizeEm.exit, label %.lr.ph.i.i.i
 
@@ -205,7 +192,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline11Raw
 
 .split:                                           ; preds = %.split.lr.ph, %_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRKT_.exit
   %.016 = phi i64 [ 0, %.split.lr.ph ], [ %33, %_ZN3ozz2io8OArchivelsISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRKT_.exit ]
-  %6 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %1, i64 %.016
+  %6 = getelementptr inbounds nuw [96 x i8], ptr %1, i64 %.016
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4SaveERNS0_8OArchiveEPKS8_m(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 1)
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -437,9 +424,9 @@ _ZSt8_DestroyIPN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_
 
 _ZNSt12_Vector_baseIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt8_DestroyIPN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEEvT_S8_RT0_.exit53, %73
   store ptr %34, ptr %0, align 8, !tbaa !10
-  %80 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %38, i64 %1
+  %80 = getelementptr inbounds nuw [96 x i8], ptr %38, i64 %1
   store ptr %80, ptr %4, align 8, !tbaa !4
-  %81 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %34, i64 %27
+  %81 = getelementptr inbounds nuw [96 x i8], ptr %34, i64 %27
   store ptr %81, ptr %11, align 8, !tbaa !30
   br label %82
 
@@ -559,7 +546,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline11Raw
 
 8:                                                ; preds = %.lr.ph, %_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRT_.exit
   %.016 = phi i64 [ 0, %.lr.ph ], [ %47, %_ZN3ozz2io8IArchiversISt6vectorINS_9animation7offline11RawSkeleton5JointENS_12StdAllocatorIS7_EEEEEvRT_.exit ]
-  %9 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %1, i64 %.016
+  %9 = getelementptr inbounds nuw [96 x i8], ptr %1, i64 %.016
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @_ZN3ozz2io6ExternINSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEEE4LoadERNS0_8IArchiveEPS8_mj(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 1, i32 noundef 0)
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -597,7 +584,7 @@ define linkonce_odr dso_local void @_ZN3ozz2io6ExternINS_9animation7offline11Raw
   br i1 %33, label %34, label %_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE6resizeEm.exit
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %24, i64 %21
+  %35 = getelementptr inbounds nuw [96 x i8], ptr %24, i64 %21
   %.not.i.i11 = icmp eq ptr %23, %35
   br i1 %.not.i.i11, label %_ZNSt6vectorIN3ozz9animation7offline11RawSkeleton5JointENS0_12StdAllocatorIS4_EEE6resizeEm.exit, label %.lr.ph.i.i.i
 

@@ -309,7 +309,7 @@ define hidden void @_ZN5audio6assets13SoundRegistry3get17hbb6b61378f730f06E(ptr 
   %56 = add i64 %.sroa.01.0.i.i.i, %55
   %57 = and i64 %56, %47
   %58 = sub nsw i64 0, %57
-  %59 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, ptr, { [2 x i32], i32, [1 x i32] } } }, ptr %48, i64 %58
+  %59 = getelementptr inbounds [56 x i8], ptr %48, i64 %58
   %60 = getelementptr i8, ptr %59, i64 -40
   %.val5.i.i.i = load i64, ptr %60, align 8, !alias.scope !80, !noalias !87, !noundef !17
   %.not.i.i.i.i.i.i.i = icmp eq i64 %35, %.val5.i.i.i

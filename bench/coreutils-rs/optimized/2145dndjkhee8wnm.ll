@@ -564,7 +564,7 @@ define hidden { i64, ptr } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 
 "_ZN4core4iter6traits8iterator8Iterator10min_by_key3key28_$u7b$$u7b$closure$u7d$$u7d$17h8c0afec8b61d0f5dE.llvm.4103517291658523209.exit": ; preds = %2
   %8 = load ptr, ptr %0, align 8, !alias.scope !149, !noalias !150, !nonnull !9, !align !10, !noundef !9
-  %9 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %8, i64 %3
+  %9 = getelementptr inbounds [40 x i8], ptr %8, i64 %3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !noalias !152, !noundef !9
   %12 = insertvalue { i64, ptr } poison, i64 %11, 0
@@ -784,7 +784,7 @@ define hidden { i64, ptr } @"_ZN4core4iter6traits8iterator8Iterator10min_by_key3
 
 "_ZN6uu_fmt9linebreak15build_best_path28_$u7b$$u7b$closure$u7d$$u7d$17h16aa7e90a7292ba9E.llvm.4103517291658523209.exit": ; preds = %2
   %8 = load ptr, ptr %0, align 8, !alias.scope !208, !noalias !213, !nonnull !9, !align !10, !noundef !9
-  %9 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %8, i64 %3
+  %9 = getelementptr inbounds [40 x i8], ptr %8, i64 %3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !noalias !211, !noundef !9
   %12 = insertvalue { i64, ptr } poison, i64 %11, 0
@@ -1278,7 +1278,7 @@ define hidden noundef i64 @"_ZN6uu_fmt9linebreak15build_best_path28_$u7b$$u7b$cl
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8, !nonnull !9, !align !10, !noundef !9
-  %10 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %9, i64 %4
+  %10 = getelementptr inbounds [40 x i8], ptr %9, i64 %4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !9
   ret i64 %12

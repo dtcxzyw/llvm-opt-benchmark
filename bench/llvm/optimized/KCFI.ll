@@ -42,10 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::ConstantFolder" = type { %"class.llvm::IRBuilderFolder" }
 %"class.llvm::IRBuilderFolder" = type { ptr }
 %"class.llvm::IRBuilderDefaultInserter" = type { ptr }
-%"struct.llvm::CallBase::BundleOpInfo" = type { ptr, i32, i32 }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 %"class.llvm::InsertPosition" = type { %"class.llvm::ilist_iterator_w_bits" }
-%"struct.std::pair.134" = type { i32, ptr }
 
 $_ZN4llvm14DiagnosticInfoD2Ev = comdat any
 
@@ -234,7 +231,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %69, %_ZNK4llvm8Cal
   %indvars.iv = phi i64 [ 0, %.critedge.i.preheader ], [ %indvars.iv.next, %80 ]
   %81 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %60) #8, !noalias !52
   %82 = extractvalue { ptr, i64 } %81, 0
-  %83 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8, !tbaa !55, !noalias !58
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i32, ptr %85, align 4, !tbaa !61, !noalias !48
@@ -258,7 +255,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallInstELb1EE9push_backES2_.exit: ; pred
   %93 = phi i32 [ %88, %87 ], [ %.pre.i, %90 ]
   %94 = load ptr, ptr %7, align 8, !tbaa !30
   %95 = zext i32 %93 to i64
-  %96 = getelementptr inbounds nuw ptr, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %95
   %97 = ptrtoint ptr %60 to i64
   store i64 %97, ptr %96, align 1
   %98 = load i32, ptr %37, align 8, !tbaa !32
@@ -477,7 +474,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i57: ; preds = %184, %_ZNK4llvm8
   %indvars.iv138 = phi i64 [ 0, %.critedge.i61.preheader ], [ %indvars.iv.next139, %195 ]
   %196 = call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %177) #8, !noalias !183
   %197 = extractvalue { ptr, i64 } %196, 0
-  %198 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %197, i64 %indvars.iv138
+  %198 = getelementptr inbounds nuw [16 x i8], ptr %197, i64 %indvars.iv138
   %199 = load ptr, ptr %198, align 8, !tbaa !55, !noalias !186
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %201 = load i32, ptr %200, align 4, !tbaa !61, !noalias !180
@@ -492,7 +489,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i57: ; preds = %184, %_ZNK4llvm8
   %207 = and i32 %206, 134217727
   %208 = zext nneg i32 %207 to i64
   %209 = sub nsw i64 0, %208
-  %210 = getelementptr inbounds %"class.llvm::Use", ptr %177, i64 %209
+  %210 = getelementptr inbounds [32 x i8], ptr %177, i64 %209
   %.idx6.i.i.i66 = shl nuw nsw i64 %205, 5
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 %.idx6.i.i.i66
   br label %_ZNK4llvm8CallBase16getOperandBundleEj.exit71
@@ -1550,7 +1547,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !30
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.std::pair.134", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store i32 %4, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -1559,7 +1556,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   store i32 %19, ptr %6, align 8, !tbaa !32
   %20 = load ptr, ptr %0, align 8, !tbaa !30
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.std::pair.134", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   ret ptr %23
 }

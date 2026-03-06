@@ -200,7 +200,7 @@ define hidden noundef ptr @_Z26mk_qfnra_very_small_solverR11ast_managerRK10param
   %36 = phi ptr [ %.pre.i, %.noexc ], [ %25, %27 ]
   %37 = getelementptr inbounds i8, ptr %36, i64 -4
   %38 = zext i32 %35 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   store ptr %23, ptr %39, align 8, !tbaa !15
   %40 = add i32 %35, 1
   store i32 %40, ptr %37, align 4, !tbaa !13
@@ -246,7 +246,7 @@ define hidden noundef ptr @_Z26mk_qfnra_very_small_solverR11ast_managerRK10param
   %57 = phi ptr [ %.pre.i68, %.noexc71 ], [ %46, %48 ]
   %58 = getelementptr inbounds i8, ptr %57, i64 -4
   %59 = zext i32 %56 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %57, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %59
   store ptr %44, ptr %60, align 8, !tbaa !15
   %61 = add i32 %56, 1
   store i32 %61, ptr %58, align 4, !tbaa !13
@@ -294,7 +294,7 @@ define hidden noundef ptr @_Z26mk_qfnra_very_small_solverR11ast_managerRK10param
   %79 = phi ptr [ %.pre.i73, %.noexc76 ], [ %68, %70 ]
   %80 = getelementptr inbounds i8, ptr %79, i64 -4
   %81 = zext i32 %78 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %79, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %81
   store ptr %66, ptr %82, align 8, !tbaa !15
   %83 = add i32 %78, 1
   store i32 %83, ptr %80, align 4, !tbaa !13
@@ -342,7 +342,7 @@ define hidden noundef ptr @_Z26mk_qfnra_very_small_solverR11ast_managerRK10param
   %101 = phi ptr [ %.pre.i78, %.noexc81 ], [ %90, %92 ]
   %102 = getelementptr inbounds i8, ptr %101, i64 -4
   %103 = zext i32 %100 to i64
-  %104 = getelementptr inbounds nuw ptr, ptr %101, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %103
   store ptr %88, ptr %104, align 8, !tbaa !15
   %105 = add i32 %100, 1
   store i32 %105, ptr %102, align 4, !tbaa !13
@@ -390,7 +390,7 @@ define hidden noundef ptr @_Z26mk_qfnra_very_small_solverR11ast_managerRK10param
   %123 = phi ptr [ %.pre.i83, %.noexc86 ], [ %112, %114 ]
   %124 = getelementptr inbounds i8, ptr %123, i64 -4
   %125 = zext i32 %122 to i64
-  %126 = getelementptr inbounds nuw ptr, ptr %123, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %125
   store ptr %110, ptr %126, align 8, !tbaa !15
   %127 = add i32 %122, 1
   store i32 %127, ptr %124, align 4, !tbaa !13
@@ -438,7 +438,7 @@ define hidden noundef ptr @_Z26mk_qfnra_very_small_solverR11ast_managerRK10param
   %145 = phi ptr [ %.pre.i88, %.noexc91 ], [ %134, %136 ]
   %146 = getelementptr inbounds i8, ptr %145, i64 -4
   %147 = zext i32 %144 to i64
-  %148 = getelementptr inbounds nuw ptr, ptr %145, i64 %147
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %147
   store ptr %132, ptr %148, align 8, !tbaa !15
   %149 = add i32 %144, 1
   store i32 %149, ptr %146, align 4, !tbaa !13
@@ -486,7 +486,7 @@ define hidden noundef ptr @_Z26mk_qfnra_very_small_solverR11ast_managerRK10param
   %167 = phi ptr [ %.pre.i93, %.noexc96 ], [ %156, %158 ]
   %168 = getelementptr inbounds i8, ptr %167, i64 -4
   %169 = zext i32 %166 to i64
-  %170 = getelementptr inbounds nuw ptr, ptr %167, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %169
   store ptr %154, ptr %170, align 8, !tbaa !15
   %171 = add i32 %166, 1
   store i32 %171, ptr %168, align 4, !tbaa !13
@@ -533,7 +533,7 @@ define hidden noundef ptr @_Z26mk_qfnra_very_small_solverR11ast_managerRK10param
   %185 = phi ptr [ %.pre.i98, %.noexc101 ], [ %174, %176 ]
   %186 = getelementptr inbounds i8, ptr %185, i64 -4
   %187 = zext i32 %184 to i64
-  %188 = getelementptr inbounds nuw ptr, ptr %185, i64 %187
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %187
   store ptr %172, ptr %188, align 8, !tbaa !15
   %189 = add i32 %184, 1
   store i32 %189, ptr %186, align 4, !tbaa !13
@@ -595,7 +595,7 @@ define hidden noundef ptr @_Z26mk_qfnra_very_small_solverR11ast_managerRK10param
   %213 = phi ptr [ %.pre.i103, %.noexc106 ], [ %202, %204 ]
   %214 = getelementptr inbounds i8, ptr %213, i64 -4
   %215 = zext i32 %212 to i64
-  %216 = getelementptr inbounds nuw ptr, ptr %213, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %215
   store ptr %200, ptr %216, align 8, !tbaa !15
   %217 = add i32 %212, 1
   store i32 %217, ptr %214, align 4, !tbaa !13
@@ -862,7 +862,7 @@ define hidden noundef ptr @_Z26mk_qfnra_very_small_solverR11ast_managerRK10param
   %303 = phi ptr [ %.pre.i108, %.noexc111 ], [ %292, %294 ]
   %304 = getelementptr inbounds i8, ptr %303, i64 -4
   %305 = zext i32 %302 to i64
-  %306 = getelementptr inbounds nuw ptr, ptr %303, i64 %305
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %303, i64 %305
   store ptr %290, ptr %306, align 8, !tbaa !15
   %307 = add i32 %302, 1
   store i32 %307, ptr %304, align 4, !tbaa !13
@@ -954,7 +954,7 @@ _ZNK6vectorIP6tacticLb0EjE4sizeEv.exit:           ; preds = %.noexc118, %331
   %339 = phi ptr [ %.pre.i115, %.noexc118 ], [ %329, %331 ]
   %340 = getelementptr inbounds i8, ptr %339, i64 -4
   %341 = zext i32 %338 to i64
-  %342 = getelementptr inbounds nuw ptr, ptr %339, i64 %341
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %341
   store ptr %221, ptr %342, align 8, !tbaa !15
   %343 = add i32 %338, 1
   store i32 %343, ptr %340, align 4, !tbaa !13
@@ -1101,7 +1101,7 @@ define hidden noundef ptr @_Z21mk_qfnra_small_solverR11ast_managerRK10params_ref
   %36 = phi ptr [ %.pre.i, %.noexc ], [ %25, %27 ]
   %37 = getelementptr inbounds i8, ptr %36, i64 -4
   %38 = zext i32 %35 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   store ptr %23, ptr %39, align 8, !tbaa !15
   %40 = add i32 %35, 1
   store i32 %40, ptr %37, align 4, !tbaa !13
@@ -1147,7 +1147,7 @@ define hidden noundef ptr @_Z21mk_qfnra_small_solverR11ast_managerRK10params_ref
   %57 = phi ptr [ %.pre.i68, %.noexc71 ], [ %46, %48 ]
   %58 = getelementptr inbounds i8, ptr %57, i64 -4
   %59 = zext i32 %56 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %57, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %59
   store ptr %44, ptr %60, align 8, !tbaa !15
   %61 = add i32 %56, 1
   store i32 %61, ptr %58, align 4, !tbaa !13
@@ -1195,7 +1195,7 @@ define hidden noundef ptr @_Z21mk_qfnra_small_solverR11ast_managerRK10params_ref
   %79 = phi ptr [ %.pre.i73, %.noexc76 ], [ %68, %70 ]
   %80 = getelementptr inbounds i8, ptr %79, i64 -4
   %81 = zext i32 %78 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %79, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %81
   store ptr %66, ptr %82, align 8, !tbaa !15
   %83 = add i32 %78, 1
   store i32 %83, ptr %80, align 4, !tbaa !13
@@ -1243,7 +1243,7 @@ define hidden noundef ptr @_Z21mk_qfnra_small_solverR11ast_managerRK10params_ref
   %101 = phi ptr [ %.pre.i78, %.noexc81 ], [ %90, %92 ]
   %102 = getelementptr inbounds i8, ptr %101, i64 -4
   %103 = zext i32 %100 to i64
-  %104 = getelementptr inbounds nuw ptr, ptr %101, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %103
   store ptr %88, ptr %104, align 8, !tbaa !15
   %105 = add i32 %100, 1
   store i32 %105, ptr %102, align 4, !tbaa !13
@@ -1291,7 +1291,7 @@ define hidden noundef ptr @_Z21mk_qfnra_small_solverR11ast_managerRK10params_ref
   %123 = phi ptr [ %.pre.i83, %.noexc86 ], [ %112, %114 ]
   %124 = getelementptr inbounds i8, ptr %123, i64 -4
   %125 = zext i32 %122 to i64
-  %126 = getelementptr inbounds nuw ptr, ptr %123, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %125
   store ptr %110, ptr %126, align 8, !tbaa !15
   %127 = add i32 %122, 1
   store i32 %127, ptr %124, align 4, !tbaa !13
@@ -1339,7 +1339,7 @@ define hidden noundef ptr @_Z21mk_qfnra_small_solverR11ast_managerRK10params_ref
   %145 = phi ptr [ %.pre.i88, %.noexc91 ], [ %134, %136 ]
   %146 = getelementptr inbounds i8, ptr %145, i64 -4
   %147 = zext i32 %144 to i64
-  %148 = getelementptr inbounds nuw ptr, ptr %145, i64 %147
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %147
   store ptr %132, ptr %148, align 8, !tbaa !15
   %149 = add i32 %144, 1
   store i32 %149, ptr %146, align 4, !tbaa !13
@@ -1387,7 +1387,7 @@ define hidden noundef ptr @_Z21mk_qfnra_small_solverR11ast_managerRK10params_ref
   %167 = phi ptr [ %.pre.i93, %.noexc96 ], [ %156, %158 ]
   %168 = getelementptr inbounds i8, ptr %167, i64 -4
   %169 = zext i32 %166 to i64
-  %170 = getelementptr inbounds nuw ptr, ptr %167, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %169
   store ptr %154, ptr %170, align 8, !tbaa !15
   %171 = add i32 %166, 1
   store i32 %171, ptr %168, align 4, !tbaa !13
@@ -1434,7 +1434,7 @@ define hidden noundef ptr @_Z21mk_qfnra_small_solverR11ast_managerRK10params_ref
   %185 = phi ptr [ %.pre.i98, %.noexc101 ], [ %174, %176 ]
   %186 = getelementptr inbounds i8, ptr %185, i64 -4
   %187 = zext i32 %184 to i64
-  %188 = getelementptr inbounds nuw ptr, ptr %185, i64 %187
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %187
   store ptr %172, ptr %188, align 8, !tbaa !15
   %189 = add i32 %184, 1
   store i32 %189, ptr %186, align 4, !tbaa !13
@@ -1496,7 +1496,7 @@ define hidden noundef ptr @_Z21mk_qfnra_small_solverR11ast_managerRK10params_ref
   %213 = phi ptr [ %.pre.i103, %.noexc106 ], [ %202, %204 ]
   %214 = getelementptr inbounds i8, ptr %213, i64 -4
   %215 = zext i32 %212 to i64
-  %216 = getelementptr inbounds nuw ptr, ptr %213, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %215
   store ptr %200, ptr %216, align 8, !tbaa !15
   %217 = add i32 %212, 1
   store i32 %217, ptr %214, align 4, !tbaa !13
@@ -1763,7 +1763,7 @@ define hidden noundef ptr @_Z21mk_qfnra_small_solverR11ast_managerRK10params_ref
   %303 = phi ptr [ %.pre.i108, %.noexc111 ], [ %292, %294 ]
   %304 = getelementptr inbounds i8, ptr %303, i64 -4
   %305 = zext i32 %302 to i64
-  %306 = getelementptr inbounds nuw ptr, ptr %303, i64 %305
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %303, i64 %305
   store ptr %290, ptr %306, align 8, !tbaa !15
   %307 = add i32 %302, 1
   store i32 %307, ptr %304, align 4, !tbaa !13
@@ -1855,7 +1855,7 @@ _ZNK6vectorIP6tacticLb0EjE4sizeEv.exit:           ; preds = %.noexc118, %331
   %339 = phi ptr [ %.pre.i115, %.noexc118 ], [ %329, %331 ]
   %340 = getelementptr inbounds i8, ptr %339, i64 -4
   %341 = zext i32 %338 to i64
-  %342 = getelementptr inbounds nuw ptr, ptr %339, i64 %341
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %341
   store ptr %221, ptr %342, align 8, !tbaa !15
   %343 = add i32 %338, 1
   store i32 %343, ptr %340, align 4, !tbaa !13
@@ -1967,7 +1967,7 @@ define hidden noundef ptr @_Z22mk_qfnra_middle_solverR11ast_managerRK10params_re
   %35 = phi ptr [ %.pre.i, %.noexc ], [ %24, %26 ]
   %36 = getelementptr inbounds i8, ptr %35, i64 -4
   %37 = zext i32 %34 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %37
   store ptr %22, ptr %38, align 8, !tbaa !15
   %39 = add i32 %34, 1
   store i32 %39, ptr %36, align 4, !tbaa !13
@@ -2013,7 +2013,7 @@ define hidden noundef ptr @_Z22mk_qfnra_middle_solverR11ast_managerRK10params_re
   %56 = phi ptr [ %.pre.i68, %.noexc71 ], [ %45, %47 ]
   %57 = getelementptr inbounds i8, ptr %56, i64 -4
   %58 = zext i32 %55 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %58
   store ptr %43, ptr %59, align 8, !tbaa !15
   %60 = add i32 %55, 1
   store i32 %60, ptr %57, align 4, !tbaa !13
@@ -2061,7 +2061,7 @@ define hidden noundef ptr @_Z22mk_qfnra_middle_solverR11ast_managerRK10params_re
   %78 = phi ptr [ %.pre.i73, %.noexc76 ], [ %67, %69 ]
   %79 = getelementptr inbounds i8, ptr %78, i64 -4
   %80 = zext i32 %77 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %78, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %80
   store ptr %65, ptr %81, align 8, !tbaa !15
   %82 = add i32 %77, 1
   store i32 %82, ptr %79, align 4, !tbaa !13
@@ -2109,7 +2109,7 @@ define hidden noundef ptr @_Z22mk_qfnra_middle_solverR11ast_managerRK10params_re
   %100 = phi ptr [ %.pre.i78, %.noexc81 ], [ %89, %91 ]
   %101 = getelementptr inbounds i8, ptr %100, i64 -4
   %102 = zext i32 %99 to i64
-  %103 = getelementptr inbounds nuw ptr, ptr %100, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %102
   store ptr %87, ptr %103, align 8, !tbaa !15
   %104 = add i32 %99, 1
   store i32 %104, ptr %101, align 4, !tbaa !13
@@ -2157,7 +2157,7 @@ define hidden noundef ptr @_Z22mk_qfnra_middle_solverR11ast_managerRK10params_re
   %122 = phi ptr [ %.pre.i83, %.noexc86 ], [ %111, %113 ]
   %123 = getelementptr inbounds i8, ptr %122, i64 -4
   %124 = zext i32 %121 to i64
-  %125 = getelementptr inbounds nuw ptr, ptr %122, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %124
   store ptr %109, ptr %125, align 8, !tbaa !15
   %126 = add i32 %121, 1
   store i32 %126, ptr %123, align 4, !tbaa !13
@@ -2205,7 +2205,7 @@ define hidden noundef ptr @_Z22mk_qfnra_middle_solverR11ast_managerRK10params_re
   %144 = phi ptr [ %.pre.i88, %.noexc91 ], [ %133, %135 ]
   %145 = getelementptr inbounds i8, ptr %144, i64 -4
   %146 = zext i32 %143 to i64
-  %147 = getelementptr inbounds nuw ptr, ptr %144, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %146
   store ptr %131, ptr %147, align 8, !tbaa !15
   %148 = add i32 %143, 1
   store i32 %148, ptr %145, align 4, !tbaa !13
@@ -2253,7 +2253,7 @@ define hidden noundef ptr @_Z22mk_qfnra_middle_solverR11ast_managerRK10params_re
   %166 = phi ptr [ %.pre.i93, %.noexc96 ], [ %155, %157 ]
   %167 = getelementptr inbounds i8, ptr %166, i64 -4
   %168 = zext i32 %165 to i64
-  %169 = getelementptr inbounds nuw ptr, ptr %166, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %168
   store ptr %153, ptr %169, align 8, !tbaa !15
   %170 = add i32 %165, 1
   store i32 %170, ptr %167, align 4, !tbaa !13
@@ -2300,7 +2300,7 @@ define hidden noundef ptr @_Z22mk_qfnra_middle_solverR11ast_managerRK10params_re
   %184 = phi ptr [ %.pre.i98, %.noexc101 ], [ %173, %175 ]
   %185 = getelementptr inbounds i8, ptr %184, i64 -4
   %186 = zext i32 %183 to i64
-  %187 = getelementptr inbounds nuw ptr, ptr %184, i64 %186
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %186
   store ptr %171, ptr %187, align 8, !tbaa !15
   %188 = add i32 %183, 1
   store i32 %188, ptr %185, align 4, !tbaa !13
@@ -2362,7 +2362,7 @@ define hidden noundef ptr @_Z22mk_qfnra_middle_solverR11ast_managerRK10params_re
   %212 = phi ptr [ %.pre.i103, %.noexc106 ], [ %201, %203 ]
   %213 = getelementptr inbounds i8, ptr %212, i64 -4
   %214 = zext i32 %211 to i64
-  %215 = getelementptr inbounds nuw ptr, ptr %212, i64 %214
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %212, i64 %214
   store ptr %199, ptr %215, align 8, !tbaa !15
   %216 = add i32 %211, 1
   store i32 %216, ptr %213, align 4, !tbaa !13
@@ -2628,7 +2628,7 @@ define hidden noundef ptr @_Z22mk_qfnra_middle_solverR11ast_managerRK10params_re
   %302 = phi ptr [ %.pre.i108, %.noexc111 ], [ %291, %293 ]
   %303 = getelementptr inbounds i8, ptr %302, i64 -4
   %304 = zext i32 %301 to i64
-  %305 = getelementptr inbounds nuw ptr, ptr %302, i64 %304
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %302, i64 %304
   store ptr %289, ptr %305, align 8, !tbaa !15
   %306 = add i32 %301, 1
   store i32 %306, ptr %303, align 4, !tbaa !13
@@ -2691,7 +2691,7 @@ _ZNK6vectorIP6tacticLb0EjE4sizeEv.exit:           ; preds = %.noexc116, %319
   %327 = phi ptr [ %.pre.i113, %.noexc116 ], [ %317, %319 ]
   %328 = getelementptr inbounds i8, ptr %327, i64 -4
   %329 = zext i32 %326 to i64
-  %330 = getelementptr inbounds nuw ptr, ptr %327, i64 %329
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %327, i64 %329
   store ptr %218, ptr %330, align 8, !tbaa !15
   %331 = add i32 %326, 1
   store i32 %331, ptr %328, align 4, !tbaa !13
@@ -2802,7 +2802,7 @@ define hidden noundef ptr @_Z21mk_qfnra_large_solverR11ast_managerRK10params_ref
   %34 = phi ptr [ %.pre.i, %.noexc ], [ %23, %25 ]
   %35 = getelementptr inbounds i8, ptr %34, i64 -4
   %36 = zext i32 %33 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %36
   store ptr %21, ptr %37, align 8, !tbaa !15
   %38 = add i32 %33, 1
   store i32 %38, ptr %35, align 4, !tbaa !13
@@ -2852,7 +2852,7 @@ define hidden noundef ptr @_Z21mk_qfnra_large_solverR11ast_managerRK10params_ref
   %56 = phi ptr [ %.pre.i62, %.noexc65 ], [ %45, %47 ]
   %57 = getelementptr inbounds i8, ptr %56, i64 -4
   %58 = zext i32 %55 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %58
   store ptr %43, ptr %59, align 8, !tbaa !15
   %60 = add i32 %55, 1
   store i32 %60, ptr %57, align 4, !tbaa !13
@@ -2900,7 +2900,7 @@ define hidden noundef ptr @_Z21mk_qfnra_large_solverR11ast_managerRK10params_ref
   %78 = phi ptr [ %.pre.i67, %.noexc70 ], [ %67, %69 ]
   %79 = getelementptr inbounds i8, ptr %78, i64 -4
   %80 = zext i32 %77 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %78, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %80
   store ptr %65, ptr %81, align 8, !tbaa !15
   %82 = add i32 %77, 1
   store i32 %82, ptr %79, align 4, !tbaa !13
@@ -2948,7 +2948,7 @@ define hidden noundef ptr @_Z21mk_qfnra_large_solverR11ast_managerRK10params_ref
   %100 = phi ptr [ %.pre.i72, %.noexc75 ], [ %89, %91 ]
   %101 = getelementptr inbounds i8, ptr %100, i64 -4
   %102 = zext i32 %99 to i64
-  %103 = getelementptr inbounds nuw ptr, ptr %100, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %102
   store ptr %87, ptr %103, align 8, !tbaa !15
   %104 = add i32 %99, 1
   store i32 %104, ptr %101, align 4, !tbaa !13
@@ -2996,7 +2996,7 @@ define hidden noundef ptr @_Z21mk_qfnra_large_solverR11ast_managerRK10params_ref
   %122 = phi ptr [ %.pre.i77, %.noexc80 ], [ %111, %113 ]
   %123 = getelementptr inbounds i8, ptr %122, i64 -4
   %124 = zext i32 %121 to i64
-  %125 = getelementptr inbounds nuw ptr, ptr %122, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %124
   store ptr %109, ptr %125, align 8, !tbaa !15
   %126 = add i32 %121, 1
   store i32 %126, ptr %123, align 4, !tbaa !13
@@ -3044,7 +3044,7 @@ define hidden noundef ptr @_Z21mk_qfnra_large_solverR11ast_managerRK10params_ref
   %144 = phi ptr [ %.pre.i82, %.noexc85 ], [ %133, %135 ]
   %145 = getelementptr inbounds i8, ptr %144, i64 -4
   %146 = zext i32 %143 to i64
-  %147 = getelementptr inbounds nuw ptr, ptr %144, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %146
   store ptr %131, ptr %147, align 8, !tbaa !15
   %148 = add i32 %143, 1
   store i32 %148, ptr %145, align 4, !tbaa !13
@@ -3089,7 +3089,7 @@ define hidden noundef ptr @_Z21mk_qfnra_large_solverR11ast_managerRK10params_ref
   %162 = phi ptr [ %.pre.i87, %.noexc90 ], [ %151, %153 ]
   %163 = getelementptr inbounds i8, ptr %162, i64 -4
   %164 = zext i32 %161 to i64
-  %165 = getelementptr inbounds nuw ptr, ptr %162, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %164
   store ptr %149, ptr %165, align 8, !tbaa !15
   %166 = add i32 %161, 1
   store i32 %166, ptr %163, align 4, !tbaa !13
@@ -3151,7 +3151,7 @@ define hidden noundef ptr @_Z21mk_qfnra_large_solverR11ast_managerRK10params_ref
   %190 = phi ptr [ %.pre.i92, %.noexc95 ], [ %179, %181 ]
   %191 = getelementptr inbounds i8, ptr %190, i64 -4
   %192 = zext i32 %189 to i64
-  %193 = getelementptr inbounds nuw ptr, ptr %190, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %192
   store ptr %177, ptr %193, align 8, !tbaa !15
   %194 = add i32 %189, 1
   store i32 %194, ptr %191, align 4, !tbaa !13
@@ -3397,7 +3397,7 @@ define hidden noundef ptr @_Z21mk_qfnra_large_solverR11ast_managerRK10params_ref
   %274 = phi ptr [ %.pre.i97, %.noexc100 ], [ %263, %265 ]
   %275 = getelementptr inbounds i8, ptr %274, i64 -4
   %276 = zext i32 %273 to i64
-  %277 = getelementptr inbounds nuw ptr, ptr %274, i64 %276
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %274, i64 %276
   store ptr %261, ptr %277, align 8, !tbaa !15
   %278 = add i32 %273, 1
   store i32 %278, ptr %275, align 4, !tbaa !13
@@ -3460,7 +3460,7 @@ _ZNK6vectorIP6tacticLb0EjE4sizeEv.exit:           ; preds = %.noexc105, %291
   %299 = phi ptr [ %.pre.i102, %.noexc105 ], [ %289, %291 ]
   %300 = getelementptr inbounds i8, ptr %299, i64 -4
   %301 = zext i32 %298 to i64
-  %302 = getelementptr inbounds nuw ptr, ptr %299, i64 %301
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %301
   store ptr %196, ptr %302, align 8, !tbaa !15
   %303 = add i32 %298, 1
   store i32 %303, ptr %300, align 4, !tbaa !13
@@ -3568,7 +3568,7 @@ define hidden noundef ptr @_Z26mk_qfnra_very_large_solverR11ast_managerRK10param
   %31 = phi ptr [ %.pre.i, %.noexc ], [ %20, %22 ]
   %32 = getelementptr inbounds i8, ptr %31, i64 -4
   %33 = zext i32 %30 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %33
   store ptr %18, ptr %34, align 8, !tbaa !15
   %35 = add i32 %30, 1
   store i32 %35, ptr %32, align 4, !tbaa !13
@@ -3618,7 +3618,7 @@ define hidden noundef ptr @_Z26mk_qfnra_very_large_solverR11ast_managerRK10param
   %53 = phi ptr [ %.pre.i40, %.noexc43 ], [ %42, %44 ]
   %54 = getelementptr inbounds i8, ptr %53, i64 -4
   %55 = zext i32 %52 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %53, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %55
   store ptr %40, ptr %56, align 8, !tbaa !15
   %57 = add i32 %52, 1
   store i32 %57, ptr %54, align 4, !tbaa !13
@@ -3666,7 +3666,7 @@ define hidden noundef ptr @_Z26mk_qfnra_very_large_solverR11ast_managerRK10param
   %75 = phi ptr [ %.pre.i45, %.noexc48 ], [ %64, %66 ]
   %76 = getelementptr inbounds i8, ptr %75, i64 -4
   %77 = zext i32 %74 to i64
-  %78 = getelementptr inbounds nuw ptr, ptr %75, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %77
   store ptr %62, ptr %78, align 8, !tbaa !15
   %79 = add i32 %74, 1
   store i32 %79, ptr %76, align 4, !tbaa !13
@@ -3714,7 +3714,7 @@ define hidden noundef ptr @_Z26mk_qfnra_very_large_solverR11ast_managerRK10param
   %97 = phi ptr [ %.pre.i50, %.noexc53 ], [ %86, %88 ]
   %98 = getelementptr inbounds i8, ptr %97, i64 -4
   %99 = zext i32 %96 to i64
-  %100 = getelementptr inbounds nuw ptr, ptr %97, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %99
   store ptr %84, ptr %100, align 8, !tbaa !15
   %101 = add i32 %96, 1
   store i32 %101, ptr %98, align 4, !tbaa !13
@@ -3755,7 +3755,7 @@ define hidden noundef ptr @_Z26mk_qfnra_very_large_solverR11ast_managerRK10param
   %115 = phi ptr [ %.pre.i55, %.noexc58 ], [ %104, %106 ]
   %116 = getelementptr inbounds i8, ptr %115, i64 -4
   %117 = zext i32 %114 to i64
-  %118 = getelementptr inbounds nuw ptr, ptr %115, i64 %117
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %117
   store ptr %102, ptr %118, align 8, !tbaa !15
   %119 = add i32 %114, 1
   store i32 %119, ptr %116, align 4, !tbaa !13
@@ -3817,7 +3817,7 @@ define hidden noundef ptr @_Z26mk_qfnra_very_large_solverR11ast_managerRK10param
   %143 = phi ptr [ %.pre.i60, %.noexc63 ], [ %132, %134 ]
   %144 = getelementptr inbounds i8, ptr %143, i64 -4
   %145 = zext i32 %142 to i64
-  %146 = getelementptr inbounds nuw ptr, ptr %143, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %145
   store ptr %130, ptr %146, align 8, !tbaa !15
   %147 = add i32 %142, 1
   store i32 %147, ptr %144, align 4, !tbaa !13
@@ -3856,7 +3856,7 @@ _ZNK6vectorIP6tacticLb0EjE4sizeEv.exit:           ; preds = %.noexc68, %152
   %160 = phi ptr [ %.pre.i65, %.noexc68 ], [ %150, %152 ]
   %161 = getelementptr inbounds i8, ptr %160, i64 -4
   %162 = zext i32 %159 to i64
-  %163 = getelementptr inbounds nuw ptr, ptr %160, i64 %162
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %162
   store ptr %148, ptr %163, align 8, !tbaa !15
   %164 = add i32 %159, 1
   store i32 %164, ptr %161, align 4, !tbaa !13

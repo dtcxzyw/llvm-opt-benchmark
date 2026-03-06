@@ -115,8 +115,8 @@ gv_calloc.exit104:                                ; preds = %gv_calloc.exit99
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %50 = mul nsw i64 %indvars.iv, %21
-  %51 = getelementptr inbounds i32, ptr %20, i64 %50
-  %52 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %51 = getelementptr inbounds [4 x i8], ptr %20, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   store ptr %51, ptr %52, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -170,7 +170,7 @@ gv_calloc.exit104:                                ; preds = %gv_calloc.exit99
 .lr.ph115.us.us:                                  ; preds = %.lr.ph120.split.us, %._crit_edge116.us.us
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %._crit_edge116.us.us ], [ 1, %.lr.ph120.split.us ]
   %.286118.us.us = phi i32 [ %.4.us.us, %._crit_edge116.us.us ], [ %spec.select, %.lr.ph120.split.us ]
-  %69 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv157
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv157
   %70 = load ptr, ptr %69, align 8, !tbaa !15
   tail call void @bfs(i32 noundef %.286118.us.us, ptr noundef %0, i32 noundef %1, ptr noundef %70) #14
   %71 = load ptr, ptr %69, align 8, !tbaa !15
@@ -180,9 +180,9 @@ gv_calloc.exit104:                                ; preds = %gv_calloc.exit99
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %72 ], [ 0, %.lr.ph115.us.us ]
   %.2113.us.us = phi i32 [ %.3.us.us, %72 ], [ 0, %.lr.ph115.us.us ]
   %.387111.us.us = phi i32 [ %.4.us.us, %72 ], [ %.286118.us.us, %.lr.ph115.us.us ]
-  %73 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv152
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv152
   %74 = load i32, ptr %73, align 4, !tbaa !18
-  %75 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv152
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv152
   %76 = load i32, ptr %75, align 4, !tbaa !18
   %..us.us = tail call i32 @llvm.smin.i32(i32 %74, i32 %76)
   store i32 %..us.us, ptr %73, align 4, !tbaa !18
@@ -202,7 +202,7 @@ gv_calloc.exit104:                                ; preds = %gv_calloc.exit99
 .lr.ph115.us:                                     ; preds = %.lr.ph120.split.us, %._crit_edge116.us
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %._crit_edge116.us ], [ 1, %.lr.ph120.split.us ]
   %.286118.us = phi i32 [ %.4.us, %._crit_edge116.us ], [ %spec.select, %.lr.ph120.split.us ]
-  %79 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv147
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv147
   %80 = load ptr, ptr %79, align 8, !tbaa !15
   tail call void @dijkstra(i32 noundef %.286118.us, ptr noundef %0, i32 noundef %1, ptr noundef %80) #14
   %81 = load ptr, ptr %79, align 8, !tbaa !15
@@ -212,9 +212,9 @@ gv_calloc.exit104:                                ; preds = %gv_calloc.exit99
   %indvars.iv142 = phi i64 [ 0, %.lr.ph115.us ], [ %indvars.iv.next143, %82 ]
   %.2113.us = phi i32 [ 0, %.lr.ph115.us ], [ %.3.us, %82 ]
   %.387111.us = phi i32 [ %.286118.us, %.lr.ph115.us ], [ %.4.us, %82 ]
-  %83 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv142
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv142
   %84 = load i32, ptr %83, align 4, !tbaa !18
-  %85 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv142
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv142
   %86 = load i32, ptr %85, align 4, !tbaa !18
   %..us = tail call i32 @llvm.smin.i32(i32 %84, i32 %86)
   store i32 %..us, ptr %83, align 4, !tbaa !18
@@ -237,7 +237,7 @@ gv_calloc.exit104:                                ; preds = %gv_calloc.exit99
 
 .lr.ph120.split.split.us:                         ; preds = %.lr.ph120.split, %.lr.ph120.split.split.us
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.lr.ph120.split.split.us ], [ 1, %.lr.ph120.split ]
-  %89 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv137
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv137
   %90 = load ptr, ptr %89, align 8, !tbaa !15
   tail call void @bfs(i32 noundef %63, ptr noundef nonnull %0, i32 noundef %1, ptr noundef %90) #14
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
@@ -252,7 +252,7 @@ gv_calloc.exit104:                                ; preds = %gv_calloc.exit99
   %indvars.iv127 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next128, %91 ]
   %.0108 = phi i32 [ 0, %.lr.ph110 ], [ %spec.select94, %91 ]
   %.084106 = phi i32 [ %63, %.lr.ph110 ], [ %spec.select, %91 ]
-  %92 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv127
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv127
   %93 = load i32, ptr %92, align 4, !tbaa !18
   %94 = icmp sgt i32 %93, %.0108
   %95 = trunc nuw nsw i64 %indvars.iv127 to i32
@@ -264,7 +264,7 @@ gv_calloc.exit104:                                ; preds = %gv_calloc.exit99
 
 .lr.ph120.split.split:                            ; preds = %.lr.ph120.split, %.lr.ph120.split.split
   %indvars.iv132 = phi i64 [ %indvars.iv.next133, %.lr.ph120.split.split ], [ 1, %.lr.ph120.split ]
-  %96 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv132
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv132
   %97 = load ptr, ptr %96, align 8, !tbaa !15
   tail call void @dijkstra(i32 noundef %63, ptr noundef nonnull %0, i32 noundef %1, ptr noundef %97) #14
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
@@ -318,13 +318,13 @@ define void @center_coordinate(ptr noundef readonly captures(none) %0, i32 nound
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge26.us.us
   %indvars.iv42 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next43, %._crit_edge26.us.us ]
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv42
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv42
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   br label %13
 
 9:                                                ; preds = %9, %._crit_edge.us.us
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %9 ], [ 0, %._crit_edge.us.us ]
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv37
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv37
   %11 = load i32, ptr %10, align 4, !tbaa !18
   %12 = sub nsw i32 %11, %19
   store i32 %12, ptr %10, align 4, !tbaa !18
@@ -335,7 +335,7 @@ define void @center_coordinate(ptr noundef readonly captures(none) %0, i32 nound
 13:                                               ; preds = %.preheader.us.us, %13
   %indvars.iv = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next, %13 ]
   %.01822.us.us = phi double [ 0.000000e+00, %.preheader.us.us ], [ %17, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !18
   %16 = sitofp i32 %15 to double
   %17 = fadd double %.01822.us.us, %16

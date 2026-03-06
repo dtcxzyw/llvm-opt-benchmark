@@ -114,7 +114,7 @@ define hidden noundef zeroext i1 @_Z11ParseConfigiPPcP10TestConfig(i32 noundef %
 6:                                                ; preds = %.lr.ph, %.thread103
   %.052144 = phi i32 [ 0, %.lr.ph ], [ %105, %.thread103 ]
   %7 = sext i32 %.052144 to i64
-  %8 = getelementptr inbounds ptr, ptr %1, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %1, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !6
   br label %12
 
@@ -125,7 +125,7 @@ define hidden noundef zeroext i1 @_Z11ParseConfigiPPcP10TestConfig(i32 noundef %
 
 12:                                               ; preds = %10, %6
   %.093.i = phi i64 [ 0, %6 ], [ %11, %10 ]
-  %13 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Flag", ptr @_ZN12_GLOBAL__N_110kBoolFlagsE, i64 %.093.i
+  %13 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_110kBoolFlagsE, i64 %.093.i
   %14 = load ptr, ptr %13, align 16, !tbaa !13
   %15 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %14) #9
   %16 = icmp eq i32 %15, 0
@@ -151,7 +151,7 @@ _ZN12_GLOBAL__N_19FindFieldIbLm50EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exi
 
 _ZN12_GLOBAL__N_19FindFieldIbLm50EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit.thread: ; preds = %_ZN12_GLOBAL__N_19FindFieldIbLm50EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit.thread.preheader, %21
   %.093.i83 = phi i64 [ %22, %21 ], [ 0, %_ZN12_GLOBAL__N_19FindFieldIbLm50EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit.thread.preheader ]
-  %23 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Flag.0", ptr @_ZN12_GLOBAL__N_112kStringFlagsB5cxx11E, i64 %.093.i83
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_112kStringFlagsB5cxx11E, i64 %.093.i83
   %24 = load ptr, ptr %23, align 16, !tbaa !19
   %25 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %24) #9
   %26 = icmp eq i32 %25, 0
@@ -178,7 +178,7 @@ _ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 35:                                               ; preds = %30
   %36 = sext i32 %31 to i64
-  %37 = getelementptr inbounds ptr, ptr %1, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %1, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !6
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !24
@@ -193,7 +193,7 @@ _ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 _ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm21EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit.thread: ; preds = %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm21EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit.thread.preheader, %43
   %.093.i85 = phi i64 [ %44, %43 ], [ 0, %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm21EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit.thread.preheader ]
-  %45 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Flag.0", ptr @_ZN12_GLOBAL__N_112kBase64FlagsB5cxx11E, i64 %.093.i85
+  %45 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_112kBase64FlagsB5cxx11E, i64 %.093.i85
   %46 = load ptr, ptr %45, align 16, !tbaa !19
   %47 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %46) #9
   %48 = icmp eq i32 %47, 0
@@ -221,7 +221,7 @@ _ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 57:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %58 = sext i32 %53 to i64
-  %59 = getelementptr inbounds ptr, ptr %1, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %1, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !6
   %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #9
   %62 = call i32 @EVP_DecodedLength(ptr noundef nonnull %4, i64 noundef %61)
@@ -273,7 +273,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %74, %66
 
 _ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit.thread: ; preds = %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit.thread.preheader, %79
   %.093.i90 = phi i64 [ %80, %79 ], [ 0, %_ZN12_GLOBAL__N_19FindFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm6EEEPT_P10TestConfigRAT0__KNS_4FlagIS7_EEPKc.exit.thread.preheader ]
-  %81 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Flag.3", ptr @_ZN12_GLOBAL__N_19kIntFlagsE, i64 %.093.i90
+  %81 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_19kIntFlagsE, i64 %.093.i90
   %82 = load ptr, ptr %81, align 16, !tbaa !31
   %83 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %82) #9
   %84 = icmp eq i32 %83, 0
@@ -297,7 +297,7 @@ _ZN12_GLOBAL__N_19FindFieldIiLm8EEEPT_P10TestConfigRAT0__KNS_4FlagIS1_EEPKc.exit
 
 93:                                               ; preds = %88
   %94 = sext i32 %89 to i64
-  %95 = getelementptr inbounds ptr, ptr %1, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %1, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !6
   %97 = call i64 @strtol(ptr noundef nonnull captures(none) %96, ptr noundef null, i32 noundef 10) #11
   %98 = trunc i64 %97 to i32

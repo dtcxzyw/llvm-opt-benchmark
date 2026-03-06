@@ -30,10 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, casadi::GenericType>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, casadi::GenericType>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" }
-%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.casadi::Matrix" = type { [8 x i8], %"class.casadi::Sparsity", %"class.std::vector.108" }
 %"class.casadi::Sparsity" = type { %"class.casadi::SharedObject" }
 %"class.std::vector.108" = type { %"struct.std::_Vector_base.109" }
@@ -50,6 +46,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.86" = type { %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl" }
 %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" }
+%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_ = comdat any
 
@@ -3021,7 +3021,7 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %_ZNK6casadi6MXNode3
 
 22:                                               ; preds = %_ZNK6casadi6MXNode3depEx.exit
   %23 = load ptr, ptr %14, align 8, !tbaa !86
-  %24 = getelementptr inbounds nuw double, ptr %23, i64 %.014
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.014
   %25 = load double, ptr %24, align 8, !tbaa !88
   %26 = load ptr, ptr %1, align 8, !tbaa !86
   %27 = load ptr, ptr %7, align 8, !tbaa !84
@@ -3050,7 +3050,7 @@ _ZNK6casadi6MXNode3depEx.exit8:                   ; preds = %22
 34:                                               ; preds = %_ZNK6casadi6MXNode3depEx.exit8
   %35 = load double, ptr %26, align 8, !tbaa !88
   %36 = add nsw i64 %31, -1
-  %37 = getelementptr inbounds double, ptr %26, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %26, i64 %36
   %38 = load double, ptr %37, align 8, !tbaa !88
   %39 = fsub double %38, %35
   %40 = fsub double %25, %35
@@ -3075,7 +3075,7 @@ _ZNK6casadi6MXNode3depEx.exit8:                   ; preds = %22
 
 52:                                               ; preds = %48
   %53 = add nsw i64 %31, -1
-  %54 = getelementptr inbounds nuw double, ptr %26, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %53
   %55 = load double, ptr %54, align 8, !tbaa !88
   %56 = fcmp ogt double %25, %55
   br i1 %56, label %57, label %.preheader53.i.outer
@@ -3088,7 +3088,7 @@ _ZNK6casadi6MXNode3depEx.exit8:                   ; preds = %22
   %.043.i = phi i64 [ %60, %64 ], [ %.043.i.ph, %.preheader53.i.outer ]
   %59 = add nuw nsw i64 %.043.i, %.045.i.ph
   %60 = lshr i64 %59, 1
-  %61 = getelementptr inbounds nuw double, ptr %26, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %60
   %62 = load double, ptr %61, align 8, !tbaa !88
   %63 = fcmp olt double %25, %62
   br i1 %63, label %64, label %66
@@ -3113,7 +3113,7 @@ _ZNK6casadi6MXNode3depEx.exit8:                   ; preds = %22
 
 69:                                               ; preds = %68
   %70 = add nuw nsw i64 %.0.i, 1
-  %71 = getelementptr inbounds nuw double, ptr %26, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %70
   %72 = load double, ptr %71, align 8, !tbaa !88
   %73 = fcmp olt double %25, %72
   br i1 %73, label %_ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit, label %68, !llvm.loop !91
@@ -3122,7 +3122,7 @@ _ZN6casadi10casadi_lowIdEExT_PKS1_xx.exit:        ; preds = %64, %66, %68, %69, 
   %.042.i = phi i64 [ 0, %48 ], [ %spec.select.i, %34 ], [ %smax.i, %68 ], [ %58, %57 ], [ 0, %46 ], [ %.0.i, %69 ], [ %.043.i, %64 ], [ %.045.i.ph, %66 ]
   %74 = sitofp i64 %.042.i to double
   %75 = load ptr, ptr %2, align 8, !tbaa !86
-  %76 = getelementptr inbounds nuw double, ptr %75, i64 %.014
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.014
   store double %74, ptr %76, align 8, !tbaa !88
   %77 = add nuw nsw i64 %.014, 1
   %78 = load ptr, ptr %7, align 8, !tbaa !84
@@ -3238,7 +3238,7 @@ define void @_ZNK6casadi3Low10ad_forwardERKSt6vectorIS1_INS_2MXESaIS2_EESaIS4_EE
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6casadi2MXC1Ed(ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef 0.000000e+00)
   %8 = load ptr, ptr %2, align 8, !tbaa !99
-  %9 = getelementptr inbounds nuw %"class.std::vector", ptr %8, i64 %.06
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %.06
   %10 = load ptr, ptr %9, align 8, !tbaa !85
   %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZN6casadi2MXaSERKS0_.exit unwind label %20

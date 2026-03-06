@@ -11,10 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::pair.16" = type <{ %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FileDescriptor *, std::__cxx11::basic_string<char>>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FileDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FileDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FileDescriptor *const, std::__cxx11::basic_string<char>>>>::iterator", i8, [7 x i8] }>
 %"class.absl::lts_20230802::container_internal::raw_hash_set<absl::lts_20230802::container_internal::FlatHashMapPolicy<const google::protobuf::FileDescriptor *, std::__cxx11::basic_string<char>>, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FileDescriptor *>::Hash, absl::lts_20230802::container_internal::HashEq<const google::protobuf::FileDescriptor *>::Eq, std::allocator<std::pair<const google::protobuf::FileDescriptor *const, std::__cxx11::basic_string<char>>>>::iterator" = type { ptr, %union.anon.18 }
 %union.anon.18 = type { ptr }
-%"class.google::protobuf::EnumDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i16, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr }
-%"class.google::protobuf::internal::SymbolBase" = type { i8 }
-%"class.google::protobuf::ServiceDescriptor" = type <{ %"class.google::protobuf::internal::SymbolBase", [7 x i8], ptr, ptr, ptr, ptr, ptr, ptr, i32, [4 x i8] }>
-%"class.google::protobuf::Descriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i16, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32 }
 %"class.absl::lts_20230802::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"struct.google::protobuf::compiler::java::Options" = type <{ i8, i8, i8, i8, i8, i8, [2 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
@@ -30,8 +26,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.15" }
 %"struct.std::_Head_base.15" = type { ptr }
 %"struct.std::pair" = type { %"class.std::basic_string_view", %"class.std::basic_string_view" }
-%"union.absl::lts_20230802::container_internal::map_slot_type" = type { %"struct.std::pair.19" }
-%"struct.std::pair.19" = type { ptr, %"class.std::__cxx11::basic_string" }
 
 $_ZN4absl12lts_2023080215AsciiStrToUpperB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE = comdat any
 
@@ -257,7 +251,7 @@ for.body12.lr.ph:                                 ; preds = %for.cond9.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
   %4 = load ptr, ptr %enum_types_.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::EnumDescriptor", ptr %4, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [88 x i8], ptr %4, i64 %indvars.iv
   %all_names_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %5 = load ptr, ptr %all_names_.i, align 8
   %call4 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
@@ -287,7 +281,7 @@ for.body29.lr.ph:                                 ; preds = %for.cond26.preheade
 for.body12:                                       ; preds = %for.body12.lr.ph, %for.cond9
   %indvars.iv33 = phi i64 [ 0, %for.body12.lr.ph ], [ %indvars.iv.next34, %for.cond9 ]
   %11 = load ptr, ptr %services_.i, align 8
-  %add.ptr.i17 = getelementptr inbounds nuw %"class.google::protobuf::ServiceDescriptor", ptr %11, i64 %indvars.iv33
+  %add.ptr.i17 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %indvars.iv33
   %all_names_.i18 = getelementptr inbounds nuw i8, ptr %add.ptr.i17, i64 8
   %12 = load ptr, ptr %all_names_.i18, align 8
   %call16 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #19
@@ -307,7 +301,7 @@ for.cond26:                                       ; preds = %for.body29
 for.body29:                                       ; preds = %for.body29.lr.ph, %for.cond26
   %indvars.iv36 = phi i64 [ 0, %for.body29.lr.ph ], [ %indvars.iv.next37, %for.cond26 ]
   %17 = load ptr, ptr %message_types_.i, align 8
-  %add.ptr.i20 = getelementptr inbounds nuw %"class.google::protobuf::Descriptor", ptr %17, i64 %indvars.iv36
+  %add.ptr.i20 = getelementptr inbounds nuw [152 x i8], ptr %17, i64 %indvars.iv36
   %call32 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler4java12_GLOBAL__N_130MessageHasConflictingClassNameEPKNS0_10DescriptorESt17basic_string_viewIcSt11char_traitsIcEENS2_12NameEqualityE(ptr noundef %add.ptr.i20, i64 %classname.coerce0, ptr %classname.coerce1, i32 noundef %equality_mode)
   br i1 %call32, label %return, label %for.cond26
 
@@ -511,7 +505,7 @@ for.cond12.preheader:                             ; preds = %for.cond, %for.cond
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
   %7 = load ptr, ptr %nested_types_.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::Descriptor", ptr %7, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [152 x i8], ptr %7, i64 %indvars.iv
   %call8 = tail call fastcc noundef zeroext i1 @_ZN6google8protobuf8compiler4java12_GLOBAL__N_130MessageHasConflictingClassNameEPKNS0_10DescriptorESt17basic_string_viewIcSt11char_traitsIcEENS2_12NameEqualityE(ptr noundef %add.ptr.i, i64 %classname.coerce0, ptr %classname.coerce1, i32 noundef %equality_mode)
   br i1 %call8, label %return, label %for.cond
 
@@ -525,7 +519,7 @@ for.cond12:                                       ; preds = %for.body15
 for.body15:                                       ; preds = %for.cond12.preheader, %for.cond12
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %for.cond12 ], [ 0, %for.cond12.preheader ]
   %10 = load ptr, ptr %enum_types_.i, align 8
-  %add.ptr.i14 = getelementptr inbounds nuw %"class.google::protobuf::EnumDescriptor", ptr %10, i64 %indvars.iv24
+  %add.ptr.i14 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %indvars.iv24
   %all_names_.i15 = getelementptr inbounds nuw i8, ptr %add.ptr.i14, i64 8
   %11 = load ptr, ptr %all_names_.i15, align 8
   %call19 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #19
@@ -2085,7 +2079,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %conv.i = zext nneg i32 %10 to i64
   %add.i.i = add i64 %seq.sroa.4.0.i, %conv.i
   %and.i.i = and i64 %add.i.i, %3
-  %add.ptr21.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %6, i64 %and.i.i
+  %add.ptr21.i = getelementptr inbounds [40 x i8], ptr %6, i64 %and.i.i
   %11 = load ptr, ptr %add.ptr21.i, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %11, %1
   br i1 %cmp.i.i.i.i.i.i.i, label %if.end, label %for.inc.i
@@ -2110,7 +2104,7 @@ if.end36.i:                                       ; preds = %for.end.i
 if.then:                                          ; preds = %for.end.i
   %call38.i = tail call noundef i64 @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf14FileDescriptorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_6HashEqIS8_vE4HashENSH_2EqESaISt4pairIKS8_SE_EEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %conv1.i.i.i.i.i.i.i.i.i.i.i.i.i)
   %13 = load ptr, ptr %slots_.i.i.i, align 8
-  %add.ptr.i3 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %13, i64 %call38.i
+  %add.ptr.i3 = getelementptr inbounds [40 x i8], ptr %13, i64 %call38.i
   %14 = load ptr, ptr %k, align 8
   store ptr %14, ptr %add.ptr.i3, align 8
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3, i64 8
@@ -2125,7 +2119,7 @@ if.end:                                           ; preds = %for.body.i, %if.the
   %retval.sroa.3.0.i16 = phi i8 [ 1, %if.then ], [ 0, %for.body.i ]
   %retval.sroa.0.0.i15 = phi i64 [ %call38.i, %if.then ], [ %and.i.i, %for.body.i ]
   %add.ptr.i4 = getelementptr inbounds i8, ptr %16, i64 %retval.sroa.0.0.i15
-  %add.ptr3.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %15, i64 %retval.sroa.0.0.i15
+  %add.ptr3.i = getelementptr inbounds [40 x i8], ptr %15, i64 %retval.sroa.0.0.i15
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i4) ]
   store ptr %add.ptr.i4, ptr %agg.result, align 8
   %ref.tmp3.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -2290,7 +2284,7 @@ for.body:                                         ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %add.ptr = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %1, i64 %i.021
+  %add.ptr = getelementptr inbounds [40 x i8], ptr %1, i64 %i.021
   %8 = load ptr, ptr %add.ptr, align 8
   %9 = ptrtoint ptr %8 to i64
   %add.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = add i64 %9, ptrtoint (ptr @_ZN4absl12lts_2023080213hash_internal15MixingHashState5kSeedE to i64)
@@ -2319,7 +2313,7 @@ if.then:                                          ; preds = %for.body
   %14 = getelementptr i8, ptr %13, i64 %and.i.i
   %arrayidx7.i.i = getelementptr i8, ptr %14, i64 %and6.i.i
   store i8 %conv.i, ptr %arrayidx7.i.i, align 1
-  %add.ptr16 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %6, i64 %10
+  %add.ptr16 = getelementptr inbounds [40 x i8], ptr %6, i64 %10
   %15 = load ptr, ptr %add.ptr, align 8
   store ptr %15, ptr %add.ptr16, align 8
   %second.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr16, i64 8

@@ -141,7 +141,7 @@ pg_utf8_string_len.exit:                          ; preds = %14
 
 utf8_to_unicode.exit:                             ; preds = %.lr.ph, %46, %.sink.split.i
   %.0.i = phi i32 [ %26, %.lr.ph ], [ -1, %46 ], [ %68, %.sink.split.i ]
-  %69 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   store i32 %.0.i, ptr %69, align 4
   %70 = tail call i32 @pg_utf_mblen(ptr noundef nonnull %.0105245) #8
   %71 = sext i32 %70 to i64
@@ -152,7 +152,7 @@ utf8_to_unicode.exit:                             ; preds = %.lr.ph, %46, %.sink
 
 ._crit_edge:                                      ; preds = %utf8_to_unicode.exit
   %73 = zext nneg i32 %.015.i189191 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %24, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %73
   store i32 0, ptr %74, align 4
   %wide.trip.count283 = zext nneg i32 %.015.i189191 to i64
   br label %.lr.ph249
@@ -160,7 +160,7 @@ utf8_to_unicode.exit:                             ; preds = %.lr.ph, %46, %.sink
 .lr.ph249:                                        ; preds = %._crit_edge, %is_code_in_table.exit144
   %indvars.iv280 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next281, %is_code_in_table.exit144 ]
   %.099247 = phi i32 [ 0, %._crit_edge ], [ %.1100, %is_code_in_table.exit144 ]
-  %75 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv280
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv280
   %76 = load i32, ptr %75, align 4
   %77 = icmp ult i32 %76, 160
   br i1 %77, label %is_code_in_table.exit144.sink.split, label %78
@@ -238,7 +238,7 @@ is_code_in_table.exit144.sink.split:              ; preds = %codepoint_range_cmp
   %.sink = phi i32 [ %76, %codepoint_range_cmp.exit.thread.i141 ], [ %76, %.thread194 ], [ %76, %.lr.ph249 ], [ %76, %91 ], [ 32, %codepoint_range_cmp.exit.i ]
   %104 = add i32 %.099247, 1
   %105 = sext i32 %.099247 to i64
-  %106 = getelementptr inbounds i32, ptr %24, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %24, i64 %105
   store i32 %.sink, ptr %106, align 4
   br label %is_code_in_table.exit144
 
@@ -250,7 +250,7 @@ is_code_in_table.exit144:                         ; preds = %codepoint_range_cmp
 
 ._crit_edge250:                                   ; preds = %is_code_in_table.exit144
   %107 = sext i32 %.1100 to i64
-  %108 = getelementptr inbounds i32, ptr %24, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %24, i64 %107
   store i32 0, ptr %108, align 4
   %109 = icmp eq i32 %.1100, 0
   br i1 %109, label %.thread215, label %110
@@ -282,7 +282,7 @@ is_code_in_table.exit144:                         ; preds = %codepoint_range_cmp
 
 .lr.ph253:                                        ; preds = %.lr.ph253.preheader, %is_code_in_table.exit154
   %indvars.iv285 = phi i64 [ 0, %.lr.ph253.preheader ], [ %indvars.iv.next286, %is_code_in_table.exit154 ]
-  %113 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv285
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv285
   %114 = load i32, ptr %113, align 4
   %115 = icmp ugt i32 %114, 1114111
   br i1 %115, label %is_code_in_table.exit154, label %.lr.ph.i.i145
@@ -353,7 +353,7 @@ is_code_in_table.exit154:                         ; preds = %codepoint_range_cmp
 
 .lr.ph255:                                        ; preds = %.lr.ph255.preheader, %is_code_in_table.exit174
   %indvars.iv290 = phi i64 [ 0, %.lr.ph255.preheader ], [ %indvars.iv.next291, %is_code_in_table.exit174 ]
-  %140 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv290
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv290
   %141 = load i32, ptr %140, align 4
   %142 = add i32 %141, -65277
   %or.cond236 = icmp ult i32 %142, -63807
@@ -393,14 +393,14 @@ is_code_in_table.exit174:                         ; preds = %codepoint_range_cmp
 
 .lr.ph257.preheader:                              ; preds = %codepoint_range_cmp.exit.i168
   %154 = load i32, ptr %24, align 4
-  %155 = getelementptr i32, ptr %24, i64 %wide.trip.count293
+  %155 = getelementptr [4 x i8], ptr %24, i64 %wide.trip.count293
   %156 = getelementptr i8, ptr %155, i64 -4
   %157 = load i32, ptr %156, align 4
   br label %.lr.ph257
 
 .lr.ph257:                                        ; preds = %.lr.ph257.preheader, %is_code_in_table.exit184
   %indvars.iv295 = phi i64 [ 0, %.lr.ph257.preheader ], [ %indvars.iv.next296, %is_code_in_table.exit184 ]
-  %158 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv295
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv295
   %159 = load i32, ptr %158, align 4
   %160 = add i32 %159, -1114110
   %or.cond238 = icmp ult i32 %160, -1114045
@@ -680,7 +680,7 @@ define internal fastcc noundef zeroext i1 @is_code_in_table(i32 noundef %0, ptr 
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %2 to i64
-  %8 = getelementptr i32, ptr %1, i64 %7
+  %8 = getelementptr [4 x i8], ptr %1, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -4
   %10 = load i32, ptr %9, align 4
   %11 = icmp ugt i32 %0, %10

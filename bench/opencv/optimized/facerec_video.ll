@@ -582,7 +582,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i: ; preds = %217, %
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i: ; preds = %219, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i
   store ptr %214, ptr %16, align 8, !tbaa !51
   store ptr %218, ptr %124, align 8, !tbaa !47
-  %220 = getelementptr inbounds nuw i32, ptr %214, i64 %212
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %212
   store ptr %220, ptr %125, align 8, !tbaa !49
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i
 
@@ -1113,7 +1113,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc157, %330
   %401 = phi ptr [ %418, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %392, %390 ]
   %.057183 = phi i64 [ %416, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %390 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %402 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %401, i64 %.057183
+  %402 = getelementptr inbounds nuw [16 x i8], ptr %401, i64 %.057183
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %402, i64 16, i1 false), !tbaa.struct !80
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull align 4 dereferenceable(16) %29)
@@ -1844,7 +1844,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !56
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !43
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !46
   ret void
 }

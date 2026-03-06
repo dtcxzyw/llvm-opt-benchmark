@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.21" = type { %"struct.std::_Tuple_impl.22" }
 %"struct.std::_Tuple_impl.22" = type { %"struct.std::_Head_base.25" }
 %"struct.std::_Head_base.25" = type { ptr }
-%struct.MetadataTuple = type { ptr, ptr, i32 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -420,7 +419,7 @@ _ZNKSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13Metada
 _ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i81: ; preds = %127, %.noexc83
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0113.3221, i64 noundef %114) #21
   %.pre274.pre = load i32, ptr %6, align 4, !tbaa !11
-  %128 = getelementptr inbounds nuw %struct.MetadataTuple, ptr %124, i64 %122
+  %128 = getelementptr inbounds nuw [24 x i8], ptr %124, i64 %122
   br label %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit84
 
 _ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE9push_backEOS4_.exit84: ; preds = %_ZNSt6vectorIZN5draco15MetadataDecoder14DecodeMetadataEPNS0_8MetadataEE13MetadataTupleSaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i81, %110

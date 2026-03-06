@@ -240,14 +240,14 @@ define dso_local i32 @LZ4_decompress_safe(ptr noundef %0, ptr noundef %1, i32 no
   %124 = load i8, ptr %123, align 1
   %125 = getelementptr i8, ptr %.1380, i64 3
   store i8 %124, ptr %125, align 1
-  %126 = getelementptr i32, ptr @LZ4_decompress_generic.inc32table, i64 %.0363
+  %126 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.inc32table, i64 %.0363
   %127 = load i32, ptr %126, align 4
   %128 = zext i32 %127 to i64
   %129 = getelementptr i8, ptr %.0364, i64 %128
   %130 = getelementptr i8, ptr %.1380, i64 4
   %131 = load i32, ptr %129, align 1
   store i32 %131, ptr %130, align 1
-  %132 = getelementptr i32, ptr @LZ4_decompress_generic.dec64table, i64 %.0363
+  %132 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.dec64table, i64 %.0363
   %133 = load i32, ptr %132, align 4
   %134 = sext i32 %133 to i64
   %135 = sub nsw i64 0, %134
@@ -600,14 +600,14 @@ define dso_local i32 @LZ4_decompress_safe_partial(ptr noundef %0, ptr noundef %1
   %139 = load i8, ptr %138, align 1
   %140 = getelementptr i8, ptr %.1371, i64 3
   store i8 %139, ptr %140, align 1
-  %141 = getelementptr i32, ptr @LZ4_decompress_generic.inc32table, i64 %.0381
+  %141 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.inc32table, i64 %.0381
   %142 = load i32, ptr %141, align 4
   %143 = zext i32 %142 to i64
   %144 = getelementptr i8, ptr %.0382, i64 %143
   %145 = getelementptr i8, ptr %.1371, i64 4
   %146 = load i32, ptr %144, align 1
   store i32 %146, ptr %145, align 1
-  %147 = getelementptr i32, ptr @LZ4_decompress_generic.dec64table, i64 %.0381
+  %147 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.dec64table, i64 %.0381
   %148 = load i32, ptr %147, align 4
   %149 = sext i32 %148 to i64
   %150 = sub nsw i64 0, %149
@@ -834,14 +834,14 @@ define dso_local i32 @LZ4_decompress_fast(ptr noundef %0, ptr noundef %1, i32 no
   %93 = load i8, ptr %92, align 1
   %94 = getelementptr i8, ptr %.1379, i64 3
   store i8 %93, ptr %94, align 1
-  %95 = getelementptr i32, ptr @LZ4_decompress_generic.inc32table, i64 %.0362
+  %95 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.inc32table, i64 %.0362
   %96 = load i32, ptr %95, align 4
   %97 = zext i32 %96 to i64
   %98 = getelementptr i8, ptr %.0363, i64 %97
   %99 = getelementptr i8, ptr %.1379, i64 4
   %100 = load i32, ptr %98, align 1
   store i32 %100, ptr %99, align 1
-  %101 = getelementptr i32, ptr @LZ4_decompress_generic.dec64table, i64 %.0362
+  %101 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.dec64table, i64 %.0362
   %102 = load i32, ptr %101, align 4
   %103 = sext i32 %102 to i64
   %104 = sub nsw i64 0, %103
@@ -1264,14 +1264,14 @@ define dso_local i32 @LZ4_decompress_safe_continue(ptr noundef captures(none) %0
   %181 = load i8, ptr %180, align 1
   %182 = getelementptr i8, ptr %.1428, i64 3
   store i8 %181, ptr %182, align 1
-  %183 = getelementptr i32, ptr @LZ4_decompress_generic.inc32table, i64 %.0439
+  %183 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.inc32table, i64 %.0439
   %184 = load i32, ptr %183, align 4
   %185 = zext i32 %184 to i64
   %186 = getelementptr i8, ptr %.0440, i64 %185
   %187 = getelementptr i8, ptr %.1428, i64 4
   %188 = load i32, ptr %186, align 1
   store i32 %188, ptr %187, align 1
-  %189 = getelementptr i32, ptr @LZ4_decompress_generic.dec64table, i64 %.0439
+  %189 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.dec64table, i64 %.0439
   %190 = load i32, ptr %189, align 4
   %191 = sext i32 %190 to i64
   %192 = sub nsw i64 0, %191
@@ -1613,14 +1613,14 @@ define internal fastcc i32 @LZ4_decompress_safe_withPrefix64k(ptr noundef %0, pt
   %125 = load i8, ptr %124, align 1
   %126 = getelementptr i8, ptr %.1380, i64 3
   store i8 %125, ptr %126, align 1
-  %127 = getelementptr i32, ptr @LZ4_decompress_generic.inc32table, i64 %.0363
+  %127 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.inc32table, i64 %.0363
   %128 = load i32, ptr %127, align 4
   %129 = zext i32 %128 to i64
   %130 = getelementptr i8, ptr %.0364, i64 %129
   %131 = getelementptr i8, ptr %.1380, i64 4
   %132 = load i32, ptr %130, align 1
   store i32 %132, ptr %131, align 1
-  %133 = getelementptr i32, ptr @LZ4_decompress_generic.dec64table, i64 %.0363
+  %133 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.dec64table, i64 %.0363
   %134 = load i32, ptr %133, align 4
   %135 = sext i32 %134 to i64
   %136 = sub nsw i64 0, %135
@@ -1933,14 +1933,14 @@ define internal fastcc i32 @LZ4_decompress_safe_withSmallPrefix(ptr noundef %0, 
   %127 = load i8, ptr %126, align 1
   %128 = getelementptr i8, ptr %.1365, i64 3
   store i8 %127, ptr %128, align 1
-  %129 = getelementptr i32, ptr @LZ4_decompress_generic.inc32table, i64 %.0373
+  %129 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.inc32table, i64 %.0373
   %130 = load i32, ptr %129, align 4
   %131 = zext i32 %130 to i64
   %132 = getelementptr i8, ptr %.0374, i64 %131
   %133 = getelementptr i8, ptr %.1365, i64 4
   %134 = load i32, ptr %132, align 1
   store i32 %134, ptr %133, align 1
-  %135 = getelementptr i32, ptr @LZ4_decompress_generic.dec64table, i64 %.0373
+  %135 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.dec64table, i64 %.0373
   %136 = load i32, ptr %135, align 4
   %137 = sext i32 %136 to i64
   %138 = sub nsw i64 0, %137
@@ -2304,14 +2304,14 @@ define internal fastcc i32 @LZ4_decompress_safe_forceExtDict(ptr noundef %0, ptr
   %153 = load i8, ptr %152, align 1
   %154 = getelementptr i8, ptr %.1366, i64 3
   store i8 %153, ptr %154, align 1
-  %155 = getelementptr i32, ptr @LZ4_decompress_generic.inc32table, i64 %.0374
+  %155 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.inc32table, i64 %.0374
   %156 = load i32, ptr %155, align 4
   %157 = zext i32 %156 to i64
   %158 = getelementptr i8, ptr %.0375, i64 %157
   %159 = getelementptr i8, ptr %.1366, i64 4
   %160 = load i32, ptr %158, align 1
   store i32 %160, ptr %159, align 1
-  %161 = getelementptr i32, ptr @LZ4_decompress_generic.dec64table, i64 %.0374
+  %161 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.dec64table, i64 %.0374
   %162 = load i32, ptr %161, align 4
   %163 = sext i32 %162 to i64
   %164 = sub nsw i64 0, %163
@@ -2669,14 +2669,14 @@ define dso_local i32 @LZ4_decompress_fast_continue(ptr noundef captures(none) %0
   %145 = load i8, ptr %144, align 1
   %146 = getelementptr i8, ptr %.1418, i64 3
   store i8 %145, ptr %146, align 1
-  %147 = getelementptr i32, ptr @LZ4_decompress_generic.inc32table, i64 %.0429
+  %147 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.inc32table, i64 %.0429
   %148 = load i32, ptr %147, align 4
   %149 = zext i32 %148 to i64
   %150 = getelementptr i8, ptr %.0430, i64 %149
   %151 = getelementptr i8, ptr %.1418, i64 4
   %152 = load i32, ptr %150, align 1
   store i32 %152, ptr %151, align 1
-  %153 = getelementptr i32, ptr @LZ4_decompress_generic.dec64table, i64 %.0429
+  %153 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.dec64table, i64 %.0429
   %154 = load i32, ptr %153, align 4
   %155 = sext i32 %154 to i64
   %156 = sub nsw i64 0, %155
@@ -3032,14 +3032,14 @@ define internal fastcc i32 @LZ4_decompress_fast_extDict(ptr noundef %0, ptr noun
   %121 = load i8, ptr %120, align 1
   %122 = getelementptr i8, ptr %.1365, i64 3
   store i8 %121, ptr %122, align 1
-  %123 = getelementptr i32, ptr @LZ4_decompress_generic.inc32table, i64 %.0373
+  %123 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.inc32table, i64 %.0373
   %124 = load i32, ptr %123, align 4
   %125 = zext i32 %124 to i64
   %126 = getelementptr i8, ptr %.0374, i64 %125
   %127 = getelementptr i8, ptr %.1365, i64 4
   %128 = load i32, ptr %126, align 1
   store i32 %128, ptr %127, align 1
-  %129 = getelementptr i32, ptr @LZ4_decompress_generic.dec64table, i64 %.0373
+  %129 = getelementptr [4 x i8], ptr @LZ4_decompress_generic.dec64table, i64 %.0373
   %130 = load i32, ptr %129, align 4
   %131 = sext i32 %130 to i64
   %132 = sub nsw i64 0, %131

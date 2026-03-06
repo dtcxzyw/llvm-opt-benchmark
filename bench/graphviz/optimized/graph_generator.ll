@@ -3,8 +3,6 @@ source_filename = "bench/graphviz/original/graph_generator.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.vtx_data = type { i32, ptr }
-
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [43 x i8] c"Warning: degenerate circle of %u vertices\0A\00", align 1
 @.str.1 = private unnamed_addr constant [41 x i8] c"Warning: degenerate star of %u vertices\0A\00", align 1
@@ -731,7 +729,7 @@ gv_calloc.exit38.preheader48:                     ; preds = %gv_calloc.exit38.pr
 gv_calloc.exit38:                                 ; preds = %gv_calloc.exit38.preheader48, %gv_calloc.exit38
   %indvars.iv = phi i64 [ 1, %gv_calloc.exit38.preheader48 ], [ %indvars.iv.next, %gv_calloc.exit38 ]
   %.03340 = phi ptr [ %24, %gv_calloc.exit38.preheader48 ], [ %32, %gv_calloc.exit38 ]
-  %30 = getelementptr inbounds nuw %struct.vtx_data, ptr %15, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %.03340, ptr %31, align 8, !tbaa !35
   %32 = getelementptr inbounds nuw i8, ptr %.03340, i64 16
@@ -743,7 +741,7 @@ gv_calloc.exit38:                                 ; preds = %gv_calloc.exit38.pr
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %.03145 = phi i32 [ %39, %._crit_edge ], [ 1, %.preheader.preheader ]
   %33 = zext i32 %.03145 to i64
-  %34 = getelementptr inbounds nuw %struct.vtx_data, ptr %15, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %33
   %35 = load i32, ptr %34, align 8, !tbaa !38
   %.not47 = icmp eq i32 %35, 0
   br i1 %.not47, label %._crit_edge, label %.lr.ph43
@@ -768,7 +766,7 @@ gv_calloc.exit38:                                 ; preds = %gv_calloc.exit38.pr
   %41 = phi i32 [ %35, %.lr.ph43 ], [ %48, %47 ]
   %indvars.iv50 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next51, %47 ]
   %42 = load ptr, ptr %36, align 8, !tbaa !35
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv50
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv50
   %44 = load i32, ptr %43, align 4, !tbaa !30
   %45 = icmp ult i32 %.03145, %44
   br i1 %45, label %46, label %47
@@ -812,45 +810,45 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
   %.tr54.lcssa = phi i32 [ %1, %5 ], [ %7, %tailrecurse ]
   %.tr55.lcssa = phi i32 [ %2, %5 ], [ %9, %tailrecurse ]
   %11 = zext i32 %.tr.lcssa to i64
-  %12 = getelementptr inbounds nuw %struct.vtx_data, ptr %4, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %11
   %13 = load i32, ptr %12, align 8, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !35
   %16 = add i32 %13, 1
   %17 = zext i32 %13 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %17
   store i32 %.tr54.lcssa, ptr %18, align 4, !tbaa !30
   %19 = add i32 %13, 2
   %20 = zext i32 %16 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %15, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %20
   store i32 %.tr55.lcssa, ptr %21, align 4, !tbaa !30
   store i32 %19, ptr %12, align 8, !tbaa !38
   %22 = zext i32 %.tr54.lcssa to i64
-  %23 = getelementptr inbounds nuw %struct.vtx_data, ptr %4, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %22
   %24 = load i32, ptr %23, align 8, !tbaa !38
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !35
   %27 = add i32 %24, 1
   %28 = zext i32 %24 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %28
   store i32 %.tr.lcssa, ptr %29, align 4, !tbaa !30
   %30 = add i32 %24, 2
   %31 = zext i32 %27 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %26, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %31
   store i32 %.tr55.lcssa, ptr %32, align 4, !tbaa !30
   store i32 %30, ptr %23, align 8, !tbaa !38
   %33 = zext i32 %.tr55.lcssa to i64
-  %34 = getelementptr inbounds nuw %struct.vtx_data, ptr %4, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %33
   %35 = load i32, ptr %34, align 8, !tbaa !38
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !35
   %38 = add i32 %35, 1
   %39 = zext i32 %35 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %39
   store i32 %.tr.lcssa, ptr %40, align 4, !tbaa !30
   %41 = add i32 %35, 2
   %42 = zext i32 %38 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %37, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %42
   store i32 %.tr54.lcssa, ptr %43, align 4, !tbaa !30
   store i32 %41, ptr %34, align 8, !tbaa !38
   ret void
@@ -920,7 +918,7 @@ gv_calloc.exit37.preheader47:                     ; preds = %gv_calloc.exit37.pr
 gv_calloc.exit37:                                 ; preds = %gv_calloc.exit37.preheader47, %gv_calloc.exit37
   %indvars.iv = phi i64 [ 1, %gv_calloc.exit37.preheader47 ], [ %indvars.iv.next, %gv_calloc.exit37 ]
   %.03339 = phi ptr [ %20, %gv_calloc.exit37.preheader47 ], [ %28, %gv_calloc.exit37 ]
-  %26 = getelementptr inbounds nuw %struct.vtx_data, ptr %11, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %.03339, ptr %27, align 8, !tbaa !35
   %28 = getelementptr inbounds nuw i8, ptr %.03339, i64 24
@@ -931,7 +929,7 @@ gv_calloc.exit37:                                 ; preds = %gv_calloc.exit37.pr
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv52 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next53, %._crit_edge ]
-  %29 = getelementptr inbounds nuw %struct.vtx_data, ptr %11, i64 %indvars.iv52
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv52
   %30 = load i32, ptr %29, align 8, !tbaa !38
   %.not46 = icmp eq i32 %30, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph42
@@ -957,7 +955,7 @@ gv_calloc.exit37:                                 ; preds = %gv_calloc.exit37.pr
   %36 = phi i32 [ %30, %.lr.ph42 ], [ %44, %43 ]
   %indvars.iv49 = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next50, %43 ]
   %37 = load ptr, ptr %31, align 8, !tbaa !35
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv49
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv49
   %39 = load i32, ptr %38, align 4, !tbaa !30
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv52, %40
@@ -1008,75 +1006,75 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %6
   %.tr93.lcssa = phi i32 [ %2, %6 ], [ %12, %tailrecurse ]
   %.tr94.lcssa = phi i32 [ %3, %6 ], [ %13, %tailrecurse ]
   %15 = zext i32 %.tr.lcssa to i64
-  %16 = getelementptr inbounds nuw %struct.vtx_data, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !38
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !35
   %20 = add i32 %17, 1
   %21 = zext i32 %17 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %21
   store i32 %.tr92.lcssa, ptr %22, align 4, !tbaa !30
   %23 = add i32 %17, 2
   %24 = zext i32 %20 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %19, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %24
   store i32 %.tr93.lcssa, ptr %25, align 4, !tbaa !30
   %26 = add i32 %17, 3
   %27 = zext i32 %23 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %19, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %27
   store i32 %.tr94.lcssa, ptr %28, align 4, !tbaa !30
   store i32 %26, ptr %16, align 8, !tbaa !38
   %29 = zext i32 %.tr92.lcssa to i64
-  %30 = getelementptr inbounds nuw %struct.vtx_data, ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %29
   %31 = load i32, ptr %30, align 8, !tbaa !38
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !35
   %34 = add i32 %31, 1
   %35 = zext i32 %31 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %35
   store i32 %.tr.lcssa, ptr %36, align 4, !tbaa !30
   %37 = add i32 %31, 2
   %38 = zext i32 %34 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %33, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %38
   store i32 %.tr93.lcssa, ptr %39, align 4, !tbaa !30
   %40 = add i32 %31, 3
   %41 = zext i32 %37 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %33, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %41
   store i32 %.tr94.lcssa, ptr %42, align 4, !tbaa !30
   store i32 %40, ptr %30, align 8, !tbaa !38
   %43 = zext i32 %.tr93.lcssa to i64
-  %44 = getelementptr inbounds nuw %struct.vtx_data, ptr %5, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %43
   %45 = load i32, ptr %44, align 8, !tbaa !38
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !35
   %48 = add i32 %45, 1
   %49 = zext i32 %45 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %49
   store i32 %.tr.lcssa, ptr %50, align 4, !tbaa !30
   %51 = add i32 %45, 2
   %52 = zext i32 %48 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %47, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %52
   store i32 %.tr92.lcssa, ptr %53, align 4, !tbaa !30
   %54 = add i32 %45, 3
   %55 = zext i32 %51 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %47, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %55
   store i32 %.tr94.lcssa, ptr %56, align 4, !tbaa !30
   store i32 %54, ptr %44, align 8, !tbaa !38
   %57 = zext i32 %.tr94.lcssa to i64
-  %58 = getelementptr inbounds nuw %struct.vtx_data, ptr %5, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %57
   %59 = load i32, ptr %58, align 8, !tbaa !38
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !35
   %62 = add i32 %59, 1
   %63 = zext i32 %59 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %61, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %63
   store i32 %.tr.lcssa, ptr %64, align 4, !tbaa !30
   %65 = add i32 %59, 2
   %66 = zext i32 %62 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %61, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %66
   store i32 %.tr92.lcssa, ptr %67, align 4, !tbaa !30
   %68 = add i32 %59, 3
   %69 = zext i32 %65 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %61, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %69
   store i32 %.tr93.lcssa, ptr %70, align 4, !tbaa !30
   store i32 %68, ptr %58, align 8, !tbaa !38
   ret void
@@ -1607,7 +1605,7 @@ gv_calloc.exit.i:                                 ; preds = %gv_alloc.exit
 19:                                               ; preds = %._crit_edge.i
   %20 = trunc nuw i64 %indvars.iv46.i to i32
   %21 = udiv i32 %32, %20
-  %22 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next47.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.next47.i
   store i32 %21, ptr %22, align 4, !tbaa !30
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond52.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count51.i
@@ -1616,7 +1614,7 @@ gv_calloc.exit.i:                                 ; preds = %gv_alloc.exit
 .lr.ph.preheader.i:                               ; preds = %._crit_edge.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %.03037.i = phi i32 [ 0, %.preheader.i ], [ %32, %._crit_edge.i ]
-  %23 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i
   %24 = load i32, ptr %23, align 4, !tbaa !30
   %25 = trunc nuw i64 %indvars.iv.i to i32
   %26 = mul i32 %24, %25
@@ -1628,7 +1626,7 @@ gv_calloc.exit.i:                                 ; preds = %gv_alloc.exit
   %.134.i = phi i32 [ %32, %.lr.ph.i ], [ %.03037.i, %.lr.ph.preheader.i ]
   %27 = sub nuw i32 %.02835.i, %25
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %10, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !30
   %31 = mul i32 %26, %30
   %32 = add i32 %31, %.134.i
@@ -1710,7 +1708,7 @@ define dso_local void @makeRandomTree(ptr noundef captures(none) initializes((24
   %.163.i = phi i32 [ %35, %.thread.i ], [ %.041.i, %14 ]
   %16 = add i32 %.163.i, -1
   %17 = zext i32 %.163.i to i64
-  %18 = getelementptr inbounds nuw i32, ptr %10, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !30
   %20 = mul i32 %19, %16
   %21 = uitofp i32 %20 to double
@@ -1735,7 +1733,7 @@ define dso_local void @makeRandomTree(ptr noundef captures(none) initializes((24
 
 .lr.ph.i.preheader:                               ; preds = %.loopexit.i
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %10, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !30
   %33 = mul i32 %27, %32
   br label %.lr.ph.i
@@ -1746,7 +1744,7 @@ define dso_local void @makeRandomTree(ptr noundef captures(none) initializes((24
   %.14861.i = phi double [ %43, %42 ], [ %.047.i.ph, %.lr.ph.i.preheader ]
   %35 = sub i32 %.04262.i, %27
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %10, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !30
   %39 = mul i32 %33, %38
   %40 = uitofp i32 %39 to double
@@ -1771,7 +1769,7 @@ define dso_local void @makeRandomTree(ptr noundef captures(none) initializes((24
   %49 = load i32, ptr %6, align 8, !tbaa !71
   %50 = add i32 %49, 1
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %48, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %51
   store i32 %47, ptr %52, align 4, !tbaa !30
   %53 = load i32, ptr %6, align 8, !tbaa !71
   %54 = add i32 %53, 1
@@ -1784,7 +1782,7 @@ define dso_local void @makeRandomTree(ptr noundef captures(none) initializes((24
 57:                                               ; preds = %._crit_edge.i
   %58 = add i32 %55, -1
   %59 = zext i32 %55 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %48, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %59
   store i32 %58, ptr %60, align 4, !tbaa !30
   br label %addTree.exit.i
 
@@ -1796,12 +1794,12 @@ addTree.exit.i:                                   ; preds = %57, %._crit_edge.i
   %.promoted.i = load i64, ptr %12, align 8, !tbaa !77
   %.reass69.i = add i64 %.promoted.i, %invariant.op.i
   %64 = urem i64 %.reass69.i, %63
-  %65 = getelementptr inbounds nuw i32, ptr %61, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !30
   %67 = add i64 %.promoted.i, -2
   %68 = add i64 %67, %62
   %69 = urem i64 %68, %63
-  %70 = getelementptr inbounds nuw i32, ptr %61, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !30
   %.not70.i = icmp eq i32 %66, 0
   br i1 %.not70.i, label %.lr.ph71.preheader.i, label %._crit_edge72.i
@@ -1830,7 +1828,7 @@ addTree.exit.i:                                   ; preds = %57, %._crit_edge.i
   %76 = add i32 %.val.pre.i, 1
   %77 = sub i32 %76, %.val26.i.i
   %78 = zext i32 %.val26.i.i to i64
-  %79 = getelementptr inbounds nuw i32, ptr %48, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !30
   %81 = add i32 %72, -1
   %82 = mul i32 %77, %81
@@ -1848,7 +1846,7 @@ addTree.exit.i:                                   ; preds = %57, %._crit_edge.i
 
 88:                                               ; preds = %.lr.ph.i.i
   %89 = zext i32 %.031.i.i to i64
-  %90 = getelementptr inbounds nuw i32, ptr %48, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !30
   %92 = add i32 %91, %77
   br label %93
@@ -1857,7 +1855,7 @@ addTree.exit.i:                                   ; preds = %57, %._crit_edge.i
   %.sink.i.i = phi i32 [ %92, %88 ], [ %80, %.lr.ph.i.i ]
   %94 = add i32 %.031.i.i, %77
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %48, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %95
   store i32 %.sink.i.i, ptr %96, align 4, !tbaa !30
   %97 = add i32 %.031.i.i, 1
   %.not.i.i = icmp ugt i32 %97, %84
@@ -1876,17 +1874,17 @@ treeDup.exit.i:                                   ; preds = %93, %75
 101:                                              ; preds = %99
   %.val.i50.i = load i32, ptr %7, align 4, !tbaa !70
   %102 = zext i32 %.val.i50.i to i64
-  %103 = getelementptr inbounds nuw i32, ptr %48, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !30
   store i32 %104, ptr %7, align 4, !tbaa !70
   %.reass.i = add i64 %73, %invariant.op.i
   %105 = urem i64 %.reass.i, %63
-  %106 = getelementptr inbounds nuw i32, ptr %61, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !30
   %108 = add i64 %73, -2
   %109 = add i64 %108, %62
   %110 = urem i64 %109, %63
-  %111 = getelementptr inbounds nuw i32, ptr %61, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !30
   %.not.i = icmp eq i32 %107, 0
   br i1 %.not.i, label %.lr.ph71.i, label %._crit_edge72.i
@@ -1906,7 +1904,7 @@ genTree.exit:                                     ; preds = %99
   %.07.i = phi i32 [ 2, %.lr.ph.i8 ], [ %121, %116 ]
   %117 = load ptr, ptr %115, align 8, !tbaa !67
   %118 = zext i32 %.07.i to i64
-  %119 = getelementptr inbounds nuw i32, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !30
   tail call void %1(i32 noundef %120, i32 noundef %.07.i) #15
   %121 = add i32 %.07.i, 1
@@ -1985,7 +1983,7 @@ define internal fastcc void @push(ptr noundef captures(none) %0, i32 noundef %1,
 
 17:                                               ; preds = %12
   %18 = load i64, ptr %6, align 8, !tbaa !76
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %18
   %20 = sub i64 %spec.select.i.i.i, %18
   %21 = shl i64 %20, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %19, i8 0, i64 %21, i1 false)
@@ -1999,8 +1997,8 @@ define internal fastcc void @push(ptr noundef captures(none) %0, i32 noundef %1,
 27:                                               ; preds = %17
   %28 = sub i64 %18, %23
   %29 = sub i64 %spec.select.i.i.i, %28
-  %30 = getelementptr inbounds nuw i32, ptr %15, i64 %29
-  %31 = getelementptr inbounds nuw i32, ptr %15, i64 %23
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %29
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %23
   %32 = shl i64 %28, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %30, ptr nonnull align 4 %31, i64 %32, i1 false)
   store i64 %29, ptr %22, align 8, !tbaa !75
@@ -2027,7 +2025,7 @@ int_stack_push_back.exit:                         ; preds = %._crit_edge.i.i.i, 
   %.pre.i.i.i5 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %34, %33 ]
   %42 = add i64 %.pre.i.i.i5, %41
   %43 = urem i64 %42, %40
-  %44 = getelementptr inbounds nuw i32, ptr %39, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %43
   store i32 %1, ptr %44, align 4, !tbaa !30
   %45 = add i64 %41, 1
   store i64 %45, ptr %4, align 8, !tbaa !77
@@ -2047,7 +2045,7 @@ int_stack_push_back.exit:                         ; preds = %._crit_edge.i.i.i, 
 
 53:                                               ; preds = %49
   %54 = load i64, ptr %6, align 8, !tbaa !76
-  %55 = getelementptr inbounds nuw i32, ptr %51, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %54
   %56 = sub i64 %48, %54
   %57 = shl i64 %56, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %55, i8 0, i64 %57, i1 false)
@@ -2061,8 +2059,8 @@ int_stack_push_back.exit:                         ; preds = %._crit_edge.i.i.i, 
 63:                                               ; preds = %53
   %64 = sub i64 %54, %59
   %65 = sub i64 %48, %64
-  %66 = getelementptr inbounds nuw i32, ptr %51, i64 %65
-  %67 = getelementptr inbounds nuw i32, ptr %51, i64 %59
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %65
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %59
   %68 = shl i64 %64, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %66, ptr nonnull align 4 %67, i64 %68, i1 false)
   store i64 %65, ptr %58, align 8, !tbaa !75
@@ -2089,7 +2087,7 @@ int_stack_push_back.exit10:                       ; preds = %int_stack_push_back
   %78 = phi i64 [ %70, %69 ], [ %.pre.i.i.i5, %int_stack_push_back.exit ]
   %79 = add i64 %78, %77
   %80 = urem i64 %79, %76
-  %81 = getelementptr inbounds nuw i32, ptr %75, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %80
   store i32 %2, ptr %81, align 4, !tbaa !30
   %82 = add i64 %77, 1
   store i64 %82, ptr %4, align 8, !tbaa !77

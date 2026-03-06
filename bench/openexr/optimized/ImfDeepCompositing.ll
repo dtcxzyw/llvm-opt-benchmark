@@ -102,7 +102,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge69
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
   %indvars.iv = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next, %.lr.ph68 ]
-  %25 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %26, ptr %25, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -139,11 +139,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge69
 
 33:                                               ; preds = %.preheader.us.us, %33
   %indvars.iv94 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next95, %33 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv94
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv94
   %35 = load ptr, ptr %34, align 8, !tbaa !13
-  %36 = getelementptr inbounds float, ptr %35, i64 %44
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %44
   %37 = load float, ptr %36, align 4, !tbaa !6
-  %38 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv94
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv94
   %39 = load float, ptr %38, align 4, !tbaa !6
   %40 = tail call float @llvm.fmuladd.f32(float %43, float %37, float %39)
   store float %40, ptr %38, align 4, !tbaa !6
@@ -152,7 +152,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge69
   br i1 %exitcond98.not, label %._crit_edge72.us.us, label %33, !llvm.loop !16
 
 .preheader.us.us:                                 ; preds = %.lr.ph75.split.us.split.us
-  %41 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv99
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv99
   %42 = load i32, ptr %41, align 4, !tbaa !9
   %43 = fsub float 1.000000e+00, %31
   %44 = sext i32 %42 to i64
@@ -171,11 +171,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge69
 
 47:                                               ; preds = %.preheader.us, %47
   %indvars.iv84 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next85, %47 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv84
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv84
   %49 = load ptr, ptr %48, align 8, !tbaa !13
-  %50 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv89
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv89
   %51 = load float, ptr %50, align 4, !tbaa !6
-  %52 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv84
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv84
   %53 = load float, ptr %52, align 4, !tbaa !6
   %54 = tail call float @llvm.fmuladd.f32(float %55, float %51, float %53)
   store float %54, ptr %52, align 4, !tbaa !6
@@ -263,7 +263,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_I
 
 18:                                               ; preds = %18, %14
   %.014.i.i.i = phi i64 [ %17, %14 ], [ %21, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %.014.i.i.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.014.i.i.i
   %20 = load i32, ptr %19, align 4, !tbaa !9
   tail call void @_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEEEvT_T0_S8_T1_T2_(ptr noundef %0, i64 noundef %.014.i.i.i, i64 noundef %15, i32 noundef %20, ptr %3)
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
@@ -285,7 +285,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_I
 
 29:                                               ; preds = %11
   %30 = lshr i64 %12, 3
-  %31 = getelementptr inbounds nuw i32, ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %30
   %32 = getelementptr inbounds i8, ptr %.024, i64 -4
   tail call void @_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEEEvT_S7_S7_S7_T0_(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %31, ptr noundef nonnull %32, ptr %3)
   %33 = load ptr, ptr %3, align 8, !tbaa !13
@@ -296,7 +296,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_I
   %.0.i.i = phi ptr [ %9, %29 ], [ %77, %76 ]
   %35 = load i32, ptr %0, align 4, !tbaa !9
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds float, ptr %33, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %33, i64 %36
   %38 = load float, ptr %37, align 4, !tbaa !6
   br label %39
 
@@ -304,7 +304,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_I
   %.1.i.i = phi ptr [ %.0.i.i, %34 ], [ %57, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread.i.i ]
   %40 = load i32, ptr %.1.i.i, align 4, !tbaa !9
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds float, ptr %33, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %33, i64 %41
   %43 = load float, ptr %42, align 4, !tbaa !6
   %44 = fcmp olt float %43, %38
   br i1 %44, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread.i.i, label %45
@@ -318,9 +318,9 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_I
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr %10, align 8, !tbaa !13
-  %49 = getelementptr inbounds float, ptr %48, i64 %41
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %41
   %50 = load float, ptr %49, align 4, !tbaa !6
-  %51 = getelementptr inbounds float, ptr %48, i64 %36
+  %51 = getelementptr inbounds [4 x i8], ptr %48, i64 %36
   %52 = load float, ptr %51, align 4, !tbaa !6
   %53 = fcmp olt float %50, %52
   br i1 %53, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread.i.i, label %54
@@ -340,7 +340,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
   %58 = load i32, ptr %.114.i.i, align 4, !tbaa !9
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds float, ptr %33, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %33, i64 %59
   %61 = load float, ptr %60, align 4, !tbaa !6
   %62 = fcmp olt float %38, %61
   br i1 %62, label %.preheader.i.i.backedge, label %63
@@ -351,9 +351,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr %10, align 8, !tbaa !13
-  %67 = getelementptr inbounds float, ptr %66, i64 %36
+  %67 = getelementptr inbounds [4 x i8], ptr %66, i64 %36
   %68 = load float, ptr %67, align 4, !tbaa !6
-  %69 = getelementptr inbounds float, ptr %66, i64 %59
+  %69 = getelementptr inbounds [4 x i8], ptr %66, i64 %59
   %70 = load float, ptr %69, align 4, !tbaa !6
   %71 = fcmp olt float %68, %70
   br i1 %71, label %.preheader.i.i.backedge, label %72
@@ -409,10 +409,10 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPiN9__gnu_cxx5__op
   %12 = load i32, ptr %0, align 4, !tbaa !9
   %13 = load ptr, ptr %2, align 8, !tbaa !13
   %14 = sext i32 %11 to i64
-  %15 = getelementptr inbounds float, ptr %13, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %13, i64 %14
   %16 = load float, ptr %15, align 4, !tbaa !6
   %17 = sext i32 %12 to i64
-  %18 = getelementptr inbounds float, ptr %13, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %13, i64 %17
   %19 = load float, ptr %18, align 4, !tbaa !6
   %20 = fcmp olt float %16, %19
   br i1 %20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread.i, label %21
@@ -426,9 +426,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr %9, align 8, !tbaa !13
-  %25 = getelementptr inbounds float, ptr %24, i64 %14
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %14
   %26 = load float, ptr %25, align 4, !tbaa !6
-  %27 = getelementptr inbounds float, ptr %24, i64 %17
+  %27 = getelementptr inbounds [4 x i8], ptr %24, i64 %17
   %28 = load float, ptr %27, align 4, !tbaa !6
   %29 = fcmp olt float %26, %28
   br i1 %29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread.i, label %30
@@ -448,7 +448,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
   %.0.i.i = getelementptr inbounds i8, ptr %.09.i.i, i64 -4
   %33 = load i32, ptr %.0.i.i, align 4, !tbaa !9
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds float, ptr %13, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %13, i64 %34
   %36 = load float, ptr %35, align 4, !tbaa !6
   %37 = fcmp olt float %16, %36
   br i1 %37, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN7Imf_3_411sort_helperEEclIiPiEEbRT_T0_.exit.thread.i.i, label %38
@@ -459,9 +459,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr %9, align 8, !tbaa !13
-  %42 = getelementptr inbounds float, ptr %41, i64 %14
+  %42 = getelementptr inbounds [4 x i8], ptr %41, i64 %14
   %43 = load float, ptr %42, align 4, !tbaa !6
-  %44 = getelementptr inbounds float, ptr %41, i64 %34
+  %44 = getelementptr inbounds [4 x i8], ptr %41, i64 %34
   %45 = load float, ptr %44, align 4, !tbaa !6
   %46 = fcmp olt float %43, %45
   br i1 %46, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN7Imf_3_411sort_helperEEclIiPiEEbRT_T0_.exit.thread.i.i, label %47
@@ -496,7 +496,7 @@ _ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_help
   %.08.i = phi ptr [ %50, %.lr.ph.i ], [ %75, %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN7Imf_3_411sort_helperEEEEvT_T0_.exit.i14 ]
   %53 = load i32, ptr %.08.i, align 4, !tbaa !9
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds float, ptr %51, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %51, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !6
   br label %57
 
@@ -505,7 +505,7 @@ _ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_help
   %.0.i.i12 = getelementptr inbounds i8, ptr %.09.i.i11, i64 -4
   %58 = load i32, ptr %.0.i.i12, align 4, !tbaa !9
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds float, ptr %51, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %51, i64 %59
   %61 = load float, ptr %60, align 4, !tbaa !6
   %62 = fcmp olt float %56, %61
   br i1 %62, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN7Imf_3_411sort_helperEEclIiPiEEbRT_T0_.exit.thread.i.i16, label %63
@@ -516,9 +516,9 @@ _ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_help
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr %9, align 8, !tbaa !13
-  %67 = getelementptr inbounds float, ptr %66, i64 %54
+  %67 = getelementptr inbounds [4 x i8], ptr %66, i64 %54
   %68 = load float, ptr %67, align 4, !tbaa !6
-  %69 = getelementptr inbounds float, ptr %66, i64 %59
+  %69 = getelementptr inbounds [4 x i8], ptr %66, i64 %59
   %70 = load float, ptr %69, align 4, !tbaa !6
   %71 = fcmp olt float %68, %70
   br i1 %71, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN7Imf_3_411sort_helperEEclIiPiEEbRT_T0_.exit.thread.i.i16, label %72
@@ -559,10 +559,10 @@ _ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN7Imf_3_411s
   %81 = load i32, ptr %0, align 4, !tbaa !9
   %82 = load ptr, ptr %2, align 8, !tbaa !13
   %83 = sext i32 %80 to i64
-  %84 = getelementptr inbounds float, ptr %82, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %82, i64 %83
   %85 = load float, ptr %84, align 4, !tbaa !6
   %86 = sext i32 %81 to i64
-  %87 = getelementptr inbounds float, ptr %82, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %82, i64 %86
   %88 = load float, ptr %87, align 4, !tbaa !6
   %89 = fcmp olt float %85, %88
   br i1 %89, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread.i31, label %90
@@ -576,9 +576,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
 
 92:                                               ; preds = %90
   %93 = load ptr, ptr %78, align 8, !tbaa !13
-  %94 = getelementptr inbounds float, ptr %93, i64 %83
+  %94 = getelementptr inbounds [4 x i8], ptr %93, i64 %83
   %95 = load float, ptr %94, align 4, !tbaa !6
-  %96 = getelementptr inbounds float, ptr %93, i64 %86
+  %96 = getelementptr inbounds [4 x i8], ptr %93, i64 %86
   %97 = load float, ptr %96, align 4, !tbaa !6
   %98 = fcmp olt float %95, %97
   br i1 %98, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread.i31, label %99
@@ -595,7 +595,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
   %104 = sub i64 %103, %5
   %105 = ashr exact i64 %104, 2
   %106 = sub nsw i64 0, %105
-  %107 = getelementptr inbounds i32, ptr %102, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %102, i64 %106
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %107, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %104, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPiN9__gnu_cxx5__ops14_Val_comp_iterIN7Imf_3_411sort_helperEEEEvT_T0_.exit.i26
 
@@ -604,7 +604,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
   %.0.i.i24 = getelementptr inbounds i8, ptr %.09.i.i23, i64 -4
   %108 = load i32, ptr %.0.i.i24, align 4, !tbaa !9
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds float, ptr %82, i64 %109
+  %110 = getelementptr inbounds [4 x i8], ptr %82, i64 %109
   %111 = load float, ptr %110, align 4, !tbaa !6
   %112 = fcmp olt float %85, %111
   br i1 %112, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN7Imf_3_411sort_helperEEclIiPiEEbRT_T0_.exit.thread.i.i30, label %113
@@ -615,9 +615,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
 
 115:                                              ; preds = %113
   %116 = load ptr, ptr %78, align 8, !tbaa !13
-  %117 = getelementptr inbounds float, ptr %116, i64 %83
+  %117 = getelementptr inbounds [4 x i8], ptr %116, i64 %83
   %118 = load float, ptr %117, align 4, !tbaa !6
-  %119 = getelementptr inbounds float, ptr %116, i64 %109
+  %119 = getelementptr inbounds [4 x i8], ptr %116, i64 %109
   %120 = load float, ptr %119, align 4, !tbaa !6
   %121 = fcmp olt float %118, %120
   br i1 %121, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN7Imf_3_411sort_helperEEclIiPiEEbRT_T0_.exit.thread.i.i30, label %122
@@ -659,16 +659,16 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Ite
   %.036 = phi i64 [ %1, %.lr.ph ], [ %40, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread33 ]
   %12 = shl i64 %.036, 1
   %13 = add i64 %12, 2
-  %14 = getelementptr inbounds i32, ptr %0, i64 %13
-  %15 = getelementptr i32, ptr %0, i64 %12
+  %14 = getelementptr inbounds [4 x i8], ptr %0, i64 %13
+  %15 = getelementptr [4 x i8], ptr %0, i64 %12
   %16 = getelementptr i8, ptr %15, i64 4
   %17 = load i32, ptr %14, align 4, !tbaa !9
   %18 = load i32, ptr %16, align 4, !tbaa !9
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds float, ptr %9, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %9, i64 %19
   %21 = load float, ptr %20, align 4, !tbaa !6
   %22 = sext i32 %18 to i64
-  %23 = getelementptr inbounds float, ptr %9, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %9, i64 %22
   %24 = load float, ptr %23, align 4, !tbaa !6
   %25 = fcmp olt float %21, %24
   br i1 %25, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread, label %26
@@ -679,9 +679,9 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Ite
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr %10, align 8, !tbaa !13
-  %30 = getelementptr inbounds float, ptr %29, i64 %19
+  %30 = getelementptr inbounds [4 x i8], ptr %29, i64 %19
   %31 = load float, ptr %30, align 4, !tbaa !6
-  %32 = getelementptr inbounds float, ptr %29, i64 %22
+  %32 = getelementptr inbounds [4 x i8], ptr %29, i64 %22
   %33 = load float, ptr %32, align 4, !tbaa !6
   %34 = fcmp olt float %31, %33
   br i1 %34, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread, label %35
@@ -703,9 +703,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread33: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit, %26, %35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread
   %40 = phi i64 [ %13, %26 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit ], [ %37, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread ], [ %13, %35 ]
-  %41 = getelementptr inbounds i32, ptr %0, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %0, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !9
-  %43 = getelementptr inbounds i32, ptr %0, i64 %.036
+  %43 = getelementptr inbounds [4 x i8], ptr %0, i64 %.036
   store i32 %42, ptr %43, align 4, !tbaa !9
   %44 = icmp slt i64 %40, %7
   br i1 %44, label %11, label %._crit_edge, !llvm.loop !27
@@ -725,9 +725,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
 51:                                               ; preds = %47
   %52 = shl nsw i64 %.0.lcssa, 1
   %53 = or disjoint i64 %52, 1
-  %54 = getelementptr inbounds i32, ptr %0, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %0, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !9
-  %56 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa
+  %56 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.lcssa
   store i32 %55, ptr %56, align 4, !tbaa !9
   br label %57
 
@@ -739,7 +739,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
 .lr.ph.i:                                         ; preds = %57
   %59 = load ptr, ptr %4, align 8, !tbaa !13
   %60 = sext i32 %3 to i64
-  %61 = getelementptr inbounds float, ptr %59, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %59, i64 %60
   %62 = load float, ptr %61, align 4, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %64
@@ -748,10 +748,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
   %.01321.i = phi i64 [ %.128, %.lr.ph.i ], [ %.022.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_411sort_helperEEclIPiiEEbT_RT0_.exit.thread.i ]
   %.022.in.i = add nsw i64 %.01321.i, -1
   %.022.i = sdiv i64 %.022.in.i, 2
-  %65 = getelementptr inbounds i32, ptr %0, i64 %.022.i
+  %65 = getelementptr inbounds [4 x i8], ptr %0, i64 %.022.i
   %66 = load i32, ptr %65, align 4, !tbaa !9
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds float, ptr %59, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %59, i64 %67
   %69 = load float, ptr %68, align 4, !tbaa !6
   %70 = fcmp olt float %69, %62
   br i1 %70, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_411sort_helperEEclIPiiEEbT_RT0_.exit.thread.i, label %71
@@ -762,9 +762,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
 
 73:                                               ; preds = %71
   %74 = load ptr, ptr %63, align 8, !tbaa !13
-  %75 = getelementptr inbounds float, ptr %74, i64 %67
+  %75 = getelementptr inbounds [4 x i8], ptr %74, i64 %67
   %76 = load float, ptr %75, align 4, !tbaa !6
-  %77 = getelementptr inbounds float, ptr %74, i64 %60
+  %77 = getelementptr inbounds [4 x i8], ptr %74, i64 %60
   %78 = load float, ptr %77, align 4, !tbaa !6
   %79 = fcmp olt float %76, %78
   br i1 %79, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_411sort_helperEEclIPiiEEbT_RT0_.exit.thread.i, label %80
@@ -776,14 +776,14 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
   br i1 %or.cond.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_411sort_helperEEclIPiiEEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_411sort_helperEEEEvT_T0_S8_T1_RT2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_411sort_helperEEclIPiiEEbT_RT0_.exit.thread.i: ; preds = %80, %73, %64
-  %83 = getelementptr inbounds i32, ptr %0, i64 %.01321.i
+  %83 = getelementptr inbounds [4 x i8], ptr %0, i64 %.01321.i
   store i32 %66, ptr %83, align 4, !tbaa !9
   %84 = icmp sgt i64 %.022.i, %1
   br i1 %84, label %64, label %_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_411sort_helperEEEEvT_T0_S8_T1_RT2_.exit, !llvm.loop !28
 
 _ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_411sort_helperEEEEvT_T0_S8_T1_RT2_.exit: ; preds = %71, %80, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_411sort_helperEEclIPiiEEbT_RT0_.exit.thread.i, %57
   %.013.lcssa.i = phi i64 [ %.128, %57 ], [ %.022.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN7Imf_3_411sort_helperEEclIPiiEEbT_RT0_.exit.thread.i ], [ %.01321.i, %80 ], [ %.01321.i, %71 ]
-  %85 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i
+  %85 = getelementptr inbounds [4 x i8], ptr %0, i64 %.013.lcssa.i
   store i32 %3, ptr %85, align 4, !tbaa !9
   ret void
 }
@@ -794,10 +794,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__op
   %7 = load i32, ptr %2, align 4, !tbaa !9
   %8 = load ptr, ptr %4, align 8, !tbaa !13
   %9 = sext i32 %6 to i64
-  %10 = getelementptr inbounds float, ptr %8, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %8, i64 %9
   %11 = load float, ptr %10, align 4, !tbaa !6
   %12 = sext i32 %7 to i64
-  %13 = getelementptr inbounds float, ptr %8, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %8, i64 %12
   %14 = load float, ptr %13, align 4, !tbaa !6
   %15 = fcmp olt float %11, %14
   br i1 %15, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread, label %16
@@ -809,9 +809,9 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__op
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !13
-  %21 = getelementptr inbounds float, ptr %20, i64 %9
+  %21 = getelementptr inbounds [4 x i8], ptr %20, i64 %9
   %22 = load float, ptr %21, align 4, !tbaa !6
-  %23 = getelementptr inbounds float, ptr %20, i64 %12
+  %23 = getelementptr inbounds [4 x i8], ptr %20, i64 %12
   %24 = load float, ptr %23, align 4, !tbaa !6
   %25 = fcmp olt float %22, %24
   br i1 %25, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread, label %26
@@ -825,7 +825,7 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__op
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread: ; preds = %26, %18, %5
   %29 = load i32, ptr %3, align 4, !tbaa !9
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds float, ptr %8, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %8, i64 %30
   %32 = load float, ptr %31, align 4, !tbaa !6
   %33 = fcmp olt float %14, %32
   br i1 %33, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit23.thread, label %34
@@ -837,9 +837,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !13
-  %39 = getelementptr inbounds float, ptr %38, i64 %12
+  %39 = getelementptr inbounds [4 x i8], ptr %38, i64 %12
   %40 = load float, ptr %39, align 4, !tbaa !6
-  %41 = getelementptr inbounds float, ptr %38, i64 %30
+  %41 = getelementptr inbounds [4 x i8], ptr %38, i64 %30
   %42 = load float, ptr %41, align 4, !tbaa !6
   %43 = fcmp olt float %40, %42
   br i1 %43, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit23.thread, label %44
@@ -861,9 +861,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !13
-  %53 = getelementptr inbounds float, ptr %52, i64 %9
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %9
   %54 = load float, ptr %53, align 4, !tbaa !6
-  %55 = getelementptr inbounds float, ptr %52, i64 %30
+  %55 = getelementptr inbounds [4 x i8], ptr %52, i64 %30
   %56 = load float, ptr %55, align 4, !tbaa !6
   %57 = fcmp olt float %54, %56
   br i1 %57, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit23.thread, label %58
@@ -880,7 +880,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit.thread36: ; preds = %16, %26
   %61 = load i32, ptr %3, align 4, !tbaa !9
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds float, ptr %8, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %8, i64 %62
   %64 = load float, ptr %63, align 4, !tbaa !6
   %65 = fcmp olt float %11, %64
   br i1 %65, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit23.thread, label %66
@@ -892,9 +892,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
 68:                                               ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !13
-  %71 = getelementptr inbounds float, ptr %70, i64 %9
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %9
   %72 = load float, ptr %71, align 4, !tbaa !6
-  %73 = getelementptr inbounds float, ptr %70, i64 %62
+  %73 = getelementptr inbounds [4 x i8], ptr %70, i64 %62
   %74 = load float, ptr %73, align 4, !tbaa !6
   %75 = fcmp olt float %72, %74
   br i1 %75, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit23.thread, label %76
@@ -916,9 +916,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.ex
 82:                                               ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !13
-  %85 = getelementptr inbounds float, ptr %84, i64 %12
+  %85 = getelementptr inbounds [4 x i8], ptr %84, i64 %12
   %86 = load float, ptr %85, align 4, !tbaa !6
-  %87 = getelementptr inbounds float, ptr %84, i64 %62
+  %87 = getelementptr inbounds [4 x i8], ptr %84, i64 %62
   %88 = load float, ptr %87, align 4, !tbaa !6
   %89 = fcmp olt float %86, %88
   br i1 %89, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN7Imf_3_411sort_helperEEclIPiS6_EEbT_T0_.exit23.thread, label %90

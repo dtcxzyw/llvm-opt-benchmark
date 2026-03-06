@@ -1156,7 +1156,7 @@ define void @_ZNK6casadi10ConstantMX10ad_forwardERKSt6vectorIS1_INS_2MXESaIS2_EE
 .lr.ph:                                           ; preds = %3, %_ZN6casadi2MXaSERKS0_.exit
   %11 = phi ptr [ %17, %_ZN6casadi2MXaSERKS0_.exit ], [ %10, %3 ]
   %.07 = phi i64 [ %15, %_ZN6casadi2MXaSERKS0_.exit ], [ 0, %3 ]
-  %12 = getelementptr inbounds nuw %"class.std::vector", ptr %11, i64 %.07
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %.07
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZN6casadi2MXaSERKS0_.exit unwind label %23
@@ -5067,7 +5067,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %127
   br i1 %145, label %146, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
 146:                                              ; preds = %144
-  %147 = getelementptr inbounds nuw double, ptr %136, i64 %133
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %133
   %.not.i.i.i = icmp eq ptr %135, %147
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i, label %148
 
@@ -7000,7 +7000,7 @@ _ZN6casadi10ConstantMXC2ERKNS_8SparsityE.exit:    ; preds = %3
   br i1 %62, label %63, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw double, ptr %53, i64 %49
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %49
   %.not.i.i = icmp eq ptr %52, %64
   br i1 %.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %65
 
@@ -15835,7 +15835,7 @@ _ZSt8_DestroyIPN6casadi8SparsityES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_Destr
 _ZNSt12_Vector_baseIN6casadi8SparsityESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN6casadi8SparsityES1_EvT_S3_RSaIT0_E.exit, %57
   store ptr %20, ptr %0, align 8, !tbaa !238
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %4, align 8, !tbaa !231
-  %61 = getelementptr inbounds nuw %"class.casadi::Sparsity", ptr %20, i64 %16
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %61, ptr %56, align 8, !tbaa !234
   ret void
 
@@ -27986,9 +27986,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !93
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !90
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !95
   br label %41
 

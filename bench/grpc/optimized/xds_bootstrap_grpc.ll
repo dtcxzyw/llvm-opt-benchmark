@@ -124,13 +124,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 %class.anon = type { ptr }
-%"class.grpc_core::GrpcXdsServer" = type { %"class.grpc_core::GrpcXdsServerInterface", %"class.std::__cxx11::basic_string", %"class.grpc_core::RefCountedPtr", %"class.std::set" }
-%"class.grpc_core::GrpcXdsServerInterface" = type { %"class.grpc_core::XdsBootstrap::XdsServer" }
-%"class.grpc_core::XdsBootstrap::XdsServer" = type { ptr }
-%"class.grpc_core::RefCountedPtr" = type { ptr }
-%"class.std::set" = type { %"class.std::_Rb_tree.116" }
-%"class.std::_Rb_tree.116" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.grpc_core::CertificateProviderStore::PluginDefinition" = type { %"class.std::__cxx11::basic_string", %"class.grpc_core::RefCountedPtr.128" }
 %"class.grpc_core::RefCountedPtr.128" = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::CertificateProviderStore::PluginDefinition>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::CertificateProviderStore::PluginDefinition>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
@@ -3055,7 +3048,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26.i, %438
   store ptr %410, ptr %27, align 8, !tbaa !54
   store ptr %437, ptr %281, align 8, !tbaa !55
-  %439 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %410, i64 %406
+  %439 = getelementptr inbounds nuw [32 x i8], ptr %410, i64 %406
   store ptr %439, ptr %282, align 8, !tbaa !58
   %.pre434 = load ptr, ptr %29, align 8, !tbaa !19
   %440 = icmp eq ptr %.pre434, %283
@@ -4071,7 +4064,7 @@ _ZNSt12_Vector_baseIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EE11_M_allocateE
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #26
   store ptr %16, ptr %0, align 8, !tbaa !100
   store ptr %16, ptr %14, align 8, !tbaa !153
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %10
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %10
   store ptr %17, ptr %13, align 8, !tbaa !102
   br label %_ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EE7reserveEm.exit
 
@@ -4156,7 +4149,7 @@ _ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EE11_S_relocateEPS4_S7_
 
 _ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EE17_M_realloc_insertIJPKNS0_13GrpcXdsServerEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
   store ptr %41, ptr %18, align 8, !tbaa !153
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   br label %_ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EE12emplace_backIJPKNS0_13GrpcXdsServerEEEERS4_DpOT_.exit
 
 _ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EE12emplace_backIJPKNS0_13GrpcXdsServerEEEERS4_DpOT_.exit: ; preds = %_ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EE17_M_realloc_insertIJPKNS0_13GrpcXdsServerEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %23
@@ -4537,7 +4530,7 @@ _ZNSt12_Vector_baseIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EE11_M_allocateE
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #26
   store ptr %16, ptr %0, align 8, !tbaa !100
   store ptr %16, ptr %14, align 8, !tbaa !153
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %10
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %10
   store ptr %17, ptr %13, align 8, !tbaa !102
   br label %_ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EE7reserveEm.exit
 
@@ -4622,7 +4615,7 @@ _ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EE11_S_relocateEPS4_S7_
 
 _ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EE17_M_realloc_insertIJPKNS0_13GrpcXdsServerEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
   store ptr %41, ptr %18, align 8, !tbaa !153
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   br label %_ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EE12emplace_backIJPKNS0_13GrpcXdsServerEEEERS4_DpOT_.exit
 
 _ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EE12emplace_backIJPKNS0_13GrpcXdsServerEEEERS4_DpOT_.exit: ; preds = %_ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EE17_M_realloc_insertIJPKNS0_13GrpcXdsServerEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %23
@@ -4776,7 +4769,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !168
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !166
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !169
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -7112,7 +7105,7 @@ _ZNSt6vectorIN9grpc_core13GrpcXdsServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
 _ZNSt12_Vector_baseIN9grpc_core13GrpcXdsServerESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core13GrpcXdsServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31, %38
   store ptr %22, ptr %0, align 8, !tbaa !80
   store ptr %.0.lcssa.i.i.i30, ptr %3, align 8, !tbaa !152
-  %42 = getelementptr inbounds nuw %"class.grpc_core::GrpcXdsServer", ptr %22, i64 %15
+  %42 = getelementptr inbounds nuw [96 x i8], ptr %22, i64 %15
   store ptr %42, ptr %37, align 8, !tbaa !207
   ret void
 }
@@ -10066,7 +10059,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !54
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !55
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !58
   ret void
 }

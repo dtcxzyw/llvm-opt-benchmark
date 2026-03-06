@@ -60,7 +60,7 @@ define internal ptr @i2v_TLS_FEATURE(ptr readnone captures(none) %0, ptr noundef
 10:                                               ; preds = %.lr.ph, %9
   %11 = phi i1 [ true, %.lr.ph ], [ false, %9 ]
   %.01213 = phi i64 [ 0, %.lr.ph ], [ 1, %9 ]
-  %12 = getelementptr inbounds nuw %struct.TLS_FEATURE_NAME, ptr @tls_feature_tbl, i64 %.01213
+  %12 = getelementptr inbounds nuw [16 x i8], ptr @tls_feature_tbl, i64 %.01213
   %13 = load i64, ptr %12, align 16, !tbaa !10
   %14 = icmp eq i64 %8, %13
   br i1 %14, label %15, label %9
@@ -138,7 +138,7 @@ define internal ptr @v2i_TLS_FEATURE(ptr readnone captures(none) %0, ptr readnon
 22:                                               ; preds = %20, %21
   %23 = phi i1 [ true, %20 ], [ false, %21 ]
   %.03046 = phi i64 [ 0, %20 ], [ 1, %21 ]
-  %24 = getelementptr inbounds nuw %struct.TLS_FEATURE_NAME, ptr @tls_feature_tbl, i64 %.03046
+  %24 = getelementptr inbounds nuw [16 x i8], ptr @tls_feature_tbl, i64 %.03046
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !14
   %27 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %.034, ptr noundef %26) #5

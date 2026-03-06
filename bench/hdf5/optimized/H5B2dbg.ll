@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5C_class_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.H5B2_node_info_t = type { i32, i32, i32, i64, i8, ptr, ptr }
 %struct.H5B2_node_ptr_t = type { i64, i16, i64 }
 
 @H5B2_init_g = external local_unnamed_addr global i8, align 1
@@ -135,7 +134,7 @@ define range(i32 -1, 1) i32 @H5B2__hdr_debug(ptr noundef %0, i64 noundef %1, ptr
   %69 = trunc nuw nsw i64 %indvars.iv to i32
   %70 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.21, i32 noundef %69) #5
   %71 = load ptr, ptr %67, align 8, !tbaa !42
-  %72 = getelementptr inbounds nuw %struct.H5B2_node_info_t, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [48 x i8], ptr %71, i64 %indvars.iv
   %73 = load i32, ptr %72, align 8, !tbaa !43
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !46
@@ -260,7 +259,7 @@ define range(i32 -1, 1) i32 @H5B2__int_debug(ptr noundef %0, i64 noundef %1, ptr
   %66 = trunc nuw nsw i64 %indvars.iv to i32
   %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 128, ptr noundef nonnull @.str.28, i32 noundef %66) #5
   %68 = load ptr, ptr %57, align 8, !tbaa !56
-  %69 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %indvars.iv
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i64, ptr %70, align 8, !tbaa !57
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -273,7 +272,7 @@ define range(i32 -1, 1) i32 @H5B2__int_debug(ptr noundef %0, i64 noundef %1, ptr
   %79 = load ptr, ptr %58, align 8, !tbaa !58
   %80 = load ptr, ptr %62, align 8, !tbaa !59
   %81 = load ptr, ptr %63, align 8, !tbaa !60
-  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv
   %83 = load i64, ptr %82, align 8, !tbaa !10
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 %83
   %85 = load ptr, ptr %64, align 8, !tbaa !61
@@ -294,7 +293,7 @@ define range(i32 -1, 1) i32 @H5B2__int_debug(ptr noundef %0, i64 noundef %1, ptr
   %92 = getelementptr inbounds nuw i8, ptr %27, i64 264
   %93 = load ptr, ptr %92, align 8, !tbaa !56
   %94 = zext nneg i32 %.081.lcssa to i64
-  %95 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %93, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load i64, ptr %96, align 8, !tbaa !57
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 8
@@ -432,7 +431,7 @@ define range(i32 -1, 1) i32 @H5B2__leaf_debug(ptr noundef %0, i64 noundef %1, pt
   %69 = load ptr, ptr %58, align 8, !tbaa !58
   %70 = load ptr, ptr %62, align 8, !tbaa !66
   %71 = load ptr, ptr %63, align 8, !tbaa !60
-  %72 = getelementptr inbounds nuw i64, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %73 = load i64, ptr %72, align 8, !tbaa !10
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 %73
   %75 = load ptr, ptr %64, align 8, !tbaa !61

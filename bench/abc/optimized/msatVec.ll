@@ -165,7 +165,7 @@ Msat_IntVecGrow.exit:                             ; preds = %3, %14
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   store i32 %2, ptr %20, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %16, align 8, !tbaa !3
@@ -233,7 +233,7 @@ define i32 @Msat_IntVecReadSize(ptr noundef readonly captures(none) %0) local_un
 define i32 @Msat_IntVecReadEntry(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = load ptr, ptr %0, align 8, !tbaa !11
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i32, ptr %3, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !12
   ret i32 %6
 }
@@ -242,7 +242,7 @@ define i32 @Msat_IntVecReadEntry(ptr noundef readonly captures(none) %0, i32 nou
 define void @Msat_IntVecWriteEntry(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = load ptr, ptr %0, align 8, !tbaa !11
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   store i32 %2, ptr %6, align 4, !tbaa !12
   ret void
 }
@@ -253,7 +253,7 @@ define i32 @Msat_IntVecReadEntryLast(ptr noundef readonly captures(none) %0) loc
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = sext i32 %4 to i64
-  %6 = getelementptr i32, ptr %2, i64 %5
+  %6 = getelementptr [4 x i8], ptr %2, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = load i32, ptr %7, align 4, !tbaa !12
   ret i32 %8
@@ -340,7 +340,7 @@ Msat_IntVecGrow.exit10:                           ; preds = %.Msat_IntVecGrow.ex
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %3, align 8, !tbaa !3
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds i32, ptr %28, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %28, i64 %31
   store i32 %1, ptr %32, align 4, !tbaa !12
   ret void
 }
@@ -364,7 +364,7 @@ define range(i32 0, 2) i32 @Msat_IntVecPushUnique(ptr noundef captures(none) %0,
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !12
   %11 = icmp eq i32 %10, %1
   br i1 %11, label %.loopexit, label %7
@@ -430,7 +430,7 @@ Msat_IntVecPush.exit:                             ; preds = %.Msat_IntVecGrow.ex
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %3, align 8, !tbaa !3
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds i32, ptr %35, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %35, i64 %38
   store i32 %1, ptr %39, align 4, !tbaa !12
   br label %.loopexit
 
@@ -456,9 +456,9 @@ define void @Msat_IntVecPushUniqueOrder(ptr noundef captures(none) %0, i32 nound
 10:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %11 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.next
   %12 = load i32, ptr %11, align 4, !tbaa !12
-  %13 = getelementptr i32, ptr %8, i64 %indvars.iv
+  %13 = getelementptr [4 x i8], ptr %8, i64 %indvars.iv
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i32, ptr %14, align 4, !tbaa !12
   %.not20 = icmp sge i32 %12, %15
@@ -484,7 +484,7 @@ define i32 @Msat_IntVecPop(ptr noundef captures(none) %0) local_unnamed_addr #14
   %5 = add nsw i32 %4, -1
   store i32 %5, ptr %3, align 8, !tbaa !3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i32, ptr %2, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %2, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !12
   ret i32 %8
 }

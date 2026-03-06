@@ -174,7 +174,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h8a
           to label %.noexc12 unwind label %.loopexit
 
 .noexc12:                                         ; preds = %.lr.ph.i
-  %66 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { ptr, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, ptr, i64 } }, ptr %63, i64 %64
+  %66 = getelementptr inbounds [304 x i8], ptr %63, i64 %64
   %67 = getelementptr inbounds i8, ptr %66, i64 -304
   %68 = extractvalue { ptr, i64 } %65, 1
   %69 = invoke { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h1849cf85a3074b65E.llvm.7642019239991580563"(ptr noalias noundef nonnull readonly align 8 dereferenceable(304) %67, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2596abad124aa423116bc5e37c5280c1.16.llvm.7642019239991580563)
@@ -265,7 +265,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h8a
   %113 = add i64 %112, 1
   store i64 %113, ptr %111, align 8, !alias.scope !69, !noalias !72
   %114 = sub nsw i64 0, %.sroa.4.0.ph
-  %115 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { ptr, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, ptr, i64 } }, ptr %99, i64 %114
+  %115 = getelementptr inbounds [304 x i8], ptr %99, i64 %114
   %116 = getelementptr inbounds i8, ptr %115, i64 -304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %116, ptr noundef nonnull readonly align 8 dereferenceable(304) %9, i64 304, i1 false), !noalias !69
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -277,7 +277,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h8a
 
 118:                                              ; preds = %71
   %119 = load ptr, ptr %1, align 8, !alias.scope !52, !noalias !53, !nonnull !4, !noundef !4
-  %120 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { ptr, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, ptr, i64 } }, ptr %119, i64 %64
+  %120 = getelementptr inbounds [304 x i8], ptr %119, i64 %64
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %121 = getelementptr inbounds i8, ptr %120, i64 -280
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %10, ptr noundef nonnull align 8 dereferenceable(280) %121, i64 280, i1 false)
@@ -445,7 +445,7 @@ define hidden { i32, i8 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %56 = add i64 %.sroa.0.021.i.i, %53
   %57 = and i64 %56, %.val4.i
   %58 = sub nsw i64 0, %57
-  %59 = getelementptr inbounds { i32, { i32, i8 } }, ptr %.val.i, i64 %58
+  %59 = getelementptr inbounds [12 x i8], ptr %.val.i, i64 %58
   %60 = getelementptr inbounds i8, ptr %59, i64 -12
   %.val4.i.i = load i32, ptr %60, align 4, !alias.scope !132, !noalias !137, !noundef !4
   %61 = icmp eq i32 %1, %.val4.i.i
@@ -527,7 +527,7 @@ define hidden { i32, i8 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   %105 = add i64 %104, 1
   store i64 %105, ptr %103, align 8, !alias.scope !150, !noalias !151
   %106 = sub nsw i64 0, %.sroa.4.0.ph
-  %107 = getelementptr inbounds { i32, { i32, i8 } }, ptr %.val.i, i64 %106
+  %107 = getelementptr inbounds [12 x i8], ptr %.val.i, i64 %106
   %108 = getelementptr inbounds i8, ptr %107, i64 -12
   store i32 %1, ptr %108, align 4, !noalias !150
   %.sroa.48.0..sroa_idx = getelementptr inbounds i8, ptr %107, i64 -8

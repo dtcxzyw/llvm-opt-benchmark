@@ -60,14 +60,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.drjit::DynamicArray.128" = type <{ ptr, i64, i8, [7 x i8] }>
 %"struct.drjit::dr_vector" = type { %"struct.drjit::dr_unique_ptr", i64, i64 }
 %"struct.drjit::dr_unique_ptr" = type { ptr }
-%"class.mitsuba::ref.125" = type { ptr }
 %"struct.std::__1::aligned_storage<32>::type" = type { [32 x i8] }
 %"class.std::__1::basic_ostream<char>::sentry" = type { i8, ptr }
-%"class.std::__1::tuple" = type { %"struct.std::__1::__tuple_impl" }
-%"struct.std::__1::__tuple_impl" = type <{ %"class.std::__1::__tuple_leaf", %"class.std::__1::__tuple_leaf.50", %"class.std::__1::__tuple_leaf.51", [7 x i8] }>
-%"class.std::__1::__tuple_leaf" = type { %"class.std::__1::basic_string" }
-%"class.std::__1::__tuple_leaf.50" = type { %"class.std::__1::basic_string" }
-%"class.std::__1::__tuple_leaf.51" = type { i8 }
 %"struct.std::__1::__exception_guard_exceptions.182" = type <{ %"class.std::__1::_AllocatorDestroyRangeReverse.183", i8, [7 x i8] }>
 %"class.std::__1::_AllocatorDestroyRangeReverse.183" = type { ptr, ptr, ptr }
 %"struct.std::__1::__exception_guard_exceptions.187" = type <{ %"class.std::__1::vector<std::__1::tuple<std::__1::string, std::__1::string, bool>>::__destroy_vector", i8, [7 x i8] }>
@@ -2157,7 +2151,7 @@ _ZN7mitsuba9ArgParser5parseEiPPc.exit:            ; preds = %.lr.ph
           to label %547 unwind label %.loopexit.split-lp843
 
 547:                                              ; preds = %545
-  %548 = getelementptr inbounds nuw i32, ptr @__const.main.log_level_mitsuba, i64 %.0808.lcssa
+  %548 = getelementptr inbounds nuw [4 x i8], ptr @__const.main.log_level_mitsuba, i64 %.0808.lcssa
   %549 = load i32, ptr %548, align 4
   invoke void @_ZN7mitsuba6Logger13set_log_levelENS_8LogLevelE(ptr noundef nonnull align 8 dereferenceable(24) %546, i32 noundef %549)
           to label %550 unwind label %.loopexit.split-lp843
@@ -4523,11 +4517,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIPN7mitsuba9ArgParser3ArgE
   %39 = shl nuw i64 %.0.i.i.i, 3
   %40 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #24
   %41 = getelementptr inbounds i8, ptr %40, i64 %28
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %.0.i.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.0.i.i.i
   store ptr %4, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = sub nsw i64 0, %29
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr align 8 %25, i64 %28, i1 false)
   store ptr %45, ptr %0, align 8
   store ptr %43, ptr %17, align 8
@@ -5032,7 +5026,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_12basic_stringIcNS_11c
   store ptr %11, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %11, ptr %13, align 8
-  %14 = getelementptr inbounds nuw %"class.std::__1::basic_string", ptr %11, i64 %3
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %14, ptr %15, align 8
   %.not26.i.i.i = icmp eq ptr %1, %2
@@ -5454,7 +5448,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 67:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKc.exit
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %2, i64 %68
   %70 = load i8, ptr %8, align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %77, label %72
@@ -6012,7 +6006,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %153 = add nsw i32 %150, 1
   store i32 %153, ptr %5, align 4
   %154 = sext i32 %150 to i64
-  %155 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %154
+  %155 = getelementptr inbounds [24 x i8], ptr %4, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %155, align 8
@@ -6105,7 +6099,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %206 = add nsw i32 %203, 1
   store i32 %206, ptr %5, align 4
   %207 = sext i32 %203 to i64
-  %208 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %207
+  %208 = getelementptr inbounds [24 x i8], ptr %4, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %208, align 8
@@ -6637,7 +6631,7 @@ _ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEEC2EmmS
   store ptr %27, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %27, ptr %29, align 8
-  %30 = getelementptr inbounds %"class.mitsuba::filesystem::path", ptr %storemerge.i, i64 %.0.i
+  %30 = getelementptr inbounds [32 x i8], ptr %storemerge.i, i64 %.0.i
   store ptr %30, ptr %19, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %27, i8 0, i64 24, i1 false)
   %31 = load ptr, ptr %1, align 8
@@ -6665,7 +6659,7 @@ _ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEEC2EmmS
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 5
   %50 = sub nsw i64 0, %49
-  %51 = getelementptr inbounds %"class.mitsuba::filesystem::path", ptr %27, i64 %50
+  %51 = getelementptr inbounds [32 x i8], ptr %27, i64 %50
   invoke void @_ZNSt3__134__uninitialized_allocator_relocateB8ne190000INS_9allocatorIN7mitsuba10filesystem4pathEEES4_EEvRT_PT0_S9_S9_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %45, ptr noundef %44, ptr noundef nonnull %51)
           to label %_ZNSt3__114__split_bufferIN7mitsuba10filesystem4pathERNS_9allocatorIS3_EEE5clearB8ne190000Ev.exit.i unwind label %54
 
@@ -7091,7 +7085,7 @@ define linkonce_odr hidden void @_Z6renderIfN5drjit6MatrixIN7mitsuba8SpectrumIfL
 44:                                               ; preds = %30
   %45 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7sensorsEv(ptr noundef nonnull align 16 dereferenceable(345) %14)
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %"class.mitsuba::ref.125", ptr %46, i64 %1
+  %47 = getelementptr inbounds [8 x i8], ptr %46, i64 %1
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef ptr @_ZN7mitsuba6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4filmEv(ptr noundef nonnull align 16 dereferenceable(233) %48)
   store ptr %49, ptr %9, align 8
@@ -7990,7 +7984,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_5tupleIJNS_12basic_str
   %24 = mul nuw i64 %.0.i, 56
   %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #24
   %26 = getelementptr inbounds i8, ptr %25, i64 %11
-  %27 = getelementptr inbounds nuw %"class.std::__1::tuple", ptr %25, i64 %.0.i
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -8007,7 +8001,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_5tupleIJNS_12basic_str
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %.neg.i = sdiv exact i64 %37, -56
-  %38 = getelementptr inbounds %"class.std::__1::tuple", ptr %26, i64 %.neg.i
+  %38 = getelementptr inbounds [56 x i8], ptr %26, i64 %.neg.i
   %.not13.i.i = icmp eq ptr %34, %33
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_bEEERNS5_IS8_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
@@ -8129,7 +8123,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_5tupleIJNS_12basic_str
   store ptr %14, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %16, align 8
-  %17 = getelementptr inbounds nuw %"class.std::__1::tuple", ptr %14, i64 %3
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %14, i64 %3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %17, ptr %18, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

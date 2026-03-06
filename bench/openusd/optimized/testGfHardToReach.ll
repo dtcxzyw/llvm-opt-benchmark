@@ -390,7 +390,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_2
 _ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit: ; preds = %95, %93
   %.sink.i.i = phi i16 [ %94, %93 ], [ %96, %95 ]
   %97 = zext i16 %.sink.i.i to i64
-  %98 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %97
   %99 = load float, ptr %98, align 4
   %100 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 126976), align 16
   %101 = fcmp oeq float %99, %100
@@ -429,7 +429,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 _ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit219: ; preds = %107, %105
   %.sink.i.i215 = phi i16 [ %106, %105 ], [ %108, %107 ]
   %109 = zext i16 %.sink.i.i215 to i64
-  %110 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %109
   %111 = load float, ptr %110, align 4
   %112 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 258048), align 16
   %113 = fcmp oeq float %111, %112

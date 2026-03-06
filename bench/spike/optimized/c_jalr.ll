@@ -112,7 +112,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32i_c_jalrP11p
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %17
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %17
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = shl i64 %26, 32
   %28 = ashr exact i64 %27, 32
@@ -278,7 +278,7 @@ define noundef range(i64 0, -1) i64 @_Z17fast_rv64i_c_jalrP11processor_t6insn_tm
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %15
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %15
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = and i64 %24, -2
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -432,7 +432,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32i_c_jalrP1
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %18
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %18
   %27 = load i64, ptr %26, align 8, !tbaa !3
   %28 = shl i64 %27, 32
   %29 = ashr exact i64 %28, 32
@@ -680,7 +680,7 @@ define noundef range(i64 0, -1) i64 @_Z19logged_rv64i_c_jalrP11processor_t6insn_
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %16
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %16
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %26 = and i64 %25, -2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 3840
@@ -857,7 +857,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z17fast_rv32e_c_jalrP11p
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %32 = getelementptr inbounds nuw i64, ptr %31, i64 %17
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %17
   %33 = load i64, ptr %32, align 8, !tbaa !3
   %34 = shl i64 %33, 32
   %35 = ashr exact i64 %34, 32
@@ -1026,7 +1026,7 @@ define noundef range(i64 0, -1) i64 @_Z17fast_rv64e_c_jalrP11processor_t6insn_tm
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %15
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %15
   %31 = load i64, ptr %30, align 8, !tbaa !3
   %32 = and i64 %31, -2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -1196,7 +1196,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19logged_rv32e_c_jalrP1
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %33 = getelementptr inbounds nuw i64, ptr %32, i64 %18
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %18
   %34 = load i64, ptr %33, align 8, !tbaa !3
   %35 = shl i64 %34, 32
   %36 = ashr exact i64 %35, 32
@@ -1374,7 +1374,7 @@ define noundef range(i64 0, -1) i64 @_Z19logged_rv64e_c_jalrP11processor_t6insn_
 _ZN11processor_t18check_pc_alignmentEm.exit:      ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %16
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %16
   %32 = load i64, ptr %31, align 8, !tbaa !3
   %33 = and i64 %32, -2
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 3840

@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.btQuaternion = type { %class.btQuadWord }
 %class.btQuadWord = type { [4 x float] }
 %class.btSortConstraintOnIslandPredicate = type { i8 }
-%struct.btElement = type { i32, i32 }
 %class.btClosestNotMeConvexResultCallback = type { %"struct.btCollisionWorld::ClosestConvexResultCallback", ptr, float, ptr, ptr }
 %"struct.btCollisionWorld::ClosestConvexResultCallback" = type { %"struct.btCollisionWorld::ConvexResultCallback.base", %class.btVector3, %class.btVector3, %class.btVector3, %class.btVector3, ptr }
 %"struct.btCollisionWorld::ConvexResultCallback.base" = type <{ ptr, float, i32, i32 }>
@@ -765,7 +764,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld18saveKinematicStateEf(ptr no
   %8 = phi i32 [ %4, %.lr.ph ], [ %24, %23 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %9 = load ptr, ptr %6, align 8, !tbaa !111
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !116
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 272
   %13 = load i32, ptr %12, align 8, !tbaa !118
@@ -966,7 +965,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld14debugDrawWorldEv(ptr nounde
 85:                                               ; preds = %.lr.ph, %93
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %93 ]
   %86 = load ptr, ptr %83, align 8, !tbaa !88
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8, !tbaa !131
   %89 = load ptr, ptr %84, align 8, !tbaa !133
   %90 = load ptr, ptr %88, align 8, !tbaa !43
@@ -1053,7 +1052,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld11clearForcesEv(ptr noundef n
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !81
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !135
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 520
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
@@ -1082,7 +1081,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld12applyGravityEv(ptr noundef 
   %7 = phi i32 [ %3, %.lr.ph ], [ %14, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %8 = load ptr, ptr %5, align 8, !tbaa !81
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !135
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 240
   %12 = load i32, ptr %11, align 8, !tbaa !126
@@ -1409,7 +1408,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld23synchronizeMotionStatesEv(p
   %22 = phi i32 [ %15, %.lr.ph22 ], [ %59, %_ZN23btDiscreteDynamicsWorld28synchronizeSingleMotionStateEP11btRigidBody.exit ]
   %indvars.iv25 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next26, %_ZN23btDiscreteDynamicsWorld28synchronizeSingleMotionStateEP11btRigidBody.exit ]
   %23 = load ptr, ptr %17, align 8, !tbaa !111
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv25
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv25
   %25 = load ptr, ptr %24, align 8, !tbaa !116
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 272
   %27 = load i32, ptr %26, align 8, !tbaa !118
@@ -1481,7 +1480,7 @@ _ZN23btDiscreteDynamicsWorld28synchronizeSingleMotionStateEP11btRigidBody.exit: 
   %63 = phi i32 [ %8, %.lr.ph ], [ %99, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %64 = load ptr, ptr %10, align 8, !tbaa !81
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !135
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 240
   %68 = load i32, ptr %67, align 8, !tbaa !126
@@ -1776,7 +1775,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld28internalSingleStepSimulatio
 51:                                               ; preds = %58, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %58 ]
   %52 = load ptr, ptr %48, align 8, !tbaa !88
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv.i
   %54 = load ptr, ptr %53, align 8, !tbaa !131
   %55 = load ptr, ptr %54, align 8, !tbaa !43
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -1856,7 +1855,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld13updateActionsEf(ptr noundef
 10:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %11 = load ptr, ptr %7, align 8, !tbaa !88
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !131
   %14 = load ptr, ptr %13, align 8, !tbaa !43
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -1892,7 +1891,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld10setGravityERK9btVector3(ptr
   %9 = phi i32 [ %5, %.lr.ph ], [ %20, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
   %10 = load ptr, ptr %7, align 8, !tbaa !81
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !135
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 240
   %14 = load i32, ptr %13, align 8, !tbaa !126
@@ -1988,7 +1987,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld15removeRigidBodyEP11btRigidB
 
 8:                                                ; preds = %12, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %12 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   %10 = load ptr, ptr %9, align 8, !tbaa !135
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %_ZNK20btAlignedObjectArrayIP11btRigidBodyE16findLinearSearchERKS1_.exit.i, label %12
@@ -2010,7 +2009,7 @@ _ZNK20btAlignedObjectArrayIP11btRigidBodyE16findLinearSearchERKS1_.exit.i: ; pre
   %18 = getelementptr inbounds i8, ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !135
   %20 = zext nneg i32 %16 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %7, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !135
   store ptr %22, ptr %18, align 8, !tbaa !135
   store ptr %19, ptr %21, align 8, !tbaa !135
@@ -2093,8 +2092,8 @@ _ZN20btAlignedObjectArrayIP11btRigidBodyE8allocateEi.exit.i.i: ; preds = %29, %2
 
 37:                                               ; preds = %37, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %37 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i.i.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !135
   store ptr %40, ptr %38, align 8, !tbaa !135
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2133,7 +2132,7 @@ _ZN20btAlignedObjectArrayIP11btRigidBodyE9push_backERKS1_.exit: ; preds = %18, %
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %48 = load ptr, ptr %47, align 8, !tbaa !81
   %49 = sext i32 %46 to i64
-  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %48, i64 %49
   store ptr %1, ptr %50, align 8, !tbaa !135
   %51 = add nsw i32 %46, 1
   store i32 %51, ptr %19, align 4, !tbaa !82
@@ -2236,8 +2235,8 @@ _ZN20btAlignedObjectArrayIP11btRigidBodyE8allocateEi.exit.i.i: ; preds = %31, %3
 
 39:                                               ; preds = %39, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %39 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i.i.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i.i.i
   %42 = load ptr, ptr %41, align 8, !tbaa !135
   store ptr %42, ptr %40, align 8, !tbaa !135
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2276,7 +2275,7 @@ _ZN20btAlignedObjectArrayIP11btRigidBodyE9push_backERKS1_.exit: ; preds = %20, %
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %50 = load ptr, ptr %49, align 8, !tbaa !81
   %51 = sext i32 %48 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   store ptr %1, ptr %52, align 8, !tbaa !135
   %53 = add nsw i32 %48, 1
   store i32 %53, ptr %21, align 4, !tbaa !82
@@ -2319,7 +2318,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld21updateActivationStateEf(ptr
 8:                                                ; preds = %.lr.ph, %.thread32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread32 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !81
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !135
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.thread32, label %12
@@ -2502,8 +2501,8 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE8allocateEi.exit.i.i: ; preds = %
 
 22:                                               ; preds = %22, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %22 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !168
   store ptr %25, ptr %23, align 8, !tbaa !168
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2542,7 +2541,7 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit: ; preds = 
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %33 = load ptr, ptr %32, align 8, !tbaa !50
   %34 = sext i32 %31 to i64
-  %35 = getelementptr inbounds ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %33, i64 %34
   store ptr %1, ptr %35, align 8, !tbaa !168
   %36 = add nsw i32 %31, 1
   store i32 %36, ptr %4, align 4, !tbaa !51
@@ -2578,7 +2577,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld16removeConstraintEP17btTyped
 
 8:                                                ; preds = %12, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %12 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   %10 = load ptr, ptr %9, align 8, !tbaa !168
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE16findLinearSearchERKS1_.exit.i, label %12
@@ -2600,7 +2599,7 @@ _ZNK20btAlignedObjectArrayIP17btTypedConstraintE16findLinearSearchERKS1_.exit.i:
   %18 = getelementptr inbounds i8, ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !168
   %20 = zext nneg i32 %16 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %7, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !168
   store ptr %22, ptr %18, align 8, !tbaa !168
   store ptr %19, ptr %21, align 8, !tbaa !168
@@ -2660,8 +2659,8 @@ _ZN20btAlignedObjectArrayIP17btActionInterfaceE8allocateEi.exit.i.i: ; preds = %
 
 21:                                               ; preds = %21, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %21 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !131
   store ptr %24, ptr %22, align 8, !tbaa !131
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2700,7 +2699,7 @@ _ZN20btAlignedObjectArrayIP17btActionInterfaceE9push_backERKS1_.exit: ; preds = 
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %32 = load ptr, ptr %31, align 8, !tbaa !88
   %33 = sext i32 %30 to i64
-  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %32, i64 %33
   store ptr %1, ptr %34, align 8, !tbaa !131
   %35 = add nsw i32 %30, 1
   store i32 %35, ptr %3, align 4, !tbaa !89
@@ -2722,7 +2721,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld12removeActionEP17btActionInt
 
 8:                                                ; preds = %12, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %12 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i.i
   %10 = load ptr, ptr %9, align 8, !tbaa !131
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %_ZNK20btAlignedObjectArrayIP17btActionInterfaceE16findLinearSearchERKS1_.exit.i, label %12
@@ -2744,7 +2743,7 @@ _ZNK20btAlignedObjectArrayIP17btActionInterfaceE16findLinearSearchERKS1_.exit.i:
   %18 = getelementptr inbounds i8, ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !131
   %20 = zext nneg i32 %16 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %7, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !131
   store ptr %22, ptr %18, align 8, !tbaa !131
   store ptr %19, ptr %21, align 8, !tbaa !131
@@ -2844,8 +2843,8 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE8allocateEi.exit.i.i: ; preds = %
 
 24:                                               ; preds = %24, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %24 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !168
   store ptr %27, ptr %25, align 8, !tbaa !168
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -2909,10 +2908,10 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i: ; preds 
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %38, align 8, !tbaa !50
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !168
   %52 = load ptr, ptr %39, align 8, !tbaa !50
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   store ptr %51, ptr %53, align 8, !tbaa !168
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %40, !llvm.loop !179
@@ -3376,7 +3375,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld26calculateSimulationIslandsE
 
 24:                                               ; preds = %.lr.ph, %_ZN11btUnionFind5uniteEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN11btUnionFind5uniteEii.exit ]
-  %25 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !181
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 840
   %28 = load ptr, ptr %27, align 8, !tbaa !183
@@ -3408,7 +3407,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld26calculateSimulationIslandsE
   %45 = load i32, ptr %44, align 4, !tbaa !186
   %46 = load ptr, ptr %15, align 8, !tbaa !187
   %47 = sext i32 %43 to i64
-  %48 = getelementptr inbounds %struct.btElement, ptr %46, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %46, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !191
   %.not7.i.i = icmp eq i32 %43, %49
   br i1 %.not7.i.i, label %_ZN11btUnionFind4findEi.exit.i, label %.lr.ph.i.i
@@ -3417,11 +3416,11 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld26calculateSimulationIslandsE
   %50 = phi i32 [ %57, %.lr.ph.i.i ], [ %49, %41 ]
   %51 = phi ptr [ %56, %.lr.ph.i.i ], [ %48, %41 ]
   %52 = sext i32 %50 to i64
-  %53 = getelementptr inbounds %struct.btElement, ptr %46, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %46, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !191
   store i32 %54, ptr %51, align 4, !tbaa !191
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds %struct.btElement, ptr %46, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %46, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !191
   %.not.i.i = icmp eq i32 %54, %57
   br i1 %.not.i.i, label %_ZN11btUnionFind4findEi.exit.i, label %.lr.ph.i.i, !llvm.loop !193
@@ -3429,7 +3428,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld26calculateSimulationIslandsE
 _ZN11btUnionFind4findEi.exit.i:                   ; preds = %.lr.ph.i.i, %41
   %.0.lcssa.i.i = phi i32 [ %43, %41 ], [ %54, %.lr.ph.i.i ]
   %58 = sext i32 %45 to i64
-  %59 = getelementptr inbounds %struct.btElement, ptr %46, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %46, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !191
   %.not7.i9.i = icmp eq i32 %45, %60
   br i1 %.not7.i9.i, label %_ZN11btUnionFind4findEi.exit13.i, label %.lr.ph.i10.i
@@ -3438,11 +3437,11 @@ _ZN11btUnionFind4findEi.exit.i:                   ; preds = %.lr.ph.i.i, %41
   %61 = phi i32 [ %68, %.lr.ph.i10.i ], [ %60, %_ZN11btUnionFind4findEi.exit.i ]
   %62 = phi ptr [ %67, %.lr.ph.i10.i ], [ %59, %_ZN11btUnionFind4findEi.exit.i ]
   %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds %struct.btElement, ptr %46, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %46, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !191
   store i32 %65, ptr %62, align 4, !tbaa !191
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds %struct.btElement, ptr %46, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %46, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !191
   %.not.i11.i = icmp eq i32 %65, %68
   br i1 %.not.i11.i, label %_ZN11btUnionFind4findEi.exit13.i, label %.lr.ph.i10.i, !llvm.loop !193
@@ -3454,12 +3453,12 @@ _ZN11btUnionFind4findEi.exit13.i:                 ; preds = %.lr.ph.i10.i, %_ZN1
 
 70:                                               ; preds = %_ZN11btUnionFind4findEi.exit13.i
   %71 = sext i32 %.0.lcssa.i.i to i64
-  %72 = getelementptr inbounds %struct.btElement, ptr %46, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %46, i64 %71
   store i32 %.0.lcssa.i12.i, ptr %72, align 4, !tbaa !191
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %74 = load i32, ptr %73, align 4, !tbaa !194
   %75 = sext i32 %.0.lcssa.i12.i to i64
-  %76 = getelementptr inbounds %struct.btElement, ptr %46, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %46, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !194
   %79 = add nsw i32 %78, %74
@@ -3473,7 +3472,7 @@ _ZN11btUnionFind5uniteEii.exit:                   ; preds = %70, %_ZN11btUnionFi
 
 80:                                               ; preds = %.lr.ph57, %_ZN11btUnionFind5uniteEii.exit48
   %indvars.iv63 = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next64, %_ZN11btUnionFind5uniteEii.exit48 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv63
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv63
   %82 = load ptr, ptr %81, align 8, !tbaa !168
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 28
   %84 = load i8, ptr %83, align 4, !tbaa !196, !range !114, !noundef !115
@@ -3505,7 +3504,7 @@ _ZN11btUnionFind5uniteEii.exit:                   ; preds = %70, %_ZN11btUnionFi
   %102 = load i32, ptr %101, align 4, !tbaa !186
   %103 = load ptr, ptr %21, align 8, !tbaa !187
   %104 = sext i32 %100 to i64
-  %105 = getelementptr inbounds %struct.btElement, ptr %103, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %103, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !191
   %.not7.i.i38 = icmp eq i32 %100, %106
   br i1 %.not7.i.i38, label %_ZN11btUnionFind4findEi.exit.i41, label %.lr.ph.i.i39
@@ -3514,11 +3513,11 @@ _ZN11btUnionFind5uniteEii.exit:                   ; preds = %70, %_ZN11btUnionFi
   %107 = phi i32 [ %114, %.lr.ph.i.i39 ], [ %106, %98 ]
   %108 = phi ptr [ %113, %.lr.ph.i.i39 ], [ %105, %98 ]
   %109 = sext i32 %107 to i64
-  %110 = getelementptr inbounds %struct.btElement, ptr %103, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %103, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !191
   store i32 %111, ptr %108, align 4, !tbaa !191
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds %struct.btElement, ptr %103, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %103, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !191
   %.not.i.i40 = icmp eq i32 %111, %114
   br i1 %.not.i.i40, label %_ZN11btUnionFind4findEi.exit.i41, label %.lr.ph.i.i39, !llvm.loop !193
@@ -3526,7 +3525,7 @@ _ZN11btUnionFind5uniteEii.exit:                   ; preds = %70, %_ZN11btUnionFi
 _ZN11btUnionFind4findEi.exit.i41:                 ; preds = %.lr.ph.i.i39, %98
   %.0.lcssa.i.i42 = phi i32 [ %100, %98 ], [ %111, %.lr.ph.i.i39 ]
   %115 = sext i32 %102 to i64
-  %116 = getelementptr inbounds %struct.btElement, ptr %103, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %103, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !191
   %.not7.i9.i43 = icmp eq i32 %102, %117
   br i1 %.not7.i9.i43, label %_ZN11btUnionFind4findEi.exit13.i46, label %.lr.ph.i10.i44
@@ -3535,11 +3534,11 @@ _ZN11btUnionFind4findEi.exit.i41:                 ; preds = %.lr.ph.i.i39, %98
   %118 = phi i32 [ %125, %.lr.ph.i10.i44 ], [ %117, %_ZN11btUnionFind4findEi.exit.i41 ]
   %119 = phi ptr [ %124, %.lr.ph.i10.i44 ], [ %116, %_ZN11btUnionFind4findEi.exit.i41 ]
   %120 = sext i32 %118 to i64
-  %121 = getelementptr inbounds %struct.btElement, ptr %103, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %103, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !191
   store i32 %122, ptr %119, align 4, !tbaa !191
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds %struct.btElement, ptr %103, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr %103, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !191
   %.not.i11.i45 = icmp eq i32 %122, %125
   br i1 %.not.i11.i45, label %_ZN11btUnionFind4findEi.exit13.i46, label %.lr.ph.i10.i44, !llvm.loop !193
@@ -3551,12 +3550,12 @@ _ZN11btUnionFind4findEi.exit13.i46:               ; preds = %.lr.ph.i10.i44, %_Z
 
 127:                                              ; preds = %_ZN11btUnionFind4findEi.exit13.i46
   %128 = sext i32 %.0.lcssa.i.i42 to i64
-  %129 = getelementptr inbounds %struct.btElement, ptr %103, i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr %103, i64 %128
   store i32 %.0.lcssa.i12.i47, ptr %129, align 4, !tbaa !191
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %131 = load i32, ptr %130, align 4, !tbaa !194
   %132 = sext i32 %.0.lcssa.i12.i47 to i64
-  %133 = getelementptr inbounds %struct.btElement, ptr %103, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr %103, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %135 = load i32, ptr %134, align 4, !tbaa !194
   %136 = add nsw i32 %135, %131
@@ -3648,7 +3647,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld32createPredictiveContactsInt
 
 56:                                               ; preds = %.lr.ph, %_ZNK17btCollisionObject8isActiveEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
-  %57 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8, !tbaa !135
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 300
   store float 1.000000e+00, ptr %59, align 4, !tbaa !144
@@ -3847,8 +3846,8 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds 
 
 166:                                              ; preds = %166, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %166 ]
-  %167 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %168 = getelementptr inbounds nuw ptr, ptr %165, i64 %indvars.iv.i.i.i
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %indvars.iv.i.i.i
   %169 = load ptr, ptr %168, align 8, !tbaa !181
   store ptr %169, ptr %167, align 8, !tbaa !181
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -3886,7 +3885,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   %174 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %151, %154 ], [ %151, %150 ]
   %175 = load ptr, ptr %47, align 8, !tbaa !94
   %176 = sext i32 %174 to i64
-  %177 = getelementptr inbounds ptr, ptr %175, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %175, i64 %176
   store ptr %149, ptr %177, align 8, !tbaa !181
   %178 = add nsw i32 %174, 1
   store i32 %178, ptr %45, align 4, !tbaa !95
@@ -3967,7 +3966,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 235:                                              ; preds = %173
   %236 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %237 = sext i32 %234 to i64
-  %238 = getelementptr inbounds %class.btManifoldPoint, ptr %236, i64 %237
+  %238 = getelementptr inbounds [208 x i8], ptr %236, i64 %237
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 96
   store float 0.000000e+00, ptr %239, align 8, !tbaa !234
   %240 = load ptr, ptr @gCalculateCombinedFrictionCallback, align 8, !tbaa !235
@@ -4105,7 +4104,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld25releasePredictiveContactsEv
 14:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %15 = load ptr, ptr %6, align 8, !tbaa !94
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !181
   %18 = load ptr, ptr %7, align 8, !tbaa !180
   %19 = load ptr, ptr %18, align 8, !tbaa !43
@@ -4232,7 +4231,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld27integrateTransformsInternal
 
 41:                                               ; preds = %.lr.ph, %_ZNK17btCollisionObject8isActiveEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK17btCollisionObject8isActiveEv.exit ]
-  %42 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !135
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 300
   store float 1.000000e+00, ptr %44, align 4, !tbaa !144
@@ -4492,7 +4491,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld19integrateTransformsEf(ptr n
   %25 = phi i32 [ %19, %.lr.ph102 ], [ %93, %._crit_edge ]
   %indvars.iv105 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next106, %._crit_edge ]
   %26 = load ptr, ptr %21, align 8, !tbaa !94
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv105
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv105
   %28 = load ptr, ptr %27, align 8, !tbaa !181
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 840
   %30 = load ptr, ptr %29, align 8, !tbaa !183
@@ -4580,7 +4579,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld19integrateTransformsEf(ptr n
 
 96:                                               ; preds = %.lr.ph, %_ZN11btRigidBody12applyImpulseERK9btVector3S2_.exit73
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN11btRigidBody12applyImpulseERK9btVector3S2_.exit73 ]
-  %97 = getelementptr inbounds nuw %class.btManifoldPoint, ptr %42, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [208 x i8], ptr %42, i64 %indvars.iv
   %98 = load ptr, ptr @gCalculateCombinedRestitutionCallback, align 8, !tbaa !235
   %99 = invoke noundef float %98(ptr noundef %..i, ptr noundef %..i47)
           to label %100 unwind label %203
@@ -4826,7 +4825,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld25predictUnconstraintMotionEf
   %9 = phi i32 [ %5, %.lr.ph ], [ %22, %21 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !81
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !135
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 224
   %14 = load i32, ptr %13, align 8, !tbaa !127
@@ -6873,7 +6872,7 @@ define dso_local noundef ptr @_ZN23btDiscreteDynamicsWorld13getConstraintEi(ptr 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %4 = load ptr, ptr %3, align 8, !tbaa !50
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !168
   ret ptr %7
 }
@@ -6883,7 +6882,7 @@ define dso_local noundef ptr @_ZNK23btDiscreteDynamicsWorld13getConstraintEi(ptr
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %4 = load ptr, ptr %3, align 8, !tbaa !50
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !168
   ret ptr %7
 }
@@ -6913,7 +6912,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld20serializeRigidBodiesEP12btS
   %12 = phi i32 [ %4, %.lr.ph ], [ %39, %38 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %13 = load ptr, ptr %6, align 8, !tbaa !111
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !116
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 272
   %17 = load i32, ptr %16, align 8, !tbaa !118
@@ -6954,7 +6953,7 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld20serializeRigidBodiesEP12btS
 42:                                               ; preds = %.lr.ph29, %42
   %indvars.iv31 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next32, %42 ]
   %43 = load ptr, ptr %10, align 8, !tbaa !50
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv31
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv31
   %45 = load ptr, ptr %44, align 8, !tbaa !168
   %46 = load ptr, ptr %45, align 8, !tbaa !43
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 72
@@ -7000,9 +6999,9 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld26serializeDynamicsWorldInfoE
 
 11:                                               ; preds = %11, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %11 ]
-  %12 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   %13 = load float, ptr %12, align 4, !tbaa !84
-  %14 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i
   store float %13, ptr %14, align 4, !tbaa !84
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -7183,7 +7182,7 @@ define linkonce_odr dso_local void @_ZN23btDiscreteDynamicsWorld14updateVehicles
 10:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
   %11 = load ptr, ptr %7, align 8, !tbaa !88
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !131
   %14 = load ptr, ptr %13, align 8, !tbaa !43
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -7341,7 +7340,7 @@ define linkonce_odr dso_local void @_ZN27InplaceSolverIslandCallback13processIsl
 
 30:                                               ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !168
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load ptr, ptr %33, align 8, !tbaa !171
@@ -7368,7 +7367,7 @@ _Z23btGetConstraintIslandIdPK17btTypedConstraint.exit: ; preds = %30, %38
   br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !336
 
 .split.loop.exit:                                 ; preds = %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit
-  %46 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %47 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit76
 
@@ -7387,7 +7386,7 @@ _Z23btGetConstraintIslandIdPK17btTypedConstraint.exit: ; preds = %30, %38
 52:                                               ; preds = %.lr.ph87, %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit40
   %indvars.iv100 = phi i64 [ %51, %.lr.ph87 ], [ %indvars.iv.next101, %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit40 ]
   %.03685 = phi i32 [ 0, %.lr.ph87 ], [ %spec.select, %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit40 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv100
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv100
   %54 = load ptr, ptr %53, align 8, !tbaa !168
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %56 = load ptr, ptr %55, align 8, !tbaa !171
@@ -7468,7 +7467,7 @@ _Z23btGetConstraintIslandIdPK17btTypedConstraint.exit40: ; preds = %52, %60
   %97 = phi i32 [ %.pre118, %.lr.ph90 ], [ %120, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit ]
   %98 = phi i32 [ %.pre, %.lr.ph90 ], [ %126, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit ]
   %indvars.iv103 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next104, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit ]
-  %99 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv103
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv103
   %100 = icmp eq i32 %98, %97
   br i1 %100, label %101, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit
 
@@ -7503,8 +7502,8 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi.exit.i.i: ; preds = %
 
 113:                                              ; preds = %113, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %113 ]
-  %114 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %115 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv.i.i.i
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv.i.i.i
   %116 = load ptr, ptr %115, align 8, !tbaa !116
   store ptr %116, ptr %114, align 8, !tbaa !116
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -7540,7 +7539,7 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit: ; preds = 
   %121 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i ], [ %97, %101 ], [ %98, %96 ]
   %122 = load ptr, ptr %78, align 8, !tbaa !111
   %123 = sext i32 %121 to i64
-  %124 = getelementptr inbounds ptr, ptr %122, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr %122, i64 %123
   %125 = load ptr, ptr %99, align 8, !tbaa !116
   store ptr %125, ptr %124, align 8, !tbaa !116
   %126 = add nsw i32 %121, 1
@@ -7571,7 +7570,7 @@ _ZN20btAlignedObjectArrayIP17btCollisionObjectE9push_backERKS1_.exit: ; preds = 
   %131 = phi i32 [ %.pre120, %.lr.ph92 ], [ %154, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit ]
   %132 = phi i32 [ %.pre119, %.lr.ph92 ], [ %160, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit ]
   %indvars.iv108 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next109, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit ]
-  %133 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv108
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv108
   %134 = icmp eq i32 %132, %131
   br i1 %134, label %135, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
 
@@ -7606,8 +7605,8 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds 
 
 147:                                              ; preds = %147, %.lr.ph.i.i.i49
   %indvars.iv.i.i.i51 = phi i64 [ 0, %.lr.ph.i.i.i49 ], [ %indvars.iv.next.i.i.i52, %147 ]
-  %148 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i44, i64 %indvars.iv.i.i.i51
-  %149 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv.i.i.i51
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i44, i64 %indvars.iv.i.i.i51
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %indvars.iv.i.i.i51
   %150 = load ptr, ptr %149, align 8, !tbaa !181
   store ptr %150, ptr %148, align 8, !tbaa !181
   %indvars.iv.next.i.i.i52 = add nuw nsw i64 %indvars.iv.i.i.i51, 1
@@ -7643,7 +7642,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds
   %155 = phi i32 [ %.pre2.i47, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %131, %135 ], [ %132, %130 ]
   %156 = load ptr, ptr %94, align 8, !tbaa !94
   %157 = sext i32 %155 to i64
-  %158 = getelementptr inbounds ptr, ptr %156, i64 %157
+  %158 = getelementptr inbounds [8 x i8], ptr %156, i64 %157
   %159 = load ptr, ptr %133, align 8, !tbaa !181
   store ptr %159, ptr %158, align 8, !tbaa !181
   %160 = add nsw i32 %155, 1
@@ -7656,7 +7655,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds
   %162 = phi i32 [ %.pre122, %.lr.ph94 ], [ %185, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit ]
   %163 = phi i32 [ %.pre121, %.lr.ph94 ], [ %191, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit ]
   %indvars.iv113 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next114, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit ]
-  %164 = getelementptr inbounds nuw ptr, ptr %.038149, i64 %indvars.iv113
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %.038149, i64 %indvars.iv113
   %165 = icmp eq i32 %163, %162
   br i1 %165, label %166, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit
 
@@ -7691,8 +7690,8 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE8allocateEi.exit.i.i: ; preds = %
 
 178:                                              ; preds = %178, %.lr.ph.i.i.i65
   %indvars.iv.i.i.i67 = phi i64 [ 0, %.lr.ph.i.i.i65 ], [ %indvars.iv.next.i.i.i68, %178 ]
-  %179 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i60, i64 %indvars.iv.i.i.i67
-  %180 = getelementptr inbounds nuw ptr, ptr %177, i64 %indvars.iv.i.i.i67
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i60, i64 %indvars.iv.i.i.i67
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %indvars.iv.i.i.i67
   %181 = load ptr, ptr %180, align 8, !tbaa !168
   store ptr %181, ptr %179, align 8, !tbaa !168
   %indvars.iv.next.i.i.i68 = add nuw nsw i64 %indvars.iv.i.i.i67, 1
@@ -7728,7 +7727,7 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE9push_backERKS1_.exit: ; preds = 
   %186 = phi i32 [ %.pre2.i63, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i ], [ %162, %166 ], [ %163, %161 ]
   %187 = load ptr, ptr %128, align 8, !tbaa !50
   %188 = sext i32 %186 to i64
-  %189 = getelementptr inbounds ptr, ptr %187, i64 %188
+  %189 = getelementptr inbounds [8 x i8], ptr %187, i64 %188
   %190 = load ptr, ptr %164, align 8, !tbaa !168
   store ptr %190, ptr %189, align 8, !tbaa !168
   %191 = add nsw i32 %186, 1
@@ -7815,48 +7814,48 @@ define linkonce_odr dso_local void @_ZNK11btMatrix3x311getRotationER12btQuaterni
   %45 = add nuw nsw i32 %.fr, 2
   %46 = urem i32 %45, 3
   %47 = zext nneg i32 %.fr to i64
-  %48 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %47
-  %49 = getelementptr inbounds nuw float, ptr %48, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %47
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %47
   %50 = load float, ptr %49, align 4, !tbaa !84
   %51 = sext i32 %44 to i64
-  %52 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %51
-  %53 = getelementptr inbounds nuw float, ptr %52, i64 %51
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %51
   %54 = load float, ptr %53, align 4, !tbaa !84
   %55 = fsub float %50, %54
   %56 = zext nneg i32 %46 to i64
-  %57 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %56
-  %58 = getelementptr inbounds nuw float, ptr %57, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %56
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %56
   %59 = load float, ptr %58, align 4, !tbaa !84
   %60 = fsub float %55, %59
   %61 = fadd float %60, 1.000000e+00
   %62 = tail call noundef float @sqrtf(float noundef %61) #22, !tbaa !146
   %63 = fmul float %62, 5.000000e-01
-  %64 = getelementptr inbounds nuw float, ptr %3, i64 %47
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %47
   store float %63, ptr %64, align 4, !tbaa !84
   %65 = fdiv float 5.000000e-01, %62
-  %66 = getelementptr inbounds nuw float, ptr %57, i64 %51
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %51
   %67 = load float, ptr %66, align 4, !tbaa !84
-  %68 = getelementptr inbounds nuw float, ptr %52, i64 %56
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %56
   %69 = load float, ptr %68, align 4, !tbaa !84
   %70 = fsub float %67, %69
   %71 = fmul float %65, %70
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store float %71, ptr %72, align 4, !tbaa !84
-  %73 = getelementptr inbounds nuw float, ptr %52, i64 %47
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %47
   %74 = load float, ptr %73, align 4, !tbaa !84
-  %75 = getelementptr inbounds nuw float, ptr %48, i64 %51
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %51
   %76 = load float, ptr %75, align 4, !tbaa !84
   %77 = fadd float %74, %76
   %78 = fmul float %65, %77
-  %79 = getelementptr inbounds nuw float, ptr %3, i64 %51
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %51
   store float %78, ptr %79, align 4, !tbaa !84
-  %80 = getelementptr inbounds nuw float, ptr %57, i64 %47
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %47
   %81 = load float, ptr %80, align 4, !tbaa !84
-  %82 = getelementptr inbounds nuw float, ptr %48, i64 %56
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %56
   %83 = load float, ptr %82, align 4, !tbaa !84
   %84 = fadd float %81, %83
   %85 = fmul float %65, %84
-  %86 = getelementptr inbounds nuw float, ptr %3, i64 %56
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %56
   store float %85, ptr %86, align 4, !tbaa !84
   %.pre = load float, ptr %3, align 16, !tbaa !84
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -8098,7 +8097,7 @@ tailrecurse:                                      ; preds = %101, %4
   %7 = add nsw i32 %.tr39, %3
   %8 = sdiv i32 %7, 2
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !168
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !171
@@ -8114,7 +8113,7 @@ tailrecurse:                                      ; preds = %101, %4
   br label %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i.us.us
 
 18:                                               ; preds = %.split54.us.us
-  %19 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv84
+  %19 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv84
   store ptr %41, ptr %37, align 8, !tbaa !168
   store ptr %24, ptr %19, align 8, !tbaa !168
   %20 = add nsw i32 %54, 1
@@ -8129,7 +8128,7 @@ tailrecurse:                                      ; preds = %101, %4
 
 _Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i.us.us: ; preds = %_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit.us.us, %.split.us.us
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit.us.us ], [ %17, %.split.us.us ]
-  %23 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv81
+  %23 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv81
   %24 = load ptr, ptr %23, align 8, !tbaa !168
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !171
@@ -8152,13 +8151,13 @@ _ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit.us.us: ;
   br i1 %36, label %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i.us.us, label %.preheader.split.us.us, !llvm.loop !348
 
 .preheader.split.us.us:                           ; preds = %_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit.us.us
-  %37 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv81
+  %37 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv81
   %38 = sext i32 %.030.us to i64
   br label %39
 
 39:                                               ; preds = %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36.us.us, %.preheader.split.us.us
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36.us.us ], [ %38, %.preheader.split.us.us ]
-  %40 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv84
+  %40 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv84
   %41 = load ptr, ptr %40, align 8, !tbaa !168
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load ptr, ptr %42, align 8, !tbaa !171
@@ -8201,7 +8200,7 @@ tailrecurse.split:                                ; preds = %tailrecurse
 
 _Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i: ; preds = %_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit ], [ %60, %.split ]
-  %61 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %61 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !168
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %64 = load ptr, ptr %63, align 8, !tbaa !171
@@ -8224,13 +8223,13 @@ _ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit: ; preds
   br i1 %74, label %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i, label %.preheader.split, !llvm.loop !348
 
 .preheader.split:                                 ; preds = %_ZNK33btSortConstraintOnIslandPredicateclEPK17btTypedConstraintS2_.exit
-  %75 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %75 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv
   %76 = sext i32 %.030 to i64
   br label %77
 
 77:                                               ; preds = %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36, %.preheader.split
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %_Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36 ], [ %76, %.preheader.split ]
-  %78 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv78
+  %78 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv78
   %79 = load ptr, ptr %78, align 8, !tbaa !168
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8, !tbaa !171
@@ -8259,7 +8258,7 @@ _Z23btGetConstraintIslandIdPK17btTypedConstraint.exit.i36: ; preds = %85, %77
   br i1 %.not, label %98, label %94
 
 94:                                               ; preds = %.split54
-  %95 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv78
+  %95 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv78
   store ptr %79, ptr %75, align 8, !tbaa !168
   store ptr %62, ptr %95, align 8, !tbaa !168
   %96 = add nsw i32 %92, 1

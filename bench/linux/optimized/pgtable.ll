@@ -21,13 +21,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.32 = type { i64, [88 x i8] }
 %struct.cpuinfo_topology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.list_head = type { ptr, ptr }
-%struct.page = type { i64, %union.anon, %union.anon.6, %struct.atomic_t, [8 x i8] }
-%union.anon = type { %struct.anon }
-%struct.anon = type { %union.anon.0, ptr, %union.anon.2, i64 }
-%union.anon.0 = type { %struct.list_head }
-%union.anon.2 = type { i64 }
-%union.anon.6 = type { %struct.atomic_t }
-%struct.pmd_t = type { i64 }
 
 @__userpte_alloc_gfp = dso_local local_unnamed_addr global i32 4197824, align 4
 @__setup_str_setup_userpte = internal constant [8 x i8] c"userpte\00", section ".init.rodata", align 1
@@ -81,7 +74,7 @@ define dso_local ptr @pte_alloc_one(ptr noundef readnone captures(none) %0) loca
 18:                                               ; preds = %14, %6
   %19 = phi i64 [ %17, %14 ], [ 1, %6 ]
   %20 = lshr i64 %11, 58
-  %21 = getelementptr ptr, ptr @node_data, i64 %20
+  %21 = getelementptr [8 x i8], ptr @node_data, i64 %20
   %22 = load ptr, ptr %21, align 8
   tail call void @mod_node_page_state(ptr noundef %22, i32 noundef 38, i64 noundef %19) #14
   br label %23
@@ -131,7 +124,7 @@ define dso_local void @___pte_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   %13 = phi i32 [ %11, %9 ], [ 1, %2 ]
   %14 = sub i32 0, %13
   %15 = lshr i64 %6, 58
-  %16 = getelementptr ptr, ptr @node_data, i64 %15
+  %16 = getelementptr [8 x i8], ptr @node_data, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %14 to i64
   tail call void @mod_node_page_state(ptr noundef %17, i32 noundef 38, i64 noundef %18) #14
@@ -157,7 +150,7 @@ define dso_local void @___pmd_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   %11 = select i1 %7, i64 %8, i64 %10
   %12 = add i64 %6, %11
   %13 = lshr i64 %12, 12
-  %14 = getelementptr %struct.page, ptr %4, i64 %13
+  %14 = getelementptr [64 x i8], ptr %4, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load i32, ptr %15, align 16
   %17 = or i32 %16, 512
@@ -176,7 +169,7 @@ define dso_local void @___pmd_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   %25 = phi i32 [ %23, %21 ], [ 1, %2 ]
   %26 = sub i32 0, %25
   %27 = lshr i64 %18, 58
-  %28 = getelementptr ptr, ptr @node_data, i64 %27
+  %28 = getelementptr [8 x i8], ptr @node_data, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %26 to i64
   tail call void @mod_node_page_state(ptr noundef %29, i32 noundef 38, i64 noundef %30) #14
@@ -202,7 +195,7 @@ define dso_local void @___pud_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   %11 = select i1 %7, i64 %8, i64 %10
   %12 = add i64 %11, %6
   %13 = lshr i64 %12, 12
-  %14 = getelementptr %struct.page, ptr %4, i64 %13
+  %14 = getelementptr [64 x i8], ptr %4, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load i32, ptr %15, align 16
   %17 = or i32 %16, 512
@@ -221,7 +214,7 @@ define dso_local void @___pud_free_tlb(ptr noundef %0, ptr noundef %1) local_unn
   %25 = phi i32 [ %23, %21 ], [ 1, %2 ]
   %26 = sub i32 0, %25
   %27 = lshr i64 %18, 58
-  %28 = getelementptr ptr, ptr @node_data, i64 %27
+  %28 = getelementptr [8 x i8], ptr @node_data, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %26 to i64
   tail call void @mod_node_page_state(ptr noundef %29, i32 noundef 38, i64 noundef %30) #14
@@ -287,8 +280,8 @@ define dso_local ptr @pgd_alloc(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %9 = zext nneg i32 %8 to i64
   %10 = lshr i64 %7, %9
   %11 = and i64 %10, 511
-  %12 = getelementptr %struct.pgd_t, ptr %3, i64 %11
-  %13 = getelementptr %struct.pgd_t, ptr @init_top_pgt, i64 %11
+  %12 = getelementptr [8 x i8], ptr %3, i64 %11
+  %13 = getelementptr [8 x i8], ptr @init_top_pgt, i64 %11
   %14 = shl nuw nsw i64 %11, 3
   %15 = sub nuw nsw i64 4096, %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 %12, ptr noundef align 8 %13, i64 %15, i1 false)
@@ -316,7 +309,7 @@ define dso_local ptr @pgd_alloc(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %31 = select i1 %27, i64 %28, i64 %30
   %32 = add i64 %31, %26
   %33 = lshr i64 %32, 12
-  %.split = getelementptr %struct.page, ptr %25, i64 %33
+  %.split = getelementptr [64 x i8], ptr %25, i64 %33
   %34 = getelementptr i8, ptr %.split, i64 32
   store ptr %0, ptr %34, align 8
   %35 = load i64, ptr @vmemmap_base, align 8
@@ -327,7 +320,7 @@ define dso_local ptr @pgd_alloc(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %40 = select i1 %27, i64 %37, i64 %39
   %41 = add i64 %40, %26
   %42 = lshr i64 %41, 12
-  %.split1 = getelementptr %struct.page, ptr %36, i64 %42
+  %.split1 = getelementptr [64 x i8], ptr %36, i64 %42
   %43 = getelementptr i8, ptr %.split1, i64 8
   %44 = load ptr, ptr @pgd_list, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -359,7 +352,7 @@ define dso_local void @pgd_free(ptr noundef readnone captures(none) %0, ptr noun
   %12 = select i1 %8, i64 %9, i64 %11
   %13 = add i64 %7, %12
   %14 = lshr i64 %13, 12
-  %.split = getelementptr %struct.page, ptr %5, i64 %14
+  %.split = getelementptr [64 x i8], ptr %5, i64 %14
   %15 = getelementptr i8, ptr %.split, i64 8
   %16 = getelementptr i8, ptr %.split, i64 16
   %17 = load ptr, ptr %16, align 8
@@ -711,8 +704,8 @@ define dso_local noundef range(i32 0, 2) i32 @pud_free_pmd_page(ptr noundef %0, 
 
 .preheader:                                       ; preds = %2, %23
   %16 = phi i64 [ %24, %23 ], [ 0, %2 ]
-  %17 = getelementptr %struct.pmd_t, ptr %14, i64 %16
-  %18 = getelementptr %struct.pmd_t, ptr %12, i64 %16
+  %17 = getelementptr [8 x i8], ptr %14, i64 %16
+  %18 = getelementptr [8 x i8], ptr %12, i64 %16
   %19 = load i64, ptr %18, align 8
   store i64 %19, ptr %17, align 8
   %20 = and i64 %19, -97
@@ -744,7 +737,7 @@ define dso_local noundef range(i32 0, 2) i32 @pud_free_pmd_page(ptr noundef %0, 
 
 28:                                               ; preds = %41, %26
   %29 = phi i64 [ 0, %26 ], [ %42, %41 ]
-  %30 = getelementptr %struct.pmd_t, ptr %14, i64 %29
+  %30 = getelementptr [8 x i8], ptr %14, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, -97
   %33 = icmp eq i64 %32, 0
@@ -777,7 +770,7 @@ define dso_local noundef range(i32 0, 2) i32 @pud_free_pmd_page(ptr noundef %0, 
   %52 = select i1 %48, i64 %49, i64 %51
   %53 = add i64 %47, %52
   %54 = lshr i64 %53, 12
-  %55 = getelementptr %struct.page, ptr %46, i64 %54
+  %55 = getelementptr [64 x i8], ptr %46, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = load i32, ptr %56, align 16
   %58 = or i32 %57, 512
@@ -796,7 +789,7 @@ define dso_local noundef range(i32 0, 2) i32 @pud_free_pmd_page(ptr noundef %0, 
   %66 = phi i32 [ %64, %62 ], [ 1, %44 ]
   %67 = sub i32 0, %66
   %68 = lshr i64 %59, 58
-  %69 = getelementptr ptr, ptr @node_data, i64 %68
+  %69 = getelementptr [8 x i8], ptr @node_data, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = sext i32 %67 to i64
   tail call void @mod_node_page_state(ptr noundef %70, i32 noundef 38, i64 noundef %71) #14

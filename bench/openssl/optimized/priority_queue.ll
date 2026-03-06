@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.pq_heap_st = type { ptr, i64 }
-%struct.pq_elem_st = type { i64 }
 
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/ssl/priority_queue.c\00", align 1
 @__func__.ossl_pqueue_reserve = private unnamed_addr constant [20 x i8] c"ossl_pqueue_reserve\00", align 1
@@ -25,11 +24,11 @@ define range(i32 0, 2) i32 @ossl_pqueue_push(ptr noundef captures(address_is_nul
   %11 = load i64, ptr %10, align 8, !tbaa !11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !12
-  %14 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %13, i64 %11
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %11
   %15 = load i64, ptr %14, align 8, !tbaa !13
   store i64 %15, ptr %10, align 8, !tbaa !11
   %16 = load ptr, ptr %0, align 8, !tbaa !15
-  %17 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %16, i64 %8
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %8
   store ptr %1, ptr %17, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %11, ptr %18, align 8, !tbaa !18
@@ -46,9 +45,9 @@ define range(i32 0, 2) i32 @ossl_pqueue_push(ptr noundef captures(address_is_nul
   %21 = add i64 %.01217.i, -1
   %22 = lshr i64 %21, 1
   %23 = load ptr, ptr %19, align 8, !tbaa !19
-  %24 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %16, i64 %.01217.i
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %.01217.i
   %25 = load ptr, ptr %24, align 8, !tbaa !16
-  %26 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %16, i64 %22
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %22
   %27 = load ptr, ptr %26, align 8, !tbaa !16
   %28 = tail call i32 %23(ptr noundef %25, ptr noundef %27) #7
   %29 = icmp sgt i32 %28, -1
@@ -58,18 +57,18 @@ define range(i32 0, 2) i32 @ossl_pqueue_push(ptr noundef captures(address_is_nul
   %.val.i = load ptr, ptr %0, align 8, !tbaa !15
   %.val13.i = load ptr, ptr %12, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %31 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %.val.i, i64 %.01217.i
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %.val.i, i64 %.01217.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !20
-  %32 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %.val.i, i64 %22
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %.val.i, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !20
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !18
-  %35 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %.val13.i, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.val13.i, i64 %34
   store i64 %.01217.i, ptr %35, align 8, !tbaa !13
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !18
-  %38 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %.val13.i, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.val13.i, i64 %37
   store i64 %22, ptr %38, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i = icmp eq i64 %22, 0
@@ -151,7 +150,7 @@ compute_pqueue_growth.exit.thread30:              ; preds = %15, %compute_pqueue
   store i64 %.07.i32, ptr %5, align 8, !tbaa !23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load i64, ptr %31, align 8, !tbaa !11
-  %33 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %28, i64 %6
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %6
   store i64 %32, ptr %33, align 8, !tbaa !13
   %.013.i = add i64 %6, 1
   %34 = icmp ult i64 %.013.i, %.07.i32
@@ -160,7 +159,7 @@ compute_pqueue_growth.exit.thread30:              ; preds = %15, %compute_pqueue
 .lr.ph.i28:                                       ; preds = %30, %.lr.ph.i28
   %.015.i = phi i64 [ %.0.i, %.lr.ph.i28 ], [ %.013.i, %30 ]
   %.0.in14.i = phi i64 [ %.015.i, %.lr.ph.i28 ], [ %6, %30 ]
-  %35 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %28, i64 %.015.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.015.i
   store i64 %.0.in14.i, ptr %35, align 8, !tbaa !13
   %.0.i = add nuw i64 %.015.i, 1
   %exitcond.not.i = icmp eq i64 %.0.i, %.07.i32
@@ -218,10 +217,10 @@ define ptr @ossl_pqueue_pop(ptr noundef captures(address_is_null) %0) local_unna
 14:                                               ; preds = %8
   %15 = getelementptr i8, ptr %0, i64 8
   %.val17 = load ptr, ptr %15, align 8, !tbaa !12
-  %16 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %9, i64 %13
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !20
   %17 = load i64, ptr %11, align 8, !tbaa !18
-  %18 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %.val17, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.val17, i64 %17
   store i64 0, ptr %18, align 8, !tbaa !13
   %19 = load ptr, ptr %0, align 8, !tbaa !15
   %20 = load i64, ptr %5, align 8, !tbaa !3
@@ -252,9 +251,9 @@ define ptr @ossl_pqueue_pop(ptr noundef captures(address_is_null) %0) local_unna
   %.135.i = phi i64 [ %.2.i, %64 ], [ %.0.i, %31 ]
   %.02934.i = phi i64 [ %.135.i, %64 ], [ 0, %31 ]
   %35 = load ptr, ptr %33, align 8, !tbaa !19
-  %36 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %19, i64 %.135.i
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %.135.i
   %37 = load ptr, ptr %36, align 8, !tbaa !16
-  %38 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %19, i64 %.02934.i
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %.02934.i
   %39 = load ptr, ptr %38, align 8, !tbaa !16
   %40 = tail call i32 %35(ptr noundef %37, ptr noundef %39) #7
   %41 = icmp slt i32 %40, 0
@@ -264,18 +263,18 @@ define ptr @ossl_pqueue_pop(ptr noundef captures(address_is_null) %0) local_unna
   %.val.i = load ptr, ptr %0, align 8, !tbaa !15
   %.val33.i = load ptr, ptr %15, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %43 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %.val.i, i64 %.02934.i
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %.val.i, i64 %.02934.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false), !tbaa.struct !20
-  %44 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %.val.i, i64 %.135.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %.val.i, i64 %.135.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !20
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load i64, ptr %45, align 8, !tbaa !18
-  %47 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %.val33.i, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.val33.i, i64 %46
   store i64 %.02934.i, ptr %47, align 8, !tbaa !13
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !18
-  %50 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %.val33.i, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.val33.i, i64 %49
   store i64 %.135.i, ptr %50, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %51 = shl i64 %.135.i, 1
@@ -287,9 +286,9 @@ define ptr @ossl_pqueue_pop(ptr noundef captures(address_is_null) %0) local_unna
 
 56:                                               ; preds = %42
   %57 = load ptr, ptr %33, align 8, !tbaa !19
-  %58 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %19, i64 %52
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %52
   %59 = load ptr, ptr %58, align 8, !tbaa !16
-  %60 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %19, i64 %54
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %54
   %61 = load ptr, ptr %60, align 8, !tbaa !16
   %62 = tail call i32 %57(ptr noundef %59, ptr noundef %61) #7
   %63 = icmp sgt i32 %62, 0
@@ -308,7 +307,7 @@ pqueue_move_up.exit:                              ; preds = %64, %.lr.ph.i, %31,
   %68 = load i64, ptr %67, align 8, !tbaa !11
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !12
-  %71 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %70, i64 %12
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %12
   store i64 %68, ptr %71, align 8, !tbaa !13
   store i64 %12, ptr %67, align 8, !tbaa !11
   br label %72
@@ -339,7 +338,7 @@ define ptr @ossl_pqueue_remove(ptr noundef captures(address_is_null) %0, i64 nou
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !12
-  %15 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %14, i64 %1
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %1
   %16 = load i64, ptr %15, align 8, !tbaa !13
   %17 = add i64 %10, -1
   %18 = icmp eq i64 %16, %17
@@ -352,7 +351,7 @@ define ptr @ossl_pqueue_remove(ptr noundef captures(address_is_null) %0, i64 nou
   store i64 %1, ptr %20, align 8, !tbaa !11
   %22 = load ptr, ptr %0, align 8, !tbaa !15
   store i64 %16, ptr %9, align 8, !tbaa !3
-  %23 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %22, i64 %16
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %16
   %24 = load ptr, ptr %23, align 8, !tbaa !16
   br label %37
 
@@ -367,18 +366,18 @@ define ptr @ossl_pqueue_remove(ptr noundef captures(address_is_null) %0, i64 nou
   %.val.i = load ptr, ptr %0, align 8, !tbaa !15
   %.val5.i = load ptr, ptr %13, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %28 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %.val.i, i64 %.06.i
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %.val.i, i64 %.06.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !20
-  %29 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %.val.i, i64 %27
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %.val.i, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !20
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !18
-  %32 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %.val5.i, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.val5.i, i64 %31
   store i64 %.06.i, ptr %32, align 8, !tbaa !13
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !18
-  %35 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %.val5.i, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.val5.i, i64 %34
   store i64 %27, ptr %35, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i = icmp eq i64 %27, 0
@@ -443,7 +442,7 @@ ossl_pqueue_free.exit:                            ; preds = %6
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.015.i = phi i64 [ %.0.i, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
   %.0.in14.i = phi i64 [ %.015.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %16 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %12, i64 %.015.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.015.i
   store i64 %.0.in14.i, ptr %16, align 8, !tbaa !13
   %.0.i = add nuw i64 %.015.i, 1
   %exitcond.not.i = icmp eq i64 %.0.i, 8
@@ -494,7 +493,7 @@ define void @ossl_pqueue_pop_free(ptr noundef %0, ptr noundef readonly captures(
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.08 = phi i64 [ %8, %.lr.ph ], [ 0, %.preheader ]
   %5 = load ptr, ptr %0, align 8, !tbaa !15
-  %6 = getelementptr inbounds nuw %struct.pq_heap_st, ptr %5, i64 %.08
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.08
   %7 = load ptr, ptr %6, align 8, !tbaa !16
   tail call void %1(ptr noundef %7) #7
   %8 = add nuw i64 %.08, 1

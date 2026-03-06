@@ -45,7 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::StringRef" = type { ptr, i64 }
 %"struct.std::pair" = type { ptr, %"class.llvm::FunctionCallee" }
 %"class.llvm::FunctionCallee" = type { ptr, ptr }
-%"struct.std::pair.111" = type { i32, ptr }
 
 $_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEC2EPNS_11InstructionEPNS_6MDNodeENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE = comdat any
 
@@ -482,7 +481,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE18growAndEmplaceBac
   %.pre.i.i12 = load i32, ptr %31, align 8, !tbaa !48, !noalias !25
   %202 = load ptr, ptr %7, align 8, !tbaa !43, !noalias !25
   %203 = zext i32 %.pre.i.i12 to i64
-  %204 = getelementptr inbounds nuw %"struct.std::pair.111", ptr %202, i64 %203
+  %204 = getelementptr inbounds nuw [16 x i8], ptr %202, i64 %203
   store i32 0, ptr %204, align 1, !noalias !25
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %204, i64 8
   store ptr %.pre.i.i, ptr %.sroa.22.0..sroa_idx.i.i, align 1, !noalias !25
@@ -723,7 +722,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit.i: ; preds 
   %23 = phi i32 [ %15, %.lr.ph.i ], [ %.pre.i.i, %20 ]
   %24 = load ptr, ptr %6, align 8, !tbaa !43, !alias.scope !122
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = ptrtoint ptr %18 to i64
   store i64 %27, ptr %26, align 1
   %28 = load i32, ptr %12, align 8, !tbaa !48, !alias.scope !122
@@ -1092,7 +1091,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !43
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.std::pair.111", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store i32 %4, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -1101,7 +1100,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   store i32 %19, ptr %6, align 8, !tbaa !48
   %20 = load ptr, ptr %0, align 8, !tbaa !43
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.std::pair.111", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   ret ptr %23
 }

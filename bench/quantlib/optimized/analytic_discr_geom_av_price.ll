@@ -1592,7 +1592,7 @@ invoke.cont185:                                   ; preds = %for.cond.preheader,
   %fixingTimes.sroa.0.0612 = phi ptr [ %fixingTimes.sroa.0.1, %for.inc ], [ null, %for.cond.preheader ]
   %fixingTimes.sroa.11.0611 = phi ptr [ %fixingTimes.sroa.11.1, %for.inc ], [ null, %for.cond.preheader ]
   %fixingTimes.sroa.16.0610 = phi ptr [ %fixingTimes.sroa.16.1, %for.inc ], [ null, %for.cond.preheader ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %87, i64 %i.0613
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %i.0613
   %88 = load i64, ptr %add.ptr.i, align 8, !tbaa !100
   %89 = load i64, ptr %referenceDate, align 8, !tbaa !100
   %cmp.i226.not = icmp slt i64 %88, %89
@@ -1670,7 +1670,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i
-  %add.ptr19.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i235, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i235, i64 %cond.i.i.i
   br label %for.inc
 
 lpad128:                                          ; preds = %cond.false.i194, %cond.false.i191, %invoke.cont135, %invoke.cont131, %invoke.cont129
@@ -1856,7 +1856,7 @@ for.body245:                                      ; preds = %invoke.cont239, %fo
   %i.1.in619 = phi i64 [ %i.1620, %for.body245 ], [ %pastFixings.0, %invoke.cont239 ]
   %temp.0618 = phi double [ %110, %for.body245 ], [ 0.000000e+00, %invoke.cont239 ]
   %sub247 = sub i64 %i.1.in619, %pastFixings.0
-  %add.ptr.i266 = getelementptr inbounds nuw double, ptr %fixingTimes.sroa.0.0.lcssa, i64 %sub247
+  %add.ptr.i266 = getelementptr inbounds nuw [8 x i8], ptr %fixingTimes.sroa.0.0.lcssa, i64 %sub247
   %109 = load double, ptr %add.ptr.i266, align 8, !tbaa !101
   %conv249 = uitofp i64 %i.1620 to double
   %sub250 = fsub double %conv, %conv249

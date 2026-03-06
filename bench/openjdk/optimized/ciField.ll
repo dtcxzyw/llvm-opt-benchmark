@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.FieldInfo = type <{ i32, i16, i16, i32, %class.AccessFlags, %"class.FieldInfo::FieldFlags", i16, i16, i16, [2 x i8] }>
 %class.AccessFlags = type { i32 }
 %"class.FieldInfo::FieldFlags" = type { i32 }
-%class.FieldStatus = type { i8 }
 %class.ciConstant = type { i8, %union.anon }
 %union.anon = type { i64 }
 %class.LinkInfo = type <{ ptr, ptr, ptr, ptr, %class.methodHandle, i8, i8, %class.constantTag, [5 x i8] }>
@@ -145,7 +144,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %39, i64 %40
   store ptr %19, ptr %41, align 8
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
@@ -155,7 +154,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %4, %_ZN26Grow
   %44 = tail call noundef zeroext i16 @_ZN12ConstantPool17name_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %19, i32 noundef %43) #9
   %45 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %46 = zext i16 %44 to i64
-  %47 = getelementptr inbounds nuw i64, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 1808
   %50 = icmp eq ptr %48, null
@@ -179,7 +178,7 @@ _ZN5ciEnv10get_symbolEP6Symbol.exit:              ; preds = %_ZN18constantPoolHa
   %60 = tail call noundef zeroext i16 @_ZN12ConstantPool22signature_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %19, i32 noundef %59) #9
   %61 = zext i16 %60 to i32
   %62 = zext i16 %60 to i64
-  %63 = getelementptr inbounds nuw i64, ptr %45, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %_ZN5ciEnv10get_symbolEP6Symbol.exit43
@@ -347,7 +346,7 @@ define hidden void @_ZN7ciField15initialize_fromEP15fieldDescriptor(ptr noundef 
   %11 = load i32, ptr %1, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds %class.FieldStatus, ptr %12, i64 %13
+  %14 = getelementptr inbounds i8, ptr %12, i64 %13
   %.sroa.0.0.copyload.i.i13 = load i8, ptr %14, align 1
   %15 = trunc i32 %.sroa.0.0.copyload.i.i12 to i8
   %16 = lshr i8 %15, 3
@@ -585,83 +584,80 @@ define hidden void @_ZN7ciFieldC2EP15fieldDescriptor(ptr noundef nonnull align 8
   %10 = and i32 %.sroa.21.0.copyload.i, 2
   %.not.i.i = icmp eq i32 %10, 0
   %11 = zext i16 %.sroa.1.0.copyload.i to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %11
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %11
-  %.0.in.i.i = select i1 %.not.i.i, ptr %14, ptr %12
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %.0.in.v.i.i = select i1 %.not.i.i, ptr %12, ptr @_ZN6Symbol11_vm_symbolsE
+  %.0.in.i.i = getelementptr inbounds nuw [8 x i8], ptr %.0.in.v.i.i, i64 %11
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
-  %15 = icmp eq ptr %.0.i.i, null
-  br i1 %15, label %16, label %_ZN5ciEnv10get_symbolEP6Symbol.exit
+  %13 = icmp eq ptr %.0.i.i, null
+  br i1 %13, label %14, label %_ZN5ciEnv10get_symbolEP6Symbol.exit
 
-16:                                               ; preds = %2
-  %17 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %17, align 1
+14:                                               ; preds = %2
+  %15 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %15, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.16, i32 noundef 183) #10
   unreachable
 
 _ZN5ciEnv10get_symbolEP6Symbol.exit:              ; preds = %2
-  %18 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1808
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1808
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call noundef ptr @_ZN15ciObjectFactory10get_symbolEP6Symbol(ptr noundef nonnull align 8 dereferenceable(652) %23, ptr noundef nonnull %.0.i.i) #9
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %24, ptr %25, align 8
+  %22 = tail call noundef ptr @_ZN15ciObjectFactory10get_symbolEP6Symbol(ptr noundef nonnull align 8 dereferenceable(652) %21, ptr noundef nonnull %.0.i.i) #9
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %22, ptr %23, align 8
   %.sroa.1.0..sroa_idx.i8 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %.sroa.1.0.copyload.i9 = load i16, ptr %.sroa.1.0..sroa_idx.i8, align 2
   %.sroa.21.0.copyload.i11 = load i32, ptr %.sroa.21.0..sroa_idx.i, align 8
-  %26 = load ptr, ptr %8, align 8
-  %27 = and i32 %.sroa.21.0.copyload.i11, 2
-  %.not.i.i12 = icmp eq i32 %27, 0
-  %28 = zext i16 %.sroa.1.0.copyload.i9 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %28
-  %.0.in.i.i13 = select i1 %.not.i.i12, ptr %31, ptr %29
-  %.0.i.i14 = load ptr, ptr %.0.in.i.i13, align 8
-  %32 = icmp eq ptr %.0.i.i14, null
-  br i1 %32, label %33, label %_ZN5ciEnv10get_symbolEP6Symbol.exit15
+  %24 = load ptr, ptr %8, align 8
+  %25 = and i32 %.sroa.21.0.copyload.i11, 2
+  %.not.i.i12 = icmp eq i32 %25, 0
+  %26 = zext i16 %.sroa.1.0.copyload.i9 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 72
+  %.0.in.v.i.i13 = select i1 %.not.i.i12, ptr %27, ptr @_ZN6Symbol11_vm_symbolsE
+  %.0.in.i.i14 = getelementptr inbounds nuw [8 x i8], ptr %.0.in.v.i.i13, i64 %26
+  %.0.i.i15 = load ptr, ptr %.0.in.i.i14, align 8
+  %28 = icmp eq ptr %.0.i.i15, null
+  br i1 %28, label %29, label %_ZN5ciEnv10get_symbolEP6Symbol.exit16
 
-33:                                               ; preds = %_ZN5ciEnv10get_symbolEP6Symbol.exit
-  %34 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %34, align 1
+29:                                               ; preds = %_ZN5ciEnv10get_symbolEP6Symbol.exit
+  %30 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %30, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.16, i32 noundef 183) #10
   unreachable
 
-_ZN5ciEnv10get_symbolEP6Symbol.exit15:            ; preds = %_ZN5ciEnv10get_symbolEP6Symbol.exit
-  %35 = load ptr, ptr %22, align 8
-  %36 = tail call noundef ptr @_ZN15ciObjectFactory10get_symbolEP6Symbol(ptr noundef nonnull align 8 dereferenceable(652) %35, ptr noundef nonnull %.0.i.i14) #9
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %36, ptr %37, align 8
+_ZN5ciEnv10get_symbolEP6Symbol.exit16:            ; preds = %_ZN5ciEnv10get_symbolEP6Symbol.exit
+  %31 = load ptr, ptr %20, align 8
+  %32 = tail call noundef ptr @_ZN15ciObjectFactory10get_symbolEP6Symbol(ptr noundef nonnull align 8 dereferenceable(652) %31, ptr noundef nonnull %.0.i.i15) #9
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %32, ptr %33, align 8
   %.sroa.1.0.copyload.i.i = load i16, ptr %.sroa.1.0..sroa_idx.i8, align 2
   %.sroa.21.0.copyload.i.i = load i32, ptr %.sroa.21.0..sroa_idx.i, align 8
-  %38 = load ptr, ptr %8, align 8
-  %39 = and i32 %.sroa.21.0.copyload.i.i, 2
-  %.not.i.i.i = icmp eq i32 %39, 0
-  %40 = zext i16 %.sroa.1.0.copyload.i.i to i64
-  %41 = getelementptr inbounds nuw ptr, ptr @_ZN6Symbol11_vm_symbolsE, i64 %40
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 72
-  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %40
-  %.0.in.i.i.i = select i1 %.not.i.i.i, ptr %43, ptr %41
+  %34 = load ptr, ptr %8, align 8
+  %35 = and i32 %.sroa.21.0.copyload.i.i, 2
+  %.not.i.i.i = icmp eq i32 %35, 0
+  %36 = zext i16 %.sroa.1.0.copyload.i.i to i64
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 72
+  %.0.in.v.i.i.i = select i1 %.not.i.i.i, ptr %37, ptr @_ZN6Symbol11_vm_symbolsE
+  %.0.in.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.0.in.v.i.i.i, i64 %36
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 6
-  %45 = load i8, ptr %44, align 1
-  %46 = sext i8 %45 to i32
-  %47 = tail call noundef zeroext i8 @_ZN9Signature10basic_typeEi(i32 noundef %46) #9
-  %48 = and i8 %47, -2
-  %or.cond.i = icmp eq i8 %48, 12
-  br i1 %or.cond.i, label %50, label %_Z17is_reference_type9BasicTypeb.exit
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 6
+  %39 = load i8, ptr %38, align 1
+  %40 = sext i8 %39 to i32
+  %41 = tail call noundef zeroext i8 @_ZN9Signature10basic_typeEi(i32 noundef %40) #9
+  %42 = and i8 %41, -2
+  %or.cond.i = icmp eq i8 %42, 12
+  br i1 %or.cond.i, label %44, label %_Z17is_reference_type9BasicTypeb.exit
 
-_Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZN5ciEnv10get_symbolEP6Symbol.exit15
-  %49 = tail call noundef ptr @_ZN6ciType4makeE9BasicType(i8 noundef zeroext %47) #9
-  br label %50
+_Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZN5ciEnv10get_symbolEP6Symbol.exit16
+  %43 = tail call noundef ptr @_ZN6ciType4makeE9BasicType(i8 noundef zeroext %41) #9
+  br label %44
 
-50:                                               ; preds = %_ZN5ciEnv10get_symbolEP6Symbol.exit15, %_Z17is_reference_type9BasicTypeb.exit
-  %.sink = phi ptr [ %49, %_Z17is_reference_type9BasicTypeb.exit ], [ null, %_ZN5ciEnv10get_symbolEP6Symbol.exit15 ]
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sink, ptr %51, align 8
+44:                                               ; preds = %_ZN5ciEnv10get_symbolEP6Symbol.exit16, %_Z17is_reference_type9BasicTypeb.exit
+  %.sink = phi ptr [ %43, %_Z17is_reference_type9BasicTypeb.exit ], [ null, %_ZN5ciEnv10get_symbolEP6Symbol.exit16 ]
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %.sink, ptr %45, align 8
   tail call void @_ZN7ciField15initialize_fromEP15fieldDescriptor(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1)
   ret void
 }
@@ -1221,7 +1217,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %74 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = sext i32 %72 to i64
-  %77 = getelementptr inbounds ptr, ptr %75, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %75, i64 %76
   store ptr %55, ptr %77, align 8
   br label %_ZN12methodHandleC2EP6ThreadP6Method.exit
 
@@ -1656,9 +1652,9 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1675,7 +1671,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

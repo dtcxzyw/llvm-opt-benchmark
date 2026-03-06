@@ -45,12 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.25" = type { %"class.llvm::SmallVectorBase.20" }
 %"class.llvm::SmallVectorBase.20" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.26" = type { [32 x i8] }
-%"class.std::unique_ptr.27" = type { %"struct.std::__uniq_ptr_data.28" }
-%"struct.std::__uniq_ptr_data.28" = type { %"class.std::__uniq_ptr_impl.29" }
-%"class.std::__uniq_ptr_impl.29" = type { %"class.std::tuple.30" }
-%"class.std::tuple.30" = type { %"struct.std::_Tuple_impl.31" }
-%"struct.std::_Tuple_impl.31" = type { %"struct.std::_Head_base.34" }
-%"struct.std::_Head_base.34" = type { ptr }
 
 $_ZN4llvm6detail13DoubleAPFloatD2Ev = comdat any
 
@@ -188,7 +182,7 @@ $_ZZN4llvm13hexDigitValueEcE3LUT = comdat any
 define dso_local noundef nonnull align 4 dereferenceable(26) ptr @_ZN4llvm11APFloatBase15EnumToSemanticsENS0_9SemanticsE(i32 noundef %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm11APFloatBase15EnumToSemanticsENS0_9SemanticsE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm11APFloatBase15EnumToSemanticsENS0_9SemanticsE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -863,7 +857,7 @@ _ZN4llvm5APIntD2Ev.exit35:                        ; preds = %66, %60
   %notmask = shl nsw i64 -1, %89
   %90 = xor i64 %notmask, -1
   %91 = zext nneg i32 %87 to i64
-  %92 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %91
   %93 = load i64, ptr %92, align 8, !tbaa !36
   %94 = and i64 %93, %90
   store i64 %94, ptr %92, align 8, !tbaa !36
@@ -874,7 +868,7 @@ _ZN4llvm5APIntD2Ev.exit35:                        ; preds = %66, %60
 .lr.ph:                                           ; preds = %.thread77, %.lr.ph
   %.029100 = phi i32 [ %.029, %.lr.ph ], [ %.02998, %.thread77 ]
   %95 = zext i32 %.029100 to i64
-  %96 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %95
   store i64 0, ptr %96, align 8, !tbaa !36
   %.029 = add i32 %.029100, 1
   %.not32 = icmp eq i32 %.029, %.sroa.speculated.i.i
@@ -1276,7 +1270,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat20isSmallestNorma
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %23 ]
-  %24 = getelementptr inbounds nuw i64, ptr %.0.i.i.i, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i
   %25 = load i64, ptr %24, align 8, !tbaa !36
   %.not.i = icmp eq i64 %25, 0
   br i1 %.not.i, label %23, label %_ZNK4llvm6detail9IEEEFloat30isSignificandAllZerosExceptMSBEv.exit
@@ -1291,7 +1285,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat20isSmallestNorma
   %30 = zext nneg i32 %29 to i64
   %31 = shl nuw i64 1, %30
   %32 = zext nneg i32 %22 to i64
-  %33 = getelementptr inbounds nuw i64, ptr %.0.i.i.i, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !36
   %35 = icmp eq i64 %34, %31
   br label %_ZNK4llvm6detail9IEEEFloat30isSignificandAllZerosExceptMSBEv.exit
@@ -1329,7 +1323,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat30isSignificandAl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8, !tbaa !36
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %12, label %.loopexit
@@ -1344,7 +1338,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat30isSignificandAl
   %19 = zext nneg i32 %18 to i64
   %20 = shl nuw i64 1, %19
   %21 = zext nneg i32 %11 to i64
-  %22 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !36
   %24 = icmp eq i64 %23, %20
   br label %.loopexit
@@ -1398,7 +1392,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat20isSignificandAl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8, !tbaa !36
   %.not = icmp eq i64 %14, -1
   br i1 %.not, label %12, label %.loopexit
@@ -1413,7 +1407,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat20isSignificandAl
   %19 = zext nneg i32 %18 to i64
   %20 = shl nsw i64 -1, %19
   %21 = zext nneg i32 %11 to i64
-  %22 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !36
   %24 = or i64 %23, %20
   %.not14 = icmp eq i64 %24, -1
@@ -1458,7 +1452,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat29isSignificandAl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8, !tbaa !36
   %.not15 = icmp eq i64 %indvars.iv, 0
   %18 = zext i1 %.not15 to i64
@@ -1477,7 +1471,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat29isSignificandAl
   %22 = sub i32 %.neg22, %21
   %23 = zext nneg i32 %22 to i64
   %24 = shl nsw i64 -1, %23
-  %25 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %.pre-phi
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %.pre-phi
   %26 = load i64, ptr %25, align 8, !tbaa !36
   %27 = or i64 %26, %24
   %28 = and i64 %27, 9223372036854775806
@@ -1517,7 +1511,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat21isSignificandAl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8, !tbaa !36
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %12, label %.loopexit
@@ -1533,7 +1527,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6detail9IEEEFloat21isSignificandAl
   %19 = zext nneg i32 %18 to i64
   %20 = lshr i64 -1, %19
   %21 = zext nneg i32 %11 to i64
-  %22 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !36
   %24 = and i64 %23, %20
   %.not14 = icmp eq i64 %24, 0
@@ -1623,7 +1617,7 @@ thread-pre-split:                                 ; preds = %1
 
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %40 ]
-  %41 = getelementptr inbounds nuw i64, ptr %.0.i.i.i, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i
   %42 = load i64, ptr %41, align 8, !tbaa !36
   %.not15.i = icmp eq i64 %indvars.iv.i, 0
   %43 = zext i1 %.not15.i to i64
@@ -1633,7 +1627,7 @@ thread-pre-split:                                 ; preds = %1
   br i1 %.not16.i, label %40, label %_ZNK4llvm6detail9IEEEFloat29isSignificandAllOnesExceptLSBEv.exit
 
 .critedge.i.loopexit:                             ; preds = %40
-  %.phi.trans.insert = getelementptr inbounds nuw i64, ptr %.0.i.i.i, i64 %wide.trip.count.i
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %wide.trip.count.i
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !36
   br label %.critedge.i
 
@@ -1681,7 +1675,7 @@ thread-pre-split:                                 ; preds = %1
 
 .lr.ph.i8:                                        ; preds = %64, %.lr.ph.preheader.i6
   %indvars.iv.i9 = phi i64 [ 0, %.lr.ph.preheader.i6 ], [ %indvars.iv.next.i11, %64 ]
-  %65 = getelementptr inbounds nuw i64, ptr %.0.i.i.i4, i64 %indvars.iv.i9
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i4, i64 %indvars.iv.i9
   %66 = load i64, ptr %65, align 8, !tbaa !36
   %.not.i10 = icmp eq i64 %66, -1
   br i1 %.not.i10, label %64, label %_ZNK4llvm6detail9IEEEFloat29isSignificandAllOnesExceptLSBEv.exit
@@ -1696,7 +1690,7 @@ thread-pre-split:                                 ; preds = %1
   %71 = zext nneg i32 %70 to i64
   %72 = shl nsw i64 -1, %71
   %73 = zext nneg i32 %63 to i64
-  %74 = getelementptr inbounds nuw i64, ptr %.0.i.i.i4, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i4, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !36
   %76 = or i64 %75, %72
   %.not14.i = icmp eq i64 %76, -1
@@ -2510,7 +2504,7 @@ _ZN4llvmL20combineLostFractionsENS_12lostFractionES0_.exit: ; preds = %_ZN4llvm6
 
 .lr.ph.i:                                         ; preds = %89, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %89 ]
-  %90 = getelementptr inbounds nuw i64, ptr %.0.i.i.i41, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i41, i64 %indvars.iv.i
   %91 = load i64, ptr %90, align 8, !tbaa !36
   %.not.i42 = icmp eq i64 %91, -1
   br i1 %.not.i42, label %89, label %_ZNK4llvm6detail9IEEEFloat20isSignificandAllOnesEv.exit.thread
@@ -2525,7 +2519,7 @@ _ZNK4llvm6detail9IEEEFloat20isSignificandAllOnesEv.exit: ; preds = %.critedge.i
   %95 = zext nneg i32 %94 to i64
   %96 = shl nsw i64 -1, %95
   %97 = zext nneg i32 %88 to i64
-  %98 = getelementptr inbounds nuw i64, ptr %.0.i.i.i41, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i41, i64 %97
   %99 = load i64, ptr %98, align 8, !tbaa !36
   %100 = or i64 %99, %96
   %.not14.i = icmp eq i64 %100, -1
@@ -4343,18 +4337,18 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm6detail9IEEEFloat17divideS
 25:                                               ; preds = %2, %21
   %.065 = phi ptr [ %24, %21 ], [ %3, %2 ]
   %26 = zext nneg i32 %.sroa.speculated.i.i to i64
-  %27 = getelementptr inbounds nuw i64, ptr %.065, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.065, i64 %26
   br label %28
 
 28:                                               ; preds = %25, %28
   %indvars.iv = phi i64 [ 0, %25 ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8, !tbaa !36
-  %31 = getelementptr inbounds nuw i64, ptr %.065, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.065, i64 %indvars.iv
   store i64 %30, ptr %31, align 8, !tbaa !36
-  %32 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %indvars.iv
   %33 = load i64, ptr %32, align 8, !tbaa !36
-  %34 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store i64 %33, ptr %34, align 8, !tbaa !36
   store i64 0, ptr %29, align 8, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4645,7 +4639,7 @@ define dso_local noundef range(i32 16, 21) i32 @_ZN4llvm6detail9IEEEFloat14handl
   %50 = lshr i64 -1, %49
   %51 = add nuw nsw i32 %.0.lcssa.i, 1
   %52 = zext nneg i32 %.0.lcssa.i to i64
-  %53 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %52
   store i64 %50, ptr %53, align 8, !tbaa !36
   br label %54
 
@@ -7118,7 +7112,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %15, %18
   %27 = icmp ult i32 %.pre12, 65
   %28 = lshr i32 %23, 6
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i64, ptr %.pre14, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.pre14, i64 %29
   %.in.i.i.i = select i1 %27, ptr %5, ptr %30
   %31 = load i64, ptr %.in.i.i.i, align 8, !tbaa !24
   %32 = and i64 %26, %31
@@ -7507,7 +7501,7 @@ define dso_local noundef range(i32 0, 17) i32 @_ZNK4llvm6detail9IEEEFloat16conve
   %35 = lshr i64 -1, %34
   %36 = add nuw nsw i32 %.0.lcssa.i, 1
   %37 = zext nneg i32 %.0.lcssa.i to i64
-  %38 = getelementptr inbounds nuw i64, ptr %1, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %37
   store i64 %35, ptr %38, align 8, !tbaa !36
   br label %39
 
@@ -7904,7 +7898,7 @@ _ZN4llvm5ErrorD2Ev.exit86:                        ; preds = %55
 
 65:                                               ; preds = %52
   %66 = zext i8 %53 to i64
-  %67 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %66
+  %67 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !86
   %69 = sext i16 %68 to i64
   %70 = and i64 %69, 4294967295
@@ -7923,7 +7917,7 @@ _ZN4llvm5ErrorD2Ev.exit86:                        ; preds = %55
   %78 = shl i64 %70, %77
   %79 = lshr i32 %75, 6
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %80
   %82 = load i64, ptr %81, align 8, !tbaa !36
   %83 = or i64 %82, %78
   store i64 %83, ptr %81, align 8, !tbaa !36
@@ -7971,7 +7965,7 @@ _ZN4llvm5ErrorD2Ev.exit86:                        ; preds = %55
 
 .critedge.i91:                                    ; preds = %.lr.ph.i88
   %94 = zext i8 %92 to i64
-  %95 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %94
+  %95 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !86, !noalias !88
   %97 = icmp eq i16 %96, -1
   %98 = icmp eq i8 %53, 48
@@ -8345,7 +8339,7 @@ define dso_local noundef i32 @_ZN4llvm6detail9IEEEFloat28roundSignificandWithExp
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %27 = and i32 %26, 7
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i64, ptr @_ZZN4llvmL8powerOf5EPmjE16firstEightPowers, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN4llvmL8powerOf5EPmjE16firstEightPowers, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !36
   store i64 %30, ptr %10, align 16, !tbaa !36
   %31 = lshr i32 %26, 3
@@ -8370,12 +8364,12 @@ define dso_local noundef i32 @_ZN4llvm6detail9IEEEFloat28roundSignificandWithExp
 32:                                               ; preds = %.lr.ph.i
   %33 = zext i32 %.04755.i to i64
   %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds i64, ptr %.04258.i, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %.04258.i, i64 %34
   call void @_ZN4llvm5APInt14tcFullMultiplyEPmPKmS3_jj(ptr noundef %.04258.i, ptr noundef %35, ptr noundef %35, i32 noundef %.04755.i, i32 noundef %.04755.i) #29
   %36 = shl i32 %.04755.i, 1
   %37 = add i32 %36, -1
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %.04258.i, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.04258.i, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !36
   %41 = icmp eq i64 %40, 0
   %spec.select.i = select i1 %41, i32 %37, i32 %36
@@ -8392,7 +8386,7 @@ define dso_local noundef i32 @_ZN4llvm6detail9IEEEFloat28roundSignificandWithExp
   %45 = add i32 %.148.i, %.04159.i
   %46 = add i32 %45, -1
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i64, ptr %.04357.i, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.04357.i, i64 %47
   %49 = load i64, ptr %48, align 8, !tbaa !36
   %50 = icmp eq i64 %49, 0
   %spec.select53.i = select i1 %50, i32 %46, i32 %45
@@ -8403,7 +8397,7 @@ define dso_local noundef i32 @_ZN4llvm6detail9IEEEFloat28roundSignificandWithExp
   %.144.i = phi ptr [ %.04556.i, %44 ], [ %.04357.i, %42 ]
   %.1.i = phi i32 [ %spec.select53.i, %44 ], [ %.04159.i, %42 ]
   %52 = zext i32 %.148.i to i64
-  %53 = getelementptr inbounds nuw i64, ptr %.04258.i, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.04258.i, i64 %52
   %54 = lshr i32 %.061.i, 1
   %55 = add nuw nsw i32 %.04060.i, 1
   %.not.i = icmp eq i32 %54, 0
@@ -8546,7 +8540,7 @@ _ZN4llvm6detail9IEEEFloat8makeZeroEb.exit:        ; preds = %63, %80
   %138 = lshr i32 %137, 6
   %139 = and i32 %137, 63
   %140 = zext nneg i32 %138 to i64
-  %141 = getelementptr inbounds nuw i64, ptr %.0.i47, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %.0.i47, i64 %140
   %142 = load i64, ptr %141, align 8, !tbaa !36
   %143 = xor i32 %139, 63
   %144 = zext nneg i32 %143 to i64
@@ -8574,7 +8568,7 @@ _ZN4llvm6detail9IEEEFloat8makeZeroEb.exit:        ; preds = %63, %80
   br i1 %.not38.wide.i, label %158, label %155
 
 155:                                              ; preds = %.preheader.i
-  %156 = getelementptr inbounds nuw i64, ptr %.0.i47, i64 %154
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %.0.i47, i64 %154
   %157 = load i64, ptr %156, align 8, !tbaa !36
   %.not39.i = icmp eq i64 %157, 0
   br i1 %.not39.i, label %.preheader.i, label %_ZN4llvmL16ulpsFromBoundaryEPKmjb.exit, !llvm.loop !200
@@ -8595,7 +8589,7 @@ _ZN4llvm6detail9IEEEFloat8makeZeroEb.exit:        ; preds = %63, %80
   br i1 %.not.wide.i, label %167, label %164
 
 164:                                              ; preds = %.preheader41.i
-  %165 = getelementptr inbounds nuw i64, ptr %.0.i47, i64 %163
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %.0.i47, i64 %163
   %166 = load i64, ptr %165, align 8, !tbaa !36
   %.not37.i = icmp eq i64 %166, -1
   br i1 %.not37.i, label %.preheader41.i, label %_ZN4llvmL16ulpsFromBoundaryEPKmjb.exit, !llvm.loop !201
@@ -9265,7 +9259,7 @@ _ZN4llvm5ErrorD2Ev.exit61:                        ; preds = %254
   %275 = add i32 %.040, 1
   %276 = tail call noundef i32 @_ZN4llvm5APInt14tcMultiplyPartEPmPKmmmjjb(ptr noundef nonnull %246, ptr noundef nonnull %246, i64 noundef %.1, i64 noundef %.137, i32 noundef %.040, i32 noundef %275, i1 noundef zeroext false) #29
   %277 = zext i32 %.040 to i64
-  %278 = getelementptr inbounds nuw i64, ptr %246, i64 %277
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %277
   %279 = load i64, ptr %278, align 8, !tbaa !36
   %.not53 = icmp eq i64 %279, 0
   %spec.select = select i1 %.not53, i32 %.040, i32 %275
@@ -9964,7 +9958,7 @@ _ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractio
   br i1 %77, label %82, label %78
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %indvars.iv.next
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %indvars.iv.next
   %80 = load i64, ptr %79, align 8, !tbaa !36
   %81 = shl i64 %80, %72
   br label %82
@@ -9975,7 +9969,7 @@ _ZNK4llvm6detail9IEEEFloat17roundAwayFromZeroENS_12RoundingModeENS_12lostFractio
   br i1 %83, label %90, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr i64, ptr %.0.i.i, i64 %indvars.iv
+  %85 = getelementptr [8 x i8], ptr %.0.i.i, i64 %indvars.iv
   %86 = getelementptr i8, ptr %85, i64 -16
   %87 = load i64, ptr %86, align 8, !tbaa !36
   %88 = lshr i64 %87, %73
@@ -10029,7 +10023,7 @@ _ZN4llvmL9partAsHexEPcmjPKc.exit:                 ; preds = %97
   %108 = getelementptr inbounds i8, ptr %.0, i64 -1
   %109 = load i8, ptr %108, align 1, !tbaa !24
   %110 = zext i8 %109 to i64
-  %111 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %110
+  %111 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 %110
   %112 = load i16, ptr %111, align 2, !tbaa !86
   %113 = sext i16 %112 to i64
   %114 = add nsw i64 %113, 1
@@ -10199,7 +10193,7 @@ define dso_local i64 @_ZN4llvm6detail10hash_valueERKNS0_9IEEEFloatE(ptr noundef 
   %42 = lshr i32 %41, 6
   %.sroa.speculated.i.i = tail call noundef range(i32 1, 67108864) i32 @llvm.umax.i32(i32 %42, i32 1)
   %43 = zext nneg i32 %.sroa.speculated.i.i to i64
-  %44 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %43
   %45 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKmEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %.0.i.i, ptr noundef nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 120
@@ -12580,7 +12574,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat19initFromDoubleAPIntERKNS_5APIn
   %11 = lshr i64 %10, 6
   %12 = add nuw nsw i64 %11, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = lshr i64 %15, 52
   %17 = and i64 %16, 2047
@@ -12704,7 +12698,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat22initFromQuadrupleAPIntERKNS_5A
   %10 = lshr i64 %9, 6
   %11 = add nuw nsw i64 %10, 4294967295
   %12 = and i64 %11, 4294967295
-  %13 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !36
   %15 = lshr i64 %14, 48
   %16 = and i64 %15, 32767
@@ -12805,7 +12799,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat18initFromFloatAPIntERKNS_5APInt
   %11 = lshr i64 %10, 6
   %12 = add nuw nsw i64 %11, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = lshr i64 %15, 23
   %17 = and i64 %16, 255
@@ -12901,7 +12895,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat19initFromBFloatAPIntERKNS_5APIn
   %11 = lshr i64 %10, 6
   %12 = add nuw nsw i64 %11, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = lshr i64 %15, 7
   %17 = and i64 %16, 255
@@ -12997,7 +12991,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat17initFromHalfAPIntERKNS_5APIntE
   %11 = lshr i64 %10, 6
   %12 = add nuw nsw i64 %11, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = lshr i64 %15, 10
   %17 = and i64 %16, 31
@@ -13093,7 +13087,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat23initFromFloat8E5M2APIntERKNS_5
   %11 = lshr i64 %10, 6
   %12 = add nuw nsw i64 %11, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = lshr i64 %15, 2
   %17 = and i64 %16, 31
@@ -13189,7 +13183,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat27initFromFloat8E5M2FNUZAPIntERK
   %11 = lshr i64 %10, 6
   %12 = add nuw nsw i64 %11, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = lshr i64 %15, 2
   %17 = and i64 %16, 31
@@ -13267,7 +13261,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat23initFromFloat8E4M3APIntERKNS_5
   %11 = lshr i64 %10, 6
   %12 = add nuw nsw i64 %11, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = lshr i64 %15, 3
   %17 = and i64 %16, 15
@@ -13363,7 +13357,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat25initFromFloat8E4M3FNAPIntERKNS
   %11 = lshr i64 %10, 6
   %12 = add nuw nsw i64 %11, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = lshr i64 %15, 3
   %17 = and i64 %16, 15
@@ -13444,7 +13438,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat27initFromFloat8E4M3FNUZAPIntERK
   %11 = lshr i64 %10, 6
   %12 = add nuw nsw i64 %11, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = lshr i64 %15, 3
   %17 = and i64 %16, 15
@@ -13522,7 +13516,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat30initFromFloat8E4M3B11FNUZAPInt
   %11 = lshr i64 %10, 6
   %12 = add nuw nsw i64 %11, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = lshr i64 %15, 3
   %17 = and i64 %16, 15
@@ -13600,7 +13594,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat23initFromFloat8E3M4APIntERKNS_5
   %11 = lshr i64 %10, 6
   %12 = add nuw nsw i64 %11, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = lshr i64 %15, 4
   %17 = and i64 %16, 7
@@ -13696,7 +13690,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat22initFromFloatTF32APIntERKNS_5A
   %11 = lshr i64 %10, 6
   %12 = add nuw nsw i64 %11, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = lshr i64 %15, 10
   %17 = and i64 %16, 255
@@ -13792,7 +13786,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat25initFromFloat6E3M2FNAPIntERKNS
   %11 = lshr i64 %10, 6
   %12 = add nuw nsw i64 %11, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = lshr i64 %15, 2
   %17 = and i64 %16, 7
@@ -13857,7 +13851,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat25initFromFloat6E2M3FNAPIntERKNS
   %11 = lshr i64 %10, 6
   %12 = add nuw nsw i64 %11, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = lshr i64 %15, 3
   %17 = and i64 %16, 3
@@ -13922,7 +13916,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat25initFromFloat4E2M1FNAPIntERKNS
   %11 = lshr i64 %10, 6
   %12 = add nuw nsw i64 %11, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = lshr i64 %15, 1
   %17 = and i64 %16, 3
@@ -14182,7 +14176,7 @@ define dso_local void @_ZN4llvm6detail9IEEEFloat11makeLargestEb(ptr noundef nonn
   %28 = zext nneg i32 %26 to i64
   %29 = lshr i64 -1, %28
   %30 = select i1 %27, i64 %29, i64 0
-  %31 = getelementptr inbounds nuw i64, ptr %.0.i, i64 %20
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %20
   store i64 %30, ptr %31, align 8, !tbaa !36
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %33 = load i32, ptr %32, align 4, !tbaa !18
@@ -16087,7 +16081,7 @@ define dso_local noundef i32 @_ZNK4llvm6detail9IEEEFloat15getExactLog2AbsEv(ptr 
 19:                                               ; preds = %8, %18
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %18 ]
   %.02337 = phi i32 [ 0, %8 ], [ %24, %18 ]
-  %20 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8, !tbaa !36
   %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %21)
   %23 = trunc nuw nsw i64 %22 to i32
@@ -16106,7 +16100,7 @@ define dso_local noundef i32 @_ZNK4llvm6detail9IEEEFloat15getExactLog2AbsEv(ptr 
 .preheader:                                       ; preds = %.critedge, %38
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %38 ], [ 0, %.critedge ]
   %.02039 = phi i32 [ %39, %38 ], [ 0, %.critedge ]
-  %30 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %indvars.iv47
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %indvars.iv47
   %31 = load i64, ptr %30, align 8, !tbaa !36
   %.not30.not.not.not = icmp eq i64 %31, 0
   br i1 %.not30.not.not.not, label %38, label %32
@@ -16208,7 +16202,7 @@ _ZN4llvm6detail9IEEEFloat10changeSignEv.exit:     ; preds = %._ZN4llvm6detail9IE
   %41 = zext nneg i32 %39 to i64
   %42 = lshr i64 -1, %41
   %43 = select i1 %40, i64 %42, i64 0
-  %44 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %33
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %33
   store i64 %43, ptr %44, align 8, !tbaa !36
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %46 = load i32, ptr %45, align 4, !tbaa !18
@@ -16461,7 +16455,7 @@ _ZNK4llvm6detail9IEEEFloat10isSmallestEv.exit.thread: ; preds = %87, %89, %_ZNK4
 
 .lr.ph.i:                                         ; preds = %190, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %190 ]
-  %191 = getelementptr inbounds nuw i64, ptr %.0.i27, i64 %indvars.iv.i
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %.0.i27, i64 %indvars.iv.i
   %192 = load i64, ptr %191, align 8, !tbaa !36
   %.not.i24 = icmp eq i64 %192, 0
   br i1 %.not.i24, label %190, label %_ZN4llvm6detail9IEEEFloat11makeLargestEb.exit.critedge
@@ -16477,7 +16471,7 @@ _ZNK4llvm6detail9IEEEFloat10isSmallestEv.exit.thread: ; preds = %87, %89, %_ZNK4
   %197 = zext nneg i32 %196 to i64
   %198 = lshr i64 -1, %197
   %199 = zext nneg i32 %189 to i64
-  %200 = getelementptr inbounds nuw i64, ptr %.0.i27, i64 %199
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %.0.i27, i64 %199
   %201 = load i64, ptr %200, align 8, !tbaa !36
   %202 = and i64 %201, %198
   %.not14.i = icmp eq i64 %202, 0
@@ -23712,7 +23706,7 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit.i.i.i: ; preds = %17
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i.i.i, %17
   %19 = phi ptr [ %13, %17 ], [ %.pre.pre, %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i.i.i ]
   %.pre-phi.i.i3.i = phi i64 [ 0, %17 ], [ %.pre13.i.i.i, %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i.i.i ]
-  %20 = getelementptr i64, ptr %19, i64 %.pre-phi.i.i3.i
+  %20 = getelementptr [8 x i8], ptr %19, i64 %.pre-phi.i.i3.i
   %21 = sub nsw i64 %11, %.pre-phi.i.i3.i
   %22 = shl nsw i64 %21, 3
   call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %22, i1 false), !tbaa !36
@@ -24607,7 +24601,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !555
   store ptr %67, ptr %41, align 8, !tbaa !552
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.27", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !554
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -24757,7 +24751,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !555
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !552
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.27", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !554
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -24877,7 +24871,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !555
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !552
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.27", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !554
   ret void
 }

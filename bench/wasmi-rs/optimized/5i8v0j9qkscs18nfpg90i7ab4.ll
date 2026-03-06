@@ -47,7 +47,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 23:                                               ; preds = %35, %15
   %.val20.i = phi i64 [ %40, %35 ], [ %.sroa.6.0.copyload, %15 ]
   %.sroa.06.0.i = phi i64 [ %41, %35 ], [ 0, %15 ]
-  %24 = getelementptr inbounds nuw { { i32, [5 x i32] } }, ptr %7, i64 %.sroa.06.0.i
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.sroa.06.0.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !5
   store ptr %24, ptr %6, align 8, !noalias !11
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !11
@@ -88,7 +88,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %37 = load i64, ptr %22, align 8, !noalias !11, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !11
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !5
-  %38 = getelementptr inbounds nuw { i64, i64 }, ptr %.sroa.9.0.copyload, i64 %.val20.i
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.9.0.copyload, i64 %.val20.i
   store i64 %36, ptr %38, align 8, !noalias !18
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 %37, ptr %39, align 8, !noalias !18

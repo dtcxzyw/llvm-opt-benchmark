@@ -23,14 +23,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.QuantLib::Currency" = type { %"class.boost::shared_ptr.61" }
 %"class.boost::shared_ptr.61" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::detail::shared_count" = type { ptr }
-%"class.QuantLib::Handle" = type { %"class.boost::shared_ptr.62" }
-%"class.boost::shared_ptr.62" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::shared_ptr.63" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.std::vector.70" = type { %"struct.std::_Vector_base.71" }
 %"struct.std::_Vector_base.71" = type { %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultEvent>, std::allocator<boost::shared_ptr<QuantLib::DefaultEvent>>>::_Vector_impl" }
 %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultEvent>, std::allocator<boost::shared_ptr<QuantLib::DefaultEvent>>>::_Vector_impl" = type { %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultEvent>, std::allocator<boost::shared_ptr<QuantLib::DefaultEvent>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultEvent>, std::allocator<boost::shared_ptr<QuantLib::DefaultEvent>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { %"class.QuantLib::DefaultProbKey", %"class.QuantLib::Handle" }
 
 $__clang_call_terminate = comdat any
 
@@ -413,7 +410,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %32 = phi ptr [ %7, %for.body.lr.ph ], [ %84, %_ZN8QuantLib14DefaultProbKeyD2Ev.exit ]
   %i.0127 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN8QuantLib14DefaultProbKeyD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %keytmp)
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::vector.56", ptr %32, i64 %i.0127
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %i.0127
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %33 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !36
   %34 = load ptr, ptr %add.ptr.i, align 8, !tbaa !38
@@ -477,7 +474,7 @@ invoke.cont40:                                    ; preds = %_ZSt10_ConstructIN5
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i.i.i.i, %invoke.cont.i ], [ %incdec.ptr.i.i.i.i.i, %_ZSt10_ConstructIN5boost10shared_ptrIN8QuantLib11DefaultTypeEEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i ]
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !36
   %40 = load ptr, ptr %currencies, align 8, !tbaa !28
-  %add.ptr.i69 = getelementptr inbounds nuw %"class.QuantLib::Currency", ptr %40, i64 %i.0127
+  %add.ptr.i69 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %i.0127
   %41 = load ptr, ptr %add.ptr.i69, align 8, !tbaa !48
   store ptr %41, ptr %agg.tmp41, align 8, !tbaa !48
   %pn3.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i69, i64 8
@@ -493,7 +490,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont40
 
 _ZN8QuantLib8CurrencyC2ERKS0_.exit:               ; preds = %invoke.cont40, %if.then.i.i.i
   %44 = load ptr, ptr %seniorities, align 8, !tbaa !31
-  %add.ptr.i70 = getelementptr inbounds nuw i32, ptr %44, i64 %i.0127
+  %add.ptr.i70 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %i.0127
   %45 = load i32, ptr %add.ptr.i70, align 4, !tbaa !50
   invoke void @_ZN8QuantLib14DefaultProbKeyC1ESt6vectorIN5boost10shared_ptrINS_11DefaultTypeEEESaIS5_EENS_8CurrencyENS_9SeniorityE(ptr noundef nonnull align 8 dereferenceable(44) %keytmp, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp41, i32 noundef %45)
           to label %invoke.cont45 unwind label %lpad44
@@ -606,7 +603,7 @@ if.then.i.i.i79:                                  ; preds = %invoke.cont.i78
 
 _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESaIS4_EED2Ev.exit: ; preds = %invoke.cont.i78, %if.then.i.i.i79
   %64 = load ptr, ptr %curves, align 8, !tbaa !25
-  %add.ptr.i84 = getelementptr inbounds nuw %"class.QuantLib::Handle", ptr %64, i64 %i.0127
+  %add.ptr.i84 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %i.0127
   %call52 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt6vectorISt4pairIN8QuantLib14DefaultProbKeyENS1_6HandleINS1_31DefaultProbabilityTermStructureEEEESaIS6_EE12emplace_backIJRS2_RKS5_EEERS6_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(44) %keytmp, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i84)
           to label %invoke.cont51 unwind label %lpad50
 
@@ -2279,7 +2276,7 @@ if.then.i42:                                      ; preds = %_ZNSt6vectorISt4pai
 _ZNSt12_Vector_baseISt4pairIN8QuantLib14DefaultProbKeyENS1_6HandleINS1_31DefaultProbabilityTermStructureEEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt4pairIN8QuantLib14DefaultProbKeyENS1_6HandleINS1_31DefaultProbabilityTermStructureEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit41, %if.then.i42
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !3
   store ptr %__cur.0.lcssa.i.i.i40, ptr %_M_finish.i.i, align 8, !tbaa !8
-  %add.ptr28 = getelementptr inbounds nuw %"struct.std::pair", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr28 = getelementptr inbounds nuw [64 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr28, ptr %_M_end_of_storage, align 8, !tbaa !9
   ret void
 
@@ -2419,7 +2416,7 @@ if.then.i22:                                      ; preds = %_ZNSt6vectorIN5boos
 _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib12DefaultEventEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib12DefaultEventEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit21, %if.then.i22
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !73
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8, !tbaa !70
-  %add.ptr19 = getelementptr inbounds nuw %"class.boost::shared_ptr.63", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !72
   ret void
 }

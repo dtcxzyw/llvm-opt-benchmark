@@ -95,7 +95,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc6:                                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h7c9a8caaff7ff5c8E.exit.i.i", %.lr.ph.i.i
   %24 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !4, !noalias !9, !nonnull !12, !noundef !12
-  %25 = getelementptr inbounds { ptr, i64 }, ptr %24, i64 %21
+  %25 = getelementptr inbounds [16 x i8], ptr %24, i64 %21
   store ptr %19, ptr %25, align 8, !noalias !9
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %20, ptr %26, align 8, !noalias !9
@@ -404,7 +404,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h2de68b1829fb7aedE.exit.i.i.i.i": ; preds = %60, %57
   %62 = phi i64 [ %.pre.i.i.i.i.i.i.i, %60 ], [ %.pre10.i.i.i, %57 ]
   %63 = load ptr, ptr %9, align 8, !alias.scope !117, !noalias !109, !nonnull !12, !noundef !12
-  %64 = getelementptr inbounds i32, ptr %63, i64 %62
+  %64 = getelementptr inbounds [4 x i8], ptr %63, i64 %62
   store i32 %49, ptr %64, align 4, !noalias !109
   %65 = load i64, ptr %8, align 8, !alias.scope !117, !noalias !109, !noundef !12
   %66 = add i64 %65, 1
@@ -542,7 +542,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h2de68b1829fb7aedE.exit.i.i.i.i.i.i": ; preds = %.noexc, %124
   %129 = phi i64 [ %.pre.i.i.i.i.i.i.i.i.i, %.noexc ], [ %.pre10.i.i.i.i.i, %124 ]
   %130 = load ptr, ptr %9, align 8, !alias.scope !143, !noalias !136, !nonnull !12, !noundef !12
-  %131 = getelementptr inbounds i32, ptr %130, i64 %129
+  %131 = getelementptr inbounds [4 x i8], ptr %130, i64 %129
   store i32 %116, ptr %131, align 4, !noalias !136
   %132 = load i64, ptr %8, align 8, !alias.scope !143, !noalias !136, !noundef !12
   %133 = add i64 %132, 1
@@ -566,7 +566,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc6:                                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17he0dbb3247abe7a54E.exit.i.i", %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hae508c1fcdbd9ce7E.exit.i.i"
   %139 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !146, !noalias !149, !nonnull !12, !noundef !12
-  %140 = getelementptr inbounds i32, ptr %139, i64 %136
+  %140 = getelementptr inbounds [4 x i8], ptr %139, i64 %136
   store i32 %134, ptr %140, align 4, !noalias !149
   %141 = add i64 %136, 1
   br label %74

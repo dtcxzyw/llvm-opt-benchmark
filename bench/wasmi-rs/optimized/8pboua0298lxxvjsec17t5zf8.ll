@@ -116,10 +116,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !30, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !31, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1b439d7617ec37eE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1b439d7617ec37eE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1b439d7617ec37eE.41", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1b439d7617ec37eE.41", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -391,7 +391,7 @@ define internal noundef align 8 ptr @"_ZN5wasmi4func33HostFuncTrampolineEntity$L
 
 28:                                               ; preds = %3
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
-  %29 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %13, i64 %16
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %16
   %30 = sub nuw i64 %14, %16
   %31 = invoke { ptr, i64 } @_ZN5wasmi4func10func_inout9FuncInOut24decode_params_into_slice17h28c063123c67cce9E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef nonnull align 8 %13, i64 noundef %16)
           to label %32 unwind label %22
@@ -499,10 +499,10 @@ define internal noundef align 8 ptr @"_ZN5wasmi4func33HostFuncTrampolineEntity$L
           to label %60 unwind label %.body.loopexit.split-lp.i, !noalias !69
 
 60:                                               ; preds = %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..trap..wasm_trap_t$GT$$GT$$GT$17hdd2fde9408f2cc44E.exit.i"
-  %61 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %13, i64 %14
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %14
   %62 = extractvalue { ptr, i64 } %59, 0
   %63 = extractvalue { ptr, i64 } %59, 1
-  %64 = getelementptr inbounds nuw { i8, [15 x i8], { [2 x i64] } }, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %62, i64 %63
   invoke void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17heaec85477c06ece9E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %6, ptr noundef nonnull align 8 %29, ptr noundef nonnull %61, ptr noundef nonnull readonly align 16 %62, ptr noundef nonnull readonly %64)
           to label %_ZN4core4iter6traits8iterator8Iterator3zip17h6269248c4f710ea8E.exit.i unwind label %.body.loopexit.split-lp.i
 
@@ -525,13 +525,13 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h6269248c4f710ea8E.exit.i: ; preds =
 69:                                               ; preds = %.noexc.i, %.lr.ph.i.i
   %.sroa.0.09.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %73, %.noexc.i ]
   %70 = add i64 %.sroa.0.09.i.i, %.val.i.i
-  %71 = getelementptr inbounds nuw { i8, [15 x i8], { [2 x i64] } }, ptr %.val1.i.i.i, i64 %70
+  %71 = getelementptr inbounds nuw [32 x i8], ptr %.val1.i.i.i, i64 %70
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !76
   invoke void @_ZN11wasmi_c_api3val10wasm_val_t6to_val17hc1e43973cfa3efa3E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 16 dereferenceable(32) %71)
           to label %.noexc.i unwind label %.body.loopexit.i
 
 .noexc.i:                                         ; preds = %69
-  %72 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %.val.i.i.i, i64 %70
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %.val.i.i.i, i64 %70
   %73 = add nuw i64 %.sroa.0.09.i.i, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !83
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !76
@@ -634,7 +634,7 @@ define internal noundef align 8 ptr @"_ZN5wasmi4func33HostFuncTrampolineEntity$L
 
 28:                                               ; preds = %3
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
-  %29 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %13, i64 %16
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %16
   %30 = sub nuw i64 %14, %16
   %31 = invoke { ptr, i64 } @_ZN5wasmi4func10func_inout9FuncInOut24decode_params_into_slice17h28c063123c67cce9E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2, ptr noalias noundef nonnull align 8 %13, i64 noundef %16)
           to label %32 unwind label %22
@@ -744,10 +744,10 @@ define internal noundef align 8 ptr @"_ZN5wasmi4func33HostFuncTrampolineEntity$L
           to label %61 unwind label %.body.loopexit.split-lp.i, !noalias !88
 
 61:                                               ; preds = %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..trap..wasm_trap_t$GT$$GT$$GT$17hdd2fde9408f2cc44E.exit.i"
-  %62 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %13, i64 %14
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %14
   %63 = extractvalue { ptr, i64 } %60, 0
   %64 = extractvalue { ptr, i64 } %60, 1
-  %65 = getelementptr inbounds nuw { i8, [15 x i8], { [2 x i64] } }, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [32 x i8], ptr %63, i64 %64
   invoke void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17heaec85477c06ece9E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %6, ptr noundef nonnull align 8 %29, ptr noundef nonnull %62, ptr noundef nonnull readonly align 16 %63, ptr noundef nonnull readonly %65)
           to label %_ZN4core4iter6traits8iterator8Iterator3zip17h6269248c4f710ea8E.exit.i unwind label %.body.loopexit.split-lp.i
 
@@ -770,13 +770,13 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h6269248c4f710ea8E.exit.i: ; preds =
 70:                                               ; preds = %.noexc.i, %.lr.ph.i.i
   %.sroa.0.09.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %74, %.noexc.i ]
   %71 = add i64 %.sroa.0.09.i.i, %.val.i.i
-  %72 = getelementptr inbounds nuw { i8, [15 x i8], { [2 x i64] } }, ptr %.val1.i.i.i, i64 %71
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %.val1.i.i.i, i64 %71
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !95
   invoke void @_ZN11wasmi_c_api3val10wasm_val_t6to_val17hc1e43973cfa3efa3E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 16 dereferenceable(32) %72)
           to label %.noexc.i unwind label %.body.loopexit.i
 
 .noexc.i:                                         ; preds = %70
-  %73 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %.val.i.i.i, i64 %71
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %.val.i.i.i, i64 %71
   %74 = add nuw i64 %.sroa.0.09.i.i, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !102
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !95
@@ -1596,7 +1596,7 @@ define hidden void @_ZN5wasmi8instance8Instance3new17hbb799b52e4547f90E(ptr dead
   %9 = alloca [8 x i8], align 8
   store ptr %1, ptr %9, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %10 = getelementptr inbounds nuw { i32, [2 x i32] }, ptr %3, i64 %4
+  %10 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %4
   call void @"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module..Module$GT$11instantiate17h2c3f058fd3acc2d1E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %3, ptr noundef nonnull %10)
   %11 = load i64, ptr %8, align 8, !range !153, !noundef !3
   %12 = icmp eq i64 %11, -9223372036854775808

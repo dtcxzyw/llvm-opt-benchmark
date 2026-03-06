@@ -32,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %class.__gmp_expr.99 = type { [1 x %struct.__mpz_struct] }
-%"struct.std::pair.204" = type { i64, i64 }
 
 $_ZN4cvc58internal12NodeTemplateILb1EED2Ev = comdat any
 
@@ -262,8 +261,8 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %65, %61, %55
   %85 = icmp eq i32 %84, 2
   %86 = zext i1 %85 to i64
   %87 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %.023307
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %86
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %.023307
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %86
   %90 = load ptr, ptr %89, align 8, !tbaa !17, !noalias !59
   %91 = load i64, ptr %90, align 8, !noalias !59
   %92 = lshr i64 %91, 40
@@ -345,8 +344,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit112: ; preds = %_ZNK4cvc58internal
   %131 = icmp eq i32 %130, 2
   %132 = zext i1 %131 to i64
   %133 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %.023307
-  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %132
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %.023307
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %132
   %136 = load ptr, ptr %135, align 8, !tbaa !17, !noalias !62
   store ptr %136, ptr %9, align 8, !tbaa !6, !alias.scope !62
   %137 = load i64, ptr %136, align 8, !noalias !62
@@ -499,7 +498,7 @@ _ZNK4cvc58internal4expr4attr8AttrHashImE8IteratorIKS4_NSt8__detail20_Node_const_
   %213 = zext i1 %212 to i64
   %reass.sub308 = sub nsw i64 %213, %.023307
   %214 = getelementptr i8, ptr %204, i64 32
-  %215 = getelementptr ptr, ptr %214, i64 %reass.sub308
+  %215 = getelementptr [8 x i8], ptr %214, i64 %reass.sub308
   %216 = load ptr, ptr %215, align 8, !tbaa !17, !noalias !156
   store ptr %216, ptr %10, align 8, !tbaa !6, !alias.scope !156
   %217 = load i64, ptr %216, align 8, !noalias !156
@@ -2081,7 +2080,7 @@ define linkonce_odr hidden void @_ZNK4cvc58internal4expr4attr8AttrHashImE4findES
   %18 = load i64, ptr %17, align 8, !tbaa !177
   %19 = urem i64 %16, %18
   %20 = load ptr, ptr %1, align 8, !tbaa !178
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !179
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %23
@@ -2168,7 +2167,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImmESt6vectorIS3_SaIS3_EEEE
   %.013.i.i.i.i = phi i64 [ %.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImmESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i ], [ %53, %.critedge.i.i.i ]
   %.sroa.011.012.i.i.i.i = phi ptr [ %.sroa.011.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImmESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i ], [ %.sroa.038.049.i.i.i, %.critedge.i.i.i ]
   %63 = lshr i64 %.013.i.i.i.i, 1
-  %64 = getelementptr inbounds nuw %"struct.std::pair.204", ptr %.sroa.011.012.i.i.i.i, i64 %63
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.012.i.i.i.i, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !184
   %66 = icmp ult i64 %65, %2
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
@@ -2193,7 +2192,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImmESt6vectorIS3_SaIS3_EEEE
   %.013.i28.i.i.i = phi i64 [ %.1.i33.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImmESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i27.i.i.i ], [ %73, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairImmESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNK4cvc58internal4expr4attr8AttrHashImE5IdMap4findEmEUlRS4_SJ_E_EEET_SM_SM_RKT0_T1_.exit.i.i.i ]
   %.sroa.011.012.i29.i.i.i = phi ptr [ %.sroa.011.1.i32.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImmESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i27.i.i.i ], [ %71, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairImmESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZNK4cvc58internal4expr4attr8AttrHashImE5IdMap4findEmEUlRS4_SJ_E_EEET_SM_SM_RKT0_T1_.exit.i.i.i ]
   %75 = lshr i64 %.013.i28.i.i.i, 1
-  %76 = getelementptr inbounds nuw %"struct.std::pair.204", ptr %.sroa.011.012.i29.i.i.i, i64 %75
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.012.i29.i.i.i, i64 %75
   %77 = load i64, ptr %76, align 8, !tbaa !184
   %78 = icmp ult i64 %2, %77
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 16

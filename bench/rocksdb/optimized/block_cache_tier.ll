@@ -45,16 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_count" = type { ptr }
 %"class.std::shared_ptr.129" = type { %"class.std::__shared_ptr.130" }
 %"class.std::__shared_ptr.130" = type { ptr, %"class.std::__shared_count" }
-%"struct.rocksdb::HashTable<rocksdb::BlockInfo *, rocksdb::BlockCacheTierMetadata::Hash, rocksdb::BlockCacheTierMetadata::Equal>::Bucket" = type { %"class.std::__cxx11::list.79" }
-%"class.std::__cxx11::list.79" = type { %"class.std::__cxx11::_List_base.80" }
-%"class.std::__cxx11::_List_base.80" = type { %"struct.std::__cxx11::_List_base<rocksdb::BlockInfo *, std::allocator<rocksdb::BlockInfo *>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<rocksdb::BlockInfo *, std::allocator<rocksdb::BlockInfo *>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%"struct.rocksdb::HashTable<rocksdb::BlockCacheFile *, rocksdb::BlockCacheTierMetadata::BlockCacheFileHash, rocksdb::BlockCacheTierMetadata::BlockCacheFileEqual>::Bucket" = type { %"class.std::__cxx11::list.148" }
-%"class.std::__cxx11::list.148" = type { %"class.std::__cxx11::_List_base.149" }
-%"class.std::__cxx11::_List_base.149" = type { %"struct.std::__cxx11::_List_base<rocksdb::BlockCacheFile *, std::allocator<rocksdb::BlockCacheFile *>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<rocksdb::BlockCacheFile *, std::allocator<rocksdb::BlockCacheFile *>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
 
 $_ZNK7rocksdb21PersistentCacheConfig16ValidateSettingsEv = comdat any
 
@@ -7627,7 +7617,7 @@ _ZNSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4less
 _ZNSt12_Vector_baseISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS6_ESaISt4pairIKS6_dEEESaISD_EE13_M_deallocateEPSD_m.exit: ; preds = %_ZNSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS6_ESaISt4pairIKS6_dEEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit38, %82
   store ptr %23, ptr %0, align 8, !tbaa !252
   store ptr %.0.lcssa.i.i.i37, ptr %5, align 8, !tbaa !239
-  %86 = getelementptr inbounds nuw %"class.std::map", ptr %23, i64 %17
+  %86 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %17
   store ptr %86, ptr %81, align 8, !tbaa !242
   ret void
 
@@ -8568,7 +8558,7 @@ define linkonce_odr void @_ZN7rocksdb9HashTableIPNS_9BlockInfoENS_22BlockCacheTi
   br i1 %20, label %_ZNSt10unique_ptrIA_N7rocksdb9HashTableIPNS0_9BlockInfoENS0_22BlockCacheTierMetadata4HashENS4_5EqualEE6BucketESt14default_deleteIS9_EE5resetIPS8_vEEvT_.exit, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw %"struct.rocksdb::HashTable<rocksdb::BlockInfo *, rocksdb::BlockCacheTierMetadata::Hash, rocksdb::BlockCacheTierMetadata::Equal>::Bucket", ptr %19, i64 %14
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %14
   br label %23
 
 23:                                               ; preds = %23, %21
@@ -8707,7 +8697,7 @@ define linkonce_odr void @_ZN7rocksdb9HashTableIPNS_14BlockCacheFileENS_22BlockC
   br i1 %20, label %_ZNSt10unique_ptrIA_N7rocksdb9HashTableIPNS0_14BlockCacheFileENS0_22BlockCacheTierMetadata18BlockCacheFileHashENS4_19BlockCacheFileEqualEE6BucketESt14default_deleteIS9_EE5resetIPS8_vEEvT_.exit, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw %"struct.rocksdb::HashTable<rocksdb::BlockCacheFile *, rocksdb::BlockCacheTierMetadata::BlockCacheFileHash, rocksdb::BlockCacheTierMetadata::BlockCacheFileEqual>::Bucket", ptr %19, i64 %14
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %14
   br label %23
 
 23:                                               ; preds = %23, %21

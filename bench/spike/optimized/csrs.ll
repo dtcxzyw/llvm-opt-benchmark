@@ -4,11 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.std::shared_ptr.65" = type { %"class.std::__shared_ptr.66" }
-%"class.std::__shared_ptr.66" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"class.std::shared_ptr.32" = type { %"class.std::__shared_ptr.33" }
 %"class.std::__shared_ptr.33" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %"class.std::unordered_map.9" = type { %"class.std::_Hashtable.10" }
 %"class.std::_Hashtable.10" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
@@ -1150,7 +1148,7 @@ _ZNK13pmpaddr_csr_t19next_locked_and_torEv.exit:  ; preds = %28
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !15
   %.pre4.i = load i64, ptr %22, align 8, !tbaa !165
   %39 = getelementptr i8, ptr %.pre.i, i64 2208
-  %40 = getelementptr %"class.std::shared_ptr.65", ptr %39, i64 %.pre4.i
+  %40 = getelementptr [16 x i8], ptr %39, i64 %.pre4.i
   %41 = load ptr, ptr %40, align 8, !tbaa !169
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %43 = load i8, ptr %42, align 8, !tbaa !164
@@ -1218,7 +1216,7 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t19next_locked_and_torEv(ptr nounde
   %.pre = load ptr, ptr %6, align 8, !tbaa !15
   %.pre4 = load i64, ptr %2, align 8, !tbaa !165
   %15 = getelementptr i8, ptr %.pre, i64 2208
-  %16 = getelementptr %"class.std::shared_ptr.65", ptr %15, i64 %.pre4
+  %16 = getelementptr [16 x i8], ptr %15, i64 %.pre4
   %17 = load ptr, ptr %16, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load i8, ptr %18, align 8, !tbaa !164
@@ -1260,7 +1258,7 @@ define noundef range(i64 0, -3) i64 @_ZNK13pmpaddr_csr_t14tor_base_paddrEv(ptr n
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = getelementptr i8, ptr %7, i64 2176
-  %9 = getelementptr %"class.std::shared_ptr.65", ptr %8, i64 %3
+  %9 = getelementptr [16 x i8], ptr %8, i64 %3
   %10 = load ptr, ptr %9, align 8, !tbaa !169
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load i64, ptr %11, align 8, !tbaa !162
@@ -1325,7 +1323,7 @@ _ZNK13pmpaddr_csr_t14tor_base_paddrEv.exit:       ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %12 = getelementptr i8, ptr %11, i64 2176
-  %13 = getelementptr %"class.std::shared_ptr.65", ptr %12, i64 %8
+  %13 = getelementptr [16 x i8], ptr %12, i64 %8
   %14 = load ptr, ptr %13, align 8, !tbaa !169
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load i64, ptr %15, align 8, !tbaa !162
@@ -1407,7 +1405,7 @@ define noundef zeroext i1 @_ZNK13pmpaddr_csr_t12subset_matchEmm(ptr noundef nonn
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   %15 = getelementptr i8, ptr %14, i64 2176
-  %16 = getelementptr %"class.std::shared_ptr.65", ptr %15, i64 %10
+  %16 = getelementptr [16 x i8], ptr %15, i64 %10
   %17 = load ptr, ptr %16, align 8, !tbaa !169
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load i64, ptr %18, align 8, !tbaa !162
@@ -1672,7 +1670,7 @@ define noundef i64 @_ZNK12pmpcfg_csr_t4readEv(ptr noundef nonnull readonly align
 17:                                               ; preds = %.lr.ph, %17
   %.012 = phi i64 [ %5, %.lr.ph ], [ %27, %17 ]
   %.01011 = phi i64 [ 0, %.lr.ph ], [ %26, %17 ]
-  %18 = getelementptr inbounds nuw %"class.std::shared_ptr.65", ptr %16, i64 %.012
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %.012
   %19 = load ptr, ptr %18, align 8, !tbaa !169
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load i8, ptr %20, align 8, !tbaa !164
@@ -1744,7 +1742,7 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr noundef nonnu
   br i1 %43, label %44, label %63
 
 44:                                               ; preds = %.lr.ph.split.us
-  %45 = getelementptr inbounds nuw %"class.std::shared_ptr.65", ptr %41, i64 %.04458.us
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.04458.us
   %46 = load ptr, ptr %45, align 8, !tbaa !169
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %48 = load i8, ptr %47, align 8, !tbaa !164
@@ -1785,7 +1783,7 @@ define noundef zeroext i1 @_ZN12pmpcfg_csr_t14unlogged_writeEm(ptr noundef nonnu
   br i1 %65, label %66, label %89
 
 66:                                               ; preds = %.lr.ph.split.split.split.us
-  %67 = getelementptr inbounds nuw %"class.std::shared_ptr.65", ptr %41, i64 %.04458.us75
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.04458.us75
   %68 = load ptr, ptr %67, align 8, !tbaa !169
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %70 = load i8, ptr %69, align 8, !tbaa !164
@@ -5426,7 +5424,7 @@ _ZN5csr_t5writeEm.exit102:                        ; preds = %_ZN5csr_t5writeEm.e
   %.035141 = phi i64 [ %548, %_ZN5csr_t5writeEm.exit104 ], [ 0, %_ZN5csr_t5writeEm.exit102.preheader ]
   %510 = load ptr, ptr %301, align 8, !tbaa !15
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 1096
-  %512 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %511, i64 %.035141
+  %512 = getelementptr inbounds nuw [16 x i8], ptr %511, i64 %.035141
   %513 = load ptr, ptr %512, align 8, !tbaa !177
   %514 = load ptr, ptr %513, align 8, !tbaa !3
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 8
@@ -5435,7 +5433,7 @@ _ZN5csr_t5writeEm.exit102:                        ; preds = %_ZN5csr_t5writeEm.e
   %518 = and i64 %517, -864691128455135233
   %519 = load ptr, ptr %301, align 8, !tbaa !15
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 1096
-  %521 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %520, i64 %.035141
+  %521 = getelementptr inbounds nuw [16 x i8], ptr %520, i64 %.035141
   %522 = load ptr, ptr %521, align 8, !tbaa !177
   %523 = load ptr, ptr %522, align 8, !tbaa !3
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 32
@@ -10421,7 +10419,7 @@ define noundef i64 @_ZNK14hstateen_csr_t4readEv(ptr noundef nonnull readonly ali
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i8, ptr %7, align 8, !tbaa !269
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !177
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -10441,7 +10439,7 @@ define noundef zeroext i1 @_ZN14hstateen_csr_t14unlogged_writeEm(ptr noundef non
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i8, ptr %8, align 8, !tbaa !269
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !177
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -10472,7 +10470,7 @@ define void @_ZNK14hstateen_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnu
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i8, ptr %11, align 8, !tbaa !269
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !177
   %16 = load ptr, ptr %15, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -10540,7 +10538,7 @@ define noundef i64 @_ZNK14sstateen_csr_t4readEv(ptr noundef nonnull readonly ali
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i8, ptr %10, align 8, !tbaa !269
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !177
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -10554,7 +10552,7 @@ define noundef i64 @_ZNK14sstateen_csr_t4readEv(ptr noundef nonnull readonly ali
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 3424
   %23 = load i8, ptr %10, align 8, !tbaa !269
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !177
   %27 = load ptr, ptr %26, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -10582,7 +10580,7 @@ define noundef zeroext i1 @_ZN14sstateen_csr_t14unlogged_writeEm(ptr noundef non
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i8, ptr %10, align 8, !tbaa !269
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !177
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -10595,7 +10593,7 @@ define noundef zeroext i1 @_ZN14sstateen_csr_t14unlogged_writeEm(ptr noundef non
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 3296
   %24 = load i8, ptr %10, align 8, !tbaa !269
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !177
   %28 = load ptr, ptr %27, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -10618,7 +10616,7 @@ define noundef zeroext i1 @_ZN14sstateen_csr_t14unlogged_writeEm(ptr noundef non
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load i8, ptr %43, align 8, !tbaa !269
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !177
   %48 = load ptr, ptr %47, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -10652,7 +10650,7 @@ define void @_ZNK14sstateen_csr_t18verify_permissionsE6insn_tb(ptr noundef nonnu
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i8, ptr %11, align 8, !tbaa !269
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !177
   %16 = load ptr, ptr %15, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -10686,7 +10684,7 @@ _ZNK14hstateen_csr_t18verify_permissionsE6insn_tb.exit: ; preds = %3, %9
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load i8, ptr %31, align 8, !tbaa !269
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %30, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !177
   %36 = load ptr, ptr %35, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -11461,7 +11459,7 @@ define noundef i64 @_ZNK15scountovf_csr_t4readEv(ptr noundef nonnull readonly al
   %.0910 = phi i64 [ 0, %1 ], [ %31, %16 ]
   %17 = load ptr, ptr %2, align 8, !tbaa !15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1096
-  %19 = getelementptr inbounds nuw %"class.std::shared_ptr.32", ptr %18, i64 %.0910
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %.0910
   %20 = load ptr, ptr %19, align 8, !tbaa !177
   %21 = load ptr, ptr %20, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -12128,7 +12126,7 @@ define void @_ZNK18sscsrind_reg_csr_t7get_regEv(ptr dead_on_unwind noalias writa
   %30 = load i64, ptr %6, align 8, !tbaa !277
   %31 = urem i64 %22, %30
   %32 = load ptr, ptr %4, align 8, !tbaa !276
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8, !tbaa !287
   %.not.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %35
@@ -12394,7 +12392,7 @@ define void @_ZN18sscsrind_reg_csr_t14add_ireg_proxyEmSt10shared_ptrI5csr_tE(ptr
   %7 = load i64, ptr %6, align 8, !tbaa !277
   %8 = urem i64 %1, %7
   %9 = load ptr, ptr %5, align 8, !tbaa !276
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !287
   %.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %12
@@ -15945,7 +15943,7 @@ _ZNSt10_HashtableImSt4pairIKmSt10shared_ptrI5csr_tEESaIS5_ENSt8__detail10_Select
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !277
   %48 = urem i64 %43, %47
-  %49 = getelementptr inbounds nuw ptr, ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %48
   store ptr %45, ptr %49, align 8, !tbaa !287
   %.02837 = load ptr, ptr %22, align 8, !tbaa !279
   %.not3038 = icmp eq ptr %.02837, null
@@ -16001,7 +15999,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKmSt10shared_ptrI5csr_tEE
   %72 = phi i64 [ %.pre42, %68 ], [ %51, %65 ], [ %51, %.noexc35 ]
   store ptr %52, ptr %.02639, align 8, !tbaa !279
   %73 = urem i64 %71, %72
-  %74 = getelementptr inbounds nuw ptr, ptr %70, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !287
   %.not32 = icmp eq ptr %75, null
   br i1 %.not32, label %76, label %81
@@ -16510,7 +16508,7 @@ _ZNSt10_HashtableImSt4pairIKmSt10shared_ptrI5csr_tEESaIS5_ENSt8__detail10_Select
 31:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmSt10shared_ptrI5csr_tEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableImSt4pairIKmSt10shared_ptrI5csr_tEESaIS5_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !276
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !287
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -16536,7 +16534,7 @@ _ZNSt10_HashtableImSt4pairIKmSt10shared_ptrI5csr_tEESaIS5_ENSt8__detail10_Select
   %44 = load i64, ptr %9, align 8, !tbaa !277
   %45 = load i64, ptr %43, align 8, !tbaa !152
   %46 = urem i64 %45, %44
-  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %46
   store ptr %3, ptr %47, align 8, !tbaa !287
   br label %48
 
@@ -16665,7 +16663,7 @@ _ZNSt10_HashtableImSt4pairIKmSt10shared_ptrI5csr_tEESaIS5_ENSt8__detail10_Select
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !152
   %19 = urem i64 %18, %1
-  %20 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !287
   %.not27 = icmp eq ptr %21, null
   br i1 %.not27, label %22, label %27
@@ -16680,7 +16678,7 @@ _ZNSt10_HashtableImSt4pairIKmSt10shared_ptrI5csr_tEESaIS5_ENSt8__detail10_Select
   br i1 %.not28, label %30, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %26, align 8, !tbaa !287
   br label %30
 

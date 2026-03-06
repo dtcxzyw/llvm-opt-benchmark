@@ -3023,7 +3023,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit605:              ; preds = %463
   br label %1033
 
 1031:                                             ; preds = %1033
-  %1032 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv24.i.i
+  %1032 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv24.i.i
   store double %1037, ptr %1032, align 8, !tbaa !24, !noalias !91
   %indvars.iv.next25.i.i = add nuw nsw i64 %indvars.iv24.i.i, 1
   %exitcond27.not.i.i = icmp eq i64 %indvars.iv.next25.i.i, 8
@@ -3032,9 +3032,9 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit605:              ; preds = %463
 1033:                                             ; preds = %1033, %.preheader19.i.i
   %indvars.iv.i.i614 = phi i64 [ 0, %.preheader19.i.i ], [ %indvars.iv.next.i.i615, %1033 ]
   %.01620.i.i = phi double [ 0.000000e+00, %.preheader19.i.i ], [ %1037, %1033 ]
-  %gep.i.i = getelementptr inbounds nuw double, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i614
+  %gep.i.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv.i.i614
   %1034 = load double, ptr %gep.i.i, align 8, !tbaa !24, !noalias !91
-  %1035 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv.i.i614
+  %1035 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i.i614
   %1036 = load double, ptr %1035, align 8, !tbaa !24, !noalias !91
   %1037 = call double @llvm.fmuladd.f64(double %1034, double %1036, double %.01620.i.i)
   %indvars.iv.next.i.i615 = add nuw nsw i64 %indvars.iv.i.i614, 1

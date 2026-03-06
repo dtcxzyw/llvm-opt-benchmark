@@ -3962,7 +3962,7 @@ _ZNKSt9type_infoneERKS_.exit.thread193:           ; preds = %143, %_ZNKSt9type_i
 
 172:                                              ; preds = %172, %171
   %.0.i.i.i.i = phi i64 [ 0, %171 ], [ %176, %172 ]
-  %173 = getelementptr inbounds nuw i16, ptr @_ZN6icu_7722CompoundTransliterator11PASS_STRINGE, i64 %.0.i.i.i.i
+  %173 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6icu_7722CompoundTransliterator11PASS_STRINGE, i64 %.0.i.i.i.i
   %174 = load i16, ptr %173, align 2, !tbaa !24
   %175 = icmp eq i16 %174, 0
   %176 = add i64 %.0.i.i.i.i, 1

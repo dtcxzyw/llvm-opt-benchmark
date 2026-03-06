@@ -12,12 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.CastContext = type { ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.Int = type { %struct.Int128_, i32 }
 %struct.Int128_ = type { i64, i64 }
-%struct.Expr_ = type { ptr, %union.SourceSpan, i16, %union.anon.29 }
-%union.SourceSpan = type { i64 }
-%union.anon.29 = type { %struct.ExprAnySwitch }
-%struct.ExprAnySwitch = type { i8, %union.anon.31 }
-%union.anon.31 = type { %struct.anon.32 }
-%struct.anon.32 = type { ptr, %union.SourceSpan, ptr }
 
 @.str = private unnamed_addr constant [36 x i8] c"Trying cast function from %s to %s\0A\00", align 1
 @type_cint = external local_unnamed_addr global ptr, align 8
@@ -292,7 +286,7 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
 
 .critedge122:                                     ; preds = %102
   %106 = zext i32 %96 to i64
-  %107 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %106
   %108 = load i32, ptr %107, align 4
   br label %.loopexit131
 
@@ -349,7 +343,7 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
 
 .critedge124:                                     ; preds = %121
   %125 = zext i32 %115 to i64
-  %126 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %125
   %127 = load i32, ptr %126, align 4
   br label %.loopexit
 
@@ -372,9 +366,9 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
 
 136:                                              ; preds = %133
   %137 = sext i32 %109 to i64
-  %138 = getelementptr inbounds [23 x ptr], ptr @cast_rules, i64 %137
+  %138 = getelementptr inbounds [184 x i8], ptr @cast_rules, i64 %137
   %139 = sext i32 %128 to i64
-  %140 = getelementptr inbounds ptr, ptr %138, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr %138, i64 %139
   %141 = load ptr, ptr %140, align 8
   %.not.i = icmp eq ptr %141, null
   br i1 %.not.i, label %.thread.i, label %cast_is_allowed.exit
@@ -490,7 +484,7 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .critedge:                                        ; preds = %28
   %32 = zext i32 %22 to i64
-  %33 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %32
   %34 = load i32, ptr %33, align 4
   br label %.loopexit57
 
@@ -546,7 +540,7 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .critedge56:                                      ; preds = %45
   %49 = zext i32 %39 to i64
-  %50 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %49
   %51 = load i32, ptr %50, align 4
   br label %.loopexit
 
@@ -565,9 +559,9 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
 
 57:                                               ; preds = %54
   %58 = sext i32 %.049 to i64
-  %59 = getelementptr inbounds [23 x ptr], ptr @cast_rules, i64 %58
+  %59 = getelementptr inbounds [184 x i8], ptr @cast_rules, i64 %58
   %60 = sext i32 %.050 to i64
-  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8
   %.not.i = icmp eq ptr %62, null
   br i1 %.not.i, label %.thread.i, label %68
@@ -727,7 +721,7 @@ type_flatten.exit85:                              ; preds = %20
 
 .critedge:                                        ; preds = %51
   %55 = zext i32 %45 to i64
-  %56 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
   br label %.loopexit86
@@ -783,15 +777,15 @@ type_flatten.exit85:                              ; preds = %20
 
 .critedge81:                                      ; preds = %69
   %73 = zext i32 %63 to i64
-  %74 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = sext i32 %75 to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %69, %69, %65, %65, %.loopexit86, %.critedge81
   %.072 = phi i64 [ %76, %.critedge81 ], [ 19, %.loopexit86 ], [ 20, %65 ], [ 20, %65 ], [ 21, %69 ], [ 21, %69 ]
-  %77 = getelementptr inbounds [23 x ptr], ptr @cast_function, i64 %.072
-  %78 = getelementptr inbounds ptr, ptr %77, i64 %.071
+  %77 = getelementptr inbounds [184 x i8], ptr @cast_function, i64 %.072
+  %78 = getelementptr inbounds [8 x i8], ptr %77, i64 %.071
   %79 = load ptr, ptr %78, align 8
   %.not = icmp eq ptr %79, null
   br i1 %.not, label %85, label %80
@@ -1742,7 +1736,7 @@ type_flatten.exit:                                ; preds = %5
 
 .critedge:                                        ; preds = %29
   %33 = zext i32 %23 to i64
-  %34 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %33
   %35 = load i32, ptr %34, align 4
   br label %.loopexit
 
@@ -1777,9 +1771,9 @@ type_flatten.exit:                                ; preds = %5
 
 54:                                               ; preds = %49
   %55 = sext i32 %51 to i64
-  %56 = getelementptr inbounds [23 x ptr], ptr @cast_rules, i64 %55
+  %56 = getelementptr inbounds [184 x i8], ptr @cast_rules, i64 %55
   %57 = sext i32 %.057 to i64
-  %58 = getelementptr inbounds ptr, ptr %56, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %.not.i = icmp eq ptr %59, null
   br i1 %.not.i, label %cast_is_allowed.exit, label %60
@@ -1814,9 +1808,9 @@ cast_is_allowed.exit:                             ; preds = %49, %54, %60
 
 74:                                               ; preds = %69
   %75 = sext i32 %70 to i64
-  %76 = getelementptr inbounds [23 x ptr], ptr @cast_rules, i64 %75
+  %76 = getelementptr inbounds [184 x i8], ptr @cast_rules, i64 %75
   %77 = sext i32 %71 to i64
-  %78 = getelementptr inbounds ptr, ptr %76, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %76, i64 %77
   %79 = load ptr, ptr %78, align 8
   %.not.i68 = icmp eq ptr %79, null
   br i1 %.not.i68, label %cast_is_allowed.exit.thread.sink.split, label %80
@@ -1838,9 +1832,9 @@ cast_is_allowed.exit:                             ; preds = %49, %54, %60
 
 88:                                               ; preds = %83
   %89 = sext i32 %85 to i64
-  %90 = getelementptr inbounds [23 x ptr], ptr @cast_rules, i64 %89
+  %90 = getelementptr inbounds [184 x i8], ptr @cast_rules, i64 %89
   %91 = sext i32 %.057 to i64
-  %92 = getelementptr inbounds ptr, ptr %90, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %90, i64 %91
   %93 = load ptr, ptr %92, align 8
   %.not.i73 = icmp eq ptr %93, null
   br i1 %.not.i73, label %cast_is_allowed.exit76, label %94
@@ -2537,7 +2531,7 @@ define internal noundef zeroext i1 @rule_ptr_to_interface(ptr noundef readonly c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %0, align 8
   %32 = tail call zeroext i1 @sema_resolve_type_info(ptr noundef %31, ptr noundef %30, i32 noundef 2) #10
@@ -2668,7 +2662,7 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
 
 .critedge:                                        ; preds = %41
   %45 = zext i32 %35 to i64
-  %46 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %45
   %47 = load i32, ptr %46, align 4
   br label %.loopexit72
 
@@ -2729,7 +2723,7 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
 
 .critedge70:                                      ; preds = %62
   %66 = zext i32 %56 to i64
-  %67 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %66
   %68 = load i32, ptr %67, align 4
   br label %.loopexit
 
@@ -2749,9 +2743,9 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
 
 75:                                               ; preds = %72
   %76 = sext i32 %.059 to i64
-  %77 = getelementptr inbounds [23 x ptr], ptr @cast_rules, i64 %76
+  %77 = getelementptr inbounds [184 x i8], ptr @cast_rules, i64 %76
   %78 = sext i32 %.064 to i64
-  %79 = getelementptr inbounds ptr, ptr %77, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %77, i64 %78
   %80 = load ptr, ptr %79, align 8
   %.not.i = icmp eq ptr %80, null
   br i1 %.not.i, label %.thread.i, label %91
@@ -3312,7 +3306,7 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   %.sink102 = phi i32 [ %46, %52 ], [ %67, %73 ]
   %.ph = phi ptr [ %40, %52 ], [ %61, %73 ]
   %77 = zext i32 %.sink102 to i64
-  %78 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %77
   %79 = load i32, ptr %78, align 4
   br label %.loopexit
 
@@ -3337,9 +3331,9 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
 
 91:                                               ; preds = %87
   %92 = sext i32 %.076.sink to i64
-  %93 = getelementptr inbounds [23 x ptr], ptr @cast_rules, i64 %92
+  %93 = getelementptr inbounds [184 x i8], ptr @cast_rules, i64 %92
   %94 = sext i32 %88 to i64
-  %95 = getelementptr inbounds ptr, ptr %93, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %93, i64 %94
   %96 = load ptr, ptr %95, align 8
   %.not.i = icmp eq ptr %96, null
   br i1 %.not.i, label %.thread.i, label %106
@@ -3434,7 +3428,7 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 
 .critedge:                                        ; preds = %26
   %30 = zext i32 %20 to i64
-  %31 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %30
   %32 = load i32, ptr %31, align 4
   br label %.loopexit110
 
@@ -3494,7 +3488,7 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 
 .critedge102:                                     ; preds = %46
   %50 = zext i32 %40 to i64
-  %51 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %50
   %52 = load i32, ptr %51, align 4
   br label %.loopexit
 
@@ -3514,9 +3508,9 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 
 59:                                               ; preds = %56
   %60 = sext i32 %.086 to i64
-  %61 = getelementptr inbounds [23 x ptr], ptr @cast_rules, i64 %60
+  %61 = getelementptr inbounds [184 x i8], ptr @cast_rules, i64 %60
   %62 = sext i32 %.090 to i64
-  %63 = getelementptr inbounds ptr, ptr %61, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   %.not.i = icmp eq ptr %64, null
   br i1 %.not.i, label %.thread.i, label %73
@@ -3623,7 +3617,7 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 
 .critedge104:                                     ; preds = %105
   %109 = zext i32 %99 to i64
-  %110 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %109
   %111 = load i32, ptr %110, align 4
   br label %.loopexit112
 
@@ -3646,9 +3640,9 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 
 121:                                              ; preds = %116
   %122 = sext i32 %.093 to i64
-  %123 = getelementptr inbounds [23 x ptr], ptr @cast_rules, i64 %122
+  %123 = getelementptr inbounds [184 x i8], ptr @cast_rules, i64 %122
   %124 = sext i32 %118 to i64
-  %125 = getelementptr inbounds ptr, ptr %123, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %123, i64 %124
   %126 = load ptr, ptr %125, align 8
   %.not.i106 = icmp eq ptr %126, null
   br i1 %.not.i106, label %.thread.i108, label %136
@@ -3783,7 +3777,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
 
 48:                                               ; preds = %43
   %49 = zext i32 %37 to i64
-  %50 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %51, ptr %52, align 4
@@ -3846,7 +3840,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
 
 .critedge72:                                      ; preds = %68
   %72 = zext i32 %62 to i64
-  %73 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %72
   %74 = load i32, ptr %73, align 4
   br label %.loopexit
 
@@ -3866,9 +3860,9 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
 
 81:                                               ; preds = %78
   %82 = sext i32 %.061 to i64
-  %83 = getelementptr inbounds [23 x ptr], ptr @cast_rules, i64 %82
+  %83 = getelementptr inbounds [184 x i8], ptr @cast_rules, i64 %82
   %84 = sext i32 %.06676 to i64
-  %85 = getelementptr inbounds ptr, ptr %83, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %83, i64 %84
   %86 = load ptr, ptr %85, align 8
   %.not.i = icmp eq ptr %86, null
   br i1 %.not.i, label %.thread.i, label %97
@@ -3997,7 +3991,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
 
 .critedge:                                        ; preds = %42
   %46 = zext i32 %36 to i64
-  %47 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %46
   %48 = load i32, ptr %47, align 4
   br label %.loopexit
 
@@ -4020,9 +4014,9 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
 
 58:                                               ; preds = %53
   %59 = sext i32 %.038 to i64
-  %60 = getelementptr inbounds [23 x ptr], ptr @cast_rules, i64 %59
+  %60 = getelementptr inbounds [184 x i8], ptr @cast_rules, i64 %59
   %61 = sext i32 %55 to i64
-  %62 = getelementptr inbounds ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %60, i64 %61
   %63 = load ptr, ptr %62, align 8
   %.not.i = icmp eq ptr %63, null
   br i1 %.not.i, label %.thread.i, label %74
@@ -4110,7 +4104,7 @@ define internal zeroext i1 @rule_vecarr_to_infer(ptr noundef %0, i1 noundef zero
 
 .critedge:                                        ; preds = %20
   %24 = zext i32 %14 to i64
-  %25 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %24
   %26 = load i32, ptr %25, align 4
   br label %.loopexit
 
@@ -4134,9 +4128,9 @@ define internal zeroext i1 @rule_vecarr_to_infer(ptr noundef %0, i1 noundef zero
 
 37:                                               ; preds = %32
   %38 = sext i32 %34 to i64
-  %39 = getelementptr inbounds [23 x ptr], ptr @cast_rules, i64 %38
+  %39 = getelementptr inbounds [184 x i8], ptr @cast_rules, i64 %38
   %40 = sext i32 %.028 to i64
-  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %.not.i = icmp eq ptr %42, null
   br i1 %.not.i, label %.thread.i, label %53
@@ -4515,7 +4509,7 @@ type_flatten.exit:                                ; preds = %17
 
 .critedge:                                        ; preds = %42
   %46 = zext i32 %36 to i64
-  %47 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %46
   %48 = load i32, ptr %47, align 4
   br label %.loopexit
 
@@ -4539,9 +4533,9 @@ type_flatten.exit:                                ; preds = %17
 
 59:                                               ; preds = %54
   %60 = sext i32 %.039 to i64
-  %61 = getelementptr inbounds [23 x ptr], ptr @cast_rules, i64 %60
+  %61 = getelementptr inbounds [184 x i8], ptr @cast_rules, i64 %60
   %62 = sext i32 %56 to i64
-  %63 = getelementptr inbounds ptr, ptr %61, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   %.not.i = icmp eq ptr %64, null
   br i1 %.not.i, label %.thread.i, label %75
@@ -4703,7 +4697,7 @@ type_flatten.exit:                                ; preds = %30
 
 59:                                               ; preds = %55
   %60 = zext i32 %49 to i64
-  %61 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %60
   %62 = load i32, ptr %61, align 4
   switch i32 %62, label %.thread86 [
     i32 2, label %.thread
@@ -4802,7 +4796,7 @@ report_cast_error.exit82:                         ; preds = %63, %68, %71
 
 .critedge76:                                      ; preds = %89
   %93 = zext i32 %83 to i64
-  %94 = getelementptr inbounds nuw i32, ptr @group_from_type, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr @group_from_type, i64 %93
   %95 = load i32, ptr %94, align 4
   br label %.loopexit
 
@@ -4825,9 +4819,9 @@ report_cast_error.exit82:                         ; preds = %63, %68, %71
 
 105:                                              ; preds = %100
   %106 = sext i32 %.063 to i64
-  %107 = getelementptr inbounds [23 x ptr], ptr @cast_rules, i64 %106
+  %107 = getelementptr inbounds [184 x i8], ptr @cast_rules, i64 %106
   %108 = sext i32 %102 to i64
-  %109 = getelementptr inbounds ptr, ptr %107, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %107, i64 %108
   %110 = load ptr, ptr %109, align 8
   %.not.i = icmp eq ptr %110, null
   br i1 %.not.i, label %.thread.i, label %121
@@ -5020,7 +5014,7 @@ define internal noundef zeroext i1 @rule_interface_to_interface(ptr noundef read
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
@@ -5210,7 +5204,7 @@ define internal noundef zeroext i1 @rule_ulist_to_subarray(ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %0, align 8
   %19 = tail call zeroext i1 @may_cast(ptr noundef %18, ptr noundef %17, ptr noundef %7, i1 noundef zeroext false, i1 noundef zeroext %2)
@@ -5270,7 +5264,7 @@ define internal noundef zeroext i1 @rule_ulist_to_vecarr(ptr noundef readonly ca
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %28 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %0, align 8
   %31 = tail call zeroext i1 @may_cast(ptr noundef %30, ptr noundef %29, ptr noundef %27, i1 noundef zeroext false, i1 noundef zeroext %2)
@@ -5358,10 +5352,10 @@ define internal noundef zeroext i1 @rule_ulist_to_struct(ptr noundef readonly ca
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 72
   %46 = load ptr, ptr %45, align 8
@@ -5410,7 +5404,7 @@ define internal noundef zeroext i1 @rule_ulist_to_inferred(ptr noundef readonly 
 
 20:                                               ; preds = %20, %15
   %indvars.iv = phi i64 [ 0, %15 ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %0, align 8
   %24 = tail call zeroext i1 @may_cast(ptr noundef %23, ptr noundef %22, ptr noundef %19, i1 noundef zeroext false, i1 noundef zeroext %2)
@@ -6068,7 +6062,7 @@ define internal void @cast_int_arr_to_bitstruct(ptr readnone captures(none) %0, 
   %14 = load i32, ptr %13, align 4
   %15 = load ptr, ptr @expr_arena, align 8
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %struct.Expr_, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %15, i64 %16
   br label %18
 
 18:                                               ; preds = %.backedge, %12
@@ -6251,7 +6245,7 @@ type_flatten.exit:                                ; preds = %4
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds ptr, ptr %43, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %43, i64 %46
   %48 = load ptr, ptr %47, align 8
   store i16 3, ptr %23, align 8
   store ptr %48, ptr %44, align 8
@@ -7205,7 +7199,7 @@ define internal void @cast_sa_to_vecarr(ptr noundef %0, ptr noundef %1, ptr noun
   %11 = load i32, ptr %10, align 4
   %12 = load ptr, ptr @expr_arena, align 8
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %struct.Expr_, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7802,7 +7796,7 @@ define internal void @cast_bitstruct_to_int_arr(ptr readnone captures(none) %0, 
   %14 = load i32, ptr %13, align 4
   %15 = load ptr, ptr @expr_arena, align 8
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %struct.Expr_, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload = load i64, ptr %18, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %17, i64 56, i1 false)
@@ -8335,7 +8329,7 @@ type_flatten.exit:                                ; preds = %32
   %63 = load i32, ptr %62, align 4
   %64 = load ptr, ptr @expr_arena, align 8
   %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds nuw %struct.Expr_, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [56 x i8], ptr %64, i64 %65
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %66, i64 56, i1 false)
   br label %.thread
 
@@ -8870,7 +8864,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   %11 = load i32, ptr %6, align 8
   %12 = load ptr, ptr @expr_arena, align 8
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %struct.Expr_, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %13
   %15 = tail call fastcc ptr @recursive_may_narrow(ptr noundef %14, ptr noundef %1)
   %.not63 = icmp eq ptr %15, null
   br i1 %.not63, label %16, label %.loopexit72
@@ -8880,14 +8874,14 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   %18 = load i32, ptr %17, align 4
   %19 = load ptr, ptr @expr_arena, align 8
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw %struct.Expr_, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %20
   br label %.backedge.backedge
 
 22:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
   %23 = load i32, ptr %6, align 8
   %24 = load ptr, ptr @expr_arena, align 8
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw %struct.Expr_, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %25
   br label %.backedge.backedge
 
 27:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5
@@ -8938,7 +8932,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
 44:                                               ; preds = %41
   %45 = add i32 %43, -1
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %40, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %46
   %48 = load ptr, ptr %47, align 8
   br label %.backedge.backedge
 
@@ -8961,7 +8955,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   %56 = phi i32 [ %54, %52 ], [ %51, %49 ]
   %57 = load ptr, ptr @expr_arena, align 8
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw %struct.Expr_, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [56 x i8], ptr %57, i64 %58
   %60 = tail call fastcc ptr @recursive_may_narrow(ptr noundef %59, ptr noundef %1)
   %.not60 = icmp eq ptr %60, null
   br i1 %.not60, label %61, label %.loopexit72
@@ -8971,7 +8965,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   %63 = load i32, ptr %62, align 8
   %64 = load ptr, ptr @expr_arena, align 8
   %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds nuw %struct.Expr_, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [56 x i8], ptr %64, i64 %65
   br label %.backedge.backedge
 
 67:                                               ; preds = %.backedge
@@ -8994,7 +8988,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   %76 = load i32, ptr %75, align 4
   %77 = load ptr, ptr @expr_arena, align 8
   %78 = zext i32 %76 to i64
-  %79 = getelementptr inbounds nuw %struct.Expr_, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [56 x i8], ptr %77, i64 %78
   br label %.backedge.backedge
 
 80:                                               ; preds = %.backedge
@@ -9238,7 +9232,7 @@ type_flatten.exit:                                ; preds = %.preheader
 
 .lr.ph94:                                         ; preds = %.lr.ph94.preheader, %.lr.ph94
   %indvars.iv105 = phi i64 [ 0, %.lr.ph94.preheader ], [ %indvars.iv.next106, %.lr.ph94 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv105
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv105
   %26 = load ptr, ptr %25, align 8
   tail call fastcc void @vector_const_initializer_convert_to_type(ptr noundef %0, ptr noundef %26, ptr noundef %19)
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
@@ -9297,7 +9291,7 @@ type_flatten.exit73:                              ; preds = %.preheader83
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %47 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8
   tail call fastcc void @vector_const_initializer_convert_to_type(ptr noundef %0, ptr noundef %48, ptr noundef %41)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9473,7 +9467,7 @@ define internal fastcc void @expr_recursively_rewrite_untyped_list(ptr noundef c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8

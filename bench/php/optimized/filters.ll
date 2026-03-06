@@ -60,7 +60,7 @@ define hidden range(i32 -1, 1) i32 @zm_startup_standard_filters(i32 noundef %0, 
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds nuw %struct.anon, ptr @standard_filters, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @standard_filters, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 16, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !11
@@ -83,7 +83,7 @@ define hidden noundef i32 @zm_shutdown_standard_filters(i32 noundef %0, i32 noun
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @standard_filters, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @standard_filters, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !11
@@ -2060,7 +2060,7 @@ define internal range(i32 0, 5) i32 @php_conv_base64_decode_convert(ptr noundef 
   %39 = getelementptr inbounds nuw i8, ptr %.097, i64 1
   %40 = load i8, ptr %.097, align 1, !tbaa !25
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr @b64_tbl_dec, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr @b64_tbl_dec, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !80
   %44 = add i64 %.091, -1
   %45 = and i32 %43, 128
@@ -2791,7 +2791,7 @@ define internal range(i32 0, 5) i32 @php_conv_qprint_decode_convert(ptr noundef 
   %75 = tail call ptr @__ctype_b_loc() #22
   %76 = load ptr, ptr %75, align 8, !tbaa !85
   %77 = zext i8 %74 to i64
-  %78 = getelementptr inbounds nuw i16, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %76, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !87
   %80 = and i16 %79, 4096
   %.not156 = icmp eq i16 %80, 0

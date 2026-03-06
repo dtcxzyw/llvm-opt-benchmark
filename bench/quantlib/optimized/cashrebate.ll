@@ -23,10 +23,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.20" = type { %"struct.std::_Vector_base.21" }
-%"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl" }
-%"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::unique_ptr.25" = type { %"struct.std::__uniq_ptr_data.26" }
 %"struct.std::__uniq_ptr_data.26" = type { %"class.std::__uniq_ptr_impl.27" }
 %"class.std::__uniq_ptr_impl.27" = type { %"class.std::tuple.28" }
@@ -1277,16 +1273,16 @@ for.cond.cleanup:                                 ; preds = %for.body, %entry.fo
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.012 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %2, i64 %i.012
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %i.012
   store i64 1, ptr %add.ptr.i, align 8, !tbaa !34
   %6 = load i64, ptr %currentIndex_, align 8, !tbaa !55
-  %add.ptr.i7 = getelementptr inbounds nuw %"class.std::vector.20", ptr %3, i64 %i.012
+  %add.ptr.i7 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %i.012
   %7 = load ptr, ptr %add.ptr.i7, align 8, !tbaa !69
   store i64 %6, ptr %7, align 8, !tbaa !71
   %8 = load i64, ptr %columns_.i.i, align 8, !tbaa !50
   %mul.i.i = mul i64 %8, %i.012
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %4, i64 %mul.i.i
-  %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %6
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %mul.i.i
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %6
   %9 = load double, ptr %arrayidx, align 8, !tbaa !74
   %amount = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %9, ptr %amount, align 8, !tbaa !75

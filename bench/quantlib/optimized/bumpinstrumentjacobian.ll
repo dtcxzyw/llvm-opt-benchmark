@@ -27,9 +27,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<QuantLib::Matrix, std::allocator<QuantLib::Matrix>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::Matrix, std::allocator<QuantLib::Matrix>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<QuantLib::Matrix, std::allocator<QuantLib::Matrix>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.QuantLib::CapPseudoDerivative" = type { %"class.boost::shared_ptr.9", %"class.std::vector.36", %"class.std::vector.36", double, double, double }
-%"struct.QuantLib::VolatilityBumpInstrumentJacobian::Swaption" = type { i64, i64 }
-%"class.QuantLib::VegaBumpCluster" = type { i64, i64, i64, i64, i64, i64 }
-%"struct.QuantLib::VolatilityBumpInstrumentJacobian::Cap" = type { i64, i64, double }
 %"class.QuantLib::OrthogonalProjections" = type { %"class.QuantLib::Matrix", double, i64, i64, i64, %"class.std::valarray", %"class.std::vector.20", %"class.QuantLib::Matrix" }
 %"class.std::valarray" = type { i64, ptr }
 %"class.std::vector.20" = type { %"struct.std::_Vector_base.21" }
@@ -349,7 +346,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i62, ptr %ref.tmp10, align 8, !tbaa !34
-  %add.ptr.i.i.i57 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i62, i64 %call13
+  %add.ptr.i.i.i57 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i62, i64 %call13
   %_M_end_of_storage.i.i.i58 = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 16
   store ptr %add.ptr.i.i.i57, ptr %_M_end_of_storage.i.i.i58, align 8, !tbaa !36
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i62, align 8, !tbaa !37
@@ -393,7 +390,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt1
   store ptr %cond.i.i.i.i66, ptr %derivatives_, align 8, !tbaa !40
   %_M_finish.i.i.i67 = getelementptr inbounds nuw i8, ptr %this, i64 128
   store ptr %cond.i.i.i.i66, ptr %_M_finish.i.i.i67, align 8, !tbaa !42
-  %add.ptr.i.i.i68 = getelementptr inbounds nuw %"class.std::vector.27", ptr %cond.i.i.i.i66, i64 %add9
+  %add.ptr.i.i.i68 = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i.i.i66, i64 %add9
   %_M_end_of_storage.i.i.i69 = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr %add.ptr.i.i.i68, ptr %_M_end_of_storage.i.i.i69, align 8, !tbaa !43
   %call.i.i.i.i3.i = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIdSaIdEEmS2_ET_S4_T0_RKT1_(ptr noundef %cond.i.i.i.i66, i64 noundef %add9, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp10)
@@ -1062,7 +1059,7 @@ do.end:                                           ; preds = %entry
   %loadedv = trunc nuw i8 %22 to i1
   %derivatives_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %23 = load ptr, ptr %derivatives_, align 8, !tbaa !40
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::vector.27", ptr %23, i64 %j
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %j
   br i1 %loadedv, label %if.then28, label %if.end30
 
 if.then28:                                        ; preds = %do.end
@@ -1131,7 +1128,7 @@ if.else.i:                                        ; preds = %if.end30
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i100 = getelementptr inbounds nuw double, ptr %27, i64 %call33
+  %add.ptr.i100 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %call33
   %tobool.not.i.i = icmp eq ptr %26, %add.ptr.i100
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %invoke.cont.i.i
 
@@ -1142,7 +1139,7 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
 _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
   %onePercentBumps_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %28 = load ptr, ptr %onePercentBumps_, align 8, !tbaa !40
-  %add.ptr.i101 = getelementptr inbounds nuw %"class.std::vector.27", ptr %28, i64 %j
+  %add.ptr.i101 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %j
   %call36 = tail call noundef i64 @_ZNK8QuantLib18VegaBumpCollection11numberBumpsEv(ptr noundef nonnull align 8 dereferenceable(43) %this)
   %_M_finish.i.i102 = getelementptr inbounds nuw i8, ptr %add.ptr.i101, i64 8
   %29 = load ptr, ptr %_M_finish.i.i102, align 8, !tbaa !39
@@ -1164,7 +1161,7 @@ if.else.i108:                                     ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %cmp4.i109, label %if.then5.i110, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit116
 
 if.then5.i110:                                    ; preds = %if.else.i108
-  %add.ptr.i111 = getelementptr inbounds nuw double, ptr %30, i64 %call36
+  %add.ptr.i111 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %call36
   %tobool.not.i.i112 = icmp eq ptr %29, %add.ptr.i111
   br i1 %tobool.not.i.i112, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit116, label %invoke.cont.i.i113
 
@@ -1188,7 +1185,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit116:            ; preds = %if.then.i114, %if.e
 if.then42:                                        ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit116
   call void @llvm.lifetime.start.p0(ptr nonnull %thisPseudo)
   %associatedVolStructure_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %add.ptr.i124 = getelementptr inbounds nuw %"struct.QuantLib::VolatilityBumpInstrumentJacobian::Swaption", ptr %33, i64 %j
+  %add.ptr.i124 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %j
   %34 = load i64, ptr %add.ptr.i124, align 8, !tbaa !80
   %endIndex_ = getelementptr inbounds nuw i8, ptr %add.ptr.i124, i64 8
   %35 = load i64, ptr %endIndex_, align 8, !tbaa !82
@@ -1221,7 +1218,7 @@ for.body:                                         ; preds = %invoke.cont51
 
 invoke.cont56:                                    ; preds = %for.body
   %37 = load ptr, ptr %call57, align 8, !tbaa !8
-  %add.ptr.i126 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %37, i64 %k.0
+  %add.ptr.i126 = getelementptr inbounds nuw [48 x i8], ptr %37, i64 %k.0
   %stepBegin_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i126, i64 32
   %38 = load i64, ptr %stepBegin_.i, align 8, !tbaa !83
   br label %for.cond61
@@ -1234,7 +1231,7 @@ for.cond61:                                       ; preds = %for.cond.cleanup89,
 
 invoke.cont63:                                    ; preds = %for.cond61
   %39 = load ptr, ptr %call64, align 8, !tbaa !8
-  %add.ptr.i127 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %39, i64 %k.0
+  %add.ptr.i127 = getelementptr inbounds nuw [48 x i8], ptr %39, i64 %k.0
   %stepEnd_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i127, i64 40
   %40 = load i64, ptr %stepEnd_.i, align 8, !tbaa !85
   %cmp68 = icmp ult i64 %i.0, %40
@@ -1242,9 +1239,9 @@ invoke.cont63:                                    ; preds = %for.cond61
 
 for.cond.cleanup69:                               ; preds = %invoke.cont63
   %41 = load ptr, ptr %derivatives_, align 8, !tbaa !40
-  %add.ptr.i128 = getelementptr inbounds nuw %"class.std::vector.27", ptr %41, i64 %j
+  %add.ptr.i128 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %j
   %42 = load ptr, ptr %add.ptr.i128, align 8, !tbaa !34
-  %add.ptr.i129 = getelementptr inbounds nuw double, ptr %42, i64 %k.0
+  %add.ptr.i129 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %k.0
   store double %v.0, ptr %add.ptr.i129, align 8, !tbaa !37
   %43 = call double @llvm.fmuladd.f64(double %v.0, double %v.0, double %sizesq.0)
   %inc126 = add nuw i64 %k.0, 1
@@ -1270,7 +1267,7 @@ invoke.cont72:                                    ; preds = %for.body70
 
 invoke.cont76:                                    ; preds = %invoke.cont72
   %44 = load ptr, ptr %call77, align 8, !tbaa !8
-  %add.ptr.i130 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %44, i64 %k.0
+  %add.ptr.i130 = getelementptr inbounds nuw [48 x i8], ptr %44, i64 %k.0
   %45 = load i64, ptr %add.ptr.i130, align 8, !tbaa !87
   %columns_.i.i = getelementptr inbounds nuw i8, ptr %call73, i64 16
   br label %for.cond81
@@ -1283,7 +1280,7 @@ for.cond81:                                       ; preds = %for.cond.cleanup106
 
 invoke.cont83:                                    ; preds = %for.cond81
   %46 = load ptr, ptr %call84, align 8, !tbaa !8
-  %add.ptr.i131 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %46, i64 %k.0
+  %add.ptr.i131 = getelementptr inbounds nuw [48 x i8], ptr %46, i64 %k.0
   %factorEnd_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i131, i64 8
   %47 = load i64, ptr %factorEnd_.i, align 8, !tbaa !88
   %cmp88 = icmp ult i64 %f.0, %47
@@ -1314,7 +1311,7 @@ for.body90:                                       ; preds = %invoke.cont83
 
 invoke.cont93:                                    ; preds = %for.body90
   %49 = load ptr, ptr %call94, align 8, !tbaa !8
-  %add.ptr.i132 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %49, i64 %k.0
+  %add.ptr.i132 = getelementptr inbounds nuw [48 x i8], ptr %49, i64 %k.0
   %rateBegin_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i132, i64 16
   %50 = load i64, ptr %rateBegin_.i, align 8, !tbaa !90
   br label %for.cond98
@@ -1327,7 +1324,7 @@ for.cond98:                                       ; preds = %invoke.cont108, %in
 
 invoke.cont100:                                   ; preds = %for.cond98
   %51 = load ptr, ptr %call101, align 8, !tbaa !8
-  %add.ptr.i133 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %51, i64 %k.0
+  %add.ptr.i133 = getelementptr inbounds nuw [48 x i8], ptr %51, i64 %k.0
   %rateEnd_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i133, i64 24
   %52 = load i64, ptr %rateEnd_.i, align 8, !tbaa !91
   %cmp105 = icmp ult i64 %r.0, %52
@@ -1351,8 +1348,8 @@ invoke.cont108:                                   ; preds = %invoke.cont100
   %53 = load ptr, ptr %call73, align 8, !tbaa !11
   %54 = load i64, ptr %columns_.i.i, align 8, !tbaa !52
   %mul.i.i = mul i64 %54, %r.0
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %53, i64 %mul.i.i
-  %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %f.0
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %mul.i.i
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %f.0
   %55 = load double, ptr %arrayidx, align 8, !tbaa !37
   %add110 = fadd double %v.2, %55
   %inc = add nuw i64 %r.0, 1
@@ -1369,7 +1366,7 @@ if.else:                                          ; preds = %_ZNSt6vectorIdSaIdE
   call void @llvm.lifetime.start.p0(ptr nonnull %thisPseudo133)
   %associatedVolStructure_.i139 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %56 = load ptr, ptr %caps_, align 8, !tbaa !27
-  %add.ptr.i140 = getelementptr inbounds nuw %"struct.QuantLib::VolatilityBumpInstrumentJacobian::Cap", ptr %56, i64 %sub
+  %add.ptr.i140 = getelementptr inbounds nuw [24 x i8], ptr %56, i64 %sub
   %strike_ = getelementptr inbounds nuw i8, ptr %add.ptr.i140, i64 16
   %57 = load double, ptr %strike_, align 8, !tbaa !94
   %58 = load i64, ptr %add.ptr.i140, align 8, !tbaa !96
@@ -1404,7 +1401,7 @@ for.body152:                                      ; preds = %invoke.cont148
 
 invoke.cont157:                                   ; preds = %for.body152
   %61 = load ptr, ptr %call158, align 8, !tbaa !8
-  %add.ptr.i143 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %61, i64 %k144.0
+  %add.ptr.i143 = getelementptr inbounds nuw [48 x i8], ptr %61, i64 %k144.0
   %stepBegin_.i144 = getelementptr inbounds nuw i8, ptr %add.ptr.i143, i64 32
   %62 = load i64, ptr %stepBegin_.i144, align 8, !tbaa !83
   br label %for.cond162
@@ -1417,7 +1414,7 @@ for.cond162:                                      ; preds = %for.cond.cleanup192
 
 invoke.cont164:                                   ; preds = %for.cond162
   %63 = load ptr, ptr %call165, align 8, !tbaa !8
-  %add.ptr.i145 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %63, i64 %k144.0
+  %add.ptr.i145 = getelementptr inbounds nuw [48 x i8], ptr %63, i64 %k144.0
   %stepEnd_.i146 = getelementptr inbounds nuw i8, ptr %add.ptr.i145, i64 40
   %64 = load i64, ptr %stepEnd_.i146, align 8, !tbaa !85
   %cmp169 = icmp ult i64 %i154.0, %64
@@ -1426,9 +1423,9 @@ invoke.cont164:                                   ; preds = %for.cond162
 for.cond.cleanup170:                              ; preds = %invoke.cont164
   %65 = call double @llvm.fmuladd.f64(double %v153.0, double %v153.0, double %sizesq.2)
   %66 = load ptr, ptr %derivatives_, align 8, !tbaa !40
-  %add.ptr.i147 = getelementptr inbounds nuw %"class.std::vector.27", ptr %66, i64 %j
+  %add.ptr.i147 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %j
   %67 = load ptr, ptr %add.ptr.i147, align 8, !tbaa !34
-  %add.ptr.i148 = getelementptr inbounds nuw double, ptr %67, i64 %k144.0
+  %add.ptr.i148 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %k144.0
   store double %v153.0, ptr %add.ptr.i148, align 8, !tbaa !37
   %inc234 = add nuw i64 %k144.0, 1
   br label %for.cond145, !llvm.loop !98
@@ -1453,7 +1450,7 @@ invoke.cont174:                                   ; preds = %for.body171
 
 invoke.cont179:                                   ; preds = %invoke.cont174
   %68 = load ptr, ptr %call180, align 8, !tbaa !8
-  %add.ptr.i149 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %68, i64 %k144.0
+  %add.ptr.i149 = getelementptr inbounds nuw [48 x i8], ptr %68, i64 %k144.0
   %69 = load i64, ptr %add.ptr.i149, align 8, !tbaa !87
   %columns_.i.i156 = getelementptr inbounds nuw i8, ptr %call175, i64 16
   br label %for.cond184
@@ -1466,7 +1463,7 @@ for.cond184:                                      ; preds = %for.cond.cleanup210
 
 invoke.cont186:                                   ; preds = %for.cond184
   %70 = load ptr, ptr %call187, align 8, !tbaa !8
-  %add.ptr.i150 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %70, i64 %k144.0
+  %add.ptr.i150 = getelementptr inbounds nuw [48 x i8], ptr %70, i64 %k144.0
   %factorEnd_.i151 = getelementptr inbounds nuw i8, ptr %add.ptr.i150, i64 8
   %71 = load i64, ptr %factorEnd_.i151, align 8, !tbaa !88
   %cmp191 = icmp ult i64 %f176.0, %71
@@ -1497,7 +1494,7 @@ for.body193:                                      ; preds = %invoke.cont186
 
 invoke.cont197:                                   ; preds = %for.body193
   %73 = load ptr, ptr %call198, align 8, !tbaa !8
-  %add.ptr.i152 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %73, i64 %k144.0
+  %add.ptr.i152 = getelementptr inbounds nuw [48 x i8], ptr %73, i64 %k144.0
   %rateBegin_.i153 = getelementptr inbounds nuw i8, ptr %add.ptr.i152, i64 16
   %74 = load i64, ptr %rateBegin_.i153, align 8, !tbaa !90
   br label %for.cond202
@@ -1510,7 +1507,7 @@ for.cond202:                                      ; preds = %invoke.cont212, %in
 
 invoke.cont204:                                   ; preds = %for.cond202
   %75 = load ptr, ptr %call205, align 8, !tbaa !8
-  %add.ptr.i154 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %75, i64 %k144.0
+  %add.ptr.i154 = getelementptr inbounds nuw [48 x i8], ptr %75, i64 %k144.0
   %rateEnd_.i155 = getelementptr inbounds nuw i8, ptr %add.ptr.i154, i64 24
   %76 = load i64, ptr %rateEnd_.i155, align 8, !tbaa !91
   %cmp209 = icmp ult i64 %r194.0, %76
@@ -1534,8 +1531,8 @@ invoke.cont212:                                   ; preds = %invoke.cont204
   %77 = load ptr, ptr %call175, align 8, !tbaa !11
   %78 = load i64, ptr %columns_.i.i156, align 8, !tbaa !52
   %mul.i.i157 = mul i64 %78, %r194.0
-  %add.ptr.i.i158 = getelementptr inbounds nuw double, ptr %77, i64 %mul.i.i157
-  %arrayidx214 = getelementptr inbounds nuw double, ptr %add.ptr.i.i158, i64 %f176.0
+  %add.ptr.i.i158 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %mul.i.i157
+  %arrayidx214 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i158, i64 %f176.0
   %79 = load double, ptr %arrayidx214, align 8, !tbaa !37
   %add215 = fadd double %v153.2, %79
   %inc217 = add nuw i64 %r194.0, 1
@@ -1560,7 +1557,7 @@ for.body246.lr.ph:                                ; preds = %if.end239
 
 for.cond.cleanup245:                              ; preds = %for.body246, %if.end239
   %80 = load ptr, ptr %derivatives_, align 8, !tbaa !40
-  %add.ptr.i159 = getelementptr inbounds nuw %"class.std::vector.27", ptr %80, i64 %j
+  %add.ptr.i159 = getelementptr inbounds nuw [24 x i8], ptr %80, i64 %j
   %_M_finish.i.i160 = getelementptr inbounds nuw i8, ptr %add.ptr.i159, i64 8
   %81 = load ptr, ptr %_M_finish.i.i160, align 8, !tbaa !39
   %82 = load ptr, ptr %add.ptr.i159, align 8, !tbaa !34
@@ -1607,22 +1604,22 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit181:             ; preds = %invoke.cont.i169.th
 for.body246:                                      ; preds = %for.body246.lr.ph, %for.body246
   %k240.0260 = phi i64 [ 0, %for.body246.lr.ph ], [ %inc256, %for.body246 ]
   %83 = load ptr, ptr %derivatives_, align 8, !tbaa !40
-  %add.ptr.i182 = getelementptr inbounds nuw %"class.std::vector.27", ptr %83, i64 %j
+  %add.ptr.i182 = getelementptr inbounds nuw [24 x i8], ptr %83, i64 %j
   %84 = load ptr, ptr %add.ptr.i182, align 8, !tbaa !34
-  %add.ptr.i183 = getelementptr inbounds nuw double, ptr %84, i64 %k240.0260
+  %add.ptr.i183 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %k240.0260
   %85 = load double, ptr %add.ptr.i183, align 8, !tbaa !37
   %mul = fmul double %85, 1.000000e-02
   %div = fdiv double %mul, %sizesq.1
   %86 = load ptr, ptr %onePercentBumps_, align 8, !tbaa !40
-  %add.ptr.i184 = getelementptr inbounds nuw %"class.std::vector.27", ptr %86, i64 %j
+  %add.ptr.i184 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %j
   %87 = load ptr, ptr %add.ptr.i184, align 8, !tbaa !34
-  %add.ptr.i185 = getelementptr inbounds nuw double, ptr %87, i64 %k240.0260
+  %add.ptr.i185 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %k240.0260
   store double %div, ptr %add.ptr.i185, align 8, !tbaa !37
   %88 = load ptr, ptr %bumpMatrix_, align 8, !tbaa !11
   %89 = load i64, ptr %columns_.i.i186, align 8, !tbaa !52
   %mul.i.i187 = mul i64 %89, %j
-  %add.ptr.i.i188 = getelementptr inbounds nuw double, ptr %88, i64 %mul.i.i187
-  %arrayidx254 = getelementptr inbounds nuw double, ptr %add.ptr.i.i188, i64 %k240.0260
+  %add.ptr.i.i188 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %mul.i.i187
+  %arrayidx254 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i188, i64 %k240.0260
   store double %div, ptr %arrayidx254, align 8, !tbaa !37
   %inc256 = add nuw i64 %k240.0260, 1
   %call243 = call noundef i64 @_ZNK8QuantLib18VegaBumpCollection11numberBumpsEv(ptr noundef nonnull align 8 dereferenceable(43) %this)
@@ -2051,7 +2048,7 @@ if.then.i.i.i:                                    ; preds = %entry
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %entry, %if.then.i.i.i
   %onePercentBumps_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %2 = load ptr, ptr %onePercentBumps_, align 8, !tbaa !40
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::vector.27", ptr %2, i64 %j
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %j
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %3 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !39
   %4 = load ptr, ptr %add.ptr.i, align 8, !tbaa !34
@@ -2327,7 +2324,7 @@ if.else.i:                                        ; preds = %invoke.cont25
   br i1 %cmp4.i, label %if.then5.i, label %invoke.cont27
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::vector.36", ptr %19, i64 %call16
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %call16
   %tobool.not.i.i = icmp eq ptr %18, %add.ptr.i
   br i1 %tobool.not.i.i, label %invoke.cont27, label %for.body.i.i.i.i.i
 
@@ -2433,9 +2430,9 @@ for.cond41.preheader.us.us.us:                    ; preds = %for.cond41.preheade
 for.body44.us.us.us.us.us:                        ; preds = %for.inc50.us.us.us.us.us, %for.cond41.preheader.us.us.us
   %j.0185.us.us.us.us.us = phi i64 [ 0, %for.cond41.preheader.us.us.us ], [ %inc.us.us.us.us.us, %for.inc50.us.us.us.us.us ]
   %34 = load ptr, ptr %theBumps, align 8, !tbaa !116
-  %add.ptr.i82.us.us.us.us.us = getelementptr inbounds nuw %"class.std::vector.36", ptr %34, i64 %i.0200.us.us.us
+  %add.ptr.i82.us.us.us.us.us = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %i.0200.us.us.us
   %35 = load ptr, ptr %add.ptr.i82.us.us.us.us.us, align 8, !tbaa !105
-  %add.ptr.i83.us.us.us.us.us = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %35, i64 %j.0185.us.us.us.us.us
+  %add.ptr.i83.us.us.us.us.us = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %j.0185.us.us.us.us.us
   %36 = load ptr, ptr %add.ptr.i83.us.us.us.us.us, align 8, !tbaa !11
   store ptr null, ptr %add.ptr.i83.us.us.us.us.us, align 8, !tbaa !11
   %rows_.i.i.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %add.ptr.i83.us.us.us.us.us, i64 8
@@ -2469,13 +2466,13 @@ for.cond41.preheader.us.us221:                    ; preds = %for.cond41.preheade
 for.body44.us186.us.us:                           ; preds = %for.inc50.us196.us.us, %for.cond41.preheader.us.us221
   %j.0185.us187.us.us = phi i64 [ 0, %for.cond41.preheader.us.us221 ], [ %inc.us197.us.us, %for.inc50.us196.us.us ]
   %37 = load ptr, ptr %theBumps, align 8, !tbaa !116
-  %add.ptr.i82.us188.us.us = getelementptr inbounds nuw %"class.std::vector.36", ptr %37, i64 %i.0200.us.us222
+  %add.ptr.i82.us188.us.us = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %i.0200.us.us222
   %38 = load ptr, ptr %add.ptr.i82.us188.us.us, align 8, !tbaa !105
   %call2.i.i85.us.us.us = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %32) #23
           to label %cond.end.i.i.us190.us.us unwind label %lpad47.split.us.split.us.split.us
 
 cond.end.i.i.us190.us.us:                         ; preds = %for.body44.us186.us.us
-  %add.ptr.i83.us189.us.us = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %38, i64 %j.0185.us187.us.us
+  %add.ptr.i83.us189.us.us = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %j.0185.us187.us.us
   %39 = load ptr, ptr %add.ptr.i83.us189.us.us, align 8, !tbaa !11
   store ptr %call2.i.i85.us.us.us, ptr %add.ptr.i83.us189.us.us, align 8, !tbaa !11
   %rows_.i.i.us192.us.us = getelementptr inbounds nuw i8, ptr %add.ptr.i83.us189.us.us, i64 8
@@ -2511,13 +2508,13 @@ for.cond41.preheader.us:                          ; preds = %for.cond41.preheade
 for.body44.us203:                                 ; preds = %for.cond41.preheader.us, %for.inc50.us212
   %j.0185.us204 = phi i64 [ 0, %for.cond41.preheader.us ], [ %inc.us213, %for.inc50.us212 ]
   %41 = load ptr, ptr %theBumps, align 8, !tbaa !116
-  %add.ptr.i82.us205 = getelementptr inbounds nuw %"class.std::vector.36", ptr %41, i64 %i.0200.us
+  %add.ptr.i82.us205 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %i.0200.us
   %42 = load ptr, ptr %add.ptr.i82.us205, align 8, !tbaa !105
   %call2.i.i85.us207 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %32) #23
           to label %cond.end.i.i.us unwind label %lpad47.split.split.us
 
 cond.end.i.i.us:                                  ; preds = %for.body44.us203
-  %add.ptr.i83.us206 = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %42, i64 %j.0185.us204
+  %add.ptr.i83.us206 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %j.0185.us204
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call2.i.i85.us207, ptr align 8 %modelMatrix.sroa.0.0, i64 %31, i1 false)
   %43 = load ptr, ptr %add.ptr.i83.us206, align 8, !tbaa !11
   store ptr %call2.i.i85.us207, ptr %add.ptr.i83.us206, align 8, !tbaa !11
@@ -2594,7 +2591,7 @@ if.else.i69:                                      ; preds = %for.body
   br i1 %cmp4.i70, label %if.then5.i71, label %invoke.cont34
 
 if.then5.i71:                                     ; preds = %if.else.i69
-  %add.ptr.i72 = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %51, i64 %call2
+  %add.ptr.i72 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %call2
   %tobool.not.i.i73 = icmp eq ptr %50, %add.ptr.i72
   br i1 %tobool.not.i.i73, label %invoke.cont34, label %for.body.i.i.i.i.i74
 
@@ -2808,10 +2805,10 @@ for.body77:                                       ; preds = %for.cond73.preheade
 
 invoke.cont79:                                    ; preds = %for.body77
   %77 = load ptr, ptr %call80, align 8, !tbaa !34
-  %add.ptr.i114 = getelementptr inbounds nuw double, ptr %77, i64 %cluster.0243
+  %add.ptr.i114 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %cluster.0243
   %78 = load double, ptr %add.ptr.i114, align 8, !tbaa !37
   %79 = load ptr, ptr %call60, align 8, !tbaa !8
-  %add.ptr.i115 = getelementptr inbounds nuw %"class.QuantLib::VegaBumpCluster", ptr %79, i64 %cluster.0243
+  %add.ptr.i115 = getelementptr inbounds nuw [48 x i8], ptr %79, i64 %cluster.0243
   %stepBegin_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i115, i64 32
   %80 = load i64, ptr %stepBegin_.i, align 8, !tbaa !83
   %stepEnd_.i = getelementptr inbounds nuw i8, ptr %add.ptr.i115, i64 40
@@ -2837,9 +2834,9 @@ for.body92.lr.ph.split.us:                        ; preds = %for.body92.lr.ph
 for.body92.us.us:                                 ; preds = %for.body92.lr.ph.split.us, %for.cond97.for.cond.cleanup102_crit_edge.split.us.us.us
   %step.0231.us.us = phi i64 [ %inc126.us.us, %for.cond97.for.cond.cleanup102_crit_edge.split.us.us.us ], [ %80, %for.body92.lr.ph.split.us ]
   %86 = load ptr, ptr %theBumps, align 8
-  %add.ptr.i121.us.us = getelementptr inbounds nuw %"class.std::vector.36", ptr %86, i64 %step.0231.us.us
+  %add.ptr.i121.us.us = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %step.0231.us.us
   %87 = load ptr, ptr %add.ptr.i121.us.us, align 8, !tbaa !105
-  %add.ptr.i122.us.us.us = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %87, i64 %bumpIndex.0
+  %add.ptr.i122.us.us.us = getelementptr inbounds nuw [24 x i8], ptr %87, i64 %bumpIndex.0
   %88 = load ptr, ptr %add.ptr.i122.us.us.us, align 8, !tbaa !11
   %columns_.i.i123.us.us.us = getelementptr inbounds nuw i8, ptr %add.ptr.i122.us.us.us, i64 16
   %89 = load i64, ptr %columns_.i.i123.us.us.us, align 8, !tbaa !52
@@ -2848,12 +2845,12 @@ for.body92.us.us:                                 ; preds = %for.body92.lr.ph.sp
 for.body103.us.us.us:                             ; preds = %for.cond108.for.cond.cleanup113_crit_edge.us.us.us, %for.body92.us.us
   %rate.0229.us.us.us = phi i64 [ %82, %for.body92.us.us ], [ %inc123.us.us.us, %for.cond108.for.cond.cleanup113_crit_edge.us.us.us ]
   %mul.i.i.us.us.us = mul i64 %89, %rate.0229.us.us.us
-  %add.ptr.i.i124.us.us.us = getelementptr inbounds nuw double, ptr %88, i64 %mul.i.i.us.us.us
+  %add.ptr.i.i124.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %mul.i.i.us.us.us
   br label %invoke.cont117.us.us.us
 
 invoke.cont117.us.us.us:                          ; preds = %invoke.cont117.us.us.us, %for.body103.us.us.us
   %factor.0227.us.us.us = phi i64 [ %84, %for.body103.us.us.us ], [ %inc120.us.us.us, %invoke.cont117.us.us.us ]
-  %arrayidx.us.us.us = getelementptr inbounds nuw double, ptr %add.ptr.i.i124.us.us.us, i64 %factor.0227.us.us.us
+  %arrayidx.us.us.us = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i124.us.us.us, i64 %factor.0227.us.us.us
   store double %78, ptr %arrayidx.us.us.us, align 8, !tbaa !37
   %inc120.us.us.us = add nuw i64 %factor.0227.us.us.us, 1
   %exitcond255.not = icmp eq i64 %inc120.us.us.us, %85
@@ -3699,9 +3696,9 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit37: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %if.then.i35
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !34
-  %add.ptr37 = getelementptr inbounds nuw double, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !39
-  %add.ptr40 = getelementptr inbounds nuw double, ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !36
   br label %if.end44
 
@@ -3797,9 +3794,9 @@ if.then.i29:                                      ; preds = %_ZNSt6vectorIS_IN8Q
 
 _ZNSt12_Vector_baseISt6vectorIN8QuantLib6MatrixESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit31: ; preds = %_ZNSt6vectorIS_IN8QuantLib6MatrixESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %if.then.i29
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !116
-  %add.ptr37 = getelementptr inbounds nuw %"class.std::vector.36", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [24 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !114
-  %add.ptr40 = getelementptr inbounds nuw %"class.std::vector.36", ptr %call5.i.i.i, i64 %4
+  %add.ptr40 = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !128
   br label %if.end44
 
@@ -3900,9 +3897,9 @@ if.then.i29:                                      ; preds = %_ZNSt6vectorIN8Quan
 
 _ZNSt12_Vector_baseIN8QuantLib6MatrixESaIS1_EE13_M_deallocateEPS1_m.exit31: ; preds = %_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i29
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !105
-  %add.ptr37 = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [24 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !107
-  %add.ptr40 = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %call5.i.i.i, i64 %4
+  %add.ptr40 = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !109
   br label %if.end44
 

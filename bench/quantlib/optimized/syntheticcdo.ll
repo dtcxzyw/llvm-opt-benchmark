@@ -73,13 +73,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.58" = type { %"struct.std::_Vector_base<QuantLib::DefaultProbKey, std::allocator<QuantLib::DefaultProbKey>>::_Vector_impl" }
 %"struct.std::_Vector_base<QuantLib::DefaultProbKey, std::allocator<QuantLib::DefaultProbKey>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::DefaultProbKey, std::allocator<QuantLib::DefaultProbKey>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<QuantLib::DefaultProbKey, std::allocator<QuantLib::DefaultProbKey>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.QuantLib::DefaultProbKey" = type <{ %"class.std::vector.94", %"class.QuantLib::Currency", i32, [4 x i8] }>
-%"class.std::vector.94" = type { %"struct.std::_Vector_base.95" }
-%"struct.std::_Vector_base.95" = type { %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultType>, std::allocator<boost::shared_ptr<QuantLib::DefaultType>>>::_Vector_impl" }
-%"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultType>, std::allocator<boost::shared_ptr<QuantLib::DefaultType>>>::_Vector_impl" = type { %"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultType>, std::allocator<boost::shared_ptr<QuantLib::DefaultType>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<boost::shared_ptr<QuantLib::DefaultType>, std::allocator<boost::shared_ptr<QuantLib::DefaultType>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.QuantLib::Currency" = type { %"class.boost::shared_ptr.99" }
-%"class.boost::shared_ptr.99" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.QuantLib::detail::simple_event" = type { %"class.QuantLib::Event.base", %"class.QuantLib::Date", %"class.QuantLib::Observable" }
 %"class.QuantLib::Event.base" = type { ptr }
 %"class.QuantLib::Observable" = type { ptr, %"class.std::set.0" }
@@ -1959,7 +1952,7 @@ if.then.i.i.i102:                                 ; preds = %_ZNSt6vectorIN5boos
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %101, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %101, i64 %idx.neg.i.i.i
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #34
   store ptr null, ptr %isRegular_.i, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 104
@@ -2361,7 +2354,7 @@ _ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit.i152: ; preds = %.noexc155, %i
 
 invoke.cont140:                                   ; preds = %_ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit.i152
   %150 = load ptr, ptr %call2.i156, align 8, !tbaa !120
-  %add.ptr.i158 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %150, i64 %i.0
+  %add.ptr.i158 = getelementptr inbounds nuw [32 x i8], ptr %150, i64 %i.0
   %call144 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK8QuantLib4Pool3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %146, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i158)
           to label %invoke.cont143 unwind label %lpad131
 
@@ -2401,7 +2394,7 @@ invoke.cont151:                                   ; preds = %.noexc168, %invoke.
 
 invoke.cont153:                                   ; preds = %invoke.cont151
   %155 = load ptr, ptr %ref.tmp145, align 8, !tbaa !126
-  %add.ptr.i170 = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %155, i64 %i.0
+  %add.ptr.i170 = getelementptr inbounds nuw [48 x i8], ptr %155, i64 %i.0
   %call157 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6Issuer18defaultProbabilityERKNS_14DefaultProbKeyE(ptr noundef nonnull align 8 dereferenceable(72) %call144, ptr noundef nonnull align 8 dereferenceable(44) %add.ptr.i170)
           to label %invoke.cont156 unwind label %lpad155
 
@@ -3112,7 +3105,7 @@ if.then.i.i.i57:                                  ; preds = %_ZNSt6vectorIdSaIdE
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %42, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %42, i64 %idx.neg.i.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #34
   store ptr null, ptr %isRegular_.i, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -3207,7 +3200,7 @@ if.then.i.i:                                      ; preds = %entry
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %idx.neg.i.i = sub nsw i64 0, %sub.ptr.div.i.i
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %1, i64 %idx.neg.i.i
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %1, i64 %idx.neg.i.i
   tail call void @_ZdlPvm(ptr noundef %add.ptr.i.i, i64 noundef %sub.ptr.sub.i.i) #34
   store ptr null, ptr %isRegular_, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -4269,7 +4262,7 @@ if.then.i.i.i107:                                 ; preds = %_ZNSt6vectorIN5boos
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %idx.neg.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %100, i64 %idx.neg.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %100, i64 %idx.neg.i.i.i
   call void @_ZdlPvm(ptr noundef %add.ptr.i.i.i, i64 noundef %sub.ptr.sub.i.i.i) #34
   store ptr null, ptr %isRegular_.i, align 8
   %ref.tmp.sroa.4.0.this.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 104
@@ -4671,7 +4664,7 @@ _ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit.i157: ; preds = %.noexc160, %i
 
 invoke.cont135:                                   ; preds = %_ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit.i157
   %149 = load ptr, ptr %call2.i161, align 8, !tbaa !120
-  %add.ptr.i163 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %149, i64 %i.0
+  %add.ptr.i163 = getelementptr inbounds nuw [32 x i8], ptr %149, i64 %i.0
   %call139 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK8QuantLib4Pool3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(168) %145, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i163)
           to label %invoke.cont138 unwind label %lpad126
 
@@ -4711,7 +4704,7 @@ invoke.cont146:                                   ; preds = %.noexc173, %invoke.
 
 invoke.cont148:                                   ; preds = %invoke.cont146
   %154 = load ptr, ptr %ref.tmp140, align 8, !tbaa !126
-  %add.ptr.i175 = getelementptr inbounds nuw %"class.QuantLib::DefaultProbKey", ptr %154, i64 %i.0
+  %add.ptr.i175 = getelementptr inbounds nuw [48 x i8], ptr %154, i64 %i.0
   %call152 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6Issuer18defaultProbabilityERKNS_14DefaultProbKeyE(ptr noundef nonnull align 8 dereferenceable(72) %call139, ptr noundef nonnull align 8 dereferenceable(44) %add.ptr.i175)
           to label %invoke.cont151 unwind label %lpad150
 

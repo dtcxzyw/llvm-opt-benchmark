@@ -89,7 +89,7 @@ define dso_local void @g4x_dp_set_clock(ptr noundef readonly captures(none) %0, 
 24:                                               ; preds = %23, %19
   %25 = phi i1 [ false, %19 ], [ true, %23 ]
   %26 = phi i64 [ 0, %19 ], [ 1, %23 ]
-  %27 = getelementptr %struct.dpll, ptr %20, i64 %26
+  %27 = getelementptr [36 x i8], ptr %20, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %22, %29
@@ -1945,7 +1945,7 @@ define internal zeroext i1 @ilk_digital_port_connected(ptr noundef readonly capt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr i32, ptr %4, i64 %7
+  %8 = getelementptr [4 x i8], ptr %4, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 7368
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 7512
@@ -1964,7 +1964,7 @@ define internal zeroext i1 @ibx_digital_port_connected(ptr noundef readonly capt
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr i32, ptr %4, i64 %7
+  %8 = getelementptr [4 x i8], ptr %4, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 7368
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 7512

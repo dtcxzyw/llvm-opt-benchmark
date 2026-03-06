@@ -3017,7 +3017,7 @@ define noundef nonnull ptr @_ZNK4YAML7Emitter15ComputeNullNameEv(ptr noundef non
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4YAML7Emitter5WriteERKNS_5_NullE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4YAML7Emitter5WriteERKNS_5_NullE, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 
@@ -3748,7 +3748,7 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML7Emitter5WriteER
 
 switch.lookup:                                    ; preds = %8
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4YAML7Emitter5WriteERKNS_5_NullE, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4YAML7Emitter5WriteERKNS_5_NullE, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK4YAML7Emitter15ComputeNullNameEv.exit
 

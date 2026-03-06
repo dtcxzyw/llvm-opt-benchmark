@@ -569,7 +569,7 @@ switch.hole_check:                                ; preds = %29
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %35 = zext nneg i16 %rev106 to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.communityid_calc, i64 %35
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table.communityid_calc, i64 %35
   br label %.thread.sink.split
 
 switch.hole_check23:                              ; preds = %32
@@ -580,7 +580,7 @@ switch.hole_check23:                              ; preds = %32
 
 switch.lookup24:                                  ; preds = %switch.hole_check23
   %36 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep28 = getelementptr inbounds nuw i16, ptr @switch.table.communityid_calc.3, i64 %36
+  %switch.gep28 = getelementptr inbounds nuw [2 x i8], ptr @switch.table.communityid_calc.3, i64 %36
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %switch.lookup24, %switch.lookup

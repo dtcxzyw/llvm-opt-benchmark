@@ -163,7 +163,7 @@ ubiditransform_open_77.exit:                      ; preds = %45
 
 53:                                               ; preds = %69, %50
   %indvars.iv.i = phi i64 [ 0, %50 ], [ %indvars.iv.next.i, %69 ]
-  %54 = getelementptr inbounds nuw %struct.ReorderingScheme, ptr @_ZL7Schemes, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [88 x i8], ptr @_ZL7Schemes, i64 %indvars.iv.i
   %55 = load i8, ptr %54, align 8, !tbaa !17
   %56 = icmp eq i8 %51, %55
   br i1 %56, label %57, label %69
@@ -657,7 +657,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL13action_mirrorP14UBiDiTra
   %20 = load ptr, ptr %13, align 8, !tbaa !14
   %21 = add nuw i32 %.042, 1
   %22 = zext i32 %.042 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !39
   %25 = zext i16 %24 to i32
   %26 = and i32 %25, 64512
@@ -671,7 +671,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL13action_mirrorP14UBiDiTra
 
 30:                                               ; preds = %28
   %31 = zext i32 %21 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %20, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !39
   %34 = zext i16 %33 to i32
   %35 = and i32 %34, 64512
@@ -713,7 +713,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL13action_mirrorP14UBiDiTra
   %55 = add nsw i16 %54, -10304
   %56 = load ptr, ptr %14, align 8, !tbaa !29
   %57 = zext i32 %.040 to i64
-  %58 = getelementptr inbounds nuw i16, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %57
   store i16 %55, ptr %58, align 2, !tbaa !39
   br label %67
 
@@ -723,7 +723,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL13action_mirrorP14UBiDiTra
   %62 = add i16 %61, -10304
   %63 = load ptr, ptr %14, align 8, !tbaa !29
   %64 = zext i32 %.040 to i64
-  %65 = getelementptr inbounds nuw i16, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %64
   store i16 %62, ptr %65, align 2, !tbaa !39
   %66 = tail call i32 @u_charMirror_77(i32 noundef %.1)
   %.pre = load ptr, ptr %14, align 8, !tbaa !29
@@ -745,7 +745,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL13action_mirrorP14UBiDiTra
   %.sink = phi i16 [ %73, %67 ], [ %50, %48 ]
   %75 = add i32 %.040, %.sink58
   %76 = zext i32 %.sink57 to i64
-  %77 = getelementptr inbounds nuw i16, ptr %.sink55, i64 %76
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %.sink55, i64 %76
   store i16 %.sink, ptr %77, align 2, !tbaa !39
   %78 = load i32, ptr %10, align 8, !tbaa !34
   %79 = icmp ult i32 %.2, %78

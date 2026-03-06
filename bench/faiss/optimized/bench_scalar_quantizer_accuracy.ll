@@ -362,7 +362,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
 .noexc70:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %15 = shl nuw nsw i64 %13, 2
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #21
-  %17 = getelementptr inbounds nuw float, ptr %16, i64 %13
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %13
   store float 0.000000e+00, ptr %16, align 4, !tbaa !39
   %18 = add nsw i64 %13, -1
   %19 = icmp eq i64 %18, 0
@@ -472,7 +472,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i76: ; preds = %_ZNSt6vector
           to label %.noexc83 unwind label %106
 
 .noexc83:                                         ; preds = %48
-  %51 = getelementptr inbounds nuw float, ptr %50, i64 %13
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %13
   store float 0.000000e+00, ptr %50, align 4, !tbaa !39
   %52 = add nsw i64 %13, -1
   %53 = icmp eq i64 %52, 0

@@ -727,7 +727,7 @@ ft_lzwstate_stack_grow.exit160:                   ; preds = %130, %132
   %142 = getelementptr inbounds nuw i8, ptr %135, i64 %.pre-phi
   store i8 %140, ptr %142, align 1, !tbaa !11
   %143 = load ptr, ptr %104, align 8, !tbaa !38
-  %144 = getelementptr inbounds nuw i16, ptr %143, i64 %138
+  %144 = getelementptr inbounds nuw [2 x i8], ptr %143, i64 %138
   %145 = load i16, ptr %144, align 2, !tbaa !49
   %146 = zext i16 %145 to i32
   %147 = icmp ugt i16 %145, 255
@@ -895,10 +895,10 @@ ft_lzwstate_prefix_grow.exit.thread:              ; preds = %207
   br label %.loopexit190
 
 ft_lzwstate_prefix_grow.exit:                     ; preds = %207
-  %219 = getelementptr inbounds nuw i16, ptr %217, i64 %214
+  %219 = getelementptr inbounds nuw [2 x i8], ptr %217, i64 %214
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %219, ptr %220, align 8, !tbaa !48
-  %221 = getelementptr inbounds nuw i16, ptr %217, i64 %213
+  %221 = getelementptr inbounds nuw [2 x i8], ptr %217, i64 %213
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %219, ptr align 2 %221, i64 %213, i1 false)
   store i32 %.020.i, ptr %205, align 8, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -911,7 +911,7 @@ ft_lzwstate_prefix_grow.exit:                     ; preds = %207
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %226 = load ptr, ptr %225, align 8, !tbaa !38
   %227 = zext i32 %223 to i64
-  %228 = getelementptr inbounds nuw i16, ptr %226, i64 %227
+  %228 = getelementptr inbounds nuw [2 x i8], ptr %226, i64 %227
   store i16 %224, ptr %228, align 2, !tbaa !49
   %229 = trunc i32 %.2122 to i8
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 96

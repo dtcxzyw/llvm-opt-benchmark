@@ -917,7 +917,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.806 = type { %struct.PyGC_Head, %struct.PyVarObject, [1 x ptr] }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i16 }
 %struct.PyStructSequence_Field = type { ptr, ptr }
-%union._Py_CODEUNIT = type { i16 }
 %struct.itimerval = type { %struct.timeval, %struct.timeval }
 %struct.timeval = type { i64, i64 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
@@ -1098,7 +1097,7 @@ define hidden void @_PySignal_Fini() local_unnamed_addr #1 {
 
 3:                                                ; preds = %0, %Py_XDECREF.exit
   %indvars.iv = phi i64 [ 1, %0 ], [ %indvars.iv.next, %Py_XDECREF.exit ]
-  %4 = getelementptr %struct.anon.3, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %indvars.iv
+  %4 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load atomic i64, ptr %5 seq_cst, align 8
   %7 = inttoptr i64 %6 to ptr
@@ -1283,7 +1282,7 @@ _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 192
   %14 = load i32, ptr %13, align 8, !tbaa !192
   %15 = sext i32 %14 to i64
-  %16 = getelementptr %union._Py_CODEUNIT, ptr %12, i64 %15
+  %16 = getelementptr [2 x i8], ptr %12, i64 %15
   %17 = icmp ult ptr %10, %16
   br i1 %17, label %_PyFrame_IsIncomplete.exit.thread.i.i, label %_PyThreadState_GetFrame.exit
 
@@ -1301,7 +1300,7 @@ _PyThreadState_GetFrame.exit:                     ; preds = %8, %_PyFrame_IsInco
 
 22:                                               ; preds = %_PyThreadState_GetFrame.exit, %Py_DECREF.exit.thread
   %indvars.iv = phi i64 [ 1, %_PyThreadState_GetFrame.exit ], [ %indvars.iv.next, %Py_DECREF.exit.thread ]
-  %23 = getelementptr %struct.anon.3, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %indvars.iv
+  %23 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %indvars.iv
   %24 = load atomic i32, ptr %23 monotonic, align 8
   %.not39 = icmp eq i32 %24, 0
   br i1 %.not39, label %Py_DECREF.exit.thread, label %25
@@ -1449,7 +1448,7 @@ define dso_local range(i32 -1, 1) i32 @PyErr_SetInterruptEx(i32 noundef %0) loca
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr %struct.anon.3, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %5
+  %6 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load atomic i64, ptr %7 seq_cst, align 8
   %9 = inttoptr i64 %8 to ptr
@@ -1560,7 +1559,7 @@ define hidden range(i32 -1, 1) i32 @_PySignal_Init(i32 noundef %0) local_unnamed
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 1, %4 ]
-  %8 = getelementptr %struct.anon.3, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %indvars.iv
+  %8 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %indvars.iv
   store atomic i32 0, ptr %8 monotonic, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65
@@ -1677,7 +1676,7 @@ define hidden void @_PySignal_AfterFork() local_unnamed_addr #3 {
 
 3:                                                ; preds = %3, %2
   %indvars.iv.i = phi i64 [ 1, %2 ], [ %indvars.iv.next.i, %3 ]
-  %4 = getelementptr %struct.anon.3, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %indvars.iv.i
+  %4 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %indvars.iv.i
   store atomic i32 0, ptr %4 monotonic, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 65
@@ -2223,7 +2222,7 @@ define internal ptr @signal_getsignal(ptr readnone captures(none) %0, ptr nounde
 
 8:                                                ; preds = %.split
   %9 = zext nneg i32 %3 to i64
-  %10 = getelementptr %struct.anon.3, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %9
+  %10 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load atomic i64, ptr %11 seq_cst, align 8
   %13 = inttoptr i64 %12 to ptr
@@ -3272,7 +3271,7 @@ compare_handler.exit34.thread:                    ; preds = %29, %compare_handle
 
 41:                                               ; preds = %35
   %42 = zext nneg i32 %0 to i64
-  %43 = getelementptr %struct.anon.3, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %42
+  %43 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load atomic i64, ptr %44 seq_cst, align 8
   %46 = inttoptr i64 %45 to ptr
@@ -3307,7 +3306,7 @@ define internal void @signal_handler(i32 noundef %0) #1 {
   %3 = tail call ptr @__errno_location() #16
   %4 = load i32, ptr %3, align 4, !tbaa !199
   %5 = sext i32 %0 to i64
-  %6 = getelementptr %struct.anon.3, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %5
+  %6 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %5
   store atomic i32 1, ptr %6 seq_cst, align 8
   store atomic i32 1, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2200) seq_cst, align 8
   tail call void @_PyEval_SignalReceived() #15
@@ -3993,7 +3992,7 @@ signal_add_constants.exit:                        ; preds = %137
 
 179:                                              ; preds = %177, %175, %.preheader
   %.020.i = phi ptr [ %176, %175 ], [ %178, %177 ], [ @_Py_NoneStruct, %.preheader ]
-  %180 = getelementptr %struct.anon.3, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %indvars.iv.i
+  %180 = getelementptr [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 1152), i64 %indvars.iv.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load atomic i64, ptr %181 seq_cst, align 8
   %183 = inttoptr i64 %182 to ptr

@@ -15,7 +15,7 @@ define range(i64 7, 18) i64 @l_Lean_Meta_TransparencyMode_hash(i8 noundef zeroex
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.l_Lean_Meta_TransparencyMode_hash___boxed, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l_Lean_Meta_TransparencyMode_hash___boxed, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %4
 
@@ -56,7 +56,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 3
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.l_Lean_Meta_TransparencyMode_hash___boxed, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l_Lean_Meta_TransparencyMode_hash___boxed, i64 %14
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %l_Lean_Meta_TransparencyMode_hash.exit
 

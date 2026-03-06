@@ -722,7 +722,7 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap14is_in_reservedEPKv
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %.not.i.i = icmp uge ptr %1, %.sroa.0.0.copyload.i.i
-  %5 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
+  %5 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
   %6 = icmp ult ptr %1, %5
   %7 = select i1 %.not.i.i, i1 %6, i1 false
   br i1 %7, label %18, label %8
@@ -1029,7 +1029,7 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %15
   br i1 %.not.i.i.i, label %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i, label %29
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %1
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %1
   %31 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %32 = ptrtoint ptr %28 to i64
   %33 = add i32 %31, -1
@@ -1109,7 +1109,7 @@ define hidden noundef ptr @_ZN20ParallelScavengeHeap27allocate_old_gen_and_recor
   br i1 %.not.i.i, label %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %1
+  %12 = getelementptr inbounds [8 x i8], ptr %10, i64 %1
   %13 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %14 = ptrtoint ptr %10 to i64
   %15 = add i32 %13, -1
@@ -1188,7 +1188,7 @@ define hidden noundef ptr @_ZN20ParallelScavengeHeap24expand_heap_and_allocateEm
   br i1 %.not.i.i, label %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %1
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %1
   %23 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %24 = ptrtoint ptr %20 to i64
   %25 = add i32 %23, -1
@@ -1253,7 +1253,7 @@ _ZN8GCLocker22is_active_and_needs_gcEv.exit:      ; preds = %3
   br i1 %.not.i.i.i, label %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i, label %27
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds ptr, ptr %26, i64 %1
+  %28 = getelementptr inbounds [8 x i8], ptr %26, i64 %1
   %29 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %30 = ptrtoint ptr %26 to i64
   %31 = add i32 %29, -1
@@ -1342,7 +1342,7 @@ _ZN20ParallelScavengeHeap20collect_at_safepointEb.exit: ; preds = %61, %63
   br i1 %.not.i.i.i19, label %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i21, label %82
 
 82:                                               ; preds = %76
-  %83 = getelementptr inbounds ptr, ptr %81, i64 %1
+  %83 = getelementptr inbounds [8 x i8], ptr %81, i64 %1
   %84 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %85 = ptrtoint ptr %81 to i64
   %86 = add i32 %84, -1
@@ -1398,7 +1398,7 @@ _ZN20ParallelScavengeHeap24expand_heap_and_allocateEmb.exit22.thread33: ; preds 
   br i1 %.not.i.i.i24, label %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i.i26, label %115
 
 115:                                              ; preds = %109
-  %116 = getelementptr inbounds ptr, ptr %114, i64 %1
+  %116 = getelementptr inbounds [8 x i8], ptr %114, i64 %1
   %117 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %118 = ptrtoint ptr %114 to i64
   %119 = add i32 %117, -1
@@ -1772,7 +1772,7 @@ define hidden noundef ptr @_ZNK20ParallelScavengeHeap11block_startEPKv(ptr nound
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %.not.i.i = icmp uge ptr %1, %.sroa.0.0.copyload.i.i
-  %5 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
+  %5 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
   %6 = icmp ult ptr %1, %5
   %7 = select i1 %.not.i.i, i1 %6, i1 false
   br i1 %7, label %8, label %15
@@ -1858,7 +1858,7 @@ _ZNK16ObjectStartArray30block_start_reaching_into_cardEPP12HeapWordImpl.exit: ; 
   %26 = inttoptr i64 %25 to ptr
   %27 = zext i8 %.lcssa.i to i64
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %26, i64 %28
   br label %30
 
 30:                                               ; preds = %_ZN7oopDesc4sizeEv.exit, %_ZNK16ObjectStartArray30block_start_reaching_into_cardEPP12HeapWordImpl.exit
@@ -1942,7 +1942,7 @@ _ZNK7oopDesc5klassEv.exit.i:                      ; preds = %44, %34
 
 _ZN7oopDesc4sizeEv.exit:                          ; preds = %51, %54, %61, %81
   %.0.i1.i = phi i64 [ %58, %54 ], [ %53, %51 ], [ %80, %61 ], [ %85, %81 ]
-  %86 = getelementptr inbounds ptr, ptr %.0, i64 %.0.i1.i
+  %86 = getelementptr inbounds [8 x i8], ptr %.0, i64 %.0.i1.i
   %87 = icmp ugt ptr %86, %1
   br i1 %87, label %88, label %30, !llvm.loop !17
 
@@ -1958,7 +1958,7 @@ define hidden noundef zeroext i1 @_ZNK20ParallelScavengeHeap12block_is_objEPKP12
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.not.i.i.i = icmp uge ptr %1, %.sroa.0.0.copyload.i.i.i
-  %5 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
+  %5 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
   %6 = icmp ult ptr %1, %5
   %7 = select i1 %.not.i.i.i, i1 %6, i1 false
   br i1 %7, label %8, label %15
@@ -2027,7 +2027,7 @@ define hidden void @_ZN20ParallelScavengeHeap22create_ps_heap_summaryEv(ptr dead
   %14 = ptrtoint ptr %10 to i64
   %15 = sub i64 %13, %14
   %16 = lshr i64 %15, 3
-  %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
@@ -2044,7 +2044,7 @@ define hidden void @_ZN20ParallelScavengeHeap22create_ps_heap_summaryEv(ptr dead
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
+  %31 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
@@ -2167,7 +2167,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20BlockLocationPrinterI20Paral
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.not.i.i.i = icmp uge ptr %1, %.sroa.0.0.copyload.i.i.i
-  %16 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
+  %16 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
   %17 = icmp ult ptr %1, %16
   %18 = select i1 %.not.i.i.i, i1 %17, i1 false
   br i1 %18, label %_ZNK20ParallelScavengeHeap14is_in_reservedEPKv.exit.thread, label %_ZNK20ParallelScavengeHeap14is_in_reservedEPKv.exit
@@ -2612,7 +2612,7 @@ define hidden void @_ZN20ParallelScavengeHeap10trace_heapEN6GCWhen4TypeEPK8GCTra
   %17 = ptrtoint ptr %13 to i64
   %18 = sub i64 %16, %17
   %19 = lshr i64 %18, 3
-  %20 = getelementptr inbounds nuw ptr, ptr %13, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %22 = load ptr, ptr %21, align 8, !noalias !18
   %23 = load ptr, ptr %22, align 8, !noalias !18
@@ -2629,7 +2629,7 @@ define hidden void @_ZN20ParallelScavengeHeap10trace_heapEN6GCWhen4TypeEPK8GCTra
   %31 = load ptr, ptr %30, align 8, !noalias !18
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8, !noalias !18
-  %34 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
+  %34 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %36 = load ptr, ptr %35, align 8, !noalias !18
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
@@ -2767,7 +2767,7 @@ define hidden noundef ptr @_ZN20ParallelScavengeHeap29allocate_loaded_archive_sp
   br i1 %.not.i.i, label %_ZN8PSOldGen21cas_allocate_noexpandEm.exit.i, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %1
+  %12 = getelementptr inbounds [8 x i8], ptr %10, i64 %1
   %13 = load i32, ptr @_ZN9CardTable10_card_sizeE, align 4
   %14 = ptrtoint ptr %10 to i64
   %15 = add i32 %13, -1
@@ -3277,7 +3277,7 @@ define linkonce_odr hidden noundef ptr @_ZN20BlockLocationPrinterI20ParallelScav
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %.not.i.i.i = icmp uge ptr %0, %.sroa.0.0.copyload.i.i.i
-  %6 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
+  %6 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i
   %7 = icmp ult ptr %0, %6
   %8 = select i1 %.not.i.i.i, i1 %7, i1 false
   br i1 %8, label %9, label %16
@@ -3323,7 +3323,7 @@ _ZNK20ParallelScavengeHeap11block_startEPKv.exit: ; preds = %16
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 16
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %.not.i.i.i.i = icmp uge ptr %27, %.sroa.0.0.copyload.i.i.i.i
-  %31 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i
+  %31 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %.sroa.2.0.copyload.i.i.i.i
   %32 = icmp ult ptr %27, %31
   %33 = select i1 %.not.i.i.i.i, i1 %32, i1 false
   br i1 %33, label %34, label %41

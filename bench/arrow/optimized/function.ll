@@ -128,14 +128,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.arrow::Result.225" = type { %"class.arrow::Status", %"class.arrow::internal::AlignedStorage.228" }
 %"class.arrow::internal::AlignedStorage.228" = type { [8 x i8] }
 %"struct.arrow::compute::KernelInitArgs" = type { ptr, ptr, ptr }
-%"struct.arrow::compute::ScalarKernel" = type <{ %"struct.arrow::compute::Kernel", ptr, i8, [3 x i8], i32, i32, [4 x i8] }>
-%"struct.arrow::compute::Kernel" = type { %"class.std::shared_ptr.50", %"class.std::function", i8, i32, %"class.std::shared_ptr.53" }
-%"class.std::shared_ptr.53" = type { %"class.std::__shared_ptr.54" }
-%"class.std::__shared_ptr.54" = type { ptr, %"class.std::__shared_count" }
-%"struct.arrow::compute::VectorKernel" = type <{ %"struct.arrow::compute::Kernel", ptr, ptr, %"class.std::function.67", i32, i32, i8, i8, i8, [5 x i8] }>
-%"class.std::function.67" = type { %"class.std::_Function_base", ptr }
-%"struct.arrow::compute::ScalarAggregateKernel" = type <{ %"struct.arrow::compute::Kernel", ptr, ptr, ptr, i8, [7 x i8] }>
-%"struct.arrow::compute::HashAggregateKernel" = type <{ %"struct.arrow::compute::Kernel", ptr, ptr, ptr, ptr, i8, [7 x i8] }>
 
 $_ZN5arrow18TypedChunkLocationIiEC5Eii = comdat any
 
@@ -1470,7 +1462,7 @@ define noundef ptr @_ZN5arrow7compute6detail17DispatchExactImplEPKNS0_8FunctionE
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 52
   %27 = load i32, ptr %26, align 4, !tbaa !112
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %6, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %28
   store ptr %25, ptr %29, align 8, !tbaa !107
   br label %30
 
@@ -1586,7 +1578,7 @@ _ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EED2Ev.exit13: ; preds = %46,
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 52
   %68 = load i32, ptr %67, align 4, !tbaa !112
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %5, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %69
   store ptr %66, ptr %70, align 8, !tbaa !126
   br label %71
 
@@ -1702,7 +1694,7 @@ _ZNSt6vectorIPKN5arrow7compute12VectorKernelESaIS4_EED2Ev.exit32: ; preds = %87,
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 52
   %109 = load i32, ptr %108, align 4, !tbaa !112
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw ptr, ptr %4, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %110
   store ptr %107, ptr %111, align 8, !tbaa !133
   br label %112
 
@@ -1818,7 +1810,7 @@ _ZNSt6vectorIPKN5arrow7compute21ScalarAggregateKernelESaIS4_EED2Ev.exit51: ; pre
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 52
   %150 = load i32, ptr %149, align 4, !tbaa !112
   %151 = zext i32 %150 to i64
-  %152 = getelementptr inbounds nuw ptr, ptr %3, i64 %151
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %151
   store ptr %148, ptr %152, align 8, !tbaa !140
   br label %153
 
@@ -1981,7 +1973,7 @@ _ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE11_S_relocateEPS4_S7_S7_RS5
 
 _ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %32, %_ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
   store ptr %31, ptr %7, align 8, !tbaa !145
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %33, ptr %8, align 8, !tbaa !123
   br label %_ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE9push_backEOS4_.exit
 
@@ -2100,7 +2092,7 @@ _ZNSt6vectorIPKN5arrow7compute12VectorKernelESaIS4_EE11_S_relocateEPS4_S7_S7_RS5
 
 _ZNSt6vectorIPKN5arrow7compute12VectorKernelESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %32, %_ZNSt6vectorIPKN5arrow7compute12VectorKernelESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
   store ptr %31, ptr %7, align 8, !tbaa !146
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %33, ptr %8, align 8, !tbaa !130
   br label %_ZNSt6vectorIPKN5arrow7compute12VectorKernelESaIS4_EE9push_backEOS4_.exit
 
@@ -2219,7 +2211,7 @@ _ZNSt6vectorIPKN5arrow7compute21ScalarAggregateKernelESaIS4_EE11_S_relocateEPS4_
 
 _ZNSt6vectorIPKN5arrow7compute21ScalarAggregateKernelESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %32, %_ZNSt6vectorIPKN5arrow7compute21ScalarAggregateKernelESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
   store ptr %31, ptr %7, align 8, !tbaa !147
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %33, ptr %8, align 8, !tbaa !137
   br label %_ZNSt6vectorIPKN5arrow7compute21ScalarAggregateKernelESaIS4_EE9push_backEOS4_.exit
 
@@ -2338,7 +2330,7 @@ _ZNSt6vectorIPKN5arrow7compute19HashAggregateKernelESaIS4_EE11_S_relocateEPS4_S7
 
 _ZNSt6vectorIPKN5arrow7compute19HashAggregateKernelESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %32, %_ZNSt6vectorIPKN5arrow7compute19HashAggregateKernelESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
   store ptr %31, ptr %7, align 8, !tbaa !148
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %33, ptr %8, align 8, !tbaa !144
   br label %_ZNSt6vectorIPKN5arrow7compute19HashAggregateKernelESaIS4_EE9push_backEOS4_.exit
 
@@ -8894,9 +8886,9 @@ _ZNSt6vectorIN5arrow5DatumESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = 
   %136 = phi ptr [ %109, %.lr.ph ], [ %345, %_ZN5arrow5DatumD2Ev.exit125 ]
   %.065191 = phi i64 [ 0, %.lr.ph ], [ %343, %_ZN5arrow5DatumD2Ev.exit125 ]
   %137 = load ptr, ptr %50, align 8, !tbaa !152
-  %138 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %137, i64 %.065191
+  %138 = getelementptr inbounds nuw [24 x i8], ptr %137, i64 %.065191
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %139 = getelementptr inbounds nuw %"struct.arrow::Datum", ptr %136, i64 %.065191
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %136, i64 %.065191
   store i8 -1, ptr %119, align 8, !tbaa !183
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %28, ptr %19, align 8, !tbaa !492
@@ -8917,7 +8909,7 @@ _ZNSt6vectorIN5arrow5DatumESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = 
   store i8 %144, ptr %119, align 8, !tbaa !183
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %145 = load ptr, ptr %2, align 8, !tbaa !181
-  %146 = getelementptr inbounds nuw %"struct.arrow::Datum", ptr %145, i64 %.065191
+  %146 = getelementptr inbounds nuw [24 x i8], ptr %145, i64 %.065191
   %147 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow5Datum4typeEv(ptr noundef nonnull align 8 dereferenceable(24) %146)
           to label %148 unwind label %301
 
@@ -9079,7 +9071,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 212:                                              ; preds = %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %213 = load ptr, ptr %2, align 8, !tbaa !181
-  %214 = getelementptr inbounds nuw %"struct.arrow::Datum", ptr %213, i64 %.065191
+  %214 = getelementptr inbounds nuw [24 x i8], ptr %213, i64 %.065191
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %215 = load ptr, ptr %138, align 8, !tbaa !194
   store ptr %215, ptr %33, align 8, !tbaa !194
@@ -9406,7 +9398,7 @@ _ZN5arrow6ResultINS_5DatumEED2Ev.exit:            ; preds = %_ZN5arrow6ResultINS
 
 .critedge90:                                      ; preds = %_ZN5arrow6ResultINS_5DatumEED2Ev.exit, %_ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %335 = load ptr, ptr %27, align 8, !tbaa !181
-  %336 = getelementptr inbounds nuw %"struct.arrow::Datum", ptr %335, i64 %.065191
+  %336 = getelementptr inbounds nuw [24 x i8], ptr %335, i64 %.065191
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store ptr %336, ptr %15, align 8, !tbaa !505
   invoke void @_ZSt10__do_visitINSt8__detail9__variant20__variant_idx_cookieEZNS1_17_Move_assign_baseILb0EJN5arrow5Datum5EmptyESt10shared_ptrINS4_6ScalarEES7_INS4_9ArrayDataEES7_INS4_12ChunkedArrayEES7_INS4_11RecordBatchEES7_INS4_5TableEEEEaSEOSI_EUlOT_T0_E_JRSt7variantIJS6_S9_SB_SD_SF_SH_EEEEDcOSM_DpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(24) %28)
@@ -11619,7 +11611,7 @@ _ZNSt6vectorIN5arrow5DatumESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35: ; preds 
 _ZNSt12_Vector_baseIN5arrow5DatumESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5arrow5DatumESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35, %59
   store ptr %25, ptr %0, align 8, !tbaa !181
   store ptr %.0.lcssa.i.i.i34, ptr %7, align 8, !tbaa !178
-  %63 = getelementptr inbounds nuw %"struct.arrow::Datum", ptr %25, i64 %19
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %19
   store ptr %63, ptr %58, align 8, !tbaa !182
   ret void
 
@@ -12351,7 +12343,7 @@ _ZNSt6vectorIN5arrow7compute12ScalarKernelESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt12_Vector_baseIN5arrow7compute12ScalarKernelESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5arrow7compute12ScalarKernelESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %80
   store ptr %24, ptr %0, align 8, !tbaa !607
   store ptr %.0.lcssa.i.i.i35, ptr %6, align 8, !tbaa !279
-  %84 = getelementptr inbounds nuw %"struct.arrow::compute::ScalarKernel", ptr %24, i64 %18
+  %84 = getelementptr inbounds nuw [96 x i8], ptr %24, i64 %18
   store ptr %84, ptr %79, align 8, !tbaa !281
   ret void
 
@@ -12848,7 +12840,7 @@ _ZNSt6vectorIN5arrow7compute12ScalarKernelESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt12_Vector_baseIN5arrow7compute12ScalarKernelESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5arrow7compute12ScalarKernelESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit24, %100
   store ptr %20, ptr %0, align 8, !tbaa !607
   store ptr %.0.lcssa.i.i.i23, ptr %4, align 8, !tbaa !279
-  %104 = getelementptr inbounds nuw %"struct.arrow::compute::ScalarKernel", ptr %20, i64 %16
+  %104 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %104, ptr %99, align 8, !tbaa !281
   ret void
 }
@@ -13167,7 +13159,7 @@ _ZNSt6vectorIN5arrow7compute12VectorKernelESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt12_Vector_baseIN5arrow7compute12VectorKernelESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5arrow7compute12VectorKernelESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit39, %142
   store ptr %26, ptr %0, align 8, !tbaa !641
   store ptr %.0.lcssa.i.i.i38, ptr %8, align 8, !tbaa !327
-  %146 = getelementptr inbounds nuw %"struct.arrow::compute::VectorKernel", ptr %26, i64 %20
+  %146 = getelementptr inbounds nuw [136 x i8], ptr %26, i64 %20
   store ptr %146, ptr %141, align 8, !tbaa !329
   ret void
 
@@ -13508,7 +13500,7 @@ _ZNSt6vectorIN5arrow7compute12VectorKernelESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt12_Vector_baseIN5arrow7compute12VectorKernelESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5arrow7compute12VectorKernelESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit27, %131
   store ptr %20, ptr %0, align 8, !tbaa !641
   store ptr %.0.lcssa.i.i.i26, ptr %4, align 8, !tbaa !327
-  %135 = getelementptr inbounds nuw %"struct.arrow::compute::VectorKernel", ptr %20, i64 %16
+  %135 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %16
   store ptr %135, ptr %130, align 8, !tbaa !329
   ret void
 }
@@ -13724,7 +13716,7 @@ _ZNSt6vectorIN5arrow7compute21ScalarAggregateKernelESaIS2_EE11_S_relocateEPS2_S5
 _ZNSt12_Vector_baseIN5arrow7compute21ScalarAggregateKernelESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5arrow7compute21ScalarAggregateKernelESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit24, %100
   store ptr %20, ptr %0, align 8, !tbaa !667
   store ptr %.0.lcssa.i.i.i23, ptr %4, align 8, !tbaa !367
-  %104 = getelementptr inbounds nuw %"struct.arrow::compute::ScalarAggregateKernel", ptr %20, i64 %16
+  %104 = getelementptr inbounds nuw [104 x i8], ptr %20, i64 %16
   store ptr %104, ptr %99, align 8, !tbaa !369
   ret void
 }
@@ -13940,7 +13932,7 @@ _ZNSt6vectorIN5arrow7compute19HashAggregateKernelESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt12_Vector_baseIN5arrow7compute19HashAggregateKernelESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5arrow7compute19HashAggregateKernelESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit24, %100
   store ptr %20, ptr %0, align 8, !tbaa !681
   store ptr %.0.lcssa.i.i.i23, ptr %4, align 8, !tbaa !384
-  %104 = getelementptr inbounds nuw %"struct.arrow::compute::HashAggregateKernel", ptr %20, i64 %16
+  %104 = getelementptr inbounds nuw [112 x i8], ptr %20, i64 %16
   store ptr %104, ptr %99, align 8, !tbaa !386
   ret void
 }

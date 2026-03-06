@@ -28,42 +28,6 @@ module asm ".previous"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.123" = type { i8 }
-%class.CVertexO = type { %"class.vcg::Vertex.base", [4 x i8] }
-%"class.vcg::Vertex.base" = type { %"class.vcg::VertexArityMax.base" }
-%"class.vcg::VertexArityMax.base" = type { %"class.vcg::Arity12.base" }
-%"class.vcg::Arity12.base" = type { %"class.vcg::DefaultDeriver.base" }
-%"class.vcg::DefaultDeriver.base" = type { %"class.vcg::Arity11.base" }
-%"class.vcg::Arity11.base" = type { %"class.vcg::vertex::RadiusmOcf.base" }
-%"class.vcg::vertex::RadiusmOcf.base" = type { %"class.vcg::vertex::RadiusOcf.base" }
-%"class.vcg::vertex::RadiusOcf.base" = type { %"class.vcg::Arity10.base" }
-%"class.vcg::Arity10.base" = type { %"class.vcg::vertex::CurvatureDirmOcf.base" }
-%"class.vcg::vertex::CurvatureDirmOcf.base" = type { %"class.vcg::vertex::CurvatureDirOcf.base" }
-%"class.vcg::vertex::CurvatureDirOcf.base" = type { %"class.vcg::Arity9.base" }
-%"class.vcg::Arity9.base" = type { %"class.vcg::vertex::TexCoordfOcf.base" }
-%"class.vcg::vertex::TexCoordfOcf.base" = type { %"class.vcg::vertex::TexCoordOcf.base" }
-%"class.vcg::vertex::TexCoordOcf.base" = type { %"class.vcg::Arity8.base" }
-%"class.vcg::Arity8.base" = type { %"class.vcg::vertex::MarkOcf.base" }
-%"class.vcg::vertex::MarkOcf.base" = type { %"class.vcg::Arity7.base" }
-%"class.vcg::Arity7.base" = type { %"class.vcg::vertex::VFAdjOcf.base" }
-%"class.vcg::vertex::VFAdjOcf.base" = type { %"class.vcg::Arity6.base" }
-%"class.vcg::Arity6.base" = type { %"class.vcg::vertex::Color4b.base" }
-%"class.vcg::vertex::Color4b.base" = type { %"class.vcg::vertex::Color.base" }
-%"class.vcg::vertex::Color.base" = type { %"class.vcg::Arity5", %"class.vcg::Color4" }
-%"class.vcg::Arity5" = type { %"class.vcg::vertex::Qualitym" }
-%"class.vcg::vertex::Qualitym" = type { %"class.vcg::vertex::Quality" }
-%"class.vcg::vertex::Quality" = type { %"class.vcg::Arity4.base", float }
-%"class.vcg::Arity4.base" = type { %"class.vcg::vertex::Normal3m.base" }
-%"class.vcg::vertex::Normal3m.base" = type { %"class.vcg::vertex::Normal.base" }
-%"class.vcg::vertex::Normal.base" = type { %"class.vcg::Arity3", %"class.vcg::Point3" }
-%"class.vcg::Arity3" = type { %"class.vcg::vertex::BitFlags" }
-%"class.vcg::vertex::BitFlags" = type { %"class.vcg::Arity2.base", i32 }
-%"class.vcg::Arity2.base" = type { %"class.vcg::vertex::Coord3m.base" }
-%"class.vcg::vertex::Coord3m.base" = type { %"class.vcg::vertex::Coord.base" }
-%"class.vcg::vertex::Coord.base" = type <{ %"class.vcg::Arity1", %"class.vcg::Point3" }>
-%"class.vcg::Arity1" = type { %"class.vcg::vertex::InfoOcf" }
-%"class.vcg::vertex::InfoOcf" = type { ptr }
-%"class.vcg::Color4" = type { %"class.vcg::Point4" }
-%"class.vcg::Point4" = type { [4 x i8] }
 %"class.vcg::PointerToAttribute" = type { ptr, %"class.std::__cxx11::basic_string", i32, i32, i32, %"struct.std::type_index" }
 %"struct.std::type_index" = type { ptr }
 %"class.vcg::ConstDataWrapper" = type { ptr, i64, i64 }
@@ -611,14 +575,14 @@ _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit:       ; preds = %66
 
 _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit
   %69 = load ptr, ptr %62, align 8
-  %70 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds float, ptr %69, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %69, i64 %72
   %74 = load float, ptr %73, align 4
   %75 = fmul float %74, %64
   %76 = fmul float %75, %75
-  %77 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv
   %78 = load float, ptr %77, align 4
   %79 = fcmp ogt float %78, %76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -677,10 +641,10 @@ _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit43:     ; preds = %109
 
 _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit45: ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit43
   %112 = load ptr, ptr %99, align 8
-  %113 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv79
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv79
   %114 = load i32, ptr %113, align 4
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds %class.CVertexO, ptr %112, i64 %115
+  %116 = getelementptr inbounds [48 x i8], ptr %112, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %118 = load float, ptr %117, align 4
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 16
@@ -700,11 +664,11 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit45: ; preds = %_ZNK7GaelMls
   %133 = call float @llvm.fmuladd.f32(float %123, float %126, float %132)
   %134 = call noundef float @llvm.fmuladd.f32(float %118, float %121, float %133)
   %135 = load ptr, ptr %105, align 8
-  %136 = getelementptr inbounds float, ptr %135, i64 %115
+  %136 = getelementptr inbounds [4 x i8], ptr %135, i64 %115
   %137 = load float, ptr %136, align 4
   %138 = fmul float %137, %107
   %139 = fmul float %138, %138
-  %140 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv79
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv79
   %141 = load float, ptr %140, align 4
   %142 = fmul float %134, %87
   %143 = call float @llvm.fmuladd.f32(float %142, float %134, float %141)
@@ -1580,7 +1544,7 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls5RIMLSI6CMeshOE27computePotentia
   br i1 %38, label %39, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw float, ptr %24, i64 %33
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %33
   %.not.i.i = icmp eq ptr %23, %40
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %41
 
@@ -1645,13 +1609,13 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %41, %39, %37, %35, 
   unreachable
 
 _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit:       ; preds = %54
-  %63 = getelementptr inbounds i32, ptr %57, i64 %55
+  %63 = getelementptr inbounds [4 x i8], ptr %57, i64 %55
   %64 = load i32, ptr %63, align 4
   %65 = load ptr, ptr %46, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = sext i32 %64 to i64
   %68 = load ptr, ptr %66, align 8
-  %69 = getelementptr inbounds %class.CVertexO, ptr %68, i64 %67
+  %69 = getelementptr inbounds [48 x i8], ptr %68, i64 %67
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load float, ptr %70, align 4
   %72 = fsub float %.sroa.0194.0.copyload, %71
@@ -1701,7 +1665,7 @@ _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit:       ; preds = %54
   unreachable
 
 _ZNSt6vectorIfSaIfEE2atEm.exit:                   ; preds = %93
-  %102 = getelementptr inbounds nuw float, ptr %96, i64 %94
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %94
   store float %.087, ptr %102, align 4
   %103 = load ptr, ptr %48, align 8
   %104 = load ptr, ptr %47, align 8
@@ -1731,10 +1695,10 @@ _ZNSt6vectorIfSaIfEE2atEm.exit99:                 ; preds = %_ZNSt6vectorIfSaIfE
   unreachable
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit:  ; preds = %_ZNSt6vectorIfSaIfEE2atEm.exit99
-  %117 = getelementptr inbounds nuw float, ptr %104, i64 %94
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %94
   %118 = load float, ptr %117, align 4
   %119 = fmul float %.087, %118
-  %120 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %111, i64 %94
+  %120 = getelementptr inbounds nuw [12 x i8], ptr %111, i64 %94
   %121 = load float, ptr %120, align 4
   %122 = fmul float %.087, %121
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 4
@@ -1933,7 +1897,7 @@ define linkonce_odr void @_ZNK7GaelMls10MlsSurfaceI6CMeshOE19computeNeighborhood
   br i1 %56, label %57, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds float, ptr %47, i64 %43
+  %58 = getelementptr inbounds [4 x i8], ptr %47, i64 %43
   %.not.i.i = icmp eq ptr %46, %58
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %59
 
@@ -1966,7 +1930,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %53, %55, %57, %59
   br i1 %73, label %74, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit48
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds float, ptr %64, i64 %43
+  %75 = getelementptr inbounds [4 x i8], ptr %64, i64 %43
   %.not.i.i47 = icmp eq ptr %63, %75
   br i1 %.not.i.i47, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit48, label %76
 
@@ -2045,16 +2009,16 @@ _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit.us:    ; preds = %.lr.ph.split.us
 
 _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit.us: ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit.us
   %111 = load ptr, ptr %90, align 8
-  %112 = getelementptr inbounds i32, ptr %100, i64 %98
+  %112 = getelementptr inbounds [4 x i8], ptr %100, i64 %98
   %113 = load i32, ptr %112, align 4
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds float, ptr %111, i64 %114
+  %115 = getelementptr inbounds [4 x i8], ptr %111, i64 %114
   %116 = load float, ptr %115, align 4
   %117 = load float, ptr %91, align 4
   %118 = fmul float %116, %117
   %119 = fdiv float 1.000000e+00, %118
   %120 = fmul float %119, %119
-  %121 = getelementptr inbounds float, ptr %106, i64 %98
+  %121 = getelementptr inbounds [4 x i8], ptr %106, i64 %98
   %122 = load float, ptr %121, align 4
   %123 = fneg float %122
   %124 = call float @llvm.fmuladd.f32(float %123, float %120, float 1.000000e+00)
@@ -2063,7 +2027,7 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit.us: ; preds = %_ZNK7GaelMl
   %126 = fmul float %.043.us, %.043.us
   %127 = fmul float %126, %126
   %128 = load ptr, ptr %44, align 8
-  %129 = getelementptr inbounds float, ptr %128, i64 %.04263.us
+  %129 = getelementptr inbounds [4 x i8], ptr %128, i64 %.04263.us
   store float %127, ptr %129, align 4
   %130 = fpext float %120 to double
   %131 = fmul double %130, -2.000000e+00
@@ -2074,12 +2038,12 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit.us: ; preds = %_ZNK7GaelMl
   %136 = fmul double %131, %135
   %137 = fptrunc double %136 to float
   %138 = load ptr, ptr %94, align 8
-  %139 = getelementptr inbounds float, ptr %138, i64 %.04263.us
+  %139 = getelementptr inbounds [4 x i8], ptr %138, i64 %.04263.us
   store float %137, ptr %139, align 4
   %140 = load ptr, ptr %84, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds %class.CVertexO, ptr %142, i64 %114
+  %143 = getelementptr inbounds [48 x i8], ptr %142, i64 %114
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load float, ptr %1, align 4
   %146 = load float, ptr %144, align 4
@@ -2093,7 +2057,7 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit.us: ; preds = %_ZNK7GaelMl
   %154 = load float, ptr %153, align 4
   %155 = fsub float %152, %154
   %156 = load ptr, ptr %94, align 8
-  %157 = getelementptr inbounds float, ptr %156, i64 %.04263.us
+  %157 = getelementptr inbounds [4 x i8], ptr %156, i64 %.04263.us
   %158 = load float, ptr %157, align 4
   %159 = fmul float %147, %158
   %160 = fmul float %151, %158
@@ -2101,7 +2065,7 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit.us: ; preds = %_ZNK7GaelMl
   %.sroa.0.0.vec.insert.i51.us = insertelement <2 x float> poison, float %159, i64 0
   %.sroa.0.4.vec.insert.i52.us = insertelement <2 x float> %.sroa.0.0.vec.insert.i51.us, float %160, i64 1
   %162 = load ptr, ptr %97, align 8
-  %163 = getelementptr inbounds %"class.vcg::Point3", ptr %162, i64 %.04263.us
+  %163 = getelementptr inbounds [12 x i8], ptr %162, i64 %.04263.us
   store <2 x float> %.sroa.0.4.vec.insert.i52.us, ptr %163, align 4
   %.sroa.26.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %163, i64 8
   store float %161, ptr %.sroa.26.0..sroa_idx.us, align 4
@@ -2146,16 +2110,16 @@ _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit:       ; preds = %.lr.ph.split
 
 _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit
   %178 = load ptr, ptr %90, align 8
-  %179 = getelementptr inbounds i32, ptr %167, i64 %165
+  %179 = getelementptr inbounds [4 x i8], ptr %167, i64 %165
   %180 = load i32, ptr %179, align 4
   %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds float, ptr %178, i64 %181
+  %182 = getelementptr inbounds [4 x i8], ptr %178, i64 %181
   %183 = load float, ptr %182, align 4
   %184 = load float, ptr %91, align 4
   %185 = fmul float %183, %184
   %186 = fdiv float 1.000000e+00, %185
   %187 = fmul float %186, %186
-  %188 = getelementptr inbounds float, ptr %173, i64 %165
+  %188 = getelementptr inbounds [4 x i8], ptr %173, i64 %165
   %189 = load float, ptr %188, align 4
   %190 = fneg float %189
   %191 = call float @llvm.fmuladd.f32(float %190, float %187, float 1.000000e+00)
@@ -2164,7 +2128,7 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12
   %193 = fmul float %.043, %.043
   %194 = fmul float %193, %193
   %195 = load ptr, ptr %44, align 8
-  %196 = getelementptr inbounds float, ptr %195, i64 %.04263
+  %196 = getelementptr inbounds [4 x i8], ptr %195, i64 %.04263
   store float %194, ptr %196, align 4
   %197 = add nuw i64 %.04263, 1
   %exitcond.not = icmp eq i64 %197, %43
@@ -2326,9 +2290,9 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; pred
 
 _ZNSt12_Vector_baseIN3vcg6Point3IfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %33, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %29, ptr %0, align 8
-  %34 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %30, i64 %12
+  %34 = getelementptr inbounds nuw [12 x i8], ptr %30, i64 %12
   store ptr %34, ptr %3, align 8
-  %35 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %27
   store ptr %35, ptr %13, align 8
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_default_appendEm.exit
 
@@ -2337,7 +2301,7 @@ _ZNSt12_Vector_baseIN3vcg6Point3IfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; pr
   br i1 %37, label %38, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds %"class.vcg::Point3", ptr %5, i64 %1
+  %39 = getelementptr inbounds [12 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %39
   br i1 %.not.i4, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_default_appendEm.exit, label %40
 
@@ -2440,9 +2404,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8
-  %38 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8
-  %39 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8
   br label %40
 
@@ -2528,16 +2492,16 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls5RIMLSI6CMeshOE10mlsHessianERKN3
   %66 = ptrtoint ptr %64 to i64
   %67 = sub i64 %65, %66
   %68 = ashr exact i64 %67, 2
-  %69 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  %70 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %71 = load ptr, ptr %32, align 8
   %72 = load ptr, ptr %31, align 8
   %73 = ptrtoint ptr %71 to i64
   %74 = ptrtoint ptr %72 to i64
   %75 = sub i64 %73, %74
   %76 = ashr exact i64 %75, 2
-  %77 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
-  %78 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   br label %79
 
 79:                                               ; preds = %.preheader.us, %_ZNSt6vectorIfSaIfEE2atEm.exit117.us
@@ -2559,11 +2523,11 @@ define weak_odr noundef zeroext i1 @_ZNK7GaelMls5RIMLSI6CMeshOE10mlsHessianERKN3
   br i1 %.not.i.i.i.us, label %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit.us, label %.split323.us
 
 _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit.us:    ; preds = %79
-  %81 = getelementptr inbounds i32, ptr %41, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %41, i64 %80
   %82 = load i32, ptr %81, align 4
   %83 = sext i32 %82 to i64
   %84 = load ptr, ptr %47, align 8
-  %85 = getelementptr inbounds %class.CVertexO, ptr %84, i64 %83
+  %85 = getelementptr inbounds [48 x i8], ptr %84, i64 %83
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %86, i64 12, i1 false)
   %87 = load float, ptr %4, align 4
@@ -2590,8 +2554,8 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit.us: ; preds = %_ZNK7GaelMls12Nei
   br i1 %.not.i.i99.us, label %_ZNSt6vectorIfSaIfEE2atEm.exit.us, label %.split330.us
 
 _ZNSt6vectorIfSaIfEE2atEm.exit.us:                ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE2atEm.exit.us
-  %103 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %52, i64 %102
-  %104 = getelementptr inbounds nuw float, ptr %58, i64 %102
+  %103 = getelementptr inbounds nuw [12 x i8], ptr %52, i64 %102
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %102
   %105 = load float, ptr %104, align 4
   %106 = load float, ptr %103, align 4
   %107 = fmul float %105, %106
@@ -2609,7 +2573,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit.us:                ; preds = %_ZNSt6vectorIN3vcg6
   br i1 %.not.i.i108.us, label %_ZNSt6vectorIfSaIfEE2atEm.exit111.us, label %.split334.us
 
 _ZNSt6vectorIfSaIfEE2atEm.exit111.us:             ; preds = %_ZNSt6vectorIfSaIfEE2atEm.exit.us
-  %114 = getelementptr inbounds nuw float, ptr %64, i64 %102
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %102
   %115 = load float, ptr %114, align 4
   %116 = load float, ptr %69, align 4
   %117 = load float, ptr %70, align 4
@@ -2627,7 +2591,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit111.us:             ; preds = %_ZNSt6vectorIfSaIfE
   br i1 %.not.i.i116.us, label %_ZNSt6vectorIfSaIfEE2atEm.exit117.us, label %.split338.us
 
 _ZNSt6vectorIfSaIfEE2atEm.exit117.us:             ; preds = %_ZNSt6vectorIfSaIfEE2atEm.exit111.us
-  %124 = getelementptr inbounds nuw float, ptr %72, i64 %102
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %102
   %125 = load float, ptr %124, align 4
   %126 = load float, ptr %77, align 4
   %127 = fadd float %125, %126
@@ -2645,7 +2609,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit117.us:             ; preds = %_ZNSt6vectorIfSaIfE
   %138 = fadd float %.sroa.0200.0301.us, %135
   %139 = fadd float %.sroa.4202.0302.us, %136
   %140 = fadd float %.sroa.8204.0303.us, %137
-  %141 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv
   %142 = load float, ptr %141, align 4
   %143 = fmul float %142, %107
   %144 = fmul float %142, %110
@@ -2677,7 +2641,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit117.us:             ; preds = %_ZNSt6vectorIfSaIfE
   %166 = fsub float %159, %163
   %167 = fsub float %160, %164
   %168 = fsub float %161, %165
-  %169 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   %170 = load float, ptr %169, align 4
   %171 = load float, ptr %16, align 4
   %172 = fmul float %170, %171
@@ -2688,7 +2652,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit117.us:             ; preds = %_ZNSt6vectorIfSaIfE
   %177 = fsub float %166, %172
   %178 = fsub float %167, %174
   %179 = fsub float %168, %176
-  %180 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %181 = load float, ptr %180, align 4
   %182 = load float, ptr %35, align 4
   %183 = fmul float %181, %182
@@ -2702,7 +2666,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit117.us:             ; preds = %_ZNSt6vectorIfSaIfE
   %191 = fmul float %19, %188
   %192 = fmul float %19, %189
   %193 = fmul float %19, %190
-  %194 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %191, ptr %194, align 4
   %195 = getelementptr i8, ptr %194, i64 12
   store float %192, ptr %195, align 4
@@ -2717,7 +2681,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit117.us:             ; preds = %_ZNSt6vectorIfSaIfE
   %197 = load float, ptr %34, align 8
   %198 = fmul float %197, 0.000000e+00
   %199 = fsub ninf float 0.000000e+00, %198
-  %200 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv396
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv396
   %201 = load float, ptr %200, align 4
   %202 = load float, ptr %16, align 4
   %203 = fmul float %201, %202
@@ -2728,7 +2692,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit117.us:             ; preds = %_ZNSt6vectorIfSaIfE
   %208 = fsub float %199, %203
   %209 = fsub float %199, %205
   %210 = fsub float %199, %207
-  %211 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv396
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv396
   %212 = load float, ptr %211, align 4
   %213 = load float, ptr %35, align 4
   %214 = fmul float %212, %213
@@ -2742,7 +2706,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit117.us:             ; preds = %_ZNSt6vectorIfSaIfE
   %222 = fmul float %19, %219
   %223 = fmul float %19, %220
   %224 = fmul float %19, %221
-  %225 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv396
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv396
   store float %222, ptr %225, align 4
   %226 = getelementptr i8, ptr %225, i64 12
   store float %223, ptr %226, align 4
@@ -2829,7 +2793,7 @@ define linkonce_odr void @_ZNK7GaelMls10MlsSurfaceI6CMeshOE24requestSecondDeriva
   br i1 %33, label %34, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds float, ptr %21, i64 %28
+  %35 = getelementptr inbounds [4 x i8], ptr %21, i64 %28
   %.not.i.i = icmp eq ptr %20, %35
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %36
 
@@ -2897,16 +2861,16 @@ _ZNK7GaelMls12NeighborhoodIfE5indexEi.exit:       ; preds = %46
 
 _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12NeighborhoodIfE5indexEi.exit
   %62 = load ptr, ptr %44, align 8
-  %63 = getelementptr inbounds i32, ptr %49, i64 %47
+  %63 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds float, ptr %62, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %62, i64 %65
   %67 = load float, ptr %66, align 4
   %68 = load float, ptr %45, align 4
   %69 = fmul float %67, %68
   %70 = fdiv float 1.000000e+00, %69
   %71 = fmul float %70, %70
-  %72 = getelementptr inbounds float, ptr %56, i64 %47
+  %72 = getelementptr inbounds [4 x i8], ptr %56, i64 %47
   %73 = load float, ptr %72, align 4
   %74 = fmul float %73, %71
   %75 = fsub float 1.000000e+00, %74
@@ -2921,7 +2885,7 @@ _ZNK7GaelMls12NeighborhoodIfE15squaredDistanceEi.exit: ; preds = %_ZNK7GaelMls12
   %83 = fmul double %79, %82
   %84 = fptrunc double %83 to float
   %85 = load ptr, ptr %18, align 8
-  %86 = getelementptr inbounds float, ptr %85, i64 %.01931
+  %86 = getelementptr inbounds [4 x i8], ptr %85, i64 %.01931
   store float %84, ptr %86, align 4
   %87 = add nuw i64 %.01931, 1
   %exitcond.not = icmp eq i64 %87, %17

@@ -22,7 +22,7 @@ define void @av_audio_fifo_free(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %7 = load ptr, ptr %0, align 8, !tbaa !4
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   tail call void @av_fifo_freep2(ptr noundef %8) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %4, align 8, !tbaa !12
@@ -98,7 +98,7 @@ define ptr @av_audio_fifo_alloc(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
   %26 = sext i32 %25 to i64
   %27 = call ptr @av_fifo_alloc2(i64 noundef %26, i64 noundef 1, i32 noundef 0) #5
   %28 = load ptr, ptr %8, align 8, !tbaa !4
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   store ptr %27, ptr %29, align 8, !tbaa !20
   %.not31 = icmp eq ptr %27, null
   br i1 %.not31, label %.preheader.i, label %21
@@ -116,7 +116,7 @@ define ptr @av_audio_fifo_alloc(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %33 = load ptr, ptr %8, align 8, !tbaa !4
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i
   call void @av_fifo_freep2(ptr noundef %34) #5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = load i32, ptr %17, align 8, !tbaa !12
@@ -189,7 +189,7 @@ define range(i32 -2147483648, 1) i32 @av_audio_fifo_realloc(ptr noundef captures
 .lr.ph:                                           ; preds = %.preheader, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.preheader ]
   %28 = load ptr, ptr %0, align 8, !tbaa !4
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !20
   %31 = load i32, ptr %3, align 4, !tbaa !17
   %32 = sext i32 %31 to i64
@@ -260,9 +260,9 @@ define i32 @av_audio_fifo_write(ptr noundef captures(none) %0, ptr noundef reado
 30:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %31 = load ptr, ptr %0, align 8, !tbaa !4
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !20
-  %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !26
   %36 = tail call i32 @av_fifo_write(ptr noundef %33, ptr noundef %35, i64 noundef %25) #5
   %37 = icmp slt i32 %36, 0
@@ -335,9 +335,9 @@ define range(i32 -558323010, -2147483648) i32 @av_audio_fifo_peek(ptr noundef re
 20:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
   %21 = load ptr, ptr %0, align 8, !tbaa !4
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8, !tbaa !20
-  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8, !tbaa !26
   %26 = tail call i32 @av_fifo_peek(ptr noundef %23, ptr noundef %25, i64 noundef %15, i64 noundef 0) #5
   %27 = icmp slt i32 %26, 0
@@ -396,9 +396,9 @@ define range(i32 -558323010, -2147483648) i32 @av_audio_fifo_peek_at(ptr noundef
 28:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %29 = load ptr, ptr %0, align 8, !tbaa !4
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !20
-  %32 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !26
   %34 = tail call i32 @av_fifo_peek(ptr noundef %31, ptr noundef %33, i64 noundef %22, i64 noundef %23) #5
   %35 = icmp slt i32 %34, 0
@@ -446,9 +446,9 @@ define i32 @av_audio_fifo_read(ptr noundef captures(none) %0, ptr noundef readon
 20:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %21 = load ptr, ptr %0, align 8, !tbaa !4
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !20
-  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !26
   %26 = tail call i32 @av_fifo_read(ptr noundef %23, ptr noundef %25, i64 noundef %15) #5
   %27 = icmp slt i32 %26, 0
@@ -499,7 +499,7 @@ define range(i32 -22, 1) i32 @av_audio_fifo_drain(ptr noundef captures(none) %0,
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %16 = load ptr, ptr %0, align 8, !tbaa !4
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !20
   tail call void @av_fifo_drain2(ptr noundef %18, i64 noundef %14) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -535,7 +535,7 @@ define void @av_audio_fifo_reset(ptr noundef captures(none) %0) local_unnamed_ad
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !4
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !20
   tail call void @av_fifo_reset2(ptr noundef %7) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

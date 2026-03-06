@@ -3075,7 +3075,7 @@ define linkonce_odr dso_local void @_ZN24cmCPackIFWUpdatesPatcher12StartElementE
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %8 = phi ptr [ %15, %.lr.ph.i ], [ %7, %3 ]
   %.010.i = phi i64 [ %13, %.lr.ph.i ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %.010.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.010.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !95
@@ -3084,7 +3084,7 @@ define linkonce_odr dso_local void @_ZN24cmCPackIFWUpdatesPatcher12StartElementE
   call void @_ZN11cmXMLWriter9AttributeIPKcEEvS2_RKT_(ptr noundef nonnull align 8 dereferenceable(83) %12, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %13 = add i64 %.010.i, 2
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !95
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %_ZN24cmCPackIFWUpdatesPatcher13StartFragmentEPPKc.exit, label %.lr.ph.i, !llvm.loop !122

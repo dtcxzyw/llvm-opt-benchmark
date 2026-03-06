@@ -22,39 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.87" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ue2::rose_literal_id" = type <{ %"struct.ue2::ue2_literal", %"class.std::vector.86", %"class.std::vector.86", i32, i32, i32, [4 x i8] }>
-%"struct.ue2::ue2_literal" = type { %"class.std::__cxx11::basic_string", %"class.boost::dynamic_bitset" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.boost::dynamic_bitset" = type { %"class.std::vector.81", i64 }
-%"class.std::vector.81" = type { %"struct.std::_Vector_base.82" }
-%"struct.std::_Vector_base.82" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ue2::rose_literal_info" = type <{ %"class.ue2::flat_set", %"class.ue2::flat_set.97", i64, i32, i8, i8, [2 x i8] }>
-%"class.ue2::flat_set" = type { %"class.ue2::flat_detail::flat_base" }
-%"class.ue2::flat_detail::flat_base" = type { %"class.std::tuple.91" }
-%"class.std::tuple.91" = type { %"struct.std::_Tuple_impl.92" }
-%"struct.std::_Tuple_impl.92" = type { %"struct.std::_Head_base.95" }
-%"struct.std::_Head_base.95" = type { %"class.boost::container::small_vector" }
-%"class.boost::container::small_vector" = type { %"class.boost::container::small_vector_base.base", [4 x i8] }
-%"class.boost::container::small_vector_base.base" = type <{ %"class.boost::container::vector", %"union.boost::move_detail::aligned_struct_wrapper" }>
-%"class.boost::container::vector" = type { %"struct.boost::container::vector_alloc_holder" }
-%"struct.boost::container::vector_alloc_holder" = type { ptr, i64, i64 }
-%"union.boost::move_detail::aligned_struct_wrapper" = type { %"struct.boost::move_detail::aligned_struct" }
-%"struct.boost::move_detail::aligned_struct" = type { [4 x i8] }
-%"class.ue2::flat_set.97" = type { %"class.ue2::flat_detail::flat_base.98" }
-%"class.ue2::flat_detail::flat_base.98" = type { %"class.std::tuple.99" }
-%"class.std::tuple.99" = type { %"struct.std::_Tuple_impl.100" }
-%"struct.std::_Tuple_impl.100" = type { %"struct.std::_Head_base.103" }
-%"struct.std::_Head_base.103" = type { %"class.boost::container::small_vector.104" }
-%"class.boost::container::small_vector.104" = type { %"class.boost::container::small_vector_base.105" }
-%"class.boost::container::small_vector_base.105" = type { %"class.boost::container::vector.106", %"union.boost::move_detail::aligned_struct_wrapper.112" }
-%"class.boost::container::vector.106" = type { %"struct.boost::container::vector_alloc_holder.107" }
-%"struct.boost::container::vector_alloc_holder.107" = type { ptr, i64, i64 }
-%"union.boost::move_detail::aligned_struct_wrapper.112" = type { %"struct.boost::move_detail::aligned_struct.113" }
-%"struct.boost::move_detail::aligned_struct.113" = type { [16 x i8] }
 %"class.ue2::bytecode_ptr" = type { %"class.std::unique_ptr.138", i64, i64 }
 %"class.std::unique_ptr.138" = type { %"struct.std::__uniq_ptr_data.139" }
 %"struct.std::__uniq_ptr_data.139" = type { %"class.std::__uniq_ptr_impl.140" }
@@ -62,6 +29,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.141" = type { %"struct.std::_Tuple_impl.142" }
 %"struct.std::_Tuple_impl.142" = type { %"struct.std::_Head_base.145" }
 %"struct.std::_Head_base.145" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.72" = type { i8 }
 %"class.std::unique_ptr.192" = type { %"struct.std::__uniq_ptr_data.193" }
 %"struct.std::__uniq_ptr_data.193" = type { %"class.std::__uniq_ptr_impl.194" }
@@ -84,13 +54,17 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.155" = type { %"struct.std::_Vector_base<ue2::AccelString, std::allocator<ue2::AccelString>>::_Vector_impl" }
 %"struct.std::_Vector_base<ue2::AccelString, std::allocator<ue2::AccelString>>::_Vector_impl" = type { %"struct.std::_Vector_base<ue2::AccelString, std::allocator<ue2::AccelString>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ue2::AccelString, std::allocator<ue2::AccelString>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.ue2::ue2_literal" = type { %"class.std::__cxx11::basic_string", %"class.boost::dynamic_bitset" }
+%"class.boost::dynamic_bitset" = type { %"class.std::vector.81", i64 }
+%"class.std::vector.81" = type { %"struct.std::_Vector_base.82" }
+%"struct.std::_Vector_base.82" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
+%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.ue2::suffix_id" = type { ptr, ptr, ptr, ptr, ptr, %"class.ue2::depth", %"class.ue2::depth" }
 %"class.ue2::depth" = type { i32 }
-%"struct.ue2::raw_puff" = type { i32, i8, i8, i8, i32, %"class.ue2::CharReach" }
 %"struct.__gnu_cxx::__ops::_Iter_equal_to_iter" = type { i8 }
-%"struct.ue2::hwlmLiteral" = type { %"class.std::__cxx11::basic_string", i32, i8, i8, i32, i8, i64, %"class.std::vector.86", %"class.std::vector.86" }
-%"struct.ue2::AccelString" = type { %"class.std::__cxx11::basic_string", i8, %"class.std::vector.86", %"class.std::vector.86", i64 }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { i8 }
+%"struct.ue2::hwlmLiteral" = type { %"class.std::__cxx11::basic_string", i32, i8, i8, i32, i8, i64, %"class.std::vector.86", %"class.std::vector.86" }
 %"class.std::tuple.497" = type { %"struct.std::_Tuple_impl.498" }
 %"struct.std::_Tuple_impl.498" = type { %"struct.std::_Tuple_impl.499", %"struct.std::_Head_base.511" }
 %"struct.std::_Tuple_impl.499" = type { %"struct.std::_Tuple_impl.500", %"struct.std::_Head_base.510" }
@@ -107,6 +81,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.510" = type { ptr }
 %"struct.std::_Head_base.511" = type { ptr }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter.513" = type { i8 }
+%"struct.ue2::AccelString" = type { %"class.std::__cxx11::basic_string", i8, %"class.std::vector.86", %"class.std::vector.86", i64 }
 %"class.std::tuple.515" = type { %"struct.std::_Tuple_impl.516" }
 %"struct.std::_Tuple_impl.516" = type { %"struct.std::_Tuple_impl.517", %"struct.std::_Head_base.524" }
 %"struct.std::_Tuple_impl.517" = type { %"struct.std::_Tuple_impl.518", %"struct.std::_Head_base.523" }
@@ -375,7 +350,7 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i: ; preds
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds nuw %"struct.ue2::rose_literal_id", ptr %47, i64 %29
+  %90 = getelementptr inbounds nuw [128 x i8], ptr %47, i64 %29
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit
 
 91:                                               ; preds = %87
@@ -388,11 +363,11 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i: ; preds
 
 95:                                               ; preds = %93, %91
   %96 = phi i64 [ %92, %91 ], [ %94, %93 ]
-  %97 = getelementptr inbounds ptr, ptr %31, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %31, i64 %96
   %98 = load ptr, ptr %97, align 8, !noalias !7
   %99 = shl nsw i64 %96, 2
   %100 = sub nsw i64 %85, %99
-  %101 = getelementptr inbounds %"struct.ue2::rose_literal_id", ptr %98, i64 %100
+  %101 = getelementptr inbounds [128 x i8], ptr %98, i64 %100
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit
 
 _ZNK3ue214RoseLiteralMap2atEj.exit:               ; preds = %95, %89
@@ -482,7 +457,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %128, %.noe
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %130, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
-  %131 = getelementptr inbounds nuw i32, ptr %125, i64 %123
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %123
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %111, %107, %_ZNK3ue214RoseLiteralMap2atEj.exit, %106
@@ -553,7 +528,7 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i68: ; pre
   br i1 %169, label %170, label %172
 
 170:                                              ; preds = %168
-  %171 = getelementptr inbounds nuw %"struct.ue2::rose_literal_id", ptr %154, i64 %136
+  %171 = getelementptr inbounds nuw [128 x i8], ptr %154, i64 %136
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit71
 
 172:                                              ; preds = %168
@@ -566,11 +541,11 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i68: ; pre
 
 176:                                              ; preds = %174, %172
   %177 = phi i64 [ %173, %172 ], [ %175, %174 ]
-  %178 = getelementptr inbounds ptr, ptr %138, i64 %177
+  %178 = getelementptr inbounds [8 x i8], ptr %138, i64 %177
   %179 = load ptr, ptr %178, align 8, !noalias !12
   %180 = shl nsw i64 %177, 2
   %181 = sub nsw i64 %166, %180
-  %182 = getelementptr inbounds %"struct.ue2::rose_literal_id", ptr %179, i64 %181
+  %182 = getelementptr inbounds [128 x i8], ptr %179, i64 %181
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit71
 
 _ZNK3ue214RoseLiteralMap2atEj.exit71:             ; preds = %176, %170
@@ -625,7 +600,7 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE14_M_range_checkEm.exit.i: ; preds
   br i1 %216, label %217, label %219
 
 217:                                              ; preds = %215
-  %218 = getelementptr inbounds nuw %"struct.ue2::rose_literal_info", ptr %200, i64 %136
+  %218 = getelementptr inbounds nuw [88 x i8], ptr %200, i64 %136
   br label %_ZNSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit
 
 219:                                              ; preds = %215
@@ -640,11 +615,11 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE14_M_range_checkEm.exit.i: ; preds
 
 225:                                              ; preds = %221, %219
   %226 = phi i64 [ %220, %219 ], [ %224, %221 ]
-  %227 = getelementptr inbounds ptr, ptr %184, i64 %226
+  %227 = getelementptr inbounds [8 x i8], ptr %184, i64 %226
   %228 = load ptr, ptr %227, align 8, !noalias !15
   %.idx.i.i.i.i.i = mul i64 %226, -440
   %229 = getelementptr i8, ptr %228, i64 %.idx.i.i.i.i.i
-  %230 = getelementptr %"struct.ue2::rose_literal_info", ptr %229, i64 %213
+  %230 = getelementptr [88 x i8], ptr %229, i64 %213
   br label %_ZNSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit
 
 _ZNSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit: ; preds = %225, %217
@@ -881,7 +856,7 @@ _ZNSt6vectorIhSaIhEE14_M_fill_assignEmRKh.exit38.i.i: ; preds = %289, %_ZSt4fill
   %319 = load ptr, ptr %318, align 8, !noalias !35
   %320 = getelementptr inbounds nuw i8, ptr %315, i64 56
   %321 = load i64, ptr %320, align 8, !noalias !40
-  %322 = getelementptr inbounds nuw i32, ptr %319, i64 %321
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %319, i64 %321
   %323 = icmp sgt i64 %321, 0
   br i1 %323, label %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i.i.i.i
 
@@ -889,7 +864,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.
   %324 = phi ptr [ %332, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i ], [ %319, %.lr.ph.i.i.i.i ]
   %.012.i.i.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i.i.i.i ], [ %321, %.lr.ph.i.i.i.i ]
   %325 = lshr i64 %.012.i.i.i.i.i.i.i.i, 1
-  %326 = getelementptr inbounds nuw i32, ptr %324, i64 %325
+  %326 = getelementptr inbounds nuw [4 x i8], ptr %324, i64 %325
   %327 = load i32, ptr %326, align 4, !noalias !45
   %328 = icmp ult i32 %327, %301
   %329 = getelementptr inbounds nuw i8, ptr %326, i64 4
@@ -1433,7 +1408,7 @@ _ZN3ue2L17maskFromLeftGraphERKNS_11LeftEngInfoERSt6vectorIhSaIhEES6_.exit.i.i.i:
   %502 = load ptr, ptr %501, align 8, !noalias !70
   %503 = getelementptr inbounds nuw i8, ptr %.sroa.028.053.i.i.i.i, i64 88
   %504 = load i64, ptr %503, align 8, !noalias !75
-  %505 = getelementptr inbounds nuw i32, ptr %502, i64 %504
+  %505 = getelementptr inbounds nuw [4 x i8], ptr %502, i64 %504
   %506 = icmp sgt i64 %504, 0
   br i1 %506, label %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i16.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb1EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i.i11.i.i.i
 
@@ -1441,7 +1416,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i16.
   %507 = phi ptr [ %515, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i16.i.i.i ], [ %502, %.lr.ph.i10.i.i.i ]
   %.012.i.i.i.i.i17.i.i.i = phi i64 [ %.1.i.i.i.i.i20.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb1EEElEvRT_T0_.exit.i.i.i.i.i16.i.i.i ], [ %504, %.lr.ph.i10.i.i.i ]
   %508 = lshr i64 %.012.i.i.i.i.i17.i.i.i, 1
-  %509 = getelementptr inbounds nuw i32, ptr %507, i64 %508
+  %509 = getelementptr inbounds nuw [4 x i8], ptr %507, i64 %508
   %510 = load i32, ptr %509, align 4, !noalias !80
   %511 = icmp ult i32 %510, %496
   %512 = getelementptr inbounds nuw i8, ptr %509, i64 4
@@ -1624,7 +1599,7 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i.i.i: ;
   br i1 %605, label %606, label %608
 
 606:                                              ; preds = %604
-  %607 = getelementptr inbounds nuw %"struct.ue2::rose_literal_id", ptr %590, i64 %572
+  %607 = getelementptr inbounds nuw [128 x i8], ptr %590, i64 %572
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit.i.i.i
 
 608:                                              ; preds = %604
@@ -1637,11 +1612,11 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i.i.i: ;
 
 612:                                              ; preds = %610, %608
   %613 = phi i64 [ %609, %608 ], [ %611, %610 ]
-  %614 = getelementptr inbounds ptr, ptr %574, i64 %613
+  %614 = getelementptr inbounds [8 x i8], ptr %574, i64 %613
   %615 = load ptr, ptr %614, align 8, !noalias !101
   %616 = shl nsw i64 %613, 2
   %617 = sub nsw i64 %602, %616
-  %618 = getelementptr inbounds %"struct.ue2::rose_literal_id", ptr %615, i64 %617
+  %618 = getelementptr inbounds [128 x i8], ptr %615, i64 %617
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit.i.i.i
 
 _ZNK3ue214RoseLiteralMap2atEj.exit.i.i.i:         ; preds = %612, %606
@@ -1677,7 +1652,7 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i.i.i:         ; preds = %612, %606
   %636 = load i8, ptr %635, align 1
   %637 = lshr i64 %.sroa.6.078.i.i.i, 6
   %638 = load ptr, ptr %626, align 8
-  %639 = getelementptr inbounds nuw i64, ptr %638, i64 %637
+  %639 = getelementptr inbounds nuw [8 x i8], ptr %638, i64 %637
   %640 = load i64, ptr %639, align 8
   %641 = and i64 %.sroa.6.078.i.i.i, 63
   %642 = lshr i64 %640, %641
@@ -2132,7 +2107,7 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE14_M_range_checkEm.exit.i81: ; pre
   br i1 %802, label %803, label %805
 
 803:                                              ; preds = %801
-  %804 = getelementptr inbounds nuw %"struct.ue2::rose_literal_info", ptr %786, i64 %768
+  %804 = getelementptr inbounds nuw [88 x i8], ptr %786, i64 %768
   br label %817
 
 805:                                              ; preds = %801
@@ -2147,11 +2122,11 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE14_M_range_checkEm.exit.i81: ; pre
 
 811:                                              ; preds = %807, %805
   %812 = phi i64 [ %806, %805 ], [ %810, %807 ]
-  %813 = getelementptr inbounds ptr, ptr %770, i64 %812
+  %813 = getelementptr inbounds [8 x i8], ptr %770, i64 %812
   %814 = load ptr, ptr %813, align 8, !noalias !107
   %.idx.i.i.i.i.i82 = mul i64 %812, -440
   %815 = getelementptr i8, ptr %814, i64 %.idx.i.i.i.i.i82
-  %816 = getelementptr %"struct.ue2::rose_literal_info", ptr %815, i64 %799
+  %816 = getelementptr [88 x i8], ptr %815, i64 %799
   br label %817
 
 817:                                              ; preds = %811, %803
@@ -2175,7 +2150,7 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE14_M_range_checkEm.exit.i81: ; pre
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %824 = load ptr, ptr %818, align 8, !noalias !124
   %825 = load i64, ptr %822, align 8, !noalias !129
-  %826 = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %824, i64 %825
+  %826 = getelementptr inbounds nuw [16 x i8], ptr %824, i64 %825
   %827 = icmp sgt i64 %825, 0
   br i1 %827, label %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEELb0EEElEvRT_T0_.exit.lr.ph.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEELb0EEESB_St4lessISB_EET_SG_SG_RKT0_T1_.exit.i
 
@@ -2190,7 +2165,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descri
   %829 = phi ptr [ %824, %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEELb0EEElEvRT_T0_.exit.lr.ph.i.i.i ], [ %844, %843 ]
   %.012.i.i.i148 = phi i64 [ %825, %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEELb0EEElEvRT_T0_.exit.lr.ph.i.i.i ], [ %.1.i.i.i152, %843 ]
   %830 = lshr i64 %.012.i.i.i148, 1
-  %831 = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %829, i64 %830
+  %831 = getelementptr inbounds nuw [16 x i8], ptr %829, i64 %830
   %832 = load ptr, ptr %831, align 8, !noalias !132
   %833 = icmp ne ptr %832, null
   %or.cond.i.i.i.i.i.i151 = select i1 %833, i1 %828, i1 false
@@ -2289,7 +2264,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue2
   %870 = sub i64 %869, %863
   %871 = ashr exact i64 %870, 4
   %872 = sub nsw i64 0, %871
-  %873 = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %826, i64 %872
+  %873 = getelementptr inbounds [16 x i8], ptr %826, i64 %872
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %873, ptr nonnull align 8 %846, i64 %870, i1 false), !noalias !140
   br label %_ZN5boost9container13move_backwardIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEESB_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_SF_E4typeESE_SE_SF_.exit.i.i.i.i.i
 
@@ -2337,7 +2312,7 @@ _ZN5boost9container13move_backwardIPN3ue212graph_detail17vertex_descriptorINS2_9
   %880 = load ptr, ptr %879, align 8, !noalias !162
   %881 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.copyload, i64 32
   %882 = load i64, ptr %881, align 8, !noalias !167
-  %883 = getelementptr inbounds nuw i32, ptr %880, i64 %882
+  %883 = getelementptr inbounds nuw [4 x i8], ptr %880, i64 %882
   %884 = icmp sgt i64 %882, 0
   br i1 %884, label %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i
 
@@ -2349,7 +2324,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i.i: ; p
   %886 = phi ptr [ %894, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i.i ], [ %880, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i.i.i ]
   %.012.i.i.i.i = phi i64 [ %.1.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i.i ], [ %882, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i.i.i ]
   %887 = lshr i64 %.012.i.i.i.i, 1
-  %888 = getelementptr inbounds nuw i32, ptr %886, i64 %887
+  %888 = getelementptr inbounds nuw [4 x i8], ptr %886, i64 %887
   %889 = load i32, ptr %888, align 4, !noalias !170
   %890 = icmp ult i32 %889, %885
   %891 = getelementptr inbounds nuw i8, ptr %888, i64 4
@@ -2397,7 +2372,7 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit: ; preds = %_ZN3ue28flat_setIj
   %909 = phi i64 [ %907, %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseENS_11flat_detail12iter_wrapperIN5boost9container12vec_iteratorIPjLb1EEEKjEE.exit.i ], [ %882, %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i ], [ %882, %_ZN3ue28flat_setIjSt4lessIjESaIjEE4findERKj.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %910 = getelementptr inbounds nuw i32, ptr %908, i64 %909
+  %910 = getelementptr inbounds nuw [4 x i8], ptr %908, i64 %909
   %911 = icmp sgt i64 %909, 0
   br i1 %911, label %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i
 
@@ -2409,7 +2384,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i: ; pre
   %913 = phi ptr [ %921, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i ], [ %908, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i.i ]
   %.012.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i ], [ %909, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i.i ]
   %914 = lshr i64 %.012.i.i.i, 1
-  %915 = getelementptr inbounds nuw i32, ptr %913, i64 %914
+  %915 = getelementptr inbounds nuw [4 x i8], ptr %913, i64 %914
   %916 = load i32, ptr %915, align 4, !noalias !185
   %917 = icmp ult i32 %916, %912
   %918 = getelementptr inbounds nuw i8, ptr %915, i64 4
@@ -2481,7 +2456,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIv
   %947 = sub i64 %946, %939
   %948 = ashr exact i64 %947, 2
   %949 = sub nsw i64 0, %948
-  %950 = getelementptr inbounds i32, ptr %910, i64 %949
+  %950 = getelementptr inbounds [4 x i8], ptr %910, i64 %949
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %950, ptr nonnull align 4 %923, i64 %947, i1 false), !noalias !191
   br label %_ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i.i.i.i
 
@@ -3038,7 +3013,7 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i: ; preds
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds nuw %"struct.ue2::rose_literal_id", ptr %80, i64 %62
+  %98 = getelementptr inbounds nuw [128 x i8], ptr %80, i64 %62
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit
 
 99:                                               ; preds = %95
@@ -3051,11 +3026,11 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i: ; preds
 
 103:                                              ; preds = %101, %99
   %104 = phi i64 [ %100, %99 ], [ %102, %101 ]
-  %105 = getelementptr inbounds ptr, ptr %64, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %64, i64 %104
   %106 = load ptr, ptr %105, align 8, !noalias !205
   %107 = shl nsw i64 %104, 2
   %108 = sub nsw i64 %93, %107
-  %109 = getelementptr inbounds %"struct.ue2::rose_literal_id", ptr %106, i64 %108
+  %109 = getelementptr inbounds [128 x i8], ptr %106, i64 %108
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit
 
 _ZNK3ue214RoseLiteralMap2atEj.exit:               ; preds = %103, %97
@@ -3145,7 +3120,7 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i60: ; pre
   br i1 %150, label %151, label %153
 
 151:                                              ; preds = %149
-  %152 = getelementptr inbounds nuw %"struct.ue2::rose_literal_id", ptr %134, i64 %116
+  %152 = getelementptr inbounds nuw [128 x i8], ptr %134, i64 %116
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit63
 
 153:                                              ; preds = %149
@@ -3158,11 +3133,11 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i60: ; pre
 
 157:                                              ; preds = %155, %153
   %158 = phi i64 [ %154, %153 ], [ %156, %155 ]
-  %159 = getelementptr inbounds ptr, ptr %118, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %118, i64 %158
   %160 = load ptr, ptr %159, align 8, !noalias !208
   %161 = shl nsw i64 %158, 2
   %162 = sub nsw i64 %147, %161
-  %163 = getelementptr inbounds %"struct.ue2::rose_literal_id", ptr %160, i64 %162
+  %163 = getelementptr inbounds [128 x i8], ptr %160, i64 %162
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit63
 
 _ZNK3ue214RoseLiteralMap2atEj.exit63:             ; preds = %157, %151
@@ -3217,7 +3192,7 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE14_M_range_checkEm.exit.i: ; preds
   br i1 %197, label %198, label %200
 
 198:                                              ; preds = %196
-  %199 = getelementptr inbounds nuw %"struct.ue2::rose_literal_info", ptr %181, i64 %116
+  %199 = getelementptr inbounds nuw [88 x i8], ptr %181, i64 %116
   br label %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit
 
 200:                                              ; preds = %196
@@ -3232,11 +3207,11 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE14_M_range_checkEm.exit.i: ; preds
 
 206:                                              ; preds = %202, %200
   %207 = phi i64 [ %201, %200 ], [ %205, %202 ]
-  %208 = getelementptr inbounds ptr, ptr %165, i64 %207
+  %208 = getelementptr inbounds [8 x i8], ptr %165, i64 %207
   %209 = load ptr, ptr %208, align 8, !noalias !211
   %.idx.i.i.i.i.i = mul i64 %207, -440
   %210 = getelementptr i8, ptr %209, i64 %.idx.i.i.i.i.i
-  %211 = getelementptr %"struct.ue2::rose_literal_info", ptr %210, i64 %194
+  %211 = getelementptr [88 x i8], ptr %210, i64 %194
   br label %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit
 
 _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit: ; preds = %206, %198
@@ -3344,7 +3319,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %245, %.noe
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %247, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
-  %248 = getelementptr inbounds nuw i32, ptr %242, i64 %240
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %242, i64 %240
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %228, %217, %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit, %224
@@ -3408,7 +3383,7 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i: ; pre
   br i1 %286, label %287, label %289
 
 287:                                              ; preds = %285
-  %288 = getelementptr inbounds nuw %"struct.ue2::rose_literal_id", ptr %270, i64 %252
+  %288 = getelementptr inbounds nuw [128 x i8], ptr %270, i64 %252
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit.i
 
 289:                                              ; preds = %285
@@ -3421,11 +3396,11 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i: ; pre
 
 293:                                              ; preds = %291, %289
   %294 = phi i64 [ %290, %289 ], [ %292, %291 ]
-  %295 = getelementptr inbounds ptr, ptr %254, i64 %294
+  %295 = getelementptr inbounds [8 x i8], ptr %254, i64 %294
   %296 = load ptr, ptr %295, align 8, !noalias !214
   %297 = shl nsw i64 %294, 2
   %298 = sub nsw i64 %283, %297
-  %299 = getelementptr inbounds %"struct.ue2::rose_literal_id", ptr %296, i64 %298
+  %299 = getelementptr inbounds [128 x i8], ptr %296, i64 %298
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit.i
 
 _ZNK3ue214RoseLiteralMap2atEj.exit.i:             ; preds = %293, %287
@@ -3880,7 +3855,7 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i76: ; pre
   br i1 %448, label %449, label %451
 
 449:                                              ; preds = %447
-  %450 = getelementptr inbounds nuw %"struct.ue2::rose_literal_id", ptr %432, i64 %414
+  %450 = getelementptr inbounds nuw [128 x i8], ptr %432, i64 %414
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit79
 
 451:                                              ; preds = %447
@@ -3893,11 +3868,11 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i76: ; pre
 
 455:                                              ; preds = %453, %451
   %456 = phi i64 [ %452, %451 ], [ %454, %453 ]
-  %457 = getelementptr inbounds ptr, ptr %416, i64 %456
+  %457 = getelementptr inbounds [8 x i8], ptr %416, i64 %456
   %458 = load ptr, ptr %457, align 8, !noalias !218
   %459 = shl nsw i64 %456, 2
   %460 = sub nsw i64 %445, %459
-  %461 = getelementptr inbounds %"struct.ue2::rose_literal_id", ptr %458, i64 %460
+  %461 = getelementptr inbounds [128 x i8], ptr %458, i64 %460
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit79
 
 _ZNK3ue214RoseLiteralMap2atEj.exit79:             ; preds = %455, %449
@@ -3952,7 +3927,7 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE14_M_range_checkEm.exit.i82: ; pre
   br i1 %495, label %496, label %498
 
 496:                                              ; preds = %494
-  %497 = getelementptr inbounds nuw %"struct.ue2::rose_literal_info", ptr %479, i64 %414
+  %497 = getelementptr inbounds nuw [88 x i8], ptr %479, i64 %414
   br label %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit86
 
 498:                                              ; preds = %494
@@ -3967,11 +3942,11 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE14_M_range_checkEm.exit.i82: ; pre
 
 504:                                              ; preds = %500, %498
   %505 = phi i64 [ %499, %498 ], [ %503, %500 ]
-  %506 = getelementptr inbounds ptr, ptr %463, i64 %505
+  %506 = getelementptr inbounds [8 x i8], ptr %463, i64 %505
   %507 = load ptr, ptr %506, align 8, !noalias !221
   %.idx.i.i.i.i.i83 = mul i64 %505, -440
   %508 = getelementptr i8, ptr %507, i64 %.idx.i.i.i.i.i83
-  %509 = getelementptr %"struct.ue2::rose_literal_info", ptr %508, i64 %492
+  %509 = getelementptr [88 x i8], ptr %508, i64 %492
   br label %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit86
 
 _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit86: ; preds = %504, %496
@@ -6105,7 +6080,7 @@ _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %2
   unreachable
 
 _ZN3ue2L14getChainedPuffERKNS_13RoseBuildImplERKNS_6ReportE.exit: ; preds = %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L14getChainedPuffERKNS2_13RoseBuildImplERKNS2_6ReportEE3$_0ET_SH_SH_T0_.exit.i"
-  %182 = getelementptr inbounds nuw %"struct.ue2::raw_puff", ptr %176, i64 %173
+  %182 = getelementptr inbounds nuw [48 x i8], ptr %176, i64 %173
   %183 = load ptr, ptr %16, align 8
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %185 = load i32, ptr %184, align 8
@@ -6239,7 +6214,7 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i: ; preds
   br i1 %253, label %254, label %256
 
 254:                                              ; preds = %252
-  %255 = getelementptr inbounds nuw %"struct.ue2::rose_literal_id", ptr %237, i64 %219
+  %255 = getelementptr inbounds nuw [128 x i8], ptr %237, i64 %219
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit
 
 256:                                              ; preds = %252
@@ -6252,11 +6227,11 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i: ; preds
 
 260:                                              ; preds = %258, %256
   %261 = phi i64 [ %257, %256 ], [ %259, %258 ]
-  %262 = getelementptr inbounds ptr, ptr %221, i64 %261
+  %262 = getelementptr inbounds [8 x i8], ptr %221, i64 %261
   %263 = load ptr, ptr %262, align 8, !noalias !276
   %264 = shl nsw i64 %261, 2
   %265 = sub nsw i64 %250, %264
-  %266 = getelementptr inbounds %"struct.ue2::rose_literal_id", ptr %263, i64 %265
+  %266 = getelementptr inbounds [128 x i8], ptr %263, i64 %265
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit
 
 _ZNK3ue214RoseLiteralMap2atEj.exit:               ; preds = %254, %260
@@ -6308,7 +6283,7 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE14_M_range_checkEm.exit.i: ; preds
   br i1 %300, label %301, label %303
 
 301:                                              ; preds = %299
-  %302 = getelementptr inbounds nuw %"struct.ue2::rose_literal_info", ptr %284, i64 %219
+  %302 = getelementptr inbounds nuw [88 x i8], ptr %284, i64 %219
   br label %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit
 
 303:                                              ; preds = %299
@@ -6323,11 +6298,11 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE14_M_range_checkEm.exit.i: ; preds
 
 309:                                              ; preds = %305, %303
   %310 = phi i64 [ %304, %303 ], [ %308, %305 ]
-  %311 = getelementptr inbounds ptr, ptr %268, i64 %310
+  %311 = getelementptr inbounds [8 x i8], ptr %268, i64 %310
   %312 = load ptr, ptr %311, align 8, !noalias !279
   %.idx.i.i.i.i.i = mul i64 %310, -440
   %313 = getelementptr i8, ptr %312, i64 %.idx.i.i.i.i.i
-  %314 = getelementptr %"struct.ue2::rose_literal_info", ptr %313, i64 %297
+  %314 = getelementptr [88 x i8], ptr %313, i64 %297
   br label %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit
 
 _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit: ; preds = %301, %309
@@ -6718,7 +6693,7 @@ define internal fastcc void @_ZN3ue2L14addLiteralMaskERKNS_15rose_literal_idERSt
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.sroa.6.019.i
   %16 = load i8, ptr %15, align 1
   %17 = lshr i64 %.sroa.6.019.i, 6
-  %18 = getelementptr inbounds nuw i64, ptr %13, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %.sroa.6.019.i, 63
   %21 = lshr i64 %19, %20
@@ -6843,7 +6818,7 @@ _ZN3ue220mixed_sensitivity_inINS_11ue2_literal14const_iteratorEEEbT_S3_.exit: ; 
   %89 = load i8, ptr %88, align 1
   %90 = lshr i64 %86, 6
   %91 = load ptr, ptr %84, align 8
-  %92 = getelementptr inbounds nuw i64, ptr %91, i64 %90
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %90
   %93 = load i64, ptr %92, align 8
   %94 = and i64 %86, 63
   %95 = lshr i64 %93, %94
@@ -6969,7 +6944,7 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE14_M_range_checkEm.exit.i.i: ; pre
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw %"struct.ue2::rose_literal_info", ptr %28, i64 %4
+  %46 = getelementptr inbounds nuw [88 x i8], ptr %28, i64 %4
   br label %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit.i
 
 47:                                               ; preds = %43
@@ -6984,11 +6959,11 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE14_M_range_checkEm.exit.i.i: ; pre
 
 53:                                               ; preds = %49, %47
   %54 = phi i64 [ %48, %47 ], [ %52, %49 ]
-  %55 = getelementptr inbounds ptr, ptr %10, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %10, i64 %54
   %56 = load ptr, ptr %55, align 8, !noalias !295
   %.idx.i.i.i.i.i.i = mul i64 %54, -440
   %57 = getelementptr i8, ptr %56, i64 %.idx.i.i.i.i.i.i
-  %58 = getelementptr %"struct.ue2::rose_literal_info", ptr %57, i64 %41
+  %58 = getelementptr [88 x i8], ptr %57, i64 %41
   br label %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit.i
 
 _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit.i: ; preds = %53, %45
@@ -7054,7 +7029,7 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i.i: ; p
   br i1 %104, label %105, label %107
 
 105:                                              ; preds = %103
-  %106 = getelementptr inbounds nuw %"struct.ue2::rose_literal_id", ptr %87, i64 %4
+  %106 = getelementptr inbounds nuw [128 x i8], ptr %87, i64 %4
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit.i.i
 
 107:                                              ; preds = %103
@@ -7067,11 +7042,11 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i.i: ; p
 
 111:                                              ; preds = %109, %107
   %112 = phi i64 [ %108, %107 ], [ %110, %109 ]
-  %113 = getelementptr inbounds ptr, ptr %69, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %69, i64 %112
   %114 = load ptr, ptr %113, align 8, !noalias !298
   %115 = shl nsw i64 %112, 2
   %116 = sub nsw i64 %101, %115
-  %117 = getelementptr inbounds %"struct.ue2::rose_literal_id", ptr %114, i64 %116
+  %117 = getelementptr inbounds [128 x i8], ptr %114, i64 %116
   br label %_ZNK3ue214RoseLiteralMap2atEj.exit.i.i
 
 _ZNK3ue214RoseLiteralMap2atEj.exit.i.i:           ; preds = %111, %105
@@ -7108,7 +7083,7 @@ _ZNK3ue214RoseLiteralMap2atEj.exit.i.i:           ; preds = %111, %105
   %133 = load ptr, ptr %132, align 8, !noalias !315
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.copyload.i.i.i, i64 72
   %135 = load i64, ptr %134, align 8, !noalias !324
-  %136 = getelementptr inbounds nuw i32, ptr %133, i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %135
   %137 = ptrtoint ptr %136 to i64
   %.idx.neg.i.i.i = mul nsw i64 %135, -4
   %138 = ashr exact i64 %.idx.neg.i.i.i, 2
@@ -7631,7 +7606,7 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE14_M_range_checkEm.exit.i.i.i: ; p
   br i1 %332, label %333, label %335
 
 333:                                              ; preds = %331
-  %334 = getelementptr inbounds nuw %"struct.ue2::rose_literal_info", ptr %317, i64 %299
+  %334 = getelementptr inbounds nuw [88 x i8], ptr %317, i64 %299
   br label %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit.i.i
 
 335:                                              ; preds = %331
@@ -7646,11 +7621,11 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE14_M_range_checkEm.exit.i.i.i: ; p
 
 341:                                              ; preds = %337, %335
   %342 = phi i64 [ %336, %335 ], [ %340, %337 ]
-  %343 = getelementptr inbounds ptr, ptr %301, i64 %342
+  %343 = getelementptr inbounds [8 x i8], ptr %301, i64 %342
   %344 = load ptr, ptr %343, align 8, !noalias !374
   %.idx.i.i.i.i.i.i.i = mul i64 %342, -440
   %345 = getelementptr i8, ptr %344, i64 %.idx.i.i.i.i.i.i.i
-  %346 = getelementptr %"struct.ue2::rose_literal_info", ptr %345, i64 %329
+  %346 = getelementptr [88 x i8], ptr %345, i64 %329
   br label %_ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit.i.i
 
 _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE2atEm.exit.i.i: ; preds = %341, %333
@@ -8104,7 +8079,7 @@ _ZNSt12_Vector_baseIN3ue211hwlmLiteralESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %26, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i41, ptr %10, align 8
-  %107 = getelementptr inbounds nuw %"struct.ue2::hwlmLiteral", ptr %26, i64 %22
+  %107 = getelementptr inbounds nuw [104 x i8], ptr %26, i64 %22
   store ptr %107, ptr %106, align 8
   ret void
 
@@ -8479,7 +8454,7 @@ _ZNSt12_Vector_baseIN3ue211AccelStringESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %26, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i39, ptr %8, align 8
-  %109 = getelementptr inbounds nuw %"struct.ue2::AccelString", ptr %26, i64 %20
+  %109 = getelementptr inbounds nuw [96 x i8], ptr %26, i64 %20
   store ptr %109, ptr %108, align 8
   ret void
 
@@ -9015,7 +8990,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vecto
 19:                                               ; preds = %11
   %20 = add nsw i64 %.020, -1
   %21 = udiv i64 %12, 208
-  %22 = getelementptr inbounds nuw %"struct.ue2::hwlmLiteral", ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [104 x i8], ptr %0, i64 %21
   %23 = getelementptr inbounds i8, ptr %storemerge19, i64 -104
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS3_EEEEvT_SE_SE_SE_T0_(ptr %0, ptr nonnull %10, ptr %22, ptr nonnull %23)
   %24 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS3_EEEET_SE_SE_SE_T0_(ptr nonnull %10, ptr %storemerge19, ptr %0)
@@ -9066,7 +9041,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
 32:                                               ; preds = %_ZN3ue211hwlmLiteralD2Ev.exit19, %11
   %.010 = phi i64 [ %13, %11 ], [ %71, %_ZN3ue211hwlmLiteralD2Ev.exit19 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %33 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %0, i64 %.010
+  %33 = getelementptr inbounds [104 x i8], ptr %0, i64 %.010
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = icmp eq ptr %34, %35
@@ -9446,9 +9421,9 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   %.038 = phi i64 [ %1, %.lr.ph ], [ %51, %50 ]
   %26 = shl i64 %.038, 1
   %27 = add i64 %26, 2
-  %28 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %0, i64 %27
+  %28 = getelementptr inbounds [104 x i8], ptr %0, i64 %27
   %29 = or disjoint i64 %26, 1
-  %30 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %0, i64 %29
+  %30 = getelementptr inbounds [104 x i8], ptr %0, i64 %29
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 36
@@ -9507,8 +9482,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__norm
 
 50:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit, %49
   %51 = phi i64 [ %29, %49 ], [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit ], [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEESD_EEbT_T0_.exit.thread35 ]
-  %52 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %0, i64 %51
-  %53 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %0, i64 %.038
+  %52 = getelementptr inbounds [104 x i8], ptr %0, i64 %51
+  %53 = getelementptr inbounds [104 x i8], ptr %0, i64 %.038
   %54 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN3ue211hwlmLiteralaSEOS0_(ptr noundef nonnull align 8 dereferenceable(104) %53, ptr noundef nonnull align 8 dereferenceable(104) %52) #26
   %55 = icmp slt i64 %51, %11
   br i1 %55, label %25, label %._crit_edge, !llvm.loop !432
@@ -9528,8 +9503,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIN3ue211hwlmLiteralEEEclINS_17__norm
 62:                                               ; preds = %58
   %63 = shl nsw i64 %.0.lcssa, 1
   %64 = or disjoint i64 %63, 1
-  %65 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %0, i64 %64
-  %66 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %0, i64 %.0.lcssa
+  %65 = getelementptr inbounds [104 x i8], ptr %0, i64 %64
+  %66 = getelementptr inbounds [104 x i8], ptr %0, i64 %.0.lcssa
   %67 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN3ue211hwlmLiteralaSEOS0_(ptr noundef nonnull align 8 dereferenceable(104) %66, ptr noundef nonnull align 8 dereferenceable(104) %65) #26
   br label %68
 
@@ -9621,7 +9596,7 @@ _ZN3ue211hwlmLiteralC2EOS0_.exit:                 ; preds = %73, %_ZNKSt7__cxx11
   %.021.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0922.i, %132 ]
   %.0922.in.i = add nsw i64 %.021.i, -1
   %.0922.i = sdiv i64 %.0922.in.i, 2
-  %119 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %0, i64 %.0922.i
+  %119 = getelementptr inbounds [104 x i8], ptr %0, i64 %.0922.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 36
@@ -9673,14 +9648,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN3ue211hwlmLiteralEEEclINS_17__norma
   br i1 %131, label %132, label %.loopexit
 
 132:                                              ; preds = %.noexc, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.thread.i
-  %133 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %0, i64 %.021.i
+  %133 = getelementptr inbounds [104 x i8], ptr %0, i64 %.021.i
   %134 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN3ue211hwlmLiteralaSEOS0_(ptr noundef nonnull align 8 dereferenceable(104) %133, ptr noundef nonnull align 8 dereferenceable(104) %119) #26
   %135 = icmp sgt i64 %.0922.i, %1
   br i1 %135, label %118, label %.loopexit, !llvm.loop !439
 
 .loopexit:                                        ; preds = %132, %.noexc, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.thread16.i, %_ZN3ue211hwlmLiteralC2EOS0_.exit
   %.018.i = phi i64 [ %.021.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN3ue211hwlmLiteralEEEclINS_17__normal_iteratorIPS4_St6vectorIS4_SaIS4_EEEES4_EEbT_RT0_.exit.thread16.i ], [ %.1, %_ZN3ue211hwlmLiteralC2EOS0_.exit ], [ %.0922.i, %132 ], [ %.021.i, %.noexc ]
-  %136 = getelementptr inbounds %"struct.ue2::hwlmLiteral", ptr %0, i64 %.018.i
+  %136 = getelementptr inbounds [104 x i8], ptr %0, i64 %.018.i
   %137 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN3ue211hwlmLiteralaSEOS0_(ptr noundef nonnull align 8 dereferenceable(104) %136, ptr noundef nonnull align 8 dereferenceable(104) %9) #26
   %138 = load ptr, ptr %93, align 8
   %.not.i.i.i.i = icmp eq ptr %138, null
@@ -11582,7 +11557,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3ue211AccelStringESt6vecto
 19:                                               ; preds = %11
   %20 = add nsw i64 %.020, -1
   %21 = udiv i64 %12, 192
-  %22 = getelementptr inbounds nuw %"struct.ue2::AccelString", ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw [96 x i8], ptr %0, i64 %21
   %23 = getelementptr inbounds i8, ptr %storemerge19, i64 -96
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3ue211AccelStringESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS3_EEEEvT_SE_SE_SE_T0_(ptr %0, ptr nonnull %10, ptr %22, ptr nonnull %23)
   %24 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN3ue211AccelStringESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS3_EEEET_SE_SE_SE_T0_(ptr nonnull %10, ptr %storemerge19, ptr %0)
@@ -11635,7 +11610,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
 34:                                               ; preds = %_ZN3ue211AccelStringD2Ev.exit19, %11
   %.010 = phi i64 [ %13, %11 ], [ %76, %_ZN3ue211AccelStringD2Ev.exit19 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %35 = getelementptr inbounds %"struct.ue2::AccelString", ptr %0, i64 %.010
+  %35 = getelementptr inbounds [96 x i8], ptr %0, i64 %.010
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = icmp eq ptr %36, %37
@@ -12025,9 +12000,9 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   %.035 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %21 ]
   %22 = shl i64 %.035, 1
   %23 = add i64 %22, 2
-  %24 = getelementptr inbounds %"struct.ue2::AccelString", ptr %0, i64 %23
+  %24 = getelementptr inbounds [96 x i8], ptr %0, i64 %23
   %25 = or disjoint i64 %22, 1
-  %26 = getelementptr inbounds %"struct.ue2::AccelString", ptr %0, i64 %25
+  %26 = getelementptr inbounds [96 x i8], ptr %0, i64 %25
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -12052,8 +12027,8 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %spec.select = select i1 %35, i64 %25, i64 %23
-  %36 = getelementptr inbounds %"struct.ue2::AccelString", ptr %0, i64 %spec.select
-  %37 = getelementptr inbounds %"struct.ue2::AccelString", ptr %0, i64 %.035
+  %36 = getelementptr inbounds [96 x i8], ptr %0, i64 %spec.select
+  %37 = getelementptr inbounds [96 x i8], ptr %0, i64 %.035
   %38 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN3ue211AccelStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %37, ptr noundef nonnull align 8 dereferenceable(96) %36) #26
   %39 = icmp slt i64 %spec.select, %11
   br i1 %39, label %21, label %._crit_edge, !llvm.loop !510
@@ -12073,8 +12048,8 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
 46:                                               ; preds = %42
   %47 = shl nsw i64 %.0.lcssa, 1
   %48 = or disjoint i64 %47, 1
-  %49 = getelementptr inbounds %"struct.ue2::AccelString", ptr %0, i64 %48
-  %50 = getelementptr inbounds %"struct.ue2::AccelString", ptr %0, i64 %.0.lcssa
+  %49 = getelementptr inbounds [96 x i8], ptr %0, i64 %48
+  %50 = getelementptr inbounds [96 x i8], ptr %0, i64 %.0.lcssa
   %51 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN3ue211AccelStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %50, ptr noundef nonnull align 8 dereferenceable(96) %49) #26
   br label %52
 
@@ -12164,7 +12139,7 @@ _ZN3ue211AccelStringC2EOS0_.exit:                 ; preds = %57, %_ZNKSt7__cxx11
   %.018.i = phi i64 [ %.1, %.lr.ph.i ], [ %.0919.i, %106 ]
   %.0919.in.i = add nsw i64 %.018.i, -1
   %.0919.i = sdiv i64 %.0919.in.i, 2
-  %100 = getelementptr inbounds %"struct.ue2::AccelString", ptr %0, i64 %.0919.i
+  %100 = getelementptr inbounds [96 x i8], ptr %0, i64 %.0919.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 40
@@ -12190,14 +12165,14 @@ _ZN3ue211AccelStringC2EOS0_.exit:                 ; preds = %57, %_ZNKSt7__cxx11
   br i1 %105, label %106, label %.loopexit
 
 106:                                              ; preds = %.noexc
-  %107 = getelementptr inbounds %"struct.ue2::AccelString", ptr %0, i64 %.018.i
+  %107 = getelementptr inbounds [96 x i8], ptr %0, i64 %.018.i
   %108 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN3ue211AccelStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %107, ptr noundef nonnull align 8 dereferenceable(96) %100) #26
   %109 = icmp sgt i64 %.0919.i, %1
   br i1 %109, label %99, label %.loopexit, !llvm.loop !517
 
 .loopexit:                                        ; preds = %106, %.noexc, %_ZN3ue211AccelStringC2EOS0_.exit
   %.0.lcssa.i = phi i64 [ %.1, %_ZN3ue211AccelStringC2EOS0_.exit ], [ %.018.i, %.noexc ], [ %.0919.i, %106 ]
-  %110 = getelementptr inbounds %"struct.ue2::AccelString", ptr %0, i64 %.0.lcssa.i
+  %110 = getelementptr inbounds [96 x i8], ptr %0, i64 %.0.lcssa.i
   %111 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN3ue211AccelStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(96) %110, ptr noundef nonnull align 8 dereferenceable(96) %9) #26
   %112 = load ptr, ptr %78, align 8
   %.not.i.i.i.i = icmp eq ptr %112, null
@@ -13959,7 +13934,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue211hwlmLiteral
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %98 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
   %99 = sub nuw nsw i64 %9, %20
-  %100 = getelementptr inbounds nuw %"struct.ue2::hwlmLiteral", ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [104 x i8], ptr %98, i64 %99
   store ptr %100, ptr %12, align 8
   %.not11.i.i.i.i.i54 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i54, label %_ZSt22__uninitialized_move_aIPN3ue211hwlmLiteralES2_SaIS1_EET0_T_S5_S4_RT1_.exit62, label %.lr.ph.i.i.i.i.i55
@@ -14332,7 +14307,7 @@ _ZSt8_DestroyIPN3ue211hwlmLiteralES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_Dest
 _ZNSt12_Vector_baseIN3ue211hwlmLiteralESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN3ue211hwlmLiteralES1_EvT_S3_RSaIT0_E.exit, %261
   store ptr %167, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i93, ptr %12, align 8
-  %262 = getelementptr inbounds nuw %"struct.ue2::hwlmLiteral", ptr %167, i64 %163
+  %262 = getelementptr inbounds nuw [104 x i8], ptr %167, i64 %163
   store ptr %262, ptr %10, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
 
@@ -14772,7 +14747,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue211AccelString
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue211AccelStringESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue211AccelStringESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN3ue211AccelStringESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %106 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue211AccelStringESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN3ue211AccelStringESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
   %107 = sub nuw nsw i64 %9, %20
-  %108 = getelementptr inbounds nuw %"struct.ue2::AccelString", ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [96 x i8], ptr %106, i64 %107
   store ptr %108, ptr %12, align 8
   %.not11.i.i.i.i.i54 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i54, label %_ZSt22__uninitialized_move_aIPN3ue211AccelStringES2_SaIS1_EET0_T_S5_S4_RT1_.exit62, label %.lr.ph.i.i.i.i.i55
@@ -15165,7 +15140,7 @@ _ZSt8_DestroyIPN3ue211AccelStringES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_Dest
 _ZNSt12_Vector_baseIN3ue211AccelStringESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN3ue211AccelStringES1_EvT_S3_RSaIT0_E.exit, %285
   store ptr %183, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i93, ptr %12, align 8
-  %286 = getelementptr inbounds nuw %"struct.ue2::AccelString", ptr %183, i64 %179
+  %286 = getelementptr inbounds nuw [96 x i8], ptr %183, i64 %179
   store ptr %286, ptr %10, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3ue211AccelStringESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
 
@@ -15458,7 +15433,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212gra
 
 .thread.i:                                        ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  %37 = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %36, i64 %3
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %3
   br label %_ZN5boost9container6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_9RoseGraphENS2_15RoseVertexPropsENS2_13RoseEdgePropsEEEEENS0_22small_vector_allocatorISA_SaIvEvEEvE40priv_forward_range_insert_new_allocationINS0_3dtl17insert_copy_proxyISD_PSA_EEEEvSI_mSI_mT_.exit
 
 38:                                               ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212graph_detail17vertex_descriptorINS3_9ue2_graphINS3_9RoseGraphENS3_15RoseVertexPropsENS3_13RoseEdgePropsEEEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
@@ -15473,8 +15448,8 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212gra
 41:                                               ; preds = %39, %38
   %.0.i.i.i = phi ptr [ %40, %39 ], [ %36, %38 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  %42 = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %.0.i.i.i, i64 %3
-  %43 = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %7, i64 %15
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.i.i, i64 %3
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %15
   %44 = icmp ne ptr %6, %43
   %45 = icmp ne ptr %6, null
   %spec.select.i.i21.i = and i1 %45, %44
@@ -15598,7 +15573,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEm
 .thread.i:                                        ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
   %38 = load i32, ptr %4, align 4
   store i32 %38, ptr %37, align 4
-  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %3
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %3
   br label %_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE40priv_forward_range_insert_new_allocationINS0_3dtl17insert_copy_proxyIS4_PjEEEEvS9_mS9_mT_.exit
 
 40:                                               ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
@@ -15614,8 +15589,8 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEm
   %.0.i.i.i = phi ptr [ %42, %41 ], [ %37, %40 ]
   %44 = load i32, ptr %4, align 4
   store i32 %44, ptr %.0.i.i.i, align 4
-  %45 = getelementptr inbounds nuw i32, ptr %.0.i.i.i, i64 %3
-  %46 = getelementptr inbounds nuw i32, ptr %7, i64 %15
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %3
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %15
   %47 = icmp ne ptr %6, %46
   %48 = icmp ne ptr %6, null
   %spec.select.i.i21.i = and i1 %48, %47

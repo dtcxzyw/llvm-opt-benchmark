@@ -3,8 +3,6 @@ source_filename = "bench/sdl/original/SDL_waylandmessagebox.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SDL_MessageBoxButtonData = type { i32, i32, ptr }
-
 @.str = private unnamed_addr constant [7 x i8] c"zenity\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"--question\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"--switch\00", align 1
@@ -183,7 +181,7 @@ get_zenity_version.exit:                          ; preds = %get_zenity_version.
 
 61:                                               ; preds = %59
   %62 = zext nneg i32 %.172 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %5, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %62
   store ptr @.str.17, ptr %63, align 8
   %64 = or disjoint i32 %.172, 2
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -193,7 +191,7 @@ get_zenity_version.exit:                          ; preds = %get_zenity_version.
 66:                                               ; preds = %59, %56
   %67 = add nuw nsw i32 %.172, 1
   %68 = zext nneg i32 %.172 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %5, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %68
   store ptr @.str.18, ptr %69, align 8
   br label %70
 
@@ -213,7 +211,7 @@ get_zenity_version.exit:                          ; preds = %get_zenity_version.
   %76 = phi ptr [ %.pre, %.lr.ph ], [ %98, %96 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
   %.3122 = phi i32 [ %.273, %.lr.ph ], [ %.4, %96 ]
-  %77 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %indvars.iv
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
   %.not102 = icmp eq ptr %79, null
@@ -227,10 +225,10 @@ get_zenity_version.exit:                          ; preds = %get_zenity_version.
 82:                                               ; preds = %80
   %83 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %79) #4
   %84 = sext i32 %.3122 to i64
-  %85 = getelementptr inbounds ptr, ptr %5, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %5, i64 %84
   store ptr @.str.19, ptr %85, align 8
   %86 = load ptr, ptr %73, align 8
-  %87 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %86, i64 %indvars.iv
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = add nsw i32 %.3122, 2
@@ -242,7 +240,7 @@ get_zenity_version.exit:                          ; preds = %get_zenity_version.
 92:                                               ; preds = %80, %74
   %93 = add nsw i32 %.3122, 1
   %94 = sext i32 %.3122 to i64
-  %95 = getelementptr inbounds ptr, ptr %5, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %5, i64 %94
   store ptr @.str.20, ptr %95, align 8
   br label %96
 
@@ -264,14 +262,14 @@ get_zenity_version.exit:                          ; preds = %get_zenity_version.
 102:                                              ; preds = %._crit_edge
   %103 = add nsw i32 %.3.lcssa, 1
   %104 = sext i32 %.3.lcssa to i64
-  %105 = getelementptr inbounds ptr, ptr %5, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %5, i64 %104
   store ptr @.str.21, ptr %105, align 8
   br label %106
 
 106:                                              ; preds = %102, %._crit_edge
   %.5 = phi i32 [ %103, %102 ], [ %.3.lcssa, %._crit_edge ]
   %107 = sext i32 %.5 to i64
-  %108 = getelementptr inbounds ptr, ptr %5, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %5, i64 %107
   store ptr null, ptr %108, align 8
   %109 = call i32 @SDL_CreateProperties_REAL() #4
   %.not96 = icmp eq i32 %109, 0
@@ -317,7 +315,7 @@ get_zenity_version.exit:                          ; preds = %get_zenity_version.
   %125 = phi i32 [ %121, %.lr.ph127 ], [ %139, %138 ]
   %indvars.iv131 = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next132, %138 ]
   %126 = load ptr, ptr %123, align 8
-  %127 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %126, i64 %indvars.iv131
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %126, i64 %indvars.iv131
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load ptr, ptr %128, align 8
   %.not101 = icmp eq ptr %129, null
@@ -334,7 +332,7 @@ get_zenity_version.exit:                          ; preds = %get_zenity_version.
 
 133:                                              ; preds = %130
   %134 = load ptr, ptr %123, align 8
-  %135 = getelementptr inbounds nuw %struct.SDL_MessageBoxButtonData, ptr %134, i64 %indvars.iv131
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %indvars.iv131
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 4
   %137 = load i32, ptr %136, align 4
   store i32 %137, ptr %1, align 4

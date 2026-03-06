@@ -3899,7 +3899,7 @@ switch.lookup:                                    ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i8, ptr %11, align 8, !range !439, !noundef !5
   %13 = zext nneg i8 %12 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_common..file..WasiFile$GT$6advise28_$u7b$$u7b$closure$u7d$$u7d$17h76513978f444a9aeE", i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN77_$LT$wasi_common..sync..file..File$u20$as$u20$wasi_common..file..WasiFile$GT$6advise28_$u7b$$u7b$closure$u7d$$u7d$17h76513978f444a9aeE", i64 %13
   %switch.load = load i64, ptr %switch.gep, align 8
   %14 = invoke noundef range(i32 0, -1) i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7)
           to label %17 unwind label %15
@@ -4427,7 +4427,7 @@ default.unreachable17:                            ; preds = %3
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !align !37, !noundef !5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !5
-  %15 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %12, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr %12, i64 %14
   %16 = invoke noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc4179051f24bccc0E.llvm.17191764028380965858"(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef 0)
           to label %_ZN4core4iter6traits8iterator8Iterator3sum17h998cd3cdd4c7dcb3E.exit unwind label %17
 

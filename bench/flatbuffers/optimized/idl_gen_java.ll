@@ -8194,7 +8194,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !232
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !82
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !83
   ret void
 
@@ -8802,7 +8802,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit151: ; preds = %
 _ZNK11flatbuffers4java13JavaGenerator15DestinationTypeERKNS_4TypeEb.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit151, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit151, %229, %230
   %.sroa.0290.0 = phi i64 [ %231, %230 ], [ 9, %229 ], [ 7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit151 ], [ 7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit151 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !354)
-  %232 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.0290.0
+  %232 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.0290.0
   %233 = load ptr, ptr %232, align 8, !tbaa !357, !noalias !354
   store ptr %169, ptr %12, align 8, !tbaa !15, !alias.scope !354
   %234 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %233) #27
@@ -9182,7 +9182,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit200: ; preds = %
 _ZNK11flatbuffers4java13JavaGenerator15DestinationTypeERKNS_4TypeEb.exit201: ; preds = %345, %345, %348, %349
   %.sroa.0289.0 = phi i64 [ %350, %349 ], [ 9, %348 ], [ 7, %345 ], [ 7, %345 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !374)
-  %351 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.0289.0
+  %351 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.0289.0
   %352 = load ptr, ptr %351, align 8, !tbaa !357, !noalias !374
   %353 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %353, ptr %16, align 8, !tbaa !15, !alias.scope !374
@@ -11021,7 +11021,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit162: ; preds = %10
 _ZNK11flatbuffers4java13JavaGenerator15DestinationTypeERKNS_4TypeEb.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit162, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit162, %117, %116
   %.sroa.0629.0 = phi i64 [ %118, %117 ], [ 9, %116 ], [ 7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit162 ], [ 7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit162 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !422)
-  %119 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.0629.0
+  %119 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.0629.0
   %120 = load ptr, ptr %119, align 8, !tbaa !357, !noalias !422
   %121 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %121, ptr %9, align 8, !tbaa !15, !alias.scope !422
@@ -32779,7 +32779,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit4494: ; preds = 
 _ZNK11flatbuffers4java13JavaGenerator15DestinationTypeERKNS_4TypeEb.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit4494, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit4494, %6497, %6496
   %.sroa.05889.0 = phi i64 [ %6498, %6497 ], [ 9, %6496 ], [ 7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit4494 ], [ 7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit4494 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !965)
-  %6499 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.05889.0
+  %6499 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.05889.0
   %6500 = load ptr, ptr %6499, align 8, !tbaa !357, !noalias !965
   store ptr %6434, ptr %263, align 8, !tbaa !15, !alias.scope !965
   %6501 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6500) #27
@@ -33201,7 +33201,7 @@ _ZNK11flatbuffers8IdlNamer5FieldB5cxx11ERKNS_8FieldDefE.exit4555: ; preds = %.lr
 
 switch.lookup:                                    ; preds = %6658
   %6662 = zext nneg i32 %6660 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK11flatbuffers4java13JavaGenerator9GenStructERNS_9StructDefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10IDLOptionsE, i64 %6662
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK11flatbuffers4java13JavaGenerator9GenStructERNS_9StructDefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10IDLOptionsE, i64 %6662
   %switch.load = load i64, ptr %switch.gep, align 8
   %6663 = icmp eq i64 %.088521501, %switch.load
   br i1 %6663, label %6664, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit4637
@@ -34430,7 +34430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit4771: ; preds = 
 _ZNK11flatbuffers4java13JavaGenerator15DestinationTypeERKNS_4TypeEb.exit4772: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit4771, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit4771, %7139, %7138
   %.sroa.05874.0 = phi i64 [ %7140, %7139 ], [ 9, %7138 ], [ 7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit4771 ], [ 7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit4771 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1014)
-  %7141 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.05874.0
+  %7141 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.05874.0
   %7142 = load ptr, ptr %7141, align 8, !tbaa !357, !noalias !1014
   store ptr %6982, ptr %283, align 8, !tbaa !15, !alias.scope !1014
   %7143 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7142) #27
@@ -36772,7 +36772,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit5160: ; preds = 
 _ZNK11flatbuffers4java13JavaGenerator15DestinationTypeERKNS_4TypeEb.exit5161: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit5160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit5160, %7848, %7847
   %.sroa.05868.0 = phi i64 [ %7849, %7848 ], [ 9, %7847 ], [ 7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit5160 ], [ 7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit5160 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1100)
-  %7850 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.05868.0
+  %7850 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.05868.0
   %7851 = load ptr, ptr %7850, align 8, !tbaa !357, !noalias !1100
   store ptr %7025, ptr %315, align 8, !tbaa !15, !alias.scope !1100
   %7852 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7851) #27
@@ -48568,7 +48568,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers4java13JavaGenerator10GenTy
 9:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1389)
   %10 = zext nneg i32 %6 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !357, !noalias !1389
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %0, align 8, !tbaa !15, !alias.scope !1389
@@ -50006,7 +50006,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1438)
   %89 = zext i32 %12 to i64
-  %90 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !357, !noalias !1438
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %92, ptr %9, align 8, !tbaa !15, !alias.scope !1438
@@ -50072,7 +50072,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %101
   call void @llvm.experimental.noalias.scope.decl(metadata !1441)
   %112 = load i32, ptr %2, align 8, !tbaa !350, !noalias !1441
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %113
   %115 = load ptr, ptr %114, align 8, !tbaa !357, !noalias !1441
   %116 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %116, ptr %11, align 8, !tbaa !15, !alias.scope !1441
@@ -50938,7 +50938,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers4java13JavaGenerator9GenSet
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1465)
   %15 = zext nneg i32 %9 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !357, !noalias !1465
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %18, ptr %6, align 8, !tbaa !15, !alias.scope !1465
@@ -51009,7 +51009,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33, %
   call void @llvm.experimental.noalias.scope.decl(metadata !1468)
   %40 = load i32, ptr %2, align 8, !tbaa !350, !noalias !1468
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !357, !noalias !1468
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %44, ptr %8, align 8, !tbaa !15, !alias.scope !1468
@@ -54752,7 +54752,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers4java13JavaGenerator9GenMet
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1569)
   %10 = zext nneg i32 %6 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !357, !noalias !1569
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %13, ptr %5, align 8, !tbaa !15, !alias.scope !1569
@@ -70143,7 +70143,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2483: ; preds = %_
 _ZNK11flatbuffers4java13JavaGenerator15DestinationTypeERKNS_4TypeEb.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2483, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2483, %3922, %3921
   %.sroa.05035.0 = phi i64 [ %3923, %3922 ], [ 9, %3921 ], [ 7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2483 ], [ 7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2483 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1953)
-  %3924 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.05035.0
+  %3924 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.05035.0
   %3925 = load ptr, ptr %3924, align 8, !tbaa !357, !noalias !1953
   store ptr %2877, ptr %158, align 8, !tbaa !15, !alias.scope !1953
   %3926 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3925) #27
@@ -77852,7 +77852,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3734: ; preds = %_
 _ZNK11flatbuffers4java13JavaGenerator15DestinationTypeERKNS_4TypeEb.exit3735: ; preds = %6265, %6265, %6271, %6270
   %.sroa.05026.0 = phi i64 [ %6272, %6271 ], [ 9, %6270 ], [ 7, %6265 ], [ 7, %6265 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2145)
-  %6273 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.05026.0
+  %6273 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.05026.0
   %6274 = load ptr, ptr %6273, align 8, !tbaa !357, !noalias !2145
   store ptr %2773, ptr %262, align 8, !tbaa !15, !alias.scope !2145
   %6275 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6274) #27
@@ -86044,7 +86044,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @llvm.experimental.noalias.scope.decl(metadata !2367)
   %49 = load i32, ptr %9, align 8, !tbaa !350, !noalias !2367
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !357, !noalias !2367
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %53, ptr %12, align 8, !tbaa !15, !alias.scope !2367
@@ -86110,7 +86110,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %62, %
   call void @llvm.experimental.noalias.scope.decl(metadata !2370)
   %73 = load i32, ptr %9, align 8, !tbaa !350, !noalias !2370
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !357, !noalias !2370
   %77 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %77, ptr %14, align 8, !tbaa !15, !alias.scope !2370
@@ -88809,7 +88809,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit268: ; preds = %_Z
 _ZNK11flatbuffers4java13JavaGenerator15DestinationTypeERKNS_4TypeEb.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit268, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit268, %329, %328
   %.sroa.01094.0 = phi i64 [ %330, %329 ], [ 9, %328 ], [ 7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit268 ], [ 7, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit268 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2439)
-  %331 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.01094.0
+  %331 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %.sroa.01094.0
   %332 = load ptr, ptr %331, align 8, !tbaa !357, !noalias !2439
   %333 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %333, ptr %42, align 8, !tbaa !15, !alias.scope !2439
@@ -94346,7 +94346,7 @@ _ZNSt6vectorIN11flatbuffers4java13JavaGenerator16FieldArrayLengthESaIS3_EE9push_
 .lr.ph:                                           ; preds = %208, %_ZNSt6vectorIN11flatbuffers4java13JavaGenerator16FieldArrayLengthESaIS3_EE9push_backERKS3_.exit212
   %212 = phi ptr [ %245, %_ZNSt6vectorIN11flatbuffers4java13JavaGenerator16FieldArrayLengthESaIS3_EE9push_backERKS3_.exit212 ], [ %210, %208 ]
   %.0902613 = phi i64 [ %243, %_ZNSt6vectorIN11flatbuffers4java13JavaGenerator16FieldArrayLengthESaIS3_EE9push_backERKS3_.exit212 ], [ 0, %208 ]
-  %213 = getelementptr inbounds nuw %"struct.flatbuffers::java::JavaGenerator::FieldArrayLength", ptr %212, i64 %.0902613
+  %213 = getelementptr inbounds nuw [40 x i8], ptr %212, i64 %.0902613
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 32
   %215 = load i32, ptr %214, align 8, !tbaa !1920
   %216 = icmp sgt i32 %215, 0
@@ -94437,7 +94437,7 @@ _ZNSt6vectorIN11flatbuffers4java13JavaGenerator16FieldArrayLengthESaIS3_EE9push_
   call void @llvm.experimental.noalias.scope.decl(metadata !2588)
   %251 = load i32, ptr %11, align 8, !tbaa !350, !noalias !2588
   %252 = zext i32 %251 to i64
-  %253 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %252
+  %253 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %252
   %254 = load ptr, ptr %253, align 8, !tbaa !357, !noalias !2588
   store ptr %77, ptr %18, align 8, !tbaa !15, !alias.scope !2588
   %255 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %254) #27
@@ -94477,7 +94477,7 @@ _ZNSt6vectorIN11flatbuffers4java13JavaGenerator16FieldArrayLengthESaIS3_EE9push_
   %.0892614 = phi i64 [ %297, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit221 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %264 = getelementptr inbounds nuw %"struct.flatbuffers::java::JavaGenerator::FieldArrayLength", ptr %263, i64 %.0892614
+  %264 = getelementptr inbounds nuw [40 x i8], ptr %263, i64 %.0892614
   %265 = load i32, ptr %73, align 4, !tbaa !265, !noalias !2591
   %266 = load ptr, ptr %72, align 8, !tbaa !4, !noalias !2591
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 160
@@ -94905,7 +94905,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266: ; preds = %_Z
   call void @llvm.experimental.noalias.scope.decl(metadata !2605)
   %411 = load i32, ptr %11, align 8, !tbaa !350, !noalias !2605
   %412 = zext i32 %411 to i64
-  %413 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %412
+  %413 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers4java13JavaGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE13java_typename, i64 %412
   %414 = load ptr, ptr %413, align 8, !tbaa !357, !noalias !2605
   store ptr %86, ptr %23, align 8, !tbaa !15, !alias.scope !2605
   %415 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %414) #27
@@ -95263,7 +95263,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i315: ; pr
 .split139:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i315
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %516 = load ptr, ptr %13, align 8, !tbaa !1926
-  %517 = getelementptr inbounds nuw %"struct.flatbuffers::java::JavaGenerator::FieldArrayLength", ptr %516, i64 %.0872621
+  %517 = getelementptr inbounds nuw [40 x i8], ptr %516, i64 %.0872621
   br label %518
 
 .loopexit839:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i315
@@ -95652,7 +95652,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35
   store i8 0, ptr %631, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %642 = load ptr, ptr %13, align 8, !tbaa !1926
-  %643 = getelementptr inbounds nuw %"struct.flatbuffers::java::JavaGenerator::FieldArrayLength", ptr %642, i64 %.0862624
+  %643 = getelementptr inbounds nuw [40 x i8], ptr %642, i64 %.0862624
   %644 = getelementptr inbounds nuw i8, ptr %643, i64 32
   %645 = load i32, ptr %644, align 8, !tbaa !1920
   invoke void @_ZN11flatbuffers11NumToStringIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %35, i32 noundef %645)
@@ -96832,7 +96832,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit541.preheader: ;
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %124, ptr noundef nonnull align 1 dereferenceable(3) @.str.403, i64 3, i1 false)
   store i64 3, ptr %125, align 8, !tbaa !19
   store i8 0, ptr %149, align 1, !tbaa !14
-  %1009 = getelementptr inbounds nuw %"struct.flatbuffers::java::JavaGenerator::FieldArrayLength", ptr %1008, i64 %.0842629
+  %1009 = getelementptr inbounds nuw [40 x i8], ptr %1008, i64 %.0842629
   invoke void @_ZNK11flatbuffers5Namer6MethodERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %43, ptr noundef nonnull align 8 dereferenceable(392) %72, ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %1009)
           to label %1010 unwind label %1069
 
@@ -96987,7 +96987,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit574: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   %1064 = load ptr, ptr %2, align 8, !tbaa !1926
-  %1065 = getelementptr inbounds nuw %"struct.flatbuffers::java::JavaGenerator::FieldArrayLength", ptr %1064, i64 %.0842629
+  %1065 = getelementptr inbounds nuw [40 x i8], ptr %1064, i64 %.0842629
   %1066 = getelementptr inbounds nuw i8, ptr %1065, i64 32
   %1067 = load i32, ptr %1066, align 8, !tbaa !1920
   %1068 = icmp slt i32 %1067, 1
@@ -97605,7 +97605,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit669: ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %142, ptr noundef nonnull align 1 dereferenceable(3) @.str.403, i64 3, i1 false)
   store i64 3, ptr %143, align 8, !tbaa !19
   store i8 0, ptr %150, align 1, !tbaa !14
-  %1251 = getelementptr inbounds nuw %"struct.flatbuffers::java::JavaGenerator::FieldArrayLength", ptr %1250, i64 %.02633
+  %1251 = getelementptr inbounds nuw [40 x i8], ptr %1250, i64 %.02633
   invoke void @_ZNK11flatbuffers5Namer6MethodERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %53, ptr noundef nonnull align 8 dereferenceable(392) %72, ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %1251)
           to label %1252 unwind label %1314
 
@@ -98626,7 +98626,7 @@ _ZNSt6vectorIN11flatbuffers4java13JavaGenerator16FieldArrayLengthESaIS3_EE11_S_r
 _ZNSt12_Vector_baseIN11flatbuffers4java13JavaGenerator16FieldArrayLengthESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN11flatbuffers4java13JavaGenerator16FieldArrayLengthESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit36, %82
   store ptr %23, ptr %0, align 8, !tbaa !1926
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !1922
-  %86 = getelementptr inbounds nuw %"struct.flatbuffers::java::JavaGenerator::FieldArrayLength", ptr %23, i64 %17
+  %86 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %17
   store ptr %86, ptr %81, align 8, !tbaa !1925
   ret void
 

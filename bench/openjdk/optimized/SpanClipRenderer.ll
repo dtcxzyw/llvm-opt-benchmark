@@ -335,7 +335,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_eraseTile(ptr noundef %0, ptr
   %.0193278 = phi i32 [ %.0193.ph302, %.lr.ph ], [ %.1194, %209 ]
   %.0195277 = phi i32 [ %.0195.ph301, %.lr.ph ], [ %.2197, %209 ]
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i32, ptr %87, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr %87, i64 %118
   %120 = load i32, ptr %119, align 4
   store i32 %120, ptr %62, align 4
   %121 = getelementptr i8, ptr %119, i64 4
@@ -407,7 +407,7 @@ define void @Java_sun_java2d_pipe_SpanClipRenderer_eraseTile(ptr noundef %0, ptr
 
 142:                                              ; preds = %139
   %143 = add nsw i32 %.1248, -1
-  %144 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv
+  %144 = getelementptr inbounds [4 x i8], ptr %87, i64 %indvars.iv
   %145 = load i32, ptr %144, align 4
   store i32 %145, ptr %58, align 4
   %146 = getelementptr i8, ptr %144, i64 4

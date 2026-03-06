@@ -117,7 +117,7 @@ define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #4 {
 
 .preheader:                                       ; preds = %1, %11
   %indvars.iv7 = phi i64 [ %indvars.iv.next8, %11 ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw %struct.Branch, ptr %0, i64 %indvars.iv7
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv7
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !22
   %.not19 = icmp eq ptr %7, null
@@ -138,7 +138,7 @@ define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #4 {
 
 .preheader1:                                      ; preds = %1, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %1 ]
-  %12 = getelementptr inbounds nuw %struct.Branch, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !22
   %.not = icmp eq ptr %14, null
@@ -169,7 +169,7 @@ define ptr @RTreeSearch(ptr noundef readnone captures(none) %0, ptr noundef %1, 
 .preheader36:                                     ; preds = %3, %18
   %.03042 = phi ptr [ %.2, %18 ], [ null, %3 ]
   %.03141 = phi i64 [ %19, %18 ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw %struct.Branch, ptr %7, i64 %.03141
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.03141
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !22
   %.not33 = icmp eq ptr %10, null
@@ -204,7 +204,7 @@ define ptr @RTreeSearch(ptr noundef readnone captures(none) %0, ptr noundef %1, 
 .preheader37:                                     ; preds = %3, %29
   %.040 = phi i64 [ %30, %29 ], [ 0, %3 ]
   %.439 = phi ptr [ %.5, %29 ], [ null, %3 ]
-  %20 = getelementptr inbounds nuw %struct.Branch, ptr %7, i64 %.040
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %.040
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !22
   %.not = icmp eq ptr %22, null
@@ -306,7 +306,7 @@ define internal fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr nou
   %13 = tail call i32 @PickBranch(ptr noundef %1, ptr noundef nonnull %3) #9
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = sext i32 %13 to i64
-  %16 = getelementptr inbounds %struct.Branch, ptr %14, i64 %15
+  %16 = getelementptr inbounds [24 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !22
   %19 = call fastcc i32 @RTreeInsert2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %18, ptr noundef %8, i32 noundef %5)

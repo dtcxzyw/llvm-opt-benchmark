@@ -87,7 +87,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
 
 18:                                               ; preds = %.preheader, %15
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %15 ]
-  %19 = getelementptr inbounds nuw %struct.KnownAEAD, ptr @_ZL6kAEADs, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [56 x i8], ptr @_ZL6kAEADs, i64 %indvars.iv
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %10) #18
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %15

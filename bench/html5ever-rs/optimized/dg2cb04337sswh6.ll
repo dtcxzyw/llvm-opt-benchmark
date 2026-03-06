@@ -59,7 +59,7 @@ define hidden noundef i32 @"_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash1
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %23 = load ptr, ptr %22, align 8, !nonnull !5, !align !7, !noundef !5
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %12
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %12
   %25 = load i32, ptr %24, align 4, !noundef !5
   br label %20
 
@@ -109,7 +109,7 @@ define hidden noundef i32 @"_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash1
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %23 = load ptr, ptr %22, align 8, !nonnull !5, !align !7, !noundef !5
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %12
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %12
   %25 = load i32, ptr %24, align 4, !noundef !5
   br label %20
 
@@ -159,7 +159,7 @@ define hidden noundef i32 @"_ZN12string_cache4atom18Atom$LT$Static$GT$8get_hash1
 21:                                               ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %23 = load ptr, ptr %22, align 8, !nonnull !5, !align !7, !noundef !5
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %12
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %12
   %25 = load i32, ptr %24, align 4, !noundef !5
   br label %20
 
@@ -181,9 +181,9 @@ switch.lookup:
   %7 = load i64, ptr %6, align 8, !range !4, !alias.scope !9, !noalias !14, !noundef !5
   %8 = and i64 %7, 3
   %9 = and i64 %7, 3
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h35c2569445a800b6E", i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h35c2569445a800b6E", i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h35c2569445a800b6E.4", i64 %8
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h35c2569445a800b6E.4", i64 %8
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %switch.load, ptr %5, align 8, !noalias !12
@@ -229,9 +229,9 @@ switch.lookup:
   %7 = load i64, ptr %6, align 8, !range !4, !alias.scope !20, !noalias !25, !noundef !5
   %8 = and i64 %7, 3
   %9 = and i64 %7, 3
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h35c2569445a800b6E", i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h35c2569445a800b6E", i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h35c2569445a800b6E.4", i64 %8
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h35c2569445a800b6E.4", i64 %8
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %switch.load, ptr %5, align 8, !noalias !23
@@ -313,7 +313,7 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !40, !nonnull !5, !align !8, !noundef !5
-  %28 = getelementptr inbounds nuw { ptr, i64 }, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %21
   %29 = load ptr, ptr %28, align 8, !noalias !40, !nonnull !5, !align !41, !noundef !5
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i64, ptr %30, align 8, !noalias !40, !noundef !5
@@ -379,7 +379,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !54, !nonnull !5, !align !8, !noundef !5
-  %28 = getelementptr inbounds nuw { ptr, i64 }, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %21
   %29 = load ptr, ptr %28, align 8, !noalias !54, !nonnull !5, !align !41, !noundef !5
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i64, ptr %30, align 8, !noalias !54, !noundef !5
@@ -445,7 +445,7 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
 25:                                               ; preds = %19
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %27 = load ptr, ptr %26, align 8, !noalias !67, !nonnull !5, !align !8, !noundef !5
-  %28 = getelementptr inbounds nuw { ptr, i64 }, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %21
   %29 = load ptr, ptr %28, align 8, !noalias !67, !nonnull !5, !align !41, !noundef !5
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i64, ptr %30, align 8, !noalias !67, !noundef !5

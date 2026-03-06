@@ -449,7 +449,7 @@ define internal range(i32 -34, 1) i32 @wav_write_packet(ptr noundef %0, ptr noun
   %27 = icmp eq i32 %26, 1
   %28 = load ptr, ptr %18, align 8, !tbaa !61
   %29 = sext i32 %.080106 to i64
-  %30 = getelementptr inbounds i16, ptr %28, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %28, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !62
   %32 = load ptr, ptr %19, align 8, !tbaa !58
   %33 = sext i32 %.079107 to i64
@@ -462,7 +462,7 @@ define internal range(i32 -34, 1) i32 @wav_write_packet(ptr noundef %0, ptr noun
   %38 = tail call i16 @llvm.smax.i16(i16 %31, i16 %37)
   store i16 %38, ptr %30, align 2, !tbaa !62
   %39 = load ptr, ptr %20, align 8, !tbaa !65
-  %40 = getelementptr inbounds i16, ptr %39, i64 %29
+  %40 = getelementptr inbounds [2 x i8], ptr %39, i64 %29
   %41 = load i16, ptr %40, align 2, !tbaa !62
   %42 = load i8, ptr %34, align 1, !tbaa !64
   %43 = sext i8 %42 to i16
@@ -475,7 +475,7 @@ define internal range(i32 -34, 1) i32 @wav_write_packet(ptr noundef %0, ptr noun
   %. = tail call i16 @llvm.smax.i16(i16 %31, i16 %46)
   store i16 %., ptr %30, align 2, !tbaa !62
   %47 = load ptr, ptr %20, align 8, !tbaa !65
-  %48 = getelementptr inbounds i16, ptr %47, i64 %29
+  %48 = getelementptr inbounds [2 x i8], ptr %47, i64 %29
   %49 = load i16, ptr %48, align 2, !tbaa !62
   %50 = load i16, ptr %34, align 1, !tbaa !64
   %.in97 = tail call i16 @llvm.smin.i16(i16 %49, i16 %50)
@@ -1174,7 +1174,7 @@ define internal fastcc range(i32 -34, 1) i32 @peak_write_frame(ptr %.24.val, ptr
 26:                                               ; preds = %.lr.ph, %94
   %27 = phi ptr [ %.pre, %.lr.ph ], [ %97, %94 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %94 ]
-  %28 = getelementptr inbounds nuw i16, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %indvars.iv
   %29 = load i16, ptr %28, align 2, !tbaa !62
   %30 = sub i16 0, %29
   store i16 %30, ptr %28, align 2, !tbaa !62
@@ -1189,7 +1189,7 @@ define internal fastcc range(i32 -34, 1) i32 @peak_write_frame(ptr %.24.val, ptr
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %24, align 8, !tbaa !61
-  %38 = getelementptr inbounds nuw i16, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2, !tbaa !62
   %40 = sdiv i16 %39, 256
   store i16 %40, ptr %38, align 2, !tbaa !62
@@ -1206,7 +1206,7 @@ define internal fastcc range(i32 -34, 1) i32 @peak_write_frame(ptr %.24.val, ptr
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %24, align 8, !tbaa !61
-  %49 = getelementptr inbounds nuw i16, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %indvars.iv
   %50 = load i16, ptr %49, align 2, !tbaa !62
   %. = tail call i16 @llvm.smax.i16(i16 %50, i16 %44)
   store i16 %., ptr %49, align 2, !tbaa !62
@@ -1216,7 +1216,7 @@ define internal fastcc range(i32 -34, 1) i32 @peak_write_frame(ptr %.24.val, ptr
   %52 = load i32, ptr %23, align 4, !tbaa !75
   %53 = icmp eq i32 %52, 1
   %54 = load ptr, ptr %24, align 8, !tbaa !61
-  %55 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %indvars.iv
   %56 = load i16, ptr %55, align 2, !tbaa !62
   br i1 %53, label %57, label %76
 
@@ -1235,7 +1235,7 @@ define internal fastcc range(i32 -34, 1) i32 @peak_write_frame(ptr %.24.val, ptr
 
 66:                                               ; preds = %57
   %67 = load ptr, ptr %21, align 8, !tbaa !65
-  %68 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %indvars.iv
   %69 = load i16, ptr %68, align 2, !tbaa !62
   %70 = trunc i16 %69 to i8
   %71 = load ptr, ptr %10, align 8, !tbaa !72
@@ -1262,7 +1262,7 @@ define internal fastcc range(i32 -34, 1) i32 @peak_write_frame(ptr %.24.val, ptr
 
 85:                                               ; preds = %76
   %86 = load ptr, ptr %21, align 8, !tbaa !65
-  %87 = getelementptr inbounds nuw i16, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %indvars.iv
   %88 = load i16, ptr %87, align 2, !tbaa !62
   %89 = load ptr, ptr %10, align 8, !tbaa !72
   %90 = zext i32 %82 to i64
@@ -1275,10 +1275,10 @@ define internal fastcc range(i32 -34, 1) i32 @peak_write_frame(ptr %.24.val, ptr
 
 94:                                               ; preds = %76, %85, %57, %66
   %95 = load ptr, ptr %24, align 8, !tbaa !61
-  %96 = getelementptr inbounds nuw i16, ptr %95, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %95, i64 %indvars.iv
   store i16 0, ptr %96, align 2, !tbaa !62
   %97 = load ptr, ptr %21, align 8, !tbaa !65
-  %98 = getelementptr inbounds nuw i16, ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [2 x i8], ptr %97, i64 %indvars.iv
   store i16 0, ptr %98, align 2, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %99 = load i32, ptr %18, align 4, !tbaa !66

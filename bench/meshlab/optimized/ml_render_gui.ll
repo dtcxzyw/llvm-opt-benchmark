@@ -28,12 +28,10 @@ module asm ".previous"
 %union.anon = type { %struct.QListData }
 %struct.QListData = type { ptr }
 %"class.QList<MLRenderingAction *>::const_iterator" = type { ptr }
-%"struct.QList<MLRenderingAction *>::Node" = type { ptr }
 %"class.vcg::Color4" = type { %"class.vcg::Point4" }
 %"class.vcg::Point4" = type { [4 x i8] }
 %class.QList.4 = type { %union.anon.6 }
 %union.anon.6 = type { %struct.QListData }
-%"struct.QList<QAction *>::Node" = type { ptr }
 %class.QString = type { ptr }
 %class.QFont = type <{ %class.QExplicitlySharedDataPointer, i32, [4 x i8] }>
 %class.QExplicitlySharedDataPointer = type { ptr }
@@ -45,7 +43,6 @@ module asm ".previous"
 %"class.QList<QAction *>::const_iterator" = type { ptr }
 %class.QList.27 = type { %union.anon.29 }
 %union.anon.29 = type { %struct.QListData }
-%"struct.QList<MLRenderingGlobalAction *>::Node" = type { ptr }
 
 $_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerED2Ev = comdat any
 
@@ -667,7 +664,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %19, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %19, i64 %22
   %.not.i.i.i.i = icmp eq ptr %23, %17
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %24
 
@@ -692,14 +689,14 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeac
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 8, !noalias !8
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %33, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %33, i64 %36
   store ptr %37, ptr %31, align 8, !alias.scope !11
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !12)
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %40 = load i32, ptr %39, align 4, !noalias !12
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds ptr, ptr %33, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %33, i64 %41
   store ptr %42, ptr %38, align 8, !alias.scope !15
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 1, ptr %43, align 8
@@ -940,14 +937,14 @@ define linkonce_odr void @_ZN5QListIP17MLRenderingActionE6appendERKS1_(ptr nound
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = call noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i32 noundef 1)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %15, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %18
   %.not.i.i = icmp ne ptr %12, %19
   %.pre18.i = load i32, ptr %3, align 4
   %20 = icmp sgt i32 %.pre18.i, 0
@@ -975,7 +972,7 @@ _ZN5QListIP17MLRenderingActionE9node_copyEPNS2_4NodeES4_S4_.exit.i: ; preds = %2
   %27 = add nsw i64 %.idx1215.i, %26
   %28 = shl nsw i64 %27, 3
   %29 = getelementptr inbounds i8, ptr %25, i64 %28
-  %30 = getelementptr inbounds %"struct.QList<MLRenderingAction *>::Node", ptr %12, i64 %26
+  %30 = getelementptr inbounds [8 x i8], ptr %12, i64 %26
   %.not.i6.i = icmp eq ptr %30, %29
   br i1 %.not.i6.i, label %_ZN5QListIP17MLRenderingActionE9node_copyEPNS2_4NodeES4_S4_.exit7.i, label %31
 
@@ -1014,10 +1011,10 @@ _ZN5QListIP17MLRenderingActionE18detach_helper_growEii.exit: ; preds = %_ZN5QLis
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   %46 = load i32, ptr %3, align 4
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load ptr, ptr %1, align 8
   store ptr %49, ptr %48, align 8
@@ -1143,7 +1140,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   %.not.i.i.i.i = icmp eq ptr %24, %18
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %25
 
@@ -1168,14 +1165,14 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeac
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i32, ptr %35, align 8, !noalias !21
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %34, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %34, i64 %37
   store ptr %38, ptr %32, align 8, !alias.scope !24
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %41 = load i32, ptr %40, align 4, !noalias !25
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %34, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %34, i64 %42
   store ptr %43, ptr %39, align 8, !alias.scope !28
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 1, ptr %44, align 8
@@ -1810,7 +1807,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   %.not.i.i.i.i = icmp eq ptr %24, %18
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %25
 
@@ -1835,14 +1832,14 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeac
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i32, ptr %35, align 8, !noalias !35
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %34, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %34, i64 %37
   store ptr %38, ptr %32, align 8, !alias.scope !38
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %41 = load i32, ptr %40, align 4, !noalias !39
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %34, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %34, i64 %42
   store ptr %43, ptr %39, align 8, !alias.scope !42
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 1, ptr %44, align 8
@@ -1944,7 +1941,7 @@ define void @_ZN18MLRenderingToolbar18getTopLevelActionsEv(ptr dead_on_unwind no
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %21 = sext i32 %13 to i64
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %21
   %23 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %19)
           to label %.noexc unwind label %156
 
@@ -1994,8 +1991,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %_ZN5QListIP7QActionED2Ev.exit50, label %48
@@ -2030,7 +2027,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i: ; preds = %_ZN9QtPrivate8Re
   %68 = load i32, ptr %67, align 4
   %69 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %70 = sext i32 %54 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %69, i64 %70
   %72 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %68)
           to label %.noexc26 unwind label %158
 
@@ -2080,8 +2077,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i22: ; preds = %_ZN9QtPrivate8
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %92 = load i32, ptr %91, align 8
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds ptr, ptr %90, i64 %93
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv
+  %94 = getelementptr inbounds [8 x i8], ptr %90, i64 %93
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 8
   %97 = invoke noundef ptr @_ZNK8QToolBar15widgetForActionEP7QAction(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %96)
           to label %98 unwind label %158
@@ -2148,7 +2145,7 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %_ZN9QtPrivate8RefCo
   %122 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %123 = load i32, ptr %122, align 8
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds ptr, ptr %121, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %121, i64 %124
   %126 = invoke noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %120)
           to label %.noexc35 unwind label %160
 
@@ -2198,7 +2195,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread5.i.i.i.i31: ; preds = %_ZN9QtPrivate8
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %146 = load i32, ptr %145, align 8
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds ptr, ptr %144, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %144, i64 %147
   invoke void @_ZN5QListIP7QActionE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %148)
           to label %_ZN5QListIP7QActionE9push_backERKS1_.exit unwind label %160
 
@@ -2353,14 +2350,14 @@ define linkonce_odr void @_ZN5QListIP7QActionE6appendERKS1_(ptr noundef nonnull 
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = call noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i32 noundef 1)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %15, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %18
   %.not.i.i = icmp ne ptr %12, %19
   %.pre18.i = load i32, ptr %3, align 4
   %20 = icmp sgt i32 %.pre18.i, 0
@@ -2388,7 +2385,7 @@ _ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit.i: ; preds = %21, %7
   %27 = add nsw i64 %.idx1215.i, %26
   %28 = shl nsw i64 %27, 3
   %29 = getelementptr inbounds i8, ptr %25, i64 %28
-  %30 = getelementptr inbounds %"struct.QList<QAction *>::Node", ptr %12, i64 %26
+  %30 = getelementptr inbounds [8 x i8], ptr %12, i64 %26
   %.not.i6.i = icmp eq ptr %30, %29
   br i1 %.not.i6.i, label %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit7.i, label %31
 
@@ -2427,10 +2424,10 @@ _ZN5QListIP7QActionE18detach_helper_growEii.exit: ; preds = %_ZN5QListIP7QAction
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   %46 = load i32, ptr %3, align 4
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load ptr, ptr %1, align 8
   store ptr %49, ptr %48, align 8
@@ -2507,8 +2504,8 @@ define void @_ZNK18MLRenderingToolbar37getCurrentRenderingDataAccordingToGUIER15
   %11 = phi i32 [ %26, %21 ], [ %8, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %21, label %17
@@ -2749,7 +2746,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %11
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %27, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %27, i64 %30
   %.not.i.i.i.i = icmp eq ptr %31, %25
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %32
 
@@ -2774,14 +2771,14 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeac
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 8, !noalias !49
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   store ptr %45, ptr %39, align 8, !alias.scope !52
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %48 = load i32, ptr %47, align 4, !noalias !53
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %41, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %41, i64 %49
   store ptr %50, ptr %46, align 8, !alias.scope !56
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 1, ptr %51, align 8
@@ -4118,8 +4115,8 @@ define void @_ZNK31MLRenderingSolidParametersFrame37getCurrentRenderingDataAccor
   %13 = phi i32 [ %28, %23 ], [ %10, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = sext i32 %13 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %23, label %19
@@ -4162,8 +4159,8 @@ _ZNK18MLRenderingToolbar37getCurrentRenderingDataAccordingToGUIER15MLRenderingDa
   %42 = phi i32 [ %57, %52 ], [ %39, %_ZNK18MLRenderingToolbar37getCurrentRenderingDataAccordingToGUIER15MLRenderingData.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i6
+  %45 = getelementptr inbounds [8 x i8], ptr %43, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i6
   %47 = load ptr, ptr %46, align 8
   %.not.i7 = icmp eq ptr %47, null
   br i1 %.not.i7, label %52, label %48
@@ -4206,8 +4203,8 @@ _ZNK18MLRenderingToolbar37getCurrentRenderingDataAccordingToGUIER15MLRenderingDa
   %71 = phi i32 [ %86, %81 ], [ %68, %_ZNK18MLRenderingToolbar37getCurrentRenderingDataAccordingToGUIER15MLRenderingData.exit10 ]
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %73 = sext i32 %71 to i64
-  %74 = getelementptr inbounds ptr, ptr %72, i64 %73
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv.i12
+  %74 = getelementptr inbounds [8 x i8], ptr %72, i64 %73
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv.i12
   %76 = load ptr, ptr %75, align 8
   %.not.i13 = icmp eq ptr %76, null
   br i1 %.not.i13, label %81, label %77
@@ -4426,14 +4423,14 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP1
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   %25 = call noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i32 noundef %19)
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %27, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %27, i64 %30
   %.not.i.i = icmp ne ptr %24, %31
   %.pre18.i = load i32, ptr %3, align 4
   %32 = icmp sgt i32 %.pre18.i, 0
@@ -4462,7 +4459,7 @@ _ZN5QListIP17MLRenderingActionE9node_copyEPNS2_4NodeES4_S4_.exit.i: ; preds = %3
   %40 = add nsw i64 %.idx1215.i, %38
   %41 = shl nsw i64 %40, 3
   %42 = getelementptr inbounds i8, ptr %37, i64 %41
-  %43 = getelementptr inbounds %"struct.QList<MLRenderingAction *>::Node", ptr %24, i64 %38
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %38
   %.not.i6.i = icmp eq ptr %43, %42
   br i1 %.not.i6.i, label %_ZN5QListIP17MLRenderingActionE9node_copyEPNS2_4NodeES4_S4_.exit7.i, label %44
 
@@ -4501,10 +4498,10 @@ _ZN5QListIP17MLRenderingActionE18detach_helper_growEii.exit: ; preds = %_ZN5QLis
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load i32, ptr %55, align 8
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %54, i64 %57
   %59 = load i32, ptr %3, align 4
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds ptr, ptr %58, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %58, i64 %60
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %64
 
@@ -4519,7 +4516,7 @@ _ZN5QListIP17MLRenderingActionE18detach_helper_growEii.exit: ; preds = %_ZN5QLis
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = load i32, ptr %68, align 8
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds ptr, ptr %67, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %67, i64 %70
   %.not.i7 = icmp eq ptr %71, %65
   br i1 %.not.i7, label %_ZN5QListIP17MLRenderingActionE9node_copyEPNS2_4NodeES4_S4_.exit, label %72
 
@@ -4529,7 +4526,7 @@ _ZN5QListIP17MLRenderingActionE18detach_helper_growEii.exit: ; preds = %_ZN5QLis
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %76 = load i32, ptr %75, align 4
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds ptr, ptr %74, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %74, i64 %77
   %79 = ptrtoint ptr %78 to i64
   %80 = ptrtoint ptr %65 to i64
   %81 = sub i64 %79, %80
@@ -4583,7 +4580,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i:              ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   %.not.i.i = icmp eq ptr %24, %18
   br i1 %.not.i.i, label %_ZN5QListIP17MLRenderingActionEC2ERKS2_.exit, label %25
 
@@ -4850,14 +4847,14 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5QListIP7
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   %25 = call noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i32 noundef %19)
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %27, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %27, i64 %30
   %.not.i.i = icmp ne ptr %24, %31
   %.pre18.i = load i32, ptr %3, align 4
   %32 = icmp sgt i32 %.pre18.i, 0
@@ -4886,7 +4883,7 @@ _ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit.i: ; preds = %33, %18
   %40 = add nsw i64 %.idx1215.i, %38
   %41 = shl nsw i64 %40, 3
   %42 = getelementptr inbounds i8, ptr %37, i64 %41
-  %43 = getelementptr inbounds %"struct.QList<QAction *>::Node", ptr %24, i64 %38
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %38
   %.not.i6.i = icmp eq ptr %43, %42
   br i1 %.not.i6.i, label %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit7.i, label %44
 
@@ -4925,10 +4922,10 @@ _ZN5QListIP7QActionE18detach_helper_growEii.exit: ; preds = %_ZN5QListIP7QAction
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load i32, ptr %55, align 8
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %54, i64 %57
   %59 = load i32, ptr %3, align 4
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds ptr, ptr %58, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %58, i64 %60
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %64
 
@@ -4943,7 +4940,7 @@ _ZN5QListIP7QActionE18detach_helper_growEii.exit: ; preds = %_ZN5QListIP7QAction
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = load i32, ptr %68, align 8
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds ptr, ptr %67, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %67, i64 %70
   %.not.i7 = icmp eq ptr %71, %65
   br i1 %.not.i7, label %_ZN5QListIP7QActionE9node_copyEPNS2_4NodeES4_S4_.exit, label %72
 
@@ -4953,7 +4950,7 @@ _ZN5QListIP7QActionE18detach_helper_growEii.exit: ; preds = %_ZN5QListIP7QAction
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %76 = load i32, ptr %75, align 4
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds ptr, ptr %74, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %74, i64 %77
   %79 = ptrtoint ptr %78 to i64
   %80 = ptrtoint ptr %65 to i64
   %81 = sub i64 %79, %80
@@ -5007,7 +5004,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i:              ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   %.not.i.i = icmp eq ptr %24, %18
   br i1 %.not.i.i, label %_ZN5QListIP7QActionEC2ERKS2_.exit, label %25
 
@@ -6046,8 +6043,8 @@ define void @_ZNK30MLRenderingWireParametersFrame37getCurrentRenderingDataAccord
   %13 = phi i32 [ %28, %23 ], [ %10, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = sext i32 %13 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %23, label %19
@@ -6090,8 +6087,8 @@ _ZNK18MLRenderingToolbar37getCurrentRenderingDataAccordingToGUIER15MLRenderingDa
   %42 = phi i32 [ %57, %52 ], [ %39, %_ZNK18MLRenderingToolbar37getCurrentRenderingDataAccordingToGUIER15MLRenderingData.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i6
+  %45 = getelementptr inbounds [8 x i8], ptr %43, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i6
   %47 = load ptr, ptr %46, align 8
   %.not.i7 = icmp eq ptr %47, null
   br i1 %.not.i7, label %52, label %48
@@ -6482,7 +6479,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %27, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %27, i64 %30
   %.not.i.i.i.i = icmp eq ptr %31, %25
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %32
 
@@ -6507,14 +6504,14 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeac
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 8, !noalias !61
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   store ptr %45, ptr %39, align 8, !alias.scope !64
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %48 = load i32, ptr %47, align 4, !noalias !65
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %41, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %41, i64 %49
   store ptr %50, ptr %46, align 8, !alias.scope !68
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 1, ptr %51, align 8
@@ -6590,7 +6587,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i22:        ; preds = %_ZN9QtPrivate17QFor
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %78 = load i32, ptr %77, align 8
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds ptr, ptr %76, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %76, i64 %79
   %.not.i.i.i.i25 = icmp eq ptr %80, %74
   br i1 %.not.i.i.i.i25, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit28, label %81
 
@@ -6615,14 +6612,14 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeac
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %92 = load i32, ptr %91, align 8, !noalias !72
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds ptr, ptr %90, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %90, i64 %93
   store ptr %94, ptr %88, align 8, !alias.scope !75
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !76)
   %96 = getelementptr inbounds nuw i8, ptr %89, i64 12
   %97 = load i32, ptr %96, align 4, !noalias !76
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds ptr, ptr %90, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %90, i64 %98
   store ptr %99, ptr %95, align 8, !alias.scope !79
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 1, ptr %100, align 8
@@ -7533,8 +7530,8 @@ define void @_ZNK32MLRenderingPointsParametersFrame37getCurrentRenderingDataAcco
   %13 = phi i32 [ %28, %23 ], [ %10, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = sext i32 %13 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %23, label %19
@@ -7577,8 +7574,8 @@ _ZNK18MLRenderingToolbar37getCurrentRenderingDataAccordingToGUIER15MLRenderingDa
   %42 = phi i32 [ %57, %52 ], [ %39, %_ZNK18MLRenderingToolbar37getCurrentRenderingDataAccordingToGUIER15MLRenderingData.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i6
+  %45 = getelementptr inbounds [8 x i8], ptr %43, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i6
   %47 = load ptr, ptr %46, align 8
   %.not.i7 = icmp eq ptr %47, null
   br i1 %.not.i7, label %52, label %48
@@ -8445,8 +8442,8 @@ define void @_ZNK30MLRenderingBBoxParametersFrame37getCurrentRenderingDataAccord
   %13 = phi i32 [ %28, %23 ], [ %10, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = sext i32 %13 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %23, label %19
@@ -10715,7 +10712,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %2
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr %32, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %32, i64 %35
   %.not.i.i.i.i = icmp eq ptr %36, %30
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIRK5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS9_.exit, label %37
 
@@ -10740,14 +10737,14 @@ _ZN9QtPrivate21qMakeForeachContainerIRK5QListIP17MLRenderingActionEEENS_17QForea
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load i32, ptr %47, align 8, !noalias !85
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %46, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
   store ptr %50, ptr %44, align 8, !alias.scope !88
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %53 = load i32, ptr %52, align 4, !noalias !89
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %46, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %46, i64 %54
   store ptr %55, ptr %51, align 8, !alias.scope !92
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 1, ptr %56, align 8
@@ -11130,7 +11127,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %150, %_ZN9QtPrivate
   %174 = load i64, ptr %173, align 8
   %175 = getelementptr inbounds i8, ptr %172, i64 %174
   %176 = zext nneg i32 %.087 to i64
-  %177 = getelementptr inbounds nuw ptr, ptr %175, i64 %176
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %176
   store ptr %159, ptr %177, align 8
   br label %182
 
@@ -11596,7 +11593,7 @@ _ZN7QVectorIP17MLRenderingActionEixEi.exit:       ; preds = %10, %17, %19
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %20, i64 %22
   %24 = zext nneg i32 %1 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %32, label %27
@@ -11984,7 +11981,7 @@ _ZN7QVectorIP17MLRenderingActionE3endEv.exit5:    ; preds = %51, %56, %58
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %62, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %62, i64 %65
   %67 = load atomic i32, ptr %59 monotonic, align 8
   %68 = icmp ult i32 %67, 2
   br i1 %68, label %_ZN7QVectorIP17MLRenderingActionE5beginEv.exit8, label %69
@@ -12012,7 +12009,7 @@ _ZN7QVectorIP17MLRenderingActionE5beginEv.exit8:  ; preds = %_ZN7QVectorIP17MLRe
   %78 = load i64, ptr %77, align 8
   %79 = getelementptr inbounds i8, ptr %76, i64 %78
   %80 = sext i32 %1 to i64
-  %81 = getelementptr inbounds ptr, ptr %79, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %79, i64 %80
   %.not3.i = icmp eq ptr %66, %81
   br i1 %.not3.i, label %_ZN7QVectorIP17MLRenderingActionE16defaultConstructEPS1_S3_.exit, label %.lr.ph.preheader.i
 
@@ -12125,7 +12122,7 @@ define void @_ZN24MLRenderingParametersTab28updatePerMeshRenderingActionER5QList
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %18 = sext i32 %10 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = tail call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %16)
   %21 = load ptr, ptr %1, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -12172,8 +12169,8 @@ _ZN5QListIP17MLRenderingActionEixEi.exit:         ; preds = %.lr.ph, %_ZN5QListI
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %37, i64 %40
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %41 = getelementptr inbounds [8 x i8], ptr %37, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %3, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
@@ -12210,7 +12207,7 @@ _ZN7QVectorIP17MLRenderingActionE9push_backERKS1_.exit: ; preds = %54, %62
   %.sink.i.i = phi i32 [ %45, %62 ], [ %61, %54 ]
   %.sink8.i.i = phi ptr [ %65, %62 ], [ %59, %54 ]
   %66 = sext i32 %.sink.i.i to i64
-  %67 = getelementptr inbounds ptr, ptr %.sink8.i.i, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %.sink8.i.i, i64 %66
   store ptr %53, ptr %67, align 8
   %68 = load ptr, ptr %3, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
@@ -14235,14 +14232,14 @@ define void @_ZN24MLRenderingGlobalToolbar5resetEv(ptr noundef nonnull align 8 d
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 8, !noalias !117
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   store ptr %10, ptr %5, align 8, !alias.scope !117
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %13 = load i32, ptr %12, align 4, !noalias !121
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %6, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %6, i64 %14
   store ptr %15, ptr %11, align 8, !alias.scope !121
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 1, ptr %16, align 8, !alias.scope !111
@@ -14385,11 +14382,11 @@ define void @_ZN24MLRenderingGlobalToolbar22statusConsistencyCheckERK4QMapIi15ML
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8, !noalias !126
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %12 = load i32, ptr %11, align 4, !noalias !129
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %6, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %6, i64 %13
   %15 = load atomic i32, ptr @_ZN9QListData11shared_nullE monotonic, align 8
   switch i32 %15, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
@@ -14525,7 +14522,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %46
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = load i32, ptr %62, align 8
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr %61, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %61, i64 %64
   %.not.i.i.i.i = icmp eq ptr %65, %59
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %66
 
@@ -14549,13 +14546,13 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeac
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %76 = load i32, ptr %75, align 8, !noalias !135
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds ptr, ptr %74, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %74, i64 %77
   store ptr %78, ptr %21, align 8, !alias.scope !138
   call void @llvm.experimental.noalias.scope.decl(metadata !139)
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %80 = load i32, ptr %79, align 4, !noalias !139
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds ptr, ptr %74, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %74, i64 %81
   store ptr %82, ptr %22, align 8, !alias.scope !142
   store i32 1, ptr %23, align 8
   %.not6471 = icmp eq i32 %76, %80
@@ -14781,11 +14778,11 @@ define void @_ZN24MLRenderingGlobalToolbar6toggleEP7QAction(ptr noundef nonnull 
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %20, align 8, !noalias !148
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %19, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %19, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %25 = load i32, ptr %24, align 4, !noalias !151
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %19, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %19, i64 %26
   %28 = load atomic i32, ptr @_ZN9QListData11shared_nullE monotonic, align 8
   switch i32 %28, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
     i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
@@ -14909,7 +14906,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %53
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %70 = load i32, ptr %69, align 8
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds ptr, ptr %68, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %68, i64 %71
   %.not.i.i.i.i = icmp eq ptr %72, %66
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, label %73
 
@@ -14933,13 +14930,13 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeac
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %83 = load i32, ptr %82, align 8, !noalias !157
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr %81, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %81, i64 %84
   store ptr %85, ptr %34, align 8, !alias.scope !160
   call void @llvm.experimental.noalias.scope.decl(metadata !161)
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 12
   %87 = load i32, ptr %86, align 4, !noalias !161
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds ptr, ptr %81, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %81, i64 %88
   store ptr %89, ptr %35, align 8, !alias.scope !164
   store i32 1, ptr %36, align 8
   %.not8995 = icmp eq i32 %83, %87
@@ -15138,7 +15135,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i.i.i45:        ; preds = %139
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %156 = load i32, ptr %155, align 8
   %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds ptr, ptr %154, i64 %157
+  %158 = getelementptr inbounds [8 x i8], ptr %154, i64 %157
   %.not.i.i.i.i48 = icmp eq ptr %158, %152
   br i1 %.not.i.i.i.i48, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit52, label %159
 
@@ -15163,14 +15160,14 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP17MLRenderingActionEEENS_17QForeac
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %170 = load i32, ptr %169, align 8, !noalias !170
   %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds ptr, ptr %168, i64 %171
+  %172 = getelementptr inbounds [8 x i8], ptr %168, i64 %171
   store ptr %172, ptr %166, align 8, !alias.scope !173
   %173 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !174)
   %174 = getelementptr inbounds nuw i8, ptr %167, i64 12
   %175 = load i32, ptr %174, align 4, !noalias !174
   %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %168, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %168, i64 %176
   store ptr %177, ptr %173, align 8, !alias.scope !177
   %178 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 1, ptr %178, align 8
@@ -15275,7 +15272,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.i:              ; preds = %_ZN9QtPrivate17QFor
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %211 = load i32, ptr %210, align 8
   %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds ptr, ptr %209, i64 %212
+  %213 = getelementptr inbounds [8 x i8], ptr %209, i64 %212
   %.not.i.i62 = icmp eq ptr %213, %207
   br i1 %.not.i.i62, label %_ZN5QListIP23MLRenderingGlobalActionEC2ERKS2_.exit, label %214
 
@@ -15448,14 +15445,14 @@ define linkonce_odr void @_ZN5QListIP23MLRenderingGlobalActionE6appendERKS1_(ptr
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = call noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i32 noundef 1)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %15, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %18
   %.not.i.i = icmp ne ptr %12, %19
   %.pre18.i = load i32, ptr %3, align 4
   %20 = icmp sgt i32 %.pre18.i, 0
@@ -15483,7 +15480,7 @@ _ZN5QListIP23MLRenderingGlobalActionE9node_copyEPNS2_4NodeES4_S4_.exit.i: ; pred
   %27 = add nsw i64 %.idx1215.i, %26
   %28 = shl nsw i64 %27, 3
   %29 = getelementptr inbounds i8, ptr %25, i64 %28
-  %30 = getelementptr inbounds %"struct.QList<MLRenderingGlobalAction *>::Node", ptr %12, i64 %26
+  %30 = getelementptr inbounds [8 x i8], ptr %12, i64 %26
   %.not.i6.i = icmp eq ptr %30, %29
   br i1 %.not.i6.i, label %_ZN5QListIP23MLRenderingGlobalActionE9node_copyEPNS2_4NodeES4_S4_.exit7.i, label %31
 
@@ -15522,10 +15519,10 @@ _ZN5QListIP23MLRenderingGlobalActionE18detach_helper_growEii.exit: ; preds = %_Z
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   %46 = load i32, ptr %3, align 4
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load ptr, ptr %1, align 8
   store ptr %49, ptr %48, align 8
@@ -15649,14 +15646,14 @@ define void @_ZN31MLRenderingZeroOrOneActionGroup6toggleEP7QAction(ptr noundef n
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load i32, ptr %15, align 8, !noalias !185
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %14, i64 %17
   store ptr %18, ptr %13, align 8, !alias.scope !185
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !186)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %21 = load i32, ptr %20, align 4, !noalias !189
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %14, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %14, i64 %22
   store ptr %23, ptr %19, align 8, !alias.scope !189
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 1, ptr %24, align 8, !alias.scope !179

@@ -318,7 +318,7 @@ define hidden noundef ptr @_ZNK22SerialBlockOffsetTable30block_start_reaching_in
   %22 = inttoptr i64 %21 to ptr
   %23 = zext i8 %.010.lcssa to i64
   %24 = sub nsw i64 0, %23
-  %25 = getelementptr inbounds ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %22, i64 %24
   ret ptr %25
 }
 

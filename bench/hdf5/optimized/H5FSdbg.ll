@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5C_class_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.H5FS_hdr_cache_ud_t = type { ptr, i16, ptr, ptr, i64 }
-%struct.H5FS_section_class_t = type { i32, i64, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @H5FS_init_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
@@ -182,7 +181,7 @@ define range(i32 -1, 1) i32 @H5FS_sect_debug(ptr noundef readonly captures(none)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !46
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [136 x i8], ptr %16, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %22 = load ptr, ptr %21, align 8, !tbaa !48
   %.not = icmp eq ptr %22, null

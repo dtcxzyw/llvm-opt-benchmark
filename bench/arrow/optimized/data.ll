@@ -4,15 +4,15 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::array" = type { [16 x i8] }
-%"class.std::shared_ptr.5" = type { %"class.std::__shared_ptr.6" }
-%"class.std::__shared_ptr.6" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"struct.arrow::ArraySpan" = type { ptr, i64, i64, i64, [3 x %"struct.arrow::BufferSpan"], %"class.std::vector.34" }
 %"struct.arrow::BufferSpan" = type { ptr, i64, ptr }
 %"class.std::vector.34" = type { %"struct.std::_Vector_base.35" }
 %"struct.std::_Vector_base.35" = type { %"struct.std::_Vector_base<arrow::ArraySpan, std::allocator<arrow::ArraySpan>>::_Vector_impl" }
 %"struct.std::_Vector_base<arrow::ArraySpan, std::allocator<arrow::ArraySpan>>::_Vector_impl" = type { %"struct.std::_Vector_base<arrow::ArraySpan, std::allocator<arrow::ArraySpan>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<arrow::ArraySpan, std::allocator<arrow::ArraySpan>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::shared_ptr.5" = type { %"class.std::__shared_ptr.6" }
+%"class.std::__shared_ptr.6" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
 %"class.arrow::Result" = type { %"class.arrow::Status", %"class.arrow::internal::AlignedStorage" }
 %"class.arrow::Status" = type { ptr }
 %"class.arrow::internal::AlignedStorage" = type { [16 x i8] }
@@ -28,10 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.53" = type { i8 }
-%"class.std::shared_ptr.48" = type { %"class.std::__shared_ptr.49" }
-%"class.std::__shared_ptr.49" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.64" = type { %"class.std::__shared_ptr.65" }
-%"class.std::__shared_ptr.65" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.67" = type { %"class.std::__shared_ptr.68" }
 %"class.std::__shared_ptr.68" = type { ptr, %"class.std::__shared_count" }
 %"struct.arrow::(anonymous namespace)::ViewDataImpl" = type <{ %"class.std::shared_ptr", %"class.std::shared_ptr", %"class.std::vector.88", %"class.std::vector.0", i64, i64, i64, i8, [7 x i8] }>
@@ -43,6 +39,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::ArrayData>, std::allocator<std::shared_ptr<arrow::ArrayData>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::shared_ptr<arrow::ArrayData>, std::allocator<std::shared_ptr<arrow::ArrayData>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<arrow::ArrayData>, std::allocator<std::shared_ptr<arrow::ArrayData>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::shared_ptr<arrow::ArrayData>, std::allocator<std::shared_ptr<arrow::ArrayData>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::shared_ptr.48" = type { %"class.std::__shared_ptr.49" }
+%"class.std::__shared_ptr.49" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.56" = type { %"class.std::__shared_ptr.57" }
 %"class.std::__shared_ptr.57" = type { ptr, %"class.std::__shared_count" }
 %"struct.arrow::DataTypeLayout" = type { %"class.std::vector.127", i8, [7 x i8], %"class.std::optional" }
@@ -289,12 +287,12 @@ define noundef zeroext i1 @_ZN5arrow8internal17IsNullSparseUnionERKNS_9ArrayData
   %15 = load i8, ptr %14, align 1, !tbaa !37
   %16 = sext i8 %15 to i64
   %17 = load ptr, ptr %10, align 8, !tbaa !38
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !41
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = sext i32 %19 to i64
   %22 = load ptr, ptr %20, align 8, !tbaa !43
-  %23 = getelementptr inbounds nuw %"class.std::shared_ptr.5", ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8, !tbaa !44
   %25 = tail call noundef zeroext i1 @_ZNK5arrow9ArrayData7IsValidEl(ptr noundef nonnull align 8 dereferenceable(120) %24, i64 noundef %1)
   %26 = xor i1 %25, true
@@ -318,20 +316,20 @@ define noundef zeroext i1 @_ZN5arrow8internal16IsNullDenseUnionERKNS_9ArrayDataE
   %15 = load i8, ptr %14, align 1, !tbaa !37
   %16 = sext i8 %15 to i64
   %17 = load ptr, ptr %10, align 8, !tbaa !38
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !41
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr i32, ptr %23, i64 %12
-  %25 = getelementptr i32, ptr %24, i64 %1
+  %24 = getelementptr [4 x i8], ptr %23, i64 %12
+  %25 = getelementptr [4 x i8], ptr %24, i64 %1
   %26 = load i32, ptr %25, align 4, !tbaa !41
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %29 = sext i32 %19 to i64
   %30 = load ptr, ptr %28, align 8, !tbaa !43
-  %31 = getelementptr inbounds nuw %"class.std::shared_ptr.5", ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %29
   %32 = load ptr, ptr %31, align 8, !tbaa !44
   %33 = tail call noundef zeroext i1 @_ZNK5arrow9ArrayData7IsValidEl(ptr noundef nonnull align 8 dereferenceable(120) %32, i64 noundef %27)
   %34 = xor i1 %33, true
@@ -3843,7 +3841,7 @@ tailrecurse:                                      ; preds = %_ZNSt6vectorIN5arro
   %34 = phi ptr [ %21, %.lr.ph ], [ %53, %52 ]
   %35 = phi ptr [ %20, %.lr.ph ], [ %54, %52 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %36 = getelementptr inbounds nuw %"class.std::shared_ptr.11", ptr %34, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !14
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %50, label %38
@@ -3855,7 +3853,7 @@ tailrecurse:                                      ; preds = %_ZNSt6vectorIN5arro
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = select i1 %41, ptr %43, ptr null, !prof !124
-  %45 = getelementptr inbounds nuw %"struct.arrow::BufferSpan", ptr %28, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %indvars.iv
   store ptr %44, ptr %45, align 8, !tbaa !56
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %47 = load i64, ptr %46, align 8, !tbaa !226
@@ -3866,7 +3864,7 @@ tailrecurse:                                      ; preds = %_ZNSt6vectorIN5arro
   br label %52
 
 50:                                               ; preds = %33
-  %51 = getelementptr inbounds nuw %"struct.arrow::BufferSpan", ptr %28, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   %.pre = load ptr, ptr %19, align 8, !tbaa !92
   %.pre103 = load ptr, ptr %18, align 8, !tbaa !11
@@ -3949,7 +3947,7 @@ tailrecurse:                                      ; preds = %_ZNSt6vectorIN5arro
   %92 = icmp ult i64 %91, 2
   %.sroa.3.0.i = tail call i64 @llvm.usub.sat.i64(i64 %91, i64 2)
   %.sroa.0.0.idx.i = select i1 %92, i64 0, i64 2
-  %.sroa.0.0.i = getelementptr inbounds nuw %"class.std::shared_ptr.11", ptr %86, i64 %.sroa.0.0.idx.i
+  %.sroa.0.0.i = getelementptr inbounds nuw [16 x i8], ptr %86, i64 %.sroa.0.0.idx.i
   %93 = shl i64 %.sroa.3.0.i, 4
   %94 = getelementptr inbounds nuw i8, ptr %.tr, i64 80
   store ptr %.sroa.0.0.i, ptr %94, align 8, !tbaa !208
@@ -4040,7 +4038,7 @@ _ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit: ; preds = %107, %109, %11
   br i1 %140, label %141, label %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit54
 
 141:                                              ; preds = %139
-  %142 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %131, i64 %128
+  %142 = getelementptr inbounds nuw [128 x i8], ptr %131, i64 %128
   %.not.i.i52 = icmp eq ptr %130, %142
   br i1 %.not.i.i52, label %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit54, label %143
 
@@ -4069,8 +4067,8 @@ _ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit54: ; preds = %137, %139, %
   %149 = phi ptr [ %156, %.lr.ph87 ], [ %148, %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit54 ]
   %.086 = phi i64 [ %154, %.lr.ph87 ], [ 0, %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit54 ]
   %150 = load ptr, ptr %120, align 8, !tbaa !52
-  %151 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %150, i64 %.086
-  %152 = getelementptr inbounds nuw %"class.std::shared_ptr.5", ptr %149, i64 %.086
+  %151 = getelementptr inbounds nuw [128 x i8], ptr %150, i64 %.086
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %149, i64 %.086
   %153 = load ptr, ptr %152, align 8, !tbaa !44
   tail call void @_ZN5arrow9ArraySpan10SetMembersERKNS_9ArrayDataE(ptr noundef nonnull align 8 dereferenceable(128) %151, ptr noundef nonnull align 8 dereferenceable(120) %153)
   %154 = add nuw i64 %.086, 1
@@ -4112,7 +4110,7 @@ define linkonce_odr void @_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm(ptr n
   br i1 %14, label %15, label %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE15_M_erase_at_endEPS1_.exit, label %17
 
@@ -4198,7 +4196,7 @@ _ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit: ; preds = %tailrecu
 
 14:                                               ; preds = %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit, %14
   %indvars.iv = phi i64 [ 0, %_ZN5arrow12_GLOBAL__N_113GetNumBuffersERKNS_8DataTypeE.exit ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw %"struct.arrow::BufferSpan", ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv
   store ptr @_ZZN5arrow8internal19FillZeroLengthArrayEPKNS_8DataTypeEPNS_9ArraySpanEE6kZeros, ptr %15, align 8, !tbaa !56
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %16, align 8, !tbaa !80
@@ -4304,7 +4302,7 @@ _ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit: ; preds = %31, %33, %35, 
   br i1 %64, label %65, label %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit32
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %55, i64 %52
+  %66 = getelementptr inbounds nuw [128 x i8], ptr %55, i64 %52
   %.not.i.i30 = icmp eq ptr %54, %66
   br i1 %.not.i.i30, label %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit32, label %67
 
@@ -4337,12 +4335,12 @@ _ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit32: ; preds = %61, %63, %65
 .lr.ph45:                                         ; preds = %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit32, %.lr.ph45
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %.lr.ph45 ], [ 0, %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit32 ]
   %79 = phi ptr [ %87, %.lr.ph45 ], [ %72, %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE6resizeEm.exit32 ]
-  %80 = getelementptr inbounds nuw %"class.std::shared_ptr.48", ptr %79, i64 %indvars.iv54
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %indvars.iv54
   %81 = load ptr, ptr %80, align 8, !tbaa !232
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 56
   %83 = load ptr, ptr %82, align 8, !tbaa !3
   %84 = load ptr, ptr %21, align 8, !tbaa !52
-  %85 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %84, i64 %indvars.iv54
+  %85 = getelementptr inbounds nuw [128 x i8], ptr %84, i64 %indvars.iv54
   tail call void @_ZN5arrow8internal19FillZeroLengthArrayEPKNS_8DataTypeEPNS_9ArraySpanE(ptr noundef %83, ptr noundef nonnull %85)
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %86 = load ptr, ptr %46, align 8, !tbaa !230
@@ -4735,8 +4733,8 @@ _ZN5arrow23is_var_length_list_likeENS_4Type4typeE.exit.thread: ; preds = %97, %9
   %162 = phi ptr [ %169, %.lr.ph ], [ %161, %148 ]
   %.0111227 = phi i64 [ %167, %.lr.ph ], [ 0, %148 ]
   %163 = load ptr, ptr %149, align 8, !tbaa !52
-  %164 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %163, i64 %.0111227
-  %165 = getelementptr inbounds nuw %"class.std::shared_ptr.64", ptr %162, i64 %.0111227
+  %164 = getelementptr inbounds nuw [128 x i8], ptr %163, i64 %.0111227
+  %165 = getelementptr inbounds nuw [16 x i8], ptr %162, i64 %.0111227
   %166 = load ptr, ptr %165, align 8, !tbaa !252
   tail call void @_ZN5arrow9ArraySpan14FillFromScalarERKNS_6ScalarE(ptr noundef nonnull align 8 dereferenceable(128) %164, ptr noundef nonnull align 8 dereferenceable(41) %166)
   %167 = add nuw i64 %.0111227, 1
@@ -4808,14 +4806,14 @@ _ZN5arrow23is_var_length_list_likeENS_4Type4typeE.exit.thread: ; preds = %97, %9
   %209 = load i8, ptr %205, align 1, !tbaa !256
   %210 = sext i8 %209 to i64
   %211 = load ptr, ptr %195, align 8, !tbaa !38
-  %212 = getelementptr inbounds nuw i32, ptr %211, i64 %210
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %210
   %213 = load i32, ptr %212, align 4, !tbaa !41
   %214 = zext i32 %213 to i64
   %215 = icmp eq i64 %indvars.iv284, %214
   br i1 %215, label %216, label %219
 
 216:                                              ; preds = %207
-  %217 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %208, i64 %indvars.iv284
+  %217 = getelementptr inbounds nuw [128 x i8], ptr %208, i64 %indvars.iv284
   %218 = load ptr, ptr %206, align 8, !tbaa !252
   tail call void @_ZN5arrow9ArraySpan14FillFromScalarERKNS_6ScalarE(ptr noundef nonnull align 8 dereferenceable(128) %217, ptr noundef nonnull align 8 dereferenceable(41) %218)
   br label %228
@@ -4824,11 +4822,11 @@ _ZN5arrow23is_var_length_list_likeENS_4Type4typeE.exit.thread: ; preds = %97, %9
   %220 = load ptr, ptr %.tr, align 8, !tbaa !59
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 48
   %222 = load ptr, ptr %221, align 8, !tbaa !231
-  %223 = getelementptr inbounds nuw %"class.std::shared_ptr.48", ptr %222, i64 %indvars.iv284
+  %223 = getelementptr inbounds nuw [16 x i8], ptr %222, i64 %indvars.iv284
   %224 = load ptr, ptr %223, align 8, !tbaa !232
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 56
   %226 = load ptr, ptr %225, align 8, !tbaa !3
-  %227 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %208, i64 %indvars.iv284
+  %227 = getelementptr inbounds nuw [128 x i8], ptr %208, i64 %indvars.iv284
   tail call void @_ZN5arrow8internal19FillZeroLengthArrayEPKNS_8DataTypeEPNS_9ArraySpanE(ptr noundef %226, ptr noundef nonnull %227)
   br label %228
 
@@ -4863,9 +4861,9 @@ _ZN5arrow23is_var_length_list_likeENS_4Type4typeE.exit.thread: ; preds = %97, %9
 247:                                              ; preds = %.lr.ph229, %247
   %indvars.iv = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next, %247 ]
   %248 = phi ptr [ %239, %.lr.ph229 ], [ %254, %247 ]
-  %249 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %248, i64 %indvars.iv
+  %249 = getelementptr inbounds nuw [128 x i8], ptr %248, i64 %indvars.iv
   %250 = load ptr, ptr %246, align 8, !tbaa !251
-  %251 = getelementptr inbounds nuw %"class.std::shared_ptr.64", ptr %250, i64 %indvars.iv
+  %251 = getelementptr inbounds nuw [16 x i8], ptr %250, i64 %indvars.iv
   %252 = load ptr, ptr %251, align 8, !tbaa !252
   tail call void @_ZN5arrow9ArraySpan14FillFromScalarERKNS_6ScalarE(ptr noundef nonnull align 8 dereferenceable(128) %249, ptr noundef nonnull align 8 dereferenceable(41) %252)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5149,7 +5147,7 @@ _ZNK5arrow9ArraySpan11num_buffersEv.exit:         ; preds = %tailrecurse.i.i, %_
   %57 = load ptr, ptr %0, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !273)
-  %58 = getelementptr inbounds nuw %"struct.arrow::BufferSpan", ptr %41, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !81, !noalias !273
   %.not.i = icmp eq ptr %60, null
@@ -5624,7 +5622,7 @@ _ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ;
   %.072 = phi i64 [ 0, %.lr.ph73 ], [ %298, %_ZNSt12__shared_ptrIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit64 ]
   %262 = load ptr, ptr %0, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %263 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %261, i64 %.072
+  %263 = getelementptr inbounds nuw [128 x i8], ptr %261, i64 %.072
   invoke void @_ZNK5arrow9ArraySpan11ToArrayDataEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.5") align 8 %6, ptr noundef nonnull align 8 dereferenceable(128) %263)
           to label %264 unwind label %306
 
@@ -5961,12 +5959,12 @@ define noundef zeroext i1 @_ZNK5arrow9ArraySpan17IsNullSparseUnionEl(ptr noundef
   %11 = load i8, ptr %10, align 1, !tbaa !37
   %12 = sext i8 %11 to i64
   %13 = load ptr, ptr %6, align 8, !tbaa !38
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %12
   %15 = load i32, ptr %14, align 4, !tbaa !41
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = sext i32 %15 to i64
   %18 = load ptr, ptr %16, align 8, !tbaa !52
-  %19 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [128 x i8], ptr %18, i64 %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !56
   %.not.i.i = icmp eq ptr %21, null
@@ -6098,16 +6096,16 @@ define noundef zeroext i1 @_ZNK5arrow9ArraySpan16IsNullDenseUnionEl(ptr noundef 
   %13 = load i8, ptr %12, align 1, !tbaa !37
   %14 = sext i8 %13 to i64
   %15 = load ptr, ptr %8, align 8, !tbaa !38
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %14
   %17 = load i32, ptr %16, align 4, !tbaa !41
   %18 = sext i32 %17 to i64
-  %19 = getelementptr i32, ptr %7, i64 %10
-  %20 = getelementptr i32, ptr %19, i64 %1
+  %19 = getelementptr [4 x i8], ptr %7, i64 %10
+  %20 = getelementptr [4 x i8], ptr %19, i64 %1
   %21 = load i32, ptr %20, align 4, !tbaa !41
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %24 = load ptr, ptr %23, align 8, !tbaa !52
-  %25 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %24, i64 %18
+  %25 = getelementptr inbounds nuw [128 x i8], ptr %24, i64 %18
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !56
   %.not.i.i = icmp eq ptr %27, null
@@ -7251,7 +7249,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ViewDataImpl12MakeDataView
 .outer578:                                        ; preds = %.preheader.i, %62
   %.promoted911.i.ph = phi i64 [ %.promoted.i, %.preheader.i ], [ %63, %62 ]
   %.ph579 = phi i64 [ %.promoted10.i, %.preheader.i ], [ 0, %62 ]
-  %52 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %45, i64 %.promoted911.i.ph
+  %52 = getelementptr inbounds nuw [56 x i8], ptr %45, i64 %.promoted911.i.ph
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !307
   %55 = load ptr, ptr %52, align 8, !tbaa !304
@@ -7278,7 +7276,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ViewDataImpl12MakeDataView
   br label %_ZN5arrow12_GLOBAL__N_112ViewDataImpl18AdjustInputPointerEv.exit
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout::BufferSpec", ptr %55, i64 %61
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %61
   %67 = load i32, ptr %66, align 8, !tbaa !314
   %.not2.not.i = icmp eq i32 %67, 3
   br i1 %.not2.not.i, label %68, label %_ZN5arrow12_GLOBAL__N_112ViewDataImpl18AdjustInputPointerEv.exit
@@ -7305,7 +7303,7 @@ _ZN5arrow12_GLOBAL__N_112ViewDataImpl18AdjustInputPointerEv.exit: ; preds = %65,
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %79 = load i64, ptr %78, align 8, !tbaa !312, !noalias !317
   %80 = load ptr, ptr %77, align 8, !tbaa !43, !noalias !317
-  %81 = getelementptr inbounds nuw %"class.std::shared_ptr.5", ptr %80, i64 %79
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 %79
   %82 = load ptr, ptr %81, align 8, !tbaa !44, !noalias !317
   %83 = load ptr, ptr %82, align 8, !tbaa !3, !noalias !317
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
@@ -7544,7 +7542,7 @@ _ZN5arrow6StatusD2Ev.exit150:                     ; preds = %_ZN5arrow6StatusD2E
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %170 = load i64, ptr %169, align 8, !tbaa !312
   %171 = load ptr, ptr %168, align 8, !tbaa !43
-  %172 = getelementptr inbounds nuw %"class.std::shared_ptr.5", ptr %171, i64 %170
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %170
   %173 = load ptr, ptr %2, align 8, !tbaa !232
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 72
   %175 = load i8, ptr %174, align 8, !tbaa !329, !range !140, !noundef !141
@@ -7663,7 +7661,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %21
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 40
   %222 = load i64, ptr %156, align 8, !tbaa !311
   %223 = load ptr, ptr %221, align 8, !tbaa !11
-  %224 = getelementptr inbounds nuw %"class.std::shared_ptr.11", ptr %223, i64 %222
+  %224 = getelementptr inbounds nuw [16 x i8], ptr %223, i64 %222
   %225 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %226 = load ptr, ptr %225, align 8, !tbaa !92
   %227 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -7738,7 +7736,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit: ; pre
 .outer576:                                        ; preds = %.preheader.i160, %274
   %.promoted911.i164.ph = phi i64 [ %.promoted.i162, %.preheader.i160 ], [ %275, %274 ]
   %.ph577 = phi i64 [ %253, %.preheader.i160 ], [ 0, %274 ]
-  %264 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %257, i64 %.promoted911.i164.ph
+  %264 = getelementptr inbounds nuw [56 x i8], ptr %257, i64 %.promoted911.i164.ph
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %266 = load ptr, ptr %265, align 8, !tbaa !307
   %267 = load ptr, ptr %264, align 8, !tbaa !304
@@ -7765,7 +7763,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit: ; pre
   br label %_ZN5arrow12_GLOBAL__N_112ViewDataImpl18AdjustInputPointerEv.exit168
 
 277:                                              ; preds = %272
-  %278 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout::BufferSpec", ptr %267, i64 %273
+  %278 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %273
   %279 = load i32, ptr %278, align 8, !tbaa !314
   %.not2.not.i167 = icmp eq i32 %279, 3
   br i1 %.not2.not.i167, label %280, label %_ZN5arrow12_GLOBAL__N_112ViewDataImpl18AdjustInputPointerEv.exit168
@@ -7880,7 +7878,7 @@ _ZN5arrow12_GLOBAL__N_112ViewDataImpl18AdjustInputPointerEv.exit168: ; preds = %
   %.282416 = phi i64 [ %.181, %.lr.ph417 ], [ %.484, %.critedge136 ]
   %.288415 = phi i64 [ %.187, %.lr.ph417 ], [ %.490, %.critedge136 ]
   %.0108414 = phi i64 [ 1, %.lr.ph417 ], [ %645, %.critedge136 ]
-  %330 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout::BufferSpec", ptr %329, i64 %.0108414
+  %330 = getelementptr inbounds nuw [16 x i8], ptr %329, i64 %.0108414
   %331 = load i32, ptr %330, align 8, !tbaa !314
   %332 = icmp eq i32 %331, 3
   br i1 %332, label %335, label %.preheader362
@@ -8059,7 +8057,7 @@ _ZN5arrow6StatusD2Ev.exit187:                     ; preds = %373, %_ZNKSt7__cxx1
 _ZN5arrow6StatusD2Ev.exit189:                     ; preds = %_ZN5arrow6StatusD2Ev.exit187, %_ZN5arrow6StatusD2Ev.exit187.thread
   %387 = load i64, ptr %319, align 8, !tbaa !312
   %388 = load ptr, ptr %318, align 8, !tbaa !43
-  %389 = getelementptr inbounds nuw %"class.std::shared_ptr.5", ptr %388, i64 %387
+  %389 = getelementptr inbounds nuw [16 x i8], ptr %388, i64 %387
   %390 = load ptr, ptr %389, align 8, !tbaa !44
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 24
   %392 = load atomic i64, ptr %391 seq_cst, align 8
@@ -8188,7 +8186,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204: ; preds = %42
 .outer:                                           ; preds = %.preheader.i205, %454
   %.promoted911.i209.ph = phi i64 [ %.promoted.i207, %.preheader.i205 ], [ %455, %454 ]
   %.ph = phi i64 [ %435, %.preheader.i205 ], [ 0, %454 ]
-  %444 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %438, i64 %.promoted911.i209.ph
+  %444 = getelementptr inbounds nuw [56 x i8], ptr %438, i64 %.promoted911.i209.ph
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 8
   %446 = load ptr, ptr %445, align 8, !tbaa !307
   %447 = load ptr, ptr %444, align 8, !tbaa !304
@@ -8215,7 +8213,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204: ; preds = %42
   br label %_ZN5arrow12_GLOBAL__N_112ViewDataImpl18AdjustInputPointerEv.exit213
 
 457:                                              ; preds = %452
-  %458 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout::BufferSpec", ptr %447, i64 %453
+  %458 = getelementptr inbounds nuw [16 x i8], ptr %447, i64 %453
   %459 = load i32, ptr %458, align 8, !tbaa !314
   %.not2.not.i212 = icmp eq i32 %459, 3
   br i1 %.not2.not.i212, label %460, label %_ZN5arrow12_GLOBAL__N_112ViewDataImpl18AdjustInputPointerEv.exit213
@@ -8253,10 +8251,10 @@ _ZN5arrow6StatusD2Ev.exit215:                     ; preds = %._crit_edge
 _ZN5arrow6StatusD2Ev.exit217:                     ; preds = %_ZN5arrow6StatusD2Ev.exit215
   %469 = load i64, ptr %319, align 8, !tbaa !312
   %470 = load ptr, ptr %320, align 8, !tbaa !310
-  %471 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %470, i64 %469
+  %471 = getelementptr inbounds nuw [56 x i8], ptr %470, i64 %469
   %472 = load i64, ptr %156, align 8, !tbaa !311
   %473 = load ptr, ptr %471, align 8, !tbaa !304
-  %474 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout::BufferSpec", ptr %473, i64 %472
+  %474 = getelementptr inbounds nuw [16 x i8], ptr %473, i64 %472
   %475 = load i32, ptr %330, align 8, !tbaa !314
   %476 = load i32, ptr %474, align 8, !tbaa !314
   %477 = icmp eq i32 %475, %476
@@ -8337,7 +8335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit228: ; preds = %49
 
 _ZNK5arrow14DataTypeLayout10BufferSpecneERKS1_.exit.thread348: ; preds = %478, %_ZNK5arrow14DataTypeLayout10BufferSpecneERKS1_.exit
   %502 = load ptr, ptr %318, align 8, !tbaa !43
-  %503 = getelementptr inbounds nuw %"class.std::shared_ptr.5", ptr %502, i64 %469
+  %503 = getelementptr inbounds nuw [16 x i8], ptr %502, i64 %469
   %504 = load ptr, ptr %503, align 8, !tbaa !44
   %505 = getelementptr inbounds nuw i8, ptr %504, i64 16
   %506 = load i64, ptr %505, align 8, !tbaa !94
@@ -8345,7 +8343,7 @@ _ZNK5arrow14DataTypeLayout10BufferSpecneERKS1_.exit.thread348: ; preds = %478, %
   %508 = load i64, ptr %507, align 8, !tbaa !17
   %509 = getelementptr inbounds nuw i8, ptr %504, i64 40
   %510 = load ptr, ptr %509, align 8, !tbaa !11
-  %511 = getelementptr inbounds nuw %"class.std::shared_ptr.11", ptr %510, i64 %472
+  %511 = getelementptr inbounds nuw [16 x i8], ptr %510, i64 %472
   %512 = load ptr, ptr %322, align 8, !tbaa !92
   %513 = load ptr, ptr %323, align 8, !tbaa !93
   %.not.i229 = icmp eq ptr %512, %513
@@ -8523,7 +8521,7 @@ _ZStneIN5arrow14DataTypeLayout10BufferSpecES2_ENSt9enable_ifIXsr14is_convertible
 .lr.ph412:                                        ; preds = %.preheader, %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit254
   %586 = phi ptr [ %613, %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit254 ], [ %580, %.preheader ]
   %587 = phi i64 [ %608, %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit254 ], [ %531, %.preheader ]
-  %588 = getelementptr inbounds nuw %"class.std::shared_ptr.11", ptr %586, i64 %587
+  %588 = getelementptr inbounds nuw [16 x i8], ptr %586, i64 %587
   %589 = load ptr, ptr %322, align 8, !tbaa !92
   %590 = load ptr, ptr %323, align 8, !tbaa !93
   %.not.i248 = icmp eq ptr %589, %590
@@ -8601,7 +8599,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit254: ; 
 .outer572:                                        ; preds = %.preheader.i255, %637
   %.promoted911.i259.ph = phi i64 [ %.promoted.i257, %.preheader.i255 ], [ %638, %637 ]
   %.ph573 = phi i64 [ %.promoted10.i256, %.preheader.i255 ], [ 0, %637 ]
-  %627 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %621, i64 %.promoted911.i259.ph
+  %627 = getelementptr inbounds nuw [56 x i8], ptr %621, i64 %.promoted911.i259.ph
   %628 = getelementptr inbounds nuw i8, ptr %627, i64 8
   %629 = load ptr, ptr %628, align 8, !tbaa !307
   %630 = load ptr, ptr %627, align 8, !tbaa !304
@@ -8628,7 +8626,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit254: ; 
   br label %.critedge136
 
 640:                                              ; preds = %635
-  %641 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout::BufferSpec", ptr %630, i64 %636
+  %641 = getelementptr inbounds nuw [16 x i8], ptr %630, i64 %636
   %642 = load i32, ptr %641, align 8, !tbaa !314
   %.not2.not.i262 = icmp eq i32 %642, 3
   br i1 %.not2.not.i262, label %643, label %.critedge136
@@ -9647,12 +9645,12 @@ tailrecurse:                                      ; preds = %.lr.ph
   %32 = load i8, ptr %31, align 1, !tbaa !37
   %33 = sext i8 %32 to i64
   %34 = load ptr, ptr %27, align 8, !tbaa !38
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %33
   %36 = load i32, ptr %35, align 4, !tbaa !41
   %37 = getelementptr inbounds nuw i8, ptr %.tr17, i64 64
   %38 = sext i32 %36 to i64
   %39 = load ptr, ptr %37, align 8, !tbaa !43
-  %40 = getelementptr inbounds nuw %"class.std::shared_ptr.5", ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %38
   %41 = load ptr, ptr %40, align 8, !tbaa !44
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load ptr, ptr %42, align 8, !tbaa !11
@@ -9675,20 +9673,20 @@ tailrecurse31:                                    ; preds = %.lr.ph
   %56 = load i8, ptr %55, align 1, !tbaa !37
   %57 = sext i8 %56 to i64
   %58 = load ptr, ptr %51, align 8, !tbaa !38
-  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %57
   %60 = load i32, ptr %59, align 4, !tbaa !41
   %61 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %62 = load ptr, ptr %61, align 8, !tbaa !14
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr i32, ptr %64, i64 %53
-  %66 = getelementptr i32, ptr %65, i64 %.tr3257
+  %65 = getelementptr [4 x i8], ptr %64, i64 %53
+  %66 = getelementptr [4 x i8], ptr %65, i64 %.tr3257
   %67 = load i32, ptr %66, align 4, !tbaa !41
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr %.tr17, i64 64
   %70 = sext i32 %60 to i64
   %71 = load ptr, ptr %69, align 8, !tbaa !43
-  %72 = getelementptr inbounds nuw %"class.std::shared_ptr.5", ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %70
   %73 = load ptr, ptr %72, align 8, !tbaa !44
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %75 = load ptr, ptr %74, align 8, !tbaa !11
@@ -11424,12 +11422,12 @@ tailrecurse:                                      ; preds = %69, %2
   %28 = load i8, ptr %27, align 1, !tbaa !37
   %29 = sext i8 %28 to i64
   %30 = load ptr, ptr %23, align 8, !tbaa !38
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %29
   %32 = load i32, ptr %31, align 4, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %.tr, i64 104
   %34 = sext i32 %32 to i64
   %35 = load ptr, ptr %33, align 8, !tbaa !52
-  %36 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [128 x i8], ptr %35, i64 %34
   %37 = tail call noundef zeroext i1 @_ZNK5arrow9ArraySpan6IsNullEl(ptr noundef nonnull align 8 dereferenceable(128) %36, i64 noundef %.tr11)
   %38 = xor i1 %37, true
   br label %_ZNK5arrow9ArraySpan19IsNullRunEndEncodedEl.exit
@@ -11447,16 +11445,16 @@ tailrecurse:                                      ; preds = %69, %2
   %49 = load i8, ptr %48, align 1, !tbaa !37
   %50 = sext i8 %49 to i64
   %51 = load ptr, ptr %44, align 8, !tbaa !38
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %50
   %53 = load i32, ptr %52, align 4, !tbaa !41
   %54 = sext i32 %53 to i64
-  %55 = getelementptr i32, ptr %43, i64 %46
-  %56 = getelementptr i32, ptr %55, i64 %.tr11
+  %55 = getelementptr [4 x i8], ptr %43, i64 %46
+  %56 = getelementptr [4 x i8], ptr %55, i64 %.tr11
   %57 = load i32, ptr %56, align 4, !tbaa !41
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %.tr, i64 104
   %60 = load ptr, ptr %59, align 8, !tbaa !52
-  %61 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %60, i64 %54
+  %61 = getelementptr inbounds nuw [128 x i8], ptr %60, i64 %54
   %62 = tail call noundef zeroext i1 @_ZNK5arrow9ArraySpan6IsNullEl(ptr noundef nonnull align 8 dereferenceable(128) %61, i64 noundef %58)
   %63 = xor i1 %62, true
   br label %_ZNK5arrow9ArraySpan19IsNullRunEndEncodedEl.exit
@@ -11605,7 +11603,7 @@ _ZNSt6vectorIN5arrow14DataTypeLayoutESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22
 _ZNSt12_Vector_baseIN5arrow14DataTypeLayoutESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5arrow14DataTypeLayoutESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %55
   store ptr %20, ptr %0, align 8, !tbaa !310
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !302
-  %59 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %20, i64 %16
+  %59 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %59, ptr %54, align 8, !tbaa !303
   ret void
 }
@@ -11729,7 +11727,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE11_S_relocateEPS3_S6_S6_R
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !43
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !142
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.5", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !143
   ret void
 }
@@ -12580,9 +12578,9 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EE13_M_deallocateEPS3_m.exit37: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %35
   store ptr %26, ptr %0, align 8, !tbaa !11
-  %37 = getelementptr inbounds nuw %"class.std::shared_ptr.11", ptr %27, i64 %1
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %37, ptr %4, align 8, !tbaa !92
-  %38 = getelementptr inbounds nuw %"class.std::shared_ptr.11", ptr %26, i64 %24
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %38, ptr %11, align 8, !tbaa !93
   br label %39
 
@@ -12836,9 +12834,9 @@ _ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; pred
 
 _ZNSt12_Vector_baseIN5arrow9ArraySpanESaIS1_EE13_M_deallocateEPS1_m.exit40: ; preds = %_ZNSt6vectorIN5arrow9ArraySpanESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %46
   store ptr %29, ptr %0, align 8, !tbaa !52
-  %50 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %30, i64 %1
+  %50 = getelementptr inbounds nuw [128 x i8], ptr %30, i64 %1
   store ptr %50, ptr %4, align 8, !tbaa !54
-  %51 = getelementptr inbounds nuw %"struct.arrow::ArraySpan", ptr %29, i64 %27
+  %51 = getelementptr inbounds nuw [128 x i8], ptr %29, i64 %27
   store ptr %51, ptr %11, align 8, !tbaa !55
   br label %52
 
@@ -12944,7 +12942,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !11
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !92
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.11", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !93
   ret void
 }
@@ -13065,7 +13063,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !11
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !92
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.11", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !93
   ret void
 }
@@ -13168,7 +13166,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE11_S_relocateEPS3_S6_S6_R
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow9ArrayDataEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !43
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !142
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.5", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !143
   ret void
 }

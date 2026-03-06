@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
 
@@ -48,7 +46,7 @@ define dso_local noundef ptr @ExecInitJunkFilter(ptr noundef %0, ptr noundef %1)
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
   %.0283539 = phi i16 [ %.1, %31 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %15, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 42
   %23 = load i8, ptr %22, align 2, !range !4, !noundef !5
@@ -59,7 +57,7 @@ define dso_local noundef ptr @ExecInitJunkFilter(ptr noundef %0, ptr noundef %1)
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = load i16, ptr %26, align 8
   %28 = sext i16 %.0283539 to i64
-  %29 = getelementptr inbounds i16, ptr %13, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %13, i64 %28
   store i16 %27, ptr %29, align 2
   %30 = add i16 %.0283539, 1
   %.pre = load i32, ptr %14, align 4
@@ -137,7 +135,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
 20:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.03137 = phi ptr [ %17, %.lr.ph ], [ %.1, %37 ]
-  %21 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 33
   %23 = load i8, ptr %22, align 1, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1
@@ -147,7 +145,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   %.val = load i32, ptr %18, align 4
   %.val35 = load ptr, ptr %19, align 8
   %25 = sext i32 %.val to i64
-  %26 = getelementptr inbounds %union.ListCell, ptr %.val35, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %.val35, i64 %25
   br label %27
 
 27:                                               ; preds = %.preheader, %27
@@ -164,7 +162,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
 .thread:                                          ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %35 = load i16, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %indvars.iv
   store i16 %35, ptr %36, align 2
   br label %37
 
@@ -212,7 +210,7 @@ define dso_local signext i16 @ExecFindJunkAttribute(ptr noundef readonly capture
 
 10:                                               ; preds = %22, %.lr.ph35.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph35.i ], [ %indvars.iv.next.i, %22 ]
-  %11 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 42
   %14 = load i8, ptr %13, align 2, !range !4, !noundef !5
@@ -264,7 +262,7 @@ define dso_local signext i16 @ExecFindJunkAttributeInTlist(ptr noundef readonly 
 
 8:                                                ; preds = %.lr.ph35, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next, %20 ]
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 42
   %12 = load i8, ptr %11, align 2, !range !4, !noundef !5
@@ -345,22 +343,22 @@ slot_getallattrs.exit:                            ; preds = %2, %10
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
-  %31 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %indvars.iv
   %32 = load i16, ptr %31, align 2
   %33 = icmp eq i16 %32, 0
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store i64 0, ptr %35, align 8
   br label %44
 
 36:                                               ; preds = %.lr.ph
   %37 = sext i16 %32 to i64
   %38 = add nsw i64 %37, -1
-  %39 = getelementptr inbounds i64, ptr %12, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %12, i64 %38
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store i64 %40, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %14, i64 %38
   %43 = load i8, ptr %42, align 1, !range !4, !noundef !5

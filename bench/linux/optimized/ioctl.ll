@@ -112,7 +112,7 @@ define dso_local range(i32 -14, 2) i32 @fiemap_fill_next_extent(ptr noundef capt
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %29, ptr %33, align 8
   %34 = zext i32 %13 to i64
-  %35 = getelementptr %struct.fiemap_extent, ptr %8, i64 %34
+  %35 = getelementptr [56 x i8], ptr %8, i64 %34
   %36 = call i64 @_copy_to_user(ptr noundef %35, ptr noundef nonnull %6, i64 noundef 56) #9
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %38, label %45

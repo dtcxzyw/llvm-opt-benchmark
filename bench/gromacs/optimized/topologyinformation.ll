@@ -454,7 +454,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 176
   %29 = load i32, ptr %28, align 8, !tbaa !76
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds [3 x float], ptr %26, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %26, i64 %30
   call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE13_M_assign_auxIPA3_fEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef %26, ptr noundef %31)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %33 = load ptr, ptr %4, align 8, !tbaa !66
@@ -462,7 +462,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 176
   %36 = load i32, ptr %35, align 8, !tbaa !76
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [3 x float], ptr %33, i64 %37
+  %38 = getelementptr inbounds [12 x i8], ptr %33, i64 %37
   call void @_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE13_M_assign_auxIPA3_fEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef %33, ptr noundef %38)
   %39 = load ptr, ptr %3, align 8, !tbaa !66
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 90, ptr noundef %39)

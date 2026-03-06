@@ -6501,7 +6501,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %mGrids24 = getelementptr inbounds nuw i8, ptr %18, i64 176
   %19 = load ptr, ptr %mGrids24, align 8
   %20 = load ptr, ptr %19, align 8
-  %add.ptr.i = getelementptr inbounds %"class.std::shared_ptr.71", ptr %20, i64 %i.091
+  %add.ptr.i = getelementptr inbounds [16 x i8], ptr %20, i64 %i.091
   %21 = load ptr, ptr %add.ptr.i, align 8
   %vtable = load ptr, ptr %21, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
@@ -12147,7 +12147,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN7openvdb5v11_08GridBaseEESaIS4_EE13_M_deallo
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::shared_ptr.71", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -12847,7 +12847,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN7openvdb5v11_08GridBaseEESaIS4_EE13_M_deallo
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::shared_ptr.71", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }

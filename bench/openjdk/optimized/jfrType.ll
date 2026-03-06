@@ -936,7 +936,7 @@ switch.lookup:                                    ; preds = %2, %switch.lookup
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %switch.lookup ]
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %indvars.iv) #9
   %3 = and i64 %indvars.iv, 4294967295
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN23FlagValueOriginConstant9serializeER19JfrCheckpointWriter, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN23FlagValueOriginConstant9serializeER19JfrCheckpointWriter, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull %switch.load)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1003,7 +1003,7 @@ switch.lookup:                                    ; preds = %2, %switch.lookup
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %switch.lookup ]
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %indvars.iv) #9
   %3 = and i64 %indvars.iv, 4294967295
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN14GCNameConstant9serializeER19JfrCheckpointWriter, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN14GCNameConstant9serializeER19JfrCheckpointWriter, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull %switch.load)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1060,7 +1060,7 @@ switch.lookup:                                    ; preds = %2, %switch.lookup
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %switch.lookup ]
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %indvars.iv) #9
   %3 = and i64 %indvars.iv, 4294967295
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN27MetaspaceObjectTypeConstant9serializeER19JfrCheckpointWriter, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN27MetaspaceObjectTypeConstant9serializeER19JfrCheckpointWriter, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull %switch.load)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1080,7 +1080,7 @@ switch.lookup:                                    ; preds = %2, %switch.lookup
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %switch.lookup ]
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %indvars.iv) #9
   %3 = and i64 %indvars.iv, 4294967295
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN21ReferenceTypeConstant9serializeER19JfrCheckpointWriter, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN21ReferenceTypeConstant9serializeER19JfrCheckpointWriter, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull %switch.load)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1149,7 +1149,7 @@ define hidden void @_ZN23VMOperationTypeConstant9serializeER19JfrCheckpointWrite
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %indvars.iv) #9
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN12VM_Operation6_namesE, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12VM_Operation6_namesE, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2067,7 +2067,7 @@ define hidden void @_ZN16BytecodeConstant9serializeER19JfrCheckpointWriter(ptr n
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %indvars.iv) #9
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN9Bytecodes5_nameE, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9Bytecodes5_nameE, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2086,7 +2086,7 @@ define hidden void @_ZN20CompilerTypeConstant9serializeER19JfrCheckpointWriter(p
 _Z17compilertype2name12CompilerType.exit:         ; preds = %2, %_Z17compilertype2name12CompilerType.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %_Z17compilertype2name12CompilerType.exit ]
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %indvars.iv) #9
-  %3 = getelementptr inbounds nuw ptr, ptr @compilertype2name_tab, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @compilertype2name_tab, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2105,7 +2105,7 @@ define hidden void @_ZN15NMTTypeConstant9serializeER19JfrCheckpointWriter(ptr no
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
   tail call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %1, i64 noundef %indvars.iv) #9
-  %4 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @_ZN7NMTUtil8_stringsE, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %6)

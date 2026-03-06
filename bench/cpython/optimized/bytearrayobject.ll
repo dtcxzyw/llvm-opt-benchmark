@@ -2446,7 +2446,7 @@ PyByteArray_AS_STRING.exit163.i:                  ; preds = %157, %155
 
 .lr.ph.i:                                         ; preds = %PyByteArray_AS_STRING.exit163.i, %175
   %.095207.i = phi i64 [ %178, %175 ], [ 0, %PyByteArray_AS_STRING.exit163.i ]
-  %161 = getelementptr ptr, ptr %156, i64 %.095207.i
+  %161 = getelementptr [8 x i8], ptr %156, i64 %.095207.i
   %162 = load ptr, ptr %161, align 8, !tbaa !4
   %163 = getelementptr i8, ptr %162, i64 8
   %.val150.i = load ptr, ptr %163, align 8, !tbaa !25
@@ -2778,7 +2778,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %10, %11
   %15 = getelementptr i8, ptr %.0.i, i64 %7
   %16 = load i8, ptr %15, align 1, !tbaa !17
   %17 = zext i8 %16 to i64
-  %18 = getelementptr %struct._longobject, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), i64 %17
+  %18 = getelementptr [32 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), i64 %17
   br label %Py_DECREF.exit
 
 19:                                               ; preds = %5
@@ -2926,7 +2926,7 @@ define internal ptr @bytearray_getitem(ptr noundef readonly captures(none) %0, i
   %11 = getelementptr i8, ptr %10, i64 %1
   %12 = load i8, ptr %11, align 1, !tbaa !17
   %13 = zext i8 %12 to i64
-  %14 = getelementptr %struct._longobject, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), i64 %13
+  %14 = getelementptr [32 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), i64 %13
   br label %15
 
 15:                                               ; preds = %8, %6
@@ -3482,7 +3482,7 @@ _PyIndex_Check.exit:                              ; preds = %2
   %26 = getelementptr i8, ptr %25, i64 %.03259
   %27 = load i8, ptr %26, align 1, !tbaa !17
   %28 = zext i8 %27 to i64
-  %29 = getelementptr %struct._longobject, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), i64 %28
+  %29 = getelementptr [32 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), i64 %28
   br label %76
 
 _PyIndex_Check.exit.thread:                       ; preds = %2, %_PyIndex_Check.exit
@@ -6036,7 +6036,7 @@ Py_DECREF.exit139.i:                              ; preds = %39, %36, %.thread.i
 
 49:                                               ; preds = %47, %44
   %.pn.i = phi ptr [ %48, %47 ], [ %43, %44 ]
-  %.in.i = getelementptr ptr, ptr %.pn.i, i64 %.0112198.i
+  %.in.i = getelementptr [8 x i8], ptr %.pn.i, i64 %.0112198.i
   %50 = load ptr, ptr %.in.i, align 8, !tbaa !4
   %51 = getelementptr i8, ptr %50, i64 8
   %.val152.i = load ptr, ptr %51, align 8, !tbaa !25
@@ -6054,7 +6054,7 @@ Py_DECREF.exit139.i:                              ; preds = %39, %36, %.thread.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %55, %52
-  %57 = getelementptr %struct.Py_buffer, ptr %.0111252.i, i64 %.0112198.i
+  %57 = getelementptr [80 x i8], ptr %.0111252.i, i64 %.0112198.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %50, ptr %58, align 8, !tbaa !146
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 32
@@ -6066,7 +6066,7 @@ _Py_NewRef.exit.i:                                ; preds = %55, %52
   br label %71
 
 62:                                               ; preds = %49
-  %63 = getelementptr %struct.Py_buffer, ptr %.0111252.i, i64 %.0112198.i
+  %63 = getelementptr [80 x i8], ptr %.0111252.i, i64 %.0112198.i
   %64 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %50, ptr noundef %63, i32 noundef 0) #16
   %.not132.i = icmp eq i32 %64, 0
   br i1 %.not132.i, label %._crit_edge236.i, label %65
@@ -6180,7 +6180,7 @@ PyByteArray_AS_STRING.exit162.i:                  ; preds = %97, %95
 .lr.ph208.i:                                      ; preds = %.preheader.i, %.lr.ph208.i
   %.0102207.i = phi ptr [ %109, %.lr.ph208.i ], [ %.0.i161.i, %.preheader.i ]
   %.1113206.i = phi i64 [ %110, %.lr.ph208.i ], [ 0, %.preheader.i ]
-  %105 = getelementptr %struct.Py_buffer, ptr %.0111254.i, i64 %.1113206.i
+  %105 = getelementptr [80 x i8], ptr %.0111254.i, i64 %.1113206.i
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load i64, ptr %106, align 8, !tbaa !21
   %108 = load ptr, ptr %105, align 8, !tbaa !32
@@ -6203,7 +6203,7 @@ PyByteArray_AS_STRING.exit162.i:                  ; preds = %97, %95
 
 113:                                              ; preds = %111, %.lr.ph205.i
   %.2.i = phi ptr [ %112, %111 ], [ %.1204.i, %.lr.ph205.i ]
-  %114 = getelementptr %struct.Py_buffer, ptr %.0111254.i, i64 %.2114203.i
+  %114 = getelementptr [80 x i8], ptr %.0111254.i, i64 %.2114203.i
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %116 = load i64, ptr %115, align 8, !tbaa !21
   %117 = load ptr, ptr %114, align 8, !tbaa !32
@@ -6244,7 +6244,7 @@ Py_DECREF.exit.i:                                 ; preds = %125, %122, %.thread
 
 .lr.ph210.i:                                      ; preds = %Py_DECREF.exit.i, %.lr.ph210.i
   %.3115209.i = phi i64 [ %128, %.lr.ph210.i ], [ 0, %Py_DECREF.exit.i ]
-  %127 = getelementptr %struct.Py_buffer, ptr %.0111253.i, i64 %.3115209.i
+  %127 = getelementptr [80 x i8], ptr %.0111253.i, i64 %.3115209.i
   call void @PyBuffer_Release(ptr noundef %127) #16
   %128 = add nuw nsw i64 %.3115209.i, 1
   %exitcond235.not.i = icmp eq i64 %128, %.3119.i
@@ -6920,7 +6920,7 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %34
 
 47:                                               ; preds = %PyByteArray_AS_STRING.exit.i
   %48 = zext i8 %41 to i64
-  %49 = getelementptr %struct._longobject, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), i64 %48
+  %49 = getelementptr [32 x i8], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14072), i64 %48
   br label %bytearray_pop_impl.exit
 
 bytearray_pop_impl.exit:                          ; preds = %47, %PyByteArray_AS_STRING.exit.i, %_canresize.exit.thread.i, %32, %26, %Py_DECREF.exit.thread, %4
@@ -8756,7 +8756,7 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %34, %.thread59
   %47 = getelementptr i8, ptr %.0.i.i, i64 %.214.i.i
   %48 = load i8, ptr %47, align 1, !tbaa !17
   %49 = zext i8 %48 to i64
-  %50 = getelementptr i32, ptr @_Py_ctype_table, i64 %49
+  %50 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !167
   %52 = and i32 %51, 8
   %.not.i18.i = icmp eq i32 %52, 0
@@ -8777,7 +8777,7 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %34, %.thread59
   %57 = getelementptr i8, ptr %.0.i.i, i64 %.3.i.i
   %58 = load i8, ptr %57, align 1, !tbaa !17
   %59 = zext i8 %58 to i64
-  %60 = getelementptr i32, ptr @_Py_ctype_table, i64 %59
+  %60 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !167
   %62 = and i32 %61, 8
   %.not64.i.i = icmp eq i32 %62, 0
@@ -8798,7 +8798,7 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %34, %.thread59
 
 70:                                               ; preds = %68
   %.val.i19.i = load ptr, ptr %45, align 8, !tbaa !135
-  %71 = getelementptr ptr, ptr %.val.i19.i, i64 %.05717.i.i
+  %71 = getelementptr [8 x i8], ptr %.val.i19.i, i64 %.05717.i.i
   store ptr %66, ptr %71, align 8, !tbaa !4
   br label %Py_DECREF.exit74.i.i
 
@@ -8846,7 +8846,7 @@ Py_DECREF.exit74.i.i:                             ; preds = %83, %80, %79, %70
   %86 = getelementptr i8, ptr %.0.i.i, i64 %.420.i.i
   %87 = load i8, ptr %86, align 1, !tbaa !17
   %88 = zext i8 %87 to i64
-  %89 = getelementptr i32, ptr @_Py_ctype_table, i64 %88
+  %89 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !167
   %91 = and i32 %90, 8
   %.not66.i.i = icmp eq i32 %91, 0
@@ -8870,7 +8870,7 @@ Py_DECREF.exit74.i.i:                             ; preds = %83, %80, %79, %70
 100:                                              ; preds = %98
   %101 = getelementptr i8, ptr %41, i64 24
   %.val81.i.i = load ptr, ptr %101, align 8, !tbaa !135
-  %102 = getelementptr ptr, ptr %.val81.i.i, i64 %spec.store.select.i
+  %102 = getelementptr [8 x i8], ptr %.val81.i.i, i64 %spec.store.select.i
   store ptr %96, ptr %102, align 8, !tbaa !4
   br label %Py_DECREF.exit70.i.i
 
@@ -8998,7 +8998,7 @@ Py_DECREF.exit76.i.i:                             ; preds = %.critedge2.i.i, %Py
 
 154:                                              ; preds = %152
   %.val67.i.i.i = load ptr, ptr %141, align 8, !tbaa !135
-  %155 = getelementptr ptr, ptr %.val67.i.i.i, i64 %.04412.i.i.i
+  %155 = getelementptr [8 x i8], ptr %.val67.i.i.i, i64 %.04412.i.i.i
   store ptr %150, ptr %155, align 8, !tbaa !4
   br label %.loopexit.i.i.i
 
@@ -9063,7 +9063,7 @@ Py_DECREF.exit76.i.i:                             ; preds = %.critedge2.i.i, %Py
 180:                                              ; preds = %178
   %181 = getelementptr i8, ptr %136, i64 24
   %.val.i.i.i = load ptr, ptr %181, align 8, !tbaa !135
-  %182 = getelementptr ptr, ptr %.val.i.i.i, i64 %.044.lcssa36.i.i.i
+  %182 = getelementptr [8 x i8], ptr %.val.i.i.i, i64 %.044.lcssa36.i.i.i
   store ptr %176, ptr %182, align 8, !tbaa !4
   br label %Py_DECREF.exit56.i.i.i
 
@@ -9257,7 +9257,7 @@ fastsearch.exit.loopexit.i.i:                     ; preds = %250
 
 271:                                              ; preds = %269
   %.val.i27.i = load ptr, ptr %214, align 8, !tbaa !135
-  %272 = getelementptr ptr, ptr %.val.i27.i, i64 %.05138.i.i
+  %272 = getelementptr [8 x i8], ptr %.val.i27.i, i64 %.05138.i.i
   store ptr %267, ptr %272, align 8, !tbaa !4
   br label %Py_DECREF.exit65.i.i
 
@@ -9311,7 +9311,7 @@ fastsearch.exit.thread.i.i:                       ; preds = %Py_DECREF.exit65.i.
 291:                                              ; preds = %289
   %292 = getelementptr i8, ptr %208, i64 24
   %.val72.i.i = load ptr, ptr %292, align 8, !tbaa !135
-  %293 = getelementptr ptr, ptr %.val72.i.i, i64 %.05111.i.i
+  %293 = getelementptr [8 x i8], ptr %.val72.i.i, i64 %.05111.i.i
   store ptr %287, ptr %293, align 8, !tbaa !4
   br label %Py_DECREF.exit61.i.i
 
@@ -9601,7 +9601,7 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %34, %.thread59
   %45 = getelementptr i8, ptr %.0.i.i, i64 %.27.i.i
   %46 = load i8, ptr %45, align 1, !tbaa !17
   %47 = zext i8 %46 to i64
-  %48 = getelementptr i32, ptr @_Py_ctype_table, i64 %47
+  %48 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !167
   %50 = and i32 %49, 8
   %.not.i19.i = icmp eq i32 %50, 0
@@ -9633,7 +9633,7 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %34, %.thread59
   %57 = getelementptr i8, ptr %.0.i.i, i64 %.3.i.i
   %58 = load i8, ptr %57, align 1, !tbaa !17
   %59 = zext i8 %58 to i64
-  %60 = getelementptr i32, ptr @_Py_ctype_table, i64 %59
+  %60 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !167
   %62 = and i32 %61, 8
   %.not72.i.i = icmp eq i32 %62, 0
@@ -9653,7 +9653,7 @@ PyByteArray_AS_STRING.exit.i:                     ; preds = %34, %.thread59
 
 69:                                               ; preds = %67
   %.val89.i.i = load ptr, ptr %43, align 8, !tbaa !135
-  %70 = getelementptr ptr, ptr %.val89.i.i, i64 %.06311.i.i
+  %70 = getelementptr [8 x i8], ptr %.val89.i.i, i64 %.06311.i.i
   store ptr %65, ptr %70, align 8, !tbaa !4
   br label %Py_DECREF.exit82.i.i
 
@@ -9701,7 +9701,7 @@ Py_DECREF.exit82.i.i:                             ; preds = %82, %79, %78, %69
   %85 = getelementptr i8, ptr %.0.i.i, i64 %.416.i.i
   %86 = load i8, ptr %85, align 1, !tbaa !17
   %87 = zext i8 %86 to i64
-  %88 = getelementptr i32, ptr @_Py_ctype_table, i64 %87
+  %88 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !167
   %90 = and i32 %89, 8
   %.not74.i.i = icmp eq i32 %90, 0
@@ -9730,7 +9730,7 @@ Py_DECREF.exit82.i.i:                             ; preds = %82, %79, %78, %69
 100:                                              ; preds = %98
   %101 = getelementptr i8, ptr %41, i64 24
   %.val.i18.i = load ptr, ptr %101, align 8, !tbaa !135
-  %102 = getelementptr ptr, ptr %.val.i18.i, i64 %spec.store.select.i
+  %102 = getelementptr [8 x i8], ptr %.val.i18.i, i64 %spec.store.select.i
   store ptr %96, ptr %102, align 8, !tbaa !4
   br label %Py_DECREF.exit78.i.i
 
@@ -9861,7 +9861,7 @@ Py_DECREF.exit84.i.i:                             ; preds = %.critedge2.i.i, %Py
 
 152:                                              ; preds = %150
   %.val73.i.i.i = load ptr, ptr %137, align 8, !tbaa !135
-  %153 = getelementptr ptr, ptr %.val73.i.i.i, i64 %.04712.i.i.i
+  %153 = getelementptr [8 x i8], ptr %.val73.i.i.i, i64 %.04712.i.i.i
   store ptr %148, ptr %153, align 8, !tbaa !4
   br label %Py_DECREF.exit66.i.i.i
 
@@ -9931,7 +9931,7 @@ Py_DECREF.exit66.i.i.i:                           ; preds = %165, %162, %161, %1
 178:                                              ; preds = %176
   %179 = getelementptr i8, ptr %134, i64 24
   %.val.i.i.i = load ptr, ptr %179, align 8, !tbaa !135
-  %180 = getelementptr ptr, ptr %.val.i.i.i, i64 %.047.lcssa.i.i.i
+  %180 = getelementptr [8 x i8], ptr %.val.i.i.i, i64 %.047.lcssa.i.i.i
   store ptr %174, ptr %180, align 8, !tbaa !4
   br label %Py_DECREF.exit62.i.i.i
 
@@ -10029,7 +10029,7 @@ Py_DECREF.exit68.i.i.i:                           ; preds = %145, %Py_DECREF.exi
 
 217:                                              ; preds = %215
   %.val75.i.i = load ptr, ptr %206, align 8, !tbaa !135
-  %218 = getelementptr ptr, ptr %.val75.i.i, i64 %.05416.i.i
+  %218 = getelementptr [8 x i8], ptr %.val75.i.i, i64 %.05416.i.i
   store ptr %213, ptr %218, align 8, !tbaa !4
   br label %Py_DECREF.exit68.i.i
 
@@ -10085,7 +10085,7 @@ Py_DECREF.exit68.i.i:                             ; preds = %230, %227, %226, %2
 240:                                              ; preds = %238
   %241 = getelementptr i8, ptr %204, i64 24
   %.val.i24.i = load ptr, ptr %241, align 8, !tbaa !135
-  %242 = getelementptr ptr, ptr %.val.i24.i, i64 %.054.lcssa.i.i
+  %242 = getelementptr [8 x i8], ptr %.val.i24.i, i64 %.054.lcssa.i.i
   store ptr %236, ptr %242, align 8, !tbaa !4
   br label %Py_DECREF.exit64.i.i
 
@@ -10768,7 +10768,7 @@ PyByteArray_AS_STRING.exit76.i:                   ; preds = %51, %PyByteArray_AS
 .preheader78.i:                                   ; preds = %68, %.preheader78.i
   %.15182.i = phi i64 [ %72, %.preheader78.i ], [ 0, %68 ]
   %70 = trunc nuw nsw i64 %.15182.i to i32
-  %71 = getelementptr i32, ptr %5, i64 %.15182.i
+  %71 = getelementptr [4 x i8], ptr %5, i64 %.15182.i
   store i32 %70, ptr %71, align 4, !tbaa !167
   %72 = add nuw nsw i64 %.15182.i, 1
   %exitcond91.not.i = icmp eq i64 %72, 256
@@ -10779,7 +10779,7 @@ PyByteArray_AS_STRING.exit76.i:                   ; preds = %51, %PyByteArray_AS
   %73 = getelementptr i8, ptr %.049.i, i64 %.25281.i
   %74 = load i8, ptr %73, align 1, !tbaa !17
   %75 = zext i8 %74 to i32
-  %76 = getelementptr i32, ptr %5, i64 %.25281.i
+  %76 = getelementptr [4 x i8], ptr %5, i64 %.25281.i
   store i32 %75, ptr %76, align 4, !tbaa !167
   %77 = add nuw nsw i64 %.25281.i, 1
   %exitcond.not.i = icmp eq i64 %77, 256
@@ -10803,7 +10803,7 @@ PyByteArray_AS_STRING.exit76.i:                   ; preds = %51, %PyByteArray_AS
   %83 = getelementptr i8, ptr %79, i64 %.383.i
   %84 = load i8, ptr %83, align 1, !tbaa !17
   %85 = zext i8 %84 to i64
-  %86 = getelementptr i32, ptr %5, i64 %85
+  %86 = getelementptr [4 x i8], ptr %5, i64 %85
   store i32 -1, ptr %86, align 4, !tbaa !167
   %87 = add nuw nsw i64 %.383.i, 1
   %exitcond92.not.i = icmp eq i64 %87, %55
@@ -10816,7 +10816,7 @@ PyByteArray_AS_STRING.exit76.i:                   ; preds = %51, %PyByteArray_AS
   %89 = getelementptr i8, ptr %.185.i, i64 1
   %90 = load i8, ptr %.185.i, align 1, !tbaa !17
   %91 = zext i8 %90 to i64
-  %92 = getelementptr i32, ptr %5, i64 %91
+  %92 = getelementptr [4 x i8], ptr %5, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !167
   %.not69.i = icmp eq i32 %93, -1
   br i1 %.not69.i, label %97, label %94

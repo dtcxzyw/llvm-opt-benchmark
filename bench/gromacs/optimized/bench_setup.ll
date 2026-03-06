@@ -329,7 +329,7 @@ define void @_ZN3gmx5benchEiRKNS_23NbnxmKernelBenchOptionsE(i32 noundef %0, ptr 
 28:                                               ; preds = %2, %28
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %28 ]
   %.078 = phi float [ %sqrt.i.i, %2 ], [ %.sroa.speculated, %28 ]
-  %29 = getelementptr inbounds nuw [3 x float], ptr %12, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [12 x i8], ptr %12, i64 %indvars.iv
   %30 = load float, ptr %29, align 4, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %32 = load float, ptr %31, align 4, !tbaa !19
@@ -1983,11 +1983,11 @@ _ZN3gmxL21setupInteractionConstERKNS_23NbnxmKernelBenchOptionsE.exit: ; preds = 
   %394 = select i1 %393, ptr @.str.37, ptr @.str.38
   %395 = load i32, ptr %163, align 4, !tbaa !34
   %396 = sext i32 %395 to i64
-  %397 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %396
+  %397 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %396
   %398 = load ptr, ptr %397, align 8, !tbaa !27
   %399 = load i32, ptr %97, align 8, !tbaa !37
   %400 = sext i32 %399 to i64
-  %401 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %29, i64 %400
+  %401 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %400
   %402 = load ptr, ptr %401, align 8, !tbaa !27
   %403 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %388, ptr noundef nonnull @.str.34, ptr noundef nonnull %391, ptr noundef nonnull %394, ptr noundef %398, ptr noundef %402) #23
   %404 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -2029,10 +2029,10 @@ _ZN3gmxL21setupInteractionConstERKNS_23NbnxmKernelBenchOptionsE.exit: ; preds = 
   %436 = select i1 %435, ptr @.str.37, ptr @.str.38
   %437 = load i32, ptr %163, align 4, !tbaa !34
   %438 = sext i32 %437 to i64
-  %439 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %438
+  %439 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %438
   %440 = load ptr, ptr %439, align 8, !tbaa !27
   %441 = sext i32 %410 to i64
-  %442 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %29, i64 %441
+  %442 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %441
   %443 = load ptr, ptr %442, align 8, !tbaa !27
   %444 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %409, ptr noundef nonnull @.str.39, i32 noundef %411, i64 noundef %417, double noundef %419, i32 noundef %420, i32 noundef %422, ptr noundef nonnull %425, ptr noundef nonnull %431, ptr noundef nonnull %433, ptr noundef nonnull %436, ptr noundef %440, ptr noundef %443) #23
   br label %445
@@ -2937,7 +2937,7 @@ _ZNSt6vectorIN3gmx23NbnxmKernelBenchOptionsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_
 _ZNSt12_Vector_baseIN3gmx23NbnxmKernelBenchOptionsESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx23NbnxmKernelBenchOptionsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %77
   store ptr %21, ptr %0, align 8, !tbaa !47
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !165
-  %81 = getelementptr inbounds nuw %"struct.gmx::NbnxmKernelBenchOptions", ptr %21, i64 %17
+  %81 = getelementptr inbounds nuw [88 x i8], ptr %21, i64 %17
   store ptr %81, ptr %76, align 8, !tbaa !167
   ret void
 

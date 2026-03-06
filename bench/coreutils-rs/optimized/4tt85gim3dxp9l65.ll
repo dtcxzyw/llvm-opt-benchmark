@@ -1242,7 +1242,7 @@ _ZN7uu_uniq30should_extract_obs_skip_fields17h1c9a3b033e8c28d9E.exit: ; preds = 
 132:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !176
   %133 = load ptr, ptr %105, align 8, !noalias !176, !nonnull !5, !noundef !5
-  %134 = getelementptr inbounds i32, ptr %133, i64 %113
+  %134 = getelementptr inbounds [4 x i8], ptr %133, i64 %113
   invoke void @"_ZN99_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$RF$char$GT$$GT$9from_iter17hd74f795ecd5a5947E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %27, ptr noundef nonnull %133, ptr noundef nonnull %134)
           to label %147 unwind label %120, !noalias !179
 
@@ -1393,7 +1393,7 @@ _ZN7uu_uniq30should_extract_obs_skip_fields17h1c9a3b033e8c28d9E.exit: ; preds = 
 190:                                              ; preds = %180
   %191 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %192 = load ptr, ptr %191, align 8, !noalias !176, !nonnull !5, !noundef !5
-  %193 = getelementptr inbounds i32, ptr %192, i64 %182
+  %193 = getelementptr inbounds [4 x i8], ptr %192, i64 %182
   invoke void @"_ZN99_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$RF$char$GT$$GT$9from_iter17hd74f795ecd5a5947E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %25, ptr noundef nonnull %192, ptr noundef nonnull %193)
           to label %194 unwind label %120, !noalias !180
 
@@ -1568,7 +1568,7 @@ _ZN7uu_uniq29should_extract_obs_skip_chars17h24d3295a10ed3060E.exit.thread87: ; 
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !245
   %261 = load ptr, ptr %206, align 8, !noalias !245, !nonnull !5, !noundef !5
-  %262 = getelementptr inbounds i32, ptr %261, i64 %257
+  %262 = getelementptr inbounds [4 x i8], ptr %261, i64 %257
   invoke void @"_ZN99_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$RF$char$GT$$GT$9from_iter17hd74f795ecd5a5947E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %16, ptr noundef nonnull %261, ptr noundef nonnull %262)
           to label %273 unwind label %.loopexit.split-lp.i, !noalias !245
 
@@ -1699,7 +1699,7 @@ _ZN7uu_uniq29should_extract_obs_skip_chars17h24d3295a10ed3060E.exit.thread87: ; 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9db09e4f166235baE.exit.i": ; preds = %.noexc32.i, %299
   %303 = phi i64 [ %.pre.i.i, %.noexc32.i ], [ %219, %299 ]
   %304 = load ptr, ptr %206, align 8, !alias.scope !295, !noalias !245, !nonnull !5, !noundef !5
-  %305 = getelementptr inbounds i32, ptr %304, i64 %303
+  %305 = getelementptr inbounds [4 x i8], ptr %304, i64 %303
   store i32 %.sroa.4.0.i23.ph53.i, ptr %305, align 4, !noalias !245
   %306 = load i64, ptr %207, align 8, !alias.scope !295, !noalias !245, !noundef !5
   %307 = add i64 %306, 1

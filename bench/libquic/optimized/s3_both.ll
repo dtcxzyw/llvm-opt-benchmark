@@ -878,7 +878,7 @@ define hidden range(i32 40, 81) i32 @ssl_verify_alarm_type(i64 noundef %0) local
   br i1 %2, label %switch.lookup, label %3
 
 switch.lookup:                                    ; preds = %1
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ssl_verify_alarm_type, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ssl_verify_alarm_type, i64 %switch.tableidx
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %3
 

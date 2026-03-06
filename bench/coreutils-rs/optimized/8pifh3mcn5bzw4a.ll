@@ -75,7 +75,7 @@ define hidden void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20discard_all_mess
   %20 = load i64, ptr %10, align 32, !noundef !4
   %21 = icmp ult i64 %15, %20
   tail call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds { { { [12 x i64] } }, { i64 }, [1 x i64] }, ptr %19, i64 %15
+  %22 = getelementptr inbounds [112 x i8], ptr %19, i64 %15
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %24 = load atomic i64, ptr %23 acquire, align 16
   %25 = add i64 %.0, 1
@@ -172,7 +172,7 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20di
   %28 = load i64, ptr %18, align 32, !noundef !4
   %29 = icmp ult i64 %23, %28
   tail call void @llvm.assume(i1 %29)
-  %30 = getelementptr inbounds { { { [12 x i64] } }, { i64 }, [1 x i64] }, ptr %27, i64 %23
+  %30 = getelementptr inbounds [112 x i8], ptr %27, i64 %23
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 96
   %32 = load atomic i64, ptr %31 acquire, align 16
   %33 = add i64 %.0.i, 1
@@ -275,7 +275,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i: ; pred
   %30 = load i64, ptr %18, align 32, !noalias !6, !noundef !4
   %31 = icmp ult i64 %25, %30
   call void @llvm.assume(i1 %31)
-  %32 = getelementptr inbounds { { { [12 x i64] } }, { i64 }, [1 x i64] }, ptr %29, i64 %25
+  %32 = getelementptr inbounds [112 x i8], ptr %29, i64 %25
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load atomic i64, ptr %33 acquire, align 16, !noalias !6
   %35 = add i64 %22, 1
@@ -755,7 +755,7 @@ define hidden void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$4send17hdeb35ebb26
   %36 = load i64, ptr %24, align 32, !noalias !69, !noundef !4
   %37 = icmp ult i64 %31, %36
   call void @llvm.assume(i1 %37)
-  %38 = getelementptr inbounds { { { [12 x i64] } }, { i64 }, [1 x i64] }, ptr %35, i64 %31
+  %38 = getelementptr inbounds [112 x i8], ptr %35, i64 %31
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = load atomic i64, ptr %39 acquire, align 16, !noalias !69
   %41 = icmp eq i64 %.01440.i, %40
@@ -1216,9 +1216,9 @@ define internal fastcc void @_ZN3std4sync4mpmc5waker5Waker6notify17hfe3b1f14be08
   store i64 %8, ptr %5, align 8, !alias.scope !128, !noalias !131
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !alias.scope !128, !noalias !131, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds { ptr, i64, ptr }, ptr %11, i64 %8
+  %12 = getelementptr inbounds [24 x i8], ptr %11, i64 %8
   %13 = sub i64 %6, %9
-  %14 = getelementptr inbounds { ptr, i64, ptr }, ptr %11, i64 %9
+  %14 = getelementptr inbounds [24 x i8], ptr %11, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %12, ptr %3, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1561,7 +1561,7 @@ common.resume:                                    ; preds = %47, %19
   %26 = load ptr, ptr %25, align 8, !alias.scope !169, !noalias !172, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load i64, ptr %27, align 8, !alias.scope !169, !noalias !172, !noundef !4
-  %29 = getelementptr inbounds { ptr, i64, ptr }, ptr %26, i64 %28
+  %29 = getelementptr inbounds [24 x i8], ptr %26, i64 %28
   br label %30
 
 30:                                               ; preds = %34, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h95c667e9016d1720E.exit"
@@ -1591,7 +1591,7 @@ common.resume:                                    ; preds = %47, %19
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17hf148fa94b7be4fd8E.exit.i": ; preds = %39
-  %41 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %26, i64 %31
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %31
   %.sroa.013.0.copyload = load ptr, ptr %41, align 8, !noalias !187
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false), !noalias !169
@@ -1846,7 +1846,7 @@ _ZN3std4sync4mpmc7context7Context12store_packet17h71587165d6a8dce1E.exit.i.i.i: 
 
 _ZN3std4sync4mpmc5waker5Waker10try_select17ha74c1d6f879212f7E.exit: ; preds = %.noexc5
   %78 = load ptr, ptr %45, align 8, !alias.scope !223, !noalias !224, !nonnull !4, !noundef !4
-  %79 = getelementptr inbounds nuw { ptr, i64, ptr }, ptr %78, i64 %.015.i.i
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %.015.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %79, i64 24, i1 false), !noalias !201
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = xor i64 %.015.i.i, -1
@@ -2042,7 +2042,7 @@ common.resume:                                    ; preds = %.body, %19
   %41 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %32, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h40274c645ff7ca97E.exit" ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load ptr, ptr %42, align 8, !alias.scope !248, !noalias !251, !nonnull !4, !noundef !4
-  %44 = getelementptr inbounds { ptr, i64, ptr }, ptr %43, i64 %41
+  %44 = getelementptr inbounds [24 x i8], ptr %43, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %45 = load i64, ptr %31, align 8, !alias.scope !248, !noalias !251, !noundef !4
   %46 = add i64 %45, 1

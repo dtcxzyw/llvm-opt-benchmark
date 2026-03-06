@@ -231,7 +231,7 @@ check_marker.exit:                                ; preds = %23
 
 .thread:                                          ; preds = %115
   %141 = zext nneg i32 %73 to i64
-  %142 = getelementptr inbounds nuw [2 x i16], ptr @ff_h263_format, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr @ff_h263_format, i64 %141
   %143 = load i16, ptr %142, align 4, !tbaa !47
   %144 = zext i16 %143 to i32
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -469,7 +469,7 @@ check_marker.exit:                                ; preds = %23
   %298 = load ptr, ptr %35, align 8, !tbaa !15
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 128
   %300 = zext nneg i32 %261 to i64
-  %301 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_h263_pixel_aspect, i64 %300
+  %301 = getelementptr inbounds nuw [8 x i8], ptr @ff_h263_pixel_aspect, i64 %300
   %302 = load i64, ptr %301, align 8
   store i64 %302, ptr %299, align 8
   %.pre114 = load ptr, ptr %35, align 8, !tbaa !15

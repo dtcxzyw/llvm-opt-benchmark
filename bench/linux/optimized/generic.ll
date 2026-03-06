@@ -127,7 +127,7 @@ define dso_local void @generic_rebuild_map() local_unnamed_addr #1 align 16 {
   %9 = load i32, ptr @cache_map_n, align 4
   %10 = add i32 %9, -1
   %11 = zext i32 %10 to i64
-  %.split.i = getelementptr %struct.cache_map, ptr %8, i64 %11
+  %.split.i = getelementptr [32 x i8], ptr %8, i64 %11
   %12 = getelementptr i8, ptr %.split.i, i64 24
   %13 = load i16, ptr %12, align 8
   %14 = or i16 %13, 256
@@ -142,7 +142,7 @@ define dso_local void @generic_rebuild_map() local_unnamed_addr #1 align 16 {
 .preheader.i:                                     ; preds = %15, %.thread.i
   %18 = phi i32 [ %48, %.thread.i ], [ %16, %15 ]
   %19 = phi i64 [ %49, %.thread.i ], [ 0, %15 ]
-  %20 = getelementptr %struct.mtrr_var_range, ptr @mtrr_state, i64 %19
+  %20 = getelementptr [16 x i8], ptr @mtrr_state, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 2048
@@ -244,7 +244,7 @@ define dso_local void @mtrr_build_map() local_unnamed_addr #2 section ".init.tex
 
 34:                                               ; preds = %34, %31
   %35 = phi i64 [ 0, %31 ], [ %39, %34 ]
-  %.split = getelementptr %struct.cache_map, ptr %32, i64 %35
+  %.split = getelementptr [32 x i8], ptr %32, i64 %35
   %36 = getelementptr i8, ptr %.split, i64 24
   %37 = load i16, ptr %36, align 8
   %38 = or i16 %37, 256
@@ -265,7 +265,7 @@ define dso_local void @mtrr_build_map() local_unnamed_addr #2 section ".init.tex
   %45 = load i32, ptr @cache_map_n, align 4
   %46 = add i32 %45, -1
   %47 = zext i32 %46 to i64
-  %.split.i = getelementptr %struct.cache_map, ptr %44, i64 %47
+  %.split.i = getelementptr [32 x i8], ptr %44, i64 %47
   %48 = getelementptr i8, ptr %.split.i, i64 24
   %49 = load i16, ptr %48, align 8
   %50 = or i16 %49, 256
@@ -281,7 +281,7 @@ define dso_local void @mtrr_build_map() local_unnamed_addr #2 section ".init.tex
 .preheader.i:                                     ; preds = %51, %.thread.i
   %55 = phi i32 [ %85, %.thread.i ], [ %53, %51 ]
   %56 = phi i64 [ %86, %.thread.i ], [ 0, %51 ]
-  %57 = getelementptr %struct.mtrr_var_range, ptr @mtrr_state, i64 %56
+  %57 = getelementptr [16 x i8], ptr @mtrr_state, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 2048
@@ -351,7 +351,7 @@ map_add_var.exit:                                 ; preds = %map_add_var.exit.lo
 .preheader:                                       ; preds = %map_add_var.exit, %.preheader
   %106 = phi i64 [ %120, %.preheader ], [ 0, %map_add_var.exit ]
   %107 = load ptr, ptr @cache_map, align 8
-  %108 = getelementptr %struct.cache_map, ptr %107, i64 %106
+  %108 = getelementptr [32 x i8], ptr %107, i64 %106
   %109 = load i64, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %111 = load i64, ptr %110, align 8
@@ -393,7 +393,7 @@ define internal fastcc void @add_map_entry(i64 noundef %0, i64 noundef %1, i8 no
   %15 = phi i32 [ 0, %8 ], [ %77, %74 ]
   %16 = load ptr, ptr @cache_map, align 8
   %17 = sext i32 %15 to i64
-  %18 = getelementptr %struct.cache_map, ptr %16, i64 %17
+  %18 = getelementptr [32 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = icmp ult i64 %14, %20
@@ -612,7 +612,7 @@ define dso_local zeroext i8 @mtrr_type_lookup(i64 noundef %0, i64 noundef %1, pt
   %18 = phi i64 [ 0, %14 ], [ %85, %82 ]
   %19 = phi i8 [ -1, %14 ], [ %84, %82 ]
   %20 = phi i64 [ %0, %14 ], [ %83, %82 ]
-  %21 = getelementptr %struct.cache_map, ptr %15, i64 %18
+  %21 = getelementptr [32 x i8], ptr %15, i64 %18
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = icmp ult i64 %20, %23
@@ -775,7 +775,7 @@ define dso_local zeroext i8 @mtrr_type_lookup(i64 noundef %0, i64 noundef %1, pt
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local void @fill_mtrr_var_range(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 align 16 {
   %6 = zext i32 %0 to i64
-  %7 = getelementptr %struct.mtrr_var_range, ptr @mtrr_state, i64 %6
+  %7 = getelementptr [16 x i8], ptr @mtrr_state, i64 %6
   store i32 %1, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %2, ptr %8, align 4
@@ -962,7 +962,7 @@ define dso_local zeroext i1 @get_mtrr_state() local_unnamed_addr #2 section ".in
 
 .preheader:                                       ; preds = %7, %36
   %13 = phi i64 [ %42, %36 ], [ 0, %7 ]
-  %14 = getelementptr %struct.mtrr_var_range, ptr @mtrr_state, i64 %13
+  %14 = getelementptr [16 x i8], ptr @mtrr_state, i64 %13
   %15 = trunc nuw i64 %13 to i32
   %16 = shl i32 %15, 1
   %17 = add i32 %16, 512
@@ -1141,7 +1141,7 @@ define internal fastcc void @print_mtrr_state() unnamed_addr #2 section ".init.t
 
 .preheader:                                       ; preds = %21, %53
   %32 = phi i64 [ %54, %53 ], [ 0, %21 ]
-  %33 = getelementptr %struct.mtrr_var_range, ptr @mtrr_state, i64 %32
+  %33 = getelementptr [16 x i8], ptr @mtrr_state, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 2048
@@ -1385,7 +1385,7 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
 .preheader:                                       ; preds = %0, %86
   %3 = phi i64 [ %88, %86 ], [ 0, %0 ]
   %4 = phi i64 [ %87, %86 ], [ 0, %0 ]
-  %5 = getelementptr %struct.mtrr_var_range, ptr @mtrr_state, i64 %3
+  %5 = getelementptr [16 x i8], ptr @mtrr_state, i64 %3
   %6 = trunc nuw i64 %3 to i32
   %7 = shl i32 %6, 1
   %8 = add i32 %7, 512
@@ -1594,7 +1594,7 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
   %126 = phi i8 [ %137, %133 ], [ %178, %177 ]
   %127 = phi ptr [ %136, %133 ], [ %147, %177 ]
   %128 = add nuw nsw i64 %134, 1
-  %129 = getelementptr %struct.fixed_range_block, ptr @fixed_range_blocks, i64 %128
+  %129 = getelementptr [8 x i8], ptr @fixed_range_blocks, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %131 = load i32, ptr %130, align 4
   %132 = icmp eq i64 %128, 3
@@ -1609,7 +1609,7 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
   br i1 %138, label %139, label %.loopexit
 
 139:                                              ; preds = %133
-  %140 = getelementptr %struct.fixed_range_block, ptr @fixed_range_blocks, i64 %134
+  %140 = getelementptr [8 x i8], ptr @fixed_range_blocks, i64 %134
   %141 = load i32, ptr %140, align 8
   br label %142
 
@@ -1831,7 +1831,7 @@ define dso_local noundef i32 @positive_have_wrcomb() local_unnamed_addr #8 align
 define internal void @generic_set_mtrr(i32 noundef %0, i64 noundef %1, i64 noundef %2, i8 noundef zeroext %3) #1 align 16 {
   %5 = alloca i64, align 8
   %6 = zext i32 %0 to i64
-  %7 = getelementptr %struct.mtrr_var_range, ptr @mtrr_state, i64 %6
+  %7 = getelementptr [16 x i8], ptr @mtrr_state, i64 %6
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !annotation !32
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5) #17, !srcloc !40
@@ -2080,7 +2080,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @add_map_entry_at(i64 noundef
 8:                                                ; preds = %6
   %9 = load ptr, ptr @cache_map, align 8
   %10 = zext nneg i32 %3 to i64
-  %11 = getelementptr %struct.cache_map, ptr %9, i64 %10
+  %11 = getelementptr [32 x i8], ptr %9, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load i16, ptr %12, align 8
   %14 = and i16 %13, 256
@@ -2105,7 +2105,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @add_map_entry_at(i64 noundef
 27:                                               ; preds = %23
   %28 = load ptr, ptr @cache_map, align 8
   %29 = sext i32 %3 to i64
-  %30 = getelementptr %struct.cache_map, ptr %28, i64 %29
+  %30 = getelementptr [32 x i8], ptr %28, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i16, ptr %31, align 8
   %33 = and i16 %32, 256
@@ -2126,7 +2126,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @add_map_entry_at(i64 noundef
   %44 = load i64, ptr %43, align 8
   %45 = add i32 %3, -1
   %46 = sext i32 %45 to i64
-  %.split8 = getelementptr %struct.cache_map, ptr %28, i64 %46
+  %.split8 = getelementptr [32 x i8], ptr %28, i64 %46
   %47 = getelementptr i8, ptr %.split8, i64 8
   store i64 %44, ptr %47, align 8
   %48 = add i32 %25, -1
@@ -2156,7 +2156,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @add_map_entry_at(i64 noundef
   %57 = phi ptr [ %.pre, %.thread9._crit_edge ], [ %28, %55 ]
   %58 = add i32 %3, -1
   %59 = sext i32 %58 to i64
-  %.split6 = getelementptr %struct.cache_map, ptr %57, i64 %59
+  %.split6 = getelementptr [32 x i8], ptr %57, i64 %59
   %60 = getelementptr i8, ptr %.split6, i64 8
   store i64 %1, ptr %60, align 8
   br label %85
@@ -2197,7 +2197,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @add_map_entry_at(i64 noundef
 .thread12:                                        ; preds = %69, %.thread11
   %.pre-phi = phi i64 [ %29, %.thread11 ], [ %.pre14, %69 ]
   %70 = phi ptr [ %28, %.thread11 ], [ %.pre13, %69 ]
-  %71 = getelementptr %struct.cache_map, ptr %70, i64 %.pre-phi
+  %71 = getelementptr [32 x i8], ptr %70, i64 %.pre-phi
   %72 = getelementptr i8, ptr %71, i64 32
   %73 = sub nuw i32 %25, %3
   %74 = zext i32 %73 to i64
@@ -2208,7 +2208,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @add_map_entry_at(i64 noundef
 ._crit_edge:                                      ; preds = %69, %.thread12
   %.pre-phi16 = phi i64 [ %.pre-phi, %.thread12 ], [ %.pre14, %69 ]
   %76 = phi ptr [ %70, %.thread12 ], [ %.pre13, %69 ]
-  %77 = getelementptr %struct.cache_map, ptr %76, i64 %.pre-phi16
+  %77 = getelementptr [32 x i8], ptr %76, i64 %.pre-phi16
   store i64 %0, ptr %77, align 8
   %78 = getelementptr i8, ptr %77, i64 8
   store i64 %1, ptr %78, align 8

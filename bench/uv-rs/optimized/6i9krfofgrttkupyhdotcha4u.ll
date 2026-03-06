@@ -2162,10 +2162,10 @@ define { ptr, i64 } @_ZN9uv_pep5086marker11environment17MarkerEnvironment10get_s
 switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !8, !noundef !8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9uv_pep5086marker11environment17MarkerEnvironment10get_string17hbb4bf864c4afddceE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9uv_pep5086marker11environment17MarkerEnvironment10get_string17hbb4bf864c4afddceE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %1 to i64
-  %switch.gep4 = getelementptr inbounds nuw i64, ptr @switch.table._ZN9uv_pep5086marker11environment17MarkerEnvironment10get_string17hbb4bf864c4afddceE.43, i64 %4
+  %switch.gep4 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9uv_pep5086marker11environment17MarkerEnvironment10get_string17hbb4bf864c4afddceE.43, i64 %4
   %switch.load5 = load i64, ptr %switch.gep4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 %switch.load
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 %switch.load5
@@ -6219,7 +6219,7 @@ _ZN9uv_pep5086cursor6Cursor5slice17hf381ea8be11b22afE.exit: ; preds = %.noexc18
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h29e113cfc42a5fb9E.exit": ; preds = %100, %104
   %116 = load ptr, ptr %27, align 8, !alias.scope !1037, !noalias !1040, !nonnull !8, !noundef !8
-  %117 = getelementptr inbounds { { [9 x i8], i8, [6 x i8] } }, ptr %116, i64 %101
+  %117 = getelementptr inbounds [16 x i8], ptr %116, i64 %101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false)
   %118 = add i64 %101, 1
   br label %31

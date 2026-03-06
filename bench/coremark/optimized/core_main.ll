@@ -185,7 +185,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %46 = mul nuw nsw i32 %35, %45
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 %47
-  %49 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv220
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv220
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %48, ptr %50, align 8, !tbaa !25
   %51 = add i16 %.0129197, 1
@@ -375,9 +375,9 @@ iterate.exit178:                                  ; preds = %122, %110
   br i1 %.not216, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %139
-  %142 = getelementptr inbounds nuw i16, ptr @list_known_crc, i64 %.0135
-  %143 = getelementptr inbounds nuw i16, ptr @matrix_known_crc, i64 %.0135
-  %144 = getelementptr inbounds nuw i16, ptr @state_known_crc, i64 %.0135
+  %142 = getelementptr inbounds nuw [2 x i8], ptr @list_known_crc, i64 %.0135
+  %143 = getelementptr inbounds nuw [2 x i8], ptr @matrix_known_crc, i64 %.0135
+  %144 = getelementptr inbounds nuw [2 x i8], ptr @state_known_crc, i64 %.0135
   br label %145
 
 145:                                              ; preds = %.lr.ph, %191
@@ -385,7 +385,7 @@ iterate.exit178:                                  ; preds = %122, %110
   %.5201 = phi i16 [ 0, %.lr.ph ], [ %194, %191 ]
   %.2133200 = phi i16 [ 0, %.lr.ph ], [ %193, %191 ]
   %147 = zext i16 %.5201 to i64
-  %148 = getelementptr inbounds nuw %struct.RESULTS_S, ptr %4, i64 %147
+  %148 = getelementptr inbounds nuw [112 x i8], ptr %4, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 104
   store i16 0, ptr %149, align 8, !tbaa !26
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 48
@@ -526,7 +526,7 @@ iterate.exit178:                                  ; preds = %122, %110
   %237 = phi i32 [ %245, %.lr.ph203 ], [ 0, %223 ]
   %.6202 = phi i16 [ %244, %.lr.ph203 ], [ 0, %223 ]
   %238 = zext i16 %.6202 to i64
-  %239 = getelementptr inbounds nuw %struct.RESULTS_S, ptr %4, i64 %238
+  %239 = getelementptr inbounds nuw [112 x i8], ptr %4, i64 %238
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 98
   %241 = load i16, ptr %240, align 2, !tbaa !17
   %242 = zext i16 %241 to i32
@@ -554,7 +554,7 @@ iterate.exit178:                                  ; preds = %122, %110
   %252 = phi i32 [ %260, %.lr.ph205 ], [ 0, %.loopexit187 ]
   %.7204 = phi i16 [ %259, %.lr.ph205 ], [ 0, %.loopexit187 ]
   %253 = zext i16 %.7204 to i64
-  %254 = getelementptr inbounds nuw %struct.RESULTS_S, ptr %4, i64 %253
+  %254 = getelementptr inbounds nuw [112 x i8], ptr %4, i64 %253
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 100
   %256 = load i16, ptr %255, align 4, !tbaa !33
   %257 = zext i16 %256 to i32
@@ -582,7 +582,7 @@ iterate.exit178:                                  ; preds = %122, %110
   %267 = phi i32 [ %275, %.lr.ph207 ], [ 0, %.loopexit185 ]
   %.8206 = phi i16 [ %274, %.lr.ph207 ], [ 0, %.loopexit185 ]
   %268 = zext i16 %.8206 to i64
-  %269 = getelementptr inbounds nuw %struct.RESULTS_S, ptr %4, i64 %268
+  %269 = getelementptr inbounds nuw [112 x i8], ptr %4, i64 %268
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 102
   %271 = load i16, ptr %270, align 2, !tbaa !34
   %272 = zext i16 %271 to i32
@@ -602,7 +602,7 @@ iterate.exit178:                                  ; preds = %122, %110
   %279 = phi i32 [ %287, %.lr.ph209 ], [ 0, %.loopexit ]
   %.9208 = phi i16 [ %286, %.lr.ph209 ], [ 0, %.loopexit ]
   %280 = zext i16 %.9208 to i64
-  %281 = getelementptr inbounds nuw %struct.RESULTS_S, ptr %4, i64 %280
+  %281 = getelementptr inbounds nuw [112 x i8], ptr %4, i64 %280
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 96
   %283 = load i16, ptr %282, align 16, !tbaa !16
   %284 = zext i16 %283 to i32

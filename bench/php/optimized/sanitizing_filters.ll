@@ -838,7 +838,7 @@ define hidden void @php_filter_email(ptr noundef %0, i64 noundef %1, ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr @__const.php_filter_email.allowed_list, i64 %.07.i
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw i64, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %8
   store i64 1, ptr %9, align 8, !tbaa !22
   %10 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %10, 84
@@ -873,7 +873,7 @@ filter_map_update.exit:                           ; preds = %.lr.ph.i
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 %.024.i
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i64, ptr %5, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !22
   %.not.i2 = icmp eq i64 %29, 0
   br i1 %.not.i2, label %33, label %30
@@ -920,7 +920,7 @@ define hidden void @php_filter_url(ptr noundef %0, i64 noundef %1, ptr noundef r
   %6 = getelementptr inbounds nuw i8, ptr @__const.php_filter_url.allowed_list, i64 %.07.i
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw i64, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %8
   store i64 1, ptr %9, align 8, !tbaa !22
   %10 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %10, 94
@@ -955,7 +955,7 @@ filter_map_update.exit:                           ; preds = %.lr.ph.i
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 %.024.i
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i64, ptr %5, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !22
   %.not.i2 = icmp eq i64 %29, 0
   br i1 %.not.i2, label %33, label %30
@@ -999,7 +999,7 @@ define hidden void @php_filter_number_int(ptr noundef %0, i64 noundef %1, ptr no
   %6 = getelementptr inbounds nuw i8, ptr @__const.php_filter_number_float.allowed_list, i64 %.07.i
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw i64, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %8
   store i64 1, ptr %9, align 8, !tbaa !22
   %10 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %10, 12
@@ -1034,7 +1034,7 @@ filter_map_update.exit:                           ; preds = %.lr.ph.i
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 %.024.i
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i64, ptr %5, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !22
   %.not.i2 = icmp eq i64 %29, 0
   br i1 %.not.i2, label %33, label %30
@@ -1078,7 +1078,7 @@ define hidden void @php_filter_number_float(ptr noundef %0, i64 noundef %1, ptr 
   %6 = getelementptr inbounds nuw i8, ptr @__const.php_filter_number_float.allowed_list, i64 %.07.i
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw i64, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %8
   store i64 1, ptr %9, align 8, !tbaa !22
   %10 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %10, 12
@@ -1114,7 +1114,7 @@ filter_map_update.exit14:                         ; preds = %.lr.ph.i11.preheade
   %16 = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.07.i17
   %17 = load i8, ptr %16, align 1, !tbaa !4
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %18
   store i64 4, ptr %19, align 8, !tbaa !22
   %20 = add nuw nsw i64 %.07.i17, 1
   %exitcond.not.i18 = icmp eq i64 %20, 2
@@ -1149,7 +1149,7 @@ filter_map_update.exit19:                         ; preds = %.lr.ph.i16, %filter
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 %.024.i
   %36 = load i8, ptr %35, align 1, !tbaa !4
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i64, ptr %5, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !22
   %.not.i21 = icmp eq i64 %39, 0
   br i1 %.not.i21, label %43, label %40

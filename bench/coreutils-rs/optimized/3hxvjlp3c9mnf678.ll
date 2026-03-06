@@ -431,7 +431,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @_ZN4core4iter6trai
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %2, i64 %7
+  %12 = getelementptr inbounds [40 x i8], ptr %2, i64 %7
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i64, ptr %13, align 8, !noalias !73, !noundef !16
   %15 = tail call { i64, ptr } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3fada96517ba0a4eE.llvm.2093655606052473966"(ptr noundef nonnull %11, ptr noundef nonnull %1, i64 noundef %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3), !noalias !74
@@ -1112,7 +1112,7 @@ define hidden void @_ZN6uu_fmt9linebreak15build_best_path17h8cd13a26ab3d5883E(pt
 
 _ZN4core4iter6traits8iterator8Iterator10min_by_key17hc47f4f1cbfedb790E.llvm.6876384978452292205.exit: ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %14 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %1, i64 %10
+  %14 = getelementptr inbounds [40 x i8], ptr %1, i64 %10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !176, !noalias !197, !noundef !16
   %17 = tail call { i64, ptr } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3fada96517ba0a4eE.llvm.2093655606052473966"(ptr noundef nonnull %13, ptr noundef nonnull %7, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2), !noalias !198
@@ -1136,7 +1136,7 @@ _ZN4core4iter6traits8iterator8Iterator10min_by_key17hc47f4f1cbfedb790E.llvm.6876
 .lr.ph.i:                                         ; preds = %20, %38
   %25 = phi i64 [ %44, %38 ], [ 0, %20 ]
   %.09.i = phi i64 [ %45, %38 ], [ %21, %20 ]
-  %26 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %1, i64 %.09.i
+  %26 = getelementptr inbounds [40 x i8], ptr %1, i64 %.09.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !201, !noalias !210, !noundef !16
   %29 = icmp eq ptr %28, null
@@ -1183,7 +1183,7 @@ _ZN4core4iter6traits8iterator8Iterator10min_by_key17hc47f4f1cbfedb790E.llvm.6876
 38:                                               ; preds = %.noexc.i, %32
   %39 = phi i64 [ %.pre.i.i, %.noexc.i ], [ %25, %32 ]
   %40 = load ptr, ptr %22, align 8, !alias.scope !211, !noalias !214, !nonnull !16, !noundef !16
-  %41 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %40, i64 %39
+  %41 = getelementptr inbounds [16 x i8], ptr %40, i64 %39
   store ptr %28, ptr %41, align 8, !noalias !214
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i8 %34, ptr %42, align 8, !noalias !208
@@ -1245,7 +1245,7 @@ define hidden void @"_ZN6uu_fmt9linebreak15build_best_path28_$u7b$$u7b$closure$u
 .lr.ph:                                           ; preds = %4, %24
   %10 = phi i64 [ %30, %24 ], [ 0, %4 ]
   %.09 = phi i64 [ %31, %24 ], [ %6, %4 ]
-  %11 = getelementptr inbounds { i64, ptr, i64, i64, float, i8, i8, [2 x i8] }, ptr %1, i64 %.09
+  %11 = getelementptr inbounds [40 x i8], ptr %1, i64 %.09
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !noundef !16
   %14 = icmp eq ptr %13, null
@@ -1297,7 +1297,7 @@ define hidden void @"_ZN6uu_fmt9linebreak15build_best_path28_$u7b$$u7b$closure$u
 24:                                               ; preds = %.noexc, %18
   %25 = phi i64 [ %.pre.i, %.noexc ], [ %10, %18 ]
   %26 = load ptr, ptr %7, align 8, !alias.scope !218, !noalias !221, !nonnull !16, !noundef !16
-  %27 = getelementptr inbounds { ptr, i8, [7 x i8] }, ptr %26, i64 %25
+  %27 = getelementptr inbounds [16 x i8], ptr %26, i64 %25
   store ptr %13, ptr %27, align 8, !noalias !221
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i8 %20, ptr %28, align 8

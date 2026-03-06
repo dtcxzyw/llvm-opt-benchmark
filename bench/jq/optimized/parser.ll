@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %struct.location = type { i32, i32 }
 %struct.block = type { ptr, ptr }
-%union.yyalloc = type { %union.YYSTYPE }
 %struct.lexer_param = type { ptr }
 
 @.str = private unnamed_addr constant [11 x i8] c"unexpected\00", align 1
@@ -353,7 +352,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %.01168 = phi i32 [ -2, %4 ], [ %.1, %28 ]
   %31 = trunc nsw i32 %.01173 to i16
   store i16 %31, ptr %.01189, align 2, !tbaa !14
-  %32 = getelementptr inbounds i16, ptr %.01182, i64 %.01179
+  %32 = getelementptr inbounds [2 x i8], ptr %.01182, i64 %.01179
   %33 = getelementptr inbounds i8, ptr %32, i64 -2
   %.not = icmp ugt ptr %33, %.01189
   br i1 %.not, label %.thread1501, label %34
@@ -382,13 +381,13 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %48 = shl nsw i64 %spec.store.select, 1
   %49 = add nsw i64 %48, 15
   %50 = sdiv i64 %49, 16
-  %51 = getelementptr inbounds %union.yyalloc, ptr %45, i64 %50
+  %51 = getelementptr inbounds [16 x i8], ptr %45, i64 %50
   %52 = shl i64 %39, 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %51, ptr align 8 %.01198, i64 %52, i1 false)
   %53 = shl nsw i64 %spec.store.select, 4
   %54 = or disjoint i64 %53, 15
   %55 = sdiv i64 %54, 16
-  %56 = getelementptr inbounds %union.yyalloc, ptr %51, i64 %55
+  %56 = getelementptr inbounds [16 x i8], ptr %51, i64 %55
   %57 = shl i64 %39, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %56, ptr align 4 %.01211, i64 %57, i1 false)
   %.not1252 = icmp eq ptr %.01182, %7
@@ -399,11 +398,11 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br label %59
 
 59:                                               ; preds = %46, %58
-  %60 = getelementptr inbounds i16, ptr %45, i64 %39
+  %60 = getelementptr inbounds [2 x i8], ptr %45, i64 %39
   %61 = getelementptr inbounds i8, ptr %60, i64 -2
-  %62 = getelementptr inbounds %union.YYSTYPE, ptr %51, i64 %39
+  %62 = getelementptr inbounds [16 x i8], ptr %51, i64 %39
   %63 = getelementptr inbounds i8, ptr %62, i64 -16
-  %64 = getelementptr inbounds %struct.location, ptr %56, i64 %39
+  %64 = getelementptr inbounds [8 x i8], ptr %56, i64 %39
   %65 = getelementptr inbounds i8, ptr %64, i64 -8
   %.not1253 = icmp sgt i64 %spec.store.select, %39
   br i1 %.not1253, label %.thread1501, label %.loopexit
@@ -421,7 +420,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 
 67:                                               ; preds = %.thread1501
   %68 = sext i32 %.01173 to i64
-  %69 = getelementptr inbounds i16, ptr @yypact, i64 %68
+  %69 = getelementptr inbounds [2 x i8], ptr @yypact, i64 %68
   %70 = load i16, ptr %69, align 2, !tbaa !14
   %71 = sext i16 %70 to i32
   %72 = icmp eq i16 %70, -157
@@ -468,14 +467,14 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 
 91:                                               ; preds = %89
   %92 = zext nneg i32 %90 to i64
-  %93 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %92
+  %93 = getelementptr inbounds nuw [2 x i8], ptr @yycheck, i64 %92
   %94 = load i16, ptr %93, align 2, !tbaa !14
   %95 = sext i16 %94 to i32
   %.not1254 = icmp eq i32 %.01226, %95
   br i1 %.not1254, label %96, label %109
 
 96:                                               ; preds = %91
-  %97 = getelementptr inbounds nuw i16, ptr @yytable, i64 %92
+  %97 = getelementptr inbounds nuw [2 x i8], ptr @yytable, i64 %92
   %98 = load i16, ptr %97, align 2, !tbaa !14
   %99 = sext i16 %98 to i32
   %100 = icmp slt i16 %98, 1
@@ -514,7 +513,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %117 = load i8, ptr %116, align 1, !tbaa !11
   %118 = sext i8 %117 to i64
   %119 = sub nsw i64 1, %118
-  %120 = getelementptr inbounds %union.YYSTYPE, ptr %.21204, i64 %119
+  %120 = getelementptr inbounds [16 x i8], ptr %.21204, i64 %119
   %.sroa.0616.sroa.0.0.copyload = load i64, ptr %120, align 8
   %.sroa.181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %120, i64 8
   %.sroa.181.0.copyload = load ptr, ptr %.sroa.181.0..sroa_idx, align 8, !tbaa !11
@@ -523,7 +522,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 
 121:                                              ; preds = %114
   %122 = sub nsw i64 0, %118
-  %123 = getelementptr inbounds %struct.location, ptr %.21217, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %.21217, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load i32, ptr %124, align 4, !tbaa !17
   %126 = getelementptr inbounds nuw i8, ptr %.21217, i64 4
@@ -3326,9 +3325,9 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %.sroa.181.0 = phi ptr [ %.sroa.181.0.copyload, %131 ], [ %.sroa.181.0.copyload, %132 ], [ %.sroa.181.0.copyload, %156 ], [ %177, %174 ], [ %199, %196 ], [ %208, %203 ], [ %188, %185 ], [ %213, %210 ], [ %225, %215 ], [ %230, %227 ], [ %242, %232 ], [ %254, %244 ], [ %270, %256 ], [ %288, %272 ], [ %307, %290 ], [ %328, %309 ], [ %344, %330 ], [ %.sroa.181.0.copyload618, %346 ], [ %358, %348 ], [ %369, %360 ], [ %.sroa.181.0.copyload620, %371 ], [ %391, %373 ], [ %405, %395 ], [ %426, %407 ], [ %438, %428 ], [ %450, %440 ], [ %462, %452 ], [ %474, %464 ], [ %495, %476 ], [ %507, %497 ], [ %519, %509 ], [ %531, %521 ], [ %543, %533 ], [ %557, %545 ], [ %569, %559 ], [ %581, %571 ], [ %593, %583 ], [ %605, %595 ], [ %617, %607 ], [ %629, %619 ], [ %641, %631 ], [ %653, %643 ], [ %665, %655 ], [ %677, %667 ], [ %689, %679 ], [ %701, %691 ], [ %713, %703 ], [ %725, %715 ], [ %.sroa.181.0.copyload622, %727 ], [ %.sroa.181.0.copyload624, %728 ], [ %754, %751 ], [ %771, %762 ], [ %739, %736 ], [ %788, %773 ], [ %809, %794 ], [ %825, %815 ], [ %.sroa.181.0.copyload626, %844 ], [ %840, %834 ], [ %860, %845 ], [ %880, %864 ], [ %.sroa.181.0.copyload628, %884 ], [ %895, %885 ], [ %904, %897 ], [ %915, %908 ], [ %.sroa.181.0.copyload630, %919 ], [ %924, %921 ], [ %.sroa.181.0.copyload632, %925 ], [ %937, %931 ], [ %952, %939 ], [ %975, %954 ], [ %991, %977 ], [ %.sroa.181.0.copyload634, %993 ], [ %998, %995 ], [ %1010, %1000 ], [ %1024, %1012 ], [ %.sroa.181.0.copyload636, %1026 ], [ %1030, %1027 ], [ %1038, %1032 ], [ %1063, %1040 ], [ %1070, %1067 ], [ %1086, %1072 ], [ %1101, %1088 ], [ %1114, %1103 ], [ %1126, %1116 ], [ %1141, %1128 ], [ %1155, %1143 ], [ %1167, %1157 ], [ %1178, %1169 ], [ %1183, %1180 ], [ %1192, %1185 ], [ %1205, %1194 ], [ %1218, %1207 ], [ %1231, %1220 ], [ %1244, %1233 ], [ %1256, %1246 ], [ %1268, %1258 ], [ %1280, %1270 ], [ %1292, %1282 ], [ %1309, %1294 ], [ %1328, %1311 ], [ %1347, %1330 ], [ %1364, %1349 ], [ %1383, %1366 ], [ %1402, %1385 ], [ %1410, %1404 ], [ %.sroa.181.0.copyload638, %1412 ], [ %1422, %1413 ], [ %.sroa.181.0.copyload640, %1424 ], [ %1433, %1426 ], [ %1441, %1435 ], [ %.sroa.181.1, %1470 ], [ %1481, %1471 ], [ %1495, %1485 ], [ %1502, %1499 ], [ %.sroa.181.2, %1540 ], [ %1560, %1543 ], [ %1567, %1564 ], [ %1572, %1569 ], [ %.sroa.181.0.copyload642, %1574 ], [ %1579, %1576 ], [ %.sroa.181.0.copyload644, %1581 ], [ %1592, %1582 ], [ %1600, %1594 ], [ %1615, %1602 ], [ %1623, %1617 ], [ %1635, %1625 ], [ %.sroa.181.0.copyload646, %1637 ], [ %1645, %1638 ], [ %1659, %1649 ], [ %1671, %1661 ], [ %1682, %1673 ], [ %1694, %1684 ], [ %.sroa.181.0.copyload648, %1696 ], [ %1707, %1697 ], [ %1724, %1709 ], [ %1754, %1726 ], [ %1769, %1756 ], [ %1784, %1771 ], [ %1796, %1786 ], [ %1817, %1809 ], [ %.sroa.181.0.copyload650, %1819 ], [ %1823, %1820 ], [ %1827, %1824 ], [ %1831, %1828 ], [ %1835, %1832 ], [ %1839, %1836 ], [ %1843, %1840 ], [ %1847, %1844 ], [ %1851, %1848 ], [ %1855, %1852 ], [ %1859, %1856 ], [ %1863, %1860 ], [ %1867, %1864 ], [ %1871, %1868 ], [ %1875, %1872 ], [ %1879, %1876 ], [ %1883, %1880 ], [ %1887, %1884 ], [ %1891, %1888 ], [ %1895, %1892 ], [ %.sroa.181.0.copyload652, %1897 ], [ %1908, %1898 ], [ %.sroa.181.0.copyload654, %1910 ], [ %1924, %1911 ], [ %1939, %1926 ], [ %1951, %1941 ], [ %1980, %1953 ], [ %1999, %1982 ], [ %2021, %2003 ], [ %2046, %2023 ], [ %2060, %2048 ], [ %2085, %2062 ], [ %2106, %2098 ], [ %.sroa.181.0.copyload656, %2108 ]
   %.sroa.0616.sroa.0.0 = phi i64 [ %.sroa.0616.sroa.0.0.copyload, %131 ], [ %.sroa.0616.sroa.0.0.copyload, %132 ], [ %.sroa.0616.sroa.0.0.copyload, %156 ], [ %178, %174 ], [ %200, %196 ], [ %209, %203 ], [ %189, %185 ], [ %214, %210 ], [ %226, %215 ], [ %231, %227 ], [ %243, %232 ], [ %255, %244 ], [ %271, %256 ], [ %289, %272 ], [ %308, %290 ], [ %329, %309 ], [ %345, %330 ], [ %.sroa.0616.sroa.0.0.copyload659, %346 ], [ %359, %348 ], [ %370, %360 ], [ %.sroa.0616.sroa.0.0.copyload660, %371 ], [ %392, %373 ], [ %406, %395 ], [ %427, %407 ], [ %439, %428 ], [ %451, %440 ], [ %463, %452 ], [ %475, %464 ], [ %496, %476 ], [ %508, %497 ], [ %520, %509 ], [ %532, %521 ], [ %544, %533 ], [ %558, %545 ], [ %570, %559 ], [ %582, %571 ], [ %594, %583 ], [ %606, %595 ], [ %618, %607 ], [ %630, %619 ], [ %642, %631 ], [ %654, %643 ], [ %666, %655 ], [ %678, %667 ], [ %690, %679 ], [ %702, %691 ], [ %714, %703 ], [ %726, %715 ], [ %.sroa.0616.sroa.0.0.copyload661, %727 ], [ %.sroa.0616.sroa.0.0.copyload662, %728 ], [ %755, %751 ], [ %772, %762 ], [ %740, %736 ], [ %789, %773 ], [ %810, %794 ], [ %826, %815 ], [ %.sroa.0616.sroa.0.0.copyload663, %844 ], [ %841, %834 ], [ %861, %845 ], [ %881, %864 ], [ %.sroa.0616.sroa.0.0.copyload664, %884 ], [ %896, %885 ], [ %905, %897 ], [ %916, %908 ], [ %.sroa.0616.sroa.0.0.copyload665, %919 ], [ %923, %921 ], [ %.sroa.0616.sroa.0.0.copyload666, %925 ], [ %938, %931 ], [ %953, %939 ], [ %976, %954 ], [ %992, %977 ], [ %.sroa.0616.sroa.0.0.copyload667, %993 ], [ %999, %995 ], [ %1011, %1000 ], [ %1025, %1012 ], [ %.sroa.0616.sroa.0.0.copyload668, %1026 ], [ %1031, %1027 ], [ %1039, %1032 ], [ %1064, %1040 ], [ %1071, %1067 ], [ %1087, %1072 ], [ %1102, %1088 ], [ %1115, %1103 ], [ %1127, %1116 ], [ %1142, %1128 ], [ %1156, %1143 ], [ %1168, %1157 ], [ %1179, %1169 ], [ %1184, %1180 ], [ %1193, %1185 ], [ %1206, %1194 ], [ %1219, %1207 ], [ %1232, %1220 ], [ %1245, %1233 ], [ %1257, %1246 ], [ %1269, %1258 ], [ %1281, %1270 ], [ %1293, %1282 ], [ %1310, %1294 ], [ %1329, %1311 ], [ %1348, %1330 ], [ %1365, %1349 ], [ %1384, %1366 ], [ %1403, %1385 ], [ %1411, %1404 ], [ %.sroa.0616.sroa.0.0.copyload669, %1412 ], [ %1423, %1413 ], [ %.sroa.0616.sroa.0.0.copyload670, %1424 ], [ %1434, %1426 ], [ %1442, %1435 ], [ %.sroa.0616.sroa.0.1, %1470 ], [ %1482, %1471 ], [ %1496, %1485 ], [ %1503, %1499 ], [ %.sroa.0616.sroa.0.2, %1540 ], [ %1561, %1543 ], [ %1568, %1564 ], [ %1573, %1569 ], [ %.sroa.0616.sroa.0.0.copyload671, %1574 ], [ %1580, %1576 ], [ %.sroa.0616.sroa.0.0.copyload672, %1581 ], [ %1593, %1582 ], [ %1601, %1594 ], [ %1616, %1602 ], [ %1624, %1617 ], [ %1636, %1625 ], [ %.sroa.0616.sroa.0.0.copyload673, %1637 ], [ %1646, %1638 ], [ %1660, %1649 ], [ %1672, %1661 ], [ %1683, %1673 ], [ %1695, %1684 ], [ %.sroa.0616.sroa.0.0.copyload674, %1696 ], [ %1708, %1697 ], [ %1725, %1709 ], [ %1755, %1726 ], [ %1770, %1756 ], [ %1785, %1771 ], [ %1797, %1786 ], [ %1818, %1809 ], [ %.sroa.0616.sroa.0.0.copyload675, %1819 ], [ %1822, %1820 ], [ %1826, %1824 ], [ %1830, %1828 ], [ %1834, %1832 ], [ %1838, %1836 ], [ %1842, %1840 ], [ %1846, %1844 ], [ %1850, %1848 ], [ %1854, %1852 ], [ %1858, %1856 ], [ %1862, %1860 ], [ %1866, %1864 ], [ %1870, %1868 ], [ %1874, %1872 ], [ %1878, %1876 ], [ %1882, %1880 ], [ %1886, %1884 ], [ %1890, %1888 ], [ %1896, %1892 ], [ %.sroa.0616.sroa.0.0.copyload676, %1897 ], [ %1909, %1898 ], [ %.sroa.0616.sroa.0.0.copyload677, %1910 ], [ %1925, %1911 ], [ %1940, %1926 ], [ %1952, %1941 ], [ %1981, %1953 ], [ %2000, %1982 ], [ %2022, %2003 ], [ %2047, %2023 ], [ %2061, %2048 ], [ %2086, %2062 ], [ %2107, %2098 ], [ %.sroa.0616.sroa.0.0.copyload678, %2108 ]
   %2110 = sub nsw i64 0, %118
-  %2111 = getelementptr inbounds %union.YYSTYPE, ptr %.21204, i64 %2110
-  %2112 = getelementptr inbounds i16, ptr %.21191, i64 %2110
-  %2113 = getelementptr inbounds %struct.location, ptr %.21217, i64 %2110
+  %2111 = getelementptr inbounds [16 x i8], ptr %.21204, i64 %2110
+  %2112 = getelementptr inbounds [2 x i8], ptr %.21191, i64 %2110
+  %2113 = getelementptr inbounds [8 x i8], ptr %.21217, i64 %2110
   %2114 = getelementptr inbounds nuw i8, ptr %2111, i64 16
   store i64 %.sroa.0616.sroa.0.0, ptr %2114, align 8
   %.sroa.181.0..sroa_idx657 = getelementptr inbounds nuw i8, ptr %2111, i64 24
@@ -3343,7 +3342,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %2117 = load i8, ptr %2116, align 1, !tbaa !11
   %2118 = sext i8 %2117 to i64
   %2119 = add nsw i64 %2118, -70
-  %2120 = getelementptr inbounds i16, ptr @yypgoto, i64 %2119
+  %2120 = getelementptr inbounds [2 x i8], ptr @yypgoto, i64 %2119
   %2121 = load i16, ptr %2120, align 2, !tbaa !14
   %2122 = sext i16 %2121 to i32
   %2123 = load i16, ptr %2112, align 2, !tbaa !14
@@ -3354,13 +3353,13 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 
 2126:                                             ; preds = %2109
   %2127 = zext nneg i32 %2125 to i64
-  %2128 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %2127
+  %2128 = getelementptr inbounds nuw [2 x i8], ptr @yycheck, i64 %2127
   %2129 = load i16, ptr %2128, align 2, !tbaa !14
   %2130 = icmp eq i16 %2129, %2123
   br i1 %2130, label %2131, label %2135
 
 2131:                                             ; preds = %2126
-  %2132 = getelementptr inbounds nuw i16, ptr @yytable, i64 %2127
+  %2132 = getelementptr inbounds nuw [2 x i8], ptr @yytable, i64 %2127
   %2133 = load i16, ptr %2132, align 2, !tbaa !14
   %2134 = sext i16 %2133 to i32
   br label %28
@@ -3481,13 +3480,13 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 2177:                                             ; preds = %2173
   %2178 = sext i16 %2174 to i64
   %2179 = add nsw i64 %2178, 1
-  %2180 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %2179
+  %2180 = getelementptr inbounds nuw [2 x i8], ptr @yycheck, i64 %2179
   %2181 = load i16, ptr %2180, align 2, !tbaa !14
   %2182 = icmp eq i16 %2181, 1
   br i1 %2182, label %2183, label %2187
 
 2183:                                             ; preds = %2177
-  %2184 = getelementptr inbounds nuw i16, ptr @yytable, i64 %2179
+  %2184 = getelementptr inbounds nuw [2 x i8], ptr @yytable, i64 %2179
   %2185 = load i16, ptr %2184, align 2, !tbaa !14
   %2186 = icmp sgt i16 %2185, 0
   br i1 %2186, label %2198, label %2187
@@ -3508,7 +3507,7 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   %2196 = load i16, ptr %2194, align 2, !tbaa !14
   %2197 = sext i16 %2196 to i32
   %.phi.trans.insert = sext i16 %2196 to i64
-  %.phi.trans.insert1595 = getelementptr inbounds i16, ptr @yypact, i64 %.phi.trans.insert
+  %.phi.trans.insert1595 = getelementptr inbounds [2 x i8], ptr @yypact, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert1595, align 2, !tbaa !14
   br label %2173
 
@@ -4174,7 +4173,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr noundef nonnull 
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.val.val.i = load i16, ptr %.0.val1, align 2, !tbaa !14
   %5 = sext i16 %.val.val.i to i64
-  %6 = getelementptr inbounds i16, ptr @yypact, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr @yypact, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !14
   %8 = icmp eq i16 %7, -157
   br i1 %8, label %.critedge.thread.i.i, label %9
@@ -4199,7 +4198,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr noundef nonnull 
   %indvars.iv.i.i = phi i64 [ %16, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %36 ]
   %.1385.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.2.i.i, %36 ]
   %19 = add nsw i64 %indvars.iv.i.i, %17
-  %20 = getelementptr inbounds i16, ptr @yycheck, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr @yycheck, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !14
   %22 = sext i16 %21 to i32
   %23 = trunc nsw i64 %indvars.iv.i.i to i32
@@ -4209,7 +4208,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr noundef nonnull 
   br i1 %or.cond.i.i, label %26, label %36
 
 26:                                               ; preds = %.lr.ph.i.i
-  %27 = getelementptr inbounds i16, ptr @yytable, i64 %19
+  %27 = getelementptr inbounds [2 x i8], ptr @yytable, i64 %19
   %28 = load i16, ptr %27, align 2, !tbaa !14
   %29 = icmp eq i16 %28, -156
   br i1 %29, label %36, label %30
@@ -4221,7 +4220,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr noundef nonnull 
 32:                                               ; preds = %30
   %33 = add i32 %.1385.i.i, 1
   %34 = sext i32 %.1385.i.i to i64
-  %35 = getelementptr inbounds i32, ptr %4, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %4, i64 %34
   store i32 %22, ptr %35, align 4, !tbaa !4
   br label %36
 
@@ -4285,10 +4284,10 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %30, %.critedge.thre
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %yytnamerr.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %yytnamerr.exit.thread ]
   %.04921 = phi i64 [ %46, %.lr.ph.preheader ], [ %.15013, %yytnamerr.exit.thread ]
-  %47 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr @yytname, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr @yytname, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !25
   %52 = load i8, ptr %51, align 1, !tbaa !11
   %53 = icmp eq i8 %52, 34
@@ -4364,10 +4363,10 @@ yytnamerr.exit.thread:                            ; preds = %.preheader.split.us
 72:                                               ; preds = %67
   %73 = add nsw i32 %.0, 1
   %74 = sext i32 %.0 to i64
-  %75 = getelementptr inbounds i32, ptr %2, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %2, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !4
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds ptr, ptr @yytname, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr @yytname, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !25
   %80 = load i8, ptr %79, align 1, !tbaa !11
   %81 = icmp eq i8 %80, 34

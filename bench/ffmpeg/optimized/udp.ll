@@ -1537,7 +1537,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_set_multicas
 .lr.ph55.split.us:                                ; preds = %.lr.ph55, %30
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %30 ], [ 0, %.lr.ph55 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %22 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %5, i64 %indvars.iv73
+  %22 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 %indvars.iv73
   %23 = load i16, ptr %22, align 8, !tbaa !80
   %.not40.us = icmp eq i16 %23, 2
   br i1 %.not40.us, label %24, label %.split.us
@@ -1567,7 +1567,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_set_multicas
   %34 = select i1 %33, i32 0, i32 41
   store i32 0, ptr %9, align 8, !tbaa !86
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %13, ptr nonnull align 2 %2, i64 %14, i1 false)
-  %35 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %5, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr noundef nonnull align 8 dereferenceable(128) %35, i64 128, i1 false)
   %36 = call i32 @setsockopt(i32 noundef %1, i32 noundef %34, i32 noundef %16, ptr noundef nonnull %9, i32 noundef 264) #11
   %37 = icmp sgt i32 %36, -1
@@ -1591,7 +1591,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_set_multicas
 .lr.ph55.split:                                   ; preds = %.lr.ph55, %56
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %56 ], [ 0, %.lr.ph55 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %43 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %5, i64 %indvars.iv68
+  %43 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 %indvars.iv68
   %44 = load i16, ptr %43, align 8, !tbaa !80
   %.not40 = icmp eq i16 %44, 2
   br i1 %.not40, label %46, label %.split.us

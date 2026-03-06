@@ -4043,7 +4043,7 @@ indentation.exit698:                              ; preds = %860, %862
 .lr.ph754:                                        ; preds = %.lr.ph754.preheader, %870
   %indvars.iv = phi i64 [ 0, %.lr.ph754.preheader ], [ %indvars.iv.next, %870 ]
   %.7753 = phi ptr [ %863, %.lr.ph754.preheader ], [ %875, %870 ]
-  %871 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv
+  %871 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %872 = load i64, ptr %871, align 8, !tbaa !15
   %873 = trunc i64 %872 to i32
   %874 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %25, i64 noundef 256, ptr noundef nonnull @.str.64, i32 noundef %873) #20
@@ -4630,7 +4630,7 @@ define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef nonnu
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = tail call ptr @H5Tget_member_name(i64 noundef %0, i32 noundef %29) #20
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store ptr %30, ptr %31, align 8, !tbaa !32
   %32 = icmp eq ptr %30, null
   br i1 %32, label %.loopexit, label %33
@@ -4689,7 +4689,7 @@ indentation.exit:                                 ; preds = %47, %48
   br i1 %.not, label %.loopexit, label %50
 
 50:                                               ; preds = %indentation.exit
-  %51 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv159
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv159
   %52 = load ptr, ptr %51, align 8, !tbaa !32
   %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 256, ptr noundef nonnull @.str.79, ptr noundef %52) #20
   %54 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %3, ptr noundef %2, ptr noundef nonnull %49, ptr noundef nonnull %7)
@@ -4728,7 +4728,7 @@ indentation.exit:                                 ; preds = %47, %48
 
 .lr.ph152:                                        ; preds = %.lr.ph152.preheader, %.lr.ph152
   %indvars.iv165 = phi i64 [ 0, %.lr.ph152.preheader ], [ %indvars.iv.next166, %.lr.ph152 ]
-  %72 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv165
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv165
   %73 = load ptr, ptr %72, align 8, !tbaa !32
   %74 = call i32 @H5free_memory(ptr noundef %73) #20
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
@@ -4765,7 +4765,7 @@ indentation.exit:                                 ; preds = %47, %48
 
 .lr.ph155:                                        ; preds = %.lr.ph155.preheader, %85
   %indvars.iv171 = phi i64 [ 0, %.lr.ph155.preheader ], [ %indvars.iv.next172, %85 ]
-  %82 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv171
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv171
   %83 = load ptr, ptr %82, align 8, !tbaa !32
   %.not121 = icmp eq ptr %83, null
   br i1 %.not121, label %85, label %84

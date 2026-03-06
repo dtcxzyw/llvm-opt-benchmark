@@ -7,9 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5O_token_t = type { [16 x i8] }
 %struct.H5O_loc_t = type { ptr, i64, i8 }
 %struct.H5G_loc_t = type { ptr, ptr }
-%struct.hdset_reg_ref_t = type { [12 x i8] }
-%struct.H5R_ref_t = type { %union.anon }
-%union.anon = type { i64, [56 x i8] }
 %struct.H5G_name_t = type { ptr, ptr, i32 }
 
 @H5O_init_g = external local_unnamed_addr global i8, align 1
@@ -200,8 +197,8 @@ define range(i32 -1, 1) i32 @H5O_copy_expand_ref(ptr noundef %0, ptr noundef %1,
 
 76:                                               ; preds = %128, %.lr.ph.i
   %.03642.i = phi i64 [ 0, %.lr.ph.i ], [ %129, %128 ]
-  %77 = getelementptr inbounds nuw i64, ptr %2, i64 %.03642.i
-  %78 = getelementptr inbounds nuw i64, ptr %5, i64 %.03642.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.03642.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.03642.i
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   %79 = load i64, ptr %19, align 8, !tbaa !10
@@ -328,8 +325,8 @@ H5O__copy_expand_ref_object1.exit.thread:         ; preds = %128, %62
 
 144:                                              ; preds = %188, %.lr.ph.i29
   %.03339.i = phi i64 [ 0, %.lr.ph.i29 ], [ %189, %188 ]
-  %145 = getelementptr inbounds nuw %struct.hdset_reg_ref_t, ptr %2, i64 %.03339.i
-  %146 = getelementptr inbounds nuw %struct.hdset_reg_ref_t, ptr %5, i64 %.03339.i
+  %145 = getelementptr inbounds nuw [12 x i8], ptr %2, i64 %.03339.i
+  %146 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %.03339.i
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -569,7 +566,7 @@ H5O__copy_expand_ref_object2.exit.thread41:       ; preds = %194
 
 271:                                              ; preds = %323, %.lr.ph.i35
   %.0104207.i = phi i64 [ 0, %.lr.ph.i35 ], [ %324, %323 ]
-  %272 = getelementptr inbounds nuw %struct.H5R_ref_t, ptr %247, i64 %.0104207.i
+  %272 = getelementptr inbounds nuw [64 x i8], ptr %247, i64 %.0104207.i
   %bcmp.i36 = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %272, ptr noundef nonnull dereferenceable(64) %10, i64 64)
   %.not.i = icmp eq i32 %bcmp.i36, 0
   br i1 %.not.i, label %323, label %273

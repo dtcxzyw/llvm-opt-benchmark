@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i32 }
 %union.anon.2 = type { i32 }
 %struct.CharSet = type { i32, i32, ptr, i32, ptr }
-%struct.Range = type { i8, i8 }
 
 @.str = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 @.str.1 = private unnamed_addr constant [47 x i8] c"cannot mix \22%\22 and \22%n$\22 conversion specifiers\00", align 1
@@ -87,7 +86,7 @@ define dso_local range(i32 -2, 1) i32 @ValidateFormat(ptr noundef %0, i32 nounde
   %27 = tail call ptr @__ctype_b_loc() #12
   %28 = load ptr, ptr %27, align 8, !tbaa !12
   %29 = sext i8 %23 to i64
-  %30 = getelementptr inbounds i16, ptr %28, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %28, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !14
   %32 = and i16 %31, 2048
   %.not131 = icmp eq i16 %32, 0
@@ -151,7 +150,7 @@ define dso_local range(i32 -2, 1) i32 @ValidateFormat(ptr noundef %0, i32 nounde
   %56 = load ptr, ptr %.pre-phi, align 8, !tbaa !12
   %57 = load i8, ptr %.098, align 1, !tbaa !11
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw i16, ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %58
   %60 = load i16, ptr %59, align 2, !tbaa !14
   %61 = and i16 %60, 2048
   %.not136 = icmp eq i16 %61, 0
@@ -334,7 +333,7 @@ thread-pre-split:                                 ; preds = %79
   %.396 = phi ptr [ %.194.ph219, %105 ], [ %.497, %.loopexit153 ], [ %.497, %.lr.ph214.preheader ]
   %.3 = phi i32 [ %.1.ph223, %105 ], [ %.4, %.loopexit153 ], [ %.4, %.lr.ph214.preheader ]
   %122 = zext nneg i32 %.191 to i64
-  %123 = getelementptr inbounds nuw i32, ptr %.396, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.396, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !9
   %125 = add nsw i32 %124, 1
   store i32 %125, ptr %123, align 4, !tbaa !9
@@ -401,7 +400,7 @@ thread-pre-split:                                 ; preds = %79
 
 .lr.ph231:                                        ; preds = %.lr.ph231.preheader, %135
   %indvars.iv = phi i64 [ 0, %.lr.ph231.preheader ], [ %indvars.iv.next, %135 ]
-  %136 = getelementptr inbounds nuw i32, ptr %.194.ph.lcssa187307, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.194.ph.lcssa187307, i64 %indvars.iv
   %137 = load i32, ptr %136, align 4, !tbaa !9
   %138 = icmp sgt i32 %137, 1
   br i1 %138, label %139, label %140
@@ -576,7 +575,7 @@ define dso_local range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr n
   store ptr %43, ptr %7, align 8, !tbaa !4
   %44 = load ptr, ptr %34, align 8, !tbaa !12
   %45 = sext i8 %41 to i64
-  %46 = getelementptr inbounds i16, ptr %44, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %44, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !14
   %48 = and i16 %47, 8192
   %.not388 = icmp eq i16 %48, 0
@@ -585,7 +584,7 @@ define dso_local range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr n
 .preheader478:                                    ; preds = %40
   %.0354496 = load i8, ptr %.0309569, align 1, !tbaa !11
   %49 = sext i8 %.0354496 to i64
-  %50 = getelementptr inbounds i16, ptr %44, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %44, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !14
   %52 = and i16 %51, 8192
   %.not429497 = icmp eq i16 %52, 0
@@ -601,7 +600,7 @@ define dso_local range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr n
   %55 = getelementptr inbounds nuw i8, ptr %.1310498, i64 1
   %.0354 = load i8, ptr %55, align 1, !tbaa !11
   %56 = sext i8 %.0354 to i64
-  %57 = getelementptr inbounds i16, ptr %44, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %44, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !14
   %59 = and i16 %58, 8192
   %.not429 = icmp eq i16 %59, 0
@@ -639,7 +638,7 @@ define dso_local range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr n
 
 73:                                               ; preds = %70
   %74 = zext i8 %68 to i64
-  %75 = getelementptr inbounds nuw i16, ptr %44, i64 %74
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %74
   %76 = load i16, ptr %75, align 2, !tbaa !14
   %77 = and i16 %76, 2048
   %.not390 = icmp eq i16 %77, 0
@@ -668,7 +667,7 @@ define dso_local range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr n
   %90 = load ptr, ptr %34, align 8, !tbaa !12
   %91 = load i8, ptr %.1350, align 1, !tbaa !11
   %92 = zext i8 %91 to i64
-  %93 = getelementptr inbounds nuw i16, ptr %90, i64 %92
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %92
   %94 = load i16, ptr %93, align 2, !tbaa !14
   %95 = and i16 %94, 2048
   %.not391 = icmp eq i16 %95, 0
@@ -734,7 +733,7 @@ define dso_local range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr n
   br i1 %.not385, label %128, label %114
 
 114:                                              ; preds = %111
-  %115 = getelementptr inbounds %struct._zval_struct, ptr %3, i64 %113
+  %115 = getelementptr inbounds [16 x i8], ptr %3, i64 %113
   %116 = load ptr, ptr %115, align 8, !tbaa !11
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = load ptr, ptr %117, align 8, !tbaa !11
@@ -834,7 +833,7 @@ define dso_local range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr n
   %.3501 = phi ptr [ %.0309569, %.preheader ], [ %160, %159 ]
   %154 = phi i8 [ %148, %.preheader ], [ %.pr450, %159 ]
   %155 = sext i8 %154 to i64
-  %156 = getelementptr inbounds i16, ptr %152, i64 %155
+  %156 = getelementptr inbounds [2 x i8], ptr %152, i64 %155
   %157 = load i16, ptr %156, align 2, !tbaa !14
   %158 = and i16 %157, 8192
   %.not398 = icmp eq i16 %158, 0
@@ -873,7 +872,7 @@ define dso_local range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr n
 166:                                              ; preds = %163
   %167 = load ptr, ptr %34, align 8, !tbaa !12
   %168 = sext i8 %165 to i64
-  %169 = getelementptr inbounds i16, ptr %167, i64 %168
+  %169 = getelementptr inbounds [2 x i8], ptr %167, i64 %168
   %170 = load i16, ptr %169, align 2, !tbaa !14
   %171 = and i16 %170, 8192
   %.not424 = icmp eq i16 %171, 0
@@ -903,7 +902,7 @@ define dso_local range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr n
   br i1 %.not385, label %206, label %183
 
 183:                                              ; preds = %180
-  %184 = getelementptr inbounds %struct._zval_struct, ptr %3, i64 %182
+  %184 = getelementptr inbounds [16 x i8], ptr %3, i64 %182
   %185 = load ptr, ptr %184, align 8, !tbaa !11
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 24
   %187 = load ptr, ptr %186, align 8, !tbaa !11
@@ -1001,7 +1000,7 @@ zend_string_alloc.exit440:                        ; preds = %183
 
 .lr.ph31.i:                                       ; preds = %.critedge.preheader.i, %.critedge.i
   %indvars.iv37.i = phi i64 [ %indvars.iv.next38.i, %.critedge.i ], [ 0, %.critedge.preheader.i ]
-  %229 = getelementptr inbounds nuw %struct.Range, ptr %219, i64 %indvars.iv37.i
+  %229 = getelementptr inbounds nuw [2 x i8], ptr %219, i64 %indvars.iv37.i
   %230 = load i8, ptr %229, align 1, !tbaa !23
   %.not23.i = icmp slt i8 %223, %230
   br i1 %.not23.i, label %.critedge.i, label %231
@@ -1061,7 +1060,7 @@ ReleaseCharSet.exit:                              ; preds = %238, %240
   br i1 %.not385, label %271, label %248
 
 248:                                              ; preds = %245
-  %249 = getelementptr inbounds %struct._zval_struct, ptr %3, i64 %247
+  %249 = getelementptr inbounds [16 x i8], ptr %3, i64 %247
   %250 = load ptr, ptr %249, align 8, !tbaa !11
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 24
   %252 = load ptr, ptr %251, align 8, !tbaa !11
@@ -1309,7 +1308,7 @@ zend_string_alloc.exit439:                        ; preds = %248
   br i1 %.not385, label %358, label %340
 
 340:                                              ; preds = %337
-  %341 = getelementptr inbounds %struct._zval_struct, ptr %3, i64 %339
+  %341 = getelementptr inbounds [16 x i8], ptr %3, i64 %339
   %342 = load ptr, ptr %341, align 8, !tbaa !11
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 24
   %344 = load ptr, ptr %343, align 8, !tbaa !11
@@ -1358,7 +1357,7 @@ zend_string_alloc.exit:                           ; preds = %340
   br i1 %.not385, label %373, label %363
 
 363:                                              ; preds = %360
-  %364 = getelementptr inbounds %struct._zval_struct, ptr %3, i64 %362
+  %364 = getelementptr inbounds [16 x i8], ptr %3, i64 %362
   %365 = load ptr, ptr %364, align 8, !tbaa !11
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 24
   %367 = load ptr, ptr %366, align 8, !tbaa !11
@@ -1512,7 +1511,7 @@ zend_string_alloc.exit:                           ; preds = %340
   br i1 %.not385, label %429, label %419
 
 419:                                              ; preds = %417
-  %420 = getelementptr inbounds %struct._zval_struct, ptr %3, i64 %418
+  %420 = getelementptr inbounds [16 x i8], ptr %3, i64 %418
   %421 = load ptr, ptr %420, align 8, !tbaa !11
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 24
   %423 = load ptr, ptr %422, align 8, !tbaa !11
@@ -1733,7 +1732,7 @@ define internal fastcc nonnull ptr @BuildCharSet(ptr noundef nonnull captures(no
   %60 = load ptr, ptr %30, align 8, !tbaa !31
   %61 = load i32, ptr %31, align 8, !tbaa !32
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds %struct.Range, ptr %60, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr %60, i64 %62
   br i1 %59, label %64, label %66
 
 64:                                               ; preds = %57

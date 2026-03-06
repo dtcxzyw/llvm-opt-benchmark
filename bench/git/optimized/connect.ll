@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.strbuf = type { i64, i64, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
 %struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
 
@@ -226,7 +225,7 @@ define dso_local range(i32 0, 2) i32 @server_supports_v2(ptr noundef readonly ca
 
 4:                                                ; preds = %.lr.ph, %.critedge
   %.0512 = phi i64 [ 0, %.lr.ph ], [ %16, %.critedge ]
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0512
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0512
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   br label %7
 
@@ -273,7 +272,7 @@ define dso_local void @ensure_server_supports_v2(ptr noundef %0) local_unnamed_a
 
 4:                                                ; preds = %.critedge.i, %.lr.ph.i
   %.0512.i = phi i64 [ 0, %.lr.ph.i ], [ %16, %.critedge.i ]
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0512.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0512.i
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   br label %7
 
@@ -347,7 +346,7 @@ define dso_local range(i32 0, 2) i32 @server_feature_v2(ptr noundef readonly cap
 
 5:                                                ; preds = %.lr.ph, %skip_prefix.exit
   %.0612 = phi i64 [ 0, %.lr.ph ], [ %19, %skip_prefix.exit ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0612
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0612
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   br label %8
 
@@ -397,7 +396,7 @@ define dso_local range(i32 0, 2) i32 @server_supports_feature(ptr noundef readon
 
 6:                                                ; preds = %.lr.ph, %skip_prefix.exit
   %.0834 = phi i64 [ 0, %.lr.ph ], [ %42, %skip_prefix.exit ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0834
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0834
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   br label %9
 
@@ -783,7 +782,7 @@ server_feature_value.exit.i:                      ; preds = %server_feature_valu
 
 66:                                               ; preds = %server_feature_value.exit.i
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %67
+  %68 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %67
   store ptr %68, ptr %14, align 8, !tbaa !32
   br label %69
 
@@ -1223,7 +1222,7 @@ define dso_local range(i32 -1, 1) i32 @get_remote_bundle_uri(i32 noundef %0, ptr
 
 7:                                                ; preds = %.critedge.i.i, %.lr.ph.i.i
   %.0512.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %18, %.critedge.i.i ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.0512.i.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0512.i.i
   %9 = load ptr, ptr %8, align 8, !tbaa !15
   %scevgep = getelementptr i8, ptr %9, i64 10
   br label %10
@@ -1353,7 +1352,7 @@ define internal fastcc void @send_capabilities(i32 noundef %0, ptr noundef write
 
 5:                                                ; preds = %.critedge.i, %.lr.ph.i
   %.0512.i = phi i64 [ 0, %.lr.ph.i ], [ %16, %.critedge.i ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0512.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0512.i
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %scevgep = getelementptr i8, ptr %7, i64 5
   br label %8
@@ -1399,7 +1398,7 @@ server_supports_v2.exit.thread:                   ; preds = %14, %14
 
 19:                                               ; preds = %skip_prefix.exit.i, %.lr.ph.i8
   %.0612.i = phi i64 [ 0, %.lr.ph.i8 ], [ %31, %skip_prefix.exit.i ]
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %.0612.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.0612.i
   %21 = load ptr, ptr %20, align 8, !tbaa !15
   %scevgep26 = getelementptr i8, ptr %21, i64 13
   br label %22
@@ -1442,7 +1441,7 @@ skip_prefix.exit.i:                               ; preds = %23, %28
 
 38:                                               ; preds = %32
   %39 = sext i32 %34 to i64
-  %40 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %39
+  %40 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %40, ptr %41, align 8, !tbaa !32
   %42 = load ptr, ptr %40, align 16, !tbaa !43
@@ -1487,7 +1486,7 @@ define dso_local ptr @get_remote_refs(i32 noundef %0, ptr noundef %1, ptr nounde
 
 15:                                               ; preds = %.critedge.i.i, %.lr.ph.i.i
   %.0512.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %26, %.critedge.i.i ]
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %.0512.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0512.i.i
   %17 = load ptr, ptr %16, align 8, !tbaa !15
   %scevgep = getelementptr i8, ptr %17, i64 7
   br label %18
@@ -1547,7 +1546,7 @@ ensure_server_supports_v2.exit:                   ; preds = %24, %24
 
 34:                                               ; preds = %.critedge.i.i48, %.lr.ph.i.i43
   %.0512.i.i44 = phi i64 [ 0, %.lr.ph.i.i43 ], [ %45, %.critedge.i.i48 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0512.i.i44
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0512.i.i44
   %36 = load ptr, ptr %35, align 8, !tbaa !15
   %scevgep95 = getelementptr i8, ptr %36, i64 13
   br label %37
@@ -1590,7 +1589,7 @@ ensure_server_supports_v2.exit:                   ; preds = %24, %24
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.079 = phi i64 [ %50, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %47 = load ptr, ptr %5, align 8, !tbaa !47
-  %48 = getelementptr inbounds nuw %struct.string_list_item, ptr %47, i64 %.079
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %.079
   %49 = load ptr, ptr %48, align 8, !tbaa !48
   tail call void (i32, ptr, ...) @packet_write_fmt(i32 noundef %0, ptr noundef nonnull @.str.17, ptr noundef %49) #24
   %50 = add nuw i64 %.079, 1
@@ -1619,7 +1618,7 @@ ensure_server_supports_v2.exit:                   ; preds = %24, %24
 
 57:                                               ; preds = %skip_prefix.exit.i, %.lr.ph.i
   %.0834.i = phi i64 [ 0, %.lr.ph.i ], [ %91, %skip_prefix.exit.i ]
-  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %.0834.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.0834.i
   %59 = load ptr, ptr %58, align 8, !tbaa !15
   %scevgep97 = getelementptr i8, ptr %59, i64 7
   br label %60
@@ -1714,7 +1713,7 @@ server_supports_feature.exit.thread:              ; preds = %66, %skip_prefix.ex
 .lr.ph84:                                         ; preds = %.lr.ph81.split, %.lr.ph84
   %.18083 = phi i64 [ %97, %.lr.ph84 ], [ 0, %.lr.ph81.split ]
   %94 = load ptr, ptr %4, align 8, !tbaa !14
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %.18083
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.18083
   %96 = load ptr, ptr %95, align 8, !tbaa !15
   tail call void (i32, ptr, ...) @packet_write_fmt(i32 noundef %0, ptr noundef nonnull @.str.22, ptr noundef %96) #24
   %97 = add nuw i64 %.18083, 1
@@ -1771,7 +1770,7 @@ server_supports_feature.exit.thread:              ; preds = %66, %skip_prefix.ex
 
 .lr.ph89.i:                                       ; preds = %.preheader.i, %130
   %.04188.i = phi i64 [ %131, %130 ], [ 2, %.preheader.i ]
-  %121 = getelementptr inbounds nuw %struct.string_list_item, ptr %111, i64 %.04188.i
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %111, i64 %.04188.i
   %122 = load ptr, ptr %121, align 8, !tbaa !48
   br label %123
 
@@ -1837,7 +1836,7 @@ skip_prefix.exit.i57:                             ; preds = %123
   %.162 = phi ptr [ %142, %.lr.ph.i55 ], [ %.2, %.loopexit82.i ]
   %.14287.i = phi i64 [ 2, %.lr.ph.i55 ], [ %182, %.loopexit82.i ]
   %152 = load ptr, ptr %9, align 8, !tbaa !47
-  %153 = getelementptr inbounds nuw %struct.string_list_item, ptr %152, i64 %.14287.i
+  %153 = getelementptr inbounds nuw [16 x i8], ptr %152, i64 %.14287.i
   %154 = load ptr, ptr %153, align 8, !tbaa !48
   %scevgep.i = getelementptr i8, ptr %154, i64 14
   br label %155
@@ -2611,7 +2610,7 @@ switch.lookup:                                    ; preds = %parse_connect_url.e
   %73 = select i1 %.not67, ptr @.str.29, ptr %1
   %74 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull %73)
   %75 = sext i32 %.0.i to i64
-  %76 = getelementptr ptr, ptr @switch.table.git_connect, i64 %75
+  %76 = getelementptr [8 x i8], ptr @switch.table.git_connect, i64 %75
   %switch.gep = getelementptr i8, ptr %76, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull %switch.load)

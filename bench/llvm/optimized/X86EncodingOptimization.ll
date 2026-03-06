@@ -123,7 +123,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8626optimizeInstFromVEX3ToVEX2ERN
   %.128 = phi i64 [ 0, %2 ], [ 0, %36 ], [ 1, %17 ], [ 0, %23 ], [ 0, %24 ], [ 0, %25 ], [ 0, %26 ], [ 0, %27 ], [ 0, %28 ], [ 0, %29 ], [ 0, %30 ], [ 0, %31 ], [ 0, %32 ], [ 0, %33 ], [ 0, %34 ], [ 0, %35 ], [ 1, %17 ], [ 1, %17 ], [ 1, %17 ], [ 1, %16 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !22
-  %39 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %38, i64 %.128
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %.128
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 8, !tbaa !23
   %42 = tail call noundef zeroext i1 @_ZN4llvm5X86II19isX86_64ExtendedRegENS_10MCRegisterE(i32 %41)
@@ -131,7 +131,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8626optimizeInstFromVEX3ToVEX2ERN
 
 43:                                               ; preds = %.critedge
   %44 = load ptr, ptr %37, align 8, !tbaa !22
-  %45 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %44, i64 %.131
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %.131
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8, !tbaa !23
   %48 = tail call noundef zeroext i1 @_ZN4llvm5X86II19isX86_64ExtendedRegENS_10MCRegisterE(i32 %47)
@@ -146,8 +146,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8626optimizeInstFromVEX3ToVEX2ERN
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %37, align 8, !tbaa !22
-  %53 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %52, i64 %.128
-  %54 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %52, i64 %.131
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %.128
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %.131
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !24
@@ -1736,7 +1736,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8611optimizeMOVERNS_6MCInstEb(ptr
   %20 = phi i64 [ 5, %10 ], [ 5, %19 ], [ 0, %15 ]
   %.shrunk = phi i1 [ false, %10 ], [ false, %19 ], [ true, %15 ]
   %21 = phi i64 [ 3, %10 ], [ 3, %19 ], [ 4, %15 ]
-  %22 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %20
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8, !tbaa !23
   switch i32 %24, label %_ZL11isARegisterN4llvm10MCRegisterE.exit [
@@ -1747,7 +1747,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8611optimizeMOVERNS_6MCInstEb(ptr
   ]
 
 25:                                               ; preds = %.thread60, %.thread60, %.thread60, %.thread60
-  %26 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %21
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %21
   %27 = load i8, ptr %26, align 8, !tbaa !28
   %28 = icmp eq i8 %27, 5
   br i1 %28, label %29, label %.critedge52
@@ -1769,7 +1769,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8611optimizeMOVERNS_6MCInstEb(ptr
 
 .critedge52:                                      ; preds = %25, %29, %33
   %38 = zext i1 %.shrunk to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i32, ptr %40, align 8, !tbaa !23
   %.not48 = icmp eq i32 %41, 0
@@ -1777,7 +1777,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8611optimizeMOVERNS_6MCInstEb(ptr
 
 42:                                               ; preds = %.critedge52
   %43 = select i1 %.shrunk, i64 2, i64 1
-  %44 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i64, ptr %45, align 8, !tbaa !23
   %.not49 = icmp eq i64 %46, 1
@@ -1785,7 +1785,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8611optimizeMOVERNS_6MCInstEb(ptr
 
 47:                                               ; preds = %42
   %48 = select i1 %.shrunk, i64 3, i64 2
-  %49 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 8, !tbaa !23
   %.not50 = icmp eq i32 %51, 0
@@ -1799,7 +1799,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8611optimizeMOVERNS_6MCInstEb(ptr
 .critedge:                                        ; preds = %..critedge_crit_edge, %33
   %.sroa.510.0.copyload = phi i64 [ %.sroa.510.0.copyload.pre, %..critedge_crit_edge ], [ %34, %33 ]
   %52 = select i1 %.shrunk, i64 5, i64 4
-  %53 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %52
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %52
   %.sroa.07.0.copyload = load i8, ptr %53, align 8, !tbaa !25
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !23
@@ -1822,7 +1822,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8611optimizeMOVERNS_6MCInstEb(ptr
 _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %.critedge, %57
   %60 = phi ptr [ %12, %.critedge ], [ %.pre, %57 ]
   %61 = phi i64 [ 0, %.critedge ], [ %59, %57 ]
-  %62 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %61
   store i8 %27, ptr %62, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 %.sroa.510.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i, align 1
@@ -1845,7 +1845,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit56: ; preds = %_ZN4llvm6MCInst10a
   %70 = phi i32 [ %64, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit ], [ %.pre.i.i54, %66 ]
   %71 = load ptr, ptr %11, align 8, !tbaa !22
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %72
   store i8 %.sroa.07.0.copyload, ptr %73, align 1
   %.sroa.22.0..sroa_idx.i.i55 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i64 %.sroa.5.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i55, align 1
@@ -4524,7 +4524,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8643optimizeToFixedRegisterOrShor
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %228 = zext i32 %226 to i64
   %229 = load ptr, ptr %227, align 8, !tbaa !22
-  %230 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %229, i64 %228
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %229, i64 %228
   %231 = load i8, ptr %230, align 8, !tbaa !28
   switch i8 %231, label %.critedge.i [
     i8 5, label %232
@@ -4725,7 +4725,7 @@ _ZL28optimizeToShortImmediateFormRN4llvm6MCInstE.exit: ; preds = %_ZL28optimizeT
   %288 = load i32, ptr %287, align 8, !tbaa !27
   %289 = add i32 %288, -1
   %290 = zext i32 %289 to i64
-  %291 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %283, i64 %290
+  %291 = getelementptr inbounds nuw [16 x i8], ptr %283, i64 %290
   %.sroa.02.0.copyload.i = load i8, ptr %291, align 8, !tbaa !25
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %291, i64 8
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !23
@@ -4747,7 +4747,7 @@ _ZL28optimizeToShortImmediateFormRN4llvm6MCInstE.exit: ; preds = %_ZL28optimizeT
 _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %294, %286
   %297 = phi ptr [ %283, %286 ], [ %.pre.i, %294 ]
   %298 = phi i64 [ 0, %286 ], [ %296, %294 ]
-  %299 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %297, i64 %298
+  %299 = getelementptr inbounds nuw [16 x i8], ptr %297, i64 %298
   store i8 %.sroa.02.0.copyload.i, ptr %299, align 1
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %299, i64 8
   store i64 %.sroa.5.0.copyload.i, ptr %.sroa.22.0..sroa_idx.i.i.i, align 1

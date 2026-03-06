@@ -927,7 +927,7 @@ define void @_ZN6icu_7713OlsonTimeZone21deleteTransitionRulesEv(ptr noundef nonn
   %40 = phi i16 [ %49, %48 ], [ %37, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.preheader ]
   %41 = load ptr, ptr %34, align 8, !tbaa !54
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !56
   %.not9 = icmp eq ptr %43, null
   br i1 %.not9, label %48, label %44
@@ -1214,7 +1214,7 @@ define void @_ZNK6icu_7713OlsonTimeZone19getHistoricalOffsetEdaiiRiS1_(ptr nound
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %38 = load ptr, ptr %37, align 8, !tbaa !40
   %39 = sext i16 %33 to i64
-  %40 = getelementptr inbounds i32, ptr %38, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %38, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !39
   %42 = sext i32 %41 to i64
   br label %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit
@@ -1226,7 +1226,7 @@ define void @_ZNK6icu_7713OlsonTimeZone19getHistoricalOffsetEdaiiRiS1_(ptr nound
   %47 = sext i16 %44 to i32
   %48 = shl nsw i32 %47, 1
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %46, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %46, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !39
   %52 = zext i32 %51 to i64
   %53 = shl nuw i64 %52, 32
@@ -1312,7 +1312,7 @@ _ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit: ; preds = %22, %36, 
   %109 = sext i16 %108 to i32
   %110 = shl nsw i32 %109, 1
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds i32, ptr %71, i64 %111
+  %112 = getelementptr inbounds [4 x i8], ptr %71, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !39
   %114 = zext i32 %113 to i64
   %115 = shl nuw i64 %114, 32
@@ -1324,7 +1324,7 @@ _ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit: ; preds = %22, %36, 
 
 120:                                              ; preds = %103
   %121 = sext i16 %105 to i64
-  %122 = getelementptr inbounds i32, ptr %73, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %73, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !39
   %124 = sext i32 %123 to i64
   br label %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit92.us
@@ -1372,7 +1372,7 @@ _ZNK6icu_7713OlsonTimeZone11rawOffsetAtEs.exit.thread: ; preds = %.split, %.spli
 
 145:                                              ; preds = %141
   %146 = sext i16 %143 to i64
-  %147 = getelementptr inbounds i32, ptr %73, i64 %146
+  %147 = getelementptr inbounds [4 x i8], ptr %73, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !39
   %149 = sext i32 %148 to i64
   br label %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit92
@@ -1382,7 +1382,7 @@ _ZNK6icu_7713OlsonTimeZone11rawOffsetAtEs.exit.thread: ; preds = %.split, %.spli
   %152 = sext i16 %151 to i32
   %153 = shl nsw i32 %152, 1
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds i32, ptr %71, i64 %154
+  %155 = getelementptr inbounds [4 x i8], ptr %71, i64 %154
   %156 = load i32, ptr %155, align 4, !tbaa !39
   %157 = zext i32 %156 to i64
   %158 = shl nuw i64 %157, 32
@@ -1427,7 +1427,7 @@ _ZNK6icu_7713OlsonTimeZone12zoneOffsetAtEs.exit:  ; preds = %166
 _ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit94: ; preds = %_ZNK6icu_7713OlsonTimeZone12zoneOffsetAtEs.exit, %171
   %183 = phi i32 [ %180, %171 ], [ %170, %_ZNK6icu_7713OlsonTimeZone12zoneOffsetAtEs.exit ]
   %184 = phi i64 [ %182, %171 ], [ 1, %_ZNK6icu_7713OlsonTimeZone12zoneOffsetAtEs.exit ]
-  %185 = getelementptr inbounds nuw i32, ptr %77, i64 %184
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %184
   %186 = load i32, ptr %185, align 4, !tbaa !39
   %187 = icmp ne i32 %186, 0
   %188 = getelementptr inbounds nuw i8, ptr %75, i64 %indvars.iv.next
@@ -1506,7 +1506,7 @@ _ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit94: ; preds = %_ZNK6icu_7713OlsonT
 
 _ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit95: ; preds = %_ZNK6icu_7713OlsonTimeZone11rawOffsetAtEs.exit.thread, %.split104.us
   %221 = phi i64 [ %220, %.split104.us ], [ 1, %_ZNK6icu_7713OlsonTimeZone11rawOffsetAtEs.exit.thread ]
-  %222 = getelementptr inbounds nuw i32, ptr %77, i64 %221
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %221
   br label %229
 
 223:                                              ; preds = %7
@@ -1629,7 +1629,7 @@ define noundef i64 @_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs(ptr no
   %9 = load ptr, ptr %8, align 8, !tbaa !38
   %10 = shl nsw i32 %7, 1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %9, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %9, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !39
   %14 = zext i32 %13 to i64
   %15 = shl nuw i64 %14, 32
@@ -1650,7 +1650,7 @@ define noundef i64 @_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs(ptr no
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %27 = load ptr, ptr %26, align 8, !tbaa !40
   %28 = sext i16 %21 to i64
-  %29 = getelementptr inbounds i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !39
   %31 = sext i32 %30 to i64
   br label %47
@@ -1662,7 +1662,7 @@ define noundef i64 @_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs(ptr no
   %36 = sext i16 %33 to i32
   %37 = shl nsw i32 %36, 1
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %35, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %35, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !39
   %41 = zext i32 %40 to i64
   %42 = shl nuw i64 %41, 32
@@ -1749,7 +1749,7 @@ define noundef signext i8 @_ZNK6icu_7713OlsonTimeZone15useDaylightTimeEv(ptr nou
 48:                                               ; preds = %46
   %49 = shl nuw i64 %indvars.iv, 1
   %50 = and i64 %49, 4294967294
-  %51 = getelementptr inbounds nuw i32, ptr %40, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !39
   %53 = zext i32 %52 to i64
   %54 = shl nuw i64 %53, 32
@@ -1767,7 +1767,7 @@ define noundef signext i8 @_ZNK6icu_7713OlsonTimeZone15useDaylightTimeEv(ptr nou
 
 63:                                               ; preds = %59
   %64 = sext i16 %61 to i64
-  %65 = getelementptr inbounds i32, ptr %38, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %38, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !39
   %67 = sext i32 %66 to i64
   br label %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit
@@ -1777,7 +1777,7 @@ define noundef signext i8 @_ZNK6icu_7713OlsonTimeZone15useDaylightTimeEv(ptr nou
   %70 = sext i16 %69 to i32
   %71 = shl nsw i32 %70, 1
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %36, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %36, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !39
   %75 = zext i32 %74 to i64
   %76 = shl nuw i64 %75, 32
@@ -1827,7 +1827,7 @@ _ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit:   ; preds = %83
 
 _ZNK6icu_7713OlsonTimeZone11dstOffsetAtEs.exit30: ; preds = %93, %94
   %101 = phi i64 [ %100, %94 ], [ 1, %93 ]
-  %102 = getelementptr inbounds nuw i32, ptr %44, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !39
   %.not27 = icmp eq i32 %103, 0
   br i1 %.not27, label %104, label %.thread33
@@ -2357,7 +2357,7 @@ _ZNK6icu_778TimeZone5getIDERNS_13UnicodeStringE.exit: ; preds = %14
   %120 = trunc nsw i64 %indvars.iv to i32
   %121 = shl nsw i32 %120, 1
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i32, ptr %106, i64 %122
+  %123 = getelementptr inbounds [4 x i8], ptr %106, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !39
   %125 = zext i32 %124 to i64
   %126 = shl nuw i64 %125, 32
@@ -2375,7 +2375,7 @@ _ZNK6icu_778TimeZone5getIDERNS_13UnicodeStringE.exit: ; preds = %14
 
 135:                                              ; preds = %131
   %136 = sext i16 %133 to i64
-  %137 = getelementptr inbounds i32, ptr %105, i64 %136
+  %137 = getelementptr inbounds [4 x i8], ptr %105, i64 %136
   %138 = load i32, ptr %137, align 4, !tbaa !39
   %139 = sext i32 %138 to i64
   br label %_ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit
@@ -2385,7 +2385,7 @@ _ZNK6icu_778TimeZone5getIDERNS_13UnicodeStringE.exit: ; preds = %14
   %142 = sext i16 %141 to i32
   %143 = shl nsw i32 %142, 1
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds i32, ptr %104, i64 %144
+  %145 = getelementptr inbounds [4 x i8], ptr %104, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !39
   %147 = zext i32 %146 to i64
   %148 = shl nuw i64 %147, 32
@@ -2406,7 +2406,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %119, %135, %140
 156:                                              ; preds = %_ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit
   %157 = add nsw i32 %.097169, 1
   %158 = sext i32 %.097169 to i64
-  %159 = getelementptr inbounds double, ptr %81, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %81, i64 %158
   store double %154, ptr %159, align 8, !tbaa !65
   br label %160
 
@@ -2488,7 +2488,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %119, %135, %140
 
 189:                                              ; preds = %187
   %190 = load ptr, ptr %92, align 8, !tbaa !54
-  %191 = getelementptr inbounds nuw ptr, ptr %190, i64 %indvars.iv184
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %indvars.iv184
   store ptr %185, ptr %191, align 8, !tbaa !56
   %.pre = load i16, ptr %84, align 8, !tbaa !32
   br label %._crit_edge.thread
@@ -2537,7 +2537,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %119, %135, %140
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %214 = load ptr, ptr %213, align 8, !tbaa !54
   %215 = zext i8 %206 to i64
-  %216 = getelementptr inbounds nuw ptr, ptr %214, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %215
   %217 = load ptr, ptr %216, align 8, !tbaa !56
   invoke void @_ZN6icu_7718TimeZoneTransitionC1EdRKNS_12TimeZoneRuleES3_(ptr noundef nonnull align 8 dereferenceable(32) %207, double noundef %211, ptr noundef nonnull align 8 dereferenceable(80) %212, ptr noundef nonnull align 8 dereferenceable(80) %217)
           to label %218 unwind label %222
@@ -2730,7 +2730,7 @@ _ZNK6icu_778TimeZone5getIDERNS_13UnicodeStringE.exit149: ; preds = %277
   %299 = getelementptr i8, ptr %298, i64 -1
   %300 = load i8, ptr %299, align 1, !tbaa !45
   %301 = zext i8 %300 to i64
-  %302 = getelementptr inbounds nuw ptr, ptr %295, i64 %301
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %295, i64 %301
   %303 = load ptr, ptr %302, align 8, !tbaa !56
   br label %304
 
@@ -2853,7 +2853,7 @@ define linkonce_odr noundef double @_ZNK6icu_7713OlsonTimeZone14transitionTimeEs
   %9 = load ptr, ptr %8, align 8, !tbaa !38
   %10 = shl nsw i32 %7, 1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %9, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %9, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !39
   %14 = zext i32 %13 to i64
   %15 = shl nuw i64 %14, 32
@@ -2874,7 +2874,7 @@ define linkonce_odr noundef double @_ZNK6icu_7713OlsonTimeZone14transitionTimeEs
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %27 = load ptr, ptr %26, align 8, !tbaa !40
   %28 = sext i16 %21 to i64
-  %29 = getelementptr inbounds i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !39
   %31 = sext i32 %30 to i64
   br label %_ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit
@@ -2886,7 +2886,7 @@ define linkonce_odr noundef double @_ZNK6icu_7713OlsonTimeZone14transitionTimeEs
   %36 = sext i16 %33 to i32
   %37 = shl nsw i32 %36, 1
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %35, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %35, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !39
   %41 = zext i32 %40 to i64
   %42 = shl nuw i64 %41, 32
@@ -3055,7 +3055,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
 78:                                               ; preds = %75
   %79 = shl nsw i32 %76, 1
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds i32, ptr %74, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %74, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !39
   %83 = zext i32 %82 to i64
   %84 = shl nuw i64 %83, 32
@@ -3072,7 +3072,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
 
 92:                                               ; preds = %89
   %93 = sext i16 %90 to i64
-  %94 = getelementptr inbounds i32, ptr %72, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr %72, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !39
   %96 = sext i32 %95 to i64
   br label %_ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit
@@ -3082,7 +3082,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
   %99 = sext i16 %98 to i32
   %100 = shl nsw i32 %99, 1
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds i32, ptr %70, i64 %101
+  %102 = getelementptr inbounds [4 x i8], ptr %70, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !39
   %104 = zext i32 %103 to i64
   %105 = shl nuw i64 %104, 32
@@ -3141,13 +3141,13 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %78, %92, %97
   %133 = getelementptr inbounds i8, ptr %130, i64 %132
   %134 = load i8, ptr %133, align 1, !tbaa !45
   %135 = zext i8 %134 to i64
-  %136 = getelementptr inbounds nuw ptr, ptr %53, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %135
   %137 = load ptr, ptr %136, align 8, !tbaa !56
   %138 = sext i16 %.04568 to i64
   %139 = getelementptr inbounds i8, ptr %130, i64 %138
   %140 = load i8, ptr %139, align 1, !tbaa !45
   %141 = zext i8 %140 to i64
-  %142 = getelementptr inbounds nuw ptr, ptr %53, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %141
   %143 = load ptr, ptr %142, align 8, !tbaa !56
   %144 = trunc i32 %131 to i16
   %145 = icmp sgt i16 %56, %144
@@ -3157,7 +3157,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %78, %92, %97
   %sext = shl i32 %131, 16
   %147 = ashr exact i32 %sext, 15
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds i32, ptr %74, i64 %148
+  %149 = getelementptr inbounds [4 x i8], ptr %74, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !39
   %151 = zext i32 %150 to i64
   %152 = shl nuw i64 %151, 32
@@ -3174,7 +3174,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %78, %92, %97
 
 160:                                              ; preds = %157
   %161 = sext i16 %158 to i64
-  %162 = getelementptr inbounds i32, ptr %72, i64 %161
+  %162 = getelementptr inbounds [4 x i8], ptr %72, i64 %161
   %163 = load i32, ptr %162, align 4, !tbaa !39
   %164 = sext i32 %163 to i64
   br label %178
@@ -3184,7 +3184,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %78, %92, %97
   %167 = sext i16 %166 to i32
   %168 = shl nsw i32 %167, 1
   %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds i32, ptr %70, i64 %169
+  %170 = getelementptr inbounds [4 x i8], ptr %70, i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !39
   %172 = zext i32 %171 to i64
   %173 = shl nuw i64 %172, 32
@@ -3479,7 +3479,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
   %78 = sext i16 %.043 to i32
   %79 = shl nsw i32 %78, 1
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds i32, ptr %73, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %73, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !39
   %83 = zext i32 %82 to i64
   %84 = shl nuw i64 %83, 32
@@ -3496,7 +3496,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
 
 92:                                               ; preds = %89
   %93 = sext i16 %90 to i64
-  %94 = getelementptr inbounds i32, ptr %71, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr %71, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !39
   %96 = sext i32 %95 to i64
   br label %_ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit
@@ -3506,7 +3506,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
   %99 = sext i16 %98 to i32
   %100 = shl nsw i32 %99, 1
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds i32, ptr %69, i64 %101
+  %102 = getelementptr inbounds [4 x i8], ptr %69, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !39
   %104 = zext i32 %103 to i64
   %105 = shl nuw i64 %104, 32
@@ -3543,12 +3543,12 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %77, %92, %97
   %124 = getelementptr inbounds i8, ptr %123, i64 %121
   %125 = load i8, ptr %124, align 1, !tbaa !45
   %126 = zext i8 %125 to i64
-  %127 = getelementptr inbounds nuw ptr, ptr %56, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !56
   %129 = getelementptr i8, ptr %124, i64 -1
   %130 = load i8, ptr %129, align 1, !tbaa !45
   %131 = zext i8 %130 to i64
-  %132 = getelementptr inbounds nuw ptr, ptr %56, i64 %131
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !56
   br i1 %76, label %134, label %146
 
@@ -3556,7 +3556,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %77, %92, %97
   %135 = sext i16 %.043 to i32
   %136 = shl nsw i32 %135, 1
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds i32, ptr %73, i64 %137
+  %138 = getelementptr inbounds [4 x i8], ptr %73, i64 %137
   %139 = load i32, ptr %138, align 4, !tbaa !39
   %140 = zext i32 %139 to i64
   %141 = shl nuw i64 %140, 32
@@ -3573,7 +3573,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %77, %92, %97
 
 149:                                              ; preds = %146
   %150 = sext i16 %147 to i64
-  %151 = getelementptr inbounds i32, ptr %71, i64 %150
+  %151 = getelementptr inbounds [4 x i8], ptr %71, i64 %150
   %152 = load i32, ptr %151, align 4, !tbaa !39
   %153 = sext i32 %152 to i64
   br label %167
@@ -3583,7 +3583,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %77, %92, %97
   %156 = sext i16 %155 to i32
   %157 = shl nsw i32 %156, 1
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds i32, ptr %69, i64 %158
+  %159 = getelementptr inbounds [4 x i8], ptr %69, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !39
   %161 = zext i32 %160 to i64
   %162 = shl nuw i64 %161, 32
@@ -3797,7 +3797,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.119 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !56
   %.not18 = icmp ne ptr %25, null
   %26 = zext i1 %.not18 to i32
@@ -3901,7 +3901,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %39 ]
   %.140 = phi i32 [ 0, %.lr.ph.preheader ], [ %.3, %39 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !56
   %.not33 = icmp eq ptr %34, null
   br i1 %.not33, label %39, label %35
@@ -3909,7 +3909,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
 35:                                               ; preds = %.lr.ph
   %36 = add nsw i32 %.140, 1
   %37 = sext i32 %.140 to i64
-  %38 = getelementptr inbounds ptr, ptr %2, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %2, i64 %37
   store ptr %34, ptr %38, align 8, !tbaa !72
   %.not34 = icmp slt i32 %36, %28
   br i1 %.not34, label %39, label %.loopexit.loopexit
@@ -3941,7 +3941,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
   %45 = sub nsw i32 %40, %.027
   store i32 %45, ptr %7, align 4, !tbaa !39
   %46 = sext i32 %.027 to i64
-  %47 = getelementptr inbounds ptr, ptr %2, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %2, i64 %46
   %48 = load ptr, ptr %42, align 8, !tbaa !35
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 144
   %50 = load ptr, ptr %49, align 8

@@ -737,7 +737,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %127 = phi ptr [ %115, %.lr.ph.i ], [ %159, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   %.070408.i = phi i64 [ 0, %.lr.ph.i ], [ %157, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !4
-  %128 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %127, i64 %.070408.i
+  %128 = getelementptr inbounds nuw [32 x i8], ptr %127, i64 %.070408.i
   %.val118.i = load ptr, ptr %128, align 8, !tbaa !7
   %129 = getelementptr i8, ptr %128, i64 8
   %.val119.i = load i64, ptr %129, align 8, !tbaa !15
@@ -5891,7 +5891,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %147 = phi ptr [ %97, %.lr.ph ], [ %466, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ]
   %.086332 = phi i1 [ false, %.lr.ph ], [ %.2.ph, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ]
   %.0129331 = phi i64 [ 0, %.lr.ph ], [ %464, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ]
-  %148 = getelementptr inbounds nuw %"struct.cv::parallel::ParallelBackendInfo", ptr %147, i64 %.0129331
+  %148 = getelementptr inbounds nuw [56 x i8], ptr %147, i64 %.0129331
   %149 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN2cv8parallelL22getParallelBackendNameB5cxx11EvE13g_backendNameB5cxx11, i64 8), align 8, !tbaa !15
   %150 = icmp eq i64 %149, 0
   br i1 %150, label %158, label %151
@@ -7542,7 +7542,7 @@ _ZN2cv8parallelL30getBuiltinParallelBackendsInfoEv.exit: ; preds = %_ZNSt7__cxx1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %133 = getelementptr inbounds nuw %"struct.cv::parallel::ParallelBackendInfo", ptr %124, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [56 x i8], ptr %124, i64 %indvars.iv
   %134 = trunc nuw nsw i64 %indvars.iv to i32
   %.neg = mul i32 %134, -10
   %135 = add i32 %.neg, 1000
@@ -8053,13 +8053,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit201: ; preds = %30
   %.0113320 = phi i32 [ 0, %.lr.ph323 ], [ %.1114, %480 ]
   %345 = sext i32 %.0113320 to i64
   %346 = load ptr, ptr %0, align 8, !tbaa !214
-  %347 = getelementptr inbounds nuw %"struct.cv::parallel::ParallelBackendInfo", ptr %346, i64 %345
+  %347 = getelementptr inbounds nuw [56 x i8], ptr %346, i64 %345
   %348 = zext i32 %.0113320 to i64
   %.not147 = icmp eq i64 %indvars.iv326, %348
   br i1 %.not147, label %_ZN2cv8parallel19ParallelBackendInfoaSERKS1_.exit, label %349
 
 349:                                              ; preds = %344
-  %350 = getelementptr inbounds nuw %"struct.cv::parallel::ParallelBackendInfo", ptr %346, i64 %indvars.iv326
+  %350 = getelementptr inbounds nuw [56 x i8], ptr %346, i64 %indvars.iv326
   %351 = load i32, ptr %350, align 8, !tbaa !215
   store i32 %351, ptr %347, align 8, !tbaa !215
   %352 = getelementptr inbounds nuw i8, ptr %347, i64 8
@@ -9264,7 +9264,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit_crit_edge, %.lr.ph
   %34 = phi ptr [ %.pre, %._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit_crit_edge ], [ %29, %.lr.ph ]
-  %35 = getelementptr inbounds nuw %"struct.cv::parallel::ParallelBackendInfo", ptr %34, i64 %.019
+  %35 = getelementptr inbounds nuw [56 x i8], ptr %34, i64 %.019
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !7
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -9722,7 +9722,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %167 = phi i64 [ %106, %.lr.ph287 ], [ %429, %.thread173 ]
   %168 = phi ptr [ %102, %.lr.ph287 ], [ %425, %.thread173 ]
   %.074286 = phi i64 [ 0, %.lr.ph287 ], [ %423, %.thread173 ]
-  %169 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %168, i64 %.074286
+  %169 = getelementptr inbounds nuw [32 x i8], ptr %168, i64 %.074286
   %170 = sub nuw i64 %167, %.074286
   %171 = trunc i64 %170 to i32
   %172 = mul i32 %171, 1000
@@ -9745,7 +9745,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread170.us
   %.052284.us = phi i64 [ %187, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread170.us ], [ 0, %.lr.ph ]
-  %183 = getelementptr inbounds nuw %"struct.cv::parallel::ParallelBackendInfo", ptr %175, i64 %.052284.us
+  %183 = getelementptr inbounds nuw [56 x i8], ptr %175, i64 %.052284.us
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %185 = load i64, ptr %184, align 8, !tbaa !15
   %186 = icmp eq i64 %185, 0
@@ -9758,7 +9758,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread170
   %.052284 = phi i64 [ %277, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread170 ], [ 0, %.lr.ph ]
-  %188 = getelementptr inbounds nuw %"struct.cv::parallel::ParallelBackendInfo", ptr %175, i64 %.052284
+  %188 = getelementptr inbounds nuw [56 x i8], ptr %175, i64 %.052284
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %190 = load i64, ptr %189, align 8, !tbaa !15
   %191 = icmp eq i64 %.fr293, %190
@@ -10521,7 +10521,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv8parallel19ParallelBackendInfo
   br i1 %14, label %15, label %_ZNSt6vectorIN2cv8parallel19ParallelBackendInfoESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %"struct.cv::parallel::ParallelBackendInfo", ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIN2cv8parallel19ParallelBackendInfoESaIS2_EE15_M_erase_at_endEPS2_.exit, label %.lr.ph.i.i.i.i
 
@@ -12177,7 +12177,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !36
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !42
   ret void
 }
@@ -12393,7 +12393,7 @@ _ZNSt12_Vector_baseIN2cv8parallel19ParallelBackendInfoESaIS2_EE13_M_deallocateEP
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !214
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !211
-  %95 = getelementptr inbounds nuw %"struct.cv::parallel::ParallelBackendInfo", ptr %20, i64 %16
+  %95 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %95, ptr %94, align 8, !tbaa !293
   ret void
 }
@@ -12543,9 +12543,9 @@ _ZNSt6vectorIN2cv8parallel19ParallelBackendInfoESaIS2_EE11_S_relocateEPS2_S5_S5_
 
 _ZNSt12_Vector_baseIN2cv8parallel19ParallelBackendInfoESaIS2_EE13_M_deallocateEPS2_m.exit38: ; preds = %_ZNSt6vectorIN2cv8parallel19ParallelBackendInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %61
   store ptr %30, ptr %0, align 8, !tbaa !214
-  %62 = getelementptr inbounds nuw %"struct.cv::parallel::ParallelBackendInfo", ptr %31, i64 %1
+  %62 = getelementptr inbounds nuw [56 x i8], ptr %31, i64 %1
   store ptr %62, ptr %4, align 8, !tbaa !211
-  %63 = getelementptr inbounds nuw %"struct.cv::parallel::ParallelBackendInfo", ptr %30, i64 %28
+  %63 = getelementptr inbounds nuw [56 x i8], ptr %30, i64 %28
   store ptr %63, ptr %11, align 8, !tbaa !293
   br label %64
 
@@ -12608,7 +12608,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN2cv8parallel19ParallelBack
 26:                                               ; preds = %18
   %27 = add nsw i64 %.034, -1
   %28 = udiv i64 %19, 112
-  %29 = getelementptr inbounds nuw %"struct.cv::parallel::ParallelBackendInfo", ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %28
   %30 = getelementptr inbounds i8, ptr %storemerge33, i64 -56
   %31 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %29)
   br i1 %31, label %32, label %34
@@ -13033,7 +13033,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
 24:                                               ; preds = %_ZN2cv8parallel19ParallelBackendInfoD2Ev.exit20, %11
   %.010 = phi i64 [ %13, %11 ], [ %74, %_ZN2cv8parallel19ParallelBackendInfoD2Ev.exit20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %25 = getelementptr inbounds %"struct.cv::parallel::ParallelBackendInfo", ptr %0, i64 %.010
+  %25 = getelementptr inbounds [56 x i8], ptr %0, i64 %.010
   %26 = load i32, ptr %25, align 8, !tbaa !215
   store i32 %26, ptr %4, align 8, !tbaa !215
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -13479,13 +13479,13 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   %.037 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %5 ]
   %10 = shl i64 %.037, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"struct.cv::parallel::ParallelBackendInfo", ptr %0, i64 %11
+  %12 = getelementptr inbounds [56 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"struct.cv::parallel::ParallelBackendInfo", ptr %0, i64 %13
+  %14 = getelementptr inbounds [56 x i8], ptr %0, i64 %13
   %15 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(56) %14)
   %spec.select = select i1 %15, i64 %13, i64 %11
-  %16 = getelementptr inbounds %"struct.cv::parallel::ParallelBackendInfo", ptr %0, i64 %spec.select
-  %17 = getelementptr inbounds %"struct.cv::parallel::ParallelBackendInfo", ptr %0, i64 %.037
+  %16 = getelementptr inbounds [56 x i8], ptr %0, i64 %spec.select
+  %17 = getelementptr inbounds [56 x i8], ptr %0, i64 %.037
   %18 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN2cv8parallel19ParallelBackendInfoaSEOS1_(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(56) %16) #29
   %19 = icmp slt i64 %spec.select, %8
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !407
@@ -13505,8 +13505,8 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
 26:                                               ; preds = %22
   %27 = shl nsw i64 %.0.lcssa, 1
   %28 = or disjoint i64 %27, 1
-  %29 = getelementptr inbounds %"struct.cv::parallel::ParallelBackendInfo", ptr %0, i64 %28
-  %30 = getelementptr inbounds %"struct.cv::parallel::ParallelBackendInfo", ptr %0, i64 %.0.lcssa
+  %29 = getelementptr inbounds [56 x i8], ptr %0, i64 %28
+  %30 = getelementptr inbounds [56 x i8], ptr %0, i64 %.0.lcssa
   %31 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN2cv8parallel19ParallelBackendInfoaSEOS1_(ptr noundef nonnull align 8 dereferenceable(56) %30, ptr noundef nonnull align 8 dereferenceable(56) %29) #29
   br label %32
 
@@ -13565,7 +13565,7 @@ _ZN2cv8parallel19ParallelBackendInfoC2EOS1_.exit: ; preds = %40, %_ZNKSt7__cxx11
   %.018.i = phi i64 [ %.0919.i, %58 ], [ %.1, %_ZN2cv8parallel19ParallelBackendInfoC2EOS1_.exit ]
   %.0919.in.i = add nsw i64 %.018.i, -1
   %.0919.i = sdiv i64 %.0919.in.i, 2
-  %56 = getelementptr inbounds %"struct.cv::parallel::ParallelBackendInfo", ptr %0, i64 %.0919.i
+  %56 = getelementptr inbounds [56 x i8], ptr %0, i64 %.0919.i
   %57 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(56) %56, ptr noundef nonnull align 8 dereferenceable(56) %6)
           to label %.noexc unwind label %88
 
@@ -13573,14 +13573,14 @@ _ZN2cv8parallel19ParallelBackendInfoC2EOS1_.exit: ; preds = %40, %_ZNKSt7__cxx11
   br i1 %57, label %58, label %.loopexit
 
 58:                                               ; preds = %.noexc
-  %59 = getelementptr inbounds %"struct.cv::parallel::ParallelBackendInfo", ptr %0, i64 %.018.i
+  %59 = getelementptr inbounds [56 x i8], ptr %0, i64 %.018.i
   %60 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN2cv8parallel19ParallelBackendInfoaSEOS1_(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull align 8 dereferenceable(56) %56) #29
   %61 = icmp sgt i64 %.0919.i, %1
   br i1 %61, label %.lr.ph.i, label %.loopexit, !llvm.loop !408
 
 .loopexit:                                        ; preds = %58, %.noexc, %_ZN2cv8parallel19ParallelBackendInfoC2EOS1_.exit
   %.0.lcssa.i = phi i64 [ %.1, %_ZN2cv8parallel19ParallelBackendInfoC2EOS1_.exit ], [ %.018.i, %.noexc ], [ %.0919.i, %58 ]
-  %62 = getelementptr inbounds %"struct.cv::parallel::ParallelBackendInfo", ptr %0, i64 %.0.lcssa.i
+  %62 = getelementptr inbounds [56 x i8], ptr %0, i64 %.0.lcssa.i
   %63 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN2cv8parallel19ParallelBackendInfoaSEOS1_(ptr noundef nonnull align 8 dereferenceable(56) %62, ptr noundef nonnull align 8 dereferenceable(56) %6) #29
   %64 = load ptr, ptr %52, align 8, !tbaa !116
   %.not.i.i.i = icmp eq ptr %64, null
@@ -14555,7 +14555,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !36
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !42
   ret void
 
@@ -14640,7 +14640,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIc
 
 21:                                               ; preds = %13
   %22 = lshr i64 %14, 1
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %22
   %24 = getelementptr inbounds i8, ptr %storemerge20, i64 -32
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterISt7greaterIS7_EEEEvT_SI_SI_SI_T0_(ptr %0, ptr nonnull %11, ptr %23, ptr nonnull %24)
   br label %25
@@ -14751,7 +14751,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
 18:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15, %11
   %.010 = phi i64 [ %13, %11 ], [ %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.010
+  %19 = getelementptr inbounds [32 x i8], ptr %0, i64 %.010
   store ptr %14, ptr %4, align 8, !tbaa !19
   %20 = load ptr, ptr %19, align 8, !tbaa !7
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -15043,9 +15043,9 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   %.047 = phi i64 [ %spec.select, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ], [ %1, %4 ]
   %10 = shl i64 %.047, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %13
+  %14 = getelementptr inbounds [32 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -15072,8 +15072,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterINSt7__cxx1112basic_stringIcSt11c
   %.0.i.i.i.i = phi i32 [ %22, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %.0.i6.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ]
   %24 = icmp sgt i32 %.0.i.i.i.i, 0
   %spec.select = select i1 %24, i64 %13, i64 %11
-  %25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %spec.select
-  %26 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.047
+  %25 = getelementptr inbounds [32 x i8], ptr %0, i64 %spec.select
+  %26 = getelementptr inbounds [32 x i8], ptr %0, i64 %.047
   %27 = load ptr, ptr %26, align 8, !tbaa !7
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = icmp eq ptr %27, %28
@@ -15175,8 +15175,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %33
 65:                                               ; preds = %61
   %66 = shl nsw i64 %.0.lcssa, 1
   %67 = or disjoint i64 %66, 1
-  %68 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %67
-  %69 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.0.lcssa
+  %68 = getelementptr inbounds [32 x i8], ptr %0, i64 %67
+  %69 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   %70 = load ptr, ptr %69, align 8, !tbaa !7
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %72 = icmp eq ptr %70, %71
@@ -15342,7 +15342,7 @@ define linkonce_odr hidden void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iterato
   %.027 = phi i64 [ %1, %.lr.ph ], [ %.0928, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ]
   %.0928.in = add nsw i64 %.027, -1
   %.0928 = sdiv i64 %.0928.in, 2
-  %9 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.0928
+  %9 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0928
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !15
   %12 = load i64, ptr %7, align 8, !tbaa !15
@@ -15370,7 +15370,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterINSt7__cxx1112basic_stringIcSt11ch
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit
-  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.027
+  %20 = getelementptr inbounds [32 x i8], ptr %0, i64 %.027
   %21 = load ptr, ptr %20, align 8, !tbaa !7
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = icmp eq ptr %21, %22
@@ -15452,7 +15452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %27
 
 .critedge:                                        ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0928, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit ], [ %.027, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt7greaterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclINS_17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit ]
-  %46 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.0.lcssa
+  %46 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   %47 = load ptr, ptr %46, align 8, !tbaa !7
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = icmp eq ptr %47, %48

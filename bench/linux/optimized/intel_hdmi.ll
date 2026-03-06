@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.87 }
 %union.anon.87 = type { i64 }
 %struct.hdcp2_hdmi_msg_timeout = type { i8, i16 }
-%struct.__drm_connnectors_state = type { ptr, ptr, ptr, ptr, ptr }
 %struct.i2c_msg = type { i16, i16, i16, ptr }
 %union.anon.86 = type { i32 }
 
@@ -112,7 +111,7 @@ define dso_local void @hsw_write_infoframe(ptr noundef readonly captures(none) %
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = sext i32 %8 to i64
-  %13 = getelementptr i32, ptr %11, i64 %12
+  %13 = getelementptr [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %11, align 4
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
@@ -354,7 +353,7 @@ define internal fastcc i32 @hsw_dip_data_reg(ptr noundef readonly captures(none)
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = sext i32 %1 to i64
-  %10 = getelementptr i32, ptr %8, i64 %9
+  %10 = getelementptr [4 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr %8, align 4
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -371,7 +370,7 @@ define internal fastcc i32 @hsw_dip_data_reg(ptr noundef readonly captures(none)
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = sext i32 %1 to i64
-  %25 = getelementptr i32, ptr %23, i64 %24
+  %25 = getelementptr [4 x i8], ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = load i32, ptr %23, align 4
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 32
@@ -388,7 +387,7 @@ define internal fastcc i32 @hsw_dip_data_reg(ptr noundef readonly captures(none)
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %39 = sext i32 %1 to i64
-  %40 = getelementptr i32, ptr %38, i64 %39
+  %40 = getelementptr [4 x i8], ptr %38, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = load i32, ptr %38, align 4
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 32
@@ -405,7 +404,7 @@ define internal fastcc i32 @hsw_dip_data_reg(ptr noundef readonly captures(none)
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %54 = sext i32 %1 to i64
-  %55 = getelementptr i32, ptr %53, i64 %54
+  %55 = getelementptr [4 x i8], ptr %53, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = load i32, ptr %53, align 4
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -422,7 +421,7 @@ define internal fastcc i32 @hsw_dip_data_reg(ptr noundef readonly captures(none)
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 64
   %69 = sext i32 %1 to i64
-  %70 = getelementptr i32, ptr %68, i64 %69
+  %70 = getelementptr [4 x i8], ptr %68, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = load i32, ptr %68, align 4
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 32
@@ -439,7 +438,7 @@ define internal fastcc i32 @hsw_dip_data_reg(ptr noundef readonly captures(none)
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 64
   %84 = sext i32 %1 to i64
-  %85 = getelementptr i32, ptr %83, i64 %84
+  %85 = getelementptr [4 x i8], ptr %83, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = load i32, ptr %83, align 4
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 32
@@ -456,7 +455,7 @@ define internal fastcc i32 @hsw_dip_data_reg(ptr noundef readonly captures(none)
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 64
   %99 = sext i32 %1 to i64
-  %100 = getelementptr i32, ptr %98, i64 %99
+  %100 = getelementptr [4 x i8], ptr %98, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = load i32, ptr %98, align 4
   %103 = getelementptr inbounds nuw i8, ptr %97, i64 32
@@ -829,7 +828,7 @@ define dso_local void @intel_hdmi_read_gcp_infoframe(ptr noundef readonly captur
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 864
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
-  %21 = getelementptr i32, ptr %17, i64 %20
+  %21 = getelementptr [4 x i8], ptr %17, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = load i32, ptr %17, align 4
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -954,7 +953,7 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr noundef readonly captur
 .split.us:                                        ; preds = %9, %51
   %14 = phi i64 [ %52, %51 ], [ 0, %9 ]
   %15 = phi i1 [ %53, %51 ], [ false, %9 ]
-  %16 = getelementptr %struct.__drm_connnectors_state, ptr %11, i64 %14
+  %16 = getelementptr [40 x i8], ptr %11, i64 %14
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %51, label %19
@@ -1029,7 +1028,7 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr noundef readonly captur
 .split.split.us:                                  ; preds = %.split, %67
   %55 = phi i64 [ %68, %67 ], [ 0, %.split ]
   %56 = phi i1 [ %69, %67 ], [ false, %.split ]
-  %57 = getelementptr %struct.__drm_connnectors_state, ptr %11, i64 %55
+  %57 = getelementptr [40 x i8], ptr %11, i64 %55
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %67, label %60
@@ -1052,7 +1051,7 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr noundef readonly captur
 .split.split.us12:                                ; preds = %.split, %83
   %71 = phi i64 [ %84, %83 ], [ 0, %.split ]
   %72 = phi i1 [ %85, %83 ], [ false, %.split ]
-  %73 = getelementptr %struct.__drm_connnectors_state, ptr %11, i64 %71
+  %73 = getelementptr [40 x i8], ptr %11, i64 %71
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %83, label %76
@@ -1075,7 +1074,7 @@ define dso_local zeroext i1 @intel_hdmi_bpc_possible(ptr noundef readonly captur
 .split.split:                                     ; preds = %.split, %100
   %87 = phi i64 [ %101, %100 ], [ 0, %.split ]
   %88 = phi i1 [ %102, %100 ], [ false, %.split ]
-  %89 = getelementptr %struct.__drm_connnectors_state, ptr %11, i64 %87
+  %89 = getelementptr [40 x i8], ptr %11, i64 %87
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %100, label %92
@@ -2637,7 +2636,7 @@ define internal void @vlv_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 864
   %98 = load i32, ptr %97, align 8
   %99 = sext i32 %98 to i64
-  %100 = getelementptr i32, ptr %96, i64 %99
+  %100 = getelementptr [4 x i8], ptr %96, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = load i32, ptr %96, align 4
   %103 = getelementptr inbounds nuw i8, ptr %90, i64 32
@@ -3164,7 +3163,7 @@ define internal void @hsw_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 864
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr i32, ptr %8, i64 %11
+  %12 = getelementptr [4 x i8], ptr %8, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = load i32, ptr %8, align 4
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -3180,7 +3179,7 @@ define internal void @hsw_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   %25 = load ptr, ptr %6, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = sext i32 %24 to i64
-  %28 = getelementptr i32, ptr %26, i64 %27
+  %28 = getelementptr [4 x i8], ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = load i32, ptr %26, align 4
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -3251,7 +3250,7 @@ define internal void @hsw_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 64
   %74 = load i32, ptr %9, align 8
   %75 = sext i32 %74 to i64
-  %76 = getelementptr i32, ptr %73, i64 %75
+  %76 = getelementptr [4 x i8], ptr %73, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = load i32, ptr %73, align 4
   %79 = getelementptr inbounds nuw i8, ptr %67, i64 32
@@ -3331,7 +3330,7 @@ define internal range(i32 0, 269553938) i32 @hsw_infoframes_enabled(ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 864
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr i32, ptr %6, i64 %9
+  %10 = getelementptr [4 x i8], ptr %6, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr %6, align 4
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3746,7 +3745,7 @@ define internal void @ibx_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 864
   %96 = load i32, ptr %95, align 8
   %97 = sext i32 %96 to i64
-  %98 = getelementptr i32, ptr %94, i64 %97
+  %98 = getelementptr [4 x i8], ptr %94, i64 %97
   %99 = load i32, ptr %98, align 4
   %100 = load i32, ptr %94, align 4
   %101 = getelementptr inbounds nuw i8, ptr %88, i64 32
@@ -4201,7 +4200,7 @@ define internal void @cpt_set_infoframes(ptr noundef %0, i1 noundef zeroext %1, 
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 864
   %71 = load i32, ptr %70, align 8
   %72 = sext i32 %71 to i64
-  %73 = getelementptr i32, ptr %69, i64 %72
+  %73 = getelementptr [4 x i8], ptr %69, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = load i32, ptr %69, align 4
   %76 = getelementptr inbounds nuw i8, ptr %63, i64 32
@@ -7058,7 +7057,7 @@ define internal i32 @intel_hdmi_hdcp_toggle_signalling(ptr noundef %0, i32 nound
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 36
   %47 = load i32, ptr %42, align 8
   %48 = sext i32 %47 to i64
-  %49 = getelementptr i32, ptr %46, i64 %48
+  %49 = getelementptr [4 x i8], ptr %46, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %46, align 4
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -7078,7 +7077,7 @@ define internal i32 @intel_hdmi_hdcp_toggle_signalling(ptr noundef %0, i32 nound
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 36
   %63 = load i32, ptr %42, align 8
   %64 = sext i32 %63 to i64
-  %65 = getelementptr i32, ptr %62, i64 %64
+  %65 = getelementptr [4 x i8], ptr %62, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = load i32, ptr %62, align 4
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 32
@@ -7210,7 +7209,7 @@ define internal zeroext i1 @intel_hdmi_hdcp_check_link(ptr noundef readonly capt
 
 43:                                               ; preds = %36
   %44 = sext i32 %20 to i64
-  %45 = getelementptr i32, ptr @constinit.71, i64 %44
+  %45 = getelementptr [4 x i8], ptr @constinit.71, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %46, 24
   %.pre7 = shl i32 %21, 8
@@ -7228,7 +7227,7 @@ define internal zeroext i1 @intel_hdmi_hdcp_check_link(ptr noundef readonly capt
   %54 = call i64 @ktime_get_raw() #15
   %55 = add i64 %54, 1000000
   %56 = call i32 @__SCT__might_resched() #15
-  %57 = getelementptr i32, ptr @constinit.71, i64 %.pre-phi
+  %57 = getelementptr [4 x i8], ptr @constinit.71, i64 %.pre-phi
   %58 = add i32 %.pre-phi8, 418844
   %59 = getelementptr inbounds nuw i8, ptr %19, i64 7512
   br label %60
@@ -7509,13 +7508,13 @@ define internal i32 @intel_hdmi_hdcp2_read_msg(ptr noundef readonly captures(non
 
 .preheader:                                       ; preds = %18, %29
   %32 = phi i64 [ %30, %29 ], [ 0, %18 ]
-  %33 = getelementptr %struct.hdcp2_hdmi_msg_timeout, ptr @hdcp2_msg_timeout, i64 %32
+  %33 = getelementptr [4 x i8], ptr @hdcp2_msg_timeout, i64 %32
   %34 = load i8, ptr %33, align 4
   %35 = icmp eq i8 %34, %1
   br i1 %35, label %36, label %29
 
 36:                                               ; preds = %.preheader
-  %37 = getelementptr %struct.hdcp2_hdmi_msg_timeout, ptr @hdcp2_msg_timeout, i64 %32
+  %37 = getelementptr [4 x i8], ptr @hdcp2_msg_timeout, i64 %32
   %38 = getelementptr i8, ptr %37, i64 2
   %39 = load i16, ptr %38, align 2
   %40 = zext i16 %39 to i32

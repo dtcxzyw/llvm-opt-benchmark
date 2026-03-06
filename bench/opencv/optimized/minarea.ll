@@ -33,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.cv::Point_" = type { i32, i32 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -279,7 +278,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; p
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %140, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %134, ptr %6, align 8, !tbaa !25
   store ptr %139, ptr %34, align 8, !tbaa !24
-  %141 = getelementptr inbounds nuw %"class.cv::Point_", ptr %134, i64 %132
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %132
   store ptr %141, ptr %35, align 8, !tbaa !21
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit
 
@@ -371,7 +370,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   store i32 50397184, ptr %17, align 8, !tbaa !39
   store ptr %4, ptr %48, align 8, !tbaa !41
   %155 = load ptr, ptr %6, align 8, !tbaa !25
-  %156 = getelementptr inbounds nuw %"class.cv::Point_", ptr %155, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %indvars.iv
   %.sroa.013.0.copyload = load i64, ptr %156, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
@@ -430,7 +429,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   store i64 0, ptr %53, align 8
   store i32 50397184, ptr %19, align 8, !tbaa !39
   store ptr %4, ptr %52, align 8, !tbaa !41
-  %170 = getelementptr inbounds nuw %"class.cv::Point_.0", ptr %7, i64 %indvars.iv141
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv141
   %171 = load float, ptr %170, align 8, !tbaa !42
   %172 = insertelement <4 x float> poison, float %171, i64 0
   %173 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %172)
@@ -444,7 +443,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %178 = and i64 %indvars.iv.next142, 3
-  %179 = getelementptr inbounds nuw %"class.cv::Point_.0", ptr %7, i64 %178
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %178
   %180 = load float, ptr %179, align 8, !tbaa !42
   %181 = insertelement <4 x float> poison, float %180, i64 0
   %182 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %181)
@@ -483,7 +482,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   store i32 50397184, ptr %21, align 8, !tbaa !39
   store ptr %4, ptr %56, align 8, !tbaa !41
   %190 = load ptr, ptr %10, align 8, !tbaa !49
-  %191 = getelementptr inbounds nuw %"class.cv::Point_.0", ptr %190, i64 %indvars.iv145
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %indvars.iv145
   %192 = load float, ptr %191, align 4, !tbaa !42
   %193 = insertelement <4 x float> poison, float %192, i64 0
   %194 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %193)
@@ -499,7 +498,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   %.cmp.not = icmp eq i64 %indvars.iv145, 2
   %199 = and i64 %indvars.iv.next146, 4294967295
   %200 = select i1 %.cmp.not, i64 0, i64 %199
-  %201 = getelementptr inbounds nuw %"class.cv::Point_.0", ptr %190, i64 %200
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %200
   %202 = load float, ptr %201, align 4, !tbaa !42
   %203 = insertelement <4 x float> poison, float %202, i64 0
   %204 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %203)

@@ -12,8 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.virtio_gpu_object_params = type { i64, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64 }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.list_head = type { ptr, ptr }
-%struct.virtio_gpu_drv_capset = type { i32, i32, i32 }
-%struct.drm_virtgpu_context_set_param = type { i64, i64 }
 
 @.str = private unnamed_addr constant [12 x i8] c"VIRTGPU_MAP\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"VIRTGPU_EXECBUFFER\00", align 1
@@ -921,7 +919,7 @@ define internal i32 @virtio_gpu_get_caps_ioctl(ptr noundef readonly captures(non
 24:                                               ; preds = %35, %19
   %25 = phi i32 [ 0, %19 ], [ %36, %35 ]
   %26 = sext i32 %25 to i64
-  %27 = getelementptr %struct.virtio_gpu_drv_capset, ptr %21, i64 %26
+  %27 = getelementptr [12 x i8], ptr %21, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, %22
   br i1 %29, label %30, label %35
@@ -1378,7 +1376,7 @@ define internal i32 @virtio_gpu_context_init_ioctl(ptr noundef readonly captures
 
 44:                                               ; preds = %85, %36
   %45 = phi i64 [ 0, %36 ], [ %86, %85 ]
-  %46 = getelementptr %struct.drm_virtgpu_context_set_param, ptr %24, i64 %45
+  %46 = getelementptr [16 x i8], ptr %24, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %49 = load i64, ptr %48, align 8

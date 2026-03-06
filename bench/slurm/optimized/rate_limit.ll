@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%struct.user_bucket_t = type { i64, i64, i32, i32 }
 
 @slurm_conf = external local_unnamed_addr global %struct.slurm_conf_t, align 8
 @.str = private unnamed_addr constant [10 x i8] c"rl_enable\00", align 1
@@ -242,7 +241,7 @@ define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr noundef %0) local_u
 22:                                               ; preds = %27, %16
   %.056 = phi i32 [ %20, %16 ], [ %spec.store.select, %27 ]
   %23 = sext i32 %.056 to i64
-  %24 = getelementptr inbounds %struct.user_bucket_t, ptr %21, i64 %23
+  %24 = getelementptr inbounds [24 x i8], ptr %21, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %26 = load i32, ptr %25, align 4
   %.not71 = icmp eq i32 %26, 0
@@ -271,12 +270,12 @@ define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr noundef %0) local_u
   %35 = sext i32 %34 to i64
   %36 = sdiv i64 %17, %35
   %37 = load ptr, ptr @user_buckets, align 8
-  %38 = getelementptr inbounds %struct.user_bucket_t, ptr %37, i64 %23
+  %38 = getelementptr inbounds [24 x i8], ptr %37, i64 %23
   store i64 %36, ptr %38, align 8
   %39 = load i32, ptr @bucket_size, align 4
   %40 = add nsw i32 %39, -1
   %41 = load ptr, ptr @user_buckets, align 8
-  %42 = getelementptr inbounds %struct.user_bucket_t, ptr %41, i64 %23
+  %42 = getelementptr inbounds [24 x i8], ptr %41, i64 %23
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i32 %40, ptr %43, align 8
   %44 = tail call i32 @get_log_level() #7
@@ -301,7 +300,7 @@ define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr noundef %0) local_u
   %54 = sub nsw i64 %51, %52
   %55 = load i32, ptr @refill_rate, align 4
   %56 = load ptr, ptr @user_buckets, align 8
-  %57 = getelementptr inbounds %struct.user_bucket_t, ptr %56, i64 %23
+  %57 = getelementptr inbounds [24 x i8], ptr %56, i64 %23
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i32, ptr %58, align 8
   %60 = trunc i64 %54 to i32
@@ -309,7 +308,7 @@ define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr noundef %0) local_u
   %62 = add i32 %59, %61
   store i32 %62, ptr %58, align 8
   %63 = load ptr, ptr @user_buckets, align 8
-  %64 = getelementptr inbounds %struct.user_bucket_t, ptr %63, i64 %23
+  %64 = getelementptr inbounds [24 x i8], ptr %63, i64 %23
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load i32, ptr %65, align 8
   %67 = load i32, ptr @bucket_size, align 4
@@ -319,7 +318,7 @@ define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr noundef %0) local_u
 
 68:                                               ; preds = %53, %48
   %69 = load ptr, ptr @user_buckets, align 8
-  %70 = getelementptr inbounds %struct.user_bucket_t, ptr %69, i64 %23
+  %70 = getelementptr inbounds [24 x i8], ptr %69, i64 %23
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i32, ptr %71, align 8
   %.not75 = icmp eq i32 %72, 0
@@ -338,7 +337,7 @@ define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr noundef %0) local_u
 78:                                               ; preds = %75
   %79 = load i32, ptr %3, align 4
   %80 = load ptr, ptr @user_buckets, align 8
-  %81 = getelementptr inbounds %struct.user_bucket_t, ptr %80, i64 %23
+  %81 = getelementptr inbounds [24 x i8], ptr %80, i64 %23
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i32, ptr %82, align 8
   %84 = select i1 %.not75, ptr @.str.14, ptr @.str.15
@@ -367,7 +366,7 @@ define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr noundef %0) local_u
 92:                                               ; preds = %89
   %93 = load ptr, ptr @user_buckets, align 8
   %94 = sext i32 %.15779 to i64
-  %95 = getelementptr inbounds %struct.user_bucket_t, ptr %93, i64 %94
+  %95 = getelementptr inbounds [24 x i8], ptr %93, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load i64, ptr %96, align 8
   %98 = sext i32 %90 to i64
@@ -405,7 +404,7 @@ define dso_local noundef zeroext i1 @rate_limit_exceeded(ptr noundef %0) local_u
 
 117:                                              ; preds = %112, %109
   %118 = load ptr, ptr @user_buckets, align 8
-  %119 = getelementptr inbounds %struct.user_bucket_t, ptr %118, i64 %94
+  %119 = getelementptr inbounds [24 x i8], ptr %118, i64 %94
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 %17, ptr %120, align 8
   br label %121

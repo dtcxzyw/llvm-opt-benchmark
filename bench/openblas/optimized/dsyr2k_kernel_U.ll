@@ -30,9 +30,9 @@ define noundef i32 @dsyr2k_kernel_U(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 ._crit_edge:                                      ; preds = %20
   %23 = mul nsw i64 %8, %7
-  %24 = getelementptr inbounds double, ptr %6, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %6, i64 %23
   %25 = mul nsw i64 %8, %2
-  %26 = getelementptr inbounds double, ptr %5, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %5, i64 %25
   br label %27
 
 27:                                               ; preds = %._crit_edge, %18
@@ -47,9 +47,9 @@ define noundef i32 @dsyr2k_kernel_U(i64 noundef %0, i64 noundef %1, i64 noundef 
 30:                                               ; preds = %27
   %31 = sub i64 %.0124, %28
   %32 = mul nsw i64 %28, %2
-  %33 = getelementptr inbounds double, ptr %.0130, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.0130, i64 %32
   %34 = mul nsw i64 %28, %7
-  %35 = getelementptr inbounds double, ptr %.0128, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %.0128, i64 %34
   %36 = tail call i32 @dgemm_kernel(i64 noundef %0, i64 noundef %31, i64 noundef %2, double noundef %3, ptr noundef %4, ptr noundef %33, ptr noundef %35, i64 noundef %7) #4
   %37 = icmp slt i64 %28, 1
   br i1 %37, label %.loopexit137, label %38
@@ -64,8 +64,8 @@ define noundef i32 @dsyr2k_kernel_U(i64 noundef %0, i64 noundef %1, i64 noundef 
   %42 = tail call i32 @dgemm_kernel(i64 noundef %41, i64 noundef %.1, i64 noundef %2, double noundef %3, ptr noundef %4, ptr noundef %.0130, ptr noundef %.0128, i64 noundef %7) #4
   %43 = mul i64 %2, %.0125
   %44 = sub i64 0, %43
-  %45 = getelementptr inbounds double, ptr %4, i64 %44
-  %46 = getelementptr inbounds nuw double, ptr %.0128, i64 %41
+  %45 = getelementptr inbounds [8 x i8], ptr %4, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.0128, i64 %41
   %47 = icmp slt i64 %28, 1
   br i1 %47, label %.loopexit137, label %48
 
@@ -86,9 +86,9 @@ define noundef i32 @dsyr2k_kernel_U(i64 noundef %0, i64 noundef %1, i64 noundef 
   %sext.us = shl i64 %.0121144.us, 32
   %52 = ashr exact i64 %sext.us, 32
   %53 = mul nsw i64 %.0121144.us, %2
-  %54 = getelementptr inbounds double, ptr %.0130, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %.0130, i64 %53
   %55 = mul nsw i64 %.0121144.us, %7
-  %56 = getelementptr inbounds double, ptr %.1129, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %.1129, i64 %55
   %57 = tail call i32 @dgemm_kernel(i64 noundef %52, i64 noundef %51, i64 noundef %2, double noundef %3, ptr noundef %.0127, ptr noundef %54, ptr noundef %56, i64 noundef %7) #4
   %58 = add nuw nsw i64 %.0121144.us, 32
   %59 = icmp slt i64 %58, %.1
@@ -104,40 +104,40 @@ define noundef i32 @dsyr2k_kernel_U(i64 noundef %0, i64 noundef %1, i64 noundef 
   %sext = shl i64 %.0121144, 32
   %64 = ashr exact i64 %sext, 32
   %65 = mul nsw i64 %.0121144, %2
-  %66 = getelementptr inbounds double, ptr %.0130, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %.0130, i64 %65
   %67 = mul nsw i64 %.0121144, %7
-  %68 = getelementptr inbounds double, ptr %.1129, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %.1129, i64 %67
   %69 = call i32 @dgemm_kernel(i64 noundef %64, i64 noundef %63, i64 noundef %2, double noundef %3, ptr noundef %.0127, ptr noundef %66, ptr noundef %68, i64 noundef %7) #4
   %70 = call i32 @dgemm_beta(i64 noundef %63, i64 noundef %63, i64 noundef 0, double noundef 0.000000e+00, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, ptr noundef nonnull %11, i64 noundef %63) #4
-  %71 = getelementptr inbounds double, ptr %.0127, i64 %65
+  %71 = getelementptr inbounds [8 x i8], ptr %.0127, i64 %65
   %72 = call i32 @dgemm_kernel(i64 noundef %63, i64 noundef %63, i64 noundef %2, double noundef %3, ptr noundef %71, ptr noundef %66, ptr noundef nonnull %11, i64 noundef %63) #4
   %73 = icmp sgt i64 %62, 0
   br i1 %73, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %.lr.ph.split
-  %invariant.gep138 = getelementptr double, ptr %.1129, i64 %.0121144
+  %invariant.gep138 = getelementptr [8 x i8], ptr %.1129, i64 %.0121144
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %87
   %indvars.iv = phi i64 [ 1, %.preheader.lr.ph ], [ %indvars.iv.next, %87 ]
   %.0122143 = phi i64 [ 0, %.preheader.lr.ph ], [ %88, %87 ]
   %74 = mul nuw nsw i64 %.0122143, %63
-  %invariant.gep = getelementptr double, ptr %11, i64 %74
-  %75 = getelementptr double, ptr %11, i64 %.0122143
+  %invariant.gep = getelementptr [8 x i8], ptr %11, i64 %74
+  %75 = getelementptr [8 x i8], ptr %11, i64 %.0122143
   %76 = add nuw nsw i64 %.0122143, %.0121144
   %77 = mul nsw i64 %76, %7
-  %invariant.gep140 = getelementptr double, ptr %invariant.gep138, i64 %77
+  %invariant.gep140 = getelementptr [8 x i8], ptr %invariant.gep138, i64 %77
   br label %78
 
 78:                                               ; preds = %.preheader, %78
   %.0123142 = phi i64 [ 0, %.preheader ], [ %86, %78 ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %.0123142
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %.0123142
   %79 = load double, ptr %gep, align 8, !tbaa !5
   %80 = mul nuw nsw i64 %.0123142, %63
-  %81 = getelementptr double, ptr %75, i64 %80
+  %81 = getelementptr [8 x i8], ptr %75, i64 %80
   %82 = load double, ptr %81, align 8, !tbaa !5
   %83 = fadd double %79, %82
-  %gep141 = getelementptr double, ptr %invariant.gep140, i64 %.0123142
+  %gep141 = getelementptr [8 x i8], ptr %invariant.gep140, i64 %.0123142
   %84 = load double, ptr %gep141, align 8, !tbaa !5
   %85 = fadd double %84, %83
   store double %85, ptr %gep141, align 8, !tbaa !5

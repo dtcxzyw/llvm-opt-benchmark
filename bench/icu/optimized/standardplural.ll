@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN6icu_7714StandardPlural10getKeywordENS0_4FormE(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L9gKeywordsE, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_77L9gKeywordsE, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %4
 }

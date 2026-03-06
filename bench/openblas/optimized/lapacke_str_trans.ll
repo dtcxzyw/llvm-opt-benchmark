@@ -91,16 +91,16 @@ define void @LAPACKE_str_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %smin = tail call i32 @llvm.smin.i32(i32 %5, i32 %indvars.iv102)
   %41 = mul nsw i64 %indvars.iv106, %37
   %wide.trip.count104 = zext i32 %smin to i64
-  %invariant.gep117 = getelementptr float, ptr %4, i64 %41
-  %invariant.gep119 = getelementptr float, ptr %6, i64 %indvars.iv106
+  %invariant.gep117 = getelementptr [4 x i8], ptr %4, i64 %41
+  %invariant.gep119 = getelementptr [4 x i8], ptr %6, i64 %indvars.iv106
   br label %42
 
 42:                                               ; preds = %.lr.ph88, %42
   %indvars.iv99 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next100, %42 ]
-  %gep118 = getelementptr float, ptr %invariant.gep117, i64 %indvars.iv99
+  %gep118 = getelementptr [4 x i8], ptr %invariant.gep117, i64 %indvars.iv99
   %43 = load float, ptr %gep118, align 4, !tbaa !5
   %44 = mul nsw i64 %indvars.iv99, %35
-  %gep120 = getelementptr float, ptr %invariant.gep119, i64 %44
+  %gep120 = getelementptr [4 x i8], ptr %invariant.gep119, i64 %44
   store float %43, ptr %gep120, align 4, !tbaa !5
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count104
@@ -114,16 +114,16 @@ define void @LAPACKE_str_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
 
 .lr.ph:                                           ; preds = %45
   %47 = mul nsw i64 %indvars.iv94, %32
-  %invariant.gep = getelementptr float, ptr %4, i64 %47
-  %invariant.gep115 = getelementptr float, ptr %6, i64 %indvars.iv94
+  %invariant.gep = getelementptr [4 x i8], ptr %4, i64 %47
+  %invariant.gep115 = getelementptr [4 x i8], ptr %6, i64 %indvars.iv94
   br label %48
 
 48:                                               ; preds = %.lr.ph, %48
   %indvars.iv91 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next92, %48 ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv91
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv91
   %49 = load float, ptr %gep, align 4, !tbaa !5
   %50 = mul nsw i64 %indvars.iv91, %30
-  %gep116 = getelementptr float, ptr %invariant.gep115, i64 %50
+  %gep116 = getelementptr [4 x i8], ptr %invariant.gep115, i64 %50
   store float %49, ptr %gep116, align 4, !tbaa !5
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count

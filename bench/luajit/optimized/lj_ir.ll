@@ -3,10 +3,7 @@ source_filename = "bench/luajit/original/lj_ir.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.IRIns = type { %struct.GCRef }
-%struct.GCRef = type { i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.CCallInfo = type { ptr, i32 }
 
 @lj_ir_mode = hidden local_unnamed_addr constant [102 x i8] c"\80\80\80\80\80\80\80\80\90\90\80\E0\8F\85\8D\EF\E0\EF\EC\E0\E4\EF\8F\8E\8E\8E\8E\8E\8E\8E\84\8C\8C\90\90\90\80\80\80\80\80\90\80\90\80\80\80\80\80\80\80\80\84\10\00\10\80\80\C0\E0DD\84\E4\80\CF\CC\CC\CC\C4\C4\C5\C4\C0\E0\E0\E0\E0\E0\80\A0%, \00\C4@ \EC\E0\EF\84\80\84\8C\04$D\E4\E0\80\00", align 16
 @lj_ir_type_size = hidden local_unnamed_addr constant [25 x i8] c"\04\04\04\08\08\04\08\08\08\08\08\08\08\04\08\01\01\02\02\04\04\08\08\04\00", align 16
@@ -200,7 +197,7 @@ define hidden void @lj_ir_growtop(ptr noundef captures(none) initializes((32, 40
   %8 = sub i32 %6, %4
   %9 = load ptr, ptr %2, align 8, !tbaa !28
   %10 = zext i32 %4 to i64
-  %11 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = zext i32 %8 to i64
@@ -227,7 +224,7 @@ define hidden void @lj_ir_growtop(ptr noundef captures(none) initializes((32, 40
   %.0 = phi ptr [ %26, %23 ], [ %19, %7 ]
   store i32 %storemerge, ptr %5, align 8, !tbaa !27
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds %union.IRIns, ptr %.0, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %.0, i64 %29
   store ptr %30, ptr %2, align 8, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %30, ptr %31, align 8, !tbaa !30
@@ -255,13 +252,13 @@ lj_ir_nextins.exit:                               ; preds = %1, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = zext i32 %3 to i64
-  %11 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 189
   %14 = load i8, ptr %13, align 1, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 402
   %16 = zext i8 %14 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !34
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 6
   store i16 %18, ptr %19, align 2, !tbaa !33
@@ -296,7 +293,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define hidden i32 @lj_ir_call(ptr noundef initializes((184, 190)) %0, i32 noundef %1, ...) local_unnamed_addr #5 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw %struct.CCallInfo, ptr @lj_ir_callinfo, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @lj_ir_callinfo, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !36
   %8 = and i32 %7, 255
@@ -447,7 +444,7 @@ define hidden i32 @lj_ir_kint(ptr noundef captures(none) %0, i32 noundef %1) loc
 .lr.ph:                                           ; preds = %2, %6
   %.0.in21 = phi i16 [ %.0.in, %6 ], [ %.0.in19, %2 ]
   %8 = zext i16 %.0.in21 to i64
-  %9 = getelementptr inbounds nuw %union.IRIns, ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %8
   %10 = load i32, ptr %9, align 8, !tbaa !33
   %11 = icmp eq i32 %10, %1
   br i1 %11, label %.loopexit, label %6
@@ -470,7 +467,7 @@ ir_nextk.exit:                                    ; preds = %._crit_edge, %16
   %18 = add i32 %13, -1
   store i32 %18, ptr %12, align 8, !tbaa !43
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %union.IRIns, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   store i32 %1, ptr %20, align 8, !tbaa !33
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i8 19, ptr %21, align 4, !tbaa !33
@@ -501,7 +498,7 @@ define hidden i32 @lj_ir_k64(ptr noundef captures(none) %0, i32 noundef %1, i64 
   %7 = select i1 %6, i32 14, i32 21
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 402
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw i16, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %9
   %.0.in27 = load i16, ptr %10, align 2, !tbaa !33
   %.not28 = icmp eq i16 %.0.in27, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
@@ -515,7 +512,7 @@ define hidden i32 @lj_ir_k64(ptr noundef captures(none) %0, i32 noundef %1, i64 
 .lr.ph:                                           ; preds = %3, %11
   %.0.in29 = phi i16 [ %.0.in, %11 ], [ %.0.in27, %3 ]
   %13 = zext i16 %.0.in29 to i64
-  %14 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !33
   %17 = icmp eq i64 %16, %2
@@ -539,7 +536,7 @@ ir_nextk64.exit:                                  ; preds = %._crit_edge, %24
   %25 = phi ptr [ %5, %._crit_edge ], [ %.pre, %24 ]
   store i32 %20, ptr %18, align 8, !tbaa !43
   %26 = zext i32 %20 to i64
-  %27 = getelementptr inbounds nuw %union.IRIns, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %2, ptr %28, align 8, !tbaa !33
   %29 = trunc nuw nsw i32 %7 to i8
@@ -585,7 +582,7 @@ define hidden i32 @lj_ir_knum_u64(ptr noundef captures(none) %0, i64 noundef %1)
 .lr.ph.i:                                         ; preds = %2, %6
   %.0.in29.i = phi i16 [ %.0.in.i, %6 ], [ %.0.in27.i, %2 ]
   %8 = zext i16 %.0.in29.i to i64
-  %9 = getelementptr inbounds nuw %union.IRIns, ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !33
   %12 = icmp eq i64 %11, %1
@@ -609,7 +606,7 @@ ir_nextk64.exit.i:                                ; preds = %19, %._crit_edge.i
   %20 = phi ptr [ %4, %._crit_edge.i ], [ %.pre.i, %19 ]
   store i32 %15, ptr %13, align 8, !tbaa !43
   %21 = zext i32 %15 to i64
-  %22 = getelementptr inbounds nuw %union.IRIns, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %1, ptr %23, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -652,7 +649,7 @@ define hidden i32 @lj_ir_kint64(ptr noundef captures(none) %0, i64 noundef %1) l
 .lr.ph.i:                                         ; preds = %2, %6
   %.0.in29.i = phi i16 [ %.0.in.i, %6 ], [ %.0.in27.i, %2 ]
   %8 = zext i16 %.0.in29.i to i64
-  %9 = getelementptr inbounds nuw %union.IRIns, ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !33
   %12 = icmp eq i64 %11, %1
@@ -676,7 +673,7 @@ ir_nextk64.exit.i:                                ; preds = %19, %._crit_edge.i
   %20 = phi ptr [ %4, %._crit_edge.i ], [ %.pre.i, %19 ]
   store i32 %15, ptr %13, align 8, !tbaa !43
   %21 = zext i32 %15 to i64
-  %22 = getelementptr inbounds nuw %union.IRIns, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 %1, ptr %23, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -736,7 +733,7 @@ numistrueint.exit:                                ; preds = %2
 .lr.ph.i:                                         ; preds = %8, %12
   %.0.in21.i = phi i16 [ %.0.in.i, %12 ], [ %.0.in19.i, %8 ]
   %14 = zext i16 %.0.in21.i to i64
-  %15 = getelementptr inbounds nuw %union.IRIns, ptr %10, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !33
   %17 = icmp eq i32 %16, %3
   br i1 %17, label %.loopexit.i, label %12
@@ -759,7 +756,7 @@ ir_nextk.exit.i:                                  ; preds = %22, %._crit_edge.i
   %24 = add i32 %19, -1
   store i32 %24, ptr %18, align 8, !tbaa !43
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %union.IRIns, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %25
   store i32 %3, ptr %26, align 8, !tbaa !33
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i8 19, ptr %27, align 4, !tbaa !33
@@ -799,7 +796,7 @@ numistrueint.exit.thread:                         ; preds = %.numistrueint.exit.
 .lr.ph.i.i:                                       ; preds = %numistrueint.exit.thread, %36
   %.0.in29.i.i = phi i16 [ %.0.in.i.i, %36 ], [ %.0.in27.i.i, %numistrueint.exit.thread ]
   %38 = zext i16 %.0.in29.i.i to i64
-  %39 = getelementptr inbounds nuw %union.IRIns, ptr %34, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !33
   %42 = icmp eq i64 %41, %.pre-phi
@@ -823,7 +820,7 @@ ir_nextk64.exit.i.i:                              ; preds = %49, %._crit_edge.i.
   %50 = phi ptr [ %34, %._crit_edge.i.i ], [ %.pre.i.i, %49 ]
   store i32 %45, ptr %43, align 8, !tbaa !43
   %51 = zext i32 %45 to i64
-  %52 = getelementptr inbounds nuw %union.IRIns, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store double %1, ptr %53, align 8, !tbaa !33
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -870,7 +867,7 @@ define hidden i32 @lj_ir_kgc(ptr noundef captures(none) %0, ptr noundef %1, i32 
 .lr.ph:                                           ; preds = %3, %7
   %.0.in24 = phi i16 [ %.0.in, %7 ], [ %.0.in22, %3 ]
   %9 = zext i16 %.0.in24 to i64
-  %10 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !33
   %13 = inttoptr i64 %12 to ptr
@@ -895,7 +892,7 @@ ir_nextk64.exit:                                  ; preds = %._crit_edge, %21
   %22 = phi ptr [ %5, %._crit_edge ], [ %.pre, %21 ]
   store i32 %17, ptr %15, align 8, !tbaa !43
   %23 = zext i32 %17 to i64
-  %24 = getelementptr inbounds nuw %union.IRIns, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   store i32 0, ptr %24, align 8, !tbaa !33
   %25 = ptrtoint ptr %1 to i64
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -942,7 +939,7 @@ ir_nextk64.exit:                                  ; preds = %1, %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = zext i32 %4 to i64
-  %12 = getelementptr inbounds nuw %union.IRIns, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i8 9, ptr %13, align 4, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 5
@@ -960,7 +957,7 @@ define hidden i32 @lj_ir_kptr_(ptr noundef captures(none) %0, i32 noundef %1, pt
   %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 402
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw i16, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %7
   %.0.in24 = load i16, ptr %8, align 2, !tbaa !33
   %.not25 = icmp eq i16 %.0.in24, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
@@ -974,7 +971,7 @@ define hidden i32 @lj_ir_kptr_(ptr noundef captures(none) %0, i32 noundef %1, pt
 .lr.ph:                                           ; preds = %3, %9
   %.0.in26 = phi i16 [ %.0.in, %9 ], [ %.0.in24, %3 ]
   %11 = zext i16 %.0.in26 to i64
-  %12 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !33
   %15 = inttoptr i64 %14 to ptr
@@ -999,7 +996,7 @@ ir_nextk64.exit:                                  ; preds = %._crit_edge, %23
   %24 = phi ptr [ %5, %._crit_edge ], [ %.pre, %23 ]
   store i32 %19, ptr %17, align 8, !tbaa !43
   %25 = zext i32 %19 to i64
-  %26 = getelementptr inbounds nuw %union.IRIns, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   store i32 0, ptr %26, align 8, !tbaa !33
   %27 = ptrtoint ptr %2 to i64
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -1044,7 +1041,7 @@ define hidden i32 @lj_ir_knull(ptr noundef captures(none) %0, i32 noundef %1) lo
 .lr.ph:                                           ; preds = %2, %6
   %.0.in22 = phi i16 [ %.0.in, %6 ], [ %.0.in20, %2 ]
   %8 = zext i16 %.0.in22 to i64
-  %9 = getelementptr inbounds nuw %union.IRIns, ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i8, ptr %10, align 4, !tbaa !33
   %12 = zext i8 %11 to i32
@@ -1069,7 +1066,7 @@ ir_nextk.exit:                                    ; preds = %._crit_edge, %18
   %20 = add i32 %15, -1
   store i32 %20, ptr %14, align 8, !tbaa !43
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %union.IRIns, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   store i32 0, ptr %22, align 8, !tbaa !33
   %23 = trunc i32 %1 to i8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -1115,7 +1112,7 @@ define hidden i32 @lj_ir_kslot(ptr noundef captures(none) %0, i32 noundef %1, i3
 .lr.ph:                                           ; preds = %3, %10
   %.0.in23 = phi i16 [ %.0.in, %10 ], [ %.0.in21, %3 ]
   %12 = zext i16 %.0.in23 to i64
-  %13 = getelementptr inbounds nuw %union.IRIns, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %12
   %14 = load i32, ptr %13, align 8, !tbaa !33
   %15 = icmp eq i32 %14, %8
   br i1 %15, label %.loopexit, label %10
@@ -1138,7 +1135,7 @@ ir_nextk.exit:                                    ; preds = %._crit_edge, %20
   %22 = add i32 %17, -1
   store i32 %22, ptr %16, align 8, !tbaa !43
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %union.IRIns, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %23
   store i32 %8, ptr %24, align 8, !tbaa !33
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i8 5, ptr %25, align 4, !tbaa !33
@@ -1464,13 +1461,13 @@ define hidden void @lj_ir_rollback(ptr noundef captures(none) %0, i32 noundef %1
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %12, %11 ]
   %12 = add nsw i64 %indvars.iv, -1
-  %13 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 6
   %15 = load i16, ptr %14, align 2, !tbaa !33
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 5
   %17 = load i8, ptr %16, align 1, !tbaa !33
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %18
   store i16 %15, ptr %19, align 2, !tbaa !34
   %.wide = icmp ugt i64 %12, %10
   br i1 %.wide, label %11, label %._crit_edge.loopexit, !llvm.loop !54
@@ -1492,7 +1489,7 @@ define internal fastcc void @lj_ir_growbot(ptr noundef captures(none) initialize
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %union.IRIns, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %9 = load i32, ptr %8, align 8, !tbaa !27
   %10 = sub i32 %9, %5
@@ -1506,7 +1503,7 @@ define internal fastcc void @lj_ir_growbot(ptr noundef captures(none) initialize
 16:                                               ; preds = %1
   %17 = lshr i32 %10, 2
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw %union.IRIns, ptr %7, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %18
   %20 = sub i32 %12, %5
   %21 = zext i32 %20 to i64
   %22 = shl nuw nsw i64 %21, 3
@@ -1527,7 +1524,7 @@ define internal fastcc void @lj_ir_growbot(ptr noundef captures(none) initialize
   %34 = icmp ugt i32 %10, 255
   %35 = select i1 %34, i32 128, i32 %13
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw %union.IRIns, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %36
   %38 = load i32, ptr %11, align 4, !tbaa !31
   %39 = load i32, ptr %4, align 4, !tbaa !4
   %40 = sub i32 %38, %39
@@ -1559,7 +1556,7 @@ define internal fastcc void @lj_ir_growbot(ptr noundef captures(none) initialize
   %.sink42 = phi i32 [ %58, %27 ], [ %26, %16 ]
   %60 = zext i32 %.sink46 to i64
   %61 = sub nsw i64 0, %60
-  %62 = getelementptr inbounds %union.IRIns, ptr %.sink, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %.sink, i64 %61
   store i32 %.sink46, ptr %4, align 4, !tbaa !4
   store i32 %.sink42, ptr %8, align 8, !tbaa !27
   store ptr %62, ptr %2, align 8, !tbaa !28

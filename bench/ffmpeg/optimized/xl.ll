@@ -112,7 +112,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 45:                                               ; preds = %.lr.ph
   %46 = and i32 %41, 31
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw i32, ptr @xl_table, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr @xl_table, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !34
   %50 = add nsw i32 %49, %.182103
   br label %51
@@ -122,19 +122,19 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %52 = lshr i32 %41, 5
   %53 = and i32 %52, 31
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw i32, ptr @xl_table, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr @xl_table, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !34
   %57 = add nsw i32 %56, %.086
   %58 = lshr i32 %41, 10
   %59 = and i32 %58, 31
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw i32, ptr @xl_table, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr @xl_table, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !34
   %63 = add nsw i32 %57, %62
   %64 = lshr i32 %41, 16
   %65 = and i32 %64, 31
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw i32, ptr @xl_table, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr @xl_table, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !34
   %69 = add nsw i32 %63, %68
   %70 = lshr i32 %41, 21
@@ -150,13 +150,13 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 76:                                               ; preds = %51
   %77 = and i32 %70, 31
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw i32, ptr @xl_table, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr @xl_table, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !34
   %81 = add nsw i32 %80, %.179104
   %82 = lshr i32 %41, 26
   %83 = and i32 %82, 31
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw i32, ptr @xl_table, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr @xl_table, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !34
   %87 = add nsw i32 %86, %.1105
   br label %88

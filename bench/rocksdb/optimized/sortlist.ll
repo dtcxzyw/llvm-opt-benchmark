@@ -341,7 +341,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i: ; pred
   %indvars.iv = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %130 = load ptr, ptr %2, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %131 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %132 = load i32, ptr %131, align 4, !tbaa !24
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %133 = call i32 @llvm.abs.i32(i32 %132, i1 false)
@@ -778,7 +778,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %75, %.no
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %77, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %72, ptr %1, align 8, !tbaa !15
   store ptr %76, ptr %10, align 8, !tbaa !18
-  %78 = getelementptr inbounds nuw i32, ptr %72, i64 %70
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %70
   store ptr %78, ptr %11, align 8, !tbaa !19
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -872,9 +872,9 @@ define void @_ZNK7rocksdb8SortList5MergeERSt6vectorIiSaIiEES4_(ptr dead_on_unwin
   %27 = phi ptr [ %99, %13 ], [ null, %.lr.ph ]
   %28 = phi ptr [ %98, %13 ], [ null, %.lr.ph ]
   %29 = phi ptr [ %97, %13 ], [ null, %.lr.ph ]
-  %30 = getelementptr inbounds nuw i32, ptr %26, i64 %25
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %25
   %31 = load i32, ptr %30, align 4, !tbaa !24
-  %32 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   %33 = load i32, ptr %32, align 4, !tbaa !24
   %34 = icmp slt i32 %31, %33
   br i1 %34, label %35, label %69
@@ -939,7 +939,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %53, %.noex
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %55, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %54, ptr %9, align 8, !tbaa !18
-  %56 = getelementptr inbounds nuw i32, ptr %49, i64 %47
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %47
   store ptr %56, ptr %10, align 8, !tbaa !19
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -1044,7 +1044,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i39: ; preds = %87, %.no
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i41: ; preds = %89, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i39
   store ptr %88, ptr %9, align 8, !tbaa !18
-  %90 = getelementptr inbounds nuw i32, ptr %83, i64 %81
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %81
   store ptr %90, ptr %10, align 8, !tbaa !19
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit44
 
@@ -1129,7 +1129,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit44:        ; preds = %_ZNSt6vectorIiSaIiE
   %139 = phi i64 [ %113, %.lr.ph95 ], [ %171, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit54 ]
   %.294 = phi i32 [ %.0.lcssa, %.lr.ph95 ], [ %170, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit54 ]
   %140 = phi ptr [ %.lcssa, %.lr.ph95 ], [ %169, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit54 ]
-  %141 = getelementptr inbounds nuw i32, ptr %135, i64 %139
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %139
   %.not.i45 = icmp eq ptr %138, %137
   br i1 %.not.i45, label %145, label %142
 
@@ -1194,7 +1194,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre116 = phi ptr [ %.pre116.pre, %163 ], [ %.pre116122, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i49 ]
   %.pre = phi ptr [ %.pre.pre, %163 ], [ %.pre119, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i49 ]
   store ptr %162, ptr %119, align 8, !tbaa !18
-  %164 = getelementptr inbounds nuw i32, ptr %157, i64 %155
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %155
   store ptr %164, ptr %120, align 8, !tbaa !19
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit54
 
@@ -1225,7 +1225,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit54:        ; preds = %_ZNSt6vectorIiSaIiE
   %182 = phi i64 [ %124, %.lr.ph102 ], [ %214, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit64 ]
   %.228101 = phi i32 [ %.026.lcssa, %.lr.ph102 ], [ %213, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit64 ]
   %183 = phi ptr [ %.lcssa91, %.lr.ph102 ], [ %212, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit64 ]
-  %184 = getelementptr inbounds nuw i32, ptr %178, i64 %182
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %178, i64 %182
   %.not.i55 = icmp eq ptr %181, %180
   br i1 %.not.i55, label %188, label %185
 
@@ -1290,7 +1290,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre118 = phi ptr [ %.pre118.pre, %206 ], [ %.pre118128, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i59 ]
   %.pre117 = phi ptr [ %.pre117.pre, %206 ], [ %.pre117125, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i59 ]
   store ptr %205, ptr %132, align 8, !tbaa !18
-  %207 = getelementptr inbounds nuw i32, ptr %200, i64 %198
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %198
   store ptr %207, ptr %133, align 8, !tbaa !19
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit64
 
@@ -1530,7 +1530,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i: ; pred
 108:                                              ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %109 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %110 = load i32, ptr %109, align 4, !tbaa !24
   call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %111 = call i32 @llvm.abs.i32(i32 %110, i1 false)

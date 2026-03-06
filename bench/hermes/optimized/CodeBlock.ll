@@ -7,10 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.hermes::hbc::SerializedLiteralParserBase" = type { %"class.llvh::ArrayRef.1", i32, i8, i32, i32 }
 %"class.llvh::ArrayRef.1" = type { ptr, i64 }
 %"class.hermes::StringTableEntry" = type { i32, i32 }
-%"class.hermes::vm::RootSymbolID" = type { %"class.hermes::vm::SymbolID" }
-%"class.hermes::vm::SymbolID" = type { i32 }
-%"struct.hermes::hbc::SmallStringTableEntry" = type { i32 }
-%"struct.hermes::hbc::OverflowStringTableEntry" = type { i32, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -18,7 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::ArrayRef.50" = type { ptr, i64 }
 %"class.hermes::OptValue.29" = type <{ %"struct.hermes::hbc::DebugSourceLocation", i8, [3 x i8] }>
 %"struct.hermes::hbc::DebugSourceLocation" = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%"struct.std::pair" = type { i32, i32 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noalias noundef nonnull ptr @_ZN6hermes2vm9CodeBlock15createCodeBlockEPNS0_13RuntimeModuleENS_3hbc21RuntimeFunctionHeaderEPKhj(ptr noundef %runtimeModule, ptr %header.coerce, ptr noundef %bytecode, i32 noundef %functionID) local_unnamed_addr #0 align 2 {
@@ -206,7 +201,7 @@ _ZNK6hermes3hbc21RuntimeFunctionHeader12functionNameEv.exit: ; preds = %if.then.
   %stringIDMap_.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %conv.i = zext i32 %retval.0.i to i64
   %5 = load ptr, ptr %stringIDMap_.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.hermes::vm::RootSymbolID", ptr %5, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %conv.i
   %6 = load i32, ptr %add.ptr.i.i, align 4
   %cmp.i.i = icmp ult i32 %6, 536870910
   br i1 %cmp.i.i, label %_ZN6hermes2vm13RuntimeModule34getSymbolIDFromStringIDMayAllocateEj.exit, label %if.then.i1
@@ -216,7 +211,7 @@ if.then.i1:                                       ; preds = %_ZNK6hermes3hbc21Ru
   %7 = load ptr, ptr %bcProvider_.i, align 8
   %stringTableEntries_.i.i = getelementptr inbounds nuw i8, ptr %7, i64 304
   %8 = load ptr, ptr %stringTableEntries_.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.hermes::hbc::SmallStringTableEntry", ptr %8, i64 %conv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %conv.i
   %bf.load.i.i.i = load i32, ptr %arrayidx.i.i, align 1
   %cmp.i.i.i = icmp ugt i32 %bf.load.i.i.i, -16777217
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i
@@ -227,7 +222,7 @@ if.then.i.i:                                      ; preds = %if.then.i1
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 8388607
   %conv.i.i = zext nneg i32 %bf.clear.i.i to i64
   %9 = load ptr, ptr %overflowStringTableEntries_.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.hermes::hbc::OverflowStringTableEntry", ptr %9, i64 %conv.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %conv.i.i
   %overflow.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i.i, align 1
   %overflow.sroa.2.0.call2.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 4
   %overflow.sroa.2.0.copyload.i.i = load i32, ptr %overflow.sroa.2.0.call2.sroa_idx.i.i, align 1
@@ -386,7 +381,7 @@ entry:
   %retval.sroa.0.0.copyload.i = load ptr, ptr %functionSourceTable_.i, align 8
   %retval.sroa.2.0.functionSourceTable_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 232
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.functionSourceTable_.sroa_idx.i, align 8
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %retval.sroa.0.0.copyload.i, i64 %retval.sroa.2.0.copyload.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %retval.sroa.0.0.copyload.i, i64 %retval.sroa.2.0.copyload.i
   %functionID_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %functionID_.val = load i32, ptr %functionID_, align 8
   %cmp4.i.i = icmp sgt i64 %retval.sroa.2.0.copyload.i, 0
@@ -396,7 +391,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %__first.addr.06.i.i = phi ptr [ %__first.addr.1.i.i, %while.body.i.i ], [ %retval.sroa.0.0.copyload.i, %entry ]
   %__len.05.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %retval.sroa.2.0.copyload.i, %entry ]
   %shr.i.i = lshr i64 %__len.05.i.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first.addr.06.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.addr.06.i.i, i64 %shr.i.i
   %.val.i.i = load i64, ptr %add.ptr.i.i.i.i, align 4
   %entry2.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %.val.i.i to i32
   %cmp.i.i8.i.i = icmp ugt i32 %functionID_.val, %entry2.sroa.0.0.extract.trunc.i.i.i.i

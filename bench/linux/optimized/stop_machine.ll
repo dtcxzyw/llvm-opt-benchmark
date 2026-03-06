@@ -71,7 +71,7 @@ define dso_local void @print_stop_info(ptr noundef %0, ptr noundef %1) local_unn
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load volatile i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
-  %6 = getelementptr i64, ptr @__per_cpu_offset, i64 %5
+  %6 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, ptrtoint (ptr @cpu_stopper to i64)
   %9 = inttoptr i64 %8 to ptr
@@ -145,7 +145,7 @@ declare ptr @llvm.returnaddress(i32 immarg) #3
 define internal fastcc noundef zeroext i1 @cpu_stop_queue_work(i32 noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.wake_q_head, align 8
   %4 = zext i32 %0 to i64
-  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
+  %5 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @cpu_stopper to i64)
   %8 = inttoptr i64 %7 to ptr
@@ -238,12 +238,12 @@ define dso_local i32 @stop_two_cpus(i32 noundef %0, i32 noundef %1, ptr noundef 
   store i64 0, ptr %10, align 8, !annotation !16
   %11 = and i32 %0, 63
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %12
+  %13 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %12
   %14 = getelementptr i8, ptr %13, i64 8
   %15 = lshr i32 %0, 6
   %16 = zext nneg i32 %15 to i64
   %17 = sub nsw i64 0, %16
-  %18 = getelementptr i64, ptr %14, i64 %17
+  %18 = getelementptr [8 x i8], ptr %14, i64 %17
   store ptr %2, ptr %9, align 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %3, ptr %19, align 8
@@ -280,12 +280,12 @@ define dso_local i32 @stop_two_cpus(i32 noundef %0, i32 noundef %1, ptr noundef 
   %33 = call i32 @llvm.umax.i32(i32 %0, i32 %1)
   %34 = call i32 @llvm.umin.i32(i32 %0, i32 %1)
   %35 = sext i32 %34 to i64
-  %36 = getelementptr i64, ptr @__per_cpu_offset, i64 %35
+  %36 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, ptrtoint (ptr @cpu_stopper to i64)
   %39 = inttoptr i64 %38 to ptr
   %40 = sext i32 %33 to i64
-  %41 = getelementptr i64, ptr @__per_cpu_offset, i64 %40
+  %41 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = add i64 %42, ptrtoint (ptr @cpu_stopper to i64)
   %44 = inttoptr i64 %43 to ptr
@@ -590,7 +590,7 @@ define dso_local noundef zeroext i1 @stop_one_cpu_nowait(i32 noundef %0, ptr nou
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @stop_machine_park(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_stopper to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -607,7 +607,7 @@ declare dso_local i32 @kthread_park(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @stop_machine_unpark(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_stopper to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -641,7 +641,7 @@ define internal noundef i32 @cpu_stop_init() #6 section ".init.text" align 16 {
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 63
-  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
+  %13 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @cpu_stopper to i64)
   %16 = inttoptr i64 %15 to ptr
@@ -669,7 +669,7 @@ define internal noundef i32 @cpu_stop_init() #6 section ".init.text" align 16 {
 26:                                               ; preds = %.thread
   %27 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !38
   %28 = sext i32 %27 to i64
-  %29 = getelementptr i64, ptr @__per_cpu_offset, i64 %28
+  %29 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, ptrtoint (ptr @cpu_stopper to i64)
   %32 = inttoptr i64 %31 to ptr
@@ -781,7 +781,7 @@ define internal fastcc i32 @stop_cpus(ptr noundef readonly captures(none) %0, pt
 
 20:                                               ; preds = %16
   %21 = and i64 %17, 63
-  %22 = getelementptr i64, ptr @__per_cpu_offset, i64 %21
+  %22 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @cpu_stopper, i64 32) to i64)
   %25 = inttoptr i64 %24 to ptr
@@ -907,7 +907,7 @@ declare dso_local void @cpus_read_unlock() local_unnamed_addr #4
 define dso_local i32 @stop_core_cpuslocked(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.multi_stop_data, align 8
   %5 = sext i32 %0 to i64
-  %6 = getelementptr i64, ptr @__per_cpu_offset, i64 %5
+  %6 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, ptrtoint (ptr @cpu_sibling_map to i64)
   %9 = inttoptr i64 %8 to ptr
@@ -1015,7 +1015,7 @@ define dso_local i32 @stop_machine_from_inactive_cpu(ptr noundef %0, ptr noundef
 
 42:                                               ; preds = %38
   %43 = and i64 %39, 63
-  %44 = getelementptr i64, ptr @__per_cpu_offset, i64 %43
+  %44 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %45, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @cpu_stopper, i64 32) to i64)
   %47 = inttoptr i64 %46 to ptr
@@ -1132,7 +1132,7 @@ declare dso_local i32 @smpboot_register_percpu_thread(ptr noundef) local_unnamed
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 2) i32 @cpu_stop_should_run(i32 noundef %0) #0 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_stopper to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -1149,7 +1149,7 @@ define internal range(i32 0, 2) i32 @cpu_stop_should_run(i32 noundef %0) #0 alig
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @cpu_stopper_thread(i32 noundef %0) #0 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_stopper to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -1250,7 +1250,7 @@ define internal void @cpu_stopper_thread(i32 noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @cpu_stop_create(i32 noundef %0) #0 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_stopper to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -1262,7 +1262,7 @@ define internal void @cpu_stop_create(i32 noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @cpu_stop_park(i32 noundef %0) #0 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @cpu_stopper to i64)
   %6 = inttoptr i64 %5 to ptr

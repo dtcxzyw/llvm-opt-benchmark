@@ -265,7 +265,7 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h2c5ac0eaea0e45baE.
   br i1 %.not61.i.i, label %101, label %_ZN14regex_automata4util8captures8Captures9get_match17h82dbec91cec8829cE.exit
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds nuw i64, ptr %100, i64 %.sroa.049.2.i.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.sroa.049.2.i.i
   %103 = load i64, ptr %102, align 8, !noalias !35, !noundef !3
   %.not.i.i1 = icmp ne i64 %103, 0
   %.not62.i.i = icmp ult i64 %.sroa.051.0.i.i, %99
@@ -273,7 +273,7 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h2c5ac0eaea0e45baE.
   br i1 %or.cond.i.i, label %104, label %_ZN14regex_automata4util8captures8Captures9get_match17h82dbec91cec8829cE.exit
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds nuw i64, ptr %100, i64 %.sroa.051.0.i.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.sroa.051.0.i.i
   %106 = load i64, ptr %105, align 8, !noalias !35, !noundef !3
   %.not54.i.i = icmp eq i64 %106, 0
   br i1 %.not54.i.i, label %_ZN14regex_automata4util8captures8Captures9get_match17h82dbec91cec8829cE.exit, label %107
@@ -2604,7 +2604,7 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h2c5ac0eaea0e45baE.
   br i1 %.not61.i.i.i.i, label %185, label %_ZN14regex_automata4util4iter8Searcher7advance17hb84096d2492a9168E.exit.i.i
 
 185:                                              ; preds = %182
-  %186 = getelementptr inbounds nuw i64, ptr %184, i64 %.sroa.049.2.i.i.i.i
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %.sroa.049.2.i.i.i.i
   %187 = load i64, ptr %186, align 8, !noalias !291, !noundef !3
   %.not.i.i1.i.i = icmp ne i64 %187, 0
   %.not62.i.i.i.i = icmp ult i64 %.sroa.051.0.i.i.i.i, %183
@@ -2612,7 +2612,7 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h2c5ac0eaea0e45baE.
   br i1 %or.cond.i.i.i74.i, label %188, label %_ZN14regex_automata4util4iter8Searcher7advance17hb84096d2492a9168E.exit.i.i
 
 188:                                              ; preds = %185
-  %189 = getelementptr inbounds nuw i64, ptr %184, i64 %.sroa.051.0.i.i.i.i
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %.sroa.051.0.i.i.i.i
   %190 = load i64, ptr %189, align 8, !noalias !291, !noundef !3
   %.not54.i.i.i.i = icmp eq i64 %190, 0
   br i1 %.not54.i.i.i.i, label %_ZN14regex_automata4util4iter8Searcher7advance17hb84096d2492a9168E.exit.i.i, label %191
@@ -2846,7 +2846,7 @@ _ZN14regex_automata4util4iter8Searcher7advance17hb84096d2492a9168E.exit.i.i: ; p
 _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h2c5ac0eaea0e45baE.exit.i.i.i: ; preds = %248
   %251 = getelementptr i8, ptr %231, i64 24
   %.val.i.i.i = load ptr, ptr %251, align 8, !noalias !318, !nonnull !3, !noundef !3
-  %252 = getelementptr inbounds nuw { i32, i32 }, ptr %.val.i.i.i, i64 %249
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i, i64 %249
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 4
   %254 = load i32, ptr %253, align 4, !noalias !318, !noundef !3
   %255 = zext i32 %254 to i64
@@ -2869,7 +2869,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h9e3f77ca6a51a1ceE.exit.thread
   br i1 %.not61.i.i, label %263, label %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$pingora_cache..cache_control..DirectiveValue$GT$$GT$$GT$17h36831747ec653035E.exit.invoke.i"
 
 263:                                              ; preds = %260
-  %264 = getelementptr inbounds nuw i64, ptr %262, i64 %.sroa.049.2.i.i
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %.sroa.049.2.i.i
   %265 = load i64, ptr %264, align 8, !noalias !318, !noundef !3
   %.not.i.i = icmp ne i64 %265, 0
   %.not62.i.i = icmp ult i64 %.sroa.051.0.i.i, %261
@@ -2877,7 +2877,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h9e3f77ca6a51a1ceE.exit.thread
   br i1 %or.cond.i.i, label %266, label %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$pingora_cache..cache_control..DirectiveValue$GT$$GT$$GT$17h36831747ec653035E.exit.invoke.i"
 
 266:                                              ; preds = %263
-  %267 = getelementptr inbounds nuw i64, ptr %262, i64 %.sroa.051.0.i.i
+  %267 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %.sroa.051.0.i.i
   %268 = load i64, ptr %267, align 8, !noalias !318, !noundef !3
   %.not54.i.i = icmp eq i64 %268, 0
   br i1 %.not54.i.i, label %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$pingora_cache..cache_control..DirectiveValue$GT$$GT$$GT$17h36831747ec653035E.exit.invoke.i", label %271
@@ -2977,7 +2977,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h9e3f77ca6a51a1ceE.exit.thread
 _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h2c5ac0eaea0e45baE.exit.i.i49.i: ; preds = %297
   %300 = getelementptr i8, ptr %292, i64 24
   %.val.i.i50.i = load ptr, ptr %300, align 8, !noalias !330, !nonnull !3, !noundef !3
-  %301 = getelementptr inbounds nuw { i32, i32 }, ptr %.val.i.i50.i, i64 %298
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i50.i, i64 %298
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 4
   %303 = load i32, ptr %302, align 4, !noalias !330, !noundef !3
   %304 = zext i32 %303 to i64
@@ -3001,7 +3001,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h9e3f77ca6a51a1ceE.exit.thread
   br i1 %.not61.i55.i, label %313, label %340
 
 313:                                              ; preds = %310
-  %314 = getelementptr inbounds nuw i64, ptr %312, i64 %.sroa.049.2.i53.i
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %.sroa.049.2.i53.i
   %315 = load i64, ptr %314, align 8, !noalias !330, !noundef !3
   %.not.i56.i = icmp ne i64 %315, 0
   %.not62.i57.i = icmp ult i64 %.sroa.051.0.i54.i, %311
@@ -3009,7 +3009,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h9e3f77ca6a51a1ceE.exit.thread
   br i1 %or.cond.i58.i, label %316, label %340
 
 316:                                              ; preds = %313
-  %317 = getelementptr inbounds nuw i64, ptr %312, i64 %.sroa.051.0.i54.i
+  %317 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %.sroa.051.0.i54.i
   %318 = load i64, ptr %317, align 8, !noalias !330, !noundef !3
   %.not54.i59.i = icmp eq i64 %318, 0
   br i1 %.not54.i59.i, label %340, label %319

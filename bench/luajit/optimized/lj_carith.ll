@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.CDArith = type { [2 x ptr], [2 x ptr] }
-%struct.CType = type { i32, i32, i16, i16, %struct.GCRef }
-%struct.GCRef = type { i64 }
-%union.TValue = type { i64 }
 
 @lj_obj_itypename = external hidden local_unnamed_addr constant [14 x ptr], align 16
 
@@ -68,7 +65,7 @@ define hidden i32 @lj_carith_op(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 
 34:                                               ; preds = %34, %27
   %.pn114.i = phi i64 [ %33, %27 ], [ %38, %34 ]
-  %.0.i.i = getelementptr inbounds nuw %struct.CType, ptr %32, i64 %.pn114.i
+  %.0.i.i = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %.pn114.i
   %35 = load i32, ptr %.0.i.i, align 8, !tbaa !41
   %36 = icmp slt i32 %35, -1879048192
   %37 = and i32 %35, 65535
@@ -110,7 +107,7 @@ cdata_getptr.exit.i:                              ; preds = %50, %46
   %54 = phi i32 [ %58, %.preheader.i ], [ %35, %cdata_getptr.exit.i ]
   %55 = and i32 %54, 65535
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw %struct.CType, ptr %32, i64 %56
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %56
   %58 = load i32, ptr %57, align 8, !tbaa !41
   %59 = icmp slt i32 %58, -1879048192
   br i1 %59, label %.preheader.i, label %ctype_rawchild.exit.i, !llvm.loop !48
@@ -134,11 +131,11 @@ cdata_getptr.exit.i:                              ; preds = %50, %46
   %72 = call i32 @lj_ctype_intern(ptr noundef nonnull %14, i32 noundef %71, i32 noundef 8) #8
   %73 = load ptr, ptr %14, align 8, !tbaa !40
   %74 = zext i32 %72 to i64
-  %75 = getelementptr inbounds nuw %struct.CType, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %74
   br i1 %.not100.i, label %ctype_rawchild.exit.i, label %76
 
 76:                                               ; preds = %68
-  %77 = getelementptr inbounds nuw %struct.CType, ptr %73, i64 %69
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %69
   store ptr %77, ptr %21, align 8, !tbaa !49
   br label %ctype_rawchild.exit.i
 
@@ -151,7 +148,7 @@ ctype_rawchild.exit.i:                            ; preds = %.preheader.i, %76, 
   %80 = icmp eq i32 %.mask101.i, 1342177280
   %81 = and i32 %79, 65535
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds nuw %struct.CType, ptr %78, i64 %82
+  %83 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %82
   %.193.i = select i1 %80, ptr %83, ptr %.092.i
   br label %.thread111.i.sink.split
 
@@ -190,7 +187,7 @@ ctype_rawchild.exit.i:                            ; preds = %.preheader.i, %76, 
 
 105:                                              ; preds = %105, %96
   %.pn.i = phi i64 [ %104, %96 ], [ %109, %105 ]
-  %.0.i102.i = getelementptr inbounds nuw %struct.CType, ptr %103, i64 %.pn.i
+  %.0.i102.i = getelementptr inbounds nuw [24 x i8], ptr %103, i64 %.pn.i
   %106 = load i32, ptr %.0.i102.i, align 8, !tbaa !41
   %107 = icmp slt i32 %106, -1879048192
   %108 = and i32 %106, 65535
@@ -198,7 +195,7 @@ ctype_rawchild.exit.i:                            ; preds = %.preheader.i, %76, 
   br i1 %107, label %105, label %ctype_raw.exit103.i, !llvm.loop !43
 
 ctype_raw.exit103.i:                              ; preds = %105
-  %110 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i
   store ptr null, ptr %110, align 8, !tbaa !49
   %111 = and i64 %24, 140737488355327
   %112 = inttoptr i64 %111 to ptr
@@ -222,9 +219,9 @@ ctype_raw.exit103.i:                              ; preds = %105
 
 carith_checkarg.exit.thread:                      ; preds = %115, %117
   %120 = xor i64 %indvars.iv.i, 1
-  %121 = getelementptr inbounds nuw ptr, ptr %21, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %120
   store ptr %.0.i102.i, ptr %121, align 8, !tbaa !49
-  %122 = getelementptr inbounds nuw ptr, ptr %8, i64 %120
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %120
   store ptr null, ptr %122, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %387
@@ -233,7 +230,7 @@ carith_checkarg.exit.thread:                      ; preds = %115, %117
   %.sink104 = phi ptr [ %.193.i, %ctype_rawchild.exit.i ], [ %93, %91 ], [ %88, %86 ], [ null, %94 ]
   %.sink = phi ptr [ %.094.i, %ctype_rawchild.exit.i ], [ null, %91 ], [ %.088123.i, %86 ], [ inttoptr (i64 1 to ptr), %94 ]
   %.5.i.ph = phi i32 [ %.089122.i, %ctype_rawchild.exit.i ], [ %.089122.i, %91 ], [ %.089122.i, %86 ], [ 0, %94 ]
-  %123 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i
   store ptr %.sink104, ptr %123, align 8, !tbaa !49
   store ptr %.sink, ptr %indvars.iv.i.sroa.phi, align 8, !tbaa !50
   br label %.thread111.i
@@ -251,7 +248,7 @@ carith_checkarg.exit.thread:                      ; preds = %115, %117
   %124 = and i32 %118, 65535
   %125 = load ptr, ptr %14, align 8, !tbaa !40
   %126 = zext nneg i32 %124 to i64
-  %127 = getelementptr inbounds nuw %struct.CType, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [24 x i8], ptr %125, i64 %126
   store ptr %127, ptr %110, align 8, !tbaa !49
   %128 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store ptr %128, ptr %indvars.iv.i.sroa.phi, align 8, !tbaa !50
@@ -314,7 +311,7 @@ switch.early.test:                                ; preds = %.thread111.i.thread
   %155 = phi i32 [ 12, %146 ], [ 11, %149 ], [ %153, %151 ]
   %156 = load ptr, ptr %14, align 8, !tbaa !40
   %157 = zext nneg i32 %155 to i64
-  %158 = getelementptr inbounds nuw %struct.CType, ptr %156, i64 %157
+  %158 = getelementptr inbounds nuw [24 x i8], ptr %156, i64 %157
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %159 = load ptr, ptr %8, align 8, !tbaa !50
@@ -760,7 +757,7 @@ carith_ptr.exit:                                  ; preds = %291, %304, %317, %3
 
 398:                                              ; preds = %398, %391
   %.pn.i32 = phi i64 [ %397, %391 ], [ %402, %398 ]
-  %.0.i.i33 = getelementptr inbounds nuw %struct.CType, ptr %396, i64 %.pn.i32
+  %.0.i.i33 = getelementptr inbounds nuw [24 x i8], ptr %396, i64 %.pn.i32
   %399 = load i32, ptr %.0.i.i33, align 8, !tbaa !41
   %400 = icmp slt i32 %399, -1879048192
   %401 = and i32 %399, 65535
@@ -804,7 +801,7 @@ carith_ptr.exit:                                  ; preds = %291, %304, %317, %3
 
 421:                                              ; preds = %421, %414
   %.pn97.i = phi i64 [ %420, %414 ], [ %425, %421 ]
-  %.0.i86.i = getelementptr inbounds nuw %struct.CType, ptr %419, i64 %.pn97.i
+  %.0.i86.i = getelementptr inbounds nuw [24 x i8], ptr %419, i64 %.pn97.i
   %422 = load i32, ptr %.0.i86.i, align 8, !tbaa !41
   %423 = icmp slt i32 %422, -1879048192
   %424 = and i32 %422, 65535
@@ -846,11 +843,11 @@ carith_ptr.exit:                                  ; preds = %291, %304, %317, %3
   %indvars.iv.i29 = phi i64 [ 1, %464 ], [ 0, %.thread90.i ]
   %.062101.i = phi i32 [ %.2.i31, %464 ], [ -1, %.thread90.i ]
   %.063100.i = phi i32 [ %.265.i, %464 ], [ -1, %.thread90.i ]
-  %442 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i29
+  %442 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i29
   %443 = load ptr, ptr %442, align 8, !tbaa !49
   %.not79.i = icmp ne ptr %443, null
   %.pre104.i = load ptr, ptr %16, align 8, !tbaa !34
-  %.phi.trans.insert.i = getelementptr inbounds nuw %union.TValue, ptr %.pre104.i, i64 %indvars.iv.i29
+  %.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr %.pre104.i, i64 %indvars.iv.i29
   %.pre105.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !36
   %.pre106.i = and i64 %.pre105.i, -140737488355328
   %444 = icmp eq i64 %.pre106.i, -1548112371908608
@@ -880,7 +877,7 @@ carith_ptr.exit:                                  ; preds = %291, %304, %317, %3
   %459 = ashr i64 %.pre105.i, 47
   %460 = call i64 @llvm.umax.i64(i64 %459, i64 -14)
   %461 = xor i64 %460, -1
-  %462 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %461
+  %462 = getelementptr inbounds nuw [8 x i8], ptr @lj_obj_itypename, i64 %461
   %463 = load ptr, ptr %462, align 8, !tbaa !50
   br label %464
 
@@ -898,10 +895,10 @@ carith_ptr.exit:                                  ; preds = %291, %304, %317, %3
 
 468:                                              ; preds = %465
   %469 = sext i32 %.2.i31 to i64
-  %470 = getelementptr inbounds ptr, ptr %3, i64 %469
+  %470 = getelementptr inbounds [8 x i8], ptr %3, i64 %469
   %471 = load ptr, ptr %470, align 8, !tbaa !50
   %472 = sext i32 %.265.i to i64
-  %473 = getelementptr inbounds ptr, ptr %3, i64 %472
+  %473 = getelementptr inbounds [8 x i8], ptr %3, i64 %472
   %474 = load ptr, ptr %473, align 8, !tbaa !50
   call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %0, i32 noundef 3239, ptr noundef %471, ptr noundef %474) #7
   unreachable
@@ -978,7 +975,7 @@ define hidden i64 @lj_carith_check64(ptr noundef %0, i32 noundef %1, ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %union.TValue, ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !35
@@ -1020,7 +1017,7 @@ define hidden i64 @lj_carith_check64(ptr noundef %0, i32 noundef %1, ptr noundef
   %33 = zext i16 %32 to i32
   %34 = load ptr, ptr %25, align 8, !tbaa !40
   %35 = zext i16 %32 to i64
-  %36 = getelementptr inbounds nuw %struct.CType, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %35
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %37 = load i32, ptr %36, align 8, !tbaa !41
   %38 = and i32 %37, -260046848
@@ -1040,7 +1037,7 @@ define hidden i64 @lj_carith_check64(ptr noundef %0, i32 noundef %1, ptr noundef
 44:                                               ; preds = %44, %43
   %.pn.in = phi i32 [ %.036, %43 ], [ %47, %44 ]
   %.pn = zext nneg i32 %.pn.in to i64
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %34, i64 %.pn
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %.pn
   %45 = load i32, ptr %.0.i, align 8, !tbaa !41
   %46 = icmp slt i32 %45, -1879048192
   %47 = and i32 %45, 65535
@@ -1050,7 +1047,7 @@ ctype_raw.exit:                                   ; preds = %44
   %.mask = and i32 %45, -268435456
   %48 = icmp eq i32 %.mask, 1342177280
   %49 = zext nneg i32 %47 to i64
-  %50 = getelementptr inbounds nuw %struct.CType, ptr %34, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %49
   %.0 = select i1 %48, ptr %50, ptr %.0.i
   %51 = load i32, ptr %.0, align 8, !tbaa !41
   %52 = and i32 %51, -58720256
@@ -1076,7 +1073,7 @@ ctype_raw.exit:                                   ; preds = %44
 60:                                               ; preds = %.sink.split, %58
   %61 = phi i32 [ %59, %58 ], [ %.sink, %.sink.split ]
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %struct.CType, ptr %34, i64 %62
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %62
   %64 = shl i32 %1, 8
   call void @lj_cconv_ct_ct(ptr noundef nonnull %25, ptr noundef nonnull %63, ptr noundef nonnull %.0, ptr noundef nonnull %4, ptr noundef %.037, i32 noundef %64) #8
   %65 = load i64, ptr %4, align 8, !tbaa !52

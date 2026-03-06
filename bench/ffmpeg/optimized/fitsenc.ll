@@ -89,15 +89,15 @@ define internal range(i32 -2147483648, 1) i32 @fits_encode_frame(ptr noundef %0,
   br i1 %38, label %.lr.ph65, label %._crit_edge
 
 .lr.ph65:                                         ; preds = %.preheader59
-  %39 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   br i1 %16, label %.lr.ph65.split.us, label %.lr.ph65.split.preheader
 
 .lr.ph65.split.preheader:                         ; preds = %.lr.ph65
   %.pre = load i32, ptr %39, align 4, !tbaa !27
   %.pre78 = load i32, ptr %20, align 8, !tbaa !29
   %40 = sext i32 %.pre to i64
-  %41 = getelementptr inbounds ptr, ptr %2, i64 %40
-  %42 = getelementptr inbounds i32, ptr %33, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %2, i64 %40
+  %42 = getelementptr inbounds [4 x i8], ptr %33, i64 %40
   br label %.lr.ph65.split
 
 .lr.ph65.split.us:                                ; preds = %.lr.ph65
@@ -117,9 +117,9 @@ define internal range(i32 -2147483648, 1) i32 @fits_encode_frame(ptr noundef %0,
 .lr.ph.us.preheader:                              ; preds = %.preheader.us
   %49 = load i32, ptr %39, align 4, !tbaa !27
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds ptr, ptr %2, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %2, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !32
-  %53 = getelementptr inbounds i32, ptr %33, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %33, i64 %50
   %54 = load i32, ptr %53, align 4, !tbaa !27
   %55 = xor i32 %.04464.us, -1
   %56 = add i32 %47, %55

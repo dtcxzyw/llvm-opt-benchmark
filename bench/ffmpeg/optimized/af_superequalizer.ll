@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVFilterPad = type { ptr, i32, i32, %union.anon, ptr, ptr, ptr }
 %union.anon = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.EqParameter = type { float, float, float }
 
 @.str = private unnamed_addr constant [15 x i8] c"superequalizer\00", align 1
 @.str.1 = private unnamed_addr constant [35 x i8] c"Apply 18 band equalization filter.\00", align 1
@@ -126,7 +125,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef readonly capture
 40:                                               ; preds = %46, %.preheader.i
   %indvars.iv53.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next54.i, %46 ]
   %indvars.iv.i = phi i32 [ 1, %.preheader.i ], [ %indvars.iv.next.i, %46 ]
-  %41 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv53.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv53.i
   store float 1.000000e+00, ptr %41, align 4, !tbaa !20
   %.not4748.i = icmp eq i64 %indvars.iv53.i, 0
   br i1 %.not4748.i, label %46, label %.lr.ph.i
@@ -186,7 +185,7 @@ alpha.exit.i:                                     ; preds = %60, %52, %47
   %66 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %67 = uitofp nneg i32 %66 to double
   %68 = call nsz double @llvm.pow.f64(double %64, double %67)
-  %69 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i.i
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv.i.i
   %70 = load float, ptr %69, align 4, !tbaa !20
   %71 = fpext nsz float %70 to double
   %72 = fdiv nsz double %68, %71
@@ -313,15 +312,15 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 49:                                               ; preds = %._crit_edge25.i, %.lr.ph27.i
   %indvars.iv60.i = phi i64 [ 0, %.lr.ph27.i ], [ %indvars.iv.next61.i, %._crit_edge25.i ]
   %50 = load ptr, ptr %38, align 8, !tbaa !59
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv60.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv60.i
   %52 = load ptr, ptr %51, align 8, !tbaa !60
   %53 = load ptr, ptr %39, align 8, !tbaa !61
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 96
   %55 = load ptr, ptr %54, align 8, !tbaa !59
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv60.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv60.i
   %57 = load ptr, ptr %56, align 8, !tbaa !60
   %58 = load ptr, ptr %40, align 8, !tbaa !59
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv60.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv60.i
   %60 = load ptr, ptr %59, align 8, !tbaa !60
   %61 = load i32, ptr %32, align 8, !tbaa !52
   %62 = icmp sgt i32 %61, 0
@@ -351,9 +350,9 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %72 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv.i
   %73 = load float, ptr %72, align 4, !tbaa !20
-  %74 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   store float %73, ptr %74, align 4, !tbaa !20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -376,14 +375,14 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 .lr.ph13.i:                                       ; preds = %.lr.ph13.i, %.lr.ph13.preheader.i
   %indvars.iv34.i = phi i64 [ 0, %.lr.ph13.preheader.i ], [ %indvars.iv.next35.i, %.lr.ph13.i ]
   %80 = shl nuw nsw i64 %indvars.iv34.i, 1
-  %81 = getelementptr inbounds nuw float, ptr %27, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !20
-  %83 = getelementptr inbounds nuw float, ptr %29, i64 %80
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %80
   %84 = load float, ptr %83, align 4, !tbaa !20
   %85 = or disjoint i64 %80, 1
-  %86 = getelementptr inbounds nuw float, ptr %27, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %85
   %87 = load float, ptr %86, align 4, !tbaa !20
-  %88 = getelementptr inbounds nuw float, ptr %29, i64 %85
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %85
   %89 = load float, ptr %88, align 4, !tbaa !20
   %90 = fneg nsz float %89
   %91 = fmul nsz float %87, %90
@@ -422,10 +421,10 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 103:                                              ; preds = %103, %.lr.ph17.i
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph17.i ], [ %indvars.iv.next40.i, %103 ]
-  %104 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv39.i
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv39.i
   %105 = load float, ptr %104, align 4, !tbaa !20
   %106 = fdiv nsz float %105, %99
-  %107 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv39.i
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv39.i
   %108 = load float, ptr %107, align 4, !tbaa !20
   %109 = fadd nsz float %108, %106
   store float %109, ptr %107, align 4, !tbaa !20
@@ -444,10 +443,10 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 112:                                              ; preds = %112, %.lr.ph20.i
   %indvars.iv44.i = phi i64 [ %102, %.lr.ph20.i ], [ %indvars.iv.next45.i, %112 ]
-  %113 = getelementptr inbounds float, ptr %31, i64 %indvars.iv44.i
+  %113 = getelementptr inbounds [4 x i8], ptr %31, i64 %indvars.iv44.i
   %114 = load float, ptr %113, align 4, !tbaa !20
   %115 = fdiv nsz float %114, %101
-  %116 = getelementptr inbounds float, ptr %57, i64 %indvars.iv44.i
+  %116 = getelementptr inbounds [4 x i8], ptr %57, i64 %indvars.iv44.i
   store float %115, ptr %116, align 4, !tbaa !20
   %indvars.iv.next45.i = add nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
@@ -458,14 +457,14 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 .lr.ph24.preheader.i:                             ; preds = %.preheader.i
   %117 = zext nneg i32 %97 to i64
-  %invariant.gep.i = getelementptr inbounds nuw float, ptr %57, i64 %117
+  %invariant.gep.i = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %117
   br label %.lr.ph24.i
 
 .lr.ph22.i:                                       ; preds = %.lr.ph22.i, %.lr.ph22.preheader.i
   %indvars.iv49.i = phi i64 [ 0, %.lr.ph22.preheader.i ], [ %indvars.iv.next50.i, %.lr.ph22.i ]
-  %118 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv49.i
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv49.i
   %119 = load float, ptr %118, align 4, !tbaa !20
-  %120 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv49.i
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv49.i
   store float %119, ptr %120, align 4, !tbaa !20
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
@@ -473,9 +472,9 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 .lr.ph24.i:                                       ; preds = %.lr.ph24.i, %.lr.ph24.preheader.i
   %indvars.iv55.i = phi i64 [ 0, %.lr.ph24.preheader.i ], [ %indvars.iv.next56.i, %.lr.ph24.i ]
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %indvars.iv55.i
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv55.i
   %121 = load float, ptr %gep.i, align 4, !tbaa !20
-  %122 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv55.i
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv55.i
   store float %121, ptr %122, align 4, !tbaa !20
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %117
@@ -579,21 +578,21 @@ define internal noundef i32 @config_output(ptr noundef readonly captures(none) %
   br label %22
 
 16:                                               ; preds = %.preheader1.i
-  %17 = getelementptr float, ptr @bands, i64 %indvars.iv.i.i
+  %17 = getelementptr [4 x i8], ptr @bands, i64 %indvars.iv.i.i
   %18 = getelementptr i8, ptr %17, i64 -4
   %19 = load float, ptr %18, align 4, !tbaa !20
-  %20 = getelementptr inbounds nuw %struct.EqParameter, ptr %6, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %indvars.iv.i.i
   store float %19, ptr %20, align 4, !tbaa !78
   %21 = icmp eq i64 %indvars.iv.i.i, 17
   br i1 %21, label %process_param.exit.i, label %22
 
 22:                                               ; preds = %16, %.thread.i.i
   %23 = phi ptr [ %6, %.thread.i.i ], [ %20, %16 ]
-  %24 = getelementptr inbounds nuw float, ptr @bands, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @bands, i64 %indvars.iv.i.i
   %25 = load float, ptr %24, align 4, !tbaa !20
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store float %25, ptr %26, align 4, !tbaa !80
-  %27 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i
   %28 = load float, ptr %27, align 4, !tbaa !20
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store float %28, ptr %29, align 4, !tbaa !81
@@ -683,7 +682,7 @@ hn_lpf.exit.i.i:                                  ; preds = %70, %57
   %indvars.iv.i29.i = phi i64 [ 1, %hn_lpf.exit.i.i ], [ %indvars.iv.next.i30.i, %hn_lpf.exit29.i.i ]
   %.032.i.i = phi float [ %75, %hn_lpf.exit.i.i ], [ %97, %hn_lpf.exit29.i.i ]
   %.02630.i.i = phi float [ %.0.i.i.i, %hn_lpf.exit.i.i ], [ %.0.i28.i.i, %hn_lpf.exit29.i.i ]
-  %77 = getelementptr inbounds nuw %struct.EqParameter, ptr %6, i64 %indvars.iv.i29.i
+  %77 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %indvars.iv.i29.i
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load float, ptr %78, align 4, !tbaa !80
   %80 = fcmp nsz olt float %79, %38
@@ -721,7 +720,7 @@ hn.exit.i:                                        ; preds = %hn_lpf.exit29.i.i, 
   %.025.lcssa.i.i = phi i64 [ 18, %hn_lpf.exit29.i.i ], [ %indvars.iv.i29.i, %76 ]
   %.0.lcssa.i.i = phi float [ %97, %hn_lpf.exit29.i.i ], [ %.032.i.i, %76 ]
   %98 = and i64 %.025.lcssa.i.i, 4294967295
-  %99 = getelementptr inbounds nuw %struct.EqParameter, ptr %6, i64 %98
+  %99 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load float, ptr %100, align 4, !tbaa !81
   %102 = icmp eq i64 %indvars.iv.i, %47
@@ -769,7 +768,7 @@ alpha.exit.i.i:                                   ; preds = %118, %110, %hn.exit
   %130 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %131 = uitofp nneg i32 %130 to double
   %132 = tail call nsz double @llvm.pow.f64(double %128, double %131)
-  %133 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv.i.i.i
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv.i.i.i
   %134 = load float, ptr %133, align 4, !tbaa !20
   %135 = fpext nsz float %134 to double
   %136 = fdiv nsz double %132, %135
@@ -783,7 +782,7 @@ win.exit.i:                                       ; preds = %129
   %139 = load float, ptr %44, align 4, !tbaa !37
   %140 = fdiv nsz float %138, %139
   %141 = fmul nsz float %105, %140
-  %142 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv.i
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i
   store float %141, ptr %142, align 4, !tbaa !20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

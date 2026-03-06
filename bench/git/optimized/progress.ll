@@ -107,19 +107,19 @@ progress_getnanotime.exit:                        ; preds = %7, %12
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %41 = load i32, ptr %40, align 8, !tbaa !24
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !4
   %45 = sub i32 %34, %44
   store i32 %45, ptr %32, align 8, !tbaa !22
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %42
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %42
   %48 = load i32, ptr %47, align 4, !tbaa !4
   %49 = sub i32 %37, %48
   store i32 %49, ptr %35, align 4, !tbaa !23
   store i32 %31, ptr %43, align 4, !tbaa !4
   %50 = load i32, ptr %40, align 8, !tbaa !24
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %46, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %51
   store i32 %27, ptr %52, align 4, !tbaa !4
   %53 = load i32, ptr %40, align 8, !tbaa !24
   %54 = add i32 %53, 1

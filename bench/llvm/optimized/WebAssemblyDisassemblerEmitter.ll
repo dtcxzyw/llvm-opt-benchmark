@@ -17,9 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.50" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 
 $_ZNSt3mapIjSt4pairIjPKN4llvm18CodeGenInstructionEESt4lessIjESaIS0_IKjS5_EEEixERS8_ = comdat any
 
@@ -388,7 +385,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit143:              ; preds = %157, %159
 .lr.ph:                                           ; preds = %3, %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.thread
   %164 = phi i64 [ %218, %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.thread ], [ 0, %3 ]
   %storemerge340 = phi i32 [ %217, %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.thread ], [ 0, %3 ]
-  %165 = getelementptr inbounds nuw ptr, ptr %1, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !23
   %167 = load ptr, ptr %166, align 8, !tbaa !25
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 168
@@ -868,13 +865,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 
 .preheader.us:                                    ; preds = %.preheader325, %413
   %.091358.us = phi i64 [ %414, %413 ], [ 0, %.preheader325 ]
-  %400 = getelementptr %"class.std::__cxx11::basic_string", ptr %390, i64 %.091358.us
+  %400 = getelementptr [32 x i8], ptr %390, i64 %.091358.us
   br label %401
 
 401:                                              ; preds = %.preheader.us, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread313.us
   %.092352.us = phi i64 [ 0, %.preheader.us ], [ %415, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread313.us ]
-  %402 = getelementptr %"class.std::__cxx11::basic_string", ptr %400, i64 %.092352.us
-  %403 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.0273.3.lcssa, i64 %.092352.us
+  %402 = getelementptr [32 x i8], ptr %400, i64 %.092352.us
+  %403 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0273.3.lcssa, i64 %.092352.us
   %404 = getelementptr inbounds nuw i8, ptr %402, i64 8
   %405 = load i64, ptr %404, align 8, !tbaa !98
   %406 = getelementptr inbounds nuw i8, ptr %403, i64 8
@@ -1085,7 +1082,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26.i, %481
-  %482 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %448, i64 %444
+  %482 = getelementptr inbounds nuw [32 x i8], ptr %448, i64 %444
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit
@@ -2457,7 +2454,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit
   %106 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES8_S7_ET0_T_SE_SD_RSaIT1_E.exit.loopexit ], [ %15, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEmEvRT_T0_.exit ]
   %107 = sub nuw nsw i64 %11, %22
-  %108 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [32 x i8], ptr %106, i64 %107
   store ptr %108, ptr %14, align 8, !tbaa !113
   %.not7.i.i.i.i.i45 = icmp eq ptr %1, %15
   br i1 %.not7.i.i.i.i.i45, label %_ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit53, label %.lr.ph.i.i.i.i.i46
@@ -2725,7 +2722,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, %202
   store ptr %147, ptr %0, align 8, !tbaa !115
   store ptr %.0.lcssa.i.i.i.i.i84, ptr %14, align 8, !tbaa !113
-  %206 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %147, i64 %143
+  %206 = getelementptr inbounds nuw [32 x i8], ptr %147, i64 %143
   store ptr %206, ptr %12, align 8, !tbaa !128
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit
 

@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/print.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.EVP_PKEY_PRINT_METHOD = type { i32, ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [11 x i8] c"Public Key\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"Private Key\00", align 1
 @.str.2 = private unnamed_addr constant [11 x i8] c"Parameters\00", align 1
@@ -61,7 +59,7 @@ define hidden i32 @EVP_PKEY_print_public(ptr noundef %0, ptr noundef %1, i32 nou
 
 9:                                                ; preds = %7, %4
   %.06.i = phi i64 [ 0, %4 ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw %struct.EVP_PKEY_PRINT_METHOD, ptr @kPrintMethods, i64 %.06.i
+  %10 = getelementptr inbounds nuw [32 x i8], ptr @kPrintMethods, i64 %.06.i
   %11 = load i32, ptr %10, align 16, !tbaa !15
   %12 = icmp eq i32 %11, %6
   br i1 %12, label %find_method.exit, label %7
@@ -95,7 +93,7 @@ define hidden i32 @EVP_PKEY_print_private(ptr noundef %0, ptr noundef %1, i32 no
 
 9:                                                ; preds = %7, %4
   %.06.i = phi i64 [ 0, %4 ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw %struct.EVP_PKEY_PRINT_METHOD, ptr @kPrintMethods, i64 %.06.i
+  %10 = getelementptr inbounds nuw [32 x i8], ptr @kPrintMethods, i64 %.06.i
   %11 = load i32, ptr %10, align 16, !tbaa !15
   %12 = icmp eq i32 %11, %6
   br i1 %12, label %find_method.exit, label %7
@@ -129,7 +127,7 @@ define hidden i32 @EVP_PKEY_print_params(ptr noundef %0, ptr noundef %1, i32 nou
 
 9:                                                ; preds = %7, %4
   %.06.i = phi i64 [ 0, %4 ], [ %8, %7 ]
-  %10 = getelementptr inbounds nuw %struct.EVP_PKEY_PRINT_METHOD, ptr @kPrintMethods, i64 %.06.i
+  %10 = getelementptr inbounds nuw [32 x i8], ptr @kPrintMethods, i64 %.06.i
   %11 = load i32, ptr %10, align 16, !tbaa !15
   %12 = icmp eq i32 %11, %6
   br i1 %12, label %find_method.exit, label %7

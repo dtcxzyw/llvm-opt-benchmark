@@ -195,7 +195,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef no
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12VM_Operation6_namesE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12VM_Operation6_namesE, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -343,7 +343,7 @@ define linkonce_odr hidden void @_ZN33ShenandoahHeapRegionStateConstant9serializ
   unreachable
 
 switch.lookup:                                    ; preds = %.lr.ph
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN33ShenandoahHeapRegionStateConstant9serializeER19JfrCheckpointWriter, i64 %indvars.iv
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN33ShenandoahHeapRegionStateConstant9serializeER19JfrCheckpointWriter, i64 %indvars.iv
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull %switch.load)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

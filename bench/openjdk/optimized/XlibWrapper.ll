@@ -3,7 +3,6 @@ source_filename = "bench/openjdk/original/XlibWrapper.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 %struct.XTextProperty = type { ptr, i64, i32, i64 }
 %struct.XWindowAttributes = type { i32, i32, i32, i32, i32, i32, ptr, i64, i32, i32, i32, i32, i64, i64, i32, i64, i32, i32, i64, i64, i64, i32, ptr }
 %struct._XkbStateRec = type { i8, i8, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16 }
@@ -47,7 +46,7 @@ define hidden void @freeNativeStringArray(ptr noundef captures(address_is_null) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   tail call void @free(ptr noundef %6) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -118,7 +117,7 @@ define hidden noalias noundef ptr @stringArrayToNative(ptr noundef %0, ptr nound
 25:                                               ; preds = %23
   %26 = add nsw i32 %.04064, 1
   %27 = sext i32 %.04064 to i64
-  %28 = getelementptr inbounds ptr, ptr %11, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %11, i64 %27
   store ptr %24, ptr %28, align 8
   br label %30
 
@@ -152,7 +151,7 @@ define hidden noalias noundef ptr @stringArrayToNative(ptr noundef %0, ptr nound
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %37 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8
   tail call void @free(ptr noundef %38) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -238,7 +237,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_ScreenOfDisplay(ptr noundef readnone ca
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3
+  %8 = getelementptr inbounds [128 x i8], ptr %7, i64 %3
   %9 = ptrtoint ptr %8 to i64
   ret i64 %9
 }
@@ -256,7 +255,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Disp
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3
+  %8 = getelementptr inbounds [128 x i8], ptr %7, i64 %3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
@@ -268,7 +267,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Disp
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3
+  %8 = getelementptr inbounds [128 x i8], ptr %7, i64 %3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
@@ -280,7 +279,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Disp
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3
+  %8 = getelementptr inbounds [128 x i8], ptr %7, i64 %3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
@@ -292,7 +291,7 @@ define range(i64 -2147483648, 2147483648) i64 @Java_sun_awt_X11_XlibWrapper_Disp
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3
+  %8 = getelementptr inbounds [128 x i8], ptr %7, i64 %3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
@@ -304,7 +303,7 @@ define i64 @Java_sun_awt_X11_XlibWrapper_RootWindow(ptr noundef readnone capture
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds %struct.Screen, ptr %7, i64 %3
+  %8 = getelementptr inbounds [128 x i8], ptr %7, i64 %3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8
   ret i64 %10
@@ -1457,7 +1456,7 @@ define i32 @Java_sun_awt_X11_XlibWrapper_XInternAtoms(ptr noundef %0, ptr nounde
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2235,7 +2234,7 @@ define ptr @Java_sun_awt_X11_XlibWrapper_XTextPropertyToStringList(ptr noundef %
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 1336
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr %6, align 8
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv
   %91 = load ptr, ptr %90, align 8
   %92 = call ptr %88(ptr noundef nonnull %0, ptr noundef %91) #15
   %93 = load ptr, ptr %0, align 8

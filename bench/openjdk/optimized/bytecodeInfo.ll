@@ -1076,7 +1076,7 @@ _ZNK10InlineTree12inline_levelEv.exit67:          ; preds = %_ZNK10InlineTree12i
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %135 = load ptr, ptr %134, align 8
   %136 = zext i32 %133 to i64
-  %137 = getelementptr inbounds nuw ptr, ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %136
   %138 = load ptr, ptr %137, align 8
   %139 = tail call noundef ptr @_ZNK4Node6uncastEb(ptr noundef nonnull align 8 dereferenceable(52) %138, i1 noundef zeroext false) #12
   %.06181 = load ptr, ptr %4, align 8
@@ -1115,7 +1115,7 @@ _ZNK10InlineTree12inline_levelEv.exit67:          ; preds = %_ZNK10InlineTree12i
   %155 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %156 = load ptr, ptr %155, align 8
   %157 = zext i32 %154 to i64
-  %158 = getelementptr inbounds nuw ptr, ptr %156, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %157
   %159 = load ptr, ptr %158, align 8
   %160 = tail call noundef ptr @_ZNK4Node6uncastEb(ptr noundef nonnull align 8 dereferenceable(52) %159, i1 noundef zeroext false) #12
   %161 = icmp eq ptr %160, %139
@@ -1341,7 +1341,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit:      ; preds = %59, %63
   %66 = load i32, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 1
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds i16, ptr @_ZN9Bytecodes6_flagsE, i64 %68
+  %69 = getelementptr inbounds [2 x i8], ptr @_ZN9Bytecodes6_flagsE, i64 %68
   %70 = load i16, ptr %69, align 2
   %71 = and i16 %70, 128
   %.not.i.i18 = icmp eq i16 %71, 0
@@ -1643,7 +1643,7 @@ define hidden noundef ptr @_ZN10InlineTree28build_inline_tree_for_calleeEP8ciMet
 
 10:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -1746,7 +1746,7 @@ _ZN26GrowableArrayWithAllocatorIP10InlineTree13GrowableArrayIS1_EE6appendERKS1_.
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %69 = load ptr, ptr %68, align 8
   %70 = sext i32 %66 to i64
-  %71 = getelementptr inbounds ptr, ptr %69, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %69, i64 %70
   store ptr %49, ptr %71, align 8
   br label %_ZNK10InlineTree9callee_atEiP8ciMethod.exit
 
@@ -1770,7 +1770,7 @@ define hidden noundef ptr @_ZNK10InlineTree9callee_atEiP8ciMethod(ptr noundef no
 
 9:                                                ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -1903,7 +1903,7 @@ define hidden noundef ptr @_ZN10InlineTree22find_subtree_from_rootEPS_P8JVMState
 
 26:                                               ; preds = %40, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
@@ -1973,7 +1973,7 @@ define hidden noundef i32 @_ZNK10InlineTree5countEv(ptr noundef nonnull readonly
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.056 = phi i32 [ 1, %.lr.ph ], [ %11, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 @_ZNK10InlineTree5countEv(ptr noundef nonnull align 8 dereferenceable(81) %9)
   %11 = add nsw i32 %10, %.056
@@ -2024,7 +2024,7 @@ _ZNK10InlineTree10caller_bciEv.exit:              ; preds = %3, %6
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   tail call void @_ZN10InlineTree16dump_replay_dataEP12outputStreami(ptr noundef nonnull align 8 dereferenceable(81) %27, ptr noundef nonnull %1, i32 noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2218,9 +2218,9 @@ _ZN13GrowableArrayIP10InlineTreeE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2237,7 +2237,7 @@ _ZN13GrowableArrayIP10InlineTreeE8allocateEv.exit: ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

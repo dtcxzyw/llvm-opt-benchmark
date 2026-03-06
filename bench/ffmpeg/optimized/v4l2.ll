@@ -895,7 +895,7 @@ enqueue_buffer.exit.i:                            ; preds = %92, %87
   %98 = load ptr, ptr %97, align 8, !tbaa !107
   %99 = load i32, ptr %8, align 8, !tbaa !100
   %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw ptr, ptr %98, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !108
   %103 = zext i32 %.064.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %96, ptr align 1 %102, i64 %103, i1 false)
@@ -932,7 +932,7 @@ enqueue_buffer.exit85.i:                          ; preds = %94
   %116 = load ptr, ptr %115, align 8, !tbaa !107
   %117 = load i32, ptr %8, align 8, !tbaa !100
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw ptr, ptr %116, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !108
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %120, ptr %121, align 8, !tbaa !106
@@ -1182,10 +1182,10 @@ define internal noundef i32 @v4l2_read_close(ptr noundef %0) #0 {
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
   %24 = load ptr, ptr %20, align 8, !tbaa !124
   %25 = load ptr, ptr %21, align 8, !tbaa !107
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i
   %27 = load ptr, ptr %26, align 8, !tbaa !108
   %28 = load ptr, ptr %22, align 8, !tbaa !125
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i
   %30 = load i32, ptr %29, align 4, !tbaa !26
   %31 = zext i32 %30 to i64
   %32 = call i32 %24(ptr noundef %27, i64 noundef %31) #11
@@ -1560,7 +1560,7 @@ define internal fastcc i32 @device_try_init(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %or.cond56, label %21, label %33
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [12 x i8], ptr @ff_fmt_conversion_table, i64 %indvars.iv
   %23 = tail call ptr @avcodec_get_name(i32 noundef %17) #11
   %24 = load i32, ptr %22, align 4, !tbaa !143
   %25 = tail call ptr @av_get_pix_fmt_name(i32 noundef %24) #11
@@ -1589,7 +1589,7 @@ define internal fastcc i32 @device_try_init(ptr noundef %0, i32 noundef %1, ptr 
 33:                                               ; preds = %.lr.ph, %32
   %.4 = phi i32 [ -22, %32 ], [ %.259, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr inbounds nuw %struct.fmt_map, ptr @ff_fmt_conversion_table, i64 %indvars.iv.next
+  %34 = getelementptr inbounds nuw [12 x i8], ptr @ff_fmt_conversion_table, i64 %indvars.iv.next
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !141
   %.not54 = icmp eq i32 %36, 0
@@ -2087,7 +2087,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @mmap_init(ptr no
   %.055 = phi i32 [ %77, %74 ], [ %71, %80 ]
   %.0 = phi i32 [ %79, %74 ], [ %81, %80 ]
   %83 = load ptr, ptr %40, align 8, !tbaa !125
-  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv
   store i32 %.055, ptr %84, align 4, !tbaa !26
   %85 = load i32, ptr %51, align 8, !tbaa !81
   %86 = icmp sgt i32 %85, 0
@@ -2106,10 +2106,10 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @mmap_init(ptr no
   %93 = zext i32 %.0 to i64
   %94 = call ptr %90(ptr noundef null, i64 noundef %91, i32 noundef 3, i32 noundef 1, i32 noundef %92, i64 noundef %93) #11
   %95 = load ptr, ptr %34, align 8, !tbaa !107
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv
   store ptr %94, ptr %96, align 8, !tbaa !108
   %97 = load ptr, ptr %34, align 8, !tbaa !107
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8, !tbaa !108
   %100 = icmp eq ptr %99, inttoptr (i64 -1 to ptr)
   br i1 %100, label %101, label %106

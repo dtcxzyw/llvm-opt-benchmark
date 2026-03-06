@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SDL_Keyboard = type { ptr, i16, [512 x i8], [512 x i8], ptr, i32, i8, i64, i32 }
 %union.SDL_Event = type { %struct.SDL_MouseWheelEvent, [72 x i8] }
 %struct.SDL_MouseWheelEvent = type { i32, i32, i64, i32, i32, float, float, i32, float, float, i32, i32 }
-%struct.SDL_KeyboardInstance = type { i32, ptr }
 
 @.str = private unnamed_addr constant [20 x i8] c"SDL_KEYCODE_OPTIONS\00", align 1
 @SDL_keyboard = internal global %struct.SDL_Keyboard zeroinitializer, align 8
@@ -109,7 +108,7 @@ define hidden void @SDL_AddKeyboard(i32 noundef %0, ptr noundef %1, i1 noundef z
 
 7:                                                ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %8 = getelementptr inbounds nuw %struct.SDL_KeyboardInstance, ptr %.pre, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %0, %9
   br i1 %10, label %SDL_GetKeyboardIndex.exit, label %11
@@ -130,7 +129,7 @@ SDL_GetKeyboardIndex.exit.thread:                 ; preds = %11, %3
 16:                                               ; preds = %SDL_GetKeyboardIndex.exit.thread
   %17 = load i32, ptr @SDL_keyboard_count, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.SDL_KeyboardInstance, ptr %15, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %15, i64 %18
   store i32 %0, ptr %19, align 8
   %.not11 = icmp eq ptr %1, null
   %20 = select i1 %.not11, ptr @.str.1, ptr %1
@@ -181,7 +180,7 @@ define hidden void @SDL_RemoveKeyboard(i32 noundef %0, i1 noundef zeroext %1) lo
 
 7:                                                ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %8 = getelementptr inbounds nuw %struct.SDL_KeyboardInstance, ptr %6, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %0, %9
   br i1 %10, label %SDL_GetKeyboardIndex.exit, label %11
@@ -194,7 +193,7 @@ define hidden void @SDL_RemoveKeyboard(i32 noundef %0, i1 noundef zeroext %1) lo
 SDL_GetKeyboardIndex.exit:                        ; preds = %7
   %12 = trunc nuw nsw i64 %indvars.iv.i to i32
   %13 = and i64 %indvars.iv.i, 4294967295
-  %14 = getelementptr inbounds nuw %struct.SDL_KeyboardInstance, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @SDL_free_REAL(ptr noundef %16) #13
@@ -205,7 +204,7 @@ SDL_GetKeyboardIndex.exit:                        ; preds = %7
 
 19:                                               ; preds = %SDL_GetKeyboardIndex.exit
   %20 = load ptr, ptr @SDL_keyboards, align 8
-  %21 = getelementptr inbounds nuw %struct.SDL_KeyboardInstance, ptr %20, i64 %13
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %13
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = xor i32 %12, -1
   %24 = add i32 %17, %23
@@ -250,7 +249,7 @@ define hidden void @SDL_SetKeyboardName(i32 noundef %0, ptr noundef %1) local_un
 
 6:                                                ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
-  %7 = getelementptr inbounds nuw %struct.SDL_KeyboardInstance, ptr %5, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %0, %8
   br i1 %9, label %SDL_GetKeyboardIndex.exit, label %10
@@ -262,7 +261,7 @@ define hidden void @SDL_SetKeyboardName(i32 noundef %0, ptr noundef %1) local_un
 
 SDL_GetKeyboardIndex.exit:                        ; preds = %6
   %11 = and i64 %indvars.iv.i, 4294967295
-  %12 = getelementptr inbounds nuw %struct.SDL_KeyboardInstance, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @SDL_free_REAL(ptr noundef %14) #13
@@ -313,9 +312,9 @@ define hidden noalias ptr @SDL_GetKeyboards_REAL(ptr noundef writeonly captures(
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw %struct.SDL_KeyboardInstance, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %14, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -327,7 +326,7 @@ define hidden noalias ptr @SDL_GetKeyboards_REAL(ptr noundef writeonly captures(
 
 ._crit_edge:                                      ; preds = %9, %._crit_edge.loopexit
   %.0.lcssa = phi i64 [ %16, %._crit_edge.loopexit ], [ 0, %9 ]
-  %17 = getelementptr inbounds nuw i32, ptr %6, i64 %.0.lcssa
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0.lcssa
   store i32 0, ptr %17, align 4
   br label %20
 
@@ -357,7 +356,7 @@ define hidden ptr @SDL_GetKeyboardNameForID_REAL(i32 noundef %0) local_unnamed_a
 
 5:                                                ; preds = %9, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
-  %6 = getelementptr inbounds nuw %struct.SDL_KeyboardInstance, ptr %4, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %SDL_GetKeyboardIndex.exit, label %9
@@ -373,7 +372,7 @@ SDL_GetKeyboardIndex.exit.thread:                 ; preds = %9, %1
 
 SDL_GetKeyboardIndex.exit:                        ; preds = %5
   %11 = and i64 %indvars.iv.i, 4294967295
-  %12 = getelementptr inbounds nuw %struct.SDL_KeyboardInstance, ptr %4, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @SDL_GetPersistentString(ptr noundef %14) #13
@@ -1554,7 +1553,7 @@ define hidden void @SDL_SendEditingTextCandidates(ptr noundef readonly captures(
 25:                                               ; preds = %25, %21
   %indvars.iv.i = phi i64 [ 0, %21 ], [ %indvars.iv.next.i, %25 ]
   %.03034.i = phi i64 [ %24, %21 ], [ %30, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i64 @SDL_strlen_REAL(ptr noundef %27) #13
   %29 = add i64 %.03034.i, 1
@@ -1569,17 +1568,17 @@ define hidden void @SDL_SendEditingTextCandidates(ptr noundef readonly captures(
   br i1 %.not.i, label %.sink.split, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %23
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %23
   br label %35
 
 35:                                               ; preds = %35, %33
   %indvars.iv40.i = phi i64 [ 0, %33 ], [ %indvars.iv.next41.i, %35 ]
   %.03136.i = phi ptr [ %34, %33 ], [ %42, %35 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv40.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv40.i
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i64 @SDL_strlen_REAL(ptr noundef %37) #13
   %39 = add i64 %38, 1
-  %40 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv40.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv40.i
   store ptr %.03136.i, ptr %40, align 8
   %41 = load ptr, ptr %36, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03136.i, ptr align 1 %41, i64 %39, i1 false)
@@ -1589,7 +1588,7 @@ define hidden void @SDL_SendEditingTextCandidates(ptr noundef readonly captures(
   br i1 %exitcond44.not.i, label %43, label %35, !llvm.loop !14
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds nuw ptr, ptr %32, i64 %wide.trip.count.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %wide.trip.count.i
   store ptr null, ptr %44, align 8
   br label %.critedge20
 
@@ -1641,7 +1640,7 @@ define hidden void @SDL_QuitKeyboard() local_unnamed_addr #0 {
   %7 = phi ptr [ %.pre10, %.lr.ph.split.preheader ], [ %32, %SDL_RemoveKeyboard.exit ]
   %indvars.iv = phi i64 [ %3, %.lr.ph.split.preheader ], [ %indvars.iv.next, %SDL_RemoveKeyboard.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %8 = getelementptr inbounds %struct.SDL_KeyboardInstance, ptr %7, i64 %indvars.iv.next
+  %8 = getelementptr inbounds [16 x i8], ptr %7, i64 %indvars.iv.next
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %6, 0
   br i1 %10, label %.lr.ph.i.i, label %SDL_RemoveKeyboard.exit
@@ -1652,7 +1651,7 @@ define hidden void @SDL_QuitKeyboard() local_unnamed_addr #0 {
 
 11:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %12 = getelementptr inbounds nuw %struct.SDL_KeyboardInstance, ptr %7, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv.i.i
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %9, %13
   br i1 %14, label %SDL_GetKeyboardIndex.exit.i, label %15
@@ -1665,7 +1664,7 @@ define hidden void @SDL_QuitKeyboard() local_unnamed_addr #0 {
 SDL_GetKeyboardIndex.exit.i:                      ; preds = %11
   %16 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %17 = and i64 %indvars.iv.i.i, 4294967295
-  %18 = getelementptr inbounds nuw %struct.SDL_KeyboardInstance, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @SDL_free_REAL(ptr noundef %20) #13
@@ -1676,7 +1675,7 @@ SDL_GetKeyboardIndex.exit.i:                      ; preds = %11
   br i1 %.not.i, label %30, label %23
 
 23:                                               ; preds = %SDL_GetKeyboardIndex.exit.i
-  %24 = getelementptr inbounds nuw %struct.SDL_KeyboardInstance, ptr %.pre, i64 %17
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %17
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = xor i32 %16, -1
   %27 = add i32 %21, %26

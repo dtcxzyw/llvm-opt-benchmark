@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.BlockRefTableKey = type { %struct.RelFileLocator, i32 }
 %struct.RelFileLocator = type { i32, i32, i32 }
-%struct.BlockRefTableEntry = type { %struct.BlockRefTableKey, i32, i8, i32, ptr, ptr, ptr }
 %struct.BlockRefTableBuffer = type { ptr, ptr, [65536 x i8], i32, i32, i32 }
 %struct.BlockRefTableSerializedEntry = type { %struct.RelFileLocator, i32, i32, i32 }
 
@@ -98,7 +97,7 @@ define dso_local void @BlockRefTableSetLimitBlock(ptr noundef readonly captures(
 24:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %23, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
   %25 = load ptr, ptr %22, align 8
-  %26 = getelementptr inbounds nuw i16, ptr %25, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %indvars.iv.i
   store i16 0, ptr %26, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %27 = load i32, ptr %19, align 8
@@ -110,11 +109,11 @@ define dso_local void @BlockRefTableSetLimitBlock(ptr noundef readonly captures(
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %31 = load ptr, ptr %30, align 8
   %32 = zext nneg i32 %17 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i16, ptr %36, i64 %32
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %32
   %38 = load i16, ptr %37, align 2
   switch i16 %38, label %.lr.ph50.i [
     i16 4096, label %.preheader.i
@@ -127,7 +126,7 @@ define dso_local void @BlockRefTableSetLimitBlock(ptr noundef readonly captures(
   %40 = shl nuw nsw i32 1, %39
   %41 = lshr i32 %.03853.i, 4
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw i16, ptr %34, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = trunc nuw i32 %40 to i16
   %46 = xor i16 %45, -1
@@ -141,7 +140,7 @@ define dso_local void @BlockRefTableSetLimitBlock(ptr noundef readonly captures(
   %49 = phi ptr [ %59, %58 ], [ %36, %._crit_edge.i ]
   %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %58 ], [ 0, %._crit_edge.i ]
   %.049.i = phi i32 [ %.1.i, %58 ], [ 0, %._crit_edge.i ]
-  %50 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv55.i
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv55.i
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i32
   %53 = icmp samesign ugt i32 %18, %52
@@ -150,7 +149,7 @@ define dso_local void @BlockRefTableSetLimitBlock(ptr noundef readonly captures(
 54:                                               ; preds = %.lr.ph50.i
   %55 = add i32 %.049.i, 1
   %56 = zext i32 %.049.i to i64
-  %57 = getelementptr inbounds nuw i16, ptr %34, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %56
   store i16 %51, ptr %57, align 2
   %.pre.i = load ptr, ptr %35, align 8
   br label %58
@@ -159,7 +158,7 @@ define dso_local void @BlockRefTableSetLimitBlock(ptr noundef readonly captures(
   %59 = phi ptr [ %.pre.i, %54 ], [ %49, %.lr.ph50.i ]
   %.1.i = phi i32 [ %55, %54 ], [ %.049.i, %.lr.ph50.i ]
   %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
-  %60 = getelementptr inbounds nuw i16, ptr %59, i64 %32
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %32
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i64
   %63 = icmp samesign ult i64 %indvars.iv.next56.i, %62
@@ -172,7 +171,7 @@ define dso_local void @BlockRefTableSetLimitBlock(ptr noundef readonly captures(
 ._crit_edge51.i:                                  ; preds = %._crit_edge51.loopexit.i, %._crit_edge.i
   %.lcssa47.i = phi ptr [ %36, %._crit_edge.i ], [ %59, %._crit_edge51.loopexit.i ]
   %.0.lcssa.i = phi i16 [ %38, %._crit_edge.i ], [ %64, %._crit_edge51.loopexit.i ]
-  %65 = getelementptr inbounds nuw i16, ptr %.lcssa47.i, i64 %32
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %.lcssa47.i, i64 %32
   store i16 %.0.lcssa.i, ptr %65, align 2
   br label %BlockRefTableEntrySetLimitBlock.exit
 
@@ -236,7 +235,7 @@ define internal fastcc noundef ptr @blockreftable_insert(ptr noundef captures(no
   %.val.i = load i32, ptr %14, align 4
   %26 = and i32 %.val.i, %7
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.BlockRefTableEntry, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 20
   %30 = load i8, ptr %29, align 4
   %31 = icmp eq i8 %30, 0
@@ -283,7 +282,7 @@ blockreftable_distance.exit.i:                    ; preds = %40, %37
 
 .preheader102.i.preheader:                        ; preds = %blockreftable_distance.exit.i
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %struct.BlockRefTableEntry, ptr %25, i64 %47
+  %48 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 20
   %50 = load i8, ptr %49, align 4
   %.not101.i29 = icmp eq i8 %50, 0
@@ -309,7 +308,7 @@ blockreftable_distance.exit.i:                    ; preds = %40, %37
   %61 = add i32 %51, 1
   %62 = and i32 %61, %.val86.i
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw %struct.BlockRefTableEntry, ptr %25, i64 %63
+  %64 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 20
   %66 = load i8, ptr %65, align 4
   %.not101.i = icmp eq i8 %66, 0
@@ -329,7 +328,7 @@ blockreftable_distance.exit.i:                    ; preds = %40, %37
   %67 = add i32 %.072128.i, -1
   %68 = and i32 %.val89.i, %67
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw %struct.BlockRefTableEntry, ptr %25, i64 %69
+  %70 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.276127.i, ptr noundef nonnull align 8 dereferenceable(56) %70, i64 56, i1 false)
   %.not85.i = icmp eq i32 %68, %.068.i24
   br i1 %.not85.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
@@ -358,7 +357,7 @@ blockreftable_distance.exit.i:                    ; preds = %40, %37
 
 83:                                               ; preds = %76, %73
   %84 = zext i32 %46 to i64
-  %85 = getelementptr inbounds nuw %struct.BlockRefTableEntry, ptr %25, i64 %84
+  %85 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 20
   %87 = load i8, ptr %86, align 4
   %88 = icmp eq i8 %87, 0
@@ -403,7 +402,7 @@ define dso_local void @BlockRefTableEntrySetLimitBlock(ptr noundef captures(none
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv
   store i16 0, ptr %16, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %8, align 8
@@ -415,11 +414,11 @@ define dso_local void @BlockRefTableEntrySetLimitBlock(ptr noundef captures(none
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = zext nneg i32 %6 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i16, ptr %26, i64 %22
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %22
   %28 = load i16, ptr %27, align 2
   switch i16 %28, label %.lr.ph50 [
     i16 4096, label %.preheader
@@ -432,7 +431,7 @@ define dso_local void @BlockRefTableEntrySetLimitBlock(ptr noundef captures(none
   %30 = shl nuw nsw i32 1, %29
   %31 = lshr i32 %.03853, 4
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %24, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = trunc nuw i32 %30 to i16
   %36 = xor i16 %35, -1
@@ -446,7 +445,7 @@ define dso_local void @BlockRefTableEntrySetLimitBlock(ptr noundef captures(none
   %39 = phi ptr [ %49, %48 ], [ %26, %._crit_edge ]
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %48 ], [ 0, %._crit_edge ]
   %.049 = phi i32 [ %.1, %48 ], [ 0, %._crit_edge ]
-  %40 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv55
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv55
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i32
   %43 = icmp samesign ugt i32 %7, %42
@@ -455,7 +454,7 @@ define dso_local void @BlockRefTableEntrySetLimitBlock(ptr noundef captures(none
 44:                                               ; preds = %.lr.ph50
   %45 = add i32 %.049, 1
   %46 = zext i32 %.049 to i64
-  %47 = getelementptr inbounds nuw i16, ptr %24, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %46
   store i16 %41, ptr %47, align 2
   %.pre = load ptr, ptr %25, align 8
   br label %48
@@ -464,7 +463,7 @@ define dso_local void @BlockRefTableEntrySetLimitBlock(ptr noundef captures(none
   %49 = phi ptr [ %.pre, %44 ], [ %39, %.lr.ph50 ]
   %.1 = phi i32 [ %45, %44 ], [ %.049, %.lr.ph50 ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %50 = getelementptr inbounds nuw i16, ptr %49, i64 %22
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %49, i64 %22
   %51 = load i16, ptr %50, align 2
   %52 = zext i16 %51 to i64
   %53 = icmp samesign ult i64 %indvars.iv.next56, %52
@@ -477,7 +476,7 @@ define dso_local void @BlockRefTableEntrySetLimitBlock(ptr noundef captures(none
 ._crit_edge51:                                    ; preds = %._crit_edge, %._crit_edge51.loopexit
   %.lcssa47 = phi ptr [ %26, %._crit_edge ], [ %49, %._crit_edge51.loopexit ]
   %.0.lcssa = phi i16 [ %28, %._crit_edge ], [ %54, %._crit_edge51.loopexit ]
-  %55 = getelementptr inbounds nuw i16, ptr %.lcssa47, i64 %22
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.lcssa47, i64 %22
   store i16 %.0.lcssa, ptr %55, align 2
   br label %.loopexit
 
@@ -570,7 +569,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   store ptr %29, ptr %25, align 8
   %30 = load i32, ptr %6, align 8
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %31
   %33 = zext i32 %24 to i64
   %34 = shl nuw nsw i64 %33, 1
   tail call void @llvm.memset.p0.i64(ptr align 2 %32, i8 0, i64 %34, i1 false)
@@ -580,7 +579,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   store ptr %37, ptr %35, align 8
   %38 = load i32, ptr %6, align 8
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i16, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %39
   tail call void @llvm.memset.p0.i64(ptr align 2 %40, i8 0, i64 %34, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load ptr, ptr %41, align 8
@@ -589,7 +588,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   store ptr %44, ptr %41, align 8
   %45 = load i32, ptr %6, align 8
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %46
   %48 = shl nuw nsw i64 %33, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %47, i8 0, i64 %48, i1 false)
   br label %49
@@ -602,7 +601,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load ptr, ptr %51, align 8
   %53 = zext nneg i32 %4 to i64
-  %54 = getelementptr inbounds nuw i16, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %53
   %55 = load i16, ptr %54, align 2
   %56 = icmp eq i16 %55, 0
   br i1 %56, label %57, label %71
@@ -611,26 +610,26 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   %58 = tail call ptr @palloc(i64 noundef 32) #13
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %53
   store ptr %58, ptr %61, align 8
   %62 = load ptr, ptr %51, align 8
-  %63 = getelementptr inbounds nuw i16, ptr %62, i64 %53
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %53
   store i16 16, ptr %63, align 2
   %64 = trunc i32 %2 to i16
   %65 = load ptr, ptr %59, align 8
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %53
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %53
   %67 = load ptr, ptr %66, align 8
   store i16 %64, ptr %67, align 2
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i16, ptr %69, i64 %53
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %53
   store i16 1, ptr %70, align 2
   br label %.loopexit
 
 71:                                               ; preds = %50
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i16, ptr %73, i64 %53
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %53
   %75 = load i16, ptr %74, align 2
   switch i16 %75, label %.lr.ph [
     i16 4096, label %81
@@ -640,7 +639,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
 .lr.ph:                                           ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %53
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %53
   %79 = load ptr, ptr %78, align 8
   %80 = trunc i32 %2 to i16
   %wide.trip.count = zext i16 %75 to i64
@@ -649,13 +648,13 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
 81:                                               ; preds = %71
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %53
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %53
   %85 = load ptr, ptr %84, align 8
   %86 = and i32 %2, 15
   %87 = shl nuw nsw i32 1, %86
   %88 = lshr i32 %5, 4
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw i16, ptr %85, i64 %89
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %85, i64 %89
   %91 = load i16, ptr %90, align 2
   %92 = trunc nuw i32 %87 to i16
   %93 = or i16 %91, %92
@@ -669,7 +668,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
 
 95:                                               ; preds = %.lr.ph, %94
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %94 ]
-  %96 = getelementptr inbounds nuw i16, ptr %79, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %79, i64 %indvars.iv
   %97 = load i16, ptr %96, align 2
   %98 = icmp eq i16 %97, %80
   br i1 %98, label %.loopexit, label %94
@@ -681,7 +680,7 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
 100:                                              ; preds = %._crit_edge
   %101 = tail call ptr @palloc0(i64 noundef 8192) #13
   %102 = load ptr, ptr %72, align 8
-  %103 = getelementptr inbounds nuw i16, ptr %102, i64 %53
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %102, i64 %53
   %104 = load i16, ptr %103, align 2
   %.not121 = icmp eq i16 %104, 0
   br i1 %.not121, label %._crit_edge119, label %.lr.ph118
@@ -693,21 +692,21 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
 106:                                              ; preds = %.lr.ph118, %106
   %indvars.iv123 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next124, %106 ]
   %107 = load ptr, ptr %105, align 8
-  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %53
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %53
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i16, ptr %109, i64 %indvars.iv123
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %109, i64 %indvars.iv123
   %111 = load i16, ptr %110, align 2
   %112 = and i16 %111, 15
   %113 = shl nuw i16 1, %112
   %114 = lshr i16 %111, 4
   %115 = zext nneg i16 %114 to i64
-  %116 = getelementptr inbounds nuw i16, ptr %101, i64 %115
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %101, i64 %115
   %117 = load i16, ptr %116, align 2
   %118 = or i16 %113, %117
   store i16 %118, ptr %116, align 2
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %119 = load ptr, ptr %72, align 8
-  %120 = getelementptr inbounds nuw i16, ptr %119, i64 %53
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %119, i64 %53
   %121 = load i16, ptr %120, align 2
   %122 = zext i16 %121 to i64
   %123 = icmp samesign ult i64 %indvars.iv.next124, %122
@@ -718,24 +717,24 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   %125 = shl nuw nsw i32 1, %124
   %126 = lshr i32 %5, 4
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw i16, ptr %101, i64 %127
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %101, i64 %127
   %129 = load i16, ptr %128, align 2
   %130 = trunc nuw i32 %125 to i16
   %131 = or i16 %129, %130
   store i16 %131, ptr %128, align 2
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %53
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %53
   %135 = load ptr, ptr %134, align 8
   tail call void @pfree(ptr noundef %135) #13
   %136 = load ptr, ptr %132, align 8
-  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %53
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %53
   store ptr %101, ptr %137, align 8
   %138 = load ptr, ptr %51, align 8
-  %139 = getelementptr inbounds nuw i16, ptr %138, i64 %53
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %138, i64 %53
   store i16 4096, ptr %139, align 2
   %140 = load ptr, ptr %72, align 8
-  %141 = getelementptr inbounds nuw i16, ptr %140, i64 %53
+  %141 = getelementptr inbounds nuw [2 x i8], ptr %140, i64 %53
   store i16 4096, ptr %141, align 2
   br label %.loopexit
 
@@ -748,18 +747,18 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   %145 = shl i16 %55, 1
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %53
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %53
   %149 = load ptr, ptr %148, align 8
   %150 = shl nuw nsw i64 %144, 2
   %151 = tail call ptr @repalloc(ptr noundef %149, i64 noundef %150) #13
   %152 = load ptr, ptr %146, align 8
-  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %53
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %53
   store ptr %151, ptr %153, align 8
   %154 = load ptr, ptr %51, align 8
-  %155 = getelementptr inbounds nuw i16, ptr %154, i64 %53
+  %155 = getelementptr inbounds nuw [2 x i8], ptr %154, i64 %53
   store i16 %145, ptr %155, align 2
   %.pre = load ptr, ptr %72, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw i16, ptr %.pre, i64 %53
+  %.phi.trans.insert = getelementptr inbounds nuw [2 x i8], ptr %.pre, i64 %53
   %.pre126 = load i16, ptr %.phi.trans.insert, align 2
   br label %156
 
@@ -768,13 +767,13 @@ define dso_local void @BlockRefTableEntryMarkBlockModified(ptr noundef captures(
   %158 = trunc i32 %2 to i16
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %53
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %53
   %162 = load ptr, ptr %161, align 8
   %163 = zext i16 %157 to i64
-  %164 = getelementptr inbounds nuw i16, ptr %162, i64 %163
+  %164 = getelementptr inbounds nuw [2 x i8], ptr %162, i64 %163
   store i16 %158, ptr %164, align 2
   %165 = load ptr, ptr %72, align 8
-  %166 = getelementptr inbounds nuw i16, ptr %165, i64 %53
+  %166 = getelementptr inbounds nuw [2 x i8], ptr %165, i64 %53
   %167 = load i16, ptr %166, align 2
   %168 = add i16 %167, 1
   store i16 %168, ptr %166, align 2
@@ -813,7 +812,7 @@ define dso_local noundef ptr @BlockRefTableGetEntry(ptr noundef readonly capture
   %15 = load ptr, ptr %14, align 8
   %.01320.i.i = and i32 %.val.i.i, %9
   %16 = zext i32 %.01320.i.i to i64
-  %17 = getelementptr inbounds nuw %struct.BlockRefTableEntry, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = load i8, ptr %18, align 4
   %20 = icmp eq i8 %19, 0
@@ -823,7 +822,7 @@ define dso_local noundef ptr @BlockRefTableGetEntry(ptr noundef readonly capture
   %22 = add i32 %.01321.i.i, 1
   %.013.i.i = and i32 %22, %.val.i.i
   %23 = zext i32 %.013.i.i to i64
-  %24 = getelementptr inbounds nuw %struct.BlockRefTableEntry, ptr %15, i64 %23
+  %24 = getelementptr inbounds nuw [56 x i8], ptr %15, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %26 = load i8, ptr %25, align 4
   %27 = icmp eq i8 %26, 0
@@ -886,10 +885,10 @@ define dso_local i32 @BlockRefTableEntryGetBlocks(ptr noundef readonly captures(
   %indvars.iv163 = phi i64 [ %18, %.lr.ph156 ], [ %indvars.iv.next164, %.loopexit ]
   %.081153 = phi i32 [ 0, %.lr.ph156 ], [ %.586.ph, %.loopexit ]
   %24 = load ptr, ptr %13, align 8
-  %25 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv163
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv163
   %26 = load i16, ptr %25, align 2
   %27 = load ptr, ptr %14, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv163
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv163
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq i64 %indvars.iv163, %19
   %spec.select105 = select i1 %30, i32 %15, i32 0
@@ -916,7 +915,7 @@ define dso_local i32 @BlockRefTableEntryGetBlocks(ptr noundef readonly captures(
   %.092147 = phi i32 [ %47, %.thread ], [ %spec.select105, %.preheader ]
   %34 = lshr i32 %.092147, 4
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i16, ptr %29, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i32
   %39 = and i32 %.092147, 15
@@ -929,7 +928,7 @@ define dso_local i32 @BlockRefTableEntryGetBlocks(ptr noundef readonly captures(
   %43 = add i32 %.092147, %32
   %44 = add i32 %.182148, 1
   %45 = sext i32 %.182148 to i64
-  %46 = getelementptr inbounds i32, ptr %3, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %3, i64 %45
   store i32 %43, ptr %46, align 4
   %.not103.not = icmp eq i32 %44, %4
   br i1 %.not103.not, label %.thread113, label %.thread
@@ -943,7 +942,7 @@ define dso_local i32 @BlockRefTableEntryGetBlocks(ptr noundef readonly captures(
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread116
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread116 ]
   %.788142 = phi i32 [ %.081153, %.lr.ph.preheader ], [ %.990120, %.thread116 ]
-  %48 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv
   %49 = load i16, ptr %48, align 2
   %50 = zext i16 %49 to i32
   %.not99 = icmp samesign ule i32 %spec.select105, %50
@@ -955,7 +954,7 @@ define dso_local i32 @BlockRefTableEntryGetBlocks(ptr noundef readonly captures(
   %53 = or disjoint i32 %32, %50
   %54 = add i32 %.788142, 1
   %55 = sext i32 %.788142 to i64
-  %56 = getelementptr inbounds i32, ptr %3, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %3, i64 %55
   store i32 %53, ptr %56, align 4
   %.not100.not = icmp eq i32 %54, %4
   br i1 %.not100.not, label %.thread113, label %.thread116
@@ -1024,7 +1023,7 @@ BlockRefTableWrite.exit:
 24:                                               ; preds = %29, %.lr.ph.i
   %25 = phi i64 [ 0, %.lr.ph.i ], [ %31, %29 ]
   %.01315.i = phi i32 [ 0, %.lr.ph.i ], [ %30, %29 ]
-  %26 = getelementptr inbounds nuw %struct.BlockRefTableEntry, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [56 x i8], ptr %23, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %28 = load i8, ptr %27, align 4
   %.not.i = icmp eq i8 %28, 1
@@ -1058,7 +1057,7 @@ blockreftable_start_iterate.exit:                 ; preds = %24, %29, %16
 39:                                               ; preds = %37
   %40 = load ptr, ptr %35, align 8
   %41 = zext i32 %.sroa.0.1 to i64
-  %42 = getelementptr inbounds nuw %struct.BlockRefTableEntry, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [56 x i8], ptr %40, i64 %41
   %43 = add i32 %.sroa.0.1, -1
   %44 = load i32, ptr %36, align 4
   %45 = and i32 %44, %43
@@ -1074,7 +1073,7 @@ blockreftable_start_iterate.exit:                 ; preds = %24, %29, %16
 blockreftable_iterate.exit:                       ; preds = %39
   %51 = add i32 %.042, 1
   %52 = zext i32 %.042 to i64
-  %53 = getelementptr inbounds nuw %struct.BlockRefTableSerializedEntry, ptr %19, i64 %52
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %53, ptr noundef nonnull align 8 dereferenceable(12) %42, i64 12, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %55 = load i32, ptr %54, align 4
@@ -1101,7 +1100,7 @@ blockreftable_iterate.exit:                       ; preds = %39
 67:                                               ; preds = %65
   %68 = load ptr, ptr %63, align 8
   %69 = add nsw i64 %indvars.iv, -1
-  %70 = getelementptr inbounds nuw i16, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %69
   %71 = load i16, ptr %70, align 2
   %72 = icmp eq i16 %71, 0
   br i1 %72, label %65, label %.critedge, !llvm.loop !20
@@ -1126,7 +1125,7 @@ blockreftable_iterate.exit:                       ; preds = %39
 
 80:                                               ; preds = %.lr.ph62, %._crit_edge
   %indvars.iv70 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next71, %._crit_edge ]
-  %81 = getelementptr inbounds nuw %struct.BlockRefTableSerializedEntry, ptr %19, i64 %indvars.iv70
+  %81 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %indvars.iv70
   %82 = load ptr, ptr @pg_comp_crc32c, align 8
   %83 = load i32, ptr %9, align 8
   %84 = call i32 %82(i32 noundef %83, ptr noundef %81, i64 noundef 24) #13
@@ -1170,7 +1169,7 @@ BlockRefTableWrite.exit50:                        ; preds = %80, %88
   %103 = load ptr, ptr %102, align 8
   %.01320.i.i = and i32 %.val.i.i, %98
   %104 = zext i32 %.01320.i.i to i64
-  %105 = getelementptr inbounds nuw %struct.BlockRefTableEntry, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [56 x i8], ptr %103, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 20
   %107 = load i8, ptr %106, align 4
   %108 = icmp eq i8 %107, 0
@@ -1180,7 +1179,7 @@ BlockRefTableWrite.exit50:                        ; preds = %80, %88
   %110 = add i32 %.01321.i.i, 1
   %.013.i.i = and i32 %110, %.val.i.i
   %111 = zext i32 %.013.i.i to i64
-  %112 = getelementptr inbounds nuw %struct.BlockRefTableEntry, ptr %103, i64 %111
+  %112 = getelementptr inbounds nuw [56 x i8], ptr %103, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 20
   %114 = load i8, ptr %113, align 4
   %115 = icmp eq i8 %114, 0
@@ -1257,14 +1256,14 @@ BlockRefTableWrite.exit51:                        ; preds = %142, %138, %blockre
 151:                                              ; preds = %.lr.ph, %BlockRefTableWrite.exit52
   %indvars.iv67 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next68, %BlockRefTableWrite.exit52 ]
   %152 = load ptr, ptr %149, align 8
-  %153 = getelementptr inbounds nuw i16, ptr %152, i64 %indvars.iv67
+  %153 = getelementptr inbounds nuw [2 x i8], ptr %152, i64 %indvars.iv67
   %154 = load i16, ptr %153, align 2
   %155 = icmp eq i16 %154, 0
   br i1 %155, label %BlockRefTableWrite.exit52, label %156
 
 156:                                              ; preds = %151
   %157 = load ptr, ptr %150, align 8
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv67
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv67
   %159 = load ptr, ptr %158, align 8
   %160 = zext i16 %154 to i32
   %161 = shl nuw nsw i32 %160, 1
@@ -1683,7 +1682,7 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr noundef w
   %13 = add i32 %11, -1
   %14 = load ptr, ptr %5, align 8
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = icmp eq i16 %17, 4096
   br i1 %18, label %.preheader, label %.preheader50
@@ -1717,7 +1716,7 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr noundef w
   %.253 = phi i32 [ %.041, %.lr.ph54 ], [ %.3, %46 ]
   %33 = lshr i32 %32, 4
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i16, ptr %7, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
   %38 = and i32 %32, 15
@@ -1730,7 +1729,7 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr noundef w
   %42 = add nuw nsw i32 %32, %30
   %43 = add nuw i32 %.253, 1
   %44 = zext i32 %.253 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %1, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %44
   store i32 %42, ptr %45, align 4
   %.pre58 = load i32, ptr %6, align 8
   br label %46
@@ -1749,12 +1748,12 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr noundef w
   %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %52 ]
   %53 = phi i32 [ %20, %.lr.ph ], [ %61, %52 ]
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw i16, ptr %7, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %54
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
   %58 = or disjoint i32 %24, %57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %58, ptr %59, align 4
   %60 = load i32, ptr %6, align 8
   %61 = add i32 %60, 1
@@ -1782,7 +1781,7 @@ define dso_local i32 @BlockRefTableReaderGetBlocks(ptr noundef %0, ptr noundef w
 70:                                               ; preds = %66
   %71 = load ptr, ptr %5, align 8
   %72 = zext i32 %67 to i64
-  %73 = getelementptr inbounds nuw i16, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %72
   %74 = load i16, ptr %73, align 2
   %.not47 = icmp eq i16 %74, 0
   br i1 %.not47, label %78, label %75
@@ -1894,7 +1893,7 @@ define dso_local void @BlockRefTableWriteEntry(ptr noundef %0, ptr noundef reado
 17:                                               ; preds = %15
   %18 = load ptr, ptr %13, align 8
   %19 = add nsw i64 %indvars.iv, -1
-  %20 = getelementptr inbounds nuw i16, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = icmp eq i16 %21, 0
   br i1 %22, label %15, label %.critedge, !llvm.loop !27
@@ -1988,14 +1987,14 @@ BlockRefTableWrite.exit20:                        ; preds = %67, %62, %BlockRefT
 75:                                               ; preds = %.lr.ph, %BlockRefTableWrite.exit21
   %indvars.iv25 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next26, %BlockRefTableWrite.exit21 ]
   %76 = load ptr, ptr %13, align 8
-  %77 = getelementptr inbounds nuw i16, ptr %76, i64 %indvars.iv25
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %76, i64 %indvars.iv25
   %78 = load i16, ptr %77, align 2
   %79 = icmp eq i16 %78, 0
   br i1 %79, label %BlockRefTableWrite.exit21, label %80
 
 80:                                               ; preds = %75
   %81 = load ptr, ptr %73, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv25
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv25
   %83 = load ptr, ptr %82, align 8
   %84 = zext i16 %78 to i32
   %85 = shl nuw nsw i32 %84, 1
@@ -2187,7 +2186,7 @@ blockreftable_update_parameters.exit:             ; preds = %blockreftable_compu
 .lr.ph:                                           ; preds = %blockreftable_update_parameters.exit, %45
   %37 = phi i64 [ %47, %45 ], [ 0, %blockreftable_update_parameters.exit ]
   %.061 = phi i32 [ %46, %45 ], [ 0, %blockreftable_update_parameters.exit ]
-  %38 = getelementptr inbounds nuw %struct.BlockRefTableEntry, ptr %5, i64 %37
+  %38 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 20
   %40 = load i8, ptr %39, align 4
   %.not = icmp eq i8 %40, 1
@@ -2214,7 +2213,7 @@ blockreftable_update_parameters.exit:             ; preds = %blockreftable_compu
   %.167 = phi i32 [ %67, %64 ], [ 0, %.lr.ph68.preheader ]
   %.05166 = phi i32 [ %spec.store.select, %64 ], [ %.05166.ph, %.lr.ph68.preheader ]
   %49 = zext i32 %.05166 to i64
-  %50 = getelementptr inbounds nuw %struct.BlockRefTableEntry, ptr %5, i64 %49
+  %50 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %52 = load i8, ptr %51, align 4
   %53 = icmp eq i8 %52, 1
@@ -2229,7 +2228,7 @@ blockreftable_update_parameters.exit:             ; preds = %blockreftable_compu
   %.pn = phi i32 [ %55, %54 ], [ %62, %56 ]
   %.048 = and i32 %.pn, %.val57
   %57 = zext i32 %.048 to i64
-  %58 = getelementptr inbounds nuw %struct.BlockRefTableEntry, ptr %18, i64 %57
+  %58 = getelementptr inbounds nuw [56 x i8], ptr %18, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 20
   %60 = load i8, ptr %59, align 4
   %61 = icmp eq i8 %60, 0

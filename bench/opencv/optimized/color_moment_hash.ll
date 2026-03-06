@@ -766,7 +766,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45, %
   %.079.i = phi i64 [ 0, %.lr.ph.i ], [ %129, %.noexc65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %127 = getelementptr inbounds nuw %"class.cv::Mat", ptr %126, i64 %.079.i
+  %127 = getelementptr inbounds nuw [96 x i8], ptr %126, i64 %.079.i
   store i32 0, ptr %122, align 8, !tbaa !56
   store i32 0, ptr %123, align 4, !tbaa !57
   store i32 16842752, ptr %7, align 8, !tbaa !58
@@ -852,7 +852,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %45, %
   %.079.i69 = phi i64 [ 0, %.lr.ph.i67 ], [ %159, %.noexc72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %157 = getelementptr inbounds nuw %"class.cv::Mat", ptr %156, i64 %.079.i69
+  %157 = getelementptr inbounds nuw [96 x i8], ptr %156, i64 %.079.i69
   store i32 0, ptr %152, align 8, !tbaa !56
   store i32 0, ptr %153, align 4, !tbaa !57
   store i32 16842752, ptr %5, align 8, !tbaa !58

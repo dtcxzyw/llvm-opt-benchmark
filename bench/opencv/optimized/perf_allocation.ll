@@ -873,7 +873,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !60
   store ptr %102, ptr %9, align 8, !tbaa !57
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !59
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -1100,7 +1100,7 @@ define hidden void @_ZN11opencv_test39MatDepth_tb_DISABLED_Allocation_Aligned12P
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %13 = load ptr, ptr %12, align 8, !tbaa !101
   %14 = zext nneg i32 %9 to i64
-  %15 = getelementptr i64, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load i64, ptr %16, align 8, !tbaa !10
   br label %_ZNK2cv3Mat8elemSizeEv.exit
@@ -1177,14 +1177,14 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %1, %11
 
 61:                                               ; preds = %_ZNK2cv3Mat8elemSizeEv.exit, %61
   %.01218 = phi i64 [ 0, %_ZNK2cv3Mat8elemSizeEv.exit ], [ %70, %61 ]
-  %62 = getelementptr inbounds nuw %"class.cv::Size_", ptr %3, i64 %.01218
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.01218
   %63 = load i32, ptr %62, align 8, !tbaa !102
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !104
   %66 = mul nsw i32 %65, %63
   %67 = sext i32 %66 to i64
   %68 = mul i64 %18, %67
-  %69 = getelementptr inbounds nuw i64, ptr %4, i64 %.01218
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01218
   store i64 %68, ptr %69, align 8, !tbaa !10
   %70 = add nuw nsw i64 %.01218, 1
   %exitcond.not = icmp eq i64 %70, 20
@@ -1226,7 +1226,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %1, %11
   %.019 = phi i32 [ %85, %84 ], [ 0, %77 ]
   %79 = urem i32 %.019, 20
   %.zext = zext nneg i32 %79 to i64
-  %80 = getelementptr inbounds nuw i64, ptr %4, i64 %.zext
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.zext
   %81 = load i64, ptr %80, align 8, !tbaa !10
   %82 = invoke noundef ptr @_ZN2cv10fastMallocEm(i64 noundef %81)
           to label %83 unwind label %86
@@ -1866,7 +1866,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !123
   store ptr %35, ptr %4, align 8, !tbaa !115
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.24", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !118
   ret void
 
@@ -5374,7 +5374,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !162
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !66
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::MatDepth_tb_DISABLED_Allocation_Aligned>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !69
   ret void
 }

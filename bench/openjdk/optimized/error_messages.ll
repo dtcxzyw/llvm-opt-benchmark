@@ -623,7 +623,7 @@ define hidden noundef nonnull ptr @eventText(i32 noundef %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.eventText, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.eventText, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

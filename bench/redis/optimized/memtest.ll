@@ -266,8 +266,8 @@ define dso_local void @memtest_fill_random(ptr noundef writeonly captures(none) 
 .lr.ph.us.us:                                     ; preds = %.preheader.split.us, %._crit_edge.split.us49.us
   %.044.us.us = phi i64 [ %17, %._crit_edge.split.us49.us ], [ -3372857614747716250, %.preheader.split.us ]
   %.03743.us.us = phi i64 [ %37, %._crit_edge.split.us49.us ], [ 0, %.preheader.split.us ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.03743.us.us
-  %9 = getelementptr inbounds nuw i64, ptr %8, i64 %4
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.03743.us.us
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %4
   %10 = mul nuw nsw i64 %.03743.us.us, %5
   br label %11
 
@@ -328,8 +328,8 @@ memtest_progress_step.exit.us.us:                 ; preds = %.lr.ph.i.us.us, %23
 .lr.ph.us:                                        ; preds = %.preheader.split.us, %._crit_edge.split.us.us
   %.044.us = phi i64 [ %46, %._crit_edge.split.us.us ], [ -3372857614747716250, %.preheader.split.us ]
   %.03743.us = phi i64 [ %51, %._crit_edge.split.us.us ], [ 0, %.preheader.split.us ]
-  %38 = getelementptr inbounds nuw i64, ptr %0, i64 %.03743.us
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %4
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.03743.us
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %4
   br label %40
 
 40:                                               ; preds = %40, %.lr.ph.us
@@ -390,8 +390,8 @@ define dso_local void @memtest_fill_value(ptr noundef writeonly captures(none) %
 
 .lr.ph.us.us:                                     ; preds = %.preheader.split.us, %._crit_edge.split.us45.us
   %.041.us.us = phi i64 [ %42, %._crit_edge.split.us45.us ], [ 0, %.preheader.split.us ]
-  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %.041.us.us
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %7
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.041.us.us
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %7
   %14 = and i64 %.041.us.us, 1
   %.not.us.us = icmp eq i64 %14, 0
   %15 = select i1 %.not.us.us, i64 %2, i64 %3
@@ -452,8 +452,8 @@ memtest_progress_step.exit.us.us:                 ; preds = %.lr.ph.i.us.us, %28
 
 .lr.ph.us:                                        ; preds = %.preheader.split.us, %._crit_edge.split.us.us
   %.041.us = phi i64 [ %57, %._crit_edge.split.us.us ], [ 0, %.preheader.split.us ]
-  %43 = getelementptr inbounds nuw i64, ptr %0, i64 %.041.us
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %7
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.041.us
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %7
   %45 = and i64 %.041.us, 1
   %.not.us = icmp eq i64 %45, 0
   %46 = select i1 %.not.us, i64 %2, i64 %3
@@ -508,7 +508,7 @@ define dso_local range(i32 0, 2) i32 @memtest_compare(ptr noundef %0, i64 nounde
   br i1 %.not38, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %4
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4
   %.not39 = icmp eq i32 %2, 0
   br i1 %.not39, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -598,7 +598,7 @@ define dso_local i32 @memtest_compare_times(ptr noundef %0, i64 noundef %1, i32 
   %.not = icmp eq i32 %4, 0
   %7 = lshr i64 %1, 4
   %.not38.i = icmp eq i64 %7, 0
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %7
   br i1 %.not, label %.lr.ph.split.us, label %memtest_compare.exit.thread15
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -670,7 +670,7 @@ define dso_local i32 @memtest_test(ptr noundef %0, i64 noundef %1, i32 noundef %
   %6 = lshr i64 %1, 4
   %7 = lshr i64 %1, 13
   %.not.i = icmp eq i64 %7, 0
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   %.not38.i.i = icmp eq i64 %1, 0
   %9 = lshr exact i64 %1, 1
   br i1 %.not68, label %.lr.ph.split.us, label %memtest_addressing.exit.thread132
@@ -722,8 +722,8 @@ memtest_addressing.exit.us.us:                    ; preds = %18, %.lr.ph47.split
 .lr.ph.us.i.us.us:                                ; preds = %.split46.us.us, %._crit_edge.split.us.us.i.us.us
   %.044.us.i69.us.us = phi i64 [ %31, %._crit_edge.split.us.us.i.us.us ], [ -3372857614747716250, %.split46.us.us ]
   %.03743.us.i.us.us = phi i64 [ %36, %._crit_edge.split.us.us.i.us.us ], [ 0, %.split46.us.us ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.03743.us.i.us.us
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %6
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.03743.us.i.us.us
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %6
   br label %25
 
 25:                                               ; preds = %25, %.lr.ph.us.i.us.us
@@ -788,7 +788,7 @@ memtest_compare.exit.us.i.us.us:                  ; preds = %39, %.lr.ph.split.u
 
 .lr.ph.us.i75.us.us:                              ; preds = %.split53.us.us, %._crit_edge.split.us.us.i77.us.us
   %.041.us.i.us.us = phi i64 [ %60, %._crit_edge.split.us.us.i77.us.us ], [ 0, %.split53.us.us ]
-  %46 = getelementptr inbounds nuw i64, ptr %0, i64 %.041.us.i.us.us
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.041.us.i.us.us
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %9
   %48 = and i64 %.041.us.i.us.us, 1
   %49 = sub nsw i64 0, %48
@@ -854,7 +854,7 @@ memtest_compare.exit.us.i92.us.us:                ; preds = %63, %.lr.ph.split.u
 
 .lr.ph.us.i101.us.us:                             ; preds = %.split60.us.us, %._crit_edge.split.us.us.i108.us.us
   %.041.us.i102.us.us = phi i64 [ %84, %._crit_edge.split.us.us.i108.us.us ], [ 0, %.split60.us.us ]
-  %70 = getelementptr inbounds nuw i64, ptr %0, i64 %.041.us.i102.us.us
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.041.us.i102.us.us
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 %9
   %72 = and i64 %.041.us.i102.us.us, 1
   %.not.us.i103.us.us = icmp eq i64 %72, 0
@@ -1008,7 +1008,7 @@ define dso_local i32 @memtest_preserving_test(ptr noundef %0, i64 noundef %1, i3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr align 8 %.168.us, i64 %spec.select.us, i1 false)
   %13 = sub i64 %.165.us, %spec.select.us
   %14 = lshr i64 %spec.select.us, 3
-  %15 = getelementptr inbounds nuw i64, ptr %.168.us, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.168.us, i64 %14
   br label %.preheader.split.us, !llvm.loop !29
 
 .preheader.split:                                 ; preds = %.preheader, %._crit_edge.split.us
@@ -1041,7 +1041,7 @@ define dso_local i32 @memtest_preserving_test(ptr noundef %0, i64 noundef %1, i3
   %25 = icmp eq i64 %24, 0
   %.not.i = icmp eq i64 %23, 0
   %.not38.i.i = icmp eq i64 %22, 0
-  %26 = getelementptr inbounds nuw i64, ptr %.168, i64 %22
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.168, i64 %22
   br i1 %25, label %.lr.ph.split.us, label %.lr.ph.split, !prof !21
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %memtest_compare_times.exit232.us
@@ -1082,8 +1082,8 @@ memtest_addressing.exit.us:                       ; preds = %.lr.ph47.split.us.i
 .lr.ph.us.i.us:                                   ; preds = %memtest_addressing.exit.us, %._crit_edge.split.us.us.i.us
   %.044.us.i73.us = phi i64 [ %45, %._crit_edge.split.us.us.i.us ], [ -3372857614747716250, %memtest_addressing.exit.us ]
   %.03743.us.i.us = phi i64 [ %50, %._crit_edge.split.us.us.i.us ], [ 0, %memtest_addressing.exit.us ]
-  %37 = getelementptr inbounds nuw i64, ptr %.168, i64 %.03743.us.i.us
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %22
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.168, i64 %.03743.us.i.us
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %22
   br label %39
 
 39:                                               ; preds = %39, %.lr.ph.us.i.us
@@ -1149,8 +1149,8 @@ memtest_compare.exit.us.i101.us:                  ; preds = %53, %.lr.ph.split.u
 
 .lr.ph.us.i109.us:                                ; preds = %.preheader.i106.us, %._crit_edge.split.us.us.i111.us
   %.041.us.i.us = phi i64 [ %74, %._crit_edge.split.us.us.i111.us ], [ 0, %.preheader.i106.us ]
-  %60 = getelementptr inbounds nuw i64, ptr %.168, i64 %.041.us.i.us
-  %61 = getelementptr inbounds nuw i64, ptr %60, i64 %22
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.168, i64 %.041.us.i.us
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %22
   %62 = and i64 %.041.us.i.us, 1
   %63 = sub nsw i64 0, %62
   %64 = shl nsw i64 %63, 16
@@ -1216,8 +1216,8 @@ memtest_compare.exit.us.i160.us:                  ; preds = %77, %.lr.ph.split.u
 
 .lr.ph.us.i169.us:                                ; preds = %.preheader.i166.us, %._crit_edge.split.us.us.i176.us
   %.041.us.i170.us = phi i64 [ %98, %._crit_edge.split.us.us.i176.us ], [ 0, %.preheader.i166.us ]
-  %84 = getelementptr inbounds nuw i64, ptr %.168, i64 %.041.us.i170.us
-  %85 = getelementptr inbounds nuw i64, ptr %84, i64 %22
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %.168, i64 %.041.us.i170.us
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %22
   %86 = and i64 %.041.us.i170.us, 1
   %.not.us.i171.us = icmp eq i64 %86, 0
   %87 = select i1 %.not.us.i171.us, i64 -6148914691236517206, i64 6148914691236517205

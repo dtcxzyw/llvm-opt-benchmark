@@ -31,14 +31,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.tracepoint = type { ptr, %struct.static_key, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.static_key = type { %struct.atomic_t, %union.anon.27 }
 %union.anon.27 = type { i64 }
-%struct.kexec_segment = type { %union.anon.13, i64, i64, i64 }
-%union.anon.13 = type { ptr }
-%struct.page = type { i64, %union.anon.14, %union.anon.22, %struct.atomic_t, [8 x i8] }
-%union.anon.14 = type { %struct.anon.15 }
-%struct.anon.15 = type { %union.anon.16, ptr, %union.anon.18, i64 }
-%union.anon.16 = type { %struct.list_head }
-%union.anon.18 = type { i64 }
-%union.anon.22 = type { %struct.atomic_t }
 %struct.pt_regs = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.elf_prstatus = type { %struct.elf_prstatus_common, [27 x i64], i32 }
 %struct.elf_prstatus_common = type { %struct.elf_siginfo, i16, i64, i64, i32, i32, i32, i32, %struct.__kernel_old_timeval, %struct.__kernel_old_timeval, %struct.__kernel_old_timeval, %struct.__kernel_old_timeval }
@@ -153,7 +145,7 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
 12:                                               ; preds = %8, %6
   %13 = phi i64 [ 0, %6 ], [ %10, %8 ]
   %14 = phi i32 [ 0, %6 ], [ %9, %8 ]
-  %15 = getelementptr %struct.kexec_segment, ptr %7, i64 %13
+  %15 = getelementptr [32 x i8], ptr %7, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
@@ -192,7 +184,7 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
   %36 = phi i32 [ %31, %.thread15 ], [ -99, %8 ]
   %37 = phi i32 [ %32, %.thread15 ], [ 0, %8 ]
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.kexec_segment, ptr %7, i64 %35
+  %39 = getelementptr [32 x i8], ptr %7, i64 %35
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i64, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 24
@@ -210,7 +202,7 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
 .preheader:                                       ; preds = %.preheader22, %45
   %49 = phi i1 [ %47, %45 ], [ true, %.preheader22 ]
   %50 = phi i64 [ %46, %45 ], [ 0, %.preheader22 ]
-  %51 = getelementptr %struct.kexec_segment, ptr %7, i64 %50
+  %51 = getelementptr [32 x i8], ptr %7, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = icmp ugt i64 %44, %53
@@ -241,7 +233,7 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
 .preheader50:                                     ; preds = %.thread15, %63
   %69 = phi i64 [ %65, %63 ], [ 0, %.thread15 ]
   %70 = phi i32 [ %64, %63 ], [ 0, %.thread15 ]
-  %71 = getelementptr %struct.kexec_segment, ptr %7, i64 %69
+  %71 = getelementptr [32 x i8], ptr %7, i64 %69
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load i64, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
@@ -293,7 +285,7 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef re
 105:                                              ; preds = %101, %98
   %106 = phi i64 [ 0, %98 ], [ %103, %101 ]
   %107 = phi i32 [ 0, %98 ], [ %102, %101 ]
-  %108 = getelementptr %struct.kexec_segment, ptr %7, i64 %106
+  %108 = getelementptr [32 x i8], ptr %7, i64 %106
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load i64, ptr %109, align 8
   %111 = icmp ult i64 %110, %99
@@ -365,7 +357,7 @@ define dso_local noundef range(i32 0, 2) i32 @kimage_is_destination_range(ptr no
 
 .preheader:                                       ; preds = %3, %19
   %8 = phi i64 [ %20, %19 ], [ 0, %3 ]
-  %9 = getelementptr %struct.kexec_segment, ptr %4, i64 %8
+  %9 = getelementptr [32 x i8], ptr %4, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = icmp ugt i64 %11, %2
@@ -424,7 +416,7 @@ define dso_local void @kimage_free_page_list(ptr noundef readonly captures(addre
 
 23:                                               ; preds = %23, %.preheader
   %24 = phi i64 [ 0, %.preheader ], [ %26, %23 ]
-  %25 = getelementptr %struct.page, ptr %21, i64 %24
+  %25 = getelementptr [64 x i8], ptr %21, i64 %24
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %25, i32 -65, ptr elementtype(i8) %25) #17, !srcloc !19
   %26 = add nuw nsw i64 %24, 1
   %27 = icmp eq i64 %26, %22
@@ -490,7 +482,7 @@ define dso_local ptr @kimage_alloc_control_pages(ptr noundef %0, i32 noundef %1)
 
 33:                                               ; preds = %33, %29
   %34 = phi i64 [ 0, %29 ], [ %36, %33 ]
-  %35 = getelementptr %struct.page, ptr %32, i64 %34
+  %35 = getelementptr [64 x i8], ptr %32, i64 %34
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %35, i32 64, ptr elementtype(i8) %35) #17, !srcloc !23
   %36 = add nuw nsw i64 %34, 1
   %37 = icmp eq i64 %36, %17
@@ -530,7 +522,7 @@ define dso_local ptr @kimage_alloc_control_pages(ptr noundef %0, i32 noundef %1)
 
 .preheader22:                                     ; preds = %55, %72
   %61 = phi i64 [ %73, %72 ], [ 0, %55 ]
-  %62 = getelementptr %struct.kexec_segment, ptr %8, i64 %61
+  %62 = getelementptr [32 x i8], ptr %8, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i64, ptr %63, align 8
   %65 = icmp ugt i64 %64, %57
@@ -613,7 +605,7 @@ define dso_local ptr @kimage_alloc_control_pages(ptr noundef %0, i32 noundef %1)
 
 109:                                              ; preds = %109, %.preheader
   %110 = phi i64 [ 0, %.preheader ], [ %112, %109 ]
-  %111 = getelementptr %struct.page, ptr %107, i64 %110
+  %111 = getelementptr [64 x i8], ptr %107, i64 %110
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %111, i32 -65, ptr elementtype(i8) %111) #17, !srcloc !19
   %112 = add nuw nsw i64 %110, 1
   %113 = icmp eq i64 %112, %108
@@ -668,7 +660,7 @@ define dso_local ptr @kimage_alloc_control_pages(ptr noundef %0, i32 noundef %1)
 
 .preheader25:                                     ; preds = %138, %152
   %141 = phi i64 [ %153, %152 ], [ 0, %138 ]
-  %142 = getelementptr %struct.kexec_segment, ptr %8, i64 %141
+  %142 = getelementptr [32 x i8], ptr %8, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load i64, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 24
@@ -698,7 +690,7 @@ define dso_local ptr @kimage_alloc_control_pages(ptr noundef %0, i32 noundef %1)
   %162 = load i64, ptr @vmemmap_base, align 8
   %163 = inttoptr i64 %162 to ptr
   %164 = lshr i64 %160, 12
-  %165 = getelementptr %struct.page, ptr %163, i64 %164
+  %165 = getelementptr [64 x i8], ptr %163, i64 %164
   %166 = add i64 %161, 1
   store i64 %166, ptr %120, align 8
   %167 = icmp eq ptr %165, null
@@ -843,7 +835,7 @@ define dso_local void @kimage_free(ptr noundef %0) local_unnamed_addr #2 align 1
 
 32:                                               ; preds = %32, %.preheader12
   %33 = phi i64 [ 0, %.preheader12 ], [ %35, %32 ]
-  %34 = getelementptr %struct.page, ptr %30, i64 %33
+  %34 = getelementptr [64 x i8], ptr %30, i64 %33
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %34, i32 -65, ptr elementtype(i8) %34) #17, !srcloc !19
   %35 = add nuw nsw i64 %33, 1
   %36 = icmp eq i64 %35, %31
@@ -889,7 +881,7 @@ define dso_local void @kimage_free(ptr noundef %0) local_unnamed_addr #2 align 1
 
 61:                                               ; preds = %61, %.preheader10
   %62 = phi i64 [ 0, %.preheader10 ], [ %64, %61 ]
-  %63 = getelementptr %struct.page, ptr %59, i64 %62
+  %63 = getelementptr [64 x i8], ptr %59, i64 %62
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %63, i32 -65, ptr elementtype(i8) %63) #17, !srcloc !19
   %64 = add nuw nsw i64 %62, 1
   %65 = icmp eq i64 %64, %60
@@ -925,7 +917,7 @@ define dso_local void @kimage_free(ptr noundef %0) local_unnamed_addr #2 align 1
   %82 = lshr i64 %74, 12
   %83 = load i64, ptr @vmemmap_base, align 8
   %84 = inttoptr i64 %83 to ptr
-  %85 = getelementptr %struct.page, ptr %84, i64 %82
+  %85 = getelementptr [64 x i8], ptr %84, i64 %82
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %87 = load i64, ptr %86, align 8
   %88 = trunc i64 %87 to i32
@@ -943,7 +935,7 @@ define dso_local void @kimage_free(ptr noundef %0) local_unnamed_addr #2 align 1
 
 98:                                               ; preds = %98, %81
   %99 = phi i64 [ 0, %81 ], [ %101, %98 ]
-  %100 = getelementptr %struct.page, ptr %96, i64 %99
+  %100 = getelementptr [64 x i8], ptr %96, i64 %99
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %100, i32 -65, ptr elementtype(i8) %100) #17, !srcloc !19
   %101 = add nuw nsw i64 %99, 1
   %102 = icmp eq i64 %101, %97
@@ -962,7 +954,7 @@ define dso_local void @kimage_free(ptr noundef %0) local_unnamed_addr #2 align 1
   %108 = lshr i64 %73, 12
   %109 = load i64, ptr @vmemmap_base, align 8
   %110 = inttoptr i64 %109 to ptr
-  %111 = getelementptr %struct.page, ptr %110, i64 %108
+  %111 = getelementptr [64 x i8], ptr %110, i64 %108
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 40
   %113 = load i64, ptr %112, align 8
   %114 = trunc i64 %113 to i32
@@ -980,7 +972,7 @@ define dso_local void @kimage_free(ptr noundef %0) local_unnamed_addr #2 align 1
 
 124:                                              ; preds = %124, %107
   %125 = phi i64 [ 0, %107 ], [ %127, %124 ]
-  %126 = getelementptr %struct.page, ptr %122, i64 %125
+  %126 = getelementptr [64 x i8], ptr %122, i64 %125
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %126, i32 -65, ptr elementtype(i8) %126) #17, !srcloc !19
   %127 = add nuw nsw i64 %125, 1
   %128 = icmp eq i64 %127, %123
@@ -1014,7 +1006,7 @@ define dso_local void @kimage_free(ptr noundef %0) local_unnamed_addr #2 align 1
   %147 = lshr i64 %131, 12
   %148 = load i64, ptr @vmemmap_base, align 8
   %149 = inttoptr i64 %148 to ptr
-  %150 = getelementptr %struct.page, ptr %149, i64 %147
+  %150 = getelementptr [64 x i8], ptr %149, i64 %147
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
   %152 = load i64, ptr %151, align 8
   %153 = trunc i64 %152 to i32
@@ -1031,7 +1023,7 @@ define dso_local void @kimage_free(ptr noundef %0) local_unnamed_addr #2 align 1
 
 162:                                              ; preds = %162, %146
   %163 = phi i64 [ 0, %146 ], [ %165, %162 ]
-  %164 = getelementptr %struct.page, ptr %160, i64 %163
+  %164 = getelementptr [64 x i8], ptr %160, i64 %163
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %164, i32 -65, ptr elementtype(i8) %164) #17, !srcloc !19
   %165 = add nuw nsw i64 %163, 1
   %166 = icmp eq i64 %165, %161
@@ -1077,7 +1069,7 @@ define dso_local void @kimage_free(ptr noundef %0) local_unnamed_addr #2 align 1
 
 190:                                              ; preds = %190, %.preheader
   %191 = phi i64 [ 0, %.preheader ], [ %193, %190 ]
-  %192 = getelementptr %struct.page, ptr %188, i64 %191
+  %192 = getelementptr [64 x i8], ptr %188, i64 %191
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %192, i32 -65, ptr elementtype(i8) %192) #17, !srcloc !19
   %193 = add nuw nsw i64 %191, 1
   %194 = icmp eq i64 %193, %189
@@ -1306,7 +1298,7 @@ define dso_local noundef range(i32 -14, 1) i32 @kimage_load_segment(ptr noundef 
   %142 = lshr i64 %137, 12
   %143 = load i64, ptr @vmemmap_base, align 8
   %144 = inttoptr i64 %143 to ptr
-  %145 = getelementptr %struct.page, ptr %144, i64 %142
+  %145 = getelementptr [64 x i8], ptr %144, i64 %142
   %146 = icmp eq ptr %145, null
   br i1 %146, label %.thread, label %147
 
@@ -1707,7 +1699,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__crash_shrink_memory(ptr 
   %22 = lshr i64 %21, 12
   %23 = load i64, ptr @vmemmap_base, align 8
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr %struct.page, ptr %24, i64 %22
+  %25 = getelementptr [64 x i8], ptr %24, i64 %22
   %26 = getelementptr i8, ptr %25, i64 1
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %26, i32 -65, ptr elementtype(i8) %26) #17, !srcloc !19
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 52
@@ -1747,7 +1739,7 @@ define dso_local void @crash_save_cpu(ptr noundef readonly captures(none) %0, i3
   %9 = load ptr, ptr @crash_notes, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr i64, ptr @__per_cpu_offset, i64 %11
+  %12 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %10
   %15 = icmp eq i64 %14, 0
@@ -2125,7 +2117,7 @@ define internal fastcc ptr @kimage_alloc_page(ptr noundef %0, i32 noundef range(
 
 .preheader:                                       ; preds = %82, %97
   %86 = phi i64 [ %98, %97 ], [ 0, %82 ]
-  %87 = getelementptr %struct.kexec_segment, ptr %17, i64 %86
+  %87 = getelementptr [32 x i8], ptr %17, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i64, ptr %88, align 8
   %90 = icmp ugt i64 %89, %83
@@ -2204,7 +2196,7 @@ define internal fastcc ptr @kimage_alloc_page(ptr noundef %0, i32 noundef range(
 139:                                              ; preds = %137
   %140 = lshr i64 %109, 12
   %141 = inttoptr i64 %78 to ptr
-  %142 = getelementptr %struct.page, ptr %141, i64 %140
+  %142 = getelementptr [64 x i8], ptr %141, i64 %140
   %143 = ptrtoint ptr %142 to i64
   %144 = sub i64 %143, %78
   %145 = shl i64 %144, 6

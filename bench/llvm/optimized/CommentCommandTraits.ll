@@ -3,7 +3,6 @@ source_filename = "bench/llvm/original/CommentCommandTraits.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.clang::comments::CommandInfo" = type { ptr, ptr, i64 }
 %"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::SmallVector.14" = type { %"class.llvm::SmallVectorImpl.15", %"struct.llvm::SmallVectorStorage.18" }
 %"class.llvm::SmallVectorImpl.15" = type { %"class.llvm::SmallVectorTemplateBase.16" }
@@ -11,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.17" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.18" = type { [16 x i8] }
-%"struct.std::pair" = type { ptr, i64 }
 
 $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE = comdat any
 
@@ -2409,7 +2407,7 @@ define dso_local noundef ptr @_ZNK5clang8comments13CommandTraits20getCommandInfo
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us.i ], [ 0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !31
   %13 = load ptr, ptr %12, align 8, !tbaa !33
   %.not.i.us.i = icmp eq ptr %13, null
@@ -2427,7 +2425,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread15.us.i:  ; preds = %_ZN4llvm9StringRefC
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.i ], [ 0, %.lr.ph.i ]
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8, !tbaa !31
   %16 = load ptr, ptr %15, align 8, !tbaa !33
   %.not.i.i = icmp eq ptr %16, null
@@ -2477,7 +2475,7 @@ define dso_local noundef ptr @_ZNK5clang8comments13CommandTraits24getRegisteredC
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us
   %.0921.us = phi i32 [ %13, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us ], [ 0, %.lr.ph ]
   %9 = zext i32 %.0921.us to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !31
   %12 = load ptr, ptr %11, align 8, !tbaa !33
   %.not.i.us = icmp eq ptr %12, null
@@ -2495,7 +2493,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread15.us:    ; preds = %_ZN4llvm9StringRefC
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !31
   %16 = load ptr, ptr %15, align 8, !tbaa !33
   %.not.i = icmp eq ptr %16, null
@@ -2525,13 +2523,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread15:       ; preds = %.lr.ph.split, %_ZN4
 define dso_local noundef ptr @_ZNK5clang8comments13CommandTraits14getCommandInfoEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = zext i32 %1 to i64
   %4 = icmp ugt i32 %1, 198
-  %5 = getelementptr inbounds nuw %"struct.clang::comments::CommandInfo", ptr @_ZN5clang8comments12_GLOBAL__N_18CommandsE, i64 %3
+  %5 = getelementptr inbounds nuw [24 x i8], ptr @_ZN5clang8comments12_GLOBAL__N_18CommandsE, i64 %3
   br i1 %4, label %6, label %12
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !18
-  %9 = getelementptr ptr, ptr %8, i64 %3
+  %9 = getelementptr [8 x i8], ptr %8, i64 %3
   %10 = getelementptr i8, ptr %9, i64 -1592
   %11 = load ptr, ptr %10, align 8, !tbaa !31
   br label %12
@@ -2545,7 +2543,7 @@ define dso_local noundef ptr @_ZNK5clang8comments13CommandTraits14getCommandInfo
 define dso_local noundef ptr @_ZN5clang8comments13CommandTraits21getBuiltinCommandInfoEj(i32 noundef %0) local_unnamed_addr #5 align 2 {
   %2 = zext nneg i32 %0 to i64
   %3 = icmp ult i32 %0, 199
-  %4 = getelementptr inbounds nuw %"struct.clang::comments::CommandInfo", ptr @_ZN5clang8comments12_GLOBAL__N_18CommandsE, i64 %2
+  %4 = getelementptr inbounds nuw [24 x i8], ptr @_ZN5clang8comments12_GLOBAL__N_18CommandsE, i64 %2
   %.0 = select i1 %3, ptr %4, ptr null
   ret ptr %.0
 }
@@ -2555,7 +2553,7 @@ define dso_local noundef ptr @_ZNK5clang8comments13CommandTraits24getRegisteredC
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !18
-  %6 = getelementptr ptr, ptr %5, i64 %4
+  %6 = getelementptr [8 x i8], ptr %5, i64 %4
   %7 = getelementptr i8, ptr %6, i64 -1592
   %8 = load ptr, ptr %7, align 8, !tbaa !31
   ret ptr %8
@@ -2649,7 +2647,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments11CommandInfoELb1EE9push_bac
   %40 = phi i32 [ %35, %34 ], [ %.pre.i.i, %37 ]
   %41 = load ptr, ptr %5, align 8, !tbaa !18
   %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   %44 = ptrtoint ptr %.015.ptr to i64
   store i64 %44, ptr %43, align 1
   %45 = load i32, ptr %10, align 8, !tbaa !19
@@ -2733,7 +2731,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang8comments11CommandInfoELb1EE9push_bac
   %74 = phi i32 [ %69, %68 ], [ %.pre.i.i23, %71 ]
   %75 = load ptr, ptr %5, align 8, !tbaa !18
   %76 = zext i32 %74 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %76
   %78 = ptrtoint ptr %49 to i64
   store i64 %78, ptr %77, align 1
   %79 = load i32, ptr %10, align 8, !tbaa !19
@@ -2866,7 +2864,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang8comments11CommandInfoELb1EE9push_back
   %60 = phi i32 [ %53, %_ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImplIT_XT0_EXT1_EXT2_EEE.exit ], [ %.pre.i, %56 ]
   %61 = load ptr, ptr %51, align 8, !tbaa !18
   %62 = zext i32 %60 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %62
   %64 = ptrtoint ptr %.0.i.i.i to i64
   store i64 %64, ptr %63, align 1
   %65 = load i32, ptr %52, align 8, !tbaa !19
@@ -2932,7 +2930,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !18
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -2973,7 +2971,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !18
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !19

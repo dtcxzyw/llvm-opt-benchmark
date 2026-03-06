@@ -68,7 +68,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.32 = type { i32 }
 %"class.std::thread" = type { %"class.std::thread::id" }
 %"class.std::thread::id" = type { i64 }
-%"struct.cv::obsensor::V4L2FrameBuffer" = type { i32, ptr }
 %struct.fd_set = type { [16 x i64] }
 %"struct.cv::obsensor::Frame" = type { i32, i32, i32, i32, ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
@@ -6334,7 +6333,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit263: ; preds
   %553 = load i32, ptr %441, align 8, !tbaa !27
   %554 = zext i32 %553 to i64
   %555 = call ptr @mmap(ptr noundef null, i64 noundef %551, i32 noundef 3, i32 noundef 1, i32 noundef %552, i64 noundef %554) #26
-  %556 = getelementptr inbounds nuw %"struct.cv::obsensor::V4L2FrameBuffer", ptr %442, i64 %indvars.iv
+  %556 = getelementptr inbounds nuw [16 x i8], ptr %442, i64 %indvars.iv
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 8
   store ptr %555, ptr %557, align 8, !tbaa !202
   %558 = load i32, ptr %440, align 8, !tbaa !280
@@ -6497,7 +6496,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274: ; preds = %60
 
 615:                                              ; preds = %613, %623
   %indvars.iv285 = phi i64 [ 0, %613 ], [ %indvars.iv.next286, %623 ]
-  %616 = getelementptr inbounds nuw %"struct.cv::obsensor::V4L2FrameBuffer", ptr %614, i64 %indvars.iv285
+  %616 = getelementptr inbounds nuw [16 x i8], ptr %614, i64 %indvars.iv285
   %617 = getelementptr inbounds nuw i8, ptr %616, i64 8
   %618 = load ptr, ptr %617, align 8, !tbaa !202
   %.not127 = icmp eq ptr %618, null
@@ -6630,7 +6629,7 @@ define hidden void @_ZN2cv8obsensor17V4L2StreamChannel9grabFrameEv(ptr noundef n
   %19 = shl nuw i64 1, %18
   %20 = sdiv i32 %16, 64
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i64, ptr %3, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %3, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !48
   %24 = or i64 %19, %23
   store i64 %24, ptr %22, align 8, !tbaa !48
@@ -7212,7 +7211,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit111:         ; preds = %267
   store i32 %275, ptr %39, align 4, !tbaa !315
   %276 = load i32, ptr %5, align 8, !tbaa !272
   %277 = zext i32 %276 to i64
-  %278 = getelementptr inbounds nuw %"struct.cv::obsensor::V4L2FrameBuffer", ptr %0, i64 %277
+  %278 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %277
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 152
   %280 = load ptr, ptr %279, align 8, !tbaa !202
   store ptr %280, ptr %41, align 8, !tbaa !316
@@ -8299,7 +8298,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit39:          ; preds = %26, %105
 
 113:                                              ; preds = %110, %121
   %indvars.iv = phi i64 [ 0, %110 ], [ %indvars.iv.next, %121 ]
-  %114 = getelementptr inbounds nuw %"struct.cv::obsensor::V4L2FrameBuffer", ptr %111, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %111, i64 %indvars.iv
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8, !tbaa !202
   %.not31 = icmp eq ptr %116, null
@@ -9128,7 +9127,7 @@ _ZNSt12_Vector_baseIN2cv8obsensor13UvcDeviceInfoESaIS2_EE13_M_deallocateEPS2_m.e
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !160
   store ptr %.0.lcssa.i.i.i.i43, ptr %4, align 8, !tbaa !156
-  %119 = getelementptr inbounds nuw %"struct.cv::obsensor::UvcDeviceInfo", ptr %20, i64 %16
+  %119 = getelementptr inbounds nuw [104 x i8], ptr %20, i64 %16
   store ptr %119, ptr %118, align 8, !tbaa !159
   ret void
 

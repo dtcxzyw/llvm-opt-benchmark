@@ -345,7 +345,7 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
   %indvars.iv.i.i.i = phi i64 [ 0, %97 ], [ %indvars.iv.next.i.i.i, %167 ]
   %.0182205.i.i.i = phi i32 [ 5, %97 ], [ %177, %167 ]
   %100 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %96, i32 noundef %.0182205.i.i.i)
-  %101 = getelementptr %struct.movement, ptr %5, i64 %indvars.iv.i.i.i
+  %101 = getelementptr [34 x i8], ptr %5, i64 %indvars.iv.i.i.i
   %102 = getelementptr i8, ptr %101, i64 1
   store i8 %100, ptr %102, align 1
   %103 = trunc i32 %.0182205.i.i.i to i8
@@ -513,10 +513,10 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
 185:                                              ; preds = %323, %179
   %186 = phi i8 [ %.pre.i.i.i, %179 ], [ %190, %323 ]
   %indvars.iv209.i.i.i = phi i64 [ 0, %179 ], [ %indvars.iv.next210.i.i.i, %323 ]
-  %187 = getelementptr %struct.movement, ptr %5, i64 %indvars.iv209.i.i.i
+  %187 = getelementptr [34 x i8], ptr %5, i64 %indvars.iv209.i.i.i
   %188 = zext i8 %186 to i32
   %indvars.iv.next210.i.i.i = add nuw nsw i64 %indvars.iv209.i.i.i, 1
-  %189 = getelementptr %struct.movement, ptr %5, i64 %indvars.iv.next210.i.i.i
+  %189 = getelementptr [34 x i8], ptr %5, i64 %indvars.iv.next210.i.i.i
   %190 = load i8, ptr %189, align 2
   %191 = zext i8 %190 to i32
   %192 = sub nsw i32 %191, %188

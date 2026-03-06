@@ -51,7 +51,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_CollectAxioms_co
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %19, %18, %16, %10
-  %20 = getelementptr inbounds nuw ptr, ptr %7, i64 %.02858
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.02858
   %21 = load ptr, ptr %20, align 8, !tbaa !10
   %22 = ptrtoint ptr %21 to i64
   %23 = trunc i64 %22 to i1

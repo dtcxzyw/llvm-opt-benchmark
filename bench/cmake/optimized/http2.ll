@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.nghttp2_data_provider = type { %union.nghttp2_data_source, ptr }
 %union.nghttp2_data_source = type { ptr }
 %struct.nghttp2_priority_spec = type { i32, i32, i8 }
-%struct.nghttp2_nv = type { ptr, ptr, i64, i64, i8 }
 %struct.curl_pushheaders = type { ptr, ptr, ptr }
 %struct.dynbuf = type { ptr, i64, i64, i64 }
 
@@ -199,7 +198,7 @@ define dso_local ptr @curl_pushheader_bynum(ptr noundef readonly captures(addres
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 280
   %17 = load ptr, ptr %16, align 8, !tbaa !91
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %1
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %1
   %19 = load ptr, ptr %18, align 8, !tbaa !92
   br label %20
 
@@ -264,7 +263,7 @@ define dso_local ptr @curl_pushheader_byname(ptr noundef readonly captures(addre
 
 25:                                               ; preds = %.lr.ph, %35
   %.037 = phi i64 [ 0, %.lr.ph ], [ %36, %35 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.037
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.037
   %27 = load ptr, ptr %26, align 8, !tbaa !92
   %28 = tail call i32 @strncmp(ptr noundef nonnull %1, ptr noundef %27, i64 noundef %20) #12
   %.not34 = icmp eq i32 %28, 0
@@ -1498,7 +1497,7 @@ h2_pri_spec.exit.i:                               ; preds = %52, %47, %44
   %123 = phi i64 [ %146, %145 ], [ %122, %119 ]
   %.0133181.i = phi i64 [ %130, %145 ], [ 0, %119 ]
   %.0136180.i = phi i64 [ %147, %145 ], [ 0, %119 ]
-  %124 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %42, i64 %.0136180.i
+  %124 = getelementptr inbounds nuw [40 x i8], ptr %42, i64 %.0136180.i
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load i64, ptr %125, align 8, !tbaa !151
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 24
@@ -2647,7 +2646,7 @@ define dso_local noundef zeroext i1 @Curl_conn_is_http2(ptr noundef readnone cap
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !163
   %.not1.i = icmp eq ptr %8, null
   br i1 %.not1.i, label %cf_is_http2.exit, label %.lr.ph.i
@@ -2684,7 +2683,7 @@ define dso_local noundef zeroext i1 @Curl_http2_may_switch(ptr noundef %0, ptr n
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !163
   %.not1.i.i = icmp eq ptr %8, null
   br i1 %.not1.i.i, label %.loopexit, label %.lr.ph.i.i
@@ -4563,7 +4562,7 @@ h2_xfer_write_resp_hd.exit.i:                     ; preds = %282, %277, %273, %2
 
 366:                                              ; preds = %373, %.lr.ph.i.i.i.i
   %.037.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %374, %373 ]
-  %367 = getelementptr inbounds nuw ptr, ptr %365, i64 %.037.i.i.i.i
+  %367 = getelementptr inbounds nuw [8 x i8], ptr %365, i64 %.037.i.i.i.i
   %368 = load ptr, ptr %367, align 8, !tbaa !92
   %369 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.64, ptr noundef nonnull dereferenceable(1) %368, i64 noundef 7) #12
   %.not34.i.i.i.i = icmp eq i32 %369, 0
@@ -4611,7 +4610,7 @@ curl_pushheader_byname.exit.thread.thread.i.i.thread.i: ; preds = %curl_pushhead
 
 380:                                              ; preds = %387, %.lr.ph.i45.i.i.i
   %.037.i46.i.i.i = phi i64 [ 0, %.lr.ph.i45.i.i.i ], [ %388, %387 ]
-  %381 = getelementptr inbounds nuw ptr, ptr %379, i64 %.037.i46.i.i.i
+  %381 = getelementptr inbounds nuw [8 x i8], ptr %379, i64 %.037.i46.i.i.i
   %382 = load ptr, ptr %381, align 8, !tbaa !92
   %383 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.65, ptr noundef nonnull dereferenceable(1) %382, i64 noundef 10) #12
   %.not34.i47.i.i.i = icmp eq i32 %383, 0
@@ -4659,7 +4658,7 @@ curl_pushheader_byname.exit50.thread.thread.i.thread.i.i: ; preds = %curl_pushhe
 
 394:                                              ; preds = %401, %.lr.ph.i56.i.i.i
   %.037.i57.i.i.i = phi i64 [ 0, %.lr.ph.i56.i.i.i ], [ %402, %401 ]
-  %395 = getelementptr inbounds nuw ptr, ptr %393, i64 %.037.i57.i.i.i
+  %395 = getelementptr inbounds nuw [8 x i8], ptr %393, i64 %.037.i57.i.i.i
   %396 = load ptr, ptr %395, align 8, !tbaa !92
   %397 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.66, ptr noundef nonnull dereferenceable(1) %396, i64 noundef 5) #12
   %.not34.i58.i.i.i = icmp eq i32 %397, 0
@@ -4765,7 +4764,7 @@ curl_pushheader_byname.exit61.thread.i.i.i:       ; preds = %401, %404, %curl_pu
   %.07.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %441, %436 ]
   %437 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   %438 = load ptr, ptr %435, align 8, !tbaa !91
-  %439 = getelementptr inbounds nuw ptr, ptr %438, i64 %.07.i.i.i
+  %439 = getelementptr inbounds nuw [8 x i8], ptr %438, i64 %.07.i.i.i
   %440 = load ptr, ptr %439, align 8, !tbaa !92
   call void %437(ptr noundef %440) #11
   %441 = add nuw i64 %.07.i.i.i, 1
@@ -5687,7 +5686,7 @@ define internal range(i32 -902, 1) i32 @on_header(ptr noundef %0, ptr noundef re
   %.07.i = phi i64 [ %76, %.lr.ph.i ], [ 0, %70 ]
   %72 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   %73 = load ptr, ptr %54, align 8, !tbaa !91
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.07.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.07.i
   %75 = load ptr, ptr %74, align 8, !tbaa !92
   tail call void %72(ptr noundef %75) #11
   %76 = add nuw i64 %.07.i, 1
@@ -5730,7 +5729,7 @@ free_push_headers.exit:                           ; preds = %.lr.ph.i, %70
   %93 = load i64, ptr %92, align 8, !tbaa !83
   %94 = add i64 %93, 1
   store i64 %94, ptr %92, align 8, !tbaa !83
-  %95 = getelementptr inbounds nuw ptr, ptr %91, i64 %93
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %93
   store ptr %89, ptr %95, align 8, !tbaa !92
   br label %.critedge215
 
@@ -6041,7 +6040,7 @@ define internal fastcc range(i32 0, 28) i32 @http2_data_setup(ptr %.16.val, ptr 
   %.07.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %38, %33 ]
   %34 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   %35 = load ptr, ptr %32, align 8, !tbaa !91
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.07.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.07.i.i
   %37 = load ptr, ptr %36, align 8, !tbaa !92
   tail call void %34(ptr noundef %37) #11
   %38 = add nuw i64 %.07.i.i, 1
@@ -6622,7 +6621,7 @@ define internal fastcc void @free_push_headers(ptr noundef captures(none) %0) un
   %.07 = phi i64 [ 0, %.lr.ph ], [ %10, %5 ]
   %6 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   %7 = load ptr, ptr %4, align 8, !tbaa !91
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.07
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.07
   %9 = load ptr, ptr %8, align 8, !tbaa !92
   tail call void %6(ptr noundef %9) #11
   %10 = add nuw i64 %.07, 1
@@ -7754,7 +7753,7 @@ define internal void @h2_stream_hash_free(ptr noundef %0) #0 {
   %.07.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %13, %8 ]
   %9 = load ptr, ptr @Curl_cfree, align 8, !tbaa !104
   %10 = load ptr, ptr %7, align 8, !tbaa !91
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.07.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.07.i.i
   %12 = load ptr, ptr %11, align 8, !tbaa !92
   tail call void %9(ptr noundef %12) #11
   %13 = add nuw i64 %.07.i.i, 1

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
-%struct.keyword_entry = type { ptr, [75 x i8] }
 
 @demultiplex_sideband.suffix = internal unnamed_addr global ptr null, align 8
 @.str = private unnamed_addr constant [4 x i8] c"\1B[K\00", align 1
@@ -44,7 +43,7 @@ define dso_local void @list_config_color_sideband_slots(ptr noundef %0, ptr noun
 
 3:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw %struct.keyword_entry, ptr @keywords, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [88 x i8], ptr @keywords, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.15, ptr noundef %1, ptr noundef %5) #10
   %7 = tail call ptr @string_list_append_nodup(ptr noundef %0, ptr noundef %6) #10
@@ -415,7 +414,7 @@ define internal fastcc void @maybe_colorize_sideband(ptr noundef %0, ptr noundef
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %21, %19
-  %22 = getelementptr inbounds nuw %struct.keyword_entry, ptr @keywords, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [88 x i8], ptr @keywords, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8, !tbaa !4
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.22, ptr noundef %23) #10
   %24 = load ptr, ptr %18, align 8, !tbaa !18
@@ -508,7 +507,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 
 56:                                               ; preds = %.critedge, %79
   %indvars.iv = phi i64 [ 0, %.critedge ], [ %indvars.iv.next, %79 ]
-  %57 = getelementptr inbounds nuw %struct.keyword_entry, ptr @keywords, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [88 x i8], ptr @keywords, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8, !tbaa !4
   %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #12
   %60 = trunc i64 %59 to i32

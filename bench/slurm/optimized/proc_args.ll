@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.anon = type { ptr, i16 }
 
 @.str = private unnamed_addr constant [7 x i8] c"%s %s\0A\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"slurm\00", align 1
@@ -1706,7 +1705,7 @@ thread-pre-split:                                 ; preds = %16
 
 switch.lookup:                                    ; preds = %24
   %28 = zext nneg i32 %.042.lcssa to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.verify_socket_core_thread_count, i64 %28
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.verify_socket_core_thread_count, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   %29 = or disjoint i32 %25, %switch.load
   store i32 %29, ptr %4, align 4
@@ -1798,7 +1797,7 @@ define dso_local noundef zeroext i1 @verify_hint(ptr noundef %0, ptr noundef wri
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = sext i8 %18 to i64
-  %20 = getelementptr inbounds i16, ptr %16, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %16, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = and i16 %21, 2048
   %.not40 = icmp eq i16 %22, 0
@@ -2792,7 +2791,7 @@ define dso_local ptr @print_commandline(i32 noundef %0, ptr noundef readonly cap
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.07 = phi ptr [ @.str.6, %.lr.ph.preheader ], [ @.str.82, %.lr.ph ]
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.81, ptr noundef nonnull %.07, ptr noundef %6) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2938,7 +2937,7 @@ define dso_local i32 @sig_name2num(ptr noundef %0) local_unnamed_addr #2 {
   %storemerge = phi ptr [ %16, %10 ], [ %0, %.preheader ]
   %11 = load i8, ptr %storemerge, align 1
   %12 = sext i8 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %6, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %6, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 8192
   %.not17 = icmp eq i16 %15, 0
@@ -2954,7 +2953,7 @@ define dso_local i32 @sig_name2num(ptr noundef %0) local_unnamed_addr #2 {
 
 20:                                               ; preds = %17, %33
   %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %33 ]
-  %21 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [16 x i8], ptr @signals_mapping, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 16
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #22
   %sext = shl i64 %23, 32
@@ -3027,7 +3026,7 @@ define dso_local ptr @signal_opts_to_cmdline(i16 noundef zeroext %0, i16 noundef
 
 14:                                               ; preds = %13, %11
   %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %13 ]
-  %15 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [16 x i8], ptr @signals_mapping, i64 %indvars.iv.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i16, ptr %16, align 8
   %18 = icmp eq i16 %0, %17
@@ -3075,7 +3074,7 @@ define dso_local ptr @sig_num2name(i32 noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @signals_mapping, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @signals_mapping, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i16, ptr %5, align 8
   %7 = zext i16 %6 to i32

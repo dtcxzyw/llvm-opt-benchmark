@@ -807,7 +807,7 @@ define internal void @pcie_rootport_aspm_quirk(ptr noundef readonly captures(non
   %36 = and i32 %35, 7
   %37 = or disjoint i32 %36, %17
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr i32, ptr @quirk_aspm_offset, i64 %38
+  %39 = getelementptr [4 x i8], ptr @quirk_aspm_offset, i64 %38
   store i32 %33, ptr %39, align 4
   %40 = load ptr, ptr %29, align 8
   %41 = icmp eq ptr %40, %11
@@ -1675,7 +1675,7 @@ define internal i32 @quirk_pcie_aspm_write(ptr noundef readonly captures(none) %
   %13 = and i32 %1, 7
   %14 = or disjoint i32 %12, %13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr i32, ptr @quirk_aspm_offset, i64 %15
+  %16 = getelementptr [4 x i8], ptr @quirk_aspm_offset, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 255
   %19 = icmp ne i32 %18, 0

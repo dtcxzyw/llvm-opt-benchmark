@@ -32,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_oparray_context = type { ptr, ptr, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, i32, i8 }
 %struct._zend_file_context = type { %struct._zend_declarables, ptr, i8, i8, ptr, ptr, ptr, %struct._zend_array }
 %struct._zend_declarables = type { i64 }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @.str = private unnamed_addr constant [35 x i8] c"__debuginfo() must return an array\00", align 1
 @.str.1 = private unnamed_addr constant [48 x i8] c"Accessing static property %s::$%s as non static\00", align 1
@@ -116,7 +115,7 @@ define dso_local ptr @rebuild_object_properties_internal(ptr noundef %0) local_u
   %16 = phi i32 [ %12, %.lr.ph ], [ %80, %79 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
   %17 = load ptr, ptr %14, align 8, !tbaa !30
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !31
   %.not25 = icmp eq ptr %19, null
   br i1 %.not25, label %79, label %20
@@ -153,7 +152,7 @@ define dso_local ptr @rebuild_object_properties_internal(ptr noundef %0) local_u
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !37
   %42 = zext i32 %38 to i64
-  %43 = getelementptr inbounds nuw %struct._Bucket, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %42
   store ptr %36, ptr %43, align 8, !tbaa !37
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 12, ptr %44, align 8, !tbaa !37
@@ -202,12 +201,12 @@ _zend_hash_append_ind.exit:                       ; preds = %59, %zend_string_ad
   %68 = or i32 %67, %65
   %69 = load ptr, ptr %40, align 8, !tbaa !37
   %70 = sext i32 %68 to i64
-  %71 = getelementptr inbounds i32, ptr %69, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %69, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !49
   %73 = getelementptr inbounds nuw i8, ptr %43, i64 12
   store i32 %72, ptr %73, align 4, !tbaa !37
   %74 = load ptr, ptr %40, align 8, !tbaa !37
-  %75 = getelementptr inbounds i32, ptr %74, i64 %70
+  %75 = getelementptr inbounds [4 x i8], ptr %74, i64 %70
   store i32 %38, ptr %75, align 4, !tbaa !49
   %76 = getelementptr inbounds nuw i8, ptr %33, i64 28
   %77 = load i32, ptr %76, align 4, !tbaa !50
@@ -264,7 +263,7 @@ define dso_local ptr @zend_std_build_object_properties_array(ptr noundef readonl
   %18 = phi i32 [ %9, %.lr.ph ], [ %84, %83 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
   %19 = load ptr, ptr %11, align 8, !tbaa !30
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !31
   %.not30 = icmp eq ptr %21, null
   br i1 %.not30, label %83, label %22
@@ -310,7 +309,7 @@ define dso_local ptr @zend_std_build_object_properties_array(ptr noundef readonl
   store i32 %44, ptr %12, align 8, !tbaa !40
   %45 = load ptr, ptr %13, align 8, !tbaa !37
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw %struct._Bucket, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %.0, align 8, !tbaa !37
   %49 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %50 = load i32, ptr %49, align 8, !tbaa !37
@@ -360,12 +359,12 @@ _zend_hash_append_ex.exit:                        ; preds = %zend_string_addref.
   %73 = or i32 %72, %71
   %74 = load ptr, ptr %13, align 8, !tbaa !37
   %75 = sext i32 %73 to i64
-  %76 = getelementptr inbounds i32, ptr %74, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %74, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !49
   %78 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store i32 %77, ptr %78, align 4, !tbaa !37
   %79 = load ptr, ptr %13, align 8, !tbaa !37
-  %80 = getelementptr inbounds i32, ptr %79, i64 %75
+  %80 = getelementptr inbounds [4 x i8], ptr %79, i64 %75
   store i32 %43, ptr %80, align 4, !tbaa !49
   %81 = load i32, ptr %16, align 4, !tbaa !50
   %82 = add i32 %81, 1
@@ -1010,7 +1009,7 @@ define dso_local ptr @zend_get_property_guard(ptr noundef %0, ptr noundef %1) lo
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !15
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct._zval_struct, ptr %7, i64 %10
+  %11 = getelementptr inbounds [16 x i8], ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i8, ptr %12, align 8, !tbaa !37
   switch i8 %13, label %70 [
@@ -1220,7 +1219,7 @@ define dso_local ptr @zend_get_recursion_guard(ptr noundef readonly captures(ret
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !15
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct._zval_struct, ptr %0, i64 %10
+  %11 = getelementptr [16 x i8], ptr %0, i64 %10
   %12 = getelementptr i8, ptr %11, i64 52
   br label %13
 
@@ -6445,7 +6444,7 @@ define dso_local void @zend_class_init_statics(ptr noundef captures(none) %0) lo
 37:                                               ; preds = %.lr.ph, %107
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %107 ]
   %38 = load ptr, ptr %36, align 8, !tbaa !176
-  %39 = getelementptr inbounds nuw %struct._zval_struct, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i8, ptr %40, align 8, !tbaa !37
   %42 = icmp eq i8 %41, 12
@@ -6468,7 +6467,7 @@ define dso_local void @zend_class_init_statics(ptr noundef captures(none) %0) lo
 
 53:                                               ; preds = %43, %49
   %54 = phi ptr [ %52, %49 ], [ %46, %43 ]
-  %55 = getelementptr inbounds nuw %struct._zval_struct, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %indvars.iv
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i8, ptr %56, align 8, !tbaa !37
   %58 = icmp eq i8 %57, 12
@@ -6494,7 +6493,7 @@ define dso_local void @zend_class_init_statics(ptr noundef captures(none) %0) lo
 
 69:                                               ; preds = %61, %65
   %70 = phi ptr [ %68, %65 ], [ %62, %61 ]
-  %71 = getelementptr inbounds nuw %struct._zval_struct, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv
   store ptr %.0116, ptr %71, align 8, !tbaa !37
   %72 = load ptr, ptr %5, align 8, !tbaa !161
   %73 = ptrtoint ptr %72 to i64
@@ -6510,7 +6509,7 @@ define dso_local void @zend_class_init_statics(ptr noundef captures(none) %0) lo
 
 79:                                               ; preds = %69, %75
   %80 = phi ptr [ %78, %75 ], [ %72, %69 ]
-  %81 = getelementptr inbounds nuw %struct._zval_struct, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 %indvars.iv
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i32 12, ptr %82, align 8, !tbaa !37
   br label %107
@@ -6530,7 +6529,7 @@ define dso_local void @zend_class_init_statics(ptr noundef captures(none) %0) lo
 
 91:                                               ; preds = %83, %87
   %92 = phi ptr [ %90, %87 ], [ %84, %83 ]
-  %93 = getelementptr inbounds nuw %struct._zval_struct, ptr %92, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %indvars.iv
   %94 = load ptr, ptr %39, align 8, !tbaa !37
   %95 = load i32, ptr %40, align 8, !tbaa !37
   store ptr %94, ptr %93, align 8, !tbaa !37
@@ -6702,7 +6701,7 @@ get_fake_or_executed_scope.exit:                  ; preds = %12, %14
   %60 = phi ptr [ %58, %55 ], [ %54, %53 ]
   %61 = load i32, ptr %8, align 8, !tbaa !33
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %struct._zval_struct, ptr %60, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i8, ptr %64, align 8, !tbaa !37
   %66 = icmp eq i8 %65, 12
@@ -7052,7 +7051,7 @@ define dso_local i32 @zend_std_compare_objects(ptr noundef %0, ptr noundef %1) #
   %indvars.iv = phi i64 [ %indvars.iv.next, %select.unfold ], [ 0, %74 ]
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 248
   %80 = load ptr, ptr %79, align 8, !tbaa !30
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8, !tbaa !31
   %.not82 = icmp eq ptr %82, null
   br i1 %.not82, label %select.unfold, label %83

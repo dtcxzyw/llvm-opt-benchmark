@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.llvm::MDOperand" = type { ptr }
 %"class.llvm::DiagnosticLocation" = type { ptr, i32, i32 }
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector.93" }
 %"class.llvm::SmallVector.93" = type { %"class.llvm::SmallVectorImpl.94", %"struct.llvm::SmallVectorStorage.97" }
@@ -22,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
 %"class.llvm::InstructionCost" = type <{ i64, i32, [4 x i8] }>
 %"class.llvm::StringRef" = type { ptr, i64 }
-%"struct.llvm::DiagnosticInfoOptimizationBase::Argument" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.llvm::DiagnosticLocation" }
 %"class.llvm::Attribute" = type { ptr }
 %"class.llvm::DiagnosticInfoDontCall" = type { %"class.llvm::DiagnosticInfo.base", %"class.llvm::StringRef", %"class.llvm::StringRef", i64 }
 %"class.llvm::DiagnosticInfo.base" = type <{ ptr, i32, i8 }>
@@ -237,7 +235,7 @@ define dso_local void @_ZNK4llvm28DiagnosticInfoGenericWithLoc5printERNS_17Diagn
   %18 = lshr i64 %12, 2
   %19 = and i64 %18, 15
   %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds %"class.llvm::MDOperand", ptr %11, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %11, i64 %20
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i: ; preds = %17, %14
@@ -366,7 +364,7 @@ define dso_local void @_ZNK4llvm30DiagnosticInfoWithLocationBase14getLocationStr
   %17 = lshr i64 %11, 2
   %18 = and i64 %17, 15
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds %"class.llvm::MDOperand", ptr %10, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %10, i64 %19
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i: ; preds = %16, %13
@@ -512,7 +510,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread:   ; preds = %19
   %29 = lshr i64 %21, 2
   %30 = and i64 %29, 15
   %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds %"class.llvm::MDOperand", ptr %20, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %20, i64 %31
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %.thread, %28
@@ -661,7 +659,7 @@ define dso_local void @_ZNK4llvm29DiagnosticInfoRegAllocFailure5printERNS_17Diag
   %18 = lshr i64 %12, 2
   %19 = and i64 %18, 15
   %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds %"class.llvm::MDOperand", ptr %11, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %11, i64 %20
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i: ; preds = %17, %14
@@ -833,7 +831,7 @@ define dso_local void @_ZNK4llvm27DiagnosticInfoResourceLimit5printERNS_17Diagno
   %18 = lshr i64 %12, 2
   %19 = and i64 %18, 15
   %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds %"class.llvm::MDOperand", ptr %11, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %11, i64 %20
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i: ; preds = %17, %14
@@ -1132,7 +1130,7 @@ define dso_local void @_ZN4llvm18DiagnosticLocationC2ERKNS_8DebugLocE(ptr nounde
   %15 = lshr i64 %9, 2
   %16 = and i64 %15, 15
   %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds %"class.llvm::MDOperand", ptr %8, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %8, i64 %17
   br label %_ZNK4llvm10DILocation8getScopeEv.exit.i
 
 _ZNK4llvm10DILocation8getScopeEv.exit.i:          ; preds = %14, %11
@@ -1158,7 +1156,7 @@ _ZNK4llvm10DILocation8getScopeEv.exit.i:          ; preds = %14, %11
   %30 = lshr i64 %24, 2
   %31 = and i64 %30, 15
   %32 = sub nsw i64 0, %31
-  %33 = getelementptr inbounds %"class.llvm::MDOperand", ptr %23, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %23, i64 %32
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i.i:        ; preds = %29, %26
@@ -1213,7 +1211,7 @@ define dso_local void @_ZN4llvm18DiagnosticLocationC2EPKNS_12DISubprogramE(ptr n
   %16 = lshr i64 %10, 2
   %17 = and i64 %16, 15
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds %"class.llvm::MDOperand", ptr %9, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %9, i64 %18
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i.i
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i.i:          ; preds = %15, %12
@@ -1252,7 +1250,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm18DiagnosticLocation15getRelativePathEv(
   %10 = lshr i64 %4, 2
   %11 = and i64 %10, 15
   %12 = sub nsw i64 0, %11
-  %13 = getelementptr inbounds %"class.llvm::MDOperand", ptr %3, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %3, i64 %12
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %9, %6
@@ -1301,7 +1299,7 @@ define dso_local void @_ZNK4llvm18DiagnosticLocation15getAbsolutePathB5cxx11Ev(p
   %19 = lshr i64 %13, 2
   %20 = and i64 %19, 15
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.llvm::MDOperand", ptr %12, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %12, i64 %21
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %18, %15
@@ -1407,7 +1405,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %62 = lshr i64 %56, 2
   %63 = and i64 %62, 15
   %64 = sub nsw i64 0, %63
-  %65 = getelementptr inbounds %"class.llvm::MDOperand", ptr %55, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %55, i64 %64
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i2
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i2: ; preds = %61, %58
@@ -1557,7 +1555,7 @@ define dso_local void @_ZNK4llvm30DiagnosticInfoWithLocationBase11getLocationERN
   %14 = lshr i64 %8, 2
   %15 = and i64 %14, 15
   %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds %"class.llvm::MDOperand", ptr %7, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %7, i64 %16
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i: ; preds = %13, %10
@@ -3175,7 +3173,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %42 = lshr i64 %36, 2
   %43 = and i64 %42, 15
   %44 = sub nsw i64 0, %43
-  %45 = getelementptr inbounds %"class.llvm::MDOperand", ptr %35, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %35, i64 %44
   br label %_ZNK4llvm10DILocation8getScopeEv.exit.i
 
 _ZNK4llvm10DILocation8getScopeEv.exit.i:          ; preds = %41, %38
@@ -3201,7 +3199,7 @@ _ZNK4llvm10DILocation8getScopeEv.exit.i:          ; preds = %41, %38
   %57 = lshr i64 %51, 2
   %58 = and i64 %57, 15
   %59 = sub nsw i64 0, %58
-  %60 = getelementptr inbounds %"class.llvm::MDOperand", ptr %50, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %50, i64 %59
   br label %_ZNK4llvm7DIScope7getFileEv.exit.i.i
 
 _ZNK4llvm7DIScope7getFileEv.exit.i.i:             ; preds = %56, %53
@@ -3227,7 +3225,7 @@ _ZNK4llvm7DIScope7getFileEv.exit.thread.i.i:      ; preds = %_ZNK4llvm7DIScope7g
   %70 = lshr i64 %64, 2
   %71 = and i64 %70, 15
   %72 = sub nsw i64 0, %71
-  %73 = getelementptr inbounds %"class.llvm::MDOperand", ptr %63, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %63, i64 %72
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i: ; preds = %69, %66
@@ -3424,7 +3422,7 @@ define dso_local void @_ZNK4llvm30DiagnosticInfoOptimizationBase5printERNS_17Dia
   %20 = lshr i64 %14, 2
   %21 = and i64 %20, 15
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds %"class.llvm::MDOperand", ptr %13, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %13, i64 %22
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i: ; preds = %19, %16
@@ -4338,7 +4336,7 @@ define dso_local void @_ZNK4llvm25DiagnosticInfoUnsupported5printERNS_17Diagnost
   %27 = lshr i64 %21, 2
   %28 = and i64 %27, 15
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds %"class.llvm::MDOperand", ptr %20, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %20, i64 %29
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i: ; preds = %26, %23
@@ -4636,7 +4634,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN4
 10:                                               ; preds = %2
   %11 = zext i32 %5 to i64
   %12 = load ptr, ptr %0, align 8, !tbaa !21
-  %13 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [80 x i8], ptr %12, i64 %11
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8, !tbaa !166
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !191
@@ -4703,7 +4701,7 @@ _ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC2ENS_9StringRefE.exit: ; preds
   store i32 %37, ptr %4, align 8, !tbaa !86
   %38 = load ptr, ptr %0, align 8, !tbaa !21
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [80 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds i8, ptr %40, i64 -80
   br label %42
 
@@ -4732,7 +4730,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_30Diagnost
   br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentELb0EE28reserveForParamAndGetAddressERS2_m.exit, label %9, !prof !354
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %.pre3, i64 %5
+  %10 = getelementptr inbounds nuw [80 x i8], ptr %.pre3, i64 %5
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
@@ -4757,7 +4755,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
   %20 = load i32, ptr %3, align 8, !tbaa !86
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [80 x i8], ptr %19, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %23, ptr %22, align 8, !tbaa !190
   %24 = load ptr, ptr %.016.i.i, align 8, !tbaa !55
@@ -4899,7 +4897,7 @@ define dso_local void @_ZNK4llvm23DiagnosticInfoMisExpect5printERNS_17Diagnostic
   %18 = lshr i64 %12, 2
   %19 = and i64 %18, 15
   %20 = sub nsw i64 0, %19
-  %21 = getelementptr inbounds %"class.llvm::MDOperand", ptr %11, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %11, i64 %20
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i.i.i.i: ; preds = %17, %14
@@ -5075,7 +5073,7 @@ _ZNK4llvm11Instruction11getMetadataENS_9StringRefE.exit: ; preds = %21
   %38 = lshr i64 %32, 2
   %39 = and i64 %38, 15
   %40 = sub nsw i64 0, %39
-  %41 = getelementptr inbounds %"class.llvm::MDOperand", ptr %31, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %31, i64 %40
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %34, %37
@@ -5847,7 +5845,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !86
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [80 x i8], ptr %6, i64 %9
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8, !tbaa !166
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !191
@@ -5928,7 +5926,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_30DiagnosticInfoOptimizationBase8ArgumentEL
   %40 = add i32 %39, 1
   store i32 %40, ptr %7, align 8, !tbaa !86
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", ptr %6, i64 %41
+  %42 = getelementptr inbounds nuw [80 x i8], ptr %6, i64 %41
   %43 = getelementptr inbounds i8, ptr %42, i64 -80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %43

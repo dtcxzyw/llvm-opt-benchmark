@@ -1422,10 +1422,10 @@ default.unreachable34:                            ; preds = %2
 define { ptr, i64 } @_ZN16uv_configuration13target_triple12TargetTriple16platform_machine17h8107aa5638c74a33E(i8 noundef range(i8 0, 37) %0) unnamed_addr #4 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.19, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.19, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.20, i64 %2
+  %switch.gep3 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.20, i64 %2
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load4, 1
@@ -1436,10 +1436,10 @@ switch.lookup:
 define { ptr, i64 } @_ZN16uv_configuration13target_triple12TargetTriple15platform_system17h96ec1b2826e6daafE(i8 noundef range(i8 0, 37) %0) unnamed_addr #4 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.21, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.21, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.22, i64 %2
+  %switch.gep3 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.22, i64 %2
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load4, 1
@@ -1460,10 +1460,10 @@ define { ptr, i64 } @_ZN16uv_configuration13target_triple12TargetTriple16platfor
 define { ptr, i64 } @_ZN16uv_configuration13target_triple12TargetTriple7os_name17hc94e4692d53a315aE(i8 noundef range(i8 0, 37) %0) unnamed_addr #4 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.18, i64 %2
+  %switch.gep3 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.18, i64 %2
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load4, 1
@@ -1474,10 +1474,10 @@ switch.lookup:
 define { ptr, i64 } @_ZN16uv_configuration13target_triple12TargetTriple12sys_platform17h3508a9facb05f4fbE(i8 noundef range(i8 0, 37) %0) unnamed_addr #4 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.23, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.23, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.24, i64 %2
+  %switch.gep3 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.24, i64 %2
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load4, 1
@@ -1530,10 +1530,10 @@ define noundef nonnull ptr @_ZN16uv_configuration13target_triple12TargetTriple7m
 
 switch.lookup:                                    ; preds = %2
   %31 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E, i64 %31
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   %32 = zext nneg i8 %0 to i64
-  %switch.gep83 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.18, i64 %32
+  %switch.gep83 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.18, i64 %32
   %switch.load84 = load i64, ptr %switch.gep83, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store ptr %27, ptr %26, align 8, !noalias !97
@@ -1639,10 +1639,10 @@ switch.lookup85:                                  ; preds = %57, %.noexc6.i
   %66 = load ptr, ptr %26, align 8, !noalias !97, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %67 = zext nneg i8 %0 to i64
-  %switch.gep86 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.19, i64 %67
+  %switch.gep86 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.19, i64 %67
   %switch.load87 = load ptr, ptr %switch.gep86, align 8
   %68 = zext nneg i8 %0 to i64
-  %switch.gep88 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.20, i64 %68
+  %switch.gep88 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.20, i64 %68
   %switch.load89 = load i64, ptr %switch.gep88, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store ptr %66, ptr %22, align 8, !noalias !137
@@ -1748,10 +1748,10 @@ switch.lookup90:                                  ; preds = %93, %.noexc6.i18
   %102 = load ptr, ptr %22, align 8, !noalias !137, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %103 = zext nneg i8 %0 to i64
-  %switch.gep91 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.21, i64 %103
+  %switch.gep91 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.21, i64 %103
   %switch.load92 = load ptr, ptr %switch.gep91, align 8
   %104 = zext nneg i8 %0 to i64
-  %switch.gep93 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.22, i64 %104
+  %switch.gep93 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.22, i64 %104
   %switch.load94 = load i64, ptr %switch.gep93, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %102, ptr %18, align 8, !noalias !177
@@ -1857,10 +1857,10 @@ switch.lookup95:                                  ; preds = %129, %.noexc6.i31
   %138 = load ptr, ptr %18, align 8, !noalias !177, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %139 = zext nneg i8 %0 to i64
-  %switch.gep96 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.23, i64 %139
+  %switch.gep96 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.23, i64 %139
   %switch.load97 = load ptr, ptr %switch.gep96, align 8
   %140 = zext nneg i8 %0 to i64
-  %switch.gep98 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.24, i64 %140
+  %switch.gep98 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_configuration13target_triple12TargetTriple7markers17h967d71729f304206E.24, i64 %140
   %switch.load99 = load i64, ptr %switch.gep98, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %138, ptr %14, align 8, !noalias !217

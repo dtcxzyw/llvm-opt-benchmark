@@ -325,7 +325,7 @@ define dso_local noundef range(i32 -19, 1) i32 @alloc_iommu_pmu(ptr noundef %0) 
   %74 = and i64 %73, 268435455
   %75 = load ptr, ptr %62, align 8
   %76 = sext i32 %67 to i64
-  %77 = getelementptr i64, ptr %75, i64 %76
+  %77 = getelementptr [8 x i8], ptr %75, i64 %76
   store i64 %74, ptr %77, align 8
   %78 = add nuw i32 %67, 1
   %79 = load i32, ptr %59, align 4
@@ -359,10 +359,10 @@ define dso_local noundef range(i32 -19, 1) i32 @alloc_iommu_pmu(ptr noundef %0) 
   %94 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %93, i32 noundef 3520) #15
   %95 = load ptr, ptr %85, align 8
   %96 = sext i32 %91 to i64
-  %97 = getelementptr ptr, ptr %95, i64 %96
+  %97 = getelementptr [8 x i8], ptr %95, i64 %96
   store ptr %94, ptr %97, align 8
   %98 = load ptr, ptr %85, align 8
-  %99 = getelementptr ptr, ptr %98, i64 %96
+  %99 = getelementptr [8 x i8], ptr %98, i64 %96
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %100, null
   br i1 %101, label %105, label %102
@@ -381,13 +381,13 @@ define dso_local noundef range(i32 -19, 1) i32 @alloc_iommu_pmu(ptr noundef %0) 
   %108 = phi i32 [ %118, %.preheader11 ], [ 0, %102 ]
   %109 = load ptr, ptr %62, align 8
   %110 = sext i32 %108 to i64
-  %111 = getelementptr i64, ptr %109, i64 %110
+  %111 = getelementptr [8 x i8], ptr %109, i64 %110
   %112 = load i64, ptr %111, align 8
   %113 = trunc i64 %112 to i32
   %114 = load ptr, ptr %85, align 8
-  %115 = getelementptr ptr, ptr %114, i64 %96
+  %115 = getelementptr [8 x i8], ptr %114, i64 %96
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr i32, ptr %116, i64 %110
+  %117 = getelementptr [4 x i8], ptr %116, i64 %110
   store i32 %113, ptr %117, align 4
   %118 = add nuw i32 %108, 1
   %119 = load i32, ptr %59, align 4
@@ -475,10 +475,10 @@ define dso_local noundef range(i32 -19, 1) i32 @alloc_iommu_pmu(ptr noundef %0) 
 173:                                              ; preds = %173, %168
   %174 = phi i32 [ 0, %168 ], [ %180, %173 ]
   %175 = load ptr, ptr %85, align 8
-  %176 = getelementptr ptr, ptr %175, i64 %169
+  %176 = getelementptr [8 x i8], ptr %175, i64 %169
   %177 = load ptr, ptr %176, align 8
   %178 = sext i32 %174 to i64
-  %179 = getelementptr i32, ptr %177, i64 %178
+  %179 = getelementptr [4 x i8], ptr %177, i64 %178
   store i32 0, ptr %179, align 4
   %180 = add nuw i32 %174, 1
   %181 = load i32, ptr %59, align 4
@@ -495,15 +495,15 @@ define dso_local noundef range(i32 -19, 1) i32 @alloc_iommu_pmu(ptr noundef %0) 
   %190 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %189) #12, !srcloc !12
   %191 = and i32 %190, 268435455
   %192 = load ptr, ptr %85, align 8
-  %193 = getelementptr ptr, ptr %192, i64 %172
+  %193 = getelementptr [8 x i8], ptr %192, i64 %172
   %194 = load ptr, ptr %193, align 8
   %195 = lshr i32 %190, 28
   %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr i32, ptr %194, i64 %196
+  %197 = getelementptr [4 x i8], ptr %194, i64 %196
   store i32 %191, ptr %197, align 4
   %198 = zext nneg i32 %191 to i64
   %199 = load ptr, ptr %62, align 8
-  %200 = getelementptr i64, ptr %199, i64 %196
+  %200 = getelementptr [8 x i8], ptr %199, i64 %196
   %201 = load i64, ptr %200, align 8
   %202 = or i64 %201, %198
   store i64 %202, ptr %200, align 8
@@ -527,7 +527,7 @@ define dso_local noundef range(i32 -19, 1) i32 @alloc_iommu_pmu(ptr noundef %0) 
   %209 = phi i32 [ %214, %.preheader9 ], [ 0, %105 ]
   %210 = load ptr, ptr %85, align 8
   %211 = sext i32 %209 to i64
-  %212 = getelementptr ptr, ptr %210, i64 %211
+  %212 = getelementptr [8 x i8], ptr %210, i64 %211
   %213 = load ptr, ptr %212, align 8
   tail call void @kfree(ptr noundef %213) #12
   %214 = add nuw i32 %209, 1
@@ -591,7 +591,7 @@ define dso_local void @free_iommu_pmu(ptr noundef captures(none) %0) local_unnam
   %16 = phi i32 [ 0, %13 ], [ %21, %15 ]
   %17 = load ptr, ptr %14, align 8
   %18 = sext i32 %16 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void @kfree(ptr noundef %20) #12
   %21 = add nuw i32 %16, 1
@@ -763,7 +763,7 @@ define dso_local void @iommu_pmu_register(ptr noundef %0) local_unnamed_addr #0 
   %83 = phi i32 [ 0, %80 ], [ %88, %82 ]
   %84 = load ptr, ptr %81, align 8
   %85 = sext i32 %83 to i64
-  %86 = getelementptr ptr, ptr %84, i64 %85
+  %86 = getelementptr [8 x i8], ptr %84, i64 %85
   %87 = load ptr, ptr %86, align 8
   tail call void @kfree(ptr noundef %87) #12
   %88 = add nuw i32 %83, 1
@@ -980,10 +980,10 @@ define internal noundef range(i32 -22, 1) i32 @iommu_pmu_add(ptr noundef %0, i32
   %23 = trunc i64 %21 to i32
   %24 = and i32 %23, 268435455
   %25 = load ptr, ptr %13, align 8
-  %26 = getelementptr ptr, ptr %25, i64 %16
+  %26 = getelementptr [8 x i8], ptr %25, i64 %16
   %27 = load ptr, ptr %26, align 8
   %28 = and i64 %22, 15
-  %29 = getelementptr i32, ptr %27, i64 %28
+  %29 = getelementptr [4 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %24, %30
   %32 = icmp eq i32 %31, 0
@@ -1006,7 +1006,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_pmu_add(ptr noundef %0, i32
 40:                                               ; preds = %37
   %41 = getelementptr i8, ptr %4, i64 312
   %42 = and i64 %16, 2147483647
-  %43 = getelementptr ptr, ptr %41, i64 %42
+  %43 = getelementptr [8 x i8], ptr %41, i64 %42
   store ptr %0, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 396
   store i32 %38, ptr %44, align 4
@@ -1326,7 +1326,7 @@ define internal void @iommu_pmu_del(ptr noundef %0, i32 %1) #0 align 16 {
 98:                                               ; preds = %91, %87
   %99 = getelementptr i8, ptr %4, i64 312
   %100 = sext i32 %6 to i64
-  %101 = getelementptr ptr, ptr %99, i64 %100
+  %101 = getelementptr [8 x i8], ptr %99, i64 %100
   store ptr null, ptr %101, align 8
   store i32 -1, ptr %5, align 4
   %102 = getelementptr i8, ptr %4, i64 304

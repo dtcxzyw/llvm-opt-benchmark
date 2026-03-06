@@ -1669,7 +1669,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %77
   store ptr %23, ptr %0, align 8, !tbaa !90
   store ptr %.0.lcssa.i.i.i25, ptr %5, align 8, !tbaa !93
-  %81 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %81, ptr %76, align 8, !tbaa !94
   ret void
 }

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.Value = type { ptr }
-%struct.lua_TValue = type { %union.Value, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @luaO_nilobject_ = hidden local_unnamed_addr constant { %union.Value, i32, [4 x i8] } zeroinitializer, align 8
@@ -170,7 +169,7 @@ define hidden range(i32 0, 2) i32 @luaO_str2d(ptr noundef %0, ptr noundef writeo
   %18 = phi ptr [ %.promoted, %.preheader ], [ %24, %17 ]
   %19 = load i8, ptr %18, align 1, !tbaa !7
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %16, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !20
   %23 = and i16 %22, 8192
   %.not = icmp eq i16 %23, 0
@@ -620,7 +619,7 @@ pushstr.exit73:                                   ; preds = %._crit_edge, %225
   %237 = load ptr, ptr %7, align 8, !tbaa !23
   %238 = zext nneg i32 %.053.lcssa to i64
   %239 = sub nsw i64 0, %238
-  %240 = getelementptr inbounds %struct.lua_TValue, ptr %237, i64 %239
+  %240 = getelementptr inbounds [16 x i8], ptr %237, i64 %239
   store ptr %240, ptr %7, align 8, !tbaa !23
   %241 = getelementptr inbounds i8, ptr %240, i64 -16
   %242 = load ptr, ptr %241, align 8, !tbaa !7

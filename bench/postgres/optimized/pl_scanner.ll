@@ -92,14 +92,14 @@ define hidden i32 @plpgsql_yylex(ptr noundef writeonly captures(none) %0, ptr no
 push_back_token.exit:                             ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 108
   %36 = sext i32 %30 to i64
-  %37 = getelementptr inbounds i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %35, i64 %36
   store i32 %20, ptr %37, align 4
   %38 = load ptr, ptr %2, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 128
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 104
   %41 = load i32, ptr %40, align 8
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %struct.TokenAuxData, ptr %39, i64 %42
+  %43 = getelementptr inbounds [40 x i8], ptr %39, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull readonly align 8 dereferenceable(40) %8, i64 40, i1 false)
   %44 = load ptr, ptr %2, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 104
@@ -121,14 +121,14 @@ push_back_token.exit:                             ; preds = %27
 push_back_token.exit57:                           ; preds = %push_back_token.exit
   %55 = getelementptr inbounds nuw i8, ptr %48, i64 108
   %56 = sext i32 %50 to i64
-  %57 = getelementptr inbounds i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %55, i64 %56
   store i32 46, ptr %57, align 4
   %58 = load ptr, ptr %2, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 128
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 104
   %61 = load i32, ptr %60, align 8
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds %struct.TokenAuxData, ptr %59, i64 %62
+  %63 = getelementptr inbounds [40 x i8], ptr %59, i64 %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %63, ptr noundef nonnull readonly align 8 dereferenceable(40) %7, i64 40, i1 false)
   %64 = load ptr, ptr %2, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 104
@@ -172,14 +172,14 @@ push_back_token.exit57:                           ; preds = %push_back_token.exi
 push_back_token.exit58:                           ; preds = %79
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 108
   %88 = sext i32 %82 to i64
-  %89 = getelementptr inbounds i32, ptr %87, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %87, i64 %88
   store i32 %17, ptr %89, align 4
   %90 = load ptr, ptr %2, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 128
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 104
   %93 = load i32, ptr %92, align 8
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds %struct.TokenAuxData, ptr %91, i64 %94
+  %95 = getelementptr inbounds [40 x i8], ptr %91, i64 %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %95, ptr noundef nonnull readonly align 8 dereferenceable(40) %7, i64 40, i1 false)
   %96 = load ptr, ptr %2, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 104
@@ -223,14 +223,14 @@ push_back_token.exit58:                           ; preds = %79
 push_back_token.exit59:                           ; preds = %113
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 108
   %122 = sext i32 %116 to i64
-  %123 = getelementptr inbounds i32, ptr %121, i64 %122
+  %123 = getelementptr inbounds [4 x i8], ptr %121, i64 %122
   store i32 %14, ptr %123, align 4
   %124 = load ptr, ptr %2, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 128
   %126 = getelementptr inbounds nuw i8, ptr %124, i64 104
   %127 = load i32, ptr %126, align 8
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds %struct.TokenAuxData, ptr %125, i64 %128
+  %129 = getelementptr inbounds [40 x i8], ptr %125, i64 %128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %129, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   %130 = load ptr, ptr %2, align 8
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 104
@@ -252,14 +252,14 @@ push_back_token.exit59:                           ; preds = %113
 push_back_token.exit60:                           ; preds = %push_back_token.exit59
   %141 = getelementptr inbounds nuw i8, ptr %134, i64 108
   %142 = sext i32 %136 to i64
-  %143 = getelementptr inbounds i32, ptr %141, i64 %142
+  %143 = getelementptr inbounds [4 x i8], ptr %141, i64 %142
   store i32 46, ptr %143, align 4
   %144 = load ptr, ptr %2, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 128
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 104
   %147 = load i32, ptr %146, align 8
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds %struct.TokenAuxData, ptr %145, i64 %148
+  %149 = getelementptr inbounds [40 x i8], ptr %145, i64 %148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %149, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   %150 = load ptr, ptr %2, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 104
@@ -290,12 +290,12 @@ push_back_token.exit60:                           ; preds = %push_back_token.exi
 
 170:                                              ; preds = %166
   %171 = zext nneg i32 %168 to i64
-  %172 = getelementptr inbounds nuw i16, ptr @UnreservedPLKeywords_kw_offsets, i64 %171
+  %172 = getelementptr inbounds nuw [2 x i8], ptr @UnreservedPLKeywords_kw_offsets, i64 %171
   %173 = load i16, ptr %172, align 2
   %174 = zext i16 %173 to i64
   %175 = getelementptr inbounds nuw i8, ptr @UnreservedPLKeywords_kw_string, i64 %174
   store ptr %175, ptr %4, align 8
-  %176 = getelementptr inbounds nuw i16, ptr @UnreservedPLKeywordTokens, i64 %171
+  %176 = getelementptr inbounds nuw [2 x i8], ptr @UnreservedPLKeywordTokens, i64 %171
   %177 = load i16, ptr %176, align 2
   %178 = zext i16 %177 to i32
   br label %179
@@ -321,14 +321,14 @@ push_back_token.exit60:                           ; preds = %push_back_token.exi
 push_back_token.exit61:                           ; preds = %180
   %188 = getelementptr inbounds nuw i8, ptr %181, i64 108
   %189 = sext i32 %183 to i64
-  %190 = getelementptr inbounds i32, ptr %188, i64 %189
+  %190 = getelementptr inbounds [4 x i8], ptr %188, i64 %189
   store i32 %11, ptr %190, align 4
   %191 = load ptr, ptr %2, align 8
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 128
   %193 = getelementptr inbounds nuw i8, ptr %191, i64 104
   %194 = load i32, ptr %193, align 8
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds %struct.TokenAuxData, ptr %192, i64 %195
+  %196 = getelementptr inbounds [40 x i8], ptr %192, i64 %195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %196, ptr noundef nonnull readonly align 8 dereferenceable(40) %5, i64 40, i1 false)
   %197 = load ptr, ptr %2, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 104
@@ -381,12 +381,12 @@ switch.edge:                                      ; preds = %210, %210, %210, %p
 
 222:                                              ; preds = %218
   %223 = zext nneg i32 %220 to i64
-  %224 = getelementptr inbounds nuw i16, ptr @UnreservedPLKeywords_kw_offsets, i64 %223
+  %224 = getelementptr inbounds nuw [2 x i8], ptr @UnreservedPLKeywords_kw_offsets, i64 %223
   %225 = load i16, ptr %224, align 2
   %226 = zext i16 %225 to i64
   %227 = getelementptr inbounds nuw i8, ptr @UnreservedPLKeywords_kw_string, i64 %226
   store ptr %227, ptr %4, align 8
-  %228 = getelementptr inbounds nuw i16, ptr @UnreservedPLKeywordTokens, i64 %223
+  %228 = getelementptr inbounds nuw [2 x i8], ptr @UnreservedPLKeywordTokens, i64 %223
   %229 = load i16, ptr %228, align 2
   %230 = zext i16 %229 to i32
   br label %231
@@ -430,10 +430,10 @@ define internal fastcc i32 @internal_yylex(ptr noundef nonnull %0, ptr noundef %
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %10, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %10, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  %17 = getelementptr inbounds %struct.TokenAuxData, ptr %16, i64 %13
+  %17 = getelementptr inbounds [40 x i8], ptr %16, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false)
   br label %.tail28
 
@@ -550,14 +550,14 @@ push_back_token.exit:                             ; preds = %4
   %14 = load i32, ptr %2, align 4
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 108
   %16 = sext i32 %7 to i64
-  %17 = getelementptr inbounds i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %15, i64 %16
   store i32 %0, ptr %17, align 4
   %18 = load ptr, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 104
   %21 = load i32, ptr %20, align 8
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.TokenAuxData, ptr %19, i64 %22
+  %23 = getelementptr inbounds [40 x i8], ptr %19, i64 %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i32 %14, ptr %.sroa.4.0..sroa_idx, align 8
@@ -578,7 +578,7 @@ define hidden zeroext i1 @plpgsql_token_is_unreserved_keyword(i32 noundef %0) lo
 
 2:                                                ; preds = %2, %1
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw i16, ptr @UnreservedPLKeywordTokens, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [2 x i8], ptr @UnreservedPLKeywordTokens, i64 %indvars.iv
   %4 = load i16, ptr %3, align 2
   %5 = zext i16 %4 to i32
   %6 = icmp eq i32 %0, %5
@@ -625,14 +625,14 @@ define hidden i32 @plpgsql_peek(ptr noundef %0) local_unnamed_addr #0 {
 push_back_token.exit:                             ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 108
   %12 = sext i32 %6 to i64
-  %13 = getelementptr inbounds i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %11, i64 %12
   store i32 %3, ptr %13, align 4
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.TokenAuxData, ptr %15, i64 %18
+  %19 = getelementptr inbounds [40 x i8], ptr %15, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 40, i1 false)
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
@@ -688,14 +688,14 @@ define hidden void @plpgsql_peek2(ptr noundef writeonly captures(none) initializ
 push_back_token.exit:                             ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 108
   %26 = sext i32 %20 to i64
-  %27 = getelementptr inbounds i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %25, i64 %26
   store i32 %9, ptr %27, align 4
   %28 = load ptr, ptr %4, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 128
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %31 = load i32, ptr %30, align 8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.TokenAuxData, ptr %29, i64 %32
+  %33 = getelementptr inbounds [40 x i8], ptr %29, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull readonly align 8 dereferenceable(40) %7, i64 40, i1 false)
   %34 = load ptr, ptr %4, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 104
@@ -717,14 +717,14 @@ push_back_token.exit:                             ; preds = %17
 push_back_token.exit15:                           ; preds = %push_back_token.exit
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 108
   %46 = sext i32 %40 to i64
-  %47 = getelementptr inbounds i32, ptr %45, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %45, i64 %46
   store i32 %8, ptr %47, align 4
   %48 = load ptr, ptr %4, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 128
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 104
   %51 = load i32, ptr %50, align 8
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %struct.TokenAuxData, ptr %49, i64 %52
+  %53 = getelementptr inbounds [40 x i8], ptr %49, i64 %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull readonly align 8 dereferenceable(40) %6, i64 40, i1 false)
   %54 = load ptr, ptr %4, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 104
@@ -975,10 +975,10 @@ define internal range(i32 -65536, 65535) i32 @UnreservedPLKeywords_hash_func(ptr
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.09.lcssa = phi i64 [ 0, %2 ], [ %13, %._crit_edge.loopexit ]
   %.08.lcssa = phi i64 [ 1, %2 ], [ %15, %._crit_edge.loopexit ]
-  %16 = getelementptr inbounds nuw i16, ptr @UnreservedPLKeywords_hash_func.h, i64 %.09.lcssa
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @UnreservedPLKeywords_hash_func.h, i64 %.09.lcssa
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i32
-  %19 = getelementptr inbounds nuw i16, ptr @UnreservedPLKeywords_hash_func.h, i64 %.08.lcssa
+  %19 = getelementptr inbounds nuw [2 x i8], ptr @UnreservedPLKeywords_hash_func.h, i64 %.08.lcssa
   %20 = load i16, ptr %19, align 2
   %21 = sext i16 %20 to i32
   %22 = add nsw i32 %21, %18

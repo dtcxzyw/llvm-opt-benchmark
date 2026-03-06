@@ -545,7 +545,7 @@ define dso_local ptr @run_command(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.split.i:                                   ; preds = %74, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %74 ]
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv.i
   %78 = load ptr, ptr %77, align 8
   %.not27.i = icmp eq ptr %78, null
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -579,19 +579,19 @@ define dso_local ptr @run_command(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph36.i:                                       ; preds = %.preheader.i, %.lr.ph36.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %.lr.ph36.i ], [ 0, %.preheader.i ]
   %89 = phi ptr [ %94, %.lr.ph36.i ], [ %88, %.preheader.i ]
-  %90 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv38.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv38.i
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   store ptr %89, ptr %91, align 8
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %92 = load ptr, ptr %55, align 8
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv.next39.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv.next39.i
   %94 = load ptr, ptr %93, align 8
   %.not29.i = icmp eq ptr %94, null
   br i1 %.not29.i, label %_setup_launcher_argv.exit, label %.lr.ph36.i, !llvm.loop !10
 
 _setup_launcher_argv.exit:                        ; preds = %.lr.ph36.i, %.critedge.i, %.preheader.i
   %95 = zext nneg i32 %.024.lcssa.i to i64
-  %96 = getelementptr inbounds nuw ptr, ptr %82, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 24
   store ptr null, ptr %97, align 8
   call fastcc void @_log_str_array(ptr noundef nonnull @.str.30, ptr noundef nonnull %82)
@@ -1352,7 +1352,7 @@ define internal fastcc void @_log_str_array(ptr noundef %0, ptr noundef readonly
 
 .lr.ph:                                           ; preds = %11, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %11 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %17 = and i64 %16, 72057594037927936
   %.not12 = icmp eq i64 %17, 0
@@ -1371,7 +1371,7 @@ define internal fastcc void @_log_str_array(ptr noundef %0, ptr noundef readonly
 
 24:                                               ; preds = %.lr.ph, %21, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15

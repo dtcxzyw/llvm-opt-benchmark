@@ -37,8 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.cmXMLElement = type { ptr }
 %class.cmXMLSafe = type <{ ptr, i64, i8, [7 x i8] }>
 %"struct.std::pair.13" = type { i32, %"class.std::__cxx11::basic_string" }
-%"class.cmsys::RegularExpression" = type { %"class.cmsys::RegularExpressionMatch", i8, i8, ptr, i64, ptr, i32, i32 }
-%"class.cmsys::RegularExpressionMatch" = type { [32 x ptr], [32 x ptr], ptr }
 
 $_ZNSt6vectorIN5cmsys17RegularExpressionESaIS1_EED2Ev = comdat any
 
@@ -4649,7 +4647,7 @@ _ZSt8_DestroyIPN5cmsys17RegularExpressionES1_EvT_S3_RSaIT0_E.exit: ; preds = %_Z
 _ZNSt12_Vector_baseIN5cmsys17RegularExpressionESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN5cmsys17RegularExpressionES1_EvT_S3_RSaIT0_E.exit, %64
   store ptr %20, ptr %0, align 8, !tbaa !87
   store ptr %.0.lcssa.i.i.i.i.i40, ptr %4, align 8, !tbaa !44
-  %68 = getelementptr inbounds nuw %"class.cmsys::RegularExpression", ptr %20, i64 %16
+  %68 = getelementptr inbounds nuw [560 x i8], ptr %20, i64 %16
   store ptr %68, ptr %63, align 8, !tbaa !45
   ret void
 
@@ -4935,7 +4933,7 @@ _ZSt8_DestroyIPN5cmsys17RegularExpressionES1_EvT_S3_RSaIT0_E.exit: ; preds = %_Z
 _ZNSt12_Vector_baseIN5cmsys17RegularExpressionESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN5cmsys17RegularExpressionES1_EvT_S3_RSaIT0_E.exit, %64
   store ptr %20, ptr %0, align 8, !tbaa !87
   store ptr %.0.lcssa.i.i.i.i.i40, ptr %4, align 8, !tbaa !44
-  %68 = getelementptr inbounds nuw %"class.cmsys::RegularExpression", ptr %20, i64 %16
+  %68 = getelementptr inbounds nuw [560 x i8], ptr %20, i64 %16
   store ptr %68, ptr %63, align 8, !tbaa !45
   ret void
 
@@ -5204,7 +5202,7 @@ _ZSt8_DestroyIPN5cmsys17RegularExpressionES1_EvT_S3_RSaIT0_E.exit: ; preds = %_Z
 _ZNSt12_Vector_baseIN5cmsys17RegularExpressionESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN5cmsys17RegularExpressionES1_EvT_S3_RSaIT0_E.exit, %64
   store ptr %20, ptr %0, align 8, !tbaa !87
   store ptr %.0.lcssa.i.i.i.i.i40, ptr %4, align 8, !tbaa !44
-  %68 = getelementptr inbounds nuw %"class.cmsys::RegularExpression", ptr %20, i64 %16
+  %68 = getelementptr inbounds nuw [560 x i8], ptr %20, i64 %16
   store ptr %68, ptr %63, align 8, !tbaa !45
   ret void
 

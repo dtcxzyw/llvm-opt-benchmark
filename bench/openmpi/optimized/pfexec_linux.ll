@@ -77,7 +77,7 @@ define internal range(i32 -47, 1) i32 @spawn_job(ptr noundef %0) #0 {
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %6 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %5
+  %6 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !18
   %9 = icmp sgt i32 %8, 4
@@ -530,7 +530,7 @@ define internal i32 @sigproc(i32 noundef %0, i32 noundef %1) #0 {
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %12
+  %13 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !18
   %16 = icmp sgt i32 %15, 1
@@ -550,7 +550,7 @@ define internal i32 @sigproc(i32 noundef %0, i32 noundef %1) #0 {
 
 22:                                               ; preds = %20
   %23 = zext nneg i32 %21 to i64
-  %24 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %23
+  %24 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !18
   %27 = icmp sgt i32 %26, 1
@@ -1121,7 +1121,7 @@ define internal fastcc void @do_child(ptr noundef readonly captures(none) %0, pt
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 19
   %35 = load i8, ptr %34, align 1, !tbaa !102
   %36 = sext i8 %35 to i64
-  %37 = getelementptr inbounds i16, ptr %33, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %33, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !110
   %39 = and i16 %38, 2048
   %.not22.i = icmp eq i16 %39, 0

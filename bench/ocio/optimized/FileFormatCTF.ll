@@ -3289,7 +3289,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %_ZNKSt6vecto
   %.idx.i.i.i.i.i31.i = add nsw i64 %234, -4
   call void @llvm.memset.p0.i64(ptr align 4 %233, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !103
   store ptr %230, ptr %16, align 8, !tbaa !115
-  %235 = getelementptr inbounds nuw float, ptr %230, i64 %228
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %230, i64 %228
   store ptr %235, ptr %232, align 8, !tbaa !118
   store ptr %235, ptr %231, align 8, !tbaa !119
   invoke void @_ZN19OpenColorIO_v2_5dev21GenerateIdentityLut3DEPfiiNS_10Lut3DOrderE(ptr noundef nonnull %230, i32 noundef %.sroa.speculated, i32 noundef 3, i32 noundef 1)
@@ -3541,7 +3541,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i221: ; preds = %.noexc228
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i226: ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i221, %.noexc228
   store ptr %320, ptr %20, align 8, !tbaa !115
-  %324 = getelementptr inbounds nuw float, ptr %320, i64 %315
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %320, i64 %315
   store ptr %324, ptr %312, align 8, !tbaa !118
   store ptr %324, ptr %316, align 8, !tbaa !119
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit152
@@ -5078,7 +5078,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2E
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %107 = load ptr, ptr %41, align 8, !tbaa !157
-  %108 = getelementptr inbounds nuw %"class.std::shared_ptr.365", ptr %107, i64 %indvars.iv.next
+  %108 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %indvars.iv.next
   %109 = load ptr, ptr %108, align 8, !tbaa !152
   store ptr %109, ptr %9, align 8, !tbaa !152
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
@@ -5507,7 +5507,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40, %90
   store ptr %20, ptr %0, align 8, !tbaa !159
   store ptr %.0.lcssa.i.i.i.i39, ptr %4, align 8, !tbaa !23
-  %94 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::FormatInfo", ptr %20, i64 %16
+  %94 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %94, ptr %89, align 8, !tbaa !26
   ret void
 
@@ -15057,7 +15057,7 @@ define internal fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %16
   %.01827 = phi i64 [ %17, %16 ], [ 0, %.lr.ph.preheader ]
   %18 = load ptr, ptr %2, align 8, !tbaa !174
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.01827
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01827
   %20 = load ptr, ptr %19, align 8, !tbaa !173
   %21 = tail call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull %0, ptr noundef %20)
   %22 = icmp eq i32 %21, 0
@@ -15804,7 +15804,7 @@ define internal fastcc noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = load ptr, ptr @_ZZN19OpenColorIO_v2_5dev12_GLOBAL__N_115XMLParserHelper19StartElementHandlerEPvPKcPS4_E26gradingRGBCurveSubElements, align 8, !tbaa !174
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %.0173
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.0173
   %28 = load ptr, ptr %27, align 8, !tbaa !173
   %29 = tail call noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef %25, ptr noundef %28)
   %30 = icmp eq i32 %29, 0

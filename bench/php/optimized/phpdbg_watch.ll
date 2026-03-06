@@ -46,7 +46,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._phpdbg_watchpoint_t = type { %union.anon.27, i64, i32, ptr, %struct._zend_array, ptr, %union.anon.28 }
 %union.anon.27 = type { ptr }
 %union.anon.28 = type { %struct._zend_array }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 %struct.phpdbg_btree_position = type { ptr, i64, i64 }
 %struct.phpdbg_watch_parse_struct = type { ptr, ptr }
 %struct.uffdio_api = type { i64, i64, i64 }
@@ -4597,7 +4596,7 @@ thread-pre-split:                                 ; preds = %zend_string_release
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %167 = load i32, ptr %166, align 8, !tbaa !102
   %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds nuw %struct._Bucket, ptr %165, i64 %168
+  %169 = getelementptr inbounds nuw [32 x i8], ptr %165, i64 %168
   br label %170
 
 170:                                              ; preds = %170, %163

@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/dict_ispell.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [9 x i8] c"dictfile\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"multiple DictFile parameters\00", align 1
 @.str.2 = private unnamed_addr constant [14 x i8] c"dict_ispell.c\00", align 1
@@ -43,7 +41,7 @@ define dso_local i64 @dispell_init(ptr noundef readonly captures(none) %0) local
   %.05087 = phi i8 [ %.1, %57 ], [ 0, %.lr.ph ]
   %indvars.iv86 = phi i64 [ %indvars.iv.next, %57 ], [ 0, %.lr.ph ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv86
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv86
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8

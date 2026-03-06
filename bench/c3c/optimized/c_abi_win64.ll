@@ -391,10 +391,10 @@ define dso_local ptr @win64_create_params(ptr noundef readonly captures(address_
 
 11:                                               ; preds = %7, %11
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @win64_classify(ptr noundef %1, ptr noundef %13, i1 noundef zeroext false, i1 noundef zeroext %2)
-  %15 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store ptr %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
@@ -474,7 +474,7 @@ define dso_local void @c_abi_func_create_win64(ptr noundef captures(none) initia
 
 35:                                               ; preds = %44, %31
   %indvars.iv.i = phi i64 [ 0, %31 ], [ %indvars.iv.next.i, %44 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8
   %38 = icmp samesign ult i64 %indvars.iv.i, 6
   br i1 %38, label %39, label %41
@@ -492,7 +492,7 @@ define dso_local void @c_abi_func_create_win64(ptr noundef captures(none) initia
 
 44:                                               ; preds = %41, %39
   %.sink29 = phi ptr [ %40, %39 ], [ %43, %41 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i
   store ptr %.sink29, ptr %45, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %32
@@ -505,9 +505,9 @@ define dso_local void @c_abi_func_create_win64(ptr noundef captures(none) initia
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %win64_reclassify_hva_arg.exit.i
   %46 = phi i32 [ %62, %win64_reclassify_hva_arg.exit.i ], [ %.promoted, %.preheader.i.preheader ]
   %indvars.iv53.i = phi i64 [ %indvars.iv.next54.i, %win64_reclassify_hva_arg.exit.i ], [ 0, %.preheader.i.preheader ]
-  %47 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv53.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv53.i
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv53.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv53.i
   %50 = load ptr, ptr %49, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -565,10 +565,10 @@ win64_reclassify_hva_arg.exit.i:                  ; preds = %59, %57, %55, %.pre
 
 73:                                               ; preds = %73, %69
   %indvars.iv.i19 = phi i64 [ 0, %69 ], [ %indvars.iv.next.i20, %73 ]
-  %74 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i19
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.i19
   %75 = load ptr, ptr %74, align 8
   %76 = call ptr @win64_classify(ptr noundef nonnull %4, ptr noundef %75, i1 noundef zeroext false, i1 noundef zeroext false)
-  %77 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.i19
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv.i19
   store ptr %76, ptr %77, align 8
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %70
@@ -597,10 +597,10 @@ win64_create_params.exit:                         ; preds = %73, %63, %66
 
 88:                                               ; preds = %88, %84
   %indvars.iv.i24 = phi i64 [ 0, %84 ], [ %indvars.iv.next.i25, %88 ]
-  %89 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv.i24
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv.i24
   %90 = load ptr, ptr %89, align 8
   %91 = call ptr @win64_classify(ptr noundef nonnull %4, ptr noundef %90, i1 noundef zeroext false, i1 noundef zeroext false)
-  %92 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv.i24
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv.i24
   store ptr %91, ptr %92, align 8
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, %85

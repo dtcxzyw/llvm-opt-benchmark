@@ -23,7 +23,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
 
 11:                                               ; preds = %11, %6
   %.sroa.06.0.i = phi i64 [ 0, %6 ], [ %14, %11 ]
-  %12 = getelementptr inbounds nuw { i32, [2 x i32] }, ptr %0, i64 %.sroa.06.0.i
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.sroa.06.0.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull readonly align 4 dereferenceable(12) %12, i64 12, i1 false), !noalias !12
   %13 = call { i64, i1 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$11insert_full17h2219b6bb6ed8732bE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %4), !noalias !13

@@ -53,7 +53,7 @@ define dso_local void @snd_seq_queues_delete() local_unnamed_addr #1 align 16 {
 
 1:                                                ; preds = %15, %0
   %2 = phi i64 [ 0, %0 ], [ %16, %15 ]
-  %3 = getelementptr ptr, ptr @queue_list, i64 %2
+  %3 = getelementptr [8 x i8], ptr @queue_list, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %15, label %6
@@ -175,13 +175,13 @@ define dso_local noundef ptr @snd_seq_queue_alloc(i32 noundef %0, i32 noundef %1
 
 50:                                               ; preds = %61, %48
   %51 = phi i64 [ 0, %48 ], [ %62, %61 ]
-  %52 = getelementptr ptr, ptr @queue_list, i64 %51
+  %52 = getelementptr [8 x i8], ptr @queue_list, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %50
-  %56 = getelementptr ptr, ptr @queue_list, i64 %51
+  %56 = getelementptr [8 x i8], ptr @queue_list, i64 %51
   %57 = trunc i64 %51 to i32
   store ptr %5, ptr %56, align 8
   store i32 %57, ptr %5, align 8
@@ -231,7 +231,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_queue_delete(i32 noundef
 4:                                                ; preds = %2
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr ptr, ptr @queue_list, i64 %6
+  %7 = getelementptr [8 x i8], ptr @queue_list, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %queue_list_remove.exit.thread, label %10
@@ -291,7 +291,7 @@ define dso_local ptr @queueptr(i32 noundef %0) local_unnamed_addr #1 align 16 {
 3:                                                ; preds = %1
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr ptr, ptr @queue_list, i64 %5
+  %6 = getelementptr [8 x i8], ptr @queue_list, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %11, label %9
@@ -320,7 +320,7 @@ define dso_local ptr @snd_seq_queue_find_name(ptr noundef readonly captures(none
 2:                                                ; preds = %14, %1
   %3 = phi i64 [ 0, %1 ], [ %15, %14 ]
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
-  %5 = getelementptr ptr, ptr @queue_list, i64 %3
+  %5 = getelementptr [8 x i8], ptr @queue_list, i64 %3
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.critedge, label %8
@@ -490,7 +490,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_seq_enqueue_event(ptr nounde
 9:                                                ; preds = %5
   %10 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
   %11 = zext nneg i8 %7 to i64
-  %12 = getelementptr ptr, ptr @queue_list, i64 %11
+  %12 = getelementptr [8 x i8], ptr @queue_list, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread6, label %15
@@ -595,7 +595,7 @@ define dso_local range(i32 0, 2) i32 @snd_seq_queue_check_access(i32 noundef %0,
 4:                                                ; preds = %2
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr ptr, ptr @queue_list, i64 %6
+  %7 = getelementptr [8 x i8], ptr @queue_list, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread3, label %10
@@ -647,7 +647,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_queue_set_owner(i32 noun
 5:                                                ; preds = %3
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr ptr, ptr @queue_list, i64 %7
+  %8 = getelementptr [8 x i8], ptr @queue_list, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread3, label %11
@@ -714,7 +714,7 @@ define dso_local i32 @snd_seq_queue_timer_open(i32 noundef %0) local_unnamed_add
 3:                                                ; preds = %1
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr ptr, ptr @queue_list, i64 %5
+  %6 = getelementptr [8 x i8], ptr @queue_list, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread4, label %9
@@ -762,7 +762,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_queue_timer_close(i32 no
 3:                                                ; preds = %1
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr ptr, ptr @queue_list, i64 %5
+  %6 = getelementptr [8 x i8], ptr @queue_list, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread3, label %9
@@ -795,7 +795,7 @@ define dso_local i32 @snd_seq_queue_timer_set_tempo(i32 noundef %0, i32 noundef 
 5:                                                ; preds = %3
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr ptr, ptr @queue_list, i64 %7
+  %8 = getelementptr [8 x i8], ptr @queue_list, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread5, label %11
@@ -886,7 +886,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_queue_use(i32 noundef %0
 5:                                                ; preds = %3
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr ptr, ptr @queue_list, i64 %7
+  %8 = getelementptr [8 x i8], ptr @queue_list, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread4, label %11
@@ -977,7 +977,7 @@ define dso_local range(i32 -22, 2) i32 @snd_seq_queue_is_used(i32 noundef %0, i3
 4:                                                ; preds = %2
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr ptr, ptr @queue_list, i64 %6
+  %7 = getelementptr [8 x i8], ptr @queue_list, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread3, label %10
@@ -1015,7 +1015,7 @@ define dso_local void @snd_seq_queue_client_leave(i32 noundef %0) local_unnamed_
 4:                                                ; preds = %27, %1
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %1 ]
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
-  %6 = getelementptr ptr, ptr @queue_list, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr @queue_list, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %queue_list_remove.exit.thread, label %9
@@ -1070,7 +1070,7 @@ queue_list_remove.exit.thread:                    ; preds = %14, %4
 29:                                               ; preds = %49, %2
   %30 = phi i64 [ 0, %2 ], [ %50, %49 ]
   %31 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
-  %32 = getelementptr ptr, ptr @queue_list, i64 %30
+  %32 = getelementptr [8 x i8], ptr @queue_list, i64 %30
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.critedge, label %35
@@ -1124,7 +1124,7 @@ define dso_local void @snd_seq_queue_client_leave_cells(i32 noundef %0) local_un
 2:                                                ; preds = %14, %1
   %3 = phi i64 [ 0, %1 ], [ %15, %14 ]
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
-  %5 = getelementptr ptr, ptr @queue_list, i64 %3
+  %5 = getelementptr [8 x i8], ptr @queue_list, i64 %3
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.critedge, label %8
@@ -1164,7 +1164,7 @@ define dso_local void @snd_seq_queue_remove_cells(i32 noundef %0, ptr noundef %1
 5:                                                ; preds = %32, %2
   %6 = phi i64 [ 0, %2 ], [ %33, %32 ]
   %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
-  %8 = getelementptr ptr, ptr @queue_list, i64 %6
+  %8 = getelementptr [8 x i8], ptr @queue_list, i64 %6
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.critedge, label %11
@@ -1243,7 +1243,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_seq_control_queue(ptr nounde
 16:                                               ; preds = %12
   %17 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
   %18 = zext nneg i8 %14 to i64
-  %19 = getelementptr ptr, ptr @queue_list, i64 %18
+  %19 = getelementptr [8 x i8], ptr @queue_list, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.thread4, label %22
@@ -1560,7 +1560,7 @@ define dso_local void @snd_seq_info_queues_read(ptr noundef readnone captures(no
 3:                                                ; preds = %60, %2
   %4 = phi i64 [ 0, %2 ], [ %61, %60 ]
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @queue_list_lock) #9
-  %6 = getelementptr ptr, ptr @queue_list, i64 %4
+  %6 = getelementptr [8 x i8], ptr @queue_list, i64 %4
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.critedge, label %9

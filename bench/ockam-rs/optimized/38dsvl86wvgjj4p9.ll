@@ -680,7 +680,7 @@ define hidden noundef zeroext i1 @"_ZN166_$LT$tracing_subscriber..fmt..format..F
   %261 = icmp ugt i64 %260, 16
   %262 = load ptr, ptr %228, align 8, !nonnull !5
   %.sink5.i.i = select i1 %261, ptr %262, ptr %227
-  %263 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %.sink5.i.i, i64 %259
+  %263 = getelementptr inbounds [40 x i8], ptr %.sink5.i.i, i64 %259
   %.sroa.0.0.copyload249 = load ptr, ptr %263, align 8
   %.sroa.8.0..sroa_idx251 = getelementptr inbounds nuw i8, ptr %263, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8.0..sroa_idx251, i64 32, i1 false)

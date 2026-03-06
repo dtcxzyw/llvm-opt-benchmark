@@ -3,12 +3,6 @@ source_filename = "bench/libigl/original/cell_adjacency.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::tuple<int, bool, unsigned long>, std::tuple<int, bool, unsigned long>, std::_Identity<std::tuple<int, bool, unsigned long>>, std::less<std::tuple<int, bool, unsigned long>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::tuple<int, bool, unsigned long>, std::tuple<int, bool, unsigned long>, std::_Identity<std::tuple<int, bool, unsigned long>>, std::less<std::tuple<int, bool, unsigned long>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-
 $_ZN3igl8copyleft4cgal14cell_adjacencyIN5Eigen6MatrixIiLin1ELin1ELi0ELin1ELin1EEEEEvRKNS3_10MatrixBaseIT_EEmRSt6vectorISt3setISt5tupleIJNS7_6ScalarEbmEESt4lessISF_ESaISF_EESaISJ_EE = comdat any
 
 $__clang_call_terminate = comdat any
@@ -51,7 +45,7 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal14cell_adjacencyIN5Eigen6Ma
   br i1 %22, label %23, label %_ZNSt6vectorISt3setISt5tupleIJibmEESt4lessIS2_ESaIS2_EESaIS6_EE6resizeEm.exit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw %"class.std::set", ptr %13, i64 %1
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %1
   %.not.i.i = icmp eq ptr %12, %24
   br i1 %.not.i.i, label %_ZNSt6vectorISt3setISt5tupleIJibmEESt4lessIS2_ESaIS2_EESaIS6_EE6resizeEm.exit, label %.lr.ph.i.i.i.i
 
@@ -92,17 +86,17 @@ _ZNSt6vectorISt3setISt5tupleIJibmEESt4lessIS2_ESaIS2_EESaIS6_EE6resizeEm.exit: ;
   %storemerge9 = phi i64 [ %47, %.lr.ph ], [ 0, %_ZNSt6vectorISt3setISt5tupleIJibmEESt4lessIS2_ESaIS2_EESaIS6_EE6resizeEm.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = load ptr, ptr %0, align 8, !tbaa !23
-  %32 = getelementptr i32, ptr %31, i64 %storemerge9
+  %32 = getelementptr [4 x i8], ptr %31, i64 %storemerge9
   %33 = load i32, ptr %32, align 4, !tbaa !24
   store i32 %33, ptr %5, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %34 = load i64, ptr %9, align 8, !tbaa !4
-  %35 = getelementptr i32, ptr %32, i64 %34
+  %35 = getelementptr [4 x i8], ptr %32, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !24
   store i32 %36, ptr %6, align 4, !tbaa !24
   %37 = sext i32 %33 to i64
   %38 = load ptr, ptr %2, align 8, !tbaa !14
-  %39 = getelementptr inbounds nuw %"class.std::set", ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [48 x i8], ptr %38, i64 %37
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !26
   %40 = call { ptr, i8 } @_ZNSt8_Rb_treeISt5tupleIJibmEES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE17_M_emplace_uniqueIJRKibRmEEESt4pairISt17_Rb_tree_iteratorIS1_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %39, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -110,7 +104,7 @@ _ZNSt6vectorISt3setISt5tupleIJibmEESt4lessIS2_ESaIS2_EESaIS6_EE6resizeEm.exit: ;
   %41 = load i32, ptr %6, align 4, !tbaa !24
   %42 = sext i32 %41 to i64
   %43 = load ptr, ptr %2, align 8, !tbaa !14
-  %44 = getelementptr inbounds nuw %"class.std::set", ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [48 x i8], ptr %43, i64 %42
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %8, align 1, !tbaa !26
   %45 = call { ptr, i8 } @_ZNSt8_Rb_treeISt5tupleIJibmEES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE17_M_emplace_uniqueIJRKibRmEEESt4pairISt17_Rb_tree_iteratorIS1_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -279,9 +273,9 @@ _ZNSt6vectorISt3setISt5tupleIJibmEESt4lessIS2_ESaIS2_EESaIS6_EE11_S_relocateEPS6
 
 _ZNSt12_Vector_baseISt3setISt5tupleIJibmEESt4lessIS2_ESaIS2_EESaIS6_EE13_M_deallocateEPS6_m.exit41: ; preds = %_ZNSt6vectorISt3setISt5tupleIJibmEESt4lessIS2_ESaIS2_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %58
   store ptr %31, ptr %0, align 8, !tbaa !14
-  %60 = getelementptr inbounds nuw %"class.std::set", ptr %32, i64 %1
+  %60 = getelementptr inbounds nuw [48 x i8], ptr %32, i64 %1
   store ptr %60, ptr %4, align 8, !tbaa !11
-  %61 = getelementptr inbounds nuw %"class.std::set", ptr %31, i64 %29
+  %61 = getelementptr inbounds nuw [48 x i8], ptr %31, i64 %29
   store ptr %61, ptr %11, align 8, !tbaa !29
   br label %62
 

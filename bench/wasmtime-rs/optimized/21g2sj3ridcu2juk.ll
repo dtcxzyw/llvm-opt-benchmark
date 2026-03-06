@@ -3660,7 +3660,7 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
   %34 = phi i64 [ %.pre.i, %.noexc ], [ %28, %6 ]
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %36 = load ptr, ptr %35, align 8, !alias.scope !34, !noalias !37, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [32 x i8], ptr %36, i64 %34
   %.sroa.5.0..sroa_idx29 = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   store i8 2, ptr %.sroa.5.0..sroa_idx29, align 8
@@ -3849,7 +3849,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 19:                                               ; preds = %4
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %21 = load ptr, ptr %20, align 8, !nonnull !5, !noundef !5
-  %22 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %21, i64 %18
+  %22 = getelementptr [32 x i8], ptr %21, i64 %18
   %23 = getelementptr i8, ptr %22, i64 -32
   %24 = icmp eq ptr %23, null
   br i1 %24, label %.thread, label %29
@@ -3892,7 +3892,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   tail call void @llvm.assume(i1 %43)
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %45 = load ptr, ptr %44, align 8, !alias.scope !49, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds { i8, [3 x i8] }, ptr %45, i64 %41
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %41
   %.sroa.01.0.copyload.i = load i32, ptr %46, align 1, !noalias !49
   %.sroa.045.0.extract.trunc = trunc i32 %.sroa.01.0.copyload.i to i8
   %47 = icmp eq i8 %.sroa.045.0.extract.trunc, 8
@@ -4084,7 +4084,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %14 = load ptr, ptr %13, align 8, !alias.scope !75, !noalias !78, !nonnull !5, !noundef !5
-  %15 = getelementptr inbounds { i8, [3 x i8] }, ptr %14, i64 %10
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %10
   %.sroa.01.0.copyload.i.i = load i32, ptr %15, align 1, !noalias !79
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %16 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -4103,7 +4103,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %24 = load ptr, ptr %23, align 8, !noalias !78, !nonnull !5, !noundef !5
-  %25 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %24, i64 %21
+  %25 = getelementptr [32 x i8], ptr %24, i64 %21
   %26 = getelementptr i8, ptr %25, i64 -32
   %.not41.i = icmp eq ptr %26, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %27
@@ -4143,7 +4143,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %36)
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %38 = load ptr, ptr %37, align 8, !alias.scope !80, !noalias !83, !nonnull !5, !noundef !5
-  %39 = getelementptr inbounds { i8, [3 x i8] }, ptr %38, i64 %34
+  %39 = getelementptr inbounds [4 x i8], ptr %38, i64 %34
   %.sroa.01.0.copyload.i.i33 = load i32, ptr %39, align 1, !noalias !87
   %.sroa.032.0.extract.trunc.i34 = trunc i32 %.sroa.01.0.copyload.i.i33 to i8
   %40 = add i8 %.sroa.032.0.extract.trunc.i34, -9
@@ -4162,7 +4162,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %48 = load ptr, ptr %47, align 8, !noalias !83, !nonnull !5, !noundef !5
-  %49 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %48, i64 %45
+  %49 = getelementptr [32 x i8], ptr %48, i64 %45
   %50 = getelementptr i8, ptr %49, i64 -32
   %.not41.i41 = icmp eq ptr %50, null
   br i1 %.not41.i41, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit43", label %51
@@ -4202,7 +4202,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %60 = phi i64 [ %.pre.i.i, %59 ], [ %56, %54 ]
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %62 = load ptr, ptr %61, align 8, !alias.scope !88, !nonnull !5, !noundef !5
-  %63 = getelementptr inbounds { i8, [3 x i8] }, ptr %62, i64 %60
+  %63 = getelementptr inbounds [4 x i8], ptr %62, i64 %60
   store i32 0, ptr %63, align 1
   %64 = load i64, ptr %6, align 8, !alias.scope !88, !noundef !5
   %65 = add i64 %64, 1
@@ -4396,7 +4396,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %33 = icmp ult i64 %31, %32
   tail call void @llvm.assume(i1 %33)
   %34 = load ptr, ptr %23, align 8, !alias.scope !102, !noalias !105, !nonnull !5, !noundef !5
-  %35 = getelementptr inbounds { i8, [3 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %31
   %.sroa.01.0.copyload.i.i.us = load i32, ptr %35, align 1, !noalias !109
   %.sroa.032.0.extract.trunc.i.us = trunc i32 %.sroa.01.0.copyload.i.i.us to i8
   %36 = add i8 %.sroa.032.0.extract.trunc.i.us, -9
@@ -4420,7 +4420,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 43:                                               ; preds = %.critedge.i.us
   %44 = load ptr, ptr %13, align 8, !noalias !105, !nonnull !5, !noundef !5
-  %45 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %44, i64 %42
+  %45 = getelementptr [32 x i8], ptr %44, i64 %42
   %46 = getelementptr i8, ptr %45, i64 -32
   %.not41.i.us = icmp eq ptr %46, null
   br i1 %.not41.i.us, label %.critedge45.i.us, label %47
@@ -4462,7 +4462,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 56:                                               ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h5d15ab2298ccef4cE.exit.thread"
   %57 = load ptr, ptr %13, align 8, !nonnull !5, !noundef !5
-  %58 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %57, i64 %55
+  %58 = getelementptr [32 x i8], ptr %57, i64 %55
   %59 = getelementptr i8, ptr %58, i64 -32
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.thread.i, label %62
@@ -4497,7 +4497,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %73 = icmp ult i64 %71, %72
   tail call void @llvm.assume(i1 %73)
   %74 = load ptr, ptr %23, align 8, !alias.scope !102, !noalias !105, !nonnull !5, !noundef !5
-  %75 = getelementptr inbounds { i8, [3 x i8] }, ptr %74, i64 %71
+  %75 = getelementptr inbounds [4 x i8], ptr %74, i64 %71
   %.sroa.01.0.copyload.i.i = load i32, ptr %75, align 1, !noalias !109
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %76 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -4534,7 +4534,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 86:                                               ; preds = %.critedge.i
   %87 = load ptr, ptr %13, align 8, !noalias !105, !nonnull !5, !noundef !5
-  %88 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %87, i64 %85
+  %88 = getelementptr [32 x i8], ptr %87, i64 %85
   %89 = getelementptr i8, ptr %88, i64 -32
   %.not41.i = icmp eq ptr %89, null
   br i1 %.not41.i, label %.critedge45.i, label %90
@@ -4568,7 +4568,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   %8 = phi i64 [ %.pre.i, %7 ], [ %4, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 152
   %10 = load ptr, ptr %9, align 8, !alias.scope !118, !nonnull !5, !noundef !5
-  %11 = getelementptr inbounds { i8, [3 x i8] }, ptr %10, i64 %8
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %8
   store i32 %0, ptr %11, align 1
   %12 = load i64, ptr %3, align 8, !alias.scope !118, !noundef !5
   %13 = add i64 %12, 1
@@ -4598,7 +4598,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   %.sroa.01.0.insert.insert.i.i = or disjoint i32 %.sroa.2.0.insert.shift.i.i, 5
   %9 = getelementptr inbounds nuw i8, ptr %.0.val, i64 152
   %10 = load ptr, ptr %9, align 8, !alias.scope !121, !nonnull !5, !noundef !5
-  %11 = getelementptr inbounds { i8, [3 x i8] }, ptr %10, i64 %8
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %8
   store i32 %.sroa.01.0.insert.insert.i.i, ptr %11, align 1
   %12 = load i64, ptr %3, align 8, !alias.scope !121, !noundef !5
   %13 = add i64 %12, 1
@@ -4651,7 +4651,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %25 = icmp ult i64 %23, %24
   tail call void @llvm.assume(i1 %25)
   %26 = load ptr, ptr %15, align 8, !alias.scope !127, !noalias !130, !nonnull !5, !noundef !5
-  %27 = getelementptr inbounds { i8, [3 x i8] }, ptr %26, i64 %23
+  %27 = getelementptr inbounds [4 x i8], ptr %26, i64 %23
   %.sroa.01.0.copyload.i.i = load i32, ptr %27, align 1, !noalias !134
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %28 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -4691,7 +4691,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 40:                                               ; preds = %.critedge.i
   %41 = load ptr, ptr %17, align 8, !noalias !130, !nonnull !5, !noundef !5
-  %42 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %41, i64 %39
+  %42 = getelementptr [32 x i8], ptr %41, i64 %39
   %43 = getelementptr i8, ptr %42, i64 -32
   %.not41.i = icmp eq ptr %43, null
   br i1 %.not41.i, label %.critedge45.i, label %44
@@ -4706,7 +4706,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3b738689b5727d91E.exit"
-  %46 = getelementptr inbounds { i8, [3 x i8] }, ptr %4, i64 %6
+  %46 = getelementptr inbounds [4 x i8], ptr %4, i64 %6
   %47 = icmp eq i64 %8, %6
   br i1 %47, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f28c1d70d3f1738E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f28c1d70d3f1738E.exit.lr.ph"
 
@@ -4731,7 +4731,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h020425280953e81eE.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f28c1d70d3f1738E.exit", %52
   %53 = phi i64 [ %.pre.i.i, %52 ], [ %48, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f28c1d70d3f1738E.exit" ]
   %54 = load ptr, ptr %15, align 8, !alias.scope !135, !nonnull !5, !noundef !5
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %53
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %53
   store i32 %.sroa.014.0.copyload, ptr %55, align 1
   %56 = load i64, ptr %13, align 8, !alias.scope !135, !noundef !5
   %57 = add i64 %56, 1
@@ -4923,7 +4923,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %14 = load ptr, ptr %13, align 8, !alias.scope !149, !noalias !152, !nonnull !5, !noundef !5
-  %15 = getelementptr inbounds { i8, [3 x i8] }, ptr %14, i64 %10
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %10
   %.sroa.01.0.copyload.i.i = load i32, ptr %15, align 1, !noalias !153
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %16 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -4942,7 +4942,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %24 = load ptr, ptr %23, align 8, !noalias !152, !nonnull !5, !noundef !5
-  %25 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %24, i64 %21
+  %25 = getelementptr [32 x i8], ptr %24, i64 %21
   %26 = getelementptr i8, ptr %25, i64 -32
   %.not41.i = icmp eq ptr %26, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %27
@@ -4982,7 +4982,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %36)
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %38 = load ptr, ptr %37, align 8, !alias.scope !154, !noalias !157, !nonnull !5, !noundef !5
-  %39 = getelementptr inbounds { i8, [3 x i8] }, ptr %38, i64 %34
+  %39 = getelementptr inbounds [4 x i8], ptr %38, i64 %34
   %.sroa.01.0.copyload.i.i33 = load i32, ptr %39, align 1, !noalias !161
   %.sroa.032.0.extract.trunc.i34 = trunc i32 %.sroa.01.0.copyload.i.i33 to i8
   %40 = add i8 %.sroa.032.0.extract.trunc.i34, -9
@@ -5001,7 +5001,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %48 = load ptr, ptr %47, align 8, !noalias !157, !nonnull !5, !noundef !5
-  %49 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %48, i64 %45
+  %49 = getelementptr [32 x i8], ptr %48, i64 %45
   %50 = getelementptr i8, ptr %49, i64 -32
   %.not41.i41 = icmp eq ptr %50, null
   br i1 %.not41.i41, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit43", label %51
@@ -5041,7 +5041,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %60 = phi i64 [ %.pre.i.i, %59 ], [ %56, %54 ]
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %62 = load ptr, ptr %61, align 8, !alias.scope !162, !nonnull !5, !noundef !5
-  %63 = getelementptr inbounds { i8, [3 x i8] }, ptr %62, i64 %60
+  %63 = getelementptr inbounds [4 x i8], ptr %62, i64 %60
   store i32 %1, ptr %63, align 1
   %64 = load i64, ptr %6, align 8, !alias.scope !162, !noundef !5
   %65 = add i64 %64, 1
@@ -5098,7 +5098,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %23 = load ptr, ptr %22, align 8, !alias.scope !168, !noalias !171, !nonnull !5, !noundef !5
-  %24 = getelementptr inbounds { i8, [3 x i8] }, ptr %23, i64 %19
+  %24 = getelementptr inbounds [4 x i8], ptr %23, i64 %19
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %24, align 1, !noalias !175
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %25 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -5117,7 +5117,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %.val, i64 128
   %33 = load ptr, ptr %32, align 8, !noalias !171, !nonnull !5, !noundef !5
-  %34 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %33, i64 %30
+  %34 = getelementptr [32 x i8], ptr %33, i64 %30
   %35 = getelementptr i8, ptr %34, i64 -32
   %.not41.i.i = icmp eq ptr %35, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %36
@@ -5163,7 +5163,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %45 = phi i64 [ %.pre.i.i.i, %43 ], [ %41, %39 ]
   %46 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %47 = load ptr, ptr %46, align 8, !alias.scope !176, !noalias !165, !nonnull !5, !noundef !5
-  %48 = getelementptr inbounds { i8, [3 x i8] }, ptr %47, i64 %45
+  %48 = getelementptr inbounds [4 x i8], ptr %47, i64 %45
   store i32 %1, ptr %48, align 1, !noalias !165
   %49 = load i64, ptr %15, align 8, !alias.scope !176, !noalias !165, !noundef !5
   %50 = add i64 %49, 1
@@ -5255,7 +5255,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %39 = load ptr, ptr %38, align 8, !nonnull !5, !align !17, !noundef !5
-  %40 = getelementptr inbounds nuw { i8, { i8, [3 x i8] } }, ptr %39, i64 %9
+  %40 = getelementptr inbounds nuw [5 x i8], ptr %39, i64 %9
   %.sroa.019.0.copyload = load i8, ptr %40, align 1
   %41 = icmp eq i8 %.sroa.019.0.copyload, 2
   br i1 %41, label %.thread5, label %44
@@ -5473,7 +5473,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !208, !noalias !211, !nonnull !5, !noundef !5
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i = load i32, ptr %25, align 1, !noalias !212
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -5500,7 +5500,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 32:                                               ; preds = %.critedge.i
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %34 = load ptr, ptr %33, align 8, !noalias !211, !nonnull !5, !noundef !5
-  %35 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr [32 x i8], ptr %34, i64 %31
   %36 = getelementptr i8, ptr %35, i64 -32
   %.not41.i = icmp eq ptr %36, null
   br i1 %.not41.i, label %.critedge45.i, label %37
@@ -5637,7 +5637,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %40)
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 152
   %42 = load ptr, ptr %41, align 8, !alias.scope !233, !noalias !236, !nonnull !5, !noundef !5
-  %43 = getelementptr inbounds { i8, [3 x i8] }, ptr %42, i64 %38
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %38
   %.sroa.01.0.copyload.i.i = load i32, ptr %43, align 1, !noalias !237
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %44 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -5655,7 +5655,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 49:                                               ; preds = %.critedge.i
   %50 = getelementptr inbounds nuw i8, ptr %33, i64 128
   %51 = load ptr, ptr %50, align 8, !noalias !236, !nonnull !5, !noundef !5
-  %52 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %51, i64 %48
+  %52 = getelementptr [32 x i8], ptr %51, i64 %48
   %53 = getelementptr i8, ptr %52, i64 -32
   %.not41.i = icmp eq ptr %53, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %54
@@ -5695,7 +5695,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %63 = phi i64 [ %.pre.i.i, %62 ], [ %59, %57 ]
   %64 = getelementptr inbounds nuw i8, ptr %33, i64 152
   %65 = load ptr, ptr %64, align 8, !alias.scope !238, !nonnull !5, !noundef !5
-  %66 = getelementptr inbounds { i8, [3 x i8] }, ptr %65, i64 %63
+  %66 = getelementptr inbounds [4 x i8], ptr %65, i64 %63
   store i32 %2, ptr %66, align 1
   %67 = load i64, ptr %34, align 8, !alias.scope !238, !noundef !5
   %68 = add i64 %67, 1
@@ -5749,7 +5749,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %.sroa.01.0.insert.insert.i.i.i = or disjoint i32 %.sroa.420.0.extract.shift, 5
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !241, !nonnull !5, !noundef !5
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %20
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %20
   store i32 %.sroa.01.0.insert.insert.i.i.i, ptr %23, align 1
   %24 = load i64, ptr %15, align 8, !alias.scope !241, !noundef !5
   %25 = add i64 %24, 1
@@ -5872,7 +5872,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %43 = load ptr, ptr %42, align 8, !alias.scope !264, !noalias !267, !nonnull !5, !noundef !5
-  %44 = getelementptr inbounds { i8, [3 x i8] }, ptr %43, i64 %39
+  %44 = getelementptr inbounds [4 x i8], ptr %43, i64 %39
   %.sroa.01.0.copyload.i.i = load i32, ptr %44, align 1, !noalias !268
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %45 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -5891,7 +5891,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %53 = load ptr, ptr %52, align 8, !noalias !267, !nonnull !5, !noundef !5
-  %54 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %53, i64 %50
+  %54 = getelementptr [32 x i8], ptr %53, i64 %50
   %55 = getelementptr i8, ptr %54, i64 -32
   %.not41.i = icmp eq ptr %55, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %56
@@ -5931,7 +5931,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %65)
   %66 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %67 = load ptr, ptr %66, align 8, !alias.scope !269, !noalias !272, !nonnull !5, !noundef !5
-  %68 = getelementptr inbounds { i8, [3 x i8] }, ptr %67, i64 %63
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %63
   %.sroa.01.0.copyload.i.i39 = load i32, ptr %68, align 1, !noalias !276
   %.sroa.032.0.extract.trunc.i40 = trunc i32 %.sroa.01.0.copyload.i.i39 to i8
   %69 = add i8 %.sroa.032.0.extract.trunc.i40, -9
@@ -5959,7 +5959,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 76:                                               ; preds = %.critedge.i
   %77 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %78 = load ptr, ptr %77, align 8, !noalias !272, !nonnull !5, !noundef !5
-  %79 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %78, i64 %75
+  %79 = getelementptr [32 x i8], ptr %78, i64 %75
   %80 = getelementptr i8, ptr %79, i64 -32
   %.not41.i47 = icmp eq ptr %80, null
   br i1 %.not41.i47, label %.critedge45.i43, label %81
@@ -6017,7 +6017,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !282, !noalias !285, !nonnull !5, !noundef !5
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !286
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -6046,7 +6046,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !285, !nonnull !5, !noundef !5
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %38
@@ -6086,7 +6086,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !287, !nonnull !5, !noundef !5
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 4, ptr %50, align 1
   %51 = load i64, ptr %13, align 8, !alias.scope !287, !noundef !5
   %52 = add i64 %51, 1
@@ -6256,7 +6256,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %71)
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 152
   %73 = load ptr, ptr %72, align 8, !alias.scope !302, !noalias !305, !nonnull !5, !noundef !5
-  %74 = getelementptr inbounds { i8, [3 x i8] }, ptr %73, i64 %69
+  %74 = getelementptr inbounds [4 x i8], ptr %73, i64 %69
   %.sroa.01.0.copyload.i.i = load i32, ptr %74, align 1, !noalias !306
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %75 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -6275,7 +6275,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %64, i64 128
   %83 = load ptr, ptr %82, align 8, !noalias !305, !nonnull !5, !noundef !5
-  %84 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %83, i64 %80
+  %84 = getelementptr [32 x i8], ptr %83, i64 %80
   %85 = getelementptr i8, ptr %84, i64 -32
   %.not41.i = icmp eq ptr %85, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %86
@@ -6400,7 +6400,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %125 = icmp ult i64 %123, %124
   tail call void @llvm.assume(i1 %125)
   %126 = load ptr, ptr %109, align 8, !alias.scope !331, !noalias !334, !nonnull !5, !noundef !5
-  %127 = getelementptr inbounds { i8, [3 x i8] }, ptr %126, i64 %123
+  %127 = getelementptr inbounds [4 x i8], ptr %126, i64 %123
   %.sroa.01.0.copyload.i.i74 = load i32, ptr %127, align 1, !noalias !338
   %.sroa.032.0.extract.trunc.i75 = trunc i32 %.sroa.01.0.copyload.i.i74 to i8
   %128 = add i8 %.sroa.032.0.extract.trunc.i75, -9
@@ -6443,7 +6443,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 140:                                              ; preds = %.critedge.i
   %141 = load ptr, ptr %111, align 8, !noalias !334, !nonnull !5, !noundef !5
-  %142 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %141, i64 %139
+  %142 = getelementptr [32 x i8], ptr %141, i64 %139
   %143 = getelementptr i8, ptr %142, i64 -32
   %.not41.i81 = icmp eq ptr %143, null
   br i1 %.not41.i81, label %.critedge45.i78, label %144
@@ -6455,12 +6455,12 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 146:                                              ; preds = %"_ZN4core3ptr63drop_in_place$LT$wasmparser..readers..core..types..FuncType$GT$17hc964c2dbf16f906fE.exit72"
   %147 = load ptr, ptr %63, align 8, !nonnull !5, !noundef !5
-  %148 = getelementptr inbounds { i8, [3 x i8] }, ptr %147, i64 %117
+  %148 = getelementptr inbounds [4 x i8], ptr %147, i64 %117
   %149 = icmp eq i64 %101, %117
   br i1 %149, label %"_ZN4core3ptr63drop_in_place$LT$wasmparser..readers..core..types..FuncType$GT$17hc964c2dbf16f906fE.exit87", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f28c1d70d3f1738E.exit.lr.ph"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f28c1d70d3f1738E.exit.lr.ph": ; preds = %146
-  %150 = getelementptr inbounds { i8, [3 x i8] }, ptr %147, i64 %101
+  %150 = getelementptr inbounds [4 x i8], ptr %147, i64 %101
   %.pre104 = load i64, ptr %65, align 8, !alias.scope !339
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f28c1d70d3f1738E.exit"
 
@@ -6485,7 +6485,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h020425280953e81eE.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f28c1d70d3f1738E.exit", %156
   %157 = phi i64 [ %.pre.i.i, %156 ], [ %152, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f28c1d70d3f1738E.exit" ]
   %158 = load ptr, ptr %109, align 8, !alias.scope !339, !nonnull !5, !noundef !5
-  %159 = getelementptr inbounds { i8, [3 x i8] }, ptr %158, i64 %157
+  %159 = getelementptr inbounds [4 x i8], ptr %158, i64 %157
   store i32 %.sroa.036.0.copyload, ptr %159, align 1
   %160 = load i64, ptr %65, align 8, !alias.scope !339, !noundef !5
   %161 = add i64 %160, 1
@@ -6532,7 +6532,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %13 = load ptr, ptr %12, align 8, !alias.scope !354, !noalias !357, !nonnull !5, !noundef !5
-  %14 = getelementptr inbounds { i8, [3 x i8] }, ptr %13, i64 %9
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %9
   %.sroa.01.0.copyload.i.i = load i32, ptr %14, align 1, !noalias !358
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %15 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -6551,7 +6551,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %23 = load ptr, ptr %22, align 8, !noalias !357, !nonnull !5, !noundef !5
-  %24 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %23, i64 %20
+  %24 = getelementptr [32 x i8], ptr %23, i64 %20
   %25 = getelementptr i8, ptr %24, i64 -32
   %.not41.i = icmp eq ptr %25, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %26
@@ -6591,7 +6591,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %35)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %37 = load ptr, ptr %36, align 8, !alias.scope !359, !noalias !362, !nonnull !5, !noundef !5
-  %38 = getelementptr inbounds { i8, [3 x i8] }, ptr %37, i64 %33
+  %38 = getelementptr inbounds [4 x i8], ptr %37, i64 %33
   %.sroa.01.0.copyload.i.i41 = load i32, ptr %38, align 1, !noalias !366
   %.sroa.032.0.extract.trunc.i42 = trunc i32 %.sroa.01.0.copyload.i.i41 to i8
   %39 = add i8 %.sroa.032.0.extract.trunc.i42, -9
@@ -6610,7 +6610,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %47 = load ptr, ptr %46, align 8, !noalias !362, !nonnull !5, !noundef !5
-  %48 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %47, i64 %44
+  %48 = getelementptr [32 x i8], ptr %47, i64 %44
   %49 = getelementptr i8, ptr %48, i64 -32
   %.not41.i48 = icmp eq ptr %49, null
   br i1 %.not41.i48, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit50", label %50
@@ -6650,7 +6650,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %59 = phi i64 [ %.pre.i.i, %58 ], [ %55, %53 ]
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %61 = load ptr, ptr %60, align 8, !alias.scope !367, !nonnull !5, !noundef !5
-  %62 = getelementptr inbounds { i8, [3 x i8] }, ptr %61, i64 %59
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %59
   store i32 4, ptr %62, align 1
   %63 = load i64, ptr %5, align 8, !alias.scope !367, !noundef !5
   %64 = add i64 %63, 1
@@ -6707,7 +6707,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %22)
   %23 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %24 = load ptr, ptr %23, align 8, !alias.scope !373, !noalias !376, !nonnull !5, !noundef !5
-  %25 = getelementptr inbounds { i8, [3 x i8] }, ptr %24, i64 %20
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %20
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %25, align 1, !noalias !380
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %26 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -6726,7 +6726,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %.val, i64 128
   %34 = load ptr, ptr %33, align 8, !noalias !376, !nonnull !5, !noundef !5
-  %35 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %34, i64 %31
+  %35 = getelementptr [32 x i8], ptr %34, i64 %31
   %36 = getelementptr i8, ptr %35, i64 -32
   %.not41.i.i = icmp eq ptr %36, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %37
@@ -6772,7 +6772,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %46 = phi i64 [ %.pre.i.i.i, %44 ], [ %42, %40 ]
   %47 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %48 = load ptr, ptr %47, align 8, !alias.scope !381, !noalias !370, !nonnull !5, !noundef !5
-  %49 = getelementptr inbounds { i8, [3 x i8] }, ptr %48, i64 %46
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %46
   store i32 %1, ptr %49, align 1, !noalias !370
   %50 = load i64, ptr %16, align 8, !alias.scope !381, !noalias !370, !noundef !5
   %51 = add i64 %50, 1
@@ -6806,7 +6806,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %13 = load ptr, ptr %12, align 8, !alias.scope !389, !noalias !392, !nonnull !5, !noundef !5
-  %14 = getelementptr inbounds { i8, [3 x i8] }, ptr %13, i64 %9
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %9
   %.sroa.01.0.copyload.i.i = load i32, ptr %14, align 1, !noalias !393
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %15 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -6825,7 +6825,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %23 = load ptr, ptr %22, align 8, !noalias !392, !nonnull !5, !noundef !5
-  %24 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %23, i64 %20
+  %24 = getelementptr [32 x i8], ptr %23, i64 %20
   %25 = getelementptr i8, ptr %24, i64 -32
   %.not41.i = icmp eq ptr %25, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %26
@@ -6865,7 +6865,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %35)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %37 = load ptr, ptr %36, align 8, !alias.scope !394, !noalias !397, !nonnull !5, !noundef !5
-  %38 = getelementptr inbounds { i8, [3 x i8] }, ptr %37, i64 %33
+  %38 = getelementptr inbounds [4 x i8], ptr %37, i64 %33
   %.sroa.01.0.copyload.i.i41 = load i32, ptr %38, align 1, !noalias !401
   %.sroa.032.0.extract.trunc.i42 = trunc i32 %.sroa.01.0.copyload.i.i41 to i8
   %39 = add i8 %.sroa.032.0.extract.trunc.i42, -9
@@ -6884,7 +6884,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %47 = load ptr, ptr %46, align 8, !noalias !397, !nonnull !5, !noundef !5
-  %48 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %47, i64 %44
+  %48 = getelementptr [32 x i8], ptr %47, i64 %44
   %49 = getelementptr i8, ptr %48, i64 -32
   %.not41.i49 = icmp eq ptr %49, null
   br i1 %.not41.i49, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit51", label %50
@@ -6924,7 +6924,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %59 = phi i64 [ %.pre.i.i, %58 ], [ %55, %53 ]
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %61 = load ptr, ptr %60, align 8, !alias.scope !402, !nonnull !5, !noundef !5
-  %62 = getelementptr inbounds { i8, [3 x i8] }, ptr %61, i64 %59
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %59
   store i32 4, ptr %62, align 1
   %63 = load i64, ptr %5, align 8, !alias.scope !402, !noundef !5
   %64 = add i64 %63, 1
@@ -6981,7 +6981,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !408, !noalias !411, !nonnull !5, !noundef !5
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %23, align 1, !noalias !415
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -7000,7 +7000,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %.val, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !411, !nonnull !5, !noundef !5
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i.i = icmp eq ptr %34, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %35
@@ -7046,7 +7046,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %44 = phi i64 [ %.pre.i.i.i, %42 ], [ %40, %38 ]
   %45 = getelementptr inbounds nuw i8, ptr %.val, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !416, !noalias !405, !nonnull !5, !noundef !5
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %44
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %44
   store i32 4, ptr %47, align 1, !noalias !405
   %48 = load i64, ptr %14, align 8, !alias.scope !416, !noalias !405, !noundef !5
   %49 = add i64 %48, 1
@@ -7142,7 +7142,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %39 = icmp ult i64 %37, %38
   tail call void @llvm.assume(i1 %39)
   %40 = load ptr, ptr %21, align 8, !alias.scope !440, !noalias !443, !nonnull !5, !noundef !5
-  %41 = getelementptr inbounds { i8, [3 x i8] }, ptr %40, i64 %37
+  %41 = getelementptr inbounds [4 x i8], ptr %40, i64 %37
   %.sroa.01.0.copyload.i.i.us = load i32, ptr %41, align 1, !noalias !447
   %.sroa.032.0.extract.trunc.i.us = trunc i32 %.sroa.01.0.copyload.i.i.us to i8
   %42 = add i8 %.sroa.032.0.extract.trunc.i.us, -9
@@ -7166,7 +7166,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 49:                                               ; preds = %.critedge.i.us
   %50 = load ptr, ptr %23, align 8, !noalias !443, !nonnull !5, !noundef !5
-  %51 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %50, i64 %48
+  %51 = getelementptr [32 x i8], ptr %50, i64 %48
   %52 = getelementptr i8, ptr %51, i64 -32
   %.not41.i.us = icmp eq ptr %52, null
   br i1 %.not41.i.us, label %.critedge45.i.us, label %53
@@ -7234,7 +7234,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %80 = icmp ult i64 %78, %79
   tail call void @llvm.assume(i1 %80)
   %81 = load ptr, ptr %70, align 8, !alias.scope !440, !noalias !443, !nonnull !5, !noundef !5
-  %82 = getelementptr inbounds { i8, [3 x i8] }, ptr %81, i64 %78
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 %78
   %.sroa.01.0.copyload.i.i.us71 = load i32, ptr %82, align 1, !noalias !447
   %.sroa.032.0.extract.trunc.i.us72 = trunc i32 %.sroa.01.0.copyload.i.i.us71 to i8
   %83 = add i8 %.sroa.032.0.extract.trunc.i.us72, -9
@@ -7258,7 +7258,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 90:                                               ; preds = %.critedge.i.us77
   %91 = load ptr, ptr %72, align 8, !noalias !443, !nonnull !5, !noundef !5
-  %92 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %91, i64 %89
+  %92 = getelementptr [32 x i8], ptr %91, i64 %89
   %93 = getelementptr i8, ptr %92, i64 -32
   %.not41.i.us79 = icmp eq ptr %93, null
   br i1 %.not41.i.us79, label %.critedge45.i.us81, label %94
@@ -7342,7 +7342,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h020425280953e81eE.exit.us": ; preds = %118, %114
   %119 = phi i64 [ %.pre.i.i.us, %118 ], [ %115, %114 ]
   %120 = load ptr, ptr %101, align 8, !alias.scope !468, !nonnull !5, !noundef !5
-  %121 = getelementptr inbounds { i8, [3 x i8] }, ptr %120, i64 %119
+  %121 = getelementptr inbounds [4 x i8], ptr %120, i64 %119
   store i32 %.sroa.0.0.i36.us, ptr %121, align 1
   %122 = load i64, ptr %103, align 8, !alias.scope !468, !noundef !5
   %123 = add i64 %122, 1
@@ -7363,7 +7363,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %129 = icmp ult i64 %127, %128
   tail call void @llvm.assume(i1 %129)
   %130 = load ptr, ptr %60, align 8, !alias.scope !440, !noalias !443, !nonnull !5, !noundef !5
-  %131 = getelementptr inbounds { i8, [3 x i8] }, ptr %130, i64 %127
+  %131 = getelementptr inbounds [4 x i8], ptr %130, i64 %127
   %.sroa.01.0.copyload.i.i = load i32, ptr %131, align 1, !noalias !447
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %132 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -7400,7 +7400,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 
 142:                                              ; preds = %.critedge.i
   %143 = load ptr, ptr %62, align 8, !noalias !443, !nonnull !5, !noundef !5
-  %144 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %143, i64 %141
+  %144 = getelementptr [32 x i8], ptr %143, i64 %141
   %145 = getelementptr i8, ptr %144, i64 -32
   %.not41.i = icmp eq ptr %145, null
   br i1 %.not41.i, label %.critedge45.i, label %146
@@ -7460,7 +7460,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h020425280953e81eE.exit": ; preds = %158, %162
   %163 = phi i64 [ %.pre.i.i, %162 ], [ %159, %158 ]
   %164 = load ptr, ptr %101, align 8, !alias.scope !468, !nonnull !5, !noundef !5
-  %165 = getelementptr inbounds { i8, [3 x i8] }, ptr %164, i64 %163
+  %165 = getelementptr inbounds [4 x i8], ptr %164, i64 %163
   store i32 %.sroa.0.0.i36, ptr %165, align 1
   %166 = load i64, ptr %103, align 8, !alias.scope !468, !noundef !5
   %167 = add i64 %166, 1
@@ -7495,7 +7495,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %12)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %14 = load ptr, ptr %13, align 8, !alias.scope !481, !noalias !484, !nonnull !5, !noundef !5
-  %15 = getelementptr inbounds { i8, [3 x i8] }, ptr %14, i64 %10
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %10
   %.sroa.01.0.copyload.i.i = load i32, ptr %15, align 1, !noalias !485
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %16 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -7514,7 +7514,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %24 = load ptr, ptr %23, align 8, !noalias !484, !nonnull !5, !noundef !5
-  %25 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %24, i64 %21
+  %25 = getelementptr [32 x i8], ptr %24, i64 %21
   %26 = getelementptr i8, ptr %25, i64 -32
   %.not41.i = icmp eq ptr %26, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %27
@@ -7554,7 +7554,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %36)
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %38 = load ptr, ptr %37, align 8, !alias.scope !486, !noalias !489, !nonnull !5, !noundef !5
-  %39 = getelementptr inbounds { i8, [3 x i8] }, ptr %38, i64 %34
+  %39 = getelementptr inbounds [4 x i8], ptr %38, i64 %34
   %.sroa.01.0.copyload.i.i56 = load i32, ptr %39, align 1, !noalias !493
   %.sroa.032.0.extract.trunc.i57 = trunc i32 %.sroa.01.0.copyload.i.i56 to i8
   %40 = add i8 %.sroa.032.0.extract.trunc.i57, -9
@@ -7573,7 +7573,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %48 = load ptr, ptr %47, align 8, !noalias !489, !nonnull !5, !noundef !5
-  %49 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %48, i64 %45
+  %49 = getelementptr [32 x i8], ptr %48, i64 %45
   %50 = getelementptr i8, ptr %49, i64 -32
   %.not41.i64 = icmp eq ptr %50, null
   br i1 %.not41.i64, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit66", label %51
@@ -7613,7 +7613,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %60)
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %62 = load ptr, ptr %61, align 8, !alias.scope !494, !noalias !497, !nonnull !5, !noundef !5
-  %63 = getelementptr inbounds { i8, [3 x i8] }, ptr %62, i64 %58
+  %63 = getelementptr inbounds [4 x i8], ptr %62, i64 %58
   %.sroa.01.0.copyload.i.i68 = load i32, ptr %63, align 1, !noalias !501
   %.sroa.032.0.extract.trunc.i69 = trunc i32 %.sroa.01.0.copyload.i.i68 to i8
   %64 = add i8 %.sroa.032.0.extract.trunc.i69, -9
@@ -7632,7 +7632,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %72 = load ptr, ptr %71, align 8, !noalias !497, !nonnull !5, !noundef !5
-  %73 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %72, i64 %69
+  %73 = getelementptr [32 x i8], ptr %72, i64 %69
   %74 = getelementptr i8, ptr %73, i64 -32
   %.not41.i76 = icmp eq ptr %74, null
   br i1 %.not41.i76, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit78", label %75
@@ -7672,7 +7672,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %84 = phi i64 [ %.pre.i.i, %83 ], [ %80, %78 ]
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %86 = load ptr, ptr %85, align 8, !alias.scope !502, !nonnull !5, !noundef !5
-  %87 = getelementptr inbounds { i8, [3 x i8] }, ptr %86, i64 %84
+  %87 = getelementptr inbounds [4 x i8], ptr %86, i64 %84
   store i32 4, ptr %87, align 1
   %88 = load i64, ptr %6, align 8, !alias.scope !502, !noundef !5
   %89 = add i64 %88, 1
@@ -7779,7 +7779,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %43 = load ptr, ptr %42, align 8, !alias.scope !525, !noalias !528, !nonnull !5, !noundef !5
-  %44 = getelementptr inbounds { i8, [3 x i8] }, ptr %43, i64 %39
+  %44 = getelementptr inbounds [4 x i8], ptr %43, i64 %39
   %.sroa.01.0.copyload.i.i = load i32, ptr %44, align 1, !noalias !529
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %45 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -7798,7 +7798,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %53 = load ptr, ptr %52, align 8, !noalias !528, !nonnull !5, !noundef !5
-  %54 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %53, i64 %50
+  %54 = getelementptr [32 x i8], ptr %53, i64 %50
   %55 = getelementptr i8, ptr %54, i64 -32
   %.not41.i = icmp eq ptr %55, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %56
@@ -7838,7 +7838,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %65)
   %66 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %67 = load ptr, ptr %66, align 8, !alias.scope !530, !noalias !533, !nonnull !5, !noundef !5
-  %68 = getelementptr inbounds { i8, [3 x i8] }, ptr %67, i64 %63
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %63
   %.sroa.01.0.copyload.i.i48 = load i32, ptr %68, align 1, !noalias !537
   %.sroa.032.0.extract.trunc.i49 = trunc i32 %.sroa.01.0.copyload.i.i48 to i8
   %69 = add i8 %.sroa.032.0.extract.trunc.i49, -9
@@ -7856,7 +7856,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 74:                                               ; preds = %.critedge.i
   %75 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %76 = load ptr, ptr %75, align 8, !noalias !533, !nonnull !5, !noundef !5
-  %77 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %76, i64 %73
+  %77 = getelementptr [32 x i8], ptr %76, i64 %73
   %78 = getelementptr i8, ptr %77, i64 -32
   %.not41.i56 = icmp eq ptr %78, null
   br i1 %.not41.i56, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit58", label %79
@@ -7896,7 +7896,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %88 = phi i64 [ %.pre.i.i, %87 ], [ %84, %82 ]
   %89 = getelementptr inbounds nuw i8, ptr %34, i64 152
   %90 = load ptr, ptr %89, align 8, !alias.scope !538, !nonnull !5, !noundef !5
-  %91 = getelementptr inbounds { i8, [3 x i8] }, ptr %90, i64 %88
+  %91 = getelementptr inbounds [4 x i8], ptr %90, i64 %88
   store i32 %2, ptr %91, align 1
   %92 = load i64, ptr %35, align 8, !alias.scope !538, !noundef !5
   %93 = add i64 %92, 1
@@ -8004,7 +8004,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 152
   %44 = load ptr, ptr %43, align 8, !alias.scope !561, !noalias !564, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds { i8, [3 x i8] }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %40
   %.sroa.01.0.copyload.i.i = load i32, ptr %45, align 1, !noalias !565
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %46 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -8023,7 +8023,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %35, i64 128
   %54 = load ptr, ptr %53, align 8, !noalias !564, !nonnull !5, !noundef !5
-  %55 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %54, i64 %51
+  %55 = getelementptr [32 x i8], ptr %54, i64 %51
   %56 = getelementptr i8, ptr %55, i64 -32
   %.not41.i = icmp eq ptr %56, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %57
@@ -8063,7 +8063,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw i8, ptr %35, i64 152
   %68 = load ptr, ptr %67, align 8, !alias.scope !566, !noalias !569, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds { i8, [3 x i8] }, ptr %68, i64 %64
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %64
   %.sroa.01.0.copyload.i.i62 = load i32, ptr %69, align 1, !noalias !573
   %.sroa.032.0.extract.trunc.i63 = trunc i32 %.sroa.01.0.copyload.i.i62 to i8
   %70 = add i8 %.sroa.032.0.extract.trunc.i63, -9
@@ -8082,7 +8082,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %35, i64 128
   %78 = load ptr, ptr %77, align 8, !noalias !569, !nonnull !5, !noundef !5
-  %79 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %78, i64 %75
+  %79 = getelementptr [32 x i8], ptr %78, i64 %75
   %80 = getelementptr i8, ptr %79, i64 -32
   %.not41.i70 = icmp eq ptr %80, null
   br i1 %.not41.i70, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit72", label %81
@@ -8122,7 +8122,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   tail call void @llvm.assume(i1 %90)
   %91 = getelementptr inbounds nuw i8, ptr %35, i64 152
   %92 = load ptr, ptr %91, align 8, !alias.scope !574, !noalias !577, !nonnull !5, !noundef !5
-  %93 = getelementptr inbounds { i8, [3 x i8] }, ptr %92, i64 %88
+  %93 = getelementptr inbounds [4 x i8], ptr %92, i64 %88
   %.sroa.01.0.copyload.i.i74 = load i32, ptr %93, align 1, !noalias !581
   %.sroa.032.0.extract.trunc.i75 = trunc i32 %.sroa.01.0.copyload.i.i74 to i8
   %94 = add i8 %.sroa.032.0.extract.trunc.i75, -9
@@ -8140,7 +8140,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 99:                                               ; preds = %.critedge.i
   %100 = getelementptr inbounds nuw i8, ptr %35, i64 128
   %101 = load ptr, ptr %100, align 8, !noalias !577, !nonnull !5, !noundef !5
-  %102 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %101, i64 %98
+  %102 = getelementptr [32 x i8], ptr %101, i64 %98
   %103 = getelementptr i8, ptr %102, i64 -32
   %.not41.i82 = icmp eq ptr %103, null
   br i1 %.not41.i82, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit84", label %104
@@ -8265,7 +8265,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h3b738689b5727d91E.exit": ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %42 = load ptr, ptr %41, align 8, !nonnull !5, !noundef !5
-  %43 = getelementptr inbounds { i8, [3 x i8] }, ptr %42, i64 %38
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %38
   br label %32
 
 44:                                               ; preds = %23, %17
@@ -8308,7 +8308,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %16 = load ptr, ptr %15, align 8, !alias.scope !596, !noalias !599, !nonnull !5, !noundef !5
-  %17 = getelementptr inbounds { i8, [3 x i8] }, ptr %16, i64 %12
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %12
   %.sroa.01.0.copyload.i.i = load i32, ptr %17, align 1, !noalias !600
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit"
 
@@ -8503,8 +8503,8 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 43:                                               ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %45 = load ptr, ptr %44, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds { i8, [3 x i8] }, ptr %45, i64 %40
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %45, i64 %38
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %40
+  %47 = getelementptr inbounds [4 x i8], ptr %45, i64 %38
   br label %34
 
 48:                                               ; preds = %36
@@ -8537,7 +8537,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %13 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
-  %14 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %13, i64 %10
+  %14 = getelementptr [32 x i8], ptr %13, i64 %10
   %15 = getelementptr i8, ptr %14, i64 -32
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.thread, label %21
@@ -8575,7 +8575,7 @@ define internal fastcc void @"_ZN10wasmparser9validator9operators30OperatorValid
   store i64 %25, ptr %26, align 8, !alias.scope !613, !noalias !616
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 176
   %35 = load ptr, ptr %34, align 8, !alias.scope !613, !noalias !616, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds i32, ptr %35, i64 %25
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %25
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %33) ]
   %37 = shl i64 %30, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %33, ptr nonnull align 4 %36, i64 %37, i1 false), !noalias !618
@@ -8679,7 +8679,7 @@ common.resume:                                    ; preds = %43, %46
   %67 = icmp ult i64 %65, %66
   call void @llvm.assume(i1 %67)
   %68 = load ptr, ptr %57, align 8, !alias.scope !624, !noalias !627, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds { i8, [3 x i8] }, ptr %68, i64 %65
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %65
   %.sroa.01.0.copyload.i.i.us = load i32, ptr %69, align 1, !noalias !631
   %.sroa.032.0.extract.trunc.i.us = trunc i32 %.sroa.01.0.copyload.i.i.us to i8
   %70 = add i8 %.sroa.032.0.extract.trunc.i.us, -9
@@ -8703,7 +8703,7 @@ common.resume:                                    ; preds = %43, %46
 
 77:                                               ; preds = %.critedge.i.us
   %78 = load ptr, ptr %12, align 8, !noalias !627, !nonnull !5, !noundef !5
-  %79 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %78, i64 %76
+  %79 = getelementptr [32 x i8], ptr %78, i64 %76
   %80 = getelementptr i8, ptr %79, i64 -32
   %.not41.i.us = icmp eq ptr %80, null
   br i1 %.not41.i.us, label %.critedge45.i.us, label %81
@@ -8771,7 +8771,7 @@ common.resume:                                    ; preds = %43, %46
   %103 = icmp ult i64 %101, %102
   call void @llvm.assume(i1 %103)
   %104 = load ptr, ptr %57, align 8, !alias.scope !624, !noalias !627, !nonnull !5, !noundef !5
-  %105 = getelementptr inbounds { i8, [3 x i8] }, ptr %104, i64 %101
+  %105 = getelementptr inbounds [4 x i8], ptr %104, i64 %101
   %.sroa.01.0.copyload.i.i = load i32, ptr %105, align 1, !noalias !631
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %106 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -8808,7 +8808,7 @@ common.resume:                                    ; preds = %43, %46
 
 116:                                              ; preds = %.critedge.i
   %117 = load ptr, ptr %12, align 8, !noalias !627, !nonnull !5, !noundef !5
-  %118 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %117, i64 %115
+  %118 = getelementptr [32 x i8], ptr %117, i64 %115
   %119 = getelementptr i8, ptr %118, i64 -32
   %.not41.i = icmp eq ptr %119, null
   br i1 %.not41.i, label %.critedge45.i, label %120
@@ -8836,7 +8836,7 @@ common.resume:                                    ; preds = %43, %46
   %128 = icmp ult i64 %126, %127
   call void @llvm.assume(i1 %128)
   %129 = load ptr, ptr %12, align 8, !alias.scope !641, !noalias !644, !nonnull !5, !noundef !5
-  %130 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %129, i64 %126
+  %130 = getelementptr inbounds [32 x i8], ptr %129, i64 %126
   %.sroa.460.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %130, i64 25
   %.sroa.460.0.copyload62 = load i8, ptr %.sroa.460.0..sroa_idx61, align 1, !noalias !641
   %131 = icmp eq i8 %.sroa.460.0.copyload62, 2
@@ -8927,7 +8927,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
   %16 = phi i64 [ %.pre.i, %15 ], [ %12, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %18 = load ptr, ptr %17, align 8, !alias.scope !648, !noalias !651, !nonnull !5, !noundef !5
-  %19 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %18, i64 %16
+  %19 = getelementptr inbounds [32 x i8], ptr %18, i64 %16
   store i64 %7, ptr %19, align 8
   %.sroa.4.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 %9, ptr %.sroa.4.0..sroa_idx28, align 8
@@ -9008,7 +9008,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10wasmparser9validator9operators
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h020425280953e81eE.exit": ; preds = %39, %43
   %44 = phi i64 [ %.pre.i.i, %43 ], [ %40, %39 ]
   %45 = load ptr, ptr %27, align 8, !alias.scope !658, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds { i8, [3 x i8] }, ptr %45, i64 %44
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %44
   store i32 %.sroa.0.0.i, ptr %46, align 1
   %47 = load i64, ptr %6, align 8, !alias.scope !658, !noundef !5
   %48 = add i64 %47, 1
@@ -9235,7 +9235,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %35)
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 152
   %37 = load ptr, ptr %36, align 8, !alias.scope !675, !noalias !678, !nonnull !5, !noundef !5
-  %38 = getelementptr inbounds { i8, [3 x i8] }, ptr %37, i64 %33
+  %38 = getelementptr inbounds [4 x i8], ptr %37, i64 %33
   %.sroa.01.0.copyload.i.i = load i32, ptr %38, align 1, !noalias !679
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %39 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -9274,7 +9274,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 51:                                               ; preds = %.critedge.i
   %52 = getelementptr inbounds nuw i8, ptr %28, i64 128
   %53 = load ptr, ptr %52, align 8, !noalias !678, !nonnull !5, !noundef !5
-  %54 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %53, i64 %50
+  %54 = getelementptr [32 x i8], ptr %53, i64 %50
   %55 = getelementptr i8, ptr %54, i64 -32
   %.not41.i = icmp eq ptr %55, null
   br i1 %.not41.i, label %.critedge45.i, label %56
@@ -9332,7 +9332,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !685, !noalias !688, !nonnull !5, !noundef !5
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !689
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -9361,7 +9361,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !688, !nonnull !5, !noundef !5
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %38
@@ -9401,7 +9401,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !690, !nonnull !5, !noundef !5
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 0, ptr %50, align 1
   %51 = load i64, ptr %13, align 8, !alias.scope !690, !noundef !5
   %52 = add i64 %51, 1
@@ -9451,7 +9451,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !698, !noalias !701, !nonnull !5, !noundef !5
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !702
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -9480,7 +9480,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !701, !nonnull !5, !noundef !5
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %38
@@ -9520,7 +9520,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !703, !nonnull !5, !noundef !5
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 1, ptr %50, align 1
   %51 = load i64, ptr %13, align 8, !alias.scope !703, !noundef !5
   %52 = add i64 %51, 1
@@ -9570,7 +9570,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !711, !noalias !714, !nonnull !5, !noundef !5
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !715
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -9599,7 +9599,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !714, !nonnull !5, !noundef !5
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %38
@@ -9639,7 +9639,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !716, !nonnull !5, !noundef !5
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 0, ptr %50, align 1
   %51 = load i64, ptr %13, align 8, !alias.scope !716, !noundef !5
   %52 = add i64 %51, 1
@@ -9689,7 +9689,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !724, !noalias !727, !nonnull !5, !noundef !5
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !728
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -9718,7 +9718,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !727, !nonnull !5, !noundef !5
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %38
@@ -9758,7 +9758,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !729, !nonnull !5, !noundef !5
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 1, ptr %50, align 1
   %51 = load i64, ptr %13, align 8, !alias.scope !729, !noundef !5
   %52 = add i64 %51, 1
@@ -9808,7 +9808,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !737, !noalias !740, !nonnull !5, !noundef !5
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !741
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -9837,7 +9837,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !740, !nonnull !5, !noundef !5
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %38
@@ -9877,7 +9877,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !742, !nonnull !5, !noundef !5
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 1, ptr %50, align 1
   %51 = load i64, ptr %13, align 8, !alias.scope !742, !noundef !5
   %52 = add i64 %51, 1
@@ -9927,7 +9927,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !750, !noalias !753, !nonnull !5, !noundef !5
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !754
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -9956,7 +9956,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 33:                                               ; preds = %.critedge.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !753, !nonnull !5, !noundef !5
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i = icmp eq ptr %37, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %38
@@ -9996,7 +9996,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %47 = phi i64 [ %.pre.i.i, %46 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !755, !nonnull !5, !noundef !5
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 4, ptr %50, align 1
   %51 = load i64, ptr %13, align 8, !alias.scope !755, !noundef !5
   %52 = add i64 %51, 1
@@ -10051,7 +10051,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !763, !noalias !766, !nonnull !5, !noundef !5
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !767
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -10070,7 +10070,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %31 = load ptr, ptr %30, align 8, !noalias !766, !nonnull !5, !noundef !5
-  %32 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %31, i64 %28
+  %32 = getelementptr [32 x i8], ptr %31, i64 %28
   %33 = getelementptr i8, ptr %32, i64 -32
   %.not41.i = icmp eq ptr %33, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %34
@@ -10110,7 +10110,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %43 = phi i64 [ %.pre.i.i, %42 ], [ %39, %37 ]
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %45 = load ptr, ptr %44, align 8, !alias.scope !768, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds { i8, [3 x i8] }, ptr %45, i64 %43
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %43
   store i32 0, ptr %46, align 1
   %47 = load i64, ptr %13, align 8, !alias.scope !768, !noundef !5
   %48 = add i64 %47, 1
@@ -10165,7 +10165,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !776, !noalias !779, !nonnull !5, !noundef !5
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i = load i32, ptr %22, align 1, !noalias !780
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -10184,7 +10184,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %31 = load ptr, ptr %30, align 8, !noalias !779, !nonnull !5, !noundef !5
-  %32 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %31, i64 %28
+  %32 = getelementptr [32 x i8], ptr %31, i64 %28
   %33 = getelementptr i8, ptr %32, i64 -32
   %.not41.i = icmp eq ptr %33, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %34
@@ -10224,7 +10224,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %43 = phi i64 [ %.pre.i.i, %42 ], [ %39, %37 ]
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %45 = load ptr, ptr %44, align 8, !alias.scope !781, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds { i8, [3 x i8] }, ptr %45, i64 %43
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %43
   store i32 0, ptr %46, align 1
   %47 = load i64, ptr %13, align 8, !alias.scope !781, !noundef !5
   %48 = add i64 %47, 1
@@ -10305,7 +10305,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !806, !noalias !809, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !810
   br label %"_ZN136_$LT$wasmparser..validator..operators..OperatorValidatorTemp$LT$T$GT$$u20$as$u20$wasmparser..readers..core..operators..VisitOperator$GT$10visit_drop17hd8b16fedcd6b7b31E.exit"
 
@@ -10434,7 +10434,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %29 = icmp ult i64 %27, %28
   call void @llvm.assume(i1 %29)
   %30 = load ptr, ptr %17, align 8, !alias.scope !817, !noalias !820, !nonnull !5, !noundef !5
-  %31 = getelementptr inbounds { i8, [3 x i8] }, ptr %30, i64 %27
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %27
   %.sroa.01.0.copyload.i.i.us.i = load i32, ptr %31, align 1, !noalias !824
   %.sroa.032.0.extract.trunc.i.us.i = trunc i32 %.sroa.01.0.copyload.i.i.us.i to i8
   %32 = add i8 %.sroa.032.0.extract.trunc.i.us.i, -9
@@ -10458,7 +10458,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 39:                                               ; preds = %.critedge.i.us.i
   %40 = load ptr, ptr %19, align 8, !noalias !820, !nonnull !5, !noundef !5
-  %41 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %40, i64 %38
+  %41 = getelementptr [32 x i8], ptr %40, i64 %38
   %42 = getelementptr i8, ptr %41, i64 -32
   %.not41.i.us.i = icmp eq ptr %42, null
   br i1 %.not41.i.us.i, label %.critedge45.i.us.i, label %43
@@ -10512,7 +10512,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %57 = icmp ult i64 %55, %56
   call void @llvm.assume(i1 %57)
   %58 = load ptr, ptr %17, align 8, !alias.scope !817, !noalias !820, !nonnull !5, !noundef !5
-  %59 = getelementptr inbounds { i8, [3 x i8] }, ptr %58, i64 %55
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %55
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %59, align 1, !noalias !824
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %60 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -10549,7 +10549,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 70:                                               ; preds = %.critedge.i.i
   %71 = load ptr, ptr %19, align 8, !noalias !820, !nonnull !5, !noundef !5
-  %72 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %71, i64 %69
+  %72 = getelementptr [32 x i8], ptr %71, i64 %69
   %73 = getelementptr i8, ptr %72, i64 -32
   %.not41.i.i = icmp eq ptr %73, null
   br i1 %.not41.i.i, label %.critedge45.i.i, label %74
@@ -10634,7 +10634,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %29 = icmp ult i64 %27, %28
   call void @llvm.assume(i1 %29)
   %30 = load ptr, ptr %17, align 8, !alias.scope !833, !noalias !836, !nonnull !5, !noundef !5
-  %31 = getelementptr inbounds { i8, [3 x i8] }, ptr %30, i64 %27
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %27
   %.sroa.01.0.copyload.i.i.us.i = load i32, ptr %31, align 1, !noalias !840
   %.sroa.032.0.extract.trunc.i.us.i = trunc i32 %.sroa.01.0.copyload.i.i.us.i to i8
   %32 = add i8 %.sroa.032.0.extract.trunc.i.us.i, -9
@@ -10658,7 +10658,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 39:                                               ; preds = %.critedge.i.us.i
   %40 = load ptr, ptr %19, align 8, !noalias !836, !nonnull !5, !noundef !5
-  %41 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %40, i64 %38
+  %41 = getelementptr [32 x i8], ptr %40, i64 %38
   %42 = getelementptr i8, ptr %41, i64 -32
   %.not41.i.us.i = icmp eq ptr %42, null
   br i1 %.not41.i.us.i, label %.critedge45.i.us.i, label %43
@@ -10712,7 +10712,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %57 = icmp ult i64 %55, %56
   call void @llvm.assume(i1 %57)
   %58 = load ptr, ptr %17, align 8, !alias.scope !833, !noalias !836, !nonnull !5, !noundef !5
-  %59 = getelementptr inbounds { i8, [3 x i8] }, ptr %58, i64 %55
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %55
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %59, align 1, !noalias !840
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %60 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -10749,7 +10749,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 70:                                               ; preds = %.critedge.i.i
   %71 = load ptr, ptr %19, align 8, !noalias !836, !nonnull !5, !noundef !5
-  %72 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %71, i64 %69
+  %72 = getelementptr [32 x i8], ptr %71, i64 %69
   %73 = getelementptr i8, ptr %72, i64 -32
   %.not41.i.i = icmp eq ptr %73, null
   br i1 %.not41.i.i, label %.critedge45.i.i, label %74
@@ -10796,7 +10796,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %17 = load ptr, ptr %16, align 8, !alias.scope !855, !noalias !858, !nonnull !5, !noundef !5
-  %18 = getelementptr inbounds { i8, [3 x i8] }, ptr %17, i64 %13
+  %18 = getelementptr inbounds [4 x i8], ptr %17, i64 %13
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %18, align 1, !noalias !859
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %19 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -10815,7 +10815,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %27 = load ptr, ptr %26, align 8, !noalias !858, !nonnull !5, !noundef !5
-  %28 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %27, i64 %24
+  %28 = getelementptr [32 x i8], ptr %27, i64 %24
   %29 = getelementptr i8, ptr %28, i64 -32
   %.not41.i.i = icmp eq ptr %29, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %30
@@ -10888,7 +10888,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %55 = load ptr, ptr %54, align 8, !noalias !860, !nonnull !5, !noundef !5
-  %56 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %55, i64 %43
+  %56 = getelementptr inbounds [32 x i8], ptr %55, i64 %43
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i64, ptr %57, align 8, !noalias !846
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
@@ -11184,7 +11184,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %70 = icmp ult i64 %68, %69
   tail call void @llvm.assume(i1 %70)
   %71 = load ptr, ptr %55, align 8, !alias.scope !919, !noalias !922, !nonnull !5, !noundef !5
-  %72 = getelementptr inbounds { i8, [3 x i8] }, ptr %71, i64 %68
+  %72 = getelementptr inbounds [4 x i8], ptr %71, i64 %68
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %72, align 1, !noalias !926
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %73 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -11227,7 +11227,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 85:                                               ; preds = %.critedge.i.i
   %86 = load ptr, ptr %57, align 8, !noalias !922, !nonnull !5, !noundef !5
-  %87 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %86, i64 %84
+  %87 = getelementptr [32 x i8], ptr %86, i64 %84
   %88 = getelementptr i8, ptr %87, i64 -32
   %.not41.i.i = icmp eq ptr %88, null
   br i1 %.not41.i.i, label %.critedge45.i.i, label %89
@@ -11252,7 +11252,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 95:                                               ; preds = %93
   %96 = load ptr, ptr %57, align 8, !noalias !885, !nonnull !5, !noundef !5
-  %97 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %96, i64 %94
+  %97 = getelementptr [32 x i8], ptr %96, i64 %94
   %98 = getelementptr i8, ptr %97, i64 -32
   %99 = icmp eq ptr %98, null
   br i1 %99, label %.thread.i.i, label %101
@@ -11812,7 +11812,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !985, !noalias !988, !nonnull !5, !noundef !5
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !992
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -11834,7 +11834,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 36:                                               ; preds = %.critedge.i.i
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !988, !nonnull !5, !noundef !5
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %41
@@ -11878,7 +11878,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %50)
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !993, !noalias !996, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %48
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %48
   %.sroa.01.0.copyload.i.i63.i = load i32, ptr %53, align 1, !noalias !1000
   %.sroa.032.0.extract.trunc.i64.i = trunc i32 %.sroa.01.0.copyload.i.i63.i to i8
   %54 = add i8 %.sroa.032.0.extract.trunc.i64.i, -9
@@ -11900,7 +11900,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 60:                                               ; preds = %.critedge.i70.i
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !996, !nonnull !5, !noundef !5
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i72.i = icmp eq ptr %64, null
   br i1 %.not41.i72.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit74.i", label %65
@@ -11946,7 +11946,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %74 = phi i64 [ %.pre.i.i.i, %72 ], [ %70, %68 ]
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %76 = load ptr, ptr %75, align 8, !alias.scope !1001, !noalias !982, !nonnull !5, !noundef !5
-  %77 = getelementptr inbounds { i8, [3 x i8] }, ptr %76, i64 %74
+  %77 = getelementptr inbounds [4 x i8], ptr %76, i64 %74
   store i32 0, ptr %77, align 1, !noalias !982
   %78 = load i64, ptr %20, align 8, !alias.scope !1001, !noalias !982, !noundef !5
   %79 = add i64 %78, 1
@@ -11984,7 +11984,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %16 = load ptr, ptr %15, align 8, !alias.scope !1013, !noalias !1016, !nonnull !5, !noundef !5
-  %17 = getelementptr inbounds { i8, [3 x i8] }, ptr %16, i64 %12
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %12
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %17, align 1, !noalias !1017
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %18 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -12003,7 +12003,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 24:                                               ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %26 = load ptr, ptr %25, align 8, !noalias !1016, !nonnull !5, !noundef !5
-  %27 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %26, i64 %23
+  %27 = getelementptr [32 x i8], ptr %26, i64 %23
   %28 = getelementptr i8, ptr %27, i64 -32
   %.not41.i.i = icmp eq ptr %28, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %29
@@ -12047,7 +12047,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %38)
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %40 = load ptr, ptr %39, align 8, !alias.scope !1018, !noalias !1021, !nonnull !5, !noundef !5
-  %41 = getelementptr inbounds { i8, [3 x i8] }, ptr %40, i64 %36
+  %41 = getelementptr inbounds [4 x i8], ptr %40, i64 %36
   %.sroa.01.0.copyload.i.i75.i = load i32, ptr %41, align 1, !noalias !1025
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit84.i"
 
@@ -12081,7 +12081,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %54 = load ptr, ptr %53, align 8, !alias.scope !1026, !noalias !1029, !nonnull !5, !noundef !5
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %50
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %50
   %.sroa.01.0.copyload.i.i86.i = load i32, ptr %55, align 1, !noalias !1033
   br label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit95.i"
 
@@ -12168,7 +12168,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %89 = phi i64 [ %.pre.i.i.i, %88 ], [ %85, %.critedge.i ]
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %91 = load ptr, ptr %90, align 8, !alias.scope !1034, !noalias !1004, !nonnull !5, !noundef !5
-  %92 = getelementptr inbounds { i8, [3 x i8] }, ptr %91, i64 %89
+  %92 = getelementptr inbounds [4 x i8], ptr %91, i64 %89
   store i32 %.sroa.039.0.insert.insert.i, ptr %92, align 1, !noalias !1004
   %93 = load i64, ptr %8, align 8, !alias.scope !1034, !noalias !1004, !noundef !5
   %94 = add i64 %93, 1
@@ -12670,7 +12670,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !1082, !noalias !1085, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !1086
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -12689,7 +12689,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !1085, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -12735,7 +12735,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !1087, !noalias !1073, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !1073
   %38 = load i64, ptr %4, align 8, !alias.scope !1087, !noalias !1073, !noundef !5
   %39 = add i64 %38, 1
@@ -12769,7 +12769,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !1099, !noalias !1102, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !1103
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -12788,7 +12788,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !1102, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -12834,7 +12834,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !1104, !noalias !1090, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !1090
   %38 = load i64, ptr %4, align 8, !alias.scope !1104, !noalias !1090, !noundef !5
   %39 = add i64 %38, 1
@@ -12868,7 +12868,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !1116, !noalias !1119, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !1120
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -12887,7 +12887,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !1119, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -12933,7 +12933,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !1121, !noalias !1107, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !1107
   %38 = load i64, ptr %4, align 8, !alias.scope !1121, !noalias !1107, !noundef !5
   %39 = add i64 %38, 1
@@ -12967,7 +12967,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !1133, !noalias !1136, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !1137
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -12986,7 +12986,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !1136, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -13032,7 +13032,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !1138, !noalias !1124, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !1124
   %38 = load i64, ptr %4, align 8, !alias.scope !1138, !noalias !1124, !noundef !5
   %39 = add i64 %38, 1
@@ -13066,7 +13066,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !1150, !noalias !1153, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !1154
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -13085,7 +13085,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !1153, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -13131,7 +13131,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !1155, !noalias !1141, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !1141
   %38 = load i64, ptr %4, align 8, !alias.scope !1155, !noalias !1141, !noundef !5
   %39 = add i64 %38, 1
@@ -13165,7 +13165,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !1167, !noalias !1170, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !1171
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -13184,7 +13184,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !1170, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -13230,7 +13230,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !1172, !noalias !1158, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !1158
   %38 = load i64, ptr %4, align 8, !alias.scope !1172, !noalias !1158, !noundef !5
   %39 = add i64 %38, 1
@@ -13300,7 +13300,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !1187, !noalias !1190, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !1194
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -13319,7 +13319,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !1190, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -13365,7 +13365,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !1195, !noalias !1184, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 536870917, ptr %52, align 1, !noalias !1184
   %53 = load i64, ptr %19, align 8, !alias.scope !1195, !noalias !1184, !noundef !5
   %54 = add i64 %53, 1
@@ -13520,7 +13520,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %23)
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 152
   %25 = load ptr, ptr %24, align 8, !alias.scope !1228, !noalias !1231, !nonnull !5, !noundef !5
-  %26 = getelementptr inbounds { i8, [3 x i8] }, ptr %25, i64 %21
+  %26 = getelementptr inbounds [4 x i8], ptr %25, i64 %21
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %26, align 1, !noalias !1232
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %27 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -13539,7 +13539,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !1231, !nonnull !5, !noundef !5
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i.i = icmp eq ptr %37, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %38
@@ -13618,7 +13618,7 @@ default.unreachable:                              ; preds = %106
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %66 = load ptr, ptr %65, align 8, !noalias !1233, !nonnull !5, !noundef !5
-  %67 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %66, i64 %54
+  %67 = getelementptr inbounds [32 x i8], ptr %66, i64 %54
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load i64, ptr %68, align 8, !noalias !1221
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 24
@@ -13768,7 +13768,7 @@ default.unreachable:                              ; preds = %106
   %124 = icmp ult i64 %122, %123
   call void @llvm.assume(i1 %124)
   %125 = load ptr, ptr %102, align 8, !alias.scope !1246, !noalias !1249, !nonnull !5, !noundef !5
-  %126 = getelementptr inbounds { i8, [3 x i8] }, ptr %125, i64 %122
+  %126 = getelementptr inbounds [4 x i8], ptr %125, i64 %122
   %.sroa.01.0.copyload.i.i181.us.i = load i32, ptr %126, align 1, !noalias !1253
   %.sroa.032.0.extract.trunc.i182.us.i = trunc i32 %.sroa.01.0.copyload.i.i181.us.i to i8
   %127 = add i8 %.sroa.032.0.extract.trunc.i182.us.i, -9
@@ -13792,7 +13792,7 @@ default.unreachable:                              ; preds = %106
 
 134:                                              ; preds = %.critedge.i.us.i
   %135 = load ptr, ptr %65, align 8, !noalias !1249, !nonnull !5, !noundef !5
-  %136 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %135, i64 %133
+  %136 = getelementptr [32 x i8], ptr %135, i64 %133
   %137 = getelementptr i8, ptr %136, i64 -32
   %.not41.i188.us.i = icmp eq ptr %137, null
   br i1 %.not41.i188.us.i, label %.critedge45.i185.us.i, label %138
@@ -13845,7 +13845,7 @@ default.unreachable:                              ; preds = %106
   %149 = icmp ult i64 %147, %148
   call void @llvm.assume(i1 %149)
   %150 = load ptr, ptr %102, align 8, !alias.scope !1246, !noalias !1249, !nonnull !5, !noundef !5
-  %151 = getelementptr inbounds { i8, [3 x i8] }, ptr %150, i64 %147
+  %151 = getelementptr inbounds [4 x i8], ptr %150, i64 %147
   %.sroa.01.0.copyload.i.i181.us383.i = load i32, ptr %151, align 1, !noalias !1253
   %.sroa.032.0.extract.trunc.i182.us384.i = trunc i32 %.sroa.01.0.copyload.i.i181.us383.i to i8
   %152 = add i8 %.sroa.032.0.extract.trunc.i182.us384.i, -9
@@ -13869,7 +13869,7 @@ default.unreachable:                              ; preds = %106
 
 159:                                              ; preds = %.critedge.i.us389.i
   %160 = load ptr, ptr %65, align 8, !noalias !1249, !nonnull !5, !noundef !5
-  %161 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %160, i64 %158
+  %161 = getelementptr [32 x i8], ptr %160, i64 %158
   %162 = getelementptr i8, ptr %161, i64 -32
   %.not41.i188.us391.i = icmp eq ptr %162, null
   br i1 %.not41.i188.us391.i, label %.critedge45.i185.us393.i, label %163
@@ -13907,7 +13907,7 @@ default.unreachable:                              ; preds = %106
 
 171:                                              ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i"
   %172 = load ptr, ptr %65, align 8, !noalias !1221, !nonnull !5, !noundef !5
-  %173 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %172, i64 %170
+  %173 = getelementptr [32 x i8], ptr %172, i64 %170
   %174 = getelementptr i8, ptr %173, i64 -32
   %175 = icmp eq ptr %174, null
   br i1 %175, label %.thread.i, label %177
@@ -13942,7 +13942,7 @@ default.unreachable:                              ; preds = %106
   %188 = icmp ult i64 %186, %187
   call void @llvm.assume(i1 %188)
   %189 = load ptr, ptr %102, align 8, !alias.scope !1246, !noalias !1249, !nonnull !5, !noundef !5
-  %190 = getelementptr inbounds { i8, [3 x i8] }, ptr %189, i64 %186
+  %190 = getelementptr inbounds [4 x i8], ptr %189, i64 %186
   %.sroa.01.0.copyload.i.i181.i = load i32, ptr %190, align 1, !noalias !1253
   %.sroa.032.0.extract.trunc.i182.i = trunc i32 %.sroa.01.0.copyload.i.i181.i to i8
   %191 = add i8 %.sroa.032.0.extract.trunc.i182.i, -9
@@ -13979,7 +13979,7 @@ default.unreachable:                              ; preds = %106
 
 201:                                              ; preds = %.critedge.i.i
   %202 = load ptr, ptr %65, align 8, !noalias !1249, !nonnull !5, !noundef !5
-  %203 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %202, i64 %200
+  %203 = getelementptr [32 x i8], ptr %202, i64 %200
   %204 = getelementptr i8, ptr %203, i64 -32
   %.not41.i188.i = icmp eq ptr %204, null
   br i1 %.not41.i188.i, label %.critedge45.i185.i, label %205
@@ -14040,7 +14040,7 @@ default.unreachable:                              ; preds = %106
 
 226:                                              ; preds = %222
   %227 = load ptr, ptr %65, align 8, !noalias !1262, !nonnull !5, !noundef !5
-  %228 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %227, i64 %215
+  %228 = getelementptr inbounds [32 x i8], ptr %227, i64 %215
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 16
   %230 = load i64, ptr %229, align 8, !noalias !1221
   %231 = getelementptr inbounds nuw i8, ptr %228, i64 24
@@ -14235,9 +14235,9 @@ default.unreachable:                              ; preds = %106
   %305 = extractvalue { i64, i64 } %303, 1
   store i64 %304, ptr %100, align 8, !alias.scope !1283, !noalias !1286
   %306 = load ptr, ptr %105, align 8, !alias.scope !1283, !noalias !1286, !nonnull !5, !noundef !5
-  %307 = getelementptr inbounds { i8, [3 x i8] }, ptr %306, i64 %304
+  %307 = getelementptr inbounds [4 x i8], ptr %306, i64 %304
   %308 = sub i64 %302, %305
-  %309 = getelementptr inbounds { i8, [3 x i8] }, ptr %306, i64 %305
+  %309 = getelementptr inbounds [4 x i8], ptr %306, i64 %305
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1221
   store ptr %307, ptr %10, align 8, !noalias !1221
   store ptr %309, ptr %.sroa.063.sroa.2.0..sroa_idx.i, align 8, !noalias !1221
@@ -14261,7 +14261,7 @@ default.unreachable:                              ; preds = %106
   %316 = icmp ult i64 %314, %315
   call void @llvm.assume(i1 %316)
   %317 = load ptr, ptr %102, align 8, !alias.scope !1289, !noalias !1292, !nonnull !5, !noundef !5
-  %318 = getelementptr inbounds { i8, [3 x i8] }, ptr %317, i64 %314
+  %318 = getelementptr inbounds [4 x i8], ptr %317, i64 %314
   %.sroa.01.0.copyload.i.i233.i = load i32, ptr %318, align 1, !noalias !1296
   %.sroa.032.0.extract.trunc.i234.i = trunc i32 %.sroa.01.0.copyload.i.i233.i to i8
   %319 = add i8 %.sroa.032.0.extract.trunc.i234.i, -9
@@ -14285,7 +14285,7 @@ default.unreachable:                              ; preds = %106
 
 326:                                              ; preds = %.critedge.i242.i
   %327 = load ptr, ptr %65, align 8, !noalias !1292, !nonnull !5, !noundef !5
-  %328 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %327, i64 %325
+  %328 = getelementptr [32 x i8], ptr %327, i64 %325
   %329 = getelementptr i8, ptr %328, i64 -32
   %.not41.i244.i = icmp eq ptr %329, null
   br i1 %.not41.i244.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit246.i", label %330
@@ -14352,7 +14352,7 @@ default.unreachable:                              ; preds = %106
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit.i": ; preds = %.noexc.i, %339
   %344 = phi i64 [ %.pre.i.i, %.noexc.i ], [ %340, %339 ]
   %345 = load ptr, ptr %102, align 8, !alias.scope !1302, !noalias !1221, !nonnull !5, !noundef !5
-  %346 = getelementptr inbounds { i8, [3 x i8] }, ptr %345, i64 %344
+  %346 = getelementptr inbounds [4 x i8], ptr %345, i64 %344
   store i32 %.sroa.068.0.insert.insert.i, ptr %346, align 1, !noalias !1221
   %347 = load i64, ptr %17, align 8, !alias.scope !1302, !noalias !1221, !noundef !5
   %348 = add i64 %347, 1
@@ -14386,7 +14386,7 @@ default.unreachable:                              ; preds = %106
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h281960c6cdb8e011E.exit249.i": ; preds = %358, %354
   %359 = phi i64 [ %.pre.i248.i, %358 ], [ %355, %354 ]
   %360 = load ptr, ptr %105, align 8, !alias.scope !1306, !noalias !1221, !nonnull !5, !noundef !5
-  %361 = getelementptr inbounds { i8, [3 x i8] }, ptr %360, i64 %359
+  %361 = getelementptr inbounds [4 x i8], ptr %360, i64 %359
   store i32 %.sroa.0128.0.copyload461.i, ptr %361, align 1, !noalias !1221
   %362 = load i64, ptr %100, align 8, !alias.scope !1306, !noalias !1221, !noundef !5
   %363 = add i64 %362, 1
@@ -14573,7 +14573,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw i8, ptr %.val39.i, i64 152
   %30 = load ptr, ptr %29, align 8, !alias.scope !1333, !noalias !1336, !nonnull !5, !noundef !5
-  %31 = getelementptr inbounds { i8, [3 x i8] }, ptr %30, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %26
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %31, align 1, !noalias !1340
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %32 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -14602,7 +14602,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 42:                                               ; preds = %.critedge.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.val39.i, i64 128
   %44 = load ptr, ptr %43, align 8, !noalias !1336, !nonnull !5, !noundef !5
-  %45 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %44, i64 %41
+  %45 = getelementptr [32 x i8], ptr %44, i64 %41
   %46 = getelementptr i8, ptr %45, i64 -32
   %.not41.i.i = icmp eq ptr %46, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %47
@@ -14648,7 +14648,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %56 = phi i64 [ %.pre.i.i.i, %54 ], [ %52, %50 ]
   %57 = getelementptr inbounds nuw i8, ptr %.val39.i, i64 152
   %58 = load ptr, ptr %57, align 8, !alias.scope !1341, !noalias !1332, !nonnull !5, !noundef !5
-  %59 = getelementptr inbounds { i8, [3 x i8] }, ptr %58, i64 %56
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %56
   store i32 2, ptr %59, align 1, !noalias !1332
   %60 = load i64, ptr %22, align 8, !alias.scope !1341, !noalias !1332, !noundef !5
   %61 = add i64 %60, 1
@@ -15141,7 +15141,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds nuw i8, ptr %.val39.i, i64 152
   %30 = load ptr, ptr %29, align 8, !alias.scope !1422, !noalias !1425, !nonnull !5, !noundef !5
-  %31 = getelementptr inbounds { i8, [3 x i8] }, ptr %30, i64 %26
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %26
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %31, align 1, !noalias !1429
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %32 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -15170,7 +15170,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 42:                                               ; preds = %.critedge.i.i
   %43 = getelementptr inbounds nuw i8, ptr %.val39.i, i64 128
   %44 = load ptr, ptr %43, align 8, !noalias !1425, !nonnull !5, !noundef !5
-  %45 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %44, i64 %41
+  %45 = getelementptr [32 x i8], ptr %44, i64 %41
   %46 = getelementptr i8, ptr %45, i64 -32
   %.not41.i.i = icmp eq ptr %46, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %47
@@ -15216,7 +15216,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %56 = phi i64 [ %.pre.i.i.i, %54 ], [ %52, %50 ]
   %57 = getelementptr inbounds nuw i8, ptr %.val39.i, i64 152
   %58 = load ptr, ptr %57, align 8, !alias.scope !1430, !noalias !1421, !nonnull !5, !noundef !5
-  %59 = getelementptr inbounds { i8, [3 x i8] }, ptr %58, i64 %56
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %56
   store i32 3, ptr %59, align 1, !noalias !1421
   %60 = load i64, ptr %22, align 8, !alias.scope !1430, !noalias !1421, !noundef !5
   %61 = add i64 %60, 1
@@ -15785,7 +15785,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !1535, !noalias !1538, !nonnull !5, !noundef !5
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %22, align 1, !noalias !1539
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -15814,7 +15814,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 33:                                               ; preds = %.critedge.i.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !1538, !nonnull !5, !noundef !5
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i.i = icmp eq ptr %37, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %38
@@ -15860,7 +15860,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %47 = phi i64 [ %.pre.i.i.i, %45 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !1540, !noalias !1526, !nonnull !5, !noundef !5
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 0, ptr %50, align 1, !noalias !1526
   %51 = load i64, ptr %13, align 8, !alias.scope !1540, !noalias !1526, !noundef !5
   %52 = add i64 %51, 1
@@ -16009,7 +16009,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %19)
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %21 = load ptr, ptr %20, align 8, !alias.scope !1573, !noalias !1576, !nonnull !5, !noundef !5
-  %22 = getelementptr inbounds { i8, [3 x i8] }, ptr %21, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %17
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %22, align 1, !noalias !1577
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %23 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -16038,7 +16038,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 33:                                               ; preds = %.critedge.i.i
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %35 = load ptr, ptr %34, align 8, !noalias !1576, !nonnull !5, !noundef !5
-  %36 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %35, i64 %32
+  %36 = getelementptr [32 x i8], ptr %35, i64 %32
   %37 = getelementptr i8, ptr %36, i64 -32
   %.not41.i.i = icmp eq ptr %37, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %38
@@ -16084,7 +16084,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %47 = phi i64 [ %.pre.i.i.i, %45 ], [ %43, %41 ]
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !1578, !noalias !1564, !nonnull !5, !noundef !5
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 1, ptr %50, align 1, !noalias !1564
   %51 = load i64, ptr %13, align 8, !alias.scope !1578, !noalias !1564, !noundef !5
   %52 = add i64 %51, 1
@@ -16352,7 +16352,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 29:                                               ; preds = %22
   %30 = getelementptr inbounds nuw i8, ptr %.val33.i, i64 144
   %31 = load ptr, ptr %30, align 8, !noalias !1626, !nonnull !5, !noundef !5
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %27
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %27
   %33 = load i32, ptr %32, align 4, !noalias !1626, !noundef !5
   %34 = getelementptr inbounds nuw i8, ptr %.val33.i, i64 32
   %35 = load i64, ptr %34, align 8, !noalias !1626, !noundef !5
@@ -16363,7 +16363,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 "_ZN110_$LT$wasmparser..validator..core..ValidatorResources$u20$as$u20$wasmparser..resources..WasmModuleResources$GT$19type_id_of_function17h18335f668f023c7bE.exit.i": ; preds = %29
   %38 = getelementptr inbounds nuw i8, ptr %.val33.i, i64 24
   %39 = load ptr, ptr %38, align 8, !noalias !1626, !nonnull !5, !noundef !5
-  %40 = getelementptr inbounds nuw { i32 }, ptr %39, i64 %36
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %36
   %.sroa.017.0.copyload.i.i = load i32, ptr %40, align 4, !noalias !1626
   %41 = tail call noundef zeroext i1 @"_ZN110_$LT$wasmparser..validator..core..ValidatorResources$u20$as$u20$wasmparser..resources..WasmModuleResources$GT$22is_function_referenced17hfadeb289627576b5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %24, i32 noundef %1), !noalias !1626
   br i1 %41, label %54, label %48
@@ -16430,7 +16430,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %65 = phi i64 [ %.pre.i.i.i, %64 ], [ %61, %58 ]
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %67 = load ptr, ptr %66, align 8, !alias.scope !1635, !noalias !1626, !nonnull !5, !noundef !5
-  %68 = getelementptr inbounds { i8, [3 x i8] }, ptr %67, i64 %65
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %65
   store i32 %.sroa.04.0.insert.insert.i, ptr %68, align 1, !noalias !1626
   %69 = load i64, ptr %60, align 8, !alias.scope !1635, !noalias !1626, !noundef !5
   %70 = add i64 %69, 1
@@ -16549,7 +16549,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %42 = phi i64 [ %.pre.i.i.i, %41 ], [ %38, %35 ]
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %44 = load ptr, ptr %43, align 8, !alias.scope !1650, !noalias !1647, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds { i8, [3 x i8] }, ptr %44, i64 %42
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %42
   store i32 %.sroa.014.0.insert.insert.i, ptr %45, align 1, !noalias !1647
   %46 = load i64, ptr %37, align 8, !alias.scope !1650, !noalias !1647, !noundef !5
   %47 = add i64 %46, 1
@@ -16673,7 +16673,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !1674, !noalias !1677, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !1681
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -16692,7 +16692,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !1677, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -16738,7 +16738,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !1682, !noalias !1671, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !1671
   %53 = load i64, ptr %19, align 8, !alias.scope !1682, !noalias !1671, !noundef !5
   %54 = add i64 %53, 1
@@ -16936,7 +16936,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %59)
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %61 = load ptr, ptr %60, align 8, !alias.scope !1712, !noalias !1715, !nonnull !5, !noundef !5
-  %62 = getelementptr inbounds { i8, [3 x i8] }, ptr %61, i64 %57
+  %62 = getelementptr inbounds [4 x i8], ptr %61, i64 %57
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %62, align 1, !noalias !1719
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %63 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -16955,7 +16955,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %71 = load ptr, ptr %70, align 8, !noalias !1715, !nonnull !5, !noundef !5
-  %72 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %71, i64 %68
+  %72 = getelementptr [32 x i8], ptr %71, i64 %68
   %73 = getelementptr i8, ptr %72, i64 -32
   %.not41.i.i = icmp eq ptr %73, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %74
@@ -17020,7 +17020,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %93 = phi i64 [ %.pre.i.i.i, %92 ], [ %89, %87 ]
   %94 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %95 = load ptr, ptr %94, align 8, !alias.scope !1720, !noalias !1703, !nonnull !5, !noundef !5
-  %96 = getelementptr inbounds { i8, [3 x i8] }, ptr %95, i64 %93
+  %96 = getelementptr inbounds [4 x i8], ptr %95, i64 %93
   store i32 %.sroa.05.0.copyload.i, ptr %96, align 1, !noalias !1703
   %97 = load i64, ptr %53, align 8, !alias.scope !1720, !noalias !1703, !noundef !5
   %98 = add i64 %97, 1
@@ -17090,7 +17090,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !1735, !noalias !1738, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !1742
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -17112,7 +17112,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %.critedge.i.i
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !1738, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -17158,7 +17158,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !1743, !noalias !1732, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !1732
   %53 = load i64, ptr %19, align 8, !alias.scope !1743, !noalias !1732, !noundef !5
   %54 = add i64 %53, 1
@@ -17299,7 +17299,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %55)
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %57 = load ptr, ptr %56, align 8, !alias.scope !1764, !noalias !1767, !nonnull !5, !noundef !5
-  %58 = getelementptr inbounds { i8, [3 x i8] }, ptr %57, i64 %53
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %53
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %58, align 1, !noalias !1771
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %59 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -17318,7 +17318,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %67 = load ptr, ptr %66, align 8, !noalias !1767, !nonnull !5, !noundef !5
-  %68 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %67, i64 %64
+  %68 = getelementptr [32 x i8], ptr %67, i64 %64
   %69 = getelementptr i8, ptr %68, i64 -32
   %.not41.i.i = icmp eq ptr %69, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %70
@@ -17366,7 +17366,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %83)
   %84 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %85 = load ptr, ptr %84, align 8, !alias.scope !1773, !noalias !1776, !nonnull !5, !noundef !5
-  %86 = getelementptr inbounds { i8, [3 x i8] }, ptr %85, i64 %81
+  %86 = getelementptr inbounds [4 x i8], ptr %85, i64 %81
   %.sroa.01.0.copyload.i.i45.i = load i32, ptr %86, align 1, !noalias !1780
   %.sroa.032.0.extract.trunc.i46.i = trunc i32 %.sroa.01.0.copyload.i.i45.i to i8
   %87 = add i8 %.sroa.032.0.extract.trunc.i46.i, -9
@@ -17395,7 +17395,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 97:                                               ; preds = %.critedge.i.i
   %98 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %99 = load ptr, ptr %98, align 8, !noalias !1776, !nonnull !5, !noundef !5
-  %100 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %99, i64 %96
+  %100 = getelementptr [32 x i8], ptr %99, i64 %96
   %101 = getelementptr i8, ptr %100, i64 -32
   %.not41.i52.i = icmp eq ptr %101, null
   br i1 %.not41.i52.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit54.i", label %102
@@ -17606,7 +17606,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %76)
   %77 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %78 = load ptr, ptr %77, align 8, !alias.scope !1799, !noalias !1802, !nonnull !5, !noundef !5
-  %79 = getelementptr inbounds { i8, [3 x i8] }, ptr %78, i64 %74
+  %79 = getelementptr inbounds [4 x i8], ptr %78, i64 %74
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %79, align 1, !noalias !1806
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %80 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -17635,7 +17635,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 90:                                               ; preds = %.critedge.i.i
   %91 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %92 = load ptr, ptr %91, align 8, !noalias !1802, !nonnull !5, !noundef !5
-  %93 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %92, i64 %89
+  %93 = getelementptr [32 x i8], ptr %92, i64 %89
   %94 = getelementptr i8, ptr %93, i64 -32
   %.not41.i.i = icmp eq ptr %94, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %95
@@ -17679,7 +17679,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %104)
   %105 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %106 = load ptr, ptr %105, align 8, !alias.scope !1807, !noalias !1810, !nonnull !5, !noundef !5
-  %107 = getelementptr inbounds { i8, [3 x i8] }, ptr %106, i64 %102
+  %107 = getelementptr inbounds [4 x i8], ptr %106, i64 %102
   %.sroa.01.0.copyload.i.i51.i = load i32, ptr %107, align 1, !noalias !1814
   %.sroa.032.0.extract.trunc.i52.i = trunc i32 %.sroa.01.0.copyload.i.i51.i to i8
   %108 = add i8 %.sroa.032.0.extract.trunc.i52.i, -9
@@ -17698,7 +17698,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 114:                                              ; preds = %111
   %115 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %116 = load ptr, ptr %115, align 8, !noalias !1810, !nonnull !5, !noundef !5
-  %117 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %116, i64 %113
+  %117 = getelementptr [32 x i8], ptr %116, i64 %113
   %118 = getelementptr i8, ptr %117, i64 -32
   %.not41.i61.i = icmp eq ptr %118, null
   br i1 %.not41.i61.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit63.i", label %119
@@ -18030,7 +18030,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %17 = phi i64 [ %.pre.i.i.i, %16 ], [ %13, %10 ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.val, i64 152
   %19 = load ptr, ptr %18, align 8, !alias.scope !1855, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds { i8, [3 x i8] }, ptr %19, i64 %17
+  %20 = getelementptr inbounds [4 x i8], ptr %19, i64 %17
   store i32 2, ptr %20, align 1
   %21 = load i64, ptr %12, align 8, !alias.scope !1855, !noundef !5
   %22 = add i64 %21, 1
@@ -18104,7 +18104,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %29)
   %30 = getelementptr inbounds nuw i8, ptr %.val45.i, i64 152
   %31 = load ptr, ptr %30, align 8, !alias.scope !1864, !noalias !1867, !nonnull !5, !noundef !5
-  %32 = getelementptr inbounds { i8, [3 x i8] }, ptr %31, i64 %27
+  %32 = getelementptr inbounds [4 x i8], ptr %31, i64 %27
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %32, align 1, !noalias !1871
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %33 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -18123,7 +18123,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %.val45.i, i64 128
   %41 = load ptr, ptr %40, align 8, !noalias !1867, !nonnull !5, !noundef !5
-  %42 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %41, i64 %38
+  %42 = getelementptr [32 x i8], ptr %41, i64 %38
   %43 = getelementptr i8, ptr %42, i64 -32
   %.not41.i.i = icmp eq ptr %43, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %44
@@ -18167,7 +18167,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %53)
   %54 = getelementptr inbounds nuw i8, ptr %.val45.i, i64 152
   %55 = load ptr, ptr %54, align 8, !alias.scope !1872, !noalias !1875, !nonnull !5, !noundef !5
-  %56 = getelementptr inbounds { i8, [3 x i8] }, ptr %55, i64 %51
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %51
   %.sroa.01.0.copyload.i.i48.i = load i32, ptr %56, align 1, !noalias !1879
   %.sroa.032.0.extract.trunc.i49.i = trunc i32 %.sroa.01.0.copyload.i.i48.i to i8
   %57 = add i8 %.sroa.032.0.extract.trunc.i49.i, -9
@@ -18206,7 +18206,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 69:                                               ; preds = %.critedge.i.i
   %70 = getelementptr inbounds nuw i8, ptr %.val45.i, i64 128
   %71 = load ptr, ptr %70, align 8, !noalias !1875, !nonnull !5, !noundef !5
-  %72 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %71, i64 %68
+  %72 = getelementptr [32 x i8], ptr %71, i64 %68
   %73 = getelementptr i8, ptr %72, i64 -32
   %.not41.i56.i = icmp eq ptr %73, null
   br i1 %.not41.i56.i, label %.critedge45.i52.i, label %74
@@ -18786,7 +18786,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %17 = phi i64 [ %.pre.i.i.i, %16 ], [ %13, %10 ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.val, i64 152
   %19 = load ptr, ptr %18, align 8, !alias.scope !1970, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds { i8, [3 x i8] }, ptr %19, i64 %17
+  %20 = getelementptr inbounds [4 x i8], ptr %19, i64 %17
   store i32 3, ptr %20, align 1
   %21 = load i64, ptr %12, align 8, !alias.scope !1970, !noundef !5
   %22 = add i64 %21, 1
@@ -18860,7 +18860,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %29)
   %30 = getelementptr inbounds nuw i8, ptr %.val45.i, i64 152
   %31 = load ptr, ptr %30, align 8, !alias.scope !1979, !noalias !1982, !nonnull !5, !noundef !5
-  %32 = getelementptr inbounds { i8, [3 x i8] }, ptr %31, i64 %27
+  %32 = getelementptr inbounds [4 x i8], ptr %31, i64 %27
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %32, align 1, !noalias !1986
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %33 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -18879,7 +18879,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %.val45.i, i64 128
   %41 = load ptr, ptr %40, align 8, !noalias !1982, !nonnull !5, !noundef !5
-  %42 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %41, i64 %38
+  %42 = getelementptr [32 x i8], ptr %41, i64 %38
   %43 = getelementptr i8, ptr %42, i64 -32
   %.not41.i.i = icmp eq ptr %43, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %44
@@ -18923,7 +18923,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %53)
   %54 = getelementptr inbounds nuw i8, ptr %.val45.i, i64 152
   %55 = load ptr, ptr %54, align 8, !alias.scope !1987, !noalias !1990, !nonnull !5, !noundef !5
-  %56 = getelementptr inbounds { i8, [3 x i8] }, ptr %55, i64 %51
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %51
   %.sroa.01.0.copyload.i.i48.i = load i32, ptr %56, align 1, !noalias !1994
   %.sroa.032.0.extract.trunc.i49.i = trunc i32 %.sroa.01.0.copyload.i.i48.i to i8
   %57 = add i8 %.sroa.032.0.extract.trunc.i49.i, -9
@@ -18962,7 +18962,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 69:                                               ; preds = %.critedge.i.i
   %70 = getelementptr inbounds nuw i8, ptr %.val45.i, i64 128
   %71 = load ptr, ptr %70, align 8, !noalias !1990, !nonnull !5, !noundef !5
-  %72 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %71, i64 %68
+  %72 = getelementptr [32 x i8], ptr %71, i64 %68
   %73 = getelementptr i8, ptr %72, i64 -32
   %.not41.i56.i = icmp eq ptr %73, null
   br i1 %.not41.i56.i, label %.critedge45.i52.i, label %74
@@ -19558,7 +19558,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !2097, !noalias !2100, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !2104
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -19577,7 +19577,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !2100, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -19623,7 +19623,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !2105, !noalias !2094, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !2094
   %53 = load i64, ptr %19, align 8, !alias.scope !2105, !noalias !2094, !noundef !5
   %54 = add i64 %53, 1
@@ -19791,7 +19791,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !2138, !noalias !2141, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !2145
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -19810,7 +19810,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !2141, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -19856,7 +19856,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !2146, !noalias !2135, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !2135
   %53 = load i64, ptr %19, align 8, !alias.scope !2146, !noalias !2135, !noundef !5
   %54 = add i64 %53, 1
@@ -20024,7 +20024,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !2179, !noalias !2182, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !2186
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -20046,7 +20046,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %.critedge.i.i
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !2182, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -20092,7 +20092,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !2187, !noalias !2176, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !2176
   %53 = load i64, ptr %19, align 8, !alias.scope !2187, !noalias !2176, !noundef !5
   %54 = add i64 %53, 1
@@ -20162,7 +20162,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !2202, !noalias !2205, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !2209
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -20184,7 +20184,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %.critedge.i.i
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !2205, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -20230,7 +20230,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !2210, !noalias !2199, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !2199
   %53 = load i64, ptr %19, align 8, !alias.scope !2210, !noalias !2199, !noundef !5
   %54 = add i64 %53, 1
@@ -20261,7 +20261,7 @@ define internal fastcc void @"_ZN136_$LT$wasmparser..validator..operators..WasmP
   %7 = phi i64 [ %.pre.i.i.i, %6 ], [ %3, %0 ]
   %8 = getelementptr inbounds nuw i8, ptr %.0.val, i64 152
   %9 = load ptr, ptr %8, align 8, !alias.scope !2213, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds { i8, [3 x i8] }, ptr %9, i64 %7
+  %10 = getelementptr inbounds [4 x i8], ptr %9, i64 %7
   store i32 0, ptr %10, align 1
   %11 = load i64, ptr %2, align 8, !alias.scope !2213, !noundef !5
   %12 = add i64 %11, 1
@@ -20309,7 +20309,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !2228, !noalias !2231, !nonnull !5, !noundef !5
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %23, align 1, !noalias !2232
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -20328,7 +20328,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !2231, !nonnull !5, !noundef !5
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i.i = icmp eq ptr %34, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %35
@@ -20372,7 +20372,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !2233, !noalias !2236, !nonnull !5, !noundef !5
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i39.i = load i32, ptr %47, align 1, !noalias !2240
   %.sroa.032.0.extract.trunc.i40.i = trunc i32 %.sroa.01.0.copyload.i.i39.i to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i40.i, -9
@@ -20411,7 +20411,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 60:                                               ; preds = %.critedge.i.i
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !2236, !nonnull !5, !noundef !5
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i46.i = icmp eq ptr %64, null
   br i1 %.not41.i46.i, label %.critedge45.i43.i, label %65
@@ -20489,7 +20489,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !2253, !noalias !2256, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !2260
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -20508,7 +20508,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !2256, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -20554,7 +20554,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !2261, !noalias !2250, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !2250
   %53 = load i64, ptr %19, align 8, !alias.scope !2261, !noalias !2250, !noundef !5
   %54 = add i64 %53, 1
@@ -20722,7 +20722,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !2294, !noalias !2297, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !2301
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -20741,7 +20741,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !2297, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -20787,7 +20787,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !2302, !noalias !2291, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !2291
   %53 = load i64, ptr %19, align 8, !alias.scope !2302, !noalias !2291, !noundef !5
   %54 = add i64 %53, 1
@@ -20916,7 +20916,7 @@ define internal fastcc void @"_ZN136_$LT$wasmparser..validator..operators..WasmP
   %7 = phi i64 [ %.pre.i.i.i, %6 ], [ %3, %0 ]
   %8 = getelementptr inbounds nuw i8, ptr %.0.val, i64 152
   %9 = load ptr, ptr %8, align 8, !alias.scope !2323, !nonnull !5, !noundef !5
-  %10 = getelementptr inbounds { i8, [3 x i8] }, ptr %9, i64 %7
+  %10 = getelementptr inbounds [4 x i8], ptr %9, i64 %7
   store i32 1, ptr %10, align 1
   %11 = load i64, ptr %2, align 8, !alias.scope !2323, !noundef !5
   %12 = add i64 %11, 1
@@ -20964,7 +20964,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !2338, !noalias !2341, !nonnull !5, !noundef !5
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %23, align 1, !noalias !2342
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -20983,7 +20983,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !2341, !nonnull !5, !noundef !5
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i.i = icmp eq ptr %34, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %35
@@ -21027,7 +21027,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !2343, !noalias !2346, !nonnull !5, !noundef !5
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i39.i = load i32, ptr %47, align 1, !noalias !2350
   %.sroa.032.0.extract.trunc.i40.i = trunc i32 %.sroa.01.0.copyload.i.i39.i to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i40.i, -9
@@ -21066,7 +21066,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 60:                                               ; preds = %.critedge.i.i
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !2346, !nonnull !5, !noundef !5
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i47.i = icmp eq ptr %64, null
   br i1 %.not41.i47.i, label %.critedge45.i43.i, label %65
@@ -21144,7 +21144,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !2363, !noalias !2366, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !2370
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -21163,7 +21163,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !2366, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -21209,7 +21209,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !2371, !noalias !2360, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !2360
   %53 = load i64, ptr %19, align 8, !alias.scope !2371, !noalias !2360, !noundef !5
   %54 = add i64 %53, 1
@@ -21377,7 +21377,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !2404, !noalias !2407, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !2411
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -21396,7 +21396,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !2407, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -21442,7 +21442,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !2412, !noalias !2401, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !2401
   %53 = load i64, ptr %19, align 8, !alias.scope !2412, !noalias !2401, !noundef !5
   %54 = add i64 %53, 1
@@ -21610,7 +21610,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !2445, !noalias !2448, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !2452
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -21629,7 +21629,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !2448, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -21675,7 +21675,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !2453, !noalias !2442, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !2442
   %53 = load i64, ptr %19, align 8, !alias.scope !2453, !noalias !2442, !noundef !5
   %54 = add i64 %53, 1
@@ -21794,7 +21794,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !2477, !noalias !2480, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !2484
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -21813,7 +21813,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !2480, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -21859,7 +21859,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !2485, !noalias !2474, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !2474
   %53 = load i64, ptr %19, align 8, !alias.scope !2485, !noalias !2474, !noundef !5
   %54 = add i64 %53, 1
@@ -21997,7 +21997,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %16 = load ptr, ptr %15, align 8, !alias.scope !2509, !noalias !2506, !nonnull !5
-  %17 = getelementptr inbounds nuw { i8, [3 x i8] }, ptr %16, i64 %10
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %10
   %.sroa.03.0.copyload.i.i.i = load i32, ptr %17, align 1, !noalias !2512
   br label %_ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i.i
 
@@ -22084,7 +22084,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i.i: ; p
   %52 = phi i64 [ %.pre.i.i.i, %51 ], [ %48, %45 ]
   %53 = getelementptr inbounds nuw i8, ptr %.0.val, i64 152
   %54 = load ptr, ptr %53, align 8, !alias.scope !2525, !nonnull !5, !noundef !5
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %52
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %52
   store i32 %.sroa.0.0.i.i.i, ptr %55, align 1
   %56 = load i64, ptr %47, align 8, !alias.scope !2525, !noundef !5
   %57 = add i64 %56, 1
@@ -22124,7 +22124,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   %16 = load ptr, ptr %15, align 8, !alias.scope !2534, !noalias !2531, !nonnull !5
-  %17 = getelementptr inbounds nuw { i8, [3 x i8] }, ptr %16, i64 %10
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %10
   %.sroa.03.0.copyload.i.i.i = load i32, ptr %17, align 1, !noalias !2537
   br label %_ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i.i
 
@@ -22152,7 +22152,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i.i: ; p
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds nuw i8, ptr %.val.i, i64 152
   %29 = load ptr, ptr %28, align 8, !alias.scope !2538, !noalias !2541, !nonnull !5, !noundef !5
-  %30 = getelementptr inbounds { i8, [3 x i8] }, ptr %29, i64 %25
+  %30 = getelementptr inbounds [4 x i8], ptr %29, i64 %25
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %30, align 1, !noalias !2545
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %31 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -22178,7 +22178,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i.i: ; p
 39:                                               ; preds = %.critedge.i.i
   %40 = getelementptr inbounds nuw i8, ptr %.val.i, i64 128
   %41 = load ptr, ptr %40, align 8, !noalias !2541, !nonnull !5, !noundef !5
-  %42 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %41, i64 %38
+  %42 = getelementptr [32 x i8], ptr %41, i64 %38
   %43 = getelementptr i8, ptr %42, i64 -32
   %.not41.i.i = icmp eq ptr %43, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %44
@@ -22259,7 +22259,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i.i: ; p
   %72 = phi i64 [ %.pre.i.i, %71 ], [ %68, %65 ]
   %73 = getelementptr inbounds nuw i8, ptr %.val.i, i64 176
   %74 = load ptr, ptr %73, align 8, !alias.scope !2552, !noalias !2528, !nonnull !5, !noundef !5
-  %75 = getelementptr inbounds i32, ptr %74, i64 %72
+  %75 = getelementptr inbounds [4 x i8], ptr %74, i64 %72
   store i32 %1, ptr %75, align 4, !noalias !2528
   %76 = load i64, ptr %67, align 8, !alias.scope !2552, !noalias !2528, !noundef !5
   %77 = add i64 %76, 1
@@ -22298,7 +22298,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %.val39.i, i64 24
   %16 = load ptr, ptr %15, align 8, !alias.scope !2561, !noalias !2558, !nonnull !5
-  %17 = getelementptr inbounds nuw { i8, [3 x i8] }, ptr %16, i64 %10
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %10
   %.sroa.03.0.copyload.i.i.i = load i32, ptr %17, align 1, !noalias !2564
   br label %_ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i.i
 
@@ -22326,7 +22326,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i.i: ; p
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds nuw i8, ptr %.val39.i, i64 152
   %29 = load ptr, ptr %28, align 8, !alias.scope !2565, !noalias !2568, !nonnull !5, !noundef !5
-  %30 = getelementptr inbounds { i8, [3 x i8] }, ptr %29, i64 %25
+  %30 = getelementptr inbounds [4 x i8], ptr %29, i64 %25
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %30, align 1, !noalias !2572
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %31 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -22352,7 +22352,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i.i: ; p
 39:                                               ; preds = %.critedge.i.i
   %40 = getelementptr inbounds nuw i8, ptr %.val39.i, i64 128
   %41 = load ptr, ptr %40, align 8, !noalias !2568, !nonnull !5, !noundef !5
-  %42 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %41, i64 %38
+  %42 = getelementptr [32 x i8], ptr %41, i64 %38
   %43 = getelementptr i8, ptr %42, i64 -32
   %.not41.i.i = icmp eq ptr %43, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %44
@@ -22436,7 +22436,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i.i: ; p
   %72 = phi i64 [ %.pre.i.i, %71 ], [ %68, %65 ]
   %73 = getelementptr inbounds nuw i8, ptr %.val39.i, i64 176
   %74 = load ptr, ptr %73, align 8, !alias.scope !2579, !noalias !2555, !nonnull !5, !noundef !5
-  %75 = getelementptr inbounds i32, ptr %74, i64 %72
+  %75 = getelementptr inbounds [4 x i8], ptr %74, i64 %72
   store i32 %1, ptr %75, align 4, !noalias !2555
   %76 = load i64, ptr %67, align 8, !alias.scope !2579, !noalias !2555, !noundef !5
   %77 = add i64 %76, 1
@@ -22459,7 +22459,7 @@ _ZN10wasmparser9validator9operators6Locals3get17hb503a9c89e1a3beeE.exit.i.i: ; p
   %84 = phi i64 [ %.pre.i.i.i, %83 ], [ %80, %78 ]
   %85 = getelementptr inbounds nuw i8, ptr %.val39.i, i64 152
   %86 = load ptr, ptr %85, align 8, !alias.scope !2582, !noalias !2555, !nonnull !5, !noundef !5
-  %87 = getelementptr inbounds { i8, [3 x i8] }, ptr %86, i64 %84
+  %87 = getelementptr inbounds [4 x i8], ptr %86, i64 %84
   store i32 %.sroa.020.0.copyload60.i, ptr %87, align 1, !noalias !2555
   %88 = load i64, ptr %21, align 8, !alias.scope !2582, !noalias !2555, !noundef !5
   %89 = add i64 %88, 1
@@ -22560,7 +22560,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %40)
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %42 = load ptr, ptr %41, align 8, !alias.scope !2597, !noalias !2600, !nonnull !5, !noundef !5
-  %43 = getelementptr inbounds { i8, [3 x i8] }, ptr %42, i64 %38
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %38
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %43, align 1, !noalias !2604
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %44 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -22579,7 +22579,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %52 = load ptr, ptr %51, align 8, !noalias !2600, !nonnull !5, !noundef !5
-  %53 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %52, i64 %49
+  %53 = getelementptr [32 x i8], ptr %52, i64 %49
   %54 = getelementptr i8, ptr %53, i64 -32
   %.not41.i.i = icmp eq ptr %54, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %55
@@ -22628,7 +22628,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %64 = phi i64 [ %.pre.i.i.i, %62 ], [ %60, %58 ]
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %66 = load ptr, ptr %65, align 8, !alias.scope !2605, !noalias !2594, !nonnull !5, !noundef !5
-  %67 = getelementptr inbounds { i8, [3 x i8] }, ptr %66, i64 %64
+  %67 = getelementptr inbounds [4 x i8], ptr %66, i64 %64
   store i32 %.sroa.0.0.insert.insert.i, ptr %67, align 1, !noalias !2594
   %68 = load i64, ptr %34, align 8, !alias.scope !2605, !noalias !2594, !noundef !5
   %69 = add i64 %68, 1
@@ -22733,7 +22733,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %43 = load ptr, ptr %42, align 8, !alias.scope !2620, !noalias !2623, !nonnull !5, !noundef !5
-  %44 = getelementptr inbounds { i8, [3 x i8] }, ptr %43, i64 %39
+  %44 = getelementptr inbounds [4 x i8], ptr %43, i64 %39
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %44, align 1, !noalias !2627
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %45 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -22755,7 +22755,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 51:                                               ; preds = %.critedge.i.i
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %53 = load ptr, ptr %52, align 8, !noalias !2623, !nonnull !5, !noundef !5
-  %54 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %53, i64 %50
+  %54 = getelementptr [32 x i8], ptr %53, i64 %50
   %55 = getelementptr i8, ptr %54, i64 -32
   %.not41.i.i = icmp eq ptr %55, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %56
@@ -22799,7 +22799,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %65)
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %67 = load ptr, ptr %66, align 8, !alias.scope !2628, !noalias !2631, !nonnull !5, !noundef !5
-  %68 = getelementptr inbounds { i8, [3 x i8] }, ptr %67, i64 %63
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %63
   %.sroa.01.0.copyload.i.i32.i = load i32, ptr %68, align 1, !noalias !2635
   %.sroa.032.0.extract.trunc.i33.i = trunc i32 %.sroa.01.0.copyload.i.i32.i to i8
   %69 = add i8 %.sroa.032.0.extract.trunc.i33.i, -9
@@ -22828,7 +22828,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %79 = load ptr, ptr %78, align 8, !noalias !2631, !nonnull !5, !noundef !5
-  %80 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %79, i64 %76
+  %80 = getelementptr [32 x i8], ptr %79, i64 %76
   %81 = getelementptr i8, ptr %80, i64 -32
   %.not41.i41.i = icmp eq ptr %81, null
   br i1 %.not41.i41.i, label %.critedge45.i36.i, label %82
@@ -22906,7 +22906,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !2648, !noalias !2651, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !2655
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -22928,7 +22928,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %.critedge.i.i
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !2651, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -22962,7 +22962,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %45 = phi i64 [ %34, %.thread ], [ %.pre, %43 ]
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %47 = load ptr, ptr %46, align 8, !noalias !2645, !nonnull !5, !noundef !5
-  %48 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %47, i64 %45
+  %48 = getelementptr [32 x i8], ptr %47, i64 %45
   %49 = getelementptr i8, ptr %48, i64 -32
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.thread.i.i, label %52
@@ -23126,7 +23126,7 @@ default.unreachable.i:                            ; preds = %"_ZN103_$LT$alloc..
   %76 = icmp ult i64 %74, %75
   call void @llvm.assume(i1 %76)
   %77 = load ptr, ptr %64, align 8, !alias.scope !2674, !noalias !2677, !nonnull !5, !noundef !5
-  %78 = getelementptr inbounds { i8, [3 x i8] }, ptr %77, i64 %74
+  %78 = getelementptr inbounds [4 x i8], ptr %77, i64 %74
   %.sroa.01.0.copyload.i.i.us.i = load i32, ptr %78, align 1, !noalias !2681
   %.sroa.032.0.extract.trunc.i.us.i = trunc i32 %.sroa.01.0.copyload.i.i.us.i to i8
   %79 = add i8 %.sroa.032.0.extract.trunc.i.us.i, -9
@@ -23150,7 +23150,7 @@ default.unreachable.i:                            ; preds = %"_ZN103_$LT$alloc..
 
 86:                                               ; preds = %.critedge.i.us.i
   %87 = load ptr, ptr %66, align 8, !noalias !2677, !nonnull !5, !noundef !5
-  %88 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %87, i64 %85
+  %88 = getelementptr [32 x i8], ptr %87, i64 %85
   %89 = getelementptr i8, ptr %88, i64 -32
   %.not41.i.us.i = icmp eq ptr %89, null
   br i1 %.not41.i.us.i, label %.critedge45.i.us.i, label %90
@@ -23207,7 +23207,7 @@ default.unreachable.i:                            ; preds = %"_ZN103_$LT$alloc..
   %103 = icmp ult i64 %101, %102
   call void @llvm.assume(i1 %103)
   %104 = load ptr, ptr %64, align 8, !alias.scope !2674, !noalias !2677, !nonnull !5, !noundef !5
-  %105 = getelementptr inbounds { i8, [3 x i8] }, ptr %104, i64 %101
+  %105 = getelementptr inbounds [4 x i8], ptr %104, i64 %101
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %105, align 1, !noalias !2681
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %106 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -23247,7 +23247,7 @@ default.unreachable.i:                            ; preds = %"_ZN103_$LT$alloc..
 
 116:                                              ; preds = %.critedge.i.i
   %117 = load ptr, ptr %66, align 8, !noalias !2677, !nonnull !5, !noundef !5
-  %118 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %117, i64 %115
+  %118 = getelementptr [32 x i8], ptr %117, i64 %115
   %119 = getelementptr i8, ptr %118, i64 -32
   %.not41.i.i = icmp eq ptr %119, null
   br i1 %.not41.i.i, label %.critedge45.i.i, label %120
@@ -23531,7 +23531,7 @@ default.unreachable.i:                            ; preds = %"_ZN103_$LT$alloc..
 
 210:                                              ; preds = %203
   %211 = load ptr, ptr %66, align 8, !noalias !2713, !nonnull !5, !noundef !5
-  %212 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %211, i64 %194
+  %212 = getelementptr inbounds [32 x i8], ptr %211, i64 %194
   %213 = getelementptr i8, ptr %212, i64 16
   %214 = load i64, ptr %213, align 8, !noalias !2668
   %215 = getelementptr inbounds nuw i8, ptr %212, i64 24
@@ -23624,7 +23624,7 @@ default.unreachable.i:                            ; preds = %"_ZN103_$LT$alloc..
           to label %304 unwind label %.loopexit.split-lp.loopexit.split-lp.i, !noalias !2668
 
 245:                                              ; preds = %"_ZN123_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..exact_size..ExactSizeIterator$GT$3len17haa85b2a523224116E.exit.i"
-  %246 = getelementptr inbounds nuw { i8, [3 x i8] }, ptr %204, i64 %208
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %204, i64 %208
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %245
@@ -23735,7 +23735,7 @@ default.unreachable.i:                            ; preds = %"_ZN103_$LT$alloc..
 278:                                              ; preds = %.noexc367.i, %270
   %279 = phi i64 [ %.pre.i.i.i, %.noexc367.i ], [ %271, %270 ]
   %280 = load ptr, ptr %64, align 8, !alias.scope !2735, !noalias !2668, !nonnull !5, !noundef !5
-  %281 = getelementptr inbounds { i8, [3 x i8] }, ptr %280, i64 %279
+  %281 = getelementptr inbounds [4 x i8], ptr %280, i64 %279
   store i32 %.sroa.067.0.copyload.i, ptr %281, align 1, !noalias !2668
   %282 = load i64, ptr %62, align 8, !alias.scope !2735, !noalias !2668, !noundef !5
   %283 = add i64 %282, 1
@@ -23751,7 +23751,7 @@ default.unreachable.i:                            ; preds = %"_ZN103_$LT$alloc..
   %286 = icmp ult i64 %282, %285
   call void @llvm.assume(i1 %286)
   %287 = load ptr, ptr %64, align 8, !alias.scope !2740, !noalias !2743, !nonnull !5, !noundef !5
-  %288 = getelementptr inbounds { i8, [3 x i8] }, ptr %287, i64 %282
+  %288 = getelementptr inbounds [4 x i8], ptr %287, i64 %282
   %.sroa.01.0.copyload.i.i369.i = load i32, ptr %288, align 1, !noalias !2747
   %.sroa.032.0.extract.trunc.i370.i = trunc i32 %.sroa.01.0.copyload.i.i369.i to i8
   %289 = add i8 %.sroa.032.0.extract.trunc.i370.i, -9
@@ -23787,7 +23787,7 @@ default.unreachable.i:                            ; preds = %"_ZN103_$LT$alloc..
 
 298:                                              ; preds = %.critedge.i378.i
   %299 = load ptr, ptr %66, align 8, !noalias !2743, !nonnull !5, !noundef !5
-  %300 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %299, i64 %297
+  %300 = getelementptr [32 x i8], ptr %299, i64 %297
   %301 = getelementptr i8, ptr %300, i64 -32
   %.not41.i380.i = icmp eq ptr %301, null
   br i1 %.not41.i380.i, label %.critedge45.i374.i, label %302
@@ -23907,12 +23907,12 @@ default.unreachable.i:                            ; preds = %"_ZN103_$LT$alloc..
 
 338:                                              ; preds = %329
   %339 = load ptr, ptr %66, align 8, !noalias !2753, !nonnull !5, !noundef !5
-  %340 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %339, i64 %318
+  %340 = getelementptr inbounds [32 x i8], ptr %339, i64 %318
   %341 = getelementptr i8, ptr %340, i64 16
   %342 = load i64, ptr %341, align 8, !noalias !2668
   %343 = getelementptr inbounds nuw i8, ptr %340, i64 24
   %344 = load i8, ptr %343, align 8, !range !863, !noalias !2753, !noundef !5
-  %345 = getelementptr inbounds { i8, [3 x i8] }, ptr %330, i64 %334
+  %345 = getelementptr inbounds [4 x i8], ptr %330, i64 %334
   %346 = icmp eq i8 %344, 3
   br i1 %346, label %347, label %349
 
@@ -24173,7 +24173,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc6932fdd68099183E.exit.thread.
 430:                                              ; preds = %.noexc430.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hadb5c6188d2dc402E.exit.i"
   %431 = phi i64 [ %.pre.i.i429.i, %.noexc430.i ], [ %423, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hadb5c6188d2dc402E.exit.i" ]
   %432 = load ptr, ptr %64, align 8, !alias.scope !2825, !noalias !2668, !nonnull !5, !noundef !5
-  %433 = getelementptr inbounds { i8, [3 x i8] }, ptr %432, i64 %431
+  %433 = getelementptr inbounds [4 x i8], ptr %432, i64 %431
   store i32 %.sroa.5255.0.extract.trunc.i, ptr %433, align 1, !noalias !2668
   %434 = load i64, ptr %62, align 8, !alias.scope !2825, !noalias !2668, !noundef !5
   %435 = add i64 %434, 1
@@ -24190,7 +24190,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc6932fdd68099183E.exit.thread.
   %438 = icmp ult i64 %434, %437
   call void @llvm.assume(i1 %438)
   %439 = load ptr, ptr %64, align 8, !alias.scope !2835, !noalias !2838, !nonnull !5, !noundef !5
-  %440 = getelementptr inbounds { i8, [3 x i8] }, ptr %439, i64 %434
+  %440 = getelementptr inbounds [4 x i8], ptr %439, i64 %434
   %.sroa.01.0.copyload.i.i433.i = load i32, ptr %440, align 1, !noalias !2842
   %.sroa.032.0.extract.trunc.i434.i = trunc i32 %.sroa.01.0.copyload.i.i433.i to i8
   %441 = add i8 %.sroa.032.0.extract.trunc.i434.i, -9
@@ -24230,7 +24230,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc6932fdd68099183E.exit.thread.
 
 450:                                              ; preds = %.critedge.i442.i
   %451 = load ptr, ptr %66, align 8, !noalias !2838, !nonnull !5, !noundef !5
-  %452 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %451, i64 %449
+  %452 = getelementptr [32 x i8], ptr %451, i64 %449
   %453 = getelementptr i8, ptr %452, i64 -32
   %.not41.i444.i = icmp eq ptr %453, null
   br i1 %.not41.i444.i, label %.critedge45.i438.i, label %454
@@ -24269,7 +24269,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc6932fdd68099183E.exit.thread.
 
 464:                                              ; preds = %170
   %465 = load ptr, ptr %66, align 8, !noalias !2705, !nonnull !5, !noundef !5
-  %466 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %465, i64 %163
+  %466 = getelementptr inbounds [32 x i8], ptr %465, i64 %163
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 16
   %468 = load i64, ptr %467, align 8, !noalias !2668
   %469 = getelementptr inbounds nuw i8, ptr %466, i64 24
@@ -24365,7 +24365,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc6932fdd68099183E.exit.thread.
 
 503:                                              ; preds = %185
   %504 = load ptr, ptr %66, align 8, !noalias !2709, !nonnull !5, !noundef !5
-  %505 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %504, i64 %178
+  %505 = getelementptr inbounds [32 x i8], ptr %504, i64 %178
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 16
   %507 = load i64, ptr %506, align 8, !noalias !2668
   %508 = getelementptr inbounds nuw i8, ptr %505, i64 24
@@ -24661,7 +24661,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %35 = load ptr, ptr %34, align 8, !alias.scope !2913, !noalias !2916, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds { i8, [3 x i8] }, ptr %35, i64 %31
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %31
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %36, align 1, !noalias !2920
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %37 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -24690,7 +24690,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 47:                                               ; preds = %.critedge.i.i
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %49 = load ptr, ptr %48, align 8, !noalias !2916, !nonnull !5, !noundef !5
-  %50 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %49, i64 %46
+  %50 = getelementptr [32 x i8], ptr %49, i64 %46
   %51 = getelementptr i8, ptr %50, i64 -32
   %.not41.i.i = icmp eq ptr %51, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %52
@@ -24736,7 +24736,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %61 = phi i64 [ %.pre.i.i.i, %59 ], [ %57, %55 ]
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %63 = load ptr, ptr %62, align 8, !alias.scope !2921, !noalias !2910, !nonnull !5, !noundef !5
-  %64 = getelementptr inbounds { i8, [3 x i8] }, ptr %63, i64 %61
+  %64 = getelementptr inbounds [4 x i8], ptr %63, i64 %61
   store i32 4, ptr %64, align 1, !noalias !2910
   %65 = load i64, ptr %27, align 8, !alias.scope !2921, !noalias !2910, !noundef !5
   %66 = add i64 %65, 1
@@ -25008,7 +25008,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %120)
   %121 = getelementptr inbounds nuw i8, ptr %37, i64 152
   %122 = load ptr, ptr %121, align 8, !alias.scope !2948, !noalias !2951, !nonnull !5, !noundef !5
-  %123 = getelementptr inbounds { i8, [3 x i8] }, ptr %122, i64 %118
+  %123 = getelementptr inbounds [4 x i8], ptr %122, i64 %118
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %123, align 1, !noalias !2955
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %124 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -25027,7 +25027,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 130:                                              ; preds = %127
   %131 = getelementptr inbounds nuw i8, ptr %37, i64 128
   %132 = load ptr, ptr %131, align 8, !noalias !2951, !nonnull !5, !noundef !5
-  %133 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %132, i64 %129
+  %133 = getelementptr [32 x i8], ptr %132, i64 %129
   %134 = getelementptr i8, ptr %133, i64 -32
   %.not41.i.i = icmp eq ptr %134, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %135
@@ -25200,7 +25200,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %179)
   %180 = getelementptr inbounds nuw i8, ptr %37, i64 152
   %181 = load ptr, ptr %180, align 8, !alias.scope !2956, !noalias !2959, !nonnull !5, !noundef !5
-  %182 = getelementptr inbounds { i8, [3 x i8] }, ptr %181, i64 %177
+  %182 = getelementptr inbounds [4 x i8], ptr %181, i64 %177
   %.sroa.01.0.copyload.i.i126.i = load i32, ptr %182, align 1, !noalias !2987
   %.sroa.032.0.extract.trunc.i127.i = trunc i32 %.sroa.01.0.copyload.i.i126.i to i8
   %183 = add i8 %.sroa.032.0.extract.trunc.i127.i, -9
@@ -25219,7 +25219,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 189:                                              ; preds = %186
   %190 = getelementptr inbounds nuw i8, ptr %37, i64 128
   %191 = load ptr, ptr %190, align 8, !noalias !2959, !nonnull !5, !noundef !5
-  %192 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %191, i64 %188
+  %192 = getelementptr [32 x i8], ptr %191, i64 %188
   %193 = getelementptr i8, ptr %192, i64 -32
   %.not41.i133.i = icmp eq ptr %193, null
   br i1 %.not41.i133.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit135.i", label %194
@@ -25269,7 +25269,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %207)
   %208 = getelementptr inbounds nuw i8, ptr %37, i64 152
   %209 = load ptr, ptr %208, align 8, !alias.scope !2988, !noalias !2991, !nonnull !5, !noundef !5
-  %210 = getelementptr inbounds { i8, [3 x i8] }, ptr %209, i64 %205
+  %210 = getelementptr inbounds [4 x i8], ptr %209, i64 %205
   %.sroa.01.0.copyload.i.i = load i32, ptr %210, align 1, !noalias !2995
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %211 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -25288,7 +25288,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 217:                                              ; preds = %214
   %218 = getelementptr inbounds nuw i8, ptr %37, i64 128
   %219 = load ptr, ptr %218, align 8, !noalias !2991, !nonnull !5, !noundef !5
-  %220 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %219, i64 %216
+  %220 = getelementptr [32 x i8], ptr %219, i64 %216
   %221 = getelementptr i8, ptr %220, i64 -32
   %.not41.i = icmp eq ptr %221, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %222
@@ -25481,7 +25481,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %68)
   %69 = getelementptr inbounds nuw i8, ptr %16, i64 152
   %70 = load ptr, ptr %69, align 8, !alias.scope !3014, !noalias !3017, !nonnull !5, !noundef !5
-  %71 = getelementptr inbounds { i8, [3 x i8] }, ptr %70, i64 %66
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %66
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %71, align 1, !noalias !3021
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %72 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -25500,7 +25500,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %80 = load ptr, ptr %79, align 8, !noalias !3017, !nonnull !5, !noundef !5
-  %81 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %80, i64 %77
+  %81 = getelementptr [32 x i8], ptr %80, i64 %77
   %82 = getelementptr i8, ptr %81, i64 -32
   %.not41.i.i = icmp eq ptr %82, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %83
@@ -25548,7 +25548,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %96)
   %97 = getelementptr inbounds nuw i8, ptr %16, i64 152
   %98 = load ptr, ptr %97, align 8, !alias.scope !3022, !noalias !3025, !nonnull !5, !noundef !5
-  %99 = getelementptr inbounds { i8, [3 x i8] }, ptr %98, i64 %94
+  %99 = getelementptr inbounds [4 x i8], ptr %98, i64 %94
   %.sroa.01.0.copyload.i.i73.i = load i32, ptr %99, align 1, !noalias !3029
   %.sroa.032.0.extract.trunc.i74.i = trunc i32 %.sroa.01.0.copyload.i.i73.i to i8
   %100 = add i8 %.sroa.032.0.extract.trunc.i74.i, -9
@@ -25577,7 +25577,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 110:                                              ; preds = %.critedge.i.i
   %111 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %112 = load ptr, ptr %111, align 8, !noalias !3025, !nonnull !5, !noundef !5
-  %113 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %112, i64 %109
+  %113 = getelementptr [32 x i8], ptr %112, i64 %109
   %114 = getelementptr i8, ptr %113, i64 -32
   %.not41.i80.i = icmp eq ptr %114, null
   br i1 %.not41.i80.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit82.i", label %115
@@ -25630,7 +25630,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %129)
   %130 = getelementptr inbounds nuw i8, ptr %16, i64 152
   %131 = load ptr, ptr %130, align 8, !alias.scope !3030, !noalias !3033, !nonnull !5, !noundef !5
-  %132 = getelementptr inbounds { i8, [3 x i8] }, ptr %131, i64 %127
+  %132 = getelementptr inbounds [4 x i8], ptr %131, i64 %127
   %.sroa.01.0.copyload.i.i84.i = load i32, ptr %132, align 1, !noalias !3037
   %.sroa.032.0.extract.trunc.i85.i = trunc i32 %.sroa.01.0.copyload.i.i84.i to i8
   %133 = add i8 %.sroa.032.0.extract.trunc.i85.i, -9
@@ -25649,7 +25649,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 139:                                              ; preds = %136
   %140 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %141 = load ptr, ptr %140, align 8, !noalias !3033, !nonnull !5, !noundef !5
-  %142 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %141, i64 %138
+  %142 = getelementptr [32 x i8], ptr %141, i64 %138
   %143 = getelementptr i8, ptr %142, i64 -32
   %.not41.i94.i = icmp eq ptr %143, null
   br i1 %.not41.i94.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit96.i", label %144
@@ -25838,7 +25838,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %73 = load ptr, ptr %72, align 8, !noalias !3056, !nonnull !5, !noundef !5
-  %74 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %73, i64 %61
+  %74 = getelementptr inbounds [32 x i8], ptr %73, i64 %61
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i64, ptr %75, align 8, !noalias !3047
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 24
@@ -25997,7 +25997,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.assume(i1 %129)
   %130 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %131 = load ptr, ptr %130, align 8, !alias.scope !3080, !noalias !3083, !nonnull !5, !noundef !5
-  %132 = getelementptr inbounds { i8, [3 x i8] }, ptr %131, i64 %127
+  %132 = getelementptr inbounds [4 x i8], ptr %131, i64 %127
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %132, align 1, !noalias !3087
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %133 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -26017,7 +26017,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 138:                                              ; preds = %.critedge.i.i
   %139 = load ptr, ptr %72, align 8, !noalias !3083, !nonnull !5, !noundef !5
-  %140 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %139, i64 %137
+  %140 = getelementptr [32 x i8], ptr %139, i64 %137
   %141 = getelementptr i8, ptr %140, i64 -32
   %.not41.i.i = icmp eq ptr %141, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %142
@@ -26177,7 +26177,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %50 = load ptr, ptr %49, align 8, !noalias !3100, !nonnull !5, !noundef !5
-  %51 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %50, i64 %38
+  %51 = getelementptr inbounds [32 x i8], ptr %50, i64 %38
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i64, ptr %52, align 8, !noalias !3097
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
@@ -26246,7 +26246,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %74 = phi i64 [ %.pre.i.i.i, %73 ], [ %70, %67 ]
   %75 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %76 = load ptr, ptr %75, align 8, !alias.scope !3106, !noalias !3097, !nonnull !5, !noundef !5
-  %77 = getelementptr inbounds { i8, [3 x i8] }, ptr %76, i64 %74
+  %77 = getelementptr inbounds [4 x i8], ptr %76, i64 %74
   store i32 %.sroa.3.sroa.0.0.i, ptr %77, align 1, !noalias !3097
   %78 = load i64, ptr %69, align 8, !alias.scope !3106, !noalias !3097, !noundef !5
   %79 = add i64 %78, 1
@@ -26770,7 +26770,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %14 = phi i64 [ %.pre.i.i.i, %13 ], [ %10, %7 ]
   %15 = getelementptr inbounds nuw i8, ptr %.val.i, i64 152
   %16 = load ptr, ptr %15, align 8, !alias.scope !3196, !noalias !3193, !nonnull !5, !noundef !5
-  %17 = getelementptr inbounds { i8, [3 x i8] }, ptr %16, i64 %14
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %14
   store i32 %.2.extract.trunc.i, ptr %17, align 1, !noalias !3193
   %18 = load i64, ptr %9, align 8, !alias.scope !3196, !noalias !3193, !noundef !5
   %19 = add i64 %18, 1
@@ -27213,7 +27213,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !3280, !noalias !3283, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !3284
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -27232,7 +27232,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !3283, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -27278,7 +27278,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !3285, !noalias !3271, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !3271
   %38 = load i64, ptr %4, align 8, !alias.scope !3285, !noalias !3271, !noundef !5
   %39 = add i64 %38, 1
@@ -27330,7 +27330,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !3300, !noalias !3303, !nonnull !5, !noundef !5
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %23, align 1, !noalias !3304
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -27349,7 +27349,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !3303, !nonnull !5, !noundef !5
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i.i = icmp eq ptr %34, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %35
@@ -27393,7 +27393,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !3305, !noalias !3308, !nonnull !5, !noundef !5
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i39.i = load i32, ptr %47, align 1, !noalias !3312
   %.sroa.032.0.extract.trunc.i40.i = trunc i32 %.sroa.01.0.copyload.i.i39.i to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i40.i, -9
@@ -27432,7 +27432,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 60:                                               ; preds = %.critedge.i.i
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !3308, !nonnull !5, !noundef !5
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i46.i = icmp eq ptr %64, null
   br i1 %.not41.i46.i, label %.critedge45.i43.i, label %65
@@ -27866,7 +27866,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !3394, !noalias !3397, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !3398
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -27885,7 +27885,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !3397, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -27931,7 +27931,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !3399, !noalias !3385, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !3385
   %38 = load i64, ptr %4, align 8, !alias.scope !3399, !noalias !3385, !noundef !5
   %39 = add i64 %38, 1
@@ -27983,7 +27983,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !3414, !noalias !3417, !nonnull !5, !noundef !5
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %23, align 1, !noalias !3418
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -28002,7 +28002,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !3417, !nonnull !5, !noundef !5
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i.i = icmp eq ptr %34, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %35
@@ -28046,7 +28046,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !3419, !noalias !3422, !nonnull !5, !noundef !5
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i39.i = load i32, ptr %47, align 1, !noalias !3426
   %.sroa.032.0.extract.trunc.i40.i = trunc i32 %.sroa.01.0.copyload.i.i39.i to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i40.i, -9
@@ -28085,7 +28085,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 60:                                               ; preds = %.critedge.i.i
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !3422, !nonnull !5, !noundef !5
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i47.i = icmp eq ptr %64, null
   br i1 %.not41.i47.i, label %.critedge45.i43.i, label %65
@@ -28802,7 +28802,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %47 = phi i64 [ %.pre.i.i.i, %46 ], [ %43, %40 ]
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !3547, !noalias !3544, !nonnull !5, !noundef !5
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 %.sroa.414.0.copyload.i, ptr %50, align 1, !noalias !3544
   %51 = load i64, ptr %42, align 8, !alias.scope !3547, !noalias !3544, !noundef !5
   %52 = add i64 %51, 1
@@ -28983,7 +28983,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %72 = icmp ult i64 %70, %71
   tail call void @llvm.assume(i1 %72)
   %73 = load ptr, ptr %54, align 8, !alias.scope !3568, !noalias !3571, !nonnull !5, !noundef !5
-  %74 = getelementptr inbounds { i8, [3 x i8] }, ptr %73, i64 %70
+  %74 = getelementptr inbounds [4 x i8], ptr %73, i64 %70
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %74, align 1, !noalias !3575
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %75 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -29020,7 +29020,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 85:                                               ; preds = %.critedge.i.i
   %86 = load ptr, ptr %56, align 8, !noalias !3571, !nonnull !5, !noundef !5
-  %87 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %86, i64 %84
+  %87 = getelementptr [32 x i8], ptr %86, i64 %84
   %88 = getelementptr i8, ptr %87, i64 -32
   %.not41.i.i = icmp eq ptr %88, null
   br i1 %.not41.i.i, label %.critedge45.i.i, label %89
@@ -29143,7 +29143,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %46)
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %48 = load ptr, ptr %47, align 8, !alias.scope !3588, !noalias !3591, !nonnull !5, !noundef !5
-  %49 = getelementptr inbounds { i8, [3 x i8] }, ptr %48, i64 %44
+  %49 = getelementptr inbounds [4 x i8], ptr %48, i64 %44
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %49, align 1, !noalias !3595
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %50 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -29172,7 +29172,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 60:                                               ; preds = %.critedge.i.i
   %61 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !3591, !nonnull !5, !noundef !5
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i.i = icmp eq ptr %64, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %65
@@ -29335,7 +29335,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %54)
   %55 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %56 = load ptr, ptr %55, align 8, !alias.scope !3608, !noalias !3611, !nonnull !5, !noundef !5
-  %57 = getelementptr inbounds { i8, [3 x i8] }, ptr %56, i64 %52
+  %57 = getelementptr inbounds [4 x i8], ptr %56, i64 %52
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %57, align 1, !noalias !3615
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %58 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -29354,7 +29354,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %66 = load ptr, ptr %65, align 8, !noalias !3611, !nonnull !5, !noundef !5
-  %67 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %66, i64 %63
+  %67 = getelementptr [32 x i8], ptr %66, i64 %63
   %68 = getelementptr i8, ptr %67, i64 -32
   %.not41.i.i = icmp eq ptr %68, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %69
@@ -29398,7 +29398,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %78)
   %79 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %80 = load ptr, ptr %79, align 8, !alias.scope !3616, !noalias !3619, !nonnull !5, !noundef !5
-  %81 = getelementptr inbounds { i8, [3 x i8] }, ptr %80, i64 %76
+  %81 = getelementptr inbounds [4 x i8], ptr %80, i64 %76
   %.sroa.01.0.copyload.i.i49.i = load i32, ptr %81, align 1, !noalias !3623
   %.sroa.032.0.extract.trunc.i50.i = trunc i32 %.sroa.01.0.copyload.i.i49.i to i8
   %82 = add i8 %.sroa.032.0.extract.trunc.i50.i, -9
@@ -29417,7 +29417,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 88:                                               ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %90 = load ptr, ptr %89, align 8, !noalias !3619, !nonnull !5, !noundef !5
-  %91 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %90, i64 %87
+  %91 = getelementptr [32 x i8], ptr %90, i64 %87
   %92 = getelementptr i8, ptr %91, i64 -32
   %.not41.i56.i = icmp eq ptr %92, null
   br i1 %.not41.i56.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit58.i", label %93
@@ -29461,7 +29461,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %102)
   %103 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %104 = load ptr, ptr %103, align 8, !alias.scope !3624, !noalias !3627, !nonnull !5, !noundef !5
-  %105 = getelementptr inbounds { i8, [3 x i8] }, ptr %104, i64 %100
+  %105 = getelementptr inbounds [4 x i8], ptr %104, i64 %100
   %.sroa.01.0.copyload.i.i60.i = load i32, ptr %105, align 1, !noalias !3631
   %.sroa.032.0.extract.trunc.i61.i = trunc i32 %.sroa.01.0.copyload.i.i60.i to i8
   %106 = add i8 %.sroa.032.0.extract.trunc.i61.i, -9
@@ -29490,7 +29490,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 114:                                              ; preds = %111
   %115 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %116 = load ptr, ptr %115, align 8, !noalias !3627, !nonnull !5, !noundef !5
-  %117 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %116, i64 %113
+  %117 = getelementptr [32 x i8], ptr %116, i64 %113
   %118 = getelementptr i8, ptr %117, i64 -32
   %.not41.i67.i = icmp eq ptr %118, null
   br i1 %.not41.i67.i, label %.critedge45.i64.i, label %119
@@ -29607,7 +29607,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %44 = load ptr, ptr %43, align 8, !alias.scope !3644, !noalias !3647, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds { i8, [3 x i8] }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %40
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %45, align 1, !noalias !3651
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %46 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -29626,7 +29626,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %54 = load ptr, ptr %53, align 8, !noalias !3647, !nonnull !5, !noundef !5
-  %55 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %54, i64 %51
+  %55 = getelementptr [32 x i8], ptr %54, i64 %51
   %56 = getelementptr i8, ptr %55, i64 -32
   %.not41.i.i = icmp eq ptr %56, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %57
@@ -29673,7 +29673,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %68 = load ptr, ptr %67, align 8, !alias.scope !3652, !noalias !3655, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds { i8, [3 x i8] }, ptr %68, i64 %64
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %64
   %.sroa.01.0.copyload.i.i43.i = load i32, ptr %69, align 1, !noalias !3659
   %.sroa.032.0.extract.trunc.i44.i = trunc i32 %.sroa.01.0.copyload.i.i43.i to i8
   %70 = add i8 %.sroa.032.0.extract.trunc.i44.i, -9
@@ -29695,7 +29695,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 76:                                               ; preds = %.critedge.i.i
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %78 = load ptr, ptr %77, align 8, !noalias !3655, !nonnull !5, !noundef !5
-  %79 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %78, i64 %75
+  %79 = getelementptr [32 x i8], ptr %78, i64 %75
   %80 = getelementptr i8, ptr %79, i64 -32
   %.not41.i50.i = icmp eq ptr %80, null
   br i1 %.not41.i50.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit52.i", label %81
@@ -29739,7 +29739,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %90)
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %92 = load ptr, ptr %91, align 8, !alias.scope !3660, !noalias !3663, !nonnull !5, !noundef !5
-  %93 = getelementptr inbounds { i8, [3 x i8] }, ptr %92, i64 %88
+  %93 = getelementptr inbounds [4 x i8], ptr %92, i64 %88
   %.sroa.01.0.copyload.i.i54.i = load i32, ptr %93, align 1, !noalias !3667
   %.sroa.032.0.extract.trunc.i55.i = trunc i32 %.sroa.01.0.copyload.i.i54.i to i8
   %94 = add i8 %.sroa.032.0.extract.trunc.i55.i, -9
@@ -29768,7 +29768,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %104 = load ptr, ptr %103, align 8, !noalias !3663, !nonnull !5, !noundef !5
-  %105 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %104, i64 %101
+  %105 = getelementptr [32 x i8], ptr %104, i64 %101
   %106 = getelementptr i8, ptr %105, i64 -32
   %.not41.i63.i = icmp eq ptr %106, null
   br i1 %.not41.i63.i, label %.critedge45.i58.i, label %107
@@ -29878,7 +29878,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %43 = load ptr, ptr %42, align 8, !alias.scope !3680, !noalias !3683, !nonnull !5, !noundef !5
-  %44 = getelementptr inbounds { i8, [3 x i8] }, ptr %43, i64 %39
+  %44 = getelementptr inbounds [4 x i8], ptr %43, i64 %39
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %44, align 1, !noalias !3687
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %45 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -29897,7 +29897,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %53 = load ptr, ptr %52, align 8, !noalias !3683, !nonnull !5, !noundef !5
-  %54 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %53, i64 %50
+  %54 = getelementptr [32 x i8], ptr %53, i64 %50
   %55 = getelementptr i8, ptr %54, i64 -32
   %.not41.i.i = icmp eq ptr %55, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %56
@@ -29944,7 +29944,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %65)
   %66 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %67 = load ptr, ptr %66, align 8, !alias.scope !3688, !noalias !3691, !nonnull !5, !noundef !5
-  %68 = getelementptr inbounds { i8, [3 x i8] }, ptr %67, i64 %63
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %63
   %.sroa.01.0.copyload.i.i42.i = load i32, ptr %68, align 1, !noalias !3695
   %.sroa.032.0.extract.trunc.i43.i = trunc i32 %.sroa.01.0.copyload.i.i42.i to i8
   %69 = add i8 %.sroa.032.0.extract.trunc.i43.i, -9
@@ -29966,7 +29966,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 75:                                               ; preds = %.critedge.i.i
   %76 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %77 = load ptr, ptr %76, align 8, !noalias !3691, !nonnull !5, !noundef !5
-  %78 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %77, i64 %74
+  %78 = getelementptr [32 x i8], ptr %77, i64 %74
   %79 = getelementptr i8, ptr %78, i64 -32
   %.not41.i49.i = icmp eq ptr %79, null
   br i1 %.not41.i49.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit51.i", label %80
@@ -30012,7 +30012,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %89 = phi i64 [ %.pre.i.i.i, %87 ], [ %85, %83 ]
   %90 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %91 = load ptr, ptr %90, align 8, !alias.scope !3696, !noalias !3677, !nonnull !5, !noundef !5
-  %92 = getelementptr inbounds { i8, [3 x i8] }, ptr %91, i64 %89
+  %92 = getelementptr inbounds [4 x i8], ptr %91, i64 %89
   store i32 0, ptr %92, align 1, !noalias !3677
   %93 = load i64, ptr %35, align 8, !alias.scope !3696, !noalias !3677, !noundef !5
   %94 = add i64 %93, 1
@@ -30181,7 +30181,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %68)
   %69 = getelementptr inbounds nuw i8, ptr %18, i64 152
   %70 = load ptr, ptr %69, align 8, !alias.scope !3726, !noalias !3729, !nonnull !5, !noundef !5
-  %71 = getelementptr inbounds { i8, [3 x i8] }, ptr %70, i64 %66
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %66
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %71, align 1, !noalias !3733
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %72 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -30200,7 +30200,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %80 = load ptr, ptr %79, align 8, !noalias !3729, !nonnull !5, !noundef !5
-  %81 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %80, i64 %77
+  %81 = getelementptr [32 x i8], ptr %80, i64 %77
   %82 = getelementptr i8, ptr %81, i64 -32
   %.not41.i.i = icmp eq ptr %82, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %83
@@ -30244,7 +30244,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %92)
   %93 = getelementptr inbounds nuw i8, ptr %18, i64 152
   %94 = load ptr, ptr %93, align 8, !alias.scope !3734, !noalias !3737, !nonnull !5, !noundef !5
-  %95 = getelementptr inbounds { i8, [3 x i8] }, ptr %94, i64 %90
+  %95 = getelementptr inbounds [4 x i8], ptr %94, i64 %90
   %.sroa.01.0.copyload.i.i62.i = load i32, ptr %95, align 1, !noalias !3741
   %.sroa.032.0.extract.trunc.i63.i = trunc i32 %.sroa.01.0.copyload.i.i62.i to i8
   %96 = add i8 %.sroa.032.0.extract.trunc.i63.i, -9
@@ -30263,7 +30263,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %104 = load ptr, ptr %103, align 8, !noalias !3737, !nonnull !5, !noundef !5
-  %105 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %104, i64 %101
+  %105 = getelementptr [32 x i8], ptr %104, i64 %101
   %106 = getelementptr i8, ptr %105, i64 -32
   %.not41.i69.i = icmp eq ptr %106, null
   br i1 %.not41.i69.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit71.i", label %107
@@ -30307,7 +30307,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %116)
   %117 = getelementptr inbounds nuw i8, ptr %18, i64 152
   %118 = load ptr, ptr %117, align 8, !alias.scope !3742, !noalias !3745, !nonnull !5, !noundef !5
-  %119 = getelementptr inbounds { i8, [3 x i8] }, ptr %118, i64 %114
+  %119 = getelementptr inbounds [4 x i8], ptr %118, i64 %114
   %.sroa.01.0.copyload.i.i73.i = load i32, ptr %119, align 1, !noalias !3749
   %.sroa.032.0.extract.trunc.i74.i = trunc i32 %.sroa.01.0.copyload.i.i73.i to i8
   %120 = add i8 %.sroa.032.0.extract.trunc.i74.i, -9
@@ -30336,7 +30336,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 128:                                              ; preds = %125
   %129 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %130 = load ptr, ptr %129, align 8, !noalias !3745, !nonnull !5, !noundef !5
-  %131 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %130, i64 %127
+  %131 = getelementptr [32 x i8], ptr %130, i64 %127
   %132 = getelementptr i8, ptr %131, i64 -32
   %.not41.i80.i = icmp eq ptr %132, null
   br i1 %.not41.i80.i, label %.critedge45.i77.i, label %133
@@ -30431,7 +30431,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %31 = phi i64 [ %.pre.i.i.i, %30 ], [ %27, %24 ]
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %33 = load ptr, ptr %32, align 8, !alias.scope !3762, !noalias !3759, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { i8, [3 x i8] }, ptr %33, i64 %31
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %31
   store i32 0, ptr %34, align 1, !noalias !3759
   %35 = load i64, ptr %26, align 8, !alias.scope !3762, !noalias !3759, !noundef !5
   %36 = add i64 %35, 1
@@ -30513,7 +30513,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %21 = phi i64 [ %.pre.i.i.i, %20 ], [ %17, %14 ]
   %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 152
   %23 = load ptr, ptr %22, align 8, !alias.scope !3774, !nonnull !5, !noundef !5
-  %24 = getelementptr inbounds { i8, [3 x i8] }, ptr %23, i64 %21
+  %24 = getelementptr inbounds [4 x i8], ptr %23, i64 %21
   store i32 4, ptr %24, align 1
   %25 = load i64, ptr %16, align 8, !alias.scope !3774, !noundef !5
   %26 = add i64 %25, 1
@@ -30600,7 +30600,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %34)
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !3792, !noalias !3795, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %32
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %32
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %37, align 1, !noalias !3799
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %38 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -30619,7 +30619,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %46 = load ptr, ptr %45, align 8, !noalias !3795, !nonnull !5, !noundef !5
-  %47 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %46, i64 %43
+  %47 = getelementptr [32 x i8], ptr %46, i64 %43
   %48 = getelementptr i8, ptr %47, i64 -32
   %.not41.i.i = icmp eq ptr %48, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %49
@@ -30663,7 +30663,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %58)
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %60 = load ptr, ptr %59, align 8, !alias.scope !3800, !noalias !3803, !nonnull !5, !noundef !5
-  %61 = getelementptr inbounds { i8, [3 x i8] }, ptr %60, i64 %56
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %56
   %.sroa.01.0.copyload.i.i39.i = load i32, ptr %61, align 1, !noalias !3807
   %.sroa.032.0.extract.trunc.i40.i = trunc i32 %.sroa.01.0.copyload.i.i39.i to i8
   %62 = add i8 %.sroa.032.0.extract.trunc.i40.i, -9
@@ -30702,7 +30702,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 74:                                               ; preds = %.critedge.i.i
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %76 = load ptr, ptr %75, align 8, !noalias !3803, !nonnull !5, !noundef !5
-  %77 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %76, i64 %73
+  %77 = getelementptr [32 x i8], ptr %76, i64 %73
   %78 = getelementptr i8, ptr %77, i64 -32
   %.not41.i47.i = icmp eq ptr %78, null
   br i1 %.not41.i47.i, label %.critedge45.i43.i, label %79
@@ -30874,7 +30874,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %65)
   %66 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %67 = load ptr, ptr %66, align 8, !alias.scope !3826, !noalias !3829, !nonnull !5, !noundef !5
-  %68 = getelementptr inbounds { i8, [3 x i8] }, ptr %67, i64 %63
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %63
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %68, align 1, !noalias !3833
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %69 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -30893,7 +30893,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %77 = load ptr, ptr %76, align 8, !noalias !3829, !nonnull !5, !noundef !5
-  %78 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %77, i64 %74
+  %78 = getelementptr [32 x i8], ptr %77, i64 %74
   %79 = getelementptr i8, ptr %78, i64 -32
   %.not41.i.i = icmp eq ptr %79, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %80
@@ -30943,7 +30943,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %93 = phi i64 [ %.pre.i.i.i, %92 ], [ %89, %87 ]
   %94 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %95 = load ptr, ptr %94, align 8, !alias.scope !3834, !noalias !3817, !nonnull !5, !noundef !5
-  %96 = getelementptr inbounds { i8, [3 x i8] }, ptr %95, i64 %93
+  %96 = getelementptr inbounds [4 x i8], ptr %95, i64 %93
   store i32 0, ptr %96, align 1, !noalias !3817
   %97 = load i64, ptr %59, align 8, !alias.scope !3834, !noalias !3817, !noundef !5
   %98 = add i64 %97, 1
@@ -31107,7 +31107,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %65)
   %66 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %67 = load ptr, ptr %66, align 8, !alias.scope !3855, !noalias !3858, !nonnull !5, !noundef !5
-  %68 = getelementptr inbounds { i8, [3 x i8] }, ptr %67, i64 %63
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %63
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %68, align 1, !noalias !3862
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %69 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -31126,7 +31126,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %77 = load ptr, ptr %76, align 8, !noalias !3858, !nonnull !5, !noundef !5
-  %78 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %77, i64 %74
+  %78 = getelementptr [32 x i8], ptr %77, i64 %74
   %79 = getelementptr i8, ptr %78, i64 -32
   %.not41.i.i = icmp eq ptr %79, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %80
@@ -31176,7 +31176,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %93 = phi i64 [ %.pre.i.i.i, %92 ], [ %89, %87 ]
   %94 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %95 = load ptr, ptr %94, align 8, !alias.scope !3863, !noalias !3846, !nonnull !5, !noundef !5
-  %96 = getelementptr inbounds { i8, [3 x i8] }, ptr %95, i64 %93
+  %96 = getelementptr inbounds [4 x i8], ptr %95, i64 %93
   store i32 0, ptr %96, align 1, !noalias !3846
   %97 = load i64, ptr %59, align 8, !alias.scope !3863, !noalias !3846, !noundef !5
   %98 = add i64 %97, 1
@@ -31316,7 +31316,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %35 = load ptr, ptr %34, align 8, !alias.scope !3890, !noalias !3893, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds { i8, [3 x i8] }, ptr %35, i64 %31
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %31
   %.sroa.01.0.copyload.i.i.i.i = load i32, ptr %36, align 1, !noalias !3897
   %.sroa.032.0.extract.trunc.i.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i.i to i8
   %37 = add i8 %.sroa.032.0.extract.trunc.i.i.i, -9
@@ -31335,7 +31335,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %45 = load ptr, ptr %44, align 8, !noalias !3893, !nonnull !5, !noundef !5
-  %46 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %45, i64 %42
+  %46 = getelementptr [32 x i8], ptr %45, i64 %42
   %47 = getelementptr i8, ptr %46, i64 -32
   %.not41.i.i.i = icmp eq ptr %47, null
   br i1 %.not41.i.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i.i", label %48
@@ -31381,7 +31381,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %57 = phi i64 [ %.pre.i.i.i.i, %55 ], [ %53, %51 ]
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %59 = load ptr, ptr %58, align 8, !alias.scope !3898, !noalias !3887, !nonnull !5, !noundef !5
-  %60 = getelementptr inbounds { i8, [3 x i8] }, ptr %59, i64 %57
+  %60 = getelementptr inbounds [4 x i8], ptr %59, i64 %57
   store i32 4, ptr %60, align 1, !noalias !3887
   %61 = load i64, ptr %27, align 8, !alias.scope !3898, !noalias !3887, !noundef !5
   %62 = add i64 %61, 1
@@ -31570,7 +31570,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %35 = load ptr, ptr %34, align 8, !alias.scope !3934, !noalias !3937, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds { i8, [3 x i8] }, ptr %35, i64 %31
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %31
   %.sroa.01.0.copyload.i.i.i.i = load i32, ptr %36, align 1, !noalias !3941
   %.sroa.032.0.extract.trunc.i.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i.i to i8
   %37 = add i8 %.sroa.032.0.extract.trunc.i.i.i, -9
@@ -31589,7 +31589,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %45 = load ptr, ptr %44, align 8, !noalias !3937, !nonnull !5, !noundef !5
-  %46 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %45, i64 %42
+  %46 = getelementptr [32 x i8], ptr %45, i64 %42
   %47 = getelementptr i8, ptr %46, i64 -32
   %.not41.i.i.i = icmp eq ptr %47, null
   br i1 %.not41.i.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i.i", label %48
@@ -31635,7 +31635,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %57 = phi i64 [ %.pre.i.i.i.i, %55 ], [ %53, %51 ]
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %59 = load ptr, ptr %58, align 8, !alias.scope !3942, !noalias !3931, !nonnull !5, !noundef !5
-  %60 = getelementptr inbounds { i8, [3 x i8] }, ptr %59, i64 %57
+  %60 = getelementptr inbounds [4 x i8], ptr %59, i64 %57
   store i32 4, ptr %60, align 1, !noalias !3931
   %61 = load i64, ptr %27, align 8, !alias.scope !3942, !noalias !3931, !noundef !5
   %62 = add i64 %61, 1
@@ -32048,7 +32048,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !4020, !noalias !4023, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !4027
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -32067,7 +32067,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !4023, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -32113,7 +32113,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !4028, !noalias !4017, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !4017
   %53 = load i64, ptr %19, align 8, !alias.scope !4028, !noalias !4017, !noundef !5
   %54 = add i64 %53, 1
@@ -32165,7 +32165,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !4043, !noalias !4046, !nonnull !5, !noundef !5
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %23, align 1, !noalias !4047
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -32184,7 +32184,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !4046, !nonnull !5, !noundef !5
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i.i = icmp eq ptr %34, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %35
@@ -32228,7 +32228,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !4048, !noalias !4051, !nonnull !5, !noundef !5
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i39.i = load i32, ptr %47, align 1, !noalias !4055
   %.sroa.032.0.extract.trunc.i40.i = trunc i32 %.sroa.01.0.copyload.i.i39.i to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i40.i, -9
@@ -32267,7 +32267,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 60:                                               ; preds = %.critedge.i.i
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !4051, !nonnull !5, !noundef !5
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i46.i = icmp eq ptr %64, null
   br i1 %.not41.i46.i, label %.critedge45.i43.i, label %65
@@ -32639,7 +32639,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !4122, !noalias !4125, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !4129
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -32658,7 +32658,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !4125, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -32704,7 +32704,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !4130, !noalias !4119, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !4119
   %53 = load i64, ptr %19, align 8, !alias.scope !4130, !noalias !4119, !noundef !5
   %54 = add i64 %53, 1
@@ -32756,7 +32756,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !4145, !noalias !4148, !nonnull !5, !noundef !5
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %23, align 1, !noalias !4149
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -32775,7 +32775,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !4148, !nonnull !5, !noundef !5
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i.i = icmp eq ptr %34, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %35
@@ -32819,7 +32819,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !4150, !noalias !4153, !nonnull !5, !noundef !5
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i39.i = load i32, ptr %47, align 1, !noalias !4157
   %.sroa.032.0.extract.trunc.i40.i = trunc i32 %.sroa.01.0.copyload.i.i39.i to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i40.i, -9
@@ -32858,7 +32858,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 60:                                               ; preds = %.critedge.i.i
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !4153, !nonnull !5, !noundef !5
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i47.i = icmp eq ptr %64, null
   br i1 %.not41.i47.i, label %.critedge45.i43.i, label %65
@@ -32918,7 +32918,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %20)
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %22 = load ptr, ptr %21, align 8, !alias.scope !4170, !noalias !4173, !nonnull !5, !noundef !5
-  %23 = getelementptr inbounds { i8, [3 x i8] }, ptr %22, i64 %18
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %18
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %23, align 1, !noalias !4174
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %24 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -32937,7 +32937,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8, !noalias !4173, !nonnull !5, !noundef !5
-  %33 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %32, i64 %29
+  %33 = getelementptr [32 x i8], ptr %32, i64 %29
   %34 = getelementptr i8, ptr %33, i64 -32
   %.not41.i.i = icmp eq ptr %34, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %35
@@ -32981,7 +32981,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %46 = load ptr, ptr %45, align 8, !alias.scope !4175, !noalias !4178, !nonnull !5, !noundef !5
-  %47 = getelementptr inbounds { i8, [3 x i8] }, ptr %46, i64 %42
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %42
   %.sroa.01.0.copyload.i.i39.i = load i32, ptr %47, align 1, !noalias !4182
   %.sroa.032.0.extract.trunc.i40.i = trunc i32 %.sroa.01.0.copyload.i.i39.i to i8
   %48 = add i8 %.sroa.032.0.extract.trunc.i40.i, -9
@@ -33020,7 +33020,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 60:                                               ; preds = %.critedge.i.i
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !4178, !nonnull !5, !noundef !5
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i47.i = icmp eq ptr %64, null
   br i1 %.not41.i47.i, label %.critedge45.i43.i, label %65
@@ -33196,7 +33196,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !4213, !noalias !4216, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !4220
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -33215,7 +33215,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !4216, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -33261,7 +33261,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !4221, !noalias !4210, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !4210
   %53 = load i64, ptr %19, align 8, !alias.scope !4221, !noalias !4210, !noundef !5
   %54 = add i64 %53, 1
@@ -33625,7 +33625,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !4290, !noalias !4293, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !4297
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -33644,7 +33644,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !4293, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -33690,7 +33690,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !4298, !noalias !4287, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !4287
   %53 = load i64, ptr %19, align 8, !alias.scope !4298, !noalias !4287, !noundef !5
   %54 = add i64 %53, 1
@@ -33827,7 +33827,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %52)
   %53 = getelementptr inbounds nuw i8, ptr %18, i64 152
   %54 = load ptr, ptr %53, align 8, !alias.scope !4325, !noalias !4328, !nonnull !5, !noundef !5
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %50
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %50
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %55, align 1, !noalias !4332
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %56 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -33846,7 +33846,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 61:                                               ; preds = %.critedge.i.i
   %62 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %63 = load ptr, ptr %62, align 8, !noalias !4328, !nonnull !5, !noundef !5
-  %64 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %63, i64 %60
+  %64 = getelementptr [32 x i8], ptr %63, i64 %60
   %65 = getelementptr i8, ptr %64, i64 -32
   %.not41.i.i = icmp eq ptr %65, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %66
@@ -33912,7 +33912,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %82)
   %83 = getelementptr inbounds nuw i8, ptr %18, i64 152
   %84 = load ptr, ptr %83, align 8, !alias.scope !4333, !noalias !4336, !nonnull !5, !noundef !5
-  %85 = getelementptr inbounds { i8, [3 x i8] }, ptr %84, i64 %80
+  %85 = getelementptr inbounds [4 x i8], ptr %84, i64 %80
   %.sroa.01.0.copyload.i.i73.i = load i32, ptr %85, align 1, !noalias !4346
   %.sroa.032.0.extract.trunc.i74.i = trunc i32 %.sroa.01.0.copyload.i.i73.i to i8
   %86 = add i8 %.sroa.032.0.extract.trunc.i74.i, -9
@@ -33930,7 +33930,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 91:                                               ; preds = %.critedge.i82.i
   %92 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %93 = load ptr, ptr %92, align 8, !noalias !4336, !nonnull !5, !noundef !5
-  %94 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %93, i64 %90
+  %94 = getelementptr [32 x i8], ptr %93, i64 %90
   %95 = getelementptr i8, ptr %94, i64 -32
   %.not41.i84.i = icmp eq ptr %95, null
   br i1 %.not41.i84.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit86.i", label %96
@@ -33974,7 +33974,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %105)
   %106 = getelementptr inbounds nuw i8, ptr %18, i64 152
   %107 = load ptr, ptr %106, align 8, !alias.scope !4347, !noalias !4350, !nonnull !5, !noundef !5
-  %108 = getelementptr inbounds { i8, [3 x i8] }, ptr %107, i64 %103
+  %108 = getelementptr inbounds [4 x i8], ptr %107, i64 %103
   %.sroa.01.0.copyload.i.i = load i32, ptr %108, align 1, !noalias !4354
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %109 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -34002,7 +34002,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 117:                                              ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %119 = load ptr, ptr %118, align 8, !noalias !4350, !nonnull !5, !noundef !5
-  %120 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %119, i64 %116
+  %120 = getelementptr [32 x i8], ptr %119, i64 %116
   %121 = getelementptr i8, ptr %120, i64 -32
   %.not41.i = icmp eq ptr %121, null
   br i1 %.not41.i, label %.critedge45.i, label %122
@@ -34104,7 +34104,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %36)
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %38 = load ptr, ptr %37, align 8, !alias.scope !4370, !noalias !4373, !nonnull !5, !noundef !5
-  %39 = getelementptr inbounds { i8, [3 x i8] }, ptr %38, i64 %34
+  %39 = getelementptr inbounds [4 x i8], ptr %38, i64 %34
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %39, align 1, !noalias !4377
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %40 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -34122,7 +34122,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 45:                                               ; preds = %.critedge.i.i
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %47 = load ptr, ptr %46, align 8, !noalias !4373, !nonnull !5, !noundef !5
-  %48 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %47, i64 %44
+  %48 = getelementptr [32 x i8], ptr %47, i64 %44
   %49 = getelementptr i8, ptr %48, i64 -32
   %.not41.i.i = icmp eq ptr %49, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %50
@@ -34188,7 +34188,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %68 = load ptr, ptr %67, align 8, !alias.scope !4378, !noalias !4381, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds { i8, [3 x i8] }, ptr %68, i64 %64
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %64
   %.sroa.01.0.copyload.i.i53.i = load i32, ptr %69, align 1, !noalias !4391
   %.sroa.032.0.extract.trunc.i54.i = trunc i32 %.sroa.01.0.copyload.i.i53.i to i8
   %70 = add i8 %.sroa.032.0.extract.trunc.i54.i, -9
@@ -34207,7 +34207,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %78 = load ptr, ptr %77, align 8, !noalias !4381, !nonnull !5, !noundef !5
-  %79 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %78, i64 %75
+  %79 = getelementptr [32 x i8], ptr %78, i64 %75
   %80 = getelementptr i8, ptr %79, i64 -32
   %.not41.i63.i = icmp eq ptr %80, null
   br i1 %.not41.i63.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit65.i", label %81
@@ -34251,7 +34251,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %90)
   %91 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %92 = load ptr, ptr %91, align 8, !alias.scope !4392, !noalias !4395, !nonnull !5, !noundef !5
-  %93 = getelementptr inbounds { i8, [3 x i8] }, ptr %92, i64 %88
+  %93 = getelementptr inbounds [4 x i8], ptr %92, i64 %88
   %.sroa.01.0.copyload.i.i67.i = load i32, ptr %93, align 1, !noalias !4399
   %.sroa.032.0.extract.trunc.i68.i = trunc i32 %.sroa.01.0.copyload.i.i67.i to i8
   %94 = add i8 %.sroa.032.0.extract.trunc.i68.i, -9
@@ -34279,7 +34279,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 101:                                              ; preds = %.critedge.i76.i
   %102 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %103 = load ptr, ptr %102, align 8, !noalias !4395, !nonnull !5, !noundef !5
-  %104 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %103, i64 %100
+  %104 = getelementptr [32 x i8], ptr %103, i64 %100
   %105 = getelementptr i8, ptr %104, i64 -32
   %.not41.i78.i = icmp eq ptr %105, null
   br i1 %.not41.i78.i, label %.critedge45.i72.i, label %106
@@ -34374,7 +34374,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %37)
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 152
   %39 = load ptr, ptr %38, align 8, !alias.scope !4412, !noalias !4415, !nonnull !5, !noundef !5
-  %40 = getelementptr inbounds { i8, [3 x i8] }, ptr %39, i64 %35
+  %40 = getelementptr inbounds [4 x i8], ptr %39, i64 %35
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %40, align 1, !noalias !4416
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %41 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -34392,7 +34392,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 46:                                               ; preds = %.critedge.i.i
   %47 = getelementptr inbounds nuw i8, ptr %30, i64 128
   %48 = load ptr, ptr %47, align 8, !noalias !4415, !nonnull !5, !noundef !5
-  %49 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %48, i64 %45
+  %49 = getelementptr [32 x i8], ptr %48, i64 %45
   %50 = getelementptr i8, ptr %49, i64 -32
   %.not41.i.i = icmp eq ptr %50, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %51
@@ -34460,7 +34460,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %67 = phi i64 [ %.pre.i.i.i, %65 ], [ %63, %61 ]
   %68 = getelementptr inbounds nuw i8, ptr %30, i64 152
   %69 = load ptr, ptr %68, align 8, !alias.scope !4417, !noalias !4400, !nonnull !5, !noundef !5
-  %70 = getelementptr inbounds { i8, [3 x i8] }, ptr %69, i64 %67
+  %70 = getelementptr inbounds [4 x i8], ptr %69, i64 %67
   store i32 %.sroa.4.1.insert.ext.i, ptr %70, align 1, !noalias !4400
   %71 = load i64, ptr %31, align 8, !alias.scope !4417, !noalias !4400, !noundef !5
   %72 = add i64 %71, 1
@@ -34630,7 +34630,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %69)
   %70 = getelementptr inbounds nuw i8, ptr %18, i64 152
   %71 = load ptr, ptr %70, align 8, !alias.scope !4453, !noalias !4456, !nonnull !5, !noundef !5
-  %72 = getelementptr inbounds { i8, [3 x i8] }, ptr %71, i64 %67
+  %72 = getelementptr inbounds [4 x i8], ptr %71, i64 %67
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %72, align 1, !noalias !4460
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %73 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -34649,7 +34649,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 79:                                               ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %81 = load ptr, ptr %80, align 8, !noalias !4456, !nonnull !5, !noundef !5
-  %82 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %81, i64 %78
+  %82 = getelementptr [32 x i8], ptr %81, i64 %78
   %83 = getelementptr i8, ptr %82, i64 -32
   %.not41.i.i = icmp eq ptr %83, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %84
@@ -34693,7 +34693,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %93)
   %94 = getelementptr inbounds nuw i8, ptr %18, i64 152
   %95 = load ptr, ptr %94, align 8, !alias.scope !4461, !noalias !4464, !nonnull !5, !noundef !5
-  %96 = getelementptr inbounds { i8, [3 x i8] }, ptr %95, i64 %91
+  %96 = getelementptr inbounds [4 x i8], ptr %95, i64 %91
   %.sroa.01.0.copyload.i.i58.i = load i32, ptr %96, align 1, !noalias !4468
   %.sroa.032.0.extract.trunc.i59.i = trunc i32 %.sroa.01.0.copyload.i.i58.i to i8
   %97 = add i8 %.sroa.032.0.extract.trunc.i59.i, -9
@@ -34712,7 +34712,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 103:                                              ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %105 = load ptr, ptr %104, align 8, !noalias !4464, !nonnull !5, !noundef !5
-  %106 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %105, i64 %102
+  %106 = getelementptr [32 x i8], ptr %105, i64 %102
   %107 = getelementptr i8, ptr %106, i64 -32
   %.not41.i65.i = icmp eq ptr %107, null
   br i1 %.not41.i65.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit67.i", label %108
@@ -34756,7 +34756,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %117)
   %118 = getelementptr inbounds nuw i8, ptr %18, i64 152
   %119 = load ptr, ptr %118, align 8, !alias.scope !4469, !noalias !4472, !nonnull !5, !noundef !5
-  %120 = getelementptr inbounds { i8, [3 x i8] }, ptr %119, i64 %115
+  %120 = getelementptr inbounds [4 x i8], ptr %119, i64 %115
   %.sroa.01.0.copyload.i.i69.i = load i32, ptr %120, align 1, !noalias !4476
   %.sroa.032.0.extract.trunc.i70.i = trunc i32 %.sroa.01.0.copyload.i.i69.i to i8
   %121 = add i8 %.sroa.032.0.extract.trunc.i70.i, -9
@@ -34784,7 +34784,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 128:                                              ; preds = %.critedge.i.i
   %129 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %130 = load ptr, ptr %129, align 8, !noalias !4472, !nonnull !5, !noundef !5
-  %131 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %130, i64 %127
+  %131 = getelementptr [32 x i8], ptr %130, i64 %127
   %132 = getelementptr i8, ptr %131, i64 -32
   %.not41.i76.i = icmp eq ptr %132, null
   br i1 %.not41.i76.i, label %.critedge45.i73.i, label %133
@@ -34882,7 +34882,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %35 = phi i64 [ %.pre.i.i.i, %34 ], [ %31, %28 ]
   %36 = getelementptr inbounds nuw i8, ptr %.val.i, i64 152
   %37 = load ptr, ptr %36, align 8, !alias.scope !4483, !noalias !4477, !nonnull !5, !noundef !5
-  %38 = getelementptr inbounds { i8, [3 x i8] }, ptr %37, i64 %35
+  %38 = getelementptr inbounds [4 x i8], ptr %37, i64 %35
   store i32 %.sroa.4.1.insert.ext.i, ptr %38, align 1, !noalias !4477
   %39 = load i64, ptr %30, align 8, !alias.scope !4483, !noalias !4477, !noundef !5
   %40 = add i64 %39, 1
@@ -34984,7 +34984,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %29 = phi i64 [ %.pre.i.i.i, %28 ], [ %25, %22 ]
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %31 = load ptr, ptr %30, align 8, !alias.scope !4504, !noalias !4501, !nonnull !5, !noundef !5
-  %32 = getelementptr inbounds { i8, [3 x i8] }, ptr %31, i64 %29
+  %32 = getelementptr inbounds [4 x i8], ptr %31, i64 %29
   store i32 0, ptr %32, align 1, !noalias !4501
   %33 = load i64, ptr %24, align 8, !alias.scope !4504, !noalias !4501, !noundef !5
   %34 = add i64 %33, 1
@@ -35097,7 +35097,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 128
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
-  %6 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %5, i64 %2
+  %6 = getelementptr [32 x i8], ptr %5, i64 %2
   %7 = getelementptr i8, ptr %6, i64 -32
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.thread.i.i, label %10
@@ -35360,7 +35360,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !4574, !noalias !4577, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !4578
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -35379,7 +35379,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !4577, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -35425,7 +35425,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !4579, !noalias !4565, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !4565
   %38 = load i64, ptr %4, align 8, !alias.scope !4579, !noalias !4565, !noundef !5
   %39 = add i64 %38, 1
@@ -35544,7 +35544,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !4603, !noalias !4606, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !4610
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -35563,7 +35563,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !4606, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -35609,7 +35609,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !4611, !noalias !4600, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !4600
   %53 = load i64, ptr %19, align 8, !alias.scope !4611, !noalias !4600, !noundef !5
   %54 = add i64 %53, 1
@@ -35730,7 +35730,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %47 = phi i64 [ %.pre.i.i.i, %46 ], [ %43, %40 ]
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !4626, !noalias !4623, !nonnull !5, !noundef !5
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 0, ptr %50, align 1, !noalias !4623
   %51 = load i64, ptr %42, align 8, !alias.scope !4626, !noalias !4623, !noundef !5
   %52 = add i64 %51, 1
@@ -35851,7 +35851,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %47 = phi i64 [ %.pre.i.i.i, %46 ], [ %43, %40 ]
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %49 = load ptr, ptr %48, align 8, !alias.scope !4641, !noalias !4638, !nonnull !5, !noundef !5
-  %50 = getelementptr inbounds { i8, [3 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %47
   store i32 0, ptr %50, align 1, !noalias !4638
   %51 = load i64, ptr %42, align 8, !alias.scope !4641, !noalias !4638, !noundef !5
   %52 = add i64 %51, 1
@@ -35951,7 +35951,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad9221
   call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %44 = load ptr, ptr %43, align 8, !alias.scope !4665, !noalias !4668, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds { i8, [3 x i8] }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %40
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %45, align 1, !noalias !4672
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %46 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -35970,7 +35970,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad9221
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %54 = load ptr, ptr %53, align 8, !noalias !4668, !nonnull !5, !noundef !5
-  %55 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %54, i64 %51
+  %55 = getelementptr [32 x i8], ptr %54, i64 %51
   %56 = getelementptr i8, ptr %55, i64 -32
   %.not41.i.i = icmp eq ptr %56, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %57
@@ -36015,7 +36015,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad9221
   call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %68 = load ptr, ptr %67, align 8, !alias.scope !4673, !noalias !4676, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds { i8, [3 x i8] }, ptr %68, i64 %64
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %64
   %.sroa.01.0.copyload.i.i56.i = load i32, ptr %69, align 1, !noalias !4680
   %.sroa.032.0.extract.trunc.i57.i = trunc i32 %.sroa.01.0.copyload.i.i56.i to i8
   %70 = add i8 %.sroa.032.0.extract.trunc.i57.i, -9
@@ -36044,7 +36044,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad9221
 80:                                               ; preds = %.critedge.i.i
   %81 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %82 = load ptr, ptr %81, align 8, !noalias !4676, !nonnull !5, !noundef !5
-  %83 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %82, i64 %79
+  %83 = getelementptr [32 x i8], ptr %82, i64 %79
   %84 = getelementptr i8, ptr %83, i64 -32
   %.not41.i63.i = icmp eq ptr %84, null
   br i1 %.not41.i63.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit65.i", label %85
@@ -36090,7 +36090,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad9221
   call void @llvm.assume(i1 %94)
   %95 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %96 = load ptr, ptr %95, align 8, !alias.scope !4681, !noalias !4684, !nonnull !5, !noundef !5
-  %97 = getelementptr inbounds { i8, [3 x i8] }, ptr %96, i64 %92
+  %97 = getelementptr inbounds [4 x i8], ptr %96, i64 %92
   %.sroa.01.0.copyload.i.i67.i = load i32, ptr %97, align 1, !noalias !4688
   %.sroa.032.0.extract.trunc.i68.i = trunc i32 %.sroa.01.0.copyload.i.i67.i to i8
   %98 = add i8 %.sroa.032.0.extract.trunc.i68.i, -9
@@ -36119,7 +36119,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad9221
 108:                                              ; preds = %.critedge.i76.i
   %109 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %110 = load ptr, ptr %109, align 8, !noalias !4684, !nonnull !5, !noundef !5
-  %111 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %110, i64 %107
+  %111 = getelementptr [32 x i8], ptr %110, i64 %107
   %112 = getelementptr i8, ptr %111, i64 -32
   %.not41.i78.i = icmp eq ptr %112, null
   br i1 %.not41.i78.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit80.i", label %113
@@ -36167,7 +36167,7 @@ _ZN10wasmparser9resources19WasmModuleResources16check_value_type17h50109c2ad9221
   %122 = phi i64 [ %.pre.i.i, %120 ], [ %118, %116 ]
   %123 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %124 = load ptr, ptr %123, align 8, !alias.scope !4689, !noalias !4653, !nonnull !5, !noundef !5
-  %125 = getelementptr inbounds { i8, [3 x i8] }, ptr %124, i64 %122
+  %125 = getelementptr inbounds [4 x i8], ptr %124, i64 %122
   store i32 %.sroa.034.0.copyload.i, ptr %125, align 1, !noalias !4653
   %126 = load i64, ptr %36, align 8, !alias.scope !4689, !noalias !4653, !noundef !5
   %127 = add i64 %126, 1
@@ -36381,7 +36381,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !4725, !noalias !4728, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !4732
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -36400,7 +36400,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !4728, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -36446,7 +36446,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !4733, !noalias !4722, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !4722
   %53 = load i64, ptr %19, align 8, !alias.scope !4733, !noalias !4722, !noundef !5
   %54 = add i64 %53, 1
@@ -36516,7 +36516,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !4748, !noalias !4751, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !4755
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -36535,7 +36535,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !4751, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -36581,7 +36581,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !4756, !noalias !4745, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !4745
   %53 = load i64, ptr %19, align 8, !alias.scope !4756, !noalias !4745, !noundef !5
   %54 = add i64 %53, 1
@@ -36651,7 +36651,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !4771, !noalias !4774, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !4778
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -36670,7 +36670,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !4774, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -36716,7 +36716,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !4779, !noalias !4768, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !4768
   %53 = load i64, ptr %19, align 8, !alias.scope !4779, !noalias !4768, !noundef !5
   %54 = add i64 %53, 1
@@ -36786,7 +36786,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !4794, !noalias !4797, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !4801
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -36805,7 +36805,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !4797, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -36851,7 +36851,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !4802, !noalias !4791, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 1, ptr %52, align 1, !noalias !4791
   %53 = load i64, ptr %19, align 8, !alias.scope !4802, !noalias !4791, !noundef !5
   %54 = add i64 %53, 1
@@ -36921,7 +36921,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !4817, !noalias !4820, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !4824
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -36940,7 +36940,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !4820, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -36986,7 +36986,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !4825, !noalias !4814, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !4814
   %53 = load i64, ptr %19, align 8, !alias.scope !4825, !noalias !4814, !noundef !5
   %54 = add i64 %53, 1
@@ -37056,7 +37056,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !4840, !noalias !4843, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !4847
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -37075,7 +37075,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !4843, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -37121,7 +37121,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !4848, !noalias !4837, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !4837
   %53 = load i64, ptr %19, align 8, !alias.scope !4848, !noalias !4837, !noundef !5
   %54 = add i64 %53, 1
@@ -37194,7 +37194,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %29)
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %31 = load ptr, ptr %30, align 8, !alias.scope !4864, !noalias !4867, !nonnull !5, !noundef !5
-  %32 = getelementptr inbounds { i8, [3 x i8] }, ptr %31, i64 %27
+  %32 = getelementptr inbounds [4 x i8], ptr %31, i64 %27
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %32, align 1, !noalias !4871
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %33 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -37213,7 +37213,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %41 = load ptr, ptr %40, align 8, !noalias !4867, !nonnull !5, !noundef !5
-  %42 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %41, i64 %38
+  %42 = getelementptr [32 x i8], ptr %41, i64 %38
   %43 = getelementptr i8, ptr %42, i64 -32
   %.not41.i.i = icmp eq ptr %43, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %44
@@ -37257,7 +37257,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %53)
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %55 = load ptr, ptr %54, align 8, !alias.scope !4873, !noalias !4876, !nonnull !5, !noundef !5
-  %56 = getelementptr inbounds { i8, [3 x i8] }, ptr %55, i64 %51
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %51
   %.sroa.01.0.copyload.i.i56.i = load i32, ptr %56, align 1, !noalias !4880
   %.sroa.032.0.extract.trunc.i57.i = trunc i32 %.sroa.01.0.copyload.i.i56.i to i8
   %57 = add i8 %.sroa.032.0.extract.trunc.i57.i, -9
@@ -37276,7 +37276,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %65 = load ptr, ptr %64, align 8, !noalias !4876, !nonnull !5, !noundef !5
-  %66 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %65, i64 %62
+  %66 = getelementptr [32 x i8], ptr %65, i64 %62
   %67 = getelementptr i8, ptr %66, i64 -32
   %.not41.i64.i = icmp eq ptr %67, null
   br i1 %.not41.i64.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit66.i", label %68
@@ -37331,7 +37331,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %79 = phi i64 [ %.pre.i.i.i, %78 ], [ %75, %73 ]
   %80 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %81 = load ptr, ptr %80, align 8, !alias.scope !4882, !noalias !4860, !nonnull !5, !noundef !5
-  %82 = getelementptr inbounds { i8, [3 x i8] }, ptr %81, i64 %79
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 %79
   store i32 4, ptr %82, align 1, !noalias !4860
   %83 = load i64, ptr %23, align 8, !alias.scope !4882, !noalias !4860, !noundef !5
   %84 = add i64 %83, 1
@@ -37425,7 +37425,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !4900, !noalias !4903, !nonnull !5, !noundef !5
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !4907
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -37444,7 +37444,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !4903, !nonnull !5, !noundef !5
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %41
@@ -37488,7 +37488,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %50)
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !4908, !noalias !4911, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %48
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %48
   %.sroa.01.0.copyload.i.i41.i = load i32, ptr %53, align 1, !noalias !4915
   %.sroa.032.0.extract.trunc.i42.i = trunc i32 %.sroa.01.0.copyload.i.i41.i to i8
   %54 = add i8 %.sroa.032.0.extract.trunc.i42.i, -9
@@ -37507,7 +37507,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !4911, !nonnull !5, !noundef !5
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i49.i = icmp eq ptr %64, null
   br i1 %.not41.i49.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit51.i", label %65
@@ -37553,7 +37553,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %74 = phi i64 [ %.pre.i.i.i, %72 ], [ %70, %68 ]
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %76 = load ptr, ptr %75, align 8, !alias.scope !4916, !noalias !4897, !nonnull !5, !noundef !5
-  %77 = getelementptr inbounds { i8, [3 x i8] }, ptr %76, i64 %74
+  %77 = getelementptr inbounds [4 x i8], ptr %76, i64 %74
   store i32 4, ptr %77, align 1, !noalias !4897
   %78 = load i64, ptr %20, align 8, !alias.scope !4916, !noalias !4897, !noundef !5
   %79 = add i64 %78, 1
@@ -37623,7 +37623,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !4931, !noalias !4934, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !4938
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -37642,7 +37642,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !4934, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -37688,7 +37688,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !4939, !noalias !4928, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !4928
   %53 = load i64, ptr %19, align 8, !alias.scope !4939, !noalias !4928, !noundef !5
   %54 = add i64 %53, 1
@@ -37905,7 +37905,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %92)
   %93 = getelementptr inbounds nuw i8, ptr %19, i64 152
   %94 = load ptr, ptr %93, align 8, !alias.scope !4966, !noalias !4969, !nonnull !5, !noundef !5
-  %95 = getelementptr inbounds { i8, [3 x i8] }, ptr %94, i64 %90
+  %95 = getelementptr inbounds [4 x i8], ptr %94, i64 %90
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %95, align 1, !noalias !4973
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %96 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -37924,7 +37924,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %19, i64 128
   %104 = load ptr, ptr %103, align 8, !noalias !4969, !nonnull !5, !noundef !5
-  %105 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %104, i64 %101
+  %105 = getelementptr [32 x i8], ptr %104, i64 %101
   %106 = getelementptr i8, ptr %105, i64 -32
   %.not41.i.i = icmp eq ptr %106, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %107
@@ -37968,7 +37968,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %116)
   %117 = getelementptr inbounds nuw i8, ptr %19, i64 152
   %118 = load ptr, ptr %117, align 8, !alias.scope !4974, !noalias !4977, !nonnull !5, !noundef !5
-  %119 = getelementptr inbounds { i8, [3 x i8] }, ptr %118, i64 %114
+  %119 = getelementptr inbounds [4 x i8], ptr %118, i64 %114
   %.sroa.01.0.copyload.i.i45.i = load i32, ptr %119, align 1, !noalias !4981
   %.sroa.032.0.extract.trunc.i46.i = trunc i32 %.sroa.01.0.copyload.i.i45.i to i8
   %120 = add i8 %.sroa.032.0.extract.trunc.i46.i, -9
@@ -37987,7 +37987,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 126:                                              ; preds = %123
   %127 = getelementptr inbounds nuw i8, ptr %19, i64 128
   %128 = load ptr, ptr %127, align 8, !noalias !4977, !nonnull !5, !noundef !5
-  %129 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %128, i64 %125
+  %129 = getelementptr [32 x i8], ptr %128, i64 %125
   %130 = getelementptr i8, ptr %129, i64 -32
   %.not41.i52.i = icmp eq ptr %130, null
   br i1 %.not41.i52.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit54.i", label %131
@@ -38265,7 +38265,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %97)
   %98 = getelementptr inbounds nuw i8, ptr %23, i64 152
   %99 = load ptr, ptr %98, align 8, !alias.scope !5015, !noalias !5018, !nonnull !5, !noundef !5
-  %100 = getelementptr inbounds { i8, [3 x i8] }, ptr %99, i64 %95
+  %100 = getelementptr inbounds [4 x i8], ptr %99, i64 %95
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %100, align 1, !noalias !5022
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %101 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -38284,7 +38284,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %23, i64 128
   %109 = load ptr, ptr %108, align 8, !noalias !5018, !nonnull !5, !noundef !5
-  %110 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %109, i64 %106
+  %110 = getelementptr [32 x i8], ptr %109, i64 %106
   %111 = getelementptr i8, ptr %110, i64 -32
   %.not41.i.i = icmp eq ptr %111, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %112
@@ -38333,7 +38333,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %122)
   %123 = getelementptr inbounds nuw i8, ptr %23, i64 152
   %124 = load ptr, ptr %123, align 8, !alias.scope !5023, !noalias !5026, !nonnull !5, !noundef !5
-  %125 = getelementptr inbounds { i8, [3 x i8] }, ptr %124, i64 %120
+  %125 = getelementptr inbounds [4 x i8], ptr %124, i64 %120
   %.sroa.01.0.copyload.i.i70.i = load i32, ptr %125, align 1, !noalias !5030
   %.sroa.032.0.extract.trunc.i71.i = trunc i32 %.sroa.01.0.copyload.i.i70.i to i8
   %126 = add i8 %.sroa.032.0.extract.trunc.i71.i, -9
@@ -38352,7 +38352,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %23, i64 128
   %134 = load ptr, ptr %133, align 8, !noalias !5026, !nonnull !5, !noundef !5
-  %135 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %134, i64 %131
+  %135 = getelementptr [32 x i8], ptr %134, i64 %131
   %136 = getelementptr i8, ptr %135, i64 -32
   %.not41.i77.i = icmp eq ptr %136, null
   br i1 %.not41.i77.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit79.i", label %137
@@ -38499,7 +38499,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %17, i64 128
   %55 = load ptr, ptr %54, align 8, !noalias !5043, !nonnull !5, !noundef !5
-  %56 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %55, i64 %43
+  %56 = getelementptr inbounds [32 x i8], ptr %55, i64 %43
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i64, ptr %57, align 8, !noalias !5040
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 24
@@ -38752,7 +38752,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !5079, !noalias !5082, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !5086
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -38771,7 +38771,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !5082, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -38817,7 +38817,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !5087, !noalias !5076, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !5076
   %53 = load i64, ptr %19, align 8, !alias.scope !5087, !noalias !5076, !noundef !5
   %54 = add i64 %53, 1
@@ -38887,7 +38887,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !5102, !noalias !5105, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !5109
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -38906,7 +38906,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !5105, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -38952,7 +38952,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !5110, !noalias !5099, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !5099
   %53 = load i64, ptr %19, align 8, !alias.scope !5110, !noalias !5099, !noundef !5
   %54 = add i64 %53, 1
@@ -39022,7 +39022,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !5125, !noalias !5128, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !5132
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -39041,7 +39041,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !5128, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -39087,7 +39087,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !5133, !noalias !5122, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !5122
   %53 = load i64, ptr %19, align 8, !alias.scope !5133, !noalias !5122, !noundef !5
   %54 = add i64 %53, 1
@@ -39157,7 +39157,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !5148, !noalias !5151, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !5155
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -39176,7 +39176,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !5151, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -39222,7 +39222,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !5156, !noalias !5145, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 1, ptr %52, align 1, !noalias !5145
   %53 = load i64, ptr %19, align 8, !alias.scope !5156, !noalias !5145, !noundef !5
   %54 = add i64 %53, 1
@@ -39292,7 +39292,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !5171, !noalias !5174, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !5178
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -39311,7 +39311,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !5174, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -39357,7 +39357,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !5179, !noalias !5168, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 1, ptr %52, align 1, !noalias !5168
   %53 = load i64, ptr %19, align 8, !alias.scope !5179, !noalias !5168, !noundef !5
   %54 = add i64 %53, 1
@@ -39427,7 +39427,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !5194, !noalias !5197, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !5201
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -39446,7 +39446,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !5197, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -39492,7 +39492,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !5202, !noalias !5191, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !5191
   %53 = load i64, ptr %19, align 8, !alias.scope !5202, !noalias !5191, !noundef !5
   %54 = add i64 %53, 1
@@ -39562,7 +39562,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !5217, !noalias !5220, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !5224
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -39581,7 +39581,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !5220, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -39627,7 +39627,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !5225, !noalias !5214, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !5214
   %53 = load i64, ptr %19, align 8, !alias.scope !5225, !noalias !5214, !noundef !5
   %54 = add i64 %53, 1
@@ -39720,7 +39720,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %35)
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %37 = load ptr, ptr %36, align 8, !alias.scope !5243, !noalias !5246, !nonnull !5, !noundef !5
-  %38 = getelementptr inbounds { i8, [3 x i8] }, ptr %37, i64 %33
+  %38 = getelementptr inbounds [4 x i8], ptr %37, i64 %33
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %38, align 1, !noalias !5250
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %39 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -39738,7 +39738,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 44:                                               ; preds = %.critedge.i.i
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %46 = load ptr, ptr %45, align 8, !noalias !5246, !nonnull !5, !noundef !5
-  %47 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %46, i64 %43
+  %47 = getelementptr [32 x i8], ptr %46, i64 %43
   %48 = getelementptr i8, ptr %47, i64 -32
   %.not41.i.i = icmp eq ptr %48, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %49
@@ -39804,7 +39804,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %65)
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %67 = load ptr, ptr %66, align 8, !alias.scope !5251, !noalias !5254, !nonnull !5, !noundef !5
-  %68 = getelementptr inbounds { i8, [3 x i8] }, ptr %67, i64 %63
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %63
   %.sroa.01.0.copyload.i.i38.i = load i32, ptr %68, align 1, !noalias !5264
   %.sroa.032.0.extract.trunc.i39.i = trunc i32 %.sroa.01.0.copyload.i.i38.i to i8
   %69 = add i8 %.sroa.032.0.extract.trunc.i39.i, -9
@@ -39832,7 +39832,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 76:                                               ; preds = %.critedge.i47.i
   %77 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %78 = load ptr, ptr %77, align 8, !noalias !5254, !nonnull !5, !noundef !5
-  %79 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %78, i64 %75
+  %79 = getelementptr [32 x i8], ptr %78, i64 %75
   %80 = getelementptr i8, ptr %79, i64 -32
   %.not41.i49.i = icmp eq ptr %80, null
   br i1 %.not41.i49.i, label %.critedge45.i43.i, label %81
@@ -39912,7 +39912,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %27)
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %29 = load ptr, ptr %28, align 8, !alias.scope !5277, !noalias !5280, !nonnull !5, !noundef !5
-  %30 = getelementptr inbounds { i8, [3 x i8] }, ptr %29, i64 %25
+  %30 = getelementptr inbounds [4 x i8], ptr %29, i64 %25
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %30, align 1, !noalias !5284
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %31 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -39931,7 +39931,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %39 = load ptr, ptr %38, align 8, !noalias !5280, !nonnull !5, !noundef !5
-  %40 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %39, i64 %36
+  %40 = getelementptr [32 x i8], ptr %39, i64 %36
   %41 = getelementptr i8, ptr %40, i64 -32
   %.not41.i.i = icmp eq ptr %41, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %42
@@ -39975,7 +39975,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %51)
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %53 = load ptr, ptr %52, align 8, !alias.scope !5285, !noalias !5288, !nonnull !5, !noundef !5
-  %54 = getelementptr inbounds { i8, [3 x i8] }, ptr %53, i64 %49
+  %54 = getelementptr inbounds [4 x i8], ptr %53, i64 %49
   %.sroa.01.0.copyload.i.i56.i = load i32, ptr %54, align 1, !noalias !5292
   %.sroa.032.0.extract.trunc.i57.i = trunc i32 %.sroa.01.0.copyload.i.i56.i to i8
   %55 = add i8 %.sroa.032.0.extract.trunc.i57.i, -9
@@ -39994,7 +39994,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %63 = load ptr, ptr %62, align 8, !noalias !5288, !nonnull !5, !noundef !5
-  %64 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %63, i64 %60
+  %64 = getelementptr [32 x i8], ptr %63, i64 %60
   %65 = getelementptr i8, ptr %64, i64 -32
   %.not41.i64.i = icmp eq ptr %65, null
   br i1 %.not41.i64.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit66.i", label %66
@@ -40038,7 +40038,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %75)
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %77 = load ptr, ptr %76, align 8, !alias.scope !5293, !noalias !5296, !nonnull !5, !noundef !5
-  %78 = getelementptr inbounds { i8, [3 x i8] }, ptr %77, i64 %73
+  %78 = getelementptr inbounds [4 x i8], ptr %77, i64 %73
   %.sroa.01.0.copyload.i.i68.i = load i32, ptr %78, align 1, !noalias !5300
   %.sroa.032.0.extract.trunc.i69.i = trunc i32 %.sroa.01.0.copyload.i.i68.i to i8
   %79 = add i8 %.sroa.032.0.extract.trunc.i69.i, -9
@@ -40057,7 +40057,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %87 = load ptr, ptr %86, align 8, !noalias !5296, !nonnull !5, !noundef !5
-  %88 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %87, i64 %84
+  %88 = getelementptr [32 x i8], ptr %87, i64 %84
   %89 = getelementptr i8, ptr %88, i64 -32
   %.not41.i76.i = icmp eq ptr %89, null
   br i1 %.not41.i76.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit78.i", label %90
@@ -40103,7 +40103,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %99 = phi i64 [ %.pre.i.i.i, %97 ], [ %95, %93 ]
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %101 = load ptr, ptr %100, align 8, !alias.scope !5301, !noalias !5274, !nonnull !5, !noundef !5
-  %102 = getelementptr inbounds { i8, [3 x i8] }, ptr %101, i64 %99
+  %102 = getelementptr inbounds [4 x i8], ptr %101, i64 %99
   store i32 4, ptr %102, align 1, !noalias !5274
   %103 = load i64, ptr %21, align 8, !alias.scope !5301, !noalias !5274, !noundef !5
   %104 = add i64 %103, 1
@@ -40442,7 +40442,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %105)
   %106 = getelementptr inbounds nuw i8, ptr %22, i64 152
   %107 = load ptr, ptr %106, align 8, !alias.scope !5346, !noalias !5349, !nonnull !5, !noundef !5
-  %108 = getelementptr inbounds { i8, [3 x i8] }, ptr %107, i64 %103
+  %108 = getelementptr inbounds [4 x i8], ptr %107, i64 %103
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %108, align 1, !noalias !5353
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %109 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -40461,7 +40461,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 115:                                              ; preds = %112
   %116 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %117 = load ptr, ptr %116, align 8, !noalias !5349, !nonnull !5, !noundef !5
-  %118 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %117, i64 %114
+  %118 = getelementptr [32 x i8], ptr %117, i64 %114
   %119 = getelementptr i8, ptr %118, i64 -32
   %.not41.i.i = icmp eq ptr %119, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %120
@@ -40505,7 +40505,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %129)
   %130 = getelementptr inbounds nuw i8, ptr %22, i64 152
   %131 = load ptr, ptr %130, align 8, !alias.scope !5354, !noalias !5357, !nonnull !5, !noundef !5
-  %132 = getelementptr inbounds { i8, [3 x i8] }, ptr %131, i64 %127
+  %132 = getelementptr inbounds [4 x i8], ptr %131, i64 %127
   %.sroa.01.0.copyload.i.i73.i = load i32, ptr %132, align 1, !noalias !5361
   %.sroa.032.0.extract.trunc.i74.i = trunc i32 %.sroa.01.0.copyload.i.i73.i to i8
   %133 = add i8 %.sroa.032.0.extract.trunc.i74.i, -9
@@ -40524,7 +40524,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 139:                                              ; preds = %136
   %140 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %141 = load ptr, ptr %140, align 8, !noalias !5357, !nonnull !5, !noundef !5
-  %142 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %141, i64 %138
+  %142 = getelementptr [32 x i8], ptr %141, i64 %138
   %143 = getelementptr i8, ptr %142, i64 -32
   %.not41.i80.i = icmp eq ptr %143, null
   br i1 %.not41.i80.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit82.i", label %144
@@ -40568,7 +40568,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %153)
   %154 = getelementptr inbounds nuw i8, ptr %22, i64 152
   %155 = load ptr, ptr %154, align 8, !alias.scope !5362, !noalias !5365, !nonnull !5, !noundef !5
-  %156 = getelementptr inbounds { i8, [3 x i8] }, ptr %155, i64 %151
+  %156 = getelementptr inbounds [4 x i8], ptr %155, i64 %151
   %.sroa.01.0.copyload.i.i84.i = load i32, ptr %156, align 1, !noalias !5369
   %.sroa.032.0.extract.trunc.i85.i = trunc i32 %.sroa.01.0.copyload.i.i84.i to i8
   %157 = add i8 %.sroa.032.0.extract.trunc.i85.i, -9
@@ -40587,7 +40587,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 163:                                              ; preds = %160
   %164 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %165 = load ptr, ptr %164, align 8, !noalias !5365, !nonnull !5, !noundef !5
-  %166 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %165, i64 %162
+  %166 = getelementptr [32 x i8], ptr %165, i64 %162
   %167 = getelementptr i8, ptr %166, i64 -32
   %.not41.i91.i = icmp eq ptr %167, null
   br i1 %.not41.i91.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit93.i", label %168
@@ -40896,7 +40896,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %110)
   %111 = getelementptr inbounds nuw i8, ptr %26, i64 152
   %112 = load ptr, ptr %111, align 8, !alias.scope !5403, !noalias !5406, !nonnull !5, !noundef !5
-  %113 = getelementptr inbounds { i8, [3 x i8] }, ptr %112, i64 %108
+  %113 = getelementptr inbounds [4 x i8], ptr %112, i64 %108
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %113, align 1, !noalias !5410
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %114 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -40915,7 +40915,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 120:                                              ; preds = %117
   %121 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %122 = load ptr, ptr %121, align 8, !noalias !5406, !nonnull !5, !noundef !5
-  %123 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %122, i64 %119
+  %123 = getelementptr [32 x i8], ptr %122, i64 %119
   %124 = getelementptr i8, ptr %123, i64 -32
   %.not41.i.i = icmp eq ptr %124, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %125
@@ -40964,7 +40964,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %135)
   %136 = getelementptr inbounds nuw i8, ptr %26, i64 152
   %137 = load ptr, ptr %136, align 8, !alias.scope !5411, !noalias !5414, !nonnull !5, !noundef !5
-  %138 = getelementptr inbounds { i8, [3 x i8] }, ptr %137, i64 %133
+  %138 = getelementptr inbounds [4 x i8], ptr %137, i64 %133
   %.sroa.01.0.copyload.i.i98.i = load i32, ptr %138, align 1, !noalias !5418
   %.sroa.032.0.extract.trunc.i99.i = trunc i32 %.sroa.01.0.copyload.i.i98.i to i8
   %139 = add i8 %.sroa.032.0.extract.trunc.i99.i, -9
@@ -40983,7 +40983,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 145:                                              ; preds = %142
   %146 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %147 = load ptr, ptr %146, align 8, !noalias !5414, !nonnull !5, !noundef !5
-  %148 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %147, i64 %144
+  %148 = getelementptr [32 x i8], ptr %147, i64 %144
   %149 = getelementptr i8, ptr %148, i64 -32
   %.not41.i105.i = icmp eq ptr %149, null
   br i1 %.not41.i105.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit107.i", label %150
@@ -41027,7 +41027,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %159)
   %160 = getelementptr inbounds nuw i8, ptr %26, i64 152
   %161 = load ptr, ptr %160, align 8, !alias.scope !5419, !noalias !5422, !nonnull !5, !noundef !5
-  %162 = getelementptr inbounds { i8, [3 x i8] }, ptr %161, i64 %157
+  %162 = getelementptr inbounds [4 x i8], ptr %161, i64 %157
   %.sroa.01.0.copyload.i.i = load i32, ptr %162, align 1, !noalias !5426
   %.sroa.032.0.extract.trunc.i = trunc i32 %.sroa.01.0.copyload.i.i to i8
   %163 = add i8 %.sroa.032.0.extract.trunc.i, -9
@@ -41046,7 +41046,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 169:                                              ; preds = %166
   %170 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %171 = load ptr, ptr %170, align 8, !noalias !5422, !nonnull !5, !noundef !5
-  %172 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %171, i64 %168
+  %172 = getelementptr [32 x i8], ptr %171, i64 %168
   %173 = getelementptr i8, ptr %172, i64 -32
   %.not41.i = icmp eq ptr %173, null
   br i1 %.not41.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit", label %174
@@ -41270,7 +41270,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %79 = icmp ult i64 %77, %78
   tail call void @llvm.assume(i1 %79)
   %80 = load ptr, ptr %67, align 8, !alias.scope !5448, !noalias !5451, !nonnull !5, !noundef !5
-  %81 = getelementptr inbounds { i8, [3 x i8] }, ptr %80, i64 %77
+  %81 = getelementptr inbounds [4 x i8], ptr %80, i64 %77
   %.sroa.01.0.copyload.i.i.us.i = load i32, ptr %81, align 1, !noalias !5453
   br label %.critedge45.i.us.i
 
@@ -41313,7 +41313,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %97 = icmp ult i64 %95, %96
   tail call void @llvm.assume(i1 %97)
   %98 = load ptr, ptr %86, align 8, !alias.scope !5448, !noalias !5451, !nonnull !5, !noundef !5
-  %99 = getelementptr inbounds { i8, [3 x i8] }, ptr %98, i64 %95
+  %99 = getelementptr inbounds [4 x i8], ptr %98, i64 %95
   %.sroa.01.0.copyload.i.i.us39.i = load i32, ptr %99, align 1, !noalias !5453
   %.sroa.032.0.extract.trunc.i.us.i = trunc i32 %.sroa.01.0.copyload.i.i.us39.i to i8
   %100 = add i8 %.sroa.032.0.extract.trunc.i.us.i, -9
@@ -41330,7 +41330,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 104:                                              ; preds = %.critedge.i.us.i
   %105 = load ptr, ptr %89, align 8, !noalias !5451, !nonnull !5, !noundef !5
-  %106 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %105, i64 %103
+  %106 = getelementptr [32 x i8], ptr %105, i64 %103
   %107 = getelementptr i8, ptr %106, i64 -32
   %.not41.i.us.i = icmp eq ptr %107, null
   br i1 %.not41.i.us.i, label %.critedge45.i.us40.i, label %108
@@ -41379,7 +41379,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %118 = icmp ult i64 %116, %117
   tail call void @llvm.assume(i1 %118)
   %119 = load ptr, ptr %67, align 8, !alias.scope !5448, !noalias !5451, !nonnull !5, !noundef !5
-  %120 = getelementptr inbounds { i8, [3 x i8] }, ptr %119, i64 %116
+  %120 = getelementptr inbounds [4 x i8], ptr %119, i64 %116
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %120, align 1, !noalias !5453
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %121 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -41412,7 +41412,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 128:                                              ; preds = %.critedge.i.i
   %129 = load ptr, ptr %70, align 8, !noalias !5451, !nonnull !5, !noundef !5
-  %130 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %129, i64 %127
+  %130 = getelementptr [32 x i8], ptr %129, i64 %127
   %131 = getelementptr i8, ptr %130, i64 -32
   %.not41.i.i = icmp eq ptr %131, null
   br i1 %.not41.i.i, label %.critedge45.i.i, label %132
@@ -41581,7 +41581,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %74 = load ptr, ptr %73, align 8, !noalias !5473, !nonnull !5, !noundef !5
-  %75 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %74, i64 %62
+  %75 = getelementptr inbounds [32 x i8], ptr %74, i64 %62
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load i64, ptr %76, align 8, !noalias !5464
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 24
@@ -41748,7 +41748,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.assume(i1 %131)
   %132 = getelementptr inbounds nuw i8, ptr %22, i64 152
   %133 = load ptr, ptr %132, align 8, !alias.scope !5497, !noalias !5500, !nonnull !5, !noundef !5
-  %134 = getelementptr inbounds { i8, [3 x i8] }, ptr %133, i64 %129
+  %134 = getelementptr inbounds [4 x i8], ptr %133, i64 %129
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %134, align 1, !noalias !5504
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %135 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -41768,7 +41768,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 140:                                              ; preds = %.critedge.i.i
   %141 = load ptr, ptr %73, align 8, !noalias !5500, !nonnull !5, !noundef !5
-  %142 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %141, i64 %139
+  %142 = getelementptr [32 x i8], ptr %141, i64 %139
   %143 = getelementptr i8, ptr %142, i64 -32
   %.not41.i.i = icmp eq ptr %143, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %144
@@ -42093,7 +42093,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !5559, !noalias !5562, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !5563
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -42112,7 +42112,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !5562, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -42158,7 +42158,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !5564, !noalias !5550, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !5550
   %38 = load i64, ptr %4, align 8, !alias.scope !5564, !noalias !5550, !noundef !5
   %39 = add i64 %38, 1
@@ -42192,7 +42192,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !5576, !noalias !5579, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !5580
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -42211,7 +42211,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !5579, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -42257,7 +42257,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !5581, !noalias !5567, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !5567
   %38 = load i64, ptr %4, align 8, !alias.scope !5581, !noalias !5567, !noundef !5
   %39 = add i64 %38, 1
@@ -42291,7 +42291,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !5593, !noalias !5596, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !5597
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -42310,7 +42310,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !5596, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -42356,7 +42356,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !5598, !noalias !5584, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !5584
   %38 = load i64, ptr %4, align 8, !alias.scope !5598, !noalias !5584, !noundef !5
   %39 = add i64 %38, 1
@@ -42390,7 +42390,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !5610, !noalias !5613, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !5614
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -42409,7 +42409,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !5613, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -42455,7 +42455,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !5615, !noalias !5601, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !5601
   %38 = load i64, ptr %4, align 8, !alias.scope !5615, !noalias !5601, !noundef !5
   %39 = add i64 %38, 1
@@ -42538,7 +42538,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !5636, !noalias !5639, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !5640
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -42557,7 +42557,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !5639, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -42603,7 +42603,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !5641, !noalias !5627, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !5627
   %38 = load i64, ptr %4, align 8, !alias.scope !5641, !noalias !5627, !noundef !5
   %39 = add i64 %38, 1
@@ -42637,7 +42637,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !5653, !noalias !5656, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !5657
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -42656,7 +42656,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !5656, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -42702,7 +42702,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !5658, !noalias !5644, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !5644
   %38 = load i64, ptr %4, align 8, !alias.scope !5658, !noalias !5644, !noundef !5
   %39 = add i64 %38, 1
@@ -42736,7 +42736,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !5670, !noalias !5673, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !5674
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -42755,7 +42755,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !5673, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -42801,7 +42801,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !5675, !noalias !5661, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !5661
   %38 = load i64, ptr %4, align 8, !alias.scope !5675, !noalias !5661, !noundef !5
   %39 = add i64 %38, 1
@@ -42835,7 +42835,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !5687, !noalias !5690, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !5691
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -42854,7 +42854,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !5690, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -42900,7 +42900,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !5692, !noalias !5678, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !5678
   %38 = load i64, ptr %4, align 8, !alias.scope !5692, !noalias !5678, !noundef !5
   %39 = add i64 %38, 1
@@ -43182,7 +43182,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %31 = phi i64 [ %.pre.i.i.i, %30 ], [ %27, %23 ]
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %33 = load ptr, ptr %32, align 8, !alias.scope !5743, !noalias !5740, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { i8, [3 x i8] }, ptr %33, i64 %31
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %31
   store i32 %.sroa.012.0.insert.insert.i, ptr %34, align 1, !noalias !5740
   %35 = load i64, ptr %26, align 8, !alias.scope !5743, !noalias !5740, !noundef !5
   %36 = add i64 %35, 1
@@ -43539,7 +43539,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %44 = load ptr, ptr %43, align 8, !alias.scope !5806, !noalias !5809, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds { i8, [3 x i8] }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %40
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %45, align 1, !noalias !5813
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %46 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -43558,7 +43558,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %54 = load ptr, ptr %53, align 8, !noalias !5809, !nonnull !5, !noundef !5
-  %55 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %54, i64 %51
+  %55 = getelementptr [32 x i8], ptr %54, i64 %51
   %56 = getelementptr i8, ptr %55, i64 -32
   %.not41.i.i = icmp eq ptr %56, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %57
@@ -43602,7 +43602,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %68 = load ptr, ptr %67, align 8, !alias.scope !5814, !noalias !5817, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds { i8, [3 x i8] }, ptr %68, i64 %64
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %64
   %.sroa.01.0.copyload.i.i63.i = load i32, ptr %69, align 1, !noalias !5821
   %.sroa.032.0.extract.trunc.i64.i = trunc i32 %.sroa.01.0.copyload.i.i63.i to i8
   %70 = add i8 %.sroa.032.0.extract.trunc.i64.i, -9
@@ -43631,7 +43631,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 80:                                               ; preds = %.critedge.i.i
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %82 = load ptr, ptr %81, align 8, !noalias !5817, !nonnull !5, !noundef !5
-  %83 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %82, i64 %79
+  %83 = getelementptr [32 x i8], ptr %82, i64 %79
   %84 = getelementptr i8, ptr %83, i64 -32
   %.not41.i71.i = icmp eq ptr %84, null
   br i1 %.not41.i71.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit73.i", label %85
@@ -43677,7 +43677,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %94 = phi i64 [ %.pre.i.i, %92 ], [ %90, %88 ]
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %96 = load ptr, ptr %95, align 8, !alias.scope !5822, !noalias !5803, !nonnull !5, !noundef !5
-  %97 = getelementptr inbounds { i8, [3 x i8] }, ptr %96, i64 %94
+  %97 = getelementptr inbounds [4 x i8], ptr %96, i64 %94
   store i32 4, ptr %97, align 1, !noalias !5803
   %98 = load i64, ptr %36, align 8, !alias.scope !5822, !noalias !5803, !noundef !5
   %99 = add i64 %98, 1
@@ -43809,7 +43809,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !5852, !noalias !5855, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !5856
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -43828,7 +43828,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !5855, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -43874,7 +43874,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !5857, !noalias !5843, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !5843
   %38 = load i64, ptr %4, align 8, !alias.scope !5857, !noalias !5843, !noundef !5
   %39 = add i64 %38, 1
@@ -43908,7 +43908,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !5869, !noalias !5872, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !5873
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -43927,7 +43927,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !5872, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -43973,7 +43973,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !5874, !noalias !5860, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !5860
   %38 = load i64, ptr %4, align 8, !alias.scope !5874, !noalias !5860, !noundef !5
   %39 = add i64 %38, 1
@@ -44080,7 +44080,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %44 = load ptr, ptr %43, align 8, !alias.scope !5892, !noalias !5895, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds { i8, [3 x i8] }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %40
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %45, align 1, !noalias !5899
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %46 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -44099,7 +44099,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %54 = load ptr, ptr %53, align 8, !noalias !5895, !nonnull !5, !noundef !5
-  %55 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %54, i64 %51
+  %55 = getelementptr [32 x i8], ptr %54, i64 %51
   %56 = getelementptr i8, ptr %55, i64 -32
   %.not41.i.i = icmp eq ptr %56, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %57
@@ -44143,7 +44143,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %68 = load ptr, ptr %67, align 8, !alias.scope !5900, !noalias !5903, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds { i8, [3 x i8] }, ptr %68, i64 %64
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %64
   %.sroa.01.0.copyload.i.i63.i = load i32, ptr %69, align 1, !noalias !5907
   %.sroa.032.0.extract.trunc.i64.i = trunc i32 %.sroa.01.0.copyload.i.i63.i to i8
   %70 = add i8 %.sroa.032.0.extract.trunc.i64.i, -9
@@ -44172,7 +44172,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 80:                                               ; preds = %.critedge.i.i
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %82 = load ptr, ptr %81, align 8, !noalias !5903, !nonnull !5, !noundef !5
-  %83 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %82, i64 %79
+  %83 = getelementptr [32 x i8], ptr %82, i64 %79
   %84 = getelementptr i8, ptr %83, i64 -32
   %.not41.i71.i = icmp eq ptr %84, null
   br i1 %.not41.i71.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit73.i", label %85
@@ -44218,7 +44218,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %94 = phi i64 [ %.pre.i.i, %92 ], [ %90, %88 ]
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %96 = load ptr, ptr %95, align 8, !alias.scope !5908, !noalias !5889, !nonnull !5, !noundef !5
-  %97 = getelementptr inbounds { i8, [3 x i8] }, ptr %96, i64 %94
+  %97 = getelementptr inbounds [4 x i8], ptr %96, i64 %94
   store i32 4, ptr %97, align 1, !noalias !5889
   %98 = load i64, ptr %36, align 8, !alias.scope !5908, !noalias !5889, !noundef !5
   %99 = add i64 %98, 1
@@ -44325,7 +44325,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %44 = load ptr, ptr %43, align 8, !alias.scope !5926, !noalias !5929, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds { i8, [3 x i8] }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %40
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %45, align 1, !noalias !5933
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %46 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -44344,7 +44344,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %54 = load ptr, ptr %53, align 8, !noalias !5929, !nonnull !5, !noundef !5
-  %55 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %54, i64 %51
+  %55 = getelementptr [32 x i8], ptr %54, i64 %51
   %56 = getelementptr i8, ptr %55, i64 -32
   %.not41.i.i = icmp eq ptr %56, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %57
@@ -44388,7 +44388,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %68 = load ptr, ptr %67, align 8, !alias.scope !5934, !noalias !5937, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds { i8, [3 x i8] }, ptr %68, i64 %64
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %64
   %.sroa.01.0.copyload.i.i63.i = load i32, ptr %69, align 1, !noalias !5941
   %.sroa.032.0.extract.trunc.i64.i = trunc i32 %.sroa.01.0.copyload.i.i63.i to i8
   %70 = add i8 %.sroa.032.0.extract.trunc.i64.i, -9
@@ -44417,7 +44417,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 80:                                               ; preds = %.critedge.i.i
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %82 = load ptr, ptr %81, align 8, !noalias !5937, !nonnull !5, !noundef !5
-  %83 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %82, i64 %79
+  %83 = getelementptr [32 x i8], ptr %82, i64 %79
   %84 = getelementptr i8, ptr %83, i64 -32
   %.not41.i71.i = icmp eq ptr %84, null
   br i1 %.not41.i71.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit73.i", label %85
@@ -44463,7 +44463,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %94 = phi i64 [ %.pre.i.i, %92 ], [ %90, %88 ]
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %96 = load ptr, ptr %95, align 8, !alias.scope !5942, !noalias !5923, !nonnull !5, !noundef !5
-  %97 = getelementptr inbounds { i8, [3 x i8] }, ptr %96, i64 %94
+  %97 = getelementptr inbounds [4 x i8], ptr %96, i64 %94
   store i32 4, ptr %97, align 1, !noalias !5923
   %98 = load i64, ptr %36, align 8, !alias.scope !5942, !noalias !5923, !noundef !5
   %99 = add i64 %98, 1
@@ -44619,7 +44619,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %44 = load ptr, ptr %43, align 8, !alias.scope !5969, !noalias !5972, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds { i8, [3 x i8] }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %40
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %45, align 1, !noalias !5976
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %46 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -44638,7 +44638,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %54 = load ptr, ptr %53, align 8, !noalias !5972, !nonnull !5, !noundef !5
-  %55 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %54, i64 %51
+  %55 = getelementptr [32 x i8], ptr %54, i64 %51
   %56 = getelementptr i8, ptr %55, i64 -32
   %.not41.i.i = icmp eq ptr %56, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %57
@@ -44682,7 +44682,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %68 = load ptr, ptr %67, align 8, !alias.scope !5977, !noalias !5980, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds { i8, [3 x i8] }, ptr %68, i64 %64
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %64
   %.sroa.01.0.copyload.i.i63.i = load i32, ptr %69, align 1, !noalias !5984
   %.sroa.032.0.extract.trunc.i64.i = trunc i32 %.sroa.01.0.copyload.i.i63.i to i8
   %70 = add i8 %.sroa.032.0.extract.trunc.i64.i, -9
@@ -44711,7 +44711,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 80:                                               ; preds = %.critedge.i.i
   %81 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %82 = load ptr, ptr %81, align 8, !noalias !5980, !nonnull !5, !noundef !5
-  %83 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %82, i64 %79
+  %83 = getelementptr [32 x i8], ptr %82, i64 %79
   %84 = getelementptr i8, ptr %83, i64 -32
   %.not41.i71.i = icmp eq ptr %84, null
   br i1 %.not41.i71.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit73.i", label %85
@@ -44757,7 +44757,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %94 = phi i64 [ %.pre.i.i, %92 ], [ %90, %88 ]
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %96 = load ptr, ptr %95, align 8, !alias.scope !5985, !noalias !5966, !nonnull !5, !noundef !5
-  %97 = getelementptr inbounds { i8, [3 x i8] }, ptr %96, i64 %94
+  %97 = getelementptr inbounds [4 x i8], ptr %96, i64 %94
   store i32 4, ptr %97, align 1, !noalias !5966
   %98 = load i64, ptr %36, align 8, !alias.scope !5985, !noalias !5966, !noundef !5
   %99 = add i64 %98, 1
@@ -44892,7 +44892,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %35 = load ptr, ptr %34, align 8, !alias.scope !6012, !noalias !6015, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds { i8, [3 x i8] }, ptr %35, i64 %31
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %31
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %36, align 1, !noalias !6019
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %37 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -44921,7 +44921,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 47:                                               ; preds = %.critedge.i.i
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %49 = load ptr, ptr %48, align 8, !noalias !6015, !nonnull !5, !noundef !5
-  %50 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %49, i64 %46
+  %50 = getelementptr [32 x i8], ptr %49, i64 %46
   %51 = getelementptr i8, ptr %50, i64 -32
   %.not41.i.i = icmp eq ptr %51, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %52
@@ -44967,7 +44967,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %61 = phi i64 [ %.pre.i.i.i, %59 ], [ %57, %55 ]
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %63 = load ptr, ptr %62, align 8, !alias.scope !6020, !noalias !6009, !nonnull !5, !noundef !5
-  %64 = getelementptr inbounds { i8, [3 x i8] }, ptr %63, i64 %61
+  %64 = getelementptr inbounds [4 x i8], ptr %63, i64 %61
   store i32 4, ptr %64, align 1, !noalias !6009
   %65 = load i64, ptr %27, align 8, !alias.scope !6020, !noalias !6009, !noundef !5
   %66 = add i64 %65, 1
@@ -45074,7 +45074,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %44 = load ptr, ptr %43, align 8, !alias.scope !6038, !noalias !6041, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds { i8, [3 x i8] }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %40
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %45, align 1, !noalias !6045
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %46 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -45093,7 +45093,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %54 = load ptr, ptr %53, align 8, !noalias !6041, !nonnull !5, !noundef !5
-  %55 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %54, i64 %51
+  %55 = getelementptr [32 x i8], ptr %54, i64 %51
   %56 = getelementptr i8, ptr %55, i64 -32
   %.not41.i.i = icmp eq ptr %56, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %57
@@ -45137,7 +45137,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %68 = load ptr, ptr %67, align 8, !alias.scope !6046, !noalias !6049, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds { i8, [3 x i8] }, ptr %68, i64 %64
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %64
   %.sroa.01.0.copyload.i.i47.i = load i32, ptr %69, align 1, !noalias !6053
   %.sroa.032.0.extract.trunc.i48.i = trunc i32 %.sroa.01.0.copyload.i.i47.i to i8
   %70 = add i8 %.sroa.032.0.extract.trunc.i48.i, -9
@@ -45176,7 +45176,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 82:                                               ; preds = %.critedge.i.i
   %83 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %84 = load ptr, ptr %83, align 8, !noalias !6049, !nonnull !5, !noundef !5
-  %85 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %84, i64 %81
+  %85 = getelementptr [32 x i8], ptr %84, i64 %81
   %86 = getelementptr i8, ptr %85, i64 -32
   %.not41.i55.i = icmp eq ptr %86, null
   br i1 %.not41.i55.i, label %.critedge45.i51.i, label %87
@@ -45362,7 +45362,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %70)
   %71 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %72 = load ptr, ptr %71, align 8, !alias.scope !6078, !noalias !6081, !nonnull !5, !noundef !5
-  %73 = getelementptr inbounds { i8, [3 x i8] }, ptr %72, i64 %68
+  %73 = getelementptr inbounds [4 x i8], ptr %72, i64 %68
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %73, align 1, !noalias !6085
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %74 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -45381,7 +45381,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 80:                                               ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %82 = load ptr, ptr %81, align 8, !noalias !6081, !nonnull !5, !noundef !5
-  %83 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %82, i64 %79
+  %83 = getelementptr [32 x i8], ptr %82, i64 %79
   %84 = getelementptr i8, ptr %83, i64 -32
   %.not41.i.i = icmp eq ptr %84, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %85
@@ -45702,7 +45702,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %37 = phi i64 [ %.pre.i.i.i.i, %30 ], [ %27, %24 ]
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %39 = load ptr, ptr %38, align 8, !alias.scope !6138, !noalias !6137, !nonnull !5, !noundef !5
-  %40 = getelementptr inbounds { i8, [3 x i8] }, ptr %39, i64 %37
+  %40 = getelementptr inbounds [4 x i8], ptr %39, i64 %37
   store i32 %.2.extract.trunc.i.i, ptr %40, align 1, !noalias !6137
   %41 = load i64, ptr %26, align 8, !alias.scope !6138, !noalias !6137, !noundef !5
   %42 = add i64 %41, 1
@@ -46152,7 +46152,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %31 = phi i64 [ %.pre.i.i.i, %30 ], [ %27, %24 ]
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %33 = load ptr, ptr %32, align 8, !alias.scope !6210, !noalias !6207, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { i8, [3 x i8] }, ptr %33, i64 %31
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %31
   store i32 %.sroa.06.0.copyload.i, ptr %34, align 1, !noalias !6207
   %35 = load i64, ptr %26, align 8, !alias.scope !6210, !noalias !6207, !noundef !5
   %36 = add i64 %35, 1
@@ -46234,7 +46234,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %31 = phi i64 [ %.pre.i.i.i, %30 ], [ %27, %24 ]
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %33 = load ptr, ptr %32, align 8, !alias.scope !6225, !noalias !6222, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds { i8, [3 x i8] }, ptr %33, i64 %31
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %31
   store i32 %.sroa.06.0.copyload.i, ptr %34, align 1, !noalias !6222
   %35 = load i64, ptr %26, align 8, !alias.scope !6225, !noalias !6222, !noundef !5
   %36 = add i64 %35, 1
@@ -46314,7 +46314,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %30 = phi i64 [ %.pre.i.i.i, %29 ], [ %26, %23 ]
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %32 = load ptr, ptr %31, align 8, !alias.scope !6240, !noalias !6237, !nonnull !5, !noundef !5
-  %33 = getelementptr inbounds { i8, [3 x i8] }, ptr %32, i64 %30
+  %33 = getelementptr inbounds [4 x i8], ptr %32, i64 %30
   store i32 0, ptr %33, align 1, !noalias !6237
   %34 = load i64, ptr %25, align 8, !alias.scope !6240, !noalias !6237, !noundef !5
   %35 = add i64 %34, 1
@@ -46394,7 +46394,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %30 = phi i64 [ %.pre.i.i.i, %29 ], [ %26, %23 ]
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %32 = load ptr, ptr %31, align 8, !alias.scope !6255, !noalias !6252, !nonnull !5, !noundef !5
-  %33 = getelementptr inbounds { i8, [3 x i8] }, ptr %32, i64 %30
+  %33 = getelementptr inbounds [4 x i8], ptr %32, i64 %30
   store i32 0, ptr %33, align 1, !noalias !6252
   %34 = load i64, ptr %25, align 8, !alias.scope !6255, !noalias !6252, !noundef !5
   %35 = add i64 %34, 1
@@ -46480,7 +46480,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %35 = load ptr, ptr %34, align 8, !alias.scope !6273, !noalias !6276, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds { i8, [3 x i8] }, ptr %35, i64 %31
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %31
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %36, align 1, !noalias !6280
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %37 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -46509,7 +46509,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 47:                                               ; preds = %.critedge.i.i
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %49 = load ptr, ptr %48, align 8, !noalias !6276, !nonnull !5, !noundef !5
-  %50 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %49, i64 %46
+  %50 = getelementptr [32 x i8], ptr %49, i64 %46
   %51 = getelementptr i8, ptr %50, i64 -32
   %.not41.i.i = icmp eq ptr %51, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %52
@@ -46555,7 +46555,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %61 = phi i64 [ %.pre.i.i.i, %59 ], [ %57, %55 ]
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %63 = load ptr, ptr %62, align 8, !alias.scope !6281, !noalias !6270, !nonnull !5, !noundef !5
-  %64 = getelementptr inbounds { i8, [3 x i8] }, ptr %63, i64 %61
+  %64 = getelementptr inbounds [4 x i8], ptr %63, i64 %61
   store i32 4, ptr %64, align 1, !noalias !6270
   %65 = load i64, ptr %27, align 8, !alias.scope !6281, !noalias !6270, !noundef !5
   %66 = add i64 %65, 1
@@ -46760,7 +46760,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %44 = load ptr, ptr %43, align 8, !alias.scope !6317, !noalias !6320, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds { i8, [3 x i8] }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %40
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %45, align 1, !noalias !6324
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %46 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -46779,7 +46779,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %54 = load ptr, ptr %53, align 8, !noalias !6320, !nonnull !5, !noundef !5
-  %55 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %54, i64 %51
+  %55 = getelementptr [32 x i8], ptr %54, i64 %51
   %56 = getelementptr i8, ptr %55, i64 -32
   %.not41.i.i = icmp eq ptr %56, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %57
@@ -46823,7 +46823,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %68 = load ptr, ptr %67, align 8, !alias.scope !6325, !noalias !6328, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds { i8, [3 x i8] }, ptr %68, i64 %64
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %64
   %.sroa.01.0.copyload.i.i47.i = load i32, ptr %69, align 1, !noalias !6332
   %.sroa.032.0.extract.trunc.i48.i = trunc i32 %.sroa.01.0.copyload.i.i47.i to i8
   %70 = add i8 %.sroa.032.0.extract.trunc.i48.i, -9
@@ -46862,7 +46862,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 82:                                               ; preds = %.critedge.i.i
   %83 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %84 = load ptr, ptr %83, align 8, !noalias !6328, !nonnull !5, !noundef !5
-  %85 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %84, i64 %81
+  %85 = getelementptr [32 x i8], ptr %84, i64 %81
   %86 = getelementptr i8, ptr %85, i64 -32
   %.not41.i55.i = icmp eq ptr %86, null
   br i1 %.not41.i55.i, label %.critedge45.i51.i, label %87
@@ -46977,7 +46977,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %44 = load ptr, ptr %43, align 8, !alias.scope !6348, !noalias !6351, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds { i8, [3 x i8] }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %40
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %45, align 1, !noalias !6355
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %46 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -46996,7 +46996,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %54 = load ptr, ptr %53, align 8, !noalias !6351, !nonnull !5, !noundef !5
-  %55 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %54, i64 %51
+  %55 = getelementptr [32 x i8], ptr %54, i64 %51
   %56 = getelementptr i8, ptr %55, i64 -32
   %.not41.i.i = icmp eq ptr %56, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %57
@@ -47040,7 +47040,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %68 = load ptr, ptr %67, align 8, !alias.scope !6356, !noalias !6359, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds { i8, [3 x i8] }, ptr %68, i64 %64
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %64
   %.sroa.01.0.copyload.i.i47.i = load i32, ptr %69, align 1, !noalias !6363
   %.sroa.032.0.extract.trunc.i48.i = trunc i32 %.sroa.01.0.copyload.i.i47.i to i8
   %70 = add i8 %.sroa.032.0.extract.trunc.i48.i, -9
@@ -47079,7 +47079,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 82:                                               ; preds = %.critedge.i.i
   %83 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %84 = load ptr, ptr %83, align 8, !noalias !6359, !nonnull !5, !noundef !5
-  %85 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %84, i64 %81
+  %85 = getelementptr [32 x i8], ptr %84, i64 %81
   %86 = getelementptr i8, ptr %85, i64 -32
   %.not41.i55.i = icmp eq ptr %86, null
   br i1 %.not41.i55.i, label %.critedge45.i51.i, label %87
@@ -47194,7 +47194,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %44 = load ptr, ptr %43, align 8, !alias.scope !6379, !noalias !6382, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds { i8, [3 x i8] }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %40
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %45, align 1, !noalias !6386
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %46 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -47213,7 +47213,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %54 = load ptr, ptr %53, align 8, !noalias !6382, !nonnull !5, !noundef !5
-  %55 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %54, i64 %51
+  %55 = getelementptr [32 x i8], ptr %54, i64 %51
   %56 = getelementptr i8, ptr %55, i64 -32
   %.not41.i.i = icmp eq ptr %56, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %57
@@ -47257,7 +47257,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %68 = load ptr, ptr %67, align 8, !alias.scope !6387, !noalias !6390, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds { i8, [3 x i8] }, ptr %68, i64 %64
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %64
   %.sroa.01.0.copyload.i.i47.i = load i32, ptr %69, align 1, !noalias !6394
   %.sroa.032.0.extract.trunc.i48.i = trunc i32 %.sroa.01.0.copyload.i.i47.i to i8
   %70 = add i8 %.sroa.032.0.extract.trunc.i48.i, -9
@@ -47296,7 +47296,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 82:                                               ; preds = %.critedge.i.i
   %83 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %84 = load ptr, ptr %83, align 8, !noalias !6390, !nonnull !5, !noundef !5
-  %85 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %84, i64 %81
+  %85 = getelementptr [32 x i8], ptr %84, i64 %81
   %86 = getelementptr i8, ptr %85, i64 -32
   %.not41.i55.i = icmp eq ptr %86, null
   br i1 %.not41.i55.i, label %.critedge45.i51.i, label %87
@@ -47374,7 +47374,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !6407, !noalias !6410, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !6414
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -47396,7 +47396,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %.critedge.i.i
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !6410, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -47469,7 +47469,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %.sroa.01.0.insert.insert.i.i.i.i = or disjoint i32 %.sroa.421.0.extract.shift.i, 5
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %57 = load ptr, ptr %56, align 8, !alias.scope !6415, !noalias !6404, !nonnull !5, !noundef !5
-  %58 = getelementptr inbounds { i8, [3 x i8] }, ptr %57, i64 %55
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %55
   store i32 %.sroa.01.0.insert.insert.i.i.i.i, ptr %58, align 1, !noalias !6404
   %59 = load i64, ptr %19, align 8, !alias.scope !6415, !noalias !6404, !noundef !5
   %60 = add i64 %59, 1
@@ -47539,7 +47539,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !6430, !noalias !6433, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !6437
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -47561,7 +47561,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %.critedge.i.i
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !6433, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -47634,7 +47634,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %.sroa.01.0.insert.insert.i.i.i.i = or disjoint i32 %.sroa.435.0.extract.shift.i, 5
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %57 = load ptr, ptr %56, align 8, !alias.scope !6438, !noalias !6427, !nonnull !5, !noundef !5
-  %58 = getelementptr inbounds { i8, [3 x i8] }, ptr %57, i64 %55
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %55
   store i32 %.sroa.01.0.insert.insert.i.i.i.i, ptr %58, align 1, !noalias !6427
   %59 = load i64, ptr %19, align 8, !alias.scope !6438, !noalias !6427, !noundef !5
   %60 = add i64 %59, 1
@@ -47745,7 +47745,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %43 = load ptr, ptr %42, align 8, !alias.scope !6453, !noalias !6456, !nonnull !5, !noundef !5
-  %44 = getelementptr inbounds { i8, [3 x i8] }, ptr %43, i64 %39
+  %44 = getelementptr inbounds [4 x i8], ptr %43, i64 %39
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %44, align 1, !noalias !6460
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %45 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -47764,7 +47764,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %53 = load ptr, ptr %52, align 8, !noalias !6456, !nonnull !5, !noundef !5
-  %54 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %53, i64 %50
+  %54 = getelementptr [32 x i8], ptr %53, i64 %50
   %55 = getelementptr i8, ptr %54, i64 -32
   %.not41.i.i = icmp eq ptr %55, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %56
@@ -47810,7 +47810,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %65 = phi i64 [ %.pre.i.i.i, %63 ], [ %61, %59 ]
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %67 = load ptr, ptr %66, align 8, !alias.scope !6461, !noalias !6450, !nonnull !5, !noundef !5
-  %68 = getelementptr inbounds { i8, [3 x i8] }, ptr %67, i64 %65
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %65
   store i32 2, ptr %68, align 1, !noalias !6450
   %69 = load i64, ptr %35, align 8, !alias.scope !6461, !noalias !6450, !noundef !5
   %70 = add i64 %69, 1
@@ -47971,7 +47971,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %44 = load ptr, ptr %43, align 8, !alias.scope !6485, !noalias !6488, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds { i8, [3 x i8] }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %40
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %45, align 1, !noalias !6492
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %46 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -47990,7 +47990,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %54 = load ptr, ptr %53, align 8, !noalias !6488, !nonnull !5, !noundef !5
-  %55 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %54, i64 %51
+  %55 = getelementptr [32 x i8], ptr %54, i64 %51
   %56 = getelementptr i8, ptr %55, i64 -32
   %.not41.i.i = icmp eq ptr %56, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %57
@@ -48034,7 +48034,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %68 = load ptr, ptr %67, align 8, !alias.scope !6493, !noalias !6496, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds { i8, [3 x i8] }, ptr %68, i64 %64
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %64
   %.sroa.01.0.copyload.i.i61.i = load i32, ptr %69, align 1, !noalias !6500
   %.sroa.032.0.extract.trunc.i62.i = trunc i32 %.sroa.01.0.copyload.i.i61.i to i8
   %70 = add i8 %.sroa.032.0.extract.trunc.i62.i, -9
@@ -48053,7 +48053,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %78 = load ptr, ptr %77, align 8, !noalias !6496, !nonnull !5, !noundef !5
-  %79 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %78, i64 %75
+  %79 = getelementptr [32 x i8], ptr %78, i64 %75
   %80 = getelementptr i8, ptr %79, i64 -32
   %.not41.i69.i = icmp eq ptr %80, null
   br i1 %.not41.i69.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit71.i", label %81
@@ -48099,7 +48099,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %90 = phi i64 [ %.pre.i.i, %88 ], [ %86, %84 ]
   %91 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %92 = load ptr, ptr %91, align 8, !alias.scope !6501, !noalias !6482, !nonnull !5, !noundef !5
-  %93 = getelementptr inbounds { i8, [3 x i8] }, ptr %92, i64 %90
+  %93 = getelementptr inbounds [4 x i8], ptr %92, i64 %90
   store i32 4, ptr %93, align 1, !noalias !6482
   %94 = load i64, ptr %36, align 8, !alias.scope !6501, !noalias !6482, !noundef !5
   %95 = add i64 %94, 1
@@ -48210,7 +48210,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %43 = load ptr, ptr %42, align 8, !alias.scope !6516, !noalias !6519, !nonnull !5, !noundef !5
-  %44 = getelementptr inbounds { i8, [3 x i8] }, ptr %43, i64 %39
+  %44 = getelementptr inbounds [4 x i8], ptr %43, i64 %39
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %44, align 1, !noalias !6523
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %45 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -48229,7 +48229,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %53 = load ptr, ptr %52, align 8, !noalias !6519, !nonnull !5, !noundef !5
-  %54 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %53, i64 %50
+  %54 = getelementptr [32 x i8], ptr %53, i64 %50
   %55 = getelementptr i8, ptr %54, i64 -32
   %.not41.i.i = icmp eq ptr %55, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %56
@@ -48275,7 +48275,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %65 = phi i64 [ %.pre.i.i.i, %63 ], [ %61, %59 ]
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %67 = load ptr, ptr %66, align 8, !alias.scope !6524, !noalias !6513, !nonnull !5, !noundef !5
-  %68 = getelementptr inbounds { i8, [3 x i8] }, ptr %67, i64 %65
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %65
   store i32 3, ptr %68, align 1, !noalias !6513
   %69 = load i64, ptr %35, align 8, !alias.scope !6524, !noalias !6513, !noundef !5
   %70 = add i64 %69, 1
@@ -48436,7 +48436,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %44 = load ptr, ptr %43, align 8, !alias.scope !6548, !noalias !6551, !nonnull !5, !noundef !5
-  %45 = getelementptr inbounds { i8, [3 x i8] }, ptr %44, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %40
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %45, align 1, !noalias !6555
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %46 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -48455,7 +48455,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %54 = load ptr, ptr %53, align 8, !noalias !6551, !nonnull !5, !noundef !5
-  %55 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %54, i64 %51
+  %55 = getelementptr [32 x i8], ptr %54, i64 %51
   %56 = getelementptr i8, ptr %55, i64 -32
   %.not41.i.i = icmp eq ptr %56, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %57
@@ -48499,7 +48499,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %68 = load ptr, ptr %67, align 8, !alias.scope !6556, !noalias !6559, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds { i8, [3 x i8] }, ptr %68, i64 %64
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %64
   %.sroa.01.0.copyload.i.i61.i = load i32, ptr %69, align 1, !noalias !6563
   %.sroa.032.0.extract.trunc.i62.i = trunc i32 %.sroa.01.0.copyload.i.i61.i to i8
   %70 = add i8 %.sroa.032.0.extract.trunc.i62.i, -9
@@ -48518,7 +48518,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 76:                                               ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %78 = load ptr, ptr %77, align 8, !noalias !6559, !nonnull !5, !noundef !5
-  %79 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %78, i64 %75
+  %79 = getelementptr [32 x i8], ptr %78, i64 %75
   %80 = getelementptr i8, ptr %79, i64 -32
   %.not41.i69.i = icmp eq ptr %80, null
   br i1 %.not41.i69.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit71.i", label %81
@@ -48564,7 +48564,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %90 = phi i64 [ %.pre.i.i, %88 ], [ %86, %84 ]
   %91 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %92 = load ptr, ptr %91, align 8, !alias.scope !6564, !noalias !6545, !nonnull !5, !noundef !5
-  %93 = getelementptr inbounds { i8, [3 x i8] }, ptr %92, i64 %90
+  %93 = getelementptr inbounds [4 x i8], ptr %92, i64 %90
   store i32 4, ptr %93, align 1, !noalias !6545
   %94 = load i64, ptr %36, align 8, !alias.scope !6564, !noalias !6545, !noundef !5
   %95 = add i64 %94, 1
@@ -48655,7 +48655,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %34)
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !6579, !noalias !6582, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %32
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %32
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %37, align 1, !noalias !6586
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %38 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -48674,7 +48674,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %46 = load ptr, ptr %45, align 8, !noalias !6582, !nonnull !5, !noundef !5
-  %47 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %46, i64 %43
+  %47 = getelementptr [32 x i8], ptr %46, i64 %43
   %48 = getelementptr i8, ptr %47, i64 -32
   %.not41.i.i = icmp eq ptr %48, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %49
@@ -48718,7 +48718,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %58)
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %60 = load ptr, ptr %59, align 8, !alias.scope !6587, !noalias !6590, !nonnull !5, !noundef !5
-  %61 = getelementptr inbounds { i8, [3 x i8] }, ptr %60, i64 %56
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %56
   %.sroa.01.0.copyload.i.i49.i = load i32, ptr %61, align 1, !noalias !6594
   %.sroa.032.0.extract.trunc.i50.i = trunc i32 %.sroa.01.0.copyload.i.i49.i to i8
   %62 = add i8 %.sroa.032.0.extract.trunc.i50.i, -9
@@ -48737,7 +48737,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 68:                                               ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %70 = load ptr, ptr %69, align 8, !noalias !6590, !nonnull !5, !noundef !5
-  %71 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %70, i64 %67
+  %71 = getelementptr [32 x i8], ptr %70, i64 %67
   %72 = getelementptr i8, ptr %71, i64 -32
   %.not41.i56.i = icmp eq ptr %72, null
   br i1 %.not41.i56.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit58.i", label %73
@@ -48783,7 +48783,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %82 = phi i64 [ %.pre.i.i.i, %80 ], [ %78, %76 ]
   %83 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %84 = load ptr, ptr %83, align 8, !alias.scope !6595, !noalias !6576, !nonnull !5, !noundef !5
-  %85 = getelementptr inbounds { i8, [3 x i8] }, ptr %84, i64 %82
+  %85 = getelementptr inbounds [4 x i8], ptr %84, i64 %82
   store i32 4, ptr %85, align 1, !noalias !6576
   %86 = load i64, ptr %28, align 8, !alias.scope !6595, !noalias !6576, !noundef !5
   %87 = add i64 %86, 1
@@ -49167,7 +49167,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %35 = load ptr, ptr %34, align 8, !alias.scope !6664, !noalias !6667, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds { i8, [3 x i8] }, ptr %35, i64 %31
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %31
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %36, align 1, !noalias !6671
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %37 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -49186,7 +49186,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %45 = load ptr, ptr %44, align 8, !noalias !6667, !nonnull !5, !noundef !5
-  %46 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %45, i64 %42
+  %46 = getelementptr [32 x i8], ptr %45, i64 %42
   %47 = getelementptr i8, ptr %46, i64 -32
   %.not41.i.i = icmp eq ptr %47, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %48
@@ -49232,7 +49232,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %57 = phi i64 [ %.pre.i.i.i, %55 ], [ %53, %51 ]
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %59 = load ptr, ptr %58, align 8, !alias.scope !6672, !noalias !6661, !nonnull !5, !noundef !5
-  %60 = getelementptr inbounds { i8, [3 x i8] }, ptr %59, i64 %57
+  %60 = getelementptr inbounds [4 x i8], ptr %59, i64 %57
   store i32 0, ptr %60, align 1, !noalias !6661
   %61 = load i64, ptr %27, align 8, !alias.scope !6672, !noalias !6661, !noundef !5
   %62 = add i64 %61, 1
@@ -49323,7 +49323,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %34)
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !6687, !noalias !6690, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %32
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %32
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %37, align 1, !noalias !6694
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %38 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -49342,7 +49342,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %46 = load ptr, ptr %45, align 8, !noalias !6690, !nonnull !5, !noundef !5
-  %47 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %46, i64 %43
+  %47 = getelementptr [32 x i8], ptr %46, i64 %43
   %48 = getelementptr i8, ptr %47, i64 -32
   %.not41.i.i = icmp eq ptr %48, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %49
@@ -49386,7 +49386,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %58)
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %60 = load ptr, ptr %59, align 8, !alias.scope !6695, !noalias !6698, !nonnull !5, !noundef !5
-  %61 = getelementptr inbounds { i8, [3 x i8] }, ptr %60, i64 %56
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %56
   %.sroa.01.0.copyload.i.i49.i = load i32, ptr %61, align 1, !noalias !6702
   %.sroa.032.0.extract.trunc.i50.i = trunc i32 %.sroa.01.0.copyload.i.i49.i to i8
   %62 = add i8 %.sroa.032.0.extract.trunc.i50.i, -9
@@ -49405,7 +49405,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 68:                                               ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %70 = load ptr, ptr %69, align 8, !noalias !6698, !nonnull !5, !noundef !5
-  %71 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %70, i64 %67
+  %71 = getelementptr [32 x i8], ptr %70, i64 %67
   %72 = getelementptr i8, ptr %71, i64 -32
   %.not41.i56.i = icmp eq ptr %72, null
   br i1 %.not41.i56.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit58.i", label %73
@@ -49451,7 +49451,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %82 = phi i64 [ %.pre.i.i.i, %80 ], [ %78, %76 ]
   %83 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %84 = load ptr, ptr %83, align 8, !alias.scope !6703, !noalias !6684, !nonnull !5, !noundef !5
-  %85 = getelementptr inbounds { i8, [3 x i8] }, ptr %84, i64 %82
+  %85 = getelementptr inbounds [4 x i8], ptr %84, i64 %82
   store i32 4, ptr %85, align 1, !noalias !6684
   %86 = load i64, ptr %28, align 8, !alias.scope !6703, !noalias !6684, !noundef !5
   %87 = add i64 %86, 1
@@ -49884,7 +49884,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %35 = load ptr, ptr %34, align 8, !alias.scope !6781, !noalias !6784, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds { i8, [3 x i8] }, ptr %35, i64 %31
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %31
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %36, align 1, !noalias !6788
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %37 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -49903,7 +49903,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %45 = load ptr, ptr %44, align 8, !noalias !6784, !nonnull !5, !noundef !5
-  %46 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %45, i64 %42
+  %46 = getelementptr [32 x i8], ptr %45, i64 %42
   %47 = getelementptr i8, ptr %46, i64 -32
   %.not41.i.i = icmp eq ptr %47, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %48
@@ -49949,7 +49949,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %57 = phi i64 [ %.pre.i.i.i, %55 ], [ %53, %51 ]
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %59 = load ptr, ptr %58, align 8, !alias.scope !6789, !noalias !6778, !nonnull !5, !noundef !5
-  %60 = getelementptr inbounds { i8, [3 x i8] }, ptr %59, i64 %57
+  %60 = getelementptr inbounds [4 x i8], ptr %59, i64 %57
   store i32 1, ptr %60, align 1, !noalias !6778
   %61 = load i64, ptr %27, align 8, !alias.scope !6789, !noalias !6778, !noundef !5
   %62 = add i64 %61, 1
@@ -50040,7 +50040,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %34)
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !6804, !noalias !6807, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %32
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %32
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %37, align 1, !noalias !6811
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %38 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -50059,7 +50059,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %46 = load ptr, ptr %45, align 8, !noalias !6807, !nonnull !5, !noundef !5
-  %47 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %46, i64 %43
+  %47 = getelementptr [32 x i8], ptr %46, i64 %43
   %48 = getelementptr i8, ptr %47, i64 -32
   %.not41.i.i = icmp eq ptr %48, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %49
@@ -50103,7 +50103,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %58)
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %60 = load ptr, ptr %59, align 8, !alias.scope !6812, !noalias !6815, !nonnull !5, !noundef !5
-  %61 = getelementptr inbounds { i8, [3 x i8] }, ptr %60, i64 %56
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %56
   %.sroa.01.0.copyload.i.i49.i = load i32, ptr %61, align 1, !noalias !6819
   %.sroa.032.0.extract.trunc.i50.i = trunc i32 %.sroa.01.0.copyload.i.i49.i to i8
   %62 = add i8 %.sroa.032.0.extract.trunc.i50.i, -9
@@ -50122,7 +50122,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 68:                                               ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %70 = load ptr, ptr %69, align 8, !noalias !6815, !nonnull !5, !noundef !5
-  %71 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %70, i64 %67
+  %71 = getelementptr [32 x i8], ptr %70, i64 %67
   %72 = getelementptr i8, ptr %71, i64 -32
   %.not41.i57.i = icmp eq ptr %72, null
   br i1 %.not41.i57.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit59.i", label %73
@@ -50168,7 +50168,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %82 = phi i64 [ %.pre.i.i.i, %80 ], [ %78, %76 ]
   %83 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %84 = load ptr, ptr %83, align 8, !alias.scope !6820, !noalias !6801, !nonnull !5, !noundef !5
-  %85 = getelementptr inbounds { i8, [3 x i8] }, ptr %84, i64 %82
+  %85 = getelementptr inbounds [4 x i8], ptr %84, i64 %82
   store i32 4, ptr %85, align 1, !noalias !6801
   %86 = load i64, ptr %28, align 8, !alias.scope !6820, !noalias !6801, !noundef !5
   %87 = add i64 %86, 1
@@ -50259,7 +50259,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %34)
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !6835, !noalias !6838, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %32
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %32
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %37, align 1, !noalias !6842
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %38 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -50278,7 +50278,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %46 = load ptr, ptr %45, align 8, !noalias !6838, !nonnull !5, !noundef !5
-  %47 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %46, i64 %43
+  %47 = getelementptr [32 x i8], ptr %46, i64 %43
   %48 = getelementptr i8, ptr %47, i64 -32
   %.not41.i.i = icmp eq ptr %48, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %49
@@ -50322,7 +50322,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %58)
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %60 = load ptr, ptr %59, align 8, !alias.scope !6843, !noalias !6846, !nonnull !5, !noundef !5
-  %61 = getelementptr inbounds { i8, [3 x i8] }, ptr %60, i64 %56
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %56
   %.sroa.01.0.copyload.i.i49.i = load i32, ptr %61, align 1, !noalias !6850
   %.sroa.032.0.extract.trunc.i50.i = trunc i32 %.sroa.01.0.copyload.i.i49.i to i8
   %62 = add i8 %.sroa.032.0.extract.trunc.i50.i, -9
@@ -50341,7 +50341,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 68:                                               ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %70 = load ptr, ptr %69, align 8, !noalias !6846, !nonnull !5, !noundef !5
-  %71 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %70, i64 %67
+  %71 = getelementptr [32 x i8], ptr %70, i64 %67
   %72 = getelementptr i8, ptr %71, i64 -32
   %.not41.i56.i = icmp eq ptr %72, null
   br i1 %.not41.i56.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit58.i", label %73
@@ -50387,7 +50387,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %82 = phi i64 [ %.pre.i.i.i, %80 ], [ %78, %76 ]
   %83 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %84 = load ptr, ptr %83, align 8, !alias.scope !6851, !noalias !6832, !nonnull !5, !noundef !5
-  %85 = getelementptr inbounds { i8, [3 x i8] }, ptr %84, i64 %82
+  %85 = getelementptr inbounds [4 x i8], ptr %84, i64 %82
   store i32 4, ptr %85, align 1, !noalias !6832
   %86 = load i64, ptr %28, align 8, !alias.scope !6851, !noalias !6832, !noundef !5
   %87 = add i64 %86, 1
@@ -50841,7 +50841,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !6932, !noalias !6935, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !6936
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -50860,7 +50860,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !6935, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -50906,7 +50906,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !6937, !noalias !6923, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 0, ptr %37, align 1, !noalias !6923
   %38 = load i64, ptr %4, align 8, !alias.scope !6937, !noalias !6923, !noundef !5
   %39 = add i64 %38, 1
@@ -50976,7 +50976,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !6952, !noalias !6955, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !6959
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -50995,7 +50995,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !6955, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -51041,7 +51041,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !6960, !noalias !6949, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !6949
   %53 = load i64, ptr %19, align 8, !alias.scope !6960, !noalias !6949, !noundef !5
   %54 = add i64 %53, 1
@@ -51111,7 +51111,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !6975, !noalias !6978, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !6982
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -51130,7 +51130,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !6978, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -51176,7 +51176,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !6983, !noalias !6972, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !6972
   %53 = load i64, ptr %19, align 8, !alias.scope !6983, !noalias !6972, !noundef !5
   %54 = add i64 %53, 1
@@ -51246,7 +51246,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !6998, !noalias !7001, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !7005
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -51265,7 +51265,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !7001, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -51311,7 +51311,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !7006, !noalias !6995, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !6995
   %53 = load i64, ptr %19, align 8, !alias.scope !7006, !noalias !6995, !noundef !5
   %54 = add i64 %53, 1
@@ -51381,7 +51381,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !7021, !noalias !7024, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !7028
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -51400,7 +51400,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !7024, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -51446,7 +51446,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !7029, !noalias !7018, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 0, ptr %52, align 1, !noalias !7018
   %53 = load i64, ptr %19, align 8, !alias.scope !7029, !noalias !7018, !noundef !5
   %54 = add i64 %53, 1
@@ -51627,7 +51627,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %12 = load ptr, ptr %11, align 8, !alias.scope !7068, !noalias !7071, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds { i8, [3 x i8] }, ptr %12, i64 %8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %8
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %13, align 1, !noalias !7072
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %14 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -51646,7 +51646,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %22 = load ptr, ptr %21, align 8, !noalias !7071, !nonnull !5, !noundef !5
-  %23 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %22, i64 %19
+  %23 = getelementptr [32 x i8], ptr %22, i64 %19
   %24 = getelementptr i8, ptr %23, i64 -32
   %.not41.i.i = icmp eq ptr %24, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %25
@@ -51692,7 +51692,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %34 = phi i64 [ %.pre.i.i.i, %32 ], [ %30, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %36 = load ptr, ptr %35, align 8, !alias.scope !7073, !noalias !7059, !nonnull !5, !noundef !5
-  %37 = getelementptr inbounds { i8, [3 x i8] }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [4 x i8], ptr %36, i64 %34
   store i32 1, ptr %37, align 1, !noalias !7059
   %38 = load i64, ptr %4, align 8, !alias.scope !7073, !noalias !7059, !noundef !5
   %39 = add i64 %38, 1
@@ -51762,7 +51762,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !7088, !noalias !7091, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !7095
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -51781,7 +51781,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !7091, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -51827,7 +51827,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !7096, !noalias !7085, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 1, ptr %52, align 1, !noalias !7085
   %53 = load i64, ptr %19, align 8, !alias.scope !7096, !noalias !7085, !noundef !5
   %54 = add i64 %53, 1
@@ -51897,7 +51897,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !7111, !noalias !7114, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !7118
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -51916,7 +51916,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !7114, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -51962,7 +51962,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !7119, !noalias !7108, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 1, ptr %52, align 1, !noalias !7108
   %53 = load i64, ptr %19, align 8, !alias.scope !7119, !noalias !7108, !noundef !5
   %54 = add i64 %53, 1
@@ -52032,7 +52032,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !7134, !noalias !7137, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !7141
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -52051,7 +52051,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !7137, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -52097,7 +52097,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !7142, !noalias !7131, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 1, ptr %52, align 1, !noalias !7131
   %53 = load i64, ptr %19, align 8, !alias.scope !7142, !noalias !7131, !noundef !5
   %54 = add i64 %53, 1
@@ -52167,7 +52167,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !7157, !noalias !7160, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !7164
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -52186,7 +52186,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !7160, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -52232,7 +52232,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !7165, !noalias !7154, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 1, ptr %52, align 1, !noalias !7154
   %53 = load i64, ptr %19, align 8, !alias.scope !7165, !noalias !7154, !noundef !5
   %54 = add i64 %53, 1
@@ -52916,7 +52916,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %55)
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %57 = load ptr, ptr %56, align 8, !alias.scope !7298, !noalias !7301, !nonnull !5, !noundef !5
-  %58 = getelementptr inbounds { i8, [3 x i8] }, ptr %57, i64 %53
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %53
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %58, align 1, !noalias !7305
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %59 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -52935,7 +52935,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %67 = load ptr, ptr %66, align 8, !noalias !7301, !nonnull !5, !noundef !5
-  %68 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %67, i64 %64
+  %68 = getelementptr [32 x i8], ptr %67, i64 %64
   %69 = getelementptr i8, ptr %68, i64 -32
   %.not41.i.i = icmp eq ptr %69, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %70
@@ -52979,7 +52979,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %79)
   %80 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %81 = load ptr, ptr %80, align 8, !alias.scope !7306, !noalias !7309, !nonnull !5, !noundef !5
-  %82 = getelementptr inbounds { i8, [3 x i8] }, ptr %81, i64 %77
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 %77
   %.sroa.01.0.copyload.i.i70.i = load i32, ptr %82, align 1, !noalias !7313
   %.sroa.032.0.extract.trunc.i71.i = trunc i32 %.sroa.01.0.copyload.i.i70.i to i8
   %83 = add i8 %.sroa.032.0.extract.trunc.i71.i, -9
@@ -52998,7 +52998,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 89:                                               ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %91 = load ptr, ptr %90, align 8, !noalias !7309, !nonnull !5, !noundef !5
-  %92 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %91, i64 %88
+  %92 = getelementptr [32 x i8], ptr %91, i64 %88
   %93 = getelementptr i8, ptr %92, i64 -32
   %.not41.i78.i = icmp eq ptr %93, null
   br i1 %.not41.i78.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit80.i", label %94
@@ -53042,7 +53042,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %103)
   %104 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %105 = load ptr, ptr %104, align 8, !alias.scope !7314, !noalias !7317, !nonnull !5, !noundef !5
-  %106 = getelementptr inbounds { i8, [3 x i8] }, ptr %105, i64 %101
+  %106 = getelementptr inbounds [4 x i8], ptr %105, i64 %101
   %.sroa.01.0.copyload.i.i82.i = load i32, ptr %106, align 1, !noalias !7321
   %.sroa.032.0.extract.trunc.i83.i = trunc i32 %.sroa.01.0.copyload.i.i82.i to i8
   %107 = add i8 %.sroa.032.0.extract.trunc.i83.i, -9
@@ -53060,7 +53060,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 112:                                              ; preds = %.critedge.i.i
   %113 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %114 = load ptr, ptr %113, align 8, !noalias !7317, !nonnull !5, !noundef !5
-  %115 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %114, i64 %111
+  %115 = getelementptr [32 x i8], ptr %114, i64 %111
   %116 = getelementptr i8, ptr %115, i64 -32
   %.not41.i90.i = icmp eq ptr %116, null
   br i1 %.not41.i90.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit92.i", label %117
@@ -53106,7 +53106,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %126 = phi i64 [ %.pre.i.i, %124 ], [ %122, %120 ]
   %127 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %128 = load ptr, ptr %127, align 8, !alias.scope !7322, !noalias !7297, !nonnull !5, !noundef !5
-  %129 = getelementptr inbounds { i8, [3 x i8] }, ptr %128, i64 %126
+  %129 = getelementptr inbounds [4 x i8], ptr %128, i64 %126
   store i32 0, ptr %129, align 1, !noalias !7297
   %130 = load i64, ptr %49, align 8, !alias.scope !7322, !noalias !7297, !noundef !5
   %131 = add i64 %130, 1
@@ -53251,7 +53251,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %55)
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %57 = load ptr, ptr %56, align 8, !alias.scope !7356, !noalias !7359, !nonnull !5, !noundef !5
-  %58 = getelementptr inbounds { i8, [3 x i8] }, ptr %57, i64 %53
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %53
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %58, align 1, !noalias !7363
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %59 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -53270,7 +53270,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %67 = load ptr, ptr %66, align 8, !noalias !7359, !nonnull !5, !noundef !5
-  %68 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %67, i64 %64
+  %68 = getelementptr [32 x i8], ptr %67, i64 %64
   %69 = getelementptr i8, ptr %68, i64 -32
   %.not41.i.i = icmp eq ptr %69, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %70
@@ -53314,7 +53314,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %79)
   %80 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %81 = load ptr, ptr %80, align 8, !alias.scope !7364, !noalias !7367, !nonnull !5, !noundef !5
-  %82 = getelementptr inbounds { i8, [3 x i8] }, ptr %81, i64 %77
+  %82 = getelementptr inbounds [4 x i8], ptr %81, i64 %77
   %.sroa.01.0.copyload.i.i63.i = load i32, ptr %82, align 1, !noalias !7371
   %.sroa.032.0.extract.trunc.i64.i = trunc i32 %.sroa.01.0.copyload.i.i63.i to i8
   %83 = add i8 %.sroa.032.0.extract.trunc.i64.i, -9
@@ -53333,7 +53333,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 89:                                               ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %91 = load ptr, ptr %90, align 8, !noalias !7367, !nonnull !5, !noundef !5
-  %92 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %91, i64 %88
+  %92 = getelementptr [32 x i8], ptr %91, i64 %88
   %93 = getelementptr i8, ptr %92, i64 -32
   %.not41.i71.i = icmp eq ptr %93, null
   br i1 %.not41.i71.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit73.i", label %94
@@ -53377,7 +53377,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %103)
   %104 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %105 = load ptr, ptr %104, align 8, !alias.scope !7372, !noalias !7375, !nonnull !5, !noundef !5
-  %106 = getelementptr inbounds { i8, [3 x i8] }, ptr %105, i64 %101
+  %106 = getelementptr inbounds [4 x i8], ptr %105, i64 %101
   %.sroa.01.0.copyload.i.i75.i = load i32, ptr %106, align 1, !noalias !7379
   %.sroa.032.0.extract.trunc.i76.i = trunc i32 %.sroa.01.0.copyload.i.i75.i to i8
   %107 = add i8 %.sroa.032.0.extract.trunc.i76.i, -9
@@ -53395,7 +53395,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 112:                                              ; preds = %.critedge.i.i
   %113 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %114 = load ptr, ptr %113, align 8, !noalias !7375, !nonnull !5, !noundef !5
-  %115 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %114, i64 %111
+  %115 = getelementptr [32 x i8], ptr %114, i64 %111
   %116 = getelementptr i8, ptr %115, i64 -32
   %.not41.i83.i = icmp eq ptr %116, null
   br i1 %.not41.i83.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit85.i", label %117
@@ -53441,7 +53441,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %126 = phi i64 [ %.pre.i.i, %124 ], [ %122, %120 ]
   %127 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %128 = load ptr, ptr %127, align 8, !alias.scope !7380, !noalias !7355, !nonnull !5, !noundef !5
-  %129 = getelementptr inbounds { i8, [3 x i8] }, ptr %128, i64 %126
+  %129 = getelementptr inbounds [4 x i8], ptr %128, i64 %126
   store i32 0, ptr %129, align 1, !noalias !7355
   %130 = load i64, ptr %49, align 8, !alias.scope !7380, !noalias !7355, !noundef !5
   %131 = add i64 %130, 1
@@ -54203,7 +54203,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %26)
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %28 = load ptr, ptr %27, align 8, !alias.scope !7521, !noalias !7524, !nonnull !5, !noundef !5
-  %29 = getelementptr inbounds { i8, [3 x i8] }, ptr %28, i64 %24
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %24
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %29, align 1, !noalias !7528
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %30 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -54222,7 +54222,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %38 = load ptr, ptr %37, align 8, !noalias !7524, !nonnull !5, !noundef !5
-  %39 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %38, i64 %35
+  %39 = getelementptr [32 x i8], ptr %38, i64 %35
   %40 = getelementptr i8, ptr %39, i64 -32
   %.not41.i.i = icmp eq ptr %40, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %41
@@ -54266,7 +54266,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %50)
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %52 = load ptr, ptr %51, align 8, !alias.scope !7529, !noalias !7532, !nonnull !5, !noundef !5
-  %53 = getelementptr inbounds { i8, [3 x i8] }, ptr %52, i64 %48
+  %53 = getelementptr inbounds [4 x i8], ptr %52, i64 %48
   %.sroa.01.0.copyload.i.i41.i = load i32, ptr %53, align 1, !noalias !7536
   %.sroa.032.0.extract.trunc.i42.i = trunc i32 %.sroa.01.0.copyload.i.i41.i to i8
   %54 = add i8 %.sroa.032.0.extract.trunc.i42.i, -9
@@ -54285,7 +54285,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %62 = load ptr, ptr %61, align 8, !noalias !7532, !nonnull !5, !noundef !5
-  %63 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %62, i64 %59
+  %63 = getelementptr [32 x i8], ptr %62, i64 %59
   %64 = getelementptr i8, ptr %63, i64 -32
   %.not41.i49.i = icmp eq ptr %64, null
   br i1 %.not41.i49.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit51.i", label %65
@@ -54331,7 +54331,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %74 = phi i64 [ %.pre.i.i.i, %72 ], [ %70, %68 ]
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %76 = load ptr, ptr %75, align 8, !alias.scope !7537, !noalias !7518, !nonnull !5, !noundef !5
-  %77 = getelementptr inbounds { i8, [3 x i8] }, ptr %76, i64 %74
+  %77 = getelementptr inbounds [4 x i8], ptr %76, i64 %74
   store i32 4, ptr %77, align 1, !noalias !7518
   %78 = load i64, ptr %20, align 8, !alias.scope !7537, !noalias !7518, !noundef !5
   %79 = add i64 %78, 1
@@ -55577,7 +55577,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !7768, !noalias !7771, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !7775
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -55596,7 +55596,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !7771, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -55642,7 +55642,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !7776, !noalias !7765, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !7765
   %53 = load i64, ptr %19, align 8, !alias.scope !7776, !noalias !7765, !noundef !5
   %54 = add i64 %53, 1
@@ -55712,7 +55712,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !7791, !noalias !7794, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !7798
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -55731,7 +55731,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !7794, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -55777,7 +55777,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !7799, !noalias !7788, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !7788
   %53 = load i64, ptr %19, align 8, !alias.scope !7799, !noalias !7788, !noundef !5
   %54 = add i64 %53, 1
@@ -55994,7 +55994,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !7841, !noalias !7844, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !7848
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -56013,7 +56013,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !7844, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -56059,7 +56059,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !7849, !noalias !7838, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !7838
   %53 = load i64, ptr %19, align 8, !alias.scope !7849, !noalias !7838, !noundef !5
   %54 = add i64 %53, 1
@@ -56129,7 +56129,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !7864, !noalias !7867, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !7871
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -56148,7 +56148,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !7867, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -56194,7 +56194,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !7872, !noalias !7861, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !7861
   %53 = load i64, ptr %19, align 8, !alias.scope !7872, !noalias !7861, !noundef !5
   %54 = add i64 %53, 1
@@ -56411,7 +56411,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !7914, !noalias !7917, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !7921
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -56430,7 +56430,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !7917, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -56476,7 +56476,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !7922, !noalias !7911, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !7911
   %53 = load i64, ptr %19, align 8, !alias.scope !7922, !noalias !7911, !noundef !5
   %54 = add i64 %53, 1
@@ -56546,7 +56546,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !7937, !noalias !7940, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !7944
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -56565,7 +56565,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !7940, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -56611,7 +56611,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !7945, !noalias !7934, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !7934
   %53 = load i64, ptr %19, align 8, !alias.scope !7945, !noalias !7934, !noundef !5
   %54 = add i64 %53, 1
@@ -56975,7 +56975,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !8014, !noalias !8017, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !8021
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -56994,7 +56994,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !8017, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -57040,7 +57040,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !8022, !noalias !8011, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !8011
   %53 = load i64, ptr %19, align 8, !alias.scope !8022, !noalias !8011, !noundef !5
   %54 = add i64 %53, 1
@@ -57110,7 +57110,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !8037, !noalias !8040, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !8044
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -57129,7 +57129,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !8040, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -57175,7 +57175,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !8045, !noalias !8034, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !8034
   %53 = load i64, ptr %19, align 8, !alias.scope !8045, !noalias !8034, !noundef !5
   %54 = add i64 %53, 1
@@ -57392,7 +57392,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !8087, !noalias !8090, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !8094
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -57411,7 +57411,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !8090, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -57457,7 +57457,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !8095, !noalias !8084, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !8084
   %53 = load i64, ptr %19, align 8, !alias.scope !8095, !noalias !8084, !noundef !5
   %54 = add i64 %53, 1
@@ -57527,7 +57527,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !8110, !noalias !8113, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !8117
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -57546,7 +57546,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !8113, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -57592,7 +57592,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !8118, !noalias !8107, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !8107
   %53 = load i64, ptr %19, align 8, !alias.scope !8118, !noalias !8107, !noundef !5
   %54 = add i64 %53, 1
@@ -57809,7 +57809,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !8160, !noalias !8163, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !8167
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -57828,7 +57828,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !8163, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -57874,7 +57874,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !8168, !noalias !8157, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !8157
   %53 = load i64, ptr %19, align 8, !alias.scope !8168, !noalias !8157, !noundef !5
   %54 = add i64 %53, 1
@@ -57944,7 +57944,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !8183, !noalias !8186, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !8190
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -57963,7 +57963,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !8186, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -58009,7 +58009,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !8191, !noalias !8180, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !8180
   %53 = load i64, ptr %19, align 8, !alias.scope !8191, !noalias !8180, !noundef !5
   %54 = add i64 %53, 1
@@ -58324,7 +58324,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !8251, !noalias !8254, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !8258
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -58343,7 +58343,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !8254, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -58389,7 +58389,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !8259, !noalias !8248, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !8248
   %53 = load i64, ptr %19, align 8, !alias.scope !8259, !noalias !8248, !noundef !5
   %54 = add i64 %53, 1
@@ -58459,7 +58459,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !8274, !noalias !8277, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !8281
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -58478,7 +58478,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !8277, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -58524,7 +58524,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !8282, !noalias !8271, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !8271
   %53 = load i64, ptr %19, align 8, !alias.scope !8282, !noalias !8271, !noundef !5
   %54 = add i64 %53, 1
@@ -58692,7 +58692,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !8315, !noalias !8318, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !8322
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -58711,7 +58711,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !8318, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -58757,7 +58757,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !8323, !noalias !8312, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !8312
   %53 = load i64, ptr %19, align 8, !alias.scope !8323, !noalias !8312, !noundef !5
   %54 = add i64 %53, 1
@@ -58827,7 +58827,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !8338, !noalias !8341, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !8345
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -58846,7 +58846,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !8341, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -58892,7 +58892,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !8346, !noalias !8335, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !8335
   %53 = load i64, ptr %19, align 8, !alias.scope !8346, !noalias !8335, !noundef !5
   %54 = add i64 %53, 1
@@ -58962,7 +58962,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !8361, !noalias !8364, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !8368
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -58981,7 +58981,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !8364, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -59027,7 +59027,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !8369, !noalias !8358, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !8358
   %53 = load i64, ptr %19, align 8, !alias.scope !8369, !noalias !8358, !noundef !5
   %54 = add i64 %53, 1
@@ -59097,7 +59097,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !8384, !noalias !8387, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !8391
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -59116,7 +59116,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !8387, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -59162,7 +59162,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !8392, !noalias !8381, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !8381
   %53 = load i64, ptr %19, align 8, !alias.scope !8392, !noalias !8381, !noundef !5
   %54 = add i64 %53, 1
@@ -59281,7 +59281,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !8416, !noalias !8419, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !8423
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -59300,7 +59300,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !8419, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -59346,7 +59346,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !8424, !noalias !8413, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !8413
   %53 = load i64, ptr %19, align 8, !alias.scope !8424, !noalias !8413, !noundef !5
   %54 = add i64 %53, 1
@@ -59416,7 +59416,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %27 = load ptr, ptr %26, align 8, !alias.scope !8439, !noalias !8442, !nonnull !5, !noundef !5
-  %28 = getelementptr inbounds { i8, [3 x i8] }, ptr %27, i64 %23
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %23
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %28, align 1, !noalias !8446
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %29 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -59435,7 +59435,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %37 = load ptr, ptr %36, align 8, !noalias !8442, !nonnull !5, !noundef !5
-  %38 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %37, i64 %34
+  %38 = getelementptr [32 x i8], ptr %37, i64 %34
   %39 = getelementptr i8, ptr %38, i64 -32
   %.not41.i.i = icmp eq ptr %39, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %40
@@ -59481,7 +59481,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %49 = phi i64 [ %.pre.i.i.i, %47 ], [ %45, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %51 = load ptr, ptr %50, align 8, !alias.scope !8447, !noalias !8436, !nonnull !5, !noundef !5
-  %52 = getelementptr inbounds { i8, [3 x i8] }, ptr %51, i64 %49
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %49
   store i32 4, ptr %52, align 1, !noalias !8436
   %53 = load i64, ptr %19, align 8, !alias.scope !8447, !noalias !8436, !noundef !5
   %54 = add i64 %53, 1
@@ -59594,7 +59594,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %.val54.i, i64 128
   %28 = load ptr, ptr %27, align 8, !noalias !8462, !nonnull !5, !noundef !5
-  %29 = getelementptr inbounds { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %28, i64 %16
+  %29 = getelementptr inbounds [32 x i8], ptr %28, i64 %16
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i64, ptr %30, align 8, !noalias !8459
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -59666,7 +59666,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %53 = icmp ult i64 %51, %52
   tail call void @llvm.assume(i1 %53)
   %54 = load ptr, ptr %43, align 8, !alias.scope !8468, !noalias !8471, !nonnull !5, !noundef !5
-  %55 = getelementptr inbounds { i8, [3 x i8] }, ptr %54, i64 %51
+  %55 = getelementptr inbounds [4 x i8], ptr %54, i64 %51
   %.sroa.01.0.copyload.i.i.us.us.i = load i32, ptr %55, align 1, !noalias !8475
   %.sroa.032.0.extract.trunc.i.us.us.i = trunc i32 %.sroa.01.0.copyload.i.i.us.us.i to i8
   %56 = add i8 %.sroa.032.0.extract.trunc.i.us.us.i, -9
@@ -59690,7 +59690,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 63:                                               ; preds = %.critedge.i.us.us.i
   %64 = load ptr, ptr %27, align 8, !noalias !8471, !nonnull !5, !noundef !5
-  %65 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %64, i64 %62
+  %65 = getelementptr [32 x i8], ptr %64, i64 %62
   %66 = getelementptr i8, ptr %65, i64 -32
   %.not41.i.us.us.i = icmp eq ptr %66, null
   br i1 %.not41.i.us.us.i, label %.critedge45.i.us.us.i, label %67
@@ -59731,7 +59731,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %79 = icmp ult i64 %77, %78
   tail call void @llvm.assume(i1 %79)
   %80 = load ptr, ptr %43, align 8, !alias.scope !8468, !noalias !8471, !nonnull !5, !noundef !5
-  %81 = getelementptr inbounds { i8, [3 x i8] }, ptr %80, i64 %77
+  %81 = getelementptr inbounds [4 x i8], ptr %80, i64 %77
   %.sroa.01.0.copyload.i.i.us.i = load i32, ptr %81, align 1, !noalias !8475
   %.sroa.032.0.extract.trunc.i.us.i = trunc i32 %.sroa.01.0.copyload.i.i.us.i to i8
   %82 = add i8 %.sroa.032.0.extract.trunc.i.us.i, -9
@@ -59755,7 +59755,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 89:                                               ; preds = %.critedge.i.us.i
   %90 = load ptr, ptr %27, align 8, !noalias !8471, !nonnull !5, !noundef !5
-  %91 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %90, i64 %88
+  %91 = getelementptr [32 x i8], ptr %90, i64 %88
   %92 = getelementptr i8, ptr %91, i64 -32
   %.not41.i.us.i = icmp eq ptr %92, null
   br i1 %.not41.i.us.i, label %.critedge45.i.us.i, label %93
@@ -59815,7 +59815,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %110 = icmp ult i64 %108, %109
   tail call void @llvm.assume(i1 %110)
   %111 = load ptr, ptr %100, align 8, !alias.scope !8468, !noalias !8471, !nonnull !5, !noundef !5
-  %112 = getelementptr inbounds { i8, [3 x i8] }, ptr %111, i64 %108
+  %112 = getelementptr inbounds [4 x i8], ptr %111, i64 %108
   %.sroa.01.0.copyload.i.i.us94.i = load i32, ptr %112, align 1, !noalias !8475
   %.sroa.032.0.extract.trunc.i.us95.i = trunc i32 %.sroa.01.0.copyload.i.i.us94.i to i8
   %113 = add i8 %.sroa.032.0.extract.trunc.i.us95.i, -9
@@ -59839,7 +59839,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 120:                                              ; preds = %.critedge.i.us100.i
   %121 = load ptr, ptr %27, align 8, !noalias !8471, !nonnull !5, !noundef !5
-  %122 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %121, i64 %119
+  %122 = getelementptr [32 x i8], ptr %121, i64 %119
   %123 = getelementptr i8, ptr %122, i64 -32
   %.not41.i.us102.i = icmp eq ptr %123, null
   br i1 %.not41.i.us102.i, label %.critedge45.i.us104.i, label %124
@@ -59879,7 +59879,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 133:                                              ; preds = %"_ZN127_$LT$wasmparser..validator..operators..Either$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha0d5c7eef12d7a52E.exit.thread.i"
   %134 = load ptr, ptr %27, align 8, !noalias !8459, !nonnull !5, !noundef !5
-  %135 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %134, i64 %132
+  %135 = getelementptr [32 x i8], ptr %134, i64 %132
   %136 = getelementptr i8, ptr %135, i64 -32
   %137 = icmp eq ptr %136, null
   br i1 %137, label %.thread.i.i, label %139
@@ -59914,7 +59914,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %150 = icmp ult i64 %148, %149
   tail call void @llvm.assume(i1 %150)
   %151 = load ptr, ptr %100, align 8, !alias.scope !8468, !noalias !8471, !nonnull !5, !noundef !5
-  %152 = getelementptr inbounds { i8, [3 x i8] }, ptr %151, i64 %148
+  %152 = getelementptr inbounds [4 x i8], ptr %151, i64 %148
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %152, align 1, !noalias !8475
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %153 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -59951,7 +59951,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 163:                                              ; preds = %.critedge.i.i
   %164 = load ptr, ptr %27, align 8, !noalias !8471, !nonnull !5, !noundef !5
-  %165 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %164, i64 %162
+  %165 = getelementptr [32 x i8], ptr %164, i64 %162
   %166 = getelementptr i8, ptr %165, i64 -32
   %.not41.i.i = icmp eq ptr %166, null
   br i1 %.not41.i.i, label %.critedge45.i.i, label %167
@@ -60002,7 +60002,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   call void @llvm.assume(i1 %17)
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %19 = load ptr, ptr %18, align 8, !alias.scope !8500, !noalias !8503, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds { i8, [3 x i8] }, ptr %19, i64 %15
+  %20 = getelementptr inbounds [4 x i8], ptr %19, i64 %15
   %.sroa.01.0.copyload.i.i.i = load i32, ptr %20, align 1, !noalias !8504
   %.sroa.032.0.extract.trunc.i.i = trunc i32 %.sroa.01.0.copyload.i.i.i to i8
   %21 = add i8 %.sroa.032.0.extract.trunc.i.i, -9
@@ -60021,7 +60021,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 128
   %29 = load ptr, ptr %28, align 8, !noalias !8503, !nonnull !5, !noundef !5
-  %30 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %29, i64 %26
+  %30 = getelementptr [32 x i8], ptr %29, i64 %26
   %31 = getelementptr i8, ptr %30, i64 -32
   %.not41.i.i = icmp eq ptr %31, null
   br i1 %.not41.i.i, label %"_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$11pop_operand17hbfe9efd35f812bc1E.exit.i", label %32
@@ -60096,7 +60096,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %54 = icmp ult i64 %52, %53
   call void @llvm.assume(i1 %54)
   %55 = load ptr, ptr %42, align 8, !alias.scope !8505, !noalias !8508, !nonnull !5, !noundef !5
-  %56 = getelementptr inbounds { i8, [3 x i8] }, ptr %55, i64 %52
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %52
   %.sroa.01.0.copyload.i.i70.us.i = load i32, ptr %56, align 1, !noalias !8512
   %.sroa.032.0.extract.trunc.i71.us.i = trunc i32 %.sroa.01.0.copyload.i.i70.us.i to i8
   %57 = add i8 %.sroa.032.0.extract.trunc.i71.us.i, -9
@@ -60120,7 +60120,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 64:                                               ; preds = %.critedge.i.us.i
   %65 = load ptr, ptr %44, align 8, !noalias !8508, !nonnull !5, !noundef !5
-  %66 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %65, i64 %63
+  %66 = getelementptr [32 x i8], ptr %65, i64 %63
   %67 = getelementptr i8, ptr %66, i64 -32
   %.not41.i77.us.i = icmp eq ptr %67, null
   br i1 %.not41.i77.us.i, label %.critedge45.i74.us.i, label %68
@@ -60174,7 +60174,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
   %82 = icmp ult i64 %80, %81
   call void @llvm.assume(i1 %82)
   %83 = load ptr, ptr %42, align 8, !alias.scope !8505, !noalias !8508, !nonnull !5, !noundef !5
-  %84 = getelementptr inbounds { i8, [3 x i8] }, ptr %83, i64 %80
+  %84 = getelementptr inbounds [4 x i8], ptr %83, i64 %80
   %.sroa.01.0.copyload.i.i70.i = load i32, ptr %84, align 1, !noalias !8512
   %.sroa.032.0.extract.trunc.i71.i = trunc i32 %.sroa.01.0.copyload.i.i70.i to i8
   %85 = add i8 %.sroa.032.0.extract.trunc.i71.i, -9
@@ -60211,7 +60211,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 
 95:                                               ; preds = %.critedge.i.i
   %96 = load ptr, ptr %44, align 8, !noalias !8508, !nonnull !5, !noundef !5
-  %97 = getelementptr { i64, i64, { i8, [7 x i8] }, i8, i8, [6 x i8] }, ptr %96, i64 %94
+  %97 = getelementptr [32 x i8], ptr %96, i64 %94
   %98 = getelementptr i8, ptr %97, i64 -32
   %.not41.i77.i = icmp eq ptr %98, null
   br i1 %.not41.i77.i, label %.critedge45.i74.i, label %99
@@ -60350,7 +60350,7 @@ define internal fastcc noundef align 8 ptr @"_ZN136_$LT$wasmparser..validator..o
 "_ZN10wasmparser9validator9operators30OperatorValidatorTemp$LT$R$GT$12push_operand17h020425280953e81eE.exit.i": ; preds = %43, %39
   %44 = phi i64 [ %.pre.i.i.i, %43 ], [ %40, %39 ]
   %45 = load ptr, ptr %25, align 8, !alias.scope !8526, !noalias !8518, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds { i8, [3 x i8] }, ptr %45, i64 %44
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %44
   store i32 %.sroa.0.0.i.i, ptr %46, align 1, !noalias !8518
   %47 = load i64, ptr %24, align 8, !alias.scope !8526, !noalias !8518, !noundef !5
   %48 = add i64 %47, 1

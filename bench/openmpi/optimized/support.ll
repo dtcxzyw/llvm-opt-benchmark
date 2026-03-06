@@ -550,7 +550,7 @@ pmix_obj_new_tma.exit.i:                          ; preds = %.lr.ph.i.i.i, %14, 
   ]
 
 34:                                               ; preds = %pmix_obj_new_tma.exit.i
-  %35 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %36 = load ptr, ptr @stderr, align 8, !tbaa !27
   %37 = load ptr, ptr %35, align 8, !tbaa !37
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -561,7 +561,7 @@ pmix_obj_new_tma.exit.i:                          ; preds = %.lr.ph.i.i.i, %14, 
   br label %.loopexit
 
 43:                                               ; preds = %.lr.ph, %pmix_obj_new_tma.exit.i
-  %44 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %45 = load ptr, ptr @stderr, align 8, !tbaa !27
   %46 = load ptr, ptr %44, align 8, !tbaa !37
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -571,7 +571,7 @@ pmix_obj_new_tma.exit.i:                          ; preds = %.lr.ph.i.i.i, %14, 
 
 50:                                               ; preds = %.lr.ph, %pmix_obj_new_tma.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %51 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %52 = load ptr, ptr %51, align 8, !tbaa !37
   %.not = icmp eq ptr %52, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !49
@@ -596,7 +596,7 @@ define dso_local void @pmix_info_register_types() local_unnamed_addr #2 {
   %6 = load ptr, ptr %5, align 8, !tbaa !43
   %7 = tail call i32 @pmix_pointer_array_add(ptr noundef nonnull @mca_types, ptr noundef %6) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw ptr, ptr @pmix_frameworks, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @pmix_frameworks, i64 %indvars.iv.next
   %9 = load ptr, ptr %8, align 8, !tbaa !37
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
@@ -663,7 +663,7 @@ define dso_local void @pmix_info_close_components() local_unnamed_addr #2 {
   %4 = phi ptr [ %7, %.lr.ph ], [ %3, %.preheader ]
   %5 = tail call i32 @pmix_mca_base_framework_close(ptr noundef nonnull %4) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = getelementptr inbounds nuw ptr, ptr @pmix_frameworks, i64 %indvars.iv.next
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @pmix_frameworks, i64 %indvars.iv.next
   %7 = load ptr, ptr %6, align 8, !tbaa !37
   %.not4 = icmp eq ptr %7, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !51
@@ -687,7 +687,7 @@ define dso_local void @pmix_info_show_path(ptr noundef %0, ptr noundef %1) local
   %6 = load ptr, ptr %5, align 8, !tbaa !52
   %7 = load i8, ptr %4, align 1, !tbaa !54
   %8 = sext i8 %7 to i64
-  %9 = getelementptr inbounds i32, ptr %6, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %6, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !18
   %11 = trunc i32 %10 to i8
   store i8 %11, ptr %4, align 1, !tbaa !54
@@ -746,7 +746,7 @@ define dso_local void @pmix_info_out(ptr noundef %0, ptr noundef %1, ptr noundef
   %15 = getelementptr i8, ptr %14, i64 -1
   %16 = load i8, ptr %15, align 1, !tbaa !54
   %17 = sext i8 %16 to i64
-  %18 = getelementptr inbounds i16, ptr %12, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %12, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !57
   %20 = and i16 %19, 8192
   %.not81 = icmp eq i16 %20, 0
@@ -1031,7 +1031,7 @@ pmix_cmd_line_get_param.exit.preheader:           ; preds = %.lr.ph.i
 
 pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.next
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.next
   %44 = load ptr, ptr %43, align 8, !tbaa !29
   %.not35 = icmp eq ptr %44, null
   br i1 %.not35, label %pmix_cmd_line_get_param.exit.thread, label %.lr.ph, !llvm.loop !64
@@ -1057,7 +1057,7 @@ pmix_cmd_line_get_param.exit.thread:              ; preds = %41, %pmix_cmd_line_
   %52 = load ptr, ptr %51, align 8, !tbaa !52
   %53 = load i8, ptr %50, align 1, !tbaa !54
   %54 = sext i8 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %52, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %52, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !18
   %57 = trunc i32 %56 to i8
   store i8 %57, ptr %50, align 1, !tbaa !54
@@ -1083,7 +1083,7 @@ pmix_info_show_path.exit:                         ; preds = %.critedge, %60
   %66 = load ptr, ptr %51, align 8, !tbaa !52
   %67 = load i8, ptr %65, align 1, !tbaa !54
   %68 = sext i8 %67 to i64
-  %69 = getelementptr inbounds i32, ptr %66, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %66, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !18
   %71 = trunc i32 %70 to i8
   store i8 %71, ptr %65, align 1, !tbaa !54
@@ -1109,7 +1109,7 @@ pmix_info_show_path.exit38:                       ; preds = %pmix_info_show_path
   %80 = load ptr, ptr %51, align 8, !tbaa !52
   %81 = load i8, ptr %79, align 1, !tbaa !54
   %82 = sext i8 %81 to i64
-  %83 = getelementptr inbounds i32, ptr %80, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %80, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !18
   %85 = trunc i32 %84 to i8
   store i8 %85, ptr %79, align 1, !tbaa !54
@@ -1135,7 +1135,7 @@ pmix_info_show_path.exit40:                       ; preds = %pmix_info_show_path
   %94 = load ptr, ptr %51, align 8, !tbaa !52
   %95 = load i8, ptr %93, align 1, !tbaa !54
   %96 = sext i8 %95 to i64
-  %97 = getelementptr inbounds i32, ptr %94, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %94, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !18
   %99 = trunc i32 %98 to i8
   store i8 %99, ptr %93, align 1, !tbaa !54
@@ -1161,7 +1161,7 @@ pmix_info_show_path.exit42:                       ; preds = %pmix_info_show_path
   %108 = load ptr, ptr %51, align 8, !tbaa !52
   %109 = load i8, ptr %107, align 1, !tbaa !54
   %110 = sext i8 %109 to i64
-  %111 = getelementptr inbounds i32, ptr %108, i64 %110
+  %111 = getelementptr inbounds [4 x i8], ptr %108, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !18
   %113 = trunc i32 %112 to i8
   store i8 %113, ptr %107, align 1, !tbaa !54
@@ -1187,7 +1187,7 @@ pmix_info_show_path.exit44:                       ; preds = %pmix_info_show_path
   %122 = load ptr, ptr %51, align 8, !tbaa !52
   %123 = load i8, ptr %121, align 1, !tbaa !54
   %124 = sext i8 %123 to i64
-  %125 = getelementptr inbounds i32, ptr %122, i64 %124
+  %125 = getelementptr inbounds [4 x i8], ptr %122, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !18
   %127 = trunc i32 %126 to i8
   store i8 %127, ptr %121, align 1, !tbaa !54
@@ -1213,7 +1213,7 @@ pmix_info_show_path.exit46:                       ; preds = %pmix_info_show_path
   %136 = load ptr, ptr %51, align 8, !tbaa !52
   %137 = load i8, ptr %135, align 1, !tbaa !54
   %138 = sext i8 %137 to i64
-  %139 = getelementptr inbounds i32, ptr %136, i64 %138
+  %139 = getelementptr inbounds [4 x i8], ptr %136, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !18
   %141 = trunc i32 %140 to i8
   store i8 %141, ptr %135, align 1, !tbaa !54
@@ -1239,7 +1239,7 @@ pmix_info_show_path.exit48:                       ; preds = %pmix_info_show_path
   %150 = load ptr, ptr %51, align 8, !tbaa !52
   %151 = load i8, ptr %149, align 1, !tbaa !54
   %152 = sext i8 %151 to i64
-  %153 = getelementptr inbounds i32, ptr %150, i64 %152
+  %153 = getelementptr inbounds [4 x i8], ptr %150, i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !18
   %155 = trunc i32 %154 to i8
   store i8 %155, ptr %149, align 1, !tbaa !54
@@ -1265,7 +1265,7 @@ pmix_info_show_path.exit50:                       ; preds = %pmix_info_show_path
   %164 = load ptr, ptr %51, align 8, !tbaa !52
   %165 = load i8, ptr %163, align 1, !tbaa !54
   %166 = sext i8 %165 to i64
-  %167 = getelementptr inbounds i32, ptr %164, i64 %166
+  %167 = getelementptr inbounds [4 x i8], ptr %164, i64 %166
   %168 = load i32, ptr %167, align 4, !tbaa !18
   %169 = trunc i32 %168 to i8
   store i8 %169, ptr %163, align 1, !tbaa !54
@@ -1291,7 +1291,7 @@ pmix_info_show_path.exit52:                       ; preds = %pmix_info_show_path
   %178 = load ptr, ptr %51, align 8, !tbaa !52
   %179 = load i8, ptr %177, align 1, !tbaa !54
   %180 = sext i8 %179 to i64
-  %181 = getelementptr inbounds i32, ptr %178, i64 %180
+  %181 = getelementptr inbounds [4 x i8], ptr %178, i64 %180
   %182 = load i32, ptr %181, align 4, !tbaa !18
   %183 = trunc i32 %182 to i8
   store i8 %183, ptr %177, align 1, !tbaa !54
@@ -1317,7 +1317,7 @@ pmix_info_show_path.exit54:                       ; preds = %pmix_info_show_path
   %192 = load ptr, ptr %51, align 8, !tbaa !52
   %193 = load i8, ptr %191, align 1, !tbaa !54
   %194 = sext i8 %193 to i64
-  %195 = getelementptr inbounds i32, ptr %192, i64 %194
+  %195 = getelementptr inbounds [4 x i8], ptr %192, i64 %194
   %196 = load i32, ptr %195, align 4, !tbaa !18
   %197 = trunc i32 %196 to i8
   store i8 %197, ptr %191, align 1, !tbaa !54
@@ -1343,7 +1343,7 @@ pmix_info_show_path.exit56:                       ; preds = %pmix_info_show_path
   %206 = load ptr, ptr %51, align 8, !tbaa !52
   %207 = load i8, ptr %205, align 1, !tbaa !54
   %208 = sext i8 %207 to i64
-  %209 = getelementptr inbounds i32, ptr %206, i64 %208
+  %209 = getelementptr inbounds [4 x i8], ptr %206, i64 %208
   %210 = load i32, ptr %209, align 4, !tbaa !18
   %211 = trunc i32 %210 to i8
   store i8 %211, ptr %205, align 1, !tbaa !54
@@ -1369,7 +1369,7 @@ pmix_info_show_path.exit58:                       ; preds = %pmix_info_show_path
   %220 = load ptr, ptr %51, align 8, !tbaa !52
   %221 = load i8, ptr %219, align 1, !tbaa !54
   %222 = sext i8 %221 to i64
-  %223 = getelementptr inbounds i32, ptr %220, i64 %222
+  %223 = getelementptr inbounds [4 x i8], ptr %220, i64 %222
   %224 = load i32, ptr %223, align 4, !tbaa !18
   %225 = trunc i32 %224 to i8
   store i8 %225, ptr %219, align 1, !tbaa !54
@@ -1395,7 +1395,7 @@ pmix_info_show_path.exit60:                       ; preds = %pmix_info_show_path
   %234 = load ptr, ptr %51, align 8, !tbaa !52
   %235 = load i8, ptr %233, align 1, !tbaa !54
   %236 = sext i8 %235 to i64
-  %237 = getelementptr inbounds i32, ptr %234, i64 %236
+  %237 = getelementptr inbounds [4 x i8], ptr %234, i64 %236
   %238 = load i32, ptr %237, align 4, !tbaa !18
   %239 = trunc i32 %238 to i8
   store i8 %239, ptr %233, align 1, !tbaa !54
@@ -1421,7 +1421,7 @@ pmix_info_show_path.exit62:                       ; preds = %pmix_info_show_path
   %248 = load ptr, ptr %51, align 8, !tbaa !52
   %249 = load i8, ptr %247, align 1, !tbaa !54
   %250 = sext i8 %249 to i64
-  %251 = getelementptr inbounds i32, ptr %248, i64 %250
+  %251 = getelementptr inbounds [4 x i8], ptr %248, i64 %250
   %252 = load i32, ptr %251, align 4, !tbaa !18
   %253 = trunc i32 %252 to i8
   store i8 %253, ptr %247, align 1, !tbaa !54
@@ -1447,7 +1447,7 @@ pmix_info_show_path.exit64:                       ; preds = %pmix_info_show_path
   %262 = load ptr, ptr %51, align 8, !tbaa !52
   %263 = load i8, ptr %261, align 1, !tbaa !54
   %264 = sext i8 %263 to i64
-  %265 = getelementptr inbounds i32, ptr %262, i64 %264
+  %265 = getelementptr inbounds [4 x i8], ptr %262, i64 %264
   %266 = load i32, ptr %265, align 4, !tbaa !18
   %267 = trunc i32 %266 to i8
   store i8 %267, ptr %261, align 1, !tbaa !54
@@ -1473,7 +1473,7 @@ pmix_info_show_path.exit66:                       ; preds = %pmix_info_show_path
   %276 = load ptr, ptr %51, align 8, !tbaa !52
   %277 = load i8, ptr %275, align 1, !tbaa !54
   %278 = sext i8 %277 to i64
-  %279 = getelementptr inbounds i32, ptr %276, i64 %278
+  %279 = getelementptr inbounds [4 x i8], ptr %276, i64 %278
   %280 = load i32, ptr %279, align 4, !tbaa !18
   %281 = trunc i32 %280 to i8
   store i8 %281, ptr %275, align 1, !tbaa !54
@@ -1499,7 +1499,7 @@ pmix_info_show_path.exit68:                       ; preds = %pmix_info_show_path
   %290 = load ptr, ptr %51, align 8, !tbaa !52
   %291 = load i8, ptr %289, align 1, !tbaa !54
   %292 = sext i8 %291 to i64
-  %293 = getelementptr inbounds i32, ptr %290, i64 %292
+  %293 = getelementptr inbounds [4 x i8], ptr %290, i64 %292
   %294 = load i32, ptr %293, align 4, !tbaa !18
   %295 = trunc i32 %294 to i8
   store i8 %295, ptr %289, align 1, !tbaa !54
@@ -1546,7 +1546,7 @@ pmix_info_show_path.exit70:                       ; preds = %pmix_info_show_path
   %313 = load ptr, ptr %312, align 8, !tbaa !52
   %314 = load i8, ptr %311, align 1, !tbaa !54
   %315 = sext i8 %314 to i64
-  %316 = getelementptr inbounds i32, ptr %313, i64 %315
+  %316 = getelementptr inbounds [4 x i8], ptr %313, i64 %315
   %317 = load i32, ptr %316, align 4, !tbaa !18
   %318 = trunc i32 %317 to i8
   store i8 %318, ptr %311, align 1, !tbaa !54
@@ -1581,7 +1581,7 @@ pmix_info_show_path.exit72:                       ; preds = %309, %321
   %332 = load ptr, ptr %331, align 8, !tbaa !52
   %333 = load i8, ptr %330, align 1, !tbaa !54
   %334 = sext i8 %333 to i64
-  %335 = getelementptr inbounds i32, ptr %332, i64 %334
+  %335 = getelementptr inbounds [4 x i8], ptr %332, i64 %334
   %336 = load i32, ptr %335, align 4, !tbaa !18
   %337 = trunc i32 %336 to i8
   store i8 %337, ptr %330, align 1, !tbaa !54
@@ -1616,7 +1616,7 @@ pmix_info_show_path.exit74:                       ; preds = %328, %340
   %351 = load ptr, ptr %350, align 8, !tbaa !52
   %352 = load i8, ptr %349, align 1, !tbaa !54
   %353 = sext i8 %352 to i64
-  %354 = getelementptr inbounds i32, ptr %351, i64 %353
+  %354 = getelementptr inbounds [4 x i8], ptr %351, i64 %353
   %355 = load i32, ptr %354, align 4, !tbaa !18
   %356 = trunc i32 %355 to i8
   store i8 %356, ptr %349, align 1, !tbaa !54
@@ -1651,7 +1651,7 @@ pmix_info_show_path.exit76:                       ; preds = %347, %359
   %370 = load ptr, ptr %369, align 8, !tbaa !52
   %371 = load i8, ptr %368, align 1, !tbaa !54
   %372 = sext i8 %371 to i64
-  %373 = getelementptr inbounds i32, ptr %370, i64 %372
+  %373 = getelementptr inbounds [4 x i8], ptr %370, i64 %372
   %374 = load i32, ptr %373, align 4, !tbaa !18
   %375 = trunc i32 %374 to i8
   store i8 %375, ptr %368, align 1, !tbaa !54
@@ -1686,7 +1686,7 @@ pmix_info_show_path.exit78:                       ; preds = %366, %378
   %389 = load ptr, ptr %388, align 8, !tbaa !52
   %390 = load i8, ptr %387, align 1, !tbaa !54
   %391 = sext i8 %390 to i64
-  %392 = getelementptr inbounds i32, ptr %389, i64 %391
+  %392 = getelementptr inbounds [4 x i8], ptr %389, i64 %391
   %393 = load i32, ptr %392, align 4, !tbaa !18
   %394 = trunc i32 %393 to i8
   store i8 %394, ptr %387, align 1, !tbaa !54
@@ -1721,7 +1721,7 @@ pmix_info_show_path.exit80:                       ; preds = %385, %397
   %408 = load ptr, ptr %407, align 8, !tbaa !52
   %409 = load i8, ptr %406, align 1, !tbaa !54
   %410 = sext i8 %409 to i64
-  %411 = getelementptr inbounds i32, ptr %408, i64 %410
+  %411 = getelementptr inbounds [4 x i8], ptr %408, i64 %410
   %412 = load i32, ptr %411, align 4, !tbaa !18
   %413 = trunc i32 %412 to i8
   store i8 %413, ptr %406, align 1, !tbaa !54
@@ -1756,7 +1756,7 @@ pmix_info_show_path.exit82:                       ; preds = %404, %416
   %427 = load ptr, ptr %426, align 8, !tbaa !52
   %428 = load i8, ptr %425, align 1, !tbaa !54
   %429 = sext i8 %428 to i64
-  %430 = getelementptr inbounds i32, ptr %427, i64 %429
+  %430 = getelementptr inbounds [4 x i8], ptr %427, i64 %429
   %431 = load i32, ptr %430, align 4, !tbaa !18
   %432 = trunc i32 %431 to i8
   store i8 %432, ptr %425, align 1, !tbaa !54
@@ -1791,7 +1791,7 @@ pmix_info_show_path.exit84:                       ; preds = %423, %435
   %446 = load ptr, ptr %445, align 8, !tbaa !52
   %447 = load i8, ptr %444, align 1, !tbaa !54
   %448 = sext i8 %447 to i64
-  %449 = getelementptr inbounds i32, ptr %446, i64 %448
+  %449 = getelementptr inbounds [4 x i8], ptr %446, i64 %448
   %450 = load i32, ptr %449, align 4, !tbaa !18
   %451 = trunc i32 %450 to i8
   store i8 %451, ptr %444, align 1, !tbaa !54
@@ -1826,7 +1826,7 @@ pmix_info_show_path.exit86:                       ; preds = %442, %454
   %465 = load ptr, ptr %464, align 8, !tbaa !52
   %466 = load i8, ptr %463, align 1, !tbaa !54
   %467 = sext i8 %466 to i64
-  %468 = getelementptr inbounds i32, ptr %465, i64 %467
+  %468 = getelementptr inbounds [4 x i8], ptr %465, i64 %467
   %469 = load i32, ptr %468, align 4, !tbaa !18
   %470 = trunc i32 %469 to i8
   store i8 %470, ptr %463, align 1, !tbaa !54
@@ -1861,7 +1861,7 @@ pmix_info_show_path.exit88:                       ; preds = %461, %473
   %484 = load ptr, ptr %483, align 8, !tbaa !52
   %485 = load i8, ptr %482, align 1, !tbaa !54
   %486 = sext i8 %485 to i64
-  %487 = getelementptr inbounds i32, ptr %484, i64 %486
+  %487 = getelementptr inbounds [4 x i8], ptr %484, i64 %486
   %488 = load i32, ptr %487, align 4, !tbaa !18
   %489 = trunc i32 %488 to i8
   store i8 %489, ptr %482, align 1, !tbaa !54
@@ -1896,7 +1896,7 @@ pmix_info_show_path.exit90:                       ; preds = %480, %492
   %503 = load ptr, ptr %502, align 8, !tbaa !52
   %504 = load i8, ptr %501, align 1, !tbaa !54
   %505 = sext i8 %504 to i64
-  %506 = getelementptr inbounds i32, ptr %503, i64 %505
+  %506 = getelementptr inbounds [4 x i8], ptr %503, i64 %505
   %507 = load i32, ptr %506, align 4, !tbaa !18
   %508 = trunc i32 %507 to i8
   store i8 %508, ptr %501, align 1, !tbaa !54
@@ -1991,7 +1991,7 @@ pmix_info_show_path.exit92:                       ; preds = %499, %511
 552:                                              ; preds = %pmix_info_show_path.exit72, %pmix_info_show_path.exit76, %pmix_info_show_path.exit80, %pmix_info_show_path.exit84, %pmix_info_show_path.exit88, %pmix_info_show_path.exit92, %524, %536, %548, %542, %530, %518, %pmix_info_show_path.exit90, %pmix_info_show_path.exit86, %pmix_info_show_path.exit82, %pmix_info_show_path.exit78, %pmix_info_show_path.exit74
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %553 = load ptr, ptr %302, align 8, !tbaa !63
-  %554 = getelementptr inbounds nuw ptr, ptr %553, i64 %indvars.iv.next108
+  %554 = getelementptr inbounds nuw [8 x i8], ptr %553, i64 %indvars.iv.next108
   %555 = load ptr, ptr %554, align 8, !tbaa !29
   %.not36 = icmp eq ptr %555, null
   br i1 %.not36, label %.loopexit, label %.lr.ph103, !llvm.loop !83
@@ -2057,7 +2057,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %41
   %25 = phi i32 [ %42, %41 ], [ %23, %.preheader ]
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %41 ], [ 0, %.preheader ]
   %mca_types.val43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_types, i64 152), align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %mca_types.val43, i64 %indvars.iv80
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %mca_types.val43, i64 %indvars.iv80
   %27 = load ptr, ptr %26, align 8, !tbaa !17
   %28 = icmp eq ptr %27, null
   br i1 %28, label %41, label %29
@@ -2124,7 +2124,7 @@ pmix_pointer_array_get_item.exit48.lr.ph:         ; preds = %.preheader70
 
 pmix_pointer_array_get_item.exit48:               ; preds = %pmix_pointer_array_get_item.exit48.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %pmix_pointer_array_get_item.exit48.lr.ph ], [ %indvars.iv.next, %60 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %mca_types.val45, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %mca_types.val45, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !17
   %56 = icmp eq ptr %55, null
   br i1 %56, label %60, label %57
@@ -2170,7 +2170,7 @@ pmix_pointer_array_get_item.exit48:               ; preds = %pmix_pointer_array_
 pmix_info_show_mca_params.exit51:                 ; preds = %65, %68, %.sink.split.i49
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
-  %73 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.next78
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.next78
   %74 = load ptr, ptr %73, align 8, !tbaa !29
   %.not41 = icmp eq ptr %74, null
   br i1 %.not41, label %._crit_edge, label %.preheader70, !llvm.loop !91
@@ -2258,7 +2258,7 @@ pmix_pointer_array_get_item.exit.lr.ph:           ; preds = %0
 pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_get_item.exit.lr.ph, %pmix_pointer_array_get_item.exit
   %indvars.iv = phi i64 [ 0, %pmix_pointer_array_get_item.exit.lr.ph ], [ %indvars.iv.next, %pmix_pointer_array_get_item.exit ]
   %.058 = phi ptr [ null, %pmix_pointer_array_get_item.exit.lr.ph ], [ %spec.select, %pmix_pointer_array_get_item.exit ]
-  %4 = getelementptr inbounds nuw ptr, ptr %pmix_component_map.val7, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %pmix_component_map.val7, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !17
   %6 = icmp eq ptr %5, null
   %spec.select = select i1 %6, ptr %.058, ptr %5
@@ -2359,7 +2359,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
 .lr.ph33.us:                                      ; preds = %.lr.ph33.us.preheader, %._crit_edge34.us
   %indvars.iv41 = phi i64 [ 0, %.lr.ph33.us.preheader ], [ %indvars.iv.next42, %._crit_edge34.us ]
   %20 = load ptr, ptr %14, align 8, !tbaa !63
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv41
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv41
   %22 = load ptr, ptr %21, align 8, !tbaa !29
   br label %23
 
@@ -2374,7 +2374,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 128
   %28 = load i32, ptr %27, align 8, !tbaa !95
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr @pmix_var_type_names, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @pmix_var_type_names, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !29
   %32 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %31) #23
   %33 = icmp eq i32 %32, 0
@@ -2432,7 +2432,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
 
 64:                                               ; preds = %59, %52
   %65 = load ptr, ptr %2, align 8, !tbaa !101
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8, !tbaa !29
   call void @free(ptr noundef %67) #17
   br label %68
@@ -2440,7 +2440,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
 68:                                               ; preds = %64, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = load ptr, ptr %2, align 8, !tbaa !101
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv.next
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv.next
   %71 = load ptr, ptr %70, align 8, !tbaa !29
   %.not25.us = icmp eq ptr %71, null
   br i1 %.not25.us, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !104
@@ -2547,7 +2547,7 @@ define internal fastcc void @pmix_info_show_mca_group_params(ptr noundef %0) unn
 
 37:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.next
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.next
   %39 = load ptr, ptr %38, align 8, !tbaa !29
   %.not52 = icmp eq ptr %39, null
   br i1 %.not52, label %._crit_edge, label %.lr.ph, !llvm.loop !111
@@ -2596,7 +2596,7 @@ define internal fastcc void @pmix_info_show_mca_group_params(ptr noundef %0) unn
 54:                                               ; preds = %.lr.ph74, %118
   %indvars.iv84 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next85, %118 ]
   %.073 = phi ptr [ null, %.lr.ph74 ], [ %.1, %118 ]
-  %55 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv84
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv84
   %56 = load i32, ptr %55, align 4, !tbaa !18
   %57 = call i32 @pmix_mca_base_var_get(i32 noundef %56, ptr noundef nonnull %3) #17
   %.not54 = icmp eq i32 %57, 0
@@ -2677,7 +2677,7 @@ define internal fastcc void @pmix_info_show_mca_group_params(ptr noundef %0) unn
 
 95:                                               ; preds = %94, %89
   %96 = load ptr, ptr %4, align 8, !tbaa !101
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv81
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv81
   %98 = load ptr, ptr %97, align 8, !tbaa !29
   call void @free(ptr noundef %98) #17
   br label %99
@@ -2685,7 +2685,7 @@ define internal fastcc void @pmix_info_show_mca_group_params(ptr noundef %0) unn
 99:                                               ; preds = %83, %95
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %100 = load ptr, ptr %4, align 8, !tbaa !101
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv.next82
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv.next82
   %102 = load ptr, ptr %101, align 8, !tbaa !29
   %.not58 = icmp eq ptr %102, null
   br i1 %.not58, label %._crit_edge71, label %.lr.ph70, !llvm.loop !112
@@ -2739,7 +2739,7 @@ define internal fastcc void @pmix_info_show_mca_group_params(ptr noundef %0) unn
 
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %129
   %indvars.iv87 = phi i64 [ 0, %.lr.ph78.preheader ], [ %indvars.iv.next88, %129 ]
-  %124 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv87
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv87
   %125 = load i32, ptr %124, align 4, !tbaa !18
   %126 = call i32 @pmix_mca_base_var_group_get(i32 noundef %125, ptr noundef nonnull %2) #17
   %.not53 = icmp eq i32 %126, 0
@@ -2842,7 +2842,7 @@ pmix_pointer_array_get_item.exit.lr.ph:           ; preds = %.preheader
 
 pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_get_item.exit.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %pmix_pointer_array_get_item.exit.lr.ph ], [ %indvars.iv.next, %20 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %mca_types.val48, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %mca_types.val48, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !17
   %16 = icmp eq ptr %15, null
   br i1 %16, label %20, label %17
@@ -2866,7 +2866,7 @@ pmix_pointer_array_get_item.exit50:               ; preds = %.loopexit, %98
   %23 = phi i32 [ %99, %98 ], [ %21, %.loopexit ]
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %98 ], [ 0, %.loopexit ]
   %pmix_component_map.val47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_component_map, i64 152), align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %pmix_component_map.val47, i64 %indvars.iv67
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %pmix_component_map.val47, i64 %indvars.iv67
   %25 = load ptr, ptr %24, align 8, !tbaa !17
   %26 = icmp eq ptr %25, null
   br i1 %26, label %98, label %27

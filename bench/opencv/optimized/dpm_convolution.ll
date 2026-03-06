@@ -18,7 +18,7 @@ define hidden noundef double @_ZN2cv3dpm17ConvolutionEngine8convolveERKNS_3MatES
   %14 = load i64, ptr %13, align 8, !tbaa !18
   %15 = mul nsw i32 %4, %3
   %16 = sext i32 %15 to i64
-  %invariant.gep = getelementptr double, ptr %11, i64 %16
+  %invariant.gep = getelementptr [8 x i8], ptr %11, i64 %16
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -48,9 +48,9 @@ define hidden noundef double @_ZN2cv3dpm17ConvolutionEngine8convolveERKNS_3MatES
 30:                                               ; preds = %.lr.ph.us, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %30 ]
   %.120.us = phi double [ %.01823.us, %.lr.ph.us ], [ %35, %30 ]
-  %31 = getelementptr inbounds nuw double, ptr %gep.us, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %gep.us, i64 %indvars.iv
   %32 = load double, ptr %31, align 8, !tbaa !21
-  %33 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %34 = load double, ptr %33, align 8, !tbaa !21
   %35 = tail call double @llvm.fmuladd.f64(double %32, double %34, double %.120.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -141,7 +141,7 @@ define hidden void @_ZN2cv3dpm17ConvolutionEngine8convolveERKNS_3MatES4_iRS2_(pt
 .preheader.us.us.us.us:                           ; preds = %.preheader.us.us.us.us.preheader, %._crit_edge37.split.us.us.us.us.us
   %indvars.iv73 = phi i64 [ 0, %.preheader.us.us.us.us.preheader ], [ %indvars.iv.next74, %._crit_edge37.split.us.us.us.us.us ]
   %37 = mul nsw i64 %indvars.iv73, %27
-  %invariant.gep.us.us.us.us = getelementptr double, ptr %29, i64 %37
+  %invariant.gep.us.us.us.us = getelementptr [8 x i8], ptr %29, i64 %37
   br label %.lr.ph.us.us.us.us.us
 
 .lr.ph.us.us.us.us.us:                            ; preds = %._crit_edge.us.us.us.us.us, %.preheader.us.us.us.us
@@ -157,9 +157,9 @@ define hidden void @_ZN2cv3dpm17ConvolutionEngine8convolveERKNS_3MatES4_iRS2_(pt
 42:                                               ; preds = %42, %.lr.ph.us.us.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.lr.ph.us.us.us.us.us ]
   %.132.us.us.us.us.us = phi double [ %47, %42 ], [ %.03034.us.us.us.us.us, %.lr.ph.us.us.us.us.us ]
-  %43 = getelementptr inbounds nuw double, ptr %gep.us.us.us.us.us, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %gep.us.us.us.us.us, i64 %indvars.iv
   %44 = load double, ptr %43, align 8, !tbaa !21
-  %45 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %46 = load double, ptr %45, align 8, !tbaa !21
   %47 = tail call double @llvm.fmuladd.f64(double %44, double %46, double %.132.us.us.us.us.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -172,7 +172,7 @@ define hidden void @_ZN2cv3dpm17ConvolutionEngine8convolveERKNS_3MatES4_iRS2_(pt
   br i1 %exitcond72.not, label %._crit_edge37.split.us.us.us.us.us, label %.lr.ph.us.us.us.us.us, !llvm.loop !28
 
 ._crit_edge37.split.us.us.us.us.us:               ; preds = %._crit_edge.us.us.us.us.us
-  %48 = getelementptr inbounds nuw double, ptr %scevgep63, i64 %indvars.iv73
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %scevgep63, i64 %indvars.iv73
   store double %47, ptr %48, align 8, !tbaa !21
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %25

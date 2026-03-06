@@ -817,7 +817,7 @@ define void @_ZN3net20AllSupportedVersionsEv(ptr dead_on_unwind noalias writable
   %5 = phi ptr [ null, %1 ], [ %32, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
   %6 = phi ptr [ null, %1 ], [ %31, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
   %7 = phi ptr [ null, %1 ], [ %30, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit ]
-  %8 = getelementptr inbounds nuw i32, ptr @_ZN3netL22kSupportedQuicVersionsE, i64 %.019
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3netL22kSupportedQuicVersionsE, i64 %.019
   %.not.i = icmp eq ptr %5, %6
   br i1 %.not.i, label %11, label %9
 
@@ -876,7 +876,7 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i:
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  %29 = getelementptr inbounds nuw i32, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %21
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %9
@@ -1092,7 +1092,7 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i:
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  %57 = getelementptr inbounds nuw i32, ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %49
   store ptr %57, ptr %20, align 8, !tbaa !33
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
@@ -1175,7 +1175,7 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i1
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i20
 
 _ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i20: ; preds = %84, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i18
-  %85 = getelementptr inbounds nuw i32, ptr %79, i64 %77
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %77
   store ptr %85, ptr %20, align 8, !tbaa !33
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
@@ -1239,7 +1239,7 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i2
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i30
 
 _ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i30: ; preds = %109, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i28
-  %110 = getelementptr inbounds nuw i32, ptr %104, i64 %102
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %102
   store ptr %110, ptr %20, align 8, !tbaa !33
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
@@ -1300,7 +1300,7 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i3
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i40
 
 _ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i40: ; preds = %135, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i38
-  %136 = getelementptr inbounds nuw i32, ptr %130, i64 %128
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %128
   store ptr %136, ptr %20, align 8, !tbaa !33
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
@@ -1353,7 +1353,7 @@ _ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i4
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i50
 
 _ZNSt6vectorIN3net11QuicVersionESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i50: ; preds = %156, %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i48
-  %157 = getelementptr inbounds nuw i32, ptr %151, i64 %149
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %151, i64 %149
   store ptr %157, ptr %20, align 8, !tbaa !33
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
@@ -1391,7 +1391,7 @@ define void @_ZN3net14VersionOfIndexERKSt6vectorINS_11QuicVersionESaIS1_EEi(ptr 
 
 _ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %3
   %14 = zext nneg i32 %2 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #28
@@ -1479,7 +1479,7 @@ define noundef i32 @_ZN3net20QuicTagToQuicVersionEj(i32 noundef %0) local_unname
 
 4:                                                ; preds = %1, %2
   %.0711 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw i32, ptr @_ZN3netL22kSupportedQuicVersionsE, i64 %.0711
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3netL22kSupportedQuicVersionsE, i64 %.0711
   %6 = load i32, ptr %5, align 4, !tbaa !66
   %7 = tail call noundef i32 @_ZN3net20QuicVersionToQuicTagENS_11QuicVersionE(i32 noundef %6)
   %8 = icmp eq i32 %0, %7
@@ -1632,7 +1632,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 .split12:                                         ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = load ptr, ptr %1, align 8, !tbaa !31
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %.036
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.036
   br label %21
 
 .loopexit:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
@@ -1894,7 +1894,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_a.exit: ; preds = %23, %25
   %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.22, i64 noundef 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %55 = load ptr, ptr %46, align 8, !tbaa !31
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %.02942
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %.02942
   %57 = load i32, ptr %56, align 4, !tbaa !66
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
   store ptr %50, ptr %5, align 8, !tbaa !71, !alias.scope !95

@@ -925,7 +925,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairImNS_1
   br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairImNS_10DILineInfoEELb0EE28reserveForParamAndGetAddressERS3_m.exit, label %9, !prof !72
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre3, i64 %5
+  %10 = getelementptr inbounds nuw [192 x i8], ptr %.pre3, i64 %5
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
@@ -950,7 +950,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairImNS_10DILineInfoEELb0EE28reserveForPar
   %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
   %20 = load i32, ptr %3, align 8, !tbaa !65
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.std::pair", ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [192 x i8], ptr %19, i64 %21
   %23 = load i64, ptr %.016.i.i, align 8, !tbaa !67
   store i64 %23, ptr %22, align 8, !tbaa !67
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -1102,7 +1102,7 @@ define dso_local void @_ZN4llvm3pdb10PDBContext25getInliningInfoForAddressENS_6o
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm14DIInliningInfo8addFrameERKNS_10DILineInfoE.exit, label %34, !prof !72
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw %"struct.llvm::DILineInfo", ptr %.pre3.i.i, i64 %31
+  %35 = getelementptr inbounds nuw [184 x i8], ptr %.pre3.i.i, i64 %31
   %36 = icmp uge ptr %7, %.pre3.i.i
   %37 = icmp ult ptr %7, %35
   %spec.select.i.i.i.i.i.i = and i1 %36, %37
@@ -1127,7 +1127,7 @@ _ZN4llvm14DIInliningInfo8addFrameERKNS_10DILineInfoE.exit: ; preds = %29, %38, %
   %.016.i.i.i.i = phi ptr [ %7, %29 ], [ %43, %38 ], [ %7, %.critedge.i.i.i.i ]
   %45 = load i32, ptr %18, align 8, !tbaa !65
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"struct.llvm::DILineInfo", ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [184 x i8], ptr %44, i64 %46
   call void @_ZN4llvm10DILineInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(181) %47, ptr noundef nonnull align 8 dereferenceable(181) %.016.i.i.i.i)
   %48 = load i32, ptr %18, align 8, !tbaa !65
   %49 = add i32 %48, 1
@@ -1188,7 +1188,7 @@ _ZN4llvm14DIInliningInfo8addFrameERKNS_10DILineInfoE.exit: ; preds = %29, %38, %
   br i1 %.not.i.i.not.i.i24, label %_ZN4llvm14DIInliningInfo8addFrameERKNS_10DILineInfoE.exit30, label %89, !prof !72
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds nuw %"struct.llvm::DILineInfo", ptr %.pre3.i.i25, i64 %86
+  %90 = getelementptr inbounds nuw [184 x i8], ptr %.pre3.i.i25, i64 %86
   %91 = icmp uge ptr %7, %.pre3.i.i25
   %92 = icmp ult ptr %7, %90
   %spec.select.i.i.i.i.i.i26 = and i1 %91, %92
@@ -1479,7 +1479,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %_ZN
   br i1 %.not.i.i.not.i.i42, label %_ZN4llvm14DIInliningInfo8addFrameERKNS_10DILineInfoE.exit48, label %199, !prof !72
 
 199:                                              ; preds = %184
-  %200 = getelementptr inbounds nuw %"struct.llvm::DILineInfo", ptr %.pre3.i.i43, i64 %196
+  %200 = getelementptr inbounds nuw [184 x i8], ptr %.pre3.i.i43, i64 %196
   %201 = icmp uge ptr %13, %.pre3.i.i43
   %202 = icmp ult ptr %13, %200
   %spec.select.i.i.i.i.i.i44 = and i1 %201, %202
@@ -1503,7 +1503,7 @@ _ZN4llvm14DIInliningInfo8addFrameERKNS_10DILineInfoE.exit48: ; preds = %184, %20
   %.016.i.i.i.i47 = phi ptr [ %13, %184 ], [ %207, %203 ], [ %13, %.critedge.i.i.i.i45 ]
   %209 = load i32, ptr %18, align 8, !tbaa !65
   %210 = zext i32 %209 to i64
-  %211 = getelementptr inbounds nuw %"struct.llvm::DILineInfo", ptr %208, i64 %210
+  %211 = getelementptr inbounds nuw [184 x i8], ptr %208, i64 %210
   call void @_ZN4llvm10DILineInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(181) %211, ptr noundef nonnull align 8 dereferenceable(181) %.016.i.i.i.i47)
   %212 = load i32, ptr %18, align 8, !tbaa !65
   %213 = add i32 %212, 1
@@ -1612,7 +1612,7 @@ _ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit: ; pred
   br i1 %.not.i.i.not.i.i53, label %_ZN4llvm14DIInliningInfo8addFrameERKNS_10DILineInfoE.exit30, label %246, !prof !72
 
 246:                                              ; preds = %.loopexit
-  %247 = getelementptr inbounds nuw %"struct.llvm::DILineInfo", ptr %.pre3.i.i54, i64 %243
+  %247 = getelementptr inbounds nuw [184 x i8], ptr %.pre3.i.i54, i64 %243
   %248 = icmp uge ptr %7, %.pre3.i.i54
   %249 = icmp ult ptr %7, %247
   %spec.select.i.i.i.i.i.i55 = and i1 %248, %249
@@ -1637,7 +1637,7 @@ _ZN4llvm14DIInliningInfo8addFrameERKNS_10DILineInfoE.exit30: ; preds = %.critedg
   %.016.i.i.i.i58.sink = phi ptr [ %7, %.critedge.i.i.i.i27 ], [ %7, %84 ], [ %98, %93 ], [ %7, %.loopexit ], [ %255, %250 ], [ %7, %.critedge.i.i.i.i56 ]
   %256 = load i32, ptr %18, align 8, !tbaa !65
   %257 = zext i32 %256 to i64
-  %258 = getelementptr inbounds nuw %"struct.llvm::DILineInfo", ptr %.sink127, i64 %257
+  %258 = getelementptr inbounds nuw [184 x i8], ptr %.sink127, i64 %257
   call void @_ZN4llvm10DILineInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(181) %258, ptr noundef nonnull align 8 dereferenceable(181) %.016.i.i.i.i58.sink)
   %storemerge.in = load i32, ptr %18, align 8, !tbaa !65
   %storemerge = add i32 %storemerge.in, 1

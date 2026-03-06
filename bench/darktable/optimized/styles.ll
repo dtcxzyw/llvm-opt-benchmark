@@ -1564,7 +1564,7 @@ define internal fastcc void @_gui_styles_update_view(ptr noundef %0) unnamed_add
 .lr.ph:                                           ; preds = %.preheader, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %.preheader ]
   %23 = phi ptr [ %53, %51 ], [ %22, %.preheader ]
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %25 = call ptr @dt_util_localize_string(ptr noundef nonnull %23) #14
   %.not43 = icmp eq i64 %indvars.iv, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1641,7 +1641,7 @@ _get_node_for_name.exit:                          ; preds = %36
 
 51:                                               ; preds = %_get_node_for_name.exit, %48, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %52 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next
   %53 = load ptr, ptr %52, align 8, !tbaa !10
   %.not38 = icmp eq ptr %53, null
   br i1 %.not38, label %._crit_edge, label %.lr.ph

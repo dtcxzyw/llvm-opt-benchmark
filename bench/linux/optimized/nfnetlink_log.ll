@@ -24,7 +24,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.static_key = type { %struct.atomic_t, %union.anon.83 }
 %struct.atomic_t = type { i32 }
 %union.anon.83 = type { i64 }
-%struct.hlist_head = type { ptr }
 %struct.nfulnl_msg_packet_hdr = type { i16, i8, i8 }
 %struct.nfulnl_msg_packet_hw = type { i16, i16, [8 x i8] }
 %struct.nfulnl_msg_packet_timestamp = type { i64, i64 }
@@ -144,7 +143,7 @@ define internal i32 @nfulnl_recv_config(ptr noundef readonly captures(none) %0, 
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2536
   %7 = load volatile ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr ptr, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void @__rcu_read_unlock() #12
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -182,7 +181,7 @@ define internal i32 @nfulnl_recv_config(ptr noundef readonly captures(none) %0, 
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %31 = and i16 %15, 15
   %32 = zext nneg i16 %31 to i64
-  %33 = getelementptr %struct.hlist_head, ptr %30, i64 %32
+  %33 = getelementptr [8 x i8], ptr %30, i64 %32
   br label %34
 
 34:                                               ; preds = %38, %28
@@ -310,12 +309,12 @@ define internal i32 @nfulnl_recv_config(ptr noundef readonly captures(none) %0, 
   %108 = getelementptr inbounds nuw i8, ptr %94, i64 2536
   %109 = load volatile ptr, ptr %108, align 8
   %110 = zext i32 %107 to i64
-  %111 = getelementptr ptr, ptr %109, i64 %110
+  %111 = getelementptr [8 x i8], ptr %109, i64 %110
   %112 = load ptr, ptr %111, align 8
   tail call void @__rcu_read_unlock() #12
   tail call void @_raw_spin_lock_bh(ptr noundef %112) #12
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %114 = getelementptr %struct.hlist_head, ptr %113, i64 %32
+  %114 = getelementptr [8 x i8], ptr %113, i64 %32
   br label %115
 
 115:                                              ; preds = %119, %93
@@ -914,7 +913,7 @@ define internal noundef i32 @nfulnl_rcv_nl_event(ptr readnone captures(none) %0,
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2536
   %7 = load volatile ptr, ptr %6, align 8
   %8 = zext i32 %5 to i64
-  %9 = getelementptr ptr, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void @__rcu_read_unlock() #12
   %11 = icmp eq i64 %1, 1
@@ -934,7 +933,7 @@ define internal noundef i32 @nfulnl_rcv_nl_event(ptr readnone captures(none) %0,
 
 19:                                               ; preds = %.loopexit, %16
   %20 = phi i64 [ 0, %16 ], [ %68, %.loopexit ]
-  %21 = getelementptr %struct.hlist_head, ptr %17, i64 %20
+  %21 = getelementptr [8 x i8], ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.loopexit, label %.preheader
@@ -1051,7 +1050,7 @@ define internal noundef range(i32 -12, 1) i32 @nfnl_log_net_init(ptr noundef %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr ptr, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #12
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1079,7 +1078,7 @@ define internal void @nfnl_log_net_exit(ptr noundef %0) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr ptr, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2240
@@ -1091,7 +1090,7 @@ define internal void @nfnl_log_net_exit(ptr noundef %0) #3 align 16 {
 
 11:                                               ; preds = %17, %1
   %12 = phi i64 [ 0, %1 ], [ %18, %17 ]
-  %13 = getelementptr %struct.hlist_head, ptr %10, i64 %12
+  %13 = getelementptr [8 x i8], ptr %10, i64 %12
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16, !prof !11
@@ -1137,7 +1136,7 @@ define internal ptr @seq_start(ptr noundef readonly captures(none) %0, ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 2536
   %11 = load volatile ptr, ptr %10, align 8
   %12 = zext i32 %9 to i64
-  %13 = getelementptr ptr, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   tail call void @__rcu_read_unlock() #12
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1156,7 +1155,7 @@ define internal ptr @seq_start(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %22, label %.thread7, label %23, !llvm.loop !27
 
 23:                                               ; preds = %.lr.ph44
-  %24 = getelementptr %struct.hlist_head, ptr %16, i64 %20
+  %24 = getelementptr [8 x i8], ptr %16, i64 %20
   %25 = load volatile ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.lr.ph44, label %._crit_edge45, !llvm.loop !27
@@ -1164,7 +1163,7 @@ define internal ptr @seq_start(ptr noundef readonly captures(none) %0, ptr nound
 ._crit_edge45:                                    ; preds = %23, %7
   %.lcssa41 = phi i32 [ 0, %7 ], [ %21, %23 ]
   %.lcssa39 = phi i64 [ 0, %7 ], [ %20, %23 ]
-  %27 = getelementptr %struct.hlist_head, ptr %16, i64 %.lcssa39
+  %27 = getelementptr [8 x i8], ptr %16, i64 %.lcssa39
   %28 = load volatile ptr, ptr %27, align 8
   %29 = icmp ne ptr %28, null
   %30 = icmp ne i64 %.fr, 0
@@ -1191,13 +1190,13 @@ define internal ptr @seq_start(ptr noundef readonly captures(none) %0, ptr nound
   tail call void @__rcu_read_lock() #12
   %42 = load volatile ptr, ptr %10, align 8
   %43 = zext i32 %41 to i64
-  %44 = getelementptr ptr, ptr %42, i64 %43
+  %44 = getelementptr [8 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8
   tail call void @__rcu_read_unlock() #12
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %15, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr %struct.hlist_head, ptr %46, i64 %48
+  %49 = getelementptr [8 x i8], ptr %46, i64 %48
   %50 = load volatile ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.lr.ph, label %._crit_edge
@@ -1256,13 +1255,13 @@ define internal ptr @seq_next(ptr noundef readonly captures(none) %0, ptr nounde
   tail call void @__rcu_read_lock() #12
   %18 = load volatile ptr, ptr %10, align 8
   %19 = zext i32 %17 to i64
-  %20 = getelementptr ptr, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   tail call void @__rcu_read_unlock() #12
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %9, align 8
   %24 = zext i32 %23 to i64
-  %25 = getelementptr %struct.hlist_head, ptr %22, i64 %24
+  %25 = getelementptr [8 x i8], ptr %22, i64 %24
   %26 = load volatile ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.lr.ph, label %.critedge
@@ -1322,7 +1321,7 @@ define internal void @nfulnl_log_packet(ptr noundef %0, i8 noundef zeroext %1, i
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %23 = load volatile ptr, ptr %22, align 8
   %24 = zext i32 %21 to i64
-  %25 = getelementptr ptr, ptr %23, i64 %24
+  %25 = getelementptr [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   tail call void @__rcu_read_unlock() #12
   %27 = icmp eq ptr %6, null
@@ -1344,7 +1343,7 @@ define internal void @nfulnl_log_packet(ptr noundef %0, i8 noundef zeroext %1, i
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %38 = and i16 %36, 15
   %39 = zext nneg i16 %38 to i64
-  %40 = getelementptr %struct.hlist_head, ptr %37, i64 %39
+  %40 = getelementptr [8 x i8], ptr %37, i64 %39
   br label %41
 
 41:                                               ; preds = %45, %32

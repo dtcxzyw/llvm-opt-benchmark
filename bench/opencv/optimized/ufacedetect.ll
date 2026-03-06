@@ -2272,7 +2272,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__no
   %.pre203 = phi ptr [ %.pre203.pre, %144 ], [ %.pre203204, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i ]
   store ptr %139, ptr %7, align 8, !tbaa !80
   store ptr %143, ptr %94, align 8, !tbaa !63
-  %145 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %139, i64 %137
+  %145 = getelementptr inbounds nuw [16 x i8], ptr %139, i64 %137
   store ptr %145, ptr %95, align 8, !tbaa !65
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit
 
@@ -2456,7 +2456,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %.lr.ph199, %_ZNSt6v
   %220 = and i64 %219, 224
   %scevgep = getelementptr nuw i8, ptr @_ZZ13detectAndDrawRN2cv4UMatERNS_3MatERNS_17CascadeClassifierES5_dbE6colors, i64 %220
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %221 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %218, i64 %.076198
+  %221 = getelementptr inbounds nuw [16 x i8], ptr %218, i64 %.076198
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(16) %221, i64 16, i1 false), !tbaa.struct !81
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
@@ -2612,7 +2612,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %.lr.ph199, %_ZNSt6v
 .lr.ph197:                                        ; preds = %284, %315
   %291 = phi ptr [ %318, %315 ], [ %286, %284 ]
   %.077196 = phi i64 [ %316, %315 ], [ 0, %284 ]
-  %292 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %291, i64 %.077196
+  %292 = getelementptr inbounds nuw [16 x i8], ptr %291, i64 %.077196
   %.sroa.02.0.copyload = load i32, ptr %292, align 4, !tbaa !79
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %292, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !79

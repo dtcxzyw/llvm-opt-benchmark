@@ -7,13 +7,13 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = shl nsw i64 %3, 2
   %7 = sub nsw i64 %6, %1
-  %8 = getelementptr inbounds double, ptr %2, i64 %3
+  %8 = getelementptr inbounds [8 x i8], ptr %2, i64 %3
   %9 = icmp sgt i64 %0, 3
   br i1 %9, label %.lr.ph384, label %._crit_edge385
 
 .lr.ph384:                                        ; preds = %5
-  %10 = getelementptr inbounds double, ptr %8, i64 %3
-  %11 = getelementptr inbounds double, ptr %10, i64 %3
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %3
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %3
   %12 = icmp sgt i64 %1, 15
   %.idx366 = shl nsw i64 %0, 7
   %.idx361 = shl nsw i64 %0, 6
@@ -183,7 +183,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 
 94:                                               ; preds = %92
   %95 = sub nsw i64 0, %14
-  %96 = getelementptr inbounds double, ptr %.3335, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %.3335, i64 %95
   %97 = load double, ptr %.4300, align 8, !tbaa !8
   %98 = getelementptr inbounds nuw i8, ptr %.4300, i64 8
   %99 = load double, ptr %.4312, align 8, !tbaa !8
@@ -206,10 +206,10 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %.5325 = phi ptr [ %102, %94 ], [ %.4324, %92 ]
   %.5313 = phi ptr [ %100, %94 ], [ %.4312, %92 ]
   %.5301 = phi ptr [ %98, %94 ], [ %.4300, %92 ]
-  %109 = getelementptr inbounds double, ptr %.5301, i64 %7
-  %110 = getelementptr inbounds double, ptr %.5313, i64 %7
-  %111 = getelementptr inbounds double, ptr %.5325, i64 %7
-  %112 = getelementptr inbounds double, ptr %.5331, i64 %7
+  %109 = getelementptr inbounds [8 x i8], ptr %.5301, i64 %7
+  %110 = getelementptr inbounds [8 x i8], ptr %.5313, i64 %7
+  %111 = getelementptr inbounds [8 x i8], ptr %.5325, i64 %7
+  %112 = getelementptr inbounds [8 x i8], ptr %.5331, i64 %7
   %113 = add nsw i64 %.0382, -4
   %114 = icmp sgt i64 %.0382, 7
   br i1 %114, label %13, label %._crit_edge385, !llvm.loop !10
@@ -306,7 +306,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 
 153:                                              ; preds = %151
   %154 = sub i64 0, %119
-  %155 = getelementptr inbounds double, ptr %.7339.us, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr %.7339.us, i64 %154
   %156 = load double, ptr %.10306.us, align 8, !tbaa !8
   %157 = getelementptr inbounds nuw i8, ptr %.10306.us, i64 8
   %158 = load double, ptr %.10318.us, align 8, !tbaa !8
@@ -319,8 +319,8 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 161:                                              ; preds = %153, %151
   %.11319.us = phi ptr [ %159, %153 ], [ %.10318.us, %151 ]
   %.11307.us = phi ptr [ %157, %153 ], [ %.10306.us, %151 ]
-  %162 = getelementptr inbounds double, ptr %.11307.us, i64 %116
-  %163 = getelementptr inbounds double, ptr %.11319.us, i64 %116
+  %162 = getelementptr inbounds [8 x i8], ptr %.11307.us, i64 %116
+  %163 = getelementptr inbounds [8 x i8], ptr %.11319.us, i64 %116
   %164 = add nsw i64 %.1402.us, -2
   %165 = icmp sgt i64 %.1402.us, 3
   br i1 %165, label %.lr.ph394.us, label %._crit_edge405, !llvm.loop !11
@@ -437,7 +437,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 
 220:                                              ; preds = %218
   %221 = sub i64 0, %186
-  %222 = getelementptr inbounds double, ptr %.7339, i64 %221
+  %222 = getelementptr inbounds [8 x i8], ptr %.7339, i64 %221
   %223 = load double, ptr %.10306, align 8, !tbaa !8
   %224 = getelementptr inbounds nuw i8, ptr %.10306, i64 8
   %225 = load double, ptr %.10318, align 8, !tbaa !8
@@ -450,8 +450,8 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
 228:                                              ; preds = %220, %218
   %.11319 = phi ptr [ %226, %220 ], [ %.10318, %218 ]
   %.11307 = phi ptr [ %224, %220 ], [ %.10306, %218 ]
-  %229 = getelementptr inbounds double, ptr %.11307, i64 %116
-  %230 = getelementptr inbounds double, ptr %.11319, i64 %116
+  %229 = getelementptr inbounds [8 x i8], ptr %.11307, i64 %116
+  %230 = getelementptr inbounds [8 x i8], ptr %.11319, i64 %116
   %231 = add nsw i64 %.1402, -2
   %232 = icmp sgt i64 %.1402, 3
   br i1 %232, label %185, label %._crit_edge405, !llvm.loop !11
@@ -549,7 +549,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   br i1 %270, label %271, label %._crit_edge421
 
 271:                                              ; preds = %269
-  %272 = getelementptr inbounds double, ptr %.11343, i64 %237
+  %272 = getelementptr inbounds [8 x i8], ptr %.11343, i64 %237
   %273 = load double, ptr %.16, align 8, !tbaa !8
   store double %273, ptr %272, align 8, !tbaa !8
   br label %._crit_edge421

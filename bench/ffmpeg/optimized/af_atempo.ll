@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.AudioFragment = type { [2 x i64], ptr, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"atempo\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"Adjust audio tempo.\00", align 1
@@ -63,7 +62,7 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
   %13 = load i64, ptr %12, align 8, !tbaa !28
   %14 = and i64 %13, 1
   %15 = xor i64 %14, 1
-  %16 = getelementptr inbounds nuw %struct.AudioFragment, ptr %11, i64 %15
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !29
   %18 = getelementptr inbounds nuw i8, ptr %.val, i64 68
   %19 = load i32, ptr %18, align 4, !tbaa !30
@@ -210,13 +209,13 @@ define internal range(i32 -2147483648, 1) i32 @filter_frame(ptr noundef readonly
 79:                                               ; preds = %77
   %80 = load i64, ptr %44, align 8, !tbaa !28
   %81 = and i64 %80, 1
-  %82 = getelementptr inbounds nuw %struct.AudioFragment, ptr %43, i64 %81
+  %82 = getelementptr inbounds nuw [48 x i8], ptr %43, i64 %81
   call fastcc void @yae_downmix(ptr noundef nonnull %8, ptr noundef nonnull %82)
   %83 = load ptr, ptr %45, align 8, !tbaa !57
   %84 = load ptr, ptr %46, align 8, !tbaa !58
   %85 = load i64, ptr %44, align 8, !tbaa !28
   %86 = and i64 %85, 1
-  %87 = getelementptr inbounds nuw %struct.AudioFragment, ptr %43, i64 %86
+  %87 = getelementptr inbounds nuw [48 x i8], ptr %43, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
   %89 = load ptr, ptr %88, align 8, !tbaa !59
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 32
@@ -252,8 +251,8 @@ define internal range(i32 -2147483648, 1) i32 @filter_frame(ptr noundef readonly
   %106 = phi i64 [ %.pre52, %._crit_edge51 ], [ %92, %.thread.i ]
   %107 = and i64 %106, 1
   %108 = xor i64 %107, 1
-  %109 = getelementptr inbounds nuw %struct.AudioFragment, ptr %43, i64 %108
-  %110 = getelementptr inbounds nuw %struct.AudioFragment, ptr %43, i64 %107
+  %109 = getelementptr inbounds nuw [48 x i8], ptr %43, i64 %108
+  %110 = getelementptr inbounds nuw [48 x i8], ptr %43, i64 %107
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %112 = load i64, ptr %111, align 8, !tbaa !29
   %113 = load i64, ptr %53, align 8, !tbaa !29
@@ -330,7 +329,7 @@ yae_xcorr_via_rdft.exit.i.i:                      ; preds = %.lr.ph.i.i.i, %105
 
 .lr.ph.preheader.i.i:                             ; preds = %yae_xcorr_via_rdft.exit.i.i
   %161 = sext i32 %154 to i64
-  %162 = getelementptr inbounds float, ptr %130, i64 %161
+  %162 = getelementptr inbounds [4 x i8], ptr %130, i64 %161
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -380,13 +379,13 @@ yae_align.exit.i:                                 ; preds = %.lr.ph.i.i, %yae_xc
 183:                                              ; preds = %181
   %184 = load i64, ptr %44, align 8, !tbaa !28
   %185 = and i64 %184, 1
-  %186 = getelementptr inbounds nuw %struct.AudioFragment, ptr %43, i64 %185
+  %186 = getelementptr inbounds nuw [48 x i8], ptr %43, i64 %185
   call fastcc void @yae_downmix(ptr noundef nonnull %8, ptr noundef nonnull %186)
   %187 = load ptr, ptr %45, align 8, !tbaa !57
   %188 = load ptr, ptr %46, align 8, !tbaa !58
   %189 = load i64, ptr %44, align 8, !tbaa !28
   %190 = and i64 %189, 1
-  %191 = getelementptr inbounds nuw %struct.AudioFragment, ptr %43, i64 %190
+  %191 = getelementptr inbounds nuw [48 x i8], ptr %43, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 40
   %193 = load ptr, ptr %192, align 8, !tbaa !59
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 32
@@ -414,8 +413,8 @@ yae_align.exit.i:                                 ; preds = %.lr.ph.i.i, %yae_xc
   store i64 %204, ptr %44, align 8, !tbaa !28
   %205 = and i64 %204, 1
   %206 = xor i64 %205, 1
-  %207 = getelementptr inbounds nuw %struct.AudioFragment, ptr %43, i64 %206
-  %208 = getelementptr inbounds nuw %struct.AudioFragment, ptr %43, i64 %205
+  %207 = getelementptr inbounds nuw [48 x i8], ptr %43, i64 %206
+  %208 = getelementptr inbounds nuw [48 x i8], ptr %43, i64 %205
   %209 = load i64, ptr %207, align 8, !tbaa !29
   %210 = fptosi double %202 to i64
   %211 = add nsw i64 %209, %210
@@ -702,7 +701,7 @@ define internal range(i32 -2147483648, 1) i32 @config_props(ptr noundef readonly
   %121 = fsub nsz double 1.000000e+00, %120
   %122 = fmul nsz double %121, 5.000000e-01
   %123 = fptrunc nsz double %122 to float
-  %124 = getelementptr inbounds nuw float, ptr %109, i64 %indvars.iv.i
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %indvars.iv.i
   store float %123, ptr %124, align 4, !tbaa !73
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -735,7 +734,7 @@ define internal fastcc range(i32 -11, 1) i32 @yae_load_frag(ptr noundef captures
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load i64, ptr %5, align 8, !tbaa !28
   %7 = and i64 %6, 1
-  %8 = getelementptr inbounds nuw %struct.AudioFragment, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [48 x i8], ptr %4, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %11 = load i32, ptr %10, align 4, !tbaa !30
@@ -1456,8 +1455,8 @@ define internal fastcc i32 @yae_adjust_position(ptr noundef captures(none) %0) u
   %4 = load i64, ptr %3, align 8, !tbaa !28
   %5 = and i64 %4, 1
   %6 = xor i64 %5, 1
-  %7 = getelementptr inbounds nuw %struct.AudioFragment, ptr %2, i64 %6
-  %8 = getelementptr inbounds nuw %struct.AudioFragment, ptr %2, i64 %5
+  %7 = getelementptr inbounds nuw [48 x i8], ptr %2, i64 %6
+  %8 = getelementptr inbounds nuw [48 x i8], ptr %2, i64 %5
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1542,7 +1541,7 @@ yae_xcorr_via_rdft.exit.i:                        ; preds = %.lr.ph.i.i, %1
 
 .lr.ph.preheader.i:                               ; preds = %yae_xcorr_via_rdft.exit.i
   %67 = sext i32 %60 to i64
-  %68 = getelementptr inbounds float, ptr %34, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %34, i64 %67
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -1594,8 +1593,8 @@ define internal fastcc range(i32 -11, 1) i32 @yae_overlap_add(ptr noundef captur
   %6 = load i64, ptr %5, align 8, !tbaa !28
   %7 = and i64 %6, 1
   %8 = xor i64 %7, 1
-  %9 = getelementptr inbounds nuw %struct.AudioFragment, ptr %4, i64 %8
-  %10 = getelementptr inbounds nuw %struct.AudioFragment, ptr %4, i64 %7
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %4, i64 %8
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %4, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i64, ptr %11, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1639,8 +1638,8 @@ define internal fastcc range(i32 -11, 1) i32 @yae_overlap_add(ptr noundef captur
   %42 = getelementptr inbounds i8, ptr %39, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load ptr, ptr %43, align 8, !tbaa !87
-  %45 = getelementptr inbounds float, ptr %44, i64 %32
-  %46 = getelementptr inbounds float, ptr %44, i64 %40
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %32
+  %46 = getelementptr inbounds [4 x i8], ptr %44, i64 %40
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %48 = load i32, ptr %47, align 8, !tbaa !20
   switch i32 %48, label %.loopexit [
@@ -2233,7 +2232,7 @@ define internal i32 @request_frame(ptr noundef %0) #2 {
   %41 = phi ptr [ %.pre44, %._crit_edge ], [ %39, %34 ]
   %42 = load i64, ptr %18, align 8, !tbaa !28
   %43 = and i64 %42, 1
-  %44 = getelementptr inbounds nuw %struct.AudioFragment, ptr %17, i64 %43
+  %44 = getelementptr inbounds nuw [48 x i8], ptr %17, i64 %43
   store i32 4, ptr %19, align 8, !tbaa !27
   %.not.i = icmp eq i64 %42, 0
   br i1 %.not.i, label %yae_flush.exit, label %45
@@ -2324,8 +2323,8 @@ define internal i32 @request_frame(ptr noundef %0) #2 {
   store i64 %101, ptr %18, align 8, !tbaa !28
   %102 = and i64 %101, 1
   %103 = xor i64 %102, 1
-  %104 = getelementptr inbounds nuw %struct.AudioFragment, ptr %17, i64 %103
-  %105 = getelementptr inbounds nuw %struct.AudioFragment, ptr %17, i64 %102
+  %104 = getelementptr inbounds nuw [48 x i8], ptr %17, i64 %103
+  %105 = getelementptr inbounds nuw [48 x i8], ptr %17, i64 %102
   %106 = load i64, ptr %104, align 8, !tbaa !29
   %107 = fptosi double %99 to i64
   %108 = add nsw i64 %106, %107

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.SlruCtlData = type { ptr, i16, i8, i32, ptr, [64 x i8] }
-%struct.QueueBackendStatus = type { i32, i32, i32, %struct.QueuePosition }
-%struct.QueuePosition = type { i64, i32 }
-%union.ListCell = type { ptr }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.AsyncQueueEntry = type { i32, i32, i32, i32, [8064 x i8] }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
@@ -141,9 +138,9 @@ define dso_local void @AsyncShmemInit() local_unnamed_addr #0 {
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw %struct.QueueBackendStatus, ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %indvars.iv
   store i32 -1, ptr %20, align 8
-  %21 = getelementptr %struct.QueueBackendStatus, ptr %6, i64 %indvars.iv
+  %21 = getelementptr [32 x i8], ptr %6, i64 %indvars.iv
   %22 = getelementptr i8, ptr %21, i64 60
   store i32 0, ptr %22, align 4
   %23 = getelementptr i8, ptr %21, i64 64
@@ -397,7 +394,7 @@ define dso_local void @Async_Notify(ptr noundef %0, ptr noundef readonly capture
 
 88:                                               ; preds = %.critedge.i, %.lr.ph32.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph32.i ], [ %indvars.iv.next.i, %.critedge.i ]
-  %89 = getelementptr inbounds nuw %union.ListCell, ptr %85, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv.i
   %90 = load ptr, ptr %89, align 8
   %91 = load i16, ptr %90, align 2
   %92 = icmp eq i16 %91, %49
@@ -522,7 +519,7 @@ list_length.exit:                                 ; preds = %1
 .lr.ph11:                                         ; preds = %.lr.ph, %.lr.ph11
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph11 ], [ 0, %.lr.ph ]
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %4, align 8
@@ -835,7 +832,7 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
 .lr.ph72:                                         ; preds = %.lr.ph, %Exec_ListenPreCommit.exit
   %indvars.iv71 = phi i64 [ %indvars.iv.next, %Exec_ListenPreCommit.exit ], [ 0, %.lr.ph ]
   %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv71
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv71
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %24, align 4
   %cond = icmp eq i32 %25, 0
@@ -900,7 +897,7 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   %.sroa.0.0.lcssa.i = phi i64 [ %.sroa.0.0.copyload.i, %37 ], [ %.sroa.0.1.i, %76 ]
   %.032.lcssa.i = phi i32 [ -1, %37 ], [ %spec.select.i, %76 ]
   %46 = sext i32 %.pre.i to i64
-  %47 = getelementptr %struct.QueueBackendStatus, ptr %41, i64 %46
+  %47 = getelementptr [32 x i8], ptr %41, i64 %46
   %48 = getelementptr i8, ptr %47, i64 72
   store i64 %.sroa.0.0.lcssa.i, ptr %48, align 8
   %.sroa.9.0..sroa_idx22.i = getelementptr i8, ptr %47, i64 80
@@ -911,12 +908,12 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %51 = load i32, ptr @MyProcNumber, align 4
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %struct.QueueBackendStatus, ptr %50, i64 %52
+  %53 = getelementptr inbounds [32 x i8], ptr %50, i64 %52
   store i32 %49, ptr %53, align 8
   %54 = load i32, ptr @MyDatabaseId, align 4
   %55 = load i32, ptr @MyProcNumber, align 4
   %56 = sext i32 %55 to i64
-  %57 = getelementptr %struct.QueueBackendStatus, ptr %41, i64 %56
+  %57 = getelementptr [32 x i8], ptr %41, i64 %56
   %58 = getelementptr i8, ptr %57, i64 60
   store i32 %54, ptr %58, align 4
   %.not36.i = icmp eq i32 %.032.lcssa.i, -1
@@ -929,7 +926,7 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   %.sroa.9.041.i = phi i32 [ %.sroa.9.0.copyload.i, %.lr.ph.i ], [ %.sroa.9.1.i, %76 ]
   %.sroa.11.040.i = phi i32 [ %.sroa.11.0.copyload.i, %.lr.ph.i ], [ %.sroa.11.1.i, %76 ]
   %60 = sext i32 %.044.i to i64
-  %61 = getelementptr inbounds %struct.QueueBackendStatus, ptr %44, i64 %60
+  %61 = getelementptr inbounds [32 x i8], ptr %44, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %63, %45
@@ -939,7 +936,7 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %67 = load i64, ptr %66, align 8
   %68 = icmp slt i64 %.sroa.0.042.i, %67
-  %69 = getelementptr %struct.QueueBackendStatus, ptr %41, i64 %60
+  %69 = getelementptr [32 x i8], ptr %41, i64 %60
   br i1 %68, label %70, label %71
 
 70:                                               ; preds = %65
@@ -970,7 +967,7 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   %.sroa.0.1.i = phi i64 [ %.sroa.0.042.i, %72 ], [ %.sroa.0.042.i, %59 ], [ %.sroa.0.042.i, %71 ], [ %.sroa.0.1.ph.i, %.sink.split.i ]
   %77 = icmp slt i32 %.044.i, %.pre.i
   %spec.select.i = select i1 %77, i32 %.044.i, i32 %.03243.i
-  %78 = getelementptr %struct.QueueBackendStatus, ptr %41, i64 %60
+  %78 = getelementptr [32 x i8], ptr %41, i64 %60
   %79 = getelementptr i8, ptr %78, i64 64
   %.0.i = load i32, ptr %79, align 8
   %.not.i = icmp eq i32 %.0.i, -1
@@ -978,16 +975,16 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
 
 80:                                               ; preds = %._crit_edge.i
   %81 = sext i32 %.032.lcssa.i to i64
-  %82 = getelementptr inbounds %struct.QueueBackendStatus, ptr %50, i64 %81
+  %82 = getelementptr inbounds [32 x i8], ptr %50, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i32, ptr %83, align 8
   %85 = load i32, ptr @MyProcNumber, align 4
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds %struct.QueueBackendStatus, ptr %50, i64 %86
+  %87 = getelementptr inbounds [32 x i8], ptr %50, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i32 %84, ptr %88, align 8
   %89 = load i32, ptr @MyProcNumber, align 4
-  %90 = getelementptr %struct.QueueBackendStatus, ptr %41, i64 %81
+  %90 = getelementptr [32 x i8], ptr %41, i64 %81
   %91 = getelementptr i8, ptr %90, i64 64
   store i32 %89, ptr %91, align 8
   br label %99
@@ -996,7 +993,7 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   %93 = load i32, ptr %43, align 8
   %94 = load i32, ptr @MyProcNumber, align 4
   %95 = sext i32 %94 to i64
-  %96 = getelementptr %struct.QueueBackendStatus, ptr %41, i64 %95
+  %96 = getelementptr [32 x i8], ptr %41, i64 %95
   %97 = getelementptr i8, ptr %96, i64 64
   store i32 %93, ptr %97, align 8
   %98 = load i32, ptr @MyProcNumber, align 4
@@ -1108,7 +1105,7 @@ asyncQueueUsage.exit.i:                           ; preds = %116
   %.sroa.0.040.i = phi i64 [ %.sroa.0.0.copyload.i18, %.lr.ph.i17 ], [ %.sroa.0.151.i, %157 ]
   %.sroa.8.039.i = phi i32 [ %.sroa.8.0.copyload.i, %.lr.ph.i17 ], [ %.sroa.8.150.i, %157 ]
   %142 = sext i32 %.042.i to i64
-  %143 = getelementptr %struct.QueueBackendStatus, ptr %.pre47, i64 %142
+  %143 = getelementptr [32 x i8], ptr %.pre47, i64 %142
   %144 = getelementptr i8, ptr %143, i64 72
   %145 = load i64, ptr %144, align 8
   %146 = icmp slt i64 %.sroa.0.040.i, %145
@@ -1130,7 +1127,7 @@ asyncQueueUsage.exit.i:                           ; preds = %116
   br i1 %152, label %.thread.i, label %157
 
 .thread.i:                                        ; preds = %151
-  %.phi.trans.insert = getelementptr inbounds %struct.QueueBackendStatus, ptr %139, i64 %142
+  %.phi.trans.insert = getelementptr inbounds [32 x i8], ptr %139, i64 %142
   %.phi.trans.insert46 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 24
   %.pre = load i32, ptr %.phi.trans.insert46, align 8
   %153 = icmp eq i32 %.sroa.8.1.i, %.pre
@@ -1139,7 +1136,7 @@ asyncQueueUsage.exit.i:                           ; preds = %116
 .thread.i.thread:                                 ; preds = %147, %.thread.i
   %.sroa.0.152.i64 = phi i64 [ %.sroa.0.040.i, %.thread.i ], [ %145, %147 ]
   %154 = phi i32 [ %.pre, %.thread.i ], [ %149, %147 ]
-  %155 = getelementptr inbounds %struct.QueueBackendStatus, ptr %139, i64 %142
+  %155 = getelementptr inbounds [32 x i8], ptr %139, i64 %142
   %156 = load i32, ptr %155, align 8
   br label %157
 
@@ -1274,7 +1271,7 @@ asyncQueueFillWarning.exit:                       ; preds = %116, %asyncQueueUsa
   %.val32.i = load ptr, ptr %225, align 8
   %226 = getelementptr inbounds nuw i8, ptr %.023.i36, i64 8
   %227 = sext i32 %.val.i to i64
-  %228 = getelementptr inbounds %union.ListCell, ptr %.val32.i, i64 %227
+  %228 = getelementptr inbounds [8 x i8], ptr %.val32.i, i64 %227
   %229 = icmp ult ptr %226, %228
   %..i.i = select i1 %229, ptr %226, ptr null
   br label %232
@@ -1293,7 +1290,7 @@ asyncQueueFillWarning.exit:                       ; preds = %116, %asyncQueueUsa
   %234 = load ptr, ptr @NotifyCtlData, align 8
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %236 = load ptr, ptr %235, align 8
-  %237 = getelementptr inbounds ptr, ptr %236, i64 %199
+  %237 = getelementptr inbounds [8 x i8], ptr %236, i64 %199
   %238 = load ptr, ptr %237, align 8
   %239 = sext i32 %.sroa.11.0..sroa.11.0..sroa.11.8.41.i35 to i64
   %240 = getelementptr inbounds i8, ptr %238, i64 %239
@@ -1416,7 +1413,7 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
 .lr.ph60:                                         ; preds = %.lr.ph, %Exec_ListenCommit.exit
   %indvars.iv59 = phi i64 [ %indvars.iv.next, %Exec_ListenCommit.exit ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv59
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv59
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %23, align 4
   switch i32 %24, label %Exec_ListenCommit.exit [
@@ -1450,7 +1447,7 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
 
 34:                                               ; preds = %33, %.lr.ph27.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph27.i.i ], [ %indvars.iv.next.i.i, %33 ]
-  %35 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i.i
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull readonly dereferenceable(1) %26) #17
   %.not15.i.i = icmp eq i32 %37, 0
@@ -1501,7 +1498,7 @@ define dso_local void @AtCommit_Notify() local_unnamed_addr #0 {
 
 58:                                               ; preds = %64, %.lr.ph20.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next.i, %64 ]
-  %59 = getelementptr inbounds nuw %union.ListCell, ptr %57, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
   %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %43) #17
   %.not12.i = icmp eq i32 %61, 0
@@ -1562,11 +1559,11 @@ Exec_ListenCommit.exit:                           ; preds = %64, %34, %.thread.i
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
   %85 = load i32, ptr @MyProcNumber, align 4
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds %struct.QueueBackendStatus, ptr %84, i64 %86
+  %87 = getelementptr inbounds [32 x i8], ptr %84, i64 %86
   store i32 -1, ptr %87, align 8
   %88 = load i32, ptr @MyProcNumber, align 4
   %89 = sext i32 %88 to i64
-  %90 = getelementptr %struct.QueueBackendStatus, ptr %83, i64 %89
+  %90 = getelementptr [32 x i8], ptr %83, i64 %89
   %91 = getelementptr i8, ptr %90, i64 60
   store i32 0, ptr %91, align 4
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 40
@@ -1577,7 +1574,7 @@ Exec_ListenCommit.exit:                           ; preds = %64, %34, %.thread.i
 
 96:                                               ; preds = %79
   %97 = sext i32 %93 to i64
-  %98 = getelementptr %struct.QueueBackendStatus, ptr %83, i64 %97
+  %98 = getelementptr [32 x i8], ptr %83, i64 %97
   %99 = getelementptr i8, ptr %98, i64 64
   %100 = load i32, ptr %99, align 8
   store i32 %100, ptr %92, align 8
@@ -1590,7 +1587,7 @@ Exec_ListenCommit.exit:                           ; preds = %64, %34, %.thread.i
 
 101:                                              ; preds = %.preheader.i
   %102 = sext i32 %.0.i to i64
-  %103 = getelementptr inbounds %struct.QueueBackendStatus, ptr %84, i64 %102
+  %103 = getelementptr inbounds [32 x i8], ptr %84, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load i32, ptr %104, align 8
   %106 = icmp eq i32 %105, %94
@@ -1599,7 +1596,7 @@ Exec_ListenCommit.exit:                           ; preds = %64, %34, %.thread.i
 107:                                              ; preds = %101
   %108 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %109 = sext i32 %94 to i64
-  %110 = getelementptr inbounds %struct.QueueBackendStatus, ptr %84, i64 %109
+  %110 = getelementptr inbounds [32 x i8], ptr %84, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load i32, ptr %111, align 8
   store i32 %112, ptr %108, align 8
@@ -1609,7 +1606,7 @@ Exec_ListenCommit.exit:                           ; preds = %64, %34, %.thread.i
 .loopexit.i18:                                    ; preds = %.preheader.i, %107, %96
   %113 = phi i32 [ %93, %96 ], [ %.pre.i, %107 ], [ %94, %.preheader.i ]
   %114 = sext i32 %113 to i64
-  %115 = getelementptr %struct.QueueBackendStatus, ptr %83, i64 %114
+  %115 = getelementptr [32 x i8], ptr %83, i64 %114
   %116 = getelementptr i8, ptr %115, i64 64
   store i32 -1, ptr %116, align 8
   %117 = load ptr, ptr @MainLWLockArray, align 8
@@ -1669,7 +1666,7 @@ asyncQueueUnregister.exit:                        ; preds = %.critedge, %.loopex
   %.02530.i = phi i32 [ %.02527.i, %.lr.ph.i19 ], [ %.025.i, %164 ]
   %.029.i = phi i32 [ 0, %.lr.ph.i19 ], [ %.1.i, %164 ]
   %143 = sext i32 %.02530.i to i64
-  %144 = getelementptr inbounds %struct.QueueBackendStatus, ptr %136, i64 %143
+  %144 = getelementptr inbounds [32 x i8], ptr %136, i64 %143
   %145 = load i32, ptr %144, align 8
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %.sroa.0.0.copyload.i = load i64, ptr %146, align 8
@@ -1697,9 +1694,9 @@ asyncQueueUnregister.exit:                        ; preds = %.critedge, %.loopex
 
 159:                                              ; preds = %156, %153, %151
   %160 = sext i32 %.029.i to i64
-  %161 = getelementptr inbounds i32, ptr %124, i64 %160
+  %161 = getelementptr inbounds [4 x i8], ptr %124, i64 %160
   store i32 %145, ptr %161, align 4
-  %162 = getelementptr inbounds i32, ptr %128, i64 %160
+  %162 = getelementptr inbounds [4 x i8], ptr %128, i64 %160
   store i32 %.02530.i, ptr %162, align 4
   %163 = add i32 %.029.i, 1
   %.pre.i20 = load i32, ptr @MyDatabaseId, align 4
@@ -1708,7 +1705,7 @@ asyncQueueUnregister.exit:                        ; preds = %.critedge, %.loopex
 164:                                              ; preds = %159, %156, %153
   %165 = phi i32 [ %142, %153 ], [ %.pre.i20, %159 ], [ %142, %156 ]
   %.1.i = phi i32 [ %.029.i, %153 ], [ %163, %159 ], [ %.029.i, %156 ]
-  %166 = getelementptr %struct.QueueBackendStatus, ptr %132, i64 %143
+  %166 = getelementptr [32 x i8], ptr %132, i64 %143
   %167 = getelementptr i8, ptr %166, i64 64
   %.025.i = load i32, ptr %167, align 8
   %.not.i21 = icmp eq i32 %.025.i, -1
@@ -1716,7 +1713,7 @@ asyncQueueUnregister.exit:                        ; preds = %.critedge, %.loopex
 
 .lr.ph33.i:                                       ; preds = %182, %.lr.ph33.preheader.i
   %indvars.iv.i23 = phi i64 [ 0, %.lr.ph33.preheader.i ], [ %indvars.iv.next.i24, %182 ]
-  %168 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv.i23
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv.i23
   %169 = load i32, ptr %168, align 4
   %170 = load i32, ptr @MyProcPid, align 4
   %171 = icmp eq i32 %169, %170
@@ -1727,7 +1724,7 @@ asyncQueueUnregister.exit:                        ; preds = %.critedge, %.loopex
   br label %182
 
 173:                                              ; preds = %.lr.ph33.i
-  %174 = getelementptr inbounds nuw i32, ptr %128, i64 %indvars.iv.i23
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %indvars.iv.i23
   %175 = load i32, ptr %174, align 4
   %176 = tail call i32 @SendProcSignal(i32 noundef %169, i32 noundef 1, i32 noundef %175) #15
   %177 = icmp slt i32 %176, 0
@@ -1815,7 +1812,7 @@ define internal fastcc void @asyncQueueAdvanceTail() unnamed_addr #0 {
   %.sroa.9.036 = phi i32 [ %.sroa.9.1, %27 ], [ %.sroa.9.0.copyload, %0 ]
   %.sroa.0.035 = phi i64 [ %.sroa.0.1, %27 ], [ %.sroa.0.0.copyload, %0 ]
   %17 = sext i32 %.038 to i64
-  %18 = getelementptr %struct.QueueBackendStatus, ptr %7, i64 %17
+  %18 = getelementptr [32 x i8], ptr %7, i64 %17
   %19 = getelementptr i8, ptr %18, i64 72
   %20 = load i64, ptr %19, align 8
   %21 = icmp slt i64 %.sroa.0.035, %20
@@ -1912,11 +1909,11 @@ define dso_local void @AtAbort_Notify() local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load i32, ptr @MyProcNumber, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.QueueBackendStatus, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   store i32 -1, ptr %11, align 8
   %12 = load i32, ptr @MyProcNumber, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct.QueueBackendStatus, ptr %7, i64 %13
+  %14 = getelementptr [32 x i8], ptr %7, i64 %13
   %15 = getelementptr i8, ptr %14, i64 60
   store i32 0, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -1927,7 +1924,7 @@ define dso_local void @AtAbort_Notify() local_unnamed_addr #0 {
 
 20:                                               ; preds = %3
   %21 = sext i32 %17 to i64
-  %22 = getelementptr %struct.QueueBackendStatus, ptr %7, i64 %21
+  %22 = getelementptr [32 x i8], ptr %7, i64 %21
   %23 = getelementptr i8, ptr %22, i64 64
   %24 = load i32, ptr %23, align 8
   store i32 %24, ptr %16, align 8
@@ -1940,7 +1937,7 @@ define dso_local void @AtAbort_Notify() local_unnamed_addr #0 {
 
 25:                                               ; preds = %.preheader.i
   %26 = sext i32 %.0.i to i64
-  %27 = getelementptr inbounds %struct.QueueBackendStatus, ptr %8, i64 %26
+  %27 = getelementptr inbounds [32 x i8], ptr %8, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, %18
@@ -1949,7 +1946,7 @@ define dso_local void @AtAbort_Notify() local_unnamed_addr #0 {
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = sext i32 %18 to i64
-  %34 = getelementptr inbounds %struct.QueueBackendStatus, ptr %8, i64 %33
+  %34 = getelementptr inbounds [32 x i8], ptr %8, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 8
   store i32 %36, ptr %32, align 8
@@ -1959,7 +1956,7 @@ define dso_local void @AtAbort_Notify() local_unnamed_addr #0 {
 .loopexit.i:                                      ; preds = %.preheader.i, %31, %20
   %37 = phi i32 [ %17, %20 ], [ %.pre.i, %31 ], [ %18, %.preheader.i ]
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.QueueBackendStatus, ptr %7, i64 %38
+  %39 = getelementptr [32 x i8], ptr %7, i64 %38
   %40 = getelementptr i8, ptr %39, i64 64
   store i32 -1, ptr %40, align 8
   %41 = load ptr, ptr @MainLWLockArray, align 8
@@ -2061,7 +2058,7 @@ define dso_local void @AtSubCommit_Notify() local_unnamed_addr #0 {
 .lr.ph42:                                         ; preds = %.lr.ph, %83
   %indvars.iv41 = phi i64 [ %indvars.iv.next, %83 ], [ 0, %.lr.ph ]
   %45 = load ptr, ptr %42, align 8
-  %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv41
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv41
   %47 = load ptr, ptr %46, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store ptr %47, ptr %1, align 8
@@ -2105,7 +2102,7 @@ define dso_local void @AtSubCommit_Notify() local_unnamed_addr #0 {
 
 68:                                               ; preds = %.critedge.i, %.lr.ph32.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph32.i ], [ %indvars.iv.next.i, %.critedge.i ]
-  %69 = getelementptr inbounds nuw %union.ListCell, ptr %64, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv.i
   %70 = load ptr, ptr %69, align 8
   %71 = load i16, ptr %70, align 2
   %72 = icmp eq i16 %65, %71
@@ -2387,11 +2384,11 @@ Exec_UnlistenAllCommit.exit:                      ; preds = %2, %5, %7
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load i32, ptr @MyProcNumber, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.QueueBackendStatus, ptr %16, i64 %18
+  %19 = getelementptr inbounds [32 x i8], ptr %16, i64 %18
   store i32 -1, ptr %19, align 8
   %20 = load i32, ptr @MyProcNumber, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr %struct.QueueBackendStatus, ptr %15, i64 %21
+  %22 = getelementptr [32 x i8], ptr %15, i64 %21
   %23 = getelementptr i8, ptr %22, i64 60
   store i32 0, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -2402,7 +2399,7 @@ Exec_UnlistenAllCommit.exit:                      ; preds = %2, %5, %7
 
 28:                                               ; preds = %11
   %29 = sext i32 %25 to i64
-  %30 = getelementptr %struct.QueueBackendStatus, ptr %15, i64 %29
+  %30 = getelementptr [32 x i8], ptr %15, i64 %29
   %31 = getelementptr i8, ptr %30, i64 64
   %32 = load i32, ptr %31, align 8
   store i32 %32, ptr %24, align 8
@@ -2415,7 +2412,7 @@ Exec_UnlistenAllCommit.exit:                      ; preds = %2, %5, %7
 
 33:                                               ; preds = %.preheader.i
   %34 = sext i32 %.0.i to i64
-  %35 = getelementptr inbounds %struct.QueueBackendStatus, ptr %16, i64 %34
+  %35 = getelementptr inbounds [32 x i8], ptr %16, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, %26
@@ -2424,7 +2421,7 @@ Exec_UnlistenAllCommit.exit:                      ; preds = %2, %5, %7
 39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %41 = sext i32 %26 to i64
-  %42 = getelementptr inbounds %struct.QueueBackendStatus, ptr %16, i64 %41
+  %42 = getelementptr inbounds [32 x i8], ptr %16, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 8
   store i32 %44, ptr %40, align 8
@@ -2434,7 +2431,7 @@ Exec_UnlistenAllCommit.exit:                      ; preds = %2, %5, %7
 .loopexit.i:                                      ; preds = %.preheader.i, %39, %28
   %45 = phi i32 [ %25, %28 ], [ %.pre.i, %39 ], [ %26, %.preheader.i ]
   %46 = sext i32 %45 to i64
-  %47 = getelementptr %struct.QueueBackendStatus, ptr %15, i64 %46
+  %47 = getelementptr [32 x i8], ptr %15, i64 %46
   %48 = getelementptr i8, ptr %47, i64 64
   store i32 -1, ptr %48, align 8
   %49 = load ptr, ptr @MainLWLockArray, align 8
@@ -2470,7 +2467,7 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
   %6 = load ptr, ptr @asyncQueueControl, align 8
   %7 = load i32, ptr @MyProcNumber, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr %struct.QueueBackendStatus, ptr %6, i64 %8
+  %9 = getelementptr [32 x i8], ptr %6, i64 %8
   %10 = getelementptr i8, ptr %9, i64 72
   %.sroa.0.0.copyload25 = load volatile i64, ptr %10, align 8
   store volatile i64 %.sroa.0.0.copyload25, ptr %.sroa.0, align 8
@@ -2533,7 +2530,7 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = sext i32 %23 to i64
-  %36 = getelementptr inbounds ptr, ptr %34, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 %30
   %39 = sext i32 %.0 to i64
@@ -2629,7 +2626,7 @@ define internal fastcc void @asyncQueueReadAllNotifications() unnamed_addr #0 {
 
 80:                                               ; preds = %79, %.lr.ph27.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph27.i.i ], [ %indvars.iv.next.i.i, %79 ]
-  %81 = getelementptr inbounds nuw %union.ListCell, ptr %78, i64 %indvars.iv.i.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.i.i
   %82 = load ptr, ptr %81, align 8
   %83 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %82, ptr noundef nonnull readonly dereferenceable(1) %72) #17
   %.not15.i.i = icmp eq i32 %83, 0
@@ -2685,7 +2682,7 @@ asyncQueueProcessPageEntries.exit:                ; preds = %.loopexit.i
   %96 = load ptr, ptr @asyncQueueControl, align 8
   %97 = load i32, ptr @MyProcNumber, align 4
   %98 = sext i32 %97 to i64
-  %99 = getelementptr %struct.QueueBackendStatus, ptr %96, i64 %98
+  %99 = getelementptr [32 x i8], ptr %96, i64 %98
   %100 = getelementptr i8, ptr %99, i64 72
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload26 = load volatile i64, ptr %.sroa.0, align 8
   store volatile i64 %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0.copyload26, ptr %100, align 8

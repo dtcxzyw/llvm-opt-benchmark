@@ -149,7 +149,7 @@ define internal void @keccakf1600_bmi(ptr noundef captures(none) %0) #1 {
   %90 = tail call i64 @llvm.fshl.i64(i64 %89, i64 %89, i64 14)
   %91 = xor i64 %84, -1
   %92 = and i64 %86, %91
-  %93 = getelementptr inbounds nuw i64, ptr @round_constants, i64 %.0.i26
+  %93 = getelementptr inbounds nuw [8 x i8], ptr @round_constants, i64 %.0.i26
   %94 = load i64, ptr %93, align 16, !tbaa !7
   %95 = xor i64 %92, %94
   %96 = xor i64 %95, %82
@@ -481,7 +481,7 @@ define hidden void @ethash_keccak256(ptr dead_on_unwind noalias writable writeon
   %.033.i5 = phi i64 [ 0, %.preheader3 ], [ %13, %8 ]
   %.135.i4 = phi ptr [ %.034.i7, %.preheader3 ], [ %12, %8 ]
   %.0.copyload.i = load i64, ptr %.135.i4, align 1
-  %9 = getelementptr inbounds nuw i64, ptr %5, i64 %.033.i5
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.033.i5
   %10 = load i64, ptr %9, align 8, !tbaa !7
   %11 = xor i64 %10, %.0.copyload.i
   store i64 %11, ptr %9, align 8, !tbaa !7
@@ -713,7 +713,7 @@ define internal void @keccakf1600_generic(ptr noundef captures(none) %0) #3 {
   %90 = tail call i64 @llvm.fshl.i64(i64 %89, i64 %89, i64 14)
   %91 = xor i64 %84, -1
   %92 = and i64 %86, %91
-  %93 = getelementptr inbounds nuw i64, ptr @round_constants, i64 %.0.i26
+  %93 = getelementptr inbounds nuw [8 x i8], ptr @round_constants, i64 %.0.i26
   %94 = load i64, ptr %93, align 16, !tbaa !7
   %95 = xor i64 %92, %94
   %96 = xor i64 %95, %82

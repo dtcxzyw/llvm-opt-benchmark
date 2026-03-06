@@ -1682,7 +1682,7 @@ define linkonce_odr noundef ptr @_ZN6icu_7713TZEnumeration6createE19USystemTimeZ
   %.279207 = phi ptr [ %20, %.lr.ph ], [ %.481148, %.thread129.thread173 ]
   %.285206 = phi i32 [ 0, %.lr.ph ], [ %.487147, %.thread129.thread173 ]
   %.088205 = phi i32 [ 8, %.lr.ph ], [ %.189146, %.thread129.thread173 ]
-  %28 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
@@ -1848,7 +1848,7 @@ _ZN6icu_7728ures_getUnicodeStringByIndexEPK15UResourceBundleiP10UErrorCode.exit:
   %.582 = phi ptr [ %.279207, %81 ], [ %86, %87 ]
   %90 = add nsw i32 %.285206, 1
   %91 = sext i32 %.285206 to i64
-  %92 = getelementptr inbounds i32, ptr %.582, i64 %91
+  %92 = getelementptr inbounds [4 x i8], ptr %.582, i64 %91
   store i32 %29, ptr %92, align 4, !tbaa !12
   br label %.thread129.thread173
 
@@ -2328,7 +2328,7 @@ define void @_ZN6icu_778TimeZone15getEquivalentIDERKNS_13UnicodeStringEi(ptr dea
 
 42:                                               ; preds = %22
   %43 = zext nneg i32 %2 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %21, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6icu_7720StackUResourceBundleD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %6) #21
@@ -2996,7 +2996,7 @@ _ZN6icu_7712LocalPointerINS_14TimeZoneFormatEED2Ev.exit103: ; preds = %103
 
 .preheader.i.i:                                   ; preds = %124, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %130, %.preheader.i.i ], [ 0, %124 ]
-  %127 = getelementptr inbounds nuw i16, ptr %123, i64 %.0.i.i.i.i
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %123, i64 %.0.i.i.i.i
   %128 = load i16, ptr %127, align 2, !tbaa !50
   %129 = icmp eq i16 %128, 0
   %130 = add i64 %.0.i.i.i.i, 1
@@ -3370,7 +3370,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit58:            ; preds = %64
   %68 = load ptr, ptr %36, align 8
   %69 = select i1 %.not.i.i.i57, ptr %68, ptr %35
   %70 = zext nneg i32 %44 to i64
-  %71 = getelementptr inbounds nuw i16, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !50
   %.not45 = icmp eq i16 %72, 58
   br i1 %.not45, label %73, label %_ZNK6icu_7713UnicodeStringixEi.exit58.thread
@@ -3409,7 +3409,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit61:            ; preds = %88
   %91 = load ptr, ptr %36, align 8
   %92 = select i1 %.not.i.i.i60, ptr %91, ptr %35
   %93 = sext i32 %78 to i64
-  %94 = getelementptr inbounds i16, ptr %92, i64 %93
+  %94 = getelementptr inbounds [2 x i8], ptr %92, i64 %93
   %95 = load i16, ptr %94, align 2, !tbaa !50
   %.not47 = icmp eq i16 %95, 58
   br i1 %.not47, label %96, label %_ZNK6icu_7713UnicodeStringixEi.exit58.thread
@@ -4171,7 +4171,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_778TimeZone12get
   %79 = icmp eq ptr %77, null
   %80 = load i32, ptr %7, align 4
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i16, ptr %69, i64 %81
+  %82 = getelementptr inbounds [2 x i8], ptr %69, i64 %81
   %.0 = select i1 %79, ptr %82, ptr %77
   %83 = ptrtoint ptr %.0 to i64
   %84 = ptrtoint ptr %.050131 to i64
@@ -4574,7 +4574,7 @@ define linkonce_odr noundef ptr @_ZN6icu_7713TZEnumeration5snextER10UErrorCode(p
 
 14:                                               ; preds = %8
   %15 = sext i32 %10 to i64
-  %16 = getelementptr inbounds i32, ptr %7, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %7, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !12
   %18 = tail call noundef signext i8 @_ZN6icu_7713TZEnumeration5getIDEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %17, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %19 = load i32, ptr %9, align 4, !tbaa !40
@@ -5051,7 +5051,7 @@ _ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi.exit: ; preds = %48
 .thread72:                                        ; preds = %59, %103, %93
   %104 = add nsw i32 %.05394, 1
   %105 = sext i32 %.05394 to i64
-  %106 = getelementptr inbounds i32, ptr %15, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %15, i64 %105
   store i32 %.05295, ptr %106, align 4, !tbaa !12
   br label %.thread80
 

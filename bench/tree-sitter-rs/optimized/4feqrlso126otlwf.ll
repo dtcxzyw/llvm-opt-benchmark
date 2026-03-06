@@ -275,7 +275,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(280) ptr @"_ZN9ha
   %53 = add i64 %.sroa.01.0.i.i.i, %50
   %54 = and i64 %53, %.val4
   %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { i32, i32 }, { ptr, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, ptr, i64 } }, ptr %.val, i64 %55
+  %56 = getelementptr inbounds [304 x i8], ptr %.val, i64 %55
   %57 = getelementptr i8, ptr %56, i64 -288
   %.val6.i.i.i = load i64, ptr %57, align 8, !alias.scope !103, !noalias !108, !noundef !5
   %.not.i.i.i.i.i.i.i = icmp eq i64 %2, %.val6.i.i.i
@@ -556,7 +556,7 @@ switch.lookup:                                    ; preds = %58
   %71 = icmp slt i64 %70, -9223372036854775804
   %72 = add i64 %70, -9223372036854775807
   %73 = select i1 %71, i64 %72, i64 0
-  %switch.gep = getelementptr inbounds i32, ptr @switch.table.ts_tagger_add_language, i64 %73
+  %switch.gep = getelementptr inbounds [4 x i8], ptr @switch.table.ts_tagger_add_language, i64 %73
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread
 
@@ -1043,7 +1043,7 @@ _ZN16tree_sitter_tags5c_lib16shrink_and_clear17h20d42158ef479d01E.exit: ; preds 
 182:                                              ; preds = %.noexc49, %130
   %183 = phi i64 [ %.pre.i, %.noexc49 ], [ %160, %130 ]
   %184 = load ptr, ptr %102, align 8, !alias.scope !233, !noalias !236, !nonnull !5, !noundef !5
-  %185 = getelementptr inbounds { i32, i32, i32, i32, i32, i32, { i32, i32 }, { i32, i32 }, i32, i32, i32, i32, i32, i8, [3 x i8] }, ptr %184, i64 %183
+  %185 = getelementptr inbounds [64 x i8], ptr %184, i64 %183
   store i32 %133, ptr %185, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %185, i64 4
   store i32 %135, ptr %.sroa.4.0..sroa_idx, align 4

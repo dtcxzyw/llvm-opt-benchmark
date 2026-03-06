@@ -28,7 +28,7 @@ define i32 @ff_opus_rc_dec_cdf(ptr noundef captures(none) %0, ptr noundef readon
 14:                                               ; preds = %14, %2
   %.0 = phi i32 [ 0, %2 ], [ %19, %14 ]
   %15 = zext i32 %.0 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %3, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !4
   %18 = zext i16 %17 to i32
   %.not = icmp samesign ult i32 %13, %18
@@ -49,7 +49,7 @@ define i32 @ff_opus_rc_dec_cdf(ptr noundef captures(none) %0, ptr noundef readon
 24:                                               ; preds = %20
   %25 = add i32 %.0, -1
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw i16, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !4
   %29 = sub nsw i32 %5, %18
   %30 = mul i32 %29, %8
@@ -123,7 +123,7 @@ opus_rc_dec_normalize.exit:                       ; preds = %46, %opus_rc_dec_up
 define void @ff_opus_rc_enc_cdf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %.not = icmp eq i32 %1, 0
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds i16, ptr %2, i64 %4
+  %5 = getelementptr inbounds [2 x i8], ptr %2, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !4
   %7 = zext i16 %6 to i32
   %8 = select i1 %.not, i32 0, i32 %7
@@ -1246,7 +1246,7 @@ define range(i32 0, -2147483648) i32 @ff_opus_rc_dec_uint_tri(ptr noundef captur
   %69 = zext i8 %68 to i32
   %70 = zext nneg i32 %63 to i64
   %71 = zext i8 %68 to i64
-  %72 = getelementptr inbounds nuw i32, ptr @ff_inverse, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr @ff_inverse, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !34
   %74 = zext i32 %73 to i64
   %75 = mul nuw nsw i64 %70, %74
@@ -1350,7 +1350,7 @@ ff_sqrt.exit:                                     ; preds = %21, %80
   %143 = zext i8 %142 to i32
   %144 = zext nneg i32 %137 to i64
   %145 = zext i8 %142 to i64
-  %146 = getelementptr inbounds nuw i32, ptr @ff_inverse, i64 %145
+  %146 = getelementptr inbounds nuw [4 x i8], ptr @ff_inverse, i64 %145
   %147 = load i32, ptr %146, align 4, !tbaa !34
   %148 = zext i32 %147 to i64
   %149 = mul nuw nsw i64 %144, %148

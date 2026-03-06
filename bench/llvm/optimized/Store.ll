@@ -48,7 +48,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::APInt.base" = type <{ %union.anon.518, i32 }>
 %union.anon.518 = type { i64 }
 %"class.llvm::APInt" = type <{ %union.anon.518, i32, [4 x i8] }>
-%"struct.std::pair.534" = type { ptr, i64 }
 
 $_ZNK4llvm6APSIntplERKS0_ = comdat any
 
@@ -519,7 +518,7 @@ _ZL26regionMatchesCXXRecordTypeN5clang4ento4SValENS_8QualTypeE.exit: ; preds = %
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !74
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %44, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %47
   %.not27 = icmp eq ptr %43, %48
   br i1 %.not27, label %.loopexit, label %.lr.ph
 
@@ -1811,7 +1810,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !67
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.534", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -1852,7 +1851,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !67
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !69

@@ -105,7 +105,7 @@ define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
 15:                                               ; preds = %0, %run_test_case.exit
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %run_test_case.exit ]
   %.068 = phi i32 [ 0, %0 ], [ %.not, %run_test_case.exit ]
-  %16 = getelementptr inbounds nuw %struct.test_case, ptr @test_cases, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [48 x i8], ptr @test_cases, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

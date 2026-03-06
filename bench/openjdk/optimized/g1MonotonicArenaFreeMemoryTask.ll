@@ -58,7 +58,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZNK30G1MonotonicArenaFreeMemoryTask14get_state_nameENS_5StateE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 %3
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -97,9 +97,9 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask22calculate
 
 15:                                               ; preds = %2, %32
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %32 ]
-  %16 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8
   %20 = load double, ptr @G1RemSetFreeMemoryKeepExcessRatio, align 8
   %21 = uitofp i64 %19 to double
@@ -114,7 +114,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask22calculate
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = call noundef ptr @_ZN22G1CardSetConfiguration24mem_object_type_name_strEj(i32 noundef %27) #15
   %29 = load i64, ptr %16, align 8
-  %30 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %31 = load i64, ptr %30, align 8
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.8, ptr noundef %28, i64 noundef %29, i64 noundef %31, i64 noundef %19, i64 noundef %24)
   br label %32
@@ -201,9 +201,9 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPN24G1Mo
 
 23:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %24, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -220,7 +220,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPN24G1Mo
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv20.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv20.i.i
   store ptr null, ptr %33, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %34 = load i32, ptr %4, align 4
@@ -244,7 +244,7 @@ _ZN26GrowableArrayWithAllocatorIPN24G1MonotonicArenaFreePool23G1ReturnMemoryProc
   store i32 %41, ptr %0, align 8
   %42 = load ptr, ptr %1, align 8
   %43 = sext i32 %40 to i64
-  %44 = getelementptr inbounds ptr, ptr %39, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %39, i64 %43
   store ptr %42, ptr %44, align 8
   ret i32 %40
 }
@@ -265,7 +265,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_me
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
@@ -310,7 +310,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask19return_me
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
@@ -355,7 +355,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask20cleanup_r
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %1 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %14, label %13
@@ -453,7 +453,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %36 ], [ 0, %21 ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 8
@@ -489,7 +489,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   %indvars.iv.i13 = phi i64 [ %indvars.iv.next.i17, %56 ], [ 0, %41 ]
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i13
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv.i13
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
@@ -525,7 +525,7 @@ define hidden noundef zeroext i1 @_ZN30G1MonotonicArenaFreeMemoryTask24free_exce
   %indvars.iv.i20 = phi i64 [ %indvars.iv.next.i22, %73 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv.i20
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i20
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   br i1 %71, label %73, label %72
@@ -579,7 +579,7 @@ _ZN30G1MonotonicArenaFreeMemoryTask20cleanup_return_infosEv.exit: ; preds = %._c
 
 86:                                               ; preds = %84
   %87 = zext i32 %18 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 %87
   %89 = load ptr, ptr %88, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.10, ptr noundef %89)
   br label %90
@@ -600,10 +600,10 @@ _ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit.thread: ; preds 
 93:                                               ; preds = %_ZN30G1MonotonicArenaFreeMemoryTask19return_memory_to_vmEl.exit.thread
   %94 = load i32, ptr %15, align 8
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw ptr, ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 %95
   %97 = load ptr, ptr %96, align 8
   %98 = zext nneg i32 %.0 to i64
-  %99 = getelementptr inbounds nuw ptr, ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 %98
   %100 = load ptr, ptr %99, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef %97, ptr noundef %100)
   br label %_ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE.exit
@@ -671,10 +671,10 @@ define hidden void @_ZN30G1MonotonicArenaFreeMemoryTask9set_stateENS_5StateE(ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %1 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZN30G1MonotonicArenaFreeMemoryTask12_state_namesE, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.13, ptr noundef %9, ptr noundef %12)
   br label %13
@@ -749,15 +749,15 @@ define hidden void @_ZN30G1MonotonicArenaFreeMemoryTask16notify_new_statsEP27G1M
 
 8:                                                ; preds = %8, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, %10
   store i64 %13, ptr %11, align 8
-  %14 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %15
   store i64 %18, ptr %16, align 8

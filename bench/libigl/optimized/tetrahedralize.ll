@@ -23,9 +23,6 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %class.tetgenio = type { i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, i32, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%"struct.tetgenio::facet" = type { ptr, i32, ptr, i32 }
-%"struct.tetgenio::polygon" = type { ptr, i32 }
-%"struct.tetgenio::vorofacet" = type { i32, i32, ptr }
 
 $_ZN3igl8copyleft6tetgen14tetrahedralizeIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS4_IiLin1ELin1ELi0ELin1ELin1EEES5_S6_S6_EEiRKNS3_10MatrixBaseIT_EERKNS7_IT0_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS3_15PlainObjectBaseIT1_EERNSM_IT2_EERNSM_IT3_EE = comdat any
 
@@ -723,7 +720,7 @@ define linkonce_odr dso_local void @_ZN8tetgenio12clean_memoryEv(ptr noundef non
 .lr.ph94:                                         ; preds = %.preheader91, %113
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %113 ], [ 0, %.preheader91 ]
   %91 = load ptr, ptr %86, align 8, !tbaa !88
-  %92 = getelementptr inbounds nuw %"struct.tetgenio::facet", ptr %91, i64 %indvars.iv103
+  %92 = getelementptr inbounds nuw [32 x i8], ptr %91, i64 %indvars.iv103
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load i32, ptr %93, align 8, !tbaa !90
   %95 = icmp sgt i32 %94, 0
@@ -733,7 +730,7 @@ define linkonce_odr dso_local void @_ZN8tetgenio12clean_memoryEv(ptr noundef non
   %96 = phi i32 [ %103, %102 ], [ %94, %.lr.ph94 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %102 ], [ 0, %.lr.ph94 ]
   %97 = load ptr, ptr %92, align 8, !tbaa !92
-  %98 = getelementptr inbounds nuw %"struct.tetgenio::polygon", ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %97, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8, !tbaa !93
   %100 = icmp eq ptr %99, null
   br i1 %100, label %102, label %101
@@ -889,7 +886,7 @@ define linkonce_odr dso_local void @_ZN8tetgenio12clean_memoryEv(ptr noundef non
   %160 = phi i32 [ %168, %167 ], [ %158, %.preheader90 ]
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %167 ], [ 0, %.preheader90 ]
   %161 = load ptr, ptr %155, align 8, !tbaa !104
-  %162 = getelementptr inbounds nuw %"struct.tetgenio::vorofacet", ptr %161, i64 %indvars.iv106
+  %162 = getelementptr inbounds nuw [16 x i8], ptr %161, i64 %indvars.iv106
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %164 = load ptr, ptr %163, align 8, !tbaa !106
   %165 = icmp eq ptr %164, null
@@ -933,7 +930,7 @@ define linkonce_odr dso_local void @_ZN8tetgenio12clean_memoryEv(ptr noundef non
   %179 = phi i32 [ %186, %185 ], [ %177, %.preheader ]
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %185 ], [ 0, %.preheader ]
   %180 = load ptr, ptr %174, align 8, !tbaa !109
-  %181 = getelementptr inbounds nuw ptr, ptr %180, i64 %indvars.iv109
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %indvars.iv109
   %182 = load ptr, ptr %181, align 8, !tbaa !111
   %183 = icmp eq ptr %182, null
   br i1 %183, label %185, label %184

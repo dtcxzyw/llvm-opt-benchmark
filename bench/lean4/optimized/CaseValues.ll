@@ -12323,7 +12323,7 @@ declare void @lean_free_object(ptr noundef) local_unnamed_addr #1
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -13818,7 +13818,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Meta_caseValues_loop___spec__1(p
   %.067186 = phi i64 [ %2, %.lr.ph ], [ %224, %lean_dec.exit107 ]
   %.070185 = phi ptr [ %4, %.lr.ph ], [ %.379, %lean_dec.exit107 ]
   %.073184 = phi ptr [ %9, %.lr.ph ], [ %.384, %lean_dec.exit107 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %11, i64 %.067186
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.067186
   %23 = load ptr, ptr %22, align 8, !tbaa !9
   %24 = ptrtoint ptr %23 to i64
   %25 = trunc i64 %24 to i1

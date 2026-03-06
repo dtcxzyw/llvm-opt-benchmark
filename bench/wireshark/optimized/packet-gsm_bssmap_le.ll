@@ -544,8 +544,8 @@ define hidden void @proto_register_gsm_bssmap_le() local_unnamed_addr #1 {
 2:                                                ; preds = %0, %2
   %indvars.iv18 = phi i64 [ 1, %0 ], [ %indvars.iv.next19, %2 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr i32, ptr @ett_gsm_bssmap_le_msg, i64 %indvars.iv
-  %4 = getelementptr ptr, ptr %1, i64 %indvars.iv18
+  %3 = getelementptr [4 x i8], ptr @ett_gsm_bssmap_le_msg, i64 %indvars.iv
+  %4 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv18
   store ptr %3, ptr %4, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
@@ -555,8 +555,8 @@ define hidden void @proto_register_gsm_bssmap_le() local_unnamed_addr #1 {
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.preheader ], [ 15, %2 ]
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.preheader ], [ 0, %2 ]
-  %5 = getelementptr i32, ptr @ett_gsm_bssmap_le_elem, i64 %indvars.iv23
-  %6 = getelementptr ptr, ptr %1, i64 %indvars.iv25
+  %5 = getelementptr [4 x i8], ptr @ett_gsm_bssmap_le_elem, i64 %indvars.iv23
+  %6 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv25
   store ptr %5, ptr %6, align 8
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
@@ -623,7 +623,7 @@ define internal i32 @dissect_bssmap_le(ptr noundef %0, ptr noundef %1, ptr nound
   %spec.store.select = select i1 %15, i32 0, i32 %14
   store i32 %spec.store.select, ptr @dissect_bssmap_le.tap_current, align 4
   %16 = zext i32 %spec.store.select to i64
-  %17 = getelementptr %struct._gsm_a_tap_rec_t, ptr @dissect_bssmap_le.tap_rec, i64 %16
+  %17 = getelementptr [8 x i8], ptr @dissect_bssmap_le.tap_rec, i64 %16
   store ptr %17, ptr @dissect_bssmap_le.tap_p, align 8
   store ptr %2, ptr @g_tree, align 8
   %18 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -661,7 +661,7 @@ define internal i32 @dissect_bssmap_le(ptr noundef %0, ptr noundef %1, ptr nound
   %37 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.209, ptr noundef nonnull %21)
   %38 = load i32, ptr %5, align 4
   %39 = sext i32 %38 to i64
-  %40 = getelementptr i32, ptr @ett_gsm_bssmap_le_msg, i64 %39
+  %40 = getelementptr [4 x i8], ptr @ett_gsm_bssmap_le_msg, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %41)
   %43 = load ptr, ptr %11, align 8
@@ -698,7 +698,7 @@ define internal i32 @dissect_bssmap_le(ptr noundef %0, ptr noundef %1, ptr nound
   br label %65
 
 61:                                               ; preds = %51
-  %62 = getelementptr ptr, ptr @bssmap_le_msg_fcn, i64 %53
+  %62 = getelementptr [8 x i8], ptr @bssmap_le_msg_fcn, i64 %53
   %63 = load ptr, ptr %62, align 8
   %64 = add i32 %18, -1
   call void %63(ptr noundef %0, ptr noundef %.051, ptr noundef %1, i32 noundef 1, i32 noundef %64)

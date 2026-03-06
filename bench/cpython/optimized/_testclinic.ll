@@ -3028,7 +3028,7 @@ PyObject_TypeCheck.exit408.thread:                ; preds = %509, %PyObject_Type
   %542 = load i8, ptr %541, align 1, !tbaa !3
   %543 = zext i8 %542 to i64
   %544 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %543) #10
-  %545 = getelementptr ptr, ptr %5, i64 %indvars.iv.i
+  %545 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.i
   store ptr %544, ptr %545, align 8, !tbaa !6
   %.not41.i = icmp eq ptr %544, null
   br i1 %.not41.i, label %546, label %556
@@ -3052,7 +3052,7 @@ PyObject_TypeCheck.exit408.thread:                ; preds = %509, %PyObject_Type
 
 .lr.ph.i:                                         ; preds = %Py_DECREF.exit46.i, %.lr.ph.preheader.i
   %indvars.iv24.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next25.i, %Py_DECREF.exit46.i ]
-  %549 = getelementptr ptr, ptr %5, i64 %indvars.iv24.i
+  %549 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv24.i
   %550 = load ptr, ptr %549, align 8, !tbaa !6
   %551 = load i32, ptr %550, align 8, !tbaa !3
   %.not.i45.i = icmp sgt i32 %551, -1
@@ -3109,7 +3109,7 @@ Py_DECREF.exit46.i:                               ; preds = %555, %552, %.lr.ph.
 
 .preheader.i:                                     ; preds = %.critedge.i, %Py_DECREF.exit.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %Py_DECREF.exit.i ], [ 0, %.critedge.i ]
-  %564 = getelementptr ptr, ptr %5, i64 %indvars.iv20.i
+  %564 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv20.i
   %565 = load ptr, ptr %564, align 8, !tbaa !6
   %566 = load i32, ptr %565, align 8, !tbaa !3
   %.not.i.i410 = icmp sgt i32 %566, -1
@@ -3152,9 +3152,9 @@ Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.ex
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %575 = getelementptr ptr, ptr %5, i64 %indvars.iv15.i
+  %575 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv15.i
   %576 = load ptr, ptr %575, align 8, !tbaa !6
-  %577 = getelementptr ptr, ptr %562, i64 %indvars.iv15.i
+  %577 = getelementptr [8 x i8], ptr %562, i64 %indvars.iv15.i
   store ptr %576, ptr %577, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 14
@@ -3301,7 +3301,7 @@ define internal ptr @unsigned_char_converter(ptr readnone captures(none) %0, ptr
   %59 = load i8, ptr %58, align 1, !tbaa !3
   %60 = zext i8 %59 to i64
   %61 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %60) #10
-  %62 = getelementptr ptr, ptr %5, i64 %indvars.iv.i
+  %62 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.i
   store ptr %61, ptr %62, align 8, !tbaa !6
   %.not30.i = icmp eq ptr %61, null
   br i1 %.not30.i, label %63, label %73
@@ -3325,7 +3325,7 @@ define internal ptr @unsigned_char_converter(ptr readnone captures(none) %0, ptr
 
 .lr.ph.i:                                         ; preds = %Py_DECREF.exit35.i, %.lr.ph.preheader.i
   %indvars.iv24.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next25.i, %Py_DECREF.exit35.i ]
-  %66 = getelementptr ptr, ptr %5, i64 %indvars.iv24.i
+  %66 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv24.i
   %67 = load ptr, ptr %66, align 8, !tbaa !6
   %68 = load i32, ptr %67, align 8, !tbaa !3
   %.not.i34.i = icmp sgt i32 %68, -1
@@ -3382,7 +3382,7 @@ Py_DECREF.exit35.i:                               ; preds = %72, %69, %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.critedge.i, %Py_DECREF.exit.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %Py_DECREF.exit.i ], [ 0, %.critedge.i ]
-  %81 = getelementptr ptr, ptr %5, i64 %indvars.iv20.i
+  %81 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv20.i
   %82 = load ptr, ptr %81, align 8, !tbaa !6
   %83 = load i32, ptr %82, align 8, !tbaa !3
   %.not.i.i = icmp sgt i32 %83, -1
@@ -3425,9 +3425,9 @@ Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.ex
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %92 = getelementptr ptr, ptr %5, i64 %indvars.iv15.i
+  %92 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv15.i
   %93 = load ptr, ptr %92, align 8, !tbaa !6
-  %94 = getelementptr ptr, ptr %79, i64 %indvars.iv15.i
+  %94 = getelementptr [8 x i8], ptr %79, i64 %indvars.iv15.i
   store ptr %93, ptr %94, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 3
@@ -3664,10 +3664,10 @@ define internal ptr @unsigned_short_converter(ptr readnone captures(none) %0, pt
 
 42:                                               ; preds = %57, %36
   %indvars.iv.i = phi i64 [ 0, %36 ], [ %indvars.iv.next.i, %57 ]
-  %43 = getelementptr i64, ptr %4, i64 %indvars.iv.i
+  %43 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.i
   %44 = load i64, ptr %43, align 8, !tbaa !36
   %45 = call ptr @PyLong_FromUnsignedLong(i64 noundef %44) #10
-  %46 = getelementptr ptr, ptr %5, i64 %indvars.iv.i
+  %46 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.i
   store ptr %45, ptr %46, align 8, !tbaa !6
   %.not30.i = icmp eq ptr %45, null
   br i1 %.not30.i, label %47, label %57
@@ -3691,7 +3691,7 @@ define internal ptr @unsigned_short_converter(ptr readnone captures(none) %0, pt
 
 .lr.ph.i:                                         ; preds = %Py_DECREF.exit35.i, %.lr.ph.preheader.i
   %indvars.iv24.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next25.i, %Py_DECREF.exit35.i ]
-  %50 = getelementptr ptr, ptr %5, i64 %indvars.iv24.i
+  %50 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv24.i
   %51 = load ptr, ptr %50, align 8, !tbaa !6
   %52 = load i32, ptr %51, align 8, !tbaa !3
   %.not.i34.i = icmp sgt i32 %52, -1
@@ -3748,7 +3748,7 @@ Py_DECREF.exit35.i:                               ; preds = %56, %53, %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.critedge.i, %Py_DECREF.exit.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %Py_DECREF.exit.i ], [ 0, %.critedge.i ]
-  %65 = getelementptr ptr, ptr %5, i64 %indvars.iv20.i
+  %65 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv20.i
   %66 = load ptr, ptr %65, align 8, !tbaa !6
   %67 = load i32, ptr %66, align 8, !tbaa !3
   %.not.i.i = icmp sgt i32 %67, -1
@@ -3791,9 +3791,9 @@ Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.ex
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %76 = getelementptr ptr, ptr %5, i64 %indvars.iv15.i
+  %76 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv15.i
   %77 = load ptr, ptr %76, align 8, !tbaa !6
-  %78 = getelementptr ptr, ptr %63, i64 %indvars.iv15.i
+  %78 = getelementptr [8 x i8], ptr %63, i64 %indvars.iv15.i
   store ptr %77, ptr %78, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 3
@@ -4010,10 +4010,10 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
 
 70:                                               ; preds = %85, %64
   %indvars.iv.i = phi i64 [ 0, %64 ], [ %indvars.iv.next.i, %85 ]
-  %71 = getelementptr i64, ptr %4, i64 %indvars.iv.i
+  %71 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.i
   %72 = load i64, ptr %71, align 8, !tbaa !36
   %73 = tail call ptr @PyLong_FromLong(i64 noundef %72) #10
-  %74 = getelementptr ptr, ptr %5, i64 %indvars.iv.i
+  %74 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.i
   store ptr %73, ptr %74, align 8, !tbaa !6
   %.not30.i = icmp eq ptr %73, null
   br i1 %.not30.i, label %75, label %85
@@ -4037,7 +4037,7 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %_PyUnicode_DATA.exi
 
 .lr.ph.i:                                         ; preds = %Py_DECREF.exit35.i, %.lr.ph.preheader.i
   %indvars.iv24.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next25.i, %Py_DECREF.exit35.i ]
-  %78 = getelementptr ptr, ptr %5, i64 %indvars.iv24.i
+  %78 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv24.i
   %79 = load ptr, ptr %78, align 8, !tbaa !6
   %80 = load i32, ptr %79, align 8, !tbaa !3
   %.not.i34.i = icmp sgt i32 %80, -1
@@ -4094,7 +4094,7 @@ Py_DECREF.exit35.i:                               ; preds = %84, %81, %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.critedge.i, %Py_DECREF.exit.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %Py_DECREF.exit.i ], [ 0, %.critedge.i ]
-  %93 = getelementptr ptr, ptr %5, i64 %indvars.iv20.i
+  %93 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv20.i
   %94 = load ptr, ptr %93, align 8, !tbaa !6
   %95 = load i32, ptr %94, align 8, !tbaa !3
   %.not.i.i35 = icmp sgt i32 %95, -1
@@ -4137,9 +4137,9 @@ Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.ex
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %104 = getelementptr ptr, ptr %5, i64 %indvars.iv15.i
+  %104 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv15.i
   %105 = load ptr, ptr %104, align 8, !tbaa !6
-  %106 = getelementptr ptr, ptr %91, i64 %indvars.iv15.i
+  %106 = getelementptr [8 x i8], ptr %91, i64 %indvars.iv15.i
   store ptr %105, ptr %106, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 3
@@ -4240,10 +4240,10 @@ define internal ptr @unsigned_int_converter(ptr readnone captures(none) %0, ptr 
 
 42:                                               ; preds = %57, %36
   %indvars.iv.i = phi i64 [ 0, %36 ], [ %indvars.iv.next.i, %57 ]
-  %43 = getelementptr i64, ptr %4, i64 %indvars.iv.i
+  %43 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.i
   %44 = load i64, ptr %43, align 8, !tbaa !36
   %45 = call ptr @PyLong_FromUnsignedLong(i64 noundef %44) #10
-  %46 = getelementptr ptr, ptr %5, i64 %indvars.iv.i
+  %46 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.i
   store ptr %45, ptr %46, align 8, !tbaa !6
   %.not30.i = icmp eq ptr %45, null
   br i1 %.not30.i, label %47, label %57
@@ -4267,7 +4267,7 @@ define internal ptr @unsigned_int_converter(ptr readnone captures(none) %0, ptr 
 
 .lr.ph.i:                                         ; preds = %Py_DECREF.exit35.i, %.lr.ph.preheader.i
   %indvars.iv24.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next25.i, %Py_DECREF.exit35.i ]
-  %50 = getelementptr ptr, ptr %5, i64 %indvars.iv24.i
+  %50 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv24.i
   %51 = load ptr, ptr %50, align 8, !tbaa !6
   %52 = load i32, ptr %51, align 8, !tbaa !3
   %.not.i34.i = icmp sgt i32 %52, -1
@@ -4324,7 +4324,7 @@ Py_DECREF.exit35.i:                               ; preds = %56, %53, %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.critedge.i, %Py_DECREF.exit.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %Py_DECREF.exit.i ], [ 0, %.critedge.i ]
-  %65 = getelementptr ptr, ptr %5, i64 %indvars.iv20.i
+  %65 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv20.i
   %66 = load ptr, ptr %65, align 8, !tbaa !6
   %67 = load i32, ptr %66, align 8, !tbaa !3
   %.not.i.i = icmp sgt i32 %67, -1
@@ -4367,9 +4367,9 @@ Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.ex
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %76 = getelementptr ptr, ptr %5, i64 %indvars.iv15.i
+  %76 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv15.i
   %77 = load ptr, ptr %76, align 8, !tbaa !6
-  %78 = getelementptr ptr, ptr %63, i64 %indvars.iv15.i
+  %78 = getelementptr [8 x i8], ptr %63, i64 %indvars.iv15.i
   store ptr %77, ptr %78, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 3
@@ -4593,10 +4593,10 @@ define internal ptr @unsigned_long_converter(ptr readnone captures(none) %0, ptr
 
 40:                                               ; preds = %55, %37
   %indvars.iv.i = phi i64 [ 0, %37 ], [ %indvars.iv.next.i, %55 ]
-  %41 = getelementptr i64, ptr %4, i64 %indvars.iv.i
+  %41 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.i
   %42 = load i64, ptr %41, align 8, !tbaa !36
   %43 = call ptr @PyLong_FromUnsignedLong(i64 noundef %42) #10
-  %44 = getelementptr ptr, ptr %5, i64 %indvars.iv.i
+  %44 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.i
   store ptr %43, ptr %44, align 8, !tbaa !6
   %.not30.i = icmp eq ptr %43, null
   br i1 %.not30.i, label %45, label %55
@@ -4620,7 +4620,7 @@ define internal ptr @unsigned_long_converter(ptr readnone captures(none) %0, ptr
 
 .lr.ph.i:                                         ; preds = %Py_DECREF.exit35.i, %.lr.ph.preheader.i
   %indvars.iv24.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next25.i, %Py_DECREF.exit35.i ]
-  %48 = getelementptr ptr, ptr %5, i64 %indvars.iv24.i
+  %48 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv24.i
   %49 = load ptr, ptr %48, align 8, !tbaa !6
   %50 = load i32, ptr %49, align 8, !tbaa !3
   %.not.i34.i = icmp sgt i32 %50, -1
@@ -4677,7 +4677,7 @@ Py_DECREF.exit35.i:                               ; preds = %54, %51, %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.critedge.i, %Py_DECREF.exit.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %Py_DECREF.exit.i ], [ 0, %.critedge.i ]
-  %63 = getelementptr ptr, ptr %5, i64 %indvars.iv20.i
+  %63 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv20.i
   %64 = load ptr, ptr %63, align 8, !tbaa !6
   %65 = load i32, ptr %64, align 8, !tbaa !3
   %.not.i.i = icmp sgt i32 %65, -1
@@ -4720,9 +4720,9 @@ Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.ex
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %74 = getelementptr ptr, ptr %5, i64 %indvars.iv15.i
+  %74 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv15.i
   %75 = load ptr, ptr %74, align 8, !tbaa !6
-  %76 = getelementptr ptr, ptr %61, i64 %indvars.iv15.i
+  %76 = getelementptr [8 x i8], ptr %61, i64 %indvars.iv15.i
   store ptr %75, ptr %76, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 3
@@ -4946,10 +4946,10 @@ define internal ptr @unsigned_long_long_converter(ptr readnone captures(none) %0
 
 40:                                               ; preds = %55, %37
   %indvars.iv.i = phi i64 [ 0, %37 ], [ %indvars.iv.next.i, %55 ]
-  %41 = getelementptr i64, ptr %4, i64 %indvars.iv.i
+  %41 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.i
   %42 = load i64, ptr %41, align 8, !tbaa !59
   %43 = call ptr @PyLong_FromUnsignedLongLong(i64 noundef %42) #10
-  %44 = getelementptr ptr, ptr %5, i64 %indvars.iv.i
+  %44 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.i
   store ptr %43, ptr %44, align 8, !tbaa !6
   %.not30.i = icmp eq ptr %43, null
   br i1 %.not30.i, label %45, label %55
@@ -4973,7 +4973,7 @@ define internal ptr @unsigned_long_long_converter(ptr readnone captures(none) %0
 
 .lr.ph.i:                                         ; preds = %Py_DECREF.exit35.i, %.lr.ph.preheader.i
   %indvars.iv24.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next25.i, %Py_DECREF.exit35.i ]
-  %48 = getelementptr ptr, ptr %5, i64 %indvars.iv24.i
+  %48 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv24.i
   %49 = load ptr, ptr %48, align 8, !tbaa !6
   %50 = load i32, ptr %49, align 8, !tbaa !3
   %.not.i34.i = icmp sgt i32 %50, -1
@@ -5030,7 +5030,7 @@ Py_DECREF.exit35.i:                               ; preds = %54, %51, %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.critedge.i, %Py_DECREF.exit.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %Py_DECREF.exit.i ], [ 0, %.critedge.i ]
-  %63 = getelementptr ptr, ptr %5, i64 %indvars.iv20.i
+  %63 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv20.i
   %64 = load ptr, ptr %63, align 8, !tbaa !6
   %65 = load i32, ptr %64, align 8, !tbaa !3
   %.not.i.i = icmp sgt i32 %65, -1
@@ -5073,9 +5073,9 @@ Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.ex
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %74 = getelementptr ptr, ptr %5, i64 %indvars.iv15.i
+  %74 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv15.i
   %75 = load ptr, ptr %74, align 8, !tbaa !6
-  %76 = getelementptr ptr, ptr %61, i64 %indvars.iv15.i
+  %76 = getelementptr [8 x i8], ptr %61, i64 %indvars.iv15.i
   store ptr %75, ptr %76, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 3
@@ -5218,10 +5218,10 @@ Py_DECREF.exit.thread:                            ; preds = %25, %Py_DECREF.exit
 
 51:                                               ; preds = %66, %48
   %indvars.iv.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i, %66 ]
-  %52 = getelementptr i64, ptr %4, i64 %indvars.iv.i
+  %52 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.i
   %53 = load i64, ptr %52, align 8, !tbaa !36
   %54 = call ptr @PyLong_FromSsize_t(i64 noundef %53) #10
-  %55 = getelementptr ptr, ptr %5, i64 %indvars.iv.i
+  %55 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.i
   store ptr %54, ptr %55, align 8, !tbaa !6
   %.not30.i = icmp eq ptr %54, null
   br i1 %.not30.i, label %56, label %66
@@ -5245,7 +5245,7 @@ Py_DECREF.exit.thread:                            ; preds = %25, %Py_DECREF.exit
 
 .lr.ph.i:                                         ; preds = %Py_DECREF.exit35.i, %.lr.ph.preheader.i
   %indvars.iv24.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next25.i, %Py_DECREF.exit35.i ]
-  %59 = getelementptr ptr, ptr %5, i64 %indvars.iv24.i
+  %59 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv24.i
   %60 = load ptr, ptr %59, align 8, !tbaa !6
   %61 = load i32, ptr %60, align 8, !tbaa !3
   %.not.i34.i = icmp sgt i32 %61, -1
@@ -5302,7 +5302,7 @@ Py_DECREF.exit35.i:                               ; preds = %65, %62, %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.critedge.i, %Py_DECREF.exit.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %Py_DECREF.exit.i ], [ 0, %.critedge.i ]
-  %74 = getelementptr ptr, ptr %5, i64 %indvars.iv20.i
+  %74 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv20.i
   %75 = load ptr, ptr %74, align 8, !tbaa !6
   %76 = load i32, ptr %75, align 8, !tbaa !3
   %.not.i.i = icmp sgt i32 %76, -1
@@ -5345,9 +5345,9 @@ Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.ex
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %85 = getelementptr ptr, ptr %5, i64 %indvars.iv15.i
+  %85 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv15.i
   %86 = load ptr, ptr %85, align 8, !tbaa !6
-  %87 = getelementptr ptr, ptr %72, i64 %indvars.iv15.i
+  %87 = getelementptr [8 x i8], ptr %72, i64 %indvars.iv15.i
   store ptr %86, ptr %87, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 3
@@ -5443,10 +5443,10 @@ define internal ptr @slice_index_converter(ptr readnone captures(none) %0, ptr n
 
 37:                                               ; preds = %52, %34
   %indvars.iv.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i, %52 ]
-  %38 = getelementptr i64, ptr %4, i64 %indvars.iv.i
+  %38 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.i
   %39 = load i64, ptr %38, align 8, !tbaa !36
   %40 = call ptr @PyLong_FromSsize_t(i64 noundef %39) #10
-  %41 = getelementptr ptr, ptr %5, i64 %indvars.iv.i
+  %41 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.i
   store ptr %40, ptr %41, align 8, !tbaa !6
   %.not30.i = icmp eq ptr %40, null
   br i1 %.not30.i, label %42, label %52
@@ -5470,7 +5470,7 @@ define internal ptr @slice_index_converter(ptr readnone captures(none) %0, ptr n
 
 .lr.ph.i:                                         ; preds = %Py_DECREF.exit35.i, %.lr.ph.preheader.i
   %indvars.iv24.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next25.i, %Py_DECREF.exit35.i ]
-  %45 = getelementptr ptr, ptr %5, i64 %indvars.iv24.i
+  %45 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv24.i
   %46 = load ptr, ptr %45, align 8, !tbaa !6
   %47 = load i32, ptr %46, align 8, !tbaa !3
   %.not.i34.i = icmp sgt i32 %47, -1
@@ -5527,7 +5527,7 @@ Py_DECREF.exit35.i:                               ; preds = %51, %48, %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.critedge.i, %Py_DECREF.exit.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %Py_DECREF.exit.i ], [ 0, %.critedge.i ]
-  %60 = getelementptr ptr, ptr %5, i64 %indvars.iv20.i
+  %60 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv20.i
   %61 = load ptr, ptr %60, align 8, !tbaa !6
   %62 = load i32, ptr %61, align 8, !tbaa !3
   %.not.i.i = icmp sgt i32 %62, -1
@@ -5570,9 +5570,9 @@ Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.ex
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %71 = getelementptr ptr, ptr %5, i64 %indvars.iv15.i
+  %71 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv15.i
   %72 = load ptr, ptr %71, align 8, !tbaa !6
-  %73 = getelementptr ptr, ptr %58, i64 %indvars.iv15.i
+  %73 = getelementptr [8 x i8], ptr %58, i64 %indvars.iv15.i
   store ptr %72, ptr %73, align 8, !tbaa !6
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next16.i, 3
@@ -6206,9 +6206,9 @@ Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.ex
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %43 = getelementptr ptr, ptr %4, i64 %indvars.iv.i
+  %43 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.i
   %44 = load ptr, ptr %43, align 8, !tbaa !6
-  %45 = getelementptr ptr, ptr %37, i64 %indvars.iv.i
+  %45 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv.i
   store ptr %44, ptr %45, align 8, !tbaa !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond6.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -6220,7 +6220,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
 
 .lr.ph.i:                                         ; preds = %Py_DECREF.exit.i, %.lr.ph.preheader.i
   %indvars.iv7.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next8.i, %Py_DECREF.exit.i ]
-  %46 = getelementptr ptr, ptr %4, i64 %indvars.iv7.i
+  %46 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv7.i
   %47 = load ptr, ptr %46, align 8, !tbaa !6
   %48 = load i32, ptr %47, align 8, !tbaa !3
   %.not.i.i = icmp sgt i32 %48, -1
@@ -6386,9 +6386,9 @@ Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.ex
   unreachable
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
-  %43 = getelementptr ptr, ptr %4, i64 %indvars.iv.i
+  %43 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.i
   %44 = load ptr, ptr %43, align 8, !tbaa !6
-  %45 = getelementptr ptr, ptr %37, i64 %indvars.iv.i
+  %45 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv.i
   store ptr %44, ptr %45, align 8, !tbaa !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond6.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -6400,7 +6400,7 @@ PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
 
 .lr.ph.i:                                         ; preds = %Py_DECREF.exit.i, %.lr.ph.preheader.i
   %indvars.iv7.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next8.i, %Py_DECREF.exit.i ]
-  %46 = getelementptr ptr, ptr %4, i64 %indvars.iv7.i
+  %46 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv7.i
   %47 = load ptr, ptr %46, align 8, !tbaa !6
   %48 = load i32, ptr %47, align 8, !tbaa !3
   %.not.i.i = icmp sgt i32 %48, -1
@@ -6613,7 +6613,7 @@ Py_SIZE.exit.i.i:                                 ; preds = %PyTuple_SET_ITEM.ex
 
 PyTuple_SET_ITEM.exit.i:                          ; preds = %Py_SIZE.exit.i.i
   %52 = load ptr, ptr %indvars.iv34.i.sroa.phi, align 8, !tbaa !6
-  %53 = getelementptr ptr, ptr %38, i64 %indvars.iv34.i
+  %53 = getelementptr [8 x i8], ptr %38, i64 %indvars.iv34.i
   store ptr %52, ptr %53, align 8, !tbaa !6
   br i1 %47, label %Py_SIZE.exit.i.i, label %py_buffer_converter_impl.exit, !llvm.loop !91
 
@@ -10365,7 +10365,7 @@ Py_SIZE.exit.i:                                   ; preds = %48
   unreachable
 
 PyTuple_SET_ITEM.exit:                            ; preds = %Py_SIZE.exit.i
-  %53 = getelementptr ptr, ptr %13, i64 %indvars.iv
+  %53 = getelementptr [8 x i8], ptr %13, i64 %indvars.iv
   store ptr %.0, ptr %53, align 8, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %6

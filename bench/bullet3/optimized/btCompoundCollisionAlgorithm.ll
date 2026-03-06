@@ -4,12 +4,11 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.btCollisionObjectWrapper = type { ptr, ptr, ptr, ptr, ptr, i32, i32 }
-%struct.btCompoundShapeChild = type { %class.btTransform, ptr, i32, float, ptr }
-%class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
-%class.btMatrix3x3 = type { [3 x %class.btVector3] }
-%class.btVector3 = type { [4 x float] }
 %struct.btCompoundLeafCallback = type { %"struct.btDbvt::ICollide", ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %"struct.btDbvt::ICollide" = type { ptr }
+%class.btVector3 = type { [4 x float] }
+%class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
+%class.btMatrix3x3 = type { [3 x %class.btVector3] }
 %struct.btDbvtAabbMm = type { %class.btVector3, %class.btVector3 }
 
 $_ZN20btAlignedObjectArrayIP20btCollisionAlgorithmED2Ev = comdat any
@@ -189,8 +188,8 @@ _ZN20btAlignedObjectArrayIP20btCollisionAlgorithmE8allocateEi.exit.i.i: ; preds 
 
 30:                                               ; preds = %30, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %30 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i.i.i
   %33 = load ptr, ptr %32, align 8, !tbaa !61
   store ptr %33, ptr %31, align 8, !tbaa !61
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -279,13 +278,13 @@ _ZN20btAlignedObjectArrayIP20btCollisionAlgorithmE6resizeEiRKS1_.exit: ; preds =
 
 64:                                               ; preds = %.lr.ph.split
   %65 = load ptr, ptr %46, align 8, !tbaa !29
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv
   store ptr null, ptr %66, align 8, !tbaa !61
   br label %82
 
 _ZN20btAlignedObjectArrayIP20btCollisionAlgorithmED2Ev.exit: ; preds = %.lr.ph.split
   %67 = load ptr, ptr %47, align 8, !tbaa !66
-  %68 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [88 x i8], ptr %67, i64 %indvars.iv
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %70 = load ptr, ptr %69, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -306,7 +305,7 @@ _ZN20btAlignedObjectArrayIP20btCollisionAlgorithmED2Ev.exit: ; preds = %.lr.ph.s
   %78 = load ptr, ptr %77, align 8
   %79 = call noundef ptr %78(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull %4, ptr noundef %9, ptr noundef %75, i32 noundef 1)
   %80 = load ptr, ptr %46, align 8, !tbaa !29
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv
   store ptr %79, ptr %81, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %82
@@ -435,7 +434,7 @@ define dso_local void @_ZN28btCompoundCollisionAlgorithm21removeChildAlgorithmsE
 7:                                                ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !29
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !61
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %21, label %11
@@ -446,7 +445,7 @@ define dso_local void @_ZN28btCompoundCollisionAlgorithm21removeChildAlgorithmsE
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
   %14 = load ptr, ptr %6, align 8, !tbaa !79
   %15 = load ptr, ptr %5, align 8, !tbaa !29
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !61
   %18 = load ptr, ptr %14, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
@@ -480,7 +479,7 @@ define dso_local void @_ZN28btCompoundCollisionAlgorithmD2Ev(ptr noundef nonnull
 7:                                                ; preds = %.noexc, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %.noexc ]
   %8 = load ptr, ptr %5, align 8, !tbaa !29
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8, !tbaa !61
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %.noexc, label %11
@@ -491,7 +490,7 @@ define dso_local void @_ZN28btCompoundCollisionAlgorithmD2Ev(ptr noundef nonnull
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %10) #15
   %14 = load ptr, ptr %6, align 8, !tbaa !79
   %15 = load ptr, ptr %5, align 8, !tbaa !29
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8, !tbaa !61
   %18 = load ptr, ptr %14, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
@@ -659,7 +658,7 @@ define dso_local void @_ZN28btCompoundCollisionAlgorithm16processCollisionEPK24b
 33:                                               ; preds = %47, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %47 ]
   %34 = load ptr, ptr %31, align 8, !tbaa !29
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i
   %36 = load ptr, ptr %35, align 8, !tbaa !61
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %47, label %37
@@ -670,7 +669,7 @@ define dso_local void @_ZN28btCompoundCollisionAlgorithm16processCollisionEPK24b
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(16) %36) #15
   %40 = load ptr, ptr %32, align 8, !tbaa !79
   %41 = load ptr, ptr %31, align 8, !tbaa !29
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.i
   %43 = load ptr, ptr %42, align 8, !tbaa !61
   %44 = load ptr, ptr %40, align 8, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 120
@@ -783,7 +782,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   %96 = phi i32 [ %87, %.lr.ph197 ], [ %137, %136 ]
   %indvars.iv210 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next211, %136 ]
   %97 = load ptr, ptr %58, align 8, !tbaa !29
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv210
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv210
   %99 = load ptr, ptr %98, align 8, !tbaa !61
   %.not80 = icmp eq ptr %99, null
   br i1 %.not80, label %136, label %100
@@ -838,7 +837,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i97: ; p
   %117 = phi i32 [ %133, %132 ], [ %104, %100 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %132 ], [ 0, %100 ]
   %118 = load ptr, ptr %89, align 8, !tbaa !22
-  %119 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv
   %120 = load ptr, ptr %119, align 8, !tbaa !94
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 856
   %122 = load i32, ptr %121, align 8, !tbaa !95
@@ -1079,7 +1078,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i97: ; p
 273:                                              ; preds = %.lr.ph201, %273
   %indvars.iv213 = phi i64 [ 0, %.lr.ph201 ], [ %indvars.iv.next214, %273 ]
   %274 = load ptr, ptr %141, align 8, !tbaa !66
-  %275 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %274, i64 %indvars.iv213
+  %275 = getelementptr inbounds nuw [88 x i8], ptr %274, i64 %indvars.iv213
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 64
   %277 = load ptr, ptr %276, align 8, !tbaa !67
   %278 = trunc nuw nsw i64 %indvars.iv213 to i32
@@ -1171,14 +1170,14 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i120: ; 
 312:                                              ; preds = %.lr.ph204, %435
   %indvars.iv217 = phi i64 [ 0, %.lr.ph204 ], [ %indvars.iv.next218, %435 ]
   %313 = load ptr, ptr %58, align 8, !tbaa !29
-  %314 = getelementptr inbounds nuw ptr, ptr %313, i64 %indvars.iv217
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %indvars.iv217
   %315 = load ptr, ptr %314, align 8, !tbaa !61
   %.not73 = icmp eq ptr %315, null
   br i1 %.not73, label %435, label %316
 
 316:                                              ; preds = %312
   %317 = load ptr, ptr %297, align 8, !tbaa !66
-  %318 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %317, i64 %indvars.iv217
+  %318 = getelementptr inbounds nuw [88 x i8], ptr %317, i64 %indvars.iv217
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 64
   %320 = load ptr, ptr %319, align 8, !tbaa !67
   %321 = load ptr, ptr %298, align 8, !tbaa !73
@@ -1340,21 +1339,21 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i120: ; 
 
 _Z20TestAabbAgainstAabb2RK9btVector3S1_S1_S1_.exit.thread: ; preds = %417, %413
   %421 = load ptr, ptr %58, align 8, !tbaa !29
-  %422 = getelementptr inbounds nuw ptr, ptr %421, i64 %indvars.iv217
+  %422 = getelementptr inbounds nuw [8 x i8], ptr %421, i64 %indvars.iv217
   %423 = load ptr, ptr %422, align 8, !tbaa !61
   %424 = load ptr, ptr %423, align 8, !tbaa !4
   %425 = load ptr, ptr %424, align 8
   call void %425(ptr noundef nonnull align 8 dereferenceable(16) %423) #15
   %426 = load ptr, ptr %56, align 8, !tbaa !79
   %427 = load ptr, ptr %58, align 8, !tbaa !29
-  %428 = getelementptr inbounds nuw ptr, ptr %427, i64 %indvars.iv217
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %427, i64 %indvars.iv217
   %429 = load ptr, ptr %428, align 8, !tbaa !61
   %430 = load ptr, ptr %426, align 8, !tbaa !4
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 120
   %432 = load ptr, ptr %431, align 8
   call void %432(ptr noundef nonnull align 8 dereferenceable(8) %426, ptr noundef %429)
   %433 = load ptr, ptr %58, align 8, !tbaa !29
-  %434 = getelementptr inbounds nuw ptr, ptr %433, i64 %indvars.iv217
+  %434 = getelementptr inbounds nuw [8 x i8], ptr %433, i64 %indvars.iv217
   store ptr null, ptr %434, align 8, !tbaa !61
   br label %435
 
@@ -1455,8 +1454,8 @@ _ZN20btAlignedObjectArrayIPK10btDbvtNodeE6resizeEiRKS2_.exit: ; preds = %6, %.lr
 
 34:                                               ; preds = %34, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %34 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i.i
-  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv.i.i
   %37 = load ptr, ptr %36, align 8, !tbaa !134
   store ptr %37, ptr %35, align 8, !tbaa !134
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1513,8 +1512,8 @@ _ZN20btAlignedObjectArrayIPK10btDbvtNodeE8allocateEi.exit.i.i: ; preds = %_ZN20b
 
 53:                                               ; preds = %53, %.lr.ph.i.i.i19
   %indvars.iv.i.i.i21 = phi i64 [ 0, %.lr.ph.i.i.i19 ], [ %indvars.iv.next.i.i.i22, %53 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.i.i.i21
-  %55 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv.i.i.i21
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i.i.i21
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv.i.i.i21
   %56 = load ptr, ptr %55, align 8, !tbaa !134
   store ptr %56, ptr %54, align 8, !tbaa !134
   %indvars.iv.next.i.i.i22 = add nuw nsw i64 %indvars.iv.i.i.i21, 1
@@ -1553,7 +1552,7 @@ _ZN20btAlignedObjectArrayIPK10btDbvtNodeE9push_backERKS2_.exit: ; preds = %_ZN20
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !15
   %65 = sext i32 %62 to i64
-  %66 = getelementptr inbounds ptr, ptr %64, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %64, i64 %65
   store ptr %1, ptr %66, align 8, !tbaa !134
   %67 = add nsw i32 %62, 1
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1564,7 +1563,7 @@ _ZN20btAlignedObjectArrayIPK10btDbvtNodeE9push_backERKS2_.exit: ; preds = %_ZN20
   %71 = add nsw i32 %70, -1
   %72 = load ptr, ptr %63, align 8, !tbaa !15
   %73 = sext i32 %71 to i64
-  %74 = getelementptr inbounds ptr, ptr %72, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !134
   store i32 %71, ptr %7, align 4, !tbaa !16
   %76 = load float, ptr %75, align 4, !tbaa !106
@@ -1621,7 +1620,7 @@ _Z9IntersectRK12btDbvtAabbMmS1_.exit:             ; preds = %90
   br i1 %.not70, label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE9push_backERKS2_.exit46.thread, label %109
 
 _ZN20btAlignedObjectArrayIPK10btDbvtNodeE9push_backERKS2_.exit46.thread: ; preds = %104
-  %107 = getelementptr inbounds ptr, ptr %72, i64 %73
+  %107 = getelementptr inbounds [8 x i8], ptr %72, i64 %73
   %108 = load ptr, ptr %101, align 8, !tbaa !134
   store ptr %108, ptr %107, align 8, !tbaa !134
   br label %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE9push_backERKS2_.exit67
@@ -1651,8 +1650,8 @@ _ZN20btAlignedObjectArrayIPK10btDbvtNodeE8allocateEi.exit.i.i29: ; preds = %110,
 
 117:                                              ; preds = %117, %.lr.ph.i.i.i37
   %indvars.iv.i.i.i39 = phi i64 [ 0, %.lr.ph.i.i.i37 ], [ %indvars.iv.next.i.i.i40, %117 ]
-  %118 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i30, i64 %indvars.iv.i.i.i39
-  %119 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv.i.i.i39
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i30, i64 %indvars.iv.i.i.i39
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv.i.i.i39
   %120 = load ptr, ptr %119, align 8, !tbaa !134
   store ptr %120, ptr %118, align 8, !tbaa !134
   %indvars.iv.next.i.i.i40 = add nuw nsw i64 %indvars.iv.i.i.i39, 1
@@ -1690,7 +1689,7 @@ _ZN20btAlignedObjectArrayIPK10btDbvtNodeE9push_backERKS2_.exit46: ; preds = %100
   %125 = phi i32 [ %102, %100 ], [ %106, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i34 ]
   %126 = phi ptr [ %72, %100 ], [ %.0.i.i.i30, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i34 ]
   %127 = phi i32 [ %70, %100 ], [ %124, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i34 ]
-  %128 = getelementptr inbounds ptr, ptr %126, i64 %.pre-phi
+  %128 = getelementptr inbounds [8 x i8], ptr %126, i64 %.pre-phi
   %129 = load ptr, ptr %101, align 8, !tbaa !134
   store ptr %129, ptr %128, align 8, !tbaa !134
   store i32 %127, ptr %7, align 4, !tbaa !16
@@ -1729,8 +1728,8 @@ _ZN20btAlignedObjectArrayIPK10btDbvtNodeE8allocateEi.exit.i.i50: ; preds = %136,
 
 143:                                              ; preds = %143, %.lr.ph.i.i.i58
   %indvars.iv.i.i.i60 = phi i64 [ 0, %.lr.ph.i.i.i58 ], [ %indvars.iv.next.i.i.i61, %143 ]
-  %144 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i51, i64 %indvars.iv.i.i.i60
-  %145 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv.i.i.i60
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i51, i64 %indvars.iv.i.i.i60
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %indvars.iv.i.i.i60
   %146 = load ptr, ptr %145, align 8, !tbaa !134
   store ptr %146, ptr %144, align 8, !tbaa !134
   %indvars.iv.next.i.i.i61 = add nuw nsw i64 %indvars.iv.i.i.i60, 1
@@ -1765,7 +1764,7 @@ _ZN20btAlignedObjectArrayIPK10btDbvtNodeE9push_backERKS2_.exit67: ; preds = %_ZN
   %150 = phi ptr [ %.0.i.i.i51, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i55 ], [ %126, %131 ], [ %126, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE9push_backERKS2_.exit46 ], [ %72, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE9push_backERKS2_.exit46.thread ]
   %151 = phi i32 [ %.pre2.i56, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE10deallocateEv.exit.i.i55 ], [ %125, %131 ], [ %127, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE9push_backERKS2_.exit46 ], [ %70, %_ZN20btAlignedObjectArrayIPK10btDbvtNodeE9push_backERKS2_.exit46.thread ]
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %150, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %150, i64 %152
   %154 = load ptr, ptr %98, align 8, !tbaa !134
   store ptr %154, ptr %153, align 8, !tbaa !134
   %155 = add nsw i32 %151, 1
@@ -1848,7 +1847,7 @@ define linkonce_odr dso_local void @_ZN22btCompoundLeafCallback17ProcessChildSha
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %30 = load ptr, ptr %29, align 8, !tbaa !66
   %31 = sext i32 %2 to i64
-  %32 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %30, i64 %31
+  %32 = getelementptr inbounds [88 x i8], ptr %30, i64 %31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
   %33 = load float, ptr %32, align 4, !tbaa !106, !noalias !141
@@ -2191,7 +2190,7 @@ define linkonce_odr dso_local void @_ZN22btCompoundLeafCallback17ProcessChildSha
 271:                                              ; preds = %250
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %273 = load ptr, ptr %272, align 8, !tbaa !92
-  %274 = getelementptr inbounds ptr, ptr %273, i64 %31
+  %274 = getelementptr inbounds [8 x i8], ptr %273, i64 %31
   %275 = load ptr, ptr %274, align 8, !tbaa !61
   %.not23 = icmp eq ptr %275, null
   br i1 %.not23, label %276, label %288
@@ -2207,7 +2206,7 @@ define linkonce_odr dso_local void @_ZN22btCompoundLeafCallback17ProcessChildSha
   %284 = load ptr, ptr %283, align 8
   %285 = call noundef ptr %284(ptr noundef nonnull align 8 dereferenceable(8) %278, ptr noundef nonnull %10, ptr noundef %279, ptr noundef %281, i32 noundef 1)
   %286 = load ptr, ptr %272, align 8, !tbaa !92
-  %287 = getelementptr inbounds ptr, ptr %286, i64 %31
+  %287 = getelementptr inbounds [8 x i8], ptr %286, i64 %31
   store ptr %285, ptr %287, align 8, !tbaa !61
   br label %288
 
@@ -2365,7 +2364,7 @@ define dso_local noundef float @_ZN28btCompoundCollisionAlgorithm21calculateTime
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %.067 = phi float [ 1.000000e+00, %.lr.ph ], [ %.1, %23 ]
   %25 = load ptr, ptr %20, align 8, !tbaa !66
-  %26 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [88 x i8], ptr %25, i64 %indvars.iv
   %27 = load float, ptr %26, align 4, !tbaa !106, !noalias !159
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load float, ptr %28, align 4, !tbaa !106, !noalias !159
@@ -2448,7 +2447,7 @@ define dso_local noundef float @_ZN28btCompoundCollisionAlgorithm21calculateTime
   store <2 x float> %.sroa.0.4.vec.insert.i3.i.i, ptr %19, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i4.i.i, ptr %.sroa.21.48..sroa_idx, align 8, !tbaa !119
   %90 = load ptr, ptr %22, align 8, !tbaa !29
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8, !tbaa !61
   %93 = load ptr, ptr %92, align 8, !tbaa !4
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
@@ -2499,7 +2498,7 @@ define linkonce_odr dso_local void @_ZN28btCompoundCollisionAlgorithm22getAllCon
   %8 = phi i32 [ %4, %.lr.ph ], [ %17, %16 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %9 = load ptr, ptr %6, align 8, !tbaa !29
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !61
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %16, label %12
@@ -2545,7 +2544,7 @@ define linkonce_odr dso_local void @_ZN22btCompoundLeafCallback7ProcessEPK10btDb
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !66
   %11 = sext i32 %4 to i64
-  %12 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %10, i64 %11
+  %12 = getelementptr inbounds [88 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !67
   tail call void @_ZN22btCompoundLeafCallback17ProcessChildShapeEPK16btCollisionShapei(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %14, i32 noundef %4)

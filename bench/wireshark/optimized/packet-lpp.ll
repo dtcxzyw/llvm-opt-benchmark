@@ -30142,7 +30142,7 @@ define internal i32 @dissect_lpp_T_reportingInterval(ptr noundef %0, i32 noundef
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %8 to i64
-  %14 = getelementptr ptr, ptr @__const.dissect_lpp_T_reportingInterval.interval, i64 %13
+  %14 = getelementptr [8 x i8], ptr @__const.dissect_lpp_T_reportingInterval.interval, i64 %13
   %15 = load ptr, ptr %14, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.8431, ptr noundef %15)
   br label %16

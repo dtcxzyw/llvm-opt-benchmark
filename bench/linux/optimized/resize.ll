@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.10 = type { i64 }
 %struct.ext4_new_flex_group_data = type { ptr, ptr, i32, i32 }
 %struct.ext4_iloc = type { ptr, i64, i32 }
-%struct.ext4_new_group_data = type { i32, i64, i64, i64, i32, i16, i16, i32 }
 
 @__func__.ext4_resize_begin = private unnamed_addr constant [18 x i8] c"ext4_resize_begin\00", align 1
 @.str = private unnamed_addr constant [55 x i8] c"resize_inode disabled but reserved GDT blocks non-zero\00", align 1
@@ -279,7 +278,7 @@ define dso_local i32 @ext4_list_backups(ptr noundef readonly captures(none) %0, 
 22:                                               ; preds = %19
   %23 = add nuw i64 %20, 4294967295
   %24 = and i64 %23, 4294967295
-  %25 = getelementptr i32, ptr %14, i64 %24
+  %25 = getelementptr [4 x i8], ptr %14, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = add nuw nsw i64 %20, 1
   %28 = trunc i64 %27 to i32
@@ -985,7 +984,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %152 = load ptr, ptr %151, align 8
   call void @__rcu_read_lock() #13
   %153 = load volatile ptr, ptr %90, align 16
-  %154 = getelementptr ptr, ptr %153, i64 %121
+  %154 = getelementptr [8 x i8], ptr %153, i64 %121
   %155 = load ptr, ptr %154, align 8
   call void @__rcu_read_unlock() #13
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 40
@@ -1036,14 +1035,14 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 
 186:                                              ; preds = %174, %.loopexit143, %111, %96
   %187 = sext i32 %97 to i64
-  %188 = getelementptr i16, ptr %56, i64 %187
+  %188 = getelementptr [2 x i8], ptr %56, i64 %187
   %189 = load i16, ptr %188, align 2
   %190 = and i16 %189, 4
   %191 = icmp eq i16 %190, 0
   br i1 %191, label %205, label %192
 
 192:                                              ; preds = %186
-  %.split = getelementptr %struct.ext4_new_group_data, ptr %55, i64 %187
+  %.split = getelementptr [48 x i8], ptr %55, i64 %187
   %193 = getelementptr i8, ptr %.split, i64 24
   %194 = load i64, ptr %193, align 8
   %195 = load i64, ptr %50, align 8
@@ -1069,7 +1068,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %208, label %209, label %292
 
 209:                                              ; preds = %205
-  %210 = getelementptr %struct.ext4_new_group_data, ptr %55, i64 %187
+  %210 = getelementptr [48 x i8], ptr %55, i64 %187
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %212 = load i64, ptr %211, align 8
   %213 = call i32 @__ext4_journal_ensure_credits(ptr noundef %77, i32 noundef 1, i32 noundef 64, i32 noundef 0) #13
@@ -1201,7 +1200,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %295, label %296, label %.thread113
 
 296:                                              ; preds = %292
-  %.split93 = getelementptr %struct.ext4_new_group_data, ptr %55, i64 %187
+  %.split93 = getelementptr [48 x i8], ptr %55, i64 %187
   %297 = getelementptr i8, ptr %.split93, i64 16
   %298 = load i64, ptr %297, align 8
   %299 = call i32 @__ext4_journal_ensure_credits(ptr noundef %77, i32 noundef 1, i32 noundef 64, i32 noundef 0) #13
@@ -1302,11 +1301,11 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 
 360:                                              ; preds = %357, %.loopexit146
   %361 = phi i64 [ 0, %.loopexit146 ], [ %358, %357 ]
-  %362 = getelementptr i32, ptr %6, i64 %361
+  %362 = getelementptr [4 x i8], ptr %6, i64 %361
   %363 = load i32, ptr %362, align 4
-  %364 = getelementptr i64, ptr %94, i64 %361
+  %364 = getelementptr [8 x i8], ptr %94, i64 %361
   %365 = load i64, ptr %364, align 8
-  %366 = getelementptr i64, ptr %55, i64 %361
+  %366 = getelementptr [8 x i8], ptr %55, i64 %361
   %367 = load i32, ptr %13, align 4
   %368 = icmp ugt i32 %367, 1
   br i1 %368, label %369, label %.loopexit138
@@ -1323,7 +1322,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %376 = phi i32 [ %363, %369 ], [ %398, %396 ]
   %377 = add i64 %374, %370
   %378 = sext i32 %375 to i64
-  %.split94 = getelementptr %struct.ext4_new_group_data, ptr %366, i64 %378
+  %.split94 = getelementptr [48 x i8], ptr %366, i64 %378
   %379 = getelementptr i8, ptr %.split94, i64 8
   %380 = load i64, ptr %379, align 8
   %381 = icmp eq i64 %377, %380
@@ -1530,7 +1529,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %525 = getelementptr inbounds nuw i8, ptr %501, i64 24
   %526 = load i64, ptr %525, align 8
   %527 = lshr i64 %526, 2
-  %528 = getelementptr i32, ptr %524, i64 %527
+  %528 = getelementptr [4 x i8], ptr %524, i64 %527
   %529 = icmp eq i16 %507, 0
   br i1 %529, label %.thread114, label %530
 
@@ -1539,7 +1538,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 48
   %533 = load i64, ptr %532, align 16
   %534 = urem i64 %533, %527
-  %535 = getelementptr i32, ptr %524, i64 %534
+  %535 = getelementptr [4 x i8], ptr %524, i64 %534
   %536 = getelementptr inbounds nuw i8, ptr %531, i64 96
   %537 = load ptr, ptr %536, align 32
   %538 = getelementptr inbounds nuw i8, ptr %537, i64 24
@@ -1574,13 +1573,13 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 
 559:                                              ; preds = %545
   %560 = call ptr @ext4_sb_bread(ptr noundef %501, i64 noundef %548, i32 noundef 0) #13
-  %561 = getelementptr ptr, ptr %512, i64 %546
+  %561 = getelementptr [8 x i8], ptr %512, i64 %546
   store ptr %560, ptr %561, align 8
   %562 = icmp ugt ptr %560, inttoptr (i64 -4096 to ptr)
   br i1 %562, label %563, label %568
 
 563:                                              ; preds = %559
-  %564 = getelementptr ptr, ptr %512, i64 %546
+  %564 = getelementptr [8 x i8], ptr %512, i64 %546
   %565 = trunc i64 %546 to i32
   %566 = ptrtoint ptr %560 to i64
   %567 = trunc i64 %566 to i32
@@ -1597,7 +1596,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   br i1 %572, label %573, label %579
 
 573:                                              ; preds = %568
-  %574 = getelementptr ptr, ptr %512, i64 %546
+  %574 = getelementptr [8 x i8], ptr %512, i64 %546
   %575 = trunc i64 %546 to i32
   %576 = load ptr, ptr %574, align 8
   %577 = icmp eq ptr %576, null
@@ -1630,7 +1629,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 
 592:                                              ; preds = %542, %589
   %593 = phi i64 [ %590, %589 ], [ 0, %542 ]
-  %594 = getelementptr ptr, ptr %512, i64 %593
+  %594 = getelementptr [8 x i8], ptr %512, i64 %593
   %595 = load ptr, ptr %594, align 8
   %596 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.reserve_backup_gdb, i32 noundef 1078, ptr noundef %438, ptr noundef %501, ptr noundef %595, i32 noundef 1) #13
   %597 = icmp eq i32 %596, 0
@@ -1653,7 +1652,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 .preheader:                                       ; preds = %602, %.preheader
   %607 = phi i64 [ %622, %.preheader ], [ 0, %602 ]
   %608 = phi i32 [ %621, %.preheader ], [ 0, %602 ]
-  %609 = getelementptr ptr, ptr %512, i64 %607
+  %609 = getelementptr [8 x i8], ptr %512, i64 %607
   %610 = load ptr, ptr %609, align 8
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 40
   %612 = load ptr, ptr %611, align 8
@@ -1661,7 +1660,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %614 = load i64, ptr %613, align 8
   %615 = add i64 %614, %606
   %616 = trunc i64 %615 to i32
-  %617 = getelementptr i32, ptr %612, i64 %599
+  %617 = getelementptr [4 x i8], ptr %612, i64 %599
   store i32 %616, ptr %617, align 4
   %618 = load ptr, ptr %609, align 8
   %619 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.reserve_backup_gdb, i32 noundef 1094, ptr noundef %438, ptr noundef null, ptr noundef %618) #13
@@ -1697,7 +1696,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
 
 639:                                              ; preds = %645, %637
   %640 = phi i64 [ %638, %637 ], [ %646, %645 ]
-  %641 = getelementptr ptr, ptr %512, i64 %640
+  %641 = getelementptr [8 x i8], ptr %512, i64 %640
   %642 = load ptr, ptr %641, align 8
   %643 = icmp eq ptr %642, null
   br i1 %643, label %645, label %644
@@ -1783,7 +1782,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %688 = shl i64 %687, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %676, ptr align 8 %685, i64 %688, i1 false)
   call void @__rcu_read_unlock() #13
-  %689 = getelementptr ptr, ptr %676, i64 %486
+  %689 = getelementptr [8 x i8], ptr %676, i64 %486
   store ptr %668, ptr %689, align 8
   %690 = call i32 @__ext4_journal_get_write_access(ptr noundef nonnull @__func__.add_new_gdb_meta_bg, i32 noundef 991, ptr noundef %438, ptr noundef %0, ptr noundef %668, i32 noundef 1) #13
   %691 = icmp eq i32 %690, 0
@@ -1889,7 +1888,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %752 = load i64, ptr %751, align 8
   %753 = lshr i64 %752, 2
   %754 = urem i64 %716, %753
-  %755 = getelementptr i32, ptr %750, i64 %754
+  %755 = getelementptr [4 x i8], ptr %750, i64 %754
   %756 = load i32, ptr %755, align 4
   %757 = zext i32 %756 to i64
   %758 = icmp eq i64 %722, %757
@@ -1940,7 +1939,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %782 = load i64, ptr %751, align 8
   %783 = lshr i64 %782, 2
   %784 = urem i64 %716, %783
-  %785 = getelementptr i32, ptr %750, i64 %784
+  %785 = getelementptr [4 x i8], ptr %750, i64 %784
   store i32 0, ptr %785, align 4
   %786 = call i32 @__ext4_handle_dirty_metadata(ptr noundef nonnull @__func__.add_new_gdb, i32 noundef 906, ptr noundef %438, ptr noundef null, ptr noundef %743) #13
   %787 = icmp eq i32 %786, 0
@@ -1995,7 +1994,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   %817 = shl i64 %816, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %778, ptr align 8 %814, i64 %817, i1 false)
   call void @__rcu_read_unlock() #13
-  %818 = getelementptr ptr, ptr %778, i64 %716
+  %818 = getelementptr [8 x i8], ptr %778, i64 %716
   store ptr %730, ptr %818, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !33
   %819 = load ptr, ptr %710, align 8
@@ -2417,7 +2416,7 @@ define internal fastcc i32 @ext4_flex_group_add(ptr noundef %0, ptr noundef %1, 
   call void @__rcu_read_lock() #13
   %1062 = load volatile ptr, ptr %1059, align 16
   %1063 = sext i32 %1061 to i64
-  %1064 = getelementptr ptr, ptr %1062, i64 %1063
+  %1064 = getelementptr [8 x i8], ptr %1062, i64 %1063
   %1065 = load ptr, ptr %1064, align 8
   call void @__rcu_read_unlock() #13
   %1066 = getelementptr inbounds nuw i8, ptr %1065, i64 24
@@ -2995,7 +2994,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %175, label %.loopexit102, label %180
 
 176:                                              ; preds = %170
-  %177 = getelementptr i32, ptr %150, i64 %171
+  %177 = getelementptr [4 x i8], ptr %150, i64 %171
   %178 = load i32, ptr %177, align 4
   %179 = icmp eq i32 %178, 0
   br i1 %179, label %180, label %.loopexit102
@@ -3407,7 +3406,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %435 = load i32, ptr %4, align 4
   %436 = trunc nuw i64 %434 to i32
   %437 = add i32 %435, %436
-  %438 = getelementptr %struct.ext4_new_group_data, ptr %400, i64 %434
+  %438 = getelementptr [48 x i8], ptr %400, i64 %434
   store i32 %437, ptr %438, align 8
   %439 = load ptr, ptr %8, align 8
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 16
@@ -3454,7 +3453,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 
 .thread77:                                        ; preds = %458
   %473 = load ptr, ptr %388, align 8
-  %474 = getelementptr i16, ptr %473, i64 %434
+  %474 = getelementptr [2 x i8], ptr %473, i64 %434
   br label %495
 
 475:                                              ; preds = %458
@@ -3488,7 +3487,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 
 .thread76:                                        ; preds = %483
   %488 = load ptr, ptr %388, align 8
-  %489 = getelementptr i16, ptr %488, i64 %434
+  %489 = getelementptr [2 x i8], ptr %488, i64 %434
   br label %506
 
 490:                                              ; preds = %483
@@ -3496,7 +3495,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %492 = load ptr, ptr %491, align 64
   %.not = icmp eq ptr %492, null
   %493 = load ptr, ptr %388, align 8
-  %494 = getelementptr i16, ptr %493, i64 %434
+  %494 = getelementptr [2 x i8], ptr %493, i64 %434
   br i1 %.not, label %506, label %495
 
 495:                                              ; preds = %.thread77, %490
@@ -3510,7 +3509,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 
 501:                                              ; preds = %495
   %502 = load ptr, ptr %388, align 8
-  %503 = getelementptr i16, ptr %502, i64 %434
+  %503 = getelementptr [2 x i8], ptr %502, i64 %434
   %504 = load i16, ptr %503, align 2
   %505 = or i16 %504, 4
   store i16 %505, ptr %503, align 2
@@ -3581,7 +3580,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 
 537:                                              ; preds = %.thread489, %516
   %538 = load ptr, ptr %388, align 8
-  %539 = getelementptr i16, ptr %538, i64 %514
+  %539 = getelementptr [2 x i8], ptr %538, i64 %514
   %540 = getelementptr i8, ptr %539, i64 -2
   %541 = load i16, ptr %540, align 2
   %542 = and i16 %541, -3
@@ -3604,7 +3603,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %551 = getelementptr inbounds nuw i8, ptr %397, i64 84
   %552 = load i32, ptr %551, align 4
   %553 = shl i32 %550, %552
-  %554 = getelementptr %struct.ext4_new_group_data, ptr %400, i64 %514
+  %554 = getelementptr [48 x i8], ptr %400, i64 %514
   %555 = getelementptr i8, ptr %554, i64 -16
   store i32 %553, ptr %555, align 8
   %556 = load i32, ptr %5, align 4
@@ -3756,7 +3755,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %641 = add i64 %635, %640
   %642 = sub i32 %630, %628
   %643 = zext i32 %642 to i64
-  %.split = getelementptr %struct.ext4_new_group_data, ptr %585, i64 %643
+  %.split = getelementptr [48 x i8], ptr %585, i64 %643
   %644 = getelementptr i8, ptr %.split, i64 32
   %645 = load i32, ptr %644, align 8
   %646 = zext i32 %645 to i64
@@ -3813,7 +3812,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 683:                                              ; preds = %680
   %684 = sub i32 %665, %628
   %685 = zext i32 %684 to i64
-  %.split62 = getelementptr %struct.ext4_new_group_data, ptr %585, i64 %685
+  %.split62 = getelementptr [48 x i8], ptr %585, i64 %685
   %686 = getelementptr i8, ptr %.split62, i64 32
   %687 = load i32, ptr %686, align 8
   %688 = zext i32 %687 to i64
@@ -3864,20 +3863,20 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %711 = phi i64 [ %663, %.lr.ph ], [ %713, %708 ]
   %712 = phi i64 [ %698, %.lr.ph ], [ %726, %708 ]
   %713 = add nuw i64 %711, 1
-  %.split63 = getelementptr %struct.ext4_new_group_data, ptr %585, i64 %712
+  %.split63 = getelementptr [48 x i8], ptr %585, i64 %712
   %714 = getelementptr i8, ptr %.split63, i64 8
   store i64 %711, ptr %714, align 8
   %715 = call i32 @ext4_get_group_number(ptr noundef %0, i64 noundef %711) #13
   %716 = load i32, ptr %585, align 8
   %717 = sub i32 %715, %716
   %718 = zext i32 %717 to i64
-  %.split64 = getelementptr %struct.ext4_new_group_data, ptr %585, i64 %718
+  %.split64 = getelementptr [48 x i8], ptr %585, i64 %718
   %719 = getelementptr i8, ptr %.split64, i64 38
   %720 = load i16, ptr %719, align 2
   %721 = add i16 %720, 1
   store i16 %721, ptr %719, align 2
   %722 = load ptr, ptr %388, align 8
-  %723 = getelementptr i16, ptr %722, i64 %718
+  %723 = getelementptr [2 x i8], ptr %722, i64 %718
   %724 = load i16, ptr %723, align 2
   %725 = and i16 %724, %49
   store i16 %725, ptr %723, align 2
@@ -3919,20 +3918,20 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %744 = phi i64 [ %702, %.lr.ph837 ], [ %746, %741 ]
   %745 = phi i64 [ %707, %.lr.ph837 ], [ %759, %741 ]
   %746 = add nuw i64 %744, 1
-  %.split65 = getelementptr %struct.ext4_new_group_data, ptr %585, i64 %745
+  %.split65 = getelementptr [48 x i8], ptr %585, i64 %745
   %747 = getelementptr i8, ptr %.split65, i64 16
   store i64 %744, ptr %747, align 8
   %748 = call i32 @ext4_get_group_number(ptr noundef %0, i64 noundef %744) #13
   %749 = load i32, ptr %585, align 8
   %750 = sub i32 %748, %749
   %751 = zext i32 %750 to i64
-  %.split66 = getelementptr %struct.ext4_new_group_data, ptr %585, i64 %751
+  %.split66 = getelementptr [48 x i8], ptr %585, i64 %751
   %752 = getelementptr i8, ptr %.split66, i64 38
   %753 = load i16, ptr %752, align 2
   %754 = add i16 %753, 1
   store i16 %754, ptr %752, align 2
   %755 = load ptr, ptr %388, align 8
-  %756 = getelementptr i16, ptr %755, i64 %751
+  %756 = getelementptr [2 x i8], ptr %755, i64 %751
   %757 = load i16, ptr %756, align 2
   %758 = and i16 %757, %49
   store i16 %758, ptr %756, align 2
@@ -3963,7 +3962,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %775 = phi i64 [ %733, %.lr.ph842 ], [ %769, %765 ]
   %776 = phi i64 [ %740, %.lr.ph842 ], [ %818, %765 ]
   %777 = trunc i64 %.in to i16
-  %.split67 = getelementptr %struct.ext4_new_group_data, ptr %585, i64 %776
+  %.split67 = getelementptr [48 x i8], ptr %585, i64 %776
   %778 = getelementptr i8, ptr %.split67, i64 24
   store i64 %775, ptr %778, align 8
   %779 = call i32 @ext4_get_group_number(ptr noundef %0, i64 noundef %775) #13
@@ -3988,13 +3987,13 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   %796 = load ptr, ptr %388, align 8
   %797 = add i32 %793, 1
   %798 = zext i32 %797 to i64
-  %799 = getelementptr i16, ptr %796, i64 %798
+  %799 = getelementptr [2 x i8], ptr %796, i64 %798
   %800 = load i16, ptr %799, align 2
   %801 = and i16 %800, %49
   store i16 %801, ptr %799, align 2
   %802 = sub nuw i64 %774, %791
   %803 = trunc i64 %802 to i16
-  %.split68 = getelementptr %struct.ext4_new_group_data, ptr %585, i64 %798
+  %.split68 = getelementptr [48 x i8], ptr %585, i64 %798
   %804 = getelementptr i8, ptr %.split68, i64 38
   %805 = load i16, ptr %804, align 2
   %806 = add i16 %805, %803
@@ -4005,13 +4004,13 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 808:                                              ; preds = %795, %773
   %809 = phi i16 [ %807, %795 ], [ %777, %773 ]
   %810 = zext i32 %793 to i64
-  %.split69 = getelementptr %struct.ext4_new_group_data, ptr %585, i64 %810
+  %.split69 = getelementptr [48 x i8], ptr %585, i64 %810
   %811 = getelementptr i8, ptr %.split69, i64 38
   %812 = load i16, ptr %811, align 2
   %813 = add i16 %812, %809
   store i16 %813, ptr %811, align 2
   %814 = load ptr, ptr %388, align 8
-  %815 = getelementptr i16, ptr %814, i64 %810
+  %815 = getelementptr [2 x i8], ptr %814, i64 %810
   %816 = load i16, ptr %815, align 2
   %817 = and i16 %816, %49
   store i16 %817, ptr %815, align 2
@@ -4024,7 +4023,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 .preheader95:                                     ; preds = %.loopexit92, %.preheader95
   %822 = phi i32 [ %839, %.preheader95 ], [ 0, %.loopexit92 ]
   %823 = sext i32 %822 to i64
-  %824 = getelementptr %struct.ext4_new_group_data, ptr %585, i64 %823
+  %824 = getelementptr [48 x i8], ptr %585, i64 %823
   %825 = getelementptr inbounds nuw i8, ptr %824, i64 38
   %826 = load i16, ptr %825, align 2
   %827 = zext i16 %826 to i32
@@ -4197,7 +4196,7 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr noundef reado
   %19 = phi i64 [ 0, %13 ], [ %31, %17 ]
   %20 = phi i32 [ 0, %13 ], [ %32, %17 ]
   %21 = sext i32 %20 to i64
-  %22 = getelementptr %struct.ext4_new_group_data, ptr %3, i64 %21
+  %22 = getelementptr [48 x i8], ptr %3, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
@@ -4414,7 +4413,7 @@ define internal fastcc void @ext4_update_super(ptr noundef %0, ptr noundef reado
   %190 = getelementptr inbounds nuw i8, ptr %5, i64 1184
   %191 = load volatile ptr, ptr %190, align 32
   %192 = zext nneg i32 %189 to i64
-  %193 = getelementptr ptr, ptr %191, i64 %192
+  %193 = getelementptr [8 x i8], ptr %191, i64 %192
   %194 = load ptr, ptr %193, align 8
   tail call void @__rcu_read_unlock() #13
   %195 = load i32, ptr %159, align 16
@@ -4555,7 +4554,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   %38 = phi i64 [ 1, %33 ], [ 2, %35 ]
   %39 = add nuw nsw i64 %38, 4294967295
   %40 = and i64 %39, 4294967295
-  %41 = getelementptr i32, ptr %34, i64 %40
+  %41 = getelementptr [4 x i8], ptr %34, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = add nuw nsw i64 %38, 1
   %44 = icmp eq i32 %42, 0
@@ -4820,7 +4819,7 @@ define internal fastcc void @update_backups(ptr noundef %0, i64 noundef %1, ptr 
   %203 = phi i64 [ %208, %200 ], [ %199, %198 ]
   %204 = add nuw nsw i64 %203, 4294967295
   %205 = and i64 %204, 4294967295
-  %206 = getelementptr i32, ptr %194, i64 %205
+  %206 = getelementptr [4 x i8], ptr %194, i64 %205
   %207 = load i32, ptr %206, align 4
   %208 = add nuw nsw i64 %203, 1
   %209 = icmp eq i32 %207, 0
@@ -4961,7 +4960,7 @@ define internal fastcc i32 @set_flexbg_block_bitmap(ptr noundef %0, ptr noundef 
   %48 = tail call i32 @llvm.umin.i32(i32 %21, i32 %47)
   %49 = load ptr, ptr %14, align 8
   %50 = zext i32 %42 to i64
-  %51 = getelementptr i16, ptr %49, i64 %50
+  %51 = getelementptr [2 x i8], ptr %49, i64 %50
   %52 = load i16, ptr %51, align 2
   %53 = and i16 %52, 2
   %54 = icmp eq i16 %53, 0
@@ -4996,7 +4995,7 @@ define internal fastcc i32 @set_flexbg_block_bitmap(ptr noundef %0, ptr noundef 
 
 68:                                               ; preds = %65
   %69 = load ptr, ptr %2, align 8
-  %.split = getelementptr %struct.ext4_new_group_data, ptr %69, i64 %50
+  %.split = getelementptr [48 x i8], ptr %69, i64 %50
   %70 = getelementptr i8, ptr %.split, i64 8
   %71 = load i64, ptr %70, align 8
   %72 = load ptr, ptr %17, align 8
@@ -5170,7 +5169,7 @@ define internal fastcc i32 @verify_reserved_gdb(ptr noundef %0, i32 noundef %1, 
   %81 = phi i64 [ 2, %78 ], [ %77, %76 ]
   %82 = add nuw nsw i64 %81, 4294967295
   %83 = and i64 %82, 4294967295
-  %84 = getelementptr i32, ptr %11, i64 %83
+  %84 = getelementptr [4 x i8], ptr %11, i64 %83
   %85 = load i32, ptr %84, align 4
   %86 = add nuw nsw i64 %81, 1
   %87 = icmp eq i32 %85, 0

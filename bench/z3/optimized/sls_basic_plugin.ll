@@ -571,7 +571,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.loopexit: ; preds = %13
   br i1 %.not20, label %.lr.ph, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit._crit_edge
 
 .lr.ph:                                           ; preds = %9
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv28
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv28
   br label %16
 
 13:                                               ; preds = %16
@@ -586,7 +586,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.loopexit: ; preds = %13
   %17 = load ptr, ptr %12, align 8, !tbaa !36
   %18 = load ptr, ptr %7, align 8, !tbaa !11
   %19 = tail call noundef zeroext i1 @_ZN3sls7context7is_trueEP4expr(ptr noundef nonnull align 8 dereferenceable(321) %18, ptr noundef %17)
-  %20 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv25
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv25
   %21 = load ptr, ptr %20, align 8, !tbaa !36
   %22 = load ptr, ptr %7, align 8, !tbaa !11
   %23 = tail call noundef zeroext i1 @_ZN3sls7context7is_trueEP4expr(ptr noundef nonnull align 8 dereferenceable(321) %22, ptr noundef %21)
@@ -722,7 +722,7 @@ _ZNK3app13get_decl_kindEv.exit.thread:            ; preds = %3, %_ZNK3app13get_d
 define hidden noundef zeroext i1 @_ZN3sls12basic_plugin14try_repair_xorEP3appj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !36
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !35
@@ -776,7 +776,7 @@ _ZN3sls12basic_plugin9set_valueEP4exprb.exit:     ; preds = %._crit_edge, %26
   br i1 %.not, label %45, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !36
   %40 = load ptr, ptr %10, align 8, !tbaa !11
   %41 = tail call noundef zeroext i1 @_ZN3sls7context7is_trueEP4expr(ptr noundef nonnull align 8 dereferenceable(321) %40, ptr noundef %39)
@@ -809,7 +809,7 @@ define hidden noundef zeroext i1 @_ZN3sls12basic_plugin14try_repair_iteEP3appj(p
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = zext i32 %2 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !36
   %16 = load ptr, ptr %12, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1390,7 +1390,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.loopexit.i: ; preds = %140
   br i1 %.not20.i, label %.lr.ph.i29, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit._crit_edge.i
 
 .lr.ph.i29:                                       ; preds = %136
-  %139 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv28.i
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv28.i
   br label %143
 
 140:                                              ; preds = %.noexc33
@@ -1408,7 +1408,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.loopexit.i: ; preds = %140
           to label %.noexc32 unwind label %162
 
 .noexc32:                                         ; preds = %143
-  %147 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv25.i
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv25.i
   %148 = load ptr, ptr %147, align 8, !tbaa !36, !noalias !142
   %149 = load ptr, ptr %134, align 8, !tbaa !11, !noalias !142
   %150 = invoke noundef zeroext i1 @_ZN3sls7context7is_trueEP4expr(ptr noundef nonnull align 8 dereferenceable(321) %149, ptr noundef %148)
@@ -1926,7 +1926,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i:              ; preds = %188
   %.fr.i.i = freeze i32 %197
   %198 = icmp ult i32 %195, %.fr.i.i
   %199 = zext i32 %195 to i64
-  %200 = getelementptr inbounds nuw i32, ptr %191, i64 %199
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %199
   %spec.select.i.i = select i1 %198, ptr %200, ptr @_ZN3sat13null_bool_varE
   br label %_ZNK3sls7context13atom2bool_varEP4expr.exit
 
@@ -1991,7 +1991,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.loopexit.i: ; preds = %231
   br i1 %.not20.i, label %.lr.ph.i90, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit._crit_edge.i
 
 .lr.ph.i90:                                       ; preds = %227
-  %230 = getelementptr inbounds nuw ptr, ptr %224, i64 %indvars.iv28.i
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %indvars.iv28.i
   br label %234
 
 231:                                              ; preds = %234
@@ -2006,7 +2006,7 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit.loopexit.i: ; preds = %231
   %235 = load ptr, ptr %230, align 8, !tbaa !36, !noalias !154
   %236 = load ptr, ptr %225, align 8, !tbaa !11, !noalias !154
   %237 = call noundef zeroext i1 @_ZN3sls7context7is_trueEP4expr(ptr noundef nonnull align 8 dereferenceable(321) %236, ptr noundef %235), !noalias !154
-  %238 = getelementptr inbounds nuw ptr, ptr %224, i64 %indvars.iv25.i
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %indvars.iv25.i
   %239 = load ptr, ptr %238, align 8, !tbaa !36, !noalias !154
   %240 = load ptr, ptr %225, align 8, !tbaa !11, !noalias !154
   %241 = call noundef zeroext i1 @_ZN3sls7context7is_trueEP4expr(ptr noundef nonnull align 8 dereferenceable(321) %240, ptr noundef %239), !noalias !154

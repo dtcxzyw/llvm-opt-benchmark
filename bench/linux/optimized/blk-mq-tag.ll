@@ -13,15 +13,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_blk_mq_uniqu
 %struct.sbq_wait = type { ptr, %struct.wait_queue_entry }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.list_head = type { ptr, ptr }
-%struct.sbq_wait_state = type { %struct.wait_queue_head, [40 x i8] }
-%struct.wait_queue_head = type { %struct.spinlock, %struct.list_head }
-%struct.spinlock = type { %union.anon }
-%union.anon = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.0 }
-%union.anon.0 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%struct.sbitmap_word = type { i64, [56 x i8], i64, [56 x i8] }
 
 @.str = private unnamed_addr constant [19 x i8] c"block/blk-mq-tag.c\00", align 1
 @__UNIQUE_ID___addressable_blk_mq_tagset_busy_iter432 = internal global ptr @blk_mq_tagset_busy_iter, section ".discard.addressable", align 8
@@ -300,7 +291,7 @@ define dso_local i32 @blk_mq_get_tag(ptr noundef captures(none) %0) local_unname
   %51 = load ptr, ptr %50, align 8
   %52 = load volatile i32, ptr %49, align 4
   %53 = sext i32 %52 to i64
-  %54 = getelementptr %struct.sbq_wait_state, ptr %51, i64 %53
+  %54 = getelementptr [64 x i8], ptr %51, i64 %53
   %55 = load volatile i32, ptr %49, align 4
   %56 = add i32 %55, 1
   %57 = and i32 %56, 7
@@ -341,7 +332,7 @@ define dso_local i32 @blk_mq_get_tag(ptr noundef captures(none) %0) local_unname
   %75 = load ptr, ptr %74, align 8
   %76 = ptrtoint ptr %75 to i64
   %77 = zext i32 %73 to i64
-  %78 = getelementptr i64, ptr @__per_cpu_offset, i64 %77
+  %78 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %77
   %79 = load i64, ptr %78, align 8
   %80 = add i64 %79, %76
   %81 = inttoptr i64 %80 to ptr
@@ -354,7 +345,7 @@ define dso_local i32 @blk_mq_get_tag(ptr noundef captures(none) %0) local_unname
   %87 = icmp eq i32 %86, 0
   %88 = zext i1 %87 to i64
   %89 = select i1 %85, i64 %88, i64 2
-  %90 = getelementptr ptr, ptr %83, i64 %89
+  %90 = getelementptr [8 x i8], ptr %83, i64 %89
   %91 = load ptr, ptr %90, align 8
   store ptr %91, ptr %7, align 8
   %92 = load i32, ptr %3, align 4
@@ -392,7 +383,7 @@ define dso_local i32 @blk_mq_get_tag(ptr noundef captures(none) %0) local_unname
   %114 = load ptr, ptr %113, align 8
   %115 = load volatile i32, ptr %112, align 4
   %116 = sext i32 %115 to i64
-  %117 = getelementptr %struct.sbq_wait_state, ptr %114, i64 %116
+  %117 = getelementptr [64 x i8], ptr %114, i64 %116
   %118 = load volatile i32, ptr %112, align 4
   %119 = add i32 %118, 1
   %120 = and i32 %119, 7
@@ -662,7 +653,7 @@ define dso_local void @blk_mq_tagset_busy_iter(ptr noundef readonly captures(non
   br i1 %19, label %32, label %20
 
 20:                                               ; preds = %.thread.split
-  %21 = getelementptr ptr, ptr %17, i64 %18
+  %21 = getelementptr [8 x i8], ptr %17, i64 %18
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %32, label %24
@@ -731,7 +722,7 @@ define dso_local void @blk_mq_tagset_wait_completed_request(ptr noundef readonly
   br i1 %20, label %bt_tags_for_each.exit15, label %21
 
 21:                                               ; preds = %.thread.split
-  %22 = getelementptr ptr, ptr %18, i64 %19
+  %22 = getelementptr [8 x i8], ptr %18, i64 %19
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %bt_tags_for_each.exit15, label %25
@@ -782,7 +773,7 @@ define dso_local void @blk_mq_tagset_wait_completed_request(ptr noundef readonly
   %53 = add i32 %52, %43
   %54 = load ptr, ptr %37, align 8
   %55 = zext i32 %42 to i64
-  %56 = getelementptr %struct.sbitmap_word, ptr %54, i64 %55
+  %56 = getelementptr [128 x i8], ptr %54, i64 %55
   %57 = load i64, ptr %56, align 64
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 64
   %59 = load i64, ptr %58, align 64
@@ -820,7 +811,7 @@ define dso_local void @blk_mq_tagset_wait_completed_request(ptr noundef readonly
   %79 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %38) #9
   %80 = load ptr, ptr %31, align 8
   %81 = zext i32 %78 to i64
-  %82 = getelementptr ptr, ptr %80, i64 %81
+  %82 = getelementptr [8 x i8], ptr %80, i64 %81
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %.thread6.us.us.thread.i, label %85
@@ -925,7 +916,7 @@ bt_tags_for_each.exit:                            ; preds = %.loopexit.us.i, %34
   %137 = add i32 %136, %127
   %138 = load ptr, ptr %121, align 8
   %139 = zext i32 %126 to i64
-  %140 = getelementptr %struct.sbitmap_word, ptr %138, i64 %139
+  %140 = getelementptr [128 x i8], ptr %138, i64 %139
   %141 = load i64, ptr %140, align 64
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 64
   %143 = load i64, ptr %142, align 64
@@ -965,7 +956,7 @@ bt_tags_for_each.exit:                            ; preds = %.loopexit.us.i, %34
   %165 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %122) #9
   %166 = load ptr, ptr %115, align 8
   %167 = zext i32 %164 to i64
-  %168 = getelementptr ptr, ptr %166, i64 %167
+  %168 = getelementptr [8 x i8], ptr %166, i64 %167
   %169 = load ptr, ptr %168, align 8
   %170 = icmp eq ptr %169, null
   br i1 %170, label %.thread6.us.us.thread.i10, label %171
@@ -1207,7 +1198,7 @@ define internal fastcc void @bt_for_each(ptr noundef readonly captures(address) 
   %28 = add i32 %27, %18
   %29 = load ptr, ptr %10, align 8
   %30 = zext i32 %17 to i64
-  %31 = getelementptr %struct.sbitmap_word, ptr %29, i64 %30
+  %31 = getelementptr [128 x i8], ptr %29, i64 %30
   %32 = load i64, ptr %31, align 64
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %34 = load i64, ptr %33, align 64
@@ -1253,7 +1244,7 @@ define internal fastcc void @bt_for_each(ptr noundef readonly captures(address) 
   %64 = getelementptr inbounds nuw i8, ptr %55, i64 144
   %65 = load ptr, ptr %64, align 8
   %66 = zext i32 %61 to i64
-  %67 = getelementptr ptr, ptr %65, i64 %66
+  %67 = getelementptr [8 x i8], ptr %65, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %.thread8, label %70
@@ -1638,7 +1629,7 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr noundef readon
   %36 = add i32 %35, %26
   %37 = load ptr, ptr %13, align 8
   %38 = zext i32 %25 to i64
-  %39 = getelementptr %struct.sbitmap_word, ptr %37, i64 %38
+  %39 = getelementptr [128 x i8], ptr %37, i64 %38
   %40 = load i64, ptr %39, align 64
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %42 = load i64, ptr %41, align 64
@@ -1683,7 +1674,7 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr noundef readon
   %67 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %18) #9
   %68 = load ptr, ptr %7, align 8
   %69 = zext i32 %66 to i64
-  %70 = getelementptr ptr, ptr %68, i64 %69
+  %70 = getelementptr [8 x i8], ptr %68, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
   br i1 %72, label %.thread6.us.us.thread, label %73
@@ -1765,7 +1756,7 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr noundef readon
   %115 = add i32 %114, %105
   %116 = load ptr, ptr %13, align 8
   %117 = zext i32 %104 to i64
-  %118 = getelementptr %struct.sbitmap_word, ptr %116, i64 %117
+  %118 = getelementptr [128 x i8], ptr %116, i64 %117
   %119 = load i64, ptr %118, align 64
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 64
   %121 = load i64, ptr %120, align 64
@@ -1799,7 +1790,7 @@ define internal fastcc void @bt_tags_for_each(ptr noundef %0, ptr noundef readon
   %139 = phi i32 [ %134, %.lr.ph10 ], [ %137, %135 ]
   %140 = load ptr, ptr %17, align 8
   %141 = zext i32 %139 to i64
-  %142 = getelementptr ptr, ptr %140, i64 %141
+  %142 = getelementptr [8 x i8], ptr %140, i64 %141
   %143 = load ptr, ptr %142, align 8
   %144 = icmp eq ptr %143, null
   br i1 %144, label %.critedge14, label %145

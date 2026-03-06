@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.OSSL_TIME = type { i64 }
 %struct.PACKET = type { ptr, i64 }
 %struct.ossl_ackm_rx_pkt_st = type { i64, %struct.OSSL_TIME, i8 }
-%struct.quic_rxfc_st = type { i64, i64, i64, i64, i64, i64, i64, %struct.OSSL_TIME, ptr, ptr, ptr, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [21 x i8] c"empty packet payload\00", align 1
 @.str.1 = private unnamed_addr constant [37 x i8] c"../openssl/ssl/quic/quic_rx_depack.c\00", align 1
@@ -195,7 +194,7 @@ switch.lookup:                                    ; preds = %60
   store i64 %64, ptr %68, align 8, !tbaa !58
   %69 = load i64, ptr %47, align 8
   %70 = zext nneg i32 %.0.i.ph3136 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ossl_quic_handle_frames, i64 %70
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ossl_quic_handle_frames, i64 %70
   %switch.load = load i32, ptr %switch.gep, align 4
   %71 = icmp eq i64 %64, 0
   br i1 %71, label %105, label %.preheader.i
@@ -608,13 +607,13 @@ depack_do_frame_stop_sending.exit.i:              ; preds = %214, %207
   %228 = load i8, ptr %61, align 8
   %229 = and i8 %228, 3
   %230 = zext nneg i8 %229 to i64
-  %231 = getelementptr inbounds nuw ptr, ptr %87, i64 %230
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %230
   %232 = load ptr, ptr %231, align 8, !tbaa !88
   %.not19.i.i = icmp eq ptr %232, null
   br i1 %.not19.i.i, label %depack_do_frame_crypto.exit.thread.i, label %233, !prof !89
 
 233:                                              ; preds = %227
-  %234 = getelementptr inbounds nuw %struct.quic_rxfc_st, ptr %88, i64 %230
+  %234 = getelementptr inbounds nuw [96 x i8], ptr %88, i64 %230
   %235 = load i64, ptr %25, align 8, !tbaa !90
   %236 = add i64 %235, %225
   %237 = call i32 @ossl_quic_rxfc_on_rx_stream_frame(ptr noundef nonnull %234, i64 noundef %236, i32 noundef 0) #3

@@ -1522,7 +1522,7 @@ define hidden i32 @mbedtls_x509_sig_alg_gets(ptr noundef writeonly captures(none
 
 switch.lookup:                                    ; preds = %21
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.mbedtls_x509_sig_alg_gets.3, i64 %24
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_x509_sig_alg_gets.3, i64 %24
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %md_type_to_string.exit
 
@@ -1535,7 +1535,7 @@ md_type_to_string.exit:                           ; preds = %21, %switch.lookup
 
 switch.lookup57:                                  ; preds = %md_type_to_string.exit
   %27 = zext nneg i32 %switch.tableidx56 to i64
-  %switch.gep58 = getelementptr inbounds nuw ptr, ptr @switch.table.mbedtls_x509_sig_alg_gets.3, i64 %27
+  %switch.gep58 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_x509_sig_alg_gets.3, i64 %27
   %switch.load59 = load ptr, ptr %switch.gep58, align 8
   br label %md_type_to_string.exit50
 

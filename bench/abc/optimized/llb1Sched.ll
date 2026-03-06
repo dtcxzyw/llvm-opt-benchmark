@@ -21,26 +21,26 @@ define void @Llb_MtrSwapColumns(ptr noundef readonly captures(none) %0, i32 noun
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !14
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds ptr, ptr %7, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %7, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   store ptr %13, ptr %9, align 8, !tbaa !14
   store ptr %10, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !16
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %8
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %8
   %17 = load ptr, ptr %16, align 8, !tbaa !17
-  %18 = getelementptr inbounds ptr, ptr %15, i64 %11
+  %18 = getelementptr inbounds [8 x i8], ptr %15, i64 %11
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   store ptr %19, ptr %16, align 8, !tbaa !17
   store ptr %17, ptr %18, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !18
-  %22 = getelementptr inbounds i32, ptr %21, i64 %8
+  %22 = getelementptr inbounds [4 x i8], ptr %21, i64 %8
   %23 = load i32, ptr %22, align 4, !tbaa !19
-  %24 = getelementptr inbounds i32, ptr %21, i64 %11
+  %24 = getelementptr inbounds [4 x i8], ptr %21, i64 %11
   %25 = load i32, ptr %24, align 4, !tbaa !19
   store i32 %25, ptr %22, align 4, !tbaa !19
   store i32 %23, ptr %24, align 4, !tbaa !19
@@ -76,7 +76,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
   %.076114 = phi i32 [ -1, %.lr.ph118 ], [ %.177, %75 ]
   %.080113 = phi i32 [ -1000000000, %.lr.ph118 ], [ %.181, %75 ]
   %17 = load ptr, ptr %8, align 8, !tbaa !22
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv143
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv143
   %19 = load i32, ptr %18, align 4, !tbaa !19
   %20 = icmp slt i32 %19, 2
   br i1 %20, label %75, label %21
@@ -90,7 +90,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %10, align 8, !tbaa !25
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv143
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv143
   %29 = load i32, ptr %28, align 4, !tbaa !19
   %30 = icmp eq i32 %29, 1
   br i1 %30, label %.preheader102, label %75
@@ -110,7 +110,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
   %indvars.iv = phi i64 [ %13, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %.0105 = phi i32 [ 0, %.lr.ph ], [ %spec.select94, %35 ]
   %.278103 = phi i32 [ %.076114, %.lr.ph ], [ %spec.select, %35 ]
-  %36 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv
+  %36 = getelementptr inbounds [8 x i8], ptr %34, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !17
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv143
   %39 = load i8, ptr %38, align 1, !tbaa !24
@@ -157,7 +157,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
 
 52:                                               ; preds = %49
   %53 = load ptr, ptr %12, align 8, !tbaa !16
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %48
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %48
   %55 = load ptr, ptr %54, align 8, !tbaa !17
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv138
   %57 = load i8, ptr %56, align 1, !tbaa !24
@@ -166,7 +166,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
 
 59:                                               ; preds = %52
   %60 = load ptr, ptr %10, align 8, !tbaa !25
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv138
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv138
   %62 = load i32, ptr %61, align 4, !tbaa !19
   %63 = icmp eq i32 %62, 1
   %64 = add nsw i32 %.082107, 2
@@ -175,7 +175,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
 
 65:                                               ; preds = %49
   %66 = load ptr, ptr %12, align 8, !tbaa !16
-  %67 = getelementptr inbounds ptr, ptr %66, i64 %48
+  %67 = getelementptr inbounds [8 x i8], ptr %66, i64 %48
   %68 = load ptr, ptr %67, align 8, !tbaa !17
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 %indvars.iv138
   %70 = load i8, ptr %69, align 1, !tbaa !24
@@ -275,7 +275,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
 
 102:                                              ; preds = %98
   %103 = load ptr, ptr %87, align 8, !tbaa !16
-  %104 = getelementptr inbounds ptr, ptr %103, i64 %indvars.iv152
+  %104 = getelementptr inbounds [8 x i8], ptr %103, i64 %indvars.iv152
   %105 = load ptr, ptr %104, align 8, !tbaa !17
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 %indvars.iv147
   %107 = load i8, ptr %106, align 1, !tbaa !24
@@ -285,7 +285,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
 109:                                              ; preds = %102
   %110 = add nsw i32 %.091122.us, 1
   %111 = load ptr, ptr %88, align 8, !tbaa !25
-  %112 = getelementptr inbounds nuw i32, ptr %111, i64 %indvars.iv147
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv147
   %113 = load i32, ptr %112, align 4, !tbaa !19
   %114 = add nsw i32 %113, %.089123.us
   br label %115
@@ -375,7 +375,7 @@ define void @Llb_MtrUseSelectedColumn(ptr noundef readonly captures(none) %0, i3
 11:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %12 = load ptr, ptr %6, align 8, !tbaa !16
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %7
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %7
   %14 = load ptr, ptr %13, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1, !tbaa !24
@@ -393,13 +393,13 @@ define void @Llb_MtrUseSelectedColumn(ptr noundef readonly captures(none) %0, i3
 
 ..thread_crit_edge:                               ; preds = %18
   %.pre = load ptr, ptr %10, align 8, !tbaa !25
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv
   %.pre27 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !19
   br label %.thread
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %10, align 8, !tbaa !25
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !19
   %26 = icmp eq i32 %25, 1
   br i1 %26, label %27, label %.thread
@@ -407,24 +407,24 @@ define void @Llb_MtrUseSelectedColumn(ptr noundef readonly captures(none) %0, i3
 27:                                               ; preds = %22
   store i8 0, ptr %20, align 1, !tbaa !24
   %28 = load ptr, ptr %10, align 8, !tbaa !25
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   store i32 0, ptr %29, align 4, !tbaa !19
   br label %42
 
 30:                                               ; preds = %18
   store i8 1, ptr %20, align 1, !tbaa !24
   %31 = load ptr, ptr %9, align 8, !tbaa !22
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !19
   %34 = load ptr, ptr %10, align 8, !tbaa !25
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   store i32 %33, ptr %35, align 4, !tbaa !19
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %22, %30
   %36 = phi i32 [ %.pre27, %..thread_crit_edge ], [ %25, %22 ], [ %33, %30 ]
   %37 = phi ptr [ %.pre, %..thread_crit_edge ], [ %23, %22 ], [ %34, %30 ]
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %39 = add nsw i32 %36, -1
   store i32 %39, ptr %38, align 4, !tbaa !19
   %40 = icmp slt i32 %36, 1
@@ -482,7 +482,7 @@ define void @Llb_MtrVerifyColumns(ptr noundef readonly captures(none) %0, i32 no
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.018 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %20 ]
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !17
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv24
   %24 = load i8, ptr %23, align 1, !tbaa !24
@@ -496,7 +496,7 @@ define void @Llb_MtrVerifyColumns(ptr noundef readonly captures(none) %0, i32 no
 ._crit_edge:                                      ; preds = %20, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %20 ]
   %27 = load ptr, ptr %9, align 8, !tbaa !25
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv24
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv24
   %29 = load i32, ptr %28, align 4, !tbaa !19
   %.not = icmp eq i32 %.0.lcssa, %29
   br i1 %.not, label %31, label %30
@@ -550,7 +550,7 @@ define void @Llb_MtrSchedule(ptr noundef %0) local_unnamed_addr #1 {
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
   store i8 1, ptr %19, align 1, !tbaa !24
   %20 = load ptr, ptr %7, align 8, !tbaa !22
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !19
   %23 = add nsw i32 %22, -1
   br label %30
@@ -560,14 +560,14 @@ define void @Llb_MtrSchedule(ptr noundef %0) local_unnamed_addr #1 {
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv
   store i8 0, ptr %26, align 1, !tbaa !24
   %27 = load ptr, ptr %7, align 8, !tbaa !22
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !19
   br label %30
 
 30:                                               ; preds = %17, %24
   %.sink = phi i32 [ %23, %17 ], [ %29, %24 ]
   %31 = load ptr, ptr %8, align 8, !tbaa !25
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   store i32 %.sink, ptr %32, align 4, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %2, align 8, !tbaa !20
@@ -619,7 +619,7 @@ define void @Llb_MtrSchedule(ptr noundef %0) local_unnamed_addr #1 {
 57:                                               ; preds = %57, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv46, %.lr.ph.i ], [ %indvars.iv.next.i, %57 ]
   %.018.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %57 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv.i
   %59 = load ptr, ptr %58, align 8, !tbaa !17
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv24.i
   %61 = load i8, ptr %60, align 1, !tbaa !24
@@ -633,7 +633,7 @@ define void @Llb_MtrSchedule(ptr noundef %0) local_unnamed_addr #1 {
 ._crit_edge.i:                                    ; preds = %57, %.preheader.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %spec.select.i, %57 ]
   %64 = load ptr, ptr %41, align 8, !tbaa !25
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv24.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv24.i
   %66 = load i32, ptr %65, align 4, !tbaa !19
   %.not.i = icmp eq i32 %.0.lcssa.i, %66
   br i1 %.not.i, label %68, label %67
@@ -664,7 +664,7 @@ Llb_MtrVerifyColumns.exit:                        ; preds = %68, %45
 77:                                               ; preds = %108, %.lr.ph.i36
   %indvars.iv.i37 = phi i64 [ 0, %.lr.ph.i36 ], [ %indvars.iv.next.i38, %108 ]
   %78 = load ptr, ptr %40, align 8, !tbaa !16
-  %79 = getelementptr inbounds ptr, ptr %78, i64 %76
+  %79 = getelementptr inbounds [8 x i8], ptr %78, i64 %76
   %80 = load ptr, ptr %79, align 8, !tbaa !17
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 %indvars.iv.i37
   %82 = load i8, ptr %81, align 1, !tbaa !24
@@ -682,13 +682,13 @@ Llb_MtrVerifyColumns.exit:                        ; preds = %68, %45
 
 ..thread_crit_edge.i:                             ; preds = %84
   %.pre.i39 = load ptr, ptr %41, align 8, !tbaa !25
-  %.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %.pre.i39, i64 %indvars.iv.i37
+  %.phi.trans.insert.i = getelementptr inbounds nuw [4 x i8], ptr %.pre.i39, i64 %indvars.iv.i37
   %.pre27.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !19
   br label %.thread.i
 
 88:                                               ; preds = %84
   %89 = load ptr, ptr %41, align 8, !tbaa !25
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv.i37
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv.i37
   %91 = load i32, ptr %90, align 4, !tbaa !19
   %92 = icmp eq i32 %91, 1
   br i1 %92, label %93, label %.thread.i
@@ -696,24 +696,24 @@ Llb_MtrVerifyColumns.exit:                        ; preds = %68, %45
 93:                                               ; preds = %88
   store i8 0, ptr %86, align 1, !tbaa !24
   %94 = load ptr, ptr %41, align 8, !tbaa !25
-  %95 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv.i37
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv.i37
   store i32 0, ptr %95, align 4, !tbaa !19
   br label %108
 
 96:                                               ; preds = %84
   store i8 1, ptr %86, align 1, !tbaa !24
   %97 = load ptr, ptr %42, align 8, !tbaa !22
-  %98 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv.i37
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %indvars.iv.i37
   %99 = load i32, ptr %98, align 4, !tbaa !19
   %100 = load ptr, ptr %41, align 8, !tbaa !25
-  %101 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv.i37
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv.i37
   store i32 %99, ptr %101, align 4, !tbaa !19
   br label %.thread.i
 
 .thread.i:                                        ; preds = %96, %88, %..thread_crit_edge.i
   %102 = phi i32 [ %.pre27.i, %..thread_crit_edge.i ], [ %91, %88 ], [ %99, %96 ]
   %103 = phi ptr [ %.pre.i39, %..thread_crit_edge.i ], [ %89, %88 ], [ %100, %96 ]
-  %104 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv.i37
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv.i37
   %105 = add nsw i32 %102, -1
   store i32 %105, ptr %104, align 4, !tbaa !19
   %106 = icmp slt i32 %102, 1
@@ -737,24 +737,24 @@ Llb_MtrUseSelectedColumn.exit:                    ; preds = %108, %Llb_MtrVerify
 
 114:                                              ; preds = %Llb_MtrUseSelectedColumn.exit
   %115 = load ptr, ptr %43, align 8, !tbaa !3
-  %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %indvars.iv46
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %indvars.iv46
   %117 = load ptr, ptr %116, align 8, !tbaa !14
   %118 = sext i32 %73 to i64
-  %119 = getelementptr inbounds ptr, ptr %115, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr %115, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !14
   store ptr %120, ptr %116, align 8, !tbaa !14
   store ptr %117, ptr %119, align 8, !tbaa !14
   %121 = load ptr, ptr %40, align 8, !tbaa !16
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv46
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv46
   %123 = load ptr, ptr %122, align 8, !tbaa !17
-  %124 = getelementptr inbounds ptr, ptr %121, i64 %118
+  %124 = getelementptr inbounds [8 x i8], ptr %121, i64 %118
   %125 = load ptr, ptr %124, align 8, !tbaa !17
   store ptr %125, ptr %122, align 8, !tbaa !17
   store ptr %123, ptr %124, align 8, !tbaa !17
   %126 = load ptr, ptr %44, align 8, !tbaa !18
-  %127 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv46
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv46
   %128 = load i32, ptr %127, align 4, !tbaa !19
-  %129 = getelementptr inbounds i32, ptr %126, i64 %118
+  %129 = getelementptr inbounds [4 x i8], ptr %126, i64 %118
   %130 = load i32, ptr %129, align 4, !tbaa !19
   store i32 %130, ptr %127, align 4, !tbaa !19
   store i32 %128, ptr %129, align 4, !tbaa !19

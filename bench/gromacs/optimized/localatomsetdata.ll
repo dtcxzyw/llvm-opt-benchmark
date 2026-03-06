@@ -3,9 +3,6 @@ source_filename = "bench/gromacs/original/localatomsetdata.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.gmx_ga2la_t::Entry" = type { i32, i32 }
-%"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry" = type { i32, %"struct.gmx_ga2la_t::Entry", i32 }
-
 $_ZNSt6vectorIiSaIiEE17_M_default_appendEm = comdat any
 
 @.str = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
@@ -43,7 +40,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIiSa
 
 .noexc5.i:                                        ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   store ptr %11, ptr %0, align 8, !tbaa !4
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %7
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8, !tbaa !10
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
@@ -69,7 +66,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIiSa
   br i1 %.not.i.i6.i, label %.body, label %.body.sink.split
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread.i.i25: ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %23 = getelementptr inbounds nuw i32, ptr null, i64 %7
+  %23 = getelementptr inbounds nuw [4 x i8], ptr null, i64 %7
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %24, align 8, !tbaa !10
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -92,7 +89,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i16: ; preds = %.lr.ph.i.i.i.i
 
 .noexc5.i19:                                      ; preds = %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i16
   store ptr %32, ptr %31, align 8, !tbaa !4
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %7
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %7
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %33, ptr %34, align 8, !tbaa !10
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i20
@@ -312,9 +309,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !4
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !17
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !10
   br label %41
 
@@ -378,7 +375,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit6:              ; preds = %_ZNSt6vectorIiSaIiE
   %28 = phi ptr [ %21, %.lr.ph ], [ %118, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit14 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit14 ]
   %29 = load ptr, ptr %0, align 8, !tbaa !4
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4, !tbaa !13
   %32 = load i8, ptr %23, align 8, !tbaa !20
   br label %33
@@ -409,7 +406,7 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i:        ; preds = %39, %37
 42:                                               ; preds = %_ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i
   %43 = sext i32 %31 to i64
   %44 = load ptr, ptr %1, align 8, !tbaa !27
-  %45 = getelementptr inbounds nuw %"struct.gmx_ga2la_t::Entry", ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %43
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !30
   %48 = icmp eq i32 %47, -1
@@ -424,7 +421,7 @@ _ZNK11gmx_ga2la_t11usingDirectEv.exit.i.i:        ; preds = %39, %37
 53:                                               ; preds = %60, %49
   %.0.i.i.i = phi i32 [ %51, %49 ], [ %62, %60 ]
   %54 = sext i32 %.0.i.i.i to i64
-  %55 = getelementptr inbounds nuw %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !40
   %57 = icmp eq i32 %56, %31
   br i1 %57, label %58, label %60
@@ -507,7 +504,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %90 ], [ %28, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i ]
   store ptr %84, ptr %11, align 8, !tbaa !4
   store ptr %89, ptr %12, align 8, !tbaa !17
-  %91 = getelementptr inbounds nuw i32, ptr %84, i64 %82
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %82
   store ptr %91, ptr %25, align 8, !tbaa !10
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -569,7 +566,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i11: ; preds = %114, %_Z
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i13: ; preds = %116, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i11
   store ptr %110, ptr %16, align 8, !tbaa !4
   store ptr %115, ptr %17, align 8, !tbaa !17
-  %117 = getelementptr inbounds nuw i32, ptr %110, i64 %108
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %108
   store ptr %117, ptr %26, align 8, !tbaa !10
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit14
 

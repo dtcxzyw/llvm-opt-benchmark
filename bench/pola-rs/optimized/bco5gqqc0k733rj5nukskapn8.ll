@@ -136,13 +136,13 @@ define hidden void @"_ZN129_$LT$$u5b$core..mem..maybe_uninit..MaybeUninit$LT$T$G
 
 5:                                                ; preds = %3
   %6 = sub nuw i64 %2, %1
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   br label %8
 
 8:                                                ; preds = %8, %5
   %.sroa.0.08.i.i = phi i64 [ 0, %5 ], [ %10, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.sroa.0.08.i.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.sroa.0.08.i.i
   %10 = add nuw i64 %.sroa.0.08.i.i, 1
   %.val7.i.i = load ptr, ptr %9, align 8, !alias.scope !17, !nonnull !3, !noundef !3
   tail call void @Py_DecRef(ptr noundef nonnull %.val7.i.i) #20, !noalias !17
@@ -235,7 +235,7 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.02.01.i, i64 4
   %12 = load i32, ptr %11, align 4, !alias.scope !22, !noundef !3
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %13
   store i32 %10, ptr %14, align 4, !noalias !22
   %15 = icmp eq ptr %9, %7
   br i1 %15, label %"_ZN12polars_utils4sort12perfect_sort28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h228ddbd53d9475bcE.exit", label %.lr.ph.i

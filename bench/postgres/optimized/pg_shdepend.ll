@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
-%struct.ShDependObjectInfo = type { %struct.ObjectAddress, i8, i32 }
-%union.ListCell = type { ptr }
 
 @Mode = external local_unnamed_addr global i32, align 4
 @.str = private unnamed_addr constant [61 x i8] c"cannot drop %s because it is required by the database system\00", align 1
@@ -613,10 +611,10 @@ define internal fastcc void @updateAclDependenciesWorker(i32 noundef %0, i32 nou
 
 14:                                               ; preds = %.lr.ph.i
   %15 = sext i32 %.04348.i to i64
-  %16 = getelementptr inbounds i32, ptr %6, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %6, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %.04049.i to i64
-  %19 = getelementptr inbounds i32, ptr %8, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %8, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %17, %20
   br i1 %21, label %22, label %25
@@ -634,7 +632,7 @@ define internal fastcc void @updateAclDependenciesWorker(i32 noundef %0, i32 nou
   %28 = add nsw i32 %.04348.i, 1
   %29 = add i32 %.03750.i, 1
   %30 = sext i32 %.03750.i to i64
-  %31 = getelementptr inbounds i32, ptr %6, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %6, i64 %30
   store i32 %17, ptr %31, align 4
   br label %37
 
@@ -642,7 +640,7 @@ define internal fastcc void @updateAclDependenciesWorker(i32 noundef %0, i32 nou
   %33 = add nsw i32 %.04049.i, 1
   %34 = add i32 %.051.i, 1
   %35 = sext i32 %.051.i to i64
-  %36 = getelementptr inbounds i32, ptr %8, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %8, i64 %35
   store i32 %20, ptr %36, align 4
   br label %37
 
@@ -683,11 +681,11 @@ define internal fastcc void @updateAclDependenciesWorker(i32 noundef %0, i32 nou
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph62.i ], [ %40, %.lr.ph62.i.preheader ]
   %.23961.i = phi i32 [ %47, %.lr.ph62.i ], [ %.037.lcssa.ph.i, %.lr.ph62.i.preheader ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %45 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.i
+  %45 = getelementptr inbounds [4 x i8], ptr %6, i64 %indvars.iv.i
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %.23961.i, 1
   %48 = sext i32 %.23961.i to i64
-  %49 = getelementptr inbounds i32, ptr %6, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %6, i64 %48
   store i32 %46, ptr %49, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %41
   br i1 %exitcond.not, label %.preheader.i, label %.lr.ph62.i, !llvm.loop !8
@@ -696,11 +694,11 @@ define internal fastcc void @updateAclDependenciesWorker(i32 noundef %0, i32 nou
   %indvars.iv70.i = phi i64 [ %43, %.lr.ph66.preheader.i ], [ %indvars.iv.next71.i, %.lr.ph66.i ]
   %.265.i = phi i32 [ %.0.lcssa83.i, %.lr.ph66.preheader.i ], [ %52, %.lr.ph66.i ]
   %indvars.iv.next71.i = add nsw i64 %indvars.iv70.i, 1
-  %50 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv70.i
+  %50 = getelementptr inbounds [4 x i8], ptr %8, i64 %indvars.iv70.i
   %51 = load i32, ptr %50, align 4
   %52 = add i32 %.265.i, 1
   %53 = sext i32 %.265.i to i64
-  %54 = getelementptr inbounds i32, ptr %8, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %8, i64 %53
   store i32 %51, ptr %54, align 4
   %exitcond58.not = icmp eq i64 %indvars.iv.next71.i, %44
   br i1 %exitcond58.not, label %getOidListDiff.exit, label %.lr.ph66.i, !llvm.loop !9
@@ -742,7 +740,7 @@ getOidListDiff.exit:                              ; preds = %.lr.ph66.i, %.prehe
 
 .lr.ph53.split.us:                                ; preds = %.lr.ph53, %76
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %76 ], [ 0, %.lr.ph53 ]
-  %72 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv61
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv61
   %73 = load i32, ptr %72, align 4
   %74 = call zeroext i1 @IsPinnedObject(i32 noundef 1260, i32 noundef %73) #7
   br i1 %74, label %76, label %75
@@ -758,7 +756,7 @@ getOidListDiff.exit:                              ; preds = %.lr.ph66.i, %.prehe
 
 77:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %78 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, %3
   %or.cond38 = select i1 %59, i1 %80, i1 false
@@ -811,7 +809,7 @@ shdepLockAndCheckObject.exit:                     ; preds = %83
 
 .lr.ph53.split:                                   ; preds = %.lr.ph53, %103
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %103 ], [ 0, %.lr.ph53 ]
-  %97 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv66
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv66
   %98 = load i32, ptr %97, align 4
   %99 = icmp eq i32 %98, %3
   br i1 %99, label %103, label %100
@@ -964,7 +962,7 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
   %.1112 = phi ptr [ %54, %50 ], [ %.0111132, %49 ]
   %.1107 = phi i32 [ %51, %50 ], [ %.0106138, %49 ]
   %56 = sext i32 %.0109135 to i64
-  %57 = getelementptr inbounds %struct.ShDependObjectInfo, ptr %.1112, i64 %56
+  %57 = getelementptr inbounds [20 x i8], ptr %.1112, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %57, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %59 = load i8, ptr %58, align 4
@@ -986,7 +984,7 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
 
 68:                                               ; preds = %.lr.ph130, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next, %67 ]
-  %69 = getelementptr inbounds nuw %union.ListCell, ptr %48, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %71, %40
@@ -1065,7 +1063,7 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
 
 95:                                               ; preds = %.lr.ph151
   %96 = add nsw i32 %.094149, 1
-  %97 = getelementptr inbounds nuw %struct.ShDependObjectInfo, ptr %.0111.lcssa, i64 %indvars.iv163
+  %97 = getelementptr inbounds nuw [20 x i8], ptr %.0111.lcssa, i64 %indvars.iv163
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load i32, ptr %98, align 4
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 12
@@ -1081,7 +1079,7 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
 105:                                              ; preds = %103, %95
   %.196 = phi i32 [ %.095148, %95 ], [ %104, %103 ]
   %.1 = phi i32 [ %96, %95 ], [ %.094149, %103 ]
-  %106 = getelementptr inbounds nuw %struct.ShDependObjectInfo, ptr %.0111.lcssa, i64 %indvars.iv163
+  %106 = getelementptr inbounds nuw [20 x i8], ptr %.0111.lcssa, i64 %indvars.iv163
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %108 = load i32, ptr %107, align 4
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 12
@@ -1097,7 +1095,7 @@ define dso_local noundef zeroext i1 @checkSharedDependencies(i32 noundef %0, i32
   %.2156179 = phi i32 [ %.3, %storeObjectDescription.exit125 ], [ %.094.lcssa, %.lr.ph157 ]
   %indvars.iv168178 = phi i64 [ %indvars.iv.next169, %storeObjectDescription.exit125 ], [ 0, %.lr.ph157 ]
   %112 = load ptr, ptr %87, align 8
-  %113 = getelementptr inbounds nuw %union.ListCell, ptr %112, i64 %indvars.iv168178
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv168178
   %114 = load ptr, ptr %113, align 8
   store i32 1262, ptr %6, align 4
   %115 = load i32, ptr %114, align 4
@@ -1420,14 +1418,14 @@ define dso_local void @copyTemplateDependencies(i32 noundef %0, i32 noundef %1) 
 
 ._crit_edge77:                                    ; preds = %13
   %.phi.trans.insert = sext i32 %.06369 to i64
-  %.phi.trans.insert78 = getelementptr inbounds ptr, ptr %7, i64 %.phi.trans.insert
+  %.phi.trans.insert78 = getelementptr inbounds [8 x i8], ptr %7, i64 %.phi.trans.insert
   %.pre = load ptr, ptr %.phi.trans.insert78, align 8
   br label %21
 
 16:                                               ; preds = %13
   %17 = call ptr @MakeSingleTupleTableSlot(ptr noundef %6, ptr noundef nonnull @TTSOpsHeapTuple) #7
   %18 = sext i32 %.06369 to i64
-  %19 = getelementptr inbounds ptr, ptr %7, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %7, i64 %18
   store ptr %17, ptr %19, align 8
   %20 = add nsw i32 %.06270, 1
   br label %21
@@ -1436,7 +1434,7 @@ define dso_local void @copyTemplateDependencies(i32 noundef %0, i32 noundef %1) 
   %.pre-phi = phi i64 [ %.phi.trans.insert, %._crit_edge77 ], [ %18, %16 ]
   %22 = phi ptr [ %.pre, %._crit_edge77 ], [ %17, %16 ]
   %.1 = phi i32 [ %.06270, %._crit_edge77 ], [ %20, %16 ]
-  %23 = getelementptr inbounds ptr, ptr %7, i64 %.pre-phi
+  %23 = getelementptr inbounds [8 x i8], ptr %7, i64 %.pre-phi
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
@@ -1551,7 +1549,7 @@ define dso_local void @copyTemplateDependencies(i32 noundef %0, i32 noundef %1) 
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %.lr.ph74
   %indvars.iv = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next, %.lr.ph74 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 8
   call void @ExecDropSingleTupleTableSlot(ptr noundef %96) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1703,7 +1701,7 @@ define dso_local void @shdepDropOwned(ptr noundef readonly captures(address_is_n
 .lr.ph69:                                         ; preds = %.lr.ph58, %._crit_edge
   %indvars.iv68 = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %.lr.ph58 ]
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv68
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv68
   %17 = load i32, ptr %16, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = call zeroext i1 @IsPinnedObject(i32 noundef 1260, i32 noundef %17) #7
@@ -1909,7 +1907,7 @@ define dso_local void @shdepReassignOwned(ptr noundef readonly captures(address_
 .lr.ph65:                                         ; preds = %.lr.ph42, %._crit_edge
   %indvars.iv64 = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %.lr.ph42 ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv64
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = load i32, ptr %12, align 8
   %14 = call zeroext i1 @IsPinnedObject(i32 noundef 1260, i32 noundef %13) #7

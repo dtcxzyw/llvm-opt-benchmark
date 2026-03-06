@@ -63,12 +63,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Deque_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Deque_impl" = type { %"struct.std::_Deque_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Deque_impl_data" }
 %"struct.std::_Deque_base<rocksdb::Slice, std::allocator<rocksdb::Slice>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.65", %"struct.std::_Deque_iterator.65" }
 %"struct.std::_Deque_iterator.65" = type { ptr, ptr, ptr, ptr }
-%"class.std::unique_ptr.79" = type { %"struct.std::__uniq_ptr_data.80" }
-%"struct.std::__uniq_ptr_data.80" = type { %"class.std::__uniq_ptr_impl.81" }
-%"class.std::__uniq_ptr_impl.81" = type { %"class.std::tuple.82" }
-%"class.std::tuple.82" = type { %"struct.std::_Tuple_impl.83" }
-%"struct.std::_Tuple_impl.83" = type { %"struct.std::_Head_base.86" }
-%"struct.std::_Head_base.86" = type { ptr }
 %class.anon.141 = type { i8 }
 
 $_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev = comdat any
@@ -1086,7 +1080,7 @@ _ZNSt12_Vector_baseIN7rocksdb10WideColumnESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN7rocksdb10WideColumnESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i.i.i.i
   %180 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %181 = getelementptr inbounds nuw %"class.rocksdb::WideColumn", ptr %179, i64 %173
+  %181 = getelementptr inbounds nuw [32 x i8], ptr %179, i64 %173
   br label %193
 
 182:                                              ; preds = %_ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_EEERS1_DpOT_.exit.i.i.i.i.i.i.i
@@ -1202,7 +1196,7 @@ _ZNKSt6vectorIN7rocksdb10WideColumnESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 .noexc13.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i18.i.i.i.i.i.i.i, %.noexc25.i.i.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %220, %.noexc25.i.i.i.i.i.i.i ], [ %232, %.lr.ph.i.i.i.i18.i.i.i.i.i.i.i ]
   call void @_ZdlPvm(ptr noundef nonnull %196, i64 noundef %211) #27, !noalias !192
-  %233 = getelementptr inbounds nuw %"class.rocksdb::WideColumn", ptr %220, i64 %218
+  %233 = getelementptr inbounds nuw [32 x i8], ptr %220, i64 %218
   br label %_ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_EEERS1_DpOT_.exit.i.i.i.i.i.i.i
 
 _ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_EEERS1_DpOT_.exit.i.i.i.i.i.i.i: ; preds = %.noexc13.i.i.i.i.i.i.i, %198
@@ -1972,7 +1966,7 @@ _ZNSt12_Vector_baseIN7rocksdb10WideColumnESaIS1_EE11_M_allocateEm.exit.i.i.i.i.i
   %221 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %220, ptr %14, align 8, !tbaa !114, !noalias !274
   store ptr %220, ptr %221, align 8, !tbaa !117, !noalias !274
-  %222 = getelementptr inbounds nuw %"class.rocksdb::WideColumn", ptr %220, i64 %214
+  %222 = getelementptr inbounds nuw [32 x i8], ptr %220, i64 %214
   store ptr %222, ptr %218, align 8, !tbaa !118, !noalias !274
   br label %233
 
@@ -2087,7 +2081,7 @@ _ZNKSt6vectorIN7rocksdb10WideColumnESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %236, i64 noundef %252) #27, !noalias !273
   store ptr %261, ptr %14, align 8, !tbaa !114, !noalias !274
   store ptr %274, ptr %221, align 8, !tbaa !117, !noalias !274
-  %275 = getelementptr inbounds nuw %"class.rocksdb::WideColumn", ptr %261, i64 %259
+  %275 = getelementptr inbounds nuw [32 x i8], ptr %261, i64 %259
   store ptr %275, ptr %218, align 8, !tbaa !118, !noalias !274
   br label %_ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE12emplace_backIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_EEERS1_DpOT_.exit.i.i.i.i.i.i.i
 
@@ -6027,11 +6021,11 @@ _ZN7rocksdb12MergeContext5ClearEv.exit524:        ; preds = %1376, %_ZNSt6vector
 
 1418:                                             ; preds = %1416, %1414
   %1419 = phi i64 [ %1415, %1414 ], [ %1417, %1416 ]
-  %1420 = getelementptr inbounds ptr, ptr %1403, i64 %1419
+  %1420 = getelementptr inbounds [8 x i8], ptr %1403, i64 %1419
   %1421 = load ptr, ptr %1420, align 8, !tbaa !84, !noalias !413
   %1422 = shl nsw i64 %1419, 4
   %1423 = sub nsw i64 %1408, %1422
-  %1424 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1421, i64 %1423
+  %1424 = getelementptr inbounds [32 x i8], ptr %1421, i64 %1423
   br label %_ZStmiRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit
 
 _ZStmiRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit: ; preds = %1412, %1418
@@ -7604,7 +7598,7 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %47, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %42, ptr %21, align 8, !tbaa !4
   store ptr %46, ptr %22, align 8, !tbaa !107
-  %48 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %42, i64 %40
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %40
   store ptr %48, ptr %24, align 8, !tbaa !10
   br label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE9push_backERKS1_.exit
 
@@ -7736,7 +7730,7 @@ _ZNSt6vectorISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 _ZNSt6vectorISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EESaIS9_EE17_M_realloc_insertIJPS6_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i: ; preds = %97, %_ZNSt6vectorISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i
   store ptr %91, ptr %51, align 8, !tbaa !80
   store ptr %96, ptr %73, align 8, !tbaa !83
-  %98 = getelementptr inbounds nuw %"class.std::unique_ptr.79", ptr %91, i64 %89
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %89
   store ptr %98, ptr %75, align 8, !tbaa !87
   br label %_ZNSt6vectorISt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EESaIS9_EE12emplace_backIJPS6_EEERS9_DpOT_.exit
 
@@ -7818,7 +7812,7 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %133, %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %128, ptr %100, align 8, !tbaa !4
   store ptr %132, ptr %109, align 8, !tbaa !107
-  %134 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %128, i64 %126
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %128, i64 %126
   store ptr %134, ptr %111, align 8, !tbaa !10
   br label %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE9push_backERKS1_.exit
 
@@ -8253,7 +8247,7 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   store ptr %9, ptr %0, align 8, !tbaa !99
   %10 = sub nsw i64 %.sroa.speculated, %7
   %11 = lshr i64 %10, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %.idx = shl nuw nsw i64 %7, 3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
@@ -8347,7 +8341,7 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   store ptr %50, ptr %51, align 8, !tbaa !94
   store ptr %41, ptr %39, align 8, !tbaa !372
   %52 = and i64 %1, 15
-  %53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %48, i64 %52
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %52
   store ptr %53, ptr %45, align 8, !tbaa !496
   ret void
 
@@ -8682,7 +8676,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 19:                                               ; preds = %19, %16
   %.08.i.i.i = phi i64 [ %18, %16 ], [ %21, %19 ]
-  %20 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.08.i.i.i
+  %20 = getelementptr inbounds [32 x i8], ptr %0, i64 %.08.i.i.i
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_EUlRKS3_SE_E_EEEvT_T0_SI_T1_T2_(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %14, ptr noundef nonnull byval(%"class.rocksdb::WideColumn") align 8 %20)
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
   %21 = add nsw i64 %.08.i.i.i, -1
@@ -8704,7 +8698,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 27:                                               ; preds = %13
   %28 = lshr i64 %14, 1
-  %29 = getelementptr inbounds nuw %"class.rocksdb::WideColumn", ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %28
   %30 = getelementptr inbounds i8, ptr %storemerge23, i64 -32
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_17WideColumnsHelper11SortColumnsERS7_EUlRKS3_SE_E_EEEvT_SH_SH_SH_T0_(ptr %0, ptr nonnull %11, ptr %29, ptr nonnull %30)
   br label %31
@@ -8851,9 +8845,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
   %.040 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %8 = shl i64 %.040, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %9
+  %10 = getelementptr inbounds [32 x i8], ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !208
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -8867,8 +8861,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
   %21 = icmp slt i32 %19, 0
   %22 = select i1 %.not.i.i.i, i1 %20, i1 %21
   %spec.select = select i1 %22, i64 %11, i64 %9
-  %23 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %spec.select
-  %24 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.040
+  %23 = getelementptr inbounds [32 x i8], ptr %0, i64 %spec.select
+  %24 = getelementptr inbounds [32 x i8], ptr %0, i64 %.040
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false), !tbaa.struct !209
   %25 = icmp slt i64 %spec.select, %6
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !507
@@ -8888,8 +8882,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
 32:                                               ; preds = %28
   %33 = shl nsw i64 %.0.lcssa, 1
   %34 = or disjoint i64 %33, 1
-  %35 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %34
-  %36 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.0.lcssa
+  %35 = getelementptr inbounds [32 x i8], ptr %0, i64 %34
+  %36 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !tbaa.struct !209
   br label %37
 
@@ -8905,7 +8899,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
   %.018.i = phi i64 [ %.0919.i, %47 ], [ %.1, %37 ]
   %.0919.in.i = add nsw i64 %.018.i, -1
   %.0919.i = sdiv i64 %.0919.in.i, 2
-  %39 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.0919.i
+  %39 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0919.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !208
   %..i.i.i.i = tail call i64 @llvm.umin.i64(i64 %41, i64 %.sroa.2.0.copyload)
@@ -8918,7 +8912,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
   br i1 %46, label %47, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_17WideColumnsHelper11SortColumnsERS7_EUlRKS3_SE_E_EEEvT_T0_SI_T1_RT2_.exit
 
 47:                                               ; preds = %.lr.ph.i
-  %48 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.018.i
+  %48 = getelementptr inbounds [32 x i8], ptr %0, i64 %.018.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false), !tbaa.struct !209
   %49 = icmp sgt i64 %.0919.i, %1
   br i1 %49, label %.lr.ph.i, label %_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_17WideColumnsHelper11SortColumnsERS7_EUlRKS3_SE_E_EEEvT_T0_SI_T1_RT2_.exit, !llvm.loop !508
@@ -8926,7 +8920,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_17WideColumnsHelper11SortColumnsERS7_EUlRKS3_SE_E_EEEvT_T0_SI_T1_RT2_.exit: ; preds = %.lr.ph.i, %47, %37
   %.0.lcssa.i = phi i64 [ %.1, %37 ], [ %.018.i, %.lr.ph.i ], [ %.0919.i, %47 ]
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %50 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %0, i64 %.0.lcssa.i
+  %50 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa.i
   store ptr %.sroa.039.0.copyload, ptr %50, align 8, !tbaa !112
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 %.sroa.2.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !113
@@ -9095,7 +9089,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10WideColumnESt6vec
   %19 = sub i64 %18, %6
   %20 = ashr exact i64 %19, 5
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.rocksdb::WideColumn", ptr %17, i64 %21
+  %22 = getelementptr inbounds [32 x i8], ptr %17, i64 %21
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %19, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !209
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -9670,9 +9664,9 @@ define linkonce_odr void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traits
   %19 = load ptr, ptr %0, align 8, !tbaa !99
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -9691,12 +9685,12 @@ define linkonce_odr void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traits
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit
 
@@ -9724,9 +9718,9 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #31
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit26, label %53
@@ -9754,7 +9748,7 @@ _ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !94
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !95
   %64 = load ptr, ptr %63, align 8, !tbaa !84
@@ -9978,7 +9972,7 @@ _ZNSt11_Deque_baseIN7rocksdb5SliceESaIS1_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !399
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -10072,7 +10066,7 @@ _ZNSt11_Deque_baseIN7rocksdb5SliceESaIS1_EE15_M_create_nodesEPPS1_S5_.exit: ; pr
   store ptr %48, ptr %49, align 8, !tbaa !513
   store ptr %39, ptr %37, align 8, !tbaa !514
   %50 = and i64 %1, 31
-  %51 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !515
   ret void
 
@@ -10336,7 +10330,7 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv
   br i1 %158, label %159, label %161
 
 159:                                              ; preds = %157
-  %160 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %150, i64 %93
+  %160 = getelementptr inbounds [32 x i8], ptr %150, i64 %93
   br label %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit
 
 161:                                              ; preds = %157
@@ -10349,12 +10343,12 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv
 
 165:                                              ; preds = %163, %161
   %166 = phi i64 [ %162, %161 ], [ %164, %163 ]
-  %167 = getelementptr inbounds ptr, ptr %148, i64 %166
+  %167 = getelementptr inbounds [8 x i8], ptr %148, i64 %166
   %168 = load ptr, ptr %167, align 8, !tbaa !84, !noalias !546
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 512
   %170 = shl nsw i64 %166, 4
   %171 = sub nsw i64 %155, %170
-  %172 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %168, i64 %171
+  %172 = getelementptr inbounds [32 x i8], ptr %168, i64 %171
   br label %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit
 
 _ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit: ; preds = %159, %165
@@ -10463,7 +10457,7 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_era
   br i1 %207, label %208, label %210
 
 208:                                              ; preds = %206
-  %209 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %202, i64 %94
+  %209 = getelementptr inbounds [32 x i8], ptr %202, i64 %94
   br label %_ZStmiRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit
 
 210:                                              ; preds = %206
@@ -10476,12 +10470,12 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_era
 
 214:                                              ; preds = %212, %210
   %215 = phi i64 [ %211, %210 ], [ %213, %212 ]
-  %216 = getelementptr inbounds ptr, ptr %200, i64 %215
+  %216 = getelementptr inbounds [8 x i8], ptr %200, i64 %215
   %217 = load ptr, ptr %216, align 8, !tbaa !84, !noalias !564
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 512
   %219 = shl nsw i64 %215, 4
   %220 = sub nsw i64 %204, %219
-  %221 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %217, i64 %220
+  %221 = getelementptr inbounds [32 x i8], ptr %217, i64 %220
   br label %_ZStmiRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit
 
 _ZStmiRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit: ; preds = %208, %214
@@ -10556,7 +10550,7 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_era
   br i1 %247, label %248, label %250
 
 248:                                              ; preds = %246
-  %249 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %236, i64 %113
+  %249 = getelementptr inbounds [32 x i8], ptr %236, i64 %113
   br label %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit9
 
 250:                                              ; preds = %246
@@ -10569,7 +10563,7 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_era
 
 254:                                              ; preds = %252, %250
   %255 = phi i64 [ %251, %250 ], [ %253, %252 ]
-  %256 = getelementptr inbounds ptr, ptr %233, i64 %255
+  %256 = getelementptr inbounds [8 x i8], ptr %233, i64 %255
   store ptr %256, ptr %239, align 8, !tbaa !95, !alias.scope !570
   %257 = load ptr, ptr %256, align 8, !tbaa !84, !noalias !570
   store ptr %257, ptr %237, align 8, !tbaa !93, !alias.scope !570
@@ -10577,7 +10571,7 @@ _ZNSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_era
   store ptr %258, ptr %238, align 8, !tbaa !94, !alias.scope !570
   %259 = shl nsw i64 %255, 4
   %260 = sub nsw i64 %244, %259
-  %261 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %257, i64 %260
+  %261 = getelementptr inbounds [32 x i8], ptr %257, i64 %260
   br label %_ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit9
 
 _ZStplRKSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_El.exit9: ; preds = %248, %254
@@ -10737,7 +10731,7 @@ define linkonce_odr void @_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 512
   %20 = tail call i64 @llvm.umin.i64(i64 %.01617, i64 16)
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.018, i64 %21
+  %22 = getelementptr inbounds [32 x i8], ptr %.018, i64 %21
   br label %.lr.ph.i.i.i.preheader
 
 23:                                               ; preds = %13
@@ -10747,7 +10741,7 @@ define linkonce_odr void @_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_
   %27 = ashr exact i64 %26, 5
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %27, i64 %.01617)
   %28 = sub nsw i64 0, %.sroa.speculated
-  %29 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.018, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %.018, i64 %28
   %30 = icmp sgt i64 %27, 0
   br i1 %30, label %.lr.ph.i.i.i.preheader, label %_ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit
 
@@ -10876,7 +10870,7 @@ _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %71, i64 %69
+  %77 = getelementptr inbounds [32 x i8], ptr %71, i64 %69
   br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit
 
 78:                                               ; preds = %74
@@ -10890,7 +10884,7 @@ _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 82:                                               ; preds = %80, %78
   %83 = phi i64 [ %79, %78 ], [ %81, %80 ]
   %84 = load ptr, ptr %11, align 8, !tbaa !95
-  %85 = getelementptr inbounds ptr, ptr %84, i64 %83
+  %85 = getelementptr inbounds [8 x i8], ptr %84, i64 %83
   store ptr %85, ptr %11, align 8, !tbaa !95
   %86 = load ptr, ptr %85, align 8, !tbaa !84
   store ptr %86, ptr %10, align 8, !tbaa !93
@@ -10898,7 +10892,7 @@ _ZSt23__copy_move_backward_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   store ptr %87, ptr %12, align 8, !tbaa !94
   %88 = shl nsw i64 %83, 4
   %89 = sub nsw i64 %72, %88
-  %90 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %86, i64 %89
+  %90 = getelementptr inbounds [32 x i8], ptr %86, i64 %89
   br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit
 
 _ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EmIEl.exit: ; preds = %76, %82
@@ -11069,7 +11063,7 @@ define linkonce_odr void @_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcS
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 5
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %19, i64 %storemerge12)
-  %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.013, i64 %.sroa.speculated
+  %20 = getelementptr inbounds [32 x i8], ptr %.013, i64 %.sroa.speculated
   %21 = icmp sgt i64 %19, 0
   br i1 %21, label %.lr.ph.i.i.i, label %_ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ET1_T0_S8_S7_.exit
 
@@ -11187,7 +11181,7 @@ _ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %57, i64 %.sroa.speculated
+  %67 = getelementptr inbounds [32 x i8], ptr %57, i64 %.sroa.speculated
   br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit
 
 68:                                               ; preds = %64
@@ -11201,7 +11195,7 @@ _ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
 72:                                               ; preds = %70, %68
   %73 = phi i64 [ %69, %68 ], [ %71, %70 ]
   %74 = load ptr, ptr %12, align 8, !tbaa !95
-  %75 = getelementptr inbounds ptr, ptr %74, i64 %73
+  %75 = getelementptr inbounds [8 x i8], ptr %74, i64 %73
   store ptr %75, ptr %12, align 8, !tbaa !95
   %76 = load ptr, ptr %75, align 8, !tbaa !84
   store ptr %76, ptr %11, align 8, !tbaa !93
@@ -11209,7 +11203,7 @@ _ZSt14__copy_move_a1ILb1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
   store ptr %77, ptr %10, align 8, !tbaa !94
   %78 = shl nsw i64 %73, 4
   %79 = sub nsw i64 %62, %78
-  %80 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %76, i64 %79
+  %80 = getelementptr inbounds [32 x i8], ptr %76, i64 %79
   br label %_ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit
 
 _ZNSt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_PS5_EpLEl.exit: ; preds = %66, %72

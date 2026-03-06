@@ -94,7 +94,7 @@ J2dTraceInit.exit:                                ; preds = %18, %22, %23
 
 switch.lookup:                                    ; preds = %28
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.J2dTraceImpl, i64 %30
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.J2dTraceImpl, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
   %31 = load ptr, ptr @j2dTraceFile, align 8
   %32 = call i64 @fwrite(ptr nonnull %switch.load, i64 4, i64 1, ptr %31)

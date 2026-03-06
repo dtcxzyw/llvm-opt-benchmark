@@ -3,7 +3,6 @@ source_filename = "bench/postgres/original/nodeTidrangescan.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
 
@@ -93,7 +92,7 @@ define dso_local noundef ptr @ExecInitTidRangeScan(ptr noundef %0, ptr noundef %
   %.021.i28 = phi ptr [ %76, %MakeTidOpExpr.exit.i ], [ null, %.lr.ph.i ]
   %indvars.iv.i27 = phi i64 [ %indvars.iv.next.i, %MakeTidOpExpr.exit.i ], [ 0, %.lr.ph.i ]
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv.i27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i27
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 17
@@ -291,7 +290,7 @@ define internal ptr @TidRangeNext(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %.lr.ph.i, %67
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i, %67 ], [ 0, %.lr.ph.i ]
   %32 = load ptr, ptr %28, align 8
-  %33 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv.i26
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i26
   %34 = load ptr, ptr %33, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8

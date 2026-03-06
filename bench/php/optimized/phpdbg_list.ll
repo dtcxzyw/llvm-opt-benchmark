@@ -177,9 +177,9 @@ zend_string_alloc.exit:                           ; preds = %9
 .lr.ph.split.us.i:                                ; preds = %75, %.lr.ph.i
   %indvars.iv52.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next53.i, %75 ]
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv52.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv52.i
   %56 = load i32, ptr %55, align 4, !tbaa !68
-  %57 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.next53.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.next53.i
   %58 = load i32, ptr %57, align 4, !tbaa !68
   %59 = sub i32 %58, %56
   %60 = load ptr, ptr %51, align 8, !tbaa !69
@@ -442,9 +442,9 @@ define hidden void @phpdbg_list_file(ptr noundef %0, i32 noundef %1, i32 noundef
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %39
   %indvars.iv52 = phi i64 [ %17, %.lr.ph.split.us.preheader ], [ %indvars.iv.next53, %39 ]
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %19 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv52
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv52
   %20 = load i32, ptr %19, align 4, !tbaa !68
-  %21 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.next53
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.next53
   %22 = load i32, ptr %21, align 4, !tbaa !68
   %23 = sub i32 %22, %20
   %24 = load ptr, ptr %10, align 8, !tbaa !69
@@ -474,9 +474,9 @@ define hidden void @phpdbg_list_file(ptr noundef %0, i32 noundef %1, i32 noundef
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %64
   %indvars.iv = phi i64 [ %17, %.lr.ph.split.preheader ], [ %indvars.iv.next, %64 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !68
-  %42 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.next
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.next
   %43 = load i32, ptr %42, align 4, !tbaa !68
   %44 = sub i32 %43, %41
   %45 = load ptr, ptr %10, align 8, !tbaa !69
@@ -737,7 +737,7 @@ define hidden ptr @phpdbg_compile_file(ptr noundef %0, i32 noundef %1) #0 {
   %38 = add i32 %37, 1
   %39 = add i32 %.06571, 1
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %.sroa.4857.0..sroa_idx, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.4857.0..sroa_idx, i64 %40
   store i32 %38, ptr %41, align 4, !tbaa !68
   br label %42
 
@@ -762,7 +762,7 @@ zend_hash_add_ptr.exit:                           ; preds = %zend_hash_add_ptr.e
   %50 = call ptr @_erealloc(ptr noundef nonnull %28, i64 noundef %49) #16
   %51 = trunc i64 %19 to i32
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 276
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %47
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %47
   store i32 %51, ptr %53, align 4, !tbaa !68
   %54 = getelementptr inbounds nuw i8, ptr %21, i64 168
   %55 = load ptr, ptr %54, align 8, !tbaa !87
@@ -997,7 +997,7 @@ define hidden ptr @phpdbg_compile_string(ptr noundef %0, ptr noundef %1, i32 nou
   %32 = add i32 %31, 1
   %33 = add i32 %.07987, 1
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %21, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %34
   store i32 %32, ptr %35, align 4, !tbaa !68
   br label %36
 
@@ -1017,7 +1017,7 @@ define hidden ptr @phpdbg_compile_string(ptr noundef %0, ptr noundef %1, i32 nou
   store i32 %.079.lcssa, ptr %40, align 8, !tbaa !53
   %41 = trunc i64 %19 to i32
   %42 = zext i32 %.079.lcssa to i64
-  %43 = getelementptr inbounds nuw i32, ptr %21, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %42
   store i32 %41, ptr %43, align 4, !tbaa !68
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1416), align 8, !tbaa !134
   %45 = tail call ptr %44(ptr noundef %0, ptr noundef %1, i32 noundef %2) #12

@@ -898,7 +898,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i315: ; preds = %.noexc318, %
 
 switch.lookup:                                    ; preds = %299
   %303 = zext nneg i32 %123 to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.main, i64 %303
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.main, i64 %303
   %switch.load = load double, ptr %switch.gep, align 8
   %304 = invoke noundef zeroext i1 @_ZN2cv12VideoCapture3setEid(ptr noundef nonnull align 8 dereferenceable(41) %35, i32 noundef 1073741924, double noundef %switch.load)
           to label %315 unwind label %301

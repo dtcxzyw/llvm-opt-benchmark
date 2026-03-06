@@ -399,7 +399,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb(p
   %notmask.i = shl nsw i64 -1, %20
   %21 = xor i64 %notmask.i, -1
   %22 = lshr i64 %5, 6
-  %23 = getelementptr inbounds nuw i64, ptr %17, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, %21
   store i64 %25, ptr %23, align 8
@@ -459,7 +459,7 @@ define hidden void @_ZN6BitMap8pretouchEv(ptr noundef nonnull readonly align 8 c
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 6
-  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %7 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   tail call void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef %2, ptr noundef %6, i64 noundef %7) #10
   ret void
@@ -483,7 +483,7 @@ define hidden void @_ZN6BitMap21set_range_within_wordEmm(ptr noundef nonnull rea
   %8 = and i64 %.not7, %notmask.i
   %9 = load ptr, ptr %0, align 8
   %10 = lshr i64 %1, 6
-  %11 = getelementptr inbounds nuw i64, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = or i64 %12, %8
   store i64 %13, ptr %11, align 8
@@ -509,7 +509,7 @@ define hidden void @_ZN6BitMap23clear_range_within_wordEmm(ptr noundef nonnull r
   %.0.i = or i64 %8, %6
   %9 = load ptr, ptr %0, align 8
   %10 = lshr i64 %1, 6
-  %11 = getelementptr inbounds nuw i64, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, %.0.i
   store i64 %13, ptr %11, align 8
@@ -527,7 +527,7 @@ define hidden void @_ZN6BitMap25par_put_range_within_wordEmmb(ptr noundef nonnul
 5:                                                ; preds = %4
   %6 = load ptr, ptr %0, align 8
   %7 = lshr i64 %1, 6
-  %8 = getelementptr inbounds nuw i64, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load volatile i64, ptr %8, align 8
   %10 = and i64 %1, 63
   %notmask.i = shl nsw i64 -1, %10
@@ -584,7 +584,7 @@ define hidden void @_ZN6BitMap9set_rangeEmm(ptr noundef nonnull readonly align 8
   %notmask.i.i = shl nsw i64 -1, %11
   %12 = load ptr, ptr %0, align 8
   %13 = lshr i64 %1, 6
-  %14 = getelementptr inbounds nuw i64, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = or i64 %15, %notmask.i.i
   store i64 %16, ptr %14, align 8
@@ -605,7 +605,7 @@ _ZN6BitMap18set_range_of_wordsEmm.exit:           ; preds = %9, %10
   %.neg.i.i = shl nsw i64 -1, %21
   %23 = xor i64 %.neg.i.i, -1
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %6
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %6
   %26 = load i64, ptr %25, align 8
   %27 = or i64 %26, %23
   store i64 %27, ptr %25, align 8
@@ -627,7 +627,7 @@ _ZN6BitMap18set_range_of_wordsEmm.exit:           ; preds = %9, %10
   %34 = and i64 %.not7.i28, %notmask.i.i25
   %35 = load ptr, ptr %0, align 8
   %36 = lshr i64 %1, 6
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = or i64 %38, %34
   store i64 %39, ptr %37, align 8
@@ -648,7 +648,7 @@ _ZN6BitMap21set_range_within_wordEmm.exit29:      ; preds = %28, %30
   %44 = and i64 %notmask.i.i31, %.not7.i34
   %45 = load ptr, ptr %0, align 8
   %46 = lshr i64 %29, 6
-  %47 = getelementptr inbounds nuw i64, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load i64, ptr %47, align 8
   %49 = or i64 %48, %44
   store i64 %49, ptr %47, align 8
@@ -677,7 +677,7 @@ define hidden void @_ZN6BitMap11clear_rangeEmm(ptr noundef nonnull readonly alig
   %12 = xor i64 %notmask.i.i, -1
   %13 = load ptr, ptr %0, align 8
   %14 = lshr i64 %1, 6
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, %12
   store i64 %17, ptr %15, align 8
@@ -697,7 +697,7 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit:         ; preds = %9, %10
 23:                                               ; preds = %_ZN6BitMap20clear_range_of_wordsEmm.exit
   %.neg.i.i = shl nsw i64 -1, %22
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %6
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %6
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, %.neg.i.i
   store i64 %27, ptr %25, align 8
@@ -719,7 +719,7 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit:         ; preds = %9, %10
   %.0.i.i28 = or i64 %34, %32
   %35 = load ptr, ptr %0, align 8
   %36 = lshr i64 %1, 6
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = and i64 %38, %.0.i.i28
   store i64 %39, ptr %37, align 8
@@ -740,7 +740,7 @@ _ZN6BitMap23clear_range_within_wordEmm.exit29:    ; preds = %28, %30
   %.0.i.i34 = or i64 %44, %42
   %45 = load ptr, ptr %0, align 8
   %46 = lshr i64 %29, 6
-  %47 = getelementptr inbounds nuw i64, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load i64, ptr %47, align 8
   %49 = and i64 %48, %.0.i.i34
   store i64 %49, ptr %47, align 8
@@ -780,7 +780,7 @@ define hidden void @_ZN6BitMap15set_large_rangeEmm(ptr noundef nonnull readonly 
   %notmask.i.i = shl nsw i64 -1, %12
   %13 = load ptr, ptr %0, align 8
   %14 = lshr i64 %1, 6
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = or i64 %16, %notmask.i.i
   store i64 %17, ptr %15, align 8
@@ -788,7 +788,7 @@ define hidden void @_ZN6BitMap15set_large_rangeEmm(ptr noundef nonnull readonly 
 
 _ZN6BitMap21set_range_within_wordEmm.exit:        ; preds = %9, %11
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %5
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %5
   %20 = sub nsw i64 %6, %5
   %21 = shl nsw i64 %20, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %19, i8 -1, i64 %21, i1 false)
@@ -800,7 +800,7 @@ _ZN6BitMap21set_range_within_wordEmm.exit:        ; preds = %9, %11
   %.neg.i.i = shl nsw i64 -1, %22
   %24 = xor i64 %.neg.i.i, -1
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %6
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %6
   %27 = load i64, ptr %26, align 8
   %28 = or i64 %27, %24
   store i64 %28, ptr %26, align 8
@@ -834,7 +834,7 @@ define hidden void @_ZN6BitMap17clear_large_rangeEmm(ptr noundef nonnull readonl
   %13 = xor i64 %notmask.i.i, -1
   %14 = load ptr, ptr %0, align 8
   %15 = lshr i64 %1, 6
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, %13
   store i64 %18, ptr %16, align 8
@@ -842,7 +842,7 @@ define hidden void @_ZN6BitMap17clear_large_rangeEmm(ptr noundef nonnull readonl
 
 _ZN6BitMap23clear_range_within_wordEmm.exit:      ; preds = %9, %11
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds nuw i64, ptr %19, i64 %5
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %5
   %21 = sub nsw i64 %6, %5
   %22 = shl nsw i64 %21, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %22, i1 false)
@@ -853,7 +853,7 @@ _ZN6BitMap23clear_range_within_wordEmm.exit:      ; preds = %9, %11
 24:                                               ; preds = %_ZN6BitMap23clear_range_within_wordEmm.exit
   %.neg.i.i = shl nsw i64 -1, %23
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %6
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %6
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, %.neg.i.i
   store i64 %28, ptr %26, align 8
@@ -872,7 +872,7 @@ define hidden void @_ZN6BitMap6at_putEmb(ptr noundef nonnull readonly align 8 ca
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
   %8 = lshr i64 %1, 6
-  %9 = getelementptr inbounds nuw i64, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load i64, ptr %9, align 8
   %11 = or i64 %10, %5
   store i64 %11, ptr %9, align 8
@@ -882,7 +882,7 @@ define hidden void @_ZN6BitMap6at_putEmb(ptr noundef nonnull readonly align 8 ca
   %13 = xor i64 %5, -1
   %14 = load ptr, ptr %0, align 8
   %15 = lshr i64 %1, 6
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, %13
   store i64 %18, ptr %16, align 8
@@ -896,7 +896,7 @@ define hidden void @_ZN6BitMap6at_putEmb(ptr noundef nonnull readonly align 8 ca
 define hidden noundef zeroext i1 @_ZN6BitMap10par_at_putEmb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = lshr i64 %1, 6
-  %6 = getelementptr inbounds nuw i64, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = and i64 %1, 63
   %8 = shl nuw i64 1, %7
   br i1 %2, label %9, label %16
@@ -971,7 +971,7 @@ define hidden void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull readonl
 11:                                               ; preds = %10
   %12 = load ptr, ptr %0, align 8
   %13 = lshr i64 %1, 6
-  %14 = getelementptr inbounds nuw i64, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load volatile i64, ptr %14, align 8
   %16 = and i64 %1, 63
   %notmask.i.i = shl nsw i64 -1, %16
@@ -1028,7 +1028,7 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit:         ; preds = %.lr.ph.split.i, %_Z
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %7
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %7
   %44 = load volatile i64, ptr %43, align 8
   %.neg.i.i = shl nsw i64 -1, %40
   %45 = xor i64 %.neg.i.i, -1
@@ -1064,7 +1064,7 @@ _ZN6BitMap20clear_range_of_wordsEmm.exit:         ; preds = %.lr.ph.split.i, %_Z
 61:                                               ; preds = %59
   %62 = load ptr, ptr %0, align 8
   %63 = lshr i64 %1, 6
-  %64 = getelementptr inbounds nuw i64, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %63
   %65 = load volatile i64, ptr %64, align 8
   %66 = and i64 %1, 63
   %notmask.i.i35 = shl nsw i64 -1, %66
@@ -1106,7 +1106,7 @@ _ZN6BitMap25par_put_range_within_wordEmmb.exit42: ; preds = %.lr.ph.split.i40, %
 84:                                               ; preds = %_ZN6BitMap25par_put_range_within_wordEmmb.exit42
   %85 = load ptr, ptr %0, align 8
   %86 = lshr i64 %60, 6
-  %87 = getelementptr inbounds nuw i64, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %86
   %88 = load volatile i64, ptr %87, align 8
   %89 = and i64 %60, 63
   %notmask.i.i44 = shl nsw i64 -1, %89
@@ -1171,7 +1171,7 @@ define hidden void @_ZN6BitMap18at_put_large_rangeEmmb(ptr noundef nonnull reado
   %notmask.i.i.i = shl nsw i64 -1, %14
   %15 = load ptr, ptr %0, align 8
   %16 = lshr i64 %1, 6
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = or i64 %18, %notmask.i.i.i
   store i64 %19, ptr %17, align 8
@@ -1179,7 +1179,7 @@ define hidden void @_ZN6BitMap18at_put_large_rangeEmmb(ptr noundef nonnull reado
 
 _ZN6BitMap21set_range_within_wordEmm.exit.i:      ; preds = %13, %11
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %6
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %6
   %22 = sub nsw i64 %7, %6
   %23 = shl nsw i64 %22, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %21, i8 -1, i64 %23, i1 false)
@@ -1191,7 +1191,7 @@ _ZN6BitMap21set_range_within_wordEmm.exit.i:      ; preds = %13, %11
   %.neg.i.i.i = shl nsw i64 -1, %24
   %26 = xor i64 %.neg.i.i.i, -1
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds nuw i64, ptr %27, i64 %7
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %7
   %29 = load i64, ptr %28, align 8
   %30 = or i64 %29, %26
   store i64 %30, ptr %28, align 8
@@ -1215,7 +1215,7 @@ _ZN6BitMap21set_range_within_wordEmm.exit.i:      ; preds = %13, %11
   %37 = xor i64 %notmask.i.i.i7, -1
   %38 = load ptr, ptr %0, align 8
   %39 = lshr i64 %1, 6
-  %40 = getelementptr inbounds nuw i64, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load i64, ptr %40, align 8
   %42 = and i64 %41, %37
   store i64 %42, ptr %40, align 8
@@ -1223,7 +1223,7 @@ _ZN6BitMap21set_range_within_wordEmm.exit.i:      ; preds = %13, %11
 
 _ZN6BitMap23clear_range_within_wordEmm.exit.i:    ; preds = %35, %33
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %6
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %6
   %45 = sub nsw i64 %7, %6
   %46 = shl nsw i64 %45, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %44, i8 0, i64 %46, i1 false)
@@ -1234,7 +1234,7 @@ _ZN6BitMap23clear_range_within_wordEmm.exit.i:    ; preds = %35, %33
 48:                                               ; preds = %_ZN6BitMap23clear_range_within_wordEmm.exit.i
   %.neg.i.i.i9 = shl nsw i64 -1, %47
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds nuw i64, ptr %49, i64 %7
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %7
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, %.neg.i.i.i9
   store i64 %52, ptr %50, align 8
@@ -1265,7 +1265,7 @@ define hidden void @_ZN6BitMap22par_at_put_large_rangeEmmb(ptr noundef nonnull r
 12:                                               ; preds = %10
   %13 = load ptr, ptr %0, align 8
   %14 = lshr i64 %1, 6
-  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load volatile i64, ptr %15, align 8
   %17 = and i64 %1, 63
   %notmask.i.i = shl nsw i64 -1, %17
@@ -1299,7 +1299,7 @@ _ZN6BitMap25par_put_range_within_wordEmmb.exit:   ; preds = %10, %12
 
 _ZN6BitMap25par_put_range_within_wordEmmb.exit.thread: ; preds = %.lr.ph.split.us.i, %_ZN6BitMap25par_put_range_within_wordEmmb.exit
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds nuw i64, ptr %32, i64 %6
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %6
   %34 = sub nsw i64 %7, %6
   %35 = shl nsw i64 %34, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %33, i8 -1, i64 %35, i1 false)
@@ -1307,7 +1307,7 @@ _ZN6BitMap25par_put_range_within_wordEmmb.exit.thread: ; preds = %.lr.ph.split.u
 
 _ZN6BitMap25par_put_range_within_wordEmmb.exit.thread28: ; preds = %.lr.ph.split.i, %_ZN6BitMap25par_put_range_within_wordEmmb.exit
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %6
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %6
   %38 = sub nsw i64 %7, %6
   %39 = shl nsw i64 %38, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %37, i8 0, i64 %39, i1 false)
@@ -1320,7 +1320,7 @@ _ZN6BitMap25par_put_range_within_wordEmmb.exit.thread28: ; preds = %.lr.ph.split
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %7
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %7
   %45 = load volatile i64, ptr %44, align 8
   %.neg.i.i = shl nsw i64 -1, %41
   %46 = xor i64 %.neg.i.i, -1
@@ -1369,10 +1369,10 @@ define hidden noundef zeroext i1 @_ZNK6BitMap8containsERKS_(ptr noundef nonnull 
 
 .lr.ph:                                           ; preds = %2, %8
   %.01518 = phi i64 [ %9, %8 ], [ 0, %2 ]
-  %10 = getelementptr inbounds nuw i64, ptr %3, i64 %.01518
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.01518
   %11 = load i64, ptr %10, align 8
   %12 = xor i64 %11, -1
-  %13 = getelementptr inbounds nuw i64, ptr %4, i64 %.01518
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01518
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, %12
   %.not = icmp eq i64 %15, 0
@@ -1384,9 +1384,9 @@ define hidden noundef zeroext i1 @_ZNK6BitMap8containsERKS_(ptr noundef nonnull 
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %._crit_edge
-  %19 = getelementptr inbounds nuw i64, ptr %3, i64 %7
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %7
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i64, ptr %4, i64 %7
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %22 = load i64, ptr %21, align 8
   %notmask.i.i = shl nsw i64 -1, %16
   %23 = or i64 %20, %notmask.i.i
@@ -1417,9 +1417,9 @@ define hidden noundef zeroext i1 @_ZNK6BitMap10intersectsERKS_(ptr noundef nonnu
 
 .lr.ph:                                           ; preds = %2, %8
   %.01519 = phi i64 [ %9, %8 ], [ 0, %2 ]
-  %10 = getelementptr inbounds nuw i64, ptr %3, i64 %.01519
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.01519
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i64, ptr %4, i64 %.01519
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01519
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, %11
   %.not18 = icmp eq i64 %14, 0
@@ -1431,9 +1431,9 @@ define hidden noundef zeroext i1 @_ZNK6BitMap10intersectsERKS_(ptr noundef nonnu
   br i1 %.not, label %.loopexit, label %16
 
 16:                                               ; preds = %._crit_edge
-  %17 = getelementptr inbounds nuw i64, ptr %3, i64 %7
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %7
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i64, ptr %4, i64 %7
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %20 = load i64, ptr %19, align 8
   %notmask.i.i = shl nsw i64 -1, %15
   %21 = xor i64 %notmask.i.i, -1
@@ -1459,9 +1459,9 @@ define hidden void @_ZN6BitMap9set_unionERKS_(ptr noundef nonnull readonly align
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.020 = phi i64 [ %13, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %.020
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.020
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i64, ptr %3, i64 %.020
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.020
   %11 = load i64, ptr %10, align 8
   %12 = or i64 %11, %9
   store i64 %12, ptr %10, align 8
@@ -1480,9 +1480,9 @@ define hidden void @_ZN6BitMap9set_unionERKS_(ptr noundef nonnull readonly align
   br i1 %.not, label %26, label %16
 
 16:                                               ; preds = %._crit_edge
-  %17 = getelementptr inbounds nuw i64, ptr %3, i64 %7
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %7
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i64, ptr %4, i64 %7
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %20 = load i64, ptr %19, align 8
   %21 = or i64 %20, %18
   %notmask.i.i = shl nsw i64 -1, %15
@@ -1509,10 +1509,10 @@ define hidden void @_ZN6BitMap14set_differenceERKS_(ptr noundef nonnull readonly
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.020 = phi i64 [ %14, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %.020
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.020
   %9 = load i64, ptr %8, align 8
   %10 = xor i64 %9, -1
-  %11 = getelementptr inbounds nuw i64, ptr %3, i64 %.020
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.020
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, %10
   store i64 %13, ptr %11, align 8
@@ -1531,9 +1531,9 @@ define hidden void @_ZN6BitMap14set_differenceERKS_(ptr noundef nonnull readonly
   br i1 %.not, label %25, label %17
 
 17:                                               ; preds = %._crit_edge
-  %18 = getelementptr inbounds nuw i64, ptr %3, i64 %7
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %7
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i64, ptr %4, i64 %7
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %21 = load i64, ptr %20, align 8
   %notmask.i.i = shl nsw i64 -1, %16
   %22 = xor i64 %21, -1
@@ -1558,9 +1558,9 @@ define hidden void @_ZN6BitMap16set_intersectionERKS_(ptr noundef nonnull readon
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.020 = phi i64 [ %13, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %.020
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.020
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i64, ptr %3, i64 %.020
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.020
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, %9
   store i64 %12, ptr %10, align 8
@@ -1579,9 +1579,9 @@ define hidden void @_ZN6BitMap16set_intersectionERKS_(ptr noundef nonnull readon
   br i1 %.not, label %23, label %16
 
 16:                                               ; preds = %._crit_edge
-  %17 = getelementptr inbounds nuw i64, ptr %3, i64 %7
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %7
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i64, ptr %4, i64 %7
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %20 = load i64, ptr %19, align 8
   %notmask.i.i = shl nsw i64 -1, %15
   %21 = or i64 %20, %notmask.i.i
@@ -1606,9 +1606,9 @@ define hidden noundef zeroext i1 @_ZN6BitMap21set_union_with_resultERKS_(ptr nou
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.034 = phi i1 [ %14, %.lr.ph ], [ false, %2 ]
   %.03033 = phi i64 [ %15, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw i64, ptr %3, i64 %.03033
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.03033
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i64, ptr %4, i64 %.03033
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.03033
   %11 = load i64, ptr %10, align 8
   %12 = or i64 %11, %9
   %13 = icmp ne i64 %12, %9
@@ -1631,9 +1631,9 @@ define hidden noundef zeroext i1 @_ZN6BitMap21set_union_with_resultERKS_(ptr nou
   br i1 %.not, label %33, label %19
 
 19:                                               ; preds = %._crit_edge
-  %20 = getelementptr inbounds nuw i64, ptr %3, i64 %7
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %7
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i64, ptr %4, i64 %7
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %23 = load i64, ptr %22, align 8
   %24 = or i64 %23, %21
   %notmask.i.i = shl nsw i64 -1, %18
@@ -1667,9 +1667,9 @@ define hidden noundef zeroext i1 @_ZN6BitMap26set_difference_with_resultERKS_(pt
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.034 = phi i1 [ %15, %.lr.ph ], [ false, %2 ]
   %.03033 = phi i64 [ %16, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw i64, ptr %3, i64 %.03033
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.03033
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i64, ptr %4, i64 %.03033
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.03033
   %11 = load i64, ptr %10, align 8
   %12 = xor i64 %11, -1
   %13 = and i64 %9, %12
@@ -1693,9 +1693,9 @@ define hidden noundef zeroext i1 @_ZN6BitMap26set_difference_with_resultERKS_(pt
   br i1 %.not, label %32, label %20
 
 20:                                               ; preds = %._crit_edge
-  %21 = getelementptr inbounds nuw i64, ptr %3, i64 %7
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %7
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i64, ptr %4, i64 %7
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %24 = load i64, ptr %23, align 8
   %notmask.i.i = shl nsw i64 -1, %19
   %25 = xor i64 %24, -1
@@ -1727,9 +1727,9 @@ define hidden noundef zeroext i1 @_ZN6BitMap28set_intersection_with_resultERKS_(
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.034 = phi i1 [ %14, %.lr.ph ], [ false, %2 ]
   %.03033 = phi i64 [ %15, %.lr.ph ], [ 0, %2 ]
-  %8 = getelementptr inbounds nuw i64, ptr %3, i64 %.03033
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.03033
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i64, ptr %4, i64 %.03033
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.03033
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, %9
   %13 = icmp ne i64 %12, %9
@@ -1752,9 +1752,9 @@ define hidden noundef zeroext i1 @_ZN6BitMap28set_intersection_with_resultERKS_(
   br i1 %.not, label %30, label %19
 
 19:                                               ; preds = %._crit_edge
-  %20 = getelementptr inbounds nuw i64, ptr %3, i64 %7
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %7
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i64, ptr %4, i64 %7
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %23 = load i64, ptr %22, align 8
   %notmask.i.i = shl nsw i64 -1, %18
   %24 = or i64 %23, %notmask.i.i
@@ -1857,9 +1857,9 @@ _ZN4Copy14disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %2, %36, %38
   br i1 %.not, label %51, label %42
 
 42:                                               ; preds = %_ZN4Copy14disjoint_wordsEPKP12HeapWordImplPS1_m.exit
-  %43 = getelementptr inbounds nuw i64, ptr %4, i64 %7
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i64, ptr %3, i64 %7
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %7
   %46 = load i64, ptr %45, align 8
   %notmask.i.i = shl nsw i64 -1, %41
   %47 = xor i64 %notmask.i.i, -1
@@ -1890,9 +1890,9 @@ define hidden noundef zeroext i1 @_ZNK6BitMap7is_sameERKS_(ptr noundef nonnull r
 
 .lr.ph:                                           ; preds = %2, %8
   %.01518 = phi i64 [ %9, %8 ], [ 0, %2 ]
-  %10 = getelementptr inbounds nuw i64, ptr %3, i64 %.01518
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.01518
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i64, ptr %4, i64 %.01518
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01518
   %13 = load i64, ptr %12, align 8
   %.not = icmp eq i64 %11, %13
   br i1 %.not, label %8, label %.loopexit
@@ -1903,9 +1903,9 @@ define hidden noundef zeroext i1 @_ZNK6BitMap7is_sameERKS_(ptr noundef nonnull r
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %._crit_edge
-  %17 = getelementptr inbounds nuw i64, ptr %3, i64 %7
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %7
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i64, ptr %4, i64 %7
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %20 = load i64, ptr %19, align 8
   %21 = xor i64 %20, %18
   %notmask.i.i = shl nsw i64 -1, %14
@@ -1935,7 +1935,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap7is_fullEv(ptr noundef nonnull read
 
 .lr.ph:                                           ; preds = %1, %6
   %.01013 = phi i64 [ %7, %6 ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %.01013
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.01013
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, -1
   br i1 %.not, label %6, label %.loopexit
@@ -1946,7 +1946,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap7is_fullEv(ptr noundef nonnull read
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %._crit_edge
-  %13 = getelementptr inbounds nuw i64, ptr %2, i64 %5
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %14 = load i64, ptr %13, align 8
   %notmask.i.i = shl nsw i64 -1, %10
   %.demorgan = or i64 %14, %notmask.i.i
@@ -1974,7 +1974,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap8is_emptyEv(ptr noundef nonnull rea
 
 .lr.ph:                                           ; preds = %1, %6
   %.01013 = phi i64 [ %7, %6 ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %.01013
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.01013
   %9 = load i64, ptr %8, align 8
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %6, label %.loopexit
@@ -1985,7 +1985,7 @@ define hidden noundef zeroext i1 @_ZNK6BitMap8is_emptyEv(ptr noundef nonnull rea
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %._crit_edge
-  %13 = getelementptr inbounds nuw i64, ptr %2, i64 %5
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %14 = load i64, ptr %13, align 8
   %notmask.i.i = shl nsw i64 -1, %10
   %15 = xor i64 %notmask.i.i, -1
@@ -2022,7 +2022,7 @@ define hidden noundef i64 @_ZNK6BitMap32count_one_bits_in_range_of_wordsEmm(ptr 
 6:                                                ; preds = %.lr.ph, %6
   %.010 = phi i64 [ 0, %.lr.ph ], [ %10, %6 ]
   %.089 = phi i64 [ %1, %.lr.ph ], [ %11, %6 ]
-  %7 = getelementptr inbounds i64, ptr %5, i64 %.089
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %.089
   %8 = load i64, ptr %7, align 8
   %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %8)
   %10 = add i64 %9, %.010
@@ -2051,7 +2051,7 @@ define hidden noundef range(i64 0, 65) i64 @_ZNK6BitMap26count_one_bits_within_w
   %8 = and i64 %.not11, %notmask.i
   %9 = load ptr, ptr %0, align 8
   %10 = lshr i64 %1, 6
-  %11 = getelementptr inbounds nuw i64, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %8, %12
   %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %13)
@@ -2077,7 +2077,7 @@ define hidden noundef i64 @_ZNK6BitMap14count_one_bitsEv(ptr noundef nonnull rea
 6:                                                ; preds = %6, %5
   %.010.i.i = phi i64 [ 0, %5 ], [ %10, %6 ]
   %.089.i.i = phi i64 [ 0, %5 ], [ %11, %6 ]
-  %7 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %.089.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.089.i.i
   %8 = load i64, ptr %7, align 8
   %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %8)
   %10 = add i64 %9, %.010.i.i
@@ -2093,7 +2093,7 @@ _ZNK6BitMap32count_one_bits_in_range_of_wordsEmm.exit.i: ; preds = %6
 13:                                               ; preds = %_ZNK6BitMap32count_one_bits_in_range_of_wordsEmm.exit.i
   %.neg.i.i.i = shl nsw i64 -1, %12
   %14 = xor i64 %.neg.i.i.i, -1
-  %15 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %4
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %4
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, %14
   %18 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %17)
@@ -2140,7 +2140,7 @@ define hidden noundef i64 @_ZNK6BitMap14count_one_bitsEmm(ptr noundef nonnull re
   %11 = and i64 %1, 63
   %notmask.i.i = shl nsw i64 -1, %11
   %12 = lshr i64 %1, 6
-  %13 = getelementptr inbounds nuw i64, ptr %.pre, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, %notmask.i.i
   %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %15)
@@ -2153,7 +2153,7 @@ define hidden noundef i64 @_ZNK6BitMap14count_one_bitsEmm(ptr noundef nonnull re
 17:                                               ; preds = %17, %.lr.ph.i
   %.010.i = phi i64 [ 0, %.lr.ph.i ], [ %21, %17 ]
   %.089.i = phi i64 [ %5, %.lr.ph.i ], [ %22, %17 ]
-  %18 = getelementptr inbounds i64, ptr %.pre, i64 %.089.i
+  %18 = getelementptr inbounds [8 x i8], ptr %.pre, i64 %.089.i
   %19 = load i64, ptr %18, align 8
   %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
   %21 = add i64 %20, %.010.i
@@ -2170,7 +2170,7 @@ _ZNK6BitMap32count_one_bits_in_range_of_wordsEmm.exit: ; preds = %17
 25:                                               ; preds = %_ZNK6BitMap32count_one_bits_in_range_of_wordsEmm.exit
   %.neg.i.i = shl nsw i64 -1, %24
   %26 = xor i64 %.neg.i.i, -1
-  %27 = getelementptr inbounds nuw i64, ptr %.pre, i64 %6
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %6
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, %26
   %30 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %29)
@@ -2197,7 +2197,7 @@ _ZNK6BitMap26count_one_bits_within_wordEmm.exit31: ; preds = %_ZNK6BitMap32count
   %38 = and i64 %.not11.i36, %notmask.i.i33
   %39 = load ptr, ptr %0, align 8
   %40 = lshr i64 %1, 6
-  %41 = getelementptr inbounds nuw i64, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %38, %42
   %44 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %43)
@@ -2219,7 +2219,7 @@ _ZNK6BitMap26count_one_bits_within_wordEmm.exit38: ; preds = %32, %34
   %49 = and i64 %notmask.i.i40, %.not11.i43
   %50 = load ptr, ptr %0, align 8
   %51 = lshr i64 %33, 6
-  %52 = getelementptr inbounds nuw i64, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %49, %53
   %55 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %54)
@@ -2316,10 +2316,10 @@ _ZNK11ArenaBitMap8allocateEm.exit:                ; preds = %19, %21
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %27 = phi i64 [ %32, %.lr.ph.split.us ], [ %25, %.lr.ph ]
-  %28 = getelementptr inbounds i64, ptr %7, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %7, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = sub i64 %27, %4
-  %31 = getelementptr inbounds i64, ptr %.0.i.i.i, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %30
   store i64 %29, ptr %31, align 8
   %32 = add i64 %27, -1
   %33 = icmp ugt i64 %27, %4
@@ -2328,11 +2328,11 @@ _ZNK11ArenaBitMap8allocateEm.exit:                ; preds = %19, %21
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %34 = phi i64 [ %43, %.lr.ph.split ], [ %25, %.lr.ph ]
   %.02528 = phi i64 [ %42, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %35 = getelementptr inbounds i64, ptr %7, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %7, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = lshr i64 %36, %23
   %38 = sub i64 %34, %4
-  %39 = getelementptr inbounds i64, ptr %.0.i.i.i, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %38
   %40 = or i64 %37, %.02528
   store i64 %40, ptr %39, align 8
   %41 = load i64, ptr %35, align 8
@@ -2468,7 +2468,7 @@ _ZNK11ArenaBitMap10reallocateEPmmm.exit:          ; preds = %_ZNK11ArenaBitMap8a
   %notmask = shl nsw i64 -1, %61
   %62 = xor i64 %notmask, -1
   %63 = lshr i64 %5, 6
-  %64 = getelementptr inbounds nuw i64, ptr %.0.i.i.i.i.i, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = and i64 %65, %62
   store i64 %66, ptr %64, align 8
@@ -2541,10 +2541,10 @@ _ZNK11ArenaBitMap8allocateEm.exit.i:              ; preds = %21, %19
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %27 = phi i64 [ %32, %.lr.ph.split.us.i ], [ %25, %.lr.ph.i ]
-  %28 = getelementptr inbounds i64, ptr %7, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %7, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = sub i64 %27, %4
-  %31 = getelementptr inbounds i64, ptr %.0.i.i.i.i, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i.i, i64 %30
   store i64 %29, ptr %31, align 8
   %32 = add i64 %27, -1
   %33 = icmp ugt i64 %27, %4
@@ -2553,11 +2553,11 @@ _ZNK11ArenaBitMap8allocateEm.exit.i:              ; preds = %21, %19
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %34 = phi i64 [ %43, %.lr.ph.split.i ], [ %25, %.lr.ph.i ]
   %.02528.i = phi i64 [ %42, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
-  %35 = getelementptr inbounds i64, ptr %7, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %7, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = lshr i64 %36, %23
   %38 = sub i64 %34, %4
-  %39 = getelementptr inbounds i64, ptr %.0.i.i.i.i, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i.i, i64 %38
   %40 = or i64 %37, %.02528.i
   store i64 %40, ptr %39, align 8
   %41 = load i64, ptr %35, align 8
@@ -2603,10 +2603,10 @@ define weak_odr hidden noundef ptr @_ZN14GrowableBitMapI14ResourceBitMapE13copy_
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %15 = phi i64 [ %20, %.lr.ph.split.us ], [ %13, %.lr.ph ]
-  %16 = getelementptr inbounds i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = sub i64 %15, %4
-  %19 = getelementptr inbounds i64, ptr %10, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %10, i64 %18
   store i64 %17, ptr %19, align 8
   %20 = add i64 %15, -1
   %21 = icmp ugt i64 %15, %4
@@ -2615,11 +2615,11 @@ define weak_odr hidden noundef ptr @_ZN14GrowableBitMapI14ResourceBitMapE13copy_
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %22 = phi i64 [ %31, %.lr.ph.split ], [ %13, %.lr.ph ]
   %.02528 = phi i64 [ %30, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %23 = getelementptr inbounds i64, ptr %7, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %7, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = lshr i64 %24, %11
   %26 = sub i64 %22, %4
-  %27 = getelementptr inbounds i64, ptr %10, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %10, i64 %26
   %28 = or i64 %25, %.02528
   store i64 %28, ptr %27, align 8
   %29 = load i64, ptr %23, align 8
@@ -2733,7 +2733,7 @@ _ZNK14ResourceBitMap10reallocateEPmmm.exit:       ; preds = %12, %.split11.i.i, 
   %notmask = shl nsw i64 -1, %50
   %51 = xor i64 %notmask, -1
   %52 = lshr i64 %5, 6
-  %53 = getelementptr inbounds nuw i64, ptr %14, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %52
   %54 = load i64, ptr %53, align 8
   %55 = and i64 %54, %51
   store i64 %55, ptr %53, align 8
@@ -2784,10 +2784,10 @@ define weak_odr hidden void @_ZN14GrowableBitMapI14ResourceBitMapE8truncateEmm(p
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %15 = phi i64 [ %20, %.lr.ph.split.us.i ], [ %13, %.lr.ph.i ]
-  %16 = getelementptr inbounds i64, ptr %7, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %7, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = sub i64 %15, %4
-  %19 = getelementptr inbounds i64, ptr %10, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %10, i64 %18
   store i64 %17, ptr %19, align 8
   %20 = add i64 %15, -1
   %21 = icmp ugt i64 %15, %4
@@ -2796,11 +2796,11 @@ define weak_odr hidden void @_ZN14GrowableBitMapI14ResourceBitMapE8truncateEmm(p
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %22 = phi i64 [ %31, %.lr.ph.split.i ], [ %13, %.lr.ph.i ]
   %.02528.i = phi i64 [ %30, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
-  %23 = getelementptr inbounds i64, ptr %7, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %7, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = lshr i64 %24, %11
   %26 = sub i64 %22, %4
-  %27 = getelementptr inbounds i64, ptr %10, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %10, i64 %26
   %28 = or i64 %25, %.02528.i
   store i64 %28, ptr %27, align 8
   %29 = load i64, ptr %23, align 8
@@ -2848,10 +2848,10 @@ define weak_odr hidden noundef ptr @_ZN14GrowableBitMapI11CHeapBitMapE13copy_of_
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %17 = phi i64 [ %22, %.lr.ph.split.us ], [ %15, %.lr.ph ]
-  %18 = getelementptr inbounds i64, ptr %7, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %7, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = sub i64 %17, %4
-  %21 = getelementptr inbounds i64, ptr %12, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %12, i64 %20
   store i64 %19, ptr %21, align 8
   %22 = add i64 %17, -1
   %23 = icmp ugt i64 %17, %4
@@ -2860,11 +2860,11 @@ define weak_odr hidden noundef ptr @_ZN14GrowableBitMapI11CHeapBitMapE13copy_of_
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %24 = phi i64 [ %33, %.lr.ph.split ], [ %15, %.lr.ph ]
   %.02528 = phi i64 [ %32, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %25 = getelementptr inbounds i64, ptr %7, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %7, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = lshr i64 %26, %13
   %28 = sub i64 %24, %4
-  %29 = getelementptr inbounds i64, ptr %12, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %12, i64 %28
   %30 = or i64 %27, %.02528
   store i64 %30, ptr %29, align 8
   %31 = load i64, ptr %25, align 8
@@ -2907,7 +2907,7 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb(ptr no
   %notmask = shl nsw i64 -1, %20
   %21 = xor i64 %notmask, -1
   %22 = lshr i64 %5, 6
-  %23 = getelementptr inbounds nuw i64, ptr %17, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, %21
   store i64 %25, ptr %23, align 8
@@ -2990,10 +2990,10 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11CHeapBitMapE8truncateEmm(ptr 
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %17 = phi i64 [ %22, %.lr.ph.split.us.i ], [ %15, %.lr.ph.i ]
-  %18 = getelementptr inbounds i64, ptr %4, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %4, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = sub i64 %17, %5
-  %21 = getelementptr inbounds i64, ptr %12, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %12, i64 %20
   store i64 %19, ptr %21, align 8
   %22 = add i64 %17, -1
   %23 = icmp ugt i64 %17, %5
@@ -3002,11 +3002,11 @@ define weak_odr hidden void @_ZN14GrowableBitMapI11CHeapBitMapE8truncateEmm(ptr 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %24 = phi i64 [ %33, %.lr.ph.split.i ], [ %15, %.lr.ph.i ]
   %.02528.i = phi i64 [ %32, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
-  %25 = getelementptr inbounds i64, ptr %4, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %4, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = lshr i64 %26, %13
   %28 = sub i64 %24, %5
-  %29 = getelementptr inbounds i64, ptr %12, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %12, i64 %28
   %30 = or i64 %27, %.02528.i
   store i64 %30, ptr %29, align 8
   %31 = load i64, ptr %25, align 8

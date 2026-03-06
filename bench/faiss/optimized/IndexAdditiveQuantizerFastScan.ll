@@ -342,7 +342,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %48,
 
 66:                                               ; preds = %66, %63
   %indvars.iv.i.i.i = phi i64 [ 0, %63 ], [ %indvars.iv.next.i.i.i, %66 ]
-  %67 = getelementptr inbounds nuw i16, ptr %64, i64 %indvars.iv.i.i.i
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %indvars.iv.i.i.i
   store i16 %65, ptr %67, align 2, !tbaa !60
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 16
@@ -469,7 +469,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %15
 .noexc41:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %24 = shl nuw nsw i64 %22, 2
   %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #24
-  %26 = getelementptr inbounds nuw float, ptr %25, i64 %22
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %22
   store float 0.000000e+00, ptr %25, align 4, !tbaa !72
   %27 = add nsw i64 %22, -1
   %28 = icmp eq i64 %27, 0
@@ -555,7 +555,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %42
 
 61:                                               ; preds = %.lr.ph, %61
   %.03067 = phi i64 [ 0, %.lr.ph ], [ %65, %61 ]
-  %62 = getelementptr inbounds nuw float, ptr %45, i64 %.03067
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.03067
   %63 = load float, ptr %62, align 4, !tbaa !72
   %64 = fdiv float %63, %56
   store float %64, ptr %62, align 4, !tbaa !72
@@ -657,11 +657,11 @@ _ZNSt6vectorIfSaIfEED2Ev.exit47:                  ; preds = %._crit_edge, %92
   %.069 = phi i64 [ 0, %.lr.ph70 ], [ %102, %97 ]
   %.02868 = phi ptr [ %1, %.lr.ph70 ], [ %101, %97 ]
   %98 = mul i64 %.069, %20
-  %99 = getelementptr inbounds nuw float, ptr %.sroa.060.0, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.060.0, i64 %98
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.02868, ptr align 4 %99, i64 %69, i1 false)
-  %100 = getelementptr inbounds nuw float, ptr %.02868, i64 %20
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %.02868, i64 %20
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %100, ptr align 4 %45, i64 %70, i1 false)
-  %101 = getelementptr inbounds nuw float, ptr %100, i64 %21
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %21
   %102 = add nuw nsw i64 %.069, 1
   %exitcond71.not = icmp eq i64 %102, %2
   br i1 %exitcond71.not, label %._crit_edge, label %97, !llvm.loop !78
@@ -1432,7 +1432,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 
 .noexc16:                                         ; preds = %48
   store ptr %50, ptr %7, align 8, !tbaa !74
-  %51 = getelementptr inbounds nuw float, ptr %50, i64 %45
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %45
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %51, ptr %52, align 8, !tbaa !95
   store float 0.000000e+00, ptr %50, align 4, !tbaa !72
@@ -1599,7 +1599,7 @@ define internal void @_ZN5faiss30IndexAdditiveQuantizerFastScan19estimate_norm_s
   %27 = mul i64 %26, %.017
   %28 = load i64, ptr %22, align 8, !tbaa !71
   %29 = mul i64 %27, %28
-  %30 = getelementptr inbounds nuw float, ptr %25, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %29
   %31 = invoke noundef float @_ZN5faiss12quantize_lut22aq_estimate_norm_scaleEmmmPKf(i64 noundef %26, i64 noundef %28, i64 noundef 2, ptr noundef %30)
           to label %32 unwind label %47
 

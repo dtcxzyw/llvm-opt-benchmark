@@ -11,9 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.4 = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"class.euf::justification" = type { i32, %union.anon, %union.anon.0 }
-%union.anon = type { ptr }
-%union.anon.0 = type { ptr }
 
 $_ZN6vectorIN3euf13justificationELb0EjED2Ev = comdat any
 
@@ -123,7 +120,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %21
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
   %.pre2.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !22
   %27 = zext i32 %.pre2.i.i.i to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i.i, i64 %27
   store ptr %24, ptr %28, align 8, !tbaa !24
   %29 = add i32 %.pre2.i.i.i, 1
   store i32 %29, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !22
@@ -315,7 +312,7 @@ _ZNK6vectorIPN18dependency_managerIN26stacked_dependency_managerIN3euf13justific
   br i1 %11, label %12, label %_ZN6vectorIPN18dependency_managerIN26stacked_dependency_managerIN3euf13justificationEE6configEE10dependencyELb0EjE3endEv.exit
 
 12:                                               ; preds = %_ZNK6vectorIPN18dependency_managerIN26stacked_dependency_managerIN3euf13justificationEE6configEE10dependencyELb0EjE4sizeEv.exit.thread
-  %13 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv41
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv41
   %14 = load ptr, ptr %13, align 8, !tbaa !24
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %15 = load i32, ptr %14, align 4
@@ -347,7 +344,7 @@ _ZN6vectorIN3euf13justificationELb0EjE9push_backERKS1_.exit: ; preds = %21, %27
   %28 = phi i32 [ %.pre2.i, %27 ], [ %23, %21 ]
   %29 = phi ptr [ %.pre.i, %27 ], [ %19, %21 ]
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %"class.euf::justification", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !tbaa.struct !42
   %32 = load ptr, ptr %1, align 8, !tbaa !15
   %33 = getelementptr inbounds i8, ptr %32, i64 -4
@@ -359,7 +356,7 @@ _ZN6vectorIN3euf13justificationELb0EjE9push_backERKS1_.exit: ; preds = %21, %27
 .preheader:                                       ; preds = %12, %102
   %36 = phi i1 [ false, %102 ], [ true, %12 ]
   %indvars.iv = phi i64 [ 1, %102 ], [ 0, %12 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 1073741824
@@ -500,7 +497,7 @@ _ZN6vectorIPN18dependency_managerIN26stacked_dependency_managerIN3euf13justifica
   %95 = phi ptr [ %.pre.i22, %_ZN6vectorIPN18dependency_managerIN26stacked_dependency_managerIN3euf13justificationEE6configEE10dependencyELb0EjE13expand_vectorEv.exit ], [ %42, %44 ]
   %96 = getelementptr inbounds i8, ptr %95, i64 -4
   %97 = zext i32 %94 to i64
-  %98 = getelementptr inbounds nuw ptr, ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %97
   store ptr %38, ptr %98, align 8, !tbaa !24
   %99 = add i32 %94, 1
   store i32 %99, ptr %96, align 4, !tbaa !22

@@ -433,7 +433,7 @@ define internal fastcc range(i32 0, 2) i32 @BN_from_montgomery_word(ptr noundef 
 
 26:                                               ; preds = %15
   %27 = sext i32 %24 to i64
-  %28 = getelementptr inbounds i64, ptr %22, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %22, i64 %27
   %29 = sub nsw i32 %11, %24
   %30 = zext nneg i32 %29 to i64
   %31 = shl nuw nsw i64 %30, 3
@@ -459,7 +459,7 @@ define internal fastcc range(i32 0, 2) i32 @BN_from_montgomery_word(ptr noundef 
   %39 = mul i64 %38, %34
   %40 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %.0107115, ptr noundef %21, i32 noundef %6, i64 noundef %39) #6
   %41 = add i64 %40, %.0108114
-  %42 = getelementptr inbounds nuw i64, ptr %.0107115, i64 %36
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.0107115, i64 %36
   %43 = load i64, ptr %42, align 8, !tbaa !6
   %44 = add i64 %41, %43
   %45 = icmp ne i64 %41, 0
@@ -489,7 +489,7 @@ define internal fastcc range(i32 0, 2) i32 @BN_from_montgomery_word(ptr noundef 
   store i32 %54, ptr %55, align 8, !tbaa !18
   %56 = load ptr, ptr %0, align 8, !tbaa !16
   %57 = load ptr, ptr %1, align 8, !tbaa !16
-  %58 = getelementptr inbounds i64, ptr %57, i64 %49
+  %58 = getelementptr inbounds [8 x i8], ptr %57, i64 %49
   %59 = tail call i64 @bn_sub_words(ptr noundef %56, ptr noundef nonnull %58, ptr noundef %21, i32 noundef %6) #6
   %.neg = sub i64 %.0108.lcssa, %59
   %60 = ptrtoint ptr %56 to i64
@@ -523,32 +523,32 @@ define internal fastcc range(i32 0, 2) i32 @BN_from_montgomery_word(ptr noundef 
 
 .lr.ph118:                                        ; preds = %.lr.ph118.preheader, %.lr.ph118
   %indvars.iv = phi i64 [ 0, %.lr.ph118.preheader ], [ %indvars.iv.next, %.lr.ph118 ]
-  %73 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv
   %74 = load i64, ptr %73, align 8, !tbaa !6
   %75 = or disjoint i64 %indvars.iv, 1
-  %76 = getelementptr inbounds nuw i64, ptr %66, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %75
   %77 = load i64, ptr %76, align 8, !tbaa !6
   %78 = or disjoint i64 %indvars.iv, 2
-  %79 = getelementptr inbounds nuw i64, ptr %66, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !6
-  %81 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   store i64 0, ptr %81, align 8, !tbaa !6
   %82 = or disjoint i64 %indvars.iv, 3
-  %83 = getelementptr inbounds nuw i64, ptr %66, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %82
   %84 = load i64, ptr %83, align 8, !tbaa !6
-  %85 = getelementptr inbounds nuw i64, ptr %58, i64 %75
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %75
   store i64 0, ptr %85, align 8, !tbaa !6
-  %86 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   store i64 %74, ptr %86, align 8, !tbaa !6
-  %87 = getelementptr inbounds nuw i64, ptr %58, i64 %78
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %78
   store i64 0, ptr %87, align 8, !tbaa !6
-  %88 = getelementptr inbounds nuw i64, ptr %56, i64 %75
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %75
   store i64 %77, ptr %88, align 8, !tbaa !6
-  %89 = getelementptr inbounds nuw i64, ptr %58, i64 %82
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %82
   store i64 0, ptr %89, align 8, !tbaa !6
-  %90 = getelementptr inbounds nuw i64, ptr %56, i64 %78
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %78
   store i64 %80, ptr %90, align 8, !tbaa !6
-  %91 = getelementptr inbounds nuw i64, ptr %56, i64 %82
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %82
   store i64 %84, ptr %91, align 8, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %92 = icmp samesign ult i64 %indvars.iv.next, %69
@@ -556,11 +556,11 @@ define internal fastcc range(i32 0, 2) i32 @BN_from_montgomery_word(ptr noundef 
 
 .lr.ph121:                                        ; preds = %.lr.ph121.preheader, %.lr.ph121
   %indvars.iv125 = phi i64 [ %72, %.lr.ph121.preheader ], [ %indvars.iv.next126, %.lr.ph121 ]
-  %93 = getelementptr inbounds nuw i64, ptr %66, i64 %indvars.iv125
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv125
   %94 = load i64, ptr %93, align 8, !tbaa !6
-  %95 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv125
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv125
   store i64 %94, ptr %95, align 8, !tbaa !6
-  %96 = getelementptr inbounds nuw i64, ptr %58, i64 %indvars.iv125
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv125
   store i64 0, ptr %96, align 8, !tbaa !6
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count

@@ -343,7 +343,7 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
   %.sext = sext i16 %71 to i32
   %72 = getelementptr inbounds nuw i8, ptr %.144, i64 20
   %73 = zext nneg i8 %66 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !63
   %76 = icmp slt i32 %75, %.sext
   br i1 %76, label %77, label %89
@@ -361,7 +361,7 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
   %85 = sext i16 %84 to i32
   %86 = load i8, ptr %8, align 4, !tbaa !58
   %87 = zext i8 %86 to i64
-  %88 = getelementptr inbounds nuw i32, ptr %72, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %87
   store i32 %85, ptr %88, align 4, !tbaa !63
   br label %128
 
@@ -381,7 +381,7 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
   %98 = sext i16 %97 to i32
   %99 = load i8, ptr %8, align 4, !tbaa !58
   %100 = zext i8 %99 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %72, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %100
   store i32 %98, ptr %101, align 4, !tbaa !63
   br label %128
 
@@ -400,7 +400,7 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
 
 111:                                              ; preds = %121, %107
   %indvars.iv.i = phi i64 [ 0, %107 ], [ %indvars.iv.next.i, %121 ]
-  %112 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv.i
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %indvars.iv.i
   %113 = load i32, ptr %112, align 4, !tbaa !63
   %114 = add i32 %113, -4001
   %115 = icmp ult i32 %114, -8001
@@ -408,7 +408,7 @@ define internal range(i32 0, 2) i32 @_poll_devices(ptr noundef readonly captures
 
 116:                                              ; preds = %111
   %117 = mul i32 %113, %108
-  %118 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv.i
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv.i
   %119 = load i32, ptr %118, align 4, !tbaa !63
   %120 = add i32 %119, %117
   store i32 %120, ptr %118, align 4, !tbaa !63
@@ -430,7 +430,7 @@ _process_axis_timestep.exit:                      ; preds = %_process_axis_times
   %124 = sext i16 %123 to i32
   %125 = getelementptr inbounds nuw i8, ptr %.144, i64 20
   %126 = zext i8 %122 to i64
-  %127 = getelementptr inbounds nuw i32, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %126
   store i32 %124, ptr %127, align 4, !tbaa !63
   br label %128
 
@@ -492,7 +492,7 @@ define internal noalias ptr @_key_to_string(i32 noundef %0, i32 noundef %1) #1 {
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @_button_names, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_button_names, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !65
   br label %8
 
@@ -525,7 +525,7 @@ define internal range(i32 0, 2) i32 @_string_to_key(ptr noundef readonly capture
 
 5:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %6 = getelementptr inbounds nuw ptr, ptr @_button_names, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_button_names, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !65
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #11
   %.not6 = icmp eq i32 %8, 0
@@ -543,7 +543,7 @@ define internal noalias ptr @_move_to_string(i32 noundef %0, i32 noundef %1) #1 
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @_move_names, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_move_names, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !65
   br label %8
 
@@ -576,7 +576,7 @@ define internal range(i32 0, 2) i32 @_string_to_move(ptr noundef readonly captur
 
 5:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %6 = getelementptr inbounds nuw ptr, ptr @_move_names, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @_move_names, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !65
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %0) #11
   %.not6 = icmp eq i32 %8, 0
@@ -611,7 +611,7 @@ define internal fastcc void @_process_axis_and_send(ptr noundef captures(none) %
 
 10:                                               ; preds = %20, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %20 ]
-  %11 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4, !tbaa !63
   %13 = add i32 %12, -4001
   %14 = icmp ult i32 %13, -8001
@@ -619,7 +619,7 @@ define internal fastcc void @_process_axis_and_send(ptr noundef captures(none) %
 
 15:                                               ; preds = %10
   %16 = mul i32 %12, %7
-  %17 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   %18 = load i32, ptr %17, align 4, !tbaa !63
   %19 = add i32 %18, %16
   store i32 %19, ptr %17, align 4, !tbaa !63
@@ -641,11 +641,11 @@ _process_axis_timestep.exit:                      ; preds = %20, %2
 23:                                               ; preds = %_process_axis_timestep.exit, %73
   %24 = phi i1 [ true, %_process_axis_timestep.exit ], [ false, %73 ]
   %indvars.iv = phi i64 [ 0, %_process_axis_timestep.exit ], [ 2, %73 ]
-  %25 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !63
   %27 = sitofp i32 %26 to double
   %28 = or disjoint i64 %indvars.iv, 1
-  %29 = getelementptr inbounds nuw i32, ptr %21, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !63
   %31 = sitofp i32 %30 to double
   %32 = fadd reassoc nsz arcp contract afn double %31, 1.000000e-03

@@ -58319,7 +58319,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers5utils13getICBvConcatEb
   %639 = icmp eq i32 %638, 2
   %640 = getelementptr inbounds nuw i8, ptr %631, i64 24
   %641 = zext i1 %639 to i64
-  %642 = getelementptr inbounds nuw ptr, ptr %640, i64 %641
+  %642 = getelementptr inbounds nuw [8 x i8], ptr %640, i64 %641
   %643 = load ptr, ptr %642, align 8, !tbaa !12, !noalias !1770
   store ptr %643, ptr %362, align 8, !tbaa !3, !alias.scope !1770
   %644 = load i64, ptr %643, align 8, !noalias !1770
@@ -58477,7 +58477,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12
   %spec.select.i.i = add nuw nsw i32 %.0822192, %714
   %715 = getelementptr inbounds nuw i8, ptr %705, i64 24
   %716 = sext i32 %spec.select.i.i to i64
-  %717 = getelementptr inbounds ptr, ptr %715, i64 %716
+  %717 = getelementptr inbounds [8 x i8], ptr %715, i64 %716
   %718 = load ptr, ptr %717, align 8, !tbaa !12, !noalias !1773
   store ptr %718, ptr %364, align 8, !tbaa !3, !alias.scope !1773
   %719 = load i64, ptr %718, align 8, !noalias !1773
@@ -58909,7 +58909,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit542: ; preds = %_ZN4cvc58internal1
   %spec.select.i.i543 = add nsw i32 %904, %919
   %920 = getelementptr inbounds nuw i8, ptr %910, i64 24
   %921 = sext i32 %spec.select.i.i543 to i64
-  %922 = getelementptr inbounds ptr, ptr %920, i64 %921
+  %922 = getelementptr inbounds [8 x i8], ptr %920, i64 %921
   %923 = load ptr, ptr %922, align 8, !tbaa !12, !noalias !1777
   store ptr %923, ptr %371, align 8, !tbaa !3, !alias.scope !1777
   %924 = load i64, ptr %923, align 8, !noalias !1777
@@ -59078,7 +59078,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit555: ; preds = %_ZN4cvc58internal1
   %spec.select.i.i556 = add nuw nsw i32 %.0812194, %997
   %998 = getelementptr inbounds nuw i8, ptr %988, i64 24
   %999 = sext i32 %spec.select.i.i556 to i64
-  %1000 = getelementptr inbounds ptr, ptr %998, i64 %999
+  %1000 = getelementptr inbounds [8 x i8], ptr %998, i64 %999
   %1001 = load ptr, ptr %1000, align 8, !tbaa !12, !noalias !1780
   store ptr %1001, ptr %373, align 8, !tbaa !3, !alias.scope !1780
   %1002 = load i64, ptr %1001, align 8, !noalias !1780

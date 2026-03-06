@@ -6,10 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.VP8Residual = type { i32, i32, ptr, i32, ptr, ptr, ptr }
 %struct.VP8EncIterator = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [37 x i8], ptr, i32, [9 x i32], [9 x i32], [4 x [3 x i64]], i64, i64, ptr, i32, i32, i32, i32, [2 x [2 x i8]], ptr, ptr, ptr, ptr, ptr, ptr, [88 x i8], [3359 x i8] }
 %struct.VP8ModeScore = type { i64, i64, i64, i64, i64, [16 x i16], [16 x [16 x i16]], [8 x [16 x i16]], i32, [16 x i8], i32, i32, [2 x [3 x i8]] }
-%struct.VP8BitWriter = type { i32, i32, i32, i32, ptr, i64, i64, i32 }
-%struct.VP8SegmentInfo = type { %struct.VP8Matrix, %struct.VP8Matrix, %struct.VP8Matrix, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64 }
-%struct.VP8Matrix = type { [16 x i16], [16 x i16], [16 x i32], [16 x i32], [16 x i16] }
-%struct.VP8MBInfo = type { i8, i8, [2 x i8] }
 
 @VP8Cat3 = hidden local_unnamed_addr constant [3 x i8] c"\AD\94\8C", align 1
 @VP8Cat4 = hidden local_unnamed_addr constant [4 x i8] c"\B0\9B\8C\87", align 1
@@ -61,7 +57,7 @@ define hidden i32 @VP8EncLoop(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %29, label %30, label %PreLoopInitialize.exit.thread
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw %struct.VP8BitWriter, ptr %24, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %indvars.iv.i
   %32 = tail call i32 @VP8BitWriterInit(ptr noundef nonnull %31, i64 noundef %25) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i32 %32, 0
@@ -255,19 +251,19 @@ InitPassStats.exit.i:                             ; preds = %76, %73
 
 .preheader55.i.i.i:                               ; preds = %.preheader55.i.i.i.preheader, %152
   %indvars.iv62.i.i.i = phi i64 [ %indvars.iv.next63.i.i.i, %152 ], [ 0, %.preheader55.i.i.i.preheader ]
-  %144 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv62.i.i.i
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv62.i.i.i
   %.idx.i.i.i = shl nuw nsw i64 %indvars.iv62.i.i.i, 7
   %invariant.gep.i.i.i = getelementptr inbounds nuw i8, ptr %104, i64 %.idx.i.i.i
   br label %145
 
 145:                                              ; preds = %145, %.preheader55.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader55.i.i.i ], [ %indvars.iv.next.i.i.i, %145 ]
-  %146 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv.i.i.i
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %indvars.iv.i.i.i
   %147 = load i32, ptr %146, align 4, !tbaa !51
   %148 = load i32, ptr %144, align 4, !tbaa !51
   %149 = add nsw i32 %148, %147
   %150 = load ptr, ptr @VP8SetResidualCoeffs, align 8, !tbaa !50
-  %gep.i.i.i = getelementptr inbounds nuw [16 x i16], ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
+  %gep.i.i.i = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
   call void %150(ptr noundef nonnull %gep.i.i.i, ptr noundef nonnull %3) #9
   %151 = call i32 @VP8RecordCoeffs(i32 noundef %149, ptr noundef nonnull %3) #9
   store i32 %151, ptr %144, align 4, !tbaa !51
@@ -289,14 +285,14 @@ InitPassStats.exit.i:                             ; preds = %76, %73
   %154 = phi i1 [ true, %153 ], [ false, %166 ]
   %indvars.iv72.i.i.i = phi i64 [ 0, %153 ], [ 2, %166 ]
   %155 = or disjoint i64 %indvars.iv72.i.i.i, 4
-  %invariant.gep80.i.i.i = getelementptr inbounds nuw i32, ptr %103, i64 %155
-  %invariant.gep76.i.i.i = getelementptr inbounds nuw i32, ptr %102, i64 %155
+  %invariant.gep80.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %155
+  %invariant.gep76.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %155
   br label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %165, %.preheader54.i.i.i
   %156 = phi i1 [ true, %.preheader54.i.i.i ], [ false, %165 ]
   %indvars.iv69.i.i.i = phi i64 [ 0, %.preheader54.i.i.i ], [ 1, %165 ]
-  %gep81.i.i.i = getelementptr inbounds nuw i32, ptr %invariant.gep80.i.i.i, i64 %indvars.iv69.i.i.i
+  %gep81.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep80.i.i.i, i64 %indvars.iv69.i.i.i
   %157 = or disjoint i64 %indvars.iv69.i.i.i, %indvars.iv72.i.i.i
   %.idx75.i.i.i = shl nuw nsw i64 %157, 6
   %invariant.gep78.i.i.i = getelementptr inbounds nuw i8, ptr %105, i64 %.idx75.i.i.i
@@ -307,11 +303,11 @@ InitPassStats.exit.i:                             ; preds = %76, %73
   %159 = phi i32 [ %.pre.i.i, %.preheader.i.i.i ], [ %164, %158 ]
   %160 = phi i1 [ true, %.preheader.i.i.i ], [ false, %158 ]
   %indvars.iv66.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ 1, %158 ]
-  %gep77.i.i.i = getelementptr inbounds nuw i32, ptr %invariant.gep76.i.i.i, i64 %indvars.iv66.i.i.i
+  %gep77.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep76.i.i.i, i64 %indvars.iv66.i.i.i
   %161 = load i32, ptr %gep77.i.i.i, align 4, !tbaa !51
   %162 = add nsw i32 %161, %159
   %163 = load ptr, ptr @VP8SetResidualCoeffs, align 8, !tbaa !50
-  %gep79.i.i.i = getelementptr inbounds nuw [16 x i16], ptr %invariant.gep78.i.i.i, i64 %indvars.iv66.i.i.i
+  %gep79.i.i.i = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep78.i.i.i, i64 %indvars.iv66.i.i.i
   call void %163(ptr noundef nonnull %gep79.i.i.i, ptr noundef nonnull %3) #9
   %164 = call i32 @VP8RecordCoeffs(i32 noundef %162, ptr noundef nonnull %3) #9
   store i32 %164, ptr %gep81.i.i.i, align 4, !tbaa !51
@@ -392,12 +388,12 @@ CalcSkipProba.exit.i.i.i:                         ; preds = %182
 196:                                              ; preds = %CalcSkipProba.exit.i.i.i
   %.pn.in.i.i.i.i = and i64 %191, 255
   %.pn.i.i.i.i = xor i64 %.pn.in.i.i.i.i, 255
-  %.in.in.i.i.i.i = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i.i.i.i
+  %.in.in.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i.i.i.i
   %.in.i.i.i.i = load i16, ptr %.in.in.i.i.i.i, align 2, !tbaa !66
   %197 = zext i16 %.in.i.i.i.i to i32
   %198 = mul nsw i32 %186, %197
   %199 = sub nsw i32 %185, %186
-  %.in.in.i19.i.i.i = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.in.i.i.i.i
+  %.in.in.i19.i.i.i = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.in.i.i.i.i
   %.in.i20.i.i.i = load i16, ptr %.in.in.i19.i.i.i, align 2, !tbaa !66
   %200 = zext i16 %.in.i20.i.i.i to i32
   %201 = mul nsw i32 %199, %200
@@ -620,19 +616,19 @@ StatLoop.exit:                                    ; preds = %OneStatPass.exit.i,
 
 .preheader79.i:                                   ; preds = %.preheader79.i.preheader, %332
   %indvars.iv86.i = phi i64 [ %indvars.iv.next87.i, %332 ], [ 0, %.preheader79.i.preheader ]
-  %324 = getelementptr inbounds nuw i32, ptr %293, i64 %indvars.iv86.i
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %293, i64 %indvars.iv86.i
   %.idx.i = shl nuw nsw i64 %indvars.iv86.i, 7
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %294, i64 %.idx.i
   br label %325
 
 325:                                              ; preds = %325, %.preheader79.i
   %indvars.iv.i19 = phi i64 [ 0, %.preheader79.i ], [ %indvars.iv.next.i20, %325 ]
-  %326 = getelementptr inbounds nuw i32, ptr %292, i64 %indvars.iv.i19
+  %326 = getelementptr inbounds nuw [4 x i8], ptr %292, i64 %indvars.iv.i19
   %327 = load i32, ptr %326, align 4, !tbaa !51
   %328 = load i32, ptr %324, align 4, !tbaa !51
   %329 = add nsw i32 %328, %327
   %330 = load ptr, ptr @VP8SetResidualCoeffs, align 8, !tbaa !50
-  %gep.i = getelementptr inbounds nuw [16 x i16], ptr %invariant.gep.i, i64 %indvars.iv.i19
+  %gep.i = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i19
   call void %330(ptr noundef nonnull %gep.i, ptr noundef nonnull %2) #9
   %331 = call fastcc i32 @PutCoeffs(ptr noundef %305, i32 noundef %329, ptr noundef %2)
   store i32 %331, ptr %324, align 4, !tbaa !51
@@ -657,14 +653,14 @@ StatLoop.exit:                                    ; preds = %OneStatPass.exit.i,
   %337 = phi i1 [ true, %333 ], [ false, %349 ]
   %indvars.iv96.i = phi i64 [ 0, %333 ], [ 2, %349 ]
   %338 = or disjoint i64 %indvars.iv96.i, 4
-  %invariant.gep104.i = getelementptr inbounds nuw i32, ptr %293, i64 %338
-  %invariant.gep100.i = getelementptr inbounds nuw i32, ptr %292, i64 %338
+  %invariant.gep104.i = getelementptr inbounds nuw [4 x i8], ptr %293, i64 %338
+  %invariant.gep100.i = getelementptr inbounds nuw [4 x i8], ptr %292, i64 %338
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %348, %.preheader78.i
   %339 = phi i1 [ true, %.preheader78.i ], [ false, %348 ]
   %indvars.iv93.i = phi i64 [ 0, %.preheader78.i ], [ 1, %348 ]
-  %gep105.i = getelementptr inbounds nuw i32, ptr %invariant.gep104.i, i64 %indvars.iv93.i
+  %gep105.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep104.i, i64 %indvars.iv93.i
   %340 = or disjoint i64 %indvars.iv93.i, %indvars.iv96.i
   %.idx99.i = shl nuw nsw i64 %340, 6
   %invariant.gep102.i = getelementptr inbounds nuw i8, ptr %295, i64 %.idx99.i
@@ -675,11 +671,11 @@ StatLoop.exit:                                    ; preds = %OneStatPass.exit.i,
   %342 = phi i32 [ %.pre, %.preheader.i ], [ %347, %341 ]
   %343 = phi i1 [ true, %.preheader.i ], [ false, %341 ]
   %indvars.iv90.i = phi i64 [ 0, %.preheader.i ], [ 1, %341 ]
-  %gep101.i = getelementptr inbounds nuw i32, ptr %invariant.gep100.i, i64 %indvars.iv90.i
+  %gep101.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep100.i, i64 %indvars.iv90.i
   %344 = load i32, ptr %gep101.i, align 4, !tbaa !51
   %345 = add nsw i32 %342, %344
   %346 = load ptr, ptr @VP8SetResidualCoeffs, align 8, !tbaa !50
-  %gep103.i = getelementptr inbounds nuw [16 x i16], ptr %invariant.gep102.i, i64 %indvars.iv90.i
+  %gep103.i = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep102.i, i64 %indvars.iv90.i
   call void %346(ptr noundef nonnull %gep103.i, ptr noundef nonnull %2) #9
   %347 = call fastcc i32 @PutCoeffs(ptr noundef %305, i32 noundef %345, ptr noundef %2)
   store i32 %347, ptr %gep105.i, align 4, !tbaa !51
@@ -721,7 +717,7 @@ CodeResiduals.exit:                               ; preds = %349
   %371 = add i64 %367, %370
   store i64 %371, ptr %297, align 8, !tbaa !81
   %372 = zext nneg i8 %359 to i64
-  %373 = getelementptr inbounds nuw [3 x i64], ptr %298, i64 %372
+  %373 = getelementptr inbounds nuw [24 x i8], ptr %298, i64 %372
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %309, i64 8, i64 0
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %373, i64 %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   %374 = load i64, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, align 8, !tbaa !82
@@ -913,7 +909,7 @@ define internal fastcc void @StoreSideInfo(ptr noundef nonnull readonly captures
   %84 = lshr i8 %83, 5
   %85 = and i8 %84, 3
   %86 = zext nneg i8 %85 to i64
-  %87 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %3, i64 %86
+  %87 = getelementptr inbounds nuw [744 x i8], ptr %3, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1288
   %89 = load i32, ptr %88, align 8, !tbaa !96
   %90 = trunc i32 %89 to i8
@@ -995,7 +991,7 @@ define internal fastcc i32 @PostLoopFinalize(ptr noundef nonnull %0, i32 noundef
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %.139 = phi i32 [ %9, %.lr.ph ], [ %15, %10 ]
-  %11 = getelementptr inbounds nuw %struct.VP8BitWriter, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %indvars.iv
   %12 = tail call ptr @VP8BitWriterFinish(ptr noundef nonnull %11) #9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %14 = load i32, ptr %13, align 8, !tbaa !83
@@ -1027,18 +1023,18 @@ define internal fastcc i32 @PostLoopFinalize(ptr noundef nonnull %0, i32 noundef
 
 .preheader:                                       ; preds = %.preheader37, %32
   %indvars.iv47 = phi i64 [ 0, %.preheader37 ], [ %indvars.iv.next48, %32 ]
-  %invariant.gep = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv47
-  %25 = getelementptr inbounds nuw [4 x i32], ptr %24, i64 %indvars.iv47
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv47
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv47
   br label %26
 
 26:                                               ; preds = %.preheader, %26
   %indvars.iv44 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next45, %26 ]
-  %gep = getelementptr inbounds nuw [3 x i64], ptr %invariant.gep, i64 %indvars.iv44
+  %gep = getelementptr inbounds nuw [24 x i8], ptr %invariant.gep, i64 %indvars.iv44
   %27 = load i64, ptr %gep, align 8, !tbaa !82
   %28 = add i64 %27, 7
   %29 = lshr i64 %28, 3
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv44
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv44
   store i32 %30, ptr %31, align 4, !tbaa !51
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next45, 4
@@ -1143,7 +1139,7 @@ InitPassStats.exit:                               ; preds = %35, %38
   br i1 %62, label %63, label %PreLoopInitialize.exit.thread
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw %struct.VP8BitWriter, ptr %57, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [48 x i8], ptr %57, i64 %indvars.iv.i
   %65 = tail call i32 @VP8BitWriterInit(ptr noundef nonnull %64, i64 noundef %58) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i32 %65, 0
@@ -1274,19 +1270,19 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
 
 .preheader60.i:                                   ; preds = %.preheader60.i.preheader, %133
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %133 ], [ 0, %.preheader60.i.preheader ]
-  %125 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv67.i
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv67.i
   %.idx.i = shl nuw nsw i64 %indvars.iv67.i, 7
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %81, i64 %.idx.i
   br label %126
 
 126:                                              ; preds = %126, %.preheader60.i
   %indvars.iv.i110 = phi i64 [ 0, %.preheader60.i ], [ %indvars.iv.next.i111, %126 ]
-  %127 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv.i110
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv.i110
   %128 = load i32, ptr %127, align 4, !tbaa !51
   %129 = load i32, ptr %125, align 4, !tbaa !51
   %130 = add nsw i32 %129, %128
   %131 = load ptr, ptr @VP8SetResidualCoeffs, align 8, !tbaa !50
-  %gep.i = getelementptr inbounds nuw [16 x i16], ptr %invariant.gep.i, i64 %indvars.iv.i110
+  %gep.i = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i110
   call void %131(ptr noundef nonnull %gep.i, ptr noundef nonnull %2) #9
   %132 = call i32 @VP8RecordCoeffTokens(i32 noundef %130, ptr noundef nonnull %2, ptr noundef nonnull %73) #9
   store i32 %132, ptr %125, align 4, !tbaa !51
@@ -1308,14 +1304,14 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
   %135 = phi i1 [ true, %134 ], [ false, %147 ]
   %indvars.iv77.i = phi i64 [ 0, %134 ], [ 2, %147 ]
   %136 = or disjoint i64 %indvars.iv77.i, 4
-  %invariant.gep85.i = getelementptr inbounds nuw i32, ptr %80, i64 %136
-  %invariant.gep81.i = getelementptr inbounds nuw i32, ptr %79, i64 %136
+  %invariant.gep85.i = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %136
+  %invariant.gep81.i = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %136
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %146, %.preheader59.i
   %137 = phi i1 [ true, %.preheader59.i ], [ false, %146 ]
   %indvars.iv74.i = phi i64 [ 0, %.preheader59.i ], [ 1, %146 ]
-  %gep86.i = getelementptr inbounds nuw i32, ptr %invariant.gep85.i, i64 %indvars.iv74.i
+  %gep86.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep85.i, i64 %indvars.iv74.i
   %138 = or disjoint i64 %indvars.iv74.i, %indvars.iv77.i
   %.idx80.i = shl nuw nsw i64 %138, 6
   %invariant.gep83.i = getelementptr inbounds nuw i8, ptr %82, i64 %.idx80.i
@@ -1326,11 +1322,11 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
   %140 = phi i32 [ %.pre, %.preheader.i ], [ %145, %139 ]
   %141 = phi i1 [ true, %.preheader.i ], [ false, %139 ]
   %indvars.iv71.i = phi i64 [ 0, %.preheader.i ], [ 1, %139 ]
-  %gep82.i = getelementptr inbounds nuw i32, ptr %invariant.gep81.i, i64 %indvars.iv71.i
+  %gep82.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep81.i, i64 %indvars.iv71.i
   %142 = load i32, ptr %gep82.i, align 4, !tbaa !51
   %143 = add nsw i32 %140, %142
   %144 = load ptr, ptr @VP8SetResidualCoeffs, align 8, !tbaa !50
-  %gep84.i = getelementptr inbounds nuw [16 x i16], ptr %invariant.gep83.i, i64 %indvars.iv71.i
+  %gep84.i = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep83.i, i64 %indvars.iv71.i
   call void %144(ptr noundef nonnull %gep84.i, ptr noundef nonnull %2) #9
   %145 = call i32 @VP8RecordCoeffTokens(i32 noundef %143, ptr noundef nonnull %2, ptr noundef nonnull %73) #9
   store i32 %145, ptr %gep86.i, align 4, !tbaa !51
@@ -1564,12 +1560,12 @@ define internal fastcc void @SetLoopParams(ptr noundef %0, float noundef %1) unn
 
 16:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw %struct.VP8MBInfo, ptr %15, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i
   %18 = load i8, ptr %17, align 4
   %19 = lshr i8 %18, 5
   %20 = and i8 %19, 3
   %21 = zext nneg i8 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %3, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !51
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 4, !tbaa !51
@@ -1679,7 +1675,7 @@ GetProba.exit37.i:                                ; preds = %63, %GetProba.exit3
 82:                                               ; preds = %82, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %82 ]
   %83 = load ptr, ptr %81, align 8, !tbaa !113
-  %84 = getelementptr inbounds nuw %struct.VP8MBInfo, ptr %83, i64 %indvars.iv.i.i
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv.i.i
   %85 = load i8, ptr %84, align 4
   %86 = and i8 %85, -97
   store i8 %86, ptr %84, align 4
@@ -1707,18 +1703,18 @@ ResetSegments.exit.i:                             ; preds = %ResetSegments.exit.
   %94 = phi i8 [ %.pre70.i, %ResetSegments.exit.loopexit.i ], [ -1, %76 ], [ %60, %.critedge.i ], [ -1, %71 ]
   %95 = phi i8 [ %.pre.i, %ResetSegments.exit.loopexit.i ], [ -1, %76 ], [ %52, %.critedge.i ], [ -1, %71 ]
   %.pn.i.i = zext i8 %95 to i64
-  %.in.in.i.i = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i.i
+  %.in.in.i.i = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i.i
   %.in.i.i = load i16, ptr %.in.in.i.i, align 2, !tbaa !66
   %96 = zext i16 %.in.i.i to i32
   %.pn.i38.i = zext i8 %94 to i64
-  %.in.in.i39.i = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i38.i
+  %.in.in.i39.i = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i38.i
   %.in.i40.i = load i16, ptr %.in.in.i39.i, align 2, !tbaa !66
   %97 = zext i16 %.in.i40.i to i32
   %98 = add nuw nsw i32 %97, %96
   %99 = mul nsw i32 %98, %35
   %.pn.in.i.i = xor i8 %94, -1
   %.pn.i44.i = zext i8 %.pn.in.i.i to i64
-  %.in.in.i45.i = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i44.i
+  %.in.in.i45.i = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i44.i
   %.in.i46.i = load i16, ptr %.in.in.i45.i, align 2, !tbaa !66
   %100 = zext i16 %.in.i46.i to i32
   %101 = add nuw nsw i32 %100, %96
@@ -1726,11 +1722,11 @@ ResetSegments.exit.i:                             ; preds = %ResetSegments.exit.
   %103 = add nsw i32 %102, %99
   %.pn.in.i47.i = xor i8 %95, -1
   %.pn.i48.i = zext i8 %.pn.in.i47.i to i64
-  %.in.in.i49.i = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i48.i
+  %.in.in.i49.i = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i48.i
   %.in.i50.i = load i16, ptr %.in.in.i49.i, align 2, !tbaa !66
   %104 = zext i16 %.in.i50.i to i32
   %.pn.i52.i = zext i8 %93 to i64
-  %.in.in.i53.i = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i52.i
+  %.in.in.i53.i = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i52.i
   %.in.i54.i = load i16, ptr %.in.in.i53.i, align 2, !tbaa !66
   %105 = zext i16 %.in.i54.i to i32
   %106 = add nuw nsw i32 %105, %104
@@ -1738,7 +1734,7 @@ ResetSegments.exit.i:                             ; preds = %ResetSegments.exit.
   %108 = add nsw i32 %103, %107
   %.pn.in.i59.i = xor i8 %93, -1
   %.pn.i60.i = zext i8 %.pn.in.i59.i to i64
-  %.in.in.i61.i = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i60.i
+  %.in.in.i61.i = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i60.i
   %.in.i62.i = load i16, ptr %.in.in.i61.i, align 2, !tbaa !66
   %109 = zext i16 %.in.i62.i to i32
   %110 = add nuw nsw i32 %109, %104
@@ -1779,27 +1775,27 @@ define internal fastcc i32 @FinalizeTokenProbas(ptr noundef captures(none) %0) u
   %indvars.iv102 = phi i64 [ 0, %1 ], [ %indvars.iv.next103, %65 ]
   %.092 = phi i32 [ 0, %1 ], [ %.4, %65 ]
   %.05791 = phi i32 [ 0, %1 ], [ %.461, %65 ]
-  %4 = getelementptr inbounds nuw [8 x [3 x [11 x i32]]], ptr %2, i64 %indvars.iv102
-  %5 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr @VP8CoeffsUpdateProba, i64 %indvars.iv102
-  %6 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr @VP8CoeffsProba0, i64 %indvars.iv102
-  %7 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %3, i64 %indvars.iv102
+  %4 = getelementptr inbounds nuw [1056 x i8], ptr %2, i64 %indvars.iv102
+  %5 = getelementptr inbounds nuw [264 x i8], ptr @VP8CoeffsUpdateProba, i64 %indvars.iv102
+  %6 = getelementptr inbounds nuw [264 x i8], ptr @VP8CoeffsProba0, i64 %indvars.iv102
+  %7 = getelementptr inbounds nuw [264 x i8], ptr %3, i64 %indvars.iv102
   br label %.preheader79
 
 .preheader79:                                     ; preds = %.preheader80, %64
   %indvars.iv98 = phi i64 [ 0, %.preheader80 ], [ %indvars.iv.next99, %64 ]
   %.189 = phi i32 [ %.092, %.preheader80 ], [ %.4, %64 ]
   %.15888 = phi i32 [ %.05791, %.preheader80 ], [ %.461, %64 ]
-  %8 = getelementptr inbounds nuw [3 x [11 x i32]], ptr %4, i64 %indvars.iv98
-  %9 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %5, i64 %indvars.iv98
-  %10 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %6, i64 %indvars.iv98
-  %11 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %7, i64 %indvars.iv98
+  %8 = getelementptr inbounds nuw [132 x i8], ptr %4, i64 %indvars.iv98
+  %9 = getelementptr inbounds nuw [33 x i8], ptr %5, i64 %indvars.iv98
+  %10 = getelementptr inbounds nuw [33 x i8], ptr %6, i64 %indvars.iv98
+  %11 = getelementptr inbounds nuw [33 x i8], ptr %7, i64 %indvars.iv98
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader79, %63
   %indvars.iv94 = phi i64 [ 0, %.preheader79 ], [ %indvars.iv.next95, %63 ]
   %.286 = phi i32 [ %.189, %.preheader79 ], [ %.4, %63 ]
   %.25985 = phi i32 [ %.15888, %.preheader79 ], [ %.461, %63 ]
-  %12 = getelementptr inbounds nuw [11 x i32], ptr %8, i64 %indvars.iv94
+  %12 = getelementptr inbounds nuw [44 x i8], ptr %8, i64 %indvars.iv94
   %13 = getelementptr inbounds nuw [11 x i8], ptr %9, i64 %indvars.iv94
   %14 = getelementptr inbounds nuw [11 x i8], ptr %10, i64 %indvars.iv94
   %15 = getelementptr inbounds nuw [11 x i8], ptr %11, i64 %indvars.iv94
@@ -1809,7 +1805,7 @@ define internal fastcc i32 @FinalizeTokenProbas(ptr noundef captures(none) %0) u
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %62 ]
   %.383 = phi i32 [ %.286, %.preheader ], [ %.4, %62 ]
   %.36082 = phi i32 [ %.25985, %.preheader ], [ %.461, %62 ]
-  %17 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !51
   %19 = and i32 %18, 65535
   %20 = lshr i32 %18, 16
@@ -1831,37 +1827,37 @@ CalcTokenProba.exit:                              ; preds = %16, %26
   %30 = phi i32 [ %29, %26 ], [ 255, %16 ]
   %31 = xor i32 %25, 255
   %.pn.i.i = zext nneg i32 %31 to i64
-  %.in.in.i.i = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i.i
+  %.in.in.i.i = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i.i
   %.in.i.i = load i16, ptr %.in.in.i.i, align 2, !tbaa !66
   %32 = zext i16 %.in.i.i to i32
   %33 = mul nuw nsw i32 %19, %32
   %34 = sub nsw i32 %20, %19
   %.pn.i6.i = zext i8 %24 to i64
-  %.in.in.i7.i = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i6.i
+  %.in.in.i7.i = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i6.i
   %.in.i8.i = load i16, ptr %.in.in.i7.i, align 2, !tbaa !66
   %35 = zext i16 %.in.i8.i to i32
   %36 = mul nsw i32 %34, %35
   %37 = add nsw i32 %36, %33
   %.pn.i = zext i8 %22 to i64
-  %.in.in.i = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i
+  %.in.in.i = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i
   %.in.i = load i16, ptr %.in.in.i, align 2, !tbaa !66
   %38 = zext i16 %.in.i to i32
   %39 = add nsw i32 %37, %38
   %40 = and i32 %30, 255
   %41 = xor i32 %40, 255
   %.pn.i.i66 = zext nneg i32 %41 to i64
-  %.in.in.i.i67 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i.i66
+  %.in.in.i.i67 = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i.i66
   %.in.i.i68 = load i16, ptr %.in.in.i.i67, align 2, !tbaa !66
   %42 = zext i16 %.in.i.i68 to i32
   %43 = mul nuw nsw i32 %19, %42
   %.pn.i6.i69 = zext nneg i32 %40 to i64
-  %.in.in.i7.i70 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i6.i69
+  %.in.in.i7.i70 = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i6.i69
   %.in.i8.i71 = load i16, ptr %.in.in.i7.i70, align 2, !tbaa !66
   %44 = zext i16 %.in.i8.i71 to i32
   %45 = mul nsw i32 %34, %44
   %.pn.in.i = xor i8 %22, -1
   %.pn.i72 = zext i8 %.pn.in.i to i64
-  %.in.in.i73 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i72
+  %.in.in.i73 = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i72
   %.in.i74 = load i16, ptr %.in.in.i73, align 2, !tbaa !66
   %46 = zext i16 %.in.i74 to i32
   %47 = add nuw i32 %43, 2048
@@ -1871,7 +1867,7 @@ CalcTokenProba.exit:                              ; preds = %16, %26
   %.neg = sext i1 %50 to i8
   %.pn.in.i75 = xor i8 %22, %.neg
   %.pn.i76 = zext i8 %.pn.in.i75 to i64
-  %.in.in.i77 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i76
+  %.in.in.i77 = getelementptr inbounds nuw [2 x i8], ptr @VP8EntropyCost, i64 %.pn.i76
   %.in.i78 = load i16, ptr %.in.in.i77, align 2, !tbaa !66
   %51 = zext i16 %.in.i78 to i32
   %52 = add nsw i32 %.36082, %51
@@ -1948,7 +1944,7 @@ define internal fastcc range(i32 0, 2) i32 @PutCoeffs(ptr noundef %0, i32 nounde
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !126
   %7 = sext i32 %4 to i64
-  %8 = getelementptr inbounds [3 x [11 x i8]], ptr %6, i64 %7
+  %8 = getelementptr inbounds [33 x i8], ptr %6, i64 %7
   %9 = sext i32 %1 to i64
   %10 = getelementptr inbounds [11 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1974,7 +1970,7 @@ define internal fastcc range(i32 0, 2) i32 @PutCoeffs(ptr noundef %0, i32 nounde
   %.091110 = phi ptr [ %10, %.lr.ph ], [ %.192, %154 ]
   %21 = load ptr, ptr %19, align 8, !tbaa !128
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds i16, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds [2 x i8], ptr %21, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2, !tbaa !66
   %.lobit = lshr i16 %23, 15
   %24 = zext nneg i16 %.lobit to i32
@@ -1994,7 +1990,7 @@ define internal fastcc range(i32 0, 2) i32 @PutCoeffs(ptr noundef %0, i32 nounde
   %35 = getelementptr inbounds i8, ptr @VP8EncBands, i64 %indvars.iv.next
   %36 = load i8, ptr %35, align 1, !tbaa !24
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [33 x i8], ptr %34, i64 %37
   br label %154, !llvm.loop !129
 
 39:                                               ; preds = %20
@@ -2152,7 +2148,7 @@ define internal fastcc range(i32 0, 2) i32 @PutCoeffs(ptr noundef %0, i32 nounde
 
 143:                                              ; preds = %.loopexit
   %144 = zext i8 %140 to i64
-  %145 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %138, i64 %144
+  %145 = getelementptr inbounds nuw [33 x i8], ptr %138, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 %.sink117
   %147 = load i32, ptr %11, align 4, !tbaa !127
   %148 = sext i32 %147 to i64

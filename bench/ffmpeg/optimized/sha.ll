@@ -3501,7 +3501,7 @@ av_sha_update.exit26:                             ; preds = %av_sha_update.exit1
 
 .lr.ph31:                                         ; preds = %av_sha_update.exit26, %.lr.ph31
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph31 ], [ 0, %av_sha_update.exit26 ]
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4, !tbaa !10
   %45 = tail call i32 @llvm.bswap.i32(i32 %44)
   %46 = shl nuw nsw i64 %indvars.iv, 2

@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/mapperCreate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Map_MatchStruct_t_ = type { ptr, i32, i32, ptr, %struct.Map_TimeStruct_t_, float }
-%struct.Map_TimeStruct_t_ = type { float, float, float }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.timespec = type { i64, i64 }
 
@@ -86,7 +84,7 @@ define ptr @Map_ManReadBufDriver(ptr noundef readonly captures(none) %0, i32 nou
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = tail call ptr @Map_NodeVecReadArray(ptr noundef %4) #24
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !27
@@ -303,7 +301,7 @@ define i32 @Map_NodeReadAigId(ptr noundef readonly captures(none) %0) local_unna
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !61
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds i32, ptr %4, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %4, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !62
   ret i32 %9
 }
@@ -319,7 +317,7 @@ define ptr @Map_NodeReadCuts(ptr noundef readonly captures(none) %0) local_unnam
 define ptr @Map_NodeReadCutBest(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !64
   ret ptr %6
 }
@@ -376,7 +374,7 @@ define void @Map_NodeSetAigId(ptr noundef readonly captures(none) %0, i32 nounde
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !61
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds i32, ptr %5, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %5, i64 %8
   store i32 %1, ptr %9, align 4, !tbaa !62
   ret void
 }
@@ -474,7 +472,7 @@ define range(i32 0, 2) i32 @Map_NodeComparePhase(ptr noundef readonly captures(n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Map_CutReadSuperBest(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr %struct.Map_MatchStruct_t_, ptr %0, i64 %3
+  %4 = getelementptr [40 x i8], ptr %0, i64 %3
   %5 = getelementptr i8, ptr %4, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   ret ptr %6
@@ -511,7 +509,7 @@ define nonnull ptr @Map_CutReadLeaves(ptr noundef readnone captures(ret: address
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Map_CutReadPhaseBest(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr %struct.Map_MatchStruct_t_, ptr %0, i64 %3
+  %4 = getelementptr [40 x i8], ptr %0, i64 %3
   %5 = getelementptr i8, ptr %4, i64 92
   %6 = load i32, ptr %5, align 4, !tbaa !73
   ret i32 %6
@@ -833,7 +831,7 @@ Map_NodeCreate.exit40:                            ; preds = %87, %89
   store float -1.000000e+00, ptr %94, align 4, !tbaa !81
   store float -1.000000e+00, ptr %93, align 4, !tbaa !81
   %95 = load ptr, ptr %71, align 8, !tbaa !24
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv
   store ptr %74, ptr %96, align 8, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1241,7 +1239,7 @@ define void @Map_ManCreateNodeDelays(ptr noundef captures(none) initializes((72,
 15:                                               ; preds = %.lr.ph, %33
   %16 = phi i32 [ %6, %.lr.ph ], [ %34, %33 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !26
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !98
@@ -1258,7 +1256,7 @@ define void @Map_ManCreateNodeDelays(ptr noundef captures(none) initializes((72,
   %29 = tail call double @log(double noundef %28) #24, !tbaa !62
   %30 = fmul double %29, %27
   %31 = fptrunc double %30 to float
-  %32 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store float %31, ptr %32, align 4, !tbaa !81
   %.pre = load i32, ptr %5, align 8, !tbaa !103
   br label %33
@@ -1527,7 +1525,7 @@ define ptr @Map_NodeAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
   %53 = urem i64 %51, %52
   %54 = load ptr, ptr %0, align 8, !tbaa !88
   %55 = and i64 %53, 4294967295
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   %.04966 = load ptr, ptr %56, align 8, !tbaa !26
   %.not5867 = icmp eq ptr %.04966, null
   br i1 %.not5867, label %._crit_edge, label %.lr.ph
@@ -1607,7 +1605,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %76
 
 84:                                               ; preds = %._crit_edge.i, %.lr.ph48.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph48.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %85 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %indvars.iv.i
   %86 = load ptr, ptr %85, align 8, !tbaa !26
   %.not37.i = icmp eq ptr %86, null
   br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1626,7 +1624,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %76
   %96 = add i64 %95, %93
   %97 = urem i64 %96, %81
   %98 = and i64 %97, 4294967295
-  %99 = getelementptr inbounds nuw ptr, ptr %calloc.i, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %calloc.i, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !26
   store ptr %100, ptr %87, align 8, !tbaa !128
   store ptr %.sink59.i, ptr %99, align 8, !tbaa !26
@@ -1657,7 +1655,7 @@ Map_TableResize.exit:                             ; preds = %._crit_edge49.i, %.
   %.pre-phi = phi i64 [ %.pre, %Map_TableResize.exit ], [ %55, %._crit_edge ]
   %103 = call ptr @Map_NodeCreate(ptr noundef nonnull %0, ptr noundef %spec.select, ptr noundef %spec.select60)
   %104 = load ptr, ptr %0, align 8, !tbaa !88
-  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %.pre-phi
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %.pre-phi
   %106 = load ptr, ptr %105, align 8, !tbaa !26
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store ptr %106, ptr %107, align 8, !tbaa !128

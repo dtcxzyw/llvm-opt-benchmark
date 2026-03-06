@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SimpleStringList = type { ptr, ptr }
 %struct.FilterStateData = type { ptr, ptr, ptr, i32, %struct.StringInfoData }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
-%struct.RoleNameEntry = type { i32, i32, ptr }
 %struct.PQExpBufferData = type { ptr, i64, i64 }
 
 @main.long_options = internal global [48 x { ptr, i32, [4 x i8], ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str, i32 0, [4 x i8] zeroinitializer, ptr null, i32 97, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr null, i32 99, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.2, i32 1, [4 x i8] zeroinitializer, ptr null, i32 69, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.3, i32 1, [4 x i8] zeroinitializer, ptr null, i32 102, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.4, i32 0, [4 x i8] zeroinitializer, ptr null, i32 103, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.5, i32 1, [4 x i8] zeroinitializer, ptr null, i32 104, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.6, i32 1, [4 x i8] zeroinitializer, ptr null, i32 100, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.7, i32 1, [4 x i8] zeroinitializer, ptr null, i32 108, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.8, i32 0, [4 x i8] zeroinitializer, ptr null, i32 79, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.9, i32 1, [4 x i8] zeroinitializer, ptr null, i32 112, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.10, i32 0, [4 x i8] zeroinitializer, ptr null, i32 114, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.11, i32 0, [4 x i8] zeroinitializer, ptr null, i32 115, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.12, i32 1, [4 x i8] zeroinitializer, ptr null, i32 83, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.13, i32 0, [4 x i8] zeroinitializer, ptr null, i32 116, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.14, i32 1, [4 x i8] zeroinitializer, ptr null, i32 85, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.15, i32 0, [4 x i8] zeroinitializer, ptr null, i32 118, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.16, i32 0, [4 x i8] zeroinitializer, ptr null, i32 119, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.17, i32 0, [4 x i8] zeroinitializer, ptr null, i32 87, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.18, i32 0, [4 x i8] zeroinitializer, ptr null, i32 120, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.19, i32 0, [4 x i8] zeroinitializer, ptr null, i32 120, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.20, i32 0, [4 x i8] zeroinitializer, ptr @column_inserts, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.21, i32 0, [4 x i8] zeroinitializer, ptr @binary_upgrade, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.22, i32 0, [4 x i8] zeroinitializer, ptr @column_inserts, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.23, i32 0, [4 x i8] zeroinitializer, ptr @disable_dollar_quoting, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.24, i32 0, [4 x i8] zeroinitializer, ptr @disable_triggers, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.25, i32 1, [4 x i8] zeroinitializer, ptr null, i32 6, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.26, i32 1, [4 x i8] zeroinitializer, ptr null, i32 5, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.27, i32 0, [4 x i8] zeroinitializer, ptr @if_exists, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.28, i32 0, [4 x i8] zeroinitializer, ptr @inserts, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.29, i32 1, [4 x i8] zeroinitializer, ptr null, i32 2, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.30, i32 0, [4 x i8] zeroinitializer, ptr @no_table_access_method, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.31, i32 0, [4 x i8] zeroinitializer, ptr @no_tablespaces, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.32, i32 0, [4 x i8] zeroinitializer, ptr @quote_all_identifiers, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.33, i32 0, [4 x i8] zeroinitializer, ptr @load_via_partition_root, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.34, i32 1, [4 x i8] zeroinitializer, ptr null, i32 3, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.35, i32 0, [4 x i8] zeroinitializer, ptr @use_setsessauth, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.36, i32 0, [4 x i8] zeroinitializer, ptr @no_comments, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.37, i32 0, [4 x i8] zeroinitializer, ptr @no_publications, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.38, i32 0, [4 x i8] zeroinitializer, ptr @no_role_passwords, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.39, i32 0, [4 x i8] zeroinitializer, ptr @no_security_labels, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.40, i32 0, [4 x i8] zeroinitializer, ptr @no_subscriptions, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.41, i32 0, [4 x i8] zeroinitializer, ptr null, i32 4, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.42, i32 0, [4 x i8] zeroinitializer, ptr @no_toast_compression, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.43, i32 0, [4 x i8] zeroinitializer, ptr @no_unlogged_table_data, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.44, i32 0, [4 x i8] zeroinitializer, ptr @on_conflict_do_nothing, i32 1, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.45, i32 1, [4 x i8] zeroinitializer, ptr null, i32 7, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.46, i32 1, [4 x i8] zeroinitializer, ptr null, i32 8, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } zeroinitializer], align 16
@@ -767,7 +766,7 @@ read_dumpall_filters.exit:                        ; preds = %143, %128
 
 150:                                              ; preds = %147
   %151 = sext i32 %148 to i64
-  %152 = getelementptr inbounds ptr, ptr %1, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %1, i64 %151
   %153 = load ptr, ptr %152, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.74, ptr noundef %153) #15
   %154 = load ptr, ptr @progname, align 8
@@ -1451,10 +1450,10 @@ define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr 
 
 47:                                               ; preds = %45
   %48 = sext i32 %.0158 to i64
-  %49 = getelementptr inbounds ptr, ptr %37, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %37, i64 %48
   store ptr %40, ptr %49, align 8
   %50 = load ptr, ptr %41, align 8
-  %51 = getelementptr inbounds ptr, ptr %38, i64 %48
+  %51 = getelementptr inbounds [8 x i8], ptr %38, i64 %48
   store ptr %50, ptr %51, align 8
   %52 = add i32 %.0158, 1
   br label %53
@@ -1480,9 +1479,9 @@ define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr 
 
 59:                                               ; preds = %.loopexit
   %60 = sext i32 %.2 to i64
-  %61 = getelementptr inbounds ptr, ptr %.1113, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %.1113, i64 %60
   store ptr @.str.5, ptr %61, align 8
-  %62 = getelementptr inbounds ptr, ptr %.1111, i64 %60
+  %62 = getelementptr inbounds [8 x i8], ptr %.1111, i64 %60
   store ptr %2, ptr %62, align 8
   %63 = add i32 %.2, 1
   br label %64
@@ -1493,9 +1492,9 @@ define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr 
 
 65:                                               ; preds = %64
   %66 = sext i32 %.3 to i64
-  %67 = getelementptr inbounds ptr, ptr %.1113, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %.1113, i64 %66
   store ptr @.str.9, ptr %67, align 8
-  %68 = getelementptr inbounds ptr, ptr %.1111, i64 %66
+  %68 = getelementptr inbounds [8 x i8], ptr %.1111, i64 %66
   store ptr %3, ptr %68, align 8
   %69 = add i32 %.3, 1
   br label %70
@@ -1506,9 +1505,9 @@ define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr 
 
 71:                                               ; preds = %70
   %72 = sext i32 %.4 to i64
-  %73 = getelementptr inbounds ptr, ptr %.1113, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %.1113, i64 %72
   store ptr @.str.302, ptr %73, align 8
-  %74 = getelementptr inbounds ptr, ptr %.1111, i64 %72
+  %74 = getelementptr inbounds [8 x i8], ptr %.1111, i64 %72
   store ptr %4, ptr %74, align 8
   %75 = add i32 %.4, 1
   br label %76
@@ -1521,9 +1520,9 @@ define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr 
 
 78:                                               ; preds = %76
   %79 = sext i32 %.5 to i64
-  %80 = getelementptr inbounds ptr, ptr %.1113, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %.1113, i64 %79
   store ptr @.str.17, ptr %80, align 8
-  %81 = getelementptr inbounds ptr, ptr %.1111, i64 %79
+  %81 = getelementptr inbounds [8 x i8], ptr %.1111, i64 %79
   store ptr %77, ptr %81, align 8
   %82 = add i32 %.5, 1
   br label %83
@@ -1534,9 +1533,9 @@ define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr 
 
 84:                                               ; preds = %83
   %85 = sext i32 %.6 to i64
-  %86 = getelementptr inbounds ptr, ptr %.1113, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %.1113, i64 %85
   store ptr @.str.6, ptr %86, align 8
-  %87 = getelementptr inbounds ptr, ptr %.1111, i64 %85
+  %87 = getelementptr inbounds [8 x i8], ptr %.1111, i64 %85
   store ptr %0, ptr %87, align 8
   %88 = add i32 %.6, 1
   br label %89
@@ -1544,10 +1543,10 @@ define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr 
 89:                                               ; preds = %84, %83
   %.7 = phi i32 [ %88, %84 ], [ %.6, %83 ]
   %90 = sext i32 %.7 to i64
-  %91 = getelementptr inbounds ptr, ptr %.1113, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %.1113, i64 %90
   store ptr @.str.303, ptr %91, align 8
   %92 = load ptr, ptr @progname, align 8
-  %93 = getelementptr inbounds ptr, ptr %.1111, i64 %90
+  %93 = getelementptr inbounds [8 x i8], ptr %.1111, i64 %90
   store ptr %92, ptr %93, align 8
   %94 = call ptr @PQconnectdbParams(ptr noundef %.1113, ptr noundef %.1111, i32 noundef 1) #15
   %.not136 = icmp eq ptr %94, null
@@ -1638,7 +1637,7 @@ define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr 
 128:                                              ; preds = %127, %126
   %129 = phi ptr [ %.pre.i, %127 ], [ %115, %126 ]
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %113, ptr noundef nonnull @.str.311, ptr noundef %129) #15
-  %130 = getelementptr inbounds ptr, ptr %.1111, i64 %117
+  %130 = getelementptr inbounds [8 x i8], ptr %.1111, i64 %117
   %131 = load ptr, ptr %130, align 8
   call void @appendConnStrVal(ptr noundef %113, ptr noundef %131) #15
   br label %132
@@ -1647,7 +1646,7 @@ define internal fastcc ptr @connectDatabase(ptr noundef %0, ptr noundef %1, ptr 
   %.1.i = phi i1 [ %.023.i, %.lr.ph.i ], [ %.023.i, %120 ], [ %.023.i, %123 ], [ false, %128 ]
   %133 = add i32 %.01922.i, 1
   %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds ptr, ptr %.1113, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %.1113, i64 %134
   %136 = load ptr, ptr %135, align 8
   %.not.i = icmp eq ptr %136, null
   br i1 %.not.i, label %constructConnStr.exit, label %.lr.ph.i, !llvm.loop !9
@@ -2522,7 +2521,7 @@ rolename_create.exit:                             ; preds = %rolename_compute_si
   %92 = load ptr, ptr %51, align 8
   %.01623.i.i.us = and i32 %.val.i.i.us, %91
   %93 = zext i32 %.01623.i.i.us to i64
-  %94 = getelementptr inbounds nuw %struct.RoleNameEntry, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %93
   %95 = load i32, ptr %94, align 8
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %rolename_lookup.exit.thread.us, label %.lr.ph.i.i.us
@@ -2546,7 +2545,7 @@ rolename_create.exit:                             ; preds = %rolename_compute_si
   %107 = add i32 %.01624.i.i.us, 1
   %.016.i.i.us = and i32 %107, %.val.i.i.us
   %108 = zext i32 %.016.i.i.us to i64
-  %109 = getelementptr inbounds nuw %struct.RoleNameEntry, ptr %92, i64 %108
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %108
   %110 = load i32, ptr %109, align 8
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %rolename_lookup.exit.thread.us, label %.lr.ph.i.i.us
@@ -2614,7 +2613,7 @@ rolename_update_parameters.exit.i.us:             ; preds = %rolename_compute_si
 .lr.ph.i110.us:                                   ; preds = %rolename_update_parameters.exit.i.us, %152
   %145 = phi i64 [ %154, %152 ], [ 0, %rolename_update_parameters.exit.i.us ]
   %.062.i.us = phi i32 [ %153, %152 ], [ 0, %rolename_update_parameters.exit.i.us ]
-  %146 = getelementptr inbounds nuw %struct.RoleNameEntry, ptr %122, i64 %145
+  %146 = getelementptr inbounds nuw [16 x i8], ptr %122, i64 %145
   %147 = load i32, ptr %146, align 8
   %.not.i.us = icmp eq i32 %147, 1
   br i1 %.not.i.us, label %148, label %.lr.ph69.i.us.preheader
@@ -2640,7 +2639,7 @@ rolename_update_parameters.exit.i.us:             ; preds = %rolename_compute_si
   %.168.i.us = phi i32 [ %172, %169 ], [ 0, %.lr.ph69.i.us.preheader ]
   %.05167.i.us = phi i32 [ %spec.store.select.i.us, %169 ], [ %.05167.i.us.ph, %.lr.ph69.i.us.preheader ]
   %156 = zext i32 %.05167.i.us to i64
-  %157 = getelementptr inbounds nuw %struct.RoleNameEntry, ptr %122, i64 %156
+  %157 = getelementptr inbounds nuw [16 x i8], ptr %122, i64 %156
   %158 = load i32, ptr %157, align 8
   %159 = icmp eq i32 %158, 1
   br i1 %159, label %160, label %169
@@ -2655,7 +2654,7 @@ rolename_update_parameters.exit.i.us:             ; preds = %rolename_compute_si
   %.val59.pn.i.us = phi i32 [ %.val59.i.us, %160 ], [ %167, %162 ]
   %.048.i.us = and i32 %.val59.pn.i.us, %.val.i.us
   %163 = zext i32 %.048.i.us to i64
-  %164 = getelementptr inbounds nuw %struct.RoleNameEntry, ptr %131, i64 %163
+  %164 = getelementptr inbounds nuw [16 x i8], ptr %131, i64 %163
   %165 = load i32, ptr %164, align 8
   %166 = icmp eq i32 %165, 0
   %167 = add i32 %.048.i.us, 1
@@ -2684,7 +2683,7 @@ rolename_grow.exit.us:                            ; preds = %169, %rolename_upda
   %.val95.i.i.us = load i32, ptr %62, align 4
   %.077.i22.i.us = and i32 %.val95.i.i.us, %115
   %177 = zext i32 %.077.i22.i.us to i64
-  %178 = getelementptr inbounds nuw %struct.RoleNameEntry, ptr %176, i64 %177
+  %178 = getelementptr inbounds nuw [16 x i8], ptr %176, i64 %177
   %179 = load i32, ptr %178, align 8
   %180 = icmp eq i32 %179, 0
   br i1 %180, label %._crit_edge.i.us, label %.lr.ph.i.us
@@ -2740,7 +2739,7 @@ rolename_distance.exit.i.i.us:                    ; preds = %192, %190
 208:                                              ; preds = %201, %198
   %.077.i.i.us = and i32 %197, %.val95.i.i.us
   %209 = zext i32 %.077.i.i.us to i64
-  %210 = getelementptr inbounds nuw %struct.RoleNameEntry, ptr %176, i64 %209
+  %210 = getelementptr inbounds nuw [16 x i8], ptr %176, i64 %209
   %211 = load i32, ptr %210, align 8
   %212 = icmp eq i32 %211, 0
   br i1 %212, label %._crit_edge.i.us, label %.lr.ph.i.us
@@ -2748,7 +2747,7 @@ rolename_distance.exit.i.i.us:                    ; preds = %192, %190
 .preheader112.i.preheader.i.us:                   ; preds = %rolename_distance.exit.i.i.us
   %213 = and i32 %197, %.val95.i.i.us
   %214 = zext i32 %213 to i64
-  %215 = getelementptr inbounds nuw %struct.RoleNameEntry, ptr %176, i64 %214
+  %215 = getelementptr inbounds nuw [16 x i8], ptr %176, i64 %214
   %216 = load i32, ptr %215, align 8
   %.not111.i27.i.us = icmp eq i32 %216, 0
   br i1 %.not111.i27.i.us, label %.preheader.i.i.us, label %.lr.ph29.i.us
@@ -2777,7 +2776,7 @@ rolename_distance.exit.i.i.us:                    ; preds = %192, %190
   %227 = add i32 %217, 1
   %228 = and i32 %227, %.val95.i.i.us
   %229 = zext i32 %228 to i64
-  %230 = getelementptr inbounds nuw %struct.RoleNameEntry, ptr %176, i64 %229
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %176, i64 %229
   %231 = load i32, ptr %230, align 8
   %.not111.i.i.us = icmp eq i32 %231, 0
   br i1 %.not111.i.i.us, label %.preheader.i.i.us, label %.lr.ph29.i.us
@@ -2796,7 +2795,7 @@ rolename_distance.exit.i.i.us:                    ; preds = %192, %190
   %233 = add i32 %.081136.i.i.us, -1
   %234 = and i32 %.val99.i.i.us, %233
   %235 = zext i32 %234 to i64
-  %236 = getelementptr inbounds nuw %struct.RoleNameEntry, ptr %176, i64 %235
+  %236 = getelementptr inbounds nuw [16 x i8], ptr %176, i64 %235
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.285135.i.i.us, ptr noundef nonnull align 8 dereferenceable(16) %236, i64 16, i1 false)
   %.not94.i.i.us = icmp eq i32 %234, %.077.i24.i.us
   br i1 %.not94.i.i.us, label %._crit_edge.i.i.us, label %.lr.ph.i.i105.us, !llvm.loop !25

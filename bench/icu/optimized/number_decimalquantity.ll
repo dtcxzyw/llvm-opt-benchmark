@@ -3810,7 +3810,7 @@ _ZN6icu_776number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit: ; preds
   %.029.lcssa = phi i32 [ %39, %.preheader ], [ %44, %.lr.ph40 ]
   %.0.lcssa = phi double [ %1, %.preheader ], [ %43, %.lr.ph40 ]
   %46 = zext nneg i32 %.029.lcssa to i64
-  %47 = getelementptr inbounds nuw double, ptr @_ZN12_GLOBAL__N_118DOUBLE_MULTIPLIERSE, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_118DOUBLE_MULTIPLIERSE, i64 %46
   %48 = load double, ptr %47, align 8, !tbaa !71
   %49 = fmul double %.0.lcssa, %48
   br label %58
@@ -3828,7 +3828,7 @@ _ZN6icu_776number4impl15DecimalQuantity23convertToAccurateDoubleEv.exit: ; preds
   %.2.lcssa = phi double [ %1, %.preheader34 ], [ %50, %.lr.ph ]
   %53 = sub nsw i32 0, %.028.lcssa
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw double, ptr @_ZN12_GLOBAL__N_118DOUBLE_MULTIPLIERSE, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_118DOUBLE_MULTIPLIERSE, i64 %54
   %56 = load double, ptr %55, align 8, !tbaa !71
   %57 = fdiv double %.2.lcssa, %56
   br label %58
@@ -4269,7 +4269,7 @@ define void @_ZN6icu_776number4impl15DecimalQuantity18fromExponentStringENS_13Un
   %103 = load ptr, ptr %102, align 8
   %104 = select i1 %.not.i.i.i, ptr %103, ptr %101
   %105 = sext i32 %84 to i64
-  %106 = getelementptr inbounds i16, ptr %104, i64 %105
+  %106 = getelementptr inbounds [2 x i8], ptr %104, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !75
   %108 = icmp eq i16 %107, 45
   br label %_ZNK6icu_7713UnicodeStringixEi.exit

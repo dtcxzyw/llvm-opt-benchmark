@@ -165,7 +165,7 @@ define dso_local noundef zeroext i1 @_ZN21cmParseDelphiCoverage16LoadCoverageDat
 34:                                               ; preds = %.lr.ph, %118
   %.01339 = phi i64 [ 0, %.lr.ph ], [ %119, %118 ]
   %35 = load ptr, ptr %1, align 8, !tbaa !22
-  %36 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %35, i64 %.01339
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %.01339
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %36)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %105
 
@@ -2369,7 +2369,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %61, %.no
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %63, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %58, ptr %2, align 8, !tbaa !126
   store ptr %62, ptr %18, align 8, !tbaa !133
-  %64 = getelementptr inbounds nuw i32, ptr %58, i64 %56
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %56
   store ptr %64, ptr %19, align 8, !tbaa !134
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.backedge
 
@@ -2460,7 +2460,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i42: ; preds = %92, %.
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i44: ; preds = %94, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i42
   store ptr %89, ptr %2, align 8, !tbaa !126
   store ptr %93, ptr %18, align 8, !tbaa !133
-  %95 = getelementptr inbounds nuw i32, ptr %89, i64 %87
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %87
   store ptr %95, ptr %19, align 8, !tbaa !134
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.backedge
 
@@ -2561,7 +2561,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i52: ; preds = %129, %
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i54: ; preds = %131, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i52
   store ptr %126, ptr %2, align 8, !tbaa !126
   store ptr %130, ptr %18, align 8, !tbaa !133
-  %132 = getelementptr inbounds nuw i32, ptr %126, i64 %124
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %124
   store ptr %132, ptr %19, align 8, !tbaa !134
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.backedge
 
@@ -2662,7 +2662,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i62: ; preds = %166, %
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i64: ; preds = %168, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i62
   store ptr %163, ptr %2, align 8, !tbaa !126
   store ptr %167, ptr %18, align 8, !tbaa !133
-  %169 = getelementptr inbounds nuw i32, ptr %163, i64 %161
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %161
   store ptr %169, ptr %19, align 8, !tbaa !134
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.backedge
 
@@ -2742,7 +2742,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i72: ; preds = %191, %
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i74: ; preds = %193, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i72
   store ptr %188, ptr %2, align 8, !tbaa !126
   store ptr %192, ptr %18, align 8, !tbaa !133
-  %194 = getelementptr inbounds nuw i32, ptr %188, i64 %186
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %188, i64 %186
   store ptr %194, ptr %19, align 8, !tbaa !134
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.backedge
 
@@ -3684,7 +3684,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %71
   store ptr %23, ptr %0, align 8, !tbaa !22
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !19
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %75, ptr %70, align 8, !tbaa !132
   ret void
 

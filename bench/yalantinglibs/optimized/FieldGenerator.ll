@@ -35,14 +35,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.struct_pb::compiler::StringOneofFieldGenerator" = type { %"class.struct_pb::compiler::OneofFieldGenerator" }
 %"class.struct_pb::compiler::EnumOneofFieldGenerator" = type { %"class.struct_pb::compiler::OneofFieldGenerator" }
 %"class.struct_pb::compiler::PrimitiveOneofFieldGenerator" = type { %"class.struct_pb::compiler::OneofFieldGenerator" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.21" }
-%"struct.std::_Head_base.21" = type { ptr }
-%"class.google::protobuf::FieldDescriptor" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, i8, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %union.anon }
-%union.anon = type { i64 }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
 
 $_ZNSt7__cxx119to_stringEj = comdat any
@@ -1876,7 +1868,7 @@ invoke.cont18:                                    ; preds = %_ZN6google8protobuf
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i49)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i50)
   %idxprom.i = zext i32 %38 to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %39 = load ptr, ptr %arrayidx.i, align 8
   %call.i.i.i64 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #24
   %40 = load i64, ptr %_M_string_length.i.i.i, align 8
@@ -6555,7 +6547,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit.i: ; preds = %_ZN6google8p
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i.i)
   %idxprom.i.i = zext i32 %10 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i
   %11 = load i32, ptr %arrayidx.i.i, align 4
   %cmp.i = icmp ne i32 %11, 10
   %containing_oneof_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -6837,7 +6829,7 @@ _ZNK6google8protobuf15FieldDescriptor9type_nameEv.exit: ; preds = %entry, %_ZN6g
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i)
   %idxprom.i = zext i32 %6 to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i
   %7 = load ptr, ptr %arrayidx.i, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -7829,7 +7821,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %25 = phi ptr [ %5, %for.body.lr.ph ], [ %131, %_ZN9struct_pb8compiler14FieldGeneratorD2Ev.exit ]
   %fields_.i = getelementptr inbounds nuw i8, ptr %25, i64 32
   %26 = load ptr, ptr %fields_.i, align 8
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %27 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %28 = load i8, ptr %this, align 8
@@ -8432,7 +8424,7 @@ invoke.cont37:                                    ; preds = %_ZN6google8protobuf
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i166)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i167)
   %idxprom.i179 = zext i32 %93 to i64
-  %arrayidx.i180 = getelementptr inbounds nuw ptr, ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i179
+  %arrayidx.i180 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6google8protobuf15FieldDescriptor11kTypeToNameE, i64 %idxprom.i179
   %94 = load ptr, ptr %arrayidx.i180, align 8
   store ptr %94, ptr %ref.tmp36, align 8
   invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2IRA8_KcPS9_Qcl16_S_constructibleITL0__TL0_0_EEEEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayinit.element35, ptr noundef nonnull align 1 dereferenceable(8) @.str.7, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp36)
@@ -8962,7 +8954,7 @@ for.body120:                                      ; preds = %for.body120.lr.ph, 
   %166 = phi ptr [ %155, %for.body120.lr.ph ], [ %184, %for.inc156 ]
   %fields_.i269 = getelementptr inbounds nuw i8, ptr %166, i64 32
   %167 = load ptr, ptr %fields_.i269, align 8
-  %arrayidx.i271 = getelementptr inbounds nuw ptr, ptr %167, i64 %indvars.iv507
+  %arrayidx.i271 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %indvars.iv507
   %168 = load ptr, ptr %arrayidx.i271, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i273)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp3.i.i274)
@@ -9751,7 +9743,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %28 = phi ptr [ %17, %for.body.lr.ph ], [ %68, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ]
   %fields_.i = getelementptr inbounds nuw i8, ptr %28, i64 32
   %29 = load ptr, ptr %fields_.i, align 8
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %30 = load ptr, ptr %arrayidx.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -10679,7 +10671,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %index.07 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %for.body ]
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.i, align 8
   %cmp4 = icmp eq ptr %3, %f
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10766,7 +10758,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %if.then, %_ZN6
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i)
   %idxprom.i = zext i32 %6 to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %7 = load i32, ptr %arrayidx.i, align 4
   switch i32 %7, label %sw.default [
     i32 10, label %sw.bb
@@ -10971,7 +10963,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit57: ; preds = %if.else25, %
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i41)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp3.i.i42)
   %idxprom.i55 = zext i32 %30 to i64
-  %arrayidx.i56 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i55
+  %arrayidx.i56 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i55
   %31 = load i32, ptr %arrayidx.i56, align 4
   %call40 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   switch i32 %31, label %sw.default39 [
@@ -11079,7 +11071,7 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorISt10un
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv, 3
   %call5.i.i.i.i2.i.i8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #25
   store ptr %call5.i.i.i.i2.i.i8, ptr %field_generators_, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %call5.i.i.i.i2.i.i8, i64 %conv
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i8, i64 %conv
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i8, i8 0, i64 %mul.i.i.i.i.i.i, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i8, i64 %mul.i.i.i.i.i.i
   br label %invoke.cont
@@ -11103,12 +11095,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNSt10unique_ptrIN9struct_pb8compiler14FieldGeneratorESt14default_deleteIS2_EE5resetEPS2_.exit ]
   %3 = load ptr, ptr %field_generators_, align 8
   %4 = load ptr, ptr %fields_.i, align 8
-  %add.ptr.i10 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %4, i64 %indvars.iv
+  %add.ptr.i10 = getelementptr inbounds nuw [152 x i8], ptr %4, i64 %indvars.iv
   %call11 = invoke noundef ptr @_ZN9struct_pb8compiler17FieldGeneratorMap13MakeGeneratorEPKN6google8protobuf15FieldDescriptorERK7Options(ptr noundef %add.ptr.i10, ptr noundef nonnull align 8 dereferenceable(48) %options)
           to label %invoke.cont10 unwind label %lpad2
 
 invoke.cont10:                                    ; preds = %for.body
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %3, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %add.ptr.i, align 8
   store ptr %call11, ptr %add.ptr.i, align 8
   %tobool.not.i.i = icmp eq ptr %5, null

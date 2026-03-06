@@ -61,7 +61,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.23" = type { %"struct.std::_Vector_base<std::pair<llvm::StringRef, unsigned long>, std::allocator<std::pair<llvm::StringRef, unsigned long>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<llvm::StringRef, unsigned long>, std::allocator<std::pair<llvm::StringRef, unsigned long>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<llvm::StringRef, unsigned long>, std::allocator<std::pair<llvm::StringRef, unsigned long>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<llvm::StringRef, unsigned long>, std::allocator<std::pair<llvm::StringRef, unsigned long>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { %"class.llvm::StringRef", i64 }
 
 $_ZN4llvm2cl3optIbLb1ENS0_6parserIbEEEC2IJA6_cNS0_4descENS0_13LocationClassIbEENS0_12OptionHiddenEEEEDpRKT_ = comdat any
 
@@ -260,7 +259,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %28 = phi i32 [ %23, %5 ], [ %.pre.i.i, %25 ]
   %29 = load ptr, ptr %12, align 8, !tbaa !30
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = ptrtoint ptr %22 to i64
   store i64 %32, ptr %31, align 1
   %33 = load i32, ptr %14, align 8, !tbaa !31
@@ -422,7 +421,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %28 = phi i32 [ %23, %5 ], [ %.pre.i.i, %25 ]
   %29 = load ptr, ptr %12, align 8, !tbaa !30
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = ptrtoint ptr %22 to i64
   store i64 %32, ptr %31, align 1
   %33 = load i32, ptr %14, align 8, !tbaa !31
@@ -598,7 +597,7 @@ _ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %44, %_ZNSt6vectorIPN4llvm17TrackingStatisticESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %39, ptr %.0.i.i2.i5, align 8, !tbaa !68
   store ptr %43, ptr %20, align 8, !tbaa !62
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !65
   br label %_ZN12_GLOBAL__N_113StatisticInfo12addStatisticEPN4llvm17TrackingStatisticE.exit
 
@@ -1831,7 +1830,7 @@ common.ret25:                                     ; preds = %8, %common.ret
 
 8:                                                ; preds = %2
   %9 = lshr i64 %6, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %9
   tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_T0_"(ptr %0, ptr %10)
   tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_T0_"(ptr %10, ptr %1)
   %11 = ptrtoint ptr %10 to i64
@@ -1849,7 +1848,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal
   %8 = ashr exact i64 %7, 3
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %10
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -1927,7 +1926,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticES
   %25 = sub i64 %24, %4
   %26 = ashr exact i64 %25, 3
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds ptr, ptr %23, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %23, i64 %27
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %28, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %25, i1 false)
   br label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_T0_.exit"
 
@@ -2043,7 +2042,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit: ; preds = %31
   %34 = sdiv i64 %.tr7785, 2
-  %35 = getelementptr inbounds ptr, ptr %.tr82, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %.tr82, i64 %34
   %36 = sub i64 %8, %33
   %37 = ashr exact i64 %36, 3
   %38 = icmp sgt i64 %37, 0
@@ -2060,7 +2059,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vecto
   %.04.i = phi i64 [ %37, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclINS_17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorISA_SaISA_EEEEKSA_EEbT_RT0_.exit.i" ]
   %.sroa.02.03.i = phi ptr [ %.tr7583, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.02.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclINS_17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorISA_SaISA_EEEEKSA_EEbT_RT0_.exit.i" ]
   %42 = lshr i64 %.04.i, 1
-  %43 = getelementptr inbounds nuw ptr, ptr %.sroa.02.03.i, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.02.03.i, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !66
   %45 = load ptr, ptr %44, align 8, !tbaa !86
   %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %39) #26
@@ -2106,7 +2105,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vecto
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit54: ; preds = %31
   %63 = sdiv i64 %.tr7886, 2
-  %64 = getelementptr inbounds ptr, ptr %.tr7583, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %.tr7583, i64 %63
   %65 = ptrtoint ptr %.tr82 to i64
   %66 = sub i64 %33, %65
   %67 = ashr exact i64 %66, 3
@@ -2124,7 +2123,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vecto
   %.04.i58 = phi i64 [ %67, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i56 ], [ %.1.i66, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIKPN4llvm17TrackingStatisticENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i" ]
   %.sroa.02.03.i59 = phi ptr [ %.tr82, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i56 ], [ %.sroa.02.1.i65, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIKPN4llvm17TrackingStatisticENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i" ]
   %72 = lshr i64 %.04.i58, 1
-  %73 = getelementptr inbounds nuw ptr, ptr %.sroa.02.03.i59, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.02.03.i59, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !66
   %75 = load ptr, ptr %74, align 8, !tbaa !86
   %76 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %75) #26
@@ -2262,7 +2261,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS
   br i1 %36, label %.lr.ph100.preheader, label %._crit_edge101
 
 .lr.ph100.preheader:                              ; preds = %35
-  %37 = getelementptr inbounds ptr, ptr %.sroa.042.0, i64 %.085
+  %37 = getelementptr inbounds [8 x i8], ptr %.sroa.042.0, i64 %.085
   br label %.lr.ph100
 
 ._crit_edge101:                                   ; preds = %.lr.ph100, %35
@@ -2305,7 +2304,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS
   %53 = add nsw i64 %.idx, -8
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds ptr, ptr %49, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %49, i64 %55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr nonnull align 8 %.sroa.042.0, i64 %53, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
@@ -2314,9 +2313,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticES
   br label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit
 
 57:                                               ; preds = %46
-  %58 = getelementptr inbounds ptr, ptr %.sroa.042.0, i64 %.0
+  %58 = getelementptr inbounds [8 x i8], ptr %.sroa.042.0, i64 %.0
   %59 = sub i64 0, %25
-  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %58, i64 %59
   %61 = icmp sgt i64 %.085, 0
   br i1 %61, label %.lr.ph, label %._crit_edge
 
@@ -2937,7 +2936,7 @@ _ZSt13move_backwardIPPN4llvm17TrackingStatisticEN9__gnu_cxx17__normal_iteratorIS
   %70 = sub i64 %68, %69
   %71 = ashr exact i64 %70, 3
   %72 = sub nsw i64 0, %71
-  %73 = getelementptr inbounds ptr, ptr %.lcssa.sink.i, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %.lcssa.sink.i, i64 %72
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %73, ptr align 8 %5, i64 %70, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPPN4llvm17TrackingStatisticEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEES9_NS4_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EEEvT_SG_T0_SH_T1_T2_.exit"
 
@@ -2947,7 +2946,7 @@ _ZSt13move_backwardIPPN4llvm17TrackingStatisticEN9__gnu_cxx17__normal_iteratorIS
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit: ; preds = %74
   %76 = sdiv i64 %.tr125142, 2
-  %77 = getelementptr inbounds ptr, ptr %.tr139, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %.tr139, i64 %76
   %78 = sub i64 %8, %75
   %79 = ashr exact i64 %78, 3
   %80 = icmp sgt i64 %79, 0
@@ -2964,7 +2963,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vecto
   %.04.i = phi i64 [ %79, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.1.i94, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclINS_17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorISA_SaISA_EEEEKSA_EEbT_RT0_.exit.i" ]
   %.sroa.02.03.i = phi ptr [ %.tr123140, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i ], [ %.sroa.02.1.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclINS_17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorISA_SaISA_EEEEKSA_EEbT_RT0_.exit.i" ]
   %84 = lshr i64 %.04.i, 1
-  %85 = getelementptr inbounds nuw ptr, ptr %.sroa.02.03.i, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.02.03.i, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !66
   %87 = load ptr, ptr %86, align 8, !tbaa !86
   %88 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %87, ptr noundef nonnull dereferenceable(1) %81) #26
@@ -3010,7 +3009,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vecto
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit99: ; preds = %74
   %105 = sdiv i64 %.tr126143, 2
-  %106 = getelementptr inbounds ptr, ptr %.tr123140, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %.tr123140, i64 %105
   %107 = ptrtoint ptr %.tr139 to i64
   %108 = sub i64 %75, %107
   %109 = ashr exact i64 %108, 3
@@ -3028,7 +3027,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vecto
   %.04.i103 = phi i64 [ %109, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i101 ], [ %.1.i111, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIKPN4llvm17TrackingStatisticENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i" ]
   %.sroa.02.03.i104 = phi ptr [ %.tr139, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i101 ], [ %.sroa.02.1.i110, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN12_GLOBAL__N_113StatisticInfo4sortEvE3$_0EclIKPN4llvm17TrackingStatisticENS_17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEEEbRT_T0_.exit.i" ]
   %114 = lshr i64 %.04.i103, 1
-  %115 = getelementptr inbounds nuw ptr, ptr %.sroa.02.03.i104, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.02.03.i104, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !66
   %117 = load ptr, ptr %116, align 8, !tbaa !86
   %118 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull dereferenceable(1) %117) #26
@@ -3107,7 +3106,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS
   %146 = sub i64 %141, %145
   %147 = ashr exact i64 %146, 3
   %148 = sub nsw i64 0, %147
-  %149 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %148
+  %149 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0, i64 %148
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %149, ptr align 8 %.sroa.0118.0, i64 %146, i1 false)
   br label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i
 
@@ -3157,13 +3156,13 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS
 162:                                              ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i
   %163 = ashr exact i64 %157, 3
   %164 = sub nsw i64 0, %163
-  %165 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %164
+  %165 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0, i64 %164
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %165, ptr align 8 %5, i64 %157, i1 false)
   br label %_ZSt13move_backwardIPPN4llvm17TrackingStatisticEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i
 
 _ZSt13move_backwardIPPN4llvm17TrackingStatisticEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.i: ; preds = %162, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i
   %.pre-phi.i.i.i.i.i43.i = phi i64 [ %164, %162 ], [ 0, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEES9_ET0_T_SB_SA_.exit.i ]
-  %166 = getelementptr inbounds ptr, ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
+  %166 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0, i64 %.pre-phi.i.i.i.i.i43.i
   br label %_ZSt17__rotate_adaptiveIN9__gnu_cxx17__normal_iteratorIPPN4llvm17TrackingStatisticESt6vectorIS4_SaIS4_EEEES5_lET_SA_SA_SA_T1_SB_T0_SB_.exit
 
 167:                                              ; preds = %152
@@ -3484,7 +3483,7 @@ _ZNSt6vectorISt4pairIN4llvm9StringRefEmESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exi
 _ZNSt12_Vector_baseISt4pairIN4llvm9StringRefEmESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt4pairIN4llvm9StringRefEmESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit23, %36
   store ptr %21, ptr %0, align 8, !tbaa !143
   store ptr %.0.lcssa.i.i.i22, ptr %5, align 8, !tbaa !112
-  %40 = getelementptr inbounds nuw %"struct.std::pair", ptr %21, i64 %17
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %17
   store ptr %40, ptr %35, align 8, !tbaa !115
   ret void
 }

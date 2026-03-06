@@ -17,7 +17,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_helper_f
 %struct.list_head = type { ptr, ptr }
 %struct.drm_connector_list_iter = type { ptr, ptr }
 %struct.drm_display_mode = type { i32, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i32, i32, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i8, i8, %struct.list_head, [32 x i8], i32, i32 }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 %struct.drm_mode_set = type { ptr, ptr, ptr, i32, i32, ptr, i64 }
 
 @.str = private unnamed_addr constant [15 x i8] c"drm_kms_helper\00", align 1
@@ -726,7 +725,7 @@ define dso_local i32 @drm_crtc_helper_atomic_check(ptr noundef readonly captures
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1027,7 +1026,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef captures(address_is
   %128 = load ptr, ptr %127, align 8
   %129 = add i32 %126, 1
   %130 = sext i32 %126 to i64
-  %131 = getelementptr ptr, ptr %81, i64 %130
+  %131 = getelementptr [8 x i8], ptr %81, i64 %130
   store ptr %128, ptr %131, align 8
   %132 = load ptr, ptr %125, align 8
   %133 = icmp eq ptr %132, %122
@@ -1046,7 +1045,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef captures(address_is
   %139 = load ptr, ptr %138, align 8
   %140 = add i32 %137, 1
   %141 = sext i32 %137 to i64
-  %142 = getelementptr ptr, ptr %119, i64 %141
+  %142 = getelementptr [8 x i8], ptr %119, i64 %141
   store ptr %139, ptr %142, align 8
   %143 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %4) #6
   %144 = icmp eq ptr %143, null
@@ -1139,7 +1138,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef captures(address_is
   %198 = phi i64 [ 0, %194 ], [ %211, %208 ]
   %199 = phi i32 [ 0, %194 ], [ %210, %208 ]
   %200 = load ptr, ptr %195, align 8
-  %201 = getelementptr ptr, ptr %200, i64 %198
+  %201 = getelementptr [8 x i8], ptr %200, i64 %198
   %202 = load ptr, ptr %201, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 1712
   %204 = load ptr, ptr %203, align 8
@@ -1198,7 +1197,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef captures(address_is
 233:                                              ; preds = %229, %227
   %234 = phi i64 [ 0, %227 ], [ %231, %229 ]
   %235 = phi i32 [ 0, %227 ], [ %230, %229 ]
-  %236 = getelementptr ptr, ptr %228, i64 %234
+  %236 = getelementptr [8 x i8], ptr %228, i64 %234
   %237 = load ptr, ptr %236, align 8
   %238 = icmp eq ptr %237, %218
   br i1 %238, label %239, label %229
@@ -1337,7 +1336,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef captures(address_is
   %315 = phi i64 [ 0, %312 ], [ %323, %314 ]
   %316 = phi ptr [ %309, %312 ], [ %321, %314 ]
   %317 = phi i32 [ 0, %312 ], [ %322, %314 ]
-  %318 = getelementptr ptr, ptr %313, i64 %315
+  %318 = getelementptr [8 x i8], ptr %313, i64 %315
   %319 = load ptr, ptr %318, align 8
   %320 = icmp eq ptr %319, %297
   %321 = select i1 %320, ptr %307, ptr %316
@@ -1461,7 +1460,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef captures(address_is
   %387 = phi i64 [ %404, %.preheader51 ], [ 0, %384 ]
   %388 = phi i32 [ %403, %.preheader51 ], [ 0, %384 ]
   %389 = load ptr, ptr %293, align 8
-  %390 = getelementptr ptr, ptr %389, i64 %387
+  %390 = getelementptr [8 x i8], ptr %389, i64 %387
   %391 = load ptr, ptr %390, align 8
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 64
   %393 = load i32, ptr %392, align 8
@@ -1469,7 +1468,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef captures(address_is
   %395 = load ptr, ptr %394, align 8
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.19, i32 noundef %393, ptr noundef %395) #6
   %396 = load ptr, ptr %293, align 8
-  %397 = getelementptr ptr, ptr %396, i64 %387
+  %397 = getelementptr [8 x i8], ptr %396, i64 %387
   %398 = load ptr, ptr %397, align 8
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 400
   %400 = load ptr, ptr %399, align 8
@@ -1539,7 +1538,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef captures(address_is
   %440 = phi i32 [ %441, %.preheader49 ], [ 0, %434 ]
   %441 = add i32 %440, 1
   %442 = sext i32 %440 to i64
-  %443 = getelementptr ptr, ptr %81, i64 %442
+  %443 = getelementptr [8 x i8], ptr %81, i64 %442
   %444 = load ptr, ptr %443, align 8
   %445 = getelementptr i8, ptr %439, i64 72
   store ptr %444, ptr %445, align 8
@@ -1558,7 +1557,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef captures(address_is
   %451 = phi i32 [ %452, %.preheader47 ], [ 0, %.loopexit50 ]
   %452 = add i32 %451, 1
   %453 = sext i32 %451 to i64
-  %454 = getelementptr ptr, ptr %119, i64 %453
+  %454 = getelementptr [8 x i8], ptr %119, i64 %453
   %455 = load ptr, ptr %454, align 8
   %456 = getelementptr inbounds nuw i8, ptr %450, i64 1712
   store ptr %455, ptr %456, align 8
@@ -1581,7 +1580,7 @@ define dso_local i32 @drm_crtc_helper_set_config(ptr noundef captures(address_is
   %465 = phi i64 [ 0, %461 ], [ %478, %475 ]
   %466 = phi i32 [ 0, %461 ], [ %477, %475 ]
   %467 = load ptr, ptr %462, align 8
-  %468 = getelementptr ptr, ptr %467, i64 %465
+  %468 = getelementptr [8 x i8], ptr %467, i64 %465
   %469 = load ptr, ptr %468, align 8
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 1712
   %471 = load ptr, ptr %470, align 8

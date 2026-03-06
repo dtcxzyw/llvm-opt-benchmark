@@ -416,7 +416,7 @@ _ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit: ; preds = %_ZNK
   %direction_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load i64, ptr %direction_, align 8, !tbaa !22
   %7 = load ptr, ptr %dim_.i, align 8, !tbaa !40
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %7, i64 %6
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %8 = load i64, ptr %add.ptr.i, align 8, !tbaa !8
   %9 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !42
   %10 = load ptr, ptr %avgInnerValues_, align 8, !tbaa !43
@@ -440,7 +440,7 @@ if.else.i:                                        ; preds = %_ZNK5boost10shared_
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i13 = getelementptr inbounds nuw double, ptr %10, i64 %8
+  %add.ptr.i13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %8
   %tobool.not.i.i = icmp eq ptr %9, %add.ptr.i13
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %invoke.cont.i.i
 
@@ -631,7 +631,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %35 = phi i64 [ %23, %for.body.lr.ph ], [ %56, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit ]
   %36 = load i64, ptr %direction_, align 8, !tbaa !22
   %37 = load ptr, ptr %coordinates_.i47, align 8, !tbaa !40
-  %add.ptr.i48 = getelementptr inbounds nuw i64, ptr %37, i64 %36
+  %add.ptr.i48 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %36
   %38 = load i64, ptr %add.ptr.i48, align 8, !tbaa !8
   %39 = load ptr, ptr %_M_start.i, align 8, !tbaa !68, !noalias !69
   %40 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !tbaa !72, !noalias !69
@@ -649,7 +649,7 @@ land.lhs.true.i.i.i.i:                            ; preds = %for.body
 
 _ZNSt5dequeIbSaIbEEixEm.exit:                     ; preds = %land.lhs.true.i.i.i.i
   %div911.i.i.i.i = lshr i64 %add.i.i.i.i, 9
-  %add.ptr11.i.i.i.i = getelementptr inbounds nuw ptr, ptr %41, i64 %div911.i.i.i.i
+  %add.ptr11.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %div911.i.i.i.i
   %42 = load ptr, ptr %add.ptr11.i.i.i.i, align 8, !tbaa !37, !noalias !69
   %sub14.i.i.i.i = and i64 %add.i.i.i.i, 511
   %add.ptr15.i.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 %sub14.i.i.i.i
@@ -659,7 +659,7 @@ _ZNSt5dequeIbSaIbEEixEm.exit:                     ; preds = %land.lhs.true.i.i.i
 
 _ZNSt5dequeIbSaIbEEixEm.exit.thread91:            ; preds = %for.body
   %sub10.i.i.i.i = ashr i64 %add.i.i.i.i, 9
-  %add.ptr11.i.i.i.i93 = getelementptr inbounds ptr, ptr %41, i64 %sub10.i.i.i.i
+  %add.ptr11.i.i.i.i93 = getelementptr inbounds [8 x i8], ptr %41, i64 %sub10.i.i.i.i
   %44 = load ptr, ptr %add.ptr11.i.i.i.i93, align 8, !tbaa !37, !noalias !69
   %sub14.i.i.i.i95 = and i64 %add.i.i.i.i, 511
   %add.ptr15.i.i.i.i96 = getelementptr inbounds nuw i8, ptr %44, i64 %sub14.i.i.i.i95
@@ -689,7 +689,7 @@ _ZNSt5dequeIbSaIbEEixEm.exit73:                   ; preds = %_ZNSt5dequeIbSaIbEE
 
 invoke.cont37:                                    ; preds = %_ZNSt5dequeIbSaIbEEixEm.exit73
   %48 = load ptr, ptr %avgInnerValues_, align 8, !tbaa !43
-  %add.ptr.i74 = getelementptr inbounds nuw double, ptr %48, i64 %38
+  %add.ptr.i74 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %38
   store double %call38, ptr %add.ptr.i74, align 8, !tbaa !35
   %.pre101 = load i64, ptr %__begin2, align 8, !tbaa !62
   br label %if.end
@@ -721,11 +721,11 @@ for.body.lr.ph.i:                                 ; preds = %if.end
 
 for.body.i:                                       ; preds = %if.then.i83, %for.body.lr.ph.i
   %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc9.i, %if.then.i83 ]
-  %add.ptr.i.i82 = getelementptr inbounds nuw i64, ptr %53, i64 %i.08.i
+  %add.ptr.i.i82 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %i.08.i
   %54 = load i64, ptr %add.ptr.i.i82, align 8, !tbaa !8
   %inc3.i = add i64 %54, 1
   store i64 %inc3.i, ptr %add.ptr.i.i82, align 8, !tbaa !8
-  %add.ptr.i5.i = getelementptr inbounds nuw i64, ptr %52, i64 %i.08.i
+  %add.ptr.i5.i = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %i.08.i
   %55 = load i64, ptr %add.ptr.i5.i, align 8, !tbaa !8
   %cmp6.i = icmp eq i64 %inc3.i, %55
   br i1 %cmp6.i, label %if.then.i83, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit
@@ -762,9 +762,9 @@ if.end49:                                         ; preds = %_ZNSt5dequeIbSaIbEE
   %direction_52 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %58 = load i64, ptr %direction_52, align 8, !tbaa !22
   %59 = load ptr, ptr %coordinates_.i84, align 8, !tbaa !40
-  %add.ptr.i85 = getelementptr inbounds nuw i64, ptr %59, i64 %58
+  %add.ptr.i85 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %58
   %60 = load i64, ptr %add.ptr.i85, align 8, !tbaa !8
-  %add.ptr.i86 = getelementptr inbounds nuw double, ptr %57, i64 %60
+  %add.ptr.i86 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %60
   %61 = load double, ptr %add.ptr.i86, align 8, !tbaa !35
   ret double %61
 }
@@ -902,11 +902,11 @@ _ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit: ; preds = %_ZNK
   %direction_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %4 = load i64, ptr %direction_, align 8, !tbaa !22
   %5 = load ptr, ptr %dim_.i, align 8, !tbaa !40
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %5, i64 %4
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %4
   %6 = load i64, ptr %add.ptr.i, align 8, !tbaa !8
   %coordinates_.i = getelementptr inbounds nuw i8, ptr %iter, i64 32
   %7 = load ptr, ptr %coordinates_.i, align 8, !tbaa !40
-  %add.ptr.i28 = getelementptr inbounds nuw i64, ptr %7, i64 %4
+  %add.ptr.i28 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %4
   %8 = load i64, ptr %add.ptr.i28, align 8, !tbaa !8
   %cmp = icmp eq i64 %8, 0
   %sub = add i64 %6, -1
@@ -1472,7 +1472,7 @@ invoke.cont8:                                     ; preds = %.noexc16, %for.body
 
 invoke.cont10:                                    ; preds = %invoke.cont8
   %call12 = tail call double @exp(double noundef %call11) #25, !tbaa !88
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %call.i, i64 %i.022
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %call.i, i64 %i.022
   store double %call12, ptr %arrayidx.i, align 8, !tbaa !35
   %inc = add nuw i64 %i.022, 1
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i
@@ -2245,9 +2245,9 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit37: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %if.then.i35
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !43
-  %add.ptr37 = getelementptr inbounds nuw double, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !42
-  %add.ptr40 = getelementptr inbounds nuw double, ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !91
   br label %if.end44
 
@@ -2269,7 +2269,7 @@ entry:
   store ptr %call5.i.i2.i, ptr %this, align 8, !tbaa !65
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i2.i, i64 %div137
   %add.ptr14.idx = shl nuw nsw i64 %add, 3
   %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i

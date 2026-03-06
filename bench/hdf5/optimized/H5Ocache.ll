@@ -7,9 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5FL_seq_head_t = type { %struct.H5FL_blk_head_t, i64 }
 %struct.H5FL_blk_head_t = type { i8, i32, i32, i64, ptr, ptr }
 %struct.H5O_msg_class_t = type { i32, ptr, i64, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.H5O_mesg_t = type { ptr, i8, i8, i32, i32, ptr, ptr, i64 }
-%struct.H5O_chunk_t = type { i64, i64, i64, ptr, ptr }
-%struct.H5O_cont_t = type { i64, i64, i32 }
 
 @.str = private unnamed_addr constant [14 x i8] c"object header\00", align 1
 @H5AC_OHDR = local_unnamed_addr constant [1 x { i32, [4 x i8], ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 5, [4 x i8] zeroinitializer, ptr @.str, i32 6, i32 1, ptr @H5O__cache_get_initial_load_size, ptr @H5O__cache_get_final_load_size, ptr @H5O__cache_verify_chksum, ptr @H5O__cache_deserialize, ptr @H5O__cache_image_len, ptr null, ptr @H5O__cache_serialize, ptr @H5O__cache_notify, ptr @H5O__cache_free_icr, ptr null }], align 16
@@ -842,7 +839,7 @@ define internal range(i32 -1, 1) i32 @H5O__cache_notify(i32 noundef %0, ptr noun
 27:                                               ; preds = %.lr.ph, %35
   %28 = phi i64 [ 0, %.lr.ph ], [ %37, %35 ]
   %.020 = phi i32 [ 0, %.lr.ph ], [ %36, %35 ]
-  %29 = getelementptr inbounds nuw %struct.H5O_mesg_t, ptr %13, i64 %28
+  %29 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i32, ptr %30, align 8, !tbaa !60
   %32 = icmp eq i32 %31, 0
@@ -1102,7 +1099,7 @@ define internal noundef i32 @H5O__cache_chk_image_len(ptr noundef readonly captu
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %15 = load i32, ptr %14, align 8, !tbaa !71
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !44
   store i64 %19, ptr %1, align 8, !tbaa !10
@@ -1143,7 +1140,7 @@ define internal range(i32 -1, 1) i32 @H5O__cache_chk_serialize(ptr noundef %0, p
   %25 = load ptr, ptr %24, align 8, !tbaa !43
   %26 = load i32, ptr %14, align 8, !tbaa !71
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !44
   %31 = icmp ugt i64 %2, %30
@@ -1263,7 +1260,7 @@ define internal range(i32 -1, 1) i32 @H5O__cache_chk_notify(i32 noundef %0, ptr 
 52:                                               ; preds = %.lr.ph, %60
   %53 = phi i64 [ 0, %.lr.ph ], [ %62, %60 ]
   %.039 = phi i32 [ 0, %.lr.ph ], [ %61, %60 ]
-  %54 = getelementptr inbounds nuw %struct.H5O_mesg_t, ptr %15, i64 %53
+  %54 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load i32, ptr %55, align 8, !tbaa !60
   %57 = icmp eq i32 %56, %17
@@ -2017,7 +2014,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   %35 = trunc i64 %33 to i32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %37 = and i64 %33, 4294967295
-  %38 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %32, i64 %37
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %32, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i64 0, ptr %39, align 8, !tbaa !81
   store i64 %1, ptr %38, align 8, !tbaa !82
@@ -2064,7 +2061,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   %66 = phi i64 [ %2, %63 ], [ %.pre552, %59 ]
   %67 = tail call noalias ptr @H5FL_blk_malloc(ptr noundef nonnull @H5_chunk_image_blk_free_list, i64 noundef %66) #9
   %68 = load ptr, ptr %36, align 8, !tbaa !43
-  %69 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %68, i64 %37
+  %69 = getelementptr inbounds nuw [40 x i8], ptr %68, i64 %37
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store ptr %67, ptr %70, align 8, !tbaa !48
   %71 = icmp eq ptr %67, null
@@ -2401,7 +2398,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
 
 272:                                              ; preds = %267
   %273 = load ptr, ptr %143, align 8, !tbaa !59
-  %274 = getelementptr %struct.H5O_mesg_t, ptr %273, i64 %.pre553
+  %274 = getelementptr [48 x i8], ptr %273, i64 %.pre553
   %275 = getelementptr i8, ptr %274, i64 -48
   %276 = load ptr, ptr %275, align 8, !tbaa !85
   %277 = load i32, ptr %276, align 8, !tbaa !86
@@ -2462,7 +2459,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
 307:                                              ; preds = %._crit_edge554, %298
   %308 = phi i64 [ %.pre555, %._crit_edge554 ], [ %.pre553, %298 ]
   %309 = load ptr, ptr %143, align 8, !tbaa !59
-  %310 = getelementptr inbounds nuw %struct.H5O_mesg_t, ptr %309, i64 %308
+  %310 = getelementptr inbounds nuw [48 x i8], ptr %309, i64 %308
   %311 = add i64 %308, 1
   store i64 %311, ptr %142, align 8, !tbaa !41
   %312 = getelementptr inbounds nuw i8, ptr %310, i64 8
@@ -2484,7 +2481,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
 
 320:                                              ; preds = %307
   %321 = zext nneg i32 %.0338 to i64
-  %322 = getelementptr inbounds nuw ptr, ptr @H5O_msg_class_g, i64 %321
+  %322 = getelementptr inbounds nuw [8 x i8], ptr @H5O_msg_class_g, i64 %321
   %323 = load ptr, ptr %322, align 8, !tbaa !94
   %324 = icmp eq ptr %323, null
   br i1 %324, label %325, label %343
@@ -2708,7 +2705,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
 
 434:                                              ; preds = %429
   %435 = load ptr, ptr %36, align 8, !tbaa !43
-  %436 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %435, i64 %37
+  %436 = getelementptr inbounds nuw [40 x i8], ptr %435, i64 %37
   %437 = getelementptr inbounds nuw i8, ptr %436, i64 16
   store i64 %412, ptr %437, align 8, !tbaa !81
   %438 = getelementptr inbounds nuw i8, ptr %261, i64 %412
@@ -2757,7 +2754,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
 456:                                              ; preds = %.thread463, %._crit_edge
   %.7 = phi ptr [ %451, %.thread463 ], [ %.2.lcssa, %._crit_edge ]
   %457 = load ptr, ptr %36, align 8, !tbaa !43
-  %458 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %457, i64 %37
+  %458 = getelementptr inbounds nuw [40 x i8], ptr %457, i64 %37
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 24
   %460 = load ptr, ptr %459, align 8, !tbaa !48
   %461 = getelementptr inbounds nuw i8, ptr %458, i64 8
@@ -2874,7 +2871,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__add_cont_msg(ptr noundef captu
   %27 = add i64 %26, 1
   store i64 %27, ptr %0, align 8, !tbaa !98
   %28 = load i64, ptr %1, align 8, !tbaa !109
-  %29 = getelementptr inbounds nuw %struct.H5O_cont_t, ptr %25, i64 %26
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %26
   store i64 %28, ptr %29, align 8, !tbaa !109
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !110
@@ -2965,7 +2962,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_serialize(ptr noundef %0
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %41 = load ptr, ptr %40, align 8, !tbaa !43
   %42 = zext i32 %2 to i64
-  %43 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [40 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i64, ptr %44, align 8, !tbaa !81
   %.not = icmp eq i64 %45, 0
@@ -2985,7 +2982,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_serialize(ptr noundef %0
 
 54:                                               ; preds = %46, %39
   %55 = phi ptr [ %.pre50, %46 ], [ %41, %39 ]
-  %56 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %55, i64 %42
+  %56 = getelementptr inbounds nuw [40 x i8], ptr %55, i64 %42
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8, !tbaa !48
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -2993,7 +2990,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_serialize(ptr noundef %0
   %61 = add i64 %60, -4
   %62 = tail call i32 @H5_checksum_metadata(ptr noundef %58, i64 noundef %61, i32 noundef 0) #9
   %63 = load ptr, ptr %40, align 8, !tbaa !43
-  %64 = getelementptr inbounds nuw %struct.H5O_chunk_t, ptr %63, i64 %42
+  %64 = getelementptr inbounds nuw [40 x i8], ptr %63, i64 %42
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !48
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 8

@@ -1627,7 +1627,7 @@ define internal i32 @uart_poll(ptr noundef readonly captures(none) %0, ptr nound
 
 15:                                               ; preds = %.preheader, %14
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %.not38 = icmp eq ptr %17, null
   br i1 %.not38, label %20, label %14
@@ -1638,7 +1638,7 @@ define internal i32 @uart_poll(ptr noundef readonly captures(none) %0, ptr nound
   br label %48
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   store ptr %1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %21, ptr %22, align 8

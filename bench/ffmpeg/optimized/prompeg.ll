@@ -230,7 +230,7 @@ define internal range(i32 12, 0) i32 @prompeg_write(ptr noundef %0, ptr noundef 
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %.preheader.i ]
   %57 = tail call noalias ptr @av_malloc(i64 noundef 16) #6
   %58 = load ptr, ptr %9, align 8, !tbaa !32
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv.i
   store ptr %57, ptr %59, align 8, !tbaa !46
   %.not65.i = icmp eq ptr %57, null
   br i1 %.not65.i, label %.loopexit.i, label %60
@@ -240,7 +240,7 @@ define internal range(i32 12, 0) i32 @prompeg_write(ptr noundef %0, ptr noundef 
   %62 = sext i32 %61 to i64
   %63 = tail call ptr @av_malloc_array(i64 noundef %62, i64 noundef 1) #6
   %64 = load ptr, ptr %9, align 8, !tbaa !32
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv.i
   %66 = load ptr, ptr %65, align 8, !tbaa !46
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %63, ptr %67, align 8, !tbaa !47
@@ -248,7 +248,7 @@ define internal range(i32 12, 0) i32 @prompeg_write(ptr noundef %0, ptr noundef 
   br i1 %.not66.i, label %68, label %53
 
 68:                                               ; preds = %60
-  %69 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv.i
   tail call void @av_freep(ptr noundef nonnull %69) #6
   br label %.loopexit.i
 
@@ -262,7 +262,7 @@ define internal range(i32 12, 0) i32 @prompeg_write(ptr noundef %0, ptr noundef 
   store ptr %73, ptr %74, align 8, !tbaa !50
   %75 = load i8, ptr %15, align 4, !tbaa !17
   %76 = zext i8 %75 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %73, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %77, ptr %78, align 8, !tbaa !51
   %79 = load i32, ptr %29, align 4, !tbaa !38
@@ -549,18 +549,18 @@ xor_fast.exit:                                    ; preds = %.lr.ph34.i, %._crit
 ._crit_edge:                                      ; preds = %244
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.pre131 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !51
-  %.phi.trans.insert136 = getelementptr inbounds ptr, ptr %.pre131, i64 %247
+  %.phi.trans.insert136 = getelementptr inbounds [8 x i8], ptr %.pre131, i64 %247
   %.pre137 = load ptr, ptr %.phi.trans.insert136, align 8, !tbaa !46
   br label %257
 
 248:                                              ; preds = %244
   %249 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %250 = load ptr, ptr %249, align 8, !tbaa !50
-  %251 = getelementptr inbounds ptr, ptr %250, i64 %247
+  %251 = getelementptr inbounds [8 x i8], ptr %250, i64 %247
   %252 = load ptr, ptr %251, align 8, !tbaa !46
   %253 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %254 = load ptr, ptr %253, align 8, !tbaa !51
-  %255 = getelementptr inbounds ptr, ptr %254, i64 %247
+  %255 = getelementptr inbounds [8 x i8], ptr %254, i64 %247
   %256 = load ptr, ptr %255, align 8, !tbaa !46
   store ptr %256, ptr %251, align 8, !tbaa !46
   store ptr %252, ptr %255, align 8, !tbaa !46
@@ -579,7 +579,7 @@ xor_fast.exit:                                    ; preds = %.lr.ph34.i, %._crit
   %266 = load i16, ptr %265, align 1, !tbaa !53
   %267 = tail call i16 @llvm.bswap.i16(i16 %266)
   %268 = load ptr, ptr %259, align 8, !tbaa !51
-  %269 = getelementptr inbounds ptr, ptr %268, i64 %247
+  %269 = getelementptr inbounds [8 x i8], ptr %268, i64 %247
   %270 = load ptr, ptr %269, align 8, !tbaa !46
   store i16 %267, ptr %270, align 8, !tbaa !55
   %271 = load i32, ptr %110, align 1, !tbaa !53
@@ -592,7 +592,7 @@ xor_fast.exit:                                    ; preds = %.lr.ph34.i, %._crit
   %275 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %276 = load ptr, ptr %275, align 8, !tbaa !51
   %277 = sext i32 %134 to i64
-  %278 = getelementptr inbounds ptr, ptr %276, i64 %277
+  %278 = getelementptr inbounds [8 x i8], ptr %276, i64 %277
   %279 = load ptr, ptr %278, align 8, !tbaa !46
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %281 = load ptr, ptr %280, align 8, !tbaa !47
@@ -658,7 +658,7 @@ xor_fast.exit100:                                 ; preds = %.lr.ph34.i90, %._cr
   %307 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %308 = load ptr, ptr %307, align 8, !tbaa !50
   %309 = sext i32 %304 to i64
-  %310 = getelementptr inbounds ptr, ptr %308, i64 %309
+  %310 = getelementptr inbounds [8 x i8], ptr %308, i64 %309
   %311 = load ptr, ptr %310, align 8, !tbaa !46
   %.val75 = load ptr, ptr %4, align 8, !tbaa !4
   %312 = getelementptr inbounds nuw i8, ptr %.val75, i64 64
@@ -795,13 +795,13 @@ define internal noundef i32 @prompeg_close(ptr noundef readonly captures(none) %
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %13 = load ptr, ptr %8, align 8, !tbaa !32
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !46
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !47
   tail call void @av_free(ptr noundef %17) #6
   %18 = load ptr, ptr %8, align 8, !tbaa !32
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   tail call void @av_freep(ptr noundef %19) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %10, align 4, !tbaa !40

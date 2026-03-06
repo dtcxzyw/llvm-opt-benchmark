@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.cvc5::internal::TrustNode" = type { i32, %"class.cvc5::internal::NodeTemplate.314", ptr }
 %"class.cvc5::internal::FatalStream" = type { i8 }
-%"class.cvc5::internal::NodeTemplate" = type { ptr }
 
 $_ZN4cvc58internal6theory11TheoryStateD2Ev = comdat any
 
@@ -944,7 +943,7 @@ define linkonce_odr hidden void @_ZN4cvc57context6CDListINS_8internal12NodeTempl
 .loopexit.i:                                      ; preds = %.loopexit.sink.split.i, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !67
-  %11 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %10, i64 %4
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !67
   %.not.i.i.i = icmp eq ptr %11, %13

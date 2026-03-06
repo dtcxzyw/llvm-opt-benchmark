@@ -681,7 +681,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 232:                                              ; preds = %223
   %_ZN9benchmark12_GLOBAL__N_112kBigIECUnitsE._ZN9benchmark12_GLOBAL__N_111kBigSIUnitsE.i.i = select i1 %13, ptr @_ZN9benchmark12_GLOBAL__N_112kBigIECUnitsE, ptr @_ZN9benchmark12_GLOBAL__N_111kBigSIUnitsE
   %233 = select i1 %224, ptr %_ZN9benchmark12_GLOBAL__N_112kBigIECUnitsE._ZN9benchmark12_GLOBAL__N_111kBigSIUnitsE.i.i, ptr @_ZN9benchmark12_GLOBAL__N_113kSmallSIUnitsE
-  %234 = getelementptr inbounds nuw ptr, ptr %233, i64 %227
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %227
   %235 = load ptr, ptr %234, align 8, !tbaa !56, !noalias !57
   %236 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %236, ptr %10, align 8, !tbaa !6, !alias.scope !53, !noalias !3
@@ -1610,7 +1610,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !79
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !72
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !75
   ret void
 }

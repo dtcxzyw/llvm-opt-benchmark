@@ -229,7 +229,7 @@ _get_group_members.exit.thread113:                ; preds = %.lr.ph.i
   %90 = load ptr, ptr %7, align 8
   %91 = add nsw i32 %.2, 1
   %92 = sext i32 %.2 to i64
-  %93 = getelementptr inbounds i32, ptr %90, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %90, i64 %92
   store i32 %89, ptr %93, align 4
   br label %94
 
@@ -240,7 +240,7 @@ _get_group_members.exit.thread113:                ; preds = %.lr.ph.i
   %95 = load ptr, ptr %5, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv.next.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv.next.i
   %99 = load ptr, ptr %98, align 8
   %.not71.i = icmp eq ptr %99, null
   br i1 %.not71.i, label %._crit_edge96.i, label %.lr.ph95.i, !llvm.loop !12
@@ -342,7 +342,7 @@ _get_group_members.exit.thread113:                ; preds = %.lr.ph.i
   %143 = load ptr, ptr %7, align 8
   %144 = add nsw i32 %.10, 1
   %145 = sext i32 %.10 to i64
-  %146 = getelementptr inbounds i32, ptr %143, i64 %145
+  %146 = getelementptr inbounds [4 x i8], ptr %143, i64 %145
   store i32 %142, ptr %146, align 4
   br label %147
 
@@ -353,7 +353,7 @@ _get_group_members.exit.thread113:                ; preds = %.lr.ph.i
   %148 = load ptr, ptr %5, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv.next115.i
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %indvars.iv.next115.i
   %152 = load ptr, ptr %151, align 8
   %.not73.i = icmp eq ptr %152, null
   br i1 %.not73.i, label %.loopexit.i, label %.lr.ph102.i, !llvm.loop !14
@@ -415,7 +415,7 @@ _get_group_members.exit.thread113:                ; preds = %.lr.ph.i
   %178 = load i32, ptr %177, align 8
   %179 = load ptr, ptr %7, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %180 = getelementptr inbounds i32, ptr %179, i64 %indvars.iv
+  %180 = getelementptr inbounds [4 x i8], ptr %179, i64 %indvars.iv
   store i32 %178, ptr %180, align 4
   br label %.outer.i, !llvm.loop !15
 
@@ -542,14 +542,14 @@ _get_group_members.exit.thread:                   ; preds = %_get_group_cache.ex
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv87 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next88, %.lr.ph ]
   %216 = load ptr, ptr %14, align 8
-  %217 = getelementptr inbounds nuw i32, ptr %216, i64 %indvars.iv87
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %216, i64 %indvars.iv87
   %218 = load i32, ptr %217, align 4
   %219 = load ptr, ptr %11, align 8
   %220 = load i32, ptr %1, align 4
   %221 = add nsw i32 %220, 1
   store i32 %221, ptr %1, align 4
   %222 = sext i32 %220 to i64
-  %223 = getelementptr inbounds i32, ptr %219, i64 %222
+  %223 = getelementptr inbounds [4 x i8], ptr %219, i64 %222
   store i32 %218, ptr %223, align 4
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count
@@ -590,7 +590,7 @@ _get_group_members.exit.thread:                   ; preds = %_get_group_cache.ex
   %.024.lcssa.i = phi i32 [ %236, %229 ], [ %.1.i23, %254 ]
   %239 = add nsw i32 %.025.lcssa.i, 1
   %240 = sext i32 %.025.lcssa.i to i64
-  %241 = getelementptr inbounds i32, ptr %231, i64 %240
+  %241 = getelementptr inbounds [4 x i8], ptr %231, i64 %240
   store i32 %.024.lcssa.i, ptr %241, align 4
   call void @slurm_xfree(ptr noundef nonnull %11) #12
   store i32 %239, ptr %1, align 4
@@ -602,7 +602,7 @@ _get_group_members.exit.thread:                   ; preds = %_get_group_cache.ex
   %indvars.iv.i21 = phi i64 [ %indvars.iv.next.i24, %254 ], [ 0, %229 ]
   %.02430.i = phi i32 [ %.1.i23, %254 ], [ %236, %229 ]
   %.02529.i = phi i32 [ %.126.i, %254 ], [ 0, %229 ]
-  %244 = getelementptr inbounds nuw i32, ptr %243, i64 %indvars.iv.i21
+  %244 = getelementptr inbounds nuw [4 x i8], ptr %243, i64 %indvars.iv.i21
   %245 = load i32, ptr %244, align 4
   %246 = icmp eq i32 %245, %.02430.i
   br i1 %246, label %254, label %247
@@ -610,10 +610,10 @@ _get_group_members.exit.thread:                   ; preds = %_get_group_cache.ex
 247:                                              ; preds = %.lr.ph.i20
   %248 = add nsw i32 %.02529.i, 1
   %249 = sext i32 %.02529.i to i64
-  %250 = getelementptr inbounds i32, ptr %231, i64 %249
+  %250 = getelementptr inbounds [4 x i8], ptr %231, i64 %249
   store i32 %.02430.i, ptr %250, align 4
   %251 = load ptr, ptr %11, align 8
-  %252 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv.i21
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %251, i64 %indvars.iv.i21
   %253 = load i32, ptr %252, align 4
   %.pre.i22 = load i32, ptr %1, align 4
   br label %254

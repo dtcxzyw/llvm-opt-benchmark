@@ -157,7 +157,7 @@ define void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias noundef w
 .preheader:                                       ; preds = %66, %.preheader
   %.017.i = phi i64 [ %70, %.preheader ], [ 0, %66 ]
   %.016.i = phi i64 [ %71, %.preheader ], [ 0, %66 ]
-  %68 = getelementptr inbounds { i32, i32 }, ptr %38, i64 %.016.i
+  %68 = getelementptr inbounds [8 x i8], ptr %38, i64 %.016.i
   %69 = tail call noundef i64 @_ZN12regex_syntax3hir17ClassUnicodeRange3len17h6f4e2fcba4868fecE(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %68)
   %70 = add i64 %69, %.017.i
   %71 = add nuw i64 %.016.i, 1
@@ -176,7 +176,7 @@ define void @_ZN10grep_regex3ban5check17h1e159d9114e21e95E(ptr noalias noundef w
 .preheader160:                                    ; preds = %74, %.preheader160
   %.017.i94 = phi i64 [ %78, %.preheader160 ], [ 0, %74 ]
   %.016.i95 = phi i64 [ %79, %.preheader160 ], [ 0, %74 ]
-  %76 = getelementptr inbounds { i8, i8 }, ptr %38, i64 %.016.i95
+  %76 = getelementptr inbounds [2 x i8], ptr %38, i64 %.016.i95
   %77 = tail call noundef i64 @_ZN12regex_syntax3hir15ClassBytesRange3len17hff0b36e1eb8e1d40E(ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %76)
   %78 = add i64 %77, %.017.i94
   %79 = add nuw i64 %.016.i95, 1

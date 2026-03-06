@@ -227,8 +227,8 @@ define void @_ZN7Imf_3_45ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(1
   %27 = phi i64 [ %39, %38 ], [ %15, %.preheader.i ]
   %28 = load ptr, ptr %10, align 8, !tbaa !25
   %29 = mul nsw i64 %27, %indvars.iv20.i
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8, !tbaa !29
   %33 = icmp eq ptr %32, null
   br i1 %33, label %38, label %34
@@ -368,8 +368,8 @@ _ZN7Imf_3_47Array2DIPNS_10ImageLevelEE11resizeEraseEll.exit: ; preds = %._crit_e
   %27 = phi i64 [ %39, %38 ], [ %15, %.preheader ]
   %28 = load ptr, ptr %10, align 8, !tbaa !25
   %29 = mul nsw i64 %27, %indvars.iv20
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %30 = getelementptr inbounds [8 x i8], ptr %28, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !29
   %33 = icmp eq ptr %32, null
   br i1 %33, label %38, label %34
@@ -466,8 +466,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7Imf_3_45Image11C
   %28 = phi i64 [ %39, %38 ], [ %11, %.preheader ]
   %29 = load ptr, ptr %6, align 8, !tbaa !25
   %30 = mul nsw i64 %28, %indvars.iv17
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !29
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %38, label %34
@@ -605,8 +605,8 @@ _ZNK7Imf_3_45Image18levelNumberIsValidEii.exit:   ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = load ptr, ptr %17, align 8, !tbaa !25
   %19 = mul nsw i64 %9, %14
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %7
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %7
   %22 = load ptr, ptr %21, align 8, !tbaa !29
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %_ZNK7Imf_3_45Image18levelNumberIsValidEii.exit.thread, label %38
@@ -694,8 +694,8 @@ define hidden noundef zeroext i1 @_ZNK7Imf_3_45Image18levelNumberIsValidEii(ptr 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = load ptr, ptr %17, align 8, !tbaa !25
   %19 = mul nsw i64 %8, %13
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %6
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %6
   %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = icmp ne ptr %22, null
   br label %24
@@ -964,8 +964,8 @@ define void @_ZN7Imf_3_45Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9Level
   %31 = phi i64 [ %43, %42 ], [ %19, %.preheader.i ]
   %32 = load ptr, ptr %14, align 8, !tbaa !25
   %33 = mul nsw i64 %31, %indvars.iv20.i
-  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i
+  %34 = getelementptr inbounds [8 x i8], ptr %32, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i
   %36 = load ptr, ptr %35, align 8, !tbaa !29
   %37 = icmp eq ptr %36, null
   br i1 %37, label %42, label %38
@@ -1233,8 +1233,8 @@ _ZN7Imf_3_47Array2DIPNS_10ImageLevelEE11resizeEraseEll.exit: ; preds = %_ZN7Imf_
   %145 = load ptr, ptr %22, align 8, !tbaa !25
   %146 = load i64, ptr %129, align 8, !tbaa !24
   %147 = mul nsw i64 %146, %indvars.iv112
-  %148 = getelementptr inbounds ptr, ptr %145, i64 %147
-  %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv
+  %148 = getelementptr inbounds [8 x i8], ptr %145, i64 %147
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %indvars.iv
   store ptr null, ptr %149, align 8, !tbaa !29
   br label %207
 
@@ -1298,8 +1298,8 @@ _ZN7Imf_3_412_GLOBAL__N_19levelSizeEiiiNS_17LevelRoundingModeE.exit.i.us._crit_e
   %180 = load ptr, ptr %22, align 8, !tbaa !25
   %181 = load i64, ptr %129, align 8, !tbaa !24
   %182 = mul nsw i64 %181, %indvars.iv112
-  %183 = getelementptr inbounds ptr, ptr %180, i64 %182
-  %184 = getelementptr inbounds nuw ptr, ptr %183, i64 %indvars.iv
+  %183 = getelementptr inbounds [8 x i8], ptr %180, i64 %182
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %indvars.iv
   store ptr %178, ptr %184, align 8, !tbaa !29
   %185 = load ptr, ptr %140, align 8, !tbaa !11
   %.not8392.us = icmp eq ptr %185, %141
@@ -1310,8 +1310,8 @@ _ZN7Imf_3_412_GLOBAL__N_19levelSizeEiiiNS_17LevelRoundingModeE.exit.i.us._crit_e
   %186 = load ptr, ptr %22, align 8, !tbaa !25
   %187 = load i64, ptr %129, align 8, !tbaa !24
   %188 = mul nsw i64 %187, %indvars.iv112
-  %189 = getelementptr inbounds ptr, ptr %186, i64 %188
-  %190 = getelementptr inbounds nuw ptr, ptr %189, i64 %indvars.iv
+  %189 = getelementptr inbounds [8 x i8], ptr %186, i64 %188
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %indvars.iv
   %191 = load ptr, ptr %190, align 8, !tbaa !29
   %192 = getelementptr inbounds nuw i8, ptr %.sroa.067.093.us, i64 32
   %193 = getelementptr inbounds nuw i8, ptr %.sroa.067.093.us, i64 64
@@ -1646,8 +1646,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit40: ; preds = %74
   %95 = phi i64 [ %106, %105 ], [ %88, %.preheader ]
   %96 = load ptr, ptr %25, align 8, !tbaa !25
   %97 = mul nsw i64 %95, %indvars.iv71
-  %98 = getelementptr inbounds ptr, ptr %96, i64 %97
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv
+  %98 = getelementptr inbounds [8 x i8], ptr %96, i64 %97
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv
   %100 = load ptr, ptr %99, align 8, !tbaa !29
   %.not = icmp eq ptr %100, null
   br i1 %.not, label %105, label %101
@@ -1736,8 +1736,8 @@ define void @_ZN7Imf_3_45Image13insertChannelERKNSt7__cxx1112basic_stringIcSt11c
   %31 = phi i64 [ %42, %41 ], [ %20, %.preheader ]
   %32 = load ptr, ptr %15, align 8, !tbaa !25
   %33 = mul nsw i64 %31, %indvars.iv32
-  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %34 = getelementptr inbounds [8 x i8], ptr %32, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !29
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %41, label %37
@@ -2004,8 +2004,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7Imf_3_45Image11C
   %44 = phi i64 [ %55, %54 ], [ %12, %.preheader ]
   %45 = load ptr, ptr %7, align 8, !tbaa !25
   %46 = mul nsw i64 %44, %indvars.iv23
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !29
   %.not = icmp eq ptr %49, null
   br i1 %.not, label %54, label %50
@@ -2405,8 +2405,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit81: ; preds = %_ZStl
   %122 = phi i64 [ %133, %132 ], [ %112, %.preheader ]
   %123 = load ptr, ptr %76, align 8, !tbaa !25
   %124 = mul nsw i64 %122, %indvars.iv94
-  %125 = getelementptr inbounds ptr, ptr %123, i64 %124
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv
+  %125 = getelementptr inbounds [8 x i8], ptr %123, i64 %124
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %indvars.iv
   %127 = load ptr, ptr %126, align 8, !tbaa !29
   %.not = icmp eq ptr %127, null
   br i1 %.not, label %132, label %128
@@ -2909,8 +2909,8 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %138 = phi i64 [ %149, %148 ], [ %123, %.preheader ]
   %139 = load ptr, ptr %24, align 8, !tbaa !25
   %140 = mul nsw i64 %138, %indvars.iv106
-  %141 = getelementptr inbounds ptr, ptr %139, i64 %140
-  %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv
+  %141 = getelementptr inbounds [8 x i8], ptr %139, i64 %140
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %indvars.iv
   %143 = load ptr, ptr %142, align 8, !tbaa !29
   %.not = icmp eq ptr %143, null
   br i1 %.not, label %148, label %144
@@ -3261,8 +3261,8 @@ _ZNK7Imf_3_45Image18levelNumberIsValidEii.exit:   ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = load ptr, ptr %17, align 8, !tbaa !25
   %19 = mul nsw i64 %9, %14
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %7
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %7
   %22 = load ptr, ptr %21, align 8, !tbaa !29
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %_ZNK7Imf_3_45Image18levelNumberIsValidEii.exit.thread, label %38
@@ -3350,8 +3350,8 @@ _ZNK7Imf_3_45Image18levelNumberIsValidEii.exit:   ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = load ptr, ptr %17, align 8, !tbaa !25
   %19 = mul nsw i64 %9, %14
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %7
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %7
   %22 = load ptr, ptr %21, align 8, !tbaa !29
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %_ZNK7Imf_3_45Image18levelNumberIsValidEii.exit.thread, label %38

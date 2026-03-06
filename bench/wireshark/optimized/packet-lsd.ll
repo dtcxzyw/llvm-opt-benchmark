@@ -311,7 +311,7 @@ define internal fastcc noundef zeroext i1 @parse_string_field(ptr noundef %0, i3
   %.0 = phi ptr [ %31, %25 ], [ %23, %.preheader ]
   %26 = load i8, ptr %.0, align 1
   %27 = zext i8 %26 to i64
-  %28 = getelementptr i16, ptr %24, i64 %27
+  %28 = getelementptr [2 x i8], ptr %24, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 256
   %.not38 = icmp eq i16 %30, 0

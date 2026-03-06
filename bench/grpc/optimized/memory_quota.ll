@@ -41,19 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.28" = type { ptr }
 %"class.grpc_core::Poll" = type { i8, %union.anon.29 }
 %union.anon.29 = type { %"class.grpc_core::RefCountedPtr" }
-%"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard" = type { %"class.absl::lts_20240722::flat_hash_set", %"class.absl::lts_20240722::Mutex" }
-%"class.absl::lts_20240722::flat_hash_set" = type { %"class.absl::lts_20240722::container_internal::raw_hash_set" }
-%"class.absl::lts_20240722::container_internal::raw_hash_set" = type { %"class.absl::lts_20240722::container_internal::CompressedTuple" }
-%"class.absl::lts_20240722::container_internal::CompressedTuple" = type { %"struct.absl::lts_20240722::container_internal::internal_compressed_tuple::CompressedTupleImpl" }
-%"struct.absl::lts_20240722::container_internal::internal_compressed_tuple::CompressedTupleImpl" = type { %"struct.absl::lts_20240722::container_internal::internal_compressed_tuple::Storage" }
-%"struct.absl::lts_20240722::container_internal::internal_compressed_tuple::Storage" = type { %"class.absl::lts_20240722::container_internal::CommonFields" }
-%"class.absl::lts_20240722::container_internal::CommonFields" = type { i64, i64, %"union.absl::lts_20240722::container_internal::HeapOrSoo" }
-%"union.absl::lts_20240722::container_internal::HeapOrSoo" = type { %"struct.absl::lts_20240722::container_internal::HeapPtrs" }
-%"struct.absl::lts_20240722::container_internal::HeapPtrs" = type { ptr, %"union.absl::lts_20240722::container_internal::MaybeInitializedPtr" }
-%"union.absl::lts_20240722::container_internal::MaybeInitializedPtr" = type { ptr }
-%"class.absl::lts_20240722::Mutex" = type { %"struct.std::atomic.0" }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
 %"class.absl::lts_20240722::log_internal::LogMessageFatal" = type { %"class.absl::lts_20240722::log_internal::LogMessage" }
 %"class.std::unique_ptr.33" = type { %"struct.std::__uniq_ptr_data.34" }
 %"struct.std::__uniq_ptr_data.34" = type { %"class.std::__uniq_ptr_impl.35" }
@@ -143,6 +130,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__detail::__variant::_Uninitialized.122" = type { %"struct.__gnu_cxx::__aligned_membuf" }
 %"struct.__gnu_cxx::__aligned_membuf" = type { [8 x i8] }
 %"class.absl::lts_20240722::container_internal::HashSetResizeHelper" = type <{ %"union.absl::lts_20240722::container_internal::HeapOrSoo", i64, i8, i8, i8, [5 x i8] }>
+%"union.absl::lts_20240722::container_internal::HeapOrSoo" = type { %"struct.absl::lts_20240722::container_internal::HeapPtrs" }
+%"struct.absl::lts_20240722::container_internal::HeapPtrs" = type { ptr, %"union.absl::lts_20240722::container_internal::MaybeInitializedPtr" }
+%"union.absl::lts_20240722::container_internal::MaybeInitializedPtr" = type { ptr }
 %"class.std::allocator.11" = type { i8 }
 
 $__clang_call_terminate = comdat any
@@ -1555,7 +1545,7 @@ _ZN9grpc_core27IsFreeLargeAllocatorEnabledEv.exit: ; preds = %38, %42
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %49 = atomicrmw add ptr %48, i64 1 monotonic, align 8
   %50 = and i64 %49, 15
-  %51 = getelementptr inbounds nuw %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard", ptr %47, i64 %50
+  %51 = getelementptr inbounds nuw [40 x i8], ptr %47, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = call noundef zeroext i1 @_ZN4absl12lts_202407225Mutex7TryLockEv(ptr noundef nonnull align 8 dereferenceable(8) %52)
   br i1 %53, label %54, label %_ZN9grpc_core27IsFreeLargeAllocatorEnabledEv.exit.thread
@@ -1597,7 +1587,7 @@ _ZN9grpc_core27IsFreeLargeAllocatorEnabledEv.exit: ; preds = %38, %42
   %74 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %73, i1 true)
   %75 = zext nneg i32 %74 to i64
   %76 = getelementptr inbounds nuw i8, ptr %68, i64 %75
-  %77 = getelementptr inbounds nuw ptr, ptr %67, i64 %75
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %75
   %78 = load i8, ptr %76, align 1, !tbaa !93
   %79 = icmp slt i8 %78, -1
   br i1 %79, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !95
@@ -1652,7 +1642,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit: ; pr
   %15 = lshr i64 %11, 14
   %16 = xor i64 %14, %15
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard", ptr %10, i64 %17
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
   %20 = load i64, ptr %18, align 8, !tbaa !92, !noalias !99
@@ -1704,7 +1694,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit: ; pr
 .noexc13:                                         ; preds = %.noexc
   %49 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load ptr, ptr %49, align 8, !tbaa !30, !noalias !108
-  %50 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, i64 %48
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE22find_or_prepare_insertIS6_EESt4pairINSD_8iteratorEbERKT_.exit.i.i.i.thread
 
 51:                                               ; preds = %.critedge12
@@ -1754,7 +1744,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit: ; pr
   %83 = zext nneg i16 %82 to i64
   %84 = add i64 %.sroa.7.0.i, %83
   %85 = and i64 %84, %20
-  %86 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !97, !noalias !111
   %88 = icmp eq ptr %87, %54
   br i1 %88, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE7emplaceIJRS6_ETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSD_8iteratorEbEDpOSH_.exit, label %.critedge.i, !prof !114
@@ -1781,7 +1771,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit: ; pr
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE22find_or_prepare_insertIS6_EESt4pairINSD_8iteratorEbERKT_.exit.i.i.i.thread24: ; preds = %.thread.i
   %.sroa.0.0.copyload.i.i.i.i22.i = load ptr, ptr %76, align 8, !tbaa !30, !noalias !111
-  %98 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %97
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE22find_or_prepare_insertIS6_EESt4pairINSD_8iteratorEbERKT_.exit.i.i.i.thread
 
 99:                                               ; preds = %.critedge19.i
@@ -2281,11 +2271,11 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit16.preheader: ; preds = %56
 
 61:                                               ; preds = %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEaSERKS2_.exit, %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit
   %.034 = phi i64 [ 0, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEaSERKS2_.exit ], [ %90, %_ZNSt10unique_ptrIN9grpc_core14ReclaimerQueue6HandleENS0_16OrphanableDeleteEED2Ev.exit ]
-  %62 = getelementptr inbounds nuw %"class.std::unique_ptr.33", ptr %54, i64 %.034
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.034
   %63 = load i64, ptr %62, align 8, !tbaa !116, !noalias !123
   %64 = inttoptr i64 %63 to ptr
   store ptr null, ptr %62, align 8, !tbaa !116, !noalias !123
-  %65 = getelementptr inbounds nuw %"class.std::unique_ptr.33", ptr %5, i64 %.034
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.034
   %66 = load ptr, ptr %65, align 8, !tbaa !116
   store ptr %64, ptr %65, align 8, !tbaa !116
   %.not.i.i.i.i17 = icmp eq ptr %66, null
@@ -2533,7 +2523,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi20EEERS2_RAT__Kc.exit: ; pr
   %15 = lshr i64 %11, 14
   %16 = xor i64 %14, %15
   %17 = and i64 %16, 15
-  %18 = getelementptr inbounds nuw %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard", ptr %10, i64 %17
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
   %20 = invoke noundef i64 @_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE5eraseIS6_EEmRKT_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -2584,7 +2574,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %21
   %39 = lshr i64 %35, 14
   %40 = xor i64 %38, %39
   %41 = and i64 %40, 15
-  %42 = getelementptr inbounds nuw %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard", ptr %33, i64 %41
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %43)
   %44 = invoke noundef i64 @_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE5eraseIS6_EEmRKT_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -4354,7 +4344,7 @@ define linkonce_odr noundef i64 @_ZN4absl12lts_2024072218container_internal12raw
   %46 = zext nneg i16 %45 to i64
   %47 = add i64 %.sroa.6.0.i.i, %46
   %48 = and i64 %47, %3
-  %49 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !97
   %51 = icmp eq ptr %50, %17
   br i1 %51, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE4findIS6_EENSD_8iteratorERKT_.exit, label %52, !prof !114
@@ -4435,7 +4425,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit: ; pr
   %16 = lshr i64 %12, 14
   %17 = xor i64 %15, %16
   %18 = and i64 %17, 15
-  %19 = getelementptr inbounds nuw %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard", ptr %11, i64 %18
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %20)
   %21 = invoke noundef i64 @_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE5eraseIS6_EEmRKT_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -4486,7 +4476,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %22
   %40 = lshr i64 %36, 14
   %41 = xor i64 %39, %40
   %42 = and i64 %41, 15
-  %43 = getelementptr inbounds nuw %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard", ptr %34, i64 %42
+  %43 = getelementptr inbounds nuw [40 x i8], ptr %34, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %44)
   %45 = load i64, ptr %43, align 8, !tbaa !92, !noalias !235
@@ -4538,7 +4528,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %22
 .noexc20:                                         ; preds = %.noexc
   %74 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load ptr, ptr %74, align 8, !tbaa !30, !noalias !244
-  %75 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, i64 %73
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, i64 %73
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE22find_or_prepare_insertIS6_EESt4pairINSD_8iteratorEbERKT_.exit.i.i.i.thread
 
 76:                                               ; preds = %33
@@ -4588,7 +4578,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %22
   %108 = zext nneg i16 %107 to i64
   %109 = add i64 %.sroa.7.0.i, %108
   %110 = and i64 %109, %45
-  %111 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !97, !noalias !247
   %113 = icmp eq ptr %112, %79
   br i1 %113, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE7emplaceIJRS6_ETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSD_8iteratorEbEDpOSH_.exit, label %.critedge.i, !prof !114
@@ -4615,7 +4605,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %22
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE22find_or_prepare_insertIS6_EESt4pairINSD_8iteratorEbERKT_.exit.i.i.i.thread34: ; preds = %.thread.i
   %.sroa.0.0.copyload.i.i.i.i22.i = load ptr, ptr %101, align 8, !tbaa !30, !noalias !247
-  %123 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %122
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE22find_or_prepare_insertIS6_EESt4pairINSD_8iteratorEbERKT_.exit.i.i.i.thread
 
 124:                                              ; preds = %.critedge19.i
@@ -4700,7 +4690,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit: ; pr
   %16 = lshr i64 %12, 14
   %17 = xor i64 %15, %16
   %18 = and i64 %17, 15
-  %19 = getelementptr inbounds nuw %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard", ptr %11, i64 %18
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %20)
   %21 = invoke noundef i64 @_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE5eraseIS6_EEmRKT_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -4751,7 +4741,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %22
   %40 = lshr i64 %36, 14
   %41 = xor i64 %39, %40
   %42 = and i64 %41, 15
-  %43 = getelementptr inbounds nuw %"struct.grpc_core::BasicMemoryQuota::AllocatorBucket::Shard", ptr %34, i64 %42
+  %43 = getelementptr inbounds nuw [40 x i8], ptr %34, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %44)
   %45 = load i64, ptr %43, align 8, !tbaa !92, !noalias !251
@@ -4803,7 +4793,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %22
 .noexc20:                                         ; preds = %.noexc
   %74 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load ptr, ptr %74, align 8, !tbaa !30, !noalias !260
-  %75 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, i64 %73
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, i64 %73
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE22find_or_prepare_insertIS6_EESt4pairINSD_8iteratorEbERKT_.exit.i.i.i.thread
 
 76:                                               ; preds = %33
@@ -4853,7 +4843,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %22
   %108 = zext nneg i16 %107 to i64
   %109 = add i64 %.sroa.7.0.i, %108
   %110 = and i64 %109, %45
-  %111 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !97, !noalias !263
   %113 = icmp eq ptr %112, %79
   br i1 %113, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE7emplaceIJRS6_ETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINSD_8iteratorEbEDpOSH_.exit, label %.critedge.i, !prof !114
@@ -4880,7 +4870,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %22
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE22find_or_prepare_insertIS6_EESt4pairINSD_8iteratorEbERKT_.exit.i.i.i.thread34: ; preds = %.thread.i
   %.sroa.0.0.copyload.i.i.i.i22.i = load ptr, ptr %101, align 8, !tbaa !30, !noalias !263
-  %123 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %122
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPN9grpc_core23GrpcMemoryAllocatorImplEEENS1_6HashEqIS6_vE4HashENS9_2EqESaIS6_EE22find_or_prepare_insertIS6_EESt4pairINSD_8iteratorEbERKT_.exit.i.i.i.thread
 
 124:                                              ; preds = %.critedge19.i
@@ -6504,7 +6494,7 @@ _ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS
 _ZNSt12_Vector_baseISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !279
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !185
-  %52 = getelementptr inbounds nuw %"class.std::weak_ptr", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !188
   ret void
 }
@@ -6631,7 +6621,7 @@ _ZNSt6vectorISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocate
 _ZNSt12_Vector_baseISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !179
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !182
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !184
   ret void
 }
@@ -6731,7 +6721,7 @@ _ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS
 _ZNSt12_Vector_baseISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt8weak_ptrIN9grpc_core16BasicMemoryQuotaEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !279
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !185
-  %44 = getelementptr inbounds nuw %"class.std::weak_ptr", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !188
   ret void
 }
@@ -9612,7 +9602,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %85 = getelementptr i8, ptr %55, i64 %83
   %86 = getelementptr i8, ptr %85, i64 %84
   store i8 %80, ptr %86, align 1, !tbaa !93
-  %87 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
   %88 = load i64, ptr %3, align 8
   store i64 %88, ptr %87, align 1
   br label %160
@@ -9633,7 +9623,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %95, label %96, label %146
 
 96:                                               ; preds = %.lr.ph
-  %97 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i, i64 %.064
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.064
   %98 = load ptr, ptr %97, align 8, !tbaa !97
   %99 = ptrtoint ptr %98 to i64
   %100 = add i64 %99, ptrtoint (ptr @_ZN4absl12lts_2024072213hash_internal15MixingHashState5kSeedE to i64)
@@ -9701,7 +9691,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   %142 = getelementptr i8, ptr %112, i64 %140
   %143 = getelementptr i8, ptr %142, i64 %141
   store i8 %137, ptr %143, align 1, !tbaa !93
-  %144 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i39
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i39
   %145 = load i64, ptr %97, align 8
   store i64 %145, ptr %144, align 1
   %.pre = load i64, ptr %30, align 8, !tbaa !425

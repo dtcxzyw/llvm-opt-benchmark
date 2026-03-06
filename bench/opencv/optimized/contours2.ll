@@ -32,10 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
-%"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
-%"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev = comdat any
 
@@ -878,7 +874,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit191: ; preds = %27
   %.0276 = phi i64 [ 0, %.lr.ph ], [ %306, %305 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %288 = getelementptr inbounds nuw %"class.std::vector.8", ptr %287, i64 %.0276
+  %288 = getelementptr inbounds nuw [24 x i8], ptr %287, i64 %.0276
   store i32 1124024332, ptr %29, align 8, !tbaa !80
   store i32 2, ptr %255, align 4, !tbaa !81
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 8
@@ -918,7 +914,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit191: ; preds = %27
   store ptr %29, ptr %268, align 8, !tbaa !74
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %303 = load ptr, ptr @contours, align 8, !tbaa !4
-  %304 = getelementptr inbounds nuw %"class.std::vector.8", ptr %303, i64 %.0276
+  %304 = getelementptr inbounds nuw [24 x i8], ptr %303, i64 %.0276
   store i64 0, ptr %270, align 8
   store i32 -2113732596, ptr %30, align 8, !tbaa !71
   store ptr %304, ptr %269, align 8, !tbaa !74
@@ -1437,9 +1433,9 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit
 
 _ZNSt12_Vector_baseISt6vectorIN2cv6Point_IiEESaIS3_EESaIS5_EE13_M_deallocateEPS5_m.exit36: ; preds = %_ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !4
-  %39 = getelementptr inbounds nuw %"class.std::vector.8", ptr %27, i64 %1
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !10
-  %40 = getelementptr inbounds nuw %"class.std::vector.8", ptr %26, i64 %24
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %40, ptr %11, align 8, !tbaa !96
   br label %41
 

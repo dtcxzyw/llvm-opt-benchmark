@@ -154,17 +154,17 @@ define internal noundef i32 @v410_decode_slice(ptr noundef readonly captures(non
   %40 = load ptr, ptr %17, align 8, !tbaa !42
   %41 = mul nsw i32 %26, %12
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i16, ptr %40, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %40, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !42
   %46 = mul nsw i32 %23, %12
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i16, ptr %45, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %45, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !42
   %51 = mul nsw i32 %20, %12
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i16, ptr %50, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %50, i64 %52
   %wide.trip.count = zext nneg i32 %28 to i64
   br label %.preheader.us
 
@@ -183,16 +183,16 @@ define internal noundef i32 @v410_decode_slice(ptr noundef readonly captures(non
   %56 = trunc i32 %55 to i16
   %57 = lshr i16 %56, 2
   %58 = and i16 %57, 1023
-  %59 = getelementptr inbounds nuw i16, ptr %.04954.us, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %.04954.us, i64 %indvars.iv
   store i16 %58, ptr %59, align 2, !tbaa !44
   %60 = lshr i32 %55, 12
   %61 = trunc i32 %60 to i16
   %62 = and i16 %61, 1023
-  %63 = getelementptr inbounds nuw i16, ptr %.05053.us, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %.05053.us, i64 %indvars.iv
   store i16 %62, ptr %63, align 2, !tbaa !44
   %64 = lshr i32 %55, 22
   %65 = trunc nuw nsw i32 %64 to i16
-  %66 = getelementptr inbounds nuw i16, ptr %.04855.us, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %.04855.us, i64 %indvars.iv
   store i16 %65, ptr %66, align 2, !tbaa !44
   %67 = getelementptr inbounds nuw i8, ptr %.151.us, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -200,9 +200,9 @@ define internal noundef i32 @v410_decode_slice(ptr noundef readonly captures(non
   br i1 %exitcond.not, label %._crit_edge.us, label %54, !llvm.loop !46
 
 ._crit_edge.us:                                   ; preds = %54
-  %68 = getelementptr inbounds i16, ptr %.05053.us, i64 %30
-  %69 = getelementptr inbounds i16, ptr %.04954.us, i64 %31
-  %70 = getelementptr inbounds i16, ptr %.04855.us, i64 %32
+  %68 = getelementptr inbounds [2 x i8], ptr %.05053.us, i64 %30
+  %69 = getelementptr inbounds [2 x i8], ptr %.04954.us, i64 %31
+  %70 = getelementptr inbounds [2 x i8], ptr %.04855.us, i64 %32
   %71 = add nsw i32 %.04657.us, 1
   %exitcond61.not = icmp eq i32 %71, %15
   br i1 %exitcond61.not, label %._crit_edge58, label %.preheader.us, !llvm.loop !48

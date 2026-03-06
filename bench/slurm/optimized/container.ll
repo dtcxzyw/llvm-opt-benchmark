@@ -855,7 +855,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef readonly captur
   %192 = load ptr, ptr @oci_conf, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
   %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %indvars.iv.i
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %indvars.iv.i
   %196 = load ptr, ptr %195, align 8
   %197 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.58, ptr noundef %196) #9
   br label %198
@@ -870,7 +870,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef readonly captur
   %202 = load ptr, ptr @oci_conf, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv.i
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %indvars.iv.i
   %206 = load ptr, ptr %205, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__._modify_config, ptr noundef %206, i32 noundef %.089.i) #9
   br label %207
@@ -879,7 +879,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef readonly captur
   %208 = load ptr, ptr @oci_conf, align 8
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds nuw ptr, ptr %210, i64 %indvars.iv.i
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %indvars.iv.i
   %212 = load ptr, ptr %211, align 8
   %213 = call zeroext i1 @data_key_unset(ptr noundef %178, ptr noundef %212) #9
   br label %223
@@ -893,7 +893,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef readonly captur
   %218 = load ptr, ptr @oci_conf, align 8
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 16
   %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds nuw ptr, ptr %220, i64 %indvars.iv.i
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %indvars.iv.i
   %222 = load ptr, ptr %221, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.60, ptr noundef nonnull @__func__._modify_config, ptr noundef %222) #9
   br label %223
@@ -903,7 +903,7 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef readonly captur
   %224 = load ptr, ptr @oci_conf, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
   %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %indvars.iv.next.i
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %indvars.iv.next.i
   %228 = load ptr, ptr %227, align 8
   %.not99.i = icmp eq ptr %228, null
   br i1 %.not99.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
@@ -970,10 +970,10 @@ define dso_local void @container_run(ptr noundef %0, ptr noundef readonly captur
   %indvars.iv115.i = phi i64 [ 0, %.lr.ph111.i ], [ %indvars.iv.next116.i, %255 ]
   %256 = call ptr @data_list_append(ptr noundef %236) #9
   %257 = load ptr, ptr %240, align 8
-  %258 = getelementptr inbounds nuw ptr, ptr %257, i64 %indvars.iv115.i
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %257, i64 %indvars.iv115.i
   %259 = call ptr @_data_set_string_own(ptr noundef %256, ptr noundef %258) #9
   %260 = load ptr, ptr %240, align 8
-  %261 = getelementptr inbounds nuw ptr, ptr %260, i64 %indvars.iv115.i
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %indvars.iv115.i
   store ptr null, ptr %261, align 8
   %indvars.iv.next116.i = add nuw nsw i64 %indvars.iv115.i, 1
   %262 = load i32, ptr %238, align 8
@@ -1319,7 +1319,7 @@ _write_config.exit.thread:                        ; preds = %314, %_write_config
 
 423:                                              ; preds = %.lr.ph.i.i
   %424 = load ptr, ptr %413, align 8
-  %425 = getelementptr inbounds nuw ptr, ptr %424, i64 %indvars.iv.i.i
+  %425 = getelementptr inbounds nuw [8 x i8], ptr %424, i64 %indvars.iv.i.i
   %426 = load ptr, ptr %425, align 8
   %427 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__._create_start, i32 noundef %427, ptr noundef %426) #9
@@ -1328,7 +1328,7 @@ _write_config.exit.thread:                        ; preds = %314, %_write_config
 428:                                              ; preds = %423, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %429 = load ptr, ptr %413, align 8
-  %430 = getelementptr inbounds nuw ptr, ptr %429, i64 %indvars.iv.next.i.i
+  %430 = getelementptr inbounds nuw [8 x i8], ptr %429, i64 %indvars.iv.next.i.i
   %431 = load ptr, ptr %430, align 8
   %.not.i.i = icmp eq ptr %431, null
   br i1 %.not.i.i, label %_dump_command_args.exit.i, label %.lr.ph.i.i, !llvm.loop !18
@@ -1440,7 +1440,7 @@ _dump_command_args.exit.i:                        ; preds = %428, %.preheader.i.
 
 471:                                              ; preds = %.lr.ph.i21.i
   %472 = load ptr, ptr %413, align 8
-  %473 = getelementptr inbounds nuw ptr, ptr %472, i64 %indvars.iv.i22.i
+  %473 = getelementptr inbounds nuw [8 x i8], ptr %472, i64 %indvars.iv.i22.i
   %474 = load ptr, ptr %473, align 8
   %475 = trunc nuw nsw i64 %indvars.iv.i22.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__._create_start, i32 noundef %475, ptr noundef %474) #9
@@ -1449,7 +1449,7 @@ _dump_command_args.exit.i:                        ; preds = %428, %.preheader.i.
 476:                                              ; preds = %471, %.lr.ph.i21.i
   %indvars.iv.next.i23.i = add nuw nsw i64 %indvars.iv.i22.i, 1
   %477 = load ptr, ptr %413, align 8
-  %478 = getelementptr inbounds nuw ptr, ptr %477, i64 %indvars.iv.next.i23.i
+  %478 = getelementptr inbounds nuw [8 x i8], ptr %477, i64 %indvars.iv.next.i23.i
   %479 = load ptr, ptr %478, align 8
   %.not.i24.i = icmp eq ptr %479, null
   br i1 %.not.i24.i, label %_dump_command_args.exit25.i, label %.lr.ph.i21.i, !llvm.loop !18
@@ -1744,12 +1744,12 @@ define dso_local void @cleanup_container(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
   call void @slurm_xfree(ptr noundef nonnull %21) #9
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = call fastcc ptr @_generate_spooldir(ptr noundef nonnull %0, ptr noundef %26)
   store ptr %27, ptr %21, align 8
   %28 = load ptr, ptr %22, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   call fastcc void @_generate_patterns(ptr noundef nonnull %0, ptr noundef %30)
   %31 = load ptr, ptr @oci_conf, align 8
@@ -2054,7 +2054,7 @@ define internal fastcc ptr @_generate_pattern(ptr noundef readonly captures(addr
 
 61:                                               ; preds = %60
   %62 = load ptr, ptr %14, align 8
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %15
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %15
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %66 = load i32, ptr %65, align 8
@@ -2353,7 +2353,7 @@ define internal fastcc ptr @_get_container_status() unnamed_addr #0 {
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %.lr.ph.i.i
-  %20 = getelementptr inbounds nuw ptr, ptr @query_argv, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @query_argv, i64 %indvars.iv.i.i
   %21 = load ptr, ptr %20, align 8
   %22 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__._get_container_state, i32 noundef %22, ptr noundef %21) #9
@@ -2361,7 +2361,7 @@ define internal fastcc ptr @_get_container_status() unnamed_addr #0 {
 
 23:                                               ; preds = %19, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %24 = getelementptr inbounds nuw ptr, ptr @query_argv, i64 %indvars.iv.next.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @query_argv, i64 %indvars.iv.next.i.i
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %_dump_command_args.exit.i, label %.lr.ph.i.i, !llvm.loop !18
@@ -2611,7 +2611,7 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
 
 69:                                               ; preds = %.lr.ph.i
   %70 = load ptr, ptr %58, align 8
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv.i
   %72 = load ptr, ptr %71, align 8
   %73 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__._kill_container, i32 noundef %73, ptr noundef %72) #9
@@ -2620,7 +2620,7 @@ define internal fastcc void @_kill_container() unnamed_addr #0 {
 74:                                               ; preds = %69, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %75 = load ptr, ptr %58, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv.next.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv.next.i
   %77 = load ptr, ptr %76, align 8
   %.not.i = icmp eq ptr %77, null
   br i1 %.not.i, label %_dump_command_args.exit, label %.lr.ph.i, !llvm.loop !18

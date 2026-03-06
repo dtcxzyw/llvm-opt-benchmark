@@ -498,7 +498,7 @@ define void @OBJ_NAME_do_all_sorted(i32 noundef %0, ptr noundef readonly capture
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %11 ]
   %21 = load ptr, ptr %10, align 8, !tbaa !32
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !34
   call void %1(ptr noundef %23, ptr noundef %2) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -532,7 +532,7 @@ define internal void @do_all_sorted_fn(ptr noundef %0, ptr noundef captures(none
   %10 = add nsw i32 %9, 1
   store i32 %10, ptr %8, align 4, !tbaa !33
   %11 = sext i32 %9 to i64
-  %12 = getelementptr inbounds ptr, ptr %7, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %7, i64 %11
   store ptr %0, ptr %12, align 8, !tbaa !34
   br label %13
 

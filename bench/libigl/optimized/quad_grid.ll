@@ -137,16 +137,16 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %.1109.us120 = phi i32 [ %.3103.us124, %.thread.us123 ], [ %.052117.us, %.preheader.us ]
   %.154108.us = phi i32 [ %.255.us, %.thread.us123 ], [ %.053116.us, %.preheader.us ]
   %43 = phi i32 [ %46, %.thread.us123 ], [ %.056115.us, %.preheader.us ]
-  %44 = getelementptr i32, ptr %.sroa.0.0, i64 %indvars.iv
-  %45 = getelementptr i32, ptr %44, i64 %36
+  %44 = getelementptr [4 x i8], ptr %.sroa.0.0, i64 %indvars.iv
+  %45 = getelementptr [4 x i8], ptr %44, i64 %36
   store i32 %43, ptr %45, align 4, !tbaa !4
   %46 = add nsw i32 %43, 1
   %47 = sext i32 %.1109.us120 to i64
-  %48 = getelementptr i32, ptr %37, i64 %47
+  %48 = getelementptr [4 x i8], ptr %37, i64 %47
   store i32 %43, ptr %48, align 4, !tbaa !4
-  %49 = getelementptr i32, ptr %44, i64 %39
+  %49 = getelementptr [4 x i8], ptr %44, i64 %39
   %50 = load i32, ptr %49, align 4, !tbaa !4
-  %51 = getelementptr i32, ptr %48, i64 %40
+  %51 = getelementptr [4 x i8], ptr %48, i64 %40
   store i32 %50, ptr %51, align 4, !tbaa !4
   %52 = add nsw i32 %.1109.us120, 1
   %.not.us122 = icmp eq i64 %indvars.iv, 0
@@ -154,20 +154,20 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 53:                                               ; preds = %.lr.ph.split.us128
   %54 = sext i32 %52 to i64
-  %55 = getelementptr i32, ptr %37, i64 %54
+  %55 = getelementptr [4 x i8], ptr %37, i64 %54
   store i32 %43, ptr %55, align 4, !tbaa !4
   %56 = getelementptr i8, ptr %44, i64 -4
-  %57 = getelementptr i32, ptr %56, i64 %36
+  %57 = getelementptr [4 x i8], ptr %56, i64 %36
   %58 = load i32, ptr %57, align 4, !tbaa !4
-  %59 = getelementptr i32, ptr %55, i64 %40
+  %59 = getelementptr [4 x i8], ptr %55, i64 %40
   store i32 %58, ptr %59, align 4, !tbaa !4
   %60 = add nsw i32 %.1109.us120, 2
   %61 = sext i32 %.154108.us to i64
-  %62 = getelementptr i32, ptr %41, i64 %61
+  %62 = getelementptr [4 x i8], ptr %41, i64 %61
   store i32 %43, ptr %62, align 4, !tbaa !4
-  %63 = getelementptr i32, ptr %62, i64 %42
+  %63 = getelementptr [4 x i8], ptr %62, i64 %42
   store i32 %58, ptr %63, align 4, !tbaa !4
-  %64 = getelementptr i32, ptr %56, i64 %39
+  %64 = getelementptr [4 x i8], ptr %56, i64 %39
   %65 = load i32, ptr %64, align 4, !tbaa !4
   %66 = getelementptr i8, ptr %62, i64 %.idx.us
   store i32 %65, ptr %66, align 4, !tbaa !4
@@ -192,14 +192,14 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br i1 %exitcond142.not, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit62._crit_edge, label %.preheader.us, !llvm.loop !12
 
 .lr.ph.split.us.us:                               ; preds = %.preheader.us
-  %invariant.gep.us = getelementptr i32, ptr %.sroa.0.0, i64 %36
+  %invariant.gep.us = getelementptr [4 x i8], ptr %.sroa.0.0, i64 %36
   br label %69
 
 69:                                               ; preds = %.thread.us.us, %.lr.ph.split.us.us
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %.thread.us.us ], [ 0, %.lr.ph.split.us.us ]
   %.1109.us.us = phi i32 [ %.3103.us.us, %.thread.us.us ], [ %.052117.us, %.lr.ph.split.us.us ]
   %70 = phi i32 [ %71, %.thread.us.us ], [ %.056115.us, %.lr.ph.split.us.us ]
-  %gep.us = getelementptr i32, ptr %invariant.gep.us, i64 %indvars.iv133
+  %gep.us = getelementptr [4 x i8], ptr %invariant.gep.us, i64 %indvars.iv133
   store i32 %70, ptr %gep.us, align 4, !tbaa !4
   %71 = add nsw i32 %70, 1
   %.not.us.us = icmp eq i64 %indvars.iv133, 0
@@ -207,13 +207,13 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 72:                                               ; preds = %69
   %73 = sext i32 %.1109.us.us to i64
-  %74 = getelementptr i32, ptr %37, i64 %73
+  %74 = getelementptr [4 x i8], ptr %37, i64 %73
   store i32 %70, ptr %74, align 4, !tbaa !4
-  %75 = getelementptr i32, ptr %.sroa.0.0, i64 %indvars.iv133
+  %75 = getelementptr [4 x i8], ptr %.sroa.0.0, i64 %indvars.iv133
   %76 = getelementptr i8, ptr %75, i64 -4
-  %77 = getelementptr i32, ptr %76, i64 %36
+  %77 = getelementptr [4 x i8], ptr %76, i64 %36
   %78 = load i32, ptr %77, align 4, !tbaa !4
-  %79 = getelementptr i32, ptr %74, i64 %40
+  %79 = getelementptr [4 x i8], ptr %74, i64 %40
   store i32 %78, ptr %79, align 4, !tbaa !4
   %80 = add nsw i32 %.1109.us.us, 1
   br label %.thread.us.us

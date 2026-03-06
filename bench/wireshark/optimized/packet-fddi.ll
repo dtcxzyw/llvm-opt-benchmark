@@ -270,7 +270,7 @@ define internal fastcc void @dissect_fddi(ptr noundef %0, ptr noundef initialize
   %spec.store.select = select i1 %14, i32 0, i32 %13
   store i32 %spec.store.select, ptr @dissect_fddi.fddihdr_num, align 4
   %15 = sext i32 %spec.store.select to i64
-  %16 = getelementptr %struct._fddi_hdr, ptr @dissect_fddi.fddihdrs, i64 %15
+  %16 = getelementptr [56 x i8], ptr @dissect_fddi.fddihdrs, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_set_str(ptr noundef %18, i32 noundef 35, ptr noundef nonnull @.str.19)

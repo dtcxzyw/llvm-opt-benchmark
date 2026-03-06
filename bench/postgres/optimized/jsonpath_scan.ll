@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.yy_trans_info = type { i16, i16 }
-%struct.JsonPathKeyword = type { i16, i8, i32, ptr }
 %struct.jsonpath_yy_extra_type = type { %struct.JsonPathString }
 %struct.JsonPathString = type { ptr, i32, i32 }
 
@@ -138,7 +137,7 @@ define dso_local i32 @jsonpath_yylex(ptr noundef %0, ptr noundef readnone captur
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not282 = icmp eq ptr %29, null
   br i1 %.not282, label %36, label %53
@@ -182,7 +181,7 @@ jsonpath_yyrealloc.exit.i:                        ; preds = %36
 
 44:                                               ; preds = %jsonpath_yyrealloc.exit.i
   %45 = load i64, ptr %37, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %46, i8 0, i64 64, i1 false)
   store i64 %40, ptr %37, align 8
   br label %jsonpath_yyensure_buffer_stack.exit
@@ -193,11 +192,11 @@ jsonpath_yyensure_buffer_stack.exit:              ; preds = %33, %36, %44
   %49 = load ptr, ptr %23, align 8
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %51
   store ptr %48, ptr %52, align 8
   %.pre = load ptr, ptr %23, align 8
   %.pre1081 = load i64, ptr %50, align 8
-  %.phi.trans.insert1082 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.pre1081
+  %.phi.trans.insert1082 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.pre1081
   %.pre1083 = load ptr, ptr %.phi.trans.insert1082, align 8
   br label %53
 
@@ -205,7 +204,7 @@ jsonpath_yyensure_buffer_stack.exit:              ; preds = %33, %36, %44
   %54 = phi ptr [ %.pre1083, %jsonpath_yyensure_buffer_stack.exit ], [ %29, %25 ]
   %55 = phi i64 [ %.pre1081, %jsonpath_yyensure_buffer_stack.exit ], [ %27, %25 ]
   %56 = phi ptr [ %.pre, %jsonpath_yyensure_buffer_stack.exit ], [ %24, %25 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %55
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %55
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 28
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 52
@@ -244,7 +243,7 @@ addchar.exit341:                                  ; preds = %addchar.exit341.bac
   store i8 %82, ptr %81, align 1
   %83 = load i32, ptr %73, align 4
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds ptr, ptr @yy_start_state_list, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr @yy_start_state_list, i64 %84
   %86 = load ptr, ptr %85, align 8
   br label %.loopexit
 
@@ -261,7 +260,7 @@ addchar.exit341:                                  ; preds = %addchar.exit341.bac
   %.0261 = phi ptr [ %81, %addchar.exit341 ], [ %.5266.ph, %.loopexit.loopexit ]
   %.0260 = phi ptr [ %86, %addchar.exit341 ], [ %.5.ph, %.loopexit.loopexit ]
   %87 = zext i8 %.0275889 to i64
-  %88 = getelementptr inbounds nuw %struct.yy_trans_info, ptr %.0260, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.0260, i64 %87
   %89 = load i16, ptr %88, align 2
   %90 = sext i16 %89 to i32
   %91 = zext i8 %.0275889 to i32
@@ -275,11 +274,11 @@ addchar.exit341:                                  ; preds = %addchar.exit341.bac
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 2
   %95 = load i16, ptr %94, align 2
   %96 = sext i16 %95 to i64
-  %97 = getelementptr inbounds %struct.yy_trans_info, ptr %.1891, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %.1891, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %.1262890, i64 1
   %.0275 = load i8, ptr %98, align 1
   %99 = zext i8 %.0275 to i64
-  %100 = getelementptr inbounds nuw %struct.yy_trans_info, ptr %97, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %99
   %101 = load i16, ptr %100, align 2
   %102 = sext i16 %101 to i32
   %103 = zext i8 %.0275 to i32
@@ -445,7 +444,7 @@ addstring.exit:                                   ; preds = %114, %._crit_edge.i
   %155 = ptrtoint ptr %.02634.i to i64
   %156 = sub i64 %154, %155
   %157 = ashr i64 %156, 5
-  %158 = getelementptr inbounds %struct.JsonPathKeyword, ptr %.02634.i, i64 %157
+  %158 = getelementptr inbounds [16 x i8], ptr %.02634.i, i64 %157
   %159 = load i16, ptr %158, align 8
   %160 = sext i16 %159 to i32
   %161 = load ptr, ptr %3, align 8
@@ -542,7 +541,7 @@ addstring.exit:                                   ; preds = %114, %._crit_edge.i
   %209 = ptrtoint ptr %.02634.i288 to i64
   %210 = sub i64 %208, %209
   %211 = ashr i64 %210, 5
-  %212 = getelementptr inbounds %struct.JsonPathKeyword, ptr %.02634.i288, i64 %211
+  %212 = getelementptr inbounds [16 x i8], ptr %.02634.i288, i64 %211
   %213 = load i16, ptr %212, align 8
   %214 = sext i16 %213 to i32
   %215 = load ptr, ptr %3, align 8
@@ -623,7 +622,7 @@ addstring.exit:                                   ; preds = %114, %._crit_edge.i
   %258 = ptrtoint ptr %.02634.i298 to i64
   %259 = sub i64 %257, %258
   %260 = ashr i64 %259, 5
-  %261 = getelementptr inbounds %struct.JsonPathKeyword, ptr %.02634.i298, i64 %260
+  %261 = getelementptr inbounds [16 x i8], ptr %.02634.i298, i64 %260
   %262 = load i16, ptr %261, align 8
   %263 = sext i16 %262 to i32
   %264 = load ptr, ptr %3, align 8
@@ -1936,7 +1935,7 @@ addchar.exit398:                                  ; preds = %944, %._crit_edge.i
   store i8 %1066, ptr %.2263, align 1
   %1067 = load ptr, ptr %76, align 8
   %1068 = load i64, ptr %77, align 8
-  %1069 = getelementptr inbounds nuw ptr, ptr %1067, i64 %1068
+  %1069 = getelementptr inbounds nuw [8 x i8], ptr %1067, i64 %1068
   %1070 = load ptr, ptr %1069, align 8
   %1071 = getelementptr inbounds nuw i8, ptr %1070, i64 56
   %1072 = load i32, ptr %1071, align 8
@@ -1952,13 +1951,13 @@ addchar.exit398:                                  ; preds = %944, %._crit_edge.i
   store ptr %1077, ptr %1078, align 8
   %1079 = load ptr, ptr %76, align 8
   %1080 = load i64, ptr %77, align 8
-  %1081 = getelementptr inbounds nuw ptr, ptr %1079, i64 %1080
+  %1081 = getelementptr inbounds nuw [8 x i8], ptr %1079, i64 %1080
   %1082 = load ptr, ptr %1081, align 8
   %1083 = getelementptr inbounds nuw i8, ptr %1082, i64 56
   store i32 1, ptr %1083, align 8
   %.pre1085 = load ptr, ptr %76, align 8
   %.pre1086 = load i64, ptr %77, align 8
-  %.phi.trans.insert1087 = getelementptr inbounds nuw ptr, ptr %.pre1085, i64 %.pre1086
+  %.phi.trans.insert1087 = getelementptr inbounds nuw [8 x i8], ptr %.pre1085, i64 %.pre1086
   %.pre1088 = load ptr, ptr %.phi.trans.insert1087, align 8
   br label %1084
 
@@ -1987,7 +1986,7 @@ addchar.exit398:                                  ; preds = %944, %._crit_edge.i
   store ptr %1102, ptr %71, align 8
   %1103 = load i32, ptr %73, align 4
   %1104 = sext i32 %1103 to i64
-  %1105 = getelementptr inbounds ptr, ptr @yy_start_state_list, i64 %1104
+  %1105 = getelementptr inbounds [8 x i8], ptr @yy_start_state_list, i64 %1104
   %1106 = load ptr, ptr %1105, align 8
   %1107 = icmp sgt i32 %1099, 0
   br i1 %1107, label %.lr.ph.i, label %yy_get_previous_state.exit
@@ -1999,11 +1998,11 @@ addchar.exit398:                                  ; preds = %944, %._crit_edge.i
   %.not.i402 = icmp eq i8 %1108, 0
   %1109 = zext i8 %1108 to i64
   %spec.select.i = select i1 %.not.i402, i64 256, i64 %1109
-  %1110 = getelementptr inbounds nuw %struct.yy_trans_info, ptr %.013.i, i64 %spec.select.i
+  %1110 = getelementptr inbounds nuw [4 x i8], ptr %.013.i, i64 %spec.select.i
   %1111 = getelementptr inbounds nuw i8, ptr %1110, i64 2
   %1112 = load i16, ptr %1111, align 2
   %1113 = sext i16 %1112 to i64
-  %1114 = getelementptr inbounds %struct.yy_trans_info, ptr %.013.i, i64 %1113
+  %1114 = getelementptr inbounds [4 x i8], ptr %.013.i, i64 %1113
   %1115 = getelementptr inbounds nuw i8, ptr %.01112.i, i64 1
   %exitcond.not.i = icmp eq ptr %1115, %1102
   br i1 %exitcond.not.i, label %yy_get_previous_state.exit, label %.lr.ph.i, !llvm.loop !10
@@ -2027,7 +2026,7 @@ yy_get_previous_state.exit:                       ; preds = %.lr.ph.i, %1094
   %1119 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 1026
   %1120 = load i16, ptr %1119, align 2
   %1121 = sext i16 %1120 to i64
-  %1122 = getelementptr inbounds %struct.yy_trans_info, ptr %.0.lcssa.i, i64 %1121
+  %1122 = getelementptr inbounds [4 x i8], ptr %.0.lcssa.i, i64 %1121
   %1123 = getelementptr inbounds nuw i8, ptr %1102, i64 1
   store ptr %1123, ptr %71, align 8
   br label %.loopexit.loopexit
@@ -2079,7 +2078,7 @@ yy_get_previous_state.exit:                       ; preds = %.lr.ph.i, %1094
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i411
   %.pre.i = load ptr, ptr %76, align 8
   %.pre182.i = load i64, ptr %77, align 8
-  %.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %.pre182.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.pre182.i
   %.pre183.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge.i
 
@@ -2093,7 +2092,7 @@ yy_get_previous_state.exit:                       ; preds = %.lr.ph.i, %1094
   br i1 %1154, label %1155, label %1157
 
 1155:                                             ; preds = %._crit_edge.i
-  %1156 = getelementptr inbounds nuw ptr, ptr %1151, i64 %1150
+  %1156 = getelementptr inbounds nuw [8 x i8], ptr %1151, i64 %1150
   store i32 0, ptr %78, align 4
   br label %1263
 
@@ -2171,7 +2170,7 @@ jsonpath_yyrealloc.exit.i410:                     ; preds = %1182, %1180
   store ptr %1186, ptr %71, align 8
   %1187 = load ptr, ptr %76, align 8
   %1188 = load i64, ptr %77, align 8
-  %1189 = getelementptr inbounds nuw ptr, ptr %1187, i64 %1188
+  %1189 = getelementptr inbounds nuw [8 x i8], ptr %1187, i64 %1188
   %1190 = load ptr, ptr %1189, align 8
   %.pn.in.i = getelementptr inbounds nuw i8, ptr %1190, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
@@ -2207,7 +2206,7 @@ jsonpath_yyrealloc.exit.i410:                     ; preds = %1182, %1180
   %1201 = trunc i32 %1199 to i8
   %1202 = load ptr, ptr %76, align 8
   %1203 = load i64, ptr %77, align 8
-  %1204 = getelementptr inbounds nuw ptr, ptr %1202, i64 %1203
+  %1204 = getelementptr inbounds nuw [8 x i8], ptr %1202, i64 %1203
   %1205 = load ptr, ptr %1204, align 8
   %1206 = getelementptr inbounds nuw i8, ptr %1205, i64 8
   %1207 = load ptr, ptr %1206, align 8
@@ -2232,7 +2231,7 @@ jsonpath_yyrealloc.exit.i410:                     ; preds = %1182, %1180
 .thread.i:                                        ; preds = %.critedge.i406
   %1211 = load ptr, ptr %76, align 8
   %1212 = load i64, ptr %77, align 8
-  %1213 = getelementptr inbounds nuw ptr, ptr %1211, i64 %1212
+  %1213 = getelementptr inbounds nuw [8 x i8], ptr %1211, i64 %1212
   %1214 = load ptr, ptr %1213, align 8
   %1215 = getelementptr inbounds nuw i8, ptr %1214, i64 8
   %1216 = load ptr, ptr %1215, align 8
@@ -2266,7 +2265,7 @@ jsonpath_yyrealloc.exit.i410:                     ; preds = %1182, %1180
   %1229 = zext nneg i32 %1193 to i64
   %1230 = load ptr, ptr %76, align 8
   %1231 = load i64, ptr %77, align 8
-  %1232 = getelementptr inbounds nuw ptr, ptr %1230, i64 %1231
+  %1232 = getelementptr inbounds nuw [8 x i8], ptr %1230, i64 %1231
   %1233 = load ptr, ptr %1232, align 8
   %1234 = getelementptr inbounds nuw i8, ptr %1233, i64 8
   %1235 = load ptr, ptr %1234, align 8
@@ -2299,7 +2298,7 @@ jsonpath_yyrealloc.exit.i410:                     ; preds = %1182, %1180
   tail call void @clearerr(ptr noundef %1247) #17
   %1248 = load ptr, ptr %76, align 8
   %1249 = load i64, ptr %77, align 8
-  %1250 = getelementptr inbounds nuw ptr, ptr %1248, i64 %1249
+  %1250 = getelementptr inbounds nuw [8 x i8], ptr %1248, i64 %1249
   %1251 = load ptr, ptr %1250, align 8
   %1252 = getelementptr inbounds nuw i8, ptr %1251, i64 8
   %1253 = load ptr, ptr %1252, align 8
@@ -2315,7 +2314,7 @@ jsonpath_yyrealloc.exit.i410:                     ; preds = %1182, %1180
   %1259 = phi i32 [ %.1158.i, %1225 ], [ %1239, %1226 ], [ 0, %.lr.ph174.i ], [ %1257, %1246 ]
   %1260 = load ptr, ptr %76, align 8
   %1261 = load i64, ptr %77, align 8
-  %1262 = getelementptr inbounds nuw ptr, ptr %1260, i64 %1261
+  %1262 = getelementptr inbounds nuw [8 x i8], ptr %1260, i64 %1261
   br label %1263
 
 1263:                                             ; preds = %.critedge2.i, %1155
@@ -2340,7 +2339,7 @@ jsonpath_yyrealloc.exit.i410:                     ; preds = %1182, %1180
 1271:                                             ; preds = %1267
   %1272 = load ptr, ptr %76, align 8
   %1273 = load i64, ptr %77, align 8
-  %1274 = getelementptr inbounds nuw ptr, ptr %1272, i64 %1273
+  %1274 = getelementptr inbounds nuw [8 x i8], ptr %1272, i64 %1273
   %1275 = load ptr, ptr %1274, align 8
   %1276 = getelementptr inbounds nuw i8, ptr %1275, i64 56
   store i32 2, ptr %1276, align 8
@@ -2352,7 +2351,7 @@ jsonpath_yyrealloc.exit.i410:                     ; preds = %1182, %1180
   %1279 = add i32 %1278, %1143
   %1280 = load ptr, ptr %76, align 8
   %1281 = load i64, ptr %77, align 8
-  %1282 = getelementptr inbounds nuw ptr, ptr %1280, i64 %1281
+  %1282 = getelementptr inbounds nuw [8 x i8], ptr %1280, i64 %1281
   %1283 = load ptr, ptr %1282, align 8
   %1284 = getelementptr inbounds nuw i8, ptr %1283, i64 24
   %1285 = load i32, ptr %1284, align 8
@@ -2380,13 +2379,13 @@ jsonpath_yyrealloc.exit154.i:                     ; preds = %1295, %1293
   %.0.i153.i = phi ptr [ %1294, %1293 ], [ %1296, %1295 ]
   %1297 = load ptr, ptr %76, align 8
   %1298 = load i64, ptr %77, align 8
-  %1299 = getelementptr inbounds nuw ptr, ptr %1297, i64 %1298
+  %1299 = getelementptr inbounds nuw [8 x i8], ptr %1297, i64 %1298
   %1300 = load ptr, ptr %1299, align 8
   %1301 = getelementptr inbounds nuw i8, ptr %1300, i64 8
   store ptr %.0.i153.i, ptr %1301, align 8
   %1302 = load ptr, ptr %76, align 8
   %1303 = load i64, ptr %77, align 8
-  %1304 = getelementptr inbounds nuw ptr, ptr %1302, i64 %1303
+  %1304 = getelementptr inbounds nuw [8 x i8], ptr %1302, i64 %1303
   %1305 = load ptr, ptr %1304, align 8
   %1306 = getelementptr inbounds nuw i8, ptr %1305, i64 8
   %1307 = load ptr, ptr %1306, align 8
@@ -2412,7 +2411,7 @@ yy_get_next_buffer.exit:                          ; preds = %1277, %1309
   %1312 = phi i64 [ %.pre187.i, %1309 ], [ %1281, %1277 ]
   %1313 = phi ptr [ %.pre186.i, %1309 ], [ %1280, %1277 ]
   store i32 %.pre-phi.i, ptr %78, align 4
-  %1314 = getelementptr inbounds nuw ptr, ptr %1313, i64 %1312
+  %1314 = getelementptr inbounds nuw [8 x i8], ptr %1313, i64 %1312
   %1315 = load ptr, ptr %1314, align 8
   %1316 = getelementptr inbounds nuw i8, ptr %1315, i64 8
   %1317 = load ptr, ptr %1316, align 8
@@ -2421,7 +2420,7 @@ yy_get_next_buffer.exit:                          ; preds = %1277, %1309
   store i8 0, ptr %1319, align 1
   %1320 = load ptr, ptr %76, align 8
   %1321 = load i64, ptr %77, align 8
-  %1322 = getelementptr inbounds nuw ptr, ptr %1320, i64 %1321
+  %1322 = getelementptr inbounds nuw [8 x i8], ptr %1320, i64 %1321
   %1323 = load ptr, ptr %1322, align 8
   %1324 = getelementptr inbounds nuw i8, ptr %1323, i64 8
   %1325 = load ptr, ptr %1324, align 8
@@ -2432,7 +2431,7 @@ yy_get_next_buffer.exit:                          ; preds = %1277, %1309
   store i8 0, ptr %1329, align 1
   %1330 = load ptr, ptr %76, align 8
   %1331 = load i64, ptr %77, align 8
-  %1332 = getelementptr inbounds nuw ptr, ptr %1330, i64 %1331
+  %1332 = getelementptr inbounds nuw [8 x i8], ptr %1330, i64 %1331
   %1333 = load ptr, ptr %1332, align 8
   %1334 = getelementptr inbounds nuw i8, ptr %1333, i64 8
   %1335 = load ptr, ptr %1334, align 8
@@ -2444,7 +2443,7 @@ yy_get_next_buffer.exit:                          ; preds = %1277, %1309
   ]
 
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread433_crit_edge: ; preds = %yy_get_next_buffer.exit
-  %1336 = getelementptr inbounds nuw ptr, ptr %1330, i64 %1331
+  %1336 = getelementptr inbounds nuw [8 x i8], ptr %1330, i64 %1331
   %.pre1089 = load ptr, ptr %1336, align 8
   %.phi.trans.insert1090 = getelementptr inbounds nuw i8, ptr %.pre1089, i64 8
   %.pre1091 = load ptr, ptr %.phi.trans.insert1090, align 8
@@ -2463,7 +2462,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread433_crit_edge: ; preds = %
   store ptr %1344, ptr %71, align 8
   %1345 = load i32, ptr %73, align 4
   %1346 = sext i32 %1345 to i64
-  %1347 = getelementptr inbounds ptr, ptr @yy_start_state_list, i64 %1346
+  %1347 = getelementptr inbounds [8 x i8], ptr @yy_start_state_list, i64 %1346
   %1348 = load ptr, ptr %1347, align 8
   %1349 = icmp sgt i32 %1342, 0
   br i1 %1349, label %.lr.ph.i415, label %.loopexit.loopexit
@@ -2475,11 +2474,11 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread433_crit_edge: ; preds = %
   %.not.i418 = icmp eq i8 %1350, 0
   %1351 = zext i8 %1350 to i64
   %spec.select.i419 = select i1 %.not.i418, i64 256, i64 %1351
-  %1352 = getelementptr inbounds nuw %struct.yy_trans_info, ptr %.013.i416, i64 %spec.select.i419
+  %1352 = getelementptr inbounds nuw [4 x i8], ptr %.013.i416, i64 %spec.select.i419
   %1353 = getelementptr inbounds nuw i8, ptr %1352, i64 2
   %1354 = load i16, ptr %1353, align 2
   %1355 = sext i16 %1354 to i64
-  %1356 = getelementptr inbounds %struct.yy_trans_info, ptr %.013.i416, i64 %1355
+  %1356 = getelementptr inbounds [4 x i8], ptr %.013.i416, i64 %1355
   %1357 = getelementptr inbounds nuw i8, ptr %.01112.i417, i64 1
   %exitcond.not.i420 = icmp eq ptr %1357, %1344
   br i1 %exitcond.not.i420, label %.loopexit.loopexit, label %.lr.ph.i415, !llvm.loop !10
@@ -2492,7 +2491,7 @@ yy_get_next_buffer.exit.thread433:                ; preds = %1137, %yy_get_next_
   store ptr %1360, ptr %71, align 8
   %1361 = load i32, ptr %73, align 4
   %1362 = sext i32 %1361 to i64
-  %1363 = getelementptr inbounds ptr, ptr @yy_start_state_list, i64 %1362
+  %1363 = getelementptr inbounds [8 x i8], ptr @yy_start_state_list, i64 %1362
   %1364 = load ptr, ptr %1363, align 8
   %1365 = icmp ult ptr %1358, %1360
   br i1 %1365, label %.lr.ph.i424, label %.loopexit440.backedge
@@ -2504,11 +2503,11 @@ yy_get_next_buffer.exit.thread433:                ; preds = %1137, %yy_get_next_
   %.not.i427 = icmp eq i8 %1366, 0
   %1367 = zext i8 %1366 to i64
   %spec.select.i428 = select i1 %.not.i427, i64 256, i64 %1367
-  %1368 = getelementptr inbounds nuw %struct.yy_trans_info, ptr %.013.i425, i64 %spec.select.i428
+  %1368 = getelementptr inbounds nuw [4 x i8], ptr %.013.i425, i64 %spec.select.i428
   %1369 = getelementptr inbounds nuw i8, ptr %1368, i64 2
   %1370 = load i16, ptr %1369, align 2
   %1371 = sext i16 %1370 to i64
-  %1372 = getelementptr inbounds %struct.yy_trans_info, ptr %.013.i425, i64 %1371
+  %1372 = getelementptr inbounds [4 x i8], ptr %.013.i425, i64 %1371
   %1373 = getelementptr inbounds nuw i8, ptr %.01112.i426, i64 1
   %exitcond.not.i429 = icmp eq ptr %1373, %1360
   br i1 %exitcond.not.i429, label %.loopexit440.backedge, label %.lr.ph.i424, !llvm.loop !10
@@ -2601,7 +2600,7 @@ define dso_local nonnull ptr @jsonpath_yy_create_buffer(ptr noundef %0, i32 noun
 26:                                               ; preds = %13
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %4, %30
   br i1 %31, label %32, label %jsonpath_yy_flush_buffer.exit.i
@@ -2638,7 +2637,7 @@ jsonpath_yy_flush_buffer.exit.i:                  ; preds = %32, %26, %13
 48:                                               ; preds = %jsonpath_yy_flush_buffer.exit.i
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds nuw ptr, ptr %47, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %4, %52
   br i1 %53, label %jsonpath_yy_init_buffer.exit, label %.critedge.i
@@ -2948,7 +2947,7 @@ define dso_local void @jsonpath_yyrestart(ptr noundef %0, ptr noundef captures(n
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
   br i1 %.not16, label %16, label %.thread
@@ -2992,7 +2991,7 @@ jsonpath_yyrealloc.exit.i:                        ; preds = %16
 
 24:                                               ; preds = %jsonpath_yyrealloc.exit.i
   %25 = load i64, ptr %17, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, i8 0, i64 64, i1 false)
   store i64 %20, ptr %17, align 8
   br label %27
@@ -3004,7 +3003,7 @@ jsonpath_yyrealloc.exit.i:                        ; preds = %16
   %31 = load ptr, ptr %3, align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %33
   store ptr %30, ptr %34, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
@@ -3019,7 +3018,7 @@ jsonpath_yyrealloc.exit.i:                        ; preds = %16
   %37 = phi ptr [ %.pre, %27 ], [ %4, %5 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr @__errno_location() #20
   %43 = load i32, ptr %42, align 4
@@ -3048,7 +3047,7 @@ jsonpath_yyrealloc.exit.i:                        ; preds = %16
 
 55:                                               ; preds = %44
   %56 = load i64, ptr %38, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %54, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %41, %58
   br i1 %59, label %60, label %jsonpath_yy_flush_buffer.exit.i
@@ -3088,7 +3087,7 @@ jsonpath_yy_flush_buffer.exit.i:                  ; preds = %.thread19, %60, %55
 79:                                               ; preds = %jsonpath_yy_flush_buffer.exit.i
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %78, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %81
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %76, %83
   br i1 %84, label %jsonpath_yy_init_buffer.exit, label %.critedge.i
@@ -3107,7 +3106,7 @@ jsonpath_yy_init_buffer.exit:                     ; preds = %79, %.critedge.i
   %88 = load ptr, ptr %3, align 8
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %90 = load i64, ptr %89, align 8
-  %91 = getelementptr inbounds nuw ptr, ptr %88, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %90
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 28
   %94 = load i32, ptr %93, align 4
@@ -3178,7 +3177,7 @@ jsonpath_yyrealloc.exit.i:                        ; preds = %11
 
 21:                                               ; preds = %jsonpath_yyrealloc.exit.i
   %22 = load i64, ptr %14, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %23, i8 0, i64 64, i1 false)
   store i64 %17, ptr %14, align 8
   br label %jsonpath_yyensure_buffer_stack.exit
@@ -3196,7 +3195,7 @@ jsonpath_yyensure_buffer_stack.exit:              ; preds = %8, %11, %21
 .thread:                                          ; preds = %jsonpath_yyensure_buffer_stack.exit
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, %0
   br i1 %31, label %74, label %32
@@ -3214,7 +3213,7 @@ jsonpath_yyensure_buffer_stack.exit:              ; preds = %8, %11, %21
   %38 = load ptr, ptr %36, align 8
   %39 = load ptr, ptr %3, align 8
   %40 = load i64, ptr %27, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %38, ptr %43, align 8
@@ -3222,7 +3221,7 @@ jsonpath_yyensure_buffer_stack.exit:              ; preds = %8, %11, %21
   %45 = load i32, ptr %44, align 4
   %46 = load ptr, ptr %3, align 8
   %47 = load i64, ptr %27, align 8
-  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 28
   store i32 %45, ptr %50, align 4
@@ -3233,11 +3232,11 @@ jsonpath_yyensure_buffer_stack.exit:              ; preds = %8, %11, %21
   %52 = phi ptr [ %24, %32 ], [ %.pre, %33 ]
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds nuw ptr, ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %54
   store ptr %0, ptr %55, align 8
   %56 = load ptr, ptr %3, align 8
   %57 = load i64, ptr %53, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %61 = load i32, ptr %60, align 4
@@ -3285,7 +3284,7 @@ define dso_local void @jsonpath_yy_delete_buffer(ptr noundef %0, ptr noundef rea
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %0, %10
   br i1 %11, label %12, label %.critedge
@@ -3360,7 +3359,7 @@ define dso_local void @jsonpath_yy_flush_buffer(ptr noundef captures(address) %0
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %0, %19
   br i1 %20, label %21, label %.critedge
@@ -3442,7 +3441,7 @@ jsonpath_yyrealloc.exit.i:                        ; preds = %13
 
 23:                                               ; preds = %jsonpath_yyrealloc.exit.i
   %24 = load i64, ptr %16, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, i8 0, i64 64, i1 false)
   store i64 %19, ptr %16, align 8
   %.pre = load i64, ptr %14, align 8
@@ -3452,7 +3451,7 @@ jsonpath_yyensure_buffer_stack.exit:              ; preds = %10, %13, %23
   %26 = phi i64 [ 0, %10 ], [ %15, %13 ], [ %.pre, %23 ]
   %27 = load ptr, ptr %5, align 8, !nonnull !8, !noundef !8
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %30 = load ptr, ptr %29, align 8
   %.not25 = icmp eq ptr %30, null
   br i1 %.not25, label %.thread, label %31
@@ -3466,7 +3465,7 @@ jsonpath_yyensure_buffer_stack.exit:              ; preds = %10, %13, %23
   %36 = load ptr, ptr %34, align 8
   %37 = load ptr, ptr %5, align 8
   %38 = load i64, ptr %28, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %36, ptr %41, align 8
@@ -3474,13 +3473,13 @@ jsonpath_yyensure_buffer_stack.exit:              ; preds = %10, %13, %23
   %43 = load i32, ptr %42, align 4
   %44 = load ptr, ptr %5, align 8
   %45 = load i64, ptr %28, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 28
   store i32 %43, ptr %48, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.pre30 = load i64, ptr %28, align 8
-  %.phi.trans.insert31 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %.pre30
+  %.phi.trans.insert31 = getelementptr inbounds nuw [8 x i8], ptr %.pr.pre, i64 %.pre30
   %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8
   %49 = icmp eq ptr %.pre32, null
   br i1 %49, label %.thread, label %50
@@ -3493,11 +3492,11 @@ jsonpath_yyensure_buffer_stack.exit:              ; preds = %10, %13, %23
 .thread:                                          ; preds = %jsonpath_yyensure_buffer_stack.exit, %50, %31
   %.pr40 = phi ptr [ %.pr.pre, %50 ], [ %.pr.pre, %31 ], [ %27, %jsonpath_yyensure_buffer_stack.exit ]
   %52 = phi i64 [ %51, %50 ], [ %.pre30, %31 ], [ %26, %jsonpath_yyensure_buffer_stack.exit ]
-  %53 = getelementptr inbounds nuw ptr, ptr %.pr40, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pr40, i64 %52
   store ptr %0, ptr %53, align 8
   %54 = load ptr, ptr %5, align 8
   %55 = load i64, ptr %28, align 8
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 28
   %59 = load i32, ptr %58, align 4
@@ -3535,7 +3534,7 @@ define dso_local void @jsonpath_yypop_buffer_state(ptr noundef captures(none) %0
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not20 = icmp eq ptr %8, null
   br i1 %.not20, label %42, label %.critedge.i
@@ -3561,7 +3560,7 @@ jsonpath_yy_delete_buffer.exit:                   ; preds = %.critedge.i, %11, %
   tail call void @pfree(ptr noundef nonnull %8) #17
   %15 = load ptr, ptr %2, align 8
   %16 = load i64, ptr %5, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   store ptr null, ptr %17, align 8
   %18 = load i64, ptr %5, align 8
   %.not21 = icmp eq i64 %18, 0
@@ -3579,7 +3578,7 @@ jsonpath_yy_delete_buffer.exit:                   ; preds = %.critedge.i, %11, %
   br i1 %.not22, label %42, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %26 = load ptr, ptr %25, align 8
   %.not23 = icmp eq ptr %26, null
   br i1 %.not23, label %42, label %27
@@ -3799,7 +3798,7 @@ define dso_local i32 @jsonpath_yyget_lineno(ptr noundef readonly captures(none) 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
@@ -3824,7 +3823,7 @@ define dso_local i32 @jsonpath_yyget_column(ptr noundef readonly captures(none) 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
@@ -3883,7 +3882,7 @@ define dso_local void @jsonpath_yyset_lineno(i32 noundef %0, ptr noundef readonl
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %10, label %11
@@ -3908,7 +3907,7 @@ define dso_local void @jsonpath_yyset_column(i32 noundef %0, ptr noundef readonl
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %10, label %11
@@ -4071,7 +4070,7 @@ define dso_local noundef i32 @jsonpath_yylex_destroy(ptr noundef %0) local_unnam
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %4, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %3, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.critedge, label %.critedge.i
@@ -4099,7 +4098,7 @@ jsonpath_yy_delete_buffer.exit:                   ; preds = %.critedge.i, %19, %
   tail call void @pfree(ptr noundef nonnull %15) #17
   %23 = load ptr, ptr %2, align 8
   %24 = load i64, ptr %4, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   store ptr null, ptr %25, align 8
   %26 = load ptr, ptr %2, align 8
   %.not.i23 = icmp eq ptr %26, null
@@ -4107,7 +4106,7 @@ jsonpath_yy_delete_buffer.exit:                   ; preds = %.critedge.i, %19, %
 
 27:                                               ; preds = %jsonpath_yy_delete_buffer.exit
   %28 = load i64, ptr %4, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not20.i = icmp eq ptr %30, null
   br i1 %.not20.i, label %jsonpath_yypop_buffer_state.exit, label %.critedge.i.i
@@ -4133,7 +4132,7 @@ jsonpath_yy_delete_buffer.exit.i:                 ; preds = %36, %33, %.critedge
   tail call void @pfree(ptr noundef nonnull %30) #17
   %37 = load ptr, ptr %2, align 8
   %38 = load i64, ptr %4, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   store ptr null, ptr %39, align 8
   %40 = load i64, ptr %4, align 8
   %.not21.i = icmp eq i64 %40, 0
@@ -4151,7 +4150,7 @@ jsonpath_yy_delete_buffer.exit.i:                 ; preds = %36, %33, %.critedge
   br i1 %.not22.i, label %jsonpath_yyfree.exit, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %44
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %44
   %48 = load ptr, ptr %47, align 8
   %.not23.i = icmp eq ptr %48, null
   br i1 %.not23.i, label %jsonpath_yypop_buffer_state.exit, label %49
@@ -4176,7 +4175,7 @@ jsonpath_yy_delete_buffer.exit.i:                 ; preds = %36, %33, %.critedge
 jsonpath_yypop_buffer_state.exit:                 ; preds = %27, %46, %49
   %58 = phi ptr [ %45, %46 ], [ %26, %27 ], [ %45, %49 ]
   %59 = load i64, ptr %4, align 8
-  %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.critedge, label %.critedge.i, !llvm.loop !19

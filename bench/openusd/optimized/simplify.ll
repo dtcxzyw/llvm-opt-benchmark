@@ -48,7 +48,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.20" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo, std::allocator<pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo>>::_Vector_impl" }
 %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo, std::allocator<pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo, std::allocator<pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo, std::allocator<pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo" = type { double, i32, i8, double }
 %"class.tbb::detail::d1::wait_context" = type { i64, %"struct.std::atomic.61" }
 %"struct.std::atomic.61" = type { %"struct.std::__atomic_base.62" }
 %"struct.std::__atomic_base.62" = type { i64 }
@@ -77,7 +76,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::pair<pxrInternal_v0_24__pxrReserved__::TsSpline *, pxrInternal_v0_24__pxrReserved__::GfMultiInterval>, std::allocator<std::pair<pxrInternal_v0_24__pxrReserved__::TsSpline *, pxrInternal_v0_24__pxrReserved__::GfMultiInterval>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<pxrInternal_v0_24__pxrReserved__::TsSpline *, pxrInternal_v0_24__pxrReserved__::GfMultiInterval>, std::allocator<std::pair<pxrInternal_v0_24__pxrReserved__::TsSpline *, pxrInternal_v0_24__pxrReserved__::GfMultiInterval>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<pxrInternal_v0_24__pxrReserved__::TsSpline *, pxrInternal_v0_24__pxrReserved__::GfMultiInterval>, std::allocator<std::pair<pxrInternal_v0_24__pxrReserved__::TsSpline *, pxrInternal_v0_24__pxrReserved__::GfMultiInterval>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.anon.45 = type { ptr, ptr }
-%"struct.std::pair.42" = type { ptr, %"class.pxrInternal_v0_24__pxrReserved__::GfMultiInterval" }
 %"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultValueHolder" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfAnyUniquePtr", ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::TfAnyUniquePtr" = type { ptr, ptr }
 %"struct.pxrInternal_v0_24__pxrReserved__::VtValue::_HoldAside" = type { %"union.std::aligned_storage<8, 8>::type", ptr }
@@ -86,7 +84,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.tbb::detail::d1::node.base" = type <{ ptr, %"struct.std::atomic" }>
 %"class.tbb::detail::d1::range_vector" = type { i8, i8, i8, [8 x i8], [5 x i8], %"class.tbb::detail::d0::aligned_space" }
 %"class.tbb::detail::d0::aligned_space" = type { [192 x i8] }
-%"class.tbb::detail::d1::blocked_range" = type { i64, i64, i64 }
 
 $_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev = comdat any
 
@@ -1298,8 +1295,8 @@ define internal fastcc noundef double @_ZN32pxrInternal_v0_24__pxrReserved__L13_
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.us: ; preds = %78, %73
   store ptr null, ptr %68, align 8
   %83 = load ptr, ptr %2, align 8
-  %84 = getelementptr double, ptr %83, i64 %.03849.us
-  %85 = getelementptr double, ptr %84, i64 %45
+  %84 = getelementptr [8 x i8], ptr %83, i64 %.03849.us
+  %85 = getelementptr [8 x i8], ptr %84, i64 %45
   %86 = load double, ptr %85, align 8
   %87 = fsub double %72, %86
   %88 = call noundef double @llvm.fabs.f64(double %87)
@@ -1360,8 +1357,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit.us: ; preds = %78, %73
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %97, %102
   store ptr null, ptr %68, align 8
   %110 = load ptr, ptr %2, align 8
-  %111 = getelementptr double, ptr %110, i64 %.03849
-  %112 = getelementptr double, ptr %111, i64 %45
+  %111 = getelementptr [8 x i8], ptr %110, i64 %.03849
+  %112 = getelementptr [8 x i8], ptr %111, i64 %45
   %113 = load double, ptr %112, align 8
   %114 = fsub double %96, %113
   %115 = call double @llvm.fmuladd.f64(double %114, double %114, double %.03750)
@@ -2109,7 +2106,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i: ; preds = %323, %.noe
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %325, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
   store ptr %324, ptr %283, align 8
-  %326 = getelementptr inbounds nuw double, ptr %320, i64 %318
+  %326 = getelementptr inbounds nuw [8 x i8], ptr %320, i64 %318
   store ptr %326, ptr %284, align 8
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
@@ -2196,7 +2193,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   %362 = phi ptr [ %342, %.lr.ph451 ], [ %561, %558 ]
   %.0136448 = phi i64 [ 0, %.lr.ph451 ], [ %559, %558 ]
   %.sroa.0337.0447 = phi double [ undef, %.lr.ph451 ], [ %.sroa.0337.1, %558 ]
-  %363 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %362, i64 %.0136448
+  %363 = getelementptr inbounds [72 x i8], ptr %362, i64 %.0136448
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull align 8 dereferenceable(72) %363)
           to label %364 unwind label %.loopexit391
 
@@ -2226,7 +2223,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %378, label %379, label %385
 
 379:                                              ; preds = %369
-  %380 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %372, i64 %.0136448
+  %380 = getelementptr [72 x i8], ptr %372, i64 %.0136448
   %381 = getelementptr i8, ptr %380, i64 80
   %382 = load double, ptr %381, align 8
   %383 = fsub double %382, %370
@@ -2239,7 +2236,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %.not148, label %393, label %387
 
 387:                                              ; preds = %385
-  %388 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %372, i64 %.0136448
+  %388 = getelementptr [72 x i8], ptr %372, i64 %.0136448
   %389 = getelementptr i8, ptr %388, i64 -64
   %390 = load double, ptr %389, align 8
   %391 = fsub double %370, %390
@@ -2252,7 +2249,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %or.cond, label %395, label %558
 
 395:                                              ; preds = %393
-  %396 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %372, i64 %.0136448
+  %396 = getelementptr inbounds [72 x i8], ptr %372, i64 %.0136448
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame8GetValueEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %26, ptr noundef nonnull align 8 dereferenceable(72) %396)
           to label %397 unwind label %367
 
@@ -2287,7 +2284,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit217: ; preds = %399, %404
   store ptr null, ptr %345, align 8
   %412 = load ptr, ptr %20, align 8
-  %413 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %412, i64 %.0136448
+  %413 = getelementptr inbounds [72 x i8], ptr %412, i64 %.0136448
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame12GetLeftValueEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %27, ptr noundef nonnull align 8 dereferenceable(72) %413)
           to label %414 unwind label %367
 
@@ -2325,7 +2322,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit220: ; preds = %416, %421
 
 429:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit220
   %430 = load ptr, ptr %20, align 8
-  %431 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %430, i64 %.0136448
+  %431 = getelementptr [72 x i8], ptr %430, i64 %.0136448
   %432 = getelementptr i8, ptr %431, i64 -72
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame8GetValueEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %28, ptr noundef nonnull align 8 dereferenceable(72) %432)
           to label %433 unwind label %367
@@ -2386,7 +2383,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit223: ; preds = %435, %440
 
 455:                                              ; preds = %454
   %456 = load ptr, ptr %20, align 8
-  %457 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %456, i64 %.0136448
+  %457 = getelementptr [72 x i8], ptr %456, i64 %.0136448
   %458 = getelementptr i8, ptr %457, i64 72
   invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame12GetLeftValueEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %29, ptr noundef nonnull align 8 dereferenceable(72) %458)
           to label %459 unwind label %367
@@ -2431,7 +2428,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit223: ; preds = %435, %440
 
 477:                                              ; preds = %476
   %478 = load ptr, ptr %20, align 8
-  %479 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %478, i64 %.0136448
+  %479 = getelementptr inbounds [72 x i8], ptr %478, i64 %.0136448
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %480 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline12GetKeyFramesEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %.noexc228 unwind label %367
@@ -2493,7 +2490,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit223: ; preds = %435, %440
 497:                                              ; preds = %492, %.noexc232, %.noexc230
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %498 = load ptr, ptr %20, align 8
-  %499 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %498, i64 %.0136448
+  %499 = getelementptr inbounds [72 x i8], ptr %498, i64 %.0136448
   %500 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L16_IsKnotAnExtremeERKNS_8TsSplineERKNS_10TsKeyFrameEd(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(72) %499, double noundef %.0139)
           to label %501 unwind label %367
 
@@ -2651,7 +2648,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit242: ; preds = %535, %540
 _ZN32pxrInternal_v0_24__pxrReserved__L21_SetLeftTangentLengthEPNS_10TsKeyFrameEd.exit.thread598.thread: ; preds = %.thread606, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit242, %519, %_ZN32pxrInternal_v0_24__pxrReserved__L22_SetRightTangentLengthEPNS_10TsKeyFrameEd.exit
   %.sroa.0337.2583596602 = phi double [ %.sroa.0337.2583596, %_ZN32pxrInternal_v0_24__pxrReserved__L22_SetRightTangentLengthEPNS_10TsKeyFrameEd.exit ], [ %.sroa.0337.2583596601, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit242 ], [ %.sroa.0337.2583596601, %519 ], [ %.sroa.0337.0447, %.thread606 ]
   %552 = load ptr, ptr %20, align 8
-  %553 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %552, i64 %.0136448
+  %553 = getelementptr inbounds [72 x i8], ptr %552, i64 %.0136448
   %554 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameaSERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %553, ptr noundef nonnull align 8 dereferenceable(72) %25)
           to label %555 unwind label %367
 
@@ -2722,7 +2719,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimp
   %580 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %579, ptr %33, align 8
   store ptr %579, ptr %580, align 8
-  %581 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %579, i64 %577
+  %581 = getelementptr inbounds nuw [24 x i8], ptr %579, i64 %577
   store ptr %581, ptr %575, align 8
   br label %582
 
@@ -2792,7 +2789,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
   %600 = phi ptr [ %647, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE9push_backERKS2_.exit260 ], [ %.promoted454, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE9push_backERKS2_.exit ]
   %601 = phi ptr [ %646, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE9push_backERKS2_.exit260 ], [ %.promoted458, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE9push_backERKS2_.exit ]
   %602 = phi ptr [ %645, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE9push_backERKS2_.exit260 ], [ %.promoted462, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE9push_backERKS2_.exit ]
-  %603 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %599, i64 %.0120467
+  %603 = getelementptr inbounds [72 x i8], ptr %599, i64 %.0120467
   %604 = getelementptr inbounds nuw i8, ptr %603, i64 8
   %605 = load double, ptr %604, align 8
   %606 = invoke noundef i32 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11GetKnotTypeEv(ptr noundef nonnull align 8 dereferenceable(72) %603)
@@ -2809,7 +2806,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
 
 611:                                              ; preds = %609
   %612 = load ptr, ptr %20, align 8
-  %613 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %612, i64 %.0120467
+  %613 = getelementptr inbounds [72 x i8], ptr %612, i64 %.0120467
   %614 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L16_IsKnotAnExtremeERKNS_8TsSplineERKNS_10TsKeyFrameEd(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(72) %613, double noundef %.0139)
           to label %615 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -2884,7 +2881,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i257
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i257: ; preds = %638, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i255
-  %639 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %634, i64 %632
+  %639 = getelementptr inbounds nuw [24 x i8], ptr %634, i64 %632
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE9push_backERKS2_.exit260
 
 .loopexit:                                        ; preds = %726, %.critedge19, %733, %744, %746
@@ -3025,7 +3022,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKno
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i269: ; preds = %685, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit20.i.i267
   store ptr %680, ptr %33, align 8
   store ptr %684, ptr %591, align 8
-  %686 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %680, i64 %678
+  %686 = getelementptr inbounds nuw [24 x i8], ptr %680, i64 %678
   store ptr %686, ptr %583, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_EditSimplifyKnotInfoESaIS2_EE9push_backERKS2_.exit272
 
@@ -3098,7 +3095,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESaIS1_EE5clearEv.ex
   %.0114483 = phi i64 [ %721, %720 ], [ 0, %704 ]
   %.0115482 = phi i1 [ %.1116, %720 ], [ true, %704 ]
   %.0117481 = phi i64 [ %.1118, %720 ], [ 0, %704 ]
-  %708 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %.val, i64 %.0114483
+  %708 = getelementptr inbounds [24 x i8], ptr %.val, i64 %.0114483
   %709 = getelementptr inbounds nuw i8, ptr %708, i64 12
   %710 = load i8, ptr %709, align 4
   %711 = trunc i8 %710 to i1
@@ -3111,7 +3108,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESaIS1_EE5clearEv.ex
 712:                                              ; preds = %.lr.ph485
   %713 = getelementptr inbounds nuw i8, ptr %708, i64 16
   %714 = load double, ptr %713, align 8
-  %715 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %.val, i64 %.0117481
+  %715 = getelementptr inbounds [24 x i8], ptr %.val, i64 %.0117481
   %716 = getelementptr inbounds nuw i8, ptr %715, i64 16
   %717 = load double, ptr %716, align 8
   %718 = fcmp olt double %714, %717
@@ -3129,7 +3126,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESaIS1_EE5clearEv.ex
 
 ._crit_edge486:                                   ; preds = %720, %704
   %.0117.lcssa = phi i64 [ 0, %704 ], [ %.1118, %720 ]
-  %722 = getelementptr %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %.val, i64 %.0117.lcssa
+  %722 = getelementptr [24 x i8], ptr %.val, i64 %.0117.lcssa
   %723 = getelementptr inbounds nuw i8, ptr %722, i64 16
   %724 = load double, ptr %723, align 8
   %725 = fcmp ugt double %724, %.0138
@@ -3161,7 +3158,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESaIS1_EE5clearEv.ex
 
 733:                                              ; preds = %728, %732
   %734 = add i64 %.0117.lcssa, -1
-  %735 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %.val, i64 %734
+  %735 = getelementptr inbounds [24 x i8], ptr %.val, i64 %734
   %736 = load double, ptr %735, align 8
   %737 = getelementptr i8, ptr %722, i64 24
   %738 = load double, ptr %737, align 8
@@ -4052,7 +4049,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L29_SetKnotInf
 
 .critedge23:                                      ; preds = %.critedge..critedge23_crit_edge, %5
   %.val29 = phi ptr [ %.val29.pre, %.critedge..critedge23_crit_edge ], [ %.val27, %5 ]
-  %20 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %.val29, i64 %1
+  %20 = getelementptr inbounds [24 x i8], ptr %.val29, i64 %1
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %22 = load i8, ptr %21, align 4
   %23 = trunc i8 %22 to i1
@@ -4091,7 +4088,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L29_SetKnotInf
 
 .critedge25:                                      ; preds = %.critedge2..critedge25_crit_edge, %25
   %.val30 = phi ptr [ %.val30.pre, %.critedge2..critedge25_crit_edge ], [ %.val29, %25 ]
-  %37 = getelementptr %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %.val30, i64 %1
+  %37 = getelementptr [24 x i8], ptr %.val30, i64 %1
   %38 = load double, ptr %37, align 8
   %39 = getelementptr i8, ptr %37, i64 -24
   %40 = load double, ptr %39, align 8
@@ -4117,7 +4114,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L29_SetKnotInf
 .sink.split:                                      ; preds = %.critedge23, %.critedge25
   %49 = phi ptr [ %.val33, %.critedge25 ], [ %.val29, %.critedge23 ]
   %.sink = phi double [ %48, %.critedge25 ], [ 0x7FEFFFFFFFFFFFFF, %.critedge23 ]
-  %50 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_EditSimplifyKnotInfo", ptr %49, i64 %1
+  %50 = getelementptr inbounds [24 x i8], ptr %49, i64 %1
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store double %.sink, ptr %51, align 8
   br label %52
@@ -4439,7 +4436,7 @@ _ZNSt12_Vector_baseISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15
   %97 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %96, ptr %18, align 8
   store ptr %96, ptr %97, align 8
-  %98 = getelementptr inbounds nuw %"struct.std::pair.42", ptr %96, i64 %74
+  %98 = getelementptr inbounds nuw [56 x i8], ptr %96, i64 %74
   store ptr %98, ptr %94, align 8
   br label %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE7reserveEm.exit
 
@@ -4455,9 +4452,9 @@ _ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMulti
 101:                                              ; preds = %.lr.ph, %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE12emplace_backIJRKS3_RKS4_EEERS5_DpOT_.exit
   %.02553 = phi i64 [ 0, %.lr.ph ], [ %131, %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE12emplace_backIJRKS3_RKS4_EEERS5_DpOT_.exit ]
   %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds ptr, ptr %102, i64 %.02553
+  %103 = getelementptr inbounds [8 x i8], ptr %102, i64 %.02553
   %104 = load ptr, ptr %1, align 8
-  %105 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMultiInterval", ptr %104, i64 %.02553
+  %105 = getelementptr inbounds [48 x i8], ptr %104, i64 %.02553
   %106 = load ptr, ptr %100, align 8
   %107 = load ptr, ptr %94, align 8
   %.not.i = icmp eq ptr %106, %107
@@ -6674,7 +6671,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %112 = phi i8 [ %140, %110 ], [ %.promoted.i.pr45.i.i, %.lr.ph.i.i.i ]
   %113 = phi i8 [ %126, %110 ], [ %.promoted4.i.i.i, %.lr.ph.i.i.i ]
   %114 = zext i8 %113 to i64
-  %115 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %101, i64 %114
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %101, i64 %114
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load i64, ptr %116, align 8
   %118 = load i64, ptr %115, align 8
@@ -6689,7 +6686,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %125 = add i8 %113, 1
   %126 = and i8 %125, 7
   %127 = zext nneg i8 %126 to i64
-  %128 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %101, i64 %127
+  %128 = getelementptr inbounds nuw [24 x i8], ptr %101, i64 %127
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %128, ptr noundef nonnull align 8 dereferenceable(24) %115, i64 24, i1 false)
   %129 = load i64, ptr %128, align 8
   store i64 %129, ptr %115, align 8
@@ -6749,7 +6746,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %154 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1)
-  %155 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %101, i64 %151
+  %155 = getelementptr inbounds nuw [24 x i8], ptr %101, i64 %151
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %156, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPKPN32pxrInternal_v0_24__pxrReserved__8TsSplineESt6vectorISB_SaISB_EEEEZNS9_27TsSimplifySplinesInParallelERKSG_RKSE_INS9_15GfMultiIntervalESaISK_EEddE3$_0SB_EEKNS1_16auto_partitionerEEE", i64 16), ptr %154, align 64
@@ -6802,7 +6799,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   br i1 %182, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread.i.i
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i: ; preds = %178
-  %183 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %101, i64 %179
+  %183 = getelementptr inbounds nuw [24 x i8], ptr %101, i64 %179
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %185 = load i64, ptr %184, align 8
   %186 = load i64, ptr %183, align 8
@@ -6814,7 +6811,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread.i.i: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i, %178, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i
   %.pre-phi.i.i = phi i64 [ %.pre47.i.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i ], [ %179, %178 ], [ %179, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i ]
-  %191 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %101, i64 %.pre-phi.i.i
+  %191 = getelementptr inbounds nuw [24 x i8], ptr %101, i64 %.pre-phi.i.i
   call fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPKPN32pxrInternal_v0_24__pxrReserved__8TsSplineESt6vectorISB_SaISB_EEEEZNS9_27TsSimplifySplinesInParallelERKSG_RKSE_INS9_15GfMultiIntervalESaISK_EEddE3$_0SB_EEKNS1_16auto_partitionerEE8run_bodyERS4_"(ptr noundef nonnull align 64 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(24) %191)
   %192 = add i8 %.promoted.i.pr44.i.i, -1
   store i8 %192, ptr %99, align 2
@@ -6972,7 +6969,7 @@ define internal fastcc void @"_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImE
   %.02.i = phi i64 [ %.sroa.2.0.copyload, %.lr.ph.i ], [ %24, %"_ZN3tbb6detail2d235parallel_for_each_operator_selectorIZN32pxrInternal_v0_24__pxrReserved__27TsSimplifySplinesInParallelERKSt6vectorIPNS3_8TsSplineESaIS6_EERKS4_INS3_15GfMultiIntervalESaISB_EEddE3$_0E4callIRKS6_NS1_11feeder_implISG_S6_EEEEDTcmclfp_clsr3stdE7forwardIT_Efp0_EEcvv_EERKSG_OSN_PT0_.exit.i" ]
   %9 = load ptr, ptr %6, align 32
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %.02.i
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %.02.i
   %.val.i = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7228,7 +7225,7 @@ _ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMulti
 _ZNSt12_Vector_baseISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENS1_15GfMultiIntervalEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %85
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8
-  %89 = getelementptr inbounds nuw %"struct.std::pair.42", ptr %22, i64 %18
+  %89 = getelementptr inbounds nuw [56 x i8], ptr %22, i64 %18
   store ptr %89, ptr %84, align 8
   ret void
 
@@ -7594,7 +7591,7 @@ _ZN3tbb6detail2d119auto_partition_type12is_divisibleEv.exit11.i.backedge: ; pred
   %.02.i.i.i.i = phi i64 [ %91, %.lr.ph.i.i.i.i ], [ %108, %101 ]
   %102 = load ptr, ptr %100, align 32
   %103 = load ptr, ptr %99, align 8
-  %104 = getelementptr inbounds %"struct.std::pair.42", ptr %103, i64 %.02.i.i.i.i
+  %104 = getelementptr inbounds [56 x i8], ptr %103, i64 %.02.i.i.i.i
   %.val.i.i.i.i = load ptr, ptr %102, align 8
   %105 = getelementptr i8, ptr %102, i64 8
   %.val3.i.i.i.i = load ptr, ptr %105, align 8
@@ -7650,7 +7647,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %125 = phi i8 [ %153, %123 ], [ %.promoted.i.pr63.i.i, %.lr.ph.i.i.i ]
   %126 = phi i8 [ %139, %123 ], [ %.promoted4.i.i.i, %.lr.ph.i.i.i ]
   %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %113, i64 %127
+  %128 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %130 = load i64, ptr %129, align 8
   %131 = load i64, ptr %128, align 8
@@ -7665,7 +7662,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %138 = add i8 %126, 1
   %139 = and i8 %138, 7
   %140 = zext nneg i8 %139 to i64
-  %141 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %113, i64 %140
+  %141 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, ptr noundef nonnull align 8 dereferenceable(24) %128, i64 24, i1 false)
   %142 = load i64, ptr %141, align 8
   store i64 %142, ptr %128, align 8
@@ -7725,7 +7722,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %167 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 192, ptr noundef nonnull align 8 dereferenceable(12) %1)
-  %168 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %113, i64 %164
+  %168 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %164
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %169, i8 0, i64 56, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d19start_forINS1_13blocked_rangeImEENS0_2d225parallel_for_body_wrapperIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN32pxrInternal_v0_24__pxrReserved__8TsSplineENSA_15GfMultiIntervalEESt6vectorISE_SaISE_EEEEZNSA_27TsSimplifySplinesInParallelERKSG_ISC_SaISC_EERKSG_ISD_SaISD_EEddE3$_1SE_EEKNS1_16auto_partitionerEEE", i64 16), ptr %167, align 64
@@ -7778,7 +7775,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.ex
   br i1 %195, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i, label %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread.i.i
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i: ; preds = %191
-  %196 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %113, i64 %192
+  %196 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %192
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 16
   %198 = load i64, ptr %197, align 8
   %199 = load i64, ptr %196, align 8
@@ -7790,7 +7787,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
 
 _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread.i.i: ; preds = %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i, %191, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i
   %.pre-phi.i.i = phi i64 [ %.pre65.i.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE13split_to_fillEh.exit._ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread_crit_edge.i.i ], [ %192, %191 ], [ %192, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.i.i ]
-  %204 = getelementptr inbounds nuw %"class.tbb::detail::d1::blocked_range", ptr %113, i64 %.pre-phi.i.i
+  %204 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %.pre-phi.i.i
   %.sroa.0.0.copyload.i16.i.i = load i64, ptr %204, align 8
   %.sroa.2.0..sroa_idx.i17.i.i = getelementptr inbounds nuw i8, ptr %204, i64 8
   %.sroa.2.0.copyload.i18.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i17.i.i, align 8
@@ -7801,7 +7798,7 @@ _ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exi
   %.02.i.i21.i.i = phi i64 [ %211, %.lr.ph.i.i20.i.i ], [ %.sroa.2.0.copyload.i18.i.i, %_ZN3tbb6detail2d112range_vectorINS1_13blocked_rangeImEELh8EE12is_divisibleEh.exit.thread.i.i ]
   %205 = load ptr, ptr %116, align 32
   %206 = load ptr, ptr %115, align 8
-  %207 = getelementptr inbounds %"struct.std::pair.42", ptr %206, i64 %.02.i.i21.i.i
+  %207 = getelementptr inbounds [56 x i8], ptr %206, i64 %.02.i.i21.i.i
   %.val.i.i22.i.i = load ptr, ptr %205, align 8
   %208 = getelementptr i8, ptr %205, i64 8
   %.val3.i.i23.i.i = load ptr, ptr %208, align 8

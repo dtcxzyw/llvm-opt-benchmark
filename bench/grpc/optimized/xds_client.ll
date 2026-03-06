@@ -53,7 +53,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr.122" = type { %"class.std::__shared_ptr.123" }
 %"class.std::__shared_ptr.123" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.grpc_core::RefCountedPtr.130" = type { ptr }
 %"class.grpc_core::BackOff::Options" = type { %"class.grpc_core::Duration", double, double, %"class.grpc_core::Duration" }
 %"class.grpc_core::Duration" = type { i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
@@ -183,6 +182,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.129 = type { ptr }
 %class.anon = type { ptr, ptr, ptr }
 %"class.grpc_core::XdsClient::ResourceState" = type { %"class.absl::lts_20240722::flat_hash_set", %"class.std::shared_ptr.122", i32, %"class.std::__cxx11::basic_string", %"class.grpc_core::Timestamp", %"class.std::__cxx11::basic_string", %"class.absl::lts_20240722::Status", %"class.std::__cxx11::basic_string", %"class.grpc_core::Timestamp" }
+%"class.grpc_core::RefCountedPtr.130" = type { ptr }
 %"struct.grpc_core::RefCountedPtrHash" = type { i8 }
 %"struct.grpc_core::RefCountedPtrEq" = type { i8 }
 %"struct.grpc_core::XdsClient::ResourceCountLabels" = type { %"class.std::basic_string_view", %"class.std::basic_string_view", %"class.std::basic_string_view" }
@@ -1894,7 +1894,7 @@ _ZN4absl12lts_202407226StatusaSERKS1_.exit:       ; preds = %118, %_ZN4absl12lts
   %179 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %178, i1 true)
   %180 = zext nneg i32 %179 to i64
   %181 = getelementptr inbounds nuw i8, ptr %173, i64 %180
-  %182 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %172, i64 %180
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %180
   %183 = load i8, ptr %181, align 1, !tbaa !111
   %184 = icmp slt i8 %183, -1
   br i1 %184, label %.lr.ph.i.i.i, label %.lr.ph, !llvm.loop !113
@@ -1962,7 +1962,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 
 .noexc85:                                         ; preds = %.noexc
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %.sroa.sel173.v.sroa.sel, align 8, !tbaa !96, !noalias !120
-  %212 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %211
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %211
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE22find_or_prepare_insertIS8_EESt4pairINSF_8iteratorEbERKT_.exit.i.thread
 
 213:                                              ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE14const_iteratorppEv.exit
@@ -2010,7 +2010,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %243 = zext nneg i16 %242 to i64
   %244 = add i64 %.sroa.7.0.i, %243
   %245 = and i64 %244, %186
-  %246 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i.i.i87, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i87, i64 %245
   %247 = load ptr, ptr %246, align 8, !tbaa !123, !noalias !126
   %248 = icmp eq ptr %247, %215
   br i1 %248, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE6insertIS8_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S8_ENSF_22SameAsElementReferenceISL_EEEE5valueEiE4typeELi0ETnNSH_IXsr14IsDecomposableISL_EE5valueEiE4typeELi0EEESt4pairINSF_8iteratorEbESL_.exit, label %.critedge.i, !prof !129
@@ -2037,7 +2037,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
 
 _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE22find_or_prepare_insertIS8_EESt4pairINSF_8iteratorEbERKT_.exit.i.thread113: ; preds = %.thread.i
   %.sroa.0.0.copyload.i.i.i.i22.i = load ptr, ptr %.sroa.sel173.v.sroa.sel, align 8, !tbaa !96, !noalias !126
-  %258 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %257
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %257
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE22find_or_prepare_insertIS8_EESt4pairINSF_8iteratorEbERKT_.exit.i.thread
 
 259:                                              ; preds = %.critedge19.i
@@ -2081,7 +2081,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %278 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %277, i1 true)
   %279 = zext nneg i32 %278 to i64
   %280 = getelementptr inbounds nuw i8, ptr %272, i64 %279
-  %281 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %271, i64 %279
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %279
   %282 = load i8, ptr %280, align 1, !tbaa !111
   %283 = icmp slt i8 %282, -1
   br i1 %283, label %.lr.ph.i.i.i63, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE8iterator21skip_empty_or_deletedEv.exit.i.i, !llvm.loop !113
@@ -3655,7 +3655,7 @@ _ZNSt12__shared_ptrIKN9grpc_core15XdsResourceType12ResourceDataELN9__gnu_cxx12_L
   %.sroa.010.029.i.i = phi i64 [ %130, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit.i.i ], [ %116, %.lr.ph31.preheader.i.i ]
   %117 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.010.029.i.i, i1 true)
   %118 = lshr i64 %117, 3
-  %119 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %115, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !123
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %120, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit.i.i, label %121
@@ -3708,7 +3708,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %.sroa.04.020.i.i = phi i16 [ %154, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i.i ], [ %137, %.lr.ph27.i.i ]
   %140 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.04.020.i.i, i1 true)
   %141 = zext nneg i16 %140 to i64
-  %142 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.0.i25.i.i, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %.0.i25.i.i, i64 %141
   %143 = load ptr, ptr %142, align 8, !tbaa !123
   %.not.i.i.i.i.i.i2.i.i = icmp eq ptr %143, null
   br i1 %.not.i.i.i.i.i.i2.i.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i.i, label %144
@@ -4063,7 +4063,7 @@ _ZNSt6vectorIPKN9grpc_core12XdsBootstrap9XdsServerESaIS4_EED2Ev.exit96: ; preds 
   %.066587 = phi i64 [ %87, %.lr.ph590 ], [ %109, %108 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %111 = load ptr, ptr %21, align 8, !tbaa !10
-  %112 = getelementptr inbounds nuw ptr, ptr %.sroa.0235.2, i64 %.066587
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0235.2, i64 %.066587
   %113 = load ptr, ptr %112, align 8, !tbaa !14
   invoke void @_ZN9grpc_core9XdsClient27GetOrCreateXdsChannelLockedERKNS_12XdsBootstrap9XdsServerEPKc(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::RefCountedPtr.113") align 8 %14, ptr noundef nonnull align 8 dereferenceable(353) %111, ptr noundef nonnull align 8 dereferenceable(8) %113, ptr nonnull poison)
           to label %114 unwind label %158
@@ -4144,7 +4144,7 @@ _ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_9XdsClient10XdsChannelEEESaIS4_EE11_
 _ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_9XdsClient10XdsChannelEEESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_.exit: ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_9XdsClient10XdsChannelEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i, %139
   store ptr %132, ptr %2, align 8, !tbaa !245
   store ptr %138, ptr %81, align 8, !tbaa !243
-  %140 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.113", ptr %132, i64 %130
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %130
   store ptr %140, ptr %92, align 8, !tbaa !247
   %.pr258 = load ptr, ptr %14, align 8, !tbaa !101
   %.not.i97 = icmp eq ptr %.pr258, null
@@ -10749,7 +10749,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26.i, %103
   store ptr %75, ptr %0, align 8, !tbaa !336
   store ptr %102, ptr %19, align 8, !tbaa !338
-  %104 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %75, i64 %71
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %75, i64 %71
   store ptr %104, ptr %20, align 8, !tbaa !340
   %.pre48 = load ptr, ptr %4, align 8, !tbaa !92
   %105 = icmp eq ptr %.pre48, %21
@@ -17673,7 +17673,7 @@ _ZN9grpc_core13RefCountedPtrINS_9XdsClient10XdsChannel7AdsCallEED2Ev.exit: ; pre
 
 377:                                              ; preds = %.lr.ph, %.thread345
   %.099354 = phi i64 [ 0, %.lr.ph ], [ %478, %.thread345 ]
-  %378 = getelementptr inbounds nuw ptr, ptr %.0.i165, i64 %.099354
+  %378 = getelementptr inbounds nuw [8 x i8], ptr %.0.i165, i64 %.099354
   %379 = load ptr, ptr %378, align 8, !tbaa !493
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 8
   %.sroa.010.0.copyload11.i196 = load ptr, ptr %380, align 1
@@ -18001,7 +18001,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 
 .lr.ph356:                                        ; preds = %.preheader, %_ZN4absl12lts_202407226StatusD2Ev.exit292
   %.0100355 = phi i64 [ %508, %_ZN4absl12lts_202407226StatusD2Ev.exit292 ], [ 0, %.preheader ]
-  %479 = getelementptr inbounds nuw ptr, ptr %.096, i64 %.0100355
+  %479 = getelementptr inbounds nuw [8 x i8], ptr %.096, i64 %.0100355
   %480 = load ptr, ptr %479, align 8, !tbaa !499
   call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @envoy__service__discovery__v3__ResourceName_msg_init) #41, !srcloc !354
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 16
@@ -22492,7 +22492,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %.sroa.010.029.i = phi i64 [ %42, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit.i ], [ %28, %.lr.ph31.preheader.i ]
   %29 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.010.029.i, i1 true)
   %30 = lshr i64 %29, 3
-  %31 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %27, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !123
   %.not.i.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit.i, label %33
@@ -22545,7 +22545,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %.sroa.04.020.i = phi i16 [ %66, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i ], [ %49, %.lr.ph27.i ]
   %52 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.04.020.i, i1 true)
   %53 = zext nneg i16 %52 to i64
-  %54 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.0.i25.i, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.0.i25.i, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !123
   %.not.i.i.i.i.i.i2.i = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i.i.i2.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i, label %56
@@ -23410,7 +23410,7 @@ _ZN9grpc_core13RefCountedPtrINS_9XdsClient24ResourceWatcherInterfaceEED2Ev.exit:
 331:                                              ; preds = %_ZN9grpc_core13RefCountedPtrINS_9XdsClient10XdsChannelEED2Ev.exit, %.lr.ph
   %.0108358 = phi i64 [ %303, %.lr.ph ], [ %384, %_ZN9grpc_core13RefCountedPtrINS_9XdsClient10XdsChannelEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %332 = getelementptr inbounds nuw ptr, ptr %.sroa.0316.4, i64 %.0108358
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0316.4, i64 %.0108358
   %333 = load ptr, ptr %332, align 8, !tbaa !14
   invoke void @_ZN9grpc_core9XdsClient27GetOrCreateXdsChannelLockedERKNS_12XdsBootstrap9XdsServerEPKc(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::RefCountedPtr.113") align 8 %34, ptr noundef nonnull align 8 dereferenceable(353) %0, ptr noundef nonnull align 8 dereferenceable(8) %333, ptr nonnull poison)
           to label %334 unwind label %385
@@ -23494,7 +23494,7 @@ _ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_9XdsClient10XdsChannelEEESaIS4_EE11_
 _ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_9XdsClient10XdsChannelEEESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_.exit: ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_9XdsClient10XdsChannelEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i, %359
   store ptr %352, ptr %233, align 8, !tbaa !245
   store ptr %358, ptr %290, align 8, !tbaa !243
-  %363 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.113", ptr %352, i64 %350
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %352, i64 %350
   store ptr %363, ptr %309, align 8, !tbaa !247
   %.pr337 = load ptr, ptr %34, align 8, !tbaa !101
   %.not.i214 = icmp eq ptr %.pr337, null
@@ -25780,13 +25780,13 @@ define linkonce_odr noundef i64 @_ZN4absl12lts_2024072218container_internal12raw
   %46 = zext nneg i16 %45 to i64
   %47 = add i64 %.sroa.6.0.i.i, %46
   %48 = and i64 %47, %3
-  %49 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !123
   %51 = icmp eq ptr %50, %17
   br i1 %51, label %.thread29.i.i, label %54, !prof !129
 
 .thread29.i.i:                                    ; preds = %.lr.ph.i.i
-  %52 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %48
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %48
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 %48
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %53) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE12find_non_sooIPS7_EENSF_8iteratorERKT_m.exit.i
@@ -28189,7 +28189,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %.sroa.010.029.i = phi i64 [ %42, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit.i ], [ %28, %.lr.ph31.preheader.i ]
   %29 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.010.029.i, i1 true)
   %30 = lshr i64 %29, 3
-  %31 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %27, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !123
   %.not.i.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit.i, label %33
@@ -28242,7 +28242,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %.sroa.04.020.i = phi i16 [ %66, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i ], [ %49, %.lr.ph27.i ]
   %52 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.04.020.i, i1 true)
   %53 = zext nneg i16 %52 to i64
-  %54 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.0.i25.i, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.0.i25.i, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !123
   %.not.i.i.i.i.i.i2.i = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i.i.i2.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE7destroyEPS8_.exit3.i, label %56
@@ -31601,8 +31601,8 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
 
 57:                                               ; preds = %.lr.ph.i
   %58 = xor i64 %.015.i, %52
-  %59 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i.i, i64 %58
-  %60 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i14.i, i64 %.015.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %58
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i14.i, i64 %.015.i
   store ptr null, ptr %59, align 8, !tbaa !123
   %61 = load ptr, ptr %60, align 8, !tbaa !123
   store ptr %61, ptr %59, align 8, !tbaa !123
@@ -31686,7 +31686,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %111 = getelementptr i8, ptr %81, i64 %109
   %112 = getelementptr i8, ptr %111, i64 %110
   store i8 %106, ptr %112, align 1, !tbaa !111
-  %113 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
   store ptr null, ptr %113, align 8, !tbaa !123
   %114 = load ptr, ptr %3, align 8, !tbaa !123
   store ptr %114, ptr %113, align 8, !tbaa !123
@@ -31714,7 +31714,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %125, label %126, label %174
 
 126:                                              ; preds = %121
-  %127 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i, i64 %.074
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.074
   %128 = load ptr, ptr %127, align 8, !tbaa !123
   %129 = ptrtoint ptr %128 to i64
   %130 = add i64 %129, ptrtoint (ptr @_ZN4absl12lts_2024072213hash_internal15MixingHashState5kSeedE to i64)
@@ -31780,7 +31780,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   %170 = getelementptr i8, ptr %142, i64 %169
   %171 = getelementptr i8, ptr %170, i64 %120
   store i8 %166, ptr %171, align 1, !tbaa !111
-  %172 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i44
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i44
   store ptr null, ptr %172, align 8, !tbaa !123
   %173 = load ptr, ptr %127, align 8, !tbaa !123
   store ptr %173, ptr %172, align 8, !tbaa !123
@@ -32345,7 +32345,7 @@ define linkonce_odr void @_ZNK4absl12lts_2024072218container_internal12raw_hash_
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %34
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %37, align 8, !tbaa !96, !noalias !677
-  %38 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %34
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %34
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE26find_or_prepare_insert_sooIS8_EESt4pairINSF_8iteratorEbERKT_.exit.i
 
@@ -32433,7 +32433,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %36 = zext nneg i16 %35 to i64
   %37 = add i64 %.sroa.7.0, %36
   %38 = and i64 %37, %20
-  %39 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i.i, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !123
   %41 = icmp eq ptr %40, %6
   br i1 %41, label %.critedge21, label %.critedge, !prof !129
@@ -32461,7 +32461,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %52 = load ptr, ptr %4, align 8, !tbaa !96
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %51
   %.sroa.0.0.copyload.i.i.i.i22 = load ptr, ptr %29, align 8, !tbaa !96
-  %54 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %51
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22, i64 %51
   br label %60
 
 55:                                               ; preds = %.critedge19
@@ -32470,7 +32470,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br label %30
 
 .critedge21:                                      ; preds = %.lr.ph
-  %58 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i.i, i64 %38
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %38
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 %38
   br label %60
 
@@ -32596,7 +32596,7 @@ define linkonce_odr void @_ZNK4absl12lts_2024072218container_internal12raw_hash_
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %34
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %37, align 8, !tbaa !96, !noalias !692
-  %38 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %34
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 %34
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE26find_or_prepare_insert_sooIS8_EESt4pairINSF_8iteratorEbERKT_.exit.i
 
@@ -32914,7 +32914,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %31 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %30, i1 true)
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 %32
-  %34 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %24, i64 %32
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %32
   %35 = load i8, ptr %33, align 1, !tbaa !111
   %36 = icmp slt i8 %35, -1
   br i1 %36, label %.lr.ph.i.i.i, label %.loopexit114, !llvm.loop !113
@@ -32983,7 +32983,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %.sroa.086.0119.us.us = phi i16 [ %100, %.noexc32.us.us ], [ %60, %.noexc30.us ]
   %63 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.086.0119.us.us, i1 true)
   %64 = zext nneg i16 %63 to i64
-  %65 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.0.i129.us, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %.0.i129.us, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !123
   %67 = ptrtoint ptr %66 to i64
   %68 = add i64 %67, ptrtoint (ptr @_ZN4absl12lts_2024072213hash_internal15MixingHashState5kSeedE to i64)
@@ -33016,7 +33016,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %91 = getelementptr i8, ptr %90, i64 %89
   store i8 %83, ptr %91, align 1, !tbaa !111
   %.sroa.0.0.copyload.i.i.i.i64.us.us = load ptr, ptr %57, align 8, !tbaa !96
-  %92 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i.i.i64.us.us, i64 %82
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i64.us.us, i64 %82
   store ptr null, ptr %92, align 8, !tbaa !123
   %93 = load ptr, ptr %65, align 8, !tbaa !123
   %.not.i.i.i.i.i.i.i67.us.us = icmp eq ptr %93, null
@@ -33062,7 +33062,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %107 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.092.0133, i1 true)
   %108 = lshr i64 %107, 3
   %109 = getelementptr inbounds nuw i8, ptr %103, i64 %108
-  %110 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %104, i64 %108
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %108
   br i1 %45, label %.noexc48, label %127
 
 .noexc48:                                         ; preds = %.noexc26
@@ -33106,7 +33106,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %138 = getelementptr i8, ptr %137, i64 %136
   store i8 %130, ptr %138, align 1, !tbaa !111
   %.sroa.0.0.copyload.i.i.i.i59 = load ptr, ptr %106, align 8, !tbaa !96
-  %139 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i.i.i59, i64 %.4
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i59, i64 %.4
   store ptr null, ptr %139, align 8, !tbaa !123
   %140 = load ptr, ptr %110, align 8, !tbaa !123
   %.not.i.i.i.i.i.i.i61 = icmp eq ptr %140, null
@@ -33152,7 +33152,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %152 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.086.0119, i1 true)
   %153 = zext nneg i16 %152 to i64
   %154 = getelementptr inbounds nuw i8, ptr %.025.i127, i64 %153
-  %155 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.0.i129, i64 %153
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %.0.i129, i64 %153
   %156 = add nuw nsw i64 %.1118, %51
   %157 = and i64 %156, %.fr134
   %158 = load i8, ptr %154, align 1, !tbaa !111
@@ -33167,7 +33167,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %166 = getelementptr i8, ptr %165, i64 %164
   store i8 %158, ptr %166, align 1, !tbaa !111
   %.sroa.0.0.copyload.i.i.i.i64 = load ptr, ptr %57, align 8, !tbaa !96
-  %167 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %.sroa.0.0.copyload.i.i.i.i64, i64 %157
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i64, i64 %157
   store ptr null, ptr %167, align 8, !tbaa !123
   %168 = load ptr, ptr %155, align 8, !tbaa !123
   %.not.i.i.i.i.i.i.i67 = icmp eq ptr %168, null
@@ -37754,7 +37754,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !336
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !338
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !340
   ret void
 }
@@ -41340,7 +41340,7 @@ _ZNSt6vectorIN9grpc_core3URI10QueryParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 _ZNSt12_Vector_baseIN9grpc_core3URI10QueryParamESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core3URI10QueryParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit30, %114
   store ptr %22, ptr %0, align 8, !tbaa !219
   store ptr %.0.lcssa.i.i.i29, ptr %4, align 8, !tbaa !220
-  %118 = getelementptr inbounds nuw %"struct.grpc_core::URI::QueryParam", ptr %22, i64 %16
+  %118 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %118, ptr %113, align 8, !tbaa !222
   ret void
 }
@@ -41497,7 +41497,7 @@ define internal void @"_ZN4absl12lts_2024072222internal_any_invocable13RemoteInv
   %24 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %23, i1 true)
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 %25
-  %27 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %17, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %25
   %28 = load i8, ptr %26, align 1, !tbaa !111
   %29 = icmp slt i8 %28, -1
   br i1 %29, label %.lr.ph.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !113
@@ -41685,7 +41685,7 @@ _ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10shared_ptrIKN9grpc_c
   %116 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %115, i1 true)
   %117 = zext nneg i32 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr %110, i64 %117
-  %119 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %109, i64 %117
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %117
   %120 = load i8, ptr %118, align 1, !tbaa !111
   %121 = icmp slt i8 %120, -1
   br i1 %121, label %.lr.ph.i.i.i9.i.i.i.i.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE8iterator21skip_empty_or_deletedEv.exit.i.i.i.i.i.i.i, !llvm.loop !113
@@ -41788,7 +41788,7 @@ define internal void @"_ZN4absl12lts_2024072222internal_any_invocable13RemoteInv
   %24 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %23, i1 true)
   %25 = zext nneg i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 %25
-  %27 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %17, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %25
   %28 = load i8, ptr %26, align 1, !tbaa !111
   %29 = icmp slt i8 %28, -1
   br i1 %29, label %.lr.ph.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !113
@@ -41887,7 +41887,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i.i: ; preds = %59, %_ZN9grpc_core1
   %75 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %74, i1 true)
   %76 = zext nneg i32 %75 to i64
   %77 = getelementptr inbounds nuw i8, ptr %69, i64 %76
-  %78 = getelementptr inbounds nuw %"class.grpc_core::RefCountedPtr.130", ptr %68, i64 %76
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %76
   %79 = load i8, ptr %77, align 1, !tbaa !111
   %80 = icmp slt i8 %79, -1
   br i1 %80, label %.lr.ph.i.i.i8.i.i.i.i.i, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIN9grpc_core13RefCountedPtrINS4_9XdsClient24ResourceWatcherInterfaceEEEEENS4_17RefCountedPtrHashIS7_EENS4_15RefCountedPtrEqIS7_EESaIS8_EE8iterator21skip_empty_or_deletedEv.exit.i.i.i.i.i.i.i, !llvm.loop !113

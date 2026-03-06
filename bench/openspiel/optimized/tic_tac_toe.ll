@@ -749,7 +749,7 @@ define void @_ZN10open_spiel11tic_tac_toe14TicTacToeState13DoApplyActionEl(ptr n
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %11 = getelementptr inbounds i32, ptr %10, i64 %1
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %1
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr %6, align 4
   store i32 0, ptr %7, align 4
@@ -932,7 +932,7 @@ define void @_ZNK10open_spiel11tic_tac_toe14TicTacToeState12LegalActionsEv(ptr d
   %13 = phi ptr [ null, %8 ], [ %43, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
   %14 = phi ptr [ null, %8 ], [ %44, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
-  %15 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
@@ -997,7 +997,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i: ; preds = %37, %.no
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i: ; preds = %39, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i
   store ptr %38, ptr %10, align 8
-  %40 = getelementptr inbounds nuw i64, ptr %34, i64 %32
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   store ptr %40, ptr %11, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
@@ -1282,7 +1282,7 @@ define void @_ZNK10open_spiel11tic_tac_toe14TicTacToeState8ToStringB5cxx11Ev(ptr
 
 9:                                                ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %16 ]
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %10 = load i32, ptr %gep, align 4
   invoke void @_ZN10open_spiel11tic_tac_toe13StateToStringB5cxx11ENS0_9CellStateE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %10)
           to label %11 unwind label %.loopexit
@@ -1975,7 +1975,7 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
 
 44:                                               ; preds = %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit
   %indvars.iv = phi i64 [ 0, %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit ], [ %indvars.iv.next, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit ]
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4
   %47 = trunc nuw nsw i64 %indvars.iv to i32
   br label %48
@@ -1985,7 +1985,7 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
   %indvars.iv.i.i.sroa.phi.sroa.speculated = phi i32 [ %46, %44 ], [ %47, %48 ]
   %indvars.iv.i.i = phi i64 [ 0, %44 ], [ 1, %48 ]
   %.078.i.i = phi i32 [ 0, %44 ], [ %53, %48 ]
-  %50 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.i.i
   %51 = load i32, ptr %50, align 4
   %52 = mul nsw i32 %51, %.078.i.i
   %53 = add nsw i32 %52, %indvars.iv.i.i.sroa.phi.sroa.speculated
@@ -2001,7 +2001,7 @@ _ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i: ; preds = %48
   unreachable
 
 _ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit: ; preds = %_ZNK10open_spiel10TensorViewILi2EE5indexERKSt5arrayIiLm2EE.exit.i
-  %57 = getelementptr inbounds float, ptr %2, i64 %54
+  %57 = getelementptr inbounds [4 x i8], ptr %2, i64 %54
   store float 1.000000e+00, ptr %57, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
@@ -2017,7 +2017,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN10open_spiel11tic_tac_toe14TicTacToeState10UndoActionEil(ptr noundef nonnull align 8 captures(none) dereferenceable(108) initializes((96, 104)) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %5 = getelementptr inbounds i32, ptr %4, i64 %2
+  %5 = getelementptr inbounds [4 x i8], ptr %4, i64 %2
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %1, ptr %6, align 8
@@ -2883,7 +2883,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
   store ptr %28, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds nuw double, ptr %28, i64 %24
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %24
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %31, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
@@ -2948,7 +2948,7 @@ define linkonce_odr noundef double @_ZNK10open_spiel5State12PlayerRewardEi(ptr n
   br label %33
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
-  %27 = getelementptr inbounds double, ptr %13, i64 %18
+  %27 = getelementptr inbounds [8 x i8], ptr %13, i64 %18
   %28 = load double, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -3052,7 +3052,7 @@ define linkonce_odr noundef double @_ZNK10open_spiel5State12PlayerReturnEi(ptr n
   br label %44
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %23
-  %38 = getelementptr inbounds nuw double, ptr %26, i64 %31
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %31
   %39 = load double, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %41 = load ptr, ptr %40, align 8
@@ -3243,7 +3243,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %_ZNSt12_Vector
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %19, ptr %0, align 8
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %13
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %13
   store ptr %21, ptr %17, align 8
   br label %_ZNSt6vectorIlSaIlEE7reserveEm.exit
 
@@ -3323,7 +3323,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %46, %.noex
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %48, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %47, ptr %22, align 8
-  %49 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %27
@@ -4552,7 +4552,7 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit.i: ; preds = %_ZNSt12_Vector
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %0, align 8
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %10
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %10
   store ptr %18, ptr %14, align 8
   br label %_ZNSt6vectorIlSaIlEE7reserveEm.exit
 
@@ -4633,7 +4633,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %44, %.noex
 
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %46, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %45, ptr %19, align 8
-  %47 = getelementptr inbounds nuw i64, ptr %40, i64 %38
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %38
   br label %_ZNSt6vectorIlSaIlEE9push_backERKl.exit
 
 _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRKlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i, %25

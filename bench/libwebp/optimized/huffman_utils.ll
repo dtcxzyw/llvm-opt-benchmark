@@ -3,8 +3,6 @@ source_filename = "bench/libwebp/original/huffman_utils.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.HuffmanCode = type { i8, i16 }
-
 ; Function Attrs: nounwind uwtable
 define hidden ptr @VP8LHtreeGroupsNew(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
@@ -44,12 +42,12 @@ define hidden i32 @VP8LBuildHuffmanTable(ptr noundef captures(address_is_null) %
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %14 = sext i32 %6 to i64
-  %15 = getelementptr inbounds %struct.HuffmanCode, ptr %13, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %11, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %18 = load i32, ptr %17, align 8, !tbaa !13
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.HuffmanCode, ptr %16, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %16, i64 %19
   %.not = icmp ult ptr %15, %20
   br i1 %.not, label %35, label %21
 
@@ -130,14 +128,14 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !15
   %12 = icmp sgt i32 %11, 15
   br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = sext i32 %11 to i64
-  %15 = getelementptr inbounds i32, ptr %6, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %6, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !15
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %15, align 4, !tbaa !15
@@ -169,14 +167,14 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
 
 .lr.ph222.split.us:                               ; preds = %.lr.ph222, %30
   %indvars.iv317 = phi i64 [ %indvars.iv.next318, %30 ], [ 0, %.lr.ph222 ]
-  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv317
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv317
   %23 = load i32, ptr %22, align 4, !tbaa !15
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %.lr.ph222.split.us
   %26 = zext nneg i32 %23 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %7, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !15
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %27, align 4, !tbaa !15
@@ -189,7 +187,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
 
 31:                                               ; preds = %20, %37
   %indvars.iv308 = phi i64 [ 1, %20 ], [ %indvars.iv.next309, %37 ]
-  %32 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv308
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv308
   %33 = load i32, ptr %32, align 4, !tbaa !15
   %34 = trunc nuw nsw i64 %indvars.iv308 to i32
   %35 = shl nuw nsw i32 1, %34
@@ -197,25 +195,25 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   br i1 %36, label %.critedge, label %37
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv308
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv308
   %39 = load i32, ptr %38, align 4, !tbaa !15
   %40 = add nsw i32 %39, %33
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
-  %41 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next309
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.next309
   store i32 %40, ptr %41, align 4, !tbaa !15
   %exitcond311.not = icmp eq i64 %indvars.iv.next309, 15
   br i1 %exitcond311.not, label %.preheader208, label %31, !llvm.loop !19
 
 .lr.ph222.split:                                  ; preds = %.lr.ph222, %54
   %indvars.iv312 = phi i64 [ %indvars.iv.next313, %54 ], [ 0, %.lr.ph222 ]
-  %42 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv312
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv312
   %43 = load i32, ptr %42, align 4, !tbaa !15
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %45, label %54
 
 45:                                               ; preds = %.lr.ph222.split
   %46 = zext nneg i32 %43 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %7, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !15
   %.not171 = icmp slt i32 %48, %3
   br i1 %.not171, label %49, label %.critedge
@@ -225,7 +223,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   %51 = add nsw i32 %48, 1
   store i32 %51, ptr %47, align 4, !tbaa !15
   %52 = sext i32 %48 to i64
-  %53 = getelementptr inbounds i16, ptr %4, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %4, i64 %52
   store i16 %50, ptr %53, align 2, !tbaa !20
   br label %54
 
@@ -254,7 +252,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
 62:                                               ; preds = %62, %59
   %indvars.iv339 = phi i64 [ %indvars.iv.next340, %62 ], [ %61, %59 ]
   %indvars.iv.next340 = add nsw i64 %indvars.iv339, -1
-  %63 = getelementptr inbounds %struct.HuffmanCode, ptr %0, i64 %indvars.iv.next340
+  %63 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv.next340
   store i32 %.sroa.441.0.insert.shift, ptr %63, align 2
   %64 = icmp sgt i64 %indvars.iv339, 1
   br i1 %64, label %62, label %.critedge, !llvm.loop !22
@@ -275,7 +273,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   %.0140233.us = phi i32 [ %72, %74 ], [ 1, %.lr.ph238 ]
   %.0142232.us = phi i32 [ %75, %74 ], [ 1, %.lr.ph238 ]
   %69 = shl nuw i32 %.0140233.us, 1
-  %70 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv330
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv330
   %71 = load i32, ptr %70, align 4, !tbaa !15
   %72 = sub nsw i32 %69, %71
   %73 = icmp slt i32 %72, 0
@@ -314,7 +312,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   %.0149229 = phi i32 [ %110, %.loopexit ], [ 2, %.lr.ph238 ]
   %79 = shl nuw i32 %.0140233, 1
   %80 = add nsw i32 %79, %.0142232
-  %81 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv325
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv325
   %82 = load i32, ptr %81, align 4, !tbaa !15
   %83 = sub nsw i32 %79, %82
   %84 = icmp slt i32 %83, 0
@@ -337,10 +335,10 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   %indvars.iv322 = phi i64 [ %90, %.lr.ph226 ], [ %indvars.iv.next323, %GetNextKey.exit ]
   %.2146224 = phi i32 [ %.0144231, %.lr.ph226 ], [ %106, %GetNextKey.exit ]
   %92 = phi i32 [ %82, %.lr.ph226 ], [ %107, %GetNextKey.exit ]
-  %93 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv322
+  %93 = getelementptr inbounds [2 x i8], ptr %4, i64 %indvars.iv322
   %94 = load i16, ptr %93, align 2, !tbaa !20
   %95 = zext i32 %.2146224 to i64
-  %96 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %95
   %.sroa.45.0.insert.ext = zext i16 %94 to i32
   %.sroa.45.0.insert.shift = shl nuw i32 %.sroa.45.0.insert.ext, 16
   %.sroa.03.0.insert.insert = or disjoint i32 %.sroa.45.0.insert.shift, %.sroa.03.0.insert.ext
@@ -350,7 +348,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   %.0.i172 = phi i32 [ %8, %91 ], [ %98, %97 ]
   %98 = sub nsw i32 %.0.i172, %.0149229
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds %struct.HuffmanCode, ptr %96, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %96, i64 %99
   store i32 %.sroa.03.0.insert.insert, ptr %100, align 2
   %101 = icmp sgt i32 %98, 0
   br i1 %101, label %97, label %ReplicateValue.exit173, !llvm.loop !22
@@ -398,7 +396,7 @@ GetNextKey.exit:                                  ; preds = %ReplicateValue.exit
   %indvars.iv.next336 = add nsw i64 %indvars.iv335, 1
   %112 = shl nuw i32 %.1141272, 1
   %113 = add nsw i32 %112, %.1143271
-  %114 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.next336
+  %114 = getelementptr inbounds [4 x i8], ptr %6, i64 %indvars.iv.next336
   %115 = load i32, ptr %114, align 4, !tbaa !15
   %116 = sub nsw i32 %112, %115
   %117 = icmp slt i32 %116, 0
@@ -435,9 +433,9 @@ NextTableBitSize.exit.us:                         ; preds = %.lr.ph252.split.us
 
 .thread189.us:                                    ; preds = %NextTableBitSize.exit.us
   %127 = sext i32 %.1138248.us to i64
-  %128 = getelementptr inbounds %struct.HuffmanCode, ptr %.1121251.us, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %.1121251.us, i64 %127
   %129 = zext nneg i32 %125 to i64
-  %130 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %129
   store i8 15, ptr %130, align 2, !tbaa !26
   %131 = ptrtoint ptr %128 to i64
   %132 = sub i64 %131, %77
@@ -457,11 +455,11 @@ NextTableBitSize.exit.us:                         ; preds = %.lr.ph252.split.us
   %.2139196.us = phi i32 [ %122, %.thread189.us ], [ %.1138248.us, %137 ]
   %.2153195.us = phi i32 [ %125, %.thread189.us ], [ %.1152246.us, %137 ]
   %139 = sext i32 %.6249.us to i64
-  %140 = getelementptr inbounds i16, ptr %4, i64 %139
+  %140 = getelementptr inbounds [2 x i8], ptr %4, i64 %139
   %141 = load i16, ptr %140, align 2, !tbaa !20
   %142 = lshr i32 %.4148247.us, %1
   %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %.2122198.us, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %.2122198.us, i64 %143
   %.sroa.42.0.insert.ext.us = zext i16 %141 to i32
   %.sroa.42.0.insert.shift.us = shl nuw i32 %.sroa.42.0.insert.ext.us, 16
   %.sroa.0.0.insert.insert.us = or disjoint i32 %.sroa.42.0.insert.shift.us, %.sroa.0.0.insert.ext
@@ -471,7 +469,7 @@ NextTableBitSize.exit.us:                         ; preds = %.lr.ph252.split.us
   %.0.i175.us = phi i32 [ %.2139196.us, %138 ], [ %146, %145 ]
   %146 = sub nsw i32 %.0.i175.us, %.1150268
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds %struct.HuffmanCode, ptr %144, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %144, i64 %147
   store i32 %.sroa.0.0.insert.insert.us, ptr %148, align 2
   %149 = icmp sgt i32 %146, 0
   br i1 %149, label %145, label %ReplicateValue.exit176.us.loopexit, !llvm.loop !22
@@ -518,13 +516,13 @@ GetNextKey.exit179.us:                            ; preds = %151
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph252.split
   %161 = sext i32 %.1138248 to i64
-  %162 = getelementptr inbounds %struct.HuffmanCode, ptr %.1121251, i64 %161
+  %162 = getelementptr inbounds [4 x i8], ptr %.1121251, i64 %161
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %167, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next336, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %167 ]
   %.013.i = phi i32 [ %122, %.lr.ph.preheader.i ], [ %168, %167 ]
-  %163 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.i
+  %163 = getelementptr inbounds [4 x i8], ptr %6, i64 %indvars.iv.i
   %164 = load i32, ptr %163, align 4, !tbaa !15
   %165 = sub nsw i32 %.013.i, %164
   %166 = icmp slt i32 %165, 1
@@ -551,7 +549,7 @@ GetNextKey.exit179.us:                            ; preds = %151
 .thread189:                                       ; preds = %._crit_edge.loopexit.i
   %173 = trunc i32 %.010.lcssa.ph.i to i8
   %174 = zext nneg i32 %160 to i64
-  %175 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %174
   store i8 %173, ptr %175, align 2, !tbaa !26
   %176 = ptrtoint ptr %162 to i64
   %177 = sub i64 %176, %77
@@ -571,11 +569,11 @@ GetNextKey.exit179.us:                            ; preds = %151
   %.2139196 = phi i32 [ %171, %.thread189 ], [ %.1138248, %182 ]
   %.2153195 = phi i32 [ %160, %.thread189 ], [ %.1152246, %182 ]
   %184 = sext i32 %.6249 to i64
-  %185 = getelementptr inbounds i16, ptr %4, i64 %184
+  %185 = getelementptr inbounds [2 x i8], ptr %4, i64 %184
   %186 = load i16, ptr %185, align 2, !tbaa !20
   %187 = lshr i32 %.4148247, %1
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %.2122198, i64 %188
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %.2122198, i64 %188
   %.sroa.42.0.insert.ext = zext i16 %186 to i32
   %.sroa.42.0.insert.shift = shl nuw i32 %.sroa.42.0.insert.ext, 16
   %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.42.0.insert.shift, %.sroa.0.0.insert.ext
@@ -585,7 +583,7 @@ GetNextKey.exit179.us:                            ; preds = %151
   %.0.i175 = phi i32 [ %.2139196, %183 ], [ %191, %190 ]
   %191 = sub nsw i32 %.0.i175, %.1150268
   %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds %struct.HuffmanCode, ptr %189, i64 %192
+  %193 = getelementptr inbounds [4 x i8], ptr %189, i64 %192
   store i32 %.sroa.0.0.insert.insert, ptr %193, align 2
   %194 = icmp sgt i32 %191, 0
   br i1 %194, label %190, label %ReplicateValue.exit176.loopexit, !llvm.loop !22

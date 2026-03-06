@@ -2103,7 +2103,7 @@ define noundef ptr @_ZN3zmq11mechanism_t18socket_type_stringEi(i32 noundef %0) l
 
 8:                                                ; preds = %1, %3
   %9 = sext i32 %0 to i64
-  %10 = getelementptr inbounds ptr, ptr @_ZZN3zmq11mechanism_t18socket_type_stringEiE5names, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr @_ZZN3zmq11mechanism_t18socket_type_stringEiE5names, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !87
   ret ptr %11
 }
@@ -2210,7 +2210,7 @@ define noundef i64 @_ZNK3zmq11mechanism_t20add_basic_propertiesEPhm(ptr noundef 
 
 _ZN3zmq11mechanism_t18socket_type_stringEi.exit:  ; preds = %3, %7
   %12 = sext i8 %5 to i64
-  %13 = getelementptr inbounds ptr, ptr @_ZZN3zmq11mechanism_t18socket_type_stringEiE5names, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr @_ZZN3zmq11mechanism_t18socket_type_stringEiE5names, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !87
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #35
   %16 = tail call noundef i64 @_ZN3zmq11mechanism_t12add_propertyEPhmPKcPKvm(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.7, ptr noundef nonnull %14, i64 noundef %15)
@@ -2288,7 +2288,7 @@ define noundef i64 @_ZNK3zmq11mechanism_t20basic_properties_lenEv(ptr noundef no
 
 _ZN3zmq11mechanism_t18socket_type_stringEi.exit:  ; preds = %1, %5
   %10 = sext i8 %3 to i64
-  %11 = getelementptr inbounds ptr, ptr @_ZZN3zmq11mechanism_t18socket_type_stringEiE5names, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr @_ZZN3zmq11mechanism_t18socket_type_stringEiE5names, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !87
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %14 = load ptr, ptr %13, align 8, !tbaa !15

@@ -27,8 +27,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.qspinlock = type { %union.anon.2 }
 %union.anon.2 = type { %struct.atomic_t }
 %struct.atomic_t = type { i32 }
-%struct.sync_semaphore = type { i32, [60 x i8] }
-%struct.guc_lrc_desc_v69 = type { i32, i32, i32, i32, i8, [3 x i8], i32, i32, i32, i32, i32, i32, i32, i32, [19 x i32] }
 %struct.intel_engine_guc_stats = type { i8, i32, i64, i64 }
 
 @jiffies = external dso_local global i64, section ".data..cacheline_aligned", align 64
@@ -267,7 +265,7 @@ define dso_local void @intel_guc_busyness_park(ptr noundef %0) local_unnamed_add
 
 26:                                               ; preds = %32, %21
   %27 = phi i64 [ 0, %21 ], [ %33, %32 ]
-  %28 = getelementptr ptr, ptr %25, i64 %27
+  %28 = getelementptr [8 x i8], ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %32, label %31
@@ -439,7 +437,7 @@ define dso_local void @intel_guc_submission_reset_prepare(ptr noundef %0) local_
 
 29:                                               ; preds = %36, %21
   %30 = phi i64 [ 0, %21 ], [ %37, %36 ]
-  %31 = getelementptr ptr, ptr %28, i64 %30
+  %31 = getelementptr [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %36, label %34
@@ -1218,7 +1216,7 @@ define internal fastcc void @__guc_reset_context(ptr noundef nonnull %0, i32 nou
   %99 = getelementptr inbounds nuw i8, ptr %93, i64 4040
   %100 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %96, i32 -1) #23, !srcloc !31
   %101 = sext i32 %100 to i64
-  %102 = getelementptr ptr, ptr %99, i64 %101
+  %102 = getelementptr [8 x i8], ptr %99, i64 %101
   %103 = load ptr, ptr %102, align 8
   br label %104
 
@@ -2223,14 +2221,14 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_guc_submission_setup(ptr n
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4256
   %142 = load i8, ptr %70, align 8
   %143 = zext i8 %142 to i64
-  %144 = getelementptr [9 x ptr], ptr %141, i64 %143
+  %144 = getelementptr [72 x i8], ptr %141, i64 %143
   %145 = load ptr, ptr %144, align 8
   %146 = icmp eq ptr %145, null
   br i1 %146, label %.preheader, label %.loopexit
 
 147:                                              ; preds = %.preheader
   %148 = add nuw nsw i64 %174, 1
-  %149 = getelementptr ptr, ptr %144, i64 %148
+  %149 = getelementptr [8 x i8], ptr %144, i64 %148
   %150 = load ptr, ptr %149, align 8
   %151 = icmp eq ptr %150, null
   br i1 %151, label %.preheader, label %.loopexit, !llvm.loop !47
@@ -2425,7 +2423,7 @@ define internal void @guc_bump_inflight_request_prio(ptr noundef captures(none) 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 524
   %27 = zext i8 %24 to i64
-  %28 = getelementptr i32, ptr %26, i64 %27
+  %28 = getelementptr [4 x i8], ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = add i32 %29, -1
   store i32 %30, ptr %28, align 4
@@ -2435,7 +2433,7 @@ define internal void @guc_bump_inflight_request_prio(ptr noundef captures(none) 
   store i8 %.ph, ptr %18, align 8
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 524
   %33 = zext nneg i8 %.ph to i64
-  %34 = getelementptr i32, ptr %32, i64 %33
+  %34 = getelementptr [4 x i8], ptr %32, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 4
@@ -2448,7 +2446,7 @@ define internal void @guc_bump_inflight_request_prio(ptr noundef captures(none) 
 
 42:                                               ; preds = %99, %31
   %43 = phi i64 [ 0, %31 ], [ %100, %99 ]
-  %44 = getelementptr i32, ptr %32, i64 %43
+  %44 = getelementptr [4 x i8], ptr %32, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %99, label %47
@@ -2571,7 +2569,7 @@ define internal void @guc_retire_inflight_request_prio(ptr noundef captures(none
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 524
   %16 = zext i8 %12 to i64
-  %17 = getelementptr i32, ptr %15, i64 %16
+  %17 = getelementptr [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, -1
   store i32 %19, ptr %17, align 4
@@ -2584,7 +2582,7 @@ define internal void @guc_retire_inflight_request_prio(ptr noundef captures(none
 
 25:                                               ; preds = %82, %14
   %26 = phi i64 [ 0, %14 ], [ %83, %82 ]
-  %27 = getelementptr i32, ptr %15, i64 %26
+  %27 = getelementptr [4 x i8], ptr %15, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %82, label %30
@@ -3063,7 +3061,7 @@ define dso_local i32 @intel_guc_submission_enable(ptr noundef %0) local_unnamed_
 
 22:                                               ; preds = %.loopexit, %14
   %23 = phi i64 [ 0, %14 ], [ %94, %.loopexit ]
-  %24 = getelementptr ptr, ptr %18, i64 %23
+  %24 = getelementptr [8 x i8], ptr %18, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.loopexit, label %27
@@ -3674,7 +3672,7 @@ define internal void @reset_fail_worker_func(ptr noundef %0) #0 align 16 {
   %19 = xor i32 %18, -1
   %20 = and i32 %14, %19
   %21 = sext i32 %15 to i64
-  %22 = getelementptr ptr, ptr %12, i64 %21
+  %22 = getelementptr [8 x i8], ptr %12, i64 %21
   %23 = load ptr, ptr %22, align 8
   tail call void @intel_guc_find_hung_context(ptr noundef %23)
   %24 = icmp eq i32 %20, 0
@@ -3723,7 +3721,7 @@ define internal void @guc_timestamp_ping(ptr noundef %0) #0 align 16 {
 
 20:                                               ; preds = %26, %14
   %21 = phi i64 [ 0, %14 ], [ %27, %26 ]
-  %22 = getelementptr ptr, ptr %19, i64 %21
+  %22 = getelementptr [8 x i8], ptr %19, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %26, label %25
@@ -4431,7 +4429,7 @@ define internal fastcc i32 @register_context(ptr noundef %0, i1 noundef zeroext 
 
 85:                                               ; preds = %85, %56
   %86 = phi i64 [ 0, %56 ], [ %88, %85 ]
-  %87 = getelementptr %struct.sync_semaphore, ptr %84, i64 %86
+  %87 = getelementptr [64 x i8], ptr %84, i64 %86
   store i32 0, ptr %87, align 4
   %88 = add nuw nsw i64 %86, 1
   %89 = load i8, ptr %53, align 4
@@ -4490,11 +4488,11 @@ define internal fastcc i32 @register_context(ptr noundef %0, i1 noundef zeroext 
   %121 = load i32, ptr %120, align 8
   %122 = add i32 %119, 1
   %123 = sext i32 %119 to i64
-  %124 = getelementptr i32, ptr %6, i64 %123
+  %124 = getelementptr [4 x i8], ptr %6, i64 %123
   store i32 %121, ptr %124, align 4
   %125 = add i32 %119, 2
   %126 = sext i32 %122 to i64
-  %127 = getelementptr i32, ptr %6, i64 %126
+  %127 = getelementptr [4 x i8], ptr %6, i64 %126
   store i32 0, ptr %127, align 4
   %128 = load ptr, ptr %118, align 8
   %129 = icmp eq ptr %128, %111
@@ -4556,7 +4554,7 @@ define internal fastcc i32 @register_context(ptr noundef %0, i1 noundef zeroext 
   %162 = load ptr, ptr %161, align 8
   %163 = icmp eq ptr %162, null
   %164 = zext i16 %157 to i64
-  %165 = getelementptr %struct.guc_lrc_desc_v69, ptr %162, i64 %164
+  %165 = getelementptr [128 x i8], ptr %162, i64 %164
   %166 = select i1 %163, ptr null, ptr %165
   %167 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %168 = load i8, ptr %167, align 8
@@ -4684,7 +4682,7 @@ define internal fastcc i32 @register_context(ptr noundef %0, i1 noundef zeroext 
   %260 = load ptr, ptr %161, align 8
   %261 = icmp eq ptr %260, null
   %262 = zext i16 %259 to i64
-  %263 = getelementptr %struct.guc_lrc_desc_v69, ptr %260, i64 %262
+  %263 = getelementptr [128 x i8], ptr %260, i64 %262
   %264 = select i1 %261, ptr null, ptr %263
   %265 = load i8, ptr %167, align 8
   %266 = zext i8 %265 to i64
@@ -4734,7 +4732,7 @@ define internal fastcc i32 @register_context(ptr noundef %0, i1 noundef zeroext 
 
 297:                                              ; preds = %297, %.loopexit9
   %298 = phi i64 [ 0, %.loopexit9 ], [ %300, %297 ]
-  %299 = getelementptr %struct.sync_semaphore, ptr %296, i64 %298
+  %299 = getelementptr [64 x i8], ptr %296, i64 %298
   store i32 0, ptr %299, align 4
   %300 = add nuw nsw i64 %298, 1
   %301 = load i8, ptr %198, align 4
@@ -4772,7 +4770,7 @@ define internal fastcc i32 @register_context(ptr noundef %0, i1 noundef zeroext 
   %320 = add i32 %318, 128
   %321 = add i32 %319, 1
   %322 = sext i32 %319 to i64
-  %323 = getelementptr i32, ptr %4, i64 %322
+  %323 = getelementptr [4 x i8], ptr %4, i64 %322
   store i32 %320, ptr %323, align 4
   %324 = load ptr, ptr %317, align 8
   %325 = icmp eq ptr %324, %204
@@ -5314,7 +5312,7 @@ define dso_local noundef range(i32 -71, 1) i32 @intel_guc_context_reset_process_
   %138 = xor i32 %137, -1
   %139 = and i32 %127, %138
   %140 = sext i32 %134 to i64
-  %141 = getelementptr ptr, ptr %133, i64 %140
+  %141 = getelementptr [8 x i8], ptr %133, i64 %140
   %142 = load ptr, ptr %141, align 8
   %143 = tail call zeroext i1 @intel_guc_capture_is_matching_engine(ptr noundef %82, ptr noundef nonnull %34, ptr noundef %142) #22
   br i1 %143, label %144, label %126, !llvm.loop !82
@@ -5328,7 +5326,7 @@ define dso_local noundef range(i32 -71, 1) i32 @intel_guc_context_reset_process_
   %149 = getelementptr inbounds nuw i8, ptr %142, i64 56
   %150 = load i8, ptr %149, align 8
   %151 = zext i8 %150 to i64
-  %152 = getelementptr %struct.atomic_t, ptr %122, i64 %151
+  %152 = getelementptr [4 x i8], ptr %122, i64 %151
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %152, ptr elementtype(i32) %152) #22, !srcloc !58
   br label %123, !llvm.loop !82
 
@@ -5366,7 +5364,7 @@ define dso_local noundef range(i32 -71, 1) i32 @intel_guc_context_reset_process_
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 56
   %175 = load i8, ptr %174, align 8
   %176 = zext i8 %175 to i64
-  %177 = getelementptr %struct.atomic_t, ptr %173, i64 %176
+  %177 = getelementptr [4 x i8], ptr %173, i64 %176
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %177, ptr elementtype(i32) %177) #22, !srcloc !58
   br label %178
 
@@ -5505,8 +5503,8 @@ define dso_local ptr @intel_guc_lookup_engine(ptr noundef readonly captures(none
   %7 = getelementptr i8, ptr %0, i64 3624
   %8 = zext i8 %6 to i64
   %9 = zext i8 %2 to i64
-  %.split = getelementptr [9 x ptr], ptr %7, i64 %8
-  %10 = getelementptr ptr, ptr %.split, i64 %9
+  %.split = getelementptr [72 x i8], ptr %7, i64 %8
+  %10 = getelementptr [8 x i8], ptr %.split, i64 %9
   %11 = load ptr, ptr %10, align 8
   ret ptr %11
 }
@@ -5548,8 +5546,8 @@ define dso_local noundef range(i32 -71, 1) i32 @intel_guc_engine_failure_process
   %27 = zext i8 %25 to i64
   %28 = and i32 %19, 255
   %29 = zext nneg i32 %28 to i64
-  %.split = getelementptr [9 x ptr], ptr %26, i64 %27
-  %30 = getelementptr ptr, ptr %.split, i64 %29
+  %.split = getelementptr [72 x i8], ptr %26, i64 %27
+  %30 = getelementptr [8 x i8], ptr %.split, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   %33 = getelementptr i8, ptr %0, i64 -632
@@ -6049,7 +6047,7 @@ define dso_local void @intel_guc_submission_print_context_info(ptr noundef %0, p
 
 38:                                               ; preds = %38, %.preheader6
   %39 = phi i64 [ 0, %.preheader6 ], [ %43, %38 ]
-  %40 = getelementptr i32, ptr %37, i64 %39
+  %40 = getelementptr [4 x i8], ptr %37, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = trunc i64 %39 to i32
   call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.60, i32 noundef %42, i32 noundef %41) #22
@@ -6117,7 +6115,7 @@ define dso_local void @intel_guc_submission_print_context_info(ptr noundef %0, p
   %85 = shl nuw nsw i64 %84, 12
   %86 = getelementptr i8, ptr %82, i64 %85
   %87 = getelementptr i8, ptr %86, i64 -3840
-  %88 = getelementptr %struct.sync_semaphore, ptr %87, i64 %81
+  %88 = getelementptr [64 x i8], ptr %87, i64 %81
   %89 = load i32, ptr %88, align 4
   call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.20, i32 noundef %89) #22
   %90 = add nuw nsw i64 %81, 1
@@ -6308,7 +6306,7 @@ define dso_local noundef zeroext i1 @intel_guc_virtual_engine_has_heartbeat(ptr 
   %17 = xor i32 %16, -1
   %18 = and i32 %11, %17
   %19 = sext i32 %13 to i64
-  %20 = getelementptr ptr, ptr %9, i64 %19
+  %20 = getelementptr [8 x i8], ptr %9, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 5408
   %23 = load volatile i64, ptr %22, align 8
@@ -6567,7 +6565,7 @@ define internal ptr @guc_virtual_get_sibling(ptr noundef readonly captures(none)
 
 .thread.split.loop.exit1:                         ; preds = %15
   %24 = sext i32 %16 to i64
-  %25 = getelementptr ptr, ptr %10, i64 %24
+  %25 = getelementptr [8 x i8], ptr %10, i64 %24
   %26 = load ptr, ptr %25, align 8
   br label %.thread
 
@@ -6731,7 +6729,7 @@ define internal fastcc range(i32 -18, -19) i32 @try_context_registration(ptr nou
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 2088
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
-  %27 = getelementptr %struct.guc_lrc_desc_v69, ptr %25, i64 %17
+  %27 = getelementptr [128 x i8], ptr %25, i64 %17
   %28 = icmp eq ptr %27, null
   %29 = or i1 %26, %28
   br i1 %29, label %31, label %30
@@ -6918,7 +6916,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @guc_wq_item_append(ptr nou
   %56 = getelementptr i8, ptr %55, i64 -2048
   %57 = lshr i16 %25, 2
   %58 = zext nneg i16 %57 to i64
-  %59 = getelementptr i32, ptr %56, i64 %58
+  %59 = getelementptr [4 x i8], ptr %56, i64 %58
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.thread6, label %61
 
@@ -6968,7 +6966,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @guc_wq_item_append(ptr nou
   %95 = getelementptr i8, ptr %94, i64 -2048
   %96 = lshr i16 %67, 2
   %97 = zext nneg i16 %96 to i64
-  %98 = getelementptr i32, ptr %95, i64 %97
+  %98 = getelementptr [4 x i8], ptr %95, i64 %97
   %99 = icmp eq ptr %98, null
   br i1 %99, label %.thread6, label %100
 
@@ -7255,7 +7253,7 @@ define internal fastcc void @clr_ctx_id_mapping(ptr noundef %0, i32 noundef rang
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr %struct.guc_lrc_desc_v69, ptr %8, i64 %10
+  %11 = getelementptr [128 x i8], ptr %8, i64 %10
   %12 = icmp eq ptr %11, null
   %13 = select i1 %9, i1 true, i1 %12
   br i1 %13, label %15, label %14
@@ -7751,7 +7749,7 @@ define internal void @add_to_context(ptr noundef %0) #0 align 16 {
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 524
   %36 = zext i8 %30 to i64
-  %37 = getelementptr i32, ptr %35, i64 %36
+  %37 = getelementptr [4 x i8], ptr %35, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = add i32 %38, -1
   store i32 %39, ptr %37, align 4
@@ -7761,7 +7759,7 @@ define internal void @add_to_context(ptr noundef %0) #0 align 16 {
   store i8 %19, ptr %29, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 524
   %42 = zext nneg i8 %19 to i64
-  %43 = getelementptr i32, ptr %41, i64 %42
+  %43 = getelementptr [4 x i8], ptr %41, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %44, 1
   store i32 %45, ptr %43, align 4
@@ -7778,7 +7776,7 @@ define internal void @add_to_context(ptr noundef %0) #0 align 16 {
 
 53:                                               ; preds = %110, %46
   %54 = phi i64 [ 0, %46 ], [ %111, %110 ]
-  %55 = getelementptr i32, ptr %52, i64 %54
+  %55 = getelementptr [4 x i8], ptr %52, i64 %54
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %110, label %58
@@ -7910,7 +7908,7 @@ define internal void @remove_from_context(ptr noundef %0) #0 align 16 {
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 524
   %22 = zext i8 %18 to i64
-  %23 = getelementptr i32, ptr %21, i64 %22
+  %23 = getelementptr [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %24, -1
   store i32 %25, ptr %23, align 4
@@ -7923,7 +7921,7 @@ define internal void @remove_from_context(ptr noundef %0) #0 align 16 {
 
 31:                                               ; preds = %88, %20
   %32 = phi i64 [ 0, %20 ], [ %89, %88 ]
-  %33 = getelementptr i32, ptr %21, i64 %32
+  %33 = getelementptr [4 x i8], ptr %21, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %88, label %36
@@ -8756,7 +8754,7 @@ prep_context_pending_disable.exit:                ; preds = %65, %69
   %136 = getelementptr inbounds nuw i8, ptr %130, i64 4040
   %137 = call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %133, i32 -1) #23, !srcloc !31
   %138 = sext i32 %137 to i64
-  %139 = getelementptr ptr, ptr %136, i64 %138
+  %139 = getelementptr [8 x i8], ptr %136, i64 %138
   %140 = load ptr, ptr %139, align 8
   br label %141
 
@@ -9313,7 +9311,7 @@ define internal noundef nonnull ptr @guc_create_virtual(ptr noundef readonly cap
 
 58:                                               ; preds = %142, %42
   %59 = phi i64 [ 0, %42 ], [ %143, %142 ]
-  %60 = getelementptr ptr, ptr %0, i64 %59
+  %60 = getelementptr [8 x i8], ptr %0, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 44
   %63 = load i32, ptr %62, align 4
@@ -9525,10 +9523,10 @@ define internal ptr @guc_create_parallel(ptr noundef readonly captures(none) %0,
   %29 = phi i32 [ 0, %.split ], [ %36, %28 ]
   %30 = add i32 %29, %27
   %31 = zext i32 %30 to i64
-  %32 = getelementptr ptr, ptr %0, i64 %31
+  %32 = getelementptr [8 x i8], ptr %0, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %29 to i64
-  %35 = getelementptr ptr, ptr %6, i64 %34
+  %35 = getelementptr [8 x i8], ptr %6, i64 %34
   store ptr %33, ptr %35, align 8
   %36 = add nuw i32 %29, 1
   %37 = icmp eq i32 %36, %1
@@ -9998,7 +9996,7 @@ define internal fastcc void @__release_guc_id(ptr noundef %0, ptr noundef %1) un
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   %36 = zext i16 %32 to i64
-  %37 = getelementptr %struct.guc_lrc_desc_v69, ptr %34, i64 %36
+  %37 = getelementptr [128 x i8], ptr %34, i64 %36
   %38 = icmp eq ptr %37, null
   %39 = select i1 %35, i1 true, i1 %38
   br i1 %39, label %41, label %40
@@ -10070,7 +10068,7 @@ define internal void @virtual_guc_bump_serial(ptr noundef readonly captures(none
   %17 = xor i32 %16, -1
   %18 = and i32 %10, %17
   %19 = sext i32 %13 to i64
-  %20 = getelementptr ptr, ptr %12, i64 %19
+  %20 = getelementptr [8 x i8], ptr %12, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 328
   %23 = load i64, ptr %22, align 8
@@ -10285,7 +10283,7 @@ define internal i32 @guc_virtual_context_alloc(ptr noundef %0) #0 align 16 {
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 4040
   %14 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %10, i32 -1) #23, !srcloc !31
   %15 = sext i32 %14 to i64
-  %16 = getelementptr ptr, ptr %13, i64 %15
+  %16 = getelementptr [8 x i8], ptr %13, i64 %15
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -10313,7 +10311,7 @@ define internal i32 @guc_virtual_context_pre_pin(ptr noundef %0, ptr noundef %1,
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 4040
   %16 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %12, i32 -1) #23, !srcloc !31
   %17 = sext i32 %16 to i64
-  %18 = getelementptr ptr, ptr %15, i64 %17
+  %18 = getelementptr [8 x i8], ptr %15, i64 %17
   %19 = load ptr, ptr %18, align 8
   br label %20
 
@@ -10341,7 +10339,7 @@ define internal i32 @guc_virtual_context_pin(ptr noundef %0, ptr noundef %1) #0 
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 4040
   %15 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %11, i32 -1) #23, !srcloc !31
   %16 = sext i32 %15 to i64
-  %17 = getelementptr ptr, ptr %14, i64 %16
+  %17 = getelementptr [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8
   br label %19
 
@@ -10396,7 +10394,7 @@ define internal i32 @guc_virtual_context_pin(ptr noundef %0, ptr noundef %1) #0 
   %57 = xor i32 %56, -1
   %58 = and i32 %48, %57
   %59 = sext i32 %53 to i64
-  %60 = getelementptr ptr, ptr %52, i64 %59
+  %60 = getelementptr [8 x i8], ptr %52, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 352
   %63 = tail call i32 @__SCT__might_resched() #22
@@ -10508,7 +10506,7 @@ define internal void @guc_virtual_context_unpin(ptr noundef %0) #0 align 16 {
   %51 = xor i32 %50, -1
   %52 = and i32 %42, %51
   %53 = sext i32 %47 to i64
-  %54 = getelementptr ptr, ptr %46, i64 %53
+  %54 = getelementptr [8 x i8], ptr %46, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 352
   %57 = load volatile i32, ptr %56, align 4
@@ -10569,7 +10567,7 @@ define internal void @guc_virtual_context_enter(ptr noundef readonly captures(no
   %21 = xor i32 %20, -1
   %22 = and i32 %12, %21
   %23 = sext i32 %17 to i64
-  %24 = getelementptr ptr, ptr %16, i64 %23
+  %24 = getelementptr [8 x i8], ptr %16, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 352
   %27 = tail call i32 @__SCT__might_resched() #22
@@ -10634,7 +10632,7 @@ define internal void @guc_virtual_context_exit(ptr noundef readonly captures(non
   %21 = xor i32 %20, -1
   %22 = and i32 %12, %21
   %23 = sext i32 %17 to i64
-  %24 = getelementptr ptr, ptr %16, i64 %23
+  %24 = getelementptr [8 x i8], ptr %16, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 352
   %27 = tail call i32 @__SCT__might_resched() #22
@@ -10711,7 +10709,7 @@ define internal noundef ptr @emit_fini_breadcrumb_parent_no_preempt_mid_batch(pt
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, -6
   %21 = zext i32 %20 to i64
-  %22 = getelementptr i32, ptr %1, i64 %21
+  %22 = getelementptr [4 x i8], ptr %1, i64 %21
   br label %77
 
 23:                                               ; preds = %2
@@ -10931,7 +10929,7 @@ define internal noundef ptr @emit_fini_breadcrumb_child_no_preempt_mid_batch(ptr
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, -6
   %21 = zext i32 %20 to i64
-  %22 = getelementptr i32, ptr %1, i64 %21
+  %22 = getelementptr [4 x i8], ptr %1, i64 %21
   br label %70
 
 23:                                               ; preds = %2
@@ -11050,7 +11048,7 @@ define internal i32 @guc_parent_context_pin(ptr noundef %0, ptr noundef %1) #0 a
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 4040
   %15 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %11, i32 -1) #23, !srcloc !31
   %16 = sext i32 %15 to i64
-  %17 = getelementptr ptr, ptr %14, i64 %16
+  %17 = getelementptr [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8
   br label %19
 
@@ -11398,7 +11396,7 @@ define internal i32 @guc_child_context_pin(ptr noundef %0, ptr noundef %1) #0 al
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 4040
   %15 = tail call i32 asm "bsfl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %11, i32 -1) #23, !srcloc !31
   %16 = sext i32 %15 to i64
-  %17 = getelementptr ptr, ptr %14, i64 %16
+  %17 = getelementptr [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8
   br label %19
 
@@ -11626,7 +11624,7 @@ define internal zeroext i1 @guc_irq_enable_breadcrumbs(ptr noundef readonly capt
   %22 = xor i32 %21, -1
   %23 = and i32 %13, %22
   %24 = sext i32 %18 to i64
-  %25 = getelementptr ptr, ptr %17, i64 %24
+  %25 = getelementptr [8 x i8], ptr %17, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call zeroext i1 @intel_engine_irq_enable(ptr noundef %26) #22
   %28 = or i1 %12, %27
@@ -11665,7 +11663,7 @@ define internal void @guc_irq_disable_breadcrumbs(ptr noundef readonly captures(
   %21 = xor i32 %20, -1
   %22 = and i32 %12, %21
   %23 = sext i32 %17 to i64
-  %24 = getelementptr ptr, ptr %16, i64 %23
+  %24 = getelementptr [8 x i8], ptr %16, i64 %23
   %25 = load ptr, ptr %24, align 8
   tail call void @intel_engine_irq_disable(ptr noundef %25) #22
   %26 = icmp eq i32 %22, 0

@@ -31,7 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_fcall_info_cache = type { ptr, ptr, ptr, ptr, ptr }
 %struct._zend_internal_arg_info = type { ptr, %struct.zend_type, ptr }
 %struct.zend_type = type { ptr, i32 }
-%struct._spl_sub_iterator = type { ptr, %struct._zval_struct, ptr, i32, ptr, ptr }
 %struct.smart_str = type { ptr, i64 }
 %struct.zend_error_handling = type { i32, ptr }
 %struct._zend_fcall_info = type { i64, %struct._zval_struct, ptr, ptr, ptr, i32, ptr }
@@ -571,13 +570,13 @@ instanceof_function.exit82.thread:                ; preds = %100, %instanceof_fu
   %120 = phi i32 [ %131, %.lr.ph.i ], [ %118, %.preheader.i ]
   %121 = load ptr, ptr %115, align 8, !tbaa !62
   %122 = zext nneg i32 %120 to i64
-  %123 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [56 x i8], ptr %121, i64 %122
   %124 = load ptr, ptr %123, align 8, !tbaa !66
   call void @zend_iterator_dtor(ptr noundef %124) #11
   %125 = load ptr, ptr %115, align 8, !tbaa !62
   %126 = load i32, ptr %117, align 8, !tbaa !65
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds %struct._spl_sub_iterator, ptr %125, i64 %127
+  %128 = getelementptr inbounds [56 x i8], ptr %125, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   call void @zval_ptr_dtor(ptr noundef nonnull %129) #11
   %130 = load i32, ptr %117, align 8, !tbaa !65
@@ -785,13 +784,13 @@ zend_hash_str_find_ptr.exit100:                   ; preds = %zend_hash_str_find_
   %229 = phi i32 [ %240, %.lr.ph.i111 ], [ %227, %.preheader.i109 ]
   %230 = load ptr, ptr %115, align 8, !tbaa !62
   %231 = zext nneg i32 %229 to i64
-  %232 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %230, i64 %231
+  %232 = getelementptr inbounds nuw [56 x i8], ptr %230, i64 %231
   %233 = load ptr, ptr %232, align 8, !tbaa !66
   call void @zend_iterator_dtor(ptr noundef %233) #11
   %234 = load ptr, ptr %115, align 8, !tbaa !62
   %235 = load i32, ptr %135, align 8, !tbaa !65
   %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds %struct._spl_sub_iterator, ptr %234, i64 %236
+  %237 = getelementptr inbounds [56 x i8], ptr %234, i64 %236
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
   call void @zval_ptr_dtor(ptr noundef nonnull %238) #11
   %239 = load i32, ptr %135, align 8, !tbaa !65
@@ -877,7 +876,7 @@ define internal fastcc void @spl_recursive_it_rewind_ex(ptr noundef %0, ptr noun
   %11 = phi i32 [ %7, %.lr.ph ], [ %34, %33 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !62
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds %struct._spl_sub_iterator, ptr %12, i64 %13
+  %14 = getelementptr inbounds [56 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !66
   tail call void @zend_iterator_dtor(ptr noundef %15) #11
   %16 = load ptr, ptr %0, align 8, !tbaa !62
@@ -885,7 +884,7 @@ define internal fastcc void @spl_recursive_it_rewind_ex(ptr noundef %0, ptr noun
   %18 = add nsw i32 %17, -1
   store i32 %18, ptr %6, align 8, !tbaa !65
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds %struct._spl_sub_iterator, ptr %16, i64 %19
+  %20 = getelementptr inbounds [56 x i8], ptr %16, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   tail call void @zval_ptr_dtor(ptr noundef nonnull %21) #11
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !33
@@ -1008,7 +1007,7 @@ define hidden void @zim_RecursiveIteratorIterator_valid(ptr noundef readonly cap
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %14, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %15 ]
   %17 = load ptr, ptr %5, align 8, !tbaa !62
-  %18 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [56 x i8], ptr %17, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !66
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load ptr, ptr %20, align 8, !tbaa !86
@@ -1079,7 +1078,7 @@ define hidden void @zim_RecursiveIteratorIterator_key(ptr noundef readonly captu
   %13 = getelementptr inbounds i8, ptr %4, i64 -144
   %14 = load i32, ptr %13, align 8, !tbaa !65
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct._spl_sub_iterator, ptr %10, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %10, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !66
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %19 = load ptr, ptr %18, align 8, !tbaa !86
@@ -1130,7 +1129,7 @@ define hidden void @zim_RecursiveIteratorIterator_current(ptr noundef readonly c
   %13 = getelementptr inbounds i8, ptr %4, i64 -144
   %14 = load i32, ptr %13, align 8, !tbaa !65
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct._spl_sub_iterator, ptr %10, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %10, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !66
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %19 = load ptr, ptr %18, align 8, !tbaa !86
@@ -1248,7 +1247,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   %22 = load ptr, ptr %0, align 8, !tbaa !62
   %23 = load i32, ptr %9, align 8, !tbaa !65
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct._spl_sub_iterator, ptr %22, i64 %24
+  %25 = getelementptr inbounds [56 x i8], ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !66
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %28 = load i32, ptr %27, align 8, !tbaa !84
@@ -1293,7 +1292,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
 46:                                               ; preds = %39
   %47 = load ptr, ptr %0, align 8, !tbaa !62
   %48 = sext i32 %.pre192 to i64
-  %49 = getelementptr inbounds %struct._spl_sub_iterator, ptr %47, i64 %48
+  %49 = getelementptr inbounds [56 x i8], ptr %47, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store i32 1, ptr %50, align 8, !tbaa !84
   br label %51
@@ -1313,7 +1312,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
 
 59:                                               ; preds = %51
   %60 = sext i32 %52 to i64
-  %61 = getelementptr inbounds %struct._spl_sub_iterator, ptr %53, i64 %60
+  %61 = getelementptr inbounds [56 x i8], ptr %53, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8, !tbaa !83
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -1337,7 +1336,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   %74 = load ptr, ptr %0, align 8, !tbaa !62
   %75 = load i32, ptr %9, align 8, !tbaa !65
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds %struct._spl_sub_iterator, ptr %74, i64 %76
+  %77 = getelementptr inbounds [56 x i8], ptr %74, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store i32 0, ptr %78, align 8, !tbaa !84
   br label %.loopexit
@@ -1378,7 +1377,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   %93 = load ptr, ptr %0, align 8, !tbaa !62
   %94 = load i32, ptr %9, align 8, !tbaa !65
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds %struct._spl_sub_iterator, ptr %93, i64 %95
+  %96 = getelementptr inbounds [56 x i8], ptr %93, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   store i32 3, ptr %97, align 8, !tbaa !84
   br label %.preheader.backedge
@@ -1387,7 +1386,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   %99 = load ptr, ptr %0, align 8, !tbaa !62
   %100 = load i32, ptr %9, align 8, !tbaa !65
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds %struct._spl_sub_iterator, ptr %99, i64 %101
+  %102 = getelementptr inbounds [56 x i8], ptr %99, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
   store i32 2, ptr %103, align 8, !tbaa !84
   br label %.preheader.backedge
@@ -1400,7 +1399,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
 107:                                              ; preds = %104
   %108 = load ptr, ptr %0, align 8, !tbaa !62
   %109 = sext i32 %88 to i64
-  %110 = getelementptr inbounds %struct._spl_sub_iterator, ptr %108, i64 %109
+  %110 = getelementptr inbounds [56 x i8], ptr %108, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
   store i32 0, ptr %111, align 8, !tbaa !84
   br label %.preheader.backedge
@@ -1421,7 +1420,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   %119 = load ptr, ptr %0, align 8, !tbaa !62
   %120 = load i32, ptr %9, align 8, !tbaa !65
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds %struct._spl_sub_iterator, ptr %119, i64 %121
+  %122 = getelementptr inbounds [56 x i8], ptr %119, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 32
   store i32 0, ptr %123, align 8, !tbaa !84
   %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !33
@@ -1466,7 +1465,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   %141 = load ptr, ptr %0, align 8, !tbaa !62
   %142 = load i32, ptr %9, align 8, !tbaa !65
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds %struct._spl_sub_iterator, ptr %141, i64 %143
+  %144 = getelementptr inbounds [56 x i8], ptr %141, i64 %143
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
   store i32 3, ptr %145, align 8, !tbaa !84
   br label %.loopexit
@@ -1475,7 +1474,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   %146 = load ptr, ptr %0, align 8, !tbaa !62
   %147 = load i32, ptr %9, align 8, !tbaa !65
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds %struct._spl_sub_iterator, ptr %146, i64 %148
+  %149 = getelementptr inbounds [56 x i8], ptr %146, i64 %148
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 32
   store i32 0, ptr %150, align 8, !tbaa !84
   br label %.loopexit
@@ -1517,7 +1516,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   %170 = load ptr, ptr %0, align 8, !tbaa !62
   %171 = load i32, ptr %9, align 8, !tbaa !65
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds %struct._spl_sub_iterator, ptr %170, i64 %172
+  %173 = getelementptr inbounds [56 x i8], ptr %170, i64 %172
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 32
   store i32 0, ptr %174, align 8, !tbaa !84
   br label %.preheader.backedge
@@ -1555,7 +1554,7 @@ instanceof_function.exit.thread:                  ; preds = %181, %instanceof_fu
   %190 = load ptr, ptr %0, align 8, !tbaa !62
   %191 = load i32, ptr %9, align 8, !tbaa !65
   %192 = sext i32 %191 to i64
-  %193 = getelementptr inbounds %struct._spl_sub_iterator, ptr %190, i64 %192
+  %193 = getelementptr inbounds [56 x i8], ptr %190, i64 %192
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 32
   %. = select i1 %189, i32 2, i32 0
   store i32 %., ptr %194, align 8, !tbaa !84
@@ -1572,7 +1571,7 @@ instanceof_function.exit.thread:                  ; preds = %181, %instanceof_fu
   %203 = load ptr, ptr %0, align 8, !tbaa !62
   %204 = load i32, ptr %9, align 8, !tbaa !65
   %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds %struct._spl_sub_iterator, ptr %203, i64 %205
+  %206 = getelementptr inbounds [56 x i8], ptr %203, i64 %205
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %208 = load ptr, ptr %4, align 8, !tbaa !11
   %209 = load i32, ptr %14, align 8, !tbaa !11
@@ -1582,7 +1581,7 @@ instanceof_function.exit.thread:                  ; preds = %181, %instanceof_fu
   %211 = load ptr, ptr %0, align 8, !tbaa !62
   %212 = load i32, ptr %9, align 8, !tbaa !65
   %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds %struct._spl_sub_iterator, ptr %211, i64 %213
+  %214 = getelementptr inbounds [56 x i8], ptr %211, i64 %213
   store ptr %202, ptr %214, align 8, !tbaa !66
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 24
   store ptr %180, ptr %215, align 8, !tbaa !83
@@ -1593,7 +1592,7 @@ instanceof_function.exit.thread:                  ; preds = %181, %instanceof_fu
 
 218:                                              ; preds = %instanceof_function.exit.thread
   %219 = zext nneg i32 %212 to i64
-  %220 = getelementptr %struct._spl_sub_iterator, ptr %211, i64 %219
+  %220 = getelementptr [56 x i8], ptr %211, i64 %219
   %221 = getelementptr i8, ptr %220, i64 -32
   %222 = load ptr, ptr %221, align 8, !tbaa !83
   %223 = icmp eq ptr %222, null
@@ -1687,7 +1686,7 @@ instanceof_function.exit.thread:                  ; preds = %181, %instanceof_fu
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %268 = load ptr, ptr %0, align 8, !tbaa !62
   %269 = zext nneg i32 %265 to i64
-  %270 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %268, i64 %269
+  %270 = getelementptr inbounds nuw [56 x i8], ptr %268, i64 %269
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load ptr, ptr %271, align 8, !tbaa !11
   %273 = getelementptr inbounds nuw i8, ptr %270, i64 16
@@ -1799,7 +1798,7 @@ define hidden void @zim_RecursiveIteratorIterator_getSubIterator(ptr noundef rea
   br label %57
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds %struct._spl_sub_iterator, ptr %31, i64 %30
+  %34 = getelementptr inbounds [56 x i8], ptr %31, i64 %30
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %37 = load i32, ptr %36, align 8
@@ -1881,7 +1880,7 @@ define hidden void @zim_RecursiveIteratorIterator_getInnerIterator(ptr noundef r
   %13 = getelementptr inbounds i8, ptr %4, i64 -144
   %14 = load i32, ptr %13, align 8, !tbaa !65
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct._spl_sub_iterator, ptr %10, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %10, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = load i32, ptr %18, align 8
@@ -1987,7 +1986,7 @@ define hidden void @zim_RecursiveIteratorIterator_callHasChildren(ptr noundef re
   %14 = getelementptr inbounds i8, ptr %4, i64 -144
   %15 = load i32, ptr %14, align 8, !tbaa !65
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct._spl_sub_iterator, ptr %10, i64 %16
+  %17 = getelementptr inbounds [56 x i8], ptr %10, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i8, ptr %18, align 8, !tbaa !11
   %20 = icmp eq i8 %19, 0
@@ -2045,7 +2044,7 @@ define hidden void @zim_RecursiveIteratorIterator_callGetChildren(ptr noundef re
   %13 = getelementptr inbounds i8, ptr %4, i64 -144
   %14 = load i32, ptr %13, align 8, !tbaa !65
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct._spl_sub_iterator, ptr %10, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr %10, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i8, ptr %17, align 8, !tbaa !11
   %19 = icmp eq i8 %18, 0
@@ -2224,7 +2223,7 @@ define hidden void @zim_RecursiveTreeIterator_setPrefixPart(ptr noundef readonly
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %6, i64 -56
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %12
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %12
   %17 = load ptr, ptr %16, align 8, !tbaa !100
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !11
@@ -2270,7 +2269,7 @@ zend_string_release.exit:                         ; preds = %14, %21, %28, %29
 
 zend_string_copy.exit:                            ; preds = %zend_string_release.exit, %34
   %37 = load i64, ptr %3, align 8, !tbaa !9
-  %38 = getelementptr inbounds ptr, ptr %15, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %15, i64 %37
   store ptr %30, ptr %38, align 8, !tbaa !100
   br label %39
 
@@ -2357,7 +2356,7 @@ smart_str_alloc.exit42:
 21:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
   %22 = load ptr, ptr %0, align 8, !tbaa !62
-  %23 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [56 x i8], ptr %22, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -2459,7 +2458,7 @@ smart_str_alloc.exit32:                           ; preds = %52, %57
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %smart_str_alloc.exit42
   %.0.lcssa = phi i64 [ 0, %smart_str_alloc.exit42 ], [ %69, %._crit_edge.loopexit ]
   %70 = load ptr, ptr %0, align 8, !tbaa !62
-  %71 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %70, i64 %.0.lcssa
+  %71 = getelementptr inbounds nuw [56 x i8], ptr %70, i64 %.0.lcssa
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !11
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
@@ -2691,7 +2690,7 @@ define hidden void @zim_RecursiveTreeIterator_getEntry(ptr noundef readonly capt
   %13 = getelementptr i8, ptr %4, i64 -144
   %.val15 = load i32, ptr %13, align 8, !tbaa !65
   %14 = sext i32 %.val15 to i64
-  %15 = getelementptr inbounds %struct._spl_sub_iterator, ptr %10, i64 %14
+  %15 = getelementptr inbounds [56 x i8], ptr %10, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !66
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %18 = load ptr, ptr %17, align 8, !tbaa !86
@@ -2855,7 +2854,7 @@ define hidden void @zim_RecursiveTreeIterator_current(ptr noundef readonly captu
   %16 = getelementptr i8, ptr %4, i64 -144
   %.val60 = load i32, ptr %16, align 8, !tbaa !65
   %17 = sext i32 %.val60 to i64
-  %18 = getelementptr inbounds %struct._spl_sub_iterator, ptr %10, i64 %17
+  %18 = getelementptr inbounds [56 x i8], ptr %10, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !66
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = load ptr, ptr %20, align 8, !tbaa !86
@@ -3128,7 +3127,7 @@ define hidden void @zim_RecursiveTreeIterator_key(ptr noundef readonly captures(
   %14 = getelementptr inbounds i8, ptr %5, i64 -144
   %15 = load i32, ptr %14, align 8, !tbaa !65
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct._spl_sub_iterator, ptr %11, i64 %16
+  %17 = getelementptr inbounds [56 x i8], ptr %11, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !66
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !86
@@ -11305,7 +11304,7 @@ define internal ptr @spl_recursive_it_get_method(ptr noundef %0, ptr noundef %1,
   %14 = getelementptr inbounds i8, ptr %4, i64 -144
   %15 = load i32, ptr %14, align 8, !tbaa !65
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct._spl_sub_iterator, ptr %6, i64 %16
+  %17 = getelementptr inbounds [56 x i8], ptr %6, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = tail call ptr @zend_std_get_method(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #11
   %.not25 = icmp eq ptr %19, null
@@ -11358,13 +11357,13 @@ define internal void @spl_RecursiveIteratorIterator_free_storage(ptr noundef %0)
   %7 = phi i32 [ %18, %.lr.ph.i ], [ %5, %.preheader.i ]
   %8 = load ptr, ptr %2, align 8, !tbaa !62
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !66
   tail call void @zend_iterator_dtor(ptr noundef %11) #11
   %12 = load ptr, ptr %2, align 8, !tbaa !62
   %13 = load i32, ptr %4, align 8, !tbaa !65
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct._spl_sub_iterator, ptr %12, i64 %14
+  %15 = getelementptr inbounds [56 x i8], ptr %12, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   tail call void @zval_ptr_dtor(ptr noundef nonnull %16) #11
   %17 = load i32, ptr %4, align 8, !tbaa !65
@@ -11396,7 +11395,7 @@ spl_RecursiveIteratorIterator_free_iterators.exit: ; preds = %1, %._crit_edge.i
 
 25:                                               ; preds = %spl_RecursiveIteratorIterator_free_iterators.exit, %zend_string_release.exit15
   %.017 = phi i64 [ 0, %spl_RecursiveIteratorIterator_free_iterators.exit ], [ %41, %zend_string_release.exit15 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %21, i64 %.017
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.017
   %27 = load ptr, ptr %26, align 8, !tbaa !100
   %.not12 = icmp eq ptr %27, null
   br i1 %.not12, label %zend_string_release.exit15, label %28
@@ -11491,7 +11490,7 @@ define internal ptr @spl_RecursiveIteratorIterator_get_gc(ptr noundef %0, ptr no
   %.pre19 = phi ptr [ %.pre19.pre, %.lr.ph ], [ %38, %zend_get_gc_buffer_add_obj.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %zend_get_gc_buffer_add_obj.exit ]
   %11 = load ptr, ptr %4, align 8, !tbaa !62
-  %12 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 17
@@ -11525,7 +11524,7 @@ define internal ptr @spl_RecursiveIteratorIterator_get_gc(ptr noundef %0, ptr no
 zend_get_gc_buffer_add_zval.exit:                 ; preds = %10, %21
   %28 = phi ptr [ %.pre19, %10 ], [ %27, %21 ]
   %29 = phi ptr [ %11, %10 ], [ %.pre18, %21 ]
-  %30 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [56 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !66, !nonnull !74, !noundef !74
   %32 = load ptr, ptr %9, align 8, !tbaa !152
   %33 = icmp eq ptr %28, %32
@@ -12623,7 +12622,7 @@ define internal void @spl_recursive_it_dtor(ptr noundef %0) #0 {
   %9 = phi i32 [ %25, %23 ], [ %7, %.preheader ]
   %10 = load ptr, ptr %4, align 8, !tbaa !62
   %11 = zext nneg i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i8, ptr %13, align 8, !tbaa !11
   %15 = icmp eq i8 %14, 0
@@ -12635,7 +12634,7 @@ define internal void @spl_recursive_it_dtor(ptr noundef %0) #0 {
   %18 = load ptr, ptr %4, align 8, !tbaa !62
   %19 = load i32, ptr %6, align 8, !tbaa !65
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %struct._spl_sub_iterator, ptr %18, i64 %20
+  %21 = getelementptr inbounds [56 x i8], ptr %18, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   tail call void @zval_ptr_dtor(ptr noundef nonnull %22) #11
   %.pre = load i32, ptr %6, align 8, !tbaa !65
@@ -12691,7 +12690,7 @@ define internal range(i32 -1, 1) i32 @spl_recursive_it_valid(ptr noundef readonl
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %9, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %10 ]
   %12 = load ptr, ptr %4, align 8, !tbaa !62
-  %13 = getelementptr inbounds nuw %struct._spl_sub_iterator, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !66
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !86
@@ -12739,7 +12738,7 @@ define internal ptr @spl_recursive_it_get_current_data(ptr noundef readonly capt
   %6 = getelementptr inbounds i8, ptr %3, i64 -144
   %7 = load i32, ptr %6, align 8, !tbaa !65
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct._spl_sub_iterator, ptr %5, i64 %8
+  %9 = getelementptr inbounds [56 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !66
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !86
@@ -12758,7 +12757,7 @@ define internal void @spl_recursive_it_get_current_key(ptr noundef readonly capt
   %7 = getelementptr inbounds i8, ptr %4, i64 -144
   %8 = load i32, ptr %7, align 8, !tbaa !65
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct._spl_sub_iterator, ptr %6, i64 %9
+  %10 = getelementptr inbounds [56 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8, !tbaa !86

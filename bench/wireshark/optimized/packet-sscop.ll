@@ -429,7 +429,7 @@ initialize_handles_once.exit:                     ; preds = %1, %2
 
 switch.lookup:                                    ; preds = %10
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.proto_reg_handoff_sscop, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.proto_reg_handoff_sscop, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = load ptr, ptr %switch.load, align 8
   store ptr %14, ptr @default_handle, align 8

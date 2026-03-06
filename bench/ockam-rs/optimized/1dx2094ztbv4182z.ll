@@ -236,7 +236,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
 32:                                               ; preds = %._crit_edge.i, %23
   %33 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %24, %23 ]
   %34 = load ptr, ptr %6, align 8, !alias.scope !29, !noalias !32, !nonnull !28, !noundef !28
-  %35 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 } }, ptr %34, i64 %33
+  %35 = getelementptr inbounds [48 x i8], ptr %34, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   %36 = add i64 %33, 1
   store i64 %36, ptr %11, align 8, !alias.scope !29, !noalias !32
@@ -370,7 +370,7 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
 39:                                               ; preds = %._crit_edge.i, %30
   %40 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %31, %30 ]
   %41 = load ptr, ptr %7, align 8, !alias.scope !71, !noalias !74, !nonnull !28, !noundef !28
-  %42 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %41, i64 %40
+  %42 = getelementptr inbounds [32 x i8], ptr %41, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %43 = add i64 %40, 1
   store i64 %43, ptr %12, align 8, !alias.scope !71, !noalias !74
@@ -741,7 +741,7 @@ common.resume:                                    ; preds = %31, %.body
   %58 = select i1 %.not.i, i64 0, i64 %54
   %.0.i = sub nuw i64 %57, %58
   %59 = load ptr, ptr %8, align 8, !alias.scope !172, !noalias !175, !nonnull !28, !noundef !28
-  %60 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %59, i64 %.0.i
+  %60 = getelementptr inbounds [32 x i8], ptr %59, i64 %.0.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   %61 = load i64, ptr %13, align 8, !alias.scope !172, !noalias !175, !noundef !28
   %62 = add i64 %61, 1
@@ -1573,7 +1573,7 @@ define hidden { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$
   %.fca.1.extract.i.i = extractvalue { i64, i64 } %.lcssa.i.i, 1
   %23 = load ptr, ptr %0, align 8, !alias.scope !367, !nonnull !28, !noundef !28
   %24 = sub nsw i64 0, %.fca.1.extract.i.i
-  %25 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %23, i64 %24
+  %25 = getelementptr inbounds [48 x i8], ptr %23, i64 %24
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !354
   %26 = load i64, ptr %3, align 8, !alias.scope !354, !noundef !28
   %27 = add i64 %26, -1
@@ -2020,7 +2020,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   %149 = add i64 %.sroa.0.013.i.i.i.i, %146
   %150 = and i64 %149, %.val4.i.i.i
   %151 = sub nsw i64 0, %150
-  %152 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %.val.i.i4.i, i64 %151
+  %152 = getelementptr inbounds [48 x i8], ptr %.val.i.i4.i, i64 %151
   %153 = getelementptr i8, ptr %152, i64 -32
   %.val4.i.i.i.i.i = load i64, ptr %153, align 8, !alias.scope !520, !noalias !527, !noundef !28
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %116, %.val4.i.i.i.i.i
@@ -2104,7 +2104,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
   %191 = add i64 %190, 1
   store i64 %191, ptr %.sroa.625.0..sroa_idx.i, align 8, !alias.scope !555, !noalias !556
   %192 = sub nsw i64 0, %.sroa.4.0.ph.i.i
-  %193 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { { ptr, i64 }, i64 } } }, ptr %.val.i.i4.i, i64 %192
+  %193 = getelementptr inbounds [48 x i8], ptr %.val.i.i4.i, i64 %192
   %194 = getelementptr inbounds i8, ptr %193, i64 -48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %194, ptr noundef nonnull readonly align 8 dereferenceable(48) %9, i64 48, i1 false), !noalias !557
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

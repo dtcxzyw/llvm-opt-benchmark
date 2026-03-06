@@ -377,7 +377,7 @@ define dso_local i32 @data_get_type(ptr noundef readonly captures(address_is_nul
 
 5:                                                ; preds = %.preheader, %4
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %4 ]
-  %6 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @type_map, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, %3
@@ -1175,7 +1175,7 @@ data_new.exit:                                    ; preds = %2, %7, %10
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %data_list_for_each_const.exit.us
   %15 = phi ptr [ %45, %data_list_for_each_const.exit.us ], [ %12, %.lr.ph ]
   %.020.us = phi i64 [ %43, %data_list_for_each_const.exit.us ], [ 0, %.lr.ph ]
-  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %.020.us
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.020.us
   %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %18 = and i64 %17, 256
   %.not17.us = icmp eq i64 %18, 0
@@ -1234,7 +1234,7 @@ data_new.exit:                                    ; preds = %2, %7, %10
 
 data_list_for_each_const.exit.us:                 ; preds = %.lr.ph.i.us, %.lr.ph.i.us, %.thread.i.us, %33, %31
   %43 = add i64 %.020.us, 1
-  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %43
   %45 = load ptr, ptr %44, align 8
   %.not.us = icmp eq ptr %45, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
@@ -1245,7 +1245,7 @@ data_list_for_each_const.exit.us:                 ; preds = %.lr.ph.i.us, %.lr.p
 .lr.ph.split:                                     ; preds = %.lr.ph, %data_list_for_each_const.exit
   %46 = phi ptr [ %61, %data_list_for_each_const.exit ], [ %12, %.lr.ph ]
   %.020 = phi i64 [ %59, %data_list_for_each_const.exit ], [ 0, %.lr.ph ]
-  %47 = getelementptr inbounds nuw ptr, ptr %0, i64 %.020
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.020
   %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %49 = and i64 %48, 256
   %.not17 = icmp eq i64 %49, 0
@@ -1269,7 +1269,7 @@ data_list_for_each_const.exit:                    ; preds = %50, %53, %.lr.ph.sp
   %57 = phi ptr [ %.pre24, %50 ], [ %.pre, %53 ], [ %46, %.lr.ph.split ]
   %58 = tail call fastcc i32 @_data_list_join(ptr noundef %57, ptr noundef nonnull %3)
   %59 = add i64 %.020, 1
-  %60 = getelementptr inbounds nuw ptr, ptr %0, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %59
   %61 = load ptr, ptr %60, align 8
   %.not = icmp eq ptr %61, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
@@ -3002,7 +3002,7 @@ define dso_local i32 @data_dict_for_each_const(ptr noundef %0, ptr noundef reado
 
 7:                                                ; preds = %6, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %6 ]
-  %8 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @type_map, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, %5
@@ -3080,7 +3080,7 @@ define dso_local i32 @data_dict_for_each(ptr noundef %0, ptr noundef readonly ca
 
 7:                                                ; preds = %6, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %6 ]
-  %8 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @type_map, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, %5
@@ -3198,7 +3198,7 @@ data_get_string.exit:                             ; preds = %7, %10
   %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = sext i8 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %20, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %20, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 120
   br i1 %26, label %27, label %.thread
@@ -3432,7 +3432,7 @@ data_get_string.exit.i:                           ; preds = %9, %6
   %16 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.045.i
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %15, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %15, i64 %18
   %20 = load i32, ptr %19, align 4
   switch i32 %20, label %61 [
     i32 105, label %21
@@ -3780,7 +3780,7 @@ data_get_string.exit:                             ; preds = %4, %7
   %10 = load ptr, ptr %9, align 8
   %11 = load i8, ptr %.0.i, align 1
   %12 = sext i8 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %10, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %10, i64 %12
   %14 = load i32, ptr %13, align 4
   switch i32 %14, label %.thread.thread [
     i32 121, label %15
@@ -3798,7 +3798,7 @@ data_get_string.exit:                             ; preds = %4, %7
 
 18:                                               ; preds = %15
   %19 = sext i8 %17 to i64
-  %20 = getelementptr inbounds i32, ptr %10, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %10, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 101
   br i1 %22, label %23, label %.thread.thread
@@ -3807,7 +3807,7 @@ data_get_string.exit:                             ; preds = %4, %7
   %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   %25 = load i8, ptr %24, align 1
   %26 = sext i8 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %10, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %10, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 115
   br i1 %29, label %30, label %.thread.thread
@@ -3845,7 +3845,7 @@ data_get_string.exit:                             ; preds = %4, %7
 
 45:                                               ; preds = %42
   %46 = sext i8 %44 to i64
-  %47 = getelementptr inbounds i32, ptr %10, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %10, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 114
   br i1 %49, label %50, label %.thread.thread
@@ -3854,7 +3854,7 @@ data_get_string.exit:                             ; preds = %4, %7
   %51 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   %52 = load i8, ptr %51, align 1
   %53 = sext i8 %52 to i64
-  %54 = getelementptr inbounds i32, ptr %10, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr %10, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 117
   br i1 %56, label %57, label %.thread.thread
@@ -3863,7 +3863,7 @@ data_get_string.exit:                             ; preds = %4, %7
   %58 = getelementptr inbounds nuw i8, ptr %.0.i, i64 3
   %59 = load i8, ptr %58, align 1
   %60 = sext i8 %59 to i64
-  %61 = getelementptr inbounds i32, ptr %10, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %10, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 101
   br i1 %63, label %64, label %.thread.thread
@@ -3897,7 +3897,7 @@ data_get_string.exit:                             ; preds = %4, %7
   %77 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %78 = load i8, ptr %77, align 1
   %79 = sext i8 %78 to i64
-  %80 = getelementptr inbounds i32, ptr %10, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr %10, i64 %79
   %81 = load i32, ptr %80, align 4
   switch i32 %81, label %.thread.thread [
     i32 110, label %82
@@ -3937,7 +3937,7 @@ data_get_string.exit:                             ; preds = %4, %7
 
 97:                                               ; preds = %94
   %98 = sext i8 %96 to i64
-  %99 = getelementptr inbounds i32, ptr %10, i64 %98
+  %99 = getelementptr inbounds [4 x i8], ptr %10, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = icmp eq i32 %100, 111
   br i1 %101, label %102, label %.thread.thread
@@ -3975,7 +3975,7 @@ data_get_string.exit:                             ; preds = %4, %7
 
 117:                                              ; preds = %114
   %118 = sext i8 %116 to i64
-  %119 = getelementptr inbounds i32, ptr %10, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr %10, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = icmp eq i32 %120, 97
   br i1 %121, label %122, label %.thread.thread
@@ -3984,7 +3984,7 @@ data_get_string.exit:                             ; preds = %4, %7
   %123 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   %124 = load i8, ptr %123, align 1
   %125 = sext i8 %124 to i64
-  %126 = getelementptr inbounds i32, ptr %10, i64 %125
+  %126 = getelementptr inbounds [4 x i8], ptr %10, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = icmp eq i32 %127, 108
   br i1 %128, label %129, label %.thread.thread
@@ -3993,7 +3993,7 @@ data_get_string.exit:                             ; preds = %4, %7
   %130 = getelementptr inbounds nuw i8, ptr %.0.i, i64 3
   %131 = load i8, ptr %130, align 1
   %132 = sext i8 %131 to i64
-  %133 = getelementptr inbounds i32, ptr %10, i64 %132
+  %133 = getelementptr inbounds [4 x i8], ptr %10, i64 %132
   %134 = load i32, ptr %133, align 4
   %135 = icmp eq i32 %134, 115
   br i1 %135, label %136, label %.thread.thread
@@ -4002,7 +4002,7 @@ data_get_string.exit:                             ; preds = %4, %7
   %137 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %138 = load i8, ptr %137, align 1
   %139 = sext i8 %138 to i64
-  %140 = getelementptr inbounds i32, ptr %10, i64 %139
+  %140 = getelementptr inbounds [4 x i8], ptr %10, i64 %139
   %141 = load i32, ptr %140, align 4
   %142 = icmp eq i32 %141, 101
   br i1 %142, label %143, label %.thread.thread
@@ -4036,7 +4036,7 @@ data_get_string.exit:                             ; preds = %4, %7
   %156 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   %157 = load i8, ptr %156, align 1
   %158 = sext i8 %157 to i64
-  %159 = getelementptr inbounds i32, ptr %10, i64 %158
+  %159 = getelementptr inbounds [4 x i8], ptr %10, i64 %158
   %160 = load i32, ptr %159, align 4
   %161 = icmp eq i32 %160, 102
   br i1 %161, label %162, label %.thread.thread
@@ -4204,7 +4204,7 @@ define dso_local zeroext i1 @data_check_match(ptr noundef %0, ptr noundef %1, i1
 
 10:                                               ; preds = %9, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %9 ]
-  %11 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @type_map, i64 %indvars.iv.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %8
@@ -4227,7 +4227,7 @@ define dso_local zeroext i1 @data_check_match(ptr noundef %0, ptr noundef %1, i1
 
 20:                                               ; preds = %19, %.preheader.i137
   %indvars.iv.i138 = phi i64 [ 0, %.preheader.i137 ], [ %indvars.iv.next.i139, %19 ]
-  %21 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i138
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @type_map, i64 %indvars.iv.i138
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, %18
@@ -4279,7 +4279,7 @@ data_new.exit:                                    ; preds = %27, %32, %35
 
 .preheader.i145:                                  ; preds = %39, %42
   %indvars.iv.i146 = phi i64 [ %indvars.iv.next.i147, %42 ], [ 0, %39 ]
-  %43 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i146
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @type_map, i64 %indvars.iv.i146
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, %37
@@ -4302,7 +4302,7 @@ data_new.exit:                                    ; preds = %27, %32, %35
 
 52:                                               ; preds = %51, %.preheader.i152
   %indvars.iv.i153 = phi i64 [ 0, %.preheader.i152 ], [ %indvars.iv.next.i154, %51 ]
-  %53 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i153
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @type_map, i64 %indvars.iv.i153
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, %50
@@ -4341,7 +4341,7 @@ tailrecurse.i.i:                                  ; preds = %.preheader.i.i, %62
 
 .preheader.i.i:                                   ; preds = %tailrecurse.i.i, %66
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %66 ], [ 0, %tailrecurse.i.i ]
-  %67 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr @type_map, i64 %indvars.iv.i.i
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %69, %.tr.i.i
@@ -4349,7 +4349,7 @@ tailrecurse.i.i:                                  ; preds = %.preheader.i.i, %62
 
 switch.lookup:                                    ; preds = %tailrecurse.i.i
   %71 = zext nneg i32 %.tr.i.i to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.data_get_type_string, i64 %71
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.data_get_type_string, i64 %71
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_type_to_string.exit
 
@@ -4371,7 +4371,7 @@ tailrecurse.i.i158:                               ; preds = %.preheader.i.i167, 
 
 .preheader.i.i167:                                ; preds = %tailrecurse.i.i158, %74
   %indvars.iv.i.i168 = phi i64 [ %indvars.iv.next.i.i169, %74 ], [ 0, %tailrecurse.i.i158 ]
-  %75 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i.i168
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @type_map, i64 %indvars.iv.i.i168
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, %.tr.i.i159
@@ -4379,7 +4379,7 @@ tailrecurse.i.i158:                               ; preds = %.preheader.i.i167, 
 
 switch.lookup275:                                 ; preds = %tailrecurse.i.i158
   %79 = zext nneg i32 %.tr.i.i159 to i64
-  %switch.gep276 = getelementptr inbounds nuw ptr, ptr @switch.table.data_get_type_string, i64 %79
+  %switch.gep276 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.data_get_type_string, i64 %79
   %switch.load277 = load ptr, ptr %switch.gep276, align 8
   br label %_type_to_string.exit171
 
@@ -4745,7 +4745,7 @@ tailrecurse.i:                                    ; preds = %8, %1
 
 .preheader.i:                                     ; preds = %tailrecurse.i, %3
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %3 ], [ 0, %tailrecurse.i ]
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @type_map, i64 %indvars.iv.i
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, %.tr.i
@@ -4757,7 +4757,7 @@ tailrecurse.i:                                    ; preds = %8, %1
 
 switch.lookup:                                    ; preds = %tailrecurse.i
   %10 = zext nneg i32 %.tr.i to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.data_get_type_string, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.data_get_type_string, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %data_type_to_string.exit
 
@@ -4878,7 +4878,7 @@ tailrecurse.i.i19:                                ; preds = %.preheader.i.i28, %
 
 .preheader.i.i28:                                 ; preds = %tailrecurse.i.i19, %51
   %indvars.iv.i.i29 = phi i64 [ %indvars.iv.next.i.i30, %51 ], [ 0, %tailrecurse.i.i19 ]
-  %52 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i.i29
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @type_map, i64 %indvars.iv.i.i29
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, %.tr.i.i20
@@ -4886,7 +4886,7 @@ tailrecurse.i.i19:                                ; preds = %.preheader.i.i28, %
 
 switch.lookup:                                    ; preds = %tailrecurse.i.i19
   %56 = zext nneg i32 %.tr.i.i20 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.data_get_type_string, i64 %56
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.data_get_type_string, i64 %56
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_type_to_string.exit32
 
@@ -4914,7 +4914,7 @@ tailrecurse.i.i:                                  ; preds = %.preheader.i.i, %59
 
 .preheader.i.i:                                   ; preds = %tailrecurse.i.i, %62
   %indvars.iv.i.i16 = phi i64 [ %indvars.iv.next.i.i17, %62 ], [ 0, %tailrecurse.i.i ]
-  %63 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i.i16
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @type_map, i64 %indvars.iv.i.i16
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %65, %.tr.i.i
@@ -4922,7 +4922,7 @@ tailrecurse.i.i:                                  ; preds = %.preheader.i.i, %59
 
 switch.lookup106:                                 ; preds = %tailrecurse.i.i
   %67 = zext nneg i32 %.tr.i.i to i64
-  %switch.gep107 = getelementptr inbounds nuw ptr, ptr @switch.table.data_get_type_string, i64 %67
+  %switch.gep107 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.data_get_type_string, i64 %67
   %switch.load108 = load ptr, ptr %switch.gep107, align 8
   br label %_type_to_string.exit
 
@@ -5104,7 +5104,7 @@ define dso_local ptr @data_resolve_dict_path(ptr noundef %0, ptr noundef %1) loc
   %19 = phi i8 [ %15, %.lr.ph ], [ %26, %24 ]
   %.157 = phi ptr [ %.03466, %.lr.ph ], [ %25, %24 ]
   %20 = sext i8 %19 to i64
-  %21 = getelementptr inbounds i16, ptr %17, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %17, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 8192
   %.not44 = icmp eq i16 %23, 0
@@ -5135,7 +5135,7 @@ define dso_local ptr @data_resolve_dict_path(ptr noundef %0, ptr noundef %1) loc
   %34 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = sext i8 %35 to i64
-  %37 = getelementptr inbounds i16, ptr %32, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %32, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 8192
   %.not45 = icmp eq i16 %39, 0
@@ -5592,7 +5592,7 @@ tailrecurse:                                      ; preds = %8, %1
 
 .preheader:                                       ; preds = %tailrecurse, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %tailrecurse ]
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @type_map, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, %.tr
@@ -5604,7 +5604,7 @@ tailrecurse:                                      ; preds = %8, %1
 
 switch.lookup:                                    ; preds = %tailrecurse
   %10 = zext nneg i32 %.tr to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.data_get_type_string, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.data_get_type_string, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.loopexit
 
@@ -5630,7 +5630,7 @@ define dso_local noundef nonnull ptr @data_get_type_string(ptr noundef readonly 
 
 5:                                                ; preds = %.preheader, %4
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %4 ]
-  %6 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @type_map, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, %3
@@ -5649,7 +5649,7 @@ tailrecurse.i:                                    ; preds = %.preheader.i, %5
 
 .preheader.i:                                     ; preds = %tailrecurse.i, %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %tailrecurse.i ]
-  %12 = getelementptr inbounds nuw %struct.anon, ptr @type_map, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @type_map, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, %.tr.i
@@ -5657,7 +5657,7 @@ tailrecurse.i:                                    ; preds = %.preheader.i, %5
 
 switch.lookup:                                    ; preds = %tailrecurse.i
   %16 = zext nneg i32 %.tr.i to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.data_get_type_string, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.data_get_type_string, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %data_type_to_string.exit
 

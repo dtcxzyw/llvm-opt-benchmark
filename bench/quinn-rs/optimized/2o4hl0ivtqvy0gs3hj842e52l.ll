@@ -344,10 +344,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !37, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !38, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6b082ed27ed52156E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6b082ed27ed52156E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6b082ed27ed52156E.54", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h6b082ed27ed52156E.54", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -497,10 +497,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !37, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !77, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he84577df8a28e54fE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he84577df8a28e54fE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he84577df8a28e54fE.55", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he84577df8a28e54fE.55", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -776,7 +776,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %4 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %5 = getelementptr inbounds nuw { i64, [18 x i64] }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [152 x i8], ptr %0, i64 %1
   %6 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h2995cadd752bf823E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0, ptr noundef nonnull %5)
   %7 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h7a7cb238ea66350dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -788,7 +788,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %4 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4core3fmt9Formatter10debug_list17h6d35c138e0d8eb64E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %5 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { { i64, [2 x i64] } }, { i64, [2 x i64] } }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %1
   %6 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hfe1342faf2befea1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0, ptr noundef nonnull %5)
   %7 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h7a7cb238ea66350dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -9770,7 +9770,7 @@ define void @"_ZN84_$LT$quinn_proto..connection..assembler..State$u20$as$u20$cor
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN11quinn_proto10connection5timer10TimerTable3set17he5e78caba4545889E(ptr noalias noundef writeonly align 8 captures(none) dereferenceable(160) %0, i8 noundef range(i8 0, 9) %1, i64 noundef %2, i32 noundef range(i32 0, 1000000000) %3) unnamed_addr #6 {
   %5 = zext nneg i8 %1 to i64
-  %6 = getelementptr inbounds nuw { [2 x i32], i32, [1 x i32] }, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %5
   store i64 %2, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %3, ptr %7, align 8
@@ -9780,7 +9780,7 @@ define hidden void @_ZN11quinn_proto10connection5timer10TimerTable3set17he5e78ca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i64, i32 } @_ZN11quinn_proto10connection5timer10TimerTable3get17h181e05f7a0291e41E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(160) %0, i8 noundef range(i8 0, 9) %1) unnamed_addr #4 {
   %3 = zext nneg i8 %1 to i64
-  %4 = getelementptr inbounds nuw { [2 x i32], i32, [1 x i32] }, ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i32, ptr %6, align 8, !range !2685, !noundef !3
@@ -9792,7 +9792,7 @@ define hidden { i64, i32 } @_ZN11quinn_proto10connection5timer10TimerTable3get17
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN11quinn_proto10connection5timer10TimerTable4stop17hd014fe4b44ea571eE(ptr noalias noundef writeonly align 8 captures(none) dereferenceable(160) %0, i8 noundef range(i8 0, 9) %1) unnamed_addr #6 {
   %3 = zext nneg i8 %1 to i64
-  %4 = getelementptr inbounds nuw { [2 x i32], i32, [1 x i32] }, ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1000000000, ptr %5, align 8
   ret void
@@ -9855,7 +9855,7 @@ define hidden { i64, i32 } @_ZN11quinn_proto10connection5timer10TimerTable12next
   %.sroa.07.0.i.i.i = phi i64 [ %16, %19 ], [ %.sroa.0.0.i.i.pn.i.i.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb896440a314aa72E.exit.i.i.i" ]
   %.sroa.6.0.i.i.i = phi i32 [ %14, %19 ], [ %.sroa.3.0.i.i.pn.i.i.i.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb896440a314aa72E.exit.i.i.i" ]
   %.sroa.010.0.i.i.i = phi i64 [ 0, %19 ], [ %32, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17heb896440a314aa72E.exit.i.i.i" ]
-  %27 = getelementptr inbounds nuw { [2 x i32], i32, [1 x i32] }, ptr %.ptr1.le, i64 %.sroa.010.0.i.i.i
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %.ptr1.le, i64 %.sroa.010.0.i.i.i
   %28 = getelementptr i8, ptr %27, i64 8
   %.val25.i.i.i = load i32, ptr %28, align 8, !range !2685, !noundef !3
   %.not.i.i.i.i = icmp eq i32 %.val25.i.i.i, 1000000000
@@ -9896,7 +9896,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h74b41967b9d452e0E.exit: ; preds 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN11quinn_proto10connection5timer10TimerTable10is_expired17h79a1888c2e9118b8E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(160) %0, i8 noundef range(i8 0, 9) %1, i64 noundef %2, i32 noundef range(i32 0, 1000000000) %3) unnamed_addr #4 {
   %5 = zext nneg i8 %1 to i64
-  %6 = getelementptr inbounds nuw { [2 x i32], i32, [1 x i32] }, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8, !range !2685, !noundef !3
   %.not = icmp eq i32 %8, 1000000000
@@ -10493,7 +10493,7 @@ define hidden void @_ZN11quinn_proto6packet13PartialDecode3new17hac03d8144a4c7b7
 
 57:                                               ; preds = %52
   %58 = and i64 %4, -16
-  %59 = getelementptr inbounds nuw i32, ptr %3, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %58
   %60 = and i64 %4, 15
   br label %61
 
@@ -10506,7 +10506,7 @@ define hidden void @_ZN11quinn_proto6packet13PartialDecode3new17hac03d8144a4c7b7
 .preheader.i:                                     ; preds = %61, %.preheader.i
   %.sroa.07.0.i.i.i = phi i1 [ %65, %.preheader.i ], [ false, %61 ]
   %.sroa.09.0.i.i.i = phi i64 [ %66, %.preheader.i ], [ 0, %61 ]
-  %63 = getelementptr inbounds nuw i32, ptr %.sroa.0.03.i.i, i64 %.sroa.09.0.i.i.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.03.i.i, i64 %.sroa.09.0.i.i.i
   %.val19.i.i.i = load i32, ptr %63, align 4, !alias.scope !2730, !noalias !2733, !noundef !3
   %64 = icmp eq i32 %.val19.i.i.i, %37
   %65 = or i1 %.sroa.07.0.i.i.i, %64
@@ -10520,7 +10520,7 @@ define hidden void @_ZN11quinn_proto6packet13PartialDecode3new17hac03d8144a4c7b7
   br i1 %65, label %.loopexit.i, label %61
 
 70:                                               ; preds = %61
-  %71 = getelementptr inbounds nuw i32, ptr %59, i64 %60
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %60
   br label %72
 
 72:                                               ; preds = %74, %70

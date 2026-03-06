@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.Wlc_Obj_t_ = type { i16, i32, i32, i32, %union.anon }
-%union.anon = type { [1 x ptr] }
 
 @.str = private unnamed_addr constant [8 x i8] c"%s: %s\0A\00", align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"%s (line %d): %s\0A\00", align 1
@@ -429,7 +427,7 @@ define range(i32 1, 0) i32 @Wlc_PrsFindLine(ptr noundef readonly captures(none) 
 
 13:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %14 = getelementptr inbounds nuw i32, ptr %.val10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.val10, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !36
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %12, %16
@@ -488,7 +486,7 @@ define noundef i32 @Wlc_PrsWriteErrorMessage(ptr noundef captures(none) %0, ptr 
 
 23:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
-  %24 = getelementptr inbounds nuw i32, ptr %.val10.i, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.val10.i, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 4, !tbaa !36
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %22, %26
@@ -1196,7 +1194,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %14, align 4, !tbaa !17
   %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds i32, ptr %40, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %40, i64 %43
   store i32 %13, ptr %44, align 4, !tbaa !36
   br label %45
 
@@ -1310,7 +1308,7 @@ Vec_IntPush.exit63:                               ; preds = %.Vec_IntGrow.exit10
   %93 = add nsw i32 %92, 1
   store i32 %93, ptr %65, align 4, !tbaa !17
   %94 = sext i32 %92 to i64
-  %95 = getelementptr inbounds i32, ptr %91, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %91, i64 %94
   store i32 %64, ptr %95, align 4, !tbaa !36
   %96 = getelementptr inbounds nuw i8, ptr %.04267, i64 1
   %.pre = load i8, ptr %.04267, align 1, !tbaa !39
@@ -1398,7 +1396,7 @@ Vec_IntGrow.exit10:                               ; preds = %.Vec_IntGrow.exit10
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %3, align 4, !tbaa !17
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds i32, ptr %29, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %29, i64 %32
   store i32 %1, ptr %33, align 4, !tbaa !36
   ret void
 }
@@ -1528,7 +1526,7 @@ define ptr @Wlc_PrsConvertInitValues(ptr noundef readonly captures(none) %0) loc
   %12 = phi ptr [ %7, %.lr.ph96 ], [ %155, %.loopexit ]
   %13 = getelementptr i8, ptr %12, i64 8
   %.val50 = load ptr, ptr %13, align 8, !tbaa !21
-  %14 = getelementptr inbounds nuw i32, ptr %.val50, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.val50, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !36
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %.preheader, label %46
@@ -1607,7 +1605,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 46:                                               ; preds = %11
   %.val51 = load ptr, ptr %10, align 8, !tbaa !66
   %47 = zext nneg i32 %15 to i64
-  %48 = getelementptr inbounds nuw %struct.Wlc_Obj_t_, ptr %.val51, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %.val51, i64 %47
   %49 = getelementptr i8, ptr %48, i64 8
   %.val53 = load i32, ptr %49, align 8, !tbaa !67
   %50 = getelementptr i8, ptr %48, i64 12
@@ -1640,7 +1638,7 @@ Wlc_ObjFaninId0.exit:                             ; preds = %56, %Wlc_ObjHasArra
   %62 = phi ptr [ %61, %Wlc_ObjHasArray.exit.thread.i.i ], [ %60, %56 ]
   %63 = load i32, ptr %62, align 4, !tbaa !36
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val51, i64 %64
+  %65 = getelementptr inbounds [24 x i8], ptr %.val51, i64 %64
   br label %53, !llvm.loop !71
 
 66:                                               ; preds = %53
@@ -1671,7 +1669,7 @@ Wlc_ObjConstValue.exit:                           ; preds = %66
 74:                                               ; preds = %73
   %75 = lshr i32 %.189, 5
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %70, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !36
   %79 = and i32 %.189, 31
   %80 = lshr i32 %78, %79
@@ -1840,7 +1838,7 @@ Vec_StrPush.exit72:                               ; preds = %.Vec_StrGrow.exit10
   %152 = phi i32 [ %148, %147 ], [ %.0.val56, %149 ]
   %153 = getelementptr i8, ptr %143, i64 8
   %.val57 = load ptr, ptr %153, align 8, !tbaa !21
-  %154 = getelementptr inbounds nuw i32, ptr %.val57, i64 %indvars.iv
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %.val57, i64 %indvars.iv
   store i32 %152, ptr %154, align 4, !tbaa !36
   br label %.loopexit
 
@@ -1926,7 +1924,7 @@ define range(i32 0, 2) i32 @Wlc_PrsCheckBitConst0(ptr noundef readonly captures(
   %3 = getelementptr i8, ptr %0, i64 640
   %.val12 = load ptr, ptr %3, align 8, !tbaa !66
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val12, i64 %4
+  %5 = getelementptr inbounds [24 x i8], ptr %.val12, i64 %4
   %6 = getelementptr i8, ptr %5, i64 8
   %.val13 = load i32, ptr %6, align 8, !tbaa !67
   %7 = getelementptr i8, ptr %5, i64 12
@@ -1958,7 +1956,7 @@ Wlc_ObjFaninId0.exit:                             ; preds = %10, %Wlc_ObjHasArra
   %16 = phi ptr [ %15, %Wlc_ObjHasArray.exit.thread.i.i ], [ %14, %10 ]
   %17 = load i32, ptr %16, align 4, !tbaa !36
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val12, i64 %18
+  %19 = getelementptr inbounds [24 x i8], ptr %.val12, i64 %18
   br label %.preheader, !llvm.loop !75
 
 Wlc_ObjConstValue.exit:                           ; preds = %.preheader
@@ -2098,7 +2096,7 @@ Wlc_PrsSkipSpaces.exit.i:                         ; preds = %20
 
 51:                                               ; preds = %59, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %59 ]
-  %52 = getelementptr inbounds nuw i32, ptr %.val10.i, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.val10.i, i64 %indvars.iv.i
   %53 = load i32, ptr %52, align 4, !tbaa !36
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %50, %54
@@ -2159,7 +2157,7 @@ Wlc_PrsFindLine.exit:                             ; preds = %59, %38, %56
 
 82:                                               ; preds = %90, %.lr.ph.i91
   %indvars.iv.i94 = phi i64 [ 0, %.lr.ph.i91 ], [ %indvars.iv.next.i95, %90 ]
-  %83 = getelementptr inbounds nuw i32, ptr %.val10.i92, i64 %indvars.iv.i94
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %.val10.i92, i64 %indvars.iv.i94
   %84 = load i32, ptr %83, align 4, !tbaa !36
   %85 = sext i32 %84 to i64
   %86 = icmp slt i64 %81, %85
@@ -2218,7 +2216,7 @@ Wlc_PrsFindLine.exit97:                           ; preds = %90, %69, %87
 
 112:                                              ; preds = %120, %.lr.ph.i100
   %indvars.iv.i103 = phi i64 [ 0, %.lr.ph.i100 ], [ %indvars.iv.next.i104, %120 ]
-  %113 = getelementptr inbounds nuw i32, ptr %.val10.i101, i64 %indvars.iv.i103
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.val10.i101, i64 %indvars.iv.i103
   %114 = load i32, ptr %113, align 4, !tbaa !36
   %115 = sext i32 %114 to i64
   %116 = icmp slt i64 %111, %115
@@ -2366,7 +2364,7 @@ Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %133
   %163 = getelementptr i8, ptr %162, i64 640
   %.val84 = load ptr, ptr %163, align 8, !tbaa !66
   %164 = sext i32 %160 to i64
-  %165 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val84, i64 %164
+  %165 = getelementptr inbounds [24 x i8], ptr %.val84, i64 %164
   call void @Wlc_ObjSetCo(ptr noundef %162, ptr noundef %165, i32 noundef 0) #29
   br label %.preheader
 
@@ -2394,7 +2392,7 @@ Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %133
   %175 = getelementptr i8, ptr %174, i64 640
   %.val = load ptr, ptr %175, align 8, !tbaa !66
   %176 = sext i32 %160 to i64
-  %177 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val, i64 %176
+  %177 = getelementptr inbounds [24 x i8], ptr %.val, i64 %176
   call void @Wlc_ObjUpdateType(ptr noundef %174, ptr noundef %177, i32 noundef %172) #29
   %178 = load ptr, ptr %123, align 8, !tbaa !31
   %179 = load ptr, ptr %170, align 8, !tbaa !24
@@ -3472,7 +3470,7 @@ Wlc_PrsSkipSpaces.exit417:                        ; preds = %.preheader, %Wlc_Pr
 
 296:                                              ; preds = %304, %.lr.ph.i419
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i419 ], [ %indvars.iv.next.i, %304 ]
-  %297 = getelementptr inbounds nuw i32, ptr %.val10.i, i64 %indvars.iv.i
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %.val10.i, i64 %indvars.iv.i
   %298 = load i32, ptr %297, align 4, !tbaa !36
   %299 = sext i32 %298 to i64
   %300 = icmp slt i64 %295, %299
@@ -3656,7 +3654,7 @@ Wlc_PrsSkipSpaces.exit1894.preheader:             ; preds = %39
   %41 = getelementptr i8, ptr %40, i64 8
   %.val1084 = load ptr, ptr %41, align 8, !tbaa !21
   %42 = sext i32 %.07682503 to i64
-  %43 = getelementptr inbounds i32, ptr %.val1084, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %.val1084, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !36
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %.val1131, i64 %45
@@ -3782,7 +3780,7 @@ Wlc_PrsSkipSpaces.exit1894.outer._crit_edge:      ; preds = %Wlc_PrsSkipSpaces.e
 
 87:                                               ; preds = %85
   %.val1083 = load ptr, ptr %81, align 8, !tbaa !21
-  %88 = getelementptr inbounds i32, ptr %.val1083, i64 %indvars.iv.next2920
+  %88 = getelementptr inbounds [4 x i8], ptr %.val1083, i64 %indvars.iv.next2920
   %89 = load i32, ptr %88, align 4, !tbaa !36
   %.val1130 = load ptr, ptr %34, align 8, !tbaa !15
   %90 = sext i32 %89 to i64
@@ -3822,7 +3820,7 @@ Wlc_PrsSkipSpaces.exit1894.outer._crit_edge:      ; preds = %Wlc_PrsSkipSpaces.e
   %.08012480 = phi i32 [ -1, %.lr.ph2482.preheader ], [ %.1802, %Wlc_PrsFindSymbol.exit.thread ]
   %106 = getelementptr i8, ptr %104, i64 8
   %.val1082 = load ptr, ptr %106, align 8, !tbaa !21
-  %107 = getelementptr inbounds i32, ptr %.val1082, i64 %indvars.iv2910
+  %107 = getelementptr inbounds [4 x i8], ptr %.val1082, i64 %indvars.iv2910
   %108 = load i32, ptr %107, align 4, !tbaa !36
   %.val1129 = load ptr, ptr %34, align 8, !tbaa !15
   %109 = sext i32 %108 to i64
@@ -3956,7 +3954,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %164 = add nsw i32 %146, 1
   store i32 %164, ptr %97, align 4, !tbaa !17
   %165 = sext i32 %146 to i64
-  %166 = getelementptr inbounds i32, ptr %.pre.i11592955, i64 %165
+  %166 = getelementptr inbounds [4 x i8], ptr %.pre.i11592955, i64 %165
   store i32 0, ptr %166, align 4, !tbaa !36
   %.pre2956 = load ptr, ptr %30, align 8, !tbaa !23
   br label %Wlc_PrsFindSymbol.exit.thread
@@ -4028,7 +4026,7 @@ Wlc_PrsFindSymbol.exit.thread:                    ; preds = %117, %126, %Wlc_Prs
 
 193:                                              ; preds = %.lr.ph2500, %._crit_edge
   %indvars.iv2914 = phi i64 [ 0, %.lr.ph2500 ], [ %indvars.iv.next2915, %._crit_edge ]
-  %194 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv2914
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %indvars.iv2914
   %195 = load i32, ptr %194, align 4, !tbaa !36
   br i1 %192, label %.lr.ph2495, label %._crit_edge
 
@@ -4050,7 +4048,7 @@ Wlc_PrsFindSymbol.exit.thread:                    ; preds = %117, %126, %Wlc_Prs
   %204 = shl nuw i32 1, %203
   %205 = lshr i32 %202, 5
   %206 = zext nneg i32 %205 to i64
-  %207 = getelementptr inbounds nuw i32, ptr %190, i64 %206
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %206
   %208 = load i32, ptr %207, align 4, !tbaa !36
   %209 = or i32 %208, %204
   store i32 %209, ptr %207, align 4, !tbaa !36
@@ -4132,7 +4130,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %241 = add nsw i32 %240, 1
   store i32 %241, ptr %213, align 4, !tbaa !25
   %242 = sext i32 %240 to i64
-  %243 = getelementptr inbounds ptr, ptr %239, i64 %242
+  %243 = getelementptr inbounds [8 x i8], ptr %239, i64 %242
   store ptr %190, ptr %243, align 8, !tbaa !84
   %244 = load ptr, ptr %99, align 8, !tbaa !21
   %.not.i1166 = icmp eq ptr %244, null
@@ -4358,7 +4356,7 @@ Vec_IntAlloc.exit.i.thread:                       ; preds = %309
 
 .lr.ph.i1195:                                     ; preds = %.lr.ph.i1195, %.lr.ph.preheader.i
   %indvars.iv.i1196 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i1197, %.lr.ph.i1195 ]
-  %323 = getelementptr inbounds nuw i32, ptr %322, i64 %indvars.iv.i1196
+  %323 = getelementptr inbounds nuw [4 x i8], ptr %322, i64 %indvars.iv.i1196
   %324 = trunc nuw nsw i64 %indvars.iv.i1196 to i32
   store i32 %324, ptr %323, align 4, !tbaa !36
   %indvars.iv.next.i1197 = add nuw nsw i64 %indvars.iv.i1196, 1
@@ -4373,7 +4371,7 @@ Vec_IntAlloc.exit.i.thread:                       ; preds = %309
 
 327:                                              ; preds = %Vec_IntPush.exit.i, %.lr.ph.i1199
   %indvars.iv.i1200 = phi i64 [ 0, %.lr.ph.i1199 ], [ %indvars.iv.next.i1201, %Vec_IntPush.exit.i ]
-  %328 = getelementptr inbounds nuw i32, ptr %322, i64 %indvars.iv.i1200
+  %328 = getelementptr inbounds nuw [4 x i8], ptr %322, i64 %indvars.iv.i1200
   %329 = load i32, ptr %328, align 4, !tbaa !36
   %330 = load i32, ptr %326, align 4, !tbaa !17
   %331 = load i32, ptr %325, align 8, !tbaa !20
@@ -4435,7 +4433,7 @@ Vec_IntPush.exit.i:                               ; preds = %351, %Vec_IntGrow.e
   %355 = add nsw i32 %354, 1
   store i32 %355, ptr %326, align 4, !tbaa !17
   %356 = sext i32 %354 to i64
-  %357 = getelementptr inbounds i32, ptr %353, i64 %356
+  %357 = getelementptr inbounds [4 x i8], ptr %353, i64 %356
   store i32 %329, ptr %357, align 4, !tbaa !36
   %indvars.iv.next.i1201 = add nuw nsw i64 %indvars.iv.i1200, 1
   %.val.i = load i32, ptr %314, align 4, !tbaa !17
@@ -4474,10 +4472,10 @@ Vec_IntFree.exit1203:                             ; preds = %Vec_IntAlloc.exit.i
   %.val1133 = load ptr, ptr %367, align 8, !tbaa !21
   %368 = getelementptr i8, ptr %366, i64 640
   %.val1134 = load ptr, ptr %368, align 8, !tbaa !66
-  %369 = getelementptr inbounds nuw i32, ptr %.val1133, i64 %indvars.iv2923
+  %369 = getelementptr inbounds nuw [4 x i8], ptr %.val1133, i64 %indvars.iv2923
   %370 = load i32, ptr %369, align 4, !tbaa !36
   %371 = sext i32 %370 to i64
-  %372 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1134, i64 %371
+  %372 = getelementptr inbounds [24 x i8], ptr %.val1134, i64 %371
   %373 = and i64 %indvars.iv2923, 1
   %.not1026 = icmp eq i64 %373, 0
   br i1 %.not1026, label %375, label %374
@@ -4543,10 +4541,10 @@ Vec_IntFree.exit1203:                             ; preds = %Vec_IntAlloc.exit.i
 
 397:                                              ; preds = %.lr.ph2514, %396
   %indvars.iv2927 = phi i64 [ 0, %.lr.ph2514 ], [ %indvars.iv.next2928, %396 ]
-  %398 = getelementptr inbounds nuw i32, ptr %.val1080, i64 %indvars.iv2927
+  %398 = getelementptr inbounds nuw [4 x i8], ptr %.val1080, i64 %indvars.iv2927
   %399 = load i32, ptr %398, align 4, !tbaa !36
   %400 = sext i32 %399 to i64
-  %401 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val12.i, i64 %400
+  %401 = getelementptr inbounds [24 x i8], ptr %.val12.i, i64 %400
   %402 = getelementptr i8, ptr %401, i64 8
   %.val13.i = load i32, ptr %402, align 8, !tbaa !67
   %403 = getelementptr i8, ptr %401, i64 12
@@ -4578,7 +4576,7 @@ Wlc_ObjFaninId0.exit.i:                           ; preds = %Wlc_ObjHasArray.exi
   %412 = phi ptr [ %411, %Wlc_ObjHasArray.exit.thread.i.i.i ], [ %410, %406 ]
   %413 = load i32, ptr %412, align 4, !tbaa !36
   %414 = sext i32 %413 to i64
-  %415 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val12.i, i64 %414
+  %415 = getelementptr inbounds [24 x i8], ptr %.val12.i, i64 %414
   br label %.preheader.i1207, !llvm.loop !75
 
 Wlc_PrsCheckBitConst0.exit:                       ; preds = %.preheader.i1207
@@ -4696,7 +4694,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %466 = phi ptr [ %472, %507 ], [ %463, %.preheader ]
   %467 = getelementptr i8, ptr %466, i64 40
   %.val1137 = load ptr, ptr %467, align 8, !tbaa !21
-  %468 = getelementptr inbounds nuw i32, ptr %.val1137, i64 %indvars.iv2933
+  %468 = getelementptr inbounds nuw [4 x i8], ptr %.val1137, i64 %indvars.iv2933
   %469 = load i32, ptr %468, align 4, !tbaa !36
   %470 = call ptr @Wlc_ObjName(ptr noundef nonnull %466, i32 noundef %469) #29
   %471 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %470, ptr noundef nonnull dereferenceable(1) %storemerge2519) #31
@@ -4771,7 +4769,7 @@ Vec_IntPush.exit1219:                             ; preds = %.Vec_IntGrow.exit10
   %504 = add nsw i32 %503, 1
   store i32 %504, ptr %476, align 4, !tbaa !17
   %505 = sext i32 %503 to i64
-  %506 = getelementptr inbounds i32, ptr %502, i64 %505
+  %506 = getelementptr inbounds [4 x i8], ptr %502, i64 %505
   store i32 %474, ptr %506, align 4, !tbaa !36
   br label %.critedge21
 
@@ -4998,7 +4996,7 @@ Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %553
   %582 = getelementptr i8, ptr %581, i64 640
   %.val1104 = load ptr, ptr %582, align 8, !tbaa !66
   %583 = sext i32 %573 to i64
-  %584 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1104, i64 %583
+  %584 = getelementptr inbounds [24 x i8], ptr %.val1104, i64 %583
   call void @Wlc_ObjUpdateType(ptr noundef %581, ptr noundef %584, i32 noundef %579) #29
   %585 = load ptr, ptr %35, align 8, !tbaa !31
   %586 = load ptr, ptr %36, align 8, !tbaa !24
@@ -5199,7 +5197,7 @@ Vec_IntPush.exit1277:                             ; preds = %640, %Vec_IntGrow.e
   %656 = add nsw i32 %654, 1
   store i32 %656, ptr %642, align 4, !tbaa !17
   %657 = sext i32 %654 to i64
-  %658 = getelementptr inbounds i32, ptr %655, i64 %657
+  %658 = getelementptr inbounds [4 x i8], ptr %655, i64 %657
   store i32 %636, ptr %658, align 4, !tbaa !36
   %659 = getelementptr inbounds nuw i8, ptr %653, i64 4
   %660 = load i32, ptr %659, align 4, !tbaa !17
@@ -5265,7 +5263,7 @@ Vec_IntPush.exit1284:                             ; preds = %.Vec_IntGrow.exit10
   %687 = add nsw i32 %686, 1
   store i32 %687, ptr %659, align 4, !tbaa !17
   %688 = sext i32 %686 to i64
-  %689 = getelementptr inbounds i32, ptr %685, i64 %688
+  %689 = getelementptr inbounds [4 x i8], ptr %685, i64 %688
   store i32 %599, ptr %689, align 4, !tbaa !36
   %690 = load i8, ptr %.020.lcssa.i1261, align 1, !tbaa !39
   %.not15.i1285 = icmp eq i8 %690, 0
@@ -5407,7 +5405,7 @@ Wlc_PrsIsChar.exit32.thread.i1318:                ; preds = %706
   %732 = getelementptr i8, ptr %731, i64 640
   %.val1103 = load ptr, ptr %732, align 8, !tbaa !66
   %733 = sext i32 %726 to i64
-  %734 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1103, i64 %733
+  %734 = getelementptr inbounds [24 x i8], ptr %.val1103, i64 %733
   call void @Wlc_ObjUpdateType(ptr noundef %731, ptr noundef %734, i32 noundef 53) #29
   %735 = load ptr, ptr %35, align 8, !tbaa !31
   %736 = load ptr, ptr %36, align 8, !tbaa !24
@@ -5646,7 +5644,7 @@ Vec_IntPush.exit1386:                             ; preds = %797, %Vec_IntGrow.e
   %812 = add nsw i32 %810, 1
   store i32 %812, ptr %799, align 4, !tbaa !17
   %813 = sext i32 %810 to i64
-  %814 = getelementptr inbounds i32, ptr %811, i64 %813
+  %814 = getelementptr inbounds [4 x i8], ptr %811, i64 %813
   store i32 %793, ptr %814, align 4, !tbaa !36
   %815 = load ptr, ptr %35, align 8, !tbaa !31
   %816 = getelementptr i8, ptr %815, i64 640
@@ -5660,7 +5658,7 @@ Vec_IntPush.exit1386:                             ; preds = %797, %Vec_IntGrow.e
 
 820:                                              ; preds = %Vec_IntPush.exit1386
   %821 = sext i32 %793 to i64
-  %822 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1102, i64 %821
+  %822 = getelementptr inbounds [24 x i8], ptr %.val1102, i64 %821
   %823 = getelementptr i8, ptr %822, i64 8
   %.val1123 = load i32, ptr %823, align 8, !tbaa !67
   %824 = getelementptr i8, ptr %822, i64 12
@@ -5873,7 +5871,7 @@ Wlc_PrsSkipSpaces.exit1440:                       ; preds = %Wlc_PrsFindSymbol.e
   %893 = getelementptr i8, ptr %889, i64 8
   %.val1141 = load ptr, ptr %893, align 8, !tbaa !21
   %894 = sext i32 %.val1140 to i64
-  %895 = getelementptr i32, ptr %.val1141, i64 %894
+  %895 = getelementptr [4 x i8], ptr %.val1141, i64 %894
   %896 = getelementptr i8, ptr %895, i64 -4
   %897 = load i32, ptr %896, align 4, !tbaa !36
   %898 = or disjoint i32 %827, 1
@@ -5891,7 +5889,7 @@ Wlc_PrsSkipSpaces.exit1440:                       ; preds = %Wlc_PrsFindSymbol.e
   %904 = getelementptr i8, ptr %902, i64 8
   %.val1079 = load ptr, ptr %904, align 8, !tbaa !21
   %905 = sext i32 %903 to i64
-  %906 = getelementptr inbounds i32, ptr %.val1079, i64 %905
+  %906 = getelementptr inbounds [4 x i8], ptr %.val1079, i64 %905
   %907 = load i32, ptr %906, align 4, !tbaa !36
   %.val1128 = load ptr, ptr %34, align 8, !tbaa !15
   %908 = sext i32 %907 to i64
@@ -5910,7 +5908,7 @@ Wlc_PrsSkipSpaces.exit1440:                       ; preds = %Wlc_PrsFindSymbol.e
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %915 = getelementptr i8, ptr %914, i64 8
   %.val1078 = load ptr, ptr %915, align 8, !tbaa !21
-  %916 = getelementptr inbounds i32, ptr %.val1078, i64 %indvars.iv.next
+  %916 = getelementptr inbounds [4 x i8], ptr %.val1078, i64 %indvars.iv.next
   %917 = load i32, ptr %916, align 4, !tbaa !36
   %.val1127 = load ptr, ptr %34, align 8, !tbaa !15
   %918 = sext i32 %917 to i64
@@ -6013,7 +6011,7 @@ Wlc_PrsSkipSpaces.exit1894.outer:                 ; preds = %950, %952
   %954 = getelementptr i8, ptr %953, i64 640
   %.val1101 = load ptr, ptr %954, align 8, !tbaa !66
   %955 = sext i32 %866 to i64
-  %956 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1101, i64 %955
+  %956 = getelementptr inbounds [24 x i8], ptr %.val1101, i64 %955
   call void @Wlc_ObjUpdateType(ptr noundef %953, ptr noundef %956, i32 noundef 8) #29
   %957 = load ptr, ptr %35, align 8, !tbaa !31
   %958 = load ptr, ptr %36, align 8, !tbaa !24
@@ -6411,7 +6409,7 @@ Wlc_PrsIsChar.exit32.thread.i1517:                ; preds = %1061
   %1094 = getelementptr i8, ptr %1093, i64 640
   %.val1100 = load ptr, ptr %1094, align 8, !tbaa !66
   %1095 = sext i32 %.0817.ph to i64
-  %1096 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1100, i64 %1095
+  %1096 = getelementptr inbounds [24 x i8], ptr %.val1100, i64 %1095
   call void @Wlc_ObjUpdateType(ptr noundef %1093, ptr noundef %1096, i32 noundef 3) #29
   %1097 = load ptr, ptr %35, align 8, !tbaa !31
   %1098 = getelementptr inbounds nuw i8, ptr %1097, i64 80
@@ -6479,7 +6477,7 @@ Vec_IntPush.exit1530:                             ; preds = %.Vec_IntGrow.exit10
   %1127 = add nsw i32 %1126, 1
   store i32 %1127, ptr %1099, align 4, !tbaa !17
   %1128 = sext i32 %1126 to i64
-  %1129 = getelementptr inbounds i32, ptr %1125, i64 %1128
+  %1129 = getelementptr inbounds [4 x i8], ptr %1125, i64 %1128
   store i32 %.0817.ph, ptr %1129, align 4, !tbaa !36
   %1130 = load ptr, ptr %35, align 8, !tbaa !31
   %1131 = getelementptr inbounds nuw i8, ptr %1130, i64 80
@@ -6547,7 +6545,7 @@ Vec_IntPush.exit1537:                             ; preds = %.Vec_IntGrow.exit10
   %1160 = add nsw i32 %1159, 1
   store i32 %1160, ptr %1132, align 4, !tbaa !17
   %1161 = sext i32 %1159 to i64
-  %1162 = getelementptr inbounds i32, ptr %1158, i64 %1161
+  %1162 = getelementptr inbounds [4 x i8], ptr %1158, i64 %1161
   store i32 %.0815.ph, ptr %1162, align 4, !tbaa !36
   %1163 = icmp eq i32 %.0813.ph, -1
   %1164 = load ptr, ptr %35, align 8, !tbaa !31
@@ -6564,7 +6562,7 @@ Vec_IntPush.exit1537:                             ; preds = %.Vec_IntGrow.exit10
   %1171 = getelementptr i8, ptr %1164, i64 640
   %.val1098 = load ptr, ptr %1171, align 8, !tbaa !66
   %1172 = sext i32 %.0813.ph to i64
-  %1173 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1098, i64 %1172
+  %1173 = getelementptr inbounds [24 x i8], ptr %.val1098, i64 %1172
   %1174 = getelementptr i8, ptr %1173, i64 8
   %.val1119 = load i32, ptr %1174, align 8, !tbaa !67
   %1175 = getelementptr i8, ptr %1173, i64 12
@@ -6670,7 +6668,7 @@ Vec_IntPush.exit1544:                             ; preds = %.Vec_IntGrow.exit10
   %1229 = add nsw i32 %1228, 1
   store i32 %1229, ptr %1201, align 4, !tbaa !17
   %1230 = sext i32 %1228 to i64
-  %1231 = getelementptr inbounds i32, ptr %1227, i64 %1230
+  %1231 = getelementptr inbounds [4 x i8], ptr %1227, i64 %1230
   store i32 %1200, ptr %1231, align 4, !tbaa !36
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit2016
@@ -6990,7 +6988,7 @@ Wlc_PrsIsChar.exit32.thread.i1593:                ; preds = %1269
   %1354 = getelementptr i8, ptr %1353, i64 640
   %.val1097 = load ptr, ptr %1354, align 8, !tbaa !66
   %1355 = sext i32 %.sroa.21.0 to i64
-  %1356 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1097, i64 %1355
+  %1356 = getelementptr inbounds [24 x i8], ptr %.val1097, i64 %1355
   call void @Wlc_ObjUpdateType(ptr noundef %1353, ptr noundef %1356, i32 noundef 5) #29
   %1357 = load ptr, ptr %36, align 8, !tbaa !24
   %1358 = getelementptr inbounds nuw i8, ptr %1357, i64 4
@@ -7222,7 +7220,7 @@ Wlc_PrsIsChar.exit32.thread.i1648:                ; preds = %1397
   %1430 = getelementptr i8, ptr %1429, i64 640
   %.val1096 = load ptr, ptr %1430, align 8, !tbaa !66
   %1431 = sext i32 %.0804 to i64
-  %1432 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1096, i64 %1431
+  %1432 = getelementptr inbounds [24 x i8], ptr %.val1096, i64 %1431
   call void @Wlc_ObjUpdateType(ptr noundef %1429, ptr noundef %1432, i32 noundef 3) #29
   %1433 = load ptr, ptr %35, align 8, !tbaa !31
   %1434 = getelementptr inbounds nuw i8, ptr %1433, i64 80
@@ -7230,7 +7228,7 @@ Wlc_PrsIsChar.exit32.thread.i1648:                ; preds = %1397
   %1435 = load ptr, ptr %35, align 8, !tbaa !31
   %1436 = getelementptr i8, ptr %1435, i64 640
   %.val1095 = load ptr, ptr %1436, align 8, !tbaa !66
-  %1437 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1095, i64 %1431
+  %1437 = getelementptr inbounds [24 x i8], ptr %.val1095, i64 %1431
   %1438 = getelementptr i8, ptr %1437, i64 8
   %.val1115 = load i32, ptr %1438, align 8, !tbaa !67
   %1439 = getelementptr i8, ptr %1437, i64 12
@@ -7244,7 +7242,7 @@ Wlc_PrsIsChar.exit32.thread.i1648:                ; preds = %1397
   %1445 = load ptr, ptr %35, align 8, !tbaa !31
   %1446 = getelementptr i8, ptr %1445, i64 640
   %.val1093 = load ptr, ptr %1446, align 8, !tbaa !66
-  %1447 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1093, i64 %1443
+  %1447 = getelementptr inbounds [24 x i8], ptr %.val1093, i64 %1443
   %1448 = getelementptr i8, ptr %1447, i64 8
   %.val1113 = load i32, ptr %1448, align 8, !tbaa !67
   %1449 = getelementptr i8, ptr %1447, i64 12
@@ -7261,7 +7259,7 @@ Wlc_PrsIsChar.exit32.thread.i1648:                ; preds = %1397
   %1456 = load ptr, ptr %35, align 8, !tbaa !31
   %1457 = getelementptr i8, ptr %1456, i64 640
   %.val1092 = load ptr, ptr %1457, align 8, !tbaa !66
-  %1458 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1092, i64 %1443
+  %1458 = getelementptr inbounds [24 x i8], ptr %.val1092, i64 %1443
   %1459 = getelementptr i8, ptr %1458, i64 8
   %.val1111 = load i32, ptr %1459, align 8, !tbaa !67
   %1460 = getelementptr i8, ptr %1458, i64 12
@@ -7288,7 +7286,7 @@ Wlc_PrsIsChar.exit32.thread.i1648:                ; preds = %1397
   %1474 = getelementptr i8, ptr %1467, i64 640
   %.val1091 = load ptr, ptr %1474, align 8, !tbaa !66
   %1475 = sext i32 %.0808 to i64
-  %1476 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1091, i64 %1475
+  %1476 = getelementptr inbounds [24 x i8], ptr %.val1091, i64 %1475
   %1477 = getelementptr i8, ptr %1476, i64 8
   %.val1109 = load i32, ptr %1477, align 8, !tbaa !67
   %1478 = getelementptr i8, ptr %1476, i64 12
@@ -7305,7 +7303,7 @@ Wlc_PrsIsChar.exit32.thread.i1648:                ; preds = %1397
   %1485 = load ptr, ptr %35, align 8, !tbaa !31
   %1486 = getelementptr i8, ptr %1485, i64 640
   %.val1090 = load ptr, ptr %1486, align 8, !tbaa !66
-  %1487 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1090, i64 %1475
+  %1487 = getelementptr inbounds [24 x i8], ptr %.val1090, i64 %1475
   %1488 = getelementptr i8, ptr %1487, i64 8
   %.val1107 = load i32, ptr %1488, align 8, !tbaa !67
   %1489 = getelementptr i8, ptr %1487, i64 12
@@ -7339,7 +7337,7 @@ Wlc_PrsIsChar.exit32.thread.i1648:                ; preds = %1397
 1507:                                             ; preds = %1503
   %1508 = getelementptr i8, ptr %1505, i64 640
   %.val1089 = load ptr, ptr %1508, align 8, !tbaa !66
-  %1509 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1089, i64 %1431
+  %1509 = getelementptr inbounds [24 x i8], ptr %.val1089, i64 %1431
   %1510 = getelementptr i8, ptr %1509, i64 8
   %.val1105 = load i32, ptr %1510, align 8, !tbaa !67
   %1511 = getelementptr i8, ptr %1509, i64 12
@@ -7626,7 +7624,7 @@ Wlc_PrsIsChar.exit32.thread.i1703:                ; preds = %1558
   %1596 = getelementptr i8, ptr %1595, i64 640
   %.val1088 = load ptr, ptr %1596, align 8, !tbaa !66
   %1597 = sext i32 %1593 to i64
-  %1598 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1088, i64 %1597
+  %1598 = getelementptr inbounds [24 x i8], ptr %.val1088, i64 %1597
   call void @Wlc_ObjUpdateType(ptr noundef %1595, ptr noundef %1598, i32 noundef %1594) #29
   %1599 = load ptr, ptr %36, align 8, !tbaa !24
   %1600 = getelementptr inbounds nuw i8, ptr %1599, i64 4
@@ -7876,7 +7874,7 @@ Wlc_PrsIsChar.exit32.thread.i1758:                ; preds = %1644
   %1675 = getelementptr i8, ptr %1674, i64 640
   %.val1087 = load ptr, ptr %1675, align 8, !tbaa !66
   %1676 = sext i32 %.0..0..0..0.828 to i64
-  %1677 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1087, i64 %1676
+  %1677 = getelementptr inbounds [24 x i8], ptr %.val1087, i64 %1676
   call void @Wlc_ObjUpdateType(ptr noundef %1674, ptr noundef %1677, i32 noundef 54) #29
   %1678 = load ptr, ptr %36, align 8, !tbaa !24
   %1679 = getelementptr inbounds nuw i8, ptr %1678, i64 4
@@ -8128,7 +8126,7 @@ Wlc_PrsIsChar.exit32.thread.i1813:                ; preds = %1724
   %1756 = getelementptr i8, ptr %1755, i64 640
   %.val1086 = load ptr, ptr %1756, align 8, !tbaa !66
   %1757 = sext i32 %.0..0..0..0.838 to i64
-  %1758 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1086, i64 %1757
+  %1758 = getelementptr inbounds [24 x i8], ptr %.val1086, i64 %1757
   call void @Wlc_ObjUpdateType(ptr noundef %1755, ptr noundef %1758, i32 noundef 55) #29
   %1759 = load ptr, ptr %36, align 8, !tbaa !24
   %1760 = getelementptr inbounds nuw i8, ptr %1759, i64 4
@@ -8380,7 +8378,7 @@ Wlc_PrsIsChar.exit32.thread.i1870:                ; preds = %1797
   %1832 = getelementptr i8, ptr %1831, i64 640
   %.val1085 = load ptr, ptr %1832, align 8, !tbaa !66
   %1833 = sext i32 %.0782.ph to i64
-  %1834 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val1085, i64 %1833
+  %1834 = getelementptr inbounds [24 x i8], ptr %.val1085, i64 %1833
   %1835 = select i1 %.not.i1820.not, i32 13, i32 14
   call void @Wlc_ObjUpdateType(ptr noundef %1831, ptr noundef %1834, i32 noundef %1835) #29
   %1836 = load ptr, ptr %36, align 8, !tbaa !24
@@ -8421,7 +8419,7 @@ Vec_IntPush.exit1883:                             ; preds = %1830, %Vec_IntGrow.
   %1851 = add nsw i32 %1849, 1
   store i32 %1851, ptr %1837, align 4, !tbaa !17
   %1852 = sext i32 %1849 to i64
-  %1853 = getelementptr inbounds i32, ptr %1850, i64 %1852
+  %1853 = getelementptr inbounds [4 x i8], ptr %1850, i64 %1852
   store i32 %.0780.ph, ptr %1853, align 4, !tbaa !36
   %1854 = getelementptr inbounds nuw i8, ptr %1848, i64 4
   %1855 = load i32, ptr %1854, align 4, !tbaa !17
@@ -8487,7 +8485,7 @@ Vec_IntPush.exit1890:                             ; preds = %.Vec_IntGrow.exit10
   %1882 = add nsw i32 %1881, 1
   store i32 %1882, ptr %1854, align 4, !tbaa !17
   %1883 = sext i32 %1881 to i64
-  %1884 = getelementptr inbounds i32, ptr %1880, i64 %1883
+  %1884 = getelementptr inbounds [4 x i8], ptr %1880, i64 %1883
   store i32 %.0778.ph, ptr %1884, align 4, !tbaa !36
   %1885 = load ptr, ptr %35, align 8, !tbaa !31
   %1886 = load ptr, ptr %36, align 8, !tbaa !24
@@ -8541,7 +8539,7 @@ Vec_IntPush.exit1890:                             ; preds = %.Vec_IntGrow.exit10
 
 1905:                                             ; preds = %1913, %.lr.ph.i1898
   %indvars.iv.i1900 = phi i64 [ 0, %.lr.ph.i1898 ], [ %indvars.iv.next.i1901, %1913 ]
-  %1906 = getelementptr inbounds nuw i32, ptr %.val10.i, i64 %indvars.iv.i1900
+  %1906 = getelementptr inbounds nuw [4 x i8], ptr %.val10.i, i64 %indvars.iv.i1900
   %1907 = load i32, ptr %1906, align 4, !tbaa !36
   %1908 = sext i32 %1907 to i64
   %1909 = icmp slt i64 %1904, %1908
@@ -8772,13 +8770,13 @@ Vec_IntFree.exit:                                 ; preds = %17, %19
   %28 = getelementptr i8, ptr %27, i64 640
   %.val45 = load ptr, ptr %28, align 8, !tbaa !66
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val45, i64 %29
+  %30 = getelementptr inbounds [24 x i8], ptr %.val45, i64 %29
   tail call void @Wlc_ObjAddFanins(ptr noundef %27, ptr noundef %30, ptr noundef nonnull %calloc) #29
   %31 = load i32, ptr %8, align 4, !tbaa !36
   %32 = load ptr, ptr %21, align 8, !tbaa !31
   %33 = getelementptr i8, ptr %32, i64 640
   %.val = load ptr, ptr %33, align 8, !tbaa !66
-  %34 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val, i64 %29
+  %34 = getelementptr inbounds [24 x i8], ptr %.val, i64 %29
   %35 = trunc i32 %31 to i16
   %36 = load i16, ptr %34, align 8
   %37 = shl i16 %35, 11
@@ -8993,7 +8991,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %115 = add nsw i32 %114, 1
   store i32 %115, ptr %87, align 4, !tbaa !17
   %116 = sext i32 %114 to i64
-  %117 = getelementptr inbounds i32, ptr %113, i64 %116
+  %117 = getelementptr inbounds [4 x i8], ptr %113, i64 %116
   store i32 %.136, ptr %117, align 4, !tbaa !36
   br label %118
 
@@ -9098,7 +9096,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ %38, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv
+  %40 = getelementptr inbounds [4 x i8], ptr %37, i64 %indvars.iv
   store i32 %2, ptr %40, align 4, !tbaa !36
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -9312,7 +9310,7 @@ Vec_IntFill.exit90:                               ; preds = %.lr.ph.i85, %Vec_In
   %88 = shl nuw i32 1, %87
   %89 = ashr i32 %86, 5
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds i32, ptr %.val, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %.val, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !36
   %93 = or i32 %92, %88
   store i32 %93, ptr %91, align 4, !tbaa !36
@@ -9464,7 +9462,7 @@ Abc_TtReadHexDigit.exit.i:                        ; preds = %156, %154, %150
   %161 = shl i64 %.0.i.i, %160
   %162 = lshr i64 %indvars.iv25.i, 4
   %163 = and i64 %162, 268435455
-  %164 = getelementptr inbounds nuw i64, ptr %128, i64 %163
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %163
   %165 = load i64, ptr %164, align 8, !tbaa !107
   %166 = or i64 %165, %161
   store i64 %166, ptr %164, align 8, !tbaa !107
@@ -9523,7 +9521,7 @@ define internal fastcc void @Vec_IntPushUnique(ptr noundef captures(none) %0, i3
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !36
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %.loopexit, label %8
@@ -9591,7 +9589,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %3, align 4, !tbaa !17
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds i32, ptr %37, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %37, i64 %40
   store i32 %1, ptr %41, align 4, !tbaa !36
   br label %.loopexit
 
@@ -9678,7 +9676,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %32, %27
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %39 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.i
   %40 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %40, ptr %39, align 4, !tbaa !36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -9707,7 +9705,7 @@ Vec_IntFree.exit:                                 ; preds = %.lr.ph.i, %Vec_IntA
   %indvars.iv = phi i64 [ %indvars.iv.next, %86 ], [ 1, %.preheader ]
   %47 = getelementptr i8, ptr %46, i64 640
   %.val41 = load ptr, ptr %47, align 8, !tbaa !66
-  %48 = getelementptr inbounds nuw %struct.Wlc_Obj_t_, ptr %.val41, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %.val41, i64 %indvars.iv
   %49 = load i16, ptr %48, align 8
   %50 = and i16 %49, 63
   %51 = icmp eq i16 %50, 5
@@ -9779,7 +9777,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %82 = add nsw i32 %81, 1
   store i32 %82, ptr %54, align 4, !tbaa !17
   %83 = sext i32 %81 to i64
-  %84 = getelementptr inbounds i32, ptr %80, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %80, i64 %83
   %85 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %85, ptr %84, align 4, !tbaa !36
   %.pre = load ptr, ptr %42, align 8, !tbaa !31
@@ -9947,7 +9945,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %4, align 4, !tbaa !17
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds i32, ptr %30, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %30, i64 %33
   store i32 %1, ptr %34, align 4, !tbaa !36
   %35 = load i32, ptr %4, align 4, !tbaa !17
   %36 = load i32, ptr %0, align 8, !tbaa !20
@@ -9985,7 +9983,7 @@ Vec_IntPush.exit9:                                ; preds = %Vec_IntPush.exit9.s
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %4, align 4, !tbaa !17
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds i32, ptr %48, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %48, i64 %51
   store i32 %2, ptr %52, align 4, !tbaa !36
   ret void
 }

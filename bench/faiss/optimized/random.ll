@@ -34,7 +34,7 @@ define void @_ZN5faiss15RandomGeneratorC2El(ptr noundef nonnull align 8 captures
 4:                                                ; preds = %4, %2
   %store_forwarded = phi i64 [ %3, %2 ], [ %10, %4 ]
   %.011.i.i = phi i64 [ 1, %2 ], [ %11, %4 ]
-  %5 = getelementptr i64, ptr %0, i64 %.011.i.i
+  %5 = getelementptr [8 x i8], ptr %0, i64 %.011.i.i
   %6 = lshr i64 %store_forwarded, 30
   %7 = xor i64 %6, %store_forwarded
   %8 = mul nuw nsw i64 %7, 1812433253
@@ -73,10 +73,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !4
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -100,10 +100,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 227, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !4
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -141,7 +141,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8, !tbaa !10
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !4
   %55 = lshr i64 %54, 11
   %56 = and i64 %55, 4294967295
@@ -424,10 +424,10 @@ define internal void @_ZN5faiss10float_randEPfml.omp_outlined(ptr noalias nounde
 47:                                               ; preds = %47, %46
   %48 = phi i64 [ %.pre.i.i, %46 ], [ %53, %47 ]
   %.021.i.i = phi i64 [ 0, %46 ], [ %51, %47 ]
-  %49 = getelementptr inbounds nuw i64, ptr %12, i64 %.021.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.021.i.i
   %50 = and i64 %48, -2147483648
   %51 = add nuw nsw i64 %.021.i.i, 1
-  %52 = getelementptr inbounds nuw i64, ptr %12, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !4
   %54 = and i64 %53, 2147483646
   %55 = or disjoint i64 %54, %50
@@ -450,10 +450,10 @@ define internal void @_ZN5faiss10float_randEPfml.omp_outlined(ptr noalias nounde
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
   %63 = phi i64 [ %68, %.preheader.i.i ], [ %.pre24.i.i, %.preheader.preheader.i.i ]
   %.01822.i.i = phi i64 [ %66, %.preheader.i.i ], [ 227, %.preheader.preheader.i.i ]
-  %64 = getelementptr inbounds nuw i64, ptr %12, i64 %.01822.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.01822.i.i
   %65 = and i64 %63, -2147483648
   %66 = add nuw nsw i64 %.01822.i.i, 1
-  %67 = getelementptr inbounds nuw i64, ptr %12, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !4
   %69 = and i64 %68, 2147483646
   %70 = or disjoint i64 %69, %65
@@ -489,7 +489,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %90 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %44, %43 ]
   %91 = add nuw nsw i64 %90, 1
   store i64 %91, ptr %20, align 8, !tbaa !10
-  %92 = getelementptr inbounds nuw i64, ptr %12, i64 %90
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %90
   %93 = load i64, ptr %92, align 8, !tbaa !4
   %94 = lshr i64 %93, 11
   %95 = and i64 %94, 4294967295
@@ -504,7 +504,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %104 = xor i64 %103, %102
   %105 = uitofp i64 %104 to float
   %106 = fmul nnan float %105, 0x3DF0000000000000
-  %107 = getelementptr inbounds nuw float, ptr %39, i64 %.023
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.023
   store float %106, ptr %107, align 4, !tbaa !21
   %108 = add nuw i64 %.023, 1
   %109 = icmp ult i64 %108, %37
@@ -681,10 +681,10 @@ define internal void @_ZN5faiss11float_randnEPfml.omp_outlined(ptr noalias nound
 48:                                               ; preds = %48, %47
   %49 = phi i64 [ %.pre.i.i, %47 ], [ %54, %48 ]
   %.021.i.i = phi i64 [ 0, %47 ], [ %52, %48 ]
-  %50 = getelementptr inbounds nuw i64, ptr %12, i64 %.021.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.021.i.i
   %51 = and i64 %49, -2147483648
   %52 = add nuw nsw i64 %.021.i.i, 1
-  %53 = getelementptr inbounds nuw i64, ptr %12, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !4
   %55 = and i64 %54, 2147483646
   %56 = or disjoint i64 %55, %51
@@ -707,10 +707,10 @@ define internal void @_ZN5faiss11float_randnEPfml.omp_outlined(ptr noalias nound
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
   %64 = phi i64 [ %69, %.preheader.i.i ], [ %.pre24.i.i, %.preheader.preheader.i.i ]
   %.01822.i.i = phi i64 [ %67, %.preheader.i.i ], [ 227, %.preheader.preheader.i.i ]
-  %65 = getelementptr inbounds nuw i64, ptr %12, i64 %.01822.i.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.01822.i.i
   %66 = and i64 %64, -2147483648
   %67 = add nuw nsw i64 %.01822.i.i, 1
-  %68 = getelementptr inbounds nuw i64, ptr %12, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !4
   %70 = and i64 %69, 2147483646
   %71 = or disjoint i64 %70, %66
@@ -746,7 +746,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %91 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %45, %.preheader ]
   %92 = add nuw nsw i64 %91, 1
   store i64 %92, ptr %20, align 8, !tbaa !10
-  %93 = getelementptr inbounds nuw i64, ptr %12, i64 %91
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %91
   %94 = load i64, ptr %93, align 8, !tbaa !4
   %95 = lshr i64 %94, 11
   %96 = and i64 %95, 4294967295
@@ -772,10 +772,10 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 111:                                              ; preds = %111, %110
   %112 = phi i64 [ %.pre.i.i43, %110 ], [ %117, %111 ]
   %.021.i.i44 = phi i64 [ 0, %110 ], [ %115, %111 ]
-  %113 = getelementptr inbounds nuw i64, ptr %12, i64 %.021.i.i44
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.021.i.i44
   %114 = and i64 %112, -2147483648
   %115 = add nuw nsw i64 %.021.i.i44, 1
-  %116 = getelementptr inbounds nuw i64, ptr %12, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %115
   %117 = load i64, ptr %116, align 8, !tbaa !4
   %118 = and i64 %117, 2147483646
   %119 = or disjoint i64 %118, %114
@@ -798,10 +798,10 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 .preheader.i.i50:                                 ; preds = %.preheader.i.i50, %.preheader.preheader.i.i47
   %127 = phi i64 [ %132, %.preheader.i.i50 ], [ %.pre24.i.i49, %.preheader.preheader.i.i47 ]
   %.01822.i.i51 = phi i64 [ %130, %.preheader.i.i50 ], [ 227, %.preheader.preheader.i.i47 ]
-  %128 = getelementptr inbounds nuw i64, ptr %12, i64 %.01822.i.i51
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.01822.i.i51
   %129 = and i64 %127, -2147483648
   %130 = add nuw nsw i64 %.01822.i.i51, 1
-  %131 = getelementptr inbounds nuw i64, ptr %12, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %130
   %132 = load i64, ptr %131, align 8, !tbaa !4
   %133 = and i64 %132, 2147483646
   %134 = or disjoint i64 %133, %129
@@ -837,7 +837,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %154 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i54 ], [ %92, %90 ]
   %155 = add nuw nsw i64 %154, 1
   store i64 %155, ptr %20, align 8, !tbaa !10
-  %156 = getelementptr inbounds nuw i64, ptr %12, i64 %154
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %154
   %157 = load i64, ptr %156, align 8, !tbaa !4
   %158 = lshr i64 %157, 11
   %159 = and i64 %158, 4294967295
@@ -868,7 +868,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %178 = call double @sqrt(double noundef %177) #5, !tbaa !19
   %179 = fmul double %.03959.sink, %178
   %180 = fptrunc double %179 to float
-  %181 = getelementptr inbounds nuw float, ptr %39, i64 %.062
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.062
   store float %180, ptr %181, align 4, !tbaa !21
   %182 = xor i32 %.03761, 1
   %183 = add nuw i64 %.062, 1
@@ -1017,10 +1017,10 @@ define internal void @_ZN5faiss10int64_randEPlml.omp_outlined(ptr noalias nounde
 45:                                               ; preds = %45, %44
   %46 = phi i64 [ %.pre.i.i, %44 ], [ %51, %45 ]
   %.021.i.i = phi i64 [ 0, %44 ], [ %49, %45 ]
-  %47 = getelementptr inbounds nuw i64, ptr %12, i64 %.021.i.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.021.i.i
   %48 = and i64 %46, -2147483648
   %49 = add nuw nsw i64 %.021.i.i, 1
-  %50 = getelementptr inbounds nuw i64, ptr %12, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !4
   %52 = and i64 %51, 2147483646
   %53 = or disjoint i64 %52, %48
@@ -1043,10 +1043,10 @@ define internal void @_ZN5faiss10int64_randEPlml.omp_outlined(ptr noalias nounde
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
   %61 = phi i64 [ %66, %.preheader.i.i ], [ %.pre24.i.i, %.preheader.preheader.i.i ]
   %.01822.i.i = phi i64 [ %64, %.preheader.i.i ], [ 227, %.preheader.preheader.i.i ]
-  %62 = getelementptr inbounds nuw i64, ptr %12, i64 %.01822.i.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.01822.i.i
   %63 = and i64 %61, -2147483648
   %64 = add nuw nsw i64 %.01822.i.i, 1
-  %65 = getelementptr inbounds nuw i64, ptr %12, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !4
   %67 = and i64 %66, 2147483646
   %68 = or disjoint i64 %67, %63
@@ -1082,7 +1082,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %87 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %42, %.lr.ph ]
   %88 = add nuw nsw i64 %87, 1
   store i64 %88, ptr %20, align 8, !tbaa !10
-  %89 = getelementptr inbounds nuw i64, ptr %12, i64 %87
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %87
   %90 = load i64, ptr %89, align 8, !tbaa !4
   %91 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %12)
           to label %92 unwind label %.loopexit
@@ -1104,7 +1104,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %106 = and i64 %105, 4611686016279904256
   %107 = or disjoint i64 %104, %106
   %108 = load ptr, ptr %6, align 8, !tbaa !28
-  %109 = getelementptr inbounds nuw i64, ptr %108, i64 %.024
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %.024
   store i64 %107, ptr %109, align 8, !tbaa !4
   %110 = add nuw i64 %.024, 1
   %111 = icmp ult i64 %110, %37
@@ -1254,10 +1254,10 @@ define internal void @_ZN5faiss14int64_rand_maxEPlmml.omp_outlined(ptr noalias n
 46:                                               ; preds = %46, %45
   %47 = phi i64 [ %.pre.i.i, %45 ], [ %52, %46 ]
   %.021.i.i = phi i64 [ 0, %45 ], [ %50, %46 ]
-  %48 = getelementptr inbounds nuw i64, ptr %13, i64 %.021.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.021.i.i
   %49 = and i64 %47, -2147483648
   %50 = add nuw nsw i64 %.021.i.i, 1
-  %51 = getelementptr inbounds nuw i64, ptr %13, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !4
   %53 = and i64 %52, 2147483646
   %54 = or disjoint i64 %53, %49
@@ -1280,10 +1280,10 @@ define internal void @_ZN5faiss14int64_rand_maxEPlmml.omp_outlined(ptr noalias n
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
   %62 = phi i64 [ %67, %.preheader.i.i ], [ %.pre24.i.i, %.preheader.preheader.i.i ]
   %.01822.i.i = phi i64 [ %65, %.preheader.i.i ], [ 227, %.preheader.preheader.i.i ]
-  %63 = getelementptr inbounds nuw i64, ptr %13, i64 %.01822.i.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.01822.i.i
   %64 = and i64 %62, -2147483648
   %65 = add nuw nsw i64 %.01822.i.i, 1
-  %66 = getelementptr inbounds nuw i64, ptr %13, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !4
   %68 = and i64 %67, 2147483646
   %69 = or disjoint i64 %68, %64
@@ -1319,7 +1319,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %88 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %43, %.lr.ph ]
   %89 = add nuw nsw i64 %88, 1
   store i64 %89, ptr %21, align 8, !tbaa !10
-  %90 = getelementptr inbounds nuw i64, ptr %13, i64 %88
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %88
   %91 = load i64, ptr %90, align 8, !tbaa !4
   %92 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %13)
           to label %93 unwind label %.loopexit
@@ -1343,7 +1343,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %109 = load i64, ptr %7, align 8, !tbaa !4
   %110 = urem i64 %108, %109
   %111 = load ptr, ptr %6, align 8, !tbaa !28
-  %112 = getelementptr inbounds nuw i64, ptr %111, i64 %.025
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %.025
   store i64 %110, ptr %112, align 8, !tbaa !4
   %113 = add nuw i64 %.025, 1
   %114 = icmp ult i64 %113, %38
@@ -1397,7 +1397,7 @@ define void @_ZN5faiss9rand_permEPiml(ptr noundef captures(none) %0, i64 noundef
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.020 = phi i64 [ %7, %.lr.ph ], [ 0, %3 ]
   %5 = trunc i64 %.020 to i32
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %.020
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.020
   store i32 %5, ptr %6, align 4, !tbaa !19
   %7 = add nuw i64 %.020, 1
   %exitcond.not = icmp eq i64 %7, %1
@@ -1416,7 +1416,7 @@ define void @_ZN5faiss9rand_permEPiml(ptr noundef captures(none) %0, i64 noundef
   %11 = ashr exact i64 %sext, 32
   %12 = urem i64 %10, %11
   %13 = add i64 %12, %.01621
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %.01621
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.01621
   %sext19 = shl i64 %13, 32
   %15 = ashr exact i64 %sext19, 30
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
@@ -1453,7 +1453,7 @@ define void @_ZN5faiss20rand_perm_splitmix64EPiml(ptr noundef captures(none) %0,
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.020 = phi i64 [ %7, %.lr.ph ], [ 0, %3 ]
   %5 = trunc i64 %.020 to i32
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %.020
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.020
   store i32 %5, ptr %6, align 4, !tbaa !19
   %7 = add nuw i64 %.020, 1
   %exitcond.not = icmp eq i64 %7, %1
@@ -1481,7 +1481,7 @@ define void @_ZN5faiss20rand_perm_splitmix64EPiml(ptr noundef captures(none) %0,
   %20 = ashr exact i64 %sext, 32
   %21 = urem i64 %19, %20
   %22 = add i64 %21, %.01621
-  %23 = getelementptr inbounds nuw i32, ptr %0, i64 %.01621
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.01621
   %sext19 = shl i64 %22, 32
   %24 = ashr exact i64 %sext19, 30
   %25 = getelementptr inbounds i8, ptr %0, i64 %24
@@ -1601,10 +1601,10 @@ define internal void @_ZN5faiss9byte_randEPhml.omp_outlined(ptr noalias noundef 
 42:                                               ; preds = %42, %41
   %43 = phi i64 [ %.pre.i.i, %41 ], [ %48, %42 ]
   %.021.i.i = phi i64 [ 0, %41 ], [ %46, %42 ]
-  %44 = getelementptr inbounds nuw i64, ptr %12, i64 %.021.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.021.i.i
   %45 = and i64 %43, -2147483648
   %46 = add nuw nsw i64 %.021.i.i, 1
-  %47 = getelementptr inbounds nuw i64, ptr %12, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %46
   %48 = load i64, ptr %47, align 8, !tbaa !4
   %49 = and i64 %48, 2147483646
   %50 = or disjoint i64 %49, %45
@@ -1627,10 +1627,10 @@ define internal void @_ZN5faiss9byte_randEPhml.omp_outlined(ptr noalias noundef 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
   %58 = phi i64 [ %63, %.preheader.i.i ], [ %.pre24.i.i, %.preheader.preheader.i.i ]
   %.01822.i.i = phi i64 [ %61, %.preheader.i.i ], [ 227, %.preheader.preheader.i.i ]
-  %59 = getelementptr inbounds nuw i64, ptr %12, i64 %.01822.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.01822.i.i
   %60 = and i64 %58, -2147483648
   %61 = add nuw nsw i64 %.01822.i.i, 1
-  %62 = getelementptr inbounds nuw i64, ptr %12, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !4
   %64 = and i64 %63, 2147483646
   %65 = or disjoint i64 %64, %60
@@ -1666,7 +1666,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %84 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %39, %.lr.ph ]
   %85 = add nuw nsw i64 %84, 1
   store i64 %85, ptr %20, align 8, !tbaa !10
-  %86 = getelementptr inbounds nuw i64, ptr %12, i64 %84
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %84
   %87 = load i64, ptr %86, align 8, !tbaa !4
   %88 = invoke noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %12)
           to label %89 unwind label %.loopexit
@@ -1774,7 +1774,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
 .noexc17:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %36 = mul i64 %0, 40
   %37 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %36) #20
-  %38 = getelementptr inbounds nuw float, ptr %37, i64 %34
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %34
   store float 0.000000e+00, ptr %37, align 4, !tbaa !21
   %39 = getelementptr i8, ptr %37, i64 4
   %.idx.i.i.i.i.i.i.i = add i64 %36, -4
@@ -1848,7 +1848,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i21: ; preds = %52
           to label %.noexc27 unwind label %113
 
 .noexc27:                                         ; preds = %58
-  %61 = getelementptr inbounds nuw float, ptr %60, i64 %55
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %55
   store float 0.000000e+00, ptr %60, align 4, !tbaa !21
   %62 = getelementptr i8, ptr %60, i64 4
   %.idx.i.i.i.i.i.i.i23 = add i64 %59, -4
@@ -1949,7 +1949,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i36: ; preds = %_ZNSt6vectorIfS
 
 .noexc38:                                         ; preds = %85
   store ptr %87, ptr %31, align 8, !tbaa !40
-  %88 = getelementptr inbounds nuw float, ptr %87, i64 %1
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %1
   %89 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %88, ptr %89, align 8, !tbaa !42
   store float 0.000000e+00, ptr %87, align 4, !tbaa !21
@@ -2172,15 +2172,15 @@ define internal void @_ZN5faiss19rand_smooth_vectorsEmmPfl.omp_outlined(ptr noal
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
   %.02023.us = phi i64 [ %36, %._crit_edge.us ], [ %17, %.preheader.lr.ph ]
   %21 = mul i64 %18, %.02023.us
-  %22 = getelementptr float, ptr %19, i64 %21
+  %22 = getelementptr [4 x i8], ptr %19, i64 %21
   br label %23
 
 23:                                               ; preds = %.preheader.us, %23
   %.022.us = phi i64 [ 0, %.preheader.us ], [ %35, %23 ]
-  %24 = getelementptr float, ptr %22, i64 %.022.us
+  %24 = getelementptr [4 x i8], ptr %22, i64 %.022.us
   %25 = load float, ptr %24, align 4, !tbaa !21
   %26 = fpext float %25 to double
-  %27 = getelementptr inbounds nuw float, ptr %20, i64 %.022.us
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.022.us
   %28 = load float, ptr %27, align 4, !tbaa !21
   %29 = fmul float %28, 4.000000e+00
   %30 = fpext float %29 to double

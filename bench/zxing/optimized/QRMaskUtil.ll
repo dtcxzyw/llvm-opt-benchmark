@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::array.0" = type { [7 x i8] }
 %"struct.std::array" = type { [4 x i8] }
-%"class.ZXing::Trit" = type { i8 }
 
 @__const._ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule3ERKNS_6MatrixINS_4TritEEE.finder = private unnamed_addr constant %"struct.std::array.0" { [7 x i8] c"\01\00\01\01\01\00\01" }, align 1
 
@@ -44,8 +43,8 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   %14 = mul nuw nsw i64 %indvars.iv30.i, %13
   %15 = add nuw nsw i64 %indvars.iv30.i, 1
   %16 = mul nuw nsw i64 %15, %13
-  %17 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %12, i64 %14
-  %18 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %12, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 %14
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %16
   %.pre = load i8, ptr %17, align 1, !tbaa !15
   br label %20
 
@@ -65,21 +64,21 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   %.123.i = phi i32 [ %.02025.i, %.lr.ph.i ], [ %.2.i, %37 ]
   %22 = icmp eq i8 %21, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %23 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %17, i64 %indvars.iv.next.i
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv.next.i
   %24 = load i8, ptr %23, align 1, !tbaa !19
   %25 = icmp eq i8 %24, 1
   %26 = xor i1 %22, %25
   br i1 %26, label %37, label %27
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %18, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i
   %29 = load i8, ptr %28, align 1, !tbaa !19
   %30 = icmp eq i8 %29, 1
   %31 = xor i1 %22, %30
   br i1 %31, label %37, label %32
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %18, i64 %indvars.iv.next.i
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.next.i
   %34 = load i8, ptr %33, align 1, !tbaa !19
   %35 = icmp ne i8 %34, 1
   %not..i = xor i1 %22, %35
@@ -154,8 +153,8 @@ _ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule2ERKNS_6MatrixINS_4TritEEE.exit.
 60:                                               ; preds = %_ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.exit89.i, %.lr.ph.i8
   %indvars.iv.i9 = phi i64 [ 0, %.lr.ph.i8 ], [ %indvars.iv.next.i11, %_ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.exit89.i ]
   %.1139.i = phi i32 [ %.0141.i, %.lr.ph.i8 ], [ %.3.i, %_ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.exit89.i ]
-  %61 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %41, i64 %indvars.iv.i9
-  %62 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %61, i64 %50
+  %61 = getelementptr inbounds nuw i8, ptr %41, i64 %indvars.iv.i9
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %50
   %.not.i = icmp sgt i64 %indvars.iv.i9, %48
   br i1 %.not.i, label %_ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.exit51.i, label %63
 
@@ -184,7 +183,7 @@ _ZN5ZXing6QRCode8MaskUtilL21ApplyMaskPenaltyRule2ERKNS_6MatrixINS_4TritEEE.exit.
   %.sroa.speculated99.i = tail call i32 @llvm.umin.i32(i32 %72, i32 4)
   %73 = sub nsw i32 0, %.sroa.speculated99.i
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %"class.ZXing::Trit", ptr %62, i64 %74
+  %75 = getelementptr inbounds i8, ptr %62, i64 %74
   %.not131.i = icmp eq i64 %indvars.iv.i9, 0
   %spec.select.i.i = select i1 %.not131.i, ptr %62, ptr %75
   %spec.select21.i.i = select i1 %.not131.i, ptr %75, ptr %62
@@ -214,7 +213,7 @@ _ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.e
   %83 = sub i32 %.pre20, %72
   %84 = tail call i32 @llvm.smin.i32(i32 %83, i32 11)
   %85 = sext i32 %84 to i64
-  %86 = getelementptr %"class.ZXing::Trit", ptr %64, i64 %85
+  %86 = getelementptr i8, ptr %64, i64 %85
   %87 = getelementptr i8, ptr %86, i64 -7
   %.not27.i41.i = icmp ult ptr %64, %87
   br i1 %.not27.i41.i, label %.lr.ph.i43.i, label %.critedge2.i
@@ -262,7 +261,7 @@ _ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.e
   br i1 %.not16.i56.i, label %102, label %_ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.exit89.i
 
 102:                                              ; preds = %97
-  %103 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %.01417.i54.i, i64 %46
+  %103 = getelementptr inbounds nuw i8, ptr %.01417.i54.i, i64 %46
   %.013.add.i58.i = add nuw nsw i64 %.013.idx18.i53.i, 1
   %104 = icmp uge ptr %103, %96
   %.not.i59.i = icmp eq i64 %.013.add.i58.i, 7
@@ -270,7 +269,7 @@ _ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.e
   br i1 %or.cond.i60.i, label %.loopexit.i, label %97, !llvm.loop !28
 
 .loopexit.i:                                      ; preds = %102
-  %105 = getelementptr inbounds %"class.ZXing::Trit", ptr %62, i64 %54
+  %105 = getelementptr inbounds i8, ptr %62, i64 %54
   %spec.select.i63.i = select i1 %.not132.i, ptr %61, ptr %105
   %spec.select21.i64.i = select i1 %.not132.i, ptr %105, ptr %62
   %.not27.i65.i = icmp ult ptr %spec.select.i63.i, %spec.select21.i64.i
@@ -288,7 +287,7 @@ _ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.e
   br i1 %.not16.i71.i, label %110, label %_ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.exit75.i
 
 110:                                              ; preds = %.lr.ph.i67.i
-  %111 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %.01422.i69.i, i64 %47
+  %111 = getelementptr inbounds nuw i8, ptr %.01422.i69.i, i64 %47
   %.013.add.i72.i = add nuw nsw i64 %.013.idx23.i68.i, 1
   %112 = icmp uge ptr %111, %spec.select21.i64.i
   %.not.i73.i = icmp eq i64 %.013.add.i72.i, 4
@@ -311,7 +310,7 @@ _ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.e
   br i1 %.not16.i85.i, label %118, label %_ZN5ZXing6QRCode8MaskUtilL12HasPatternAtILm4EEEbRKSt5arrayIbXT_EEPKNS_4TritEii.exit89.i
 
 118:                                              ; preds = %.lr.ph.i81.i
-  %119 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %.01422.i83.i, i64 %47
+  %119 = getelementptr inbounds nuw i8, ptr %.01422.i83.i, i64 %47
   %.013.add.i86.i = add nuw nsw i64 %.013.idx23.i82.i, 1
   %120 = icmp uge ptr %119, %113
   %.not.i87.i = icmp eq i64 %.013.add.i86.i, 4
@@ -428,7 +427,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6QRCode8MaskUtilL29ApplyMaskPenalty
   %20 = add nsw i32 %19, %.03643
   %.pn.in = select i1 %1, i32 %18, i32 %20
   %.pn = sext i32 %.pn.in to i64
-  %21 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %11, i64 %.pn
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 %.pn
   %22 = load i8, ptr %21, align 1, !tbaa !19
   %23 = icmp eq i8 %22, 1
   %24 = zext i1 %23 to i32

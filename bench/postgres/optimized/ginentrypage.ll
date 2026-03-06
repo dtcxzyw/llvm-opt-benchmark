@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.IndexTupleData = type { %struct.ItemPointerData, i16 }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
-%struct.ItemIdData = type { i32 }
 %union.PGAlignedBlock = type { double, [8184 x i8] }
 
 @.str = private unnamed_addr constant [54 x i8] c"index row size %zu exceeds maximum %zu for index \22%s\22\00", align 1
@@ -59,7 +58,7 @@ define dso_local ptr @GinFormTuple(ptr noundef readonly captures(none) %0, i16 n
   store i64 %.sink65, ptr %9, align 16
   store i8 %.sink, ptr %10, align 1
   %24 = getelementptr i8, ptr %0, i64 16
-  %25 = getelementptr ptr, ptr %24, i64 %.pre-phi
+  %25 = getelementptr [8 x i8], ptr %24, i64 %.pre-phi
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @index_form_tuple(ptr noundef %26, ptr noundef nonnull %9, ptr noundef nonnull %10) #10
   %28 = getelementptr i8, ptr %27, i64 6
@@ -268,7 +267,7 @@ define dso_local void @ginEntryFillRoot(ptr readnone captures(none) %0, ptr noun
   %12 = and i64 %11, 65535
   %13 = select i1 %8, i64 0, i64 %12
   %14 = getelementptr i8, ptr %3, i64 20
-  %15 = getelementptr %struct.ItemIdData, ptr %14, i64 %13
+  %15 = getelementptr [4 x i8], ptr %14, i64 %13
   %.val3.i = load i32, ptr %15, align 4
   %16 = and i32 %.val3.i, 32767
   %17 = zext nneg i32 %16 to i64
@@ -359,7 +358,7 @@ GinFormInteriorTuple.exit:                        ; preds = %29, %43
   %68 = and i64 %67, 65535
   %69 = select i1 %64, i64 0, i64 %68
   %70 = getelementptr i8, ptr %5, i64 20
-  %71 = getelementptr %struct.ItemIdData, ptr %70, i64 %69
+  %71 = getelementptr [4 x i8], ptr %70, i64 %69
   %.val3.i16 = load i32, ptr %71, align 4
   %72 = and i32 %.val3.i16, 32767
   %73 = zext nneg i32 %72 to i64
@@ -500,7 +499,7 @@ define internal i32 @entryLocateEntry(ptr noundef %0, ptr noundef captures(none)
   %8 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %9 = xor i32 %5, -1
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   br label %BufferGetPage.exit
 
@@ -581,7 +580,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
 62:                                               ; preds = %52, %56
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %63 = zext i16 %54 to i64
-  %64 = getelementptr %struct.ItemIdData, ptr %47, i64 %63
+  %64 = getelementptr [4 x i8], ptr %47, i64 %63
   %.val63 = load i32, ptr %64, align 4
   %65 = and i32 %.val63, 32767
   %66 = zext nneg i32 %65 to i64
@@ -627,7 +626,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   store i16 %.050.lcssa, ptr %87, align 8
   %88 = zext i16 %.050.lcssa to i64
   %89 = getelementptr i8, ptr %.0.i.i, i64 20
-  %90 = getelementptr %struct.ItemIdData, ptr %89, i64 %88
+  %90 = getelementptr [4 x i8], ptr %89, i64 %88
   %.val64 = load i32, ptr %90, align 4
   %91 = and i32 %.val64, 32767
   %92 = zext nneg i32 %91 to i64
@@ -685,7 +684,7 @@ define internal zeroext i1 @entryIsMoveRight(ptr noundef readonly captures(none)
   %16 = and i64 %15, 65535
   %17 = select i1 %12, i64 0, i64 %16
   %18 = getelementptr i8, ptr %1, i64 20
-  %19 = getelementptr %struct.ItemIdData, ptr %18, i64 %17
+  %19 = getelementptr [4 x i8], ptr %18, i64 %17
   %.val3.i = load i32, ptr %19, align 4
   %20 = and i32 %.val3.i, 32767
   %21 = zext nneg i32 %20 to i64
@@ -725,7 +724,7 @@ define internal noundef zeroext i1 @entryLocateLeafEntry(ptr noundef readonly ca
   %8 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %9 = xor i32 %5, -1
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   br label %BufferGetPage.exit
 
@@ -787,7 +786,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
   %45 = add i16 %44, %.03550
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %46 = zext i16 %45 to i64
-  %47 = getelementptr %struct.ItemIdData, ptr %38, i64 %46
+  %47 = getelementptr [4 x i8], ptr %38, i64 %46
   %.val45 = load i32, ptr %47, align 4
   %48 = and i32 %.val45, 32767
   %49 = zext nneg i32 %48 to i64
@@ -849,7 +848,7 @@ define internal zeroext i16 @entryFindChildPtr(ptr readnone captures(none) %0, p
 13:                                               ; preds = %4
   %14 = zext i16 %3 to i64
   %15 = getelementptr i8, ptr %1, i64 20
-  %16 = getelementptr %struct.ItemIdData, ptr %15, i64 %14
+  %16 = getelementptr [4 x i8], ptr %15, i64 %14
   %.val44 = load i32, ptr %16, align 4
   %17 = and i32 %.val44, 32767
   %18 = zext nneg i32 %17 to i64
@@ -872,7 +871,7 @@ define internal zeroext i16 @entryFindChildPtr(ptr readnone captures(none) %0, p
 
 26:                                               ; preds = %.preheader
   %27 = zext i16 %.030 to i64
-  %28 = getelementptr %struct.ItemIdData, ptr %15, i64 %27
+  %28 = getelementptr [4 x i8], ptr %15, i64 %27
   %.val45 = load i32, ptr %28, align 4
   %29 = and i32 %.val45, 32767
   %30 = zext nneg i32 %29 to i64
@@ -899,7 +898,7 @@ define internal zeroext i16 @entryFindChildPtr(ptr readnone captures(none) %0, p
 39:                                               ; preds = %.lr.ph, %51
   %.150 = phi i16 [ 1, %.lr.ph ], [ %52, %51 ]
   %40 = zext i16 %.150 to i64
-  %41 = getelementptr %struct.ItemIdData, ptr %38, i64 %40
+  %41 = getelementptr [4 x i8], ptr %38, i64 %40
   %.val46 = load i32, ptr %41, align 4
   %42 = and i32 %.val46, 32767
   %43 = zext nneg i32 %42 to i64
@@ -936,7 +935,7 @@ define internal range(i32 1, 3) i32 @entryBeginPlaceToPage(ptr noundef readonly 
   %14 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %15 = xor i32 %1, -1
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8
   br label %BufferGetPage.exit.i
 
@@ -958,7 +957,7 @@ BufferGetPage.exit.i:                             ; preds = %19, %13
 28:                                               ; preds = %BufferGetPage.exit.i
   %29 = zext i16 %11 to i64
   %30 = getelementptr i8, ptr %.0.i.i.i, i64 20
-  %31 = getelementptr %struct.ItemIdData, ptr %30, i64 %29
+  %31 = getelementptr [4 x i8], ptr %30, i64 %29
   %.val12.i = load i32, ptr %31, align 4
   %32 = and i32 %.val12.i, 32767
   %33 = zext nneg i32 %32 to i64
@@ -995,11 +994,11 @@ entryIsEnoughSpace.exit:                          ; preds = %BufferGetPage.exit.
   %50 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %51 = xor i32 %1, -1
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr @PageGetTempPageCopy(ptr noundef %54) #10
   %56 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %52
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %52
   %58 = load ptr, ptr %57, align 8
   br label %BufferGetPage.exit101.i
 
@@ -1047,7 +1046,7 @@ BufferGetPage.exit101.i:                          ; preds = %59, %49
 85:                                               ; preds = %75
   %86 = zext i16 %.val to i64
   %87 = getelementptr i8, ptr %68, i64 20
-  %88 = getelementptr %struct.ItemIdData, ptr %87, i64 %86
+  %88 = getelementptr [4 x i8], ptr %87, i64 %86
   %.val.i.i = load i32, ptr %88, align 4
   %89 = and i32 %.val.i.i, 32767
   %90 = zext nneg i32 %89 to i64
@@ -1106,7 +1105,7 @@ entryPreparePage.exit.i:                          ; preds = %85, %75
 117:                                              ; preds = %108, %106
   %.186.i = phi i64 [ %116, %108 ], [ %.0857.i, %106 ]
   %.181.i = phi ptr [ %114, %108 ], [ %.0808.i, %106 ]
-  %118 = getelementptr %struct.ItemIdData, ptr %103, i64 %indvars.iv.i
+  %118 = getelementptr [4 x i8], ptr %103, i64 %indvars.iv.i
   %.val97.i = load i32, ptr %118, align 4
   %119 = and i32 %.val97.i, 32767
   %120 = zext nneg i32 %119 to i64
@@ -1237,7 +1236,7 @@ define internal void @entryExecPlaceToPage(ptr noundef readonly captures(none) %
   %9 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %10 = xor i32 %1, -1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %BufferGetPage.exit
 
@@ -1278,7 +1277,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
 35:                                               ; preds = %25
   %36 = zext i16 %21 to i64
   %37 = getelementptr i8, ptr %.0.i.i, i64 20
-  %38 = getelementptr %struct.ItemIdData, ptr %37, i64 %36
+  %38 = getelementptr [4 x i8], ptr %37, i64 %36
   %.val.i = load i32, ptr %38, align 4
   %39 = and i32 %.val.i, 32767
   %40 = zext nneg i32 %39 to i64
@@ -1374,7 +1373,7 @@ define internal ptr @entryPrepareDownlink(ptr readnone captures(none) %0, i32 no
   %5 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %6 = xor i32 %1, -1
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8
   br label %BufferGetPage.exit
 
@@ -1398,7 +1397,7 @@ BufferGetPage.exit:                               ; preds = %4, %10
   %22 = and i64 %21, 65535
   %23 = select i1 %18, i64 0, i64 %22
   %24 = getelementptr i8, ptr %.0.i.i, i64 20
-  %25 = getelementptr %struct.ItemIdData, ptr %24, i64 %23
+  %25 = getelementptr [4 x i8], ptr %24, i64 %23
   %.val3.i = load i32, ptr %25, align 4
   %26 = and i32 %.val3.i, 32767
   %27 = zext nneg i32 %26 to i64

@@ -3,8 +3,6 @@ source_filename = "bench/wireshark/original/opcua_keyset.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ua_keyset = type { i64, [16 x i8], [16 x i8], [32 x i8], [32 x i8], i32, i32, i32, i32 }
-
 @g_keysets = internal unnamed_addr global ptr null, align 8
 @g_num_keysets = internal unnamed_addr global i32 0, align 4
 @g_sorted = internal unnamed_addr global i1 false, align 1
@@ -64,7 +62,7 @@ define hidden noundef ptr @ua_keysets_add() local_unnamed_addr #1 {
   %10 = add i32 %9, 1
   store i32 %10, ptr @g_num_keysets, align 4
   %11 = zext i32 %9 to i64
-  %12 = getelementptr %struct.ua_keyset, ptr %6, i64 %11
+  %12 = getelementptr [120 x i8], ptr %6, i64 %11
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(120) %12, i8 noundef 0, i64 noundef 120, i1 noundef false) #9
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 112
   store i32 32, ptr %13, align 8
@@ -168,7 +166,7 @@ define hidden void @ua_keysets_dump() local_unnamed_addr #1 {
 .lr.ph:                                           ; preds = %0, %print_hex.exit42
   %indvars.iv = phi i64 [ %indvars.iv.next, %print_hex.exit42 ], [ 0, %0 ]
   %4 = load ptr, ptr @g_keysets, align 8
-  %5 = getelementptr %struct.ua_keyset, ptr %4, i64 %indvars.iv
+  %5 = getelementptr [120 x i8], ptr %4, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8
   %7 = lshr i64 %6, 32
   %8 = trunc nuw i64 %7 to i32

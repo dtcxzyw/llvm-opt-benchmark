@@ -27,9 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_call_stack = type { ptr, i64 }
 %struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
 %struct.timespec = type { i64, i64 }
-%struct._gc_root_buffer = type { ptr }
 %struct._gc_stack = type { ptr, ptr, [510 x ptr] }
-%struct._zend_live_range = type { i32, i32, i32 }
 
 @gc_globals = internal unnamed_addr global %struct._zend_gc_globals zeroinitializer, align 8
 @executor_globals = external global %struct._zend_executor_globals, align 8
@@ -207,7 +205,7 @@ define dso_local void @gc_possible_root(ptr noundef %0) local_unnamed_addr #2 {
 6:                                                ; preds = %4
   %7 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %8 = zext i32 %5 to i64
-  %9 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 3
@@ -242,7 +240,7 @@ define dso_local void @gc_possible_root(ptr noundef %0) local_unnamed_addr #2 {
   %.pre-phi = phi i64 [ %.pre7, %20 ], [ %8, %6 ]
   %26 = phi ptr [ %.pre, %20 ], [ %7, %6 ]
   %.0 = phi i32 [ %17, %20 ], [ %5, %6 ]
-  %27 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %26, i64 %.pre-phi
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.pre-phi
   store ptr %0, ptr %27, align 8, !tbaa !32
   %28 = icmp ult i32 %.0, 524288
   br i1 %28, label %gc_compress.exit, label %29, !prof !25
@@ -367,7 +365,7 @@ gc_adjust_threshold.exit:                         ; preds = %15, %22, %31, %.sin
 45:                                               ; preds = %43
   %46 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %47 = zext i32 %44 to i64
-  %48 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !32
   %50 = ptrtoint ptr %49 to i64
   %51 = and i64 %50, 3
@@ -405,7 +403,7 @@ gc_adjust_threshold.exit:                         ; preds = %15, %22, %31, %.sin
   %.0 = phi i32 [ %44, %45 ], [ %56, %58 ], [ %61, %63 ]
   %66 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %67 = zext i32 %.0 to i64
-  %68 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %67
   store ptr %0, ptr %68, align 8, !tbaa !32
   %69 = icmp ult i32 %.0, 524288
   br i1 %69, label %gc_compress.exit, label %70, !prof !25
@@ -454,7 +452,7 @@ define dso_local void @gc_remove_from_buffer(ptr noundef captures(address) %0) l
   tail call void @llvm.assume(i1 %11)
   %12 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %13 = zext nneg i32 %5 to i64
-  %14 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4, !tbaa !38
   %16 = zext i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 3
@@ -475,7 +473,7 @@ define dso_local void @gc_remove_from_buffer(ptr noundef captures(address) %0) l
 define internal fastcc void @gc_remove_compressed(ptr noundef readnone captures(address) %0, i32 noundef range(i32 0, 1048576) %1) unnamed_addr #8 {
   %3 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !32
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, -4
@@ -493,7 +491,7 @@ define internal fastcc void @gc_remove_compressed(ptr noundef readnone captures(
   %14 = icmp ult i32 %13, %11
   tail call void @llvm.assume(i1 %14)
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %3, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !32
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, -4
@@ -502,7 +500,7 @@ define internal fastcc void @gc_remove_compressed(ptr noundef readnone captures(
   br i1 %21, label %gc_decompress.exit.loopexit, label %12
 
 gc_decompress.exit.loopexit:                      ; preds = %12
-  %22 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %3, i64 %15
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %15
   br label %gc_decompress.exit
 
 gc_decompress.exit:                               ; preds = %gc_decompress.exit.loopexit, %2
@@ -602,7 +600,7 @@ zend_hrtime.exit128:                              ; preds = %0, %18
 .lr.ph.i:                                         ; preds = %30, %83
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %83 ], [ 0, %30 ]
   %42 = load ptr, ptr %39, align 8, !tbaa !39
-  %43 = getelementptr inbounds nuw %struct._zend_live_range, ptr %42, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [12 x i8], ptr %42, i64 %indvars.iv.i
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4, !tbaa !52
   %46 = icmp ugt i32 %45, %38
@@ -655,7 +653,7 @@ zend_hrtime.exit128:                              ; preds = %0, %18
   call void @llvm.assume(i1 %72)
   %73 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %74 = zext nneg i32 %66 to i64
-  %75 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %74
   %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4, !tbaa !38
   %77 = zext i32 %76 to i64
   %78 = shl nuw nsw i64 %77, 3
@@ -749,7 +747,7 @@ gc_compact.exit.i.thread:                         ; preds = %107
 115:                                              ; preds = %107
   %116 = add i32 %111, -1
   %117 = zext i32 %94 to i64
-  %118 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %112, i64 %117
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %117
   %119 = icmp ugt i32 %116, 1
   br i1 %119, label %.preheader29.preheader.i.i, label %gc_compact.exit.i.thread581
 
@@ -961,7 +959,7 @@ gc_stack_push.exit.i.i:                           ; preds = %207, %203
   %.15.i.i = phi i64 [ 0, %207 ], [ %.2180233.i.i, %203 ]
   %209 = getelementptr inbounds nuw i8, ptr %.15201.i.i, i64 16
   %210 = add i64 %.15.i.i, 1
-  %211 = getelementptr inbounds nuw ptr, ptr %209, i64 %.15.i.i
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %.15.i.i
   store ptr %193, ptr %211, align 8, !tbaa !59
   br label %212
 
@@ -1045,7 +1043,7 @@ gc_stack_push.exit153.i.i:                        ; preds = %246, %242
   %.16.i.i = phi i64 [ 0, %246 ], [ %.4182275.i.i, %242 ]
   %248 = getelementptr inbounds nuw i8, ptr %.16202.i.i, i64 16
   %249 = add i64 %.16.i.i, 1
-  %250 = getelementptr inbounds nuw ptr, ptr %248, i64 %.16.i.i
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %.16.i.i
   store ptr %232, ptr %250, align 8, !tbaa !59
   br label %251
 
@@ -1121,7 +1119,7 @@ gc_stack_push.exit154.i.i:                        ; preds = %283, %279
   %.17.i.i = phi i64 [ 0, %283 ], [ %.7185239.i.i, %279 ]
   %285 = getelementptr inbounds nuw i8, ptr %.17203.i.i, i64 16
   %286 = add i64 %.17.i.i, 1
-  %287 = getelementptr inbounds nuw ptr, ptr %285, i64 %.17.i.i
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %.17.i.i
   store ptr %272, ptr %287, align 8, !tbaa !59
   br label %288
 
@@ -1211,7 +1209,7 @@ gc_stack_push.exit155.i.i:                        ; preds = %324, %320
   %.18.i.i = phi i64 [ 0, %324 ], [ %.11267.i.i, %320 ]
   %326 = getelementptr inbounds nuw i8, ptr %.18204.i.i, i64 16
   %327 = add i64 %.18.i.i, 1
-  %328 = getelementptr inbounds nuw ptr, ptr %326, i64 %.18.i.i
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %326, i64 %.18.i.i
   store ptr %313, ptr %328, align 8, !tbaa !59
   br label %329
 
@@ -1351,7 +1349,7 @@ gc_stack_push.exit156.i.i:                        ; preds = %391, %387
   %.19.i.i = phi i64 [ 0, %391 ], [ %.13253.i.i, %387 ]
   %393 = getelementptr inbounds nuw i8, ptr %.19205.i.i, i64 16
   %394 = add i64 %.19.i.i, 1
-  %395 = getelementptr inbounds nuw ptr, ptr %393, i64 %.19.i.i
+  %395 = getelementptr inbounds nuw [8 x i8], ptr %393, i64 %.19.i.i
   store ptr %380, ptr %395, align 8, !tbaa !59
   br label %396
 
@@ -1412,7 +1410,7 @@ gc_stack_push.exit156.i.i:                        ; preds = %391, %387
 422:                                              ; preds = %.loopexit.i11.i
   %423 = getelementptr inbounds nuw i8, ptr %.6192.i.i, i64 16
   %424 = add i64 %.6184.i.i, -1
-  %425 = getelementptr inbounds nuw ptr, ptr %423, i64 %424
+  %425 = getelementptr inbounds nuw [8 x i8], ptr %423, i64 %424
   br label %gc_stack_pop.exit.i.i
 
 gc_stack_pop.exit.i.i:                            ; preds = %422, %420
@@ -1460,7 +1458,7 @@ gc_scan_roots.exit.thread:                        ; preds = %gc_compact.exit.i, 
 .lr.ph.i136:                                      ; preds = %442, %.lr.ph.preheader.i135
   %428 = phi ptr [ %.pre25.i, %.lr.ph.preheader.i135 ], [ %.pre28.i, %442 ]
   %indvars.iv.i137 = phi i64 [ 1, %.lr.ph.preheader.i135 ], [ %indvars.iv.next.i138, %442 ]
-  %429 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %428, i64 %indvars.iv.i137
+  %429 = getelementptr inbounds nuw [8 x i8], ptr %428, i64 %indvars.iv.i137
   %430 = load ptr, ptr %429, align 8, !tbaa !32
   %431 = ptrtoint ptr %430 to i64
   %432 = and i64 %431, 3
@@ -1494,7 +1492,7 @@ gc_scan_roots.exit.thread:                        ; preds = %gc_compact.exit.i, 
   %444 = phi ptr [ %460, %459 ], [ %.pre28.i, %.preheader.i ]
   %.122.i = phi i32 [ %461, %459 ], [ %.pre464, %.preheader.i ]
   %445 = zext i32 %.122.i to i64
-  %446 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %444, i64 %445
+  %446 = getelementptr inbounds nuw [8 x i8], ptr %444, i64 %445
   %447 = load ptr, ptr %446, align 8, !tbaa !32
   %448 = ptrtoint ptr %447 to i64
   %449 = and i64 %448, 3
@@ -1598,7 +1596,7 @@ gc_scan_roots.exit:                               ; preds = %459, %.preheader.i
 497:                                              ; preds = %496
   %498 = add i32 %493, -1
   %499 = zext i32 %494 to i64
-  %500 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %492, i64 %499
+  %500 = getelementptr inbounds nuw [8 x i8], ptr %492, i64 %499
   %501 = icmp ugt i32 %498, 1
   br i1 %501, label %.preheader29.preheader.i.i191, label %.loopexit.i.i147
 
@@ -1693,7 +1691,7 @@ gc_compact.exit.i148:                             ; preds = %.loopexit.i.i147, %
   %indvars.iv.i149 = phi i64 [ %indvars.iv.next.i150, %917 ], [ 1, %gc_compact.exit.i148 ]
   %.02359.i = phi i32 [ %.1.i, %917 ], [ 0, %gc_compact.exit.i148 ]
   %541 = load ptr, ptr @gc_globals, align 8, !tbaa !16
-  %542 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %541, i64 %indvars.iv.i149
+  %542 = getelementptr inbounds nuw [8 x i8], ptr %541, i64 %indvars.iv.i149
   %543 = load ptr, ptr %542, align 8, !tbaa !32
   %544 = ptrtoint ptr %543 to i64
   call void @llvm.assume(i1 true) [ "align"(ptr %543, i64 4) ]
@@ -1751,7 +1749,7 @@ gc_compact.exit.i148:                             ; preds = %.loopexit.i.i147, %
 563:                                              ; preds = %561
   %564 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %565 = zext i32 %562 to i64
-  %566 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %564, i64 %565
+  %566 = getelementptr inbounds nuw [8 x i8], ptr %564, i64 %565
   %567 = load ptr, ptr %566, align 8, !tbaa !32
   %568 = ptrtoint ptr %567 to i64
   %569 = and i64 %568, 3
@@ -1817,7 +1815,7 @@ gc_grow_root_buffer.exit.i257:                    ; preds = %583, %582
   %.0.i251 = phi i32 [ %562, %563 ], [ %574, %576 ], [ %592, %593 ]
   %596 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %597 = zext i32 %.0.i251 to i64
-  %598 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %596, i64 %597
+  %598 = getelementptr inbounds nuw [8 x i8], ptr %596, i64 %597
   %599 = ptrtoint ptr %.0.i.i155 to i64
   %600 = or i64 %599, 2
   %601 = inttoptr i64 %600 to ptr
@@ -1936,7 +1934,7 @@ gc_stack_push.exit169.i.i:                        ; preds = %653, %650
   %.19.i.i187 = phi i64 [ 0, %653 ], [ %.2192263.i.i, %650 ]
   %655 = getelementptr inbounds nuw i8, ptr %.19217.i.i, i64 16
   %656 = add i64 %.19.i.i187, 1
-  %657 = getelementptr inbounds nuw ptr, ptr %655, i64 %.19.i.i187
+  %657 = getelementptr inbounds nuw [8 x i8], ptr %655, i64 %.19.i.i187
   store ptr %643, ptr %657, align 8, !tbaa !59
   br label %658
 
@@ -2015,7 +2013,7 @@ gc_stack_push.exit168.i.i:                        ; preds = %690, %687
   %.18.i.i186 = phi i64 [ 0, %690 ], [ %.4194305.i.i, %687 ]
   %692 = getelementptr inbounds nuw i8, ptr %.18216.i.i, i64 16
   %693 = add i64 %.18.i.i186, 1
-  %694 = getelementptr inbounds nuw ptr, ptr %692, i64 %.18.i.i186
+  %694 = getelementptr inbounds nuw [8 x i8], ptr %692, i64 %.18.i.i186
   store ptr %680, ptr %694, align 8, !tbaa !59
   br label %695
 
@@ -2087,7 +2085,7 @@ gc_stack_push.exit167.i.i:                        ; preds = %725, %722
   %.17.i.i185 = phi i64 [ 0, %725 ], [ %.7197269.i.i, %722 ]
   %727 = getelementptr inbounds nuw i8, ptr %.17215.i.i, i64 16
   %728 = add i64 %.17.i.i185, 1
-  %729 = getelementptr inbounds nuw ptr, ptr %727, i64 %.17.i.i185
+  %729 = getelementptr inbounds nuw [8 x i8], ptr %727, i64 %.17.i.i185
   store ptr %715, ptr %729, align 8, !tbaa !59
   br label %730
 
@@ -2175,7 +2173,7 @@ gc_stack_push.exit166.i.i:                        ; preds = %764, %761
   %.16.i.i168 = phi i64 [ 0, %764 ], [ %.11297.i.i, %761 ]
   %766 = getelementptr inbounds nuw i8, ptr %.16214.i.i, i64 16
   %767 = add i64 %.16.i.i168, 1
-  %768 = getelementptr inbounds nuw ptr, ptr %766, i64 %.16.i.i168
+  %768 = getelementptr inbounds nuw [8 x i8], ptr %766, i64 %.16.i.i168
   store ptr %754, ptr %768, align 8, !tbaa !59
   br label %769
 
@@ -2205,7 +2203,7 @@ gc_stack_push.exit166.i.i:                        ; preds = %764, %761
 777:                                              ; preds = %775
   %778 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %779 = zext i32 %776 to i64
-  %780 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %778, i64 %779
+  %780 = getelementptr inbounds nuw [8 x i8], ptr %778, i64 %779
   %781 = load ptr, ptr %780, align 8, !tbaa !32
   %782 = ptrtoint ptr %781 to i64
   %783 = and i64 %782, 3
@@ -2271,7 +2269,7 @@ gc_grow_root_buffer.exit.i:                       ; preds = %797, %796
   %.0.i246 = phi i32 [ %776, %777 ], [ %788, %790 ], [ %806, %807 ]
   %810 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %811 = zext i32 %.0.i246 to i64
-  %812 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %810, i64 %811
+  %812 = getelementptr inbounds nuw [8 x i8], ptr %810, i64 %811
   %813 = ptrtoint ptr %.0.i.i155 to i64
   %814 = or i64 %813, 2
   %815 = inttoptr i64 %814 to ptr
@@ -2413,7 +2411,7 @@ gc_stack_push.exit.i.i174:                        ; preds = %880, %877
   %.15.i.i175 = phi i64 [ 0, %880 ], [ %.13283.i.i, %877 ]
   %882 = getelementptr inbounds nuw i8, ptr %.15213.i.i, i64 16
   %883 = add i64 %.15.i.i175, 1
-  %884 = getelementptr inbounds nuw ptr, ptr %882, i64 %.15.i.i175
+  %884 = getelementptr inbounds nuw [8 x i8], ptr %882, i64 %.15.i.i175
   store ptr %870, ptr %884, align 8, !tbaa !59
   br label %885
 
@@ -2483,7 +2481,7 @@ gc_stack_push.exit.i.i174:                        ; preds = %880, %877
 912:                                              ; preds = %.loopexit.i27.i
   %913 = getelementptr inbounds nuw i8, ptr %.6204.i.i, i64 16
   %914 = add i64 %.6196.i.i, -1
-  %915 = getelementptr inbounds nuw ptr, ptr %913, i64 %914
+  %915 = getelementptr inbounds nuw [8 x i8], ptr %913, i64 %914
   br label %gc_stack_pop.exit.i.i161
 
 gc_stack_pop.exit.i.i161:                         ; preds = %912, %910
@@ -2673,7 +2671,7 @@ gc_collect_roots.exit.thread:                     ; preds = %gc_compact.exit.i14
   call void @llvm.assume(i1 %975)
   %976 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %977 = zext nneg i32 %969 to i64
-  %978 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %976, i64 %977
+  %978 = getelementptr inbounds nuw [8 x i8], ptr %976, i64 %977
   %979 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4, !tbaa !38
   %980 = zext i32 %979 to i64
   %981 = shl nuw nsw i64 %980, 3
@@ -2769,7 +2767,7 @@ gc_stack_push.exit.i:                             ; preds = %1018, %1015
   %.13.i = phi i64 [ 0, %1018 ], [ %.3137184.i, %1015 ]
   %1020 = getelementptr inbounds nuw i8, ptr %.13154.i, i64 16
   %1021 = add i64 %.13.i, 1
-  %1022 = getelementptr inbounds nuw ptr, ptr %1020, i64 %.13.i
+  %1022 = getelementptr inbounds nuw [8 x i8], ptr %1020, i64 %.13.i
   store ptr %1016, ptr %1022, align 8, !tbaa !59
   br label %1023
 
@@ -2823,7 +2821,7 @@ gc_stack_push.exit116.i:                          ; preds = %1039, %1036
   %.14.i = phi i64 [ 0, %1039 ], [ %.5139192.i, %1036 ]
   %1041 = getelementptr inbounds nuw i8, ptr %.14155.i, i64 16
   %1042 = add i64 %.14.i, 1
-  %1043 = getelementptr inbounds nuw ptr, ptr %1041, i64 %.14.i
+  %1043 = getelementptr inbounds nuw [8 x i8], ptr %1041, i64 %.14.i
   store ptr %1037, ptr %1043, align 8, !tbaa !59
   br label %1044
 
@@ -2863,7 +2861,7 @@ gc_stack_push.exit116.i:                          ; preds = %1039, %1036
   call void @llvm.assume(i1 %1058)
   %1059 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %1060 = zext nneg i32 %1052 to i64
-  %1061 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %1059, i64 %1060
+  %1061 = getelementptr inbounds nuw [8 x i8], ptr %1059, i64 %1060
   %1062 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 12), align 4, !tbaa !38
   %1063 = zext i32 %1062 to i64
   %1064 = shl nuw nsw i64 %1063, 3
@@ -2925,7 +2923,7 @@ gc_stack_push.exit117.i:                          ; preds = %1083, %1080
   %.15.i = phi i64 [ 0, %1083 ], [ %.9221.i, %1080 ]
   %1085 = getelementptr inbounds nuw i8, ptr %.15156.i, i64 16
   %1086 = add i64 %.15.i, 1
-  %1087 = getelementptr inbounds nuw ptr, ptr %1085, i64 %.15.i
+  %1087 = getelementptr inbounds nuw [8 x i8], ptr %1085, i64 %.15.i
   store ptr %1081, ptr %1087, align 8, !tbaa !59
   br label %1088
 
@@ -3029,7 +3027,7 @@ gc_stack_push.exit118.i:                          ; preds = %1128, %1125
   %.16.i = phi i64 [ 0, %1128 ], [ %.11206.i, %1125 ]
   %1130 = getelementptr inbounds nuw i8, ptr %.16157.i, i64 16
   %1131 = add i64 %.16.i, 1
-  %1132 = getelementptr inbounds nuw ptr, ptr %1130, i64 %.16.i
+  %1132 = getelementptr inbounds nuw [8 x i8], ptr %1130, i64 %.16.i
   store ptr %1126, ptr %1132, align 8, !tbaa !59
   br label %1133
 
@@ -3063,7 +3061,7 @@ gc_stack_push.exit118.i:                          ; preds = %1128, %1125
 1142:                                             ; preds = %.loopexit165.i
   %1143 = getelementptr inbounds nuw i8, ptr %.1142.i, i64 16
   %1144 = add i64 %.1.i212, -1
-  %1145 = getelementptr inbounds nuw ptr, ptr %1143, i64 %1144
+  %1145 = getelementptr inbounds nuw [8 x i8], ptr %1143, i64 %1144
   br label %gc_stack_pop.exit.i
 
 gc_stack_pop.exit.i:                              ; preds = %1142, %1140
@@ -3125,7 +3123,7 @@ zend_hrtime.exit124:                              ; preds = %._crit_edge371, %11
 .lr.ph375:                                        ; preds = %.lr.ph375.preheader, %.critedge.i
   %1155 = phi ptr [ %.pre468, %.lr.ph375.preheader ], [ %1178, %.critedge.i ]
   %indvars.iv = phi i64 [ 1, %.lr.ph375.preheader ], [ %indvars.iv.next, %.critedge.i ]
-  %1156 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %1155, i64 %indvars.iv
+  %1156 = getelementptr inbounds nuw [8 x i8], ptr %1155, i64 %indvars.iv
   %1157 = load ptr, ptr %1156, align 8, !tbaa !32
   %1158 = ptrtoint ptr %1157 to i64
   %1159 = and i64 %1158, 3
@@ -3259,7 +3257,7 @@ zend_hrtime.exit118:                              ; preds = %gc_stack_free.exit2
 .lr.ph378:                                        ; preds = %zend_hrtime.exit118, %1266
   %indvars.iv458 = phi i64 [ %indvars.iv.next459, %1266 ], [ 1, %zend_hrtime.exit118 ]
   %1210 = load ptr, ptr @gc_globals, align 8, !tbaa !16
-  %1211 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %1210, i64 %indvars.iv458
+  %1211 = getelementptr inbounds nuw [8 x i8], ptr %1210, i64 %indvars.iv458
   %1212 = load ptr, ptr %1211, align 8, !tbaa !32
   %1213 = ptrtoint ptr %1212 to i64
   %1214 = and i64 %1213, 3
@@ -3285,7 +3283,7 @@ zend_hrtime.exit118:                              ; preds = %gc_stack_free.exit2
   %1227 = getelementptr inbounds nuw i8, ptr %1218, i64 8
   %1228 = load i32, ptr %1227, align 8, !tbaa !111
   %1229 = zext i32 %1228 to i64
-  %1230 = getelementptr inbounds nuw ptr, ptr %1226, i64 %1229
+  %1230 = getelementptr inbounds nuw [8 x i8], ptr %1226, i64 %1229
   store ptr %1225, ptr %1230, align 8, !tbaa !112
   %1231 = load i32, ptr %1219, align 4, !tbaa !39
   %1232 = and i32 %1231, -32
@@ -3333,7 +3331,7 @@ zend_hrtime.exit118:                              ; preds = %gc_stack_free.exit2
   %1259 = or disjoint i64 %1258, 1
   %1260 = inttoptr i64 %1259 to ptr
   %1261 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 880), align 8, !tbaa !110
-  %1262 = getelementptr inbounds nuw ptr, ptr %1261, i64 %.pre-phi
+  %1262 = getelementptr inbounds nuw [8 x i8], ptr %1261, i64 %.pre-phi
   store ptr %1260, ptr %1262, align 8, !tbaa !112
   store i32 %1255, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 896), align 8, !tbaa !115
   br label %1266
@@ -3454,7 +3452,7 @@ zend_hrtime.exit118:                              ; preds = %gc_stack_free.exit2
   %1313 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %1314 = add i32 %1309, -1
   %1315 = zext i32 %.pr275 to i64
-  %1316 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %1313, i64 %1315
+  %1316 = getelementptr inbounds nuw [8 x i8], ptr %1313, i64 %1315
   %1317 = icmp ugt i32 %1314, 1
   br i1 %1317, label %.preheader29.preheader.i, label %.loopexit.i
 
@@ -3588,7 +3586,7 @@ gc_compact.exit:                                  ; preds = %.thread595, %1301, 
   %1373 = phi i32 [ %1409, %1408 ], [ %1372, %1361 ]
   %indvars.iv.i235 = phi i64 [ %indvars.iv.next.i237, %1408 ], [ 0, %1361 ]
   %1374 = load ptr, ptr %1370, align 8, !tbaa !39
-  %1375 = getelementptr inbounds nuw %struct._zend_live_range, ptr %1374, i64 %indvars.iv.i235
+  %1375 = getelementptr inbounds nuw [12 x i8], ptr %1374, i64 %indvars.iv.i235
   %1376 = getelementptr inbounds nuw i8, ptr %1375, i64 4
   %1377 = load i32, ptr %1376, align 4, !tbaa !52
   %1378 = icmp ugt i32 %1377, %1369
@@ -3841,7 +3839,7 @@ define dso_local void @zend_get_gc_buffer_grow(ptr noundef captures(none) initia
   %12 = shl i64 %11, 4
   %13 = tail call ptr @_erealloc(ptr noundef %5, i64 noundef %12) #21
   store ptr %13, ptr %4, align 8, !tbaa !109
-  %14 = getelementptr inbounds nuw %struct._zval_struct, ptr %13, i64 %11
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %11
   store ptr %14, ptr %2, align 8, !tbaa !134
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 %8
   store ptr %15, ptr %0, align 8, !tbaa !133
@@ -4058,7 +4056,7 @@ define internal fastcc void @gc_scan(ptr noundef %0, ptr noundef nonnull %1) unn
 47:                                               ; preds = %45
   %48 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %49 = zext i32 %46 to i64
-  %50 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !32
   %52 = ptrtoint ptr %51 to i64
   %53 = and i64 %52, 3
@@ -4096,7 +4094,7 @@ define internal fastcc void @gc_scan(ptr noundef %0, ptr noundef nonnull %1) unn
   %.0.i162.i = phi i32 [ %46, %47 ], [ %58, %60 ], [ %63, %65 ]
   %68 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %69 = zext i32 %.0.i162.i to i64
-  %70 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %69
   store ptr %39, ptr %70, align 8, !tbaa !32
   %71 = icmp ult i32 %.0.i162.i, 524288
   br i1 %71, label %gc_compress.exit.i.i, label %72, !prof !25
@@ -4150,7 +4148,7 @@ gc_stack_push.exit160.i:                          ; preds = %94, %91
   %.19.i = phi i64 [ 0, %94 ], [ %.2193246.i, %91 ]
   %96 = getelementptr inbounds nuw i8, ptr %.19218.i, i64 16
   %97 = add i64 %.19.i, 1
-  %98 = getelementptr inbounds nuw ptr, ptr %96, i64 %.19.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %.19.i
   store ptr %85, ptr %98, align 8, !tbaa !59
   br label %gc_extra_root.exit.i
 
@@ -4217,7 +4215,7 @@ gc_extra_root.exit.i:                             ; preds = %gc_stack_push.exit1
 125:                                              ; preds = %123
   %126 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %127 = zext i32 %124 to i64
-  %128 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %127
   %129 = load ptr, ptr %128, align 8, !tbaa !32
   %130 = ptrtoint ptr %129 to i64
   %131 = and i64 %130, 3
@@ -4255,7 +4253,7 @@ gc_extra_root.exit.i:                             ; preds = %gc_stack_push.exit1
   %.0.i164.i = phi i32 [ %124, %125 ], [ %136, %138 ], [ %141, %143 ]
   %146 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %147 = zext i32 %.0.i164.i to i64
-  %148 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %147
   store ptr %117, ptr %148, align 8, !tbaa !32
   %149 = icmp ult i32 %.0.i164.i, 524288
   br i1 %149, label %gc_compress.exit.i165.i, label %150, !prof !25
@@ -4309,7 +4307,7 @@ gc_stack_push.exit159.i:                          ; preds = %172, %169
   %.18.i = phi i64 [ 0, %172 ], [ %.4195288.i, %169 ]
   %174 = getelementptr inbounds nuw i8, ptr %.18217.i, i64 16
   %175 = add i64 %.18.i, 1
-  %176 = getelementptr inbounds nuw ptr, ptr %174, i64 %.18.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %.18.i
   store ptr %163, ptr %176, align 8, !tbaa !59
   br label %gc_extra_root.exit169.i
 
@@ -4379,7 +4377,7 @@ gc_stack_push.exit158.i:                          ; preds = %204, %201
   %.17.i = phi i64 [ 0, %204 ], [ %.7198252.i, %201 ]
   %206 = getelementptr inbounds nuw i8, ptr %.17216.i, i64 16
   %207 = add i64 %.17.i, 1
-  %208 = getelementptr inbounds nuw ptr, ptr %206, i64 %.17.i
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %.17.i
   store ptr %195, ptr %208, align 8, !tbaa !59
   br label %209
 
@@ -4463,7 +4461,7 @@ gc_stack_push.exit157.i:                          ; preds = %241, %238
   %.16.i = phi i64 [ 0, %241 ], [ %.11280.i, %238 ]
   %243 = getelementptr inbounds nuw i8, ptr %.16215.i, i64 16
   %244 = add i64 %.16.i, 1
-  %245 = getelementptr inbounds nuw ptr, ptr %243, i64 %.16.i
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %.16.i
   store ptr %232, ptr %245, align 8, !tbaa !59
   br label %246
 
@@ -4589,7 +4587,7 @@ gc_stack_push.exit.i:                             ; preds = %300, %297
   %.15.i = phi i64 [ 0, %300 ], [ %.13266.i, %297 ]
   %302 = getelementptr inbounds nuw i8, ptr %.15214.i, i64 16
   %303 = add i64 %.15.i, 1
-  %304 = getelementptr inbounds nuw ptr, ptr %302, i64 %.15.i
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %302, i64 %.15.i
   store ptr %291, ptr %304, align 8, !tbaa !59
   br label %305
 
@@ -4647,7 +4645,7 @@ gc_stack_push.exit.i:                             ; preds = %300, %297
 329:                                              ; preds = %.loopexit.i
   %330 = getelementptr inbounds nuw i8, ptr %.6205.i, i64 16
   %331 = add i64 %.6197.i, -1
-  %332 = getelementptr inbounds nuw ptr, ptr %330, i64 %331
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %330, i64 %331
   br label %gc_stack_pop.exit.i
 
 gc_stack_pop.exit.i:                              ; preds = %329, %327
@@ -4737,7 +4735,7 @@ gc_stack_push.exit127:                            ; preds = %354, %358
   %.17 = phi i64 [ 0, %358 ], [ %.3158236, %354 ]
   %360 = getelementptr inbounds nuw i8, ptr %.17179, i64 16
   %361 = add i64 %.17, 1
-  %362 = getelementptr inbounds nuw ptr, ptr %360, i64 %.17
+  %362 = getelementptr inbounds nuw [8 x i8], ptr %360, i64 %.17
   store ptr %350, ptr %362, align 8, !tbaa !59
   br label %363
 
@@ -4784,7 +4782,7 @@ gc_stack_push.exit126:                            ; preds = %377, %381
   %.16 = phi i64 [ 0, %381 ], [ %.2157, %377 ]
   %383 = getelementptr inbounds nuw i8, ptr %.16178, i64 16
   %384 = add i64 %.16, 1
-  %385 = getelementptr inbounds nuw ptr, ptr %383, i64 %.16
+  %385 = getelementptr inbounds nuw [8 x i8], ptr %383, i64 %.16
   store ptr %370, ptr %385, align 8, !tbaa !59
   %.not110241 = icmp eq i32 %371, 0
   br i1 %.not110241, label %.loopexit192, label %.lr.ph246
@@ -4823,7 +4821,7 @@ gc_stack_push.exit125:                            ; preds = %394, %398
   %.15 = phi i64 [ 0, %398 ], [ %.5160243, %394 ]
   %400 = getelementptr inbounds nuw i8, ptr %.15177, i64 16
   %401 = add i64 %.15, 1
-  %402 = getelementptr inbounds nuw ptr, ptr %400, i64 %.15
+  %402 = getelementptr inbounds nuw [8 x i8], ptr %400, i64 %.15
   store ptr %390, ptr %402, align 8, !tbaa !59
   br label %403
 
@@ -4903,7 +4901,7 @@ gc_stack_push.exit124:                            ; preds = %429, %433
   %.14 = phi i64 [ 0, %433 ], [ %.9271, %429 ]
   %435 = getelementptr inbounds nuw i8, ptr %.14176, i64 16
   %436 = add i64 %.14, 1
-  %437 = getelementptr inbounds nuw ptr, ptr %435, i64 %.14
+  %437 = getelementptr inbounds nuw [8 x i8], ptr %435, i64 %.14
   store ptr %425, ptr %437, align 8, !tbaa !59
   br label %438
 
@@ -5039,7 +5037,7 @@ gc_stack_push.exit:                               ; preds = %490, %494
   %.13 = phi i64 [ 0, %494 ], [ %.11257, %490 ]
   %496 = getelementptr inbounds nuw i8, ptr %.13175, i64 16
   %497 = add i64 %.13, 1
-  %498 = getelementptr inbounds nuw ptr, ptr %496, i64 %.13
+  %498 = getelementptr inbounds nuw [8 x i8], ptr %496, i64 %.13
   store ptr %486, ptr %498, align 8, !tbaa !59
   br label %499
 
@@ -5097,7 +5095,7 @@ gc_stack_push.exit:                               ; preds = %490, %494
 522:                                              ; preds = %.loopexit189
   %523 = getelementptr inbounds nuw i8, ptr %.1163, i64 16
   %524 = add i64 %.1156, -1
-  %525 = getelementptr inbounds nuw ptr, ptr %523, i64 %524
+  %525 = getelementptr inbounds nuw [8 x i8], ptr %523, i64 %524
   br label %gc_stack_pop.exit
 
 gc_stack_pop.exit:                                ; preds = %520, %522
@@ -5196,7 +5194,7 @@ define internal void @zif_gc_destructor_fiber(ptr readnone captures(none) %0, pt
   %10 = phi ptr [ %50, %.critedge.i ], [ %.pre22, %.lr.ph.preheader ]
   %.022.i20 = phi i32 [ %51, %.critedge.i ], [ %8, %.lr.ph.preheader ]
   %11 = zext i32 %.022.i20 to i64
-  %12 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !32
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, 3

@@ -324,8 +324,8 @@ define hidden void @proto_register_gsm_bsslap() local_unnamed_addr #1 {
 3:                                                ; preds = %0, %3
   %indvars.iv18 = phi i64 [ 2, %0 ], [ %indvars.iv.next19, %3 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr i32, ptr @ett_gsm_bsslap_msg, i64 %indvars.iv
-  %5 = getelementptr ptr, ptr %1, i64 %indvars.iv18
+  %4 = getelementptr [4 x i8], ptr @ett_gsm_bsslap_msg, i64 %indvars.iv
+  %5 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv18
   store ptr %4, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
@@ -335,8 +335,8 @@ define hidden void @proto_register_gsm_bsslap() local_unnamed_addr #1 {
 .preheader:                                       ; preds = %3, %.preheader
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.preheader ], [ 16, %3 ]
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.preheader ], [ 0, %3 ]
-  %6 = getelementptr i32, ptr @ett_gsm_bsslap_elem, i64 %indvars.iv23
-  %7 = getelementptr ptr, ptr %1, i64 %indvars.iv25
+  %6 = getelementptr [4 x i8], ptr @ett_gsm_bsslap_elem, i64 %indvars.iv23
+  %7 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv25
   store ptr %6, ptr %7, align 8
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1

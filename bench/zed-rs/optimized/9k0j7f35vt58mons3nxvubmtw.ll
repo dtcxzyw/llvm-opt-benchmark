@@ -610,7 +610,7 @@ _ZN3std2io4Read8read_buf17h03c00899386c89bdE.exit.thread.thread: ; preds = %_ZN3
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @_ZN3std2io21default_read_vectored17h4c9f588ee260e85bE(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %1, i64 %2
+  %4 = getelementptr inbounds [16 x i8], ptr %1, i64 %2
   br label %5
 
 5:                                                ; preds = %8, %3

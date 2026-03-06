@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.hwloc_info_s = type { ptr, ptr }
 
 @initialized = dso_local local_unnamed_addr global i8 0, align 1
 @threads = dso_local global i16 1, align 2
@@ -247,7 +246,7 @@ _check_full_access.exit:                          ; preds = %55, %59
 .lr.ph.i:                                         ; preds = %.preheader69.i, %83
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %83 ], [ 0, %.preheader69.i ]
   %73 = load ptr, ptr %5, align 8
-  %74 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %73, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %indvars.iv.i
   %75 = load ptr, ptr %74, align 8
   %76 = call i32 @xstrcasecmp(ptr noundef %75, ptr noundef nonnull @.str.28) #12
   %.not52.i = icmp eq i32 %76, 0
@@ -255,7 +254,7 @@ _check_full_access.exit:                          ; preds = %55, %59
 
 77:                                               ; preds = %.lr.ph.i
   %78 = load ptr, ptr %5, align 8
-  %79 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %78, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %indvars.iv.i
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = call i32 @xstrcasecmp(ptr noundef %81, ptr noundef nonnull @.str.29) #12
@@ -292,7 +291,7 @@ _check_full_access.exit:                          ; preds = %55, %59
 .lr.ph74.i:                                       ; preds = %.thread.i, %90
   %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %90 ], [ 0, %.thread.i ]
   %94 = load ptr, ptr %5, align 8
-  %95 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %94, i64 %indvars.iv87.i
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %indvars.iv87.i
   %96 = load ptr, ptr %95, align 8
   %97 = call i32 @xstrcasecmp(ptr noundef %96, ptr noundef nonnull @.str.30) #12
   %.not54.i = icmp eq i32 %97, 0
@@ -300,7 +299,7 @@ _check_full_access.exit:                          ; preds = %55, %59
 
 98:                                               ; preds = %.lr.ph74.i
   %99 = load ptr, ptr %5, align 8
-  %100 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %99, i64 %indvars.iv87.i
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %indvars.iv87.i
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load ptr, ptr %101, align 8
   br label %.lr.ph80.preheader.i
@@ -345,7 +344,7 @@ _check_full_access.exit:                          ; preds = %55, %59
 .lr.ph76.i:                                       ; preds = %.preheader.i, %122
   %indvars.iv90.i = phi i64 [ %indvars.iv.next91.i, %122 ], [ 0, %.preheader.i ]
   %110 = load ptr, ptr %7, align 8
-  %111 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %110, i64 %indvars.iv90.i
+  %111 = getelementptr inbounds nuw [16 x i8], ptr %110, i64 %indvars.iv90.i
   %112 = load ptr, ptr %111, align 8
   %113 = call i32 @xstrcasecmp(ptr noundef %112, ptr noundef nonnull @.str.30) #12
   %.not56.i = icmp eq i32 %113, 0
@@ -353,7 +352,7 @@ _check_full_access.exit:                          ; preds = %55, %59
 
 114:                                              ; preds = %.lr.ph76.i
   %115 = load ptr, ptr %7, align 8
-  %116 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %115, i64 %indvars.iv90.i
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %indvars.iv90.i
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = call i32 @xstrcasecmp(ptr noundef %118, ptr noundef %.147.i) #12
@@ -646,10 +645,10 @@ hwloc_get_next_child.exit:                        ; preds = %hwloc_get_next_obj_
 
 107:                                              ; preds = %.lr.ph
   %108 = call fastcc i32 @_core_child_count(ptr noundef nonnull %104)
-  %109 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv
   store i32 %108, ptr %109, align 4
   %110 = load ptr, ptr %13, align 8
-  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv
   %112 = load i32, ptr %111, align 4
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %114, label %118
@@ -871,13 +870,13 @@ hwloc_get_nbobjs_by_type.exit139:                 ; preds = %156, %159, %160
 
 192:                                              ; preds = %.lr.ph170.split.us
   store i32 0, ptr %187, align 4
-  %193 = getelementptr inbounds nuw i32, ptr %124, i64 %190
+  %193 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %190
   %194 = load i32, ptr %193, align 4
   %.not181 = icmp eq i32 %194, 0
   br i1 %.not181, label %.loopexit.us, label %.lr.ph160.us.us.preheader
 
 .lr.ph160.us.us.preheader:                        ; preds = %192
-  %195 = getelementptr inbounds nuw i32, ptr %124, i64 %190
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %190
   br label %.lr.ph160.us.us
 
 .loopexit.us:                                     ; preds = %._crit_edge161.us.us, %192, %.lr.ph170.split.us
@@ -912,9 +911,9 @@ hwloc_get_nbobjs_by_type.exit139:                 ; preds = %156, %159, %160
 205:                                              ; preds = %204
   %206 = getelementptr inbounds nuw i8, ptr %.01214.i.us.us, i64 184
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i.us.us
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i.us.us
   %209 = load i32, ptr %208, align 4
-  %210 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i.us.us
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.us.us
   %211 = load i32, ptr %210, align 4
   %212 = call i32 @hwloc_get_type_depth(ptr noundef %202, i32 noundef %209) #12
   %or.cond.i.i.us.us = icmp ugt i32 %212, -3
@@ -986,12 +985,12 @@ hwloc_get_obj_below_array_by_type.exit.us.us:     ; preds = %hwloc_get_obj_insid
   %236 = trunc i32 %229 to i16
   %237 = load ptr, ptr %6, align 8
   %238 = sext i32 %230 to i64
-  %239 = getelementptr inbounds i16, ptr %237, i64 %238
+  %239 = getelementptr inbounds [2 x i8], ptr %237, i64 %238
   store i16 %236, ptr %239, align 2
   %240 = trunc i32 %230 to i16
   %241 = load ptr, ptr %7, align 8
   %242 = sext i32 %229 to i64
-  %243 = getelementptr inbounds i16, ptr %241, i64 %242
+  %243 = getelementptr inbounds [2 x i8], ptr %241, i64 %242
   store i16 %240, ptr %243, align 2
   br label %hwloc_get_obj_below_array_by_type.exit.thread.us.us
 
@@ -1012,10 +1011,10 @@ hwloc_get_obj_below_array_by_type.exit.thread.us.us: ; preds = %204, %235, %227,
   %indvars.iv187 = phi i64 [ 0, %.lr.ph156.preheader ], [ %indvars.iv.next188, %.lr.ph156 ]
   %248 = trunc i64 %indvars.iv187 to i16
   %249 = load ptr, ptr %6, align 8
-  %250 = getelementptr inbounds nuw i16, ptr %249, i64 %indvars.iv187
+  %250 = getelementptr inbounds nuw [2 x i8], ptr %249, i64 %indvars.iv187
   store i16 %248, ptr %250, align 2
   %251 = load ptr, ptr %7, align 8
-  %252 = getelementptr inbounds nuw i16, ptr %251, i64 %indvars.iv187
+  %252 = getelementptr inbounds nuw [2 x i8], ptr %251, i64 %indvars.iv187
   store i16 %248, ptr %252, align 2
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
@@ -1114,7 +1113,7 @@ define internal fastcc i32 @_core_child_count(ptr noundef readonly captures(none
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.091 = phi i32 [ 0, %.lr.ph ], [ %12, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call fastcc i32 @_core_child_count(ptr noundef %10)
   %12 = add nsw i32 %11, %.091
@@ -1272,7 +1271,7 @@ define dso_local range(i32 -1, 1) i32 @xcpuinfo_abs_to_mac(ptr noundef %0, ptr n
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 4240
   %46 = load ptr, ptr %45, align 8
   %47 = zext nneg i32 %44 to i64
-  %48 = getelementptr inbounds nuw i16, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %46, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = zext i16 %49 to i32
   %51 = srem i32 %50, %43
@@ -1454,7 +1453,7 @@ define dso_local range(i32 -1, 1) i32 @xcpuinfo_mac_to_abs(ptr noundef %0, ptr n
   %56 = load ptr, ptr @conf, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4248
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i16, ptr %58, i64 %53
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %53
   %60 = load i16, ptr %59, align 2
   %61 = zext i16 %60 to i32
   %62 = load i32, ptr @xcpuinfo_mac_to_abs.total_cpus, align 4
@@ -1603,7 +1602,7 @@ define dso_local range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr n
   %12 = load ptr, ptr %10, align 8
   %13 = load i8, ptr %.04575.ph.i, align 1
   %14 = sext i8 %13 to i64
-  %15 = getelementptr inbounds i16, ptr %12, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %12, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 2048
   %.not57.i10 = icmp eq i16 %17, 0
@@ -1619,7 +1618,7 @@ define dso_local range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr n
   %20 = getelementptr inbounds nuw i8, ptr %.04575.i12, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = sext i8 %21 to i64
-  %23 = getelementptr inbounds i16, ptr %12, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %12, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 2048
   %.not57.i = icmp eq i16 %25, 0
@@ -1678,7 +1677,7 @@ define dso_local range(i32 -1, 1) i32 @xcpuinfo_abs_to_map(ptr noundef %0, ptr n
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %47, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %49 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv.i
   store i16 1, ptr %49, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %50 = icmp samesign ult i64 %indvars.iv.i, %48

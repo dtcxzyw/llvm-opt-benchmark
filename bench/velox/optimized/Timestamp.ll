@@ -620,7 +620,7 @@ if.end48:                                         ; preds = %while.end39
   %conv50 = trunc nuw nsw i64 %days.1 to i32
   %tm_yday = getelementptr inbounds nuw i8, ptr %tm, i64 28
   store i32 %conv50, ptr %tm_yday, align 4
-  %arrayidx = getelementptr inbounds nuw [12 x i32], ptr @_ZN8facebook5velox12_GLOBAL__N_112monthLengthsE, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [48 x i8], ptr @_ZN8facebook5velox12_GLOBAL__N_112monthLengthsE, i64 %idxprom
   %tm_mon = getelementptr inbounds nuw i8, ptr %tm, i64 16
   %6 = load i32, ptr %arrayidx, align 16
   %conv5459 = sext i32 %6 to i64
@@ -633,7 +633,7 @@ for.body:                                         ; preds = %if.end48, %for.body
   %days.262 = phi i64 [ %sub60, %for.body ], [ %days.1, %if.end48 ]
   %sub60 = sub nsw i64 %days.262, %conv5463
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx53 = getelementptr inbounds nuw i32, ptr %arrayidx, i64 %indvars.iv.next
+  %arrayidx53 = getelementptr inbounds nuw [4 x i8], ptr %arrayidx, i64 %indvars.iv.next
   %7 = load i32, ptr %arrayidx53, align 4
   %conv54 = sext i32 %7 to i64
   %cmp55.not = icmp slt i64 %sub60, %conv54
@@ -1525,7 +1525,7 @@ land.rhs.i.i.i:                                   ; preds = %land.rhs.i
 cond.true.i.i:                                    ; preds = %land.rhs.i.i.i, %land.rhs.i
   %sub.i.i = add nuw nsw i64 %retval.sroa.2.0.insert.ext.i.i, 4294967295
   %idxprom.i.i = and i64 %sub.i.i, 4294967295
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.date::day", ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i
   %9 = load i8, ptr %arrayidx.i.i, align 1
   br label %_ZNK4date14year_month_day2okEv.exit
 

@@ -3,11 +3,6 @@ source_filename = "bench/abc/original/cuddReorder.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.DdSubtable = type { ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.DdNode = type { i32, i32, ptr, %union.anon, i64 }
-%union.anon = type { %struct.DdChildren }
-%struct.DdChildren = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [4 x i8] c"BDD\00", align 1
 @ddTotalNumberSwapping = local_unnamed_addr global i32 0, align 4
 @Extra_UtilMMoutOfMemory = external local_unnamed_addr global ptr, align 8
@@ -88,7 +83,7 @@ define i32 @Cudd_ReduceHeap(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 37:                                               ; preds = %46, %.lr.ph.i
   %38 = phi i32 [ 0, %.lr.ph.i ], [ %47, %46 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %46 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8, !tbaa !35
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !36
@@ -269,9 +264,9 @@ define range(i32 0, 2) i32 @Cudd_ShuffleHeap(ptr noundef %0, ptr noundef readonl
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !38
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !38
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %7, label %13
@@ -295,7 +290,7 @@ define range(i32 0, 2) i32 @Cudd_ShuffleHeap(ptr noundef %0, ptr noundef readonl
 20:                                               ; preds = %29, %.lr.ph.i
   %21 = phi i32 [ 0, %.lr.ph.i ], [ %30, %29 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %29 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8, !tbaa !35
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !36
@@ -344,10 +339,10 @@ ddReorderPreprocess.exit:                         ; preds = %29, %13
 
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %.lr.ph62
   %indvars.iv65 = phi i64 [ 0, %.lr.ph62.preheader ], [ %indvars.iv.next66, %.lr.ph62 ]
-  %45 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv65
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv65
   %46 = load i32, ptr %45, align 4, !tbaa !38
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %43, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %43, i64 %47
   %49 = trunc nuw nsw i64 %indvars.iv65 to i32
   store i32 %49, ptr %48, align 4, !tbaa !38
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
@@ -402,11 +397,11 @@ ddReorderPreprocess.exit:                         ; preds = %29, %13
 
 65:                                               ; preds = %ddSiftUp.exit.i, %.lr.ph.i51
   %indvars.iv.i53 = phi i64 [ 0, %.lr.ph.i51 ], [ %indvars.iv.next.i54, %ddSiftUp.exit.i ]
-  %66 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i53
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i53
   %67 = load i32, ptr %66, align 4, !tbaa !38
   %68 = load ptr, ptr %64, align 8, !tbaa !54
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds i32, ptr %68, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr %68, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !38
   %72 = sext i32 %71 to i64
   br label %73
@@ -475,10 +470,10 @@ define internal fastcc range(i32 0, 2) i32 @ddCheckPermuation(ptr noundef readon
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.03 = phi i32 [ 0, %.lr.ph ], [ %.1, %17 ]
   %.0312 = phi i32 [ %7, %.lr.ph ], [ %spec.select, %17 ]
-  %18 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
+  %18 = getelementptr inbounds [4 x i8], ptr %15, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !38
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %2, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %2, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !38
   %spec.select = tail call i32 @llvm.smin.i32(i32 %22, i32 %.0312)
   %.1 = tail call i32 @llvm.smax.i32(i32 %22, i32 %.03)
@@ -553,10 +548,10 @@ define internal fastcc range(i32 0, 2) i32 @ddUpdateMtrTree(ptr noundef %0, ptr 
   %.04 = phi i32 [ -1, %.lr.ph ], [ %spec.select50, %15 ]
   %.0363 = phi i32 [ 0, %.lr.ph ], [ %.137, %15 ]
   %.0382 = phi i32 [ 2147483647, %.lr.ph ], [ %spec.select, %15 ]
-  %16 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds [4 x i8], ptr %13, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !38
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %2, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %2, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !38
   %21 = icmp slt i32 %20, %.0382
   %spec.select = tail call i32 @llvm.smin.i32(i32 %20, i32 %.0382)
@@ -653,7 +648,7 @@ define ptr @cuddDynamicAllocNode(ptr noundef captures(none) %0) local_unnamed_ad
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw %struct.DdSubtable, ptr %23, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %23, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !72
   %28 = shl i32 %27, 2
@@ -692,12 +687,12 @@ define ptr @cuddDynamicAllocNode(ptr noundef captures(none) %0) local_unnamed_ad
   %39 = and i64 %38, 31
   %40 = sub nuw nsw i64 32, %39
   %41 = lshr i64 %40, 3
-  %42 = getelementptr inbounds nuw ptr, ptr %.04451, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.04451, i64 %41
   br label %43
 
 43:                                               ; preds = %43, %.thread49
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %43 ], [ 1, %.thread49 ]
-  %44 = getelementptr %struct.DdNode, ptr %42, i64 %indvars.iv54
+  %44 = getelementptr [40 x i8], ptr %42, i64 %indvars.iv54
   %45 = getelementptr i8, ptr %44, i64 -36
   store i32 0, ptr %45, align 4, !tbaa !36
   %46 = getelementptr i8, ptr %44, i64 -32
@@ -765,15 +760,15 @@ define range(i32 0, 2) i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noun
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !38
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.DdSubtable, ptr %18, i64 %24
+  %25 = getelementptr inbounds [56 x i8], ptr %18, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !80
-  %28 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %27, ptr %28, align 4, !tbaa !38
-  %29 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %30, ptr %29, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -806,10 +801,10 @@ define range(i32 0, 2) i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noun
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %35, align 8, !tbaa !54
-  %45 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv101
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv101
   %46 = load i32, ptr %45, align 4, !tbaa !38
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %44, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %44, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !38
   %50 = icmp slt i32 %49, %1
   %51 = icmp sgt i32 %49, %2
@@ -819,7 +814,7 @@ define range(i32 0, 2) i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noun
 52:                                               ; preds = %43
   %53 = load ptr, ptr %36, align 8, !tbaa !71
   %54 = sext i32 %49 to i64
-  %55 = getelementptr inbounds %struct.DdSubtable, ptr %53, i64 %54
+  %55 = getelementptr inbounds [56 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = load i32, ptr %56, align 8, !tbaa !84
   %58 = icmp eq i32 %57, 1
@@ -1183,11 +1178,11 @@ define internal i32 @ddUniqueCompare(ptr noundef readonly captures(none) %0, ptr
   %3 = load ptr, ptr @entry, align 8, !tbaa !79
   %4 = load i32, ptr %1, align 4, !tbaa !38
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i32, ptr %3, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %3, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !38
   %8 = load i32, ptr %0, align 4, !tbaa !38
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %3, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %3, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !38
   %12 = sub nsw i32 %7, %11
   ret i32 %12
@@ -1236,7 +1231,7 @@ define range(i32 0, 2) i32 @cuddSwapping(ptr noundef %0, i32 noundef %1, i32 nou
   %indvars.iv = phi i64 [ %15, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %.1107 = phi i32 [ %.062111, %.lr.ph ], [ %spec.select85, %22 ]
   %.070105 = phi i32 [ -1, %.lr.ph ], [ %spec.select, %22 ]
-  %23 = getelementptr inbounds %struct.DdSubtable, ptr %21, i64 %indvars.iv
+  %23 = getelementptr inbounds [56 x i8], ptr %21, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !80
   %26 = icmp sgt i32 %25, %.070105
@@ -1590,11 +1585,11 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %7 = load ptr, ptr %6, align 8, !tbaa !50
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load ptr, ptr %11, align 8, !tbaa !71
-  %13 = getelementptr inbounds %struct.DdSubtable, ptr %12, i64 %8
+  %13 = getelementptr inbounds [56 x i8], ptr %12, i64 %8
   %14 = load ptr, ptr %13, align 8, !tbaa !103
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !80
@@ -1603,9 +1598,9 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !105
   %21 = sext i32 %2 to i64
-  %22 = getelementptr inbounds i32, ptr %7, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %7, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !38
-  %24 = getelementptr inbounds %struct.DdSubtable, ptr %12, i64 %21
+  %24 = getelementptr inbounds [56 x i8], ptr %12, i64 %21
   %25 = load ptr, ptr %24, align 8, !tbaa !103
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !80
@@ -1626,14 +1621,14 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %35 = load ptr, ptr %34, align 8, !tbaa !34
   %36 = sext i32 %10 to i64
-  %37 = getelementptr inbounds ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !35
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !36
   %41 = icmp eq i32 %40, 1
   %.neg = sext i1 %41 to i32
   %42 = sext i32 %23 to i64
-  %43 = getelementptr inbounds ptr, ptr %35, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %35, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !35
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !36
@@ -1668,7 +1663,7 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %indvars.iv = phi i64 [ 0, %.lr.ph572.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %.0458570 = phi ptr [ null, %.lr.ph572.preheader ], [ %.1459.lcssa, %._crit_edge ]
   %.1496568 = phi i32 [ 0, %.lr.ph572.preheader ], [ %.2497.lcssa, %._crit_edge ]
-  %56 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !35
   %.not539561 = icmp eq ptr %57, %0
   br i1 %.not539561, label %._crit_edge, label %.lr.ph
@@ -1744,7 +1739,7 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %.0445589 = phi ptr [ null, %.lr.ph591.preheader ], [ %.1446.lcssa, %._crit_edge582 ]
   %.4462588 = phi ptr [ null, %.lr.ph591.preheader ], [ %.5463.lcssa, %._crit_edge582 ]
   %.5500586 = phi i32 [ 0, %.lr.ph591.preheader ], [ %.6501.lcssa, %._crit_edge582 ]
-  %78 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv668
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv668
   %79 = load ptr, ptr %78, align 8, !tbaa !35
   %.not532575 = icmp eq ptr %79, %0
   br i1 %.not532575, label %._crit_edge582, label %.lr.ph581
@@ -1899,7 +1894,7 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 
 .lr.ph611:                                        ; preds = %.lr.ph611.preheader, %.lr.ph611
   %indvars.iv673 = phi i64 [ 0, %.lr.ph611.preheader ], [ %indvars.iv.next674, %.lr.ph611 ]
-  %145 = getelementptr inbounds nuw ptr, ptr %.2450, i64 %indvars.iv673
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %.2450, i64 %indvars.iv673
   store ptr %0, ptr %145, align 8, !tbaa !35
   %indvars.iv.next674 = add nuw nsw i64 %indvars.iv673, 1
   %exitcond677.not = icmp eq i64 %indvars.iv.next674, %wide.trip.count676
@@ -1936,7 +1931,7 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %172 = mul i32 %171, 4256249
   %173 = lshr i32 %172, %.2490
   %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds ptr, ptr %.2450, i64 %174
+  %175 = getelementptr inbounds [8 x i8], ptr %.2450, i64 %174
   br label %176
 
 176:                                              ; preds = %176, %.lr.ph620
@@ -2094,7 +2089,7 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %255 = mul i32 %254, 4256249
   %256 = lshr i32 %255, %.1489
   %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds ptr, ptr %.1449, i64 %257
+  %258 = getelementptr inbounds [8 x i8], ptr %.1449, i64 %257
   br label %259
 
 259:                                              ; preds = %259, %234
@@ -2230,7 +2225,7 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %333 = mul i32 %332, 4256249
   %334 = lshr i32 %333, %.1489
   %335 = sext i32 %334 to i64
-  %336 = getelementptr inbounds ptr, ptr %.1449, i64 %335
+  %336 = getelementptr inbounds [8 x i8], ptr %.1449, i64 %335
   br label %337
 
 337:                                              ; preds = %337, %306
@@ -2350,7 +2345,7 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %398 = mul i32 %397, 4256249
   %399 = lshr i32 %398, %31
   %400 = sext i32 %399 to i64
-  %401 = getelementptr inbounds ptr, ptr %25, i64 %400
+  %401 = getelementptr inbounds [8 x i8], ptr %25, i64 %400
   br label %402
 
 402:                                              ; preds = %402, %377
@@ -2407,7 +2402,7 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 423:                                              ; preds = %.lr.ph654, %._crit_edge649
   %indvars.iv678 = phi i64 [ 0, %.lr.ph654 ], [ %indvars.iv.next679, %._crit_edge649 ]
   %.2509652 = phi i32 [ %.1508.lcssa, %.lr.ph654 ], [ %.3510.lcssa, %._crit_edge649 ]
-  %424 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv678
+  %424 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv678
   %425 = load ptr, ptr %424, align 8, !tbaa !35
   %.not536643 = icmp eq ptr %425, %0
   br i1 %.not536643, label %._crit_edge649, label %.lr.ph648
@@ -2466,13 +2461,13 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 ._crit_edge655:                                   ; preds = %._crit_edge649, %.preheader
   %.2509.lcssa = phi i32 [ %.1508.lcssa, %.preheader ], [ %.3510.lcssa, %._crit_edge649 ]
   %449 = load ptr, ptr %34, align 8, !tbaa !34
-  %450 = getelementptr inbounds ptr, ptr %449, i64 %36
+  %450 = getelementptr inbounds [8 x i8], ptr %449, i64 %36
   %451 = load ptr, ptr %450, align 8, !tbaa !35
   %452 = getelementptr inbounds nuw i8, ptr %451, i64 4
   %453 = load i32, ptr %452, align 4, !tbaa !36
   %454 = icmp eq i32 %453, 1
   %455 = zext i1 %454 to i32
-  %456 = getelementptr inbounds ptr, ptr %449, i64 %42
+  %456 = getelementptr inbounds [8 x i8], ptr %449, i64 %42
   %457 = load ptr, ptr %456, align 8, !tbaa !35
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 4
   %459 = load i32, ptr %458, align 4, !tbaa !36
@@ -2496,7 +2491,7 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %.0485 = phi i32 [ %18, %._crit_edge683 ], [ %.1486726, %._crit_edge655 ]
   %.0448 = phi ptr [ %14, %._crit_edge683 ], [ %.1449727, %._crit_edge655 ]
   %468 = load ptr, ptr %11, align 8, !tbaa !71
-  %469 = getelementptr inbounds %struct.DdSubtable, ptr %468, i64 %8
+  %469 = getelementptr inbounds [56 x i8], ptr %468, i64 %8
   store ptr %25, ptr %469, align 8, !tbaa !103
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 12
   store i32 %29, ptr %470, align 4, !tbaa !104
@@ -2509,7 +2504,7 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   store i32 %473, ptr %474, align 4, !tbaa !72
   %475 = getelementptr inbounds nuw i8, ptr %469, i64 32
   %476 = load i32, ptr %475, align 8, !tbaa !84
-  %477 = getelementptr inbounds %struct.DdSubtable, ptr %468, i64 %21
+  %477 = getelementptr inbounds [56 x i8], ptr %468, i64 %21
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 32
   %479 = load i32, ptr %478, align 8, !tbaa !84
   store i32 %479, ptr %475, align 8, !tbaa !84
@@ -2550,14 +2545,14 @@ define i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   store i32 %499, ptr %500, align 4, !tbaa !72
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %502 = load ptr, ptr %501, align 8, !tbaa !54
-  %503 = getelementptr inbounds i32, ptr %502, i64 %.pre-phi
+  %503 = getelementptr inbounds [4 x i8], ptr %502, i64 %.pre-phi
   store i32 %2, ptr %503, align 4, !tbaa !38
-  %504 = getelementptr inbounds i32, ptr %502, i64 %.pre-phi685
+  %504 = getelementptr inbounds [4 x i8], ptr %502, i64 %.pre-phi685
   store i32 %1, ptr %504, align 4, !tbaa !38
   %505 = load ptr, ptr %6, align 8, !tbaa !50
-  %506 = getelementptr inbounds i32, ptr %505, i64 %8
+  %506 = getelementptr inbounds [4 x i8], ptr %505, i64 %8
   store i32 %23, ptr %506, align 4, !tbaa !38
-  %507 = getelementptr inbounds i32, ptr %505, i64 %21
+  %507 = getelementptr inbounds [4 x i8], ptr %505, i64 %21
   store i32 %10, ptr %507, align 4, !tbaa !38
   %508 = add i32 %27, %16
   %509 = getelementptr inbounds nuw i8, ptr %0, i64 228
@@ -2627,13 +2622,13 @@ define range(i32 0, 2) i32 @cuddBddAlignToZdd(ptr noundef %0) local_unnamed_addr
 
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
+  %23 = getelementptr inbounds [4 x i8], ptr %17, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !38
   %25 = sdiv i32 %24, %8
   %26 = trunc nsw i64 %indvars.iv to i32
   %27 = sdiv i32 %26, %8
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %13, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %13, i64 %28
   store i32 %25, ptr %29, align 4, !tbaa !38
   %indvars.iv.next = add nsw i64 %indvars.iv, %18
   %30 = icmp slt i64 %indvars.iv.next, %19
@@ -2656,7 +2651,7 @@ define range(i32 0, 2) i32 @cuddBddAlignToZdd(ptr noundef %0) local_unnamed_addr
 37:                                               ; preds = %.lr.ph50, %46
   %38 = phi i32 [ 0, %.lr.ph50 ], [ %47, %46 ]
   %indvars.iv54 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next55, %46 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv54
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv54
   %40 = load ptr, ptr %39, align 8, !tbaa !35
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !36
@@ -2692,11 +2687,11 @@ define range(i32 0, 2) i32 @cuddBddAlignToZdd(ptr noundef %0) local_unnamed_addr
 
 54:                                               ; preds = %ddSiftUp.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %ddSiftUp.exit.i ]
-  %55 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4, !tbaa !38
   %57 = load ptr, ptr %53, align 8, !tbaa !54
   %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds i32, ptr %57, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %57, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !38
   %61 = sext i32 %60 to i64
   br label %62
@@ -2764,7 +2759,7 @@ define internal fastcc void @bddFixTree(ptr noundef %0, ptr noundef captures(add
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %12 = load ptr, ptr %11, align 8, !tbaa !54
   %13 = zext i32 %6 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !38
   br label %16
 
@@ -2820,7 +2815,7 @@ define internal fastcc ptr @ddSiftingDown(ptr noundef %0, i32 noundef %1, i32 no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8, !tbaa !50
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %10 = load i32, ptr %9, align 4, !tbaa !3
@@ -2851,7 +2846,7 @@ define internal fastcc ptr @ddSiftingDown(ptr noundef %0, i32 noundef %1, i32 no
   %indvars.iv = phi i64 [ %17, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %.07193 = phi i32 [ 0, %.lr.ph ], [ %.172, %42 ]
   %24 = load ptr, ptr %4, align 8, !tbaa !50
-  %25 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !38
   %27 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %26) #12
   %.not85 = icmp eq i32 %27, 0
@@ -2860,14 +2855,14 @@ define internal fastcc ptr @ddSiftingDown(ptr noundef %0, i32 noundef %1, i32 no
 28:                                               ; preds = %23
   %29 = load ptr, ptr %15, align 8, !tbaa !34
   %30 = sext i32 %26 to i64
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !35
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !36
   %35 = icmp eq i32 %34, 1
   %.neg86 = sext i1 %35 to i32
   %36 = load ptr, ptr %16, align 8, !tbaa !71
-  %37 = getelementptr inbounds %struct.DdSubtable, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds [56 x i8], ptr %36, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i32, ptr %38, align 8, !tbaa !80
   %40 = add i32 %.07193, %.neg86
@@ -2888,7 +2883,7 @@ define internal fastcc ptr @ddSiftingDown(ptr noundef %0, i32 noundef %1, i32 no
   %indvars.iv.next113 = add nsw i64 %indvars.iv112, 1
   %indvars = trunc i64 %indvars.iv.next113 to i32
   %45 = load ptr, ptr %4, align 8, !tbaa !50
-  %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv.next113
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %indvars.iv.next113
   %47 = load i32, ptr %46, align 4, !tbaa !38
   %48 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %47) #12
   %.not83 = icmp eq i32 %48, 0
@@ -2897,14 +2892,14 @@ define internal fastcc ptr @ddSiftingDown(ptr noundef %0, i32 noundef %1, i32 no
 49:                                               ; preds = %44
   %50 = load ptr, ptr %19, align 8, !tbaa !34
   %51 = sext i32 %47 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !35
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !36
   %56 = icmp eq i32 %55, 1
   %.neg.neg109 = zext i1 %56 to i32
   %57 = load ptr, ptr %20, align 8, !tbaa !71
-  %58 = getelementptr inbounds %struct.DdSubtable, ptr %57, i64 %indvars.iv.next113
+  %58 = getelementptr inbounds [56 x i8], ptr %57, i64 %indvars.iv.next113
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load i32, ptr %59, align 8, !tbaa !80
   %.neg89 = add i32 %.299, %.neg.neg109
@@ -2981,7 +2976,7 @@ define internal fastcc ptr @ddSiftingUp(ptr noundef %0, i32 noundef %1, i32 noun
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8, !tbaa !50
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !38
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %10 = load i32, ptr %9, align 4, !tbaa !3
@@ -3003,7 +2998,7 @@ define internal fastcc ptr @ddSiftingUp(ptr noundef %0, i32 noundef %1, i32 noun
   %indvars.iv = phi i64 [ %18, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %.098 = phi i32 [ %13, %.lr.ph ], [ %.1, %37 ]
   %20 = load ptr, ptr %4, align 8, !tbaa !50
-  %21 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds [4 x i8], ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !38
   %23 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %22, i32 noundef %8) #12
   %.not89 = icmp eq i32 %23, 0
@@ -3012,14 +3007,14 @@ define internal fastcc ptr @ddSiftingUp(ptr noundef %0, i32 noundef %1, i32 noun
 24:                                               ; preds = %19
   %25 = load ptr, ptr %15, align 8, !tbaa !34
   %26 = sext i32 %22 to i64
-  %27 = getelementptr inbounds ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !35
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !36
   %31 = icmp eq i32 %30, 1
   %.neg90.neg115 = zext i1 %31 to i32
   %32 = load ptr, ptr %16, align 8, !tbaa !71
-  %33 = getelementptr inbounds %struct.DdSubtable, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds [56 x i8], ptr %32, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !80
   %.neg94 = add i32 %.098, %.neg90.neg115
@@ -3038,7 +3033,7 @@ define internal fastcc ptr @ddSiftingUp(ptr noundef %0, i32 noundef %1, i32 noun
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %39 = load ptr, ptr %38, align 8, !tbaa !34
   %40 = sext i32 %8 to i64
-  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !35
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !36
@@ -3046,7 +3041,7 @@ define internal fastcc ptr @ddSiftingUp(ptr noundef %0, i32 noundef %1, i32 noun
   %.neg.neg116 = zext i1 %45 to i32
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %47 = load ptr, ptr %46, align 8, !tbaa !71
-  %48 = getelementptr inbounds %struct.DdSubtable, ptr %47, i64 %6
+  %48 = getelementptr inbounds [56 x i8], ptr %47, i64 %6
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i32, ptr %49, align 8, !tbaa !80
   %.neg92 = add i32 %.0.lcssa, %.neg.neg116
@@ -3069,7 +3064,7 @@ define internal fastcc ptr @ddSiftingUp(ptr noundef %0, i32 noundef %1, i32 noun
   %indvars.iv.next120 = add nsw i64 %indvars.iv119, -1
   %indvars = trunc i64 %indvars.iv.next120 to i32
   %58 = load ptr, ptr %4, align 8, !tbaa !50
-  %59 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv.next120
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %indvars.iv.next120
   %60 = load i32, ptr %59, align 4, !tbaa !38
   %61 = trunc nsw i64 %indvars.iv119 to i32
   %62 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %indvars, i32 noundef %61)
@@ -3084,14 +3079,14 @@ define internal fastcc ptr @ddSiftingUp(ptr noundef %0, i32 noundef %1, i32 noun
 66:                                               ; preds = %64
   %67 = load ptr, ptr %38, align 8, !tbaa !34
   %68 = sext i32 %60 to i64
-  %69 = getelementptr inbounds ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %67, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !35
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4, !tbaa !36
   %73 = icmp eq i32 %72, 1
   %.neg87 = sext i1 %73 to i32
   %74 = load ptr, ptr %46, align 8, !tbaa !71
-  %75 = getelementptr inbounds %struct.DdSubtable, ptr %74, i64 %indvars.iv119
+  %75 = getelementptr inbounds [56 x i8], ptr %74, i64 %indvars.iv119
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load i32, ptr %76, align 8, !tbaa !80
   %78 = add i32 %.2104, %.neg87

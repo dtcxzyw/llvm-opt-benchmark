@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.log_options_t = type { i32, i32, i32, i8, i8, i8, i32 }
 %struct.openapi_resp_single_t = type { ptr, ptr, ptr, ptr }
 %struct.data_parser_dump_cli_ctxt_t = type { i32, i32, ptr, ptr, ptr }
-%struct.slurmdbd_ping_t = type { ptr, i8, i64, i32 }
 
 @with_assoc_flag = dso_local local_unnamed_addr global i32 0, align 4
 @db_conn = dso_local global ptr null, align 8
@@ -358,7 +357,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 70:                                               ; preds = %67
   %71 = sub nsw i32 %0, %68
   %72 = sext i32 %68 to i64
-  %73 = getelementptr inbounds ptr, ptr %1, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %1, i64 %72
   call fastcc void @_process_command(i32 noundef %71, ptr noundef nonnull %73)
   br label %178
 
@@ -509,7 +508,7 @@ _get_command.exit.thread98:                       ; preds = %108
   %135 = tail call ptr @__ctype_b_loc() #20
   %136 = load ptr, ptr %135, align 8
   %137 = sext i8 %132 to i64
-  %138 = getelementptr inbounds i16, ptr %136, i64 %137
+  %138 = getelementptr inbounds [2 x i8], ptr %136, i64 %137
   %139 = load i16, ptr %138, align 2
   %140 = and i16 %139, 8192
   %.not56.i = icmp eq i16 %140, 0
@@ -529,7 +528,7 @@ _get_command.exit.thread:                         ; preds = %141
 146:                                              ; preds = %141
   %147 = add nsw i32 %.056, 1
   %148 = sext i32 %.056 to i64
-  %149 = getelementptr inbounds ptr, ptr %107, i64 %148
+  %149 = getelementptr inbounds [8 x i8], ptr %107, i64 %148
   store ptr %131, ptr %149, align 8
   %.267.i = add nsw i32 %.04573.i, 1
   %150 = icmp slt i32 %.267.i, %.044.i
@@ -566,7 +565,7 @@ _get_command.exit.thread:                         ; preds = %141
 159:                                              ; preds = %158
   %160 = load ptr, ptr %135, align 8
   %161 = sext i8 %153 to i64
-  %162 = getelementptr inbounds i16, ptr %160, i64 %161
+  %162 = getelementptr inbounds [2 x i8], ptr %160, i64 %161
   %163 = load i16, ptr %162, align 2
   %164 = and i16 %163, 8192
   %.not57.i = icmp eq i16 %164, 0
@@ -2212,7 +2211,7 @@ define internal fastcc i32 @_ping(i32 noundef range(i32 1, -2147483648) %0, ptr 
 .lr.ph:                                           ; preds = %.preheader, %_set_ping_exit_code.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_set_ping_exit_code.exit ], [ 0, %.preheader ]
   %35 = phi ptr [ %51, %_set_ping_exit_code.exit ], [ %11, %.preheader ]
-  %36 = getelementptr inbounds nuw %struct.slurmdbd_ping_t, ptr %6, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i8, ptr %37, align 8, !range !14, !noundef !15
   %39 = trunc nuw i8 %38 to i1
@@ -2222,7 +2221,7 @@ define internal fastcc i32 @_ping(i32 noundef range(i32 1, -2147483648) %0, ptr 
   %42 = icmp eq i32 %41, 0
   %.0.i = select i1 %42, ptr @.str.109, ptr @.str.110
   %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.111, ptr noundef nonnull %.0.i, ptr noundef nonnull %35, ptr noundef nonnull %.str.107..str.108.i)
-  %44 = getelementptr inbounds nuw %struct.slurmdbd_ping_t, ptr %6, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv
   %45 = getelementptr i8, ptr %44, i64 8
   %.val = load i8, ptr %45, align 8, !range !14, !noundef !15
   %46 = trunc nuw i8 %.val to i1
@@ -2243,7 +2242,7 @@ define internal fastcc i32 @_ping(i32 noundef range(i32 1, -2147483648) %0, ptr 
 
 _set_ping_exit_code.exit:                         ; preds = %47, %48, %49
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = getelementptr inbounds nuw %struct.slurmdbd_ping_t, ptr %6, i64 %indvars.iv.next
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv.next
   %51 = load ptr, ptr %50, align 8
   %.not24 = icmp eq ptr %51, null
   br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !16

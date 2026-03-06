@@ -23979,7 +23979,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %47, %51
   call void @_ZN5Catch16AssertionHandlerC1ERKNS_9StringRefERKNS_14SourceLineInfoES1_NS_17ResultDisposition5FlagsE(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr %85, i64 %86, i32 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %87 = getelementptr inbounds nuw ptr, ptr %1, i64 %.035
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.035
   %88 = load ptr, ptr %87, align 8, !tbaa !469
   %89 = invoke noundef zeroext i1 @_ZNK5vcpkg17InstallPlanAction15has_package_abiEv(ptr noundef nonnull align 8 dereferenceable(480) %88)
           to label %90 unwind label %95
@@ -30095,7 +30095,7 @@ _ZNSt6vectorIN5vcpkg17InstallPlanActionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
 _ZNSt12_Vector_baseIN5vcpkg17InstallPlanActionESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5vcpkg17InstallPlanActionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40, %38
   store ptr %30, ptr %0, align 8, !tbaa !471
   store ptr %.0.lcssa.i.i.i39, ptr %12, align 8, !tbaa !473
-  %42 = getelementptr inbounds nuw %"struct.vcpkg::InstallPlanAction", ptr %30, i64 %24
+  %42 = getelementptr inbounds nuw [480 x i8], ptr %30, i64 %24
   store ptr %42, ptr %37, align 8, !tbaa !475
   ret void
 

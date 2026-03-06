@@ -31,13 +31,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._mac_hf_list_t = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._ct_dissector_info = type { ptr }
 %struct._et_dissector_info = type { ptr }
-%struct.scidx_part = type { i32, i8, i32, i32, i8 }
 %struct.ieee80211_tagged_field_data = type { i32, ptr, i8, ptr, ptr }
 %struct.ieee_802_11_phdr = type { i32, i8, i32, %union.ieee_802_11_phy_info, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i64, i32, i32, i8 }
 %union.ieee_802_11_phy_info = type { %struct.ieee_802_11be }
 %struct.ieee_802_11be = type { i8, i8, i8, i8, [4 x %struct.ieee_802_11be_user_info] }
 %struct.ieee_802_11be_user_info = type { i32 }
-%struct.uat_wep_key_record_t = type { i8, ptr }
 %struct._DOT11DECRYPT_EAPOL_PARSED = type { i32, i16, i8, i8, i16, ptr, ptr, i16, i8, i8, i8, ptr, ptr, i16, ptr, i16, ptr, %struct._DOT11DECRYPT_FTE }
 %struct._DOT11DECRYPT_FTE = type { ptr, i8, ptr, ptr, ptr, i8, ptr, i8 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
@@ -15907,7 +15905,7 @@ dissect_gas_comeback_response.exit:               ; preds = %163, %201
 
 switch.lookup:                                    ; preds = %283
   %306 = zext nneg i32 %304 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.add_ff_action_public_fields, i64 %306
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.add_ff_action_public_fields, i64 %306
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %307
 
@@ -16952,7 +16950,7 @@ switch.lookup:                                    ; preds = %313
   %387 = lshr i32 %385, 7
   %388 = and i32 %387, 3
   %389 = zext nneg i32 %388 to i64
-  %switch.gep393 = getelementptr inbounds nuw i32, ptr @switch.table.add_ff_action.234, i64 %389
+  %switch.gep393 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.add_ff_action.234, i64 %389
   %switch.load394 = load i32, ptr %switch.gep393, align 4
   %390 = trunc i16 %384 to i8
   %391 = lshr i8 %390, 2
@@ -16994,7 +16992,7 @@ switch.lookup:                                    ; preds = %313
   %narrow400 = add nuw nsw i32 %switch.downshift, 255
   %413 = and i32 %narrow400, 255
   %414 = zext nneg i32 %413 to i64
-  %switch.gep368 = getelementptr inbounds nuw i32, ptr %switch.table.add_ff_action.226.switch.table.add_ff_action, i64 %414
+  %switch.gep368 = getelementptr inbounds nuw [4 x i8], ptr %switch.table.add_ff_action.226.switch.table.add_ff_action, i64 %414
   %switch.load369 = load i32, ptr %switch.gep368, align 4
   %415 = mul nuw nsw i32 %.sroa.2.0.insert.ext.i.i, %.sroa.0.0.insert.ext.i.i
   %416 = mul nuw nsw i32 %415, %switch.load394
@@ -17016,7 +17014,7 @@ switch.lookup370:                                 ; preds = %313
   %427 = lshr i32 %425, 7
   %428 = and i32 %427, 3
   %429 = zext nneg i32 %428 to i64
-  %switch.gep396 = getelementptr inbounds nuw i32, ptr @switch.table.add_ff_action.234, i64 %429
+  %switch.gep396 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.add_ff_action.234, i64 %429
   %switch.load397 = load i32, ptr %switch.gep396, align 4
   %430 = trunc i16 %424 to i8
   %431 = and i8 %430, 3
@@ -17057,7 +17055,7 @@ switch.lookup370:                                 ; preds = %313
   %narrow399 = add nuw nsw i32 %switch.downshift372, 255
   %453 = and i32 %narrow399, 255
   %454 = zext nneg i32 %453 to i64
-  %switch.gep377 = getelementptr inbounds nuw i32, ptr %switch.table.add_ff_action.228.switch.table.add_ff_action.227, i64 %454
+  %switch.gep377 = getelementptr inbounds nuw [4 x i8], ptr %switch.table.add_ff_action.228.switch.table.add_ff_action.227, i64 %454
   %switch.load378 = load i32, ptr %switch.gep377, align 4
   %narrow = mul nuw nsw i8 %451, %432
   %455 = zext nneg i8 %narrow to i32
@@ -17167,7 +17165,7 @@ get_mimo_na.exit.i.i:                             ; preds = %505, %504, %503, %5
   %narrow398 = add nuw nsw i32 %switch.downshift381, 255
   %508 = and i32 %narrow398, 255
   %509 = zext nneg i32 %508 to i64
-  %switch.gep386 = getelementptr inbounds nuw i32, ptr %switch.table.add_ff_action.230.switch.table.add_ff_action.229, i64 %509
+  %switch.gep386 = getelementptr inbounds nuw [4 x i8], ptr %switch.table.add_ff_action.230.switch.table.add_ff_action.229, i64 %509
   %switch.load387 = load i32, ptr %switch.gep386, align 4
   %sh.diff.i = lshr i16 %463, 8
   %510 = and i16 %sh.diff.i, 6
@@ -18709,12 +18707,12 @@ switch.lookup388:                                 ; preds = %1477
   %1492 = load i32, ptr @ett_ff_vhtmimo_beamforming_report_feedback_matrices, align 4
   %1493 = tail call ptr @proto_tree_add_subtree(ptr noundef %1463, ptr noundef %1, i32 noundef %1475, i32 noundef -1, i32 noundef %1492, ptr noundef null, ptr noundef nonnull @.str.7726)
   %1494 = zext nneg i8 %1482 to i64
-  %1495 = getelementptr [3 x i32], ptr @add_ff_vht_compressed_beamforming_report.ns_arr, i64 %1494
+  %1495 = getelementptr [12 x i8], ptr @add_ff_vht_compressed_beamforming_report.ns_arr, i64 %1494
   %1496 = zext nneg i8 %1485 to i64
-  %1497 = getelementptr i32, ptr %1495, i64 %1496
+  %1497 = getelementptr [4 x i8], ptr %1495, i64 %1496
   %1498 = load i32, ptr %1497, align 4
   %1499 = zext nneg i8 %1482 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.add_ff_action.232, i64 %1499
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.add_ff_action.232, i64 %1499
   %switch.load = load i32, ptr %switch.gep, align 4
   %1500 = icmp sgt i32 %1498, 0
   br i1 %1500, label %.lr.ph.i.i166, label %._crit_edge.i.i163
@@ -18898,8 +18896,8 @@ vht_compressed_skip_scidx.exit.i.i:               ; preds = %1531, %1530, %1528,
   br i1 %.not123.i.i162, label %.sink.split.i155, label %1539
 
 1539:                                             ; preds = %._crit_edge.i.i163
-  %1540 = getelementptr [3 x i32], ptr @add_ff_vht_compressed_beamforming_report.delta_ns_arr, i64 %1494
-  %1541 = getelementptr i32, ptr %1540, i64 %1496
+  %1540 = getelementptr [12 x i8], ptr @add_ff_vht_compressed_beamforming_report.delta_ns_arr, i64 %1494
+  %1541 = getelementptr [4 x i8], ptr %1540, i64 %1496
   %1542 = load i32, ptr %1541, align 4
   %1543 = mul i32 %1542, %1459
   %1544 = shl i32 %1543, 2
@@ -18919,7 +18917,7 @@ vht_compressed_skip_scidx.exit.i.i:               ; preds = %1531, %1530, %1528,
 switch.lookup389:                                 ; preds = %1546, %1549
   %.0109.i.i = phi i32 [ %1548, %1546 ], [ %1550, %1549 ]
   %1551 = zext nneg i8 %1482 to i64
-  %switch.gep390 = getelementptr inbounds nuw i32, ptr @switch.table.add_ff_action.232, i64 %1551
+  %switch.gep390 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.add_ff_action.232, i64 %1551
   %switch.load391 = load i32, ptr %switch.gep390, align 4
   %1552 = load i32, ptr @hf_ieee80211_vht_mu_exclusive_beamforming_report, align 4
   %1553 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1552, ptr noundef %1, i32 noundef %.1.lcssa.i.i164, i32 noundef %.0109.i.i, i32 noundef 0)
@@ -19603,32 +19601,32 @@ add_ff_action_protected_s1g.exit:                 ; preds = %1757, %1765, %1775,
   %1909 = icmp eq i32 %1891, 0
   %1910 = icmp samesign ugt i32 %1899, 36
   %1911 = zext nneg i32 %1899 to i64
-  %1912 = getelementptr %struct.scidx_start_end, ptr @scidx_80MHz_Ng16, i64 %1911
+  %1912 = getelementptr [8 x i8], ptr @scidx_80MHz_Ng16, i64 %1911
   %1913 = getelementptr inbounds nuw i8, ptr %1912, i64 4
-  %1914 = getelementptr %struct.scidx_start_end, ptr @scidx_80MHz_Ng4, i64 %1911
+  %1914 = getelementptr [8 x i8], ptr @scidx_80MHz_Ng4, i64 %1911
   %1915 = getelementptr inbounds nuw i8, ptr %1914, i64 4
   %1916 = icmp samesign ugt i32 %1899, 17
-  %1917 = getelementptr %struct.scidx_start_end, ptr @scidx_40MHz_Ng16, i64 %1911
+  %1917 = getelementptr [8 x i8], ptr @scidx_40MHz_Ng16, i64 %1911
   %1918 = getelementptr inbounds nuw i8, ptr %1917, i64 4
-  %1919 = getelementptr %struct.scidx_start_end, ptr @scidx_40MHz_Ng4, i64 %1911
+  %1919 = getelementptr [8 x i8], ptr @scidx_40MHz_Ng4, i64 %1911
   %1920 = getelementptr inbounds nuw i8, ptr %1919, i64 4
   %1921 = icmp samesign ugt i32 %1899, 8
-  %1922 = getelementptr %struct.scidx_start_end, ptr @scidx_20MHz_Ng16, i64 %1911
+  %1922 = getelementptr [8 x i8], ptr @scidx_20MHz_Ng16, i64 %1911
   %1923 = getelementptr inbounds nuw i8, ptr %1922, i64 4
-  %1924 = getelementptr %struct.scidx_start_end, ptr @scidx_20MHz_Ng4, i64 %1911
+  %1924 = getelementptr [8 x i8], ptr @scidx_20MHz_Ng4, i64 %1911
   %1925 = getelementptr inbounds nuw i8, ptr %1924, i64 4
   %1926 = icmp eq i32 %1889, 0
   %spec.select.i.i.i181 = select i1 %1909, i32 4, i32 16
   %1927 = icmp samesign ugt i32 %1897, 36
   %1928 = zext nneg i32 %1897 to i64
-  %1929 = getelementptr %struct.scidx_start_end, ptr @scidx_80MHz_Ng16, i64 %1928
-  %1930 = getelementptr %struct.scidx_start_end, ptr @scidx_80MHz_Ng4, i64 %1928
+  %1929 = getelementptr [8 x i8], ptr @scidx_80MHz_Ng16, i64 %1928
+  %1930 = getelementptr [8 x i8], ptr @scidx_80MHz_Ng4, i64 %1928
   %1931 = icmp samesign ugt i32 %1897, 17
-  %1932 = getelementptr %struct.scidx_start_end, ptr @scidx_40MHz_Ng16, i64 %1928
-  %1933 = getelementptr %struct.scidx_start_end, ptr @scidx_40MHz_Ng4, i64 %1928
+  %1932 = getelementptr [8 x i8], ptr @scidx_40MHz_Ng16, i64 %1928
+  %1933 = getelementptr [8 x i8], ptr @scidx_40MHz_Ng4, i64 %1928
   %1934 = icmp samesign ugt i32 %1897, 8
-  %1935 = getelementptr %struct.scidx_start_end, ptr @scidx_20MHz_Ng16, i64 %1928
-  %1936 = getelementptr %struct.scidx_start_end, ptr @scidx_20MHz_Ng4, i64 %1928
+  %1935 = getelementptr [8 x i8], ptr @scidx_20MHz_Ng16, i64 %1928
+  %1936 = getelementptr [8 x i8], ptr @scidx_20MHz_Ng4, i64 %1928
   %1937 = getelementptr i8, ptr %2, i64 408
   %cond.i = icmp eq i32 %1889, 3
   br i1 %cond.i, label %dissect_compressed_beamforming_and_cqi.exit.i, label %.split.i
@@ -20591,7 +20589,7 @@ add_ff_eht_mu_exclusive_20MHz_rpt.exit.i.i.i:     ; preds = %2392, %2380
   br i1 %2441, label %2446, label %.split.us.us.i.i.i.i
 
 .split.us.us.i.i.i.i:                             ; preds = %.split35.us.i.i.i.i
-  %2442 = getelementptr %struct.scidx_part, ptr @ru_242_tone_40MHz, i64 %indvars.iv41.i.i.i.i
+  %2442 = getelementptr [20 x i8], ptr @ru_242_tone_40MHz, i64 %indvars.iv41.i.i.i.i
   %2443 = getelementptr i8, ptr %2442, i64 -20
   %2444 = load i32, ptr @ett_eht_mu_exclusive_beamforming_rpt_ru_index, align 4
   %2445 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2379, ptr noundef %1, i32 noundef %2367, i32 noundef -1, i32 noundef %2444, ptr noundef nonnull %10, ptr noundef nonnull @.str.7751, i32 noundef %2438)
@@ -20693,7 +20691,7 @@ next_eht_scidx.exit.us.us.i.i.i.i.backedge:       ; preds = %2477, %2455
   br i1 %2483, label %2535, label %.split.i67.i.i.i
 
 .split.i67.i.i.i:                                 ; preds = %.split35.i.i.i.i
-  %2484 = getelementptr %struct.scidx_part, ptr @ru_242_tone_40MHz, i64 %indvars.iv.i.i.i.i
+  %2484 = getelementptr [20 x i8], ptr @ru_242_tone_40MHz, i64 %indvars.iv.i.i.i.i
   %2485 = getelementptr i8, ptr %2484, i64 -20
   %2486 = load i32, ptr @ett_eht_mu_exclusive_beamforming_rpt_ru_index, align 4
   %2487 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2379, ptr noundef %1, i32 noundef %.034.i.i.i.i, i32 noundef -1, i32 noundef %2486, ptr noundef nonnull %10, ptr noundef nonnull @.str.7751, i32 noundef %2480)
@@ -20850,7 +20848,7 @@ add_ff_eht_mu_exclusive_40MHz_rpt.exit.i.i.i:     ; preds = %2535, %2446
   br i1 %2548, label %2553, label %.split.us.us.i81.i.i.i
 
 .split.us.us.i81.i.i.i:                           ; preds = %.preheader.split.us.i.i.i.i
-  %2549 = getelementptr %struct.scidx_part, ptr @ru_242_tone_80MHz, i64 %indvars.iv65.i.i.i.i
+  %2549 = getelementptr [20 x i8], ptr @ru_242_tone_80MHz, i64 %indvars.iv65.i.i.i.i
   %2550 = getelementptr i8, ptr %2549, i64 -20
   %2551 = load i32, ptr @ett_eht_mu_exclusive_beamforming_rpt_ru_index, align 4
   %2552 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2379, ptr noundef %1, i32 noundef %2367, i32 noundef -1, i32 noundef %2551, ptr noundef nonnull %9, ptr noundef nonnull @.str.7754, i32 noundef %2545)
@@ -21074,7 +21072,7 @@ next_eht_scidx.exit.i85.i.i.i:                    ; preds = %2623, %2612, %2610,
   br i1 %2641, label %2693, label %.split.i76.i.i.i
 
 .split.i76.i.i.i:                                 ; preds = %.preheader.split.i.i.i.i
-  %2642 = getelementptr %struct.scidx_part, ptr @ru_242_tone_80MHz, i64 %indvars.iv.i75.i.i.i
+  %2642 = getelementptr [20 x i8], ptr @ru_242_tone_80MHz, i64 %indvars.iv.i75.i.i.i
   %2643 = getelementptr i8, ptr %2642, i64 -20
   %2644 = load i32, ptr @ett_eht_mu_exclusive_beamforming_rpt_ru_index, align 4
   %2645 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2379, ptr noundef %1, i32 noundef %.37745.i.i.i.i, i32 noundef -1, i32 noundef %2644, ptr noundef nonnull %9, ptr noundef nonnull @.str.7754, i32 noundef %2638)
@@ -21239,7 +21237,7 @@ add_ff_eht_mu_exclusive_80MHz_rpt.exit.i.i.i:     ; preds = %.split49.us.i.i.i.i
   br i1 %2708, label %2713, label %.split.us.us.i101.i.i.i
 
 .split.us.us.i101.i.i.i:                          ; preds = %.preheader70.split.us.i.i.i.i
-  %2709 = getelementptr %struct.scidx_part, ptr @ru_242_tone_160MHz, i64 %indvars.iv133.i.i.i.i
+  %2709 = getelementptr [20 x i8], ptr @ru_242_tone_160MHz, i64 %indvars.iv133.i.i.i.i
   %2710 = getelementptr i8, ptr %2709, i64 -20
   %2711 = load i32, ptr @ett_eht_mu_exclusive_beamforming_rpt_ru_index, align 4
   %2712 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2379, ptr noundef %1, i32 noundef %2367, i32 noundef -1, i32 noundef %2711, ptr noundef nonnull %8, ptr noundef nonnull @.str.7759, i32 noundef %2705)
@@ -21462,7 +21460,7 @@ next_eht_scidx.exit.i105.i.i.i:                   ; preds = %2784, %2773, %2771,
   br i1 %2802, label %2854, label %.split.i91.i.i.i
 
 .split.i91.i.i.i:                                 ; preds = %.preheader70.split.i.i.i.i
-  %2803 = getelementptr %struct.scidx_part, ptr @ru_242_tone_160MHz, i64 %indvars.iv.i90.i.i.i
+  %2803 = getelementptr [20 x i8], ptr @ru_242_tone_160MHz, i64 %indvars.iv.i90.i.i.i
   %2804 = getelementptr i8, ptr %2803, i64 -20
   %2805 = load i32, ptr @ett_eht_mu_exclusive_beamforming_rpt_ru_index, align 4
   %2806 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2379, ptr noundef %1, i32 noundef %.414386.i.i.i.i, i32 noundef -1, i32 noundef %2805, ptr noundef nonnull %8, ptr noundef nonnull @.str.7759, i32 noundef %2799)
@@ -21612,7 +21610,7 @@ next_eht_scidx.exit172.i.i.i.i:                   ; preds = %2839, %2828, %2826,
   br i1 %2862, label %2867, label %.split109.us.us.i.i.i.i
 
 .split109.us.us.i.i.i.i:                          ; preds = %.preheader.split.us.i99.i.i.i
-  %2863 = getelementptr %struct.scidx_part, ptr @ru_242_tone_160MHz, i64 %indvars.iv142.i.i.i.i
+  %2863 = getelementptr [20 x i8], ptr @ru_242_tone_160MHz, i64 %indvars.iv142.i.i.i.i
   %2864 = getelementptr i8, ptr %2863, i64 -20
   %2865 = load i32, ptr @ett_eht_mu_exclusive_beamforming_rpt_ru_index, align 4
   %2866 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2379, ptr noundef %1, i32 noundef %.3142.i.i.i.i, i32 noundef -1, i32 noundef %2865, ptr noundef nonnull %8, ptr noundef nonnull @.str.7760, i32 noundef %2859)
@@ -21835,7 +21833,7 @@ next_eht_scidx.exit179.i.i.i.i:                   ; preds = %2938, %2927, %2925,
   br i1 %2956, label %3008, label %.split109.i.i.i.i
 
 .split109.i.i.i.i:                                ; preds = %.preheader.split.i98.i.i.i
-  %2957 = getelementptr %struct.scidx_part, ptr @ru_242_tone_160MHz, i64 %indvars.iv139.i.i.i.i
+  %2957 = getelementptr [20 x i8], ptr @ru_242_tone_160MHz, i64 %indvars.iv139.i.i.i.i
   %2958 = getelementptr i8, ptr %2957, i64 -20
   %2959 = load i32, ptr @ett_eht_mu_exclusive_beamforming_rpt_ru_index, align 4
   %2960 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2379, ptr noundef %1, i32 noundef %.13152117.i.i.i.i, i32 noundef -1, i32 noundef %2959, ptr noundef nonnull %8, ptr noundef nonnull @.str.7760, i32 noundef %2953)
@@ -22018,7 +22016,7 @@ add_ff_eht_mu_exclusive_160MHz_rpt.exit.i.i.i:    ; preds = %3008, %2867, %2950
   %indvars.iv100.i.i.i.i = phi i64 [ %indvars.iv.next101.i.i.i.i, %.split46.us.us.us.i.i.i.i ], [ %indvars.iv98.i.i.i.i, %.preheader.split.us.i125.i.i.i ]
   %.sroa.2810.550.us.us.i.i.i.i = phi i32 [ %.sroa.2810.6.us.us.us.i.i.i.i, %.split46.us.us.us.i.i.i.i ], [ %.sroa.2810.460.us.i.i.i.i, %.preheader.split.us.i125.i.i.i ]
   %indvars.iv.next101.i.i.i.i = add nuw nsw i64 %indvars.iv100.i.i.i.i, 1
-  %3027 = getelementptr %struct.scidx_part, ptr @ru_242_tone_320MHz, i64 %indvars.iv100.i.i.i.i
+  %3027 = getelementptr [20 x i8], ptr @ru_242_tone_320MHz, i64 %indvars.iv100.i.i.i.i
   %3028 = load i32, ptr @ett_eht_mu_exclusive_beamforming_rpt_ru_index, align 4
   %3029 = trunc nuw nsw i64 %indvars.iv.next101.i.i.i.i to i32
   %3030 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2379, ptr noundef %1, i32 noundef %.08778.i.i.i.i, i32 noundef -1, i32 noundef %3028, ptr noundef nonnull %7, ptr noundef nonnull @.str.7765, i32 noundef %3029)
@@ -22104,7 +22102,7 @@ next_eht_scidx.exit112.us.us.us.i.i.i.i.backedge: ; preds = %3061, %3042
   br i1 %exitcond105.i.i.i.i, label %.loopexit36.split.us.us.i.i.i.i, label %.split.us.us.us.i.i.i.i, !llvm.loop !53
 
 3064:                                             ; preds = %3016
-  %3065 = getelementptr %struct.scidx_part, ptr @ru_996_tone_320MHz_ng4, i64 %3017
+  %3065 = getelementptr [20 x i8], ptr @ru_996_tone_320MHz_ng4, i64 %3017
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv111.i.i.i.i, 100
   %3066 = getelementptr i8, ptr @ru_996_tone_320MHz_ng16, i64 %.idx.i.i.i.i
   %.sroa.52.0.i.i.i.i = select i1 %3012, ptr %3065, ptr %3066
@@ -22245,7 +22243,7 @@ next_eht_scidx.exit.i130.i.i.i:                   ; preds = %3103, %3092, %3090,
   %.69352.i.i.i.i = phi i32 [ %.794.i.i.i.i, %.split46.i.i.i.i ], [ %.49162.i.i.i.i, %.preheader.split.i110.i.i.i ]
   %.sroa.2810.550.i.i.i.i = phi i32 [ %.sroa.2810.6.i114.i.i.i, %.split46.i.i.i.i ], [ %.sroa.2810.460.i.i.i.i, %.preheader.split.i110.i.i.i ]
   %indvars.iv.next85.i.i.i.i = add nuw nsw i64 %indvars.iv84.i.i.i.i, 1
-  %3122 = getelementptr %struct.scidx_part, ptr @ru_242_tone_320MHz, i64 %indvars.iv84.i.i.i.i
+  %3122 = getelementptr [20 x i8], ptr @ru_242_tone_320MHz, i64 %indvars.iv84.i.i.i.i
   %3123 = load i32, ptr @ett_eht_mu_exclusive_beamforming_rpt_ru_index, align 4
   %3124 = trunc nuw nsw i64 %indvars.iv.next85.i.i.i.i to i32
   %3125 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2379, ptr noundef %1, i32 noundef %.69352.i.i.i.i, i32 noundef -1, i32 noundef %3123, ptr noundef nonnull %7, ptr noundef nonnull @.str.7765, i32 noundef %3124)
@@ -23185,7 +23183,7 @@ default.unreachable:                              ; preds = %2
 .sink.split.sink.split:                           ; preds = %8, %6, %4
   %switch.table.s1g_raw_type_options_custom.236.sink = phi ptr [ @switch.table.s1g_raw_type_options_custom.235, %6 ], [ @switch.table.s1g_raw_type_options_custom, %4 ], [ @switch.table.s1g_raw_type_options_custom.236, %8 ]
   %10 = zext nneg i8 %1 to i64
-  %switch.gep32 = getelementptr inbounds nuw ptr, ptr %switch.table.s1g_raw_type_options_custom.236.sink, i64 %10
+  %switch.gep32 = getelementptr inbounds nuw [8 x i8], ptr %switch.table.s1g_raw_type_options_custom.236.sink, i64 %10
   %switch.load33 = load ptr, ptr %switch.gep32, align 8
   br label %.sink.split
 
@@ -23572,7 +23570,7 @@ define internal void @he_trigger_ru_allocation_region_custom(ptr noundef %0, i32
 5:                                                ; preds = %2
   %6 = and i32 %1, 1
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr ptr, ptr @he_trigger_ru_allocation_region_values, i64 %7
+  %8 = getelementptr [8 x i8], ptr @he_trigger_ru_allocation_region_values, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.8906, ptr noundef %9)
   br label %13
@@ -23750,7 +23748,7 @@ define internal void @eht_ru_allocation_base_custom(ptr noundef %0, i32 noundef 
 
 switch.lookup:                                    ; preds = %12
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.eht_ru_allocation_base_custom, i64 %30
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.eht_ru_allocation_base_custom, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %31
 
@@ -23830,7 +23828,7 @@ define internal void @uat_wep_key_records_key_set_cb(ptr noundef writeonly captu
   %.01622 = phi i32 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %11 = add i32 %.01622, 1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr %struct._value_string, ptr %3, i64 %12
+  %13 = getelementptr [16 x i8], ptr %3, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
@@ -23871,7 +23869,7 @@ define internal void @uat_wep_key_records_key_tostr_cb(ptr noundef readonly capt
   %.01520 = phi i32 [ %12, %17 ], [ 0, %.lr.ph ]
   %12 = add i32 %.01520, 1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr %struct._value_string, ptr %3, i64 %13
+  %14 = getelementptr [16 x i8], ptr %3, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
@@ -24290,7 +24288,7 @@ define internal void @init_wepkeys() #2 {
   br i1 %or.cond.i, label %22, label %.critedge.loopexit.i
 
 22:                                               ; preds = %16
-  %23 = getelementptr %struct.uat_wep_key_record_t, ptr %17, i64 %indvars.iv.i
+  %23 = getelementptr [16 x i8], ptr %17, i64 %indvars.iv.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = load i8, ptr %23, align 8
@@ -24408,7 +24406,7 @@ define internal void @init_wepkeys() #2 {
 
 .sink.split.i:                                    ; preds = %89, %78, %67, %59, %55, %42, %31
   %100 = load i64, ptr %2, align 8
-  %101 = getelementptr %struct._DOT11DECRYPT_KEY_ITEM, ptr %6, i64 %100
+  %101 = getelementptr [432 x i8], ptr %6, i64 %100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(432) %101, ptr noundef nonnull align 8 dereferenceable(432) %1, i64 432, i1 false)
   %102 = load i64, ptr %2, align 8
   %103 = add i64 %102, 1
@@ -39625,7 +39623,7 @@ add_ff_eht_su_20MHz_rpt.exit:                     ; preds = %64
   br i1 %110, label %155, label %111
 
 111:                                              ; preds = %106
-  %112 = getelementptr %struct.scidx_part, ptr @ru_242_tone_40MHz, i64 %indvars.iv.i
+  %112 = getelementptr [20 x i8], ptr @ru_242_tone_40MHz, i64 %indvars.iv.i
   %113 = getelementptr i8, ptr %112, i64 -20
   %114 = load i32, ptr @ett_eht_beamforming_rpt_ru_index, align 4
   %115 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %46, ptr noundef %1, i32 noundef %.052.i, i32 noundef -1, i32 noundef %114, ptr noundef nonnull %9, ptr noundef nonnull @.str.7751, i32 noundef %107)
@@ -39841,7 +39839,7 @@ next_eht_scidx.exit.i123:                         ; preds = %184
   br i1 %220, label %265, label %221
 
 221:                                              ; preds = %216
-  %222 = getelementptr %struct.scidx_part, ptr @ru_242_tone_80MHz, i64 %indvars.iv.i114
+  %222 = getelementptr [20 x i8], ptr @ru_242_tone_80MHz, i64 %indvars.iv.i114
   %223 = getelementptr i8, ptr %222, i64 -20
   %224 = load i32, ptr @ett_eht_beamforming_rpt_ru_index, align 4
   %225 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %46, ptr noundef %1, i32 noundef %.154105.i, i32 noundef -1, i32 noundef %224, ptr noundef nonnull %8, ptr noundef nonnull @.str.7754, i32 noundef %217)
@@ -40065,7 +40063,7 @@ next_eht_scidx.exit.i136:                         ; preds = %297
   br i1 %333, label %378, label %334
 
 334:                                              ; preds = %329
-  %335 = getelementptr %struct.scidx_part, ptr @ru_242_tone_160MHz, i64 %indvars.iv.i125
+  %335 = getelementptr [20 x i8], ptr @ru_242_tone_160MHz, i64 %indvars.iv.i125
   %336 = getelementptr i8, ptr %335, i64 -20
   %337 = load i32, ptr @ett_eht_beamforming_rpt_ru_index, align 4
   %338 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %46, ptr noundef %1, i32 noundef %.298215.i, i32 noundef -1, i32 noundef %337, ptr noundef nonnull %7, ptr noundef nonnull @.str.7759, i32 noundef %330)
@@ -40274,7 +40272,7 @@ next_eht_scidx.exit131.i:                         ; preds = %401
   br i1 %437, label %482, label %438
 
 438:                                              ; preds = %433
-  %439 = getelementptr %struct.scidx_part, ptr @ru_242_tone_160MHz, i64 %indvars.iv222.i
+  %439 = getelementptr [20 x i8], ptr @ru_242_tone_160MHz, i64 %indvars.iv222.i
   %440 = getelementptr i8, ptr %439, i64 -20
   %441 = load i32, ptr @ett_eht_beamforming_rpt_ru_index, align 4
   %442 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %46, ptr noundef %1, i32 noundef %.7103219.i, i32 noundef -1, i32 noundef %441, ptr noundef nonnull %7, ptr noundef nonnull @.str.7760, i32 noundef %434)
@@ -40404,7 +40402,7 @@ add_ff_eht_su_160MHz_rpt.exit:                    ; preds = %482, %next_eht_scid
   br i1 %500, label %501, label %.preheader.i139
 
 501:                                              ; preds = %494
-  %502 = getelementptr %struct.scidx_part, ptr @ru_996_tone_320MHz_ng4, i64 %495
+  %502 = getelementptr [20 x i8], ptr @ru_996_tone_320MHz_ng4, i64 %495
   %.idx.i = mul nuw nsw i64 %indvars.iv151.i, 100
   %503 = getelementptr i8, ptr @ru_996_tone_320MHz_ng16, i64 %.idx.i
   %.sroa.586.0.i = select i1 %486, ptr %502, ptr %503
@@ -40510,7 +40508,7 @@ next_eht_scidx.exit.i149:                         ; preds = %515
   %.467124.i = phi i32 [ %.568.i, %next_eht_scidx.exit84.i ], [ %.265128.i, %.preheader.i139 ]
   %.sroa.2894.4122.i = phi i32 [ %.sroa.2894.5.i, %next_eht_scidx.exit84.i ], [ %.sroa.2894.2126.i, %.preheader.i139 ]
   %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 1
-  %551 = getelementptr %struct.scidx_part, ptr @ru_242_tone_320MHz, i64 %indvars.iv136.i
+  %551 = getelementptr [20 x i8], ptr @ru_242_tone_320MHz, i64 %indvars.iv136.i
   %552 = load i32, ptr @ett_eht_beamforming_rpt_ru_index, align 4
   %553 = trunc nuw nsw i64 %indvars.iv.next137.i to i32
   %554 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %46, ptr noundef %1, i32 noundef %.467124.i, i32 noundef -1, i32 noundef %552, ptr noundef nonnull %6, ptr noundef nonnull @.str.7765, i32 noundef %553)
@@ -46167,10 +46165,10 @@ dissect_ieee80211_vht_ndp_annc.exit:              ; preds = %43, %22
 
 switch.lookup:                                    ; preds = %60
   %62 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_ieee80211_ndp_annc, i64 %62
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_ieee80211_ndp_annc, i64 %62
   %switch.load = load ptr, ptr %switch.gep, align 8
   %63 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep4 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_ieee80211_ndp_annc.237, i64 %63
+  %switch.gep4 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_ieee80211_ndp_annc.237, i64 %63
   %switch.load5 = load ptr, ptr %switch.gep4, align 8
   br label %.sink.split.i
 
@@ -47095,7 +47093,7 @@ get_group_element_len.exit._crit_edge.i:          ; preds = %36, %get_group_elem
 
 switch.lookup:                                    ; preds = %82
   %87 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_auth_frame, i64 %87
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_auth_frame, i64 %87
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_group_element_len.exit.i32
 
@@ -47750,13 +47748,13 @@ define internal fastcc zeroext i16 @determine_mic_len(ptr noundef %0, i1 noundef
 
 switch.lookup:                                    ; preds = %36
   %57 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.determine_mic_len.238, i64 %57
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table.determine_mic_len.238, i64 %57
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %get_mic_len_owe.exit
 
 switch.lookup48:                                  ; preds = %49
   %58 = zext nneg i16 %switch.tableidx47 to i64
-  %switch.gep49 = getelementptr inbounds nuw i16, ptr @switch.table.determine_mic_len.238, i64 %58
+  %switch.gep49 = getelementptr inbounds nuw [2 x i8], ptr @switch.table.determine_mic_len.238, i64 %58
   %switch.load50 = load i16, ptr %switch.gep49, align 2
   br label %get_mic_len_owe.exit
 
@@ -48137,7 +48135,7 @@ dissect_wme_qos_info.exit:                        ; preds = %16, %19, %22
   %39 = tail call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %38)
   %40 = load i32, ptr @hf_ieee80211_wfa_ie_wme_acp_aci_aifsn, align 4
   %41 = load i32, ptr @ett_wme_aci_aifsn, align 4
-  %42 = getelementptr ptr, ptr @decode_qos_parameter_set.ie_wme_hdrs, i64 %indvars.iv
+  %42 = getelementptr [8 x i8], ptr @decode_qos_parameter_set.ie_wme_hdrs, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   %44 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %39, ptr noundef %1, i32 noundef %.076, i32 noundef %40, i32 noundef %41, ptr noundef %43, i32 noundef -2147483648, i32 noundef 1)
   %45 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.076)
@@ -48172,19 +48170,19 @@ dissect_wme_qos_info.exit:                        ; preds = %16, %19, %22
   %67 = zext nneg i8 %64 to i32
   %notmask74 = shl nsw i32 -1, %67
   %68 = xor i32 %notmask74, -1
-  %69 = getelementptr ptr, ptr @decode_qos_parameter_set.ecw_max_hf, i64 %indvars.iv
+  %69 = getelementptr [8 x i8], ptr @decode_qos_parameter_set.ecw_max_hf, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
   %71 = load i32, ptr %70, align 4
   %72 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %71, ptr noundef %1, i32 noundef %57, i32 noundef 1, i32 noundef 0)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef nonnull @.str.9962, i32 noundef %68)
-  %73 = getelementptr ptr, ptr @decode_qos_parameter_set.ecw_min_hf, i64 %indvars.iv
+  %73 = getelementptr [8 x i8], ptr @decode_qos_parameter_set.ecw_min_hf, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8
   %75 = load i32, ptr %74, align 4
   %76 = tail call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %75, ptr noundef %1, i32 noundef %57, i32 noundef 1, i32 noundef 0)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %76, ptr noundef nonnull @.str.9963, i32 noundef %66)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.9964, i32 noundef %65, i32 noundef %67, i32 noundef %66, i32 noundef %68)
   %77 = add nuw nsw i32 %.076, 2
-  %78 = getelementptr ptr, ptr @decode_qos_parameter_set.txop_limit_hf, i64 %indvars.iv
+  %78 = getelementptr [8 x i8], ptr @decode_qos_parameter_set.txop_limit_hf, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8
   %80 = load i32, ptr %79, align 4
   %81 = tail call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %80, ptr noundef %1, i32 noundef %77, i32 noundef 2, i32 noundef -2147483648)
@@ -51033,7 +51031,7 @@ dissect_multi_link_per_sta.exit:                  ; preds = %440, %.thread312.i
   %462 = phi i32 [ %445, %dissect_multi_link_per_sta.exit.thread ], [ %452, %dissect_multi_link_per_sta.exit ]
   %.2287306 = phi i32 [ %.2287.ph, %dissect_multi_link_per_sta.exit.thread ], [ %.1286, %dissect_multi_link_per_sta.exit ]
   %463 = sext i32 %.0257323 to i64
-  %464 = getelementptr i32, ptr %5, i64 %463
+  %464 = getelementptr [4 x i8], ptr %5, i64 %463
   store i32 %.2287306, ptr %464, align 4
   br label %465
 
@@ -51071,7 +51069,7 @@ dissect_multi_link_per_sta.exit:                  ; preds = %440, %.thread312.i
 
 .lr.ph329:                                        ; preds = %.lr.ph329.preheader, %484
   %indvars.iv = phi i64 [ 0, %.lr.ph329.preheader ], [ %indvars.iv.next, %484 ]
-  %479 = getelementptr i32, ptr %5, i64 %indvars.iv
+  %479 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv
   %480 = load i32, ptr %479, align 4
   %.not276 = icmp eq i32 %480, -1
   br i1 %.not276, label %484, label %481
@@ -52149,7 +52147,7 @@ define internal fastcc void @dissect_tid_to_link_mapping(ptr noundef %0, ptr nou
   br i1 %.not40, label %48, label %43
 
 43:                                               ; preds = %.lr.ph
-  %44 = getelementptr i32, ptr %4, i64 %indvars.iv
+  %44 = getelementptr [4 x i8], ptr %4, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %45, ptr noundef %0, i32 noundef %.23, i32 noundef %spec.select, i32 noundef -2147483648)
   %47 = add i32 %.23, %spec.select

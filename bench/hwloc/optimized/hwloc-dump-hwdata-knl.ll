@@ -164,7 +164,7 @@ sub_2:                                            ; preds = %sub_1
 
 .preheader.i.i:                                   ; preds = %42, %65
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %65 ], [ 0, %42 ]
-  %49 = getelementptr inbounds nuw ptr, ptr @allowed_group_strings, i64 %indvars.iv.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @allowed_group_strings, i64 %indvars.iv.i.i
   %50 = load ptr, ptr %49, align 8, !tbaa !13
   %51 = load i8, ptr %15, align 1, !tbaa !15
   %52 = zext i8 %51 to i64
@@ -224,7 +224,7 @@ is_phi_group.exit.i:                              ; preds = %58
   %.02129.i = phi ptr [ %80, %.lr.ph.i ], [ %16, %71 ]
   %76 = load i8, ptr %.02129.i, align 2, !tbaa !19
   %77 = zext i8 %76 to i32
-  %78 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv.i
   store i32 %77, ptr %78, align 4, !tbaa !21
   %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %77)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -289,7 +289,7 @@ process_smbios_group.exit:                        ; preds = %71, %._crit_edge.lo
   %.lcssa7294 = phi i32 [ 0, %.lr.ph90 ], [ %.lcssa7293, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %103 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   %104 = load i32, ptr %103, align 4, !tbaa !21
   %105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 15, ptr noundef nonnull @.str.5, i32 noundef %104) #12
   %putchar = call i32 @putchar(i32 10)
@@ -531,7 +531,7 @@ process_knl_entry.exit.thread:                    ; preds = %146, %198, %197, %.
 
 switch.lookup:                                    ; preds = %.split.i
   %224 = zext nneg i32 %219 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.hwloc_dump_hwdata_knl_smbios, i64 %224
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_dump_hwdata_knl_smbios, i64 %224
   %switch.load = load i64, ptr %switch.gep, align 8
   switch i32 %214, label %242 [
     i32 1, label %225
@@ -589,7 +589,7 @@ switch.lookup:                                    ; preds = %.split.i
 switch.lookup170:                                 ; preds = %switch.lookup, %.split.i.i.sink.split
   %245 = phi i64 [ 0, %switch.lookup ], [ %.ph, %.split.i.i.sink.split ]
   %246 = zext nneg i32 %219 to i64
-  %switch.gep171 = getelementptr inbounds nuw ptr, ptr @switch.table.hwloc_dump_hwdata_knl_smbios.7, i64 %246
+  %switch.gep171 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_dump_hwdata_knl_smbios.7, i64 %246
   %switch.load172 = load ptr, ptr %switch.gep171, align 8
   switch i32 %214, label %249 [
     i32 1, label %get_memory_mode_str.exit.i
@@ -651,7 +651,7 @@ get_memory_mode_str.exit.i:                       ; preds = %249, %248, %247, %s
   %276 = call i64 @fwrite(ptr nonnull @.str.48, i64 17, i64 1, ptr nonnull %265)
   %277 = call i64 @fwrite(ptr nonnull @.str.49, i64 14, i64 1, ptr nonnull %265)
   %278 = zext nneg i32 %219 to i64
-  %switch.gep174 = getelementptr inbounds nuw ptr, ptr @switch.table.hwloc_dump_hwdata_knl_smbios.7, i64 %278
+  %switch.gep174 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hwloc_dump_hwdata_knl_smbios.7, i64 %278
   %switch.load175 = load ptr, ptr %switch.gep174, align 8
   %279 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %265, ptr noundef nonnull @.str.50, ptr noundef nonnull %switch.load175) #12
   switch i32 %214, label %282 [

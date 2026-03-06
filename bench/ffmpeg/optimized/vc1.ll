@@ -447,7 +447,7 @@ define range(i32 -2147483648, 1) i32 @ff_vc1_decode_sequence_header(ptr noundef 
   %282 = load ptr, ptr %193, align 8, !tbaa !53
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 128
   %284 = zext nneg i32 %276 to i64
-  %285 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_vc1_pixel_aspect, i64 %284
+  %285 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_pixel_aspect, i64 %284
   %286 = load i64, ptr %285, align 8
   store i64 %286, ptr %283, align 8
   br label %333
@@ -612,14 +612,14 @@ define range(i32 -2147483648, 1) i32 @ff_vc1_decode_sequence_header(ptr noundef 
 
 405:                                              ; preds = %381
   %406 = zext nneg i32 %399 to i64
-  %407 = getelementptr i32, ptr @ff_vc1_fps_dr, i64 %406
+  %407 = getelementptr [4 x i8], ptr @ff_vc1_fps_dr, i64 %406
   %408 = getelementptr i8, ptr %407, i64 -4
   %409 = load i32, ptr %408, align 4, !tbaa !9
   %410 = load ptr, ptr %193, align 8, !tbaa !53
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 104
   store i32 %409, ptr %411, align 4, !tbaa !85
   %412 = zext nneg i32 %389 to i64
-  %413 = getelementptr i32, ptr @ff_vc1_fps_nr, i64 %412
+  %413 = getelementptr [4 x i8], ptr @ff_vc1_fps_nr, i64 %412
   %414 = getelementptr i8, ptr %413, i64 -4
   %415 = load i32, ptr %414, align 4, !tbaa !9
   %416 = mul nsw i32 %415, 1000
@@ -1878,7 +1878,7 @@ read_bfraction.exit.thread:                       ; preds = %120
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 10640
   store i8 %135, ptr %136, align 8, !tbaa !127
   %137 = zext nneg i32 %.012.i to i64
-  %138 = getelementptr inbounds nuw i16, ptr @ff_vc1_bfraction_lut, i64 %137
+  %138 = getelementptr inbounds nuw [2 x i8], ptr @ff_vc1_bfraction_lut, i64 %137
   %139 = load i16, ptr %138, align 2, !tbaa !128
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 6938
   store i16 %139, ptr %140, align 2, !tbaa !129
@@ -2575,7 +2575,7 @@ thread-pre-split323:                              ; preds = %439
   %532 = getelementptr inbounds nuw i8, ptr %0, i64 10132
   store i32 %529, ptr %532, align 4, !tbaa !167
   %533 = zext nneg i32 %529 to i64
-  %534 = getelementptr inbounds nuw ptr, ptr @ff_vc1_cbpcy_p_vlc, i64 %533
+  %534 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_cbpcy_p_vlc, i64 %533
   %535 = load ptr, ptr %534, align 8, !tbaa !168
   %536 = getelementptr inbounds nuw i8, ptr %0, i64 6952
   store ptr %535, ptr %536, align 8, !tbaa !169
@@ -2632,7 +2632,7 @@ thread-pre-split323:                              ; preds = %439
   %571 = tail call i32 @llvm.umin.i32(i32 %551, i32 %570)
   store i32 %571, ptr %76, align 8, !tbaa !12
   %572 = zext nneg i32 %569 to i64
-  %573 = getelementptr inbounds nuw i32, ptr @ff_vc1_ttfrm_to_tt, i64 %572
+  %573 = getelementptr inbounds nuw [4 x i8], ptr @ff_vc1_ttfrm_to_tt, i64 %572
   %574 = load i32, ptr %573, align 4, !tbaa !9
   br label %.sink.split
 
@@ -2727,7 +2727,7 @@ thread-pre-split323:                              ; preds = %439
   %645 = getelementptr inbounds nuw i8, ptr %0, i64 10132
   store i32 %642, ptr %645, align 4, !tbaa !167
   %646 = zext nneg i32 %642 to i64
-  %647 = getelementptr inbounds nuw ptr, ptr @ff_vc1_cbpcy_p_vlc, i64 %646
+  %647 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_cbpcy_p_vlc, i64 %646
   %648 = load ptr, ptr %647, align 8, !tbaa !168
   %649 = getelementptr inbounds nuw i8, ptr %0, i64 6952
   store ptr %648, ptr %649, align 8, !tbaa !169
@@ -2784,7 +2784,7 @@ thread-pre-split323:                              ; preds = %439
   %684 = tail call i32 @llvm.umin.i32(i32 %664, i32 %683)
   store i32 %684, ptr %76, align 8, !tbaa !12
   %685 = zext nneg i32 %682 to i64
-  %686 = getelementptr inbounds nuw i32, ptr @ff_vc1_ttfrm_to_tt, i64 %685
+  %686 = getelementptr inbounds nuw [4 x i8], ptr @ff_vc1_ttfrm_to_tt, i64 %685
   %687 = load i32, ptr %686, align 4, !tbaa !9
   br label %.sink.split
 
@@ -2906,7 +2906,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_bfraction(ptr noundef
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 10640
   store i8 %35, ptr %36, align 8, !tbaa !127
   %37 = zext nneg i32 %.012 to i64
-  %38 = getelementptr inbounds nuw i16, ptr @ff_vc1_bfraction_lut, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr @ff_vc1_bfraction_lut, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !128
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 6938
   store i16 %39, ptr %40, align 2, !tbaa !129
@@ -2994,7 +2994,7 @@ define internal fastcc i32 @bitplane_decoding(ptr noundef captures(none) %0, ptr
   %36 = shl i32 %34, %35
   %37 = lshr i32 %36, 28
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_vc1_imode_vlc, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @ff_vc1_imode_vlc, i64 %38
   %40 = load i16, ptr %39, align 4, !tbaa !11
   %41 = sext i16 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 2
@@ -3079,7 +3079,7 @@ define internal fastcc i32 @bitplane_decoding(ptr noundef captures(none) %0, ptr
   %85 = shl i32 %83, %84
   %86 = lshr i32 %85, 29
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_vc1_norm2_vlc, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr @ff_vc1_norm2_vlc, i64 %87
   %89 = load i16, ptr %88, align 4, !tbaa !11
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 2
   %91 = load i16, ptr %90, align 2, !tbaa !11
@@ -3159,7 +3159,7 @@ define internal fastcc i32 @bitplane_decoding(ptr noundef captures(none) %0, ptr
   %131 = shl i32 %129, %130
   %132 = lshr i32 %131, 23
   %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_vc1_norm6_vlc, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr @ff_vc1_norm6_vlc, i64 %133
   %135 = load i16, ptr %134, align 4, !tbaa !11
   %136 = sext i16 %135 to i32
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 2
@@ -3182,7 +3182,7 @@ define internal fastcc i32 @bitplane_decoding(ptr noundef captures(none) %0, ptr
   %152 = lshr i32 %150, %151
   %153 = add i32 %152, %136
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_vc1_norm6_vlc, i64 %154
+  %155 = getelementptr inbounds nuw [4 x i8], ptr @ff_vc1_norm6_vlc, i64 %154
   %156 = load i16, ptr %155, align 4, !tbaa !11
   %157 = sext i16 %156 to i32
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 2
@@ -3293,7 +3293,7 @@ get_vlc2.exit.us:                                 ; preds = %141, %121
   %210 = shl i32 %208, %209
   %211 = lshr i32 %210, 23
   %212 = zext nneg i32 %211 to i64
-  %213 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_vc1_norm6_vlc, i64 %212
+  %213 = getelementptr inbounds nuw [4 x i8], ptr @ff_vc1_norm6_vlc, i64 %212
   %214 = load i16, ptr %213, align 4, !tbaa !11
   %215 = sext i16 %214 to i32
   %216 = getelementptr inbounds nuw i8, ptr %213, i64 2
@@ -3316,7 +3316,7 @@ get_vlc2.exit.us:                                 ; preds = %141, %121
   %231 = lshr i32 %229, %230
   %232 = add i32 %231, %215
   %233 = zext i32 %232 to i64
-  %234 = getelementptr inbounds nuw %struct.VLCElem, ptr @ff_vc1_norm6_vlc, i64 %233
+  %234 = getelementptr inbounds nuw [4 x i8], ptr @ff_vc1_norm6_vlc, i64 %233
   %235 = load i16, ptr %234, align 4, !tbaa !11
   %236 = sext i16 %235 to i32
   %237 = getelementptr inbounds nuw i8, ptr %234, i64 2
@@ -4405,7 +4405,7 @@ read_bfraction.exit.thread:                       ; preds = %283
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 10640
   store i8 %299, ptr %300, align 8, !tbaa !127
   %301 = zext nneg i32 %.012.i to i64
-  %302 = getelementptr inbounds nuw i16, ptr @ff_vc1_bfraction_lut, i64 %301
+  %302 = getelementptr inbounds nuw [2 x i8], ptr @ff_vc1_bfraction_lut, i64 %301
   %303 = load i16, ptr %302, align 2, !tbaa !128
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 6938
   store i16 %303, ptr %304, align 2, !tbaa !129
@@ -5097,7 +5097,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %.not836 = icmp eq i32 %724, 0
   %725 = zext nneg i32 %720 to i64
   %ff_vc1_intfr_non4mv_mbmode_vlc.ff_vc1_intfr_4mv_mbmode_vlc = select i1 %.not836, ptr @ff_vc1_intfr_non4mv_mbmode_vlc, ptr @ff_vc1_intfr_4mv_mbmode_vlc
-  %726 = getelementptr inbounds nuw ptr, ptr %ff_vc1_intfr_non4mv_mbmode_vlc.ff_vc1_intfr_4mv_mbmode_vlc, i64 %725
+  %726 = getelementptr inbounds nuw [8 x i8], ptr %ff_vc1_intfr_non4mv_mbmode_vlc.ff_vc1_intfr_4mv_mbmode_vlc, i64 %725
   %.sink992 = load ptr, ptr %726, align 8, !tbaa !168
   %727 = getelementptr inbounds nuw i8, ptr %0, i64 10208
   store ptr %.sink992, ptr %727, align 8, !tbaa !230
@@ -5115,7 +5115,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %738 = getelementptr inbounds nuw i8, ptr %0, i64 10468
   store i32 %735, ptr %738, align 4, !tbaa !231
   %739 = zext nneg i32 %735 to i64
-  %740 = getelementptr inbounds nuw ptr, ptr @ff_vc1_1ref_mvdata_vlc, i64 %739
+  %740 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_1ref_mvdata_vlc, i64 %739
   %741 = load ptr, ptr %740, align 8, !tbaa !168
   %742 = getelementptr inbounds nuw i8, ptr %0, i64 10216
   store ptr %741, ptr %742, align 8, !tbaa !232
@@ -5133,7 +5133,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %753 = getelementptr inbounds nuw i8, ptr %0, i64 10464
   store i32 %750, ptr %753, align 8, !tbaa !233
   %754 = zext nneg i32 %750 to i64
-  %755 = getelementptr inbounds nuw ptr, ptr @ff_vc1_icbpcy_vlc, i64 %754
+  %755 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_icbpcy_vlc, i64 %754
   %756 = load ptr, ptr %755, align 8, !tbaa !168
   %757 = getelementptr inbounds nuw i8, ptr %0, i64 6952
   store ptr %756, ptr %757, align 8, !tbaa !169
@@ -5151,7 +5151,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %768 = getelementptr inbounds nuw i8, ptr %0, i64 10472
   store i32 %765, ptr %768, align 8, !tbaa !234
   %769 = zext nneg i32 %765 to i64
-  %770 = getelementptr inbounds nuw ptr, ptr @ff_vc1_2mv_block_pattern_vlc, i64 %769
+  %770 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_2mv_block_pattern_vlc, i64 %769
   %771 = load ptr, ptr %770, align 8, !tbaa !168
   %772 = getelementptr inbounds nuw i8, ptr %0, i64 10224
   store ptr %771, ptr %772, align 8, !tbaa !235
@@ -5172,7 +5172,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %784 = getelementptr inbounds nuw i8, ptr %0, i64 10476
   store i32 %781, ptr %784, align 4, !tbaa !236
   %785 = zext nneg i32 %781 to i64
-  %786 = getelementptr inbounds nuw ptr, ptr @ff_vc1_4mv_block_pattern_vlc, i64 %785
+  %786 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_4mv_block_pattern_vlc, i64 %785
   %787 = load ptr, ptr %786, align 8, !tbaa !168
   %788 = getelementptr inbounds nuw i8, ptr %0, i64 10232
   store ptr %787, ptr %788, align 8, !tbaa !237
@@ -5901,7 +5901,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %1244 = getelementptr inbounds nuw i8, ptr %0, i64 10132
   store i32 %1241, ptr %1244, align 4, !tbaa !167
   %1245 = zext nneg i32 %1241 to i64
-  %1246 = getelementptr inbounds nuw ptr, ptr @ff_vc1_cbpcy_p_vlc, i64 %1245
+  %1246 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_cbpcy_p_vlc, i64 %1245
   %1247 = load ptr, ptr %1246, align 8, !tbaa !168
   %1248 = getelementptr inbounds nuw i8, ptr %0, i64 6952
   store ptr %1247, ptr %1248, align 8, !tbaa !169
@@ -5949,9 +5949,9 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   store i32 %1275, ptr %1279, align 4, !tbaa !231
   %.not855 = icmp eq i32 %1266, 0
   %1280 = zext nneg i32 %1275 to i64
-  %1281 = getelementptr inbounds nuw ptr, ptr @ff_vc1_1ref_mvdata_vlc, i64 %1280
+  %1281 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_1ref_mvdata_vlc, i64 %1280
   %1282 = sext i32 %1275 to i64
-  %1283 = getelementptr inbounds ptr, ptr @ff_vc1_2ref_mvdata_vlc, i64 %1282
+  %1283 = getelementptr inbounds [8 x i8], ptr @ff_vc1_2ref_mvdata_vlc, i64 %1282
   %.sink994.in = select i1 %.not855, ptr %1281, ptr %1283
   %.sink994 = load ptr, ptr %.sink994.in, align 8, !tbaa !168
   %1284 = getelementptr inbounds nuw i8, ptr %0, i64 10216
@@ -5970,7 +5970,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %1295 = getelementptr inbounds nuw i8, ptr %0, i64 10464
   store i32 %1292, ptr %1295, align 8, !tbaa !233
   %1296 = zext nneg i32 %1292 to i64
-  %1297 = getelementptr inbounds nuw ptr, ptr @ff_vc1_icbpcy_vlc, i64 %1296
+  %1297 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_icbpcy_vlc, i64 %1296
   %1298 = load ptr, ptr %1297, align 8, !tbaa !168
   %1299 = getelementptr inbounds nuw i8, ptr %0, i64 6952
   store ptr %1298, ptr %1299, align 8, !tbaa !169
@@ -6000,12 +6000,12 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %1315 = getelementptr inbounds nuw i8, ptr %0, i64 10476
   store i32 %1312, ptr %1315, align 4, !tbaa !236
   %1316 = zext nneg i32 %1312 to i64
-  %1317 = getelementptr inbounds nuw ptr, ptr @ff_vc1_4mv_block_pattern_vlc, i64 %1316
+  %1317 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_4mv_block_pattern_vlc, i64 %1316
   %1318 = load ptr, ptr %1317, align 8, !tbaa !168
   %1319 = getelementptr inbounds nuw i8, ptr %0, i64 10232
   store ptr %1318, ptr %1319, align 8, !tbaa !237
   %1320 = zext nneg i32 %1262 to i64
-  %1321 = getelementptr inbounds nuw ptr, ptr @ff_vc1_if_mmv_mbmode_vlc, i64 %1320
+  %1321 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_if_mmv_mbmode_vlc, i64 %1320
   %1322 = load ptr, ptr %1321, align 8, !tbaa !168
   %1323 = getelementptr inbounds nuw i8, ptr %0, i64 10208
   store ptr %1322, ptr %1323, align 8, !tbaa !230
@@ -6013,7 +6013,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
 
 .thread940:                                       ; preds = %1251, %1300
   %1324 = zext nneg i32 %1262 to i64
-  %1325 = getelementptr inbounds nuw ptr, ptr @ff_vc1_if_1mv_mbmode_vlc, i64 %1324
+  %1325 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_if_1mv_mbmode_vlc, i64 %1324
   %1326 = load ptr, ptr %1325, align 8, !tbaa !168
   %1327 = getelementptr inbounds nuw i8, ptr %0, i64 10208
   store ptr %1326, ptr %1327, align 8, !tbaa !230
@@ -6074,7 +6074,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %1364 = tail call i32 @llvm.umin.i32(i32 %1344, i32 %1363)
   store i32 %1364, ptr %356, align 8, !tbaa !12
   %1365 = zext nneg i32 %1362 to i64
-  %1366 = getelementptr inbounds nuw i32, ptr @ff_vc1_ttfrm_to_tt, i64 %1365
+  %1366 = getelementptr inbounds nuw [4 x i8], ptr @ff_vc1_ttfrm_to_tt, i64 %1365
   %1367 = load i32, ptr %1366, align 4, !tbaa !9
   %1368 = getelementptr inbounds nuw i8, ptr %0, i64 6856
   store i32 %1367, ptr %1368, align 8, !tbaa !172
@@ -6220,7 +6220,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %1462 = icmp eq i8 %1461, 3
   %1463 = zext nneg i32 %1457 to i64
   %ff_vc1_if_mmv_mbmode_vlc.ff_vc1_if_1mv_mbmode_vlc = select i1 %1462, ptr @ff_vc1_if_mmv_mbmode_vlc, ptr @ff_vc1_if_1mv_mbmode_vlc
-  %1464 = getelementptr inbounds nuw ptr, ptr %ff_vc1_if_mmv_mbmode_vlc.ff_vc1_if_1mv_mbmode_vlc, i64 %1463
+  %1464 = getelementptr inbounds nuw [8 x i8], ptr %ff_vc1_if_mmv_mbmode_vlc.ff_vc1_if_1mv_mbmode_vlc, i64 %1463
   %.sink996 = load ptr, ptr %1464, align 8, !tbaa !168
   %1465 = getelementptr inbounds nuw i8, ptr %0, i64 10208
   store ptr %.sink996, ptr %1465, align 8, !tbaa !230
@@ -6238,7 +6238,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %1476 = getelementptr inbounds nuw i8, ptr %0, i64 10468
   store i32 %1473, ptr %1476, align 4, !tbaa !231
   %1477 = zext nneg i32 %1473 to i64
-  %1478 = getelementptr inbounds nuw ptr, ptr @ff_vc1_2ref_mvdata_vlc, i64 %1477
+  %1478 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_2ref_mvdata_vlc, i64 %1477
   %1479 = load ptr, ptr %1478, align 8, !tbaa !168
   %1480 = getelementptr inbounds nuw i8, ptr %0, i64 10216
   store ptr %1479, ptr %1480, align 8, !tbaa !232
@@ -6256,7 +6256,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %1491 = getelementptr inbounds nuw i8, ptr %0, i64 10464
   store i32 %1488, ptr %1491, align 8, !tbaa !233
   %1492 = zext nneg i32 %1488 to i64
-  %1493 = getelementptr inbounds nuw ptr, ptr @ff_vc1_icbpcy_vlc, i64 %1492
+  %1493 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_icbpcy_vlc, i64 %1492
   %1494 = load ptr, ptr %1493, align 8, !tbaa !168
   %1495 = getelementptr inbounds nuw i8, ptr %0, i64 6952
   store ptr %1494, ptr %1495, align 8, !tbaa !169
@@ -6277,7 +6277,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %1507 = getelementptr inbounds nuw i8, ptr %0, i64 10476
   store i32 %1504, ptr %1507, align 4, !tbaa !236
   %1508 = zext nneg i32 %1504 to i64
-  %1509 = getelementptr inbounds nuw ptr, ptr @ff_vc1_4mv_block_pattern_vlc, i64 %1508
+  %1509 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_4mv_block_pattern_vlc, i64 %1508
   %1510 = load ptr, ptr %1509, align 8, !tbaa !168
   %1511 = getelementptr inbounds nuw i8, ptr %0, i64 10232
   store ptr %1510, ptr %1511, align 8, !tbaa !237
@@ -6383,7 +6383,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %1578 = getelementptr inbounds nuw i8, ptr %0, i64 10460
   store i32 %1575, ptr %1578, align 4, !tbaa !229
   %1579 = zext nneg i32 %1575 to i64
-  %1580 = getelementptr inbounds nuw ptr, ptr @ff_vc1_intfr_non4mv_mbmode_vlc, i64 %1579
+  %1580 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_intfr_non4mv_mbmode_vlc, i64 %1579
   %1581 = load ptr, ptr %1580, align 8, !tbaa !168
   %1582 = getelementptr inbounds nuw i8, ptr %0, i64 10208
   store ptr %1581, ptr %1582, align 8, !tbaa !230
@@ -6401,7 +6401,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %1593 = getelementptr inbounds nuw i8, ptr %0, i64 10468
   store i32 %1590, ptr %1593, align 4, !tbaa !231
   %1594 = zext nneg i32 %1590 to i64
-  %1595 = getelementptr inbounds nuw ptr, ptr @ff_vc1_1ref_mvdata_vlc, i64 %1594
+  %1595 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_1ref_mvdata_vlc, i64 %1594
   %1596 = load ptr, ptr %1595, align 8, !tbaa !168
   %1597 = getelementptr inbounds nuw i8, ptr %0, i64 10216
   store ptr %1596, ptr %1597, align 8, !tbaa !232
@@ -6419,7 +6419,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %1608 = getelementptr inbounds nuw i8, ptr %0, i64 10464
   store i32 %1605, ptr %1608, align 8, !tbaa !233
   %1609 = zext nneg i32 %1605 to i64
-  %1610 = getelementptr inbounds nuw ptr, ptr @ff_vc1_icbpcy_vlc, i64 %1609
+  %1610 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_icbpcy_vlc, i64 %1609
   %1611 = load ptr, ptr %1610, align 8, !tbaa !168
   %1612 = getelementptr inbounds nuw i8, ptr %0, i64 6952
   store ptr %1611, ptr %1612, align 8, !tbaa !169
@@ -6437,7 +6437,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %1623 = getelementptr inbounds nuw i8, ptr %0, i64 10472
   store i32 %1620, ptr %1623, align 8, !tbaa !234
   %1624 = zext nneg i32 %1620 to i64
-  %1625 = getelementptr inbounds nuw ptr, ptr @ff_vc1_2mv_block_pattern_vlc, i64 %1624
+  %1625 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_2mv_block_pattern_vlc, i64 %1624
   %1626 = load ptr, ptr %1625, align 8, !tbaa !168
   %1627 = getelementptr inbounds nuw i8, ptr %0, i64 10224
   store ptr %1626, ptr %1627, align 8, !tbaa !235
@@ -6455,7 +6455,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %1638 = getelementptr inbounds nuw i8, ptr %0, i64 10476
   store i32 %1635, ptr %1638, align 4, !tbaa !236
   %1639 = zext nneg i32 %1635 to i64
-  %1640 = getelementptr inbounds nuw ptr, ptr @ff_vc1_4mv_block_pattern_vlc, i64 %1639
+  %1640 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_4mv_block_pattern_vlc, i64 %1639
   %1641 = load ptr, ptr %1640, align 8, !tbaa !168
   %1642 = getelementptr inbounds nuw i8, ptr %0, i64 10232
   store ptr %1641, ptr %1642, align 8, !tbaa !237
@@ -6540,7 +6540,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %1705 = getelementptr inbounds nuw i8, ptr %0, i64 10132
   store i32 %1702, ptr %1705, align 4, !tbaa !167
   %1706 = zext nneg i32 %1702 to i64
-  %1707 = getelementptr inbounds nuw ptr, ptr @ff_vc1_cbpcy_p_vlc, i64 %1706
+  %1707 = getelementptr inbounds nuw [8 x i8], ptr @ff_vc1_cbpcy_p_vlc, i64 %1706
   %1708 = load ptr, ptr %1707, align 8, !tbaa !168
   %1709 = getelementptr inbounds nuw i8, ptr %0, i64 6952
   store ptr %1708, ptr %1709, align 8, !tbaa !169
@@ -6601,7 +6601,7 @@ rotate_luts.exit:                                 ; preds = %.preheader.i
   %1746 = tail call i32 @llvm.umin.i32(i32 %1726, i32 %1745)
   store i32 %1746, ptr %356, align 8, !tbaa !12
   %1747 = zext nneg i32 %1744 to i64
-  %1748 = getelementptr inbounds nuw i32, ptr @ff_vc1_ttfrm_to_tt, i64 %1747
+  %1748 = getelementptr inbounds nuw [4 x i8], ptr @ff_vc1_ttfrm_to_tt, i64 %1747
   %1749 = load i32, ptr %1748, align 4, !tbaa !9
   %1750 = getelementptr inbounds nuw i8, ptr %0, i64 6856
   store i32 %1749, ptr %1750, align 8, !tbaa !172

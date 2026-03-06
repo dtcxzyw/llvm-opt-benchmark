@@ -22,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
 %"struct.cv::MatSize" = type { ptr }
 %"struct.cv::MatStep" = type { ptr, [2 x i64] }
-%"class.cv::Point3_" = type { i16, i16, i16 }
 
 $_ZN2cv5utils5trace7details6RegionD2Ev = comdat any
 
@@ -442,9 +441,9 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge42, %66
   %94 = load i64, ptr %93, align 8, !tbaa !61
   %95 = mul i64 %94, %79
   %96 = getelementptr inbounds nuw i8, ptr %92, i64 %95
-  %97 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %76, i64 %indvars.iv
-  %98 = getelementptr %"class.cv::Point3_", ptr %96, i64 %indvars.iv
-  %99 = getelementptr %"class.cv::Point3_", ptr %98, i64 %62
+  %97 = getelementptr inbounds nuw [6 x i8], ptr %76, i64 %indvars.iv
+  %98 = getelementptr [6 x i8], ptr %96, i64 %indvars.iv
+  %99 = getelementptr [6 x i8], ptr %98, i64 %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %99, ptr noundef nonnull align 2 dereferenceable(6) %97, i64 6, i1 false), !tbaa.struct !65
   br label %102
 

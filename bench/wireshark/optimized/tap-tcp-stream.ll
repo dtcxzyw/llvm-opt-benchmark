@@ -939,7 +939,7 @@ define hidden i32 @select_tcpip_session(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %40, %free_address.exit23
   %indvars.iv = phi i64 [ %indvars.iv.next, %free_address.exit23 ], [ 0, %40 ]
-  %46 = getelementptr ptr, ptr %41, i64 %indvars.iv
+  %46 = getelementptr [8 x i8], ptr %41, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load i32, ptr %48, align 8
@@ -1042,7 +1042,7 @@ define internal noundef i32 @tap_tcpip_packet(ptr noundef captures(none) %0, ptr
 
 18:                                               ; preds = %.lr.ph, %compare_headers.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %compare_headers.exit.thread ]
-  %19 = getelementptr ptr, ptr %8, i64 %indvars.iv
+  %19 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 64
@@ -1118,16 +1118,16 @@ compare_headers.exit._crit_edge:                  ; preds = %compare_headers.exi
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load i32, ptr %0, align 8
   %56 = sext i32 %55 to i64
-  %57 = getelementptr ptr, ptr %54, i64 %56
+  %57 = getelementptr [8 x i8], ptr %54, i64 %56
   store ptr %53, ptr %57, align 8
   %58 = load i32, ptr %0, align 8
   %59 = sext i32 %58 to i64
-  %60 = getelementptr ptr, ptr %54, i64 %59
+  %60 = getelementptr [8 x i8], ptr %54, i64 %59
   %61 = load ptr, ptr %60, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(136) %61, ptr noundef align 8 dereferenceable(136) %3, i64 136, i1 false)
   %62 = load i32, ptr %0, align 8
   %63 = sext i32 %62 to i64
-  %64 = getelementptr ptr, ptr %54, i64 %63
+  %64 = getelementptr [8 x i8], ptr %54, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -1155,7 +1155,7 @@ compare_headers.exit._crit_edge:                  ; preds = %compare_headers.exi
 copy_address.exit:                                ; preds = %52, %74
   %80 = load i32, ptr %0, align 8
   %81 = sext i32 %80 to i64
-  %82 = getelementptr ptr, ptr %54, i64 %81
+  %82 = getelementptr [8 x i8], ptr %54, i64 %81
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 64
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 64

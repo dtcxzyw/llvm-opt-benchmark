@@ -142,7 +142,7 @@ _ZN5faiss12AlignedTableItLi32EEC2Em.exit:         ; preds = %.loopexit.i
   %indvars.iv = phi i64 [ 0, %_ZN5faiss12AlignedTableItLi32EEC2Em.exit ], [ %indvars.iv.next, %11 ]
   %.021.tr = trunc i64 %indvars.iv to i16
   %12 = shl nuw i16 %.021.tr, 6
-  %13 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   store i16 %12, ptr %13, align 2, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
@@ -166,7 +166,7 @@ _ZN5faiss12AlignedTableItLi32EEC2Em.exit:         ; preds = %.loopexit.i
 18:                                               ; preds = %.preheader, %65
   %indvars.iv45 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next46, %65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %19 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv45
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv45
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 64, ptr %4, align 4, !tbaa !16
   %20 = load i32, ptr %19, align 4, !tbaa !16, !noalias !18

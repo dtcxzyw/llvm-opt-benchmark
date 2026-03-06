@@ -764,7 +764,7 @@ define internal fastcc void @init_t38_info_conv(ptr noundef %0) unnamed_addr #0 
   %spec.store.select = select i1 %4, i32 0, i32 %3
   store i32 %spec.store.select, ptr @t38_info_current, align 4
   %5 = sext i32 %spec.store.select to i64
-  %6 = getelementptr %struct._t38_packet_info, ptr @t38_info_arr, i64 %5
+  %6 = getelementptr [304 x i8], ptr @t38_info_arr, i64 %5
   store ptr %6, ptr @t38_info, align 8
   store i16 0, ptr %6, align 16
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4

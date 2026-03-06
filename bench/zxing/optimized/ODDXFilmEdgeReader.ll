@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.ZXing::ReaderOptions" = type { i32, i8, i8, i16, %"class.ZXing::Flags" }
 %"class.ZXing::Flags" = type { i32 }
 %"struct.ZXing::StructuredAppendInfo" = type { i32, i32, %"class.std::__cxx11::basic_string" }
-%"struct.ZXing::OneD::(anonymous namespace)::Clock" = type { i8, i32, i32, i32 }
 
 $_ZN5ZXing6ResultC2Ev = comdat any
 
@@ -262,7 +261,7 @@ _ZNSt10unique_ptrIN5ZXing4OneD9RowReader13DecodingStateESt14default_deleteIS3_EE
 
 89:                                               ; preds = %"_ZZNK5ZXing4OneD16DXFilmEdgeReader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EEENK3$_0clERKS2_i.exit.i", %54
   %90 = zext nneg i32 %52 to i64
-  %91 = getelementptr inbounds nuw i16, ptr %55, i64 %90
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %90
   %92 = getelementptr inbounds i8, ptr %91, i64 -20
   br label %_ZN5ZXing11PatternView8skipPairEv.exit.i
 
@@ -352,7 +351,7 @@ _ZN5ZXing11PatternView8skipPairEv.exit.i:         ; preds = %"_ZZNK5ZXing4OneD16
   %.not1.i.i = icmp uge ptr %.sroa.0254.0, %127
   %or.cond.i.i.not293 = and i1 %.not.i.i98, %.not1.i.i
   %128 = zext nneg i32 %.sroa.7255.0 to i64
-  %129 = getelementptr inbounds nuw i16, ptr %.sroa.0254.0, i64 %128
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0254.0, i64 %128
   %130 = icmp ule ptr %129, %126
   %or.cond = select i1 %or.cond.i.i.not293, i1 %130, i1 false
   br i1 %or.cond, label %152, label %_ZNK5ZXing11PatternView7isValidEv.exit.thread
@@ -454,10 +453,10 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i.i:         ; preds = %.lr.ph.i.i.i.i.i.i
 
 174:                                              ; preds = %173, %171
   %indvars.iv.i.i.i = phi i64 [ 0, %171 ], [ %indvars.iv.next.i.i.i, %173 ]
-  %175 = getelementptr inbounds nuw i16, ptr %.sroa.0254.0, i64 %indvars.iv.i.i.i
+  %175 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0254.0, i64 %indvars.iv.i.i.i
   %176 = load i16, ptr %175, align 2, !tbaa !62, !noalias !66
   %177 = uitofp i16 %176 to double
-  %178 = getelementptr inbounds nuw i16, ptr @_ZN5ZXing4OneD12_GLOBAL__N_116CLOCK_PATTERN_FNE, i64 %indvars.iv.i.i.i
+  %178 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5ZXing4OneD12_GLOBAL__N_116CLOCK_PATTERN_FNE, i64 %indvars.iv.i.i.i
   %179 = load i16, ptr %178, align 2, !tbaa !62, !noalias !66
   %180 = uitofp i16 %179 to double
   %181 = fneg double %180
@@ -523,10 +522,10 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i15.i:       ; preds = %.lr.ph.i.i.i.i.i9.i
 
 207:                                              ; preds = %206, %204
   %indvars.iv.i.i16.i = phi i64 [ 0, %204 ], [ %indvars.iv.next.i.i17.i, %206 ]
-  %208 = getelementptr inbounds nuw i16, ptr %.sroa.0254.0, i64 %indvars.iv.i.i16.i
+  %208 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0254.0, i64 %indvars.iv.i.i16.i
   %209 = load i16, ptr %208, align 2, !tbaa !62, !noalias !66
   %210 = uitofp i16 %209 to double
-  %211 = getelementptr inbounds nuw i16, ptr @_ZN5ZXing4OneD12_GLOBAL__N_119CLOCK_PATTERN_NO_FNE, i64 %indvars.iv.i.i16.i
+  %211 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5ZXing4OneD12_GLOBAL__N_119CLOCK_PATTERN_NO_FNE, i64 %indvars.iv.i.i16.i
   %212 = load i16, ptr %211, align 2, !tbaa !62, !noalias !66
   %213 = uitofp i16 %212 to double
   %214 = fneg double %213
@@ -560,7 +559,7 @@ _ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i.i: ; preds = %.l
 
 _ZNK5ZXing11PatternView13pixelsInFrontEv.exit.i:  ; preds = %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i.i, %219
   %.05.lcssa.i.i.i.i = phi i32 [ 0, %219 ], [ %224, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i.i ]
-  %225 = getelementptr inbounds nuw i16, ptr %.sroa.0254.0, i64 %220
+  %225 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0254.0, i64 %220
   %.not6.i.i.i21.i = icmp eq ptr %127, %225
   br i1 %.not6.i.i.i21.i, label %_ZN5ZXing4OneD12_GLOBAL__N_113CheckForClockEiRNS_11PatternViewE.exit, label %.lr.ph.i.i.i22.i
 
@@ -671,7 +670,7 @@ _ZNSt6vectorIN5ZXing4OneD12_GLOBAL__N_15ClockESaIS3_EE11_S_relocateEPS3_S6_S6_RS
 _ZNSt6vectorIN5ZXing4OneD12_GLOBAL__N_15ClockESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %258, %_ZNSt6vectorIN5ZXing4OneD12_GLOBAL__N_15ClockESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i.i
   store ptr %253, ptr %231, align 8, !tbaa !82
   store ptr %257, ptr %232, align 8, !tbaa !75
-  %259 = getelementptr inbounds nuw %"struct.ZXing::OneD::(anonymous namespace)::Clock", ptr %253, i64 %251
+  %259 = getelementptr inbounds nuw [16 x i8], ptr %253, i64 %251
   store ptr %259, ptr %236, align 8, !tbaa !74
   br label %_ZN5ZXing4OneD12_GLOBAL__N_19DXFEState8addClockERKNS1_5ClockE.exit
 
@@ -683,7 +682,7 @@ _ZN5ZXing4OneD12_GLOBAL__N_19DXFEState8addClockERKNS1_5ClockE.exit: ; preds = %2
 261:                                              ; preds = %_ZN5ZXing4OneD12_GLOBAL__N_19DXFEState8addClockERKNS1_5ClockE.exit
   %262 = load i32, ptr %51, align 8, !tbaa !50
   %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds i16, ptr %260, i64 %263
+  %264 = getelementptr inbounds [2 x i8], ptr %260, i64 %263
   store ptr %264, ptr %3, align 8, !tbaa !56
   br label %_ZN5ZXing11PatternView10skipSymbolEv.exit
 
@@ -832,7 +831,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i:           ; preds = %.lr.ph.i.i.i.i.i
 
 331:                                              ; preds = %330, %328
   %indvars.iv.i.i = phi i64 [ 0, %328 ], [ %indvars.iv.next.i.i, %330 ]
-  %332 = getelementptr inbounds nuw i16, ptr %.sroa.0254.0, i64 %indvars.iv.i.i
+  %332 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0254.0, i64 %indvars.iv.i.i
   %333 = load i16, ptr %332, align 2, !tbaa !62
   %334 = uitofp i16 %333 to double
   %335 = fsub double %334, %325
@@ -1534,7 +1533,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185: ; preds = %_Z
   %597 = load ptr, ptr %3, align 8, !tbaa !56
   %598 = load i32, ptr %51, align 8, !tbaa !50
   %599 = sext i32 %598 to i64
-  %600 = getelementptr inbounds i16, ptr %597, i64 %599
+  %600 = getelementptr inbounds [2 x i8], ptr %597, i64 %599
   %.not6.i.i.i186 = icmp eq ptr %596, %600
   br i1 %.not6.i.i.i186, label %_ZNK5ZXing11PatternView13pixelsTillEndEv.exit, label %.lr.ph.i.i.i187
 
@@ -2018,7 +2017,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5ZXing12IsRightGuardILi3ELi3ELb0EEEbR
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !50
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds i16, ptr %5, i64 %8
+  %9 = getelementptr inbounds [2 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !61
   %12 = getelementptr inbounds i8, ptr %11, i64 -2
@@ -2066,10 +2065,10 @@ _ZNK5ZXing11PatternView3sumEi.exit.i:             ; preds = %.lr.ph.i.i.i.i
 
 30:                                               ; preds = %29, %26
   %indvars.iv.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i, %29 ]
-  %31 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv.i
   %32 = load i16, ptr %31, align 2, !tbaa !62
   %33 = uitofp i16 %32 to double
-  %34 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv.i
   %35 = load i16, ptr %34, align 2, !tbaa !62
   %36 = uitofp i16 %35 to double
   %37 = fneg double %36

@@ -1094,7 +1094,7 @@ define internal noundef ptr @_abc__abc_init(ptr noundef readonly captures(none) 
 16:                                               ; preds = %Py_DECREF.exit.i, %.lr.ph.i
   %.073193.i = phi i64 [ 0, %.lr.ph.i ], [ %75, %Py_DECREF.exit.i ]
   %17 = load ptr, ptr %15, align 8, !tbaa !21
-  %18 = getelementptr ptr, ptr %17, i64 %.073193.i
+  %18 = getelementptr [8 x i8], ptr %17, i64 %.073193.i
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = tail call ptr @PySequence_Fast(ptr noundef %19, ptr noundef nonnull @.str.11) #4
   %.not88.i = icmp eq ptr %20, null
@@ -1271,7 +1271,7 @@ Py_DECREF.exit.i:                                 ; preds = %74, %71, %Py_DECREF
 
 87:                                               ; preds = %Py_DECREF.exit110.thread175.i, %.lr.ph199.i
   %.070198.i = phi i64 [ 0, %.lr.ph199.i ], [ %166, %Py_DECREF.exit110.thread175.i ]
-  %88 = getelementptr ptr, ptr %84, i64 %.070198.i
+  %88 = getelementptr [8 x i8], ptr %84, i64 %.070198.i
   %89 = load ptr, ptr %88, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %90 = call i32 @PyObject_GetOptionalAttr(ptr noundef %89, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 36552), ptr noundef nonnull %3) #4

@@ -71,24 +71,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.148" = type { %"struct.std::_Vector_base<rocksdb::FSReadRequest, std::allocator<rocksdb::FSReadRequest>>::_Vector_impl" }
 %"struct.std::_Vector_base<rocksdb::FSReadRequest, std::allocator<rocksdb::FSReadRequest>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::FSReadRequest, std::allocator<rocksdb::FSReadRequest>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<rocksdb::FSReadRequest, std::allocator<rocksdb::FSReadRequest>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.rocksdb::ReadRequest" = type { i64, i64, ptr, %"class.rocksdb::Slice", %"class.rocksdb::Status" }
-%"struct.rocksdb::FSReadRequest" = type { i64, i64, ptr, %"class.rocksdb::Slice", %"class.rocksdb::IOStatus", %"class.std::unique_ptr.152" }
-%"class.std::unique_ptr.152" = type { %"struct.std::__uniq_ptr_data.153" }
-%"struct.std::__uniq_ptr_data.153" = type { %"class.std::__uniq_ptr_impl.154" }
-%"class.std::__uniq_ptr_impl.154" = type { %"class.std::tuple.155" }
-%"class.std::tuple.155" = type { %"struct.std::_Tuple_impl.156" }
-%"struct.std::_Tuple_impl.156" = type { %"struct.std::_Tuple_impl.157", %"struct.std::_Head_base.161" }
-%"struct.std::_Tuple_impl.157" = type { %"struct.std::_Head_base.158" }
-%"struct.std::_Head_base.158" = type { %"class.std::function.159" }
-%"class.std::function.159" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"struct.std::_Head_base.161" = type { ptr }
 %"struct.rocksdb::DirFsyncOptions" = type { i8, %"class.std::__cxx11::basic_string" }
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, rocksdb::OptionTypeInfo>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, rocksdb::OptionTypeInfo>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, std::hash<string>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
+%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
+%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
+%"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"class.rocksdb::OptionTypeInfo" }
 %"class.rocksdb::OptionTypeInfo" = type <{ i32, [4 x i8], %"class.std::function", %"class.std::function.110", %"class.std::function.112", %"class.std::function.114", %"class.std::function.116", i32, i32, i32, [4 x i8] }>
 %"class.std::function.110" = type { %"class.std::_Function_base", ptr }
@@ -14021,10 +14010,10 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_132CompositeRandomAccessFileWrappe
 
 .lr.ph:                                           ; preds = %36, %_ZN7rocksdb6StatusD2Ev.exit
   %.02750 = phi i64 [ %62, %_ZN7rocksdb6StatusD2Ev.exit ], [ 0, %36 ]
-  %45 = getelementptr inbounds nuw %"struct.rocksdb::ReadRequest", ptr %2, i64 %.02750
+  %45 = getelementptr inbounds nuw [56 x i8], ptr %2, i64 %.02750
   %46 = load i64, ptr %45, align 8, !tbaa !217
   %47 = load ptr, ptr %8, align 8, !tbaa !214
-  %48 = getelementptr inbounds nuw %"struct.rocksdb::FSReadRequest", ptr %47, i64 %.02750
+  %48 = getelementptr inbounds nuw [96 x i8], ptr %47, i64 %.02750
   store i64 %46, ptr %48, align 8, !tbaa !219
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !231
@@ -14124,9 +14113,9 @@ _ZN7rocksdb6StatusD2Ev.exit38:                    ; preds = %_ZN7rocksdb6Statusa
 .lr.ph52:                                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit38, %_ZN7rocksdb6StatusaSERKS0_.exit
   %.051 = phi i64 [ %119, %_ZN7rocksdb6StatusaSERKS0_.exit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit38 ]
   %88 = load ptr, ptr %8, align 8, !tbaa !214
-  %89 = getelementptr inbounds nuw %"struct.rocksdb::FSReadRequest", ptr %88, i64 %.051
+  %89 = getelementptr inbounds nuw [96 x i8], ptr %88, i64 %.051
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  %91 = getelementptr inbounds nuw %"struct.rocksdb::ReadRequest", ptr %2, i64 %.051
+  %91 = getelementptr inbounds nuw [56 x i8], ptr %2, i64 %.051
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 8 dereferenceable(16) %90, i64 16, i1 false), !tbaa.struct !236
   %.not.i39 = icmp eq ptr %91, %89
@@ -14674,9 +14663,9 @@ _ZNSt6vectorIN7rocksdb13FSReadRequestESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit:
 
 _ZNSt12_Vector_baseIN7rocksdb13FSReadRequestESaIS1_EE13_M_deallocateEPS1_m.exit41: ; preds = %_ZNSt6vectorIN7rocksdb13FSReadRequestESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %71
   store ptr %30, ptr %0, align 8, !tbaa !214
-  %75 = getelementptr inbounds nuw %"struct.rocksdb::FSReadRequest", ptr %31, i64 %1
+  %75 = getelementptr inbounds nuw [96 x i8], ptr %31, i64 %1
   store ptr %75, ptr %4, align 8, !tbaa !238
-  %76 = getelementptr inbounds nuw %"struct.rocksdb::FSReadRequest", ptr %30, i64 %28
+  %76 = getelementptr inbounds nuw [96 x i8], ptr %30, i64 %28
   store ptr %76, ptr %11, align 8, !tbaa !239
   br label %77
 
@@ -20861,7 +20850,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 34:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb14OptionTypeInfoEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS6_EEmRKT_.exit
   %35 = load ptr, ptr %0, align 8, !tbaa !155
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %37 = load ptr, ptr %36, align 8, !tbaa !273
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %.critedge, label %38
@@ -21018,7 +21007,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 224
   store i64 %2, ptr %32, align 8, !tbaa !274
   %33 = load ptr, ptr %0, align 8, !tbaa !155
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !273
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -21044,7 +21033,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 224
   %46 = load i64, ptr %45, align 8, !tbaa !274
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !273
   br label %49
 
@@ -21243,7 +21232,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 224
   %16 = load i64, ptr %15, align 8, !tbaa !274
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !273
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -21258,7 +21247,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !273
   br label %28
 

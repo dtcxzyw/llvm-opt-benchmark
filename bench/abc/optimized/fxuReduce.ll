@@ -26,7 +26,7 @@ define range(i32 0, 2) i32 @Fxu_PreprocessCubePairs(ptr noundef %0, ptr noundef 
   %.0101145 = phi i32 [ 0, %.lr.ph ], [ %.1102, %59 ]
   %.0108144 = phi i32 [ -1, %.lr.ph ], [ %.1109, %59 ]
   %13 = load ptr, ptr %10, align 8, !tbaa !9
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !10
   %.not134 = icmp eq ptr %15, null
   br i1 %.not134, label %59, label %16
@@ -173,7 +173,7 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv187
   %71 = load i8, ptr %70, align 1, !tbaa !11
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %68, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !17
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr %73, align 4, !tbaa !17
@@ -222,7 +222,7 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
 .lr.ph153:                                        ; preds = %.lr.ph153.preheader, %90
   %indvars.iv190 = phi i64 [ 0, %.lr.ph153.preheader ], [ %indvars.iv.next191, %90 ]
   %.0107151 = phi i32 [ 0, %.lr.ph153.preheader ], [ %86, %90 ]
-  %84 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv190
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv190
   %85 = load i32, ptr %84, align 4, !tbaa !17
   %86 = add nsw i32 %85, %.0107151
   %.not124 = icmp slt i32 %86, %3
@@ -291,7 +291,7 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
   %indvars.iv204 = phi i64 [ 0, %.lr.ph179 ], [ %indvars.iv.next205, %.loopexit ]
   %.4177 = phi i32 [ 0, %.lr.ph179 ], [ %.7, %.loopexit ]
   %105 = load ptr, ptr %92, align 8, !tbaa !9
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv204
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv204
   %107 = load ptr, ptr %106, align 8, !tbaa !10
   %.not126 = icmp eq ptr %107, null
   br i1 %.not126, label %.loopexit, label %108

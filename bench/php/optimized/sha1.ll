@@ -389,7 +389,7 @@ PHP_SHA1Update.exit22:                            ; preds = %72, %67
 77:                                               ; preds = %77, %PHP_SHA1Update.exit22
   %indvars.iv22.i = phi i64 [ 0, %PHP_SHA1Update.exit22 ], [ %indvars.iv.next23.i, %77 ]
   %indvars.iv.i = phi i64 [ 0, %PHP_SHA1Update.exit22 ], [ %indvars.iv.next.i, %77 ]
-  %78 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv22.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv22.i
   %79 = load i32, ptr %78, align 4, !tbaa !17
   %80 = lshr i32 %79, 24
   %81 = trunc nuw i32 %80 to i8
@@ -693,7 +693,7 @@ define internal fastcc void @SHA1Transform(ptr noundef captures(none) %0, ptr no
   %29 = zext i8 %28 to i32
   %30 = shl nuw i32 %29, 24
   %31 = or disjoint i32 %27, %30
-  %32 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv16.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv16.i
   store i32 %31, ptr %32, align 4, !tbaa !17
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4

@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.unit_conversion = type { [4 x i8], i32, double }
 %struct.HASH_SEQ_STATUS = type { ptr, i32, ptr, i8, i32 }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
@@ -814,7 +813,7 @@ define dso_local ptr @find_option(ptr noundef %0, i1 noundef zeroext %1, i1 noun
 
 13:                                               ; preds = %.preheader, %guc_name_compare.exit.thread
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %guc_name_compare.exit.thread ]
-  %14 = getelementptr inbounds nuw ptr, ptr @map_old_guc_names, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @map_old_guc_names, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 16
   br label %16
 
@@ -848,7 +847,7 @@ guc_name_compare.exit:                            ; preds = %16
   br i1 %.not33.i.not, label %27, label %guc_name_compare.exit.thread
 
 27:                                               ; preds = %guc_name_compare.exit
-  %28 = getelementptr inbounds nuw ptr, ptr @map_old_guc_names, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @map_old_guc_names, i64 %indvars.iv
   %29 = getelementptr i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @find_option(ptr noundef %30, i1 noundef zeroext false, i1 noundef zeroext %2, i32 noundef %3)
@@ -1426,7 +1425,7 @@ define dso_local ptr @get_guc_variables(ptr noundef captures(none) initializes((
   %12 = load ptr, ptr %11, align 8
   %13 = add i32 %.09, 1
   %14 = sext i32 %.09 to i64
-  %15 = getelementptr inbounds ptr, ptr %7, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %7, i64 %14
   store ptr %12, ptr %15, align 8
   %16 = call ptr @hash_seq_search(ptr noundef nonnull %2) #29
   %.not = icmp eq ptr %16, null
@@ -1522,7 +1521,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   store i32 0, ptr %8, align 4
   %9 = add i32 %.080, 1
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.config_bool, ptr @ConfigureNamesBool, i64 %10
+  %11 = getelementptr inbounds [200 x i8], ptr @ConfigureNamesBool, i64 %10
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.preheader77, label %.lr.ph, !llvm.loop !18
@@ -1542,7 +1541,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %16 = add i32 %.183, 1
   %17 = add i32 %.15882, 1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.config_int, ptr @ConfigureNamesInt, i64 %18
+  %19 = getelementptr inbounds [208 x i8], ptr @ConfigureNamesInt, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not62 = icmp eq ptr %20, null
   br i1 %.not62, label %.preheader76, label %.lr.ph84, !llvm.loop !19
@@ -1562,7 +1561,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %24 = add i32 %.288, 1
   %25 = add i32 %.25987, 1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.config_real, ptr @ConfigureNamesReal, i64 %26
+  %27 = getelementptr inbounds [216 x i8], ptr @ConfigureNamesReal, i64 %26
   %28 = load ptr, ptr %27, align 8
   %.not63 = icmp eq ptr %28, null
   br i1 %.not63, label %.preheader75, label %.lr.ph89, !llvm.loop !20
@@ -1582,7 +1581,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %32 = add i32 %.393, 1
   %33 = add i32 %.36092, 1
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %struct.config_string, ptr @ConfigureNamesString, i64 %34
+  %35 = getelementptr inbounds [200 x i8], ptr @ConfigureNamesString, i64 %34
   %36 = load ptr, ptr %35, align 8
   %.not64 = icmp eq ptr %36, null
   br i1 %.not64, label %.preheader74, label %.lr.ph94, !llvm.loop !21
@@ -1596,7 +1595,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   %39 = add i32 %.498, 1
   %40 = add i32 %.46197, 1
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds %struct.config_enum, ptr @ConfigureNamesEnum, i64 %41
+  %42 = getelementptr inbounds [208 x i8], ptr @ConfigureNamesEnum, i64 %41
   %43 = load ptr, ptr %42, align 8
   %.not65 = icmp eq ptr %43, null
   br i1 %.not65, label %._crit_edge, label %.lr.ph99, !llvm.loop !22
@@ -1636,7 +1635,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   store ptr %55, ptr %58, align 8
   %59 = add i32 %.5102, 1
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds %struct.config_bool, ptr @ConfigureNamesBool, i64 %60
+  %61 = getelementptr inbounds [200 x i8], ptr @ConfigureNamesBool, i64 %60
   %62 = load ptr, ptr %61, align 8
   %.not66 = icmp eq ptr %62, null
   br i1 %.not66, label %.preheader73, label %.lr.ph104, !llvm.loop !23
@@ -1655,7 +1654,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   store ptr %64, ptr %67, align 8
   %68 = add i32 %.6106, 1
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %struct.config_int, ptr @ConfigureNamesInt, i64 %69
+  %70 = getelementptr inbounds [208 x i8], ptr @ConfigureNamesInt, i64 %69
   %71 = load ptr, ptr %70, align 8
   %.not67 = icmp eq ptr %71, null
   br i1 %.not67, label %.preheader72, label %.lr.ph107, !llvm.loop !24
@@ -1674,7 +1673,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   store ptr %73, ptr %76, align 8
   %77 = add i32 %.7109, 1
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds %struct.config_real, ptr @ConfigureNamesReal, i64 %78
+  %79 = getelementptr inbounds [216 x i8], ptr @ConfigureNamesReal, i64 %78
   %80 = load ptr, ptr %79, align 8
   %.not68 = icmp eq ptr %80, null
   br i1 %.not68, label %.preheader71, label %.lr.ph110, !llvm.loop !25
@@ -1693,7 +1692,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   store ptr %82, ptr %85, align 8
   %86 = add i32 %.8112, 1
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds %struct.config_string, ptr @ConfigureNamesString, i64 %87
+  %88 = getelementptr inbounds [200 x i8], ptr @ConfigureNamesString, i64 %87
   %89 = load ptr, ptr %88, align 8
   %.not69 = icmp eq ptr %89, null
   br i1 %.not69, label %.preheader, label %.lr.ph113, !llvm.loop !26
@@ -1707,7 +1706,7 @@ define dso_local void @build_guc_variables() local_unnamed_addr #0 {
   store ptr %90, ptr %93, align 8
   %94 = add i32 %.9115, 1
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds %struct.config_enum, ptr @ConfigureNamesEnum, i64 %95
+  %96 = getelementptr inbounds [208 x i8], ptr @ConfigureNamesEnum, i64 %95
   %97 = load ptr, ptr %96, align 8
   %.not70 = icmp eq ptr %97, null
   br i1 %.not70, label %._crit_edge117, label %.lr.ph116, !llvm.loop !27
@@ -1939,7 +1938,7 @@ valid_custom_variable_name.exit.thread:           ; preds = %13, %18, %16, %5, %
 
 41:                                               ; preds = %.lr.ph72, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next, %55 ]
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %40, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #30
   %45 = icmp eq i64 %44, %8
@@ -1996,7 +1995,7 @@ define dso_local noundef ptr @convert_GUC_name_for_parameter_acl(ptr noundef %0)
 
 2:                                                ; preds = %1, %guc_name_compare.exit.thread
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %guc_name_compare.exit.thread ]
-  %3 = getelementptr inbounds nuw ptr, ptr @map_old_guc_names, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @map_old_guc_names, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 16
   br label %5
 
@@ -2030,7 +2029,7 @@ guc_name_compare.exit:                            ; preds = %5
   br i1 %.not33.i.not, label %16, label %guc_name_compare.exit.thread
 
 16:                                               ; preds = %guc_name_compare.exit
-  %17 = getelementptr inbounds nuw ptr, ptr @map_old_guc_names, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @map_old_guc_names, i64 %indvars.iv
   %18 = getelementptr i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   br label %.loopexit
@@ -3337,7 +3336,7 @@ define internal fastcc void @push_old_value(ptr noundef %0, i32 noundef %1) unna
 
 switch.lookup:                                    ; preds = %31
   %38 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.push_old_value, i64 %38
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.push_old_value, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 %switch.load, ptr %39, align 4
@@ -5030,7 +5029,7 @@ define dso_local noundef zeroext i1 @parse_int(ptr noundef %0, ptr noundef write
   %31 = phi ptr [ %.promoted, %.preheader ], [ %37, %30 ]
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw i16, ptr %29, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = and i16 %35, 8192
   %.not25 = icmp eq i16 %36, 0
@@ -5128,7 +5127,7 @@ define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %
   %.03649 = phi i32 [ 0, %.lr.ph ], [ %18, %16 ]
   %.03848 = phi ptr [ %1, %.lr.ph ], [ %17, %16 ]
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 8192
   %14 = icmp eq i16 %13, 0
@@ -5168,7 +5167,7 @@ define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %
   %.1 = phi ptr [ %.038.lcssa, %.critedge ], [ %31, %25 ]
   %26 = load i8, ptr %.1, align 1
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 8192
   %.not40 = icmp eq i16 %30, 0
@@ -5206,7 +5205,7 @@ define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %
   %46 = fmul double %0, %45
   %47 = add i32 %.03455, 1
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds %struct.unit_conversion, ptr %time_unit_conversion_table.memory_unit_conversion_table, i64 %48
+  %49 = getelementptr inbounds [16 x i8], ptr %time_unit_conversion_table.memory_unit_conversion_table, i64 %48
   %50 = load i8, ptr %49, align 16
   %.not44 = icmp eq i8 %50, 0
   br i1 %.not44, label %61, label %51
@@ -5233,7 +5232,7 @@ define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %
 62:                                               ; preds = %.lr.ph56, %40
   %63 = add i32 %.03455, 1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds %struct.unit_conversion, ptr %time_unit_conversion_table.memory_unit_conversion_table, i64 %64
+  %65 = getelementptr inbounds [16 x i8], ptr %time_unit_conversion_table.memory_unit_conversion_table, i64 %64
   %66 = load i8, ptr %65, align 16
   %.not43 = icmp eq i8 %66, 0
   br i1 %.not43, label %.loopexit, label %.lr.ph56, !llvm.loop !42
@@ -5293,7 +5292,7 @@ define dso_local noundef zeroext i1 @parse_real(ptr noundef %0, ptr noundef writ
   %22 = phi ptr [ %13, %.preheader ], [ %28, %21 ]
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw i16, ptr %20, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = and i16 %26, 8192
   %.not19 = icmp eq i16 %27, 0
@@ -9501,7 +9500,7 @@ define dso_local ptr @get_explain_guc_options(ptr noundef captures(none) initial
 .critedge41:                                      ; preds = %37, %22, %41, %39, %16, %38, %52
   %58 = load i32, ptr %0, align 4
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %5, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %5, i64 %59
   store ptr %7, ptr %60, align 8
   %61 = load i32, ptr %0, align 4
   %62 = add i32 %61, 1
@@ -9807,7 +9806,7 @@ define internal fastcc void @convert_int_from_base_unit(i64 noundef range(i64 1,
 24:                                               ; preds = %.lr.ph, %15
   %25 = add i32 %.025, 1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.unit_conversion, ptr %time_unit_conversion_table.memory_unit_conversion_table, i64 %26
+  %27 = getelementptr inbounds [16 x i8], ptr %time_unit_conversion_table.memory_unit_conversion_table, i64 %26
   %28 = load i8, ptr %27, align 16
   %.not21 = icmp eq i8 %28, 0
   br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !53
@@ -9855,7 +9854,7 @@ define internal fastcc void @convert_real_from_base_unit(double noundef %0, i32 
 23:                                               ; preds = %.lr.ph, %17, %11
   %24 = add i32 %.021, 1
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %struct.unit_conversion, ptr %time_unit_conversion_table.memory_unit_conversion_table, i64 %25
+  %26 = getelementptr inbounds [16 x i8], ptr %time_unit_conversion_table.memory_unit_conversion_table, i64 %25
   %27 = load i8, ptr %26, align 16
   %.not19 = icmp eq i8 %27, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph, !llvm.loop !54
@@ -10857,7 +10856,7 @@ define dso_local void @ProcessGUCArray(ptr noundef %0, i32 noundef %1, i32 nound
 
 18:                                               ; preds = %.split.split.split.us
   %19 = load ptr, ptr %11, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv31
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv31
   br label %21
 
 21:                                               ; preds = %18, %.split.split.split.us
@@ -10875,7 +10874,7 @@ define dso_local void @ProcessGUCArray(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %30, label %set_config_option.exit.us25, label %.thread
 
 set_config_option.exit.us25:                      ; preds = %26
-  %31 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv31
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv31
   %32 = load ptr, ptr %22, align 8
   %33 = load ptr, ptr %31, align 8
   %34 = tail call i32 @GetUserId() #29
@@ -10894,7 +10893,7 @@ set_config_option.exit.us25:                      ; preds = %26
 
 39:                                               ; preds = %.split.split.split
   %40 = load ptr, ptr %11, align 8
-  %41 = getelementptr inbounds nuw %union.ListCell, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   br label %42
 
 42:                                               ; preds = %.split.split.split, %39
@@ -10919,7 +10918,7 @@ set_config_option.exit.us25:                      ; preds = %26
   ret void
 
 set_config_option.exit:                           ; preds = %47
-  %52 = getelementptr inbounds nuw %union.ListCell, ptr %48, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   %53 = load ptr, ptr %43, align 8
   %54 = load ptr, ptr %52, align 8
   %55 = tail call range(i32 -1, 2) i32 @set_config_with_handle(ptr noundef %53, ptr noundef null, ptr noundef %54, i32 noundef %1, i32 noundef %2, i32 noundef 10, i32 noundef %3, i1 noundef zeroext true, i32 noundef 0, i1 noundef zeroext false)

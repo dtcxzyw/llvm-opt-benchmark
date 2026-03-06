@@ -17,8 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.1 = type { i32 }
 %struct.Buffer = type { ptr, i64, i64, i64 }
 %struct.wtap_dump_params = type { i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
-%struct.anon.3 = type { ptr, i32 }
-%struct.string_elem = type { ptr, ptr }
 
 @main.long_options = internal constant [14 x { ptr, i32, [4 x i8], ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str, i32 0, [4 x i8] zeroinitializer, ptr null, i32 3001, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr null, i32 3002, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.2, i32 1, [4 x i8] zeroinitializer, ptr null, i32 3003, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.3, i32 1, [4 x i8] zeroinitializer, ptr null, i32 3004, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.4, i32 0, [4 x i8] zeroinitializer, ptr null, i32 3005, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.5, i32 0, [4 x i8] zeroinitializer, ptr null, i32 104, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.6, i32 0, [4 x i8] zeroinitializer, ptr null, i32 118, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.7, i32 1, [4 x i8] zeroinitializer, ptr null, i32 3006, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.8, i32 0, [4 x i8] zeroinitializer, ptr null, i32 3007, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.9, i32 0, [4 x i8] zeroinitializer, ptr null, i32 3008, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.10, i32 0, [4 x i8] zeroinitializer, ptr null, i32 3009, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.11, i32 0, [4 x i8] zeroinitializer, ptr null, i32 3010, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.12, i32 1, [4 x i8] zeroinitializer, ptr null, i32 3011, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } zeroinitializer], align 16
 @.str = private unnamed_addr constant [7 x i8] c"novlan\00", align 1
@@ -469,7 +467,7 @@ define hidden range(i32 0, 4) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 
 71:                                               ; preds = %71, %69
   %indvars.iv.i = phi i64 [ 0, %69 ], [ %indvars.iv.next.i, %71 ]
-  %72 = getelementptr %struct.anon.3, ptr @secrets_types, i64 %indvars.iv.i
+  %72 = getelementptr [16 x i8], ptr @secrets_types, i64 %indvars.iv.i
   %73 = load ptr, ptr %72, align 16
   %74 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %70, i32 noundef 2, ptr noundef nonnull @.str.74, ptr noundef %73)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -499,7 +497,7 @@ lookup_secrets_type.exit.thread:                  ; preds = %80
 
 .preheader583:                                    ; preds = %78, %80
   %indvars.iv.i468 = phi i64 [ %indvars.iv.next.i469, %80 ], [ 0, %78 ]
-  %81 = getelementptr %struct.anon.3, ptr @secrets_types, i64 %indvars.iv.i468
+  %81 = getelementptr [16 x i8], ptr @secrets_types, i64 %indvars.iv.i468
   %82 = load ptr, ptr %81, align 16
   %83 = call i32 @strcmp(ptr noundef %82, ptr noundef nonnull readonly dereferenceable(1) %77) #22
   %.not.i = icmp eq i32 %83, 0
@@ -1380,7 +1378,7 @@ set_rel_time.exit:                                ; preds = %393, %398, %377, %3
   %438 = load i32, ptr @ws_optind, align 4
   %439 = add i32 %438, 1
   %440 = sext i32 %439 to i64
-  %441 = getelementptr ptr, ptr %1, i64 %440
+  %441 = getelementptr [8 x i8], ptr %1, i64 %440
   %442 = load ptr, ptr %441, align 8
   %443 = call fastcc zeroext i1 @fileset_extract_prefix_suffix(ptr noundef %442, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %27)
   br i1 %443, label %.thread-pre-split546_crit_edge, label %1172
@@ -1398,7 +1396,7 @@ set_rel_time.exit:                                ; preds = %393, %398, %377, %3
   %448 = load i32, ptr @ws_optind, align 4
   %449 = add i32 %448, 1
   %450 = sext i32 %449 to i64
-  %451 = getelementptr ptr, ptr %1, i64 %450
+  %451 = getelementptr [8 x i8], ptr %1, i64 %450
   %452 = load ptr, ptr %451, align 8
   %453 = call ptr @strrchr(ptr noundef %452, i32 noundef 46) #22
   %.not417 = icmp eq ptr %453, null
@@ -1512,7 +1510,7 @@ thread-pre-split546:                              ; preds = %.thread-pre-split54
 494:                                              ; preds = %491, %490
   %495 = load i32, ptr @ws_optind, align 4
   %496 = sext i32 %495 to i64
-  %497 = getelementptr ptr, ptr %1, i64 %496
+  %497 = getelementptr [8 x i8], ptr %1, i64 %496
   %498 = load ptr, ptr %497, align 8
   %499 = call ptr @wtap_open_offline(ptr noundef %498, i32 noundef 0, ptr noundef nonnull %10, ptr noundef nonnull %12, i1 noundef zeroext false)
   %.not419 = icmp eq ptr %499, null
@@ -1521,7 +1519,7 @@ thread-pre-split546:                              ; preds = %.thread-pre-split54
 500:                                              ; preds = %494
   %501 = load i32, ptr @ws_optind, align 4
   %502 = sext i32 %501 to i64
-  %503 = getelementptr ptr, ptr %1, i64 %502
+  %503 = getelementptr [8 x i8], ptr %1, i64 %502
   %504 = load ptr, ptr %503, align 8
   %505 = load i32, ptr %10, align 4
   %506 = load ptr, ptr %12, align 8
@@ -1536,7 +1534,7 @@ thread-pre-split546:                              ; preds = %.thread-pre-split54
   %509 = load ptr, ptr @stderr, align 8
   %510 = load i32, ptr @ws_optind, align 4
   %511 = sext i32 %510 to i64
-  %512 = getelementptr ptr, ptr %1, i64 %511
+  %512 = getelementptr [8 x i8], ptr %1, i64 %511
   %513 = load ptr, ptr %512, align 8
   %514 = call i32 @wtap_file_type_subtype(ptr noundef nonnull %499)
   %515 = call ptr @wtap_file_type_subtype_description(i32 noundef %514)
@@ -1603,7 +1601,7 @@ thread-pre-split546:                              ; preds = %.thread-pre-split54
   %538 = load i32, ptr @ws_optind, align 4
   %539 = add i32 %538, 1
   %540 = sext i32 %539 to i64
-  %541 = getelementptr ptr, ptr %1, i64 %540
+  %541 = getelementptr [8 x i8], ptr %1, i64 %540
   %542 = load ptr, ptr %541, align 8
   %543 = call fastcc i32 @extract_secrets(ptr noundef %499, ptr noundef %542, ptr noundef nonnull %10, ptr noundef nonnull %12)
   %544 = load i32, ptr %10, align 4
@@ -1613,7 +1611,7 @@ thread-pre-split546:                              ; preds = %.thread-pre-split54
 545:                                              ; preds = %537
   %546 = load i32, ptr @ws_optind, align 4
   %547 = sext i32 %546 to i64
-  %548 = getelementptr ptr, ptr %1, i64 %547
+  %548 = getelementptr [8 x i8], ptr %1, i64 %547
   %549 = load ptr, ptr %548, align 8
   %550 = load ptr, ptr %12, align 8
   call void @cfile_read_failure_message(ptr noundef %549, i32 noundef %544, ptr noundef %550)
@@ -1644,7 +1642,7 @@ thread-pre-split546:                              ; preds = %.thread-pre-split54
   %indvars.iv = phi i64 [ %indvars.iv.next, %565 ], [ 0, %.preheader581 ]
   %558 = phi ptr [ %566, %565 ], [ %555, %.preheader581 ]
   %559 = load ptr, ptr %558, align 8
-  %560 = getelementptr ptr, ptr %559, i64 %indvars.iv
+  %560 = getelementptr [8 x i8], ptr %559, i64 %indvars.iv
   %561 = load ptr, ptr %560, align 8
   br label %562
 
@@ -1680,7 +1678,7 @@ thread-pre-split546:                              ; preds = %.thread-pre-split54
   %577 = phi ptr [ %584, %._crit_edge ], [ %571, %.preheader579 ]
   %indvars.iv1355 = phi i64 [ %indvars.iv.next1356, %._crit_edge ], [ 0, %.preheader579 ]
   %578 = load ptr, ptr %576, align 8
-  %579 = getelementptr ptr, ptr %578, i64 %indvars.iv1355
+  %579 = getelementptr [8 x i8], ptr %578, i64 %indvars.iv1355
   %580 = load ptr, ptr %579, align 8
   %581 = getelementptr inbounds nuw i8, ptr %577, i64 8
   %582 = load i32, ptr %581, align 8
@@ -1705,7 +1703,7 @@ thread-pre-split546:                              ; preds = %.thread-pre-split54
   %indvars.iv1352 = phi i64 [ %indvars.iv.next1353, %.lr.ph945 ], [ 0, %.lr.ph947 ]
   %589 = phi ptr [ %595, %.lr.ph945 ], [ %577, %.lr.ph947 ]
   %590 = load ptr, ptr %589, align 8
-  %591 = getelementptr ptr, ptr %590, i64 %indvars.iv1352
+  %591 = getelementptr [8 x i8], ptr %590, i64 %indvars.iv1352
   %592 = load ptr, ptr %591, align 8
   %593 = call i64 @strlen(ptr noundef %592) #22
   %594 = call i32 @wtap_block_add_string_option(ptr noundef %580, i32 noundef 1, ptr noundef %592, i64 noundef %593)
@@ -1734,10 +1732,10 @@ thread-pre-split546:                              ; preds = %.thread-pre-split54
 603:                                              ; preds = %.lr.ph949, %636
   %indvars.iv1358 = phi i64 [ 0, %.lr.ph949 ], [ %indvars.iv.next1359, %636 ]
   %604 = load ptr, ptr %.0317, align 8
-  %605 = getelementptr i32, ptr %604, i64 %indvars.iv1358
+  %605 = getelementptr [4 x i8], ptr %604, i64 %indvars.iv1358
   %606 = load i32, ptr %605, align 4
   %607 = load ptr, ptr %.0336, align 8
-  %608 = getelementptr ptr, ptr %607, i64 %indvars.iv1358
+  %608 = getelementptr [8 x i8], ptr %607, i64 %indvars.iv1358
   %609 = load ptr, ptr %608, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
@@ -1859,7 +1857,7 @@ thread-pre-split546:                              ; preds = %.thread-pre-split54
   %658 = phi i32 [ %.pre1390, %.lr.ph953.preheader ], [ %718, %716 ]
   %indvars.iv1361 = phi i64 [ %657, %.lr.ph953.preheader ], [ %indvars.iv.next1362, %716 ]
   %.0519950 = phi i64 [ 0, %.lr.ph953.preheader ], [ %.4523, %716 ]
-  %659 = getelementptr ptr, ptr %1, i64 %indvars.iv1361
+  %659 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv1361
   %660 = load ptr, ptr %659, align 8
   %661 = icmp ult i32 %658, 512
   br i1 %661, label %662, label %add_selection.exit
@@ -1892,12 +1890,12 @@ thread-pre-split546:                              ; preds = %.thread-pre-split54
 .thread1459:                                      ; preds = %.thread1455, %671, %670
   %674 = load i32, ptr @max_selected, align 4
   %675 = zext i32 %674 to i64
-  %676 = getelementptr %struct.select_item, ptr @selectfrm, i64 %675
+  %676 = getelementptr [24 x i8], ptr @selectfrm, i64 %675
   store i8 0, ptr %676, align 8
   %677 = call i64 @get_uint64(ptr noundef %660, ptr noundef nonnull @.str.207)
   %678 = load i32, ptr @max_selected, align 4
   %679 = zext i32 %678 to i64
-  %680 = getelementptr %struct.select_item, ptr @selectfrm, i64 %679
+  %680 = getelementptr [24 x i8], ptr @selectfrm, i64 %679
   %681 = getelementptr inbounds nuw i8, ptr %680, i64 8
   store i64 %677, ptr %681, align 8
   %spec.select = call i64 @llvm.umax.i64(i64 %677, i64 %.0519950)
@@ -1923,18 +1921,18 @@ thread-pre-split546:                              ; preds = %.thread-pre-split54
   %690 = getelementptr i8, ptr %689, i64 1
   %691 = load i32, ptr @max_selected, align 4
   %692 = zext i32 %691 to i64
-  %693 = getelementptr %struct.select_item, ptr @selectfrm, i64 %692
+  %693 = getelementptr [24 x i8], ptr @selectfrm, i64 %692
   store i8 1, ptr %693, align 8
   %694 = call i64 @get_uint64(ptr noundef %660, ptr noundef nonnull @.str.210)
   %695 = load i32, ptr @max_selected, align 4
   %696 = zext i32 %695 to i64
-  %697 = getelementptr %struct.select_item, ptr @selectfrm, i64 %696
+  %697 = getelementptr [24 x i8], ptr @selectfrm, i64 %696
   %698 = getelementptr inbounds nuw i8, ptr %697, i64 8
   store i64 %694, ptr %698, align 8
   %699 = call i64 @get_uint64(ptr noundef %690, ptr noundef nonnull @.str.211)
   %700 = load i32, ptr @max_selected, align 4
   %701 = zext i32 %700 to i64
-  %702 = getelementptr %struct.select_item, ptr @selectfrm, i64 %701
+  %702 = getelementptr [24 x i8], ptr @selectfrm, i64 %701
   %703 = getelementptr inbounds nuw i8, ptr %702, i64 16
   store i64 %699, ptr %703, align 8
   %704 = icmp eq i64 %699, 0
@@ -2003,7 +2001,7 @@ add_selection.exit:                               ; preds = %.lr.ph953
 .lr.ph955:                                        ; preds = %725, %.lr.ph955
   %indvars.iv1364 = phi i64 [ %indvars.iv.next1365, %.lr.ph955 ], [ 0, %725 ]
   %.idx.neg = mul nsw i64 %indvars.iv1364, -40
-  %728 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %indvars.iv1364
+  %728 = getelementptr [40 x i8], ptr @fd_hash, i64 %indvars.iv1364
   %729 = add nsw i64 %.idx.neg, 40000000
   %730 = icmp samesign ugt i64 %indvars.iv1364, 1000000
   %731 = select i1 %730, i64 0, i64 %729
@@ -2091,7 +2089,7 @@ add_selection.exit:                               ; preds = %.lr.ph953
   %773 = load i32, ptr @ws_optind, align 4
   %774 = add i32 %773, 1
   %775 = sext i32 %774 to i64
-  %776 = getelementptr ptr, ptr %1, i64 %775
+  %776 = getelementptr [8 x i8], ptr %1, i64 %775
   %777 = load ptr, ptr %776, align 8
   %778 = call noalias ptr @g_strdup(ptr noundef %777)
   br label %779
@@ -2137,7 +2135,7 @@ add_selection.exit:                               ; preds = %.lr.ph953
 800:                                              ; preds = %798
   %801 = load i32, ptr @ws_optind, align 4
   %802 = sext i32 %801 to i64
-  %803 = getelementptr ptr, ptr %1, i64 %802
+  %803 = getelementptr [8 x i8], ptr %1, i64 %802
   %804 = load ptr, ptr %803, align 8
   %805 = load i32, ptr %11, align 4
   %806 = load ptr, ptr %13, align 8
@@ -2565,7 +2563,7 @@ add_selection.exit:                               ; preds = %.lr.ph953
   %993 = load ptr, ptr @stderr, align 8
   %994 = load i32, ptr @cur_dup_entry, align 4
   %995 = sext i32 %994 to i64
-  %996 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %995
+  %996 = getelementptr [40 x i8], ptr @fd_hash, i64 %995
   %997 = getelementptr i8, ptr %996, i64 %indvars.iv1374
   %998 = load i8, ptr %997, align 1
   %999 = zext i8 %998 to i32
@@ -2599,7 +2597,7 @@ add_selection.exit:                               ; preds = %.lr.ph953
   %1011 = load ptr, ptr @stderr, align 8
   %1012 = load i32, ptr @cur_dup_entry, align 4
   %1013 = sext i32 %1012 to i64
-  %1014 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %1013
+  %1014 = getelementptr [40 x i8], ptr @fd_hash, i64 %1013
   %1015 = getelementptr i8, ptr %1014, i64 %indvars.iv1367
   %1016 = load i8, ptr %1015, align 1
   %1017 = zext i8 %1016 to i32
@@ -2646,7 +2644,7 @@ add_selection.exit:                               ; preds = %.lr.ph953
   %1037 = load ptr, ptr @stderr, align 8
   %1038 = load i32, ptr @cur_dup_entry, align 4
   %1039 = sext i32 %1038 to i64
-  %1040 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %1039
+  %1040 = getelementptr [40 x i8], ptr @fd_hash, i64 %1039
   %1041 = getelementptr i8, ptr %1040, i64 %indvars.iv1370
   %1042 = load i8, ptr %1041, align 1
   %1043 = zext i8 %1042 to i32
@@ -2674,7 +2672,7 @@ add_selection.exit:                               ; preds = %.lr.ph953
   %1054 = load ptr, ptr @stderr, align 8
   %1055 = load i32, ptr @cur_dup_entry, align 4
   %1056 = sext i32 %1055 to i64
-  %1057 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %1056
+  %1057 = getelementptr [40 x i8], ptr @fd_hash, i64 %1056
   %1058 = getelementptr i8, ptr %1057, i64 %indvars.iv1378
   %1059 = load i8, ptr %1058, align 1
   %1060 = zext i8 %1059 to i32
@@ -2773,7 +2771,7 @@ add_selection.exit:                               ; preds = %.lr.ph953
 1094:                                             ; preds = %1091
   %1095 = load i32, ptr @ws_optind, align 4
   %1096 = sext i32 %1095 to i64
-  %1097 = getelementptr ptr, ptr %1, i64 %1096
+  %1097 = getelementptr [8 x i8], ptr %1, i64 %1096
   %1098 = load ptr, ptr %1097, align 8
   %1099 = load i32, ptr %11, align 4
   %1100 = load ptr, ptr %13, align 8
@@ -2825,7 +2823,7 @@ add_selection.exit:                               ; preds = %.lr.ph953
 1114:                                             ; preds = %1112
   %1115 = load i32, ptr @ws_optind, align 4
   %1116 = sext i32 %1115 to i64
-  %1117 = getelementptr ptr, ptr %1, i64 %1116
+  %1117 = getelementptr [8 x i8], ptr %1, i64 %1116
   %1118 = load ptr, ptr %1117, align 8
   %1119 = load ptr, ptr %12, align 8
   call void @cfile_read_failure_message(ptr noundef %1118, i32 noundef %1113, ptr noundef %1119)
@@ -2840,7 +2838,7 @@ add_selection.exit:                               ; preds = %.lr.ph953
   %1122 = load i32, ptr @ws_optind, align 4
   %1123 = add i32 %1122, 1
   %1124 = sext i32 %1123 to i64
-  %1125 = getelementptr ptr, ptr %1, i64 %1124
+  %1125 = getelementptr [8 x i8], ptr %1, i64 %1124
   %1126 = load ptr, ptr %1125, align 8
   %1127 = call noalias ptr @g_strdup(ptr noundef %1126)
   %1128 = load i32, ptr %27, align 4
@@ -2864,7 +2862,7 @@ add_selection.exit:                               ; preds = %.lr.ph953
 1137:                                             ; preds = %1135
   %1138 = load i32, ptr @ws_optind, align 4
   %1139 = sext i32 %1138 to i64
-  %1140 = getelementptr ptr, ptr %1, i64 %1139
+  %1140 = getelementptr [8 x i8], ptr %1, i64 %1139
   %1141 = load ptr, ptr %1140, align 8
   %1142 = load i32, ptr %11, align 4
   %1143 = load ptr, ptr %13, align 8
@@ -2965,7 +2963,7 @@ add_selection.exit:                               ; preds = %.lr.ph953
 .lr.ph999:                                        ; preds = %.preheader, %.lr.ph999
   %indvars.iv1382 = phi i64 [ %indvars.iv.next1383, %.lr.ph999 ], [ 0, %.preheader ]
   %1187 = load ptr, ptr %.0278, align 8
-  %1188 = getelementptr ptr, ptr %1187, i64 %indvars.iv1382
+  %1188 = getelementptr [8 x i8], ptr %1187, i64 %indvars.iv1382
   %1189 = load ptr, ptr %1188, align 8
   call void @wtap_block_unref(ptr noundef %1189)
   %indvars.iv.next1383 = add nuw nsw i64 %indvars.iv1382, 1
@@ -3185,7 +3183,7 @@ define internal fastcc void @list_capture_types(ptr noundef %0) unnamed_addr #0 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr i32, ptr %7, i64 %indvars.iv
+  %8 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %9)
   %11 = tail call ptr @wtap_file_type_subtype_description(i32 noundef %9)
@@ -3351,7 +3349,7 @@ define internal fastcc void @list_encap_types(ptr noundef %0) unnamed_addr #0 {
   %.03031 = phi ptr [ %.1, %15 ], [ null, %1 ]
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = tail call ptr @wtap_encap_name(i32 noundef %8)
-  %10 = getelementptr %struct.string_elem, ptr %4, i64 %indvars.iv
+  %10 = getelementptr [16 x i8], ptr %4, i64 %indvars.iv
   store ptr %9, ptr %10, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %15, label %11
@@ -3857,7 +3855,7 @@ sub_0:
 .lr.ph:                                           ; preds = %.preheader, %34
   %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.preheader ]
   %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr [8 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @wtap_block_make_copy(ptr noundef %26)
   %28 = load i32, ptr @out_frame_type, align 4
@@ -3994,7 +3992,7 @@ define internal fastcc noundef zeroext i1 @selected(i64 noundef %0) unnamed_addr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %3 = getelementptr %struct.select_item, ptr @selectfrm, i64 %indvars.iv
+  %3 = getelementptr [24 x i8], ptr @selectfrm, i64 %indvars.iv
   %4 = load i8, ptr %3, align 8, !range !41, !noundef !42
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4310,12 +4308,12 @@ define internal fastcc noundef zeroext i1 @is_duplicate(ptr noundef %0, i32 noun
   %spec.store.select1 = select i1 %.not23, i32 %12, i32 0
   store i32 %spec.store.select1, ptr @cur_dup_entry, align 4
   %14 = sext i32 %spec.store.select1 to i64
-  %15 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %14
+  %15 = getelementptr [40 x i8], ptr @fd_hash, i64 %14
   %16 = zext i32 %10 to i64
   tail call void @gcry_md_hash_buffer(i32 noundef 1, ptr noundef %15, ptr noundef %9, i64 noundef %16)
   %17 = load i32, ptr @cur_dup_entry, align 4
   %18 = sext i32 %17 to i64
-  %19 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %18
+  %19 = getelementptr [40 x i8], ptr @fd_hash, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 %1, ptr %20, align 8
   %21 = load i32, ptr @dup_window, align 4
@@ -4333,7 +4331,7 @@ define internal fastcc noundef zeroext i1 @is_duplicate(ptr noundef %0, i32 noun
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %indvars.iv
+  %26 = getelementptr [40 x i8], ptr @fd_hash, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, %1
@@ -4370,12 +4368,12 @@ define internal fastcc noundef zeroext i1 @is_duplicate_rel_time(ptr noundef %0,
   %spec.store.select = select i1 %.not27, i32 %10, i32 0
   store i32 %spec.store.select, ptr @cur_dup_entry, align 4
   %12 = sext i32 %spec.store.select to i64
-  %13 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %12
+  %13 = getelementptr [40 x i8], ptr @fd_hash, i64 %12
   %14 = zext i32 %8 to i64
   tail call void @gcry_md_hash_buffer(i32 noundef 1, ptr noundef %13, ptr noundef %7, i64 noundef %14)
   %15 = load i32, ptr @cur_dup_entry, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %16
+  %17 = getelementptr [40 x i8], ptr @fd_hash, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 %1, ptr %18, align 8
   %19 = load i64, ptr %2, align 8
@@ -4401,7 +4399,7 @@ define internal fastcc noundef zeroext i1 @is_duplicate_rel_time(ptr noundef %0,
 29:                                               ; preds = %.lr.ph, %53
   %.12434 = phi i32 [ %.12433, %.lr.ph ], [ %.124, %53 ]
   %30 = sext i32 %.12434 to i64
-  %31 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %30
+  %31 = getelementptr [40 x i8], ptr @fd_hash, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = call zeroext i1 @nstime_is_unset(ptr noundef nonnull %32)
   br i1 %33, label %._crit_edge, label %34
@@ -4429,7 +4427,7 @@ define internal fastcc noundef zeroext i1 @is_duplicate_rel_time(ptr noundef %0,
   %44 = load i32, ptr %43, align 8
   %45 = load i32, ptr @cur_dup_entry, align 4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr %struct._fd_hash_t, ptr @fd_hash, i64 %46
+  %47 = getelementptr [40 x i8], ptr @fd_hash, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %44, %49

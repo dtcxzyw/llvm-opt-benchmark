@@ -2139,11 +2139,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %15
   %indvars.iv155 = phi i64 [ %indvars.iv.next156, %204 ], [ 0, %162 ]
   %.2149 = phi ptr [ %206, %204 ], [ %164, %162 ]
   %166 = load ptr, ptr %3, align 8, !tbaa !57
-  %167 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %166, i64 %indvars.iv155
+  %167 = getelementptr inbounds nuw [32 x i8], ptr %166, i64 %indvars.iv155
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load i64, ptr %168, align 8, !tbaa !44
   %170 = or disjoint i64 %indvars.iv155, 1
-  %171 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %166, i64 %170
+  %171 = getelementptr inbounds nuw [32 x i8], ptr %166, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %173 = load i64, ptr %172, align 8, !tbaa !44
   %.not113 = icmp eq i64 %169, 0
@@ -2197,7 +2197,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142: ; preds = %17
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 1
   store i8 32, ptr %192, align 1, !tbaa !41
   %194 = load ptr, ptr %3, align 8, !tbaa !57
-  %195 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %194, i64 %indvars.iv155
+  %195 = getelementptr inbounds nuw [32 x i8], ptr %194, i64 %indvars.iv155
   %196 = load ptr, ptr %195, align 8, !tbaa !47
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %193, ptr align 1 %196, i64 %169, i1 false)
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 %169
@@ -2210,7 +2210,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142: ; preds = %17
 
 200:                                              ; preds = %184
   %201 = load ptr, ptr %3, align 8, !tbaa !57
-  %202 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %201, i64 %170
+  %202 = getelementptr inbounds nuw [32 x i8], ptr %201, i64 %170
   %203 = load ptr, ptr %202, align 8, !tbaa !47
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %199, ptr align 1 %203, i64 %173, i1 false)
   br label %204
@@ -2465,7 +2465,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !57
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !49
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !52
   ret void
 }

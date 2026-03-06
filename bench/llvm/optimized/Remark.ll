@@ -598,10 +598,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit27:               ; preds = %46, %48
 
 switch.lookup:                                    ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit27
   %53 = zext nneg i32 %51 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm7remarks6Remark5printERNS_11raw_ostreamE, i64 %53
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvm7remarks6Remark5printERNS_11raw_ostreamE, i64 %53
   %switch.load = load i64, ptr %switch.gep, align 8
   %54 = zext nneg i32 %51 to i64
-  %switch.gep83 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm7remarks6Remark5printERNS_11raw_ostreamE.1, i64 %54
+  %switch.gep83 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvm7remarks6Remark5printERNS_11raw_ostreamE.1, i64 %54
   %switch.load84 = load ptr, ptr %switch.gep83, align 8
   br label %_ZN4llvm7remarks9typeToStrENS0_4TypeE.exit
 
@@ -1114,7 +1114,7 @@ define dso_local ptr @LLVMRemarkEntryGetNextArg(ptr noundef readnone captures(ad
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %9 = load i32, ptr %8, align 8, !tbaa !27
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 %10
   %12 = icmp eq ptr %5, %11
   %. = select i1 %12, ptr null, ptr %5
   br label %13

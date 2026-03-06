@@ -887,7 +887,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   br i1 %231, label %232, label %246
 
 232:                                              ; preds = %227
-  %233 = getelementptr i64, ptr @dump_ipv4_packet.required_len, i64 %228
+  %233 = getelementptr [8 x i8], ptr @dump_ipv4_packet.required_len, i64 %228
   %234 = load i64, ptr %233, align 8
   %235 = load i32, ptr %19, align 8
   %236 = load i8, ptr %38, align 4

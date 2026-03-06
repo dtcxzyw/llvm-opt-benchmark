@@ -305,7 +305,7 @@ define internal range(i32 0, 2) i32 @test_json_enc() #0 {
 6:                                                ; preds = %0, %run_script.exit
   %.08 = phi i64 [ 0, %0 ], [ %199, %run_script.exit ]
   %.047 = phi i32 [ 1, %0 ], [ %spec.select, %run_script.exit ]
-  %7 = getelementptr inbounds nuw ptr, ptr @scripts, i64 %.08
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @scripts, i64 %.08
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = call ptr %8() #6
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -324,7 +324,7 @@ define internal range(i32 0, 2) i32 @test_json_enc() #0 {
   %.0265.i = phi i64 [ 0, %6 ], [ %.0265.i.be, %.backedge ]
   %.0264.i = phi i32 [ -1, %6 ], [ %.0264.i.be, %.backedge ]
   %16 = add i64 %.0265.i, 1
-  %17 = getelementptr %struct.script_word, ptr %11, i64 %.0265.i
+  %17 = getelementptr [40 x i8], ptr %11, i64 %.0265.i
   %.sroa.32.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.32.0.copyload.i = load i64, ptr %.sroa.32.0..sroa_idx.i, align 8, !tbaa !17
   switch i64 %.sroa.32.0.copyload.i, label %144 [
@@ -341,7 +341,7 @@ define internal range(i32 0, 2) i32 @test_json_enc() #0 {
 
 18:                                               ; preds = %15
   %19 = add i64 %.0265.i, 2
-  %20 = getelementptr inbounds nuw %struct.script_word, ptr %11, i64 %16
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %16
   %.sroa.32.0..sroa_idx70.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.32.0.copyload71.i = load i64, ptr %.sroa.32.0..sroa_idx70.i, align 8, !tbaa !17
   %21 = trunc i64 %.sroa.32.0.copyload71.i to i32
@@ -363,7 +363,7 @@ helper_set_flags.exit.i:                          ; preds = %24, %18
 
 25:                                               ; preds = %15
   %26 = add i64 %.0265.i, 2
-  %27 = getelementptr inbounds nuw %struct.script_word, ptr %11, i64 %16
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %16
   %.sroa.48.0..sroa_idx188.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.sroa.48.0.copyload189.i = load ptr, ptr %.sroa.48.0..sroa_idx188.i, align 8, !tbaa !4
   %28 = load i32, ptr %3, align 8, !tbaa !24
@@ -406,7 +406,7 @@ helper_ensure.exit.i:                             ; preds = %39, %37, %29, %25
   br label %.backedge
 
 41:                                               ; preds = %15
-  %42 = getelementptr inbounds nuw %struct.script_word, ptr %11, i64 %16
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %16
   %.sroa.48.0..sroa_idx190.i = getelementptr inbounds nuw i8, ptr %42, i64 32
   %.sroa.48.0.copyload191.i = load ptr, ptr %.sroa.48.0..sroa_idx190.i, align 8, !tbaa !4
   %43 = load i32, ptr %3, align 8, !tbaa !24
@@ -453,7 +453,7 @@ helper_ensure.exit303.i:                          ; preds = %54, %52, %44, %41
   br label %.backedge
 
 58:                                               ; preds = %15
-  %59 = getelementptr inbounds nuw %struct.script_word, ptr %11, i64 %16
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %16
   %.sroa.48.0..sroa_idx194.i = getelementptr inbounds nuw i8, ptr %59, i64 32
   %.sroa.48.0.copyload195.i = load ptr, ptr %.sroa.48.0..sroa_idx194.i, align 8, !tbaa !4
   %60 = load i32, ptr %3, align 8, !tbaa !24
@@ -499,7 +499,7 @@ helper_ensure.exit308.i:                          ; preds = %71, %69, %61, %58
   br label %.backedge
 
 74:                                               ; preds = %15
-  %75 = getelementptr inbounds nuw %struct.script_word, ptr %11, i64 %16
+  %75 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %16
   %.sroa.48.0..sroa_idx198.i = getelementptr inbounds nuw i8, ptr %75, i64 32
   %.sroa.48.0.copyload199.i = load ptr, ptr %.sroa.48.0..sroa_idx198.i, align 8, !tbaa !4
   %76 = load i32, ptr %3, align 8, !tbaa !24
@@ -545,7 +545,7 @@ helper_ensure.exit313.i:                          ; preds = %87, %85, %77, %74
   br label %.backedge
 
 90:                                               ; preds = %15
-  %91 = getelementptr inbounds nuw %struct.script_word, ptr %11, i64 %16
+  %91 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %16
   %.sroa.48.0..sroa_idx202.i = getelementptr inbounds nuw i8, ptr %91, i64 32
   %.sroa.48.0.copyload203.i = load ptr, ptr %.sroa.48.0..sroa_idx202.i, align 8, !tbaa !4
   %92 = load i32, ptr %3, align 8, !tbaa !24
@@ -591,7 +591,7 @@ helper_ensure.exit318.i:                          ; preds = %103, %101, %93, %90
   br label %.backedge
 
 107:                                              ; preds = %15
-  %108 = getelementptr inbounds nuw %struct.script_word, ptr %11, i64 %16
+  %108 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %16
   %.sroa.48.0..sroa_idx206.i = getelementptr inbounds nuw i8, ptr %108, i64 32
   %.sroa.48.0.copyload207.i = load ptr, ptr %.sroa.48.0..sroa_idx206.i, align 8, !tbaa !4
   %109 = load i32, ptr %3, align 8, !tbaa !24
@@ -676,7 +676,7 @@ helper_ensure.exit328.i:                          ; preds = %136, %134, %126, %1
 
 138:                                              ; preds = %helper_ensure.exit328.i
   %139 = add i64 %.0265.i, 2
-  %140 = getelementptr inbounds nuw %struct.script_word, ptr %11, i64 %16
+  %140 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %16
   %.sroa.32.0..sroa_idx96.i = getelementptr inbounds nuw i8, ptr %140, i64 8
   %.sroa.32.0.copyload97.i = load i64, ptr %.sroa.32.0..sroa_idx96.i, align 8, !tbaa !17
   %141 = trunc i64 %.sroa.32.0.copyload97.i to i32

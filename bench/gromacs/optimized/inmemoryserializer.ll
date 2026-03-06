@@ -817,7 +817,7 @@ define linkonce_odr void @_ZN3gmx11ISerializer11doRvecArrayEPA3_fi(ptr noundef n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %0, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8

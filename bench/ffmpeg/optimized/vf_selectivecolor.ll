@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
 %struct.ThreadData = type { ptr, ptr }
-%struct.process_range = type { i32, i32, ptr }
 
 @.str = private unnamed_addr constant [15 x i8] c"selectivecolor\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"Apply CMYK adjustments to specific color ranges.\00", align 1
@@ -110,12 +109,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 396
   %25 = load i32, ptr %24, align 4, !tbaa !39
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [2 x [2 x ptr]], ptr @filter_frame.funcs, i64 %26
-  %28 = getelementptr inbounds nuw [2 x ptr], ptr %27, i64 %.021
+  %27 = getelementptr inbounds [32 x i8], ptr @filter_frame.funcs, i64 %26
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %.021
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %30 = load i32, ptr %29, align 8, !tbaa !41
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %28, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %28, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !42
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %35 = load i32, ptr %34, align 4, !tbaa !35
@@ -267,7 +266,7 @@ thread-pre-split.i:                               ; preds = %67
   %indvars.iv17.i = phi i64 [ 0, %.preheader3.i ], [ %indvars.iv.next18.i, %81 ]
   %.promoted.i = load i64, ptr %3, align 8, !tbaa !48
   %.promoted7.i = load ptr, ptr %2, align 8
-  %68 = getelementptr inbounds nuw [4 x float], ptr %54, i64 %indvars.iv17.i
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %indvars.iv17.i
   br label %69
 
 69:                                               ; preds = %73, %.preheader.i
@@ -286,7 +285,7 @@ thread-pre-split.i:                               ; preds = %67
   store i64 %77, ptr %3, align 8, !tbaa !48
   %78 = sitofp i16 %75 to float
   %79 = fdiv nsz float %78, 1.000000e+02
-  %80 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv13.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv13.i
   store float %79, ptr %80, align 4, !tbaa !54
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 4
@@ -321,13 +320,13 @@ parse_psfile.exit:                                ; preds = %81
 
 87:                                               ; preds = %.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.thread ]
-  %88 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8, !tbaa !50
   %.not62 = icmp eq ptr %89, null
   br i1 %.not62, label %.thread, label %90
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds nuw [4 x float], ptr %29, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %indvars.iv
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 12
@@ -359,11 +358,11 @@ parse_psfile.exit:                                ; preds = %81
 
 106:                                              ; preds = %.lr.ph81, %106
   %indvars.iv88 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next89, %106 ]
-  %107 = getelementptr inbounds nuw %struct.process_range, ptr %104, i64 %indvars.iv88
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %indvars.iv88
   %108 = load i32, ptr %107, align 8, !tbaa !60
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds [4 x float], ptr %105, i64 %109
-  %111 = getelementptr inbounds ptr, ptr @color_names, i64 %109
+  %110 = getelementptr inbounds [16 x i8], ptr %105, i64 %109
+  %111 = getelementptr inbounds [8 x i8], ptr @color_names, i64 %109
   %112 = load ptr, ptr %111, align 8, !tbaa !50
   %113 = load float, ptr %110, align 4, !tbaa !54
   %114 = fpext nsz float %113 to double
@@ -678,7 +677,7 @@ define internal fastcc void @selective_color_8(ptr readonly captures(none) %.72.
   %.02005 = phi i32 [ 0, %.lr.ph ], [ %.1, %172 ]
   %.02014 = phi i32 [ 0, %.lr.ph ], [ %.1202, %172 ]
   %.02043 = phi i32 [ 0, %.lr.ph ], [ %.1205, %172 ]
-  %118 = getelementptr inbounds nuw %struct.process_range, ptr %46, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %indvars.iv
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %120 = load i32, ptr %119, align 4, !tbaa !70
   %121 = and i32 %120, %102
@@ -695,7 +694,7 @@ define internal fastcc void @selective_color_8(ptr readonly captures(none) %.72.
 127:                                              ; preds = %122
   %128 = load i32, ptr %118, align 8, !tbaa !60
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds [4 x float], ptr %47, i64 %129
+  %130 = getelementptr inbounds [16 x i8], ptr %47, i64 %129
   %131 = load float, ptr %130, align 4, !tbaa !54
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 4
   %133 = load float, ptr %132, align 4, !tbaa !54
@@ -855,34 +854,34 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   %15 = sdiv i32 %.8.val.64.val, 2
   %16 = mul nsw i32 %10, %15
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i16, ptr %.8.val.0.val, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %.8.val.0.val, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %.72.val, i64 395
   %20 = load i8, ptr %19, align 1, !tbaa !51
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %.72.val, i64 394
   %24 = load i8, ptr %23, align 2, !tbaa !51
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %18, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %.72.val, i64 393
   %28 = load i8, ptr %27, align 1, !tbaa !51
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw i16, ptr %18, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %.72.val, i64 392
   %32 = load i8, ptr %31, align 8, !tbaa !51
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw i16, ptr %18, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %33
   %35 = load ptr, ptr %.0.val, align 8, !tbaa !50
   %36 = getelementptr inbounds nuw i8, ptr %.0.val, i64 64
   %37 = load i32, ptr %36, align 8, !tbaa !63
   %38 = sdiv i32 %37, 2
   %39 = mul nsw i32 %38, %10
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i16, ptr %35, i64 %40
-  %42 = getelementptr inbounds nuw i16, ptr %41, i64 %21
-  %43 = getelementptr inbounds nuw i16, ptr %41, i64 %25
-  %44 = getelementptr inbounds nuw i16, ptr %41, i64 %29
-  %45 = getelementptr inbounds nuw i16, ptr %41, i64 %33
+  %41 = getelementptr inbounds [2 x i8], ptr %35, i64 %40
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %21
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %25
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %29
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %33
   %46 = getelementptr inbounds nuw i8, ptr %.72.val, i64 400
   %47 = getelementptr inbounds nuw i8, ptr %.72.val, i64 376
   %48 = getelementptr inbounds nuw i8, ptr %.72.val, i64 232
@@ -912,13 +911,13 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
 .lr.ph10:                                         ; preds = %.preheader, %199
   %.01949 = phi i32 [ %201, %199 ], [ 0, %.preheader ]
   %56 = sext i32 %.01949 to i64
-  %57 = getelementptr inbounds i16, ptr %.019619, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %.019619, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !75
   %59 = zext i16 %58 to i32
-  %60 = getelementptr inbounds i16, ptr %.019718, i64 %56
+  %60 = getelementptr inbounds [2 x i8], ptr %.019718, i64 %56
   %61 = load i16, ptr %60, align 2, !tbaa !75
   %62 = zext i16 %61 to i32
-  %63 = getelementptr inbounds i16, ptr %.019817, i64 %56
+  %63 = getelementptr inbounds [2 x i8], ptr %.019817, i64 %56
   %64 = load i16, ptr %63, align 2, !tbaa !75
   %65 = zext i16 %64 to i32
   %66 = tail call i16 @llvm.umin.i16(i16 %58, i16 %61)
@@ -996,7 +995,7 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   %.02005 = phi i32 [ 0, %.lr.ph ], [ %.1, %174 ]
   %.02014 = phi i32 [ 0, %.lr.ph ], [ %.1202, %174 ]
   %.02043 = phi i32 [ 0, %.lr.ph ], [ %.1205, %174 ]
-  %120 = getelementptr inbounds nuw %struct.process_range, ptr %48, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %indvars.iv
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %122 = load i32, ptr %121, align 4, !tbaa !70
   %123 = and i32 %122, %104
@@ -1013,7 +1012,7 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
 129:                                              ; preds = %124
   %130 = load i32, ptr %120, align 8, !tbaa !60
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds [4 x float], ptr %49, i64 %131
+  %132 = getelementptr inbounds [16 x i8], ptr %49, i64 %131
   %133 = load float, ptr %132, align 4, !tbaa !54
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %135 = load float, ptr %134, align 4, !tbaa !54
@@ -1096,7 +1095,7 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   %183 = sext i1 %isnotneg.i to i16
   %184 = trunc nuw i32 %182 to i16
   %.0.i = select i1 %.not.i, i16 %184, i16 %183
-  %185 = getelementptr inbounds i16, ptr %.020715, i64 %56
+  %185 = getelementptr inbounds [2 x i8], ptr %.020715, i64 %56
   store i16 %.0.i, ptr %185, align 2, !tbaa !75
   %186 = add nsw i32 %.0201.lcssa, %62
   %.not.i218 = icmp ult i32 %186, 65536
@@ -1104,7 +1103,7 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   %187 = sext i1 %isnotneg.i219 to i16
   %188 = trunc nuw i32 %186 to i16
   %.0.i220 = select i1 %.not.i218, i16 %188, i16 %187
-  %189 = getelementptr inbounds i16, ptr %.020814, i64 %56
+  %189 = getelementptr inbounds [2 x i8], ptr %.020814, i64 %56
   store i16 %.0.i220, ptr %189, align 2, !tbaa !75
   %190 = add nsw i32 %.0200.lcssa, %65
   %.not.i221 = icmp ult i32 %190, 65536
@@ -1112,7 +1111,7 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   %191 = sext i1 %isnotneg.i222 to i16
   %192 = trunc nuw i32 %190 to i16
   %.0.i223 = select i1 %.not.i221, i16 %192, i16 %191
-  %193 = getelementptr inbounds i16, ptr %.020913, i64 %56
+  %193 = getelementptr inbounds [2 x i8], ptr %.020913, i64 %56
   store i16 %.0.i223, ptr %193, align 2, !tbaa !75
   %.pre24 = load i32, ptr %46, align 8, !tbaa !46
   %194 = icmp eq i32 %.pre24, 4
@@ -1120,9 +1119,9 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
   br i1 %or.cond29, label %195, label %199
 
 195:                                              ; preds = %181
-  %196 = getelementptr inbounds i16, ptr %.019916, i64 %56
+  %196 = getelementptr inbounds [2 x i8], ptr %.019916, i64 %56
   %197 = load i16, ptr %196, align 2, !tbaa !75
-  %198 = getelementptr inbounds i16, ptr %.021012, i64 %56
+  %198 = getelementptr inbounds [2 x i8], ptr %.021012, i64 %56
   store i16 %197, ptr %198, align 2, !tbaa !75
   br label %199
 
@@ -1135,14 +1134,14 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
 
 ._crit_edge11:                                    ; preds = %199, %.preheader
   %204 = phi i32 [ %53, %.preheader ], [ %200, %199 ]
-  %205 = getelementptr inbounds i16, ptr %.019619, i64 %51
-  %206 = getelementptr inbounds i16, ptr %.019718, i64 %51
-  %207 = getelementptr inbounds i16, ptr %.019817, i64 %51
-  %208 = getelementptr inbounds i16, ptr %.019916, i64 %51
-  %209 = getelementptr inbounds i16, ptr %.020715, i64 %52
-  %210 = getelementptr inbounds i16, ptr %.020814, i64 %52
-  %211 = getelementptr inbounds i16, ptr %.020913, i64 %52
-  %212 = getelementptr inbounds i16, ptr %.021012, i64 %52
+  %205 = getelementptr inbounds [2 x i8], ptr %.019619, i64 %51
+  %206 = getelementptr inbounds [2 x i8], ptr %.019718, i64 %51
+  %207 = getelementptr inbounds [2 x i8], ptr %.019817, i64 %51
+  %208 = getelementptr inbounds [2 x i8], ptr %.019916, i64 %51
+  %209 = getelementptr inbounds [2 x i8], ptr %.020715, i64 %52
+  %210 = getelementptr inbounds [2 x i8], ptr %.020814, i64 %52
+  %211 = getelementptr inbounds [2 x i8], ptr %.020913, i64 %52
+  %212 = getelementptr inbounds [2 x i8], ptr %.021012, i64 %52
   %213 = add i32 %.019520, 1
   %exitcond.not = icmp eq i32 %213, %13
   br i1 %exitcond.not, label %._crit_edge21, label %.preheader, !llvm.loop !79
@@ -1164,7 +1163,7 @@ declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr no
 define internal fastcc range(i32 -22, 1) i32 @register_range(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds [4 x float], ptr %3, i64 %4
+  %5 = getelementptr inbounds [16 x i8], ptr %3, i64 %4
   %6 = load float, ptr %5, align 4, !tbaa !54
   %7 = fcmp nsz une float %6, 0.000000e+00
   br i1 %7, label %20, label %8
@@ -1194,7 +1193,7 @@ define internal fastcc range(i32 -22, 1) i32 @register_range(ptr noundef %0, i32
   %24 = add nsw i32 %23, 1
   store i32 %24, ptr %22, align 8, !tbaa !59
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds %struct.process_range, ptr %21, i64 %25
+  %26 = getelementptr inbounds [16 x i8], ptr %21, i64 %25
   %27 = tail call nsz float @llvm.fabs.f32(float %6)
   %or.cond = fcmp nsz ogt float %27, 1.000000e+00
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1219,7 +1218,7 @@ define internal fastcc range(i32 -22, 1) i32 @register_range(ptr noundef %0, i32
   br i1 %or.cond69, label %.critedge, label %47
 
 .critedge:                                        ; preds = %20, %33, %29
-  %37 = getelementptr inbounds ptr, ptr @color_names, i64 %4
+  %37 = getelementptr inbounds [8 x i8], ptr @color_names, i64 %4
   %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = fpext nsz float %6 to double
   %40 = fpext nsz float %.pre to double

@@ -3,8 +3,6 @@ source_filename = "bench/cmake/original/fse_compress.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FSE_symbolCompressionTransform = type { i32, i32 }
-
 @FSE_normalizeCount.rtbTable = internal unnamed_addr constant [8 x i32] [i32 0, i32 473195, i32 504333, i32 520860, i32 550000, i32 700000, i32 750000, i32 830000], align 16
 @BIT_mask = internal unnamed_addr constant [32 x i32] [i32 0, i32 1, i32 3, i32 7, i32 15, i32 31, i32 63, i32 127, i32 255, i32 511, i32 1023, i32 2047, i32 4095, i32 8191, i32 16383, i32 32767, i32 65535, i32 131071, i32 262143, i32 524287, i32 1048575, i32 2097151, i32 4194303, i32 8388607, i32 16777215, i32 33554431, i32 67108863, i32 134217727, i32 268435455, i32 536870911, i32 1073741823, i32 2147483647], align 16
 
@@ -17,14 +15,14 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   %10 = lshr i32 %7, 1
   %11 = select i1 %.not, i32 1, i32 %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %12
   %14 = lshr i32 %7, 3
   %15 = add nuw nsw i32 %14, 3
   %16 = add nuw nsw i32 %15, %10
   %17 = add i32 %2, 1
   %18 = add i32 %2, 2
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i16, ptr %4, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %19
   %21 = zext nneg i32 %3 to i64
   %22 = shl nuw i64 1, %21
   %23 = add nuw i64 %22, %19
@@ -48,7 +46,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   %32 = trunc i32 %7 to i16
   %33 = add i16 %32, 1
   %34 = zext nneg i32 %17 to i64
-  %35 = getelementptr inbounds nuw i16, ptr %4, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %34
   store i16 %33, ptr %35, align 2, !tbaa !4
   %36 = zext i32 %7 to i64
   br label %.preheader173
@@ -62,12 +60,12 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %52 ]
   %.0147179 = phi i32 [ %8, %.lr.ph.preheader ], [ %.1, %52 ]
   %37 = add nsw i64 %indvars.iv, -1
-  %38 = getelementptr inbounds nuw i16, ptr %1, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !4
   %40 = icmp eq i16 %39, -1
-  %41 = getelementptr inbounds nuw i16, ptr %4, i64 %37
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %37
   %42 = load i16, ptr %41, align 2, !tbaa !4
-  %43 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   br i1 %40, label %44, label %50
 
 44:                                               ; preds = %.lr.ph
@@ -95,7 +93,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   %53 = trunc i32 %7 to i16
   %54 = add i16 %53, 1
   %55 = zext i32 %17 to i64
-  %56 = getelementptr inbounds nuw i16, ptr %4, i64 %55
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %55
   store i16 %54, ptr %56, align 2, !tbaa !4
   %57 = icmp eq i32 %.1, %8
   br i1 %57, label %58, label %.lr.ph188
@@ -118,7 +116,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   %indvars.iv217 = phi i64 [ %indvars.iv.next218, %._crit_edge192 ], [ 0, %58 ]
   %.0157195 = phi i64 [ %75, %._crit_edge192 ], [ 0, %58 ]
   %.0159194 = phi i64 [ %76, %._crit_edge192 ], [ 0, %58 ]
-  %67 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv217
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv217
   %68 = load i16, ptr %67, align 2, !tbaa !4
   %69 = getelementptr inbounds nuw i8, ptr %60, i64 %.0157195
   store i64 %.0159194, ptr %69, align 1, !tbaa !11
@@ -168,7 +166,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
 .lr.ph188:                                        ; preds = %._crit_edge, %._crit_edge184
   %indvars.iv209 = phi i64 [ %indvars.iv.next210, %._crit_edge184 ], [ 0, %._crit_edge ]
   %.0155186 = phi i32 [ %.1156.lcssa, %._crit_edge184 ], [ 0, %._crit_edge ]
-  %90 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv209
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv209
   %91 = load i16, ptr %90, align 2, !tbaa !4
   %92 = sext i16 %91 to i32
   %93 = icmp sgt i16 %91, 0
@@ -225,12 +223,12 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   %110 = add i32 %7, %109
   %111 = trunc i32 %110 to i16
   %112 = zext i8 %108 to i64
-  %113 = getelementptr inbounds nuw i16, ptr %4, i64 %112
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %112
   %114 = load i16, ptr %113, align 2, !tbaa !4
   %115 = add i16 %114, 1
   store i16 %115, ptr %113, align 2, !tbaa !4
   %116 = zext i16 %114 to i64
-  %117 = getelementptr inbounds nuw i16, ptr %9, i64 %116
+  %117 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %116
   store i16 %111, ptr %117, align 2, !tbaa !4
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond227.not = icmp eq i64 %indvars.iv.next223, %wide.trip.count226
@@ -239,7 +237,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
 118:                                              ; preds = %.preheader, %142
   %indvars.iv228 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next229, %142 ]
   %.0149202 = phi i32 [ 0, %.preheader ], [ %.1150, %142 ]
-  %119 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv228
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv228
   %120 = load i16, ptr %119, align 2, !tbaa !4
   switch i16 %120, label %129 [
     i16 0, label %121
@@ -248,13 +246,13 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   ]
 
 121:                                              ; preds = %118
-  %122 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv228
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
   store i32 %105, ptr %123, align 4, !tbaa !20
   br label %142
 
 124:                                              ; preds = %118, %118
-  %125 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv228
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   store i32 %103, ptr %126, align 4, !tbaa !20
   %127 = add i32 %.0149202, -1
@@ -271,7 +269,7 @@ define dso_local range(i64 -44, 1) i64 @FSE_buildCTable_wksp(ptr noundef writeon
   %135 = shl i32 %130, %134
   %136 = shl i32 %134, 16
   %137 = sub i32 %136, %135
-  %138 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %13, i64 %indvars.iv228
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv228
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
   store i32 %137, ptr %139, align 4, !tbaa !20
   %140 = sub i32 %.0149202, %130
@@ -369,7 +367,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ %17, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %18 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %19 = load i16, ptr %18, align 2, !tbaa !4
   %.not = icmp eq i16 %19, 0
   br i1 %.not, label %20, label %.critedge.loopexit
@@ -477,7 +475,7 @@ define internal fastcc i64 @FSE_writeNCount_generic(ptr noundef %0, i64 noundef 
   %.2121 = phi ptr [ %.0119234, %15 ], [ %.4123.lcssa, %._crit_edge ], [ %54, %52 ]
   %57 = add nuw i32 %.1125, 1
   %58 = zext i32 %.1125 to i64
-  %59 = getelementptr inbounds nuw i16, ptr %2, i64 %58
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %58
   %60 = load i16, ptr %59, align 2, !tbaa !4
   %61 = sext i16 %60 to i32
   %62 = shl nsw i32 %.0141230, 1
@@ -653,7 +651,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
   %.078103 = phi i32 [ 0, %19 ], [ %.179, %67 ]
   %.081102 = phi i32 [ 0, %19 ], [ %68, %67 ]
   %31 = zext i32 %.081102 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %2, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !30
   %34 = zext i32 %33 to i64
   %35 = icmp eq i64 %3, %34
@@ -664,7 +662,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i16, ptr %0, i64 %31
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %31
   store i16 0, ptr %39, align 2, !tbaa !4
   br label %67
 
@@ -673,7 +671,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
   br i1 %.not89, label %44, label %41
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds nuw i16, ptr %0, i64 %31
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %31
   store i16 %20, ptr %42, align 2, !tbaa !4
   %43 = add nsw i32 %.073105, -1
   br label %67
@@ -688,7 +686,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
   br i1 %50, label %51, label %62
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds nuw i32, ptr @FSE_normalizeCount.rtbTable, i64 %46
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @FSE_normalizeCount.rtbTable, i64 %46
   %53 = load i32, ptr %52, align 4, !tbaa !30
   %54 = zext i32 %53 to i64
   %55 = shl i64 %54, %25
@@ -706,7 +704,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
   %64 = icmp ugt i16 %.070, %.075104
   %spec.select = select i1 %64, i32 %.081102, i32 %.078103
   %spec.select90 = tail call i16 @llvm.umax.i16(i16 %.070, i16 %.075104)
-  %65 = getelementptr inbounds nuw i16, ptr %0, i64 %31
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %31
   store i16 %.070, ptr %65, align 2, !tbaa !4
   %66 = sub nsw i32 %.073105, %63
   br label %67
@@ -722,7 +720,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
 69:                                               ; preds = %67
   %70 = sub nsw i32 0, %.174
   %71 = zext i32 %.179 to i64
-  %72 = getelementptr inbounds nuw i16, ptr %0, i64 %71
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %71
   %73 = load i16, ptr %72, align 2, !tbaa !4
   %74 = ashr i16 %73, 1
   %75 = sext i16 %74 to i32
@@ -743,13 +741,13 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
   %indvars.iv.i = phi i64 [ 0, %76 ], [ %indvars.iv.next.i, %102 ]
   %.0109156.i = phi i64 [ %3, %76 ], [ %.1110.i, %102 ]
   %.0119154.i = phi i32 [ 0, %76 ], [ %.1120.i, %102 ]
-  %84 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   %85 = load i32, ptr %84, align 4, !tbaa !30
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.i
   store i16 0, ptr %88, align 2, !tbaa !4
   br label %102
 
@@ -758,7 +756,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
   br i1 %.not148.i, label %95, label %90
 
 90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.i
   store i16 %20, ptr %91, align 2, !tbaa !4
   %92 = add i32 %.0119154.i, 1
   %93 = zext i32 %85 to i64
@@ -767,7 +765,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
 
 95:                                               ; preds = %89
   %.not149.i = icmp ugt i32 %85, %81
-  %96 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.i
   br i1 %.not149.i, label %101, label %97
 
 97:                                               ; preds = %95
@@ -812,13 +810,13 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
   %indvars.iv170.i = phi i64 [ 0, %111 ], [ %indvars.iv.next171.i, %128 ]
   %.3112159.i = phi i64 [ %.1110.i, %111 ], [ %.4113.i, %128 ]
   %.3122157.i = phi i32 [ %.1120.i, %111 ], [ %.4123.i, %128 ]
-  %118 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv170.i
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv170.i
   %119 = load i16, ptr %118, align 2, !tbaa !4
   %120 = icmp eq i16 %119, -2
   br i1 %120, label %121, label %128
 
 121:                                              ; preds = %117
-  %122 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv170.i
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv170.i
   %123 = load i32, ptr %122, align 4, !tbaa !30
   %.not147.i = icmp ugt i32 %123, %116
   br i1 %.not147.i, label %128, label %124
@@ -852,7 +850,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
   %indvars.iv175.i = phi i64 [ %indvars.iv.next176.i, %.preheader.i ], [ 0, %131 ]
   %.0132167.i = phi i32 [ %spec.select150.i, %.preheader.i ], [ 0, %131 ]
   %.0134166.i = phi i32 [ %spec.select.i, %.preheader.i ], [ 0, %131 ]
-  %133 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv175.i
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv175.i
   %134 = load i32, ptr %133, align 4, !tbaa !30
   %135 = icmp ugt i32 %134, %.0132167.i
   %136 = trunc nuw i64 %indvars.iv175.i to i32
@@ -864,7 +862,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
 
 137:                                              ; preds = %.preheader.i
   %138 = zext i32 %spec.select.i to i64
-  %139 = getelementptr inbounds nuw i16, ptr %0, i64 %138
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %138
   %140 = load i16, ptr %139, align 2, !tbaa !4
   %141 = trunc i32 %.0127.i to i16
   %142 = add i16 %140, %141
@@ -883,7 +881,7 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
   %.3117165.i = phi i32 [ %155, %152 ], [ 0, %.preheader153.i ]
   %.1128164.i = phi i32 [ %.2129.i, %152 ], [ %.0127.i, %.preheader153.i ]
   %145 = zext i32 %.3117165.i to i64
-  %146 = getelementptr inbounds nuw i16, ptr %0, i64 %145
+  %146 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %145
   %147 = load i16, ptr %146, align 2, !tbaa !4
   %148 = icmp sgt i16 %147, 0
   br i1 %148, label %149, label %152
@@ -917,13 +915,13 @@ define dso_local range(i64 -44, 13) i64 @FSE_normalizeCount(ptr noundef captures
   %.4118161.i = phi i32 [ 0, %156 ], [ %182, %181 ]
   %.0124160.i = phi i64 [ %158, %156 ], [ %.2126.i, %181 ]
   %165 = zext i32 %.4118161.i to i64
-  %166 = getelementptr inbounds nuw i16, ptr %0, i64 %165
+  %166 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %165
   %167 = load i16, ptr %166, align 2, !tbaa !4
   %168 = icmp eq i16 %167, -2
   br i1 %168, label %169, label %181
 
 169:                                              ; preds = %164
-  %170 = getelementptr inbounds nuw i32, ptr %2, i64 %165
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %165
   %171 = load i32, ptr %170, align 4, !tbaa !30
   %172 = zext i32 %171 to i64
   %173 = mul i64 %163, %172
@@ -969,7 +967,7 @@ define dso_local noundef i64 @FSE_buildCTable_rle(ptr noundef writeonly captures
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %7, align 2, !tbaa !4
   %8 = zext i8 %1 to i64
-  %9 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %4, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %10, align 4, !tbaa !20
   store i32 0, ptr %9, align 4, !tbaa !23
@@ -1012,9 +1010,9 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %20 = shl nuw i32 1, %19
   %21 = sext i32 %20 to i64
   %22 = select i1 %.not.i.i53, i64 1, i64 %21
-  %23 = getelementptr inbounds i32, ptr %18, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %18, i64 %22
   %24 = zext i8 %16 to i64
-  %25 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %.sroa.0.0.copyload.i54 = load i32, ptr %25, align 4, !tbaa !30
   %.sroa.4.0..sroa_idx.i55 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.4.0.copyload.i56 = load i32, ptr %.sroa.4.0..sroa_idx.i55, align 4, !tbaa !30
@@ -1026,8 +1024,8 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %31 = zext nneg i32 %27 to i64
   %32 = lshr i64 %30, %31
   %33 = sext i32 %.sroa.0.0.copyload.i54 to i64
-  %34 = getelementptr i16, ptr %18, i64 %32
-  %35 = getelementptr i16, ptr %34, i64 %33
+  %34 = getelementptr [2 x i8], ptr %18, i64 %32
+  %35 = getelementptr [2 x i8], ptr %34, i64 %33
   %36 = load i16, ptr %35, align 2, !tbaa !4
   br i1 %.not36, label %82, label %37
 
@@ -1036,7 +1034,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %39 = getelementptr inbounds i8, ptr %7, i64 -2
   %40 = load i8, ptr %39, align 1, !tbaa !8
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %41
   %.sroa.0.0.copyload.i46 = load i32, ptr %42, align 4, !tbaa !30
   %.sroa.4.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %.sroa.4.0.copyload.i48 = load i32, ptr %.sroa.4.0..sroa_idx.i47, align 4, !tbaa !30
@@ -1048,13 +1046,13 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %48 = zext nneg i32 %44 to i64
   %49 = lshr i64 %47, %48
   %50 = sext i32 %.sroa.0.0.copyload.i46 to i64
-  %51 = getelementptr i16, ptr %18, i64 %49
-  %52 = getelementptr i16, ptr %51, i64 %50
+  %51 = getelementptr [2 x i8], ptr %18, i64 %49
+  %52 = getelementptr [2 x i8], ptr %51, i64 %50
   %53 = load i16, ptr %52, align 2, !tbaa !4
   %54 = getelementptr inbounds i8, ptr %7, i64 -3
   %55 = load i8, ptr %54, align 1, !tbaa !8
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %56
   %.sroa.0.0.copyload.i49 = load i32, ptr %57, align 4, !tbaa !30
   %.sroa.4.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %.sroa.4.0.copyload.i51 = load i32, ptr %.sroa.4.0..sroa_idx.i50, align 4, !tbaa !30
@@ -1062,14 +1060,14 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %59 = add nuw nsw i64 %58, %38
   %60 = lshr i64 %59, 16
   %61 = trunc nuw nsw i64 %60 to i32
-  %62 = getelementptr inbounds nuw i32, ptr @BIT_mask, i64 %60
+  %62 = getelementptr inbounds nuw [4 x i8], ptr @BIT_mask, i64 %60
   %63 = load i32, ptr %62, align 4, !tbaa !30
   %64 = zext i32 %63 to i64
   %65 = and i64 %64, %38
   %66 = lshr i64 %38, %60
   %67 = sext i32 %.sroa.0.0.copyload.i49 to i64
-  %68 = getelementptr i16, ptr %18, i64 %66
-  %69 = getelementptr i16, ptr %68, i64 %67
+  %68 = getelementptr [2 x i8], ptr %18, i64 %66
+  %69 = getelementptr [2 x i8], ptr %68, i64 %67
   %70 = load i16, ptr %69, align 2, !tbaa !4
   %.not37 = icmp eq i32 %5, 0
   %71 = lshr i64 %59, 19
@@ -1095,7 +1093,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %83 = getelementptr inbounds i8, ptr %7, i64 -2
   %84 = load i8, ptr %83, align 1, !tbaa !8
   %85 = zext i8 %84 to i64
-  %86 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %85
   %.sroa.0.0.copyload.i59 = load i32, ptr %86, align 4, !tbaa !30
   %.sroa.4.0..sroa_idx.i60 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %.sroa.4.0.copyload.i61 = load i32, ptr %.sroa.4.0..sroa_idx.i60, align 4, !tbaa !30
@@ -1107,8 +1105,8 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %92 = zext nneg i32 %88 to i64
   %93 = lshr i64 %91, %92
   %94 = sext i32 %.sroa.0.0.copyload.i59 to i64
-  %95 = getelementptr i16, ptr %18, i64 %93
-  %96 = getelementptr i16, ptr %95, i64 %94
+  %95 = getelementptr [2 x i8], ptr %18, i64 %93
+  %96 = getelementptr [2 x i8], ptr %95, i64 %94
   %97 = load i16, ptr %96, align 2, !tbaa !4
   br label %98
 
@@ -1130,7 +1128,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %102 = getelementptr inbounds i8, ptr %.033, i64 -1
   %103 = load i8, ptr %102, align 1, !tbaa !8
   %104 = zext i8 %103 to i64
-  %105 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %104
   %.sroa.0.0.copyload.i62 = load i32, ptr %105, align 4, !tbaa !30
   %.sroa.4.0..sroa_idx.i63 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %.sroa.4.0.copyload.i64 = load i32, ptr %.sroa.4.0..sroa_idx.i63, align 4, !tbaa !30
@@ -1138,7 +1136,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %107 = add nuw nsw i64 %106, %.sroa.0.0
   %108 = lshr i64 %107, 16
   %109 = trunc nuw nsw i64 %108 to i32
-  %110 = getelementptr inbounds nuw i32, ptr @BIT_mask, i64 %108
+  %110 = getelementptr inbounds nuw [4 x i8], ptr @BIT_mask, i64 %108
   %111 = load i32, ptr %110, align 4, !tbaa !30
   %112 = zext i32 %111 to i64
   %113 = and i64 %112, %.sroa.0.0
@@ -1147,14 +1145,14 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %116 = add nuw nsw i32 %.sroa.47.0, %109
   %117 = lshr i64 %.sroa.0.0, %108
   %118 = sext i32 %.sroa.0.0.copyload.i62 to i64
-  %119 = getelementptr i16, ptr %101, i64 %117
-  %120 = getelementptr i16, ptr %119, i64 %118
+  %119 = getelementptr [2 x i8], ptr %101, i64 %117
+  %120 = getelementptr [2 x i8], ptr %119, i64 %118
   %121 = load i16, ptr %120, align 2, !tbaa !4
   %122 = zext i16 %121 to i64
   %123 = getelementptr inbounds i8, ptr %.033, i64 -2
   %124 = load i8, ptr %123, align 1, !tbaa !8
   %125 = zext i8 %124 to i64
-  %126 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %125
   %.sroa.0.0.copyload.i65 = load i32, ptr %126, align 4, !tbaa !30
   %.sroa.4.0..sroa_idx.i66 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %.sroa.4.0.copyload.i67 = load i32, ptr %.sroa.4.0..sroa_idx.i66, align 4, !tbaa !30
@@ -1162,7 +1160,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %128 = add nuw nsw i64 %127, %.sroa.091.0
   %129 = lshr i64 %128, 16
   %130 = trunc nuw nsw i64 %129 to i32
-  %131 = getelementptr inbounds nuw i32, ptr @BIT_mask, i64 %129
+  %131 = getelementptr inbounds nuw [4 x i8], ptr @BIT_mask, i64 %129
   %132 = load i32, ptr %131, align 4, !tbaa !30
   %133 = zext i32 %132 to i64
   %134 = and i64 %133, %.sroa.091.0
@@ -1173,8 +1171,8 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %139 = add nuw nsw i32 %116, %130
   %140 = lshr i64 %.sroa.091.0, %129
   %141 = sext i32 %.sroa.0.0.copyload.i65 to i64
-  %142 = getelementptr i16, ptr %101, i64 %140
-  %143 = getelementptr i16, ptr %142, i64 %141
+  %142 = getelementptr [2 x i8], ptr %101, i64 %140
+  %143 = getelementptr [2 x i8], ptr %142, i64 %141
   %144 = load i16, ptr %143, align 2, !tbaa !4
   %145 = zext i16 %144 to i64
   %.not39 = icmp eq i32 %5, 0
@@ -1223,7 +1221,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %162 = getelementptr inbounds i8, ptr %.2161, i64 -1
   %163 = load i8, ptr %162, align 1, !tbaa !8
   %164 = zext i8 %163 to i64
-  %165 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %164
   %.sroa.0.0.copyload.i69 = load i32, ptr %165, align 4, !tbaa !30
   %.sroa.4.0..sroa_idx.i70 = getelementptr inbounds nuw i8, ptr %165, i64 4
   %.sroa.4.0.copyload.i71 = load i32, ptr %.sroa.4.0..sroa_idx.i70, align 4, !tbaa !30
@@ -1231,7 +1229,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %167 = add nuw nsw i64 %.sroa.0.2160, %166
   %168 = lshr i64 %167, 16
   %169 = trunc nuw nsw i64 %168 to i32
-  %170 = getelementptr inbounds nuw i32, ptr @BIT_mask, i64 %168
+  %170 = getelementptr inbounds nuw [4 x i8], ptr @BIT_mask, i64 %168
   %171 = load i32, ptr %170, align 4, !tbaa !30
   %172 = zext i32 %171 to i64
   %173 = and i64 %.sroa.0.2160, %172
@@ -1240,14 +1238,14 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %176 = add nuw nsw i32 %.sroa.47.2157, %169
   %177 = lshr i64 %.sroa.0.2160, %168
   %178 = sext i32 %.sroa.0.0.copyload.i69 to i64
-  %179 = getelementptr i16, ptr %160, i64 %177
-  %180 = getelementptr i16, ptr %179, i64 %178
+  %179 = getelementptr [2 x i8], ptr %160, i64 %177
+  %180 = getelementptr [2 x i8], ptr %179, i64 %178
   %181 = load i16, ptr %180, align 2, !tbaa !4
   %182 = zext i16 %181 to i64
   %183 = getelementptr inbounds i8, ptr %.2161, i64 -2
   %184 = load i8, ptr %183, align 1, !tbaa !8
   %185 = zext i8 %184 to i64
-  %186 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %185
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %185
   %.sroa.0.0.copyload.i72 = load i32, ptr %186, align 4, !tbaa !30
   %.sroa.4.0..sroa_idx.i73 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %.sroa.4.0.copyload.i74 = load i32, ptr %.sroa.4.0..sroa_idx.i73, align 4, !tbaa !30
@@ -1255,7 +1253,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %188 = add nuw nsw i64 %.sroa.091.2158, %187
   %189 = lshr i64 %188, 16
   %190 = trunc nuw nsw i64 %189 to i32
-  %191 = getelementptr inbounds nuw i32, ptr @BIT_mask, i64 %189
+  %191 = getelementptr inbounds nuw [4 x i8], ptr @BIT_mask, i64 %189
   %192 = load i32, ptr %191, align 4, !tbaa !30
   %193 = zext i32 %192 to i64
   %194 = and i64 %.sroa.091.2158, %193
@@ -1264,14 +1262,14 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %197 = add nuw nsw i32 %176, %190
   %198 = lshr i64 %.sroa.091.2158, %189
   %199 = sext i32 %.sroa.0.0.copyload.i72 to i64
-  %200 = getelementptr i16, ptr %160, i64 %198
-  %201 = getelementptr i16, ptr %200, i64 %199
+  %200 = getelementptr [2 x i8], ptr %160, i64 %198
+  %201 = getelementptr [2 x i8], ptr %200, i64 %199
   %202 = load i16, ptr %201, align 2, !tbaa !4
   %203 = zext i16 %202 to i64
   %204 = getelementptr inbounds i8, ptr %.2161, i64 -3
   %205 = load i8, ptr %204, align 1, !tbaa !8
   %206 = zext i8 %205 to i64
-  %207 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %206
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %206
   %.sroa.0.0.copyload.i75 = load i32, ptr %207, align 4, !tbaa !30
   %.sroa.4.0..sroa_idx.i76 = getelementptr inbounds nuw i8, ptr %207, i64 4
   %.sroa.4.0.copyload.i77 = load i32, ptr %.sroa.4.0..sroa_idx.i76, align 4, !tbaa !30
@@ -1279,7 +1277,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %209 = add nuw nsw i64 %208, %182
   %210 = lshr i64 %209, 16
   %211 = trunc nuw nsw i64 %210 to i32
-  %212 = getelementptr inbounds nuw i32, ptr @BIT_mask, i64 %210
+  %212 = getelementptr inbounds nuw [4 x i8], ptr @BIT_mask, i64 %210
   %213 = load i32, ptr %212, align 4, !tbaa !30
   %214 = zext i32 %213 to i64
   %215 = and i64 %214, %182
@@ -1288,14 +1286,14 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %218 = add nuw nsw i32 %197, %211
   %219 = lshr i64 %182, %210
   %220 = sext i32 %.sroa.0.0.copyload.i75 to i64
-  %221 = getelementptr i16, ptr %160, i64 %219
-  %222 = getelementptr i16, ptr %221, i64 %220
+  %221 = getelementptr [2 x i8], ptr %160, i64 %219
+  %222 = getelementptr [2 x i8], ptr %221, i64 %220
   %223 = load i16, ptr %222, align 2, !tbaa !4
   %224 = zext i16 %223 to i64
   %225 = getelementptr inbounds i8, ptr %.2161, i64 -4
   %226 = load i8, ptr %225, align 1, !tbaa !8
   %227 = zext i8 %226 to i64
-  %228 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %23, i64 %227
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %227
   %.sroa.0.0.copyload.i78 = load i32, ptr %228, align 4, !tbaa !30
   %.sroa.4.0..sroa_idx.i79 = getelementptr inbounds nuw i8, ptr %228, i64 4
   %.sroa.4.0.copyload.i80 = load i32, ptr %.sroa.4.0..sroa_idx.i79, align 4, !tbaa !30
@@ -1303,7 +1301,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %230 = add nuw nsw i64 %229, %203
   %231 = lshr i64 %230, 16
   %232 = trunc nuw nsw i64 %231 to i32
-  %233 = getelementptr inbounds nuw i32, ptr @BIT_mask, i64 %231
+  %233 = getelementptr inbounds nuw [4 x i8], ptr @BIT_mask, i64 %231
   %234 = load i32, ptr %233, align 4, !tbaa !30
   %235 = zext i32 %234 to i64
   %236 = and i64 %235, %203
@@ -1316,8 +1314,8 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %243 = add nuw nsw i32 %218, %232
   %244 = lshr i64 %203, %231
   %245 = sext i32 %.sroa.0.0.copyload.i78 to i64
-  %246 = getelementptr i16, ptr %160, i64 %244
-  %247 = getelementptr i16, ptr %246, i64 %245
+  %246 = getelementptr [2 x i8], ptr %160, i64 %244
+  %247 = getelementptr [2 x i8], ptr %246, i64 %245
   %248 = load i16, ptr %247, align 2, !tbaa !4
   %249 = zext i16 %248 to i64
   %250 = lshr i32 %243, 3
@@ -1340,7 +1338,7 @@ define internal fastcc i64 @FSE_compress_usingCTable_generic(ptr noundef %0, i64
   %.sroa.82.2.lcssa = phi ptr [ %.sroa.82.1, %158 ], [ %.sroa.82.3, %161 ]
   %.sroa.0.2.lcssa = phi i64 [ %.sroa.0.1, %158 ], [ %224, %161 ]
   %256 = zext i16 %.val.i.i52 to i64
-  %257 = getelementptr inbounds nuw i32, ptr @BIT_mask, i64 %256
+  %257 = getelementptr inbounds nuw [4 x i8], ptr @BIT_mask, i64 %256
   %258 = load i32, ptr %257, align 4, !tbaa !30
   %259 = zext i32 %258 to i64
   %260 = and i64 %.sroa.0.2.lcssa, %259

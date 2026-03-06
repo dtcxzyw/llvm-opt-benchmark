@@ -478,12 +478,12 @@ define void @Dch_ManSatSolverRecycle(ptr noundef captures(none) %0) local_unname
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %.val21, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val21, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !71
   %14 = getelementptr i8, ptr %13, i64 36
   %.val23 = load i32, ptr %14, align 4, !tbaa !72
   %15 = sext i32 %.val23 to i64
-  %16 = getelementptr inbounds i32, ptr %.val22, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %.val22, i64 %15
   store i32 0, ptr %16, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %7, align 4, !tbaa !28
@@ -523,7 +523,7 @@ define void @Dch_ManSatSolverRecycle(ptr noundef captures(none) %0) local_unname
   %34 = getelementptr i8, ptr %.val26, i64 36
   %.val25 = load i32, ptr %34, align 4, !tbaa !72
   %35 = sext i32 %.val25 to i64
-  %36 = getelementptr inbounds i32, ptr %.val24, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %.val24, i64 %35
   store i32 %31, ptr %36, align 4, !tbaa !38
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %38 = load i32, ptr %37, align 8, !tbaa !44

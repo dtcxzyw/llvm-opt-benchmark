@@ -3,8 +3,6 @@ source_filename = "bench/graphviz/original/visibility.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Pxy_t = type { double, double }
-
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [58 x i8] c"integer overflow when trying to allocate %zu * %zu bytes\0A\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
@@ -115,9 +113,9 @@ gv_calloc.exit23.preheader27.i:                   ; preds = %gv_calloc.exit23.pr
 gv_calloc.exit23.i:                               ; preds = %gv_calloc.exit23.i, %gv_calloc.exit23.preheader27.i
   %indvars.iv.i = phi i64 [ 0, %gv_calloc.exit23.preheader27.i ], [ %indvars.iv.next.i, %gv_calloc.exit23.i ]
   %.025.i = phi ptr [ %24, %gv_calloc.exit23.preheader27.i ], [ %32, %gv_calloc.exit23.i ]
-  %31 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   store ptr %.025.i, ptr %31, align 8, !tbaa !14
-  %32 = getelementptr inbounds nuw double, ptr %.025.i, i64 %17
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.025.i, i64 %17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %allocArray.exit, label %gv_calloc.exit23.i, !llvm.loop !16
@@ -150,11 +148,11 @@ allocArray.exit:                                  ; preds = %gv_calloc.exit23.i,
 47:                                               ; preds = %._crit_edge.i, %.lr.ph69.i
   %indvars.iv72.i = phi i64 [ 0, %.lr.ph69.i ], [ %indvars.iv.next73.i, %._crit_edge.i ]
   %indvars74.i = trunc i64 %indvars.iv72.i to i32
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv72.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv72.i
   %49 = load i32, ptr %48, align 4, !tbaa !22
-  %50 = getelementptr inbounds nuw %struct.Pxy_t, ptr %42, i64 %indvars.iv72.i
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %indvars.iv72.i
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds %struct.Pxy_t, ptr %42, i64 %51
+  %52 = getelementptr inbounds [16 x i8], ptr %42, i64 %51
   %53 = load double, ptr %50, align 8
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %55 = load double, ptr %54, align 8
@@ -166,13 +164,13 @@ allocArray.exit:                                  ; preds = %gv_calloc.exit23.i,
   %61 = fmul double %60, %60
   %62 = tail call double @llvm.fmuladd.f64(double %59, double %59, double %61)
   %sqrt.i.i = tail call double @llvm.sqrt.f64(double %62)
-  %63 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv72.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv72.i
   %64 = load ptr, ptr %63, align 8, !tbaa !14
-  %65 = getelementptr inbounds double, ptr %64, i64 %51
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %51
   store double %sqrt.i.i, ptr %65, align 8, !tbaa !23
-  %66 = getelementptr inbounds ptr, ptr %11, i64 %51
+  %66 = getelementptr inbounds [8 x i8], ptr %11, i64 %51
   %67 = load ptr, ptr %66, align 8, !tbaa !14
-  %68 = getelementptr inbounds nuw double, ptr %67, i64 %indvars.iv72.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv72.i
   store double %sqrt.i.i, ptr %68, align 8, !tbaa !23
   %69 = add i32 %indvars74.i, -1
   %70 = icmp eq i32 %49, %69
@@ -182,17 +180,17 @@ allocArray.exit:                                  ; preds = %gv_calloc.exit23.i,
   br i1 %72, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %47
-  %73 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv72.i
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv72.i
   %74 = load i32, ptr %73, align 4, !tbaa !22
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds %struct.Pxy_t, ptr %42, i64 %75
+  %76 = getelementptr inbounds [16 x i8], ptr %42, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = zext nneg i32 %.0.i to i64
   br label %79
 
 79:                                               ; preds = %clear.exit.i, %.lr.ph.i
   %indvars.iv.i4 = phi i64 [ %78, %.lr.ph.i ], [ %indvars.iv.next.i5, %clear.exit.i ]
-  %80 = getelementptr inbounds nuw %struct.Pxy_t, ptr %42, i64 %indvars.iv.i4
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %indvars.iv.i4
   %81 = load double, ptr %52, align 8
   %82 = load double, ptr %57, align 8
   %83 = load double, ptr %50, align 8
@@ -235,14 +233,14 @@ inCone.exit.i:                                    ; preds = %79
   br i1 %114, label %115, label %clear.exit.i
 
 115:                                              ; preds = %inCone.exit.i, %112
-  %116 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.i4
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i4
   %117 = load i32, ptr %116, align 4, !tbaa !22
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds %struct.Pxy_t, ptr %42, i64 %118
-  %120 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i4
+  %119 = getelementptr inbounds [16 x i8], ptr %42, i64 %118
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.i4
   %121 = load i32, ptr %120, align 4, !tbaa !22
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds %struct.Pxy_t, ptr %42, i64 %122
+  %123 = getelementptr inbounds [16 x i8], ptr %42, i64 %122
   %124 = load double, ptr %119, align 8
   %125 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %126 = load double, ptr %125, align 8
@@ -292,11 +290,11 @@ inCone.exit62.i:                                  ; preds = %115
 
 .lr.ph.i.i:                                       ; preds = %156, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %156 ]
-  %157 = getelementptr inbounds nuw %struct.Pxy_t, ptr %42, i64 %indvars.iv.i.i
-  %158 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i.i
+  %157 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %indvars.iv.i.i
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.i.i
   %159 = load i32, ptr %158, align 4, !tbaa !22
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds %struct.Pxy_t, ptr %42, i64 %160
+  %161 = getelementptr inbounds [16 x i8], ptr %42, i64 %160
   %162 = load double, ptr %157, align 8
   %163 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %164 = load double, ptr %163, align 8
@@ -411,11 +409,11 @@ intersect.exit.i:                                 ; preds = %inBetween.exit42.i.
   %239 = fmul double %138, %138
   %240 = tail call double @llvm.fmuladd.f64(double %141, double %141, double %239)
   %sqrt.i63.i = tail call double @llvm.sqrt.f64(double %240)
-  %241 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv.i4
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv.i4
   store double %sqrt.i63.i, ptr %241, align 8, !tbaa !23
-  %242 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i4
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i4
   %243 = load ptr, ptr %242, align 8, !tbaa !14
-  %244 = getelementptr inbounds nuw double, ptr %243, i64 %indvars.iv72.i
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %indvars.iv72.i
   store double %sqrt.i63.i, ptr %244, align 8, !tbaa !23
   br label %clear.exit.i
 
@@ -486,12 +484,12 @@ gv_calloc.exit:                                   ; preds = %18
 33:                                               ; preds = %29
   %34 = load ptr, ptr %7, align 8, !tbaa !19
   %35 = load ptr, ptr %28, align 8, !tbaa !29
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i
   %37 = load i32, ptr %36, align 4, !tbaa !22
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %struct.Pxy_t, ptr %34, i64 %38
+  %39 = getelementptr inbounds [16 x i8], ptr %34, i64 %38
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.next.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.next.i
   %41 = load i32, ptr %40, align 4, !tbaa !22
   %42 = sub nsw i32 %41, %37
   %43 = sext i32 %42 to i64
@@ -511,7 +509,7 @@ polyhit.exit:                                     ; preds = %gv_calloc.exit
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !29
   %50 = zext nneg i32 %.0149 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !22
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %54 = load i32, ptr %53, align 4, !tbaa !22
@@ -547,18 +545,18 @@ polyhit.exit.thread150:                           ; preds = %29, %polyhit.exit, 
 
 66:                                               ; preds = %.lr.ph, %clear.exit.thread162
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %clear.exit.thread162 ]
-  %67 = getelementptr inbounds nuw %struct.Pxy_t, ptr %8, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %.sroa.0.0.copyload = load double, ptr %67, align 8, !tbaa !23
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.sroa.10.0.copyload = load double, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !23
-  %68 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !22
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %70
-  %72 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %71 = getelementptr inbounds [16 x i8], ptr %8, i64 %70
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %73 = load i32, ptr %72, align 4, !tbaa !22
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %74
+  %75 = getelementptr inbounds [16 x i8], ptr %8, i64 %74
   %76 = load double, ptr %71, align 8
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %78 = load double, ptr %77, align 8
@@ -615,11 +613,11 @@ in_cone.exit:                                     ; preds = %66
 
 .lr.ph.i:                                         ; preds = %108, %.lr.ph.preheader.i
   %indvars.iv.i100 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i101, %108 ]
-  %110 = getelementptr inbounds nuw %struct.Pxy_t, ptr %8, i64 %indvars.iv.i100
-  %111 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i100
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv.i100
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i100
   %112 = load i32, ptr %111, align 4, !tbaa !22
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %113
+  %114 = getelementptr inbounds [16 x i8], ptr %8, i64 %113
   %115 = load double, ptr %110, align 8
   %116 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %117 = load double, ptr %116, align 8
@@ -732,11 +730,11 @@ intersect.exit131:                                ; preds = %144, %158, %inBetwe
 
 .lr.ph27.i:                                       ; preds = %intersect.exit, %.lr.ph27.preheader.i
   %indvars.iv32.i = phi i64 [ %57, %.lr.ph27.preheader.i ], [ %indvars.iv.next33.i, %intersect.exit ]
-  %192 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %indvars.iv32.i
-  %193 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv32.i
+  %192 = getelementptr inbounds [16 x i8], ptr %8, i64 %indvars.iv32.i
+  %193 = getelementptr inbounds [4 x i8], ptr %10, i64 %indvars.iv32.i
   %194 = load i32, ptr %193, align 4, !tbaa !22
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %195
+  %196 = getelementptr inbounds [16 x i8], ptr %8, i64 %195
   %197 = load double, ptr %192, align 8
   %198 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %199 = load double, ptr %198, align 8
@@ -862,7 +860,7 @@ clear.exit.thread160:                             ; preds = %.preheader.i, %clea
 
 clear.exit.thread162:                             ; preds = %intersect.exit131, %inBetween.exit.i129, %inBetween.exit42.i126, %158, %134, %138, %131, %155, %162, %244, %237, %213, %220, %216, %240, %inBetween.exit42.i, %inBetween.exit.i, %in_cone.exit, %clear.exit, %104, %clear.exit.thread160
   %sqrt.i.sink = phi double [ %sqrt.i, %clear.exit.thread160 ], [ 0.000000e+00, %244 ], [ 0.000000e+00, %clear.exit ], [ 0.000000e+00, %in_cone.exit ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %inBetween.exit.i ], [ 0.000000e+00, %inBetween.exit42.i ], [ 0.000000e+00, %240 ], [ 0.000000e+00, %216 ], [ 0.000000e+00, %220 ], [ 0.000000e+00, %213 ], [ 0.000000e+00, %237 ], [ 0.000000e+00, %162 ], [ 0.000000e+00, %155 ], [ 0.000000e+00, %131 ], [ 0.000000e+00, %138 ], [ 0.000000e+00, %134 ], [ 0.000000e+00, %158 ], [ 0.000000e+00, %inBetween.exit42.i126 ], [ 0.000000e+00, %inBetween.exit.i129 ], [ 0.000000e+00, %intersect.exit131 ]
-  %276 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   store double %sqrt.i.sink, ptr %276, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
@@ -884,18 +882,18 @@ clear.exit.thread162:                             ; preds = %intersect.exit131, 
 
 279:                                              ; preds = %.lr.ph187, %clear.exit121.thread175
   %indvars.iv196 = phi i64 [ %278, %.lr.ph187 ], [ %indvars.iv.next197, %clear.exit121.thread175 ]
-  %280 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %indvars.iv196
+  %280 = getelementptr inbounds [16 x i8], ptr %8, i64 %indvars.iv196
   %.sroa.0.0.copyload15 = load double, ptr %280, align 8, !tbaa !23
   %.sroa.10.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %280, i64 8
   %.sroa.10.0.copyload17 = load double, ptr %.sroa.10.0..sroa_idx16, align 8, !tbaa !23
-  %281 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv196
+  %281 = getelementptr inbounds [4 x i8], ptr %12, i64 %indvars.iv196
   %282 = load i32, ptr %281, align 4, !tbaa !22
   %283 = sext i32 %282 to i64
-  %284 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %283
-  %285 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv196
+  %284 = getelementptr inbounds [16 x i8], ptr %8, i64 %283
+  %285 = getelementptr inbounds [4 x i8], ptr %10, i64 %indvars.iv196
   %286 = load i32, ptr %285, align 4, !tbaa !22
   %287 = sext i32 %286 to i64
-  %288 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %287
+  %288 = getelementptr inbounds [16 x i8], ptr %8, i64 %287
   %289 = load double, ptr %284, align 8
   %290 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %291 = load double, ptr %290, align 8
@@ -952,11 +950,11 @@ in_cone.exit103:                                  ; preds = %279
 
 .lr.ph.i117:                                      ; preds = %322, %.lr.ph.preheader.i115
   %indvars.iv.i118 = phi i64 [ 0, %.lr.ph.preheader.i115 ], [ %indvars.iv.next.i119, %322 ]
-  %324 = getelementptr inbounds nuw %struct.Pxy_t, ptr %8, i64 %indvars.iv.i118
-  %325 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i118
+  %324 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv.i118
+  %325 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i118
   %326 = load i32, ptr %325, align 4, !tbaa !22
   %327 = sext i32 %326 to i64
-  %328 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %327
+  %328 = getelementptr inbounds [16 x i8], ptr %8, i64 %327
   %329 = load double, ptr %324, align 8
   %330 = getelementptr inbounds nuw i8, ptr %324, i64 8
   %331 = load double, ptr %330, align 8
@@ -1069,11 +1067,11 @@ intersect.exit147:                                ; preds = %358, %372, %inBetwe
 
 .lr.ph27.i107:                                    ; preds = %intersect.exit139, %.lr.ph27.preheader.i106
   %indvars.iv32.i108 = phi i64 [ %278, %.lr.ph27.preheader.i106 ], [ %indvars.iv.next33.i109, %intersect.exit139 ]
-  %406 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %indvars.iv32.i108
-  %407 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv32.i108
+  %406 = getelementptr inbounds [16 x i8], ptr %8, i64 %indvars.iv32.i108
+  %407 = getelementptr inbounds [4 x i8], ptr %10, i64 %indvars.iv32.i108
   %408 = load i32, ptr %407, align 4, !tbaa !22
   %409 = sext i32 %408 to i64
-  %410 = getelementptr inbounds %struct.Pxy_t, ptr %8, i64 %409
+  %410 = getelementptr inbounds [16 x i8], ptr %8, i64 %409
   %411 = load double, ptr %406, align 8
   %412 = getelementptr inbounds nuw i8, ptr %406, i64 8
   %413 = load double, ptr %412, align 8
@@ -1199,7 +1197,7 @@ clear.exit121.thread173:                          ; preds = %clear.exit121
 
 clear.exit121.thread175:                          ; preds = %intersect.exit147, %inBetween.exit.i145, %inBetween.exit42.i142, %372, %348, %352, %345, %369, %376, %458, %451, %427, %434, %430, %454, %inBetween.exit42.i134, %inBetween.exit.i137, %in_cone.exit103, %clear.exit121, %317, %clear.exit121.thread173
   %sqrt.i122.sink = phi double [ %sqrt.i122, %clear.exit121.thread173 ], [ 0.000000e+00, %458 ], [ 0.000000e+00, %clear.exit121 ], [ 0.000000e+00, %in_cone.exit103 ], [ 0.000000e+00, %317 ], [ 0.000000e+00, %inBetween.exit.i137 ], [ 0.000000e+00, %inBetween.exit42.i134 ], [ 0.000000e+00, %454 ], [ 0.000000e+00, %430 ], [ 0.000000e+00, %434 ], [ 0.000000e+00, %427 ], [ 0.000000e+00, %451 ], [ 0.000000e+00, %376 ], [ 0.000000e+00, %369 ], [ 0.000000e+00, %345 ], [ 0.000000e+00, %352 ], [ 0.000000e+00, %348 ], [ 0.000000e+00, %372 ], [ 0.000000e+00, %inBetween.exit42.i142 ], [ 0.000000e+00, %inBetween.exit.i145 ], [ 0.000000e+00, %intersect.exit147 ]
-  %490 = getelementptr inbounds double, ptr %20, i64 %indvars.iv196
+  %490 = getelementptr inbounds [8 x i8], ptr %20, i64 %indvars.iv196
   store double %sqrt.i122.sink, ptr %490, align 8, !tbaa !23
   %indvars.iv.next197 = add nsw i64 %indvars.iv196, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
@@ -1207,7 +1205,7 @@ clear.exit121.thread175:                          ; preds = %intersect.exit147, 
 
 ._crit_edge:                                      ; preds = %clear.exit121.thread175, %.preheader.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %wide.trip.count199, %clear.exit121.thread175 ]
-  %491 = getelementptr inbounds double, ptr %20, i64 %.pre-phi
+  %491 = getelementptr inbounds [8 x i8], ptr %20, i64 %.pre-phi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %491, i8 0, i64 16, i1 false)
   ret ptr %20
 }
@@ -1236,12 +1234,12 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
   %. = tail call i32 @llvm.umin.i32(i32 %2, i32 %5)
   %.128 = tail call i32 @llvm.umax.i32(i32 %2, i32 %5)
   %21 = zext nneg i32 %. to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !22
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !22
   %26 = zext nneg i32 %.128 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %20, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !22
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !22
@@ -1262,7 +1260,7 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !29
   %35 = zext nneg i32 %.sink126 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !22
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !22
@@ -1281,11 +1279,11 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
-  %42 = getelementptr inbounds nuw %struct.Pxy_t, ptr %11, i64 %indvars.iv
-  %43 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4, !tbaa !22
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds %struct.Pxy_t, ptr %11, i64 %45
+  %46 = getelementptr inbounds [16 x i8], ptr %11, i64 %45
   %47 = load double, ptr %42, align 8
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %49 = load double, ptr %48, align 8
@@ -1312,11 +1310,11 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %54
   %indvars.iv89 = phi i64 [ %41, %.lr.ph81.preheader ], [ %indvars.iv.next90, %54 ]
-  %57 = getelementptr inbounds %struct.Pxy_t, ptr %11, i64 %indvars.iv89
-  %58 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv89
+  %57 = getelementptr inbounds [16 x i8], ptr %11, i64 %indvars.iv89
+  %58 = getelementptr inbounds [4 x i8], ptr %13, i64 %indvars.iv89
   %59 = load i32, ptr %58, align 4, !tbaa !22
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds %struct.Pxy_t, ptr %11, i64 %60
+  %61 = getelementptr inbounds [16 x i8], ptr %11, i64 %60
   %62 = load double, ptr %57, align 8
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %64 = load double, ptr %63, align 8
@@ -1328,11 +1326,11 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
 
 .lr.ph83:                                         ; preds = %.lr.ph83, %.lr.ph83.preheader
   %indvars.iv93 = phi i64 [ %56, %.lr.ph83.preheader ], [ %indvars.iv.next94, %.lr.ph83 ]
-  %69 = getelementptr inbounds %struct.Pxy_t, ptr %11, i64 %indvars.iv93
-  %70 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv93
+  %69 = getelementptr inbounds [16 x i8], ptr %11, i64 %indvars.iv93
+  %70 = getelementptr inbounds [4 x i8], ptr %13, i64 %indvars.iv93
   %71 = load i32, ptr %70, align 4, !tbaa !22
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds %struct.Pxy_t, ptr %11, i64 %72
+  %73 = getelementptr inbounds [16 x i8], ptr %11, i64 %72
   %74 = load double, ptr %69, align 8
   %75 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %76 = load double, ptr %75, align 8

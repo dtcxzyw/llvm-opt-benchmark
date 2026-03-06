@@ -489,7 +489,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %18 = load i8, ptr %17, align 1, !tbaa !10
   %19 = and i8 %18, 3
   %20 = zext nneg i8 %19 to i64
-  %21 = getelementptr inbounds nuw i64, ptr %3, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !27
   %23 = lshr i8 %18, 2
   %24 = zext nneg i8 %23 to i64
@@ -523,7 +523,7 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail13parse_encodedINS0_7gramm
   %37 = load i8, ptr %.22335.i.i.i.i, align 1, !tbaa !10
   %38 = and i8 %37, 3
   %39 = zext nneg i8 %38 to i64
-  %40 = getelementptr inbounds nuw i64, ptr %3, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !27
   %42 = lshr i8 %37, 2
   %43 = zext nneg i8 %42 to i64

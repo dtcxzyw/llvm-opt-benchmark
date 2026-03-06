@@ -94,7 +94,7 @@ _ZN18hb_unicode_funcs_t7composeEjjPj.exit.thread: ; preds = %4, %_ZN18hb_unicode
 
 33:                                               ; preds = %31
   %34 = zext nneg i32 %1 to i64
-  %35 = getelementptr i32, ptr @_ZZL14compose_hebrewPK31hb_ot_shape_normalize_context_tjjPjE12sDageshForms, i64 %34
+  %35 = getelementptr [4 x i8], ptr @_ZZL14compose_hebrewPK31hb_ot_shape_normalize_context_tjjPjE12sDageshForms, i64 %34
   %36 = getelementptr i8, ptr %35, i64 -5952
   %37 = load i32, ptr %36, align 4
   store i32 %37, ptr %3, align 4
@@ -185,7 +185,7 @@ define internal void @_ZL20reorder_marks_hebrewPK18hb_ot_shape_plan_tP11hb_buffe
   %11 = trunc nuw i64 %indvars.iv to i32
   %12 = add nuw i64 %indvars.iv, 4294967294
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw [20 x i8], ptr %7, i64 %13
   %15 = getelementptr i8, ptr %14, i64 16
   %.val = load i16, ptr %15, align 4
   %16 = and i16 %.val, 31
@@ -195,7 +195,7 @@ define internal void @_ZL20reorder_marks_hebrewPK18hb_ot_shape_plan_tP11hb_buffe
   %.not.i = icmp ne i32 %19, 0
   %20 = add i32 %11, -1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %7, i64 %21
+  %22 = getelementptr inbounds nuw [20 x i8], ptr %7, i64 %21
   %23 = getelementptr i8, ptr %22, i64 16
   %.val29 = load i16, ptr %23, align 4
   %24 = and i16 %.val29, 31
@@ -213,7 +213,7 @@ define internal void @_ZL20reorder_marks_hebrewPK18hb_ot_shape_plan_tP11hb_buffe
   br i1 %or.cond28, label %30, label %41
 
 30:                                               ; preds = %.lr.ph
-  %31 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %7, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [20 x i8], ptr %7, i64 %indvars.iv
   %32 = getelementptr i8, ptr %31, i64 16
   %.val30 = load i16, ptr %32, align 4
   %33 = and i16 %.val30, 31

@@ -191,7 +191,7 @@ do.end:                                           ; preds = %entry
   %20 = load ptr, ptr %vfn28, align 8
   %call29 = tail call noundef nonnull align 8 dereferenceable(24) ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %21 = load ptr, ptr %call29, align 8, !tbaa !10
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %21, i64 %i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %i
   %22 = load double, ptr %add.ptr.i, align 8, !tbaa !16
   ret double %22
 
@@ -480,7 +480,7 @@ do.end:                                           ; preds = %entry
   %20 = load ptr, ptr %vfn28, align 8
   %call29 = tail call noundef nonnull align 8 dereferenceable(24) ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %21 = load ptr, ptr %call29, align 8, !tbaa !10
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %21, i64 %i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %i
   %22 = load double, ptr %add.ptr.i, align 8, !tbaa !16
   ret double %22
 
@@ -653,7 +653,7 @@ do.end:                                           ; preds = %entry
   %22 = load ptr, ptr %vfn35, align 8
   %call36 = tail call noundef nonnull align 8 dereferenceable(24) ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %23 = load ptr, ptr %call36, align 8, !tbaa !23
-  %add.ptr.i = getelementptr inbounds double, ptr %23, i64 %i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %23, i64 %i
   %add.ptr.i21 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %cmp.i.not4.i = icmp eq ptr %21, %add.ptr.i21
   br i1 %cmp.i.not4.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET0_T_S9_S8_.exit, label %for.body.i
@@ -684,7 +684,7 @@ entry:
   %0 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(24) ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %1 = load ptr, ptr %call2, align 8, !tbaa !10
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %1, i64 %i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %i
   %2 = load double, ptr %add.ptr.i, align 8, !tbaa !16
   %div = fdiv double %call, %2
   %call4 = tail call double @sqrt(double noundef %div) #14, !tbaa !26

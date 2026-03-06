@@ -9107,7 +9107,7 @@ entry:
   %0 = load ptr, ptr %params, align 8, !tbaa !18
   %n_.i = getelementptr inbounds nuw i8, ptr %params, i64 8
   %1 = load i64, ptr %n_.i, align 8, !tbaa !98
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %0, i64 %1
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   %call10.i.i.i = tail call noundef ptr @_ZSt9__find_ifIPKdN9__gnu_cxx5__ops12_Iter_negateIZNK8QuantLib18BoundaryConstraint4Impl4testERKNS5_5ArrayEEUldE_EEET_SD_SD_T0_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %add.ptr.i, ptr nonnull %this)
   %cmp.i = icmp eq ptr %add.ptr.i, %call10.i.i.i
   ret i1 %cmp.i
@@ -10374,7 +10374,7 @@ ehcleanup32:                                      ; preds = %if.then.i.i25, %ehc
 
 do.end:                                           ; preds = %entry
   %19 = load ptr, ptr %this, align 8, !tbaa !18
-  %arrayidx = getelementptr inbounds nuw double, ptr %19, i64 %i
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %i
   ret ptr %arrayidx
 
 unreachable:                                      ; preds = %invoke.cont22

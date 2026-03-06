@@ -52,9 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.entt::internal::dense_map_node" = type { i64, %"struct.std::pair" }
-%"struct.std::pair" = type { i32, %"class.std::function.65" }
-%"class.std::function.65" = type { %"class.std::_Function_base", ptr }
 %class.anon.88 = type { %"class.std::function", ptr }
 %"struct.test::boxed_type" = type { i32 }
 %"class.std::function.31" = type { %"class.std::_Function_base", ptr }
@@ -62,6 +59,7 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.105 = type { %"class.std::function.31", ptr }
 %class.anon.108 = type { %"class.std::function.38", ptr }
 %"struct.test::empty" = type { i8 }
+%"class.std::function.65" = type { %"class.std::_Function_base", ptr }
 %"class.std::tuple.98" = type { %"struct.std::_Tuple_impl.99" }
 %"struct.std::_Tuple_impl.99" = type { %"struct.std::_Head_base.100" }
 %"struct.std::_Head_base.100" = type { ptr }
@@ -846,7 +844,7 @@ _ZN7testing7MessageD2Ev.exit109:                  ; preds = %_ZNKSt14default_del
   %113 = lshr exact i64 %112, 3
   %114 = add nuw nsw i64 %113, 2147483647
   %115 = and i64 %114, 2065422381
-  %116 = getelementptr inbounds nuw i64, ptr %109, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %115
   br label %117
 
 117:                                              ; preds = %119, %106
@@ -862,7 +860,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_10boxed_typeIiEEEEbv.exit.t
   br label %127
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %52, i64 %.sroa.5.0.i.i.i.i
+  %120 = getelementptr inbounds [48 x i8], ptr %52, i64 %.sroa.5.0.i.i.i.i
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load i32, ptr %121, align 4, !tbaa !65
   %123 = icmp eq i32 %122, 2065422381
@@ -1048,7 +1046,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_10boxed_typeIiEEEEbv.exit16
   br label %191
 
 183:                                              ; preds = %181
-  %184 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %52, i64 %.sroa.5.0.i.i.i.i160
+  %184 = getelementptr inbounds [48 x i8], ptr %52, i64 %.sroa.5.0.i.i.i.i160
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %186 = load i32, ptr %185, align 4, !tbaa !65
   %187 = icmp eq i32 %186, 2065422381
@@ -1346,7 +1344,7 @@ _ZN7testing7MessageD2Ev.exit227:                  ; preds = %_ZNKSt14default_del
   %284 = lshr exact i64 %283, 3
   %285 = add nuw nsw i64 %284, 2147483647
   %286 = and i64 %285, 2065422381
-  %287 = getelementptr inbounds nuw i64, ptr %280, i64 %286
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %280, i64 %286
   br label %288
 
 288:                                              ; preds = %290, %278
@@ -1362,7 +1360,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_10boxed_typeIiEEEEbv.exit24
   br label %298
 
 290:                                              ; preds = %288
-  %291 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %233, i64 %.sroa.5.0.i.i.i.i234
+  %291 = getelementptr inbounds [48 x i8], ptr %233, i64 %.sroa.5.0.i.i.i.i234
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
   %293 = load i32, ptr %292, align 4, !tbaa !65
   %294 = icmp eq i32 %293, 2065422381
@@ -3207,7 +3205,7 @@ _ZN4entt7type_idIN4test10boxed_typeIiEEEERKNS_9type_infoEv.exit: ; preds = %2, %
   %23 = and i64 %22, %14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !43
-  %26 = getelementptr inbounds nuw i64, ptr %17, i64 %23
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %23
   br label %27
 
 27:                                               ; preds = %28, %_ZN4entt7type_idIN4test10boxed_typeIiEEEERKNS_9type_infoEv.exit
@@ -3217,7 +3215,7 @@ _ZN4entt7type_idIN4test10boxed_typeIiEEEERKNS_9type_infoEv.exit: ; preds = %2, %
   br i1 %.not.i.i.i, label %_ZNK4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEE8containsERS9_.exit.thread, label %28
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %25, i64 %.sroa.5.0.i.i.i
+  %29 = getelementptr inbounds [48 x i8], ptr %25, i64 %.sroa.5.0.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 4, !tbaa !65
   %32 = icmp eq i32 %31, %12
@@ -3758,7 +3756,7 @@ _ZN7testing7MessageD2Ev.exit299:                  ; preds = %_ZNKSt14default_del
   %234 = lshr exact i64 %233, 3
   %235 = add nuw nsw i64 %234, 2147483647
   %236 = and i64 %235, 2065422381
-  %237 = getelementptr inbounds nuw i64, ptr %230, i64 %236
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %236
   br label %238
 
 238:                                              ; preds = %240, %227
@@ -3774,7 +3772,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_10boxed_typeIiEEEEbv.exit.t
   br label %248
 
 240:                                              ; preds = %238
-  %241 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %166, i64 %.sroa.5.0.i.i.i.i
+  %241 = getelementptr inbounds [48 x i8], ptr %166, i64 %.sroa.5.0.i.i.i.i
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %243 = load i32, ptr %242, align 4, !tbaa !65
   %244 = icmp eq i32 %243, 2065422381
@@ -3924,7 +3922,7 @@ _ZN7testing7MessageD2Ev.exit321:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %290 = add nuw nsw i64 %234, 4294967295
   %291 = and i64 %290, 2786905846
-  %292 = getelementptr inbounds nuw i64, ptr %230, i64 %291
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %291
   br label %293
 
 293:                                              ; preds = %295, %289
@@ -3940,7 +3938,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_10boxed_typeIcEEEEbv.exit.t
   br label %303
 
 295:                                              ; preds = %293
-  %296 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %166, i64 %.sroa.5.0.i.i.i.i328
+  %296 = getelementptr inbounds [48 x i8], ptr %166, i64 %.sroa.5.0.i.i.i.i328
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %298 = load i32, ptr %297, align 4, !tbaa !65
   %299 = icmp eq i32 %298, -1508061450
@@ -4089,7 +4087,7 @@ _ZN7testing7MessageD2Ev.exit350:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %345 = and i64 %235, 1493973694
-  %346 = getelementptr inbounds nuw i64, ptr %230, i64 %345
+  %346 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %345
   br label %347
 
 347:                                              ; preds = %349, %344
@@ -4103,7 +4101,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_5emptyEEEbv.exit.thread: ; 
   br label %396
 
 349:                                              ; preds = %347
-  %350 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %166, i64 %.sroa.5.0.i.i.i.i357
+  %350 = getelementptr inbounds [48 x i8], ptr %166, i64 %.sroa.5.0.i.i.i.i357
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 8
   %352 = load i32, ptr %351, align 4, !tbaa !65
   %353 = icmp eq i32 %352, 1493973694
@@ -4259,7 +4257,7 @@ _ZN7testing7MessageD2Ev.exit379:                  ; preds = %_ZNKSt14default_del
   br i1 %.not.i.i385, label %_ZN4entt7emitterIN4test7emitterESaIvEE5eraseINS1_5emptyEEEvv.exit, label %400
 
 400:                                              ; preds = %398
-  %401 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %166, i64 %399
+  %401 = getelementptr inbounds nuw [48 x i8], ptr %166, i64 %399
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 8
   %403 = load i32, ptr %402, align 4, !tbaa !65
   %404 = icmp eq i32 %403, 1493973694
@@ -4424,7 +4422,7 @@ _ZN7testing7MessageD2Ev.exit402:                  ; preds = %_ZNKSt14default_del
   %457 = lshr exact i64 %456, 3
   %458 = add nuw nsw i64 %457, 2147483647
   %459 = and i64 %458, 2065422381
-  %460 = getelementptr inbounds nuw i64, ptr %453, i64 %459
+  %460 = getelementptr inbounds nuw [8 x i8], ptr %453, i64 %459
   br label %461
 
 461:                                              ; preds = %463, %451
@@ -4440,7 +4438,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_10boxed_typeIiEEEEbv.exit41
   br label %471
 
 463:                                              ; preds = %461
-  %464 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %407, i64 %.sroa.5.0.i.i.i.i409
+  %464 = getelementptr inbounds [48 x i8], ptr %407, i64 %.sroa.5.0.i.i.i.i409
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 8
   %466 = load i32, ptr %465, align 4, !tbaa !65
   %467 = icmp eq i32 %466, 2065422381
@@ -4590,7 +4588,7 @@ _ZN7testing7MessageD2Ev.exit432:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %513 = add nuw nsw i64 %457, 4294967295
   %514 = and i64 %513, 2786905846
-  %515 = getelementptr inbounds nuw i64, ptr %453, i64 %514
+  %515 = getelementptr inbounds nuw [8 x i8], ptr %453, i64 %514
   br label %516
 
 516:                                              ; preds = %518, %512
@@ -4606,7 +4604,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_10boxed_typeIcEEEEbv.exit44
   br label %526
 
 518:                                              ; preds = %516
-  %519 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %407, i64 %.sroa.5.0.i.i.i.i439
+  %519 = getelementptr inbounds [48 x i8], ptr %407, i64 %.sroa.5.0.i.i.i.i439
   %520 = getelementptr inbounds nuw i8, ptr %519, i64 8
   %521 = load i32, ptr %520, align 4, !tbaa !65
   %522 = icmp eq i32 %521, -1508061450
@@ -4755,7 +4753,7 @@ _ZN7testing7MessageD2Ev.exit462:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %568 = and i64 %458, 1493973694
-  %569 = getelementptr inbounds nuw i64, ptr %453, i64 %568
+  %569 = getelementptr inbounds nuw [8 x i8], ptr %453, i64 %568
   br label %570
 
 570:                                              ; preds = %572, %567
@@ -4769,7 +4767,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_5emptyEEEbv.exit475.thread:
   br label %619
 
 572:                                              ; preds = %570
-  %573 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %407, i64 %.sroa.5.0.i.i.i.i469
+  %573 = getelementptr inbounds [48 x i8], ptr %407, i64 %.sroa.5.0.i.i.i.i469
   %574 = getelementptr inbounds nuw i8, ptr %573, i64 8
   %575 = load i32, ptr %574, align 4, !tbaa !65
   %576 = icmp eq i32 %575, 1493973694
@@ -4925,7 +4923,7 @@ _ZN7testing7MessageD2Ev.exit492:                  ; preds = %_ZNKSt14default_del
   br i1 %.not.i.i499, label %_ZN4entt7emitterIN4test7emitterESaIvEE5eraseINS1_10boxed_typeIiEEEEvv.exit, label %623
 
 623:                                              ; preds = %621
-  %624 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %407, i64 %622
+  %624 = getelementptr inbounds nuw [48 x i8], ptr %407, i64 %622
   %625 = getelementptr inbounds nuw i8, ptr %624, i64 8
   %626 = load i32, ptr %625, align 4, !tbaa !65
   %627 = icmp eq i32 %626, 2065422381
@@ -5090,7 +5088,7 @@ _ZN7testing7MessageD2Ev.exit516:                  ; preds = %_ZNKSt14default_del
   %680 = lshr exact i64 %679, 3
   %681 = add nuw nsw i64 %680, 2147483647
   %682 = and i64 %681, 2065422381
-  %683 = getelementptr inbounds nuw i64, ptr %676, i64 %682
+  %683 = getelementptr inbounds nuw [8 x i8], ptr %676, i64 %682
   br label %684
 
 684:                                              ; preds = %686, %674
@@ -5104,7 +5102,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_10boxed_typeIiEEEEbv.exit52
   br label %733
 
 686:                                              ; preds = %684
-  %687 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %630, i64 %.sroa.5.0.i.i.i.i523
+  %687 = getelementptr inbounds [48 x i8], ptr %630, i64 %.sroa.5.0.i.i.i.i523
   %688 = getelementptr inbounds nuw i8, ptr %687, i64 8
   %689 = load i32, ptr %688, align 4, !tbaa !65
   %690 = icmp eq i32 %689, 2065422381
@@ -5254,7 +5252,7 @@ _ZN7testing7MessageD2Ev.exit546:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %735 = add nuw nsw i64 %680, 4294967295
   %736 = and i64 %735, 2786905846
-  %737 = getelementptr inbounds nuw i64, ptr %676, i64 %736
+  %737 = getelementptr inbounds nuw [8 x i8], ptr %676, i64 %736
   br label %738
 
 738:                                              ; preds = %740, %733
@@ -5270,7 +5268,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_10boxed_typeIcEEEEbv.exit55
   br label %748
 
 740:                                              ; preds = %738
-  %741 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %630, i64 %.sroa.5.0.i.i.i.i553
+  %741 = getelementptr inbounds [48 x i8], ptr %630, i64 %.sroa.5.0.i.i.i.i553
   %742 = getelementptr inbounds nuw i8, ptr %741, i64 8
   %743 = load i32, ptr %742, align 4, !tbaa !65
   %744 = icmp eq i32 %743, -1508061450
@@ -5419,7 +5417,7 @@ _ZN7testing7MessageD2Ev.exit576:                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %790 = and i64 %681, 1493973694
-  %791 = getelementptr inbounds nuw i64, ptr %676, i64 %790
+  %791 = getelementptr inbounds nuw [8 x i8], ptr %676, i64 %790
   br label %792
 
 792:                                              ; preds = %794, %789
@@ -5435,7 +5433,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_5emptyEEEbv.exit589.thread:
   br label %834
 
 794:                                              ; preds = %792
-  %795 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %630, i64 %.sroa.5.0.i.i.i.i583
+  %795 = getelementptr inbounds [48 x i8], ptr %630, i64 %.sroa.5.0.i.i.i.i583
   %796 = getelementptr inbounds nuw i8, ptr %795, i64 8
   %797 = load i32, ptr %796, align 4, !tbaa !65
   %798 = icmp eq i32 %797, 1493973694
@@ -5779,7 +5777,7 @@ _ZN7testing7MessageD2Ev.exit621:                  ; preds = %_ZNKSt14default_del
   %914 = add nuw nsw i64 %913, 2147483647
   %915 = and i64 %914, 2065422381
   %916 = load ptr, ptr %100, align 8, !tbaa !43
-  %917 = getelementptr inbounds nuw i64, ptr %909, i64 %915
+  %917 = getelementptr inbounds nuw [8 x i8], ptr %909, i64 %915
   br label %918
 
 918:                                              ; preds = %920, %907
@@ -5795,7 +5793,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_10boxed_typeIiEEEEbv.exit62
   br label %928
 
 920:                                              ; preds = %918
-  %921 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %916, i64 %.sroa.5.0.i.i.i.i623
+  %921 = getelementptr inbounds [48 x i8], ptr %916, i64 %.sroa.5.0.i.i.i.i623
   %922 = getelementptr inbounds nuw i8, ptr %921, i64 8
   %923 = load i32, ptr %922, align 4, !tbaa !65
   %924 = icmp eq i32 %923, 2065422381
@@ -5932,7 +5930,7 @@ _ZN7testing7MessageD2Ev.exit641:                  ; preds = %_ZNKSt14default_del
   %968 = add nuw nsw i64 %967, 4294967295
   %969 = and i64 %968, 2786905846
   %970 = load ptr, ptr %100, align 8, !tbaa !43
-  %971 = getelementptr inbounds nuw i64, ptr %963, i64 %969
+  %971 = getelementptr inbounds nuw [8 x i8], ptr %963, i64 %969
   br label %972
 
 972:                                              ; preds = %974, %961
@@ -5948,7 +5946,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_10boxed_typeIcEEEEbv.exit64
   br label %982
 
 974:                                              ; preds = %972
-  %975 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %970, i64 %.sroa.5.0.i.i.i.i643
+  %975 = getelementptr inbounds [48 x i8], ptr %970, i64 %.sroa.5.0.i.i.i.i643
   %976 = getelementptr inbounds nuw i8, ptr %975, i64 8
   %977 = load i32, ptr %976, align 4, !tbaa !65
   %978 = icmp eq i32 %977, -1508061450
@@ -6085,7 +6083,7 @@ _ZN7testing7MessageD2Ev.exit661:                  ; preds = %_ZNKSt14default_del
   %1022 = add nuw nsw i64 %1021, 2147483647
   %1023 = and i64 %1022, 1493973694
   %1024 = load ptr, ptr %100, align 8, !tbaa !43
-  %1025 = getelementptr inbounds nuw i64, ptr %1017, i64 %1023
+  %1025 = getelementptr inbounds nuw [8 x i8], ptr %1017, i64 %1023
   br label %1026
 
 1026:                                             ; preds = %1028, %1015
@@ -6101,7 +6099,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_5emptyEEEbv.exit669.thread:
   br label %1036
 
 1028:                                             ; preds = %1026
-  %1029 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %1024, i64 %.sroa.5.0.i.i.i.i663
+  %1029 = getelementptr inbounds [48 x i8], ptr %1024, i64 %.sroa.5.0.i.i.i.i663
   %1030 = getelementptr inbounds nuw i8, ptr %1029, i64 8
   %1031 = load i32, ptr %1030, align 4, !tbaa !65
   %1032 = icmp eq i32 %1031, 1493973694
@@ -6361,7 +6359,7 @@ _ZN7testing7MessageD2Ev.exit693:                  ; preds = %_ZNKSt14default_del
   %1115 = add nuw nsw i64 %1114, 2147483647
   %1116 = and i64 %1115, 2065422381
   %1117 = load ptr, ptr %100, align 8, !tbaa !43
-  %1118 = getelementptr inbounds nuw i64, ptr %1110, i64 %1116
+  %1118 = getelementptr inbounds nuw [8 x i8], ptr %1110, i64 %1116
   br label %1119
 
 1119:                                             ; preds = %1121, %1108
@@ -6377,7 +6375,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_10boxed_typeIiEEEEbv.exit70
   br label %1161
 
 1121:                                             ; preds = %1119
-  %1122 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %1117, i64 %.sroa.5.0.i.i.i.i695
+  %1122 = getelementptr inbounds [48 x i8], ptr %1117, i64 %.sroa.5.0.i.i.i.i695
   %1123 = getelementptr inbounds nuw i8, ptr %1122, i64 8
   %1124 = load i32, ptr %1123, align 4, !tbaa !65
   %1125 = icmp eq i32 %1124, 2065422381
@@ -6514,7 +6512,7 @@ _ZN7testing7MessageD2Ev.exit713:                  ; preds = %_ZNKSt14default_del
   %1168 = add nuw nsw i64 %1167, 2147483647
   %1169 = and i64 %1168, 1493973694
   %1170 = load ptr, ptr %100, align 8, !tbaa !43
-  %1171 = getelementptr inbounds nuw i64, ptr %1163, i64 %1169
+  %1171 = getelementptr inbounds nuw [8 x i8], ptr %1163, i64 %1169
   br label %1172
 
 1172:                                             ; preds = %1174, %1161
@@ -6530,7 +6528,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_5emptyEEEbv.exit721.thread:
   br label %1214
 
 1174:                                             ; preds = %1172
-  %1175 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %1170, i64 %.sroa.5.0.i.i.i.i715
+  %1175 = getelementptr inbounds [48 x i8], ptr %1170, i64 %.sroa.5.0.i.i.i.i715
   %1176 = getelementptr inbounds nuw i8, ptr %1175, i64 8
   %1177 = load i32, ptr %1176, align 4, !tbaa !65
   %1178 = icmp eq i32 %1177, 1493973694
@@ -7670,7 +7668,7 @@ _ZN4entt7type_idIN4test5emptyEEERKNS_9type_infoEv.exit: ; preds = %1, %7, %9
   %22 = and i64 %21, %13
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !43
-  %25 = getelementptr inbounds nuw i64, ptr %16, i64 %22
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   br label %26
 
 26:                                               ; preds = %27, %_ZN4entt7type_idIN4test5emptyEEERKNS_9type_infoEv.exit
@@ -7680,7 +7678,7 @@ _ZN4entt7type_idIN4test5emptyEEERKNS_9type_infoEv.exit: ; preds = %1, %7, %9
   br i1 %.not.i.i.i, label %_ZNK4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEE8containsERS9_.exit.thread, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %24, i64 %.sroa.5.0.i.i.i
+  %28 = getelementptr inbounds [48 x i8], ptr %24, i64 %.sroa.5.0.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 4, !tbaa !65
   %31 = icmp eq i32 %30, %11
@@ -7976,7 +7974,7 @@ _ZN7testing7MessageD2Ev.exit55:                   ; preds = %_ZNKSt14default_del
   %107 = lshr exact i64 %106, 3
   %108 = add nuw nsw i64 %107, 2147483647
   %109 = and i64 %108, 2065422381
-  %110 = getelementptr inbounds nuw i64, ptr %103, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %109
   br label %111
 
 111:                                              ; preds = %113, %100
@@ -7992,7 +7990,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_10boxed_typeIiEEEEbv.exit.t
   br label %121
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %46, i64 %.sroa.5.0.i.i.i.i
+  %114 = getelementptr inbounds [48 x i8], ptr %46, i64 %.sroa.5.0.i.i.i.i
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load i32, ptr %115, align 4, !tbaa !65
   %117 = icmp eq i32 %116, 2065422381
@@ -8770,7 +8768,7 @@ _ZN7testing7MessageD2Ev.exit58:                   ; preds = %_ZNKSt14default_del
   %105 = lshr exact i64 %104, 3
   %106 = add nuw nsw i64 %105, 2147483647
   %107 = and i64 %106, 1493973694
-  %108 = getelementptr inbounds nuw i64, ptr %101, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %107
   br label %109
 
 109:                                              ; preds = %111, %98
@@ -8786,7 +8784,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_5emptyEEEbv.exit.thread: ; 
   br label %119
 
 111:                                              ; preds = %109
-  %112 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %44, i64 %.sroa.5.0.i.i.i.i
+  %112 = getelementptr inbounds [48 x i8], ptr %44, i64 %.sroa.5.0.i.i.i.i
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load i32, ptr %113, align 4, !tbaa !65
   %115 = icmp eq i32 %114, 1493973694
@@ -8942,7 +8940,7 @@ _ZN7testing7MessageD2Ev.exit80:                   ; preds = %_ZNKSt14default_del
   br i1 %.not.i.i86, label %_ZN4entt7emitterIN4test7emitterESaIvEE5eraseINS1_5emptyEEEvv.exit, label %163
 
 163:                                              ; preds = %161
-  %164 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %44, i64 %162
+  %164 = getelementptr inbounds nuw [48 x i8], ptr %44, i64 %162
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load i32, ptr %165, align 4, !tbaa !65
   %167 = icmp eq i32 %166, 1493973694
@@ -9107,7 +9105,7 @@ _ZN7testing7MessageD2Ev.exit103:                  ; preds = %_ZNKSt14default_del
   %220 = lshr exact i64 %219, 3
   %221 = add nuw nsw i64 %220, 2147483647
   %222 = and i64 %221, 1493973694
-  %223 = getelementptr inbounds nuw i64, ptr %216, i64 %222
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %222
   br label %224
 
 224:                                              ; preds = %226, %214
@@ -9121,7 +9119,7 @@ _ZNK4entt7emitterIN4test7emitterESaIvEE8containsINS1_5emptyEEEbv.exit116.thread:
   br label %_ZN7testing15AssertionResultD2Ev.exit133
 
 226:                                              ; preds = %224
-  %227 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %170, i64 %.sroa.5.0.i.i.i.i110
+  %227 = getelementptr inbounds [48 x i8], ptr %170, i64 %.sroa.5.0.i.i.i.i110
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
   %229 = load i32, ptr %228, align 4, !tbaa !65
   %230 = icmp eq i32 %229, 1493973694
@@ -10209,7 +10207,7 @@ _ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4ty
   br i1 %38, label %39, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i64, ptr %28, i64 %25
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %25
   %.not.i.i = icmp eq ptr %27, %40
   br i1 %.not.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %41
 
@@ -10251,12 +10249,12 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
 
 58:                                               ; preds = %.lr.ph26, %58
   %.024 = phi i64 [ 0, %.lr.ph26 ], [ %66, %58 ]
-  %59 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %50, i64 %.024
+  %59 = getelementptr inbounds nuw [48 x i8], ptr %50, i64 %.024
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 4, !tbaa !65
   %62 = zext i32 %61 to i64
   %63 = and i64 %57, %62
-  %64 = getelementptr inbounds nuw i64, ptr %43, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !64
   store i64 %.024, ptr %64, align 8, !tbaa !64
   store i64 %65, ptr %59, align 8, !tbaa !100
@@ -10411,9 +10409,9 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !37
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !63
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !38
   br label %41
 
@@ -10607,7 +10605,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjSt8functionIFvPvEENS
   %15 = and i64 %14, %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !43
-  %18 = getelementptr inbounds nuw i64, ptr %9, i64 %15
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %15
   br label %19
 
 19:                                               ; preds = %20, %3
@@ -10617,7 +10615,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjSt8functionIFvPvEENS
   br i1 %.not.i, label %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit.thread, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %17, i64 %.sroa.5.0.i
+  %21 = getelementptr inbounds [48 x i8], ptr %17, i64 %.sroa.5.0.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4, !tbaa !65
   %24 = icmp eq i32 %23, %5
@@ -10758,7 +10756,7 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEESaIS7_EE12empl
   %82 = sdiv exact i64 %81, 48
   %83 = add nsw i64 %82, -1
   %84 = load ptr, ptr %0, align 8, !tbaa !37
-  %85 = getelementptr inbounds nuw i64, ptr %84, i64 %15
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %15
   store i64 %83, ptr %85, align 8, !tbaa !64
   %86 = load ptr, ptr %7, align 8, !tbaa !63
   %87 = ptrtoint ptr %86 to i64
@@ -11105,7 +11103,7 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEESaIS7_EE11_S_r
 _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit38, %72
   store ptr %22, ptr %0, align 8, !tbaa !68
   store ptr %.0.lcssa.i.i.i37, ptr %6, align 8, !tbaa !69
-  %76 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %22, i64 %18
+  %76 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %18
   store ptr %76, ptr %71, align 8, !tbaa !70
   ret void
 
@@ -11427,7 +11425,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjSt8functionIFvPvEENS
   %15 = and i64 %14, %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !43
-  %18 = getelementptr inbounds nuw i64, ptr %9, i64 %15
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %15
   br label %19
 
 19:                                               ; preds = %20, %2
@@ -11437,7 +11435,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjSt8functionIFvPvEENS
   br i1 %.not.i, label %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit.thread, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %17, i64 %.sroa.5.0.i
+  %21 = getelementptr inbounds [48 x i8], ptr %17, i64 %.sroa.5.0.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4, !tbaa !65
   %24 = icmp eq i32 %23, %5
@@ -11493,7 +11491,7 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEESaIS7_EE12empl
   %44 = sdiv exact i64 %43, 48
   %45 = add nsw i64 %44, -1
   %46 = load ptr, ptr %0, align 8, !tbaa !37
-  %47 = getelementptr inbounds nuw i64, ptr %46, i64 %15
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %15
   store i64 %45, ptr %47, align 8, !tbaa !64
   %48 = load ptr, ptr %7, align 8, !tbaa !63
   %49 = ptrtoint ptr %48 to i64
@@ -11661,7 +11659,7 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEESaIS7_EE11_S_r
 _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit38, %61
   store ptr %23, ptr %0, align 8, !tbaa !68
   store ptr %.0.lcssa.i.i.i37, ptr %7, align 8, !tbaa !69
-  %65 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %23, i64 %19
+  %65 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %19
   store ptr %65, ptr %60, align 8, !tbaa !70
   ret void
 }
@@ -11918,7 +11916,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjSt8functionIFvPvEENS
   %15 = and i64 %14, %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !43
-  %18 = getelementptr inbounds nuw i64, ptr %9, i64 %15
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %15
   br label %19
 
 19:                                               ; preds = %20, %3
@@ -11928,7 +11926,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjSt8functionIFvPvEENS
   br i1 %.not.i, label %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit.thread, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %17, i64 %.sroa.5.0.i
+  %21 = getelementptr inbounds [48 x i8], ptr %17, i64 %.sroa.5.0.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4, !tbaa !65
   %24 = icmp eq i32 %23, %5
@@ -12069,7 +12067,7 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEESaIS7_EE12empl
   %82 = sdiv exact i64 %81, 48
   %83 = add nsw i64 %82, -1
   %84 = load ptr, ptr %0, align 8, !tbaa !37
-  %85 = getelementptr inbounds nuw i64, ptr %84, i64 %15
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %15
   store i64 %83, ptr %85, align 8, !tbaa !64
   %86 = load ptr, ptr %7, align 8, !tbaa !63
   %87 = ptrtoint ptr %86 to i64
@@ -12413,7 +12411,7 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEESaIS7_EE11_S_r
 _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit38, %72
   store ptr %22, ptr %0, align 8, !tbaa !68
   store ptr %.0.lcssa.i.i.i37, ptr %6, align 8, !tbaa !69
-  %76 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %22, i64 %18
+  %76 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %18
   store ptr %76, ptr %71, align 8, !tbaa !70
   ret void
 
@@ -12532,8 +12530,8 @@ define linkonce_odr hidden void @_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8ident
   %24 = lshr exact i64 %23, 3
   %25 = add nuw nsw i64 %24, 4294967295
   %26 = and i64 %25, %17
-  %27 = getelementptr inbounds nuw i64, ptr %20, i64 %26
-  %28 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %7, i64 %1
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %26
+  %28 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %1
   %29 = load i64, ptr %14, align 8, !tbaa !100
   store i64 %29, ptr %28, align 8, !tbaa !100
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -12596,7 +12594,7 @@ _ZN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEaSEOS6_.exit: ; preds = %_
 
 51:                                               ; preds = %.lr.ph, %51
   %52 = phi i64 [ %49, %.lr.ph ], [ %54, %51 ]
-  %53 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [48 x i8], ptr %50, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !64
   %.not10 = icmp eq i64 %54, %12
   br i1 %.not10, label %._crit_edge, label %51, !llvm.loop !185
@@ -12673,7 +12671,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjSt8functionIFvPvEENS
   %15 = and i64 %14, %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !43
-  %18 = getelementptr inbounds nuw i64, ptr %9, i64 %15
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %15
   br label %19
 
 19:                                               ; preds = %20, %3
@@ -12683,7 +12681,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjSt8functionIFvPvEENS
   br i1 %.not.i, label %_ZN4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIvESaISt4pairIKjS4_EEE16constrained_findIjEEDaRKT_m.exit.thread, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %17, i64 %.sroa.5.0.i
+  %21 = getelementptr inbounds [48 x i8], ptr %17, i64 %.sroa.5.0.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4, !tbaa !65
   %24 = icmp eq i32 %23, %5
@@ -12824,7 +12822,7 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEESaIS7_EE12empl
   %82 = sdiv exact i64 %81, 48
   %83 = add nsw i64 %82, -1
   %84 = load ptr, ptr %0, align 8, !tbaa !37
-  %85 = getelementptr inbounds nuw i64, ptr %84, i64 %15
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %15
   store i64 %83, ptr %85, align 8, !tbaa !64
   %86 = load ptr, ptr %7, align 8, !tbaa !63
   %87 = ptrtoint ptr %86 to i64
@@ -13168,7 +13166,7 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEESaIS7_EE11_S_r
 _ZNSt12_Vector_baseIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit38, %72
   store ptr %22, ptr %0, align 8, !tbaa !68
   store ptr %.0.lcssa.i.i.i37, ptr %6, align 8, !tbaa !69
-  %76 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %22, i64 %18
+  %76 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %18
   store ptr %76, ptr %71, align 8, !tbaa !70
   ret void
 
@@ -13296,7 +13294,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %9, %7
   %21 = lshr exact i64 %20, 3
   %22 = add nuw nsw i64 %21, 2147483647
   %23 = and i64 %22, 2065422381
-  %24 = getelementptr inbounds nuw i64, ptr %17, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %26 = load ptr, ptr %25, align 8
   br label %27
@@ -13308,7 +13306,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %9, %7
   br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN30Emitter_ClearFromCallback_Test8TestBodyEvE3$_0JRN4test10boxed_typeIiEERNS3_7emitterEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESA_E4typeEOSB_DpOSC_.exit", label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %26, i64 %28
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 4, !tbaa !65
   %33 = icmp eq i32 %32, 2065422381
@@ -13428,7 +13426,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %9, %7
   %21 = lshr exact i64 %20, 3
   %22 = add nuw nsw i64 %21, 2147483647
   %23 = and i64 %22, 1493973694
-  %24 = getelementptr inbounds nuw i64, ptr %17, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %26 = load ptr, ptr %25, align 8
   br label %27
@@ -13440,7 +13438,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i.i:             ; preds = %9, %7
   br i1 %.not.i.i.i.i.i, label %"_ZSt10__invoke_rIvRZN30Emitter_ClearFromCallback_Test8TestBodyEvE3$_1JRN4test5emptyERNS3_7emitterEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %26, i64 %28
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 4, !tbaa !65
   %33 = icmp eq i32 %32, 1493973694

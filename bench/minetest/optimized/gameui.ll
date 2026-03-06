@@ -34,36 +34,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%struct.ContentFeatures = type <{ [6 x %struct.TileSpec], [6 x %struct.TileSpec], i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::unordered_map.334", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", [24 x ptr], %"class.irr::video::SColor", float, [6 x %struct.TileDef], [6 x %struct.TileDef], [6 x %struct.TileDef], i8, [3 x i8], %"class.irr::video::SColor", %"class.std::__cxx11::basic_string", ptr, i8, i8, [6 x i8], %"class.std::vector.100", %"class.std::vector.350", %"class.irr::video::SColor", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, %"class.std::__cxx11::basic_string", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", i16, [6 x i8], %"class.std::__cxx11::basic_string", i16, i8, i8, i8, i8, i8, i8, %struct.NodeBox, %struct.NodeBox, %struct.NodeBox, %struct.SoundSpec, %struct.SoundSpec, %struct.SoundSpec, i8, i8, [6 x i8] }>
-%struct.TileSpec = type { i8, i8, i8, [5 x i8], [2 x %struct.TileLayer] }
-%struct.TileLayer = type <{ ptr, ptr, ptr, i32, i32, i16, i16, i8, i8, i8, i8, ptr, %"class.irr::video::SColor", i8, [3 x i8] }>
-%"class.std::unordered_map.334" = type { %"class.std::_Hashtable.335" }
-%"class.std::_Hashtable.335" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%struct.TileDef = type <{ %"class.std::__cxx11::basic_string", i8, i8, i8, i8, %"class.irr::video::SColor", i8, i8, [2 x i8], %struct.TileAnimationParams, [4 x i8] }>
-%struct.TileAnimationParams = type { i8, %union.anon.348 }
-%union.anon.348 = type { %struct.anon }
-%struct.anon = type { i32, i32, float }
-%"class.std::vector.100" = type { %"struct.std::_Vector_base.101" }
-%"struct.std::_Vector_base.101" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.350" = type { %"struct.std::_Vector_base.351" }
-%"struct.std::_Vector_base.351" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.NodeBox = type { i8, %"class.std::vector.355", %"class.irr::core::aabbox3d", %"class.irr::core::aabbox3d", %"class.irr::core::aabbox3d", %"class.std::shared_ptr" }
-%"class.std::vector.355" = type { %"struct.std::_Vector_base.356" }
-%"struct.std::_Vector_base.356" = type { %"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.irr::core::aabbox3d" = type { %"class.irr::core::vector3d.198", %"class.irr::core::vector3d.198" }
-%"class.irr::core::vector3d.198" = type { float, float, float }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%struct.SoundSpec = type <{ %"class.std::__cxx11::basic_string", float, float, float, float, i8, i8, [6 x i8] }>
 
 $_ZN3irr3gui10StaticText3addEPNS0_15IGUIEnvironmentEPKwRKNS_4core4rectIiEEbbPNS0_11IGUIElementEib = comdat any
 
@@ -1569,7 +1539,7 @@ if.else.i581:                                     ; preds = %invoke.cont161
   %div.lhs.trunc.i = trunc nsw i32 %rem.i to i16
   %div4.i = sdiv i16 %div.lhs.trunc.i, 90
   %idxprom.i = sext i16 %div4.i to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr @_ZZL20yawToDirectionStringiE9direction, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr @_ZZL20yawToDirectionStringiE9direction, i64 %idxprom.i
   %85 = load ptr, ptr %arrayidx.i, align 8, !tbaa !37
   %call.i.i582 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #25
   %call1.i593 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i567568, ptr noundef nonnull %85, i64 noundef %call.i.i582)
@@ -1648,7 +1618,7 @@ if.then204:                                       ; preds = %invoke.cont199
   br i1 %cmp.i.i623, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then204
-  %add.ptr.i.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %92, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [3712 x i8], ptr %92, i64 %conv.i.i
   %_M_string_length.i.i.i.i624 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 1456
   %93 = load i64, ptr %_M_string_length.i.i.i.i624, align 8, !tbaa !34
   %cmp.i.i.i625 = icmp eq i64 %93, 0
@@ -1700,7 +1670,7 @@ invoke.cont212:                                   ; preds = %if.else
   br i1 %cmp.i.i646, label %land.lhs.true.i.i650, label %cond.false.i.i647
 
 land.lhs.true.i.i650:                             ; preds = %invoke.cont212
-  %add.ptr.i.i.i651 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %99, i64 %conv.i.i
+  %add.ptr.i.i.i651 = getelementptr inbounds nuw [3712 x i8], ptr %99, i64 %conv.i.i
   %_M_string_length.i.i.i.i652 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i651, i64 1456
   %100 = load i64, ptr %_M_string_length.i.i.i.i652, align 8, !tbaa !34
   %cmp.i.i.i653 = icmp eq i64 %100, 0
@@ -3783,7 +3753,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
   %11 = phi i64 [ %7, %if.end.i.i ], [ %7, %if.then.i.i.i.i ], [ %.pre18.i.i, %if.end.i.i.i.i.i ]
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %11, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !25
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %10, i64 %11
+  %arrayidx.i.i.i = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   store i32 0, ptr %arrayidx.i.i.i, align 4, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %buf)

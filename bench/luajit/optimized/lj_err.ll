@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.anon.4 = type { %struct._Unwind_Exception, ptr, [8 x i8] }
 %struct._Unwind_Exception = type { i64, ptr, i64, i64 }
-%union.TValue = type { i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [3994 x i8] c"not enough memory\00error in error handling\00C++ exception\00string length overflow\00userdata length overflow\00stack overflow\00stack overflow (%s)\00table overflow\00table index is NaN\00table index is nil\00invalid key to 'next'\00attempt to call a %s value\00attempt to %s %s '%s' (a %s value)\00attempt to %s a %s value\00attempt to compare %s with %s\00attempt to compare two %s values\00loop in gettable\00loop in settable\00call\00index\00perform arithmetic on\00concatenate\00get length of\00calling '%s' on bad self (%s)\00bad argument #%d to '%s' (%s)\00%s expected, got %s\00invalid value\00value expected\00coroutine expected\00nil or table expected\00Lua function expected\00function or level expected\00string/function/table expected\00boolean or proxy expected\00'for' initial value must be a number\00'for' limit must be a number\00'for' step must be a number\00no calling environment\00attempt to yield across C-call boundary\00bad light userdata pointer\00bad action while in __gc metamethod\00assertion failed!\00cannot change a protected metatable\00too many results to unpack\00reader function must return a string\00'tostring' must return a string to 'print'\00number out of range\00index out of range\00base out of range\00level out of range\00invalid level\00invalid option\00invalid option '%s'\00invalid format\00'setfenv' cannot change environment of given object\00cannot resume running coroutine\00cannot resume dead coroutine\00cannot resume non-suspended coroutine\00PRNG seeding failed\00wrong number of arguments to 'insert'\00invalid value (%s) at index %d in table for 'concat'\00invalid order function for sorting\00attempt to use a closed file\00standard file is closed\00unable to generate a unique filename\00field '%s' missing in date table\00unable to dump given function\00string slice too long\00missing '[' after '%f' in pattern\00invalid pattern capture\00malformed pattern (ends with '%')\00malformed pattern (missing ']')\00unbalanced pattern\00pattern too complex\00invalid capture index\00too many captures\00unfinished capture\00invalid option '%s' to 'format'\00invalid replacement value (a %s)\00name conflict for module '%s'\00runtime code generation failed, restricted kernel?\00JIT compiler disabled\00unknown or malformed optimization flag '%s'\00attempt to load chunk with wrong mode\00%s near '%s'\00chunk has too many lines\00chunk has too many syntax levels\00malformed number\00unfinished long string\00unfinished long comment\00unfinished string\00invalid escape sequence\00invalid long string delimiter\00'%s' expected\00control structure too long\00function or expression too complex\00chunk has more than %d local variables\00main function has more than %d %s\00function at line %d has more than %d %s\00'%s' expected (to close '%s' at line %d)\00function too long for return fixup\00<name> or '...' expected\00ambiguous syntax (function call x new statement)\00function arguments expected\00unexpected symbol\00cannot use '...' outside a vararg function\00syntax error\00'=' or 'in' expected\00no loop to break\00undefined label '%s'\00duplicate label '%s'\00<goto %s> jumps into the scope of local '%s'\00cannot load incompatible bytecode\00cannot load malformed bytecode\00invalid C type\00size of C type is unknown or too large\00bad storage class\00declaration specifier expected\00undeclared or implicit tag '%s'\00attempt to redefine '%s'\00wrong number of type parameters\00too many initializers for '%s'\00cannot convert '%s' to '%s'\00attempt to get length of '%s'\00attempt to concatenate '%s' and '%s'\00attempt to perform arithmetic on '%s' and '%s'\00attempt to compare '%s' with '%s'\00'%s' is not callable\00wrong number of arguments for function call\00'%s' has no member named '%s'\00'%s' cannot be indexed\00'%s' cannot be indexed with '%s'\00'%s' has no '%s' metamethod\00attempt to write to constant location\00missing declaration for symbol '%s'\00bad callback\00too many callbacks\00NYI: packed bit fields\00NYI: cannot call this C function (yet)\00cannot put buffer into itself\00bad options table\00cannot serialize '%s'\00cannot deserialize tag 0x%02x\00cannot deserialize dictionary index %d\00too deep to serialize\00duplicate table key\00unexpected end of buffer\00left-over data in buffer\00\00", align 1
@@ -116,7 +115,7 @@ define hidden range(i32 3, 9) i32 @lj_err_unwind_dwarf(i32 noundef %0, i32 nound
   %54 = add nuw nsw i32 %53, 2
   %55 = zext nneg i32 %54 to i64
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds %union.TValue, ptr %.087155.us.i, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %.087155.us.i, i64 %56
   br label %58
 
 58:                                               ; preds = %48, %42, %37
@@ -264,7 +263,7 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   %121 = add nuw nsw i32 %120, 2
   %122 = zext nneg i32 %121 to i64
   %123 = sub nsw i64 0, %122
-  %124 = getelementptr inbounds %union.TValue, ptr %.087155.us.i51, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr %.087155.us.i51, i64 %123
   br label %125
 
 125:                                              ; preds = %115, %109, %104
@@ -347,7 +346,7 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   %161 = add nuw nsw i32 %160, 2
   %162 = zext nneg i32 %161 to i64
   %163 = sub nsw i64 0, %162
-  %164 = getelementptr inbounds %union.TValue, ptr %.087155.us191266.i, i64 %163
+  %164 = getelementptr inbounds [8 x i8], ptr %.087155.us191266.i, i64 %163
   br label %165
 
 165:                                              ; preds = %155, %151, %143
@@ -408,7 +407,7 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   %189 = add nuw nsw i32 %188, 2
   %190 = zext nneg i32 %189 to i64
   %191 = sub nsw i64 0, %190
-  %192 = getelementptr inbounds %union.TValue, ptr %.087155223.us244.i, i64 %191
+  %192 = getelementptr inbounds [8 x i8], ptr %.087155223.us244.i, i64 %191
   br label %193
 
 193:                                              ; preds = %183, %179, %171
@@ -458,7 +457,7 @@ err_unwind.exit.thread:                           ; preds = %30, %30, %30, %.lr.
   %205 = add nuw nsw i32 %204, 2
   %206 = zext nneg i32 %205 to i64
   %207 = sub nsw i64 0, %206
-  %208 = getelementptr inbounds %union.TValue, ptr %.087155223.i, i64 %207
+  %208 = getelementptr inbounds [8 x i8], ptr %.087155223.i, i64 %207
   br label %262
 
 .split202.us.i:                                   ; preds = %235, %.lr.ph224.split.i, %175, %.lr.ph224.split.us243.i, %147, %139
@@ -835,7 +834,7 @@ define hidden void @lj_err_mem(ptr noundef %0) local_unnamed_addr #4 {
   %30 = getelementptr inbounds i8, ptr %29, i64 -93
   %31 = load i8, ptr %30, align 1, !tbaa !60
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw %union.TValue, ptr %18, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %33, ptr %34, align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -955,7 +954,7 @@ define hidden void @lj_err_run(ptr noundef %0) local_unnamed_addr #4 {
   %52 = add nuw nsw i32 %51, 2
   %53 = zext nneg i32 %52 to i64
   %54 = sub nsw i64 0, %53
-  %55 = getelementptr inbounds %union.TValue, ptr %.03658.i, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %.03658.i, i64 %54
   br label %103
 
 56:                                               ; preds = %43
@@ -1191,7 +1190,7 @@ define internal void @err_msgv(ptr noundef %0, i32 noundef %1, ...) unnamed_addr
   %25 = getelementptr inbounds i8, ptr %24, i64 -93
   %26 = load i8, ptr %25, align 1, !tbaa !60
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw %union.TValue, ptr %13, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %28, ptr %29, align 8, !tbaa !20
   br label %30
@@ -1247,7 +1246,7 @@ define hidden void @lj_err_optype(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %6 = ashr i64 %5, 47
   %7 = tail call i64 @llvm.umax.i64(i64 %6, i64 -14)
   %spec.select = xor i64 %7, -1
-  %8 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %spec.select
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @lj_obj_itypename, i64 %spec.select
   %9 = load ptr, ptr %8, align 8, !tbaa !36
   %10 = load ptr, ptr @lj_err_allmsg, align 8, !tbaa !36
   %11 = sext i32 %2 to i64
@@ -1310,13 +1309,13 @@ define hidden void @lj_err_comp(ptr noundef %0, ptr noundef readonly captures(no
   %5 = ashr i64 %4, 47
   %6 = tail call i64 @llvm.umax.i64(i64 %5, i64 -14)
   %spec.select = xor i64 %6, -1
-  %7 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %spec.select
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @lj_obj_itypename, i64 %spec.select
   %8 = load ptr, ptr %7, align 8, !tbaa !36
   %9 = load i64, ptr %2, align 8, !tbaa !18
   %10 = ashr i64 %9, 47
   %11 = tail call i64 @llvm.umax.i64(i64 %10, i64 -14)
   %12 = xor i64 %11, -1
-  %13 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @lj_obj_itypename, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !36
   %15 = icmp eq ptr %8, %14
   %16 = select i1 %15, i32 331, i32 301
@@ -1342,7 +1341,7 @@ define hidden void @lj_err_optype_call(ptr noundef %0, ptr noundef %1) local_unn
   %13 = ashr i64 %12, 47
   %14 = tail call i64 @llvm.umax.i64(i64 %13, i64 -14)
   %spec.select = xor i64 %14, -1
-  %15 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %spec.select
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @lj_obj_itypename, i64 %spec.select
   %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = ptrtoint ptr %0 to i64
   %18 = or i64 %17, -985162418487296
@@ -1390,7 +1389,7 @@ define hidden void @lj_err_callermsg(ptr noundef %0, ptr noundef %1) local_unnam
   %21 = add nuw nsw i32 %20, 2
   %22 = zext nneg i32 %21 to i64
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds %union.TValue, ptr %11, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %11, i64 %23
   br label %54
 
 25:                                               ; preds = %8
@@ -1583,7 +1582,7 @@ define hidden void @lj_err_argtype(ptr noundef %0, i32 noundef %1, ptr noundef %
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %20 = sub nuw nsw i32 -10003, %1
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw %union.TValue, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   br label %.sink.split
 
 23:                                               ; preds = %3
@@ -1594,14 +1593,14 @@ define hidden void @lj_err_argtype(ptr noundef %0, i32 noundef %1, ptr noundef %
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !20
   %28 = sext i32 %1 to i64
-  %29 = getelementptr inbounds %union.TValue, ptr %27, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %27, i64 %28
   br label %36
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !15
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw %union.TValue, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !20
@@ -1619,7 +1618,7 @@ define hidden void @lj_err_argtype(ptr noundef %0, i32 noundef %1, ptr noundef %
   %41 = ashr i64 %40, 47
   %42 = tail call i64 @llvm.umax.i64(i64 %41, i64 -14)
   %spec.select29 = xor i64 %42, -1
-  %43 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %spec.select29
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @lj_obj_itypename, i64 %spec.select29
   br label %44
 
 44:                                               ; preds = %.sink.split, %36, %7, %5
@@ -1635,7 +1634,7 @@ define hidden void @lj_err_argtype(ptr noundef %0, i32 noundef %1, ptr noundef %
 ; Function Attrs: noinline noreturn nounwind uwtable
 define hidden void @lj_err_argt(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr ptr, ptr @lj_obj_typename, i64 %4
+  %5 = getelementptr [8 x i8], ptr @lj_obj_typename, i64 %4
   %6 = getelementptr i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !36
   tail call void @lj_err_argtype(ptr noundef %0, i32 noundef %1, ptr noundef %7) #19
@@ -1679,7 +1678,7 @@ define dso_local void @luaL_where(ptr noundef %0, i32 noundef %1) local_unnamed_
   %5 = load i32, ptr %3, align 4, !tbaa !17
   %.not = icmp eq i32 %5, 0
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %union.TValue, ptr %4, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %4, i64 %6
   %8 = select i1 %.not, ptr null, ptr %7
   call void @lj_debug_addloc(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %4, ptr noundef %8) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

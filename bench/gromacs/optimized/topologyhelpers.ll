@@ -12,11 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Tuple_impl.5", %"struct.std::_Head_base.6" }
-%"struct.std::_Tuple_impl.5" = type { %"struct.std::_Head_base" }
-%"struct.std::_Head_base" = type { i32 }
-%"struct.std::_Head_base.6" = type { i32 }
 
 $_ZNSt6vectorIN3gmx14ExclusionBlockESaIS1_EED2Ev = comdat any
 
@@ -71,7 +66,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_E
   %.04.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i ], [ %13, %.critedge.i.i ]
   %.sroa.02.03.i.i.i = phi ptr [ %.sroa.02.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i ], [ %.sroa.05.015.i.i, %.critedge.i.i ]
   %23 = lshr i64 %.04.i.i.i, 1
-  %24 = getelementptr inbounds nuw %"class.std::tuple", ptr %.sroa.02.03.i.i.i, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.02.03.i.i.i, i64 %23
   %25 = getelementptr i8, ptr %24, i64 4
   %.val.i.i.i.i = load i32, ptr %25, align 4, !tbaa !9
   %26 = icmp slt i32 %.val.i.i.i.i, %.val
@@ -97,7 +92,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_E
   %.04.i30.i.i = phi i64 [ %.1.i35.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i29.i.i ], [ %33, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZN5nblib19toGmxExclusionBlockERKS8_E3$_0EEET_SH_SH_RKT0_T1_.exit.i.i" ]
   %.sroa.02.03.i31.i.i = phi ptr [ %.sroa.02.1.i34.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i29.i.i ], [ %31, %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZN5nblib19toGmxExclusionBlockERKS8_E3$_0EEET_SH_SH_RKT0_T1_.exit.i.i" ]
   %35 = lshr i64 %.04.i30.i.i, 1
-  %36 = getelementptr inbounds nuw %"class.std::tuple", ptr %.sroa.02.03.i31.i.i, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.02.03.i31.i.i, i64 %35
   %37 = getelementptr i8, ptr %36, i64 4
   %.val2.i.i.i.i = load i32, ptr %37, align 4, !tbaa !9
   %38 = icmp slt i32 %.val, %.val2.i.i.i.i
@@ -201,7 +196,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %72, %.noex
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %68, ptr %3, align 8, !tbaa !18
   store ptr %73, ptr %45, align 8, !tbaa !15
-  %75 = getelementptr inbounds nuw i32, ptr %68, i64 %66
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %66
   store ptr %75, ptr %46, align 8, !tbaa !19
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -317,7 +312,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_E
   %.04.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i23 ], [ %112, %107 ]
   %.sroa.02.03.i.i = phi ptr [ %.sroa.02.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i23 ], [ %.sroa.030.1.lcssa, %107 ]
   %114 = lshr i64 %.04.i.i, 1
-  %115 = getelementptr inbounds nuw %"class.std::tuple", ptr %.sroa.02.03.i.i, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.02.03.i.i, i64 %114
   %116 = getelementptr i8, ptr %115, i64 4
   %.val2.i.i.i = load i32, ptr %116, align 4, !tbaa !9
   %117 = icmp slt i32 %.val17, %.val2.i.i.i
@@ -589,7 +584,7 @@ _ZNSt6vectorIN3gmx14ExclusionBlockESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33: 
 _ZNSt12_Vector_baseIN3gmx14ExclusionBlockESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx14ExclusionBlockESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %61
   store ptr %20, ptr %0, align 8, !tbaa !28
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !21
-  %65 = getelementptr inbounds nuw %"struct.gmx::ExclusionBlock", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !24
   ret void
 

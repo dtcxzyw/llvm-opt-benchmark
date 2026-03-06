@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.TableFuncRoutine = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %struct.pg_tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%union.ListCell = type { ptr }
 
 @xmlbinary = dso_local local_unnamed_addr global i32 0, align 4
 @xmloption = dso_local local_unnamed_addr global i32 1, align 4
@@ -527,7 +524,7 @@ define dso_local ptr @map_xml_name_to_sql_identifier(ptr noundef %0) local_unnam
   %14 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 4096
   %.not16 = icmp eq i16 %19, 0
@@ -537,7 +534,7 @@ define dso_local ptr @map_xml_name_to_sql_identifier(ptr noundef %0) local_unnam
   %21 = getelementptr inbounds nuw i8, ptr %.0, i64 3
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw i16, ptr %13, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 4096
   %.not17 = icmp eq i16 %26, 0
@@ -547,7 +544,7 @@ define dso_local ptr @map_xml_name_to_sql_identifier(ptr noundef %0) local_unnam
   %28 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw i16, ptr %13, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = and i16 %32, 4096
   %.not18 = icmp eq i16 %33, 0
@@ -557,7 +554,7 @@ define dso_local ptr @map_xml_name_to_sql_identifier(ptr noundef %0) local_unnam
   %35 = getelementptr inbounds nuw i8, ptr %.0, i64 5
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i16, ptr %13, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = and i16 %39, 4096
   %.not19 = icmp eq i16 %40, 0
@@ -675,7 +672,7 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
 41:                                               ; preds = %.lr.ph
   call void @appendStringInfoString(ptr noundef nonnull %10, ptr noundef nonnull @.str.5) #11
   %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8
   %45 = call ptr @map_sql_value_to_xml_value(i64 noundef %44, i32 noundef %28, i1 noundef zeroext true)
   call void @appendStringInfoString(ptr noundef nonnull %10, ptr noundef %45) #11
@@ -1339,7 +1336,7 @@ xsd_schema_element_start.exit:                    ; preds = %14, %15
 
 24:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %25 = getelementptr %struct.FormData_pg_attribute, ptr %22, i64 %indvars.iv
+  %25 = getelementptr [100 x i8], ptr %22, i64 %indvars.iv
   %26 = getelementptr i8, ptr %25, i64 115
   %27 = load i8, ptr %26, align 1, !range !4, !noundef !5
   %28 = trunc nuw i8 %27 to i1
@@ -1645,7 +1642,7 @@ xsd_schema_element_start.exit:                    ; preds = %2, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph32 ], [ 0, %.lr.ph ]
   %.02630 = phi ptr [ %21, %.lr.ph32 ], [ null, %.lr.ph ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load i32, ptr %15, align 8
   %17 = call ptr @table_open(i32 noundef %16, i32 noundef 1) #11
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
@@ -1737,7 +1734,7 @@ xsd_schema_element_start.exit:                    ; preds = %1, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph29 ], [ 0, %.lr.ph ]
   %.02327 = phi ptr [ %18, %.lr.ph29 ], [ null, %.lr.ph ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load i32, ptr %12, align 8
   %14 = tail call ptr @table_open(i32 noundef %13, i32 noundef 1) #11
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
@@ -1879,7 +1876,7 @@ define internal fastcc ptr @query_to_oid_list(ptr noundef %0) unnamed_addr #3 {
   %9 = load ptr, ptr @SPI_tuptable, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.012
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.012
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %9, align 8
   %15 = call i64 @SPI_getbinval(ptr noundef %13, ptr noundef %14, i32 noundef 1, ptr noundef nonnull %2) #11
@@ -1936,7 +1933,7 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %._crit_edge ], [ 0, %.lr.ph57 ]
   %.05562 = phi ptr [ %.1.lcssa, %._crit_edge ], [ null, %.lr.ph57 ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv82
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv82
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
@@ -1965,7 +1962,7 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   %21 = shl nsw i64 %20, 4
   %22 = getelementptr i8, ptr %12, i64 %21
   %23 = getelementptr i8, ptr %22, i64 24
-  %24 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [100 x i8], ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 91
   %26 = load i8, ptr %25, align 1, !range !4, !noundef !5
   %27 = trunc nuw i8 %26 to i1
@@ -2002,7 +1999,7 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %49 ], [ 0, %.lr.ph68 ]
   %.36774 = phi ptr [ %.4, %49 ], [ %.1.lcssa, %.lr.ph68 ]
   %39 = load ptr, ptr %16, align 8
-  %40 = getelementptr inbounds nuw %union.ListCell, ptr %39, i64 %indvars.iv85
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv85
   %41 = load i32, ptr %40, align 8
   %42 = tail call i32 @getBaseType(i32 noundef %41) #11
   %.not47 = icmp eq i32 %42, %41
@@ -2040,7 +2037,7 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
 .lr.ph105:                                        ; preds = %.lr.ph79, %map_sql_type_to_xmlschema_type.exit
   %indvars.iv88104 = phi i64 [ %indvars.iv.next89, %map_sql_type_to_xmlschema_type.exit ], [ 0, %.lr.ph79 ]
   %53 = load ptr, ptr %44, align 8
-  %54 = getelementptr inbounds nuw %union.ListCell, ptr %53, i64 %indvars.iv88104
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv88104
   %55 = load i32, ptr %54, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %56 = call fastcc ptr @map_sql_type_to_xml_name(i32 noundef %55, i32 noundef -1)

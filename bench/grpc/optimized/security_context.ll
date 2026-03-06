@@ -44,7 +44,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::lts_20240722::Span" = type { ptr, i64 }
 %struct.grpc_auth_property_iterator = type { ptr, i64, ptr }
 %"class.absl::lts_20240722::log_internal::LogMessageFatal" = type { %"class.absl::lts_20240722::log_internal::LogMessage" }
-%struct.grpc_auth_property = type { ptr, ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -395,7 +394,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi28EEERS2_RAT__Kc.exit: ; pr
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 56
   %61 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_15SecurityContextEE3id_E, align 2, !tbaa !37
   %62 = zext i16 %61 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %60, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !39
   %65 = icmp eq ptr %64, null
   %66 = load ptr, ptr %5, align 8, !tbaa !8
@@ -450,7 +449,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi28EEERS2_RAT__Kc.exit: ; pr
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %86 = getelementptr inbounds nuw ptr, ptr %60, i64 %.pre-phi
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.pre-phi
   %87 = load ptr, ptr %86, align 8, !tbaa !39
   %.not.i30 = icmp eq ptr %87, null
   br i1 %.not.i30, label %_ZN9grpc_core5Arena10SetContextINS_15SecurityContextEEEvPT_.exit, label %88
@@ -835,7 +834,7 @@ define noundef ptr @grpc_call_auth_context(ptr noundef %0) local_unnamed_addr #7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_15SecurityContextEE3id_E, align 2, !tbaa !37
   %7 = zext i16 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !39
   %10 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core9api_traceE, i64 16) monotonic, align 8
   %11 = trunc i8 %10 to i1
@@ -1554,7 +1553,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi37EEERS2_RAT__Kc.exit: ; pr
   %38 = load ptr, ptr %34, align 8, !tbaa !114
   %39 = add i64 %.promoted36, 1
   store i64 %39, ptr %15, align 8, !tbaa !109
-  %40 = getelementptr inbounds nuw %struct.grpc_auth_property, ptr %38, i64 %.promoted36
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %.promoted36
   br label %.loopexit
 
 41:                                               ; preds = %.preheader, %49
@@ -1566,7 +1565,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi37EEERS2_RAT__Kc.exit: ; pr
   %45 = load ptr, ptr %34, align 8, !tbaa !114
   %46 = add nuw i64 %42, 1
   store i64 %46, ptr %15, align 8, !tbaa !109
-  %47 = getelementptr inbounds nuw %struct.grpc_auth_property, ptr %45, i64 %42
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %42
   %48 = load ptr, ptr %47, align 8, !tbaa !101
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %52, label %49, !prof !29
@@ -1875,7 +1874,7 @@ _ZN17grpc_auth_context15ensure_capacityEv.exit:   ; preds = %._ZN17grpc_auth_con
   %18 = phi ptr [ %.pre, %._ZN17grpc_auth_context15ensure_capacityEv.exit_crit_edge ], [ %16, %11 ]
   %19 = add i64 %17, 1
   store i64 %19, ptr %5, align 8, !tbaa !119
-  %20 = getelementptr inbounds nuw %struct.grpc_auth_property, ptr %18, i64 %17
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %17
   %21 = tail call ptr @gpr_strdup(ptr noundef %1)
   store ptr %21, ptr %20, align 8, !tbaa !102
   %22 = add i64 %3, 1
@@ -2008,7 +2007,7 @@ _ZN17grpc_auth_context15ensure_capacityEv.exit.i: ; preds = %36, %._ZN17grpc_aut
   %43 = phi ptr [ %.pre.i, %._ZN17grpc_auth_context15ensure_capacityEv.exit_crit_edge.i ], [ %41, %36 ]
   %44 = add i64 %42, 1
   store i64 %44, ptr %30, align 8, !tbaa !119
-  %45 = getelementptr inbounds nuw %struct.grpc_auth_property, ptr %43, i64 %42
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %42
   %46 = call ptr @gpr_strdup(ptr noundef %28)
   store ptr %46, ptr %45, align 8, !tbaa !102
   %47 = add i64 %3, 1
@@ -2140,7 +2139,7 @@ _ZN17grpc_auth_context15ensure_capacityEv.exit:   ; preds = %._ZN17grpc_auth_con
   %17 = phi ptr [ %.pre, %._ZN17grpc_auth_context15ensure_capacityEv.exit_crit_edge ], [ %15, %10 ]
   %18 = add i64 %16, 1
   store i64 %18, ptr %4, align 8, !tbaa !119
-  %19 = getelementptr inbounds nuw %struct.grpc_auth_property, ptr %17, i64 %16
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %16
   %20 = tail call ptr @gpr_strdup(ptr noundef %1)
   store ptr %20, ptr %19, align 8, !tbaa !102
   %21 = tail call ptr @gpr_strdup(ptr noundef %2)
@@ -2239,7 +2238,7 @@ _ZN17grpc_auth_context20add_cstring_propertyEPKcS1_.exit: ; preds = %._ZN17grpc_
   %33 = phi ptr [ %.pre.i, %._ZN17grpc_auth_context15ensure_capacityEv.exit_crit_edge.i ], [ %31, %26 ]
   %34 = add i64 %32, 1
   store i64 %34, ptr %20, align 8, !tbaa !119
-  %35 = getelementptr inbounds nuw %struct.grpc_auth_property, ptr %33, i64 %32
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %32
   %36 = call ptr @gpr_strdup(ptr noundef %18)
   store ptr %36, ptr %35, align 8, !tbaa !102
   %37 = call ptr @gpr_strdup(ptr noundef %17)
@@ -2384,7 +2383,7 @@ define noundef ptr @_Z30grpc_find_auth_context_in_argsPK17grpc_channel_args(ptr 
 .lr.ph:                                           ; preds = %.preheader, %5
   %.01013 = phi i64 [ %6, %5 ], [ 0, %.preheader ]
   %9 = load ptr, ptr %3, align 8, !tbaa !140
-  %10 = getelementptr inbounds nuw %struct.grpc_arg, ptr %9, i64 %.01013
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %.01013
   %11 = tail call noundef ptr @_Z26grpc_auth_context_from_argPK8grpc_arg(ptr noundef %10)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %5, label %.loopexit
@@ -2499,7 +2498,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !145
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !142
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !146
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -2858,7 +2857,7 @@ _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextE5resetERKNS_13DebugLocationEPKc
 .lr.ph:                                           ; preds = %.preheader, %17
   %.07 = phi i64 [ %18, %17 ], [ 0, %.preheader ]
   %12 = load ptr, ptr %7, align 8, !tbaa !121
-  %13 = getelementptr inbounds nuw %struct.grpc_auth_property, ptr %12, i64 %.07
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.07
   %14 = load ptr, ptr %13, align 8, !tbaa !102
   invoke void @gpr_free(ptr noundef %14)
           to label %.noexc unwind label %.loopexit

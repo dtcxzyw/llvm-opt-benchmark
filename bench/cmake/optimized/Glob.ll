@@ -9,8 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.cmsys::Directory" = type { ptr }
 %"struct.cmsys::Glob::Message" = type { i32, %"class.std::__cxx11::basic_string" }
-%"class.cmsys::RegularExpression" = type { %"class.cmsys::RegularExpressionMatch", i8, i8, ptr, i64, ptr, i32, i32 }
-%"class.cmsys::RegularExpressionMatch" = type { [32 x ptr], [32 x ptr], ptr }
 
 $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
 
@@ -3860,7 +3858,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55
   %186 = load ptr, ptr %0, align 8, !tbaa !14
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
   %188 = load ptr, ptr %187, align 8, !tbaa !35
-  %189 = getelementptr inbounds nuw %"class.cmsys::RegularExpression", ptr %188, i64 %1
+  %189 = getelementptr inbounds nuw [560 x i8], ptr %188, i64 %1
   %190 = load ptr, ptr %8, align 8, !tbaa !29
   %191 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %189, ptr noundef %190, ptr noundef nonnull align 8 dereferenceable(560) %189, i64 noundef 0, i32 noundef 0)
           to label %_ZN5cmsys17RegularExpression4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmj.exit unwind label %67
@@ -5020,7 +5018,7 @@ _ZSt8_DestroyIPN5cmsys4Glob7MessageES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt8_De
 _ZNSt12_Vector_baseIN5cmsys4Glob7MessageESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN5cmsys4Glob7MessageES2_EvT_S4_RSaIT0_E.exit, %55
   store ptr %21, ptr %0, align 8, !tbaa !101
   store ptr %46, ptr %5, align 8, !tbaa !60
-  %59 = getelementptr inbounds nuw %"struct.cmsys::Glob::Message", ptr %21, i64 %17
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %17
   store ptr %59, ptr %54, align 8, !tbaa !63
   ret void
 
@@ -5606,7 +5604,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !30
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !31
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !34
   ret void
 
@@ -5843,7 +5841,7 @@ _ZSt8_DestroyIPN5cmsys17RegularExpressionES1_EvT_S3_RSaIT0_E.exit: ; preds = %_Z
 _ZNSt12_Vector_baseIN5cmsys17RegularExpressionESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN5cmsys17RegularExpressionES1_EvT_S3_RSaIT0_E.exit, %65
   store ptr %20, ptr %0, align 8, !tbaa !35
   store ptr %.0.lcssa.i.i.i.i.i40, ptr %4, align 8, !tbaa !38
-  %69 = getelementptr inbounds nuw %"class.cmsys::RegularExpression", ptr %20, i64 %16
+  %69 = getelementptr inbounds nuw [560 x i8], ptr %20, i64 %16
   store ptr %69, ptr %64, align 8, !tbaa !43
   ret void
 
@@ -6095,7 +6093,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !30
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !31
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !34
   ret void
 }

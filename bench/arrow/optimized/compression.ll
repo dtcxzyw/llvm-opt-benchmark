@@ -452,7 +452,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow4util5Codec16Ge
 
 switch.lookup:                                    ; preds = %100
   %124 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5arrow4util5Codec16GetCodecAsStringB5cxx11ENS_11Compression4typeE, i64 %124
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5arrow4util5Codec16GetCodecAsStringB5cxx11ENS_11Compression4typeE, i64 %124
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %125
 

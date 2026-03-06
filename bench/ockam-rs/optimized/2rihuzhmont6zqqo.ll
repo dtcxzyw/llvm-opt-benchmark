@@ -226,7 +226,7 @@ define void @"_ZN91_$LT$ockam_multiaddr..iter..BytesIter$u20$as$u20$core..iter..
   %.sroa.0.0.copyload.i.i = load ptr, ptr %54, align 8, !noalias !34, !nonnull !7
   %.sroa.28.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.28.0.copyload.i.i = load i64, ptr %.sroa.28.0..sroa_idx.i.i, align 8, !noalias !34
-  %55 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.28.0.copyload.i.i
+  %55 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.28.0.copyload.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !34
   br i1 %trunc.i.i, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$$GT$17h162f02a227bacc1dE.exit", label %56
 
@@ -489,7 +489,7 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i: ; preds = %21,
   %.sroa.28.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.sroa.28.0.copyload.i.i = load i64, ptr %.sroa.28.0..sroa_idx.i.i, align 8, !noalias !74
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 176
-  %50 = getelementptr inbounds { ptr, ptr }, ptr %49, i64 %.sroa.28.0.copyload.i.i
+  %50 = getelementptr inbounds [16 x i8], ptr %49, i64 %.sroa.28.0.copyload.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !74
   br i1 %trunc.i.i, label %95, label %51
 

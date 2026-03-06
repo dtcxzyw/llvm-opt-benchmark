@@ -243,10 +243,10 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
 
 37:                                               ; preds = %.preheader152, %37
   %indvars.iv = phi i64 [ 0, %.preheader152 ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2
   %40 = load ptr, ptr %33, align 8
-  %41 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %indvars.iv
   store i16 %39, ptr %41, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -274,7 +274,7 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
 
 51:                                               ; preds = %.preheader, %GetParametricCurveByType.exit
   %indvars.iv164 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next165, %GetParametricCurveByType.exit ]
-  %52 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %3, i64 %indvars.iv164
+  %52 = getelementptr inbounds nuw [112 x i8], ptr %3, i64 %indvars.iv164
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, 0
@@ -285,13 +285,13 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
   %58 = load i32, ptr %57, align 8
   %59 = tail call ptr @_cmsComputeInterpParams(ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef 1, ptr noundef null, i32 noundef 1) #14
   %60 = load ptr, ptr %47, align 8
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv164
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv164
   store ptr %59, ptr %61, align 8
   br label %62
 
 62:                                               ; preds = %56, %51
   %63 = load ptr, ptr %49, align 8
-  %64 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %63, i64 %indvars.iv164
+  %64 = getelementptr inbounds nuw [112 x i8], ptr %63, i64 %indvars.iv164
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %64, ptr noundef nonnull align 8 dereferenceable(112) %52, i64 112, i1 false)
   %65 = load i32, ptr %53, align 8
   %66 = icmp eq i32 %65, 0
@@ -313,7 +313,7 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
 75:                                               ; preds = %62, %67, %70
   %.sink = phi ptr [ %74, %70 ], [ null, %67 ], [ null, %62 ]
   %76 = load ptr, ptr %49, align 8
-  %77 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %76, i64 %indvars.iv164
+  %77 = getelementptr inbounds nuw [112 x i8], ptr %76, i64 %indvars.iv164
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 104
   store ptr %.sink, ptr %78, align 8
   %79 = load i32, ptr %53, align 8
@@ -336,7 +336,7 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
 
 .lr.ph.i.i:                                       ; preds = %87, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %87 ]
-  %84 = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv.i.i
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv.i.i
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %.pre.i, %85
   br i1 %86, label %.loopexit, label %87
@@ -357,7 +357,7 @@ IsInSet.exit.thread.i:                            ; preds = %87, %.lr.ph.i
 
 .lr.ph.i33.i:                                     ; preds = %.lr.ph.i33.i.preheader, %92
   %indvars.iv.i34.i = phi i64 [ %indvars.iv.next.i35.i, %92 ], [ 0, %.lr.ph.i33.i.preheader ]
-  %89 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @DefaultCurves, i64 4), i64 %indvars.iv.i34.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @DefaultCurves, i64 4), i64 %indvars.iv.i34.i
   %90 = load i32, ptr %89, align 4
   %91 = icmp eq i32 %.pre.i, %90
   br i1 %91, label %.loopexit, label %92
@@ -372,7 +372,7 @@ IsInSet.exit.thread.i:                            ; preds = %87, %.lr.ph.i
   %93 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 168
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %50, align 8
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv164
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv164
   store ptr %94, ptr %96, align 8
   br label %GetParametricCurveByType.exit
 
@@ -406,7 +406,7 @@ GetParametricCurveByType.exit:                    ; preds = %92, %.loopexit
   br i1 %.not141, label %111, label %106
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %105, i64 %indvars.iv169
+  %107 = getelementptr inbounds nuw [112 x i8], ptr %105, i64 %indvars.iv169
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 104
   %109 = load ptr, ptr %108, align 8
   %.not142 = icmp eq ptr %109, null
@@ -422,7 +422,7 @@ GetParametricCurveByType.exit:                    ; preds = %92, %.loopexit
   br i1 %.not143, label %117, label %113
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv169
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv169
   %115 = load ptr, ptr %114, align 8
   %.not144 = icmp eq ptr %115, null
   br i1 %.not144, label %117, label %116
@@ -543,7 +543,7 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
 35:                                               ; preds = %76, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %34, %.lr.ph.i ], [ %indvars.iv.next.i, %76 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %36 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %33, i64 %indvars.iv.next.i
+  %36 = getelementptr inbounds nuw [112 x i8], ptr %33, i64 %indvars.iv.next.i
   %37 = load float, ptr %36, align 8
   %38 = fpext float %37 to double
   %39 = fcmp ogt double %30, %38
@@ -571,12 +571,12 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
   %54 = getelementptr inbounds nuw i8, ptr %36, i64 104
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %25, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.next.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv.next.i
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 200
   store ptr %55, ptr %59, align 8
   %60 = load ptr, ptr %25, align 8
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.next.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.next.i
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 208
   %64 = load ptr, ptr %63, align 8
@@ -587,7 +587,7 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
 
 67:                                               ; preds = %45
   %68 = load ptr, ptr %24, align 8
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv.next.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.next.i
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %72 = call double %70(i32 noundef %47, ptr noundef nonnull %71, double noundef %30) #14
@@ -636,7 +636,7 @@ EvalSegmentedFn.exit:                             ; preds = %73
 _cmsQuickSaturateWord.exit:                       ; preds = %.thread, %EvalSegmentedFn.exit.thread, %EvalSegmentedFn.exit, %81, %83
   %.0.i22 = phi i16 [ %88, %83 ], [ 0, %EvalSegmentedFn.exit ], [ -1, %81 ], [ 0, %EvalSegmentedFn.exit.thread ], [ -1, %.thread ]
   %89 = load ptr, ptr %26, align 8
-  %90 = getelementptr inbounds nuw i16, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %89, i64 %indvars.iv
   store i16 %.0.i22, ptr %90, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -691,7 +691,7 @@ define hidden ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef %0, i32 noundef %
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %26 = add i32 %1, -1
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw float, ptr %2, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   %29 = load float, ptr %28, align 4
   %30 = fpext float %29 to double
@@ -729,7 +729,7 @@ define hidden ptr @cmsBuildParametricToneCurve(ptr noundef %0, i32 noundef %1, p
 
 .lr.ph.i.i:                                       ; preds = %12, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %12 ]
-  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %.pre.i, %10
   br i1 %11, label %.loopexit, label %12
@@ -750,7 +750,7 @@ IsInSet.exit.thread.i:                            ; preds = %12, %.lr.ph.i
 
 .lr.ph.i33.i:                                     ; preds = %.lr.ph.i33.i.preheader, %17
   %indvars.iv.i34.i = phi i64 [ %indvars.iv.next.i35.i, %17 ], [ 0, %.lr.ph.i33.i.preheader ]
-  %14 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @DefaultCurves, i64 4), i64 %indvars.iv.i34.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @DefaultCurves, i64 4), i64 %indvars.iv.i34.i
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %.pre.i, %15
   br i1 %16, label %.loopexit, label %17
@@ -841,7 +841,7 @@ define hidden void @cmsFreeToneCurve(ptr noundef %0) local_unnamed_addr #0 {
 15:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [112 x i8], ptr %16, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %19 = load ptr, ptr %18, align 8
   %.not34 = icmp eq ptr %19, null
@@ -853,7 +853,7 @@ define hidden void @cmsFreeToneCurve(ptr noundef %0) local_unnamed_addr #0 {
 
 21:                                               ; preds = %20, %15
   %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %.not35 = icmp eq ptr %24, null
   br i1 %.not35, label %26, label %25
@@ -995,7 +995,7 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr noundef readonly capture
   %16 = fdiv float %15, %12
   %17 = tail call float @cmsEvalToneCurveFloat(ptr noundef %1, float noundef %16)
   %18 = tail call float @cmsEvalToneCurveFloat(ptr noundef nonnull %6, float noundef %17)
-  %19 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store float %18, ptr %19, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1039,7 +1039,7 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr noundef readonly capture
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %39 = add i32 %3, -1
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw float, ptr %9, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   %42 = load float, ptr %41, align 4
   %43 = fpext float %42 to double
@@ -1102,7 +1102,7 @@ define hidden ptr @cmsReverseToneCurveEx(i32 noundef %0, ptr noundef readonly ca
 
 .lr.ph.i.i:                                       ; preds = %22, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %22 ]
-  %19 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i.i
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %10, %20
   br i1 %21, label %.loopexit71, label %22
@@ -1123,7 +1123,7 @@ IsInSet.exit.thread.i:                            ; preds = %22, %.lr.ph.i
 
 .lr.ph.i33.i:                                     ; preds = %.lr.ph.i33.i.preheader, %27
   %indvars.iv.i34.i = phi i64 [ %indvars.iv.next.i35.i, %27 ], [ 0, %.lr.ph.i33.i.preheader ]
-  %24 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @DefaultCurves, i64 4), i64 %indvars.iv.i34.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @DefaultCurves, i64 4), i64 %indvars.iv.i34.i
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %10, %25
   br i1 %26, label %.loopexit71, label %27
@@ -1159,7 +1159,7 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
   %45 = load i32, ptr %44, align 8
   %46 = add i32 %45, -1
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i16, ptr %42, i64 %47
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %47
   %49 = load i16, ptr %48, align 2
   %.not = icmp ugt i16 %43, %49
   %50 = icmp sgt i32 %0, 0
@@ -1190,7 +1190,7 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
 63:                                               ; preds = %54
   %64 = load i16, ptr %59, align 2
   %65 = zext i32 %.val to i64
-  %66 = getelementptr inbounds nuw i16, ptr %59, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = icmp ult i16 %64, %67
   %69 = icmp sgt i32 %.val, 0
@@ -1206,7 +1206,7 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
   %70 = phi i16 [ %72, %83 ], [ %67, %.preheader.i62 ]
   %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %83 ], [ %65, %.preheader.i62 ]
   %indvars.iv.next22.i = add nsw i64 %indvars.iv21.i, -1
-  %71 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv.next22.i
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %indvars.iv.next22.i
   %72 = load i16, ptr %71, align 2
   %.not58.i = icmp ugt i16 %72, %70
   br i1 %.not58.i, label %78, label %73
@@ -1235,7 +1235,7 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
   %85 = phi i16 [ %87, %98 ], [ %64, %.preheader1.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %98 ], [ 0, %.preheader1.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %86 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv.next.i
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %indvars.iv.next.i
   %87 = load i16, ptr %86, align 2
   %.not.i61 = icmp ugt i16 %85, %87
   br i1 %.not.i61, label %93, label %88
@@ -1268,12 +1268,12 @@ GetInterval.exit:                                 ; preds = %88, %93, %73, %78
 
 100:                                              ; preds = %GetInterval.exit
   %101 = and i64 %.046.i.in, 2147483647
-  %102 = getelementptr inbounds nuw i16, ptr %59, i64 %101
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %101
   %103 = load i16, ptr %102, align 2
   %104 = uitofp i16 %103 to double
   %105 = add nuw nsw i32 %.046.i, 1
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw i16, ptr %59, i64 %106
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %106
   %108 = load i16, ptr %107, align 2
   %109 = uitofp i16 %108 to double
   %110 = uitofp nneg i32 %.046.i to double
@@ -1335,7 +1335,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %141, %139, %GetInte
   %.252 = phi double [ %.05075, %120 ], [ %.05075, %124 ], [ %.151, %141 ], [ %.151, %GetInterval.exit.thread ], [ %.151, %139 ]
   %.2 = phi double [ %.04878, %120 ], [ %.04878, %124 ], [ %.1, %141 ], [ %.1, %GetInterval.exit.thread ], [ %.1, %139 ]
   %147 = load ptr, ptr %53, align 8
-  %148 = getelementptr inbounds nuw i16, ptr %147, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %147, i64 %indvars.iv
   store i16 %.0.i64.sink, ptr %148, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1409,7 +1409,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %11, %15, %17
 34:                                               ; preds = %75, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %33, %.lr.ph.i ], [ %indvars.iv.next.i, %75 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %35 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %32, i64 %indvars.iv.next.i
+  %35 = getelementptr inbounds nuw [112 x i8], ptr %32, i64 %indvars.iv.next.i
   %36 = load float, ptr %35, align 8
   %37 = fcmp ogt float %1, %36
   br i1 %37, label %38, label %75
@@ -1435,12 +1435,12 @@ _cmsQuickSaturateWord.exit:                       ; preds = %11, %15, %17
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.next.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv.next.i
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 200
   store ptr %51, ptr %56, align 8
   %57 = load ptr, ptr %52, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv.next.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv.next.i
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 208
   %61 = load ptr, ptr %60, align 8
@@ -1452,7 +1452,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %11, %15, %17
 64:                                               ; preds = %42
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv.next.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv.next.i
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %70 = tail call double %68(i32 noundef %44, ptr noundef nonnull %69, double noundef %10) #14
@@ -1492,7 +1492,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveDescending(ptr noundef readonly
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = icmp ugt i16 %4, %10
   %12 = zext i1 %11 to i32
@@ -1537,7 +1537,7 @@ define hidden range(i32 0, 2) i32 @cmsSmoothToneCurve(ptr noundef readonly captu
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %5 ]
   %15 = phi i32 [ %12, %11 ], [ %9, %5 ]
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv.i
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -1582,13 +1582,13 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %indvars.iv
   %42 = load i16, ptr %41, align 2
   %43 = uitofp i16 %42 to float
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %44 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv.next
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.next
   store float %43, ptr %44, align 4
-  %45 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.next
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.next
   store float 1.000000e+00, ptr %45, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
@@ -1705,54 +1705,54 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %indvars.iv.i119.lver.orig = phi i64 [ %indvars.iv.next.i120.lver.orig, %.lr.ph.i118.lver.orig ], [ 3, %.lr.ph.i118.lver.check ]
   %103 = add nsw i64 %indvars.iv.i119.lver.orig, -1
   %104 = add nsw i64 %indvars.iv.i119.lver.orig, -2
-  %105 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i119.lver.orig
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i119.lver.orig
   %106 = load float, ptr %105, align 4
   %107 = tail call float @llvm.fmuladd.f32(float %48, float 6.000000e+00, float %106)
-  %108 = getelementptr inbounds float, ptr %49, i64 %103
+  %108 = getelementptr inbounds [4 x i8], ptr %49, i64 %103
   %109 = load float, ptr %108, align 4
-  %110 = getelementptr inbounds float, ptr %50, i64 %103
+  %110 = getelementptr inbounds [4 x i8], ptr %50, i64 %103
   %111 = load float, ptr %110, align 4
   %112 = fneg float %109
   %113 = fmul float %109, %112
   %114 = tail call float @llvm.fmuladd.f32(float %113, float %111, float %107)
-  %115 = getelementptr inbounds float, ptr %51, i64 %104
+  %115 = getelementptr inbounds [4 x i8], ptr %51, i64 %104
   %116 = load float, ptr %115, align 4
-  %117 = getelementptr inbounds float, ptr %50, i64 %104
+  %117 = getelementptr inbounds [4 x i8], ptr %50, i64 %104
   %118 = load float, ptr %117, align 4
   %119 = fneg float %116
   %120 = fmul float %116, %119
   %121 = tail call float @llvm.fmuladd.f32(float %120, float %118, float %114)
-  %122 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i119.lver.orig
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i119.lver.orig
   store float %121, ptr %122, align 4
   %123 = load float, ptr %108, align 4
   %124 = fmul float %111, %123
-  %125 = getelementptr inbounds float, ptr %51, i64 %103
+  %125 = getelementptr inbounds [4 x i8], ptr %51, i64 %103
   %126 = load float, ptr %125, align 4
   %127 = fneg float %126
   %128 = fmul float %124, %127
   %129 = tail call float @llvm.fmuladd.f32(float %48, float -4.000000e+00, float %128)
   %130 = fdiv float %129, %121
-  %131 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i119.lver.orig
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i119.lver.orig
   store float %130, ptr %131, align 4
   %132 = load float, ptr %122, align 4
   %133 = fdiv float %48, %132
-  %134 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv.i119.lver.orig
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i119.lver.orig
   store float %133, ptr %134, align 4
   %135 = load float, ptr %105, align 4
-  %136 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv.i119.lver.orig
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.i119.lver.orig
   %137 = load float, ptr %136, align 4
   %138 = load float, ptr %108, align 4
-  %139 = getelementptr inbounds float, ptr %33, i64 %103
+  %139 = getelementptr inbounds [4 x i8], ptr %33, i64 %103
   %140 = load float, ptr %139, align 4
   %141 = fneg float %140
   %142 = fmul float %138, %141
   %143 = tail call float @llvm.fmuladd.f32(float %135, float %137, float %142)
   %144 = load float, ptr %115, align 4
-  %145 = getelementptr inbounds float, ptr %33, i64 %104
+  %145 = getelementptr inbounds [4 x i8], ptr %33, i64 %104
   %146 = load float, ptr %145, align 4
   %147 = fneg float %144
   %148 = tail call float @llvm.fmuladd.f32(float %147, float %146, float %143)
-  %149 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i119.lver.orig
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.i119.lver.orig
   store float %148, ptr %149, align 4
   %indvars.iv.next.i120.lver.orig = add nuw nsw i64 %indvars.iv.i119.lver.orig, 1
   %exitcond.not.i.lver.orig = icmp eq i64 %indvars.iv.next.i120.lver.orig, %wide.trip.count.i
@@ -1776,44 +1776,44 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %store_forwarded220 = phi float [ %load_initial219, %.lr.ph.i118.ph ], [ %163, %.lr.ph.i118 ]
   %indvars.iv.i119 = phi i64 [ 3, %.lr.ph.i118.ph ], [ %indvars.iv.next.i120, %.lr.ph.i118 ]
   %150 = add nsw i64 %indvars.iv.i119, -2
-  %151 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i119
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i119
   %152 = load float, ptr %151, align 4
   %153 = tail call float @llvm.fmuladd.f32(float %48, float 6.000000e+00, float %152)
   %154 = fneg float %store_forwarded229
   %155 = fmul float %store_forwarded229, %154
   %156 = tail call float @llvm.fmuladd.f32(float %155, float %store_forwarded220, float %153)
-  %157 = getelementptr inbounds float, ptr %51, i64 %150
+  %157 = getelementptr inbounds [4 x i8], ptr %51, i64 %150
   %158 = load float, ptr %157, align 4
-  %159 = getelementptr inbounds float, ptr %50, i64 %150
+  %159 = getelementptr inbounds [4 x i8], ptr %50, i64 %150
   %160 = load float, ptr %159, align 4
   %161 = fneg float %158
   %162 = fmul float %158, %161
   %163 = tail call float @llvm.fmuladd.f32(float %162, float %160, float %156)
-  %164 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i119
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i119
   store float %163, ptr %164, align 4
   %165 = fmul float %store_forwarded220, %store_forwarded229
   %166 = fneg float %store_forwarded226
   %167 = fmul float %165, %166
   %168 = tail call float @llvm.fmuladd.f32(float %48, float -4.000000e+00, float %167)
   %169 = fdiv float %168, %163
-  %170 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i119
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i119
   store float %169, ptr %170, align 4
   %171 = load float, ptr %164, align 4
   %172 = fdiv float %48, %171
-  %173 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv.i119
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i119
   store float %172, ptr %173, align 4
   %174 = load float, ptr %151, align 4
-  %175 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv.i119
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.i119
   %176 = load float, ptr %175, align 4
   %177 = fneg float %store_forwarded223
   %178 = fmul float %store_forwarded229, %177
   %179 = tail call float @llvm.fmuladd.f32(float %174, float %176, float %178)
   %180 = load float, ptr %157, align 4
-  %181 = getelementptr inbounds float, ptr %33, i64 %150
+  %181 = getelementptr inbounds [4 x i8], ptr %33, i64 %150
   %182 = load float, ptr %181, align 4
   %183 = fneg float %180
   %184 = tail call float @llvm.fmuladd.f32(float %183, float %182, float %179)
-  %185 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i119
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.i119
   store float %184, ptr %185, align 4
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i119, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i120, %wide.trip.count.i
@@ -1823,54 +1823,54 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %186 = add nsw i32 %27, -2
   %187 = add nsw i32 %27, -3
   %188 = sext i32 %100 to i64
-  %189 = getelementptr inbounds float, ptr %31, i64 %188
+  %189 = getelementptr inbounds [4 x i8], ptr %31, i64 %188
   %190 = load float, ptr %189, align 4
   %191 = tail call float @llvm.fmuladd.f32(float %48, float 5.000000e+00, float %190)
   %192 = sext i32 %186 to i64
-  %193 = getelementptr inbounds float, ptr %49, i64 %192
+  %193 = getelementptr inbounds [4 x i8], ptr %49, i64 %192
   %194 = load float, ptr %193, align 4
-  %195 = getelementptr inbounds float, ptr %50, i64 %192
+  %195 = getelementptr inbounds [4 x i8], ptr %50, i64 %192
   %196 = load float, ptr %195, align 4
   %197 = fneg float %194
   %198 = fmul float %194, %197
   %199 = tail call float @llvm.fmuladd.f32(float %198, float %196, float %191)
   %200 = sext i32 %187 to i64
-  %201 = getelementptr inbounds float, ptr %51, i64 %200
+  %201 = getelementptr inbounds [4 x i8], ptr %51, i64 %200
   %202 = load float, ptr %201, align 4
-  %203 = getelementptr inbounds float, ptr %50, i64 %200
+  %203 = getelementptr inbounds [4 x i8], ptr %50, i64 %200
   %204 = load float, ptr %203, align 4
   %205 = fneg float %202
   %206 = fmul float %202, %205
   %207 = tail call float @llvm.fmuladd.f32(float %206, float %204, float %199)
-  %208 = getelementptr inbounds float, ptr %50, i64 %188
+  %208 = getelementptr inbounds [4 x i8], ptr %50, i64 %188
   store float %207, ptr %208, align 4
   %209 = load float, ptr %193, align 4
   %210 = fmul float %196, %209
-  %211 = getelementptr inbounds float, ptr %51, i64 %192
+  %211 = getelementptr inbounds [4 x i8], ptr %51, i64 %192
   %212 = load float, ptr %211, align 4
   %213 = fneg float %212
   %214 = fmul float %210, %213
   %215 = tail call float @llvm.fmuladd.f32(float %48, float -2.000000e+00, float %214)
   %216 = fdiv float %215, %207
-  %217 = getelementptr inbounds float, ptr %49, i64 %188
+  %217 = getelementptr inbounds [4 x i8], ptr %49, i64 %188
   store float %216, ptr %217, align 4
   %218 = load float, ptr %189, align 4
-  %219 = getelementptr inbounds float, ptr %32, i64 %188
+  %219 = getelementptr inbounds [4 x i8], ptr %32, i64 %188
   %220 = load float, ptr %219, align 4
-  %221 = getelementptr inbounds float, ptr %33, i64 %192
+  %221 = getelementptr inbounds [4 x i8], ptr %33, i64 %192
   %222 = load float, ptr %221, align 4
   %223 = fneg float %222
   %224 = fmul float %209, %223
   %225 = tail call float @llvm.fmuladd.f32(float %218, float %220, float %224)
   %226 = load float, ptr %201, align 4
-  %227 = getelementptr inbounds float, ptr %33, i64 %200
+  %227 = getelementptr inbounds [4 x i8], ptr %33, i64 %200
   %228 = load float, ptr %227, align 4
   %229 = fneg float %226
   %230 = tail call float @llvm.fmuladd.f32(float %229, float %228, float %225)
-  %231 = getelementptr inbounds float, ptr %33, i64 %188
+  %231 = getelementptr inbounds [4 x i8], ptr %33, i64 %188
   store float %230, ptr %231, align 4
   %232 = zext nneg i32 %27 to i64
-  %233 = getelementptr inbounds nuw float, ptr %31, i64 %232
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %232
   %234 = load float, ptr %233, align 4
   %235 = fadd float %234, %48
   %236 = load float, ptr %217, align 4
@@ -1883,10 +1883,10 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %243 = fneg float %241
   %244 = fmul float %241, %243
   %245 = tail call float @llvm.fmuladd.f32(float %244, float %242, float %240)
-  %246 = getelementptr inbounds nuw float, ptr %50, i64 %232
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %232
   store float %245, ptr %246, align 4
   %247 = load float, ptr %233, align 4
-  %248 = getelementptr inbounds nuw float, ptr %32, i64 %232
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %232
   %249 = load float, ptr %248, align 4
   %250 = load float, ptr %217, align 4
   %251 = load float, ptr %231, align 4
@@ -1898,7 +1898,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %257 = fneg float %255
   %258 = tail call float @llvm.fmuladd.f32(float %257, float %256, float %254)
   %259 = fdiv float %258, %245
-  %260 = getelementptr inbounds nuw float, ptr %33, i64 %232
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %232
   store float %259, ptr %260, align 4
   %261 = load float, ptr %208, align 4
   %262 = fdiv float %251, %261
@@ -1920,16 +1920,16 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
 .lr.ph222.i:                                      ; preds = %.lr.ph222.i, %.lr.ph222.preheader.i
   %store_forwarded = phi float [ %load_initial, %.lr.ph222.preheader.i ], [ %284, %.lr.ph222.i ]
   %indvars.iv224.i = phi i64 [ %267, %.lr.ph222.preheader.i ], [ %indvars.iv.next225.i, %.lr.ph222.i ]
-  %270 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv224.i
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv224.i
   %271 = load float, ptr %270, align 4
-  %272 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv224.i
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv224.i
   %273 = load float, ptr %272, align 4
   %274 = fdiv float %271, %273
-  %275 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv224.i
+  %275 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv224.i
   %276 = load float, ptr %275, align 4
   %277 = fneg float %276
   %278 = tail call float @llvm.fmuladd.f32(float %277, float %store_forwarded, float %274)
-  %279 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv224.i
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv224.i
   %280 = load float, ptr %279, align 4
   %281 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %282 = load float, ptr %281, align 4
@@ -1983,7 +1983,7 @@ smooth2.exit:                                     ; preds = %290, %291
   %indvars.iv154 = phi i64 [ %293, %.lr.ph145.preheader ], [ %indvars.iv.next155, %294 ]
   %.087144 = phi i32 [ 0, %.lr.ph145.preheader ], [ %.2, %294 ]
   %.088143 = phi i32 [ 0, %.lr.ph145.preheader ], [ %.290, %294 ]
-  %296 = getelementptr float, ptr %33, i64 %indvars.iv154
+  %296 = getelementptr [4 x i8], ptr %33, i64 %indvars.iv154
   %297 = load float, ptr %296, align 4
   %298 = fcmp oeq float %297, 0.000000e+00
   %299 = zext i1 %298 to i32
@@ -2040,7 +2040,7 @@ smooth2.exit:                                     ; preds = %290, %291
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %_cmsQuickSaturateWord.exit
   %indvars.iv157 = phi i64 [ 0, %.lr.ph148.preheader ], [ %indvars.iv.next158, %_cmsQuickSaturateWord.exit ]
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %313 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.next158
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.next158
   %314 = load float, ptr %313, align 4
   %315 = fpext float %314 to double
   %316 = fadd double %315, 5.000000e-01
@@ -2062,7 +2062,7 @@ smooth2.exit:                                     ; preds = %290, %291
 _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph148, %318, %320
   %.0.i121 = phi i16 [ %325, %320 ], [ 0, %.lr.ph148 ], [ -1, %318 ]
   %326 = load ptr, ptr %7, align 8
-  %327 = getelementptr inbounds nuw i16, ptr %326, i64 %indvars.iv157
+  %327 = getelementptr inbounds nuw [2 x i8], ptr %326, i64 %indvars.iv157
   store i16 %.0.i121, ptr %327, align 2
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
   br i1 %exitcond161.not, label %.critedge117.thread, label %.lr.ph148, !llvm.loop !25
@@ -2127,7 +2127,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveLinear(ptr noundef readonly cap
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %1 ]
   %10 = phi i32 [ %7, %6 ], [ %4, %1 ]
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2162,7 +2162,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveMonotonic(ptr noundef readonly 
   %8 = load i16, ptr %7, align 2
   %9 = add i32 %3, -1
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %10
   %12 = load i16, ptr %11, align 2
   %.not = icmp ugt i16 %8, %12
   %13 = icmp sgt i32 %3, 1
@@ -2184,7 +2184,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveMonotonic(ptr noundef readonly 
 .lr.ph35:                                         ; preds = %.lr.ph35.preheader, %16
   %indvars.iv = phi i64 [ 1, %.lr.ph35.preheader ], [ %indvars.iv.next, %16 ]
   %.02334 = phi i32 [ %15, %.lr.ph35.preheader ], [ %19, %16 ]
-  %17 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
   %20 = sub nsw i32 %19, %.02334
@@ -2208,7 +2208,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveMonotonic(ptr noundef readonly 
   %.130 = phi i32 [ %31, %25 ], [ %24, %.lr.ph.preheader ]
   %.12529 = phi i32 [ %26, %25 ], [ %23, %.lr.ph.preheader ]
   %28 = zext nneg i32 %.12529 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %7, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i32
   %32 = sub nsw i32 %31, %.130
@@ -2344,7 +2344,7 @@ define hidden ptr @cmsGetToneCurveSegment(i32 noundef %0, ptr noundef readonly c
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr inbounds nuw %struct.cmsCurveSegment, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [112 x i8], ptr %9, i64 %10
   br label %12
 
 12:                                               ; preds = %2, %4, %7

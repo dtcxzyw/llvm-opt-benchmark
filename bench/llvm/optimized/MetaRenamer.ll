@@ -76,8 +76,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.158" = type { %"class.llvm::SmallVectorBase.80" }
 %"class.llvm::SmallVectorBase.80" = type { ptr, i64, i64 }
 %"struct.llvm::SmallVectorStorage.159" = type { [128 x i8] }
-%"class.llvm::Argument" = type <{ %"class.llvm::Value", ptr, i32, [4 x i8] }>
-%"class.llvm::Value" = type { i8, i8, i16, i32, ptr, ptr }
 %"struct.llvm::cl::initializer" = type { ptr }
 %"struct.llvm::cl::desc" = type { %"class.llvm::StringRef" }
 
@@ -211,7 +209,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %26 = phi i32 [ %21, %4 ], [ %.pre.i.i, %23 ]
   %27 = load ptr, ptr %10, align 8, !tbaa !25
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = ptrtoint ptr %20 to i64
   store i64 %30, ptr %29, align 1
   %31 = load i32, ptr %12, align 8, !tbaa !26
@@ -381,7 +379,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %26 = phi i32 [ %21, %4 ], [ %.pre.i.i, %23 ]
   %27 = load ptr, ptr %10, align 8, !tbaa !25
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = ptrtoint ptr %20 to i64
   store i64 %30, ptr %29, align 1
   %31 = load i32, ptr %12, align 8, !tbaa !26
@@ -479,7 +477,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %26 = phi i32 [ %21, %4 ], [ %.pre.i.i, %23 ]
   %27 = load ptr, ptr %10, align 8, !tbaa !25
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = ptrtoint ptr %20 to i64
   store i64 %30, ptr %29, align 1
   %31 = load i32, ptr %12, align 8, !tbaa !26
@@ -577,7 +575,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !25
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !26
@@ -795,7 +793,7 @@ _ZNK4llvm9StringRef5splitEc.exit.i.i:             ; preds = %57, %56
   %71 = phi i32 [ %65, %64 ], [ %.pre.i.i.i, %67 ]
   %72 = load ptr, ptr %19, align 8, !tbaa !25
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %73
   store ptr %.sroa.0.0.i.i, ptr %74, align 1
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i64 %.sroa.5.0.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
@@ -864,7 +862,7 @@ _ZNK4llvm9StringRef5splitEc.exit.i61.i:           ; preds = %84, %83
   %98 = phi i32 [ %92, %91 ], [ %.pre.i.i67.i, %94 ]
   %99 = load ptr, ptr %20, align 8, !tbaa !25
   %100 = zext i32 %98 to i64
-  %101 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %100
   store ptr %.sroa.0.0.i65.i, ptr %101, align 1
   %.sroa.2.0..sroa_idx.i.i68.i = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i64 %.sroa.5.0.i64.i, ptr %.sroa.2.0..sroa_idx.i.i68.i, align 1
@@ -933,7 +931,7 @@ _ZNK4llvm9StringRef5splitEc.exit.i75.i:           ; preds = %111, %110
   %125 = phi i32 [ %119, %118 ], [ %.pre.i.i81.i, %121 ]
   %126 = load ptr, ptr %21, align 8, !tbaa !25
   %127 = zext i32 %125 to i64
-  %128 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %126, i64 %127
   store ptr %.sroa.0.0.i79.i, ptr %128, align 1
   %.sroa.2.0..sroa_idx.i.i82.i = getelementptr inbounds nuw i8, ptr %128, i64 8
   store i64 %.sroa.5.0.i78.i, ptr %.sroa.2.0..sroa_idx.i.i82.i, align 1
@@ -1002,7 +1000,7 @@ _ZNK4llvm9StringRef5splitEc.exit.i89.i:           ; preds = %138, %137
   %152 = phi i32 [ %146, %145 ], [ %.pre.i.i95.i, %148 ]
   %153 = load ptr, ptr %22, align 8, !tbaa !25
   %154 = zext i32 %152 to i64
-  %155 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %154
   store ptr %.sroa.0.0.i93.i, ptr %155, align 1
   %.sroa.2.0..sroa_idx.i.i96.i = getelementptr inbounds nuw i8, ptr %155, i64 8
   store i64 %.sroa.5.0.i92.i, ptr %.sroa.2.0..sroa_idx.i.i96.i, align 1
@@ -1400,7 +1398,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit109.thread.i: ; preds = %286, %284, %_Z
   %.lhs.trunc.i.i = and i16 %314, 32767
   %315 = urem i16 %.lhs.trunc.i.i, 17
   %.zext.i.i = zext nneg i16 %315 to i64
-  %316 = getelementptr inbounds nuw ptr, ptr @_ZL9metaNames, i64 %.zext.i.i
+  %316 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9metaNames, i64 %.zext.i.i
   %317 = load ptr, ptr %316, align 8, !tbaa !46
   %318 = load i8, ptr %317, align 1, !tbaa !38
   %.not.i112.i = icmp eq i8 %318, 0
@@ -1550,7 +1548,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread.i:       ; preds = %_ZN4llvmneENS_9Stri
   %.lhs.trunc.i128.i = and i16 %377, 32767
   %378 = urem i16 %.lhs.trunc.i128.i, 17
   %.zext.i129.i = zext nneg i16 %378 to i64
-  %379 = getelementptr inbounds nuw ptr, ptr @_ZL9metaNames, i64 %.zext.i129.i
+  %379 = getelementptr inbounds nuw [8 x i8], ptr @_ZL9metaNames, i64 %.zext.i129.i
   %380 = load ptr, ptr %379, align 8, !tbaa !46
   store i8 1, ptr %290, align 8, !tbaa !118
   store i8 1, ptr %291, align 1, !tbaa !121
@@ -1597,7 +1595,7 @@ _ZN4llvm8Function4argsEv.exit.i.i:                ; preds = %391, %_ZN4llvm8Func
   %392 = phi ptr [ %389, %_ZN4llvm8Function9arg_beginEv.exit.i.i.i ], [ %.pre1.i.i.i, %391 ]
   %393 = getelementptr inbounds nuw i8, ptr %.sroa.0143.0246.i, i64 48
   %394 = load i64, ptr %393, align 8, !tbaa !183
-  %395 = getelementptr inbounds nuw %"class.llvm::Argument", ptr %392, i64 %394
+  %395 = getelementptr inbounds nuw [40 x i8], ptr %392, i64 %394
   %.not37.i.i = icmp eq ptr %389, %395
   br i1 %.not37.i.i, label %._crit_edge.i.i, label %.lr.ph.i133.i
 

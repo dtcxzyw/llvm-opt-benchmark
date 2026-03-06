@@ -3,9 +3,7 @@ source_filename = "bench/luajit/original/lj_tab.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Node = type { %union.TValue, %union.TValue, %struct.MRef }
 %union.TValue = type { i64 }
-%struct.MRef = type { i64 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @lj_tab_new(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -41,7 +39,7 @@ clearapart.exit:                                  ; preds = %.lr.ph.preheader, %
 
 19:                                               ; preds = %14, %19
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw %struct.Node, ptr %17, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 0, ptr %21, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -155,7 +153,7 @@ newhpart.exit:                                    ; preds = %47
   %55 = ptrtoint ptr %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   store i64 %55, ptr %56, align 8, !tbaa !15
-  %57 = getelementptr inbounds nuw %struct.Node, ptr %54, i64 %51
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %51
   %58 = ptrtoint ptr %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   store i64 %58, ptr %59, align 8, !tbaa !28
@@ -211,7 +209,7 @@ clearapart.exit.i:                                ; preds = %.lr.ph.preheader.i,
 
 25:                                               ; preds = %25, %20
   %indvars.iv.i = phi i64 [ 0, %20 ], [ %indvars.iv.next.i, %25 ]
-  %26 = getelementptr inbounds nuw %struct.Node, ptr %23, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %indvars.iv.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i64 0, ptr %27, align 8, !tbaa !16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -262,7 +260,7 @@ clearapart.exit:                                  ; preds = %.lr.ph.preheader, %
 
 20:                                               ; preds = %15, %20
   %indvars.iv = phi i64 [ 0, %15 ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw %struct.Node, ptr %18, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %22, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -302,8 +300,8 @@ define hidden ptr @lj_tab_dup(ptr noundef %0, ptr noundef readonly captures(none
 
 .preheader:                                       ; preds = %12, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %12 ]
-  %20 = getelementptr inbounds nuw %union.TValue, ptr %15, i64 %indvars.iv
-  %21 = getelementptr inbounds nuw %union.TValue, ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8, !tbaa !13
   store i64 %22, ptr %20, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -340,8 +338,8 @@ define hidden ptr @lj_tab_dup(ptr noundef %0, ptr noundef readonly captures(none
 
 39:                                               ; preds = %26, %39
   %indvars.iv58 = phi i64 [ 0, %26 ], [ %indvars.iv.next59, %39 ]
-  %40 = getelementptr inbounds nuw %struct.Node, ptr %32, i64 %indvars.iv58
-  %41 = getelementptr inbounds nuw %struct.Node, ptr %29, i64 %indvars.iv58
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv58
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %indvars.iv58
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !16
   %44 = load i64, ptr %40, align 8, !tbaa !13
@@ -404,7 +402,7 @@ clearapart.exit:                                  ; preds = %.lr.ph.preheader, %
 
 19:                                               ; preds = %11, %19
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw %struct.Node, ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 0, ptr %21, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -547,8 +545,8 @@ define hidden void @lj_tab_resize(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %30 = getelementptr inbounds nuw %union.TValue, ptr %27, i64 %indvars.iv
-  %31 = getelementptr inbounds nuw %union.TValue, ptr %23, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %32 = load i64, ptr %31, align 8, !tbaa !13
   store i64 %32, ptr %30, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -600,7 +598,7 @@ newhpart.exit:                                    ; preds = %48
   %55 = tail call ptr @lj_mem_realloc(ptr noundef %0, ptr noundef null, i64 noundef 0, i64 noundef %54) #11
   %56 = ptrtoint ptr %55 to i64
   store i64 %56, ptr %6, align 8, !tbaa !15
-  %57 = getelementptr inbounds nuw %struct.Node, ptr %55, i64 %52
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %52
   %58 = ptrtoint ptr %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %58, ptr %59, align 8, !tbaa !28
@@ -610,7 +608,7 @@ newhpart.exit:                                    ; preds = %48
 
 61:                                               ; preds = %newhpart.exit, %61
   %indvars.iv110 = phi i64 [ 0, %newhpart.exit ], [ %indvars.iv.next111, %61 ]
-  %62 = getelementptr inbounds nuw %struct.Node, ptr %55, i64 %indvars.iv110
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %indvars.iv110
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i64 0, ptr %63, align 8, !tbaa !16
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
@@ -643,7 +641,7 @@ clearhpart.exit:                                  ; preds = %61, %64
 
 75:                                               ; preds = %70, %111
   %indvars.iv115 = phi i64 [ %74, %70 ], [ %indvars.iv.next116, %111 ]
-  %76 = getelementptr inbounds nuw %union.TValue, ptr %73, i64 %indvars.iv115
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv115
   %77 = load i64, ptr %76, align 8, !tbaa !13
   %78 = icmp eq i64 %77, -1
   br i1 %78, label %111, label %79
@@ -670,7 +668,7 @@ clearhpart.exit:                                  ; preds = %61, %64
   %94 = load i32, ptr %11, align 4, !tbaa !14
   %95 = and i32 %91, %94
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %struct.Node, ptr %93, i64 %96
+  %97 = getelementptr inbounds nuw [24 x i8], ptr %93, i64 %96
   br label %98
 
 98:                                               ; preds = %104, %79
@@ -728,7 +726,7 @@ lj_tab_setinth.exit:                              ; preds = %98, %108
 .preheader:                                       ; preds = %121, %130
   %.084103 = phi i32 [ %131, %130 ], [ 0, %121 ]
   %122 = zext i32 %.084103 to i64
-  %123 = getelementptr inbounds nuw %struct.Node, ptr %8, i64 %122
+  %123 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %122
   %124 = load i64, ptr %123, align 8, !tbaa !13
   %125 = icmp eq i64 %124, -1
   br i1 %125, label %130, label %126
@@ -796,7 +794,7 @@ define hidden ptr @lj_tab_setinth(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %20 = load i32, ptr %19, align 4, !tbaa !14
   %21 = and i32 %15, %20
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %struct.Node, ptr %18, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %22
   br label %24
 
 24:                                               ; preds = %30, %3
@@ -851,7 +849,7 @@ define hidden ptr @lj_tab_set(ptr noundef %0, ptr noundef initializes((10, 11)) 
   %20 = load i32, ptr %19, align 4, !tbaa !14
   %21 = and i32 %20, %15
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %struct.Node, ptr %18, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %22
   br label %24
 
 24:                                               ; preds = %30, %11
@@ -903,7 +901,7 @@ lj_tab_setstr.exit:                               ; preds = %24, %34
   %47 = load i64, ptr %46, align 8, !tbaa !12
   %48 = inttoptr i64 %47 to ptr
   %49 = sext i32 %39 to i64
-  %50 = getelementptr inbounds %union.TValue, ptr %48, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %48, i64 %49
   br label %.loopexit
 
 51:                                               ; preds = %42
@@ -928,7 +926,7 @@ lj_tab_setstr.exit:                               ; preds = %24, %34
   %66 = load i32, ptr %65, align 4, !tbaa !14
   %67 = and i32 %61, %66
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %struct.Node, ptr %64, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %64, i64 %68
   br label %70
 
 70:                                               ; preds = %76, %51
@@ -1019,7 +1017,7 @@ hashkey.exit:                                     ; preds = %88, %99, %102
   %.sink.in.i = load i64, ptr %.sink.in.in.i, align 8, !tbaa !15
   %.sink.i = inttoptr i64 %.sink.in.i to ptr
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw %struct.Node, ptr %.sink.i, i64 %116
+  %117 = getelementptr inbounds nuw [24 x i8], ptr %.sink.i, i64 %116
   br label %118
 
 118:                                              ; preds = %121, %hashkey.exit
@@ -1078,7 +1076,7 @@ define hidden ptr @lj_tab_getinth(ptr noundef readonly captures(none) %0, i32 no
   %17 = load i32, ptr %16, align 4, !tbaa !14
   %18 = and i32 %17, %12
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.Node, ptr %15, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %19
   br label %21
 
 21:                                               ; preds = %27, %2
@@ -1114,7 +1112,7 @@ define hidden ptr @lj_tab_getstr(ptr noundef readonly captures(none) %0, ptr nou
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %10 = and i32 %9, %4
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.Node, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %11
   br label %13
 
 13:                                               ; preds = %20, %2
@@ -1161,7 +1159,7 @@ define hidden ptr @lj_tab_get(ptr noundef readonly captures(none) %0, ptr nounde
   %17 = load i32, ptr %16, align 4, !tbaa !14
   %18 = and i32 %17, %12
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.Node, ptr %15, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %19
   br label %21
 
 21:                                               ; preds = %27, %8
@@ -1218,7 +1216,7 @@ define hidden ptr @lj_tab_get(ptr noundef readonly captures(none) %0, ptr nounde
   %55 = load i32, ptr %54, align 4, !tbaa !14
   %56 = and i32 %55, %50
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw %struct.Node, ptr %53, i64 %57
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %57
   br label %59
 
 59:                                               ; preds = %65, %41
@@ -1243,7 +1241,7 @@ lj_tab_getinth.exit:                              ; preds = %37
   %70 = load i64, ptr %69, align 8, !tbaa !12
   %71 = inttoptr i64 %70 to ptr
   %72 = sext i32 %34 to i64
-  %73 = getelementptr inbounds %union.TValue, ptr %71, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %71, i64 %72
   %.not = icmp eq i64 %70, 0
   br i1 %.not, label %lj_tab_getstr.exit.thread, label %.thread47
 
@@ -1297,7 +1295,7 @@ hashkey.exit:                                     ; preds = %76, %87, %90
   %.sink.in.i = load i64, ptr %.sink.in.in.i, align 8, !tbaa !15
   %.sink.i = inttoptr i64 %.sink.in.i to ptr
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw %struct.Node, ptr %.sink.i, i64 %104
+  %105 = getelementptr inbounds nuw [24 x i8], ptr %.sink.i, i64 %104
   br label %106
 
 106:                                              ; preds = %109, %hashkey.exit
@@ -1391,7 +1389,7 @@ hashkey.exit:                                     ; preds = %11, %18, %28, %31
   %.sink.in.i = load i64, ptr %.sink.in.in.i, align 8, !tbaa !15
   %.sink.i = inttoptr i64 %.sink.in.i to ptr
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw %struct.Node, ptr %.sink.i, i64 %43
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %.sink.i, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !13
   %46 = icmp ne i64 %45, -1
   %47 = icmp eq i32 %41, 0
@@ -1446,7 +1444,7 @@ hashkey.exit:                                     ; preds = %11, %18, %28, %31
   %.02443.i = phi i32 [ %spec.select.i, %.lr.ph.i127 ], [ 0, %64 ]
   %.242.i = phi i32 [ %72, %.lr.ph.i127 ], [ %.02647.i, %64 ]
   %67 = zext i32 %.242.i to i64
-  %68 = getelementptr inbounds nuw %union.TValue, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !13
   %70 = icmp ne i64 %69, -1
   %71 = zext i1 %70 to i32
@@ -1463,7 +1461,7 @@ hashkey.exit:                                     ; preds = %11, %18, %28, %31
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %64
   %.2.lcssa.i = phi i32 [ %.02647.i, %64 ], [ %umax.i128, %._crit_edge.loopexit.i ]
   %.024.lcssa.i = phi i32 [ 0, %64 ], [ %spec.select.i, %._crit_edge.loopexit.i ]
-  %74 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i125
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i125
   %75 = load i32, ptr %74, align 4, !tbaa !53
   %76 = add i32 %75, %.024.lcssa.i
   store i32 %76, ptr %74, align 4, !tbaa !53
@@ -1483,7 +1481,7 @@ countarray.exit:                                  ; preds = %62, %._crit_edge.i,
   %indvars.iv.i = phi i64 [ 0, %countarray.exit ], [ %indvars.iv.next.i, %104 ]
   %.03.i = phi i32 [ 0, %countarray.exit ], [ %.1.i124, %104 ]
   %.0142.i = phi i32 [ 0, %countarray.exit ], [ %.115.i, %104 ]
-  %80 = getelementptr inbounds nuw %struct.Node, ptr %.sink.i, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %.sink.i, i64 %indvars.iv.i
   %81 = load i64, ptr %80, align 8, !tbaa !13
   %82 = icmp eq i64 %81, -1
   br i1 %82, label %104, label %83
@@ -1510,7 +1508,7 @@ countarray.exit:                                  ; preds = %62, %._crit_edge.i,
   %97 = xor i32 %96, 31
   %narrow.i.i = select i1 %94, i32 %97, i32 0
   %98 = zext nneg i32 %narrow.i.i to i64
-  %99 = getelementptr inbounds nuw i32, ptr %4, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !53
   %101 = add i32 %100, 1
   store i32 %101, ptr %99, align 4, !tbaa !53
@@ -1552,7 +1550,7 @@ counthash.exit:                                   ; preds = %104
   %119 = xor i32 %118, 31
   %narrow.i = select i1 %116, i32 %119, i32 0
   %120 = zext nneg i32 %narrow.i to i64
-  %121 = getelementptr inbounds nuw i32, ptr %4, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !53
   %123 = add i32 %122, 1
   store i32 %123, ptr %121, align 4, !tbaa !53
@@ -1572,7 +1570,7 @@ countint.exit:                                    ; preds = %counthash.exit, %10
   %.01724.i = phi i32 [ %.118.i, %137 ], [ 0, %countint.exit ]
   %.01923.i = phi i32 [ %.120.i, %137 ], [ 0, %countint.exit ]
   %127 = zext i32 %.026.i to i64
-  %128 = getelementptr inbounds nuw i32, ptr %4, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !53
   %.not.i122 = icmp eq i32 %129, 0
   br i1 %.not.i122, label %137, label %130
@@ -1694,7 +1692,7 @@ hashkey.exit107:                                  ; preds = %166, %173, %183, %1
 
 .preheader.preheader:                             ; preds = %hashkey.exit107
   %195 = zext i32 %.sink18.i103 to i64
-  %196 = getelementptr inbounds nuw %struct.Node, ptr %.sink.i, i64 %195
+  %196 = getelementptr inbounds nuw [24 x i8], ptr %.sink.i, i64 %195
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -1794,7 +1792,7 @@ hashkey.exit114:                                  ; preds = %222, %229, %239, %2
   %.sink.in.i112 = load i64, ptr %.sink.in.in.i, align 8, !tbaa !15
   %.sink.i113 = inttoptr i64 %.sink.in.i112 to ptr
   %253 = zext i32 %252 to i64
-  %254 = getelementptr inbounds nuw %struct.Node, ptr %.sink.i113, i64 %253
+  %254 = getelementptr inbounds nuw [24 x i8], ptr %.sink.i113, i64 %253
   %255 = icmp eq ptr %254, %44
   br i1 %255, label %256, label %314
 
@@ -1878,7 +1876,7 @@ hashkey.exit121:                                  ; preds = %275, %282, %292, %2
   %.sink.in.i119 = load i64, ptr %.sink.in.in.i, align 8, !tbaa !15
   %.sink.i120 = inttoptr i64 %.sink.in.i119 to ptr
   %304 = zext i32 %.sink18.i117 to i64
-  %305 = getelementptr inbounds nuw %struct.Node, ptr %.sink.i120, i64 %304
+  %305 = getelementptr inbounds nuw [24 x i8], ptr %.sink.i120, i64 %304
   %.not97 = icmp eq ptr %305, %.2154
   %.not98 = icmp eq ptr %305, %264
   %or.cond = or i1 %.not97, %.not98
@@ -1970,7 +1968,7 @@ define hidden ptr @lj_tab_setstr(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %11 = load i32, ptr %10, align 4, !tbaa !14
   %12 = and i32 %11, %6
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct.Node, ptr %9, i64 %13
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %13
   br label %15
 
 15:                                               ; preds = %22, %3
@@ -2087,7 +2085,7 @@ hashkey.exit:                                     ; preds = %21, %28, %38, %41
   %.sink.in.i = load i64, ptr %.sink.in.in.i, align 8, !tbaa !15
   %.sink.i = inttoptr i64 %.sink.in.i to ptr
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw %struct.Node, ptr %.sink.i, i64 %53
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %.sink.i, i64 %53
   br label %55
 
 55:                                               ; preds = %68, %hashkey.exit
@@ -2149,13 +2147,13 @@ define hidden range(i32 -1, 2) i32 @lj_tab_next(ptr noundef readonly captures(no
 
 12:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %13 = getelementptr inbounds nuw %union.TValue, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8, !tbaa !13
   %.not33 = icmp eq i64 %14, -1
   br i1 %.not33, label %.critedge, label %15, !prof !62
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw %union.TValue, ptr %10, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %17 = trunc nuw i64 %indvars.iv to i32
   %18 = sitofp i32 %17 to double
   store double %18, ptr %2, align 8, !tbaa !13
@@ -2186,7 +2184,7 @@ define hidden range(i32 -1, 2) i32 @lj_tab_next(ptr noundef readonly captures(no
 27:                                               ; preds = %.lr.ph48, %.critedge35
   %.13146 = phi i32 [ %21, %.lr.ph48 ], [ %37, %.critedge35 ]
   %28 = zext i32 %.13146 to i64
-  %29 = getelementptr inbounds nuw %struct.Node, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !13
   %31 = icmp eq i64 %30, -1
   br i1 %31, label %.critedge35, label %32
@@ -2230,7 +2228,7 @@ define hidden i32 @lj_tab_len(ptr noundef readonly captures(none) %0) local_unna
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !12
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds nuw %union.TValue, ptr %9, i64 %.020
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.020
   %11 = load i64, ptr %10, align 8, !tbaa !13
   %12 = icmp eq i64 %11, -1
   br i1 %12, label %.preheader, label %21, !prof !63
@@ -2244,7 +2242,7 @@ define hidden i32 @lj_tab_len(ptr noundef readonly captures(none) %0) local_unna
   %.12126 = phi i64 [ %..121, %.lr.ph ], [ %.020, %.preheader ]
   %13 = add i64 %.01927, %.12126
   %14 = lshr i64 %13, 1
-  %15 = getelementptr inbounds nuw %union.TValue, ptr %9, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !13
   %17 = icmp eq i64 %16, -1
   %..121 = select i1 %17, i64 %14, i64 %.12126
@@ -2312,7 +2310,7 @@ define internal fastcc i32 @tab_len_slow(ptr noundef readonly captures(none) %0,
   %25 = load i32, ptr %7, align 4, !tbaa !14
   %26 = and i32 %25, %22
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.Node, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %27
   br label %29
 
 29:                                               ; preds = %35, %12
@@ -2377,7 +2375,7 @@ lj_tab_getinth.exit.thread76:                     ; preds = %29, %lj_tab_getinth
   %63 = load i32, ptr %7, align 4, !tbaa !14
   %64 = and i32 %63, %60
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %struct.Node, ptr %62, i64 %65
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %62, i64 %65
   br label %67
 
 67:                                               ; preds = %73, %50
@@ -2450,7 +2448,7 @@ lj_tab_getinth.exit66.thread79:                   ; preds = %67, %lj_tab_getinth
   %104 = load i32, ptr %7, align 4, !tbaa !14
   %105 = and i32 %104, %101
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw %struct.Node, ptr %103, i64 %106
+  %107 = getelementptr inbounds nuw [24 x i8], ptr %103, i64 %106
   br label %108
 
 108:                                              ; preds = %114, %91
@@ -2513,7 +2511,7 @@ define hidden i32 @lj_tab_len_hint(ptr noundef readonly captures(none) %0, i64 n
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !12
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds nuw %union.TValue, ptr %8, i64 %1
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %1
   %10 = add i64 %1, 1
   %11 = icmp ult i64 %10, %5
   br i1 %11, label %12, label %21, !prof !63

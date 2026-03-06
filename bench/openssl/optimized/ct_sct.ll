@@ -501,7 +501,7 @@ define noundef range(i32 0, 2) i32 @SCT_set_source(ptr noundef writeonly capture
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SCT_set_source, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SCT_set_source, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %switch.load, ptr %7, align 8, !tbaa !3

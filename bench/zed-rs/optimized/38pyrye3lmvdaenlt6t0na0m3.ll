@@ -1800,7 +1800,7 @@ default.unreachable139:                           ; preds = %241, %.noexc12.i
   store i8 %204, ptr %211, align 1, !noalias !396
   %212 = load ptr, ptr %.sroa.434.0.copyload.i, align 8, !alias.scope !399, !noalias !396, !nonnull !4, !noundef !4
   %213 = sub nsw i64 0, %195
-  %214 = getelementptr inbounds { { { i64, i32, [1 x i32] }, { i32, [1 x i32] } }, { ptr, ptr } }, ptr %212, i64 %213
+  %214 = getelementptr inbounds [40 x i8], ptr %212, i64 %213
   %215 = and i8 %202, 1
   %216 = zext nneg i8 %215 to i64
   %217 = getelementptr inbounds nuw i8, ptr %.sroa.434.0.copyload.i, i64 16
@@ -2243,9 +2243,9 @@ default.unreachable139:                           ; preds = %241, %.noexc12.i
 switch.lookup:                                    ; preds = %299
   %370 = load i8, ptr %302, align 8, !range !483, !noundef !4
   %371 = zext nneg i8 %370 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN67_$LT$ureq_client..UreqClient$u20$as$u20$http_client..HttpClient$GT$4send17hd25c158cfa3bb07cE", i64 %371
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN67_$LT$ureq_client..UreqClient$u20$as$u20$http_client..HttpClient$GT$4send17hd25c158cfa3bb07cE", i64 %371
   %372 = zext nneg i8 %370 to i64
-  %switch.gep140 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN67_$LT$ureq_client..UreqClient$u20$as$u20$http_client..HttpClient$GT$4send17hd25c158cfa3bb07cE.25", i64 %372
+  %switch.gep140 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN67_$LT$ureq_client..UreqClient$u20$as$u20$http_client..HttpClient$GT$4send17hd25c158cfa3bb07cE.25", i64 %372
   br label %376
 
 373:                                              ; preds = %299

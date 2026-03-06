@@ -185,7 +185,7 @@ define hidden range(i32 0, 2) i32 @X509_REQ_extension_nid(i32 noundef %0) local_
 
 5:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next
   %7 = load i32, ptr %6, align 4, !tbaa !33
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %._crit_edge, label %.lr.ph

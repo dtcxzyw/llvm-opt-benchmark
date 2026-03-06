@@ -3,9 +3,6 @@ source_filename = "bench/wireshark/original/packet-snort-config.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.used_variable_t = type { ptr, ptr }
-%struct.content_t = type { i32, ptr, i8, i8, i8, i32, i32, i8, i32, i32, i8, i8, i8, i8, i8, i8, ptr, i8, i32, i8, i8, i8, i8 }
-
 @expand_reference.expanded_reference = internal global [512 x i8] zeroinitializer, align 16
 @.str = private unnamed_addr constant [5 x i8] c"%s%s\00", align 1
 @.str.1 = private unnamed_addr constant [48 x i8] c"ERROR: Reference didn't contain prefix and ','!\00", align 1
@@ -202,7 +199,7 @@ read_token.exit36:                                ; preds = %57, %57
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 2512
   %78 = load i32, ptr %68, align 8
   %79 = zext i32 %78 to i64
-  %80 = getelementptr %struct.used_variable_t, ptr %77, i64 %79
+  %80 = getelementptr [16 x i8], ptr %77, i64 %79
   store ptr %76, ptr %80, align 8
   %81 = load ptr, ptr %10, align 8
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -280,7 +277,7 @@ read_token.exit45:                                ; preds = %94, %94
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 2408
   %115 = load i32, ptr %105, align 4
   %116 = zext i32 %115 to i64
-  %117 = getelementptr %struct.used_variable_t, ptr %114, i64 %116
+  %117 = getelementptr [16 x i8], ptr %114, i64 %116
   store ptr %113, ptr %117, align 8
   %118 = load ptr, ptr %8, align 8
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 8
@@ -398,7 +395,7 @@ read_token.exit62:                                ; preds = %149, %149
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 2512
   %170 = load i32, ptr %160, align 8
   %171 = zext i32 %170 to i64
-  %172 = getelementptr %struct.used_variable_t, ptr %169, i64 %171
+  %172 = getelementptr [16 x i8], ptr %169, i64 %171
   store ptr %168, ptr %172, align 8
   %173 = load ptr, ptr %6, align 8
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
@@ -474,7 +471,7 @@ read_token.exit72:                                ; preds = %skipWhiteSpace.exit
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 2408
   %204 = load i32, ptr %194, align 4
   %205 = zext i32 %204 to i64
-  %206 = getelementptr %struct.used_variable_t, ptr %203, i64 %205
+  %206 = getelementptr [16 x i8], ptr %203, i64 %205
   store ptr %202, ptr %206, align 8
   %207 = load ptr, ptr %4, align 8
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 8
@@ -1412,7 +1409,7 @@ read_token.exit.i38:                              ; preds = %skipWhiteSpace.exit
   %295 = add nuw nsw i32 %289, 1
   store i32 %295, ptr %236, align 8
   %296 = zext nneg i32 %289 to i64
-  %297 = getelementptr %struct.content_t, ptr %237, i64 %296
+  %297 = getelementptr [72 x i8], ptr %237, i64 %296
   %298 = call noalias ptr @g_strdup(ptr noundef %293)
   %299 = getelementptr inbounds nuw i8, ptr %297, i64 8
   store ptr %298, ptr %299, align 8
@@ -1686,7 +1683,7 @@ read_token.exit.i38:                              ; preds = %skipWhiteSpace.exit
   %408 = add i32 %407, 1
   store i32 %408, ptr %232, align 8
   %409 = zext i32 %407 to i64
-  %410 = getelementptr ptr, ptr %233, i64 %409
+  %410 = getelementptr [8 x i8], ptr %233, i64 %409
   store ptr %406, ptr %410, align 8
   br label %process_rule_option.exit.i
 
@@ -1826,7 +1823,7 @@ define internal noundef i32 @delete_rule(ptr readnone captures(none) %0, ptr nou
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr %struct.content_t, ptr %15, i64 %indvars.iv
+  %20 = getelementptr [72 x i8], ptr %15, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void @g_free(ptr noundef %22)
@@ -1841,7 +1838,7 @@ define internal noundef i32 @delete_rule(ptr readnone captures(none) %0, ptr nou
 
 28:                                               ; preds = %.lr.ph20, %28
   %indvars.iv23 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next24, %28 ]
-  %29 = getelementptr ptr, ptr %18, i64 %indvars.iv23
+  %29 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv23
   %30 = load ptr, ptr %29, align 8
   tail call void @g_free(ptr noundef %30)
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
@@ -2229,7 +2226,7 @@ define internal fastcc void @rule_add_uricontent(ptr noundef %0, ptr noundef %1,
   %10 = add nuw nsw i32 %5, 1
   store i32 %10, ptr %4, align 8
   %11 = zext nneg i32 %5 to i64
-  %12 = getelementptr %struct.content_t, ptr %9, i64 %11
+  %12 = getelementptr [72 x i8], ptr %9, i64 %11
   %13 = tail call noalias ptr @g_strdup(ptr noundef %1)
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %13, ptr %14, align 8
@@ -2256,7 +2253,7 @@ define internal fastcc void @rule_add_pcre(ptr noundef %0) unnamed_addr #0 {
   %7 = add nuw nsw i32 %3, 1
   store i32 %7, ptr %2, align 8
   %8 = zext nneg i32 %3 to i64
-  %9 = getelementptr %struct.content_t, ptr %6, i64 %8
+  %9 = getelementptr [72 x i8], ptr %6, i64 %8
   %10 = tail call noalias ptr @g_strdup(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @process_rule_option.value, i64 1))
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %11, align 8

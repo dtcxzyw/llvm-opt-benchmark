@@ -158,12 +158,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.125" = type { %"struct.std::_Tuple_impl.126" }
 %"struct.std::_Tuple_impl.126" = type { %"struct.std::_Head_base.129" }
 %"struct.std::_Head_base.129" = type { ptr }
-%struct.gmx_moltype_t = type { ptr, %struct.t_atoms, %"struct.std::array", %"class.gmx::ListOfLists" }
-%struct.t_atoms = type { i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i8, i8, i8, i8 }
-%"struct.std::array" = type { [95 x %struct.InteractionList] }
-%struct.InteractionList = type { %"class.std::vector.7" }
-%"class.gmx::ListOfLists" = type { %"class.std::vector.7", %"class.std::vector.7" }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
 %"class.gmx::ThreeFry2x64Fast" = type { %"class.gmx::ThreeFry2x64General.base", [4 x i8] }
 %"class.gmx::ThreeFry2x64General.base" = type <{ %"struct.std::array.165", %"struct.std::array.165", %"struct.std::array.165", i32 }>
 %"struct.std::array.165" = type { [2 x i64] }
@@ -1017,12 +1011,12 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.i:    ; preds = %.noexc50
 
 328:                                              ; preds = %.noexc60
   %329 = sext i32 %321 to i64
-  %330 = getelementptr inbounds float, ptr %314, i64 %329
+  %330 = getelementptr inbounds [4 x i8], ptr %314, i64 %329
   store float %325, ptr %330, align 4, !tbaa !8
   %331 = sext i32 %323 to i64
-  %332 = getelementptr inbounds [3 x float], ptr %307, i64 %331
+  %332 = getelementptr inbounds [12 x i8], ptr %307, i64 %331
   %333 = load float, ptr %332, align 4, !tbaa !8
-  %334 = getelementptr inbounds [3 x float], ptr %317, i64 %329
+  %334 = getelementptr inbounds [12 x i8], ptr %317, i64 %329
   store float %333, ptr %334, align 4, !tbaa !8
   %335 = getelementptr inbounds nuw i8, ptr %332, i64 4
   %336 = load float, ptr %335, align 4, !tbaa !8
@@ -1176,7 +1170,7 @@ _ZL11prepare_x_qPPfPPA3_fPK10gmx_mtop_tPA3_KfP9t_commrec.exit.i: ; preds = %.noe
   %.sroa.029.037.i.i = phi ptr [ %387, %.lr.ph41.i.i ], [ %408, %._crit_edge.i.i ]
   %394 = load i32, ptr %.sroa.029.037.i.i, align 8, !tbaa !247
   %395 = sext i32 %394 to i64
-  %396 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %391, i64 %395
+  %396 = getelementptr inbounds nuw [2408 x i8], ptr %391, i64 %395
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 8
   %398 = load i32, ptr %397, align 8, !tbaa !249
   %399 = icmp sgt i32 %398, 0
@@ -1205,7 +1199,7 @@ _ZL11prepare_x_qPPfPPA3_fPK10gmx_mtop_tPA3_KfP9t_commrec.exit.i: ; preds = %.noe
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %409 ]
   %.02533.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %409 ]
   %.02732.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i ], [ %.128.i.i, %409 ]
-  %410 = getelementptr inbounds nuw %struct.t_atom, ptr %401, i64 %indvars.iv.i.i
+  %410 = getelementptr inbounds nuw [36 x i8], ptr %401, i64 %indvars.iv.i.i
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 4
   %412 = load float, ptr %411, align 4, !tbaa !240
   %413 = fmul float %412, %412
@@ -2594,7 +2588,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader: ; preds = %19
 _ZN3gmx22UniformIntDistributionIiEC2Eii.exit:     ; preds = %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit
   %indvars.iv = phi i64 [ 0, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader ], [ %indvars.iv.next, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit ]
   %.0311165 = phi float [ 0.000000e+00, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit.preheader ], [ %82, %_ZN3gmx22UniformIntDistributionIiEC2Eii.exit ]
-  %80 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %81 = load float, ptr %80, align 4, !tbaa !8
   %82 = call float @llvm.fmuladd.f32(float %81, float %81, float %.0311165)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4229,7 +4223,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.us
 
 ._crit_edge.i:                                    ; preds = %1094
   %.phi.trans.insert1.i = zext nneg i32 %1095 to i64
-  %.phi.trans.insert2.i = getelementptr inbounds nuw i64, ptr %76, i64 %.phi.trans.insert1.i
+  %.phi.trans.insert2.i = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.phi.trans.insert1.i
   %.pre.i = load i64, ptr %.phi.trans.insert2.i, align 8, !tbaa !273
   %1097 = add nuw nsw i32 %1095, 1
   br label %_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit
@@ -4314,7 +4308,7 @@ _ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit: ; preds = %._crit_edge.i, %10
   br i1 %.not98, label %_ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.loopexit, label %1091, !llvm.loop !313
 
 _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.loopexit: ; preds = %._crit_edge.i.i
-  %1162 = getelementptr inbounds nuw i32, ptr %1074, i64 %indvars.iv290
+  %1162 = getelementptr inbounds nuw [4 x i8], ptr %1074, i64 %indvars.iv290
   store i32 %1160, ptr %1162, align 4, !tbaa !4
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %exitcond294.not = icmp eq i64 %indvars.iv.next291, %1083
@@ -4402,7 +4396,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.lo
   br i1 %1047, label %1212, label %1215
 
 1212:                                             ; preds = %1210
-  %1213 = getelementptr inbounds i32, ptr %.069, i64 %indvars.iv298
+  %1213 = getelementptr inbounds [4 x i8], ptr %.069, i64 %indvars.iv298
   %1214 = load i32, ptr %1213, align 4, !tbaa !4
   br label %1215
 
@@ -4425,7 +4419,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.lo
 .lr.ph212:                                        ; preds = %1215
   %1220 = load ptr, ptr %1195, align 8, !tbaa !175
   %1221 = sext i32 %.0318 to i64
-  %1222 = getelementptr inbounds [3 x float], ptr %1, i64 %1221
+  %1222 = getelementptr inbounds [12 x i8], ptr %1, i64 %1221
   %1223 = getelementptr inbounds nuw i8, ptr %1222, i64 4
   %1224 = getelementptr inbounds nuw i8, ptr %1222, i64 8
   %.pre330 = load i32, ptr %1220, align 4, !tbaa !4
@@ -4832,7 +4826,7 @@ _ZL8eps_selfffPffS_.exit538:                      ; preds = %_ZL8eps_selfffPffS_
   %1499 = fadd float %1490, %1494
   %1500 = fadd float %1491, %1496
   %1501 = fadd float %1492, %1498
-  %1502 = getelementptr inbounds float, ptr %2, i64 %.pre-phi372
+  %1502 = getelementptr inbounds [4 x i8], ptr %2, i64 %.pre-phi372
   %1503 = load float, ptr %1502, align 4, !tbaa !8
   %1504 = fmul float %1503, %1503
   %1505 = fmul float %1503, %1504

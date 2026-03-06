@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.1" = type { i8 }
-%"class.cv::utils::BufferArea::Block" = type <{ ptr, ptr, i64, i16, i16, [4 x i8] }>
 
 $__clang_call_terminate = comdat any
 
@@ -320,7 +319,7 @@ _ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.e
 _ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %43, %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %38, ptr %0, align 8, !tbaa !17
   store ptr %42, ptr %18, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw %"class.cv::utils::BufferArea::Block", ptr %38, i64 %36
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %36
   store ptr %44, ptr %20, align 8, !tbaa !31
   br label %_ZNSt6vectorIN2cv5utils10BufferArea5BlockESaIS3_EE9push_backEOS3_.exit
 

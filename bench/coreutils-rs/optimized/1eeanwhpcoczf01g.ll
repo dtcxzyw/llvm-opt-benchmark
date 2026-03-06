@@ -38,7 +38,7 @@ define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8, !nonnull !4, !align !5
-  %9 = getelementptr inbounds { ptr, i64 }, ptr %8, i64 %6
+  %9 = getelementptr inbounds [16 x i8], ptr %8, i64 %6
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !6, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !4
@@ -47,7 +47,7 @@ define hidden { i8, i8 } @_ZN7uu_expr11syntax_tree6Parser6accept17hbb9559ff35d63
   br i1 %14, label %.lr.ph.preheader.i, label %20, !prof !10
 
 .lr.ph.preheader.i:                               ; preds = %7
-  %15 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.0d780a28b50e5aabcf6cc8b92a0a1700.20, i64 %13
+  %15 = getelementptr inbounds nuw [16 x i8], ptr @anon.0d780a28b50e5aabcf6cc8b92a0a1700.20, i64 %13
   %16 = load ptr, ptr %15, align 8, !noalias !7, !nonnull !4, !align !5, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !7, !noundef !4

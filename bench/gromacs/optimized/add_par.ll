@@ -22,8 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.InteractionOfType = type <{ %"class.std::vector", %"struct.std::array", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%"struct.std::array" = type { [12 x float] }
 %"class.gmx::ArrayRef" = type { %"struct.gmx::ArrayRefIter", %"struct.gmx::ArrayRefIter" }
 %"struct.gmx::ArrayRefIter" = type { ptr }
 
@@ -597,7 +595,7 @@ _ZNSt6vectorI17InteractionOfTypeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit38: ; p
 _ZNSt12_Vector_baseI17InteractionOfTypeSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI17InteractionOfTypeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit38, %86
   store ptr %24, ptr %0, align 8, !tbaa !35
   store ptr %.0.lcssa.i.i.i37, ptr %6, align 8, !tbaa !21
-  %90 = getelementptr inbounds nuw %class.InteractionOfType, ptr %24, i64 %18
+  %90 = getelementptr inbounds nuw [112 x i8], ptr %24, i64 %18
   store ptr %90, ptr %85, align 8, !tbaa !24
   ret void
 
@@ -1360,7 +1358,7 @@ _ZNSt6vectorI17InteractionOfTypeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit37: ; p
 _ZNSt12_Vector_baseI17InteractionOfTypeSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI17InteractionOfTypeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit37, %111
   store ptr %22, ptr %0, align 8, !tbaa !35
   store ptr %.0.lcssa.i.i.i36, ptr %6, align 8, !tbaa !21
-  %115 = getelementptr inbounds nuw %class.InteractionOfType, ptr %22, i64 %18
+  %115 = getelementptr inbounds nuw [112 x i8], ptr %22, i64 %18
   store ptr %115, ptr %110, align 8, !tbaa !24
   ret void
 
@@ -1883,7 +1881,7 @@ _ZNSt6vectorI17InteractionOfTypeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit37: ; p
 _ZNSt12_Vector_baseI17InteractionOfTypeSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI17InteractionOfTypeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit37, %104
   store ptr %22, ptr %0, align 8, !tbaa !35
   store ptr %.0.lcssa.i.i.i36, ptr %6, align 8, !tbaa !21
-  %108 = getelementptr inbounds nuw %class.InteractionOfType, ptr %22, i64 %18
+  %108 = getelementptr inbounds nuw [112 x i8], ptr %22, i64 %18
   store ptr %108, ptr %103, align 8, !tbaa !24
   ret void
 
@@ -2041,7 +2039,7 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
   %.169.us = phi i32 [ %spec.select58.us, %._crit_edge.us ], [ -1, %.lr.ph72 ]
   %.15268.us = phi i64 [ %spec.select.us, %._crit_edge.us ], [ %.05177, %.lr.ph72 ]
   %30 = load ptr, ptr %20, align 8, !tbaa !85
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv86
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv86
   %32 = load ptr, ptr %31, align 8, !tbaa !90
   %33 = load ptr, ptr %32, align 8, !tbaa !19
   %34 = call noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef nonnull %4, ptr noundef %33)
@@ -2084,7 +2082,7 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
 .lr.ph72.split:                                   ; preds = %.lr.ph72, %57
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %.lr.ph72 ]
   %50 = load ptr, ptr %20, align 8, !tbaa !85
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !90
   %53 = load ptr, ptr %52, align 8, !tbaa !19
   %54 = call noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef nonnull %4, ptr noundef %53)
@@ -2141,7 +2139,7 @@ define noundef range(i32 0, -1) i32 @_Z12search_jtypeRK17PreprocessResiduePKcb(p
   %73 = load ptr, ptr %0, align 8, !tbaa !29
   %74 = sext i32 %.2 to i64
   %75 = load ptr, ptr %20, align 8, !tbaa !85
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %74
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %74
   %77 = load ptr, ptr %76, align 8, !tbaa !90
   %78 = load ptr, ptr %77, align 8, !tbaa !19
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 177, ptr noundef nonnull @.str.7, ptr noundef nonnull %4, ptr noundef %73, ptr noundef %78) #17

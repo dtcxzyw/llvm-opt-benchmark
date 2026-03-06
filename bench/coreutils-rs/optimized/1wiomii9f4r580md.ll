@@ -568,7 +568,7 @@ define internal fastcc void @_ZN8fs_extra3dir16_get_dir_content17h38f6a991289cb4
 68:                                               ; preds = %._crit_edge.i, %56
   %69 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %57, %56 ]
   %70 = load ptr, ptr %32, align 8, !alias.scope !111, !noalias !114, !nonnull !5, !noundef !5
-  %71 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %70, i64 %69
+  %71 = getelementptr inbounds [24 x i8], ptr %70, i64 %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   %72 = load i64, ptr %33, align 8, !alias.scope !111, !noalias !114, !noundef !5
   %73 = add i64 %72, 1
@@ -671,7 +671,7 @@ define internal fastcc void @_ZN8fs_extra3dir16_get_dir_content17h38f6a991289cb4
 100:                                              ; preds = %._crit_edge.i121, %88
   %101 = phi i64 [ %.pre.i122, %._crit_edge.i121 ], [ %89, %88 ]
   %102 = load ptr, ptr %30, align 8, !alias.scope !141, !noalias !144, !nonnull !5, !noundef !5
-  %103 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %102, i64 %101
+  %103 = getelementptr inbounds [24 x i8], ptr %102, i64 %101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   %104 = load i64, ptr %31, align 8, !alias.scope !141, !noalias !144, !noundef !5
   %105 = add i64 %104, 1
@@ -889,7 +889,7 @@ define internal fastcc void @_ZN8fs_extra3dir16_get_dir_content17h38f6a991289cb4
 167:                                              ; preds = %.noexc132, %152
   %168 = phi i64 [ %157, %152 ], [ %.pre.i131, %.noexc132 ]
   %169 = load ptr, ptr %32, align 8, !alias.scope !193, !noalias !196, !nonnull !5, !noundef !5
-  %170 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %169, i64 %168
+  %170 = getelementptr inbounds [24 x i8], ptr %169, i64 %168
   %171 = mul i64 %156, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %170, ptr nonnull align 8 %155, i64 %171, i1 false), !noalias !196
   %172 = load i64, ptr %33, align 8, !alias.scope !193, !noalias !196, !noundef !5
@@ -917,7 +917,7 @@ define internal fastcc void @_ZN8fs_extra3dir16_get_dir_content17h38f6a991289cb4
 181:                                              ; preds = %.noexc134, %167
   %182 = phi i64 [ %176, %167 ], [ %.pre.i133, %.noexc134 ]
   %183 = load ptr, ptr %30, align 8, !alias.scope !201, !noalias !204, !nonnull !5, !noundef !5
-  %184 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %183, i64 %182
+  %184 = getelementptr inbounds [24 x i8], ptr %183, i64 %182
   %185 = mul i64 %175, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %184, ptr nonnull align 8 %174, i64 %185, i1 false), !noalias !204
   %186 = load i64, ptr %31, align 8, !alias.scope !201, !noalias !204, !noundef !5
@@ -1257,7 +1257,7 @@ define internal fastcc void @_ZN8fs_extra3dir16get_dir_content217h5a8b06470fd5fb
 64:                                               ; preds = %._crit_edge.i.i, %52
   %65 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %53, %52 ]
   %66 = load ptr, ptr %31, align 8, !alias.scope !261, !noalias !264, !nonnull !5, !noundef !5
-  %67 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %66, i64 %65
+  %67 = getelementptr inbounds [24 x i8], ptr %66, i64 %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !noalias !244
   %68 = load i64, ptr %32, align 8, !alias.scope !261, !noalias !264, !noundef !5
   %69 = add i64 %68, 1
@@ -1339,7 +1339,7 @@ define internal fastcc void @_ZN8fs_extra3dir16get_dir_content217h5a8b06470fd5fb
 88:                                               ; preds = %._crit_edge.i121.i, %76
   %89 = phi i64 [ %.pre.i122.i, %._crit_edge.i121.i ], [ %77, %76 ]
   %90 = load ptr, ptr %29, align 8, !alias.scope !280, !noalias !283, !nonnull !5, !noundef !5
-  %91 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %90, i64 %89
+  %91 = getelementptr inbounds [24 x i8], ptr %90, i64 %89
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !244
   %92 = load i64, ptr %30, align 8, !alias.scope !280, !noalias !283, !noundef !5
   %93 = add i64 %92, 1
@@ -1561,7 +1561,7 @@ define internal fastcc void @_ZN8fs_extra3dir16get_dir_content217h5a8b06470fd5fb
 155:                                              ; preds = %.noexc134.i, %140
   %156 = phi i64 [ %145, %140 ], [ %.pre.i133.i, %.noexc134.i ]
   %157 = load ptr, ptr %31, align 8, !alias.scope !340, !noalias !349, !nonnull !5, !noundef !5
-  %158 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %157, i64 %156
+  %158 = getelementptr inbounds [24 x i8], ptr %157, i64 %156
   %159 = mul i64 %144, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %158, ptr nonnull align 8 %143, i64 %159, i1 false), !noalias !350
   %160 = load i64, ptr %32, align 8, !alias.scope !340, !noalias !349, !noundef !5
@@ -1589,7 +1589,7 @@ define internal fastcc void @_ZN8fs_extra3dir16get_dir_content217h5a8b06470fd5fb
 169:                                              ; preds = %.noexc136.i, %155
   %170 = phi i64 [ %164, %155 ], [ %.pre.i135.i, %.noexc136.i ]
   %171 = load ptr, ptr %29, align 8, !alias.scope !351, !noalias !360, !nonnull !5, !noundef !5
-  %172 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %171, i64 %170
+  %172 = getelementptr inbounds [24 x i8], ptr %171, i64 %170
   %173 = mul i64 %163, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %172, ptr nonnull align 8 %162, i64 %173, i1 false), !noalias !361
   %174 = load i64, ptr %30, align 8, !alias.scope !351, !noalias !360, !noundef !5

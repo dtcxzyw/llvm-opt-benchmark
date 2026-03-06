@@ -3156,7 +3156,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %11 = add i64 %10, %.01925.i
   %12 = icmp ult i64 %11, %1
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds ptr, ptr %0, i64 %11
+  %13 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %.val23.i = load ptr, ptr %13, align 8, !alias.scope !703, !noalias !714, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %.val23.i, i64 48
   %15 = load ptr, ptr %14, align 8, !noalias !715, !nonnull !4, !noundef !4
@@ -3210,7 +3210,7 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %11 = add i64 %10, %.01924.i
   %12 = icmp ult i64 %11, %1
   tail call void @llvm.assume(i1 %12)
-  %13 = getelementptr inbounds { { { ptr, ptr, i64, { ptr } }, i64 }, { { ptr, ptr, i64, { ptr } }, i64 }, i64 }, ptr %0, i64 %11
+  %13 = getelementptr inbounds [88 x i8], ptr %0, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !noalias !745, !nonnull !4, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -3263,7 +3263,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %10 = add i64 %9, %.01925
   %11 = icmp ult i64 %10, %1
   tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %10
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %10
   %.val23 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %.val23, i64 48
   %14 = load ptr, ptr %13, align 8, !noalias !773, !nonnull !4, !noundef !4
@@ -3325,7 +3325,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %10 = add i64 %9, %.01924
   %11 = icmp ult i64 %10, %1
   tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds { { { ptr, ptr, i64, { ptr } }, i64 }, { { ptr, ptr, i64, { ptr } }, i64 }, i64 }, ptr %0, i64 %10
+  %12 = getelementptr inbounds [88 x i8], ptr %0, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !noalias !801, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -3445,7 +3445,7 @@ define hidden void @"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_arra
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr %1, align 8, !nonnull !4, !align !24, !noundef !4
-  %15 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %14, i64 %.0
+  %15 = getelementptr inbounds [16 x i8], ptr %14, i64 %.0
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %15, ptr %0, align 8
@@ -3483,7 +3483,7 @@ define hidden noundef ptr @"_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$22get_
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h29f72fb269849ab6E.llvm.15192800734258360407.exit": ; preds = %3
   %15 = load ptr, ptr %0, align 8, !noalias !862, !nonnull !4, !align !24, !noundef !4
-  %16 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %15, i64 %.0.i
+  %16 = getelementptr inbounds [16 x i8], ptr %15, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %16, ptr %4, align 8, !alias.scope !862
@@ -3523,7 +3523,7 @@ define hidden noundef ptr @"_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka.
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$22get_key_value_and_then17haac9d2bac3d9cd00E.llvm.15192800734258360407.exit": ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %18 = load ptr, ptr %17, align 8, !noalias !871, !nonnull !4, !align !24, !noundef !4
-  %19 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %18, i64 %.0.i.i
+  %19 = getelementptr inbounds [16 x i8], ptr %18, i64 %.0.i.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store ptr %19, ptr %4, align 8, !alias.scope !868, !noalias !865
@@ -3607,7 +3607,7 @@ define hidden noundef ptr @"_ZN4moka9sync_base10base_cache165_$LT$impl$u20$moka.
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h29f72fb269849ab6E.llvm.15192800734258360407.exit.i": ; preds = %"_ZN4moka9sync_base8key_lock20KeyLock$LT$K$C$S$GT$4lock17h27e2eec83068238eE.exit"
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %34 = load ptr, ptr %33, align 8, !noalias !888, !nonnull !4, !align !24, !noundef !4
-  %35 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %34, i64 %.0.i.i
+  %35 = getelementptr inbounds [16 x i8], ptr %34, i64 %.0.i.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 168
   store ptr %35, ptr %7, align 8, !alias.scope !885, !noalias !881
@@ -5740,7 +5740,7 @@ define hidden { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds i16, ptr %3, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8

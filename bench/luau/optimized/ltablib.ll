@@ -4,11 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.luaL_Reg = type { ptr, ptr }
+%struct.luaL_Strbuf = type { ptr, ptr, ptr, ptr, [512 x i8] }
 %struct.lua_TValue = type { %union.Value, [1 x i32], i32 }
 %union.Value = type { ptr }
-%struct.luaL_Strbuf = type { ptr, ptr, ptr, ptr, [512 x i8] }
-%struct.LuaNode = type { %struct.lua_TValue, %struct.TKey }
-%struct.TKey = type { %union.Value, [1 x i32], i32 }
 
 @.str = private unnamed_addr constant [6 x i8] c"table\00", align 1
 @_ZL9tab_funcs = internal constant [18 x %struct.luaL_Reg] [%struct.luaL_Reg { ptr @.str.2, ptr @_ZL7tconcatP9lua_State }, %struct.luaL_Reg { ptr @.str.3, ptr @_ZL7foreachP9lua_State }, %struct.luaL_Reg { ptr @.str.4, ptr @_ZL8foreachiP9lua_State }, %struct.luaL_Reg { ptr @.str.5, ptr @_ZL4getnP9lua_State }, %struct.luaL_Reg { ptr @.str.6, ptr @_ZL4maxnP9lua_State }, %struct.luaL_Reg { ptr @.str.7, ptr @_ZL7tinsertP9lua_State }, %struct.luaL_Reg { ptr @.str.8, ptr @_ZL7tremoveP9lua_State }, %struct.luaL_Reg { ptr @.str.9, ptr @_ZL5tsortP9lua_State }, %struct.luaL_Reg { ptr @.str.10, ptr @_ZL5tpackP9lua_State }, %struct.luaL_Reg { ptr @.str.1, ptr @_ZL7tunpackP9lua_State }, %struct.luaL_Reg { ptr @.str.11, ptr @_ZL5tmoveP9lua_State }, %struct.luaL_Reg { ptr @.str.12, ptr @_ZL7tcreateP9lua_State }, %struct.luaL_Reg { ptr @.str.13, ptr @_ZL5tfindP9lua_State }, %struct.luaL_Reg { ptr @.str.14, ptr @_ZL6tclearP9lua_State }, %struct.luaL_Reg { ptr @.str.15, ptr @_ZL7tfreezeP9lua_State }, %struct.luaL_Reg { ptr @.str.16, ptr @_ZL9tisfrozenP9lua_State }, %struct.luaL_Reg { ptr @.str.17, ptr @_ZL6tcloneP9lua_State }, %struct.luaL_Reg zeroinitializer], align 16
@@ -114,9 +112,9 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL7tunpackP9lua_State(pt
 29:                                               ; preds = %.lr.ph46, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next, %29 ]
   %30 = load ptr, ptr %27, align 8, !tbaa !23
-  %31 = getelementptr inbounds nuw %struct.lua_TValue, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %28, align 8, !tbaa !24
-  %33 = getelementptr inbounds nuw %struct.lua_TValue, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -126,7 +124,7 @@ define internal noundef range(i32 0, -2147483648) i32 @_ZL7tunpackP9lua_State(pt
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !24
   %36 = zext nneg i32 %19 to i64
-  %37 = getelementptr inbounds nuw %struct.lua_TValue, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %36
   store ptr %37, ptr %34, align 8, !tbaa !24
   br label %43
 
@@ -315,7 +313,7 @@ define internal noundef i32 @_ZL4maxnP9lua_State(ptr noundef %0) #0 {
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.024 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %16 ]
-  %17 = getelementptr inbounds nuw %struct.lua_TValue, ptr %9, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %19 = load i32, ptr %18, align 4, !tbaa !37
   %20 = icmp eq i32 %19, 0
@@ -334,7 +332,7 @@ define internal noundef i32 @_ZL4maxnP9lua_State(ptr noundef %0) #0 {
 23:                                               ; preds = %.lr.ph27, %37
   %indvars.iv30 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next31, %37 ]
   %.226 = phi double [ %.0.lcssa, %.lr.ph27 ], [ %.3, %37 ]
-  %24 = getelementptr inbounds nuw %struct.LuaNode, ptr %15, i64 %indvars.iv30
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %indvars.iv30
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !40
   %27 = icmp eq i32 %26, 0
@@ -489,9 +487,9 @@ define internal noundef i32 @_ZL5tpackP9lua_State(ptr noundef %0) #0 {
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %15 = load ptr, ptr %8, align 8, !tbaa !23
-  %16 = getelementptr inbounds nuw %struct.lua_TValue, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %9, align 8, !tbaa !4
-  %18 = getelementptr inbounds nuw %struct.lua_TValue, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -536,7 +534,7 @@ define internal noundef i32 @_ZL5tmoveP9lua_State(ptr noundef %0) #0 {
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = zext nneg i32 %6 to i64
-  %20 = getelementptr %struct.lua_TValue, ptr %18, i64 %19
+  %20 = getelementptr [16 x i8], ptr %18, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -16
   %22 = load ptr, ptr %21, align 8, !tbaa !19
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -612,7 +610,7 @@ define internal noundef i32 @_ZL7tcreateP9lua_State(ptr noundef %0) #0 {
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %18 = load ptr, ptr %16, align 8, !tbaa !23
-  %19 = getelementptr inbounds nuw %struct.lua_TValue, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -792,7 +790,7 @@ define internal fastcc void @_ZL8addfieldP9lua_StateP11luaL_StrbufiP8LuaTable(pt
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !23
   %13 = sext i32 %6 to i64
-  %14 = getelementptr inbounds %struct.lua_TValue, ptr %12, i64 %13
+  %14 = getelementptr inbounds [16 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !37
   %17 = icmp eq i32 %16, 5
@@ -862,7 +860,7 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr %struct.lua_TValue, ptr %7, i64 %9
+  %10 = getelementptr [16 x i8], ptr %7, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -16
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -918,8 +916,8 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
   %36 = zext nneg i32 %17 to i64
   %37 = sext i32 %2 to i64
   %38 = sext i32 %4 to i64
-  %invariant.gep141 = getelementptr %struct.lua_TValue, ptr %30, i64 %37
-  %invariant.gep143 = getelementptr %struct.lua_TValue, ptr %32, i64 %38
+  %invariant.gep141 = getelementptr [16 x i8], ptr %30, i64 %37
+  %invariant.gep143 = getelementptr [16 x i8], ptr %32, i64 %38
   br label %.lr.ph117
 
 39:                                               ; preds = %34, %28
@@ -932,15 +930,15 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
   %42 = add i32 %3, 1
   %43 = sub i32 %42, %2
   %wide.trip.count = zext i32 %43 to i64
-  %invariant.gep = getelementptr %struct.lua_TValue, ptr %30, i64 %40
-  %invariant.gep139 = getelementptr %struct.lua_TValue, ptr %32, i64 %41
+  %invariant.gep = getelementptr [16 x i8], ptr %30, i64 %40
+  %invariant.gep139 = getelementptr [16 x i8], ptr %32, i64 %41
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep = getelementptr %struct.lua_TValue, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [16 x i8], ptr %invariant.gep, i64 %indvars.iv
   %44 = getelementptr i8, ptr %gep, i64 -16
-  %gep140 = getelementptr %struct.lua_TValue, ptr %invariant.gep139, i64 %indvars.iv
+  %gep140 = getelementptr [16 x i8], ptr %invariant.gep139, i64 %indvars.iv
   %45 = getelementptr i8, ptr %gep140, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -949,9 +947,9 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
 
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %.lr.ph117
   %indvars.iv128 = phi i64 [ %36, %.lr.ph117.preheader ], [ %indvars.iv.next129, %.lr.ph117 ]
-  %gep142 = getelementptr %struct.lua_TValue, ptr %invariant.gep141, i64 %indvars.iv128
+  %gep142 = getelementptr [16 x i8], ptr %invariant.gep141, i64 %indvars.iv128
   %46 = getelementptr i8, ptr %gep142, i64 -16
-  %gep144 = getelementptr %struct.lua_TValue, ptr %invariant.gep143, i64 %indvars.iv128
+  %gep144 = getelementptr [16 x i8], ptr %invariant.gep143, i64 %indvars.iv128
   %47 = getelementptr i8, ptr %gep144, i64 -16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !25
   %indvars.iv.next129 = add nsw i64 %indvars.iv128, -1
@@ -1118,9 +1116,9 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP8LuaTableiiiPFiS0_PK10lua_T
   %26 = add nsw i64 %indvars.iv.i, %22
   %27 = load ptr, ptr %15, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %28 = getelementptr inbounds %struct.lua_TValue, ptr %27, i64 %22
+  %28 = getelementptr inbounds [16 x i8], ptr %27, i64 %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !25
-  %29 = getelementptr inbounds %struct.lua_TValue, ptr %27, i64 %26
+  %29 = getelementptr inbounds [16 x i8], ptr %27, i64 %26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1135,9 +1133,9 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP8LuaTableiiiPFiS0_PK10lua_T
   %34 = load ptr, ptr %15, align 8, !tbaa !23
   %35 = load i32, ptr %16, align 8, !tbaa !20
   %36 = sext i32 %.0100168 to i64
-  %37 = getelementptr inbounds %struct.lua_TValue, ptr %34, i64 %36
+  %37 = getelementptr inbounds [16 x i8], ptr %34, i64 %36
   %38 = sext i32 %.097169 to i64
-  %39 = getelementptr inbounds %struct.lua_TValue, ptr %34, i64 %38
+  %39 = getelementptr inbounds [16 x i8], ptr %34, i64 %38
   %40 = tail call noundef i32 %5(ptr noundef %0, ptr noundef %37, ptr noundef %39)
   %41 = load i32, ptr %16, align 8, !tbaa !20
   %.not.i = icmp eq i32 %41, %35
@@ -1154,9 +1152,9 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit: ; preds = %33
 43:                                               ; preds = %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit
   %44 = load ptr, ptr %15, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %45 = getelementptr inbounds %struct.lua_TValue, ptr %44, i64 %36
+  %45 = getelementptr inbounds [16 x i8], ptr %44, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !25
-  %46 = getelementptr inbounds %struct.lua_TValue, ptr %44, i64 %38
+  %46 = getelementptr inbounds [16 x i8], ptr %44, i64 %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1173,8 +1171,8 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit: ; preds = %33
   %53 = load ptr, ptr %15, align 8, !tbaa !23
   %54 = load i32, ptr %16, align 8, !tbaa !20
   %55 = sext i32 %52 to i64
-  %56 = getelementptr inbounds %struct.lua_TValue, ptr %53, i64 %55
-  %57 = getelementptr inbounds %struct.lua_TValue, ptr %53, i64 %38
+  %56 = getelementptr inbounds [16 x i8], ptr %53, i64 %55
+  %57 = getelementptr inbounds [16 x i8], ptr %53, i64 %38
   %58 = tail call noundef i32 %5(ptr noundef %0, ptr noundef %56, ptr noundef %57)
   %59 = load i32, ptr %16, align 8, !tbaa !20
   %.not.i118 = icmp eq i32 %59, %54
@@ -1187,20 +1185,20 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit: ; preds = %33
 _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit119: ; preds = %50
   %.not111 = icmp eq i32 %58, 0
   %61 = load ptr, ptr %15, align 8, !tbaa !23
-  %62 = getelementptr inbounds %struct.lua_TValue, ptr %61, i64 %55
+  %62 = getelementptr inbounds [16 x i8], ptr %61, i64 %55
   br i1 %.not111, label %65, label %63
 
 63:                                               ; preds = %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit119
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !25
-  %64 = getelementptr inbounds %struct.lua_TValue, ptr %61, i64 %38
+  %64 = getelementptr inbounds [16 x i8], ptr %61, i64 %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %74
 
 65:                                               ; preds = %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit119
-  %66 = getelementptr inbounds %struct.lua_TValue, ptr %61, i64 %36
+  %66 = getelementptr inbounds [16 x i8], ptr %61, i64 %36
   %67 = tail call noundef i32 %5(ptr noundef %0, ptr noundef %66, ptr noundef %62)
   %68 = load i32, ptr %16, align 8, !tbaa !20
   %.not.i120 = icmp eq i32 %68, %54
@@ -1217,9 +1215,9 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit121: ; preds = %
 70:                                               ; preds = %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit121
   %71 = load ptr, ptr %15, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %72 = getelementptr inbounds %struct.lua_TValue, ptr %71, i64 %55
+  %72 = getelementptr inbounds [16 x i8], ptr %71, i64 %55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !tbaa.struct !25
-  %73 = getelementptr inbounds %struct.lua_TValue, ptr %71, i64 %36
+  %73 = getelementptr inbounds [16 x i8], ptr %71, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1233,10 +1231,10 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit121: ; preds = %
   %77 = add nsw i32 %.0100168, -1
   %78 = load ptr, ptr %15, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %79 = getelementptr inbounds %struct.lua_TValue, ptr %78, i64 %55
+  %79 = getelementptr inbounds [16 x i8], ptr %78, i64 %55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %79, i64 16, i1 false), !tbaa.struct !25
   %80 = sext i32 %77 to i64
-  %81 = getelementptr inbounds %struct.lua_TValue, ptr %78, i64 %80
+  %81 = getelementptr inbounds [16 x i8], ptr %78, i64 %80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1253,8 +1251,8 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit121: ; preds = %
   %indvars.iv = phi i64 [ %indvars.iv.next, %93 ], [ %83, %82 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %85 = load ptr, ptr %15, align 8, !tbaa !23
-  %86 = getelementptr inbounds %struct.lua_TValue, ptr %85, i64 %indvars.iv.next
-  %87 = getelementptr inbounds %struct.lua_TValue, ptr %85, i64 %80
+  %86 = getelementptr inbounds [16 x i8], ptr %85, i64 %indvars.iv.next
+  %87 = getelementptr inbounds [16 x i8], ptr %85, i64 %80
   %88 = tail call noundef i32 %5(ptr noundef %0, ptr noundef %86, ptr noundef %87)
   %89 = load i32, ptr %16, align 8, !tbaa !20
   %.not.i122 = icmp eq i32 %89, %.pre
@@ -1285,8 +1283,8 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit123: ; preds = %
   %indvars.iv210 = phi i64 [ %92, %.preheader ], [ %indvars.iv.next211, %102 ]
   %indvars.iv.next211 = add nsw i64 %indvars.iv210, -1
   %96 = load ptr, ptr %15, align 8, !tbaa !23
-  %97 = getelementptr inbounds %struct.lua_TValue, ptr %96, i64 %80
-  %98 = getelementptr inbounds %struct.lua_TValue, ptr %96, i64 %indvars.iv.next211
+  %97 = getelementptr inbounds [16 x i8], ptr %96, i64 %80
+  %98 = getelementptr inbounds [16 x i8], ptr %96, i64 %indvars.iv.next211
   %99 = tail call noundef i32 %5(ptr noundef %0, ptr noundef %97, ptr noundef %98)
   %100 = load i32, ptr %16, align 8, !tbaa !20
   %.not.i124 = icmp eq i32 %100, %.pre
@@ -1316,9 +1314,9 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit125: ; preds = %
 106:                                              ; preds = %104
   %107 = trunc nsw i64 %indvars.iv.next211 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %108 = getelementptr inbounds %struct.lua_TValue, ptr %105, i64 %indvars.iv.next
+  %108 = getelementptr inbounds [16 x i8], ptr %105, i64 %indvars.iv.next
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %108, i64 16, i1 false), !tbaa.struct !25
-  %109 = getelementptr inbounds %struct.lua_TValue, ptr %105, i64 %indvars.iv.next211
+  %109 = getelementptr inbounds [16 x i8], ptr %105, i64 %indvars.iv.next211
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 8 dereferenceable(16) %109, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1327,9 +1325,9 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit125: ; preds = %
 110:                                              ; preds = %104
   %111 = trunc nsw i64 %indvars.iv to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %112 = getelementptr inbounds %struct.lua_TValue, ptr %105, i64 %80
+  %112 = getelementptr inbounds [16 x i8], ptr %105, i64 %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %112, i64 16, i1 false), !tbaa.struct !25
-  %113 = getelementptr inbounds %struct.lua_TValue, ptr %105, i64 %indvars.iv.next
+  %113 = getelementptr inbounds [16 x i8], ptr %105, i64 %indvars.iv.next
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 8 dereferenceable(16) %113, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1388,9 +1386,9 @@ define internal fastcc void @_ZL13sort_siftheapP9lua_StateP8LuaTableiiPFiS0_PK10
   %20 = load ptr, ptr %12, align 8, !tbaa !23
   %21 = load i32, ptr %13, align 8, !tbaa !20
   %22 = sext i32 %18 to i64
-  %23 = getelementptr inbounds %struct.lua_TValue, ptr %20, i64 %22
+  %23 = getelementptr inbounds [16 x i8], ptr %20, i64 %22
   %24 = sext i32 %19 to i64
-  %25 = getelementptr inbounds %struct.lua_TValue, ptr %20, i64 %24
+  %25 = getelementptr inbounds [16 x i8], ptr %20, i64 %24
   %26 = tail call noundef i32 %4(ptr noundef %0, ptr noundef %23, ptr noundef %25)
   %27 = load i32, ptr %13, align 8, !tbaa !20
   %.not.i = icmp eq i32 %27, %21
@@ -1407,9 +1405,9 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit: ; preds = %14
   %31 = add nsw i32 %15, %2
   %32 = load ptr, ptr %12, align 8, !tbaa !23
   %33 = sext i32 %30 to i64
-  %34 = getelementptr inbounds %struct.lua_TValue, ptr %32, i64 %33
+  %34 = getelementptr inbounds [16 x i8], ptr %32, i64 %33
   %35 = sext i32 %31 to i64
-  %36 = getelementptr inbounds %struct.lua_TValue, ptr %32, i64 %35
+  %36 = getelementptr inbounds [16 x i8], ptr %32, i64 %35
   %37 = tail call noundef i32 %4(ptr noundef %0, ptr noundef %34, ptr noundef %36)
   %38 = load i32, ptr %13, align 8, !tbaa !20
   %.not.i57 = icmp eq i32 %38, %21
@@ -1433,10 +1431,10 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit58..thread.loope
   %43 = add nsw i32 %40, %2
   %44 = load ptr, ptr %12, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %45 = getelementptr inbounds %struct.lua_TValue, ptr %44, i64 %22
+  %45 = getelementptr inbounds [16 x i8], ptr %44, i64 %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !25
   %46 = sext i32 %43 to i64
-  %47 = getelementptr inbounds %struct.lua_TValue, ptr %44, i64 %46
+  %47 = getelementptr inbounds [16 x i8], ptr %44, i64 %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1459,9 +1457,9 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit58..thread.loope
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load i32, ptr %56, align 8, !tbaa !20
   %58 = sext i32 %53 to i64
-  %59 = getelementptr inbounds %struct.lua_TValue, ptr %55, i64 %58
+  %59 = getelementptr inbounds [16 x i8], ptr %55, i64 %58
   %60 = sext i32 %3 to i64
-  %61 = getelementptr inbounds %struct.lua_TValue, ptr %55, i64 %60
+  %61 = getelementptr inbounds [16 x i8], ptr %55, i64 %60
   %62 = tail call noundef i32 %4(ptr noundef %0, ptr noundef %59, ptr noundef %61)
   %63 = load i32, ptr %56, align 8, !tbaa !20
   %.not.i59 = icmp eq i32 %63, %57
@@ -1478,9 +1476,9 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit60: ; preds = %5
 65:                                               ; preds = %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit60
   %66 = load ptr, ptr %54, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %67 = getelementptr inbounds %struct.lua_TValue, ptr %66, i64 %58
+  %67 = getelementptr inbounds [16 x i8], ptr %66, i64 %58
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %67, i64 16, i1 false), !tbaa.struct !25
-  %68 = getelementptr inbounds %struct.lua_TValue, ptr %66, i64 %60
+  %68 = getelementptr inbounds [16 x i8], ptr %66, i64 %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

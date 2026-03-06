@@ -47,11 +47,11 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !33
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %12, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %12, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !28
   %18 = xor i32 %14, 1
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %12, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %12, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !28
   %22 = tail call i32 @ff_set_dimensions(ptr noundef %0, i32 noundef 320, i32 noundef 192) #8
   %23 = icmp slt i32 %22, 0
@@ -780,7 +780,7 @@ copy_block.exit.thread:                           ; preds = %.preheader346, %.sp
 bytestream2_get_be24.exit:                        ; preds = %291, %295
   %.sroa.0.22 = phi ptr [ %296, %295 ], [ %36, %291 ]
   %.0.i190 = phi i32 [ %309, %295 ], [ -16777216, %291 ]
-  %310 = getelementptr inbounds nuw i32, ptr %290, i64 %indvars.iv517
+  %310 = getelementptr inbounds nuw [4 x i8], ptr %290, i64 %indvars.iv517
   store i32 %.0.i190, ptr %310, align 4, !tbaa !35
   %indvars.iv.next518 = add nuw nsw i64 %indvars.iv517, 1
   %exitcond520.not = icmp eq i64 %indvars.iv.next518, 256

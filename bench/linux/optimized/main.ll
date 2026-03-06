@@ -829,12 +829,12 @@ define dso_local void @rest_init() local_unnamed_addr #5 section ".ref.text" ali
   %6 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #27, !srcloc !17
   %7 = and i32 %6, 63
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %8
+  %9 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %8
   %10 = getelementptr i8, ptr %9, i64 8
   %11 = lshr i32 %6, 6
   %12 = zext nneg i32 %11 to i64
   %13 = sub nsw i64 0, %12
-  %14 = getelementptr i64, ptr %10, i64 %13
+  %14 = getelementptr [8 x i8], ptr %10, i64 %13
   %15 = tail call i32 @set_cpus_allowed_ptr(ptr noundef %2, ptr noundef %14) #26
   tail call fastcc void @rcu_read_unlock()
   tail call void @numa_default_policy() #26
@@ -1451,7 +1451,7 @@ define internal noundef i32 @unknown_bootoption(ptr noundef %0, ptr noundef capt
 25:                                               ; preds = %37
   %26 = add i32 %34, 1
   %27 = zext i32 %26 to i64
-  %28 = getelementptr ptr, ptr @envp_init, i64 %27
+  %28 = getelementptr [8 x i8], ptr @envp_init, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.loopexit2, label %31, !llvm.loop !34
@@ -1475,7 +1475,7 @@ define internal noundef i32 @unknown_bootoption(ptr noundef %0, ptr noundef capt
 
 .loopexit2:                                       ; preds = %37, %25, %17
   %40 = phi i64 [ 0, %17 ], [ %33, %37 ], [ %27, %25 ]
-  %41 = getelementptr ptr, ptr @envp_init, i64 %40
+  %41 = getelementptr [8 x i8], ptr @envp_init, i64 %40
   br label %53
 
 .preheader:                                       ; preds = %22, %45
@@ -1491,14 +1491,14 @@ define internal noundef i32 @unknown_bootoption(ptr noundef %0, ptr noundef capt
 45:                                               ; preds = %44, %.preheader
   %46 = add i32 %42, 1
   %47 = zext i32 %46 to i64
-  %48 = getelementptr ptr, ptr @argv_init, i64 %47
+  %48 = getelementptr [8 x i8], ptr @argv_init, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %45, %22
   %51 = phi i64 [ 0, %22 ], [ %47, %45 ]
-  %52 = getelementptr ptr, ptr @argv_init, i64 %51
+  %52 = getelementptr [8 x i8], ptr @argv_init, i64 %51
   br label %53
 
 53:                                               ; preds = %.loopexit, %.loopexit2
@@ -1626,7 +1626,7 @@ define internal noundef i32 @set_init_arg(ptr noundef %0, ptr noundef captures(a
 
 10:                                               ; preds = %.preheader
   %11 = add nuw nsw i64 %15, 1
-  %12 = getelementptr ptr, ptr @argv_init, i64 %11
+  %12 = getelementptr [8 x i8], ptr @argv_init, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !40
@@ -1642,7 +1642,7 @@ define internal noundef i32 @set_init_arg(ptr noundef %0, ptr noundef captures(a
 
 .loopexit:                                        ; preds = %10, %7
   %18 = phi i64 [ 0, %7 ], [ %11, %10 ]
-  %19 = getelementptr ptr, ptr @argv_init, i64 %18
+  %19 = getelementptr [8 x i8], ptr @argv_init, i64 %18
   br label %20
 
 20:                                               ; preds = %.loopexit, %17
@@ -2851,7 +2851,7 @@ define internal fastcc void @do_initcalls() unnamed_addr #4 section ".init.text"
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @do_initcall_level(i32 noundef %0, ptr noundef %1) unnamed_addr #4 section ".init.text" align 16 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr ptr, ptr @initcall_level_names, i64 %3
+  %4 = getelementptr [8 x i8], ptr @initcall_level_names, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = sdiv exact i64 sub (i64 ptrtoint (ptr @__stop___param to i64), i64 ptrtoint (ptr @__start___param to i64)), 40
   %7 = trunc i64 %6 to i32
@@ -2897,11 +2897,11 @@ define internal fastcc void @do_initcall_level(i32 noundef %0, ptr noundef %1) u
   br label %30
 
 30:                                               ; preds = %27, %23, %10, %2
-  %31 = getelementptr ptr, ptr @initcall_levels, i64 %3
+  %31 = getelementptr [8 x i8], ptr @initcall_levels, i64 %3
   %32 = load ptr, ptr %31, align 8
   %33 = add i32 %0, 1
   %34 = sext i32 %33 to i64
-  %35 = getelementptr ptr, ptr @initcall_levels, i64 %34
+  %35 = getelementptr [8 x i8], ptr @initcall_levels, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp ult ptr %32, %36
   br i1 %37, label %.preheader, label %.loopexit

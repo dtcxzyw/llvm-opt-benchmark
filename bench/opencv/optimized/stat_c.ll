@@ -118,7 +118,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %
 
 33:                                               ; preds = %20
   %34 = zext nneg i32 %19 to i64
-  %35 = getelementptr double, ptr %3, i64 %34
+  %35 = getelementptr [8 x i8], ptr %3, i64 %34
   %36 = getelementptr i8, ptr %35, i64 -8
   %37 = load double, ptr %36, align 8, !tbaa !24
   store double %37, ptr %3, align 8, !tbaa !24
@@ -397,7 +397,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %48, %
 
 53:                                               ; preds = %35
   %54 = zext nneg i32 %33 to i64
-  %55 = getelementptr double, ptr %5, i64 %54
+  %55 = getelementptr [8 x i8], ptr %5, i64 %54
   %56 = getelementptr i8, ptr %55, i64 -8
   %57 = load double, ptr %56, align 8, !tbaa !24
   store double %57, ptr %5, align 8, !tbaa !24
@@ -624,11 +624,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %60, %
 65:                                               ; preds = %47
   %66 = add nsw i32 %45, -1
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw double, ptr %5, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %67
   %69 = load double, ptr %68, align 8, !tbaa !24
   store double %69, ptr %5, align 8, !tbaa !24
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %71 = getelementptr inbounds nuw double, ptr %6, i64 %67
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %67
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, i8 0, i64 24, i1 false)
   %72 = load double, ptr %71, align 8, !tbaa !24
   store double %72, ptr %6, align 8, !tbaa !24

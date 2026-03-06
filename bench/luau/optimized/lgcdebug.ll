@@ -118,7 +118,7 @@ define hidden void @_Z9luaC_dumpP9lua_StatePvPFPKcS0_hE(ptr noundef %0, ptr noun
 
 .split.us:                                        ; preds = %3, %32
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %32 ], [ 0, %3 ]
-  %26 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv44
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv44
   %27 = load i64, ptr %26, align 8, !tbaa !36
   %.not.us = icmp eq i64 %27, 0
   br i1 %.not.us, label %32, label %28
@@ -142,7 +142,7 @@ define hidden void @_Z9luaC_dumpP9lua_StatePvPFPKcS0_hE(ptr noundef %0, ptr noun
 
 .split:                                           ; preds = %3, %44
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %3 ]
-  %36 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %37 = load i64, ptr %36, align 8, !tbaa !36
   %.not = icmp eq i64 %37, 0
   br i1 %.not, label %44, label %38
@@ -266,7 +266,7 @@ _ZL10dumpstringP8_IO_FILEP7TString.exit.i:        ; preds = %23, %7
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %84 ], [ 0, %49 ]
   %.045.i.i = phi i1 [ %.1.i.i, %84 ], [ true, %49 ]
   %53 = load ptr, ptr %29, align 8, !tbaa !43
-  %54 = getelementptr inbounds nuw %struct.LuaNode, ptr %53, i64 %indvars.iv.i.i
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %indvars.iv.i.i
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 12
   %56 = load i32, ptr %55, align 4, !tbaa !49
   %57 = icmp eq i32 %56, 0
@@ -347,7 +347,7 @@ _ZL10dumpstringP8_IO_FILEP7TString.exit.i:        ; preds = %23, %7
 .lr.ph.i.i19.i:                                   ; preds = %92, %108
   %.011.i.i.i = phi i64 [ %109, %108 ], [ 0, %92 ]
   %.0910.i.i.i = phi i1 [ %.1.i.i.i, %108 ], [ true, %92 ]
-  %98 = getelementptr inbounds nuw %struct.lua_TValue, ptr %95, i64 %.011.i.i.i
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %95, i64 %.011.i.i.i
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 12
   %100 = load i32, ptr %99, align 4, !tbaa !54
   %101 = icmp sgt i32 %100, 4
@@ -439,7 +439,7 @@ _ZL9dumptableP8_IO_FILEP8LuaTable.exit.i:         ; preds = %113, %110
 .lr.ph.i.i23.i:                                   ; preds = %141, %156
   %.011.i.i24.i = phi i64 [ %157, %156 ], [ 0, %141 ]
   %.0910.i.i25.i = phi i1 [ %.1.i.i26.i, %156 ], [ true, %141 ]
-  %146 = getelementptr inbounds nuw %struct.lua_TValue, ptr %143, i64 %.011.i.i24.i
+  %146 = getelementptr inbounds nuw [16 x i8], ptr %143, i64 %.011.i.i24.i
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 12
   %148 = load i32, ptr %147, align 4, !tbaa !54
   %149 = icmp sgt i32 %148, 4
@@ -495,7 +495,7 @@ _ZL9dumptableP8_IO_FILEP8LuaTable.exit.i:         ; preds = %113, %110
 .lr.ph.i40.i.i:                                   ; preds = %171, %186
   %.011.i41.i.i = phi i64 [ %187, %186 ], [ 0, %171 ]
   %.0910.i42.i.i = phi i1 [ %.1.i43.i.i, %186 ], [ true, %171 ]
-  %176 = getelementptr inbounds nuw %struct.lua_TValue, ptr %173, i64 %.011.i41.i.i
+  %176 = getelementptr inbounds nuw [16 x i8], ptr %173, i64 %.011.i41.i.i
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 12
   %178 = load i32, ptr %177, align 4, !tbaa !54
   %179 = icmp sgt i32 %178, 4
@@ -673,7 +673,7 @@ _ZL14dumpstringdataP8_IO_FILEPKcm.exit.i.i:       ; preds = %255, %243
 .lr.ph.i109.i.i:                                  ; preds = %267, %285
   %.011.i.i33.i = phi i64 [ %286, %285 ], [ 0, %267 ]
   %.0910.i.i34.i = phi i1 [ %.1.i.i35.i, %285 ], [ true, %267 ]
-  %275 = getelementptr inbounds nuw %struct.lua_TValue, ptr %269, i64 %.011.i.i33.i
+  %275 = getelementptr inbounds nuw [16 x i8], ptr %269, i64 %.011.i.i33.i
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 12
   %277 = load i32, ptr %276, align 4, !tbaa !54
   %278 = icmp sgt i32 %277, 4
@@ -1002,7 +1002,7 @@ _ZL14dumpstringdataP8_IO_FILEPKcm.exit.i53.i:     ; preds = %431, %419
 .lr.ph.i42.i.i:                                   ; preds = %444, %460
   %.011.i.i56.i = phi i64 [ %461, %460 ], [ 0, %444 ]
   %.0910.i.i57.i = phi i1 [ %.1.i.i58.i, %460 ], [ true, %444 ]
-  %450 = getelementptr inbounds nuw %struct.lua_TValue, ptr %447, i64 %.011.i.i56.i
+  %450 = getelementptr inbounds nuw [16 x i8], ptr %447, i64 %.011.i.i56.i
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 12
   %452 = load i32, ptr %451, align 4, !tbaa !54
   %453 = icmp sgt i32 %452, 4
@@ -1060,7 +1060,7 @@ _ZL8dumprefsP8_IO_FILEP10lua_TValuem.exit.i59.i:  ; preds = %460, %444
 
 472:                                              ; preds = %470, %469
   %473 = load ptr, ptr %468, align 8, !tbaa !106
-  %474 = getelementptr inbounds nuw ptr, ptr %473, i64 %indvars.iv.i64.i
+  %474 = getelementptr inbounds nuw [8 x i8], ptr %473, i64 %indvars.iv.i64.i
   %475 = load ptr, ptr %474, align 8, !tbaa !107
   %476 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.47, ptr noundef %475) #8
   %indvars.iv.next.i66.i = add nuw nsw i64 %indvars.iv.i64.i, 1
@@ -1256,7 +1256,7 @@ define internal noundef zeroext i1 @_ZL7enumgcoPvP8lua_PageP8GCObject(ptr nounde
   %77 = phi i8 [ %98, %97 ], [ %75, %.lr.ph.split.us.i.i ]
   %indvars.iv98.i.i = phi i64 [ %indvars.iv.next99.i.i, %97 ], [ 0, %.lr.ph.split.us.i.i ]
   %78 = load ptr, ptr %18, align 8, !tbaa !43
-  %79 = getelementptr inbounds nuw %struct.LuaNode, ptr %78, i64 %indvars.iv98.i.i
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %78, i64 %indvars.iv98.i.i
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 12
   %81 = load i32, ptr %80, align 4, !tbaa !49
   %82 = icmp eq i32 %81, 0
@@ -1298,7 +1298,7 @@ define internal noundef zeroext i1 @_ZL7enumgcoPvP8lua_PageP8GCObject(ptr nounde
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %167
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %167 ], [ 0, %.lr.ph.i.i ]
   %103 = load ptr, ptr %18, align 8, !tbaa !43
-  %104 = getelementptr inbounds nuw %struct.LuaNode, ptr %103, i64 %indvars.iv.i.i
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %103, i64 %indvars.iv.i.i
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 12
   %106 = load i32, ptr %105, align 4, !tbaa !49
   %107 = icmp eq i32 %106, 0
@@ -1391,7 +1391,7 @@ define internal noundef zeroext i1 @_ZL7enumgcoPvP8lua_PageP8GCObject(ptr nounde
   %153 = load ptr, ptr %152, align 8, !tbaa !4
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 2944
   %155 = zext nneg i32 %129 to i64
-  %156 = getelementptr inbounds nuw ptr, ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %155
   %157 = load ptr, ptr %156, align 8, !tbaa !118
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %159 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.51, ptr noundef nonnull %158) #8
@@ -1433,7 +1433,7 @@ define internal noundef zeroext i1 @_ZL7enumgcoPvP8lua_PageP8GCObject(ptr nounde
 
 178:                                              ; preds = %191, %.lr.ph.i.i.i
   %.010.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %192, %191 ]
-  %179 = getelementptr inbounds nuw %struct.lua_TValue, ptr %175, i64 %.010.i.i.i
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %175, i64 %.010.i.i.i
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 12
   %181 = load i32, ptr %180, align 4, !tbaa !54
   %182 = icmp sgt i32 %181, 4
@@ -1581,7 +1581,7 @@ _ZL9enumedgesP11EnumContextP8GCObjectP10lua_TValuemPKc.exit.i.i: ; preds = %191,
 
 263:                                              ; preds = %276, %.lr.ph.i.i25.i
   %.010.i.i26.i = phi i64 [ 0, %.lr.ph.i.i25.i ], [ %277, %276 ]
-  %264 = getelementptr inbounds nuw %struct.lua_TValue, ptr %261, i64 %.010.i.i26.i
+  %264 = getelementptr inbounds nuw [16 x i8], ptr %261, i64 %.010.i.i26.i
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 12
   %266 = load i32, ptr %265, align 4, !tbaa !54
   %267 = icmp sgt i32 %266, 4
@@ -1633,7 +1633,7 @@ _ZL9enumedgesP11EnumContextP8GCObjectP10lua_TValuemPKc.exit.i.i: ; preds = %191,
 
 291:                                              ; preds = %304, %.lr.ph.i56.i.i
   %.010.i57.i.i = phi i64 [ 0, %.lr.ph.i56.i.i ], [ %305, %304 ]
-  %292 = getelementptr inbounds nuw %struct.lua_TValue, ptr %289, i64 %.010.i57.i.i
+  %292 = getelementptr inbounds nuw [16 x i8], ptr %289, i64 %.010.i57.i.i
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 12
   %294 = load i32, ptr %293, align 4, !tbaa !54
   %295 = icmp sgt i32 %294, 4
@@ -1686,7 +1686,7 @@ _ZL9enumedgesP11EnumContextP8GCObjectP10lua_TValuemPKc.exit.i.i: ; preds = %191,
 
 .lr.ph.i34.i:                                     ; preds = %334, %.lr.ph.preheader.i.i
   %indvars.iv.i35.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i36.i, %334 ]
-  %316 = getelementptr inbounds nuw %struct.LuaNode, ptr %311, i64 %indvars.iv.i35.i
+  %316 = getelementptr inbounds nuw [32 x i8], ptr %311, i64 %indvars.iv.i35.i
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 16
   %318 = getelementptr inbounds nuw i8, ptr %316, i64 28
   %319 = load i32, ptr %318, align 4
@@ -1868,7 +1868,7 @@ _ZL9enumedgesP11EnumContextP8GCObjectP10lua_TValuemPKc.exit.i.i: ; preds = %191,
 
 .lr.ph.i.i52.i:                                   ; preds = %432, %415
   %.010.i.i53.i = phi i64 [ %433, %432 ], [ 0, %415 ]
-  %420 = getelementptr inbounds nuw %struct.lua_TValue, ptr %413, i64 %.010.i.i53.i
+  %420 = getelementptr inbounds nuw [16 x i8], ptr %413, i64 %.010.i.i53.i
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 12
   %422 = load i32, ptr %421, align 4, !tbaa !54
   %423 = icmp sgt i32 %422, 4
@@ -2015,7 +2015,7 @@ _ZL9enumedgesP11EnumContextP8GCObjectP10lua_TValuemPKc.exit.i.i: ; preds = %191,
 
 515:                                              ; preds = %528, %.lr.ph.i.i71.i
   %.010.i.i72.i = phi i64 [ 0, %.lr.ph.i.i71.i ], [ %529, %528 ]
-  %516 = getelementptr inbounds nuw %struct.lua_TValue, ptr %512, i64 %.010.i.i72.i
+  %516 = getelementptr inbounds nuw [16 x i8], ptr %512, i64 %.010.i.i72.i
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 12
   %518 = load i32, ptr %517, align 4, !tbaa !54
   %519 = icmp sgt i32 %518, 4
@@ -2054,7 +2054,7 @@ _ZL9enumedgesP11EnumContextP8GCObjectP10lua_TValuemPKc.exit.i74.i: ; preds = %52
 534:                                              ; preds = %534, %.lr.ph.i75.i
   %indvars.iv.i76.i = phi i64 [ 0, %.lr.ph.i75.i ], [ %indvars.iv.next.i79.i, %534 ]
   %535 = load ptr, ptr %532, align 8, !tbaa !106
-  %536 = getelementptr inbounds nuw ptr, ptr %535, i64 %indvars.iv.i76.i
+  %536 = getelementptr inbounds nuw [8 x i8], ptr %535, i64 %indvars.iv.i76.i
   %537 = load ptr, ptr %536, align 8, !tbaa !107
   %.val43.i.i = load ptr, ptr %506, align 8, !tbaa !114
   %.val44.i77.i = load ptr, ptr %533, align 8, !tbaa !116

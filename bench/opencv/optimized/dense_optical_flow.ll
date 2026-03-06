@@ -2869,7 +2869,7 @@ _ZNSt12_Vector_baseIN2cv4UMatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZS
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !75
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !85
-  %50 = getelementptr inbounds nuw %"class.cv::UMat", ptr %20, i64 %16
+  %50 = getelementptr inbounds nuw [80 x i8], ptr %20, i64 %16
   store ptr %50, ptr %49, align 8, !tbaa !86
   ret void
 
@@ -3104,7 +3104,7 @@ _ZNSt12_Vector_baseIN2cv4UMatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZS
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !75
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !85
-  %50 = getelementptr inbounds nuw %"class.cv::UMat", ptr %20, i64 %16
+  %50 = getelementptr inbounds nuw [80 x i8], ptr %20, i64 %16
   store ptr %50, ptr %49, align 8, !tbaa !86
   ret void
 

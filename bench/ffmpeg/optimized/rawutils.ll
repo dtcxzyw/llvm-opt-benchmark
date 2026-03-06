@@ -171,7 +171,7 @@ define range(i32 -1094995529, 2) i32 @ff_get_packet_palette(ptr noundef %0, ptr 
   %21 = shl nuw nsw i64 %indvars.iv, 2
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
   %23 = load i32, ptr %22, align 1, !tbaa !26
-  %24 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %23, ptr %24, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256

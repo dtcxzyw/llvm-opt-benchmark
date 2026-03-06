@@ -158,13 +158,13 @@ define noundef range(i32 -100010, 1) i32 @_ZN6LibRaw24phase_one_subtract_blackEP
   %46 = mul nuw nsw i32 %45, %.055101
   %47 = add nuw nsw i32 %46, %.06298
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw i16, ptr %1, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %48
   %50 = load i16, ptr %49, align 2, !tbaa !82
   %51 = zext i16 %50 to i32
   %52 = sub nsw i32 %51, %32
   %53 = tail call i32 @llvm.smax.i32(i32 %52, i32 0)
   %54 = trunc i32 %53 to i16
-  %55 = getelementptr inbounds nuw i16, ptr %2, i64 %48
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %48
   store i16 %54, ptr %55, align 2, !tbaa !82
   %56 = add nuw nsw i32 %.06298, 1
   %57 = load i16, ptr %35, align 2, !tbaa !79
@@ -198,14 +198,14 @@ define noundef range(i32 -100010, 1) i32 @_ZN6LibRaw24phase_one_subtract_blackEP
 
 .lr.ph93:                                         ; preds = %.preheader83
   %70 = load ptr, ptr %25, align 8, !tbaa !76
-  %71 = getelementptr inbounds nuw [2 x i16], ptr %70, i64 %indvars.iv116
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv116
   %72 = load i32, ptr %66, align 8, !tbaa !84
   %73 = load ptr, ptr %28, align 8, !tbaa !77
   %74 = load i32, ptr %67, align 8, !tbaa !85
   %75 = sext i32 %74 to i64
   %76 = icmp sge i64 %indvars.iv116, %75
   %77 = zext i1 %76 to i64
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %73, i64 %77
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %77
   %78 = sext i32 %72 to i64
   br label %84
 
@@ -228,23 +228,23 @@ define noundef range(i32 -100010, 1) i32 @_ZN6LibRaw24phase_one_subtract_blackEP
   %85 = zext i16 %.in to i64
   %86 = mul nuw nsw i64 %indvars.iv116, %85
   %87 = add nuw nsw i64 %86, %indvars.iv113
-  %88 = getelementptr inbounds nuw i16, ptr %1, i64 %87
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %87
   %89 = load i16, ptr %88, align 2, !tbaa !82
   %90 = zext i16 %89 to i32
   %91 = sub i32 %90, %64
   %92 = icmp sge i64 %indvars.iv113, %78
   %93 = zext i1 %92 to i64
-  %94 = getelementptr inbounds nuw i16, ptr %71, i64 %93
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %71, i64 %93
   %95 = load i16, ptr %94, align 2, !tbaa !82
   %96 = sext i16 %95 to i32
   %97 = add nsw i32 %91, %96
-  %gep = getelementptr inbounds nuw [2 x i16], ptr %invariant.gep, i64 %indvars.iv113
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv113
   %98 = load i16, ptr %gep, align 2, !tbaa !82
   %99 = sext i16 %98 to i32
   %100 = add nsw i32 %97, %99
   %101 = tail call i32 @llvm.smax.i32(i32 %100, i32 0)
   %102 = trunc i32 %101 to i16
-  %103 = getelementptr inbounds nuw i16, ptr %2, i64 %87
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %87
   store i16 %102, ptr %103, align 2, !tbaa !82
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %104 = load i16, ptr %65, align 2, !tbaa !79
@@ -284,10 +284,10 @@ define noundef range(i32 -100010, 1) i32 @_ZN6LibRaw24phase_one_subtract_blackEP
 
 116:                                              ; preds = %113
   %117 = sext i32 %115 to i64
-  %118 = getelementptr inbounds i32, ptr %22, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr %22, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !88
   %120 = trunc i32 %119 to i16
-  %121 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   store i16 %120, ptr %121, align 2, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -314,14 +314,14 @@ define noundef range(i32 -100010, 1) i32 @_ZN6LibRaw24phase_one_subtract_blackEP
   %129 = mul nuw nsw i32 %128, %.05990
   %130 = add nuw nsw i32 %129, %.05789
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw i16, ptr %1, i64 %131
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %131
   %133 = load i16, ptr %132, align 2, !tbaa !82
   %134 = and i32 %.05789, 15
   %135 = zext nneg i32 %134 to i64
-  %136 = getelementptr inbounds nuw i16, ptr %4, i64 %135
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %135
   %137 = load i16, ptr %136, align 2, !tbaa !82
   %138 = tail call i16 @llvm.usub.sat.i16(i16 %133, i16 %137)
-  %139 = getelementptr inbounds nuw i16, ptr %2, i64 %131
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %131
   store i16 %138, ptr %139, align 2, !tbaa !82
   %140 = add nuw nsw i32 %.05789, 1
   %141 = load i16, ptr %23, align 2, !tbaa !79

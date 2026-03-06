@@ -418,7 +418,7 @@ define noundef ptr @_Z36grpc_security_connector_find_in_argsPK17grpc_channel_arg
 .lr.ph:                                           ; preds = %.preheader, %5
   %.01013 = phi i64 [ %6, %5 ], [ 0, %.preheader ]
   %9 = load ptr, ptr %3, align 8, !tbaa !42
-  %10 = getelementptr inbounds nuw %struct.grpc_arg, ptr %9, i64 %.01013
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %.01013
   %11 = tail call noundef ptr @_Z32grpc_security_connector_from_argPK8grpc_arg(ptr noundef %10)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %5, label %.loopexit
@@ -647,7 +647,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !50
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !47
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !51
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 

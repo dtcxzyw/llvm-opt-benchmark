@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._cairo_rectangle_int = type { i32, i32, i32, i32 }
 %struct._PangoRectangle = type { i32, i32, i32, i32 }
 %struct._GSList = type { ptr, ptr }
-%struct.dt_introspection_type_enum_tuple_t = type { ptr, i32, ptr }
 
 @dt_bh_get_type.static_g_define_type_id = internal global i64 0, align 8
 @darktable = external local_unnamed_addr global %struct.darktable_t, align 8
@@ -852,7 +851,7 @@ _slider_get_line_offset.exit:                     ; preds = %171, %174
 229:                                              ; preds = %223
   %.val.val = load ptr, ptr %225, align 8, !tbaa !133
   %230 = zext nneg i32 %221 to i64
-  %231 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %230
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %230
   %232 = load ptr, ptr %231, align 8, !tbaa !134
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 12
   %234 = load i32, ptr %233, align 4, !tbaa !135
@@ -1367,7 +1366,7 @@ _build_label.exit:                                ; preds = %229, %232
   %.0329454 = phi i1 [ %265, %.lr.ph ], [ true, %378 ]
   %.0331453 = phi i32 [ 1, %.lr.ph ], [ %.1332, %378 ]
   %.val.val = load ptr, ptr %.val, align 8, !tbaa !133
-  %273 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %indvars.iv
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %indvars.iv
   %274 = load ptr, ptr %273, align 8, !tbaa !134
   %275 = load ptr, ptr %274, align 8, !tbaa !149
   %276 = call noalias ptr @g_utf8_casefold(ptr noundef %275, i64 noundef -1) #20
@@ -3770,7 +3769,7 @@ DT_BAUHAUS_WIDGET.exit.i.i:                       ; preds = %6, %4, %2
 
 19:                                               ; preds = %27, %.lr.ph23.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph23.i ], [ %indvars.iv.next.i, %27 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %.val.val.i, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.val.val.i, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8, !tbaa !134
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !209
@@ -5010,7 +5009,7 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %9, %11, %13
 30:                                               ; preds = %26
   %31 = add i32 %25, -1
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %.val.val, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.val.val, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !134
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !209
@@ -5117,7 +5116,7 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %3, %5, %7
 19:                                               ; preds = %14
   %.val.val = load ptr, ptr %16, align 8, !tbaa !133
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !134
   %23 = load ptr, ptr %22, align 8, !tbaa !149
   tail call void @g_free(ptr noundef %23) #20
@@ -5571,7 +5570,7 @@ DT_BAUHAUS_WIDGET.exit.i:                         ; preds = %5, %3, %1
 26:                                               ; preds = %18
   %.val.val = load ptr, ptr %15, align 8, !tbaa !133
   %27 = zext nneg i32 %13 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !134
   %30 = load ptr, ptr %29, align 8, !tbaa !149
   br label %_combobox_data.exit
@@ -5626,7 +5625,7 @@ DT_BAUHAUS_WIDGET.exit.i:                         ; preds = %5, %3, %1
 20:                                               ; preds = %18
   %.val.val = load ptr, ptr %15, align 8, !tbaa !133
   %21 = zext nneg i32 %13 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !134
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !209
@@ -5722,7 +5721,7 @@ _combobox_data.exit:                              ; preds = %12, %19
 21:                                               ; preds = %_combobox_data.exit
   %.val.val = load ptr, ptr %16, align 8, !tbaa !133
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !134
   %25 = load ptr, ptr %24, align 8, !tbaa !149
   br label %_combobox_data.exit.thread
@@ -5875,7 +5874,7 @@ define internal fastcc void @_combobox_set(ptr noundef initializes((408, 412)) %
   %.val = load ptr, ptr %9, align 8, !tbaa !128
   %.val.val = load ptr, ptr %.val, align 8, !tbaa !133
   %57 = zext nneg i32 %53 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !134
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !209
@@ -6016,7 +6015,7 @@ DT_BAUHAUS_WIDGET.exit.i:                         ; preds = %7, %5, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %.lr.ph ]
   %25 = phi ptr [ %42, %41 ], [ %22, %.lr.ph ]
   %.val.val = load ptr, ptr %25, align 8, !tbaa !133
-  %26 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !134
   %28 = load ptr, ptr %27, align 8, !tbaa !149
   %29 = tail call i32 @g_strcmp0(ptr noundef %28, ptr noundef nonnull %1) #20
@@ -6120,7 +6119,7 @@ DT_BAUHAUS_WIDGET.exit.i:                         ; preds = %6, %4, %2
 
 24:                                               ; preds = %.lr.ph23, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph23 ], [ %indvars.iv.next, %32 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !134
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !209
@@ -6237,7 +6236,7 @@ _combobox_data.exit:                              ; preds = %13, %20
 22:                                               ; preds = %_combobox_data.exit
   %.val.val = load ptr, ptr %17, align 8, !tbaa !133
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !134
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 %2, ptr %26, align 4, !tbaa !135
@@ -6338,13 +6337,13 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %5, %7, %9
 
 29:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %30 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %31 = load float, ptr %30, align 4, !tbaa !144
   %32 = fcmp reassoc nsz arcp contract afn oeq float %31, %1
   br i1 %32, label %33, label %28
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw [3 x float], ptr %23, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %indvars.iv
   store float %2, ptr %34, align 4, !tbaa !144
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store float %3, ptr %35, align 4, !tbaa !144
@@ -6362,9 +6361,9 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %5, %7, %9
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 472
   %40 = load ptr, ptr %39, align 8, !tbaa !221
   %41 = sext i32 %25 to i64
-  %42 = getelementptr inbounds float, ptr %40, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %40, i64 %41
   store float %1, ptr %42, align 4, !tbaa !144
-  %43 = getelementptr inbounds [3 x float], ptr %23, i64 %41
+  %43 = getelementptr inbounds [12 x i8], ptr %23, i64 %41
   store float %2, ptr %43, align 4, !tbaa !144
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store float %3, ptr %44, align 4, !tbaa !144
@@ -7973,7 +7972,7 @@ _draw_quad.exit:                                  ; preds = %_draw_quad.exit.sin
 186:                                              ; preds = %180
   %.val.val = load ptr, ptr %182, align 8, !tbaa !133
   %187 = zext nneg i32 %178 to i64
-  %188 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %187
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %187
   %189 = load ptr, ptr %188, align 8, !tbaa !134
   %190 = load ptr, ptr %189, align 8, !tbaa !149
   br label %191
@@ -9539,13 +9538,13 @@ _widget_get_quad_width.exit:                      ; preds = %6, %8
 52:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
   %53 = load ptr, ptr %49, align 8, !tbaa !221
-  %54 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   %55 = load float, ptr %54, align 4, !tbaa !144
   %56 = fpext reassoc nsz arcp contract afn float %55 to double
   %57 = fsub reassoc nsz arcp contract afn double %56, %42
   %58 = fmul reassoc nsz arcp contract afn double %57, %51
   %59 = load ptr, ptr %50, align 8, !tbaa !220
-  %60 = getelementptr inbounds nuw [3 x float], ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [12 x i8], ptr %59, i64 %indvars.iv
   %61 = load float, ptr %60, align 4, !tbaa !144
   %62 = fpext reassoc nsz arcp contract afn float %61 to double
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
@@ -10329,7 +10328,7 @@ define internal fastcc void @_combobox_next_sensitive(ptr noundef %0, i32 nounde
 27:                                               ; preds = %.lr.ph
   %.val.val = load ptr, ptr %23, align 8, !tbaa !133
   %28 = zext nneg i32 %.03037 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !134
   %31 = load ptr, ptr %30, align 8, !tbaa !149
   %32 = tail call noalias ptr @g_utf8_casefold(ptr noundef %31, i64 noundef -1) #20
@@ -11057,7 +11056,7 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %2, %8, %10
   %.val.us = phi ptr [ %55, %.lr.ph.split.us.preheader ], [ %63, %.lr.ph.split.us ]
   %indvars.iv64 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next65, %.lr.ph.split.us ]
   %.val.val.us = load ptr, ptr %.val.us, align 8, !tbaa !133
-  %56 = getelementptr inbounds nuw ptr, ptr %.val.val.us, i64 %indvars.iv64
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %.val.val.us, i64 %indvars.iv64
   %57 = load ptr, ptr %56, align 8, !tbaa !134
   %58 = load ptr, ptr %57, align 8, !tbaa !149
   call void @pango_layout_set_text(ptr noundef %14, ptr noundef %58, i32 noundef -1) #20
@@ -11085,7 +11084,7 @@ DT_BAUHAUS_WIDGET.exit:                           ; preds = %2, %8, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ 0, %.lr.ph ]
   %.160 = phi i32 [ %.2, %74 ], [ %.0, %.lr.ph ]
   %.val.val = load ptr, ptr %.val, align 8, !tbaa !133
-  %68 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8, !tbaa !134
   %.not56 = icmp eq i64 %indvars.iv, 0
   br i1 %.not56, label %70, label %73
@@ -12239,7 +12238,7 @@ dt_bauhaus_widget_get_quad_active.exit:           ; preds = %15, %17, %19
 
 54:                                               ; preds = %47
   %55 = sext i32 %48 to i64
-  %56 = getelementptr inbounds %struct.dt_introspection_type_enum_tuple_t, ptr %53, i64 %55
+  %56 = getelementptr inbounds [24 x i8], ptr %53, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i32, ptr %57, align 8, !tbaa !212
   br label %59
@@ -12306,7 +12305,7 @@ DT_BAUHAUS_WIDGET.exit.i.i:                       ; preds = %67, %65, %61
 88:                                               ; preds = %80
   %.val.val.i = load ptr, ptr %77, align 8, !tbaa !133
   %89 = zext nneg i32 %75 to i64
-  %90 = getelementptr inbounds nuw ptr, ptr %.val.val.i, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %.val.val.i, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !134
   %92 = load ptr, ptr %91, align 8, !tbaa !149
   br label %.thread
@@ -12400,7 +12399,7 @@ DT_BAUHAUS_WIDGET.exit.i.i59:                     ; preds = %117, %115, %114
 132:                                              ; preds = %130
   %.val.val.i64 = load ptr, ptr %127, align 8, !tbaa !133
   %133 = zext nneg i32 %125 to i64
-  %134 = getelementptr inbounds nuw ptr, ptr %.val.val.i64, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %.val.val.i64, i64 %133
   %135 = load ptr, ptr %134, align 8, !tbaa !134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %137 = load ptr, ptr %136, align 8, !tbaa !209
@@ -12491,7 +12490,7 @@ dt_bauhaus_combobox_get.exit:                     ; preds = %160
 176:                                              ; preds = %.lr.ph, %176
   %indvars.iv = phi i64 [ %169, %.lr.ph ], [ %indvars.iv.next, %176 ]
   %.04373 = phi i32 [ %162, %.lr.ph ], [ %spec.select, %176 ]
-  %177 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %indvars.iv
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %.val.val, i64 %indvars.iv
   %178 = load ptr, ptr %177, align 8, !tbaa !134
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 12
   %180 = load i32, ptr %179, align 4, !tbaa !135

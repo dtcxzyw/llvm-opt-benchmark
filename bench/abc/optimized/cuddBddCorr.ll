@@ -137,7 +137,7 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %54 = load ptr, ptr %53, align 8, !tbaa !32
   %55 = zext i32 %50 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !33
   br label %58
 
@@ -151,7 +151,7 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %64 = load ptr, ptr %63, align 8, !tbaa !32
   %65 = zext i32 %60 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !33
   br label %68
 
@@ -359,7 +359,7 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %55 = load ptr, ptr %54, align 8, !tbaa !32
   %56 = zext i32 %51 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !33
   br label %59
 
@@ -373,7 +373,7 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %65 = load ptr, ptr %64, align 8, !tbaa !32
   %66 = zext i32 %61 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !33
   br label %69
 
@@ -413,7 +413,7 @@ define internal fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noun
   %.193 = select i1 %.not107, ptr %.092, ptr %85
   %86 = call fastcc double @bddCorrelationWeightsAux(ptr noundef %0, ptr noundef %.088, ptr noundef %.193, ptr noundef %3, ptr noundef %4)
   %87 = sext i32 %.084 to i64
-  %88 = getelementptr inbounds double, ptr %3, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %3, i64 %87
   %89 = load double, ptr %88, align 8, !tbaa !30
   %90 = fmul double %86, %89
   %91 = fcmp oeq double %90, -1.000000e+00

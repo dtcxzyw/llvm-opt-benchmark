@@ -312,7 +312,7 @@ define internal i32 @dissect_btmesh_proxy_msg(ptr noundef %0, ptr noundef %1, pt
   %51 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %50, ptr noundef %0, i32 noundef 1, i32 noundef %45, i32 noundef 0)
   %52 = load i32, ptr %19, align 4
   %53 = zext i32 %52 to i64
-  %54 = getelementptr i32, ptr @sequence_counter, i64 %53
+  %54 = getelementptr [4 x i8], ptr @sequence_counter, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = add i32 %55, 1
   store i32 %56, ptr %54, align 4
@@ -324,13 +324,13 @@ define internal i32 @dissect_btmesh_proxy_msg(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not141, label %61, label %70
 
 61:                                               ; preds = %49
-  %62 = getelementptr i32, ptr @fragment_counter, i64 %53
+  %62 = getelementptr [4 x i8], ptr @fragment_counter, i64 %53
   store i32 0, ptr %62, align 4
   %63 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1)
   %64 = tail call ptr @fragment_add_seq(ptr noundef nonnull @proxy_reassembly_table, ptr noundef %0, i32 noundef 1, ptr noundef %1, i32 noundef %56, ptr noundef null, i32 noundef 0, i32 noundef %63, i1 noundef zeroext true, i32 noundef 0)
   %65 = load i32, ptr %19, align 4
   %66 = zext i32 %65 to i64
-  %67 = getelementptr i32, ptr @fragment_counter, i64 %66
+  %67 = getelementptr [4 x i8], ptr @fragment_counter, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 4
@@ -354,15 +354,15 @@ define internal i32 @dissect_btmesh_proxy_msg(ptr noundef %0, ptr noundef %1, pt
 79:                                               ; preds = %72
   %80 = load i32, ptr %19, align 4
   %81 = zext i32 %80 to i64
-  %82 = getelementptr i32, ptr @sequence_counter, i64 %81
+  %82 = getelementptr [4 x i8], ptr @sequence_counter, i64 %81
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr i32, ptr @fragment_counter, i64 %81
+  %84 = getelementptr [4 x i8], ptr @fragment_counter, i64 %81
   %85 = load i32, ptr %84, align 4
   %86 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1)
   %87 = tail call ptr @fragment_add_seq(ptr noundef nonnull @proxy_reassembly_table, ptr noundef %0, i32 noundef 1, ptr noundef %1, i32 noundef %83, ptr noundef null, i32 noundef %85, i32 noundef %86, i1 noundef zeroext true, i32 noundef 0)
   %88 = load i32, ptr %19, align 4
   %89 = zext i32 %88 to i64
-  %90 = getelementptr i32, ptr @fragment_counter, i64 %89
+  %90 = getelementptr [4 x i8], ptr @fragment_counter, i64 %89
   %91 = load i32, ptr %90, align 4
   %92 = add i32 %91, 1
   store i32 %92, ptr %90, align 4
@@ -386,15 +386,15 @@ define internal i32 @dissect_btmesh_proxy_msg(ptr noundef %0, ptr noundef %1, pt
 102:                                              ; preds = %95
   %103 = load i32, ptr %19, align 4
   %104 = zext i32 %103 to i64
-  %105 = getelementptr i32, ptr @sequence_counter, i64 %104
+  %105 = getelementptr [4 x i8], ptr @sequence_counter, i64 %104
   %106 = load i32, ptr %105, align 4
-  %107 = getelementptr i32, ptr @fragment_counter, i64 %104
+  %107 = getelementptr [4 x i8], ptr @fragment_counter, i64 %104
   %108 = load i32, ptr %107, align 4
   %109 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1)
   %110 = tail call ptr @fragment_add_seq(ptr noundef nonnull @proxy_reassembly_table, ptr noundef %0, i32 noundef 1, ptr noundef %1, i32 noundef %106, ptr noundef null, i32 noundef %108, i32 noundef %109, i1 noundef zeroext false, i32 noundef 0)
   %111 = load i32, ptr %19, align 4
   %112 = zext i32 %111 to i64
-  %113 = getelementptr i32, ptr @fragment_counter, i64 %112
+  %113 = getelementptr [4 x i8], ptr @fragment_counter, i64 %112
   %114 = load i32, ptr %113, align 4
   %115 = add i32 %114, 1
   store i32 %115, ptr %113, align 4
@@ -402,7 +402,7 @@ define internal i32 @dissect_btmesh_proxy_msg(ptr noundef %0, ptr noundef %1, pt
   %117 = tail call noalias dereferenceable_or_null(4) ptr @wmem_alloc0(ptr noundef %116, i64 noundef 4) #7
   %118 = load i32, ptr %19, align 4
   %119 = zext i32 %118 to i64
-  %120 = getelementptr i32, ptr @sequence_counter, i64 %119
+  %120 = getelementptr [4 x i8], ptr @sequence_counter, i64 %119
   %121 = load i32, ptr %120, align 4
   store i32 %121, ptr %117, align 4
   %122 = load ptr, ptr @connection_info_tree, align 8

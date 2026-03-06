@@ -4,14 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::locale::id" = type { i64 }
-%"class.Eigen::Matrix" = type { %"class.Eigen::PlainObjectBase" }
-%"class.Eigen::PlainObjectBase" = type { %"class.Eigen::DenseStorage" }
-%"class.Eigen::DenseStorage" = type { %"struct.Eigen::internal::plain_array" }
-%"struct.Eigen::internal::plain_array" = type { [2 x i32] }
-%"class.Eigen::Matrix.20" = type { %"class.Eigen::PlainObjectBase.21" }
-%"class.Eigen::PlainObjectBase.21" = type { %"class.Eigen::DenseStorage.28" }
-%"class.Eigen::DenseStorage.28" = type { %"struct.Eigen::internal::plain_array.29" }
-%"struct.Eigen::internal::plain_array.29" = type { [3 x double] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -92,17 +84,17 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration38CorrespondenceCh
   br i1 %.not45, label %.critedge.lr.ph, label %.loopexit
 
 .critedge.lr.ph:                                  ; preds = %20
-  %22 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %8, i64 %.02847
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.02847
   %23 = load i32, ptr %22, align 4, !tbaa !11
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"class.Eigen::Matrix.20", ptr %15, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %24
   %26 = load <2 x double>, ptr %25, align 1, !tbaa !13
   %27 = getelementptr i8, ptr %25, i64 16
   %28 = load double, ptr %27, align 8, !tbaa !14
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !11
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"class.Eigen::Matrix.20", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %31
   %33 = load <2 x double>, ptr %32, align 1, !tbaa !13
   %34 = getelementptr i8, ptr %32, i64 16
   %35 = load double, ptr %34, align 8, !tbaa !14
@@ -115,10 +107,10 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration38CorrespondenceCh
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %36
   %.02946 = phi i64 [ %21, %.critedge.lr.ph ], [ %37, %36 ]
-  %38 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %8, i64 %.02946
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.02946
   %39 = load i32, ptr %38, align 4, !tbaa !11
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"class.Eigen::Matrix.20", ptr %15, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %40
   %42 = load <2 x double>, ptr %41, align 1, !tbaa !13
   %43 = fsub <2 x double> %26, %42
   %44 = fmul <2 x double> %43, %43
@@ -134,7 +126,7 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration38CorrespondenceCh
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !11
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds nuw %"class.Eigen::Matrix.20", ptr %17, i64 %53
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %53
   %55 = load <2 x double>, ptr %54, align 1, !tbaa !13
   %56 = fsub <2 x double> %33, %55
   %57 = fmul <2 x double> %56, %56
@@ -211,7 +203,7 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration36CorrespondenceCh
   %.sroa.024.028 = phi ptr [ %6, %.lr.ph ], [ %79, %34 ]
   %35 = load i32, ptr %.sroa.024.028, align 4, !tbaa !11
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.Eigen::Matrix.20", ptr %10, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %36
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -251,7 +243,7 @@ define noundef zeroext i1 @_ZNK6open3d9pipelines12registration36CorrespondenceCh
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.024.028, i64 4
   %66 = load i32, ptr %65, align 4, !tbaa !11
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds nuw %"class.Eigen::Matrix.20", ptr %27, i64 %67
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %67
   %69 = load <2 x double>, ptr %68, align 1, !tbaa !13
   %70 = fsub <2 x double> %69, %53
   %71 = fmul <2 x double> %70, %70
@@ -377,7 +369,7 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread: ; preds = %21, %5, %
   %.sroa.029.033 = phi ptr [ %41, %.lr.ph ], [ %106, %63 ]
   %64 = load i32, ptr %.sroa.029.033, align 4, !tbaa !11
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %"class.Eigen::Matrix.20", ptr %16, i64 %65
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %65
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -417,7 +409,7 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread: ; preds = %21, %5, %
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.029.033, i64 4
   %95 = load i32, ptr %94, align 4, !tbaa !11
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"class.Eigen::Matrix.20", ptr %32, i64 %96
+  %97 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %96
   %98 = load <2 x double>, ptr %97, align 1, !tbaa !13
   %99 = fmul <2 x double> %82, %98
   %shift66 = shufflevector <2 x double> %99, <2 x double> poison, <2 x i32> <i32 1, i32 poison>

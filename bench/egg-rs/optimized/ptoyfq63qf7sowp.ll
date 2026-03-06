@@ -172,7 +172,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN3egg3run16BackoffSche
 42:                                               ; preds = %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12contains_key17h470a3ec433032820E.exit.thread"
   %43 = extractvalue { i64, i64 } %38, 1
   %44 = sub nsw i64 0, %43
-  %45 = getelementptr inbounds i64, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   %46 = getelementptr inbounds i8, ptr %45, i64 -8
   %47 = load i64, ptr %46, align 8, !noalias !47, !noundef !14
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
@@ -186,7 +186,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN3egg3run16BackoffSche
 
 "_ZN8indexmap3map4core3raw26OccupiedEntry$LT$K$C$V$GT$8into_mut17h05f0c6143d412a40E.exit.i": ; preds = %42
   %51 = load ptr, ptr %30, align 8, !alias.scope !53, !noalias !56, !nonnull !14, !noundef !14
-  %52 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %51, i64 %47
+  %52 = getelementptr inbounds [56 x i8], ptr %51, i64 %47
   br label %"_ZN8indexmap3map4core18Entry$LT$K$C$V$GT$9or_insert17h1b8611b4890cfc68E.exit"
 
 53:                                               ; preds = %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12contains_key17h470a3ec433032820E.exit.thread"
@@ -212,7 +212,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN3egg3run16BackoffSche
 
 "_ZN8indexmap3map4core24VacantEntry$LT$K$C$V$GT$6insert17h659361e6e1c76466E.llvm.3488692421967456325.exit.i": ; preds = %53
   %62 = load ptr, ptr %30, align 8, !alias.scope !67, !noalias !70, !nonnull !14, !noundef !14
-  %63 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %62, i64 %58
+  %63 = getelementptr inbounds [56 x i8], ptr %62, i64 %58
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !62
   br label %"_ZN8indexmap3map4core18Entry$LT$K$C$V$GT$9or_insert17h1b8611b4890cfc68E.exit"
 
@@ -260,7 +260,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN3egg3run16BackoffSche
   %80 = load ptr, ptr %23, align 8, !alias.scope !119, !noalias !120, !nonnull !14
   %81 = extractvalue { i64, i64 } %76, 1
   %82 = sub nsw i64 0, %81
-  %83 = getelementptr inbounds i64, ptr %80, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %80, i64 %82
   %84 = getelementptr inbounds i8, ptr %83, i64 -8
   %85 = load i64, ptr %84, align 8, !noalias !118, !noundef !14
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !104
@@ -278,7 +278,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN3egg3run16BackoffSche
 
 "_ZN100_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..index..IndexMut$LT$$RF$Q$GT$$GT$9index_mut17h9300c24bae81af52E.exit": ; preds = %79
   %90 = load ptr, ptr %17, align 8, !alias.scope !121, !noalias !122, !nonnull !14, !noundef !14
-  %91 = getelementptr inbounds { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }, ptr %90, i64 %85
+  %91 = getelementptr inbounds [56 x i8], ptr %90, i64 %85
   br label %"_ZN8indexmap3map4core18Entry$LT$K$C$V$GT$9or_insert17h1b8611b4890cfc68E.exit"
 
 "_ZN8indexmap3map4core18Entry$LT$K$C$V$GT$9or_insert17h1b8611b4890cfc68E.exit": ; preds = %"_ZN8indexmap3map4core24VacantEntry$LT$K$C$V$GT$6insert17h659361e6e1c76466E.llvm.3488692421967456325.exit.i", %"_ZN8indexmap3map4core3raw26OccupiedEntry$LT$K$C$V$GT$8into_mut17h05f0c6143d412a40E.exit.i", %"_ZN100_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$core..ops..index..IndexMut$LT$$RF$Q$GT$$GT$9index_mut17h9300c24bae81af52E.exit"

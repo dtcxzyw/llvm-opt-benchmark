@@ -8,10 +8,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.eastl::segmented_vector_iterator.2" = type { ptr, ptr, ptr }
 %"struct.eastl::segmented_vector_iterator.3" = type { ptr, ptr, ptr }
 %"struct.eastl::segmented_vector_iterator.7" = type { ptr, ptr, ptr }
-%struct.Align64 = type { i32, [60 x i8] }
 %"struct.eastl::segmented_vector_iterator.8" = type { ptr, ptr, ptr }
 %"struct.eastl::segmented_vector_iterator.12" = type { ptr, ptr, ptr }
-%struct.TestObject = type <{ i32, i8, [3 x i8], i64, i32, [4 x i8] }>
 %"struct.eastl::segmented_vector_iterator.13" = type { ptr, ptr, ptr }
 %"class.eastl::segmented_vector.16" = type { %"class.eastl::allocator", ptr, ptr, i64 }
 %"class.eastl::allocator" = type { i8 }
@@ -1100,7 +1098,7 @@ if.then:                                          ; preds = %entry
   %tobool.not.i = icmp eq i64 %and.i, 0
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %mData.i, i64 %3
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %mData.i, i64 %3
   %add.ptr4.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %retval.0.i = select i1 %tobool.not.i, ptr %add.ptr4.i, ptr %add.ptr.i
   br label %if.end
@@ -1133,7 +1131,7 @@ if.then:                                          ; preds = %entry
   %tobool.not.i = icmp eq i64 %and.i, 0
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
-  %add.ptr.i = getelementptr inbounds i32, ptr %mData.i, i64 %3
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %mData.i, i64 %3
   %add.ptr4.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %retval.0.i = select i1 %tobool.not.i, ptr %add.ptr4.i, ptr %add.ptr.i
   %mEnd = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -1208,7 +1206,7 @@ entry:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr i8, ptr %0, i64 12
-  %arrayidx = getelementptr i32, ptr %3, i64 %2
+  %arrayidx = getelementptr [4 x i8], ptr %3, i64 %2
   ret ptr %arrayidx
 }
 
@@ -1239,7 +1237,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
   %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %mData.i, i64 %2
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -1300,7 +1298,7 @@ if.then2:                                         ; preds = %if.then
   %inc = add nuw nsw i64 %2, 1
   store i64 %inc, ptr %1, align 8
   %mData = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %add.ptr = getelementptr inbounds nuw i32, ptr %mData, i64 %2
+  %add.ptr = getelementptr inbounds nuw [4 x i8], ptr %mData, i64 %2
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -1360,7 +1358,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
   %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %mData.i, i64 %2
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -1422,7 +1420,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
   %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %mData.i, i64 %2
+  %add.ptr.i = getelementptr inbounds nuw [4 x i8], ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorIiLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -1516,7 +1514,7 @@ entry:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr i8, ptr %0, i64 12
-  %arrayidx.i = getelementptr i32, ptr %3, i64 %2
+  %arrayidx.i = getelementptr [4 x i8], ptr %3, i64 %2
   %4 = load i32, ptr %arrayidx.i, align 4
   store i32 %4, ptr %it, align 4
   %5 = load ptr, ptr %mLastSegment.i, align 8
@@ -1568,7 +1566,7 @@ entry:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr i8, ptr %0, i64 12
-  %arrayidx.i = getelementptr i32, ptr %3, i64 %2
+  %arrayidx.i = getelementptr [4 x i8], ptr %3, i64 %2
   %4 = load i32, ptr %arrayidx.i, align 4
   %5 = load ptr, ptr %i, align 8
   store i32 %4, ptr %5, align 4
@@ -1792,7 +1790,7 @@ if.then:                                          ; preds = %entry
   %tobool.not.i = icmp eq i64 %and.i, 0
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %mData.i, i64 %3
+  %add.ptr.i = getelementptr inbounds [64 x i8], ptr %mData.i, i64 %3
   %add.ptr4.i = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %retval.0.i = select i1 %tobool.not.i, ptr %add.ptr4.i, ptr %add.ptr.i
   br label %if.end
@@ -1825,7 +1823,7 @@ if.then:                                          ; preds = %entry
   %tobool.not.i = icmp eq i64 %and.i, 0
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
-  %add.ptr.i = getelementptr inbounds %struct.Align64, ptr %mData.i, i64 %3
+  %add.ptr.i = getelementptr inbounds [64 x i8], ptr %mData.i, i64 %3
   %add.ptr4.i = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %retval.0.i = select i1 %tobool.not.i, ptr %add.ptr4.i, ptr %add.ptr.i
   %mEnd = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -1899,7 +1897,7 @@ entry:
   %0 = load ptr, ptr %mLastSegment, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
-  %arrayidx = getelementptr %struct.Align64, ptr %0, i64 %2
+  %arrayidx = getelementptr [64 x i8], ptr %0, i64 %2
   ret ptr %arrayidx
 }
 
@@ -1930,7 +1928,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
   %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %add.ptr.i = getelementptr inbounds nuw %struct.Align64, ptr %mData.i, i64 %2
+  %add.ptr.i = getelementptr inbounds nuw [64 x i8], ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -1991,7 +1989,7 @@ if.then2:                                         ; preds = %if.then
   %inc = add nuw nsw i64 %2, 1
   store i64 %inc, ptr %1, align 8
   %mData = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %add.ptr = getelementptr inbounds nuw %struct.Align64, ptr %mData, i64 %2
+  %add.ptr = getelementptr inbounds nuw [64 x i8], ptr %mData, i64 %2
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -2051,7 +2049,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
   %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %add.ptr.i = getelementptr inbounds nuw %struct.Align64, ptr %mData.i, i64 %2
+  %add.ptr.i = getelementptr inbounds nuw [64 x i8], ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -2112,7 +2110,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
   %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %add.ptr.i = getelementptr inbounds nuw %struct.Align64, ptr %mData.i, i64 %2
+  %add.ptr.i = getelementptr inbounds nuw [64 x i8], ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorI7Align64Lm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -2205,7 +2203,7 @@ entry:
   %0 = load ptr, ptr %mLastSegment.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
-  %arrayidx.i = getelementptr %struct.Align64, ptr %0, i64 %2
+  %arrayidx.i = getelementptr [64 x i8], ptr %0, i64 %2
   %3 = load i32, ptr %arrayidx.i, align 64
   store i32 %3, ptr %it, align 64
   %4 = load ptr, ptr %mLastSegment.i, align 8
@@ -2256,7 +2254,7 @@ entry:
   %0 = load ptr, ptr %mLastSegment.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
-  %arrayidx.i = getelementptr %struct.Align64, ptr %0, i64 %2
+  %arrayidx.i = getelementptr [64 x i8], ptr %0, i64 %2
   %3 = load ptr, ptr %i, align 8
   %4 = load i32, ptr %arrayidx.i, align 64
   store i32 %4, ptr %3, align 64
@@ -2529,7 +2527,7 @@ if.then:                                          ; preds = %entry
   %tobool.not.i = icmp eq i64 %and.i, 0
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %mData.i, i64 %3
+  %add.ptr.i = getelementptr inbounds [24 x i8], ptr %mData.i, i64 %3
   %add.ptr4.i = getelementptr inbounds nuw i8, ptr %0, i64 400
   %retval.0.i = select i1 %tobool.not.i, ptr %add.ptr4.i, ptr %add.ptr.i
   br label %if.end
@@ -2562,7 +2560,7 @@ if.then:                                          ; preds = %entry
   %tobool.not.i = icmp eq i64 %and.i, 0
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
-  %add.ptr.i = getelementptr inbounds %struct.TestObject, ptr %mData.i, i64 %3
+  %add.ptr.i = getelementptr inbounds [24 x i8], ptr %mData.i, i64 %3
   %add.ptr4.i = getelementptr inbounds nuw i8, ptr %0, i64 400
   %retval.0.i = select i1 %tobool.not.i, ptr %add.ptr4.i, ptr %add.ptr.i
   %mEnd = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -2637,7 +2635,7 @@ entry:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr i8, ptr %0, i64 -8
-  %arrayidx = getelementptr %struct.TestObject, ptr %3, i64 %2
+  %arrayidx = getelementptr [24 x i8], ptr %3, i64 %2
   ret ptr %arrayidx
 }
 
@@ -2668,7 +2666,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
   %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %add.ptr.i = getelementptr inbounds nuw %struct.TestObject, ptr %mData.i, i64 %2
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -2744,7 +2742,7 @@ if.then2:                                         ; preds = %if.then
   %inc = add nuw nsw i64 %2, 1
   store i64 %inc, ptr %1, align 8
   %mData = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %add.ptr = getelementptr inbounds nuw %struct.TestObject, ptr %mData, i64 %2
+  %add.ptr = getelementptr inbounds nuw [24 x i8], ptr %mData, i64 %2
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -2804,7 +2802,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
   %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %add.ptr.i = getelementptr inbounds nuw %struct.TestObject, ptr %mData.i, i64 %2
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -2886,7 +2884,7 @@ if.then2.i:                                       ; preds = %if.then.i
   %inc.i = add nuw nsw i64 %2, 1
   store i64 %inc.i, ptr %1, align 8
   %mData.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %add.ptr.i = getelementptr inbounds nuw %struct.TestObject, ptr %mData.i, i64 %2
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %mData.i, i64 %2
   br label %_ZN5eastl16segmented_vectorI10TestObjectLm16ENS_9allocatorEE10DoPushBackEv.exit
 
 if.else.i:                                        ; preds = %if.then.i
@@ -2937,7 +2935,7 @@ entry:
   %2 = load i64, ptr %1, align 8
   %dec = add i64 %2, -1
   store i64 %dec, ptr %1, align 8
-  %add.ptr = getelementptr %struct.TestObject, ptr %0, i64 %dec
+  %add.ptr = getelementptr [24 x i8], ptr %0, i64 %dec
   %mMagicValue.i = getelementptr i8, ptr %add.ptr, i64 32
   %3 = load i32, ptr %mMagicValue.i, align 8
   %cmp.not.i = icmp eq i32 %3, 32623592
@@ -3001,7 +2999,7 @@ entry:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr i8, ptr %0, i64 -8
-  %arrayidx.i = getelementptr %struct.TestObject, ptr %3, i64 %2
+  %arrayidx.i = getelementptr [24 x i8], ptr %3, i64 %2
   %4 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i = add nsw i64 %4, 1
   store i64 %inc.i, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
@@ -3031,7 +3029,7 @@ _ZN10TestObjectaSERKS_.exit:                      ; preds = %entry, %if.then.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %dec.i = add i64 %8, -1
   store i64 %dec.i, ptr %10, align 8
-  %add.ptr.i = getelementptr %struct.TestObject, ptr %9, i64 %dec.i
+  %add.ptr.i = getelementptr [24 x i8], ptr %9, i64 %dec.i
   %mMagicValue.i.i = getelementptr i8, ptr %add.ptr.i, i64 32
   %11 = load i32, ptr %mMagicValue.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %11, 32623592
@@ -3096,7 +3094,7 @@ entry:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr i8, ptr %0, i64 -8
-  %arrayidx.i = getelementptr %struct.TestObject, ptr %3, i64 %2
+  %arrayidx.i = getelementptr [24 x i8], ptr %3, i64 %2
   %4 = load ptr, ptr %i, align 8
   %5 = load i64, ptr @_ZN10TestObject18sTOCopyAssignCountE, align 8
   %inc.i = add nsw i64 %5, 1
@@ -3139,7 +3137,7 @@ if.end:                                           ; preds = %_ZN10TestObjectaSER
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %dec.i = add i64 %13, -1
   store i64 %dec.i, ptr %14, align 8
-  %add.ptr.i = getelementptr %struct.TestObject, ptr %9, i64 %dec.i
+  %add.ptr.i = getelementptr [24 x i8], ptr %9, i64 %dec.i
   %mMagicValue.i.i = getelementptr i8, ptr %add.ptr.i, i64 32
   %15 = load i32, ptr %mMagicValue.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %15, 32623592
@@ -3314,7 +3312,7 @@ invoke.cont45:                                    ; preds = %invoke.cont35
   %and.i.i146 = and i64 %6, 1
   %tobool.not.i.i147 = icmp eq i64 %and.i.i146, 0
   %7 = load i64, ptr %0, align 8, !noalias !11
-  %add.ptr.i.i148 = getelementptr inbounds i32, ptr %mData11.i.i, i64 %7
+  %add.ptr.i.i148 = getelementptr inbounds [4 x i8], ptr %mData11.i.i, i64 %7
   %add.ptr4.i.i149 = getelementptr inbounds nuw i8, ptr %call.i.i.i11.i.i6, i64 48
   %retval.0.i.i150 = select i1 %tobool.not.i.i147, ptr %add.ptr4.i.i149, ptr %add.ptr.i.i148
   %8 = load i32, ptr %mData11.i.i, align 8
@@ -3341,7 +3339,7 @@ if.then4.i:                                       ; preds = %if.then.i155
   %tobool.not.i.i160 = icmp eq i64 %and.i.i159, 0
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i64, ptr %12, align 8
-  %add.ptr.i.i161 = getelementptr inbounds i32, ptr %mData.i.i158, i64 %13
+  %add.ptr.i.i161 = getelementptr inbounds [4 x i8], ptr %mData.i.i158, i64 %13
   %add.ptr4.i.i162 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %retval.0.i.i163 = select i1 %tobool.not.i.i160, ptr %add.ptr4.i.i162, ptr %add.ptr.i.i161
   br label %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit
@@ -3375,7 +3373,7 @@ if.then4.i172:                                    ; preds = %if.then.i167
   %tobool.not.i.i175 = icmp eq i64 %and.i.i174, 0
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
-  %add.ptr.i.i176 = getelementptr inbounds i32, ptr %mData.i.i173, i64 %20
+  %add.ptr.i.i176 = getelementptr inbounds [4 x i8], ptr %mData.i.i173, i64 %20
   %add.ptr4.i.i177 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %retval.0.i.i178 = select i1 %tobool.not.i.i175, ptr %add.ptr4.i.i177, ptr %add.ptr.i.i176
   br label %_ZN5eastl25segmented_vector_iteratorIiLm8ENS_9allocatorEEppEv.exit179
@@ -3469,7 +3467,7 @@ if.then.i.i254:                                   ; preds = %invoke.cont109
 if.then2.i.i263:                                  ; preds = %if.then.i.i254
   %inc.i.i264 = add nuw nsw i64 %28, 1
   store i64 %inc.i.i264, ptr %27, align 8
-  %add.ptr.i.i266 = getelementptr inbounds nuw i32, ptr %mData11.i.i242, i64 %28
+  %add.ptr.i.i266 = getelementptr inbounds nuw [4 x i8], ptr %mData11.i.i242, i64 %28
   br label %if.then.i.i279
 
 if.else.i.i256:                                   ; preds = %if.then.i.i254
@@ -3505,7 +3503,7 @@ if.then2.i.i288:                                  ; preds = %if.then.i.i279
   %inc.i.i289 = add nuw nsw i64 %35, 1
   store i64 %inc.i.i289, ptr %34, align 8
   %mData.i.i290 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %add.ptr.i.i291 = getelementptr inbounds nuw i32, ptr %mData.i.i290, i64 %35
+  %add.ptr.i.i291 = getelementptr inbounds nuw [4 x i8], ptr %mData.i.i290, i64 %35
   br label %if.then.i.i304
 
 if.else.i.i281:                                   ; preds = %if.then.i.i279
@@ -3542,7 +3540,7 @@ if.then2.i.i313:                                  ; preds = %if.then.i.i304
   %inc.i.i314 = add nuw nsw i64 %42, 1
   store i64 %inc.i.i314, ptr %41, align 8
   %mData.i.i315 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %add.ptr.i.i316 = getelementptr inbounds nuw i32, ptr %mData.i.i315, i64 %42
+  %add.ptr.i.i316 = getelementptr inbounds nuw [4 x i8], ptr %mData.i.i315, i64 %42
   br label %invoke.cont123
 
 if.else.i.i306:                                   ; preds = %if.then.i.i304
@@ -3582,7 +3580,7 @@ if.then2.i.i338:                                  ; preds = %if.then.i.i329
   %inc.i.i339 = add nuw nsw i64 %48, 1
   store i64 %inc.i.i339, ptr %47, align 8
   %mData.i.i340 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %add.ptr.i.i341 = getelementptr inbounds nuw i32, ptr %mData.i.i340, i64 %48
+  %add.ptr.i.i341 = getelementptr inbounds nuw [4 x i8], ptr %mData.i.i340, i64 %48
   br label %_ZNK5eastl16segmented_vectorIiLm4ENS_9allocatorEE4sizeEv.exit360
 
 if.else.i.i331:                                   ; preds = %if.then.i.i329
@@ -3654,7 +3652,7 @@ invoke.cont141:                                   ; preds = %invoke.cont136
   %63 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %64 = load i64, ptr %63, align 8
   %65 = getelementptr i8, ptr %55, i64 12
-  %arrayidx.i = getelementptr i32, ptr %65, i64 %64
+  %arrayidx.i = getelementptr [4 x i8], ptr %65, i64 %64
   %66 = load i32, ptr %arrayidx.i, align 4
   %cmp145 = icmp eq i32 %66, 46
   %call147 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp145, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 76, ptr noundef nonnull @.str.18)

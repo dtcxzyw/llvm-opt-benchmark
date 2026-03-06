@@ -92,7 +92,7 @@ define hidden noundef i32 @WebPRescalerInit(ptr noundef writeonly captures(none)
   store ptr %8, ptr %60, align 8, !tbaa !29
   %61 = mul nsw i32 %7, %4
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i32, ptr %8, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %8, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %63, ptr %64, align 8, !tbaa !30
   tail call void @llvm.memset.p0.i64(ptr align 4 %8, i8 0, i64 %59, i1 false)
@@ -239,9 +239,9 @@ WebPRescalerHasPendingOutput.exit.thread:         ; preds = %17, %WebPRescalerHa
 
 32:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !31
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !31
   %37 = add i32 %36, %34
   store i32 %37, ptr %35, align 4, !tbaa !31

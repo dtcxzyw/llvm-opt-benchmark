@@ -281,7 +281,7 @@ define internal void @real_report_garbage(i32 noundef %0, ptr noundef %1) #0 {
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.real_report_garbage, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.real_report_garbage, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = call i32 @stat64(ptr noundef %1, ptr noundef nonnull %3) #7
   %.not4 = icmp eq i32 %6, 0

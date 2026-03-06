@@ -282,7 +282,7 @@ common.ret:                                       ; preds = %130, %133
   br label %.body.i
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds { i64, i64 }, ptr %.val.i, i64 %.val17.i
+  %55 = getelementptr inbounds [16 x i8], ptr %.val.i, i64 %.val17.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.030.sroa.10.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01.sroa.6.i.i.i, i64 24, i1 false), !noalias !10
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.01.sroa.6.i.i.i), !noalias !15
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -469,7 +469,7 @@ common.ret:                                       ; preds = %130, %133
   %85 = load ptr, ptr %64, align 8, !noalias !10, !nonnull !8, !align !9, !noundef !8
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %87 = load i64, ptr %86, align 8, !noalias !10, !noundef !8
-  %88 = getelementptr inbounds { i64, i64 }, ptr %85, i64 %87
+  %88 = getelementptr inbounds [16 x i8], ptr %85, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 88
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !47
   store ptr %85, ptr %6, align 8, !alias.scope !54, !noalias !58

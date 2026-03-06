@@ -75,7 +75,7 @@ define internal range(i32 -1094995529, 1) i32 @sdx_read_header(ptr noundef %0) #
 
 switch.lookup:                                    ; preds = %26
   %37 = zext nneg i32 %35 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.sdx_read_header, i64 %37
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.sdx_read_header, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 %switch.load, ptr %38, align 4, !tbaa !41

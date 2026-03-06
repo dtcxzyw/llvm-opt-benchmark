@@ -463,13 +463,13 @@ define internal noundef i32 @vaapi_encode_vp9_init_picture_params(ptr noundef %0
 .preheader:                                       ; preds = %.preheader115, %._crit_edge
   %136 = phi i1 [ true, %.preheader115 ], [ false, %._crit_edge ]
   %indvars.iv121 = phi i64 [ 0, %.preheader115 ], [ 1, %._crit_edge ]
-  %137 = getelementptr inbounds nuw i32, ptr %134, i64 %indvars.iv121
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %indvars.iv121
   %138 = load i32, ptr %137, align 4, !tbaa !64
   %139 = icmp sgt i32 %138, 0
   br i1 %139, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %140 = getelementptr inbounds nuw [2 x ptr], ptr %135, i64 %indvars.iv121
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %indvars.iv121
   br label %141
 
 ._crit_edge:                                      ; preds = %152, %.preheader
@@ -477,13 +477,13 @@ define internal noundef i32 @vaapi_encode_vp9_init_picture_params(ptr noundef %0
 
 141:                                              ; preds = %.lr.ph, %152
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %152 ]
-  %142 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %indvars.iv
   %143 = load ptr, ptr %142, align 8, !tbaa !100
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8, !tbaa !85
   %146 = load i32, ptr %145, align 4, !tbaa !98
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds i32, ptr %133, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %133, i64 %147
   %149 = load i32, ptr %148, align 4, !tbaa !64
   %150 = icmp eq i32 %149, -1
   br i1 %150, label %152, label %151

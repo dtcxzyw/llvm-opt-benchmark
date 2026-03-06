@@ -1256,7 +1256,7 @@ declare zeroext i8 @l_Lean_Exception_isRuntime(ptr noundef) local_unnamed_addr #
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -2081,7 +2081,7 @@ lean_dec.exit29:                                  ; preds = %15, %13, %24, %23, 
   %.1.i44 = phi ptr [ %18, %24 ], [ %18, %21 ], [ %18, %23 ], [ inttoptr (i64 1 to ptr), %13 ], [ %17, %15 ]
   %25 = ptrtoint ptr %.1.i44 to i64
   %26 = lshr i64 %25, 1
-  %27 = getelementptr inbounds nuw ptr, ptr %8, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !9
   %29 = ptrtoint ptr %28 to i64
   %30 = trunc i64 %29 to i1
@@ -2106,7 +2106,7 @@ lean_dec.exit29:                                  ; preds = %15, %13, %24, %23, 
   br label %lean_array_fget.exit
 
 lean_array_fget.exit:                             ; preds = %lean_dec.exit29, %33, %35, %36
-  %37 = getelementptr inbounds nuw ptr, ptr %9, i64 %26
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %26
   %38 = load ptr, ptr %37, align 8, !tbaa !9
   %39 = ptrtoint ptr %38 to i64
   %40 = trunc i64 %39 to i1
@@ -2356,7 +2356,7 @@ lean_dec.exit128:                                 ; preds = %54, %53, %51, %lean
   %.099246 = phi i64 [ %4, %.lr.ph ], [ %316, %315 ]
   %.0103245 = phi ptr [ %5, %.lr.ph ], [ %167, %315 ]
   %.0107244 = phi ptr [ %10, %.lr.ph ], [ %177, %315 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %12, i64 %.099246
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.099246
   %60 = load ptr, ptr %59, align 8, !tbaa !9
   %61 = ptrtoint ptr %60 to i64
   %62 = trunc i64 %61 to i1

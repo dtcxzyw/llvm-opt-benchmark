@@ -678,7 +678,7 @@ mlx_kem_key_new.exit.thread:                      ; preds = %10, %20
   br label %45
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw %struct.ecdh_vinfo_st, ptr @hybrid_vtable, i64 %18
+  %24 = getelementptr inbounds nuw [48 x i8], ptr @hybrid_vtable, i64 %18
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 44
   %26 = load i32, ptr %25, align 4, !tbaa !59
   store ptr %15, ptr %21, align 8, !tbaa !3

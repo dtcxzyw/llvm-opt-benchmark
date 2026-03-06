@@ -339,7 +339,7 @@ define internal fastcc void @_forward_msg_internal(ptr noundef %0, ptr noundef r
   br i1 %.not, label %40, label %35
 
 35:                                               ; preds = %21
-  %36 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   %38 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef %37) #10
   %39 = load ptr, ptr %36, align 8
@@ -503,7 +503,7 @@ define dso_local ptr @start_msg_tree(ptr noundef %0, ptr noundef %1, i32 noundef
   %.028.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %43 ]
   %31 = load ptr, ptr %25, align 8
   %32 = sext i32 %.028.i to i64
-  %33 = getelementptr inbounds %struct.sockaddr_storage, ptr %31, i64 %32
+  %33 = getelementptr inbounds [128 x i8], ptr %31, i64 %32
   %34 = load i16, ptr %19, align 8
   %35 = tail call i32 @slurm_conf_get_addr(ptr noundef nonnull %30, ptr noundef %33, i16 noundef zeroext %34) #10
   %.not26.i = icmp eq i32 %35, 0
@@ -902,7 +902,7 @@ define internal fastcc void @_start_msg_tree_internal(ptr noundef %0, ptr nounde
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %20, ptr %21, align 8
@@ -1420,7 +1420,7 @@ _forward_get_addr.exit.thread:                    ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = zext nneg i32 %29 to i64
-  %35 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [128 x i8], ptr %33, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, ptr noundef nonnull align 8 dereferenceable(128) %35, i64 128, i1 false)
   br label %.loopexit275
 
@@ -2136,7 +2136,7 @@ define internal noalias noundef ptr @_fwd_tree_thread(ptr noundef %0) #0 {
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 232
   %54 = load ptr, ptr %53, align 8
   %55 = zext nneg i32 %50 to i64
-  %56 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [128 x i8], ptr %54, i64 %55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(128) %56, i64 128, i1 false)
   br label %79
 

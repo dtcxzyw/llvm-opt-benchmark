@@ -3,9 +3,6 @@ source_filename = "bench/hyperscan/original/mcsheng.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.mq_item = type { i32, i64, i64 }
-%struct.mstate_aux = type { i32, i32, i16, i32 }
-
 @mcsheng_pext_mask = external local_unnamed_addr constant [8 x i64], align 16
 
 ; Function Attrs: nounwind uwtable
@@ -45,7 +42,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %32
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 112
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, %7
@@ -69,7 +66,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
   %47 = zext i32 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
   %49 = zext i8 %25 to i64
-  %50 = getelementptr inbounds nuw %struct.mstate_aux, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = zext i32 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr %22, i64 %52
@@ -96,7 +93,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #14
   %.not = icmp eq i32 %62, 0
@@ -121,7 +118,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 112
   %71 = load i64, ptr %70, align 8
   %72 = add i32 %67, 1
@@ -139,7 +136,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
   br label %84
 
 80:                                               ; preds = %65
-  %81 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %68
+  %81 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %68
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i32 %67, ptr %66, align 8
   store i32 0, ptr %81, align 8
@@ -153,7 +150,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
   %.0100.i = phi i64 [ %.092.i, %143 ], [ %71, %.preheader ]
   %.094.i = phi ptr [ %spec.select.i, %143 ], [ %76, %.preheader ]
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %86
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i64, ptr %88, align 8
   %90 = tail call i64 @llvm.smin.i64(i64 %89, i64 %2)
@@ -176,7 +173,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
 100:                                              ; preds = %84
   %101 = load i32, ptr %66, align 8
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %102
+  %103 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load i64, ptr %104, align 8
   %106 = icmp sgt i64 %105, %2
@@ -186,7 +183,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
   %108 = add i32 %101, -1
   store i32 %108, ptr %66, align 8
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %109
+  %110 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %109
   store i32 0, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i64 %2, ptr %111, align 8
@@ -224,7 +221,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_Q(ptr noundef %0, ptr n
   %127 = zext i32 %126 to i64
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 %127
   %129 = zext i32 %125 to i64
-  %130 = getelementptr inbounds nuw %struct.mstate_aux, ptr %128, i64 %129
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %128, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load i16, ptr %131, align 4
   br label %.sink.split
@@ -304,7 +301,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 112
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, %6
@@ -328,7 +325,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 %46
   %48 = zext i16 %24 to i64
-  %49 = getelementptr inbounds nuw %struct.mstate_aux, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %21, i64 %51
@@ -355,7 +352,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   %61 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %60, ptr noundef %12) #14
   %.not = icmp eq i32 %61, 0
@@ -380,7 +377,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load i32, ptr %65, align 8
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %67
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 112
   %70 = load i64, ptr %69, align 8
   %71 = add i32 %66, 1
@@ -398,7 +395,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
   br label %83
 
 79:                                               ; preds = %64
-  %80 = getelementptr inbounds nuw %struct.mq_item, ptr %72, i64 %67
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %72, i64 %67
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i32 %66, ptr %65, align 8
   store i32 0, ptr %80, align 8
@@ -412,7 +409,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
   %.0100.i = phi i64 [ %70, %.preheader ], [ %.092.i, %.backedge ]
   %.094.i = phi ptr [ %75, %.preheader ], [ %spec.select.i, %.backedge ]
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %struct.mq_item, ptr %72, i64 %85
+  %86 = getelementptr inbounds nuw [24 x i8], ptr %72, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load i64, ptr %87, align 8
   %89 = tail call i64 @llvm.smin.i64(i64 %88, i64 %2)
@@ -434,7 +431,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
 99:                                               ; preds = %83
   %100 = load i32, ptr %65, align 8
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw %struct.mq_item, ptr %72, i64 %101
+  %102 = getelementptr inbounds nuw [24 x i8], ptr %72, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load i64, ptr %103, align 8
   %105 = icmp sgt i64 %104, %2
@@ -444,7 +441,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
   %107 = add i32 %100, -1
   store i32 %107, ptr %65, align 8
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw %struct.mq_item, ptr %72, i64 %108
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %72, i64 %108
   store i32 0, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i64 %2, ptr %110, align 8
@@ -477,7 +474,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_Q(ptr noundef %0, ptr 
   %123 = zext i32 %122 to i64
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 %123
   %125 = zext i32 %121 to i64
-  %126 = getelementptr inbounds nuw %struct.mstate_aux, ptr %124, i64 %125
+  %126 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   br label %.sink.split
 
@@ -530,7 +527,7 @@ define hidden noundef signext i8 @nfaExecMcSheng8_reportCurrent(ptr noundef read
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %12
@@ -562,7 +559,7 @@ define hidden noundef signext i8 @nfaExecMcSheng8_reportCurrent(ptr noundef read
   %35 = zext i32 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 %35
   %37 = zext i8 %10 to i64
-  %38 = getelementptr inbounds nuw %struct.mstate_aux, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 %40
@@ -584,7 +581,7 @@ define hidden noundef signext i8 @nfaExecMcSheng8_reportCurrent(ptr noundef read
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %47 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4
   %49 = tail call i32 %5(i64 noundef 0, i64 noundef %19, i32 noundef %48, ptr noundef %7) #14
   %50 = icmp eq i32 %49, 0
@@ -617,13 +614,13 @@ define hidden noundef signext i8 @nfaExecMcSheng16_reportCurrent(ptr noundef rea
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
   %15 = zext i16 %10 to i64
-  %16 = getelementptr inbounds nuw %struct.mstate_aux, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %18
@@ -668,7 +665,7 @@ define hidden noundef signext i8 @nfaExecMcSheng16_reportCurrent(ptr noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %44 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = tail call i32 %5(i64 noundef 0, i64 noundef %25, i32 noundef %45, ptr noundef %7) #14
   %47 = icmp eq i32 %46, 0
@@ -696,7 +693,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_inAccept(ptr noundef re
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %9
   %11 = zext i8 %6 to i64
-  %12 = getelementptr inbounds nuw %struct.mstate_aux, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %11
   %.val = load i32, ptr %12, align 4
   %.not.i = icmp eq i32 %.val, 0
   br i1 %.not.i, label %mcshengHasAccept.exit, label %13
@@ -722,7 +719,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_inAccept(ptr noundef re
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, %1
   br i1 %23, label %mcshengHasAccept.exit, label %20
@@ -742,7 +739,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_inAnyAccept(ptr noundef
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %8
   %10 = zext i8 %5 to i64
-  %11 = getelementptr inbounds nuw %struct.mstate_aux, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = icmp ne i32 %12, 0
   %14 = zext i1 %13 to i8
@@ -759,7 +756,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_inAccept(ptr noundef r
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %9
   %11 = zext i16 %6 to i64
-  %12 = getelementptr inbounds nuw %struct.mstate_aux, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %11
   %.val = load i32, ptr %12, align 4
   %.not.i = icmp eq i32 %.val, 0
   br i1 %.not.i, label %mcshengHasAccept.exit, label %13
@@ -785,7 +782,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_inAccept(ptr noundef r
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, %1
   br i1 %23, label %mcshengHasAccept.exit, label %20
@@ -805,7 +802,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_inAnyAccept(ptr nounde
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %8
   %10 = zext i16 %5 to i64
-  %11 = getelementptr inbounds nuw %struct.mstate_aux, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = icmp ne i32 %12, 0
   %14 = zext i1 %13 to i8
@@ -849,7 +846,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %32
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 112
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, %7
@@ -873,7 +870,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
   %47 = zext i32 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
   %49 = zext i8 %24 to i64
-  %50 = getelementptr inbounds nuw %struct.mstate_aux, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = zext i32 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 %52
@@ -900,7 +897,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #14
   %.not = icmp eq i32 %62, 0
@@ -925,7 +922,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 112
   %71 = load i64, ptr %70, align 8
   %72 = add i32 %67, 1
@@ -943,7 +940,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
   br label %84
 
 80:                                               ; preds = %65
-  %81 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %68
+  %81 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %68
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i32 %67, ptr %66, align 8
   store i32 0, ptr %81, align 8
@@ -957,7 +954,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
   %.0100.i = phi i64 [ %.092.i, %152 ], [ %71, %.preheader ]
   %.094.i = phi ptr [ %spec.select.i, %152 ], [ %76, %.preheader ]
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %86
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i64, ptr %88, align 8
   %90 = tail call i64 @llvm.smin.i64(i64 %89, i64 %2)
@@ -976,7 +973,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
   %99 = add i32 %97, -1
   store i32 %99, ptr %66, align 8
   %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %100
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %100
   store i32 0, ptr %101, align 8
   %102 = load ptr, ptr %5, align 8
   %103 = ptrtoint ptr %102 to i64
@@ -993,7 +990,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
 
 110:                                              ; preds = %84
   %111 = zext i32 %97 to i64
-  %112 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %111
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load i64, ptr %113, align 8
   %115 = icmp sgt i64 %114, %2
@@ -1003,7 +1000,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
   %117 = add i32 %97, -1
   store i32 %117, ptr %66, align 8
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %118
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %118
   store i32 0, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 %2, ptr %120, align 8
@@ -1041,7 +1038,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_Q2(ptr noundef %0, ptr 
   %136 = zext i32 %135 to i64
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 %136
   %138 = zext i32 %134 to i64
-  %139 = getelementptr inbounds nuw %struct.mstate_aux, ptr %137, i64 %138
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %137, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load i16, ptr %140, align 4
   br label %.sink.split
@@ -1122,7 +1119,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %32
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 112
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, %7
@@ -1146,7 +1143,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
   %47 = zext i32 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
   %49 = zext i16 %24 to i64
-  %50 = getelementptr inbounds nuw %struct.mstate_aux, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = zext i32 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 %52
@@ -1173,7 +1170,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #14
   %.not = icmp eq i32 %62, 0
@@ -1198,7 +1195,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 112
   %71 = load i64, ptr %70, align 8
   %72 = add i32 %67, 1
@@ -1216,7 +1213,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
   br label %84
 
 80:                                               ; preds = %65
-  %81 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %68
+  %81 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %68
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i32 %67, ptr %66, align 8
   store i32 0, ptr %81, align 8
@@ -1230,7 +1227,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
   %.0100.i = phi i64 [ %.092.i, %148 ], [ %71, %.preheader ]
   %.094.i = phi ptr [ %spec.select.i, %148 ], [ %76, %.preheader ]
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %86
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i64, ptr %88, align 8
   %90 = tail call i64 @llvm.smin.i64(i64 %89, i64 %2)
@@ -1249,7 +1246,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
   %99 = add i32 %97, -1
   store i32 %99, ptr %66, align 8
   %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %100
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %100
   store i32 0, ptr %101, align 8
   %102 = load ptr, ptr %5, align 8
   %103 = ptrtoint ptr %102 to i64
@@ -1266,7 +1263,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
 
 110:                                              ; preds = %84
   %111 = zext i32 %97 to i64
-  %112 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %111
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load i64, ptr %113, align 8
   %115 = icmp sgt i64 %114, %2
@@ -1276,7 +1273,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
   %117 = add i32 %97, -1
   store i32 %117, ptr %66, align 8
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw %struct.mq_item, ptr %73, i64 %118
+  %119 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %118
   store i32 0, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 %2, ptr %120, align 8
@@ -1309,7 +1306,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_Q2(ptr noundef %0, ptr
   %133 = zext i32 %132 to i64
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 %133
   %135 = zext i32 %131 to i64
-  %136 = getelementptr inbounds nuw %struct.mstate_aux, ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   br label %.sink.split
 
@@ -1390,7 +1387,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_QR(ptr noundef %0, ptr 
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %32
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 112
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, %7
@@ -1414,7 +1411,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_QR(ptr noundef %0, ptr 
   %47 = zext i32 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
   %49 = zext i8 %24 to i64
-  %50 = getelementptr inbounds nuw %struct.mstate_aux, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = zext i32 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 %52
@@ -1441,7 +1438,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_QR(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %59 ]
-  %60 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = tail call i32 %11(i64 noundef 0, i64 noundef %36, i32 noundef %61, ptr noundef %13) #14
   %.not = icmp eq i32 %62, 0
@@ -1466,7 +1463,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_QR(ptr noundef %0, ptr 
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 112
   %71 = load i64, ptr %70, align 8
   %72 = add i32 %67, 1
@@ -1478,7 +1475,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng8_QR(ptr noundef %0, ptr 
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %79 = zext i32 %72 to i64
-  %80 = getelementptr inbounds nuw %struct.mq_item, ptr %75, i64 %79
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %75, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load i64, ptr %81, align 8
   %83 = icmp slt i64 %71, 0
@@ -1509,7 +1506,7 @@ nfaExecMcSheng8_Q2i.exit.thread31:                ; preds = %113, %65
 
 92:                                               ; preds = %.lr.ph55
   %93 = zext i32 %.pre.pre to i64
-  %94 = getelementptr inbounds nuw %struct.mq_item, ptr %75, i64 %93
+  %94 = getelementptr inbounds nuw [24 x i8], ptr %75, i64 %93
   %95 = load i32, ptr %94, align 8
   switch i32 %95, label %111 [
     i32 2, label %96
@@ -1531,7 +1528,7 @@ nfaExecMcSheng8_Q2i.exit.thread31:                ; preds = %113, %65
   %104 = zext i32 %103 to i64
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 %104
   %106 = zext i32 %102 to i64
-  %107 = getelementptr inbounds nuw %struct.mstate_aux, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load i16, ptr %108, align 4
   br label %.sink.split
@@ -1551,7 +1548,7 @@ nfaExecMcSheng8_Q2i.exit.thread31:                ; preds = %113, %65
   %.pre = phi i32 [ %112, %111 ], [ %.pre.pre, %.lr.ph55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %114 = zext i32 %.pre to i64
-  %115 = getelementptr inbounds nuw %struct.mq_item, ptr %75, i64 %114
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %75, i64 %114
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8
   %118 = icmp slt i64 %.092.i54, 0
@@ -1585,7 +1582,7 @@ nfaExecMcSheng8_Q2i.exit:                         ; preds = %92
   %134 = zext i32 %133 to i64
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 %134
   %136 = zext i8 %132 to i64
-  %137 = getelementptr inbounds nuw %struct.mstate_aux, ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %136
   %.val.i = load i32, ptr %137, align 4
   %.not.i.i = icmp eq i32 %.val.i, 0
   br i1 %.not.i.i, label %nfaExecMcSheng8_inAccept.exit, label %138
@@ -1610,7 +1607,7 @@ nfaExecMcSheng8_Q2i.exit:                         ; preds = %92
 
 .lr.ph.i.i:                                       ; preds = %144, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %144 ]
-  %145 = getelementptr inbounds nuw i32, ptr %142, i64 %indvars.iv.i.i
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %indvars.iv.i.i
   %146 = load i32, ptr %145, align 4
   %147 = icmp eq i32 %146, %2
   br i1 %147, label %nfaExecMcSheng8_inAccept.exit, label %144
@@ -1660,7 +1657,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_QR(ptr noundef %0, ptr
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 112
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, %6
@@ -1684,7 +1681,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_QR(ptr noundef %0, ptr
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 %46
   %48 = zext i16 %23 to i64
-  %49 = getelementptr inbounds nuw %struct.mstate_aux, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %20, i64 %51
@@ -1711,7 +1708,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_QR(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   %61 = tail call i32 %10(i64 noundef 0, i64 noundef %35, i32 noundef %60, ptr noundef %12) #14
   %.not = icmp eq i32 %61, 0
@@ -1736,7 +1733,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_QR(ptr noundef %0, ptr
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load i32, ptr %65, align 8
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw %struct.mq_item, ptr %1, i64 %67
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 112
   %70 = load i64, ptr %69, align 8
   %71 = add i32 %66, 1
@@ -1748,7 +1745,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecMcSheng16_QR(ptr noundef %0, ptr
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %78 = zext i32 %71 to i64
-  %79 = getelementptr inbounds nuw %struct.mq_item, ptr %74, i64 %78
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load i64, ptr %80, align 8
   %82 = icmp slt i64 %70, 0
@@ -1777,7 +1774,7 @@ nfaExecMcSheng16_Q2i.exit.thread31:               ; preds = %108, %64
 
 91:                                               ; preds = %.lr.ph55
   %92 = zext i32 %.pre.pre to i64
-  %93 = getelementptr inbounds nuw %struct.mq_item, ptr %74, i64 %92
+  %93 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %92
   %94 = load i32, ptr %93, align 8
   switch i32 %94, label %106 [
     i32 2, label %95
@@ -1794,7 +1791,7 @@ nfaExecMcSheng16_Q2i.exit.thread31:               ; preds = %108, %64
   %100 = zext i32 %99 to i64
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 %100
   %102 = zext i32 %98 to i64
-  %103 = getelementptr inbounds nuw %struct.mstate_aux, ptr %101, i64 %102
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %101, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   br label %.sink.split
 
@@ -1813,7 +1810,7 @@ nfaExecMcSheng16_Q2i.exit.thread31:               ; preds = %108, %64
 108:                                              ; preds = %106, %.lr.ph55
   %.pre = phi i32 [ %107, %106 ], [ %.pre.pre, %.lr.ph55 ]
   %109 = zext i32 %.pre to i64
-  %110 = getelementptr inbounds nuw %struct.mq_item, ptr %74, i64 %109
+  %110 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load i64, ptr %111, align 8
   %113 = icmp slt i64 %.092.i54, 0
@@ -1845,7 +1842,7 @@ nfaExecMcSheng16_Q2i.exit:                        ; preds = %91
   %129 = zext i32 %128 to i64
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 %129
   %131 = zext i16 %127 to i64
-  %132 = getelementptr inbounds nuw %struct.mstate_aux, ptr %130, i64 %131
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %130, i64 %131
   %.val.i = load i32, ptr %132, align 4
   %.not.i.i = icmp eq i32 %.val.i, 0
   br i1 %.not.i.i, label %nfaExecMcSheng16_inAccept.exit, label %133
@@ -1870,7 +1867,7 @@ nfaExecMcSheng16_Q2i.exit:                        ; preds = %91
 
 .lr.ph.i.i:                                       ; preds = %139, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %139 ]
-  %140 = getelementptr inbounds nuw i32, ptr %137, i64 %indvars.iv.i.i
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %indvars.iv.i.i
   %141 = load i32, ptr %140, align 4
   %142 = icmp eq i32 %141, %2
   br i1 %142, label %nfaExecMcSheng16_inAccept.exit, label %139
@@ -1929,7 +1926,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_testEOD(ptr noundef rea
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %12 = zext i8 %7 to i64
-  %13 = getelementptr inbounds nuw %struct.mstate_aux, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %.not.i = icmp eq i32 %15, 0
@@ -1956,7 +1953,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng8_testEOD(ptr noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = tail call i32 %4(i64 noundef 0, i64 noundef %3, i32 noundef %25, ptr noundef %5) #14
   %27 = icmp eq i32 %26, 0
@@ -1975,7 +1972,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_testEOD(ptr noundef re
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %12 = zext i16 %7 to i64
-  %13 = getelementptr inbounds nuw %struct.mstate_aux, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   %.not.i = icmp eq i32 %15, 0
@@ -2002,7 +1999,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecMcSheng16_testEOD(ptr noundef re
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = tail call i32 %4(i64 noundef 0, i64 noundef %3, i32 noundef %25, ptr noundef %5) #14
   %27 = icmp eq i32 %26, 0
@@ -2301,7 +2298,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec8_i_cb(ptr noundef 
   %157 = getelementptr inbounds nuw i8, ptr %.0208.i19.lcssa, i64 1
   %158 = load i8, ptr %.0208.i19.lcssa, align 1
   %159 = zext i8 %158 to i64
-  %160 = getelementptr inbounds nuw <2 x i64>, ptr %35, i64 %159
+  %160 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %159
   %161 = load <16 x i8>, ptr %160, align 16
   %162 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %161, <16 x i8> %.0207.i20.lcssa.in)
   %163 = bitcast <16 x i8> %162 to <4 x i32>
@@ -2316,7 +2313,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec8_i_cb(ptr noundef 
   %168 = getelementptr inbounds nuw i8, ptr %.3211.i53, i64 1
   %169 = load i8, ptr %.3211.i53, align 1
   %170 = zext i8 %169 to i64
-  %171 = getelementptr inbounds nuw <2 x i64>, ptr %35, i64 %170
+  %171 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %170
   %172 = load <16 x i8>, ptr %171, align 16
   %173 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %172, <16 x i8> %167)
   %174 = bitcast <16 x i8> %173 to <4 x i32>
@@ -2331,7 +2328,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec8_i_cb(ptr noundef 
   %179 = getelementptr inbounds nuw i8, ptr %.4212.i48, i64 1
   %180 = load i8, ptr %.4212.i48, align 1
   %181 = zext i8 %180 to i64
-  %182 = getelementptr inbounds nuw <2 x i64>, ptr %35, i64 %181
+  %182 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %181
   %183 = load <16 x i8>, ptr %182, align 16
   %184 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %183, <16 x i8> %178)
   %185 = bitcast <16 x i8> %184 to <4 x i32>
@@ -2346,7 +2343,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec8_i_cb(ptr noundef 
   %190 = getelementptr inbounds nuw i8, ptr %.5213.i43, i64 1
   %191 = load i8, ptr %.5213.i43, align 1
   %192 = zext i8 %191 to i64
-  %193 = getelementptr inbounds nuw <2 x i64>, ptr %35, i64 %192
+  %193 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %192
   %194 = load <16 x i8>, ptr %193, align 16
   %195 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %194, <16 x i8> %189)
   %196 = bitcast <16 x i8> %195 to <4 x i32>
@@ -2361,7 +2358,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec8_i_cb(ptr noundef 
   %201 = getelementptr inbounds nuw i8, ptr %.6214.i38, i64 1
   %202 = load i8, ptr %.6214.i38, align 1
   %203 = zext i8 %202 to i64
-  %204 = getelementptr inbounds nuw <2 x i64>, ptr %35, i64 %203
+  %204 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %203
   %205 = load <16 x i8>, ptr %204, align 16
   %206 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %205, <16 x i8> %200)
   %207 = bitcast <16 x i8> %206 to <4 x i32>
@@ -2376,7 +2373,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec8_i_cb(ptr noundef 
   %212 = getelementptr inbounds nuw i8, ptr %.7215.i33, i64 1
   %213 = load i8, ptr %.7215.i33, align 1
   %214 = zext i8 %213 to i64
-  %215 = getelementptr inbounds nuw <2 x i64>, ptr %35, i64 %214
+  %215 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %214
   %216 = load <16 x i8>, ptr %215, align 16
   %217 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %216, <16 x i8> %211)
   %218 = bitcast <16 x i8> %217 to <4 x i32>
@@ -2391,7 +2388,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec8_i_cb(ptr noundef 
   %223 = getelementptr inbounds nuw i8, ptr %.8.i28, i64 1
   %224 = load i8, ptr %.8.i28, align 1
   %225 = zext i8 %224 to i64
-  %226 = getelementptr inbounds nuw <2 x i64>, ptr %35, i64 %225
+  %226 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %225
   %227 = load <16 x i8>, ptr %226, align 16
   %228 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %227, <16 x i8> %222)
   %229 = bitcast <16 x i8> %228 to <4 x i32>
@@ -2486,7 +2483,7 @@ doNormal8.exit72:                                 ; preds = %252, %248, %doSheng
   %281 = zext i32 %280 to i64
   %282 = getelementptr inbounds nuw i8, ptr %39, i64 %281
   %283 = zext i32 %.4105.i to i64
-  %284 = getelementptr inbounds nuw %struct.mstate_aux, ptr %282, i64 %283
+  %284 = getelementptr inbounds nuw [16 x i8], ptr %282, i64 %283
   %285 = load i32, ptr %284, align 4
   %286 = zext i32 %285 to i64
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 %286
@@ -2516,7 +2513,7 @@ doNormal8.exit72:                                 ; preds = %252, %248, %doSheng
 
 297:                                              ; preds = %.lr.ph264, %296
   %indvars.iv = phi i64 [ 0, %.lr.ph264 ], [ %indvars.iv.next, %296 ]
-  %298 = getelementptr inbounds nuw i32, ptr %290, i64 %indvars.iv
+  %298 = getelementptr inbounds nuw [4 x i8], ptr %290, i64 %indvars.iv
   %299 = load i32, ptr %298, align 4
   %300 = tail call i32 %5(i64 noundef 0, i64 noundef %269, i32 noundef %299, ptr noundef %6) #14
   %301 = icmp eq i32 %300, 0
@@ -2575,7 +2572,7 @@ doNormal8.exit72:                                 ; preds = %252, %248, %doSheng
 
 325:                                              ; preds = %321
   %326 = zext nneg i32 %.5106.i to i64
-  %327 = getelementptr inbounds nuw %struct.mstate_aux, ptr %20, i64 %326
+  %327 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %326
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 12
   %329 = load i32, ptr %328, align 4
   %330 = zext i32 %329 to i64
@@ -2755,7 +2752,7 @@ doNormal8.exit72:                                 ; preds = %252, %248, %doSheng
   %458 = getelementptr inbounds nuw i8, ptr %.0208.i.lcssa, i64 1
   %459 = load i8, ptr %.0208.i.lcssa, align 1
   %460 = zext i8 %459 to i64
-  %461 = getelementptr inbounds nuw <2 x i64>, ptr %312, i64 %460
+  %461 = getelementptr inbounds nuw [16 x i8], ptr %312, i64 %460
   %462 = load <16 x i8>, ptr %461, align 16
   %463 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %462, <16 x i8> %.0207.i.lcssa.in)
   %464 = bitcast <16 x i8> %463 to <4 x i32>
@@ -2770,7 +2767,7 @@ doNormal8.exit72:                                 ; preds = %252, %248, %doSheng
   %469 = getelementptr inbounds nuw i8, ptr %.3211.i, i64 1
   %470 = load i8, ptr %.3211.i, align 1
   %471 = zext i8 %470 to i64
-  %472 = getelementptr inbounds nuw <2 x i64>, ptr %312, i64 %471
+  %472 = getelementptr inbounds nuw [16 x i8], ptr %312, i64 %471
   %473 = load <16 x i8>, ptr %472, align 16
   %474 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %473, <16 x i8> %468)
   %475 = bitcast <16 x i8> %474 to <4 x i32>
@@ -2785,7 +2782,7 @@ doNormal8.exit72:                                 ; preds = %252, %248, %doSheng
   %480 = getelementptr inbounds nuw i8, ptr %.4212.i, i64 1
   %481 = load i8, ptr %.4212.i, align 1
   %482 = zext i8 %481 to i64
-  %483 = getelementptr inbounds nuw <2 x i64>, ptr %312, i64 %482
+  %483 = getelementptr inbounds nuw [16 x i8], ptr %312, i64 %482
   %484 = load <16 x i8>, ptr %483, align 16
   %485 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %484, <16 x i8> %479)
   %486 = bitcast <16 x i8> %485 to <4 x i32>
@@ -2800,7 +2797,7 @@ doNormal8.exit72:                                 ; preds = %252, %248, %doSheng
   %491 = getelementptr inbounds nuw i8, ptr %.5213.i, i64 1
   %492 = load i8, ptr %.5213.i, align 1
   %493 = zext i8 %492 to i64
-  %494 = getelementptr inbounds nuw <2 x i64>, ptr %312, i64 %493
+  %494 = getelementptr inbounds nuw [16 x i8], ptr %312, i64 %493
   %495 = load <16 x i8>, ptr %494, align 16
   %496 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %495, <16 x i8> %490)
   %497 = bitcast <16 x i8> %496 to <4 x i32>
@@ -2815,7 +2812,7 @@ doNormal8.exit72:                                 ; preds = %252, %248, %doSheng
   %502 = getelementptr inbounds nuw i8, ptr %.6214.i, i64 1
   %503 = load i8, ptr %.6214.i, align 1
   %504 = zext i8 %503 to i64
-  %505 = getelementptr inbounds nuw <2 x i64>, ptr %312, i64 %504
+  %505 = getelementptr inbounds nuw [16 x i8], ptr %312, i64 %504
   %506 = load <16 x i8>, ptr %505, align 16
   %507 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %506, <16 x i8> %501)
   %508 = bitcast <16 x i8> %507 to <4 x i32>
@@ -2830,7 +2827,7 @@ doNormal8.exit72:                                 ; preds = %252, %248, %doSheng
   %513 = getelementptr inbounds nuw i8, ptr %.7215.i, i64 1
   %514 = load i8, ptr %.7215.i, align 1
   %515 = zext i8 %514 to i64
-  %516 = getelementptr inbounds nuw <2 x i64>, ptr %312, i64 %515
+  %516 = getelementptr inbounds nuw [16 x i8], ptr %312, i64 %515
   %517 = load <16 x i8>, ptr %516, align 16
   %518 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %517, <16 x i8> %512)
   %519 = bitcast <16 x i8> %518 to <4 x i32>
@@ -2845,7 +2842,7 @@ doNormal8.exit72:                                 ; preds = %252, %248, %doSheng
   %524 = getelementptr inbounds nuw i8, ptr %.8.i10, i64 1
   %525 = load i8, ptr %.8.i10, align 1
   %526 = zext i8 %525 to i64
-  %527 = getelementptr inbounds nuw <2 x i64>, ptr %312, i64 %526
+  %527 = getelementptr inbounds nuw [16 x i8], ptr %312, i64 %526
   %528 = load <16 x i8>, ptr %527, align 16
   %529 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %528, <16 x i8> %523)
   %530 = bitcast <16 x i8> %529 to <4 x i32>
@@ -2877,7 +2874,7 @@ doSheng.exit:                                     ; preds = %408, %405, %457, %4
 
 540:                                              ; preds = %539
   %541 = zext i32 %.5106.i to i64
-  %542 = getelementptr inbounds nuw %struct.mstate_aux, ptr %20, i64 %541
+  %542 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %541
   %543 = getelementptr inbounds nuw i8, ptr %542, i64 12
   %544 = load i32, ptr %543, align 4
   %.not122.i = icmp eq i32 %544, 0
@@ -2965,7 +2962,7 @@ doNormal8.exit:                                   ; preds = %566, %562, %doSheng
   %595 = zext i32 %594 to i64
   %596 = getelementptr inbounds nuw i8, ptr %315, i64 %595
   %597 = zext i32 %.7108.i to i64
-  %598 = getelementptr inbounds nuw %struct.mstate_aux, ptr %596, i64 %597
+  %598 = getelementptr inbounds nuw [16 x i8], ptr %596, i64 %597
   %599 = load i32, ptr %598, align 4
   %600 = zext i32 %599 to i64
   %601 = getelementptr inbounds nuw i8, ptr %0, i64 %600
@@ -2995,7 +2992,7 @@ doNormal8.exit:                                   ; preds = %566, %562, %doSheng
 
 611:                                              ; preds = %.lr.ph281, %610
   %indvars.iv352 = phi i64 [ 0, %.lr.ph281 ], [ %indvars.iv.next353, %610 ]
-  %612 = getelementptr inbounds nuw i32, ptr %604, i64 %indvars.iv352
+  %612 = getelementptr inbounds nuw [4 x i8], ptr %604, i64 %indvars.iv352
   %613 = load i32, ptr %612, align 4
   %614 = tail call i32 %5(i64 noundef 0, i64 noundef %583, i32 noundef %613, ptr noundef %6) #14
   %615 = icmp eq i32 %614, 0
@@ -3236,7 +3233,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec8_i_sam(ptr noundef
   %149 = getelementptr inbounds nuw i8, ptr %.0208.i15.lcssa, i64 1
   %150 = load i8, ptr %.0208.i15.lcssa, align 1
   %151 = zext i8 %150 to i64
-  %152 = getelementptr inbounds nuw <2 x i64>, ptr %30, i64 %151
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %151
   %153 = load <16 x i8>, ptr %152, align 16
   %154 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %153, <16 x i8> %.0207.i16.lcssa.in)
   %155 = bitcast <16 x i8> %154 to <4 x i32>
@@ -3251,7 +3248,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec8_i_sam(ptr noundef
   %160 = getelementptr inbounds nuw i8, ptr %.3211.i49, i64 1
   %161 = load i8, ptr %.3211.i49, align 1
   %162 = zext i8 %161 to i64
-  %163 = getelementptr inbounds nuw <2 x i64>, ptr %30, i64 %162
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %162
   %164 = load <16 x i8>, ptr %163, align 16
   %165 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %164, <16 x i8> %159)
   %166 = bitcast <16 x i8> %165 to <4 x i32>
@@ -3266,7 +3263,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec8_i_sam(ptr noundef
   %171 = getelementptr inbounds nuw i8, ptr %.4212.i44, i64 1
   %172 = load i8, ptr %.4212.i44, align 1
   %173 = zext i8 %172 to i64
-  %174 = getelementptr inbounds nuw <2 x i64>, ptr %30, i64 %173
+  %174 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %173
   %175 = load <16 x i8>, ptr %174, align 16
   %176 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %175, <16 x i8> %170)
   %177 = bitcast <16 x i8> %176 to <4 x i32>
@@ -3281,7 +3278,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec8_i_sam(ptr noundef
   %182 = getelementptr inbounds nuw i8, ptr %.5213.i39, i64 1
   %183 = load i8, ptr %.5213.i39, align 1
   %184 = zext i8 %183 to i64
-  %185 = getelementptr inbounds nuw <2 x i64>, ptr %30, i64 %184
+  %185 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %184
   %186 = load <16 x i8>, ptr %185, align 16
   %187 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %186, <16 x i8> %181)
   %188 = bitcast <16 x i8> %187 to <4 x i32>
@@ -3296,7 +3293,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec8_i_sam(ptr noundef
   %193 = getelementptr inbounds nuw i8, ptr %.6214.i34, i64 1
   %194 = load i8, ptr %.6214.i34, align 1
   %195 = zext i8 %194 to i64
-  %196 = getelementptr inbounds nuw <2 x i64>, ptr %30, i64 %195
+  %196 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %195
   %197 = load <16 x i8>, ptr %196, align 16
   %198 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %197, <16 x i8> %192)
   %199 = bitcast <16 x i8> %198 to <4 x i32>
@@ -3311,7 +3308,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec8_i_sam(ptr noundef
   %204 = getelementptr inbounds nuw i8, ptr %.7215.i29, i64 1
   %205 = load i8, ptr %.7215.i29, align 1
   %206 = zext i8 %205 to i64
-  %207 = getelementptr inbounds nuw <2 x i64>, ptr %30, i64 %206
+  %207 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %206
   %208 = load <16 x i8>, ptr %207, align 16
   %209 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %208, <16 x i8> %203)
   %210 = bitcast <16 x i8> %209 to <4 x i32>
@@ -3326,7 +3323,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec8_i_sam(ptr noundef
   %215 = getelementptr inbounds nuw i8, ptr %.8.i24, i64 1
   %216 = load i8, ptr %.8.i24, align 1
   %217 = zext i8 %216 to i64
-  %218 = getelementptr inbounds nuw <2 x i64>, ptr %30, i64 %217
+  %218 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %217
   %219 = load <16 x i8>, ptr %218, align 16
   %220 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %219, <16 x i8> %214)
   %221 = bitcast <16 x i8> %220 to <4 x i32>
@@ -3450,7 +3447,7 @@ doNormal8.exit68:                                 ; preds = %244, %240, %doSheng
 
 289:                                              ; preds = %285
   %290 = zext nneg i32 %.5106.i to i64
-  %291 = getelementptr inbounds nuw %struct.mstate_aux, ptr %15, i64 %290
+  %291 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %290
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 12
   %293 = load i32, ptr %292, align 4
   %294 = zext i32 %293 to i64
@@ -3625,7 +3622,7 @@ doNormal8.exit68:                                 ; preds = %244, %240, %doSheng
   %417 = getelementptr inbounds nuw i8, ptr %.0208.i.lcssa, i64 1
   %418 = load i8, ptr %.0208.i.lcssa, align 1
   %419 = zext i8 %418 to i64
-  %420 = getelementptr inbounds nuw <2 x i64>, ptr %275, i64 %419
+  %420 = getelementptr inbounds nuw [16 x i8], ptr %275, i64 %419
   %421 = load <16 x i8>, ptr %420, align 16
   %422 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %421, <16 x i8> %.0207.i.lcssa.in)
   %423 = bitcast <16 x i8> %422 to <4 x i32>
@@ -3640,7 +3637,7 @@ doNormal8.exit68:                                 ; preds = %244, %240, %doSheng
   %428 = getelementptr inbounds nuw i8, ptr %.3211.i, i64 1
   %429 = load i8, ptr %.3211.i, align 1
   %430 = zext i8 %429 to i64
-  %431 = getelementptr inbounds nuw <2 x i64>, ptr %275, i64 %430
+  %431 = getelementptr inbounds nuw [16 x i8], ptr %275, i64 %430
   %432 = load <16 x i8>, ptr %431, align 16
   %433 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %432, <16 x i8> %427)
   %434 = bitcast <16 x i8> %433 to <4 x i32>
@@ -3655,7 +3652,7 @@ doNormal8.exit68:                                 ; preds = %244, %240, %doSheng
   %439 = getelementptr inbounds nuw i8, ptr %.4212.i, i64 1
   %440 = load i8, ptr %.4212.i, align 1
   %441 = zext i8 %440 to i64
-  %442 = getelementptr inbounds nuw <2 x i64>, ptr %275, i64 %441
+  %442 = getelementptr inbounds nuw [16 x i8], ptr %275, i64 %441
   %443 = load <16 x i8>, ptr %442, align 16
   %444 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %443, <16 x i8> %438)
   %445 = bitcast <16 x i8> %444 to <4 x i32>
@@ -3670,7 +3667,7 @@ doNormal8.exit68:                                 ; preds = %244, %240, %doSheng
   %450 = getelementptr inbounds nuw i8, ptr %.5213.i, i64 1
   %451 = load i8, ptr %.5213.i, align 1
   %452 = zext i8 %451 to i64
-  %453 = getelementptr inbounds nuw <2 x i64>, ptr %275, i64 %452
+  %453 = getelementptr inbounds nuw [16 x i8], ptr %275, i64 %452
   %454 = load <16 x i8>, ptr %453, align 16
   %455 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %454, <16 x i8> %449)
   %456 = bitcast <16 x i8> %455 to <4 x i32>
@@ -3685,7 +3682,7 @@ doNormal8.exit68:                                 ; preds = %244, %240, %doSheng
   %461 = getelementptr inbounds nuw i8, ptr %.6214.i, i64 1
   %462 = load i8, ptr %.6214.i, align 1
   %463 = zext i8 %462 to i64
-  %464 = getelementptr inbounds nuw <2 x i64>, ptr %275, i64 %463
+  %464 = getelementptr inbounds nuw [16 x i8], ptr %275, i64 %463
   %465 = load <16 x i8>, ptr %464, align 16
   %466 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %465, <16 x i8> %460)
   %467 = bitcast <16 x i8> %466 to <4 x i32>
@@ -3700,7 +3697,7 @@ doNormal8.exit68:                                 ; preds = %244, %240, %doSheng
   %472 = getelementptr inbounds nuw i8, ptr %.7215.i, i64 1
   %473 = load i8, ptr %.7215.i, align 1
   %474 = zext i8 %473 to i64
-  %475 = getelementptr inbounds nuw <2 x i64>, ptr %275, i64 %474
+  %475 = getelementptr inbounds nuw [16 x i8], ptr %275, i64 %474
   %476 = load <16 x i8>, ptr %475, align 16
   %477 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %476, <16 x i8> %471)
   %478 = bitcast <16 x i8> %477 to <4 x i32>
@@ -3715,7 +3712,7 @@ doNormal8.exit68:                                 ; preds = %244, %240, %doSheng
   %483 = getelementptr inbounds nuw i8, ptr %.8.i9, i64 1
   %484 = load i8, ptr %.8.i9, align 1
   %485 = zext i8 %484 to i64
-  %486 = getelementptr inbounds nuw <2 x i64>, ptr %275, i64 %485
+  %486 = getelementptr inbounds nuw [16 x i8], ptr %275, i64 %485
   %487 = load <16 x i8>, ptr %486, align 16
   %488 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %487, <16 x i8> %482)
   %489 = bitcast <16 x i8> %488 to <4 x i32>
@@ -3747,7 +3744,7 @@ doSheng.exit:                                     ; preds = %367, %364, %416, %4
 
 499:                                              ; preds = %498
   %500 = zext i32 %.5106.i to i64
-  %501 = getelementptr inbounds nuw %struct.mstate_aux, ptr %15, i64 %500
+  %501 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %500
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 12
   %503 = load i32, ptr %502, align 4
   %.not122.i = icmp eq i32 %503, 0
@@ -4048,7 +4045,7 @@ define internal fastcc noundef signext i8 @mcshengExec8_i_nm(ptr noundef %0, ptr
   %147 = getelementptr inbounds nuw i8, ptr %.0208.i14.lcssa, i64 1
   %148 = load i8, ptr %.0208.i14.lcssa, align 1
   %149 = zext i8 %148 to i64
-  %150 = getelementptr inbounds nuw <2 x i64>, ptr %28, i64 %149
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %149
   %151 = load <16 x i8>, ptr %150, align 16
   %152 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %151, <16 x i8> %.0207.i15.lcssa.in)
   %153 = bitcast <16 x i8> %152 to <4 x i32>
@@ -4063,7 +4060,7 @@ define internal fastcc noundef signext i8 @mcshengExec8_i_nm(ptr noundef %0, ptr
   %158 = getelementptr inbounds nuw i8, ptr %.3211.i48, i64 1
   %159 = load i8, ptr %.3211.i48, align 1
   %160 = zext i8 %159 to i64
-  %161 = getelementptr inbounds nuw <2 x i64>, ptr %28, i64 %160
+  %161 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %160
   %162 = load <16 x i8>, ptr %161, align 16
   %163 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %162, <16 x i8> %157)
   %164 = bitcast <16 x i8> %163 to <4 x i32>
@@ -4078,7 +4075,7 @@ define internal fastcc noundef signext i8 @mcshengExec8_i_nm(ptr noundef %0, ptr
   %169 = getelementptr inbounds nuw i8, ptr %.4212.i43, i64 1
   %170 = load i8, ptr %.4212.i43, align 1
   %171 = zext i8 %170 to i64
-  %172 = getelementptr inbounds nuw <2 x i64>, ptr %28, i64 %171
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %171
   %173 = load <16 x i8>, ptr %172, align 16
   %174 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %173, <16 x i8> %168)
   %175 = bitcast <16 x i8> %174 to <4 x i32>
@@ -4093,7 +4090,7 @@ define internal fastcc noundef signext i8 @mcshengExec8_i_nm(ptr noundef %0, ptr
   %180 = getelementptr inbounds nuw i8, ptr %.5213.i38, i64 1
   %181 = load i8, ptr %.5213.i38, align 1
   %182 = zext i8 %181 to i64
-  %183 = getelementptr inbounds nuw <2 x i64>, ptr %28, i64 %182
+  %183 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %182
   %184 = load <16 x i8>, ptr %183, align 16
   %185 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %184, <16 x i8> %179)
   %186 = bitcast <16 x i8> %185 to <4 x i32>
@@ -4108,7 +4105,7 @@ define internal fastcc noundef signext i8 @mcshengExec8_i_nm(ptr noundef %0, ptr
   %191 = getelementptr inbounds nuw i8, ptr %.6214.i33, i64 1
   %192 = load i8, ptr %.6214.i33, align 1
   %193 = zext i8 %192 to i64
-  %194 = getelementptr inbounds nuw <2 x i64>, ptr %28, i64 %193
+  %194 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %193
   %195 = load <16 x i8>, ptr %194, align 16
   %196 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %195, <16 x i8> %190)
   %197 = bitcast <16 x i8> %196 to <4 x i32>
@@ -4123,7 +4120,7 @@ define internal fastcc noundef signext i8 @mcshengExec8_i_nm(ptr noundef %0, ptr
   %202 = getelementptr inbounds nuw i8, ptr %.7215.i28, i64 1
   %203 = load i8, ptr %.7215.i28, align 1
   %204 = zext i8 %203 to i64
-  %205 = getelementptr inbounds nuw <2 x i64>, ptr %28, i64 %204
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %204
   %206 = load <16 x i8>, ptr %205, align 16
   %207 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %206, <16 x i8> %201)
   %208 = bitcast <16 x i8> %207 to <4 x i32>
@@ -4138,7 +4135,7 @@ define internal fastcc noundef signext i8 @mcshengExec8_i_nm(ptr noundef %0, ptr
   %213 = getelementptr inbounds nuw i8, ptr %.8.i23, i64 1
   %214 = load i8, ptr %.8.i23, align 1
   %215 = zext i8 %214 to i64
-  %216 = getelementptr inbounds nuw <2 x i64>, ptr %28, i64 %215
+  %216 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %215
   %217 = load <16 x i8>, ptr %216, align 16
   %218 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %217, <16 x i8> %212)
   %219 = bitcast <16 x i8> %218 to <4 x i32>
@@ -4250,7 +4247,7 @@ doNormal8.exit67:                                 ; preds = %.lr.ph, %228, %doSh
 
 283:                                              ; preds = %279
   %284 = zext nneg i32 %.5106.i to i64
-  %285 = getelementptr inbounds nuw %struct.mstate_aux, ptr %16, i64 %284
+  %285 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %284
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 12
   %287 = load i32, ptr %286, align 4
   %288 = zext i32 %287 to i64
@@ -4425,7 +4422,7 @@ doNormal8.exit67:                                 ; preds = %.lr.ph, %228, %doSh
   %411 = getelementptr inbounds nuw i8, ptr %.0208.i.lcssa, i64 1
   %412 = load i8, ptr %.0208.i.lcssa, align 1
   %413 = zext i8 %412 to i64
-  %414 = getelementptr inbounds nuw <2 x i64>, ptr %269, i64 %413
+  %414 = getelementptr inbounds nuw [16 x i8], ptr %269, i64 %413
   %415 = load <16 x i8>, ptr %414, align 16
   %416 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %415, <16 x i8> %.0207.i.lcssa.in)
   %417 = bitcast <16 x i8> %416 to <4 x i32>
@@ -4440,7 +4437,7 @@ doNormal8.exit67:                                 ; preds = %.lr.ph, %228, %doSh
   %422 = getelementptr inbounds nuw i8, ptr %.3211.i, i64 1
   %423 = load i8, ptr %.3211.i, align 1
   %424 = zext i8 %423 to i64
-  %425 = getelementptr inbounds nuw <2 x i64>, ptr %269, i64 %424
+  %425 = getelementptr inbounds nuw [16 x i8], ptr %269, i64 %424
   %426 = load <16 x i8>, ptr %425, align 16
   %427 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %426, <16 x i8> %421)
   %428 = bitcast <16 x i8> %427 to <4 x i32>
@@ -4455,7 +4452,7 @@ doNormal8.exit67:                                 ; preds = %.lr.ph, %228, %doSh
   %433 = getelementptr inbounds nuw i8, ptr %.4212.i, i64 1
   %434 = load i8, ptr %.4212.i, align 1
   %435 = zext i8 %434 to i64
-  %436 = getelementptr inbounds nuw <2 x i64>, ptr %269, i64 %435
+  %436 = getelementptr inbounds nuw [16 x i8], ptr %269, i64 %435
   %437 = load <16 x i8>, ptr %436, align 16
   %438 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %437, <16 x i8> %432)
   %439 = bitcast <16 x i8> %438 to <4 x i32>
@@ -4470,7 +4467,7 @@ doNormal8.exit67:                                 ; preds = %.lr.ph, %228, %doSh
   %444 = getelementptr inbounds nuw i8, ptr %.5213.i, i64 1
   %445 = load i8, ptr %.5213.i, align 1
   %446 = zext i8 %445 to i64
-  %447 = getelementptr inbounds nuw <2 x i64>, ptr %269, i64 %446
+  %447 = getelementptr inbounds nuw [16 x i8], ptr %269, i64 %446
   %448 = load <16 x i8>, ptr %447, align 16
   %449 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %448, <16 x i8> %443)
   %450 = bitcast <16 x i8> %449 to <4 x i32>
@@ -4485,7 +4482,7 @@ doNormal8.exit67:                                 ; preds = %.lr.ph, %228, %doSh
   %455 = getelementptr inbounds nuw i8, ptr %.6214.i, i64 1
   %456 = load i8, ptr %.6214.i, align 1
   %457 = zext i8 %456 to i64
-  %458 = getelementptr inbounds nuw <2 x i64>, ptr %269, i64 %457
+  %458 = getelementptr inbounds nuw [16 x i8], ptr %269, i64 %457
   %459 = load <16 x i8>, ptr %458, align 16
   %460 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %459, <16 x i8> %454)
   %461 = bitcast <16 x i8> %460 to <4 x i32>
@@ -4500,7 +4497,7 @@ doNormal8.exit67:                                 ; preds = %.lr.ph, %228, %doSh
   %466 = getelementptr inbounds nuw i8, ptr %.7215.i, i64 1
   %467 = load i8, ptr %.7215.i, align 1
   %468 = zext i8 %467 to i64
-  %469 = getelementptr inbounds nuw <2 x i64>, ptr %269, i64 %468
+  %469 = getelementptr inbounds nuw [16 x i8], ptr %269, i64 %468
   %470 = load <16 x i8>, ptr %469, align 16
   %471 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %470, <16 x i8> %465)
   %472 = bitcast <16 x i8> %471 to <4 x i32>
@@ -4515,7 +4512,7 @@ doNormal8.exit67:                                 ; preds = %.lr.ph, %228, %doSh
   %477 = getelementptr inbounds nuw i8, ptr %.8.i, i64 1
   %478 = load i8, ptr %.8.i, align 1
   %479 = zext i8 %478 to i64
-  %480 = getelementptr inbounds nuw <2 x i64>, ptr %269, i64 %479
+  %480 = getelementptr inbounds nuw [16 x i8], ptr %269, i64 %479
   %481 = load <16 x i8>, ptr %480, align 16
   %482 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %481, <16 x i8> %476)
   %483 = bitcast <16 x i8> %482 to <4 x i32>
@@ -4547,7 +4544,7 @@ doSheng.exit:                                     ; preds = %361, %358, %410, %4
 
 493:                                              ; preds = %492
   %494 = zext i32 %.5106.i to i64
-  %495 = getelementptr inbounds nuw %struct.mstate_aux, ptr %16, i64 %494
+  %495 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %494
   %496 = getelementptr inbounds nuw i8, ptr %495, i64 12
   %497 = load i32, ptr %496, align 4
   %.not122.i = icmp eq i32 %497, 0
@@ -4868,7 +4865,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
   %155 = getelementptr inbounds nuw i8, ptr %.0208.i152.i.lcssa, i64 1
   %156 = load i8, ptr %.0208.i152.i.lcssa, align 1
   %157 = zext i8 %156 to i64
-  %158 = getelementptr inbounds nuw <2 x i64>, ptr %34, i64 %157
+  %158 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %157
   %159 = load <16 x i8>, ptr %158, align 16
   %160 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %159, <16 x i8> %.0207.i153.i.lcssa.in)
   %161 = bitcast <16 x i8> %160 to <4 x i32>
@@ -4883,7 +4880,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
   %166 = getelementptr inbounds nuw i8, ptr %.3211.i186.i, i64 1
   %167 = load i8, ptr %.3211.i186.i, align 1
   %168 = zext i8 %167 to i64
-  %169 = getelementptr inbounds nuw <2 x i64>, ptr %34, i64 %168
+  %169 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %168
   %170 = load <16 x i8>, ptr %169, align 16
   %171 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %170, <16 x i8> %165)
   %172 = bitcast <16 x i8> %171 to <4 x i32>
@@ -4898,7 +4895,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
   %177 = getelementptr inbounds nuw i8, ptr %.4212.i181.i, i64 1
   %178 = load i8, ptr %.4212.i181.i, align 1
   %179 = zext i8 %178 to i64
-  %180 = getelementptr inbounds nuw <2 x i64>, ptr %34, i64 %179
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %179
   %181 = load <16 x i8>, ptr %180, align 16
   %182 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %181, <16 x i8> %176)
   %183 = bitcast <16 x i8> %182 to <4 x i32>
@@ -4913,7 +4910,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
   %188 = getelementptr inbounds nuw i8, ptr %.5213.i176.i, i64 1
   %189 = load i8, ptr %.5213.i176.i, align 1
   %190 = zext i8 %189 to i64
-  %191 = getelementptr inbounds nuw <2 x i64>, ptr %34, i64 %190
+  %191 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %190
   %192 = load <16 x i8>, ptr %191, align 16
   %193 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %192, <16 x i8> %187)
   %194 = bitcast <16 x i8> %193 to <4 x i32>
@@ -4928,7 +4925,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
   %199 = getelementptr inbounds nuw i8, ptr %.6214.i171.i, i64 1
   %200 = load i8, ptr %.6214.i171.i, align 1
   %201 = zext i8 %200 to i64
-  %202 = getelementptr inbounds nuw <2 x i64>, ptr %34, i64 %201
+  %202 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %201
   %203 = load <16 x i8>, ptr %202, align 16
   %204 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %203, <16 x i8> %198)
   %205 = bitcast <16 x i8> %204 to <4 x i32>
@@ -4943,7 +4940,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
   %210 = getelementptr inbounds nuw i8, ptr %.7215.i166.i, i64 1
   %211 = load i8, ptr %.7215.i166.i, align 1
   %212 = zext i8 %211 to i64
-  %213 = getelementptr inbounds nuw <2 x i64>, ptr %34, i64 %212
+  %213 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %212
   %214 = load <16 x i8>, ptr %213, align 16
   %215 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %214, <16 x i8> %209)
   %216 = bitcast <16 x i8> %215 to <4 x i32>
@@ -4958,7 +4955,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
   %221 = getelementptr inbounds nuw i8, ptr %.8.i161.i, i64 1
   %222 = load i8, ptr %.8.i161.i, align 1
   %223 = zext i8 %222 to i64
-  %224 = getelementptr inbounds nuw <2 x i64>, ptr %34, i64 %223
+  %224 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %223
   %225 = load <16 x i8>, ptr %224, align 16
   %226 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %225, <16 x i8> %220)
   %227 = bitcast <16 x i8> %226 to <4 x i32>
@@ -4986,7 +4983,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
   %242 = shl i32 %234, %241
   %243 = zext i32 %242 to i64
   %244 = sub nsw i64 0, %243
-  %245 = getelementptr inbounds i16, ptr %25, i64 %244
+  %245 = getelementptr inbounds [2 x i8], ptr %25, i64 %244
   br label %246
 
 246:                                              ; preds = %doSherman16.exit, %232
@@ -5011,7 +5008,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
   %258 = zext i8 %254 to i32
   %259 = add i32 %257, %258
   %260 = zext i32 %259 to i64
-  %261 = getelementptr inbounds nuw i16, ptr %245, i64 %260
+  %261 = getelementptr inbounds nuw [2 x i8], ptr %245, i64 %260
   br label %doSherman16.exit
 
 262:                                              ; preds = %250
@@ -5065,7 +5062,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mcshengExec16_i_cb(ptr noundef
   %294 = zext i8 %254 to i32
   %295 = add i32 %293, %294
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds nuw i16, ptr %245, i64 %296
+  %297 = getelementptr inbounds nuw [2 x i8], ptr %245, i64 %296
   br label %doSherman16.exit
 
 doSherman16.exit:                                 ; preds = %.thread46, %282, %256
@@ -5089,7 +5086,7 @@ doSherman16.exit:                                 ; preds = %.thread46, %282, %2
   %304 = zext i32 %303 to i64
   %305 = getelementptr inbounds nuw i8, ptr %27, i64 %304
   %306 = zext i8 %.16.i159.i to i64
-  %307 = getelementptr inbounds nuw %struct.mstate_aux, ptr %305, i64 %306
+  %307 = getelementptr inbounds nuw [16 x i8], ptr %305, i64 %306
   %308 = load i32, ptr %307, align 4
   %.not127.i = icmp eq i32 %308, 0
   br i1 %.not127.i, label %doComplexReport.exit149.i, label %doNormal16.exit26
@@ -5123,7 +5120,7 @@ doNormal16.exit26:                                ; preds = %doSherman16.exit, %
   %324 = zext i32 %323 to i64
   %325 = getelementptr inbounds nuw i8, ptr %27, i64 %324
   %326 = zext nneg i32 %317 to i64
-  %327 = getelementptr inbounds nuw %struct.mstate_aux, ptr %325, i64 %326
+  %327 = getelementptr inbounds nuw [16 x i8], ptr %325, i64 %326
   %328 = load i32, ptr %327, align 4
   %329 = zext i32 %328 to i64
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 %329
@@ -5153,7 +5150,7 @@ doNormal16.exit26:                                ; preds = %doSherman16.exit, %
 
 340:                                              ; preds = %.lr.ph223, %339
   %indvars.iv = phi i64 [ 0, %.lr.ph223 ], [ %indvars.iv.next, %339 ]
-  %341 = getelementptr inbounds nuw i32, ptr %333, i64 %indvars.iv
+  %341 = getelementptr inbounds nuw [4 x i8], ptr %333, i64 %indvars.iv
   %342 = load i32, ptr %341, align 4
   %343 = tail call i32 %5(i64 noundef 0, i64 noundef %311, i32 noundef %342, ptr noundef %6) #14
   %344 = icmp eq i32 %343, 0
@@ -5213,7 +5210,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
 
 367:                                              ; preds = %363
   %368 = zext nneg i32 %.6114.i to i64
-  %369 = getelementptr inbounds nuw %struct.mstate_aux, ptr %18, i64 %368
+  %369 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %368
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 12
   %371 = load i32, ptr %370, align 4
   %372 = zext i32 %371 to i64
@@ -5393,7 +5390,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   %500 = getelementptr inbounds nuw i8, ptr %.0208.i.i.lcssa, i64 1
   %501 = load i8, ptr %.0208.i.i.lcssa, align 1
   %502 = zext i8 %501 to i64
-  %503 = getelementptr inbounds nuw <2 x i64>, ptr %357, i64 %502
+  %503 = getelementptr inbounds nuw [16 x i8], ptr %357, i64 %502
   %504 = load <16 x i8>, ptr %503, align 16
   %505 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %504, <16 x i8> %.0207.i.i.lcssa.in)
   %506 = bitcast <16 x i8> %505 to <4 x i32>
@@ -5408,7 +5405,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   %511 = getelementptr inbounds nuw i8, ptr %.3211.i.i, i64 1
   %512 = load i8, ptr %.3211.i.i, align 1
   %513 = zext i8 %512 to i64
-  %514 = getelementptr inbounds nuw <2 x i64>, ptr %357, i64 %513
+  %514 = getelementptr inbounds nuw [16 x i8], ptr %357, i64 %513
   %515 = load <16 x i8>, ptr %514, align 16
   %516 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %515, <16 x i8> %510)
   %517 = bitcast <16 x i8> %516 to <4 x i32>
@@ -5423,7 +5420,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   %522 = getelementptr inbounds nuw i8, ptr %.4212.i.i, i64 1
   %523 = load i8, ptr %.4212.i.i, align 1
   %524 = zext i8 %523 to i64
-  %525 = getelementptr inbounds nuw <2 x i64>, ptr %357, i64 %524
+  %525 = getelementptr inbounds nuw [16 x i8], ptr %357, i64 %524
   %526 = load <16 x i8>, ptr %525, align 16
   %527 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %526, <16 x i8> %521)
   %528 = bitcast <16 x i8> %527 to <4 x i32>
@@ -5438,7 +5435,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   %533 = getelementptr inbounds nuw i8, ptr %.5213.i.i, i64 1
   %534 = load i8, ptr %.5213.i.i, align 1
   %535 = zext i8 %534 to i64
-  %536 = getelementptr inbounds nuw <2 x i64>, ptr %357, i64 %535
+  %536 = getelementptr inbounds nuw [16 x i8], ptr %357, i64 %535
   %537 = load <16 x i8>, ptr %536, align 16
   %538 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %537, <16 x i8> %532)
   %539 = bitcast <16 x i8> %538 to <4 x i32>
@@ -5453,7 +5450,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   %544 = getelementptr inbounds nuw i8, ptr %.6214.i.i, i64 1
   %545 = load i8, ptr %.6214.i.i, align 1
   %546 = zext i8 %545 to i64
-  %547 = getelementptr inbounds nuw <2 x i64>, ptr %357, i64 %546
+  %547 = getelementptr inbounds nuw [16 x i8], ptr %357, i64 %546
   %548 = load <16 x i8>, ptr %547, align 16
   %549 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %548, <16 x i8> %543)
   %550 = bitcast <16 x i8> %549 to <4 x i32>
@@ -5468,7 +5465,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   %555 = getelementptr inbounds nuw i8, ptr %.7215.i.i, i64 1
   %556 = load i8, ptr %.7215.i.i, align 1
   %557 = zext i8 %556 to i64
-  %558 = getelementptr inbounds nuw <2 x i64>, ptr %357, i64 %557
+  %558 = getelementptr inbounds nuw [16 x i8], ptr %357, i64 %557
   %559 = load <16 x i8>, ptr %558, align 16
   %560 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %559, <16 x i8> %554)
   %561 = bitcast <16 x i8> %560 to <4 x i32>
@@ -5483,7 +5480,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   %566 = getelementptr inbounds nuw i8, ptr %.8.i.i, i64 1
   %567 = load i8, ptr %.8.i.i, align 1
   %568 = zext i8 %567 to i64
-  %569 = getelementptr inbounds nuw <2 x i64>, ptr %357, i64 %568
+  %569 = getelementptr inbounds nuw [16 x i8], ptr %357, i64 %568
   %570 = load <16 x i8>, ptr %569, align 16
   %571 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %570, <16 x i8> %565)
   %572 = bitcast <16 x i8> %571 to <4 x i32>
@@ -5506,7 +5503,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
 579:                                              ; preds = %577
   %580 = and i32 %.6114.i, 16383
   %581 = zext nneg i32 %580 to i64
-  %582 = getelementptr inbounds nuw %struct.mstate_aux, ptr %18, i64 %581
+  %582 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %581
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 12
   %584 = load i32, ptr %583, align 4
   %585 = zext i32 %584 to i64
@@ -5535,7 +5532,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   %602 = shl i32 %594, %601
   %603 = zext i32 %602 to i64
   %604 = sub nsw i64 0, %603
-  %605 = getelementptr inbounds i16, ptr %349, i64 %604
+  %605 = getelementptr inbounds [2 x i8], ptr %349, i64 %604
   br label %606
 
 606:                                              ; preds = %doSherman16.exit34, %592
@@ -5560,7 +5557,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   %618 = zext i8 %614 to i32
   %619 = add i32 %617, %618
   %620 = zext i32 %619 to i64
-  %621 = getelementptr inbounds nuw i16, ptr %605, i64 %620
+  %621 = getelementptr inbounds nuw [2 x i8], ptr %605, i64 %620
   br label %doSherman16.exit34
 
 622:                                              ; preds = %610
@@ -5614,7 +5611,7 @@ doComplexReport.exit149.i:                        ; preds = %246, %339, %322, %3
   %654 = zext i8 %614 to i32
   %655 = add i32 %653, %654
   %656 = zext i32 %655 to i64
-  %657 = getelementptr inbounds nuw i16, ptr %605, i64 %656
+  %657 = getelementptr inbounds nuw [2 x i8], ptr %605, i64 %656
   br label %doSherman16.exit34
 
 doSherman16.exit34:                               ; preds = %.thread95, %642, %616
@@ -5645,7 +5642,7 @@ doNormal16.exit:                                  ; preds = %doSherman16.exit34
   %666 = zext i32 %665 to i64
   %667 = getelementptr inbounds nuw i8, ptr %351, i64 %666
   %668 = zext i8 %.16.i.i to i64
-  %669 = getelementptr inbounds nuw %struct.mstate_aux, ptr %667, i64 %668
+  %669 = getelementptr inbounds nuw [16 x i8], ptr %667, i64 %668
   %670 = load i32, ptr %669, align 4
   %.not136.i = icmp eq i32 %670, 0
   br i1 %.not136.i, label %doComplexReport.exit.i, label %671
@@ -5679,7 +5676,7 @@ doNormal16.exit:                                  ; preds = %doSherman16.exit34
   %687 = zext i32 %686 to i64
   %688 = getelementptr inbounds nuw i8, ptr %351, i64 %687
   %689 = zext nneg i32 %680 to i64
-  %690 = getelementptr inbounds nuw %struct.mstate_aux, ptr %688, i64 %689
+  %690 = getelementptr inbounds nuw [16 x i8], ptr %688, i64 %689
   %691 = load i32, ptr %690, align 4
   %692 = zext i32 %691 to i64
   %693 = getelementptr inbounds nuw i8, ptr %0, i64 %692
@@ -5709,7 +5706,7 @@ doNormal16.exit:                                  ; preds = %doSherman16.exit34
 
 703:                                              ; preds = %.lr.ph240, %702
   %indvars.iv305 = phi i64 [ 0, %.lr.ph240 ], [ %indvars.iv.next306, %702 ]
-  %704 = getelementptr inbounds nuw i32, ptr %696, i64 %indvars.iv305
+  %704 = getelementptr inbounds nuw [4 x i8], ptr %696, i64 %indvars.iv305
   %705 = load i32, ptr %704, align 4
   %706 = tail call i32 %5(i64 noundef 0, i64 noundef %674, i32 noundef %705, ptr noundef %6) #14
   %707 = icmp eq i32 %706, 0
@@ -5958,7 +5955,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
   %151 = getelementptr inbounds nuw i8, ptr %.0208.i152.i.lcssa, i64 1
   %152 = load i8, ptr %.0208.i152.i.lcssa, align 1
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw <2 x i64>, ptr %32, i64 %153
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %153
   %155 = load <16 x i8>, ptr %154, align 16
   %156 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %155, <16 x i8> %.0207.i153.i.lcssa.in)
   %157 = bitcast <16 x i8> %156 to <4 x i32>
@@ -5973,7 +5970,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
   %162 = getelementptr inbounds nuw i8, ptr %.3211.i186.i, i64 1
   %163 = load i8, ptr %.3211.i186.i, align 1
   %164 = zext i8 %163 to i64
-  %165 = getelementptr inbounds nuw <2 x i64>, ptr %32, i64 %164
+  %165 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %164
   %166 = load <16 x i8>, ptr %165, align 16
   %167 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %166, <16 x i8> %161)
   %168 = bitcast <16 x i8> %167 to <4 x i32>
@@ -5988,7 +5985,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
   %173 = getelementptr inbounds nuw i8, ptr %.4212.i181.i, i64 1
   %174 = load i8, ptr %.4212.i181.i, align 1
   %175 = zext i8 %174 to i64
-  %176 = getelementptr inbounds nuw <2 x i64>, ptr %32, i64 %175
+  %176 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %175
   %177 = load <16 x i8>, ptr %176, align 16
   %178 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %177, <16 x i8> %172)
   %179 = bitcast <16 x i8> %178 to <4 x i32>
@@ -6003,7 +6000,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
   %184 = getelementptr inbounds nuw i8, ptr %.5213.i176.i, i64 1
   %185 = load i8, ptr %.5213.i176.i, align 1
   %186 = zext i8 %185 to i64
-  %187 = getelementptr inbounds nuw <2 x i64>, ptr %32, i64 %186
+  %187 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %186
   %188 = load <16 x i8>, ptr %187, align 16
   %189 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %188, <16 x i8> %183)
   %190 = bitcast <16 x i8> %189 to <4 x i32>
@@ -6018,7 +6015,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
   %195 = getelementptr inbounds nuw i8, ptr %.6214.i171.i, i64 1
   %196 = load i8, ptr %.6214.i171.i, align 1
   %197 = zext i8 %196 to i64
-  %198 = getelementptr inbounds nuw <2 x i64>, ptr %32, i64 %197
+  %198 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %197
   %199 = load <16 x i8>, ptr %198, align 16
   %200 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %199, <16 x i8> %194)
   %201 = bitcast <16 x i8> %200 to <4 x i32>
@@ -6033,7 +6030,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
   %206 = getelementptr inbounds nuw i8, ptr %.7215.i166.i, i64 1
   %207 = load i8, ptr %.7215.i166.i, align 1
   %208 = zext i8 %207 to i64
-  %209 = getelementptr inbounds nuw <2 x i64>, ptr %32, i64 %208
+  %209 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %208
   %210 = load <16 x i8>, ptr %209, align 16
   %211 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %210, <16 x i8> %205)
   %212 = bitcast <16 x i8> %211 to <4 x i32>
@@ -6048,7 +6045,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
   %217 = getelementptr inbounds nuw i8, ptr %.8.i161.i, i64 1
   %218 = load i8, ptr %.8.i161.i, align 1
   %219 = zext i8 %218 to i64
-  %220 = getelementptr inbounds nuw <2 x i64>, ptr %32, i64 %219
+  %220 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %219
   %221 = load <16 x i8>, ptr %220, align 16
   %222 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %221, <16 x i8> %216)
   %223 = bitcast <16 x i8> %222 to <4 x i32>
@@ -6076,7 +6073,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
   %238 = shl i32 %230, %237
   %239 = zext i32 %238 to i64
   %240 = sub nsw i64 0, %239
-  %241 = getelementptr inbounds i16, ptr %23, i64 %240
+  %241 = getelementptr inbounds [2 x i8], ptr %23, i64 %240
   br label %242
 
 242:                                              ; preds = %doSherman16.exit, %228
@@ -6101,7 +6098,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
   %254 = zext i8 %250 to i32
   %255 = add i32 %253, %254
   %256 = zext i32 %255 to i64
-  %257 = getelementptr inbounds nuw i16, ptr %241, i64 %256
+  %257 = getelementptr inbounds nuw [2 x i8], ptr %241, i64 %256
   br label %doSherman16.exit
 
 258:                                              ; preds = %246
@@ -6155,7 +6152,7 @@ define internal fastcc signext range(i8 1, 3) i8 @mcshengExec16_i_sam(ptr nounde
   %290 = zext i8 %250 to i32
   %291 = add i32 %289, %290
   %292 = zext i32 %291 to i64
-  %293 = getelementptr inbounds nuw i16, ptr %241, i64 %292
+  %293 = getelementptr inbounds nuw [2 x i8], ptr %241, i64 %292
   br label %doSherman16.exit
 
 doSherman16.exit:                                 ; preds = %.thread23, %278, %252
@@ -6179,7 +6176,7 @@ doSherman16.exit:                                 ; preds = %.thread23, %278, %2
   %300 = zext i32 %299 to i64
   %301 = getelementptr inbounds nuw i8, ptr %25, i64 %300
   %302 = zext i8 %.16.i159.i to i64
-  %303 = getelementptr inbounds nuw %struct.mstate_aux, ptr %301, i64 %302
+  %303 = getelementptr inbounds nuw [16 x i8], ptr %301, i64 %302
   %304 = load i32, ptr %303, align 4
   %.not127.i = icmp eq i32 %304, 0
   br i1 %.not127.i, label %doNormal16.exit25.thread, label %.thread36
@@ -6245,7 +6242,7 @@ doNormal16.exit25.thread:                         ; preds = %242, %.thread
 
 335:                                              ; preds = %331
   %336 = zext nneg i32 %.6114.i to i64
-  %337 = getelementptr inbounds nuw %struct.mstate_aux, ptr %16, i64 %336
+  %337 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %336
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 12
   %339 = load i32, ptr %338, align 4
   %340 = zext i32 %339 to i64
@@ -6420,7 +6417,7 @@ doNormal16.exit25.thread:                         ; preds = %242, %.thread
   %463 = getelementptr inbounds nuw i8, ptr %.0208.i.i.lcssa, i64 1
   %464 = load i8, ptr %.0208.i.i.lcssa, align 1
   %465 = zext i8 %464 to i64
-  %466 = getelementptr inbounds nuw <2 x i64>, ptr %321, i64 %465
+  %466 = getelementptr inbounds nuw [16 x i8], ptr %321, i64 %465
   %467 = load <16 x i8>, ptr %466, align 16
   %468 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %467, <16 x i8> %.0207.i.i.lcssa.in)
   %469 = bitcast <16 x i8> %468 to <4 x i32>
@@ -6435,7 +6432,7 @@ doNormal16.exit25.thread:                         ; preds = %242, %.thread
   %474 = getelementptr inbounds nuw i8, ptr %.3211.i.i, i64 1
   %475 = load i8, ptr %.3211.i.i, align 1
   %476 = zext i8 %475 to i64
-  %477 = getelementptr inbounds nuw <2 x i64>, ptr %321, i64 %476
+  %477 = getelementptr inbounds nuw [16 x i8], ptr %321, i64 %476
   %478 = load <16 x i8>, ptr %477, align 16
   %479 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %478, <16 x i8> %473)
   %480 = bitcast <16 x i8> %479 to <4 x i32>
@@ -6450,7 +6447,7 @@ doNormal16.exit25.thread:                         ; preds = %242, %.thread
   %485 = getelementptr inbounds nuw i8, ptr %.4212.i.i, i64 1
   %486 = load i8, ptr %.4212.i.i, align 1
   %487 = zext i8 %486 to i64
-  %488 = getelementptr inbounds nuw <2 x i64>, ptr %321, i64 %487
+  %488 = getelementptr inbounds nuw [16 x i8], ptr %321, i64 %487
   %489 = load <16 x i8>, ptr %488, align 16
   %490 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %489, <16 x i8> %484)
   %491 = bitcast <16 x i8> %490 to <4 x i32>
@@ -6465,7 +6462,7 @@ doNormal16.exit25.thread:                         ; preds = %242, %.thread
   %496 = getelementptr inbounds nuw i8, ptr %.5213.i.i, i64 1
   %497 = load i8, ptr %.5213.i.i, align 1
   %498 = zext i8 %497 to i64
-  %499 = getelementptr inbounds nuw <2 x i64>, ptr %321, i64 %498
+  %499 = getelementptr inbounds nuw [16 x i8], ptr %321, i64 %498
   %500 = load <16 x i8>, ptr %499, align 16
   %501 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %500, <16 x i8> %495)
   %502 = bitcast <16 x i8> %501 to <4 x i32>
@@ -6480,7 +6477,7 @@ doNormal16.exit25.thread:                         ; preds = %242, %.thread
   %507 = getelementptr inbounds nuw i8, ptr %.6214.i.i, i64 1
   %508 = load i8, ptr %.6214.i.i, align 1
   %509 = zext i8 %508 to i64
-  %510 = getelementptr inbounds nuw <2 x i64>, ptr %321, i64 %509
+  %510 = getelementptr inbounds nuw [16 x i8], ptr %321, i64 %509
   %511 = load <16 x i8>, ptr %510, align 16
   %512 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %511, <16 x i8> %506)
   %513 = bitcast <16 x i8> %512 to <4 x i32>
@@ -6495,7 +6492,7 @@ doNormal16.exit25.thread:                         ; preds = %242, %.thread
   %518 = getelementptr inbounds nuw i8, ptr %.7215.i.i, i64 1
   %519 = load i8, ptr %.7215.i.i, align 1
   %520 = zext i8 %519 to i64
-  %521 = getelementptr inbounds nuw <2 x i64>, ptr %321, i64 %520
+  %521 = getelementptr inbounds nuw [16 x i8], ptr %321, i64 %520
   %522 = load <16 x i8>, ptr %521, align 16
   %523 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %522, <16 x i8> %517)
   %524 = bitcast <16 x i8> %523 to <4 x i32>
@@ -6510,7 +6507,7 @@ doNormal16.exit25.thread:                         ; preds = %242, %.thread
   %529 = getelementptr inbounds nuw i8, ptr %.8.i.i, i64 1
   %530 = load i8, ptr %.8.i.i, align 1
   %531 = zext i8 %530 to i64
-  %532 = getelementptr inbounds nuw <2 x i64>, ptr %321, i64 %531
+  %532 = getelementptr inbounds nuw [16 x i8], ptr %321, i64 %531
   %533 = load <16 x i8>, ptr %532, align 16
   %534 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %533, <16 x i8> %528)
   %535 = bitcast <16 x i8> %534 to <4 x i32>
@@ -6533,7 +6530,7 @@ doNormal16.exit25.thread:                         ; preds = %242, %.thread
 542:                                              ; preds = %540
   %543 = and i32 %.6114.i, 16383
   %544 = zext nneg i32 %543 to i64
-  %545 = getelementptr inbounds nuw %struct.mstate_aux, ptr %16, i64 %544
+  %545 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %544
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 12
   %547 = load i32, ptr %546, align 4
   %548 = zext i32 %547 to i64
@@ -6560,7 +6557,7 @@ doNormal16.exit25.thread:                         ; preds = %242, %.thread
   %563 = shl i32 %323, %562
   %564 = zext i32 %563 to i64
   %565 = sub nsw i64 0, %564
-  %566 = getelementptr inbounds i16, ptr %313, i64 %565
+  %566 = getelementptr inbounds [2 x i8], ptr %313, i64 %565
   br label %567
 
 567:                                              ; preds = %doSherman16.exit33, %555
@@ -6585,7 +6582,7 @@ doNormal16.exit25.thread:                         ; preds = %242, %.thread
   %579 = zext i8 %575 to i32
   %580 = add i32 %578, %579
   %581 = zext i32 %580 to i64
-  %582 = getelementptr inbounds nuw i16, ptr %566, i64 %581
+  %582 = getelementptr inbounds nuw [2 x i8], ptr %566, i64 %581
   br label %doSherman16.exit33
 
 583:                                              ; preds = %571
@@ -6639,7 +6636,7 @@ doNormal16.exit25.thread:                         ; preds = %242, %.thread
   %615 = zext i8 %575 to i32
   %616 = add i32 %614, %615
   %617 = zext i32 %616 to i64
-  %618 = getelementptr inbounds nuw i16, ptr %566, i64 %617
+  %618 = getelementptr inbounds nuw [2 x i8], ptr %566, i64 %617
   br label %doSherman16.exit33
 
 doSherman16.exit33:                               ; preds = %.thread46, %603, %577
@@ -6670,7 +6667,7 @@ doNormal16.exit:                                  ; preds = %doSherman16.exit33
   %627 = zext i32 %626 to i64
   %628 = getelementptr inbounds nuw i8, ptr %315, i64 %627
   %629 = zext i8 %.16.i.i to i64
-  %630 = getelementptr inbounds nuw %struct.mstate_aux, ptr %628, i64 %629
+  %630 = getelementptr inbounds nuw [16 x i8], ptr %628, i64 %629
   %631 = load i32, ptr %630, align 4
   %.not136.i = icmp eq i32 %631, 0
   br i1 %.not136.i, label %doNormal16.exit.thread, label %.thread75
@@ -6922,7 +6919,7 @@ define internal fastcc noundef signext i8 @mcshengExec16_i_nm(ptr noundef %0, pt
   %149 = getelementptr inbounds nuw i8, ptr %.0208.i152.i.lcssa, i64 1
   %150 = load i8, ptr %.0208.i152.i.lcssa, align 1
   %151 = zext i8 %150 to i64
-  %152 = getelementptr inbounds nuw <2 x i64>, ptr %30, i64 %151
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %151
   %153 = load <16 x i8>, ptr %152, align 16
   %154 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %153, <16 x i8> %.0207.i153.i.lcssa.in)
   %155 = bitcast <16 x i8> %154 to <4 x i32>
@@ -6937,7 +6934,7 @@ define internal fastcc noundef signext i8 @mcshengExec16_i_nm(ptr noundef %0, pt
   %160 = getelementptr inbounds nuw i8, ptr %.3211.i186.i, i64 1
   %161 = load i8, ptr %.3211.i186.i, align 1
   %162 = zext i8 %161 to i64
-  %163 = getelementptr inbounds nuw <2 x i64>, ptr %30, i64 %162
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %162
   %164 = load <16 x i8>, ptr %163, align 16
   %165 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %164, <16 x i8> %159)
   %166 = bitcast <16 x i8> %165 to <4 x i32>
@@ -6952,7 +6949,7 @@ define internal fastcc noundef signext i8 @mcshengExec16_i_nm(ptr noundef %0, pt
   %171 = getelementptr inbounds nuw i8, ptr %.4212.i181.i, i64 1
   %172 = load i8, ptr %.4212.i181.i, align 1
   %173 = zext i8 %172 to i64
-  %174 = getelementptr inbounds nuw <2 x i64>, ptr %30, i64 %173
+  %174 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %173
   %175 = load <16 x i8>, ptr %174, align 16
   %176 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %175, <16 x i8> %170)
   %177 = bitcast <16 x i8> %176 to <4 x i32>
@@ -6967,7 +6964,7 @@ define internal fastcc noundef signext i8 @mcshengExec16_i_nm(ptr noundef %0, pt
   %182 = getelementptr inbounds nuw i8, ptr %.5213.i176.i, i64 1
   %183 = load i8, ptr %.5213.i176.i, align 1
   %184 = zext i8 %183 to i64
-  %185 = getelementptr inbounds nuw <2 x i64>, ptr %30, i64 %184
+  %185 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %184
   %186 = load <16 x i8>, ptr %185, align 16
   %187 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %186, <16 x i8> %181)
   %188 = bitcast <16 x i8> %187 to <4 x i32>
@@ -6982,7 +6979,7 @@ define internal fastcc noundef signext i8 @mcshengExec16_i_nm(ptr noundef %0, pt
   %193 = getelementptr inbounds nuw i8, ptr %.6214.i171.i, i64 1
   %194 = load i8, ptr %.6214.i171.i, align 1
   %195 = zext i8 %194 to i64
-  %196 = getelementptr inbounds nuw <2 x i64>, ptr %30, i64 %195
+  %196 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %195
   %197 = load <16 x i8>, ptr %196, align 16
   %198 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %197, <16 x i8> %192)
   %199 = bitcast <16 x i8> %198 to <4 x i32>
@@ -6997,7 +6994,7 @@ define internal fastcc noundef signext i8 @mcshengExec16_i_nm(ptr noundef %0, pt
   %204 = getelementptr inbounds nuw i8, ptr %.7215.i166.i, i64 1
   %205 = load i8, ptr %.7215.i166.i, align 1
   %206 = zext i8 %205 to i64
-  %207 = getelementptr inbounds nuw <2 x i64>, ptr %30, i64 %206
+  %207 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %206
   %208 = load <16 x i8>, ptr %207, align 16
   %209 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %208, <16 x i8> %203)
   %210 = bitcast <16 x i8> %209 to <4 x i32>
@@ -7012,7 +7009,7 @@ define internal fastcc noundef signext i8 @mcshengExec16_i_nm(ptr noundef %0, pt
   %215 = getelementptr inbounds nuw i8, ptr %.8.i161.i, i64 1
   %216 = load i8, ptr %.8.i161.i, align 1
   %217 = zext i8 %216 to i64
-  %218 = getelementptr inbounds nuw <2 x i64>, ptr %30, i64 %217
+  %218 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %217
   %219 = load <16 x i8>, ptr %218, align 16
   %220 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %219, <16 x i8> %214)
   %221 = bitcast <16 x i8> %220 to <4 x i32>
@@ -7051,7 +7048,7 @@ doSheng.exit196.i:                                ; preds = %99, %96, %224, %213
   %240 = shl i32 %232, %239
   %241 = zext i32 %240 to i64
   %242 = sub nsw i64 0, %241
-  %243 = getelementptr inbounds i16, ptr %21, i64 %242
+  %243 = getelementptr inbounds [2 x i8], ptr %21, i64 %242
   %244 = icmp ult ptr %.115, %.0
   %245 = icmp samesign uge i32 %.2110.i, %232
   %246 = select i1 %244, i1 %245, i1 false
@@ -7072,7 +7069,7 @@ doSheng.exit196.i:                                ; preds = %99, %96, %224, %213
   %254 = zext i8 %250 to i32
   %255 = add i32 %253, %254
   %256 = zext i32 %255 to i64
-  %257 = getelementptr inbounds nuw i16, ptr %243, i64 %256
+  %257 = getelementptr inbounds nuw [2 x i8], ptr %243, i64 %256
   br label %doSherman16.exit
 
 258:                                              ; preds = %.lr.ph
@@ -7126,7 +7123,7 @@ doSheng.exit196.i:                                ; preds = %99, %96, %224, %213
   %290 = zext i8 %250 to i32
   %291 = add i32 %289, %290
   %292 = zext i32 %291 to i64
-  %293 = getelementptr inbounds nuw i16, ptr %243, i64 %292
+  %293 = getelementptr inbounds nuw [2 x i8], ptr %243, i64 %292
   br label %doSherman16.exit
 
 doSherman16.exit:                                 ; preds = %.thread21, %278, %252
@@ -7192,7 +7189,7 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
 
 327:                                              ; preds = %323
   %328 = zext nneg i32 %.6114.i to i64
-  %329 = getelementptr inbounds nuw %struct.mstate_aux, ptr %14, i64 %328
+  %329 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %328
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 12
   %331 = load i32, ptr %330, align 4
   %332 = zext i32 %331 to i64
@@ -7367,7 +7364,7 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
   %455 = getelementptr inbounds nuw i8, ptr %.0208.i.i.lcssa, i64 1
   %456 = load i8, ptr %.0208.i.i.lcssa, align 1
   %457 = zext i8 %456 to i64
-  %458 = getelementptr inbounds nuw <2 x i64>, ptr %313, i64 %457
+  %458 = getelementptr inbounds nuw [16 x i8], ptr %313, i64 %457
   %459 = load <16 x i8>, ptr %458, align 16
   %460 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %459, <16 x i8> %.0207.i.i.lcssa.in)
   %461 = bitcast <16 x i8> %460 to <4 x i32>
@@ -7382,7 +7379,7 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
   %466 = getelementptr inbounds nuw i8, ptr %.3211.i.i, i64 1
   %467 = load i8, ptr %.3211.i.i, align 1
   %468 = zext i8 %467 to i64
-  %469 = getelementptr inbounds nuw <2 x i64>, ptr %313, i64 %468
+  %469 = getelementptr inbounds nuw [16 x i8], ptr %313, i64 %468
   %470 = load <16 x i8>, ptr %469, align 16
   %471 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %470, <16 x i8> %465)
   %472 = bitcast <16 x i8> %471 to <4 x i32>
@@ -7397,7 +7394,7 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
   %477 = getelementptr inbounds nuw i8, ptr %.4212.i.i, i64 1
   %478 = load i8, ptr %.4212.i.i, align 1
   %479 = zext i8 %478 to i64
-  %480 = getelementptr inbounds nuw <2 x i64>, ptr %313, i64 %479
+  %480 = getelementptr inbounds nuw [16 x i8], ptr %313, i64 %479
   %481 = load <16 x i8>, ptr %480, align 16
   %482 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %481, <16 x i8> %476)
   %483 = bitcast <16 x i8> %482 to <4 x i32>
@@ -7412,7 +7409,7 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
   %488 = getelementptr inbounds nuw i8, ptr %.5213.i.i, i64 1
   %489 = load i8, ptr %.5213.i.i, align 1
   %490 = zext i8 %489 to i64
-  %491 = getelementptr inbounds nuw <2 x i64>, ptr %313, i64 %490
+  %491 = getelementptr inbounds nuw [16 x i8], ptr %313, i64 %490
   %492 = load <16 x i8>, ptr %491, align 16
   %493 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %492, <16 x i8> %487)
   %494 = bitcast <16 x i8> %493 to <4 x i32>
@@ -7427,7 +7424,7 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
   %499 = getelementptr inbounds nuw i8, ptr %.6214.i.i, i64 1
   %500 = load i8, ptr %.6214.i.i, align 1
   %501 = zext i8 %500 to i64
-  %502 = getelementptr inbounds nuw <2 x i64>, ptr %313, i64 %501
+  %502 = getelementptr inbounds nuw [16 x i8], ptr %313, i64 %501
   %503 = load <16 x i8>, ptr %502, align 16
   %504 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %503, <16 x i8> %498)
   %505 = bitcast <16 x i8> %504 to <4 x i32>
@@ -7442,7 +7439,7 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
   %510 = getelementptr inbounds nuw i8, ptr %.7215.i.i, i64 1
   %511 = load i8, ptr %.7215.i.i, align 1
   %512 = zext i8 %511 to i64
-  %513 = getelementptr inbounds nuw <2 x i64>, ptr %313, i64 %512
+  %513 = getelementptr inbounds nuw [16 x i8], ptr %313, i64 %512
   %514 = load <16 x i8>, ptr %513, align 16
   %515 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %514, <16 x i8> %509)
   %516 = bitcast <16 x i8> %515 to <4 x i32>
@@ -7457,7 +7454,7 @@ doSherman16.exit:                                 ; preds = %.thread21, %278, %2
   %521 = getelementptr inbounds nuw i8, ptr %.8.i.i, i64 1
   %522 = load i8, ptr %.8.i.i, align 1
   %523 = zext i8 %522 to i64
-  %524 = getelementptr inbounds nuw <2 x i64>, ptr %313, i64 %523
+  %524 = getelementptr inbounds nuw [16 x i8], ptr %313, i64 %523
   %525 = load <16 x i8>, ptr %524, align 16
   %526 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %525, <16 x i8> %520)
   %527 = bitcast <16 x i8> %526 to <4 x i32>
@@ -7491,7 +7488,7 @@ doSheng.exit.i:                                   ; preds = %405, %402, %530, %5
 538:                                              ; preds = %536
   %539 = and i32 %.6114.i, 16383
   %540 = zext nneg i32 %539 to i64
-  %541 = getelementptr inbounds nuw %struct.mstate_aux, ptr %14, i64 %540
+  %541 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %540
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 12
   %543 = load i32, ptr %542, align 4
   %544 = zext i32 %543 to i64
@@ -7518,7 +7515,7 @@ doSheng.exit.i:                                   ; preds = %405, %402, %530, %5
   %559 = shl i32 %315, %558
   %560 = zext i32 %559 to i64
   %561 = sub nsw i64 0, %560
-  %562 = getelementptr inbounds i16, ptr %305, i64 %561
+  %562 = getelementptr inbounds [2 x i8], ptr %305, i64 %561
   br label %563
 
 563:                                              ; preds = %doSherman16.exit31, %551
@@ -7543,7 +7540,7 @@ doSheng.exit.i:                                   ; preds = %405, %402, %530, %5
   %575 = zext i8 %571 to i32
   %576 = add i32 %574, %575
   %577 = zext i32 %576 to i64
-  %578 = getelementptr inbounds nuw i16, ptr %562, i64 %577
+  %578 = getelementptr inbounds nuw [2 x i8], ptr %562, i64 %577
   br label %doSherman16.exit31
 
 579:                                              ; preds = %567
@@ -7597,7 +7594,7 @@ doSheng.exit.i:                                   ; preds = %405, %402, %530, %5
   %611 = zext i8 %571 to i32
   %612 = add i32 %610, %611
   %613 = zext i32 %612 to i64
-  %614 = getelementptr inbounds nuw i16, ptr %562, i64 %613
+  %614 = getelementptr inbounds nuw [2 x i8], ptr %562, i64 %613
   br label %doSherman16.exit31
 
 doSherman16.exit31:                               ; preds = %.thread33, %599, %573

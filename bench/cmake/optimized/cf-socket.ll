@@ -808,7 +808,7 @@ define internal void @cf_socket_close(ptr noundef %0, ptr noundef %1) #2 {
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = load i32, ptr %31, align 8, !tbaa !128
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i32, ptr %30, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %30, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !89
   %36 = icmp eq i32 %27, %35
   br i1 %36, label %37, label %38
@@ -1135,7 +1135,7 @@ define internal i64 @cf_socket_send(ptr noundef %0, ptr noundef %1, ptr noundef 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8, !tbaa !128
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %12, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %12, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !89
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %19 = load i32, ptr %18, align 8, !tbaa !118
@@ -1208,7 +1208,7 @@ define internal i64 @cf_socket_send(ptr noundef %0, ptr noundef %1, ptr noundef 
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 568
   %51 = load i32, ptr %13, align 8, !tbaa !128
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %50, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %50, i64 %52
   store i32 %17, ptr %53, align 4, !tbaa !89
   ret i64 %20
 }
@@ -1330,7 +1330,7 @@ define internal noundef i32 @cf_socket_cntrl(ptr noundef readonly captures(none)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i32, ptr %14, align 8, !tbaa !128
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %13, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %13, i64 %16
   store i32 %10, ptr %17, align 4, !tbaa !89
   tail call fastcc void @set_local_ip(ptr %8, ptr noundef %1)
   %18 = load i32, ptr %14, align 8, !tbaa !128
@@ -2493,7 +2493,7 @@ socket_close.exit:                                ; preds = %125, %139, %.thread
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %148 = load i32, ptr %147, align 8, !tbaa !128
   %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds i32, ptr %146, i64 %149
+  %150 = getelementptr inbounds [4 x i8], ptr %146, i64 %149
   store i32 %112, ptr %150, align 4, !tbaa !89
   %.val133 = load ptr, ptr %11, align 8, !tbaa !106
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2643,7 +2643,7 @@ define dso_local i32 @Curl_conn_tcp_listen_set(ptr noundef %0, ptr noundef %1, i
   %24 = load i32, ptr %13, align 8, !tbaa !118
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %26 = sext i32 %2 to i64
-  %27 = getelementptr inbounds i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %25, i64 %26
   store i32 %24, ptr %27, align 4, !tbaa !89
   %28 = load ptr, ptr %5, align 8, !tbaa !144
   %29 = getelementptr i8, ptr %28, i64 16
@@ -2781,7 +2781,7 @@ define dso_local noundef zeroext i1 @Curl_conn_is_tcp_listen(ptr noundef readonl
   %4 = load ptr, ptr %3, align 8, !tbaa !90
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 608
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %.06 = load ptr, ptr %7, align 8, !tbaa !144
   %.not7.not = icmp eq ptr %.06, null
   br i1 %.not7.not, label %._crit_edge, label %.lr.ph

@@ -3,8 +3,6 @@ source_filename = "bench/assimp/original/Exporter.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.Assimp::Exporter::ExportFormatEntry" = type <{ %struct.aiExportFormatDesc, ptr, i32, [4 x i8] }>
-%struct.aiExportFormatDesc = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -54,7 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.90" = type { i32, %"class.std::function" }
 %"struct.std::pair.116" = type { i32, %"class.std::__cxx11::basic_string" }
 %class.aiMatrix4x4t = type { float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float }
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", ptr }
 %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::function<void *(void *)>>, std::_Select1st<std::pair<const unsigned int, std::function<void *(void *)>>>, std::less<unsigned int>>::_Auto_node" = type { ptr, ptr }
 %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned int, std::__cxx11::basic_string<char>>>, std::less<unsigned int>>::_Auto_node" = type { ptr, ptr }
 
@@ -799,7 +796,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA8_KcRA40_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %64, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35.i.i.i
   store ptr %55, ptr %30, align 8
   store ptr %63, ptr %32, align 8
-  %65 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %55, i64 %53
+  %65 = getelementptr inbounds nuw [40 x i8], ptr %55, i64 %53
   store ptr %65, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA8_KcRA40_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEEEERS2_DpOT_.exit.i
 
@@ -882,7 +879,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %96, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i.i
   store ptr %87, ptr %30, align 8
   store ptr %95, ptr %32, align 8
-  %97 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %87, i64 %85
+  %97 = getelementptr inbounds nuw [40 x i8], ptr %87, i64 %85
   store ptr %97, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA2_KcRA8_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
 
@@ -965,7 +962,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %128, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i41.i
   store ptr %119, ptr %30, align 8
   store ptr %127, ptr %32, align 8
-  %129 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %119, i64 %117
+  %129 = getelementptr inbounds nuw [40 x i8], ptr %119, i64 %117
   store ptr %129, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA11_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
 
@@ -1048,7 +1045,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %160, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i53.i
   store ptr %151, ptr %30, align 8
   store ptr %159, ptr %32, align 8
-  %161 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %151, i64 %149
+  %161 = getelementptr inbounds nuw [40 x i8], ptr %151, i64 %149
   store ptr %161, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA21_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
 
@@ -1131,7 +1128,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %192, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i65.i
   store ptr %183, ptr %30, align 8
   store ptr %191, ptr %32, align 8
-  %193 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %183, i64 %181
+  %193 = getelementptr inbounds nuw [40 x i8], ptr %183, i64 %181
   store ptr %193, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA9_KcRA43_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
 
@@ -1214,7 +1211,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %224, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i77.i
   store ptr %215, ptr %30, align 8
   store ptr %223, ptr %32, align 8
-  %225 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %215, i64 %213
+  %225 = getelementptr inbounds nuw [40 x i8], ptr %215, i64 %213
   store ptr %225, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA18_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
 
@@ -1297,7 +1294,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %256, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i89.i
   store ptr %247, ptr %30, align 8
   store ptr %255, ptr %32, align 8
-  %257 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %247, i64 %245
+  %257 = getelementptr inbounds nuw [40 x i8], ptr %247, i64 %245
   store ptr %257, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA27_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
 
@@ -1380,7 +1377,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %288, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i101.i
   store ptr %279, ptr %30, align 8
   store ptr %287, ptr %32, align 8
-  %289 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %279, i64 %277
+  %289 = getelementptr inbounds nuw [40 x i8], ptr %279, i64 %277
   store ptr %289, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA25_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
 
@@ -1463,7 +1460,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %320, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i113.i
   store ptr %311, ptr %30, align 8
   store ptr %319, ptr %32, align 8
-  %321 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %311, i64 %309
+  %321 = getelementptr inbounds nuw [40 x i8], ptr %311, i64 %309
   store ptr %321, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA34_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEE18aiPostProcessStepsEEERS2_DpOT_.exit.i
 
@@ -1546,7 +1543,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %352, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i125.i
   store ptr %343, ptr %30, align 8
   store ptr %351, ptr %32, align 8
-  %353 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %343, i64 %341
+  %353 = getelementptr inbounds nuw [40 x i8], ptr %343, i64 %341
   store ptr %353, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
 
@@ -1629,7 +1626,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %384, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i137.i
   store ptr %375, ptr %30, align 8
   store ptr %383, ptr %32, align 8
-  %385 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %375, i64 %373
+  %385 = getelementptr inbounds nuw [40 x i8], ptr %375, i64 %373
   store ptr %385, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA6_KcRA28_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
 
@@ -1712,7 +1709,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %416, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i149.i
   store ptr %407, ptr %30, align 8
   store ptr %415, ptr %32, align 8
-  %417 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %407, i64 %405
+  %417 = getelementptr inbounds nuw [40 x i8], ptr %407, i64 %405
   store ptr %417, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA37_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
 
@@ -1795,7 +1792,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %448, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i161.i
   store ptr %439, ptr %30, align 8
   store ptr %447, ptr %32, align 8
-  %449 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %439, i64 %437
+  %449 = getelementptr inbounds nuw [40 x i8], ptr %439, i64 %437
   store ptr %449, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA23_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
 
@@ -1878,7 +1875,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %480, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i173.i
   store ptr %471, ptr %30, align 8
   store ptr %479, ptr %32, align 8
-  %481 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %471, i64 %469
+  %481 = getelementptr inbounds nuw [40 x i8], ptr %471, i64 %469
   store ptr %481, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA32_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
 
@@ -1961,7 +1958,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %512, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i185.i
   store ptr %503, ptr %30, align 8
   store ptr %511, ptr %32, align 8
-  %513 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %503, i64 %501
+  %513 = getelementptr inbounds nuw [40 x i8], ptr %503, i64 %501
   store ptr %513, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA19_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
 
@@ -2044,7 +2041,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %544, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i197.i
   store ptr %535, ptr %30, align 8
   store ptr %543, ptr %32, align 8
-  %545 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %535, i64 %533
+  %545 = getelementptr inbounds nuw [40 x i8], ptr %535, i64 %533
   store ptr %545, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA7_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
 
@@ -2127,7 +2124,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %576, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i209.i
   store ptr %567, ptr %30, align 8
   store ptr %575, ptr %32, align 8
-  %577 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %567, i64 %565
+  %577 = getelementptr inbounds nuw [40 x i8], ptr %567, i64 %565
   store ptr %577, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA14_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
 
@@ -2210,7 +2207,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %608, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i221.i
   store ptr %599, ptr %30, align 8
   store ptr %607, ptr %32, align 8
-  %609 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %599, i64 %597
+  %609 = getelementptr inbounds nuw [40 x i8], ptr %599, i64 %597
   store ptr %609, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA22_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
 
@@ -2293,7 +2290,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %640, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i233.i
   store ptr %631, ptr %30, align 8
   store ptr %639, ptr %32, align 8
-  %641 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %631, i64 %629
+  %641 = getelementptr inbounds nuw [40 x i8], ptr %631, i64 %629
   store ptr %641, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA21_S6_RA4_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
 
@@ -2376,7 +2373,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %672, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i245.i
   store ptr %663, ptr %30, align 8
   store ptr %671, ptr %32, align 8
-  %673 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %663, i64 %661
+  %673 = getelementptr inbounds nuw [40 x i8], ptr %663, i64 %661
   store ptr %673, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA4_KcRA20_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEERS2_DpOT_.exit.i
 
@@ -2459,7 +2456,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %704, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i257.i
   store ptr %695, ptr %30, align 8
   store ptr %703, ptr %32, align 8
-  %705 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %695, i64 %693
+  %705 = getelementptr inbounds nuw [40 x i8], ptr %695, i64 %693
   store ptr %705, ptr %34, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12emplace_backIJRA5_KcRA31_S6_S8_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEjEEERS2_DpOT_.exit.i
 
@@ -2548,7 +2545,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRA8_KcRA21_S6_RA5_S6_PFvPS6_PNS0_8IOSystemEPK7aiScenePKNS0_16ExportPropertiesEEiEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %736, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i.i269.i
   store ptr %727, ptr %30, align 8
   store ptr %735, ptr %32, align 8
-  %737 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %727, i64 %725
+  %737 = getelementptr inbounds nuw [40 x i8], ptr %727, i64 %725
   store ptr %737, ptr %34, align 8
   br label %_ZN6AssimpL18setupExporterArrayERSt6vectorINS_8Exporter17ExportFormatEntryESaIS2_EE.exit
 
@@ -2707,7 +2704,7 @@ define linkonce_odr hidden void @_ZN6Assimp13ExporterPimplD2Ev(ptr noundef nonnu
   %14 = phi ptr [ %25, %23 ], [ %8, %5 ]
   %15 = phi i64 [ %27, %23 ], [ 0, %5 ]
   %.09 = phi i32 [ %26, %23 ], [ 0, %5 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %23, label %19
@@ -3774,7 +3771,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %.th
 
 .thread134:                                       ; preds = %.thread134.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
   %.076144 = phi i64 [ %48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ], [ 0, %.thread134.preheader ]
-  %52 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %43, i64 %.076144
+  %52 = getelementptr inbounds nuw [40 x i8], ptr %43, i64 %.076144
   %53 = load ptr, ptr %52, align 8
   %54 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %2) #35
   %.not95.not = icmp eq i32 %54, 0
@@ -3845,7 +3842,7 @@ _ZN6Assimp9ScenePrivEPK7aiScene.exit:             ; preds = %56
   %87 = phi ptr [ %111, %104 ], [ %84, %.preheader ]
   %88 = phi i64 [ %106, %104 ], [ 0, %.preheader ]
   %.083146 = phi i32 [ %105, %104 ], [ 0, %.preheader ]
-  %89 = getelementptr inbounds nuw ptr, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %88
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
@@ -4080,7 +4077,7 @@ _ZN6Assimp9ScenePrivEP7aiScene.exit:              ; preds = %204, %169
   %180 = phi ptr [ %211, %204 ], [ %174, %169 ]
   %181 = phi i64 [ %206, %204 ], [ 0, %169 ]
   %.077147 = phi i32 [ %205, %204 ], [ 0, %169 ]
-  %182 = getelementptr inbounds nuw ptr, ptr %180, i64 %181
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %181
   %183 = load ptr, ptr %182, align 8
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 16
@@ -5227,7 +5224,7 @@ define noundef ptr @_ZNK6Assimp8Exporter26GetExportFormatDescriptionEm(ptr nound
   %10 = sub i64 %8, %9
   %11 = sdiv exact i64 %10, 40
   %.not = icmp ult i64 %1, %11
-  %12 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %7, i64 %1
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %1
   %.0 = select i1 %.not, ptr %12, ptr null
   ret ptr %.0
 }
@@ -5319,7 +5316,7 @@ _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S
 _ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %36, %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %31, ptr %4, align 8
   store ptr %35, ptr %6, align 8
-  %37 = getelementptr inbounds nuw %"struct.Assimp::Exporter::ExportFormatEntry", ptr %31, i64 %29
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %29
   store ptr %37, ptr %14, align 8
   br label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE9push_backERKS2_.exit
 
@@ -8982,7 +8979,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiEx
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16aiExportDataBlobESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit37, %82
   store ptr %24, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i36, ptr %6, align 8
-  %86 = getelementptr inbounds nuw %"struct.std::pair", ptr %24, i64 %18
+  %86 = getelementptr inbounds nuw [40 x i8], ptr %24, i64 %18
   store ptr %86, ptr %81, align 8
   ret void
 
@@ -10368,7 +10365,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8
   ret void
 

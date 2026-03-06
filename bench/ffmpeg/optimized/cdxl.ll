@@ -337,7 +337,7 @@ define internal fastcc void @cdxl_decode_ham8(ptr noundef readonly captures(none
   %37 = or disjoint i32 %35, %36
   %38 = or disjoint i32 %37, %34
   %39 = or disjoint i32 %38, -16777216
-  %40 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv33.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv33.i
   store i32 %39, ptr %40, align 4, !tbaa !34
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next34.i, %22
@@ -360,7 +360,7 @@ define internal fastcc void @cdxl_decode_ham8(ptr noundef readonly captures(none
   %54 = or disjoint i32 %46, %50
   %55 = or disjoint i32 %54, %53
   %56 = or disjoint i32 %55, -16777216
-  %57 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   store i32 %56, ptr %57, align 4, !tbaa !34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %17
@@ -414,7 +414,7 @@ import_palette.exit:                              ; preds = %41, %23, %.preheade
 
 78:                                               ; preds = %.lr.ph
   %79 = zext nneg i8 %77 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %3, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !48
   %82 = and i32 %81, 16711680
   %83 = and i32 %81, 65280
@@ -544,7 +544,7 @@ define internal fastcc void @cdxl_decode_ham6(ptr noundef readonly captures(none
   %37 = or disjoint i32 %35, %36
   %38 = or disjoint i32 %37, %34
   %39 = or disjoint i32 %38, -16777216
-  %40 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv33.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv33.i
   store i32 %39, ptr %40, align 4, !tbaa !34
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next34.i, %22
@@ -567,7 +567,7 @@ define internal fastcc void @cdxl_decode_ham6(ptr noundef readonly captures(none
   %54 = or disjoint i32 %46, %50
   %55 = or disjoint i32 %54, %53
   %56 = or disjoint i32 %55, -16777216
-  %57 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   store i32 %56, ptr %57, align 4, !tbaa !34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %17
@@ -619,7 +619,7 @@ import_palette.exit:                              ; preds = %41, %23, %.preheade
 
 76:                                               ; preds = %.lr.ph
   %77 = zext nneg i8 %75 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %3, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !48
   %80 = and i32 %79, 65280
   br label %89
@@ -731,7 +731,7 @@ define internal fastcc void @cdxl_decode_rgb(ptr noundef readonly captures(none)
   %29 = or disjoint i32 %27, %28
   %30 = or disjoint i32 %29, %26
   %31 = or disjoint i32 %30, -16777216
-  %32 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv33.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv33.i
   store i32 %31, ptr %32, align 1, !tbaa !34
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %33 = load i32, ptr %8, align 8, !tbaa !38
@@ -758,7 +758,7 @@ define internal fastcc void @cdxl_decode_rgb(ptr noundef readonly captures(none)
   %51 = or disjoint i32 %43, %47
   %52 = or disjoint i32 %51, %50
   %53 = or disjoint i32 %52, -16777216
-  %54 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   store i32 %53, ptr %54, align 1, !tbaa !34
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %55 = load i32, ptr %8, align 8, !tbaa !38

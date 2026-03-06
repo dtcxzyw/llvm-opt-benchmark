@@ -4,17 +4,15 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.common_prefix_arg = type { ptr, i64 }
-%struct.reftable_index_record = type { i64, %struct.reftable_buf }
-%struct.reftable_buf = type { i64, i64, ptr }
 %struct.reftable_record = type { i8, %union.anon }
 %union.anon = type { %struct.reftable_log_record }
 %struct.reftable_log_record = type { ptr, i64, i64, i32, %union.anon.1 }
 %union.anon.1 = type { %struct.anon.2 }
 %struct.anon.2 = type { [32 x i8], [32 x i8], ptr, ptr, i64, i16, ptr, i64 }
 %struct.obj_index_tree_node = type { %struct.reftable_buf, ptr, i64, i64 }
-%struct.reftable_ref_record = type { ptr, i64, i64, i32, %union.anon.0 }
-%union.anon.0 = type { ptr, [56 x i8] }
+%struct.reftable_buf = type { i64, i64, ptr }
 %struct.write_record_arg = type { ptr, i32 }
+%struct.reftable_index_record = type { i64, %struct.reftable_buf }
 
 @.str = private unnamed_addr constant [18 x i8] c"reftable/writer.c\00", align 1
 @.str.1 = private unnamed_addr constant [35 x i8] c"configured block size exceeds 16MB\00", align 1
@@ -205,7 +203,7 @@ define internal fastcc void @writer_release(ptr noundef %0) unnamed_addr #0 {
   br i1 %12, label %13, label %writer_clear_index.exit
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw %struct.reftable_index_record, ptr %10, i64 %.012.i
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %.012.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   tail call void @reftable_buf_release(ptr noundef nonnull %15) #12
   %16 = add nuw i64 %.012.i, 1
@@ -533,7 +531,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @writer_index_hash(ptr noun
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %.035, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !64
-  %29 = getelementptr i64, ptr %28, i64 %25
+  %29 = getelementptr [8 x i8], ptr %28, i64 %25
   %30 = getelementptr i8, ptr %29, i64 -8
   %31 = load i64, ptr %30, align 8, !tbaa !12
   %32 = icmp eq i64 %31, %5
@@ -592,7 +590,7 @@ st_mult.exit.i:                                   ; preds = %39
   %52 = load i64, ptr %24, align 8, !tbaa !61
   %53 = add i64 %52, 1
   store i64 %53, ptr %24, align 8, !tbaa !61
-  %54 = getelementptr inbounds nuw i64, ptr %50, i64 %52
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %52
   store i64 %5, ptr %54, align 8, !tbaa !12
   br label %.thread
 
@@ -624,7 +622,7 @@ sane_qsort.exit:                                  ; preds = %3, %5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds nuw %struct.reftable_ref_record, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [96 x i8], ptr %1, i64 %indvars.iv
   %10 = tail call i32 @reftable_writer_add_ref(ptr noundef %0, ptr noundef %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = icmp eq i32 %10, 0
@@ -836,7 +834,7 @@ sane_qsort.exit:                                  ; preds = %3, %5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [144 x i8], ptr %1, i64 %indvars.iv
   %10 = tail call i32 @reftable_writer_add_log(ptr noundef %0, ptr noundef %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = icmp eq i32 %10, 0
@@ -1664,7 +1662,7 @@ st_mult.exit.i.i:                                 ; preds = %89
 111:                                              ; preds = %101
   %112 = load ptr, ptr %88, align 8, !tbaa !42
   %113 = load i64, ptr %84, align 8, !tbaa !43
-  %114 = getelementptr inbounds nuw %struct.reftable_index_record, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %114, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !100
   %115 = load i64, ptr %84, align 8, !tbaa !43
   %116 = add i64 %115, 1
@@ -1796,7 +1794,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @writer_finish_section(ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 152, i1 false)
   store i8 105, ptr %2, align 8, !tbaa !46
-  %51 = getelementptr inbounds nuw %struct.reftable_index_record, ptr %47, i64 %.04972
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %47, i64 %.04972
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %51, i64 32, i1 false), !tbaa.struct !100
   %52 = call fastcc i32 @writer_add_record(ptr noundef %0, ptr noundef %2)
   %53 = icmp sgt i32 %52, -1
@@ -1815,7 +1813,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @writer_finish_section(ptr 
 
 .lr.ph74:                                         ; preds = %._crit_edge, %.lr.ph74
   %.15073 = phi i64 [ %60, %.lr.ph74 ], [ 0, %._crit_edge ]
-  %58 = getelementptr inbounds nuw %struct.reftable_index_record, ptr %47, i64 %.15073
+  %58 = getelementptr inbounds nuw [32 x i8], ptr %47, i64 %.15073
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   call void @reftable_buf_release(ptr noundef nonnull %59) #12
   %60 = add nuw i64 %.15073, 1
@@ -1844,7 +1842,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @writer_finish_section(ptr 
   br i1 %67, label %68, label %writer_clear_index.exit
 
 68:                                               ; preds = %.lr.ph.i
-  %69 = getelementptr inbounds nuw %struct.reftable_index_record, ptr %65, i64 %.012.i
+  %69 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %.012.i
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   call void @reftable_buf_release(ptr noundef nonnull %70) #12
   %71 = add nuw i64 %.012.i, 1

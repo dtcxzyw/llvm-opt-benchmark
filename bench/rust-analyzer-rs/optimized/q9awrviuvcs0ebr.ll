@@ -122,9 +122,9 @@ _ZN4core3ptr19swap_nonoverlapping17h74d93f41ae5f507eE.exit._crit_edge: ; preds =
   %48 = extractvalue { i64, i64 } %39, 1
   store i64 %47, ptr %23, align 8, !alias.scope !13, !noalias !10
   %49 = load ptr, ptr %22, align 8, !alias.scope !13, !noalias !10, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %47
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %47
   %51 = sub i64 %38, %48
-  %52 = getelementptr inbounds ptr, ptr %49, i64 %48
+  %52 = getelementptr inbounds [8 x i8], ptr %49, i64 %48
   store i64 %48, ptr %26, align 8, !alias.scope !10, !noalias !13
   store i64 %51, ptr %27, align 8, !alias.scope !10, !noalias !13
   store ptr %50, ptr %5, align 8, !alias.scope !10, !noalias !13
@@ -391,7 +391,7 @@ _ZN4span6ast_id8AstIdMap5alloc17ha96fd07562184952E.exit.i.i.i.i: ; preds = %.noe
   %135 = extractvalue { i32, i32 } %129, 1
   %136 = extractvalue { i32, i32 } %129, 0
   %137 = load ptr, ptr %32, align 8, !alias.scope !110, !noalias !113, !nonnull !4, !noundef !4
-  %138 = getelementptr inbounds { { i32, i32 }, i16, [1 x i16] }, ptr %137, i64 %134
+  %138 = getelementptr inbounds [12 x i8], ptr %137, i64 %134
   store i32 %136, ptr %138, align 4, !noalias !109
   %.sroa.4.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %138, i64 4
   store i32 %135, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 4, !noalias !109
@@ -600,8 +600,8 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h046d2a51c7f0518aE.exit: ; preds = 
 
 201:                                              ; preds = %201, %_ZN4core4iter6traits8iterator8Iterator4fold17h046d2a51c7f0518aE.exit
   %.05.i = phi i64 [ 0, %_ZN4core4iter6traits8iterator8Iterator4fold17h046d2a51c7f0518aE.exit ], [ %206, %201 ]
-  %202 = getelementptr inbounds nuw i64, ptr %7, i64 %.05.i
-  %203 = getelementptr inbounds nuw i64, ptr %6, i64 %.05.i
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.05.i
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.05.i
   %204 = load i64, ptr %202, align 8
   %205 = load i64, ptr %203, align 8
   store i64 %205, ptr %202, align 8

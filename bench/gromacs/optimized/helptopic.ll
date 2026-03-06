@@ -21,12 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.39" = type { %"struct.std::_Head_base.42" }
 %"struct.std::_Head_base.42" = type { ptr }
 %"struct.std::pair.45" = type { %"class.std::__cxx11::basic_string", ptr }
-%"class.std::unique_ptr.16" = type { %"struct.std::__uniq_ptr_data.17" }
-%"struct.std::__uniq_ptr_data.17" = type { %"class.std::__uniq_ptr_impl.18" }
-%"class.std::__uniq_ptr_impl.18" = type { %"class.std::tuple.19" }
-%"class.std::tuple.19" = type { %"struct.std::_Tuple_impl.20" }
-%"struct.std::_Tuple_impl.20" = type { %"struct.std::_Head_base.23" }
-%"struct.std::_Head_base.23" = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, const gmx::IHelpTopic *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, const gmx::IHelpTopic *>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 
 $_ZN3gmx10IHelpTopicD2Ev = comdat any
@@ -1214,7 +1208,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS2_EESaI
   store ptr %27, ptr %8, align 8, !tbaa !37
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 %14
   store ptr %32, ptr %9, align 8, !tbaa !39
-  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %27, i64 %16
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %16
   store ptr %33, ptr %20, align 8, !tbaa !42
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS2_EESaIS5_EE7reserveEm.exit
 
@@ -2026,7 +2020,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS2_EESaIS5_EE11
 _ZNSt12_Vector_baseISt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !37
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !39
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !42
   ret void
 }

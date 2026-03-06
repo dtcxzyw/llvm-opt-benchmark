@@ -19,8 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.18 = type { %struct.anon.19, [16 x i8] }
 %struct.anon.19 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.wake_q_head = type { ptr, ptr }
-%struct.futex_vector = type { %struct.futex_waitv, %struct.futex_q }
-%struct.futex_waitv = type { i64, i64, i32, i32 }
 %struct.hrtimer_sleeper = type { %struct.hrtimer, ptr }
 %struct.hrtimer = type { %struct.timerqueue_node, i64, ptr, ptr, i8, i8, i8, i8 }
 %struct.timerqueue_node = type { %struct.rb_node, i64 }
@@ -737,7 +735,7 @@ define dso_local i32 @futex_unqueue_multiple(ptr noundef %0, i32 noundef %1) loc
 6:                                                ; preds = %6, %4
   %7 = phi i64 [ 0, %4 ], [ %14, %6 ]
   %8 = phi i32 [ -1, %4 ], [ %13, %6 ]
-  %.split = getelementptr %struct.futex_vector, ptr %0, i64 %7
+  %.split = getelementptr [152 x i8], ptr %0, i64 %7
   %9 = getelementptr i8, ptr %.split, i64 24
   %10 = tail call i32 @futex_unqueue(ptr noundef %9) #8
   %11 = icmp eq i32 %10, 0
@@ -766,7 +764,7 @@ define dso_local i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef %1, 
 
 .split10.us:                                      ; preds = %3, %17
   %7 = phi i64 [ %18, %17 ], [ 0, %3 ]
-  %8 = getelementptr %struct.futex_vector, ptr %0, i64 %7
+  %8 = getelementptr [152 x i8], ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -790,7 +788,7 @@ define dso_local i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef %1, 
 
 .split10:                                         ; preds = %69, %35
   %23 = phi i64 [ %36, %35 ], [ 0, %69 ]
-  %24 = getelementptr %struct.futex_vector, ptr %0, i64 %23
+  %24 = getelementptr [152 x i8], ptr %0, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 16
@@ -820,7 +818,7 @@ define dso_local i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef %1, 
 
 39:                                               ; preds = %.split12.us, %79
   %40 = phi i64 [ %80, %79 ], [ 0, %.split12.us ]
-  %41 = getelementptr %struct.futex_vector, ptr %0, i64 %40
+  %41 = getelementptr [152 x i8], ptr %0, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8
   %44 = inttoptr i64 %43 to ptr
@@ -854,7 +852,7 @@ define dso_local i32 @futex_wait_multiple_setup(ptr noundef %0, i32 noundef %1, 
 .preheader:                                       ; preds = %55, %.preheader
   %57 = phi i64 [ %64, %.preheader ], [ 0, %55 ]
   %58 = phi i32 [ %63, %.preheader ], [ -1, %55 ]
-  %.split = getelementptr %struct.futex_vector, ptr %0, i64 %57
+  %.split = getelementptr [152 x i8], ptr %0, i64 %57
   %59 = getelementptr i8, ptr %.split, i64 24
   %60 = call i32 @futex_unqueue(ptr noundef %59) #8
   %61 = icmp eq i32 %60, 0
@@ -986,7 +984,7 @@ define dso_local i32 @futex_wait_multiple(ptr noundef %0, i32 noundef %1, ptr no
 31:                                               ; preds = %.preheader.us, %31
   %32 = phi i64 [ %39, %31 ], [ 0, %.preheader.us ]
   %33 = phi i32 [ %38, %31 ], [ -1, %.preheader.us ]
-  %.split.us = getelementptr %struct.futex_vector, ptr %0, i64 %32
+  %.split.us = getelementptr [152 x i8], ptr %0, i64 %32
   %34 = getelementptr i8, ptr %.split.us, i64 24
   %35 = tail call i32 @futex_unqueue(ptr noundef %34) #8
   %36 = icmp eq i32 %35, 0

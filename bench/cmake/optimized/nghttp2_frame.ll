@@ -3,10 +3,6 @@ source_filename = "bench/cmake/original/nghttp2_frame.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.nghttp2_origin_entry = type { ptr, i64 }
-%struct.nghttp2_settings_entry = type { i32, i32 }
-%struct.nghttp2_nv = type { ptr, ptr, i64, i64, i8 }
-
 ; Function Attrs: nounwind uwtable
 define dso_local void @nghttp2_frame_pack_frame_hd(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !tbaa !4
@@ -426,7 +422,7 @@ define dso_local void @nghttp2_frame_origin_init(ptr noundef captures(none) %0, 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.015 = phi i64 [ %9, %.lr.ph ], [ 0, %3 ]
   %.01214 = phi i64 [ %8, %.lr.ph ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %1, i64 %.015
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.015
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !54
   %7 = add i64 %.01214, 2
@@ -924,7 +920,7 @@ define dso_local range(i32 -522, 1) i32 @nghttp2_frame_pack_settings(ptr noundef
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %.013.i = phi i64 [ %38, %.lr.ph.i ], [ 0, %13 ]
   %.01012.i = phi ptr [ %39, %.lr.ph.i ], [ %27, %13 ]
-  %32 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %29, i64 %.013.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.013.i
   %33 = load i32, ptr %32, align 4, !tbaa !82
   %34 = trunc i32 %33 to i16
   tail call void @nghttp2_put_uint16be(ptr noundef %.01012.i, i16 noundef zeroext %34) #17
@@ -961,7 +957,7 @@ define dso_local noundef i64 @nghttp2_frame_pack_settings_payload(ptr noundef %0
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.013 = phi i64 [ %10, %.lr.ph ], [ 0, %3 ]
   %.01012 = phi ptr [ %11, %.lr.ph ], [ %0, %3 ]
-  %4 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %1, i64 %.013
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.013
   %5 = load i32, ptr %4, align 4, !tbaa !82
   %6 = trunc i32 %5 to i16
   tail call void @nghttp2_put_uint16be(ptr noundef %.01012, i16 noundef zeroext %6) #17
@@ -1031,7 +1027,7 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_frame_unpack_settings_payload2(
   %.01618 = phi i64 [ %23, %.lr.ph ], [ 0, %.preheader ]
   %14 = mul i64 %.01618, 6
   %15 = load ptr, ptr %0, align 8, !tbaa !87
-  %16 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %15, i64 %.01618
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.01618
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 %14
   %18 = tail call zeroext i16 @nghttp2_get_uint16(ptr noundef %17) #17
   %19 = zext i16 %18 to i32
@@ -1441,7 +1437,7 @@ define dso_local range(i32 -522, 1) i32 @nghttp2_frame_pack_origin(ptr noundef r
   %32 = phi ptr [ %.pre, %.lr.ph ], [ %42, %31 ]
   %.021 = phi i64 [ 0, %.lr.ph ], [ %43, %31 ]
   %33 = load ptr, ptr %30, align 8, !tbaa !58
-  %34 = getelementptr inbounds nuw %struct.nghttp2_origin_entry, ptr %33, i64 %.021
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %.021
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !54
   %37 = trunc i64 %36 to i16
@@ -1825,7 +1821,7 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_nv_array_copy(ptr noundef write
 .preheader:                                       ; preds = %4, %25
   %.08398 = phi i64 [ %.2, %25 ], [ 0, %4 ]
   %.08797 = phi i64 [ %26, %25 ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %1, i64 %.08797
+  %7 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %.08797
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i8, ptr %8, align 8, !tbaa !100
   %10 = and i8 %9, 2
@@ -1874,7 +1870,7 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_nv_array_copy(ptr noundef write
   %.0101 = phi ptr [ %30, %32 ], [ %84, %83 ]
   %.084100 = phi ptr [ %33, %32 ], [ %.286, %83 ]
   %.18899 = phi i64 [ 0, %32 ], [ %85, %83 ]
-  %35 = getelementptr inbounds nuw %struct.nghttp2_nv, ptr %1, i64 %.18899
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %.18899
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load i8, ptr %36, align 8, !tbaa !100
   %38 = getelementptr inbounds nuw i8, ptr %.0101, i64 32
@@ -1985,7 +1981,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_iv_check(ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %2, %22
   %.035 = phi i64 [ %23, %22 ], [ 0, %2 ]
-  %3 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %0, i64 %.035
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.035
   %4 = load i32, ptr %3, align 4, !tbaa !82
   switch i32 %4, label %22 [
     i32 9, label %19

@@ -44,26 +44,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.114" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.41" = type { %"class.std::__shared_ptr.42" }
 %"class.std::__shared_ptr.42" = type { ptr, %"class.std::__shared_count" }
-%"struct.rocksdb::Env::FileAttributes" = type <{ %"class.std::__cxx11::basic_string", i64, i8, [7 x i8] }>
 %"struct.rocksdb::IODebugContext" = type { %"class.std::__cxx11::basic_string", %"class.std::map.187", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64 }
 %"class.std::map.187" = type { %"class.std::_Rb_tree.188" }
 %"class.std::_Rb_tree.188" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, unsigned long>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, unsigned long>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, unsigned long>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, unsigned long>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.rocksdb::FSReadRequest" = type { i64, i64, ptr, %"class.rocksdb::Slice", %"class.rocksdb::IOStatus", %"class.std::unique_ptr.122" }
-%"class.std::unique_ptr.122" = type { %"struct.std::__uniq_ptr_data.123" }
-%"struct.std::__uniq_ptr_data.123" = type { %"class.std::__uniq_ptr_impl.124" }
-%"class.std::__uniq_ptr_impl.124" = type { %"class.std::tuple.125" }
-%"class.std::tuple.125" = type { %"struct.std::_Tuple_impl.126" }
-%"struct.std::_Tuple_impl.126" = type { %"struct.std::_Tuple_impl.127", %"struct.std::_Head_base.131" }
-%"struct.std::_Tuple_impl.127" = type { %"struct.std::_Head_base.128" }
-%"struct.std::_Head_base.128" = type { %"class.std::function.129" }
-%"class.std::function.129" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"struct.std::_Head_base.131" = type { ptr }
 %struct.timeval = type { i64, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
@@ -73,6 +59,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"class.rocksdb::OptionTypeInfo" }
 %"class.rocksdb::OptionTypeInfo" = type <{ i32, [4 x i8], %"class.std::function", %"class.std::function.5", %"class.std::function.7", %"class.std::function.9", %"class.std::function.11", i32, i32, i32, [4 x i8] }>
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
+%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
+%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
+%"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.std::function.5" = type { %"class.std::_Function_base", ptr }
 %"class.std::function.7" = type { %"class.std::_Function_base", ptr }
 %"class.std::function.9" = type { %"class.std::_Function_base", ptr }
@@ -9788,7 +9777,7 @@ define linkonce_odr void @_ZN7rocksdb10FileSystem25GetChildrenFileAttributesERKN
   br i1 %61, label %62, label %_ZNSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE6resizeEm.exit
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw %"struct.rocksdb::Env::FileAttributes", ptr %52, i64 %49
+  %63 = getelementptr inbounds nuw [48 x i8], ptr %52, i64 %49
   %.not.i.i47 = icmp eq ptr %51, %63
   br i1 %.not.i.i47, label %_ZNSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -9953,7 +9942,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
   %125 = load ptr, ptr %8, align 8, !tbaa !283
-  %126 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %125, i64 %.0128
+  %126 = getelementptr inbounds nuw [32 x i8], ptr %125, i64 %.0128
   call void @llvm.experimental.noalias.scope.decl(metadata !489)
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load i64, ptr %127, align 8, !tbaa !76, !noalias !489
@@ -10022,7 +10011,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %144, 
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %151 = load ptr, ptr %4, align 8, !tbaa !484
-  %152 = getelementptr inbounds nuw %"struct.rocksdb::Env::FileAttributes", ptr %151, i64 %.024127
+  %152 = getelementptr inbounds nuw [48 x i8], ptr %151, i64 %.024127
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 32
   %154 = load ptr, ptr %1, align 8, !tbaa !45
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 296
@@ -10174,9 +10163,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i57
 
 196:                                              ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %.thread, %_ZN7rocksdb6StatusD2Ev.exit
   %197 = load ptr, ptr %8, align 8, !tbaa !283
-  %198 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %197, i64 %.0128
+  %198 = getelementptr inbounds nuw [32 x i8], ptr %197, i64 %.0128
   %199 = load ptr, ptr %4, align 8, !tbaa !484
-  %200 = getelementptr inbounds nuw %"struct.rocksdb::Env::FileAttributes", ptr %199, i64 %.024127
+  %200 = getelementptr inbounds nuw [48 x i8], ptr %199, i64 %.024127
   %201 = load ptr, ptr %200, align 8, !tbaa !26
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %203 = icmp eq ptr %201, %202
@@ -10341,7 +10330,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %248
   br i1 %266, label %267, label %_ZNSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE6resizeEm.exit83
 
 267:                                              ; preds = %262
-  %268 = getelementptr inbounds nuw %"struct.rocksdb::Env::FileAttributes", ptr %264, i64 %.024.lcssa188
+  %268 = getelementptr inbounds nuw [48 x i8], ptr %264, i64 %.024.lcssa188
   %.not.i.i74 = icmp eq ptr %265, %268
   br i1 %.not.i.i74, label %_ZNSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE6resizeEm.exit83, label %.lr.ph.i.i.i.i.i75
 
@@ -18629,7 +18618,7 @@ define linkonce_odr void @_ZN7rocksdb18FSRandomAccessFile9MultiReadEPNS_13FSRead
 
 16:                                               ; preds = %.lr.ph, %_ZN7rocksdb6StatusD2Ev.exit
   %.012 = phi i64 [ 0, %.lr.ph ], [ %41, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %17 = getelementptr inbounds nuw %"struct.rocksdb::FSReadRequest", ptr %2, i64 %.012
+  %17 = getelementptr inbounds nuw [96 x i8], ptr %2, i64 %.012
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = load i64, ptr %17, align 8, !tbaa !572
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -20254,7 +20243,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !228
   %42 = urem i64 %37, %41
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %42
   store ptr %38, ptr %43, align 8, !tbaa !675
   %.02837 = load ptr, ptr %19, align 8, !tbaa !40
   %.not3038 = icmp eq ptr %.02837, null
@@ -20307,7 +20296,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_strin
   %60 = load i64, ptr %40, align 8, !tbaa !228
   %61 = urem i64 %59, %60
   %62 = load ptr, ptr %0, align 8, !tbaa !227
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !675
   %.not32 = icmp eq ptr %64, null
   br i1 %.not32, label %65, label %70
@@ -20702,9 +20691,9 @@ _ZNSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 
 _ZNSt12_Vector_baseIN7rocksdb3Env14FileAttributesESaIS2_EE13_M_deallocateEPS2_m.exit41: ; preds = %_ZNSt6vectorIN7rocksdb3Env14FileAttributesESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %52
   store ptr %29, ptr %0, align 8, !tbaa !484
-  %56 = getelementptr inbounds nuw %"struct.rocksdb::Env::FileAttributes", ptr %30, i64 %1
+  %56 = getelementptr inbounds nuw [48 x i8], ptr %30, i64 %1
   store ptr %56, ptr %4, align 8, !tbaa !481
-  %57 = getelementptr inbounds nuw %"struct.rocksdb::Env::FileAttributes", ptr %29, i64 %27
+  %57 = getelementptr inbounds nuw [48 x i8], ptr %29, i64 %27
   store ptr %57, ptr %11, align 8, !tbaa !677
   br label %58
 
@@ -21019,7 +21008,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 34:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb14OptionTypeInfoEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS6_EEmRKT_.exit
   %35 = load ptr, ptr %0, align 8, !tbaa !43
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %37 = load ptr, ptr %36, align 8, !tbaa !675
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %.critedge, label %38
@@ -21176,7 +21165,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 224
   store i64 %2, ptr %32, align 8, !tbaa !673
   %33 = load ptr, ptr %0, align 8, !tbaa !43
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !675
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -21202,7 +21191,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 224
   %46 = load i64, ptr %45, align 8, !tbaa !673
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !675
   br label %49
 
@@ -21401,7 +21390,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 224
   %16 = load i64, ptr %15, align 8, !tbaa !673
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !675
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -21416,7 +21405,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !675
   br label %28
 
@@ -22258,7 +22247,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !283
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !285
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !290
   ret void
 }

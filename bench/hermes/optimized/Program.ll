@@ -327,7 +327,7 @@ if.then24:                                        ; preds = %arrayctor.cont
 
 for.body:                                         ; preds = %if.then24, %for.inc
   %indvars.iv = phi i64 [ 0, %if.then24 ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::Optional.33", ptr %Redirects.0.val, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [24 x i8], ptr %Redirects.0.val, i64 %indvars.iv
   %hasVal.i79 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %7 = load i8, ptr %hasVal.i79, align 8
   %tobool.i80 = trunc i8 %7 to i1
@@ -353,10 +353,10 @@ if.end.i.i:                                       ; preds = %if.then28
 
 _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit: ; preds = %if.then.i.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i), !noalias !13
-  %arrayidx = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %RedirectsStorage, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [32 x i8], ptr %RedirectsStorage, i64 %indvars.iv
   %call33 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #22
-  %arrayidx37 = getelementptr inbounds nuw ptr, ptr %RedirectsStr, i64 %indvars.iv
+  %arrayidx37 = getelementptr inbounds nuw [8 x i8], ptr %RedirectsStr, i64 %indvars.iv
   store ptr %arrayidx, ptr %arrayidx37, align 8
   br label %for.inc
 
@@ -948,7 +948,7 @@ if.end.i:                                         ; preds = %if.then.i6, %for.bo
   %3 = phi i32 [ %.pre.i, %if.then.i6 ], [ %0, %for.body ]
   %4 = load ptr, ptr %StringRefArgs, align 8
   %conv.i5.i = zext i32 %3 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %4, i64 %conv.i5.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %conv.i5.i
   store ptr %1, ptr %add.ptr.i.i, align 8
   %tobool.i.not.i = icmp eq ptr %1, null
   br i1 %tobool.i.not.i, label %_ZN4llvh15SmallVectorImplINS_9StringRefEE12emplace_backIJRPKcEEEvDpOT_.exit, label %cond.true.i.i
@@ -1698,7 +1698,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIPKcSaI
 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %agg.result, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit
 
@@ -1768,7 +1768,7 @@ if.then.i18.i.i.i28:                              ; preds = %_ZNSt6vectorIPKcSaI
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i29: ; preds = %if.then.i18.i.i.i28, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i.i25
   store ptr %call5.i.i.i.i.i.i22, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i26, ptr %_M_finish.i.i446, align 8
-  %add.ptr19.i.i.i30 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i22, i64 %cond.i.i.i.i19
+  %add.ptr19.i.i.i30 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i22, i64 %cond.i.i.i.i19
   store ptr %add.ptr19.i.i.i30, ptr %_M_end_of_storage.i.i547, align 8
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit33
 

@@ -45,21 +45,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.384" = type { ptr }
 %"struct.std::_Head_base.385" = type { ptr }
 %"struct.clang::CXXRewrittenBinaryOperator::DecomposedForm" = type { i32, ptr, ptr, ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { ptr, %"class.llvm::PointerUnion" }
-%"class.llvm::PointerUnion" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.364" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.364" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.365" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.365" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.366" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.366" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.367" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.367" = type { %"class.llvm::PointerIntPair.368" }
-%"class.llvm::PointerIntPair.368" = type { %"struct.llvm::detail::PunnedPointer.369" }
-%"struct.llvm::detail::DenseMapPair.376" = type { %"struct.std::pair.377" }
-%"struct.std::pair.377" = type { %"class.clang::DynTypedNode", %"class.llvm::PointerUnion" }
 %class.anon = type { i8 }
 %"struct.llvm::hashing::detail::hash_combine_recursive_helper" = type { [64 x i8], %"struct.llvm::hashing::detail::hash_state", i64 }
 %"struct.llvm::hashing::detail::hash_state" = type { i64, i64, i64, i64, i64, i64, i64 }
-%"class.llvm::detail::DenseSetPair" = type { %"class.clang::DynTypedNode" }
 %"struct.llvm::detail::DenseSetEmpty" = type { i8 }
 %"struct.std::pair.548" = type <{ %"class.llvm::DenseMapIterator.547", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator.547" = type { ptr, ptr }
@@ -76,8 +64,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.858" = type { %"class.llvm::SmallVectorTemplateCommon.859" }
 %"class.llvm::SmallVectorTemplateCommon.859" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.861" = type { [64 x i8] }
-%"class.llvm::PointerIntPair.557" = type { %"struct.llvm::detail::PunnedPointer.558" }
-%"struct.llvm::detail::PunnedPointer.558" = type { [8 x i8] }
 %"class.clang::TemplateName" = type { %"class.llvm::PointerUnion.787" }
 %"class.llvm::PointerUnion.787" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.788" }
 %"class.llvm::pointer_union_detail::PointerUnionMembers.788" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.789" }
@@ -87,33 +73,18 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::pointer_union_detail::PointerUnionMembers.792" = type { %"class.llvm::PointerIntPair.793" }
 %"class.llvm::PointerIntPair.793" = type { %"struct.llvm::detail::PunnedPointer.369" }
 %"class.clang::NestedNameSpecifierLoc" = type { ptr, ptr }
-%"class.clang::QualType" = type { %"class.llvm::PointerIntPair" }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%"struct.clang::FunctionType::FunctionTypeArmAttributes" = type { i16, [6 x i8] }
-%"struct.clang::FunctionType::FunctionTypeExtraBitfields" = type { i16, [6 x i8] }
-%"struct.clang::FunctionType::ExceptionType" = type { %"class.clang::QualType" }
 %"class.llvm::iterator_range" = type { %"struct.clang::StmtIterator", %"struct.clang::StmtIterator" }
 %"struct.clang::StmtIterator" = type { %"class.clang::StmtIteratorImpl" }
 %"class.clang::StmtIteratorImpl" = type { %"class.clang::StmtIteratorBase" }
 %"class.clang::StmtIteratorBase" = type { %union.anon.1185, i64, ptr }
 %union.anon.1185 = type { ptr }
-%"class.clang::DeclAccessPair" = type { %"struct.llvm::support::detail::packed_endian_specific_integral" }
-%"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
-%struct.anon = type { [8 x i8] }
 %"struct.clang::ObjCInterfaceLocInfo" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
-%"class.clang::LambdaCapture" = type { %"class.llvm::PointerIntPair.1227", %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
-%"class.llvm::PointerIntPair.1227" = type { %"struct.llvm::detail::PunnedPointer.419" }
-%"struct.llvm::detail::PunnedPointer.419" = type { [8 x i8] }
 %"class.clang::EmbedExpr::ChildElementIter" = type { ptr, i64 }
 %"class.llvm::APInt" = type <{ %union.anon.832, i32, [4 x i8] }>
 %union.anon.832 = type { i64 }
 %"struct.clang::ConstStmtIterator" = type { %"class.clang::StmtIteratorImpl.1231" }
 %"class.clang::StmtIteratorImpl.1231" = type { %"class.clang::StmtIteratorBase" }
 %"struct.clang::OMPUsesAllocatorsClause::Data" = type { ptr, ptr, %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
-%"struct.std::pair.1567" = type { ptr, i64 }
-%"class.clang::CXXBaseSpecifier" = type { %"class.clang::SourceRange", %"class.clang::SourceLocation", i8, ptr }
-%"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
 
 $_ZN5clang16ParentMapContext9ParentMap10getParentsENS_13TraversalKindERKNS_12DynTypedNodeE = comdat any
 
@@ -1501,7 +1472,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap10getParen
   %46 = trunc nuw i8 %45 to i1
   %47 = load ptr, ptr %24, align 8
   %48 = load i64, ptr %44, align 8
-  %49 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [40 x i8], ptr %47, i64 %48
   %50 = select i1 %46, ptr %43, ptr %49
   %spec.select.i.i52.us123 = select i1 %46, ptr %24, ptr %47
   %51 = ptrtoint ptr %50 to i64
@@ -1550,7 +1521,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap10getParen
   %66 = trunc nuw i8 %65 to i1
   %67 = load ptr, ptr %24, align 8
   %68 = load i64, ptr %44, align 8
-  %69 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [40 x i8], ptr %67, i64 %68
   %70 = select i1 %66, ptr %43, ptr %69
   %spec.select.i.i52.us = select i1 %66, ptr %24, ptr %67
   %71 = ptrtoint ptr %70 to i64
@@ -1659,7 +1630,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap10getParen
   %112 = load ptr, ptr %15, align 8, !noalias !425
   %113 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %114 = load i64, ptr %113, align 8, !noalias !425
-  %115 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %112, i64 %114
+  %115 = getelementptr inbounds nuw [40 x i8], ptr %112, i64 %114
   %116 = select i1 %111, ptr %109, ptr %115
   %spec.select.i.i9.i = select i1 %111, ptr %15, ptr %112
   %117 = ptrtoint ptr %116 to i64
@@ -1737,7 +1708,7 @@ _ZN12MatchParentsIN5clang7VarDeclEJNS0_8DeclStmtENS0_15CXXForRangeStmtEEE5matchE
   %143 = load ptr, ptr %11, align 8, !noalias !439
   %144 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %145 = load i64, ptr %144, align 8, !noalias !439
-  %146 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %143, i64 %145
+  %146 = getelementptr inbounds nuw [40 x i8], ptr %143, i64 %145
   %147 = select i1 %142, ptr %140, ptr %146
   %spec.select.i.i9.i64 = select i1 %142, ptr %11, ptr %143
   %148 = ptrtoint ptr %147 to i64
@@ -1803,7 +1774,7 @@ _ZN12MatchParentsIN5clang7VarDeclEJNS0_8DeclStmtENS0_15CXXForRangeStmtEEE5matchE
   %167 = load ptr, ptr %7, align 8, !noalias !444
   %168 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %169 = load i64, ptr %168, align 8, !noalias !444
-  %170 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %167, i64 %169
+  %170 = getelementptr inbounds nuw [40 x i8], ptr %167, i64 %169
   %171 = select i1 %166, ptr %164, ptr %170
   %spec.select.i.i9.i71 = select i1 %166, ptr %7, ptr %167
   %172 = ptrtoint ptr %171 to i64
@@ -1889,7 +1860,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMapD2Ev(ptr n
   br i1 %4, label %9, label %11
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E5beginEv.exit
 
 11:                                               ; preds = %1
@@ -1915,7 +1886,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMapD2Ev(ptr n
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %9, %11
   %.pn14.i = phi ptr [ %10, %9 ], [ %5, %11 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %12, %.critedge2.i8.i14.i6.i ]
   %.pn12.i = phi ptr [ %10, %9 ], [ %12, %11 ], [ %12, %.critedge2.i8.i14.i6.i ], [ %12, %.lr.ph.i6.i12.i3.i ]
-  %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %8
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %8
   %.not4955 = icmp eq ptr %.pn14.i, %15
   br i1 %.not4955, label %._crit_edge, label %.lr.ph
 
@@ -1931,7 +1902,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4
   br i1 %19, label %24, label %26
 
 24:                                               ; preds = %._crit_edge
-  %25 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.376", ptr %20, i64 %23
+  %25 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %23
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang12DynTypedNodeENS_12PointerUnionIJPKNS2_4DeclEPKNS2_4StmtEPS3_PNS2_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SG_EEEES3_SG_SI_SL_E5beginEv.exit
 
 26:                                               ; preds = %._crit_edge
@@ -1956,7 +1927,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4
 _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang12DynTypedNodeENS_12PointerUnionIJPKNS2_4DeclEPKNS2_4StmtEPS3_PNS2_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SG_EEEES3_SG_SI_SL_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i24, %.critedge2.i7.i13.i5.i, %24, %26
   %.pn13.i = phi ptr [ %25, %24 ], [ %20, %26 ], [ %.sroa.0.3.i4.i25, %.lr.ph.i6.i12.i3.i24 ], [ %27, %.critedge2.i7.i13.i5.i ]
   %.pn11.i = phi ptr [ %25, %24 ], [ %27, %26 ], [ %27, %.critedge2.i7.i13.i5.i ], [ %27, %.lr.ph.i6.i12.i3.i24 ]
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.376", ptr %20, i64 %23
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %23
   %.not5057 = icmp eq ptr %.pn13.i, %30
   br i1 %.not5057, label %._crit_edge60, label %.lr.ph59
 
@@ -2242,7 +2213,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %15 = add i32 %7, -1
   %.01826.i.i.i = and i32 %14, %15
   %16 = zext nneg i32 %.01826.i.i.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = icmp eq ptr %4, %18
   br i1 %19, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !476
@@ -2259,20 +2230,20 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %24 = add i32 %.01627.i.i.i, %.01828.i.i.i
   %.018.i.i.i = and i32 %24, %15
   %25 = zext i32 %.018.i.i.i to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !29
   %28 = icmp eq ptr %4, %27
   br i1 %28, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !478, !llvm.loop !479
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %3
   %29 = zext i32 %7 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %29
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit: ; preds = %22, %9, %.loopexit.i
   %.sroa.0.1.i = phi ptr [ %30, %.loopexit.i ], [ %17, %9 ], [ %26, %22 ]
   %31 = zext i32 %7 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %31
   %33 = icmp eq ptr %.sroa.0.1.i, %32
   br i1 %33, label %34, label %36
 
@@ -2374,7 +2345,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %15 = add i32 %7, -1
   %.01826.i.i.i = and i32 %14, %15
   %16 = zext nneg i32 %.01826.i.i.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = icmp eq ptr %4, %18
   br i1 %19, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !476
@@ -2391,20 +2362,20 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %24 = add i32 %.01627.i.i.i, %.01828.i.i.i
   %.018.i.i.i = and i32 %24, %15
   %25 = zext i32 %.018.i.i.i to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !29
   %28 = icmp eq ptr %4, %27
   br i1 %28, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !478, !llvm.loop !479
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %3
   %29 = zext i32 %7 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %29
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit: ; preds = %22, %9, %.loopexit.i
   %.sroa.0.1.i = phi ptr [ %30, %.loopexit.i ], [ %17, %9 ], [ %26, %22 ]
   %31 = zext i32 %7 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %31
   %33 = icmp eq ptr %.sroa.0.1.i, %32
   br i1 %33, label %34, label %36
 
@@ -2516,7 +2487,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap33AscendIg
   %19 = add i32 %11, -1
   %.01826.i.i = and i32 %19, %18
   %20 = zext nneg i32 %.01826.i.i to i64
-  %21 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !29
   %23 = icmp eq ptr %.0, %22
   br i1 %23, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i, !prof !476
@@ -2533,20 +2504,20 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap33AscendIg
   %28 = add i32 %.01627.i.i, %.01828.i.i
   %.018.i.i = and i32 %28, %19
   %29 = zext i32 %.018.i.i to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !29
   %32 = icmp eq ptr %.0, %31
   br i1 %32, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i, !prof !478, !llvm.loop !479
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %9
   %33 = zext i32 %11 to i64
-  %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %33
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit: ; preds = %26, %13, %.loopexit.i
   %.sroa.0.1.i = phi ptr [ %34, %.loopexit.i ], [ %21, %13 ], [ %30, %26 ]
   %35 = zext i32 %11 to i64
-  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %35
   %37 = icmp eq ptr %.sroa.0.1.i, %36
   br i1 %37, label %.thread56, label %38
 
@@ -2663,7 +2634,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !465
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.376", ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %8
   %10 = icmp eq ptr %4, %9
   %11 = select i1 %.not.not.i, i1 true, i1 %10
   br i1 %11, label %12, label %14
@@ -2877,7 +2848,7 @@ define linkonce_odr hidden void @_ZN12MatchParentsIN5clang8DeclStmtEJNS0_15CXXFo
   %21 = load ptr, ptr %9, align 8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %23
   %25 = select i1 %20, ptr %18, ptr %24
   %spec.select.i.i9 = select i1 %20, ptr %9, ptr %21
   %26 = ptrtoint ptr %25 to i64
@@ -2910,7 +2881,7 @@ define linkonce_odr hidden void @_ZN12MatchParentsIN5clang8DeclStmtEJNS0_15CXXFo
   %37 = load ptr, ptr %6, align 8, !noalias !542
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %39 = load i64, ptr %38, align 8, !noalias !542
-  %40 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %37, i64 %39
   %41 = select i1 %36, ptr %34, ptr %40
   %spec.select.i.i6.i = select i1 %36, ptr %6, ptr %37
   %42 = ptrtoint ptr %41 to i64
@@ -2979,7 +2950,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %15 = add i32 %7, -1
   %.01826.i.i.i = and i32 %14, %15
   %16 = zext nneg i32 %.01826.i.i.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = icmp eq ptr %4, %18
   br i1 %19, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !476
@@ -2996,20 +2967,20 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %24 = add i32 %.01627.i.i.i, %.01828.i.i.i
   %.018.i.i.i = and i32 %24, %15
   %25 = zext i32 %.018.i.i.i to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !29
   %28 = icmp eq ptr %4, %27
   br i1 %28, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !478, !llvm.loop !479
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %3
   %29 = zext i32 %7 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %29
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit: ; preds = %22, %9, %.loopexit.i
   %.sroa.0.1.i = phi ptr [ %30, %.loopexit.i ], [ %17, %9 ], [ %26, %22 ]
   %31 = zext i32 %7 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %31
   %33 = icmp eq ptr %.sroa.0.1.i, %32
   br i1 %33, label %34, label %36
 
@@ -3111,7 +3082,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %15 = add i32 %7, -1
   %.01826.i.i.i = and i32 %14, %15
   %16 = zext nneg i32 %.01826.i.i.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = icmp eq ptr %4, %18
   br i1 %19, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !476
@@ -3128,20 +3099,20 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %24 = add i32 %.01627.i.i.i, %.01828.i.i.i
   %.018.i.i.i = and i32 %24, %15
   %25 = zext i32 %.018.i.i.i to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !29
   %28 = icmp eq ptr %4, %27
   br i1 %28, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !478, !llvm.loop !479
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %3
   %29 = zext i32 %7 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %29
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit: ; preds = %22, %9, %.loopexit.i
   %.sroa.0.1.i = phi ptr [ %30, %.loopexit.i ], [ %17, %9 ], [ %26, %22 ]
   %31 = zext i32 %7 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %31
   %33 = icmp eq ptr %.sroa.0.1.i, %32
   br i1 %33, label %34, label %36
 
@@ -3243,7 +3214,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %15 = add i32 %7, -1
   %.01826.i.i.i = and i32 %14, %15
   %16 = zext nneg i32 %.01826.i.i.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = icmp eq ptr %4, %18
   br i1 %19, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !476
@@ -3260,20 +3231,20 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %24 = add i32 %.01627.i.i.i, %.01828.i.i.i
   %.018.i.i.i = and i32 %24, %15
   %25 = zext i32 %.018.i.i.i to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !29
   %28 = icmp eq ptr %4, %27
   br i1 %28, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !478, !llvm.loop !479
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %3
   %29 = zext i32 %7 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %29
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit: ; preds = %22, %9, %.loopexit.i
   %.sroa.0.1.i = phi ptr [ %30, %.loopexit.i ], [ %17, %9 ], [ %26, %22 ]
   %31 = zext i32 %7 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %31
   %33 = icmp eq ptr %.sroa.0.1.i, %32
   br i1 %33, label %34, label %36
 
@@ -3375,7 +3346,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %15 = add i32 %7, -1
   %.01826.i.i.i = and i32 %14, %15
   %16 = zext nneg i32 %.01826.i.i.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = icmp eq ptr %4, %18
   br i1 %19, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !476
@@ -3392,20 +3363,20 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %24 = add i32 %.01627.i.i.i, %.01828.i.i.i
   %.018.i.i.i = and i32 %24, %15
   %25 = zext i32 %.018.i.i.i to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !29
   %28 = icmp eq ptr %4, %27
   br i1 %28, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !478, !llvm.loop !479
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %3
   %29 = zext i32 %7 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %29
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit: ; preds = %22, %9, %.loopexit.i
   %.sroa.0.1.i = phi ptr [ %30, %.loopexit.i ], [ %17, %9 ], [ %26, %22 ]
   %31 = zext i32 %7 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %31
   %33 = icmp eq ptr %.sroa.0.1.i, %32
   br i1 %33, label %34, label %36
 
@@ -3523,7 +3494,7 @@ define linkonce_odr hidden void @_ZN12MatchParentsIN5clang13CXXRecordDeclEJNS0_1
   %21 = load ptr, ptr %9, align 8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %23
   %25 = select i1 %20, ptr %18, ptr %24
   %spec.select.i.i9 = select i1 %20, ptr %9, ptr %21
   %26 = ptrtoint ptr %25 to i64
@@ -3556,7 +3527,7 @@ define linkonce_odr hidden void @_ZN12MatchParentsIN5clang13CXXRecordDeclEJNS0_1
   %37 = load ptr, ptr %6, align 8, !noalias !626
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %39 = load i64, ptr %38, align 8, !noalias !626
-  %40 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %37, i64 %39
   %41 = select i1 %36, ptr %34, ptr %40
   %spec.select.i.i6.i = select i1 %36, ptr %6, ptr %37
   %42 = ptrtoint ptr %41 to i64
@@ -3625,7 +3596,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %15 = add i32 %7, -1
   %.01826.i.i.i = and i32 %14, %15
   %16 = zext nneg i32 %.01826.i.i.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = icmp eq ptr %4, %18
   br i1 %19, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !476
@@ -3642,20 +3613,20 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %24 = add i32 %.01627.i.i.i, %.01828.i.i.i
   %.018.i.i.i = and i32 %24, %15
   %25 = zext i32 %.018.i.i.i to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !29
   %28 = icmp eq ptr %4, %27
   br i1 %28, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !478, !llvm.loop !479
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %3
   %29 = zext i32 %7 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %29
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit: ; preds = %22, %9, %.loopexit.i
   %.sroa.0.1.i = phi ptr [ %30, %.loopexit.i ], [ %17, %9 ], [ %26, %22 ]
   %31 = zext i32 %7 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %31
   %33 = icmp eq ptr %.sroa.0.1.i, %32
   br i1 %33, label %34, label %36
 
@@ -3757,7 +3728,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %15 = add i32 %7, -1
   %.01826.i.i.i = and i32 %14, %15
   %16 = zext nneg i32 %.01826.i.i.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = icmp eq ptr %4, %18
   br i1 %19, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !476
@@ -3774,20 +3745,20 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %24 = add i32 %.01627.i.i.i, %.01828.i.i.i
   %.018.i.i.i = and i32 %24, %15
   %25 = zext i32 %.018.i.i.i to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !29
   %28 = icmp eq ptr %4, %27
   br i1 %28, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !478, !llvm.loop !479
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %3
   %29 = zext i32 %7 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %29
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit: ; preds = %22, %9, %.loopexit.i
   %.sroa.0.1.i = phi ptr [ %30, %.loopexit.i ], [ %17, %9 ], [ %26, %22 ]
   %31 = zext i32 %7 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %31
   %33 = icmp eq ptr %.sroa.0.1.i, %32
   br i1 %33, label %34, label %36
 
@@ -3889,7 +3860,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %15 = add i32 %7, -1
   %.01826.i.i.i = and i32 %14, %15
   %16 = zext nneg i32 %.01826.i.i.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = icmp eq ptr %4, %18
   br i1 %19, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !476
@@ -3906,20 +3877,20 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap17getDynNo
   %24 = add i32 %.01627.i.i.i, %.01828.i.i.i
   %.018.i.i.i = and i32 %24, %15
   %25 = zext i32 %.018.i.i.i to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !29
   %28 = icmp eq ptr %4, %27
   br i1 %28, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit, label %.lr.ph.i.i.i, !prof !478, !llvm.loop !479
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i, %3
   %29 = zext i32 %7 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %29
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E4findES3_.exit: ; preds = %22, %9, %.loopexit.i
   %.sroa.0.1.i = phi ptr [ %30, %.loopexit.i ], [ %17, %9 ], [ %26, %22 ]
   %31 = zext i32 %7 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %31
   %33 = icmp eq ptr %.sroa.0.1.i, %32
   br i1 %33, label %34, label %36
 
@@ -4026,7 +3997,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5cl
   %.015 = phi i32 [ 1, %9 ], [ %59, %58 ]
   %.017 = and i32 %.pn, %11
   %14 = zext i32 %.017 to i64
-  %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.376", ptr %5, i64 %14
+  %15 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %14
   %16 = load i32, ptr %1, align 8, !tbaa !466
   switch i32 %16, label %20 [
     i32 0, label %_ZN5clang12DynTypedNode12DenseMapInfo7isEqualERKS0_S3_.exit
@@ -4731,7 +4702,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang16ParentMapContext9Paren
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_.exit, label %15, !prof !477
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %11
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %11
   %17 = icmp uge ptr %3, %.pre3.i
   %18 = icmp ult ptr %3, %16
   %spec.select.i.i.i.i.i = and i1 %17, %18
@@ -4758,7 +4729,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_.ex
   %.016.i.i.i = phi ptr [ %3, %4 ], [ %25, %19 ], [ %3, %.critedge.i.i.i ]
   %28 = load i32, ptr %9, align 8, !tbaa !35
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [40 x i8], ptr %27, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %31 = load i32, ptr %9, align 8, !tbaa !35
   %32 = add i32 %31, 1
@@ -4800,7 +4771,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap10ASTVisit
   %14 = load ptr, ptr %8, align 8, !tbaa !32
   %15 = load i32, ptr %9, align 8, !tbaa !35
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 -40
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 8, !tbaa !20
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
@@ -4823,7 +4794,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap10ASTVisit
   %26 = load ptr, ptr %8, align 8, !tbaa !32
   %27 = load i32, ptr %9, align 8, !tbaa !35
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -40
   %.sroa.0.0.copyload.i24 = load i32, ptr %30, align 8, !tbaa !20
   %31 = getelementptr inbounds i8, ptr %29, i64 -32
@@ -4848,7 +4819,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap10ASTVisit
   %40 = load ptr, ptr %8, align 8, !tbaa !32
   %41 = load i32, ptr %9, align 8, !tbaa !35
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [40 x i8], ptr %40, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %44, i64 40, i1 false), !tbaa.struct !30
   %45 = ptrtoint ptr %39 to i64
@@ -4945,7 +4916,7 @@ _ZN5clang16ParentMapContext9ParentMap34getSingleDynTypedNodeFromParentMapEN4llvm
   %80 = load ptr, ptr %8, align 8, !tbaa !32
   %81 = load i32, ptr %9, align 8, !tbaa !35
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %80, i64 %82
+  %83 = getelementptr inbounds nuw [40 x i8], ptr %80, i64 %82
   %84 = getelementptr inbounds i8, ptr %83, i64 -40
   %85 = load i32, ptr %84, align 4, !tbaa !466
   %86 = icmp slt i32 %85, 74
@@ -4969,7 +4940,7 @@ _ZN5clang16ParentMapContext9ParentMap34getSingleDynTypedNodeFromParentMapEN4llvm
   %98 = load i32, ptr %97, align 8
   %99 = select i1 %.not.i.i.i.i.i.i.i.i, i32 %98, i32 2
   %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %96, i64 %100
+  %101 = getelementptr inbounds nuw [40 x i8], ptr %96, i64 %100
   %102 = icmp ne ptr %91, %101
   %103 = select i1 %.not.not.i.i.i.i, i1 %102, i1 false
   br i1 %103, label %107, label %..critedge_crit_edge
@@ -4983,7 +4954,7 @@ _ZN5clang16ParentMapContext9ParentMap34getSingleDynTypedNodeFromParentMapEN4llvm
 .critedge:                                        ; preds = %..critedge_crit_edge, %77
   %.pre-phi = phi i64 [ %.pre34, %..critedge_crit_edge ], [ %82, %77 ]
   %104 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %80, %77 ]
-  %105 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %104, i64 %.pre-phi
+  %105 = getelementptr inbounds nuw [40 x i8], ptr %104, i64 %.pre-phi
   %106 = getelementptr inbounds i8, ptr %105, i64 -40
   call void @_ZN5clang16ParentMapContext9ParentMap12ParentVector9push_backERKNS_12DynTypedNodeE(ptr noundef nonnull align 8 dereferenceable(184) %79, ptr noundef nonnull align 8 dereferenceable(40) %106)
   br label %107
@@ -5011,7 +4982,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %15 = add i32 %6, -1
   %.02944.i = and i32 %14, %15
   %16 = zext nneg i32 %.02944.i to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.loopexit, label %.lr.ph.i, !prof !476
@@ -5039,7 +5010,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %29 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %29, %15
   %30 = zext i32 %.029.i to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !29
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.loopexit, label %.lr.ph.i, !prof !478, !llvm.loop !757
@@ -5147,7 +5118,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap12ParentVe
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_.exit, label %20, !prof !477
 
 20:                                               ; preds = %.critedge
-  %21 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %16
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %16
   %22 = icmp uge ptr %1, %.pre3.i
   %23 = icmp ult ptr %1, %21
   %spec.select.i.i.i.i.i = and i1 %22, %23
@@ -5174,7 +5145,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_.ex
   %.016.i.i.i = phi ptr [ %1, %.critedge ], [ %30, %24 ], [ %1, %.critedge.i.i.i ]
   %33 = load i32, ptr %14, align 8, !tbaa !35
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %32, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %36 = load i32, ptr %14, align 8, !tbaa !35
   %37 = add i32 %36, 1
@@ -5203,7 +5174,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %15 = add i32 %6, -1
   %.02944 = and i32 %14, %15
   %16 = zext nneg i32 %.02944 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.thread, label %.lr.ph, !prof !476
@@ -5231,7 +5202,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = add i32 %.02947, %.02746
   %.029 = and i32 %29, %15
   %30 = zext i32 %.029 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !29
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.thread, label %.lr.ph, !prof !478, !llvm.loop !757
@@ -5338,7 +5309,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4
   %47 = add i32 %41, -1
   %.02944.i.i = and i32 %47, %46
   %48 = zext nneg i32 %.02944.i.i to i64
-  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %40, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !29
   %51 = icmp eq ptr %38, %50
   br i1 %51, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E15LookupBucketForIS3_EEbRKT_RPSN_.exit.i, label %.lr.ph.i15.i, !prof !476
@@ -5366,7 +5337,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4
   %61 = add i32 %.02746.i.i, %.02947.i.i
   %.029.i.i = and i32 %61, %47
   %62 = zext i32 %.029.i.i to i64
-  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %40, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !29
   %65 = icmp eq ptr %38, %64
   br i1 %65, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKvNS_12PointerUnionIJPKN5clang4DeclEPKNS5_4StmtEPNS5_12DynTypedNodeEPNS5_16ParentMapContext9ParentMap12ParentVectorEEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SI_EEEES3_SI_SK_SN_E15LookupBucketForIS3_EEbRKT_RPSN_.exit.i, label %.lr.ph.i15.i, !prof !478, !llvm.loop !757
@@ -5428,7 +5399,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMa
   %.015 = phi i32 [ 1, %14 ], [ %64, %63 ]
   %.017 = and i32 %.pn, %16
   %19 = zext i32 %.017 to i64
-  %20 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %9, i64 %19
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %19
   %21 = load i32, ptr %1, align 8, !tbaa !466
   switch i32 %21, label %25 [
     i32 0, label %_ZN5clang12DynTypedNode12DenseMapInfo7isEqualERKS0_S3_.exit
@@ -5612,7 +5583,7 @@ _ZN5clang12DynTypedNode12DenseMapInfo7isEqualERKS0_S3_.exit.thread.i.i: ; preds 
   %44 = load i32, ptr %9, align 8
   %45 = select i1 %.not.i.i.i.i6, i32 %44, i32 2
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %43, i64 %46
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %43, i64 %46
   store ptr %.sink15, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %47, ptr %.sroa.4.0..sroa_idx, align 8
@@ -5660,7 +5631,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_13Small
   %.025 = phi i32 [ 1, %17 ], [ %71, %68 ]
   %.027 = and i32 %.pn, %19
   %22 = zext i32 %.027 to i64
-  %23 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %11, i64 %22
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %11, i64 %22
   %24 = load i32, ptr %1, align 8, !tbaa !466
   switch i32 %24, label %28 [
     i32 0, label %_ZN5clang12DynTypedNode12DenseMapInfo7isEqualERKS0_S3_.exit
@@ -6562,7 +6533,7 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44ca
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %56, !prof !477
 
 56:                                               ; preds = %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread
-  %57 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %53
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %53
   %58 = icmp uge ptr %4, %.pre3.i
   %59 = icmp ult ptr %4, %57
   %spec.select.i.i.i.i.i51 = and i1 %58, %59
@@ -6586,7 +6557,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %4, %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread ], [ %64, %60 ], [ %4, %.critedge.i.i.i ]
   %66 = load i32, ptr %32, align 8, !tbaa !35
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [40 x i8], ptr %65, i64 %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %68, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %69 = load i32, ptr %32, align 8, !tbaa !35
   %70 = add i32 %69, 1
@@ -6638,7 +6609,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZNSt6vectorIPN5cla
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %87 = load i32, ptr %86, align 8, !tbaa !35
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %85, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %88
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %83
@@ -6706,7 +6677,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !35
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %22
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %17
@@ -6762,7 +6733,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !35
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %19
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %14
@@ -6816,7 +6787,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !35
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %18
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %13
@@ -6872,7 +6843,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !35
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %19
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %14
@@ -6928,7 +6899,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !35
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %19
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %14
@@ -6984,7 +6955,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !35
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %19
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %14
@@ -7038,7 +7009,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !35
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %18
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %13
@@ -7152,7 +7123,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.critedge53
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !35
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %45
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %40
@@ -7228,7 +7199,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %17
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !35
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %29
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %24
@@ -7290,7 +7261,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %15
@@ -7352,7 +7323,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %15
@@ -7414,7 +7385,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %15
@@ -7454,7 +7425,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %12 = load i32, ptr %11, align 4, !tbaa !872
   %13 = zext i32 %12 to i64
   %14 = extractvalue { ptr, i64 } %9, 0
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %.not47 = icmp eq ptr %7, %15
   br i1 %.not47, label %.critedge, label %.lr.ph
 
@@ -7503,7 +7474,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !35
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %36
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %31
@@ -7587,7 +7558,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !35
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %27, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %30
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %25
@@ -7627,7 +7598,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %12 = load i32, ptr %11, align 4, !tbaa !872
   %13 = zext i32 %12 to i64
   %14 = extractvalue { ptr, i64 } %9, 0
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %.not70 = icmp eq ptr %7, %15
   br i1 %.not70, label %.critedge, label %.lr.ph
 
@@ -7701,7 +7672,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %33
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !35
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %45
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %40
@@ -7805,7 +7776,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %40, !prof !477
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %37
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %37
   %42 = icmp uge ptr %4, %.pre3.i
   %43 = icmp ult ptr %4, %41
   %spec.select.i.i.i.i.i = and i1 %42, %43
@@ -7829,7 +7800,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %4, %33 ], [ %48, %44 ], [ %4, %.critedge.i.i.i ]
   %50 = load i32, ptr %27, align 8, !tbaa !35
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [40 x i8], ptr %49, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %53 = load i32, ptr %27, align 8, !tbaa !35
   %54 = add i32 %53, 1
@@ -7882,7 +7853,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %69
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %80 = load i32, ptr %79, align 8, !tbaa !35
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %78, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %81
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %76
@@ -7995,7 +7966,7 @@ _ZNK5clang16ObjCProtocolDecl13protocol_locsEv.exit: ; preds = %_ZNK5clang16ObjCP
   br i1 %.not.i.i.not.i.i.i, label %50, label %41, !prof !477
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i.i.i, i64 %38
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i.i.i, i64 %38
   %43 = icmp uge ptr %4, %.pre3.i.i.i
   %44 = icmp ult ptr %4, %42
   %spec.select.i.i.i.i.i.i.i = and i1 %43, %44
@@ -8019,7 +7990,7 @@ _ZNK5clang16ObjCProtocolDecl13protocol_locsEv.exit: ; preds = %_ZNK5clang16ObjCP
   %.016.i.i.i.i.i = phi ptr [ %4, %33 ], [ %49, %45 ], [ %4, %.critedge.i.i.i.i.i ]
   %52 = load i32, ptr %29, align 8, !tbaa !35
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %51, i64 %53
+  %54 = getelementptr inbounds nuw [40 x i8], ptr %51, i64 %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -8058,7 +8029,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %62
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !35
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %74
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %69
@@ -8260,7 +8231,7 @@ _ZNK5clang17ObjCInterfaceDecl28isThisDeclarationADefinitionEv.exit: ; preds = %_
   br i1 %.not.i.i.not.i.i.i, label %87, label %78, !prof !477
 
 78:                                               ; preds = %70
-  %79 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i.i.i, i64 %75
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i.i.i, i64 %75
   %80 = icmp uge ptr %4, %.pre3.i.i.i
   %81 = icmp ult ptr %4, %79
   %spec.select.i.i.i.i.i.i.i = and i1 %80, %81
@@ -8284,7 +8255,7 @@ _ZNK5clang17ObjCInterfaceDecl28isThisDeclarationADefinitionEv.exit: ; preds = %_
   %.016.i.i.i.i.i = phi ptr [ %4, %70 ], [ %86, %82 ], [ %4, %.critedge.i.i.i.i.i ]
   %89 = load i32, ptr %66, align 8, !tbaa !35
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %88, i64 %90
+  %91 = getelementptr inbounds nuw [40 x i8], ptr %88, i64 %90
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %91, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -8323,7 +8294,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %99
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %110 = load i32, ptr %109, align 8, !tbaa !35
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw ptr, ptr %108, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %111
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %106
@@ -8379,7 +8350,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !35
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %19
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %14
@@ -8435,7 +8406,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !35
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %19
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %14
@@ -8544,7 +8515,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i.i.i, label %50, label %41, !prof !477
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i.i.i, i64 %38
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i.i.i, i64 %38
   %43 = icmp uge ptr %4, %.pre3.i.i.i
   %44 = icmp ult ptr %4, %42
   %spec.select.i.i.i.i.i.i.i = and i1 %43, %44
@@ -8568,7 +8539,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %.016.i.i.i.i.i = phi ptr [ %4, %33 ], [ %49, %45 ], [ %4, %.critedge.i.i.i.i.i ]
   %52 = load i32, ptr %29, align 8, !tbaa !35
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %51, i64 %53
+  %54 = getelementptr inbounds nuw [40 x i8], ptr %51, i64 %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -8607,7 +8578,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %62
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load i32, ptr %72, align 8, !tbaa !35
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %74
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %69
@@ -8663,7 +8634,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !35
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %19
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %14
@@ -8719,7 +8690,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !35
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %19
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %14
@@ -8852,7 +8823,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   br i1 %.not.i.i.not.i.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameSpecifierLocENS_12DynTypedNodeEZNS2_30TraverseNestedNameSpecifierLocES4_EUlvE_N4llvm8DenseMapIS5_NS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPS5_PNS1_12ParentVectorEEEENS7_12DenseMapInfoIS5_vEENS7_6detail12DenseMapPairIS5_SJ_EEEEEEbT_T0_T1_PT2_.exit, label %19, !prof !477
 
 19:                                               ; preds = %9
-  %20 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i.i, i64 %15
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i.i, i64 %15
   %21 = icmp uge ptr %3, %.pre3.i.i
   %22 = icmp ult ptr %3, %20
   %spec.select.i.i.i.i.i.i = and i1 %21, %22
@@ -8879,7 +8850,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   %.016.i.i.i.i = phi ptr [ %3, %9 ], [ %29, %23 ], [ %3, %.critedge.i.i.i.i ]
   %32 = load i32, ptr %13, align 8, !tbaa !35
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i, i64 40, i1 false)
   %35 = load i32, ptr %13, align 8, !tbaa !35
   %36 = add i32 %35, 1
@@ -8942,7 +8913,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %52
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = load i32, ptr %62, align 8, !tbaa !35
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %64
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %59
@@ -9004,7 +8975,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %15
@@ -9066,7 +9037,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %15
@@ -9128,7 +9099,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %15
@@ -9190,7 +9161,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %15
@@ -9258,7 +9229,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %12
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !35
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %24
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %19
@@ -9311,7 +9282,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !35
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %12
@@ -9364,7 +9335,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !35
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %12
@@ -9417,7 +9388,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !35
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %12
@@ -9470,7 +9441,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !35
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %12
@@ -9523,7 +9494,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !35
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %12
@@ -9576,7 +9547,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !35
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %12
@@ -9653,7 +9624,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !35
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %28
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %23
@@ -9719,7 +9690,7 @@ _ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit: ; pr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %11, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %16 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %15)
   br i1 %16, label %14, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -9772,7 +9743,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %30
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !35
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %41
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %36
@@ -9840,7 +9811,7 @@ _ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33: ; 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %14, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %indvars.iv
   %19 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %18)
   br i1 %19, label %17, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -9893,7 +9864,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 8, !tbaa !35
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %44
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %39
@@ -10004,7 +9975,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %36
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load i32, ptr %45, align 8, !tbaa !35
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %44, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %47
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %42
@@ -10081,7 +10052,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !35
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %28
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %23
@@ -10158,7 +10129,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !35
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %28
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %23
@@ -10247,7 +10218,7 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE17Tr
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %34, !prof !477
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %31
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %31
   %36 = icmp uge ptr %4, %.pre3.i
   %37 = icmp ult ptr %4, %35
   %spec.select.i.i.i.i.i = and i1 %36, %37
@@ -10271,7 +10242,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %4, %27 ], [ %42, %38 ], [ %4, %.critedge.i.i.i ]
   %44 = load i32, ptr %21, align 8, !tbaa !35
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [40 x i8], ptr %43, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %46, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %47 = load i32, ptr %21, align 8, !tbaa !35
   %48 = add i32 %47, 1
@@ -10321,7 +10292,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %57
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = load i32, ptr %66, align 8, !tbaa !35
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %65, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %68
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %63
@@ -10447,7 +10418,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %37
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load i32, ptr %47, align 8, !tbaa !35
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %49
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %44
@@ -10513,7 +10484,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !35
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %22
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %17
@@ -10616,7 +10587,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %31
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !35
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %40, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %43
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %38
@@ -10702,7 +10673,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !35
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %36
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %31
@@ -10788,7 +10759,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !35
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %36
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %31
@@ -10851,7 +10822,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %21, !prof !477
 
 21:                                               ; preds = %10
-  %22 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %17
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %17
   %23 = icmp uge ptr %4, %.pre3.i
   %24 = icmp ult ptr %4, %22
   %spec.select.i.i.i.i.i = and i1 %23, %24
@@ -10878,7 +10849,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %4, %10 ], [ %31, %25 ], [ %4, %.critedge.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !35
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %37 = load i32, ptr %15, align 8, !tbaa !35
   %38 = add i32 %37, 1
@@ -10924,7 +10895,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %46
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %57 = load i32, ptr %56, align 8, !tbaa !35
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %58
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %53
@@ -10986,7 +10957,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %15
@@ -11048,7 +11019,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %15
@@ -11110,7 +11081,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %15
@@ -11180,7 +11151,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   br i1 %.not.i.i.not.i.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameSpecifierLocENS_12DynTypedNodeEZNS2_30TraverseNestedNameSpecifierLocES4_EUlvE_N4llvm8DenseMapIS5_NS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPS5_PNS1_12ParentVectorEEEENS7_12DenseMapInfoIS5_vEENS7_6detail12DenseMapPairIS5_SJ_EEEEEEbT_T0_T1_PT2_.exit, label %18, !prof !477
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i.i, i64 %14
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i.i, i64 %14
   %20 = icmp uge ptr %3, %.pre3.i.i
   %21 = icmp ult ptr %3, %19
   %spec.select.i.i.i.i.i.i = and i1 %20, %21
@@ -11207,7 +11178,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   %.016.i.i.i.i = phi ptr [ %3, %8 ], [ %28, %22 ], [ %3, %.critedge.i.i.i.i ]
   %31 = load i32, ptr %12, align 8, !tbaa !35
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i, i64 40, i1 false)
   %34 = load i32, ptr %12, align 8, !tbaa !35
   %35 = add i32 %34, 1
@@ -11254,7 +11225,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %44
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load i32, ptr %54, align 8, !tbaa !35
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %53, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %56
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %51
@@ -11316,7 +11287,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %15
@@ -11365,7 +11336,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
 12:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !1069
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !1070
   %17 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE35TraverseTemplateParameterListHelperEPNS_21TemplateParameterListE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -11414,7 +11385,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %25
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !35
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %37
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %32
@@ -11474,7 +11445,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !35
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %21
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %16
@@ -11540,7 +11511,7 @@ _ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit: ; 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %11, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %16 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %15)
   br i1 %16, label %14, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -11574,7 +11545,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !35
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %33
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %28
@@ -11642,7 +11613,7 @@ _ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33: 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %14, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %indvars.iv
   %19 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %18)
   br i1 %19, label %17, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -11676,7 +11647,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !35
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %36
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %31
@@ -11729,7 +11700,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread: ; preds = %2, %1
 16:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !1069
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !1070
   %21 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE35TraverseTemplateParameterListHelperEPNS_21TemplateParameterListE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -11781,7 +11752,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   br i1 %.not.i.i.not.i.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameSpecifierLocENS_12DynTypedNodeEZNS2_30TraverseNestedNameSpecifierLocES4_EUlvE_N4llvm8DenseMapIS5_NS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPS5_PNS1_12ParentVectorEEEENS7_12DenseMapInfoIS5_vEENS7_6detail12DenseMapPairIS5_SJ_EEEEEEbT_T0_T1_PT2_.exit, label %34, !prof !477
 
 34:                                               ; preds = %24
-  %35 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i.i, i64 %30
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i.i, i64 %30
   %36 = icmp uge ptr %3, %.pre3.i.i
   %37 = icmp ult ptr %3, %35
   %spec.select.i.i.i.i.i.i = and i1 %36, %37
@@ -11808,7 +11779,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   %.016.i.i.i.i = phi ptr [ %3, %24 ], [ %44, %38 ], [ %3, %.critedge.i.i.i.i ]
   %47 = load i32, ptr %28, align 8, !tbaa !35
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [40 x i8], ptr %46, i64 %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i, i64 40, i1 false)
   %50 = load i32, ptr %28, align 8, !tbaa !35
   %51 = add i32 %50, 1
@@ -11880,7 +11851,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %71
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load i32, ptr %81, align 8, !tbaa !35
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw ptr, ptr %80, i64 %83
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %83
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %78
@@ -11950,7 +11921,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   br i1 %.not.i.i.not.i.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameSpecifierLocENS_12DynTypedNodeEZNS2_30TraverseNestedNameSpecifierLocES4_EUlvE_N4llvm8DenseMapIS5_NS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPS5_PNS1_12ParentVectorEEEENS7_12DenseMapInfoIS5_vEENS7_6detail12DenseMapPairIS5_SJ_EEEEEEbT_T0_T1_PT2_.exit, label %18, !prof !477
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i.i, i64 %14
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i.i, i64 %14
   %20 = icmp uge ptr %3, %.pre3.i.i
   %21 = icmp ult ptr %3, %19
   %spec.select.i.i.i.i.i.i = and i1 %20, %21
@@ -11977,7 +11948,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   %.016.i.i.i.i = phi ptr [ %3, %8 ], [ %28, %22 ], [ %3, %.critedge.i.i.i.i ]
   %31 = load i32, ptr %12, align 8, !tbaa !35
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i, i64 40, i1 false)
   %34 = load i32, ptr %12, align 8, !tbaa !35
   %35 = add i32 %34, 1
@@ -12024,7 +11995,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %44
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load i32, ptr %54, align 8, !tbaa !35
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %53, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %56
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %51
@@ -12124,7 +12095,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %26
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !35
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %38
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %33
@@ -12224,7 +12195,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %26
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !35
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %38
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %33
@@ -12330,7 +12301,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %29
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !35
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %41
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %36
@@ -12430,7 +12401,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   br i1 %.not.i.i.not.i.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameSpecifierLocENS_12DynTypedNodeEZNS2_30TraverseNestedNameSpecifierLocES4_EUlvE_N4llvm8DenseMapIS5_NS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPS5_PNS1_12ParentVectorEEEENS7_12DenseMapInfoIS5_vEENS7_6detail12DenseMapPairIS5_SJ_EEEEEEbT_T0_T1_PT2_.exit, label %35, !prof !477
 
 35:                                               ; preds = %25
-  %36 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i.i, i64 %31
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i.i, i64 %31
   %37 = icmp uge ptr %3, %.pre3.i.i
   %38 = icmp ult ptr %3, %36
   %spec.select.i.i.i.i.i.i = and i1 %37, %38
@@ -12457,7 +12428,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   %.016.i.i.i.i = phi ptr [ %3, %25 ], [ %45, %39 ], [ %3, %.critedge.i.i.i.i ]
   %48 = load i32, ptr %29, align 8, !tbaa !35
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %47, i64 %49
+  %50 = getelementptr inbounds nuw [40 x i8], ptr %47, i64 %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %50, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i, i64 40, i1 false)
   %51 = load i32, ptr %29, align 8, !tbaa !35
   %52 = add i32 %51, 1
@@ -12499,7 +12470,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %66 ]
-  %67 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %63, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %63, i64 %indvars.iv
   %68 = call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %67)
   br i1 %68, label %66, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE40TraverseTemplateTypeParamDeclConstraintsEPKNS_20TemplateTypeParmDeclE.exit
 
@@ -12597,7 +12568,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %100
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %111 = load i32, ptr %110, align 8, !tbaa !35
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw ptr, ptr %109, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %112
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %107
@@ -12655,7 +12626,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %18, !prof !477
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %14
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %14
   %20 = icmp uge ptr %4, %.pre3.i
   %21 = icmp ult ptr %4, %19
   %spec.select.i.i.i.i.i = and i1 %20, %21
@@ -12682,7 +12653,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %4, %7 ], [ %28, %22 ], [ %4, %.critedge.i.i.i ]
   %31 = load i32, ptr %12, align 8, !tbaa !35
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %34 = load i32, ptr %12, align 8, !tbaa !35
   %35 = add i32 %34, 1
@@ -12794,7 +12765,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %74
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %85 = load i32, ptr %84, align 8, !tbaa !35
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw ptr, ptr %83, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %86
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %81
@@ -12858,7 +12829,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %22, !prof !477
 
 22:                                               ; preds = %11
-  %23 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %18
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %18
   %24 = icmp uge ptr %4, %.pre3.i
   %25 = icmp ult ptr %4, %23
   %spec.select.i.i.i.i.i = and i1 %24, %25
@@ -12885,7 +12856,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %4, %11 ], [ %32, %26 ], [ %4, %.critedge.i.i.i ]
   %35 = load i32, ptr %16, align 8, !tbaa !35
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %34, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %38 = load i32, ptr %16, align 8, !tbaa !35
   %39 = add i32 %38, 1
@@ -12943,7 +12914,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %55
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !35
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %64, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %67
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %62
@@ -13001,7 +12972,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %18, !prof !477
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %14
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %14
   %20 = icmp uge ptr %4, %.pre3.i
   %21 = icmp ult ptr %4, %19
   %spec.select.i.i.i.i.i = and i1 %20, %21
@@ -13028,7 +12999,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %4, %7 ], [ %28, %22 ], [ %4, %.critedge.i.i.i ]
   %31 = load i32, ptr %12, align 8, !tbaa !35
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %34 = load i32, ptr %12, align 8, !tbaa !35
   %35 = add i32 %34, 1
@@ -13080,7 +13051,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %47
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load i32, ptr %57, align 8, !tbaa !35
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %56, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %59
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %54
@@ -13144,7 +13115,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %22, !prof !477
 
 22:                                               ; preds = %11
-  %23 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %18
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %18
   %24 = icmp uge ptr %4, %.pre3.i
   %25 = icmp ult ptr %4, %23
   %spec.select.i.i.i.i.i = and i1 %24, %25
@@ -13171,7 +13142,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %4, %11 ], [ %32, %26 ], [ %4, %.critedge.i.i.i ]
   %35 = load i32, ptr %16, align 8, !tbaa !35
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %34, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %38 = load i32, ptr %16, align 8, !tbaa !35
   %39 = add i32 %38, 1
@@ -13229,7 +13200,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %55
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !35
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %64, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %67
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %62
@@ -13293,7 +13264,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %22, !prof !477
 
 22:                                               ; preds = %11
-  %23 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %18
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %18
   %24 = icmp uge ptr %4, %.pre3.i
   %25 = icmp ult ptr %4, %23
   %spec.select.i.i.i.i.i = and i1 %24, %25
@@ -13320,7 +13291,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %4, %11 ], [ %32, %26 ], [ %4, %.critedge.i.i.i ]
   %35 = load i32, ptr %16, align 8, !tbaa !35
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %34, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %38 = load i32, ptr %16, align 8, !tbaa !35
   %39 = add i32 %38, 1
@@ -13378,7 +13349,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %55
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !35
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %64, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %67
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %62
@@ -13452,7 +13423,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !35
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %28
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %23
@@ -13520,7 +13491,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %12
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !35
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %24
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %19
@@ -13605,7 +13576,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !35
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %32
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %27
@@ -13667,7 +13638,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %15
@@ -13737,7 +13708,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   br i1 %.not.i.i.not.i.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameSpecifierLocENS_12DynTypedNodeEZNS2_30TraverseNestedNameSpecifierLocES4_EUlvE_N4llvm8DenseMapIS5_NS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPS5_PNS1_12ParentVectorEEEENS7_12DenseMapInfoIS5_vEENS7_6detail12DenseMapPairIS5_SJ_EEEEEEbT_T0_T1_PT2_.exit, label %18, !prof !477
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i.i, i64 %14
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i.i, i64 %14
   %20 = icmp uge ptr %3, %.pre3.i.i
   %21 = icmp ult ptr %3, %19
   %spec.select.i.i.i.i.i.i = and i1 %20, %21
@@ -13764,7 +13735,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   %.016.i.i.i.i = phi ptr [ %3, %8 ], [ %28, %22 ], [ %3, %.critedge.i.i.i.i ]
   %31 = load i32, ptr %12, align 8, !tbaa !35
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i, i64 40, i1 false)
   %34 = load i32, ptr %12, align 8, !tbaa !35
   %35 = add i32 %34, 1
@@ -13798,7 +13769,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %39
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load i32, ptr %49, align 8, !tbaa !35
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %51
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %46
@@ -13860,7 +13831,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %15
@@ -13948,7 +13919,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !35
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %33
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %28
@@ -14019,7 +13990,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   br i1 %.not.i.i.not.i.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameSpecifierLocENS_12DynTypedNodeEZNS2_30TraverseNestedNameSpecifierLocES4_EUlvE_N4llvm8DenseMapIS5_NS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPS5_PNS1_12ParentVectorEEEENS7_12DenseMapInfoIS5_vEENS7_6detail12DenseMapPairIS5_SJ_EEEEEEbT_T0_T1_PT2_.exit, label %19, !prof !477
 
 19:                                               ; preds = %9
-  %20 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i.i, i64 %15
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i.i, i64 %15
   %21 = icmp uge ptr %3, %.pre3.i.i
   %22 = icmp ult ptr %3, %20
   %spec.select.i.i.i.i.i.i = and i1 %21, %22
@@ -14046,7 +14017,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   %.016.i.i.i.i = phi ptr [ %3, %9 ], [ %29, %23 ], [ %3, %.critedge.i.i.i.i ]
   %32 = load i32, ptr %13, align 8, !tbaa !35
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i, i64 40, i1 false)
   %35 = load i32, ptr %13, align 8, !tbaa !35
   %36 = add i32 %35, 1
@@ -14109,7 +14080,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %52
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = load i32, ptr %62, align 8, !tbaa !35
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %61, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %64
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %59
@@ -14177,7 +14148,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %12
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !35
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %24
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %19
@@ -14239,7 +14210,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %15
@@ -14321,7 +14292,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !35
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %28
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %23
@@ -14414,7 +14385,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %33, !prof !477
 
 33:                                               ; preds = %22
-  %34 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %29
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %29
   %35 = icmp uge ptr %5, %.pre3.i
   %36 = icmp ult ptr %5, %34
   %spec.select.i.i.i.i.i = and i1 %35, %36
@@ -14441,7 +14412,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %5, %22 ], [ %43, %37 ], [ %5, %.critedge.i.i.i ]
   %46 = load i32, ptr %27, align 8, !tbaa !35
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %49 = load i32, ptr %27, align 8, !tbaa !35
   %50 = add i32 %49, 1
@@ -14473,7 +14444,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit.
 63:                                               ; preds = %.lr.ph89, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next, %.critedge ]
   %64 = load ptr, ptr %56, align 8, !tbaa !1278
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !1070
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 20
@@ -14509,7 +14480,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit.
   br i1 %.not.i.i.not.i68, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit63, label %80, !prof !477
 
 80:                                               ; preds = %73
-  %81 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i69, i64 %77
+  %81 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i69, i64 %77
   %82 = icmp uge ptr %4, %.pre3.i69
   %83 = icmp ult ptr %4, %81
   %spec.select.i.i.i.i.i70 = and i1 %82, %83
@@ -14533,7 +14504,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit6
   %.016.i.i.i73 = phi ptr [ %4, %73 ], [ %88, %84 ], [ %4, %.critedge.i.i.i71 ]
   %90 = load i32, ptr %59, align 8, !tbaa !35
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %89, i64 %91
+  %92 = getelementptr inbounds nuw [40 x i8], ptr %89, i64 %91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %92, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i73, i64 40, i1 false)
   %93 = load i32, ptr %59, align 8, !tbaa !35
   %94 = add i32 %93, 1
@@ -14589,7 +14560,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %103
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %114 = load i32, ptr %113, align 8, !tbaa !35
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw ptr, ptr %112, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %115
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %110
@@ -14720,7 +14691,7 @@ _ZNK5clang14ElaboratedType15getOwnedTagDeclEv.exit: ; preds = %_ZNK5clang4Type5g
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %54, !prof !477
 
 54:                                               ; preds = %43
-  %55 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %50
+  %55 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %50
   %56 = icmp uge ptr %5, %.pre3.i
   %57 = icmp ult ptr %5, %55
   %spec.select.i.i.i.i.i = and i1 %56, %57
@@ -14747,7 +14718,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %5, %43 ], [ %64, %58 ], [ %5, %.critedge.i.i.i ]
   %67 = load i32, ptr %48, align 8, !tbaa !35
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %66, i64 %68
+  %69 = getelementptr inbounds nuw [40 x i8], ptr %66, i64 %68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %69, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %70 = load i32, ptr %48, align 8, !tbaa !35
   %71 = add i32 %70, 1
@@ -14787,7 +14758,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   br i1 %.not.i.i.not.i56, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit50, label %87, !prof !477
 
 87:                                               ; preds = %76
-  %88 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i57, i64 %83
+  %88 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i57, i64 %83
   %89 = icmp uge ptr %4, %.pre3.i57
   %90 = icmp ult ptr %4, %88
   %spec.select.i.i.i.i.i58 = and i1 %89, %90
@@ -14814,7 +14785,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit5
   %.016.i.i.i61 = phi ptr [ %4, %76 ], [ %97, %91 ], [ %4, %.critedge.i.i.i59 ]
   %100 = load i32, ptr %81, align 8, !tbaa !35
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %99, i64 %101
+  %102 = getelementptr inbounds nuw [40 x i8], ptr %99, i64 %101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %102, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i61, i64 40, i1 false)
   %103 = load i32, ptr %81, align 8, !tbaa !35
   %104 = add i32 %103, 1
@@ -14860,7 +14831,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %112
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %123 = load i32, ptr %122, align 8, !tbaa !35
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw ptr, ptr %121, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %124
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %119
@@ -14928,7 +14899,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %12
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !35
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %24
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %19
@@ -14990,7 +14961,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %15
@@ -15052,7 +15023,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %15
@@ -15120,7 +15091,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   br i1 %.not.i.i.not.i.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameSpecifierLocENS_12DynTypedNodeEZNS2_30TraverseNestedNameSpecifierLocES4_EUlvE_N4llvm8DenseMapIS5_NS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPS5_PNS1_12ParentVectorEEEENS7_12DenseMapInfoIS5_vEENS7_6detail12DenseMapPairIS5_SJ_EEEEEEbT_T0_T1_PT2_.exit, label %16, !prof !477
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i.i, i64 %12
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i.i, i64 %12
   %18 = icmp uge ptr %3, %.pre3.i.i
   %19 = icmp ult ptr %3, %17
   %spec.select.i.i.i.i.i.i = and i1 %18, %19
@@ -15147,7 +15118,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   %.016.i.i.i.i = phi ptr [ %3, %6 ], [ %26, %20 ], [ %3, %.critedge.i.i.i.i ]
   %29 = load i32, ptr %10, align 8, !tbaa !35
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %28, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i, i64 40, i1 false)
   %32 = load i32, ptr %10, align 8, !tbaa !35
   %33 = add i32 %32, 1
@@ -15184,7 +15155,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %47 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %44, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %indvars.iv
   %48 = call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %47)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
@@ -15228,7 +15199,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21Po
   %17 = phi i32 [ %10, %6 ], [ %.pre.i, %13 ]
   %18 = load ptr, ptr %2, align 8, !tbaa !32
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw %"class.llvm::PointerIntPair.557", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   store i64 %8, ptr %20, align 1
   %21 = load i32, ptr %9, align 8, !tbaa !35
   %22 = add i32 %21, 1
@@ -15266,7 +15237,7 @@ thread-pre-split..critedge.loopexit_crit_edge:    ; preds = %thread-pre-split
   %30 = phi i32 [ 1, %.lr.ph ], [ %.pr, %thread-pre-split ]
   %31 = load ptr, ptr %4, align 8, !tbaa !32
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw %"class.llvm::PointerIntPair.557", ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = getelementptr inbounds i8, ptr %33, i64 -8
   %.0.copyload.i.i.i = load i64, ptr %34, align 8
   %35 = and i64 %.0.copyload.i.i.i, -8
@@ -15385,7 +15356,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang16ParentMapContext9Paren
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_.exit, label %17, !prof !477
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %13
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %13
   %19 = icmp uge ptr %5, %.pre3.i
   %20 = icmp ult ptr %5, %18
   %spec.select.i.i.i.i.i = and i1 %19, %20
@@ -15412,7 +15383,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_.ex
   %.016.i.i.i = phi ptr [ %5, %7 ], [ %27, %21 ], [ %5, %.critedge.i.i.i ]
   %30 = load i32, ptr %11, align 8, !tbaa !35
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [40 x i8], ptr %29, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %33 = load i32, ptr %11, align 8, !tbaa !35
   %34 = add i32 %33, 1
@@ -15562,7 +15533,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap10ASTVisit
   %13 = load ptr, ptr %7, align 8, !tbaa !32
   %14 = load i32, ptr %8, align 8, !tbaa !35
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -40
   %.sroa.0.0.copyload.i = load i32, ptr %17, align 8, !tbaa !20
   %18 = getelementptr inbounds i8, ptr %16, i64 -32
@@ -15585,7 +15556,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap10ASTVisit
   %25 = load ptr, ptr %7, align 8, !tbaa !32
   %26 = load i32, ptr %8, align 8, !tbaa !35
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %27
   %29 = getelementptr inbounds i8, ptr %28, i64 -40
   %.sroa.0.0.copyload.i23 = load i32, ptr %29, align 8, !tbaa !20
   %30 = getelementptr inbounds i8, ptr %28, i64 -32
@@ -15610,7 +15581,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap10ASTVisit
   %39 = load ptr, ptr %7, align 8, !tbaa !32
   %40 = load i32, ptr %8, align 8, !tbaa !35
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %39, i64 %41
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %41
   %43 = getelementptr inbounds i8, ptr %42, i64 -40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %43, i64 40, i1 false), !tbaa.struct !30
   %44 = ptrtoint ptr %38 to i64
@@ -15707,7 +15678,7 @@ _ZN5clang16ParentMapContext9ParentMap34getSingleDynTypedNodeFromParentMapEN4llvm
   %79 = load ptr, ptr %7, align 8, !tbaa !32
   %80 = load i32, ptr %8, align 8, !tbaa !35
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %79, i64 %81
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %79, i64 %81
   %83 = getelementptr inbounds i8, ptr %82, i64 -40
   %84 = load i32, ptr %83, align 4, !tbaa !466
   %85 = icmp slt i32 %84, 74
@@ -15731,7 +15702,7 @@ _ZN5clang16ParentMapContext9ParentMap34getSingleDynTypedNodeFromParentMapEN4llvm
   %97 = load i32, ptr %96, align 8
   %98 = select i1 %.not.i.i.i.i.i.i.i.i, i32 %97, i32 2
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %95, i64 %99
+  %100 = getelementptr inbounds nuw [40 x i8], ptr %95, i64 %99
   %101 = icmp ne ptr %90, %100
   %102 = select i1 %.not.not.i.i.i.i, i1 %101, i1 false
   br i1 %102, label %106, label %..critedge_crit_edge
@@ -15745,7 +15716,7 @@ _ZN5clang16ParentMapContext9ParentMap34getSingleDynTypedNodeFromParentMapEN4llvm
 .critedge:                                        ; preds = %..critedge_crit_edge, %76
   %.pre-phi = phi i64 [ %.pre33, %..critedge_crit_edge ], [ %81, %76 ]
   %103 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %79, %76 ]
-  %104 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %103, i64 %.pre-phi
+  %104 = getelementptr inbounds nuw [40 x i8], ptr %103, i64 %.pre-phi
   %105 = getelementptr inbounds i8, ptr %104, i64 -40
   call void @_ZN5clang16ParentMapContext9ParentMap12ParentVector9push_backERKNS_12DynTypedNodeE(ptr noundef nonnull align 8 dereferenceable(184) %78, ptr noundef nonnull align 8 dereferenceable(40) %105)
   br label %106
@@ -15860,7 +15831,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %.025 = phi i32 [ 1, %12 ], [ %66, %63 ]
   %.027 = and i32 %.pn, %14
   %17 = zext i32 %.027 to i64
-  %18 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.376", ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %17
   %19 = load i32, ptr %1, align 8, !tbaa !466
   switch i32 %19, label %23 [
     i32 0, label %_ZN5clang12DynTypedNode12DenseMapInfo7isEqualERKS0_S3_.exit
@@ -16198,7 +16169,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang16ParentMapContext9Paren
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_.exit, label %23, !prof !477
 
 23:                                               ; preds = %12
-  %24 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %19
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %19
   %25 = icmp uge ptr %6, %.pre3.i
   %26 = icmp ult ptr %6, %24
   %spec.select.i.i.i.i.i = and i1 %25, %26
@@ -16225,7 +16196,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_.ex
   %.016.i.i.i = phi ptr [ %6, %12 ], [ %33, %27 ], [ %6, %.critedge.i.i.i ]
   %36 = load i32, ptr %17, align 8, !tbaa !35
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %35, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %39 = load i32, ptr %17, align 8, !tbaa !35
   %40 = add i32 %39, 1
@@ -16280,7 +16251,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang16ParentMapContext9Paren
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_.exit, label %21, !prof !477
 
 21:                                               ; preds = %11
-  %22 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %17
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %17
   %23 = icmp uge ptr %9, %.pre3.i
   %24 = icmp ult ptr %9, %22
   %spec.select.i.i.i.i.i = and i1 %23, %24
@@ -16307,7 +16278,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_.ex
   %.016.i.i.i = phi ptr [ %9, %11 ], [ %31, %25 ], [ %9, %.critedge.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !35
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %37 = load i32, ptr %15, align 8, !tbaa !35
   %38 = add i32 %37, 1
@@ -17090,8 +17061,8 @@ _ZNK5clang38DependentTemplateSpecializationTypeLoc15getQualifierLocEv.exit.threa
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !1439)
-  %17 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %12, i64 %indvars.iv
-  %18 = getelementptr inbounds nuw %"struct.clang::TemplateArgumentLocInfo", ptr %13, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %.sroa.0.0.copyload.i.i = load i64, ptr %18, align 8, !noalias !1439
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !tbaa.struct !495
   store i64 %.sroa.0.0.copyload.i.i, ptr %14, align 8, !alias.scope !1439
@@ -17311,7 +17282,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %31
 
 46:                                               ; preds = %.lr.ph, %82
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %82 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !891
   %.not43 = icmp eq ptr %48, null
   br i1 %.not43, label %74, label %49
@@ -17335,7 +17306,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %31
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %56, !prof !477
 
 56:                                               ; preds = %49
-  %57 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %53
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %53
   %58 = icmp uge ptr %4, %.pre3.i
   %59 = icmp ult ptr %4, %57
   %spec.select.i.i.i.i.i49 = and i1 %58, %59
@@ -17359,7 +17330,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %4, %49 ], [ %64, %60 ], [ %4, %.critedge.i.i.i ]
   %66 = load i32, ptr %40, align 8, !tbaa !35
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [40 x i8], ptr %65, i64 %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %68, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %69 = load i32, ptr %40, align 8, !tbaa !35
   %70 = add i32 %69, 1
@@ -17379,7 +17350,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %74
-  %80 = getelementptr inbounds nuw %"class.clang::QualType", ptr %44, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i64, ptr %80, align 8, !tbaa !31
   %81 = call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE12TraverseTypeENS_8QualTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.sroa.0.0.copyload.i)
   br i1 %81, label %82, label %.thread65
@@ -17394,10 +17365,10 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %84 = load i64, ptr %6, align 16
   %85 = lshr i64 %84, 38
   %86 = and i64 %85, 65535
-  %87 = getelementptr inbounds nuw %"class.clang::QualType", ptr %83, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %86
   %88 = lshr i64 %84, 60
   %89 = and i64 %88, 1
-  %90 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %87, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %89
   %91 = ptrtoint ptr %90 to i64
   %92 = add i64 %91, 7
   %93 = and i64 %92, -8
@@ -17412,7 +17383,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.lobit.i.i.i.i.i.i = and i16 %98, 1
   %99 = zext nneg i16 %.lobit.i.i.i.i.i.i to i64
   %100 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %101 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %100, i64 %99
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %99
   br label %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i
 
 _ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i: ; preds = %96, %._crit_edge
@@ -17431,8 +17402,8 @@ _ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i: ; preds = %96, %._cri
 
 _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i, %107
   %111 = phi i64 [ %110, %107 ], [ 0, %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i ]
-  %112 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %103, i64 %104
-  %113 = getelementptr inbounds nuw %"class.clang::QualType", ptr %112, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %104
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %111
   %.not4470 = icmp eq ptr %102, %113
   br i1 %.not4470, label %._crit_edge73, label %.lr.ph72
 
@@ -17463,10 +17434,10 @@ _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17Functio
 123:                                              ; preds = %._crit_edge73
   %124 = lshr i64 %117, 38
   %125 = and i64 %124, 65535
-  %126 = getelementptr inbounds nuw %"class.clang::QualType", ptr %83, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %125
   %127 = lshr i64 %117, 60
   %128 = and i64 %127, 1
-  %129 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %126, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %128
   %130 = ptrtoint ptr %129 to i64
   %131 = add i64 %130, 7
   %132 = and i64 %131, -8
@@ -17498,9 +17469,9 @@ _ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit: ; preds = %_ZN4llvm25trai
   %spec.select.i.i.i.i.i = phi i64 [ %145, %142 ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i ]
   %146 = lshr i64 %117, 59
   %147 = and i64 %146, 1
-  %148 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %133, i64 %147
-  %149 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %148, i64 %139
-  %150 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %149, i64 %spec.select.i.i.i.i.i
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %147
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %139
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %spec.select.i.i.i.i.i
   %151 = load ptr, ptr %150, align 8, !tbaa !874
   %.not45 = icmp eq ptr %151, null
   br i1 %.not45, label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread, label %152
@@ -17728,7 +17699,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
 
 40:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !1467
   %.sroa.0.0.copyload.i30 = load i64, ptr %42, align 8, !tbaa !31
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -17767,11 +17738,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %59 = lshr i32 %58, 19
   %60 = and i32 %59, 127
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw %"class.clang::QualType", ptr %48, i64 %61
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv54
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv54
   %64 = load ptr, ptr %63, align 8, !tbaa !916
-  %65 = getelementptr inbounds nuw ptr, ptr %49, i64 %61
-  %66 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %65, i64 %indvars.iv54
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %61
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv54
   %.sroa.0.0.copyload.i31 = load i32, ptr %66, align 4, !tbaa !788
   %67 = load ptr, ptr %0, align 8, !tbaa !718
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
@@ -17793,7 +17764,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i.i.i, label %82, label %73, !prof !477
 
 73:                                               ; preds = %57
-  %74 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i.i.i, i64 %70
+  %74 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i.i.i, i64 %70
   %75 = icmp uge ptr %4, %.pre3.i.i.i
   %76 = icmp ult ptr %4, %74
   %spec.select.i.i.i.i.i.i.i = and i1 %75, %76
@@ -17817,7 +17788,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %.016.i.i.i.i.i = phi ptr [ %4, %57 ], [ %81, %77 ], [ %4, %.critedge.i.i.i.i.i ]
   %84 = load i32, ptr %52, align 8, !tbaa !35
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %83, i64 %85
+  %86 = getelementptr inbounds nuw [40 x i8], ptr %83, i64 %85
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %86, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -17857,9 +17828,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
 
 18:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !916
-  %21 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %10, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i32, ptr %21, align 4, !tbaa !788
   %22 = load ptr, ptr %0, align 8, !tbaa !718
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -17881,7 +17852,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i.i.i, label %37, label %28, !prof !477
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i.i.i, i64 %25
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i.i.i, i64 %25
   %30 = icmp uge ptr %4, %.pre3.i.i.i
   %31 = icmp ult ptr %4, %29
   %spec.select.i.i.i.i.i.i.i = and i1 %30, %31
@@ -17905,7 +17876,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %.016.i.i.i.i.i = phi ptr [ %4, %18 ], [ %36, %32 ], [ %4, %.critedge.i.i.i.i.i ]
   %39 = load i32, ptr %13, align 8, !tbaa !35
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %38, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -18114,8 +18085,8 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE20Tr
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !1486)
-  %29 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %24, i64 %indvars.iv
-  %30 = getelementptr inbounds nuw %"struct.clang::TemplateArgumentLocInfo", ptr %25, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %.sroa.0.0.copyload.i.i = load i64, ptr %30, align 8, !noalias !1486
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false), !tbaa.struct !495
   store i64 %.sroa.0.0.copyload.i.i, ptr %26, align 8, !alias.scope !1486
@@ -18702,10 +18673,10 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %14 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %8, %5 ]
   %15 = lshr i64 %14, 38
   %16 = and i64 %15, 65535
-  %17 = getelementptr inbounds nuw %"class.clang::QualType", ptr %6, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %16
   %18 = lshr i64 %14, 60
   %19 = and i64 %18, 1
-  %20 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %19
   %21 = ptrtoint ptr %20 to i64
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
@@ -18720,7 +18691,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %.lobit.i.i.i.i.i.i = and i16 %28, 1
   %29 = zext nneg i16 %.lobit.i.i.i.i.i.i to i64
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %31 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %29
   br label %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i
 
 _ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i: ; preds = %26, %._crit_edge
@@ -18739,8 +18710,8 @@ _ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i: ; preds = %26, %._cri
 
 _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i, %37
   %41 = phi i64 [ %40, %37 ], [ 0, %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i ]
-  %42 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %33, i64 %34
-  %43 = getelementptr inbounds nuw %"class.clang::QualType", ptr %42, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
   %.not3961 = icmp eq ptr %32, %43
   br i1 %.not3961, label %._crit_edge64, label %.lr.ph63
 
@@ -18771,10 +18742,10 @@ _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17Functio
 53:                                               ; preds = %._crit_edge64
   %54 = lshr i64 %47, 38
   %55 = and i64 %54, 65535
-  %56 = getelementptr inbounds nuw %"class.clang::QualType", ptr %6, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %55
   %57 = lshr i64 %47, 60
   %58 = and i64 %57, 1
-  %59 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %58
   %60 = ptrtoint ptr %59 to i64
   %61 = add i64 %60, 7
   %62 = and i64 %61, -8
@@ -18806,9 +18777,9 @@ _ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit: ; preds = %_ZN4llvm25trai
   %spec.select.i.i.i.i.i = phi i64 [ %75, %72 ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i ]
   %76 = lshr i64 %47, 59
   %77 = and i64 %76, 1
-  %78 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %63, i64 %77
-  %79 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %78, i64 %69
-  %80 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %79, i64 %spec.select.i.i.i.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %77
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %69
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %spec.select.i.i.i.i.i
   %81 = load ptr, ptr %80, align 8, !tbaa !874
   %.not40 = icmp eq ptr %81, null
   br i1 %.not40, label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread, label %82
@@ -19417,7 +19388,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang16ParentMapContext9Paren
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_.exit, label %14, !prof !477
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %10
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %10
   %16 = icmp uge ptr %3, %.pre3.i
   %17 = icmp ult ptr %3, %15
   %spec.select.i.i.i.i.i = and i1 %16, %17
@@ -19444,7 +19415,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_.ex
   %.016.i.i.i = phi ptr [ %3, %2 ], [ %24, %18 ], [ %3, %.critedge.i.i.i ]
   %27 = load i32, ptr %8, align 8, !tbaa !35
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %30 = load i32, ptr %8, align 8, !tbaa !35
   %31 = add i32 %30, 1
@@ -21256,7 +21227,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !1467
   %.sroa.0.0.copyload.i = load i64, ptr %13, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -22072,7 +22043,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %21, !prof !477
 
 21:                                               ; preds = %10
-  %22 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %17
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %17
   %23 = icmp uge ptr %5, %.pre3.i
   %24 = icmp ult ptr %5, %22
   %spec.select.i.i.i.i.i = and i1 %23, %24
@@ -22099,7 +22070,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %5, %10 ], [ %31, %25 ], [ %5, %.critedge.i.i.i ]
   %34 = load i32, ptr %15, align 8, !tbaa !35
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %37 = load i32, ptr %15, align 8, !tbaa !35
   %38 = add i32 %37, 1
@@ -22155,7 +22126,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit.
   br i1 %.not.i.i.not.i60, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit56, label %62, !prof !477
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i61, i64 %59
+  %63 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i61, i64 %59
   %64 = icmp uge ptr %4, %.pre3.i61
   %65 = icmp ult ptr %4, %63
   %spec.select.i.i.i.i.i62 = and i1 %64, %65
@@ -22179,7 +22150,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit5
   %.016.i.i.i65 = phi ptr [ %4, %55 ], [ %70, %66 ], [ %4, %.critedge.i.i.i63 ]
   %72 = load i32, ptr %49, align 8, !tbaa !35
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %71, i64 %73
+  %74 = getelementptr inbounds nuw [40 x i8], ptr %71, i64 %73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %74, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i65, i64 40, i1 false)
   %75 = load i32, ptr %49, align 8, !tbaa !35
   %76 = add i32 %75, 1
@@ -22203,7 +22174,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit5
 
 .critedge:                                        ; preds = %.critedge.loopexit, %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit.thread
   %82 = phi i64 [ %81, %.critedge.loopexit ], [ 0, %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit.thread ]
-  %83 = getelementptr inbounds nuw ptr, ptr %42, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %85 = load i32, ptr %84, align 4, !tbaa !1550
   %86 = zext i32 %85 to i64
@@ -22826,7 +22797,7 @@ _ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit: ; preds = %8
   %15 = zext i32 %14 to i64
   %.04.i.i.v.v.i.i = select i1 %12, i64 64, i64 80
   %.04.i.i.v.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.04.i.i.v.v.i.i
-  %.04.i.i.i.i = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.04.i.i.v.i.i, i64 %15
+  %.04.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.04.i.i.v.i.i, i64 %15
   %16 = load i32, ptr %.04.i.i.i.i, align 8, !tbaa !788
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.thread, label %_ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit
@@ -22849,7 +22820,7 @@ _ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang12Over
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %17, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %indvars.iv
   %22 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %21)
   br i1 %22, label %20, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -22955,7 +22926,7 @@ _ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit: ; preds = %8
   %15 = zext i32 %14 to i64
   %.04.i.i.v.v.i.i = select i1 %12, i64 64, i64 80
   %.04.i.i.v.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.04.i.i.v.v.i.i
-  %.04.i.i.i.i = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.04.i.i.v.i.i, i64 %15
+  %.04.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.04.i.i.v.i.i, i64 %15
   %16 = load i32, ptr %.04.i.i.i.i, align 8, !tbaa !788
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.thread, label %_ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit
@@ -22978,7 +22949,7 @@ _ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang12Over
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %17, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %indvars.iv
   %22 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %21)
   br i1 %22, label %20, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -24791,12 +24762,12 @@ _ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i: ; preds = %21
   %26 = lshr i32 %22, 21
   %.lobit.i.i.i.i.i.i.i = and i32 %26, 1
   %27 = zext nneg i32 %.lobit.i.i.i.i.i.i.i to i64
-  %28 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %1, i64 %25
-  %29 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %28, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %32 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %31, i64 %25
-  %33 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %32, i64 %27
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %27
   %34 = load i32, ptr %33, align 8, !tbaa !788
   %.not.i28 = icmp eq i32 %34, 0
   br i1 %.not.i28, label %._crit_edge, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit
@@ -24818,7 +24789,7 @@ _ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang10Member
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %30, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %indvars.iv
   %39 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %38)
   br i1 %39, label %37, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -25257,8 +25228,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
 9:                                                ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %10 = tail call noundef ptr @_ZNK5clang10LambdaExpr13capture_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
-  %11 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %10, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !874
   %14 = tail call noundef zeroext i1 @_ZNK5clang10LambdaExpr13isInitCaptureEPKNS_13LambdaCaptureE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %11) #18
   br i1 %14, label %15, label %19
@@ -25307,7 +25278,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %33, !prof !477
 
 33:                                               ; preds = %22
-  %34 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %29
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %29
   %35 = icmp uge ptr %4, %.pre3.i
   %36 = icmp ult ptr %4, %34
   %spec.select.i.i.i.i.i103 = and i1 %35, %36
@@ -25334,7 +25305,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %4, %22 ], [ %43, %37 ], [ %4, %.critedge.i.i.i ]
   %46 = load i32, ptr %27, align 8, !tbaa !35
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %49 = load i32, ptr %27, align 8, !tbaa !35
   %50 = add i32 %49, 1
@@ -25716,7 +25687,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
 11:                                               ; preds = %3
   %12 = and i32 %5, 32767
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !1467
   %.sroa.0.0.copyload.i = load i64, ptr %15, align 8, !tbaa !31
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -25730,7 +25701,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %22 = lshr i32 %21, 30
   %.lobit.i.i = and i32 %22, 1
   %23 = zext nneg i32 %.lobit.i.i to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %23
   %25 = and i32 %21, 32767
   %26 = shl nuw nsw i32 %25, 3
   %.idx = zext nneg i32 %26 to i64
@@ -25741,10 +25712,10 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
 .lr.ph.preheader:                                 ; preds = %19
   %28 = add nuw nsw i32 %.lobit.i.i, %25
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %20, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %29
   %31 = xor i32 %.lobit.i.i, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge40
@@ -26726,7 +26697,7 @@ _ZNK5clang25DependentScopeDeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZN
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %16, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv
   %21 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %20)
   br i1 %21, label %19, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -26938,12 +26909,12 @@ _ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i: ; preds = %21
   %26 = lshr i32 %22, 21
   %.lobit.i.i.i.i.i.i.i = and i32 %26, 1
   %27 = zext nneg i32 %.lobit.i.i.i.i.i.i.i to i64
-  %28 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %1, i64 %25
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %32 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %31, i64 %25
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %27
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %27
   %34 = load i32, ptr %33, align 8, !tbaa !788
   %.not.i28 = icmp eq i32 %34, 0
   br i1 %.not.i28, label %._crit_edge, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit
@@ -26965,7 +26936,7 @@ _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang11DeclR
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %30, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %indvars.iv
   %39 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %38)
   br i1 %39, label %37, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -30173,7 +30144,7 @@ _ZNK5clang27CXXDependentScopeMemberExpr18getNumTemplateArgsEv.exit: ; preds = %_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %16, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv
   %21 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %20)
   br i1 %21, label %19, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -30848,7 +30819,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_.exit, label %18, !prof !477
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %14
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %14
   %20 = icmp uge ptr %4, %.pre3.i
   %21 = icmp ult ptr %4, %19
   %spec.select.i.i.i.i.i = and i1 %20, %21
@@ -30875,7 +30846,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_.ex
   %.016.i.i.i = phi ptr [ %4, %7 ], [ %28, %22 ], [ %4, %.critedge.i.i.i ]
   %31 = load i32, ptr %12, align 8, !tbaa !35
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %34 = load i32, ptr %12, align 8, !tbaa !35
   %35 = add i32 %34, 1
@@ -32174,7 +32145,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %22, !prof !477
 
 22:                                               ; preds = %11
-  %23 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %18
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %18
   %24 = icmp uge ptr %4, %.pre3.i
   %25 = icmp ult ptr %4, %23
   %spec.select.i.i.i.i.i = and i1 %24, %25
@@ -32201,7 +32172,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %4, %11 ], [ %32, %26 ], [ %4, %.critedge.i.i.i ]
   %35 = load i32, ptr %16, align 8, !tbaa !35
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %34, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %38 = load i32, ptr %16, align 8, !tbaa !35
   %39 = add i32 %38, 1
@@ -43118,7 +43089,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %16, align 8, !tbaa !1674
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   br label %_ZN5clang8DeclStmt5declsEv.exit
 
 _ZN5clang8DeclStmt5declsEv.exit:                  ; preds = %10, %14
@@ -43161,7 +43132,7 @@ _ZN5clang8DeclStmt5declsEv.exit:                  ; preds = %10, %14
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %36, !prof !477
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %33
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %33
   %38 = icmp uge ptr %4, %.pre3.i
   %39 = icmp ult ptr %4, %37
   %spec.select.i.i.i.i.i = and i1 %38, %39
@@ -43185,7 +43156,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %4, %29 ], [ %44, %40 ], [ %4, %.critedge.i.i.i ]
   %46 = load i32, ptr %23, align 8, !tbaa !35
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %49 = load i32, ptr %23, align 8, !tbaa !35
   %50 = add i32 %49, 1
@@ -43545,7 +43516,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %19, !prof !477
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %15
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %15
   %21 = icmp uge ptr %4, %.pre3.i
   %22 = icmp ult ptr %4, %20
   %spec.select.i.i.i.i.i = and i1 %21, %22
@@ -43572,7 +43543,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %4, %8 ], [ %29, %23 ], [ %4, %.critedge.i.i.i ]
   %32 = load i32, ptr %13, align 8, !tbaa !35
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %35 = load i32, ptr %13, align 8, !tbaa !35
   %36 = add i32 %35, 1
@@ -43847,7 +43818,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %20, !prof !477
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %16
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %16
   %22 = icmp uge ptr %4, %.pre3.i
   %23 = icmp ult ptr %4, %21
   %spec.select.i.i.i.i.i = and i1 %22, %23
@@ -43874,7 +43845,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %4, %9 ], [ %30, %24 ], [ %4, %.critedge.i.i.i ]
   %33 = load i32, ptr %14, align 8, !tbaa !35
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %32, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %36 = load i32, ptr %14, align 8, !tbaa !35
   %37 = add i32 %36, 1
@@ -44146,7 +44117,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %18 = load i32, ptr %13, align 8, !tbaa !1717
   %19 = add i32 %18, %.05064
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !1718
   %23 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %22, ptr noundef %2)
   br i1 %23, label %14, label %.loopexit
@@ -44170,7 +44141,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
 28:                                               ; preds = %.lr.ph67, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next, %27 ]
   %29 = load ptr, ptr %26, align 8, !tbaa !1716
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !1718
   %32 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %31, ptr noundef %2)
   br i1 %32, label %27, label %.loopexit
@@ -44194,7 +44165,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
 37:                                               ; preds = %.lr.ph70, %36
   %indvars.iv77 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next78, %36 ]
   %38 = load ptr, ptr %35, align 8, !tbaa !1722
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv77
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv77
   %40 = load ptr, ptr %39, align 8, !tbaa !1718
   %41 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %40, ptr noundef %2)
   br i1 %41, label %36, label %.loopexit
@@ -44413,7 +44384,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %25, !prof !477
 
 25:                                               ; preds = %18
-  %26 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %22
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %22
   %27 = icmp uge ptr %3, %.pre3.i
   %28 = icmp ult ptr %3, %26
   %spec.select.i.i.i.i.i = and i1 %27, %28
@@ -44437,7 +44408,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %3, %18 ], [ %33, %29 ], [ %3, %.critedge.i.i.i ]
   %35 = load i32, ptr %12, align 8, !tbaa !35
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %34, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %38 = load i32, ptr %12, align 8, !tbaa !35
   %39 = add i32 %38, 1
@@ -44467,7 +44438,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit.
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit: ; preds = %._crit_edge
   %46 = and i32 %44, 536870911
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %5, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !874
   %.not23 = icmp eq ptr %49, null
   br i1 %.not23, label %.thread29, label %50
@@ -44593,7 +44564,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !31
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !1774
@@ -45133,7 +45104,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !1816
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !874
   %9 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br i1 %9, label %10, label %.loopexit
@@ -45166,7 +45137,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !1818
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !874
   %9 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br i1 %9, label %10, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_16OMPAlignedClauseEEEbPT_.exit
@@ -45251,7 +45222,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %12 = zext i32 %.pre to i64
   %.idx85 = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx85
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %.not68 = icmp eq i32 %.pre, 0
   br i1 %.not68, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_20OMPCopyprivateClauseEEEbPT_.exit, label %.lr.ph71
 
@@ -45271,8 +45242,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %19 = zext i32 %.pre91 to i64
   %.idx86 = shl nuw nsw i64 %19, 3
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx86
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %19
   %.not4373 = icmp eq i32 %.pre91, 0
   br i1 %.not4373, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_20OMPCopyprivateClauseEEEbPT_.exit, label %.lr.ph76
 
@@ -45292,9 +45263,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %27 = zext i32 %.pre92 to i64
   %.idx87 = shl nuw nsw i64 %27, 3
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx87
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %27
   %.not4478 = icmp eq i32 %.pre92, 0
   br i1 %.not4478, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_20OMPCopyprivateClauseEEEbPT_.exit, label %.lr.ph82
 
@@ -45339,7 +45310,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %12 = zext i32 %.pre to i64
   %.idx85 = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx85
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %.not68 = icmp eq i32 %.pre, 0
   br i1 %.not68, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_15OMPCopyinClauseEEEbPT_.exit, label %.lr.ph71
 
@@ -45359,8 +45330,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %19 = zext i32 %.pre91 to i64
   %.idx86 = shl nuw nsw i64 %19, 3
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx86
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %19
   %.not4373 = icmp eq i32 %.pre91, 0
   br i1 %.not4373, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_15OMPCopyinClauseEEEbPT_.exit, label %.lr.ph76
 
@@ -45380,9 +45351,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %27 = zext i32 %.pre92 to i64
   %.idx87 = shl nuw nsw i64 %27, 3
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx87
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %27
   %.not4478 = icmp eq i32 %.pre92, 0
   br i1 %.not4478, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_15OMPCopyinClauseEEEbPT_.exit, label %.lr.ph82
 
@@ -45505,7 +45476,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %17 = zext i32 %16 to i64
   %.idx59 = shl nuw nsw i64 %17, 3
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx59
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %.not47 = icmp eq i32 %16, 0
   br i1 %.not47, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_21OMPFirstprivateClauseEEEbPT_.exit, label %.lr.ph50
 
@@ -45525,8 +45496,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %24 = zext i32 %.pre to i64
   %.idx60 = shl nuw nsw i64 %24, 3
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx60
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %24
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %24
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   %.not3052 = icmp eq i32 %.pre, 0
   br i1 %.not3052, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_21OMPFirstprivateClauseEEEbPT_.exit, label %.lr.ph56
 
@@ -45632,7 +45603,7 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %26 = zext i32 %25 to i64
   %.idx147 = shl nuw nsw i64 %26, 3
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx147
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %.not120 = icmp eq i32 %25, 0
   br i1 %.not120, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_20OMPInReductionClauseEEEbPT_.exit, label %.lr.ph123
 
@@ -45652,8 +45623,8 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %33 = zext i32 %.pre to i64
   %.idx148 = shl nuw nsw i64 %33, 3
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx148
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   %.not74125 = icmp eq i32 %.pre, 0
   br i1 %.not74125, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_20OMPInReductionClauseEEEbPT_.exit, label %.lr.ph128
 
@@ -45673,9 +45644,9 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %41 = zext i32 %.pre157 to i64
   %.idx149 = shl nuw nsw i64 %41, 3
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx149
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %41
   %.not75130 = icmp eq i32 %.pre157, 0
   br i1 %.not75130, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_20OMPInReductionClauseEEEbPT_.exit, label %.lr.ph133
 
@@ -45695,10 +45666,10 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %50 = zext i32 %.pre158 to i64
   %.idx150 = shl nuw nsw i64 %50, 3
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx150
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %50
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %50
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %50
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %50
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %50
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %50
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %50
   %.not76135 = icmp eq i32 %.pre158, 0
   br i1 %.not76135, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_20OMPInReductionClauseEEEbPT_.exit, label %.lr.ph138
 
@@ -45718,11 +45689,11 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %60 = zext i32 %.pre159 to i64
   %.idx151 = shl nuw nsw i64 %60, 3
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx151
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %60
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %60
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %60
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %60
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %60
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %60
   %.not77140 = icmp eq i32 %.pre159, 0
   br i1 %.not77140, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_20OMPInReductionClauseEEEbPT_.exit, label %.lr.ph144
 
@@ -45779,7 +45750,7 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %20 = zext i32 %19 to i64
   %.idx116 = shl nuw nsw i64 %20, 3
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx116
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %.not94 = icmp eq i32 %19, 0
   br i1 %.not94, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_20OMPLastprivateClauseEEEbPT_.exit, label %.lr.ph97
 
@@ -45799,8 +45770,8 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %27 = zext i32 %.pre to i64
   %.idx117 = shl nuw nsw i64 %27, 3
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx117
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   %.not5899 = icmp eq i32 %.pre, 0
   br i1 %.not5899, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_20OMPLastprivateClauseEEEbPT_.exit, label %.lr.ph102
 
@@ -45820,9 +45791,9 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %35 = zext i32 %.pre124 to i64
   %.idx118 = shl nuw nsw i64 %35, 3
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx118
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %35
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %35
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %35
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %35
   %.not59104 = icmp eq i32 %.pre124, 0
   br i1 %.not59104, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_20OMPLastprivateClauseEEEbPT_.exit, label %.lr.ph107
 
@@ -45842,10 +45813,10 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %44 = zext i32 %.pre125 to i64
   %.idx119 = shl nuw nsw i64 %44, 3
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx119
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %44
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %44
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %44
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %44
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %44
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %44
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %44
   %.not60109 = icmp eq i32 %.pre125, 0
   br i1 %.not60109, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_20OMPLastprivateClauseEEEbPT_.exit, label %.lr.ph113
 
@@ -45869,11 +45840,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !1854
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %6
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %6
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %6
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %6
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %6
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %6
   %12 = load ptr, ptr %11, align 8, !tbaa !874
   %13 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %12, ptr noundef null)
   br i1 %13, label %14, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_15OMPLinearClauseEEEbPT_.exit
@@ -45881,11 +45852,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
 14:                                               ; preds = %2
   %15 = load i32, ptr %4, align 4, !tbaa !1854
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %16
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %16
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %16
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %16
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %16
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %23 = load ptr, ptr %22, align 8, !tbaa !874
   %24 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS7_14PointerIntPairIS6_Lj1EbNS7_21PointerLikeTypeTraitsIS6_EENS7_18PointerIntPairInfoIS6_Lj1ESB_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %23, ptr noundef null)
@@ -45927,7 +45898,7 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %41 = zext i32 %40 to i64
   %.idx117 = shl nuw nsw i64 %41, 3
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx117
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
   %.not95 = icmp eq i32 %40, 0
   br i1 %.not95, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_15OMPLinearClauseEEEbPT_.exit, label %.lr.ph98
 
@@ -45947,8 +45918,8 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %48 = zext i32 %.pre to i64
   %.idx118 = shl nuw nsw i64 %48, 3
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx118
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %48
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   %.not60100 = icmp eq i32 %.pre, 0
   br i1 %.not60100, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_15OMPLinearClauseEEEbPT_.exit, label %.lr.ph103
 
@@ -45968,9 +45939,9 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %56 = zext i32 %.pre125 to i64
   %.idx119 = shl nuw nsw i64 %56, 3
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx119
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %56
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %56
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %56
   %.not61105 = icmp eq i32 %.pre125, 0
   br i1 %.not61105, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_15OMPLinearClauseEEEbPT_.exit, label %.lr.ph108
 
@@ -45990,10 +45961,10 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %65 = zext i32 %.pre126 to i64
   %.idx120 = shl nuw nsw i64 %65, 3
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx120
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %65
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %65
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %65
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %65
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %65
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %65
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %65
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %65
   %.not62110 = icmp eq i32 %.pre126, 0
   br i1 %.not62110, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_15OMPLinearClauseEEEbPT_.exit, label %.lr.ph114
 
@@ -46061,7 +46032,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %13 = zext i32 %.pre to i64
   %.idx27 = shl nuw nsw i64 %13, 3
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx27
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %14, ptr %3, align 8
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -46303,7 +46274,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %12 = zext i32 %.pre to i64
   %.idx30 = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx30
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %.not23 = icmp eq i32 %.pre, 0
   br i1 %.not23, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_16OMPPrivateClauseEEEbPT_.exit, label %.lr.ph27
 
@@ -46373,7 +46344,7 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %26 = zext i32 %25 to i64
   %.idx205 = shl nuw nsw i64 %26, 3
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx205
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %.not169 = icmp eq i32 %25, 0
   br i1 %.not169, label %._crit_edge188, label %.lr.ph172
 
@@ -46393,8 +46364,8 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %33 = zext i32 %.pre to i64
   %.idx206 = shl nuw nsw i64 %33, 3
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx206
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   %.not103174 = icmp eq i32 %.pre, 0
   br i1 %.not103174, label %._crit_edge188, label %.lr.ph177
 
@@ -46414,9 +46385,9 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %41 = zext i32 %.pre219 to i64
   %.idx207 = shl nuw nsw i64 %41, 3
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx207
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %41
   %.not104179 = icmp eq i32 %.pre219, 0
   br i1 %.not104179, label %._crit_edge188, label %.lr.ph182
 
@@ -46436,10 +46407,10 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %50 = zext i32 %.pre220 to i64
   %.idx208 = shl nuw nsw i64 %50, 3
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx208
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %50
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %50
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %50
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %50
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %50
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %50
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %50
   %.not105184 = icmp eq i32 %.pre220, 0
   br i1 %.not105184, label %._crit_edge188, label %.lr.ph187
 
@@ -46465,11 +46436,11 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %65 = zext i32 %64 to i64
   %.idx209 = shl nuw nsw i64 %65, 3
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx209
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %65
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %65
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %65
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %65
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %65
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %65
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %65
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %65
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %65
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %65
   %.not106189 = icmp eq i32 %64, 0
   br i1 %.not106189, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_18OMPReductionClauseEEEbPT_.exit, label %.lr.ph192
 
@@ -46489,12 +46460,12 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %76 = zext i32 %.pre221 to i64
   %.idx210 = shl nuw nsw i64 %76, 3
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx210
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %76
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %76
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %76
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %76
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %76
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %76
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %76
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %76
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %76
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %76
   %.not107194 = icmp eq i32 %.pre221, 0
   br i1 %.not107194, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_18OMPReductionClauseEEEbPT_.exit, label %.lr.ph197
 
@@ -46514,13 +46485,13 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %88 = zext i32 %.pre222 to i64
   %.idx211 = shl nuw nsw i64 %88, 3
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx211
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %88
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %88
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %88
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %88
-  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %88
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %88
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %88
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %88
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %88
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %88
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %88
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %88
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %88
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %88
   %.not108199 = icmp eq i32 %.pre222, 0
   br i1 %.not108199, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_18OMPReductionClauseEEEbPT_.exit, label %.lr.ph202
 
@@ -46633,7 +46604,7 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %26 = zext i32 %25 to i64
   %.idx119 = shl nuw nsw i64 %26, 3
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx119
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %.not97 = icmp eq i32 %25, 0
   br i1 %.not97, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_22OMPTaskReductionClauseEEEbPT_.exit, label %.lr.ph100
 
@@ -46653,8 +46624,8 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %33 = zext i32 %.pre to i64
   %.idx120 = shl nuw nsw i64 %33, 3
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx120
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   %.not60102 = icmp eq i32 %.pre, 0
   br i1 %.not60102, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_22OMPTaskReductionClauseEEEbPT_.exit, label %.lr.ph105
 
@@ -46674,9 +46645,9 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %41 = zext i32 %.pre127 to i64
   %.idx121 = shl nuw nsw i64 %41, 3
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx121
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %41
   %.not61107 = icmp eq i32 %.pre127, 0
   br i1 %.not61107, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_22OMPTaskReductionClauseEEEbPT_.exit, label %.lr.ph110
 
@@ -46696,10 +46667,10 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE28Vi
   %50 = zext i32 %.pre128 to i64
   %.idx122 = shl nuw nsw i64 %50, 3
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx122
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %50
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %50
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %50
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %50
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %50
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %50
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %50
   %.not62112 = icmp eq i32 %.pre128, 0
   br i1 %.not62112, label %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE18VisitOMPClauseListINS_22OMPTaskReductionClauseEEEbPT_.exit, label %.lr.ph116
 
@@ -47167,7 +47138,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap10ASTVisit
   %14 = load ptr, ptr %8, align 8, !tbaa !32
   %15 = load i32, ptr %9, align 8, !tbaa !35
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 -40
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 8, !tbaa !20
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
@@ -47190,7 +47161,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap10ASTVisit
   %26 = load ptr, ptr %8, align 8, !tbaa !32
   %27 = load i32, ptr %9, align 8, !tbaa !35
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -40
   %.sroa.0.0.copyload.i24 = load i32, ptr %30, align 8, !tbaa !20
   %31 = getelementptr inbounds i8, ptr %29, i64 -32
@@ -47215,7 +47186,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap10ASTVisit
   %40 = load ptr, ptr %8, align 8, !tbaa !32
   %41 = load i32, ptr %9, align 8, !tbaa !35
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [40 x i8], ptr %40, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %44, i64 40, i1 false), !tbaa.struct !30
   %45 = ptrtoint ptr %39 to i64
@@ -47312,7 +47283,7 @@ _ZN5clang16ParentMapContext9ParentMap34getSingleDynTypedNodeFromParentMapEN4llvm
   %80 = load ptr, ptr %8, align 8, !tbaa !32
   %81 = load i32, ptr %9, align 8, !tbaa !35
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %80, i64 %82
+  %83 = getelementptr inbounds nuw [40 x i8], ptr %80, i64 %82
   %84 = getelementptr inbounds i8, ptr %83, i64 -40
   %85 = load i32, ptr %84, align 4, !tbaa !466
   %86 = icmp slt i32 %85, 74
@@ -47336,7 +47307,7 @@ _ZN5clang16ParentMapContext9ParentMap34getSingleDynTypedNodeFromParentMapEN4llvm
   %98 = load i32, ptr %97, align 8
   %99 = select i1 %.not.i.i.i.i.i.i.i.i, i32 %98, i32 2
   %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %96, i64 %100
+  %101 = getelementptr inbounds nuw [40 x i8], ptr %96, i64 %100
   %102 = icmp ne ptr %91, %101
   %103 = select i1 %.not.not.i.i.i.i, i1 %102, i1 false
   br i1 %103, label %107, label %..critedge_crit_edge
@@ -47350,7 +47321,7 @@ _ZN5clang16ParentMapContext9ParentMap34getSingleDynTypedNodeFromParentMapEN4llvm
 .critedge:                                        ; preds = %..critedge_crit_edge, %77
   %.pre-phi = phi i64 [ %.pre34, %..critedge_crit_edge ], [ %82, %77 ]
   %104 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %80, %77 ]
-  %105 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %104, i64 %.pre-phi
+  %105 = getelementptr inbounds nuw [40 x i8], ptr %104, i64 %.pre-phi
   %106 = getelementptr inbounds i8, ptr %105, i64 -40
   call void @_ZN5clang16ParentMapContext9ParentMap12ParentVector9push_backERKNS_12DynTypedNodeE(ptr noundef nonnull align 8 dereferenceable(184) %79, ptr noundef nonnull align 8 dereferenceable(40) %106)
   br label %107
@@ -47425,7 +47396,7 @@ _ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44ca
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %31, !prof !477
 
 31:                                               ; preds = %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread
-  %32 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %28
+  %32 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %28
   %33 = icmp uge ptr %3, %.pre3.i
   %34 = icmp ult ptr %3, %32
   %spec.select.i.i.i.i.i = and i1 %33, %34
@@ -47449,7 +47420,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %3, %_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE44canIgnoreChildDeclWhileTraversingDeclContextEPKNS_4DeclE.exit.thread ], [ %39, %35 ], [ %3, %.critedge.i.i.i ]
   %41 = load i32, ptr %8, align 8, !tbaa !35
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [40 x i8], ptr %40, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %44 = load i32, ptr %8, align 8, !tbaa !35
   %45 = add i32 %44, 1
@@ -47509,7 +47480,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang16ParentMapContext9Paren
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_.exit, label %18, !prof !477
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %14
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %14
   %20 = icmp uge ptr %7, %.pre3.i
   %21 = icmp ult ptr %7, %19
   %spec.select.i.i.i.i.i = and i1 %20, %21
@@ -47536,7 +47507,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang12DynTypedNodeELb1EE9push_backERKS2_.ex
   %.016.i.i.i = phi ptr [ %7, %8 ], [ %28, %22 ], [ %7, %.critedge.i.i.i ]
   %31 = load i32, ptr %12, align 8, !tbaa !35
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %34 = load i32, ptr %12, align 8, !tbaa !35
   %35 = add i32 %34, 1
@@ -47579,7 +47550,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap10ASTVisit
   %14 = load ptr, ptr %8, align 8, !tbaa !32
   %15 = load i32, ptr %9, align 8, !tbaa !35
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 -40
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 8, !tbaa !20
   %19 = getelementptr inbounds i8, ptr %17, i64 -32
@@ -47602,7 +47573,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap10ASTVisit
   %26 = load ptr, ptr %8, align 8, !tbaa !32
   %27 = load i32, ptr %9, align 8, !tbaa !35
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -40
   %.sroa.0.0.copyload.i24 = load i32, ptr %30, align 8, !tbaa !20
   %31 = getelementptr inbounds i8, ptr %29, i64 -32
@@ -47627,7 +47598,7 @@ define linkonce_odr hidden void @_ZN5clang16ParentMapContext9ParentMap10ASTVisit
   %40 = load ptr, ptr %8, align 8, !tbaa !32
   %41 = load i32, ptr %9, align 8, !tbaa !35
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [40 x i8], ptr %40, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %39, ptr noundef nonnull align 8 dereferenceable(40) %44, i64 40, i1 false), !tbaa.struct !30
   %45 = ptrtoint ptr %39 to i64
@@ -47724,7 +47695,7 @@ _ZN5clang16ParentMapContext9ParentMap34getSingleDynTypedNodeFromParentMapEN4llvm
   %80 = load ptr, ptr %8, align 8, !tbaa !32
   %81 = load i32, ptr %9, align 8, !tbaa !35
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %80, i64 %82
+  %83 = getelementptr inbounds nuw [40 x i8], ptr %80, i64 %82
   %84 = getelementptr inbounds i8, ptr %83, i64 -40
   %85 = load i32, ptr %84, align 4, !tbaa !466
   %86 = icmp slt i32 %85, 74
@@ -47748,7 +47719,7 @@ _ZN5clang16ParentMapContext9ParentMap34getSingleDynTypedNodeFromParentMapEN4llvm
   %98 = load i32, ptr %97, align 8
   %99 = select i1 %.not.i.i.i.i.i.i.i.i, i32 %98, i32 2
   %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %96, i64 %100
+  %101 = getelementptr inbounds nuw [40 x i8], ptr %96, i64 %100
   %102 = icmp ne ptr %91, %101
   %103 = select i1 %.not.not.i.i.i.i, i1 %102, i1 false
   br i1 %103, label %107, label %..critedge_crit_edge
@@ -47762,7 +47733,7 @@ _ZN5clang16ParentMapContext9ParentMap34getSingleDynTypedNodeFromParentMapEN4llvm
 .critedge:                                        ; preds = %..critedge_crit_edge, %77
   %.pre-phi = phi i64 [ %.pre34, %..critedge_crit_edge ], [ %82, %77 ]
   %104 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %80, %77 ]
-  %105 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %104, i64 %.pre-phi
+  %105 = getelementptr inbounds nuw [40 x i8], ptr %104, i64 %.pre-phi
   %106 = getelementptr inbounds i8, ptr %105, i64 -40
   call void @_ZN5clang16ParentMapContext9ParentMap12ParentVector9push_backERKNS_12DynTypedNodeE(ptr noundef nonnull align 8 dereferenceable(184) %79, ptr noundef nonnull align 8 dereferenceable(40) %106)
   br label %107
@@ -49464,7 +49435,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !32
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.1567", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -49505,7 +49476,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !32
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !35
@@ -49612,7 +49583,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i3: ; preds = %19, %_ZNK5cla
   %35 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i10, i64 24
   %36 = load i32, ptr %35, align 8, !tbaa !914
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %37
   br label %_ZNK5clang17ObjCInterfaceDecl12protocol_endEv.exit
 
 _ZNK5clang17ObjCInterfaceDecl12protocol_endEv.exit: ; preds = %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i3, %32
@@ -49707,7 +49678,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i3: ; preds = %19, %_ZNK5cla
   %35 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i10, i64 24
   %36 = load i32, ptr %35, align 8, !tbaa !914
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %37
   br label %_ZNK5clang17ObjCInterfaceDecl16protocol_loc_endEv.exit
 
 _ZNK5clang17ObjCInterfaceDecl16protocol_loc_endEv.exit: ; preds = %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i3, %32
@@ -49860,7 +49831,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
 19:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !1069
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !1070
   %24 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE35TraverseTemplateParameterListHelperEPNS_21TemplateParameterListE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -49912,7 +49883,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   br i1 %.not.i.i.not.i.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameSpecifierLocENS_12DynTypedNodeEZNS2_30TraverseNestedNameSpecifierLocES4_EUlvE_N4llvm8DenseMapIS5_NS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPS5_PNS1_12ParentVectorEEEENS7_12DenseMapInfoIS5_vEENS7_6detail12DenseMapPairIS5_SJ_EEEEEEbT_T0_T1_PT2_.exit, label %37, !prof !477
 
 37:                                               ; preds = %27
-  %38 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i.i, i64 %33
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i.i, i64 %33
   %39 = icmp uge ptr %5, %.pre3.i.i
   %40 = icmp ult ptr %5, %38
   %spec.select.i.i.i.i.i.i = and i1 %39, %40
@@ -49939,7 +49910,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   %.016.i.i.i.i = phi ptr [ %5, %27 ], [ %47, %41 ], [ %5, %.critedge.i.i.i.i ]
   %50 = load i32, ptr %31, align 8, !tbaa !35
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [40 x i8], ptr %49, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i, i64 40, i1 false)
   %53 = load i32, ptr %31, align 8, !tbaa !35
   %54 = add i32 %53, 1
@@ -50004,7 +49975,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
 
 .lr.ph.i:                                         ; preds = %78, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %78 ]
-  %79 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %74, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %74, i64 %indvars.iv.i
   %80 = call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %79)
   br i1 %80, label %78, label %.critedge125
 
@@ -50037,7 +50008,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
 
 .lr.ph.i233:                                      ; preds = %91, %.lr.ph.preheader.i231
   %indvars.iv.i234 = phi i64 [ 0, %.lr.ph.preheader.i231 ], [ %indvars.iv.next.i236, %91 ]
-  %92 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %87, i64 %indvars.iv.i234
+  %92 = getelementptr inbounds nuw [32 x i8], ptr %87, i64 %indvars.iv.i234
   %93 = call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %92)
   br i1 %93, label %91, label %.critedge125
 
@@ -50125,7 +50096,7 @@ _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %.critedge, %97
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %131, !prof !477
 
 131:                                              ; preds = %124
-  %132 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %128
+  %132 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %128
   %133 = icmp uge ptr %7, %.pre3.i
   %134 = icmp ult ptr %7, %132
   %spec.select.i.i.i.i.i = and i1 %133, %134
@@ -50149,7 +50120,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %7, %124 ], [ %139, %135 ], [ %7, %.critedge.i.i.i ]
   %141 = load i32, ptr %118, align 8, !tbaa !35
   %142 = zext i32 %141 to i64
-  %143 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %140, i64 %142
+  %143 = getelementptr inbounds nuw [40 x i8], ptr %140, i64 %142
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %143, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %144 = load i32, ptr %118, align 8, !tbaa !35
   %145 = add i32 %144, 1
@@ -50198,7 +50169,7 @@ _ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread: ; preds = %.
   %164 = load i64, ptr %163, align 8
   %165 = lshr i64 %164, 44
   %166 = and i64 %165, 131071
-  %167 = getelementptr inbounds nuw ptr, ptr %162, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %166
   %.not119201 = icmp eq ptr %161, %167
   br i1 %.not119201, label %.thread175, label %.critedge128.preheader
 
@@ -50446,7 +50417,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
 15:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !1069
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !1070
   %20 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE35TraverseTemplateParameterListHelperEPNS_21TemplateParameterListE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -50500,7 +50471,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   br i1 %.not.i.i.not.i.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameSpecifierLocENS_12DynTypedNodeEZNS2_30TraverseNestedNameSpecifierLocES4_EUlvE_N4llvm8DenseMapIS5_NS7_12PointerUnionIJPKNS_4DeclEPKNS_4StmtEPS5_PNS1_12ParentVectorEEEENS7_12DenseMapInfoIS5_vEENS7_6detail12DenseMapPairIS5_SJ_EEEEEEbT_T0_T1_PT2_.exit, label %33, !prof !477
 
 33:                                               ; preds = %23
-  %34 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i.i, i64 %29
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i.i, i64 %29
   %35 = icmp uge ptr %3, %.pre3.i.i
   %36 = icmp ult ptr %3, %34
   %spec.select.i.i.i.i.i.i = and i1 %35, %36
@@ -50527,7 +50498,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseNodeINS_22NestedNameS
   %.016.i.i.i.i = phi ptr [ %3, %23 ], [ %43, %37 ], [ %3, %.critedge.i.i.i.i ]
   %46 = load i32, ptr %27, align 8, !tbaa !35
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %48, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i.i, i64 40, i1 false)
   %49 = load i32, ptr %27, align 8, !tbaa !35
   %50 = add i32 %49, 1
@@ -50642,7 +50613,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !1069
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !1070
   %16 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16ParentMapContext9ParentMap10ASTVisitorEE35TraverseTemplateParameterListHelperEPNS_21TemplateParameterListE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -50717,7 +50688,7 @@ _ZN5clang13CXXRecordDecl5basesEv.exit:            ; preds = %_ZNK5clang13LazyOff
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i32, ptr %49, align 8, !tbaa !2267
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"class.clang::CXXBaseSpecifier", ptr %.0.i.i.i.i, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %.0.i.i.i.i, i64 %51
   %.not28 = icmp eq ptr %.0.i.i.i, %52
   br i1 %.not28, label %.thread, label %.lr.ph
 
@@ -50864,7 +50835,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %.sroa.0.0.i.i.i = getelementptr inbounds nuw ptr, ptr %9, i64 %12
+  %.sroa.0.0.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %12
   %.not44 = icmp eq ptr %6, %.sroa.0.0.i.i.i
   br i1 %.not44, label %.thread, label %.lr.ph48
 
@@ -50915,7 +50886,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %35, !prof !477
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %32
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %32
   %37 = icmp uge ptr %3, %.pre3.i
   %38 = icmp ult ptr %3, %36
   %spec.select.i.i.i.i.i = and i1 %37, %38
@@ -50939,7 +50910,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %3, %28 ], [ %43, %39 ], [ %3, %.critedge.i.i.i ]
   %45 = load i32, ptr %15, align 8, !tbaa !35
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %44, i64 %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %48 = load i32, ptr %15, align 8, !tbaa !35
   %49 = add i32 %48, 1
@@ -51207,7 +51178,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
-  %.sroa.0.0.i.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %13
+  %.sroa.0.0.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %13
   %.not59 = icmp eq ptr %7, %.sroa.0.0.i.i.i
   br i1 %.not59, label %.thread, label %.lr.ph63
 
@@ -51266,7 +51237,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %39, !prof !477
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %36
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %36
   %41 = icmp uge ptr %4, %.pre3.i
   %42 = icmp ult ptr %4, %40
   %spec.select.i.i.i.i.i = and i1 %41, %42
@@ -51290,7 +51261,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %4, %32 ], [ %47, %43 ], [ %4, %.critedge.i.i.i ]
   %49 = load i32, ptr %16, align 8, !tbaa !35
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw [40 x i8], ptr %48, i64 %50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %52 = load i32, ptr %16, align 8, !tbaa !35
   %53 = add i32 %52, 1
@@ -51321,7 +51292,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   br i1 %.not.i.i.not.i24, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit22, label %64, !prof !477
 
 64:                                               ; preds = %57
-  %65 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i25, i64 %61
+  %65 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i25, i64 %61
   %66 = icmp uge ptr %3, %.pre3.i25
   %67 = icmp ult ptr %3, %65
   %spec.select.i.i.i.i.i26 = and i1 %66, %67
@@ -51345,7 +51316,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit2
   %.016.i.i.i29 = phi ptr [ %3, %57 ], [ %72, %68 ], [ %3, %.critedge.i.i.i27 ]
   %74 = load i32, ptr %16, align 8, !tbaa !35
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %73, i64 %75
+  %76 = getelementptr inbounds nuw [40 x i8], ptr %73, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %76, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i29, i64 40, i1 false)
   %77 = load i32, ptr %16, align 8, !tbaa !35
   %78 = add i32 %77, 1
@@ -51614,7 +51585,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_16Pare
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %.sroa.0.0.i.i.i = getelementptr inbounds nuw ptr, ptr %9, i64 %12
+  %.sroa.0.0.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %12
   %.not60 = icmp eq ptr %6, %.sroa.0.0.i.i.i
   br i1 %.not60, label %.thread, label %.lr.ph
 
@@ -51682,7 +51653,7 @@ _ZNK5clang24RedeclarableTemplateDecl12SpecIteratorINS_31ClassTemplateSpecializat
   br i1 %.not.i.i.not.i, label %_ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit, label %41, !prof !477
 
 41:                                               ; preds = %34
-  %42 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %.pre3.i, i64 %38
+  %42 = getelementptr inbounds nuw [40 x i8], ptr %.pre3.i, i64 %38
   %43 = icmp uge ptr %3, %.pre3.i
   %44 = icmp ult ptr %3, %42
   %spec.select.i.i.i.i.i = and i1 %43, %44
@@ -51706,7 +51677,7 @@ _ZN5clang16ParentMapContext9ParentMap10ASTVisitor12TraverseDeclEPNS_4DeclE.exit:
   %.016.i.i.i = phi ptr [ %3, %34 ], [ %49, %45 ], [ %3, %.critedge.i.i.i ]
   %51 = load i32, ptr %15, align 8, !tbaa !35
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [40 x i8], ptr %50, i64 %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(40) %.016.i.i.i, i64 40, i1 false)
   %54 = load i32, ptr %15, align 8, !tbaa !35
   %55 = add i32 %54, 1

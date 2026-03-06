@@ -54,19 +54,19 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %48 = load i32, ptr %11, align 4, !tbaa !3
   %narrow = xor i32 %48, -1
   %49 = sext i32 %narrow to i64
-  %50 = getelementptr inbounds double, ptr %10, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %10, i64 %49
   %51 = load i32, ptr %13, align 4, !tbaa !3
   %narrow1870 = xor i32 %51, -1
   %52 = sext i32 %narrow1870 to i64
-  %53 = getelementptr inbounds double, ptr %12, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %12, i64 %52
   %54 = load i32, ptr %15, align 4, !tbaa !3
   %narrow1871 = xor i32 %54, -1
   %55 = sext i32 %narrow1871 to i64
-  %56 = getelementptr inbounds double, ptr %14, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %14, i64 %55
   %57 = load i32, ptr %17, align 4, !tbaa !3
   %narrow1872 = xor i32 %57, -1
   %58 = sext i32 %narrow1872 to i64
-  %59 = getelementptr inbounds double, ptr %16, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %16, i64 %58
   %60 = getelementptr inbounds i8, ptr %18, i64 -8
   %61 = getelementptr inbounds i8, ptr %19, i64 -8
   %62 = getelementptr inbounds i8, ptr %20, i64 -8
@@ -217,7 +217,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 143:                                              ; preds = %.lr.ph, %149
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %149 ]
-  %144 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %145 = load double, ptr %144, align 8, !tbaa !7
   %146 = fcmp olt double %145, %140
   br i1 %146, label %.sink.split2183, label %147
@@ -251,7 +251,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 152:                                              ; preds = %.lr.ph1956, %158
   %indvars.iv2022 = phi i64 [ 1, %.lr.ph1956 ], [ %indvars.iv.next2023, %158 ]
-  %153 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv2022
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv2022
   %154 = load double, ptr %153, align 8, !tbaa !7
   %155 = fcmp olt double %154, %140
   br i1 %155, label %.sink.split2185, label %156
@@ -273,7 +273,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph1958:                                       ; preds = %.lr.ph1958.preheader, %163
   %indvars.iv2030 = phi i32 [ %134, %.lr.ph1958.preheader ], [ %indvars.iv.next2031, %163 ]
   %indvars.iv2027 = phi i64 [ %151, %.lr.ph1958.preheader ], [ %indvars.iv.next2028, %163 ]
-  %159 = getelementptr double, ptr %47, i64 %indvars.iv2027
+  %159 = getelementptr [8 x i8], ptr %47, i64 %indvars.iv2027
   %160 = getelementptr i8, ptr %159, i64 -8
   %161 = load double, ptr %160, align 8, !tbaa !7
   %162 = fcmp une double %161, 0.000000e+00
@@ -298,7 +298,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv2033 = phi i64 [ %167, %.preheader1946.preheader ], [ %indvars.iv.next2034, %173 ]
   %indvars.iv.next2034 = add nsw i64 %indvars.iv2033, -1
   %168 = and i64 %indvars.iv.next2034, 4294967295
-  %169 = getelementptr double, ptr %47, i64 %168
+  %169 = getelementptr [8 x i8], ptr %47, i64 %168
   %170 = getelementptr i8, ptr %169, i64 -8
   %171 = load double, ptr %170, align 8, !tbaa !7
   %172 = fcmp une double %171, 0.000000e+00
@@ -334,12 +334,12 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %183 = sext i32 %110 to i64
   %184 = sext i32 %112 to i64
   %185 = sext i32 %111 to i64
-  %invariant.gep = getelementptr double, ptr %26, i64 %183
-  %invariant.gep2163 = getelementptr double, ptr %26, i64 %183
-  %invariant.gep2165 = getelementptr double, ptr %26, i64 %183
-  %invariant.gep2167 = getelementptr double, ptr %26, i64 %183
-  %invariant.gep2169 = getelementptr double, ptr %26, i64 %183
-  %invariant.gep2171 = getelementptr double, ptr %26, i64 %183
+  %invariant.gep = getelementptr [8 x i8], ptr %26, i64 %183
+  %invariant.gep2163 = getelementptr [8 x i8], ptr %26, i64 %183
+  %invariant.gep2165 = getelementptr [8 x i8], ptr %26, i64 %183
+  %invariant.gep2167 = getelementptr [8 x i8], ptr %26, i64 %183
+  %invariant.gep2169 = getelementptr [8 x i8], ptr %26, i64 %183
+  %invariant.gep2171 = getelementptr [8 x i8], ptr %26, i64 %183
   br label %186
 
 186:                                              ; preds = %.lr.ph1993, %.loopexit1944
@@ -347,15 +347,15 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.118341989 = phi i32 [ %.0183319502151, %.lr.ph1993 ], [ %.21835, %.loopexit1944 ]
   %.218411988 = phi i32 [ %.018392152, %.lr.ph1993 ], [ %.41843, %.loopexit1944 ]
   %187 = sext i32 %.218411988 to i64
-  %188 = getelementptr inbounds double, ptr %46, i64 %187
+  %188 = getelementptr inbounds [8 x i8], ptr %46, i64 %187
   %189 = load double, ptr %188, align 8, !tbaa !7
   %190 = call double @cos(double noundef %189) #6, !tbaa !3
-  %191 = getelementptr inbounds double, ptr %60, i64 %187
+  %191 = getelementptr inbounds [8 x i8], ptr %60, i64 %187
   store double %190, ptr %191, align 8, !tbaa !7
   %192 = load double, ptr %188, align 8, !tbaa !7
   %193 = call double @sin(double noundef %192) #6, !tbaa !3
   %194 = fneg double %193
-  %195 = getelementptr inbounds double, ptr %64, i64 %187
+  %195 = getelementptr inbounds [8 x i8], ptr %64, i64 %187
   store double %194, ptr %195, align 8, !tbaa !7
   %196 = add nsw i32 %.118341989, -1
   %.not1891.not1959 = icmp slt i32 %.218411988, %.118341989
@@ -367,38 +367,38 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph1962:                                       ; preds = %.lr.ph1962.preheader, %.lr.ph1962
   %indvars.iv2036 = phi i64 [ %187, %.lr.ph1962.preheader ], [ %indvars.iv.next2037, %.lr.ph1962 ]
-  %197 = getelementptr inbounds double, ptr %46, i64 %indvars.iv2036
+  %197 = getelementptr inbounds [8 x i8], ptr %46, i64 %indvars.iv2036
   %198 = load double, ptr %197, align 8, !tbaa !7
   %199 = call double @sin(double noundef %198) #6, !tbaa !3
   %200 = fneg double %199
-  %201 = getelementptr inbounds double, ptr %47, i64 %indvars.iv2036
+  %201 = getelementptr inbounds [8 x i8], ptr %47, i64 %indvars.iv2036
   %202 = load double, ptr %201, align 8, !tbaa !7
   %203 = call double @sin(double noundef %202) #6, !tbaa !3
   %204 = fmul double %203, %200
-  %205 = getelementptr inbounds double, ptr %61, i64 %indvars.iv2036
+  %205 = getelementptr inbounds [8 x i8], ptr %61, i64 %indvars.iv2036
   store double %204, ptr %205, align 8, !tbaa !7
   %indvars.iv.next2037 = add nsw i64 %indvars.iv2036, 1
-  %206 = getelementptr double, ptr %8, i64 %indvars.iv2036
+  %206 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv2036
   %207 = load double, ptr %206, align 8, !tbaa !7
   %208 = call double @cos(double noundef %207) #6, !tbaa !3
   %209 = load double, ptr %201, align 8, !tbaa !7
   %210 = call double @cos(double noundef %209) #6, !tbaa !3
   %211 = fmul double %208, %210
-  %212 = getelementptr double, ptr %18, i64 %indvars.iv2036
+  %212 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv2036
   store double %211, ptr %212, align 8, !tbaa !7
   %213 = load double, ptr %197, align 8, !tbaa !7
   %214 = call double @sin(double noundef %213) #6, !tbaa !3
   %215 = load double, ptr %201, align 8, !tbaa !7
   %216 = call double @cos(double noundef %215) #6, !tbaa !3
   %217 = fmul double %214, %216
-  %218 = getelementptr inbounds double, ptr %62, i64 %indvars.iv2036
+  %218 = getelementptr inbounds [8 x i8], ptr %62, i64 %indvars.iv2036
   store double %217, ptr %218, align 8, !tbaa !7
   %219 = load double, ptr %206, align 8, !tbaa !7
   %220 = call double @cos(double noundef %219) #6, !tbaa !3
   %221 = load double, ptr %201, align 8, !tbaa !7
   %222 = call double @sin(double noundef %221) #6, !tbaa !3
   %223 = fmul double %220, %222
-  %224 = getelementptr inbounds double, ptr %63, i64 %indvars.iv2036
+  %224 = getelementptr inbounds [8 x i8], ptr %63, i64 %indvars.iv2036
   store double %223, ptr %224, align 8, !tbaa !7
   %225 = load double, ptr %197, align 8, !tbaa !7
   %226 = call double @cos(double noundef %225) #6, !tbaa !3
@@ -406,7 +406,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %228 = load double, ptr %201, align 8, !tbaa !7
   %229 = call double @sin(double noundef %228) #6, !tbaa !3
   %230 = fmul double %229, %227
-  %231 = getelementptr inbounds double, ptr %65, i64 %indvars.iv2036
+  %231 = getelementptr inbounds [8 x i8], ptr %65, i64 %indvars.iv2036
   store double %230, ptr %231, align 8, !tbaa !7
   %232 = load double, ptr %206, align 8, !tbaa !7
   %233 = call double @sin(double noundef %232) #6, !tbaa !3
@@ -414,14 +414,14 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %235 = load double, ptr %201, align 8, !tbaa !7
   %236 = call double @cos(double noundef %235) #6, !tbaa !3
   %237 = fmul double %236, %234
-  %238 = getelementptr double, ptr %22, i64 %indvars.iv2036
+  %238 = getelementptr [8 x i8], ptr %22, i64 %indvars.iv2036
   store double %237, ptr %238, align 8, !tbaa !7
   %239 = load double, ptr %197, align 8, !tbaa !7
   %240 = call double @cos(double noundef %239) #6, !tbaa !3
   %241 = load double, ptr %201, align 8, !tbaa !7
   %242 = call double @cos(double noundef %241) #6, !tbaa !3
   %243 = fmul double %240, %242
-  %244 = getelementptr inbounds double, ptr %66, i64 %indvars.iv2036
+  %244 = getelementptr inbounds [8 x i8], ptr %66, i64 %indvars.iv2036
   store double %243, ptr %244, align 8, !tbaa !7
   %245 = load double, ptr %206, align 8, !tbaa !7
   %246 = call double @sin(double noundef %245) #6, !tbaa !3
@@ -429,21 +429,21 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %248 = load double, ptr %201, align 8, !tbaa !7
   %249 = call double @sin(double noundef %248) #6, !tbaa !3
   %250 = fmul double %249, %247
-  %251 = getelementptr inbounds double, ptr %67, i64 %indvars.iv2036
+  %251 = getelementptr inbounds [8 x i8], ptr %67, i64 %indvars.iv2036
   store double %250, ptr %251, align 8, !tbaa !7
   %exitcond2041.not = icmp eq i64 %indvars.iv.next2037, %wide.trip.count2040
   br i1 %exitcond2041.not, label %._crit_edge1963, label %.lr.ph1962, !llvm.loop !14
 
 ._crit_edge1963:                                  ; preds = %.lr.ph1962, %186
   %252 = zext nneg i32 %.118341989 to i64
-  %253 = getelementptr inbounds nuw double, ptr %46, i64 %252
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %252
   %254 = load double, ptr %253, align 8, !tbaa !7
   %255 = call double @sin(double noundef %254) #6, !tbaa !3
-  %256 = getelementptr inbounds nuw double, ptr %62, i64 %252
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %252
   store double %255, ptr %256, align 8, !tbaa !7
   %257 = load double, ptr %253, align 8, !tbaa !7
   %258 = call double @cos(double noundef %257) #6, !tbaa !3
-  %259 = getelementptr inbounds nuw double, ptr %66, i64 %252
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %252
   store double %258, ptr %259, align 8, !tbaa !7
   %260 = icmp sgt i32 %.018321990, %136
   br i1 %260, label %261, label %272
@@ -462,7 +462,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph2011:                                       ; preds = %.lr.ph2011.preheader, %270
   %264 = phi i32 [ 0, %.lr.ph2011.preheader ], [ %271, %270 ]
   %indvars.iv2083 = phi i64 [ 1, %.lr.ph2011.preheader ], [ %indvars.iv.next2084, %270 ]
-  %265 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv2083
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv2083
   %266 = load double, ptr %265, align 8, !tbaa !7
   %267 = fcmp une double %266, 0.000000e+00
   br i1 %267, label %268, label %270
@@ -495,7 +495,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv2042 = phi i64 [ %277, %.lr.ph1969.preheader ], [ %indvars.iv.next2043, %.lr.ph1969 ]
   %.018261966 = phi double [ %275, %.lr.ph1969.preheader ], [ %.11827, %.lr.ph1969 ]
   %.018281965 = phi double [ %275, %.lr.ph1969.preheader ], [ %.11829, %.lr.ph1969 ]
-  %279 = getelementptr inbounds double, ptr %46, i64 %indvars.iv2042
+  %279 = getelementptr inbounds [8 x i8], ptr %46, i64 %indvars.iv2042
   %280 = load double, ptr %279, align 8, !tbaa !7
   %281 = fcmp ogt double %280, %.018261966
   %.11827 = select i1 %281, double %280, double %.018261966
@@ -518,13 +518,13 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 286:                                              ; preds = %284
   %287 = zext nneg i32 %196 to i64
-  %288 = getelementptr inbounds nuw double, ptr %60, i64 %287
-  %289 = getelementptr inbounds nuw double, ptr %61, i64 %287
-  %290 = getelementptr inbounds nuw double, ptr %60, i64 %252
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %287
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %287
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %252
   call void @dlas2_(ptr noundef nonnull %288, ptr noundef nonnull %289, ptr noundef nonnull %290, ptr noundef nonnull %40, ptr noundef nonnull %33) #6
-  %291 = getelementptr inbounds nuw double, ptr %64, i64 %287
-  %292 = getelementptr inbounds nuw double, ptr %65, i64 %287
-  %293 = getelementptr inbounds nuw double, ptr %64, i64 %252
+  %291 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %287
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %287
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %252
   call void @dlas2_(ptr noundef nonnull %291, ptr noundef nonnull %292, ptr noundef nonnull %293, ptr noundef nonnull %41, ptr noundef nonnull %33) #6
   %294 = load double, ptr %40, align 8, !tbaa !7
   %295 = load double, ptr %41, align 8, !tbaa !7
@@ -561,14 +561,14 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.thread2154
 
 .thread2154:                                      ; preds = %.thread2154.sink.split, %307
-  %311 = getelementptr inbounds double, ptr %61, i64 %187
+  %311 = getelementptr inbounds [8 x i8], ptr %61, i64 %187
   %312 = add nsw i32 %.218411988, %113
   %313 = sext i32 %312 to i64
-  %314 = getelementptr double, ptr %68, i64 %313
+  %314 = getelementptr [8 x i8], ptr %68, i64 %313
   %315 = getelementptr i8, ptr %314, i64 -8
   %316 = add nsw i32 %.218411988, %114
   %317 = sext i32 %316 to i64
-  %318 = getelementptr double, ptr %68, i64 %317
+  %318 = getelementptr [8 x i8], ptr %68, i64 %317
   %319 = getelementptr i8, ptr %318, i64 -8
   call void @dlartgs_(ptr noundef nonnull %191, ptr noundef nonnull %311, ptr noundef nonnull %38, ptr noundef %315, ptr noundef %319) #6
   br label %329
@@ -579,14 +579,14 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %307
-  %320 = getelementptr inbounds double, ptr %65, i64 %187
+  %320 = getelementptr inbounds [8 x i8], ptr %65, i64 %187
   %321 = add nsw i32 %.218411988, %113
   %322 = sext i32 %321 to i64
-  %323 = getelementptr double, ptr %68, i64 %322
+  %323 = getelementptr [8 x i8], ptr %68, i64 %322
   %324 = getelementptr i8, ptr %323, i64 -8
   %325 = add nsw i32 %.218411988, %114
   %326 = sext i32 %325 to i64
-  %327 = getelementptr double, ptr %68, i64 %326
+  %327 = getelementptr [8 x i8], ptr %68, i64 %326
   %328 = getelementptr i8, ptr %327, i64 -8
   call void @dlartgs_(ptr noundef nonnull %195, ptr noundef nonnull %320, ptr noundef nonnull %39, ptr noundef %324, ptr noundef %328) #6
   br label %329
@@ -594,14 +594,14 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 329:                                              ; preds = %.thread, %.thread2154
   %.pre-phi2092 = phi i64 [ %326, %.thread ], [ %317, %.thread2154 ]
   %.pre-phi2090 = phi i64 [ %322, %.thread ], [ %313, %.thread2154 ]
-  %330 = getelementptr double, ptr %68, i64 %.pre-phi2090
+  %330 = getelementptr [8 x i8], ptr %68, i64 %.pre-phi2090
   %331 = getelementptr i8, ptr %330, i64 -8
   %332 = load double, ptr %331, align 8, !tbaa !7
   %333 = load double, ptr %191, align 8, !tbaa !7
-  %334 = getelementptr double, ptr %68, i64 %.pre-phi2092
+  %334 = getelementptr [8 x i8], ptr %68, i64 %.pre-phi2092
   %335 = getelementptr i8, ptr %334, i64 -8
   %336 = load double, ptr %335, align 8, !tbaa !7
-  %337 = getelementptr inbounds double, ptr %61, i64 %187
+  %337 = getelementptr inbounds [8 x i8], ptr %61, i64 %187
   %338 = load double, ptr %337, align 8, !tbaa !7
   %339 = fmul double %336, %338
   %340 = call double @llvm.fmuladd.f64(double %332, double %333, double %339)
@@ -612,7 +612,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %340, ptr %191, align 8, !tbaa !7
   %344 = load double, ptr %335, align 8, !tbaa !7
   %345 = sext i32 %276 to i64
-  %346 = getelementptr inbounds double, ptr %60, i64 %345
+  %346 = getelementptr inbounds [8 x i8], ptr %60, i64 %345
   %347 = load double, ptr %346, align 8, !tbaa !7
   %348 = fmul double %344, %347
   store double %348, ptr %42, align 8, !tbaa !7
@@ -622,7 +622,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %351 = load double, ptr %331, align 8, !tbaa !7
   %352 = load double, ptr %195, align 8, !tbaa !7
   %353 = load double, ptr %335, align 8, !tbaa !7
-  %354 = getelementptr inbounds double, ptr %65, i64 %187
+  %354 = getelementptr inbounds [8 x i8], ptr %65, i64 %187
   %355 = load double, ptr %354, align 8, !tbaa !7
   %356 = fmul double %353, %355
   %357 = call double @llvm.fmuladd.f64(double %351, double %352, double %356)
@@ -632,7 +632,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %360, ptr %354, align 8, !tbaa !7
   store double %357, ptr %195, align 8, !tbaa !7
   %361 = load double, ptr %335, align 8, !tbaa !7
-  %362 = getelementptr inbounds double, ptr %64, i64 %345
+  %362 = getelementptr inbounds [8 x i8], ptr %64, i64 %345
   %363 = load double, ptr %362, align 8, !tbaa !7
   %364 = fmul double %361, %363
   store double %364, ptr %44, align 8, !tbaa !7
@@ -656,9 +656,9 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 376:                                              ; preds = %329
   %377 = add nsw i32 %.218411988, %110
   %378 = sext i32 %377 to i64
-  %379 = getelementptr double, ptr %68, i64 %378
+  %379 = getelementptr [8 x i8], ptr %68, i64 %378
   %380 = getelementptr i8, ptr %379, i64 -8
-  %381 = getelementptr inbounds double, ptr %68, i64 %187
+  %381 = getelementptr inbounds [8 x i8], ptr %68, i64 %187
   call void @dlartgp_(ptr noundef nonnull %42, ptr noundef nonnull %191, ptr noundef %380, ptr noundef nonnull %381, ptr noundef nonnull %32) #6
   br label %400
 
@@ -669,21 +669,21 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %385, label %392, label %386
 
 386:                                              ; preds = %382
-  %387 = getelementptr inbounds double, ptr %68, i64 %187
+  %387 = getelementptr inbounds [8 x i8], ptr %68, i64 %187
   %388 = add nsw i32 %.218411988, %110
   %389 = sext i32 %388 to i64
-  %390 = getelementptr double, ptr %68, i64 %389
+  %390 = getelementptr [8 x i8], ptr %68, i64 %389
   %391 = getelementptr i8, ptr %390, i64 -8
   call void @dlartgs_(ptr noundef nonnull %337, ptr noundef nonnull %346, ptr noundef nonnull %38, ptr noundef nonnull %387, ptr noundef %391) #6
   br label %400
 
 392:                                              ; preds = %382
-  %393 = getelementptr inbounds double, ptr %62, i64 %187
-  %394 = getelementptr inbounds double, ptr %63, i64 %187
-  %395 = getelementptr inbounds double, ptr %68, i64 %187
+  %393 = getelementptr inbounds [8 x i8], ptr %62, i64 %187
+  %394 = getelementptr inbounds [8 x i8], ptr %63, i64 %187
+  %395 = getelementptr inbounds [8 x i8], ptr %68, i64 %187
   %396 = add nsw i32 %.218411988, %110
   %397 = sext i32 %396 to i64
-  %398 = getelementptr double, ptr %68, i64 %397
+  %398 = getelementptr [8 x i8], ptr %68, i64 %397
   %399 = getelementptr i8, ptr %398, i64 -8
   call void @dlartgs_(ptr noundef nonnull %393, ptr noundef nonnull %394, ptr noundef nonnull %39, ptr noundef nonnull %395, ptr noundef %399) #6
   br label %400
@@ -699,11 +699,11 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 406:                                              ; preds = %400
   %407 = add nsw i32 %.218411988, %112
   %408 = sext i32 %407 to i64
-  %409 = getelementptr double, ptr %68, i64 %408
+  %409 = getelementptr [8 x i8], ptr %68, i64 %408
   %410 = getelementptr i8, ptr %409, i64 -8
   %411 = add nsw i32 %.218411988, %111
   %412 = sext i32 %411 to i64
-  %413 = getelementptr double, ptr %68, i64 %412
+  %413 = getelementptr [8 x i8], ptr %68, i64 %412
   %414 = getelementptr i8, ptr %413, i64 -8
   call void @dlartgp_(ptr noundef nonnull %44, ptr noundef nonnull %195, ptr noundef %410, ptr noundef %414, ptr noundef nonnull %32) #6
   br label %439
@@ -717,25 +717,25 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 419:                                              ; preds = %415
   %420 = add nsw i32 %.218411988, %111
   %421 = sext i32 %420 to i64
-  %422 = getelementptr double, ptr %68, i64 %421
+  %422 = getelementptr [8 x i8], ptr %68, i64 %421
   %423 = getelementptr i8, ptr %422, i64 -8
   %424 = add nsw i32 %.218411988, %112
   %425 = sext i32 %424 to i64
-  %426 = getelementptr double, ptr %68, i64 %425
+  %426 = getelementptr [8 x i8], ptr %68, i64 %425
   %427 = getelementptr i8, ptr %426, i64 -8
   call void @dlartgs_(ptr noundef nonnull %354, ptr noundef nonnull %362, ptr noundef nonnull %39, ptr noundef %423, ptr noundef %427) #6
   br label %439
 
 428:                                              ; preds = %415
-  %429 = getelementptr inbounds double, ptr %66, i64 %187
-  %430 = getelementptr inbounds double, ptr %67, i64 %187
+  %429 = getelementptr inbounds [8 x i8], ptr %66, i64 %187
+  %430 = getelementptr inbounds [8 x i8], ptr %67, i64 %187
   %431 = add nsw i32 %.218411988, %111
   %432 = sext i32 %431 to i64
-  %433 = getelementptr double, ptr %68, i64 %432
+  %433 = getelementptr [8 x i8], ptr %68, i64 %432
   %434 = getelementptr i8, ptr %433, i64 -8
   %435 = add nsw i32 %.218411988, %112
   %436 = sext i32 %435 to i64
-  %437 = getelementptr double, ptr %68, i64 %436
+  %437 = getelementptr [8 x i8], ptr %68, i64 %436
   %438 = getelementptr i8, ptr %437, i64 -8
   call void @dlartgs_(ptr noundef nonnull %429, ptr noundef nonnull %430, ptr noundef nonnull %38, ptr noundef %434, ptr noundef %438) #6
   br label %439
@@ -743,22 +743,22 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 439:                                              ; preds = %419, %428, %406
   %.pre-phi2096 = phi i64 [ %425, %419 ], [ %436, %428 ], [ %408, %406 ]
   %.pre-phi2094 = phi i64 [ %421, %419 ], [ %432, %428 ], [ %412, %406 ]
-  %440 = getelementptr double, ptr %68, i64 %.pre-phi2094
+  %440 = getelementptr [8 x i8], ptr %68, i64 %.pre-phi2094
   %441 = getelementptr i8, ptr %440, i64 -8
   %442 = load double, ptr %441, align 8, !tbaa !7
   %443 = fneg double %442
   store double %443, ptr %441, align 8, !tbaa !7
-  %444 = getelementptr double, ptr %68, i64 %.pre-phi2096
+  %444 = getelementptr [8 x i8], ptr %68, i64 %.pre-phi2096
   %445 = getelementptr i8, ptr %444, i64 -8
   %446 = load double, ptr %445, align 8, !tbaa !7
   %447 = fneg double %446
   store double %447, ptr %445, align 8, !tbaa !7
-  %448 = getelementptr inbounds double, ptr %68, i64 %187
+  %448 = getelementptr inbounds [8 x i8], ptr %68, i64 %187
   %449 = load double, ptr %448, align 8, !tbaa !7
   %450 = load double, ptr %337, align 8, !tbaa !7
   %451 = add nsw i32 %.218411988, %110
   %452 = sext i32 %451 to i64
-  %453 = getelementptr double, ptr %68, i64 %452
+  %453 = getelementptr [8 x i8], ptr %68, i64 %452
   %454 = getelementptr i8, ptr %453, i64 -8
   %455 = load double, ptr %454, align 8, !tbaa !7
   %456 = load double, ptr %346, align 8, !tbaa !7
@@ -774,7 +774,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 463:                                              ; preds = %439
   %464 = load double, ptr %454, align 8, !tbaa !7
-  %465 = getelementptr inbounds double, ptr %61, i64 %345
+  %465 = getelementptr inbounds [8 x i8], ptr %61, i64 %345
   %466 = load double, ptr %465, align 8, !tbaa !7
   %467 = fmul double %464, %466
   store double %467, ptr %42, align 8, !tbaa !7
@@ -785,10 +785,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 470:                                              ; preds = %463, %439
   %471 = load double, ptr %448, align 8, !tbaa !7
-  %472 = getelementptr inbounds double, ptr %62, i64 %187
+  %472 = getelementptr inbounds [8 x i8], ptr %62, i64 %187
   %473 = load double, ptr %472, align 8, !tbaa !7
   %474 = load double, ptr %454, align 8, !tbaa !7
-  %475 = getelementptr inbounds double, ptr %63, i64 %187
+  %475 = getelementptr inbounds [8 x i8], ptr %63, i64 %187
   %476 = load double, ptr %475, align 8, !tbaa !7
   %477 = fmul double %474, %476
   %478 = call double @llvm.fmuladd.f64(double %471, double %473, double %477)
@@ -798,7 +798,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %481, ptr %475, align 8, !tbaa !7
   store double %478, ptr %472, align 8, !tbaa !7
   %482 = load double, ptr %454, align 8, !tbaa !7
-  %483 = getelementptr inbounds double, ptr %62, i64 %345
+  %483 = getelementptr inbounds [8 x i8], ptr %62, i64 %345
   %484 = load double, ptr %483, align 8, !tbaa !7
   %485 = fmul double %482, %484
   store double %485, ptr %43, align 8, !tbaa !7
@@ -820,7 +820,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 497:                                              ; preds = %470
   %498 = load double, ptr %445, align 8, !tbaa !7
-  %499 = getelementptr inbounds double, ptr %65, i64 %345
+  %499 = getelementptr inbounds [8 x i8], ptr %65, i64 %345
   %500 = load double, ptr %499, align 8, !tbaa !7
   %501 = fmul double %498, %500
   store double %501, ptr %44, align 8, !tbaa !7
@@ -831,10 +831,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 504:                                              ; preds = %497, %470
   %505 = load double, ptr %441, align 8, !tbaa !7
-  %506 = getelementptr inbounds double, ptr %66, i64 %187
+  %506 = getelementptr inbounds [8 x i8], ptr %66, i64 %187
   %507 = load double, ptr %506, align 8, !tbaa !7
   %508 = load double, ptr %445, align 8, !tbaa !7
-  %509 = getelementptr inbounds double, ptr %67, i64 %187
+  %509 = getelementptr inbounds [8 x i8], ptr %67, i64 %187
   %510 = load double, ptr %509, align 8, !tbaa !7
   %511 = fmul double %508, %510
   %512 = call double @llvm.fmuladd.f64(double %505, double %507, double %511)
@@ -844,7 +844,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %515, ptr %509, align 8, !tbaa !7
   store double %512, ptr %506, align 8, !tbaa !7
   %516 = load double, ptr %445, align 8, !tbaa !7
-  %517 = getelementptr inbounds double, ptr %66, i64 %345
+  %517 = getelementptr inbounds [8 x i8], ptr %66, i64 %345
   %518 = load double, ptr %517, align 8, !tbaa !7
   %519 = fmul double %516, %518
   store double %519, ptr %45, align 8, !tbaa !7
@@ -865,13 +865,13 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %525 = phi double [ %512, %.lr.ph1976.preheader ], [ %904, %883 ]
   %indvars.iv2047.in = phi i64 [ %187, %.lr.ph1976.preheader ], [ %indvars.iv2047, %883 ]
   %indvars.iv2047 = add nsw i64 %indvars.iv2047.in, 1
-  %526 = getelementptr inbounds double, ptr %46, i64 %indvars.iv2047.in
+  %526 = getelementptr inbounds [8 x i8], ptr %46, i64 %indvars.iv2047.in
   %527 = load double, ptr %526, align 8, !tbaa !7
   %528 = call double @sin(double noundef %527) #6, !tbaa !3
-  %529 = getelementptr inbounds double, ptr %61, i64 %indvars.iv2047.in
+  %529 = getelementptr inbounds [8 x i8], ptr %61, i64 %indvars.iv2047.in
   %530 = load double, ptr %529, align 8, !tbaa !7
   %531 = call double @cos(double noundef %527) #6, !tbaa !3
-  %532 = getelementptr inbounds double, ptr %65, i64 %indvars.iv2047.in
+  %532 = getelementptr inbounds [8 x i8], ptr %65, i64 %indvars.iv2047.in
   %533 = load double, ptr %532, align 8, !tbaa !7
   %534 = fmul double %531, %533
   %535 = call double @llvm.fmuladd.f64(double %528, double %530, double %534)
@@ -884,10 +884,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %541 = call double @llvm.fmuladd.f64(double %536, double %537, double %540)
   store double %541, ptr %35, align 8, !tbaa !7
   %542 = call double @sin(double noundef %527) #6, !tbaa !3
-  %543 = getelementptr inbounds double, ptr %62, i64 %indvars.iv2047.in
+  %543 = getelementptr inbounds [8 x i8], ptr %62, i64 %indvars.iv2047.in
   %544 = load double, ptr %543, align 8, !tbaa !7
   %545 = call double @cos(double noundef %527) #6, !tbaa !3
-  %546 = getelementptr inbounds double, ptr %66, i64 %indvars.iv2047.in
+  %546 = getelementptr inbounds [8 x i8], ptr %66, i64 %indvars.iv2047.in
   %547 = fmul double %545, %525
   %548 = call double @llvm.fmuladd.f64(double %542, double %544, double %547)
   store double %548, ptr %36, align 8, !tbaa !7
@@ -903,7 +903,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %556 = call double @llvm.fmuladd.f64(double %548, double %548, double %555)
   %sqrt1938 = call double @llvm.sqrt.f64(double %556)
   %557 = call double @atan2(double noundef %sqrt1939, double noundef %sqrt1938) #6, !tbaa !3
-  %558 = getelementptr inbounds double, ptr %47, i64 %indvars.iv2047.in
+  %558 = getelementptr inbounds [8 x i8], ptr %47, i64 %indvars.iv2047.in
   store double %557, ptr %558, align 8, !tbaa !7
   %559 = load double, ptr %529, align 8, !tbaa !7
   %560 = fmul double %537, %537
@@ -926,10 +926,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 575:                                              ; preds = %.lr.ph1976
   %576 = add nsw i64 %indvars.iv2047, %179
-  %577 = getelementptr double, ptr %68, i64 %576
+  %577 = getelementptr [8 x i8], ptr %68, i64 %576
   %578 = getelementptr i8, ptr %577, i64 -8
   %579 = add nsw i64 %indvars.iv2047, %180
-  %580 = getelementptr double, ptr %68, i64 %579
+  %580 = getelementptr [8 x i8], ptr %68, i64 %579
   %581 = getelementptr i8, ptr %580, i64 -8
   call void @dlartgp_(ptr noundef nonnull %35, ptr noundef nonnull %34, ptr noundef %578, ptr noundef %581, ptr noundef nonnull %32) #6
   br label %612
@@ -941,10 +941,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 584:                                              ; preds = %582
   %585 = add nsw i64 %indvars.iv2047, %179
-  %586 = getelementptr double, ptr %68, i64 %585
+  %586 = getelementptr [8 x i8], ptr %68, i64 %585
   %587 = getelementptr i8, ptr %586, i64 -8
   %588 = add nsw i64 %indvars.iv2047, %180
-  %589 = getelementptr double, ptr %68, i64 %588
+  %589 = getelementptr [8 x i8], ptr %68, i64 %588
   %590 = getelementptr i8, ptr %589, i64 -8
   call void @dlartgp_(ptr noundef nonnull %42, ptr noundef nonnull %529, ptr noundef %587, ptr noundef %590, ptr noundef nonnull %32) #6
   br label %612
@@ -952,13 +952,13 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 591:                                              ; preds = %582
   %or.cond7 = select i1 %583, i1 true, i1 %566
   %592 = add nsw i64 %indvars.iv2047, %180
-  %593 = getelementptr double, ptr %68, i64 %592
+  %593 = getelementptr [8 x i8], ptr %68, i64 %592
   %594 = getelementptr i8, ptr %593, i64 -8
   br i1 %or.cond7, label %599, label %595
 
 595:                                              ; preds = %591
   %596 = add nsw i64 %indvars.iv2047, %179
-  %597 = getelementptr double, ptr %68, i64 %596
+  %597 = getelementptr [8 x i8], ptr %68, i64 %596
   %598 = getelementptr i8, ptr %597, i64 -8
   call void @dlartgp_(ptr noundef nonnull %44, ptr noundef nonnull %532, ptr noundef %598, ptr noundef %594, ptr noundef nonnull %32) #6
   br label %612
@@ -968,31 +968,31 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %601 = load double, ptr %39, align 8, !tbaa !7
   %602 = fcmp ugt double %600, %601
   %603 = add nsw i64 %indvars.iv2047, %179
-  %604 = getelementptr double, ptr %68, i64 %603
+  %604 = getelementptr [8 x i8], ptr %68, i64 %603
   %605 = getelementptr i8, ptr %604, i64 -8
   br i1 %602, label %609, label %606
 
 606:                                              ; preds = %599
-  %607 = getelementptr double, ptr %18, i64 %indvars.iv2047.in
-  %608 = getelementptr double, ptr %19, i64 %indvars.iv2047.in
+  %607 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv2047.in
+  %608 = getelementptr [8 x i8], ptr %19, i64 %indvars.iv2047.in
   call void @dlartgs_(ptr noundef nonnull %607, ptr noundef nonnull %608, ptr noundef nonnull %38, ptr noundef %594, ptr noundef %605) #6
   br label %612
 
 609:                                              ; preds = %599
-  %610 = getelementptr double, ptr %22, i64 %indvars.iv2047.in
-  %611 = getelementptr double, ptr %23, i64 %indvars.iv2047.in
+  %610 = getelementptr [8 x i8], ptr %22, i64 %indvars.iv2047.in
+  %611 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv2047.in
   call void @dlartgs_(ptr noundef nonnull %610, ptr noundef nonnull %611, ptr noundef nonnull %39, ptr noundef %594, ptr noundef %605) #6
   br label %612
 
 612:                                              ; preds = %584, %606, %609, %595, %575
   %.pre-phi2098 = phi i64 [ %585, %584 ], [ %603, %606 ], [ %603, %609 ], [ %596, %595 ], [ %576, %575 ]
   %.pre-phi2097 = phi i64 [ %588, %584 ], [ %592, %606 ], [ %592, %609 ], [ %592, %595 ], [ %579, %575 ]
-  %613 = getelementptr double, ptr %68, i64 %.pre-phi2097
+  %613 = getelementptr [8 x i8], ptr %68, i64 %.pre-phi2097
   %614 = getelementptr i8, ptr %613, i64 -8
   %615 = load double, ptr %614, align 8, !tbaa !7
   %616 = fneg double %615
   store double %616, ptr %614, align 8, !tbaa !7
-  %617 = getelementptr double, ptr %68, i64 %.pre-phi2098
+  %617 = getelementptr [8 x i8], ptr %68, i64 %.pre-phi2098
   %618 = getelementptr i8, ptr %617, i64 -8
   %619 = load double, ptr %618, align 8, !tbaa !7
   %620 = fneg double %619
@@ -1002,10 +1002,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 621:                                              ; preds = %612
   %622 = add nsw i64 %indvars.iv2047, %181
-  %623 = getelementptr double, ptr %68, i64 %622
+  %623 = getelementptr [8 x i8], ptr %68, i64 %622
   %624 = getelementptr i8, ptr %623, i64 -16
   %625 = add nsw i64 %indvars.iv2047, %182
-  %626 = getelementptr double, ptr %68, i64 %625
+  %626 = getelementptr [8 x i8], ptr %68, i64 %625
   %627 = getelementptr i8, ptr %626, i64 -16
   call void @dlartgp_(ptr noundef nonnull %37, ptr noundef nonnull %36, ptr noundef %624, ptr noundef %627, ptr noundef nonnull %32) #6
   br label %658
@@ -1017,10 +1017,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 630:                                              ; preds = %628
   %631 = add nsw i64 %indvars.iv2047, %181
-  %632 = getelementptr double, ptr %68, i64 %631
+  %632 = getelementptr [8 x i8], ptr %68, i64 %631
   %633 = getelementptr i8, ptr %632, i64 -16
   %634 = add nsw i64 %indvars.iv2047, %182
-  %635 = getelementptr double, ptr %68, i64 %634
+  %635 = getelementptr [8 x i8], ptr %68, i64 %634
   %636 = getelementptr i8, ptr %635, i64 -16
   call void @dlartgp_(ptr noundef nonnull %43, ptr noundef nonnull %543, ptr noundef %633, ptr noundef %636, ptr noundef nonnull %32) #6
   br label %658
@@ -1028,13 +1028,13 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 637:                                              ; preds = %628
   %or.cond13 = select i1 %629, i1 true, i1 %574
   %638 = add nsw i64 %indvars.iv2047, %182
-  %639 = getelementptr double, ptr %68, i64 %638
+  %639 = getelementptr [8 x i8], ptr %68, i64 %638
   %640 = getelementptr i8, ptr %639, i64 -16
   br i1 %or.cond13, label %645, label %641
 
 641:                                              ; preds = %637
   %642 = add nsw i64 %indvars.iv2047, %181
-  %643 = getelementptr double, ptr %68, i64 %642
+  %643 = getelementptr [8 x i8], ptr %68, i64 %642
   %644 = getelementptr i8, ptr %643, i64 -16
   call void @dlartgp_(ptr noundef nonnull %45, ptr noundef nonnull %546, ptr noundef %644, ptr noundef %640, ptr noundef nonnull %32) #6
   br label %658
@@ -1044,19 +1044,19 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %647 = load double, ptr %38, align 8, !tbaa !7
   %648 = fcmp olt double %646, %647
   %649 = add nsw i64 %indvars.iv2047, %181
-  %650 = getelementptr double, ptr %68, i64 %649
+  %650 = getelementptr [8 x i8], ptr %68, i64 %649
   %651 = getelementptr i8, ptr %650, i64 -16
   br i1 %648, label %652, label %655
 
 652:                                              ; preds = %645
-  %653 = getelementptr inbounds double, ptr %63, i64 %indvars.iv2047.in
-  %654 = getelementptr double, ptr %20, i64 %indvars.iv2047.in
+  %653 = getelementptr inbounds [8 x i8], ptr %63, i64 %indvars.iv2047.in
+  %654 = getelementptr [8 x i8], ptr %20, i64 %indvars.iv2047.in
   call void @dlartgs_(ptr noundef nonnull %653, ptr noundef nonnull %654, ptr noundef nonnull %39, ptr noundef %640, ptr noundef %651) #6
   br label %658
 
 655:                                              ; preds = %645
-  %656 = getelementptr inbounds double, ptr %67, i64 %indvars.iv2047.in
-  %657 = getelementptr double, ptr %24, i64 %indvars.iv2047.in
+  %656 = getelementptr inbounds [8 x i8], ptr %67, i64 %indvars.iv2047.in
+  %657 = getelementptr [8 x i8], ptr %24, i64 %indvars.iv2047.in
   call void @dlartgs_(ptr noundef nonnull %656, ptr noundef nonnull %657, ptr noundef nonnull %38, ptr noundef %640, ptr noundef %651) #6
   br label %658
 
@@ -1064,10 +1064,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.pre-phi2100 = phi i64 [ %631, %630 ], [ %649, %652 ], [ %649, %655 ], [ %642, %641 ], [ %622, %621 ]
   %.pre-phi2099 = phi i64 [ %634, %630 ], [ %638, %652 ], [ %638, %655 ], [ %638, %641 ], [ %625, %621 ]
   %659 = load double, ptr %614, align 8, !tbaa !7
-  %660 = getelementptr double, ptr %18, i64 %indvars.iv2047.in
+  %660 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv2047.in
   %661 = load double, ptr %660, align 8, !tbaa !7
   %662 = load double, ptr %618, align 8, !tbaa !7
-  %663 = getelementptr double, ptr %19, i64 %indvars.iv2047.in
+  %663 = getelementptr [8 x i8], ptr %19, i64 %indvars.iv2047.in
   %664 = load double, ptr %663, align 8, !tbaa !7
   %665 = fmul double %662, %664
   %666 = call double @llvm.fmuladd.f64(double %659, double %661, double %665)
@@ -1077,7 +1077,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %669, ptr %663, align 8, !tbaa !7
   store double %666, ptr %660, align 8, !tbaa !7
   %670 = load double, ptr %618, align 8, !tbaa !7
-  %671 = getelementptr double, ptr %18, i64 %indvars.iv2047
+  %671 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv2047
   %672 = load double, ptr %671, align 8, !tbaa !7
   %673 = fmul double %670, %672
   store double %673, ptr %42, align 8, !tbaa !7
@@ -1085,10 +1085,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %675 = fmul double %672, %674
   store double %675, ptr %671, align 8, !tbaa !7
   %676 = load double, ptr %614, align 8, !tbaa !7
-  %677 = getelementptr double, ptr %22, i64 %indvars.iv2047.in
+  %677 = getelementptr [8 x i8], ptr %22, i64 %indvars.iv2047.in
   %678 = load double, ptr %677, align 8, !tbaa !7
   %679 = load double, ptr %618, align 8, !tbaa !7
-  %680 = getelementptr double, ptr %23, i64 %indvars.iv2047.in
+  %680 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv2047.in
   %681 = load double, ptr %680, align 8, !tbaa !7
   %682 = fmul double %679, %681
   %683 = call double @llvm.fmuladd.f64(double %676, double %678, double %682)
@@ -1098,22 +1098,22 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %686, ptr %680, align 8, !tbaa !7
   store double %683, ptr %677, align 8, !tbaa !7
   %687 = load double, ptr %618, align 8, !tbaa !7
-  %688 = getelementptr double, ptr %22, i64 %indvars.iv2047
+  %688 = getelementptr [8 x i8], ptr %22, i64 %indvars.iv2047
   %689 = load double, ptr %688, align 8, !tbaa !7
   %690 = fmul double %687, %689
   store double %690, ptr %44, align 8, !tbaa !7
   %691 = load double, ptr %614, align 8, !tbaa !7
   %692 = fmul double %689, %691
   store double %692, ptr %688, align 8, !tbaa !7
-  %693 = getelementptr double, ptr %68, i64 %.pre-phi2099
+  %693 = getelementptr [8 x i8], ptr %68, i64 %.pre-phi2099
   %694 = getelementptr i8, ptr %693, i64 -16
   %695 = load double, ptr %694, align 8, !tbaa !7
-  %696 = getelementptr inbounds double, ptr %63, i64 %indvars.iv2047.in
+  %696 = getelementptr inbounds [8 x i8], ptr %63, i64 %indvars.iv2047.in
   %697 = load double, ptr %696, align 8, !tbaa !7
-  %698 = getelementptr double, ptr %68, i64 %.pre-phi2100
+  %698 = getelementptr [8 x i8], ptr %68, i64 %.pre-phi2100
   %699 = getelementptr i8, ptr %698, i64 -16
   %700 = load double, ptr %699, align 8, !tbaa !7
-  %701 = getelementptr double, ptr %20, i64 %indvars.iv2047.in
+  %701 = getelementptr [8 x i8], ptr %20, i64 %indvars.iv2047.in
   %702 = load double, ptr %701, align 8, !tbaa !7
   %703 = fmul double %700, %702
   %704 = call double @llvm.fmuladd.f64(double %695, double %697, double %703)
@@ -1123,7 +1123,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %707, ptr %701, align 8, !tbaa !7
   store double %704, ptr %696, align 8, !tbaa !7
   %708 = load double, ptr %699, align 8, !tbaa !7
-  %709 = getelementptr double, ptr %21, i64 %indvars.iv2047.in
+  %709 = getelementptr [8 x i8], ptr %21, i64 %indvars.iv2047.in
   %710 = load double, ptr %709, align 8, !tbaa !7
   %711 = fmul double %708, %710
   store double %711, ptr %43, align 8, !tbaa !7
@@ -1131,10 +1131,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %713 = fmul double %710, %712
   store double %713, ptr %709, align 8, !tbaa !7
   %714 = load double, ptr %694, align 8, !tbaa !7
-  %715 = getelementptr inbounds double, ptr %67, i64 %indvars.iv2047.in
+  %715 = getelementptr inbounds [8 x i8], ptr %67, i64 %indvars.iv2047.in
   %716 = load double, ptr %715, align 8, !tbaa !7
   %717 = load double, ptr %699, align 8, !tbaa !7
-  %718 = getelementptr double, ptr %24, i64 %indvars.iv2047.in
+  %718 = getelementptr [8 x i8], ptr %24, i64 %indvars.iv2047.in
   %719 = load double, ptr %718, align 8, !tbaa !7
   %720 = fmul double %717, %719
   %721 = call double @llvm.fmuladd.f64(double %714, double %716, double %720)
@@ -1144,7 +1144,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %724, ptr %718, align 8, !tbaa !7
   store double %721, ptr %715, align 8, !tbaa !7
   %725 = load double, ptr %699, align 8, !tbaa !7
-  %726 = getelementptr double, ptr %25, i64 %indvars.iv2047.in
+  %726 = getelementptr [8 x i8], ptr %25, i64 %indvars.iv2047.in
   %727 = load double, ptr %726, align 8, !tbaa !7
   %728 = fmul double %725, %727
   store double %728, ptr %45, align 8, !tbaa !7
@@ -1182,7 +1182,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %754 = call double @llvm.fmuladd.f64(double %737, double %737, double %753)
   %sqrt1940 = call double @llvm.sqrt.f64(double %754)
   %755 = call double @atan2(double noundef %sqrt1941, double noundef %sqrt1940) #6, !tbaa !3
-  %756 = getelementptr double, ptr %8, i64 %indvars.iv2047.in
+  %756 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv2047.in
   store double %755, ptr %756, align 8, !tbaa !7
   %757 = load double, ptr %660, align 8, !tbaa !7
   %758 = fmul double %673, %673
@@ -1204,9 +1204,9 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %or.cond15, label %776, label %773
 
 773:                                              ; preds = %658
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv2047.in
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv2047.in
   %774 = getelementptr i8, ptr %gep, i64 -8
-  %775 = getelementptr double, ptr %26, i64 %indvars.iv2047.in
+  %775 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv2047.in
   call void @dlartgp_(ptr noundef nonnull %35, ptr noundef nonnull %34, ptr noundef %774, ptr noundef nonnull %775, ptr noundef nonnull %32) #6
   br label %794
 
@@ -1216,9 +1216,9 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %or.cond17, label %778, label %781
 
 778:                                              ; preds = %776
-  %gep2170 = getelementptr double, ptr %invariant.gep2169, i64 %indvars.iv2047.in
+  %gep2170 = getelementptr [8 x i8], ptr %invariant.gep2169, i64 %indvars.iv2047.in
   %779 = getelementptr i8, ptr %gep2170, i64 -8
-  %780 = getelementptr double, ptr %26, i64 %indvars.iv2047.in
+  %780 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv2047.in
   call void @dlartgp_(ptr noundef nonnull %42, ptr noundef nonnull %660, ptr noundef %779, ptr noundef nonnull %780, ptr noundef nonnull %32) #6
   br label %794
 
@@ -1227,9 +1227,9 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %or.cond19, label %785, label %782
 
 782:                                              ; preds = %781
-  %gep2164 = getelementptr double, ptr %invariant.gep2163, i64 %indvars.iv2047.in
+  %gep2164 = getelementptr [8 x i8], ptr %invariant.gep2163, i64 %indvars.iv2047.in
   %783 = getelementptr i8, ptr %gep2164, i64 -8
-  %784 = getelementptr double, ptr %26, i64 %indvars.iv2047.in
+  %784 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv2047.in
   call void @dlartgp_(ptr noundef nonnull %43, ptr noundef nonnull %696, ptr noundef %783, ptr noundef nonnull %784, ptr noundef nonnull %32) #6
   br label %794
 
@@ -1237,17 +1237,17 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %786 = load double, ptr %38, align 8, !tbaa !7
   %787 = load double, ptr %39, align 8, !tbaa !7
   %788 = fcmp ugt double %786, %787
-  %789 = getelementptr double, ptr %26, i64 %indvars.iv2047.in
+  %789 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv2047.in
   br i1 %788, label %792, label %790
 
 790:                                              ; preds = %785
-  %gep2166 = getelementptr double, ptr %invariant.gep2165, i64 %indvars.iv2047.in
+  %gep2166 = getelementptr [8 x i8], ptr %invariant.gep2165, i64 %indvars.iv2047.in
   %791 = getelementptr i8, ptr %gep2166, i64 -8
   call void @dlartgs_(ptr noundef nonnull %663, ptr noundef nonnull %671, ptr noundef nonnull %38, ptr noundef nonnull %789, ptr noundef %791) #6
   br label %794
 
 792:                                              ; preds = %785
-  %gep2168 = getelementptr double, ptr %invariant.gep2167, i64 %indvars.iv2047.in
+  %gep2168 = getelementptr [8 x i8], ptr %invariant.gep2167, i64 %indvars.iv2047.in
   %793 = getelementptr i8, ptr %gep2168, i64 -8
   call void @dlartgs_(ptr noundef nonnull %701, ptr noundef nonnull %709, ptr noundef nonnull %39, ptr noundef nonnull %789, ptr noundef %793) #6
   br label %794
@@ -1258,10 +1258,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 795:                                              ; preds = %794
   %796 = add nsw i64 %indvars.iv2047, %184
-  %797 = getelementptr double, ptr %68, i64 %796
+  %797 = getelementptr [8 x i8], ptr %68, i64 %796
   %798 = getelementptr i8, ptr %797, i64 -8
   %799 = add nsw i64 %indvars.iv2047, %185
-  %800 = getelementptr double, ptr %68, i64 %799
+  %800 = getelementptr [8 x i8], ptr %68, i64 %799
   %801 = getelementptr i8, ptr %800, i64 -8
   call void @dlartgp_(ptr noundef nonnull %37, ptr noundef nonnull %36, ptr noundef %798, ptr noundef %801, ptr noundef nonnull %32) #6
   br label %838
@@ -1273,10 +1273,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 804:                                              ; preds = %802
   %805 = add nsw i64 %indvars.iv2047, %184
-  %806 = getelementptr double, ptr %68, i64 %805
+  %806 = getelementptr [8 x i8], ptr %68, i64 %805
   %807 = getelementptr i8, ptr %806, i64 -8
   %808 = add nsw i64 %indvars.iv2047, %185
-  %809 = getelementptr double, ptr %68, i64 %808
+  %809 = getelementptr [8 x i8], ptr %68, i64 %808
   %810 = getelementptr i8, ptr %809, i64 -8
   call void @dlartgp_(ptr noundef nonnull %44, ptr noundef nonnull %677, ptr noundef %807, ptr noundef %810, ptr noundef nonnull %32) #6
   br label %838
@@ -1287,10 +1287,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 812:                                              ; preds = %811
   %813 = add nsw i64 %indvars.iv2047, %184
-  %814 = getelementptr double, ptr %68, i64 %813
+  %814 = getelementptr [8 x i8], ptr %68, i64 %813
   %815 = getelementptr i8, ptr %814, i64 -8
   %816 = add nsw i64 %indvars.iv2047, %185
-  %817 = getelementptr double, ptr %68, i64 %816
+  %817 = getelementptr [8 x i8], ptr %68, i64 %816
   %818 = getelementptr i8, ptr %817, i64 -8
   call void @dlartgp_(ptr noundef nonnull %45, ptr noundef nonnull %715, ptr noundef %815, ptr noundef %818, ptr noundef nonnull %32) #6
   br label %838
@@ -1302,22 +1302,22 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %822, label %823, label %831
 
 823:                                              ; preds = %819
-  %824 = getelementptr double, ptr %23, i64 %indvars.iv2047
+  %824 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv2047
   %825 = add nsw i64 %indvars.iv2047, %185
-  %826 = getelementptr double, ptr %68, i64 %825
+  %826 = getelementptr [8 x i8], ptr %68, i64 %825
   %827 = getelementptr i8, ptr %826, i64 -8
   %828 = add nsw i64 %indvars.iv2047, %184
-  %829 = getelementptr double, ptr %68, i64 %828
+  %829 = getelementptr [8 x i8], ptr %68, i64 %828
   %830 = getelementptr i8, ptr %829, i64 -8
   call void @dlartgs_(ptr noundef nonnull %680, ptr noundef nonnull %824, ptr noundef nonnull %39, ptr noundef %827, ptr noundef %830) #6
   br label %838
 
 831:                                              ; preds = %819
   %832 = add nsw i64 %indvars.iv2047, %185
-  %833 = getelementptr double, ptr %68, i64 %832
+  %833 = getelementptr [8 x i8], ptr %68, i64 %832
   %834 = getelementptr i8, ptr %833, i64 -8
   %835 = add nsw i64 %indvars.iv2047, %184
-  %836 = getelementptr double, ptr %68, i64 %835
+  %836 = getelementptr [8 x i8], ptr %68, i64 %835
   %837 = getelementptr i8, ptr %836, i64 -8
   call void @dlartgs_(ptr noundef nonnull %718, ptr noundef nonnull %726, ptr noundef nonnull %38, ptr noundef %834, ptr noundef %837) #6
   br label %838
@@ -1325,20 +1325,20 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 838:                                              ; preds = %804, %823, %831, %812, %795
   %.pre-phi2102 = phi i64 [ %805, %804 ], [ %828, %823 ], [ %835, %831 ], [ %813, %812 ], [ %796, %795 ]
   %.pre-phi2101 = phi i64 [ %808, %804 ], [ %825, %823 ], [ %832, %831 ], [ %816, %812 ], [ %799, %795 ]
-  %839 = getelementptr double, ptr %68, i64 %.pre-phi2101
+  %839 = getelementptr [8 x i8], ptr %68, i64 %.pre-phi2101
   %840 = getelementptr i8, ptr %839, i64 -8
   %841 = load double, ptr %840, align 8, !tbaa !7
   %842 = fneg double %841
   store double %842, ptr %840, align 8, !tbaa !7
-  %843 = getelementptr double, ptr %68, i64 %.pre-phi2102
+  %843 = getelementptr [8 x i8], ptr %68, i64 %.pre-phi2102
   %844 = getelementptr i8, ptr %843, i64 -8
   %845 = load double, ptr %844, align 8, !tbaa !7
   %846 = fneg double %845
   store double %846, ptr %844, align 8, !tbaa !7
-  %847 = getelementptr double, ptr %26, i64 %indvars.iv2047.in
+  %847 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv2047.in
   %848 = load double, ptr %847, align 8, !tbaa !7
   %849 = load double, ptr %663, align 8, !tbaa !7
-  %gep2172 = getelementptr double, ptr %invariant.gep2171, i64 %indvars.iv2047.in
+  %gep2172 = getelementptr [8 x i8], ptr %invariant.gep2171, i64 %indvars.iv2047.in
   %850 = getelementptr i8, ptr %gep2172, i64 -8
   %851 = load double, ptr %850, align 8, !tbaa !7
   %852 = load double, ptr %671, align 8, !tbaa !7
@@ -1354,7 +1354,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 859:                                              ; preds = %838
   %860 = load double, ptr %850, align 8, !tbaa !7
-  %861 = getelementptr double, ptr %19, i64 %indvars.iv2047
+  %861 = getelementptr [8 x i8], ptr %19, i64 %indvars.iv2047
   %862 = load double, ptr %861, align 8, !tbaa !7
   %863 = fmul double %860, %862
   store double %863, ptr %42, align 8, !tbaa !7
@@ -1379,7 +1379,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 876:                                              ; preds = %866
   %877 = load double, ptr %844, align 8, !tbaa !7
-  %878 = getelementptr double, ptr %23, i64 %indvars.iv2047
+  %878 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv2047
   %879 = load double, ptr %878, align 8, !tbaa !7
   %880 = fmul double %877, %879
   store double %880, ptr %44, align 8, !tbaa !7
@@ -1401,7 +1401,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %892, ptr %709, align 8, !tbaa !7
   store double %889, ptr %701, align 8, !tbaa !7
   %893 = load double, ptr %850, align 8, !tbaa !7
-  %894 = getelementptr double, ptr %20, i64 %indvars.iv2047
+  %894 = getelementptr [8 x i8], ptr %20, i64 %indvars.iv2047
   %895 = load double, ptr %894, align 8, !tbaa !7
   %896 = fmul double %893, %895
   store double %896, ptr %43, align 8, !tbaa !7
@@ -1420,7 +1420,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %907, ptr %726, align 8, !tbaa !7
   store double %904, ptr %718, align 8, !tbaa !7
   %908 = load double, ptr %844, align 8, !tbaa !7
-  %909 = getelementptr double, ptr %24, i64 %indvars.iv2047
+  %909 = getelementptr [8 x i8], ptr %24, i64 %indvars.iv2047
   %910 = load double, ptr %909, align 8, !tbaa !7
   %911 = fmul double %908, %910
   store double %911, ptr %45, align 8, !tbaa !7
@@ -1436,22 +1436,22 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %916 = phi double [ %519, %504 ], [ %911, %883 ]
   %917 = phi double [ %485, %504 ], [ %896, %883 ]
   %918 = zext nneg i32 %196 to i64
-  %919 = getelementptr inbounds nuw double, ptr %46, i64 %918
+  %919 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %918
   %920 = load double, ptr %919, align 8, !tbaa !7
   %921 = call double @sin(double noundef %920) #6, !tbaa !3
-  %922 = getelementptr inbounds nuw double, ptr %61, i64 %918
+  %922 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %918
   %923 = load double, ptr %922, align 8, !tbaa !7
   %924 = call double @cos(double noundef %920) #6, !tbaa !3
-  %925 = getelementptr inbounds nuw double, ptr %65, i64 %918
+  %925 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %918
   %926 = load double, ptr %925, align 8, !tbaa !7
   %927 = fmul double %924, %926
   %928 = call double @llvm.fmuladd.f64(double %921, double %923, double %927)
   store double %928, ptr %34, align 8, !tbaa !7
   %929 = call double @sin(double noundef %920) #6, !tbaa !3
-  %930 = getelementptr inbounds nuw double, ptr %62, i64 %918
+  %930 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %918
   %931 = load double, ptr %930, align 8, !tbaa !7
   %932 = call double @cos(double noundef %920) #6, !tbaa !3
-  %933 = getelementptr inbounds nuw double, ptr %66, i64 %918
+  %933 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %918
   %934 = load double, ptr %933, align 8, !tbaa !7
   %935 = fmul double %932, %934
   %936 = call double @llvm.fmuladd.f64(double %929, double %931, double %935)
@@ -1468,7 +1468,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %945 = call double @llvm.fmuladd.f64(double %936, double %936, double %944)
   %sqrt1942 = call double @llvm.sqrt.f64(double %945)
   %946 = call double @atan2(double noundef %943, double noundef %sqrt1942) #6, !tbaa !3
-  %947 = getelementptr inbounds nuw double, ptr %47, i64 %918
+  %947 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %918
   store double %946, ptr %947, align 8, !tbaa !7
   %948 = load double, ptr %930, align 8, !tbaa !7
   %949 = fmul double %917, %917
@@ -1484,11 +1484,11 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 956:                                              ; preds = %._crit_edge1977
   %957 = add nsw i32 %.118341989, %116
   %958 = sext i32 %957 to i64
-  %959 = getelementptr double, ptr %68, i64 %958
+  %959 = getelementptr [8 x i8], ptr %68, i64 %958
   %960 = getelementptr i8, ptr %959, i64 -16
   %961 = add nsw i32 %.118341989, %115
   %962 = sext i32 %961 to i64
-  %963 = getelementptr double, ptr %68, i64 %962
+  %963 = getelementptr [8 x i8], ptr %68, i64 %962
   %964 = getelementptr i8, ptr %963, i64 -16
   call void @dlartgp_(ptr noundef nonnull %37, ptr noundef nonnull %36, ptr noundef %960, ptr noundef %964, ptr noundef nonnull %32) #6
   br label %1002
@@ -1501,11 +1501,11 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 967:                                              ; preds = %965
   %968 = add nsw i32 %.118341989, %116
   %969 = sext i32 %968 to i64
-  %970 = getelementptr double, ptr %68, i64 %969
+  %970 = getelementptr [8 x i8], ptr %68, i64 %969
   %971 = getelementptr i8, ptr %970, i64 -16
   %972 = add nsw i32 %.118341989, %115
   %973 = sext i32 %972 to i64
-  %974 = getelementptr double, ptr %68, i64 %973
+  %974 = getelementptr [8 x i8], ptr %68, i64 %973
   %975 = getelementptr i8, ptr %974, i64 -16
   call void @dlartgp_(ptr noundef nonnull %43, ptr noundef nonnull %930, ptr noundef %971, ptr noundef %975, ptr noundef nonnull %32) #6
   br label %1002
@@ -1517,11 +1517,11 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 977:                                              ; preds = %976
   %978 = add nsw i32 %.118341989, %116
   %979 = sext i32 %978 to i64
-  %980 = getelementptr double, ptr %68, i64 %979
+  %980 = getelementptr [8 x i8], ptr %68, i64 %979
   %981 = getelementptr i8, ptr %980, i64 -16
   %982 = add nsw i32 %.118341989, %115
   %983 = sext i32 %982 to i64
-  %984 = getelementptr double, ptr %68, i64 %983
+  %984 = getelementptr [8 x i8], ptr %68, i64 %983
   %985 = getelementptr i8, ptr %984, i64 -16
   call void @dlartgp_(ptr noundef nonnull %45, ptr noundef nonnull %933, ptr noundef %981, ptr noundef %985, ptr noundef nonnull %32) #6
   br label %1002
@@ -1532,33 +1532,33 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %989 = fcmp olt double %987, %988
   %990 = add nsw i32 %.118341989, %115
   %991 = sext i32 %990 to i64
-  %992 = getelementptr double, ptr %68, i64 %991
+  %992 = getelementptr [8 x i8], ptr %68, i64 %991
   %993 = getelementptr i8, ptr %992, i64 -16
   %994 = add nsw i32 %.118341989, %116
   %995 = sext i32 %994 to i64
-  %996 = getelementptr double, ptr %68, i64 %995
+  %996 = getelementptr [8 x i8], ptr %68, i64 %995
   %997 = getelementptr i8, ptr %996, i64 -16
   br i1 %989, label %998, label %1000
 
 998:                                              ; preds = %986
-  %999 = getelementptr inbounds nuw double, ptr %63, i64 %918
+  %999 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %918
   call void @dlartgs_(ptr noundef nonnull %999, ptr noundef nonnull %256, ptr noundef nonnull %39, ptr noundef %993, ptr noundef %997) #6
   br label %1002
 
 1000:                                             ; preds = %986
-  %1001 = getelementptr inbounds nuw double, ptr %67, i64 %918
+  %1001 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %918
   call void @dlartgs_(ptr noundef nonnull %1001, ptr noundef nonnull %259, ptr noundef nonnull %38, ptr noundef %993, ptr noundef %997) #6
   br label %1002
 
 1002:                                             ; preds = %967, %998, %1000, %977, %956
   %.pre-phi2106 = phi i64 [ %969, %967 ], [ %995, %998 ], [ %995, %1000 ], [ %979, %977 ], [ %958, %956 ]
   %.pre-phi2104 = phi i64 [ %973, %967 ], [ %991, %998 ], [ %991, %1000 ], [ %983, %977 ], [ %962, %956 ]
-  %1003 = getelementptr double, ptr %68, i64 %.pre-phi2104
+  %1003 = getelementptr [8 x i8], ptr %68, i64 %.pre-phi2104
   %1004 = getelementptr i8, ptr %1003, i64 -16
   %1005 = load double, ptr %1004, align 8, !tbaa !7
-  %1006 = getelementptr inbounds nuw double, ptr %63, i64 %918
+  %1006 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %918
   %1007 = load double, ptr %1006, align 8, !tbaa !7
-  %1008 = getelementptr double, ptr %68, i64 %.pre-phi2106
+  %1008 = getelementptr [8 x i8], ptr %68, i64 %.pre-phi2106
   %1009 = getelementptr i8, ptr %1008, i64 -16
   %1010 = load double, ptr %1009, align 8, !tbaa !7
   %1011 = load double, ptr %256, align 8, !tbaa !7
@@ -1570,7 +1570,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %1016, ptr %256, align 8, !tbaa !7
   store double %1013, ptr %1006, align 8, !tbaa !7
   %1017 = load double, ptr %1004, align 8, !tbaa !7
-  %1018 = getelementptr inbounds nuw double, ptr %67, i64 %918
+  %1018 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %918
   %1019 = load double, ptr %1018, align 8, !tbaa !7
   %1020 = load double, ptr %1009, align 8, !tbaa !7
   %1021 = load double, ptr %259, align 8, !tbaa !7
@@ -1594,7 +1594,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .thread1918:                                      ; preds = %1027
   %1030 = mul nsw i32 %.218411988, %48
   %1031 = sext i32 %1030 to i64
-  %1032 = getelementptr double, ptr %50, i64 %1031
+  %1032 = getelementptr [8 x i8], ptr %50, i64 %1031
   %1033 = getelementptr i8, ptr %1032, i64 8
   call void @dlasr_(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %6, ptr noundef nonnull %30, ptr noundef nonnull %448, ptr noundef nonnull %454, ptr noundef %1033, ptr noundef nonnull %11) #6
   br i1 %.not18951912, label %1051, label %.thread1920
@@ -1602,7 +1602,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .thread1911:                                      ; preds = %1027
   %1034 = add nsw i32 %.218411988, %48
   %1035 = sext i32 %1034 to i64
-  %1036 = getelementptr inbounds double, ptr %50, i64 %1035
+  %1036 = getelementptr inbounds [8 x i8], ptr %50, i64 %1035
   call void @dlasr_(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %30, ptr noundef nonnull %6, ptr noundef nonnull %448, ptr noundef nonnull %454, ptr noundef %1036, ptr noundef nonnull %11) #6
   br i1 %.not18951912, label %1051, label %.thread1915
 
@@ -1619,7 +1619,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %.pre-phi2114, ptr %31, align 4, !tbaa !3
   %1041 = mul nsw i32 %.218411988, %51
   %1042 = sext i32 %1041 to i64
-  %1043 = getelementptr double, ptr %53, i64 %1042
+  %1043 = getelementptr [8 x i8], ptr %53, i64 %1042
   %1044 = getelementptr i8, ptr %1043, i64 8
   call void @dlasr_(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %441, ptr noundef nonnull %445, ptr noundef %1044, ptr noundef nonnull %13) #6
   br label %1051
@@ -1633,7 +1633,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1047, ptr %31, align 4, !tbaa !3
   %1048 = add nsw i32 %.218411988, %51
   %1049 = sext i32 %1048 to i64
-  %1050 = getelementptr inbounds double, ptr %53, i64 %1049
+  %1050 = getelementptr inbounds [8 x i8], ptr %53, i64 %1049
   call void @dlasr_(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %441, ptr noundef nonnull %445, ptr noundef %1050, ptr noundef nonnull %13) #6
   br label %1051
 
@@ -1652,14 +1652,14 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .thread1925:                                      ; preds = %1052
   %1055 = add nsw i32 %.218411988, %54
   %1056 = sext i32 %1055 to i64
-  %1057 = getelementptr inbounds double, ptr %56, i64 %1056
+  %1057 = getelementptr inbounds [8 x i8], ptr %56, i64 %1056
   call void @dlasr_(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %30, ptr noundef nonnull %7, ptr noundef nonnull %331, ptr noundef nonnull %335, ptr noundef %1057, ptr noundef nonnull %15) #6
   br i1 %.not1934, label %1092, label %.thread1926
 
 .thread1923:                                      ; preds = %1052
   %1058 = mul nsw i32 %.218411988, %54
   %1059 = sext i32 %1058 to i64
-  %1060 = getelementptr double, ptr %56, i64 %1059
+  %1060 = getelementptr [8 x i8], ptr %56, i64 %1059
   %1061 = getelementptr i8, ptr %1060, i64 8
   call void @dlasr_(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef nonnull %331, ptr noundef nonnull %335, ptr noundef %1061, ptr noundef nonnull %15) #6
   br i1 %.not1934, label %1092, label %.thread1924
@@ -1677,15 +1677,15 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1065, ptr %31, align 4, !tbaa !3
   %1066 = add nsw i32 %.218411988, %115
   %1067 = sext i32 %1066 to i64
-  %1068 = getelementptr double, ptr %68, i64 %1067
+  %1068 = getelementptr [8 x i8], ptr %68, i64 %1067
   %1069 = getelementptr i8, ptr %1068, i64 -8
   %1070 = add nsw i32 %.218411988, %116
   %1071 = sext i32 %1070 to i64
-  %1072 = getelementptr double, ptr %68, i64 %1071
+  %1072 = getelementptr [8 x i8], ptr %68, i64 %1071
   %1073 = getelementptr i8, ptr %1072, i64 -8
   %1074 = add nsw i32 %.218411988, %57
   %1075 = sext i32 %1074 to i64
-  %1076 = getelementptr inbounds double, ptr %59, i64 %1075
+  %1076 = getelementptr inbounds [8 x i8], ptr %59, i64 %1075
   call void @dlasr_(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef %1069, ptr noundef %1073, ptr noundef %1076, ptr noundef nonnull %17) #6
   br label %1092
 
@@ -1698,15 +1698,15 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %.pre-phi2112, ptr %31, align 4, !tbaa !3
   %1080 = add nsw i32 %.218411988, %115
   %1081 = sext i32 %1080 to i64
-  %1082 = getelementptr double, ptr %68, i64 %1081
+  %1082 = getelementptr [8 x i8], ptr %68, i64 %1081
   %1083 = getelementptr i8, ptr %1082, i64 -8
   %1084 = add nsw i32 %.218411988, %116
   %1085 = sext i32 %1084 to i64
-  %1086 = getelementptr double, ptr %68, i64 %1085
+  %1086 = getelementptr [8 x i8], ptr %68, i64 %1085
   %1087 = getelementptr i8, ptr %1086, i64 -8
   %1088 = mul nsw i32 %.218411988, %57
   %1089 = sext i32 %1088 to i64
-  %1090 = getelementptr double, ptr %59, i64 %1089
+  %1090 = getelementptr [8 x i8], ptr %59, i64 %1089
   %1091 = getelementptr i8, ptr %1090, i64 8
   call void @dlasr_(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef %1083, ptr noundef %1087, ptr noundef %1091, ptr noundef nonnull %17) #6
   br label %1092
@@ -1720,11 +1720,11 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %1097, label %1098, label %1115
 
 1098:                                             ; preds = %1092
-  %1099 = getelementptr inbounds nuw double, ptr %60, i64 %252
+  %1099 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %252
   %1100 = load double, ptr %1099, align 8, !tbaa !7
   %1101 = fneg double %1100
   store double %1101, ptr %1099, align 8, !tbaa !7
-  %1102 = getelementptr inbounds nuw double, ptr %64, i64 %252
+  %1102 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %252
   %1103 = load double, ptr %1102, align 8, !tbaa !7
   %1104 = fneg double %1103
   store double %1104, ptr %1102, align 8, !tbaa !7
@@ -1736,14 +1736,14 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 1106:                                             ; preds = %1105
   %1107 = add nsw i32 %.118341989, %54
   %1108 = sext i32 %1107 to i64
-  %1109 = getelementptr inbounds double, ptr %56, i64 %1108
+  %1109 = getelementptr inbounds [8 x i8], ptr %56, i64 %1108
   call void @dscal_(ptr noundef nonnull %7, ptr noundef nonnull @c_b35, ptr noundef %1109, ptr noundef nonnull %15) #6
   br label %1115
 
 1110:                                             ; preds = %1105
   %1111 = mul nsw i32 %.118341989, %54
   %1112 = sext i32 %1111 to i64
-  %1113 = getelementptr double, ptr %56, i64 %1112
+  %1113 = getelementptr [8 x i8], ptr %56, i64 %1112
   %1114 = getelementptr i8, ptr %1113, i64 8
   call void @dscal_(ptr noundef nonnull %7, ptr noundef nonnull @c_b35, ptr noundef %1114, ptr noundef nonnull @c__1) #6
   br label %1115
@@ -1751,7 +1751,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 1115:                                             ; preds = %1098, %1110, %1106, %1092
   %1116 = load double, ptr %947, align 8, !tbaa !7
   %1117 = call double @cos(double noundef %1116) #6, !tbaa !3
-  %1118 = getelementptr inbounds nuw double, ptr %60, i64 %252
+  %1118 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %252
   %1119 = load double, ptr %1118, align 8, !tbaa !7
   %1120 = call double @sin(double noundef %1116) #6, !tbaa !3
   %1121 = load double, ptr %1006, align 8, !tbaa !7
@@ -1759,7 +1759,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1123 = call double @llvm.fmuladd.f64(double %1117, double %1119, double %1122)
   store double %1123, ptr %34, align 8, !tbaa !7
   %1124 = call double @cos(double noundef %1116) #6, !tbaa !3
-  %1125 = getelementptr inbounds nuw double, ptr %64, i64 %252
+  %1125 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %252
   %1126 = load double, ptr %1125, align 8, !tbaa !7
   %1127 = call double @sin(double noundef %1116) #6, !tbaa !3
   %1128 = load double, ptr %1018, align 8, !tbaa !7
@@ -1792,7 +1792,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 1146:                                             ; preds = %1145
   %1147 = mul nsw i32 %.118341989, %48
   %1148 = sext i32 %1147 to i64
-  %1149 = getelementptr double, ptr %50, i64 %1148
+  %1149 = getelementptr [8 x i8], ptr %50, i64 %1148
   %1150 = getelementptr i8, ptr %1149, i64 8
   call void @dscal_(ptr noundef nonnull %6, ptr noundef nonnull @c_b35, ptr noundef %1150, ptr noundef nonnull @c__1) #6
   br label %1155
@@ -1800,7 +1800,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 1151:                                             ; preds = %1145
   %1152 = add nsw i32 %.118341989, %48
   %1153 = sext i32 %1152 to i64
-  %1154 = getelementptr inbounds double, ptr %50, i64 %1153
+  %1154 = getelementptr inbounds [8 x i8], ptr %50, i64 %1153
   call void @dscal_(ptr noundef nonnull %6, ptr noundef nonnull @c_b35, ptr noundef %1154, ptr noundef nonnull %11) #6
   br label %1155
 
@@ -1835,7 +1835,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .thread1930:                                      ; preds = %1162
   %1171 = mul nsw i32 %.118341989, %51
   %1172 = sext i32 %1171 to i64
-  %1173 = getelementptr double, ptr %53, i64 %1172
+  %1173 = getelementptr [8 x i8], ptr %53, i64 %1172
   %1174 = getelementptr i8, ptr %1173, i64 8
   call void @dscal_(ptr noundef nonnull %30, ptr noundef nonnull @c_b35, ptr noundef %1174, ptr noundef nonnull @c__1) #6
   %1175 = load double, ptr %256, align 8, !tbaa !7
@@ -1848,7 +1848,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .thread1927:                                      ; preds = %1162
   %1179 = add nsw i32 %.118341989, %51
   %1180 = sext i32 %1179 to i64
-  %1181 = getelementptr inbounds double, ptr %53, i64 %1180
+  %1181 = getelementptr inbounds [8 x i8], ptr %53, i64 %1180
   call void @dscal_(ptr noundef nonnull %30, ptr noundef nonnull @c_b35, ptr noundef %1181, ptr noundef nonnull %13) #6
   %1182 = load double, ptr %256, align 8, !tbaa !7
   %1183 = load double, ptr %259, align 8, !tbaa !7
@@ -1867,7 +1867,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1189, ptr %30, align 4, !tbaa !3
   %1190 = add nsw i32 %.118341989, %57
   %1191 = sext i32 %1190 to i64
-  %1192 = getelementptr inbounds double, ptr %59, i64 %1191
+  %1192 = getelementptr inbounds [8 x i8], ptr %59, i64 %1191
   call void @dscal_(ptr noundef nonnull %30, ptr noundef nonnull @c_b35, ptr noundef %1192, ptr noundef nonnull %17) #6
   br label %1200
 
@@ -1878,7 +1878,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1195, ptr %30, align 4, !tbaa !3
   %1196 = mul nsw i32 %.118341989, %57
   %1197 = sext i32 %1196 to i64
-  %1198 = getelementptr double, ptr %59, i64 %1197
+  %1198 = getelementptr [8 x i8], ptr %59, i64 %1197
   %1199 = getelementptr i8, ptr %1198, i64 8
   call void @dscal_(ptr noundef nonnull %30, ptr noundef nonnull @c_b35, ptr noundef %1199, ptr noundef nonnull @c__1) #6
   br label %1200
@@ -1893,7 +1893,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph1981:                                       ; preds = %.lr.ph1981.preheader, %1207
   %indvars.iv2051 = phi i64 [ %187, %.lr.ph1981.preheader ], [ %indvars.iv.next2052, %1207 ]
-  %1202 = getelementptr inbounds double, ptr %46, i64 %indvars.iv2051
+  %1202 = getelementptr inbounds [8 x i8], ptr %46, i64 %indvars.iv2051
   %1203 = load double, ptr %1202, align 8, !tbaa !7
   %1204 = fcmp olt double %1203, %140
   br i1 %1204, label %.sink.split2187, label %1205
@@ -1923,7 +1923,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph1986:                                       ; preds = %.lr.ph1986.preheader, %1213
   %indvars.iv2057 = phi i64 [ %187, %.lr.ph1986.preheader ], [ %indvars.iv.next2058, %1213 ]
-  %1208 = getelementptr inbounds double, ptr %47, i64 %indvars.iv2057
+  %1208 = getelementptr inbounds [8 x i8], ptr %47, i64 %indvars.iv2057
   %1209 = load double, ptr %1208, align 8, !tbaa !7
   %1210 = fcmp olt double %1209, %140
   br i1 %1210, label %.sink.split2189, label %1211
@@ -1947,7 +1947,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .preheader1945:                                   ; preds = %.preheader1945.preheader, %1219
   %indvars.iv2063 = phi i64 [ %indvars.iv.next2064, %1219 ], [ %252, %.preheader1945.preheader ]
-  %1214 = getelementptr double, ptr %47, i64 %indvars.iv2063
+  %1214 = getelementptr [8 x i8], ptr %47, i64 %indvars.iv2063
   %1215 = getelementptr i8, ptr %1214, i64 -8
   %1216 = load double, ptr %1215, align 8, !tbaa !7
   %1217 = fcmp oeq double %1216, 0.000000e+00
@@ -1972,7 +1972,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .preheader:                                       ; preds = %.preheader.preheader, %1229
   %indvars.iv2067 = phi i64 [ %1224, %.preheader.preheader ], [ %indvars.iv.next2068, %1229 ]
-  %1225 = getelementptr double, ptr %47, i64 %indvars.iv2067
+  %1225 = getelementptr [8 x i8], ptr %47, i64 %indvars.iv2067
   %1226 = getelementptr i8, ptr %1225, i64 -8
   %1227 = load double, ptr %1226, align 8, !tbaa !7
   %1228 = fcmp une double %1227, 0.000000e+00
@@ -2011,16 +2011,16 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1235 = sext i32 %51 to i64
   %1236 = sext i32 %54 to i64
   %1237 = sext i32 %57 to i64
-  %invariant.gep2175 = getelementptr double, ptr %50, i64 %1234
-  %invariant.gep2177 = getelementptr double, ptr %53, i64 %1235
-  %invariant.gep2179 = getelementptr double, ptr %56, i64 %1236
-  %invariant.gep2181 = getelementptr double, ptr %59, i64 %1237
+  %invariant.gep2175 = getelementptr [8 x i8], ptr %50, i64 %1234
+  %invariant.gep2177 = getelementptr [8 x i8], ptr %53, i64 %1235
+  %invariant.gep2179 = getelementptr [8 x i8], ptr %56, i64 %1236
+  %invariant.gep2181 = getelementptr [8 x i8], ptr %59, i64 %1237
   br label %1238
 
 1238:                                             ; preds = %.lr.ph2007, %1321
   %indvars.iv2079 = phi i64 [ 1, %.lr.ph2007 ], [ %indvars.iv.next2080, %1321 ]
   %indvars.iv2071 = phi i64 [ 2, %.lr.ph2007 ], [ %indvars.iv.next2072, %1321 ]
-  %1239 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv2079
+  %1239 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv2079
   %1240 = load double, ptr %1239, align 8, !tbaa !7
   %1241 = load i32, ptr %7, align 4, !tbaa !3
   store i32 %1241, ptr %31, align 4, !tbaa !3
@@ -2038,7 +2038,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv2073 = phi i64 [ %indvars.iv2071, %.lr.ph2000.preheader ], [ %indvars.iv.next2074, %.lr.ph2000 ]
   %.218301997 = phi double [ %1240, %.lr.ph2000.preheader ], [ %.31831, %.lr.ph2000 ]
   %.018371996 = phi i32 [ %1243, %.lr.ph2000.preheader ], [ %.11838, %.lr.ph2000 ]
-  %1245 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv2073
+  %1245 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv2073
   %1246 = load double, ptr %1245, align 8, !tbaa !7
   %1247 = fcmp olt double %1246, %.218301997
   %1248 = trunc nuw i64 %indvars.iv2073 to i32
@@ -2058,7 +2058,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 1250:                                             ; preds = %._crit_edge2001
   %1251 = sext i32 %.01837.lcssa to i64
-  %1252 = getelementptr inbounds double, ptr %46, i64 %1251
+  %1252 = getelementptr inbounds [8 x i8], ptr %46, i64 %1251
   store double %1240, ptr %1252, align 8, !tbaa !7
   store double %.21830.lcssa, ptr %1239, align 8, !tbaa !7
   br i1 %.not, label %1253, label %1287
@@ -2068,11 +2068,11 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 1254:                                             ; preds = %1253
   %1255 = mul nsw i64 %indvars.iv2079, %1234
-  %1256 = getelementptr double, ptr %50, i64 %1255
+  %1256 = getelementptr [8 x i8], ptr %50, i64 %1255
   %1257 = getelementptr i8, ptr %1256, i64 8
   %1258 = mul nsw i32 %.01837.lcssa, %48
   %1259 = sext i32 %1258 to i64
-  %1260 = getelementptr double, ptr %50, i64 %1259
+  %1260 = getelementptr [8 x i8], ptr %50, i64 %1259
   %1261 = getelementptr i8, ptr %1260, i64 8
   call void @dswap_(ptr noundef nonnull %6, ptr noundef %1257, ptr noundef nonnull @c__1, ptr noundef %1261, ptr noundef nonnull @c__1) #6
   br label %1262
@@ -2086,11 +2086,11 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1266 = sub nsw i32 %1264, %1265
   store i32 %1266, ptr %31, align 4, !tbaa !3
   %1267 = mul nsw i64 %indvars.iv2079, %1235
-  %1268 = getelementptr double, ptr %53, i64 %1267
+  %1268 = getelementptr [8 x i8], ptr %53, i64 %1267
   %1269 = getelementptr i8, ptr %1268, i64 8
   %1270 = mul nsw i32 %.01837.lcssa, %51
   %1271 = sext i32 %1270 to i64
-  %1272 = getelementptr double, ptr %53, i64 %1271
+  %1272 = getelementptr [8 x i8], ptr %53, i64 %1271
   %1273 = getelementptr i8, ptr %1272, i64 8
   call void @dswap_(ptr noundef nonnull %31, ptr noundef %1269, ptr noundef nonnull @c__1, ptr noundef %1273, ptr noundef nonnull @c__1) #6
   br label %1274
@@ -2099,10 +2099,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not1885, label %1279, label %1275
 
 1275:                                             ; preds = %1274
-  %gep2180 = getelementptr double, ptr %invariant.gep2179, i64 %indvars.iv2079
+  %gep2180 = getelementptr [8 x i8], ptr %invariant.gep2179, i64 %indvars.iv2079
   %1276 = add nsw i32 %.01837.lcssa, %54
   %1277 = sext i32 %1276 to i64
-  %1278 = getelementptr inbounds double, ptr %56, i64 %1277
+  %1278 = getelementptr inbounds [8 x i8], ptr %56, i64 %1277
   call void @dswap_(ptr noundef nonnull %7, ptr noundef %gep2180, ptr noundef nonnull %15, ptr noundef %1278, ptr noundef nonnull %15) #6
   br label %1279
 
@@ -2114,10 +2114,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1282 = load i32, ptr %7, align 4, !tbaa !3
   %1283 = sub nsw i32 %1281, %1282
   store i32 %1283, ptr %31, align 4, !tbaa !3
-  %gep2182 = getelementptr double, ptr %invariant.gep2181, i64 %indvars.iv2079
+  %gep2182 = getelementptr [8 x i8], ptr %invariant.gep2181, i64 %indvars.iv2079
   %1284 = add nsw i32 %.01837.lcssa, %57
   %1285 = sext i32 %1284 to i64
-  %1286 = getelementptr inbounds double, ptr %59, i64 %1285
+  %1286 = getelementptr inbounds [8 x i8], ptr %59, i64 %1285
   call void @dswap_(ptr noundef nonnull %31, ptr noundef %gep2182, ptr noundef nonnull %17, ptr noundef %1286, ptr noundef nonnull %17) #6
   br label %1321
 
@@ -2125,10 +2125,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not1883, label %1292, label %1288
 
 1288:                                             ; preds = %1287
-  %gep2176 = getelementptr double, ptr %invariant.gep2175, i64 %indvars.iv2079
+  %gep2176 = getelementptr [8 x i8], ptr %invariant.gep2175, i64 %indvars.iv2079
   %1289 = add nsw i32 %.01837.lcssa, %48
   %1290 = sext i32 %1289 to i64
-  %1291 = getelementptr inbounds double, ptr %50, i64 %1290
+  %1291 = getelementptr inbounds [8 x i8], ptr %50, i64 %1290
   call void @dswap_(ptr noundef nonnull %6, ptr noundef %gep2176, ptr noundef nonnull %11, ptr noundef %1291, ptr noundef nonnull %11) #6
   br label %1292
 
@@ -2140,10 +2140,10 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1295 = load i32, ptr %6, align 4, !tbaa !3
   %1296 = sub nsw i32 %1294, %1295
   store i32 %1296, ptr %31, align 4, !tbaa !3
-  %gep2178 = getelementptr double, ptr %invariant.gep2177, i64 %indvars.iv2079
+  %gep2178 = getelementptr [8 x i8], ptr %invariant.gep2177, i64 %indvars.iv2079
   %1297 = add nsw i32 %.01837.lcssa, %51
   %1298 = sext i32 %1297 to i64
-  %1299 = getelementptr inbounds double, ptr %53, i64 %1298
+  %1299 = getelementptr inbounds [8 x i8], ptr %53, i64 %1298
   call void @dswap_(ptr noundef nonnull %31, ptr noundef %gep2178, ptr noundef nonnull %13, ptr noundef %1299, ptr noundef nonnull %13) #6
   br label %1300
 
@@ -2152,11 +2152,11 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 1301:                                             ; preds = %1300
   %1302 = mul nsw i64 %indvars.iv2079, %1236
-  %1303 = getelementptr double, ptr %56, i64 %1302
+  %1303 = getelementptr [8 x i8], ptr %56, i64 %1302
   %1304 = getelementptr i8, ptr %1303, i64 8
   %1305 = mul nsw i32 %.01837.lcssa, %54
   %1306 = sext i32 %1305 to i64
-  %1307 = getelementptr double, ptr %56, i64 %1306
+  %1307 = getelementptr [8 x i8], ptr %56, i64 %1306
   %1308 = getelementptr i8, ptr %1307, i64 8
   call void @dswap_(ptr noundef nonnull %7, ptr noundef %1304, ptr noundef nonnull @c__1, ptr noundef %1308, ptr noundef nonnull @c__1) #6
   br label %1309
@@ -2170,11 +2170,11 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1313 = sub nsw i32 %1311, %1312
   store i32 %1313, ptr %31, align 4, !tbaa !3
   %1314 = mul nsw i64 %indvars.iv2079, %1237
-  %1315 = getelementptr double, ptr %59, i64 %1314
+  %1315 = getelementptr [8 x i8], ptr %59, i64 %1314
   %1316 = getelementptr i8, ptr %1315, i64 8
   %1317 = mul nsw i32 %.01837.lcssa, %57
   %1318 = sext i32 %1317 to i64
-  %1319 = getelementptr double, ptr %59, i64 %1318
+  %1319 = getelementptr [8 x i8], ptr %59, i64 %1318
   %1320 = getelementptr i8, ptr %1319, i64 8
   call void @dswap_(ptr noundef nonnull %31, ptr noundef %1316, ptr noundef nonnull @c__1, ptr noundef %1320, ptr noundef nonnull @c__1) #6
   br label %1321

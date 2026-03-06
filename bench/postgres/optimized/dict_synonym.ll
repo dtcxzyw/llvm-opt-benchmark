@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.tsearch_readline_state = type { ptr, ptr, i32, %struct.StringInfoData, ptr, %struct.ErrorContextCallback }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
-%union.ListCell = type { ptr }
-%struct.Syn = type { ptr, ptr, i32, i16 }
 
 @.str = private unnamed_addr constant [9 x i8] c"synonyms\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"casesensitive\00", align 1
@@ -40,7 +38,7 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
   %.058110123 = phi i8 [ %.159, %30 ], [ 0, %.lr.ph ]
   %.057112121 = phi ptr [ %.1, %30 ], [ null, %.lr.ph ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
@@ -130,7 +128,7 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
   %.02939.i = phi ptr [ %50, %.lr.ph.i ], [ %63, %60 ]
   %55 = load ptr, ptr %52, align 8
   %56 = zext i8 %54 to i64
-  %57 = getelementptr inbounds nuw i16, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = and i16 %58, 8192
   %.not32.i = icmp eq i16 %59, 0
@@ -147,7 +145,7 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
 .lr.ph43.i:                                       ; preds = %.critedge.i
   %65 = load ptr, ptr %52, align 8
   %66 = zext i8 %73 to i64
-  %67 = getelementptr inbounds nuw i16, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %66
   %68 = load i16, ptr %67, align 2
   %69 = and i16 %68, 8192
   %.not34.i = icmp eq i16 %69, 0
@@ -174,7 +172,7 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
   %.02939.i75 = phi ptr [ %85, %82 ], [ %74, %.critedge2.i ]
   %77 = load ptr, ptr %52, align 8
   %78 = zext i8 %76 to i64
-  %79 = getelementptr inbounds nuw i16, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %77, i64 %78
   %80 = load i16, ptr %79, align 2
   %81 = and i16 %80, 8192
   %.not32.i76 = icmp eq i16 %81, 0
@@ -191,7 +189,7 @@ define dso_local i64 @dsynonym_init(ptr noundef readonly captures(none) %0) loca
 .lr.ph43.i80:                                     ; preds = %.critedge.i87
   %87 = load ptr, ptr %52, align 8
   %88 = zext i8 %95 to i64
-  %89 = getelementptr inbounds nuw i16, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %87, i64 %88
   %90 = load i16, ptr %89, align 2
   %91 = and i16 %90, 8192
   %.not34.i83 = icmp eq i16 %91, 0
@@ -259,7 +257,7 @@ findwrd.exit89:                                   ; preds = %100, %97
   %114 = call ptr @pstrdup(ptr noundef nonnull %.02939.i) #8
   %115 = load ptr, ptr %47, align 8
   %116 = sext i32 %.060139 to i64
-  %117 = getelementptr inbounds %struct.Syn, ptr %115, i64 %116
+  %117 = getelementptr inbounds [24 x i8], ptr %115, i64 %116
   store ptr %114, ptr %117, align 8
   %118 = call ptr @pstrdup(ptr noundef nonnull %.02939.i75) #8
   br label %127
@@ -269,7 +267,7 @@ findwrd.exit89:                                   ; preds = %100, %97
   %121 = call ptr @str_tolower(ptr noundef nonnull %.02939.i, i64 noundef %120, i32 noundef 100) #8
   %122 = load ptr, ptr %47, align 8
   %123 = sext i32 %.060139 to i64
-  %124 = getelementptr inbounds %struct.Syn, ptr %122, i64 %123
+  %124 = getelementptr inbounds [24 x i8], ptr %122, i64 %123
   store ptr %121, ptr %124, align 8
   %125 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02939.i75) #7
   %126 = call ptr @str_tolower(ptr noundef nonnull %.02939.i75, i64 noundef %125, i32 noundef 100) #8
@@ -279,17 +277,17 @@ findwrd.exit89:                                   ; preds = %100, %97
   %.sink184 = phi i64 [ %123, %119 ], [ %116, %113 ]
   %.sink180 = phi ptr [ %126, %119 ], [ %118, %113 ]
   %128 = load ptr, ptr %47, align 8
-  %129 = getelementptr inbounds %struct.Syn, ptr %128, i64 %.sink184
+  %129 = getelementptr inbounds [24 x i8], ptr %128, i64 %.sink184
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store ptr %.sink180, ptr %130, align 8
   %131 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02939.i75) #7
   %132 = trunc i64 %131 to i32
   %133 = load ptr, ptr %47, align 8
-  %134 = getelementptr inbounds %struct.Syn, ptr %133, i64 %.sink184
+  %134 = getelementptr inbounds [24 x i8], ptr %133, i64 %.sink184
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
   store i32 %132, ptr %135, align 8
   %136 = load ptr, ptr %47, align 8
-  %137 = getelementptr inbounds %struct.Syn, ptr %136, i64 %.sink184
+  %137 = getelementptr inbounds [24 x i8], ptr %136, i64 %.sink184
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 20
   store i16 %.2, ptr %138, align 4
   %139 = add i32 %.060139, 1

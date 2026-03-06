@@ -120,7 +120,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_nosse(ptr noundef %0, pt
   %69 = getelementptr i8, ptr %68, i64 %47
   tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef 1, ptr noundef %67, i64 noundef %46) #9
   %70 = shl nuw nsw i64 %11, 5
-  %71 = getelementptr i32, ptr %69, i64 %70
+  %71 = getelementptr [4 x i8], ptr %69, i64 %70
   %72 = getelementptr i8, ptr %69, i64 %53
   %73 = getelementptr i8, ptr %69, i64 %45
   %74 = getelementptr i8, ptr %73, i64 -64
@@ -140,7 +140,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_nosse(ptr noundef %0, pt
   %82 = shl nuw nsw i64 %.076.i, 2
   %83 = getelementptr i8, ptr %80, i64 %82
   %84 = load i32, ptr %83, align 1
-  %85 = getelementptr i32, ptr %69, i64 %.076.i
+  %85 = getelementptr [4 x i8], ptr %69, i64 %.076.i
   store i32 %84, ptr %85, align 4
   %86 = add nuw nsw i64 %.076.i, 1
   %exitcond.not.i = icmp eq i64 %86, %70
@@ -149,12 +149,12 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_nosse(ptr noundef %0, pt
 .preheader75.i:                                   ; preds = %81, %.preheader75.i
   %.06677.i = phi i64 [ %92, %.preheader75.i ], [ 0, %81 ]
   %87 = mul i64 %.06677.i, %70
-  %88 = getelementptr i32, ptr %68, i64 %87
+  %88 = getelementptr [4 x i8], ptr %68, i64 %87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %88, ptr noundef nonnull readonly align 1 %69, i64 noundef range(i64 4, 549755813761) %45, i1 noundef false) #9
   tail call fastcc void @blockmix_salsa8(ptr noundef nonnull %69, ptr noundef %71, ptr noundef %72, i64 noundef range(i64 1, 4294967296) %11)
   %89 = or disjoint i64 %.06677.i, 1
   %90 = mul i64 %89, %70
-  %91 = getelementptr i32, ptr %68, i64 %90
+  %91 = getelementptr [4 x i8], ptr %68, i64 %90
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %91, ptr noundef nonnull readonly align 1 %71, i64 noundef range(i64 4, 549755813761) %45, i1 noundef false) #9
   tail call fastcc void @blockmix_salsa8(ptr noundef nonnull %71, ptr noundef nonnull %69, ptr noundef %72, i64 noundef range(i64 1, 4294967296) %11)
   %92 = add nuw nsw i64 %.06677.i, 2
@@ -166,14 +166,14 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_nosse(ptr noundef %0, pt
   %94 = load i64, ptr %74, align 4
   %95 = and i64 %94, %75
   %96 = mul i64 %95, %70
-  %97 = getelementptr i32, ptr %68, i64 %96
+  %97 = getelementptr [4 x i8], ptr %68, i64 %96
   br label %98
 
 98:                                               ; preds = %98, %.preheader74.i
   %.06.i.i = phi i64 [ 0, %.preheader74.i ], [ %104, %98 ]
-  %99 = getelementptr i32, ptr %97, i64 %.06.i.i
+  %99 = getelementptr [4 x i8], ptr %97, i64 %.06.i.i
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr i32, ptr %69, i64 %.06.i.i
+  %101 = getelementptr [4 x i8], ptr %69, i64 %.06.i.i
   %102 = load i32, ptr %101, align 4
   %103 = xor i32 %102, %100
   store i32 %103, ptr %101, align 4
@@ -186,14 +186,14 @@ blkxor.exit.i:                                    ; preds = %98
   %105 = load i64, ptr %77, align 4
   %106 = and i64 %105, %75
   %107 = mul i64 %106, %70
-  %108 = getelementptr i32, ptr %68, i64 %107
+  %108 = getelementptr [4 x i8], ptr %68, i64 %107
   br label %109
 
 109:                                              ; preds = %109, %blkxor.exit.i
   %.06.i71.i = phi i64 [ 0, %blkxor.exit.i ], [ %115, %109 ]
-  %110 = getelementptr i32, ptr %108, i64 %.06.i71.i
+  %110 = getelementptr [4 x i8], ptr %108, i64 %.06.i71.i
   %111 = load i32, ptr %110, align 4
-  %112 = getelementptr i32, ptr %71, i64 %.06.i71.i
+  %112 = getelementptr [4 x i8], ptr %71, i64 %.06.i71.i
   %113 = load i32, ptr %112, align 4
   %114 = xor i32 %113, %111
   store i32 %114, ptr %112, align 4
@@ -211,7 +211,7 @@ blkxor.exit73.i:                                  ; preds = %109
   %.179.i = phi i64 [ %122, %.preheader.i ], [ 0, %blkxor.exit73.i ]
   %118 = shl nuw nsw i64 %.179.i, 2
   %119 = getelementptr i8, ptr %80, i64 %118
-  %120 = getelementptr i32, ptr %69, i64 %.179.i
+  %120 = getelementptr [4 x i8], ptr %69, i64 %.179.i
   %121 = load i32, ptr %120, align 4
   store i32 %121, ptr %119, align 1
   %122 = add nuw nsw i64 %.179.i, 1
@@ -259,9 +259,9 @@ define internal fastcc void @blockmix_salsa8(ptr noundef readonly captures(none)
 
 10:                                               ; preds = %10, %8
   %.06.i = phi i64 [ 0, %8 ], [ %16, %10 ]
-  %11 = getelementptr i32, ptr %9, i64 %.06.i
+  %11 = getelementptr [4 x i8], ptr %9, i64 %.06.i
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr i32, ptr %2, i64 %.06.i
+  %13 = getelementptr [4 x i8], ptr %2, i64 %.06.i
   %14 = load i32, ptr %13, align 4
   %15 = xor i32 %14, %12
   store i32 %15, ptr %13, align 4
@@ -279,9 +279,9 @@ blkxor.exit:                                      ; preds = %10
 
 19:                                               ; preds = %19, %blkxor.exit
   %.06.i21 = phi i64 [ 0, %blkxor.exit ], [ %25, %19 ]
-  %20 = getelementptr i32, ptr %18, i64 %.06.i21
+  %20 = getelementptr [4 x i8], ptr %18, i64 %.06.i21
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr i32, ptr %2, i64 %.06.i21
+  %22 = getelementptr [4 x i8], ptr %2, i64 %.06.i21
   %23 = load i32, ptr %22, align 4
   %24 = xor i32 %23, %21
   store i32 %24, ptr %22, align 4
@@ -478,9 +478,9 @@ define internal fastcc void @salsa20_8(ptr noundef captures(none) %0) unnamed_ad
 
 133:                                              ; preds = %.preheader, %133
   %.138 = phi i64 [ 0, %.preheader ], [ %139, %133 ]
-  %134 = getelementptr i32, ptr %2, i64 %.138
+  %134 = getelementptr [4 x i8], ptr %2, i64 %.138
   %135 = load i32, ptr %134, align 4
-  %136 = getelementptr i32, ptr %0, i64 %.138
+  %136 = getelementptr [4 x i8], ptr %0, i64 %.138
   %137 = load i32, ptr %136, align 4
   %138 = add i32 %137, %135
   store i32 %138, ptr %136, align 4

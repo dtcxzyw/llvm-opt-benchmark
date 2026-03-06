@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.1 = type { ptr }
 %union.anon.2 = type { i64 }
 %struct.MJpegEncHuffmanContext = type { [256 x i32] }
-%struct.MJpegHuffmanCode = type { i8, i8, i16 }
 
 @.str = private unnamed_addr constant [28 x i8] c"Buffer reallocation failed\0A\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"mjpeg\00", align 1
@@ -189,7 +188,7 @@ define i32 @ff_mjpeg_encode_stuffing(ptr noundef %0) local_unnamed_addr #0 {
 
 27:                                               ; preds = %27, %19
   %indvars.iv.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8, !tbaa !53
   call void @ff_mjpeg_encode_huffman_init(ptr noundef %29) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -198,15 +197,15 @@ define i32 @ff_mjpeg_encode_stuffing(ptr noundef %0) local_unnamed_addr #0 {
 
 30:                                               ; preds = %30, %.lr.ph.i
   %indvars.iv40.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next41.i, %30 ]
-  %31 = getelementptr inbounds nuw %struct.MJpegHuffmanCode, ptr %26, i64 %indvars.iv40.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv40.i
   %32 = load i8, ptr %31, align 2, !tbaa !59
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %34 = load i8, ptr %33, align 1, !tbaa !61
   %35 = zext i8 %32 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %8, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !53
   %38 = zext i8 %34 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !62
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %39, align 4, !tbaa !62
@@ -296,7 +295,7 @@ mjpeg_build_optimal_huffman.exit:                 ; preds = %30, %.preheader.i
 
 94:                                               ; preds = %94, %.lr.ph.i39
   %indvars.iv.i40 = phi i64 [ 1, %.lr.ph.i39 ], [ %indvars.iv.next.i41, %94 ]
-  %95 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv.i40
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv.i40
   %96 = load ptr, ptr %95, align 8, !tbaa !75
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 6792
   store i32 0, ptr %97, align 8, !tbaa !74
@@ -371,14 +370,14 @@ mjpeg_encode_picture_header.exit:                 ; preds = %94, %mjpeg_build_op
 129:                                              ; preds = %129, %.lr.ph.i43
   %indvars.iv.i44 = phi i64 [ 0, %.lr.ph.i43 ], [ %indvars.iv.next.i45, %129 ]
   %.04957.i = phi i64 [ 0, %.lr.ph.i43 ], [ %144, %129 ]
-  %130 = getelementptr inbounds nuw %struct.MJpegHuffmanCode, ptr %122, i64 %indvars.iv.i44
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv.i44
   %131 = load i8, ptr %130, align 2, !tbaa !59
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 1
   %133 = load i8, ptr %132, align 1, !tbaa !61
   %134 = and i8 %133, 15
   %135 = zext nneg i8 %134 to i64
   %136 = zext i8 %131 to i64
-  %137 = getelementptr inbounds nuw ptr, ptr %2, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !77
   %139 = zext i8 %133 to i64
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 %139
@@ -395,21 +394,21 @@ mjpeg_encode_picture_header.exit:                 ; preds = %94, %mjpeg_build_op
   %147 = phi i32 [ %.pre.i, %.lr.ph61.i ], [ %221, %219 ]
   %indvars.iv67.i = phi i64 [ 0, %.lr.ph61.i ], [ %indvars.iv.next68.i, %219 ]
   %148 = load ptr, ptr %127, align 8, !tbaa !56
-  %149 = getelementptr inbounds nuw %struct.MJpegHuffmanCode, ptr %148, i64 %indvars.iv67.i
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %indvars.iv67.i
   %150 = load i8, ptr %149, align 2, !tbaa !59
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 1
   %152 = load i8, ptr %151, align 1, !tbaa !61
   %153 = and i8 %152, 15
   %154 = zext i8 %150 to i64
-  %155 = getelementptr inbounds nuw ptr, ptr %2, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !77
   %157 = zext i8 %152 to i64
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !75
   %160 = zext i8 %159 to i32
-  %161 = getelementptr inbounds nuw ptr, ptr %3, i64 %154
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %154
   %162 = load ptr, ptr %161, align 8, !tbaa !78
-  %163 = getelementptr inbounds nuw i16, ptr %162, i64 %157
+  %163 = getelementptr inbounds nuw [2 x i8], ptr %162, i64 %157
   %164 = load i16, ptr %163, align 2, !tbaa !90
   %165 = zext i16 %164 to i32
   %166 = icmp sgt i32 %146, %160
@@ -461,7 +460,7 @@ put_bits.exit.i:                                  ; preds = %186, %167
 187:                                              ; preds = %put_bits.exit.i
   %188 = zext nneg i8 %153 to i32
   %189 = load ptr, ptr %127, align 8, !tbaa !56
-  %190 = getelementptr inbounds nuw %struct.MJpegHuffmanCode, ptr %189, i64 %indvars.iv67.i
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %189, i64 %indvars.iv67.i
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 2
   %192 = load i16, ptr %191, align 2, !tbaa !92
   %193 = zext i16 %192 to i32
@@ -697,7 +696,7 @@ put_marker.exit:                                  ; preds = %288, %299, %307
   %indvars.iv = phi i64 [ 0, %320 ], [ %indvars.iv.next, %324 ]
   %325 = load i32, ptr %321, align 8, !tbaa !96
   %326 = shl i32 128, %325
-  %327 = getelementptr inbounds nuw i32, ptr %322, i64 %indvars.iv
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %322, i64 %indvars.iv
   store i32 %326, ptr %327, align 4, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -906,7 +905,7 @@ define internal i32 @mjpeg_get_supported_config(ptr noundef %0, ptr noundef %1, 
 
 14:                                               ; preds = %8, %9
   %15 = phi i64 [ %13, %9 ], [ 1, %8 ]
-  %16 = getelementptr inbounds nuw i32, ptr @mjpeg_get_supported_config.mjpeg_ranges, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @mjpeg_get_supported_config.mjpeg_ranges, i64 %15
   store ptr %16, ptr %4, align 8, !tbaa !121
   %17 = trunc nuw nsw i64 %15 to i32
   %18 = sub nuw nsw i32 2, %17
@@ -959,7 +958,7 @@ define internal i32 @amv_encode_picture(ptr noundef %0, ptr noundef %1, ptr noun
 20:                                               ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %20 ]
   %.not22 = icmp eq i64 %indvars.iv, 0
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !62
   %23 = load i32, ptr %19, align 4, !tbaa !123
   %24 = zext i1 %.not22 to i32
@@ -967,7 +966,7 @@ define internal i32 @amv_encode_picture(ptr noundef %0, ptr noundef %1, ptr noun
   %26 = sdiv i32 %25, 2
   %27 = add nsw i32 %26, -1
   %28 = mul nsw i32 %27, %22
-  %29 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !77
   %31 = sext i32 %28 to i64
   %32 = getelementptr inbounds i8, ptr %30, i64 %31
@@ -1049,7 +1048,7 @@ define internal noundef i32 @mjpeg_amv_encode_picture_header(ptr noundef %0) #0 
 
 37:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !75
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 6792
   store i32 0, ptr %40, align 8, !tbaa !74
@@ -1105,7 +1104,7 @@ define internal void @mjpeg_encode_mb(ptr noundef %0, ptr noundef readonly captu
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %4 ]
-  %28 = getelementptr inbounds nuw [64 x i16], ptr %1, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [128 x i8], ptr %1, i64 %indvars.iv
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @encode_block(ptr noundef nonnull %0, ptr noundef %28, i32 noundef %29)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1205,7 +1204,7 @@ define internal void @mjpeg_record_mb(ptr noundef captures(none) %0, ptr noundef
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %4 ]
-  %28 = getelementptr inbounds nuw [64 x i16], ptr %1, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [128 x i8], ptr %1, i64 %indvars.iv
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @record_block(ptr noundef nonnull %0, ptr noundef %28, i32 noundef %29)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1268,7 +1267,7 @@ define internal fastcc void @encode_block(ptr noundef %0, ptr noundef readonly c
   %11 = sext i16 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   %13 = zext nneg i32 %9 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !62
   %16 = sub nsw i32 %11, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4808
@@ -1284,7 +1283,7 @@ define internal fastcc void @encode_block(ptr noundef %0, ptr noundef readonly c
   store i32 %11, ptr %14, align 4, !tbaa !62
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = sext i32 %2 to i64
-  %24 = getelementptr inbounds i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !62
   %.not80 = icmp slt i32 %25, 1
   br i1 %.not80, label %._crit_edge85.thread, label %.lr.ph84
@@ -1307,7 +1306,7 @@ define internal fastcc void @encode_block(ptr noundef %0, ptr noundef readonly c
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv
   %36 = load i8, ptr %35, align 1, !tbaa !75
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw i16, ptr %1, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !90
   %40 = sext i16 %39 to i32
   %41 = icmp eq i16 %39, 0
@@ -1404,7 +1403,7 @@ put_bits.exit:                                    ; preds = %52, %72
   %90 = getelementptr inbounds i8, ptr %20, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !75
   %92 = zext i8 %91 to i32
-  %93 = getelementptr inbounds i16, ptr %21, i64 %89
+  %93 = getelementptr inbounds [2 x i8], ptr %21, i64 %89
   %94 = load i16, ptr %93, align 2, !tbaa !90
   %95 = zext i16 %94 to i32
   %96 = icmp sgt i32 %76, %92
@@ -1588,7 +1587,7 @@ define internal fastcc void @record_block(ptr noundef captures(none) %0, ptr nou
   %12 = sext i16 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   %14 = zext nneg i32 %9 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !62
   %17 = zext i1 %6 to i8
   %18 = icmp eq i32 %16, %12
@@ -1601,7 +1600,7 @@ define internal fastcc void @record_block(ptr noundef captures(none) %0, ptr nou
   %23 = load i64, ptr %22, align 8, !tbaa !55
   %24 = add i64 %23, 1
   store i64 %24, ptr %22, align 8, !tbaa !55
-  %25 = getelementptr inbounds nuw %struct.MJpegHuffmanCode, ptr %21, i64 %23
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %23
   store i8 %17, ptr %25, align 2, !tbaa !59
   br label %mjpeg_encode_coef.exit
 
@@ -1624,7 +1623,7 @@ define internal fastcc void @record_block(ptr noundef captures(none) %0, ptr nou
   %37 = load ptr, ptr %36, align 8, !tbaa !56
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 18608
   %39 = load i64, ptr %38, align 8, !tbaa !55
-  %40 = getelementptr inbounds nuw %struct.MJpegHuffmanCode, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 2
   store i16 %35, ptr %41, align 2, !tbaa !92
   %42 = add i64 %39, 1
@@ -1642,7 +1641,7 @@ mjpeg_encode_coef.exit:                           ; preds = %19, %26
   store i32 %12, ptr %15, align 4, !tbaa !62
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %46 = sext i32 %2 to i64
-  %47 = getelementptr inbounds i32, ptr %45, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %45, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !62
   %49 = or disjoint i32 %10, 2
   %.not49 = icmp slt i32 %48, 1
@@ -1663,7 +1662,7 @@ mjpeg_encode_coef.exit:                           ; preds = %19, %26
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv
   %56 = load i8, ptr %55, align 1, !tbaa !75
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw i16, ptr %1, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !90
   %60 = sext i16 %59 to i32
   %61 = icmp eq i16 %59, 0
@@ -1681,7 +1680,7 @@ mjpeg_encode_coef.exit:                           ; preds = %19, %26
   %65 = phi i64 [ %66, %.lr.ph ], [ %.promoted, %.preheader ]
   %.148 = phi i32 [ %69, %.lr.ph ], [ %.03850, %.preheader ]
   %66 = add i64 %65, 1
-  %67 = getelementptr inbounds nuw %struct.MJpegHuffmanCode, ptr %43, i64 %65
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %65
   store i8 %51, ptr %67, align 2, !tbaa !59
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
   store i8 -16, ptr %68, align 1, !tbaa !61
@@ -1708,7 +1707,7 @@ mjpeg_encode_coef.exit47:                         ; preds = %.lr.ph, %.preheader
   %81 = or i32 %80, %72
   %82 = trunc nsw i32 %.lobit.i40 to i16
   %83 = add i16 %59, %82
-  %84 = getelementptr inbounds nuw %struct.MJpegHuffmanCode, ptr %43, i64 %71
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %71
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 2
   store i16 %83, ptr %85, align 2, !tbaa !92
   %86 = add i64 %71, 1
@@ -1738,7 +1737,7 @@ mjpeg_encode_coef.exit47:                         ; preds = %.lr.ph, %.preheader
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 18608
   %95 = add i64 %92, 1
   store i64 %95, ptr %94, align 8, !tbaa !55
-  %96 = getelementptr inbounds nuw %struct.MJpegHuffmanCode, ptr %43, i64 %92
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %92
   store i8 %93, ptr %96, align 2, !tbaa !59
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 1
   store i8 0, ptr %97, align 1, !tbaa !61

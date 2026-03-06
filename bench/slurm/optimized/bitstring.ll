@@ -398,7 +398,7 @@ define dso_local void @bit_set(ptr noundef captures(none) %0, i64 noundef %1) #1
   %3 = and i64 %1, 63
   %4 = shl nuw i64 1, %3
   %5 = ashr i64 %1, 6
-  %6 = getelementptr i64, ptr %0, i64 %5
+  %6 = getelementptr [8 x i8], ptr %0, i64 %5
   %7 = getelementptr i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = or i64 %8, %4
@@ -412,7 +412,7 @@ define dso_local void @bit_clear(ptr noundef captures(none) %0, i64 noundef %1) 
   %4 = shl nuw i64 1, %3
   %5 = xor i64 %4, -1
   %6 = ashr i64 %1, 6
-  %7 = getelementptr i64, ptr %0, i64 %6
+  %7 = getelementptr [8 x i8], ptr %0, i64 %6
   %8 = getelementptr i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, %5
@@ -440,7 +440,7 @@ define dso_local void @bit_nclear(ptr noundef captures(none) %0, i64 noundef %1,
   %8 = shl nuw i64 1, %7
   %9 = xor i64 %8, -1
   %10 = ashr i64 %.01722, 6
-  %11 = getelementptr i64, ptr %0, i64 %10
+  %11 = getelementptr [8 x i8], ptr %0, i64 %10
   %12 = getelementptr i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, %9
@@ -464,7 +464,7 @@ define dso_local void @bit_nclear(ptr noundef captures(none) %0, i64 noundef %1,
   %22 = shl nuw i64 1, %21
   %23 = xor i64 %22, -1
   %24 = ashr i64 %.024, 6
-  %25 = getelementptr i64, ptr %0, i64 %24
+  %25 = getelementptr [8 x i8], ptr %0, i64 %24
   %26 = getelementptr i8, ptr %25, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, %23
@@ -510,7 +510,7 @@ define dso_local void @bit_nset(ptr noundef captures(none) %0, i64 noundef %1, i
   %7 = and i64 %.01722, 63
   %8 = shl nuw i64 1, %7
   %9 = ashr i64 %.01722, 6
-  %10 = getelementptr i64, ptr %0, i64 %9
+  %10 = getelementptr [8 x i8], ptr %0, i64 %9
   %11 = getelementptr i8, ptr %10, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = or i64 %12, %8
@@ -533,7 +533,7 @@ define dso_local void @bit_nset(ptr noundef captures(none) %0, i64 noundef %1, i
   %20 = and i64 %.024, 63
   %21 = shl nuw i64 1, %20
   %22 = ashr i64 %.024, 6
-  %23 = getelementptr i64, ptr %0, i64 %22
+  %23 = getelementptr [8 x i8], ptr %0, i64 %22
   %24 = getelementptr i8, ptr %23, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = or i64 %25, %21
@@ -578,7 +578,7 @@ define dso_local void @bit_set_all(ptr noundef captures(none) %0) #2 {
   %5 = and i64 %.024.i, 63
   %6 = shl nuw i64 1, %5
   %7 = ashr i64 %.024.i, 6
-  %8 = getelementptr i64, ptr %0, i64 %7
+  %8 = getelementptr [8 x i8], ptr %0, i64 %7
   %9 = getelementptr i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = or i64 %10, %6
@@ -615,7 +615,7 @@ define dso_local void @bit_clear_all(ptr noundef captures(none) %0) #2 {
   %6 = shl nuw i64 1, %5
   %7 = xor i64 %6, -1
   %8 = ashr i64 %.024.i, 6
-  %9 = getelementptr i64, ptr %0, i64 %8
+  %9 = getelementptr [8 x i8], ptr %0, i64 %8
   %10 = getelementptr i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, %7
@@ -645,7 +645,7 @@ define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @bit_f
   %5 = shl i64 %.028, 26
   %sext = add i64 %5, 8589934592
   %6 = ashr i64 %sext, 32
-  %7 = getelementptr inbounds i64, ptr %0, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %0, i64 %6
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, -1
   br i1 %9, label %11, label %.preheader
@@ -750,9 +750,9 @@ define dso_local void @bit_and(ptr noundef captures(none) %0, ptr noundef readon
   %.023 = phi i64 [ %7, %.lr.ph ], [ 0, %2 ]
   %8 = ashr exact i64 %.023, 6
   %9 = add nsw i64 %8, 2
-  %10 = getelementptr inbounds i64, ptr %1, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %1, i64 %9
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i64, ptr %0, i64 %9
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, %11
   store i64 %14, ptr %12, align 8
@@ -770,10 +770,10 @@ define dso_local void @bit_and(ptr noundef captures(none) %0, ptr noundef readon
   %notmask = shl nsw i64 -1, %18
   %19 = ashr exact i64 %.0.lcssa, 6
   %20 = add nsw i64 %19, 2
-  %21 = getelementptr inbounds i64, ptr %1, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = or i64 %22, %notmask
-  %24 = getelementptr inbounds i64, ptr %0, i64 %20
+  %24 = getelementptr inbounds [8 x i8], ptr %0, i64 %20
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %25, %23
   store i64 %26, ptr %24, align 8
@@ -822,9 +822,9 @@ define dso_local void @bit_or(ptr noundef captures(none) %0, ptr noundef readonl
   %.023 = phi i64 [ %7, %.lr.ph ], [ 0, %2 ]
   %8 = ashr exact i64 %.023, 6
   %9 = add nsw i64 %8, 2
-  %10 = getelementptr inbounds i64, ptr %1, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %1, i64 %9
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i64, ptr %0, i64 %9
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %13 = load i64, ptr %12, align 8
   %14 = or i64 %13, %11
   store i64 %14, ptr %12, align 8
@@ -843,10 +843,10 @@ define dso_local void @bit_or(ptr noundef captures(none) %0, ptr noundef readonl
   %19 = xor i64 %notmask, -1
   %20 = ashr exact i64 %.0.lcssa, 6
   %21 = add nsw i64 %20, 2
-  %22 = getelementptr inbounds i64, ptr %1, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %1, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, %19
-  %25 = getelementptr inbounds i64, ptr %0, i64 %21
+  %25 = getelementptr inbounds [8 x i8], ptr %0, i64 %21
   %26 = load i64, ptr %25, align 8
   %27 = or i64 %26, %24
   store i64 %27, ptr %25, align 8
@@ -922,7 +922,7 @@ define dso_local i32 @bit_set_count_range(ptr noundef readonly captures(none) %0
   %14 = and i64 %9, 63
   %notmask48 = shl nsw i64 -1, %14
   %15 = ashr i64 %9, 6
-  %16 = getelementptr i64, ptr %0, i64 %15
+  %16 = getelementptr [8 x i8], ptr %0, i64 %15
   %17 = getelementptr i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %notmask48
@@ -942,7 +942,7 @@ define dso_local i32 @bit_set_count_range(ptr noundef readonly captures(none) %0
   %27 = xor i64 %notmask47, -1
   %28 = and i64 %notmask, %27
   %29 = ashr i64 %9, 6
-  %30 = getelementptr i64, ptr %0, i64 %29
+  %30 = getelementptr [8 x i8], ptr %0, i64 %29
   %31 = getelementptr i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %28, %32
@@ -965,7 +965,7 @@ define dso_local i32 @bit_set_count_range(ptr noundef readonly captures(none) %0
   %.154 = phi i32 [ %47, %.lr.ph ], [ %.0, %37 ]
   %.14053 = phi i64 [ %40, %.lr.ph ], [ %.039, %37 ]
   %41 = ashr i64 %.14053, 6
-  %42 = getelementptr i64, ptr %0, i64 %41
+  %42 = getelementptr [8 x i8], ptr %0, i64 %41
   %43 = getelementptr i8, ptr %42, i64 16
   %44 = load i64, ptr %43, align 8
   %45 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
@@ -986,7 +986,7 @@ define dso_local i32 @bit_set_count_range(ptr noundef readonly captures(none) %0
   %notmask50 = shl nsw i64 -1, %51
   %52 = xor i64 %notmask50, -1
   %53 = ashr i64 %.140.lcssa, 6
-  %54 = getelementptr i64, ptr %0, i64 %53
+  %54 = getelementptr [8 x i8], ptr %0, i64 %53
   %55 = getelementptr i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, %52
@@ -1062,7 +1062,7 @@ define dso_local range(i32 0, -2147483648) i32 @bit_nset_max_count(ptr noundef r
   %.01523 = phi i32 [ %.2, %.lr.ph.backedge ], [ 0, %1 ]
   %.01622 = phi i32 [ %.117, %.lr.ph.backedge ], [ 0, %1 ]
   %5 = lshr i64 %.024, 6
-  %6 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %.024, 63
@@ -1131,7 +1131,7 @@ define dso_local noundef ptr @bit_rotate_copy(ptr noundef readonly captures(none
 .lr.ph:                                           ; preds = %3, %34
   %.03340 = phi i64 [ %35, %34 ], [ 0, %3 ]
   %18 = lshr i64 %.03340, 6
-  %19 = getelementptr inbounds nuw i64, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %.03340, 63
@@ -1145,7 +1145,7 @@ define dso_local noundef ptr @bit_rotate_copy(ptr noundef readonly captures(none
   %27 = and i64 %26, 63
   %28 = shl nuw i64 1, %27
   %29 = ashr i64 %26, 6
-  %30 = getelementptr i64, ptr %13, i64 %29
+  %30 = getelementptr [8 x i8], ptr %13, i64 %29
   %31 = getelementptr i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = or i64 %32, %28
@@ -1161,7 +1161,7 @@ define dso_local noundef ptr @bit_rotate_copy(ptr noundef readonly captures(none
   %.142 = phi i64 [ %53, %52 ], [ %.033.lcssa, %.lr.ph43.preheader ]
   %.03441 = phi i64 [ %54, %52 ], [ 0, %.lr.ph43.preheader ]
   %37 = lshr i64 %.142, 6
-  %38 = getelementptr inbounds nuw i64, ptr %0, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %.142, 63
@@ -1174,7 +1174,7 @@ define dso_local noundef ptr @bit_rotate_copy(ptr noundef readonly captures(none
   %45 = and i64 %.03441, 63
   %46 = shl nuw i64 1, %45
   %47 = lshr i64 %.03441, 6
-  %48 = getelementptr i64, ptr %13, i64 %47
+  %48 = getelementptr [8 x i8], ptr %13, i64 %47
   %49 = getelementptr i8, ptr %48, i64 16
   %50 = load i64, ptr %49, align 8
   %51 = or i64 %50, %46
@@ -1252,7 +1252,7 @@ define dso_local noundef ptr @bit_fmt(ptr noundef returned captures(ret: address
   br i1 %17, label %8, label %.outer._crit_edge, !llvm.loop !25
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i64, ptr %2, i64 %10
+  %19 = getelementptr inbounds [8 x i8], ptr %2, i64 %10
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %.03545, 63
   %22 = shl nuw i64 1, %21
@@ -1272,7 +1272,7 @@ define dso_local noundef ptr @bit_fmt(ptr noundef returned captures(ret: address
 
 26:                                               ; preds = %.preheader
   %27 = ashr i64 %24, 6
-  %28 = getelementptr i64, ptr %2, i64 %27
+  %28 = getelementptr [8 x i8], ptr %2, i64 %27
   %29 = getelementptr i8, ptr %28, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %24, 63
@@ -1356,7 +1356,7 @@ define dso_local ptr @bit_fmt_full(ptr noundef readonly captures(none) %0) #0 {
   br i1 %17, label %8, label %.outer._crit_edge, !llvm.loop !27
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i64, ptr %0, i64 %10
+  %19 = getelementptr inbounds [8 x i8], ptr %0, i64 %10
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %.02330, 63
   %22 = shl nuw i64 1, %21
@@ -1372,7 +1372,7 @@ define dso_local ptr @bit_fmt_full(ptr noundef readonly captures(none) %0) #0 {
 
 26:                                               ; preds = %.preheader
   %27 = ashr i64 %24, 6
-  %28 = getelementptr i64, ptr %0, i64 %27
+  %28 = getelementptr [8 x i8], ptr %0, i64 %27
   %29 = getelementptr i8, ptr %28, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %24, 63
@@ -1498,7 +1498,7 @@ define dso_local ptr @bitfmt2int(ptr noundef %0) #0 {
   %27 = icmp eq i32 %.078, -1
   %spec.select = select i1 %27, i32 %.05377, i32 %.078
   %28 = sext i32 %.05576 to i64
-  %29 = getelementptr inbounds i32, ptr %14, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %14, i64 %28
   store i32 %spec.select, ptr %29, align 4
   %30 = add nsw i32 %.05576, 2
   %31 = getelementptr i8, ptr %29, i64 4
@@ -1562,7 +1562,7 @@ define dso_local ptr @bitfmt2int(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %53, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %53 ]
   %.15973 = phi i32 [ %64, %.lr.ph ], [ %35, %53 ]
-  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv
   store i32 %.15973, ptr %62, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
@@ -1579,7 +1579,7 @@ define dso_local ptr @bitfmt2int(ptr noundef %0) #0 {
   %.060 = phi ptr [ %14, %6 ], [ %60, %.loopexit.loopexit83 ], [ %60, %53 ], [ %14, %32 ], [ %14, %24 ]
   %.257 = phi i32 [ 0, %6 ], [ %66, %.loopexit.loopexit83 ], [ 0, %53 ], [ %.05576, %24 ], [ %.156, %32 ]
   %67 = sext i32 %.257 to i64
-  %68 = getelementptr inbounds i32, ptr %.060, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %.060, i64 %67
   store i32 -1, ptr %68, align 4
   br label %69
 
@@ -1631,7 +1631,7 @@ define dso_local range(i32 -1, 1) i32 @bit_unfmt_hexmask(ptr noundef captures(ad
   %14 = shl nuw i64 1, %13
   %15 = xor i64 %14, -1
   %16 = ashr i64 %.024.i, 6
-  %17 = getelementptr i64, ptr %0, i64 %16
+  %17 = getelementptr [8 x i8], ptr %0, i64 %16
   %18 = getelementptr i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, %15
@@ -1663,7 +1663,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
   %27 = load i8, ptr %.06585, align 1
   %28 = sext i8 %27 to i64
   %29 = load ptr, ptr %25, align 8
-  %30 = getelementptr inbounds i16, ptr %29, i64 %28
+  %30 = getelementptr inbounds [2 x i8], ptr %29, i64 %28
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
   %33 = and i32 %32, 4096
@@ -1682,7 +1682,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
 38:                                               ; preds = %34
   %39 = tail call ptr @__ctype_toupper_loc() #19
   %.pn = load ptr, ptr %39, align 8
-  %.062.in = getelementptr inbounds i32, ptr %.pn, i64 %28
+  %.062.in = getelementptr inbounds [4 x i8], ptr %.pn, i64 %28
   %.062 = load i32, ptr %.062.in, align 4
   %40 = zext i32 %.062 to i64
   %41 = add nsw i64 %40, -55
@@ -1700,7 +1700,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
   %48 = shl nuw i64 %46, %47
   %49 = lshr i64 %indvars.iv, 6
   %50 = and i64 %49, 67108863
-  %51 = getelementptr i64, ptr %0, i64 %50
+  %51 = getelementptr [8 x i8], ptr %0, i64 %50
   %52 = getelementptr i8, ptr %51, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = or i64 %53, %48
@@ -1726,7 +1726,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
   %60 = and i64 %indvars.iv, 60
   %61 = shl nuw nsw i64 1, %60
   %62 = lshr i64 %indvars.iv, 6
-  %63 = getelementptr i64, ptr %0, i64 %62
+  %63 = getelementptr [8 x i8], ptr %0, i64 %62
   %64 = getelementptr i8, ptr %63, i64 16
   %65 = load i64, ptr %64, align 8
   %66 = or i64 %65, %61
@@ -1747,7 +1747,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
   %73 = and i64 %70, 61
   %74 = shl nuw nsw i64 1, %73
   %75 = lshr i64 %indvars.iv, 6
-  %76 = getelementptr i64, ptr %0, i64 %75
+  %76 = getelementptr [8 x i8], ptr %0, i64 %75
   %77 = getelementptr i8, ptr %76, i64 16
   %78 = load i64, ptr %77, align 8
   %79 = or i64 %78, %74
@@ -1768,7 +1768,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
   %86 = and i64 %83, 62
   %87 = shl nuw nsw i64 1, %86
   %88 = lshr i64 %indvars.iv, 6
-  %89 = getelementptr i64, ptr %0, i64 %88
+  %89 = getelementptr [8 x i8], ptr %0, i64 %88
   %90 = getelementptr i8, ptr %89, i64 16
   %91 = load i64, ptr %90, align 8
   %92 = or i64 %91, %87
@@ -1801,7 +1801,7 @@ define dso_local range(i64 -63, 9223372036854775807) i64 @bit_fls(ptr noundef re
   br i1 %7, label %8, label %.lr.ph33.i
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %.02025.i, 63
@@ -1819,7 +1819,7 @@ define dso_local range(i64 -63, 9223372036854775807) i64 @bit_fls(ptr noundef re
   %17 = shl i64 %.121.ph39.i, 26
   %sext.i = add i64 %17, 8589934592
   %18 = ashr i64 %sext.i, 32
-  %19 = getelementptr inbounds i64, ptr %0, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %0, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %.outer.i, label %.lr.ph33.split.i
@@ -1861,7 +1861,7 @@ define dso_local range(i64 -63, -9223372036854775808) i64 @bit_fls_from_bit(ptr 
   br i1 %10, label %11, label %.lr.ph33
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %7
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %7
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %.02025, 63
@@ -1880,7 +1880,7 @@ define dso_local range(i64 -63, -9223372036854775808) i64 @bit_fls_from_bit(ptr 
   %21 = shl i64 %.121.ph39, 26
   %sext = add i64 %21, 8589934592
   %22 = ashr i64 %sext, 32
-  %23 = getelementptr inbounds i64, ptr %0, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %0, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %.outer, label %.lr.ph33.split
@@ -1948,7 +1948,7 @@ bit_ffs.exit:                                     ; preds = %.lr.ph.split.i
   br i1 %15, label %16, label %.lr.ph33.i.i
 
 16:                                               ; preds = %.lr.ph.i.i
-  %17 = getelementptr inbounds nuw i64, ptr %0, i64 %13
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %13
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %.02025.i.i, 63
@@ -1966,7 +1966,7 @@ bit_ffs.exit:                                     ; preds = %.lr.ph.split.i
   %25 = shl i64 %.121.ph39.i.i, 26
   %sext.i.i = add i64 %25, 8589934592
   %26 = ashr i64 %sext.i.i, 32
-  %27 = getelementptr inbounds i64, ptr %0, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %0, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %.outer.i.i, label %.lr.ph33.split.i.i
@@ -2004,7 +2004,7 @@ bit_fls.exit:                                     ; preds = %16, %23, %.outer.i.
   %38 = and i64 %.01722.i, 63
   %39 = shl nuw i64 1, %38
   %40 = ashr i64 %.01722.i, 6
-  %41 = getelementptr i64, ptr %0, i64 %40
+  %41 = getelementptr [8 x i8], ptr %0, i64 %40
   %42 = getelementptr i8, ptr %41, i64 16
   %43 = load i64, ptr %42, align 8
   %44 = or i64 %39, %43
@@ -2027,7 +2027,7 @@ bit_fls.exit:                                     ; preds = %16, %23, %.outer.i.
   %51 = and i64 %.024.i, 63
   %52 = shl nuw i64 1, %51
   %53 = ashr i64 %.024.i, 6
-  %54 = getelementptr i64, ptr %0, i64 %53
+  %54 = getelementptr [8 x i8], ptr %0, i64 %53
   %55 = getelementptr i8, ptr %54, i64 16
   %56 = load i64, ptr %55, align 8
   %57 = or i64 %56, %52
@@ -2071,9 +2071,9 @@ define dso_local range(i32 0, 2) i32 @bit_super_set(ptr noundef readonly capture
   %.02228 = phi i64 [ 0, %.lr.ph ], [ %.pre, %._crit_edge ]
   %9 = ashr exact i64 %.02228, 6
   %10 = add nsw i64 %9, 2
-  %11 = getelementptr inbounds i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i64, ptr %1, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %1, i64 %10
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, %12
   %.not = icmp eq i64 %12, %15
@@ -2117,9 +2117,9 @@ define dso_local i32 @bit_overlap(ptr noundef readonly captures(none) %0, ptr no
   %8 = add i64 %.03139.us.i, 64
   %9 = ashr exact i64 %.03139.us.i, 6
   %10 = add nsw i64 %9, 2
-  %11 = getelementptr inbounds i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i64, ptr %1, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %1, i64 %10
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, %12
   %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %15)
@@ -2134,9 +2134,9 @@ define dso_local i32 @bit_overlap(ptr noundef readonly captures(none) %0, ptr no
   %21 = xor i64 %notmask.i, -1
   %22 = ashr exact i64 %.03139.us.i, 6
   %23 = add nsw i64 %22, 2
-  %24 = getelementptr inbounds i64, ptr %0, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %0, i64 %23
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i64, ptr %1, i64 %23
+  %26 = getelementptr inbounds [8 x i8], ptr %1, i64 %23
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %25, %21
   %29 = and i64 %28, %27
@@ -2167,9 +2167,9 @@ define dso_local range(i32 0, 2) i32 @bit_overlap_any(ptr noundef readonly captu
 8:                                                ; preds = %.lr.ph.split.i
   %9 = ashr exact i64 %.03139.i, 6
   %10 = add nsw i64 %9, 2
-  %11 = getelementptr inbounds i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i64, ptr %1, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %1, i64 %10
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, %12
   %.not33.i = icmp eq i64 %15, 0
@@ -2185,9 +2185,9 @@ define dso_local range(i32 0, 2) i32 @bit_overlap_any(ptr noundef readonly captu
   %19 = xor i64 %notmask.i, -1
   %20 = ashr exact i64 %.03139.i, 6
   %21 = add nsw i64 %20, 2
-  %22 = getelementptr inbounds i64, ptr %0, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %0, i64 %21
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i64, ptr %1, i64 %21
+  %24 = getelementptr inbounds [8 x i8], ptr %1, i64 %21
   %25 = load i64, ptr %24, align 8
   %26 = and i64 %23, %19
   %27 = and i64 %26, %25
@@ -2218,9 +2218,9 @@ define dso_local range(i32 0, 2) i32 @bit_equal(ptr noundef readonly captures(no
 8:                                                ; preds = %.preheader
   %9 = ashr exact i64 %.020, 6
   %10 = add nsw i64 %9, 2
-  %11 = getelementptr inbounds i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i64, ptr %1, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %1, i64 %10
   %14 = load i64, ptr %13, align 8
   %.not25 = icmp eq i64 %12, %14
   br i1 %.not25, label %.preheader, label %.loopexit, !llvm.loop !36
@@ -2235,9 +2235,9 @@ define dso_local range(i32 0, 2) i32 @bit_equal(ptr noundef readonly captures(no
   %19 = xor i64 %notmask, -1
   %20 = ashr exact i64 %.020, 6
   %21 = add nsw i64 %20, 2
-  %22 = getelementptr inbounds i64, ptr %0, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %0, i64 %21
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i64, ptr %1, i64 %21
+  %24 = getelementptr inbounds [8 x i8], ptr %1, i64 %21
   %25 = load i64, ptr %24, align 8
   %26 = xor i64 %25, %23
   %27 = and i64 %26, %19
@@ -2342,7 +2342,7 @@ define dso_local noundef ptr @bit_pick_cnt(ptr noundef readonly captures(none) %
   %14 = shl i64 %.03750, 26
   %sext = add i64 %14, 8589934592
   %15 = ashr i64 %sext, 32
-  %16 = getelementptr inbounds i64, ptr %0, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %0, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %21
@@ -2368,7 +2368,7 @@ define dso_local noundef ptr @bit_pick_cnt(ptr noundef readonly captures(none) %
 
 29:                                               ; preds = %21
   %30 = add i64 %.03750, 64
-  %31 = getelementptr inbounds i64, ptr %8, i64 %15
+  %31 = getelementptr inbounds [8 x i8], ptr %8, i64 %15
   store i64 %17, ptr %31, align 8
   %.pre56 = load i64, ptr %4, align 8
   br label %.loopexit, !llvm.loop !37
@@ -2379,7 +2379,7 @@ define dso_local noundef ptr @bit_pick_cnt(ptr noundef readonly captures(none) %
   %.248 = phi i64 [ %.3, %47 ], [ %.03651, %.preheader ]
   %.23947 = phi i64 [ %50, %47 ], [ %.03750, %.preheader ]
   %34 = ashr i64 %.23947, 6
-  %35 = getelementptr i64, ptr %0, i64 %34
+  %35 = getelementptr [8 x i8], ptr %0, i64 %34
   %36 = getelementptr i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %.23947, 63
@@ -2389,7 +2389,7 @@ define dso_local noundef ptr @bit_pick_cnt(ptr noundef readonly captures(none) %
   br i1 %.not45, label %47, label %41
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr i64, ptr %8, i64 %34
+  %42 = getelementptr [8 x i8], ptr %8, i64 %34
   %43 = getelementptr i8, ptr %42, i64 16
   %44 = load i64, ptr %43, align 8
   %45 = or i64 %44, %39
@@ -2446,7 +2446,7 @@ define dso_local i64 @bit_nffc(ptr noundef readonly captures(none) %0, i32 nound
   %.018 = phi i32 [ %.1, %18 ], [ 0, %2 ]
   %.01117 = phi i64 [ %19, %18 ], [ 0, %2 ]
   %6 = lshr i64 %.01117, 6
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %.01117, 63
@@ -2497,7 +2497,7 @@ define dso_local i64 @bit_noc(ptr noundef readonly captures(none) %0, i32 nounde
   %.048 = phi i32 [ %.1, %24 ], [ 0, %3 ]
   %.03147 = phi i64 [ %25, %24 ], [ %9, %3 ]
   %12 = ashr i64 %.03147, 6
-  %13 = getelementptr i64, ptr %0, i64 %12
+  %13 = getelementptr [8 x i8], ptr %0, i64 %12
   %14 = getelementptr i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %.03147, 63
@@ -2526,7 +2526,7 @@ define dso_local i64 @bit_noc(ptr noundef readonly captures(none) %0, i32 nounde
   %.250 = phi i32 [ %.3, %39 ], [ 0, %.preheader ]
   %.13249 = phi i64 [ %40, %39 ], [ 0, %.preheader ]
   %26 = lshr i64 %.13249, 6
-  %27 = getelementptr inbounds nuw i64, ptr %0, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %.13249, 63
@@ -2577,7 +2577,7 @@ define dso_local i64 @bit_nffs(ptr noundef readonly captures(none) %0, i32 nound
   %.021 = phi i32 [ %.1, %20 ], [ 0, %.lr.ph.preheader ]
   %.01220 = phi i64 [ %21, %20 ], [ 0, %.lr.ph.preheader ]
   %8 = lshr i64 %.01220, 6
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %.01220, 63
@@ -2632,7 +2632,7 @@ define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @bit_g
   %.015 = phi i64 [ %18, %17 ], [ 0, %2 ]
   %.01214 = phi i32 [ %.1, %17 ], [ 0, %2 ]
   %6 = lshr i64 %.015, 6
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %.015, 63
@@ -2834,7 +2834,7 @@ _cache_push.exit:                                 ; preds = %12
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 2) i32 @slurm_bit_test(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = ashr i64 %1, 6
-  %4 = getelementptr i64, ptr %0, i64 %3
+  %4 = getelementptr [8 x i8], ptr %0, i64 %3
   %5 = getelementptr i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %1, 63
@@ -2860,7 +2860,7 @@ define dso_local i64 @bit_ffs_from_bit(ptr noundef readonly captures(none) %0, i
   %7 = shl i64 %1, 26
   %sext = add i64 %7, 8589934592
   %8 = ashr i64 %sext, 32
-  %9 = getelementptr inbounds i64, ptr %0, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %0, i64 %8
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, %notmask
   br label %20
@@ -2877,7 +2877,7 @@ define dso_local i64 @bit_ffs_from_bit(ptr noundef readonly captures(none) %0, i
   %16 = shl i64 %.127, 26
   %sext31 = add i64 %16, 8589934592
   %17 = ashr i64 %sext31, 32
-  %18 = getelementptr inbounds i64, ptr %0, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %0, i64 %17
   %19 = load i64, ptr %18, align 8
   br label %20
 
@@ -2923,10 +2923,10 @@ define dso_local void @bit_and_not(ptr noundef captures(none) %0, ptr noundef re
   %.024 = phi i64 [ %7, %.lr.ph ], [ 0, %2 ]
   %8 = ashr exact i64 %.024, 6
   %9 = add nsw i64 %8, 2
-  %10 = getelementptr inbounds i64, ptr %1, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %1, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = xor i64 %11, -1
-  %13 = getelementptr inbounds i64, ptr %0, i64 %9
+  %13 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, %12
   store i64 %15, ptr %13, align 8
@@ -2944,11 +2944,11 @@ define dso_local void @bit_and_not(ptr noundef captures(none) %0, ptr noundef re
   %notmask = shl nsw i64 -1, %19
   %20 = ashr exact i64 %.0.lcssa, 6
   %21 = add nsw i64 %20, 2
-  %22 = getelementptr inbounds i64, ptr %1, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %1, i64 %21
   %23 = load i64, ptr %22, align 8
   %.not22 = xor i64 %23, -1
   %24 = or i64 %notmask, %.not22
-  %25 = getelementptr inbounds i64, ptr %0, i64 %21
+  %25 = getelementptr inbounds [8 x i8], ptr %0, i64 %21
   %26 = load i64, ptr %25, align 8
   %27 = and i64 %26, %24
   store i64 %27, ptr %25, align 8
@@ -2973,10 +2973,10 @@ define dso_local void @bit_or_not(ptr noundef captures(none) %0, ptr noundef rea
   %.023 = phi i64 [ %7, %.lr.ph ], [ 0, %2 ]
   %8 = ashr exact i64 %.023, 6
   %9 = add nsw i64 %8, 2
-  %10 = getelementptr inbounds i64, ptr %1, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %1, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = xor i64 %11, -1
-  %13 = getelementptr inbounds i64, ptr %0, i64 %9
+  %13 = getelementptr inbounds [8 x i8], ptr %0, i64 %9
   %14 = load i64, ptr %13, align 8
   %15 = or i64 %14, %12
   store i64 %15, ptr %13, align 8
@@ -2994,11 +2994,11 @@ define dso_local void @bit_or_not(ptr noundef captures(none) %0, ptr noundef rea
   %notmask = shl nsw i64 -1, %19
   %20 = ashr exact i64 %.0.lcssa, 6
   %21 = add nsw i64 %20, 2
-  %22 = getelementptr inbounds i64, ptr %1, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %1, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = or i64 %23, %notmask
   %25 = xor i64 %24, -1
-  %26 = getelementptr inbounds i64, ptr %0, i64 %21
+  %26 = getelementptr inbounds [8 x i8], ptr %0, i64 %21
   %27 = load i64, ptr %26, align 8
   %28 = or i64 %27, %25
   store i64 %28, ptr %26, align 8
@@ -3045,7 +3045,7 @@ define dso_local i64 @bit_nth_set(ptr noundef readonly captures(none) %0, i64 no
   %16 = add nsw i64 %15, 2
   %17 = icmp eq i64 %16, %11
   %.135 = select i1 %17, i64 %13, i64 %.03448
-  %18 = getelementptr inbounds i64, ptr %0, i64 %16
+  %18 = getelementptr inbounds [8 x i8], ptr %0, i64 %16
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, %.135
   %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
@@ -3080,7 +3080,7 @@ define dso_local i64 @bit_nth_set(ptr noundef readonly captures(none) %0, i64 no
   %notmask45 = shl nsw i64 -1, %36
   %37 = xor i64 %notmask45, -1
   %.033 = select i1 %35, i64 %37, i64 -1
-  %38 = getelementptr inbounds nuw i64, ptr %0, i64 %33
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %33
   %39 = load i64, ptr %38, align 8
   %40 = and i64 %39, %.033
   br label %41
@@ -3155,7 +3155,7 @@ define dso_local void @bit_pick_firstn(ptr noundef captures(none) %0, i64 nounde
   %15 = add nsw i64 %14, 2
   %16 = icmp eq i64 %15, %10
   %.135.i = select i1 %16, i64 %12, i64 %.03448.i
-  %17 = getelementptr inbounds i64, ptr %0, i64 %15
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %15
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %.135.i, %18
   %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
@@ -3186,7 +3186,7 @@ define dso_local void @bit_pick_firstn(ptr noundef captures(none) %0, i64 nounde
   %32 = add nuw nsw i64 %31, 2
   %33 = icmp eq i64 %32, %10
   %.033.i = select i1 %33, i64 %12, i64 -1
-  %34 = getelementptr inbounds nuw i64, ptr %0, i64 %32
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %32
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %35, %.033.i
   br label %37
@@ -3250,7 +3250,7 @@ bit_nth_set.exit:                                 ; preds = %52
   %63 = shl nuw i64 1, %62
   %64 = xor i64 %63, -1
   %65 = lshr i64 %.01722.i, 6
-  %66 = getelementptr i64, ptr %0, i64 %65
+  %66 = getelementptr [8 x i8], ptr %0, i64 %65
   %67 = getelementptr i8, ptr %66, i64 16
   %68 = load i64, ptr %67, align 8
   %69 = and i64 %68, %64
@@ -3274,7 +3274,7 @@ bit_nth_set.exit:                                 ; preds = %52
   %77 = shl nuw i64 1, %76
   %78 = xor i64 %77, -1
   %79 = ashr i64 %.024.i, 6
-  %80 = getelementptr i64, ptr %0, i64 %79
+  %80 = getelementptr [8 x i8], ptr %0, i64 %79
   %81 = getelementptr i8, ptr %80, i64 16
   %82 = load i64, ptr %81, align 8
   %83 = and i64 %82, %78
@@ -3349,7 +3349,7 @@ define dso_local ptr @bit_fmt_range(ptr noundef readonly captures(none) %0, i32 
   br i1 %21, label %12, label %.outer._crit_edge, !llvm.loop !49
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i64, ptr %0, i64 %14
+  %23 = getelementptr inbounds [8 x i8], ptr %0, i64 %14
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %.03341, 63
   %26 = shl nuw i64 1, %25
@@ -3365,7 +3365,7 @@ define dso_local ptr @bit_fmt_range(ptr noundef readonly captures(none) %0, i32 
 
 30:                                               ; preds = %.preheader
   %31 = ashr i64 %28, 6
-  %32 = getelementptr i64, ptr %0, i64 %31
+  %32 = getelementptr [8 x i8], ptr %0, i64 %31
   %33 = getelementptr i8, ptr %32, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %28, 63
@@ -3428,7 +3428,7 @@ define dso_local range(i32 -1, 1) i32 @inx2bitstr(ptr noundef captures(none) %0,
   %14 = shl nuw i64 1, %13
   %15 = xor i64 %14, -1
   %16 = ashr i64 %.024.i, 6
-  %17 = getelementptr i64, ptr %0, i64 %16
+  %17 = getelementptr [8 x i8], ptr %0, i64 %16
   %18 = getelementptr i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %19, %15
@@ -3491,7 +3491,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %21, %
   %39 = and i64 %.01722.i, 63
   %40 = shl nuw i64 1, %39
   %41 = lshr i64 %.01722.i, 6
-  %42 = getelementptr i64, ptr %0, i64 %41
+  %42 = getelementptr [8 x i8], ptr %0, i64 %41
   %43 = getelementptr i8, ptr %42, i64 16
   %44 = load i64, ptr %43, align 8
   %45 = or i64 %40, %44
@@ -3514,7 +3514,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %21, %
   %52 = and i64 %.024.i25, 63
   %53 = shl nuw i64 1, %52
   %54 = ashr i64 %.024.i25, 6
-  %55 = getelementptr i64, ptr %0, i64 %54
+  %55 = getelementptr [8 x i8], ptr %0, i64 %54
   %56 = getelementptr i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8
   %58 = or i64 %57, %53
@@ -3581,7 +3581,7 @@ define dso_local ptr @bitstr2inx(ptr noundef readonly captures(address_is_null) 
 13:                                               ; preds = %.lr.ph, %18
   %.02941 = phi i64 [ %.029.ph43, %.lr.ph ], [ %19, %18 ]
   %14 = ashr i64 %.02941, 6
-  %15 = getelementptr i64, ptr %0, i64 %14
+  %15 = getelementptr [8 x i8], ptr %0, i64 %14
   %16 = getelementptr i8, ptr %15, i64 16
   %17 = load i64, ptr %16, align 8
   %.not35 = icmp eq i64 %17, 0
@@ -3611,7 +3611,7 @@ define dso_local ptr @bitstr2inx(ptr noundef readonly captures(address_is_null) 
 
 27:                                               ; preds = %.preheader
   %28 = ashr i64 %25, 6
-  %29 = getelementptr i64, ptr %0, i64 %28
+  %29 = getelementptr [8 x i8], ptr %0, i64 %28
   %30 = getelementptr i8, ptr %29, i64 16
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %25, 63
@@ -3622,7 +3622,7 @@ define dso_local ptr @bitstr2inx(ptr noundef readonly captures(address_is_null) 
 
 .critedge:                                        ; preds = %.preheader, %27
   %35 = trunc i64 %.02941 to i32
-  %36 = getelementptr inbounds i32, ptr %9, i64 %.0.ph44
+  %36 = getelementptr inbounds [4 x i8], ptr %9, i64 %.0.ph44
   store i32 %35, ptr %36, align 4
   %37 = trunc i64 %.2 to i32
   %38 = add nsw i64 %.0.ph44, 2
@@ -3640,7 +3640,7 @@ define dso_local ptr @bitstr2inx(ptr noundef readonly captures(address_is_null) 
 
 .outer._crit_edge:                                ; preds = %.outer, %18, %4
   %.0.ph.lcssa = phi i64 [ %.0.ph44, %18 ], [ 0, %4 ], [ %.1, %.outer ]
-  %42 = getelementptr inbounds i32, ptr %9, i64 %.0.ph.lcssa
+  %42 = getelementptr inbounds [4 x i8], ptr %9, i64 %.0.ph.lcssa
   store i32 -1, ptr %42, align 4
   br label %43
 
@@ -3668,7 +3668,7 @@ define internal fastcc ptr @_bit_fmt_hexmask(ptr noundef readonly captures(none)
   br i1 %9, label %10, label %.lr.ph33.i.i
 
 10:                                               ; preds = %.lr.ph.i.i
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %7
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %.02025.i.i, 63
@@ -3686,7 +3686,7 @@ define internal fastcc ptr @_bit_fmt_hexmask(ptr noundef readonly captures(none)
   %19 = shl i64 %.121.ph39.i.i, 26
   %sext.i.i = add i64 %19, 8589934592
   %20 = ashr i64 %sext.i.i, 32
-  %21 = getelementptr inbounds i64, ptr %0, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %0, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %.outer.i.i, label %.lr.ph33.split.i.i
@@ -3743,7 +3743,7 @@ bit_fls.exit:                                     ; preds = %10, %17, %.outer.i.
   %43 = add i64 %.06790, 64
   %.not75 = icmp ugt i64 %43, %.062
   %44 = ashr i64 %.06790, 6
-  %45 = getelementptr i64, ptr %0, i64 %44
+  %45 = getelementptr [8 x i8], ptr %0, i64 %44
   %46 = getelementptr i8, ptr %45, i64 16
   br i1 %.not75, label %58, label %.preheader
 
@@ -3753,7 +3753,7 @@ bit_fls.exit:                                     ; preds = %10, %17, %.outer.i.
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %.06688
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr @hexmask_lookup, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @hexmask_lookup, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %53 = load i8, ptr %52, align 1
@@ -3778,7 +3778,7 @@ bit_fls.exit:                                     ; preds = %10, %17, %.outer.i.
 
 65:                                               ; preds = %58
   %66 = ashr i64 %63, 6
-  %67 = getelementptr i64, ptr %0, i64 %66
+  %67 = getelementptr [8 x i8], ptr %0, i64 %66
   %68 = getelementptr i8, ptr %67, i64 16
   %69 = load i64, ptr %68, align 8
   %70 = and i64 %63, 63
@@ -3797,7 +3797,7 @@ bit_fls.exit:                                     ; preds = %10, %17, %.outer.i.
 
 77:                                               ; preds = %74
   %78 = ashr i64 %75, 6
-  %79 = getelementptr i64, ptr %0, i64 %78
+  %79 = getelementptr [8 x i8], ptr %0, i64 %78
   %80 = getelementptr i8, ptr %79, i64 16
   %81 = load i64, ptr %80, align 8
   %82 = and i64 %75, 63
@@ -3816,7 +3816,7 @@ bit_fls.exit:                                     ; preds = %10, %17, %.outer.i.
 
 89:                                               ; preds = %86
   %90 = ashr i64 %87, 6
-  %91 = getelementptr i64, ptr %0, i64 %90
+  %91 = getelementptr [8 x i8], ptr %0, i64 %90
   %92 = getelementptr i8, ptr %91, i64 16
   %93 = load i64, ptr %92, align 8
   %94 = and i64 %87, 63
@@ -3927,7 +3927,7 @@ bit_set_count.exit:                               ; preds = %._crit_edge.i, %14
   %34 = shl nuw i64 1, %33
   %35 = xor i64 %34, -1
   %36 = ashr i64 %.01722.i, 6
-  %37 = getelementptr i64, ptr %0, i64 %36
+  %37 = getelementptr [8 x i8], ptr %0, i64 %36
   %38 = getelementptr i8, ptr %37, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = and i64 %39, %35
@@ -3951,7 +3951,7 @@ bit_set_count.exit:                               ; preds = %._crit_edge.i, %14
   %48 = shl nuw i64 1, %47
   %49 = xor i64 %48, -1
   %50 = ashr i64 %.024.i, 6
-  %51 = getelementptr i64, ptr %0, i64 %50
+  %51 = getelementptr [8 x i8], ptr %0, i64 %50
   %52 = getelementptr i8, ptr %51, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %53, %49
@@ -3995,7 +3995,7 @@ bit_nclear.exit:                                  ; preds = %.critedge2.i, %56
   %67 = and i64 %.024.i18, 63
   %68 = shl nuw i64 1, %67
   %69 = ashr i64 %.024.i18, 6
-  %70 = getelementptr i64, ptr %0, i64 %69
+  %70 = getelementptr [8 x i8], ptr %0, i64 %69
   %71 = getelementptr i8, ptr %70, i64 16
   %72 = load i64, ptr %71, align 8
   %73 = or i64 %72, %68

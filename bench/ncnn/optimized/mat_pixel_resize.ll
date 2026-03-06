@@ -27,10 +27,10 @@ define hidden void @_ZN4ncnn18resize_bilinear_c1EPKhiiiPhiii(ptr noundef readonl
   %17 = select i1 %15, i64 -1, i64 %16
   %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #13
   %19 = sext i32 %5 to i64
-  %20 = getelementptr inbounds i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %18, i64 %19
   %21 = sext i32 %6 to i64
-  %22 = getelementptr inbounds i32, ptr %20, i64 %21
-  %23 = getelementptr inbounds i32, ptr %22, i64 %19
+  %22 = getelementptr inbounds [4 x i8], ptr %20, i64 %21
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %19
   %24 = icmp sgt i32 %5, 0
   br i1 %24, label %.lr.ph, label %.preheader
 
@@ -71,7 +71,7 @@ define hidden void @_ZN4ncnn18resize_bilinear_c1EPKhiiiPhiii(ptr noundef readonl
   %.0175 = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
   %.not206 = icmp slt i32 %.0175, %27
   %.1176 = select i1 %.not206, i32 %.0175, i32 %28
-  %47 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   store i32 %.1176, ptr %47, align 4, !tbaa !4
   %48 = fmul fast float %45, 2.048000e+03
   %49 = select i1 %46, float 0.000000e+00, float %48
@@ -130,7 +130,7 @@ define hidden void @_ZN4ncnn18resize_bilinear_c1EPKhiiiPhiii(ptr noundef readonl
   %.0177 = tail call i32 @llvm.smax.i32(i32 %77, i32 0)
   %.not = icmp slt i32 %.0177, %31
   %.1178 = select i1 %.not, i32 %.0177, i32 %32
-  %81 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv335
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv335
   store i32 %.1178, ptr %81, align 4, !tbaa !4
   %82 = fmul fast float %79, 2.048000e+03
   %83 = select i1 %80, float 0.000000e+00, float %82
@@ -180,7 +180,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
   %.0191312 = phi i32 [ -2, %.lr.ph316 ], [ %106, %373 ]
   %.0192311 = phi i32 [ 0, %.lr.ph316 ], [ %.pre-phi, %373 ]
   %104 = sext i32 %.0192311 to i64
-  %105 = getelementptr inbounds i32, ptr %20, i64 %104
+  %105 = getelementptr inbounds [4 x i8], ptr %20, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !4
   %107 = icmp eq i32 %106, %.0191312
   br i1 %107, label %.loopexit, label %108
@@ -200,7 +200,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
 .lr.ph310:                                        ; preds = %111, %.lr.ph310
   %indvars.iv345 = phi i64 [ %indvars.iv.next346, %.lr.ph310 ], [ 0, %111 ]
   %.0195307 = phi ptr [ %136, %.lr.ph310 ], [ %22, %111 ]
-  %116 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv345
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv345
   %117 = load i32, ptr %116, align 4, !tbaa !4
   %118 = load i16, ptr %.0195307, align 2, !tbaa !8
   %119 = getelementptr inbounds nuw i8, ptr %.0195307, i64 2
@@ -219,7 +219,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
   %132 = add nsw i32 %131, %126
   %133 = lshr i32 %132, 4
   %134 = trunc i32 %133 to i16
-  %135 = getelementptr inbounds nuw i16, ptr %.0187314, i64 %indvars.iv345
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %.0187314, i64 %indvars.iv345
   store i16 %134, ptr %135, align 2, !tbaa !8
   %136 = getelementptr inbounds nuw i8, ptr %.0195307, i64 4
   %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
@@ -239,7 +239,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
 .lr.ph306:                                        ; preds = %137, %.lr.ph306
   %indvars.iv340 = phi i64 [ %indvars.iv.next341, %.lr.ph306 ], [ 0, %137 ]
   %.0186303 = phi ptr [ %177, %.lr.ph306 ], [ %22, %137 ]
-  %145 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv340
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv340
   %146 = load i32, ptr %145, align 4, !tbaa !4
   %147 = load i16, ptr %.0186303, align 2, !tbaa !8
   %148 = getelementptr inbounds nuw i8, ptr %.0186303, i64 2
@@ -259,7 +259,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
   %162 = add nsw i32 %161, %156
   %163 = lshr i32 %162, 4
   %164 = trunc i32 %163 to i16
-  %165 = getelementptr inbounds nuw i16, ptr %.0187314, i64 %indvars.iv340
+  %165 = getelementptr inbounds nuw [2 x i8], ptr %.0187314, i64 %indvars.iv340
   store i16 %164, ptr %165, align 2, !tbaa !8
   %166 = load i8, ptr %152, align 1, !tbaa !21
   %167 = zext i8 %166 to i32
@@ -271,7 +271,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
   %173 = add nsw i32 %172, %168
   %174 = lshr i32 %173, 4
   %175 = trunc i32 %174 to i16
-  %176 = getelementptr inbounds nuw i16, ptr %.0189313, i64 %indvars.iv340
+  %176 = getelementptr inbounds nuw [2 x i8], ptr %.0189313, i64 %indvars.iv340
   store i16 %175, ptr %176, align 2, !tbaa !8
   %177 = getelementptr inbounds nuw i8, ptr %.0186303, i64 4
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
@@ -291,7 +291,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
 
 180:                                              ; preds = %.loopexit
   %181 = sext i32 %178 to i64
-  %182 = getelementptr inbounds i32, ptr %20, i64 %181
+  %182 = getelementptr inbounds [4 x i8], ptr %20, i64 %181
   %183 = load i32, ptr %182, align 4, !tbaa !4
   %184 = icmp eq i32 %183, %106
   %.pre350 = load i16, ptr %.0315, align 2, !tbaa !8
@@ -734,10 +734,10 @@ define hidden void @_ZN4ncnn18resize_bilinear_c2EPKhiiiPhiii(ptr noundef readonl
   %17 = select i1 %15, i64 -1, i64 %16
   %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #13
   %19 = sext i32 %5 to i64
-  %20 = getelementptr inbounds i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %18, i64 %19
   %21 = sext i32 %6 to i64
-  %22 = getelementptr inbounds i32, ptr %20, i64 %21
-  %23 = getelementptr inbounds i32, ptr %22, i64 %19
+  %22 = getelementptr inbounds [4 x i8], ptr %20, i64 %21
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %19
   %24 = icmp sgt i32 %5, 0
   br i1 %24, label %.lr.ph, label %.preheader
 
@@ -779,7 +779,7 @@ define hidden void @_ZN4ncnn18resize_bilinear_c2EPKhiiiPhiii(ptr noundef readonl
   %.not224 = icmp slt i32 %.0190, %27
   %.1191 = select i1 %.not224, i32 %.0190, i32 %28
   %47 = shl nsw i32 %.1191, 1
-  %48 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   store i32 %47, ptr %48, align 4, !tbaa !4
   %49 = fmul fast float %45, 2.048000e+03
   %50 = select i1 %46, float 0.000000e+00, float %49
@@ -840,7 +840,7 @@ define hidden void @_ZN4ncnn18resize_bilinear_c2EPKhiiiPhiii(ptr noundef readonl
   %.0192 = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
   %.not = icmp slt i32 %.0192, %31
   %.1193 = select i1 %.not, i32 %.0192, i32 %32
-  %84 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv356
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv356
   store i32 %.1193, ptr %84, align 4, !tbaa !4
   %85 = fmul fast float %82, 2.048000e+03
   %86 = select i1 %83, float 0.000000e+00, float %85
@@ -890,7 +890,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
   %.0208333 = phi i32 [ -2, %.lr.ph337 ], [ %109, %412 ]
   %.0212332 = phi i32 [ 0, %.lr.ph337 ], [ %.pre-phi, %412 ]
   %107 = sext i32 %.0212332 to i64
-  %108 = getelementptr inbounds i32, ptr %20, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %20, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !4
   %110 = icmp eq i32 %109, %.0208333
   br i1 %110, label %.loopexit, label %111
@@ -911,7 +911,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
   %indvars.iv366 = phi i64 [ %indvars.iv.next367, %.lr.ph331 ], [ 0, %114 ]
   %.0210328 = phi ptr [ %151, %.lr.ph331 ], [ %.0204335, %114 ]
   %.0211327 = phi ptr [ %150, %.lr.ph331 ], [ %22, %114 ]
-  %119 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv366
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv366
   %120 = load i32, ptr %119, align 4, !tbaa !4
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds i8, ptr %118, i64 %121
@@ -965,7 +965,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
   %.0197323 = phi ptr [ %216, %.lr.ph326 ], [ %.0206334, %152 ]
   %.0198322 = phi ptr [ %215, %.lr.ph326 ], [ %.0204335, %152 ]
   %.0199321 = phi ptr [ %214, %.lr.ph326 ], [ %22, %152 ]
-  %160 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv361
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv361
   %161 = load i32, ptr %160, align 4, !tbaa !4
   %162 = load i16, ptr %.0199321, align 2, !tbaa !8
   %163 = getelementptr inbounds nuw i8, ptr %.0199321, i64 2
@@ -1043,7 +1043,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
 
 219:                                              ; preds = %.loopexit
   %220 = sext i32 %217 to i64
-  %221 = getelementptr inbounds i32, ptr %20, i64 %220
+  %221 = getelementptr inbounds [4 x i8], ptr %20, i64 %220
   %222 = load i32, ptr %221, align 4, !tbaa !4
   %223 = icmp eq i32 %222, %109
   %.pre371 = load i16, ptr %.0336, align 2, !tbaa !8
@@ -1486,10 +1486,10 @@ define hidden void @_ZN4ncnn18resize_bilinear_c3EPKhiiiPhiii(ptr noundef readonl
   %17 = select i1 %15, i64 -1, i64 %16
   %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #13
   %19 = sext i32 %5 to i64
-  %20 = getelementptr inbounds i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %18, i64 %19
   %21 = sext i32 %6 to i64
-  %22 = getelementptr inbounds i32, ptr %20, i64 %21
-  %23 = getelementptr inbounds i32, ptr %22, i64 %19
+  %22 = getelementptr inbounds [4 x i8], ptr %20, i64 %21
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %19
   %24 = icmp sgt i32 %5, 0
   br i1 %24, label %.lr.ph, label %.preheader
 
@@ -1531,7 +1531,7 @@ define hidden void @_ZN4ncnn18resize_bilinear_c3EPKhiiiPhiii(ptr noundef readonl
   %.not239 = icmp slt i32 %.0205, %27
   %.1206 = select i1 %.not239, i32 %.0205, i32 %28
   %47 = mul nsw i32 %.1206, 3
-  %48 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   store i32 %47, ptr %48, align 4, !tbaa !4
   %49 = fmul fast float %45, 2.048000e+03
   %50 = select i1 %46, float 0.000000e+00, float %49
@@ -1592,7 +1592,7 @@ define hidden void @_ZN4ncnn18resize_bilinear_c3EPKhiiiPhiii(ptr noundef readonl
   %.0207 = tail call i32 @llvm.smax.i32(i32 %80, i32 0)
   %.not = icmp slt i32 %.0207, %31
   %.1208 = select i1 %.not, i32 %.0207, i32 %32
-  %84 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv371
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv371
   store i32 %.1208, ptr %84, align 4, !tbaa !4
   %85 = fmul fast float %82, 2.048000e+03
   %86 = select i1 %83, float 0.000000e+00, float %85
@@ -1642,7 +1642,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
   %.0223348 = phi i32 [ -2, %.lr.ph352 ], [ %109, %448 ]
   %.0227347 = phi i32 [ 0, %.lr.ph352 ], [ %.pre-phi, %448 ]
   %107 = sext i32 %.0227347 to i64
-  %108 = getelementptr inbounds i32, ptr %20, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %20, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !4
   %110 = icmp eq i32 %109, %.0223348
   br i1 %110, label %.loopexit, label %111
@@ -1663,7 +1663,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
   %indvars.iv381 = phi i64 [ %indvars.iv.next382, %.lr.ph346 ], [ 0, %114 ]
   %.0225343 = phi ptr [ %163, %.lr.ph346 ], [ %.0219350, %114 ]
   %.0226342 = phi ptr [ %162, %.lr.ph346 ], [ %22, %114 ]
-  %119 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv381
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv381
   %120 = load i32, ptr %119, align 4, !tbaa !4
   %121 = load i16, ptr %.0226342, align 2, !tbaa !8
   %122 = getelementptr inbounds nuw i8, ptr %.0226342, i64 2
@@ -1730,7 +1730,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
   %.0212338 = phi ptr [ %252, %.lr.ph341 ], [ %.0221349, %164 ]
   %.0213337 = phi ptr [ %251, %.lr.ph341 ], [ %.0219350, %164 ]
   %.0214336 = phi ptr [ %250, %.lr.ph341 ], [ %22, %164 ]
-  %172 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv376
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv376
   %173 = load i32, ptr %172, align 4, !tbaa !4
   %174 = load i16, ptr %.0214336, align 2, !tbaa !8
   %175 = getelementptr inbounds nuw i8, ptr %.0214336, i64 2
@@ -1834,7 +1834,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
 
 255:                                              ; preds = %.loopexit
   %256 = sext i32 %253 to i64
-  %257 = getelementptr inbounds i32, ptr %20, i64 %256
+  %257 = getelementptr inbounds [4 x i8], ptr %20, i64 %256
   %258 = load i32, ptr %257, align 4, !tbaa !4
   %259 = icmp eq i32 %258, %109
   %.pre386 = load i16, ptr %.0351, align 2, !tbaa !8
@@ -2277,10 +2277,10 @@ define hidden void @_ZN4ncnn18resize_bilinear_c4EPKhiiiPhiii(ptr noundef readonl
   %17 = select i1 %15, i64 -1, i64 %16
   %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #13
   %19 = sext i32 %5 to i64
-  %20 = getelementptr inbounds i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %18, i64 %19
   %21 = sext i32 %6 to i64
-  %22 = getelementptr inbounds i32, ptr %20, i64 %21
-  %23 = getelementptr inbounds i32, ptr %22, i64 %19
+  %22 = getelementptr inbounds [4 x i8], ptr %20, i64 %21
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %19
   %24 = icmp sgt i32 %5, 0
   br i1 %24, label %.lr.ph, label %.preheader
 
@@ -2322,7 +2322,7 @@ define hidden void @_ZN4ncnn18resize_bilinear_c4EPKhiiiPhiii(ptr noundef readonl
   %.not254 = icmp slt i32 %.0220, %27
   %.1221 = select i1 %.not254, i32 %.0220, i32 %28
   %47 = shl nsw i32 %.1221, 2
-  %48 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   store i32 %47, ptr %48, align 4, !tbaa !4
   %49 = fmul fast float %45, 2.048000e+03
   %50 = select i1 %46, float 0.000000e+00, float %49
@@ -2382,7 +2382,7 @@ define hidden void @_ZN4ncnn18resize_bilinear_c4EPKhiiiPhiii(ptr noundef readonl
   %.0222 = tail call i32 @llvm.smax.i32(i32 %79, i32 0)
   %.not = icmp slt i32 %.0222, %31
   %.1223 = select i1 %.not, i32 %.0222, i32 %32
-  %83 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv386
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv386
   store i32 %.1223, ptr %83, align 4, !tbaa !4
   %84 = fmul fast float %81, 2.048000e+03
   %85 = select i1 %82, float 0.000000e+00, float %84
@@ -2432,7 +2432,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
   %.0238363 = phi i32 [ -2, %.lr.ph367 ], [ %108, %483 ]
   %.0242362 = phi i32 [ 0, %.lr.ph367 ], [ %.pre-phi, %483 ]
   %106 = sext i32 %.0242362 to i64
-  %107 = getelementptr inbounds i32, ptr %20, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %20, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !4
   %109 = icmp eq i32 %108, %.0238363
   br i1 %109, label %.loopexit, label %110
@@ -2453,7 +2453,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
   %indvars.iv396 = phi i64 [ %indvars.iv.next397, %.lr.ph361 ], [ 0, %113 ]
   %.0240358 = phi ptr [ %174, %.lr.ph361 ], [ %.0234365, %113 ]
   %.0241357 = phi ptr [ %173, %.lr.ph361 ], [ %22, %113 ]
-  %118 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv396
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv396
   %119 = load i32, ptr %118, align 4, !tbaa !4
   %120 = load i16, ptr %.0241357, align 2, !tbaa !8
   %121 = getelementptr inbounds nuw i8, ptr %.0241357, i64 2
@@ -2533,7 +2533,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
   %.0227353 = phi ptr [ %287, %.lr.ph356 ], [ %.0236364, %175 ]
   %.0228352 = phi ptr [ %286, %.lr.ph356 ], [ %.0234365, %175 ]
   %.0229351 = phi ptr [ %285, %.lr.ph356 ], [ %22, %175 ]
-  %183 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv391
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv391
   %184 = load i32, ptr %183, align 4, !tbaa !4
   %185 = load i16, ptr %.0229351, align 2, !tbaa !8
   %186 = getelementptr inbounds nuw i8, ptr %.0229351, i64 2
@@ -2663,7 +2663,7 @@ _ZN4ncnn3MatC2EimPNS_9AllocatorE.exit:            ; preds = %._crit_edge
 
 290:                                              ; preds = %.loopexit
   %291 = sext i32 %288 to i64
-  %292 = getelementptr inbounds i32, ptr %20, i64 %291
+  %292 = getelementptr inbounds [4 x i8], ptr %20, i64 %291
   %293 = load i32, ptr %292, align 4, !tbaa !4
   %294 = icmp eq i32 %293, %108
   %.pre401 = load i16, ptr %.0366, align 2, !tbaa !8

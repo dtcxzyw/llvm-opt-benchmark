@@ -164,7 +164,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %63 = load ptr, ptr %62, align 8, !tbaa !41
   %64 = add i32 %.050.in65.i.i, -2
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %63, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !42
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load i64, ptr %68, align 8, !tbaa !44
@@ -177,7 +177,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %75 = and i64 %notmask.i.i, 4294967295
   %76 = xor i64 %75, 4294967295
   %77 = and i64 %76, %73
-  %78 = getelementptr inbounds nuw ptr, ptr %74, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %77
   %.059.i.i = load ptr, ptr %78, align 8, !tbaa !46
   %.not5260.i.i = icmp eq ptr %.059.i.i, null
   br i1 %.not5260.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -188,7 +188,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %79 = load i32, ptr %.062.i.i, align 8, !tbaa !48
   %80 = add i32 %79, -1
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %63, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !42
   %84 = getelementptr i8, ptr %83, i64 24
   %.val.i.i = load i64, ptr %84, align 8, !tbaa !44
@@ -199,7 +199,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %86 = load ptr, ptr %19, align 8, !tbaa !38
   %87 = sub i32 %.05066.i.i, %60
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %86, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %88
   store i32 %79, ptr %89, align 4, !tbaa !50
   store i32 %.05066.i.i, ptr %.062.i.i, align 8, !tbaa !48
   %90 = getelementptr inbounds nuw i8, ptr %.062.i.i, i64 4
@@ -242,7 +242,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %106 = load i32, ptr %20, align 4, !tbaa !39
   %107 = sub i32 %.05066.i.i, %106
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw ptr, ptr %105, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %108
   store ptr %.062.lcssa.sink.i.i, ptr %109, align 8, !tbaa !46
   %.050.i.i = add i32 %.05066.i.i, -1
   %.not.i.i = icmp ugt i32 %.056115, %.050.i.i
@@ -287,7 +287,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %.promoted172.i5457.i = phi i32 [ %111, %.lr.ph.i ], [ %.promoted172.i53.i, %try_lcs.exit.i ]
   %128 = add nsw i32 %.01858.i, 1
   %129 = sext i32 %.01858.i to i64
-  %130 = getelementptr ptr, ptr %116, i64 %129
+  %130 = getelementptr [8 x i8], ptr %116, i64 %129
   %131 = getelementptr i8, ptr %130, i64 -8
   %132 = load ptr, ptr %131, align 8, !tbaa !42
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
@@ -295,7 +295,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %135 = lshr i64 %134, %118
   %136 = add i64 %135, %134
   %137 = and i64 %136, %119
-  %138 = getelementptr inbounds nuw ptr, ptr %113, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %137
   %.0109166.i.i = load ptr, ptr %138, align 8, !tbaa !46
   %.not167.i.i = icmp eq ptr %.0109166.i.i, null
   br i1 %.not167.i.i, label %try_lcs.exit.i, label %.lr.ph170.i.i
@@ -331,7 +331,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %151 = load i32, ptr %.0109169.i.i, align 8, !tbaa !48
   %152 = add i32 %151, -1
   %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw ptr, ptr %150, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !42
   %156 = getelementptr i8, ptr %155, i64 24
   %.val.i28.i = load i64, ptr %156, align 8, !tbaa !44
@@ -345,7 +345,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %161 = load ptr, ptr %120, align 8, !tbaa !41
   %162 = add i32 %160, -1
   %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds nuw ptr, ptr %161, i64 %163
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %163
   %165 = load ptr, ptr %164, align 8, !tbaa !42
   %166 = getelementptr i8, ptr %165, i64 24
   %.val127.i.i = load i64, ptr %166, align 8, !tbaa !44
@@ -369,7 +369,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %.0107.i.i = phi i32 [ %160, %167 ], [ %.0102.i.i, %.preheader.i.i ]
   %170 = sub i32 %.0107.i.i, %125
   %171 = zext i32 %170 to i64
-  %172 = getelementptr inbounds nuw i32, ptr %124, i64 %171
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %171
   %173 = load i32, ptr %172, align 4, !tbaa !50
   %174 = icmp ult i32 %.056115, %.0107.i.i
   %or.cond141.i.i = and i1 %139, %174
@@ -385,11 +385,11 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %.0101144.i.i = phi i32 [ %146, %.lr.ph.preheader.i.i ], [ %.1.i.i, %195 ]
   %176 = add nsw i64 %indvars.iv179.i.i, 4294967294
   %177 = and i64 %176, 4294967295
-  %178 = getelementptr inbounds nuw ptr, ptr %161, i64 %177
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %177
   %179 = load ptr, ptr %178, align 8, !tbaa !42
   %180 = add nsw i64 %indvars.iv.i.i, 4294967294
   %181 = and i64 %180, 4294967295
-  %182 = getelementptr inbounds nuw ptr, ptr %116, i64 %181
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %181
   %183 = load ptr, ptr %182, align 8, !tbaa !42
   %184 = getelementptr i8, ptr %179, i64 24
   %.val129.i.i = load i64, ptr %184, align 8, !tbaa !44
@@ -409,7 +409,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
 188:                                              ; preds = %186
   %189 = sub i32 %indvars182.i.i, %125
   %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw ptr, ptr %126, i64 %190
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %190
   %192 = load ptr, ptr %191, align 8, !tbaa !46
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 4
   %194 = load i32, ptr %193, align 4, !tbaa !51
@@ -446,10 +446,10 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %.2154.i.i = phi i32 [ %.0101.lcssa.i.i, %.lr.ph155.preheader.i.i ], [ %.3.i.i, %217 ]
   %indvars.iv.next187.i.i = add nuw nsw i64 %indvars.iv186.i.i, 1
   %indvars190.i.i = trunc nuw i64 %indvars.iv.next187.i.i to i32
-  %202 = getelementptr inbounds nuw ptr, ptr %161, i64 %indvars.iv186.i.i
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %indvars.iv186.i.i
   %203 = load ptr, ptr %202, align 8, !tbaa !42
   %indvars.iv.next185.i.i = add nuw nsw i64 %indvars.iv184.i.i, 1
-  %204 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv184.i.i
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv184.i.i
   %205 = load ptr, ptr %204, align 8, !tbaa !42
   %206 = getelementptr i8, ptr %203, i64 24
   %.val131.i.i = load i64, ptr %206, align 8, !tbaa !44
@@ -465,7 +465,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
 210:                                              ; preds = %208
   %211 = sub i32 %indvars190.i.i, %125
   %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds nuw ptr, ptr %126, i64 %212
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %212
   %214 = load ptr, ptr %213, align 8, !tbaa !46
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
   %216 = load i32, ptr %215, align 4, !tbaa !51
@@ -529,7 +529,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
 230:                                              ; preds = %.preheader.i.i
   %231 = sub i32 %.0102.i.i, %125
   %232 = zext i32 %231 to i64
-  %233 = getelementptr inbounds nuw i32, ptr %124, i64 %232
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %232
   %234 = load i32, ptr %233, align 4, !tbaa !50
   %235 = icmp eq i32 %234, 0
   br i1 %235, label %.thread.i.i, label %.preheader.i.i, !llvm.loop !60

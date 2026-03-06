@@ -1252,7 +1252,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %34 = shl nuw nsw i64 %indvars.iv, 2
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 %34
   %36 = load i32, ptr %35, align 1, !tbaa !3
-  %37 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   store i32 %36, ptr %37, align 4, !tbaa !12
   %38 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.22, i32 noundef %38, i32 noundef %36) #4

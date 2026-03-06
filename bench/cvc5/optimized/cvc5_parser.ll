@@ -3748,7 +3748,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41: ; preds = %69,
   %82 = sub i64 %80, %81
   %83 = ashr exact i64 %82, 3
   %84 = sub nsw i64 0, %83
-  %85 = getelementptr inbounds i64, ptr %79, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %79, i64 %84
   call void @_ZdlPvm(ptr noundef %85, i64 noundef %82) #28
   store ptr null, ptr %75, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -4155,7 +4155,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal9LogicInfoD2Ev(ptr noundef non
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPvm(ptr noundef %12, i64 noundef %9) #28
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40

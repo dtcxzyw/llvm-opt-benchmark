@@ -663,7 +663,7 @@ lxb_selectors_next_node.exit.thread81:            ; preds = %19, %13, %lxb_selec
 
 switch.lookup:                                    ; preds = %29
   %35 = zext nneg i32 %.val77 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.lxb_selectors_state_pseudo_class_function, i64 %35
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.lxb_selectors_state_pseudo_class_function, i64 %35
   %switch.load = load i64, ptr %switch.gep, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.012.i83, i64 %switch.load
   %.1.pr.i = load ptr, ptr %36, align 8, !tbaa !61

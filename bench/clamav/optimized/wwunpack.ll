@@ -3,8 +3,6 @@ source_filename = "bench/clamav/original/wwunpack.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.cli_exe_section = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [13 x i8] c"in wwunpack\0A\00", align 1
 @.str.1 = private unnamed_addr constant [41 x i8] c"WWPack: Array of structs out of section\0A\00", align 1
 @.str.2 = private unnamed_addr constant [37 x i8] c"WWPack: Compressed data out of file\0A\00", align 1
@@ -20,7 +18,7 @@ define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr nounde
   %8 = getelementptr i8, ptr %2, i64 673
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #5
   %9 = zext i16 %4 to i64
-  %10 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %3, i64 %9
+  %10 = getelementptr inbounds nuw [36 x i8], ptr %3, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %12 = ptrtoint ptr %2 to i64
   %13 = zext i32 %1 to i64
@@ -1406,7 +1404,7 @@ default.unreachable1557:                          ; preds = %254
   br label %649
 
 628:                                              ; preds = %623
-  %629 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %3, i64 %indvars.iv
+  %629 = getelementptr inbounds nuw [36 x i8], ptr %3, i64 %indvars.iv
   %630 = getelementptr inbounds nuw i8, ptr %629, i64 4
   %631 = load i32, ptr %630, align 4, !tbaa !10
   %632 = getelementptr inbounds nuw i8, ptr %.19901506, i64 8

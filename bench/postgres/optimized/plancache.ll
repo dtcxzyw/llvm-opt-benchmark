@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dlist_head = type { %struct.dlist_node }
 %struct.dlist_node = type { ptr, ptr }
 %struct.ResourceOwnerDesc = type { ptr, i32, i32, ptr, ptr }
-%union.ListCell = type { ptr }
 
 @plan_cache_mode = dso_local local_unnamed_addr global i32 0, align 4
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
@@ -129,7 +128,7 @@ define internal void @PlanCacheRelCallback(i64 %0, i32 noundef %1) #0 {
 
 36:                                               ; preds = %.lr.ph71.us, %45
   %indvars.iv87 = phi i64 [ 0, %.lr.ph71.us ], [ %indvars.iv.next88, %45 ]
-  %37 = getelementptr inbounds nuw %union.ListCell, ptr %47, i64 %indvars.iv87
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv87
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
@@ -221,7 +220,7 @@ define internal void @PlanCacheRelCallback(i64 %0, i32 noundef %1) #0 {
   %79 = phi i32 [ %93, %92 ], [ %77, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %92 ], [ 0, %.lr.ph ]
   %80 = load ptr, ptr %76, align 8
-  %81 = getelementptr inbounds nuw %union.ListCell, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %84 = load i32, ptr %83, align 4
@@ -369,7 +368,7 @@ define internal void @PlanCacheObjectCallback(i64 %0, i32 noundef %1, i32 nounde
 
 .lr.ph132.split.us:                               ; preds = %.lr.ph132, %27
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %27 ], [ 0, %.lr.ph132 ]
-  %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv181
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv181
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
@@ -383,7 +382,7 @@ define internal void @PlanCacheObjectCallback(i64 %0, i32 noundef %1, i32 nounde
 
 .lr.ph132.split:                                  ; preds = %.lr.ph132, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.lr.ph132 ]
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
@@ -443,7 +442,7 @@ define internal void @PlanCacheObjectCallback(i64 %0, i32 noundef %1, i32 nounde
   %54 = phi ptr [ %93, %select.unfold120 ], [ %42, %.lr.ph148 ]
   %55 = phi ptr [ %92, %select.unfold120 ], [ %42, %.lr.ph148 ]
   %56 = load ptr, ptr %51, align 8
-  %57 = getelementptr inbounds nuw %union.ListCell, ptr %56, i64 %indvars.iv196240
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv196240
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4
@@ -478,7 +477,7 @@ define internal void @PlanCacheObjectCallback(i64 %0, i32 noundef %1, i32 nounde
 
 71:                                               ; preds = %.lr.ph146, %70
   %indvars.iv191 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next192, %70 ]
-  %72 = getelementptr inbounds nuw %union.ListCell, ptr %69, i64 %indvars.iv191
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv191
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %75 = load i32, ptr %74, align 4
@@ -495,7 +494,7 @@ define internal void @PlanCacheObjectCallback(i64 %0, i32 noundef %1, i32 nounde
 
 77:                                               ; preds = %.lr.ph142, %87
   %indvars.iv186 = phi i64 [ 0, %.lr.ph142 ], [ %indvars.iv.next187, %87 ]
-  %78 = getelementptr inbounds nuw %union.ListCell, ptr %76, i64 %indvars.iv186
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv186
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4
@@ -584,7 +583,7 @@ select.unfold._crit_edge:                         ; preds = %.critedge111, %3
 
 113:                                              ; preds = %.lr.ph165.us, %112
   %indvars.iv204 = phi i64 [ 0, %.lr.ph165.us ], [ %indvars.iv.next205, %112 ]
-  %114 = getelementptr inbounds nuw %union.ListCell, ptr %119, i64 %indvars.iv204
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv204
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %117 = load i32, ptr %116, align 4
@@ -628,7 +627,7 @@ select.unfold._crit_edge:                         ; preds = %.critedge111, %3
 
 131:                                              ; preds = %.lr.ph161, %140
   %indvars.iv199 = phi i64 [ 0, %.lr.ph161 ], [ %indvars.iv.next200, %140 ]
-  %132 = getelementptr inbounds nuw %union.ListCell, ptr %130, i64 %indvars.iv199
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv199
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %135 = load i32, ptr %134, align 4
@@ -936,7 +935,7 @@ define dso_local void @CompleteCachedPlan(ptr noundef initializes((88, 96), (120
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i9.i, 1
   %exitcond.not.i.i = icmp ne i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   tail call void @llvm.assume(i1 %exitcond.not.i.i)
-  %72 = getelementptr inbounds nuw %union.ListCell, ptr %67, i64 %indvars.iv.next.i.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv.next.i.i
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load i8, ptr %74, align 8, !range !4, !noundef !5
@@ -1371,7 +1370,7 @@ ReleaseGenericPlan.exit:                          ; preds = %86, %89, %94, %98
 123:                                              ; preds = %135, %.lr.ph15.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph15.i ], [ %indvars.iv.next.i, %135 ]
   %.0213.i = phi double [ 0.000000e+00, %.lr.ph15.i ], [ %.1.i, %135 ]
-  %124 = getelementptr inbounds nuw %union.ListCell, ptr %122, i64 %indvars.iv.i
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv.i
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %127 = load i32, ptr %126, align 4
@@ -1472,7 +1471,7 @@ choose_custom_plan.exit57.thread:                 ; preds = %145, %24, %30, %12,
 172:                                              ; preds = %193, %.lr.ph20.i
   %indvars.iv24.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next25.i, %193 ]
   %.02.us18.i = phi double [ 0.000000e+00, %.lr.ph20.i ], [ %.1.us.i, %193 ]
-  %173 = getelementptr inbounds nuw %union.ListCell, ptr %171, i64 %indvars.iv24.i
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %indvars.iv24.i
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 4
   %176 = load i32, ptr %175, align 4
@@ -1652,7 +1651,7 @@ define internal fastcc ptr @RevalidateCachedQuery(ptr noundef %0, ptr noundef %1
 .lr.ph19.i:                                       ; preds = %.lr.ph.i, %57
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %57 ], [ 0, %.lr.ph.i ]
   %47 = load ptr, ptr %44, align 8
-  %48 = getelementptr inbounds nuw %union.ListCell, ptr %47, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4
@@ -1698,7 +1697,7 @@ AcquirePlannerLocks.exit:                         ; preds = %57
 .lr.ph19.i96:                                     ; preds = %.lr.ph.i95, %78
   %indvars.iv.i97 = phi i64 [ %indvars.iv.next.i100, %78 ], [ 0, %.lr.ph.i95 ]
   %68 = load ptr, ptr %65, align 8
-  %69 = getelementptr inbounds nuw %union.ListCell, ptr %68, i64 %indvars.iv.i97
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i97
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %72 = load i32, ptr %71, align 4
@@ -1850,7 +1849,7 @@ ReleaseGenericPlan.exit:                          ; preds = %89, %92, %97, %101
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i9.i, 1
   %exitcond.not.i.i = icmp ne i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   tail call void @llvm.assume(i1 %exitcond.not.i.i)
-  %144 = getelementptr inbounds nuw %union.ListCell, ptr %139, i64 %indvars.iv.next.i.i
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %indvars.iv.next.i.i
   %145 = load ptr, ptr %144, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %147 = load i8, ptr %146, align 8, !range !4, !noundef !5
@@ -2085,7 +2084,7 @@ define internal fastcc noundef ptr @BuildCachedPlan(ptr noundef %0, ptr noundef 
   %indvars.iv = phi i64 [ %indvars.iv.next, %80 ], [ 0, %.lr.ph ]
   %.0515965 = phi i1 [ %.152, %80 ], [ false, %.lr.ph ]
   %65 = load ptr, ptr %61, align 8
-  %66 = getelementptr inbounds nuw %union.ListCell, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4
@@ -2234,7 +2233,7 @@ define dso_local noundef zeroext i1 @CachedPlanAllowsSimpleValidityCheck(ptr nou
 
 27:                                               ; preds = %.lr.ph88, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next, %26 ]
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
@@ -2279,7 +2278,7 @@ define dso_local noundef zeroext i1 @CachedPlanAllowsSimpleValidityCheck(ptr nou
 49:                                               ; preds = %.lr.ph101, %.critedge78
   %.sroa.616.094100 = phi i32 [ 0, %.lr.ph101 ], [ %70, %.critedge78 ]
   %50 = zext nneg i32 %.sroa.616.094100 to i64
-  %51 = getelementptr inbounds nuw %union.ListCell, ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
@@ -2311,7 +2310,7 @@ define dso_local noundef zeroext i1 @CachedPlanAllowsSimpleValidityCheck(ptr nou
 
 65:                                               ; preds = %.lr.ph93, %64
   %indvars.iv105 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next106, %64 ]
-  %66 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv105
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv105
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load i32, ptr %68, align 8
@@ -2652,7 +2651,7 @@ define dso_local ptr @CachedPlanGetTargetList(ptr noundef %0, ptr noundef %1) lo
 
 16:                                               ; preds = %15, %.lr.ph30.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph30.i ], [ %indvars.iv.next.i, %15 ]
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i8, ptr %19, align 8, !range !4, !noundef !5
@@ -2862,7 +2861,7 @@ define internal fastcc void @ScanQueryForLocks(ptr noundef %0, i1 noundef zeroex
 .lr.ph50.split.us:                                ; preds = %.lr.ph.split.us.split, %30
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %30 ], [ 0, %.lr.ph.split.us.split ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv69
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv69
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8
@@ -2910,7 +2909,7 @@ define internal fastcc void @ScanQueryForLocks(ptr noundef %0, i1 noundef zeroex
 .lr.ph46:                                         ; preds = %.lr.ph.split.split.split, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.lr.ph.split.split.split ]
   %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds nuw %union.ListCell, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load i32, ptr %37, align 8
@@ -2968,7 +2967,7 @@ define internal fastcc void @ScanQueryForLocks(ptr noundef %0, i1 noundef zeroex
 .lr.ph57:                                         ; preds = %.lr.ph54, %.lr.ph57
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.lr.ph57 ], [ 0, %.lr.ph54 ]
   %63 = load ptr, ptr %42, align 8
-  %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv72
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv72
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8
@@ -3049,7 +3048,7 @@ define internal fastcc void @AcquireExecutorLocks(ptr noundef readonly captures(
 .lr.ph81:                                         ; preds = %.lr.ph48.split.us.preheader, %.critedge38.us
   %indvars.iv6180 = phi i64 [ %indvars.iv.next62, %.critedge38.us ], [ 0, %.lr.ph48.split.us.preheader ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv6180
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv6180
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
@@ -3091,7 +3090,7 @@ define internal fastcc void @AcquireExecutorLocks(ptr noundef readonly captures(
   %28 = phi i32 [ %42, %41 ], [ %26, %.lr.ph.us ]
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %41 ], [ 0, %.lr.ph.us ]
   %29 = load ptr, ptr %25, align 8
-  %30 = getelementptr inbounds nuw %union.ListCell, ptr %29, i64 %indvars.iv58
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv58
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i32, ptr %32, align 8
@@ -3129,7 +3128,7 @@ define internal fastcc void @AcquireExecutorLocks(ptr noundef readonly captures(
 .lr.ph79:                                         ; preds = %.lr.ph48.split.preheader, %.critedge38
   %indvars.iv5578 = phi i64 [ %indvars.iv.next56, %.critedge38 ], [ 0, %.lr.ph48.split.preheader ]
   %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv5578
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv5578
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
@@ -3167,7 +3166,7 @@ define internal fastcc void @AcquireExecutorLocks(ptr noundef readonly captures(
   %63 = phi i32 [ %77, %76 ], [ %61, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %76 ], [ 0, %.lr.ph ]
   %64 = load ptr, ptr %60, align 8
-  %65 = getelementptr inbounds nuw %union.ListCell, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %68 = load i32, ptr %67, align 8

@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
-%struct.ParamExecData = type { ptr, i64, i8 }
 
 @work_mem = external local_unnamed_addr global i32, align 4
 @TTSOpsMinimalTuple = external constant %struct.TupleTableSlotOps, align 8
@@ -35,7 +33,7 @@ define dso_local noundef ptr @ExecInitCteScan(ptr noundef %0, ptr noundef %1, i3
   %17 = getelementptr i8, ptr %13, i64 16
   %.val = load ptr, ptr %17, align 8
   %18 = sext i32 %16 to i64
-  %19 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %.val, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 232
   store ptr %20, ptr %21, align 8
@@ -44,7 +42,7 @@ define dso_local noundef ptr @ExecInitCteScan(ptr noundef %0, ptr noundef %1, i3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.ParamExecData, ptr %23, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %23, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = inttoptr i64 %29 to ptr

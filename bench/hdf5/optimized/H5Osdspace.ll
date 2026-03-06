@@ -316,7 +316,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
 142:                                              ; preds = %.lr.ph.i
   %143 = load i8, ptr %.220213.i, align 1, !tbaa !20
   %144 = zext i8 %143 to i64
-  %145 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv.i
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv.i
   store i64 %144, ptr %145, align 8, !tbaa !10
   %146 = getelementptr inbounds nuw i8, ptr %.220213.i, i64 1
   %147 = load i8, ptr %146, align 1, !tbaa !20
@@ -340,7 +340,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
   br label %185
 
 162:                                              ; preds = %.lr.ph.i
-  %163 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv.i
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv.i
   store i64 0, ptr %163, align 8, !tbaa !10
   %164 = getelementptr inbounds nuw i8, ptr %.220213.i, i64 8
   br label %165
@@ -366,7 +366,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
 175:                                              ; preds = %.lr.ph.i
   %176 = load i8, ptr %.220213.i, align 1, !tbaa !20
   %177 = zext i8 %176 to i64
-  %178 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv.i
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv.i
   store i64 %177, ptr %178, align 8, !tbaa !10
   %179 = getelementptr inbounds nuw i8, ptr %.220213.i, i64 1
   %180 = load i8, ptr %179, align 1, !tbaa !20
@@ -445,14 +445,14 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
   ]
 
 .lr.ph20._crit_edge.i:                            ; preds = %.lr.ph20.i
-  %.phi.trans.insert38.i = getelementptr inbounds nuw i64, ptr %207, i64 %indvars.iv
+  %.phi.trans.insert38.i = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %indvars.iv
   %.pre.i = load i64, ptr %.phi.trans.insert38.i, align 8, !tbaa !10
   br label %258
 
 215:                                              ; preds = %.lr.ph20.i
   %216 = load i8, ptr %.518.i, align 1, !tbaa !20
   %217 = zext i8 %216 to i64
-  %218 = getelementptr inbounds nuw i64, ptr %207, i64 %indvars.iv
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %indvars.iv
   store i64 %217, ptr %218, align 8, !tbaa !10
   %219 = getelementptr inbounds nuw i8, ptr %.518.i, i64 1
   %220 = load i8, ptr %219, align 1, !tbaa !20
@@ -476,7 +476,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
   br label %258
 
 235:                                              ; preds = %.lr.ph20.i
-  %236 = getelementptr inbounds nuw i64, ptr %207, i64 %indvars.iv
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %indvars.iv
   store i64 0, ptr %236, align 8, !tbaa !10
   %237 = getelementptr inbounds nuw i8, ptr %.518.i, i64 8
   br label %238
@@ -502,7 +502,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
 248:                                              ; preds = %.lr.ph20.i
   %249 = load i8, ptr %.518.i, align 1, !tbaa !20
   %250 = zext i8 %249 to i64
-  %251 = getelementptr inbounds nuw i64, ptr %207, i64 %indvars.iv
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %indvars.iv
   store i64 %250, ptr %251, align 8, !tbaa !10
   %252 = getelementptr inbounds nuw i8, ptr %.518.i, i64 1
   %253 = load i8, ptr %252, align 1, !tbaa !20
@@ -516,7 +516,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
 258:                                              ; preds = %248, %246, %215, %.lr.ph20._crit_edge.i
   %259 = phi i64 [ %.pre.i, %.lr.ph20._crit_edge.i ], [ %256, %248 ], [ %244, %246 ], [ %233, %215 ]
   %.7.i = phi ptr [ %.518.i, %.lr.ph20._crit_edge.i ], [ %257, %248 ], [ %247, %246 ], [ %234, %215 ]
-  %260 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv
   %261 = load i64, ptr %260, align 8, !tbaa !10
   %262 = icmp ugt i64 %261, %259
   br i1 %262, label %263, label %268
@@ -558,7 +558,7 @@ define internal ptr @H5O__sdspace_shared_decode(ptr noundef %0, ptr noundef %1, 
 .lr.ph23.i:                                       ; preds = %272, %.lr.ph23.i
   %indvars.iv34.i = phi i64 [ %indvars.iv.next35.i, %.lr.ph23.i ], [ 0, %272 ]
   %274 = phi i64 [ %277, %.lr.ph23.i ], [ 1, %272 ]
-  %275 = getelementptr inbounds nuw i64, ptr %134, i64 %indvars.iv34.i
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv34.i
   %276 = load i64, ptr %275, align 8, !tbaa !10
   %277 = mul i64 %276, %274
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
@@ -683,27 +683,27 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
 
 56:                                               ; preds = %54
   %57 = load ptr, ptr %53, align 8, !tbaa !23
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv.i
   %59 = load i64, ptr %58, align 8, !tbaa !10
   %60 = trunc i64 %59 to i8
   store i8 %60, ptr %.1111118.i, align 1, !tbaa !20
   %61 = getelementptr inbounds nuw i8, ptr %.1111118.i, i64 1
   %62 = load ptr, ptr %53, align 8, !tbaa !23
-  %63 = getelementptr inbounds nuw i64, ptr %62, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv.i
   %64 = load i64, ptr %63, align 8, !tbaa !10
   %65 = lshr i64 %64, 8
   %66 = trunc i64 %65 to i8
   store i8 %66, ptr %61, align 1, !tbaa !20
   %67 = getelementptr inbounds nuw i8, ptr %.1111118.i, i64 2
   %68 = load ptr, ptr %53, align 8, !tbaa !23
-  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i
   %70 = load i64, ptr %69, align 8, !tbaa !10
   %71 = lshr i64 %70, 16
   %72 = trunc i64 %71 to i8
   store i8 %72, ptr %67, align 1, !tbaa !20
   %73 = getelementptr inbounds nuw i8, ptr %.1111118.i, i64 3
   %74 = load ptr, ptr %53, align 8, !tbaa !23
-  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv.i
   %76 = load i64, ptr %75, align 8, !tbaa !10
   %77 = lshr i64 %76, 24
   %78 = trunc i64 %77 to i8
@@ -713,7 +713,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
 
 80:                                               ; preds = %54
   %81 = load ptr, ptr %53, align 8, !tbaa !23
-  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv.i
   %83 = load i64, ptr %82, align 8, !tbaa !10
   br label %84
 
@@ -735,13 +735,13 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
 
 91:                                               ; preds = %54
   %92 = load ptr, ptr %53, align 8, !tbaa !23
-  %93 = getelementptr inbounds nuw i64, ptr %92, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv.i
   %94 = load i64, ptr %93, align 8, !tbaa !10
   %95 = trunc i64 %94 to i8
   store i8 %95, ptr %.1111118.i, align 1, !tbaa !20
   %96 = getelementptr inbounds nuw i8, ptr %.1111118.i, i64 1
   %97 = load ptr, ptr %53, align 8, !tbaa !23
-  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv.i
   %99 = load i64, ptr %98, align 8, !tbaa !10
   %100 = lshr i64 %99, 8
   %101 = trunc i64 %100 to i8
@@ -774,27 +774,27 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
 
 108:                                              ; preds = %.lr.ph125.i
   %109 = load ptr, ptr %34, align 8, !tbaa !27
-  %110 = getelementptr inbounds nuw i64, ptr %109, i64 %indvars.iv130.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv130.i
   %111 = load i64, ptr %110, align 8, !tbaa !10
   %112 = trunc i64 %111 to i8
   store i8 %112, ptr %.3123.i, align 1, !tbaa !20
   %113 = getelementptr inbounds nuw i8, ptr %.3123.i, i64 1
   %114 = load ptr, ptr %34, align 8, !tbaa !27
-  %115 = getelementptr inbounds nuw i64, ptr %114, i64 %indvars.iv130.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv130.i
   %116 = load i64, ptr %115, align 8, !tbaa !10
   %117 = lshr i64 %116, 8
   %118 = trunc i64 %117 to i8
   store i8 %118, ptr %113, align 1, !tbaa !20
   %119 = getelementptr inbounds nuw i8, ptr %.3123.i, i64 2
   %120 = load ptr, ptr %34, align 8, !tbaa !27
-  %121 = getelementptr inbounds nuw i64, ptr %120, i64 %indvars.iv130.i
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv130.i
   %122 = load i64, ptr %121, align 8, !tbaa !10
   %123 = lshr i64 %122, 16
   %124 = trunc i64 %123 to i8
   store i8 %124, ptr %119, align 1, !tbaa !20
   %125 = getelementptr inbounds nuw i8, ptr %.3123.i, i64 3
   %126 = load ptr, ptr %34, align 8, !tbaa !27
-  %127 = getelementptr inbounds nuw i64, ptr %126, i64 %indvars.iv130.i
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv130.i
   %128 = load i64, ptr %127, align 8, !tbaa !10
   %129 = lshr i64 %128, 24
   %130 = trunc i64 %129 to i8
@@ -804,7 +804,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
 
 132:                                              ; preds = %.lr.ph125.i
   %133 = load ptr, ptr %34, align 8, !tbaa !27
-  %134 = getelementptr inbounds nuw i64, ptr %133, i64 %indvars.iv130.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv130.i
   %135 = load i64, ptr %134, align 8, !tbaa !10
   br label %136
 
@@ -826,13 +826,13 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_encode(ptr noundef %0,
 
 143:                                              ; preds = %.lr.ph125.i
   %144 = load ptr, ptr %34, align 8, !tbaa !27
-  %145 = getelementptr inbounds nuw i64, ptr %144, i64 %indvars.iv130.i
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv130.i
   %146 = load i64, ptr %145, align 8, !tbaa !10
   %147 = trunc i64 %146 to i8
   store i8 %147, ptr %.3123.i, align 1, !tbaa !20
   %148 = getelementptr inbounds nuw i8, ptr %.3123.i, i64 1
   %149 = load ptr, ptr %34, align 8, !tbaa !27
-  %150 = getelementptr inbounds nuw i64, ptr %149, i64 %indvars.iv130.i
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %indvars.iv130.i
   %151 = load i64, ptr %150, align 8, !tbaa !10
   %152 = lshr i64 %151, 8
   %153 = trunc i64 %152 to i8
@@ -1083,7 +1083,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_pre_copy_file(ptr readnone ca
   %16 = load ptr, ptr %15, align 8, !tbaa !37
   %17 = tail call i32 @H5F_get_high_bound(ptr noundef %16) #7
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr @H5O_sdspace_ver_bounds, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr @H5O_sdspace_ver_bounds, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !12
   %21 = icmp ugt i32 %14, %20
   br i1 %21, label %22, label %26
@@ -1258,7 +1258,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_debug(ptr readnone cap
   %.not38.i = icmp eq i64 %indvars.iv.i, 0
   %34 = select i1 %.not38.i, ptr @.str.24, ptr @.str.29
   %35 = load ptr, ptr %32, align 8, !tbaa !23
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i
   %37 = load i64, ptr %36, align 8, !tbaa !10
   %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.28, ptr noundef nonnull %34, i64 noundef %37) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1284,7 +1284,7 @@ define internal range(i32 -1, 1) i32 @H5O__sdspace_shared_debug(ptr readnone cap
 .lr.ph4.i:                                        ; preds = %46, %57
   %indvars.iv9.i = phi i64 [ %indvars.iv.next10.i, %57 ], [ 0, %46 ]
   %48 = load ptr, ptr %44, align 8, !tbaa !27
-  %49 = getelementptr inbounds nuw i64, ptr %48, i64 %indvars.iv9.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv9.i
   %50 = load i64, ptr %49, align 8, !tbaa !10
   %51 = icmp eq i64 %50, -1
   %.not37.i = icmp eq i64 %indvars.iv9.i, 0

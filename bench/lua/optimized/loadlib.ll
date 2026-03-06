@@ -68,7 +68,7 @@ define dso_local noundef i32 @luaopen_package(ptr noundef %0) local_unnamed_addr
 
 4:                                                ; preds = %4, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr @createsearcherstable.searchers, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @createsearcherstable.searchers, i64 %indvars.iv.i
   tail call void @lua_pushvalue(ptr noundef %0, i32 noundef -2) #7
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   tail call void @lua_pushcclosure(ptr noundef %0, ptr noundef %6, i32 noundef 1) #7

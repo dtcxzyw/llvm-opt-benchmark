@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ArrayRefWithPadding" = type { ptr, ptr, ptr }
 %"class.gmx::ArrayRef.117" = type { %"struct.gmx::ArrayRefIter.118", %"struct.gmx::ArrayRefIter.118" }
 %"struct.gmx::ArrayRefIter.118" = type { ptr }
-%struct.wallcc_t = type { i32, i64, i64 }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
 %"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
@@ -28,7 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ArrayRef.178" = type { %"struct.gmx::ArrayRefIter.179", %"struct.gmx::ArrayRefIter.179" }
 %"struct.gmx::ArrayRefIter.179" = type { ptr }
 %"class.gmx::ArrayRefWithPadding.116" = type { ptr, ptr, ptr }
-%"class.gmx::BasicVector" = type { [3 x float] }
 
 $_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm = comdat any
 
@@ -93,7 +91,7 @@ define void @_Z20integrateVVFirstSteplbbN3gmx16StartingBehaviorEiPK10t_inputrecP
   %81 = load i32, ptr %80, align 4, !tbaa !33
   %82 = mul nsw i32 %81, 60
   %83 = sext i32 %82 to i64
-  %84 = getelementptr %struct.wallcc_t, ptr %70, i64 %83
+  %84 = getelementptr [24 x i8], ptr %70, i64 %83
   %85 = getelementptr i8, ptr %84, i64 1152
   %86 = load i32, ptr %85, align 8, !tbaa !34
   %87 = add nsw i32 %86, 1
@@ -130,9 +128,9 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %58, %60, 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %105 = getelementptr inbounds nuw [3 x float], ptr %102, i64 %indvars.iv.i
+  %105 = getelementptr inbounds nuw [12 x i8], ptr %102, i64 %indvars.iv.i
   %106 = load float, ptr %105, align 4, !tbaa !163
-  %107 = getelementptr inbounds nuw [3 x float], ptr %100, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw [12 x i8], ptr %100, i64 %indvars.iv.i
   store float %106, ptr %107, align 4, !tbaa !163
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %109 = load float, ptr %108, align 4, !tbaa !163
@@ -329,7 +327,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %_ZL10copy_
   %233 = load i32, ptr %232, align 4, !tbaa !33
   %234 = mul nsw i32 %233, 60
   %235 = sext i32 %234 to i64
-  %236 = getelementptr %struct.wallcc_t, ptr %223, i64 %235
+  %236 = getelementptr [24 x i8], ptr %223, i64 %235
   %237 = getelementptr i8, ptr %236, i64 1152
   %238 = load i32, ptr %237, align 8, !tbaa !34
   %239 = add nsw i32 %238, 1
@@ -522,7 +520,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit181: ; preds = %275, %2
   %359 = load i32, ptr %358, align 4, !tbaa !33
   %360 = mul nsw i32 %359, 60
   %361 = sext i32 %360 to i64
-  %362 = getelementptr %struct.wallcc_t, ptr %348, i64 %361
+  %362 = getelementptr [24 x i8], ptr %348, i64 %361
   %363 = getelementptr i8, ptr %362, i64 1152
   %364 = load i32, ptr %363, align 8, !tbaa !34
   %365 = add nsw i32 %364, 1
@@ -842,7 +840,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit192: ; preds = %521, %5
   %580 = load i32, ptr %579, align 4, !tbaa !33
   %581 = mul nsw i32 %580, 60
   %582 = sext i32 %581 to i64
-  %583 = getelementptr %struct.wallcc_t, ptr %569, i64 %582
+  %583 = getelementptr [24 x i8], ptr %569, i64 %582
   %584 = getelementptr i8, ptr %583, i64 1152
   %585 = load i32, ptr %584, align 8, !tbaa !34
   %586 = add nsw i32 %585, 1
@@ -874,9 +872,9 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit197: ; preds = %_Z15wa
 
 .lr.ph.i200:                                      ; preds = %.lr.ph.i200, %.lr.ph.preheader.i198
   %indvars.iv.i201 = phi i64 [ 0, %.lr.ph.preheader.i198 ], [ %indvars.iv.next.i202, %.lr.ph.i200 ]
-  %600 = getelementptr inbounds nuw [3 x float], ptr %.0, i64 %indvars.iv.i201
+  %600 = getelementptr inbounds nuw [12 x i8], ptr %.0, i64 %indvars.iv.i201
   %601 = load float, ptr %600, align 4, !tbaa !163
-  %602 = getelementptr inbounds nuw [3 x float], ptr %597, i64 %indvars.iv.i201
+  %602 = getelementptr inbounds nuw [12 x i8], ptr %597, i64 %indvars.iv.i201
   store float %601, ptr %602, align 4, !tbaa !163
   %603 = getelementptr inbounds nuw i8, ptr %600, i64 4
   %604 = load float, ptr %603, align 4, !tbaa !163
@@ -966,7 +964,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit208: ; preds = %_Z14wal
   %649 = load i32, ptr %646, align 8, !tbaa !237
   %650 = sext i32 %649 to i64
   %.not.i209 = icmp eq ptr %648, null
-  %651 = getelementptr inbounds nuw float, ptr %648, i64 %650
+  %651 = getelementptr inbounds nuw [4 x i8], ptr %648, i64 %650
   %spec.select.i = select i1 %.not.i209, ptr null, ptr %651
   %652 = call noundef zeroext i1 @_Z18inputrecNvtTrotterPK10t_inputrec(ptr noundef %5)
   br i1 %652, label %655, label %653
@@ -1409,7 +1407,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %182, %193,
   %279 = load i32, ptr %278, align 4, !tbaa !33
   %280 = mul nsw i32 %279, 60
   %281 = sext i32 %280 to i64
-  %282 = getelementptr %struct.wallcc_t, ptr %268, i64 %281
+  %282 = getelementptr [24 x i8], ptr %268, i64 %281
   %283 = getelementptr i8, ptr %282, i64 1152
   %284 = load i32, ptr %283, align 8, !tbaa !34
   %285 = add nsw i32 %284, 1
@@ -1651,9 +1649,9 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: 
 
 _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i: ; preds = %33, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !216
-  %35 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %30, i64 %12
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %30, i64 %12
   store ptr %35, ptr %3, align 8, !tbaa !219
-  %36 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %29, i64 %27
+  %36 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %27
   store ptr %36, ptr %13, align 8, !tbaa !276
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
@@ -1662,7 +1660,7 @@ _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i
   br i1 %38, label %39, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %5, i64 %1
+  %40 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %40
   br i1 %.not.i4, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_M_default_appendEm.exit, label %41
 

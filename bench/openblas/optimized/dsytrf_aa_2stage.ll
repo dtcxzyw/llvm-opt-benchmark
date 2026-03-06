@@ -41,7 +41,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %20 = load i32, ptr %3, align 4, !tbaa !3
   %narrow = xor i32 %20, -1
   %21 = sext i32 %narrow to i64
-  %22 = getelementptr inbounds double, ptr %2, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %2, i64 %21
   %23 = getelementptr inbounds i8, ptr %4, i64 -8
   %24 = getelementptr inbounds i8, ptr %6, i64 -4
   %25 = getelementptr inbounds i8, ptr %8, i64 -8
@@ -182,7 +182,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %90 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %91 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %91, ptr %90, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -247,15 +247,15 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %121 = mul nsw i32 %117, %71
   %122 = add nsw i32 %95, %121
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds double, ptr %23, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr %23, i64 %123
   %125 = mul nsw i32 %117, %.1623749
   %126 = add nsw i32 %125, 1
   %127 = mul nsw i32 %126, %20
   %128 = sext i32 %127 to i64
-  %129 = getelementptr double, ptr %22, i64 %128
+  %129 = getelementptr [8 x i8], ptr %22, i64 %128
   %130 = getelementptr i8, ptr %129, i64 8
   %131 = sext i32 %117 to i64
-  %132 = getelementptr double, ptr %25, i64 %131
+  %132 = getelementptr [8 x i8], ptr %25, i64 %131
   %133 = getelementptr i8, ptr %132, i64 8
   call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.3, ptr noundef nonnull %19, ptr noundef nonnull %18, ptr noundef nonnull %17, ptr noundef nonnull @c_b12, ptr noundef nonnull %124, ptr noundef nonnull %14, ptr noundef %130, ptr noundef nonnull %3, ptr noundef nonnull @c_b13, ptr noundef %133, ptr noundef nonnull %1) #4
   br label %161
@@ -276,7 +276,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %144 = add i32 %95, %136
   %145 = add nsw i32 %144, %143
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds double, ptr %23, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %23, i64 %146
   %148 = add nsw i32 %.0625702, -2
   %149 = mul nsw i32 %136, %148
   %150 = add nsw i32 %149, 1
@@ -285,10 +285,10 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %153 = mul nsw i32 %152, %20
   %154 = add nsw i32 %150, %153
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds double, ptr %22, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr %22, i64 %155
   %157 = mul nsw i32 %136, %.0625702
   %158 = sext i32 %157 to i64
-  %159 = getelementptr double, ptr %25, i64 %158
+  %159 = getelementptr [8 x i8], ptr %25, i64 %158
   %160 = getelementptr i8, ptr %159, i64 8
   call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.3, ptr noundef nonnull %19, ptr noundef nonnull %18, ptr noundef nonnull %17, ptr noundef nonnull @c_b12, ptr noundef nonnull %147, ptr noundef nonnull %14, ptr noundef %156, ptr noundef nonnull %3, ptr noundef nonnull @c_b13, ptr noundef %160, ptr noundef nonnull %1) #4
   br label %161
@@ -310,11 +310,11 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %164 = add nsw i32 %.pre-phi834, 1
   %165 = mul i32 %164, %96
   %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds double, ptr %22, i64 %166
+  %167 = getelementptr inbounds [8 x i8], ptr %22, i64 %166
   %168 = mul nsw i32 %.pre-phi834, %71
   %169 = add nsw i32 %168, %95
   %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds double, ptr %23, i64 %170
+  %171 = getelementptr inbounds [8 x i8], ptr %23, i64 %170
   call void @dlacpy_(ptr noundef nonnull @.str.4, ptr noundef nonnull %18, ptr noundef nonnull %18, ptr noundef %167, ptr noundef nonnull %3, ptr noundef nonnull %171, ptr noundef nonnull %13) #4
   %172 = icmp samesign ugt i32 %.1623749, 1
   br i1 %172, label %.thread682, label %216
@@ -328,15 +328,15 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %176 = add nsw i32 %175, 1
   %177 = mul nsw i32 %176, %20
   %178 = sext i32 %177 to i64
-  %179 = getelementptr double, ptr %22, i64 %178
+  %179 = getelementptr [8 x i8], ptr %22, i64 %178
   %180 = getelementptr i8, ptr %179, i64 8
   %181 = sext i32 %173 to i64
-  %182 = getelementptr double, ptr %25, i64 %181
+  %182 = getelementptr [8 x i8], ptr %25, i64 %181
   %183 = getelementptr i8, ptr %182, i64 8
   %184 = mul nsw i32 %71, %175
   %185 = add nsw i32 %184, %95
   %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds double, ptr %23, i64 %186
+  %187 = getelementptr inbounds [8 x i8], ptr %23, i64 %186
   call void @dgemm_(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3, ptr noundef nonnull %18, ptr noundef nonnull %18, ptr noundef nonnull %13, ptr noundef nonnull @c_b21, ptr noundef %180, ptr noundef nonnull %3, ptr noundef %183, ptr noundef nonnull %1, ptr noundef nonnull @c_b12, ptr noundef nonnull %187, ptr noundef nonnull %14) #4
   store i32 %99, ptr %13, align 4, !tbaa !3
   %188 = load i32, ptr %19, align 4, !tbaa !3
@@ -347,12 +347,12 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %193 = mul nsw i32 %192, %20
   %194 = add nsw i32 %190, %193
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds double, ptr %22, i64 %195
+  %196 = getelementptr inbounds [8 x i8], ptr %22, i64 %195
   %197 = mul nsw i32 %189, %71
   %198 = add i32 %95, %188
   %199 = add nsw i32 %198, %197
   %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds double, ptr %23, i64 %200
+  %201 = getelementptr inbounds [8 x i8], ptr %23, i64 %200
   call void @dgemm_(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %18, ptr noundef nonnull @c_b12, ptr noundef %196, ptr noundef nonnull %3, ptr noundef nonnull %201, ptr noundef nonnull %13, ptr noundef nonnull @c_b13, ptr noundef %8, ptr noundef nonnull %1) #4
   store i32 %99, ptr %13, align 4, !tbaa !3
   %202 = add nsw i32 %.1623749, -2
@@ -364,11 +364,11 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %208 = mul nsw i32 %207, %20
   %209 = add nsw i32 %205, %208
   %210 = sext i32 %209 to i64
-  %211 = getelementptr inbounds double, ptr %22, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %22, i64 %210
   %212 = mul nsw i32 %206, %71
   %213 = add nsw i32 %212, %95
   %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds double, ptr %23, i64 %214
+  %215 = getelementptr inbounds [8 x i8], ptr %23, i64 %214
   call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.3, ptr noundef nonnull %18, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull @c_b21, ptr noundef %8, ptr noundef nonnull %1, ptr noundef %211, ptr noundef nonnull %3, ptr noundef nonnull @c_b12, ptr noundef nonnull %215, ptr noundef nonnull %13) #4
   br label %217
 
@@ -383,14 +383,14 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %220 = mul nsw i32 %219, %71
   %221 = add nsw i32 %220, %95
   %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds double, ptr %23, i64 %222
+  %223 = getelementptr inbounds [8 x i8], ptr %23, i64 %222
   %224 = mul nsw i32 %218, %112
   %225 = add nsw i32 %224, 1
   %226 = add nsw i32 %219, 1
   %227 = mul nsw i32 %226, %20
   %228 = add nsw i32 %225, %227
   %229 = sext i32 %228 to i64
-  %230 = getelementptr inbounds double, ptr %22, i64 %229
+  %230 = getelementptr inbounds [8 x i8], ptr %22, i64 %229
   call void @dsygst_(ptr noundef nonnull @c__1, ptr noundef nonnull @.str.4, ptr noundef nonnull %18, ptr noundef nonnull %223, ptr noundef nonnull %13, ptr noundef %230, ptr noundef nonnull %3, ptr noundef nonnull %16) #4
   br label %231
 
@@ -438,11 +438,11 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %245 = sub i32 %.neg676, %243
   %246 = add nsw i32 %245, %244
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds double, ptr %23, i64 %247
+  %248 = getelementptr inbounds [8 x i8], ptr %23, i64 %247
   %249 = load double, ptr %248, align 8, !tbaa !7
   %.reass711 = add i32 %invariant.op710, %243
   %250 = sext i32 %.reass711 to i64
-  %251 = getelementptr inbounds double, ptr %23, i64 %250
+  %251 = getelementptr inbounds [8 x i8], ptr %23, i64 %250
   store double %249, ptr %251, align 8, !tbaa !7
   %indvars.iv.next805 = add i64 %indvars.iv804, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next805 to i32
@@ -470,14 +470,14 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %259 = mul nsw i32 %258, %71
   %260 = add nsw i32 %259, %95
   %261 = sext i32 %260 to i64
-  %262 = getelementptr inbounds double, ptr %23, i64 %261
+  %262 = getelementptr inbounds [8 x i8], ptr %23, i64 %261
   %263 = add nsw i32 %258, 1
   %264 = mul nsw i32 %263, %20
   %265 = sext i32 %264 to i64
-  %266 = getelementptr double, ptr %22, i64 %265
+  %266 = getelementptr [8 x i8], ptr %22, i64 %265
   %267 = getelementptr i8, ptr %266, i64 8
   %268 = sext i32 %263 to i64
-  %269 = getelementptr inbounds double, ptr %25, i64 %268
+  %269 = getelementptr inbounds [8 x i8], ptr %25, i64 %268
   call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.3, ptr noundef nonnull %18, ptr noundef nonnull %18, ptr noundef nonnull %18, ptr noundef nonnull @c_b12, ptr noundef nonnull %262, ptr noundef nonnull %13, ptr noundef %267, ptr noundef nonnull %3, ptr noundef nonnull @c_b13, ptr noundef nonnull %269, ptr noundef nonnull %1) #4
   br label %290
 
@@ -491,7 +491,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %275 = add i32 %95, %271
   %276 = add nsw i32 %275, %274
   %277 = sext i32 %276 to i64
-  %278 = getelementptr inbounds double, ptr %23, i64 %277
+  %278 = getelementptr inbounds [8 x i8], ptr %23, i64 %277
   %279 = add nsw i32 %.1623749, -2
   %280 = mul nsw i32 %271, %279
   %281 = add nsw i32 %280, 1
@@ -500,9 +500,9 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %284 = mul nsw i32 %283, %20
   %285 = add nsw i32 %281, %284
   %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds double, ptr %22, i64 %286
+  %287 = getelementptr inbounds [8 x i8], ptr %22, i64 %286
   %288 = sext i32 %283 to i64
-  %289 = getelementptr inbounds double, ptr %25, i64 %288
+  %289 = getelementptr inbounds [8 x i8], ptr %25, i64 %288
   call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.3, ptr noundef nonnull %18, ptr noundef nonnull %18, ptr noundef nonnull %13, ptr noundef nonnull @c_b12, ptr noundef nonnull %278, ptr noundef nonnull %14, ptr noundef %287, ptr noundef nonnull %3, ptr noundef nonnull @c_b13, ptr noundef nonnull %289, ptr noundef nonnull %1) #4
   br label %290
 
@@ -516,17 +516,17 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %296 = mul nsw i32 %293, %.1623749
   store i32 %296, ptr %14, align 4, !tbaa !3
   %297 = sext i32 %293 to i64
-  %298 = getelementptr double, ptr %25, i64 %297
+  %298 = getelementptr [8 x i8], ptr %25, i64 %297
   %299 = getelementptr i8, ptr %298, i64 8
   %300 = add nsw i32 %294, 1
   %301 = mul nsw i32 %300, %20
   %302 = sext i32 %301 to i64
-  %303 = getelementptr double, ptr %22, i64 %302
+  %303 = getelementptr [8 x i8], ptr %22, i64 %302
   %304 = getelementptr i8, ptr %303, i64 8
   %305 = add nsw i32 %296, 1
   %306 = add nsw i32 %305, %301
   %307 = sext i32 %306 to i64
-  %308 = getelementptr inbounds double, ptr %22, i64 %307
+  %308 = getelementptr inbounds [8 x i8], ptr %22, i64 %307
   call void @dgemm_(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3, ptr noundef nonnull %19, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull @c_b21, ptr noundef %299, ptr noundef nonnull %1, ptr noundef %304, ptr noundef nonnull %3, ptr noundef nonnull @c_b12, ptr noundef %308, ptr noundef nonnull %3) #4
   br label %309
 
@@ -550,11 +550,11 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %318 = mul nsw i32 %317, %20
   %319 = add nsw i32 %316, %318
   %320 = sext i32 %319 to i64
-  %321 = getelementptr inbounds double, ptr %22, i64 %320
+  %321 = getelementptr inbounds [8 x i8], ptr %22, i64 %320
   %322 = add nsw i32 %.1720, -1
   %323 = mul nsw i32 %311, %322
   %324 = sext i32 %323 to i64
-  %325 = getelementptr double, ptr %25, i64 %324
+  %325 = getelementptr [8 x i8], ptr %25, i64 %324
   %326 = getelementptr i8, ptr %325, i64 8
   call void @dcopy_(ptr noundef nonnull %14, ptr noundef %321, ptr noundef nonnull %3, ptr noundef %326, ptr noundef nonnull @c__1) #4
   %327 = add nuw nsw i32 %.1720, 1
@@ -573,7 +573,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %332 = sub nsw i32 %330, %331
   store i32 %332, ptr %13, align 4, !tbaa !3
   %333 = sext i32 %331 to i64
-  %334 = getelementptr i32, ptr %24, i64 %333
+  %334 = getelementptr [4 x i8], ptr %24, i64 %333
   %335 = getelementptr i8, ptr %334, i64 4
   %336 = call i32 @dgetrf_(ptr noundef nonnull %13, ptr noundef nonnull %19, ptr noundef %8, ptr noundef nonnull %1, ptr noundef %335, ptr noundef nonnull %16) #4
   %337 = load i32, ptr %19, align 4, !tbaa !3
@@ -591,7 +591,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %342 = add nsw i32 %.2725, -1
   %343 = mul nsw i32 %338, %342
   %344 = sext i32 %343 to i64
-  %345 = getelementptr double, ptr %25, i64 %344
+  %345 = getelementptr [8 x i8], ptr %25, i64 %344
   %346 = getelementptr i8, ptr %345, i64 8
   %347 = mul nsw i32 %339, %.1623749
   %348 = add nsw i32 %347, %.2725
@@ -599,7 +599,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %350 = mul nsw i32 %349, %20
   %351 = add nsw i32 %348, %350
   %352 = sext i32 %351 to i64
-  %353 = getelementptr inbounds double, ptr %22, i64 %352
+  %353 = getelementptr inbounds [8 x i8], ptr %22, i64 %352
   call void @dcopy_(ptr noundef nonnull %14, ptr noundef %346, ptr noundef nonnull @c__1, ptr noundef %353, ptr noundef nonnull %3) #4
   %354 = add nuw nsw i32 %.2725, 1
   %355 = load i32, ptr %13, align 4, !tbaa !3
@@ -624,7 +624,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %363 = add i32 %95, %356
   %364 = add nsw i32 %363, %362
   %365 = sext i32 %364 to i64
-  %366 = getelementptr inbounds double, ptr %23, i64 %365
+  %366 = getelementptr inbounds [8 x i8], ptr %23, i64 %365
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull @c_b13, ptr noundef nonnull @c_b13, ptr noundef nonnull %366, ptr noundef nonnull %13) #4
   store i32 %104, ptr %13, align 4, !tbaa !3
   %367 = load i32, ptr %19, align 4, !tbaa !3
@@ -633,7 +633,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %370 = add i32 %95, %367
   %371 = add nsw i32 %370, %369
   %372 = sext i32 %371 to i64
-  %373 = getelementptr inbounds double, ptr %23, i64 %372
+  %373 = getelementptr inbounds [8 x i8], ptr %23, i64 %372
   call void @dlacpy_(ptr noundef nonnull @.str.4, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef %8, ptr noundef nonnull %1, ptr noundef nonnull %373, ptr noundef nonnull %13) #4
   br i1 %.not666685, label %389, label %374
 
@@ -647,12 +647,12 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %380 = mul nsw i32 %379, %20
   %381 = add nsw i32 %377, %380
   %382 = sext i32 %381 to i64
-  %383 = getelementptr inbounds double, ptr %22, i64 %382
+  %383 = getelementptr inbounds [8 x i8], ptr %22, i64 %382
   %384 = mul nsw i32 %378, %71
   %385 = add i32 %95, %375
   %386 = add nsw i32 %385, %384
   %387 = sext i32 %386 to i64
-  %388 = getelementptr inbounds double, ptr %23, i64 %387
+  %388 = getelementptr inbounds [8 x i8], ptr %23, i64 %387
   call void @dtrsm_(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull @c_b12, ptr noundef %383, ptr noundef nonnull %3, ptr noundef nonnull %388, ptr noundef nonnull %13) #4
   br label %389
 
@@ -695,7 +695,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %401 = trunc nuw nsw i64 %indvars.iv809 to i32
   %.reass737 = add i32 %invariant.op736, %401
   %402 = sext i32 %.reass737 to i64
-  %403 = getelementptr inbounds double, ptr %23, i64 %402
+  %403 = getelementptr inbounds [8 x i8], ptr %23, i64 %402
   %404 = load double, ptr %403, align 8, !tbaa !7
   %405 = add i32 %395, %401
   %406 = mul nsw i32 %71, %405
@@ -704,7 +704,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %409 = sub i32 %399, %408
   %410 = add nsw i32 %409, %406
   %411 = sext i32 %410 to i64
-  %412 = getelementptr inbounds double, ptr %23, i64 %411
+  %412 = getelementptr inbounds [8 x i8], ptr %23, i64 %411
   store double %404, ptr %412, align 8, !tbaa !7
   %indvars.iv.next810 = add nuw nsw i64 %indvars.iv809, 1
   %exitcond813.not = icmp eq i64 %indvars.iv.next810, %wide.trip.count812
@@ -727,7 +727,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %418 = mul nsw i32 %417, %20
   %419 = add nsw i32 %415, %418
   %420 = sext i32 %419 to i64
-  %421 = getelementptr inbounds double, ptr %22, i64 %420
+  %421 = getelementptr inbounds [8 x i8], ptr %22, i64 %420
   call void @dlaset_(ptr noundef nonnull @.str.9, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull @c_b13, ptr noundef nonnull @c_b12, ptr noundef %421, ptr noundef nonnull %3) #4
   %422 = load i32, ptr %18, align 4, !tbaa !3
   store i32 %422, ptr %13, align 4, !tbaa !3
@@ -740,7 +740,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %424 = mul nsw i32 %423, %.pre844
   %425 = add nsw i32 %424, %.4745
   %426 = sext i32 %425 to i64
-  %427 = getelementptr inbounds i32, ptr %24, i64 %426
+  %427 = getelementptr inbounds [4 x i8], ptr %24, i64 %426
   %428 = load i32, ptr %427, align 4, !tbaa !3
   %429 = add nsw i32 %428, %424
   store i32 %429, ptr %427, align 4, !tbaa !3
@@ -754,11 +754,11 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %433 = mul nsw i32 %425, %20
   %434 = add nsw i32 %433, %432
   %435 = sext i32 %434 to i64
-  %436 = getelementptr inbounds double, ptr %22, i64 %435
+  %436 = getelementptr inbounds [8 x i8], ptr %22, i64 %435
   %437 = mul nsw i32 %429, %20
   %438 = add nsw i32 %437, %432
   %439 = sext i32 %438 to i64
-  %440 = getelementptr inbounds double, ptr %22, i64 %439
+  %440 = getelementptr inbounds [8 x i8], ptr %22, i64 %439
   call void @dswap_(ptr noundef nonnull %14, ptr noundef %436, ptr noundef nonnull @c__1, ptr noundef %440, ptr noundef nonnull @c__1) #4
   %441 = add nsw i32 %425, 1
   %442 = icmp sgt i32 %429, %441
@@ -771,10 +771,10 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %446 = mul nsw i32 %441, %20
   %447 = add nsw i32 %446, %425
   %448 = sext i32 %447 to i64
-  %449 = getelementptr inbounds double, ptr %22, i64 %448
+  %449 = getelementptr inbounds [8 x i8], ptr %22, i64 %448
   %450 = add nsw i32 %441, %437
   %451 = sext i32 %450 to i64
-  %452 = getelementptr inbounds double, ptr %22, i64 %451
+  %452 = getelementptr inbounds [8 x i8], ptr %22, i64 %451
   call void @dswap_(ptr noundef nonnull %14, ptr noundef %449, ptr noundef nonnull %3, ptr noundef %452, ptr noundef nonnull @c__1) #4
   br label %453
 
@@ -790,21 +790,21 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %459 = mul nsw i32 %458, %20
   %460 = add nsw i32 %459, %425
   %461 = sext i32 %460 to i64
-  %462 = getelementptr inbounds double, ptr %22, i64 %461
+  %462 = getelementptr inbounds [8 x i8], ptr %22, i64 %461
   %463 = add nsw i32 %459, %429
   %464 = sext i32 %463 to i64
-  %465 = getelementptr inbounds double, ptr %22, i64 %464
+  %465 = getelementptr inbounds [8 x i8], ptr %22, i64 %464
   call void @dswap_(ptr noundef nonnull %14, ptr noundef %462, ptr noundef nonnull %3, ptr noundef %465, ptr noundef nonnull %3) #4
   br label %466
 
 466:                                              ; preds = %456, %453
   %467 = add nsw i32 %433, %425
   %468 = sext i32 %467 to i64
-  %469 = getelementptr inbounds double, ptr %22, i64 %468
+  %469 = getelementptr inbounds [8 x i8], ptr %22, i64 %468
   %470 = load double, ptr %469, align 8, !tbaa !7
   %471 = add nsw i32 %437, %429
   %472 = sext i32 %471 to i64
-  %473 = getelementptr inbounds double, ptr %22, i64 %472
+  %473 = getelementptr inbounds [8 x i8], ptr %22, i64 %472
   %474 = load double, ptr %473, align 8, !tbaa !7
   store double %474, ptr %469, align 8, !tbaa !7
   store double %470, ptr %473, align 8, !tbaa !7
@@ -815,10 +815,10 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %477 = mul nsw i32 %476, %.1623749
   store i32 %477, ptr %14, align 4, !tbaa !3
   %478 = sext i32 %433 to i64
-  %479 = getelementptr double, ptr %22, i64 %478
+  %479 = getelementptr [8 x i8], ptr %22, i64 %478
   %480 = getelementptr i8, ptr %479, i64 8
   %481 = sext i32 %437 to i64
-  %482 = getelementptr double, ptr %22, i64 %481
+  %482 = getelementptr [8 x i8], ptr %22, i64 %481
   %483 = getelementptr i8, ptr %482, i64 8
   call void @dswap_(ptr noundef nonnull %14, ptr noundef %480, ptr noundef nonnull @c__1, ptr noundef %483, ptr noundef nonnull @c__1) #4
   br label %484
@@ -883,13 +883,13 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %514 = mul nsw i32 %510, %71
   %515 = add nsw i32 %488, %514
   %516 = sext i32 %515 to i64
-  %517 = getelementptr inbounds double, ptr %23, i64 %516
+  %517 = getelementptr inbounds [8 x i8], ptr %23, i64 %516
   %518 = mul nsw i32 %510, %.2624793
   %519 = add i32 %489, %518
   %520 = sext i32 %519 to i64
-  %521 = getelementptr inbounds double, ptr %22, i64 %520
+  %521 = getelementptr inbounds [8 x i8], ptr %22, i64 %520
   %522 = sext i32 %510 to i64
-  %523 = getelementptr double, ptr %25, i64 %522
+  %523 = getelementptr [8 x i8], ptr %25, i64 %522
   %524 = getelementptr i8, ptr %523, i64 8
   call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5, ptr noundef nonnull %19, ptr noundef nonnull %18, ptr noundef nonnull %17, ptr noundef nonnull @c_b12, ptr noundef nonnull %517, ptr noundef nonnull %14, ptr noundef %521, ptr noundef nonnull %3, ptr noundef nonnull @c_b13, ptr noundef %524, ptr noundef nonnull %1) #4
   br label %552
@@ -910,7 +910,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %535 = add i32 %488, %527
   %536 = add nsw i32 %535, %534
   %537 = sext i32 %536 to i64
-  %538 = getelementptr inbounds double, ptr %23, i64 %537
+  %538 = getelementptr inbounds [8 x i8], ptr %23, i64 %537
   %539 = mul nsw i32 %527, %.2624793
   %540 = add nsw i32 %539, 1
   %541 = add nsw i32 %.3628754, -2
@@ -919,10 +919,10 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %544 = mul nsw i32 %543, %20
   %545 = add nsw i32 %540, %544
   %546 = sext i32 %545 to i64
-  %547 = getelementptr inbounds double, ptr %22, i64 %546
+  %547 = getelementptr inbounds [8 x i8], ptr %22, i64 %546
   %548 = mul nsw i32 %527, %.3628754
   %549 = sext i32 %548 to i64
-  %550 = getelementptr double, ptr %25, i64 %549
+  %550 = getelementptr [8 x i8], ptr %25, i64 %549
   %551 = getelementptr i8, ptr %550, i64 8
   call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5, ptr noundef nonnull %19, ptr noundef nonnull %18, ptr noundef nonnull %17, ptr noundef nonnull @c_b12, ptr noundef nonnull %538, ptr noundef nonnull %14, ptr noundef %547, ptr noundef nonnull %3, ptr noundef nonnull @c_b13, ptr noundef %551, ptr noundef nonnull %1) #4
   br label %552
@@ -944,11 +944,11 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %555 = add nsw i32 %.pre-phi, 1
   %556 = mul i32 %555, %489
   %557 = sext i32 %556 to i64
-  %558 = getelementptr inbounds double, ptr %22, i64 %557
+  %558 = getelementptr inbounds [8 x i8], ptr %22, i64 %557
   %559 = mul nsw i32 %.pre-phi, %71
   %560 = add nsw i32 %559, %488
   %561 = sext i32 %560 to i64
-  %562 = getelementptr inbounds double, ptr %23, i64 %561
+  %562 = getelementptr inbounds [8 x i8], ptr %23, i64 %561
   call void @dlacpy_(ptr noundef nonnull @.str.9, ptr noundef nonnull %18, ptr noundef nonnull %18, ptr noundef %558, ptr noundef nonnull %3, ptr noundef nonnull %562, ptr noundef nonnull %13) #4
   %563 = icmp samesign ugt i32 %.2624793, 1
   br i1 %563, label %.thread686, label %605
@@ -961,14 +961,14 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %566 = mul nsw i32 %564, %.2624793
   %567 = add i32 %489, %566
   %568 = sext i32 %567 to i64
-  %569 = getelementptr inbounds double, ptr %22, i64 %568
+  %569 = getelementptr inbounds [8 x i8], ptr %22, i64 %568
   %570 = sext i32 %564 to i64
-  %571 = getelementptr double, ptr %25, i64 %570
+  %571 = getelementptr [8 x i8], ptr %25, i64 %570
   %572 = getelementptr i8, ptr %571, i64 8
   %573 = mul nsw i32 %71, %566
   %574 = add nsw i32 %573, %488
   %575 = sext i32 %574 to i64
-  %576 = getelementptr inbounds double, ptr %23, i64 %575
+  %576 = getelementptr inbounds [8 x i8], ptr %23, i64 %575
   call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.3, ptr noundef nonnull %18, ptr noundef nonnull %18, ptr noundef nonnull %13, ptr noundef nonnull @c_b21, ptr noundef %569, ptr noundef nonnull %3, ptr noundef %572, ptr noundef nonnull %1, ptr noundef nonnull @c_b12, ptr noundef nonnull %576, ptr noundef nonnull %14) #4
   store i32 %492, ptr %13, align 4, !tbaa !3
   %577 = load i32, ptr %19, align 4, !tbaa !3
@@ -979,12 +979,12 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %582 = mul nsw i32 %581, %20
   %583 = add nsw i32 %579, %582
   %584 = sext i32 %583 to i64
-  %585 = getelementptr inbounds double, ptr %22, i64 %584
+  %585 = getelementptr inbounds [8 x i8], ptr %22, i64 %584
   %586 = mul nsw i32 %580, %71
   %587 = add i32 %488, %577
   %588 = add nsw i32 %587, %586
   %589 = sext i32 %588 to i64
-  %590 = getelementptr inbounds double, ptr %23, i64 %589
+  %590 = getelementptr inbounds [8 x i8], ptr %23, i64 %589
   call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.3, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %18, ptr noundef nonnull @c_b12, ptr noundef %585, ptr noundef nonnull %3, ptr noundef nonnull %590, ptr noundef nonnull %13, ptr noundef nonnull @c_b13, ptr noundef %8, ptr noundef nonnull %1) #4
   store i32 %492, ptr %13, align 4, !tbaa !3
   %591 = load i32, ptr %19, align 4, !tbaa !3
@@ -996,11 +996,11 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %597 = mul nsw i32 %596, %20
   %598 = add nsw i32 %593, %597
   %599 = sext i32 %598 to i64
-  %600 = getelementptr inbounds double, ptr %22, i64 %599
+  %600 = getelementptr inbounds [8 x i8], ptr %22, i64 %599
   %601 = mul nsw i32 %592, %71
   %602 = add nsw i32 %601, %488
   %603 = sext i32 %602 to i64
-  %604 = getelementptr inbounds double, ptr %23, i64 %603
+  %604 = getelementptr inbounds [8 x i8], ptr %23, i64 %603
   call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5, ptr noundef nonnull %18, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull @c_b21, ptr noundef %8, ptr noundef nonnull %1, ptr noundef %600, ptr noundef nonnull %3, ptr noundef nonnull @c_b12, ptr noundef nonnull %604, ptr noundef nonnull %13) #4
   br label %606
 
@@ -1015,14 +1015,14 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %609 = mul nsw i32 %608, %71
   %610 = add nsw i32 %609, %488
   %611 = sext i32 %610 to i64
-  %612 = getelementptr inbounds double, ptr %23, i64 %611
+  %612 = getelementptr inbounds [8 x i8], ptr %23, i64 %611
   %613 = add nsw i32 %608, 1
   %614 = mul nsw i32 %607, %505
   %615 = add nsw i32 %614, 1
   %616 = mul nsw i32 %615, %20
   %617 = add nsw i32 %613, %616
   %618 = sext i32 %617 to i64
-  %619 = getelementptr inbounds double, ptr %22, i64 %618
+  %619 = getelementptr inbounds [8 x i8], ptr %22, i64 %618
   call void @dsygst_(ptr noundef nonnull @c__1, ptr noundef nonnull @.str.9, ptr noundef nonnull %18, ptr noundef nonnull %612, ptr noundef nonnull %13, ptr noundef %619, ptr noundef nonnull %3, ptr noundef nonnull %16) #4
   br label %620
 
@@ -1067,14 +1067,14 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %632 = trunc i64 %indvars.iv817 to i32
   %.reass763 = add i32 %invariant.op762, %632
   %633 = sext i32 %.reass763 to i64
-  %634 = getelementptr inbounds double, ptr %23, i64 %633
+  %634 = getelementptr inbounds [8 x i8], ptr %23, i64 %633
   %635 = load double, ptr %634, align 8, !tbaa !7
   %.reass765 = add i32 %invariant.op771, %632
   %636 = mul nsw i32 %.reass765, %71
   %637 = sub i32 %.neg, %632
   %638 = add nsw i32 %637, %636
   %639 = sext i32 %638 to i64
-  %640 = getelementptr inbounds double, ptr %23, i64 %639
+  %640 = getelementptr inbounds [8 x i8], ptr %23, i64 %639
   store double %635, ptr %640, align 8, !tbaa !7
   %indvars.iv.next818 = add i64 %indvars.iv817, 1
   %lftr.wideiv820 = trunc i64 %indvars.iv.next818 to i32
@@ -1106,13 +1106,13 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %648 = mul nsw i32 %647, %71
   %649 = add nsw i32 %648, %488
   %650 = sext i32 %649 to i64
-  %651 = getelementptr inbounds double, ptr %23, i64 %650
+  %651 = getelementptr inbounds [8 x i8], ptr %23, i64 %650
   %652 = add nsw i32 %647, 1
   %653 = add nsw i32 %652, %20
   %654 = sext i32 %653 to i64
-  %655 = getelementptr inbounds double, ptr %22, i64 %654
+  %655 = getelementptr inbounds [8 x i8], ptr %22, i64 %654
   %656 = sext i32 %652 to i64
-  %657 = getelementptr inbounds double, ptr %25, i64 %656
+  %657 = getelementptr inbounds [8 x i8], ptr %25, i64 %656
   call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5, ptr noundef nonnull %18, ptr noundef nonnull %18, ptr noundef nonnull %18, ptr noundef nonnull @c_b12, ptr noundef nonnull %651, ptr noundef nonnull %13, ptr noundef %655, ptr noundef nonnull %3, ptr noundef nonnull @c_b13, ptr noundef nonnull %657, ptr noundef nonnull %1) #4
   br label %678
 
@@ -1126,7 +1126,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %663 = add i32 %488, %659
   %664 = add nsw i32 %663, %662
   %665 = sext i32 %664 to i64
-  %666 = getelementptr inbounds double, ptr %23, i64 %665
+  %666 = getelementptr inbounds [8 x i8], ptr %23, i64 %665
   %667 = mul nsw i32 %659, %.2624793
   %668 = add nsw i32 %667, 1
   %669 = add nsw i32 %.2624793, -2
@@ -1135,9 +1135,9 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %672 = mul nsw i32 %671, %20
   %673 = add nsw i32 %672, %668
   %674 = sext i32 %673 to i64
-  %675 = getelementptr inbounds double, ptr %22, i64 %674
+  %675 = getelementptr inbounds [8 x i8], ptr %22, i64 %674
   %676 = sext i32 %668 to i64
-  %677 = getelementptr inbounds double, ptr %25, i64 %676
+  %677 = getelementptr inbounds [8 x i8], ptr %25, i64 %676
   call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5, ptr noundef nonnull %18, ptr noundef nonnull %18, ptr noundef nonnull %13, ptr noundef nonnull @c_b12, ptr noundef nonnull %666, ptr noundef nonnull %14, ptr noundef %675, ptr noundef nonnull %3, ptr noundef nonnull @c_b13, ptr noundef nonnull %677, ptr noundef nonnull %1) #4
   br label %678
 
@@ -1153,15 +1153,15 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %685 = add nsw i32 %682, 1
   %686 = add nsw i32 %685, %20
   %687 = sext i32 %686 to i64
-  %688 = getelementptr inbounds double, ptr %22, i64 %687
+  %688 = getelementptr inbounds [8 x i8], ptr %22, i64 %687
   %689 = sext i32 %681 to i64
-  %690 = getelementptr double, ptr %25, i64 %689
+  %690 = getelementptr [8 x i8], ptr %25, i64 %689
   %691 = getelementptr i8, ptr %690, i64 8
   %692 = add nsw i32 %684, 1
   %693 = mul nsw i32 %692, %20
   %694 = add nsw i32 %693, %685
   %695 = sext i32 %694 to i64
-  %696 = getelementptr inbounds double, ptr %22, i64 %695
+  %696 = getelementptr inbounds [8 x i8], ptr %22, i64 %695
   call void @dgemm_(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.3, ptr noundef nonnull %13, ptr noundef nonnull %19, ptr noundef nonnull %14, ptr noundef nonnull @c_b21, ptr noundef %688, ptr noundef nonnull %3, ptr noundef %691, ptr noundef nonnull %1, ptr noundef nonnull @c_b12, ptr noundef %696, ptr noundef nonnull %3) #4
   br label %697
 
@@ -1178,9 +1178,9 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %705 = mul nsw i32 %704, %20
   %706 = add nsw i32 %705, %702
   %707 = sext i32 %706 to i64
-  %708 = getelementptr inbounds double, ptr %22, i64 %707
+  %708 = getelementptr inbounds [8 x i8], ptr %22, i64 %707
   %709 = sext i32 %702 to i64
-  %710 = getelementptr inbounds i32, ptr %24, i64 %709
+  %710 = getelementptr inbounds [4 x i8], ptr %24, i64 %709
   %711 = call i32 @dgetrf_(ptr noundef nonnull %13, ptr noundef nonnull %19, ptr noundef %708, ptr noundef nonnull %3, ptr noundef nonnull %710, ptr noundef nonnull %16) #4
   %712 = load i32, ptr %19, align 4, !tbaa !3
   %713 = load i32, ptr %1, align 4, !tbaa !3
@@ -1195,7 +1195,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %719 = add i32 %488, %712
   %720 = add nsw i32 %719, %718
   %721 = sext i32 %720 to i64
-  %722 = getelementptr inbounds double, ptr %23, i64 %721
+  %722 = getelementptr inbounds [8 x i8], ptr %23, i64 %721
   call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull @c_b13, ptr noundef nonnull @c_b13, ptr noundef nonnull %722, ptr noundef nonnull %13) #4
   store i32 %497, ptr %13, align 4, !tbaa !3
   %723 = load i32, ptr %19, align 4, !tbaa !3
@@ -1206,12 +1206,12 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %728 = mul nsw i32 %727, %20
   %729 = add nsw i32 %725, %728
   %730 = sext i32 %729 to i64
-  %731 = getelementptr inbounds double, ptr %22, i64 %730
+  %731 = getelementptr inbounds [8 x i8], ptr %22, i64 %730
   %732 = mul nsw i32 %726, %71
   %733 = add i32 %488, %723
   %734 = add nsw i32 %733, %732
   %735 = sext i32 %734 to i64
-  %736 = getelementptr inbounds double, ptr %23, i64 %735
+  %736 = getelementptr inbounds [8 x i8], ptr %23, i64 %735
   call void @dlacpy_(ptr noundef nonnull @.str.4, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef %731, ptr noundef nonnull %3, ptr noundef nonnull %736, ptr noundef nonnull %13) #4
   br i1 %.not654689, label %752, label %737
 
@@ -1225,12 +1225,12 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %743 = mul nsw i32 %742, %20
   %744 = add nsw i32 %740, %743
   %745 = sext i32 %744 to i64
-  %746 = getelementptr inbounds double, ptr %22, i64 %745
+  %746 = getelementptr inbounds [8 x i8], ptr %22, i64 %745
   %747 = mul nsw i32 %739, %71
   %748 = add i32 %488, %738
   %749 = add nsw i32 %748, %747
   %750 = sext i32 %749 to i64
-  %751 = getelementptr inbounds double, ptr %23, i64 %750
+  %751 = getelementptr inbounds [8 x i8], ptr %23, i64 %750
   call void @dtrsm_(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull @c_b12, ptr noundef %746, ptr noundef nonnull %3, ptr noundef nonnull %751, ptr noundef nonnull %13) #4
   br label %752
 
@@ -1273,7 +1273,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %764 = trunc nuw nsw i64 %indvars.iv823 to i32
   %.reass781 = add i32 %invariant.op780, %764
   %765 = sext i32 %.reass781 to i64
-  %766 = getelementptr inbounds double, ptr %23, i64 %765
+  %766 = getelementptr inbounds [8 x i8], ptr %23, i64 %765
   %767 = load double, ptr %766, align 8, !tbaa !7
   %768 = add i32 %758, %764
   %769 = mul nsw i32 %71, %768
@@ -1282,7 +1282,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %772 = sub i32 %762, %771
   %773 = add nsw i32 %772, %769
   %774 = sext i32 %773 to i64
-  %775 = getelementptr inbounds double, ptr %23, i64 %774
+  %775 = getelementptr inbounds [8 x i8], ptr %23, i64 %774
   store double %767, ptr %775, align 8, !tbaa !7
   %indvars.iv.next824 = add nuw nsw i64 %indvars.iv823, 1
   %exitcond827.not = icmp eq i64 %indvars.iv.next824, %wide.trip.count826
@@ -1305,7 +1305,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %781 = mul nsw i32 %780, %20
   %782 = add nsw i32 %779, %781
   %783 = sext i32 %782 to i64
-  %784 = getelementptr inbounds double, ptr %22, i64 %783
+  %784 = getelementptr inbounds [8 x i8], ptr %22, i64 %783
   call void @dlaset_(ptr noundef nonnull @.str.4, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull @c_b13, ptr noundef nonnull @c_b12, ptr noundef %784, ptr noundef nonnull %3) #4
   %785 = load i32, ptr %18, align 4, !tbaa !3
   store i32 %785, ptr %13, align 4, !tbaa !3
@@ -1318,7 +1318,7 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %787 = mul nsw i32 %786, %.pre-phi839
   %788 = add nsw i32 %787, %.7789
   %789 = sext i32 %788 to i64
-  %790 = getelementptr inbounds i32, ptr %24, i64 %789
+  %790 = getelementptr inbounds [4 x i8], ptr %24, i64 %789
   %791 = load i32, ptr %790, align 4, !tbaa !3
   %792 = add nsw i32 %791, %787
   store i32 %792, ptr %790, align 4, !tbaa !3
@@ -1332,10 +1332,10 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %796 = mul nsw i32 %795, %20
   %797 = add nsw i32 %796, %788
   %798 = sext i32 %797 to i64
-  %799 = getelementptr inbounds double, ptr %22, i64 %798
+  %799 = getelementptr inbounds [8 x i8], ptr %22, i64 %798
   %800 = add nsw i32 %796, %792
   %801 = sext i32 %800 to i64
-  %802 = getelementptr inbounds double, ptr %22, i64 %801
+  %802 = getelementptr inbounds [8 x i8], ptr %22, i64 %801
   call void @dswap_(ptr noundef nonnull %14, ptr noundef %799, ptr noundef nonnull %3, ptr noundef %802, ptr noundef nonnull %3) #4
   %803 = add nsw i32 %788, 1
   %804 = icmp sgt i32 %792, %803
@@ -1348,11 +1348,11 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %808 = mul nsw i32 %788, %20
   %809 = add nsw i32 %803, %808
   %810 = sext i32 %809 to i64
-  %811 = getelementptr inbounds double, ptr %22, i64 %810
+  %811 = getelementptr inbounds [8 x i8], ptr %22, i64 %810
   %812 = mul nsw i32 %803, %20
   %813 = add nsw i32 %812, %792
   %814 = sext i32 %813 to i64
-  %815 = getelementptr inbounds double, ptr %22, i64 %814
+  %815 = getelementptr inbounds [8 x i8], ptr %22, i64 %814
   call void @dswap_(ptr noundef nonnull %14, ptr noundef %811, ptr noundef nonnull @c__1, ptr noundef %815, ptr noundef nonnull %3) #4
   br label %816
 
@@ -1368,22 +1368,22 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %822 = mul nsw i32 %788, %20
   %823 = add nsw i32 %821, %822
   %824 = sext i32 %823 to i64
-  %825 = getelementptr inbounds double, ptr %22, i64 %824
+  %825 = getelementptr inbounds [8 x i8], ptr %22, i64 %824
   %826 = mul nsw i32 %792, %20
   %827 = add nsw i32 %821, %826
   %828 = sext i32 %827 to i64
-  %829 = getelementptr inbounds double, ptr %22, i64 %828
+  %829 = getelementptr inbounds [8 x i8], ptr %22, i64 %828
   call void @dswap_(ptr noundef nonnull %14, ptr noundef %825, ptr noundef nonnull @c__1, ptr noundef %829, ptr noundef nonnull @c__1) #4
   br label %830
 
 830:                                              ; preds = %819, %816
   %831 = mul i32 %788, %489
   %832 = sext i32 %831 to i64
-  %833 = getelementptr inbounds double, ptr %22, i64 %832
+  %833 = getelementptr inbounds [8 x i8], ptr %22, i64 %832
   %834 = load double, ptr %833, align 8, !tbaa !7
   %835 = mul i32 %792, %489
   %836 = sext i32 %835 to i64
-  %837 = getelementptr inbounds double, ptr %22, i64 %836
+  %837 = getelementptr inbounds [8 x i8], ptr %22, i64 %836
   %838 = load double, ptr %837, align 8, !tbaa !7
   store double %838, ptr %833, align 8, !tbaa !7
   store double %834, ptr %837, align 8, !tbaa !7
@@ -1395,10 +1395,10 @@ define void @dsytrf_aa_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   store i32 %841, ptr %14, align 4, !tbaa !3
   %842 = add nsw i32 %788, %20
   %843 = sext i32 %842 to i64
-  %844 = getelementptr inbounds double, ptr %22, i64 %843
+  %844 = getelementptr inbounds [8 x i8], ptr %22, i64 %843
   %845 = add nsw i32 %792, %20
   %846 = sext i32 %845 to i64
-  %847 = getelementptr inbounds double, ptr %22, i64 %846
+  %847 = getelementptr inbounds [8 x i8], ptr %22, i64 %846
   call void @dswap_(ptr noundef nonnull %14, ptr noundef %844, ptr noundef nonnull %3, ptr noundef %847, ptr noundef nonnull %3) #4
   br label %848
 

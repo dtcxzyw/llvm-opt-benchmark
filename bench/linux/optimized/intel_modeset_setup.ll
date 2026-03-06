@@ -580,7 +580,7 @@ define dso_local void @intel_modeset_setup_hw_state(ptr noundef %0, ptr noundef 
   %358 = getelementptr i8, ptr %344, i64 1316
   %359 = load i32, ptr %358, align 4
   %360 = zext i32 %359 to i64
-  %361 = getelementptr i32, ptr %341, i64 %360
+  %361 = getelementptr [4 x i8], ptr %341, i64 %360
   store i32 %357, ptr %361, align 4
   %.pr.us = load i8, ptr %352, align 4
   %362 = icmp eq i8 %.pr.us, 0
@@ -611,7 +611,7 @@ define dso_local void @intel_modeset_setup_hw_state(ptr noundef %0, ptr noundef 
   %377 = phi i32 [ %375, %373 ], [ %356, %370 ]
   %378 = load i32, ptr %358, align 4
   %379 = zext i32 %378 to i64
-  %380 = getelementptr i32, ptr %343, i64 %379
+  %380 = getelementptr [4 x i8], ptr %343, i64 %379
   store i32 %377, ptr %380, align 4
   br label %.thread70.us
 
@@ -623,7 +623,7 @@ define dso_local void @intel_modeset_setup_hw_state(ptr noundef %0, ptr noundef 
   %385 = getelementptr i8, ptr %344, i64 1316
   %386 = load i32, ptr %385, align 4
   %387 = zext i32 %386 to i64
-  %388 = getelementptr i32, ptr %343, i64 %387
+  %388 = getelementptr [4 x i8], ptr %343, i64 %387
   %389 = load i32, ptr %388, align 4
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef %382, ptr noundef %384, i32 noundef %389) #6
   br label %390
@@ -655,7 +655,7 @@ define dso_local void @intel_modeset_setup_hw_state(ptr noundef %0, ptr noundef 
   %407 = getelementptr i8, ptr %393, i64 1316
   %408 = load i32, ptr %407, align 4
   %409 = zext i32 %408 to i64
-  %410 = getelementptr i32, ptr %341, i64 %409
+  %410 = getelementptr [4 x i8], ptr %341, i64 %409
   store i32 %406, ptr %410, align 4
   %.pr = load i8, ptr %401, align 4
   %411 = icmp eq i8 %.pr, 0
@@ -686,7 +686,7 @@ define dso_local void @intel_modeset_setup_hw_state(ptr noundef %0, ptr noundef 
   %426 = phi i32 [ %424, %422 ], [ %405, %419 ]
   %427 = load i32, ptr %407, align 4
   %428 = zext i32 %427 to i64
-  %429 = getelementptr i32, ptr %343, i64 %428
+  %429 = getelementptr [4 x i8], ptr %343, i64 %428
   store i32 %426, ptr %429, align 4
   br label %.thread70
 
@@ -699,7 +699,7 @@ define dso_local void @intel_modeset_setup_hw_state(ptr noundef %0, ptr noundef 
   %435 = getelementptr i8, ptr %393, i64 1316
   %436 = load i32, ptr %435, align 4
   %437 = zext i32 %436 to i64
-  %438 = getelementptr i32, ptr %343, i64 %437
+  %438 = getelementptr [4 x i8], ptr %343, i64 %437
   %439 = load i32, ptr %438, align 4
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %430, i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef %432, ptr noundef %434, i32 noundef %439) #6
   br label %440
@@ -751,7 +751,7 @@ define dso_local void @intel_modeset_setup_hw_state(ptr noundef %0, ptr noundef 
   %463 = getelementptr i8, ptr %272, i64 1632
   %464 = load i32, ptr %463, align 8
   %465 = sext i32 %464 to i64
-  %466 = getelementptr i32, ptr %269, i64 %465
+  %466 = getelementptr [4 x i8], ptr %269, i64 %465
   store i32 %462, ptr %466, align 4
   %467 = getelementptr inbounds nuw i8, ptr %275, i64 1459
   %468 = load i8, ptr %467, align 1
@@ -2045,7 +2045,7 @@ define internal fastcc void @intel_crtc_disable_noatomic(ptr noundef readonly ca
   call void @intel_display_power_put_mask_in_set(ptr noundef %222, ptr noundef %268, ptr noundef %268) #6
   %269 = getelementptr inbounds nuw i8, ptr %226, i64 68
   %270 = sext i32 %216 to i64
-  %271 = getelementptr i32, ptr %269, i64 %270
+  %271 = getelementptr [4 x i8], ptr %269, i64 %270
   store i32 0, ptr %271, align 4
   %272 = getelementptr inbounds nuw i8, ptr %226, i64 84
   %273 = getelementptr i8, ptr %272, i64 %270
@@ -2061,7 +2061,7 @@ define internal fastcc void @intel_crtc_disable_noatomic(ptr noundef readonly ca
   %281 = and i8 %280, %277
   store i8 %281, ptr %279, align 1
   %282 = getelementptr inbounds nuw i8, ptr %224, i64 128
-  %283 = getelementptr i32, ptr %282, i64 %270
+  %283 = getelementptr [4 x i8], ptr %282, i64 %270
   store i32 0, ptr %283, align 4
   %284 = getelementptr inbounds nuw i8, ptr %224, i64 144
   %285 = getelementptr i8, ptr %284, i64 %270

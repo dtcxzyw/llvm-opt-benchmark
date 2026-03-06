@@ -710,7 +710,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @av_codec_iterate(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !4
   %3 = ptrtoint ptr %2 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @codec_list, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @codec_list, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !8
   %6 = tail call i32 @pthread_once(ptr noundef nonnull @av_codec_static_init, ptr noundef nonnull @av_codec_init_static) #4
   %.not = icmp eq ptr %2, inttoptr (i64 696 to ptr)
@@ -778,7 +778,7 @@ define internal void @av_codec_init_static() #0 {
 
 24:                                               ; preds = %15, %13, %10, %7, %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds nuw ptr, ptr @codec_list, i64 %indvars.iv.next
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @codec_list, i64 %indvars.iv.next
   %26 = load ptr, ptr %25, align 8, !tbaa !8
   %.not = icmp eq i64 %indvars.iv.next, 696
   br i1 %.not, label %2, label %3, !llvm.loop !25
@@ -800,7 +800,7 @@ define ptr @avcodec_find_encoder(i32 noundef %0) local_unnamed_addr #0 {
 2:                                                ; preds = %av_codec_iterate.exit.i, %.outer.i
   %.014.i = phi ptr [ %8, %av_codec_iterate.exit.i ], [ %.014.ph.i, %.outer.i ]
   %3 = ptrtoint ptr %.014.i to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @codec_list, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @codec_list, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !8
   %6 = tail call i32 @pthread_once(ptr noundef nonnull @av_codec_static_init, ptr noundef nonnull @av_codec_init_static) #4
   %.not.i.i = icmp eq ptr %.014.i, inttoptr (i64 696 to ptr)
@@ -851,7 +851,7 @@ define ptr @avcodec_find_decoder(i32 noundef %0) local_unnamed_addr #0 {
 2:                                                ; preds = %av_codec_iterate.exit.i, %.outer.i
   %.014.i = phi ptr [ %8, %av_codec_iterate.exit.i ], [ %.014.ph.i, %.outer.i ]
   %3 = ptrtoint ptr %.014.i to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @codec_list, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @codec_list, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !8
   %6 = tail call i32 @pthread_once(ptr noundef nonnull @av_codec_static_init, ptr noundef nonnull @av_codec_init_static) #4
   %.not.i.i = icmp eq ptr %.014.i, inttoptr (i64 696 to ptr)
@@ -906,7 +906,7 @@ av_codec_iterate.exit.i:                          ; preds = %.backedge.i, %.preh
   br i1 %.not9.i.not, label %12, label %.backedge.i
 
 .backedge.i:                                      ; preds = %12, %av_codec_iterate.exit.i
-  %9 = getelementptr inbounds nuw ptr, ptr @codec_list, i64 %5
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @codec_list, i64 %5
   %10 = load ptr, ptr %9, align 8, !tbaa !8
   %11 = tail call i32 @pthread_once(ptr noundef nonnull @av_codec_static_init, ptr noundef nonnull @av_codec_init_static) #4
   %.not.i.i = icmp eq i64 %5, 696
@@ -943,7 +943,7 @@ av_codec_iterate.exit.i:                          ; preds = %.backedge.i, %.preh
   br i1 %.not9.i, label %.backedge.i, label %12
 
 .backedge.i:                                      ; preds = %12, %av_codec_iterate.exit.i
-  %9 = getelementptr inbounds nuw ptr, ptr @codec_list, i64 %5
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @codec_list, i64 %5
   %10 = load ptr, ptr %9, align 8, !tbaa !8
   %11 = tail call i32 @pthread_once(ptr noundef nonnull @av_codec_static_init, ptr noundef nonnull @av_codec_init_static) #4
   %.not.i.i = icmp eq i64 %5, 696

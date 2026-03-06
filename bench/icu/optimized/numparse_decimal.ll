@@ -336,10 +336,10 @@ _ZN6icu_7710LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit: ; preds = 
 128:                                              ; preds = %_ZN6icu_7710LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit, %134
   %indvars.iv = phi i64 [ 0, %_ZN6icu_7710LocalArrayIKNS_13UnicodeStringEE12adoptInsteadEPS2_.exit ], [ %indvars.iv.next, %134 ]
   %129 = icmp eq i64 %indvars.iv, 0
-  %130 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 %indvars.iv
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 1096
   %.0.i = select i1 %129, ptr %125, ptr %131
-  %132 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %114, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [64 x i8], ptr %114, i64 %indvars.iv
   %133 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %132, ptr noundef nonnull align 8 dereferenceable(64) %.0.i)
           to label %134 unwind label %135
 
@@ -621,7 +621,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   %indvars.iv = phi i64 [ %indvars.iv.next, %83 ], [ 0, %.thread ]
   %.3483 = phi i8 [ %.5.ph, %83 ], [ 0, %.thread ]
   %58 = load ptr, ptr %20, align 8, !tbaa !34
-  %59 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [64 x i8], ptr %58, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i16, ptr %60, align 8, !tbaa !6
   %62 = icmp ugt i16 %61, 31
@@ -1472,7 +1472,7 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher9smokeTestER
 .preheader:                                       ; preds = %17, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %17 ]
   %19 = load ptr, ptr %3, align 8, !tbaa !34
-  %20 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 %indvars.iv
   %21 = tail call noundef zeroext i1 @_ZNK6icu_7713StringSegment10startsWithERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(64) %20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10

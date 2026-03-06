@@ -916,7 +916,7 @@ show_setup_info.exit:                             ; preds = %69, %66, %proto_ite
 96:                                               ; preds = %94, %show_setup_info.exit
   %97 = getelementptr inbounds nuw i8, ptr %.0100, i64 20
   %98 = zext nneg i16 %74 to i64
-  %99 = getelementptr i32, ptr %97, i64 %98
+  %99 = getelementptr [4 x i8], ptr %97, i64 %98
   store i32 %92, ptr %99, align 4
   %100 = load i32, ptr @hf_sprt_number_of_ack_fields, align 4
   %101 = tail call ptr @proto_tree_add_item(ptr noundef %.098, i32 noundef %100, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0)

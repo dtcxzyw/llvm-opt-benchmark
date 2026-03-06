@@ -335,13 +335,13 @@ define internal void @_ZNK4ncnn9Scale_x8615forward_inplaceERSt6vectorINS_3MatESa
   %22 = add nsw i32 %20, %21
   %23 = load ptr, ptr %4, align 8, !tbaa !28
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds float, ptr %23, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %23, i64 %24
   %26 = load <4 x float>, ptr %25, align 16, !tbaa !47
   %27 = load ptr, ptr %5, align 8, !tbaa !28
-  %28 = getelementptr inbounds float, ptr %27, i64 %24
+  %28 = getelementptr inbounds [4 x i8], ptr %27, i64 %24
   %29 = load <4 x float>, ptr %28, align 16, !tbaa !47
   %30 = load ptr, ptr %6, align 8, !tbaa !28
-  %31 = getelementptr inbounds float, ptr %30, i64 %24
+  %31 = getelementptr inbounds [4 x i8], ptr %30, i64 %24
   %32 = load <4 x float>, ptr %31, align 1, !tbaa !47
   %33 = fmul fast <4 x float> %29, %26
   %34 = fadd fast <4 x float> %32, %33
@@ -433,12 +433,12 @@ define internal void @_ZNK4ncnn9Scale_x8615forward_inplaceERSt6vectorINS_3MatESa
   %.023 = phi i32 [ %21, %.lr.ph ], [ %38, %27 ]
   %28 = add i32 %.023, %12
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds float, ptr %24, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %24, i64 %29
   %31 = load float, ptr %30, align 4, !tbaa !50
-  %32 = getelementptr inbounds float, ptr %25, i64 %29
+  %32 = getelementptr inbounds [4 x i8], ptr %25, i64 %29
   %33 = load float, ptr %32, align 4, !tbaa !50
   %34 = fmul fast float %33, %31
-  %35 = getelementptr inbounds float, ptr %26, i64 %29
+  %35 = getelementptr inbounds [4 x i8], ptr %26, i64 %29
   %36 = load float, ptr %35, align 4, !tbaa !50
   %37 = fadd fast float %36, %34
   store float %37, ptr %30, align 4, !tbaa !50
@@ -497,10 +497,10 @@ define internal void @_ZNK4ncnn9Scale_x8615forward_inplaceERSt6vectorINS_3MatESa
   %21 = add nsw i32 %19, %20
   %22 = load ptr, ptr %4, align 8, !tbaa !28
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds float, ptr %22, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %22, i64 %23
   %25 = load <4 x float>, ptr %24, align 16, !tbaa !47
   %26 = load ptr, ptr %5, align 8, !tbaa !28
-  %27 = getelementptr inbounds float, ptr %26, i64 %23
+  %27 = getelementptr inbounds [4 x i8], ptr %26, i64 %23
   %28 = load <4 x float>, ptr %27, align 16, !tbaa !47
   %29 = fmul fast <4 x float> %28, %25
   store <4 x float> %29, ptr %24, align 16, !tbaa !47
@@ -561,9 +561,9 @@ define internal void @_ZNK4ncnn9Scale_x8615forward_inplaceERSt6vectorINS_3MatESa
   %.021 = phi i32 [ %20, %.lr.ph ], [ %33, %25 ]
   %26 = add i32 %.021, %11
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds float, ptr %23, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %23, i64 %27
   %29 = load float, ptr %28, align 4, !tbaa !50
-  %30 = getelementptr inbounds float, ptr %24, i64 %27
+  %30 = getelementptr inbounds [4 x i8], ptr %24, i64 %27
   %31 = load float, ptr %30, align 4, !tbaa !50
   %32 = fmul fast float %31, %29
   store float %32, ptr %28, align 4, !tbaa !50
@@ -630,7 +630,7 @@ define internal void @_ZNK4ncnn9Scale_x8615forward_inplaceERSt6vectorINS_3MatESa
   %33 = mul i64 %31, %32
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 %33
   %35 = load ptr, ptr %4, align 8, !tbaa !28
-  %36 = getelementptr inbounds float, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %indvars.iv
   %37 = load float, ptr %36, align 4, !tbaa !50
   %38 = load i32, ptr %5, align 4, !tbaa !23
   %39 = icmp eq i32 %38, 4
@@ -638,7 +638,7 @@ define internal void @_ZNK4ncnn9Scale_x8615forward_inplaceERSt6vectorINS_3MatESa
 
 40:                                               ; preds = %27
   %41 = shl nsw i64 %indvars.iv, 2
-  %42 = getelementptr inbounds float, ptr %35, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %35, i64 %41
   %43 = load <4 x float>, ptr %42, align 1, !tbaa !47
   %44 = load i32, ptr %24, align 4, !tbaa !30
   %.not53 = icmp eq i32 %44, 0
@@ -659,15 +659,15 @@ define internal void @_ZNK4ncnn9Scale_x8615forward_inplaceERSt6vectorINS_3MatESa
 
 50:                                               ; preds = %40
   %51 = load ptr, ptr %7, align 8, !tbaa !28
-  %52 = getelementptr inbounds float, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %indvars.iv
   %53 = load float, ptr %52, align 4, !tbaa !50
-  %54 = getelementptr inbounds float, ptr %51, i64 %41
+  %54 = getelementptr inbounds [4 x i8], ptr %51, i64 %41
   %55 = load <4 x float>, ptr %54, align 1, !tbaa !47
   br label %62
 
 56:                                               ; preds = %.thread
   %57 = load ptr, ptr %7, align 8, !tbaa !28
-  %58 = getelementptr inbounds float, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %indvars.iv
   %59 = load float, ptr %58, align 4, !tbaa !50
   %60 = insertelement <4 x float> poison, float %59, i64 0
   %61 = shufflevector <4 x float> %60, <4 x float> poison, <4 x i32> zeroinitializer
@@ -809,7 +809,7 @@ define internal void @_ZNK4ncnn9Scale_x8615forward_inplaceERSt6vectorINS_3MatESa
   %31 = mul i64 %29, %30
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 %31
   %33 = load ptr, ptr %4, align 8, !tbaa !28
-  %34 = getelementptr inbounds float, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %indvars.iv
   %35 = load float, ptr %34, align 4, !tbaa !50
   %36 = load i32, ptr %5, align 4, !tbaa !23
   %37 = icmp eq i32 %36, 4
@@ -817,7 +817,7 @@ define internal void @_ZNK4ncnn9Scale_x8615forward_inplaceERSt6vectorINS_3MatESa
 
 38:                                               ; preds = %.noexc
   %39 = shl nsw i64 %indvars.iv, 2
-  %40 = getelementptr inbounds float, ptr %33, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %33, i64 %39
   %41 = load <4 x float>, ptr %40, align 1, !tbaa !47
   %42 = load i32, ptr %24, align 4, !tbaa !30
   %.not53 = icmp eq i32 %42, 0
@@ -838,15 +838,15 @@ define internal void @_ZNK4ncnn9Scale_x8615forward_inplaceERSt6vectorINS_3MatESa
 
 48:                                               ; preds = %38
   %49 = load ptr, ptr %7, align 8, !tbaa !28
-  %50 = getelementptr inbounds float, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %indvars.iv
   %51 = load float, ptr %50, align 4, !tbaa !50
-  %52 = getelementptr inbounds float, ptr %49, i64 %39
+  %52 = getelementptr inbounds [4 x i8], ptr %49, i64 %39
   %53 = load <4 x float>, ptr %52, align 1, !tbaa !47
   br label %60
 
 54:                                               ; preds = %.thread
   %55 = load ptr, ptr %7, align 8, !tbaa !28
-  %56 = getelementptr inbounds float, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv
   %57 = load float, ptr %56, align 4, !tbaa !50
   %58 = insertelement <4 x float> poison, float %57, i64 0
   %59 = shufflevector <4 x float> %58, <4 x float> poison, <4 x i32> zeroinitializer

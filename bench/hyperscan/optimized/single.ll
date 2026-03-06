@@ -857,7 +857,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %83, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %78, ptr %0, align 8
   store ptr %82, ptr %6, align 8
-  %84 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   store ptr %84, ptr %60, align 8
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -1764,7 +1764,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %83, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %78, ptr %0, align 8
   store ptr %82, ptr %6, align 8
-  %84 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   store ptr %84, ptr %60, align 8
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -1993,7 +1993,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7tes
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorISt5tupleIJPKcjjN12_GLOBAL__N_112TestPlatformEEEEEvEESaISJ_EE9push_backEOSJ_.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorISt5tupleIJPKcjjN12_GLOBAL__N_112TestPlatformEEEEEvEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit30.i.i.i, %85
   store ptr %53, ptr %5, align 8
   store ptr %84, ptr %19, align 8
-  %86 = getelementptr inbounds nuw %"struct.std::pair.173", ptr %53, i64 %49
+  %86 = getelementptr inbounds nuw [40 x i8], ptr %53, i64 %49
   store ptr %86, ptr %21, align 8
   %.pre1 = load ptr, ptr %4, align 8
   %87 = icmp eq ptr %.pre1, %6
@@ -3956,7 +3956,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %83, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %78, ptr %0, align 8
   store ptr %82, ptr %6, align 8
-  %84 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   store ptr %84, ptr %60, align 8
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -25353,7 +25353,7 @@ _ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN1
 _ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanTestMatchTerminateEE8TestInfoEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %81, %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanTestMatchTerminateEE8TestInfoEEES8_EvT_SA_RSaIT0_E.exit.i.i.i
   store ptr %62, ptr %37, align 8
   store ptr %80, ptr %39, align 8
-  %82 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.145", ptr %62, i64 %60
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %60
   store ptr %82, ptr %41, align 8
   br label %_ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_127HyperscanTestMatchTerminateEE8TestInfoEEESaIS8_EE9push_backEOS8_.exit
 
@@ -30874,7 +30874,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8
-  %79 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %16
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %79, ptr %78, align 8
   ret void
 }
@@ -33418,7 +33418,7 @@ _ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN1
 _ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE8TestInfoEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %73, %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_120HyperscanTestRuntimeEE8TestInfoEEES8_EvT_SA_RSaIT0_E.exit.i.i.i.i.i.i
   store ptr %54, ptr %29, align 8
   store ptr %72, ptr %31, align 8
-  %74 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.39", ptr %54, i64 %52
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %52
   store ptr %74, ptr %33, align 8
   br label %__cxx_global_var_init.1.exit
 
@@ -33659,7 +33659,7 @@ _ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN1
 _ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE8TestInfoEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i: ; preds = %154, %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN12_GLOBAL__N_125HyperscanTestCrossCompileEE8TestInfoEEES8_EvT_SA_RSaIT0_E.exit.i.i.i.i.i.i
   store ptr %135, ptr %110, align 8
   store ptr %153, ptr %112, align 8
-  %155 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.106", ptr %135, i64 %133
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %133
   store ptr %155, ptr %114, align 8
   br label %__cxx_global_var_init.5.exit
 
@@ -34051,7 +34051,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7tes
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorIN12_GLOBAL__N_118TerminateMatchDataEEEvEESaISF_EE9push_backEOSF_.exit.i.i: ; preds = %287, %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFN7testing8internal14ParamGeneratorIN12_GLOBAL__N_118TerminateMatchDataEEEvEESaISF_EE11_S_relocateEPSF_SI_SI_RSG_.exit30.i.i.i.i.i
   store ptr %263, ptr %224, align 8
   store ptr %286, ptr %229, align 8
-  %288 = getelementptr inbounds nuw %"struct.std::pair.179", ptr %263, i64 %259
+  %288 = getelementptr inbounds nuw [40 x i8], ptr %263, i64 %259
   store ptr %288, ptr %231, align 8
   %.pre1.i.i = load ptr, ptr %1, align 8
   %289 = icmp eq ptr %.pre1.i.i, %225

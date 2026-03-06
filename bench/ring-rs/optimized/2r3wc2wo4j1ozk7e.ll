@@ -119,7 +119,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i32 @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h261dde1f9ce18f1aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !alias.scope !4, !nonnull !9, !noundef !9
-  %4 = getelementptr inbounds i32, ptr %3, i64 %1
+  %4 = getelementptr inbounds [4 x i8], ptr %3, i64 %1
   %5 = load i32, ptr %4, align 4, !noundef !9
   ret i32 %5
 }
@@ -127,7 +127,7 @@ define hidden noundef i32 @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden noundef i64 @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17ha6c4728223e0aeb7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !alias.scope !10, !nonnull !9, !noundef !9
-  %4 = getelementptr inbounds i64, ptr %3, i64 %1
+  %4 = getelementptr inbounds [8 x i8], ptr %3, i64 %1
   %5 = load i64, ptr %4, align 8, !noundef !9
   ret i64 %5
 }
@@ -207,7 +207,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 
 10:                                               ; preds = %7
   %11 = sub nuw i64 %1, %0
-  %12 = getelementptr inbounds i64, ptr %2, i64 %0
+  %12 = getelementptr inbounds [8 x i8], ptr %2, i64 %0
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %11, 1
   ret { ptr, i64 } %14
@@ -399,7 +399,7 @@ define hidden noundef nonnull ptr @"_ZN4core5slice4iter13Iter$LT$T$GT$11pre_dec_
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !9, !noundef !9
   %5 = sub nsw i64 0, %1
-  %6 = getelementptr inbounds i64, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   store ptr %6, ptr %3, align 8
   ret ptr %6
 }
@@ -441,28 +441,28 @@ define internal noundef zeroext i1 @"_ZN67_$LT$core..array..TryFromSliceError$u2
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN72_$LT$I$u20$as$u20$core..iter..adapters..zip..SpecTrustedRandomAccess$GT$17try_get_unchecked17hbca583d034e76b08E.llvm.7363024586935657205"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #11 {
   %3 = load ptr, ptr %0, align 8, !alias.scope !62, !nonnull !9, !noundef !9
-  %4 = getelementptr inbounds i32, ptr %3, i64 %1
+  %4 = getelementptr inbounds [4 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN72_$LT$I$u20$as$u20$core..iter..adapters..zip..SpecTrustedRandomAccess$GT$17try_get_unchecked17hd2100dbb2b2ca832E.llvm.7363024586935657205"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #11 {
   %3 = load ptr, ptr %0, align 8, !alias.scope !65, !nonnull !9, !noundef !9
-  %4 = getelementptr inbounds i64, ptr %3, i64 %1
+  %4 = getelementptr inbounds [8 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h1a91a9f1b8dcd766E.llvm.7363024586935657205"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #11 {
   %3 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
-  %4 = getelementptr inbounds i64, ptr %3, i64 %1
+  %4 = getelementptr inbounds [8 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17h4021431e197546d4E.llvm.7363024586935657205"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) unnamed_addr #11 {
   %3 = load ptr, ptr %0, align 8, !nonnull !9, !noundef !9
-  %4 = getelementptr inbounds i32, ptr %3, i64 %1
+  %4 = getelementptr inbounds [4 x i8], ptr %3, i64 %1
   ret ptr %4
 }
 
@@ -2884,7 +2884,7 @@ _ZN4ring2ec7suite_b3ops9CommonOps7point_y17heb3dae4970743ecfE.exit: ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i6, i8 0, i64 48, i1 false), !noalias !831
-  %29 = getelementptr inbounds nuw i64, ptr %1, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.i6, ptr nonnull readonly align 8 %29, i64 %28, i1 false), !alias.scope !836, !noalias !840
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i6, i64 48, i1 false), !noalias !842
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i6)
@@ -3080,10 +3080,10 @@ switch.lookup:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8, !range !346, !noundef !9
   %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN93_$LT$ring..ec..suite_b..ecdsa..signing..EcdsaSigningAlgorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17hfadaa1140bcb1d2bE", i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN93_$LT$ring..ec..suite_b..ecdsa..signing..EcdsaSigningAlgorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17hfadaa1140bcb1d2bE", i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %3 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN93_$LT$ring..ec..suite_b..ecdsa..signing..EcdsaSigningAlgorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17hfadaa1140bcb1d2bE.12", i64 %5
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN93_$LT$ring..ec..suite_b..ecdsa..signing..EcdsaSigningAlgorithm$u20$as$u20$core..fmt..Debug$GT$3fmt17hfadaa1140bcb1d2bE.12", i64 %5
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %6

@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.gmx::ArrayRefWithPadding" = type { ptr, ptr, ptr }
 %"class.gmx::ArrayRefWithPadding.33" = type { ptr, ptr, ptr }
-%struct.wallcc_t = type { i32, i64, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -28,12 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::function.149" = type { %"class.std::_Function_base", ptr }
 %"class.std::function.153" = type { %"class.std::_Function_base", ptr }
 %"class.std::function.151" = type { %"class.std::_Function_base", ptr }
-%"class.std::unique_ptr.302" = type { %"struct.std::__uniq_ptr_data.303" }
-%"struct.std::__uniq_ptr_data.303" = type { %"class.std::__uniq_ptr_impl.304" }
-%"class.std::__uniq_ptr_impl.304" = type { %"class.std::tuple.305" }
-%"class.std::tuple.305" = type { %"struct.std::_Tuple_impl.306" }
-%"struct.std::_Tuple_impl.306" = type { %"struct.std::_Head_base.309" }
-%"struct.std::_Head_base.309" = type { ptr }
 %"class.gmx::ElementNotFoundError" = type { %"class.gmx::ModularSimulatorError" }
 %"class.gmx::ModularSimulatorError" = type { %"class.gmx::GromacsException" }
 %"class.gmx::GromacsException" = type { %"class.std::exception", %"class.std::shared_ptr" }
@@ -6317,7 +6310,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS
   %35 = load i32, ptr %34, align 4, !tbaa !126
   %36 = mul nsw i32 %35, 60
   %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct.wallcc_t, ptr %24, i64 %37
+  %38 = getelementptr [24 x i8], ptr %24, i64 %37
   %39 = getelementptr i8, ptr %38, i64 1152
   %40 = load i32, ptr %39, align 8, !tbaa !127
   %41 = add nsw i32 %40, 1
@@ -6526,19 +6519,19 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
   call void @llvm.experimental.noalias.scope.decl(metadata !173)
   call void @llvm.experimental.noalias.scope.decl(metadata !176)
   call void @llvm.experimental.noalias.scope.decl(metadata !178)
-  %45 = getelementptr inbounds [3 x float], ptr %31, i64 %indvars.iv
-  %46 = getelementptr inbounds [3 x float], ptr %33, i64 %indvars.iv
-  %47 = getelementptr inbounds [3 x float], ptr %32, i64 %indvars.iv
+  %45 = getelementptr inbounds [12 x i8], ptr %31, i64 %indvars.iv
+  %46 = getelementptr inbounds [12 x i8], ptr %33, i64 %indvars.iv
+  %47 = getelementptr inbounds [12 x i8], ptr %32, i64 %indvars.iv
   br label %48
 
 48:                                               ; preds = %48, %43
   %indvars.iv.i = phi i64 [ 0, %43 ], [ %indvars.iv.next.i, %48 ]
-  %49 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i
   %50 = load float, ptr %49, align 4, !tbaa !180, !alias.scope !173, !noalias !181
-  %51 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i
   %52 = load float, ptr %51, align 4, !tbaa !180, !alias.scope !178, !noalias !182
   %53 = call float @llvm.fmuladd.f32(float %52, float %44, float %50)
-  %54 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i
   store float %53, ptr %54, align 4, !tbaa !180, !alias.scope !176, !noalias !183
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -6687,7 +6680,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS
   %35 = load i32, ptr %34, align 4, !tbaa !126
   %36 = mul nsw i32 %35, 60
   %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct.wallcc_t, ptr %24, i64 %37
+  %38 = getelementptr [24 x i8], ptr %24, i64 %37
   %39 = getelementptr i8, ptr %38, i64 1152
   %40 = load i32, ptr %39, align 8, !tbaa !127
   %41 = add nsw i32 %40, 1
@@ -6896,19 +6889,19 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
   call void @llvm.experimental.noalias.scope.decl(metadata !191)
   call void @llvm.experimental.noalias.scope.decl(metadata !194)
   call void @llvm.experimental.noalias.scope.decl(metadata !196)
-  %48 = getelementptr inbounds [3 x float], ptr %31, i64 %indvars.iv
-  %49 = getelementptr inbounds [3 x float], ptr %33, i64 %indvars.iv
-  %50 = getelementptr inbounds [3 x float], ptr %32, i64 %indvars.iv
+  %48 = getelementptr inbounds [12 x i8], ptr %31, i64 %indvars.iv
+  %49 = getelementptr inbounds [12 x i8], ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds [12 x i8], ptr %32, i64 %indvars.iv
   br label %51
 
 51:                                               ; preds = %51, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %51 ]
-  %52 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i
   %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !191, !noalias !198
-  %54 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i
   %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !196, !noalias !199
   %56 = call float @llvm.fmuladd.f32(float %55, float %47, float %53)
-  %57 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i
   store float %56, ptr %57, align 4, !tbaa !180, !alias.scope !194, !noalias !200
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -7021,7 +7014,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS
   %35 = load i32, ptr %34, align 4, !tbaa !126
   %36 = mul nsw i32 %35, 60
   %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct.wallcc_t, ptr %24, i64 %37
+  %38 = getelementptr [24 x i8], ptr %24, i64 %37
   %39 = getelementptr i8, ptr %38, i64 1152
   %40 = load i32, ptr %39, align 8, !tbaa !127
   %41 = add nsw i32 %40, 1
@@ -7230,19 +7223,19 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
   call void @llvm.experimental.noalias.scope.decl(metadata !204)
   call void @llvm.experimental.noalias.scope.decl(metadata !207)
   call void @llvm.experimental.noalias.scope.decl(metadata !209)
-  %48 = getelementptr inbounds [3 x float], ptr %31, i64 %indvars.iv
-  %49 = getelementptr inbounds [3 x float], ptr %33, i64 %indvars.iv
-  %50 = getelementptr inbounds [3 x float], ptr %32, i64 %indvars.iv
+  %48 = getelementptr inbounds [12 x i8], ptr %31, i64 %indvars.iv
+  %49 = getelementptr inbounds [12 x i8], ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds [12 x i8], ptr %32, i64 %indvars.iv
   br label %51
 
 51:                                               ; preds = %51, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %51 ]
-  %52 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i
   %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !204, !noalias !211
-  %54 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i
   %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !209, !noalias !212
   %56 = call float @llvm.fmuladd.f32(float %55, float %47, float %53)
-  %57 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i
   store float %56, ptr %57, align 4, !tbaa !180, !alias.scope !207, !noalias !213
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -7355,7 +7348,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS
   %35 = load i32, ptr %34, align 4, !tbaa !126
   %36 = mul nsw i32 %35, 60
   %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct.wallcc_t, ptr %24, i64 %37
+  %38 = getelementptr [24 x i8], ptr %24, i64 %37
   %39 = getelementptr i8, ptr %38, i64 1152
   %40 = load i32, ptr %39, align 8, !tbaa !127
   %41 = add nsw i32 %40, 1
@@ -7564,19 +7557,19 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
   call void @llvm.experimental.noalias.scope.decl(metadata !217)
   call void @llvm.experimental.noalias.scope.decl(metadata !220)
   call void @llvm.experimental.noalias.scope.decl(metadata !222)
-  %48 = getelementptr inbounds [3 x float], ptr %31, i64 %indvars.iv
-  %49 = getelementptr inbounds [3 x float], ptr %33, i64 %indvars.iv
-  %50 = getelementptr inbounds [3 x float], ptr %32, i64 %indvars.iv
+  %48 = getelementptr inbounds [12 x i8], ptr %31, i64 %indvars.iv
+  %49 = getelementptr inbounds [12 x i8], ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds [12 x i8], ptr %32, i64 %indvars.iv
   br label %51
 
 51:                                               ; preds = %51, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %51 ]
-  %52 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i
   %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !217, !noalias !224
-  %54 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i
   %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !222, !noalias !225
   %56 = call float @llvm.fmuladd.f32(float %55, float %47, float %53)
-  %57 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i
   store float %56, ptr %57, align 4, !tbaa !180, !alias.scope !220, !noalias !226
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -7689,7 +7682,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS
   %35 = load i32, ptr %34, align 4, !tbaa !126
   %36 = mul nsw i32 %35, 60
   %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct.wallcc_t, ptr %24, i64 %37
+  %38 = getelementptr [24 x i8], ptr %24, i64 %37
   %39 = getelementptr i8, ptr %38, i64 1152
   %40 = load i32, ptr %39, align 8, !tbaa !127
   %41 = add nsw i32 %40, 1
@@ -7898,19 +7891,19 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
   call void @llvm.experimental.noalias.scope.decl(metadata !230)
   call void @llvm.experimental.noalias.scope.decl(metadata !233)
   call void @llvm.experimental.noalias.scope.decl(metadata !235)
-  %48 = getelementptr inbounds [3 x float], ptr %31, i64 %indvars.iv
-  %49 = getelementptr inbounds [3 x float], ptr %33, i64 %indvars.iv
-  %50 = getelementptr inbounds [3 x float], ptr %32, i64 %indvars.iv
+  %48 = getelementptr inbounds [12 x i8], ptr %31, i64 %indvars.iv
+  %49 = getelementptr inbounds [12 x i8], ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds [12 x i8], ptr %32, i64 %indvars.iv
   br label %51
 
 51:                                               ; preds = %51, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %51 ]
-  %52 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i
   %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !230, !noalias !237
-  %54 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i
   %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !235, !noalias !238
   %56 = call float @llvm.fmuladd.f32(float %55, float %47, float %53)
-  %57 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i
   store float %56, ptr %57, align 4, !tbaa !180, !alias.scope !233, !noalias !239
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -8023,7 +8016,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS
   %35 = load i32, ptr %34, align 4, !tbaa !126
   %36 = mul nsw i32 %35, 60
   %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct.wallcc_t, ptr %24, i64 %37
+  %38 = getelementptr [24 x i8], ptr %24, i64 %37
   %39 = getelementptr i8, ptr %38, i64 1152
   %40 = load i32, ptr %39, align 8, !tbaa !127
   %41 = add nsw i32 %40, 1
@@ -8232,19 +8225,19 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
   call void @llvm.experimental.noalias.scope.decl(metadata !243)
   call void @llvm.experimental.noalias.scope.decl(metadata !246)
   call void @llvm.experimental.noalias.scope.decl(metadata !248)
-  %48 = getelementptr inbounds [3 x float], ptr %31, i64 %indvars.iv
-  %49 = getelementptr inbounds [3 x float], ptr %33, i64 %indvars.iv
-  %50 = getelementptr inbounds [3 x float], ptr %32, i64 %indvars.iv
+  %48 = getelementptr inbounds [12 x i8], ptr %31, i64 %indvars.iv
+  %49 = getelementptr inbounds [12 x i8], ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds [12 x i8], ptr %32, i64 %indvars.iv
   br label %51
 
 51:                                               ; preds = %51, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %51 ]
-  %52 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i
   %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !243, !noalias !250
-  %54 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i
   %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !248, !noalias !251
   %56 = call float @llvm.fmuladd.f32(float %55, float %47, float %53)
-  %57 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i
   store float %56, ptr %57, align 4, !tbaa !180, !alias.scope !246, !noalias !252
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -8357,7 +8350,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS
   %35 = load i32, ptr %34, align 4, !tbaa !126
   %36 = mul nsw i32 %35, 60
   %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct.wallcc_t, ptr %24, i64 %37
+  %38 = getelementptr [24 x i8], ptr %24, i64 %37
   %39 = getelementptr i8, ptr %38, i64 1152
   %40 = load i32, ptr %39, align 8, !tbaa !127
   %41 = add nsw i32 %40, 1
@@ -8566,19 +8559,19 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
   call void @llvm.experimental.noalias.scope.decl(metadata !256)
   call void @llvm.experimental.noalias.scope.decl(metadata !259)
   call void @llvm.experimental.noalias.scope.decl(metadata !261)
-  %48 = getelementptr inbounds [3 x float], ptr %31, i64 %indvars.iv
-  %49 = getelementptr inbounds [3 x float], ptr %33, i64 %indvars.iv
-  %50 = getelementptr inbounds [3 x float], ptr %32, i64 %indvars.iv
+  %48 = getelementptr inbounds [12 x i8], ptr %31, i64 %indvars.iv
+  %49 = getelementptr inbounds [12 x i8], ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds [12 x i8], ptr %32, i64 %indvars.iv
   br label %51
 
 51:                                               ; preds = %51, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %51 ]
-  %52 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i
   %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !256, !noalias !263
-  %54 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i
   %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !261, !noalias !264
   %56 = call float @llvm.fmuladd.f32(float %55, float %47, float %53)
-  %57 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i
   store float %56, ptr %57, align 4, !tbaa !180, !alias.scope !259, !noalias !265
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -8691,7 +8684,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS
   %35 = load i32, ptr %34, align 4, !tbaa !126
   %36 = mul nsw i32 %35, 60
   %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct.wallcc_t, ptr %24, i64 %37
+  %38 = getelementptr [24 x i8], ptr %24, i64 %37
   %39 = getelementptr i8, ptr %38, i64 1152
   %40 = load i32, ptr %39, align 8, !tbaa !127
   %41 = add nsw i32 %40, 1
@@ -8900,19 +8893,19 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
   call void @llvm.experimental.noalias.scope.decl(metadata !269)
   call void @llvm.experimental.noalias.scope.decl(metadata !272)
   call void @llvm.experimental.noalias.scope.decl(metadata !274)
-  %48 = getelementptr inbounds [3 x float], ptr %31, i64 %indvars.iv
-  %49 = getelementptr inbounds [3 x float], ptr %33, i64 %indvars.iv
-  %50 = getelementptr inbounds [3 x float], ptr %32, i64 %indvars.iv
+  %48 = getelementptr inbounds [12 x i8], ptr %31, i64 %indvars.iv
+  %49 = getelementptr inbounds [12 x i8], ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds [12 x i8], ptr %32, i64 %indvars.iv
   br label %51
 
 51:                                               ; preds = %51, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %51 ]
-  %52 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i
   %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !269, !noalias !276
-  %54 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i
   %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !274, !noalias !277
   %56 = call float @llvm.fmuladd.f32(float %55, float %47, float %53)
-  %57 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i
   store float %56, ptr %57, align 4, !tbaa !180, !alias.scope !272, !noalias !278
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -9025,7 +9018,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS
   %35 = load i32, ptr %34, align 4, !tbaa !126
   %36 = mul nsw i32 %35, 60
   %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct.wallcc_t, ptr %24, i64 %37
+  %38 = getelementptr [24 x i8], ptr %24, i64 %37
   %39 = getelementptr i8, ptr %38, i64 1152
   %40 = load i32, ptr %39, align 8, !tbaa !127
   %41 = add nsw i32 %40, 1
@@ -9234,19 +9227,19 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
   call void @llvm.experimental.noalias.scope.decl(metadata !282)
   call void @llvm.experimental.noalias.scope.decl(metadata !285)
   call void @llvm.experimental.noalias.scope.decl(metadata !287)
-  %48 = getelementptr inbounds [3 x float], ptr %31, i64 %indvars.iv
-  %49 = getelementptr inbounds [3 x float], ptr %33, i64 %indvars.iv
-  %50 = getelementptr inbounds [3 x float], ptr %32, i64 %indvars.iv
+  %48 = getelementptr inbounds [12 x i8], ptr %31, i64 %indvars.iv
+  %49 = getelementptr inbounds [12 x i8], ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds [12 x i8], ptr %32, i64 %indvars.iv
   br label %51
 
 51:                                               ; preds = %51, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %51 ]
-  %52 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i
   %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !282, !noalias !289
-  %54 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i
   %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !287, !noalias !290
   %56 = call float @llvm.fmuladd.f32(float %55, float %47, float %53)
-  %57 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i
   store float %56, ptr %57, align 4, !tbaa !180, !alias.scope !285, !noalias !291
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -9359,7 +9352,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS
   %35 = load i32, ptr %34, align 4, !tbaa !126
   %36 = mul nsw i32 %35, 60
   %37 = sext i32 %36 to i64
-  %38 = getelementptr %struct.wallcc_t, ptr %24, i64 %37
+  %38 = getelementptr [24 x i8], ptr %24, i64 %37
   %39 = getelementptr i8, ptr %38, i64 1152
   %40 = load i32, ptr %39, align 8, !tbaa !127
   %41 = add nsw i32 %40, 1
@@ -9568,19 +9561,19 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE0EE3runILNS_24N
   call void @llvm.experimental.noalias.scope.decl(metadata !295)
   call void @llvm.experimental.noalias.scope.decl(metadata !298)
   call void @llvm.experimental.noalias.scope.decl(metadata !300)
-  %48 = getelementptr inbounds [3 x float], ptr %31, i64 %indvars.iv
-  %49 = getelementptr inbounds [3 x float], ptr %33, i64 %indvars.iv
-  %50 = getelementptr inbounds [3 x float], ptr %32, i64 %indvars.iv
+  %48 = getelementptr inbounds [12 x i8], ptr %31, i64 %indvars.iv
+  %49 = getelementptr inbounds [12 x i8], ptr %33, i64 %indvars.iv
+  %50 = getelementptr inbounds [12 x i8], ptr %32, i64 %indvars.iv
   br label %51
 
 51:                                               ; preds = %51, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %51 ]
-  %52 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i
   %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !295, !noalias !302
-  %54 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i
   %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !300, !noalias !303
   %56 = call float @llvm.fmuladd.f32(float %55, float %47, float %53)
-  %57 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i
   store float %56, ptr %57, align 4, !tbaa !180, !alias.scope !298, !noalias !304
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -9693,7 +9686,7 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw float, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !311
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit, label %26
@@ -9702,7 +9695,7 @@ _ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds float, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit
 
@@ -9813,7 +9806,7 @@ _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw float, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -9835,7 +9828,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !44
   store ptr %72, ptr %8, align 8, !tbaa !311
-  %75 = getelementptr inbounds nuw float, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !45
   br label %_ZSt4fillIPffEvT_S1_RKT0_.exit
 
@@ -10334,7 +10327,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
 .noexc:                                           ; preds = %33, %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %27, ptr %14, align 8, !tbaa !334
   store ptr %32, ptr %6, align 8, !tbaa !327
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.302", ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %8, align 8, !tbaa !330
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_10PropagatorILNS1_16IntegrationStageE0EEES3_ISB_EEEEERS5_DpOT_.exit.i
 
@@ -10721,7 +10714,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10PropagatorILNS0_16IntegrationStageE0EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %39, ptr %19, align 8, !tbaa !348
   store ptr %43, ptr %20, align 8, !tbaa !343
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !347
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10PropagatorILNS0_16IntegrationStageE0EEEEEERS2_DpOT_.exit
 
@@ -11237,7 +11230,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS
   %37 = load i32, ptr %36, align 4, !tbaa !126
   %38 = mul nsw i32 %37, 60
   %39 = sext i32 %38 to i64
-  %40 = getelementptr %struct.wallcc_t, ptr %26, i64 %39
+  %40 = getelementptr [24 x i8], ptr %26, i64 %39
   %41 = getelementptr i8, ptr %40, i64 1152
   %42 = load i32, ptr %41, align 8, !tbaa !127
   %43 = add nsw i32 %42, 1
@@ -11494,22 +11487,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !384)
   call void @llvm.experimental.noalias.scope.decl(metadata !387)
-  %46 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv45
-  %47 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv45
-  %48 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv45
+  %46 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv45
+  %47 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv45
+  %48 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us, i64 %indvars.iv45
   br label %49
 
 49:                                               ; preds = %49, %.lr.ph.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !180, !noalias !389
   %52 = fsub float %44, %51
-  %53 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i.us
   %54 = load float, ptr %53, align 4, !tbaa !180, !alias.scope !384, !noalias !387
   %55 = fmul float %54, %52
-  %56 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i.us
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i.us
   %57 = load float, ptr %56, align 4, !tbaa !180, !alias.scope !387, !noalias !384
-  %58 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i.us
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i.us
   %59 = load float, ptr %58, align 4, !tbaa !180, !noalias !389
   %60 = fmul float %57, %59
   %61 = call float @llvm.fmuladd.f32(float %60, float %43, float %55)
@@ -11559,7 +11552,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !392)
   call void @llvm.experimental.noalias.scope.decl(metadata !395)
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !397
-  %74 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv
+  %74 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !397
   %75 = load float, ptr %74, align 4, !tbaa !180, !alias.scope !392, !noalias !395
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
@@ -11580,7 +11573,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   %87 = getelementptr i8, ptr %81, i64 8
   %88 = load float, ptr %87, align 4, !tbaa !180, !noalias !397
   %89 = call float @llvm.fmuladd.f32(float %88, float %79, float %86)
-  %90 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv.i.i
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.i
   store float %89, ptr %90, align 4, !tbaa !180, !noalias !397
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -11592,21 +11585,21 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !397
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !397
   store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !310, !noalias !397
-  %91 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv
-  %92 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %91 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv
+  %92 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %93
 
 93:                                               ; preds = %93, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i34 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i35, %93 ]
-  %94 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv.i34
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv.i34
   %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !392, !noalias !395
-  %96 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i34
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i34
   %97 = load float, ptr %96, align 4, !tbaa !180, !noalias !397
   %98 = fneg float %97
   %99 = call float @llvm.fmuladd.f32(float %72, float %95, float %98)
-  %100 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv.i34
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv.i34
   %101 = load float, ptr %100, align 4, !tbaa !180, !alias.scope !395, !noalias !392
-  %102 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv.i34
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.i34
   %103 = load float, ptr %102, align 4, !tbaa !180, !noalias !397
   %104 = fmul float %101, %103
   %105 = call float @llvm.fmuladd.f32(float %104, float %71, float %99)
@@ -11734,7 +11727,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS
   %37 = load i32, ptr %36, align 4, !tbaa !126
   %38 = mul nsw i32 %37, 60
   %39 = sext i32 %38 to i64
-  %40 = getelementptr %struct.wallcc_t, ptr %26, i64 %39
+  %40 = getelementptr [24 x i8], ptr %26, i64 %39
   %41 = getelementptr i8, ptr %40, i64 1152
   %42 = load i32, ptr %41, align 8, !tbaa !127
   %43 = add nsw i32 %42, 1
@@ -11983,22 +11976,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !402)
   call void @llvm.experimental.noalias.scope.decl(metadata !405)
-  %45 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv44
-  %46 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv44
-  %47 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv44
+  %45 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv44
+  %46 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv44
+  %47 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us, i64 %indvars.iv44
   br label %48
 
 48:                                               ; preds = %48, %.lr.ph.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %48 ]
-  %49 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i.us
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.us
   %50 = load float, ptr %49, align 4, !tbaa !180, !noalias !407
   %51 = fsub float %44, %50
-  %52 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv.i.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i.us
   %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !402, !noalias !405
   %54 = fmul float %53, %51
-  %55 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv.i.us
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i.us
   %56 = load float, ptr %55, align 4, !tbaa !180, !alias.scope !405, !noalias !402
-  %57 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i.us
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i.us
   %58 = load float, ptr %57, align 4, !tbaa !180, !noalias !407
   %59 = fmul float %56, %58
   %60 = call float @llvm.fmuladd.f32(float %59, float %43, float %54)
@@ -12046,7 +12039,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !410)
   call void @llvm.experimental.noalias.scope.decl(metadata !413)
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !415
-  %71 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv
+  %71 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !415
   %72 = load float, ptr %71, align 4, !tbaa !180, !alias.scope !410, !noalias !413
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
@@ -12067,7 +12060,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   %84 = getelementptr i8, ptr %78, i64 8
   %85 = load float, ptr %84, align 4, !tbaa !180, !noalias !415
   %86 = call float @llvm.fmuladd.f32(float %85, float %76, float %83)
-  %87 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv.i.i
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.i
   store float %86, ptr %87, align 4, !tbaa !180, !noalias !415
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -12079,21 +12072,21 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !415
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !415
   store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !310, !noalias !415
-  %88 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv
-  %89 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %88 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv
+  %89 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %90
 
 90:                                               ; preds = %90, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i33 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i34, %90 ]
-  %91 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv.i33
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i33
   %92 = load float, ptr %91, align 4, !tbaa !180, !alias.scope !410, !noalias !413
-  %93 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i33
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i33
   %94 = load float, ptr %93, align 4, !tbaa !180, !noalias !415
   %95 = fneg float %94
   %96 = call float @llvm.fmuladd.f32(float %70, float %92, float %95)
-  %97 = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv.i33
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv.i33
   %98 = load float, ptr %97, align 4, !tbaa !180, !alias.scope !413, !noalias !410
-  %99 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv.i33
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv.i33
   %100 = load float, ptr %99, align 4, !tbaa !180, !noalias !415
   %101 = fmul float %98, %100
   %102 = call float @llvm.fmuladd.f32(float %101, float %69, float %96)
@@ -12220,7 +12213,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS
   %37 = load i32, ptr %36, align 4, !tbaa !126
   %38 = mul nsw i32 %37, 60
   %39 = sext i32 %38 to i64
-  %40 = getelementptr %struct.wallcc_t, ptr %26, i64 %39
+  %40 = getelementptr [24 x i8], ptr %26, i64 %39
   %41 = getelementptr i8, ptr %40, i64 1152
   %42 = load i32, ptr %41, align 8, !tbaa !127
   %43 = add nsw i32 %42, 1
@@ -12426,22 +12419,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !419)
   call void @llvm.experimental.noalias.scope.decl(metadata !422)
-  %43 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv46
-  %44 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv46
-  %45 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv46
+  %43 = getelementptr inbounds [12 x i8], ptr %37, i64 %indvars.iv46
+  %44 = getelementptr inbounds [12 x i8], ptr %38, i64 %indvars.iv46
+  %45 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us, i64 %indvars.iv46
   br label %46
 
 46:                                               ; preds = %46, %.lr.ph.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %46 ]
-  %47 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i.us
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.us
   %48 = load float, ptr %47, align 4, !tbaa !180, !noalias !424
   %49 = fsub float %41, %48
-  %50 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv.i.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv.i.us
   %51 = load float, ptr %50, align 4, !tbaa !180, !alias.scope !419, !noalias !422
   %52 = fmul float %51, %49
-  %53 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.i.us
   %54 = load float, ptr %53, align 4, !tbaa !180, !alias.scope !422, !noalias !419
-  %55 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv.i.us
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i.us
   %56 = load float, ptr %55, align 4, !tbaa !180, !noalias !424
   %57 = fmul float %54, %56
   %58 = call float @llvm.fmuladd.f32(float %57, float %40, float %52)
@@ -12484,19 +12477,19 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !426)
   call void @llvm.experimental.noalias.scope.decl(metadata !429)
-  %69 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv
-  %70 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv
-  %71 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %69 = getelementptr inbounds [12 x i8], ptr %37, i64 %indvars.iv
+  %70 = getelementptr inbounds [12 x i8], ptr %38, i64 %indvars.iv
+  %71 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %72
 
 72:                                               ; preds = %72, %.lr.ph.split
   %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next.i35, %72 ]
-  %73 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv.i34
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i34
   %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !426, !noalias !429
   %75 = fmul float %67, %74
-  %76 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv.i34
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv.i34
   %77 = load float, ptr %76, align 4, !tbaa !180, !alias.scope !429, !noalias !426
-  %78 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv.i34
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i34
   %79 = load float, ptr %78, align 4, !tbaa !180, !noalias !431
   %80 = fmul float %77, %79
   %81 = call float @llvm.fmuladd.f32(float %80, float %66, float %75)
@@ -12623,7 +12616,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS
   %37 = load i32, ptr %36, align 4, !tbaa !126
   %38 = mul nsw i32 %37, 60
   %39 = sext i32 %38 to i64
-  %40 = getelementptr %struct.wallcc_t, ptr %26, i64 %39
+  %40 = getelementptr [24 x i8], ptr %26, i64 %39
   %41 = getelementptr i8, ptr %40, i64 1152
   %42 = load i32, ptr %41, align 8, !tbaa !127
   %43 = add nsw i32 %42, 1
@@ -12825,22 +12818,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !435)
   call void @llvm.experimental.noalias.scope.decl(metadata !438)
-  %42 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv45
-  %43 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv45
-  %44 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv45
+  %42 = getelementptr inbounds [12 x i8], ptr %37, i64 %indvars.iv45
+  %43 = getelementptr inbounds [12 x i8], ptr %38, i64 %indvars.iv45
+  %44 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us, i64 %indvars.iv45
   br label %45
 
 45:                                               ; preds = %45, %.lr.ph.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %45 ]
-  %46 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i.us
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.us
   %47 = load float, ptr %46, align 4, !tbaa !180, !noalias !440
   %48 = fsub float %41, %47
-  %49 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv.i.us
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.i.us
   %50 = load float, ptr %49, align 4, !tbaa !180, !alias.scope !435, !noalias !438
   %51 = fmul float %50, %48
-  %52 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv.i.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv.i.us
   %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !438, !noalias !435
-  %54 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv.i.us
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.i.us
   %55 = load float, ptr %54, align 4, !tbaa !180, !noalias !440
   %56 = fmul float %53, %55
   %57 = call float @llvm.fmuladd.f32(float %56, float %40, float %51)
@@ -12881,19 +12874,19 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !442)
   call void @llvm.experimental.noalias.scope.decl(metadata !445)
-  %66 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv
-  %67 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv
-  %68 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %66 = getelementptr inbounds [12 x i8], ptr %37, i64 %indvars.iv
+  %67 = getelementptr inbounds [12 x i8], ptr %38, i64 %indvars.iv
+  %68 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %69
 
 69:                                               ; preds = %69, %.lr.ph.split
   %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next.i34, %69 ]
-  %70 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv.i33
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv.i33
   %71 = load float, ptr %70, align 4, !tbaa !180, !alias.scope !442, !noalias !445
   %72 = fmul float %65, %71
-  %73 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv.i33
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv.i33
   %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !445, !noalias !442
-  %75 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv.i33
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv.i33
   %76 = load float, ptr %75, align 4, !tbaa !180, !noalias !447
   %77 = fmul float %74, %76
   %78 = call float @llvm.fmuladd.f32(float %77, float %64, float %72)
@@ -13019,7 +13012,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS
   %37 = load i32, ptr %36, align 4, !tbaa !126
   %38 = mul nsw i32 %37, 60
   %39 = sext i32 %38 to i64
-  %40 = getelementptr %struct.wallcc_t, ptr %26, i64 %39
+  %40 = getelementptr [24 x i8], ptr %26, i64 %39
   %41 = getelementptr i8, ptr %40, i64 1152
   %42 = load i32, ptr %41, align 8, !tbaa !127
   %43 = add nsw i32 %42, 1
@@ -13270,32 +13263,32 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 52:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, %.lr.ph.split.us
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us ], [ %51, %.lr.ph.split.us ]
   %53 = load float, ptr %29, align 8, !tbaa !372
-  %54 = getelementptr inbounds nuw i16, ptr %48, i64 %indvars.iv47
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %indvars.iv47
   %55 = load i16, ptr %54, align 2, !tbaa !452
   %56 = zext i16 %55 to i64
-  %57 = getelementptr inbounds nuw float, ptr %49, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !180
-  %59 = getelementptr inbounds nuw float, ptr %50, i64 %56
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %56
   %60 = load float, ptr %59, align 4, !tbaa !180
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !454)
   call void @llvm.experimental.noalias.scope.decl(metadata !457)
-  %61 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv47
-  %62 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv47
-  %63 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv47
+  %61 = getelementptr inbounds [12 x i8], ptr %43, i64 %indvars.iv47
+  %62 = getelementptr inbounds [12 x i8], ptr %44, i64 %indvars.iv47
+  %63 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us, i64 %indvars.iv47
   br label %64
 
 64:                                               ; preds = %64, %52
   %indvars.iv.i.us = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.us, %64 ]
-  %65 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i.us
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.us
   %66 = load float, ptr %65, align 4, !tbaa !180, !noalias !459
   %67 = fsub float %58, %66
-  %68 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv.i.us
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv.i.us
   %69 = load float, ptr %68, align 4, !tbaa !180, !alias.scope !454, !noalias !457
   %70 = fmul float %69, %67
-  %71 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv.i.us
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i.us
   %72 = load float, ptr %71, align 4, !tbaa !180, !alias.scope !457, !noalias !454
-  %73 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv.i.us
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv.i.us
   %74 = load float, ptr %73, align 4, !tbaa !180, !noalias !459
   %75 = fmul float %72, %74
   %76 = call float @llvm.fmuladd.f32(float %75, float %53, float %70)
@@ -13339,18 +13332,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 85:                                               ; preds = %.lr.ph.split, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv = phi i64 [ %78, %.lr.ph.split ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %86 = load float, ptr %29, align 8, !tbaa !372
-  %87 = getelementptr inbounds nuw i16, ptr %48, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %indvars.iv
   %88 = load i16, ptr %87, align 2, !tbaa !452
   %89 = zext i16 %88 to i64
-  %90 = getelementptr inbounds nuw float, ptr %49, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %89
   %91 = load float, ptr %90, align 4, !tbaa !180
-  %92 = getelementptr inbounds nuw float, ptr %50, i64 %89
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %89
   %93 = load float, ptr %92, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !462)
   call void @llvm.experimental.noalias.scope.decl(metadata !465)
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !467
-  %94 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv
+  %94 = getelementptr inbounds [12 x i8], ptr %43, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !467
   %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !462, !noalias !465
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
@@ -13371,7 +13364,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %107 = getelementptr i8, ptr %101, i64 8
   %108 = load float, ptr %107, align 4, !tbaa !180, !noalias !467
   %109 = call float @llvm.fmuladd.f32(float %108, float %99, float %106)
-  %110 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv.i.i
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.i
   store float %109, ptr %110, align 4, !tbaa !180, !noalias !467
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -13383,21 +13376,21 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !467
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !467
   store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !310, !noalias !467
-  %111 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv
-  %112 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %111 = getelementptr inbounds [12 x i8], ptr %44, i64 %indvars.iv
+  %112 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %113
 
 113:                                              ; preds = %113, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i36 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i37, %113 ]
-  %114 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv.i36
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv.i36
   %115 = load float, ptr %114, align 4, !tbaa !180, !alias.scope !462, !noalias !465
-  %116 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i36
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i36
   %117 = load float, ptr %116, align 4, !tbaa !180, !noalias !467
   %118 = fneg float %117
   %119 = call float @llvm.fmuladd.f32(float %91, float %115, float %118)
-  %120 = getelementptr inbounds nuw float, ptr %111, i64 %indvars.iv.i36
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv.i36
   %121 = load float, ptr %120, align 4, !tbaa !180, !alias.scope !465, !noalias !462
-  %122 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv.i36
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv.i36
   %123 = load float, ptr %122, align 4, !tbaa !180, !noalias !467
   %124 = fmul float %121, %123
   %125 = call float @llvm.fmuladd.f32(float %124, float %86, float %119)
@@ -13525,7 +13518,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS
   %37 = load i32, ptr %36, align 4, !tbaa !126
   %38 = mul nsw i32 %37, 60
   %39 = sext i32 %38 to i64
-  %40 = getelementptr %struct.wallcc_t, ptr %26, i64 %39
+  %40 = getelementptr [24 x i8], ptr %26, i64 %39
   %41 = getelementptr i8, ptr %40, i64 1152
   %42 = load i32, ptr %41, align 8, !tbaa !127
   %43 = add nsw i32 %42, 1
@@ -13774,30 +13767,30 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 50:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us, %.lr.ph.split.us
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us ], [ %49, %.lr.ph.split.us ]
   %51 = load float, ptr %29, align 8, !tbaa !372
-  %52 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv45
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %indvars.iv45
   %53 = load i16, ptr %52, align 2, !tbaa !452
   %54 = zext i16 %53 to i64
-  %55 = getelementptr inbounds nuw float, ptr %48, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !180
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !471)
   call void @llvm.experimental.noalias.scope.decl(metadata !474)
-  %57 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv45
-  %58 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv45
-  %59 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv45
+  %57 = getelementptr inbounds [12 x i8], ptr %42, i64 %indvars.iv45
+  %58 = getelementptr inbounds [12 x i8], ptr %43, i64 %indvars.iv45
+  %59 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us, i64 %indvars.iv45
   br label %60
 
 60:                                               ; preds = %60, %50
   %indvars.iv.i.us = phi i64 [ 0, %50 ], [ %indvars.iv.next.i.us, %60 ]
-  %61 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i.us
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.us
   %62 = load float, ptr %61, align 4, !tbaa !180, !noalias !476
   %63 = fsub float %56, %62
-  %64 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i.us
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.i.us
   %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !471, !noalias !474
   %66 = fmul float %65, %63
-  %67 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv.i.us
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv.i.us
   %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !474, !noalias !471
-  %69 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv.i.us
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i.us
   %70 = load float, ptr %69, align 4, !tbaa !180, !noalias !476
   %71 = fmul float %68, %70
   %72 = call float @llvm.fmuladd.f32(float %71, float %51, float %66)
@@ -13840,16 +13833,16 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 80:                                               ; preds = %.lr.ph.split, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv = phi i64 [ %73, %.lr.ph.split ], [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ]
   %81 = load float, ptr %29, align 8, !tbaa !372
-  %82 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %indvars.iv
   %83 = load i16, ptr %82, align 2, !tbaa !452
   %84 = zext i16 %83 to i64
-  %85 = getelementptr inbounds nuw float, ptr %48, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %84
   %86 = load float, ptr %85, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !479)
   call void @llvm.experimental.noalias.scope.decl(metadata !482)
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !484
-  %87 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv
+  %87 = getelementptr inbounds [12 x i8], ptr %42, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !484
   %88 = load float, ptr %87, align 4, !tbaa !180, !alias.scope !479, !noalias !482
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 4
@@ -13870,7 +13863,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %100 = getelementptr i8, ptr %94, i64 8
   %101 = load float, ptr %100, align 4, !tbaa !180, !noalias !484
   %102 = call float @llvm.fmuladd.f32(float %101, float %92, float %99)
-  %103 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv.i.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.i
   store float %102, ptr %103, align 4, !tbaa !180, !noalias !484
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -13882,21 +13875,21 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !484
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !484
   store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !310, !noalias !484
-  %104 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv
-  %105 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %104 = getelementptr inbounds [12 x i8], ptr %43, i64 %indvars.iv
+  %105 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %106
 
 106:                                              ; preds = %106, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i34 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i35, %106 ]
-  %107 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv.i34
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv.i34
   %108 = load float, ptr %107, align 4, !tbaa !180, !alias.scope !479, !noalias !482
-  %109 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i34
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i34
   %110 = load float, ptr %109, align 4, !tbaa !180, !noalias !484
   %111 = fneg float %110
   %112 = call float @llvm.fmuladd.f32(float %86, float %108, float %111)
-  %113 = getelementptr inbounds nuw float, ptr %104, i64 %indvars.iv.i34
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv.i34
   %114 = load float, ptr %113, align 4, !tbaa !180, !alias.scope !482, !noalias !479
-  %115 = getelementptr inbounds nuw float, ptr %105, i64 %indvars.iv.i34
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv.i34
   %116 = load float, ptr %115, align 4, !tbaa !180, !noalias !484
   %117 = fmul float %114, %116
   %118 = call float @llvm.fmuladd.f32(float %117, float %81, float %112)
@@ -14023,7 +14016,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS
   %37 = load i32, ptr %36, align 4, !tbaa !126
   %38 = mul nsw i32 %37, 60
   %39 = sext i32 %38 to i64
-  %40 = getelementptr %struct.wallcc_t, ptr %26, i64 %39
+  %40 = getelementptr [24 x i8], ptr %26, i64 %39
   %41 = getelementptr i8, ptr %40, i64 1152
   %42 = load i32, ptr %41, align 8, !tbaa !127
   %43 = add nsw i32 %42, 1
@@ -14227,32 +14220,32 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us ], [ %48, %.lr.ph ]
   %49 = load float, ptr %27, align 8, !tbaa !372
-  %50 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv48
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %indvars.iv48
   %51 = load i16, ptr %50, align 2, !tbaa !452
   %52 = zext i16 %51 to i64
-  %53 = getelementptr inbounds nuw float, ptr %46, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !180
-  %55 = getelementptr inbounds nuw float, ptr %47, i64 %52
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %52
   %56 = load float, ptr %55, align 4, !tbaa !180
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !488)
   call void @llvm.experimental.noalias.scope.decl(metadata !491)
-  %57 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv48
-  %58 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv48
-  %59 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv48
+  %57 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv48
+  %58 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv48
+  %59 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us, i64 %indvars.iv48
   br label %60
 
 60:                                               ; preds = %60, %.lr.ph.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %60 ]
-  %61 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i.us
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.us
   %62 = load float, ptr %61, align 4, !tbaa !180, !noalias !493
   %63 = fsub float %54, %62
-  %64 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i.us
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.i.us
   %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !488, !noalias !491
   %66 = fmul float %65, %63
-  %67 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv.i.us
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv.i.us
   %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !491, !noalias !488
-  %69 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv.i.us
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i.us
   %70 = load float, ptr %69, align 4, !tbaa !180, !noalias !493
   %71 = fmul float %68, %70
   %72 = call float @llvm.fmuladd.f32(float %71, float %49, float %66)
@@ -14290,29 +14283,29 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit39
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit39 ], [ %48, %.lr.ph ]
   %80 = load float, ptr %27, align 8, !tbaa !372
-  %81 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %indvars.iv
   %82 = load i16, ptr %81, align 2, !tbaa !452
   %83 = zext i16 %82 to i64
-  %84 = getelementptr inbounds nuw float, ptr %46, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %83
   %85 = load float, ptr %84, align 4, !tbaa !180
-  %86 = getelementptr inbounds nuw float, ptr %47, i64 %83
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %83
   %87 = load float, ptr %86, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !495)
   call void @llvm.experimental.noalias.scope.decl(metadata !498)
-  %88 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv
-  %89 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv
-  %90 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %88 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv
+  %89 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv
+  %90 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %91
 
 91:                                               ; preds = %91, %.lr.ph.split
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next.i37, %91 ]
-  %92 = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv.i36
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv.i36
   %93 = load float, ptr %92, align 4, !tbaa !180, !alias.scope !495, !noalias !498
   %94 = fmul float %85, %93
-  %95 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv.i36
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv.i36
   %96 = load float, ptr %95, align 4, !tbaa !180, !alias.scope !498, !noalias !495
-  %97 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv.i36
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv.i36
   %98 = load float, ptr %97, align 4, !tbaa !180, !noalias !500
   %99 = fmul float %96, %98
   %100 = call float @llvm.fmuladd.f32(float %99, float %80, float %94)
@@ -14439,7 +14432,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS
   %37 = load i32, ptr %36, align 4, !tbaa !126
   %38 = mul nsw i32 %37, 60
   %39 = sext i32 %38 to i64
-  %40 = getelementptr %struct.wallcc_t, ptr %26, i64 %39
+  %40 = getelementptr [24 x i8], ptr %26, i64 %39
   %41 = getelementptr i8, ptr %40, i64 1152
   %42 = load i32, ptr %41, align 8, !tbaa !127
   %43 = add nsw i32 %42, 1
@@ -14641,30 +14634,30 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us ], [ %46, %.lr.ph ]
   %47 = load float, ptr %27, align 8, !tbaa !372
-  %48 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv46
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %indvars.iv46
   %49 = load i16, ptr %48, align 2, !tbaa !452
   %50 = zext i16 %49 to i64
-  %51 = getelementptr inbounds nuw float, ptr %45, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %50
   %52 = load float, ptr %51, align 4, !tbaa !180
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !504)
   call void @llvm.experimental.noalias.scope.decl(metadata !507)
-  %53 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv46
-  %54 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv46
-  %55 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv46
+  %53 = getelementptr inbounds [12 x i8], ptr %39, i64 %indvars.iv46
+  %54 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv46
+  %55 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us, i64 %indvars.iv46
   br label %56
 
 56:                                               ; preds = %56, %.lr.ph.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %56 ]
-  %57 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i.us
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.us
   %58 = load float, ptr %57, align 4, !tbaa !180, !noalias !509
   %59 = fsub float %52, %58
-  %60 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv.i.us
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv.i.us
   %61 = load float, ptr %60, align 4, !tbaa !180, !alias.scope !504, !noalias !507
   %62 = fmul float %61, %59
-  %63 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv.i.us
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i.us
   %64 = load float, ptr %63, align 4, !tbaa !180, !alias.scope !507, !noalias !504
-  %65 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv.i.us
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv.i.us
   %66 = load float, ptr %65, align 4, !tbaa !180, !noalias !509
   %67 = fmul float %64, %66
   %68 = call float @llvm.fmuladd.f32(float %67, float %47, float %62)
@@ -14701,27 +14694,27 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit37
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit37 ], [ %46, %.lr.ph ]
   %75 = load float, ptr %27, align 8, !tbaa !372
-  %76 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %indvars.iv
   %77 = load i16, ptr %76, align 2, !tbaa !452
   %78 = zext i16 %77 to i64
-  %79 = getelementptr inbounds nuw float, ptr %45, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %78
   %80 = load float, ptr %79, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !511)
   call void @llvm.experimental.noalias.scope.decl(metadata !514)
-  %81 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv
-  %82 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv
-  %83 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %81 = getelementptr inbounds [12 x i8], ptr %39, i64 %indvars.iv
+  %82 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv
+  %83 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %84
 
 84:                                               ; preds = %84, %.lr.ph.split
   %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next.i35, %84 ]
-  %85 = getelementptr inbounds nuw float, ptr %81, i64 %indvars.iv.i34
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv.i34
   %86 = load float, ptr %85, align 4, !tbaa !180, !alias.scope !511, !noalias !514
   %87 = fmul float %80, %86
-  %88 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv.i34
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv.i34
   %89 = load float, ptr %88, align 4, !tbaa !180, !alias.scope !514, !noalias !511
-  %90 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv.i34
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv.i34
   %91 = load float, ptr %90, align 4, !tbaa !180, !noalias !516
   %92 = fmul float %89, %91
   %93 = call float @llvm.fmuladd.f32(float %92, float %75, float %87)
@@ -14847,7 +14840,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS
   %37 = load i32, ptr %36, align 4, !tbaa !126
   %38 = mul nsw i32 %37, 60
   %39 = sext i32 %38 to i64
-  %40 = getelementptr %struct.wallcc_t, ptr %26, i64 %39
+  %40 = getelementptr [24 x i8], ptr %26, i64 %39
   %41 = getelementptr i8, ptr %40, i64 1152
   %42 = load i32, ptr %41, align 8, !tbaa !127
   %43 = add nsw i32 %42, 1
@@ -15092,22 +15085,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !520)
   call void @llvm.experimental.noalias.scope.decl(metadata !523)
-  %44 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv43
-  %45 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv43
-  %46 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv43
+  %44 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv43
+  %45 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv43
+  %46 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us, i64 %indvars.iv43
   br label %47
 
 47:                                               ; preds = %47, %.lr.ph.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %47 ]
-  %48 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i.us
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.us
   %49 = load float, ptr %48, align 4, !tbaa !180, !noalias !525
   %50 = fsub float 1.000000e+00, %49
-  %51 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv.i.us
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.i.us
   %52 = load float, ptr %51, align 4, !tbaa !180, !alias.scope !520, !noalias !523
   %53 = fmul float %52, %50
-  %54 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv.i.us
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i.us
   %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !523, !noalias !520
-  %56 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv.i.us
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i.us
   %57 = load float, ptr %56, align 4, !tbaa !180, !noalias !525
   %58 = fmul float %55, %57
   %59 = call float @llvm.fmuladd.f32(float %58, float %43, float %53)
@@ -15154,7 +15147,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !528)
   call void @llvm.experimental.noalias.scope.decl(metadata !531)
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !533
-  %69 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv
+  %69 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !533
   %70 = load float, ptr %69, align 4, !tbaa !180, !alias.scope !528, !noalias !531
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 4
@@ -15175,7 +15168,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   %82 = getelementptr i8, ptr %76, i64 8
   %83 = load float, ptr %82, align 4, !tbaa !180, !noalias !533
   %84 = call float @llvm.fmuladd.f32(float %83, float %74, float %81)
-  %85 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv.i.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i.i
   store float %84, ptr %85, align 4, !tbaa !180, !noalias !533
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -15187,20 +15180,20 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !533
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %14, align 8, !noalias !533
   store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !310, !noalias !533
-  %86 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv
-  %87 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %86 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv
+  %87 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %88
 
 88:                                               ; preds = %88, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i32 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i33, %88 ]
-  %89 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i32
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i32
   %90 = load float, ptr %89, align 4, !tbaa !180, !noalias !533
-  %91 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv.i32
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i32
   %92 = load float, ptr %91, align 4, !tbaa !180, !alias.scope !528, !noalias !531
   %93 = fsub float %92, %90
-  %94 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv.i32
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv.i32
   %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !531, !noalias !528
-  %96 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv.i32
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv.i32
   %97 = load float, ptr %96, align 4, !tbaa !180, !noalias !533
   %98 = fmul float %95, %97
   %99 = call float @llvm.fmuladd.f32(float %98, float %68, float %93)
@@ -15327,7 +15320,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS
   %37 = load i32, ptr %36, align 4, !tbaa !126
   %38 = mul nsw i32 %37, 60
   %39 = sext i32 %38 to i64
-  %40 = getelementptr %struct.wallcc_t, ptr %26, i64 %39
+  %40 = getelementptr [24 x i8], ptr %26, i64 %39
   %41 = getelementptr i8, ptr %40, i64 1152
   %42 = load i32, ptr %41, align 8, !tbaa !127
   %43 = add nsw i32 %42, 1
@@ -15525,22 +15518,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE1EE3runILNS_24N
   %.sroa.01.0.copyload.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !537)
   call void @llvm.experimental.noalias.scope.decl(metadata !540)
-  %41 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv44
-  %42 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv44
-  %43 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us, i64 %indvars.iv44
+  %41 = getelementptr inbounds [12 x i8], ptr %37, i64 %indvars.iv44
+  %42 = getelementptr inbounds [12 x i8], ptr %38, i64 %indvars.iv44
+  %43 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us, i64 %indvars.iv44
   br label %44
 
 44:                                               ; preds = %44, %.lr.ph.split.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.split.us ], [ %indvars.iv.next.i.us, %44 ]
-  %45 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i.us
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.us
   %46 = load float, ptr %45, align 4, !tbaa !180, !noalias !542
   %47 = fsub float 1.000000e+00, %46
-  %48 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv.i.us
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv.i.us
   %49 = load float, ptr %48, align 4, !tbaa !180, !alias.scope !537, !noalias !540
   %50 = fmul float %49, %47
-  %51 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv.i.us
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.i.us
   %52 = load float, ptr %51, align 4, !tbaa !180, !alias.scope !540, !noalias !537
-  %53 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv.i.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv.i.us
   %54 = load float, ptr %53, align 4, !tbaa !180, !noalias !542
   %55 = fmul float %52, %54
   %56 = call float @llvm.fmuladd.f32(float %55, float %40, float %50)
@@ -15580,19 +15573,19 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !544)
   call void @llvm.experimental.noalias.scope.decl(metadata !547)
-  %64 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv
-  %65 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
-  %66 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv
+  %64 = getelementptr inbounds [12 x i8], ptr %38, i64 %indvars.iv
+  %65 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %66 = getelementptr inbounds [12 x i8], ptr %37, i64 %indvars.iv
   br label %67
 
 67:                                               ; preds = %67, %.lr.ph.split
   %indvars.iv.i32 = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next.i33, %67 ]
-  %68 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv.i32
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv.i32
   %69 = load float, ptr %68, align 4, !tbaa !180, !alias.scope !547, !noalias !544
-  %70 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv.i32
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv.i32
   %71 = load float, ptr %70, align 4, !tbaa !180, !noalias !549
   %72 = fmul float %69, %71
-  %73 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv.i32
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv.i32
   %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !544, !noalias !547
   %75 = call float @llvm.fmuladd.f32(float %72, float %63, float %74)
   store float %75, ptr %73, align 4, !tbaa !180, !alias.scope !544, !noalias !547
@@ -15691,7 +15684,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %12, %15
   br i1 %29, label %30, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw float, ptr %20, i64 %14
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %14
   %.not.i.i8 = icmp eq ptr %19, %31
   br i1 %.not.i.i8, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9, label %32
 
@@ -16239,7 +16232,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
 .noexc:                                           ; preds = %33, %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %27, ptr %14, align 8, !tbaa !334
   store ptr %32, ptr %6, align 8, !tbaa !327
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.302", ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %8, align 8, !tbaa !330
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_10PropagatorILNS1_16IntegrationStageE1EEES3_ISB_EEEEERS5_DpOT_.exit.i
 
@@ -16445,7 +16438,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10PropagatorILNS0_16IntegrationStageE1EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %39, ptr %19, align 8, !tbaa !348
   store ptr %43, ptr %20, align 8, !tbaa !343
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !347
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10PropagatorILNS0_16IntegrationStageE1EEEEEERS2_DpOT_.exit
 
@@ -16823,7 +16816,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -17090,22 +17083,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !608)
   call void @llvm.experimental.noalias.scope.decl(metadata !611)
-  %49 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv58
-  %50 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv58
-  %51 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv58
+  %49 = getelementptr inbounds [12 x i8], ptr %42, i64 %indvars.iv58
+  %50 = getelementptr inbounds [12 x i8], ptr %43, i64 %indvars.iv58
+  %51 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv58
   br label %52
 
 52:                                               ; preds = %52, %47
   %indvars.iv.i.us.us = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.us.us, %52 ]
-  %53 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i.us.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i.us.us
   %54 = load float, ptr %53, align 4, !tbaa !180, !noalias !613
   %55 = fsub float %24, %54
-  %56 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i.us.us
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i.us.us
   %57 = load float, ptr %56, align 4, !tbaa !180, !alias.scope !608, !noalias !611
   %58 = fmul float %57, %55
-  %59 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i.us.us
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i.us.us
   %60 = load float, ptr %59, align 4, !tbaa !180, !alias.scope !611, !noalias !608
-  %61 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv.i.us.us
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i.us.us
   %62 = load float, ptr %61, align 4, !tbaa !180, !noalias !613
   %63 = fmul float %60, %62
   %64 = call float @llvm.fmuladd.f32(float %63, float %48, float %58)
@@ -17117,12 +17110,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 66:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %66
   %indvars.iv.i47.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i48.us.us, %66 ]
-  %67 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv.i47.us.us
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv.i47.us.us
   %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !614, !noalias !617
-  %69 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i47.us.us
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i47.us.us
   %70 = load float, ptr %69, align 4, !tbaa !180, !alias.scope !620, !noalias !621
   %71 = call float @llvm.fmuladd.f32(float %70, float %73, float %68)
-  %72 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv.i47.us.us
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv.i47.us.us
   store float %71, ptr %72, align 4, !tbaa !180, !alias.scope !622, !noalias !623
   %indvars.iv.next.i48.us.us = add nuw nsw i64 %indvars.iv.i47.us.us, 1
   %exitcond.not.i49.us.us = icmp eq i64 %indvars.iv.next.i48.us.us, 3
@@ -17138,8 +17131,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !614)
   call void @llvm.experimental.noalias.scope.decl(metadata !622)
   call void @llvm.experimental.noalias.scope.decl(metadata !620)
-  %74 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv58
-  %75 = getelementptr inbounds [3 x float], ptr %45, i64 %indvars.iv58
+  %74 = getelementptr inbounds [12 x i8], ptr %44, i64 %indvars.iv58
+  %75 = getelementptr inbounds [12 x i8], ptr %45, i64 %indvars.iv58
   br label %66
 
 .split.us:                                        ; preds = %.lr.ph54.split.us
@@ -17202,7 +17195,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !625)
   call void @llvm.experimental.noalias.scope.decl(metadata !628)
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !630
-  %94 = getelementptr inbounds [3 x float], ptr %81, i64 %indvars.iv
+  %94 = getelementptr inbounds [12 x i8], ptr %81, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !630
   %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !625, !noalias !628
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
@@ -17223,7 +17216,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   %107 = getelementptr i8, ptr %101, i64 8
   %108 = load float, ptr %107, align 4, !tbaa !180, !noalias !630
   %109 = call float @llvm.fmuladd.f32(float %108, float %99, float %106)
-  %110 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   store float %109, ptr %110, align 4, !tbaa !180, !noalias !630
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -17235,21 +17228,21 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !630
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !630
   store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !310, !noalias !630
-  %111 = getelementptr inbounds [3 x float], ptr %82, i64 %indvars.iv
-  %112 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %111 = getelementptr inbounds [12 x i8], ptr %82, i64 %indvars.iv
+  %112 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %113
 
 113:                                              ; preds = %113, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i45, %113 ]
-  %114 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv.i44
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv.i44
   %115 = load float, ptr %114, align 4, !tbaa !180, !alias.scope !625, !noalias !628
-  %116 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i44
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i44
   %117 = load float, ptr %116, align 4, !tbaa !180, !noalias !630
   %118 = fneg float %117
   %119 = call float @llvm.fmuladd.f32(float %24, float %115, float %118)
-  %120 = getelementptr inbounds nuw float, ptr %111, i64 %indvars.iv.i44
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv.i44
   %121 = load float, ptr %120, align 4, !tbaa !180, !alias.scope !628, !noalias !625
-  %122 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv.i44
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv.i44
   %123 = load float, ptr %122, align 4, !tbaa !180, !noalias !630
   %124 = fmul float %121, %123
   %125 = call float @llvm.fmuladd.f32(float %124, float %93, float %119)
@@ -17265,18 +17258,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !614)
   call void @llvm.experimental.noalias.scope.decl(metadata !622)
   call void @llvm.experimental.noalias.scope.decl(metadata !620)
-  %128 = getelementptr inbounds [3 x float], ptr %83, i64 %indvars.iv
-  %129 = getelementptr inbounds [3 x float], ptr %84, i64 %indvars.iv
+  %128 = getelementptr inbounds [12 x i8], ptr %83, i64 %indvars.iv
+  %129 = getelementptr inbounds [12 x i8], ptr %84, i64 %indvars.iv
   br label %130
 
 130:                                              ; preds = %130, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i47 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i48, %130 ]
-  %131 = getelementptr inbounds nuw float, ptr %128, i64 %indvars.iv.i47
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %indvars.iv.i47
   %132 = load float, ptr %131, align 4, !tbaa !180, !alias.scope !614, !noalias !617
-  %133 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv.i47
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv.i47
   %134 = load float, ptr %133, align 4, !tbaa !180, !alias.scope !620, !noalias !621
   %135 = call float @llvm.fmuladd.f32(float %134, float %127, float %132)
-  %136 = getelementptr inbounds nuw float, ptr %129, i64 %indvars.iv.i47
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %indvars.iv.i47
   store float %135, ptr %136, align 4, !tbaa !180, !alias.scope !622, !noalias !623
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 3
@@ -17399,7 +17392,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -17660,22 +17653,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !633)
   call void @llvm.experimental.noalias.scope.decl(metadata !636)
-  %48 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv55
-  %49 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv55
-  %50 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv55
+  %48 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv55
+  %49 = getelementptr inbounds [12 x i8], ptr %42, i64 %indvars.iv55
+  %50 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv55
   br label %51
 
 51:                                               ; preds = %51, %46
   %indvars.iv.i.us.us = phi i64 [ 0, %46 ], [ %indvars.iv.next.i.us.us, %51 ]
-  %52 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i.us.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i.us.us
   %53 = load float, ptr %52, align 4, !tbaa !180, !noalias !638
   %54 = fsub float %24, %53
-  %55 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i.us.us
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i.us.us
   %56 = load float, ptr %55, align 4, !tbaa !180, !alias.scope !633, !noalias !636
   %57 = fmul float %56, %54
-  %58 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i.us.us
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i.us.us
   %59 = load float, ptr %58, align 4, !tbaa !180, !alias.scope !636, !noalias !633
-  %60 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i.us.us
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i.us.us
   %61 = load float, ptr %60, align 4, !tbaa !180, !noalias !638
   %62 = fmul float %59, %61
   %63 = call float @llvm.fmuladd.f32(float %62, float %47, float %57)
@@ -17686,12 +17679,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 64:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %64
   %indvars.iv.i44.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i45.us.us, %64 ]
-  %65 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv.i44.us.us
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv.i44.us.us
   %66 = load float, ptr %65, align 4, !tbaa !180, !alias.scope !639, !noalias !642
-  %67 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i44.us.us
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i44.us.us
   %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !645, !noalias !646
   %69 = call float @llvm.fmuladd.f32(float %68, float %71, float %66)
-  %70 = getelementptr inbounds nuw float, ptr %73, i64 %indvars.iv.i44.us.us
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv.i44.us.us
   store float %69, ptr %70, align 4, !tbaa !180, !alias.scope !647, !noalias !648
   %indvars.iv.next.i45.us.us = add nuw nsw i64 %indvars.iv.i44.us.us, 1
   %exitcond.not.i46.us.us = icmp eq i64 %indvars.iv.next.i45.us.us, 3
@@ -17707,8 +17700,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !639)
   call void @llvm.experimental.noalias.scope.decl(metadata !647)
   call void @llvm.experimental.noalias.scope.decl(metadata !645)
-  %72 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv55
-  %73 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv55
+  %72 = getelementptr inbounds [12 x i8], ptr %43, i64 %indvars.iv55
+  %73 = getelementptr inbounds [12 x i8], ptr %44, i64 %indvars.iv55
   br label %64
 
 .split.us:                                        ; preds = %.lr.ph51.split.us
@@ -17771,7 +17764,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !650)
   call void @llvm.experimental.noalias.scope.decl(metadata !653)
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !655
-  %92 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv
+  %92 = getelementptr inbounds [12 x i8], ptr %79, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !655
   %93 = load float, ptr %92, align 4, !tbaa !180, !alias.scope !650, !noalias !653
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 4
@@ -17792,7 +17785,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   %105 = getelementptr i8, ptr %99, i64 8
   %106 = load float, ptr %105, align 4, !tbaa !180, !noalias !655
   %107 = call float @llvm.fmuladd.f32(float %106, float %97, float %104)
-  %108 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   store float %107, ptr %108, align 4, !tbaa !180, !noalias !655
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -17804,21 +17797,21 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !655
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !655
   store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !310, !noalias !655
-  %109 = getelementptr inbounds [3 x float], ptr %80, i64 %indvars.iv
-  %110 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %109 = getelementptr inbounds [12 x i8], ptr %80, i64 %indvars.iv
+  %110 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %111
 
 111:                                              ; preds = %111, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i42, %111 ]
-  %112 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv.i41
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.i41
   %113 = load float, ptr %112, align 4, !tbaa !180, !alias.scope !650, !noalias !653
-  %114 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i41
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i41
   %115 = load float, ptr %114, align 4, !tbaa !180, !noalias !655
   %116 = fneg float %115
   %117 = call float @llvm.fmuladd.f32(float %24, float %113, float %116)
-  %118 = getelementptr inbounds nuw float, ptr %109, i64 %indvars.iv.i41
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %indvars.iv.i41
   %119 = load float, ptr %118, align 4, !tbaa !180, !alias.scope !653, !noalias !650
-  %120 = getelementptr inbounds nuw float, ptr %110, i64 %indvars.iv.i41
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv.i41
   %121 = load float, ptr %120, align 4, !tbaa !180, !noalias !655
   %122 = fmul float %119, %121
   %123 = call float @llvm.fmuladd.f32(float %122, float %91, float %117)
@@ -17833,18 +17826,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !639)
   call void @llvm.experimental.noalias.scope.decl(metadata !647)
   call void @llvm.experimental.noalias.scope.decl(metadata !645)
-  %125 = getelementptr inbounds [3 x float], ptr %81, i64 %indvars.iv
-  %126 = getelementptr inbounds [3 x float], ptr %82, i64 %indvars.iv
+  %125 = getelementptr inbounds [12 x i8], ptr %81, i64 %indvars.iv
+  %126 = getelementptr inbounds [12 x i8], ptr %82, i64 %indvars.iv
   br label %127
 
 127:                                              ; preds = %127, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i45, %127 ]
-  %128 = getelementptr inbounds nuw float, ptr %125, i64 %indvars.iv.i44
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %indvars.iv.i44
   %129 = load float, ptr %128, align 4, !tbaa !180, !alias.scope !639, !noalias !642
-  %130 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv.i44
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.i44
   %131 = load float, ptr %130, align 4, !tbaa !180, !alias.scope !645, !noalias !646
   %132 = call float @llvm.fmuladd.f32(float %131, float %124, float %129)
-  %133 = getelementptr inbounds nuw float, ptr %126, i64 %indvars.iv.i44
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv.i44
   store float %132, ptr %133, align 4, !tbaa !180, !alias.scope !647, !noalias !648
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 3
@@ -17967,7 +17960,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -18191,22 +18184,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !658)
   call void @llvm.experimental.noalias.scope.decl(metadata !661)
-  %46 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv59
-  %47 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv59
-  %48 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv59
+  %46 = getelementptr inbounds [12 x i8], ptr %39, i64 %indvars.iv59
+  %47 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv59
+  %48 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv59
   br label %49
 
 49:                                               ; preds = %49, %44
   %indvars.iv.i.us.us = phi i64 [ 0, %44 ], [ %indvars.iv.next.i.us.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i.us.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i.us.us
   %51 = load float, ptr %50, align 4, !tbaa !180, !noalias !663
   %52 = fsub float %22, %51
-  %53 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv.i.us.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i.us.us
   %54 = load float, ptr %53, align 4, !tbaa !180, !alias.scope !658, !noalias !661
   %55 = fmul float %54, %52
-  %56 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i.us.us
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i.us.us
   %57 = load float, ptr %56, align 4, !tbaa !180, !alias.scope !661, !noalias !658
-  %58 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i.us.us
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i.us.us
   %59 = load float, ptr %58, align 4, !tbaa !180, !noalias !663
   %60 = fmul float %57, %59
   %61 = call float @llvm.fmuladd.f32(float %60, float %45, float %55)
@@ -18218,12 +18211,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 63:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %63
   %indvars.iv.i47.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i48.us.us, %63 ]
-  %64 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv.i47.us.us
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i47.us.us
   %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !664, !noalias !667
-  %66 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv.i47.us.us
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i47.us.us
   %67 = load float, ptr %66, align 4, !tbaa !180, !alias.scope !670, !noalias !671
   %68 = call float @llvm.fmuladd.f32(float %67, float %70, float %65)
-  %69 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv.i47.us.us
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv.i47.us.us
   store float %68, ptr %69, align 4, !tbaa !180, !alias.scope !672, !noalias !673
   %indvars.iv.next.i48.us.us = add nuw nsw i64 %indvars.iv.i47.us.us, 1
   %exitcond.not.i49.us.us = icmp eq i64 %indvars.iv.next.i48.us.us, 3
@@ -18239,8 +18232,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !664)
   call void @llvm.experimental.noalias.scope.decl(metadata !672)
   call void @llvm.experimental.noalias.scope.decl(metadata !670)
-  %71 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv59
-  %72 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv59
+  %71 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv59
+  %72 = getelementptr inbounds [12 x i8], ptr %42, i64 %indvars.iv59
   br label %63
 
 .split.us:                                        ; preds = %.lr.ph55.split.us
@@ -18301,19 +18294,19 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !675)
   call void @llvm.experimental.noalias.scope.decl(metadata !678)
-  %91 = getelementptr inbounds [3 x float], ptr %78, i64 %indvars.iv
-  %92 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv
-  %93 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %91 = getelementptr inbounds [12 x i8], ptr %78, i64 %indvars.iv
+  %92 = getelementptr inbounds [12 x i8], ptr %79, i64 %indvars.iv
+  %93 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %94
 
 94:                                               ; preds = %94, %89
   %indvars.iv.i44 = phi i64 [ 0, %89 ], [ %indvars.iv.next.i45, %94 ]
-  %95 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv.i44
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv.i44
   %96 = load float, ptr %95, align 4, !tbaa !180, !alias.scope !675, !noalias !678
   %97 = fmul float %96, %22
-  %98 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv.i44
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.i44
   %99 = load float, ptr %98, align 4, !tbaa !180, !alias.scope !678, !noalias !675
-  %100 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv.i44
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv.i44
   %101 = load float, ptr %100, align 4, !tbaa !180, !noalias !680
   %102 = fmul float %99, %101
   %103 = call float @llvm.fmuladd.f32(float %102, float %90, float %97)
@@ -18328,18 +18321,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !664)
   call void @llvm.experimental.noalias.scope.decl(metadata !672)
   call void @llvm.experimental.noalias.scope.decl(metadata !670)
-  %106 = getelementptr inbounds [3 x float], ptr %80, i64 %indvars.iv
-  %107 = getelementptr inbounds [3 x float], ptr %81, i64 %indvars.iv
+  %106 = getelementptr inbounds [12 x i8], ptr %80, i64 %indvars.iv
+  %107 = getelementptr inbounds [12 x i8], ptr %81, i64 %indvars.iv
   br label %108
 
 108:                                              ; preds = %108, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit50
   %indvars.iv.i47 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit50 ], [ %indvars.iv.next.i48, %108 ]
-  %109 = getelementptr inbounds nuw float, ptr %106, i64 %indvars.iv.i47
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv.i47
   %110 = load float, ptr %109, align 4, !tbaa !180, !alias.scope !664, !noalias !667
-  %111 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv.i47
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv.i47
   %112 = load float, ptr %111, align 4, !tbaa !180, !alias.scope !670, !noalias !671
   %113 = call float @llvm.fmuladd.f32(float %112, float %105, float %110)
-  %114 = getelementptr inbounds nuw float, ptr %107, i64 %indvars.iv.i47
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %indvars.iv.i47
   store float %113, ptr %114, align 4, !tbaa !180, !alias.scope !672, !noalias !673
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 3
@@ -18462,7 +18455,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -18680,22 +18673,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !683)
   call void @llvm.experimental.noalias.scope.decl(metadata !686)
-  %45 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv56
-  %46 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv56
-  %47 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv56
+  %45 = getelementptr inbounds [12 x i8], ptr %38, i64 %indvars.iv56
+  %46 = getelementptr inbounds [12 x i8], ptr %39, i64 %indvars.iv56
+  %47 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv56
   br label %48
 
 48:                                               ; preds = %48, %43
   %indvars.iv.i.us.us = phi i64 [ 0, %43 ], [ %indvars.iv.next.i.us.us, %48 ]
-  %49 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i.us.us
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i.us.us
   %50 = load float, ptr %49, align 4, !tbaa !180, !noalias !688
   %51 = fsub float %22, %50
-  %52 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv.i.us.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i.us.us
   %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !683, !noalias !686
   %54 = fmul float %53, %51
-  %55 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv.i.us.us
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i.us.us
   %56 = load float, ptr %55, align 4, !tbaa !180, !alias.scope !686, !noalias !683
-  %57 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i.us.us
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i.us.us
   %58 = load float, ptr %57, align 4, !tbaa !180, !noalias !688
   %59 = fmul float %56, %58
   %60 = call float @llvm.fmuladd.f32(float %59, float %44, float %54)
@@ -18706,12 +18699,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 61:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %61
   %indvars.iv.i44.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i45.us.us, %61 ]
-  %62 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv.i44.us.us
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i44.us.us
   %63 = load float, ptr %62, align 4, !tbaa !180, !alias.scope !689, !noalias !692
-  %64 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv.i44.us.us
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i44.us.us
   %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !695, !noalias !696
   %66 = call float @llvm.fmuladd.f32(float %65, float %68, float %63)
-  %67 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv.i44.us.us
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv.i44.us.us
   store float %66, ptr %67, align 4, !tbaa !180, !alias.scope !697, !noalias !698
   %indvars.iv.next.i45.us.us = add nuw nsw i64 %indvars.iv.i44.us.us, 1
   %exitcond.not.i46.us.us = icmp eq i64 %indvars.iv.next.i45.us.us, 3
@@ -18727,8 +18720,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !689)
   call void @llvm.experimental.noalias.scope.decl(metadata !697)
   call void @llvm.experimental.noalias.scope.decl(metadata !695)
-  %69 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv56
-  %70 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv56
+  %69 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv56
+  %70 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv56
   br label %61
 
 .split.us:                                        ; preds = %.lr.ph52.split.us
@@ -18789,19 +18782,19 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !700)
   call void @llvm.experimental.noalias.scope.decl(metadata !703)
-  %89 = getelementptr inbounds [3 x float], ptr %76, i64 %indvars.iv
-  %90 = getelementptr inbounds [3 x float], ptr %77, i64 %indvars.iv
-  %91 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %89 = getelementptr inbounds [12 x i8], ptr %76, i64 %indvars.iv
+  %90 = getelementptr inbounds [12 x i8], ptr %77, i64 %indvars.iv
+  %91 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %92
 
 92:                                               ; preds = %92, %87
   %indvars.iv.i41 = phi i64 [ 0, %87 ], [ %indvars.iv.next.i42, %92 ]
-  %93 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv.i41
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv.i41
   %94 = load float, ptr %93, align 4, !tbaa !180, !alias.scope !700, !noalias !703
   %95 = fmul float %94, %22
-  %96 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv.i41
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv.i41
   %97 = load float, ptr %96, align 4, !tbaa !180, !alias.scope !703, !noalias !700
-  %98 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv.i41
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv.i41
   %99 = load float, ptr %98, align 4, !tbaa !180, !noalias !705
   %100 = fmul float %97, %99
   %101 = call float @llvm.fmuladd.f32(float %100, float %88, float %95)
@@ -18815,18 +18808,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !689)
   call void @llvm.experimental.noalias.scope.decl(metadata !697)
   call void @llvm.experimental.noalias.scope.decl(metadata !695)
-  %103 = getelementptr inbounds [3 x float], ptr %78, i64 %indvars.iv
-  %104 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv
+  %103 = getelementptr inbounds [12 x i8], ptr %78, i64 %indvars.iv
+  %104 = getelementptr inbounds [12 x i8], ptr %79, i64 %indvars.iv
   br label %105
 
 105:                                              ; preds = %105, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47
   %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47 ], [ %indvars.iv.next.i45, %105 ]
-  %106 = getelementptr inbounds nuw float, ptr %103, i64 %indvars.iv.i44
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv.i44
   %107 = load float, ptr %106, align 4, !tbaa !180, !alias.scope !689, !noalias !692
-  %108 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv.i44
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv.i44
   %109 = load float, ptr %108, align 4, !tbaa !180, !alias.scope !695, !noalias !696
   %110 = call float @llvm.fmuladd.f32(float %109, float %102, float %107)
-  %111 = getelementptr inbounds nuw float, ptr %104, i64 %indvars.iv.i44
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv.i44
   store float %110, ptr %111, align 4, !tbaa !180, !alias.scope !697, !noalias !698
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 3
@@ -18949,7 +18942,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -19210,32 +19203,32 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 54:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %53, %.lr.ph.us ]
   %55 = load float, ptr %32, align 8, !tbaa !600
-  %56 = getelementptr inbounds nuw i16, ptr %50, i64 %indvars.iv56
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %indvars.iv56
   %57 = load i16, ptr %56, align 2, !tbaa !452
   %58 = zext i16 %57 to i64
-  %59 = getelementptr inbounds nuw float, ptr %51, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %58
   %60 = load float, ptr %59, align 4, !tbaa !180
-  %61 = getelementptr inbounds nuw float, ptr %52, i64 %58
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %58
   %62 = load float, ptr %61, align 4, !tbaa !180
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !708)
   call void @llvm.experimental.noalias.scope.decl(metadata !711)
-  %63 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv56
-  %64 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv56
-  %65 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv56
+  %63 = getelementptr inbounds [12 x i8], ptr %43, i64 %indvars.iv56
+  %64 = getelementptr inbounds [12 x i8], ptr %44, i64 %indvars.iv56
+  %65 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv56
   br label %66
 
 66:                                               ; preds = %66, %54
   %indvars.iv.i.us.us = phi i64 [ 0, %54 ], [ %indvars.iv.next.i.us.us, %66 ]
-  %67 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i.us.us
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i.us.us
   %68 = load float, ptr %67, align 4, !tbaa !180, !noalias !713
   %69 = fsub float %60, %68
-  %70 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv.i.us.us
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv.i.us.us
   %71 = load float, ptr %70, align 4, !tbaa !180, !alias.scope !708, !noalias !711
   %72 = fmul float %71, %69
-  %73 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv.i.us.us
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv.i.us.us
   %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !711, !noalias !708
-  %75 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv.i.us.us
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv.i.us.us
   %76 = load float, ptr %75, align 4, !tbaa !180, !noalias !713
   %77 = fmul float %74, %76
   %78 = call float @llvm.fmuladd.f32(float %77, float %55, float %72)
@@ -19247,12 +19240,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 80:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %80
   %indvars.iv.i45.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i46.us.us, %80 ]
-  %81 = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv.i45.us.us
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv.i45.us.us
   %82 = load float, ptr %81, align 4, !tbaa !180, !alias.scope !714, !noalias !717
-  %83 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv.i45.us.us
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv.i45.us.us
   %84 = load float, ptr %83, align 4, !tbaa !180, !alias.scope !720, !noalias !721
   %85 = call float @llvm.fmuladd.f32(float %84, float %87, float %82)
-  %86 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv.i45.us.us
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv.i45.us.us
   store float %85, ptr %86, align 4, !tbaa !180, !alias.scope !722, !noalias !723
   %indvars.iv.next.i46.us.us = add nuw nsw i64 %indvars.iv.i45.us.us, 1
   %exitcond.not.i47.us.us = icmp eq i64 %indvars.iv.next.i46.us.us, 3
@@ -19268,8 +19261,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !714)
   call void @llvm.experimental.noalias.scope.decl(metadata !722)
   call void @llvm.experimental.noalias.scope.decl(metadata !720)
-  %88 = getelementptr inbounds [3 x float], ptr %45, i64 %indvars.iv56
-  %89 = getelementptr inbounds [3 x float], ptr %46, i64 %indvars.iv56
+  %88 = getelementptr inbounds [12 x i8], ptr %45, i64 %indvars.iv56
+  %89 = getelementptr inbounds [12 x i8], ptr %46, i64 %indvars.iv56
   br label %80
 
 .split.us:                                        ; preds = %.lr.ph52.split.us
@@ -19334,18 +19327,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 112:                                              ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %105, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
   %113 = load float, ptr %32, align 8, !tbaa !600
-  %114 = getelementptr inbounds nuw i16, ptr %102, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %102, i64 %indvars.iv
   %115 = load i16, ptr %114, align 2, !tbaa !452
   %116 = zext i16 %115 to i64
-  %117 = getelementptr inbounds nuw float, ptr %103, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %116
   %118 = load float, ptr %117, align 4, !tbaa !180
-  %119 = getelementptr inbounds nuw float, ptr %104, i64 %116
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %116
   %120 = load float, ptr %119, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !725)
   call void @llvm.experimental.noalias.scope.decl(metadata !728)
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !730
-  %121 = getelementptr inbounds [3 x float], ptr %95, i64 %indvars.iv
+  %121 = getelementptr inbounds [12 x i8], ptr %95, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !730
   %122 = load float, ptr %121, align 4, !tbaa !180, !alias.scope !725, !noalias !728
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 4
@@ -19366,7 +19359,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %134 = getelementptr i8, ptr %128, i64 8
   %135 = load float, ptr %134, align 4, !tbaa !180, !noalias !730
   %136 = call float @llvm.fmuladd.f32(float %135, float %126, float %133)
-  %137 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   store float %136, ptr %137, align 4, !tbaa !180, !noalias !730
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -19378,21 +19371,21 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !730
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !730
   store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !310, !noalias !730
-  %138 = getelementptr inbounds [3 x float], ptr %96, i64 %indvars.iv
-  %139 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %138 = getelementptr inbounds [12 x i8], ptr %96, i64 %indvars.iv
+  %139 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %140
 
 140:                                              ; preds = %140, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i42 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i43, %140 ]
-  %141 = getelementptr inbounds nuw float, ptr %121, i64 %indvars.iv.i42
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv.i42
   %142 = load float, ptr %141, align 4, !tbaa !180, !alias.scope !725, !noalias !728
-  %143 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i42
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i42
   %144 = load float, ptr %143, align 4, !tbaa !180, !noalias !730
   %145 = fneg float %144
   %146 = call float @llvm.fmuladd.f32(float %118, float %142, float %145)
-  %147 = getelementptr inbounds nuw float, ptr %138, i64 %indvars.iv.i42
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %indvars.iv.i42
   %148 = load float, ptr %147, align 4, !tbaa !180, !alias.scope !728, !noalias !725
-  %149 = getelementptr inbounds nuw float, ptr %139, i64 %indvars.iv.i42
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %indvars.iv.i42
   %150 = load float, ptr %149, align 4, !tbaa !180, !noalias !730
   %151 = fmul float %148, %150
   %152 = call float @llvm.fmuladd.f32(float %151, float %113, float %146)
@@ -19408,18 +19401,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !714)
   call void @llvm.experimental.noalias.scope.decl(metadata !722)
   call void @llvm.experimental.noalias.scope.decl(metadata !720)
-  %155 = getelementptr inbounds [3 x float], ptr %97, i64 %indvars.iv
-  %156 = getelementptr inbounds [3 x float], ptr %98, i64 %indvars.iv
+  %155 = getelementptr inbounds [12 x i8], ptr %97, i64 %indvars.iv
+  %156 = getelementptr inbounds [12 x i8], ptr %98, i64 %indvars.iv
   br label %157
 
 157:                                              ; preds = %157, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i45 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i46, %157 ]
-  %158 = getelementptr inbounds nuw float, ptr %155, i64 %indvars.iv.i45
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %155, i64 %indvars.iv.i45
   %159 = load float, ptr %158, align 4, !tbaa !180, !alias.scope !714, !noalias !717
-  %160 = getelementptr inbounds nuw float, ptr %121, i64 %indvars.iv.i45
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv.i45
   %161 = load float, ptr %160, align 4, !tbaa !180, !alias.scope !720, !noalias !721
   %162 = call float @llvm.fmuladd.f32(float %161, float %154, float %159)
-  %163 = getelementptr inbounds nuw float, ptr %156, i64 %indvars.iv.i45
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %indvars.iv.i45
   store float %162, ptr %163, align 4, !tbaa !180, !alias.scope !722, !noalias !723
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, 3
@@ -19542,7 +19535,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -19801,30 +19794,30 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 52:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %51, %.lr.ph.us ]
   %53 = load float, ptr %32, align 8, !tbaa !600
-  %54 = getelementptr inbounds nuw i16, ptr %49, i64 %indvars.iv54
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %49, i64 %indvars.iv54
   %55 = load i16, ptr %54, align 2, !tbaa !452
   %56 = zext i16 %55 to i64
-  %57 = getelementptr inbounds nuw float, ptr %50, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !180
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !733)
   call void @llvm.experimental.noalias.scope.decl(metadata !736)
-  %59 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv54
-  %60 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv54
-  %61 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv54
+  %59 = getelementptr inbounds [12 x i8], ptr %42, i64 %indvars.iv54
+  %60 = getelementptr inbounds [12 x i8], ptr %43, i64 %indvars.iv54
+  %61 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv54
   br label %62
 
 62:                                               ; preds = %62, %52
   %indvars.iv.i.us.us = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.us.us, %62 ]
-  %63 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i.us.us
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i.us.us
   %64 = load float, ptr %63, align 4, !tbaa !180, !noalias !738
   %65 = fsub float %58, %64
-  %66 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv.i.us.us
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i.us.us
   %67 = load float, ptr %66, align 4, !tbaa !180, !alias.scope !733, !noalias !736
   %68 = fmul float %67, %65
-  %69 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv.i.us.us
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv.i.us.us
   %70 = load float, ptr %69, align 4, !tbaa !180, !alias.scope !736, !noalias !733
-  %71 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv.i.us.us
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv.i.us.us
   %72 = load float, ptr %71, align 4, !tbaa !180, !noalias !738
   %73 = fmul float %70, %72
   %74 = call float @llvm.fmuladd.f32(float %73, float %53, float %68)
@@ -19835,12 +19828,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 75:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %75
   %indvars.iv.i43.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i44.us.us, %75 ]
-  %76 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv.i43.us.us
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv.i43.us.us
   %77 = load float, ptr %76, align 4, !tbaa !180, !alias.scope !739, !noalias !742
-  %78 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv.i43.us.us
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i43.us.us
   %79 = load float, ptr %78, align 4, !tbaa !180, !alias.scope !745, !noalias !746
   %80 = call float @llvm.fmuladd.f32(float %79, float %82, float %77)
-  %81 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv.i43.us.us
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv.i43.us.us
   store float %80, ptr %81, align 4, !tbaa !180, !alias.scope !747, !noalias !748
   %indvars.iv.next.i44.us.us = add nuw nsw i64 %indvars.iv.i43.us.us, 1
   %exitcond.not.i45.us.us = icmp eq i64 %indvars.iv.next.i44.us.us, 3
@@ -19856,8 +19849,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !739)
   call void @llvm.experimental.noalias.scope.decl(metadata !747)
   call void @llvm.experimental.noalias.scope.decl(metadata !745)
-  %83 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv54
-  %84 = getelementptr inbounds [3 x float], ptr %45, i64 %indvars.iv54
+  %83 = getelementptr inbounds [12 x i8], ptr %44, i64 %indvars.iv54
+  %84 = getelementptr inbounds [12 x i8], ptr %45, i64 %indvars.iv54
   br label %75
 
 .split.us:                                        ; preds = %.lr.ph50.split.us
@@ -19921,16 +19914,16 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 106:                                              ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %99, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
   %107 = load float, ptr %32, align 8, !tbaa !600
-  %108 = getelementptr inbounds nuw i16, ptr %97, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [2 x i8], ptr %97, i64 %indvars.iv
   %109 = load i16, ptr %108, align 2, !tbaa !452
   %110 = zext i16 %109 to i64
-  %111 = getelementptr inbounds nuw float, ptr %98, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %110
   %112 = load float, ptr %111, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !750)
   call void @llvm.experimental.noalias.scope.decl(metadata !753)
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !755
-  %113 = getelementptr inbounds [3 x float], ptr %90, i64 %indvars.iv
+  %113 = getelementptr inbounds [12 x i8], ptr %90, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !755
   %114 = load float, ptr %113, align 4, !tbaa !180, !alias.scope !750, !noalias !753
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 4
@@ -19951,7 +19944,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %126 = getelementptr i8, ptr %120, i64 8
   %127 = load float, ptr %126, align 4, !tbaa !180, !noalias !755
   %128 = call float @llvm.fmuladd.f32(float %127, float %118, float %125)
-  %129 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   store float %128, ptr %129, align 4, !tbaa !180, !noalias !755
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -19963,21 +19956,21 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !755
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !755
   store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !310, !noalias !755
-  %130 = getelementptr inbounds [3 x float], ptr %91, i64 %indvars.iv
-  %131 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %130 = getelementptr inbounds [12 x i8], ptr %91, i64 %indvars.iv
+  %131 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %132
 
 132:                                              ; preds = %132, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i40 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i41, %132 ]
-  %133 = getelementptr inbounds nuw float, ptr %113, i64 %indvars.iv.i40
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %indvars.iv.i40
   %134 = load float, ptr %133, align 4, !tbaa !180, !alias.scope !750, !noalias !753
-  %135 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i40
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i40
   %136 = load float, ptr %135, align 4, !tbaa !180, !noalias !755
   %137 = fneg float %136
   %138 = call float @llvm.fmuladd.f32(float %112, float %134, float %137)
-  %139 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv.i40
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %indvars.iv.i40
   %140 = load float, ptr %139, align 4, !tbaa !180, !alias.scope !753, !noalias !750
-  %141 = getelementptr inbounds nuw float, ptr %131, i64 %indvars.iv.i40
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %indvars.iv.i40
   %142 = load float, ptr %141, align 4, !tbaa !180, !noalias !755
   %143 = fmul float %140, %142
   %144 = call float @llvm.fmuladd.f32(float %143, float %107, float %138)
@@ -19992,18 +19985,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !739)
   call void @llvm.experimental.noalias.scope.decl(metadata !747)
   call void @llvm.experimental.noalias.scope.decl(metadata !745)
-  %146 = getelementptr inbounds [3 x float], ptr %92, i64 %indvars.iv
-  %147 = getelementptr inbounds [3 x float], ptr %93, i64 %indvars.iv
+  %146 = getelementptr inbounds [12 x i8], ptr %92, i64 %indvars.iv
+  %147 = getelementptr inbounds [12 x i8], ptr %93, i64 %indvars.iv
   br label %148
 
 148:                                              ; preds = %148, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i43 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i44, %148 ]
-  %149 = getelementptr inbounds nuw float, ptr %146, i64 %indvars.iv.i43
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %indvars.iv.i43
   %150 = load float, ptr %149, align 4, !tbaa !180, !alias.scope !739, !noalias !742
-  %151 = getelementptr inbounds nuw float, ptr %113, i64 %indvars.iv.i43
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %indvars.iv.i43
   %152 = load float, ptr %151, align 4, !tbaa !180, !alias.scope !745, !noalias !746
   %153 = call float @llvm.fmuladd.f32(float %152, float %145, float %150)
-  %154 = getelementptr inbounds nuw float, ptr %147, i64 %indvars.iv.i43
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %indvars.iv.i43
   store float %153, ptr %154, align 4, !tbaa !180, !alias.scope !747, !noalias !748
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, 3
@@ -20126,7 +20119,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -20344,32 +20337,32 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 51:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %50, %.lr.ph.us ]
   %52 = load float, ptr %30, align 8, !tbaa !600
-  %53 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv57
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %indvars.iv57
   %54 = load i16, ptr %53, align 2, !tbaa !452
   %55 = zext i16 %54 to i64
-  %56 = getelementptr inbounds nuw float, ptr %48, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !180
-  %58 = getelementptr inbounds nuw float, ptr %49, i64 %55
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %55
   %59 = load float, ptr %58, align 4, !tbaa !180
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !758)
   call void @llvm.experimental.noalias.scope.decl(metadata !761)
-  %60 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv57
-  %61 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv57
-  %62 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv57
+  %60 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv57
+  %61 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv57
+  %62 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv57
   br label %63
 
 63:                                               ; preds = %63, %51
   %indvars.iv.i.us.us = phi i64 [ 0, %51 ], [ %indvars.iv.next.i.us.us, %63 ]
-  %64 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i.us.us
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i.us.us
   %65 = load float, ptr %64, align 4, !tbaa !180, !noalias !763
   %66 = fsub float %57, %65
-  %67 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv.i.us.us
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv.i.us.us
   %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !758, !noalias !761
   %69 = fmul float %68, %66
-  %70 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv.i.us.us
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv.i.us.us
   %71 = load float, ptr %70, align 4, !tbaa !180, !alias.scope !761, !noalias !758
-  %72 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv.i.us.us
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i.us.us
   %73 = load float, ptr %72, align 4, !tbaa !180, !noalias !763
   %74 = fmul float %71, %73
   %75 = call float @llvm.fmuladd.f32(float %74, float %52, float %69)
@@ -20381,12 +20374,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 77:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %77
   %indvars.iv.i45.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i46.us.us, %77 ]
-  %78 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv.i45.us.us
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv.i45.us.us
   %79 = load float, ptr %78, align 4, !tbaa !180, !alias.scope !764, !noalias !767
-  %80 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv.i45.us.us
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv.i45.us.us
   %81 = load float, ptr %80, align 4, !tbaa !180, !alias.scope !770, !noalias !771
   %82 = call float @llvm.fmuladd.f32(float %81, float %84, float %79)
-  %83 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv.i45.us.us
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv.i45.us.us
   store float %82, ptr %83, align 4, !tbaa !180, !alias.scope !772, !noalias !773
   %indvars.iv.next.i46.us.us = add nuw nsw i64 %indvars.iv.i45.us.us, 1
   %exitcond.not.i47.us.us = icmp eq i64 %indvars.iv.next.i46.us.us, 3
@@ -20402,8 +20395,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !764)
   call void @llvm.experimental.noalias.scope.decl(metadata !772)
   call void @llvm.experimental.noalias.scope.decl(metadata !770)
-  %85 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv57
-  %86 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv57
+  %85 = getelementptr inbounds [12 x i8], ptr %42, i64 %indvars.iv57
+  %86 = getelementptr inbounds [12 x i8], ptr %43, i64 %indvars.iv57
   br label %77
 
 .split.us:                                        ; preds = %.lr.ph53.split.us
@@ -20467,29 +20460,29 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 109:                                              ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %102, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
   %110 = load float, ptr %30, align 8, !tbaa !600
-  %111 = getelementptr inbounds nuw i16, ptr %99, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %99, i64 %indvars.iv
   %112 = load i16, ptr %111, align 2, !tbaa !452
   %113 = zext i16 %112 to i64
-  %114 = getelementptr inbounds nuw float, ptr %100, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %113
   %115 = load float, ptr %114, align 4, !tbaa !180
-  %116 = getelementptr inbounds nuw float, ptr %101, i64 %113
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %113
   %117 = load float, ptr %116, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !775)
   call void @llvm.experimental.noalias.scope.decl(metadata !778)
-  %118 = getelementptr inbounds [3 x float], ptr %92, i64 %indvars.iv
-  %119 = getelementptr inbounds [3 x float], ptr %93, i64 %indvars.iv
-  %120 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %118 = getelementptr inbounds [12 x i8], ptr %92, i64 %indvars.iv
+  %119 = getelementptr inbounds [12 x i8], ptr %93, i64 %indvars.iv
+  %120 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %121
 
 121:                                              ; preds = %121, %109
   %indvars.iv.i42 = phi i64 [ 0, %109 ], [ %indvars.iv.next.i43, %121 ]
-  %122 = getelementptr inbounds nuw float, ptr %118, i64 %indvars.iv.i42
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i42
   %123 = load float, ptr %122, align 4, !tbaa !180, !alias.scope !775, !noalias !778
   %124 = fmul float %115, %123
-  %125 = getelementptr inbounds nuw float, ptr %119, i64 %indvars.iv.i42
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %indvars.iv.i42
   %126 = load float, ptr %125, align 4, !tbaa !180, !alias.scope !778, !noalias !775
-  %127 = getelementptr inbounds nuw float, ptr %120, i64 %indvars.iv.i42
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv.i42
   %128 = load float, ptr %127, align 4, !tbaa !180, !noalias !780
   %129 = fmul float %126, %128
   %130 = call float @llvm.fmuladd.f32(float %129, float %110, float %124)
@@ -20504,18 +20497,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !764)
   call void @llvm.experimental.noalias.scope.decl(metadata !772)
   call void @llvm.experimental.noalias.scope.decl(metadata !770)
-  %133 = getelementptr inbounds [3 x float], ptr %94, i64 %indvars.iv
-  %134 = getelementptr inbounds [3 x float], ptr %95, i64 %indvars.iv
+  %133 = getelementptr inbounds [12 x i8], ptr %94, i64 %indvars.iv
+  %134 = getelementptr inbounds [12 x i8], ptr %95, i64 %indvars.iv
   br label %135
 
 135:                                              ; preds = %135, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit48
   %indvars.iv.i45 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit48 ], [ %indvars.iv.next.i46, %135 ]
-  %136 = getelementptr inbounds nuw float, ptr %133, i64 %indvars.iv.i45
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %indvars.iv.i45
   %137 = load float, ptr %136, align 4, !tbaa !180, !alias.scope !764, !noalias !767
-  %138 = getelementptr inbounds nuw float, ptr %118, i64 %indvars.iv.i45
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv.i45
   %139 = load float, ptr %138, align 4, !tbaa !180, !alias.scope !770, !noalias !771
   %140 = call float @llvm.fmuladd.f32(float %139, float %132, float %137)
-  %141 = getelementptr inbounds nuw float, ptr %134, i64 %indvars.iv.i45
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %indvars.iv.i45
   store float %140, ptr %141, align 4, !tbaa !180, !alias.scope !772, !noalias !773
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, 3
@@ -20638,7 +20631,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -20854,30 +20847,30 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 49:                                               ; preds = %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us, %.lr.ph.us
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %48, %.lr.ph.us ]
   %50 = load float, ptr %30, align 8, !tbaa !600
-  %51 = getelementptr inbounds nuw i16, ptr %46, i64 %indvars.iv55
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %46, i64 %indvars.iv55
   %52 = load i16, ptr %51, align 2, !tbaa !452
   %53 = zext i16 %52 to i64
-  %54 = getelementptr inbounds nuw float, ptr %47, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %53
   %55 = load float, ptr %54, align 4, !tbaa !180
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !783)
   call void @llvm.experimental.noalias.scope.decl(metadata !786)
-  %56 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv55
-  %57 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv55
-  %58 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv55
+  %56 = getelementptr inbounds [12 x i8], ptr %39, i64 %indvars.iv55
+  %57 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv55
+  %58 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv55
   br label %59
 
 59:                                               ; preds = %59, %49
   %indvars.iv.i.us.us = phi i64 [ 0, %49 ], [ %indvars.iv.next.i.us.us, %59 ]
-  %60 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i.us.us
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i.us.us
   %61 = load float, ptr %60, align 4, !tbaa !180, !noalias !788
   %62 = fsub float %55, %61
-  %63 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv.i.us.us
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.i.us.us
   %64 = load float, ptr %63, align 4, !tbaa !180, !alias.scope !783, !noalias !786
   %65 = fmul float %64, %62
-  %66 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i.us.us
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.i.us.us
   %67 = load float, ptr %66, align 4, !tbaa !180, !alias.scope !786, !noalias !783
-  %68 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv.i.us.us
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv.i.us.us
   %69 = load float, ptr %68, align 4, !tbaa !180, !noalias !788
   %70 = fmul float %67, %69
   %71 = call float @llvm.fmuladd.f32(float %70, float %50, float %65)
@@ -20888,12 +20881,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 72:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %72
   %indvars.iv.i43.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i44.us.us, %72 ]
-  %73 = getelementptr inbounds nuw float, ptr %80, i64 %indvars.iv.i43.us.us
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv.i43.us.us
   %74 = load float, ptr %73, align 4, !tbaa !180, !alias.scope !789, !noalias !792
-  %75 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv.i43.us.us
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.i43.us.us
   %76 = load float, ptr %75, align 4, !tbaa !180, !alias.scope !795, !noalias !796
   %77 = call float @llvm.fmuladd.f32(float %76, float %79, float %74)
-  %78 = getelementptr inbounds nuw float, ptr %81, i64 %indvars.iv.i43.us.us
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv.i43.us.us
   store float %77, ptr %78, align 4, !tbaa !180, !alias.scope !797, !noalias !798
   %indvars.iv.next.i44.us.us = add nuw nsw i64 %indvars.iv.i43.us.us, 1
   %exitcond.not.i45.us.us = icmp eq i64 %indvars.iv.next.i44.us.us, 3
@@ -20909,8 +20902,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !789)
   call void @llvm.experimental.noalias.scope.decl(metadata !797)
   call void @llvm.experimental.noalias.scope.decl(metadata !795)
-  %80 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv55
-  %81 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv55
+  %80 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv55
+  %81 = getelementptr inbounds [12 x i8], ptr %42, i64 %indvars.iv55
   br label %72
 
 .split.us:                                        ; preds = %.lr.ph51.split.us
@@ -20973,27 +20966,27 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 103:                                              ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %96, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
   %104 = load float, ptr %30, align 8, !tbaa !600
-  %105 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %indvars.iv
   %106 = load i16, ptr %105, align 2, !tbaa !452
   %107 = zext i16 %106 to i64
-  %108 = getelementptr inbounds nuw float, ptr %95, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %107
   %109 = load float, ptr %108, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !800)
   call void @llvm.experimental.noalias.scope.decl(metadata !803)
-  %110 = getelementptr inbounds [3 x float], ptr %87, i64 %indvars.iv
-  %111 = getelementptr inbounds [3 x float], ptr %88, i64 %indvars.iv
-  %112 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %110 = getelementptr inbounds [12 x i8], ptr %87, i64 %indvars.iv
+  %111 = getelementptr inbounds [12 x i8], ptr %88, i64 %indvars.iv
+  %112 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %113
 
 113:                                              ; preds = %113, %103
   %indvars.iv.i40 = phi i64 [ 0, %103 ], [ %indvars.iv.next.i41, %113 ]
-  %114 = getelementptr inbounds nuw float, ptr %110, i64 %indvars.iv.i40
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv.i40
   %115 = load float, ptr %114, align 4, !tbaa !180, !alias.scope !800, !noalias !803
   %116 = fmul float %109, %115
-  %117 = getelementptr inbounds nuw float, ptr %111, i64 %indvars.iv.i40
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv.i40
   %118 = load float, ptr %117, align 4, !tbaa !180, !alias.scope !803, !noalias !800
-  %119 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv.i40
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv.i40
   %120 = load float, ptr %119, align 4, !tbaa !180, !noalias !805
   %121 = fmul float %118, %120
   %122 = call float @llvm.fmuladd.f32(float %121, float %104, float %116)
@@ -21007,18 +21000,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !789)
   call void @llvm.experimental.noalias.scope.decl(metadata !797)
   call void @llvm.experimental.noalias.scope.decl(metadata !795)
-  %124 = getelementptr inbounds [3 x float], ptr %89, i64 %indvars.iv
-  %125 = getelementptr inbounds [3 x float], ptr %90, i64 %indvars.iv
+  %124 = getelementptr inbounds [12 x i8], ptr %89, i64 %indvars.iv
+  %125 = getelementptr inbounds [12 x i8], ptr %90, i64 %indvars.iv
   br label %126
 
 126:                                              ; preds = %126, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit46
   %indvars.iv.i43 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit46 ], [ %indvars.iv.next.i44, %126 ]
-  %127 = getelementptr inbounds nuw float, ptr %124, i64 %indvars.iv.i43
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv.i43
   %128 = load float, ptr %127, align 4, !tbaa !180, !alias.scope !789, !noalias !792
-  %129 = getelementptr inbounds nuw float, ptr %110, i64 %indvars.iv.i43
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv.i43
   %130 = load float, ptr %129, align 4, !tbaa !180, !alias.scope !795, !noalias !796
   %131 = call float @llvm.fmuladd.f32(float %130, float %123, float %128)
-  %132 = getelementptr inbounds nuw float, ptr %125, i64 %indvars.iv.i43
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %indvars.iv.i43
   store float %131, ptr %132, align 4, !tbaa !180, !alias.scope !797, !noalias !798
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, 3
@@ -21141,7 +21134,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -21396,22 +21389,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !808)
   call void @llvm.experimental.noalias.scope.decl(metadata !811)
-  %47 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv52
-  %48 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv52
-  %49 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv52
+  %47 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv52
+  %48 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv52
+  %49 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv52
   br label %50
 
 50:                                               ; preds = %50, %45
   %indvars.iv.i.us.us = phi i64 [ 0, %45 ], [ %indvars.iv.next.i.us.us, %50 ]
-  %51 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i.us.us
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i.us.us
   %52 = load float, ptr %51, align 4, !tbaa !180, !noalias !813
   %53 = fsub float 1.000000e+00, %52
-  %54 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i.us.us
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i.us.us
   %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !808, !noalias !811
   %56 = fmul float %55, %53
-  %57 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i.us.us
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i.us.us
   %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !811, !noalias !808
-  %59 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i.us.us
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i.us.us
   %60 = load float, ptr %59, align 4, !tbaa !180, !noalias !813
   %61 = fmul float %58, %60
   %62 = call float @llvm.fmuladd.f32(float %61, float %46, float %56)
@@ -21422,12 +21415,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 63:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %63
   %indvars.iv.i41.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i42.us.us, %63 ]
-  %64 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv.i41.us.us
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i41.us.us
   %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !814, !noalias !817
-  %66 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i41.us.us
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i41.us.us
   %67 = load float, ptr %66, align 4, !tbaa !180, !alias.scope !820, !noalias !821
   %68 = call float @llvm.fmuladd.f32(float %67, float %70, float %65)
-  %69 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv.i41.us.us
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv.i41.us.us
   store float %68, ptr %69, align 4, !tbaa !180, !alias.scope !822, !noalias !823
   %indvars.iv.next.i42.us.us = add nuw nsw i64 %indvars.iv.i41.us.us, 1
   %exitcond.not.i43.us.us = icmp eq i64 %indvars.iv.next.i42.us.us, 3
@@ -21443,8 +21436,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !814)
   call void @llvm.experimental.noalias.scope.decl(metadata !822)
   call void @llvm.experimental.noalias.scope.decl(metadata !820)
-  %71 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv52
-  %72 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv52
+  %71 = getelementptr inbounds [12 x i8], ptr %42, i64 %indvars.iv52
+  %72 = getelementptr inbounds [12 x i8], ptr %43, i64 %indvars.iv52
   br label %63
 
 .split.us:                                        ; preds = %.lr.ph48.split.us
@@ -21507,7 +21500,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !825)
   call void @llvm.experimental.noalias.scope.decl(metadata !828)
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !830
-  %91 = getelementptr inbounds [3 x float], ptr %78, i64 %indvars.iv
+  %91 = getelementptr inbounds [12 x i8], ptr %78, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !830
   %92 = load float, ptr %91, align 4, !tbaa !180, !alias.scope !825, !noalias !828
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
@@ -21528,7 +21521,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   %104 = getelementptr i8, ptr %98, i64 8
   %105 = load float, ptr %104, align 4, !tbaa !180, !noalias !830
   %106 = call float @llvm.fmuladd.f32(float %105, float %96, float %103)
-  %107 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   store float %106, ptr %107, align 4, !tbaa !180, !noalias !830
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -21540,20 +21533,20 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !830
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !830
   store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !310, !noalias !830
-  %108 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv
-  %109 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %108 = getelementptr inbounds [12 x i8], ptr %79, i64 %indvars.iv
+  %109 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %110
 
 110:                                              ; preds = %110, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i38 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i39, %110 ]
-  %111 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i38
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i38
   %112 = load float, ptr %111, align 4, !tbaa !180, !noalias !830
-  %113 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv.i38
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv.i38
   %114 = load float, ptr %113, align 4, !tbaa !180, !alias.scope !825, !noalias !828
   %115 = fsub float %114, %112
-  %116 = getelementptr inbounds nuw float, ptr %108, i64 %indvars.iv.i38
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %indvars.iv.i38
   %117 = load float, ptr %116, align 4, !tbaa !180, !alias.scope !828, !noalias !825
-  %118 = getelementptr inbounds nuw float, ptr %109, i64 %indvars.iv.i38
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %indvars.iv.i38
   %119 = load float, ptr %118, align 4, !tbaa !180, !noalias !830
   %120 = fmul float %117, %119
   %121 = call float @llvm.fmuladd.f32(float %120, float %90, float %115)
@@ -21568,18 +21561,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !814)
   call void @llvm.experimental.noalias.scope.decl(metadata !822)
   call void @llvm.experimental.noalias.scope.decl(metadata !820)
-  %123 = getelementptr inbounds [3 x float], ptr %80, i64 %indvars.iv
-  %124 = getelementptr inbounds [3 x float], ptr %81, i64 %indvars.iv
+  %123 = getelementptr inbounds [12 x i8], ptr %80, i64 %indvars.iv
+  %124 = getelementptr inbounds [12 x i8], ptr %81, i64 %indvars.iv
   br label %125
 
 125:                                              ; preds = %125, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i42, %125 ]
-  %126 = getelementptr inbounds nuw float, ptr %123, i64 %indvars.iv.i41
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %indvars.iv.i41
   %127 = load float, ptr %126, align 4, !tbaa !180, !alias.scope !814, !noalias !817
-  %128 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv.i41
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv.i41
   %129 = load float, ptr %128, align 4, !tbaa !180, !alias.scope !820, !noalias !821
   %130 = call float @llvm.fmuladd.f32(float %129, float %122, float %127)
-  %131 = getelementptr inbounds nuw float, ptr %124, i64 %indvars.iv.i41
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv.i41
   store float %130, ptr %131, align 4, !tbaa !180, !alias.scope !822, !noalias !823
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
@@ -21702,7 +21695,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -21914,22 +21907,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !833)
   call void @llvm.experimental.noalias.scope.decl(metadata !836)
-  %44 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv53
-  %45 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv53
-  %46 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv53
+  %44 = getelementptr inbounds [12 x i8], ptr %37, i64 %indvars.iv53
+  %45 = getelementptr inbounds [12 x i8], ptr %38, i64 %indvars.iv53
+  %46 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv53
   br label %47
 
 47:                                               ; preds = %47, %42
   %indvars.iv.i.us.us = phi i64 [ 0, %42 ], [ %indvars.iv.next.i.us.us, %47 ]
-  %48 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i.us.us
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i.us.us
   %49 = load float, ptr %48, align 4, !tbaa !180, !noalias !838
   %50 = fsub float 1.000000e+00, %49
-  %51 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv.i.us.us
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.i.us.us
   %52 = load float, ptr %51, align 4, !tbaa !180, !alias.scope !833, !noalias !836
   %53 = fmul float %52, %50
-  %54 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv.i.us.us
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i.us.us
   %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !836, !noalias !833
-  %56 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv.i.us.us
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i.us.us
   %57 = load float, ptr %56, align 4, !tbaa !180, !noalias !838
   %58 = fmul float %55, %57
   %59 = call float @llvm.fmuladd.f32(float %58, float %43, float %53)
@@ -21940,12 +21933,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE2EE3runILNS_24N
 
 60:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %60
   %indvars.iv.i41.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i42.us.us, %60 ]
-  %61 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv.i41.us.us
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv.i41.us.us
   %62 = load float, ptr %61, align 4, !tbaa !180, !alias.scope !839, !noalias !842
-  %63 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv.i41.us.us
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.i41.us.us
   %64 = load float, ptr %63, align 4, !tbaa !180, !alias.scope !845, !noalias !846
   %65 = call float @llvm.fmuladd.f32(float %64, float %67, float %62)
-  %66 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv.i41.us.us
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i41.us.us
   store float %65, ptr %66, align 4, !tbaa !180, !alias.scope !847, !noalias !848
   %indvars.iv.next.i42.us.us = add nuw nsw i64 %indvars.iv.i41.us.us, 1
   %exitcond.not.i43.us.us = icmp eq i64 %indvars.iv.next.i42.us.us, 3
@@ -21961,8 +21954,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !839)
   call void @llvm.experimental.noalias.scope.decl(metadata !847)
   call void @llvm.experimental.noalias.scope.decl(metadata !845)
-  %68 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv53
-  %69 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv53
+  %68 = getelementptr inbounds [12 x i8], ptr %39, i64 %indvars.iv53
+  %69 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv53
   br label %60
 
 .split.us:                                        ; preds = %.lr.ph49.split.us
@@ -22023,19 +22016,19 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !850)
   call void @llvm.experimental.noalias.scope.decl(metadata !853)
-  %88 = getelementptr inbounds [3 x float], ptr %76, i64 %indvars.iv
-  %89 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
-  %90 = getelementptr inbounds [3 x float], ptr %75, i64 %indvars.iv
+  %88 = getelementptr inbounds [12 x i8], ptr %76, i64 %indvars.iv
+  %89 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %90 = getelementptr inbounds [12 x i8], ptr %75, i64 %indvars.iv
   br label %91
 
 91:                                               ; preds = %91, %86
   %indvars.iv.i38 = phi i64 [ 0, %86 ], [ %indvars.iv.next.i39, %91 ]
-  %92 = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv.i38
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv.i38
   %93 = load float, ptr %92, align 4, !tbaa !180, !alias.scope !853, !noalias !850
-  %94 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv.i38
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv.i38
   %95 = load float, ptr %94, align 4, !tbaa !180, !noalias !855
   %96 = fmul float %93, %95
-  %97 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv.i38
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv.i38
   %98 = load float, ptr %97, align 4, !tbaa !180, !alias.scope !850, !noalias !853
   %99 = call float @llvm.fmuladd.f32(float %96, float %87, float %98)
   store float %99, ptr %97, align 4, !tbaa !180, !alias.scope !850, !noalias !853
@@ -22048,18 +22041,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !839)
   call void @llvm.experimental.noalias.scope.decl(metadata !847)
   call void @llvm.experimental.noalias.scope.decl(metadata !845)
-  %101 = getelementptr inbounds [3 x float], ptr %77, i64 %indvars.iv
-  %102 = getelementptr inbounds [3 x float], ptr %78, i64 %indvars.iv
+  %101 = getelementptr inbounds [12 x i8], ptr %77, i64 %indvars.iv
+  %102 = getelementptr inbounds [12 x i8], ptr %78, i64 %indvars.iv
   br label %103
 
 103:                                              ; preds = %103, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44
   %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44 ], [ %indvars.iv.next.i42, %103 ]
-  %104 = getelementptr inbounds nuw float, ptr %101, i64 %indvars.iv.i41
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv.i41
   %105 = load float, ptr %104, align 4, !tbaa !180, !alias.scope !839, !noalias !842
-  %106 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv.i41
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv.i41
   %107 = load float, ptr %106, align 4, !tbaa !180, !alias.scope !845, !noalias !846
   %108 = call float @llvm.fmuladd.f32(float %107, float %100, float %105)
-  %109 = getelementptr inbounds nuw float, ptr %102, i64 %indvars.iv.i41
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %indvars.iv.i41
   store float %108, ptr %109, align 4, !tbaa !180, !alias.scope !847, !noalias !848
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
@@ -22157,7 +22150,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %12, %15
   br i1 %29, label %30, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw float, ptr %20, i64 %14
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %14
   %.not.i.i8 = icmp eq ptr %19, %31
   br i1 %.not.i.i8, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9, label %32
 
@@ -22705,7 +22698,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
 .noexc:                                           ; preds = %33, %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %27, ptr %14, align 8, !tbaa !334
   store ptr %32, ptr %6, align 8, !tbaa !327
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.302", ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %8, align 8, !tbaa !330
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_10PropagatorILNS1_16IntegrationStageE2EEES3_ISB_EEEEERS5_DpOT_.exit.i
 
@@ -22911,7 +22904,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10PropagatorILNS0_16IntegrationStageE2EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %39, ptr %19, align 8, !tbaa !348
   store ptr %43, ptr %20, align 8, !tbaa !343
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !347
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10PropagatorILNS0_16IntegrationStageE2EEEEEERS2_DpOT_.exit
 
@@ -23289,7 +23282,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -23557,22 +23550,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !908)
   call void @llvm.experimental.noalias.scope.decl(metadata !911)
-  %50 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv58
-  %51 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv58
-  %52 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv58
+  %50 = getelementptr inbounds [12 x i8], ptr %42, i64 %indvars.iv58
+  %51 = getelementptr inbounds [12 x i8], ptr %43, i64 %indvars.iv58
+  %52 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv58
   br label %53
 
 53:                                               ; preds = %53, %47
   %indvars.iv.i.us.us = phi i64 [ 0, %47 ], [ %indvars.iv.next.i.us.us, %53 ]
-  %54 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i.us.us
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i.us.us
   %55 = load float, ptr %54, align 4, !tbaa !180, !noalias !913
   %56 = fsub float %24, %55
-  %57 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i.us.us
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i.us.us
   %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !908, !noalias !911
   %59 = fmul float %58, %56
-  %60 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv.i.us.us
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i.us.us
   %61 = load float, ptr %60, align 4, !tbaa !180, !alias.scope !911, !noalias !908
-  %62 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv.i.us.us
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.i.us.us
   %63 = load float, ptr %62, align 4, !tbaa !180, !noalias !913
   %64 = fmul float %61, %63
   %65 = call float @llvm.fmuladd.f32(float %64, float %49, float %59)
@@ -23584,12 +23577,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 67:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %67
   %indvars.iv.i47.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i48.us.us, %67 ]
-  %68 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv.i47.us.us
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv.i47.us.us
   %69 = load float, ptr %68, align 4, !tbaa !180, !alias.scope !914, !noalias !917
-  %70 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i47.us.us
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i47.us.us
   %71 = load float, ptr %70, align 4, !tbaa !180, !alias.scope !920, !noalias !921
   %72 = call float @llvm.fmuladd.f32(float %71, float %74, float %69)
-  %73 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv.i47.us.us
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv.i47.us.us
   store float %72, ptr %73, align 4, !tbaa !180, !alias.scope !922, !noalias !923
   %indvars.iv.next.i48.us.us = add nuw nsw i64 %indvars.iv.i47.us.us, 1
   %exitcond.not.i49.us.us = icmp eq i64 %indvars.iv.next.i48.us.us, 3
@@ -23605,8 +23598,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !914)
   call void @llvm.experimental.noalias.scope.decl(metadata !922)
   call void @llvm.experimental.noalias.scope.decl(metadata !920)
-  %75 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv58
-  %76 = getelementptr inbounds [3 x float], ptr %45, i64 %indvars.iv58
+  %75 = getelementptr inbounds [12 x i8], ptr %44, i64 %indvars.iv58
+  %76 = getelementptr inbounds [12 x i8], ptr %45, i64 %indvars.iv58
   br label %67
 
 .split.us:                                        ; preds = %.lr.ph54.split.us
@@ -23669,7 +23662,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !925)
   call void @llvm.experimental.noalias.scope.decl(metadata !928)
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !930
-  %95 = getelementptr inbounds [3 x float], ptr %82, i64 %indvars.iv
+  %95 = getelementptr inbounds [12 x i8], ptr %82, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !930
   %96 = load float, ptr %95, align 4, !tbaa !180, !alias.scope !925, !noalias !928
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 4
@@ -23690,7 +23683,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   %108 = getelementptr i8, ptr %102, i64 8
   %109 = load float, ptr %108, align 4, !tbaa !180, !noalias !930
   %110 = call float @llvm.fmuladd.f32(float %109, float %100, float %107)
-  %111 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   store float %110, ptr %111, align 4, !tbaa !180, !noalias !930
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -23703,21 +23696,21 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !930
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !930
   store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !310, !noalias !930
-  %113 = getelementptr inbounds [3 x float], ptr %83, i64 %indvars.iv
-  %114 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %113 = getelementptr inbounds [12 x i8], ptr %83, i64 %indvars.iv
+  %114 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %115
 
 115:                                              ; preds = %115, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i45, %115 ]
-  %116 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv.i44
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv.i44
   %117 = load float, ptr %116, align 4, !tbaa !180, !alias.scope !925, !noalias !928
-  %118 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i44
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i44
   %119 = load float, ptr %118, align 4, !tbaa !180, !noalias !930
   %120 = fneg float %119
   %121 = call float @llvm.fmuladd.f32(float %24, float %117, float %120)
-  %122 = getelementptr inbounds nuw float, ptr %113, i64 %indvars.iv.i44
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %indvars.iv.i44
   %123 = load float, ptr %122, align 4, !tbaa !180, !alias.scope !928, !noalias !925
-  %124 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv.i44
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv.i44
   %125 = load float, ptr %124, align 4, !tbaa !180, !noalias !930
   %126 = fmul float %123, %125
   %127 = call float @llvm.fmuladd.f32(float %126, float %112, float %121)
@@ -23733,18 +23726,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !914)
   call void @llvm.experimental.noalias.scope.decl(metadata !922)
   call void @llvm.experimental.noalias.scope.decl(metadata !920)
-  %130 = getelementptr inbounds [3 x float], ptr %84, i64 %indvars.iv
-  %131 = getelementptr inbounds [3 x float], ptr %85, i64 %indvars.iv
+  %130 = getelementptr inbounds [12 x i8], ptr %84, i64 %indvars.iv
+  %131 = getelementptr inbounds [12 x i8], ptr %85, i64 %indvars.iv
   br label %132
 
 132:                                              ; preds = %132, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i47 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i48, %132 ]
-  %133 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv.i47
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %indvars.iv.i47
   %134 = load float, ptr %133, align 4, !tbaa !180, !alias.scope !914, !noalias !917
-  %135 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv.i47
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv.i47
   %136 = load float, ptr %135, align 4, !tbaa !180, !alias.scope !920, !noalias !921
   %137 = call float @llvm.fmuladd.f32(float %136, float %129, float %134)
-  %138 = getelementptr inbounds nuw float, ptr %131, i64 %indvars.iv.i47
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %indvars.iv.i47
   store float %137, ptr %138, align 4, !tbaa !180, !alias.scope !922, !noalias !923
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 3
@@ -23867,7 +23860,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -24129,22 +24122,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !933)
   call void @llvm.experimental.noalias.scope.decl(metadata !936)
-  %49 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv55
-  %50 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv55
-  %51 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv55
+  %49 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv55
+  %50 = getelementptr inbounds [12 x i8], ptr %42, i64 %indvars.iv55
+  %51 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv55
   br label %52
 
 52:                                               ; preds = %52, %46
   %indvars.iv.i.us.us = phi i64 [ 0, %46 ], [ %indvars.iv.next.i.us.us, %52 ]
-  %53 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i.us.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i.us.us
   %54 = load float, ptr %53, align 4, !tbaa !180, !noalias !938
   %55 = fsub float %24, %54
-  %56 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i.us.us
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i.us.us
   %57 = load float, ptr %56, align 4, !tbaa !180, !alias.scope !933, !noalias !936
   %58 = fmul float %57, %55
-  %59 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i.us.us
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i.us.us
   %60 = load float, ptr %59, align 4, !tbaa !180, !alias.scope !936, !noalias !933
-  %61 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv.i.us.us
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i.us.us
   %62 = load float, ptr %61, align 4, !tbaa !180, !noalias !938
   %63 = fmul float %60, %62
   %64 = call float @llvm.fmuladd.f32(float %63, float %48, float %58)
@@ -24155,12 +24148,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 65:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %65
   %indvars.iv.i44.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i45.us.us, %65 ]
-  %66 = getelementptr inbounds nuw float, ptr %73, i64 %indvars.iv.i44.us.us
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv.i44.us.us
   %67 = load float, ptr %66, align 4, !tbaa !180, !alias.scope !939, !noalias !942
-  %68 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i44.us.us
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i44.us.us
   %69 = load float, ptr %68, align 4, !tbaa !180, !alias.scope !945, !noalias !946
   %70 = call float @llvm.fmuladd.f32(float %69, float %72, float %67)
-  %71 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv.i44.us.us
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv.i44.us.us
   store float %70, ptr %71, align 4, !tbaa !180, !alias.scope !947, !noalias !948
   %indvars.iv.next.i45.us.us = add nuw nsw i64 %indvars.iv.i44.us.us, 1
   %exitcond.not.i46.us.us = icmp eq i64 %indvars.iv.next.i45.us.us, 3
@@ -24176,8 +24169,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !939)
   call void @llvm.experimental.noalias.scope.decl(metadata !947)
   call void @llvm.experimental.noalias.scope.decl(metadata !945)
-  %73 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv55
-  %74 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv55
+  %73 = getelementptr inbounds [12 x i8], ptr %43, i64 %indvars.iv55
+  %74 = getelementptr inbounds [12 x i8], ptr %44, i64 %indvars.iv55
   br label %65
 
 .split.us:                                        ; preds = %.lr.ph51.split.us
@@ -24240,7 +24233,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !950)
   call void @llvm.experimental.noalias.scope.decl(metadata !953)
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !955
-  %93 = getelementptr inbounds [3 x float], ptr %80, i64 %indvars.iv
+  %93 = getelementptr inbounds [12 x i8], ptr %80, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !955
   %94 = load float, ptr %93, align 4, !tbaa !180, !alias.scope !950, !noalias !953
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 4
@@ -24261,7 +24254,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   %106 = getelementptr i8, ptr %100, i64 8
   %107 = load float, ptr %106, align 4, !tbaa !180, !noalias !955
   %108 = call float @llvm.fmuladd.f32(float %107, float %98, float %105)
-  %109 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   store float %108, ptr %109, align 4, !tbaa !180, !noalias !955
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -24274,21 +24267,21 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !955
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !955
   store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !310, !noalias !955
-  %111 = getelementptr inbounds [3 x float], ptr %81, i64 %indvars.iv
-  %112 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %111 = getelementptr inbounds [12 x i8], ptr %81, i64 %indvars.iv
+  %112 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %113
 
 113:                                              ; preds = %113, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i42, %113 ]
-  %114 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv.i41
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv.i41
   %115 = load float, ptr %114, align 4, !tbaa !180, !alias.scope !950, !noalias !953
-  %116 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i41
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i41
   %117 = load float, ptr %116, align 4, !tbaa !180, !noalias !955
   %118 = fneg float %117
   %119 = call float @llvm.fmuladd.f32(float %24, float %115, float %118)
-  %120 = getelementptr inbounds nuw float, ptr %111, i64 %indvars.iv.i41
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv.i41
   %121 = load float, ptr %120, align 4, !tbaa !180, !alias.scope !953, !noalias !950
-  %122 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv.i41
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv.i41
   %123 = load float, ptr %122, align 4, !tbaa !180, !noalias !955
   %124 = fmul float %121, %123
   %125 = call float @llvm.fmuladd.f32(float %124, float %110, float %119)
@@ -24303,18 +24296,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !939)
   call void @llvm.experimental.noalias.scope.decl(metadata !947)
   call void @llvm.experimental.noalias.scope.decl(metadata !945)
-  %127 = getelementptr inbounds [3 x float], ptr %82, i64 %indvars.iv
-  %128 = getelementptr inbounds [3 x float], ptr %83, i64 %indvars.iv
+  %127 = getelementptr inbounds [12 x i8], ptr %82, i64 %indvars.iv
+  %128 = getelementptr inbounds [12 x i8], ptr %83, i64 %indvars.iv
   br label %129
 
 129:                                              ; preds = %129, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i45, %129 ]
-  %130 = getelementptr inbounds nuw float, ptr %127, i64 %indvars.iv.i44
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv.i44
   %131 = load float, ptr %130, align 4, !tbaa !180, !alias.scope !939, !noalias !942
-  %132 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv.i44
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv.i44
   %133 = load float, ptr %132, align 4, !tbaa !180, !alias.scope !945, !noalias !946
   %134 = call float @llvm.fmuladd.f32(float %133, float %126, float %131)
-  %135 = getelementptr inbounds nuw float, ptr %128, i64 %indvars.iv.i44
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %indvars.iv.i44
   store float %134, ptr %135, align 4, !tbaa !180, !alias.scope !947, !noalias !948
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 3
@@ -24437,7 +24430,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -24662,22 +24655,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !958)
   call void @llvm.experimental.noalias.scope.decl(metadata !961)
-  %47 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv59
-  %48 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv59
-  %49 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv59
+  %47 = getelementptr inbounds [12 x i8], ptr %39, i64 %indvars.iv59
+  %48 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv59
+  %49 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv59
   br label %50
 
 50:                                               ; preds = %50, %44
   %indvars.iv.i.us.us = phi i64 [ 0, %44 ], [ %indvars.iv.next.i.us.us, %50 ]
-  %51 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i.us.us
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i.us.us
   %52 = load float, ptr %51, align 4, !tbaa !180, !noalias !963
   %53 = fsub float %22, %52
-  %54 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i.us.us
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i.us.us
   %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !958, !noalias !961
   %56 = fmul float %55, %53
-  %57 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i.us.us
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i.us.us
   %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !961, !noalias !958
-  %59 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i.us.us
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i.us.us
   %60 = load float, ptr %59, align 4, !tbaa !180, !noalias !963
   %61 = fmul float %58, %60
   %62 = call float @llvm.fmuladd.f32(float %61, float %46, float %56)
@@ -24689,12 +24682,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 64:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %64
   %indvars.iv.i47.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i48.us.us, %64 ]
-  %65 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv.i47.us.us
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv.i47.us.us
   %66 = load float, ptr %65, align 4, !tbaa !180, !alias.scope !964, !noalias !967
-  %67 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i47.us.us
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i47.us.us
   %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !970, !noalias !971
   %69 = call float @llvm.fmuladd.f32(float %68, float %71, float %66)
-  %70 = getelementptr inbounds nuw float, ptr %73, i64 %indvars.iv.i47.us.us
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv.i47.us.us
   store float %69, ptr %70, align 4, !tbaa !180, !alias.scope !972, !noalias !973
   %indvars.iv.next.i48.us.us = add nuw nsw i64 %indvars.iv.i47.us.us, 1
   %exitcond.not.i49.us.us = icmp eq i64 %indvars.iv.next.i48.us.us, 3
@@ -24710,8 +24703,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !964)
   call void @llvm.experimental.noalias.scope.decl(metadata !972)
   call void @llvm.experimental.noalias.scope.decl(metadata !970)
-  %72 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv59
-  %73 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv59
+  %72 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv59
+  %73 = getelementptr inbounds [12 x i8], ptr %42, i64 %indvars.iv59
   br label %64
 
 .split.us:                                        ; preds = %.lr.ph55.split.us
@@ -24773,19 +24766,19 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !975)
   call void @llvm.experimental.noalias.scope.decl(metadata !978)
-  %93 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv
-  %94 = getelementptr inbounds [3 x float], ptr %80, i64 %indvars.iv
-  %95 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %93 = getelementptr inbounds [12 x i8], ptr %79, i64 %indvars.iv
+  %94 = getelementptr inbounds [12 x i8], ptr %80, i64 %indvars.iv
+  %95 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %96
 
 96:                                               ; preds = %96, %90
   %indvars.iv.i44 = phi i64 [ 0, %90 ], [ %indvars.iv.next.i45, %96 ]
-  %97 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv.i44
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv.i44
   %98 = load float, ptr %97, align 4, !tbaa !180, !alias.scope !975, !noalias !978
   %99 = fmul float %98, %22
-  %100 = getelementptr inbounds nuw float, ptr %94, i64 %indvars.iv.i44
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv.i44
   %101 = load float, ptr %100, align 4, !tbaa !180, !alias.scope !978, !noalias !975
-  %102 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv.i44
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv.i44
   %103 = load float, ptr %102, align 4, !tbaa !180, !noalias !980
   %104 = fmul float %101, %103
   %105 = call float @llvm.fmuladd.f32(float %104, float %92, float %99)
@@ -24800,18 +24793,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !964)
   call void @llvm.experimental.noalias.scope.decl(metadata !972)
   call void @llvm.experimental.noalias.scope.decl(metadata !970)
-  %108 = getelementptr inbounds [3 x float], ptr %81, i64 %indvars.iv
-  %109 = getelementptr inbounds [3 x float], ptr %82, i64 %indvars.iv
+  %108 = getelementptr inbounds [12 x i8], ptr %81, i64 %indvars.iv
+  %109 = getelementptr inbounds [12 x i8], ptr %82, i64 %indvars.iv
   br label %110
 
 110:                                              ; preds = %110, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit50
   %indvars.iv.i47 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_1EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit50 ], [ %indvars.iv.next.i48, %110 ]
-  %111 = getelementptr inbounds nuw float, ptr %108, i64 %indvars.iv.i47
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %indvars.iv.i47
   %112 = load float, ptr %111, align 4, !tbaa !180, !alias.scope !964, !noalias !967
-  %113 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv.i47
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv.i47
   %114 = load float, ptr %113, align 4, !tbaa !180, !alias.scope !970, !noalias !971
   %115 = call float @llvm.fmuladd.f32(float %114, float %107, float %112)
-  %116 = getelementptr inbounds nuw float, ptr %109, i64 %indvars.iv.i47
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %indvars.iv.i47
   store float %115, ptr %116, align 4, !tbaa !180, !alias.scope !972, !noalias !973
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 3
@@ -24934,7 +24927,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -25153,22 +25146,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !983)
   call void @llvm.experimental.noalias.scope.decl(metadata !986)
-  %46 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv56
-  %47 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv56
-  %48 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv56
+  %46 = getelementptr inbounds [12 x i8], ptr %38, i64 %indvars.iv56
+  %47 = getelementptr inbounds [12 x i8], ptr %39, i64 %indvars.iv56
+  %48 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv56
   br label %49
 
 49:                                               ; preds = %49, %43
   %indvars.iv.i.us.us = phi i64 [ 0, %43 ], [ %indvars.iv.next.i.us.us, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i.us.us
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i.us.us
   %51 = load float, ptr %50, align 4, !tbaa !180, !noalias !988
   %52 = fsub float %22, %51
-  %53 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv.i.us.us
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i.us.us
   %54 = load float, ptr %53, align 4, !tbaa !180, !alias.scope !983, !noalias !986
   %55 = fmul float %54, %52
-  %56 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i.us.us
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i.us.us
   %57 = load float, ptr %56, align 4, !tbaa !180, !alias.scope !986, !noalias !983
-  %58 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i.us.us
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i.us.us
   %59 = load float, ptr %58, align 4, !tbaa !180, !noalias !988
   %60 = fmul float %57, %59
   %61 = call float @llvm.fmuladd.f32(float %60, float %45, float %55)
@@ -25179,12 +25172,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 62:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %62
   %indvars.iv.i44.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i45.us.us, %62 ]
-  %63 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv.i44.us.us
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv.i44.us.us
   %64 = load float, ptr %63, align 4, !tbaa !180, !alias.scope !989, !noalias !992
-  %65 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv.i44.us.us
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i44.us.us
   %66 = load float, ptr %65, align 4, !tbaa !180, !alias.scope !995, !noalias !996
   %67 = call float @llvm.fmuladd.f32(float %66, float %69, float %64)
-  %68 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv.i44.us.us
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i44.us.us
   store float %67, ptr %68, align 4, !tbaa !180, !alias.scope !997, !noalias !998
   %indvars.iv.next.i45.us.us = add nuw nsw i64 %indvars.iv.i44.us.us, 1
   %exitcond.not.i46.us.us = icmp eq i64 %indvars.iv.next.i45.us.us, 3
@@ -25200,8 +25193,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !989)
   call void @llvm.experimental.noalias.scope.decl(metadata !997)
   call void @llvm.experimental.noalias.scope.decl(metadata !995)
-  %70 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv56
-  %71 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv56
+  %70 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv56
+  %71 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv56
   br label %62
 
 .split.us:                                        ; preds = %.lr.ph52.split.us
@@ -25263,19 +25256,19 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1000)
   call void @llvm.experimental.noalias.scope.decl(metadata !1003)
-  %91 = getelementptr inbounds [3 x float], ptr %77, i64 %indvars.iv
-  %92 = getelementptr inbounds [3 x float], ptr %78, i64 %indvars.iv
-  %93 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %91 = getelementptr inbounds [12 x i8], ptr %77, i64 %indvars.iv
+  %92 = getelementptr inbounds [12 x i8], ptr %78, i64 %indvars.iv
+  %93 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %94
 
 94:                                               ; preds = %94, %88
   %indvars.iv.i41 = phi i64 [ 0, %88 ], [ %indvars.iv.next.i42, %94 ]
-  %95 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv.i41
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv.i41
   %96 = load float, ptr %95, align 4, !tbaa !180, !alias.scope !1000, !noalias !1003
   %97 = fmul float %96, %22
-  %98 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv.i41
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.i41
   %99 = load float, ptr %98, align 4, !tbaa !180, !alias.scope !1003, !noalias !1000
-  %100 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv.i41
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv.i41
   %101 = load float, ptr %100, align 4, !tbaa !180, !noalias !1005
   %102 = fmul float %99, %101
   %103 = call float @llvm.fmuladd.f32(float %102, float %90, float %97)
@@ -25289,18 +25282,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !989)
   call void @llvm.experimental.noalias.scope.decl(metadata !997)
   call void @llvm.experimental.noalias.scope.decl(metadata !995)
-  %105 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv
-  %106 = getelementptr inbounds [3 x float], ptr %80, i64 %indvars.iv
+  %105 = getelementptr inbounds [12 x i8], ptr %79, i64 %indvars.iv
+  %106 = getelementptr inbounds [12 x i8], ptr %80, i64 %indvars.iv
   br label %107
 
 107:                                              ; preds = %107, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47
   %indvars.iv.i44 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE1ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit47 ], [ %indvars.iv.next.i45, %107 ]
-  %108 = getelementptr inbounds nuw float, ptr %105, i64 %indvars.iv.i44
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv.i44
   %109 = load float, ptr %108, align 4, !tbaa !180, !alias.scope !989, !noalias !992
-  %110 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv.i44
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv.i44
   %111 = load float, ptr %110, align 4, !tbaa !180, !alias.scope !995, !noalias !996
   %112 = call float @llvm.fmuladd.f32(float %111, float %104, float %109)
-  %113 = getelementptr inbounds nuw float, ptr %106, i64 %indvars.iv.i44
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %indvars.iv.i44
   store float %112, ptr %113, align 4, !tbaa !180, !alias.scope !997, !noalias !998
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, 3
@@ -25423,7 +25416,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -25685,32 +25678,32 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %53, %.lr.ph.us ]
   %55 = load float, ptr %32, align 8, !tbaa !901
   %56 = fmul float %55, 5.000000e-01
-  %57 = getelementptr inbounds nuw i16, ptr %50, i64 %indvars.iv56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %indvars.iv56
   %58 = load i16, ptr %57, align 2, !tbaa !452
   %59 = zext i16 %58 to i64
-  %60 = getelementptr inbounds nuw float, ptr %51, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %59
   %61 = load float, ptr %60, align 4, !tbaa !180
-  %62 = getelementptr inbounds nuw float, ptr %52, i64 %59
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %59
   %63 = load float, ptr %62, align 4, !tbaa !180
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1008)
   call void @llvm.experimental.noalias.scope.decl(metadata !1011)
-  %64 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv56
-  %65 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv56
-  %66 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv56
+  %64 = getelementptr inbounds [12 x i8], ptr %43, i64 %indvars.iv56
+  %65 = getelementptr inbounds [12 x i8], ptr %44, i64 %indvars.iv56
+  %66 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv56
   br label %67
 
 67:                                               ; preds = %67, %54
   %indvars.iv.i.us.us = phi i64 [ 0, %54 ], [ %indvars.iv.next.i.us.us, %67 ]
-  %68 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i.us.us
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i.us.us
   %69 = load float, ptr %68, align 4, !tbaa !180, !noalias !1013
   %70 = fsub float %61, %69
-  %71 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv.i.us.us
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv.i.us.us
   %72 = load float, ptr %71, align 4, !tbaa !180, !alias.scope !1008, !noalias !1011
   %73 = fmul float %72, %70
-  %74 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv.i.us.us
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv.i.us.us
   %75 = load float, ptr %74, align 4, !tbaa !180, !alias.scope !1011, !noalias !1008
-  %76 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv.i.us.us
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv.i.us.us
   %77 = load float, ptr %76, align 4, !tbaa !180, !noalias !1013
   %78 = fmul float %75, %77
   %79 = call float @llvm.fmuladd.f32(float %78, float %56, float %73)
@@ -25722,12 +25715,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 81:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %81
   %indvars.iv.i45.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i46.us.us, %81 ]
-  %82 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv.i45.us.us
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv.i45.us.us
   %83 = load float, ptr %82, align 4, !tbaa !180, !alias.scope !1014, !noalias !1017
-  %84 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv.i45.us.us
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv.i45.us.us
   %85 = load float, ptr %84, align 4, !tbaa !180, !alias.scope !1020, !noalias !1021
   %86 = call float @llvm.fmuladd.f32(float %85, float %88, float %83)
-  %87 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv.i45.us.us
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv.i45.us.us
   store float %86, ptr %87, align 4, !tbaa !180, !alias.scope !1022, !noalias !1023
   %indvars.iv.next.i46.us.us = add nuw nsw i64 %indvars.iv.i45.us.us, 1
   %exitcond.not.i47.us.us = icmp eq i64 %indvars.iv.next.i46.us.us, 3
@@ -25743,8 +25736,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !1014)
   call void @llvm.experimental.noalias.scope.decl(metadata !1022)
   call void @llvm.experimental.noalias.scope.decl(metadata !1020)
-  %89 = getelementptr inbounds [3 x float], ptr %45, i64 %indvars.iv56
-  %90 = getelementptr inbounds [3 x float], ptr %46, i64 %indvars.iv56
+  %89 = getelementptr inbounds [12 x i8], ptr %45, i64 %indvars.iv56
+  %90 = getelementptr inbounds [12 x i8], ptr %46, i64 %indvars.iv56
   br label %81
 
 .split.us:                                        ; preds = %.lr.ph52.split.us
@@ -25809,18 +25802,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 113:                                              ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %106, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
   %114 = load float, ptr %32, align 8, !tbaa !901
-  %115 = getelementptr inbounds nuw i16, ptr %103, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %103, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2, !tbaa !452
   %117 = zext i16 %116 to i64
-  %118 = getelementptr inbounds nuw float, ptr %104, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %117
   %119 = load float, ptr %118, align 4, !tbaa !180
-  %120 = getelementptr inbounds nuw float, ptr %105, i64 %117
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %117
   %121 = load float, ptr %120, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1025)
   call void @llvm.experimental.noalias.scope.decl(metadata !1028)
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1030
-  %122 = getelementptr inbounds [3 x float], ptr %96, i64 %indvars.iv
+  %122 = getelementptr inbounds [12 x i8], ptr %96, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1030
   %123 = load float, ptr %122, align 4, !tbaa !180, !alias.scope !1025, !noalias !1028
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 4
@@ -25841,7 +25834,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %135 = getelementptr i8, ptr %129, i64 8
   %136 = load float, ptr %135, align 4, !tbaa !180, !noalias !1030
   %137 = call float @llvm.fmuladd.f32(float %136, float %127, float %134)
-  %138 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   store float %137, ptr %138, align 4, !tbaa !180, !noalias !1030
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -25854,21 +25847,21 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1030
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !1030
   store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !310, !noalias !1030
-  %140 = getelementptr inbounds [3 x float], ptr %97, i64 %indvars.iv
-  %141 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %140 = getelementptr inbounds [12 x i8], ptr %97, i64 %indvars.iv
+  %141 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %142
 
 142:                                              ; preds = %142, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i42 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i43, %142 ]
-  %143 = getelementptr inbounds nuw float, ptr %122, i64 %indvars.iv.i42
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv.i42
   %144 = load float, ptr %143, align 4, !tbaa !180, !alias.scope !1025, !noalias !1028
-  %145 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i42
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i42
   %146 = load float, ptr %145, align 4, !tbaa !180, !noalias !1030
   %147 = fneg float %146
   %148 = call float @llvm.fmuladd.f32(float %119, float %144, float %147)
-  %149 = getelementptr inbounds nuw float, ptr %140, i64 %indvars.iv.i42
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %indvars.iv.i42
   %150 = load float, ptr %149, align 4, !tbaa !180, !alias.scope !1028, !noalias !1025
-  %151 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv.i42
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %indvars.iv.i42
   %152 = load float, ptr %151, align 4, !tbaa !180, !noalias !1030
   %153 = fmul float %150, %152
   %154 = call float @llvm.fmuladd.f32(float %153, float %139, float %148)
@@ -25884,18 +25877,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !1014)
   call void @llvm.experimental.noalias.scope.decl(metadata !1022)
   call void @llvm.experimental.noalias.scope.decl(metadata !1020)
-  %157 = getelementptr inbounds [3 x float], ptr %98, i64 %indvars.iv
-  %158 = getelementptr inbounds [3 x float], ptr %99, i64 %indvars.iv
+  %157 = getelementptr inbounds [12 x i8], ptr %98, i64 %indvars.iv
+  %158 = getelementptr inbounds [12 x i8], ptr %99, i64 %indvars.iv
   br label %159
 
 159:                                              ; preds = %159, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i45 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i46, %159 ]
-  %160 = getelementptr inbounds nuw float, ptr %157, i64 %indvars.iv.i45
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %indvars.iv.i45
   %161 = load float, ptr %160, align 4, !tbaa !180, !alias.scope !1014, !noalias !1017
-  %162 = getelementptr inbounds nuw float, ptr %122, i64 %indvars.iv.i45
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv.i45
   %163 = load float, ptr %162, align 4, !tbaa !180, !alias.scope !1020, !noalias !1021
   %164 = call float @llvm.fmuladd.f32(float %163, float %156, float %161)
-  %165 = getelementptr inbounds nuw float, ptr %158, i64 %indvars.iv.i45
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %158, i64 %indvars.iv.i45
   store float %164, ptr %165, align 4, !tbaa !180, !alias.scope !1022, !noalias !1023
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, 3
@@ -26018,7 +26011,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -26278,30 +26271,30 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %51, %.lr.ph.us ]
   %53 = load float, ptr %32, align 8, !tbaa !901
   %54 = fmul float %53, 5.000000e-01
-  %55 = getelementptr inbounds nuw i16, ptr %49, i64 %indvars.iv54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %49, i64 %indvars.iv54
   %56 = load i16, ptr %55, align 2, !tbaa !452
   %57 = zext i16 %56 to i64
-  %58 = getelementptr inbounds nuw float, ptr %50, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %57
   %59 = load float, ptr %58, align 4, !tbaa !180
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1033)
   call void @llvm.experimental.noalias.scope.decl(metadata !1036)
-  %60 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv54
-  %61 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv54
-  %62 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv54
+  %60 = getelementptr inbounds [12 x i8], ptr %42, i64 %indvars.iv54
+  %61 = getelementptr inbounds [12 x i8], ptr %43, i64 %indvars.iv54
+  %62 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv54
   br label %63
 
 63:                                               ; preds = %63, %52
   %indvars.iv.i.us.us = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.us.us, %63 ]
-  %64 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i.us.us
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i.us.us
   %65 = load float, ptr %64, align 4, !tbaa !180, !noalias !1038
   %66 = fsub float %59, %65
-  %67 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv.i.us.us
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv.i.us.us
   %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !1033, !noalias !1036
   %69 = fmul float %68, %66
-  %70 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv.i.us.us
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv.i.us.us
   %71 = load float, ptr %70, align 4, !tbaa !180, !alias.scope !1036, !noalias !1033
-  %72 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv.i.us.us
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i.us.us
   %73 = load float, ptr %72, align 4, !tbaa !180, !noalias !1038
   %74 = fmul float %71, %73
   %75 = call float @llvm.fmuladd.f32(float %74, float %54, float %69)
@@ -26312,12 +26305,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 76:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %76
   %indvars.iv.i43.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i44.us.us, %76 ]
-  %77 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv.i43.us.us
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv.i43.us.us
   %78 = load float, ptr %77, align 4, !tbaa !180, !alias.scope !1039, !noalias !1042
-  %79 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv.i43.us.us
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv.i43.us.us
   %80 = load float, ptr %79, align 4, !tbaa !180, !alias.scope !1045, !noalias !1046
   %81 = call float @llvm.fmuladd.f32(float %80, float %83, float %78)
-  %82 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv.i43.us.us
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv.i43.us.us
   store float %81, ptr %82, align 4, !tbaa !180, !alias.scope !1047, !noalias !1048
   %indvars.iv.next.i44.us.us = add nuw nsw i64 %indvars.iv.i43.us.us, 1
   %exitcond.not.i45.us.us = icmp eq i64 %indvars.iv.next.i44.us.us, 3
@@ -26333,8 +26326,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !1039)
   call void @llvm.experimental.noalias.scope.decl(metadata !1047)
   call void @llvm.experimental.noalias.scope.decl(metadata !1045)
-  %84 = getelementptr inbounds [3 x float], ptr %44, i64 %indvars.iv54
-  %85 = getelementptr inbounds [3 x float], ptr %45, i64 %indvars.iv54
+  %84 = getelementptr inbounds [12 x i8], ptr %44, i64 %indvars.iv54
+  %85 = getelementptr inbounds [12 x i8], ptr %45, i64 %indvars.iv54
   br label %76
 
 .split.us:                                        ; preds = %.lr.ph50.split.us
@@ -26398,16 +26391,16 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
 107:                                              ; preds = %.lr.ph, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit
   %indvars.iv = phi i64 [ %100, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
   %108 = load float, ptr %32, align 8, !tbaa !901
-  %109 = getelementptr inbounds nuw i16, ptr %98, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %98, i64 %indvars.iv
   %110 = load i16, ptr %109, align 2, !tbaa !452
   %111 = zext i16 %110 to i64
-  %112 = getelementptr inbounds nuw float, ptr %99, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %111
   %113 = load float, ptr %112, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1050)
   call void @llvm.experimental.noalias.scope.decl(metadata !1053)
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1055
-  %114 = getelementptr inbounds [3 x float], ptr %91, i64 %indvars.iv
+  %114 = getelementptr inbounds [12 x i8], ptr %91, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1055
   %115 = load float, ptr %114, align 4, !tbaa !180, !alias.scope !1050, !noalias !1053
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 4
@@ -26428,7 +26421,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %127 = getelementptr i8, ptr %121, i64 8
   %128 = load float, ptr %127, align 4, !tbaa !180, !noalias !1055
   %129 = call float @llvm.fmuladd.f32(float %128, float %119, float %126)
-  %130 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   store float %129, ptr %130, align 4, !tbaa !180, !noalias !1055
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -26441,21 +26434,21 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1055
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !1055
   store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !310, !noalias !1055
-  %132 = getelementptr inbounds [3 x float], ptr %92, i64 %indvars.iv
-  %133 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %132 = getelementptr inbounds [12 x i8], ptr %92, i64 %indvars.iv
+  %133 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %134
 
 134:                                              ; preds = %134, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i40 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i41, %134 ]
-  %135 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv.i40
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv.i40
   %136 = load float, ptr %135, align 4, !tbaa !180, !alias.scope !1050, !noalias !1053
-  %137 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i40
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i40
   %138 = load float, ptr %137, align 4, !tbaa !180, !noalias !1055
   %139 = fneg float %138
   %140 = call float @llvm.fmuladd.f32(float %113, float %136, float %139)
-  %141 = getelementptr inbounds nuw float, ptr %132, i64 %indvars.iv.i40
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %indvars.iv.i40
   %142 = load float, ptr %141, align 4, !tbaa !180, !alias.scope !1053, !noalias !1050
-  %143 = getelementptr inbounds nuw float, ptr %133, i64 %indvars.iv.i40
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %indvars.iv.i40
   %144 = load float, ptr %143, align 4, !tbaa !180, !noalias !1055
   %145 = fmul float %142, %144
   %146 = call float @llvm.fmuladd.f32(float %145, float %131, float %140)
@@ -26470,18 +26463,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !1039)
   call void @llvm.experimental.noalias.scope.decl(metadata !1047)
   call void @llvm.experimental.noalias.scope.decl(metadata !1045)
-  %148 = getelementptr inbounds [3 x float], ptr %93, i64 %indvars.iv
-  %149 = getelementptr inbounds [3 x float], ptr %94, i64 %indvars.iv
+  %148 = getelementptr inbounds [12 x i8], ptr %93, i64 %indvars.iv
+  %149 = getelementptr inbounds [12 x i8], ptr %94, i64 %indvars.iv
   br label %150
 
 150:                                              ; preds = %150, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i43 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i44, %150 ]
-  %151 = getelementptr inbounds nuw float, ptr %148, i64 %indvars.iv.i43
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %indvars.iv.i43
   %152 = load float, ptr %151, align 4, !tbaa !180, !alias.scope !1039, !noalias !1042
-  %153 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv.i43
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv.i43
   %154 = load float, ptr %153, align 4, !tbaa !180, !alias.scope !1045, !noalias !1046
   %155 = call float @llvm.fmuladd.f32(float %154, float %147, float %152)
-  %156 = getelementptr inbounds nuw float, ptr %149, i64 %indvars.iv.i43
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %indvars.iv.i43
   store float %155, ptr %156, align 4, !tbaa !180, !alias.scope !1047, !noalias !1048
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, 3
@@ -26604,7 +26597,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -26823,32 +26816,32 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %50, %.lr.ph.us ]
   %52 = load float, ptr %30, align 8, !tbaa !901
   %53 = fmul float %52, 5.000000e-01
-  %54 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv57
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %indvars.iv57
   %55 = load i16, ptr %54, align 2, !tbaa !452
   %56 = zext i16 %55 to i64
-  %57 = getelementptr inbounds nuw float, ptr %48, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %56
   %58 = load float, ptr %57, align 4, !tbaa !180
-  %59 = getelementptr inbounds nuw float, ptr %49, i64 %56
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %56
   %60 = load float, ptr %59, align 4, !tbaa !180
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1058)
   call void @llvm.experimental.noalias.scope.decl(metadata !1061)
-  %61 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv57
-  %62 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv57
-  %63 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv57
+  %61 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv57
+  %62 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv57
+  %63 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv57
   br label %64
 
 64:                                               ; preds = %64, %51
   %indvars.iv.i.us.us = phi i64 [ 0, %51 ], [ %indvars.iv.next.i.us.us, %64 ]
-  %65 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i.us.us
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i.us.us
   %66 = load float, ptr %65, align 4, !tbaa !180, !noalias !1063
   %67 = fsub float %58, %66
-  %68 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv.i.us.us
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv.i.us.us
   %69 = load float, ptr %68, align 4, !tbaa !180, !alias.scope !1058, !noalias !1061
   %70 = fmul float %69, %67
-  %71 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv.i.us.us
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i.us.us
   %72 = load float, ptr %71, align 4, !tbaa !180, !alias.scope !1061, !noalias !1058
-  %73 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv.i.us.us
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv.i.us.us
   %74 = load float, ptr %73, align 4, !tbaa !180, !noalias !1063
   %75 = fmul float %72, %74
   %76 = call float @llvm.fmuladd.f32(float %75, float %53, float %70)
@@ -26860,12 +26853,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 78:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %78
   %indvars.iv.i45.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i46.us.us, %78 ]
-  %79 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv.i45.us.us
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv.i45.us.us
   %80 = load float, ptr %79, align 4, !tbaa !180, !alias.scope !1064, !noalias !1067
-  %81 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv.i45.us.us
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv.i45.us.us
   %82 = load float, ptr %81, align 4, !tbaa !180, !alias.scope !1070, !noalias !1071
   %83 = call float @llvm.fmuladd.f32(float %82, float %85, float %80)
-  %84 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv.i45.us.us
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv.i45.us.us
   store float %83, ptr %84, align 4, !tbaa !180, !alias.scope !1072, !noalias !1073
   %indvars.iv.next.i46.us.us = add nuw nsw i64 %indvars.iv.i45.us.us, 1
   %exitcond.not.i47.us.us = icmp eq i64 %indvars.iv.next.i46.us.us, 3
@@ -26881,8 +26874,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !1064)
   call void @llvm.experimental.noalias.scope.decl(metadata !1072)
   call void @llvm.experimental.noalias.scope.decl(metadata !1070)
-  %86 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv57
-  %87 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv57
+  %86 = getelementptr inbounds [12 x i8], ptr %42, i64 %indvars.iv57
+  %87 = getelementptr inbounds [12 x i8], ptr %43, i64 %indvars.iv57
   br label %78
 
 .split.us:                                        ; preds = %.lr.ph53.split.us
@@ -26947,29 +26940,29 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %indvars.iv = phi i64 [ %103, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
   %111 = load float, ptr %30, align 8, !tbaa !901
   %112 = fmul float %111, 5.000000e-01
-  %113 = getelementptr inbounds nuw i16, ptr %100, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %100, i64 %indvars.iv
   %114 = load i16, ptr %113, align 2, !tbaa !452
   %115 = zext i16 %114 to i64
-  %116 = getelementptr inbounds nuw float, ptr %101, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %115
   %117 = load float, ptr %116, align 4, !tbaa !180
-  %118 = getelementptr inbounds nuw float, ptr %102, i64 %115
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %115
   %119 = load float, ptr %118, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1075)
   call void @llvm.experimental.noalias.scope.decl(metadata !1078)
-  %120 = getelementptr inbounds [3 x float], ptr %93, i64 %indvars.iv
-  %121 = getelementptr inbounds [3 x float], ptr %94, i64 %indvars.iv
-  %122 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %120 = getelementptr inbounds [12 x i8], ptr %93, i64 %indvars.iv
+  %121 = getelementptr inbounds [12 x i8], ptr %94, i64 %indvars.iv
+  %122 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %123
 
 123:                                              ; preds = %123, %110
   %indvars.iv.i42 = phi i64 [ 0, %110 ], [ %indvars.iv.next.i43, %123 ]
-  %124 = getelementptr inbounds nuw float, ptr %120, i64 %indvars.iv.i42
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv.i42
   %125 = load float, ptr %124, align 4, !tbaa !180, !alias.scope !1075, !noalias !1078
   %126 = fmul float %117, %125
-  %127 = getelementptr inbounds nuw float, ptr %121, i64 %indvars.iv.i42
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv.i42
   %128 = load float, ptr %127, align 4, !tbaa !180, !alias.scope !1078, !noalias !1075
-  %129 = getelementptr inbounds nuw float, ptr %122, i64 %indvars.iv.i42
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %indvars.iv.i42
   %130 = load float, ptr %129, align 4, !tbaa !180, !noalias !1080
   %131 = fmul float %128, %130
   %132 = call float @llvm.fmuladd.f32(float %131, float %112, float %126)
@@ -26984,18 +26977,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !1064)
   call void @llvm.experimental.noalias.scope.decl(metadata !1072)
   call void @llvm.experimental.noalias.scope.decl(metadata !1070)
-  %135 = getelementptr inbounds [3 x float], ptr %95, i64 %indvars.iv
-  %136 = getelementptr inbounds [3 x float], ptr %96, i64 %indvars.iv
+  %135 = getelementptr inbounds [12 x i8], ptr %95, i64 %indvars.iv
+  %136 = getelementptr inbounds [12 x i8], ptr %96, i64 %indvars.iv
   br label %137
 
 137:                                              ; preds = %137, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit48
   %indvars.iv.i45 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_2EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit48 ], [ %indvars.iv.next.i46, %137 ]
-  %138 = getelementptr inbounds nuw float, ptr %135, i64 %indvars.iv.i45
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %indvars.iv.i45
   %139 = load float, ptr %138, align 4, !tbaa !180, !alias.scope !1064, !noalias !1067
-  %140 = getelementptr inbounds nuw float, ptr %120, i64 %indvars.iv.i45
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %indvars.iv.i45
   %141 = load float, ptr %140, align 4, !tbaa !180, !alias.scope !1070, !noalias !1071
   %142 = call float @llvm.fmuladd.f32(float %141, float %134, float %139)
-  %143 = getelementptr inbounds nuw float, ptr %136, i64 %indvars.iv.i45
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %indvars.iv.i45
   store float %142, ptr %143, align 4, !tbaa !180, !alias.scope !1072, !noalias !1073
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, 3
@@ -27118,7 +27111,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -27335,30 +27328,30 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit.us.us ], [ %48, %.lr.ph.us ]
   %50 = load float, ptr %30, align 8, !tbaa !901
   %51 = fmul float %50, 5.000000e-01
-  %52 = getelementptr inbounds nuw i16, ptr %46, i64 %indvars.iv55
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %46, i64 %indvars.iv55
   %53 = load i16, ptr %52, align 2, !tbaa !452
   %54 = zext i16 %53 to i64
-  %55 = getelementptr inbounds nuw float, ptr %47, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !180
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1083)
   call void @llvm.experimental.noalias.scope.decl(metadata !1086)
-  %57 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv55
-  %58 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv55
-  %59 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv55
+  %57 = getelementptr inbounds [12 x i8], ptr %39, i64 %indvars.iv55
+  %58 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv55
+  %59 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv55
   br label %60
 
 60:                                               ; preds = %60, %49
   %indvars.iv.i.us.us = phi i64 [ 0, %49 ], [ %indvars.iv.next.i.us.us, %60 ]
-  %61 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i.us.us
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i.us.us
   %62 = load float, ptr %61, align 4, !tbaa !180, !noalias !1088
   %63 = fsub float %56, %62
-  %64 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i.us.us
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.i.us.us
   %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !1083, !noalias !1086
   %66 = fmul float %65, %63
-  %67 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv.i.us.us
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv.i.us.us
   %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !1086, !noalias !1083
-  %69 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv.i.us.us
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i.us.us
   %70 = load float, ptr %69, align 4, !tbaa !180, !noalias !1088
   %71 = fmul float %68, %70
   %72 = call float @llvm.fmuladd.f32(float %71, float %51, float %66)
@@ -27369,12 +27362,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 73:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %73
   %indvars.iv.i43.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i44.us.us, %73 ]
-  %74 = getelementptr inbounds nuw float, ptr %81, i64 %indvars.iv.i43.us.us
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv.i43.us.us
   %75 = load float, ptr %74, align 4, !tbaa !180, !alias.scope !1089, !noalias !1092
-  %76 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv.i43.us.us
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.i43.us.us
   %77 = load float, ptr %76, align 4, !tbaa !180, !alias.scope !1095, !noalias !1096
   %78 = call float @llvm.fmuladd.f32(float %77, float %80, float %75)
-  %79 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv.i43.us.us
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv.i43.us.us
   store float %78, ptr %79, align 4, !tbaa !180, !alias.scope !1097, !noalias !1098
   %indvars.iv.next.i44.us.us = add nuw nsw i64 %indvars.iv.i43.us.us, 1
   %exitcond.not.i45.us.us = icmp eq i64 %indvars.iv.next.i44.us.us, 3
@@ -27390,8 +27383,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !1089)
   call void @llvm.experimental.noalias.scope.decl(metadata !1097)
   call void @llvm.experimental.noalias.scope.decl(metadata !1095)
-  %81 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv55
-  %82 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv55
+  %81 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv55
+  %82 = getelementptr inbounds [12 x i8], ptr %42, i64 %indvars.iv55
   br label %73
 
 .split.us:                                        ; preds = %.lr.ph51.split.us
@@ -27455,27 +27448,27 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   %indvars.iv = phi i64 [ %97, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15updatePositionsEifPA3_KfPA3_fS2_.exit ]
   %105 = load float, ptr %30, align 8, !tbaa !901
   %106 = fmul float %105, 5.000000e-01
-  %107 = getelementptr inbounds nuw i16, ptr %95, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %95, i64 %indvars.iv
   %108 = load i16, ptr %107, align 2, !tbaa !452
   %109 = zext i16 %108 to i64
-  %110 = getelementptr inbounds nuw float, ptr %96, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %109
   %111 = load float, ptr %110, align 4, !tbaa !180
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1100)
   call void @llvm.experimental.noalias.scope.decl(metadata !1103)
-  %112 = getelementptr inbounds [3 x float], ptr %88, i64 %indvars.iv
-  %113 = getelementptr inbounds [3 x float], ptr %89, i64 %indvars.iv
-  %114 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %112 = getelementptr inbounds [12 x i8], ptr %88, i64 %indvars.iv
+  %113 = getelementptr inbounds [12 x i8], ptr %89, i64 %indvars.iv
+  %114 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %115
 
 115:                                              ; preds = %115, %104
   %indvars.iv.i40 = phi i64 [ 0, %104 ], [ %indvars.iv.next.i41, %115 ]
-  %116 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv.i40
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv.i40
   %117 = load float, ptr %116, align 4, !tbaa !180, !alias.scope !1100, !noalias !1103
   %118 = fmul float %111, %117
-  %119 = getelementptr inbounds nuw float, ptr %113, i64 %indvars.iv.i40
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %indvars.iv.i40
   %120 = load float, ptr %119, align 4, !tbaa !180, !alias.scope !1103, !noalias !1100
-  %121 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv.i40
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv.i40
   %122 = load float, ptr %121, align 4, !tbaa !180, !noalias !1105
   %123 = fmul float %120, %122
   %124 = call float @llvm.fmuladd.f32(float %123, float %106, float %118)
@@ -27489,18 +27482,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !1089)
   call void @llvm.experimental.noalias.scope.decl(metadata !1097)
   call void @llvm.experimental.noalias.scope.decl(metadata !1095)
-  %126 = getelementptr inbounds [3 x float], ptr %90, i64 %indvars.iv
-  %127 = getelementptr inbounds [3 x float], ptr %91, i64 %indvars.iv
+  %126 = getelementptr inbounds [12 x i8], ptr %90, i64 %indvars.iv
+  %127 = getelementptr inbounds [12 x i8], ptr %91, i64 %indvars.iv
   br label %128
 
 128:                                              ; preds = %128, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit46
   %indvars.iv.i43 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE2ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit46 ], [ %indvars.iv.next.i44, %128 ]
-  %129 = getelementptr inbounds nuw float, ptr %126, i64 %indvars.iv.i43
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv.i43
   %130 = load float, ptr %129, align 4, !tbaa !180, !alias.scope !1089, !noalias !1092
-  %131 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv.i43
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv.i43
   %132 = load float, ptr %131, align 4, !tbaa !180, !alias.scope !1095, !noalias !1096
   %133 = call float @llvm.fmuladd.f32(float %132, float %125, float %130)
-  %134 = getelementptr inbounds nuw float, ptr %127, i64 %indvars.iv.i43
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv.i43
   store float %133, ptr %134, align 4, !tbaa !180, !alias.scope !1097, !noalias !1098
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i45 = icmp eq i64 %indvars.iv.next.i44, 3
@@ -27623,7 +27616,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -27879,22 +27872,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1108)
   call void @llvm.experimental.noalias.scope.decl(metadata !1111)
-  %48 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv52
-  %49 = getelementptr inbounds [3 x float], ptr %41, i64 %indvars.iv52
-  %50 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv52
+  %48 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv52
+  %49 = getelementptr inbounds [12 x i8], ptr %41, i64 %indvars.iv52
+  %50 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv52
   br label %51
 
 51:                                               ; preds = %51, %45
   %indvars.iv.i.us.us = phi i64 [ 0, %45 ], [ %indvars.iv.next.i.us.us, %51 ]
-  %52 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i.us.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i.us.us
   %53 = load float, ptr %52, align 4, !tbaa !180, !noalias !1113
   %54 = fsub float 1.000000e+00, %53
-  %55 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i.us.us
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i.us.us
   %56 = load float, ptr %55, align 4, !tbaa !180, !alias.scope !1108, !noalias !1111
   %57 = fmul float %56, %54
-  %58 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i.us.us
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i.us.us
   %59 = load float, ptr %58, align 4, !tbaa !180, !alias.scope !1111, !noalias !1108
-  %60 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv.i.us.us
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.i.us.us
   %61 = load float, ptr %60, align 4, !tbaa !180, !noalias !1113
   %62 = fmul float %59, %61
   %63 = call float @llvm.fmuladd.f32(float %62, float %47, float %57)
@@ -27905,12 +27898,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 64:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %64
   %indvars.iv.i41.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i42.us.us, %64 ]
-  %65 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv.i41.us.us
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv.i41.us.us
   %66 = load float, ptr %65, align 4, !tbaa !180, !alias.scope !1114, !noalias !1117
-  %67 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv.i41.us.us
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i41.us.us
   %68 = load float, ptr %67, align 4, !tbaa !180, !alias.scope !1120, !noalias !1121
   %69 = call float @llvm.fmuladd.f32(float %68, float %71, float %66)
-  %70 = getelementptr inbounds nuw float, ptr %73, i64 %indvars.iv.i41.us.us
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv.i41.us.us
   store float %69, ptr %70, align 4, !tbaa !180, !alias.scope !1122, !noalias !1123
   %indvars.iv.next.i42.us.us = add nuw nsw i64 %indvars.iv.i41.us.us, 1
   %exitcond.not.i43.us.us = icmp eq i64 %indvars.iv.next.i42.us.us, 3
@@ -27926,8 +27919,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !1114)
   call void @llvm.experimental.noalias.scope.decl(metadata !1122)
   call void @llvm.experimental.noalias.scope.decl(metadata !1120)
-  %72 = getelementptr inbounds [3 x float], ptr %42, i64 %indvars.iv52
-  %73 = getelementptr inbounds [3 x float], ptr %43, i64 %indvars.iv52
+  %72 = getelementptr inbounds [12 x i8], ptr %42, i64 %indvars.iv52
+  %73 = getelementptr inbounds [12 x i8], ptr %43, i64 %indvars.iv52
   br label %64
 
 .split.us:                                        ; preds = %.lr.ph48.split.us
@@ -27990,7 +27983,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !1125)
   call void @llvm.experimental.noalias.scope.decl(metadata !1128)
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1130
-  %92 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv
+  %92 = getelementptr inbounds [12 x i8], ptr %79, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1130
   %93 = load float, ptr %92, align 4, !tbaa !180, !alias.scope !1125, !noalias !1128
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 4
@@ -28011,7 +28004,7 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   %105 = getelementptr i8, ptr %99, i64 8
   %106 = load float, ptr %105, align 4, !tbaa !180, !noalias !1130
   %107 = call float @llvm.fmuladd.f32(float %106, float %97, float %104)
-  %108 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   store float %107, ptr %108, align 4, !tbaa !180, !noalias !1130
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -28024,20 +28017,20 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !1130
   store <2 x float> %.sroa.0.0.copyload.i.i, ptr %16, align 8, !noalias !1130
   store float %.sroa.2.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !310, !noalias !1130
-  %110 = getelementptr inbounds [3 x float], ptr %80, i64 %indvars.iv
-  %111 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %110 = getelementptr inbounds [12 x i8], ptr %80, i64 %indvars.iv
+  %111 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
   br label %112
 
 112:                                              ; preds = %112, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i
   %indvars.iv.i38 = phi i64 [ 0, %_ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5arrayIS2_Lm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEEPKf.exit.i ], [ %indvars.iv.next.i39, %112 ]
-  %113 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i38
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i38
   %114 = load float, ptr %113, align 4, !tbaa !180, !noalias !1130
-  %115 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv.i38
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.i38
   %116 = load float, ptr %115, align 4, !tbaa !180, !alias.scope !1125, !noalias !1128
   %117 = fsub float %116, %114
-  %118 = getelementptr inbounds nuw float, ptr %110, i64 %indvars.iv.i38
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv.i38
   %119 = load float, ptr %118, align 4, !tbaa !180, !alias.scope !1128, !noalias !1125
-  %120 = getelementptr inbounds nuw float, ptr %111, i64 %indvars.iv.i38
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv.i38
   %121 = load float, ptr %120, align 4, !tbaa !180, !noalias !1130
   %122 = fmul float %119, %121
   %123 = call float @llvm.fmuladd.f32(float %122, float %109, float %117)
@@ -28052,18 +28045,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !1114)
   call void @llvm.experimental.noalias.scope.decl(metadata !1122)
   call void @llvm.experimental.noalias.scope.decl(metadata !1120)
-  %125 = getelementptr inbounds [3 x float], ptr %81, i64 %indvars.iv
-  %126 = getelementptr inbounds [3 x float], ptr %82, i64 %indvars.iv
+  %125 = getelementptr inbounds [12 x i8], ptr %81, i64 %indvars.iv
+  %126 = getelementptr inbounds [12 x i8], ptr %82, i64 %indvars.iv
   br label %127
 
 127:                                              ; preds = %127, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit
   %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE2ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit ], [ %indvars.iv.next.i42, %127 ]
-  %128 = getelementptr inbounds nuw float, ptr %125, i64 %indvars.iv.i41
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %indvars.iv.i41
   %129 = load float, ptr %128, align 4, !tbaa !180, !alias.scope !1114, !noalias !1117
-  %130 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv.i41
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.i41
   %131 = load float, ptr %130, align 4, !tbaa !180, !alias.scope !1120, !noalias !1121
   %132 = call float @llvm.fmuladd.f32(float %131, float %124, float %129)
-  %133 = getelementptr inbounds nuw float, ptr %126, i64 %indvars.iv.i41
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv.i41
   store float %132, ptr %133, align 4, !tbaa !180, !alias.scope !1122, !noalias !1123
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
@@ -28186,7 +28179,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS
   %36 = load i32, ptr %35, align 4, !tbaa !126
   %37 = mul nsw i32 %36, 60
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.wallcc_t, ptr %25, i64 %38
+  %39 = getelementptr [24 x i8], ptr %25, i64 %38
   %40 = getelementptr i8, ptr %39, i64 1152
   %41 = load i32, ptr %40, align 8, !tbaa !127
   %42 = add nsw i32 %41, 1
@@ -28399,22 +28392,22 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
   %.sroa.01.0.copyload.us.us = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1133)
   call void @llvm.experimental.noalias.scope.decl(metadata !1136)
-  %45 = getelementptr inbounds [3 x float], ptr %37, i64 %indvars.iv53
-  %46 = getelementptr inbounds [3 x float], ptr %38, i64 %indvars.iv53
-  %47 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv53
+  %45 = getelementptr inbounds [12 x i8], ptr %37, i64 %indvars.iv53
+  %46 = getelementptr inbounds [12 x i8], ptr %38, i64 %indvars.iv53
+  %47 = getelementptr inbounds [12 x i8], ptr %.sroa.01.0.copyload.us.us, i64 %indvars.iv53
   br label %48
 
 48:                                               ; preds = %48, %42
   %indvars.iv.i.us.us = phi i64 [ 0, %42 ], [ %indvars.iv.next.i.us.us, %48 ]
-  %49 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i.us.us
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i.us.us
   %50 = load float, ptr %49, align 4, !tbaa !180, !noalias !1138
   %51 = fsub float 1.000000e+00, %50
-  %52 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv.i.us.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i.us.us
   %53 = load float, ptr %52, align 4, !tbaa !180, !alias.scope !1133, !noalias !1136
   %54 = fmul float %53, %51
-  %55 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv.i.us.us
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i.us.us
   %56 = load float, ptr %55, align 4, !tbaa !180, !alias.scope !1136, !noalias !1133
-  %57 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i.us.us
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i.us.us
   %58 = load float, ptr %57, align 4, !tbaa !180, !noalias !1138
   %59 = fmul float %56, %58
   %60 = call float @llvm.fmuladd.f32(float %59, float %44, float %54)
@@ -28425,12 +28418,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE3EE3runILNS_24N
 
 61:                                               ; preds = %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us, %61
   %indvars.iv.i41.us.us = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit.us.us ], [ %indvars.iv.next.i42.us.us, %61 ]
-  %62 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv.i41.us.us
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i41.us.us
   %63 = load float, ptr %62, align 4, !tbaa !180, !alias.scope !1139, !noalias !1142
-  %64 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv.i41.us.us
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i41.us.us
   %65 = load float, ptr %64, align 4, !tbaa !180, !alias.scope !1145, !noalias !1146
   %66 = call float @llvm.fmuladd.f32(float %65, float %68, float %63)
-  %67 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv.i41.us.us
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv.i41.us.us
   store float %66, ptr %67, align 4, !tbaa !180, !alias.scope !1147, !noalias !1148
   %indvars.iv.next.i42.us.us = add nuw nsw i64 %indvars.iv.i41.us.us, 1
   %exitcond.not.i43.us.us = icmp eq i64 %indvars.iv.next.i42.us.us, 3
@@ -28446,8 +28439,8 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !1139)
   call void @llvm.experimental.noalias.scope.decl(metadata !1147)
   call void @llvm.experimental.noalias.scope.decl(metadata !1145)
-  %69 = getelementptr inbounds [3 x float], ptr %39, i64 %indvars.iv53
-  %70 = getelementptr inbounds [3 x float], ptr %40, i64 %indvars.iv53
+  %69 = getelementptr inbounds [12 x i8], ptr %39, i64 %indvars.iv53
+  %70 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv53
   br label %61
 
 .split.us:                                        ; preds = %.lr.ph49.split.us
@@ -28509,19 +28502,19 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1150)
   call void @llvm.experimental.noalias.scope.decl(metadata !1153)
-  %90 = getelementptr inbounds [3 x float], ptr %77, i64 %indvars.iv
-  %91 = getelementptr inbounds %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload, i64 %indvars.iv
-  %92 = getelementptr inbounds [3 x float], ptr %76, i64 %indvars.iv
+  %90 = getelementptr inbounds [12 x i8], ptr %77, i64 %indvars.iv
+  %91 = getelementptr inbounds [12 x i8], ptr %.sroa.0.0.copyload, i64 %indvars.iv
+  %92 = getelementptr inbounds [12 x i8], ptr %76, i64 %indvars.iv
   br label %93
 
 93:                                               ; preds = %93, %87
   %indvars.iv.i38 = phi i64 [ 0, %87 ], [ %indvars.iv.next.i39, %93 ]
-  %94 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv.i38
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv.i38
   %95 = load float, ptr %94, align 4, !tbaa !180, !alias.scope !1153, !noalias !1150
-  %96 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv.i38
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv.i38
   %97 = load float, ptr %96, align 4, !tbaa !180, !noalias !1155
   %98 = fmul float %95, %97
-  %99 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv.i38
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.i38
   %100 = load float, ptr %99, align 4, !tbaa !180, !alias.scope !1150, !noalias !1153
   %101 = call float @llvm.fmuladd.f32(float %98, float %89, float %100)
   store float %101, ptr %99, align 4, !tbaa !180, !alias.scope !1150, !noalias !1153
@@ -28534,18 +28527,18 @@ _ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahm
   call void @llvm.experimental.noalias.scope.decl(metadata !1139)
   call void @llvm.experimental.noalias.scope.decl(metadata !1147)
   call void @llvm.experimental.noalias.scope.decl(metadata !1145)
-  %103 = getelementptr inbounds [3 x float], ptr %78, i64 %indvars.iv
-  %104 = getelementptr inbounds [3 x float], ptr %79, i64 %indvars.iv
+  %103 = getelementptr inbounds [12 x i8], ptr %78, i64 %indvars.iv
+  %104 = getelementptr inbounds [12 x i8], ptr %79, i64 %indvars.iv
   br label %105
 
 105:                                              ; preds = %105, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44
   %indvars.iv.i41 = phi i64 [ 0, %_ZN3gmxL16updateVelocitiesILNS_24NumVelocityScalingValuesE0ELNS_31ParrinelloRahmanVelocityScalingE1ELS1_0EEEvifffNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_fPA3_KfRS6_RKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE.exit.loopexit44 ], [ %indvars.iv.next.i42, %105 ]
-  %106 = getelementptr inbounds nuw float, ptr %103, i64 %indvars.iv.i41
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv.i41
   %107 = load float, ptr %106, align 4, !tbaa !180, !alias.scope !1139, !noalias !1142
-  %108 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv.i41
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.i41
   %109 = load float, ptr %108, align 4, !tbaa !180, !alias.scope !1145, !noalias !1146
   %110 = call float @llvm.fmuladd.f32(float %109, float %102, float %107)
-  %111 = getelementptr inbounds nuw float, ptr %104, i64 %indvars.iv.i41
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv.i41
   store float %110, ptr %111, align 4, !tbaa !180, !alias.scope !1147, !noalias !1148
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, 3
@@ -28643,7 +28636,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %12, %15
   br i1 %29, label %30, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw float, ptr %20, i64 %14
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %14
   %.not.i.i8 = icmp eq ptr %19, %31
   br i1 %.not.i.i8, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9, label %32
 
@@ -29191,7 +29184,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
 .noexc:                                           ; preds = %33, %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %27, ptr %14, align 8, !tbaa !334
   store ptr %32, ptr %6, align 8, !tbaa !327
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.302", ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %8, align 8, !tbaa !330
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_10PropagatorILNS1_16IntegrationStageE3EEES3_ISB_EEEEERS5_DpOT_.exit.i
 
@@ -29397,7 +29390,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10PropagatorILNS0_16IntegrationStageE3EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %39, ptr %19, align 8, !tbaa !348
   store ptr %43, ptr %20, align 8, !tbaa !343
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !347
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10PropagatorILNS0_16IntegrationStageE3EEEEEERS2_DpOT_.exit
 
@@ -29771,7 +29764,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS
   %32 = load i32, ptr %31, align 4, !tbaa !126
   %33 = mul nsw i32 %32, 60
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.wallcc_t, ptr %21, i64 %34
+  %35 = getelementptr [24 x i8], ptr %21, i64 %34
   %36 = getelementptr i8, ptr %35, i64 1152
   %37 = load i32, ptr %36, align 8, !tbaa !127
   %38 = add nsw i32 %37, 1
@@ -29955,12 +29948,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 38:                                               ; preds = %.lr.ph, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit
   %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit ]
   %39 = load float, ptr %5, align 4, !tbaa !180
-  %40 = getelementptr inbounds [3 x float], ptr %28, i64 %indvars.iv
+  %40 = getelementptr inbounds [12 x i8], ptr %28, i64 %indvars.iv
   br label %41
 
 41:                                               ; preds = %41, %38
   %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %41 ]
-  %42 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i
   %43 = load float, ptr %42, align 4, !tbaa !180, !alias.scope !1208
   %44 = fmul float %39, %43
   store float %44, ptr %42, align 4, !tbaa !180, !alias.scope !1208
@@ -30080,7 +30073,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS
   %32 = load i32, ptr %31, align 4, !tbaa !126
   %33 = mul nsw i32 %32, 60
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.wallcc_t, ptr %21, i64 %34
+  %35 = getelementptr [24 x i8], ptr %21, i64 %34
   %36 = getelementptr i8, ptr %35, i64 1152
   %37 = load i32, ptr %36, align 8, !tbaa !127
   %38 = add nsw i32 %37, 1
@@ -30272,12 +30265,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 41:                                               ; preds = %.lr.ph, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit
   %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit ]
   %42 = load float, ptr %5, align 4, !tbaa !180
-  %43 = getelementptr inbounds [3 x float], ptr %28, i64 %indvars.iv
+  %43 = getelementptr inbounds [12 x i8], ptr %28, i64 %indvars.iv
   br label %44
 
 44:                                               ; preds = %44, %41
   %indvars.iv.i = phi i64 [ 0, %41 ], [ %indvars.iv.next.i, %44 ]
-  %45 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv.i
   %46 = load float, ptr %45, align 4, !tbaa !180, !alias.scope !1215
   %47 = fmul float %42, %46
   store float %47, ptr %45, align 4, !tbaa !180, !alias.scope !1215
@@ -30389,7 +30382,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS
   %32 = load i32, ptr %31, align 4, !tbaa !126
   %33 = mul nsw i32 %32, 60
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.wallcc_t, ptr %21, i64 %34
+  %35 = getelementptr [24 x i8], ptr %21, i64 %34
   %36 = getelementptr i8, ptr %35, i64 1152
   %37 = load i32, ptr %36, align 8, !tbaa !127
   %38 = add nsw i32 %37, 1
@@ -30581,12 +30574,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 41:                                               ; preds = %.lr.ph, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit
   %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit ]
   %42 = load float, ptr %5, align 4, !tbaa !180
-  %43 = getelementptr inbounds [3 x float], ptr %28, i64 %indvars.iv
+  %43 = getelementptr inbounds [12 x i8], ptr %28, i64 %indvars.iv
   br label %44
 
 44:                                               ; preds = %44, %41
   %indvars.iv.i = phi i64 [ 0, %41 ], [ %indvars.iv.next.i, %44 ]
-  %45 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv.i
   %46 = load float, ptr %45, align 4, !tbaa !180, !alias.scope !1221
   %47 = fmul float %42, %46
   store float %47, ptr %45, align 4, !tbaa !180, !alias.scope !1221
@@ -30698,7 +30691,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS
   %32 = load i32, ptr %31, align 4, !tbaa !126
   %33 = mul nsw i32 %32, 60
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.wallcc_t, ptr %21, i64 %34
+  %35 = getelementptr [24 x i8], ptr %21, i64 %34
   %36 = getelementptr i8, ptr %35, i64 1152
   %37 = load i32, ptr %36, align 8, !tbaa !127
   %38 = add nsw i32 %37, 1
@@ -30890,12 +30883,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 41:                                               ; preds = %.lr.ph, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit
   %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE1EEEvifPA3_f.exit ]
   %42 = load float, ptr %5, align 4, !tbaa !180
-  %43 = getelementptr inbounds [3 x float], ptr %28, i64 %indvars.iv
+  %43 = getelementptr inbounds [12 x i8], ptr %28, i64 %indvars.iv
   br label %44
 
 44:                                               ; preds = %44, %41
   %indvars.iv.i = phi i64 [ 0, %41 ], [ %indvars.iv.next.i, %44 ]
-  %45 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv.i
   %46 = load float, ptr %45, align 4, !tbaa !180, !alias.scope !1227
   %47 = fmul float %42, %46
   store float %47, ptr %45, align 4, !tbaa !180, !alias.scope !1227
@@ -31007,7 +31000,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS
   %32 = load i32, ptr %31, align 4, !tbaa !126
   %33 = mul nsw i32 %32, 60
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.wallcc_t, ptr %21, i64 %34
+  %35 = getelementptr [24 x i8], ptr %21, i64 %34
   %36 = getelementptr i8, ptr %35, i64 1152
   %37 = load i32, ptr %36, align 8, !tbaa !127
   %38 = add nsw i32 %37, 1
@@ -31197,17 +31190,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 
 46:                                               ; preds = %.lr.ph, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit
   %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit ]
-  %47 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv
   %48 = load i16, ptr %47, align 2, !tbaa !452
   %49 = zext i16 %48 to i64
-  %50 = getelementptr inbounds nuw float, ptr %35, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %49
   %51 = load float, ptr %50, align 4, !tbaa !180
-  %52 = getelementptr inbounds [3 x float], ptr %36, i64 %indvars.iv
+  %52 = getelementptr inbounds [12 x i8], ptr %36, i64 %indvars.iv
   br label %53
 
 53:                                               ; preds = %53, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %53 ]
-  %54 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.i
   %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !1233
   %56 = fmul float %51, %55
   store float %56, ptr %54, align 4, !tbaa !180, !alias.scope !1233
@@ -31327,7 +31320,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS
   %32 = load i32, ptr %31, align 4, !tbaa !126
   %33 = mul nsw i32 %32, 60
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.wallcc_t, ptr %21, i64 %34
+  %35 = getelementptr [24 x i8], ptr %21, i64 %34
   %36 = getelementptr i8, ptr %35, i64 1152
   %37 = load i32, ptr %36, align 8, !tbaa !127
   %38 = add nsw i32 %37, 1
@@ -31525,17 +31518,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 
 49:                                               ; preds = %.lr.ph, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit
   %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit ]
-  %50 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv
   %51 = load i16, ptr %50, align 2, !tbaa !452
   %52 = zext i16 %51 to i64
-  %53 = getelementptr inbounds nuw float, ptr %35, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !180
-  %55 = getelementptr inbounds [3 x float], ptr %36, i64 %indvars.iv
+  %55 = getelementptr inbounds [12 x i8], ptr %36, i64 %indvars.iv
   br label %56
 
 56:                                               ; preds = %56, %49
   %indvars.iv.i = phi i64 [ 0, %49 ], [ %indvars.iv.next.i, %56 ]
-  %57 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv.i
   %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !1240
   %59 = fmul float %54, %58
   store float %59, ptr %57, align 4, !tbaa !180, !alias.scope !1240
@@ -31647,7 +31640,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS
   %32 = load i32, ptr %31, align 4, !tbaa !126
   %33 = mul nsw i32 %32, 60
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.wallcc_t, ptr %21, i64 %34
+  %35 = getelementptr [24 x i8], ptr %21, i64 %34
   %36 = getelementptr i8, ptr %35, i64 1152
   %37 = load i32, ptr %36, align 8, !tbaa !127
   %38 = add nsw i32 %37, 1
@@ -31845,17 +31838,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 
 49:                                               ; preds = %.lr.ph, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit
   %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit ]
-  %50 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv
   %51 = load i16, ptr %50, align 2, !tbaa !452
   %52 = zext i16 %51 to i64
-  %53 = getelementptr inbounds nuw float, ptr %35, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !180
-  %55 = getelementptr inbounds [3 x float], ptr %36, i64 %indvars.iv
+  %55 = getelementptr inbounds [12 x i8], ptr %36, i64 %indvars.iv
   br label %56
 
 56:                                               ; preds = %56, %49
   %indvars.iv.i = phi i64 [ 0, %49 ], [ %indvars.iv.next.i, %56 ]
-  %57 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv.i
   %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !1246
   %59 = fmul float %54, %58
   store float %59, ptr %57, align 4, !tbaa !180, !alias.scope !1246
@@ -31967,7 +31960,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS
   %32 = load i32, ptr %31, align 4, !tbaa !126
   %33 = mul nsw i32 %32, 60
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.wallcc_t, ptr %21, i64 %34
+  %35 = getelementptr [24 x i8], ptr %21, i64 %34
   %36 = getelementptr i8, ptr %35, i64 1152
   %37 = load i32, ptr %36, align 8, !tbaa !127
   %38 = add nsw i32 %37, 1
@@ -32165,17 +32158,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE4EE3runILNS_24N
 
 49:                                               ; preds = %.lr.ph, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit
   %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL15scaleVelocitiesILNS_24NumVelocityScalingValuesE2EEEvifPA3_f.exit ]
-  %50 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv
   %51 = load i16, ptr %50, align 2, !tbaa !452
   %52 = zext i16 %51 to i64
-  %53 = getelementptr inbounds nuw float, ptr %35, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !180
-  %55 = getelementptr inbounds [3 x float], ptr %36, i64 %indvars.iv
+  %55 = getelementptr inbounds [12 x i8], ptr %36, i64 %indvars.iv
   br label %56
 
 56:                                               ; preds = %56, %49
   %indvars.iv.i = phi i64 [ 0, %49 ], [ %indvars.iv.next.i, %56 ]
-  %57 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv.i
   %58 = load float, ptr %57, align 4, !tbaa !180, !alias.scope !1252
   %59 = fmul float %54, %58
   store float %59, ptr %57, align 4, !tbaa !180, !alias.scope !1252
@@ -32326,7 +32319,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %12, %15
   br i1 %29, label %30, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw float, ptr %20, i64 %14
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %14
   %.not.i.i8 = icmp eq ptr %19, %31
   br i1 %.not.i.i8, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9, label %32
 
@@ -32877,7 +32870,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
 .noexc:                                           ; preds = %33, %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %27, ptr %14, align 8, !tbaa !334
   store ptr %32, ptr %6, align 8, !tbaa !327
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.302", ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %8, align 8, !tbaa !330
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_10PropagatorILNS1_16IntegrationStageE4EEES3_ISB_EEEEERS5_DpOT_.exit.i
 
@@ -33083,7 +33076,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10PropagatorILNS0_16IntegrationStageE4EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %39, ptr %19, align 8, !tbaa !348
   store ptr %43, ptr %20, align 8, !tbaa !343
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !347
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10PropagatorILNS0_16IntegrationStageE4EEEEEERS2_DpOT_.exit
 
@@ -33336,7 +33329,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %31 = load i32, ptr %30, align 4, !tbaa !126
   %32 = mul nsw i32 %31, 60
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.wallcc_t, ptr %20, i64 %33
+  %34 = getelementptr [24 x i8], ptr %20, i64 %33
   %35 = getelementptr i8, ptr %34, i64 1152
   %36 = load i32, ptr %35, align 8, !tbaa !127
   %37 = add nsw i32 %36, 1
@@ -33517,12 +33510,12 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 39:                                               ; preds = %.lr.ph, %_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE1EEEvifPA3_f.exit
   %indvars.iv = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE1EEEvifPA3_f.exit ]
-  %40 = getelementptr inbounds [3 x float], ptr %29, i64 %indvars.iv
+  %40 = getelementptr inbounds [12 x i8], ptr %29, i64 %indvars.iv
   br label %41
 
 41:                                               ; preds = %41, %39
   %indvars.iv.i = phi i64 [ 0, %39 ], [ %indvars.iv.next.i, %41 ]
-  %42 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i
   %43 = load float, ptr %42, align 4, !tbaa !180, !alias.scope !1291
   %44 = fmul float %43, %14
   store float %44, ptr %42, align 4, !tbaa !180, !alias.scope !1291
@@ -33641,7 +33634,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %31 = load i32, ptr %30, align 4, !tbaa !126
   %32 = mul nsw i32 %31, 60
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.wallcc_t, ptr %20, i64 %33
+  %34 = getelementptr [24 x i8], ptr %20, i64 %33
   %35 = getelementptr i8, ptr %34, i64 1152
   %36 = load i32, ptr %35, align 8, !tbaa !127
   %37 = add nsw i32 %36, 1
@@ -33826,17 +33819,17 @@ define internal void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS_24N
 
 46:                                               ; preds = %.lr.ph, %_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE2EEEvifPA3_f.exit
   %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %_ZN3gmxL14scalePositionsILNS_24NumPositionScalingValuesE2EEEvifPA3_f.exit ]
-  %47 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv
   %48 = load i16, ptr %47, align 2, !tbaa !452
   %49 = zext i16 %48 to i64
-  %50 = getelementptr inbounds nuw float, ptr %35, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %49
   %51 = load float, ptr %50, align 4, !tbaa !180
-  %52 = getelementptr inbounds [3 x float], ptr %36, i64 %indvars.iv
+  %52 = getelementptr inbounds [12 x i8], ptr %36, i64 %indvars.iv
   br label %53
 
 53:                                               ; preds = %53, %46
   %indvars.iv.i = phi i64 [ 0, %46 ], [ %indvars.iv.next.i, %53 ]
-  %54 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv.i
   %55 = load float, ptr %54, align 4, !tbaa !180, !alias.scope !1298
   %56 = fmul float %51, %55
   store float %56, ptr %54, align 4, !tbaa !180, !alias.scope !1298
@@ -33955,7 +33948,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %31 = load i32, ptr %30, align 4, !tbaa !126
   %32 = mul nsw i32 %31, 60
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.wallcc_t, ptr %20, i64 %33
+  %34 = getelementptr [24 x i8], ptr %20, i64 %33
   %35 = getelementptr i8, ptr %34, i64 1152
   %36 = load i32, ptr %35, align 8, !tbaa !127
   %37 = add nsw i32 %36, 1
@@ -34222,7 +34215,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %31 = load i32, ptr %30, align 4, !tbaa !126
   %32 = mul nsw i32 %31, 60
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.wallcc_t, ptr %20, i64 %33
+  %34 = getelementptr [24 x i8], ptr %20, i64 %33
   %35 = getelementptr i8, ptr %34, i64 1152
   %36 = load i32, ptr %35, align 8, !tbaa !127
   %37 = add nsw i32 %36, 1
@@ -34489,7 +34482,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %31 = load i32, ptr %30, align 4, !tbaa !126
   %32 = mul nsw i32 %31, 60
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.wallcc_t, ptr %20, i64 %33
+  %34 = getelementptr [24 x i8], ptr %20, i64 %33
   %35 = getelementptr i8, ptr %34, i64 1152
   %36 = load i32, ptr %35, align 8, !tbaa !127
   %37 = add nsw i32 %36, 1
@@ -34756,7 +34749,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %31 = load i32, ptr %30, align 4, !tbaa !126
   %32 = mul nsw i32 %31, 60
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.wallcc_t, ptr %20, i64 %33
+  %34 = getelementptr [24 x i8], ptr %20, i64 %33
   %35 = getelementptr i8, ptr %34, i64 1152
   %36 = load i32, ptr %35, align 8, !tbaa !127
   %37 = add nsw i32 %36, 1
@@ -35023,7 +35016,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %31 = load i32, ptr %30, align 4, !tbaa !126
   %32 = mul nsw i32 %31, 60
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.wallcc_t, ptr %20, i64 %33
+  %34 = getelementptr [24 x i8], ptr %20, i64 %33
   %35 = getelementptr i8, ptr %34, i64 1152
   %36 = load i32, ptr %35, align 8, !tbaa !127
   %37 = add nsw i32 %36, 1
@@ -35290,7 +35283,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %31 = load i32, ptr %30, align 4, !tbaa !126
   %32 = mul nsw i32 %31, 60
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.wallcc_t, ptr %20, i64 %33
+  %34 = getelementptr [24 x i8], ptr %20, i64 %33
   %35 = getelementptr i8, ptr %34, i64 1152
   %36 = load i32, ptr %35, align 8, !tbaa !127
   %37 = add nsw i32 %36, 1
@@ -35557,7 +35550,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %31 = load i32, ptr %30, align 4, !tbaa !126
   %32 = mul nsw i32 %31, 60
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.wallcc_t, ptr %20, i64 %33
+  %34 = getelementptr [24 x i8], ptr %20, i64 %33
   %35 = getelementptr i8, ptr %34, i64 1152
   %36 = load i32, ptr %35, align 8, !tbaa !127
   %37 = add nsw i32 %36, 1
@@ -35824,7 +35817,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %31 = load i32, ptr %30, align 4, !tbaa !126
   %32 = mul nsw i32 %31, 60
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.wallcc_t, ptr %20, i64 %33
+  %34 = getelementptr [24 x i8], ptr %20, i64 %33
   %35 = getelementptr i8, ptr %34, i64 1152
   %36 = load i32, ptr %35, align 8, !tbaa !127
   %37 = add nsw i32 %36, 1
@@ -36091,7 +36084,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %31 = load i32, ptr %30, align 4, !tbaa !126
   %32 = mul nsw i32 %31, 60
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.wallcc_t, ptr %20, i64 %33
+  %34 = getelementptr [24 x i8], ptr %20, i64 %33
   %35 = getelementptr i8, ptr %34, i64 1152
   %36 = load i32, ptr %35, align 8, !tbaa !127
   %37 = add nsw i32 %36, 1
@@ -36358,7 +36351,7 @@ define linkonce_odr void @_ZN3gmx10PropagatorILNS_16IntegrationStageE5EE3runILNS
   %31 = load i32, ptr %30, align 4, !tbaa !126
   %32 = mul nsw i32 %31, 60
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.wallcc_t, ptr %20, i64 %33
+  %34 = getelementptr [24 x i8], ptr %20, i64 %33
   %35 = getelementptr i8, ptr %34, i64 1152
   %36 = load i32, ptr %35, align 8, !tbaa !127
   %37 = add nsw i32 %36, 1
@@ -37105,7 +37098,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
 .noexc:                                           ; preds = %33, %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %27, ptr %14, align 8, !tbaa !334
   store ptr %32, ptr %6, align 8, !tbaa !327
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.302", ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %8, align 8, !tbaa !330
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_10PropagatorILNS1_16IntegrationStageE5EEES3_ISB_EEEEERS5_DpOT_.exit.i
 
@@ -37311,7 +37304,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10PropagatorILNS0_16IntegrationStageE5EEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %39, ptr %19, align 8, !tbaa !348
   store ptr %43, ptr %20, align 8, !tbaa !343
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !347
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10PropagatorILNS0_16IntegrationStageE5EEEEEERS2_DpOT_.exit
 

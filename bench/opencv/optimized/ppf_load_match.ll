@@ -1683,7 +1683,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit178: ; preds = %_Z
   %652 = phi ptr [ %587, %.lr.ph ], [ %730, %_ZNSt12__shared_ptrIN2cv12ppf_match_3d6Pose3DELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   %.0412 = phi i64 [ 0, %.lr.ph ], [ %728, %_ZNSt12__shared_ptrIN2cv12ppf_match_3d6Pose3DELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %653 = getelementptr inbounds nuw %"struct.cv::Ptr", ptr %652, i64 %.0412
+  %653 = getelementptr inbounds nuw [16 x i8], ptr %652, i64 %.0412
   %654 = load ptr, ptr %653, align 8, !tbaa !48
   store ptr %654, ptr %15, align 8, !tbaa !48
   %655 = getelementptr inbounds nuw i8, ptr %653, i64 8

@@ -311,7 +311,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_deleteI
 _ZNSt6vectorISt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %39
   store ptr %33, ptr %6, align 8, !tbaa !9
   store ptr %38, ptr %14, align 8, !tbaa !12
-  %40 = getelementptr inbounds nuw %"class.std::unique_ptr.2", ptr %33, i64 %31
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %40, ptr %16, align 8, !tbaa !21
   br label %_ZNSt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_deleteIS2_EED2Ev.exit
 
@@ -596,9 +596,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !15
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !32
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !18
   br label %41
 
@@ -710,7 +710,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_deleteI
 _ZNSt6vectorISt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_deleteIS3_EESaIS6_EE9push_backEOS6_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %39
   store ptr %33, ptr %6, align 8, !tbaa !9
   store ptr %38, ptr %14, align 8, !tbaa !12
-  %40 = getelementptr inbounds nuw %"class.std::unique_ptr.2", ptr %33, i64 %31
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %40, ptr %16, align 8, !tbaa !21
   br label %_ZNSt10unique_ptrIN3gmx8internal16LocalAtomSetDataESt14default_deleteIS2_EED2Ev.exit
 

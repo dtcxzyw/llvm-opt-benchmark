@@ -1215,7 +1215,7 @@ define hidden void @"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module.
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx114.i, align 8, !alias.scope !101, !noalias !108
   %88 = icmp ult i64 %.sroa.5.0.copyload.i, 768614336404564651
   tail call void @llvm.assume(i1 %88)
-  %89 = getelementptr inbounds nuw { i32, [2 x i32] }, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %89 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   %90 = icmp sgt i64 %.sroa.0113.0.copyload.i, -1
   tail call void @llvm.assume(i1 %90)
   store ptr %.sroa.4.0.copyload.i, ptr %67, align 8, !alias.scope !109, !noalias !112

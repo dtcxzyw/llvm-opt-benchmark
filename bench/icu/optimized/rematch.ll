@@ -12,11 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.icu_77::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_77::CaseFoldingUTextIterator" = type { ptr, ptr, i32, i32 }
-%"struct.icu_77::Regex8BitSet" = type { [32 x i8] }
-%"class.icu_77::UnicodeSet" = type <{ %"class.icu_77::UnicodeFilter", ptr, i32, i32, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, [25 x i32], [4 x i8] }>
-%"class.icu_77::UnicodeFilter" = type { %"class.icu_77::UnicodeFunctor", %"class.icu_77::UnicodeMatcher" }
-%"class.icu_77::UnicodeFunctor" = type { %"class.icu_77::UObject" }
-%"class.icu_77::UnicodeMatcher" = type { ptr }
 %"class.icu_77::CaseFoldingUCharIterator" = type { ptr, i64, i64, ptr, i32, i32 }
 %"class.icu_77::MaybeStackArray.1" = type <{ ptr, i32, i8, i8, [40 x i16], [2 x i8] }>
 
@@ -1577,7 +1572,7 @@ define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatche
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %51 = load ptr, ptr %50, align 8, !tbaa !88
-  %52 = getelementptr inbounds i16, ptr %51, i64 %30
+  %52 = getelementptr inbounds [2 x i8], ptr %51, i64 %30
   %53 = sub nsw i64 %28, %30
   %54 = trunc i64 %53 to i32
   %55 = tail call i32 @utext_replace_77(ptr noundef %1, i64 noundef %26, i64 noundef %26, ptr noundef %52, i32 noundef %54, ptr noundef nonnull %3)
@@ -1646,7 +1641,7 @@ define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatche
 94:                                               ; preds = %89
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %96 = load ptr, ptr %95, align 8, !tbaa !88
-  %97 = getelementptr inbounds nuw i16, ptr %96, i64 %87
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %87
   %98 = load i16, ptr %97, align 2, !tbaa !93
   %99 = icmp ult i16 %98, -9216
   br i1 %99, label %100, label %103
@@ -1675,7 +1670,7 @@ define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatche
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %112 = load ptr, ptr %111, align 8, !tbaa !88
   %113 = sext i32 %105 to i64
-  %114 = getelementptr inbounds i16, ptr %112, i64 %113
+  %114 = getelementptr inbounds [2 x i8], ptr %112, i64 %113
   %115 = load i16, ptr %114, align 2, !tbaa !93
   %116 = icmp ult i16 %115, -10240
   br i1 %116, label %117, label %120
@@ -1725,7 +1720,7 @@ define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatche
 140:                                              ; preds = %136
   %141 = load ptr, ptr %129, align 8, !tbaa !88
   %142 = sext i32 %137 to i64
-  %143 = getelementptr inbounds i16, ptr %141, i64 %142
+  %143 = getelementptr inbounds [2 x i8], ptr %141, i64 %142
   %144 = load i16, ptr %143, align 2, !tbaa !93
   %145 = icmp ult i16 %144, -10240
   br i1 %145, label %.thread235, label %147
@@ -1809,7 +1804,7 @@ define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatche
 183:                                              ; preds = %180
   %184 = load ptr, ptr %129, align 8, !tbaa !88
   %185 = zext nneg i32 %181 to i64
-  %186 = getelementptr i16, ptr %184, i64 %185
+  %186 = getelementptr [2 x i8], ptr %184, i64 %185
   %187 = getelementptr i8, ptr %186, i64 -2
   %188 = load i16, ptr %187, align 2, !tbaa !93
   %189 = icmp ult i16 %188, -10240
@@ -1850,7 +1845,7 @@ define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatche
 205:                                              ; preds = %201
   %206 = load ptr, ptr %129, align 8, !tbaa !88
   %207 = sext i32 %202 to i64
-  %208 = getelementptr inbounds i16, ptr %206, i64 %207
+  %208 = getelementptr inbounds [2 x i8], ptr %206, i64 %207
   %209 = load i16, ptr %208, align 2, !tbaa !93
   %210 = icmp ult i16 %209, -10240
   br i1 %210, label %211, label %213
@@ -2056,7 +2051,7 @@ define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatche
 296:                                              ; preds = %292
   %297 = load ptr, ptr %129, align 8, !tbaa !88
   %298 = sext i32 %293 to i64
-  %299 = getelementptr inbounds i16, ptr %297, i64 %298
+  %299 = getelementptr inbounds [2 x i8], ptr %297, i64 %298
   %300 = load i16, ptr %299, align 2, !tbaa !93
   %301 = icmp ult i16 %300, -10240
   br i1 %301, label %.thread237, label %303
@@ -2100,7 +2095,7 @@ define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatche
 322:                                              ; preds = %318
   %323 = load ptr, ptr %129, align 8, !tbaa !88
   %324 = sext i32 %319 to i64
-  %325 = getelementptr inbounds i16, ptr %323, i64 %324
+  %325 = getelementptr inbounds [2 x i8], ptr %323, i64 %324
   %326 = load i16, ptr %325, align 2, !tbaa !93
   %327 = icmp ult i16 %326, -10240
   br i1 %327, label %328, label %330
@@ -2143,7 +2138,7 @@ define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7712RegexMatche
 342:                                              ; preds = %.thread238.thread
   %343 = load ptr, ptr %129, align 8, !tbaa !88
   %344 = sext i32 %339 to i64
-  %345 = getelementptr inbounds i16, ptr %343, i64 %344
+  %345 = getelementptr inbounds [2 x i8], ptr %343, i64 %344
   %346 = load i16, ptr %345, align 2, !tbaa !93
   %347 = icmp ult i16 %346, -10240
   br i1 %347, label %348, label %351
@@ -2269,14 +2264,14 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %40 = load ptr, ptr %39, align 8, !tbaa !108
   %41 = zext nneg i32 %1 to i64
-  %42 = getelementptr i32, ptr %40, i64 %41
+  %42 = getelementptr [4 x i8], ptr %40, i64 %41
   %43 = getelementptr i8, ptr %42, i64 -4
   %44 = load i32, ptr %43, align 4, !tbaa !12
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %47 = load ptr, ptr %46, align 8, !tbaa !109
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = getelementptr i64, ptr %48, i64 %45
+  %49 = getelementptr [8 x i8], ptr %48, i64 %45
   %50 = getelementptr i8, ptr %49, i64 8
   br label %51
 
@@ -2319,7 +2314,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %34
 73:                                               ; preds = %68
   %74 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %75 = load ptr, ptr %74, align 8, !tbaa !88
-  %76 = getelementptr inbounds nuw i16, ptr %75, i64 %.058
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %.058
   %77 = sub nsw i64 %.057, %.058
   %78 = trunc i64 %77 to i32
   %79 = tail call i32 @utext_replace_77(ptr noundef %2, i64 noundef %14, i64 noundef %14, ptr noundef %76, i32 noundef %78, ptr noundef nonnull %3)
@@ -2450,7 +2445,7 @@ define noundef ptr @_ZN6icu_7712RegexMatcher10appendTailEP5UTextR10UErrorCode(pt
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load ptr, ptr %35, align 8, !tbaa !88
   %37 = load i64, ptr %14, align 8, !tbaa !31
-  %38 = getelementptr inbounds i16, ptr %36, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %36, i64 %37
   %39 = load i64, ptr %12, align 8, !tbaa !66
   %40 = sub nsw i64 %39, %37
   %41 = trunc i64 %40 to i32
@@ -2588,13 +2583,13 @@ _ZNK6icu_779UVector3210elementAtiEi.exit.i:       ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !108
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr i32, ptr %27, i64 %28
+  %29 = getelementptr [4 x i8], ptr %27, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -4
   %31 = load i32, ptr %30, align 4, !tbaa !12
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %34 = load ptr, ptr %33, align 8, !tbaa !109
-  %35 = getelementptr i64, ptr %34, i64 %32
+  %35 = getelementptr [8 x i8], ptr %34, i64 %32
   %36 = getelementptr i8, ptr %35, i64 24
   br label %37
 
@@ -2695,13 +2690,13 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !108
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr i32, ptr %27, i64 %28
+  %29 = getelementptr [4 x i8], ptr %27, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -4
   %31 = load i32, ptr %30, align 4, !tbaa !12
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %34 = load ptr, ptr %33, align 8, !tbaa !109
-  %35 = getelementptr i64, ptr %34, i64 %32
+  %35 = getelementptr [8 x i8], ptr %34, i64 %32
   %36 = getelementptr i8, ptr %35, i64 24
   br label %37
 
@@ -2825,7 +2820,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher4findER10UErrorCode(ptr nound
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %57 = load ptr, ptr %56, align 8, !tbaa !88
-  %58 = getelementptr inbounds nuw i16, ptr %57, i64 %48
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %48
   %59 = load i16, ptr %58, align 2, !tbaa !93
   %60 = icmp ult i16 %59, -9216
   br i1 %60, label %61, label %64
@@ -2856,7 +2851,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher4findER10UErrorCode(ptr nound
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %74 = load ptr, ptr %73, align 8, !tbaa !88
   %75 = sext i32 %66 to i64
-  %76 = getelementptr inbounds i16, ptr %74, i64 %75
+  %76 = getelementptr inbounds [2 x i8], ptr %74, i64 %75
   %77 = load i16, ptr %76, align 2, !tbaa !93
   %78 = icmp ult i16 %77, -10240
   br i1 %78, label %79, label %81
@@ -2999,7 +2994,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher4findER10UErrorCode(ptr nound
 150:                                              ; preds = %145
   %151 = getelementptr inbounds nuw i8, ptr %140, i64 48
   %152 = load ptr, ptr %151, align 8, !tbaa !88
-  %153 = getelementptr inbounds nuw i16, ptr %152, i64 %143
+  %153 = getelementptr inbounds nuw [2 x i8], ptr %152, i64 %143
   %154 = load i16, ptr %153, align 2, !tbaa !93
   %155 = icmp ult i16 %154, -9216
   br i1 %155, label %156, label %159
@@ -3030,7 +3025,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher4findER10UErrorCode(ptr nound
   %168 = getelementptr inbounds nuw i8, ptr %162, i64 48
   %169 = load ptr, ptr %168, align 8, !tbaa !88
   %170 = sext i32 %161 to i64
-  %171 = getelementptr inbounds i16, ptr %169, i64 %170
+  %171 = getelementptr inbounds [2 x i8], ptr %169, i64 %170
   %172 = load i16, ptr %171, align 2, !tbaa !93
   %173 = icmp ult i16 %172, -10240
   br i1 %173, label %174, label %176
@@ -3126,7 +3121,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
 220:                                              ; preds = %215
   %221 = getelementptr inbounds nuw i8, ptr %105, i64 48
   %222 = load ptr, ptr %221, align 8, !tbaa !88
-  %223 = getelementptr inbounds nuw i16, ptr %222, i64 %213
+  %223 = getelementptr inbounds nuw [2 x i8], ptr %222, i64 %213
   %224 = load i16, ptr %223, align 2, !tbaa !93
   %225 = icmp ult i16 %224, -9216
   br i1 %225, label %226, label %229
@@ -3160,7 +3155,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
   %241 = getelementptr inbounds nuw i8, ptr %234, i64 48
   %242 = load ptr, ptr %241, align 8, !tbaa !88
   %243 = sext i32 %236 to i64
-  %244 = getelementptr inbounds i16, ptr %242, i64 %243
+  %244 = getelementptr inbounds [2 x i8], ptr %242, i64 %243
   %245 = load i16, ptr %244, align 2, !tbaa !93
   %246 = icmp ult i16 %245, -10240
   br i1 %246, label %247, label %250
@@ -3262,7 +3257,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
 306:                                              ; preds = %301
   %307 = getelementptr inbounds nuw i8, ptr %296, i64 48
   %308 = load ptr, ptr %307, align 8, !tbaa !88
-  %309 = getelementptr inbounds nuw i16, ptr %308, i64 %299
+  %309 = getelementptr inbounds nuw [2 x i8], ptr %308, i64 %299
   %310 = load i16, ptr %309, align 2, !tbaa !93
   %311 = icmp ult i16 %310, -9216
   br i1 %311, label %312, label %315
@@ -3324,7 +3319,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
 337:                                              ; preds = %332
   %338 = getelementptr inbounds nuw i8, ptr %105, i64 48
   %339 = load ptr, ptr %338, align 8, !tbaa !88
-  %340 = getelementptr inbounds nuw i16, ptr %339, i64 %330
+  %340 = getelementptr inbounds nuw [2 x i8], ptr %339, i64 %330
   %341 = load i16, ptr %340, align 2, !tbaa !93
   %342 = icmp ult i16 %341, -9216
   br i1 %342, label %343, label %346
@@ -3358,7 +3353,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
   %358 = getelementptr inbounds nuw i8, ptr %351, i64 48
   %359 = load ptr, ptr %358, align 8, !tbaa !88
   %360 = sext i32 %353 to i64
-  %361 = getelementptr inbounds i16, ptr %359, i64 %360
+  %361 = getelementptr inbounds [2 x i8], ptr %359, i64 %360
   %362 = load i16, ptr %361, align 2, !tbaa !93
   %363 = icmp ult i16 %362, -10240
   br i1 %363, label %364, label %367
@@ -3434,7 +3429,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
 405:                                              ; preds = %400
   %406 = getelementptr inbounds nuw i8, ptr %395, i64 48
   %407 = load ptr, ptr %406, align 8, !tbaa !88
-  %408 = getelementptr inbounds nuw i16, ptr %407, i64 %398
+  %408 = getelementptr inbounds nuw [2 x i8], ptr %407, i64 %398
   %409 = load i16, ptr %408, align 2, !tbaa !93
   %410 = icmp ult i16 %409, -9216
   br i1 %410, label %411, label %414
@@ -3512,7 +3507,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
 444:                                              ; preds = %439
   %445 = getelementptr inbounds nuw i8, ptr %434, i64 48
   %446 = load ptr, ptr %445, align 8, !tbaa !88
-  %447 = getelementptr inbounds nuw i16, ptr %446, i64 %437
+  %447 = getelementptr inbounds nuw [2 x i8], ptr %446, i64 %437
   %448 = load i16, ptr %447, align 2, !tbaa !93
   %449 = icmp ult i16 %448, -9216
   br i1 %449, label %450, label %453
@@ -3543,7 +3538,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
   %462 = getelementptr inbounds nuw i8, ptr %456, i64 48
   %463 = load ptr, ptr %462, align 8, !tbaa !88
   %464 = sext i32 %455 to i64
-  %465 = getelementptr inbounds i16, ptr %463, i64 %464
+  %465 = getelementptr inbounds [2 x i8], ptr %463, i64 %464
   %466 = load i16, ptr %465, align 2, !tbaa !93
   %467 = icmp ult i16 %466, -10240
   br i1 %467, label %468, label %471
@@ -3602,7 +3597,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
 500:                                              ; preds = %495
   %501 = getelementptr inbounds nuw i8, ptr %105, i64 48
   %502 = load ptr, ptr %501, align 8, !tbaa !88
-  %503 = getelementptr inbounds nuw i16, ptr %502, i64 %493
+  %503 = getelementptr inbounds nuw [2 x i8], ptr %502, i64 %493
   %504 = load i16, ptr %503, align 2, !tbaa !93
   %505 = icmp ult i16 %504, -9216
   br i1 %505, label %506, label %509
@@ -3631,7 +3626,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
   %516 = getelementptr inbounds nuw i8, ptr %512, i64 48
   %517 = load ptr, ptr %516, align 8, !tbaa !88
   %518 = zext nneg i32 %511 to i64
-  %519 = getelementptr i16, ptr %517, i64 %518
+  %519 = getelementptr [2 x i8], ptr %517, i64 %518
   %520 = getelementptr i8, ptr %519, i64 -2
   %521 = load i16, ptr %520, align 2, !tbaa !93
   %522 = icmp ult i16 %521, -10240
@@ -3641,7 +3636,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
   %524 = add nsw i32 %511, -1
   store i32 %524, ptr %513, align 8, !tbaa !95
   %525 = zext nneg i32 %524 to i64
-  %526 = getelementptr inbounds nuw i16, ptr %517, i64 %525
+  %526 = getelementptr inbounds nuw [2 x i8], ptr %517, i64 %525
   %527 = load i16, ptr %526, align 2, !tbaa !93
   %528 = zext i16 %527 to i32
   br label %531
@@ -3670,7 +3665,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
 543:                                              ; preds = %538
   %544 = getelementptr inbounds nuw i8, ptr %532, i64 48
   %545 = load ptr, ptr %544, align 8, !tbaa !88
-  %546 = getelementptr inbounds nuw i16, ptr %545, i64 %536
+  %546 = getelementptr inbounds nuw [2 x i8], ptr %545, i64 %536
   %547 = load i16, ptr %546, align 2, !tbaa !93
   %548 = icmp ult i16 %547, -9216
   br i1 %548, label %549, label %552
@@ -3741,7 +3736,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit235: ; preds 
 580:                                              ; preds = %575
   %581 = getelementptr inbounds nuw i8, ptr %570, i64 48
   %582 = load ptr, ptr %581, align 8, !tbaa !88
-  %583 = getelementptr inbounds nuw i16, ptr %582, i64 %573
+  %583 = getelementptr inbounds nuw [2 x i8], ptr %582, i64 %573
   %584 = load i16, ptr %583, align 2, !tbaa !93
   %585 = icmp ult i16 %584, -9216
   br i1 %585, label %586, label %589
@@ -3779,7 +3774,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit235: ; preds 
   %601 = getelementptr inbounds nuw i8, ptr %594, i64 48
   %602 = load ptr, ptr %601, align 8, !tbaa !88
   %603 = sext i32 %596 to i64
-  %604 = getelementptr inbounds i16, ptr %602, i64 %603
+  %604 = getelementptr inbounds [2 x i8], ptr %602, i64 %603
   %605 = load i16, ptr %604, align 2, !tbaa !93
   %606 = icmp ult i16 %605, -10240
   br i1 %606, label %607, label %610
@@ -3878,7 +3873,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread263:   ; preds = %636, %636, %636, %6
   %648 = getelementptr inbounds nuw i8, ptr %641, i64 48
   %649 = load ptr, ptr %648, align 8, !tbaa !88
   %650 = sext i32 %643 to i64
-  %651 = getelementptr inbounds i16, ptr %649, i64 %650
+  %651 = getelementptr inbounds [2 x i8], ptr %649, i64 %650
   %652 = load i16, ptr %651, align 2, !tbaa !93
   %653 = icmp ult i16 %652, -10240
   br i1 %653, label %654, label %656
@@ -3909,7 +3904,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread263:   ; preds = %636, %636, %636, %6
   %669 = getelementptr inbounds nuw i8, ptr %662, i64 48
   %670 = load ptr, ptr %669, align 8, !tbaa !88
   %671 = sext i32 %664 to i64
-  %672 = getelementptr inbounds i16, ptr %670, i64 %671
+  %672 = getelementptr inbounds [2 x i8], ptr %670, i64 %671
   %673 = load i16, ptr %672, align 2, !tbaa !93
   %674 = icmp ult i16 %673, -10240
   br i1 %674, label %675, label %677
@@ -3979,7 +3974,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread263:   ; preds = %636, %636, %636, %6
 711:                                              ; preds = %706
   %712 = getelementptr inbounds nuw i8, ptr %701, i64 48
   %713 = load ptr, ptr %712, align 8, !tbaa !88
-  %714 = getelementptr inbounds nuw i16, ptr %713, i64 %704
+  %714 = getelementptr inbounds nuw [2 x i8], ptr %713, i64 %704
   %715 = load i16, ptr %714, align 2, !tbaa !93
   %716 = icmp ult i16 %715, -9216
   br i1 %716, label %717, label %720
@@ -4018,7 +4013,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %636, %_ZN6icu_7712R
   %731 = getelementptr inbounds nuw i8, ptr %724, i64 48
   %732 = load ptr, ptr %731, align 8, !tbaa !88
   %733 = sext i32 %726 to i64
-  %734 = getelementptr inbounds i16, ptr %732, i64 %733
+  %734 = getelementptr inbounds [2 x i8], ptr %732, i64 %733
   %735 = load i16, ptr %734, align 2, !tbaa !93
   %736 = icmp ult i16 %735, -10240
   br i1 %736, label %737, label %740
@@ -4130,7 +4125,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher14findUsingChunkER10UErrorCod
 
 27:                                               ; preds = %21
   %28 = add nsw i32 %.0119, 1
-  %29 = getelementptr inbounds i16, ptr %13, i64 %22
+  %29 = getelementptr inbounds [2 x i8], ptr %13, i64 %22
   %30 = load i16, ptr %29, align 2, !tbaa !93
   %31 = and i16 %30, -1024
   %32 = icmp eq i16 %31, -10240
@@ -4144,7 +4139,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher14findUsingChunkER10UErrorCod
   br i1 %.not146, label %48, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i16, ptr %13, i64 %34
+  %38 = getelementptr inbounds [2 x i8], ptr %13, i64 %34
   %39 = load i16, ptr %38, align 2, !tbaa !93
   %40 = and i16 %39, -1024
   %41 = icmp eq i16 %40, -9216
@@ -4227,7 +4222,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher14findUsingChunkER10UErrorCod
 74:                                               ; preds = %71
   %75 = add nsw i32 %.2121257, 1
   %76 = sext i32 %.2121257 to i64
-  %77 = getelementptr inbounds i16, ptr %13, i64 %76
+  %77 = getelementptr inbounds [2 x i8], ptr %13, i64 %76
   %78 = load i16, ptr %77, align 2, !tbaa !93
   %79 = and i16 %78, -1024
   %80 = icmp eq i16 %79, -10240
@@ -4240,7 +4235,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher14findUsingChunkER10UErrorCod
   br i1 %.not176, label %90, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i16, ptr %13, i64 %82
+  %85 = getelementptr inbounds [2 x i8], ptr %13, i64 %82
   %86 = load i16, ptr %85, align 2, !tbaa !93
   %87 = and i16 %86, -1024
   %88 = icmp eq i16 %87, -9216
@@ -4292,7 +4287,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
   %.4123 = phi i32 [ %.1120, %.preheader246 ], [ %.6125209, %.backedge ]
   %107 = add nsw i32 %.4123, 1
   %108 = sext i32 %.4123 to i64
-  %109 = getelementptr inbounds i16, ptr %13, i64 %108
+  %109 = getelementptr inbounds [2 x i8], ptr %13, i64 %108
   %110 = load i16, ptr %109, align 2, !tbaa !93
   %111 = zext i16 %110 to i32
   %112 = and i32 %111, 64512
@@ -4306,7 +4301,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
   br i1 %.not166, label %.thread, label %117
 
 117:                                              ; preds = %114
-  %118 = getelementptr inbounds i16, ptr %13, i64 %115
+  %118 = getelementptr inbounds [2 x i8], ptr %13, i64 %115
   %119 = load i16, ptr %118, align 2, !tbaa !93
   %120 = zext i16 %119 to i32
   %121 = and i32 %120, 64512
@@ -4402,7 +4397,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
   %.7126 = phi i32 [ %.1120, %161 ], [ %.9, %.backedge304 ]
   %167 = add nsw i32 %.7126, 1
   %168 = sext i32 %.7126 to i64
-  %169 = getelementptr inbounds i16, ptr %13, i64 %168
+  %169 = getelementptr inbounds [2 x i8], ptr %13, i64 %168
   %170 = load i16, ptr %169, align 2, !tbaa !93
   %171 = zext i16 %170 to i32
   %172 = and i32 %171, 64512
@@ -4416,7 +4411,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
   br i1 %.not162, label %188, label %177
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds i16, ptr %13, i64 %175
+  %178 = getelementptr inbounds [2 x i8], ptr %13, i64 %175
   %179 = load i16, ptr %178, align 2, !tbaa !93
   %180 = zext i16 %179 to i32
   %181 = and i32 %180, 64512
@@ -4496,7 +4491,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
 
 215:                                              ; preds = %213
   %216 = add nsw i32 %.1120, 1
-  %217 = getelementptr inbounds i16, ptr %13, i64 %206
+  %217 = getelementptr inbounds [2 x i8], ptr %13, i64 %206
   %218 = load i16, ptr %217, align 2, !tbaa !93
   %219 = and i16 %218, -1024
   %220 = icmp eq i16 %219, -10240
@@ -4509,7 +4504,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
   br i1 %.not149, label %230, label %224
 
 224:                                              ; preds = %221
-  %225 = getelementptr inbounds i16, ptr %13, i64 %222
+  %225 = getelementptr inbounds [2 x i8], ptr %13, i64 %222
   %226 = load i16, ptr %225, align 2, !tbaa !93
   %227 = and i16 %226, -1024
   %228 = icmp eq i16 %227, -9216
@@ -4531,7 +4526,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
 .preheader254:                                    ; preds = %230, %.preheader254.backedge
   %.11 = phi i32 [ %.12, %.preheader254.backedge ], [ %.10, %230 ]
   %237 = sext i32 %.11 to i64
-  %238 = getelementptr i16, ptr %13, i64 %237
+  %238 = getelementptr [2 x i8], ptr %13, i64 %237
   %239 = getelementptr i8, ptr %238, i64 -2
   %240 = load i16, ptr %239, align 2, !tbaa !93
   %241 = icmp eq i16 %240, 10
@@ -4572,7 +4567,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit: ; preds = %
   br i1 %.not160, label %264, label %258
 
 258:                                              ; preds = %255
-  %259 = getelementptr inbounds i16, ptr %13, i64 %256
+  %259 = getelementptr inbounds [2 x i8], ptr %13, i64 %256
   %260 = load i16, ptr %259, align 2, !tbaa !93
   %261 = and i16 %260, -1024
   %262 = icmp eq i16 %261, -9216
@@ -4603,7 +4598,7 @@ _ZN6icu_7712RegexMatcher21findProgressInterruptElR10UErrorCode.exit196.thread: ;
 .preheader251:                                    ; preds = %230, %.preheader251.backedge
   %.13 = phi i32 [ %.16, %.preheader251.backedge ], [ %.10, %230 ]
   %270 = sext i32 %.13 to i64
-  %271 = getelementptr i16, ptr %13, i64 %270
+  %271 = getelementptr [2 x i8], ptr %13, i64 %270
   %272 = getelementptr i8, ptr %271, i64 -2
   %273 = load i16, ptr %272, align 2, !tbaa !93
   %274 = and i16 %273, -8368
@@ -4661,7 +4656,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %275, %.preheader251
 290:                                              ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit.thread
   %291 = add nsw i32 %.14, 1
   %292 = sext i32 %.14 to i64
-  %293 = getelementptr inbounds i16, ptr %13, i64 %292
+  %293 = getelementptr inbounds [2 x i8], ptr %13, i64 %292
   %294 = load i16, ptr %293, align 2, !tbaa !93
   %295 = and i16 %294, -1024
   %296 = icmp eq i16 %295, -10240
@@ -4674,7 +4669,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %275, %.preheader251
   br i1 %.not155, label %306, label %300
 
 300:                                              ; preds = %297
-  %301 = getelementptr inbounds i16, ptr %13, i64 %298
+  %301 = getelementptr inbounds [2 x i8], ptr %13, i64 %298
   %302 = load i16, ptr %301, align 2, !tbaa !93
   %303 = and i16 %302, -1024
   %304 = icmp eq i16 %303, -9216
@@ -4789,7 +4784,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i: ; preds = %
   %48 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !131
   %50 = sext i32 %47 to i64
-  %51 = getelementptr inbounds i64, ptr %49, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %49, i64 %50
   store i32 %.pre-phi.i.i, ptr %39, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i
 
@@ -4864,7 +4859,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %.0726 = phi ptr [ %.1727.ph, %.critedge1071 ], [ %.0.i.i, %.preheader1408 ]
   %94 = getelementptr inbounds nuw i8, ptr %.0726, i64 8
   %95 = load i64, ptr %94, align 8, !tbaa !135
-  %96 = getelementptr inbounds i64, ptr %16, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %16, i64 %95
   %97 = load i64, ptr %96, align 8, !tbaa !110
   %98 = trunc i64 %97 to i32
   %99 = and i32 %98, 16777215
@@ -4942,10 +4937,10 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %108 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %109 = load ptr, ptr %108, align 8, !tbaa !131
   %110 = zext nneg i32 %spec.select.i to i64
-  %111 = getelementptr inbounds nuw i64, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %110
   %112 = sext i32 %104 to i64
   %113 = sub nsw i64 0, %112
-  %114 = getelementptr inbounds i64, ptr %111, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %111, i64 %113
   br label %.critedge1071
 
 115:                                              ; preds = %93
@@ -4972,7 +4967,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
 130:                                              ; preds = %125
   %131 = getelementptr inbounds nuw i8, ptr %120, i64 48
   %132 = load ptr, ptr %131, align 8, !tbaa !88
-  %133 = getelementptr inbounds nuw i16, ptr %132, i64 %123
+  %133 = getelementptr inbounds nuw [2 x i8], ptr %132, i64 %123
   %134 = load i16, ptr %133, align 2, !tbaa !93
   %135 = icmp ult i16 %134, -9216
   br i1 %135, label %136, label %139
@@ -5003,7 +4998,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 48
   %149 = load ptr, ptr %148, align 8, !tbaa !88
   %150 = sext i32 %141 to i64
-  %151 = getelementptr inbounds i16, ptr %149, i64 %150
+  %151 = getelementptr inbounds [2 x i8], ptr %149, i64 %150
   %152 = load i16, ptr %151, align 2, !tbaa !93
   %153 = icmp ult i16 %152, -10240
   br i1 %153, label %154, label %157
@@ -5067,21 +5062,21 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %187 = getelementptr inbounds nuw i8, ptr %182, i64 24
   %188 = load ptr, ptr %187, align 8, !tbaa !131
   %189 = zext nneg i32 %spec.select.i1086 to i64
-  %190 = getelementptr inbounds nuw i64, ptr %188, i64 %189
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %189
   %191 = sext i32 %183 to i64
   %192 = sub nsw i64 0, %191
-  %193 = getelementptr inbounds i64, ptr %190, i64 %192
+  %193 = getelementptr inbounds [8 x i8], ptr %190, i64 %192
   br label %.critedge1071
 
 194:                                              ; preds = %93
-  %195 = getelementptr inbounds i64, ptr %16, i64 %100
+  %195 = getelementptr inbounds [8 x i8], ptr %16, i64 %100
   %196 = load i64, ptr %195, align 8, !tbaa !110
   %197 = trunc i64 %196 to i32
   %198 = add nsw i64 %95, 2
   store i64 %198, ptr %94, align 8, !tbaa !135
   %199 = and i32 %197, 16777215
   %200 = and i64 %97, 16777215
-  %201 = getelementptr inbounds nuw i16, ptr %.0.i, i64 %200
+  %201 = getelementptr inbounds nuw [2 x i8], ptr %.0.i, i64 %200
   %202 = load i64, ptr %.0726, align 8, !tbaa !137
   %203 = load ptr, ptr %72, align 8, !tbaa !77
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 32
@@ -5100,7 +5095,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
 213:                                              ; preds = %208
   %214 = getelementptr inbounds nuw i8, ptr %203, i64 48
   %215 = load ptr, ptr %214, align 8, !tbaa !88
-  %216 = getelementptr inbounds nuw i16, ptr %215, i64 %206
+  %216 = getelementptr inbounds nuw [2 x i8], ptr %215, i64 %206
   %217 = load i16, ptr %216, align 2, !tbaa !93
   %218 = icmp ult i16 %217, -9216
   br i1 %218, label %219, label %222
@@ -5170,7 +5165,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %254 = getelementptr inbounds nuw i8, ptr %247, i64 48
   %255 = load ptr, ptr %254, align 8, !tbaa !88
   %256 = sext i32 %249 to i64
-  %257 = getelementptr inbounds i16, ptr %255, i64 %256
+  %257 = getelementptr inbounds [2 x i8], ptr %255, i64 %256
   %258 = load i16, ptr %257, align 2, !tbaa !93
   %259 = icmp ult i16 %258, -10240
   br i1 %259, label %260, label %263
@@ -5189,7 +5184,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %266 = phi i32 [ %262, %260 ], [ %264, %263 ]
   %267 = add nsw i32 %.0744, 1
   %268 = sext i32 %.0744 to i64
-  %269 = getelementptr inbounds i16, ptr %201, i64 %268
+  %269 = getelementptr inbounds [2 x i8], ptr %201, i64 %268
   %270 = load i16, ptr %269, align 2, !tbaa !93
   %271 = zext i16 %270 to i32
   %272 = and i32 %271, 64512
@@ -5200,7 +5195,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
 
 274:                                              ; preds = %265
   %275 = sext i32 %267 to i64
-  %276 = getelementptr inbounds i16, ptr %201, i64 %275
+  %276 = getelementptr inbounds [2 x i8], ptr %201, i64 %275
   %277 = load i16, ptr %276, align 2, !tbaa !93
   %278 = zext i16 %277 to i32
   %279 = and i32 %278, 64512
@@ -5254,10 +5249,10 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %305 = getelementptr inbounds nuw i8, ptr %300, i64 24
   %306 = load ptr, ptr %305, align 8, !tbaa !131
   %307 = zext nneg i32 %spec.select.i1087 to i64
-  %308 = getelementptr inbounds nuw i64, ptr %306, i64 %307
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %306, i64 %307
   %309 = sext i32 %301 to i64
   %310 = sub nsw i64 0, %309
-  %311 = getelementptr inbounds i64, ptr %308, i64 %310
+  %311 = getelementptr inbounds [8 x i8], ptr %308, i64 %310
   br label %.critedge1071
 
 312:                                              ; preds = %93
@@ -5295,7 +5290,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1090: ; preds
   %328 = getelementptr inbounds nuw i8, ptr %317, i64 24
   %329 = load ptr, ptr %328, align 8, !tbaa !131
   %330 = sext i32 %327 to i64
-  %331 = getelementptr inbounds i64, ptr %329, i64 %330
+  %331 = getelementptr inbounds [8 x i8], ptr %329, i64 %330
   store i32 %.pre-phi.i.i1091, ptr %319, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1092
 
@@ -5309,7 +5304,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1092: ; preds = %_ZN6icu
   %335 = load i32, ptr %31, align 8, !tbaa !17
   %336 = sext i32 %335 to i64
   %337 = sub nsw i64 0, %336
-  %338 = getelementptr inbounds i64, ptr %.0.i.i1093, i64 %337
+  %338 = getelementptr inbounds [8 x i8], ptr %.0.i.i1093, i64 %337
   br label %339
 
 339:                                              ; preds = %339, %334
@@ -5386,16 +5381,16 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %371 = getelementptr inbounds nuw i8, ptr %366, i64 24
   %372 = load ptr, ptr %371, align 8, !tbaa !131
   %373 = zext nneg i32 %spec.select.i1099 to i64
-  %374 = getelementptr inbounds nuw i64, ptr %372, i64 %373
+  %374 = getelementptr inbounds nuw [8 x i8], ptr %372, i64 %373
   %375 = sext i32 %367 to i64
   %376 = sub nsw i64 0, %375
-  %377 = getelementptr inbounds i64, ptr %374, i64 %376
+  %377 = getelementptr inbounds [8 x i8], ptr %374, i64 %376
   br label %.critedge1071
 
 378:                                              ; preds = %93
   %379 = load i64, ptr %.0726, align 8, !tbaa !137
   %380 = and i64 %97, 16777215
-  %381 = getelementptr inbounds nuw i64, ptr %.0726, i64 %380
+  %381 = getelementptr inbounds nuw [8 x i8], ptr %.0726, i64 %380
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 32
   store i64 %379, ptr %382, align 8, !tbaa !110
   br label %.critedge1071
@@ -5403,7 +5398,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 383:                                              ; preds = %93
   %384 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
   %385 = and i64 %97, 16777215
-  %386 = getelementptr inbounds nuw i64, ptr %384, i64 %385
+  %386 = getelementptr inbounds nuw [8 x i8], ptr %384, i64 %385
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 16
   %388 = load i64, ptr %387, align 8, !tbaa !110
   store i64 %388, ptr %386, align 8, !tbaa !110
@@ -5441,7 +5436,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 406:                                              ; preds = %401
   %407 = getelementptr inbounds nuw i8, ptr %396, i64 48
   %408 = load ptr, ptr %407, align 8, !tbaa !88
-  %409 = getelementptr inbounds nuw i16, ptr %408, i64 %399
+  %409 = getelementptr inbounds nuw [2 x i8], ptr %408, i64 %399
   %410 = load i16, ptr %409, align 2, !tbaa !93
   %411 = icmp ult i16 %410, -9216
   br i1 %411, label %412, label %415
@@ -5472,7 +5467,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %424 = getelementptr inbounds nuw i8, ptr %418, i64 48
   %425 = load ptr, ptr %424, align 8, !tbaa !88
   %426 = sext i32 %417 to i64
-  %427 = getelementptr inbounds i16, ptr %425, i64 %426
+  %427 = getelementptr inbounds [2 x i8], ptr %425, i64 %426
   %428 = load i16, ptr %427, align 2, !tbaa !93
   %429 = icmp ult i16 %428, -10240
   br i1 %429, label %430, label %433
@@ -5546,7 +5541,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %469 = getelementptr inbounds nuw i8, ptr %464, i64 48
   %470 = load ptr, ptr %469, align 8, !tbaa !88
   %471 = zext nneg i32 %466 to i64
-  %472 = getelementptr i16, ptr %470, i64 %471
+  %472 = getelementptr [2 x i8], ptr %470, i64 %471
   %473 = getelementptr i8, ptr %472, i64 -2
   %474 = load i16, ptr %473, align 2, !tbaa !93
   %475 = icmp ult i16 %474, -10240
@@ -5575,7 +5570,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %486 = getelementptr inbounds nuw i8, ptr %482, i64 48
   %487 = load ptr, ptr %486, align 8, !tbaa !88
   %488 = zext nneg i32 %481 to i64
-  %489 = getelementptr i16, ptr %487, i64 %488
+  %489 = getelementptr [2 x i8], ptr %487, i64 %488
   %490 = getelementptr i8, ptr %489, i64 -2
   %491 = load i16, ptr %490, align 2, !tbaa !93
   %492 = icmp ult i16 %491, -10240
@@ -5585,7 +5580,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %494 = add nsw i32 %481, -1
   store i32 %494, ptr %483, align 8, !tbaa !95
   %495 = zext nneg i32 %494 to i64
-  %496 = getelementptr inbounds nuw i16, ptr %487, i64 %495
+  %496 = getelementptr inbounds nuw [2 x i8], ptr %487, i64 %495
   %497 = load i16, ptr %496, align 2, !tbaa !93
   %498 = zext i16 %497 to i32
   br label %501
@@ -5617,7 +5612,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %513 = getelementptr inbounds nuw i8, ptr %506, i64 48
   %514 = load ptr, ptr %513, align 8, !tbaa !88
   %515 = sext i32 %508 to i64
-  %516 = getelementptr inbounds i16, ptr %514, i64 %515
+  %516 = getelementptr inbounds [2 x i8], ptr %514, i64 %515
   %517 = load i16, ptr %516, align 2, !tbaa !93
   %518 = icmp ult i16 %517, -10240
   br i1 %518, label %519, label %522
@@ -5685,10 +5680,10 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %554 = getelementptr inbounds nuw i8, ptr %549, i64 24
   %555 = load ptr, ptr %554, align 8, !tbaa !131
   %556 = zext nneg i32 %spec.select.i1100 to i64
-  %557 = getelementptr inbounds nuw i64, ptr %555, i64 %556
+  %557 = getelementptr inbounds nuw [8 x i8], ptr %555, i64 %556
   %558 = sext i32 %550 to i64
   %559 = sub nsw i64 0, %558
-  %560 = getelementptr inbounds i64, ptr %557, i64 %559
+  %560 = getelementptr inbounds [8 x i8], ptr %557, i64 %559
   br label %.critedge1071
 
 561:                                              ; preds = %93
@@ -5720,7 +5715,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 576:                                              ; preds = %571
   %577 = getelementptr inbounds nuw i8, ptr %566, i64 48
   %578 = load ptr, ptr %577, align 8, !tbaa !88
-  %579 = getelementptr inbounds nuw i16, ptr %578, i64 %569
+  %579 = getelementptr inbounds nuw [2 x i8], ptr %578, i64 %569
   %580 = load i16, ptr %579, align 2, !tbaa !93
   %581 = icmp ult i16 %580, -9216
   br i1 %581, label %582, label %585
@@ -5751,7 +5746,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %594 = getelementptr inbounds nuw i8, ptr %588, i64 48
   %595 = load ptr, ptr %594, align 8, !tbaa !88
   %596 = sext i32 %587 to i64
-  %597 = getelementptr inbounds i16, ptr %595, i64 %596
+  %597 = getelementptr inbounds [2 x i8], ptr %595, i64 %596
   %598 = load i16, ptr %597, align 2, !tbaa !93
   %599 = icmp ult i16 %598, -10240
   br i1 %599, label %600, label %603
@@ -5817,10 +5812,10 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %636 = getelementptr inbounds nuw i8, ptr %631, i64 24
   %637 = load ptr, ptr %636, align 8, !tbaa !131
   %638 = zext nneg i32 %spec.select.i1101 to i64
-  %639 = getelementptr inbounds nuw i64, ptr %637, i64 %638
+  %639 = getelementptr inbounds nuw [8 x i8], ptr %637, i64 %638
   %640 = sext i32 %632 to i64
   %641 = sub nsw i64 0, %640
-  %642 = getelementptr inbounds i64, ptr %639, i64 %641
+  %642 = getelementptr inbounds [8 x i8], ptr %639, i64 %641
   br label %.critedge1071
 
 643:                                              ; preds = %93
@@ -5852,7 +5847,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 658:                                              ; preds = %653
   %659 = getelementptr inbounds nuw i8, ptr %648, i64 48
   %660 = load ptr, ptr %659, align 8, !tbaa !88
-  %661 = getelementptr inbounds nuw i16, ptr %660, i64 %651
+  %661 = getelementptr inbounds nuw [2 x i8], ptr %660, i64 %651
   %662 = load i16, ptr %661, align 2, !tbaa !93
   %663 = icmp ult i16 %662, -9216
   br i1 %663, label %664, label %667
@@ -5882,7 +5877,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %675 = getelementptr inbounds nuw i8, ptr %670, i64 48
   %676 = load ptr, ptr %675, align 8, !tbaa !88
   %677 = sext i32 %669 to i64
-  %678 = getelementptr inbounds i16, ptr %676, i64 %677
+  %678 = getelementptr inbounds [2 x i8], ptr %676, i64 %677
   %679 = load i16, ptr %678, align 2, !tbaa !93
   %680 = icmp ult i16 %679, -10240
   br i1 %680, label %681, label %683
@@ -5929,7 +5924,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %699 = getelementptr inbounds nuw i8, ptr %694, i64 48
   %700 = load ptr, ptr %699, align 8, !tbaa !88
   %701 = zext nneg i32 %696 to i64
-  %702 = getelementptr i16, ptr %700, i64 %701
+  %702 = getelementptr [2 x i8], ptr %700, i64 %701
   %703 = getelementptr i8, ptr %702, i64 -2
   %704 = load i16, ptr %703, align 2, !tbaa !93
   %705 = icmp ult i16 %704, -10240
@@ -5939,7 +5934,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %707 = add nsw i32 %696, -1
   store i32 %707, ptr %695, align 8, !tbaa !95
   %708 = zext nneg i32 %707 to i64
-  %709 = getelementptr inbounds nuw i16, ptr %700, i64 %708
+  %709 = getelementptr inbounds nuw [2 x i8], ptr %700, i64 %708
   %710 = load i16, ptr %709, align 2, !tbaa !93
   %711 = zext i16 %710 to i32
   br label %714
@@ -5964,10 +5959,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %688, %685, %714
   %722 = getelementptr inbounds nuw i8, ptr %717, i64 24
   %723 = load ptr, ptr %722, align 8, !tbaa !131
   %724 = zext nneg i32 %spec.select.i1104 to i64
-  %725 = getelementptr inbounds nuw i64, ptr %723, i64 %724
+  %725 = getelementptr inbounds nuw [8 x i8], ptr %723, i64 %724
   %726 = sext i32 %718 to i64
   %727 = sub nsw i64 0, %726
-  %728 = getelementptr inbounds i64, ptr %725, i64 %727
+  %728 = getelementptr inbounds [8 x i8], ptr %725, i64 %727
   br label %.critedge1071
 
 729:                                              ; preds = %93
@@ -5999,7 +5994,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %688, %685, %714
 744:                                              ; preds = %739
   %745 = getelementptr inbounds nuw i8, ptr %734, i64 48
   %746 = load ptr, ptr %745, align 8, !tbaa !88
-  %747 = getelementptr inbounds nuw i16, ptr %746, i64 %737
+  %747 = getelementptr inbounds nuw [2 x i8], ptr %746, i64 %737
   %748 = load i16, ptr %747, align 2, !tbaa !93
   %749 = icmp ult i16 %748, -9216
   br i1 %749, label %750, label %753
@@ -6029,7 +6024,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %688, %685, %714
   %761 = getelementptr inbounds nuw i8, ptr %756, i64 48
   %762 = load ptr, ptr %761, align 8, !tbaa !88
   %763 = sext i32 %755 to i64
-  %764 = getelementptr inbounds i16, ptr %762, i64 %763
+  %764 = getelementptr inbounds [2 x i8], ptr %762, i64 %763
   %765 = load i16, ptr %764, align 2, !tbaa !93
   %766 = icmp ult i16 %765, -10240
   br i1 %766, label %767, label %769
@@ -6058,10 +6053,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %688, %685, %714
   %779 = getelementptr inbounds nuw i8, ptr %774, i64 24
   %780 = load ptr, ptr %779, align 8, !tbaa !131
   %781 = zext nneg i32 %spec.select.i1105 to i64
-  %782 = getelementptr inbounds nuw i64, ptr %780, i64 %781
+  %782 = getelementptr inbounds nuw [8 x i8], ptr %780, i64 %781
   %783 = sext i32 %775 to i64
   %784 = sub nsw i64 0, %783
-  %785 = getelementptr inbounds i64, ptr %782, i64 %784
+  %785 = getelementptr inbounds [8 x i8], ptr %782, i64 %784
   br label %.critedge1071
 
 786:                                              ; preds = %93
@@ -6081,10 +6076,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %688, %685, %714
   %795 = getelementptr inbounds nuw i8, ptr %790, i64 24
   %796 = load ptr, ptr %795, align 8, !tbaa !131
   %797 = zext nneg i32 %spec.select.i1106 to i64
-  %798 = getelementptr inbounds nuw i64, ptr %796, i64 %797
+  %798 = getelementptr inbounds nuw [8 x i8], ptr %796, i64 %797
   %799 = sext i32 %791 to i64
   %800 = sub nsw i64 0, %799
-  %801 = getelementptr inbounds i64, ptr %798, i64 %800
+  %801 = getelementptr inbounds [8 x i8], ptr %798, i64 %800
   br label %.critedge1071
 
 802:                                              ; preds = %93
@@ -6111,7 +6106,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %688, %685, %714
 817:                                              ; preds = %812
   %818 = getelementptr inbounds nuw i8, ptr %807, i64 48
   %819 = load ptr, ptr %818, align 8, !tbaa !88
-  %820 = getelementptr inbounds nuw i16, ptr %819, i64 %810
+  %820 = getelementptr inbounds nuw [2 x i8], ptr %819, i64 %810
   %821 = load i16, ptr %820, align 2, !tbaa !93
   %822 = icmp ult i16 %821, -9216
   br i1 %822, label %823, label %826
@@ -6140,7 +6135,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %688, %685, %714
   %833 = getelementptr inbounds nuw i8, ptr %829, i64 48
   %834 = load ptr, ptr %833, align 8, !tbaa !88
   %835 = zext nneg i32 %828 to i64
-  %836 = getelementptr i16, ptr %834, i64 %835
+  %836 = getelementptr [2 x i8], ptr %834, i64 %835
   %837 = getelementptr i8, ptr %836, i64 -2
   %838 = load i16, ptr %837, align 2, !tbaa !93
   %839 = icmp ult i16 %838, -10240
@@ -6150,7 +6145,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %688, %685, %714
   %841 = add nsw i32 %828, -1
   store i32 %841, ptr %830, align 8, !tbaa !95
   %842 = zext nneg i32 %841 to i64
-  %843 = getelementptr inbounds nuw i16, ptr %834, i64 %842
+  %843 = getelementptr inbounds nuw [2 x i8], ptr %834, i64 %842
   %844 = load i16, ptr %843, align 2, !tbaa !93
   %845 = zext i16 %844 to i32
   br label %848
@@ -6182,10 +6177,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %688, %685, %714
   %861 = getelementptr inbounds nuw i8, ptr %856, i64 24
   %862 = load ptr, ptr %861, align 8, !tbaa !131
   %863 = zext nneg i32 %spec.select.i1107 to i64
-  %864 = getelementptr inbounds nuw i64, ptr %862, i64 %863
+  %864 = getelementptr inbounds nuw [8 x i8], ptr %862, i64 %863
   %865 = sext i32 %857 to i64
   %866 = sub nsw i64 0, %865
-  %867 = getelementptr inbounds i64, ptr %864, i64 %866
+  %867 = getelementptr inbounds [8 x i8], ptr %864, i64 %866
   br label %.critedge1071
 
 868:                                              ; preds = %93
@@ -6212,7 +6207,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %688, %685, %714
 882:                                              ; preds = %877
   %883 = getelementptr inbounds nuw i8, ptr %872, i64 48
   %884 = load ptr, ptr %883, align 8, !tbaa !88
-  %885 = getelementptr inbounds nuw i16, ptr %884, i64 %875
+  %885 = getelementptr inbounds nuw [2 x i8], ptr %884, i64 %875
   %886 = load i16, ptr %885, align 2, !tbaa !93
   %887 = icmp ult i16 %886, -9216
   br i1 %887, label %888, label %891
@@ -6241,7 +6236,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %688, %685, %714
   %898 = getelementptr inbounds nuw i8, ptr %894, i64 48
   %899 = load ptr, ptr %898, align 8, !tbaa !88
   %900 = zext nneg i32 %893 to i64
-  %901 = getelementptr i16, ptr %899, i64 %900
+  %901 = getelementptr [2 x i8], ptr %899, i64 %900
   %902 = getelementptr i8, ptr %901, i64 -2
   %903 = load i16, ptr %902, align 2, !tbaa !93
   %904 = icmp ult i16 %903, -10240
@@ -6251,7 +6246,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %688, %685, %714
   %906 = add nsw i32 %893, -1
   store i32 %906, ptr %895, align 8, !tbaa !95
   %907 = zext nneg i32 %906 to i64
-  %908 = getelementptr inbounds nuw i16, ptr %899, i64 %907
+  %908 = getelementptr inbounds nuw [2 x i8], ptr %899, i64 %907
   %909 = load i16, ptr %908, align 2, !tbaa !93
   %910 = zext i16 %909 to i32
   br label %913
@@ -6276,10 +6271,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %688, %685, %714
   %921 = getelementptr inbounds nuw i8, ptr %916, i64 24
   %922 = load ptr, ptr %921, align 8, !tbaa !131
   %923 = zext nneg i32 %spec.select.i1108 to i64
-  %924 = getelementptr inbounds nuw i64, ptr %922, i64 %923
+  %924 = getelementptr inbounds nuw [8 x i8], ptr %922, i64 %923
   %925 = sext i32 %917 to i64
   %926 = sub nsw i64 0, %925
-  %927 = getelementptr inbounds i64, ptr %924, i64 %926
+  %927 = getelementptr inbounds [8 x i8], ptr %924, i64 %926
   br label %.critedge1071
 
 928:                                              ; preds = %93
@@ -6301,10 +6296,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %688, %685, %714
   %939 = getelementptr inbounds nuw i8, ptr %934, i64 24
   %940 = load ptr, ptr %939, align 8, !tbaa !131
   %941 = zext nneg i32 %spec.select.i1109 to i64
-  %942 = getelementptr inbounds nuw i64, ptr %940, i64 %941
+  %942 = getelementptr inbounds nuw [8 x i8], ptr %940, i64 %941
   %943 = sext i32 %935 to i64
   %944 = sub nsw i64 0, %943
-  %945 = getelementptr inbounds i64, ptr %942, i64 %944
+  %945 = getelementptr inbounds [8 x i8], ptr %942, i64 %944
   br label %.critedge1071
 
 946:                                              ; preds = %93
@@ -6365,10 +6360,10 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %950, %
   %978 = getelementptr inbounds nuw i8, ptr %973, i64 24
   %979 = load ptr, ptr %978, align 8, !tbaa !131
   %980 = zext nneg i32 %spec.select.i1110 to i64
-  %981 = getelementptr inbounds nuw i64, ptr %979, i64 %980
+  %981 = getelementptr inbounds nuw [8 x i8], ptr %979, i64 %980
   %982 = sext i32 %974 to i64
   %983 = sub nsw i64 0, %982
-  %984 = getelementptr inbounds i64, ptr %981, i64 %983
+  %984 = getelementptr inbounds [8 x i8], ptr %981, i64 %983
   br label %.critedge1071
 
 985:                                              ; preds = %93
@@ -6389,10 +6384,10 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %950, %
   %994 = getelementptr inbounds nuw i8, ptr %989, i64 24
   %995 = load ptr, ptr %994, align 8, !tbaa !131
   %996 = zext nneg i32 %spec.select.i1111 to i64
-  %997 = getelementptr inbounds nuw i64, ptr %995, i64 %996
+  %997 = getelementptr inbounds nuw [8 x i8], ptr %995, i64 %996
   %998 = sext i32 %990 to i64
   %999 = sub nsw i64 0, %998
-  %1000 = getelementptr inbounds i64, ptr %997, i64 %999
+  %1000 = getelementptr inbounds [8 x i8], ptr %997, i64 %999
   br label %.critedge1071
 
 1001:                                             ; preds = %985
@@ -6413,7 +6408,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %950, %
 1012:                                             ; preds = %1007
   %1013 = getelementptr inbounds nuw i8, ptr %1002, i64 48
   %1014 = load ptr, ptr %1013, align 8, !tbaa !88
-  %1015 = getelementptr inbounds nuw i16, ptr %1014, i64 %1005
+  %1015 = getelementptr inbounds nuw [2 x i8], ptr %1014, i64 %1005
   %1016 = load i16, ptr %1015, align 2, !tbaa !93
   %1017 = icmp ult i16 %1016, -9216
   br i1 %1017, label %1018, label %1021
@@ -6444,7 +6439,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %950, %
   %1030 = getelementptr inbounds nuw i8, ptr %1024, i64 48
   %1031 = load ptr, ptr %1030, align 8, !tbaa !88
   %1032 = sext i32 %1023 to i64
-  %1033 = getelementptr inbounds i16, ptr %1031, i64 %1032
+  %1033 = getelementptr inbounds [2 x i8], ptr %1031, i64 %1032
   %1034 = load i16, ptr %1033, align 2, !tbaa !93
   %1035 = icmp ult i16 %1034, -10240
   br i1 %1035, label %1036, label %1039
@@ -6507,10 +6502,10 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %950, %
   %1072 = getelementptr inbounds nuw i8, ptr %1067, i64 24
   %1073 = load ptr, ptr %1072, align 8, !tbaa !131
   %1074 = zext nneg i32 %spec.select.i1112 to i64
-  %1075 = getelementptr inbounds nuw i64, ptr %1073, i64 %1074
+  %1075 = getelementptr inbounds nuw [8 x i8], ptr %1073, i64 %1074
   %1076 = sext i32 %1068 to i64
   %1077 = sub nsw i64 0, %1076
-  %1078 = getelementptr inbounds i64, ptr %1075, i64 %1077
+  %1078 = getelementptr inbounds [8 x i8], ptr %1075, i64 %1077
   br label %.critedge1071
 
 1079:                                             ; preds = %93
@@ -6540,10 +6535,10 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %950, %
   %1094 = getelementptr inbounds nuw i8, ptr %1089, i64 24
   %1095 = load ptr, ptr %1094, align 8, !tbaa !131
   %1096 = zext nneg i32 %spec.select.i1113 to i64
-  %1097 = getelementptr inbounds nuw i64, ptr %1095, i64 %1096
+  %1097 = getelementptr inbounds nuw [8 x i8], ptr %1095, i64 %1096
   %1098 = sext i32 %1090 to i64
   %1099 = sub nsw i64 0, %1098
-  %1100 = getelementptr inbounds i64, ptr %1097, i64 %1099
+  %1100 = getelementptr inbounds [8 x i8], ptr %1097, i64 %1099
   br label %.critedge1071
 
 1101:                                             ; preds = %93
@@ -6564,10 +6559,10 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %950, %
   %1110 = getelementptr inbounds nuw i8, ptr %1105, i64 24
   %1111 = load ptr, ptr %1110, align 8, !tbaa !131
   %1112 = zext nneg i32 %spec.select.i1114 to i64
-  %1113 = getelementptr inbounds nuw i64, ptr %1111, i64 %1112
+  %1113 = getelementptr inbounds nuw [8 x i8], ptr %1111, i64 %1112
   %1114 = sext i32 %1106 to i64
   %1115 = sub nsw i64 0, %1114
-  %1116 = getelementptr inbounds i64, ptr %1113, i64 %1115
+  %1116 = getelementptr inbounds [8 x i8], ptr %1113, i64 %1115
   br label %.critedge1071
 
 1117:                                             ; preds = %1101
@@ -6588,7 +6583,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %950, %
 1128:                                             ; preds = %1123
   %1129 = getelementptr inbounds nuw i8, ptr %1118, i64 48
   %1130 = load ptr, ptr %1129, align 8, !tbaa !88
-  %1131 = getelementptr inbounds nuw i16, ptr %1130, i64 %1121
+  %1131 = getelementptr inbounds nuw [2 x i8], ptr %1130, i64 %1121
   %1132 = load i16, ptr %1131, align 2, !tbaa !93
   %1133 = icmp ult i16 %1132, -9216
   br i1 %1133, label %1134, label %1137
@@ -6619,7 +6614,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %950, %
   %1146 = getelementptr inbounds nuw i8, ptr %1140, i64 48
   %1147 = load ptr, ptr %1146, align 8, !tbaa !88
   %1148 = sext i32 %1139 to i64
-  %1149 = getelementptr inbounds i16, ptr %1147, i64 %1148
+  %1149 = getelementptr inbounds [2 x i8], ptr %1147, i64 %1148
   %1150 = load i16, ptr %1149, align 2, !tbaa !93
   %1151 = icmp ult i16 %1150, -10240
   br i1 %1151, label %1152, label %1155
@@ -6684,10 +6679,10 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %950, %
   %1190 = getelementptr inbounds nuw i8, ptr %1185, i64 24
   %1191 = load ptr, ptr %1190, align 8, !tbaa !131
   %1192 = zext nneg i32 %spec.select.i1115 to i64
-  %1193 = getelementptr inbounds nuw i64, ptr %1191, i64 %1192
+  %1193 = getelementptr inbounds nuw [8 x i8], ptr %1191, i64 %1192
   %1194 = sext i32 %1186 to i64
   %1195 = sub nsw i64 0, %1194
-  %1196 = getelementptr inbounds i64, ptr %1193, i64 %1195
+  %1196 = getelementptr inbounds [8 x i8], ptr %1193, i64 %1195
   br label %.critedge1071
 
 1197:                                             ; preds = %93
@@ -6708,10 +6703,10 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %950, %
   %1206 = getelementptr inbounds nuw i8, ptr %1201, i64 24
   %1207 = load ptr, ptr %1206, align 8, !tbaa !131
   %1208 = zext nneg i32 %spec.select.i1116 to i64
-  %1209 = getelementptr inbounds nuw i64, ptr %1207, i64 %1208
+  %1209 = getelementptr inbounds nuw [8 x i8], ptr %1207, i64 %1208
   %1210 = sext i32 %1202 to i64
   %1211 = sub nsw i64 0, %1210
-  %1212 = getelementptr inbounds i64, ptr %1209, i64 %1211
+  %1212 = getelementptr inbounds [8 x i8], ptr %1209, i64 %1211
   br label %.critedge1071
 
 1213:                                             ; preds = %1197
@@ -6732,7 +6727,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %950, %
 1224:                                             ; preds = %1219
   %1225 = getelementptr inbounds nuw i8, ptr %1214, i64 48
   %1226 = load ptr, ptr %1225, align 8, !tbaa !88
-  %1227 = getelementptr inbounds nuw i16, ptr %1226, i64 %1217
+  %1227 = getelementptr inbounds nuw [2 x i8], ptr %1226, i64 %1217
   %1228 = load i16, ptr %1227, align 2, !tbaa !93
   %1229 = icmp ult i16 %1228, -9216
   br i1 %1229, label %1230, label %1233
@@ -6763,7 +6758,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %950, %
   %1242 = getelementptr inbounds nuw i8, ptr %1236, i64 48
   %1243 = load ptr, ptr %1242, align 8, !tbaa !88
   %1244 = sext i32 %1235 to i64
-  %1245 = getelementptr inbounds i16, ptr %1243, i64 %1244
+  %1245 = getelementptr inbounds [2 x i8], ptr %1243, i64 %1244
   %1246 = load i16, ptr %1245, align 2, !tbaa !93
   %1247 = icmp ult i16 %1246, -10240
   br i1 %1247, label %1248, label %1251
@@ -6846,10 +6841,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit1119.thread:  ; preds = %1256, %1253
   %1287 = getelementptr inbounds nuw i8, ptr %1282, i64 24
   %1288 = load ptr, ptr %1287, align 8, !tbaa !131
   %1289 = zext nneg i32 %spec.select.i1120 to i64
-  %1290 = getelementptr inbounds nuw i64, ptr %1288, i64 %1289
+  %1290 = getelementptr inbounds nuw [8 x i8], ptr %1288, i64 %1289
   %1291 = sext i32 %1283 to i64
   %1292 = sub nsw i64 0, %1291
-  %1293 = getelementptr inbounds i64, ptr %1290, i64 %1292
+  %1293 = getelementptr inbounds [8 x i8], ptr %1290, i64 %1292
   br label %.critedge1071
 
 1294:                                             ; preds = %93
@@ -6870,10 +6865,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit1119.thread:  ; preds = %1256, %1253
   %1303 = getelementptr inbounds nuw i8, ptr %1298, i64 24
   %1304 = load ptr, ptr %1303, align 8, !tbaa !131
   %1305 = zext nneg i32 %spec.select.i1121 to i64
-  %1306 = getelementptr inbounds nuw i64, ptr %1304, i64 %1305
+  %1306 = getelementptr inbounds nuw [8 x i8], ptr %1304, i64 %1305
   %1307 = sext i32 %1299 to i64
   %1308 = sub nsw i64 0, %1307
-  %1309 = getelementptr inbounds i64, ptr %1306, i64 %1308
+  %1309 = getelementptr inbounds [8 x i8], ptr %1306, i64 %1308
   br label %.critedge1071
 
 1310:                                             ; preds = %1294
@@ -6894,7 +6889,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1119.thread:  ; preds = %1256, %1253
 1321:                                             ; preds = %1316
   %1322 = getelementptr inbounds nuw i8, ptr %1311, i64 48
   %1323 = load ptr, ptr %1322, align 8, !tbaa !88
-  %1324 = getelementptr inbounds nuw i16, ptr %1323, i64 %1314
+  %1324 = getelementptr inbounds nuw [2 x i8], ptr %1323, i64 %1314
   %1325 = load i16, ptr %1324, align 2, !tbaa !93
   %1326 = icmp ult i16 %1325, -9216
   br i1 %1326, label %1327, label %1330
@@ -6925,7 +6920,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1119.thread:  ; preds = %1256, %1253
   %1339 = getelementptr inbounds nuw i8, ptr %1333, i64 48
   %1340 = load ptr, ptr %1339, align 8, !tbaa !88
   %1341 = sext i32 %1332 to i64
-  %1342 = getelementptr inbounds i16, ptr %1340, i64 %1341
+  %1342 = getelementptr inbounds [2 x i8], ptr %1340, i64 %1341
   %1343 = load i16, ptr %1342, align 2, !tbaa !93
   %1344 = icmp ult i16 %1343, -10240
   br i1 %1344, label %1345, label %1348
@@ -7008,10 +7003,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit1124:         ; preds = %1350, %1353, %1353,
   %1384 = getelementptr inbounds nuw i8, ptr %1379, i64 24
   %1385 = load ptr, ptr %1384, align 8, !tbaa !131
   %1386 = zext nneg i32 %spec.select.i1125 to i64
-  %1387 = getelementptr inbounds nuw i64, ptr %1385, i64 %1386
+  %1387 = getelementptr inbounds nuw [8 x i8], ptr %1385, i64 %1386
   %1388 = sext i32 %1380 to i64
   %1389 = sub nsw i64 0, %1388
-  %1390 = getelementptr inbounds i64, ptr %1387, i64 %1389
+  %1390 = getelementptr inbounds [8 x i8], ptr %1387, i64 %1389
   br label %.critedge1071
 
 1391:                                             ; preds = %93
@@ -7032,10 +7027,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit1124:         ; preds = %1350, %1353, %1353,
   %1400 = getelementptr inbounds nuw i8, ptr %1395, i64 24
   %1401 = load ptr, ptr %1400, align 8, !tbaa !131
   %1402 = zext nneg i32 %spec.select.i1126 to i64
-  %1403 = getelementptr inbounds nuw i64, ptr %1401, i64 %1402
+  %1403 = getelementptr inbounds nuw [8 x i8], ptr %1401, i64 %1402
   %1404 = sext i32 %1396 to i64
   %1405 = sub nsw i64 0, %1404
-  %1406 = getelementptr inbounds i64, ptr %1403, i64 %1405
+  %1406 = getelementptr inbounds [8 x i8], ptr %1403, i64 %1405
   br label %.critedge1071
 
 1407:                                             ; preds = %1391
@@ -7101,10 +7096,10 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1441 = getelementptr inbounds nuw i8, ptr %1436, i64 24
   %1442 = load ptr, ptr %1441, align 8, !tbaa !131
   %1443 = zext nneg i32 %spec.select.i1128 to i64
-  %1444 = getelementptr inbounds nuw i64, ptr %1442, i64 %1443
+  %1444 = getelementptr inbounds nuw [8 x i8], ptr %1442, i64 %1443
   %1445 = sext i32 %1437 to i64
   %1446 = sub nsw i64 0, %1445
-  %1447 = getelementptr inbounds i64, ptr %1444, i64 %1446
+  %1447 = getelementptr inbounds [8 x i8], ptr %1444, i64 %1446
   br label %.critedge1071
 
 1448:                                             ; preds = %1431
@@ -7130,10 +7125,10 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1458 = getelementptr inbounds nuw i8, ptr %1453, i64 24
   %1459 = load ptr, ptr %1458, align 8, !tbaa !131
   %1460 = zext nneg i32 %spec.select.i1129 to i64
-  %1461 = getelementptr inbounds nuw i64, ptr %1459, i64 %1460
+  %1461 = getelementptr inbounds nuw [8 x i8], ptr %1459, i64 %1460
   %1462 = sext i32 %1454 to i64
   %1463 = sub nsw i64 0, %1462
-  %1464 = getelementptr inbounds i64, ptr %1461, i64 %1463
+  %1464 = getelementptr inbounds [8 x i8], ptr %1461, i64 %1463
   br label %.critedge1071
 
 1465:                                             ; preds = %1449
@@ -7159,7 +7154,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 1479:                                             ; preds = %1474
   %1480 = getelementptr inbounds nuw i8, ptr %1469, i64 48
   %1481 = load ptr, ptr %1480, align 8, !tbaa !88
-  %1482 = getelementptr inbounds nuw i16, ptr %1481, i64 %1472
+  %1482 = getelementptr inbounds nuw [2 x i8], ptr %1481, i64 %1472
   %1483 = load i16, ptr %1482, align 2, !tbaa !93
   %1484 = icmp ult i16 %1483, -9216
   br i1 %1484, label %1485, label %1488
@@ -7190,7 +7185,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1497 = getelementptr inbounds nuw i8, ptr %1491, i64 48
   %1498 = load ptr, ptr %1497, align 8, !tbaa !88
   %1499 = sext i32 %1490 to i64
-  %1500 = getelementptr inbounds i16, ptr %1498, i64 %1499
+  %1500 = getelementptr inbounds [2 x i8], ptr %1498, i64 %1499
   %1501 = load i16, ptr %1500, align 2, !tbaa !93
   %1502 = icmp ult i16 %1501, -10240
   br i1 %1502, label %1503, label %1506
@@ -7213,7 +7208,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 
 1512:                                             ; preds = %1508
   %1513 = getelementptr inbounds nuw i8, ptr %1511, i64 2608
-  %1514 = getelementptr inbounds nuw %"struct.icu_77::Regex8BitSet", ptr %1513, i64 %1468
+  %1514 = getelementptr inbounds nuw [32 x i8], ptr %1513, i64 %1468
   %1515 = ashr i32 %1509, 3
   %1516 = sext i32 %1515 to i64
   %1517 = getelementptr inbounds i8, ptr %1514, i64 %1516
@@ -7227,7 +7222,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 
 1523:                                             ; preds = %1508
   %1524 = getelementptr inbounds nuw i8, ptr %1511, i64 8
-  %1525 = getelementptr inbounds nuw %"class.icu_77::UnicodeSet", ptr %1524, i64 %1468
+  %1525 = getelementptr inbounds nuw [200 x i8], ptr %1524, i64 %1468
   %1526 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %1525, i32 noundef %1509)
   %.not1010 = icmp eq i8 %1526, 0
   br label %1527
@@ -7279,10 +7274,10 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1554 = getelementptr inbounds nuw i8, ptr %1549, i64 24
   %1555 = load ptr, ptr %1554, align 8, !tbaa !131
   %1556 = zext nneg i32 %spec.select.i1130 to i64
-  %1557 = getelementptr inbounds nuw i64, ptr %1555, i64 %1556
+  %1557 = getelementptr inbounds nuw [8 x i8], ptr %1555, i64 %1556
   %1558 = sext i32 %1550 to i64
   %1559 = sub nsw i64 0, %1558
-  %1560 = getelementptr inbounds i64, ptr %1557, i64 %1559
+  %1560 = getelementptr inbounds [8 x i8], ptr %1557, i64 %1559
   br label %.critedge1071
 
 1561:                                             ; preds = %93
@@ -7303,10 +7298,10 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1570 = getelementptr inbounds nuw i8, ptr %1565, i64 24
   %1571 = load ptr, ptr %1570, align 8, !tbaa !131
   %1572 = zext nneg i32 %spec.select.i1131 to i64
-  %1573 = getelementptr inbounds nuw i64, ptr %1571, i64 %1572
+  %1573 = getelementptr inbounds nuw [8 x i8], ptr %1571, i64 %1572
   %1574 = sext i32 %1566 to i64
   %1575 = sub nsw i64 0, %1574
-  %1576 = getelementptr inbounds i64, ptr %1573, i64 %1575
+  %1576 = getelementptr inbounds [8 x i8], ptr %1573, i64 %1575
   br label %.critedge1071
 
 1577:                                             ; preds = %1561
@@ -7327,7 +7322,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 1588:                                             ; preds = %1583
   %1589 = getelementptr inbounds nuw i8, ptr %1578, i64 48
   %1590 = load ptr, ptr %1589, align 8, !tbaa !88
-  %1591 = getelementptr inbounds nuw i16, ptr %1590, i64 %1581
+  %1591 = getelementptr inbounds nuw [2 x i8], ptr %1590, i64 %1581
   %1592 = load i16, ptr %1591, align 2, !tbaa !93
   %1593 = icmp ult i16 %1592, -9216
   br i1 %1593, label %1594, label %1597
@@ -7358,7 +7353,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1606 = getelementptr inbounds nuw i8, ptr %1600, i64 48
   %1607 = load ptr, ptr %1606, align 8, !tbaa !88
   %1608 = sext i32 %1599 to i64
-  %1609 = getelementptr inbounds i16, ptr %1607, i64 %1608
+  %1609 = getelementptr inbounds [2 x i8], ptr %1607, i64 %1608
   %1610 = load i16, ptr %1609, align 2, !tbaa !93
   %1611 = icmp ult i16 %1610, -10240
   br i1 %1611, label %1612, label %1615
@@ -7382,7 +7377,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 
 1622:                                             ; preds = %1617
   %1623 = getelementptr inbounds nuw i8, ptr %1620, i64 2608
-  %1624 = getelementptr inbounds nuw %"struct.icu_77::Regex8BitSet", ptr %1623, i64 %1621
+  %1624 = getelementptr inbounds nuw [32 x i8], ptr %1623, i64 %1621
   %1625 = ashr i32 %1618, 3
   %1626 = sext i32 %1625 to i64
   %1627 = getelementptr inbounds i8, ptr %1624, i64 %1626
@@ -7425,7 +7420,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 
 1652:                                             ; preds = %1617
   %1653 = getelementptr inbounds nuw i8, ptr %1620, i64 8
-  %1654 = getelementptr inbounds nuw %"class.icu_77::UnicodeSet", ptr %1653, i64 %1621
+  %1654 = getelementptr inbounds nuw [200 x i8], ptr %1653, i64 %1621
   %1655 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %1654, i32 noundef %1618)
   %.not1005 = icmp eq i8 %1655, 0
   br i1 %.not1005, label %1656, label %.critedge1061
@@ -7470,10 +7465,10 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1680 = getelementptr inbounds nuw i8, ptr %1675, i64 24
   %1681 = load ptr, ptr %1680, align 8, !tbaa !131
   %1682 = zext nneg i32 %spec.select.i1132 to i64
-  %1683 = getelementptr inbounds nuw i64, ptr %1681, i64 %1682
+  %1683 = getelementptr inbounds nuw [8 x i8], ptr %1681, i64 %1682
   %1684 = sext i32 %1676 to i64
   %1685 = sub nsw i64 0, %1684
-  %1686 = getelementptr inbounds i64, ptr %1683, i64 %1685
+  %1686 = getelementptr inbounds [8 x i8], ptr %1683, i64 %1685
   br label %.critedge1071
 
 1687:                                             ; preds = %93
@@ -7494,10 +7489,10 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1696 = getelementptr inbounds nuw i8, ptr %1691, i64 24
   %1697 = load ptr, ptr %1696, align 8, !tbaa !131
   %1698 = zext nneg i32 %spec.select.i1133 to i64
-  %1699 = getelementptr inbounds nuw i64, ptr %1697, i64 %1698
+  %1699 = getelementptr inbounds nuw [8 x i8], ptr %1697, i64 %1698
   %1700 = sext i32 %1692 to i64
   %1701 = sub nsw i64 0, %1700
-  %1702 = getelementptr inbounds i64, ptr %1699, i64 %1701
+  %1702 = getelementptr inbounds [8 x i8], ptr %1699, i64 %1701
   br label %.critedge1071
 
 1703:                                             ; preds = %1687
@@ -7518,7 +7513,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 1714:                                             ; preds = %1709
   %1715 = getelementptr inbounds nuw i8, ptr %1704, i64 48
   %1716 = load ptr, ptr %1715, align 8, !tbaa !88
-  %1717 = getelementptr inbounds nuw i16, ptr %1716, i64 %1707
+  %1717 = getelementptr inbounds nuw [2 x i8], ptr %1716, i64 %1707
   %1718 = load i16, ptr %1717, align 2, !tbaa !93
   %1719 = icmp ult i16 %1718, -9216
   br i1 %1719, label %1720, label %1723
@@ -7549,7 +7544,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1732 = getelementptr inbounds nuw i8, ptr %1726, i64 48
   %1733 = load ptr, ptr %1732, align 8, !tbaa !88
   %1734 = sext i32 %1725 to i64
-  %1735 = getelementptr inbounds i16, ptr %1733, i64 %1734
+  %1735 = getelementptr inbounds [2 x i8], ptr %1733, i64 %1734
   %1736 = load i16, ptr %1735, align 2, !tbaa !93
   %1737 = icmp ult i16 %1736, -10240
   br i1 %1737, label %1738, label %1741
@@ -7574,7 +7569,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1748 = getelementptr inbounds nuw i8, ptr %1747, i64 112
   %1749 = load ptr, ptr %1748, align 8, !tbaa !142
   %1750 = and i64 %97, 16777215
-  %1751 = getelementptr inbounds nuw %"struct.icu_77::Regex8BitSet", ptr %1749, i64 %1750
+  %1751 = getelementptr inbounds nuw [32 x i8], ptr %1749, i64 %1750
   %1752 = ashr i32 %1744, 3
   %1753 = sext i32 %1752 to i64
   %1754 = getelementptr inbounds i8, ptr %1751, i64 %1753
@@ -7661,10 +7656,10 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1806 = getelementptr inbounds nuw i8, ptr %1801, i64 24
   %1807 = load ptr, ptr %1806, align 8, !tbaa !131
   %1808 = zext nneg i32 %spec.select.i1134 to i64
-  %1809 = getelementptr inbounds nuw i64, ptr %1807, i64 %1808
+  %1809 = getelementptr inbounds nuw [8 x i8], ptr %1807, i64 %1808
   %1810 = sext i32 %1802 to i64
   %1811 = sub nsw i64 0, %1810
-  %1812 = getelementptr inbounds i64, ptr %1809, i64 %1811
+  %1812 = getelementptr inbounds [8 x i8], ptr %1809, i64 %1811
   br label %.critedge1071
 
 1813:                                             ; preds = %93
@@ -7685,10 +7680,10 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1822 = getelementptr inbounds nuw i8, ptr %1817, i64 24
   %1823 = load ptr, ptr %1822, align 8, !tbaa !131
   %1824 = zext nneg i32 %spec.select.i1135 to i64
-  %1825 = getelementptr inbounds nuw i64, ptr %1823, i64 %1824
+  %1825 = getelementptr inbounds nuw [8 x i8], ptr %1823, i64 %1824
   %1826 = sext i32 %1818 to i64
   %1827 = sub nsw i64 0, %1826
-  %1828 = getelementptr inbounds i64, ptr %1825, i64 %1827
+  %1828 = getelementptr inbounds [8 x i8], ptr %1825, i64 %1827
   br label %.critedge1071
 
 1829:                                             ; preds = %1813
@@ -7709,7 +7704,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
 1840:                                             ; preds = %1835
   %1841 = getelementptr inbounds nuw i8, ptr %1830, i64 48
   %1842 = load ptr, ptr %1841, align 8, !tbaa !88
-  %1843 = getelementptr inbounds nuw i16, ptr %1842, i64 %1833
+  %1843 = getelementptr inbounds nuw [2 x i8], ptr %1842, i64 %1833
   %1844 = load i16, ptr %1843, align 2, !tbaa !93
   %1845 = icmp ult i16 %1844, -9216
   br i1 %1845, label %1846, label %1849
@@ -7740,7 +7735,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %14
   %1858 = getelementptr inbounds nuw i8, ptr %1852, i64 48
   %1859 = load ptr, ptr %1858, align 8, !tbaa !88
   %1860 = sext i32 %1851 to i64
-  %1861 = getelementptr inbounds i16, ptr %1859, i64 %1860
+  %1861 = getelementptr inbounds [2 x i8], ptr %1859, i64 %1860
   %1862 = load i16, ptr %1861, align 2, !tbaa !93
   %1863 = icmp ult i16 %1862, -10240
   br i1 %1863, label %1864, label %1867
@@ -7783,10 +7778,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit1138.thread1353: ; preds = %1872, %1872, %18
   %1878 = getelementptr inbounds nuw i8, ptr %1873, i64 24
   %1879 = load ptr, ptr %1878, align 8, !tbaa !131
   %1880 = zext nneg i32 %spec.select.i1139 to i64
-  %1881 = getelementptr inbounds nuw i64, ptr %1879, i64 %1880
+  %1881 = getelementptr inbounds nuw [8 x i8], ptr %1879, i64 %1880
   %1882 = sext i32 %1874 to i64
   %1883 = sub nsw i64 0, %1882
-  %1884 = getelementptr inbounds i64, ptr %1881, i64 %1883
+  %1884 = getelementptr inbounds [8 x i8], ptr %1881, i64 %1883
   br label %.critedge1071
 
 _ZN6icu_77L16isLineTerminatorEi.exit1138.thread:  ; preds = %1872, %1869
@@ -7836,10 +7831,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit1138.thread:  ; preds = %1872, %1869
   %1912 = getelementptr inbounds nuw i8, ptr %1907, i64 24
   %1913 = load ptr, ptr %1912, align 8, !tbaa !131
   %1914 = zext nneg i32 %spec.select.i1140 to i64
-  %1915 = getelementptr inbounds nuw i64, ptr %1913, i64 %1914
+  %1915 = getelementptr inbounds nuw [8 x i8], ptr %1913, i64 %1914
   %1916 = sext i32 %1908 to i64
   %1917 = sub nsw i64 0, %1916
-  %1918 = getelementptr inbounds i64, ptr %1915, i64 %1917
+  %1918 = getelementptr inbounds [8 x i8], ptr %1915, i64 %1917
   br label %.critedge1071
 
 1919:                                             ; preds = %1903
@@ -7860,7 +7855,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1138.thread:  ; preds = %1872, %1869
 1930:                                             ; preds = %1925
   %1931 = getelementptr inbounds nuw i8, ptr %1920, i64 48
   %1932 = load ptr, ptr %1931, align 8, !tbaa !88
-  %1933 = getelementptr inbounds nuw i16, ptr %1932, i64 %1923
+  %1933 = getelementptr inbounds nuw [2 x i8], ptr %1932, i64 %1923
   %1934 = load i16, ptr %1933, align 2, !tbaa !93
   %1935 = icmp ult i16 %1934, -9216
   br i1 %1935, label %1936, label %1939
@@ -7891,7 +7886,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1138.thread:  ; preds = %1872, %1869
   %1948 = getelementptr inbounds nuw i8, ptr %1942, i64 48
   %1949 = load ptr, ptr %1948, align 8, !tbaa !88
   %1950 = sext i32 %1941 to i64
-  %1951 = getelementptr inbounds i16, ptr %1949, i64 %1950
+  %1951 = getelementptr inbounds [2 x i8], ptr %1949, i64 %1950
   %1952 = load i16, ptr %1951, align 2, !tbaa !93
   %1953 = icmp ult i16 %1952, -10240
   br i1 %1953, label %1954, label %1957
@@ -7955,7 +7950,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1138.thread:  ; preds = %1872, %1869
   %1989 = getelementptr inbounds nuw i8, ptr %1982, i64 48
   %1990 = load ptr, ptr %1989, align 8, !tbaa !88
   %1991 = sext i32 %1984 to i64
-  %1992 = getelementptr inbounds i16, ptr %1990, i64 %1991
+  %1992 = getelementptr inbounds [2 x i8], ptr %1990, i64 %1991
   %1993 = load i16, ptr %1992, align 2, !tbaa !93
   %1994 = icmp ult i16 %1993, -10240
   br i1 %1994, label %1995, label %1997
@@ -7986,7 +7981,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1138.thread:  ; preds = %1872, %1869
   %2010 = getelementptr inbounds nuw i8, ptr %2003, i64 48
   %2011 = load ptr, ptr %2010, align 8, !tbaa !88
   %2012 = sext i32 %2005 to i64
-  %2013 = getelementptr inbounds i16, ptr %2011, i64 %2012
+  %2013 = getelementptr inbounds [2 x i8], ptr %2011, i64 %2012
   %2014 = load i16, ptr %2013, align 2, !tbaa !93
   %2015 = icmp ult i16 %2014, -10240
   br i1 %2015, label %2016, label %2018
@@ -8049,10 +8044,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit1138.thread:  ; preds = %1872, %1869
   %2047 = getelementptr inbounds nuw i8, ptr %2042, i64 24
   %2048 = load ptr, ptr %2047, align 8, !tbaa !131
   %2049 = zext nneg i32 %spec.select.i1141 to i64
-  %2050 = getelementptr inbounds nuw i64, ptr %2048, i64 %2049
+  %2050 = getelementptr inbounds nuw [8 x i8], ptr %2048, i64 %2049
   %2051 = sext i32 %2043 to i64
   %2052 = sub nsw i64 0, %2051
-  %2053 = getelementptr inbounds i64, ptr %2050, i64 %2052
+  %2053 = getelementptr inbounds [8 x i8], ptr %2050, i64 %2052
   br label %.critedge1071
 
 2054:                                             ; preds = %2038
@@ -8073,7 +8068,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1138.thread:  ; preds = %1872, %1869
 2065:                                             ; preds = %2060
   %2066 = getelementptr inbounds nuw i8, ptr %2055, i64 48
   %2067 = load ptr, ptr %2066, align 8, !tbaa !88
-  %2068 = getelementptr inbounds nuw i16, ptr %2067, i64 %2058
+  %2068 = getelementptr inbounds nuw [2 x i8], ptr %2067, i64 %2058
   %2069 = load i16, ptr %2068, align 2, !tbaa !93
   %2070 = icmp ult i16 %2069, -9216
   br i1 %2070, label %2071, label %2074
@@ -8104,7 +8099,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1138.thread:  ; preds = %1872, %1869
   %2083 = getelementptr inbounds nuw i8, ptr %2077, i64 48
   %2084 = load ptr, ptr %2083, align 8, !tbaa !88
   %2085 = sext i32 %2076 to i64
-  %2086 = getelementptr inbounds i16, ptr %2084, i64 %2085
+  %2086 = getelementptr inbounds [2 x i8], ptr %2084, i64 %2085
   %2087 = load i16, ptr %2086, align 2, !tbaa !93
   %2088 = icmp ult i16 %2087, -10240
   br i1 %2088, label %2089, label %2092
@@ -8135,10 +8130,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit1138.thread:  ; preds = %1872, %1869
   %2103 = getelementptr inbounds nuw i8, ptr %2098, i64 24
   %2104 = load ptr, ptr %2103, align 8, !tbaa !131
   %2105 = zext nneg i32 %spec.select.i1142 to i64
-  %2106 = getelementptr inbounds nuw i64, ptr %2104, i64 %2105
+  %2106 = getelementptr inbounds nuw [8 x i8], ptr %2104, i64 %2105
   %2107 = sext i32 %2099 to i64
   %2108 = sub nsw i64 0, %2107
-  %2109 = getelementptr inbounds i64, ptr %2106, i64 %2108
+  %2109 = getelementptr inbounds [8 x i8], ptr %2106, i64 %2108
   br label %.critedge1071
 
 2110:                                             ; preds = %2094
@@ -8209,7 +8204,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1146: ; preds
   %2146 = getelementptr inbounds nuw i8, ptr %2135, i64 24
   %2147 = load ptr, ptr %2146, align 8, !tbaa !131
   %2148 = sext i32 %2145 to i64
-  %2149 = getelementptr inbounds i64, ptr %2147, i64 %2148
+  %2149 = getelementptr inbounds [8 x i8], ptr %2147, i64 %2148
   store i32 %.pre-phi.i.i1147, ptr %2137, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1148
 
@@ -8227,7 +8222,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1148: ; preds = %_ZN6icu
   %2154 = load i32, ptr %31, align 8, !tbaa !17
   %2155 = sext i32 %2154 to i64
   %2156 = sub nsw i64 0, %2155
-  %2157 = getelementptr inbounds i64, ptr %.0.i.i1149, i64 %2156
+  %2157 = getelementptr inbounds [8 x i8], ptr %.0.i.i1149, i64 %2156
   br label %2158
 
 2158:                                             ; preds = %2158, %2153
@@ -8293,12 +8288,12 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1164: ;
 
 2182:                                             ; preds = %93
   %2183 = and i64 %97, 16777215
-  %2184 = getelementptr i64, ptr %16, i64 %2183
+  %2184 = getelementptr [8 x i8], ptr %16, i64 %2183
   %2185 = getelementptr i8, ptr %2184, i64 -8
   %2186 = load i64, ptr %2185, align 8, !tbaa !110
   %2187 = and i64 %2186, 16777215
   %2188 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
-  %2189 = getelementptr inbounds nuw i64, ptr %2188, i64 %2187
+  %2189 = getelementptr inbounds nuw [8 x i8], ptr %2188, i64 %2187
   %2190 = load i64, ptr %2189, align 8, !tbaa !110
   %2191 = load i64, ptr %.0726, align 8, !tbaa !137
   %2192 = icmp slt i64 %2190, %2191
@@ -8338,7 +8333,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1168: ; preds
   %2208 = getelementptr inbounds nuw i8, ptr %2197, i64 24
   %2209 = load ptr, ptr %2208, align 8, !tbaa !131
   %2210 = sext i32 %2207 to i64
-  %2211 = getelementptr inbounds i64, ptr %2209, i64 %2210
+  %2211 = getelementptr inbounds [8 x i8], ptr %2209, i64 %2210
   store i32 %.pre-phi.i.i1169, ptr %2199, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1170
 
@@ -8356,7 +8351,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1170: ; preds = %_ZN6icu
   %2216 = load i32, ptr %31, align 8, !tbaa !17
   %2217 = sext i32 %2216 to i64
   %2218 = sub nsw i64 0, %2217
-  %2219 = getelementptr inbounds i64, ptr %.0.i.i1171, i64 %2218
+  %2219 = getelementptr inbounds [8 x i8], ptr %.0.i.i1171, i64 %2218
   br label %2220
 
 2220:                                             ; preds = %2220, %2215
@@ -8419,14 +8414,14 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1186: ;
   store i64 %2183, ptr %2242, align 8, !tbaa !135
   %2243 = load i64, ptr %.019.i1165, align 8, !tbaa !137
   %2244 = getelementptr inbounds nuw i8, ptr %.019.i1165, i64 16
-  %2245 = getelementptr inbounds nuw i64, ptr %2244, i64 %2187
+  %2245 = getelementptr inbounds nuw [8 x i8], ptr %2244, i64 %2187
   store i64 %2243, ptr %2245, align 8, !tbaa !110
   br label %.critedge1071
 
 2246:                                             ; preds = %93
   %2247 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
   %2248 = and i64 %97, 16777215
-  %2249 = getelementptr inbounds nuw i64, ptr %2247, i64 %2248
+  %2249 = getelementptr inbounds nuw [8 x i8], ptr %2247, i64 %2248
   store i64 0, ptr %2249, align 8, !tbaa !110
   %2250 = add nsw i64 %95, 4
   store i64 %2250, ptr %94, align 8, !tbaa !135
@@ -8483,7 +8478,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1190: ; preds
   %2281 = getelementptr inbounds nuw i8, ptr %2270, i64 24
   %2282 = load ptr, ptr %2281, align 8, !tbaa !131
   %2283 = sext i32 %2280 to i64
-  %2284 = getelementptr inbounds i64, ptr %2282, i64 %2283
+  %2284 = getelementptr inbounds [8 x i8], ptr %2282, i64 %2283
   store i32 %.pre-phi.i.i1191, ptr %2272, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1192
 
@@ -8501,7 +8496,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1192: ; preds = %_ZN6icu
   %2289 = load i32, ptr %31, align 8, !tbaa !17
   %2290 = sext i32 %2289 to i64
   %2291 = sub nsw i64 0, %2290
-  %2292 = getelementptr inbounds i64, ptr %.0.i.i1193, i64 %2291
+  %2292 = getelementptr inbounds [8 x i8], ptr %.0.i.i1193, i64 %2291
   br label %2293
 
 2293:                                             ; preds = %2293, %2288
@@ -8567,7 +8562,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
 
 2315:                                             ; preds = %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208
   %2316 = load i64, ptr %.20, align 8, !tbaa !137
-  %2317 = getelementptr inbounds nuw i64, ptr %.20, i64 %2248
+  %2317 = getelementptr inbounds nuw [8 x i8], ptr %.20, i64 %2248
   %2318 = getelementptr inbounds nuw i8, ptr %2317, i64 24
   store i64 %2316, ptr %2318, align 8, !tbaa !110
   br label %.critedge1071
@@ -8583,19 +8578,19 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2325 = getelementptr inbounds nuw i8, ptr %2320, i64 24
   %2326 = load ptr, ptr %2325, align 8, !tbaa !131
   %2327 = zext nneg i32 %spec.select.i1209 to i64
-  %2328 = getelementptr inbounds nuw i64, ptr %2326, i64 %2327
+  %2328 = getelementptr inbounds nuw [8 x i8], ptr %2326, i64 %2327
   %2329 = sext i32 %2321 to i64
   %2330 = sub nsw i64 0, %2329
-  %2331 = getelementptr inbounds i64, ptr %2328, i64 %2330
+  %2331 = getelementptr inbounds [8 x i8], ptr %2328, i64 %2330
   br label %.critedge1071
 
 2332:                                             ; preds = %93
   %2333 = and i64 %97, 16777215
-  %2334 = getelementptr inbounds nuw i64, ptr %16, i64 %2333
+  %2334 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2333
   %2335 = load i64, ptr %2334, align 8, !tbaa !110
   %2336 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
   %2337 = and i64 %2335, 16777215
-  %2338 = getelementptr inbounds nuw i64, ptr %2336, i64 %2337
+  %2338 = getelementptr inbounds nuw [8 x i8], ptr %2336, i64 %2337
   %2339 = getelementptr inbounds nuw i8, ptr %2334, i64 16
   %2340 = load i64, ptr %2339, align 8, !tbaa !110
   %2341 = getelementptr inbounds nuw i8, ptr %2334, i64 24
@@ -8657,7 +8652,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
 2369:                                             ; preds = %93
   %2370 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
   %2371 = and i64 %97, 16777215
-  %2372 = getelementptr inbounds nuw i64, ptr %2370, i64 %2371
+  %2372 = getelementptr inbounds nuw [8 x i8], ptr %2370, i64 %2371
   store i64 0, ptr %2372, align 8, !tbaa !110
   %2373 = add nsw i64 %95, 4
   store i64 %2373, ptr %94, align 8, !tbaa !135
@@ -8708,11 +8703,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
 
 2398:                                             ; preds = %93
   %2399 = and i64 %97, 16777215
-  %2400 = getelementptr inbounds nuw i64, ptr %16, i64 %2399
+  %2400 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %2399
   %2401 = load i64, ptr %2400, align 8, !tbaa !110
   %2402 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
   %2403 = and i64 %2401, 16777215
-  %2404 = getelementptr inbounds nuw i64, ptr %2402, i64 %2403
+  %2404 = getelementptr inbounds nuw [8 x i8], ptr %2402, i64 %2403
   %2405 = getelementptr inbounds nuw i8, ptr %2400, i64 16
   %2406 = load i64, ptr %2405, align 8, !tbaa !110
   %2407 = getelementptr inbounds nuw i8, ptr %2400, i64 24
@@ -8775,14 +8770,14 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2440 = sext i32 %2439 to i64
   %2441 = load ptr, ptr %80, align 8, !tbaa !40
   %2442 = and i64 %97, 16777215
-  %2443 = getelementptr inbounds nuw i64, ptr %2441, i64 %2442
+  %2443 = getelementptr inbounds nuw [8 x i8], ptr %2441, i64 %2442
   store i64 %2440, ptr %2443, align 8, !tbaa !110
   br label %.critedge1071
 
 2444:                                             ; preds = %93
   %2445 = load ptr, ptr %80, align 8, !tbaa !40
   %2446 = and i64 %97, 16777215
-  %2447 = getelementptr inbounds nuw i64, ptr %2445, i64 %2446
+  %2447 = getelementptr inbounds nuw [8 x i8], ptr %2445, i64 %2446
   %2448 = load i64, ptr %2447, align 8, !tbaa !110
   %2449 = trunc i64 %2448 to i32
   %2450 = load ptr, ptr %32, align 8, !tbaa !64
@@ -8794,7 +8789,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2455 = load i32, ptr %31, align 8, !tbaa !17
   %2456 = sext i32 %2455 to i64
   %2457 = sub nsw i64 0, %2456
-  %2458 = getelementptr inbounds i64, ptr %2454, i64 %2457
+  %2458 = getelementptr inbounds [8 x i8], ptr %2454, i64 %2457
   %2459 = icmp eq ptr %2458, %.0726
   br i1 %2459, label %.critedge1071, label %.preheader
 
@@ -8808,9 +8803,9 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
 
 .lr.ph1437:                                       ; preds = %.lr.ph1437.preheader, %.lr.ph1437
   %indvars.iv1453 = phi i64 [ 0, %.lr.ph1437.preheader ], [ %indvars.iv.next1454, %.lr.ph1437 ]
-  %2461 = getelementptr inbounds nuw i64, ptr %.0726, i64 %indvars.iv1453
+  %2461 = getelementptr inbounds nuw [8 x i8], ptr %.0726, i64 %indvars.iv1453
   %2462 = load i64, ptr %2461, align 8, !tbaa !110
-  %2463 = getelementptr inbounds nuw i64, ptr %2458, i64 %indvars.iv1453
+  %2463 = getelementptr inbounds nuw [8 x i8], ptr %2458, i64 %indvars.iv1453
   store i64 %2462, ptr %2463, align 8, !tbaa !110
   %indvars.iv.next1454 = add nuw nsw i64 %indvars.iv1453, 1
   %exitcond1457.not = icmp eq i64 %indvars.iv.next1454, %wide.trip.count1456
@@ -8823,7 +8818,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
 2464:                                             ; preds = %93
   %2465 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
   %2466 = and i64 %97, 16777215
-  %2467 = getelementptr inbounds nuw i64, ptr %2465, i64 %2466
+  %2467 = getelementptr inbounds nuw [8 x i8], ptr %2465, i64 %2466
   %2468 = load i64, ptr %2467, align 8, !tbaa !110
   %2469 = getelementptr inbounds nuw i8, ptr %2467, i64 8
   %2470 = load i64, ptr %2469, align 8, !tbaa !110
@@ -8841,10 +8836,10 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2478 = getelementptr inbounds nuw i8, ptr %2473, i64 24
   %2479 = load ptr, ptr %2478, align 8, !tbaa !131
   %2480 = zext nneg i32 %spec.select.i1210 to i64
-  %2481 = getelementptr inbounds nuw i64, ptr %2479, i64 %2480
+  %2481 = getelementptr inbounds nuw [8 x i8], ptr %2479, i64 %2480
   %2482 = sext i32 %2474 to i64
   %2483 = sub nsw i64 0, %2482
-  %2484 = getelementptr inbounds i64, ptr %2481, i64 %2483
+  %2484 = getelementptr inbounds [8 x i8], ptr %2481, i64 %2483
   br label %.critedge1071
 
 2485:                                             ; preds = %2464
@@ -8865,7 +8860,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
 2496:                                             ; preds = %2491
   %2497 = getelementptr inbounds nuw i8, ptr %2486, i64 48
   %2498 = load ptr, ptr %2497, align 8, !tbaa !88
-  %2499 = getelementptr inbounds nuw i16, ptr %2498, i64 %2489
+  %2499 = getelementptr inbounds nuw [2 x i8], ptr %2498, i64 %2489
   %2500 = load i16, ptr %2499, align 2, !tbaa !93
   %2501 = icmp ult i16 %2500, -9216
   br i1 %2501, label %2502, label %2505
@@ -8899,7 +8894,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
 2518:                                             ; preds = %2513
   %2519 = getelementptr inbounds nuw i8, ptr %2508, i64 48
   %2520 = load ptr, ptr %2519, align 8, !tbaa !88
-  %2521 = getelementptr inbounds nuw i16, ptr %2520, i64 %2511
+  %2521 = getelementptr inbounds nuw [2 x i8], ptr %2520, i64 %2511
   %2522 = load i16, ptr %2521, align 2, !tbaa !93
   %2523 = icmp ult i16 %2522, -9216
   br i1 %2523, label %2524, label %2527
@@ -8981,16 +8976,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2562 = getelementptr inbounds nuw i8, ptr %2557, i64 24
   %2563 = load ptr, ptr %2562, align 8, !tbaa !131
   %2564 = zext nneg i32 %spec.select.i1211 to i64
-  %2565 = getelementptr inbounds nuw i64, ptr %2563, i64 %2564
+  %2565 = getelementptr inbounds nuw [8 x i8], ptr %2563, i64 %2564
   %2566 = sext i32 %2558 to i64
   %2567 = sub nsw i64 0, %2566
-  %2568 = getelementptr inbounds i64, ptr %2565, i64 %2567
+  %2568 = getelementptr inbounds [8 x i8], ptr %2565, i64 %2567
   br label %.critedge1071
 
 2569:                                             ; preds = %93
   %2570 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
   %2571 = and i64 %97, 16777215
-  %2572 = getelementptr inbounds nuw i64, ptr %2570, i64 %2571
+  %2572 = getelementptr inbounds nuw [8 x i8], ptr %2570, i64 %2571
   %2573 = load i64, ptr %2572, align 8, !tbaa !110
   %2574 = getelementptr inbounds nuw i8, ptr %2572, i64 8
   %2575 = load i64, ptr %2574, align 8, !tbaa !110
@@ -9008,10 +9003,10 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2583 = getelementptr inbounds nuw i8, ptr %2578, i64 24
   %2584 = load ptr, ptr %2583, align 8, !tbaa !131
   %2585 = zext nneg i32 %spec.select.i1212 to i64
-  %2586 = getelementptr inbounds nuw i64, ptr %2584, i64 %2585
+  %2586 = getelementptr inbounds nuw [8 x i8], ptr %2584, i64 %2585
   %2587 = sext i32 %2579 to i64
   %2588 = sub nsw i64 0, %2587
-  %2589 = getelementptr inbounds i64, ptr %2586, i64 %2588
+  %2589 = getelementptr inbounds [8 x i8], ptr %2586, i64 %2588
   br label %.critedge1071
 
 2590:                                             ; preds = %2569
@@ -9152,10 +9147,10 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2647 = getelementptr inbounds nuw i8, ptr %2642, i64 24
   %2648 = load ptr, ptr %2647, align 8, !tbaa !131
   %2649 = zext nneg i32 %spec.select.i1213 to i64
-  %2650 = getelementptr inbounds nuw i64, ptr %2648, i64 %2649
+  %2650 = getelementptr inbounds nuw [8 x i8], ptr %2648, i64 %2649
   %2651 = sext i32 %2643 to i64
   %2652 = sub nsw i64 0, %2651
-  %2653 = getelementptr inbounds i64, ptr %2650, i64 %2652
+  %2653 = getelementptr inbounds [8 x i8], ptr %2650, i64 %2652
   br label %2654
 
 2654:                                             ; preds = %.critedge1077, %2640
@@ -9182,7 +9177,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2658 = load i64, ptr %.0726, align 8, !tbaa !137
   %2659 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
   %2660 = and i64 %97, 16777215
-  %2661 = getelementptr inbounds nuw i64, ptr %2659, i64 %2660
+  %2661 = getelementptr inbounds nuw [8 x i8], ptr %2659, i64 %2660
   store i64 %2658, ptr %2661, align 8, !tbaa !110
   br label %.critedge1071
 
@@ -9195,7 +9190,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2666 = load i64, ptr %2665, align 8, !tbaa !110
   %2667 = and i64 %2666, 16777215
   %2668 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
-  %2669 = getelementptr inbounds nuw i64, ptr %2668, i64 %2667
+  %2669 = getelementptr inbounds nuw [8 x i8], ptr %2668, i64 %2667
   %2670 = load i64, ptr %2669, align 8, !tbaa !110
   %2671 = load i64, ptr %.0726, align 8, !tbaa !137
   %2672 = icmp slt i64 %2670, %2671
@@ -9217,10 +9212,10 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2681 = getelementptr inbounds nuw i8, ptr %2676, i64 24
   %2682 = load ptr, ptr %2681, align 8, !tbaa !131
   %2683 = zext nneg i32 %spec.select.i1214 to i64
-  %2684 = getelementptr inbounds nuw i64, ptr %2682, i64 %2683
+  %2684 = getelementptr inbounds nuw [8 x i8], ptr %2682, i64 %2683
   %2685 = sext i32 %2677 to i64
   %2686 = sub nsw i64 0, %2685
-  %2687 = getelementptr inbounds i64, ptr %2684, i64 %2686
+  %2687 = getelementptr inbounds [8 x i8], ptr %2684, i64 %2686
   br label %.critedge1071
 
 2688:                                             ; preds = %93
@@ -9230,7 +9225,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2692 = sext i32 %2691 to i64
   %2693 = load ptr, ptr %80, align 8, !tbaa !40
   %2694 = and i64 %97, 16777215
-  %2695 = getelementptr inbounds nuw i64, ptr %2693, i64 %2694
+  %2695 = getelementptr inbounds nuw [8 x i8], ptr %2693, i64 %2694
   store i64 %2692, ptr %2695, align 8, !tbaa !110
   %2696 = load i64, ptr %.0726, align 8, !tbaa !137
   %2697 = getelementptr inbounds nuw i8, ptr %2695, i64 8
@@ -9253,7 +9248,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2707 = load i32, ptr %2706, align 8, !tbaa !134
   %2708 = load ptr, ptr %80, align 8, !tbaa !40
   %2709 = and i64 %97, 16777215
-  %2710 = getelementptr inbounds nuw i64, ptr %2708, i64 %2709
+  %2710 = getelementptr inbounds nuw [8 x i8], ptr %2708, i64 %2709
   %2711 = load i64, ptr %2710, align 8, !tbaa !110
   %2712 = trunc i64 %2711 to i32
   %2713 = icmp sgt i32 %2707, %2712
@@ -9268,7 +9263,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2719 = load i32, ptr %31, align 8, !tbaa !17
   %2720 = sext i32 %2719 to i64
   %2721 = sub nsw i64 0, %2720
-  %2722 = getelementptr inbounds i64, ptr %2718, i64 %2721
+  %2722 = getelementptr inbounds [8 x i8], ptr %2718, i64 %2721
   %2723 = icmp sgt i32 %2719, 0
   br i1 %2723, label %.lr.ph1434.preheader, label %._crit_edge1435
 
@@ -9278,9 +9273,9 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
 
 .lr.ph1434:                                       ; preds = %.lr.ph1434.preheader, %.lr.ph1434
   %indvars.iv = phi i64 [ 0, %.lr.ph1434.preheader ], [ %indvars.iv.next, %.lr.ph1434 ]
-  %2724 = getelementptr inbounds nuw i64, ptr %.0726, i64 %indvars.iv
+  %2724 = getelementptr inbounds nuw [8 x i8], ptr %.0726, i64 %indvars.iv
   %2725 = load i64, ptr %2724, align 8, !tbaa !110
-  %2726 = getelementptr inbounds nuw i64, ptr %2722, i64 %indvars.iv
+  %2726 = getelementptr inbounds nuw [8 x i8], ptr %2722, i64 %indvars.iv
   store i64 %2725, ptr %2726, align 8, !tbaa !110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -9294,7 +9289,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
 2727:                                             ; preds = %._crit_edge1435, %2704
   %2728 = phi ptr [ %.pre1491, %._crit_edge1435 ], [ %2708, %2704 ]
   %.34 = phi ptr [ %2722, %._crit_edge1435 ], [ %.0726, %2704 ]
-  %2729 = getelementptr inbounds nuw i64, ptr %2728, i64 %2709
+  %2729 = getelementptr inbounds nuw [8 x i8], ptr %2728, i64 %2709
   %2730 = getelementptr inbounds nuw i8, ptr %2729, i64 8
   %2731 = load i64, ptr %2730, align 8, !tbaa !110
   store i64 %2731, ptr %.34, align 8, !tbaa !137
@@ -9330,7 +9325,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
 2751:                                             ; preds = %2746
   %2752 = getelementptr inbounds nuw i8, ptr %2741, i64 48
   %2753 = load ptr, ptr %2752, align 8, !tbaa !88
-  %2754 = getelementptr inbounds nuw i16, ptr %2753, i64 %2744
+  %2754 = getelementptr inbounds nuw [2 x i8], ptr %2753, i64 %2744
   %2755 = load i16, ptr %2754, align 2, !tbaa !93
   %2756 = icmp ult i16 %2755, -9216
   br i1 %2756, label %2757, label %2760
@@ -9361,7 +9356,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2769 = getelementptr inbounds nuw i8, ptr %2763, i64 48
   %2770 = load ptr, ptr %2769, align 8, !tbaa !88
   %2771 = sext i32 %2762 to i64
-  %2772 = getelementptr inbounds i16, ptr %2770, i64 %2771
+  %2772 = getelementptr inbounds [2 x i8], ptr %2770, i64 %2771
   %2773 = load i16, ptr %2772, align 2, !tbaa !93
   %2774 = icmp ult i16 %2773, -10240
   br i1 %2774, label %2775, label %2778
@@ -9426,16 +9421,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2809 = getelementptr inbounds nuw i8, ptr %2804, i64 24
   %2810 = load ptr, ptr %2809, align 8, !tbaa !131
   %2811 = zext nneg i32 %spec.select.i1215 to i64
-  %2812 = getelementptr inbounds nuw i64, ptr %2810, i64 %2811
+  %2812 = getelementptr inbounds nuw [8 x i8], ptr %2810, i64 %2811
   %2813 = sext i32 %2805 to i64
   %2814 = sub nsw i64 0, %2813
-  %2815 = getelementptr inbounds i64, ptr %2812, i64 %2814
+  %2815 = getelementptr inbounds [8 x i8], ptr %2812, i64 %2814
   br label %.critedge1071
 
 2816:                                             ; preds = %93
   %2817 = and i64 %97, 16777215
-  %2818 = getelementptr inbounds nuw i16, ptr %.0.i, i64 %2817
-  %2819 = getelementptr inbounds i64, ptr %16, i64 %100
+  %2818 = getelementptr inbounds nuw [2 x i8], ptr %.0.i, i64 %2817
+  %2819 = getelementptr inbounds [8 x i8], ptr %16, i64 %100
   %2820 = load i64, ptr %2819, align 8, !tbaa !110
   %2821 = trunc i64 %2820 to i32
   %2822 = add nsw i64 %95, 2
@@ -9459,7 +9454,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
 2835:                                             ; preds = %2830
   %2836 = getelementptr inbounds nuw i8, ptr %2825, i64 48
   %2837 = load ptr, ptr %2836, align 8, !tbaa !88
-  %2838 = getelementptr inbounds nuw i16, ptr %2837, i64 %2828
+  %2838 = getelementptr inbounds nuw [2 x i8], ptr %2837, i64 %2828
   %2839 = load i16, ptr %2838, align 2, !tbaa !93
   %2840 = icmp ult i16 %2839, -9216
   br i1 %2840, label %2841, label %2844
@@ -9547,7 +9542,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
 2874:                                             ; preds = %2851, %2869
   %2875 = add nsw i32 %.0774, 1
   %2876 = sext i32 %.0774 to i64
-  %2877 = getelementptr inbounds i16, ptr %2818, i64 %2876
+  %2877 = getelementptr inbounds [2 x i8], ptr %2818, i64 %2876
   %2878 = load i16, ptr %2877, align 2, !tbaa !93
   %2879 = zext i16 %2878 to i32
   %2880 = and i32 %2879, 64512
@@ -9558,7 +9553,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
 
 2882:                                             ; preds = %2874
   %2883 = sext i32 %2875 to i64
-  %2884 = getelementptr inbounds i16, ptr %2818, i64 %2883
+  %2884 = getelementptr inbounds [2 x i8], ptr %2818, i64 %2883
   %2885 = load i16, ptr %2884, align 2, !tbaa !93
   %2886 = zext i16 %2885 to i32
   %2887 = and i32 %2886, 64512
@@ -9632,10 +9627,10 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2925 = getelementptr inbounds nuw i8, ptr %2920, i64 24
   %2926 = load ptr, ptr %2925, align 8, !tbaa !131
   %2927 = zext nneg i32 %spec.select.i1216 to i64
-  %2928 = getelementptr inbounds nuw i64, ptr %2926, i64 %2927
+  %2928 = getelementptr inbounds nuw [8 x i8], ptr %2926, i64 %2927
   %2929 = sext i32 %2921 to i64
   %2930 = sub nsw i64 0, %2929
-  %2931 = getelementptr inbounds i64, ptr %2928, i64 %2930
+  %2931 = getelementptr inbounds [8 x i8], ptr %2928, i64 %2930
   br label %2932
 
 2932:                                             ; preds = %2919, %2917
@@ -9651,7 +9646,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %2937 = sext i32 %2936 to i64
   %2938 = load ptr, ptr %80, align 8, !tbaa !40
   %2939 = and i64 %97, 16777215
-  %2940 = getelementptr inbounds nuw i64, ptr %2938, i64 %2939
+  %2940 = getelementptr inbounds nuw [8 x i8], ptr %2938, i64 %2939
   store i64 %2937, ptr %2940, align 8, !tbaa !110
   %2941 = load i64, ptr %.0726, align 8, !tbaa !137
   %2942 = getelementptr inbounds nuw i8, ptr %2940, i64 8
@@ -9673,11 +9668,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
 2950:                                             ; preds = %93
   %2951 = add nsw i64 %95, 2
   store i64 %2951, ptr %94, align 8, !tbaa !135
-  %2952 = getelementptr inbounds i64, ptr %16, i64 %100
+  %2952 = getelementptr inbounds [8 x i8], ptr %16, i64 %100
   %2953 = load i64, ptr %2952, align 8, !tbaa !110
   %2954 = add nsw i64 %95, 3
   store i64 %2954, ptr %94, align 8, !tbaa !135
-  %2955 = getelementptr inbounds i64, ptr %16, i64 %2951
+  %2955 = getelementptr inbounds [8 x i8], ptr %16, i64 %2951
   %2956 = load i64, ptr %2955, align 8, !tbaa !110
   %2957 = load ptr, ptr %72, align 8, !tbaa !77
   %2958 = getelementptr inbounds nuw i8, ptr %2957, i64 56
@@ -9689,7 +9684,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %spec.select1080 = select i1 %2962, i64 %2956, i64 %2963
   %2964 = load ptr, ptr %80, align 8, !tbaa !40
   %2965 = and i64 %97, 16777215
-  %2966 = getelementptr inbounds nuw i64, ptr %2964, i64 %2965
+  %2966 = getelementptr inbounds nuw [8 x i8], ptr %2964, i64 %2965
   %2967 = getelementptr inbounds nuw i8, ptr %2966, i64 32
   %2968 = load i64, ptr %2967, align 8, !tbaa !110
   %2969 = icmp slt i64 %2968, 0
@@ -9721,7 +9716,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
 2985:                                             ; preds = %2980
   %2986 = getelementptr inbounds nuw i8, ptr %2957, i64 48
   %2987 = load ptr, ptr %2986, align 8, !tbaa !88
-  %2988 = getelementptr inbounds nuw i16, ptr %2987, i64 %2978
+  %2988 = getelementptr inbounds nuw [2 x i8], ptr %2987, i64 %2978
   %2989 = load i16, ptr %2988, align 2, !tbaa !93
   %2990 = icmp ult i16 %2989, -9216
   br i1 %2990, label %2991, label %2994
@@ -9788,7 +9783,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
 3022:                                             ; preds = %3017
   %3023 = getelementptr inbounds nuw i8, ptr %2957, i64 48
   %3024 = load ptr, ptr %3023, align 8, !tbaa !88
-  %3025 = getelementptr inbounds nuw i16, ptr %3024, i64 %3015
+  %3025 = getelementptr inbounds nuw [2 x i8], ptr %3024, i64 %3015
   %3026 = load i16, ptr %3025, align 2, !tbaa !93
   %3027 = icmp ult i16 %3026, -9216
   br i1 %3027, label %3028, label %3031
@@ -9817,7 +9812,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %3038 = getelementptr inbounds nuw i8, ptr %3034, i64 48
   %3039 = load ptr, ptr %3038, align 8, !tbaa !88
   %3040 = zext nneg i32 %3033 to i64
-  %3041 = getelementptr i16, ptr %3039, i64 %3040
+  %3041 = getelementptr [2 x i8], ptr %3039, i64 %3040
   %3042 = getelementptr i8, ptr %3041, i64 -2
   %3043 = load i16, ptr %3042, align 2, !tbaa !93
   %3044 = icmp ult i16 %3043, -10240
@@ -9887,12 +9882,12 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1208: ;
   %3079 = getelementptr inbounds nuw i8, ptr %3074, i64 24
   %3080 = load ptr, ptr %3079, align 8, !tbaa !131
   %3081 = zext nneg i32 %spec.select.i1217 to i64
-  %3082 = getelementptr inbounds nuw i64, ptr %3080, i64 %3081
+  %3082 = getelementptr inbounds nuw [8 x i8], ptr %3080, i64 %3081
   %3083 = sext i32 %3075 to i64
   %3084 = sub nsw i64 0, %3083
-  %3085 = getelementptr inbounds i64, ptr %3082, i64 %3084
+  %3085 = getelementptr inbounds [8 x i8], ptr %3082, i64 %3084
   %3086 = load ptr, ptr %80, align 8, !tbaa !40
-  %3087 = getelementptr inbounds nuw i64, ptr %3086, i64 %2965
+  %3087 = getelementptr inbounds nuw [8 x i8], ptr %3086, i64 %2965
   %3088 = getelementptr inbounds nuw i8, ptr %3087, i64 16
   %3089 = load i64, ptr %3088, align 8, !tbaa !110
   store i64 %3089, ptr %81, align 8, !tbaa !68
@@ -9937,7 +9932,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1221: ; preds
   %3109 = getelementptr inbounds nuw i8, ptr %3098, i64 24
   %3110 = load ptr, ptr %3109, align 8, !tbaa !131
   %3111 = sext i32 %3108 to i64
-  %3112 = getelementptr inbounds i64, ptr %3110, i64 %3111
+  %3112 = getelementptr inbounds [8 x i8], ptr %3110, i64 %3111
   store i32 %.pre-phi.i.i1222, ptr %3100, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1223
 
@@ -9955,7 +9950,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1223: ; preds = %_ZN6icu
   %3117 = load i32, ptr %31, align 8, !tbaa !17
   %3118 = sext i32 %3117 to i64
   %3119 = sub nsw i64 0, %3118
-  %3120 = getelementptr inbounds i64, ptr %.0.i.i1224, i64 %3119
+  %3120 = getelementptr inbounds [8 x i8], ptr %.0.i.i1224, i64 %3119
   br label %3121
 
 3121:                                             ; preds = %3121, %3116
@@ -10035,16 +10030,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1239: ;
   %3153 = getelementptr inbounds nuw i8, ptr %3148, i64 24
   %3154 = load ptr, ptr %3153, align 8, !tbaa !131
   %3155 = zext nneg i32 %spec.select.i1240 to i64
-  %3156 = getelementptr inbounds nuw i64, ptr %3154, i64 %3155
+  %3156 = getelementptr inbounds nuw [8 x i8], ptr %3154, i64 %3155
   %3157 = sext i32 %3149 to i64
   %3158 = sub nsw i64 0, %3157
-  %3159 = getelementptr inbounds i64, ptr %3156, i64 %3158
+  %3159 = getelementptr inbounds [8 x i8], ptr %3156, i64 %3158
   br label %.critedge1071
 
 3160:                                             ; preds = %3144
   %3161 = load ptr, ptr %80, align 8, !tbaa !40
   %3162 = and i64 %97, 16777215
-  %3163 = getelementptr inbounds nuw i64, ptr %3161, i64 %3162
+  %3163 = getelementptr inbounds nuw [8 x i8], ptr %3161, i64 %3162
   %3164 = getelementptr inbounds nuw i8, ptr %3163, i64 16
   %3165 = load i64, ptr %3164, align 8, !tbaa !110
   store i64 %3165, ptr %81, align 8, !tbaa !68
@@ -10056,11 +10051,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1239: ;
 3168:                                             ; preds = %93
   %3169 = add nsw i64 %95, 2
   store i64 %3169, ptr %94, align 8, !tbaa !135
-  %3170 = getelementptr inbounds i64, ptr %16, i64 %100
+  %3170 = getelementptr inbounds [8 x i8], ptr %16, i64 %100
   %3171 = load i64, ptr %3170, align 8, !tbaa !110
   %3172 = add nsw i64 %95, 3
   store i64 %3172, ptr %94, align 8, !tbaa !135
-  %3173 = getelementptr inbounds i64, ptr %16, i64 %3169
+  %3173 = getelementptr inbounds [8 x i8], ptr %16, i64 %3169
   %3174 = load i64, ptr %3173, align 8, !tbaa !110
   %3175 = load ptr, ptr %72, align 8, !tbaa !77
   %3176 = getelementptr inbounds nuw i8, ptr %3175, i64 56
@@ -10072,12 +10067,12 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1239: ;
   %spec.select1081 = select i1 %3180, i64 %3174, i64 %3181
   %3182 = add nsw i64 %95, 4
   store i64 %3182, ptr %94, align 8, !tbaa !135
-  %3183 = getelementptr inbounds i64, ptr %16, i64 %3172
+  %3183 = getelementptr inbounds [8 x i8], ptr %16, i64 %3172
   %3184 = load i64, ptr %3183, align 8, !tbaa !110
   %3185 = and i64 %3184, 16777215
   %3186 = load ptr, ptr %80, align 8, !tbaa !40
   %3187 = and i64 %97, 16777215
-  %3188 = getelementptr inbounds nuw i64, ptr %3186, i64 %3187
+  %3188 = getelementptr inbounds nuw [8 x i8], ptr %3186, i64 %3187
   %3189 = getelementptr inbounds nuw i8, ptr %3188, i64 32
   %3190 = load i64, ptr %3189, align 8, !tbaa !110
   %3191 = icmp slt i64 %3190, 0
@@ -10109,7 +10104,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1239: ;
 3207:                                             ; preds = %3202
   %3208 = getelementptr inbounds nuw i8, ptr %3175, i64 48
   %3209 = load ptr, ptr %3208, align 8, !tbaa !88
-  %3210 = getelementptr inbounds nuw i16, ptr %3209, i64 %3200
+  %3210 = getelementptr inbounds nuw [2 x i8], ptr %3209, i64 %3200
   %3211 = load i16, ptr %3210, align 2, !tbaa !93
   %3212 = icmp ult i16 %3211, -9216
   br i1 %3212, label %3213, label %3216
@@ -10176,7 +10171,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1239: ;
 3244:                                             ; preds = %3239
   %3245 = getelementptr inbounds nuw i8, ptr %3175, i64 48
   %3246 = load ptr, ptr %3245, align 8, !tbaa !88
-  %3247 = getelementptr inbounds nuw i16, ptr %3246, i64 %3237
+  %3247 = getelementptr inbounds nuw [2 x i8], ptr %3246, i64 %3237
   %3248 = load i16, ptr %3247, align 2, !tbaa !93
   %3249 = icmp ult i16 %3248, -9216
   br i1 %3249, label %3250, label %3253
@@ -10205,7 +10200,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1239: ;
   %3260 = getelementptr inbounds nuw i8, ptr %3256, i64 48
   %3261 = load ptr, ptr %3260, align 8, !tbaa !88
   %3262 = zext nneg i32 %3255 to i64
-  %3263 = getelementptr i16, ptr %3261, i64 %3262
+  %3263 = getelementptr [2 x i8], ptr %3261, i64 %3262
   %3264 = getelementptr i8, ptr %3263, i64 -2
   %3265 = load i16, ptr %3264, align 2, !tbaa !93
   %3266 = icmp ult i16 %3265, -10240
@@ -10266,7 +10261,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1239: ;
 
 3295:                                             ; preds = %.thread1374, %3290, %3287
   %3296 = load ptr, ptr %80, align 8, !tbaa !40
-  %3297 = getelementptr inbounds nuw i64, ptr %3296, i64 %3187
+  %3297 = getelementptr inbounds nuw [8 x i8], ptr %3296, i64 %3187
   %3298 = getelementptr inbounds nuw i8, ptr %3297, i64 16
   %3299 = load i64, ptr %3298, align 8, !tbaa !110
   store i64 %3299, ptr %81, align 8, !tbaa !68
@@ -10312,7 +10307,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1244: ; preds
   %3319 = getelementptr inbounds nuw i8, ptr %3308, i64 24
   %3320 = load ptr, ptr %3319, align 8, !tbaa !131
   %3321 = sext i32 %3318 to i64
-  %3322 = getelementptr inbounds i64, ptr %3320, i64 %3321
+  %3322 = getelementptr inbounds [8 x i8], ptr %3320, i64 %3321
   store i32 %.pre-phi.i.i1245, ptr %3310, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1246
 
@@ -10330,7 +10325,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1246: ; preds = %_ZN6icu
   %3327 = load i32, ptr %31, align 8, !tbaa !17
   %3328 = sext i32 %3327 to i64
   %3329 = sub nsw i64 0, %3328
-  %3330 = getelementptr inbounds i64, ptr %.0.i.i1247, i64 %3329
+  %3330 = getelementptr inbounds [8 x i8], ptr %.0.i.i1247, i64 %3329
   br label %3331
 
 3331:                                             ; preds = %3331, %3326
@@ -10410,16 +10405,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1262: ;
   %3363 = getelementptr inbounds nuw i8, ptr %3358, i64 24
   %3364 = load ptr, ptr %3363, align 8, !tbaa !131
   %3365 = zext nneg i32 %spec.select.i1263 to i64
-  %3366 = getelementptr inbounds nuw i64, ptr %3364, i64 %3365
+  %3366 = getelementptr inbounds nuw [8 x i8], ptr %3364, i64 %3365
   %3367 = sext i32 %3359 to i64
   %3368 = sub nsw i64 0, %3367
-  %3369 = getelementptr inbounds i64, ptr %3366, i64 %3368
+  %3369 = getelementptr inbounds [8 x i8], ptr %3366, i64 %3368
   br label %.critedge1071
 
 3370:                                             ; preds = %3354
   %3371 = load ptr, ptr %80, align 8, !tbaa !40
   %3372 = and i64 %97, 16777215
-  %3373 = getelementptr inbounds nuw i64, ptr %3371, i64 %3372
+  %3373 = getelementptr inbounds nuw [8 x i8], ptr %3371, i64 %3372
   %3374 = getelementptr inbounds nuw i8, ptr %3373, i64 16
   %3375 = load i64, ptr %3374, align 8, !tbaa !110
   store i64 %3375, ptr %81, align 8, !tbaa !68
@@ -10440,10 +10435,10 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1262: ;
   %3386 = getelementptr inbounds nuw i8, ptr %3381, i64 24
   %3387 = load ptr, ptr %3386, align 8, !tbaa !131
   %3388 = zext nneg i32 %spec.select.i1264 to i64
-  %3389 = getelementptr inbounds nuw i64, ptr %3387, i64 %3388
+  %3389 = getelementptr inbounds nuw [8 x i8], ptr %3387, i64 %3388
   %3390 = sext i32 %3382 to i64
   %3391 = sub nsw i64 0, %3390
-  %3392 = getelementptr inbounds i64, ptr %3389, i64 %3391
+  %3392 = getelementptr inbounds [8 x i8], ptr %3389, i64 %3391
   br label %.critedge1071
 
 3393:                                             ; preds = %93
@@ -10451,7 +10446,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1262: ;
   %3395 = getelementptr inbounds nuw i8, ptr %3394, i64 112
   %3396 = load ptr, ptr %3395, align 8, !tbaa !142
   %3397 = and i64 %97, 16777215
-  %3398 = getelementptr inbounds nuw %"struct.icu_77::Regex8BitSet", ptr %3396, i64 %3397
+  %3398 = getelementptr inbounds nuw [32 x i8], ptr %3396, i64 %3397
   %3399 = call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef %99)
   %3400 = load i64, ptr %.0726, align 8, !tbaa !137
   %3401 = load ptr, ptr %72, align 8, !tbaa !77
@@ -10471,7 +10466,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1262: ;
 3411:                                             ; preds = %3406
   %3412 = getelementptr inbounds nuw i8, ptr %3401, i64 48
   %3413 = load ptr, ptr %3412, align 8, !tbaa !88
-  %3414 = getelementptr inbounds nuw i16, ptr %3413, i64 %3404
+  %3414 = getelementptr inbounds nuw [2 x i8], ptr %3413, i64 %3404
   %3415 = load i16, ptr %3414, align 2, !tbaa !93
   %3416 = icmp ult i16 %3415, -9216
   br i1 %3416, label %3417, label %3420
@@ -10510,7 +10505,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1262: ;
   %3430 = getelementptr inbounds nuw i8, ptr %3423, i64 48
   %3431 = load ptr, ptr %3430, align 8, !tbaa !88
   %3432 = sext i32 %3425 to i64
-  %3433 = getelementptr inbounds i16, ptr %3431, i64 %3432
+  %3433 = getelementptr inbounds [2 x i8], ptr %3431, i64 %3432
   %3434 = load i16, ptr %3433, align 2, !tbaa !93
   %3435 = icmp ult i16 %3434, -10240
   br i1 %3435, label %3436, label %3439
@@ -10590,11 +10585,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1262: ;
   br label %.critedge1071
 
 3481:                                             ; preds = %.thread1376
-  %3482 = getelementptr inbounds i64, ptr %16, i64 %3478
+  %3482 = getelementptr inbounds [8 x i8], ptr %16, i64 %3478
   %3483 = load i64, ptr %3482, align 8, !tbaa !110
   %3484 = and i64 %3483, 16777215
   %3485 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
-  %3486 = getelementptr inbounds nuw i64, ptr %3485, i64 %3484
+  %3486 = getelementptr inbounds nuw [8 x i8], ptr %3485, i64 %3484
   store i64 %3476, ptr %3486, align 8, !tbaa !110
   store i64 %.07531411, ptr %.0726, align 8, !tbaa !137
   %3487 = load i32, ptr %3, align 4, !tbaa !13
@@ -10630,7 +10625,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1268: ; preds
   %3501 = getelementptr inbounds nuw i8, ptr %3490, i64 24
   %3502 = load ptr, ptr %3501, align 8, !tbaa !131
   %3503 = sext i32 %3500 to i64
-  %3504 = getelementptr inbounds i64, ptr %3502, i64 %3503
+  %3504 = getelementptr inbounds [8 x i8], ptr %3502, i64 %3503
   store i32 %.pre-phi.i.i1269, ptr %3492, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1270
 
@@ -10648,7 +10643,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1270: ; preds = %_ZN6icu
   %3509 = load i32, ptr %31, align 8, !tbaa !17
   %3510 = sext i32 %3509 to i64
   %3511 = sub nsw i64 0, %3510
-  %3512 = getelementptr inbounds i64, ptr %.0.i.i1271, i64 %3511
+  %3512 = getelementptr inbounds [8 x i8], ptr %.0.i.i1271, i64 %3511
   br label %3513
 
 3513:                                             ; preds = %3513, %3508
@@ -10741,7 +10736,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1286: ;
 3554:                                             ; preds = %3549
   %3555 = getelementptr inbounds nuw i8, ptr %3544, i64 48
   %3556 = load ptr, ptr %3555, align 8, !tbaa !88
-  %3557 = getelementptr inbounds nuw i16, ptr %3556, i64 %3547
+  %3557 = getelementptr inbounds nuw [2 x i8], ptr %3556, i64 %3547
   %3558 = load i16, ptr %3557, align 2, !tbaa !93
   %3559 = icmp ult i16 %3558, -9216
   br i1 %3559, label %3560, label %3563
@@ -10779,7 +10774,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1286: ;
   %3575 = getelementptr inbounds nuw i8, ptr %3568, i64 48
   %3576 = load ptr, ptr %3575, align 8, !tbaa !88
   %3577 = sext i32 %3570 to i64
-  %3578 = getelementptr inbounds i16, ptr %3576, i64 %3577
+  %3578 = getelementptr inbounds [2 x i8], ptr %3576, i64 %3577
   %3579 = load i16, ptr %3578, align 2, !tbaa !93
   %3580 = icmp ult i16 %3579, -10240
   br i1 %3580, label %3581, label %3584
@@ -10868,11 +10863,11 @@ _ZN6icu_77L16isLineTerminatorEi.exit1289.thread:  ; preds = %3595, %3592, %3586
   br label %.critedge1071
 
 3619:                                             ; preds = %.thread1385
-  %3620 = getelementptr inbounds i64, ptr %16, i64 %3616
+  %3620 = getelementptr inbounds [8 x i8], ptr %16, i64 %3616
   %3621 = load i64, ptr %3620, align 8, !tbaa !110
   %3622 = and i64 %3621, 16777215
   %3623 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
-  %3624 = getelementptr inbounds nuw i64, ptr %3623, i64 %3622
+  %3624 = getelementptr inbounds nuw [8 x i8], ptr %3623, i64 %3622
   store i64 %3614, ptr %3624, align 8, !tbaa !110
   store i64 %.0741, ptr %.0726, align 8, !tbaa !137
   %3625 = load i32, ptr %3, align 4, !tbaa !13
@@ -10908,7 +10903,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1293: ; preds
   %3639 = getelementptr inbounds nuw i8, ptr %3628, i64 24
   %3640 = load ptr, ptr %3639, align 8, !tbaa !131
   %3641 = sext i32 %3638 to i64
-  %3642 = getelementptr inbounds i64, ptr %3640, i64 %3641
+  %3642 = getelementptr inbounds [8 x i8], ptr %3640, i64 %3641
   store i32 %.pre-phi.i.i1294, ptr %3630, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1295
 
@@ -10926,7 +10921,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1295: ; preds = %_ZN6icu
   %3647 = load i32, ptr %31, align 8, !tbaa !17
   %3648 = sext i32 %3647 to i64
   %3649 = sub nsw i64 0, %3648
-  %3650 = getelementptr inbounds i64, ptr %.0.i.i1296, i64 %3649
+  %3650 = getelementptr inbounds [8 x i8], ptr %.0.i.i1296, i64 %3649
   br label %3651
 
 3651:                                             ; preds = %3651, %3646
@@ -10994,7 +10989,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1311: ;
 3676:                                             ; preds = %93
   %3677 = getelementptr inbounds nuw i8, ptr %.0726, i64 16
   %3678 = and i64 %97, 16777215
-  %3679 = getelementptr inbounds nuw i64, ptr %3677, i64 %3678
+  %3679 = getelementptr inbounds nuw [8 x i8], ptr %3677, i64 %3678
   %3680 = load i64, ptr %3679, align 8, !tbaa !110
   %3681 = load i64, ptr %.0726, align 8, !tbaa !137
   %3682 = icmp eq i64 %3680, %3681
@@ -11018,7 +11013,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1311: ;
 3694:                                             ; preds = %3689
   %3695 = getelementptr inbounds nuw i8, ptr %3684, i64 48
   %3696 = load ptr, ptr %3695, align 8, !tbaa !88
-  %3697 = getelementptr inbounds nuw i16, ptr %3696, i64 %3687
+  %3697 = getelementptr inbounds nuw [2 x i8], ptr %3696, i64 %3687
   %3698 = load i16, ptr %3697, align 2, !tbaa !93
   %3699 = icmp ult i16 %3698, -9216
   br i1 %3699, label %3700, label %3703
@@ -11047,7 +11042,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1311: ;
   %3710 = getelementptr inbounds nuw i8, ptr %3706, i64 48
   %3711 = load ptr, ptr %3710, align 8, !tbaa !88
   %3712 = zext nneg i32 %3705 to i64
-  %3713 = getelementptr i16, ptr %3711, i64 %3712
+  %3713 = getelementptr [2 x i8], ptr %3711, i64 %3712
   %3714 = getelementptr i8, ptr %3713, i64 -2
   %3715 = load i16, ptr %3714, align 2, !tbaa !93
   %3716 = icmp ult i16 %3715, -10240
@@ -11057,7 +11052,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1311: ;
   %3718 = add nsw i32 %3705, -1
   store i32 %3718, ptr %3707, align 8, !tbaa !95
   %3719 = zext nneg i32 %3718 to i64
-  %3720 = getelementptr inbounds nuw i16, ptr %3711, i64 %3719
+  %3720 = getelementptr inbounds nuw [2 x i8], ptr %3711, i64 %3719
   %3721 = load i16, ptr %3720, align 2, !tbaa !93
   %3722 = zext i16 %3721 to i32
   br label %3725
@@ -11109,7 +11104,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1311: ;
   %3749 = getelementptr inbounds nuw i8, ptr %3744, i64 48
   %3750 = load ptr, ptr %3749, align 8, !tbaa !88
   %3751 = zext nneg i32 %3743 to i64
-  %3752 = getelementptr i16, ptr %3750, i64 %3751
+  %3752 = getelementptr [2 x i8], ptr %3750, i64 %3751
   %3753 = getelementptr i8, ptr %3752, i64 -2
   %3754 = load i16, ptr %3753, align 2, !tbaa !93
   %3755 = icmp ult i16 %3754, -10240
@@ -11119,7 +11114,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1311: ;
   %3757 = add nsw i32 %3743, -1
   store i32 %3757, ptr %3746, align 8, !tbaa !95
   %3758 = zext nneg i32 %3757 to i64
-  %3759 = getelementptr inbounds nuw i16, ptr %3750, i64 %3758
+  %3759 = getelementptr inbounds nuw [2 x i8], ptr %3750, i64 %3758
   %3760 = load i16, ptr %3759, align 2, !tbaa !93
   %3761 = zext i16 %3760 to i32
   br label %3764
@@ -11142,7 +11137,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1311: ;
 
 3771:                                             ; preds = %3767
   %3772 = load i64, ptr %94, align 8, !tbaa !135
-  %3773 = getelementptr i64, ptr %16, i64 %3772
+  %3773 = getelementptr [8 x i8], ptr %16, i64 %3772
   %3774 = getelementptr i8, ptr %3773, i64 -16
   %3775 = load i64, ptr %3774, align 8, !tbaa !110
   %.mask930 = and i64 %3775, 4278190080
@@ -11214,7 +11209,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1315: ; preds
   %3813 = getelementptr inbounds nuw i8, ptr %3802, i64 24
   %3814 = load ptr, ptr %3813, align 8, !tbaa !131
   %3815 = sext i32 %3812 to i64
-  %3816 = getelementptr inbounds i64, ptr %3814, i64 %3815
+  %3816 = getelementptr inbounds [8 x i8], ptr %3814, i64 %3815
   store i32 %.pre-phi.i.i1316, ptr %3804, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1317
 
@@ -11228,7 +11223,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1317: ; preds = %_ZN6icu
   %3820 = load i32, ptr %31, align 8, !tbaa !17
   %3821 = sext i32 %3820 to i64
   %3822 = sub nsw i64 0, %3821
-  %3823 = getelementptr inbounds i64, ptr %.0.i.i1318, i64 %3822
+  %3823 = getelementptr inbounds [8 x i8], ptr %.0.i.i1318, i64 %3822
   br label %3824
 
 3824:                                             ; preds = %3824, %3819
@@ -11552,7 +11547,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i: ; preds = %
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %53 = load ptr, ptr %52, align 8, !tbaa !131
   %54 = sext i32 %51 to i64
-  %55 = getelementptr inbounds i64, ptr %53, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %53, i64 %54
   store i32 %.pre-phi.i.i, ptr %43, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i
 
@@ -11627,7 +11622,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %.0806 = phi ptr [ %.1807.ph, %.critedge1081 ], [ %.0.i.i, %.preheader1486 ]
   %98 = getelementptr inbounds nuw i8, ptr %.0806, i64 8
   %99 = load i64, ptr %98, align 8, !tbaa !135
-  %100 = getelementptr inbounds i64, ptr %16, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr %16, i64 %99
   %101 = load i64, ptr %100, align 8, !tbaa !110
   %102 = trunc i64 %101 to i32
   %103 = and i32 %102, 16777215
@@ -11705,10 +11700,10 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %112 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %113 = load ptr, ptr %112, align 8, !tbaa !131
   %114 = zext nneg i32 %spec.select.i to i64
-  %115 = getelementptr inbounds nuw i64, ptr %113, i64 %114
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %114
   %116 = sext i32 %108 to i64
   %117 = sub nsw i64 0, %116
-  %118 = getelementptr inbounds i64, ptr %115, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %115, i64 %117
   br label %.critedge1081
 
 119:                                              ; preds = %97
@@ -11720,7 +11715,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
 123:                                              ; preds = %119
   %124 = add nsw i64 %120, 1
   store i64 %124, ptr %.0806, align 8, !tbaa !137
-  %125 = getelementptr inbounds i16, ptr %32, i64 %120
+  %125 = getelementptr inbounds [2 x i8], ptr %32, i64 %120
   %126 = load i16, ptr %125, align 2, !tbaa !93
   %127 = zext i16 %126 to i32
   %128 = and i32 %127, 64512
@@ -11731,7 +11726,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   br i1 %or.cond1115, label %142, label %131
 
 131:                                              ; preds = %123
-  %132 = getelementptr inbounds i16, ptr %32, i64 %124
+  %132 = getelementptr inbounds [2 x i8], ptr %32, i64 %124
   %133 = load i16, ptr %132, align 2, !tbaa !93
   %134 = zext i16 %133 to i32
   %135 = and i32 %134, 64512
@@ -11766,25 +11761,25 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %152 = load ptr, ptr %151, align 8, !tbaa !131
   %153 = zext nneg i32 %spec.select.i1131 to i64
-  %154 = getelementptr inbounds nuw i64, ptr %152, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %153
   %155 = sext i32 %147 to i64
   %156 = sub nsw i64 0, %155
-  %157 = getelementptr inbounds i64, ptr %154, i64 %156
+  %157 = getelementptr inbounds [8 x i8], ptr %154, i64 %156
   br label %.critedge1081
 
 158:                                              ; preds = %97
-  %159 = getelementptr inbounds i64, ptr %16, i64 %104
+  %159 = getelementptr inbounds [8 x i8], ptr %16, i64 %104
   %160 = load i64, ptr %159, align 8, !tbaa !110
   %161 = add nsw i64 %99, 2
   store i64 %161, ptr %98, align 8, !tbaa !135
   %162 = and i64 %160, 16777215
   %163 = load i64, ptr %.0806, align 8, !tbaa !137
-  %164 = getelementptr inbounds i16, ptr %32, i64 %163
+  %164 = getelementptr inbounds [2 x i8], ptr %32, i64 %163
   %165 = load i64, ptr %82, align 8, !tbaa !69
-  %166 = getelementptr inbounds i16, ptr %32, i64 %165
+  %166 = getelementptr inbounds [2 x i8], ptr %32, i64 %165
   %167 = and i64 %101, 16777215
-  %168 = getelementptr inbounds nuw i16, ptr %.0.i, i64 %167
-  %169 = getelementptr inbounds nuw i16, ptr %164, i64 %162
+  %168 = getelementptr inbounds nuw [2 x i8], ptr %.0.i, i64 %167
+  %169 = getelementptr inbounds nuw [2 x i8], ptr %164, i64 %162
   br label %170
 
 170:                                              ; preds = %174, %158
@@ -11825,10 +11820,10 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i: ; preds = %_ZN6icu_779
   %185 = getelementptr inbounds nuw i8, ptr %180, i64 24
   %186 = load ptr, ptr %185, align 8, !tbaa !131
   %187 = zext nneg i32 %spec.select.i1132 to i64
-  %188 = getelementptr inbounds nuw i64, ptr %186, i64 %187
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %187
   %189 = sext i32 %181 to i64
   %190 = sub nsw i64 0, %189
-  %191 = getelementptr inbounds i64, ptr %188, i64 %190
+  %191 = getelementptr inbounds [8 x i8], ptr %188, i64 %190
   br label %.critedge1081
 
 192:                                              ; preds = %97
@@ -11866,7 +11861,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1135: ; preds
   %208 = getelementptr inbounds nuw i8, ptr %197, i64 24
   %209 = load ptr, ptr %208, align 8, !tbaa !131
   %210 = sext i32 %207 to i64
-  %211 = getelementptr inbounds i64, ptr %209, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %209, i64 %210
   store i32 %.pre-phi.i.i1136, ptr %199, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1137
 
@@ -11880,7 +11875,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1137: ; preds = %_ZN6icu
   %215 = load i32, ptr %35, align 8, !tbaa !17
   %216 = sext i32 %215 to i64
   %217 = sub nsw i64 0, %216
-  %218 = getelementptr inbounds i64, ptr %.0.i.i1138, i64 %217
+  %218 = getelementptr inbounds [8 x i8], ptr %.0.i.i1138, i64 %217
   br label %219
 
 219:                                              ; preds = %219, %214
@@ -11957,16 +11952,16 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %251 = getelementptr inbounds nuw i8, ptr %246, i64 24
   %252 = load ptr, ptr %251, align 8, !tbaa !131
   %253 = zext nneg i32 %spec.select.i1144 to i64
-  %254 = getelementptr inbounds nuw i64, ptr %252, i64 %253
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %253
   %255 = sext i32 %247 to i64
   %256 = sub nsw i64 0, %255
-  %257 = getelementptr inbounds i64, ptr %254, i64 %256
+  %257 = getelementptr inbounds [8 x i8], ptr %254, i64 %256
   br label %.critedge1081
 
 258:                                              ; preds = %97
   %259 = load i64, ptr %.0806, align 8, !tbaa !137
   %260 = and i64 %101, 16777215
-  %261 = getelementptr inbounds nuw i64, ptr %.0806, i64 %260
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %.0806, i64 %260
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 32
   store i64 %259, ptr %262, align 8, !tbaa !110
   br label %.critedge1081
@@ -11974,7 +11969,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
 263:                                              ; preds = %97
   %264 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
   %265 = and i64 %101, 16777215
-  %266 = getelementptr inbounds nuw i64, ptr %264, i64 %265
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %265
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 16
   %268 = load i64, ptr %267, align 8, !tbaa !110
   store i64 %268, ptr %266, align 8, !tbaa !110
@@ -12001,10 +11996,10 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %282 = getelementptr inbounds nuw i8, ptr %277, i64 24
   %283 = load ptr, ptr %282, align 8, !tbaa !131
   %284 = zext nneg i32 %spec.select.i1145 to i64
-  %285 = getelementptr inbounds nuw i64, ptr %283, i64 %284
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %283, i64 %284
   %286 = sext i32 %278 to i64
   %287 = sub nsw i64 0, %286
-  %288 = getelementptr inbounds i64, ptr %285, i64 %287
+  %288 = getelementptr inbounds [8 x i8], ptr %285, i64 %287
   br label %.critedge1081
 
 289:                                              ; preds = %271
@@ -12022,7 +12017,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   br i1 %293, label %294, label %339
 
 294:                                              ; preds = %291
-  %295 = getelementptr inbounds i16, ptr %32, i64 %272
+  %295 = getelementptr inbounds [2 x i8], ptr %32, i64 %272
   %296 = load i16, ptr %295, align 2, !tbaa !93
   %297 = zext i16 %296 to i32
   %298 = and i32 %297, 63488
@@ -12040,7 +12035,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   br i1 %.not1068, label %328, label %305
 
 305:                                              ; preds = %303
-  %306 = getelementptr inbounds i16, ptr %32, i64 %304
+  %306 = getelementptr inbounds [2 x i8], ptr %32, i64 %304
   %307 = load i16, ptr %306, align 2, !tbaa !93
   %308 = zext i16 %307 to i32
   %309 = and i32 %308, 64512
@@ -12101,7 +12096,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   br i1 %340, label %341, label %.thread
 
 341:                                              ; preds = %339
-  %342 = getelementptr inbounds i16, ptr %32, i64 %272
+  %342 = getelementptr inbounds [2 x i8], ptr %32, i64 %272
   %343 = load i16, ptr %342, align 2, !tbaa !93
   %344 = icmp eq i16 %343, 13
   br i1 %344, label %345, label %.thread
@@ -12128,10 +12123,10 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %355 = getelementptr inbounds nuw i8, ptr %350, i64 24
   %356 = load ptr, ptr %355, align 8, !tbaa !131
   %357 = zext nneg i32 %spec.select.i1146 to i64
-  %358 = getelementptr inbounds nuw i64, ptr %356, i64 %357
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %356, i64 %357
   %359 = sext i32 %351 to i64
   %360 = sub nsw i64 0, %359
-  %361 = getelementptr inbounds i64, ptr %358, i64 %360
+  %361 = getelementptr inbounds [8 x i8], ptr %358, i64 %360
   br label %.critedge1081
 
 362:                                              ; preds = %97
@@ -12146,7 +12141,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   br i1 %367, label %368, label %373
 
 368:                                              ; preds = %366
-  %369 = getelementptr inbounds i16, ptr %32, i64 %363
+  %369 = getelementptr inbounds [2 x i8], ptr %32, i64 %363
   %370 = load i16, ptr %369, align 2, !tbaa !93
   %371 = icmp eq i16 %370, 10
   br i1 %371, label %372, label %374
@@ -12172,10 +12167,10 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   %380 = getelementptr inbounds nuw i8, ptr %375, i64 24
   %381 = load ptr, ptr %380, align 8, !tbaa !131
   %382 = zext nneg i32 %spec.select.i1147 to i64
-  %383 = getelementptr inbounds nuw i64, ptr %381, i64 %382
+  %383 = getelementptr inbounds nuw [8 x i8], ptr %381, i64 %382
   %384 = sext i32 %376 to i64
   %385 = sub nsw i64 0, %384
-  %386 = getelementptr inbounds i64, ptr %383, i64 %385
+  %386 = getelementptr inbounds [8 x i8], ptr %383, i64 %385
   br label %.critedge1081
 
 387:                                              ; preds = %97
@@ -12190,7 +12185,7 @@ _ZN6icu_7712RegexMatcher13IncrementTimeER10UErrorCode.exit.i: ; preds = %.sink.s
   br label %.critedge1081
 
 391:                                              ; preds = %387
-  %392 = getelementptr inbounds i16, ptr %32, i64 %388
+  %392 = getelementptr inbounds [2 x i8], ptr %32, i64 %388
   %393 = load i16, ptr %392, align 2, !tbaa !93
   %394 = and i16 %393, -8368
   %.not.i1148 = icmp eq i16 %394, 0
@@ -12231,10 +12226,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %395, %391, %399
   %408 = getelementptr inbounds nuw i8, ptr %403, i64 24
   %409 = load ptr, ptr %408, align 8, !tbaa !131
   %410 = zext nneg i32 %spec.select.i1150 to i64
-  %411 = getelementptr inbounds nuw i64, ptr %409, i64 %410
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %409, i64 %410
   %412 = sext i32 %404 to i64
   %413 = sub nsw i64 0, %412
-  %414 = getelementptr inbounds i64, ptr %411, i64 %413
+  %414 = getelementptr inbounds [8 x i8], ptr %411, i64 %413
   br label %.critedge1081
 
 415:                                              ; preds = %97
@@ -12249,7 +12244,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %395, %391, %399
   br label %.critedge1081
 
 419:                                              ; preds = %415
-  %420 = getelementptr inbounds i16, ptr %32, i64 %416
+  %420 = getelementptr inbounds [2 x i8], ptr %32, i64 %416
   %421 = load i16, ptr %420, align 2, !tbaa !93
   %.not1063 = icmp eq i16 %421, 10
   br i1 %.not1063, label %.critedge1081, label %422
@@ -12265,10 +12260,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %395, %391, %399
   %428 = getelementptr inbounds nuw i8, ptr %423, i64 24
   %429 = load ptr, ptr %428, align 8, !tbaa !131
   %430 = zext nneg i32 %spec.select.i1151 to i64
-  %431 = getelementptr inbounds nuw i64, ptr %429, i64 %430
+  %431 = getelementptr inbounds nuw [8 x i8], ptr %429, i64 %430
   %432 = sext i32 %424 to i64
   %433 = sub nsw i64 0, %432
-  %434 = getelementptr inbounds i64, ptr %431, i64 %433
+  %434 = getelementptr inbounds [8 x i8], ptr %431, i64 %433
   br label %.critedge1081
 
 435:                                              ; preds = %97
@@ -12288,10 +12283,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %395, %391, %399
   %444 = getelementptr inbounds nuw i8, ptr %439, i64 24
   %445 = load ptr, ptr %444, align 8, !tbaa !131
   %446 = zext nneg i32 %spec.select.i1152 to i64
-  %447 = getelementptr inbounds nuw i64, ptr %445, i64 %446
+  %447 = getelementptr inbounds nuw [8 x i8], ptr %445, i64 %446
   %448 = sext i32 %440 to i64
   %449 = sub nsw i64 0, %448
-  %450 = getelementptr inbounds i64, ptr %447, i64 %449
+  %450 = getelementptr inbounds [8 x i8], ptr %447, i64 %449
   br label %.critedge1081
 
 451:                                              ; preds = %97
@@ -12306,7 +12301,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %395, %391, %399
   br i1 %457, label %458, label %464
 
 458:                                              ; preds = %455
-  %459 = getelementptr i16, ptr %32, i64 %452
+  %459 = getelementptr [2 x i8], ptr %32, i64 %452
   %460 = getelementptr i8, ptr %459, i64 -2
   %461 = load i16, ptr %460, align 2, !tbaa !93
   %462 = zext i16 %461 to i32
@@ -12325,10 +12320,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %395, %391, %399
   %470 = getelementptr inbounds nuw i8, ptr %465, i64 24
   %471 = load ptr, ptr %470, align 8, !tbaa !131
   %472 = zext nneg i32 %spec.select.i1153 to i64
-  %473 = getelementptr inbounds nuw i64, ptr %471, i64 %472
+  %473 = getelementptr inbounds nuw [8 x i8], ptr %471, i64 %472
   %474 = sext i32 %466 to i64
   %475 = sub nsw i64 0, %474
-  %476 = getelementptr inbounds i64, ptr %473, i64 %475
+  %476 = getelementptr inbounds [8 x i8], ptr %473, i64 %475
   br label %.critedge1081
 
 477:                                              ; preds = %97
@@ -12338,7 +12333,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %395, %391, %399
   br i1 %.not1058, label %480, label %.critedge1081
 
 480:                                              ; preds = %477
-  %481 = getelementptr i16, ptr %32, i64 %478
+  %481 = getelementptr [2 x i8], ptr %32, i64 %478
   %482 = getelementptr i8, ptr %481, i64 -2
   %483 = load i16, ptr %482, align 2, !tbaa !93
   %.not1059 = icmp eq i16 %483, 10
@@ -12355,10 +12350,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %395, %391, %399
   %490 = getelementptr inbounds nuw i8, ptr %485, i64 24
   %491 = load ptr, ptr %490, align 8, !tbaa !131
   %492 = zext nneg i32 %spec.select.i1154 to i64
-  %493 = getelementptr inbounds nuw i64, ptr %491, i64 %492
+  %493 = getelementptr inbounds nuw [8 x i8], ptr %491, i64 %492
   %494 = sext i32 %486 to i64
   %495 = sub nsw i64 0, %494
-  %496 = getelementptr inbounds i64, ptr %493, i64 %495
+  %496 = getelementptr inbounds [8 x i8], ptr %493, i64 %495
   br label %.critedge1081
 
 497:                                              ; preds = %97
@@ -12381,10 +12376,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit.thread:      ; preds = %395, %391, %399
   %509 = getelementptr inbounds nuw i8, ptr %504, i64 24
   %510 = load ptr, ptr %509, align 8, !tbaa !131
   %511 = zext nneg i32 %spec.select.i1155 to i64
-  %512 = getelementptr inbounds nuw i64, ptr %510, i64 %511
+  %512 = getelementptr inbounds nuw [8 x i8], ptr %510, i64 %511
   %513 = sext i32 %505 to i64
   %514 = sub nsw i64 0, %513
-  %515 = getelementptr inbounds i64, ptr %512, i64 %514
+  %515 = getelementptr inbounds [8 x i8], ptr %512, i64 %514
   br label %.critedge1081
 
 516:                                              ; preds = %97
@@ -12445,10 +12440,10 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %520, %
   %548 = getelementptr inbounds nuw i8, ptr %543, i64 24
   %549 = load ptr, ptr %548, align 8, !tbaa !131
   %550 = zext nneg i32 %spec.select.i1156 to i64
-  %551 = getelementptr inbounds nuw i64, ptr %549, i64 %550
+  %551 = getelementptr inbounds nuw [8 x i8], ptr %549, i64 %550
   %552 = sext i32 %544 to i64
   %553 = sub nsw i64 0, %552
-  %554 = getelementptr inbounds i64, ptr %551, i64 %553
+  %554 = getelementptr inbounds [8 x i8], ptr %551, i64 %553
   br label %.critedge1081
 
 555:                                              ; preds = %97
@@ -12469,16 +12464,16 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %520, %
   %564 = getelementptr inbounds nuw i8, ptr %559, i64 24
   %565 = load ptr, ptr %564, align 8, !tbaa !131
   %566 = zext nneg i32 %spec.select.i1157 to i64
-  %567 = getelementptr inbounds nuw i64, ptr %565, i64 %566
+  %567 = getelementptr inbounds nuw [8 x i8], ptr %565, i64 %566
   %568 = sext i32 %560 to i64
   %569 = sub nsw i64 0, %568
-  %570 = getelementptr inbounds i64, ptr %567, i64 %569
+  %570 = getelementptr inbounds [8 x i8], ptr %567, i64 %569
   br label %.critedge1081
 
 571:                                              ; preds = %555
   %572 = add nsw i64 %556, 1
   store i64 %572, ptr %.0806, align 8, !tbaa !137
-  %573 = getelementptr inbounds i16, ptr %32, i64 %556
+  %573 = getelementptr inbounds [2 x i8], ptr %32, i64 %556
   %574 = load i16, ptr %573, align 2, !tbaa !93
   %575 = zext i16 %574 to i32
   %576 = and i32 %575, 64512
@@ -12489,7 +12484,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %520, %
   br i1 %or.cond1116, label %590, label %579
 
 579:                                              ; preds = %571
-  %580 = getelementptr inbounds i16, ptr %32, i64 %572
+  %580 = getelementptr inbounds [2 x i8], ptr %32, i64 %572
   %581 = load i16, ptr %580, align 2, !tbaa !93
   %582 = zext i16 %581 to i32
   %583 = and i32 %582, 64512
@@ -12523,10 +12518,10 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %520, %
   %601 = getelementptr inbounds nuw i8, ptr %596, i64 24
   %602 = load ptr, ptr %601, align 8, !tbaa !131
   %603 = zext nneg i32 %spec.select.i1158 to i64
-  %604 = getelementptr inbounds nuw i64, ptr %602, i64 %603
+  %604 = getelementptr inbounds nuw [8 x i8], ptr %602, i64 %603
   %605 = sext i32 %597 to i64
   %606 = sub nsw i64 0, %605
-  %607 = getelementptr inbounds i64, ptr %604, i64 %606
+  %607 = getelementptr inbounds [8 x i8], ptr %604, i64 %606
   br label %.critedge1081
 
 608:                                              ; preds = %97
@@ -12556,10 +12551,10 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %520, %
   %623 = getelementptr inbounds nuw i8, ptr %618, i64 24
   %624 = load ptr, ptr %623, align 8, !tbaa !131
   %625 = zext nneg i32 %spec.select.i1159 to i64
-  %626 = getelementptr inbounds nuw i64, ptr %624, i64 %625
+  %626 = getelementptr inbounds nuw [8 x i8], ptr %624, i64 %625
   %627 = sext i32 %619 to i64
   %628 = sub nsw i64 0, %627
-  %629 = getelementptr inbounds i64, ptr %626, i64 %628
+  %629 = getelementptr inbounds [8 x i8], ptr %626, i64 %628
   br label %.critedge1081
 
 630:                                              ; preds = %97
@@ -12580,16 +12575,16 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %520, %
   %639 = getelementptr inbounds nuw i8, ptr %634, i64 24
   %640 = load ptr, ptr %639, align 8, !tbaa !131
   %641 = zext nneg i32 %spec.select.i1160 to i64
-  %642 = getelementptr inbounds nuw i64, ptr %640, i64 %641
+  %642 = getelementptr inbounds nuw [8 x i8], ptr %640, i64 %641
   %643 = sext i32 %635 to i64
   %644 = sub nsw i64 0, %643
-  %645 = getelementptr inbounds i64, ptr %642, i64 %644
+  %645 = getelementptr inbounds [8 x i8], ptr %642, i64 %644
   br label %.critedge1081
 
 646:                                              ; preds = %630
   %647 = add nsw i64 %631, 1
   store i64 %647, ptr %.0806, align 8, !tbaa !137
-  %648 = getelementptr inbounds i16, ptr %32, i64 %631
+  %648 = getelementptr inbounds [2 x i8], ptr %32, i64 %631
   %649 = load i16, ptr %648, align 2, !tbaa !93
   %650 = zext i16 %649 to i32
   %651 = and i32 %650, 64512
@@ -12600,7 +12595,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %520, %
   br i1 %or.cond1117, label %665, label %654
 
 654:                                              ; preds = %646
-  %655 = getelementptr inbounds i16, ptr %32, i64 %647
+  %655 = getelementptr inbounds [2 x i8], ptr %32, i64 %647
   %656 = load i16, ptr %655, align 2, !tbaa !93
   %657 = zext i16 %656 to i32
   %658 = and i32 %657, 64512
@@ -12636,10 +12631,10 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %520, %
   %678 = getelementptr inbounds nuw i8, ptr %673, i64 24
   %679 = load ptr, ptr %678, align 8, !tbaa !131
   %680 = zext nneg i32 %spec.select.i1161 to i64
-  %681 = getelementptr inbounds nuw i64, ptr %679, i64 %680
+  %681 = getelementptr inbounds nuw [8 x i8], ptr %679, i64 %680
   %682 = sext i32 %674 to i64
   %683 = sub nsw i64 0, %682
-  %684 = getelementptr inbounds i64, ptr %681, i64 %683
+  %684 = getelementptr inbounds [8 x i8], ptr %681, i64 %683
   br label %.critedge1081
 
 685:                                              ; preds = %97
@@ -12660,16 +12655,16 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %520, %
   %694 = getelementptr inbounds nuw i8, ptr %689, i64 24
   %695 = load ptr, ptr %694, align 8, !tbaa !131
   %696 = zext nneg i32 %spec.select.i1162 to i64
-  %697 = getelementptr inbounds nuw i64, ptr %695, i64 %696
+  %697 = getelementptr inbounds nuw [8 x i8], ptr %695, i64 %696
   %698 = sext i32 %690 to i64
   %699 = sub nsw i64 0, %698
-  %700 = getelementptr inbounds i64, ptr %697, i64 %699
+  %700 = getelementptr inbounds [8 x i8], ptr %697, i64 %699
   br label %.critedge1081
 
 701:                                              ; preds = %685
   %702 = add nsw i64 %686, 1
   store i64 %702, ptr %.0806, align 8, !tbaa !137
-  %703 = getelementptr inbounds i16, ptr %32, i64 %686
+  %703 = getelementptr inbounds [2 x i8], ptr %32, i64 %686
   %704 = load i16, ptr %703, align 2, !tbaa !93
   %705 = zext i16 %704 to i32
   %706 = and i32 %705, 64512
@@ -12680,7 +12675,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %520, %
   br i1 %or.cond1118, label %720, label %709
 
 709:                                              ; preds = %701
-  %710 = getelementptr inbounds i16, ptr %32, i64 %702
+  %710 = getelementptr inbounds [2 x i8], ptr %32, i64 %702
   %711 = load i16, ptr %710, align 2, !tbaa !93
   %712 = zext i16 %711 to i32
   %713 = and i32 %712, 64512
@@ -12720,7 +12715,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %520, %
 726:                                              ; preds = %724
   %727 = add nsw i64 %721, 1
   store i64 %727, ptr %.0806, align 8, !tbaa !137
-  %728 = getelementptr inbounds i16, ptr %32, i64 %721
+  %728 = getelementptr inbounds [2 x i8], ptr %32, i64 %721
   %729 = load i16, ptr %728, align 2, !tbaa !93
   %730 = and i16 %729, -1024
   %731 = icmp ne i16 %730, -10240
@@ -12730,7 +12725,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %520, %
   br i1 %or.cond1119, label %743, label %733
 
 733:                                              ; preds = %726
-  %734 = getelementptr inbounds i16, ptr %32, i64 %727
+  %734 = getelementptr inbounds [2 x i8], ptr %32, i64 %727
   %735 = load i16, ptr %734, align 2, !tbaa !93
   %736 = and i16 %735, -1024
   %737 = icmp eq i16 %736, -9216
@@ -12754,7 +12749,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %520, %
   %745 = phi i64 [ %727, %733 ], [ %744, %743 ]
   %746 = add nsw i64 %745, -1
   store i64 %746, ptr %.0806, align 8, !tbaa !137
-  %747 = getelementptr inbounds i16, ptr %32, i64 %746
+  %747 = getelementptr inbounds [2 x i8], ptr %32, i64 %746
   %748 = load i16, ptr %747, align 2, !tbaa !93
   %749 = and i16 %748, -1024
   %750 = icmp eq i16 %749, -9216
@@ -12763,7 +12758,7 @@ _ZN6icu_7712RegexMatcher15isUWordBoundaryElR10UErrorCode.exit: ; preds = %520, %
   br i1 %or.cond1120, label %752, label %.critedge1081
 
 752:                                              ; preds = %.thread1395
-  %753 = getelementptr i16, ptr %32, i64 %745
+  %753 = getelementptr [2 x i8], ptr %32, i64 %745
   %754 = getelementptr i8, ptr %753, i64 -4
   %755 = load i16, ptr %754, align 2, !tbaa !93
   %756 = and i16 %755, -1024
@@ -12786,10 +12781,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit1165.thread:  ; preds = %723, %720
   %765 = getelementptr inbounds nuw i8, ptr %760, i64 24
   %766 = load ptr, ptr %765, align 8, !tbaa !131
   %767 = zext nneg i32 %spec.select.i1166 to i64
-  %768 = getelementptr inbounds nuw i64, ptr %766, i64 %767
+  %768 = getelementptr inbounds nuw [8 x i8], ptr %766, i64 %767
   %769 = sext i32 %761 to i64
   %770 = sub nsw i64 0, %769
-  %771 = getelementptr inbounds i64, ptr %768, i64 %770
+  %771 = getelementptr inbounds [8 x i8], ptr %768, i64 %770
   br label %.critedge1081
 
 772:                                              ; preds = %97
@@ -12810,16 +12805,16 @@ _ZN6icu_77L16isLineTerminatorEi.exit1165.thread:  ; preds = %723, %720
   %781 = getelementptr inbounds nuw i8, ptr %776, i64 24
   %782 = load ptr, ptr %781, align 8, !tbaa !131
   %783 = zext nneg i32 %spec.select.i1167 to i64
-  %784 = getelementptr inbounds nuw i64, ptr %782, i64 %783
+  %784 = getelementptr inbounds nuw [8 x i8], ptr %782, i64 %783
   %785 = sext i32 %777 to i64
   %786 = sub nsw i64 0, %785
-  %787 = getelementptr inbounds i64, ptr %784, i64 %786
+  %787 = getelementptr inbounds [8 x i8], ptr %784, i64 %786
   br label %.critedge1081
 
 788:                                              ; preds = %772
   %789 = add nsw i64 %773, 1
   store i64 %789, ptr %.0806, align 8, !tbaa !137
-  %790 = getelementptr inbounds i16, ptr %32, i64 %773
+  %790 = getelementptr inbounds [2 x i8], ptr %32, i64 %773
   %791 = load i16, ptr %790, align 2, !tbaa !93
   %792 = zext i16 %791 to i32
   %793 = and i32 %792, 64512
@@ -12830,7 +12825,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1165.thread:  ; preds = %723, %720
   br i1 %or.cond1121, label %807, label %796
 
 796:                                              ; preds = %788
-  %797 = getelementptr inbounds i16, ptr %32, i64 %789
+  %797 = getelementptr inbounds [2 x i8], ptr %32, i64 %789
   %798 = load i16, ptr %797, align 2, !tbaa !93
   %799 = zext i16 %798 to i32
   %800 = and i32 %799, 64512
@@ -12884,10 +12879,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit1170:         ; preds = %807, %809, %809, %8
   %821 = getelementptr inbounds nuw i8, ptr %816, i64 24
   %822 = load ptr, ptr %821, align 8, !tbaa !131
   %823 = zext nneg i32 %spec.select.i1171 to i64
-  %824 = getelementptr inbounds nuw i64, ptr %822, i64 %823
+  %824 = getelementptr inbounds nuw [8 x i8], ptr %822, i64 %823
   %825 = sext i32 %817 to i64
   %826 = sub nsw i64 0, %825
-  %827 = getelementptr inbounds i64, ptr %824, i64 %826
+  %827 = getelementptr inbounds [8 x i8], ptr %824, i64 %826
   br label %.critedge1081
 
 828:                                              ; preds = %97
@@ -12908,10 +12903,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit1170:         ; preds = %807, %809, %809, %8
   %837 = getelementptr inbounds nuw i8, ptr %832, i64 24
   %838 = load ptr, ptr %837, align 8, !tbaa !131
   %839 = zext nneg i32 %spec.select.i1172 to i64
-  %840 = getelementptr inbounds nuw i64, ptr %838, i64 %839
+  %840 = getelementptr inbounds nuw [8 x i8], ptr %838, i64 %839
   %841 = sext i32 %833 to i64
   %842 = sub nsw i64 0, %841
-  %843 = getelementptr inbounds i64, ptr %840, i64 %842
+  %843 = getelementptr inbounds [8 x i8], ptr %840, i64 %842
   br label %.critedge1081
 
 844:                                              ; preds = %828
@@ -12977,10 +12972,10 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %878 = getelementptr inbounds nuw i8, ptr %873, i64 24
   %879 = load ptr, ptr %878, align 8, !tbaa !131
   %880 = zext nneg i32 %spec.select.i1174 to i64
-  %881 = getelementptr inbounds nuw i64, ptr %879, i64 %880
+  %881 = getelementptr inbounds nuw [8 x i8], ptr %879, i64 %880
   %882 = sext i32 %874 to i64
   %883 = sub nsw i64 0, %882
-  %884 = getelementptr inbounds i64, ptr %881, i64 %883
+  %884 = getelementptr inbounds [8 x i8], ptr %881, i64 %883
   br label %.critedge1081
 
 885:                                              ; preds = %868
@@ -13006,10 +13001,10 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %895 = getelementptr inbounds nuw i8, ptr %890, i64 24
   %896 = load ptr, ptr %895, align 8, !tbaa !131
   %897 = zext nneg i32 %spec.select.i1175 to i64
-  %898 = getelementptr inbounds nuw i64, ptr %896, i64 %897
+  %898 = getelementptr inbounds nuw [8 x i8], ptr %896, i64 %897
   %899 = sext i32 %891 to i64
   %900 = sub nsw i64 0, %899
-  %901 = getelementptr inbounds i64, ptr %898, i64 %900
+  %901 = getelementptr inbounds [8 x i8], ptr %898, i64 %900
   br label %.critedge1081
 
 902:                                              ; preds = %886
@@ -13020,7 +13015,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %905 = and i64 %101, 8388607
   %906 = add nsw i64 %887, 1
   store i64 %906, ptr %.0806, align 8, !tbaa !137
-  %907 = getelementptr inbounds i16, ptr %32, i64 %887
+  %907 = getelementptr inbounds [2 x i8], ptr %32, i64 %887
   %908 = load i16, ptr %907, align 2, !tbaa !93
   %909 = zext i16 %908 to i32
   %910 = and i32 %909, 64512
@@ -13031,7 +13026,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   br i1 %or.cond1122, label %924, label %913
 
 913:                                              ; preds = %902
-  %914 = getelementptr inbounds i16, ptr %32, i64 %906
+  %914 = getelementptr inbounds [2 x i8], ptr %32, i64 %906
   %915 = load i16, ptr %914, align 2, !tbaa !93
   %916 = zext i16 %915 to i32
   %917 = and i32 %916, 64512
@@ -13053,7 +13048,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
 926:                                              ; preds = %924
   %927 = load ptr, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !43
   %928 = getelementptr inbounds nuw i8, ptr %927, i64 2608
-  %929 = getelementptr inbounds nuw %"struct.icu_77::Regex8BitSet", ptr %928, i64 %905
+  %929 = getelementptr inbounds nuw [32 x i8], ptr %928, i64 %905
   %930 = lshr i32 %909, 3
   %931 = zext nneg i32 %930 to i64
   %932 = getelementptr inbounds nuw i8, ptr %929, i64 %931
@@ -13069,7 +13064,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %.18571401 = phi i32 [ %909, %924 ], [ %909, %913 ], [ %923, %919 ]
   %938 = load ptr, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !43
   %939 = getelementptr inbounds nuw i8, ptr %938, i64 8
-  %940 = getelementptr inbounds nuw %"class.icu_77::UnicodeSet", ptr %939, i64 %905
+  %940 = getelementptr inbounds nuw [200 x i8], ptr %939, i64 %905
   %941 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %940, i32 noundef %.18571401)
   %.not1038 = icmp eq i8 %941, 0
   br label %942
@@ -13092,10 +13087,10 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %950 = getelementptr inbounds nuw i8, ptr %945, i64 24
   %951 = load ptr, ptr %950, align 8, !tbaa !131
   %952 = zext nneg i32 %spec.select.i1176 to i64
-  %953 = getelementptr inbounds nuw i64, ptr %951, i64 %952
+  %953 = getelementptr inbounds nuw [8 x i8], ptr %951, i64 %952
   %954 = sext i32 %946 to i64
   %955 = sub nsw i64 0, %954
-  %956 = getelementptr inbounds i64, ptr %953, i64 %955
+  %956 = getelementptr inbounds [8 x i8], ptr %953, i64 %955
   br label %.critedge1081
 
 957:                                              ; preds = %97
@@ -13116,16 +13111,16 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %966 = getelementptr inbounds nuw i8, ptr %961, i64 24
   %967 = load ptr, ptr %966, align 8, !tbaa !131
   %968 = zext nneg i32 %spec.select.i1177 to i64
-  %969 = getelementptr inbounds nuw i64, ptr %967, i64 %968
+  %969 = getelementptr inbounds nuw [8 x i8], ptr %967, i64 %968
   %970 = sext i32 %962 to i64
   %971 = sub nsw i64 0, %970
-  %972 = getelementptr inbounds i64, ptr %969, i64 %971
+  %972 = getelementptr inbounds [8 x i8], ptr %969, i64 %971
   br label %.critedge1081
 
 973:                                              ; preds = %957
   %974 = add nsw i64 %958, 1
   store i64 %974, ptr %.0806, align 8, !tbaa !137
-  %975 = getelementptr inbounds i16, ptr %32, i64 %958
+  %975 = getelementptr inbounds [2 x i8], ptr %32, i64 %958
   %976 = load i16, ptr %975, align 2, !tbaa !93
   %977 = zext i16 %976 to i32
   %978 = and i32 %977, 64512
@@ -13136,7 +13131,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   br i1 %or.cond1123, label %992, label %981
 
 981:                                              ; preds = %973
-  %982 = getelementptr inbounds i16, ptr %32, i64 %974
+  %982 = getelementptr inbounds [2 x i8], ptr %32, i64 %974
   %983 = load i16, ptr %982, align 2, !tbaa !93
   %984 = zext i16 %983 to i32
   %985 = and i32 %984, 64512
@@ -13159,7 +13154,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %995 = load ptr, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !43
   %996 = getelementptr inbounds nuw i8, ptr %995, i64 2608
   %997 = and i64 %101, 16777215
-  %998 = getelementptr inbounds nuw %"struct.icu_77::Regex8BitSet", ptr %996, i64 %997
+  %998 = getelementptr inbounds nuw [32 x i8], ptr %996, i64 %997
   %999 = lshr i32 %977, 3
   %1000 = zext nneg i32 %999 to i64
   %1001 = getelementptr inbounds nuw i8, ptr %998, i64 %1000
@@ -13176,7 +13171,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %1007 = load ptr, ptr @_ZN6icu_7715RegexStaticSets11gStaticSetsE, align 8, !tbaa !43
   %1008 = getelementptr inbounds nuw i8, ptr %1007, i64 8
   %1009 = and i64 %101, 16777215
-  %1010 = getelementptr inbounds nuw %"class.icu_77::UnicodeSet", ptr %1008, i64 %1009
+  %1010 = getelementptr inbounds nuw [200 x i8], ptr %1008, i64 %1009
   %1011 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %1010, i32 noundef %.18591405)
   %.not1033 = icmp eq i8 %1011, 0
   br i1 %.not1033, label %.critedge1081, label %1012
@@ -13192,10 +13187,10 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %1018 = getelementptr inbounds nuw i8, ptr %1013, i64 24
   %1019 = load ptr, ptr %1018, align 8, !tbaa !131
   %1020 = zext nneg i32 %spec.select.i1178 to i64
-  %1021 = getelementptr inbounds nuw i64, ptr %1019, i64 %1020
+  %1021 = getelementptr inbounds nuw [8 x i8], ptr %1019, i64 %1020
   %1022 = sext i32 %1014 to i64
   %1023 = sub nsw i64 0, %1022
-  %1024 = getelementptr inbounds i64, ptr %1021, i64 %1023
+  %1024 = getelementptr inbounds [8 x i8], ptr %1021, i64 %1023
   br label %.critedge1081
 
 1025:                                             ; preds = %97
@@ -13216,16 +13211,16 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %1034 = getelementptr inbounds nuw i8, ptr %1029, i64 24
   %1035 = load ptr, ptr %1034, align 8, !tbaa !131
   %1036 = zext nneg i32 %spec.select.i1179 to i64
-  %1037 = getelementptr inbounds nuw i64, ptr %1035, i64 %1036
+  %1037 = getelementptr inbounds nuw [8 x i8], ptr %1035, i64 %1036
   %1038 = sext i32 %1030 to i64
   %1039 = sub nsw i64 0, %1038
-  %1040 = getelementptr inbounds i64, ptr %1037, i64 %1039
+  %1040 = getelementptr inbounds [8 x i8], ptr %1037, i64 %1039
   br label %.critedge1081
 
 1041:                                             ; preds = %1025
   %1042 = add nsw i64 %1026, 1
   store i64 %1042, ptr %.0806, align 8, !tbaa !137
-  %1043 = getelementptr inbounds i16, ptr %32, i64 %1026
+  %1043 = getelementptr inbounds [2 x i8], ptr %32, i64 %1026
   %1044 = load i16, ptr %1043, align 2, !tbaa !93
   %1045 = zext i16 %1044 to i32
   %1046 = and i32 %1045, 64512
@@ -13236,7 +13231,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   br i1 %or.cond1124, label %1060, label %1049
 
 1049:                                             ; preds = %1041
-  %1050 = getelementptr inbounds i16, ptr %32, i64 %1042
+  %1050 = getelementptr inbounds [2 x i8], ptr %32, i64 %1042
   %1051 = load i16, ptr %1050, align 2, !tbaa !93
   %1052 = zext i16 %1051 to i32
   %1053 = and i32 %1052, 64512
@@ -13260,7 +13255,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %1064 = getelementptr inbounds nuw i8, ptr %1063, i64 112
   %1065 = load ptr, ptr %1064, align 8, !tbaa !142
   %1066 = and i64 %101, 16777215
-  %1067 = getelementptr inbounds nuw %"struct.icu_77::Regex8BitSet", ptr %1065, i64 %1066
+  %1067 = getelementptr inbounds nuw [32 x i8], ptr %1065, i64 %1066
   %1068 = lshr i32 %1045, 3
   %1069 = zext nneg i32 %1068 to i64
   %1070 = getelementptr inbounds nuw i8, ptr %1067, i64 %1069
@@ -13290,10 +13285,10 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %1084 = getelementptr inbounds nuw i8, ptr %1079, i64 24
   %1085 = load ptr, ptr %1084, align 8, !tbaa !131
   %1086 = zext nneg i32 %spec.select.i1180 to i64
-  %1087 = getelementptr inbounds nuw i64, ptr %1085, i64 %1086
+  %1087 = getelementptr inbounds nuw [8 x i8], ptr %1085, i64 %1086
   %1088 = sext i32 %1080 to i64
   %1089 = sub nsw i64 0, %1088
-  %1090 = getelementptr inbounds i64, ptr %1087, i64 %1089
+  %1090 = getelementptr inbounds [8 x i8], ptr %1087, i64 %1089
   br label %.critedge1081
 
 1091:                                             ; preds = %97
@@ -13314,16 +13309,16 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   %1100 = getelementptr inbounds nuw i8, ptr %1095, i64 24
   %1101 = load ptr, ptr %1100, align 8, !tbaa !131
   %1102 = zext nneg i32 %spec.select.i1181 to i64
-  %1103 = getelementptr inbounds nuw i64, ptr %1101, i64 %1102
+  %1103 = getelementptr inbounds nuw [8 x i8], ptr %1101, i64 %1102
   %1104 = sext i32 %1096 to i64
   %1105 = sub nsw i64 0, %1104
-  %1106 = getelementptr inbounds i64, ptr %1103, i64 %1105
+  %1106 = getelementptr inbounds [8 x i8], ptr %1103, i64 %1105
   br label %.critedge1081
 
 1107:                                             ; preds = %1091
   %1108 = add nsw i64 %1092, 1
   store i64 %1108, ptr %.0806, align 8, !tbaa !137
-  %1109 = getelementptr inbounds i16, ptr %32, i64 %1092
+  %1109 = getelementptr inbounds [2 x i8], ptr %32, i64 %1092
   %1110 = load i16, ptr %1109, align 2, !tbaa !93
   %1111 = zext i16 %1110 to i32
   %1112 = and i32 %1111, 64512
@@ -13334,7 +13329,7 @@ _ZN6icu_7712RegexMatcher19followingGCBoundaryElR10UErrorCode.exit: ; preds = %84
   br i1 %or.cond1125, label %1126, label %1115
 
 1115:                                             ; preds = %1107
-  %1116 = getelementptr inbounds i16, ptr %32, i64 %1108
+  %1116 = getelementptr inbounds [2 x i8], ptr %32, i64 %1108
   %1117 = load i16, ptr %1116, align 2, !tbaa !93
   %1118 = zext i16 %1117 to i32
   %1119 = and i32 %1118, 64512
@@ -13377,10 +13372,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit1184.thread1412: ; preds = %1128, %1128, %11
   %1134 = getelementptr inbounds nuw i8, ptr %1129, i64 24
   %1135 = load ptr, ptr %1134, align 8, !tbaa !131
   %1136 = zext nneg i32 %spec.select.i1185 to i64
-  %1137 = getelementptr inbounds nuw i64, ptr %1135, i64 %1136
+  %1137 = getelementptr inbounds nuw [8 x i8], ptr %1135, i64 %1136
   %1138 = sext i32 %1130 to i64
   %1139 = sub nsw i64 0, %1138
-  %1140 = getelementptr inbounds i64, ptr %1137, i64 %1139
+  %1140 = getelementptr inbounds [8 x i8], ptr %1137, i64 %1139
   br label %.critedge1081
 
 1141:                                             ; preds = %97
@@ -13401,16 +13396,16 @@ _ZN6icu_77L16isLineTerminatorEi.exit1184.thread1412: ; preds = %1128, %1128, %11
   %1150 = getelementptr inbounds nuw i8, ptr %1145, i64 24
   %1151 = load ptr, ptr %1150, align 8, !tbaa !131
   %1152 = zext nneg i32 %spec.select.i1186 to i64
-  %1153 = getelementptr inbounds nuw i64, ptr %1151, i64 %1152
+  %1153 = getelementptr inbounds nuw [8 x i8], ptr %1151, i64 %1152
   %1154 = sext i32 %1146 to i64
   %1155 = sub nsw i64 0, %1154
-  %1156 = getelementptr inbounds i64, ptr %1153, i64 %1155
+  %1156 = getelementptr inbounds [8 x i8], ptr %1153, i64 %1155
   br label %.critedge1081
 
 1157:                                             ; preds = %1141
   %1158 = add nsw i64 %1142, 1
   store i64 %1158, ptr %.0806, align 8, !tbaa !137
-  %1159 = getelementptr inbounds i16, ptr %32, i64 %1142
+  %1159 = getelementptr inbounds [2 x i8], ptr %32, i64 %1142
   %1160 = load i16, ptr %1159, align 2, !tbaa !93
   %1161 = and i16 %1160, -1024
   %1162 = icmp ne i16 %1161, -10240
@@ -13420,7 +13415,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1184.thread1412: ; preds = %1128, %1128, %11
   br i1 %or.cond1126, label %1171, label %1164
 
 1164:                                             ; preds = %1157
-  %1165 = getelementptr inbounds i16, ptr %32, i64 %1158
+  %1165 = getelementptr inbounds [2 x i8], ptr %32, i64 %1158
   %1166 = load i16, ptr %1165, align 2, !tbaa !93
   %1167 = and i16 %1166, -1024
   %1168 = icmp eq i16 %1167, -9216
@@ -13438,7 +13433,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1184.thread1412: ; preds = %1128, %1128, %11
   br i1 %or.cond1687, label %1174, label %.critedge1081
 
 1174:                                             ; preds = %1171
-  %1175 = getelementptr inbounds i16, ptr %32, i64 %1158
+  %1175 = getelementptr inbounds [2 x i8], ptr %32, i64 %1158
   %1176 = load i16, ptr %1175, align 2, !tbaa !93
   %1177 = icmp eq i16 %1176, 10
   br i1 %1177, label %1178, label %.critedge1081
@@ -13466,16 +13461,16 @@ _ZN6icu_77L16isLineTerminatorEi.exit1184.thread1412: ; preds = %1128, %1128, %11
   %1189 = getelementptr inbounds nuw i8, ptr %1184, i64 24
   %1190 = load ptr, ptr %1189, align 8, !tbaa !131
   %1191 = zext nneg i32 %spec.select.i1187 to i64
-  %1192 = getelementptr inbounds nuw i64, ptr %1190, i64 %1191
+  %1192 = getelementptr inbounds nuw [8 x i8], ptr %1190, i64 %1191
   %1193 = sext i32 %1185 to i64
   %1194 = sub nsw i64 0, %1193
-  %1195 = getelementptr inbounds i64, ptr %1192, i64 %1194
+  %1195 = getelementptr inbounds [8 x i8], ptr %1192, i64 %1194
   br label %.critedge1081
 
 1196:                                             ; preds = %1180
   %1197 = add nsw i64 %1181, 1
   store i64 %1197, ptr %.0806, align 8, !tbaa !137
-  %1198 = getelementptr inbounds i16, ptr %32, i64 %1181
+  %1198 = getelementptr inbounds [2 x i8], ptr %32, i64 %1181
   %1199 = load i16, ptr %1198, align 2, !tbaa !93
   %1200 = and i16 %1199, -1024
   %1201 = icmp ne i16 %1200, -10240
@@ -13485,7 +13480,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1184.thread1412: ; preds = %1128, %1128, %11
   br i1 %or.cond1127, label %1210, label %1203
 
 1203:                                             ; preds = %1196
-  %1204 = getelementptr inbounds i16, ptr %32, i64 %1197
+  %1204 = getelementptr inbounds [2 x i8], ptr %32, i64 %1197
   %1205 = load i16, ptr %1204, align 2, !tbaa !93
   %1206 = and i16 %1205, -1024
   %1207 = icmp eq i16 %1206, -9216
@@ -13511,10 +13506,10 @@ _ZN6icu_77L16isLineTerminatorEi.exit1184.thread1412: ; preds = %1128, %1128, %11
   %1218 = getelementptr inbounds nuw i8, ptr %1213, i64 24
   %1219 = load ptr, ptr %1218, align 8, !tbaa !131
   %1220 = zext nneg i32 %spec.select.i1188 to i64
-  %1221 = getelementptr inbounds nuw i64, ptr %1219, i64 %1220
+  %1221 = getelementptr inbounds nuw [8 x i8], ptr %1219, i64 %1220
   %1222 = sext i32 %1214 to i64
   %1223 = sub nsw i64 0, %1222
-  %1224 = getelementptr inbounds i64, ptr %1221, i64 %1223
+  %1224 = getelementptr inbounds [8 x i8], ptr %1221, i64 %1223
   br label %.critedge1081
 
 1225:                                             ; preds = %97
@@ -13556,7 +13551,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1192: ; preds
   %1242 = getelementptr inbounds nuw i8, ptr %1231, i64 24
   %1243 = load ptr, ptr %1242, align 8, !tbaa !131
   %1244 = sext i32 %1241 to i64
-  %1245 = getelementptr inbounds i64, ptr %1243, i64 %1244
+  %1245 = getelementptr inbounds [8 x i8], ptr %1243, i64 %1244
   store i32 %.pre-phi.i.i1193, ptr %1233, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1194
 
@@ -13574,7 +13569,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1194: ; preds = %_ZN6icu
   %1250 = load i32, ptr %35, align 8, !tbaa !17
   %1251 = sext i32 %1250 to i64
   %1252 = sub nsw i64 0, %1251
-  %1253 = getelementptr inbounds i64, ptr %.0.i.i1195, i64 %1252
+  %1253 = getelementptr inbounds [8 x i8], ptr %.0.i.i1195, i64 %1252
   br label %1254
 
 1254:                                             ; preds = %1254, %1249
@@ -13640,12 +13635,12 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1210: ;
 
 1278:                                             ; preds = %97
   %1279 = and i64 %101, 16777215
-  %1280 = getelementptr i64, ptr %16, i64 %1279
+  %1280 = getelementptr [8 x i8], ptr %16, i64 %1279
   %1281 = getelementptr i8, ptr %1280, i64 -8
   %1282 = load i64, ptr %1281, align 8, !tbaa !110
   %1283 = and i64 %1282, 16777215
   %1284 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
-  %1285 = getelementptr inbounds nuw i64, ptr %1284, i64 %1283
+  %1285 = getelementptr inbounds nuw [8 x i8], ptr %1284, i64 %1283
   %1286 = load i64, ptr %1285, align 8, !tbaa !110
   %sext1018 = shl i64 %1286, 32
   %1287 = ashr exact i64 %sext1018, 32
@@ -13687,7 +13682,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1214: ; preds
   %1305 = getelementptr inbounds nuw i8, ptr %1294, i64 24
   %1306 = load ptr, ptr %1305, align 8, !tbaa !131
   %1307 = sext i32 %1304 to i64
-  %1308 = getelementptr inbounds i64, ptr %1306, i64 %1307
+  %1308 = getelementptr inbounds [8 x i8], ptr %1306, i64 %1307
   store i32 %.pre-phi.i.i1215, ptr %1296, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1216
 
@@ -13705,7 +13700,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1216: ; preds = %_ZN6icu
   %1313 = load i32, ptr %35, align 8, !tbaa !17
   %1314 = sext i32 %1313 to i64
   %1315 = sub nsw i64 0, %1314
-  %1316 = getelementptr inbounds i64, ptr %.0.i.i1217, i64 %1315
+  %1316 = getelementptr inbounds [8 x i8], ptr %.0.i.i1217, i64 %1315
   br label %1317
 
 1317:                                             ; preds = %1317, %1312
@@ -13768,14 +13763,14 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1232: ;
   store i64 %1279, ptr %1339, align 8, !tbaa !135
   %1340 = load i64, ptr %.019.i1211, align 8, !tbaa !137
   %1341 = getelementptr inbounds nuw i8, ptr %.019.i1211, i64 16
-  %1342 = getelementptr inbounds nuw i64, ptr %1341, i64 %1283
+  %1342 = getelementptr inbounds nuw [8 x i8], ptr %1341, i64 %1283
   store i64 %1340, ptr %1342, align 8, !tbaa !110
   br label %.critedge1081
 
 1343:                                             ; preds = %97
   %1344 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
   %1345 = and i64 %101, 16777215
-  %1346 = getelementptr inbounds nuw i64, ptr %1344, i64 %1345
+  %1346 = getelementptr inbounds nuw [8 x i8], ptr %1344, i64 %1345
   store i64 0, ptr %1346, align 8, !tbaa !110
   %1347 = add nsw i64 %99, 4
   store i64 %1347, ptr %98, align 8, !tbaa !135
@@ -13832,7 +13827,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1236: ; preds
   %1378 = getelementptr inbounds nuw i8, ptr %1367, i64 24
   %1379 = load ptr, ptr %1378, align 8, !tbaa !131
   %1380 = sext i32 %1377 to i64
-  %1381 = getelementptr inbounds i64, ptr %1379, i64 %1380
+  %1381 = getelementptr inbounds [8 x i8], ptr %1379, i64 %1380
   store i32 %.pre-phi.i.i1237, ptr %1369, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1238
 
@@ -13850,7 +13845,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1238: ; preds = %_ZN6icu
   %1386 = load i32, ptr %35, align 8, !tbaa !17
   %1387 = sext i32 %1386 to i64
   %1388 = sub nsw i64 0, %1387
-  %1389 = getelementptr inbounds i64, ptr %.0.i.i1239, i64 %1388
+  %1389 = getelementptr inbounds [8 x i8], ptr %.0.i.i1239, i64 %1388
   br label %1390
 
 1390:                                             ; preds = %1390, %1385
@@ -13916,7 +13911,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
 
 1412:                                             ; preds = %_ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254
   %1413 = load i64, ptr %.19, align 8, !tbaa !137
-  %1414 = getelementptr inbounds nuw i64, ptr %.19, i64 %1345
+  %1414 = getelementptr inbounds nuw [8 x i8], ptr %.19, i64 %1345
   %1415 = getelementptr inbounds nuw i8, ptr %1414, i64 24
   store i64 %1413, ptr %1415, align 8, !tbaa !110
   br label %.critedge1081
@@ -13932,19 +13927,19 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1422 = getelementptr inbounds nuw i8, ptr %1417, i64 24
   %1423 = load ptr, ptr %1422, align 8, !tbaa !131
   %1424 = zext nneg i32 %spec.select.i1255 to i64
-  %1425 = getelementptr inbounds nuw i64, ptr %1423, i64 %1424
+  %1425 = getelementptr inbounds nuw [8 x i8], ptr %1423, i64 %1424
   %1426 = sext i32 %1418 to i64
   %1427 = sub nsw i64 0, %1426
-  %1428 = getelementptr inbounds i64, ptr %1425, i64 %1427
+  %1428 = getelementptr inbounds [8 x i8], ptr %1425, i64 %1427
   br label %.critedge1081
 
 1429:                                             ; preds = %97
   %1430 = and i64 %101, 16777215
-  %1431 = getelementptr inbounds nuw i64, ptr %16, i64 %1430
+  %1431 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %1430
   %1432 = load i64, ptr %1431, align 8, !tbaa !110
   %1433 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
   %1434 = and i64 %1432, 16777215
-  %1435 = getelementptr inbounds nuw i64, ptr %1433, i64 %1434
+  %1435 = getelementptr inbounds nuw [8 x i8], ptr %1433, i64 %1434
   %1436 = getelementptr inbounds nuw i8, ptr %1431, i64 16
   %1437 = load i64, ptr %1436, align 8, !tbaa !110
   %1438 = getelementptr inbounds nuw i8, ptr %1431, i64 24
@@ -14006,7 +14001,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
 1466:                                             ; preds = %97
   %1467 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
   %1468 = and i64 %101, 16777215
-  %1469 = getelementptr inbounds nuw i64, ptr %1467, i64 %1468
+  %1469 = getelementptr inbounds nuw [8 x i8], ptr %1467, i64 %1468
   store i64 0, ptr %1469, align 8, !tbaa !110
   %1470 = add nsw i64 %99, 4
   store i64 %1470, ptr %98, align 8, !tbaa !135
@@ -14057,11 +14052,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
 
 1495:                                             ; preds = %97
   %1496 = and i64 %101, 16777215
-  %1497 = getelementptr inbounds nuw i64, ptr %16, i64 %1496
+  %1497 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %1496
   %1498 = load i64, ptr %1497, align 8, !tbaa !110
   %1499 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
   %1500 = and i64 %1498, 16777215
-  %1501 = getelementptr inbounds nuw i64, ptr %1499, i64 %1500
+  %1501 = getelementptr inbounds nuw [8 x i8], ptr %1499, i64 %1500
   %1502 = getelementptr inbounds nuw i8, ptr %1497, i64 16
   %1503 = load i64, ptr %1502, align 8, !tbaa !110
   %1504 = getelementptr inbounds nuw i8, ptr %1497, i64 24
@@ -14124,14 +14119,14 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1537 = sext i32 %1536 to i64
   %1538 = load ptr, ptr %84, align 8, !tbaa !40
   %1539 = and i64 %101, 16777215
-  %1540 = getelementptr inbounds nuw i64, ptr %1538, i64 %1539
+  %1540 = getelementptr inbounds nuw [8 x i8], ptr %1538, i64 %1539
   store i64 %1537, ptr %1540, align 8, !tbaa !110
   br label %.critedge1081
 
 1541:                                             ; preds = %97
   %1542 = load ptr, ptr %84, align 8, !tbaa !40
   %1543 = and i64 %101, 16777215
-  %1544 = getelementptr inbounds nuw i64, ptr %1542, i64 %1543
+  %1544 = getelementptr inbounds nuw [8 x i8], ptr %1542, i64 %1543
   %1545 = load i64, ptr %1544, align 8, !tbaa !110
   %1546 = trunc i64 %1545 to i32
   %1547 = load ptr, ptr %36, align 8, !tbaa !64
@@ -14143,7 +14138,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1552 = load i32, ptr %35, align 8, !tbaa !17
   %1553 = sext i32 %1552 to i64
   %1554 = sub nsw i64 0, %1553
-  %1555 = getelementptr inbounds i64, ptr %1551, i64 %1554
+  %1555 = getelementptr inbounds [8 x i8], ptr %1551, i64 %1554
   %1556 = icmp eq ptr %1555, %.0806
   br i1 %1556, label %.critedge1081, label %.preheader
 
@@ -14157,9 +14152,9 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
 
 .lr.ph1524:                                       ; preds = %.lr.ph1524.preheader, %.lr.ph1524
   %indvars.iv1548 = phi i64 [ 0, %.lr.ph1524.preheader ], [ %indvars.iv.next1549, %.lr.ph1524 ]
-  %1558 = getelementptr inbounds nuw i64, ptr %.0806, i64 %indvars.iv1548
+  %1558 = getelementptr inbounds nuw [8 x i8], ptr %.0806, i64 %indvars.iv1548
   %1559 = load i64, ptr %1558, align 8, !tbaa !110
-  %1560 = getelementptr inbounds nuw i64, ptr %1555, i64 %indvars.iv1548
+  %1560 = getelementptr inbounds nuw [8 x i8], ptr %1555, i64 %indvars.iv1548
   store i64 %1559, ptr %1560, align 8, !tbaa !110
   %indvars.iv.next1549 = add nuw nsw i64 %indvars.iv1548, 1
   %exitcond1552.not = icmp eq i64 %indvars.iv.next1549, %wide.trip.count1551
@@ -14172,7 +14167,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
 1561:                                             ; preds = %97
   %1562 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
   %1563 = and i64 %101, 16777215
-  %1564 = getelementptr inbounds nuw i64, ptr %1562, i64 %1563
+  %1564 = getelementptr inbounds nuw [8 x i8], ptr %1562, i64 %1563
   %1565 = load i64, ptr %1564, align 8, !tbaa !110
   %1566 = getelementptr inbounds nuw i8, ptr %1564, i64 8
   %1567 = load i64, ptr %1566, align 8, !tbaa !110
@@ -14190,10 +14185,10 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1575 = getelementptr inbounds nuw i8, ptr %1570, i64 24
   %1576 = load ptr, ptr %1575, align 8, !tbaa !131
   %1577 = zext nneg i32 %spec.select.i1256 to i64
-  %1578 = getelementptr inbounds nuw i64, ptr %1576, i64 %1577
+  %1578 = getelementptr inbounds nuw [8 x i8], ptr %1576, i64 %1577
   %1579 = sext i32 %1571 to i64
   %1580 = sub nsw i64 0, %1579
-  %1581 = getelementptr inbounds i64, ptr %1578, i64 %1580
+  %1581 = getelementptr inbounds [8 x i8], ptr %1578, i64 %1580
   br label %.critedge1081
 
 1582:                                             ; preds = %1561
@@ -14218,9 +14213,9 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   br label %.critedge1093
 
 1590:                                             ; preds = %1588
-  %1591 = getelementptr inbounds nuw i16, ptr %32, i64 %.08751518
+  %1591 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %.08751518
   %1592 = load i16, ptr %1591, align 2, !tbaa !93
-  %1593 = getelementptr inbounds i16, ptr %32, i64 %.08721519
+  %1593 = getelementptr inbounds [2 x i8], ptr %32, i64 %.08721519
   %1594 = load i16, ptr %1593, align 2, !tbaa !93
   %.not1002 = icmp eq i16 %1592, %1594
   br i1 %.not1002, label %1595, label %.critedge1093
@@ -14232,7 +14227,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   br i1 %exitcond1547.not, label %.critedge1085, label %1588, !llvm.loop !149
 
 .critedge1085:                                    ; preds = %1595
-  %1598 = getelementptr i16, ptr %32, i64 %1567
+  %1598 = getelementptr [2 x i8], ptr %32, i64 %1567
   %1599 = getelementptr i8, ptr %1598, i64 -2
   %1600 = load i16, ptr %1599, align 2, !tbaa !93
   %1601 = and i16 %1600, -1024
@@ -14243,7 +14238,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   br i1 %or.cond1088, label %1605, label %.critedge1091
 
 1605:                                             ; preds = %.critedge1085
-  %1606 = getelementptr inbounds i16, ptr %32, i64 %1587
+  %1606 = getelementptr inbounds [2 x i8], ptr %32, i64 %1587
   %1607 = load i16, ptr %1606, align 2, !tbaa !93
   %1608 = and i16 %1607, -1024
   %1609 = icmp eq i16 %1608, -9216
@@ -14265,16 +14260,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1615 = getelementptr inbounds nuw i8, ptr %1610, i64 24
   %1616 = load ptr, ptr %1615, align 8, !tbaa !131
   %1617 = zext nneg i32 %spec.select.i1257 to i64
-  %1618 = getelementptr inbounds nuw i64, ptr %1616, i64 %1617
+  %1618 = getelementptr inbounds nuw [8 x i8], ptr %1616, i64 %1617
   %1619 = sext i32 %1611 to i64
   %1620 = sub nsw i64 0, %1619
-  %1621 = getelementptr inbounds i64, ptr %1618, i64 %1620
+  %1621 = getelementptr inbounds [8 x i8], ptr %1618, i64 %1620
   br label %.critedge1081
 
 1622:                                             ; preds = %97
   %1623 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
   %1624 = and i64 %101, 16777215
-  %1625 = getelementptr inbounds nuw i64, ptr %1623, i64 %1624
+  %1625 = getelementptr inbounds nuw [8 x i8], ptr %1623, i64 %1624
   %1626 = load i64, ptr %1625, align 8, !tbaa !110
   %1627 = icmp slt i64 %1626, 0
   br i1 %1627, label %1628, label %1641
@@ -14290,10 +14285,10 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1634 = getelementptr inbounds nuw i8, ptr %1629, i64 24
   %1635 = load ptr, ptr %1634, align 8, !tbaa !131
   %1636 = zext nneg i32 %spec.select.i1258 to i64
-  %1637 = getelementptr inbounds nuw i64, ptr %1635, i64 %1636
+  %1637 = getelementptr inbounds nuw [8 x i8], ptr %1635, i64 %1636
   %1638 = sext i32 %1630 to i64
   %1639 = sub nsw i64 0, %1638
-  %1640 = getelementptr inbounds i64, ptr %1637, i64 %1639
+  %1640 = getelementptr inbounds [8 x i8], ptr %1637, i64 %1639
   br label %.critedge1081
 
 1641:                                             ; preds = %1622
@@ -14378,10 +14373,10 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1672 = getelementptr inbounds nuw i8, ptr %1667, i64 24
   %1673 = load ptr, ptr %1672, align 8, !tbaa !131
   %1674 = zext nneg i32 %spec.select.i1259 to i64
-  %1675 = getelementptr inbounds nuw i64, ptr %1673, i64 %1674
+  %1675 = getelementptr inbounds nuw [8 x i8], ptr %1673, i64 %1674
   %1676 = sext i32 %1668 to i64
   %1677 = sub nsw i64 0, %1676
-  %1678 = getelementptr inbounds i64, ptr %1675, i64 %1677
+  %1678 = getelementptr inbounds [8 x i8], ptr %1675, i64 %1677
   br label %1679
 
 1679:                                             ; preds = %.critedge1098, %1666
@@ -14408,7 +14403,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1683 = load i64, ptr %.0806, align 8, !tbaa !137
   %1684 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
   %1685 = and i64 %101, 16777215
-  %1686 = getelementptr inbounds nuw i64, ptr %1684, i64 %1685
+  %1686 = getelementptr inbounds nuw [8 x i8], ptr %1684, i64 %1685
   store i64 %1683, ptr %1686, align 8, !tbaa !110
   br label %.critedge1081
 
@@ -14421,7 +14416,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1691 = load i64, ptr %1690, align 8, !tbaa !110
   %1692 = and i64 %1691, 16777215
   %1693 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
-  %1694 = getelementptr inbounds nuw i64, ptr %1693, i64 %1692
+  %1694 = getelementptr inbounds nuw [8 x i8], ptr %1693, i64 %1692
   %1695 = load i64, ptr %1694, align 8, !tbaa !110
   %sext991 = shl i64 %1695, 32
   %1696 = ashr exact i64 %sext991, 32
@@ -14445,10 +14440,10 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1707 = getelementptr inbounds nuw i8, ptr %1702, i64 24
   %1708 = load ptr, ptr %1707, align 8, !tbaa !131
   %1709 = zext nneg i32 %spec.select.i1260 to i64
-  %1710 = getelementptr inbounds nuw i64, ptr %1708, i64 %1709
+  %1710 = getelementptr inbounds nuw [8 x i8], ptr %1708, i64 %1709
   %1711 = sext i32 %1703 to i64
   %1712 = sub nsw i64 0, %1711
-  %1713 = getelementptr inbounds i64, ptr %1710, i64 %1712
+  %1713 = getelementptr inbounds [8 x i8], ptr %1710, i64 %1712
   br label %.critedge1081
 
 1714:                                             ; preds = %97
@@ -14458,7 +14453,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1718 = sext i32 %1717 to i64
   %1719 = load ptr, ptr %84, align 8, !tbaa !40
   %1720 = and i64 %101, 16777215
-  %1721 = getelementptr inbounds nuw i64, ptr %1719, i64 %1720
+  %1721 = getelementptr inbounds nuw [8 x i8], ptr %1719, i64 %1720
   store i64 %1718, ptr %1721, align 8, !tbaa !110
   %1722 = load i64, ptr %.0806, align 8, !tbaa !137
   %1723 = getelementptr inbounds nuw i8, ptr %1721, i64 8
@@ -14481,7 +14476,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1733 = load i32, ptr %1732, align 8, !tbaa !134
   %1734 = load ptr, ptr %84, align 8, !tbaa !40
   %1735 = and i64 %101, 16777215
-  %1736 = getelementptr inbounds nuw i64, ptr %1734, i64 %1735
+  %1736 = getelementptr inbounds nuw [8 x i8], ptr %1734, i64 %1735
   %1737 = load i64, ptr %1736, align 8, !tbaa !110
   %1738 = trunc i64 %1737 to i32
   %1739 = icmp sgt i32 %1733, %1738
@@ -14496,7 +14491,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1745 = load i32, ptr %35, align 8, !tbaa !17
   %1746 = sext i32 %1745 to i64
   %1747 = sub nsw i64 0, %1746
-  %1748 = getelementptr inbounds i64, ptr %1744, i64 %1747
+  %1748 = getelementptr inbounds [8 x i8], ptr %1744, i64 %1747
   %1749 = icmp sgt i32 %1745, 0
   br i1 %1749, label %.lr.ph1516.preheader, label %._crit_edge1517
 
@@ -14506,9 +14501,9 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
 
 .lr.ph1516:                                       ; preds = %.lr.ph1516.preheader, %.lr.ph1516
   %indvars.iv = phi i64 [ 0, %.lr.ph1516.preheader ], [ %indvars.iv.next, %.lr.ph1516 ]
-  %1750 = getelementptr inbounds nuw i64, ptr %.0806, i64 %indvars.iv
+  %1750 = getelementptr inbounds nuw [8 x i8], ptr %.0806, i64 %indvars.iv
   %1751 = load i64, ptr %1750, align 8, !tbaa !110
-  %1752 = getelementptr inbounds nuw i64, ptr %1748, i64 %indvars.iv
+  %1752 = getelementptr inbounds nuw [8 x i8], ptr %1748, i64 %indvars.iv
   store i64 %1751, ptr %1752, align 8, !tbaa !110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -14522,7 +14517,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
 1753:                                             ; preds = %._crit_edge1517, %1730
   %1754 = phi ptr [ %.pre1555, %._crit_edge1517 ], [ %1734, %1730 ]
   %.33 = phi ptr [ %1748, %._crit_edge1517 ], [ %.0806, %1730 ]
-  %1755 = getelementptr inbounds nuw i64, ptr %1754, i64 %1735
+  %1755 = getelementptr inbounds nuw [8 x i8], ptr %1754, i64 %1735
   %1756 = getelementptr inbounds nuw i8, ptr %1755, i64 8
   %1757 = load i64, ptr %1756, align 8, !tbaa !110
   store i64 %1757, ptr %.33, align 8, !tbaa !137
@@ -14543,7 +14538,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
 1766:                                             ; preds = %1762
   %1767 = add nsw i64 %1763, 1
   store i64 %1767, ptr %.0806, align 8, !tbaa !137
-  %1768 = getelementptr inbounds i16, ptr %32, i64 %1763
+  %1768 = getelementptr inbounds [2 x i8], ptr %32, i64 %1763
   %1769 = load i16, ptr %1768, align 2, !tbaa !93
   %1770 = zext i16 %1769 to i32
   %1771 = and i32 %1770, 64512
@@ -14554,7 +14549,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   br i1 %or.cond1128, label %1785, label %1774
 
 1774:                                             ; preds = %1766
-  %1775 = getelementptr inbounds i16, ptr %32, i64 %1767
+  %1775 = getelementptr inbounds [2 x i8], ptr %32, i64 %1767
   %1776 = load i16, ptr %1775, align 2, !tbaa !93
   %1777 = zext i16 %1776 to i32
   %1778 = and i32 %1777, 64512
@@ -14590,16 +14585,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1795 = getelementptr inbounds nuw i8, ptr %1790, i64 24
   %1796 = load ptr, ptr %1795, align 8, !tbaa !131
   %1797 = zext nneg i32 %spec.select.i1261 to i64
-  %1798 = getelementptr inbounds nuw i64, ptr %1796, i64 %1797
+  %1798 = getelementptr inbounds nuw [8 x i8], ptr %1796, i64 %1797
   %1799 = sext i32 %1791 to i64
   %1800 = sub nsw i64 0, %1799
-  %1801 = getelementptr inbounds i64, ptr %1798, i64 %1800
+  %1801 = getelementptr inbounds [8 x i8], ptr %1798, i64 %1800
   br label %.critedge1081
 
 1802:                                             ; preds = %97
   %1803 = and i64 %101, 16777215
-  %1804 = getelementptr inbounds nuw i16, ptr %.0.i, i64 %1803
-  %1805 = getelementptr inbounds i64, ptr %16, i64 %104
+  %1804 = getelementptr inbounds nuw [2 x i8], ptr %.0.i, i64 %1803
+  %1805 = getelementptr inbounds [8 x i8], ptr %16, i64 %104
   %1806 = load i64, ptr %1805, align 8, !tbaa !110
   %1807 = trunc i64 %1806 to i32
   %1808 = add nsw i64 %99, 2
@@ -14619,7 +14614,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
 1814:                                             ; preds = %1812
   %1815 = add nsw i32 %.0844, 1
   %1816 = sext i32 %.0844 to i64
-  %1817 = getelementptr inbounds i16, ptr %1804, i64 %1816
+  %1817 = getelementptr inbounds [2 x i8], ptr %1804, i64 %1816
   %1818 = load i16, ptr %1817, align 2, !tbaa !93
   %1819 = zext i16 %1818 to i32
   %1820 = and i32 %1819, 64512
@@ -14630,7 +14625,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
 
 1822:                                             ; preds = %1814
   %1823 = sext i32 %1815 to i64
-  %1824 = getelementptr inbounds i16, ptr %1804, i64 %1823
+  %1824 = getelementptr inbounds [2 x i8], ptr %1804, i64 %1823
   %1825 = load i16, ptr %1824, align 2, !tbaa !93
   %1826 = zext i16 %1825 to i32
   %1827 = and i32 %1826, 64512
@@ -14706,10 +14701,10 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1852 = getelementptr inbounds nuw i8, ptr %1847, i64 24
   %1853 = load ptr, ptr %1852, align 8, !tbaa !131
   %1854 = zext nneg i32 %spec.select.i1262 to i64
-  %1855 = getelementptr inbounds nuw i64, ptr %1853, i64 %1854
+  %1855 = getelementptr inbounds nuw [8 x i8], ptr %1853, i64 %1854
   %1856 = sext i32 %1848 to i64
   %1857 = sub nsw i64 0, %1856
-  %1858 = getelementptr inbounds i64, ptr %1855, i64 %1857
+  %1858 = getelementptr inbounds [8 x i8], ptr %1855, i64 %1857
   br label %1859
 
 1859:                                             ; preds = %1846, %1845
@@ -14725,7 +14720,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1864 = sext i32 %1863 to i64
   %1865 = load ptr, ptr %84, align 8, !tbaa !40
   %1866 = and i64 %101, 16777215
-  %1867 = getelementptr inbounds nuw i64, ptr %1865, i64 %1866
+  %1867 = getelementptr inbounds nuw [8 x i8], ptr %1865, i64 %1866
   store i64 %1864, ptr %1867, align 8, !tbaa !110
   %1868 = load i64, ptr %.0806, align 8, !tbaa !137
   %1869 = getelementptr inbounds nuw i8, ptr %1867, i64 8
@@ -14747,15 +14742,15 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
 1877:                                             ; preds = %97
   %1878 = add nsw i64 %99, 2
   store i64 %1878, ptr %98, align 8, !tbaa !135
-  %1879 = getelementptr inbounds i64, ptr %16, i64 %104
+  %1879 = getelementptr inbounds [8 x i8], ptr %16, i64 %104
   %1880 = load i64, ptr %1879, align 8, !tbaa !110
   %1881 = add nsw i64 %99, 3
   store i64 %1881, ptr %98, align 8, !tbaa !135
-  %1882 = getelementptr inbounds i64, ptr %16, i64 %1878
+  %1882 = getelementptr inbounds [8 x i8], ptr %16, i64 %1878
   %1883 = load i64, ptr %1882, align 8, !tbaa !110
   %1884 = load ptr, ptr %84, align 8, !tbaa !40
   %1885 = and i64 %101, 16777215
-  %1886 = getelementptr inbounds nuw i64, ptr %1884, i64 %1885
+  %1886 = getelementptr inbounds nuw [8 x i8], ptr %1884, i64 %1885
   %1887 = getelementptr inbounds nuw i8, ptr %1886, i64 32
   %1888 = load i64, ptr %1887, align 8, !tbaa !110
   %1889 = icmp slt i64 %1888, 0
@@ -14774,7 +14769,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   br i1 %or.cond1103, label %1897, label %1926
 
 1897:                                             ; preds = %1890
-  %1898 = getelementptr inbounds nuw i16, ptr %32, i64 %1893
+  %1898 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %1893
   %1899 = load i16, ptr %1898, align 2, !tbaa !93
   %1900 = and i16 %1899, -1024
   %1901 = icmp eq i16 %1900, -9216
@@ -14802,7 +14797,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
 1911:                                             ; preds = %1909
   %1912 = add nsw i64 %1888, -1
   store i64 %1912, ptr %1887, align 8, !tbaa !110
-  %1913 = getelementptr inbounds nuw i16, ptr %32, i64 %1912
+  %1913 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %1912
   %1914 = load i16, ptr %1913, align 2, !tbaa !93
   %1915 = and i16 %1914, -1024
   %1916 = icmp eq i16 %1915, -9216
@@ -14811,7 +14806,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   br i1 %or.cond1104, label %1918, label %.thread1436
 
 1918:                                             ; preds = %1911
-  %1919 = getelementptr i16, ptr %32, i64 %1888
+  %1919 = getelementptr [2 x i8], ptr %32, i64 %1888
   %1920 = getelementptr i8, ptr %1919, i64 -4
   %1921 = load i16, ptr %1920, align 2, !tbaa !93
   %1922 = and i16 %1921, -1024
@@ -14851,10 +14846,10 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1254: ;
   %1939 = getelementptr inbounds nuw i8, ptr %1934, i64 24
   %1940 = load ptr, ptr %1939, align 8, !tbaa !131
   %1941 = zext nneg i32 %spec.select.i1263 to i64
-  %1942 = getelementptr inbounds nuw i64, ptr %1940, i64 %1941
+  %1942 = getelementptr inbounds nuw [8 x i8], ptr %1940, i64 %1941
   %1943 = sext i32 %1935 to i64
   %1944 = sub nsw i64 0, %1943
-  %1945 = getelementptr inbounds i64, ptr %1942, i64 %1944
+  %1945 = getelementptr inbounds [8 x i8], ptr %1942, i64 %1944
   %1946 = getelementptr inbounds nuw i8, ptr %1886, i64 16
   %1947 = load i64, ptr %1946, align 8, !tbaa !110
   store i64 %1947, ptr %85, align 8, !tbaa !68
@@ -14899,7 +14894,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1267: ; preds
   %1967 = getelementptr inbounds nuw i8, ptr %1956, i64 24
   %1968 = load ptr, ptr %1967, align 8, !tbaa !131
   %1969 = sext i32 %1966 to i64
-  %1970 = getelementptr inbounds i64, ptr %1968, i64 %1969
+  %1970 = getelementptr inbounds [8 x i8], ptr %1968, i64 %1969
   store i32 %.pre-phi.i.i1268, ptr %1958, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1269
 
@@ -14917,7 +14912,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1269: ; preds = %_ZN6icu
   %1975 = load i32, ptr %35, align 8, !tbaa !17
   %1976 = sext i32 %1975 to i64
   %1977 = sub nsw i64 0, %1976
-  %1978 = getelementptr inbounds i64, ptr %.0.i.i1270, i64 %1977
+  %1978 = getelementptr inbounds [8 x i8], ptr %.0.i.i1270, i64 %1977
   br label %1979
 
 1979:                                             ; preds = %1979, %1974
@@ -14997,16 +14992,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1285: ;
   %2011 = getelementptr inbounds nuw i8, ptr %2006, i64 24
   %2012 = load ptr, ptr %2011, align 8, !tbaa !131
   %2013 = zext nneg i32 %spec.select.i1286 to i64
-  %2014 = getelementptr inbounds nuw i64, ptr %2012, i64 %2013
+  %2014 = getelementptr inbounds nuw [8 x i8], ptr %2012, i64 %2013
   %2015 = sext i32 %2007 to i64
   %2016 = sub nsw i64 0, %2015
-  %2017 = getelementptr inbounds i64, ptr %2014, i64 %2016
+  %2017 = getelementptr inbounds [8 x i8], ptr %2014, i64 %2016
   br label %.critedge1081
 
 2018:                                             ; preds = %2002
   %2019 = load ptr, ptr %84, align 8, !tbaa !40
   %2020 = and i64 %101, 16777215
-  %2021 = getelementptr inbounds nuw i64, ptr %2019, i64 %2020
+  %2021 = getelementptr inbounds nuw [8 x i8], ptr %2019, i64 %2020
   %2022 = getelementptr inbounds nuw i8, ptr %2021, i64 16
   %2023 = load i64, ptr %2022, align 8, !tbaa !110
   store i64 %2023, ptr %85, align 8, !tbaa !68
@@ -15018,20 +15013,20 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1285: ;
 2026:                                             ; preds = %97
   %2027 = add nsw i64 %99, 2
   store i64 %2027, ptr %98, align 8, !tbaa !135
-  %2028 = getelementptr inbounds i64, ptr %16, i64 %104
+  %2028 = getelementptr inbounds [8 x i8], ptr %16, i64 %104
   %2029 = load i64, ptr %2028, align 8, !tbaa !110
   %2030 = add nsw i64 %99, 3
   store i64 %2030, ptr %98, align 8, !tbaa !135
-  %2031 = getelementptr inbounds i64, ptr %16, i64 %2027
+  %2031 = getelementptr inbounds [8 x i8], ptr %16, i64 %2027
   %2032 = load i64, ptr %2031, align 8, !tbaa !110
   %2033 = add nsw i64 %99, 4
   store i64 %2033, ptr %98, align 8, !tbaa !135
-  %2034 = getelementptr inbounds i64, ptr %16, i64 %2030
+  %2034 = getelementptr inbounds [8 x i8], ptr %16, i64 %2030
   %2035 = load i64, ptr %2034, align 8, !tbaa !110
   %2036 = and i64 %2035, 16777215
   %2037 = load ptr, ptr %84, align 8, !tbaa !40
   %2038 = and i64 %101, 16777215
-  %2039 = getelementptr inbounds nuw i64, ptr %2037, i64 %2038
+  %2039 = getelementptr inbounds nuw [8 x i8], ptr %2037, i64 %2038
   %2040 = getelementptr inbounds nuw i8, ptr %2039, i64 32
   %2041 = load i64, ptr %2040, align 8, !tbaa !110
   %2042 = icmp slt i64 %2041, 0
@@ -15050,7 +15045,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1285: ;
   br i1 %or.cond1107, label %2050, label %2079
 
 2050:                                             ; preds = %2043
-  %2051 = getelementptr inbounds nuw i16, ptr %32, i64 %2046
+  %2051 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %2046
   %2052 = load i16, ptr %2051, align 2, !tbaa !93
   %2053 = and i16 %2052, -1024
   %2054 = icmp eq i16 %2053, -9216
@@ -15078,7 +15073,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1285: ;
 2064:                                             ; preds = %2062
   %2065 = add nsw i64 %2041, -1
   store i64 %2065, ptr %2040, align 8, !tbaa !110
-  %2066 = getelementptr inbounds nuw i16, ptr %32, i64 %2065
+  %2066 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %2065
   %2067 = load i16, ptr %2066, align 2, !tbaa !93
   %2068 = and i16 %2067, -1024
   %2069 = icmp eq i16 %2068, -9216
@@ -15087,7 +15082,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1285: ;
   br i1 %or.cond1108, label %2071, label %.thread1442
 
 2071:                                             ; preds = %2064
-  %2072 = getelementptr i16, ptr %32, i64 %2041
+  %2072 = getelementptr [2 x i8], ptr %32, i64 %2041
   %2073 = getelementptr i8, ptr %2072, i64 -4
   %2074 = load i16, ptr %2073, align 2, !tbaa !93
   %2075 = and i16 %2074, -1024
@@ -15162,7 +15157,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1290: ; preds
   %2108 = getelementptr inbounds nuw i8, ptr %2097, i64 24
   %2109 = load ptr, ptr %2108, align 8, !tbaa !131
   %2110 = sext i32 %2107 to i64
-  %2111 = getelementptr inbounds i64, ptr %2109, i64 %2110
+  %2111 = getelementptr inbounds [8 x i8], ptr %2109, i64 %2110
   store i32 %.pre-phi.i.i1291, ptr %2099, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1292
 
@@ -15180,7 +15175,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1292: ; preds = %_ZN6icu
   %2116 = load i32, ptr %35, align 8, !tbaa !17
   %2117 = sext i32 %2116 to i64
   %2118 = sub nsw i64 0, %2117
-  %2119 = getelementptr inbounds i64, ptr %.0.i.i1293, i64 %2118
+  %2119 = getelementptr inbounds [8 x i8], ptr %.0.i.i1293, i64 %2118
   br label %2120
 
 2120:                                             ; preds = %2120, %2115
@@ -15260,16 +15255,16 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1308: ;
   %2152 = getelementptr inbounds nuw i8, ptr %2147, i64 24
   %2153 = load ptr, ptr %2152, align 8, !tbaa !131
   %2154 = zext nneg i32 %spec.select.i1309 to i64
-  %2155 = getelementptr inbounds nuw i64, ptr %2153, i64 %2154
+  %2155 = getelementptr inbounds nuw [8 x i8], ptr %2153, i64 %2154
   %2156 = sext i32 %2148 to i64
   %2157 = sub nsw i64 0, %2156
-  %2158 = getelementptr inbounds i64, ptr %2155, i64 %2157
+  %2158 = getelementptr inbounds [8 x i8], ptr %2155, i64 %2157
   br label %.critedge1081
 
 2159:                                             ; preds = %2143
   %2160 = load ptr, ptr %84, align 8, !tbaa !40
   %2161 = and i64 %101, 16777215
-  %2162 = getelementptr inbounds nuw i64, ptr %2160, i64 %2161
+  %2162 = getelementptr inbounds nuw [8 x i8], ptr %2160, i64 %2161
   %2163 = getelementptr inbounds nuw i8, ptr %2162, i64 16
   %2164 = load i64, ptr %2163, align 8, !tbaa !110
   store i64 %2164, ptr %85, align 8, !tbaa !68
@@ -15290,10 +15285,10 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1308: ;
   %2175 = getelementptr inbounds nuw i8, ptr %2170, i64 24
   %2176 = load ptr, ptr %2175, align 8, !tbaa !131
   %2177 = zext nneg i32 %spec.select.i1310 to i64
-  %2178 = getelementptr inbounds nuw i64, ptr %2176, i64 %2177
+  %2178 = getelementptr inbounds nuw [8 x i8], ptr %2176, i64 %2177
   %2179 = sext i32 %2171 to i64
   %2180 = sub nsw i64 0, %2179
-  %2181 = getelementptr inbounds i64, ptr %2178, i64 %2180
+  %2181 = getelementptr inbounds [8 x i8], ptr %2178, i64 %2180
   br label %.critedge1081
 
 2182:                                             ; preds = %97
@@ -15301,7 +15296,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1308: ;
   %2184 = getelementptr inbounds nuw i8, ptr %2183, i64 112
   %2185 = load ptr, ptr %2184, align 8, !tbaa !142
   %2186 = and i64 %101, 16777215
-  %2187 = getelementptr inbounds nuw %"struct.icu_77::Regex8BitSet", ptr %2185, i64 %2186
+  %2187 = getelementptr inbounds nuw [32 x i8], ptr %2185, i64 %2186
   %2188 = call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef %103)
   %2189 = load i64, ptr %.0806, align 8, !tbaa !137
   %2190 = trunc i64 %2189 to i32
@@ -15321,7 +15316,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1308: ;
   %2194 = phi i64 [ %2261, %2259 ], [ %2191, %2182 ]
   %.08221509 = phi i32 [ %.5827, %2259 ], [ %2190, %2182 ]
   %2195 = add nsw i32 %.08221509, 1
-  %2196 = getelementptr inbounds i16, ptr %32, i64 %2194
+  %2196 = getelementptr inbounds [2 x i8], ptr %32, i64 %2194
   %2197 = load i16, ptr %2196, align 2, !tbaa !93
   %2198 = zext i16 %2197 to i32
   %2199 = and i32 %2198, 64512
@@ -15334,7 +15329,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1308: ;
   br i1 %.not977, label %.thread1445, label %2203
 
 2203:                                             ; preds = %2201
-  %2204 = getelementptr inbounds i16, ptr %32, i64 %2202
+  %2204 = getelementptr inbounds [2 x i8], ptr %32, i64 %2202
   %2205 = load i16, ptr %2204, align 2, !tbaa !93
   %2206 = zext i16 %2205 to i32
   %2207 = and i32 %2206, 64512
@@ -15366,7 +15361,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1308: ;
 
 2226:                                             ; preds = %2216
   %2227 = sext i32 %.08221509 to i64
-  %2228 = getelementptr inbounds i16, ptr %32, i64 %2227
+  %2228 = getelementptr inbounds [2 x i8], ptr %32, i64 %2227
   %2229 = load i16, ptr %2228, align 2, !tbaa !93
   %2230 = and i16 %2229, -1024
   %2231 = icmp eq i16 %2230, -9216
@@ -15376,7 +15371,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1308: ;
 
 2233:                                             ; preds = %2226
   %2234 = zext nneg i32 %2195 to i64
-  %2235 = getelementptr i16, ptr %32, i64 %2234
+  %2235 = getelementptr [2 x i8], ptr %32, i64 %2234
   %2236 = getelementptr i8, ptr %2235, i64 -4
   %2237 = load i16, ptr %2236, align 2, !tbaa !93
   %2238 = and i16 %2237, -1024
@@ -15399,7 +15394,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1308: ;
 2243:                                             ; preds = %.thread1445
   %2244 = add nsw i32 %.38251448, -1
   %2245 = sext i32 %2244 to i64
-  %2246 = getelementptr inbounds i16, ptr %32, i64 %2245
+  %2246 = getelementptr inbounds [2 x i8], ptr %32, i64 %2245
   %2247 = load i16, ptr %2246, align 2, !tbaa !93
   %2248 = and i16 %2247, -1024
   %2249 = icmp eq i16 %2248, -9216
@@ -15409,7 +15404,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1308: ;
 
 2251:                                             ; preds = %2243
   %2252 = zext nneg i32 %.38251448 to i64
-  %2253 = getelementptr i16, ptr %32, i64 %2252
+  %2253 = getelementptr [2 x i8], ptr %32, i64 %2252
   %2254 = getelementptr i8, ptr %2253, i64 -4
   %2255 = load i16, ptr %2254, align 2, !tbaa !93
   %2256 = and i16 %2255, -1024
@@ -15439,11 +15434,11 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1308: ;
   br label %.critedge1081
 
 2268:                                             ; preds = %.thread1451
-  %2269 = getelementptr inbounds i64, ptr %16, i64 %2265
+  %2269 = getelementptr inbounds [8 x i8], ptr %16, i64 %2265
   %2270 = load i64, ptr %2269, align 8, !tbaa !110
   %2271 = and i64 %2270, 16777215
   %2272 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
-  %2273 = getelementptr inbounds nuw i64, ptr %2272, i64 %2271
+  %2273 = getelementptr inbounds nuw [8 x i8], ptr %2272, i64 %2271
   store i64 %2263, ptr %2273, align 8, !tbaa !110
   store i64 %2262, ptr %.0806, align 8, !tbaa !137
   %2274 = load i32, ptr %3, align 4, !tbaa !13
@@ -15479,7 +15474,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1314: ; preds
   %2288 = getelementptr inbounds nuw i8, ptr %2277, i64 24
   %2289 = load ptr, ptr %2288, align 8, !tbaa !131
   %2290 = sext i32 %2287 to i64
-  %2291 = getelementptr inbounds i64, ptr %2289, i64 %2290
+  %2291 = getelementptr inbounds [8 x i8], ptr %2289, i64 %2290
   store i32 %.pre-phi.i.i1315, ptr %2279, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1316
 
@@ -15497,7 +15492,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1316: ; preds = %_ZN6icu
   %2296 = load i32, ptr %35, align 8, !tbaa !17
   %2297 = sext i32 %2296 to i64
   %2298 = sub nsw i64 0, %2297
-  %2299 = getelementptr inbounds i64, ptr %.0.i.i1317, i64 %2298
+  %2299 = getelementptr inbounds [8 x i8], ptr %.0.i.i1317, i64 %2298
   br label %2300
 
 2300:                                             ; preds = %2300, %2295
@@ -15595,7 +15590,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1332: ;
   %2337 = phi i64 [ %2334, %.lr.ph1507 ], [ %2381, %_ZN6icu_77L16isLineTerminatorEi.exit1335.thread ]
   %.17991506 = phi i32 [ %2332, %.lr.ph1507 ], [ %.3, %_ZN6icu_77L16isLineTerminatorEi.exit1335.thread ]
   %2338 = add nsw i32 %.17991506, 1
-  %2339 = getelementptr inbounds i16, ptr %32, i64 %2337
+  %2339 = getelementptr inbounds [2 x i8], ptr %32, i64 %2337
   %2340 = load i16, ptr %2339, align 2, !tbaa !93
   %2341 = zext i16 %2340 to i32
   %2342 = and i32 %2341, 64512
@@ -15608,7 +15603,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1332: ;
   br i1 %.not974, label %2357, label %2346
 
 2346:                                             ; preds = %2344
-  %2347 = getelementptr inbounds i16, ptr %32, i64 %2345
+  %2347 = getelementptr inbounds [2 x i8], ptr %32, i64 %2345
   %2348 = load i16, ptr %2347, align 2, !tbaa !93
   %2349 = zext i16 %2348 to i32
   %2350 = and i32 %2349, 64512
@@ -15653,7 +15648,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1332: ;
 _ZN6icu_77L16isLineTerminatorEi.exit1335.thread1456: ; preds = %2365, %2365, %2365, %2365, %2365, %2365, %2365, %2360
   %2366 = add nsw i32 %.3, -1
   %2367 = sext i32 %2366 to i64
-  %2368 = getelementptr inbounds i16, ptr %32, i64 %2367
+  %2368 = getelementptr inbounds [2 x i8], ptr %32, i64 %2367
   %2369 = load i16, ptr %2368, align 2, !tbaa !93
   %2370 = and i16 %2369, -1024
   %2371 = icmp eq i16 %2370, -9216
@@ -15663,7 +15658,7 @@ _ZN6icu_77L16isLineTerminatorEi.exit1335.thread1456: ; preds = %2365, %2365, %23
 
 2373:                                             ; preds = %_ZN6icu_77L16isLineTerminatorEi.exit1335.thread1456
   %2374 = zext nneg i32 %.3 to i64
-  %2375 = getelementptr i16, ptr %32, i64 %2374
+  %2375 = getelementptr [2 x i8], ptr %32, i64 %2374
   %2376 = getelementptr i8, ptr %2375, i64 -4
   %2377 = load i16, ptr %2376, align 2, !tbaa !93
   %2378 = and i16 %2377, -1024
@@ -15690,11 +15685,11 @@ _ZN6icu_77L16isLineTerminatorEi.exit1335.thread:  ; preds = %2365, %2357, %2362
   br label %.critedge1081
 
 2387:                                             ; preds = %.thread1460
-  %2388 = getelementptr inbounds i64, ptr %16, i64 %104
+  %2388 = getelementptr inbounds [8 x i8], ptr %16, i64 %104
   %2389 = load i64, ptr %2388, align 8, !tbaa !110
   %2390 = and i64 %2389, 16777215
   %2391 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
-  %2392 = getelementptr inbounds nuw i64, ptr %2391, i64 %2390
+  %2392 = getelementptr inbounds nuw [8 x i8], ptr %2391, i64 %2390
   store i64 %2383, ptr %2392, align 8, !tbaa !110
   store i64 %2382, ptr %.0806, align 8, !tbaa !137
   %2393 = load i32, ptr %3, align 4, !tbaa !13
@@ -15730,7 +15725,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1339: ; preds
   %2407 = getelementptr inbounds nuw i8, ptr %2396, i64 24
   %2408 = load ptr, ptr %2407, align 8, !tbaa !131
   %2409 = sext i32 %2406 to i64
-  %2410 = getelementptr inbounds i64, ptr %2408, i64 %2409
+  %2410 = getelementptr inbounds [8 x i8], ptr %2408, i64 %2409
   store i32 %.pre-phi.i.i1340, ptr %2398, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1341
 
@@ -15748,7 +15743,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1341: ; preds = %_ZN6icu
   %2415 = load i32, ptr %35, align 8, !tbaa !17
   %2416 = sext i32 %2415 to i64
   %2417 = sub nsw i64 0, %2416
-  %2418 = getelementptr inbounds i64, ptr %.0.i.i1342, i64 %2417
+  %2418 = getelementptr inbounds [8 x i8], ptr %.0.i.i1342, i64 %2417
   br label %2419
 
 2419:                                             ; preds = %2419, %2414
@@ -15816,7 +15811,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1357: ;
 2444:                                             ; preds = %97
   %2445 = getelementptr inbounds nuw i8, ptr %.0806, i64 16
   %2446 = and i64 %101, 16777215
-  %2447 = getelementptr inbounds nuw i64, ptr %2445, i64 %2446
+  %2447 = getelementptr inbounds nuw [8 x i8], ptr %2445, i64 %2446
   %2448 = load i64, ptr %2447, align 8, !tbaa !110
   %sext = shl i64 %2448, 32
   %2449 = ashr exact i64 %sext, 32
@@ -15827,7 +15822,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1357: ;
 2452:                                             ; preds = %2444
   %2453 = add nsw i64 %2450, -1
   store i64 %2453, ptr %.0806, align 8, !tbaa !137
-  %2454 = getelementptr i16, ptr %32, i64 %2453
+  %2454 = getelementptr [2 x i8], ptr %32, i64 %2453
   %2455 = load i16, ptr %2454, align 2, !tbaa !93
   %2456 = and i16 %2455, -1024
   %2457 = icmp eq i16 %2456, -9216
@@ -15836,7 +15831,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1357: ;
   br i1 %or.cond1130, label %2459, label %2465
 
 2459:                                             ; preds = %2452
-  %2460 = getelementptr i16, ptr %32, i64 %2450
+  %2460 = getelementptr [2 x i8], ptr %32, i64 %2450
   %2461 = getelementptr i8, ptr %2460, i64 -4
   %2462 = load i16, ptr %2461, align 2, !tbaa !93
   %2463 = and i16 %2462, -1024
@@ -15856,7 +15851,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1357: ;
   br i1 %2471, label %2472, label %.thread1464
 
 2472:                                             ; preds = %2468
-  %2473 = getelementptr i64, ptr %16, i64 %104
+  %2473 = getelementptr [8 x i8], ptr %16, i64 %104
   %2474 = getelementptr i8, ptr %2473, i64 -16
   %2475 = load i64, ptr %2474, align 8, !tbaa !110
   %.mask971 = and i64 %2475, 4278190080
@@ -15866,7 +15861,7 @@ _ZN6icu_7712RegexMatcher9StateSaveEPNS_12REStackFrameElR10UErrorCode.exit1357: ;
 2477:                                             ; preds = %2472
   %2478 = add nsw i64 %2450, -2
   store i64 %2478, ptr %.0806, align 8, !tbaa !137
-  %2479 = getelementptr inbounds i16, ptr %32, i64 %2478
+  %2479 = getelementptr inbounds [2 x i8], ptr %32, i64 %2478
   %2480 = load i16, ptr %2479, align 2, !tbaa !93
   %2481 = and i16 %2480, -1024
   %2482 = icmp eq i16 %2481, -9216
@@ -15921,7 +15916,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i.i1361: ; preds
   %2504 = getelementptr inbounds nuw i8, ptr %2493, i64 24
   %2505 = load ptr, ptr %2504, align 8, !tbaa !131
   %2506 = sext i32 %2503 to i64
-  %2507 = getelementptr inbounds i64, ptr %2505, i64 %2506
+  %2507 = getelementptr inbounds [8 x i8], ptr %2505, i64 %2506
   store i32 %.pre-phi.i.i1362, ptr %2495, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1363
 
@@ -15935,7 +15930,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit.i1363: ; preds = %_ZN6icu
   %2511 = load i32, ptr %35, align 8, !tbaa !17
   %2512 = sext i32 %2511 to i64
   %2513 = sub nsw i64 0, %2512
-  %2514 = getelementptr inbounds i64, ptr %.0.i.i1364, i64 %2513
+  %2514 = getelementptr inbounds [8 x i8], ptr %.0.i.i1364, i64 %2513
   br label %2515
 
 2515:                                             ; preds = %2515, %2510
@@ -16087,24 +16082,24 @@ _ZNK6icu_779UVector3210elementAtiEi.exit.i40:     ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !108
   %33 = zext nneg i32 %2 to i64
-  %34 = getelementptr i32, ptr %32, i64 %33
+  %34 = getelementptr [4 x i8], ptr %32, i64 %33
   %35 = getelementptr i8, ptr %34, i64 -4
   %36 = load i32, ptr %35, align 4, !tbaa !12
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %39 = load ptr, ptr %38, align 8, !tbaa !109
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = getelementptr inbounds i64, ptr %40, i64 %37
+  %41 = getelementptr inbounds [8 x i8], ptr %40, i64 %37
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !108
   %44 = zext nneg i32 %2 to i64
-  %45 = getelementptr i32, ptr %43, i64 %44
+  %45 = getelementptr [4 x i8], ptr %43, i64 %44
   %46 = getelementptr i8, ptr %45, i64 -4
   %47 = load i32, ptr %46, align 4, !tbaa !12
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %50 = load ptr, ptr %49, align 8, !tbaa !109
-  %51 = getelementptr i64, ptr %50, i64 %48
+  %51 = getelementptr [8 x i8], ptr %50, i64 %48
   %52 = getelementptr i8, ptr %51, i64 24
   br label %_ZNK6icu_7712RegexMatcher5end64EiR10UErrorCode.exit
 
@@ -16250,7 +16245,7 @@ define noundef ptr @_ZNK6icu_7712RegexMatcher5groupEiP5UTextRlR10UErrorCode(ptr 
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !108
   %44 = zext nneg i32 %1 to i64
-  %45 = getelementptr i32, ptr %43, i64 %44
+  %45 = getelementptr [4 x i8], ptr %43, i64 %44
   %46 = getelementptr i8, ptr %45, i64 -4
   %47 = load i32, ptr %46, align 4, !tbaa !12
   %48 = sext i32 %47 to i64
@@ -16261,7 +16256,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %34, %41
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %51 = load ptr, ptr %50, align 8, !tbaa !109
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %53 = getelementptr i64, ptr %52, i64 %49
+  %53 = getelementptr [8 x i8], ptr %52, i64 %49
   %54 = getelementptr i8, ptr %53, i64 8
   br label %55
 
@@ -16305,7 +16300,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %34, %41
 76:                                               ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %78 = load ptr, ptr %77, align 8, !tbaa !88
-  %79 = getelementptr inbounds nuw i16, ptr %78, i64 %69
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %78, i64 %69
   %80 = load i16, ptr %79, align 2, !tbaa !93
   %81 = icmp ult i16 %80, -9216
   br i1 %81, label %82, label %85
@@ -16383,14 +16378,14 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !108
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr i32, ptr %32, i64 %33
+  %34 = getelementptr [4 x i8], ptr %32, i64 %33
   %35 = getelementptr i8, ptr %34, i64 -4
   %36 = load i32, ptr %35, align 4, !tbaa !12
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %39 = load ptr, ptr %38, align 8, !tbaa !109
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = getelementptr inbounds i64, ptr %40, i64 %37
+  %41 = getelementptr inbounds [8 x i8], ptr %40, i64 %37
   br label %42
 
 42:                                               ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit, %29
@@ -18220,9 +18215,9 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712RegexMatcher
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %18 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %indvars.iv
   %19 = call ptr @utext_openUnicodeString_77(ptr noundef null, ptr noundef %18, ptr noundef nonnull %4)
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   store ptr %19, ptr %20, align 8, !tbaa !157
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -18239,7 +18234,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712RegexMatcher
 
 .lr.ph32:                                         ; preds = %.lr.ph32.preheader, %.lr.ph32
   %indvars.iv35 = phi i64 [ 0, %.lr.ph32.preheader ], [ %indvars.iv.next36, %.lr.ph32 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv35
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv35
   %24 = load ptr, ptr %23, align 8, !tbaa !157
   %25 = call ptr @utext_close_77(ptr noundef %24)
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
@@ -18355,7 +18350,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712RegexMatcher
 
 73:                                               ; preds = %68
   %74 = zext nneg i32 %29 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %2, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !157
   %.not213 = icmp eq ptr %76, null
   br i1 %.not213, label %86, label %77
@@ -18364,7 +18359,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712RegexMatcher
   %78 = call i64 @utext_nativeLength_77(ptr noundef nonnull %76)
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %80 = load ptr, ptr %79, align 8, !tbaa !88
-  %81 = getelementptr inbounds i16, ptr %80, i64 %.0181.lcssa
+  %81 = getelementptr inbounds [2 x i8], ptr %80, i64 %.0181.lcssa
   %82 = load i64, ptr %24, align 8, !tbaa !69
   %83 = sub nsw i64 %82, %.0181.lcssa
   %84 = trunc i64 %83 to i32
@@ -18379,7 +18374,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712RegexMatcher
   store i32 144, ptr %87, align 4
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %89 = load ptr, ptr %88, align 8, !tbaa !88
-  %90 = getelementptr inbounds i16, ptr %89, i64 %.0181.lcssa
+  %90 = getelementptr inbounds [2 x i8], ptr %89, i64 %.0181.lcssa
   %91 = sub nsw i64 %56, %.0181.lcssa
   %92 = call ptr @utext_openUChars_77(ptr noundef nonnull %8, ptr noundef %90, i64 noundef %91, ptr noundef nonnull %4)
   %93 = call ptr @utext_clone_77(ptr noundef null, ptr noundef nonnull %8, i8 noundef signext 1, i8 noundef signext 0, ptr noundef nonnull %4)
@@ -18407,7 +18402,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN6icu_7712RegexMatcher
   %104 = load i64, ptr %24, align 8, !tbaa !69
   %105 = call i32 @utext_extract_77(ptr noundef nonnull %1, i64 noundef %.0181.lcssa, i64 noundef %104, ptr noundef nonnull %100, i32 noundef %97, ptr noundef nonnull %4)
   %106 = zext nneg i32 %29 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr %2, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !157
   %.not212 = icmp eq ptr %108, null
   br i1 %.not212, label %112, label %109
@@ -18473,7 +18468,7 @@ _ZN6icu_7712RegexMatcher4findEv.exit:             ; preds = %120
 
 135:                                              ; preds = %131
   %136 = sext i32 %.0185277 to i64
-  %137 = getelementptr inbounds ptr, ptr %2, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %2, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !157
   %.not208 = icmp eq ptr %138, null
   br i1 %.not208, label %147, label %139
@@ -18481,7 +18476,7 @@ _ZN6icu_7712RegexMatcher4findEv.exit:             ; preds = %120
 139:                                              ; preds = %135
   %140 = call i64 @utext_nativeLength_77(ptr noundef nonnull %138)
   %141 = load ptr, ptr %42, align 8, !tbaa !88
-  %142 = getelementptr inbounds i16, ptr %141, i64 %.0181278
+  %142 = getelementptr inbounds [2 x i8], ptr %141, i64 %.0181278
   %143 = load i64, ptr %40, align 8, !tbaa !82
   %144 = sub nsw i64 %143, %.0181278
   %145 = trunc i64 %144 to i32
@@ -18494,7 +18489,7 @@ _ZN6icu_7712RegexMatcher4findEv.exit:             ; preds = %120
   store i32 878368812, ptr %11, align 8
   store i32 144, ptr %43, align 4
   %148 = load ptr, ptr %42, align 8, !tbaa !88
-  %149 = getelementptr inbounds i16, ptr %148, i64 %.0181278
+  %149 = getelementptr inbounds [2 x i8], ptr %148, i64 %.0181278
   %150 = load i64, ptr %40, align 8, !tbaa !82
   %151 = sub nsw i64 %150, %.0181278
   %152 = call ptr @utext_openUChars_77(ptr noundef nonnull %11, ptr noundef %149, i64 noundef %151, ptr noundef nonnull %4)
@@ -18520,7 +18515,7 @@ _ZN6icu_7712RegexMatcher4findEv.exit:             ; preds = %120
   %164 = load i64, ptr %40, align 8, !tbaa !82
   %165 = call i32 @utext_extract_77(ptr noundef nonnull %1, i64 noundef %.0181278, i64 noundef %164, ptr noundef nonnull %161, i32 noundef %158, ptr noundef nonnull %4)
   %166 = sext i32 %.0185277 to i64
-  %167 = getelementptr inbounds ptr, ptr %2, i64 %166
+  %167 = getelementptr inbounds [8 x i8], ptr %2, i64 %166
   %168 = load ptr, ptr %167, align 8, !tbaa !157
   %.not207 = icmp eq ptr %168, null
   br i1 %.not207, label %172, label %169
@@ -18586,7 +18581,7 @@ _ZN6icu_77L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit.us.preheader: 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.splitthread-pre-split ], [ 1, %.lr.ph.split.preheader ]
   %indvars.iv.next320 = add nsw i64 %indvars.iv319, 1
   %187 = load ptr, ptr %46, align 8, !tbaa !77
-  %188 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next320
+  %188 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv.next320
   %189 = load ptr, ptr %188, align 8, !tbaa !157
   %190 = icmp slt i32 %186, 1
   br i1 %190, label %191, label %_ZN6icu_77L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit
@@ -18626,15 +18621,15 @@ _ZN6icu_77L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit.us.preheader: 
 208:                                              ; preds = %199
   %209 = getelementptr inbounds nuw i8, ptr %202, i64 24
   %210 = load ptr, ptr %209, align 8, !tbaa !108
-  %211 = getelementptr i32, ptr %210, i64 %indvars.iv
+  %211 = getelementptr [4 x i8], ptr %210, i64 %indvars.iv
   %212 = getelementptr i8, ptr %211, i64 -4
   %213 = load i32, ptr %212, align 4, !tbaa !12
   %214 = sext i32 %213 to i64
   %215 = load ptr, ptr %48, align 8, !tbaa !109
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
-  %217 = getelementptr inbounds i64, ptr %216, i64 %214
+  %217 = getelementptr inbounds [8 x i8], ptr %216, i64 %214
   %.011.i = load i64, ptr %217, align 8, !tbaa !110
-  %218 = getelementptr i64, ptr %215, i64 %214
+  %218 = getelementptr [8 x i8], ptr %215, i64 %214
   %219 = getelementptr i8, ptr %218, i64 24
   %.010.i = load i64, ptr %219, align 8, !tbaa !110
   %220 = icmp eq i64 %.011.i, %.010.i
@@ -18861,7 +18856,7 @@ _ZN6icu_77L21utext_extract_replaceEP5UTextS1_llP10UErrorCode.exit: ; preds = %.l
 
 298:                                              ; preds = %295
   %299 = sext i32 %296 to i64
-  %300 = getelementptr inbounds ptr, ptr %2, i64 %299
+  %300 = getelementptr inbounds [8 x i8], ptr %2, i64 %299
   %301 = load ptr, ptr %300, align 8, !tbaa !157
   %302 = icmp eq ptr %301, null
   br i1 %302, label %303, label %305
@@ -18895,7 +18890,7 @@ _ZN6icu_7712RegexMatcher4findEv.exit.thread:      ; preds = %120, %_ZN6icu_7712R
 
 318:                                              ; preds = %314
   %319 = sext i32 %.0185277 to i64
-  %320 = getelementptr inbounds ptr, ptr %2, i64 %319
+  %320 = getelementptr inbounds [8 x i8], ptr %2, i64 %319
   %321 = load ptr, ptr %320, align 8, !tbaa !157
   %.not206 = icmp eq ptr %321, null
   br i1 %.not206, label %330, label %322
@@ -18903,7 +18898,7 @@ _ZN6icu_7712RegexMatcher4findEv.exit.thread:      ; preds = %120, %_ZN6icu_7712R
 322:                                              ; preds = %318
   %323 = call i64 @utext_nativeLength_77(ptr noundef nonnull %321)
   %324 = load ptr, ptr %42, align 8, !tbaa !88
-  %325 = getelementptr inbounds i16, ptr %324, i64 %.0181278
+  %325 = getelementptr inbounds [2 x i8], ptr %324, i64 %.0181278
   %326 = load i64, ptr %24, align 8, !tbaa !69
   %327 = sub nsw i64 %326, %.0181278
   %328 = trunc i64 %327 to i32
@@ -18917,7 +18912,7 @@ _ZN6icu_7712RegexMatcher4findEv.exit.thread:      ; preds = %120, %_ZN6icu_7712R
   %331 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 144, ptr %331, align 4
   %332 = load ptr, ptr %42, align 8, !tbaa !88
-  %333 = getelementptr inbounds i16, ptr %332, i64 %.0181278
+  %333 = getelementptr inbounds [2 x i8], ptr %332, i64 %.0181278
   %334 = load i64, ptr %24, align 8, !tbaa !69
   %335 = sub nsw i64 %334, %.0181278
   %336 = call ptr @utext_openUChars_77(ptr noundef nonnull %14, ptr noundef %333, i64 noundef %335, ptr noundef nonnull %4)
@@ -18947,7 +18942,7 @@ _ZN6icu_7712RegexMatcher4findEv.exit.thread:      ; preds = %120, %_ZN6icu_7712R
   %349 = load i64, ptr %24, align 8, !tbaa !69
   %350 = call i32 @utext_extract_77(ptr noundef nonnull %1, i64 noundef %.0181278, i64 noundef %349, ptr noundef nonnull %345, i32 noundef %342, ptr noundef nonnull %4)
   %351 = sext i32 %.0185277 to i64
-  %352 = getelementptr inbounds ptr, ptr %2, i64 %351
+  %352 = getelementptr inbounds [8 x i8], ptr %2, i64 %351
   %353 = load ptr, ptr %352, align 8, !tbaa !157
   %.not205 = icmp eq ptr %353, null
   br i1 %.not205, label %357, label %354
@@ -19108,14 +19103,14 @@ _ZNK6icu_779UVector3210elementAtiEi.exit.i:       ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !108
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr i32, ptr %32, i64 %33
+  %34 = getelementptr [4 x i8], ptr %32, i64 %33
   %35 = getelementptr i8, ptr %34, i64 -4
   %36 = load i32, ptr %35, align 4, !tbaa !12
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %39 = load ptr, ptr %38, align 8, !tbaa !109
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %41 = getelementptr inbounds i64, ptr %40, i64 %37
+  %41 = getelementptr inbounds [8 x i8], ptr %40, i64 %37
   br label %42
 
 42:                                               ; preds = %_ZNK6icu_779UVector3210elementAtiEi.exit.i, %29
@@ -19373,7 +19368,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_Z
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !131
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds i64, ptr %20, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %21
   store i32 %.pre-phi.i, ptr %10, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit
 
@@ -19436,7 +19431,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher14isWordBoundaryEl(ptr nounde
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !88
-  %22 = getelementptr inbounds nuw i16, ptr %21, i64 %12
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %12
   %23 = load i16, ptr %22, align 2, !tbaa !93
   %24 = icmp ult i16 %23, -9216
   br i1 %24, label %25, label %28
@@ -19466,7 +19461,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher14isWordBoundaryEl(ptr nounde
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %37 = load ptr, ptr %36, align 8, !tbaa !88
   %38 = sext i32 %30 to i64
-  %39 = getelementptr inbounds i16, ptr %37, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %37, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !93
   %41 = icmp ult i16 %40, -10240
   br i1 %41, label %42, label %44
@@ -19543,7 +19538,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher14isWordBoundaryEl(ptr nounde
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 48
   %86 = load ptr, ptr %85, align 8, !tbaa !88
   %87 = zext nneg i32 %82 to i64
-  %88 = getelementptr i16, ptr %86, i64 %87
+  %88 = getelementptr [2 x i8], ptr %86, i64 %87
   %89 = getelementptr i8, ptr %88, i64 -2
   %90 = load i16, ptr %89, align 2, !tbaa !93
   %91 = icmp ult i16 %90, -10240
@@ -19553,7 +19548,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher14isWordBoundaryEl(ptr nounde
   %93 = add nsw i32 %82, -1
   store i32 %93, ptr %81, align 8, !tbaa !95
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw i16, ptr %86, i64 %94
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !93
   %97 = zext i16 %96 to i32
   br label %100
@@ -19610,7 +19605,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher19isChunkWordBoundaryEi(ptr n
   br label %57
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i16, ptr %6, i64 %7
+  %13 = getelementptr inbounds [2 x i8], ptr %6, i64 %7
   %14 = load i16, ptr %13, align 2, !tbaa !93
   %15 = zext i16 %14 to i32
   %16 = and i32 %15, 63488
@@ -19629,7 +19624,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher19isChunkWordBoundaryEi(ptr n
   br i1 %.not53, label %48, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i16, ptr %6, i64 %23
+  %25 = getelementptr inbounds [2 x i8], ptr %6, i64 %23
   %26 = load i16, ptr %25, align 2, !tbaa !93
   %27 = zext i16 %26 to i32
   %28 = and i32 %27, 64512
@@ -19692,7 +19687,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher19isChunkWordBoundaryEi(ptr n
   %.04560 = phi i32 [ %.247, %91 ], [ %1, %57 ]
   %62 = add nsw i32 %.04560, -1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i16, ptr %6, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr %6, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !93
   %66 = zext i16 %65 to i32
   %67 = and i32 %66, 64512
@@ -19702,7 +19697,7 @@ define noundef signext i8 @_ZN6icu_7712RegexMatcher19isChunkWordBoundaryEi(ptr n
   br i1 %or.cond, label %70, label %82
 
 70:                                               ; preds = %.lr.ph
-  %71 = getelementptr i16, ptr %6, i64 %61
+  %71 = getelementptr [2 x i8], ptr %6, i64 %61
   %72 = getelementptr i8, ptr %71, i64 -4
   %73 = load i16, ptr %72, align 2, !tbaa !93
   %74 = zext i16 %73 to i32
@@ -19923,7 +19918,7 @@ _ZN6icu_779UVector6414ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_Z
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !131
   %23 = sext i32 %20 to i64
-  %24 = getelementptr inbounds i64, ptr %22, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %23
   store i32 %.pre-phi.i, ptr %12, align 8, !tbaa !134
   br label %_ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit
 
@@ -19941,7 +19936,7 @@ _ZN6icu_779UVector6412reserveBlockEiR10UErrorCode.exit: ; preds = %_ZN6icu_779UV
   %29 = load i32, ptr %10, align 8, !tbaa !17
   %30 = sext i32 %29 to i64
   %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds i64, ptr %.0.i, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %31
   br label %33
 
 33:                                               ; preds = %33, %28

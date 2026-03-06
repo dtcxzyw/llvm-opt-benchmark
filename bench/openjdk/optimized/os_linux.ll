@@ -51,16 +51,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.fenv_t = type { i16, i16, i16, i16, i16, i16, i32, i16, i16, i32, i16, i16, i32 }
 %class.NativeLibraryLoadEvent = type <{ %class.JfrNativeLibraryEventBase, ptr, i8, i8, [6 x i8] }>
 %class.JfrNativeLibraryEventBase = type { ptr, ptr, ptr }
-%"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord" = type { double, ptr, %class.FormatStringLogMessage }
-%class.FormatStringLogMessage = type { %class.FormatBuffer }
-%class.FormatBuffer = type { %class.FormatBufferBase, [256 x i8] }
-%class.FormatBufferBase = type { ptr }
 %class.JavaThreadIteratorWithHandle = type { [8 x i8], %class.ThreadsListHandle, i32, [4 x i8] }
 %class.ThreadsListHandle = type { %class.SafeThreadsListPtr, %class.elapsedTimer }
 %class.SafeThreadsListPtr = type <{ ptr, ptr, ptr, i8, i8, [6 x i8] }>
 %class.elapsedTimer = type <{ i64, i64, i8, [7 x i8] }>
 %struct.loaded_modules_info_param = type { ptr, ptr }
-%struct.Elf64_Phdr = type { i32, i32, i64, i64, i64, i64, i64, i64 }
 %"struct.os::Linux::CPUPerfTicks" = type { i64, i64, i64, i64, i8 }
 %struct.new_mallinfo = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 %struct.old_mallinfo = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
@@ -68,6 +63,8 @@ target triple = "x86_64-pc-linux-gnu"
 %class.JfrEvent.base = type <{ i64, i64, i8, i8, i8 }>
 %struct.bitmask = type { i64, ptr }
 %struct.LargePageInitializationLoggerMark = type { i8 }
+%class.FormatBuffer = type { %class.FormatBufferBase, [256 x i8] }
+%class.FormatBufferBase = type { ptr }
 %struct.cpu_set_t = type { [16 x i64] }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %class.JfrFlush = type { ptr }
@@ -2249,7 +2246,7 @@ _ZN2os5Linux15get_node_by_cpuEi.exit.i:           ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = zext nneg i32 %13 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4
   %.not7.i = icmp eq i32 %25, -1
   br i1 %.not7.i, label %_ZN2os5Linux12sched_getcpuEv.exit.thread.i, label %_ZN2os17numa_get_group_idEv.exit
@@ -2623,7 +2620,7 @@ _ZN2os5Linux15get_node_by_cpuEi.exit.i:           ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = zext nneg i32 %18 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4
   %.not7.i = icmp eq i32 %30, -1
   br i1 %.not7.i, label %_ZN2os5Linux12sched_getcpuEv.exit.thread.i, label %_ZN2os17numa_get_group_idEv.exit
@@ -2756,7 +2753,7 @@ _ZN2os5Linux15get_node_by_cpuEi.exit:             ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4
   %.not7 = icmp eq i32 %14, -1
   br i1 %.not7, label %_ZN2os5Linux12sched_getcpuEv.exit.thread, label %15
@@ -3498,7 +3495,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   %indvars.iv = phi i64 [ 0, %71 ], [ %indvars.iv.next, %84 ]
   %.sroa.3.090 = phi i16 [ 0, %71 ], [ %.sroa.3.1, %84 ]
   %.sroa.13.089 = phi ptr [ null, %71 ], [ %.sroa.13.1, %84 ]
-  %76 = getelementptr inbounds nuw %struct.arch_t, ptr @_ZZN2os8dll_loadEPKcPciE10arch_array, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [16 x i8], ptr @_ZZN2os8dll_loadEPKcPciE10arch_array, i64 %indvars.iv
   %77 = load i16, ptr %76, align 16
   %78 = icmp eq i16 %72, %77
   br i1 %78, label %79, label %84
@@ -3788,14 +3785,14 @@ _ZN11MutexLockerD2Ev.exit.i:                      ; preds = %21, %11
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %15 to i64
-  %27 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %25, i64 %26
+  %27 = getelementptr inbounds [280 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %0, ptr %28, align 8
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %29, i64 %26
+  %30 = getelementptr inbounds [280 x i8], ptr %29, i64 %26
   store double %12, ptr %30, align 8
   %31 = load ptr, ptr %24, align 8
-  %32 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %31, i64 %26
+  %32 = getelementptr inbounds [280 x i8], ptr %31, i64 %26
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @jio_vsnprintf(ptr noundef %34, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %3) #27
@@ -3875,7 +3872,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %12, %64
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %22 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %29
@@ -4137,7 +4134,7 @@ define internal noundef i32 @_ZL19dl_iterate_callbackP12dl_phdr_infomPv(ptr noun
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %.02937 = phi ptr [ null, %.lr.ph ], [ %.2, %39 ]
   %.03036 = phi ptr [ null, %.lr.ph ], [ %.131, %39 ]
-  %15 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [56 x i8], ptr %13, i64 %indvars.iv
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %18, label %39
@@ -4241,7 +4238,7 @@ _ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread: ; preds = %.lr.ph.spl
 16:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw ptr, ptr @distro_files, i64 %indvars.iv.next
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @distro_files, i64 %indvars.iv.next
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !24
@@ -4556,7 +4553,7 @@ _ZN2os5Linux12get_mallinfoEPNS0_14glibc_mallinfoEPb.exit: ; preds = %28, %37
 63:                                               ; preds = %60, %57
   %.1.i = phi i8 [ 1, %60 ], [ %.015.i, %57 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %64 = getelementptr inbounds nuw ptr, ptr @_ZZL27print_glibc_malloc_tunablesP12outputStreamE3var, i64 %indvars.iv.next.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL27print_glibc_malloc_tunablesP12outputStreamE3var, i64 %indvars.iv.next.i
   %65 = load ptr, ptr %64, align 8
   %.not.i13 = icmp eq i64 %indvars.iv.next.i, 9
   br i1 %.not.i13, label %66, label %57, !llvm.loop !25
@@ -4656,7 +4653,7 @@ define hidden void @_ZN2os19get_summary_os_infoEPcm(ptr noundef %0, i64 noundef 
 
 5:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = getelementptr inbounds nuw ptr, ptr @distro_files, i64 %indvars.iv.next
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @distro_files, i64 %indvars.iv.next
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %._crit_edge, label %.lr.ph, !llvm.loop !26
@@ -5846,7 +5843,7 @@ define hidden noundef i32 @_ZN2os5Linux15get_node_by_cpuEi(i32 noundef %0) local
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
   br label %14
 
@@ -5999,7 +5996,7 @@ _ZN2os5Linux22is_node_in_bound_nodesEi.exit:      ; preds = %12, %14
 
 17:                                               ; preds = %_ZN2os5Linux22is_node_in_bound_nodesEi.exit
   %18 = add i64 %.0712, 1
-  %19 = getelementptr inbounds i32, ptr %0, i64 %.0712
+  %19 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0712
   store i32 %.013, ptr %19, align 4
   br label %_ZN2os5Linux22is_node_in_bound_nodesEi.exit.thread
 
@@ -6423,7 +6420,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = sext i32 %27 to i64
-  %32 = getelementptr inbounds i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %30, i64 %31
   store i32 %storemerge5, ptr %32, align 4
   br label %_ZN2os5Linux25is_node_in_existing_nodesEj.exit.thread
 
@@ -6481,7 +6478,7 @@ define hidden void @_ZN2os5Linux23rebuild_cpu_to_node_mapEv() local_unnamed_addr
 22:                                               ; preds = %22, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %21, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv.i
+  %24 = getelementptr inbounds [4 x i8], ptr %23, i64 %indvars.iv.i
   store i32 0, ptr %24, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
@@ -6573,7 +6570,7 @@ _ZN2os5Linux27is_node_in_configured_nodesEj.exit: ; preds = %47
   %52 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv104
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv104
   %56 = load i32, ptr %55, align 4
   %57 = call noundef i32 %48(ptr noundef nonnull %50, i32 noundef %56) #27
   %.not77 = icmp eq i32 %57, 0
@@ -6583,7 +6580,7 @@ _ZN2os5Linux27is_node_in_configured_nodesEj.exit: ; preds = %47
   %59 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv104
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv104
   %63 = load i32, ptr %62, align 4
   %64 = load ptr, ptr @_ZN2os5Linux22_numa_bitmask_isbitsetE, align 8
   %.not.i54 = icmp eq ptr %64, null
@@ -6631,7 +6628,7 @@ _ZN2os5Linux27is_node_in_configured_nodesEj.exit58: ; preds = %73
   %78 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4
   %83 = call noundef i32 %74(ptr noundef nonnull %76, i32 noundef %82) #27
   %.not79 = icmp eq i32 %83, 0
@@ -6641,7 +6638,7 @@ _ZN2os5Linux27is_node_in_configured_nodesEj.exit58: ; preds = %73
   %85 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4
   %90 = load ptr, ptr @_ZN2os5Linux22_numa_bitmask_isbitsetE, align 8
   %.not.i59 = icmp eq ptr %90, null
@@ -6676,9 +6673,9 @@ _ZN2os5Linux22is_node_in_bound_nodesEi.exit64:    ; preds = %94, %96
   %102 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv
   %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv104
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv104
   %108 = load i32, ptr %107, align 4
   %109 = call noundef i32 %100(i32 noundef %108, i32 noundef %106) #27
   br label %_ZN2os5Linux13numa_distanceEii.exit
@@ -6694,7 +6691,7 @@ _ZN2os5Linux13numa_distanceEii.exit:              ; preds = %99, %101
   %113 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv
   %117 = load i32, ptr %116, align 4
   br label %_ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread
 
@@ -6709,7 +6706,7 @@ _ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread: ; preds = %96, %84, %
   %119 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv104
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv104
   %123 = load i32, ptr %122, align 4
   br label %.loopexit83
 
@@ -6718,7 +6715,7 @@ _ZN2os5Linux27is_node_in_configured_nodesEj.exit58.thread: ; preds = %96, %84, %
   %124 = load ptr, ptr @_ZN2os5Linux15_nindex_to_nodeE, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv104
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv104
   %128 = load i32, ptr %127, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %129 = load ptr, ptr @_ZN2os5Linux21_numa_node_to_cpus_v2E, align 8
@@ -6753,7 +6750,7 @@ _ZN2os5Linux17numa_node_to_cpusEiPmi.exit:        ; preds = %130, %134
 
 .lr.ph89:                                         ; preds = %_ZN2os5Linux17numa_node_to_cpusEiPmi.exit, %.loopexit
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %.loopexit ], [ 0, %_ZN2os5Linux17numa_node_to_cpusEiPmi.exit ]
-  %136 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv99
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv99
   %137 = load i64, ptr %136, align 8
   %.not48 = icmp eq i64 %137, 0
   br i1 %.not48, label %.loopexit, label %.preheader
@@ -6774,7 +6771,7 @@ _ZN2os5Linux17numa_node_to_cpusEiPmi.exit:        ; preds = %130, %134
   %143 = load ptr, ptr @_ZN2os5Linux12_cpu_to_nodeE, align 8
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv95
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %indvars.iv95
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 %.idx
   store i32 %.3, ptr %147, align 4
   br label %148
@@ -7092,7 +7089,7 @@ define hidden noundef zeroext i1 @_ZN2os14protect_memoryEPcmNS_8ProtTypeEb(ptr n
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2os14protect_memoryEPcmNS_8ProtTypeEb, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN2os14protect_memoryEPcmNS_8ProtTypeEb, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = ptrtoint ptr %0 to i64
   %10 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
@@ -10672,7 +10669,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef no
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #27
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12VM_Operation6_namesE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12VM_Operation6_namesE, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -10753,14 +10750,14 @@ _ZN11MutexLockerD2Ev.exit.i:                      ; preds = %21, %11
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %15 to i64
-  %27 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %25, i64 %26
+  %27 = getelementptr inbounds [280 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %0, ptr %28, align 8
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %29, i64 %26
+  %30 = getelementptr inbounds [280 x i8], ptr %29, i64 %26
   store double %12, ptr %30, align 8
   %31 = load ptr, ptr %24, align 8
-  %32 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %31, i64 %26
+  %32 = getelementptr inbounds [280 x i8], ptr %31, i64 %26
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @jio_vsnprintf(ptr noundef %34, i64 noundef 256, ptr noundef %1, ptr noundef nonnull %3) #27
@@ -11137,9 +11134,9 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %26, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -11156,7 +11153,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv20
   store i32 0, ptr %35, align 4
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

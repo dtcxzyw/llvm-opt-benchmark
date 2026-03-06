@@ -126,7 +126,7 @@ define internal i32 @loop_get_int32(ptr noundef captures(none) %0) #3 {
   %10 = add nuw i32 %3, 1
   store i32 %10, ptr %2, align 4, !tbaa !21
   %11 = zext i32 %3 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !22
   %.not14 = icmp ult i32 %10, %5
   %spec.store.select = select i1 %.not14, i32 %10, i32 0
@@ -173,7 +173,7 @@ define internal void @loop_get_bytes(ptr noundef captures(none) %0, ptr noundef 
   %13 = add nuw i32 %8, 1
   store i32 %13, ptr %4, align 4, !tbaa !21
   %14 = zext i32 %8 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %.not14.i = icmp ult i32 %13, %9
   %spec.store.select.i = select i1 %.not14.i, i32 %13, i32 0
@@ -254,7 +254,7 @@ define internal double @loop_get_real(ptr noundef captures(none) %0, i32 %1) #5 
   %11 = add nuw i32 %4, 1
   store i32 %11, ptr %3, align 4, !tbaa !21
   %12 = zext i32 %4 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !22
   %.not14.i = icmp ult i32 %11, %6
   %spec.store.select.i = select i1 %.not14.i, i32 %11, i32 0

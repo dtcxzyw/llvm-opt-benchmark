@@ -16,7 +16,7 @@ define zeroext i1 @_ZN4core3cmp9PartialEq2ne17h02e98a6ba4f0885eE(ptr align 8 %0,
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN4core4hash4Hash10hash_slice17h8efb0394a0124198E(ptr align 8 %0, i64 %1, ptr align 8 %2) unnamed_addr #1 {
   %4 = alloca { ptr, ptr, {} }, align 8
-  %5 = getelementptr inbounds i64, ptr %0, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %0, i64 %1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   store ptr %0, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -40,9 +40,9 @@ define void @_ZN4core4hash4Hash10hash_slice17h8efb0394a0124198E(ptr align 8 %0, 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hbe725ebb78845c42E"(ptr align 8 %0, i64 %1) unnamed_addr #0 {
   %3 = lshr i64 %1, 1
-  %4 = getelementptr inbounds { { i64, [4 x i64] }, { ptr, i64 } }, ptr %0, i64 %1
+  %4 = getelementptr inbounds [56 x i8], ptr %0, i64 %1
   %5 = sub nsw i64 0, %3
-  %6 = getelementptr inbounds { { i64, [4 x i64] }, { ptr, i64 } }, ptr %4, i64 %5
+  %6 = getelementptr inbounds [56 x i8], ptr %4, i64 %5
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h8f0a3f1f7ee6f8ceE"(ptr align 8 %0, i64 %3, ptr align 8 %6, i64 %3, i64 %3)
   ret void
 }
@@ -66,8 +66,8 @@ define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..S
 
 5:                                                ; preds = %.preheader.split
   %6 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h04c54e673dad009aE"(i64 %.sroa.01.0, i64 1)
-  %7 = getelementptr inbounds i64, ptr %0, i64 %.sroa.01.0
-  %8 = getelementptr inbounds i64, ptr %2, i64 %.sroa.01.0
+  %7 = getelementptr inbounds [8 x i8], ptr %0, i64 %.sroa.01.0
+  %8 = getelementptr inbounds [8 x i8], ptr %2, i64 %.sroa.01.0
   %9 = tail call zeroext i1 @"_ZN97_$LT$cranelift_codegen_meta..cdsl..settings..BoolSettingIndex$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f6d03f96233119eE"(ptr align 8 %7, ptr align 8 %8)
   br i1 %9, label %.preheader.split, label %.critedge
 
@@ -88,7 +88,7 @@ define { ptr, i64 } @"_ZN22cranelift_codegen_meta4cdsl8settings6Preset13setting_
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds { { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, i8, [7 x i8] }, ptr %10, i64 %4
+  %11 = getelementptr inbounds [80 x i8], ptr %10, i64 %4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8, !nonnull !3, !align !6, !noundef !3
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -255,7 +255,7 @@ define void @"_ZN83_$LT$cranelift_codegen_meta..cdsl..settings..Preset$u20$as$u2
   %15 = load i64, ptr %14, align 8, !noundef !3
   tail call void @_ZN4core4hash6Hasher19write_length_prefix17h10d5d1f551dea9aeE(ptr align 8 %1, i64 %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %16 = getelementptr inbounds i64, ptr %13, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %13, i64 %15
   store ptr %13, ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %16, ptr %17, align 8

@@ -51716,7 +51716,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %4 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4core3fmt9Formatter10debug_list17h707f9a0a1c7e66ccE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   %6 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17he7ab539f59d97d3bE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0, ptr noundef nonnull %5)
   %7 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17ha93605e0e88ab8f4E(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -76527,8 +76527,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %exitcond.not, label %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17hd5ebe81f769408bcE.exit.thread", label %5
 
 5:                                                ; preds = %.preheader.split
-  %6 = getelementptr inbounds nuw { ptr, i64 }, ptr %0, i64 %.sroa.01.0
-  %7 = getelementptr inbounds nuw { ptr, i64 }, ptr %2, i64 %.sroa.01.0
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.sroa.01.0
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.sroa.01.0
   %8 = getelementptr i8, ptr %6, i64 8
   %.val5 = load i64, ptr %8, align 8, !noundef !3
   %9 = getelementptr i8, ptr %7, i64 8
@@ -78492,8 +78492,8 @@ define hidden void @_ZN11ruff_server4edit11replacement11Replacement7between17hb8
   %19 = alloca [56 x i8], align 8
   %20 = alloca [12 x i8], align 4
   %21 = alloca [64 x i8], align 8
-  %22 = getelementptr inbounds nuw i32, ptr %3, i64 %4
-  %23 = getelementptr inbounds nuw i32, ptr %7, i64 %8
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %4
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h14e9d23ad27eab3aE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %21, ptr noundef nonnull %3, ptr noundef nonnull %22, ptr noundef nonnull %7, ptr noundef nonnull %23)
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 56

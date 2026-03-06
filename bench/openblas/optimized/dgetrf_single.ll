@@ -27,7 +27,7 @@ define i32 @dgetrf_single(ptr noundef %0, ptr readnone captures(none) %1, ptr no
   %22 = sub nsw i64 %21, %18
   %23 = add nsw i64 %14, 1
   %24 = mul nsw i64 %18, %23
-  %25 = getelementptr inbounds double, ptr %12, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %12, i64 %24
   br label %26
 
 26:                                               ; preds = %17, %6
@@ -55,7 +55,7 @@ define i32 @dgetrf_single(ptr noundef %0, ptr readnone captures(none) %1, ptr no
 
 .lr.ph215:                                        ; preds = %29
   %37 = mul nuw nsw i64 %spec.store.select7, %spec.store.select7
-  %38 = getelementptr inbounds nuw double, ptr %4, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %37
   %39 = ptrtoint ptr %38 to i64
   %40 = add i64 %39, 16383
   %41 = and i64 %40, -16384
@@ -74,7 +74,7 @@ define i32 @dgetrf_single(ptr noundef %0, ptr readnone captures(none) %1, ptr no
   %47 = sub nsw i64 %30, %.0187212
   %spec.select = call i64 @llvm.smin.i64(i64 %47, i64 %spec.store.select7)
   %48 = mul nsw i64 %.0187212, %14
-  %49 = getelementptr inbounds double, ptr %.0182, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %.0182, i64 %48
   %50 = add nsw i64 %.0187212, %.0186
   store i64 %50, ptr %7, align 16, !tbaa !14
   %51 = add nsw i64 %spec.select, %50
@@ -91,11 +91,11 @@ define i32 @dgetrf_single(ptr noundef %0, ptr readnone captures(none) %1, ptr no
   br i1 %58, label %59, label %.loopexit201
 
 59:                                               ; preds = %46
-  %60 = getelementptr inbounds nuw double, ptr %49, i64 %.0187212
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.0187212
   %61 = call i32 @dtrsm_iltucopy(i64 noundef %spec.select, i64 noundef %spec.select, ptr noundef %60, i64 noundef %14, i64 noundef 0, ptr noundef %4) #4
   %62 = add nsw i64 %50, 1
   %63 = add nsw i64 %57, %.0186
-  %64 = getelementptr double, ptr %.0182, i64 %.0187212
+  %64 = getelementptr [8 x i8], ptr %.0182, i64 %.0187212
   %65 = icmp slt i64 %57, %.0181
   br label %66
 
@@ -112,7 +112,7 @@ define i32 @dgetrf_single(ptr noundef %0, ptr readnone captures(none) %1, ptr no
 
 .lr.ph207:                                        ; preds = %.preheader200
   %70 = mul nsw i64 %.0190211, %14
-  %invariant.gep209 = getelementptr double, ptr %.0182, i64 %70
+  %invariant.gep209 = getelementptr [8 x i8], ptr %.0182, i64 %70
   br label %89
 
 .lr.ph.preheader:                                 ; preds = %66, %._crit_edge
@@ -121,12 +121,12 @@ define i32 @dgetrf_single(ptr noundef %0, ptr readnone captures(none) %1, ptr no
   %spec.store.select4 = call i64 @llvm.smin.i64(i64 %71, i64 2)
   %72 = mul nsw i64 %.0189203, %14
   %73 = sub nsw i64 %72, %.0186
-  %74 = getelementptr inbounds double, ptr %.0182, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %.0182, i64 %73
   %75 = call i32 @dlaswp_plus(i64 noundef %spec.store.select4, i64 noundef %62, i64 noundef %63, double noundef 0.000000e+00, ptr noundef %74, i64 noundef %14, ptr noundef null, i64 noundef 0, ptr noundef %16, i64 noundef 1) #4
-  %76 = getelementptr double, ptr %64, i64 %72
+  %76 = getelementptr [8 x i8], ptr %64, i64 %72
   %77 = sub nuw nsw i64 %.0189203, %.0190211
   %78 = mul nsw i64 %77, %spec.select
-  %79 = getelementptr inbounds double, ptr %42, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %42, i64 %78
   %80 = call i32 @dgemm_oncopy(i64 noundef %spec.select, i64 noundef %spec.store.select4, ptr noundef %76, i64 noundef %14, ptr noundef %79) #4
   br label %.lr.ph
 
@@ -135,8 +135,8 @@ define i32 @dgetrf_single(ptr noundef %0, ptr readnone captures(none) %1, ptr no
   %81 = sub nuw nsw i64 %spec.select, %.0191202
   %spec.store.select5 = call i64 @llvm.umin.i64(i64 %81, i64 192)
   %82 = mul nuw nsw i64 %.0191202, %spec.select
-  %83 = getelementptr inbounds nuw double, ptr %4, i64 %82
-  %gep = getelementptr double, ptr %76, i64 %.0191202
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %82
+  %gep = getelementptr [8 x i8], ptr %76, i64 %.0191202
   %84 = call i32 @dtrsm_kernel_LT(i64 noundef %spec.store.select5, i64 noundef %spec.store.select4, i64 noundef %spec.select, double noundef -1.000000e+00, ptr noundef %83, ptr noundef %79, ptr noundef %gep, i64 noundef %14, i64 noundef %.0191202) #4
   %85 = add nuw nsw i64 %.0191202, 192
   %86 = icmp samesign ult i64 %85, %spec.select
@@ -151,9 +151,9 @@ define i32 @dgetrf_single(ptr noundef %0, ptr readnone captures(none) %1, ptr no
   %.0192206 = phi i64 [ %57, %.lr.ph207 ], [ %94, %89 ]
   %90 = sub nsw i64 %.0181, %.0192206
   %spec.store.select6 = call i64 @llvm.smin.i64(i64 %90, i64 192)
-  %91 = getelementptr inbounds nuw double, ptr %49, i64 %.0192206
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.0192206
   %92 = call i32 @dgemm_itcopy(i64 noundef %spec.select, i64 noundef %spec.store.select6, ptr noundef %91, i64 noundef %14, ptr noundef %3) #4
-  %gep210 = getelementptr double, ptr %invariant.gep209, i64 %.0192206
+  %gep210 = getelementptr [8 x i8], ptr %invariant.gep209, i64 %.0192206
   %93 = call i32 @dgemm_kernel(i64 noundef %spec.store.select6, i64 noundef %spec.store.select, i64 noundef %spec.select, double noundef -1.000000e+00, ptr noundef %3, ptr noundef %42, ptr noundef %gep210, i64 noundef %14) #4
   %94 = add nuw nsw i64 %.0192206, 192
   %95 = icmp slt i64 %94, %.0181
@@ -177,7 +177,7 @@ define i32 @dgetrf_single(ptr noundef %0, ptr readnone captures(none) %1, ptr no
   %104 = add i64 %44, %103
   %105 = mul nsw i64 %.1188216, %14
   %.neg = sub i64 %105, %.0186
-  %106 = getelementptr inbounds double, ptr %.0182, i64 %.neg
+  %106 = getelementptr inbounds [8 x i8], ptr %.0182, i64 %.neg
   %107 = call i32 @dlaswp_plus(i64 noundef %102, i64 noundef %104, i64 noundef %45, double noundef 0.000000e+00, ptr noundef %106, i64 noundef %14, ptr noundef null, i64 noundef 0, ptr noundef %16, i64 noundef 1) #4
   %108 = icmp slt i64 %103, %30
   br i1 %108, label %100, label %.loopexit, !llvm.loop !21

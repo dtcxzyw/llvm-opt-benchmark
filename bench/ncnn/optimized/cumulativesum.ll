@@ -84,7 +84,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13CumulativeSum15forward_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %store_forwarded = phi float [ %load_initial, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %indvars.iv156 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next157, %.lr.ph ]
-  %26 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv156
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv156
   %27 = load float, ptr %26, align 4, !tbaa !31
   %28 = fadd fast float %store_forwarded, %27
   store float %28, ptr %26, align 4, !tbaa !31
@@ -131,9 +131,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13CumulativeSum15forward_
 
 49:                                               ; preds = %.lr.ph.us, %49
   %indvars.iv146 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next147, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv146
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv146
   %51 = load float, ptr %50, align 4, !tbaa !31
-  %52 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv146
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv146
   %53 = load float, ptr %52, align 4, !tbaa !31
   %54 = fadd fast float %53, %51
   store float %54, ptr %50, align 4, !tbaa !31
@@ -210,9 +210,9 @@ _ZN4ncnn3MatD2Ev.exit.us:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 
 84:                                               ; preds = %_ZN4ncnn3MatD2Ev.exit.us, %84
   %indvars.iv = phi i64 [ 0, %_ZN4ncnn3MatD2Ev.exit.us ], [ %indvars.iv.next, %84 ]
-  %85 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv
   %86 = load float, ptr %85, align 4, !tbaa !31
-  %87 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv
   %88 = load float, ptr %87, align 4, !tbaa !31
   %89 = fadd fast float %88, %86
   store float %89, ptr %85, align 4, !tbaa !31
@@ -362,7 +362,7 @@ define internal void @_ZNK4ncnn13CumulativeSum15forward_inplaceERNS_3MatERKNS_6O
 34:                                               ; preds = %.lr.ph.us, %34
   %store_forwarded = phi float [ %load_initial, %.lr.ph.us ], [ %37, %34 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next, %34 ]
-  %35 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %36 = load float, ptr %35, align 4, !tbaa !31
   %37 = fadd fast float %store_forwarded, %36
   store float %37, ptr %35, align 4, !tbaa !31
@@ -477,9 +477,9 @@ define internal void @_ZNK4ncnn13CumulativeSum15forward_inplaceERNS_3MatERKNS_6O
 
 40:                                               ; preds = %40, %.lr.ph.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.lr.ph.us.us.us ]
-  %41 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %42 = load float, ptr %41, align 4, !tbaa !31
-  %43 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %44 = load float, ptr %43, align 4, !tbaa !31
   %45 = fadd fast float %44, %42
   store float %45, ptr %41, align 4, !tbaa !31
@@ -590,7 +590,7 @@ define internal void @_ZNK4ncnn13CumulativeSum15forward_inplaceERNS_3MatERKNS_6O
 45:                                               ; preds = %45, %.lr.ph.us.us.us
   %store_forwarded = phi float [ %load_initial, %.lr.ph.us.us.us ], [ %48, %45 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.us.us.us ], [ %indvars.iv.next, %45 ]
-  %46 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   %47 = load float, ptr %46, align 4, !tbaa !31
   %48 = fadd fast float %store_forwarded, %47
   store float %48, ptr %46, align 4, !tbaa !31

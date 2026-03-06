@@ -50,9 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.llvm::coverage::CounterExpression" = type { i32, %"struct.llvm::coverage::Counter", %"struct.llvm::coverage::Counter" }
 %"struct.llvm::coverage::Counter" = type { i32, i32 }
-%"struct.llvm::coverage::CounterMappingRegion" = type { %"struct.llvm::coverage::Counter", %"struct.llvm::coverage::Counter", %"class.std::variant", i32, i32, i32, i32, i32, i32, i32 }
 %"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [3 x i8] }
 %"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
 %"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
@@ -66,6 +64,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__detail::__variant::_Uninitialized.21" = type { %"struct.llvm::coverage::mcdc::BranchParameters" }
 %"struct.llvm::coverage::mcdc::BranchParameters" = type { i16, %"struct.std::array" }
 %"struct.std::array" = type { [2 x i16] }
+%"struct.llvm::coverage::CounterMappingRegion" = type { %"struct.llvm::coverage::Counter", %"struct.llvm::coverage::Counter", %"class.std::variant", i32, i32, i32, i32, i32, i32, i32 }
 
 $_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj = comdat any
 
@@ -658,7 +657,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit150: ; preds = %_ZN4llvm11raw_o
 
 _ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit.thread: ; preds = %.lr.ph374
   %.val129 = load ptr, ptr %38, align 8
-  %76 = getelementptr inbounds nuw i32, ptr %.val129, i64 %.sroa.4.0.extract.shift.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %.val129, i64 %.sroa.4.0.extract.shift.i
   %77 = load i32, ptr %76, align 4, !tbaa !56
   br label %79
 
@@ -671,7 +670,7 @@ _ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.
 79:                                               ; preds = %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit.thread, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit
   %.sroa.4.0.i462 = phi i32 [ %77, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit.thread ], [ %.sroa.4.0.extract.trunc.i, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit ]
   %.sroa.4.0.insert.ext.i = zext i32 %.sroa.4.0.i462 to i64
-  %80 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %.val127, i64 %.sroa.4.0.insert.ext.i
+  %80 = getelementptr inbounds nuw [20 x i8], ptr %.val127, i64 %.sroa.4.0.insert.ext.i
   %81 = load i32, ptr %80, align 4, !tbaa !57
   %82 = add i32 %81, 2
   br label %_ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i
@@ -719,7 +718,7 @@ _ZL12writeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE
 
 _ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit159.thread: ; preds = %_ZL12writeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterERNS_11raw_ostreamE.exit
   %.val130 = load ptr, ptr %38, align 8
-  %99 = getelementptr inbounds nuw i32, ptr %.val130, i64 %.sroa.4.0.extract.shift.i151
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %.val130, i64 %.sroa.4.0.extract.shift.i151
   %100 = load i32, ptr %99, align 4, !tbaa !56
   br label %102
 
@@ -732,7 +731,7 @@ _ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.
 102:                                              ; preds = %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit159.thread, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit159
   %.sroa.4.0.i153467 = phi i32 [ %100, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit159.thread ], [ %.sroa.4.0.extract.trunc.i152, %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit159 ]
   %.sroa.4.0.insert.ext.i155 = zext i32 %.sroa.4.0.i153467 to i64
-  %103 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %.val127, i64 %.sroa.4.0.insert.ext.i155
+  %103 = getelementptr inbounds nuw [20 x i8], ptr %.val127, i64 %.sroa.4.0.insert.ext.i155
   %104 = load i32, ptr %103, align 4, !tbaa !57
   %105 = add i32 %104, 2
   br label %_ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i161
@@ -881,7 +880,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit176: ; preds = %_ZN4llvm11raw_o
   br i1 %150, label %151, label %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit185
 
 151:                                              ; preds = %148
-  %152 = getelementptr inbounds nuw i32, ptr %.val131, i64 %.sroa.4.0.extract.shift.i177
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %.val131, i64 %.sroa.4.0.extract.shift.i177
   %153 = load i32, ptr %152, align 4, !tbaa !56
   br label %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit185
 
@@ -898,7 +897,7 @@ _ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.
   br i1 %156, label %157, label %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit194
 
 157:                                              ; preds = %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit185
-  %158 = getelementptr inbounds nuw i32, ptr %.val131, i64 %.sroa.4.0.extract.shift.i186
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %.val131, i64 %.sroa.4.0.extract.shift.i186
   %159 = load i32, ptr %158, align 4, !tbaa !56
   br label %_ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.exit194
 
@@ -924,7 +923,7 @@ _ZNK12_GLOBAL__N_127CounterExpressionsMinimizer6adjustEN4llvm8coverage7CounterE.
   br i1 %163, label %164, label %_ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i196
 
 164:                                              ; preds = %162
-  %165 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %.val127, i64 %.sroa.4.0.insert.ext.i181
+  %165 = getelementptr inbounds nuw [20 x i8], ptr %.val127, i64 %.sroa.4.0.insert.ext.i181
   %166 = load i32, ptr %165, align 4, !tbaa !57
   %167 = add i32 %166, 2
   br label %_ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i196
@@ -1032,7 +1031,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit227: ; preds = %207, %209
   br i1 %211, label %212, label %_ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i229
 
 212:                                              ; preds = %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit227
-  %213 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %.val127, i64 %.sroa.4.0.insert.ext.i181
+  %213 = getelementptr inbounds nuw [20 x i8], ptr %.val127, i64 %.sroa.4.0.insert.ext.i181
   %214 = load i32, ptr %213, align 4, !tbaa !57
   %215 = add i32 %214, 2
   br label %_ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i229
@@ -1075,7 +1074,7 @@ _ZL12writeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE
   br i1 %229, label %230, label %_ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i238
 
 230:                                              ; preds = %_ZL12writeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterERNS_11raw_ostreamE.exit236
-  %231 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %.val127, i64 %.sroa.4.0.insert.ext.i190
+  %231 = getelementptr inbounds nuw [20 x i8], ptr %.val127, i64 %.sroa.4.0.insert.ext.i190
   %232 = load i32, ptr %231, align 4, !tbaa !57
   %233 = add i32 %232, 2
   br label %_ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i238
@@ -1134,7 +1133,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit253: ; preds = %250, %252
   br i1 %254, label %255, label %_ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i255
 
 255:                                              ; preds = %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit253
-  %256 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %.val127, i64 %.sroa.4.0.insert.ext.i181
+  %256 = getelementptr inbounds nuw [20 x i8], ptr %.val127, i64 %.sroa.4.0.insert.ext.i181
   %257 = load i32, ptr %256, align 4, !tbaa !57
   %258 = add i32 %257, 2
   br label %_ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i255
@@ -1177,7 +1176,7 @@ _ZL12writeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE
   br i1 %272, label %273, label %_ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i264
 
 273:                                              ; preds = %_ZL12writeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterERNS_11raw_ostreamE.exit262
-  %274 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %.val127, i64 %.sroa.4.0.insert.ext.i190
+  %274 = getelementptr inbounds nuw [20 x i8], ptr %.val127, i64 %.sroa.4.0.insert.ext.i190
   %275 = load i32, ptr %274, align 4, !tbaa !57
   %276 = add i32 %275, 2
   br label %_ZL13encodeCounterN4llvm8ArrayRefINS_8coverage17CounterExpressionEEENS1_7CounterE.exit.i264
@@ -1801,14 +1800,14 @@ tailrecurse:                                      ; preds = %.lr.ph, %tailrecurs
   %.tr45 = phi i64 [ %1, %.lr.ph ], [ %.sroa.0.0.copyload, %tailrecurse ]
   %.sroa.2.0.extract.shift = lshr i64 %.tr45, 32
   %7 = load ptr, ptr %5, align 8, !tbaa !62
-  %8 = getelementptr inbounds nuw i32, ptr %7, i64 %.sroa.2.0.extract.shift
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.sroa.2.0.extract.shift
   store i32 1, ptr %8, align 4, !tbaa !56
-  %9 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %6, i64 %.sroa.2.0.extract.shift
+  %9 = getelementptr inbounds nuw [20 x i8], ptr %6, i64 %.sroa.2.0.extract.shift
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.01.0.copyload = load i64, ptr %10, align 4
   tail call fastcc void @_ZN12_GLOBAL__N_127CounterExpressionsMinimizer4markEN4llvm8coverage7CounterE(ptr noundef nonnull align 8 dereferenceable(376) %0, i64 %.sroa.01.0.copyload)
   %11 = load ptr, ptr %0, align 8, !tbaa !99
-  %12 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %11, i64 %.sroa.2.0.extract.shift
+  %12 = getelementptr inbounds nuw [20 x i8], ptr %11, i64 %.sroa.2.0.extract.shift
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %.sroa.0.0.copyload = load i64, ptr %13, align 4
   %14 = and i64 %.sroa.0.0.copyload, 4294967295
@@ -1837,7 +1836,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_127CounterExpressionsMinimizer10gat
   %.tr78 = phi i64 [ %1, %.lr.ph ], [ %.sroa.0.0.copyload, %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage17CounterExpressionELb1EE9push_backERKS2_.exit ]
   %.sroa.2.0.extract.shift = lshr i64 %.tr78, 32
   %11 = load ptr, ptr %5, align 8, !tbaa !62
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %.sroa.2.0.extract.shift
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.sroa.2.0.extract.shift
   %13 = load i32, ptr %12, align 4, !tbaa !56
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %tailrecurse._crit_edge, label %14
@@ -1846,7 +1845,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_127CounterExpressionsMinimizer10gat
   %15 = load i32, ptr %7, align 8, !tbaa !54
   store i32 %15, ptr %12, align 4, !tbaa !56
   %16 = load ptr, ptr %0, align 8, !tbaa !99
-  %17 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %16, i64 %.sroa.2.0.extract.shift
+  %17 = getelementptr inbounds nuw [20 x i8], ptr %16, i64 %.sroa.2.0.extract.shift
   %18 = zext i32 %15 to i64
   %19 = add nuw nsw i64 %18, 1
   %20 = load i32, ptr %8, align 4, !tbaa !55
@@ -1855,7 +1854,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_127CounterExpressionsMinimizer10gat
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage17CounterExpressionELb1EE9push_backERKS2_.exit, label %21, !prof !101
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %.pre3.i, i64 %18
+  %22 = getelementptr inbounds nuw [20 x i8], ptr %.pre3.i, i64 %18
   %23 = icmp uge ptr %17, %.pre3.i
   %24 = icmp ult ptr %17, %22
   %spec.select.i.i.i.i.i = and i1 %23, %24
@@ -1880,7 +1879,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8coverage17CounterExpressionELb1EE9push_bac
   %.016.i.i.i = phi ptr [ %17, %14 ], [ %30, %25 ], [ %17, %.critedge.i.i.i ]
   %32 = load i32, ptr %7, align 8, !tbaa !54
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpression", ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [20 x i8], ptr %31, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %34, ptr noundef nonnull align 4 dereferenceable(20) %.016.i.i.i, i64 20, i1 false)
   %35 = load i32, ptr %7, align 8, !tbaa !54
   %36 = add i32 %35, 1
@@ -1938,7 +1937,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %20, %23
   %24 = phi ptr [ %9, %20 ], [ %.pre, %23 ]
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !103
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, label %26
@@ -1947,7 +1946,7 @@ _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %20, %23
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit
 
@@ -2058,7 +2057,7 @@ _ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit62: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit62, %67
-  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i64 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i64, label %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit65, label %70
@@ -2080,7 +2079,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit65: ; pr
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit65, %72
   store ptr %62, ptr %0, align 8, !tbaa !62
   store ptr %71, ptr %8, align 8, !tbaa !103
-  %74 = getelementptr inbounds nuw i32, ptr %62, i64 %55
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %74, ptr %6, align 8, !tbaa !64
   br label %_ZSt4fillIPjjEvT_S1_RKT0_.exit
 
@@ -2123,7 +2122,7 @@ common.ret25:                                     ; preds = %7, %common.ret
 7:                                                ; preds = %2
   %8 = udiv exact i64 %5, 56
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %9
   tail call fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm8coverage20CounterMappingRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEEvT_SC_T0_"(ptr noundef %0, ptr noundef %10)
   tail call fastcc void @"_ZSt21__inplace_stable_sortIPN4llvm8coverage20CounterMappingRegionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEEvT_SC_T0_"(ptr noundef %10, ptr noundef %1)
   %11 = ptrtoint ptr %10 to i64
@@ -2141,7 +2140,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIPN4llvm8coverage20Cou
   %8 = sdiv exact i64 %7, 56
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %0, i64 %10
+  %11 = getelementptr inbounds [56 x i8], ptr %0, i64 %10
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -2312,7 +2311,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN4llvm8coverage20CounterMa
   %37 = ptrtoint ptr %.020 to i64
   %38 = sub i64 %37, %8
   %.neg.i.i.i.i.i = sdiv exact i64 %38, -56
-  %39 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %36, i64 %.neg.i.i.i.i.i
+  %39 = getelementptr inbounds [56 x i8], ptr %36, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %39, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %38, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(56) %3, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2493,7 +2492,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIPN4llvm8coverage20Cou
 
 _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit: ; preds = %46
   %49 = sdiv i64 %.tr8090, 2
-  %50 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.tr88, i64 %49
+  %50 = getelementptr inbounds [56 x i8], ptr %.tr88, i64 %49
   %51 = sub i64 %12, %48
   %52 = icmp sgt i64 %51, 0
   br i1 %52, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit"
@@ -2517,7 +2516,7 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i: ; preds = 
   %.027.i = phi ptr [ %.tr7889, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i ], [ %93, %91 ]
   %.01126.i = phi i64 [ %53, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i ], [ %92, %91 ]
   %63 = lshr i64 %.01126.i, 1
-  %64 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %.027.i, i64 %63
+  %64 = getelementptr inbounds nuw [56 x i8], ptr %.027.i, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 28
   %66 = load i32, ptr %65, align 4, !tbaa !65
   %.not.i.i.i = icmp eq i32 %66, %55
@@ -2590,7 +2589,7 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i: ; preds = 
 
 _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit42: ; preds = %46
   %97 = sdiv i64 %.tr8191, 2
-  %98 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.tr7889, i64 %97
+  %98 = getelementptr inbounds [56 x i8], ptr %.tr7889, i64 %97
   %99 = ptrtoint ptr %.tr88 to i64
   %100 = sub i64 %48, %99
   %101 = icmp sgt i64 %100, 0
@@ -2615,7 +2614,7 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i47: ; preds 
   %.027.i48 = phi ptr [ %.tr88, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i44 ], [ %138, %.thread.i55 ]
   %.01126.i49 = phi i64 [ %102, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i44 ], [ %137, %.thread.i55 ]
   %112 = lshr i64 %.01126.i49, 1
-  %113 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %.027.i48, i64 %112
+  %113 = getelementptr inbounds nuw [56 x i8], ptr %.027.i48, i64 %112
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 28
   %115 = load i32, ptr %114, align 4, !tbaa !65
   %.not.i.i.i52 = icmp eq i32 %104, %115
@@ -2735,7 +2734,7 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i47: ; preds 
   br i1 %165, label %.lr.ph89.preheader.i.i, label %._crit_edge90.i.i
 
 .lr.ph89.preheader.i.i:                           ; preds = %164
-  %166 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.042.i.i, i64 %.066.i.i
+  %166 = getelementptr inbounds [56 x i8], ptr %.042.i.i, i64 %.066.i.i
   br label %.lr.ph89.i.i
 
 ._crit_edge90.i.i:                                ; preds = %.lr.ph89.i.i, %164
@@ -2764,9 +2763,9 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i47: ; preds 
   br label %.backedge
 
 173:                                              ; preds = %161
-  %174 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.042.i.i, i64 %.070.i.i
+  %174 = getelementptr inbounds [56 x i8], ptr %.042.i.i, i64 %.070.i.i
   %175 = sub i64 0, %162
-  %176 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %174, i64 %175
+  %176 = getelementptr inbounds [56 x i8], ptr %174, i64 %175
   %177 = icmp sgt i64 %.066.i.i, 0
   br i1 %177, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -3039,7 +3038,7 @@ _ZSt13move_backwardIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit.
   %105 = ptrtoint ptr %5 to i64
   %106 = sub i64 %104, %105
   %.neg.i.i.i.i.i33.i = sdiv exact i64 %106, -56
-  %107 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
+  %107 = getelementptr inbounds [56 x i8], ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %107, ptr align 4 %5, i64 %106, i1 false)
   br label %"_ZSt21__move_merge_adaptiveIPN4llvm8coverage20CounterMappingRegionES3_S3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEEvT_SC_T0_SD_T1_T2_.exit"
 
@@ -3049,7 +3048,7 @@ _ZSt13move_backwardIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit.
 
 _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit: ; preds = %108
   %110 = sdiv i64 %.tr132148, 2
-  %111 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.tr146, i64 %110
+  %111 = getelementptr inbounds [56 x i8], ptr %.tr146, i64 %110
   %112 = sub i64 %8, %109
   %113 = icmp sgt i64 %112, 0
   br i1 %113, label %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i, label %"_ZSt13__lower_boundIPN4llvm8coverage20CounterMappingRegionES2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21CoverageMappingWriter5writeERNS0_11raw_ostreamEE3$_0EEET_SC_SC_RKT0_T1_.exit"
@@ -3073,7 +3072,7 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i: ; preds = 
   %.027.i = phi ptr [ %.tr130147, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i ], [ %154, %152 ]
   %.01126.i = phi i64 [ %114, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i ], [ %153, %152 ]
   %124 = lshr i64 %.01126.i, 1
-  %125 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %.027.i, i64 %124
+  %125 = getelementptr inbounds nuw [56 x i8], ptr %.027.i, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 28
   %127 = load i32, ptr %126, align 4, !tbaa !65
   %.not.i.i.i88 = icmp eq i32 %127, %116
@@ -3146,7 +3145,7 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i: ; preds = 
 
 _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit96: ; preds = %108
   %158 = sdiv i64 %.tr133149, 2
-  %159 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.tr130147, i64 %158
+  %159 = getelementptr inbounds [56 x i8], ptr %.tr130147, i64 %158
   %160 = ptrtoint ptr %.tr146 to i64
   %161 = sub i64 %109, %160
   %162 = icmp sgt i64 %161, 0
@@ -3171,7 +3170,7 @@ _ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.i102: ; preds
   %.027.i103 = phi ptr [ %.tr146, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i99 ], [ %199, %.thread.i110 ]
   %.01126.i104 = phi i64 [ %163, %_ZSt7advanceIPN4llvm8coverage20CounterMappingRegionElEvRT_T0_.exit.lr.ph.i99 ], [ %198, %.thread.i110 ]
   %173 = lshr i64 %.01126.i104, 1
-  %174 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %.027.i103, i64 %173
+  %174 = getelementptr inbounds nuw [56 x i8], ptr %.027.i103, i64 %173
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 28
   %176 = load i32, ptr %175, align 4, !tbaa !65
   %.not.i.i.i107 = icmp eq i32 %165, %176
@@ -3536,7 +3535,7 @@ _ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit: ; preds =
   %19 = ptrtoint ptr %0 to i64
   %20 = sub i64 %15, %19
   %.neg.i.i.i.i.i = sdiv exact i64 %20, -56
-  %21 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %2, i64 %.neg.i.i.i.i.i
+  %21 = getelementptr inbounds [56 x i8], ptr %2, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %21, ptr align 4 %0, i64 %20, i1 false)
   br label %_ZSt13move_backwardIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit
 
@@ -3585,13 +3584,13 @@ _ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit42: ; preds
 
 34:                                               ; preds = %_ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit42
   %.neg.i.i.i.i.i44 = sdiv exact i64 %29, -56
-  %35 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %2, i64 %.neg.i.i.i.i.i44
+  %35 = getelementptr inbounds [56 x i8], ptr %2, i64 %.neg.i.i.i.i.i44
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %35, ptr align 4 %5, i64 %29, i1 false)
   br label %_ZSt13move_backwardIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit46
 
 _ZSt13move_backwardIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit46: ; preds = %_ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit42, %34
   %.pre-phi.i.i.i.i.i45 = phi i64 [ %.neg.i.i.i.i.i44, %34 ], [ 0, %_ZSt4moveIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit42 ]
-  %36 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %2, i64 %.pre-phi.i.i.i.i.i45
+  %36 = getelementptr inbounds [56 x i8], ptr %2, i64 %.pre-phi.i.i.i.i.i45
   br label %_ZNSt3_V26rotateIPN4llvm8coverage20CounterMappingRegionEEET_S5_S5_S5_.exit
 
 37:                                               ; preds = %24
@@ -3645,7 +3644,7 @@ _ZSt13move_backwardIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit4
   br i1 %60, label %.lr.ph89.preheader.i.i, label %._crit_edge90.i.i
 
 .lr.ph89.preheader.i.i:                           ; preds = %59
-  %61 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.042.i.i, i64 %.066.i.i
+  %61 = getelementptr inbounds [56 x i8], ptr %.042.i.i, i64 %.066.i.i
   br label %.lr.ph89.i.i
 
 ._crit_edge90.i.i:                                ; preds = %.lr.ph89.i.i, %59
@@ -3674,9 +3673,9 @@ _ZSt13move_backwardIPN4llvm8coverage20CounterMappingRegionES3_ET0_T_S5_S4_.exit4
   br label %.backedge
 
 68:                                               ; preds = %56
-  %69 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %.042.i.i, i64 %.070.i.i
+  %69 = getelementptr inbounds [56 x i8], ptr %.042.i.i, i64 %.070.i.i
   %70 = sub i64 0, %57
-  %71 = getelementptr inbounds %"struct.llvm::coverage::CounterMappingRegion", ptr %69, i64 %70
+  %71 = getelementptr inbounds [56 x i8], ptr %69, i64 %70
   %72 = icmp sgt i64 %.066.i.i, 0
   br i1 %72, label %.lr.ph.i.i, label %._crit_edge.i.i
 

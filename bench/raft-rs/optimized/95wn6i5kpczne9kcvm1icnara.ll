@@ -802,7 +802,7 @@ _ZN4raft7storage14MemStorageCore11first_index17ha0030fc02f55297dE.exit: ; preds 
   br i1 %.not, label %17, label %_ZN4raft7storage14MemStorageCore10last_index17h22e6aa2a83fe1871E.exit, !prof !20
 
 _ZN4raft7storage14MemStorageCore10last_index17h22e6aa2a83fe1871E.exit: ; preds = %_ZN4raft7storage14MemStorageCore11first_index17ha0030fc02f55297dE.exit
-  %15 = getelementptr { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %12, i64 %8
+  %15 = getelementptr [104 x i8], ptr %12, i64 %8
   %16 = getelementptr i8, ptr %15, i64 -32
   %.sroa.0.0.i9 = load i64, ptr %16, align 8, !noundef !3
   %.not6 = icmp ugt i64 %2, %.sroa.0.0.i9
@@ -835,7 +835,7 @@ _ZN4raft7storage14MemStorageCore10last_index17h22e6aa2a83fe1871E.exit: ; preds =
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %28 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %12, i64 %23
+  %28 = getelementptr inbounds nuw [104 x i8], ptr %12, i64 %23
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load i64, ptr %29, align 8, !noundef !3
   store i64 %30, ptr %27, align 8
@@ -902,7 +902,7 @@ define noundef i64 @_ZN4raft7storage14MemStorageCore10last_index17h22e6aa2a83fe1
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
-  %9 = getelementptr { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %8, i64 %3
+  %9 = getelementptr [104 x i8], ptr %8, i64 %3
   %10 = getelementptr i8, ptr %9, i64 -32
   br label %11
 
@@ -1148,7 +1148,7 @@ _ZN4raft7storage14MemStorageCore11first_index17ha0030fc02f55297dE.exit: ; preds 
   br i1 %79, label %"_ZN4core3ptr65drop_in_place$LT$$u5b$raft_proto..protos..eraftpb..Entry$u5d$$GT$17heec60092ff53537aE.exit", label %80
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %76, i64 %.sroa.0.0.i9
+  %81 = getelementptr inbounds nuw [104 x i8], ptr %76, i64 %.sroa.0.0.i9
   %82 = add i64 %.sroa.0.0.i9, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$raft_proto..protos..eraftpb..Entry$GT$17hb71c29d40ce85645E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %81)
           to label %78 unwind label %85
@@ -1164,7 +1164,7 @@ _ZN4raft7storage14MemStorageCore11first_index17ha0030fc02f55297dE.exit: ; preds 
   br label %83
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %76, i64 %.sroa.0.1.i
+  %88 = getelementptr inbounds nuw [104 x i8], ptr %76, i64 %.sroa.0.1.i
   %89 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr55drop_in_place$LT$raft_proto..protos..eraftpb..Entry$GT$17hb71c29d40ce85645E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %88) #21
           to label %83 unwind label %90
@@ -1244,7 +1244,7 @@ _ZN4raft7storage14MemStorageCore11first_index17ha0030fc02f55297dE.exit.thread: ;
   br i1 %.not16, label %_ZN4raft7storage14MemStorageCore10last_index17h22e6aa2a83fe1871E.exit.thread, label %29
 
 _ZN4raft7storage14MemStorageCore10last_index17h22e6aa2a83fe1871E.exit.thread: ; preds = %_ZN4raft7storage14MemStorageCore11first_index17ha0030fc02f55297dE.exit.thread
-  %18 = getelementptr { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %15, i64 %10
+  %18 = getelementptr [104 x i8], ptr %15, i64 %10
   %19 = getelementptr i8, ptr %18, i64 -32
   %.sroa.0.0.i1018 = load i64, ptr %19, align 8, !noundef !3
   %20 = add i64 %.sroa.0.0.i1018, 1
@@ -1336,7 +1336,7 @@ _ZN4raft7storage14MemStorageCore10last_index17h22e6aa2a83fe1871E.exit: ; preds =
   br i1 %30, label %_ZN4raft7storage14MemStorageCore10last_index17h22e6aa2a83fe1871E.exit21, label %_ZN4raft7storage14MemStorageCore11first_index17ha0030fc02f55297dE.exit24, !prof !20
 
 _ZN4raft7storage14MemStorageCore10last_index17h22e6aa2a83fe1871E.exit.thread: ; preds = %_ZN4raft7storage14MemStorageCore11first_index17ha0030fc02f55297dE.exit.thread
-  %31 = getelementptr { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %23, i64 %15
+  %31 = getelementptr [104 x i8], ptr %23, i64 %15
   %32 = getelementptr i8, ptr %31, i64 -32
   %.sroa.0.0.i1727 = load i64, ptr %32, align 8, !noundef !3
   %33 = add i64 %.sroa.0.0.i1727, 1
@@ -1405,7 +1405,7 @@ _ZN4raft7storage14MemStorageCore11first_index17ha0030fc02f55297dE.exit24: ; pred
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h7251beee1ec0acffE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %52, i64 noundef %51)
   call void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..drain..Drain$LT$raft_proto..protos..eraftpb..Entry$GT$$GT$17hb0410d9fd73aa34eE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %53 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %2, i64 %3
+  %53 = getelementptr inbounds nuw [104 x i8], ptr %2, i64 %3
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hf48e264dd71889a9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull %2, ptr noundef nonnull %53, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0fb87eb7e71cc7c5fc096d6188975218.57)
   br label %29
 }
@@ -1434,7 +1434,7 @@ _ZN4raft7storage14MemStorageCore11first_index17ha0030fc02f55297dE.exit.i: ; pred
   br i1 %.not.i, label %18, label %_ZN4raft7storage14MemStorageCore10last_index17h22e6aa2a83fe1871E.exit.i, !prof !20
 
 _ZN4raft7storage14MemStorageCore10last_index17h22e6aa2a83fe1871E.exit.i: ; preds = %_ZN4raft7storage14MemStorageCore11first_index17ha0030fc02f55297dE.exit.i
-  %16 = getelementptr { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %13, i64 %9
+  %16 = getelementptr [104 x i8], ptr %13, i64 %9
   %17 = getelementptr i8, ptr %16, i64 -32
   %.sroa.0.0.i9.i = load i64, ptr %17, align 8, !noalias !42, !noundef !3
   %.not6.i = icmp ugt i64 %2, %.sroa.0.0.i9.i
@@ -1484,7 +1484,7 @@ _ZN4raft7storage14MemStorageCore10last_index17h22e6aa2a83fe1871E.exit.i: ; preds
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %33 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %13, i64 %24
+  %33 = getelementptr inbounds nuw [104 x i8], ptr %13, i64 %24
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %35 = load i64, ptr %34, align 8, !noalias !42, !noundef !3
   store i64 %35, ptr %32, align 8, !alias.scope !39, !noalias !44
@@ -1884,7 +1884,7 @@ _ZN4raft7storage14MemStorageCore11first_index17ha0030fc02f55297dE.exit.thread: ;
   br i1 %27, label %30, label %.thread
 
 .thread:                                          ; preds = %_ZN4raft7storage14MemStorageCore11first_index17ha0030fc02f55297dE.exit.thread
-  %28 = getelementptr { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %24, i64 %14
+  %28 = getelementptr [104 x i8], ptr %24, i64 %14
   %29 = getelementptr i8, ptr %28, i64 -32
   %.sroa.0.0.i14.pre = load i64, ptr %29, align 8
   br label %31
@@ -1915,7 +1915,7 @@ _ZN4raft7storage14MemStorageCore11first_index17ha0030fc02f55297dE.exit.thread: ;
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %39 = load ptr, ptr %38, align 8, !nonnull !3, !noundef !3
-  %40 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %39, i64 %34
+  %40 = getelementptr inbounds nuw [104 x i8], ptr %39, i64 %34
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %42 = load i64, ptr %41, align 8, !noundef !3
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2005,7 +2005,7 @@ define void @"_ZN68_$LT$raft..storage..MemStorage$u20$as$u20$raft..storage..Stor
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
-  %15 = getelementptr { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %14, i64 %9
+  %15 = getelementptr [104 x i8], ptr %14, i64 %9
   %16 = getelementptr i8, ptr %15, i64 -32
   br label %17
 
@@ -2129,7 +2129,7 @@ define void @"_ZN68_$LT$raft..storage..MemStorage$u20$as$u20$raft..storage..Stor
   br i1 %51, label %52, label %.invoke.i
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, { ptr, ptr, i64, { ptr } }, i64, i64, ptr, { { i64 } }, i8, i8, [6 x i8] }, ptr %41, i64 %50
+  %53 = getelementptr inbounds nuw [104 x i8], ptr %41, i64 %50
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
   br label %45
 
@@ -2592,10 +2592,10 @@ define internal noundef zeroext i1 @"_ZN72_$LT$raft..tracker..state..ProgressSta
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !80, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN72_$LT$raft..tracker..state..ProgressState$u20$as$u20$core..fmt..Debug$GT$3fmt17h22177b03fd4e2e78E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN72_$LT$raft..tracker..state..ProgressState$u20$as$u20$core..fmt..Debug$GT$3fmt17h22177b03fd4e2e78E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN72_$LT$raft..tracker..state..ProgressState$u20$as$u20$core..fmt..Debug$GT$3fmt17h22177b03fd4e2e78E.13", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN72_$LT$raft..tracker..state..ProgressState$u20$as$u20$core..fmt..Debug$GT$3fmt17h22177b03fd4e2e78E.13", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

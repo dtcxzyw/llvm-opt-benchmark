@@ -13,10 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.1 = type { i64 }
 %struct.MPEG4AudioConfig = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.AVRational = type { i32, i32 }
-%struct.mkv_track = type { i32, i32, i64, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i32, i32, i64, i64, i64, ptr }
 %struct.AVLFG = type { [64 x i32], i32 }
-%struct.mkv_seekhead_entry = type { i32, i64 }
-%struct.mkv_cuepoint = type { i64, i32, i64, i64, i64 }
 %struct.WvHeader = type { i32, i16, i32, i32, i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"matroska\00", align 1
@@ -680,7 +677,7 @@ put_ebml_string.exit74.i:                         ; preds = %.lr.ph.i.i.i70.i
   %.01723.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %260 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %246 = load ptr, ptr %244, align 8, !tbaa !68
-  %247 = getelementptr inbounds nuw ptr, ptr %246, i64 %indvars.iv.i105.i
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %indvars.iv.i105.i
   %248 = load ptr, ptr %247, align 8, !tbaa !69
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 80
   %250 = load ptr, ptr %249, align 8, !tbaa !71
@@ -796,7 +793,7 @@ mkv_write_info.exit:                              ; preds = %224, %put_ebml_floa
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %323 ]
   %.1249 = phi i32 [ %.077, %.lr.ph ], [ %.2, %323 ]
   %303 = load ptr, ptr %42, align 8, !tbaa !68
-  %304 = getelementptr inbounds nuw ptr, ptr %303, i64 %indvars.iv
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %303, i64 %indvars.iv
   %305 = load ptr, ptr %304, align 8, !tbaa !69
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 16
   %307 = load ptr, ptr %306, align 8, !tbaa !82
@@ -814,7 +811,7 @@ mkv_write_info.exit:                              ; preds = %224, %put_ebml_floa
 
 315:                                              ; preds = %311
   %316 = load ptr, ptr %42, align 8, !tbaa !68
-  %317 = getelementptr inbounds nuw ptr, ptr %316, i64 %indvars.iv
+  %317 = getelementptr inbounds nuw [8 x i8], ptr %316, i64 %indvars.iv
   %318 = load ptr, ptr %317, align 8, !tbaa !69
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 80
   %320 = load ptr, ptr %319, align 8, !tbaa !71
@@ -903,7 +900,7 @@ put_ebml_void.exit.i.i109:                        ; preds = %.lr.ph.i.i.i.i106, 
   %.070256.i = phi i32 [ -1, %.lr.ph.i122 ], [ %.171.i, %377 ]
   %.072255.i = phi i32 [ -1, %.lr.ph.i122 ], [ %.173.i, %377 ]
   %.178254.i = phi i32 [ -1, %.lr.ph.i122 ], [ %.279.i, %377 ]
-  %357 = getelementptr inbounds nuw ptr, ptr %354, i64 %indvars.iv.i
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %354, i64 %indvars.iv.i
   %358 = load ptr, ptr %357, align 8, !tbaa !69
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 16
   %360 = load ptr, ptr %359, align 8, !tbaa !82
@@ -1094,7 +1091,7 @@ put_ebml_void.exit.i.i109:                        ; preds = %.lr.ph.i.i.i.i106, 
 486:                                              ; preds = %mkv_write_track.exit.thread231.i, %.lr.ph268.i
   %indvars.iv291.i = phi i64 [ 0, %.lr.ph268.i ], [ %indvars.iv.next292.i, %mkv_write_track.exit.thread231.i ]
   %487 = load ptr, ptr %386, align 8, !tbaa !68
-  %488 = getelementptr inbounds nuw ptr, ptr %487, i64 %indvars.iv291.i
+  %488 = getelementptr inbounds nuw [8 x i8], ptr %487, i64 %indvars.iv291.i
   %489 = load ptr, ptr %488, align 8, !tbaa !69
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 64
   %491 = load i32, ptr %490, align 8, !tbaa !90
@@ -1107,7 +1104,7 @@ put_ebml_void.exit.i.i109:                        ; preds = %.lr.ph.i.i.i.i106, 
   %494 = icmp ne i64 %indvars.iv291.i, %.077.i
   %narrow.i = select i1 %or.cond89.i, i1 %494, i1 false
   %495 = load ptr, ptr %387, align 8, !tbaa !92
-  %496 = getelementptr inbounds nuw %struct.mkv_track, ptr %495, i64 %indvars.iv291.i
+  %496 = getelementptr inbounds nuw [120 x i8], ptr %495, i64 %indvars.iv291.i
   %497 = load ptr, ptr %335, align 8, !tbaa !93
   %498 = getelementptr inbounds nuw i8, ptr %489, i64 16
   %499 = load ptr, ptr %498, align 8, !tbaa !82
@@ -1329,7 +1326,7 @@ put_ebml_uint.exit329.i.i:                        ; preds = %.lr.ph.i.i206.prehe
 
 579:                                              ; preds = %.lr.ph616.i.i
   %indvars.iv.next624.i.i = add nuw nsw i64 %indvars.iv623.i.i, 1
-  %580 = getelementptr inbounds nuw %struct.CodecTags, ptr @ff_webm_codec_tags, i64 %indvars.iv.next624.i.i
+  %580 = getelementptr inbounds nuw [28 x i8], ptr @ff_webm_codec_tags, i64 %indvars.iv.next624.i.i
   %581 = getelementptr inbounds nuw i8, ptr %580, i64 24
   %582 = load i32, ptr %581, align 4, !tbaa !99
   %.not253.i.i = icmp eq i32 %582, 0
@@ -1364,7 +1361,7 @@ put_ebml_uint.exit329.i.i:                        ; preds = %.lr.ph.i.i206.prehe
   br label %mkv_write_tracks.exit.thread
 
 .loopexit607.loopexit.i.i:                        ; preds = %.lr.ph616.i.i
-  %592 = getelementptr inbounds nuw %struct.CodecTags, ptr @ff_webm_codec_tags, i64 %indvars.iv623.i.i
+  %592 = getelementptr inbounds nuw [28 x i8], ptr @ff_webm_codec_tags, i64 %indvars.iv623.i.i
   br label %.loopexit607.i.i
 
 .loopexit607.i.i:                                 ; preds = %.loopexit607.loopexit.i.i, %590, %588, %585
@@ -1493,7 +1490,7 @@ put_ebml_uint.exit387.i.i:                        ; preds = %put_ebml_id.exit.i3
 
 630:                                              ; preds = %.lr.ph.i.i116
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %631 = getelementptr inbounds nuw %struct.CodecTags, ptr @ff_mkv_codec_tags, i64 %indvars.iv.next.i.i
+  %631 = getelementptr inbounds nuw [28 x i8], ptr @ff_mkv_codec_tags, i64 %indvars.iv.next.i.i
   %632 = getelementptr inbounds nuw i8, ptr %631, i64 24
   %633 = load i32, ptr %632, align 4, !tbaa !99
   %.not248.i.i = icmp eq i32 %633, 0
@@ -1506,7 +1503,7 @@ put_ebml_uint.exit387.i.i:                        ; preds = %put_ebml_id.exit.i3
   br i1 %635, label %636, label %630
 
 636:                                              ; preds = %.lr.ph.i.i116
-  %637 = getelementptr inbounds nuw %struct.CodecTags, ptr @ff_mkv_codec_tags, i64 %indvars.iv.i.i
+  %637 = getelementptr inbounds nuw [28 x i8], ptr @ff_mkv_codec_tags, i64 %indvars.iv.i.i
   %638 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %637) #15
   br i1 %.not4.i.i.i388.i.i, label %.loopexit608.sink.split.i.i, label %.lr.ph.i.i.i389.i.i
 
@@ -1808,7 +1805,7 @@ mkv_write_field_order.exit.i.i.i:                 ; preds = %726, %725, %724, %7
 
 734:                                              ; preds = %738, %731
   %indvars.iv.i.i418.i.i = phi i64 [ 0, %731 ], [ %indvars.iv.next.i.i419.i.i, %738 ]
-  %735 = getelementptr inbounds nuw ptr, ptr @ff_matroska_video_stereo_mode, i64 %indvars.iv.i.i418.i.i
+  %735 = getelementptr inbounds nuw [8 x i8], ptr @ff_matroska_video_stereo_mode, i64 %indvars.iv.i.i418.i.i
   %736 = load ptr, ptr %735, align 8, !tbaa !120
   %737 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %733, ptr noundef nonnull dereferenceable(1) %736) #15
   %.not50.i.i.i.i = icmp eq i32 %737, 0
@@ -1876,7 +1873,7 @@ mkv_write_field_order.exit.i.i.i:                 ; preds = %726, %725, %724, %7
   %772 = shl nuw nsw i32 1, %771
   %773 = zext nneg i32 %.2.i.i.i.i to i64
   %774 = zext nneg i32 %.sroa.0.9.i.i.i to i64
-  %775 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %774
+  %775 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %774
   store i32 21432, ptr %775, align 16, !tbaa !44
   %776 = getelementptr inbounds nuw i8, ptr %775, i64 4
   store i32 0, ptr %776, align 4, !tbaa !46
@@ -1921,7 +1918,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
 
 793:                                              ; preds = %789, %779
   %794 = zext nneg i32 %.sroa.0.10.ph.i.i.i to i64
-  %795 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %794
+  %795 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %794
   store i32 21440, ptr %795, align 16, !tbaa !44
   %796 = getelementptr inbounds nuw i8, ptr %795, i64 4
   store i32 0, ptr %796, align 4, !tbaa !46
@@ -1982,7 +1979,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
 
 830:                                              ; preds = %829
   %831 = zext nneg i32 %.sroa.0.0.i.i.i to i64
-  %832 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %831
+  %832 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %831
   store i32 21674, ptr %832, align 16, !tbaa !44
   %833 = getelementptr inbounds nuw i8, ptr %832, i64 4
   store i32 0, ptr %833, align 4, !tbaa !46
@@ -1998,7 +1995,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
 
 837:                                              ; preds = %836
   %838 = zext nneg i32 %.sroa.0.2.i.i.i to i64
-  %839 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %838
+  %839 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %838
   store i32 21691, ptr %839, align 16, !tbaa !44
   %840 = getelementptr inbounds nuw i8, ptr %839, i64 4
   store i32 0, ptr %840, align 4, !tbaa !46
@@ -2014,7 +2011,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
 
 844:                                              ; preds = %843
   %845 = zext nneg i32 %.sroa.0.3.i.i.i to i64
-  %846 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %845
+  %846 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %845
   store i32 21708, ptr %846, align 16, !tbaa !44
   %847 = getelementptr inbounds nuw i8, ptr %846, i64 4
   store i32 0, ptr %847, align 4, !tbaa !46
@@ -2030,7 +2027,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
 
 851:                                              ; preds = %850
   %852 = zext nneg i32 %.sroa.0.4.i.i.i to i64
-  %853 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %852
+  %853 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %852
   store i32 21725, ptr %853, align 16, !tbaa !44
   %854 = getelementptr inbounds nuw i8, ptr %853, i64 4
   store i32 0, ptr %854, align 4, !tbaa !46
@@ -2085,7 +2082,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %881 = zext nneg i32 %.0223.ph.i.i.i to i64
   %882 = sdiv i64 %871, %881
   %883 = zext nneg i32 %.sroa.0.1.i.i.i to i64
-  %884 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %883
+  %884 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %883
   store i32 21680, ptr %884, align 16, !tbaa !44
   %885 = getelementptr inbounds nuw i8, ptr %884, i64 4
   store i32 0, ptr %885, align 4, !tbaa !46
@@ -2111,7 +2108,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %898 = load i32, ptr %11, align 4, !tbaa !133
   %899 = sext i32 %898 to i64
   %900 = zext nneg i32 %.sroa.0.1.i.i.i to i64
-  %901 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %900
+  %901 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %900
   store i32 21680, ptr %901, align 16, !tbaa !44
   %902 = getelementptr inbounds nuw i8, ptr %901, i64 4
   store i32 0, ptr %902, align 4, !tbaa !46
@@ -2149,7 +2146,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %918 = sdiv i32 %.083.i.i.i, %.0223.ph.i.i.i
   %919 = sext i32 %918 to i64
   %920 = zext nneg i32 %.sroa.0.1.i.i.i to i64
-  %921 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %920
+  %921 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %920
   store i32 21680, ptr %921, align 16, !tbaa !44
   %922 = getelementptr inbounds nuw i8, ptr %921, i64 4
   store i32 0, ptr %922, align 4, !tbaa !46
@@ -2173,7 +2170,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
 
 933:                                              ; preds = %930
   %934 = zext nneg i32 %.sroa.0.1.i.i.i to i64
-  %935 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %934
+  %935 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %934
   store i32 21682, ptr %935, align 16, !tbaa !44
   %936 = getelementptr inbounds nuw i8, ptr %935, i64 4
   store i32 0, ptr %936, align 4, !tbaa !46
@@ -2194,7 +2191,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %944 = load i32, ptr %943, align 8, !tbaa !102
   store i32 %944, ptr %8, align 4, !tbaa !50
   %945 = zext nneg i32 %.sroa.0.7.i.i.i to i64
-  %946 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %945
+  %946 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %945
   store i32 3061028, ptr %946, align 16, !tbaa !44
   %947 = getelementptr inbounds nuw i8, ptr %946, i64 4
   store i32 5, ptr %947, align 4, !tbaa !46
@@ -2208,7 +2205,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
 951:                                              ; preds = %942, %.thread.i.i.i
   %.sroa.0.8.i.i.i = phi i32 [ %948, %942 ], [ %.sroa.0.7.i.i.i, %.thread.i.i.i ]
   %952 = zext i32 %.sroa.0.8.i.i.i to i64
-  %953 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %952
+  %953 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %952
   store i32 21936, ptr %953, align 16, !tbaa !44
   %954 = getelementptr inbounds nuw i8, ptr %953, i64 4
   store i32 7, ptr %954, align 4, !tbaa !46
@@ -2227,7 +2224,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
 961:                                              ; preds = %951
   %962 = zext nneg i32 %959 to i64
   %963 = zext i32 %955 to i64
-  %964 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %963
+  %964 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %963
   store i32 21946, ptr %964, align 16, !tbaa !44
   %965 = getelementptr inbounds nuw i8, ptr %964, i64 4
   store i32 0, ptr %965, align 4, !tbaa !46
@@ -2248,7 +2245,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
 972:                                              ; preds = %968
   %973 = zext nneg i32 %970 to i64
   %974 = zext i32 %.sroa.0.11.i.i.i to i64
-  %975 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %974
+  %975 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %974
   store i32 21937, ptr %975, align 16, !tbaa !44
   %976 = getelementptr inbounds nuw i8, ptr %975, i64 4
   store i32 0, ptr %976, align 4, !tbaa !46
@@ -2269,7 +2266,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
 983:                                              ; preds = %979
   %984 = zext nneg i32 %981 to i64
   %985 = zext i32 %.sroa.0.12.i.i.i to i64
-  %986 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %985
+  %986 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %985
   store i32 21947, ptr %986, align 16, !tbaa !44
   %987 = getelementptr inbounds nuw i8, ptr %986, i64 4
   store i32 0, ptr %987, align 4, !tbaa !46
@@ -2289,7 +2286,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
 994:                                              ; preds = %990
   %995 = zext nneg i32 %992 to i64
   %996 = zext i32 %.sroa.0.13.i.i.i to i64
-  %997 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %996
+  %997 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %996
   store i32 21945, ptr %997, align 16, !tbaa !44
   %998 = getelementptr inbounds nuw i8, ptr %997, i64 4
   store i32 0, ptr %998, align 4, !tbaa !46
@@ -2315,7 +2312,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %1009 = add nsw i32 %1008, 1
   %1010 = sext i32 %1009 to i64
   %1011 = zext i32 %.sroa.0.14.i.i.i to i64
-  %1012 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1011
+  %1012 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1011
   store i32 21943, ptr %1012, align 16, !tbaa !44
   %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 4
   store i32 0, ptr %1013, align 4, !tbaa !46
@@ -2327,7 +2324,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %1018 = add nsw i32 %1017, 1
   %1019 = sext i32 %1018 to i64
   %1020 = zext i32 %1014 to i64
-  %1021 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1020
+  %1021 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1020
   store i32 21944, ptr %1021, align 16, !tbaa !44
   %1022 = getelementptr inbounds nuw i8, ptr %1021, i64 4
   store i32 0, ptr %1022, align 4, !tbaa !46
@@ -2351,7 +2348,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %1031 = load i32, ptr %1030, align 4, !tbaa !142
   %1032 = zext i32 %1031 to i64
   %1033 = zext i32 %.sroa.0.15.i.i.i to i64
-  %1034 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1033
+  %1034 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1033
   store i32 21948, ptr %1034, align 16, !tbaa !44
   %1035 = getelementptr inbounds nuw i8, ptr %1034, i64 4
   store i32 0, ptr %1035, align 4, !tbaa !46
@@ -2362,7 +2359,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %1039 = load i32, ptr %1038, align 4, !tbaa !144
   %1040 = zext i32 %1039 to i64
   %1041 = zext i32 %1036 to i64
-  %1042 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1041
+  %1042 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1041
   store i32 21949, ptr %1042, align 16, !tbaa !44
   %1043 = getelementptr inbounds nuw i8, ptr %1042, i64 4
   store i32 0, ptr %1043, align 4, !tbaa !46
@@ -2382,7 +2379,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
 1050:                                             ; preds = %1046
   %1051 = load ptr, ptr %1049, align 8, !tbaa !124
   %1052 = zext i32 %.sroa.0.16.i.i.i to i64
-  %1053 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1052
+  %1053 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1052
   store i32 21968, ptr %1053, align 16, !tbaa !44
   %1054 = getelementptr inbounds nuw i8, ptr %1053, i64 4
   store i32 7, ptr %1054, align 4, !tbaa !46
@@ -2405,7 +2402,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %1063 = sitofp i32 %.sroa.2.0.extract.trunc.i.i.i.i.i to double
   %1064 = fdiv nsz double %1062, %1063
   %1065 = zext i32 %1055 to i64
-  %1066 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1065
+  %1066 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1065
   store i32 21969, ptr %1066, align 16, !tbaa !44
   %1067 = getelementptr inbounds nuw i8, ptr %1066, i64 4
   store i32 2, ptr %1067, align 4, !tbaa !46
@@ -2421,7 +2418,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %1073 = sitofp i32 %.sroa.2.0.extract.trunc.i79.i.i.i.i to double
   %1074 = fdiv nsz double %1072, %1073
   %1075 = zext i32 %1068 to i64
-  %1076 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1075
+  %1076 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1075
   store i32 21970, ptr %1076, align 16, !tbaa !44
   %1077 = getelementptr inbounds nuw i8, ptr %1076, i64 4
   store i32 2, ptr %1077, align 4, !tbaa !46
@@ -2437,7 +2434,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %1083 = sitofp i32 %.sroa.2.0.extract.trunc.i82.i.i.i.i to double
   %1084 = fdiv nsz double %1082, %1083
   %1085 = zext i32 %1078 to i64
-  %1086 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1085
+  %1086 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1085
   store i32 21971, ptr %1086, align 16, !tbaa !44
   %1087 = getelementptr inbounds nuw i8, ptr %1086, i64 4
   store i32 2, ptr %1087, align 4, !tbaa !46
@@ -2453,7 +2450,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %1093 = sitofp i32 %.sroa.2.0.extract.trunc.i85.i.i.i.i to double
   %1094 = fdiv nsz double %1092, %1093
   %1095 = zext i32 %1088 to i64
-  %1096 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1095
+  %1096 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1095
   store i32 21972, ptr %1096, align 16, !tbaa !44
   %1097 = getelementptr inbounds nuw i8, ptr %1096, i64 4
   store i32 2, ptr %1097, align 4, !tbaa !46
@@ -2469,7 +2466,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %1103 = sitofp i32 %.sroa.2.0.extract.trunc.i88.i.i.i.i to double
   %1104 = fdiv nsz double %1102, %1103
   %1105 = zext i32 %1098 to i64
-  %1106 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1105
+  %1106 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1105
   store i32 21973, ptr %1106, align 16, !tbaa !44
   %1107 = getelementptr inbounds nuw i8, ptr %1106, i64 4
   store i32 2, ptr %1107, align 4, !tbaa !46
@@ -2485,7 +2482,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %1113 = sitofp i32 %.sroa.2.0.extract.trunc.i91.i.i.i.i to double
   %1114 = fdiv nsz double %1112, %1113
   %1115 = zext i32 %1108 to i64
-  %1116 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1115
+  %1116 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1115
   store i32 21974, ptr %1116, align 16, !tbaa !44
   %1117 = getelementptr inbounds nuw i8, ptr %1116, i64 4
   store i32 2, ptr %1117, align 4, !tbaa !46
@@ -2501,7 +2498,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %1123 = sitofp i32 %.sroa.2.0.extract.trunc.i94.i.i.i.i to double
   %1124 = fdiv nsz double %1122, %1123
   %1125 = zext i32 %1118 to i64
-  %1126 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1125
+  %1126 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1125
   store i32 21975, ptr %1126, align 16, !tbaa !44
   %1127 = getelementptr inbounds nuw i8, ptr %1126, i64 4
   store i32 2, ptr %1127, align 4, !tbaa !46
@@ -2517,7 +2514,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %1133 = sitofp i32 %.sroa.2.0.extract.trunc.i97.i.i.i.i to double
   %1134 = fdiv nsz double %1132, %1133
   %1135 = zext i32 %1128 to i64
-  %1136 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1135
+  %1136 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1135
   store i32 21976, ptr %1136, align 16, !tbaa !44
   %1137 = getelementptr inbounds nuw i8, ptr %1136, i64 4
   store i32 2, ptr %1137, align 4, !tbaa !46
@@ -2543,7 +2540,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %1147 = sitofp i32 %.sroa.2.0.extract.trunc.i100.i.i.i.i to double
   %1148 = fdiv nsz double %1146, %1147
   %1149 = zext i32 %.sroa.0.17.i.i.i to i64
-  %1150 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1149
+  %1150 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1149
   store i32 21977, ptr %1150, align 16, !tbaa !44
   %1151 = getelementptr inbounds nuw i8, ptr %1150, i64 4
   store i32 2, ptr %1151, align 4, !tbaa !46
@@ -2559,7 +2556,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
   %1157 = sitofp i32 %.sroa.2.0.extract.trunc.i103.i.i.i.i to double
   %1158 = fdiv nsz double %1156, %1157
   %1159 = zext i32 %1152 to i64
-  %1160 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1159
+  %1160 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1159
   store i32 21978, ptr %1160, align 16, !tbaa !44
   %1161 = getelementptr inbounds nuw i8, ptr %1160, i64 4
   store i32 2, ptr %1161, align 4, !tbaa !46
@@ -2580,7 +2577,7 @@ mkv_write_stereo_mode.exit.i.i.i:                 ; preds = %.loopexit.i.i.i.i, 
 
 1169:                                             ; preds = %1164
   %1170 = sext i32 %.sroa.0.16.i.i.i to i64
-  %1171 = getelementptr inbounds %struct.EbmlElement, ptr %10, i64 %1170
+  %1171 = getelementptr inbounds [32 x i8], ptr %10, i64 %1170
   %1172 = xor i32 %.sroa.0.16.i.i.i, -1
   %1173 = add i32 %.sroa.0.18.i.i.i, %1172
   %1174 = getelementptr inbounds nuw i8, ptr %1171, i64 24
@@ -2602,7 +2599,7 @@ ebml_writer_close_or_discard_master.exit.i.i.i.i: ; preds = %1169, %1167, %1046
 
 1182:                                             ; preds = %ebml_writer_close_or_discard_master.exit.i.i.i.i
   %1183 = sext i32 %1177 to i64
-  %1184 = getelementptr inbounds %struct.EbmlElement, ptr %10, i64 %1183
+  %1184 = getelementptr inbounds [32 x i8], ptr %10, i64 %1183
   %1185 = xor i32 %1177, -1
   %1186 = add i32 %.sroa.0.20.i.i.i, %1185
   %1187 = getelementptr inbounds nuw i8, ptr %1184, i64 24
@@ -2614,10 +2611,10 @@ mkv_write_video_color.exit.i.i.i:                 ; preds = %1182, %1180
   %.pre-phi.i.i.i = phi i64 [ %1181, %1180 ], [ %.pre.i.i.i, %1182 ]
   %.sroa.0.21.i.i.i = phi i32 [ %1177, %1180 ], [ %.sroa.0.20.i.i.i, %1182 ]
   %1188 = phi i64 [ %1181, %1180 ], [ %1183, %1182 ]
-  %1189 = getelementptr inbounds %struct.EbmlElement, ptr %10, i64 %1188
+  %1189 = getelementptr inbounds [32 x i8], ptr %10, i64 %1188
   %.sink.i104.i.in.i.i.i = getelementptr inbounds nuw i8, ptr %1189, i64 28
   %.sink.i104.i.i.i.i = load i32, ptr %.sink.i104.i.in.i.i.i, align 4, !tbaa !50
-  %1190 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %.pre-phi.i.i.i
+  %1190 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %.pre-phi.i.i.i
   store i32 30320, ptr %1190, align 16, !tbaa !44
   %1191 = getelementptr inbounds nuw i8, ptr %1190, i64 4
   store i32 7, ptr %1191, align 4, !tbaa !46
@@ -2645,7 +2642,7 @@ mkv_write_video_color.exit.i.i.i:                 ; preds = %1182, %1180
 1200:                                             ; preds = %1196
   %1201 = icmp eq i32 %1198, 1
   %1202 = zext i32 %1192 to i64
-  %1203 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1202
+  %1203 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1202
   store i32 30321, ptr %1203, align 16, !tbaa !44
   %1204 = getelementptr inbounds nuw i8, ptr %1203, i64 4
   store i32 0, ptr %1204, align 4, !tbaa !46
@@ -2699,7 +2696,7 @@ mkv_handle_spherical.exit.i.i.i.i:                ; preds = %1224, %1211, %1210
   %.sink5.i.i.i.i.i = phi i64 [ 12, %1224 ], [ 20, %1211 ], [ 20, %1210 ]
   store i32 %.sink16.i.i.i.i.i, ptr %.sink18.i.i.sroa.phi.i.i.i, align 1, !tbaa !50
   %1228 = zext i32 %1205 to i64
-  %1229 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1228
+  %1229 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1228
   store i32 30322, ptr %1229, align 16, !tbaa !44
   %1230 = getelementptr inbounds nuw i8, ptr %1229, i64 4
   store i32 5, ptr %1230, align 4, !tbaa !46
@@ -2808,7 +2805,7 @@ mkv_handle_rotation.exit.i.i.i.i:                 ; preds = %1285, %mkv_handle_s
 
 1292:                                             ; preds = %mkv_handle_rotation.exit.i.i.i.i
   %1293 = zext i32 %.sroa.0.23.i.i.i to i64
-  %1294 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1293
+  %1294 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1293
   store i32 30323, ptr %1294, align 16, !tbaa !44
   %1295 = getelementptr inbounds nuw i8, ptr %1294, i64 4
   store i32 2, ptr %1295, align 4, !tbaa !46
@@ -2824,7 +2821,7 @@ mkv_handle_rotation.exit.i.i.i.i:                 ; preds = %1285, %mkv_handle_s
 
 1300:                                             ; preds = %1298
   %1301 = zext i32 %.sroa.0.24.i.i.i to i64
-  %1302 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1301
+  %1302 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1301
   store i32 30324, ptr %1302, align 16, !tbaa !44
   %1303 = getelementptr inbounds nuw i8, ptr %1302, i64 4
   store i32 2, ptr %1303, align 4, !tbaa !46
@@ -2840,7 +2837,7 @@ mkv_handle_rotation.exit.i.i.i.i:                 ; preds = %1285, %mkv_handle_s
 
 1308:                                             ; preds = %1306
   %1309 = zext i32 %.sroa.0.25.i.i.i to i64
-  %1310 = getelementptr inbounds nuw %struct.EbmlElement, ptr %10, i64 %1309
+  %1310 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %1309
   store i32 30325, ptr %1310, align 16, !tbaa !44
   %1311 = getelementptr inbounds nuw i8, ptr %1310, i64 4
   store i32 2, ptr %1311, align 4, !tbaa !46
@@ -2857,7 +2854,7 @@ mkv_handle_rotation.exit.i.i.i.i:                 ; preds = %1285, %mkv_handle_s
 
 1316:                                             ; preds = %.thread40.i.i.i.i
   %1317 = sext i32 %.sroa.0.21.i.i.i to i64
-  %1318 = getelementptr inbounds %struct.EbmlElement, ptr %10, i64 %1317
+  %1318 = getelementptr inbounds [32 x i8], ptr %10, i64 %1317
   %1319 = xor i32 %.sroa.0.21.i.i.i, -1
   %1320 = add i32 %.sroa.0.22.i.i.i, %1319
   %1321 = getelementptr inbounds nuw i8, ptr %1318, i64 24
@@ -3718,10 +3715,10 @@ start_ebml_master_crc32.exit.i:                   ; preds = %put_ebml_void.exit.
   %1649 = phi i32 [ %1639, %.lr.ph.i130 ], [ %1718, %1717 ]
   %indvars.iv.i131 = phi i64 [ 0, %.lr.ph.i130 ], [ %indvars.iv.next.i132, %1717 ]
   %1650 = load ptr, ptr %1640, align 8, !tbaa !68
-  %1651 = getelementptr inbounds nuw ptr, ptr %1650, i64 %indvars.iv.i131
+  %1651 = getelementptr inbounds nuw [8 x i8], ptr %1650, i64 %indvars.iv.i131
   %1652 = load ptr, ptr %1651, align 8, !tbaa !69
   %1653 = load ptr, ptr %1641, align 8, !tbaa !92
-  %1654 = getelementptr inbounds nuw %struct.mkv_track, ptr %1653, i64 %indvars.iv.i131
+  %1654 = getelementptr inbounds nuw [120 x i8], ptr %1653, i64 %indvars.iv.i131
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1655 = getelementptr inbounds nuw i8, ptr %1652, i64 16
   %1656 = load ptr, ptr %1655, align 8, !tbaa !82
@@ -3764,7 +3761,7 @@ start_ebml_master_crc32.exit.i:                   ; preds = %put_ebml_void.exit.
   %1671 = getelementptr inbounds nuw i8, ptr %1667, i64 8
   %1672 = load ptr, ptr %1671, align 8, !tbaa !61
   %1673 = zext nneg i32 %.sroa.0.0.i to i64
-  %1674 = getelementptr inbounds nuw %struct.EbmlElement, ptr %3, i64 %1673
+  %1674 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %1673
   store i32 18030, ptr %1674, align 16, !tbaa !44
   %1675 = getelementptr inbounds nuw i8, ptr %1674, i64 4
   store i32 4, ptr %1675, align 4, !tbaa !46
@@ -3932,7 +3929,7 @@ mkv_write_attachments.exit._crit_edge:            ; preds = %mkv_write_attachmen
   %1742 = phi i32 [ %1759, %.thread.us.i ], [ %1738, %.lr.ph.i137 ]
   %indvars.iv.i138 = phi i64 [ %indvars.iv.next.i141, %.thread.us.i ], [ 0, %.lr.ph.i137 ]
   %1743 = load ptr, ptr %1739, align 8, !tbaa !68
-  %1744 = getelementptr inbounds nuw ptr, ptr %1743, i64 %indvars.iv.i138
+  %1744 = getelementptr inbounds nuw [8 x i8], ptr %1743, i64 %indvars.iv.i138
   %1745 = load ptr, ptr %1744, align 8, !tbaa !69
   %1746 = getelementptr inbounds nuw i8, ptr %1745, i64 16
   %1747 = load ptr, ptr %1746, align 8, !tbaa !82
@@ -3942,7 +3939,7 @@ mkv_write_attachments.exit._crit_edge:            ; preds = %mkv_write_attachmen
 
 1750:                                             ; preds = %.lr.ph.split.us.i
   %1751 = load ptr, ptr %1740, align 8, !tbaa !92
-  %1752 = getelementptr inbounds nuw %struct.mkv_track, ptr %1751, i64 %indvars.iv.i138
+  %1752 = getelementptr inbounds nuw [120 x i8], ptr %1751, i64 %indvars.iv.i138
   %1753 = getelementptr inbounds nuw i8, ptr %1745, i64 80
   %1754 = load ptr, ptr %1753, align 8, !tbaa !71
   %1755 = getelementptr inbounds nuw i8, ptr %1752, i64 8
@@ -3966,10 +3963,10 @@ mkv_write_attachments.exit._crit_edge:            ; preds = %mkv_write_attachmen
   %1762 = phi i32 [ %1784, %.thread.i145 ], [ %1738, %.lr.ph.i137 ]
   %indvars.iv89.i = phi i64 [ %indvars.iv.next90.i, %.thread.i145 ], [ 0, %.lr.ph.i137 ]
   %1763 = load ptr, ptr %1739, align 8, !tbaa !68
-  %1764 = getelementptr inbounds nuw ptr, ptr %1763, i64 %indvars.iv89.i
+  %1764 = getelementptr inbounds nuw [8 x i8], ptr %1763, i64 %indvars.iv89.i
   %1765 = load ptr, ptr %1764, align 8, !tbaa !69
   %1766 = load ptr, ptr %1740, align 8, !tbaa !92
-  %1767 = getelementptr inbounds nuw %struct.mkv_track, ptr %1766, i64 %indvars.iv89.i
+  %1767 = getelementptr inbounds nuw [120 x i8], ptr %1766, i64 %indvars.iv89.i
   %1768 = getelementptr inbounds nuw i8, ptr %1765, i64 16
   %1769 = load ptr, ptr %1768, align 8, !tbaa !82
   %1770 = load i32, ptr %1769, align 8, !tbaa !89
@@ -4025,7 +4022,7 @@ mkv_write_attachments.exit._crit_edge:            ; preds = %mkv_write_attachmen
   %1797 = phi i32 [ %1787, %.lr.ph80.i ], [ %1814, %1813 ]
   %indvars.iv92.i = phi i64 [ 0, %.lr.ph80.i ], [ %indvars.iv.next93.i, %1813 ]
   %1798 = load ptr, ptr %1794, align 8, !tbaa !68
-  %1799 = getelementptr inbounds nuw ptr, ptr %1798, i64 %indvars.iv92.i
+  %1799 = getelementptr inbounds nuw [8 x i8], ptr %1798, i64 %indvars.iv92.i
   %1800 = load ptr, ptr %1799, align 8, !tbaa !69
   %1801 = getelementptr inbounds nuw i8, ptr %1800, i64 16
   %1802 = load ptr, ptr %1801, align 8, !tbaa !82
@@ -4035,7 +4032,7 @@ mkv_write_attachments.exit._crit_edge:            ; preds = %mkv_write_attachmen
 
 1804:                                             ; preds = %1796
   %1805 = load ptr, ptr %1795, align 8, !tbaa !92
-  %1806 = getelementptr inbounds nuw %struct.mkv_track, ptr %1805, i64 %indvars.iv92.i
+  %1806 = getelementptr inbounds nuw [120 x i8], ptr %1805, i64 %indvars.iv92.i
   %1807 = getelementptr inbounds nuw i8, ptr %1800, i64 80
   %1808 = load ptr, ptr %1807, align 8, !tbaa !71
   %1809 = getelementptr inbounds nuw i8, ptr %1806, i64 8
@@ -4247,7 +4244,7 @@ define internal i32 @mkv_write_flush_packet(ptr noundef %0, ptr noundef %1) #0 {
 
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
-  %18 = getelementptr inbounds nuw %struct.mkv_track, ptr %16, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [120 x i8], ptr %16, i64 %indvars.iv.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %19, align 4, !tbaa !204
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4277,7 +4274,7 @@ define internal i32 @mkv_write_flush_packet(ptr noundef %0, ptr noundef %1) #0 {
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %33 = load i32, ptr %32, align 4, !tbaa !206
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %31, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !69
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !82
@@ -4288,7 +4285,7 @@ define internal i32 @mkv_write_flush_packet(ptr noundef %0, ptr noundef %1) #0 {
   %43 = and i32 %41, 1
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %45 = load ptr, ptr %44, align 8, !tbaa !92
-  %46 = getelementptr inbounds %struct.mkv_track, ptr %45, i64 %34
+  %46 = getelementptr inbounds [120 x i8], ptr %45, i64 %34
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %47 = call ptr @av_packet_get_side_data(ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull %4) #14
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -4519,7 +4516,7 @@ mkv_check_new_extra_data.exit.thread.i:           ; preds = %146, %141, %129, %1
   %156 = load ptr, ptr %44, align 8, !tbaa !92
   %157 = load i32, ptr %32, align 4, !tbaa !206
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds %struct.mkv_track, ptr %156, i64 %158
+  %159 = getelementptr inbounds [120 x i8], ptr %156, i64 %158
   %160 = load i32, ptr %159, align 8, !tbaa !112
   %.not78.i = icmp eq i32 %160, 0
   %161 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -4600,7 +4597,7 @@ mkv_check_new_extra_data.exit.thread.i:           ; preds = %146, %141, %129, %1
 
 203:                                              ; preds = %203, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %203 ]
-  %204 = getelementptr inbounds nuw %struct.mkv_track, ptr %202, i64 %indvars.iv.i.i
+  %204 = getelementptr inbounds nuw [120 x i8], ptr %202, i64 %indvars.iv.i.i
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 4
   store i32 0, ptr %205, align 4, !tbaa !204
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -4635,7 +4632,7 @@ mkv_end_cluster.exit.i:                           ; preds = %.loopexit.i.i
   %218 = load ptr, ptr %30, align 8, !tbaa !68
   %219 = load i32, ptr %32, align 4, !tbaa !206
   %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds ptr, ptr %218, i64 %220
+  %221 = getelementptr inbounds [8 x i8], ptr %218, i64 %220
   %222 = load ptr, ptr %221, align 8, !tbaa !69
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 32
   %224 = load i64, ptr %223, align 8
@@ -4927,7 +4924,7 @@ put_ebml_uint.exit.preheader.i:                   ; preds = %114
 
 put_ebml_uint.exit.i:                             ; preds = %put_ebml_uint.exit.preheader.i, %put_ebml_uint.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %put_ebml_uint.exit.i ], [ 0, %put_ebml_uint.exit.preheader.i ]
-  %120 = getelementptr inbounds nuw %struct.mkv_track, ptr %98, i64 %indvars.iv.i
+  %120 = getelementptr inbounds nuw [120 x i8], ptr %98, i64 %indvars.iv.i
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
   store i32 0, ptr %121, align 4, !tbaa !204
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4953,14 +4950,14 @@ put_ebml_uint.exit.i:                             ; preds = %put_ebml_uint.exit.
 
 127:                                              ; preds = %.preheader5.i
   %128 = zext nneg i32 %123 to i64
-  %129 = getelementptr inbounds nuw %struct.mkv_track, ptr %98, i64 %128
+  %129 = getelementptr inbounds nuw [120 x i8], ptr %98, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %131 = load i32, ptr %130, align 4, !tbaa !204
   %.not.i224 = icmp eq i32 %131, 0
   br i1 %.not.i224, label %138, label %132
 
 132:                                              ; preds = %127
-  %133 = getelementptr inbounds nuw ptr, ptr %96, i64 %128
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %128
   %134 = load ptr, ptr %133, align 8, !tbaa !69
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %136 = load ptr, ptr %135, align 8, !tbaa !82
@@ -5571,7 +5568,7 @@ start_ebml_master_crc32.exit:                     ; preds = %344, %341, %349, %3
 403:                                              ; preds = %.lr.ph, %end_ebml_master.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %end_ebml_master.exit ]
   %404 = load ptr, ptr %394, align 8, !tbaa !92
-  %405 = getelementptr inbounds nuw %struct.mkv_track, ptr %404, i64 %indvars.iv
+  %405 = getelementptr inbounds nuw [120 x i8], ptr %404, i64 %indvars.iv
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 64
   %407 = load i64, ptr %406, align 8, !tbaa !230
   %.not216 = icmp eq i64 %407, 0
@@ -5735,7 +5732,7 @@ end_ebml_master.exit:                             ; preds = %448, %put_ebml_id.e
   %479 = phi i32 [ %463, %.lr.ph335 ], [ %529, %528 ]
   %indvars.iv378 = phi i64 [ 0, %.lr.ph335 ], [ %indvars.iv.next379, %528 ]
   %480 = load ptr, ptr %464, align 8, !tbaa !92
-  %481 = getelementptr inbounds nuw %struct.mkv_track, ptr %480, i64 %indvars.iv378
+  %481 = getelementptr inbounds nuw [120 x i8], ptr %480, i64 %indvars.iv378
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 56
   %483 = load i64, ptr %482, align 8, !tbaa !195
   %484 = icmp sgt i64 %483, 0
@@ -5743,7 +5740,7 @@ end_ebml_master.exit:                             ; preds = %448, %put_ebml_id.e
 
 485:                                              ; preds = %478
   %486 = load ptr, ptr %465, align 8, !tbaa !68
-  %487 = getelementptr inbounds nuw ptr, ptr %486, i64 %indvars.iv378
+  %487 = getelementptr inbounds nuw [8 x i8], ptr %486, i64 %indvars.iv378
   %488 = load ptr, ptr %487, align 8, !tbaa !69
   %489 = getelementptr inbounds nuw i8, ptr %481, i64 48
   %490 = load i64, ptr %489, align 8, !tbaa !233
@@ -5864,7 +5861,7 @@ define internal range(i32 0, 2) i32 @mkv_query_codec(i32 noundef %0, i32 noundef
 
 4:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = getelementptr inbounds nuw %struct.CodecTags, ptr @ff_mkv_codec_tags, i64 %indvars.iv.next
+  %5 = getelementptr inbounds nuw [28 x i8], ptr @ff_mkv_codec_tags, i64 %indvars.iv.next
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i32, ptr %6, align 4, !tbaa !99
   %.not = icmp eq i32 %7, 0
@@ -5914,7 +5911,7 @@ define internal range(i32 -1163346256, 1) i32 @mkv_init(ptr noundef %0) #0 {
 
 10:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !69
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !82
@@ -6001,21 +5998,21 @@ define internal range(i32 -1163346256, 1) i32 @mkv_init(ptr noundef %0) #0 {
   %50 = add i32 %49, 40
   %51 = and i32 %50, 63
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %2, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !141
   %55 = add i32 %49, 9
   %56 = and i32 %55, 63
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %2, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !141
   %60 = add i32 %59, %54
   %61 = and i32 %49, 63
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %2, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %62
   store i32 %60, ptr %63, align 4, !tbaa !141
   %64 = add i32 %49, 1
   store i32 %64, ptr %46, align 4, !tbaa !241
-  %65 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv157
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv157
   store i32 %60, ptr %65, align 4, !tbaa !141
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, 4
@@ -6038,12 +6035,12 @@ define internal range(i32 -1163346256, 1) i32 @mkv_init(ptr noundef %0) #0 {
   %indvars.iv161 = phi i64 [ 0, %.lr.ph139 ], [ %indvars.iv.next162, %248 ]
   %.091137 = phi i32 [ 0, %.lr.ph139 ], [ %.192.ph, %248 ]
   %73 = load ptr, ptr %67, align 8, !tbaa !68
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv161
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv161
   %75 = load ptr, ptr %74, align 8, !tbaa !69
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !82
   %78 = load ptr, ptr %39, align 8, !tbaa !92
-  %79 = getelementptr inbounds nuw %struct.mkv_track, ptr %78, i64 %indvars.iv161
+  %79 = getelementptr inbounds nuw [120 x i8], ptr %78, i64 %indvars.iv161
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !83
   switch i32 %81, label %.thread105 [
@@ -6142,17 +6139,17 @@ define internal range(i32 -1163346256, 1) i32 @mkv_init(ptr noundef %0) #0 {
   %129 = add i32 %128, 40
   %130 = and i32 %129, 63
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw i32, ptr %2, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %131
   %133 = load i32, ptr %132, align 4, !tbaa !141
   %134 = add i32 %128, 9
   %135 = and i32 %134, 63
   %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw i32, ptr %2, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %136
   %138 = load i32, ptr %137, align 4, !tbaa !141
   %139 = add i32 %138, %133
   %140 = and i32 %128, 63
   %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds nuw i32, ptr %2, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %141
   store i32 %139, ptr %142, align 4, !tbaa !141
   %143 = add i32 %128, 1
   %144 = zext i32 %139 to i64
@@ -6160,17 +6157,17 @@ define internal range(i32 -1163346256, 1) i32 @mkv_init(ptr noundef %0) #0 {
   %146 = add i32 %128, 41
   %147 = and i32 %146, 63
   %148 = zext nneg i32 %147 to i64
-  %149 = getelementptr inbounds nuw i32, ptr %2, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !141
   %151 = add i32 %128, 10
   %152 = and i32 %151, 63
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr inbounds nuw i32, ptr %2, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !141
   %156 = add i32 %155, %150
   %157 = and i32 %143, 63
   %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr inbounds nuw i32, ptr %2, i64 %158
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %158
   store i32 %156, ptr %159, align 4, !tbaa !141
   %160 = add i32 %128, 2
   %161 = zext i32 %156 to i64
@@ -6183,7 +6180,7 @@ define internal range(i32 -1163346256, 1) i32 @mkv_init(ptr noundef %0) #0 {
 
 .preheader.us.i:                                  ; preds = %.split.us.i, %167
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %167 ], [ 0, %.split.us.i ]
-  %163 = getelementptr inbounds nuw %struct.mkv_track, ptr %78, i64 %indvars.iv.i
+  %163 = getelementptr inbounds nuw [120 x i8], ptr %78, i64 %indvars.iv.i
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = load i64, ptr %164, align 8, !tbaa !98
   %166 = icmp eq i64 %165, %162
@@ -6199,17 +6196,17 @@ define internal range(i32 -1163346256, 1) i32 @mkv_init(ptr noundef %0) #0 {
   %169 = add i32 %168, 40
   %170 = and i32 %169, 63
   %171 = zext nneg i32 %170 to i64
-  %172 = getelementptr inbounds nuw i32, ptr %2, i64 %171
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %171
   %173 = load i32, ptr %172, align 4, !tbaa !141
   %174 = add i32 %168, 9
   %175 = and i32 %174, 63
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw i32, ptr %2, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %176
   %178 = load i32, ptr %177, align 4, !tbaa !141
   %179 = add i32 %178, %173
   %180 = and i32 %168, 63
   %181 = zext nneg i32 %180 to i64
-  %182 = getelementptr inbounds nuw i32, ptr %2, i64 %181
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %181
   store i32 %179, ptr %182, align 4, !tbaa !141
   %183 = add i32 %168, 1
   %184 = zext i32 %179 to i64
@@ -6217,17 +6214,17 @@ define internal range(i32 -1163346256, 1) i32 @mkv_init(ptr noundef %0) #0 {
   %186 = add i32 %168, 41
   %187 = and i32 %186, 63
   %188 = zext nneg i32 %187 to i64
-  %189 = getelementptr inbounds nuw i32, ptr %2, i64 %188
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !141
   %191 = add i32 %168, 10
   %192 = and i32 %191, 63
   %193 = zext nneg i32 %192 to i64
-  %194 = getelementptr inbounds nuw i32, ptr %2, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !141
   %196 = add i32 %195, %190
   %197 = and i32 %183, 63
   %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds nuw i32, ptr %2, i64 %198
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %198
   store i32 %196, ptr %199, align 4, !tbaa !141
   %200 = add i32 %168, 2
   %201 = zext i32 %196 to i64
@@ -6441,7 +6438,7 @@ define internal range(i32 0, 2) i32 @webm_query_codec(i32 noundef %0, i32 %1) #1
 
 4:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = getelementptr inbounds nuw %struct.CodecTags, ptr @ff_webm_codec_tags, i64 %indvars.iv.next
+  %5 = getelementptr inbounds nuw [28 x i8], ptr @ff_webm_codec_tags, i64 %indvars.iv.next
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i32, ptr %6, align 4, !tbaa !99
   %.not = icmp eq i32 %7, 0
@@ -6587,7 +6584,7 @@ put_ebml_id.exit.i:                               ; preds = %.lr.ph.i.i85
 
 58:                                               ; preds = %._crit_edge.i, %.lr.ph27.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.i ], [ 0, %.lr.ph27.i ]
-  %59 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8, !tbaa !255
   %61 = load i64, ptr %60, align 8, !tbaa !257
   %.not.i88.not.not = icmp ne i64 %61, 0
@@ -6604,7 +6601,7 @@ put_ebml_id.exit.i:                               ; preds = %.lr.ph.i.i85
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %62
   %indvars.iv.i89 = phi i64 [ %indvars.iv.next.i90, %62 ], [ 0, %.preheader.i ]
-  %63 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i89
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv.i89
   %64 = load ptr, ptr %63, align 8, !tbaa !255
   %65 = load i64, ptr %64, align 8, !tbaa !257
   %66 = icmp eq i64 %65, %61
@@ -6646,7 +6643,7 @@ put_ebml_id.exit.i:                               ; preds = %.lr.ph.i.i85
 90:                                               ; preds = %.lr.ph, %128
   %indvars.iv154 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next155, %128 ]
   %91 = load ptr, ptr %67, align 8, !tbaa !254
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv154
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv154
   %93 = load ptr, ptr %92, align 8, !tbaa !255
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load i64, ptr %94, align 8, !tbaa !261
@@ -6900,7 +6897,7 @@ start_ebml_master.exit:                           ; preds = %.lr.ph.i.i
   br i1 %.not.i33, label %put_ebml_id.exit, label %.lr.ph.i, !llvm.loop !51
 
 put_ebml_id.exit:                                 ; preds = %.lr.ph.i
-  %52 = getelementptr inbounds nuw %struct.mkv_seekhead_entry, ptr %31, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %indvars.iv
   %53 = load ptr, ptr %5, align 8, !tbaa !57
   %54 = load i32, ptr %52, align 8, !tbaa !267
   %.not.i.i34 = icmp ult i32 %54, 65536
@@ -7241,7 +7238,7 @@ ebml_writer_block_len.exit:                       ; preds = %38, %49
 
 88:                                               ; preds = %67
   %89 = zext nneg i32 %65 to i64
-  %90 = getelementptr inbounds nuw %struct.EbmlElement, ptr %64, i64 %89
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %64, i64 %89
   %91 = xor i32 %65, -1
   %92 = add nsw i32 %.032.i13, %91
   %93 = icmp sgt i32 %92, 0
@@ -7487,7 +7484,7 @@ put_ebml_num.exit.i:                              ; preds = %.lr.ph.i.i, %53
 .lr.ph48:                                         ; preds = %95, %.lr.ph48
   %.047 = phi i32 [ %104, %.lr.ph48 ], [ 0, %95 ]
   %100 = sext i32 %.047 to i64
-  %101 = getelementptr inbounds %struct.EbmlElement, ptr %98, i64 %100
+  %101 = getelementptr inbounds [32 x i8], ptr %98, i64 %100
   %102 = tail call fastcc i32 @ebml_writer_elem_write(ptr noundef nonnull %101, ptr noundef %1)
   %103 = add nsw i32 %.047, 1
   %104 = add i32 %103, %102
@@ -7589,7 +7586,7 @@ define internal fastcc i32 @end_ebml_master_crc32_tentatively(ptr noundef %0, pt
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %24 = load i32, ptr %23, align 8, !tbaa !266
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %struct.mkv_seekhead_entry, ptr %22, i64 %25
+  %26 = getelementptr inbounds [16 x i8], ptr %22, i64 %25
   store i32 %3, ptr %26, align 8, !tbaa !267
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %28 = load i64, ptr %27, align 8, !tbaa !53
@@ -7726,7 +7723,7 @@ define internal fastcc i32 @end_ebml_master_crc32(ptr noundef %0, ptr noundef %1
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %21 = load i32, ptr %20, align 8, !tbaa !266
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.mkv_seekhead_entry, ptr %19, i64 %22
+  %23 = getelementptr inbounds [16 x i8], ptr %19, i64 %22
   store i32 %3, ptr %23, align 8, !tbaa !267
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %25 = load i64, ptr %24, align 8, !tbaa !53
@@ -7909,9 +7906,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mkv_assemble_codecprivate(
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader.critedge, %.preheader.i.i
   %indvars.iv4.i.i = phi i64 [ %indvars.iv.next5.i.i, %.preheader.i.i ], [ 0, %.preheader.i.i.preheader.critedge ]
-  %33 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv4.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv4.i.i
   %34 = load ptr, ptr %33, align 8, !tbaa !120
-  %35 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv4.i.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv4.i.i
   %36 = load i32, ptr %35, align 4, !tbaa !141
   call void @avio_write(ptr noundef %1, ptr noundef %34, i32 noundef %36) #14
   %indvars.iv.next5.i.i = add nuw nsw i64 %indvars.iv4.i.i, 1
@@ -8586,7 +8583,7 @@ mkv_write_simpletag.exit.thread:                  ; preds = %mkv_check_tag_name.
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !61
   %90 = zext nneg i32 %.sroa.0.0.i to i64
-  %91 = getelementptr inbounds nuw %struct.EbmlElement, ptr %7, i64 %90
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %90
   store i32 17543, ptr %91, align 16, !tbaa !44
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   store i32 4, ptr %92, align 4, !tbaa !46
@@ -8744,13 +8741,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mkv_write_packet_internal(
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %13 = load i32, ptr %12, align 4, !tbaa !206
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !69
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !82
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %20 = load ptr, ptr %19, align 8, !tbaa !92
-  %21 = getelementptr inbounds %struct.mkv_track, ptr %20, i64 %14
+  %21 = getelementptr inbounds [120 x i8], ptr %20, i64 %14
   %22 = load i32, ptr %18, align 8, !tbaa !89
   %23 = icmp eq i32 %22, 3
   br i1 %23, label %28, label %24
@@ -8816,7 +8813,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @mkv_write_packet_internal(
 
 56:                                               ; preds = %56, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %56 ]
-  %57 = getelementptr inbounds nuw %struct.mkv_track, ptr %20, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [120 x i8], ptr %20, i64 %indvars.iv.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 0, ptr %58, align 4, !tbaa !204
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -9044,7 +9041,7 @@ put_ebml_uint.exit:                               ; preds = %102
   %.sroa.09.0.insert.insert.i = or disjoint i64 %.sroa.210.0.insert.shift.i, 1
   %163 = call i64 @av_rescale_q(i64 noundef %160, i64 %.sroa.09.0.insert.insert.i, i64 4294967296000000001) #16
   %164 = zext nneg i32 %.sroa.0.0.i to i64
-  %165 = getelementptr inbounds nuw %struct.EbmlElement, ptr %5, i64 %164
+  %165 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %164
   store i32 30114, ptr %165, align 16, !tbaa !44
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 4
   store i32 1, ptr %166, align 4, !tbaa !46
@@ -9056,7 +9053,7 @@ put_ebml_uint.exit:                               ; preds = %102
 169:                                              ; preds = %159, %156, %145
   %.sroa.0.1.i = phi i32 [ %.sroa.0.0.i, %156 ], [ %167, %159 ], [ %.sroa.0.0.i, %145 ]
   %170 = zext nneg i32 %.sroa.0.1.i to i64
-  %171 = getelementptr inbounds nuw %struct.EbmlElement, ptr %5, i64 %170
+  %171 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %170
   store i32 30113, ptr %171, align 16, !tbaa !44
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 4
   store i32 7, ptr %172, align 4, !tbaa !46
@@ -9081,7 +9078,7 @@ put_ebml_uint.exit:                               ; preds = %102
   %184 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %185 = add i64 %178, -8
   %186 = zext nneg i32 %173 to i64
-  %187 = getelementptr inbounds nuw %struct.EbmlElement, ptr %5, i64 %186
+  %187 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %186
   store i32 166, ptr %187, align 16, !tbaa !44
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 4
   store i32 7, ptr %188, align 4, !tbaa !46
@@ -9145,7 +9142,7 @@ put_ebml_uint.exit:                               ; preds = %102
   %217 = load i64, ptr %7, align 8, !tbaa !64
   %218 = add i64 %217, 6
   %219 = zext nneg i32 %.sroa.0.2.i to i64
-  %220 = getelementptr inbounds nuw %struct.EbmlElement, ptr %5, i64 %219
+  %220 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %219
   store i32 166, ptr %220, align 16, !tbaa !44
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 4
   store i32 7, ptr %221, align 4, !tbaa !46
@@ -9212,7 +9209,7 @@ ebml_writer_close_or_discard_master.exit.i:       ; preds = %234
   %247 = load i64, ptr %246, align 8, !tbaa !298
   %248 = sub nsw i64 %247, %43
   %249 = zext nneg i32 %.sroa.0.5126.i to i64
-  %250 = getelementptr inbounds nuw %struct.EbmlElement, ptr %5, i64 %249
+  %250 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %249
   store i32 251, ptr %250, align 16, !tbaa !44
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 4
   store i32 1, ptr %251, align 4, !tbaa !46
@@ -9405,7 +9402,7 @@ define internal fastcc range(i32 -12, 1) i32 @mkv_add_cuepoint(ptr noundef captu
 
 19:                                               ; preds = %18
   %20 = add nsw i64 %indvars.iv, -1
-  %21 = getelementptr inbounds nuw %struct.mkv_cuepoint, ptr %15, i64 %20
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !218
   %23 = icmp ugt i64 %22, %2
   br i1 %23, label %18, label %.critedge.split.loop.exit43, !llvm.loop !299
@@ -9418,9 +9415,9 @@ define internal fastcc range(i32 -12, 1) i32 @mkv_add_cuepoint(ptr noundef captu
   %.0.lcssa = phi i32 [ %24, %.critedge.split.loop.exit43 ], [ 0, %18 ]
   %25 = add i32 %.0.lcssa, 1
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %struct.mkv_cuepoint, ptr %15, i64 %26
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %26
   %28 = zext i32 %.0.lcssa to i64
-  %29 = getelementptr inbounds nuw %struct.mkv_cuepoint, ptr %15, i64 %28
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %28
   %30 = load i32, ptr %8, align 8, !tbaa !217
   %31 = sub i32 %30, %.0.lcssa
   %32 = zext i32 %31 to i64

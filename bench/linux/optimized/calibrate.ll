@@ -57,7 +57,7 @@ define dso_local void @calibrate_delay() local_unnamed_addr #1 align 16 {
   %6 = alloca [5 x i64], align 16
   %7 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !5
   %8 = sext i32 %7 to i64
-  %9 = getelementptr i64, ptr @__per_cpu_offset, i64 %8
+  %9 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %8
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, ptrtoint (ptr @cpu_loops_per_jiffy to i64)
   %12 = inttoptr i64 %11 to ptr
@@ -200,14 +200,14 @@ define dso_local void @calibrate_delay() local_unnamed_addr #1 align 16 {
 90:                                               ; preds = %86
   %91 = add i64 %41, 1
   %92 = add i64 %70, %42
-  %93 = getelementptr i64, ptr %6, i64 %38
+  %93 = getelementptr [8 x i8], ptr %6, i64 %38
   store i64 %70, ptr %93, align 8
   %94 = icmp slt i32 %40, 0
   br i1 %94, label %100, label %95
 
 95:                                               ; preds = %90
   %96 = zext nneg i32 %40 to i64
-  %97 = getelementptr i64, ptr %6, i64 %96
+  %97 = getelementptr [8 x i8], ptr %6, i64 %96
   %98 = load i64, ptr %97, align 8
   %99 = icmp ugt i64 %70, %98
   br i1 %99, label %100, label %102
@@ -223,7 +223,7 @@ define dso_local void @calibrate_delay() local_unnamed_addr #1 align 16 {
 
 105:                                              ; preds = %102
   %106 = zext nneg i32 %39 to i64
-  %107 = getelementptr i64, ptr %6, i64 %106
+  %107 = getelementptr [8 x i8], ptr %6, i64 %106
   %108 = load i64, ptr %107, align 8
   %109 = icmp ult i64 %70, %108
   br i1 %109, label %110, label %114
@@ -233,7 +233,7 @@ define dso_local void @calibrate_delay() local_unnamed_addr #1 align 16 {
   br label %114
 
 112:                                              ; preds = %86, %79
-  %113 = getelementptr i64, ptr %6, i64 %38
+  %113 = getelementptr [8 x i8], ptr %6, i64 %38
   store i64 0, ptr %113, align 8
   br label %114
 
@@ -258,10 +258,10 @@ define dso_local void @calibrate_delay() local_unnamed_addr #1 align 16 {
   %126 = udiv i64 %125, %124
   %127 = lshr i64 %126, 3
   %128 = sext i32 %123 to i64
-  %129 = getelementptr i64, ptr %6, i64 %128
+  %129 = getelementptr [8 x i8], ptr %6, i64 %128
   %130 = load i64, ptr %129, align 8
   %131 = sext i32 %122 to i64
-  %132 = getelementptr i64, ptr %6, i64 %131
+  %132 = getelementptr [8 x i8], ptr %6, i64 %131
   %133 = load i64, ptr %132, align 8
   %134 = sub i64 %130, %133
   %135 = icmp ult i64 %134, %127
@@ -293,7 +293,7 @@ define dso_local void @calibrate_delay() local_unnamed_addr #1 align 16 {
   %150 = phi i32 [ %146, %144 ], [ %173, %170 ]
   %151 = phi i64 [ 0, %144 ], [ %172, %170 ]
   %152 = phi i64 [ 0, %144 ], [ %171, %170 ]
-  %153 = getelementptr i64, ptr %6, i64 %148
+  %153 = getelementptr [8 x i8], ptr %6, i64 %148
   %154 = load i64, ptr %153, align 8
   %155 = icmp eq i64 %154, 0
   br i1 %155, label %170, label %156
@@ -302,13 +302,13 @@ define dso_local void @calibrate_delay() local_unnamed_addr #1 align 16 {
   %157 = add i64 %151, 1
   %158 = add i64 %154, %152
   %159 = sext i32 %149 to i64
-  %160 = getelementptr i64, ptr %6, i64 %159
+  %160 = getelementptr [8 x i8], ptr %6, i64 %159
   %161 = load i64, ptr %160, align 8
   %162 = icmp ult i64 %154, %161
   %163 = trunc i64 %148 to i32
   %164 = select i1 %162, i32 %163, i32 %149
   %165 = sext i32 %150 to i64
-  %166 = getelementptr i64, ptr %6, i64 %165
+  %166 = getelementptr [8 x i8], ptr %6, i64 %165
   %167 = load i64, ptr %166, align 8
   %168 = icmp ugt i64 %154, %167
   %169 = select i1 %168, i32 %163, i32 %150

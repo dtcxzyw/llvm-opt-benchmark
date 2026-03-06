@@ -165,7 +165,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %.0481718 = phi i32 [ -1, %.lr.ph ], [ %.1482, %179 ]
   %.0484717 = phi ptr [ null, %.lr.ph ], [ %.1485, %179 ]
   %17 = sext i32 %.0459727 to i64
-  %18 = getelementptr inbounds ptr, ptr %1, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %1, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !4
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #16
   %spec.select = call i64 @llvm.umax.i64(i64 %20, i64 2)
@@ -186,7 +186,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   store i8 -1, ptr %6, align 1, !tbaa !9
   %26 = add nsw i32 %.0459727, 1
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr %1, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %1, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %29, ptr noundef nonnull @.str.2, ptr noundef nonnull %13, ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef nonnull %3, ptr noundef nonnull %15) #17
   %31 = icmp ne i32 %30, 5
@@ -231,7 +231,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 50:                                               ; preds = %48
   %51 = add nsw i32 %.0459727, 1
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds ptr, ptr %1, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %1, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !4
   %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #16
   %spec.select587 = call i64 @llvm.umax.i64(i64 %55, i64 1)
@@ -268,7 +268,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 67:                                               ; preds = %65
   %68 = add nsw i32 %.0459727, 1
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds ptr, ptr %1, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %1, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !4
   %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #16
   %spec.select594 = call i64 @llvm.umax.i64(i64 %72, i64 1)
@@ -319,7 +319,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 89:                                               ; preds = %87
   %90 = add nsw i32 %.0459727, 1
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr %1, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %1, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !4
   br label %179
 
@@ -333,7 +333,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 96:                                               ; preds = %94
   %97 = add nsw i32 %.0459727, 1
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds ptr, ptr %1, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %1, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !4
   %101 = call i64 @strtol(ptr noundef nonnull captures(none) %100, ptr noundef null, i32 noundef 10) #17
   %102 = trunc i64 %101 to i32
@@ -354,7 +354,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 108:                                              ; preds = %106
   %109 = add nsw i32 %.0459727, 1
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds ptr, ptr %1, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %1, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !4
   %113 = call i64 @strtol(ptr noundef nonnull captures(none) %112, ptr noundef null, i32 noundef 10) #17
   %114 = trunc i64 %113 to i32
@@ -401,7 +401,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 131:                                              ; preds = %129
   %132 = add nsw i32 %.0459727, 1
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds ptr, ptr %1, i64 %133
+  %134 = getelementptr inbounds [8 x i8], ptr %1, i64 %133
   %135 = load ptr, ptr %134, align 8, !tbaa !4
   %136 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %135) #16
   %spec.select614 = call i64 @llvm.umax.i64(i64 %136, i64 2)
@@ -450,7 +450,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   store i8 0, ptr %8, align 1, !tbaa !9
   %150 = add nsw i32 %.0459727, 1
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds ptr, ptr %1, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %1, i64 %151
   %153 = load ptr, ptr %152, align 8, !tbaa !4
   %154 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %153, ptr noundef nonnull @.str.25, ptr noundef nonnull %7, ptr noundef nonnull %8) #17
   %155 = icmp slt i32 %154, 1
@@ -722,7 +722,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 
 288:                                              ; preds = %280, %277
   %289 = sext i32 %.0459.lcssa to i64
-  %290 = getelementptr inbounds ptr, ptr %1, i64 %289
+  %290 = getelementptr inbounds [8 x i8], ptr %1, i64 %289
   %291 = load ptr, ptr %290, align 8, !tbaa !4
   %292 = call noalias ptr @fopen(ptr noundef %291, ptr noundef nonnull @.str.41)
   %293 = icmp eq ptr %292, null
@@ -833,7 +833,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 
 switch.lookup:                                    ; preds = %352
   %354 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.main, i64 %354
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.main, i64 %354
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %355
 
@@ -893,10 +893,10 @@ switch.lookup:                                    ; preds = %352
 
 .thread:                                          ; preds = %389
   %391 = sext i32 %.0483 to i64
-  %392 = getelementptr inbounds i32, ptr @tjMCUWidth, i64 %391
+  %392 = getelementptr inbounds [4 x i8], ptr @tjMCUWidth, i64 %391
   %393 = load i32, ptr %392, align 4, !tbaa !15
   %394 = srem i32 %378, %393
-  %395 = getelementptr inbounds i32, ptr @tjMCUHeight, i64 %391
+  %395 = getelementptr inbounds [4 x i8], ptr @tjMCUHeight, i64 %391
   %396 = load i32, ptr %395, align 4, !tbaa !15
   %397 = srem i32 %381, %396
   %398 = sub nsw i32 %378, %394

@@ -57,7 +57,7 @@ define dso_local ptr @tr2tls_create_self(ptr noundef %0, i64 noundef %1) local_u
   %9 = load i64, ptr %8, align 8, !tbaa !17
   %10 = add i64 %9, 1
   store i64 %10, ptr %8, align 8, !tbaa !17
-  %11 = getelementptr inbounds nuw i64, ptr %6, i64 %9
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   store i64 %1, ptr %11, align 8, !tbaa !4
   %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @tr2tls_mutex) #11
   %13 = load i32, ptr @tr2_next_thread_id, align 4, !tbaa !18
@@ -253,7 +253,7 @@ st_mult.exit:                                     ; preds = %14
   %25 = phi i64 [ %9, %tr2tls_get_self.exit._crit_edge ], [ %.pre15, %st_mult.exit ]
   %26 = phi ptr [ %.pre, %tr2tls_get_self.exit._crit_edge ], [ %23, %st_mult.exit ]
   store i64 %.pre-phi, ptr %8, align 8, !tbaa !17
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   store i64 %0, ptr %27, align 8, !tbaa !4
   ret void
 }
@@ -372,7 +372,7 @@ tr2tls_get_self.exit:                             ; preds = %1, %4
 10:                                               ; preds = %tr2tls_get_self.exit
   %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !16
-  %13 = getelementptr i64, ptr %12, i64 %9
+  %13 = getelementptr [8 x i8], ptr %12, i64 %9
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !4
   %16 = sub i64 %0, %15

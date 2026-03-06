@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5C_class_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.H5EA_sblk_info_t = type { i64, i64, i64, i64 }
 %struct.H5EA_hdr_cache_ud_t = type { ptr, i64, ptr }
 
 @H5EA_init_g = external local_unnamed_addr global i8, align 1
@@ -175,7 +174,7 @@ define range(i32 -1, 1) i32 @H5EA__hdr_dest(ptr noundef %0) local_unnamed_addr #
   %28 = phi ptr [ %40, %38 ], [ %25, %.preheader ]
   %29 = phi i64 [ %42, %38 ], [ 0, %.preheader ]
   %.02843 = phi i32 [ %41, %38 ], [ 0, %.preheader ]
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !44
   %.not37 = icmp eq ptr %31, null
   br i1 %.not37, label %38, label %32
@@ -187,7 +186,7 @@ define range(i32 -1, 1) i32 @H5EA__hdr_dest(ptr noundef %0) local_unnamed_addr #
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %24, align 8, !tbaa !42
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %29
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %29
   store ptr null, ptr %37, align 8, !tbaa !44
   %.pre = load i64, ptr %23, align 8, !tbaa !43
   br label %38
@@ -274,7 +273,7 @@ define range(i32 -1, 1) i32 @H5EA__hdr_init(ptr noundef captures(none) %0, ptr n
   %17 = mul nuw nsw i64 %16, 125613361
   %18 = lshr i64 %17, 27
   %19 = and i64 %18, 31
-  %20 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr @MultiplyDeBruijnBitPosition, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !52
   %22 = add nuw nsw i32 %13, 1
   %23 = sub i32 %22, %21
@@ -323,7 +322,7 @@ define range(i32 -1, 1) i32 @H5EA__hdr_init(ptr noundef captures(none) %0, ptr n
   %48 = trunc i64 %47 to i32
   %49 = shl nuw i32 1, %48
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %36, i64 %.04856
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %.04856
   store i64 %50, ptr %51, align 8, !tbaa !57
   %52 = add nuw i64 %.04856, 1
   %53 = lshr i64 %52, 1
@@ -395,7 +394,7 @@ define noalias ptr @H5EA__hdr_alloc_elmts(ptr noundef captures(none) %0, i64 nou
   %10 = mul i64 %1, 125613361
   %11 = lshr i64 %10, 27
   %12 = and i64 %11, 31
-  %13 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @MultiplyDeBruijnBitPosition, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 259
@@ -404,7 +403,7 @@ define noalias ptr @H5EA__hdr_alloc_elmts(ptr noundef captures(none) %0, i64 nou
   %19 = mul nuw nsw i64 %18, 125613361
   %20 = lshr i64 %19, 27
   %21 = and i64 %20, 31
-  %22 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @MultiplyDeBruijnBitPosition, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !52
   %24 = sub i32 %14, %23
   %25 = zext i32 %24 to i64
@@ -435,7 +434,7 @@ define noalias ptr @H5EA__hdr_alloc_elmts(ptr noundef captures(none) %0, i64 nou
 
 .thread:                                          ; preds = %28
   %39 = load i64, ptr %26, align 8, !tbaa !43
-  %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %39
   %41 = sub i64 %spec.select, %39
   %42 = shl i64 %41, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %40, i8 0, i64 %42, i1 false)
@@ -451,7 +450,7 @@ define noalias ptr @H5EA__hdr_alloc_elmts(ptr noundef captures(none) %0, i64 nou
 
 47:                                               ; preds = %._crit_edge, %.thread
   %48 = phi ptr [ %.pre, %._crit_edge ], [ %37, %.thread ]
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %25
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %25
   %50 = load ptr, ptr %49, align 8, !tbaa !44
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %66
@@ -464,7 +463,7 @@ define noalias ptr @H5EA__hdr_alloc_elmts(ptr noundef captures(none) %0, i64 nou
   %57 = mul i64 %56, %1
   %58 = tail call ptr @H5FL_fac_init(i64 noundef %57) #7
   %59 = load ptr, ptr %53, align 8, !tbaa !42
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %25
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %25
   store ptr %58, ptr %60, align 8, !tbaa !44
   %61 = icmp eq ptr %58, null
   br i1 %61, label %62, label %66
@@ -517,7 +516,7 @@ define noundef i32 @H5EA__hdr_free_elmts(ptr noundef readonly captures(none) %0,
   %11 = mul i64 %1, 125613361
   %12 = lshr i64 %11, 27
   %13 = and i64 %12, 31
-  %14 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @MultiplyDeBruijnBitPosition, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !52
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 259
   %17 = load i8, ptr %16, align 1, !tbaa !51
@@ -525,13 +524,13 @@ define noundef i32 @H5EA__hdr_free_elmts(ptr noundef readonly captures(none) %0,
   %19 = mul nuw nsw i64 %18, 125613361
   %20 = lshr i64 %19, 27
   %21 = and i64 %20, 31
-  %22 = getelementptr inbounds nuw i32, ptr @MultiplyDeBruijnBitPosition, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @MultiplyDeBruijnBitPosition, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !52
   %24 = sub i32 %15, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %26 = load ptr, ptr %25, align 8, !tbaa !42
   %27 = zext i32 %24 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !44
   %30 = tail call ptr @H5FL_fac_free(ptr noundef %29, ptr noundef %2) #7
   br label %31

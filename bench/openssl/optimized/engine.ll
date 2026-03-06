@@ -382,7 +382,7 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
 .lr.ph252:                                        ; preds = %.lr.ph252.preheader, %120
   %indvars.iv = phi i64 [ 0, %.lr.ph252.preheader ], [ %indvars.iv.next, %120 ]
   %121 = load ptr, ptr %5, align 8, !tbaa !20
-  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv
   %123 = load i32, ptr %122, align 4, !tbaa !17
   %124 = call ptr @OBJ_nid2sn(i32 noundef %123) #7
   %125 = call fastcc i32 @append_buf(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %124)
@@ -411,7 +411,7 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
 .lr.ph255:                                        ; preds = %.lr.ph255.preheader, %131
   %indvars.iv295 = phi i64 [ 0, %.lr.ph255.preheader ], [ %indvars.iv.next296, %131 ]
   %132 = load ptr, ptr %5, align 8, !tbaa !20
-  %133 = getelementptr inbounds nuw i32, ptr %132, i64 %indvars.iv295
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %indvars.iv295
   %134 = load i32, ptr %133, align 4, !tbaa !17
   %135 = call ptr @OBJ_nid2sn(i32 noundef %134) #7
   %136 = call fastcc i32 @append_buf(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %135)
@@ -440,7 +440,7 @@ define dso_local i32 @engine_main(i32 noundef %0, ptr noundef %1) local_unnamed_
 .lr.ph258:                                        ; preds = %.lr.ph258.preheader, %142
   %indvars.iv300 = phi i64 [ 0, %.lr.ph258.preheader ], [ %indvars.iv.next301, %142 ]
   %143 = load ptr, ptr %5, align 8, !tbaa !20
-  %144 = getelementptr inbounds nuw i32, ptr %143, i64 %indvars.iv300
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %143, i64 %indvars.iv300
   %145 = load i32, ptr %144, align 4, !tbaa !17
   %146 = call ptr @OBJ_nid2sn(i32 noundef %145) #7
   %147 = call fastcc i32 @append_buf(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %146)

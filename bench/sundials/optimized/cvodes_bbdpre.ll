@@ -683,16 +683,16 @@ define internal i32 @cvBBDPrecSetup(double noundef %0, ptr noundef %1, ptr readn
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %.0150179.us.i = phi i64 [ %107, %.lr.ph.split.us.i ], [ %93, %.lr.ph.i ]
   %95 = load double, ptr %88, align 8, !tbaa !47
-  %96 = getelementptr inbounds double, ptr %53, i64 %.0150179.us.i
+  %96 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0150179.us.i
   %97 = load double, ptr %96, align 8, !tbaa !72
   %98 = tail call double @llvm.fabs.f64(double %97)
   %99 = fmul double %95, %98
-  %100 = getelementptr inbounds double, ptr %57, i64 %.0150179.us.i
+  %100 = getelementptr inbounds [8 x i8], ptr %57, i64 %.0150179.us.i
   %101 = load double, ptr %100, align 8, !tbaa !72
   %102 = fdiv double %82, %101
   %103 = fcmp ogt double %99, %102
   %.177.us.i = select i1 %103, double %99, double %102
-  %104 = getelementptr inbounds double, ptr %58, i64 %.0150179.us.i
+  %104 = getelementptr inbounds [8 x i8], ptr %58, i64 %.0150179.us.i
   %105 = load double, ptr %104, align 8, !tbaa !72
   %106 = fadd double %105, %.177.us.i
   store double %106, ptr %104, align 8, !tbaa !72
@@ -703,16 +703,16 @@ define internal i32 @cvBBDPrecSetup(double noundef %0, ptr noundef %1, ptr readn
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %136
   %.0150179.i = phi i64 [ %140, %136 ], [ %93, %.lr.ph.i ]
   %109 = load double, ptr %88, align 8, !tbaa !47
-  %110 = getelementptr inbounds double, ptr %53, i64 %.0150179.i
+  %110 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0150179.i
   %111 = load double, ptr %110, align 8, !tbaa !72
   %112 = tail call double @llvm.fabs.f64(double %111)
   %113 = fmul double %109, %112
-  %114 = getelementptr inbounds double, ptr %57, i64 %.0150179.i
+  %114 = getelementptr inbounds [8 x i8], ptr %57, i64 %.0150179.i
   %115 = load double, ptr %114, align 8, !tbaa !72
   %116 = fdiv double %82, %115
   %117 = fcmp ogt double %113, %116
   %.177.i = select i1 %117, double %113, double %116
-  %118 = getelementptr inbounds double, ptr %.0.i, i64 %.0150179.i
+  %118 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.0150179.i
   %119 = load double, ptr %118, align 8, !tbaa !72
   %120 = tail call double @llvm.fabs.f64(double %119)
   %121 = fcmp oeq double %120, 1.000000e+00
@@ -744,7 +744,7 @@ define internal i32 @cvBBDPrecSetup(double noundef %0, ptr noundef %1, ptr readn
 
 136:                                              ; preds = %134, %130, %128, %126, %122
   %.0147.i = phi double [ %127, %126 ], [ %.177.i, %122 ], [ %135, %134 ], [ %.177.i, %130 ], [ %.177.i, %128 ]
-  %137 = getelementptr inbounds double, ptr %58, i64 %.0150179.i
+  %137 = getelementptr inbounds [8 x i8], ptr %58, i64 %.0150179.i
   %138 = load double, ptr %137, align 8, !tbaa !72
   %139 = fadd double %.0147.i, %138
   store double %139, ptr %137, align 8, !tbaa !72
@@ -769,9 +769,9 @@ define internal i32 @cvBBDPrecSetup(double noundef %0, ptr noundef %1, ptr readn
 
 .lr.ph186.i:                                      ; preds = %.preheader.i, %._crit_edge184.i
   %.1151185.i = phi i64 [ %199, %._crit_edge184.i ], [ %93, %.preheader.i ]
-  %148 = getelementptr inbounds double, ptr %53, i64 %.1151185.i
+  %148 = getelementptr inbounds [8 x i8], ptr %53, i64 %.1151185.i
   %149 = load double, ptr %148, align 8, !tbaa !72
-  %150 = getelementptr inbounds double, ptr %58, i64 %.1151185.i
+  %150 = getelementptr inbounds [8 x i8], ptr %58, i64 %.1151185.i
   store double %149, ptr %150, align 8, !tbaa !72
   %151 = load ptr, ptr %10, align 8, !tbaa !37
   %152 = tail call ptr @SUNBandMatrix_Column(ptr noundef %151, i64 noundef %.1151185.i) #10
@@ -779,7 +779,7 @@ define internal i32 @cvBBDPrecSetup(double noundef %0, ptr noundef %1, ptr readn
   %154 = load double, ptr %148, align 8, !tbaa !72
   %155 = tail call double @llvm.fabs.f64(double %154)
   %156 = fmul double %153, %155
-  %157 = getelementptr inbounds double, ptr %57, i64 %.1151185.i
+  %157 = getelementptr inbounds [8 x i8], ptr %57, i64 %.1151185.i
   %158 = load double, ptr %157, align 8, !tbaa !72
   %159 = fdiv double %82, %158
   %160 = fcmp ogt double %156, %159
@@ -789,7 +789,7 @@ define internal i32 @cvBBDPrecSetup(double noundef %0, ptr noundef %1, ptr readn
   br i1 %.not174.i, label %181, label %162
 
 162:                                              ; preds = %.lr.ph186.i
-  %163 = getelementptr inbounds double, ptr %.0.i, i64 %.1151185.i
+  %163 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.1151185.i
   %164 = load double, ptr %163, align 8, !tbaa !72
   %165 = tail call double @llvm.fabs.f64(double %164)
   %166 = fcmp oeq double %165, 1.000000e+00
@@ -835,14 +835,14 @@ define internal i32 @cvBBDPrecSetup(double noundef %0, ptr noundef %1, ptr readn
 
 .lr.ph183.i:                                      ; preds = %181, %.lr.ph183.i
   %.0149181.i = phi i64 [ %198, %.lr.ph183.i ], [ %spec.select.i, %181 ]
-  %190 = getelementptr inbounds nuw double, ptr %59, i64 %.0149181.i
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.0149181.i
   %191 = load double, ptr %190, align 8, !tbaa !72
-  %192 = getelementptr inbounds nuw double, ptr %54, i64 %.0149181.i
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.0149181.i
   %193 = load double, ptr %192, align 8, !tbaa !72
   %194 = fsub double %191, %193
   %195 = fmul double %182, %194
   %196 = sub nsw i64 %.0149181.i, %.1151185.i
-  %197 = getelementptr inbounds double, ptr %152, i64 %196
+  %197 = getelementptr inbounds [8 x i8], ptr %152, i64 %196
   store double %195, ptr %197, align 8, !tbaa !72
   %198 = add nuw nsw i64 %.0149181.i, 1
   %.not175.not.i = icmp slt i64 %.0149181.i, %189

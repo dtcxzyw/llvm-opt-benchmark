@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.plugin_param_t = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @plugins = internal global ptr null, align 8
@@ -93,7 +92,7 @@ define dso_local i32 @data_parser_g_parse(ptr noundef readonly captures(address_
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not14 = icmp eq ptr %4, null
   br i1 %.not14, label %30, label %20
@@ -153,7 +152,7 @@ define dso_local i32 @data_parser_g_dump(ptr noundef readonly captures(address_i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %13, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %13, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #13
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -240,7 +239,7 @@ define dso_local noundef ptr @data_parser_g_new(ptr noundef %0, ptr noundef %1, 
 
 38:                                               ; preds = %42, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %42 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %32, %40
   br i1 %41, label %_find_plugin_by_type.exit, label %42
@@ -259,7 +258,7 @@ define dso_local noundef ptr @data_parser_g_new(ptr noundef %0, ptr noundef %1, 
   %44 = phi ptr [ %51, %50 ], [ %33, %42 ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv61.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv61.i
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i32 @xstrcasecmp(ptr noundef nonnull %32, ptr noundef %48) #13
   %.not29.i = icmp eq i32 %49, 0
@@ -278,7 +277,7 @@ define dso_local noundef ptr @data_parser_g_new(ptr noundef %0, ptr noundef %1, 
   %55 = phi ptr [ %63, %62 ], [ %51, %.preheader.i ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv64.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv64.i
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %61 = tail call i32 @xstrcasecmp(ptr noundef nonnull %32, ptr noundef nonnull %60) #13
@@ -327,13 +326,13 @@ _find_plugin_by_type.exit.thread:                 ; preds = %62, %.preheader.i, 
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %77 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %17, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef nonnull %77) #13
-  %78 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %17, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %79) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %80 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %17, i64 %indvars.iv.next
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %indvars.iv.next
   %81 = load ptr, ptr %80, align 8
   %.not36 = icmp eq ptr %81, null
   br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -374,7 +373,7 @@ define internal fastcc ptr @_parse_plugin_type(ptr noundef %0) unnamed_addr #0 {
   %8 = add nuw nsw i64 %indvars.iv, 2
   %9 = call ptr @slurm_xrecalloc(ptr noundef nonnull %4, i64 noundef %8, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 237, ptr noundef nonnull @__func__._parse_plugin_type) #13
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %12 = call ptr @xstrstr(ptr noundef nonnull %.02030, ptr noundef nonnull @.str.34) #13
   %.not25 = icmp eq ptr %12, null
   br i1 %.not25, label %20, label %13
@@ -482,7 +481,7 @@ define internal fastcc i32 @_load_plugins(ptr noundef readonly captures(address_
 
 .preheader:                                       ; preds = %12, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %12 ]
-  %15 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %.not28 = icmp eq ptr %16, null
   br i1 %.not28, label %.critedge, label %17
@@ -531,7 +530,7 @@ define internal fastcc noundef ptr @_new_parser(ptr noundef %0, ptr noundef %1, 
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %8 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %22, ptr %23, align 8
@@ -541,7 +540,7 @@ define internal fastcc noundef ptr @_new_parser(ptr noundef %0, ptr noundef %1, 
   %26 = load ptr, ptr @plugins, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %20
+  %29 = getelementptr inbounds [8 x i8], ptr %28, i64 %20
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
@@ -645,7 +644,7 @@ define dso_local ptr @data_parser_g_new_array(ptr noundef %0, ptr noundef %1, pt
 
 37:                                               ; preds = %41, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %31, %39
   br i1 %40, label %_find_plugin_by_type.exit, label %41
@@ -664,7 +663,7 @@ define dso_local ptr @data_parser_g_new_array(ptr noundef %0, ptr noundef %1, pt
   %43 = phi ptr [ %50, %49 ], [ %32, %41 ]
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv61.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv61.i
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @xstrcasecmp(ptr noundef nonnull %31, ptr noundef %47) #13
   %.not29.i = icmp eq i32 %48, 0
@@ -683,7 +682,7 @@ define dso_local ptr @data_parser_g_new_array(ptr noundef %0, ptr noundef %1, pt
   %54 = phi ptr [ %62, %61 ], [ %50, %.preheader.i ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv64.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv64.i
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %60 = tail call i32 @xstrcasecmp(ptr noundef nonnull %31, ptr noundef nonnull %59) #13
@@ -705,28 +704,28 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph48.i, %.
   br i1 %66, label %.thread, label %71
 
 .thread:                                          ; preds = %_find_plugin_by_type.exit, %.preheader42.i, %.preheader.i, %61
-  %67 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %30, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.data_parser_g_new_array, ptr noundef %68) #13
   %70 = and i64 %indvars.iv, 4294967295
   br label %.preheader68
 
 71:                                               ; preds = %_find_plugin_by_type.exit
-  %72 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %30, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = tail call fastcc ptr @_new_parser(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %.022.i, ptr noundef %74)
-  %76 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   store ptr %75, ptr %76, align 8
   %77 = load ptr, ptr %13, align 8
-  %78 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr null, ptr %79, align 8
   %80 = load ptr, ptr %13, align 8
-  %81 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 %indvars.iv
   tail call void @slurm_xfree(ptr noundef %81) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %82 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %80, i64 %indvars.iv.next
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 %indvars.iv.next
   %83 = load ptr, ptr %82, align 8
   %.not59 = icmp eq ptr %83, null
   br i1 %.not59, label %.loopexit, label %.preheader42.i, !llvm.loop !16
@@ -735,7 +734,7 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph48.i, %.
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.lr.ph91 ], [ 0, %.preheader ]
   %84 = trunc nuw nsw i64 %indvars.iv115 to i32
   %85 = tail call fastcc ptr @_new_parser(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %84, ptr noundef null)
-  %86 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv115
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv115
   store ptr %85, ptr %86, align 8
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %87 = load ptr, ptr @plugins, align 8
@@ -758,7 +757,7 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph48.i, %.
   %.050130 = phi i64 [ %70, %.thread ], [ 0, %91 ]
   %94 = phi ptr [ %30, %.thread ], [ %18, %91 ]
   %95 = phi ptr [ %25, %.thread ], [ null, %91 ]
-  %96 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %94, i64 %.050130
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %.050130
   %97 = load ptr, ptr %96, align 8
   %.not6186 = icmp eq ptr %97, null
   br i1 %.not6186, label %.loopexit133, label %.lr.ph
@@ -767,11 +766,11 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph48.i, %.
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph ], [ %.050130, %.preheader68 ]
   %98 = phi ptr [ %101, %.lr.ph ], [ %96, %.preheader68 ]
   tail call void @slurm_xfree(ptr noundef nonnull %98) #13
-  %99 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %94, i64 %indvars.iv109
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %indvars.iv109
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %100) #13
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %101 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %94, i64 %indvars.iv.next110
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %indvars.iv.next110
   %102 = load ptr, ptr %101, align 8
   %.not61 = icmp eq ptr %102, null
   br i1 %.not61, label %.loopexit133, label %.lr.ph, !llvm.loop !18
@@ -792,7 +791,7 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph48.i, %.
 
 .lr.ph89:                                         ; preds = %.preheader66, %111
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %111 ], [ 0, %.preheader66 ]
-  %108 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv112
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv112
   %109 = load ptr, ptr %108, align 8
   %.not62 = icmp eq ptr %109, null
   br i1 %.not62, label %111, label %110
@@ -846,7 +845,7 @@ define dso_local void @data_parser_g_free(ptr noundef %0, i1 noundef zeroext %1)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #13
   %18 = load ptr, ptr @plugins, align 8
@@ -1018,7 +1017,7 @@ define dso_local void @data_parser_g_array_free(ptr noundef %0, i1 noundef zeroe
   %5 = phi ptr [ %7, %.lr.ph ], [ %4, %.preheader ]
   tail call void @data_parser_g_free(ptr noundef nonnull %5, i1 noundef zeroext %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next
   %7 = load ptr, ptr %6, align 8
   %.not5 = icmp eq ptr %7, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph, !llvm.loop !20
@@ -1048,7 +1047,7 @@ define dso_local i32 @data_parser_g_assign(ptr noundef readonly captures(address
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #13
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -1223,7 +1222,7 @@ data_parser_g_assign.exit:                        ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %33, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %33, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #13
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
@@ -1274,7 +1273,7 @@ data_parser_g_dump.exit:                          ; preds = %46, %49
   %61 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %60, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %60, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #13
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -1302,7 +1301,7 @@ data_parser_g_dump.exit:                          ; preds = %46, %49
   %78 = load ptr, ptr %77, align 8
   %79 = load i32, ptr %61, align 4
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %78, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %78, i64 %80
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 96
   %84 = load ptr, ptr %83, align 8
@@ -1371,7 +1370,7 @@ define dso_local zeroext i1 @data_parser_g_is_complex(ptr noundef readonly captu
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load ptr, ptr %11, align 8
@@ -1412,7 +1411,7 @@ define dso_local i32 @data_parser_g_specify(ptr noundef readonly captures(addres
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #13
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -1639,7 +1638,7 @@ define dso_local i32 @data_parser_g_resolve_openapi_type(ptr noundef readonly ca
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
@@ -1665,7 +1664,7 @@ define dso_local ptr @data_parser_g_resolve_type_string(ptr noundef readonly cap
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
@@ -1691,7 +1690,7 @@ define dso_local i32 @data_parser_g_increment_reference(ptr noundef readonly cap
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8
@@ -1717,7 +1716,7 @@ define dso_local i32 @data_parser_g_populate_schema(ptr noundef readonly capture
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8
@@ -1743,7 +1742,7 @@ define dso_local i32 @data_parser_g_populate_parameters(ptr noundef readonly cap
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %17 = load ptr, ptr %16, align 8
@@ -1769,7 +1768,7 @@ define dso_local void @data_parser_g_release_references(ptr noundef readonly cap
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %13 = load ptr, ptr %12, align 8

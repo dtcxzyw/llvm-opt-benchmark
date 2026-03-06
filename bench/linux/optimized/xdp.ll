@@ -61,13 +61,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xdp_features
 %struct.in6_addr = type { %union.anon.73 }
 %union.anon.73 = type { [4 x i32] }
 %struct.rhashtable_compare_arg = type { ptr, ptr }
-%struct.page = type { i64, %union.anon.0, %union.anon.7, %struct.atomic_t, [8 x i8] }
-%union.anon.0 = type { %struct.anon }
-%struct.anon = type { %union.anon.1, ptr, %union.anon.3, i64 }
-%union.anon.1 = type { %struct.list_head }
-%union.anon.3 = type { i64 }
-%union.anon.7 = type { %struct.atomic_t }
-%struct.bio_vec = type { ptr, i32, i32 }
 
 @mem_id_ht = internal unnamed_addr global ptr null, align 8
 @mem_id_rht_params = internal constant %struct.rhashtable_params { i16 64, i16 4, i16 4, i16 16, i32 65534, i16 8, i8 1, ptr @xdp_mem_id_hashfn, ptr null, ptr @xdp_mem_id_cmp }, align 8
@@ -203,7 +196,7 @@ define internal fastcc ptr @rhashtable_lookup(ptr noundef %0, ptr noundef %1, pt
 29:                                               ; preds = %.split11.us
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %31 = zext i32 %23 to i64
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   br label %.split7.us.us
 
 .split7.us.us:                                    ; preds = %29, %27
@@ -284,7 +277,7 @@ define internal fastcc ptr @rhashtable_lookup(ptr noundef %0, ptr noundef %1, pt
 83:                                               ; preds = %.split11
   %84 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %85 = zext i32 %77 to i64
-  %86 = getelementptr ptr, ptr %84, i64 %85
+  %86 = getelementptr [8 x i8], ptr %84, i64 %85
   br label %.split7
 
 .split7:                                          ; preds = %83, %81
@@ -813,7 +806,7 @@ define dso_local void @__xdp_return(ptr noundef %0, ptr noundef readonly capture
   %15 = select i1 %11, i64 %12, i64 %14
   %16 = add i64 %10, %15
   %17 = lshr i64 %16, 12
-  %18 = getelementptr %struct.page, ptr %8, i64 %17
+  %18 = getelementptr [64 x i8], ptr %8, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load volatile i64, ptr %19, align 8
   %21 = and i64 %20, 1
@@ -864,7 +857,7 @@ define dso_local void @__xdp_return(ptr noundef %0, ptr noundef readonly capture
   %48 = select i1 %44, i64 %45, i64 %47
   %49 = add i64 %43, %48
   %50 = lshr i64 %49, 12
-  %51 = getelementptr %struct.page, ptr %41, i64 %50
+  %51 = getelementptr [64 x i8], ptr %41, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load volatile i64, ptr %52, align 8
   %54 = and i64 %53, 1
@@ -966,7 +959,7 @@ define dso_local void @xdp_return_frame(ptr noundef readonly captures(none) %0) 
 
 23:                                               ; preds = %23, %20
   %24 = phi i64 [ 0, %20 ], [ %34, %23 ]
-  %25 = getelementptr %struct.bio_vec, ptr %21, i64 %24
+  %25 = getelementptr [16 x i8], ptr %21, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = load i64, ptr @vmemmap_base, align 8
   %28 = ptrtoint ptr %26 to i64
@@ -1025,7 +1018,7 @@ define dso_local void @xdp_return_frame_rx_napi(ptr noundef readonly captures(no
 
 23:                                               ; preds = %23, %20
   %24 = phi i64 [ 0, %20 ], [ %34, %23 ]
-  %25 = getelementptr %struct.bio_vec, ptr %21, i64 %24
+  %25 = getelementptr [16 x i8], ptr %21, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = load i64, ptr @vmemmap_base, align 8
   %28 = ptrtoint ptr %26 to i64
@@ -1109,7 +1102,7 @@ define dso_local void @xdp_return_frame_bulk(ptr noundef %0, ptr noundef capture
 
 27:                                               ; preds = %27, %25
   %28 = phi i64 [ 0, %25 ], [ %38, %27 ]
-  %29 = getelementptr %struct.bio_vec, ptr %26, i64 %28
+  %29 = getelementptr [16 x i8], ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = load i64, ptr @vmemmap_base, align 8
   %32 = ptrtoint ptr %30 to i64
@@ -1220,7 +1213,7 @@ define dso_local void @xdp_return_frame_bulk(ptr noundef %0, ptr noundef capture
 90:                                               ; preds = %115, %87
   %91 = phi i32 [ %.pre8, %87 ], [ %116, %115 ]
   %92 = phi i64 [ 0, %87 ], [ %117, %115 ]
-  %93 = getelementptr %struct.bio_vec, ptr %88, i64 %92
+  %93 = getelementptr [16 x i8], ptr %88, i64 %92
   %94 = load ptr, ptr %93, align 8
   %95 = load i64, ptr @vmemmap_base, align 8
   %96 = ptrtoint ptr %94 to i64
@@ -1236,7 +1229,7 @@ define dso_local void @xdp_return_frame_bulk(ptr noundef %0, ptr noundef capture
   %106 = add i32 %91, 1
   store i32 %106, ptr %1, align 8
   %107 = sext i32 %91 to i64
-  %108 = getelementptr ptr, ptr %89, i64 %107
+  %108 = getelementptr [8 x i8], ptr %89, i64 %107
   store ptr %105, ptr %108, align 8
   %109 = load i32, ptr %1, align 8
   %110 = icmp eq i32 %109, 16
@@ -1270,7 +1263,7 @@ define dso_local void @xdp_return_frame_bulk(ptr noundef %0, ptr noundef capture
   %124 = add i32 %121, 1
   store i32 %124, ptr %1, align 8
   %125 = sext i32 %121 to i64
-  %126 = getelementptr ptr, ptr %123, i64 %125
+  %126 = getelementptr [8 x i8], ptr %123, i64 %125
   store ptr %122, ptr %126, align 8
   br label %127
 
@@ -1305,7 +1298,7 @@ define dso_local void @xdp_return_buff(ptr noundef readonly captures(none) %0) #
 
 19:                                               ; preds = %19, %16
   %20 = phi i64 [ 0, %16 ], [ %32, %19 ]
-  %21 = getelementptr %struct.bio_vec, ptr %17, i64 %20
+  %21 = getelementptr [16 x i8], ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load i64, ptr @vmemmap_base, align 8
   %24 = ptrtoint ptr %22 to i64

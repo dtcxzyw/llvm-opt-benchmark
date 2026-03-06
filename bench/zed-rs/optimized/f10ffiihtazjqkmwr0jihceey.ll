@@ -6582,7 +6582,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h01
 .preheader.i.i.i.i.i.i:                           ; preds = %4, %.preheader.i.i.i.i.i.i
   %.sroa.07.0.i.i.i.i.i.i.i = phi i64 [ %17, %.preheader.i.i.i.i.i.i ], [ 0, %4 ]
   %.sroa.09.0.i.i.i.i.i.i.i = phi i64 [ %18, %.preheader.i.i.i.i.i.i ], [ 0, %4 ]
-  %10 = getelementptr inbounds i64, ptr %6, i64 %.sroa.09.0.i.i.i.i.i.i.i
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %.sroa.09.0.i.i.i.i.i.i.i
   %.val.i.i.i.i.i.i.i = load i64, ptr %10, align 8, !alias.scope !1619, !noalias !1618, !noundef !5
   %11 = or i64 %.val.i.i.i.i.i.i.i, 1
   %12 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %11, i1 true)
@@ -6612,7 +6612,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h01
   %29 = load ptr, ptr %28, align 8, !alias.scope !1618, !nonnull !5, !noundef !5
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8, !alias.scope !1618, !noundef !5
-  %32 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i32, [2 x i32] }, [1 x i32] }, ptr %29, i64 %31
+  %32 = getelementptr inbounds [64 x i8], ptr %29, i64 %31
   %33 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8e129afdd3aab0b3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %29, ptr noundef nonnull readonly %32, i64 noundef 0), !noalias !1618
   %34 = add i64 %31, %.sroa.0.0.i.i.i.i.i.i
   %35 = add i64 %34, %33
@@ -6641,7 +6641,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h01
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h0248d0cbf9dd9086E(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [32 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9fee3645f5d063ffE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -6766,7 +6766,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h04
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h0500a1cce53ec065E(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i64, i64, { i32, [2 x i32] }, { i32, [2 x i32] }, i32, [1 x i32] }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [144 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb8c2a27174530084E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -7099,7 +7099,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h09
   %.val.i.i.i.i.i.i.i.i = load ptr, ptr %77, align 8, !alias.scope !1680, !nonnull !5, !noundef !5
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.val3.i.i.i.i.i.i.i.i = load i64, ptr %78, align 8, !alias.scope !1680, !noundef !5
-  %79 = getelementptr inbounds { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [3 x i64] }, { i32, [2 x i32] }, { i32, [2 x i32] } }, ptr %.val.i.i.i.i.i.i.i.i, i64 %.val3.i.i.i.i.i.i.i.i
+  %79 = getelementptr inbounds [120 x i8], ptr %.val.i.i.i.i.i.i.i.i, i64 %.val3.i.i.i.i.i.i.i.i
   %80 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h98cf20675393e3bbE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.val.i.i.i.i.i.i.i.i, ptr noundef nonnull readonly %79, i64 noundef 0), !noalias !1680
   %81 = add i64 %80, %.val3.i.i.i.i.i.i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17h9654089c4920e19bE.exit.i.i.i.i.i.i
@@ -7341,7 +7341,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h09
   %3 = load ptr, ptr %2, align 8, !alias.scope !1722, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1722, !noundef !5
-  %6 = getelementptr inbounds { i64, i8, i8, [6 x i8] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %3, i64 %5
   %7 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd8de6c1a853d1dc0E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %3, ptr noundef nonnull readonly %6, i64 noundef 0), !noalias !1722
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !alias.scope !1722, !nonnull !5, !noundef !5
@@ -7353,7 +7353,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h09
 .preheader.i.i:                                   ; preds = %1, %.preheader.i.i
   %.sroa.07.0.i.i.i = phi i64 [ %20, %.preheader.i.i ], [ 0, %1 ]
   %.sroa.09.0.i.i.i = phi i64 [ %21, %.preheader.i.i ], [ 0, %1 ]
-  %13 = getelementptr inbounds i64, ptr %9, i64 %.sroa.09.0.i.i.i
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %.sroa.09.0.i.i.i
   %.val.i.i.i = load i64, ptr %13, align 8, !alias.scope !1725, !noalias !1722, !noundef !5
   %14 = or i64 %.val.i.i.i, 1
   %15 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %14, i1 true)
@@ -7383,7 +7383,7 @@ _ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i: ; pred
   %32 = load ptr, ptr %31, align 8, !alias.scope !1722, !nonnull !5, !noundef !5
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = load i64, ptr %33, align 8, !alias.scope !1722, !noundef !5
-  %35 = getelementptr inbounds i64, ptr %32, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %32, i64 %34
   %36 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hce98e5b02180e62dE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %32, ptr noundef nonnull readonly %35, i64 noundef 0), !noalias !1722
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %38 = load ptr, ptr %37, align 8, !alias.scope !1722, !nonnull !5, !noundef !5
@@ -7395,7 +7395,7 @@ _ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i: ; pred
 .preheader.i1.i:                                  ; preds = %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i, %.preheader.i1.i
   %.sroa.07.0.i.i2.i = phi i64 [ %49, %.preheader.i1.i ], [ 0, %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i ]
   %.sroa.09.0.i.i3.i = phi i64 [ %50, %.preheader.i1.i ], [ 0, %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i ]
-  %42 = getelementptr inbounds i64, ptr %38, i64 %.sroa.09.0.i.i3.i
+  %42 = getelementptr inbounds [8 x i8], ptr %38, i64 %.sroa.09.0.i.i3.i
   %.val.i.i4.i = load i64, ptr %42, align 8, !alias.scope !1728, !noalias !1722, !noundef !5
   %43 = or i64 %.val.i.i4.i, 1
   %44 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %43, i1 true)
@@ -7431,7 +7431,7 @@ _ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit7.i: ; pre
 .preheader.i8.i:                                  ; preds = %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit7.i, %.preheader.i8.i
   %.sroa.07.0.i.i9.i = phi i64 [ %72, %.preheader.i8.i ], [ 0, %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit7.i ]
   %.sroa.09.0.i.i10.i = phi i64 [ %73, %.preheader.i8.i ], [ 0, %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit7.i ]
-  %65 = getelementptr inbounds i64, ptr %61, i64 %.sroa.09.0.i.i10.i
+  %65 = getelementptr inbounds [8 x i8], ptr %61, i64 %.sroa.09.0.i.i10.i
   %.val.i.i11.i = load i64, ptr %65, align 8, !alias.scope !1731, !noalias !1722, !noundef !5
   %66 = or i64 %.val.i.i11.i, 1
   %67 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %66, i1 true)
@@ -7467,7 +7467,7 @@ _ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit14.i: ; pr
 .preheader.i15.i:                                 ; preds = %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit14.i, %.preheader.i15.i
   %.sroa.07.0.i.i16.i = phi i64 [ %95, %.preheader.i15.i ], [ 0, %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit14.i ]
   %.sroa.09.0.i.i17.i = phi i64 [ %96, %.preheader.i15.i ], [ 0, %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit14.i ]
-  %88 = getelementptr inbounds i64, ptr %84, i64 %.sroa.09.0.i.i17.i
+  %88 = getelementptr inbounds [8 x i8], ptr %84, i64 %.sroa.09.0.i.i17.i
   %.val.i.i18.i = load i64, ptr %88, align 8, !alias.scope !1734, !noalias !1722, !noundef !5
   %89 = or i64 %.val.i.i18.i, 1
   %90 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %89, i1 true)
@@ -7800,7 +7800,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h0c
   %93 = load ptr, ptr %92, align 8, !alias.scope !1749, !nonnull !5, !noundef !5
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %95 = load i64, ptr %94, align 8, !alias.scope !1749, !noundef !5
-  %96 = getelementptr inbounds { i32, i32 }, ptr %93, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %93, i64 %95
   %97 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %93, ptr noundef nonnull readonly %96, i64 noundef 0), !noalias !1749
   %98 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %99 = add nuw nsw i64 %98, %.sroa.02.0.i.i
@@ -7866,7 +7866,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h0c
   %27 = load ptr, ptr %26, align 8, !alias.scope !1768, !nonnull !5, !noundef !5
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8, !alias.scope !1768, !noundef !5
-  %30 = getelementptr inbounds { i32, i32 }, ptr %27, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   %31 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %27, ptr noundef nonnull readonly %30, i64 noundef 0), !noalias !1768
   %32 = load i64, ptr %0, align 8, !range !62, !alias.scope !1768, !noundef !5
   %trunc.i = trunc nuw i64 %32 to i1
@@ -8048,13 +8048,13 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h0e
   %3 = load ptr, ptr %2, align 8, !alias.scope !1789, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1789, !noundef !5
-  %6 = getelementptr inbounds { { i64, [4 x i64] }, { i64, [4 x i64] }, { { i64, ptr, {} }, i64 }, i64 }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [112 x i8], ptr %3, i64 %5
   %7 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h55901ef1a37f9e1cE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %3, ptr noundef nonnull readonly %6, i64 noundef 0), !noalias !1789
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !alias.scope !1789, !nonnull !5, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8, !alias.scope !1789, !noundef !5
-  %12 = getelementptr inbounds { i32, i32 }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %9, i64 %11
   %13 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %9, ptr noundef nonnull readonly %12, i64 noundef 0), !noalias !1789
   %14 = add i64 %7, %5
   %15 = add i64 %14, %11
@@ -8215,19 +8215,19 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h12
   %18 = load ptr, ptr %17, align 8, !alias.scope !1818, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8, !alias.scope !1818, !noundef !5
-  %21 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, { i32, [2 x i32] }, i32, i32, [1 x i32] }, ptr %18, i64 %20
+  %21 = getelementptr inbounds [72 x i8], ptr %18, i64 %20
   %22 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h74ffa97cf1971332E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %18, ptr noundef nonnull readonly %21, i64 noundef 0), !noalias !1818
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8, !alias.scope !1818, !nonnull !5, !noundef !5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !alias.scope !1818, !noundef !5
-  %27 = getelementptr inbounds { { i64, [1 x i64] }, i64, i64 }, ptr %24, i64 %26
+  %27 = getelementptr inbounds [32 x i8], ptr %24, i64 %26
   %28 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h46296bc5490585fcE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %24, ptr noundef nonnull readonly %27, i64 noundef 0), !noalias !1818
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load ptr, ptr %29, align 8, !alias.scope !1818, !nonnull !5, !noundef !5
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %32 = load i64, ptr %31, align 8, !alias.scope !1818, !noundef !5
-  %33 = getelementptr inbounds { i64, { i32, [2 x i32] }, { i32, [2 x i32] } }, ptr %30, i64 %32
+  %33 = getelementptr inbounds [32 x i8], ptr %30, i64 %32
   %34 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h362f52060795862fE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %30, ptr noundef nonnull readonly %33, i64 noundef 0), !noalias !1818
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.val6.i.i.i.i.i = load i64, ptr %35, align 8, !alias.scope !1818, !noundef !5
@@ -8344,7 +8344,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h19
   %6 = load ptr, ptr %5, align 8, !alias.scope !1840, !nonnull !5, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !1840, !noundef !5
-  %9 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [3 x i64] }, { i32, [1 x i32] } }, ptr %6, i64 %8
+  %9 = getelementptr inbounds [88 x i8], ptr %6, i64 %8
   %10 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf5ab6d5a9830b804E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %6, ptr noundef nonnull readonly %9, i64 noundef 0), !noalias !1840
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8, !range !287, !alias.scope !1840, !noundef !5
@@ -8459,7 +8459,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h1a
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h1b13ccb220c90dedE(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64 }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [80 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h597bad50612b016cE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -8837,7 +8837,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h26
 .preheader.i.i:                                   ; preds = %0, %.preheader.i.i
   %.sroa.07.0.i.i.i = phi i64 [ %9, %.preheader.i.i ], [ 0, %0 ]
   %.sroa.09.0.i.i.i = phi i64 [ %10, %.preheader.i.i ], [ 0, %0 ]
-  %2 = getelementptr inbounds i64, ptr %.8.val, i64 %.sroa.09.0.i.i.i
+  %2 = getelementptr inbounds [8 x i8], ptr %.8.val, i64 %.sroa.09.0.i.i.i
   %.val.i.i.i = load i64, ptr %2, align 8, !alias.scope !1882, !noundef !5
   %3 = or i64 %.val.i.i.i, 1
   %4 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %3, i1 true)
@@ -9021,7 +9021,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h26
   %92 = load ptr, ptr %91, align 8, !alias.scope !1885, !nonnull !5, !noundef !5
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %94 = load i64, ptr %93, align 8, !alias.scope !1885, !noundef !5
-  %95 = getelementptr inbounds { i32, i32 }, ptr %92, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %92, i64 %94
   %96 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %92, ptr noundef nonnull readonly %95, i64 noundef 0), !noalias !1885
   %97 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %98 = add nuw nsw i64 %97, %.sroa.02.0.i.i
@@ -9045,13 +9045,13 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h28
   %3 = load ptr, ptr %2, align 8, !alias.scope !1904, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1904, !noundef !5
-  %6 = getelementptr inbounds { { i64, [4 x i64] }, { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [4 x i64] }, { i64, [3 x i64] }, i8, i8, [6 x i8] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [176 x i8], ptr %3, i64 %5
   %7 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he713d0127a7d5243E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %3, ptr noundef nonnull readonly %6, i64 noundef 0), !noalias !1904
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !alias.scope !1904, !nonnull !5, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8, !alias.scope !1904, !noundef !5
-  %12 = getelementptr inbounds { i32, i32 }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %9, i64 %11
   %13 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %9, ptr noundef nonnull readonly %12, i64 noundef 0), !noalias !1904
   %14 = add i64 %7, %5
   %15 = add i64 %14, %11
@@ -9423,7 +9423,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2a
 .preheader.i.i.i.i.i.i:                           ; preds = %40, %.preheader.i.i.i.i.i.i
   %.sroa.07.0.i.i.i.i.i.i.i = phi i64 [ %53, %.preheader.i.i.i.i.i.i ], [ 0, %40 ]
   %.sroa.09.0.i.i.i.i.i.i.i = phi i64 [ %54, %.preheader.i.i.i.i.i.i ], [ 0, %40 ]
-  %46 = getelementptr inbounds i64, ptr %42, i64 %.sroa.09.0.i.i.i.i.i.i.i
+  %46 = getelementptr inbounds [8 x i8], ptr %42, i64 %.sroa.09.0.i.i.i.i.i.i.i
   %.val.i.i.i.i.i.i.i = load i64, ptr %46, align 8, !alias.scope !1957, !noalias !1956, !noundef !5
   %47 = or i64 %.val.i.i.i.i.i.i.i, 1
   %48 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %47, i1 true)
@@ -9577,7 +9577,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2b
 .preheader.i:                                     ; preds = %13, %.preheader.i
   %.sroa.07.0.i.i = phi i64 [ %28, %.preheader.i ], [ 0, %13 ]
   %.sroa.09.0.i.i = phi i64 [ %29, %.preheader.i ], [ 0, %13 ]
-  %19 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %15, i64 %.sroa.09.0.i.i
+  %19 = getelementptr inbounds [24 x i8], ptr %15, i64 %.sroa.09.0.i.i
   %20 = getelementptr i8, ptr %19, i64 16
   %.val.i.i = load i64, ptr %20, align 8, !noalias !1963, !noundef !5
   %21 = or i64 %.val.i.i, 1
@@ -9614,13 +9614,13 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2b
   %3 = load ptr, ptr %2, align 8, !alias.scope !1966, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1966, !noundef !5
-  %6 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, i64, i32, [1 x i32] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [64 x i8], ptr %3, i64 %5
   %7 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd0272e5d8f28ce6aE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %3, ptr noundef nonnull readonly %6, i64 noundef 0), !noalias !1966
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !alias.scope !1966, !nonnull !5, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8, !alias.scope !1966, !noundef !5
-  %12 = getelementptr inbounds { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i64, i64 }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [80 x i8], ptr %9, i64 %11
   %13 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h38542260747971c3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %9, ptr noundef nonnull readonly %12, i64 noundef 0), !noalias !1966
   %14 = add i64 %7, %5
   %15 = add i64 %14, %11
@@ -9668,7 +9668,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2c
   %.val.i.i = load ptr, ptr %17, align 8, !alias.scope !1975, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val5.i.i = load i64, ptr %18, align 8, !alias.scope !1975, !noundef !5
-  %19 = getelementptr inbounds { { i64, [17 x i64] } }, ptr %.val.i.i, i64 %.val5.i.i
+  %19 = getelementptr inbounds [144 x i8], ptr %.val.i.i, i64 %.val5.i.i
   %20 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3e06b8ec7221a0cbE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.val.i.i, ptr noundef nonnull readonly %19, i64 noundef 0), !noalias !1975
   %21 = add i64 %20, %.val5.i.i
   %22 = or i64 %21, 1
@@ -9744,7 +9744,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2c
 .preheader.i.i:                                   ; preds = %26, %.preheader.i.i
   %.sroa.07.0.i.i.i = phi i64 [ %39, %.preheader.i.i ], [ 0, %26 ]
   %.sroa.09.0.i.i.i = phi i64 [ %40, %.preheader.i.i ], [ 0, %26 ]
-  %32 = getelementptr inbounds i64, ptr %28, i64 %.sroa.09.0.i.i.i
+  %32 = getelementptr inbounds [8 x i8], ptr %28, i64 %.sroa.09.0.i.i.i
   %.val.i.i.i = load i64, ptr %32, align 8, !alias.scope !1979, !noalias !1976, !noundef !5
   %33 = or i64 %.val.i.i.i, 1
   %34 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %33, i1 true)
@@ -9860,7 +9860,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2d
   %26 = load ptr, ptr %25, align 8, !alias.scope !1982, !nonnull !5, !noundef !5
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i64, ptr %27, align 8, !alias.scope !1982, !noundef !5
-  %29 = getelementptr inbounds { { i64, [9 x i64] } }, ptr %26, i64 %28
+  %29 = getelementptr inbounds [80 x i8], ptr %26, i64 %28
   %30 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6fa7007578a87c78E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %26, ptr noundef nonnull readonly %29, i64 noundef 0), !noalias !1982
   %31 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %32 = add i64 %31, %28
@@ -10159,7 +10159,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2f
   %170 = load ptr, ptr %169, align 8, !alias.scope !2006, !nonnull !5, !noundef !5
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %172 = load i64, ptr %171, align 8, !alias.scope !2006, !noundef !5
-  %173 = getelementptr inbounds { i32, i32 }, ptr %170, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %170, i64 %172
   %174 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %170, ptr noundef nonnull readonly %173, i64 noundef 0), !noalias !2006
   %trunc.i.i.i.i.i.i = trunc nuw i64 %39 to i1
   br i1 %trunc.i.i.i.i.i.i, label %175, label %_ZN5prost8encoding7message11encoded_len17had5e00185b1b79b1E.exit.i.i.i.i
@@ -10238,7 +10238,7 @@ _ZN5prost8encoding7message11encoded_len17h8167714ba61b7579E.exit.i.i.i.i: ; pred
   %218 = load ptr, ptr %217, align 8, !alias.scope !2034, !nonnull !5, !noundef !5
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %220 = load i64, ptr %219, align 8, !alias.scope !2034, !noundef !5
-  %221 = getelementptr inbounds { { i64, [9 x i64] } }, ptr %218, i64 %220
+  %221 = getelementptr inbounds [80 x i8], ptr %218, i64 %220
   %222 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6fa7007578a87c78E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %218, ptr noundef nonnull readonly %221, i64 noundef 0), !noalias !2034
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %224 = load i8, ptr %223, align 8, !range !41, !alias.scope !2034, !noundef !5
@@ -10319,13 +10319,13 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h30
   %3 = load ptr, ptr %2, align 8, !alias.scope !2035, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !2035, !noundef !5
-  %6 = getelementptr inbounds { { i64, [4 x i64] }, { i64, [4 x i64] } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [80 x i8], ptr %3, i64 %5
   %7 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h79f4d30f5ad67251E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %3, ptr noundef nonnull readonly %6, i64 noundef 0), !noalias !2035
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !alias.scope !2035, !nonnull !5, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8, !alias.scope !2035, !noundef !5
-  %12 = getelementptr inbounds { i32, i32 }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %9, i64 %11
   %13 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %9, ptr noundef nonnull readonly %12, i64 noundef 0), !noalias !2035
   %14 = add i64 %7, %5
   %15 = add i64 %14, %11
@@ -10419,7 +10419,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h30
   %40 = load ptr, ptr %39, align 8, !alias.scope !2038, !nonnull !5, !noundef !5
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %42 = load i64, ptr %41, align 8, !alias.scope !2038, !noundef !5
-  %43 = getelementptr inbounds { { i64, [33 x i64] }, { i32, [1 x i32] }, { [2 x i32], i32, [3 x i32] }, { i32, [2 x i32] }, [1 x i32] }, ptr %40, i64 %42
+  %43 = getelementptr inbounds [320 x i8], ptr %40, i64 %42
   %44 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h972233e2b7fe1bd8E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %40, ptr noundef nonnull readonly %43, i64 noundef 0), !noalias !2038
   %45 = load i64, ptr %0, align 8, !range !2053, !alias.scope !2038, !noundef !5
   %46 = icmp eq i64 %45, 8
@@ -10447,7 +10447,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h30
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h329119c50e7aa680E(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { i64, [10 x i64] }, { i64, [10 x i64] } }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [176 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h56b3aae4ebce24c9E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -10468,19 +10468,19 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h33
   %3 = load ptr, ptr %2, align 8, !alias.scope !2054, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !2054, !noundef !5
-  %6 = getelementptr inbounds { i64, i64 }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %3, i64 %5
   %7 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf9bb5061f50214c0E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %3, ptr noundef nonnull readonly %6, i64 noundef 0), !noalias !2054
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !alias.scope !2054, !nonnull !5, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8, !alias.scope !2054, !noundef !5
-  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, i64 }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [40 x i8], ptr %9, i64 %11
   %13 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2fa8bc7074b78b91E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %9, ptr noundef nonnull readonly %12, i64 noundef 0), !noalias !2054
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8, !alias.scope !2054, !nonnull !5, !noundef !5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load i64, ptr %16, align 8, !alias.scope !2054, !noundef !5
-  %18 = getelementptr inbounds { i64, i32, [1 x i32] }, ptr %15, i64 %17
+  %18 = getelementptr inbounds [16 x i8], ptr %15, i64 %17
   %19 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbc53aec0c17cf131E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %15, ptr noundef nonnull readonly %18, i64 noundef 0), !noalias !2054
   %20 = add i64 %7, %5
   %21 = add i64 %20, %11
@@ -10539,7 +10539,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h38
   %27 = load ptr, ptr %26, align 8, !alias.scope !2057, !nonnull !5, !noundef !5
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %29 = load i64, ptr %28, align 8, !alias.scope !2057, !noundef !5
-  %30 = getelementptr inbounds { i32, i32 }, ptr %27, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   %31 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %27, ptr noundef nonnull readonly %30, i64 noundef 0), !noalias !2057
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %33 = load i8, ptr %32, align 8, !range !41, !alias.scope !2057, !noundef !5
@@ -10596,7 +10596,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h38
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h39782f2416fff7ebE(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [48 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0e76320cb7c9ad5fE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -10813,13 +10813,13 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h3a
   %31 = load ptr, ptr %30, align 8, !alias.scope !2088, !nonnull !5, !noundef !5
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i64, ptr %32, align 8, !alias.scope !2088, !noundef !5
-  %34 = getelementptr inbounds { i32, i32 }, ptr %31, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %31, i64 %33
   %35 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1dbfe30d2f73a30aE.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %31, ptr noundef nonnull readonly %34, i64 noundef 0), !noalias !2088
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8, !alias.scope !2088, !nonnull !5, !noundef !5
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load i64, ptr %38, align 8, !alias.scope !2088, !noundef !5
-  %40 = getelementptr inbounds { i32, i32 }, ptr %37, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %37, i64 %39
   %41 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %37, ptr noundef nonnull readonly %40, i64 noundef 0), !noalias !2088
   %42 = add i64 %33, %.sroa.02.0.i.i.i.i.i.i
   %43 = add i64 %42, %35
@@ -10872,7 +10872,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h3c
   %14 = load ptr, ptr %13, align 8, !alias.scope !2092, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !2092, !noundef !5
-  %17 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [72 x i8], ptr %14, i64 %16
   %18 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8bf14dfbe36c4a2aE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %14, ptr noundef nonnull readonly %17, i64 noundef 0), !noalias !2092
   %19 = add i64 %16, %.sroa.0.0.i
   %20 = add i64 %19, %18
@@ -11324,7 +11324,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h3d
   %137 = load ptr, ptr %136, align 8, !alias.scope !2116, !nonnull !5, !noundef !5
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %139 = load i64, ptr %138, align 8, !alias.scope !2116, !noundef !5
-  %140 = getelementptr inbounds { i32, i32 }, ptr %137, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr %137, i64 %139
   %141 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %137, ptr noundef nonnull readonly %140, i64 noundef 0), !noalias !2116
   %142 = add nuw nsw i64 %.sroa.02.0.i.i, %spec.select.i
   %143 = add nuw nsw i64 %142, %.sroa.02.0.i12.i
@@ -11401,13 +11401,13 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h41
   %14 = load ptr, ptr %13, align 8, !alias.scope !2151, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !2151, !noundef !5
-  %17 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr %14, i64 %16
   %18 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9fee3645f5d063ffE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %14, ptr noundef nonnull readonly %17, i64 noundef 0), !noalias !2151
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8, !alias.scope !2151, !nonnull !5, !noundef !5
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i64, ptr %21, align 8, !alias.scope !2151, !noundef !5
-  %23 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %20, i64 %22
+  %23 = getelementptr inbounds [32 x i8], ptr %20, i64 %22
   %24 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h320d5bd1b53c8fdfE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %20, ptr noundef nonnull readonly %23, i64 noundef 0), !noalias !2151
   %25 = add i64 %16, %.sroa.0.0.i
   %26 = add i64 %25, %18
@@ -11745,7 +11745,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h48
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4a5a8326fb98b942E(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i64 }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [56 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h36f56c83685dd72aE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -11842,7 +11842,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4b
 .preheader.i.i.i.i.i.i:                           ; preds = %4, %.preheader.i.i.i.i.i.i
   %.sroa.07.0.i.i.i.i.i.i.i = phi i64 [ %17, %.preheader.i.i.i.i.i.i ], [ 0, %4 ]
   %.sroa.09.0.i.i.i.i.i.i.i = phi i64 [ %18, %.preheader.i.i.i.i.i.i ], [ 0, %4 ]
-  %10 = getelementptr inbounds i64, ptr %6, i64 %.sroa.09.0.i.i.i.i.i.i.i
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %.sroa.09.0.i.i.i.i.i.i.i
   %.val.i.i.i.i.i.i.i = load i64, ptr %10, align 8, !alias.scope !2217, !noalias !2216, !noundef !5
   %11 = or i64 %.val.i.i.i.i.i.i.i, 1
   %12 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %11, i1 true)
@@ -11872,7 +11872,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4b
   %29 = load ptr, ptr %28, align 8, !alias.scope !2216, !nonnull !5, !noundef !5
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8, !alias.scope !2216, !noundef !5
-  %32 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i32, [2 x i32] }, [1 x i32] }, ptr %29, i64 %31
+  %32 = getelementptr inbounds [64 x i8], ptr %29, i64 %31
   %33 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8e129afdd3aab0b3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %29, ptr noundef nonnull readonly %32, i64 noundef 0), !noalias !2216
   %34 = add i64 %31, %.sroa.0.0.i.i.i.i.i.i
   %35 = add i64 %34, %33
@@ -12124,7 +12124,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4c
   %102 = load ptr, ptr %101, align 8, !alias.scope !2223, !nonnull !5, !noundef !5
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %104 = load i64, ptr %103, align 8, !alias.scope !2223, !noundef !5
-  %105 = getelementptr inbounds { i32, i32 }, ptr %102, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %102, i64 %104
   %106 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %102, ptr noundef nonnull readonly %105, i64 noundef 0), !noalias !2223
   %107 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %108 = add nuw nsw i64 %107, %.sroa.02.0.i.i
@@ -12144,7 +12144,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4c
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4d6cf4f7d8a8a127E(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { i64, [10 x i64] }, { i64, [10 x i64] } }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [176 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h56b3aae4ebce24c9E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -12205,7 +12205,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h4d
 .preheader.i.i:                                   ; preds = %25, %.preheader.i.i
   %.sroa.07.0.i.i.i = phi i64 [ %38, %.preheader.i.i ], [ 0, %25 ]
   %.sroa.09.0.i.i.i = phi i64 [ %39, %.preheader.i.i ], [ 0, %25 ]
-  %31 = getelementptr inbounds i64, ptr %27, i64 %.sroa.09.0.i.i.i
+  %31 = getelementptr inbounds [8 x i8], ptr %27, i64 %.sroa.09.0.i.i.i
   %.val.i.i.i = load i64, ptr %31, align 8, !alias.scope !2245, !noalias !2242, !noundef !5
   %32 = or i64 %.val.i.i.i, 1
   %33 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %32, i1 true)
@@ -12268,7 +12268,7 @@ _ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i: ; pred
 .preheader.i.i.i.i.i:                             ; preds = %64, %.preheader.i.i.i.i.i
   %.sroa.07.0.i.i.i.i.i.i = phi i64 [ %79, %.preheader.i.i.i.i.i ], [ 0, %64 ]
   %.sroa.09.0.i.i.i.i.i.i = phi i64 [ %80, %.preheader.i.i.i.i.i ], [ 0, %64 ]
-  %70 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %66, i64 %.sroa.09.0.i.i.i.i.i.i
+  %70 = getelementptr inbounds [24 x i8], ptr %66, i64 %.sroa.09.0.i.i.i.i.i.i
   %71 = getelementptr i8, ptr %70, i64 16
   %.val.i.i.i.i.i.i = load i64, ptr %71, align 8, !noalias !2260, !noundef !5
   %72 = or i64 %.val.i.i.i.i.i.i, 1
@@ -12433,7 +12433,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h53
 .preheader.i.i.i.i.i:                             ; preds = %48, %.preheader.i.i.i.i.i
   %.sroa.07.0.i.i.i.i.i.i = phi i64 [ %63, %.preheader.i.i.i.i.i ], [ 0, %48 ]
   %.sroa.09.0.i.i.i.i.i.i = phi i64 [ %64, %.preheader.i.i.i.i.i ], [ 0, %48 ]
-  %54 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %50, i64 %.sroa.09.0.i.i.i.i.i.i
+  %54 = getelementptr inbounds [24 x i8], ptr %50, i64 %.sroa.09.0.i.i.i.i.i.i
   %55 = getelementptr i8, ptr %54, i64 16
   %.val.i13.i.i.i.i.i = load i64, ptr %55, align 8, !noalias !2276, !noundef !5
   %56 = or i64 %.val.i13.i.i.i.i.i, 1
@@ -12562,13 +12562,13 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h57
   %3 = load ptr, ptr %2, align 8, !alias.scope !2283, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !2283, !noundef !5
-  %6 = getelementptr inbounds { { i64, [4 x i64] }, { i64, [4 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i64 }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [136 x i8], ptr %3, i64 %5
   %7 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h04fcf272de9e5021E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %3, ptr noundef nonnull readonly %6, i64 noundef 0), !noalias !2283
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !alias.scope !2283, !nonnull !5, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8, !alias.scope !2283, !noundef !5
-  %12 = getelementptr inbounds { i32, i32 }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %9, i64 %11
   %13 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %9, ptr noundef nonnull readonly %12, i64 noundef 0), !noalias !2283
   %14 = add i64 %7, %5
   %15 = add i64 %14, %11
@@ -12593,7 +12593,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h5b
 .preheader.i.i:                                   ; preds = %0, %.preheader.i.i
   %.sroa.07.0.i.i.i = phi i64 [ %9, %.preheader.i.i ], [ 0, %0 ]
   %.sroa.09.0.i.i.i = phi i64 [ %10, %.preheader.i.i ], [ 0, %0 ]
-  %2 = getelementptr inbounds i64, ptr %.8.val, i64 %.sroa.09.0.i.i.i
+  %2 = getelementptr inbounds [8 x i8], ptr %.8.val, i64 %.sroa.09.0.i.i.i
   %.val.i.i.i = load i64, ptr %2, align 8, !alias.scope !2286, !noundef !5
   %3 = or i64 %.val.i.i.i, 1
   %4 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %3, i1 true)
@@ -13229,7 +13229,7 @@ _ZN5prost8encoding7message11encoded_len17h28f028b72043c56fE.exit.i.i.i.i.i.i.i.i
   %186 = load ptr, ptr %185, align 8, !alias.scope !2337, !nonnull !5, !noundef !5
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %188 = load i64, ptr %187, align 8, !alias.scope !2337, !noundef !5
-  %189 = getelementptr inbounds { i32, i32 }, ptr %186, i64 %188
+  %189 = getelementptr inbounds [8 x i8], ptr %186, i64 %188
   %190 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %186, ptr noundef nonnull readonly %189, i64 noundef 0), !noalias !2389
   %191 = add i64 %188, %.sroa.02.0.i.i.i.i.i.i.i.i.i.i.i
   %192 = add i64 %191, %190
@@ -13413,7 +13413,7 @@ _ZN5prost8encoding7message11encoded_len17he0ac2c7e5b20dd7eE.exit.i.i.i.i.i.i.i.i
   %294 = load ptr, ptr %293, align 8, !alias.scope !2396, !nonnull !5, !noundef !5
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %296 = load i64, ptr %295, align 8, !alias.scope !2396, !noundef !5
-  %297 = getelementptr inbounds { i32, i32 }, ptr %294, i64 %296
+  %297 = getelementptr inbounds [8 x i8], ptr %294, i64 %296
   %298 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %294, ptr noundef nonnull readonly %297, i64 noundef 0), !noalias !2400
   %299 = add nuw nsw i64 %.sroa.01.0.i.i.i.i.i.i.i.i.i.i, %.sroa.02.0.i.i.i1.i.i.i.i.i.i.i.i
   %300 = add i64 %299, %.sroa.02.0.i10.i.i.i.i.i.i.i.i.i.i
@@ -13498,7 +13498,7 @@ _ZN5prost8encoding7message11encoded_len17hbdc6c2471fa3570eE.exit.i.i.i.i.i.i.i.i
   %345 = load ptr, ptr %344, align 8, !alias.scope !2413, !nonnull !5, !noundef !5
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %347 = load i64, ptr %346, align 8, !alias.scope !2413, !noundef !5
-  %348 = getelementptr inbounds { i32, i32 }, ptr %345, i64 %347
+  %348 = getelementptr inbounds [8 x i8], ptr %345, i64 %347
   %349 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %345, ptr noundef nonnull readonly %348, i64 noundef 0), !noalias !2417
   %350 = add i64 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i
   %351 = add i64 %350, %.sroa.02.0.i.i.i4.i.i.i.i.i.i.i.i
@@ -13785,13 +13785,13 @@ _ZN5prost8encoding7message11encoded_len17h8aa63f48c7c2cf59E.exit.i.i.i.i.i.i.i.i
   %514 = load ptr, ptr %513, align 8, !alias.scope !2424, !nonnull !5, !noundef !5
   %515 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %516 = load i64, ptr %515, align 8, !alias.scope !2424, !noundef !5
-  %517 = getelementptr inbounds { { i64, [9 x i64] }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %514, i64 %516
+  %517 = getelementptr inbounds [152 x i8], ptr %514, i64 %516
   %518 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h42f91d374f76098aE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %514, ptr noundef nonnull readonly %517, i64 noundef 0), !noalias !2475
   %519 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %520 = load ptr, ptr %519, align 8, !alias.scope !2424, !nonnull !5, !noundef !5
   %521 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %522 = load i64, ptr %521, align 8, !alias.scope !2424, !noundef !5
-  %523 = getelementptr inbounds { i32, i32 }, ptr %520, i64 %522
+  %523 = getelementptr inbounds [8 x i8], ptr %520, i64 %522
   %524 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %520, ptr noundef nonnull readonly %523, i64 noundef 0), !noalias !2475
   %525 = add nuw nsw i64 %.sroa.02.0.i2.i.i.i.i.i.i.i.i.i.i, %.sroa.02.0.i.i.i12.i.i.i.i.i.i.i.i
   %526 = add i64 %525, %516
@@ -13877,13 +13877,13 @@ _ZN5prost8encoding7message11encoded_len17h8aa63f48c7c2cf59E.exit.i.i.i.i.i.i.i.i
   %567 = load ptr, ptr %566, align 8, !alias.scope !2510, !nonnull !5, !noundef !5
   %568 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %569 = load i64, ptr %568, align 8, !alias.scope !2510, !noundef !5
-  %570 = getelementptr inbounds { i32, i32 }, ptr %567, i64 %569
+  %570 = getelementptr inbounds [8 x i8], ptr %567, i64 %569
   %571 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %567, ptr noundef nonnull readonly %570, i64 noundef 0), !noalias !2511
   %572 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %573 = load ptr, ptr %572, align 8, !alias.scope !2510, !nonnull !5, !noundef !5
   %574 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %575 = load i64, ptr %574, align 8, !alias.scope !2510, !noundef !5
-  %576 = getelementptr inbounds { i64, i64 }, ptr %573, i64 %575
+  %576 = getelementptr inbounds [16 x i8], ptr %573, i64 %575
   %577 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he30d9b4bc9fe364dE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %573, ptr noundef nonnull readonly %576, i64 noundef 0), !noalias !2511
   %578 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %579 = load ptr, ptr %578, align 8, !alias.scope !2510, !nonnull !5, !noundef !5
@@ -13895,7 +13895,7 @@ _ZN5prost8encoding7message11encoded_len17h8aa63f48c7c2cf59E.exit.i.i.i.i.i.i.i.i
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %565, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.sroa.07.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %592, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %565 ]
   %.sroa.09.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %593, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %565 ]
-  %583 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %579, i64 %.sroa.09.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %583 = getelementptr inbounds [24 x i8], ptr %579, i64 %.sroa.09.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %584 = getelementptr i8, ptr %583, i64 16
   %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %584, align 8, !noalias !2511, !noundef !5
   %585 = or i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -13964,13 +13964,13 @@ _ZN5prost8encoding7message11encoded_len17hc15f3d45a4c5aec9E.exit.i.i.i.i.i.i.i.i
   %627 = load ptr, ptr %626, align 8, !alias.scope !2518, !nonnull !5, !noundef !5
   %628 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %629 = load i64, ptr %628, align 8, !alias.scope !2518, !noundef !5
-  %630 = getelementptr inbounds { i32, i32 }, ptr %627, i64 %629
+  %630 = getelementptr inbounds [8 x i8], ptr %627, i64 %629
   %631 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %627, ptr noundef nonnull readonly %630, i64 noundef 0), !noalias !2519
   %632 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %633 = load ptr, ptr %632, align 8, !alias.scope !2518, !nonnull !5, !noundef !5
   %634 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %635 = load i64, ptr %634, align 8, !alias.scope !2518, !noundef !5
-  %636 = getelementptr inbounds { i32, i32, i32 }, ptr %633, i64 %635
+  %636 = getelementptr inbounds [12 x i8], ptr %633, i64 %635
   %637 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc282b4f31568d8bcE.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %633, ptr noundef nonnull readonly %636, i64 noundef 0), !noalias !2519
   %638 = add nuw nsw i64 %.sroa.01.0.i.i3.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.sroa.0.0.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %639 = add i64 %638, %629
@@ -14022,7 +14022,7 @@ _ZN5prost8encoding7message11encoded_len17hc15f3d45a4c5aec9E.exit.i.i.i.i.i.i.i.i
   %669 = load ptr, ptr %668, align 8, !alias.scope !2526, !nonnull !5, !noundef !5
   %670 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %671 = load i64, ptr %670, align 8, !alias.scope !2526, !noundef !5
-  %672 = getelementptr inbounds { { i64, [5 x i64] }, { i64, [5 x i64] }, i64, i8, [7 x i8] }, ptr %669, i64 %671
+  %672 = getelementptr inbounds [112 x i8], ptr %669, i64 %671
   %673 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfc99e2736df86de7E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %669, ptr noundef nonnull readonly %672, i64 noundef 0), !noalias !2527
   %674 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %675 = load i8, ptr %674, align 4, !range !41, !alias.scope !2526, !noundef !5
@@ -14114,7 +14114,7 @@ _ZN5prost8encoding7message11encoded_len17h4ecec28af465047bE.exit.i.i.i.i.i.i.i.i
   %731 = load ptr, ptr %730, align 8, !alias.scope !2535, !nonnull !5, !noundef !5
   %732 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %733 = load i64, ptr %732, align 8, !alias.scope !2535, !noundef !5
-  %734 = getelementptr inbounds { { i64, [4 x i64] }, { i64, [4 x i64] }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, i64, i32, i8, i8, i8, i8 }, ptr %731, i64 %733
+  %734 = getelementptr inbounds [192 x i8], ptr %731, i64 %733
   %735 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3f7c4662d392bb9eE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %731, ptr noundef nonnull readonly %734, i64 noundef 0), !noalias !2536
   %736 = add nuw nsw i64 %.sroa.01.0.i.i9.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.sroa.0.0.i.i8.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %737 = add nuw nsw i64 %736, %.sroa.02.0.i.i.i.i.i.i.i.i.i.i.i31.i.i.i.i.i.i.i.i
@@ -14171,7 +14171,7 @@ _ZN5prost8encoding7message11encoded_len17h4ecec28af465047bE.exit.i.i.i.i.i.i.i.i
 .preheader.i.i14.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %764, %.preheader.i.i14.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.sroa.07.0.i.i.i15.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %779, %.preheader.i.i14.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %764 ]
   %.sroa.09.0.i.i.i16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %780, %.preheader.i.i14.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %764 ]
-  %770 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %766, i64 %.sroa.09.0.i.i.i16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %770 = getelementptr inbounds [24 x i8], ptr %766, i64 %.sroa.09.0.i.i.i16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %771 = getelementptr i8, ptr %770, i64 16
   %.val.i.i.i17.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %771, align 8, !noalias !2544, !noundef !5
   %772 = or i64 %.val.i.i.i17.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -14278,7 +14278,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h66
 .preheader.i.i.i.i.i.i:                           ; preds = %4, %.preheader.i.i.i.i.i.i
   %.sroa.07.0.i.i.i.i.i.i.i = phi i64 [ %17, %.preheader.i.i.i.i.i.i ], [ 0, %4 ]
   %.sroa.09.0.i.i.i.i.i.i.i = phi i64 [ %18, %.preheader.i.i.i.i.i.i ], [ 0, %4 ]
-  %10 = getelementptr inbounds i64, ptr %6, i64 %.sroa.09.0.i.i.i.i.i.i.i
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %.sroa.09.0.i.i.i.i.i.i.i
   %.val.i.i.i.i.i.i.i = load i64, ptr %10, align 8, !alias.scope !2561, !noalias !2560, !noundef !5
   %11 = or i64 %.val.i.i.i.i.i.i.i, 1
   %12 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %11, i1 true)
@@ -14308,7 +14308,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h66
   %29 = load ptr, ptr %28, align 8, !alias.scope !2560, !nonnull !5, !noundef !5
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8, !alias.scope !2560, !noundef !5
-  %32 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i32, [2 x i32] }, [1 x i32] }, ptr %29, i64 %31
+  %32 = getelementptr inbounds [64 x i8], ptr %29, i64 %31
   %33 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8e129afdd3aab0b3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %29, ptr noundef nonnull readonly %32, i64 noundef 0), !noalias !2560
   %34 = add i64 %31, %.sroa.0.0.i.i.i.i.i.i
   %35 = add i64 %34, %33
@@ -14337,7 +14337,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h66
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h692d3396f878edeaE(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64 }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [80 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h76e499fe87c97407E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -14414,13 +14414,13 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h69
   %31 = load ptr, ptr %30, align 8, !alias.scope !2579, !nonnull !5, !noundef !5
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i64, ptr %32, align 8, !alias.scope !2579, !noundef !5
-  %34 = getelementptr inbounds { i32, i32 }, ptr %31, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %31, i64 %33
   %35 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1dbfe30d2f73a30aE.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %31, ptr noundef nonnull readonly %34, i64 noundef 0), !noalias !2579
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8, !alias.scope !2579, !nonnull !5, !noundef !5
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load i64, ptr %38, align 8, !alias.scope !2579, !noundef !5
-  %40 = getelementptr inbounds { i32, i32 }, ptr %37, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %37, i64 %39
   %41 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %37, ptr noundef nonnull readonly %40, i64 noundef 0), !noalias !2579
   %42 = add i64 %33, %.sroa.02.0.i.i.i.i.i.i
   %43 = add i64 %42, %35
@@ -14685,7 +14685,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h6c
   %93 = load ptr, ptr %92, align 8, !alias.scope !2586, !nonnull !5, !noundef !5
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %95 = load i64, ptr %94, align 8, !alias.scope !2586, !noundef !5
-  %96 = getelementptr inbounds { i32, i32 }, ptr %93, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %93, i64 %95
   %97 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %93, ptr noundef nonnull readonly %96, i64 noundef 0), !noalias !2586
   %98 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %99 = add nuw nsw i64 %98, %.sroa.02.0.i.i
@@ -14833,7 +14833,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h6f
   %14 = load ptr, ptr %13, align 8, !alias.scope !2611, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !2611, !noundef !5
-  %17 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i64, i8, [7 x i8] }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %14, i64 %16
   %18 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8dc052f5758f54c3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %14, ptr noundef nonnull readonly %17, i64 noundef 0), !noalias !2611
   %19 = add i64 %16, %.sroa.0.0.i
   %20 = add i64 %19, %18
@@ -14951,7 +14951,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h72
   %61 = load ptr, ptr %60, align 8, !alias.scope !2614, !nonnull !5, !noundef !5
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %63 = load i64, ptr %62, align 8, !alias.scope !2614, !noundef !5
-  %64 = getelementptr inbounds { { i64, [2 x i64] }, i64 }, ptr %61, i64 %63
+  %64 = getelementptr inbounds [32 x i8], ptr %61, i64 %63
   %65 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h695ddda39607ba4eE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %61, ptr noundef nonnull readonly %64, i64 noundef 0), !noalias !2614
   %66 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %67 = add nuw nsw i64 %66, %.sroa.02.0.i.i
@@ -15116,7 +15116,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h73
   %92 = load ptr, ptr %91, align 8, !alias.scope !2620, !nonnull !5, !noundef !5
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %94 = load i64, ptr %93, align 8, !alias.scope !2620, !noundef !5
-  %95 = getelementptr inbounds { i32, i32 }, ptr %92, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %92, i64 %94
   %96 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %92, ptr noundef nonnull readonly %95, i64 noundef 0), !noalias !2620
   %97 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %98 = add nuw nsw i64 %97, %.sroa.02.0.i.i
@@ -15135,7 +15135,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h73
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h73dfa8e612f6ecccE(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { i64, [10 x i64] }, { i64, [10 x i64] } }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [176 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h56b3aae4ebce24c9E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -15235,7 +15235,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h73
   %50 = load ptr, ptr %49, align 8, !alias.scope !2639, !nonnull !5, !noundef !5
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = load i64, ptr %51, align 8, !alias.scope !2639, !noundef !5
-  %53 = getelementptr inbounds { { i64, [2 x i64] }, i64 }, ptr %50, i64 %52
+  %53 = getelementptr inbounds [32 x i8], ptr %50, i64 %52
   %54 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h695ddda39607ba4eE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %50, ptr noundef nonnull readonly %53, i64 noundef 0), !noalias !2639
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load i64, ptr %55, align 8, !range !62, !alias.scope !2639, !noundef !5
@@ -15279,7 +15279,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h76
   %3 = load ptr, ptr %2, align 8, !alias.scope !2648, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !2648, !noundef !5
-  %6 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [128 x i8], ptr %3, i64 %5
   %7 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1c7109388c66a13eE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %3, ptr noundef nonnull readonly %6, i64 noundef 0), !noalias !2648
   %8 = add i64 %7, %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15300,7 +15300,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h76
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h768ace3321360454E(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i64, i64 }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [80 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h38542260747971c3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -15368,19 +15368,19 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h78
   %15 = load ptr, ptr %14, align 8, !alias.scope !2651, !nonnull !5, !noundef !5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i64, ptr %16, align 8, !alias.scope !2651, !noundef !5
-  %18 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i64, i8, [7 x i8] }, ptr %15, i64 %17
+  %18 = getelementptr inbounds [64 x i8], ptr %15, i64 %17
   %19 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8dc052f5758f54c3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %15, ptr noundef nonnull readonly %18, i64 noundef 0), !noalias !2651
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8, !alias.scope !2651, !nonnull !5, !noundef !5
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i64, ptr %22, align 8, !alias.scope !2651, !noundef !5
-  %24 = getelementptr inbounds { i64, { i32, [2 x i32] }, i32 }, ptr %21, i64 %23
+  %24 = getelementptr inbounds [24 x i8], ptr %21, i64 %23
   %25 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he822625915a000c2E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %21, ptr noundef nonnull readonly %24, i64 noundef 0), !noalias !2651
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %27 = load ptr, ptr %26, align 8, !alias.scope !2651, !nonnull !5, !noundef !5
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = load i64, ptr %28, align 8, !alias.scope !2651, !noundef !5
-  %30 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i64 }, ptr %27, i64 %29
+  %30 = getelementptr inbounds [32 x i8], ptr %27, i64 %29
   %31 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc2ac12d704fd1a27E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %27, ptr noundef nonnull readonly %30, i64 noundef 0), !noalias !2651
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = load i64, ptr %32, align 8, !alias.scope !2651, !noundef !5
@@ -15497,7 +15497,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h78
   %26 = load ptr, ptr %25, align 8, !alias.scope !2657, !nonnull !5, !noundef !5
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i64, ptr %27, align 8, !alias.scope !2657, !noundef !5
-  %29 = getelementptr inbounds { i32, i32 }, ptr %26, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %26, i64 %28
   %30 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %26, ptr noundef nonnull readonly %29, i64 noundef 0), !noalias !2657
   %31 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %32 = add i64 %31, %28
@@ -15515,7 +15515,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h78
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h7902eb33af6427d5E(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { i64, [4 x i64] }, { i64, [4 x i64] }, i64 }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [88 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc8e6eba3c1778b34E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -15676,7 +15676,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h7a
   %92 = load ptr, ptr %91, align 8, !alias.scope !2660, !nonnull !5, !noundef !5
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %94 = load i64, ptr %93, align 8, !alias.scope !2660, !noundef !5
-  %95 = getelementptr inbounds { i32, i32 }, ptr %92, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %92, i64 %94
   %96 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %92, ptr noundef nonnull readonly %95, i64 noundef 0), !noalias !2660
   %97 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %98 = add nuw nsw i64 %97, %.sroa.02.0.i.i
@@ -15784,7 +15784,7 @@ define internal fastcc noundef range(i64 3, 40) i64 @_ZN5prost8encoding7message1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h7d879994c3bda7dfE(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [32 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h320d5bd1b53c8fdfE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -15918,7 +15918,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h7e
   %74 = load ptr, ptr %73, align 8, !alias.scope !2688, !nonnull !5, !noundef !5
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %76 = load i64, ptr %75, align 8, !alias.scope !2688, !noundef !5
-  %77 = getelementptr inbounds { { i64, [2 x i64] }, i64 }, ptr %74, i64 %76
+  %77 = getelementptr inbounds [32 x i8], ptr %74, i64 %76
   %78 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h695ddda39607ba4eE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %74, ptr noundef nonnull readonly %77, i64 noundef 0), !noalias !2688
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %80 = load i64, ptr %79, align 8, !range !62, !alias.scope !2688, !noundef !5
@@ -15979,7 +15979,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h7e
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h802f9b31ef6ace65E(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { i64, [28 x i64] }, { i64, [6 x i64] } }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [288 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5361babad54aa82cE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -16043,7 +16043,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h81
 .preheader.i:                                     ; preds = %25, %.preheader.i
   %.sroa.07.0.i.i = phi i64 [ %40, %.preheader.i ], [ 0, %25 ]
   %.sroa.09.0.i.i = phi i64 [ %41, %.preheader.i ], [ 0, %25 ]
-  %31 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %27, i64 %.sroa.09.0.i.i
+  %31 = getelementptr inbounds [24 x i8], ptr %27, i64 %.sroa.09.0.i.i
   %32 = getelementptr i8, ptr %31, i64 16
   %.val.i.i = load i64, ptr %32, align 8, !noalias !2700, !noundef !5
   %33 = or i64 %.val.i.i, 1
@@ -16098,7 +16098,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h86
   %15 = load ptr, ptr %14, align 8, !alias.scope !2704, !nonnull !5, !noundef !5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i64, ptr %16, align 8, !alias.scope !2704, !noundef !5
-  %18 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i64, i8, [7 x i8] }, ptr %15, i64 %17
+  %18 = getelementptr inbounds [64 x i8], ptr %15, i64 %17
   %19 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8dc052f5758f54c3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %15, ptr noundef nonnull readonly %18, i64 noundef 0), !noalias !2704
   %20 = load i64, ptr %0, align 8, !range !62, !alias.scope !2704, !noundef !5
   %trunc.i = trunc nuw i64 %20 to i1
@@ -16574,7 +16574,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h8e
   %92 = load ptr, ptr %91, align 8, !alias.scope !2728, !nonnull !5, !noundef !5
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %94 = load i64, ptr %93, align 8, !alias.scope !2728, !noundef !5
-  %95 = getelementptr inbounds { i32, i32 }, ptr %92, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %92, i64 %94
   %96 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %92, ptr noundef nonnull readonly %95, i64 noundef 0), !noalias !2728
   %97 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %98 = add nuw nsw i64 %97, %.sroa.02.0.i.i
@@ -16829,7 +16829,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h91
 .preheader.i.i.i.i.i.i:                           ; preds = %41, %.preheader.i.i.i.i.i.i
   %.sroa.07.0.i.i.i.i.i.i.i = phi i64 [ %54, %.preheader.i.i.i.i.i.i ], [ 0, %41 ]
   %.sroa.09.0.i.i.i.i.i.i.i = phi i64 [ %55, %.preheader.i.i.i.i.i.i ], [ 0, %41 ]
-  %47 = getelementptr inbounds i64, ptr %43, i64 %.sroa.09.0.i.i.i.i.i.i.i
+  %47 = getelementptr inbounds [8 x i8], ptr %43, i64 %.sroa.09.0.i.i.i.i.i.i.i
   %.val.i.i.i.i.i.i.i = load i64, ptr %47, align 8, !alias.scope !2775, !noalias !2774, !noundef !5
   %48 = or i64 %.val.i.i.i.i.i.i.i, 1
   %49 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %48, i1 true)
@@ -16902,7 +16902,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h91
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9172c3cd4f3106dbE(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [48 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0e76320cb7c9ad5fE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -17290,7 +17290,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h92
   %134 = load ptr, ptr %133, align 8, !alias.scope !2803, !nonnull !5, !noundef !5
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %136 = load i64, ptr %135, align 8, !alias.scope !2803, !noundef !5
-  %137 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, i8, [7 x i8] }, ptr %134, i64 %136
+  %137 = getelementptr inbounds [56 x i8], ptr %134, i64 %136
   %138 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hdec1b03cc31290caE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %134, ptr noundef nonnull readonly %137, i64 noundef 0), !noalias !2803
   %139 = add nuw nsw i64 %.sroa.02.0.i11.i, %.sroa.02.0.i.i
   %140 = add i64 %139, %136
@@ -17339,7 +17339,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h98
 .preheader.i:                                     ; preds = %12, %.preheader.i
   %.sroa.07.0.i.i = phi i64 [ %29, %.preheader.i ], [ 0, %12 ]
   %.sroa.09.0.i.i = phi i64 [ %30, %.preheader.i ], [ 0, %12 ]
-  %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %16, i64 %.sroa.09.0.i.i
+  %20 = getelementptr inbounds [24 x i8], ptr %16, i64 %.sroa.09.0.i.i
   %21 = getelementptr i8, ptr %20, i64 16
   %.val.i.i = load i64, ptr %21, align 8, !noalias !2838, !noundef !5
   %22 = or i64 %.val.i.i, 1
@@ -17393,7 +17393,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h98
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9932526ff433f6dbE(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [32 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h390a92ca5b9609f9E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -17431,7 +17431,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9a
   %14 = load ptr, ptr %13, align 8, !alias.scope !2844, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !2844, !noundef !5
-  %17 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i64, i8, [7 x i8] }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [64 x i8], ptr %14, i64 %16
   %18 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8dc052f5758f54c3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %14, ptr noundef nonnull readonly %17, i64 noundef 0), !noalias !2844
   %19 = add i64 %16, %.sroa.0.0.i
   %20 = add i64 %19, %18
@@ -17506,13 +17506,13 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9a
   %38 = load ptr, ptr %37, align 8, !alias.scope !2847, !nonnull !5, !noundef !5
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load i64, ptr %39, align 8, !alias.scope !2847, !noundef !5
-  %41 = getelementptr inbounds { { i64, [9 x i64] } }, ptr %38, i64 %40
+  %41 = getelementptr inbounds [80 x i8], ptr %38, i64 %40
   %42 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6fa7007578a87c78E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %38, ptr noundef nonnull readonly %41, i64 noundef 0), !noalias !2847
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = load ptr, ptr %43, align 8, !alias.scope !2847, !nonnull !5, !noundef !5
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load i64, ptr %45, align 8, !alias.scope !2847, !noundef !5
-  %47 = getelementptr inbounds { i64, { i32, [2 x i32] }, i32 }, ptr %44, i64 %46
+  %47 = getelementptr inbounds [24 x i8], ptr %44, i64 %46
   %48 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he822625915a000c2E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %44, ptr noundef nonnull readonly %47, i64 noundef 0), !noalias !2847
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %50 = load i64, ptr %49, align 8, !alias.scope !2847, !noundef !5
@@ -17698,7 +17698,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h9e
   %26 = load ptr, ptr %25, align 8, !alias.scope !2856, !nonnull !5, !noundef !5
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i64, ptr %27, align 8, !alias.scope !2856, !noundef !5
-  %29 = getelementptr inbounds { i32, i32 }, ptr %26, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %26, i64 %28
   %30 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %26, ptr noundef nonnull readonly %29, i64 noundef 0), !noalias !2856
   %31 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %32 = add i64 %31, %28
@@ -17985,7 +17985,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17ha3
   %14 = load ptr, ptr %13, align 8, !alias.scope !2897, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !2897, !noundef !5
-  %17 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr %14, i64 %16
   %18 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb4b04da069e3fd2bE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %14, ptr noundef nonnull readonly %17, i64 noundef 0), !noalias !2897
   %19 = add i64 %16, %.sroa.0.0.i
   %20 = add i64 %19, %18
@@ -18343,7 +18343,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17ha5
   %14 = load ptr, ptr %13, align 8, !alias.scope !2918, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !2918, !noundef !5
-  %17 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [48 x i8], ptr %14, i64 %16
   %18 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcbe6ba2ffb8986f4E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %14, ptr noundef nonnull readonly %17, i64 noundef 0), !noalias !2918
   %19 = add i64 %16, %.sroa.0.0.i
   %20 = add i64 %19, %18
@@ -18851,7 +18851,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hae
   %14 = load ptr, ptr %13, align 8, !alias.scope !2972, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !2972, !noundef !5
-  %17 = getelementptr inbounds { i64, { i32, [2 x i32] }, i32 }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [24 x i8], ptr %14, i64 %16
   %18 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he822625915a000c2E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %14, ptr noundef nonnull readonly %17, i64 noundef 0), !noalias !2972
   %19 = add i64 %16, %.sroa.0.0.i
   %20 = add i64 %19, %18
@@ -19133,7 +19133,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb5
 .preheader.i.i:                                   ; preds = %0, %.preheader.i.i
   %.sroa.07.0.i.i.i = phi i64 [ %9, %.preheader.i.i ], [ 0, %0 ]
   %.sroa.09.0.i.i.i = phi i64 [ %10, %.preheader.i.i ], [ 0, %0 ]
-  %2 = getelementptr inbounds i64, ptr %.8.val, i64 %.sroa.09.0.i.i.i
+  %2 = getelementptr inbounds [8 x i8], ptr %.8.val, i64 %.sroa.09.0.i.i.i
   %.val.i.i.i = load i64, ptr %2, align 8, !alias.scope !2999, !noundef !5
   %3 = or i64 %.val.i.i.i, 1
   %4 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %3, i1 true)
@@ -19200,7 +19200,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb7
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.i
   %.sroa.07.0.i.i.i = phi i64 [ %26, %.preheader.i.i ], [ 0, %13 ]
   %.sroa.09.0.i.i.i = phi i64 [ %27, %.preheader.i.i ], [ 0, %13 ]
-  %19 = getelementptr inbounds i64, ptr %15, i64 %.sroa.09.0.i.i.i
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %.sroa.09.0.i.i.i
   %.val.i.i.i = load i64, ptr %19, align 8, !alias.scope !3005, !noalias !3002, !noundef !5
   %20 = or i64 %.val.i.i.i, 1
   %21 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %20, i1 true)
@@ -19267,13 +19267,13 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb8
   %18 = load ptr, ptr %17, align 8, !alias.scope !3008, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %20 = load i64, ptr %19, align 8, !alias.scope !3008, !noundef !5
-  %21 = getelementptr inbounds { { i64, [4 x i64] }, { i64, [4 x i64] }, { i64, [4 x i64] }, { i64, [4 x i64] }, i64, i64 }, ptr %18, i64 %20
+  %21 = getelementptr inbounds [176 x i8], ptr %18, i64 %20
   %22 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h14d7ca1163010c7dE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %18, ptr noundef nonnull readonly %21, i64 noundef 0), !noalias !3008
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %24 = load ptr, ptr %23, align 8, !alias.scope !3008, !nonnull !5, !noundef !5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %26 = load i64, ptr %25, align 8, !alias.scope !3008, !noundef !5
-  %27 = getelementptr inbounds { { i64, [5 x i64] }, { i64, [5 x i64] }, i64, i8, [7 x i8] }, ptr %24, i64 %26
+  %27 = getelementptr inbounds [112 x i8], ptr %24, i64 %26
   %28 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfc99e2736df86de7E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %24, ptr noundef nonnull readonly %27, i64 noundef 0), !noalias !3008
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load i64, ptr %29, align 8, !range !1799, !alias.scope !3008, !noundef !5
@@ -19384,7 +19384,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hbb
   %3 = load ptr, ptr %2, align 8, !alias.scope !3023, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !3023, !noundef !5
-  %6 = getelementptr inbounds { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i64, i64, i8, i8, [6 x i8] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [88 x i8], ptr %3, i64 %5
   %7 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6ca20f2c5ac757eeE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %3, ptr noundef nonnull readonly %6, i64 noundef 0), !noalias !3023
   %8 = add i64 %7, %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -19462,7 +19462,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hbc
   %38 = load ptr, ptr %37, align 8, !alias.scope !3026, !nonnull !5, !noundef !5
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = load i64, ptr %39, align 8, !alias.scope !3026, !noundef !5
-  %41 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, i64, i64, i8, i8, i8, i8, i8, [3 x i8] }, ptr %38, i64 %40
+  %41 = getelementptr inbounds [96 x i8], ptr %38, i64 %40
   %42 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9a711175957f1063E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %38, ptr noundef nonnull readonly %41, i64 noundef 0), !noalias !3026
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = load ptr, ptr %43, align 8, !alias.scope !3026, !nonnull !5, !noundef !5
@@ -19474,7 +19474,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hbc
 .preheader.i.i:                                   ; preds = %36, %.preheader.i.i
   %.sroa.07.0.i.i.i = phi i64 [ %55, %.preheader.i.i ], [ 0, %36 ]
   %.sroa.09.0.i.i.i = phi i64 [ %56, %.preheader.i.i ], [ 0, %36 ]
-  %48 = getelementptr inbounds i64, ptr %44, i64 %.sroa.09.0.i.i.i
+  %48 = getelementptr inbounds [8 x i8], ptr %44, i64 %.sroa.09.0.i.i.i
   %.val.i.i.i = load i64, ptr %48, align 8, !alias.scope !3029, !noalias !3026, !noundef !5
   %49 = or i64 %.val.i.i.i, 1
   %50 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %49, i1 true)
@@ -19504,7 +19504,7 @@ _ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i: ; pred
   %67 = load ptr, ptr %66, align 8, !alias.scope !3026, !nonnull !5, !noundef !5
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %69 = load i64, ptr %68, align 8, !alias.scope !3026, !noundef !5
-  %70 = getelementptr inbounds { { i64, [2 x i64] }, i64 }, ptr %67, i64 %69
+  %70 = getelementptr inbounds [32 x i8], ptr %67, i64 %69
   %71 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbfc1092e80dddbaeE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %67, ptr noundef nonnull readonly %70, i64 noundef 0), !noalias !3026
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %73 = load ptr, ptr %72, align 8, !alias.scope !3026, !nonnull !5, !noundef !5
@@ -19516,7 +19516,7 @@ _ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i: ; pred
 .preheader.i21.i:                                 ; preds = %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i, %.preheader.i21.i
   %.sroa.07.0.i.i22.i = phi i64 [ %84, %.preheader.i21.i ], [ 0, %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i ]
   %.sroa.09.0.i.i23.i = phi i64 [ %85, %.preheader.i21.i ], [ 0, %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i ]
-  %77 = getelementptr inbounds i64, ptr %73, i64 %.sroa.09.0.i.i23.i
+  %77 = getelementptr inbounds [8 x i8], ptr %73, i64 %.sroa.09.0.i.i23.i
   %.val.i.i24.i = load i64, ptr %77, align 8, !alias.scope !3032, !noalias !3026, !noundef !5
   %78 = or i64 %.val.i.i24.i, 1
   %79 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %78, i1 true)
@@ -19768,7 +19768,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hbc
   %102 = load ptr, ptr %101, align 8, !alias.scope !3035, !nonnull !5, !noundef !5
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %104 = load i64, ptr %103, align 8, !alias.scope !3035, !noundef !5
-  %105 = getelementptr inbounds { i32, i32 }, ptr %102, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %102, i64 %104
   %106 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %102, ptr noundef nonnull readonly %105, i64 noundef 0), !noalias !3035
   %107 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %108 = add nuw nsw i64 %107, %.sroa.02.0.i.i
@@ -19943,7 +19943,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hc1
 .preheader.i.i:                                   ; preds = %12, %.preheader.i.i
   %.sroa.07.0.i.i.i = phi i64 [ %27, %.preheader.i.i ], [ 0, %12 ]
   %.sroa.09.0.i.i.i = phi i64 [ %28, %.preheader.i.i ], [ 0, %12 ]
-  %18 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %14, i64 %.sroa.09.0.i.i.i
+  %18 = getelementptr inbounds [24 x i8], ptr %14, i64 %.sroa.09.0.i.i.i
   %19 = getelementptr i8, ptr %18, i64 16
   %.val.i.i.i = load i64, ptr %19, align 8, !alias.scope !3057, !noalias !3054, !noundef !5
   %20 = or i64 %.val.i.i.i, 1
@@ -20227,7 +20227,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hc2
   %158 = load ptr, ptr %157, align 8, !alias.scope !3060, !nonnull !5, !noundef !5
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %160 = load i64, ptr %159, align 8, !alias.scope !3060, !noundef !5
-  %161 = getelementptr inbounds { i32, i32 }, ptr %158, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %158, i64 %160
   %162 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %158, ptr noundef nonnull readonly %161, i64 noundef 0), !noalias !3060
   %163 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %164 = add nuw nsw i64 %163, %.sroa.02.0.i.i
@@ -20367,19 +20367,19 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hc4
   %19 = load ptr, ptr %18, align 8, !alias.scope !3116, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i64, ptr %20, align 8, !alias.scope !3116, !noundef !5
-  %22 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, { i32, [2 x i32] }, i32, i32, [1 x i32] }, ptr %19, i64 %21
+  %22 = getelementptr inbounds [72 x i8], ptr %19, i64 %21
   %23 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h74ffa97cf1971332E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %19, ptr noundef nonnull readonly %22, i64 noundef 0), !noalias !3116
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load ptr, ptr %24, align 8, !alias.scope !3116, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load i64, ptr %26, align 8, !alias.scope !3116, !noundef !5
-  %28 = getelementptr inbounds { { i64, [1 x i64] }, i64, i64 }, ptr %25, i64 %27
+  %28 = getelementptr inbounds [32 x i8], ptr %25, i64 %27
   %29 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h46296bc5490585fcE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %25, ptr noundef nonnull readonly %28, i64 noundef 0), !noalias !3116
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = load ptr, ptr %30, align 8, !alias.scope !3116, !nonnull !5, !noundef !5
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %33 = load i64, ptr %32, align 8, !alias.scope !3116, !noundef !5
-  %34 = getelementptr inbounds { i64, { i32, [2 x i32] }, { i32, [2 x i32] } }, ptr %31, i64 %33
+  %34 = getelementptr inbounds [32 x i8], ptr %31, i64 %33
   %35 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h362f52060795862fE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %31, ptr noundef nonnull readonly %34, i64 noundef 0), !noalias !3116
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.val6.i.i.i.i.i = load i64, ptr %36, align 8, !alias.scope !3116, !noundef !5
@@ -21121,7 +21121,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hcc
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hcf75373f0fdaa31cE(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [72 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8bf14dfbe36c4a2aE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -21137,7 +21137,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hcf
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hcf846bdc86b3e4abE(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { i64, [4 x i64] }, { i64, [4 x i64] }, i32, [1 x i32] }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [88 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb4c148a4957feab5E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -21251,7 +21251,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd3244a490266ef26E(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [32 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb4b04da069e3fd2bE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -21412,7 +21412,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd4
   %92 = load ptr, ptr %91, align 8, !alias.scope !3210, !nonnull !5, !noundef !5
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %94 = load i64, ptr %93, align 8, !alias.scope !3210, !noundef !5
-  %95 = getelementptr inbounds { i32, i32 }, ptr %92, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %92, i64 %94
   %96 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %92, ptr noundef nonnull readonly %95, i64 noundef 0), !noalias !3210
   %97 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %98 = add nuw nsw i64 %97, %.sroa.02.0.i.i
@@ -21442,7 +21442,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd5
   %.val.i.i = load ptr, ptr %5, align 8, !alias.scope !3235, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val5.i.i = load i64, ptr %6, align 8, !alias.scope !3235, !noundef !5
-  %7 = getelementptr inbounds { { i64, [17 x i64] } }, ptr %.val.i.i, i64 %.val5.i.i
+  %7 = getelementptr inbounds [144 x i8], ptr %.val.i.i, i64 %.val5.i.i
   %8 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3e06b8ec7221a0cbE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.val.i.i, ptr noundef nonnull readonly %7, i64 noundef 0), !noalias !3235
   %9 = add i64 %8, %.val5.i.i
   %10 = or i64 %9, 1
@@ -21651,7 +21651,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd7
   %92 = load ptr, ptr %91, align 8, !alias.scope !3236, !nonnull !5, !noundef !5
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %94 = load i64, ptr %93, align 8, !alias.scope !3236, !noundef !5
-  %95 = getelementptr inbounds { i32, i32 }, ptr %92, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %92, i64 %94
   %96 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %92, ptr noundef nonnull readonly %95, i64 noundef 0), !noalias !3236
   %97 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %98 = add nuw nsw i64 %97, %.sroa.02.0.i.i
@@ -21725,7 +21725,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd8
   %3 = load ptr, ptr %2, align 8, !alias.scope !3261, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !3261, !noundef !5
-  %6 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i64, i32, [1 x i32] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [64 x i8], ptr %3, i64 %5
   %7 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf711c2eddba16bcE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %3, ptr noundef nonnull readonly %6, i64 noundef 0), !noalias !3261
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !alias.scope !3261, !nonnull !5, !noundef !5
@@ -21737,7 +21737,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hd8
 .preheader.i.i:                                   ; preds = %1, %.preheader.i.i
   %.sroa.07.0.i.i.i = phi i64 [ %20, %.preheader.i.i ], [ 0, %1 ]
   %.sroa.09.0.i.i.i = phi i64 [ %21, %.preheader.i.i ], [ 0, %1 ]
-  %13 = getelementptr inbounds i64, ptr %9, i64 %.sroa.09.0.i.i.i
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %.sroa.09.0.i.i.i
   %.val.i.i.i = load i64, ptr %13, align 8, !alias.scope !3264, !noalias !3261, !noundef !5
   %14 = or i64 %.val.i.i.i, 1
   %15 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %14, i1 true)
@@ -21767,7 +21767,7 @@ _ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i: ; pred
   %32 = load ptr, ptr %31, align 8, !alias.scope !3261, !nonnull !5, !noundef !5
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = load i64, ptr %33, align 8, !alias.scope !3261, !noundef !5
-  %35 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i64, i32, [1 x i32] }, ptr %32, i64 %34
+  %35 = getelementptr inbounds [64 x i8], ptr %32, i64 %34
   %36 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hcf711c2eddba16bcE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %32, ptr noundef nonnull readonly %35, i64 noundef 0), !noalias !3261
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %38 = load ptr, ptr %37, align 8, !alias.scope !3261, !nonnull !5, !noundef !5
@@ -21779,7 +21779,7 @@ _ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i: ; pred
 .preheader.i1.i:                                  ; preds = %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i, %.preheader.i1.i
   %.sroa.07.0.i.i2.i = phi i64 [ %49, %.preheader.i1.i ], [ 0, %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i ]
   %.sroa.09.0.i.i3.i = phi i64 [ %50, %.preheader.i1.i ], [ 0, %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i ]
-  %42 = getelementptr inbounds i64, ptr %38, i64 %.sroa.09.0.i.i3.i
+  %42 = getelementptr inbounds [8 x i8], ptr %38, i64 %.sroa.09.0.i.i3.i
   %.val.i.i4.i = load i64, ptr %42, align 8, !alias.scope !3267, !noalias !3261, !noundef !5
   %43 = or i64 %.val.i.i4.i, 1
   %44 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %43, i1 true)
@@ -21809,25 +21809,25 @@ _ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit7.i: ; pre
   %61 = load ptr, ptr %60, align 8, !alias.scope !3261, !nonnull !5, !noundef !5
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %63 = load i64, ptr %62, align 8, !alias.scope !3261, !noundef !5
-  %64 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %61, i64 %63
+  %64 = getelementptr inbounds [32 x i8], ptr %61, i64 %63
   %65 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb271918e3cad0721E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %61, ptr noundef nonnull readonly %64, i64 noundef 0), !noalias !3261
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %67 = load ptr, ptr %66, align 8, !alias.scope !3261, !nonnull !5, !noundef !5
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %69 = load i64, ptr %68, align 8, !alias.scope !3261, !noundef !5
-  %70 = getelementptr inbounds { i64, i64 }, ptr %67, i64 %69
+  %70 = getelementptr inbounds [16 x i8], ptr %67, i64 %69
   %71 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf9bb5061f50214c0E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %67, ptr noundef nonnull readonly %70, i64 noundef 0), !noalias !3261
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %73 = load ptr, ptr %72, align 8, !alias.scope !3261, !nonnull !5, !noundef !5
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %75 = load i64, ptr %74, align 8, !alias.scope !3261, !noundef !5
-  %76 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, i64 }, ptr %73, i64 %75
+  %76 = getelementptr inbounds [40 x i8], ptr %73, i64 %75
   %77 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2fa8bc7074b78b91E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %73, ptr noundef nonnull readonly %76, i64 noundef 0), !noalias !3261
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %79 = load ptr, ptr %78, align 8, !alias.scope !3261, !nonnull !5, !noundef !5
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %81 = load i64, ptr %80, align 8, !alias.scope !3261, !noundef !5
-  %82 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i64, i64, i32, [1 x i32] }, ptr %79, i64 %81
+  %82 = getelementptr inbounds [48 x i8], ptr %79, i64 %81
   %83 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h926d399ca4a152c6E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %79, ptr noundef nonnull readonly %82, i64 noundef 0), !noalias !3261
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %85 = load ptr, ptr %84, align 8, !alias.scope !3261, !nonnull !5, !noundef !5
@@ -21839,7 +21839,7 @@ _ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit7.i: ; pre
 .preheader.i8.i:                                  ; preds = %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit7.i, %.preheader.i8.i
   %.sroa.07.0.i.i9.i = phi i64 [ %96, %.preheader.i8.i ], [ 0, %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit7.i ]
   %.sroa.09.0.i.i10.i = phi i64 [ %97, %.preheader.i8.i ], [ 0, %_ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit7.i ]
-  %89 = getelementptr inbounds i64, ptr %85, i64 %.sroa.09.0.i.i10.i
+  %89 = getelementptr inbounds [8 x i8], ptr %85, i64 %.sroa.09.0.i.i10.i
   %.val.i.i11.i = load i64, ptr %89, align 8, !alias.scope !3270, !noalias !3261, !noundef !5
   %90 = or i64 %.val.i.i11.i, 1
   %91 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %90, i1 true)
@@ -22073,7 +22073,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hda
   %92 = load ptr, ptr %91, align 8, !alias.scope !3273, !nonnull !5, !noundef !5
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %94 = load i64, ptr %93, align 8, !alias.scope !3273, !noundef !5
-  %95 = getelementptr inbounds { i32, i32 }, ptr %92, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %92, i64 %94
   %96 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %92, ptr noundef nonnull readonly %95, i64 noundef 0), !noalias !3273
   %97 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %98 = add nuw nsw i64 %97, %.sroa.02.0.i.i
@@ -22097,7 +22097,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hda
   %3 = load ptr, ptr %2, align 8, !alias.scope !3292, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !3292, !noundef !5
-  %6 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [1 x i64] }, { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, i64, i64, i64 }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [128 x i8], ptr %3, i64 %5
   %7 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1c7109388c66a13eE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %3, ptr noundef nonnull readonly %6, i64 noundef 0), !noalias !3292
   %8 = add i64 %7, %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -22125,7 +22125,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hdc
 .preheader.i:                                     ; preds = %0, %.preheader.i
   %.sroa.07.0.i.i = phi i64 [ %11, %.preheader.i ], [ 0, %0 ]
   %.sroa.09.0.i.i = phi i64 [ %12, %.preheader.i ], [ 0, %0 ]
-  %2 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.8.val, i64 %.sroa.09.0.i.i
+  %2 = getelementptr inbounds [24 x i8], ptr %.8.val, i64 %.sroa.09.0.i.i
   %3 = getelementptr i8, ptr %2, i64 16
   %.val.i.i = load i64, ptr %3, align 8, !noundef !5
   %4 = or i64 %.val.i.i, 1
@@ -22271,19 +22271,19 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17he4
   %19 = load ptr, ptr %18, align 8, !alias.scope !3310, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load i64, ptr %20, align 8, !alias.scope !3310, !noundef !5
-  %22 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, { i32, [2 x i32] }, i32, i32, [1 x i32] }, ptr %19, i64 %21
+  %22 = getelementptr inbounds [72 x i8], ptr %19, i64 %21
   %23 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h74ffa97cf1971332E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %19, ptr noundef nonnull readonly %22, i64 noundef 0), !noalias !3310
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %25 = load ptr, ptr %24, align 8, !alias.scope !3310, !nonnull !5, !noundef !5
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %27 = load i64, ptr %26, align 8, !alias.scope !3310, !noundef !5
-  %28 = getelementptr inbounds { { i64, [1 x i64] }, i64, i64 }, ptr %25, i64 %27
+  %28 = getelementptr inbounds [32 x i8], ptr %25, i64 %27
   %29 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h46296bc5490585fcE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %25, ptr noundef nonnull readonly %28, i64 noundef 0), !noalias !3310
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %31 = load ptr, ptr %30, align 8, !alias.scope !3310, !nonnull !5, !noundef !5
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %33 = load i64, ptr %32, align 8, !alias.scope !3310, !noundef !5
-  %34 = getelementptr inbounds { i64, { i32, [2 x i32] }, { i32, [2 x i32] } }, ptr %31, i64 %33
+  %34 = getelementptr inbounds [32 x i8], ptr %31, i64 %33
   %35 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h362f52060795862fE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %31, ptr noundef nonnull readonly %34, i64 noundef 0), !noalias !3310
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %.val6.i.i.i.i.i = load i64, ptr %36, align 8, !alias.scope !3310, !noundef !5
@@ -22326,13 +22326,13 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17he4
   %62 = load ptr, ptr %61, align 8, !alias.scope !3295, !nonnull !5, !noundef !5
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = load i64, ptr %63, align 8, !alias.scope !3295, !noundef !5
-  %65 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %62, i64 %64
+  %65 = getelementptr inbounds [32 x i8], ptr %62, i64 %64
   %66 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h390a92ca5b9609f9E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %62, ptr noundef nonnull readonly %65, i64 noundef 0), !noalias !3295
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %68 = load ptr, ptr %67, align 8, !alias.scope !3295, !nonnull !5, !noundef !5
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %70 = load i64, ptr %69, align 8, !alias.scope !3295, !noundef !5
-  %71 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64 }, ptr %68, i64 %70
+  %71 = getelementptr inbounds [80 x i8], ptr %68, i64 %70
   %72 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h76e499fe87c97407E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %68, ptr noundef nonnull readonly %71, i64 noundef 0), !noalias !3295
   %73 = add i64 %64, %.sroa.02.0.i.i
   %74 = add i64 %73, %66
@@ -22351,7 +22351,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17he4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17he5ac2b77e35e2949E(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { i64, [12 x i64] } }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [104 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h38ea8d7828aa8608E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -22406,7 +22406,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17he6
   %27 = load ptr, ptr %26, align 8, !alias.scope !3311, !nonnull !5, !noundef !5
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8, !alias.scope !3311, !noundef !5
-  %30 = getelementptr inbounds { i32, i32 }, ptr %27, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   %31 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %27, ptr noundef nonnull readonly %30, i64 noundef 0), !noalias !3311
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i64, ptr %32, align 8, !range !322, !alias.scope !3311, !noundef !5
@@ -22484,13 +22484,13 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17he6
   %3 = load ptr, ptr %2, align 8, !alias.scope !3320, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !3320, !noundef !5
-  %6 = getelementptr inbounds { i64, i32, i32 }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %3, i64 %5
   %7 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha634939357855ecfE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %3, ptr noundef nonnull readonly %6, i64 noundef 0), !noalias !3320
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !alias.scope !3320, !nonnull !5, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8, !alias.scope !3320, !noundef !5
-  %12 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i64 }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [56 x i8], ptr %9, i64 %11
   %13 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h36f56c83685dd72aE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %9, ptr noundef nonnull readonly %12, i64 noundef 0), !noalias !3320
   %14 = add i64 %7, %5
   %15 = add i64 %14, %11
@@ -22645,7 +22645,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hea
   %27 = load ptr, ptr %26, align 8, !alias.scope !3332, !nonnull !5, !noundef !5
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8, !alias.scope !3332, !noundef !5
-  %30 = getelementptr inbounds { i32, i32 }, ptr %27, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   %31 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %27, ptr noundef nonnull readonly %30, i64 noundef 0), !noalias !3332
   %32 = load i64, ptr %0, align 8, !range !62, !alias.scope !3332, !noundef !5
   %trunc.i = trunc nuw i64 %32 to i1
@@ -22981,7 +22981,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hed
   %159 = load ptr, ptr %158, align 8, !alias.scope !3338, !nonnull !5, !noundef !5
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %161 = load i64, ptr %160, align 8, !alias.scope !3338, !noundef !5
-  %162 = getelementptr inbounds { i32, i32 }, ptr %159, i64 %161
+  %162 = getelementptr inbounds [8 x i8], ptr %159, i64 %161
   %163 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %159, ptr noundef nonnull readonly %162, i64 noundef 0), !noalias !3338
   %164 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %165 = add nuw nsw i64 %164, %.sroa.02.0.i.i
@@ -23009,7 +23009,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hed
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hf06e67cd0b2b6b04E(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64, i64 }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [40 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2fa8bc7074b78b91E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -23139,7 +23139,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hf2
 .preheader.i:                                     ; preds = %12, %.preheader.i
   %.sroa.07.0.i.i = phi i64 [ %27, %.preheader.i ], [ 0, %12 ]
   %.sroa.09.0.i.i = phi i64 [ %28, %.preheader.i ], [ 0, %12 ]
-  %18 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %14, i64 %.sroa.09.0.i.i
+  %18 = getelementptr inbounds [24 x i8], ptr %14, i64 %.sroa.09.0.i.i
   %19 = getelementptr i8, ptr %18, i64 16
   %.val.i.i = load i64, ptr %19, align 8, !noalias !3376, !noundef !5
   %20 = or i64 %.val.i.i, 1
@@ -23176,19 +23176,19 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hf4
   %3 = load ptr, ptr %2, align 8, !alias.scope !3379, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !3379, !noundef !5
-  %6 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, i32, i32, i32, [1 x i32] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [288 x i8], ptr %3, i64 %5
   %7 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3ecd1b526528268cE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %3, ptr noundef nonnull readonly %6, i64 noundef 0), !noalias !3379
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !alias.scope !3379, !nonnull !5, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i64, ptr %10, align 8, !alias.scope !3379, !noundef !5
-  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [48 x i8], ptr %9, i64 %11
   %13 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb6ef3bb20b61ab37E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %9, ptr noundef nonnull readonly %12, i64 noundef 0), !noalias !3379
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8, !alias.scope !3379, !nonnull !5, !noundef !5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load i64, ptr %16, align 8, !alias.scope !3379, !noundef !5
-  %18 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } } }, ptr %15, i64 %17
+  %18 = getelementptr inbounds [48 x i8], ptr %15, i64 %17
   %19 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd7681fca02bb5ccbE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %15, ptr noundef nonnull readonly %18, i64 noundef 0), !noalias !3379
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load i64, ptr %20, align 8, !range !322, !alias.scope !3379, !noundef !5
@@ -23229,7 +23229,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hf4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hf506df3c580e8b67E(ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #1 {
-  %1 = getelementptr inbounds { { i64, [10 x i64] }, { i64, [10 x i64] } }, ptr %.8.val, i64 %.16.val
+  %1 = getelementptr inbounds [176 x i8], ptr %.8.val, i64 %.16.val
   %2 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h56b3aae4ebce24c9E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %.8.val, ptr noundef nonnull readonly %1, i64 noundef 0)
   %3 = add i64 %2, %.16.val
   %4 = or i64 %3, 1
@@ -23457,7 +23457,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hf7
   %92 = load ptr, ptr %91, align 8, !alias.scope !3388, !nonnull !5, !noundef !5
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %94 = load i64, ptr %93, align 8, !alias.scope !3388, !noundef !5
-  %95 = getelementptr inbounds { i32, i32 }, ptr %92, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %92, i64 %94
   %96 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %92, ptr noundef nonnull readonly %95, i64 noundef 0), !noalias !3388
   %97 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %98 = add nuw nsw i64 %97, %.sroa.02.0.i.i
@@ -23621,7 +23621,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hf8
   %92 = load ptr, ptr %91, align 8, !alias.scope !3407, !nonnull !5, !noundef !5
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %94 = load i64, ptr %93, align 8, !alias.scope !3407, !noundef !5
-  %95 = getelementptr inbounds { i32, i32 }, ptr %92, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %92, i64 %94
   %96 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %92, ptr noundef nonnull readonly %95, i64 noundef 0), !noalias !3407
   %97 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %98 = add nuw nsw i64 %97, %.sroa.02.0.i.i
@@ -23668,7 +23668,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hf9
 .preheader.i.i:                                   ; preds = %13, %.preheader.i.i
   %.sroa.07.0.i.i.i = phi i64 [ %26, %.preheader.i.i ], [ 0, %13 ]
   %.sroa.09.0.i.i.i = phi i64 [ %27, %.preheader.i.i ], [ 0, %13 ]
-  %19 = getelementptr inbounds i64, ptr %15, i64 %.sroa.09.0.i.i.i
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %.sroa.09.0.i.i.i
   %.val.i.i.i = load i64, ptr %19, align 8, !alias.scope !3429, !noalias !3426, !noundef !5
   %20 = or i64 %.val.i.i.i, 1
   %21 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %20, i1 true)
@@ -23728,7 +23728,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfa
 .preheader.i.i.i.i.i.i:                           ; preds = %4, %.preheader.i.i.i.i.i.i
   %.sroa.07.0.i.i.i.i.i.i.i = phi i64 [ %17, %.preheader.i.i.i.i.i.i ], [ 0, %4 ]
   %.sroa.09.0.i.i.i.i.i.i.i = phi i64 [ %18, %.preheader.i.i.i.i.i.i ], [ 0, %4 ]
-  %10 = getelementptr inbounds i64, ptr %6, i64 %.sroa.09.0.i.i.i.i.i.i.i
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %.sroa.09.0.i.i.i.i.i.i.i
   %.val.i.i.i.i.i.i.i = load i64, ptr %10, align 8, !alias.scope !3448, !noalias !3447, !noundef !5
   %11 = or i64 %.val.i.i.i.i.i.i.i, 1
   %12 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %11, i1 true)
@@ -23758,7 +23758,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfa
   %29 = load ptr, ptr %28, align 8, !alias.scope !3447, !nonnull !5, !noundef !5
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8, !alias.scope !3447, !noundef !5
-  %32 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i32, [2 x i32] }, [1 x i32] }, ptr %29, i64 %31
+  %32 = getelementptr inbounds [64 x i8], ptr %29, i64 %31
   %33 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8e129afdd3aab0b3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %29, ptr noundef nonnull readonly %32, i64 noundef 0), !noalias !3447
   %34 = add i64 %31, %.sroa.0.0.i.i.i.i.i.i
   %35 = add i64 %34, %33
@@ -23818,19 +23818,19 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfa
   %18 = load ptr, ptr %17, align 8, !alias.scope !3466, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load i64, ptr %19, align 8, !alias.scope !3466, !noundef !5
-  %21 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, { i32, [2 x i32] }, i32, i32, [1 x i32] }, ptr %18, i64 %20
+  %21 = getelementptr inbounds [72 x i8], ptr %18, i64 %20
   %22 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h74ffa97cf1971332E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %18, ptr noundef nonnull readonly %21, i64 noundef 0), !noalias !3466
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8, !alias.scope !3466, !nonnull !5, !noundef !5
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i64, ptr %25, align 8, !alias.scope !3466, !noundef !5
-  %27 = getelementptr inbounds { { i64, [1 x i64] }, i64, i64 }, ptr %24, i64 %26
+  %27 = getelementptr inbounds [32 x i8], ptr %24, i64 %26
   %28 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h46296bc5490585fcE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %24, ptr noundef nonnull readonly %27, i64 noundef 0), !noalias !3466
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load ptr, ptr %29, align 8, !alias.scope !3466, !nonnull !5, !noundef !5
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %32 = load i64, ptr %31, align 8, !alias.scope !3466, !noundef !5
-  %33 = getelementptr inbounds { i64, { i32, [2 x i32] }, { i32, [2 x i32] } }, ptr %30, i64 %32
+  %33 = getelementptr inbounds [32 x i8], ptr %30, i64 %32
   %34 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h362f52060795862fE.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %30, ptr noundef nonnull readonly %33, i64 noundef 0), !noalias !3466
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.val6.i.i.i.i.i = load i64, ptr %35, align 8, !alias.scope !3466, !noundef !5
@@ -24342,7 +24342,7 @@ _ZN5prost8encoding7message11encoded_len17h399a902520ad65f5E.exit.i.i.i.i: ; pred
   %179 = load ptr, ptr %178, align 8, !alias.scope !3549, !nonnull !5, !noundef !5
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %181 = load i64, ptr %180, align 8, !alias.scope !3549, !noundef !5
-  %182 = getelementptr inbounds { { i64, [1 x i64] }, { i64, [21 x i64] } }, ptr %179, i64 %181
+  %182 = getelementptr inbounds [192 x i8], ptr %179, i64 %181
   %183 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0264605f80aa1963E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %179, ptr noundef nonnull readonly %182, i64 noundef 0), !noalias !3549
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %185 = load ptr, ptr %184, align 8, !alias.scope !3549, !nonnull !5, !noundef !5
@@ -24354,7 +24354,7 @@ _ZN5prost8encoding7message11encoded_len17h399a902520ad65f5E.exit.i.i.i.i: ; pred
 .preheader.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %177, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i
   %.sroa.07.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %196, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %177 ]
   %.sroa.09.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %197, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %177 ]
-  %189 = getelementptr inbounds i64, ptr %185, i64 %.sroa.09.0.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %189 = getelementptr inbounds [8 x i8], ptr %185, i64 %.sroa.09.0.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.val.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %189, align 8, !alias.scope !3550, !noalias !3549, !noundef !5
   %190 = or i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %191 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %190, i1 true)
@@ -24384,7 +24384,7 @@ _ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i.i.i.i.i
   %208 = load ptr, ptr %207, align 8, !alias.scope !3549, !nonnull !5, !noundef !5
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %210 = load i64, ptr %209, align 8, !alias.scope !3549, !noundef !5
-  %211 = getelementptr inbounds { { i64, [5 x i64] }, { i64, [5 x i64] }, i64, i8, [7 x i8] }, ptr %208, i64 %210
+  %211 = getelementptr inbounds [112 x i8], ptr %208, i64 %210
   %212 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hfc99e2736df86de7E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %208, ptr noundef nonnull readonly %211, i64 noundef 0), !noalias !3549
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %214 = load i64, ptr %213, align 8, !range !1799, !alias.scope !3549, !noundef !5
@@ -24536,7 +24536,7 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfd
   %14 = load ptr, ptr %13, align 8, !alias.scope !3562, !nonnull !5, !noundef !5
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !3562, !noundef !5
-  %17 = getelementptr inbounds { { i64, [9 x i64] } }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [80 x i8], ptr %14, i64 %16
   %18 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6fa7007578a87c78E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %14, ptr noundef nonnull readonly %17, i64 noundef 0), !noalias !3562
   %19 = add i64 %16, %.sroa.0.0.i
   %20 = add i64 %19, %18

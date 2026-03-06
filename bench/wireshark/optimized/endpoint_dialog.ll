@@ -1055,7 +1055,7 @@ define void @_ZN14EndpointDialog18aggregationToggledEb(ptr noundef align 8 deref
   %17 = phi i64 [ 0, %.lr.ph ], [ %38, %36 ]
   %.01637 = phi i32 [ 0, %.lr.ph ], [ %37, %36 ]
   %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr i32, ptr %18, i64 %17
+  %19 = getelementptr [4 x i8], ptr %18, i64 %17
   %20 = load i32, ptr %19, align 4
   %21 = invoke ptr @find_protocol_by_id(i32 noundef %20)
           to label %22 unwind label %34

@@ -108,7 +108,7 @@ define dso_local void @init_setproctitle(i32 noundef %0, ptr noundef %1) local_u
 
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %.02937, i64 1
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %6, %8
   br i1 %9, label %10, label %14
@@ -156,7 +156,7 @@ define dso_local void @init_setproctitle(i32 noundef %0, ptr noundef %1) local_u
 24:                                               ; preds = %.lr.ph42, %21
   %.3 = phi ptr [ %23, %21 ], [ %.23140, %.lr.ph42 ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %25 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next55
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next55
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %._crit_edge43.loopexit, label %.lr.ph42, !llvm.loop !11
@@ -198,17 +198,17 @@ define dso_local void @init_setproctitle(i32 noundef %0, ptr noundef %1) local_u
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.lr.ph48 ], [ 0, %.preheader ]
   %42 = phi ptr [ %46, %.lr.ph48 ], [ %17, %.preheader ]
   %43 = tail call noalias ptr @strdup(ptr noundef nonnull %42) #15
-  %44 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv57
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv57
   store ptr %43, ptr %44, align 8
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %45 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next58
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.next58
   %46 = load ptr, ptr %45, align 8
   %.not35 = icmp eq ptr %46, null
   br i1 %.not35, label %._crit_edge49, label %.lr.ph48, !llvm.loop !12
 
 ._crit_edge49:                                    ; preds = %.lr.ph48, %.preheader
   %.lcssa = phi i64 [ 0, %.preheader ], [ %indvars.iv.next58, %.lr.ph48 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %35, i64 %.lcssa
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.lcssa
   store ptr null, ptr %47, align 8
   store ptr %35, ptr @environ, align 8
   br label %48
@@ -251,7 +251,7 @@ define dso_local void @fini_setproctitle() local_unnamed_addr #11 {
   %3 = phi ptr [ %5, %.lr.ph ], [ %2, %.preheader ]
   tail call void @free(ptr noundef nonnull %3) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %5 = load ptr, ptr %4, align 8
   %.not4 = icmp eq ptr %5, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !13

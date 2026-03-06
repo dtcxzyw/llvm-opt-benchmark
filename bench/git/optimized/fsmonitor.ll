@@ -259,7 +259,7 @@ define dso_local void @fill_fsmonitor_bitmap(ptr noundef captures(none) initiali
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %1 ]
   %.014 = phi i32 [ %.1, %22 ], [ 0, %1 ]
   %7 = load ptr, ptr %0, align 8, !tbaa !37
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load i32, ptr %10, align 8, !tbaa !40
@@ -783,7 +783,7 @@ fsmonitor_hook_version.exit:                      ; preds = %43
 
 147:                                              ; preds = %.outer, %153
   %indvars.iv = phi i64 [ %indvars.iv.next, %153 ], [ %indvars.iv.ph, %.outer ]
-  %148 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv
   %149 = load ptr, ptr %148, align 8, !tbaa !38
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 56
   %151 = load i32, ptr %150, align 8, !tbaa !40
@@ -962,7 +962,7 @@ define internal fastcc void @fsmonitor_refresh_callback(ptr noundef %0, ptr noun
   %indvars.iv.i = phi i64 [ %19, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %invalidate_ce_fsm.exit.i ]
   %.018.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %38, %invalidate_ce_fsm.exit.i ]
   %20 = load ptr, ptr %0, align 8, !tbaa !37
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8, !tbaa !38
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 108
   %24 = tail call i32 @starts_with(ptr noundef nonnull %23, ptr noundef nonnull %1) #8
@@ -971,7 +971,7 @@ define internal fastcc void @fsmonitor_refresh_callback(ptr noundef %0, ptr noun
 
 25:                                               ; preds = %.lr.ph.i
   %26 = load ptr, ptr %0, align 8, !tbaa !37
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8, !tbaa !38
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load i32, ptr %29, align 8, !tbaa !40
@@ -1014,7 +1014,7 @@ invalidate_ce_fsm.exit.i:                         ; preds = %35, %25
 44:                                               ; preds = %42
   %45 = load ptr, ptr %0, align 8, !tbaa !37
   %46 = zext nneg i32 %7 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !38
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %50 = load i32, ptr %49, align 8, !tbaa !40
@@ -1099,7 +1099,7 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
   %indvars.iv.i.i = phi i64 [ %79, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %invalidate_ce_fsm.exit.i.i ]
   %.018.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %98, %invalidate_ce_fsm.exit.i.i ]
   %80 = load ptr, ptr %0, align 8, !tbaa !37
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv.i.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv.i.i
   %82 = load ptr, ptr %81, align 8, !tbaa !38
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 108
   %84 = call i32 @starts_with(ptr noundef nonnull %83, ptr noundef %75) #8
@@ -1108,7 +1108,7 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
 
 85:                                               ; preds = %.lr.ph.i.i
   %86 = load ptr, ptr %0, align 8, !tbaa !37
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv.i.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv.i.i
   %88 = load ptr, ptr %87, align 8, !tbaa !38
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 56
   %90 = load i32, ptr %89, align 8, !tbaa !40
@@ -1296,7 +1296,7 @@ strbuf_addch.exit.i55:                            ; preds = %strbuf_avail.exit.t
   %indvars.iv.i.i64 = phi i64 [ %155, %.lr.ph.preheader.i.i62 ], [ %indvars.iv.next.i.i73, %invalidate_ce_fsm.exit.i.i72 ]
   %.018.i.i65 = phi i64 [ 0, %.lr.ph.preheader.i.i62 ], [ %174, %invalidate_ce_fsm.exit.i.i72 ]
   %156 = load ptr, ptr %0, align 8, !tbaa !37
-  %157 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv.i.i64
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv.i.i64
   %158 = load ptr, ptr %157, align 8, !tbaa !38
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 108
   %160 = call i32 @starts_with(ptr noundef nonnull %159, ptr noundef %151) #8
@@ -1305,7 +1305,7 @@ strbuf_addch.exit.i55:                            ; preds = %strbuf_avail.exit.t
 
 161:                                              ; preds = %.lr.ph.i.i63
   %162 = load ptr, ptr %0, align 8, !tbaa !37
-  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %indvars.iv.i.i64
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %indvars.iv.i.i64
   %164 = load ptr, ptr %163, align 8, !tbaa !38
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 56
   %166 = load i32, ptr %165, align 8, !tbaa !40
@@ -1421,7 +1421,7 @@ define dso_local void @add_fsmonitor(ptr noundef %0) local_unnamed_addr #0 {
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !38
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load i32, ptr %19, align 8, !tbaa !40
@@ -1519,7 +1519,7 @@ define dso_local void @tweak_fsmonitor(ptr noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %.lr.ph, %24
   %13 = phi i32 [ %10, %.lr.ph ], [ %25, %24 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !38
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 52
   %17 = load i32, ptr %16, align 4, !tbaa !40
@@ -1623,7 +1623,7 @@ define internal void @fsmonitor_ewah_callback(i64 noundef %0, ptr noundef readon
 
 assert_index_minimum.exit:                        ; preds = %2
   %8 = load ptr, ptr %1, align 8, !tbaa !37
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %0
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %0
   %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load i32, ptr %11, align 8, !tbaa !40

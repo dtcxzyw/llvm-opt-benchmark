@@ -2337,7 +2337,7 @@ invoke.cont21:                                    ; preds = %invoke.cont21.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %temp)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp16)
   %31 = load ptr, ptr %capFloorLengths_, align 8, !tbaa !91
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %31, i64 %i.0845
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %i.0845
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp19)
   store i64 0, ptr %ref.tmp19, align 8
   invoke void @_ZN8QuantLib12MakeCapFloorC1ENS_8CapFloor4TypeERKNS_6PeriodERKN5boost10shared_ptrINS_9IborIndexEEEdS5_(ptr noundef nonnull align 8 dereferenceable(304) %ref.tmp16, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %iborIndex_, double noundef 4.000000e-02, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp19)
@@ -2473,7 +2473,7 @@ invoke.cont39:                                    ; preds = %.noexc171, %invoke.
 
 invoke.cont43:                                    ; preds = %invoke.cont39
   %52 = load ptr, ptr %optionletDates_, align 8, !tbaa !95
-  %add.ptr.i172 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %52, i64 %i.0845
+  %add.ptr.i172 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %i.0845
   store i64 %call44, ptr %add.ptr.i172, align 8, !tbaa !36
   %53 = load ptr, ptr %lFRC, align 8, !tbaa !115
   %cmp.not.i173 = icmp eq ptr %53, null
@@ -2497,7 +2497,7 @@ invoke.cont49:                                    ; preds = %.noexc176, %invoke.
 
 invoke.cont53:                                    ; preds = %invoke.cont49
   %56 = load ptr, ptr %optionletPaymentDates_, align 8, !tbaa !95
-  %add.ptr.i178 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %56, i64 %i.0845
+  %add.ptr.i178 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %i.0845
   store i64 %call54, ptr %add.ptr.i178, align 8, !tbaa !36
   %57 = load ptr, ptr %lFRC, align 8, !tbaa !115
   %cmp.not.i179 = icmp eq ptr %57, null
@@ -2518,10 +2518,10 @@ invoke.cont59:                                    ; preds = %.noexc182, %invoke.
 
 invoke.cont61:                                    ; preds = %invoke.cont59
   %59 = load ptr, ptr %optionletAccrualPeriods_, align 8, !tbaa !93
-  %add.ptr.i184 = getelementptr inbounds nuw double, ptr %59, i64 %i.0845
+  %add.ptr.i184 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %i.0845
   store double %call62, ptr %add.ptr.i184, align 8, !tbaa !88
   %60 = load ptr, ptr %optionletDates_, align 8, !tbaa !95
-  %add.ptr.i185 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %60, i64 %i.0845
+  %add.ptr.i185 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %i.0845
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp66)
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp66)
           to label %invoke.cont68 unwind label %lpad67
@@ -2537,7 +2537,7 @@ invoke.cont71:                                    ; preds = %invoke.cont68
 
 invoke.cont72:                                    ; preds = %invoke.cont71
   %61 = load ptr, ptr %optionletTimes_, align 8, !tbaa !93
-  %add.ptr.i186 = getelementptr inbounds nuw double, ptr %61, i64 %i.0845
+  %add.ptr.i186 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %i.0845
   store double %call73, ptr %add.ptr.i186, align 8, !tbaa !88
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp69)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp66)
@@ -2563,7 +2563,7 @@ invoke.cont77:                                    ; preds = %.noexc190, %invoke.
 
 invoke.cont81:                                    ; preds = %invoke.cont77
   %65 = load ptr, ptr %atmOptionletRate_, align 8, !tbaa !93
-  %add.ptr.i192 = getelementptr inbounds nuw double, ptr %65, i64 %i.0845
+  %add.ptr.i192 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %i.0845
   store double %call82, ptr %add.ptr.i192, align 8, !tbaa !88
   %66 = load ptr, ptr %pn.i193, align 8, !tbaa !41
   %cmp.not.i.i194 = icmp eq ptr %66, null
@@ -2697,7 +2697,7 @@ for.cond.cleanup93:                               ; preds = %for.cond.cleanup93.
 for.body94:                                       ; preds = %for.body94.lr.ph, %for.body94
   %averageAtmOptionletRate.0848 = phi double [ 0.000000e+00, %for.body94.lr.ph ], [ %add, %for.body94 ]
   %i89.0847 = phi i64 [ 0, %for.body94.lr.ph ], [ %inc98, %for.body94 ]
-  %add.ptr.i208 = getelementptr inbounds nuw double, ptr %27, i64 %i89.0847
+  %add.ptr.i208 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %i89.0847
   %83 = load double, ptr %add.ptr.i208, align 8, !tbaa !88
   %add = fadd double %averageAtmOptionletRate.0848, %83
   %inc98 = add nuw i64 %i89.0847, 1
@@ -3666,7 +3666,7 @@ for.body208:                                      ; preds = %for.body208.lr.ph, 
   %233 = phi i64 [ %238, %for.cond.cleanup220 ], [ 1, %for.body208.lr.ph ]
   %j.0854 = phi i64 [ %inc506, %for.cond.cleanup220 ], [ 0, %for.body208.lr.ph ]
   %234 = load ptr, ptr %strikes_.i, align 8, !tbaa !93
-  %add.ptr.i475 = getelementptr inbounds nuw double, ptr %234, i64 %j.0854
+  %add.ptr.i475 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %j.0854
   %235 = load double, ptr %add.ptr.i475, align 8, !tbaa !88
   %236 = load double, ptr %switchStrike_210, align 8, !tbaa !82
   %cmp211 = fcmp olt double %235, %236
@@ -3705,9 +3705,9 @@ invoke.cont224:                                   ; preds = %.noexc480, %for.bod
   %240 = phi ptr [ %239, %for.body221 ], [ %.pre.i479, %.noexc480 ]
   %add.ptr226 = getelementptr inbounds nuw i8, ptr %240, i64 16
   %241 = load ptr, ptr %capFloorLengths_227, align 8, !tbaa !91
-  %add.ptr.i482 = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %241, i64 %i216.0852
+  %add.ptr.i482 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %i216.0852
   %242 = load ptr, ptr %strikes_.i, align 8, !tbaa !93
-  %add.ptr.i483 = getelementptr inbounds nuw double, ptr %242, i64 %j.0854
+  %add.ptr.i483 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %j.0854
   %243 = load double, ptr %add.ptr.i483, align 8, !tbaa !88
   call void @llvm.lifetime.start.p0(ptr nonnull %d.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
@@ -3810,8 +3810,8 @@ invoke.cont232:                                   ; preds = %.noexc494
   %256 = load ptr, ptr %capFloorVols_, align 8, !tbaa !3
   %257 = load i64, ptr %columns_.i.i, align 8, !tbaa !135
   %mul.i.i = mul i64 %257, %i216.0852
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %256, i64 %mul.i.i
-  %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %j.0854
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %256, i64 %mul.i.i
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %j.0854
   store double %call.i.i.i488495, ptr %arrayidx, align 8, !tbaa !88
   %258 = load ptr, ptr %volQuote, align 8, !tbaa !124
   %cmp.not.i496 = icmp eq ptr %258, null
@@ -3832,8 +3832,8 @@ invoke.cont237:                                   ; preds = %invoke.cont232, %.n
   %mul.i.i501.pre-phi = phi i64 [ %mul.i.i, %invoke.cont232 ], [ %.pre920, %.noexc499 ]
   %259 = phi ptr [ %256, %invoke.cont232 ], [ %.pre, %.noexc499 ]
   %260 = phi ptr [ %258, %invoke.cont232 ], [ %.pre.i498, %.noexc499 ]
-  %add.ptr.i.i502 = getelementptr inbounds nuw double, ptr %259, i64 %mul.i.i501.pre-phi
-  %arrayidx239 = getelementptr inbounds nuw double, ptr %add.ptr.i.i502, i64 %j.0854
+  %add.ptr.i.i502 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %mul.i.i501.pre-phi
+  %arrayidx239 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i502, i64 %j.0854
   %261 = load double, ptr %arrayidx239, align 8, !tbaa !88
   %value_.i503 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %262 = load double, ptr %value_.i503, align 8, !tbaa !43
@@ -3854,9 +3854,9 @@ invoke.cont249:                                   ; preds = %if.then.i, %invoke.
   call void @llvm.lifetime.start.p0(ptr nonnull %capFloor)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp242)
   %263 = load ptr, ptr %capFloorLengths_227, align 8, !tbaa !91
-  %add.ptr.i506 = getelementptr inbounds nuw %"class.QuantLib::Period", ptr %263, i64 %i216.0852
+  %add.ptr.i506 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %i216.0852
   %264 = load ptr, ptr %strikes_.i, align 8, !tbaa !93
-  %add.ptr.i507 = getelementptr inbounds nuw double, ptr %264, i64 %j.0854
+  %add.ptr.i507 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %j.0854
   %265 = load double, ptr %add.ptr.i507, align 8, !tbaa !88
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp247)
   store i64 0, ptr %ref.tmp247, align 8
@@ -3934,15 +3934,15 @@ invoke.cont275:                                   ; preds = %invoke.cont260
   %275 = load ptr, ptr %capFloorPrices_, align 8, !tbaa !3
   %276 = load i64, ptr %columns_.i.i529, align 8, !tbaa !135
   %mul.i.i530 = mul i64 %276, %i216.0852
-  %add.ptr.i.i531 = getelementptr inbounds nuw double, ptr %275, i64 %mul.i.i530
-  %arrayidx266 = getelementptr inbounds nuw double, ptr %add.ptr.i.i531, i64 %j.0854
+  %add.ptr.i.i531 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %mul.i.i530
+  %arrayidx266 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i531, i64 %j.0854
   store double %call263, ptr %arrayidx266, align 8, !tbaa !88
   %277 = load ptr, ptr %optionletPrices_, align 8, !tbaa !3
   %278 = load i64, ptr %columns_.i.i535, align 8, !tbaa !135
   %mul.i.i536 = mul i64 %278, %i216.0852
-  %add.ptr.i.i537 = getelementptr inbounds nuw double, ptr %277, i64 %mul.i.i536
+  %add.ptr.i.i537 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %mul.i.i536
   %sub = fsub double %call263, %previousCapFloorPrice.0851
-  %arrayidx273 = getelementptr inbounds nuw double, ptr %add.ptr.i.i537, i64 %j.0854
+  %arrayidx273 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i537, i64 %j.0854
   store double %sub, ptr %arrayidx273, align 8, !tbaa !88
   %279 = load double, ptr %arrayidx266, align 8, !tbaa !88
   %call280 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_18YieldTermStructureEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp101)
@@ -3964,7 +3964,7 @@ cond.false.i542:                                  ; preds = %invoke.cont279
 invoke.cont281:                                   ; preds = %.noexc544, %invoke.cont279
   %281 = phi ptr [ %280, %invoke.cont279 ], [ %.pre.i543, %.noexc544 ]
   %282 = load ptr, ptr %optionletPaymentDates_283, align 8, !tbaa !95
-  %add.ptr.i545 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %282, i64 %i216.0852
+  %add.ptr.i545 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %i216.0852
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   %vtable.i671 = load ptr, ptr %281, align 8, !tbaa !32
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i671, i64 16
@@ -4067,7 +4067,7 @@ call.i.noexc:                                     ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont285:                                   ; preds = %call.i.noexc
   %295 = load ptr, ptr %optionletAccrualPeriods_287, align 8, !tbaa !93
-  %add.ptr.i548 = getelementptr inbounds nuw double, ptr %295, i64 %i216.0852
+  %add.ptr.i548 = getelementptr inbounds nuw [8 x i8], ptr %295, i64 %i216.0852
   %296 = load double, ptr %add.ptr.i548, align 8, !tbaa !88
   %mul = fmul double %call2.i547, %296
   %297 = load i32, ptr %volatilityType_, align 8, !tbaa !128
@@ -4078,23 +4078,23 @@ invoke.cont285:                                   ; preds = %call.i.noexc
 
 invoke.cont301:                                   ; preds = %invoke.cont285
   %298 = load ptr, ptr %strikes_.i, align 8, !tbaa !93
-  %add.ptr.i549 = getelementptr inbounds nuw double, ptr %298, i64 %j.0854
+  %add.ptr.i549 = getelementptr inbounds nuw [8 x i8], ptr %298, i64 %j.0854
   %299 = load double, ptr %add.ptr.i549, align 8, !tbaa !88
   %300 = load ptr, ptr %atmOptionletRate_318, align 8, !tbaa !93
-  %add.ptr.i550 = getelementptr inbounds nuw double, ptr %300, i64 %i216.0852
+  %add.ptr.i550 = getelementptr inbounds nuw [8 x i8], ptr %300, i64 %i216.0852
   %301 = load double, ptr %add.ptr.i550, align 8, !tbaa !88
   %302 = load ptr, ptr %optionletPrices_, align 8, !tbaa !3
   %303 = load i64, ptr %columns_.i.i535, align 8, !tbaa !135
   %mul.i.i552 = mul i64 %303, %i216.0852
-  %add.ptr.i.i553 = getelementptr inbounds nuw double, ptr %302, i64 %mul.i.i552
-  %arrayidx299 = getelementptr inbounds nuw double, ptr %add.ptr.i.i553, i64 %j.0854
+  %add.ptr.i.i553 = getelementptr inbounds nuw [8 x i8], ptr %302, i64 %mul.i.i552
+  %arrayidx299 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i553, i64 %j.0854
   %304 = load double, ptr %arrayidx299, align 8, !tbaa !88
   %305 = load double, ptr %displacement_300, align 8, !tbaa !138
   %306 = load ptr, ptr %optionletStDevs_329, align 8, !tbaa !3
   %307 = load i64, ptr %columns_.i.i567, align 8, !tbaa !135
   %mul.i.i555 = mul i64 %307, %i216.0852
-  %add.ptr.i.i556 = getelementptr inbounds nuw double, ptr %306, i64 %mul.i.i555
-  %arrayidx303 = getelementptr inbounds nuw double, ptr %add.ptr.i.i556, i64 %j.0854
+  %add.ptr.i.i556 = getelementptr inbounds nuw [8 x i8], ptr %306, i64 %mul.i.i555
+  %arrayidx303 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i556, i64 %j.0854
   %308 = load double, ptr %arrayidx303, align 8, !tbaa !88
   %309 = load double, ptr %accuracy_, align 8, !tbaa !83
   %310 = load i32, ptr %maxIter_, align 8, !tbaa !84
@@ -4105,8 +4105,8 @@ invoke.cont307:                                   ; preds = %invoke.cont301
   %311 = load ptr, ptr %optionletStDevs_329, align 8, !tbaa !3
   %312 = load i64, ptr %columns_.i.i567, align 8, !tbaa !135
   %mul.i.i558 = mul i64 %312, %i216.0852
-  %add.ptr.i.i559 = getelementptr inbounds nuw double, ptr %311, i64 %mul.i.i558
-  %arrayidx309 = getelementptr inbounds nuw double, ptr %add.ptr.i.i559, i64 %j.0854
+  %add.ptr.i.i559 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %mul.i.i558
+  %arrayidx309 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i559, i64 %j.0854
   store double %call305, ptr %arrayidx309, align 8, !tbaa !88
   br label %invoke.cont485
 
@@ -4150,20 +4150,20 @@ lpad296:                                          ; preds = %invoke.cont323, %in
 
 invoke.cont323:                                   ; preds = %invoke.cont285
   %319 = load ptr, ptr %optionletTimes_314, align 8, !tbaa !93
-  %add.ptr.i560 = getelementptr inbounds nuw double, ptr %319, i64 %i216.0852
+  %add.ptr.i560 = getelementptr inbounds nuw [8 x i8], ptr %319, i64 %i216.0852
   %320 = load double, ptr %add.ptr.i560, align 8, !tbaa !88
   %call316 = call double @sqrt(double noundef %320) #26, !tbaa !139
   %321 = load ptr, ptr %strikes_.i, align 8, !tbaa !93
-  %add.ptr.i561 = getelementptr inbounds nuw double, ptr %321, i64 %j.0854
+  %add.ptr.i561 = getelementptr inbounds nuw [8 x i8], ptr %321, i64 %j.0854
   %322 = load double, ptr %add.ptr.i561, align 8, !tbaa !88
   %323 = load ptr, ptr %atmOptionletRate_318, align 8, !tbaa !93
-  %add.ptr.i562 = getelementptr inbounds nuw double, ptr %323, i64 %i216.0852
+  %add.ptr.i562 = getelementptr inbounds nuw [8 x i8], ptr %323, i64 %i216.0852
   %324 = load double, ptr %add.ptr.i562, align 8, !tbaa !88
   %325 = load ptr, ptr %optionletPrices_, align 8, !tbaa !3
   %326 = load i64, ptr %columns_.i.i535, align 8, !tbaa !135
   %mul.i.i565 = mul i64 %326, %i216.0852
-  %add.ptr.i.i566 = getelementptr inbounds nuw double, ptr %325, i64 %mul.i.i565
-  %arrayidx325 = getelementptr inbounds nuw double, ptr %add.ptr.i.i566, i64 %j.0854
+  %add.ptr.i.i566 = getelementptr inbounds nuw [8 x i8], ptr %325, i64 %mul.i.i565
+  %arrayidx325 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i566, i64 %j.0854
   %327 = load double, ptr %arrayidx325, align 8, !tbaa !88
   %call327 = invoke noundef double @_ZN8QuantLib31bachelierBlackFormulaImpliedVolENS_6Option4TypeEddddd(i32 noundef %cond215, double noundef %322, double noundef %324, double noundef %320, double noundef %327, double noundef %mul)
           to label %invoke.cont330 unwind label %lpad296
@@ -4172,9 +4172,9 @@ invoke.cont330:                                   ; preds = %invoke.cont323
   %328 = load ptr, ptr %optionletStDevs_329, align 8, !tbaa !3
   %329 = load i64, ptr %columns_.i.i567, align 8, !tbaa !135
   %mul.i.i568 = mul i64 %329, %i216.0852
-  %add.ptr.i.i569 = getelementptr inbounds nuw double, ptr %328, i64 %mul.i.i568
+  %add.ptr.i.i569 = getelementptr inbounds nuw [8 x i8], ptr %328, i64 %mul.i.i568
   %mul328 = fmul double %call316, %call327
-  %arrayidx332 = getelementptr inbounds nuw double, ptr %add.ptr.i.i569, i64 %j.0854
+  %arrayidx332 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i569, i64 %j.0854
   store double %mul328, ptr %arrayidx332, align 8, !tbaa !88
   br label %invoke.cont485
 
@@ -4345,8 +4345,8 @@ invoke.cont383:                                   ; preds = %catch
   %347 = load ptr, ptr %optionletStDevs_329, align 8, !tbaa !3
   %348 = load i64, ptr %columns_.i.i567, align 8, !tbaa !135
   %mul.i.i595 = mul i64 %348, %i216.0852
-  %add.ptr.i.i596 = getelementptr inbounds nuw double, ptr %347, i64 %mul.i.i595
-  %arrayidx385 = getelementptr inbounds nuw double, ptr %add.ptr.i.i596, i64 %j.0854
+  %add.ptr.i.i596 = getelementptr inbounds nuw [8 x i8], ptr %347, i64 %mul.i.i595
+  %arrayidx385 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i596, i64 %j.0854
   store double 0.000000e+00, ptr %arrayidx385, align 8, !tbaa !88
   invoke void @__cxa_end_catch()
           to label %invoke.cont383.invoke.cont485_crit_edge unwind label %lpad478
@@ -4377,7 +4377,7 @@ invoke.cont394:                                   ; preds = %invoke.cont392
 invoke.cont401:                                   ; preds = %invoke.cont394
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp398)
   %349 = load ptr, ptr %strikes_.i, align 8, !tbaa !93
-  %add.ptr.i603 = getelementptr inbounds nuw double, ptr %349, i64 %j.0854
+  %add.ptr.i603 = getelementptr inbounds nuw [8 x i8], ptr %349, i64 %j.0854
   %350 = load double, ptr %add.ptr.i603, align 8, !tbaa !88
   store double %350, ptr %ref.tmp398, align 8
   %call405 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detaillsERSoRKNS0_14percent_holderE(ptr noundef nonnull align 8 dereferenceable(8) %call395, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp398)
@@ -4390,7 +4390,7 @@ invoke.cont404:                                   ; preds = %invoke.cont401
 invoke.cont412:                                   ; preds = %invoke.cont404
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp408)
   %351 = load ptr, ptr %atmOptionletRate_318, align 8, !tbaa !93
-  %add.ptr.i607 = getelementptr inbounds nuw double, ptr %351, i64 %i216.0852
+  %add.ptr.i607 = getelementptr inbounds nuw [8 x i8], ptr %351, i64 %i216.0852
   %352 = load double, ptr %add.ptr.i607, align 8, !tbaa !88
   store double %352, ptr %ref.tmp408, align 8
   %call416 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detaillsERSoRKNS0_14percent_holderE(ptr noundef nonnull align 8 dereferenceable(8) %call405, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp408)
@@ -4404,8 +4404,8 @@ invoke.cont420:                                   ; preds = %invoke.cont415
   %353 = load ptr, ptr %optionletPrices_, align 8, !tbaa !3
   %354 = load i64, ptr %columns_.i.i535, align 8, !tbaa !135
   %mul.i.i612 = mul i64 %354, %i216.0852
-  %add.ptr.i.i613 = getelementptr inbounds nuw double, ptr %353, i64 %mul.i.i612
-  %arrayidx422 = getelementptr inbounds nuw double, ptr %add.ptr.i.i613, i64 %j.0854
+  %add.ptr.i.i613 = getelementptr inbounds nuw [8 x i8], ptr %353, i64 %mul.i.i612
+  %arrayidx422 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i613, i64 %j.0854
   %355 = load double, ptr %arrayidx422, align 8, !tbaa !88
   %call.i615 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call416, double noundef %355)
           to label %invoke.cont423 unwind label %lpad411
@@ -4425,7 +4425,7 @@ invoke.cont427:                                   ; preds = %invoke.cont425
 invoke.cont429:                                   ; preds = %invoke.cont427
   %optionletDates_431 = getelementptr inbounds nuw i8, ptr %this, i64 152
   %356 = load ptr, ptr %optionletDates_431, align 8, !tbaa !95
-  %add.ptr.i625 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %356, i64 %i216.0852
+  %add.ptr.i625 = getelementptr inbounds nuw [8 x i8], ptr %356, i64 %i216.0852
   %call434 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(8) %call.i620, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i625)
           to label %invoke.cont433 unwind label %lpad411
 
@@ -4597,18 +4597,18 @@ ehcleanup474:                                     ; preds = %ehcleanup473, %lpad
 invoke.cont485:                                   ; preds = %invoke.cont383.invoke.cont485_crit_edge, %invoke.cont330, %invoke.cont307
   %mul.i.i651.pre-phi = phi i64 [ %.pre921, %invoke.cont383.invoke.cont485_crit_edge ], [ %mul.i.i568, %invoke.cont330 ], [ %mul.i.i558, %invoke.cont307 ]
   %378 = phi ptr [ %.pre917, %invoke.cont383.invoke.cont485_crit_edge ], [ %328, %invoke.cont330 ], [ %311, %invoke.cont307 ]
-  %add.ptr.i.i652 = getelementptr inbounds nuw double, ptr %378, i64 %mul.i.i651.pre-phi
-  %arrayidx487 = getelementptr inbounds nuw double, ptr %add.ptr.i.i652, i64 %j.0854
+  %add.ptr.i.i652 = getelementptr inbounds nuw [8 x i8], ptr %378, i64 %mul.i.i651.pre-phi
+  %arrayidx487 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i652, i64 %j.0854
   %379 = load double, ptr %arrayidx487, align 8, !tbaa !88
   %380 = load ptr, ptr %optionletTimes_314, align 8, !tbaa !93
-  %add.ptr.i653 = getelementptr inbounds nuw double, ptr %380, i64 %i216.0852
+  %add.ptr.i653 = getelementptr inbounds nuw [8 x i8], ptr %380, i64 %i216.0852
   %381 = load double, ptr %add.ptr.i653, align 8, !tbaa !88
   %call490 = call double @sqrt(double noundef %381) #26, !tbaa !139
   %div491 = fdiv double %379, %call490
   %382 = load ptr, ptr %optionletVolatilities_, align 8, !tbaa !97
-  %add.ptr.i654 = getelementptr inbounds nuw %"class.std::vector.16", ptr %382, i64 %i216.0852
+  %add.ptr.i654 = getelementptr inbounds nuw [24 x i8], ptr %382, i64 %i216.0852
   %383 = load ptr, ptr %add.ptr.i654, align 8, !tbaa !93
-  %add.ptr.i655 = getelementptr inbounds nuw double, ptr %383, i64 %j.0854
+  %add.ptr.i655 = getelementptr inbounds nuw [8 x i8], ptr %383, i64 %j.0854
   store double %div491, ptr %add.ptr.i655, align 8, !tbaa !88
   %384 = load ptr, ptr %pn.i656, align 8, !tbaa !41
   %cmp.not.i.i657 = icmp eq ptr %384, null

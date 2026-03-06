@@ -2186,7 +2186,7 @@ label_type_field.exit.i:                          ; preds = %407, %401, %398
 
 411:                                              ; preds = %409, %label_type_field.exit.i
   %indvars.iv.i = phi i64 [ 0, %label_type_field.exit.i ], [ %indvars.iv.next.i, %409 ]
-  %412 = getelementptr %struct.blocktype_limit, ptr @blocktype_limits, i64 %indvars.iv.i
+  %412 = getelementptr [16 x i8], ptr @blocktype_limits, i64 %indvars.iv.i
   %413 = load i64, ptr %412, align 16
   %414 = icmp eq i64 %413, %408
   br i1 %414, label %415, label %409

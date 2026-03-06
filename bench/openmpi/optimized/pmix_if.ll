@@ -1005,7 +1005,7 @@ define range(i32 -1363, 1) i32 @pmix_iftupletoaddr(ptr noundef %0, ptr noundef w
   %.01319.i = phi ptr [ %11, %13 ], [ %.1.i, %24 ]
   %15 = call i64 @strtoul(ptr noundef nonnull %.01319.i, ptr noundef nonnull %6, i32 noundef 10) #19
   %16 = trunc i64 %15 to i32
-  %17 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   store i32 %16, ptr %17, align 4, !tbaa !58
   %18 = load ptr, ptr %6, align 8, !tbaa !63
   %19 = icmp eq ptr %18, %.01319.i
@@ -1128,7 +1128,7 @@ parse_ipv4_dots.exit:                             ; preds = %20, %.split.loop.ex
   %.01319.i44 = phi ptr [ %0, %60 ], [ %.1.i46, %71 ]
   %62 = call i64 @strtoul(ptr noundef %.01319.i44, ptr noundef nonnull %4, i32 noundef 10) #19
   %63 = trunc i64 %62 to i32
-  %64 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i43
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i43
   store i32 %63, ptr %64, align 4, !tbaa !58
   %65 = load ptr, ptr %4, align 8, !tbaa !63
   %66 = icmp eq ptr %65, %.01319.i44
@@ -1290,7 +1290,7 @@ define range(i32 -1363, 1) i32 @pmix_ifmatches(i32 noundef %0, ptr noundef reado
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 %.02750
   %27 = load i8, ptr %26, align 1, !tbaa !15
   %28 = sext i8 %27 to i64
-  %29 = getelementptr inbounds i16, ptr %22, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %22, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !72
   %31 = and i16 %30, 1024
   %.not33 = icmp eq i16 %31, 0
@@ -1344,7 +1344,7 @@ pmix_ifnametokindex.exit:                         ; preds = %36
   br i1 %.not35, label %55, label %51
 
 51:                                               ; preds = %.critedge
-  %52 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !63
   %54 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef %53) #19
   br label %pmix_ifkindextoaddr.exit.thread
@@ -1358,7 +1358,7 @@ pmix_ifnametokindex.exit:                         ; preds = %36
 
 pmix_ifnametokindex.exit.thread:                  ; preds = %43, %32, %55, %pmix_ifnametokindex.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %60 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %61 = load ptr, ptr %60, align 8, !tbaa !63
   %.not32 = icmp eq ptr %61, null
   br i1 %.not32, label %pmix_ifkindextoaddr.exit.thread, label %.preheader, !llvm.loop !73

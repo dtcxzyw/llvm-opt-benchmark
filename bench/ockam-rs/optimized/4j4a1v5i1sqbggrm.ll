@@ -210,7 +210,7 @@ define hidden void @_ZN11sqlx_sqlite9arguments15SqliteArguments3add17h160d9587bf
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha0db48b0f3446634E.llvm.17178189915861732009.exit": ; preds = %5, %._crit_edge.i
   %17 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %7, %5 ]
   %18 = load ptr, ptr %0, align 8, !alias.scope !33, !noalias !36, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds { i32, [7 x i32] }, ptr %18, i64 %17
+  %19 = getelementptr inbounds [32 x i8], ptr %18, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %20 = load i64, ptr %6, align 8, !alias.scope !33, !noalias !36, !noundef !4
   %21 = add i64 %20, 1
@@ -5765,7 +5765,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha0db48b0f3446634E.ll
 9:                                                ; preds = %._crit_edge, %2
   %10 = phi i64 [ %.pre, %._crit_edge ], [ %4, %2 ]
   %11 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds { i32, [7 x i32] }, ptr %11, i64 %10
+  %12 = getelementptr inbounds [32 x i8], ptr %11, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %13 = load i64, ptr %3, align 8, !noundef !4
   %14 = add i64 %13, 1
@@ -8473,7 +8473,7 @@ define hidden void @"_ZN91_$LT$sqlx_sqlite..arguments..SqliteArguments$u20$as$u2
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha0db48b0f3446634E.llvm.17178189915861732009.exit.i": ; preds = %._crit_edge.i.i, %5
   %17 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %7, %5 ]
   %18 = load ptr, ptr %0, align 8, !alias.scope !1537, !noalias !1540, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds { i32, [7 x i32] }, ptr %18, i64 %17
+  %19 = getelementptr inbounds [32 x i8], ptr %18, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !1542
   %20 = load i64, ptr %6, align 8, !alias.scope !1537, !noalias !1540, !noundef !4
   %21 = add i64 %20, 1
@@ -8927,7 +8927,7 @@ define hidden void @"_ZN9sqlx_core5query84Query$LT$DB$C$$LT$DB$u20$as$u20$sqlx_c
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha0db48b0f3446634E.llvm.17178189915861732009.exit.i.i": ; preds = %._crit_edge.i.i.i, %12
   %23 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %14, %12 ]
   %24 = load ptr, ptr %8, align 8, !alias.scope !1603, !noalias !1606, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds { i32, [7 x i32] }, ptr %24, i64 %23
+  %25 = getelementptr inbounds [32 x i8], ptr %24, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !1608
   %26 = load i64, ptr %13, align 8, !alias.scope !1603, !noalias !1606, !noundef !4
   %27 = add i64 %26, 1
@@ -9088,7 +9088,7 @@ define internal fastcc void @"_ZN9sqlx_core5query84Query$LT$DB$C$$LT$DB$u20$as$u
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha0db48b0f3446634E.llvm.17178189915861732009.exit.i.i": ; preds = %._crit_edge.i.i.i, %12
   %23 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %14, %12 ]
   %24 = load ptr, ptr %8, align 8, !alias.scope !1640, !noalias !1643, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds { i32, [7 x i32] }, ptr %24, i64 %23
+  %25 = getelementptr inbounds [32 x i8], ptr %24, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !noalias !1645
   %26 = load i64, ptr %13, align 8, !alias.scope !1640, !noalias !1643, !noundef !4
   %27 = add i64 %26, 1
@@ -12872,7 +12872,7 @@ common.ret:                                       ; preds = %772, %776
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8391.i)
   store i8 0, ptr %498, align 1, !noalias !1879
   %.sroa.5405.0.copyload.cast.i = ptrtoint ptr %496 to i64
-  %499 = getelementptr inbounds { { i64, i64 }, { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] } }, ptr %493, i64 %.sroa.11381.0.copyload383.i
+  %499 = getelementptr inbounds [96 x i8], ptr %493, i64 %.sroa.11381.0.copyload383.i
   store ptr %493, ptr %455, align 8, !noalias !1879
   store i64 %.sroa.5405.0.copyload.cast.i, ptr %457, align 8, !noalias !1879
   store ptr %493, ptr %456, align 8, !noalias !1879
@@ -13117,7 +13117,7 @@ common.ret:                                       ; preds = %772, %776
   %585 = load ptr, ptr %584, align 8, !alias.scope !2183, !noalias !1879, !nonnull !4, !noundef !4
   %586 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %587 = load i64, ptr %586, align 8, !alias.scope !2183, !noalias !1879, !noundef !4
-  %588 = getelementptr inbounds { { { { ptr, i64 }, i64 } } }, ptr %585, i64 %587
+  %588 = getelementptr inbounds [24 x i8], ptr %585, i64 %587
   %589 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr %585, ptr %589, align 8, !noalias !1879
   %590 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -14591,7 +14591,7 @@ common.ret:                                       ; preds = %678, %682
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   store i8 0, ptr %232, align 2, !noalias !2292
   %.sroa.5330.0.copyload.cast.i = ptrtoint ptr %230 to i64
-  %233 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, i8, [7 x i8] }, ptr %227, i64 %.sroa.11305.0.copyload307.i
+  %233 = getelementptr inbounds [32 x i8], ptr %227, i64 %.sroa.11305.0.copyload307.i
   store ptr %227, ptr %187, align 8, !noalias !2292
   %.sroa.0323.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %.sroa.5330.0.copyload.cast.i, ptr %.sroa.0323.sroa.9.0..sroa_idx.i, align 8, !noalias !2292
@@ -15278,7 +15278,7 @@ common.ret:                                       ; preds = %678, %682
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8347.i)
   store i8 0, ptr %432, align 1, !noalias !2292
   %.sroa.5360.0.copyload.cast.i = ptrtoint ptr %430 to i64
-  %433 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, i64, { ptr, [2 x i64] } }, ptr %427, i64 %.sroa.11337.0.copyload339.i
+  %433 = getelementptr inbounds [80 x i8], ptr %427, i64 %.sroa.11337.0.copyload339.i
   %434 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store ptr %427, ptr %434, align 8, !noalias !2292
   %.sroa.7356.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 288

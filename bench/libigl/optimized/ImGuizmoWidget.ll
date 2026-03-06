@@ -476,8 +476,8 @@ define dso_local void @_ZN3igl6opengl4glfw5imgui14ImGuizmoWidget4drawEv(ptr noun
 
 329:                                              ; preds = %329, %.preheader.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %336, %329 ]
-  %330 = getelementptr inbounds nuw float, ptr %2, i64 %.011.i.i.i.i.i.i.i
-  %331 = getelementptr inbounds nuw float, ptr %330, i64 %.01012.i.i.i.i.i.i.i
+  %330 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.011.i.i.i.i.i.i.i
+  %331 = getelementptr inbounds nuw [4 x i8], ptr %330, i64 %.01012.i.i.i.i.i.i.i
   %332 = load float, ptr %330, align 4, !tbaa !31
   %333 = load float, ptr %331, align 4, !tbaa !31
   %334 = fcmp olt float %332, %333

@@ -2308,10 +2308,10 @@ define hidden noalias ptr @dissect_e212_mcc_mnc_wmem_packet_str(ptr noundef %0, 
 
 switch.lookup:                                    ; preds = %6
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_e212_mcc_mnc_wmem_packet_str, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_e212_mcc_mnc_wmem_packet_str, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep118 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_e212_mcc_mnc_wmem_packet_str.1, i64 %9
+  %switch.gep118 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_e212_mcc_mnc_wmem_packet_str.1, i64 %9
   %switch.load119 = load ptr, ptr %switch.gep118, align 8
   br label %10
 

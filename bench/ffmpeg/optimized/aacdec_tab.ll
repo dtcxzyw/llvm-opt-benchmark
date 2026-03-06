@@ -51,17 +51,17 @@ define internal void @aacdec_common_init() #0 {
 
 3:                                                ; preds = %0, %3
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw i16, ptr @ff_aac_spectral_sizes, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [2 x i8], ptr @ff_aac_spectral_sizes, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2, !tbaa !4
   %6 = zext i16 %5 to i32
-  %7 = getelementptr inbounds nuw ptr, ptr @ff_aac_spectral_bits, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @ff_aac_spectral_bits, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !8
-  %9 = getelementptr inbounds nuw ptr, ptr @ff_aac_spectral_codes, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @ff_aac_spectral_codes, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !11
-  %11 = getelementptr inbounds nuw ptr, ptr @ff_aac_codebook_vector_idx, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @ff_aac_codebook_vector_idx, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   %13 = call ptr @ff_vlc_init_tables_sparse(ptr noundef nonnull %1, i32 noundef 8, i32 noundef %6, ptr noundef %8, i32 noundef 1, i32 noundef 1, ptr noundef %10, i32 noundef 2, i32 noundef 2, ptr noundef %12, i32 noundef 2, i32 noundef 2, i32 noundef 0) #4
-  %14 = getelementptr inbounds nuw ptr, ptr @ff_vlc_spectral, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @ff_vlc_spectral, i64 %indvars.iv
   store ptr %13, ptr %14, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
@@ -83,7 +83,7 @@ define internal void @aacdec_common_init() #0 {
   %22 = load i8, ptr %21, align 1, !tbaa !17
   %23 = sext i8 %22 to i32
   %24 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 9, i32 noundef %19, ptr noundef nonnull %20, i32 noundef 2, ptr noundef nonnull %.01619, i32 noundef 2, i32 noundef 1, i32 noundef %23, i32 noundef 0) #4
-  %25 = getelementptr inbounds nuw ptr, ptr @ff_aac_sbr_vlc, i64 %indvars.iv22
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @ff_aac_sbr_vlc, i64 %indvars.iv22
   store ptr %24, ptr %25, align 8, !tbaa !13
   %26 = zext i8 %18 to i64
   %27 = getelementptr inbounds nuw [2 x i8], ptr %.01619, i64 %26

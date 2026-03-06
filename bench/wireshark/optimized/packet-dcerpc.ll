@@ -13,8 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
 %struct.except_id_t = type { i64, i64 }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._dcerpc_sub_dissector = type { i16, ptr, ptr, ptr }
-%struct._value_string = type { i32, ptr }
 %struct.except_stacknode = type { ptr, i32, %union.anon }
 %union.anon = type { ptr }
 %struct.except_catch = type { ptr, i64, %struct.except_t, [1 x %struct.__jmp_buf_tag] }
@@ -1215,7 +1213,7 @@ define void @dcerpc_init_uuid(i32 noundef %0, i32 noundef %1, ptr noundef readon
   %21 = add i32 %.125.us.i, 1
   %22 = add i32 %.01924.us.i, 1
   %23 = sext i32 %22 to i64
-  %24 = getelementptr %struct._dcerpc_sub_dissector, ptr %4, i64 %23
+  %24 = getelementptr [32 x i8], ptr %4, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not.us.i = icmp eq ptr %26, null
@@ -1228,14 +1226,14 @@ define void @dcerpc_init_uuid(i32 noundef %0, i32 noundef %1, ptr noundef readon
   %.01924.i = phi i32 [ %35, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
   %30 = load i16, ptr %28, align 8
   %31 = zext i16 %30 to i32
-  %32 = getelementptr %struct._value_string, ptr %.020.i, i64 %29
+  %32 = getelementptr [16 x i8], ptr %.020.i, i64 %29
   store i32 %31, ptr %32, align 8
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %33, ptr %34, align 8
   %35 = add i32 %.01924.i, 1
   %36 = sext i32 %35 to i64
-  %37 = getelementptr %struct._dcerpc_sub_dissector, ptr %4, i64 %36
+  %37 = getelementptr [32 x i8], ptr %4, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not.i = icmp eq ptr %39, null
@@ -1255,7 +1253,7 @@ define void @dcerpc_init_uuid(i32 noundef %0, i32 noundef %1, ptr noundef readon
 
 value_string_from_subdissectors.exit:             ; preds = %._crit_edge.i, %.lr.ph.split.i
   %45 = sext i32 %.0.i to i64
-  %46 = getelementptr %struct._value_string, ptr %.020.i, i64 %45
+  %46 = getelementptr [16 x i8], ptr %.020.i, i64 %45
   store i32 0, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr null, ptr %47, align 8
@@ -1297,7 +1295,7 @@ define hidden nonnull ptr @value_string_from_subdissectors(ptr noundef readonly 
   %5 = add i32 %.125.us, 1
   %6 = add i32 %.01924.us, 1
   %7 = sext i32 %6 to i64
-  %8 = getelementptr %struct._dcerpc_sub_dissector, ptr %0, i64 %7
+  %8 = getelementptr [32 x i8], ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.us = icmp eq ptr %10, null
@@ -1310,14 +1308,14 @@ define hidden nonnull ptr @value_string_from_subdissectors(ptr noundef readonly 
   %.01924 = phi i32 [ %19, %.lr.ph.split ], [ 0, %.lr.ph ]
   %14 = load i16, ptr %12, align 8
   %15 = zext i16 %14 to i32
-  %16 = getelementptr %struct._value_string, ptr %.020, i64 %13
+  %16 = getelementptr [16 x i8], ptr %.020, i64 %13
   store i32 %15, ptr %16, align 8
   %17 = load ptr, ptr %11, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %17, ptr %18, align 8
   %19 = add i32 %.01924, 1
   %20 = sext i32 %19 to i64
-  %21 = getelementptr %struct._dcerpc_sub_dissector, ptr %0, i64 %20
+  %21 = getelementptr [32 x i8], ptr %0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
@@ -1337,7 +1335,7 @@ define hidden nonnull ptr @value_string_from_subdissectors(ptr noundef readonly 
 
 ._crit_edge.thread30:                             ; preds = %._crit_edge, %.lr.ph.split
   %29 = sext i32 %.0 to i64
-  %30 = getelementptr %struct._value_string, ptr %.020, i64 %29
+  %30 = getelementptr [16 x i8], ptr %.020, i64 %29
   store i32 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr null, ptr %31, align 8
@@ -5282,7 +5280,7 @@ dcerpc_get_proto_sub_dissector.exit:              ; preds = %dcerpc_get_proto_hf
   %spec.select = select i1 %42, ptr %38, ptr %.041
   %43 = add i32 %.02940, 1
   %44 = sext i32 %43 to i64
-  %45 = getelementptr %struct._dcerpc_sub_dissector, ptr %.0.i38, i64 %44
+  %45 = getelementptr [32 x i8], ptr %.0.i38, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not36 = icmp eq ptr %47, null
@@ -5453,7 +5451,7 @@ dcerpc_get_proto_name.exit:                       ; preds = %dcerpc_get_proto_su
   %spec.select = call i32 @llvm.umax.i32(i32 %.05156, i32 %82)
   %83 = add i32 %.05057, 1
   %84 = zext i32 %83 to i64
-  %85 = getelementptr %struct._dcerpc_sub_dissector, ptr %.0.i, i64 %84
+  %85 = getelementptr [32 x i8], ptr %.0.i, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not = icmp eq ptr %87, null
@@ -5689,7 +5687,7 @@ define internal noundef zeroext i1 @dissect_dcerpc_dg(ptr noundef %0, ptr nounde
   %32 = load ptr, ptr %30, align 8
   %33 = load i8, ptr %14, align 1
   %34 = zext i8 %33 to i64
-  %35 = getelementptr %struct._value_string, ptr @pckt_vals, i64 %34
+  %35 = getelementptr [16 x i8], ptr @pckt_vals, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   call void @col_add_str(ptr noundef %32, i32 noundef 25, ptr noundef %37)
@@ -7574,7 +7572,7 @@ dcerpc_tvb_get_ntohl.exit:                        ; preds = %83, %85
   %110 = load ptr, ptr %103, align 8
   %111 = load i8, ptr %58, align 2
   %112 = zext i8 %111 to i64
-  %113 = getelementptr %struct._value_string, ptr @pckt_vals, i64 %112
+  %113 = getelementptr [16 x i8], ptr @pckt_vals, i64 %112
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = load ptr, ptr %114, align 8
   %116 = load i32, ptr %87, align 4
@@ -7634,7 +7632,7 @@ dcerpc_tvb_get_ntohl.exit:                        ; preds = %83, %85
   %150 = load i8, ptr %61, align 1
   %151 = and i8 %150, 3
   %152 = zext nneg i8 %151 to i64
-  %153 = getelementptr ptr, ptr @fragment_type.t, i64 %152
+  %153 = getelementptr [8 x i8], ptr @fragment_type.t, i64 %152
   %154 = load ptr, ptr %153, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0194, ptr noundef nonnull @.str.638, ptr noundef %149, ptr noundef %154)
   br label %155
@@ -7649,7 +7647,7 @@ dcerpc_tvb_get_ntohl.exit:                        ; preds = %83, %85
   %162 = load i8, ptr %61, align 1
   %163 = and i8 %162, 3
   %164 = zext nneg i8 %163 to i64
-  %165 = getelementptr ptr, ptr @fragment_type.t, i64 %164
+  %165 = getelementptr [8 x i8], ptr @fragment_type.t, i64 %164
   %166 = load ptr, ptr %165, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %161, i32 noundef 25, ptr noundef nonnull @.str.640, ptr noundef %166)
   call fastcc void @proto_tree_add_dcerpc_drep(ptr noundef %.0193, ptr noundef %0, i32 noundef %59, ptr noundef nonnull %62, i32 noundef 4)
@@ -10384,7 +10382,7 @@ dissect_dcerpc_uint16.exit.i300:                  ; preds = %1475, %1474
 
 dcerpc_tvb_get_ntohl.exit.i:                      ; preds = %1494, %1492
   %.0.i257.i = phi i32 [ %1493, %1492 ], [ %1495, %1494 ]
-  %1496 = getelementptr i32, ptr %1489, i64 %indvars.iv.i
+  %1496 = getelementptr [4 x i8], ptr %1489, i64 %indvars.iv.i
   store i32 %.0.i257.i, ptr %1496, align 4
   %1497 = load i32, ptr @hf_dcerpc_cn_rts_command, align 4
   %1498 = call ptr @proto_tree_add_uint(ptr noundef %1484, i32 noundef %1497, ptr noundef %194, i32 noundef %.0314.i, i32 noundef 4, i32 noundef %.0.i257.i)
@@ -11368,7 +11366,7 @@ dissect_dcerpc_uint32.exit296.i:                  ; preds = %1716, %1715
 
 switch.lookup:                                    ; preds = %1729
   %1982 = zext nneg i32 %1730 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_dcerpc_cn, i64 %1982
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_dcerpc_cn, i64 %1982
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.thread.i306
 
@@ -12323,7 +12321,7 @@ decode_encrypted_data.exit.thread:                ; preds = %40, %36, %20, %28, 
   %66 = load i8, ptr %48, align 1
   %67 = and i8 %66, 3
   %68 = zext nneg i8 %67 to i64
-  %69 = getelementptr ptr, ptr @fragment_type.t, i64 %68
+  %69 = getelementptr [8 x i8], ptr @fragment_type.t, i64 %68
   %70 = load ptr, ptr %69, align 8
   %71 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_dcerpc_fragment, ptr noundef nonnull @.str.673, ptr noundef %70)
   br label %.sink.split
@@ -12421,7 +12419,7 @@ decode_encrypted_data.exit.thread:                ; preds = %40, %36, %20, %28, 
   %123 = load i8, ptr %48, align 1
   %124 = and i8 %123, 3
   %125 = zext nneg i8 %124 to i64
-  %126 = getelementptr ptr, ptr @fragment_type.t, i64 %125
+  %126 = getelementptr [8 x i8], ptr @fragment_type.t, i64 %125
   %127 = load ptr, ptr %126, align 8
   %128 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %122, ptr noundef nonnull @ei_dcerpc_fragment_reassembled, ptr noundef nonnull @.str.675, ptr noundef %127)
   %129 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -12466,14 +12464,14 @@ proto_item_set_generated.exit:                    ; preds = %130, %133, %136
   %146 = load i8, ptr %48, align 1
   %147 = and i8 %146, 3
   %148 = zext nneg i8 %147 to i64
-  %149 = getelementptr ptr, ptr @fragment_type.t, i64 %148
+  %149 = getelementptr [8 x i8], ptr @fragment_type.t, i64 %148
   %150 = load ptr, ptr %149, align 8
   %151 = load i32, ptr %104, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %145, i32 noundef 25, ptr noundef nonnull @.str.677, ptr noundef %150, i32 noundef %151)
   %152 = load i8, ptr %48, align 1
   %153 = and i8 %152, 3
   %154 = zext nneg i8 %153 to i64
-  %155 = getelementptr ptr, ptr @fragment_type.t, i64 %154
+  %155 = getelementptr [8 x i8], ptr @fragment_type.t, i64 %154
   %156 = load ptr, ptr %155, align 8
   %157 = load i32, ptr %104, align 8
   %158 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_dcerpc_fragment_reassembled, ptr noundef nonnull @.str.678, ptr noundef %156, i32 noundef %157)
@@ -12483,7 +12481,7 @@ proto_item_set_generated.exit:                    ; preds = %130, %133, %136
   %159 = load i8, ptr %48, align 1
   %160 = and i8 %159, 3
   %161 = zext nneg i8 %160 to i64
-  %162 = getelementptr ptr, ptr @fragment_type.t, i64 %161
+  %162 = getelementptr [8 x i8], ptr @fragment_type.t, i64 %161
   %163 = load ptr, ptr %162, align 8
   %164 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_dcerpc_fragment, ptr noundef nonnull @.str.673, ptr noundef %163)
   %.not164 = icmp eq ptr %.1, null

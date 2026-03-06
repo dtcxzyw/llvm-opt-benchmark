@@ -1038,7 +1038,7 @@ define internal noundef ptr @getpath_hassuffix(ptr readnone captures(none) %0, p
 
 18:                                               ; preds = %14
   %19 = sub i64 %16, %15
-  %20 = getelementptr i32, ptr %10, i64 %19
+  %20 = getelementptr [4 x i8], ptr %10, i64 %19
   %21 = call i32 @wcscmp(ptr noundef %20, ptr noundef nonnull %13) #14
   %.not16 = icmp eq i32 %21, 0
   br i1 %.not16, label %25, label %22
@@ -1310,7 +1310,7 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
   %.066106 = phi i64 [ 0, %.lr.ph ], [ %42, %38 ]
   %.067105 = phi i64 [ 0, %.lr.ph ], [ %.269, %38 ]
   %.071104 = phi i64 [ 0, %.lr.ph ], [ %41, %38 ]
-  %24 = getelementptr ptr, ptr %22, i64 %.066106
+  %24 = getelementptr [8 x i8], ptr %22, i64 %.066106
   %25 = load ptr, ptr %24, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %26 = icmp eq ptr %25, @_Py_NoneStruct
@@ -1327,7 +1327,7 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
 
 31:                                               ; preds = %27
   %32 = call ptr @PyUnicode_AsWideCharString(ptr noundef %25, ptr noundef nonnull %3) #13
-  %33 = getelementptr ptr, ptr %16, i64 %.066106
+  %33 = getelementptr [8 x i8], ptr %16, i64 %.066106
   store ptr %32, ptr %33, align 8, !tbaa !33
   %.not81 = icmp eq ptr %32, null
   br i1 %.not81, label %.thread95, label %34
@@ -1379,7 +1379,7 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
 
 .lr.ph115:                                        ; preds = %.preheader, %.lr.ph115
   %.061114 = phi i64 [ %49, %.lr.ph115 ], [ 0, %.preheader ]
-  %47 = getelementptr ptr, ptr %16, i64 %.061114
+  %47 = getelementptr [8 x i8], ptr %16, i64 %.061114
   %48 = load ptr, ptr %47, align 8, !tbaa !33
   call void @PyMem_Free(ptr noundef %48) #13
   %49 = add nuw nsw i64 %.061114, 1
@@ -1406,7 +1406,7 @@ define internal ptr @getpath_joinpath(ptr readnone captures(none) %0, ptr nounde
 .lr.ph111:                                        ; preds = %54, %70
   %.060109 = phi i64 [ %71, %70 ], [ 0, %54 ]
   %.062108 = phi ptr [ %.163, %70 ], [ %46, %54 ]
-  %55 = getelementptr ptr, ptr %16, i64 %.060109
+  %55 = getelementptr [8 x i8], ptr %16, i64 %.060109
   %56 = load ptr, ptr %55, align 8, !tbaa !33
   %.not86 = icmp eq ptr %56, null
   br i1 %.not86, label %70, label %57
@@ -1598,7 +1598,7 @@ Py_DECREF.exit107:                                ; preds = %43, %45, %48
 
 .lr.ph:                                           ; preds = %.lr.ph134, %.critedge2
   %.062129 = phi i64 [ %58, %.critedge2 ], [ %54, %.lr.ph134 ]
-  %56 = getelementptr i32, ptr %.059133, i64 %.062129
+  %56 = getelementptr [4 x i8], ptr %.059133, i64 %.062129
   %57 = load i32, ptr %56, align 4, !tbaa !12
   switch i32 %57, label %.critedge [
     i32 10, label %.critedge2

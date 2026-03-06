@@ -191,9 +191,9 @@ define void @Mvc_CoverAddDupCubeHead(ptr noundef %0, ptr noundef readonly captur
 
 20:                                               ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ %10, %.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !15
-  %23 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %22, ptr %23, align 4, !tbaa !15
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
@@ -258,9 +258,9 @@ define void @Mvc_CoverAddDupCubeTail(ptr noundef %0, ptr noundef readonly captur
 
 20:                                               ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ %10, %.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !15
-  %23 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %22, ptr %23, align 4, !tbaa !15
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
@@ -320,7 +320,7 @@ define void @Mvc_CoverList2Array(ptr noundef %0) local_unnamed_addr #2 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %.0610 = phi ptr [ %.067, %.lr.ph ], [ %.06, %5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store ptr %.0610, ptr %6, align 8, !tbaa !14
   %.06 = load ptr, ptr %.0610, align 8, !tbaa !14
   %.not = icmp eq ptr %.06, null
@@ -359,7 +359,7 @@ define void @Mvc_CoverArray2List(ptr noundef %0) local_unnamed_addr #2 {
   store ptr %12, ptr %13, align 8, !tbaa !26
   %14 = add nsw i32 %2, -1
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds ptr, ptr %11, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %11, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   store ptr null, ptr %17, align 8, !tbaa !11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -376,7 +376,7 @@ define void @Mvc_CoverArray2List(ptr noundef %0) local_unnamed_addr #2 {
   %20 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %22, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.next
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next
   %22 = load ptr, ptr %21, align 8, !tbaa !14
   store ptr %22, ptr %20, align 8, !tbaa !11
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

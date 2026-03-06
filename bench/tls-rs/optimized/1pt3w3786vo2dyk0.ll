@@ -262,7 +262,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN4core3ops8func
   %3 = load ptr, ptr %2, align 8, !alias.scope !18, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !18, !noundef !4
-  %6 = getelementptr inbounds { i64, [3 x i64] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %3, i64 %5
   br label %7
 
 7:                                                ; preds = %10, %1
@@ -1801,7 +1801,7 @@ define hidden void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ite
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %3 = getelementptr inbounds { { { i64, ptr }, i64 }, { { { i64, [2 x i64] } } } }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %3 = getelementptr inbounds [48 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   store ptr %.sroa.4.0.copyload, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0.0.copyload, ptr %4, align 8
@@ -1819,7 +1819,7 @@ define hidden void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ite
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %3 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %3 = getelementptr inbounds [24 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   store ptr %.sroa.4.0.copyload, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0.0.copyload, ptr %4, align 8
@@ -2327,7 +2327,7 @@ define hidden { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { { { i64, ptr }, i64 }, { { { i64, [2 x i64] } } } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [48 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -3288,7 +3288,7 @@ _ZN6rustls4msgs4base7Payload10into_owned17hfed84add1aba5080E.exit: ; preds = %27
 
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN112_$LT$$u5b$rustls..msgs..handshake..ServerName$u5d$$u20$as$u20$rustls..msgs..handshake..ConvertServerNameList$GT$28has_duplicate_names_for_type17h1e70b68a06f34c6eE"(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1) unnamed_addr #9 {
-  %3 = getelementptr inbounds { { i64, [3 x i64] }, { i8, i8 }, [6 x i8] }, ptr %0, i64 %1
+  %3 = getelementptr inbounds [40 x i8], ptr %0, i64 %1
   %4 = tail call noundef zeroext i1 @_ZN6rustls4msgs9handshake14has_duplicates17h395ae4ba7a73e688E(ptr noundef nonnull %0, ptr noundef nonnull %3)
   ret i1 %4
 }
@@ -6843,7 +6843,7 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake18ClientHelloPayload2
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { i64, [6 x i64] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [56 x i8], ptr %3, i64 %5
   %7 = tail call noundef zeroext i1 @_ZN6rustls4msgs9handshake14has_duplicates17h14b069eeaacfaf85E(ptr noundef nonnull %3, ptr noundef nonnull %6)
   ret i1 %7
 }
@@ -8021,7 +8021,7 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake18ClientHelloPayload2
   %.not = icmp eq i64 %3, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8, !nonnull !4
-  %6 = getelementptr { i64, [6 x i64] }, ptr %5, i64 %3
+  %6 = getelementptr [56 x i8], ptr %5, i64 %3
   %7 = getelementptr i8, ptr %6, i64 -56
   %8 = icmp eq ptr %7, null
   %9 = select i1 %.not, i1 true, i1 %8
@@ -8237,7 +8237,7 @@ _ZN6rustls4msgs9handshake15ClientExtension8ext_type17h9e184a34ef0da354E.exit.i.i
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %22 = load i64, ptr %21, align 8, !noalias !1836, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1853
-  %23 = getelementptr inbounds { i8, i8 }, ptr %20, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %20, i64 %22
   store ptr %20, ptr %4, align 8, !noalias !1853
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %23, ptr %24, align 8, !noalias !1853
@@ -9481,7 +9481,7 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake17HelloRetryRequest23
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { i64, [3 x i64] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %3, i64 %5
   %7 = tail call noundef zeroext i1 @_ZN6rustls4msgs9handshake14has_duplicates17he583c176c8498dfeE(ptr noundef nonnull %3, ptr noundef nonnull %6)
   ret i1 %7
 }
@@ -10234,7 +10234,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN6rustls4msgs9h
   %4 = load ptr, ptr %3, align 8, !alias.scope !2442, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !2442, !noundef !4
-  %7 = getelementptr inbounds { i16, [19 x i16] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [40 x i8], ptr %4, i64 %6
   store ptr %4, ptr %2, align 8, !noalias !2439
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %8, align 8, !noalias !2439
@@ -10301,7 +10301,7 @@ define hidden { i16, i16 } @_ZN6rustls4msgs9handshake18ServerHelloPayload9psk_in
   %4 = load ptr, ptr %3, align 8, !alias.scope !2458, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !2458, !noundef !4
-  %7 = getelementptr inbounds { i16, [19 x i16] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [40 x i8], ptr %4, i64 %6
   store ptr %4, ptr %2, align 8, !noalias !2455
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %8, align 8, !noalias !2455
@@ -10374,7 +10374,7 @@ define hidden { ptr, i64 } @_ZN6rustls4msgs9handshake18ServerHelloPayload18ecpoi
   %4 = load ptr, ptr %3, align 8, !alias.scope !2474, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !2474, !noundef !4
-  %7 = getelementptr inbounds { i16, [19 x i16] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [40 x i8], ptr %4, i64 %6
   store ptr %4, ptr %2, align 8, !noalias !2471
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %8, align 8, !noalias !2471
@@ -10449,7 +10449,7 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake18ServerHelloPayload1
   %4 = load ptr, ptr %3, align 8, !alias.scope !2490, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !2490, !noundef !4
-  %7 = getelementptr inbounds { i16, [19 x i16] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [40 x i8], ptr %4, i64 %6
   store ptr %4, ptr %2, align 8, !noalias !2487
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %8, align 8, !noalias !2487
@@ -10506,7 +10506,7 @@ define hidden { i16, i16 } @_ZN6rustls4msgs9handshake18ServerHelloPayload18suppo
   %4 = load ptr, ptr %3, align 8, !alias.scope !2506, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !2506, !noundef !4
-  %7 = getelementptr inbounds { i16, [19 x i16] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [40 x i8], ptr %4, i64 %6
   store ptr %4, ptr %2, align 8, !noalias !2503
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %8, align 8, !noalias !2503
@@ -10582,7 +10582,7 @@ define hidden void @_ZN6rustls4msgs9handshake16CertificateChain10into_owned17h6d
   %.sroa.42.0.copyload = load ptr, ptr %.sroa.42.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.53.0.copyload = load i64, ptr %.sroa.53.0..sroa_idx, align 8
-  %5 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %.sroa.42.0.copyload, i64 %.sroa.53.0.copyload
+  %5 = getelementptr inbounds [24 x i8], ptr %.sroa.42.0.copyload, i64 %.sroa.53.0.copyload
   store ptr %.sroa.42.0.copyload, ptr %3, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.01.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
@@ -11215,7 +11215,7 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake16CertificateEntry23h
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { i64, [3 x i64] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %3, i64 %5
   %7 = tail call noundef zeroext i1 @_ZN6rustls4msgs9handshake14has_duplicates17hc26d1dec8a5a988cE(ptr noundef nonnull %3, ptr noundef nonnull %6)
   ret i1 %7
 }
@@ -11226,7 +11226,7 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake16CertificateEntry21h
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { i64, [3 x i64] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %3, i64 %5
   br label %7
 
 7:                                                ; preds = %9, %1
@@ -11254,7 +11254,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN6rustls4msgs9h
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { i64, [3 x i64] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %3, i64 %5
   br label %7
 
 7:                                                ; preds = %10, %1
@@ -11447,7 +11447,7 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake23CertificatePayloadT
   %3 = load ptr, ptr %2, align 8, !alias.scope !2783, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !alias.scope !2783, !noundef !4
-  %6 = getelementptr inbounds { { { i64, ptr }, i64 }, { { { i64, [2 x i64] } } } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [48 x i8], ptr %3, i64 %5
   br label %7
 
 7:                                                ; preds = %8, %1
@@ -11462,7 +11462,7 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake23CertificatePayloadT
   %11 = load ptr, ptr %10, align 8, !alias.scope !2786, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !2786, !noundef !4
-  %14 = getelementptr inbounds { i64, [3 x i64] }, ptr %11, i64 %13
+  %14 = getelementptr inbounds [32 x i8], ptr %11, i64 %13
   %15 = tail call noundef zeroext i1 @_ZN6rustls4msgs9handshake14has_duplicates17hc26d1dec8a5a988cE(ptr noundef nonnull %11, ptr noundef nonnull %14), !noalias !2786
   br i1 %15, label %16, label %7
 
@@ -11493,7 +11493,7 @@ _ZN6rustls4msgs9handshake16CertificateEntry21has_unknown_extension17hfd7304c245d
   %9 = load ptr, ptr %8, align 8, !alias.scope !2792, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !2792, !noundef !4
-  %12 = getelementptr inbounds { i64, [3 x i64] }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %13
 
 13:                                               ; preds = %15, %.lr.ph
@@ -11522,7 +11522,7 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake23CertificatePayloadT
   %3 = load ptr, ptr %2, align 8, !alias.scope !2803, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !alias.scope !2803, !noundef !4
-  %6 = getelementptr inbounds { { { i64, ptr }, i64 }, { { { i64, [2 x i64] } } } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [48 x i8], ptr %3, i64 %5
   br label %7
 
 7:                                                ; preds = %8, %1
@@ -11557,7 +11557,7 @@ define hidden void @_ZN6rustls4msgs9handshake23CertificatePayloadTls1315end_enti
   %9 = load ptr, ptr %8, align 8, !alias.scope !2812, !nonnull !4, !noundef !4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !2812, !noundef !4
-  %12 = getelementptr inbounds { i64, [3 x i64] }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %13
 
 13:                                               ; preds = %16, %5
@@ -11620,7 +11620,7 @@ define hidden void @_ZN6rustls4msgs9handshake23CertificatePayloadTls137convert17
   %.sroa.42.0.copyload = load ptr, ptr %.sroa.42.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.53.0.copyload = load i64, ptr %.sroa.53.0..sroa_idx, align 8
-  %7 = getelementptr inbounds { { { i64, ptr }, i64 }, { { { i64, [2 x i64] } } } }, ptr %.sroa.42.0.copyload, i64 %.sroa.53.0.copyload
+  %7 = getelementptr inbounds [48 x i8], ptr %.sroa.42.0.copyload, i64 %.sroa.53.0.copyload
   store ptr %.sroa.42.0.copyload, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.01.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
@@ -12471,10 +12471,10 @@ _ZN6rustls4msgs12ffdhe_groups10FfdheGroup16from_named_group17h2516f65ccea360d9E.
 
 switch.lookup:                                    ; preds = %3
   %20 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN6rustls4msgs9handshake14ServerDhParams3new17h26560eb7c5028b8bE.llvm.15934541666227088301, i64 %20
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls4msgs9handshake14ServerDhParams3new17h26560eb7c5028b8bE.llvm.15934541666227088301, i64 %20
   %switch.load = load i64, ptr %switch.gep, align 8
   %21 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep40 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6rustls4msgs9handshake14ServerDhParams3new17h26560eb7c5028b8bE.llvm.15934541666227088301.11, i64 %21
+  %switch.gep40 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6rustls4msgs9handshake14ServerDhParams3new17h26560eb7c5028b8bE.llvm.15934541666227088301.11, i64 %21
   %switch.load41 = load ptr, ptr %switch.gep40, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %22 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h881b5322e8400d52E"(i64 noundef %switch.load, i1 noundef zeroext false), !noalias !3087
@@ -15030,7 +15030,7 @@ define hidden noundef zeroext i1 @_ZN6rustls4msgs9handshake28NewSessionTicketPay
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { i64, [3 x i64] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %3, i64 %5
   %7 = tail call noundef zeroext i1 @_ZN6rustls4msgs9handshake14has_duplicates17h964154ebcf1ab59aE(ptr noundef nonnull %3, ptr noundef nonnull %6)
   ret i1 %7
 }
@@ -16166,7 +16166,7 @@ define hidden void @_ZN6rustls4msgs9handshake16HandshakePayload10into_owned17h47
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.019)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %19 = getelementptr inbounds { { { i64, [2 x i64] } } }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %19 = getelementptr inbounds [24 x i8], ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
   store ptr %.sroa.2.0.copyload, ptr %3, align 8, !noalias !4177
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.018.0.copyload, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4177
@@ -17608,7 +17608,7 @@ _ZN6rustls4msgs5codec5Codec12get_encoding17h70fb4bdcc373f64cE.exit: ; preds = %2
   %.not = icmp eq i64 %19, 0
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %21 = load ptr, ptr %20, align 8, !nonnull !4
-  %22 = getelementptr { i64, [6 x i64] }, ptr %21, i64 %19
+  %22 = getelementptr [56 x i8], ptr %21, i64 %19
   %23 = getelementptr i8, ptr %22, i64 -56
   %.not811 = icmp eq ptr %23, null
   %.not8 = select i1 %.not, i1 true, i1 %.not811
@@ -17920,7 +17920,7 @@ define void @"_ZN96_$LT$rustls..msgs..handshake..HpkeSymmetricCipherSuite$u20$as
 
 switch.lookup112:                                 ; preds = %30
   %35 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @"switch.table._ZN96_$LT$rustls..msgs..handshake..HpkeSymmetricCipherSuite$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h0a921f5e355800a1E", i64 %35
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @"switch.table._ZN96_$LT$rustls..msgs..handshake..HpkeSymmetricCipherSuite$u20$as$u20$rustls..msgs..codec..Codec$GT$4read17h0a921f5e355800a1E", i64 %35
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %36
 

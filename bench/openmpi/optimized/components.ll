@@ -180,7 +180,7 @@ pmix_obj_new_tma.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i, %
   ]
 
 51:                                               ; preds = %pmix_obj_new_tma.exit.i.i.i
-  %52 = getelementptr inbounds nuw ptr, ptr @prte_frameworks, i64 %indvars.iv.i.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @prte_frameworks, i64 %indvars.iv.i.i
   %53 = load ptr, ptr @stderr, align 8, !tbaa !27
   %54 = load ptr, ptr %52, align 8, !tbaa !29
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -191,7 +191,7 @@ pmix_obj_new_tma.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i, %
   br label %register_framework_params.exit
 
 60:                                               ; preds = %pmix_obj_new_tma.exit.i.i.i, %.lr.ph.i.i
-  %61 = getelementptr inbounds nuw ptr, ptr @prte_frameworks, i64 %indvars.iv.i.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @prte_frameworks, i64 %indvars.iv.i.i
   %62 = load ptr, ptr @stderr, align 8, !tbaa !27
   %63 = load ptr, ptr %61, align 8, !tbaa !29
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -201,7 +201,7 @@ pmix_obj_new_tma.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i, %
 
 67:                                               ; preds = %pmix_obj_new_tma.exit.i.i.i, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %68 = getelementptr inbounds nuw ptr, ptr @prte_frameworks, i64 %indvars.iv.next.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr @prte_frameworks, i64 %indvars.iv.next.i.i
   %69 = load ptr, ptr %68, align 8, !tbaa !29
   %.not.i.i = icmp eq ptr %69, null
   br i1 %.not.i.i, label %register_framework_params.exit, label %.lr.ph.i.i, !llvm.loop !38
@@ -234,7 +234,7 @@ define dso_local void @prte_info_components_close() local_unnamed_addr #2 {
   %4 = phi ptr [ %7, %.lr.ph ], [ %1, %.preheader21 ]
   %5 = tail call i32 @pmix_mca_base_framework_close(ptr noundef nonnull %4) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %6 = getelementptr inbounds nuw ptr, ptr @prte_frameworks, i64 %indvars.iv.next
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @prte_frameworks, i64 %indvars.iv.next
   %7 = load ptr, ptr %6, align 8, !tbaa !29
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !42
@@ -242,7 +242,7 @@ define dso_local void @prte_info_components_close() local_unnamed_addr #2 {
 pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %35
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %35 ], [ 0, %.preheader ]
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_component_map, i64 152), align 8, !tbaa !43
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv26
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv26
   %10 = load ptr, ptr %9, align 8, !tbaa !24
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %35, label %11

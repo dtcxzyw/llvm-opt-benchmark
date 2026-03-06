@@ -434,7 +434,7 @@ define hidden range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(n
 .preheader84:                                     ; preds = %13, %.preheader84
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.preheader84 ], [ 0, %13 ]
   %.07890 = phi ptr [ %56, %.preheader84 ], [ %0, %13 ]
-  %44 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv97
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv97
   %45 = load i32, ptr %44, align 4, !tbaa !6
   %46 = lshr i32 %45, 24
   %47 = trunc nuw i32 %46 to i8
@@ -458,7 +458,7 @@ define hidden range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(n
 .preheader86:                                     ; preds = %13, %.preheader86
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader86 ], [ 0, %13 ]
   %.17988 = phi ptr [ %69, %.preheader86 ], [ %0, %13 ]
-  %57 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4, !tbaa !6
   %59 = lshr i32 %58, 24
   %60 = trunc nuw i32 %59 to i8
@@ -490,7 +490,7 @@ define hidden range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(n
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.lr.ph ], [ 0, %.preheader ]
   %.28092 = phi ptr [ %84, %.lr.ph ], [ %0, %.preheader ]
-  %72 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv101
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv101
   %73 = load i32, ptr %72, align 4, !tbaa !6
   %74 = lshr i32 %73, 24
   %75 = trunc nuw i32 %74 to i8

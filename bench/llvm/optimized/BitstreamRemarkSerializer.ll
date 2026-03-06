@@ -74,9 +74,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.88" }
 %"struct.std::_Head_base.88" = type { ptr }
-%"class.llvm::BitCodeAbbrevOp" = type <{ i64, i8, [7 x i8] }>
-%"struct.llvm::BitstreamWriter::BlockInfo" = type { i32, %"class.std::vector" }
-%"struct.llvm::BitstreamWriter::Block" = type { i32, i64, %"class.std::vector" }
 %"class.llvm::StringMap" = type { %"class.llvm::StringMapImpl", %"class.llvm::detail::AllocatorHolder" }
 %"class.llvm::StringMapImpl" = type { ptr, i32, i32, i32, i32 }
 %"class.llvm::detail::AllocatorHolder" = type { %"class.llvm::BumpPtrAllocatorImpl" }
@@ -90,7 +87,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorImpl.34" = type { %"class.llvm::SmallVectorTemplateBase.35" }
 %"class.llvm::SmallVectorTemplateBase.35" = type { %"class.llvm::SmallVectorTemplateCommon.36" }
 %"class.llvm::SmallVectorTemplateCommon.36" = type { %"class.llvm::SmallVectorBase.4" }
-%"struct.std::pair.123" = type { ptr, i64 }
 
 $_ZN4llvm15BitstreamWriter19EmitBlockInfoAbbrevEjSt10shared_ptrINS_13BitCodeAbbrevEE = comdat any
 
@@ -279,7 +275,7 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper18setupM
 _ZL9initBlockjRN4llvm15BitstreamWriterERNS_15SmallVectorImplImEENS_9StringRefE.exit: ; preds = %1, %8
   %11 = phi i64 [ 0, %1 ], [ %10, %8 ]
   %12 = load ptr, ptr %4, align 8, !tbaa !11
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   store i64 8, ptr %13, align 1
   %14 = load i32, ptr %5, align 8, !tbaa !14
   %15 = add i32 %14, 1
@@ -304,14 +300,14 @@ _ZL9initBlockjRN4llvm15BitstreamWriterERNS_15SmallVectorImplImEENS_9StringRefE.e
 22:                                               ; preds = %19, %_ZL9initBlockjRN4llvm15BitstreamWriterERNS_15SmallVectorImplImEENS_9StringRefE.exit
   %23 = phi i64 [ 0, %_ZL9initBlockjRN4llvm15BitstreamWriterERNS_15SmallVectorImplImEENS_9StringRefE.exit ], [ %21, %19 ]
   %24 = load ptr, ptr %4, align 8, !tbaa !11
-  %25 = getelementptr inbounds nuw i64, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   store i64 1, ptr %25, align 1
   %26 = load i32, ptr %5, align 8, !tbaa !14
   %27 = add i32 %26, 1
   store i32 %27, ptr %5, align 8, !tbaa !14
   %28 = load ptr, ptr %4, align 8, !tbaa !11
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = tail call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %30, ptr noundef nonnull @.str.1, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 14))
   tail call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_15SmallVectorImplImEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %3, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
   %32 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #19, !noalias !57
@@ -602,14 +598,14 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper22setupM
 11:                                               ; preds = %1, %8
   %12 = phi i64 [ 0, %1 ], [ %10, %8 ]
   %13 = load ptr, ptr %4, align 8, !tbaa !11
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   store i64 2, ptr %14, align 1
   %15 = load i32, ptr %5, align 8, !tbaa !14
   %16 = add i32 %15, 1
   store i32 %16, ptr %5, align 8, !tbaa !14
   %17 = load ptr, ptr %4, align 8, !tbaa !11
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = tail call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %19, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 14))
   tail call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_15SmallVectorImplImEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %3, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
   %21 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #19, !noalias !86
@@ -768,7 +764,7 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper21emitMe
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %2, %7
   %10 = phi i64 [ 0, %2 ], [ %9, %7 ]
   %11 = load ptr, ptr %3, align 8, !tbaa !11
-  %12 = getelementptr inbounds nuw i64, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   store i64 2, ptr %12, align 1
   %13 = load i32, ptr %4, align 8, !tbaa !14
   %14 = add i32 %13, 1
@@ -789,7 +785,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit3: ; preds = %_ZN4llvm2
   %20 = phi i32 [ %14, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit ], [ %.pre.i2, %16 ]
   %21 = load ptr, ptr %3, align 8, !tbaa !11
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i64, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   store i64 %1, ptr %23, align 1
   %24 = load i32, ptr %4, align 8, !tbaa !14
   %25 = add i32 %24, 1
@@ -826,14 +822,14 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper15setupM
 11:                                               ; preds = %1, %8
   %12 = phi i64 [ 0, %1 ], [ %10, %8 ]
   %13 = load ptr, ptr %4, align 8, !tbaa !11
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   store i64 3, ptr %14, align 1
   %15 = load i32, ptr %5, align 8, !tbaa !14
   %16 = add i32 %15, 1
   store i32 %16, ptr %5, align 8, !tbaa !14
   %17 = load ptr, ptr %4, align 8, !tbaa !11
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = tail call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %19, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.5, i64 12))
   tail call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_15SmallVectorImplImEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %3, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
   %21 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #19, !noalias !94
@@ -994,7 +990,7 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper14emitMe
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %2, %9
   %12 = phi i64 [ 0, %2 ], [ %11, %9 ]
   %13 = load ptr, ptr %5, align 8, !tbaa !11
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   store i64 3, ptr %14, align 1
   %15 = load i32, ptr %6, align 8, !tbaa !14
   %16 = add i32 %15, 1
@@ -1075,14 +1071,14 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper21setupM
 11:                                               ; preds = %1, %8
   %12 = phi i64 [ 0, %1 ], [ %10, %8 ]
   %13 = load ptr, ptr %4, align 8, !tbaa !11
-  %14 = getelementptr inbounds nuw i64, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   store i64 4, ptr %14, align 1
   %15 = load i32, ptr %5, align 8, !tbaa !14
   %16 = add i32 %15, 1
   store i32 %16, ptr %5, align 8, !tbaa !14
   %17 = load ptr, ptr %4, align 8, !tbaa !11
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = tail call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %19, ptr noundef nonnull @.str.6, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 13))
   tail call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_15SmallVectorImplImEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %3, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 0)
   %21 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #19, !noalias !117
@@ -1241,7 +1237,7 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper20emitMe
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %3, %8
   %11 = phi i64 [ 0, %3 ], [ %10, %8 ]
   %12 = load ptr, ptr %4, align 8, !tbaa !11
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   store i64 4, ptr %13, align 1
   %14 = load i32, ptr %5, align 8, !tbaa !14
   %15 = add i32 %14, 1
@@ -1282,7 +1278,7 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper20setupR
 _ZL9initBlockjRN4llvm15BitstreamWriterERNS_15SmallVectorImplImEENS_9StringRefE.exit: ; preds = %1, %12
   %15 = phi i64 [ 0, %1 ], [ %14, %12 ]
   %16 = load ptr, ptr %8, align 8, !tbaa !11
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   store i64 9, ptr %17, align 1
   %18 = load i32, ptr %9, align 8, !tbaa !14
   %19 = add i32 %18, 1
@@ -1307,14 +1303,14 @@ _ZL9initBlockjRN4llvm15BitstreamWriterERNS_15SmallVectorImplImEENS_9StringRefE.e
 26:                                               ; preds = %23, %_ZL9initBlockjRN4llvm15BitstreamWriterERNS_15SmallVectorImplImEENS_9StringRefE.exit
   %27 = phi i64 [ 0, %_ZL9initBlockjRN4llvm15BitstreamWriterERNS_15SmallVectorImplImEENS_9StringRefE.exit ], [ %25, %23 ]
   %28 = load ptr, ptr %8, align 8, !tbaa !11
-  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   store i64 5, ptr %29, align 1
   %30 = load i32, ptr %9, align 8, !tbaa !14
   %31 = add i32 %30, 1
   store i32 %31, ptr %9, align 8, !tbaa !14
   %32 = load ptr, ptr %8, align 8, !tbaa !11
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw i64, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = tail call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %34, ptr noundef nonnull @.str.8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 13))
   tail call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_15SmallVectorImplImEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %7, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0)
   %36 = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #19, !noalias !124
@@ -1477,14 +1473,14 @@ _ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 99:                                               ; preds = %_ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit47, %96
   %100 = phi i64 [ 0, %_ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit47 ], [ %98, %96 ]
   %101 = load ptr, ptr %8, align 8, !tbaa !11
-  %102 = getelementptr inbounds nuw i64, ptr %101, i64 %100
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %100
   store i64 6, ptr %102, align 1
   %103 = load i32, ptr %9, align 8, !tbaa !14
   %104 = add i32 %103, 1
   store i32 %104, ptr %9, align 8, !tbaa !14
   %105 = load ptr, ptr %8, align 8, !tbaa !11
   %106 = zext i32 %104 to i64
-  %107 = getelementptr inbounds nuw i64, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %106
   %108 = call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %107, ptr noundef nonnull @.str.9, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.9, i64 21))
   call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_15SmallVectorImplImEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %7, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0)
   %109 = call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #19, !noalias !131
@@ -1643,14 +1639,14 @@ _ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 171:                                              ; preds = %_ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit91, %168
   %172 = phi i64 [ 0, %_ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit91 ], [ %170, %168 ]
   %173 = load ptr, ptr %8, align 8, !tbaa !11
-  %174 = getelementptr inbounds nuw i64, ptr %173, i64 %172
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %172
   store i64 7, ptr %174, align 1
   %175 = load i32, ptr %9, align 8, !tbaa !14
   %176 = add i32 %175, 1
   store i32 %176, ptr %9, align 8, !tbaa !14
   %177 = load ptr, ptr %8, align 8, !tbaa !11
   %178 = zext i32 %176 to i64
-  %179 = getelementptr inbounds nuw i64, ptr %177, i64 %178
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %178
   %180 = call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %179, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.10, i64 14))
   call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_15SmallVectorImplImEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %7, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0)
   %181 = call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #19, !noalias !138
@@ -1801,14 +1797,14 @@ _ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 241:                                              ; preds = %_ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121, %238
   %242 = phi i64 [ 0, %_ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit121 ], [ %240, %238 ]
   %243 = load ptr, ptr %8, align 8, !tbaa !11
-  %244 = getelementptr inbounds nuw i64, ptr %243, i64 %242
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %242
   store i64 8, ptr %244, align 1
   %245 = load i32, ptr %9, align 8, !tbaa !14
   %246 = add i32 %245, 1
   store i32 %246, ptr %9, align 8, !tbaa !14
   %247 = load ptr, ptr %8, align 8, !tbaa !11
   %248 = zext i32 %246 to i64
-  %249 = getelementptr inbounds nuw i64, ptr %247, i64 %248
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %248
   %250 = call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %249, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.11, i64 28))
   call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_15SmallVectorImplImEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %7, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0)
   %251 = call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #19, !noalias !145
@@ -1975,14 +1971,14 @@ _ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 315:                                              ; preds = %312, %_ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit179
   %316 = phi i64 [ 0, %_ZNSt12__shared_ptrIN4llvm13BitCodeAbbrevELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit179 ], [ %314, %312 ]
   %317 = load ptr, ptr %8, align 8, !tbaa !11
-  %318 = getelementptr inbounds nuw i64, ptr %317, i64 %316
+  %318 = getelementptr inbounds nuw [8 x i8], ptr %317, i64 %316
   store i64 9, ptr %318, align 1
   %319 = load i32, ptr %9, align 8, !tbaa !14
   %320 = add i32 %319, 1
   store i32 %320, ptr %9, align 8, !tbaa !14
   %321 = load ptr, ptr %8, align 8, !tbaa !11
   %322 = zext i32 %320 to i64
-  %323 = getelementptr inbounds nuw i64, ptr %321, i64 %322
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %321, i64 %322
   %324 = call noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcvEEPmS5_T_S6_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %323, ptr noundef nonnull @.str.12, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.12, i64 8))
   call void @_ZN4llvm15BitstreamWriter10EmitRecordINS_15SmallVectorImplImEEEEvjRKT_j(ptr noundef nonnull align 8 dereferenceable(152) %7, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef 0)
   %325 = call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #19, !noalias !152
@@ -2525,7 +2521,7 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper13emitMe
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %7, %13
   %16 = phi i64 [ 0, %7 ], [ %15, %13 ]
   %17 = load ptr, ptr %9, align 8, !tbaa !11
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   store i64 1, ptr %18, align 1
   %19 = load i32, ptr %10, align 8, !tbaa !14
   %20 = add i32 %19, 1
@@ -2546,7 +2542,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit3: ; preds = %_ZN4llvm2
   %26 = phi i32 [ %20, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit ], [ %.pre.i2, %22 ]
   %27 = load ptr, ptr %9, align 8, !tbaa !11
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw i64, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   store i64 %1, ptr %29, align 1
   %30 = load i32, ptr %10, align 8, !tbaa !14
   %31 = add i32 %30, 1
@@ -2570,7 +2566,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit6: ; preds = %_ZN4llvm2
   %40 = phi i32 [ %31, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit3 ], [ %.pre.i5, %36 ]
   %41 = load ptr, ptr %9, align 8, !tbaa !11
   %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw i64, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   store i64 %34, ptr %43, align 1
   %44 = load i32, ptr %10, align 8, !tbaa !14
   %45 = add i32 %44, 1
@@ -2608,7 +2604,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit6: ; preds = %_ZN4llvm2
 _ZN4llvm7remarks31BitstreamRemarkSerializerHelper20emitMetaExternalFileENS_9StringRefE.exit: ; preds = %52, %54
   %57 = phi i64 [ 0, %52 ], [ %56, %54 ]
   %58 = load ptr, ptr %9, align 8, !tbaa !11
-  %59 = getelementptr inbounds nuw i64, ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %57
   store i64 4, ptr %59, align 1
   %60 = load i32, ptr %10, align 8, !tbaa !14
   %61 = add i32 %60, 1
@@ -2637,7 +2633,7 @@ _ZN4llvm7remarks31BitstreamRemarkSerializerHelper20emitMetaExternalFileENS_9Stri
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %69, %67
   %72 = phi i64 [ 0, %67 ], [ %71, %69 ]
   %73 = load ptr, ptr %9, align 8, !tbaa !11
-  %74 = getelementptr inbounds nuw i64, ptr %73, i64 %72
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %72
   store i64 2, ptr %74, align 1
   %75 = load i32, ptr %10, align 8, !tbaa !14
   %76 = add i32 %75, 1
@@ -2658,7 +2654,7 @@ _ZN4llvm7remarks31BitstreamRemarkSerializerHelper21emitMetaRemarkVersionEm.exit:
   %82 = phi i32 [ %76, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %.pre.i2.i, %78 ]
   %83 = load ptr, ptr %9, align 8, !tbaa !11
   %84 = zext i32 %82 to i64
-  %85 = getelementptr inbounds nuw i64, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %84
   store i64 %2, ptr %85, align 1
   %86 = load i32, ptr %10, align 8, !tbaa !14
   %87 = add i32 %86, 1
@@ -2687,7 +2683,7 @@ _ZN4llvm7remarks31BitstreamRemarkSerializerHelper21emitMetaRemarkVersionEm.exit:
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i10: ; preds = %95, %93
   %98 = phi i64 [ 0, %93 ], [ %97, %95 ]
   %99 = load ptr, ptr %9, align 8, !tbaa !11
-  %100 = getelementptr inbounds nuw i64, ptr %99, i64 %98
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %98
   store i64 2, ptr %100, align 1
   %101 = load i32, ptr %10, align 8, !tbaa !14
   %102 = add i32 %101, 1
@@ -2708,7 +2704,7 @@ _ZN4llvm7remarks31BitstreamRemarkSerializerHelper21emitMetaRemarkVersionEm.exit1
   %108 = phi i32 [ %102, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i10 ], [ %.pre.i2.i12, %104 ]
   %109 = load ptr, ptr %9, align 8, !tbaa !11
   %110 = zext i32 %108 to i64
-  %111 = getelementptr inbounds nuw i64, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %110
   store i64 %2, ptr %111, align 1
   %112 = load i32, ptr %10, align 8, !tbaa !14
   %113 = add i32 %112, 1
@@ -3022,7 +3018,7 @@ define dso_local void @_ZN4llvm7remarks31BitstreamRemarkSerializerHelper15emitRe
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit: ; preds = %3, %16
   %19 = phi i64 [ 0, %3 ], [ %18, %16 ]
   %20 = load ptr, ptr %12, align 8, !tbaa !11
-  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   store i64 5, ptr %21, align 1
   %22 = load i32, ptr %13, align 8, !tbaa !14
   %23 = add i32 %22, 1
@@ -3045,7 +3041,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit49: ; preds = %_ZN4llvm
   %31 = phi i32 [ %23, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit ], [ %.pre.i48, %27 ]
   %32 = load ptr, ptr %12, align 8, !tbaa !11
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw i64, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   store i64 %25, ptr %34, align 1
   %35 = load i32, ptr %13, align 8, !tbaa !14
   %36 = add i32 %35, 1
@@ -3075,7 +3071,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit52: ; preds = %_ZN4llvm
   %46 = phi i32 [ %40, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit49 ], [ %.pre.i51, %42 ]
   %47 = load ptr, ptr %12, align 8, !tbaa !11
   %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds nuw i64, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   store i64 %39, ptr %49, align 1
   %50 = load i32, ptr %13, align 8, !tbaa !14
   %51 = add i32 %50, 1
@@ -3106,7 +3102,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit55: ; preds = %_ZN4llvm
   %61 = phi i32 [ %55, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit52 ], [ %.pre.i54, %57 ]
   %62 = load ptr, ptr %12, align 8, !tbaa !11
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw i64, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %63
   store i64 %54, ptr %64, align 1
   %65 = load i32, ptr %13, align 8, !tbaa !14
   %66 = add i32 %65, 1
@@ -3137,7 +3133,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit58: ; preds = %_ZN4llvm
   %76 = phi i32 [ %70, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit55 ], [ %.pre.i57, %72 ]
   %77 = load ptr, ptr %12, align 8, !tbaa !11
   %78 = zext i32 %76 to i64
-  %79 = getelementptr inbounds nuw i64, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %78
   store i64 %69, ptr %79, align 1
   %80 = load i32, ptr %13, align 8, !tbaa !14
   %81 = add i32 %80, 1
@@ -3171,7 +3167,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit58: ; preds = %_ZN4llvm
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit61: ; preds = %91, %93
   %96 = phi i64 [ 0, %91 ], [ %95, %93 ]
   %97 = load ptr, ptr %12, align 8, !tbaa !11
-  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %96
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %96
   store i64 6, ptr %98, align 1
   %99 = load i32, ptr %13, align 8, !tbaa !14
   %100 = add i32 %99, 1
@@ -3200,7 +3196,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit64: ; preds = %_ZN4llvm
   %109 = phi i32 [ %103, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit61 ], [ %.pre.i63, %105 ]
   %110 = load ptr, ptr %12, align 8, !tbaa !11
   %111 = zext i32 %109 to i64
-  %112 = getelementptr inbounds nuw i64, ptr %110, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %111
   store i64 %102, ptr %112, align 1
   %113 = load i32, ptr %13, align 8, !tbaa !14
   %114 = add i32 %113, 1
@@ -3225,7 +3221,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit67: ; preds = %_ZN4llvm
   %123 = phi i32 [ %114, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit64 ], [ %.pre.i66, %119 ]
   %124 = load ptr, ptr %12, align 8, !tbaa !11
   %125 = zext i32 %123 to i64
-  %126 = getelementptr inbounds nuw i64, ptr %124, i64 %125
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %125
   store i64 %117, ptr %126, align 1
   %127 = load i32, ptr %13, align 8, !tbaa !14
   %128 = add i32 %127, 1
@@ -3249,7 +3245,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit70: ; preds = %_ZN4llvm
   %137 = phi i32 [ %128, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit67 ], [ %.pre.i69, %133 ]
   %138 = load ptr, ptr %12, align 8, !tbaa !11
   %139 = zext i32 %137 to i64
-  %140 = getelementptr inbounds nuw i64, ptr %138, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %139
   store i64 %131, ptr %140, align 1
   %141 = load i32, ptr %13, align 8, !tbaa !14
   %142 = add i32 %141, 1
@@ -3286,7 +3282,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit70: ; preds = %_ZN4llvm
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit73: ; preds = %151, %153
   %156 = phi i64 [ 0, %151 ], [ %155, %153 ]
   %157 = load ptr, ptr %12, align 8, !tbaa !11
-  %158 = getelementptr inbounds nuw i64, ptr %157, i64 %156
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %156
   store i64 7, ptr %158, align 1
   %159 = load i32, ptr %13, align 8, !tbaa !14
   %160 = add i32 %159, 1
@@ -3307,7 +3303,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit76: ; preds = %_ZN4llvm
   %166 = phi i32 [ %160, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit73 ], [ %.pre.i75, %162 ]
   %167 = load ptr, ptr %12, align 8, !tbaa !11
   %168 = zext i32 %166 to i64
-  %169 = getelementptr inbounds nuw i64, ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %168
   store i64 %.sroa.0.0.copyload95, ptr %169, align 1
   %170 = load i32, ptr %13, align 8, !tbaa !14
   %171 = add i32 %170, 1
@@ -3380,7 +3376,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit79: ; preds = %187, %19
   %201 = phi i32 [ %196, %187 ], [ %.pre.i78, %198 ]
   %202 = load ptr, ptr %12, align 8, !tbaa !11
   %203 = zext i32 %201 to i64
-  %204 = getelementptr inbounds nuw i64, ptr %202, i64 %203
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %203
   store i64 %195, ptr %204, align 1
   %205 = load i32, ptr %13, align 8, !tbaa !14
   %206 = add i32 %205, 1
@@ -3401,7 +3397,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit82: ; preds = %_ZN4llvm
   %212 = phi i32 [ %206, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit79 ], [ %.pre.i81, %209 ]
   %213 = load ptr, ptr %12, align 8, !tbaa !11
   %214 = zext i32 %212 to i64
-  %215 = getelementptr inbounds nuw i64, ptr %213, i64 %214
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %214
   store i64 %207, ptr %215, align 1
   %216 = load i32, ptr %13, align 8, !tbaa !14
   %217 = add i32 %216, 1
@@ -3422,7 +3418,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit85: ; preds = %_ZN4llvm
   %223 = phi i32 [ %217, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit82 ], [ %.pre.i84, %220 ]
   %224 = load ptr, ptr %12, align 8, !tbaa !11
   %225 = zext i32 %223 to i64
-  %226 = getelementptr inbounds nuw i64, ptr %224, i64 %225
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %225
   store i64 %218, ptr %226, align 1
   %227 = load i32, ptr %13, align 8, !tbaa !14
   %228 = add i32 %227, 1
@@ -3453,7 +3449,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit88: ; preds = %229, %23
   %237 = phi i32 [ %232, %229 ], [ %.pre.i87, %234 ]
   %238 = load ptr, ptr %12, align 8, !tbaa !11
   %239 = zext i32 %237 to i64
-  %240 = getelementptr inbounds nuw i64, ptr %238, i64 %239
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %239
   store i64 %231, ptr %240, align 1
   %241 = load i32, ptr %13, align 8, !tbaa !14
   %242 = add i32 %241, 1
@@ -3477,7 +3473,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit91: ; preds = %_ZN4llvm
   %250 = phi i32 [ %242, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit88 ], [ %.pre.i90, %247 ]
   %251 = load ptr, ptr %12, align 8, !tbaa !11
   %252 = zext i32 %250 to i64
-  %253 = getelementptr inbounds nuw i64, ptr %251, i64 %252
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %252
   store i64 %245, ptr %253, align 1
   %254 = load i32, ptr %13, align 8, !tbaa !14
   %255 = add i32 %254, 1
@@ -3500,7 +3496,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit94: ; preds = %_ZN4llvm
   %263 = phi i32 [ %255, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit91 ], [ %.pre.i93, %260 ]
   %264 = load ptr, ptr %12, align 8, !tbaa !11
   %265 = zext i32 %263 to i64
-  %266 = getelementptr inbounds nuw i64, ptr %264, i64 %265
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %265
   store i64 %258, ptr %266, align 1
   %267 = load i32, ptr %13, align 8, !tbaa !14
   %268 = add i32 %267, 1
@@ -4063,7 +4059,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %5, %_ZN4llvm15Bitst
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %38 = load ptr, ptr %2, align 8, !tbaa !11
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %40 = load i64, ptr %39, align 8, !tbaa !175
   tail call void @_ZN4llvm15BitstreamWriter9EmitVBR64Emj(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %40, i32 noundef 6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4357,7 +4353,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter24EmitRecordWithAbbrev
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = zext i32 %9 to i64
   %12 = load ptr, ptr %10, align 8, !tbaa !85
-  %13 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !69
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8, !tbaa !18
@@ -4444,7 +4440,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
   %.04672 = phi i32 [ 0, %.lr.ph75 ], [ %.147, %.loopexit ]
   %57 = zext i32 %.14473 to i64
   %58 = load ptr, ptr %14, align 8, !tbaa !11
-  %59 = getelementptr inbounds nuw %"class.llvm::BitCodeAbbrevOp", ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %57
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
@@ -4465,7 +4461,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
 68:                                               ; preds = %65
   %69 = add i32 %.14473, 1
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"class.llvm::BitCodeAbbrevOp", ptr %58, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %70
   %.not51 = icmp eq ptr %.074, null
   br i1 %.not51, label %75, label %72
 
@@ -4491,7 +4487,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
 .lr.ph70:                                         ; preds = %75, %.lr.ph70
   %.369 = phi i32 [ %80, %.lr.ph70 ], [ %.04672, %75 ]
   %77 = zext i32 %.369 to i64
-  %78 = getelementptr inbounds nuw i64, ptr %2, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %77
   %79 = load i64, ptr %78, align 8, !tbaa !175
   tail call void @_ZN4llvm15BitstreamWriter20EmitAbbreviatedFieldImEEvRKNS_15BitCodeAbbrevOpET_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(9) %71, i64 noundef %79)
   %80 = add i32 %.369, 1
@@ -4509,13 +4505,13 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
 83:                                               ; preds = %81
   %84 = zext i32 %.04672 to i64
   %85 = sub i64 %3, %84
-  %86 = getelementptr inbounds nuw i64, ptr %2, i64 %84
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %84
   tail call void @_ZN4llvm15BitstreamWriter8emitBlobImEEvNS_8ArrayRefIT_EEb(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr %86, i64 %85, i1 noundef zeroext true)
   br label %.loopexit
 
 87:                                               ; preds = %65
   %88 = zext i32 %.04672 to i64
-  %89 = getelementptr inbounds nuw i64, ptr %2, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %88
   %90 = load i64, ptr %89, align 8, !tbaa !175
   tail call void @_ZN4llvm15BitstreamWriter20EmitAbbreviatedFieldImEEvRKNS_15BitCodeAbbrevOpET_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(9) %59, i64 noundef %90)
   %91 = add i32 %.04672, 1
@@ -5418,7 +5414,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplImE6insertIPKcv
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !14
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw i64, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %11
   %13 = icmp eq ptr %1, %12
   %14 = ptrtoint ptr %3 to i64
   %15 = ptrtoint ptr %2 to i64
@@ -5449,7 +5445,7 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit.i:    ; preds = %23, %22
   br i1 %26, label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i, label %_ZN4llvm15SmallVectorImplImE6appendIPKcvEEvT_S5_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader.i:               ; preds = %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i
-  %27 = getelementptr inbounds nuw i64, ptr %.pre60, i64 %.pre-phi.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.pre60, i64 %.pre-phi.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i
@@ -5519,7 +5515,7 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit.i45:  ; preds = %51, %45
 53:                                               ; preds = %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i45
   %54 = load ptr, ptr %0, align 8, !tbaa !11
   %55 = zext i32 %.pre9.i to i64
-  %56 = getelementptr inbounds nuw i64, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr nonnull align 8 %46, i64 %.idx48.neg, i1 false)
   %.pre.i46 = load i32, ptr %9, align 8, !tbaa !14
   br label %_ZN4llvm15SmallVectorImplImE6appendISt13move_iteratorIPmEvEEvT_S6_.exit
@@ -5538,7 +5534,7 @@ _ZN4llvm15SmallVectorImplImE6appendISt13move_iteratorIPmEvEEvT_S6_.exit: ; preds
   %gepdiff51 = add i64 %62, %.idx
   %63 = ashr exact i64 %gepdiff51, 3
   %64 = sub nsw i64 0, %63
-  %65 = getelementptr inbounds i64, ptr %43, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %43, i64 %64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %65, ptr align 8 %42, i64 %gepdiff51, i1 false)
   br label %_ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit
 
@@ -5568,9 +5564,9 @@ _ZSt13move_backwardIPmS0_ET0_T_S2_S1_.exit:       ; preds = %_ZN4llvm15SmallVect
 
 .lr.ph.preheader:                                 ; preds = %73
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw i64, ptr %41, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %76
   %78 = sub nsw i64 0, %44
-  %79 = getelementptr inbounds i64, ptr %77, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %77, i64 %78
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr align 8 %42, i64 %gepdiff, i1 false)
   br label %.lr.ph
 
@@ -5692,7 +5688,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %2, %_ZN4llvm15Bitst
 37:                                               ; preds = %.lr.ph, %_ZNK4llvm15BitCodeAbbrevOp15hasEncodingDataEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK4llvm15BitCodeAbbrevOp15hasEncodingDataEv.exit ]
   %38 = load ptr, ptr %1, align 8, !tbaa !11
-  %39 = getelementptr inbounds nuw %"class.llvm::BitCodeAbbrevOp", ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i8, ptr %40, align 8
   %42 = and i8 %41, 1
@@ -5894,7 +5890,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %5, %_ZN4llvm15Bitst
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %38 = load ptr, ptr %2, align 8, !tbaa !11
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !75
   %41 = zext i32 %40 to i64
   tail call void @_ZN4llvm15BitstreamWriter9EmitVBR64Emj(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %41, i32 noundef 6)
@@ -5924,7 +5920,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamWriter24EmitRecordWithAbbrev
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = zext i32 %9 to i64
   %12 = load ptr, ptr %10, align 8, !tbaa !85
-  %13 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !69
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8, !tbaa !18
@@ -6011,7 +6007,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
   %.04672 = phi i32 [ 0, %.lr.ph75 ], [ %.147, %.loopexit ]
   %57 = zext i32 %.14473 to i64
   %58 = load ptr, ptr %14, align 8, !tbaa !11
-  %59 = getelementptr inbounds nuw %"class.llvm::BitCodeAbbrevOp", ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %57
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
@@ -6032,7 +6028,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
 68:                                               ; preds = %65
   %69 = add i32 %.14473, 1
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"class.llvm::BitCodeAbbrevOp", ptr %58, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %70
   %.not51 = icmp eq ptr %.074, null
   br i1 %.not51, label %75, label %72
 
@@ -6058,7 +6054,7 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
 .lr.ph70:                                         ; preds = %75, %.lr.ph70
   %.369 = phi i32 [ %80, %.lr.ph70 ], [ %.04672, %75 ]
   %77 = zext i32 %.369 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %2, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !75
   tail call void @_ZN4llvm15BitstreamWriter20EmitAbbreviatedFieldIjEEvRKNS_15BitCodeAbbrevOpET_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(9) %71, i32 noundef %79)
   %80 = add i32 %.369, 1
@@ -6076,13 +6072,13 @@ _ZN4llvm15BitstreamWriter8EmitCodeEj.exit:        ; preds = %7, %_ZN4llvm15Bitst
 83:                                               ; preds = %81
   %84 = zext i32 %.04672 to i64
   %85 = sub i64 %3, %84
-  %86 = getelementptr inbounds nuw i32, ptr %2, i64 %84
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %84
   tail call void @_ZN4llvm15BitstreamWriter8emitBlobIjEEvNS_8ArrayRefIT_EEb(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr %86, i64 %85, i1 noundef zeroext true)
   br label %.loopexit
 
 87:                                               ; preds = %65
   %88 = zext i32 %.04672 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %2, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !75
   tail call void @_ZN4llvm15BitstreamWriter20EmitAbbreviatedFieldIjEEvRKNS_15BitCodeAbbrevOpET_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(9) %59, i32 noundef %90)
   %91 = add i32 %.04672, 1
@@ -6383,7 +6379,7 @@ _ZNSt6vectorIN4llvm15BitstreamWriter9BlockInfoESaIS2_EE11_S_relocateEPS2_S5_S5_R
 _ZNSt12_Vector_baseIN4llvm15BitstreamWriter9BlockInfoESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4llvm15BitstreamWriter9BlockInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21, %47
   store ptr %19, ptr %0, align 8, !tbaa !285
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8, !tbaa !82
-  %51 = getelementptr inbounds nuw %"struct.llvm::BitstreamWriter::BlockInfo", ptr %19, i64 %15
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %15
   store ptr %51, ptr %46, align 8, !tbaa !81
   ret void
 }
@@ -6498,7 +6494,7 @@ _ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE11_S_relocateEPS3_S6_
 _ZNSt12_Vector_baseISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !85
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !83
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !84
   ret void
 }
@@ -7474,7 +7470,7 @@ _ZNSt6vectorIN4llvm15BitstreamWriter5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt12_Vector_baseIN4llvm15BitstreamWriter5BlockESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4llvm15BitstreamWriter5BlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23, %51
   store ptr %21, ptr %0, align 8, !tbaa !316
   store ptr %.0.lcssa.i.i.i22, ptr %5, align 8, !tbaa !169
-  %55 = getelementptr inbounds nuw %"struct.llvm::BitstreamWriter::Block", ptr %21, i64 %17
+  %55 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %17
   store ptr %55, ptr %50, align 8, !tbaa !176
   ret void
 }
@@ -7751,7 +7747,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN4ll
 
 .lr.ph.i.i.i.i.i49.preheader:                     ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN4llvm13BitCodeAbbrevEESt6vectorIS5_SaIS5_EEEES6_S5_ET0_T_SC_SB_RSaIT1_E.exit
   %122 = sub nuw nsw i64 %9, %20
-  %123 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %121, i64 %122
   br label %.lr.ph.i.i.i.i.i49
 
 .lr.ph.i.i.i.i.i49:                               ; preds = %.lr.ph.i.i.i.i.i49.preheader, %.lr.ph.i.i.i.i.i49
@@ -8054,7 +8050,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN4llvm13BitCodeAbbrevEES3_EvT_S5_RSaIT0_E.exit: ; 
 _ZNSt12_Vector_baseISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN4llvm13BitCodeAbbrevEES3_EvT_S5_RSaIT0_E.exit, %239
   store ptr %188, ptr %0, align 8, !tbaa !85
   store ptr %.0.lcssa.i.i.i.i.i93, ptr %12, align 8, !tbaa !83
-  %243 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %188, i64 %184
+  %243 = getelementptr inbounds nuw [16 x i8], ptr %188, i64 %184
   store ptr %243, ptr %10, align 8, !tbaa !84
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN4llvm13BitCodeAbbrevEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit
 
@@ -9142,7 +9138,7 @@ _ZSt4moveIPPvS1_ET0_T_S3_S2_.exit35:              ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !11
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)
@@ -9283,7 +9279,7 @@ _ZSt4moveIPSt4pairIPvmES3_ET0_T_S5_S4_.exit39:    ; preds = %.lr.ph.i.i.i.i.i35,
   %.idx40 = shl nuw nsw i64 %.026, 4
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.idx40
   %58 = load ptr, ptr %0, align 8, !tbaa !11
-  %59 = getelementptr inbounds nuw %"struct.std::pair.123", ptr %58, i64 %.026
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %.026
   %60 = sub nsw i64 %.pre-phi, %.026
   %gepdiff = shl nsw i64 %60, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr align 8 %57, i64 %gepdiff, i1 false)

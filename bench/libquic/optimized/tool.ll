@@ -109,7 +109,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef read
 
 31:                                               ; preds = %28, %23
   %.0812.i = phi i64 [ 0, %23 ], [ %29, %28 ]
-  %32 = getelementptr inbounds nuw %struct.Tool, ptr @_ZL6kTools, i64 %.0812.i
+  %32 = getelementptr inbounds nuw [16 x i8], ptr @_ZL6kTools, i64 %.0812.i
   %33 = load ptr, ptr %32, align 16, !tbaa !21
   %34 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %33) #17
   %35 = icmp eq i32 %34, 0
@@ -117,7 +117,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef read
 
 36:                                               ; preds = %31, %28
   %37 = phi i64 [ %.0812.i, %31 ], [ 16, %28 ]
-  %38 = getelementptr inbounds nuw %struct.Tool, ptr @_ZL6kTools, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr @_ZL6kTools, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !23
   %41 = load ptr, ptr %6, align 8, !tbaa !15
@@ -197,7 +197,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %36, %
 
 68:                                               ; preds = %65, %60
   %.0812.i40 = phi i64 [ 0, %60 ], [ %66, %65 ]
-  %69 = getelementptr inbounds nuw %struct.Tool, ptr @_ZL6kTools, i64 %.0812.i40
+  %69 = getelementptr inbounds nuw [16 x i8], ptr @_ZL6kTools, i64 %.0812.i40
   %70 = load ptr, ptr %69, align 16, !tbaa !21
   %71 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %70) #17
   %72 = icmp eq i32 %71, 0
@@ -205,7 +205,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %36, %
 
 73:                                               ; preds = %68, %65
   %74 = phi i64 [ %.0812.i40, %68 ], [ 16, %65 ]
-  %75 = getelementptr inbounds nuw %struct.Tool, ptr @_ZL6kTools, i64 %74
+  %75 = getelementptr inbounds nuw [16 x i8], ptr @_ZL6kTools, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !23
   %78 = load ptr, ptr %7, align 8, !tbaa !15
@@ -230,7 +230,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 83:                                               ; preds = %83, %.thread
   %.056.i = phi i64 [ 0, %.thread ], [ %87, %83 ]
-  %84 = getelementptr inbounds nuw %struct.Tool, ptr @_ZL6kTools, i64 %.056.i
+  %84 = getelementptr inbounds nuw [16 x i8], ptr @_ZL6kTools, i64 %.056.i
   %85 = load ptr, ptr %84, align 16, !tbaa !21
   %86 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, ptr noundef %85)
   %87 = add nuw nsw i64 %.056.i, 1
@@ -261,7 +261,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 95:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60
   %indvars.iv = phi i64 [ %93, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %96 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %97 = load ptr, ptr %96, align 8, !tbaa !6
   store ptr %89, ptr %9, align 8, !tbaa !11
   %98 = icmp eq ptr %97, null
@@ -723,7 +723,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !30
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !25
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !28
   ret void
 }

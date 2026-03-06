@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogTagSet = type { ptr, i64, [5 x i32], [4 x i8], %class.LogOutputList, %class.LogDecorators, ptr }
 %class.LogOutputList = type <{ [6 x ptr], i32, [4 x i8] }>
 %"class.LogMessageBuffer::Iterator" = type { ptr, i64, i32, ptr }
-%"struct.LogMessageBuffer::LogLine" = type { i32, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %class.stringStream = type <{ %class.outputStream, ptr, i64, i64, i8, [48 x i8], [7 x i8] }>
 %class.outputStream = type { ptr, i32, i8, i32, i64, %class.TimeStamp, ptr, i64 }
@@ -205,7 +204,7 @@ _ZN14AsyncLogWriter6Buffer9push_backEP19LogFileStreamOutputRK14LogDecorationsPKc
   %20 = xor i32 %19, %18
   %21 = urem i32 %20, 17
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not11.i.i = icmp eq ptr %24, null
   br i1 %.not11.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE2EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i, label %.lr.ph.i.i
@@ -322,7 +321,7 @@ define hidden void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputN16LogMess
   %17 = load ptr, ptr %13, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds %"struct.LogMessageBuffer::LogLine", ptr %19, i64 %16
+  %20 = getelementptr inbounds [16 x i8], ptr %19, i64 %16
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 %21, ptr %22, align 8
@@ -333,7 +332,7 @@ define hidden void @_ZN14AsyncLogWriter7enqueueER19LogFileStreamOutputN16LogMess
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = load i64, ptr %7, align 8
-  %30 = getelementptr inbounds %"struct.LogMessageBuffer::LogLine", ptr %28, i64 %29
+  %30 = getelementptr inbounds [16 x i8], ptr %28, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %26, i64 %32
@@ -659,7 +658,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN12ResourceMarkD2
   %54 = xor i32 %53, %52
   %55 = urem i32 %54, 17
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %4, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %56
   %58 = load ptr, ptr %57, align 8
   %.not11.i.i.i.i = icmp eq ptr %58, null
   br i1 %.not11.i.i.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj17EP19LogFileStreamOutputjES2_jLN6AnyObj15allocation_typeE1EL8MEMFLAGS17EXadL_Z14primitive_hashIS2_EjRKT_EEXadL_Z16primitive_equalsIS2_EbSA_SA_EEE11lookup_nodeEjRKS2_.exit.thread.i.i.i, label %.lr.ph.i.i.i.i

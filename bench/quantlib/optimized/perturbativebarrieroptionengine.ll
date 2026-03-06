@@ -7041,19 +7041,19 @@ if.then8:                                         ; preds = %if.then6
   %1 = tail call double @llvm.fmuladd.f64(double %a, double %a, double %mul10)
   %neg = fmul double %1, -5.000000e-01
   %idxprom15 = zext nneg i32 %.sink171 to i64
-  %invariant.gep187 = getelementptr inbounds double, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 %idxprom15
+  %invariant.gep187 = getelementptr inbounds [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 %idxprom15
   %idxprom23 = zext nneg i32 %.sink171 to i64
-  %invariant.gep189 = getelementptr inbounds double, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 %idxprom23
+  %invariant.gep189 = getelementptr inbounds [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 %idxprom23
   br label %for.cond12.preheader
 
 for.cond12.preheader:                             ; preds = %if.then8, %for.inc31
   %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I.0 = phi i32 [ 1, %if.then8 ], [ %inc, %for.inc31 ]
   %.lcssa159161 = phi double [ 0.000000e+00, %if.then8 ], [ %8, %for.inc31 ]
   %idxprom = zext nneg i32 %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I.0 to i64
-  %gep188 = getelementptr inbounds [4 x double], ptr %invariant.gep187, i64 %idxprom
+  %gep188 = getelementptr inbounds [32 x i8], ptr %invariant.gep187, i64 %idxprom
   %2 = load double, ptr %gep188, align 8, !tbaa !107
   %idxprom21 = zext nneg i32 %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I.0 to i64
-  %gep190 = getelementptr inbounds [4 x double], ptr %invariant.gep189, i64 %idxprom21
+  %gep190 = getelementptr inbounds [32 x i8], ptr %invariant.gep189, i64 %idxprom21
   %3 = load double, ptr %gep190, align 8, !tbaa !107
   br label %for.body14
 
@@ -7311,19 +7311,19 @@ if.end104:                                        ; preds = %_ZN8QuantLib12_GLOB
   %div105 = fmul double %call51, 5.000000e-01
   %fneg135 = fneg double %40
   %idxprom115 = zext nneg i32 %.sink171 to i64
-  %invariant.gep = getelementptr inbounds double, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 %idxprom115
+  %invariant.gep = getelementptr inbounds [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 %idxprom115
   %idxprom130 = zext nneg i32 %.sink171 to i64
-  %invariant.gep185 = getelementptr inbounds double, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 %idxprom130
+  %invariant.gep185 = getelementptr inbounds [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 %idxprom130
   br label %for.cond109.preheader
 
 for.cond109.preheader:                            ; preds = %if.end104, %for.inc152
   %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I.1 = phi i32 [ 1, %if.end104 ], [ %inc153, %for.inc152 ]
   %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted154156 = phi double [ %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted151, %if.end104 ], [ %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted152, %for.inc152 ]
   %idxprom113 = zext nneg i32 %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I.1 to i64
-  %gep = getelementptr inbounds [4 x double], ptr %invariant.gep, i64 %idxprom113
+  %gep = getelementptr inbounds [32 x i8], ptr %invariant.gep, i64 %idxprom113
   %58 = load double, ptr %gep, align 8, !tbaa !107
   %idxprom128 = zext nneg i32 %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I.1 to i64
-  %gep186 = getelementptr inbounds [4 x double], ptr %invariant.gep185, i64 %idxprom128
+  %gep186 = getelementptr inbounds [32 x i8], ptr %invariant.gep185, i64 %idxprom128
   br label %for.body111
 
 for.body111:                                      ; preds = %for.cond109.preheader, %for.inc149
@@ -7892,27 +7892,27 @@ while.body:                                       ; preds = %entry, %for.end
   %IP.07 = phi i32 [ %IP.2, %for.end ], [ 1, %entry ]
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %idxprom = sext i32 %IP.07 to i64
-  %arrayidx = getelementptr inbounds double, ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2BI, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2BI, i64 %idxprom
   %0 = load double, ptr %arrayidx, align 8, !tbaa !107
-  %arrayidx3 = getelementptr inbounds nuw double, ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2BI, i64 %indvars.iv.next14
+  %arrayidx3 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2BI, i64 %indvars.iv.next14
   store double %0, ptr %arrayidx3, align 8, !tbaa !107
-  %arrayidx5 = getelementptr inbounds double, ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2AI, i64 %idxprom
+  %arrayidx5 = getelementptr inbounds [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2AI, i64 %idxprom
   %1 = load double, ptr %arrayidx5, align 8, !tbaa !107
   %add8 = fadd double %1, %0
   %div = fmul double %add8, 5.000000e-01
-  %arrayidx10 = getelementptr inbounds nuw double, ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2AI, i64 %indvars.iv.next14
+  %arrayidx10 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2AI, i64 %indvars.iv.next14
   store double %div, ptr %arrayidx10, align 8, !tbaa !107
   store double %div, ptr %arrayidx, align 8, !tbaa !107
   %2 = load double, ptr %arrayidx5, align 8, !tbaa !107
-  %arrayidx20 = getelementptr inbounds double, ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2EI, i64 %idxprom
+  %arrayidx20 = getelementptr inbounds [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2EI, i64 %idxprom
   %call = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERd(double noundef %2, double noundef %div, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx20)
-  %arrayidx22 = getelementptr inbounds double, ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2FI, i64 %idxprom
+  %arrayidx22 = getelementptr inbounds [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2FI, i64 %idxprom
   store double %call, ptr %arrayidx22, align 8, !tbaa !107
   %3 = load double, ptr %arrayidx10, align 8, !tbaa !107
   %4 = load double, ptr %arrayidx3, align 8, !tbaa !107
-  %arrayidx28 = getelementptr inbounds nuw double, ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2EI, i64 %indvars.iv.next14
+  %arrayidx28 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2EI, i64 %indvars.iv.next14
   %call29 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERd(double noundef %3, double noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %arrayidx28)
-  %arrayidx31 = getelementptr inbounds nuw double, ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2FI, i64 %indvars.iv.next14
+  %arrayidx31 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2FI, i64 %indvars.iv.next14
   store double %call29, ptr %arrayidx31, align 8, !tbaa !107
   br label %for.body
 
@@ -7921,15 +7921,15 @@ for.body:                                         ; preds = %while.body, %for.bo
   %IP.14 = phi i32 [ %IP.07, %while.body ], [ %IP.2, %for.body ]
   %add4012 = phi double [ 0.000000e+00, %while.body ], [ %add40, %for.body ]
   %5 = phi double [ 0.000000e+00, %while.body ], [ %10, %for.body ]
-  %arrayidx34 = getelementptr inbounds nuw double, ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2EI, i64 %indvars.iv
+  %arrayidx34 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2EI, i64 %indvars.iv
   %6 = load double, ptr %arrayidx34, align 8, !tbaa !107
   %idxprom35 = zext nneg i32 %IP.14 to i64
-  %arrayidx36 = getelementptr inbounds nuw double, ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2EI, i64 %idxprom35
+  %arrayidx36 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2EI, i64 %idxprom35
   %7 = load double, ptr %arrayidx36, align 8, !tbaa !107
   %cmp37 = fcmp ogt double %6, %7
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %IP.2 = select i1 %cmp37, i32 %8, i32 %IP.14
-  %arrayidx39 = getelementptr inbounds nuw double, ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2FI, i64 %indvars.iv
+  %arrayidx39 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2FI, i64 %indvars.iv
   %9 = load double, ptr %arrayidx39, align 8, !tbaa !107
   %add40 = fadd double %add4012, %9
   %10 = tail call double @llvm.fmuladd.f64(double %6, double %6, double %5)
@@ -8151,7 +8151,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESG.0 = phi double [ %mul, %entry ], [ %_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESG.1, %for.inc ]
   %indvars.iv = phi i64 [ 1, %entry ], [ %indvars.iv.next, %for.inc ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds nuw double, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 %indvars.iv.next
   %10 = load double, ptr %arrayidx, align 8, !tbaa !107
   %mul4 = fmul double %div, %10
   %sub5 = fsub double %div1, %mul4
@@ -8175,7 +8175,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %26 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13RUCE, align 8, !tbaa !107
   %call8 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddi(double noundef %add7, double noundef %19, double noundef %20, double noundef %21, double noundef %22, double noundef %23, double noundef %24, double noundef %25, double noundef %26, i32 noundef 0)
   %add9 = fadd double %call6, %call8
-  %arrayidx12 = getelementptr inbounds nuw double, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 %indvars.iv.next
+  %arrayidx12 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 %indvars.iv.next
   %27 = load double, ptr %arrayidx12, align 8, !tbaa !107
   %28 = tail call double @llvm.fmuladd.f64(double %27, double %add9, double %_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESK.0)
   %sub163 = and i64 %indvars.iv, 1
@@ -8185,7 +8185,7 @@ for.body:                                         ; preds = %entry, %for.inc
 if.then:                                          ; preds = %for.body
   %div1411 = lshr exact i64 %indvars.iv, 1
   %29 = and i64 %div1411, 2147483647
-  %30 = getelementptr inbounds nuw double, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 %29
   %arrayidx21 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %31 = load double, ptr %arrayidx21, align 8, !tbaa !107
   %32 = tail call double @llvm.fmuladd.f64(double %31, double %add9, double %_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESG.0)

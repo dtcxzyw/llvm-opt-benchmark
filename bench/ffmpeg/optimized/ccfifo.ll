@@ -46,7 +46,7 @@ define range(i32 -12, 1) i32 @ff_ccfifo_init(ptr noundef initializes((0, 56)) %0
 
 .preheader:                                       ; preds = %8, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %8 ]
-  %10 = getelementptr inbounds nuw %struct.cc_lookup, ptr @cc_lookup_vals, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr @cc_lookup_vals, i64 %indvars.iv
   %11 = load i32, ptr %10, align 16, !tbaa !14
   %12 = icmp eq i32 %11, %.sroa.0.0.extract.trunc
   br i1 %12, label %13, label %24

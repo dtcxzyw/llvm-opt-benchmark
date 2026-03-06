@@ -85,7 +85,7 @@ define noalias noundef ptr @Amap_ManProduceMapped(ptr noundef readonly captures(
   %18 = phi ptr [ %8, %.lr.ph ], [ %420, %414 ]
   %19 = getelementptr i8, ptr %18, i64 8
   %.val110 = load ptr, ptr %19, align 8, !tbaa !21
-  %20 = getelementptr inbounds nuw ptr, ptr %.val110, i64 %indvars.iv187
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.val110, i64 %indvars.iv187
   %21 = load ptr, ptr %20, align 8, !tbaa !33
   %22 = icmp eq ptr %21, null
   br i1 %22, label %414, label %23
@@ -166,7 +166,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %55 = add nsw i32 %.val107, 1
   store i32 %55, ptr %4, align 4, !tbaa !18
   %56 = sext i32 %.val107 to i64
-  %57 = getelementptr inbounds ptr, ptr %54, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %54, i64 %56
   store ptr %26, ptr %57, align 8, !tbaa !33
   %58 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %59 = load i32, ptr %58, align 4, !tbaa !36
@@ -308,7 +308,7 @@ Vec_PtrPush.exit129:                              ; preds = %.Vec_PtrGrow.exit11
   %131 = getelementptr i8, ptr %.val115, i64 8
   %.val115.val = load ptr, ptr %131, align 8, !tbaa !21
   %132 = zext nneg i32 %129 to i64
-  %133 = getelementptr inbounds nuw ptr, ptr %.val115.val, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %.val115.val, i64 %132
   %134 = load ptr, ptr %133, align 8, !tbaa !33
   %.not.i130 = icmp eq ptr %134, null
   br i1 %.not.i130, label %139, label %135
@@ -371,11 +371,11 @@ Amap_OutputStructAlloc.exit132:                   ; preds = %139, %146, %149
   %166 = sext i8 %165 to i32
   %167 = ashr i32 %166, 1
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds i32, ptr %160, i64 %168
+  %169 = getelementptr inbounds [4 x i8], ptr %160, i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !36
   %171 = ashr i32 %170, 1
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds ptr, ptr %.val116.val, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %.val116.val, i64 %172
   %174 = load ptr, ptr %173, align 8, !tbaa !33
   %175 = xor i32 %170, %166
   %176 = and i32 %175, 1
@@ -387,7 +387,7 @@ Amap_OutputStructAlloc.exit132:                   ; preds = %139, %146, %149
   %182 = load i32, ptr %181, align 8, !tbaa !35
   %183 = zext i1 %180 to i32
   %.sink = add nsw i32 %182, %183
-  %184 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %indvars.iv
   store i32 %.sink, ptr %184, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %185 = load i32, ptr %158, align 4
@@ -461,12 +461,12 @@ Vec_PtrPush.exit139:                              ; preds = %.Vec_PtrGrow.exit11
   %217 = add nsw i32 %.val107, 1
   store i32 %217, ptr %4, align 4, !tbaa !18
   %218 = sext i32 %.val107 to i64
-  %219 = getelementptr inbounds ptr, ptr %216, i64 %218
+  %219 = getelementptr inbounds [8 x i8], ptr %216, i64 %218
   store ptr %144, ptr %219, align 8, !tbaa !33
   %220 = load i64, ptr %21, align 8
   %.not104 = icmp sgt i64 %220, -1
   %221 = zext i1 %.not104 to i64
-  %222 = getelementptr inbounds nuw i32, ptr %118, i64 %221
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %221
   %223 = load i32, ptr %222, align 4, !tbaa !36
   %.not105 = icmp eq i32 %223, 0
   br i1 %.not105, label %414, label %224
@@ -587,7 +587,7 @@ Vec_PtrPush.exit149:                              ; preds = %.Vec_PtrGrow.exit11
   %.val119 = load i32, ptr %281, align 8, !tbaa !36
   %282 = ashr i32 %.val119, 1
   %283 = sext i32 %282 to i64
-  %284 = getelementptr inbounds ptr, ptr %.val110, i64 %283
+  %284 = getelementptr inbounds [8 x i8], ptr %.val110, i64 %283
   %285 = load ptr, ptr %284, align 8, !tbaa !33
   %.val120 = load i64, ptr %285, align 8
   %286 = and i64 %.val120, 7
@@ -750,7 +750,7 @@ Vec_PtrPush.exit162:                              ; preds = %.Vec_PtrGrow.exit11
   %366 = add nsw i32 %.val107, 1
   store i32 %366, ptr %4, align 4, !tbaa !18
   %367 = sext i32 %.val107 to i64
-  %368 = getelementptr inbounds ptr, ptr %365, i64 %367
+  %368 = getelementptr inbounds [8 x i8], ptr %365, i64 %367
   store ptr %.sink236, ptr %368, align 8, !tbaa !33
   br label %377
 
@@ -850,7 +850,7 @@ Vec_PtrPush.exit169:                              ; preds = %.Vec_PtrGrow.exit11
   %.ph240 = phi i32 [ %409, %Vec_PtrPush.exit169 ], [ %276, %Vec_PtrPush.exit149 ], [ %109, %Vec_PtrPush.exit129 ]
   store i32 %.sink247, ptr %4, align 4, !tbaa !18
   %412 = sext i32 %.sink246 to i64
-  %413 = getelementptr inbounds ptr, ptr %.sink244, i64 %412
+  %413 = getelementptr inbounds [8 x i8], ptr %.sink244, i64 %412
   store ptr %.sink242, ptr %413, align 8, !tbaa !33
   br label %414
 
@@ -929,7 +929,7 @@ Vec_PtrPush.exit176:                              ; preds = %.Vec_PtrGrow.exit11
   %448 = add nsw i32 %446, 1
   store i32 %448, ptr %4, align 4, !tbaa !18
   %449 = sext i32 %446 to i64
-  %450 = getelementptr inbounds ptr, ptr %447, i64 %449
+  %450 = getelementptr inbounds [8 x i8], ptr %447, i64 %449
   store ptr %2, ptr %450, align 8, !tbaa !33
   ret ptr %3
 }

@@ -848,7 +848,7 @@ iseries_UNICODE_to_ASCII.exit148:                 ; preds = %158, %.thread.i140
   %166 = getelementptr i8, ptr %15, i64 %165
   %167 = load i8, ptr %166, align 1
   %168 = zext i8 %167 to i64
-  %169 = getelementptr i16, ptr %143, i64 %168
+  %169 = getelementptr [2 x i8], ptr %143, i64 %168
   %170 = load i16, ptr %169, align 2
   %171 = and i16 %170, 256
   %.not126 = icmp eq i16 %171, 0
@@ -1080,7 +1080,7 @@ define internal fastcc i32 @append_hex_digits(ptr noundef writeonly captures(non
 
 11:                                               ; preds = %.loopexit
   %12 = zext i8 %10 to i64
-  %13 = getelementptr i16, ptr %7, i64 %12
+  %13 = getelementptr [2 x i8], ptr %7, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 1056
   %or.cond = icmp eq i16 %15, 1024

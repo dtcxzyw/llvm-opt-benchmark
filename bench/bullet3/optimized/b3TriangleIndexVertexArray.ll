@@ -77,7 +77,7 @@ define dso_local void @_ZN26b3TriangleIndexVertexArrayC2EiPiiiPfi(ptr noundef no
   %25 = load i32, ptr %14, align 4, !tbaa !16
   %26 = load ptr, ptr %13, align 16, !tbaa !15
   %27 = sext i32 %25 to i64
-  %28 = getelementptr %struct.b3IndexedMesh, ptr %26, i64 %27
+  %28 = getelementptr [48 x i8], ptr %26, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -12
   store i32 2, ptr %29, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -213,7 +213,7 @@ define dso_local void @_ZN26b3TriangleIndexVertexArray24getLockedVertexIndexBase
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 16, !tbaa !15
   %13 = sext i32 %9 to i64
-  %14 = getelementptr inbounds %struct.b3IndexedMesh, ptr %12, i64 %13
+  %14 = getelementptr inbounds [48 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %16 = load i32, ptr %15, align 4, !tbaa !30
   store i32 %16, ptr %2, align 4, !tbaa !34
@@ -245,7 +245,7 @@ define dso_local void @_ZNK26b3TriangleIndexVertexArray32getLockedReadOnlyVertex
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 16, !tbaa !15
   %13 = sext i32 %9 to i64
-  %14 = getelementptr inbounds %struct.b3IndexedMesh, ptr %12, i64 %13
+  %14 = getelementptr inbounds [48 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %16 = load i32, ptr %15, align 4, !tbaa !30
   store i32 %16, ptr %2, align 4, !tbaa !34
@@ -376,9 +376,9 @@ _ZN20b3AlignedObjectArrayI13b3IndexedMeshE8allocateEi.exit.i: ; preds = %12
 
 20:                                               ; preds = %20, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %20 ]
-  %21 = getelementptr inbounds nuw %struct.b3IndexedMesh, ptr %15, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %19, align 8, !tbaa !15
-  %23 = getelementptr inbounds nuw %struct.b3IndexedMesh, ptr %22, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %21, ptr noundef nonnull align 16 dereferenceable(48) %23, i64 48, i1 false), !tbaa.struct !39
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -418,7 +418,7 @@ _ZN20b3AlignedObjectArrayI13b3IndexedMeshE7reserveEi.exit: ; preds = %_ZN20b3Ali
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !15
   %33 = sext i32 %30 to i64
-  %34 = getelementptr inbounds %struct.b3IndexedMesh, ptr %32, i64 %33
+  %34 = getelementptr inbounds [48 x i8], ptr %32, i64 %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %34, ptr noundef nonnull align 16 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !39
   %35 = load i32, ptr %3, align 4, !tbaa !16
   %36 = add nsw i32 %35, 1

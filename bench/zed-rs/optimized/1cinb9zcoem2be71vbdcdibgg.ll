@@ -252,7 +252,7 @@ define hidden void @_ZN4gpui6keymap7context10KeyContext3add17hc500714653f356baE(
   %23 = phi i64 [ %.pre.i, %18 ], [ %13, %6 ]
   %.sroa.01.0.i = phi ptr [ %12, %18 ], [ %.sink9.i.i, %6 ]
   %.sroa.0.0.i = phi ptr [ %19, %18 ], [ %.sink10.i.i, %6 ]
-  %24 = getelementptr inbounds { { { i64, [2 x i64] } }, { i64, [2 x i64] } }, ptr %.sroa.0.0.i, i64 %23
+  %24 = getelementptr inbounds [48 x i8], ptr %.sroa.0.0.i, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   %25 = load i64, ptr %.sroa.01.0.i, align 8, !alias.scope !34, !noalias !35, !noundef !19
   %26 = add i64 %25, 1
@@ -3580,7 +3580,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h8db98cb467f4370aE.ll
   %14 = phi i64 [ %.pre, %18 ], [ %8, %2 ]
   %.sroa.01.0 = phi ptr [ %7, %18 ], [ %.sink9.i, %2 ]
   %.sroa.0.0 = phi ptr [ %19, %18 ], [ %.sink10.i, %2 ]
-  %15 = getelementptr inbounds { { { i64, [2 x i64] } }, { i64, [2 x i64] } }, ptr %.sroa.0.0, i64 %14
+  %15 = getelementptr inbounds [48 x i8], ptr %.sroa.0.0, i64 %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %16 = load i64, ptr %.sroa.01.0, align 8, !noundef !19
   %17 = add i64 %16, 1

@@ -1456,7 +1456,7 @@ _ZNSt6vectorIN4cvc516ProofRewriteRuleESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit1
 _ZNSt6vectorIN4cvc516ProofRewriteRuleESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %48, %_ZNSt6vectorIN4cvc516ProofRewriteRuleESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %43, ptr %23, align 8, !tbaa !47
   store ptr %47, ptr %24, align 8, !tbaa !44
-  %49 = getelementptr inbounds nuw i32, ptr %43, i64 %41
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %41
   store ptr %49, ptr %26, align 8, !tbaa !46
   br label %_ZNSt6vectorIN4cvc516ProofRewriteRuleESaIS1_EE9push_backERKS1_.exit
 
@@ -1565,7 +1565,7 @@ _ZNSt6vectorIN4cvc516ProofRewriteRuleESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit1
 _ZNSt6vectorIN4cvc516ProofRewriteRuleESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i21: ; preds = %88, %_ZNSt6vectorIN4cvc516ProofRewriteRuleESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i19
   store ptr %83, ptr %63, align 8, !tbaa !47
   store ptr %87, ptr %64, align 8, !tbaa !44
-  %89 = getelementptr inbounds nuw i32, ptr %83, i64 %81
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %81
   store ptr %89, ptr %66, align 8, !tbaa !46
   br label %_ZNSt6vectorIN4cvc516ProofRewriteRuleESaIS1_EE9push_backERKS1_.exit22
 
@@ -1744,10 +1744,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9: ; preds = %12
 
 switch.lookup:                                    ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit9
   %18 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internal6theory18NoOpTheoryRewriter10preRewriteENS0_12NodeTemplateILb0EEE, i64 %18
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internal6theory18NoOpTheoryRewriter10preRewriteENS0_12NodeTemplateILb0EEE, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep35 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4cvc58internal6theory18NoOpTheoryRewriter10preRewriteENS0_12NodeTemplateILb0EEE.1, i64 %19
+  %switch.gep35 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internal6theory18NoOpTheoryRewriter10preRewriteENS0_12NodeTemplateILb0EEE.1, i64 %19
   %switch.load36 = load i64, ptr %switch.gep35, align 8
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %switch.load, i64 noundef %switch.load36)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit10 unwind label %16

@@ -26,14 +26,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.tms = type { i64, i64, i64, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
 %class.fdStream = type <{ %class.outputStream, i32, [4 x i8] }>
 %class.outputStream = type { ptr, i32, i8, i32, i64, %class.TimeStamp, ptr, i64 }
 %class.TimeStamp = type { i64 }
-%"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord" = type { double, ptr, %class.FormatStringLogMessage }
-%class.FormatStringLogMessage = type { %class.FormatBuffer }
 
 $_ZN12FormatBufferILm256EEC2EPKcz = comdat any
 
@@ -457,7 +452,7 @@ define hidden noundef i32 @_ZN2os16get_native_stackEPPhii(ptr noundef writeonly 
 18:                                               ; preds = %13
   %19 = add nsw i32 %.01215, 1
   %20 = sext i32 %.01215 to i64
-  %21 = getelementptr inbounds ptr, ptr %0, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %0, i64 %20
   store ptr %14, ptr %21, align 8
   br label %22
 
@@ -1279,7 +1274,7 @@ define hidden void @_ZN2os19print_active_localeEP12outputStream(ptr noundef nonn
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw %struct.anon.2, ptr @__const._ZN2os19print_active_localeEP12outputStream.categories, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [16 x i8], ptr @__const._ZN2os19print_active_localeEP12outputStream.categories, i64 %indvars.iv
   %4 = load i32, ptr %3, align 16
   %5 = tail call ptr @setlocale(i32 noundef %4, ptr noundef null) #28
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3125,7 +3120,7 @@ _ZL10to_abstimeP8timespeclbb.exit:                ; preds = %21, %23, %31, %_ZL1
   store i32 %58, ptr %59, align 4
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %61 = zext i1 %1 to i64
-  %62 = getelementptr inbounds nuw %union.pthread_cond_t, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [48 x i8], ptr %60, i64 %61
   %63 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %62, ptr noundef nonnull %42, ptr noundef nonnull %5) #28
   br label %64
 
@@ -3203,7 +3198,7 @@ define hidden void @_ZN6Parker6unparkEv(ptr noundef nonnull align 8 dereferencea
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = sext i32 %6 to i64
-  %13 = getelementptr inbounds %union.pthread_cond_t, ptr %11, i64 %12
+  %13 = getelementptr inbounds [48 x i8], ptr %11, i64 %12
   %14 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %13) #28
   br label %15
 
@@ -3704,14 +3699,14 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %7, %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %30 = load ptr, ptr %29, align 8
   %31 = sext i32 %20 to i64
-  %32 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %30, i64 %31
+  %32 = getelementptr inbounds [280 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %1, ptr %33, align 8
   %34 = load ptr, ptr %29, align 8
-  %35 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %34, i64 %31
+  %35 = getelementptr inbounds [280 x i8], ptr %34, i64 %31
   store double %17, ptr %35, align 8
   %36 = load ptr, ptr %29, align 8
-  %37 = getelementptr inbounds %"class.EventLogBase<FormatStringLogMessage<256>>::EventRecord", ptr %36, i64 %31
+  %37 = getelementptr inbounds [280 x i8], ptr %36, i64 %31
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 @jio_vsnprintf(ptr noundef %39, i64 noundef 256, ptr noundef %2, ptr noundef %3) #28

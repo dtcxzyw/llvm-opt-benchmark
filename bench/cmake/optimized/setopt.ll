@@ -640,7 +640,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
   br label %setopt_long.exit
 
 switch.lookup:                                    ; preds = %225
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.Curl_vsetopt, i64 %20
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Curl_vsetopt, i64 %20
   %switch.load = load i64, ptr %switch.gep, align 8
   %229 = trunc nuw nsw i64 %switch.load to i8
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 1322

@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5C_class_t = type { i32, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.H5C_cache_entry_t = type { ptr, i64, i64, ptr, i8, ptr, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i32, ptr, i32, i32, i32, i32, i32, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i8, i64, ptr, i64, i64, i32, i8, i32, i32, i8, ptr, ptr, ptr }
-%struct.UT_hash_bucket = type { ptr, i32, i32 }
 
 @H5C_init_g = local_unnamed_addr global i8 0, align 1
 @.str = private unnamed_addr constant [15 x i8] c"H5C_tag_info_t\00", align 1
@@ -265,7 +263,7 @@ define ptr @H5C_create(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr nound
 
 90:                                               ; preds = %.preheader, %90
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds nuw %struct.H5C_cache_entry_t, ptr %89, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [248 x i8], ptr %89, i64 %indvars.iv
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i64 %indvars.iv, ptr %92, align 8, !tbaa !68
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 40
@@ -646,7 +644,7 @@ define range(i32 -1, 1) i32 @H5C_dest(ptr noundef %0) local_unnamed_addr #0 {
   %95 = and i32 %94, %91
   %96 = load ptr, ptr %.pre96, align 8, !tbaa !90
   %97 = zext i32 %95 to i64
-  %98 = getelementptr inbounds nuw %struct.UT_hash_bucket, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8, !tbaa !124
   %101 = add i32 %100, -1
@@ -856,13 +854,13 @@ define range(i32 -1, 1) i32 @H5C_set_slist_enabled(ptr noundef captures(address_
   %68 = getelementptr inbounds nuw i8, ptr %.03543, i64 64
   %69 = load i32, ptr %68, align 8, !tbaa !139
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %42, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %42, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !140
   %73 = add i32 %72, 1
   store i32 %73, ptr %71, align 4, !tbaa !140
   %74 = load i32, ptr %68, align 8, !tbaa !139
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i64, ptr %43, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %43, i64 %75
   %77 = load i64, ptr %76, align 8, !tbaa !11
   %78 = add i64 %77, %65
   store i64 %78, ptr %76, align 8, !tbaa !11
@@ -2300,7 +2298,7 @@ define range(i32 -1, 1) i32 @H5C_cork(ptr noundef captures(none) %0, i64 noundef
   %98 = and i32 %92, %97
   %99 = load ptr, ptr %94, align 8, !tbaa !90
   %100 = zext i32 %98 to i64
-  %101 = getelementptr inbounds nuw %struct.UT_hash_bucket, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !126
   %.not622 = icmp eq ptr %102, null
   br i1 %.not622, label %.loopexit, label %.lr.ph
@@ -2519,7 +2517,7 @@ define range(i32 -1, 1) i32 @H5C_cork(ptr noundef captures(none) %0, i64 noundef
   %234 = add i32 %228, -1
   %235 = and i32 %234, %197
   %236 = zext i32 %235 to i64
-  %237 = getelementptr inbounds nuw %struct.UT_hash_bucket, ptr %227, i64 %236
+  %237 = getelementptr inbounds nuw [16 x i8], ptr %227, i64 %236
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %239 = load i32, ptr %238, align 8, !tbaa !124
   %240 = add i32 %239, 1
@@ -2580,7 +2578,7 @@ define range(i32 -1, 1) i32 @H5C_cork(ptr noundef captures(none) %0, i64 noundef
 .lr.ph695:                                        ; preds = %257, %._crit_edge
   %269 = phi i32 [ %299, %._crit_edge ], [ 0, %257 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %257 ]
-  %270 = getelementptr inbounds nuw %struct.UT_hash_bucket, ptr %227, i64 %indvars.iv
+  %270 = getelementptr inbounds nuw [16 x i8], ptr %227, i64 %indvars.iv
   %271 = load ptr, ptr %270, align 8, !tbaa !126
   %.not642690 = icmp eq ptr %271, null
   br i1 %.not642690, label %._crit_edge, label %.lr.ph692
@@ -2594,7 +2592,7 @@ define range(i32 -1, 1) i32 @H5C_cork(ptr noundef captures(none) %0, i64 noundef
   %276 = load i32, ptr %275, align 4, !tbaa !122
   %277 = and i32 %276, %263
   %278 = zext i32 %277 to i64
-  %279 = getelementptr inbounds nuw %struct.UT_hash_bucket, ptr %calloc, i64 %278
+  %279 = getelementptr inbounds nuw [16 x i8], ptr %calloc, i64 %278
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %281 = load i32, ptr %280, align 8, !tbaa !124
   %282 = add i32 %281, 1
@@ -2764,7 +2762,7 @@ define range(i32 -1, 1) i32 @H5C_cork(ptr noundef captures(none) %0, i64 noundef
   %361 = and i32 %360, %197
   %362 = load ptr, ptr %.pre704, align 8, !tbaa !90
   %363 = zext i32 %361 to i64
-  %364 = getelementptr inbounds nuw %struct.UT_hash_bucket, ptr %362, i64 %363
+  %364 = getelementptr inbounds nuw [16 x i8], ptr %362, i64 %363
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
   %366 = load i32, ptr %365, align 8, !tbaa !124
   %367 = add i32 %366, -1
@@ -2927,7 +2925,7 @@ define range(i32 -1, 1) i32 @H5C_cork(ptr noundef captures(none) %0, i64 noundef
   %455 = and i32 %454, %451
   %456 = load ptr, ptr %.pre707, align 8, !tbaa !90
   %457 = zext i32 %455 to i64
-  %458 = getelementptr inbounds nuw %struct.UT_hash_bucket, ptr %456, i64 %457
+  %458 = getelementptr inbounds nuw [16 x i8], ptr %456, i64 %457
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 8
   %460 = load i32, ptr %459, align 8, !tbaa !124
   %461 = add i32 %460, -1

@@ -7,9 +7,9 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @strsm_kernel_RT(i64 noundef %0, i64 noundef %1, i64 noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8) local_unnamed_addr #0 {
   %10 = sub nsw i64 %1, %8
   %11 = mul nsw i64 %7, %1
-  %12 = getelementptr inbounds float, ptr %6, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %6, i64 %11
   %13 = mul nsw i64 %2, %1
-  %14 = getelementptr inbounds float, ptr %5, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %5, i64 %13
   %15 = and i64 %1, 3
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %.loopexit294, label %.preheader293
@@ -34,10 +34,10 @@ define noundef i32 @strsm_kernel_RT(i64 noundef %0, i64 noundef %1, i64 noundef 
 21:                                               ; preds = %19
   %22 = mul i64 %2, %.0163331
   %23 = sub i64 0, %22
-  %24 = getelementptr inbounds float, ptr %.1170330, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %.1170330, i64 %23
   %25 = mul i64 %7, %.0163331
   %26 = sub i64 0, %25
-  %27 = getelementptr inbounds float, ptr %.1174329, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %.1174329, i64 %26
   br i1 %17, label %.preheader291.split.us.preheader, label %.loopexit292
 
 .preheader291.split.us.preheader:                 ; preds = %21
@@ -45,17 +45,17 @@ define noundef i32 @strsm_kernel_RT(i64 noundef %0, i64 noundef %1, i64 noundef 
   %29 = icmp sgt i64 %28, 0
   %.idx201 = shl nsw i64 %.1335, 6
   %30 = mul nsw i64 %.1335, %.0163331
-  %31 = getelementptr inbounds float, ptr %24, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %24, i64 %30
   %32 = add nsw i64 %.0163331, -1
   %33 = sub nsw i64 %.1335, %.0163331
   %34 = mul nsw i64 %33, %.0163331
-  %35 = getelementptr inbounds float, ptr %24, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %24, i64 %34
   %.idx202 = shl nsw i64 %33, 6
   %36 = sub nsw i64 0, %.0163331
   %.idx283 = shl nuw nsw i64 %32, 6
   %37 = mul nuw nsw i64 %32, %.0163331
-  %38 = getelementptr inbounds nuw float, ptr %35, i64 %37
-  %39 = getelementptr inbounds nuw float, ptr %38, i64 %32
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %37
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %32
   %.not.i308 = icmp eq i64 %32, 0
   br label %.preheader291.split.us
 
@@ -79,8 +79,8 @@ define noundef i32 @strsm_kernel_RT(i64 noundef %0, i64 noundef %1, i64 noundef 
 .lr.ph.us.us.i.us:                                ; preds = %.lr.ph.us.us.i.preheader.us, %._crit_edge.us.us.i.us
   %indvars.iv70.i.us = phi i64 [ %indvars.iv.next71.i.us, %._crit_edge.us.us.i.us ], [ 0, %.lr.ph.us.us.i.preheader.us ]
   %.148.us.us.i.us = phi ptr [ %58, %._crit_edge.us.us.i.us ], [ %.04355.us.i310.us, %.lr.ph.us.us.i.preheader.us ]
-  %46 = getelementptr inbounds nuw float, ptr %.1152.us, i64 %indvars.iv70.i.us
-  %47 = getelementptr inbounds float, ptr %46, i64 %68
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %.1152.us, i64 %indvars.iv70.i.us
+  %47 = getelementptr inbounds [4 x i8], ptr %46, i64 %68
   %48 = load float, ptr %47, align 4, !tbaa !3
   %49 = fmul float %67, %48
   store float %49, ptr %.148.us.us.i.us, align 4, !tbaa !3
@@ -90,10 +90,10 @@ define noundef i32 @strsm_kernel_RT(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 51:                                               ; preds = %51, %.lr.ph.us.us.i.us
   %indvars.iv66.i.us = phi i64 [ %indvars.iv.next67.i.us, %51 ], [ 0, %.lr.ph.us.us.i.us ]
-  %52 = getelementptr inbounds nuw float, ptr %.04453.us.i311.us, i64 %indvars.iv66.i.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.04453.us.i311.us, i64 %indvars.iv66.i.us
   %53 = load float, ptr %52, align 4, !tbaa !3
   %54 = mul nsw i64 %indvars.iv66.i.us, %7
-  %55 = getelementptr inbounds float, ptr %46, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %46, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !3
   %57 = tail call float @llvm.fmuladd.f32(float %50, float %53, float %56)
   store float %57, ptr %55, align 4, !tbaa !3
@@ -108,10 +108,10 @@ define noundef i32 @strsm_kernel_RT(i64 noundef %0, i64 noundef %1, i64 noundef 
   br i1 %exitcond73.not.i.us, label %._crit_edge52.us.i.us, label %.lr.ph.us.us.i.us, !llvm.loop !9
 
 ._crit_edge52.us.i.us:                            ; preds = %._crit_edge.us.us.i.us
-  %59 = getelementptr inbounds float, ptr %.04453.us.i311.us, i64 %36
+  %59 = getelementptr inbounds [4 x i8], ptr %.04453.us.i311.us, i64 %36
   %60 = getelementptr inbounds i8, ptr %.148.us.us.i.us, i64 -124
   %indvars.iv.next75.i.us = add nsw i64 %indvars.iv74.i309.us, -1
-  %61 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv.next75.i.us
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.next75.i.us
   %62 = load float, ptr %61, align 4, !tbaa !3
   %.not.i.us = icmp eq i64 %indvars.iv.next75.i.us, 0
   br i1 %.not.i.us, label %.lr.ph51.split.us62.i.us, label %.lr.ph.us.us.i.preheader.us
@@ -124,7 +124,7 @@ define noundef i32 @strsm_kernel_RT(i64 noundef %0, i64 noundef %1, i64 noundef 
 63:                                               ; preds = %63, %.lr.ph51.split.us62.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph51.split.us62.i.us ], [ %indvars.iv.next.i.us, %63 ]
   %.148.us59.i.us = phi ptr [ %.04355.us.i.lcssa.us, %.lr.ph51.split.us62.i.us ], [ %66, %63 ]
-  %gep.us.i.us = getelementptr float, ptr %.1152.us, i64 %indvars.iv.i.us
+  %gep.us.i.us = getelementptr [4 x i8], ptr %.1152.us, i64 %indvars.iv.i.us
   %64 = load float, ptr %gep.us.i.us, align 4, !tbaa !3
   %65 = fmul float %.lcssa302.us, %64
   store float %65, ptr %.148.us59.i.us, align 4, !tbaa !3
@@ -163,15 +163,15 @@ solve.exit.loopexit.us:                           ; preds = %63
   %73 = sub nsw i64 %2, %.1335
   %74 = icmp sgt i64 %73, 0
   %75 = mul nsw i64 %.1335, %.0163331
-  %76 = getelementptr inbounds float, ptr %24, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %24, i64 %75
   %77 = add nsw i64 %.0163331, -1
   %78 = sub nsw i64 %.1335, %.0163331
   %79 = mul nsw i64 %78, %.0163331
-  %80 = getelementptr inbounds float, ptr %24, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr %24, i64 %79
   %81 = sub nsw i64 0, %.0163331
   %82 = mul nuw nsw i64 %77, %.0163331
-  %83 = getelementptr inbounds nuw float, ptr %80, i64 %82
-  %84 = getelementptr inbounds nuw float, ptr %83, i64 %77
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %82
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %77
   %.not.i212323 = icmp eq i64 %77, 0
   br label %85
 
@@ -188,16 +188,16 @@ solve.exit.loopexit.us:                           ; preds = %63
 
 88:                                               ; preds = %87
   %89 = mul nsw i64 %.1166, %.1335
-  %90 = getelementptr inbounds float, ptr %.2157, i64 %89
+  %90 = getelementptr inbounds [4 x i8], ptr %.2157, i64 %89
   %91 = tail call i32 @sgemm_kernel(i64 noundef %.1166, i64 noundef %.0163331, i64 noundef %73, float noundef -1.000000e+00, ptr noundef %90, ptr noundef %76, ptr noundef %.2153, i64 noundef %7) #3
   br label %.lr.ph.i207
 
 .lr.ph.i207:                                      ; preds = %87, %88
   %92 = mul nsw i64 %.1166, %78
-  %93 = getelementptr inbounds float, ptr %.2157, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %.2157, i64 %92
   %.idx.i = mul nsw i64 %.1166, -8
   %94 = mul nsw i64 %.1166, %77
-  %95 = getelementptr inbounds float, ptr %93, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %93, i64 %94
   %96 = load float, ptr %84, align 4, !tbaa !3
   br i1 %.not.i212323, label %.lr.ph51.split.us62.i224, label %.lr.ph.us.us.i213.preheader
 
@@ -213,7 +213,7 @@ solve.exit.loopexit.us:                           ; preds = %63
 99:                                               ; preds = %.lr.ph51.split.us62.i224, %99
   %indvars.iv.i226 = phi i64 [ 0, %.lr.ph51.split.us62.i224 ], [ %indvars.iv.next.i229, %99 ]
   %.148.us59.i227 = phi ptr [ %.04355.us.i210.lcssa, %.lr.ph51.split.us62.i224 ], [ %102, %99 ]
-  %gep.us.i228 = getelementptr float, ptr %.2153, i64 %indvars.iv.i226
+  %gep.us.i228 = getelementptr [4 x i8], ptr %.2153, i64 %indvars.iv.i226
   %100 = load float, ptr %gep.us.i228, align 4, !tbaa !3
   %101 = fmul float %.lcssa307, %100
   store float %101, ptr %.148.us59.i227, align 4, !tbaa !3
@@ -229,10 +229,10 @@ solve.exit.loopexit.us:                           ; preds = %63
   br label %99
 
 ._crit_edge52.us.i222:                            ; preds = %._crit_edge.us.us.i219
-  %103 = getelementptr inbounds float, ptr %.04453.us.i211326, i64 %81
+  %103 = getelementptr inbounds [4 x i8], ptr %.04453.us.i211326, i64 %81
   %104 = getelementptr inbounds i8, ptr %119, i64 %.idx.i
   %indvars.iv.next75.i223 = add nsw i64 %indvars.iv74.i209324, -1
-  %105 = getelementptr inbounds nuw float, ptr %103, i64 %indvars.iv.next75.i223
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv.next75.i223
   %106 = load float, ptr %105, align 4, !tbaa !3
   %.not.i212 = icmp eq i64 %indvars.iv.next75.i223, 0
   br i1 %.not.i212, label %.lr.ph51.split.us62.i224, label %.lr.ph.us.us.i213.preheader
@@ -240,8 +240,8 @@ solve.exit.loopexit.us:                           ; preds = %63
 .lr.ph.us.us.i213:                                ; preds = %.lr.ph.us.us.i213.preheader, %._crit_edge.us.us.i219
   %indvars.iv70.i214 = phi i64 [ %indvars.iv.next71.i220, %._crit_edge.us.us.i219 ], [ 0, %.lr.ph.us.us.i213.preheader ]
   %.148.us.us.i215 = phi ptr [ %119, %._crit_edge.us.us.i219 ], [ %.04355.us.i210325, %.lr.ph.us.us.i213.preheader ]
-  %107 = getelementptr inbounds nuw float, ptr %.2153, i64 %indvars.iv70.i214
-  %108 = getelementptr inbounds float, ptr %107, i64 %98
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %.2153, i64 %indvars.iv70.i214
+  %108 = getelementptr inbounds [4 x i8], ptr %107, i64 %98
   %109 = load float, ptr %108, align 4, !tbaa !3
   %110 = fmul float %97, %109
   store float %110, ptr %.148.us.us.i215, align 4, !tbaa !3
@@ -251,10 +251,10 @@ solve.exit.loopexit.us:                           ; preds = %63
 
 112:                                              ; preds = %112, %.lr.ph.us.us.i213
   %indvars.iv66.i216 = phi i64 [ %indvars.iv.next67.i217, %112 ], [ 0, %.lr.ph.us.us.i213 ]
-  %113 = getelementptr inbounds nuw float, ptr %.04453.us.i211326, i64 %indvars.iv66.i216
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.04453.us.i211326, i64 %indvars.iv66.i216
   %114 = load float, ptr %113, align 4, !tbaa !3
   %115 = mul nsw i64 %indvars.iv66.i216, %7
-  %116 = getelementptr inbounds float, ptr %107, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %107, i64 %115
   %117 = load float, ptr %116, align 4, !tbaa !3
   %118 = tail call float @llvm.fmuladd.f32(float %111, float %114, float %117)
   store float %118, ptr %116, align 4, !tbaa !3
@@ -270,8 +270,8 @@ solve.exit.loopexit.us:                           ; preds = %63
 
 solve.exit231:                                    ; preds = %99
   %120 = mul nsw i64 %.1166, %2
-  %121 = getelementptr inbounds float, ptr %.2157, i64 %120
-  %122 = getelementptr inbounds nuw float, ptr %.2153, i64 %.1166
+  %121 = getelementptr inbounds [4 x i8], ptr %.2157, i64 %120
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %.2153, i64 %.1166
   br label %123
 
 123:                                              ; preds = %solve.exit231, %85
@@ -359,7 +359,7 @@ solve.exit231:                                    ; preds = %99
 .lr.ph51.split.us62.i249:                         ; preds = %._crit_edge52.us.i247, %.lr.ph51.split.us62.i249
   %indvars.iv.i251 = phi i64 [ %indvars.iv.next.i254, %.lr.ph51.split.us62.i249 ], [ 0, %._crit_edge52.us.i247 ]
   %.148.us59.i252 = phi ptr [ %155, %.lr.ph51.split.us62.i249 ], [ %157, %._crit_edge52.us.i247 ]
-  %gep.us.i253 = getelementptr float, ptr %.5, i64 %indvars.iv.i251
+  %gep.us.i253 = getelementptr [4 x i8], ptr %.5, i64 %indvars.iv.i251
   %153 = load float, ptr %gep.us.i253, align 4, !tbaa !3
   %154 = fmul float %159, %153
   store float %154, ptr %.148.us59.i252, align 4, !tbaa !3
@@ -373,7 +373,7 @@ solve.exit231:                                    ; preds = %99
   %156 = getelementptr inbounds i8, ptr %.04453.us.i236338, i64 -16
   %157 = getelementptr inbounds i8, ptr %.148.us.us.i240, i64 -124
   %indvars.iv.next75.i248 = add nsw i64 %indvars.iv74.i234336, -1
-  %158 = getelementptr inbounds nuw float, ptr %156, i64 %indvars.iv.next75.i248
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %indvars.iv.next75.i248
   %159 = load float, ptr %158, align 4, !tbaa !3
   %160 = mul nsw i64 %indvars.iv.next75.i248, %7
   %.not.i237 = icmp eq i64 %indvars.iv.next75.i248, 0
@@ -382,8 +382,8 @@ solve.exit231:                                    ; preds = %99
 .lr.ph.us.us.i238:                                ; preds = %.lr.ph.us.us.i238.preheader, %._crit_edge.us.us.i244
   %indvars.iv70.i239 = phi i64 [ %indvars.iv.next71.i245, %._crit_edge.us.us.i244 ], [ 0, %.lr.ph.us.us.i238.preheader ]
   %.148.us.us.i240 = phi ptr [ %173, %._crit_edge.us.us.i244 ], [ %.04355.us.i235337, %.lr.ph.us.us.i238.preheader ]
-  %161 = getelementptr inbounds nuw float, ptr %.5, i64 %indvars.iv70.i239
-  %162 = getelementptr inbounds float, ptr %161, i64 %151
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %.5, i64 %indvars.iv70.i239
+  %162 = getelementptr inbounds [4 x i8], ptr %161, i64 %151
   %163 = load float, ptr %162, align 4, !tbaa !3
   %164 = fmul float %152, %163
   store float %164, ptr %.148.us.us.i240, align 4, !tbaa !3
@@ -393,10 +393,10 @@ solve.exit231:                                    ; preds = %99
 
 166:                                              ; preds = %166, %.lr.ph.us.us.i238
   %indvars.iv66.i241 = phi i64 [ %indvars.iv.next67.i242, %166 ], [ 0, %.lr.ph.us.us.i238 ]
-  %167 = getelementptr inbounds nuw float, ptr %.04453.us.i236338, i64 %indvars.iv66.i241
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %.04453.us.i236338, i64 %indvars.iv66.i241
   %168 = load float, ptr %167, align 4, !tbaa !3
   %169 = mul nsw i64 %indvars.iv66.i241, %7
-  %170 = getelementptr inbounds float, ptr %161, i64 %169
+  %170 = getelementptr inbounds [4 x i8], ptr %161, i64 %169
   %171 = load float, ptr %170, align 4, !tbaa !3
   %172 = tail call float @llvm.fmuladd.f32(float %165, float %168, float %171)
   store float %172, ptr %170, align 4, !tbaa !3
@@ -451,13 +451,13 @@ solve.exit256:                                    ; preds = %.lr.ph51.split.us62
 
 188:                                              ; preds = %187
   %189 = mul nsw i64 %.3168, %.3
-  %190 = getelementptr inbounds float, ptr %.6161, i64 %189
+  %190 = getelementptr inbounds [4 x i8], ptr %.6161, i64 %189
   %191 = tail call i32 @sgemm_kernel(i64 noundef %.3168, i64 noundef 4, i64 noundef %178, float noundef -1.000000e+00, ptr noundef %190, ptr noundef %180, ptr noundef %.6, i64 noundef %7) #3
   br label %192
 
 192:                                              ; preds = %188, %187
   %193 = mul nsw i64 %.3168, %181
-  %194 = getelementptr inbounds float, ptr %.6161, i64 %193
+  %194 = getelementptr inbounds [4 x i8], ptr %.6161, i64 %193
   %.idx.i258 = mul nsw i64 %.3168, -8
   %.idx284 = mul nuw nsw i64 %.3168, 12
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 %.idx284
@@ -475,7 +475,7 @@ solve.exit256:                                    ; preds = %.lr.ph51.split.us62
 .lr.ph51.split.us62.i275:                         ; preds = %._crit_edge52.us.i273, %.lr.ph51.split.us62.i275
   %indvars.iv.i277 = phi i64 [ %indvars.iv.next.i280, %.lr.ph51.split.us62.i275 ], [ 0, %._crit_edge52.us.i273 ]
   %.148.us59.i278 = phi ptr [ %201, %.lr.ph51.split.us62.i275 ], [ %203, %._crit_edge52.us.i273 ]
-  %gep.us.i279 = getelementptr float, ptr %.6, i64 %indvars.iv.i277
+  %gep.us.i279 = getelementptr [4 x i8], ptr %.6, i64 %indvars.iv.i277
   %199 = load float, ptr %gep.us.i279, align 4, !tbaa !3
   %200 = fmul float %205, %199
   store float %200, ptr %.148.us59.i278, align 4, !tbaa !3
@@ -489,7 +489,7 @@ solve.exit256:                                    ; preds = %.lr.ph51.split.us62
   %202 = getelementptr inbounds i8, ptr %.04453.us.i262341, i64 -16
   %203 = getelementptr inbounds i8, ptr %219, i64 %.idx.i258
   %indvars.iv.next75.i274 = add nsw i64 %indvars.iv74.i260339, -1
-  %204 = getelementptr inbounds nuw float, ptr %202, i64 %indvars.iv.next75.i274
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %indvars.iv.next75.i274
   %205 = load float, ptr %204, align 4, !tbaa !3
   %206 = mul nsw i64 %indvars.iv.next75.i274, %7
   %.not.i263 = icmp eq i64 %indvars.iv.next75.i274, 0
@@ -498,8 +498,8 @@ solve.exit256:                                    ; preds = %.lr.ph51.split.us62
 .lr.ph.us.us.i264:                                ; preds = %.lr.ph.us.us.i264.preheader, %._crit_edge.us.us.i270
   %indvars.iv70.i265 = phi i64 [ %indvars.iv.next71.i271, %._crit_edge.us.us.i270 ], [ 0, %.lr.ph.us.us.i264.preheader ]
   %.148.us.us.i266 = phi ptr [ %219, %._crit_edge.us.us.i270 ], [ %.04355.us.i261340, %.lr.ph.us.us.i264.preheader ]
-  %207 = getelementptr inbounds nuw float, ptr %.6, i64 %indvars.iv70.i265
-  %208 = getelementptr inbounds float, ptr %207, i64 %197
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %.6, i64 %indvars.iv70.i265
+  %208 = getelementptr inbounds [4 x i8], ptr %207, i64 %197
   %209 = load float, ptr %208, align 4, !tbaa !3
   %210 = fmul float %198, %209
   store float %210, ptr %.148.us.us.i266, align 4, !tbaa !3
@@ -509,10 +509,10 @@ solve.exit256:                                    ; preds = %.lr.ph51.split.us62
 
 212:                                              ; preds = %212, %.lr.ph.us.us.i264
   %indvars.iv66.i267 = phi i64 [ %indvars.iv.next67.i268, %212 ], [ 0, %.lr.ph.us.us.i264 ]
-  %213 = getelementptr inbounds nuw float, ptr %.04453.us.i262341, i64 %indvars.iv66.i267
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %.04453.us.i262341, i64 %indvars.iv66.i267
   %214 = load float, ptr %213, align 4, !tbaa !3
   %215 = mul nsw i64 %indvars.iv66.i267, %7
-  %216 = getelementptr inbounds float, ptr %207, i64 %215
+  %216 = getelementptr inbounds [4 x i8], ptr %207, i64 %215
   %217 = load float, ptr %216, align 4, !tbaa !3
   %218 = tail call float @llvm.fmuladd.f32(float %211, float %214, float %217)
   store float %218, ptr %216, align 4, !tbaa !3
@@ -528,8 +528,8 @@ solve.exit256:                                    ; preds = %.lr.ph51.split.us62
 
 solve.exit282:                                    ; preds = %.lr.ph51.split.us62.i275
   %220 = mul nsw i64 %.3168, %2
-  %221 = getelementptr inbounds float, ptr %.6161, i64 %220
-  %222 = getelementptr inbounds nuw float, ptr %.6, i64 %.3168
+  %221 = getelementptr inbounds [4 x i8], ptr %.6161, i64 %220
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %.6, i64 %.3168
   br label %223
 
 223:                                              ; preds = %solve.exit282, %185

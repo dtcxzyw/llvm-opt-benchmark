@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::reference_wrapper<DeviceInformation>, std::allocator<std::reference_wrapper<DeviceInformation>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::reference_wrapper<DeviceInformation>, std::allocator<std::reference_wrapper<DeviceInformation>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::reference_wrapper<DeviceInformation>, std::allocator<std::reference_wrapper<DeviceInformation>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::reference_wrapper<DeviceInformation>, std::allocator<std::reference_wrapper<DeviceInformation>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::reference_wrapper" = type { ptr }
 %"class.std::vector.9" = type { %"struct.std::_Vector_base.10" }
 %"struct.std::_Vector_base.10" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
@@ -37,12 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.27" = type { %"struct.std::_Head_base.30" }
 %"struct.std::_Head_base.30" = type { ptr }
 %"struct.std::type_index" = type { ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.7" }
-%"struct.std::_Head_base.7" = type { ptr }
 %"class.std::vector.1" = type { %"struct.std::_Vector_base.2" }
 %"struct.std::_Vector_base.2" = type { %"struct.std::_Vector_base<std::unique_ptr<DeviceInformation>, std::allocator<std::unique_ptr<DeviceInformation>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::unique_ptr<DeviceInformation>, std::allocator<std::unique_ptr<DeviceInformation>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<DeviceInformation>, std::allocator<std::unique_ptr<DeviceInformation>>>::_Vector_impl_data" }
@@ -294,7 +287,7 @@ _ZNSt6vectorISt17reference_wrapperI17DeviceInformationESaIS2_EE11_S_relocateEPS2
 
 _ZNSt6vectorISt17reference_wrapperI17DeviceInformationESaIS2_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorISt17reference_wrapperI17DeviceInformationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %43, ptr %15, align 8, !tbaa !28
-  %45 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %38, i64 %36
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %36
   br label %_ZNSt6vectorISt17reference_wrapperI17DeviceInformationESaIS2_EE12emplace_backIJRS1_EEERS2_DpOT_.exit
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorISt17reference_wrapperI17DeviceInformationESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -372,7 +365,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %9
   %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %12) #25
   store ptr %13, ptr %0, align 8, !tbaa !42
   store ptr %13, ptr %11, align 8, !tbaa !45
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %7
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %7
   store ptr %14, ptr %10, align 8, !tbaa !46
   br label %_ZNSt6vectorIiSaIiEE7reserveEm.exit
 
@@ -466,7 +459,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %44, %.noex
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %46, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %45, ptr %15, align 8, !tbaa !45
-  %47 = getelementptr inbounds nuw i32, ptr %40, i64 %38
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %38
   br label %_ZNSt6vectorIiSaIiEE12emplace_backIJRiEEES3_DpOT_.exit
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
@@ -1091,11 +1084,11 @@ define void @_Z33getDeviceCompatibilityDescriptionB5cxx11N3gmx8ArrayRefIKSt10uni
 
 11:                                               ; preds = %4
   %12 = sext i32 %3 to i64
-  %13 = getelementptr inbounds %"class.std::unique_ptr", ptr %1, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %1, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = load i32, ptr %14, align 8, !tbaa !32
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr @_ZL19c_deviceStateString, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZL19c_deviceStateString, i64 %16
   br label %18
 
 18:                                               ; preds = %4, %11
@@ -1225,7 +1218,7 @@ _ZNSt6vectorISt10unique_ptrI17DeviceInformationSt14default_deleteIS1_EESaIS4_EE1
   %10 = shl nuw nsw i64 %8, 3
   %11 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #25
   store ptr %11, ptr %0, align 8, !tbaa !24
-  %12 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %11, i64 %8
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %8
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %11, i8 0, i64 %10, i1 false), !tbaa !87
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1241,7 +1234,7 @@ _ZNSt6vectorISt10unique_ptrI17DeviceInformationSt14default_deleteIS1_EESaIS4_EE1
 
 16:                                               ; preds = %.lr.ph
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %15, i8 0, i64 88, i1 false), !noalias !90
-  %17 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %11, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !30
   store ptr %15, ptr %17, align 8, !tbaa !30
   %.not.i.i.i.i15 = icmp eq ptr %18, null

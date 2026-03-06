@@ -279,7 +279,7 @@ pmix_obj_update.exit179:                          ; preds = %pmix_obj_update.exi
 
 102:                                              ; preds = %pmix_obj_update.exit179
   %103 = zext nneg i32 %101 to i64
-  %104 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %103
+  %104 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %106 = load i32, ptr %105, align 4, !tbaa !69
   %107 = icmp sgt i32 %106, 1
@@ -394,7 +394,7 @@ pmix_obj_update.exit179:                          ; preds = %pmix_obj_update.exi
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.25, ptr noundef nonnull %148) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %149 = load ptr, ptr %97, align 8, !tbaa !65
-  %150 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv.next
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %indvars.iv.next
   %151 = load ptr, ptr %150, align 8, !tbaa !29
   %.not149 = icmp eq ptr %151, null
   br i1 %.not149, label %.loopexit, label %.lr.ph, !llvm.loop !75

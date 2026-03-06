@@ -758,7 +758,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %3
 
 switch.lookup:                                    ; preds = %28
   %34 = zext nneg i32 %31 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.mriStep_Init, i64 %34
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mriStep_Init, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %switch.load, ptr %35, align 8, !tbaa !35
@@ -888,7 +888,7 @@ switch.lookup:                                    ; preds = %28
   %99 = trunc nuw nsw i64 %indvars.iv to i32
   %100 = tail call i32 @mriStepCoupling_GetStageType(ptr noundef nonnull %98, i32 noundef %99) #14
   %101 = load ptr, ptr %79, align 8, !tbaa !142
-  %102 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv
   store i32 %100, ptr %102, align 4, !tbaa !119
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %103 = load ptr, ptr %29, align 8, !tbaa !125
@@ -1695,11 +1695,11 @@ mriStepInnerStepper_FullRhs.exit64:               ; preds = %18
 109:                                              ; preds = %97
   %110 = load ptr, ptr %68, align 8, !tbaa !93
   %111 = zext nneg i32 %94 to i64
-  %112 = getelementptr inbounds nuw double, ptr %110, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %111
   store double 1.000000e+00, ptr %112, align 8, !tbaa !115
   %113 = load ptr, ptr %100, align 8, !tbaa !171
   %114 = load ptr, ptr %70, align 8, !tbaa !94
-  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %111
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %111
   store ptr %113, ptr %115, align 8, !tbaa !167
   %116 = add nuw nsw i32 %94, 1
   store i32 %116, ptr %6, align 4, !tbaa !119
@@ -2045,7 +2045,7 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
   %173 = load ptr, ptr %144, align 8, !tbaa !125
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 24
   %175 = load ptr, ptr %174, align 8, !tbaa !184
-  %176 = getelementptr double, ptr %175, i64 %indvars.iv435
+  %176 = getelementptr [8 x i8], ptr %175, i64 %indvars.iv435
   %177 = getelementptr i8, ptr %176, i64 -8
   %178 = load double, ptr %177, align 8, !tbaa !115
   %179 = load double, ptr %145, align 8, !tbaa !185
@@ -2054,7 +2054,7 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
   %182 = tail call double @llvm.fmuladd.f64(double %181, double %179, double %172)
   store double %182, ptr %146, align 8, !tbaa !159
   %183 = load ptr, ptr %147, align 8, !tbaa !142
-  %184 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv435
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %indvars.iv435
   %185 = load i32, ptr %184, align 4, !tbaa !119
   switch i32 %185, label %.thread379 [
     i32 0, label %186
@@ -2105,7 +2105,7 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
   br i1 %.not280, label %209, label %201
 
 201:                                              ; preds = %.thread379
-  %202 = getelementptr inbounds nuw i32, ptr %.pre440, i64 %indvars.iv435
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %.pre440, i64 %indvars.iv435
   %203 = load i32, ptr %202, align 4, !tbaa !119
   %.not281 = icmp eq i32 %203, -1
   br i1 %.not281, label %209, label %204
@@ -2124,7 +2124,7 @@ mriStepInnerStepper_Reset.exit.thread375:         ; preds = %73, %mriStepInnerSt
 
 209:                                              ; preds = %._crit_edge438, %201, %.thread379
   %210 = phi ptr [ %.pre439, %._crit_edge438 ], [ %.pre440, %201 ], [ %.pre440, %.thread379 ]
-  %211 = getelementptr inbounds nuw i32, ptr %210, i64 %indvars.iv435
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %210, i64 %indvars.iv435
   %212 = load i32, ptr %211, align 4, !tbaa !119
   switch i32 %212, label %215 [
     i32 -1, label %mriStepInnerStepper_Reset.exit304.thread387
@@ -2167,14 +2167,14 @@ mriStepInnerStepper_Reset.exit304.thread:         ; preds = %215, %219, %mriStep
 
 mriStepInnerStepper_Reset.exit304.thread387:      ; preds = %223, %209, %213, %mriStepInnerStepper_Reset.exit304
   %228 = load ptr, ptr %152, align 8, !tbaa !141
-  %229 = getelementptr inbounds nuw i32, ptr %228, i64 %indvars.iv435
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %228, i64 %indvars.iv435
   %230 = load i32, ptr %229, align 4, !tbaa !119
   %231 = icmp ne i32 %230, -1
   br i1 %15, label %238, label %232
 
 232:                                              ; preds = %mriStepInnerStepper_Reset.exit304.thread387
   %233 = load ptr, ptr %147, align 8, !tbaa !142
-  %234 = getelementptr inbounds nuw i32, ptr %233, i64 %indvars.iv435
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %233, i64 %indvars.iv435
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 4
   %236 = load i32, ptr %235, align 4, !tbaa !119
   %237 = icmp ne i32 %236, -1
@@ -2195,7 +2195,7 @@ mriStepInnerStepper_Reset.exit304.thread387:      ; preds = %223, %209, %213, %m
   %244 = load ptr, ptr %148, align 8, !tbaa !186
   %245 = load ptr, ptr %154, align 8, !tbaa !151
   %246 = sext i32 %230 to i64
-  %247 = getelementptr inbounds ptr, ptr %245, i64 %246
+  %247 = getelementptr inbounds [8 x i8], ptr %245, i64 %246
   %248 = load ptr, ptr %247, align 8, !tbaa !167
   %249 = load ptr, ptr %150, align 8, !tbaa !169
   %250 = tail call i32 %242(double noundef %243, ptr noundef %244, ptr noundef %248, ptr noundef %249) #14
@@ -2219,10 +2219,10 @@ mriStepInnerStepper_Reset.exit304.thread387:      ; preds = %223, %209, %213, %m
   store double 1.000000e+00, ptr %258, align 8, !tbaa !115
   %259 = load ptr, ptr %154, align 8, !tbaa !151
   %260 = load ptr, ptr %152, align 8, !tbaa !141
-  %261 = getelementptr inbounds nuw i32, ptr %260, i64 %indvars.iv435
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %260, i64 %indvars.iv435
   %262 = load i32, ptr %261, align 4, !tbaa !119
   %263 = sext i32 %262 to i64
-  %264 = getelementptr inbounds ptr, ptr %259, i64 %263
+  %264 = getelementptr inbounds [8 x i8], ptr %259, i64 %263
   %265 = load ptr, ptr %264, align 8, !tbaa !167
   %266 = load ptr, ptr %157, align 8, !tbaa !94
   store ptr %265, ptr %266, align 8, !tbaa !167
@@ -2249,11 +2249,11 @@ mriStepInnerStepper_Reset.exit304.thread387:      ; preds = %223, %209, %213, %m
   %indvars.iv = phi i64 [ 2, %.lr.ph.i.preheader ], [ %indvars.iv.next, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i.preheader ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.02425.i = phi double [ %274, %.lr.ph.i.preheader ], [ %282, %.lr.ph.i ]
-  %278 = getelementptr inbounds nuw double, ptr %258, i64 %indvars.iv
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %258, i64 %indvars.iv
   store double %.02425.i, ptr %278, align 8, !tbaa !115
-  %279 = getelementptr inbounds nuw ptr, ptr %268, i64 %indvars.iv.i
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %indvars.iv.i
   %280 = load ptr, ptr %279, align 8, !tbaa !167
-  %281 = getelementptr inbounds nuw ptr, ptr %266, i64 %indvars.iv
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %266, i64 %indvars.iv
   store ptr %280, ptr %281, align 8, !tbaa !167
   %282 = fmul double %274, %.02425.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2283,7 +2283,7 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %257
 
 289:                                              ; preds = %287
   %290 = load ptr, ptr %147, align 8, !tbaa !142
-  %291 = getelementptr inbounds nuw i32, ptr %290, i64 %indvars.iv435
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %290, i64 %indvars.iv435
   %292 = load i32, ptr %291, align 4, !tbaa !119
   %.not293 = icmp eq i32 %292, 2
   %.pre443 = load ptr, ptr %152, align 8, !tbaa !141
@@ -2295,10 +2295,10 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %257
   %296 = load double, ptr %146, align 8, !tbaa !159
   %297 = load ptr, ptr %148, align 8, !tbaa !186
   %298 = load ptr, ptr %167, align 8, !tbaa !150
-  %299 = getelementptr inbounds nuw i32, ptr %294, i64 %indvars.iv435
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %294, i64 %indvars.iv435
   %300 = load i32, ptr %299, align 4, !tbaa !119
   %301 = sext i32 %300 to i64
-  %302 = getelementptr inbounds ptr, ptr %298, i64 %301
+  %302 = getelementptr inbounds [8 x i8], ptr %298, i64 %301
   %303 = load ptr, ptr %302, align 8, !tbaa !167
   %304 = load ptr, ptr %150, align 8, !tbaa !169
   %305 = tail call i32 %295(double noundef %296, ptr noundef %297, ptr noundef %303, ptr noundef %304) #14
@@ -2322,10 +2322,10 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %257
   store double 1.000000e+00, ptr %313, align 8, !tbaa !115
   %314 = load ptr, ptr %167, align 8, !tbaa !150
   %315 = load ptr, ptr %152, align 8, !tbaa !141
-  %316 = getelementptr inbounds nuw i32, ptr %315, i64 %indvars.iv435
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %315, i64 %indvars.iv435
   %317 = load i32, ptr %316, align 4, !tbaa !119
   %318 = sext i32 %317 to i64
-  %319 = getelementptr inbounds ptr, ptr %314, i64 %318
+  %319 = getelementptr inbounds [8 x i8], ptr %314, i64 %318
   %320 = load ptr, ptr %319, align 8, !tbaa !167
   %321 = load ptr, ptr %157, align 8, !tbaa !94
   store ptr %320, ptr %321, align 8, !tbaa !167
@@ -2352,11 +2352,11 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %257
   %indvars.iv431 = phi i64 [ 2, %.lr.ph.i305.preheader ], [ %indvars.iv.next432, %.lr.ph.i305 ]
   %indvars.iv.i306 = phi i64 [ 1, %.lr.ph.i305.preheader ], [ %indvars.iv.next.i308, %.lr.ph.i305 ]
   %.02425.i307 = phi double [ %329, %.lr.ph.i305.preheader ], [ %337, %.lr.ph.i305 ]
-  %333 = getelementptr inbounds nuw double, ptr %313, i64 %indvars.iv431
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %indvars.iv431
   store double %.02425.i307, ptr %333, align 8, !tbaa !115
-  %334 = getelementptr inbounds nuw ptr, ptr %323, i64 %indvars.iv.i306
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %323, i64 %indvars.iv.i306
   %335 = load ptr, ptr %334, align 8, !tbaa !167
-  %336 = getelementptr inbounds nuw ptr, ptr %321, i64 %indvars.iv431
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %321, i64 %indvars.iv431
   store ptr %335, ptr %336, align 8, !tbaa !167
   %337 = fmul double %329, %.02425.i307
   %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
@@ -2377,10 +2377,10 @@ mriStep_ApplyForcing.exit309:                     ; preds = %.lr.ph.i305, %312
   %344 = fdiv double -1.000000e+00, %341
   %345 = load ptr, ptr %166, align 8, !tbaa !171
   %346 = load ptr, ptr %167, align 8, !tbaa !150
-  %347 = getelementptr inbounds nuw i32, ptr %.pre443, i64 %indvars.iv435
+  %347 = getelementptr inbounds nuw [4 x i8], ptr %.pre443, i64 %indvars.iv435
   %348 = load i32, ptr %347, align 4, !tbaa !119
   %349 = sext i32 %348 to i64
-  %350 = getelementptr inbounds ptr, ptr %346, i64 %349
+  %350 = getelementptr inbounds [8 x i8], ptr %346, i64 %349
   %351 = load ptr, ptr %350, align 8, !tbaa !167
   tail call void @N_VLinearSum(double noundef %342, ptr noundef %343, double noundef %344, ptr noundef %345, ptr noundef %351) #14
   br label %.thread390
@@ -2414,7 +2414,7 @@ mriStep_ApplyForcing.exit309:                     ; preds = %.lr.ph.i305, %312
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 24
   %368 = load ptr, ptr %367, align 8, !tbaa !184
   %369 = sext i32 %.lcssa419 to i64
-  %370 = getelementptr double, ptr %368, i64 %369
+  %370 = getelementptr [8 x i8], ptr %368, i64 %369
   %371 = getelementptr i8, ptr %370, i64 -16
   %372 = load double, ptr %371, align 8, !tbaa !115
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -2425,7 +2425,7 @@ mriStep_ApplyForcing.exit309:                     ; preds = %.lr.ph.i305, %312
   store double %376, ptr %377, align 8, !tbaa !159
   %378 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %379 = load ptr, ptr %378, align 8, !tbaa !142
-  %380 = getelementptr inbounds i32, ptr %379, i64 %369
+  %380 = getelementptr inbounds [4 x i8], ptr %379, i64 %369
   %381 = load i32, ptr %380, align 4, !tbaa !119
   switch i32 %381, label %.thread394 [
     i32 0, label %382
@@ -2509,7 +2509,7 @@ mriStepInnerStepper_Reset.exit312.thread402:      ; preds = %402, %mriStepInnerS
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 24
   %414 = load ptr, ptr %413, align 8, !tbaa !184
   %415 = sext i32 %407 to i64
-  %416 = getelementptr double, ptr %414, i64 %415
+  %416 = getelementptr [8 x i8], ptr %414, i64 %415
   %417 = getelementptr i8, ptr %416, i64 -16
   %418 = load double, ptr %417, align 8, !tbaa !115
   %419 = getelementptr inbounds nuw i8, ptr %0, i64 704
@@ -2521,7 +2521,7 @@ mriStepInnerStepper_Reset.exit312.thread402:      ; preds = %402, %mriStepInnerS
   %424 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %425 = load ptr, ptr %424, align 8, !tbaa !142
   %426 = sext i32 %408 to i64
-  %427 = getelementptr inbounds i32, ptr %425, i64 %426
+  %427 = getelementptr inbounds [4 x i8], ptr %425, i64 %426
   %428 = load i32, ptr %427, align 4, !tbaa !119
   switch i32 %428, label %.thread406 [
     i32 0, label %429
@@ -2571,7 +2571,7 @@ mriStepInnerStepper_Reset.exit312.thread402:      ; preds = %402, %mriStepInnerS
   br i1 %.not270, label %453, label %443
 
 443:                                              ; preds = %.thread406
-  %444 = getelementptr inbounds i32, ptr %.pre446, i64 %426
+  %444 = getelementptr inbounds [4 x i8], ptr %.pre446, i64 %426
   %445 = load i32, ptr %444, align 4, !tbaa !119
   %.not271 = icmp eq i32 %445, -1
   br i1 %.not271, label %453, label %446
@@ -2592,7 +2592,7 @@ mriStepInnerStepper_Reset.exit312.thread402:      ; preds = %402, %mriStepInnerS
 
 453:                                              ; preds = %._crit_edge444, %443, %.thread406
   %454 = phi ptr [ %.pre445, %._crit_edge444 ], [ %.pre446, %443 ], [ %.pre446, %.thread406 ]
-  %455 = getelementptr inbounds i32, ptr %454, i64 %426
+  %455 = getelementptr inbounds [4 x i8], ptr %454, i64 %426
   %456 = load i32, ptr %455, align 4, !tbaa !119
   switch i32 %456, label %459 [
     i32 -1, label %mriStepInnerStepper_Reset.exit315.thread414
@@ -3239,7 +3239,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %2
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %35 = load ptr, ptr %33, align 8, !tbaa !142
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !119
   %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.27, i32 noundef %37) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3336,7 +3336,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %2
 118:                                              ; preds = %.lr.ph98, %118
   %indvars.iv105 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next106, %118 ]
   %119 = load ptr, ptr %117, align 8, !tbaa !143
-  %120 = getelementptr inbounds nuw double, ptr %119, i64 %indvars.iv105
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv105
   %121 = load double, ptr %120, align 8, !tbaa !115
   %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.54, double noundef %121) #14
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
@@ -3359,7 +3359,7 @@ mriStep_AccessStepMem.exit:                       ; preds = %2
 130:                                              ; preds = %.lr.ph102, %130
   %indvars.iv108 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next109, %130 ]
   %131 = load ptr, ptr %129, align 8, !tbaa !144
-  %132 = getelementptr inbounds nuw double, ptr %131, i64 %indvars.iv108
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %indvars.iv108
   %133 = load double, ptr %132, align 8, !tbaa !115
   %134 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.54, double noundef %133) #14
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
@@ -3991,25 +3991,25 @@ switch.lookup46:                                  ; preds = %37
 
 switch.lookup48:                                  ; preds = %23
   %42 = zext nneg i32 %switch.tableidx49 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mriStep_SetCoupling, i64 %42
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mriStep_SetCoupling, i64 %42
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %46
 
 switch.lookup50:                                  ; preds = %24
   %43 = zext nneg i32 %switch.tableidx49 to i64
-  %switch.gep51 = getelementptr inbounds nuw i32, ptr @switch.table.mriStep_SetCoupling.1, i64 %43
+  %switch.gep51 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mriStep_SetCoupling.1, i64 %43
   %switch.load52 = load i32, ptr %switch.gep51, align 4
   br label %46
 
 switch.lookup54:                                  ; preds = %25
   %44 = zext nneg i32 %switch.tableidx53 to i64
-  %switch.gep55 = getelementptr inbounds nuw i32, ptr @switch.table.mriStep_SetCoupling.2, i64 %44
+  %switch.gep55 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mriStep_SetCoupling.2, i64 %44
   %switch.load56 = load i32, ptr %switch.gep55, align 4
   br label %46
 
 switch.lookup58:                                  ; preds = %38
   %45 = zext nneg i32 %switch.tableidx57 to i64
-  %switch.gep59 = getelementptr inbounds nuw i32, ptr @switch.table.mriStep_SetCoupling.3, i64 %45
+  %switch.gep59 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mriStep_SetCoupling.3, i64 %45
   %switch.load60 = load i32, ptr %switch.gep59, align 4
   br label %46
 
@@ -4239,7 +4239,7 @@ thread-pre-split:                                 ; preds = %34, %37
 .preheader214.us:                                 ; preds = %.preheader214.us.preheader, %._crit_edge.us
   %indvars.iv309 = phi i64 [ 0, %.preheader214.us.preheader ], [ %indvars.iv.next310, %._crit_edge.us ]
   %.0150222.us = phi double [ 0.000000e+00, %.preheader214.us.preheader ], [ %69, %._crit_edge.us ]
-  %62 = getelementptr inbounds nuw ptr, ptr %.pre387, i64 %indvars.iv309
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.pre387, i64 %indvars.iv309
   %63 = load ptr, ptr %62, align 8, !tbaa !219
   br label %.preheader213.us
 
@@ -4251,7 +4251,7 @@ thread-pre-split:                                 ; preds = %34, %37
 65:                                               ; preds = %.preheader213.us, %65
   %indvars.iv305 = phi i64 [ %indvars.iv, %.preheader213.us ], [ %indvars.iv.next306, %65 ]
   %.2152218.us = phi double [ %.1151219.us, %.preheader213.us ], [ %69, %65 ]
-  %66 = getelementptr inbounds nuw double, ptr %72, i64 %indvars.iv305
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv305
   %67 = load double, ptr %66, align 8, !tbaa !115
   %68 = tail call double @llvm.fabs.f64(double %67)
   %69 = fadd double %.2152218.us, %68
@@ -4262,7 +4262,7 @@ thread-pre-split:                                 ; preds = %34, %37
 .preheader213.us:                                 ; preds = %.preheader214.us, %64
   %indvars.iv = phi i64 [ 0, %.preheader214.us ], [ %indvars.iv.next, %64 ]
   %.1151219.us = phi double [ %.0150222.us, %.preheader214.us ], [ %69, %64 ]
-  %71 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8, !tbaa !221
   br label %65
 
@@ -4301,7 +4301,7 @@ thread-pre-split:                                 ; preds = %34, %37
 .preheader211.us:                                 ; preds = %.preheader211.us.preheader, %._crit_edge.us236
   %indvars.iv327 = phi i64 [ 0, %.preheader211.us.preheader ], [ %indvars.iv.next328, %._crit_edge.us236 ]
   %.0153232.us = phi double [ 0.000000e+00, %.preheader211.us.preheader ], [ %.2155.lcssa.us, %._crit_edge.us236 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv327
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv327
   br label %82
 
 82:                                               ; preds = %.preheader211.us, %.loopexit.us
@@ -4315,7 +4315,7 @@ thread-pre-split:                                 ; preds = %34, %37
 84:                                               ; preds = %.lr.ph.us, %84
   %indvars.iv316 = phi i64 [ %indvars.iv314, %.lr.ph.us ], [ %indvars.iv.next317, %84 ]
   %.2155226.us = phi double [ %.1154227.us, %.lr.ph.us ], [ %88, %84 ]
-  %85 = getelementptr inbounds nuw double, ptr %91, i64 %indvars.iv316
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv316
   %86 = load double, ptr %85, align 8, !tbaa !115
   %87 = tail call double @llvm.fabs.f64(double %86)
   %88 = fadd double %.2155226.us, %87
@@ -4331,7 +4331,7 @@ thread-pre-split:                                 ; preds = %34, %37
 
 .lr.ph.us:                                        ; preds = %82
   %89 = load ptr, ptr %81, align 8, !tbaa !219
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv321
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv321
   %91 = load ptr, ptr %90, align 8, !tbaa !221
   br label %84
 
@@ -4370,13 +4370,13 @@ thread-pre-split:                                 ; preds = %34, %37
 
 .preheader210.us:                                 ; preds = %._crit_edge.us242, %.preheader210.lr.ph.split.us
   %indvars.iv338 = phi i64 [ %indvars.iv.next339, %._crit_edge.us242 ], [ 0, %.preheader210.lr.ph.split.us ]
-  %104 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv338
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv338
   %105 = load ptr, ptr %104, align 8, !tbaa !117
   br label %106
 
 106:                                              ; preds = %.preheader210.us, %111
   %indvars.iv332 = phi i64 [ 0, %.preheader210.us ], [ %indvars.iv.next333, %111 ]
-  %107 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv332
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv332
   %108 = load i32, ptr %107, align 4, !tbaa !119
   %109 = icmp eq i32 %108, -1
   br i1 %109, label %._crit_edge.us242, label %110
@@ -4387,7 +4387,7 @@ thread-pre-split:                                 ; preds = %34, %37
 
 111:                                              ; preds = %110
   %112 = zext nneg i32 %108 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %98, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !119
   %115 = add nsw i32 %114, 1
   store i32 %115, ptr %113, align 4, !tbaa !119
@@ -4417,7 +4417,7 @@ thread-pre-split:                                 ; preds = %34, %37
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %117
   %indvars.iv343 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next344, %117 ]
-  %118 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv343
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv343
   %119 = load i32, ptr %118, align 4, !tbaa !119
   %120 = icmp eq i32 %119, 0
   %121 = icmp sgt i32 %119, 1
@@ -4474,7 +4474,7 @@ thread-pre-split:                                 ; preds = %34, %37
 137:                                              ; preds = %.lr.ph254, %137
   %indvars.iv349 = phi i64 [ 1, %.lr.ph254 ], [ %indvars.iv.next350, %137 ]
   %.2165252 = phi i32 [ 1, %.lr.ph254 ], [ %.3166, %137 ]
-  %138 = getelementptr inbounds nuw double, ptr %136, i64 %indvars.iv349
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv349
   %139 = load double, ptr %138, align 8, !tbaa !115
   %140 = getelementptr i8, ptr %138, i64 -8
   %141 = load double, ptr %140, align 8, !tbaa !115
@@ -4525,7 +4525,7 @@ thread-pre-split:                                 ; preds = %34, %37
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge260.split.us.split.us279.us
   %indvars.iv379 = phi i64 [ 0, %.preheader.us.us.preheader ], [ %indvars.iv.next380, %._crit_edge260.split.us.split.us279.us ]
   %.3156270.us.us = phi double [ %149, %.preheader.us.us.preheader ], [ %165, %._crit_edge260.split.us.split.us279.us ]
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv379
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv379
   %159 = load ptr, ptr %158, align 8, !tbaa !219
   %160 = load ptr, ptr %159, align 8, !tbaa !221
   br label %161
@@ -4533,7 +4533,7 @@ thread-pre-split:                                 ; preds = %34, %37
 161:                                              ; preds = %.preheader.us.us, %161
   %indvars.iv374 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next375, %161 ]
   %.4157258.us.us.us = phi double [ %.3156270.us.us, %.preheader.us.us ], [ %165, %161 ]
-  %162 = getelementptr inbounds nuw double, ptr %160, i64 %indvars.iv374
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv374
   %163 = load double, ptr %162, align 8, !tbaa !115
   %164 = tail call double @llvm.fabs.f64(double %163)
   %165 = fadd double %.4157258.us.us.us, %164
@@ -4554,7 +4554,7 @@ thread-pre-split:                                 ; preds = %34, %37
 .preheader.us.us285:                              ; preds = %.preheader.lr.ph.split.us.split, %._crit_edge260.split.split.us.us.us
   %indvars.iv369 = phi i64 [ %indvars.iv.next370, %._crit_edge260.split.split.us.us.us ], [ 0, %.preheader.lr.ph.split.us.split ]
   %.3156270.us.us286 = phi double [ %173, %._crit_edge260.split.split.us.us.us ], [ %149, %.preheader.lr.ph.split.us.split ]
-  %166 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv369
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv369
   %167 = load ptr, ptr %166, align 8, !tbaa !219
   %168 = load ptr, ptr %167, align 8, !tbaa !221
   br label %169
@@ -4562,7 +4562,7 @@ thread-pre-split:                                 ; preds = %34, %37
 169:                                              ; preds = %169, %.preheader.us.us285
   %indvars.iv364 = phi i64 [ %indvars.iv.next365, %169 ], [ 0, %.preheader.us.us285 ]
   %.4157258.us263.us.us = phi double [ %173, %169 ], [ %.3156270.us.us286, %.preheader.us.us285 ]
-  %170 = getelementptr inbounds nuw double, ptr %168, i64 %indvars.iv364
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %indvars.iv364
   %171 = load double, ptr %170, align 8, !tbaa !115
   %172 = tail call double @llvm.fabs.f64(double %171)
   %173 = fadd double %.4157258.us263.us.us, %172
@@ -4578,8 +4578,8 @@ thread-pre-split:                                 ; preds = %34, %37
 .preheader.us:                                    ; preds = %.preheader.lr.ph.split.us.split, %._crit_edge260.split.split.us275
   %indvars.iv359 = phi i64 [ %indvars.iv.next360, %._crit_edge260.split.split.us275 ], [ 0, %.preheader.lr.ph.split.us.split ]
   %.3156270.us = phi double [ %188, %._crit_edge260.split.split.us275 ], [ %149, %.preheader.lr.ph.split.us.split ]
-  %174 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv359
-  %175 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv359
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv359
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv359
   %176 = load ptr, ptr %174, align 8, !tbaa !219
   %177 = load ptr, ptr %176, align 8, !tbaa !221
   %178 = load ptr, ptr %175, align 8, !tbaa !219
@@ -4589,11 +4589,11 @@ thread-pre-split:                                 ; preds = %34, %37
 180:                                              ; preds = %.preheader.us, %180
   %indvars.iv354 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next355, %180 ]
   %.4157258.us273 = phi double [ %.3156270.us, %.preheader.us ], [ %188, %180 ]
-  %181 = getelementptr inbounds nuw double, ptr %177, i64 %indvars.iv354
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %indvars.iv354
   %182 = load double, ptr %181, align 8, !tbaa !115
   %183 = tail call double @llvm.fabs.f64(double %182)
   %184 = fadd double %.4157258.us273, %183
-  %185 = getelementptr inbounds nuw double, ptr %179, i64 %indvars.iv354
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %indvars.iv354
   %186 = load double, ptr %185, align 8, !tbaa !115
   %187 = tail call double @llvm.fabs.f64(double %186)
   %188 = fadd double %184, %187
@@ -4617,7 +4617,7 @@ thread-pre-split:                                 ; preds = %34, %37
 
 191:                                              ; preds = %._crit_edge271
   %192 = sext i32 %129 to i64
-  %193 = getelementptr double, ptr %147, i64 %192
+  %193 = getelementptr [8 x i8], ptr %147, i64 %192
   %194 = getelementptr i8, ptr %193, i64 -8
   %195 = load double, ptr %194, align 8, !tbaa !115
   %196 = fsub double 1.000000e+00, %195
@@ -4846,7 +4846,7 @@ mriStepInnerStepper_Reset.exit.thread213:         ; preds = %68, %mriStepInnerSt
   %119 = phi ptr [ %97, %.lr.ph242 ], [ %264, %._crit_edge ]
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 56
   %121 = load ptr, ptr %120, align 8, !tbaa !223
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv258
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv258
   %123 = load ptr, ptr %122, align 8, !tbaa !117
   %124 = load i32, ptr %123, align 4, !tbaa !119
   %125 = load double, ptr %10, align 8, !tbaa !174
@@ -4875,9 +4875,9 @@ mriStepInnerStepper_Reset.exit.thread213:         ; preds = %68, %mriStepInnerSt
   %136 = load ptr, ptr %96, align 8, !tbaa !125
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 56
   %138 = load ptr, ptr %137, align 8, !tbaa !223
-  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv258
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv258
   %140 = load ptr, ptr %139, align 8, !tbaa !117
-  %141 = getelementptr inbounds nuw i32, ptr %140, i64 %indvars.iv255
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %indvars.iv255
   %142 = load i32, ptr %141, align 4, !tbaa !119
   %143 = icmp slt i32 %142, 0
   br i1 %143, label %._crit_edge, label %144
@@ -4921,7 +4921,7 @@ mriStepInnerStepper_Reset.exit.thread213:         ; preds = %68, %mriStepInnerSt
   %166 = getelementptr inbounds nuw i8, ptr %136, i64 24
   %167 = load ptr, ptr %166, align 8, !tbaa !184
   %168 = zext nneg i32 %142 to i64
-  %169 = getelementptr inbounds nuw double, ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %168
   %170 = load double, ptr %169, align 8, !tbaa !115
   br label %171
 
@@ -5033,7 +5033,7 @@ mriStepInnerStepper_Reset.exit177.thread224:      ; preds = %211, %mriStepInnerS
   %219 = load ptr, ptr %103, align 8, !tbaa !186
   %220 = load ptr, ptr %110, align 8, !tbaa !151
   %221 = zext nneg i32 %142 to i64
-  %222 = getelementptr inbounds nuw ptr, ptr %220, i64 %221
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %221
   %223 = load ptr, ptr %222, align 8, !tbaa !167
   %224 = load ptr, ptr %109, align 8, !tbaa !169
   %225 = tail call i32 %217(double noundef %218, ptr noundef %219, ptr noundef %223, ptr noundef %224) #14
@@ -5056,7 +5056,7 @@ mriStepInnerStepper_Reset.exit177.thread224:      ; preds = %211, %mriStepInnerS
   %233 = load ptr, ptr %112, align 8, !tbaa !93
   store double 1.000000e+00, ptr %233, align 8, !tbaa !115
   %234 = load ptr, ptr %110, align 8, !tbaa !151
-  %235 = getelementptr inbounds nuw ptr, ptr %234, i64 %221
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %221
   %236 = load ptr, ptr %235, align 8, !tbaa !167
   %237 = load ptr, ptr %113, align 8, !tbaa !94
   store ptr %236, ptr %237, align 8, !tbaa !167
@@ -5084,11 +5084,11 @@ mriStepInnerStepper_Reset.exit177.thread224:      ; preds = %211, %mriStepInnerS
   %indvars.iv = phi i64 [ 2, %.lr.ph.i.preheader ], [ %indvars.iv.next, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i.preheader ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.02425.i = phi double [ %246, %.lr.ph.i.preheader ], [ %254, %.lr.ph.i ]
-  %250 = getelementptr inbounds nuw double, ptr %233, i64 %indvars.iv
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %indvars.iv
   store double %.02425.i, ptr %250, align 8, !tbaa !115
-  %251 = getelementptr inbounds nuw ptr, ptr %240, i64 %indvars.iv.i
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %indvars.iv.i
   %252 = load ptr, ptr %251, align 8, !tbaa !167
-  %253 = getelementptr inbounds nuw ptr, ptr %237, i64 %indvars.iv
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %indvars.iv
   store ptr %252, ptr %253, align 8, !tbaa !167
   %254 = fmul double %246, %.02425.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5487,7 +5487,7 @@ thread-pre-split:                                 ; preds = %103, %107, %94
   %192 = load ptr, ptr %152, align 8, !tbaa !125
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 24
   %194 = load ptr, ptr %193, align 8, !tbaa !184
-  %195 = getelementptr inbounds nuw double, ptr %194, i64 %indvars.iv358
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %indvars.iv358
   %196 = load double, ptr %195, align 8, !tbaa !115
   br label %197
 
@@ -5570,9 +5570,9 @@ mriStepInnerStepper_Reset.exit240.thread321:      ; preds = %mriStepInnerStepper
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 40
   %235 = load ptr, ptr %234, align 8, !tbaa !218
   %236 = load ptr, ptr %235, align 8, !tbaa !219
-  %237 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv358
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %indvars.iv358
   %238 = load ptr, ptr %237, align 8, !tbaa !221
-  %239 = getelementptr inbounds nuw double, ptr %238, i64 %indvars.iv358
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %indvars.iv358
   %240 = load double, ptr %239, align 8, !tbaa !115
   %241 = tail call double @llvm.fabs.f64(double %240)
   %242 = fcmp ogt double %241, 0x3D19000000000000
@@ -5622,7 +5622,7 @@ mriStepInnerStepper_Reset.exit240.thread321:      ; preds = %mriStepInnerStepper
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 40
   %269 = load ptr, ptr %268, align 8, !tbaa !218
   %270 = load ptr, ptr %269, align 8, !tbaa !219
-  %271 = getelementptr inbounds nuw ptr, ptr %270, i64 %indvars.iv358
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %indvars.iv358
   %272 = load ptr, ptr %271, align 8, !tbaa !221
   %273 = load ptr, ptr %159, align 8, !tbaa !150
   br label %274
@@ -5630,15 +5630,15 @@ mriStepInnerStepper_Reset.exit240.thread321:      ; preds = %mriStepInnerStepper
 274:                                              ; preds = %260, %274
   %indvars.iv345 = phi i64 [ 0, %260 ], [ %indvars.iv.next346, %274 ]
   %275 = load double, ptr %154, align 8, !tbaa !185
-  %276 = getelementptr inbounds nuw double, ptr %272, i64 %indvars.iv345
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %indvars.iv345
   %277 = load double, ptr %276, align 8, !tbaa !115
   %278 = fmul double %275, %277
   %279 = add nuw nsw i64 %indvars.iv345, 2
-  %280 = getelementptr inbounds nuw double, ptr %261, i64 %279
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %279
   store double %278, ptr %280, align 8, !tbaa !115
-  %281 = getelementptr inbounds nuw ptr, ptr %273, i64 %indvars.iv345
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %indvars.iv345
   %282 = load ptr, ptr %281, align 8, !tbaa !167
-  %283 = getelementptr inbounds nuw ptr, ptr %263, i64 %279
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %279
   store ptr %282, ptr %283, align 8, !tbaa !167
   %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next346, %indvars.iv358
@@ -5658,9 +5658,9 @@ mriStepInnerStepper_Reset.exit240.thread321:      ; preds = %mriStepInnerStepper
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 40
   %293 = load ptr, ptr %292, align 8, !tbaa !218
   %294 = load ptr, ptr %293, align 8, !tbaa !219
-  %295 = getelementptr inbounds nuw ptr, ptr %294, i64 %indvars.iv358
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %294, i64 %indvars.iv358
   %296 = load ptr, ptr %295, align 8, !tbaa !221
-  %297 = getelementptr inbounds nuw double, ptr %296, i64 %indvars.iv358
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %296, i64 %indvars.iv358
   %298 = load double, ptr %297, align 8, !tbaa !115
   %299 = fmul double %290, %298
   store double %299, ptr %165, align 8, !tbaa !114
@@ -5698,15 +5698,15 @@ mriStepInnerStepper_Reset.exit240.thread321:      ; preds = %mriStepInnerStepper
 314:                                              ; preds = %309, %314
   %indvars.iv = phi i64 [ 0, %309 ], [ %indvars.iv.next, %314 ]
   %315 = load double, ptr %154, align 8, !tbaa !185
-  %316 = getelementptr inbounds nuw double, ptr %238, i64 %indvars.iv
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %indvars.iv
   %317 = load double, ptr %316, align 8, !tbaa !115
   %318 = fmul double %315, %317
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %319 = getelementptr inbounds nuw double, ptr %310, i64 %indvars.iv.next
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %310, i64 %indvars.iv.next
   store double %318, ptr %319, align 8, !tbaa !115
-  %320 = getelementptr inbounds nuw ptr, ptr %313, i64 %indvars.iv
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %indvars.iv
   %321 = load ptr, ptr %320, align 8, !tbaa !167
-  %322 = getelementptr inbounds nuw ptr, ptr %312, i64 %indvars.iv.next
+  %322 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %indvars.iv.next
   store ptr %321, ptr %322, align 8, !tbaa !167
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv358
   br i1 %exitcond.not, label %323, label %314
@@ -5777,7 +5777,7 @@ mriStepInnerStepper_Reset.exit243.thread327:      ; preds = %344, %mriStepInnerS
   %353 = load double, ptr %156, align 8, !tbaa !159
   %354 = load ptr, ptr %151, align 8, !tbaa !186
   %355 = load ptr, ptr %171, align 8, !tbaa !151
-  %356 = getelementptr inbounds nuw ptr, ptr %355, i64 %indvars.iv358
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %355, i64 %indvars.iv358
   %357 = load ptr, ptr %356, align 8, !tbaa !167
   %358 = load ptr, ptr %163, align 8, !tbaa !169
   %359 = tail call i32 %352(double noundef %353, ptr noundef %354, ptr noundef %357, ptr noundef %358) #14
@@ -5800,7 +5800,7 @@ mriStepInnerStepper_Reset.exit243.thread327:      ; preds = %344, %mriStepInnerS
   %367 = load ptr, ptr %157, align 8, !tbaa !93
   store double 1.000000e+00, ptr %367, align 8, !tbaa !115
   %368 = load ptr, ptr %171, align 8, !tbaa !151
-  %369 = getelementptr inbounds nuw ptr, ptr %368, i64 %indvars.iv358
+  %369 = getelementptr inbounds nuw [8 x i8], ptr %368, i64 %indvars.iv358
   %370 = load ptr, ptr %369, align 8, !tbaa !167
   %371 = load ptr, ptr %158, align 8, !tbaa !94
   store ptr %370, ptr %371, align 8, !tbaa !167
@@ -5828,11 +5828,11 @@ mriStepInnerStepper_Reset.exit243.thread327:      ; preds = %344, %mriStepInnerS
   %indvars.iv350 = phi i64 [ 2, %.lr.ph.i.preheader ], [ %indvars.iv.next351, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i.preheader ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.02425.i = phi double [ %380, %.lr.ph.i.preheader ], [ %388, %.lr.ph.i ]
-  %384 = getelementptr inbounds nuw double, ptr %367, i64 %indvars.iv350
+  %384 = getelementptr inbounds nuw [8 x i8], ptr %367, i64 %indvars.iv350
   store double %.02425.i, ptr %384, align 8, !tbaa !115
-  %385 = getelementptr inbounds nuw ptr, ptr %374, i64 %indvars.iv.i
+  %385 = getelementptr inbounds nuw [8 x i8], ptr %374, i64 %indvars.iv.i
   %386 = load ptr, ptr %385, align 8, !tbaa !167
-  %387 = getelementptr inbounds nuw ptr, ptr %371, i64 %indvars.iv350
+  %387 = getelementptr inbounds nuw [8 x i8], ptr %371, i64 %indvars.iv350
   store ptr %386, ptr %387, align 8, !tbaa !167
   %388 = fmul double %380, %.02425.i
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
@@ -5862,7 +5862,7 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %366
   %398 = load double, ptr %156, align 8, !tbaa !159
   %399 = load ptr, ptr %151, align 8, !tbaa !186
   %400 = load ptr, ptr %159, align 8, !tbaa !150
-  %401 = getelementptr inbounds nuw ptr, ptr %400, i64 %indvars.iv358
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %400, i64 %indvars.iv358
   %402 = load ptr, ptr %401, align 8, !tbaa !167
   %403 = load ptr, ptr %163, align 8, !tbaa !169
   %404 = tail call i32 %397(double noundef %398, ptr noundef %399, ptr noundef %402, ptr noundef %403) #14
@@ -5885,7 +5885,7 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %366
   %412 = load ptr, ptr %157, align 8, !tbaa !93
   store double 1.000000e+00, ptr %412, align 8, !tbaa !115
   %413 = load ptr, ptr %159, align 8, !tbaa !150
-  %414 = getelementptr inbounds nuw ptr, ptr %413, i64 %indvars.iv358
+  %414 = getelementptr inbounds nuw [8 x i8], ptr %413, i64 %indvars.iv358
   %415 = load ptr, ptr %414, align 8, !tbaa !167
   %416 = load ptr, ptr %158, align 8, !tbaa !94
   store ptr %415, ptr %416, align 8, !tbaa !167
@@ -5913,11 +5913,11 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %366
   %indvars.iv354 = phi i64 [ 2, %.lr.ph.i244.preheader ], [ %indvars.iv.next355, %.lr.ph.i244 ]
   %indvars.iv.i245 = phi i64 [ 1, %.lr.ph.i244.preheader ], [ %indvars.iv.next.i247, %.lr.ph.i244 ]
   %.02425.i246 = phi double [ %425, %.lr.ph.i244.preheader ], [ %433, %.lr.ph.i244 ]
-  %429 = getelementptr inbounds nuw double, ptr %412, i64 %indvars.iv354
+  %429 = getelementptr inbounds nuw [8 x i8], ptr %412, i64 %indvars.iv354
   store double %.02425.i246, ptr %429, align 8, !tbaa !115
-  %430 = getelementptr inbounds nuw ptr, ptr %419, i64 %indvars.iv.i245
+  %430 = getelementptr inbounds nuw [8 x i8], ptr %419, i64 %indvars.iv.i245
   %431 = load ptr, ptr %430, align 8, !tbaa !167
-  %432 = getelementptr inbounds nuw ptr, ptr %416, i64 %indvars.iv354
+  %432 = getelementptr inbounds nuw [8 x i8], ptr %416, i64 %indvars.iv354
   store ptr %431, ptr %432, align 8, !tbaa !167
   %433 = fmul double %425, %.02425.i246
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
@@ -5938,7 +5938,7 @@ mriStep_ApplyForcing.exit248:                     ; preds = %.lr.ph.i244, %411
   %440 = fdiv double -1.000000e+00, %437
   %441 = load ptr, ptr %164, align 8, !tbaa !171
   %442 = load ptr, ptr %159, align 8, !tbaa !150
-  %443 = getelementptr inbounds nuw ptr, ptr %442, i64 %indvars.iv358
+  %443 = getelementptr inbounds nuw [8 x i8], ptr %442, i64 %indvars.iv358
   %444 = load ptr, ptr %443, align 8, !tbaa !167
   tail call void @N_VLinearSum(double noundef %438, ptr noundef %439, double noundef %440, ptr noundef %441, ptr noundef %444) #14
   br label %445
@@ -5955,10 +5955,10 @@ mriStep_ApplyForcing.exit248:                     ; preds = %.lr.ph.i244, %411
 
 448:                                              ; preds = %446
   %449 = load ptr, ptr %171, align 8, !tbaa !151
-  %450 = getelementptr inbounds nuw ptr, ptr %449, i64 %indvars.iv358
+  %450 = getelementptr inbounds nuw [8 x i8], ptr %449, i64 %indvars.iv358
   %451 = load ptr, ptr %450, align 8, !tbaa !167
   %452 = load ptr, ptr %159, align 8, !tbaa !150
-  %453 = getelementptr inbounds nuw ptr, ptr %452, i64 %indvars.iv358
+  %453 = getelementptr inbounds nuw [8 x i8], ptr %452, i64 %indvars.iv358
   %454 = load ptr, ptr %453, align 8, !tbaa !167
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %451, double noundef 1.000000e+00, ptr noundef %454, ptr noundef %451) #14
   br label %.thread332
@@ -6290,11 +6290,11 @@ mriStep_AccessStepMem.exit:                       ; preds = %5
   %indvars.iv = phi i64 [ 2, %.lr.ph.i.preheader ], [ %indvars.iv.next, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i.preheader ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.02425.i = phi double [ %45, %.lr.ph.i.preheader ], [ %54, %.lr.ph.i ]
-  %50 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   store double %.02425.i, ptr %50, align 8, !tbaa !115
-  %51 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8, !tbaa !167
-  %53 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   store ptr %52, ptr %53, align 8, !tbaa !167
   %54 = fmul double %45, %.02425.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6378,11 +6378,11 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %28
   %indvars.iv59 = phi i64 [ 2, %.lr.ph.i30.preheader ], [ %indvars.iv.next60, %.lr.ph.i30 ]
   %indvars.iv.i31 = phi i64 [ 1, %.lr.ph.i30.preheader ], [ %indvars.iv.next.i33, %.lr.ph.i30 ]
   %.02425.i32 = phi double [ %94, %.lr.ph.i30.preheader ], [ %103, %.lr.ph.i30 ]
-  %99 = getelementptr inbounds nuw double, ptr %79, i64 %indvars.iv59
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv59
   store double %.02425.i32, ptr %99, align 8, !tbaa !115
-  %100 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv.i31
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv.i31
   %101 = load ptr, ptr %100, align 8, !tbaa !167
-  %102 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv59
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv59
   store ptr %101, ptr %102, align 8, !tbaa !167
   %103 = fmul double %94, %.02425.i32
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
@@ -6604,11 +6604,11 @@ define range(i32 -8, 1) i32 @mriStep_UpdateF0(ptr noundef %0, ptr noundef captur
   %indvars.iv = phi i64 [ 2, %.lr.ph.i.preheader ], [ %indvars.iv.next, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i.preheader ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.02425.i = phi double [ %48, %.lr.ph.i.preheader ], [ %57, %.lr.ph.i ]
-  %53 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   store double %.02425.i, ptr %53, align 8, !tbaa !115
-  %54 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i
   %55 = load ptr, ptr %54, align 8, !tbaa !167
-  %56 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store ptr %55, ptr %56, align 8, !tbaa !167
   %57 = fmul double %48, %.02425.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6703,11 +6703,11 @@ mriStep_ApplyForcing.exit:                        ; preds = %.lr.ph.i, %31
   %indvars.iv111 = phi i64 [ 2, %.lr.ph.i103.preheader ], [ %indvars.iv.next112, %.lr.ph.i103 ]
   %indvars.iv.i104 = phi i64 [ 1, %.lr.ph.i103.preheader ], [ %indvars.iv.next.i106, %.lr.ph.i103 ]
   %.02425.i105 = phi double [ %103, %.lr.ph.i103.preheader ], [ %112, %.lr.ph.i103 ]
-  %108 = getelementptr inbounds nuw double, ptr %88, i64 %indvars.iv111
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv111
   store double %.02425.i105, ptr %108, align 8, !tbaa !115
-  %109 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv.i104
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv.i104
   %110 = load ptr, ptr %109, align 8, !tbaa !167
-  %111 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv111
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv111
   store ptr %110, ptr %111, align 8, !tbaa !167
   %112 = fmul double %103, %.02425.i105
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
@@ -6878,14 +6878,14 @@ define void @mriStep_ApplyForcing(ptr noundef readonly captures(none) %0, double
   %6 = load ptr, ptr %5, align 8, !tbaa !93
   %7 = load i32, ptr %3, align 4, !tbaa !119
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds double, ptr %6, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %6, i64 %8
   store double %2, ptr %9, align 8, !tbaa !115
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %11 = load ptr, ptr %10, align 8, !tbaa !100
   %12 = load ptr, ptr %11, align 8, !tbaa !167
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %14 = load ptr, ptr %13, align 8, !tbaa !94
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %8
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %8
   store ptr %12, ptr %15, align 8, !tbaa !167
   %16 = add nsw i32 %7, 1
   store i32 %16, ptr %3, align 4, !tbaa !119
@@ -6906,11 +6906,11 @@ define void @mriStep_ApplyForcing(ptr noundef readonly captures(none) %0, double
   %.02425 = phi double [ %33, %.lr.ph ], [ %22, %4 ]
   %27 = fmul double %2, %.02425
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds double, ptr %6, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %6, i64 %28
   store double %27, ptr %29, align 8, !tbaa !115
-  %30 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !167
-  %32 = getelementptr inbounds ptr, ptr %14, i64 %28
+  %32 = getelementptr inbounds [8 x i8], ptr %14, i64 %28
   store ptr %31, ptr %32, align 8, !tbaa !167
   %33 = fmul double %22, %.02425
   %34 = add nsw i32 %26, 1
@@ -7042,7 +7042,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
 30:                                               ; preds = %42, %.lr.ph.split.us.split
   %indvars.iv141 = phi i64 [ %indvars.iv.next142, %42 ], [ 0, %.lr.ph.split.us.split ]
   %.095107.us = phi i32 [ %.2.us, %42 ], [ 0, %.lr.ph.split.us.split ]
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv141
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv141
   %32 = load i32, ptr %31, align 4, !tbaa !119
   %33 = icmp sgt i32 %32, -1
   br i1 %33, label %34, label %42
@@ -7050,10 +7050,10 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
 34:                                               ; preds = %30
   %35 = load ptr, ptr %28, align 8, !tbaa !150
   %36 = zext nneg i32 %32 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !167
   %39 = sext i32 %.095107.us to i64
-  %40 = getelementptr inbounds ptr, ptr %13, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %13, i64 %39
   store ptr %38, ptr %40, align 8, !tbaa !167
   %41 = add nsw i32 %.095107.us, 1
   br label %42
@@ -7072,7 +7072,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %55
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %55 ], [ 0, %.lr.ph.split ]
   %.095107.us110 = phi i32 [ %.196.us111, %55 ], [ 0, %.lr.ph.split ]
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv136
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv136
   %45 = load i32, ptr %44, align 4, !tbaa !119
   %46 = icmp sgt i32 %45, -1
   br i1 %46, label %47, label %55
@@ -7080,10 +7080,10 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
 47:                                               ; preds = %.lr.ph.split.split.us
   %48 = load ptr, ptr %26, align 8, !tbaa !151
   %49 = zext nneg i32 %45 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !167
   %52 = sext i32 %.095107.us110 to i64
-  %53 = getelementptr inbounds ptr, ptr %13, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %13, i64 %52
   store ptr %51, ptr %53, align 8, !tbaa !167
   %54 = add nsw i32 %.095107.us110, 1
   br label %55
@@ -7097,7 +7097,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %74
   %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ 0, %.lr.ph.split ]
   %.095107 = phi i32 [ %.2, %74 ], [ 0, %.lr.ph.split ]
-  %56 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !119
   %58 = icmp sgt i32 %57, -1
   br i1 %58, label %59, label %74
@@ -7105,17 +7105,17 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
 59:                                               ; preds = %.lr.ph.split.split
   %60 = load ptr, ptr %26, align 8, !tbaa !151
   %61 = zext nneg i32 %57 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !167
   %64 = sext i32 %.095107 to i64
-  %65 = getelementptr inbounds ptr, ptr %13, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %13, i64 %64
   store ptr %63, ptr %65, align 8, !tbaa !167
   %66 = load ptr, ptr %28, align 8, !tbaa !150
   %67 = zext nneg i32 %57 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !167
   %70 = sext i32 %.095107 to i64
-  %71 = getelementptr ptr, ptr %13, i64 %70
+  %71 = getelementptr [8 x i8], ptr %13, i64 %70
   %72 = getelementptr i8, ptr %71, i64 8
   store ptr %69, ptr %72, align 8, !tbaa !167
   %73 = add nsw i32 %.095107, 2
@@ -7157,7 +7157,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   %87 = load ptr, ptr %14, align 8, !tbaa !102
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = load ptr, ptr %88, align 8, !tbaa !233
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv166
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv166
   %91 = load ptr, ptr %90, align 8, !tbaa !167
   %92 = tail call i32 @N_VLinearCombination(i32 noundef %.3.lcssa.us, ptr noundef %11, ptr noundef %13, ptr noundef %91) #14
   %.not.us = icmp eq i32 %92, 0
@@ -7176,7 +7176,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
 95:                                               ; preds = %123, %.lr.ph115.us
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %123 ], [ 0, %.lr.ph115.us ]
   %.3113.us.us = phi i32 [ %.4.us.us, %123 ], [ 0, %.lr.ph115.us ]
-  %96 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv161
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %indvars.iv161
   %97 = load i32, ptr %96, align 4, !tbaa !119
   %98 = icmp sgt i32 %97, -1
   br i1 %98, label %99, label %123
@@ -7185,23 +7185,23 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   %100 = load ptr, ptr %19, align 8, !tbaa !125
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %102 = load ptr, ptr %101, align 8, !tbaa !217
-  %103 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv166
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv166
   %104 = load ptr, ptr %103, align 8, !tbaa !219
-  %105 = getelementptr inbounds ptr, ptr %104, i64 %84
+  %105 = getelementptr inbounds [8 x i8], ptr %104, i64 %84
   %106 = load ptr, ptr %105, align 8, !tbaa !221
-  %107 = getelementptr inbounds nuw double, ptr %106, i64 %indvars.iv161
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv161
   %108 = load double, ptr %107, align 8, !tbaa !115
   %109 = fmul double %79, %108
   %110 = sext i32 %.3113.us.us to i64
-  %111 = getelementptr double, ptr %11, i64 %110
+  %111 = getelementptr [8 x i8], ptr %11, i64 %110
   store double %109, ptr %111, align 8, !tbaa !115
   %112 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %113 = load ptr, ptr %112, align 8, !tbaa !218
-  %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %indvars.iv166
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %indvars.iv166
   %115 = load ptr, ptr %114, align 8, !tbaa !219
-  %116 = getelementptr inbounds ptr, ptr %115, i64 %84
+  %116 = getelementptr inbounds [8 x i8], ptr %115, i64 %84
   %117 = load ptr, ptr %116, align 8, !tbaa !221
-  %118 = getelementptr inbounds nuw double, ptr %117, i64 %indvars.iv161
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv161
   %119 = load double, ptr %118, align 8, !tbaa !115
   %120 = fmul double %79, %119
   %121 = getelementptr i8, ptr %111, i64 8
@@ -7235,7 +7235,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
 .lr.ph115.split.split.us:                         ; preds = %.lr.ph115, %145
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %145 ], [ 0, %.lr.ph115 ]
   %.3113.us118 = phi i32 [ %.4.us119, %145 ], [ 0, %.lr.ph115 ]
-  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv151
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv151
   %129 = load i32, ptr %128, align 4, !tbaa !119
   %130 = icmp sgt i32 %129, -1
   br i1 %130, label %131, label %145
@@ -7244,15 +7244,15 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   %132 = load ptr, ptr %19, align 8, !tbaa !125
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 32
   %134 = load ptr, ptr %133, align 8, !tbaa !217
-  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv156
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv156
   %136 = load ptr, ptr %135, align 8, !tbaa !219
-  %137 = getelementptr inbounds ptr, ptr %136, i64 %84
+  %137 = getelementptr inbounds [8 x i8], ptr %136, i64 %84
   %138 = load ptr, ptr %137, align 8, !tbaa !221
-  %139 = getelementptr inbounds nuw double, ptr %138, i64 %indvars.iv151
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv151
   %140 = load double, ptr %139, align 8, !tbaa !115
   %141 = fmul double %79, %140
   %142 = sext i32 %.3113.us118 to i64
-  %143 = getelementptr inbounds double, ptr %11, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %11, i64 %142
   store double %141, ptr %143, align 8, !tbaa !115
   %144 = add nsw i32 %.3113.us118, 1
   br label %145
@@ -7266,7 +7266,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
 .lr.ph115.split.split:                            ; preds = %.lr.ph115, %163
   %indvars.iv146 = phi i64 [ %indvars.iv.next147, %163 ], [ 0, %.lr.ph115 ]
   %.3113 = phi i32 [ %.4, %163 ], [ 0, %.lr.ph115 ]
-  %146 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv146
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv146
   %147 = load i32, ptr %146, align 4, !tbaa !119
   %148 = icmp sgt i32 %147, -1
   br i1 %148, label %149, label %163
@@ -7275,15 +7275,15 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   %150 = load ptr, ptr %19, align 8, !tbaa !125
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
   %152 = load ptr, ptr %151, align 8, !tbaa !218
-  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv156
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv156
   %154 = load ptr, ptr %153, align 8, !tbaa !219
-  %155 = getelementptr inbounds ptr, ptr %154, i64 %84
+  %155 = getelementptr inbounds [8 x i8], ptr %154, i64 %84
   %156 = load ptr, ptr %155, align 8, !tbaa !221
-  %157 = getelementptr inbounds nuw double, ptr %156, i64 %indvars.iv146
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv146
   %158 = load double, ptr %157, align 8, !tbaa !115
   %159 = fmul double %79, %158
   %160 = sext i32 %.3113 to i64
-  %161 = getelementptr inbounds double, ptr %11, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %11, i64 %160
   store double %159, ptr %161, align 8, !tbaa !115
   %162 = add nsw i32 %.3113, 1
   br label %163
@@ -7299,7 +7299,7 @@ define range(i32 -28, 1) i32 @mriStep_ComputeInnerForcing(ptr noundef readonly c
   %164 = load ptr, ptr %14, align 8, !tbaa !102
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 24
   %166 = load ptr, ptr %165, align 8, !tbaa !233
-  %167 = getelementptr inbounds nuw ptr, ptr %166, i64 %indvars.iv156
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %indvars.iv156
   %168 = load ptr, ptr %167, align 8, !tbaa !167
   %169 = tail call i32 @N_VLinearCombination(i32 noundef %.3.lcssa, ptr noundef %11, ptr noundef %13, ptr noundef %168) #14
   %.not = icmp eq i32 %169, 0
@@ -7492,7 +7492,7 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
 31:                                               ; preds = %49, %.lr.ph.split.us.split
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %49 ], [ 0, %.lr.ph.split.us.split ]
   %.063.us = phi i32 [ %.2.us, %49 ], [ 1, %.lr.ph.split.us.split ]
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv80
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv80
   %33 = load i32, ptr %32, align 4, !tbaa !119
   %34 = icmp sgt i32 %33, -1
   br i1 %34, label %35, label %49
@@ -7501,16 +7501,16 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   %36 = load double, ptr %25, align 8, !tbaa !185
   %37 = load ptr, ptr %10, align 8, !tbaa !144
   %38 = zext nneg i32 %33 to i64
-  %39 = getelementptr inbounds nuw double, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = load double, ptr %39, align 8, !tbaa !115
   %41 = fmul double %36, %40
   %42 = sext i32 %.063.us to i64
-  %43 = getelementptr inbounds double, ptr %15, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %15, i64 %42
   store double %41, ptr %43, align 8, !tbaa !115
   %44 = load ptr, ptr %29, align 8, !tbaa !150
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %38
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %38
   %46 = load ptr, ptr %45, align 8, !tbaa !167
-  %47 = getelementptr inbounds ptr, ptr %19, i64 %42
+  %47 = getelementptr inbounds [8 x i8], ptr %19, i64 %42
   store ptr %46, ptr %47, align 8, !tbaa !167
   %48 = add nsw i32 %.063.us, 1
   br label %49
@@ -7529,7 +7529,7 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %68
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %68 ], [ 0, %.lr.ph.split ]
   %.063.us64 = phi i32 [ %.1.us66, %68 ], [ 1, %.lr.ph.split ]
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv75
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv75
   %52 = load i32, ptr %51, align 4, !tbaa !119
   %53 = icmp sgt i32 %52, -1
   br i1 %53, label %54, label %68
@@ -7538,16 +7538,16 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   %55 = load double, ptr %25, align 8, !tbaa !185
   %56 = load ptr, ptr %8, align 8, !tbaa !143
   %57 = zext nneg i32 %52 to i64
-  %58 = getelementptr inbounds nuw double, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = load double, ptr %58, align 8, !tbaa !115
   %60 = fmul double %55, %59
   %61 = sext i32 %.063.us64 to i64
-  %62 = getelementptr inbounds double, ptr %15, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %15, i64 %61
   store double %60, ptr %62, align 8, !tbaa !115
   %63 = load ptr, ptr %26, align 8, !tbaa !151
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %57
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %57
   %65 = load ptr, ptr %64, align 8, !tbaa !167
-  %66 = getelementptr inbounds ptr, ptr %19, i64 %61
+  %66 = getelementptr inbounds [8 x i8], ptr %19, i64 %61
   store ptr %65, ptr %66, align 8, !tbaa !167
   %67 = add nsw i32 %.063.us64, 1
   br label %68
@@ -7561,7 +7561,7 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %99
   %indvars.iv = phi i64 [ %indvars.iv.next, %99 ], [ 0, %.lr.ph.split ]
   %.063 = phi i32 [ %.2, %99 ], [ 1, %.lr.ph.split ]
-  %69 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv
   %70 = load i32, ptr %69, align 4, !tbaa !119
   %71 = icmp sgt i32 %70, -1
   br i1 %71, label %72, label %99
@@ -7570,31 +7570,31 @@ define range(i32 -41, 1) i32 @mriStep_StageERKNoFast(ptr noundef readonly captur
   %73 = load double, ptr %25, align 8, !tbaa !185
   %74 = load ptr, ptr %8, align 8, !tbaa !143
   %75 = zext nneg i32 %70 to i64
-  %76 = getelementptr inbounds nuw double, ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %75
   %77 = load double, ptr %76, align 8, !tbaa !115
   %78 = fmul double %73, %77
   %79 = sext i32 %.063 to i64
-  %80 = getelementptr inbounds double, ptr %15, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %15, i64 %79
   store double %78, ptr %80, align 8, !tbaa !115
   %81 = load ptr, ptr %26, align 8, !tbaa !151
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %75
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %75
   %83 = load ptr, ptr %82, align 8, !tbaa !167
-  %84 = getelementptr inbounds ptr, ptr %19, i64 %79
+  %84 = getelementptr inbounds [8 x i8], ptr %19, i64 %79
   store ptr %83, ptr %84, align 8, !tbaa !167
   %85 = add nsw i32 %.063, 1
   %86 = load double, ptr %25, align 8, !tbaa !185
   %87 = load ptr, ptr %10, align 8, !tbaa !144
   %88 = zext nneg i32 %70 to i64
-  %89 = getelementptr inbounds nuw double, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %88
   %90 = load double, ptr %89, align 8, !tbaa !115
   %91 = fmul double %86, %90
   %92 = sext i32 %85 to i64
-  %93 = getelementptr inbounds double, ptr %15, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %15, i64 %92
   store double %91, ptr %93, align 8, !tbaa !115
   %94 = load ptr, ptr %29, align 8, !tbaa !150
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %88
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %88
   %96 = load ptr, ptr %95, align 8, !tbaa !167
-  %97 = getelementptr inbounds ptr, ptr %19, i64 %92
+  %97 = getelementptr inbounds [8 x i8], ptr %19, i64 %92
   store ptr %96, ptr %97, align 8, !tbaa !167
   %98 = add nsw i32 %.063, 2
   br label %99
@@ -7741,7 +7741,7 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !184
   %32 = sext i32 %1 to i64
-  %33 = getelementptr inbounds double, ptr %31, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %31, i64 %32
   %34 = load double, ptr %33, align 8, !tbaa !115
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %36 = load double, ptr %35, align 8, !tbaa !185
@@ -7784,7 +7784,7 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.086104 = phi i32 [ -1, %.lr.ph.preheader ], [ %54, %.lr.ph ]
-  %50 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %51 = load double, ptr %50, align 8, !tbaa !115
   %52 = fcmp une double %51, 0.000000e+00
   %53 = trunc nuw nsw i64 %indvars.iv to i32
@@ -7805,10 +7805,10 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
 57:                                               ; preds = %.lr.ph108, %71
   %indvars.iv112 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next113, %71 ]
   %.187106 = phi i32 [ %54, %.lr.ph108 ], [ %.2, %71 ]
-  %58 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv112
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv112
   %59 = load double, ptr %58, align 8, !tbaa !115
   %60 = sext i32 %.187106 to i64
-  %61 = getelementptr inbounds double, ptr %31, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %31, i64 %60
   %62 = load double, ptr %61, align 8, !tbaa !115
   %63 = fcmp ogt double %59, %62
   %64 = fcmp une double %59, 0.000000e+00
@@ -7817,7 +7817,7 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
 
 65:                                               ; preds = %57
   %66 = load ptr, ptr %56, align 8, !tbaa !141
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv112
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv112
   %68 = load i32, ptr %67, align 4, !tbaa !119
   %69 = icmp slt i32 %68, 0
   %70 = trunc nuw nsw i64 %indvars.iv112 to i32
@@ -7832,7 +7832,7 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
 
 ._crit_edge109:                                   ; preds = %71
   %72 = sext i32 %.2 to i64
-  %73 = getelementptr inbounds double, ptr %31, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %31, i64 %72
   %74 = load double, ptr %73, align 8, !tbaa !115
   %75 = fmul double %36, %74
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 28
@@ -7846,10 +7846,10 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
   %80 = load ptr, ptr %79, align 8, !tbaa !150
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %82 = load ptr, ptr %81, align 8, !tbaa !141
-  %83 = getelementptr inbounds i32, ptr %82, i64 %72
+  %83 = getelementptr inbounds [4 x i8], ptr %82, i64 %72
   %84 = load i32, ptr %83, align 4, !tbaa !119
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds ptr, ptr %80, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %80, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !167
   store ptr %87, ptr %21, align 8, !tbaa !167
   br label %88
@@ -7863,18 +7863,18 @@ define range(i32 -21, -22) i32 @mriStep_Predict(ptr noundef %0, i32 noundef %1, 
 
 91:                                               ; preds = %88
   %92 = zext nneg i32 %.088 to i64
-  %93 = getelementptr inbounds nuw double, ptr %19, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %92
   store double 1.000000e+00, ptr %93, align 8, !tbaa !115
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %95 = load ptr, ptr %94, align 8, !tbaa !151
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %97 = load ptr, ptr %96, align 8, !tbaa !141
-  %98 = getelementptr inbounds i32, ptr %97, i64 %72
+  %98 = getelementptr inbounds [4 x i8], ptr %97, i64 %72
   %99 = load i32, ptr %98, align 4, !tbaa !119
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds ptr, ptr %95, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %95, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !167
-  %103 = getelementptr inbounds nuw ptr, ptr %21, i64 %92
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %92
   store ptr %102, ptr %103, align 8, !tbaa !167
   %104 = add nuw nsw i32 %.088, 1
   br label %105
@@ -8010,24 +8010,24 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
   %26 = trunc nuw nsw i64 %indvars.iv.next152 to i32
   %27 = uitofp nneg i32 %26 to double
   %28 = fdiv double 1.000000e+00, %27
-  %29 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv151
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv151
   br label %30
 
 30:                                               ; preds = %.preheader.us, %44
   %indvars.iv145 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next146, %44 ]
-  %31 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv145
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv145
   %32 = load i32, ptr %31, align 4, !tbaa !119
   %33 = icmp sgt i32 %32, -1
   br i1 %33, label %34, label %44
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %29, align 8, !tbaa !219
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %20
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %20
   %37 = load ptr, ptr %36, align 8, !tbaa !221
-  %38 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv145
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv145
   %39 = load double, ptr %38, align 8, !tbaa !115
   %40 = zext nneg i32 %32 to i64
-  %41 = getelementptr inbounds nuw double, ptr %4, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %40
   %42 = load double, ptr %41, align 8, !tbaa !115
   %43 = tail call double @llvm.fmuladd.f64(double %39, double %28, double %42)
   store double %43, ptr %41, align 8, !tbaa !115
@@ -8060,24 +8060,24 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
   %46 = trunc nuw nsw i64 %indvars.iv.next141 to i32
   %47 = uitofp nneg i32 %46 to double
   %48 = fdiv double 1.000000e+00, %47
-  %49 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv140
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv140
   br label %50
 
 50:                                               ; preds = %.preheader69.us.us, %64
   %indvars.iv134 = phi i64 [ 0, %.preheader69.us.us ], [ %indvars.iv.next135, %64 ]
-  %51 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv134
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv134
   %52 = load i32, ptr %51, align 4, !tbaa !119
   %53 = icmp sgt i32 %52, -1
   br i1 %53, label %54, label %64
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %49, align 8, !tbaa !219
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %20
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %20
   %57 = load ptr, ptr %56, align 8, !tbaa !221
-  %58 = getelementptr inbounds nuw double, ptr %57, i64 %indvars.iv134
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv134
   %59 = load double, ptr %58, align 8, !tbaa !115
   %60 = zext nneg i32 %52 to i64
-  %61 = getelementptr inbounds nuw double, ptr %3, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %60
   %62 = load double, ptr %61, align 8, !tbaa !115
   %63 = tail call double @llvm.fmuladd.f64(double %59, double %48, double %62)
   store double %63, ptr %61, align 8, !tbaa !115
@@ -8109,24 +8109,24 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
   %67 = trunc nuw nsw i64 %indvars.iv.next130 to i32
   %68 = uitofp nneg i32 %67 to double
   %69 = fdiv double 1.000000e+00, %68
-  %70 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv129
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv129
   br label %71
 
 71:                                               ; preds = %.preheader69.us84, %85
   %indvars.iv117 = phi i64 [ 0, %.preheader69.us84 ], [ %indvars.iv.next118, %85 ]
-  %72 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv117
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv117
   %73 = load i32, ptr %72, align 4, !tbaa !119
   %74 = icmp sgt i32 %73, -1
   br i1 %74, label %75, label %85
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr %70, align 8, !tbaa !219
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %20
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %20
   %78 = load ptr, ptr %77, align 8, !tbaa !221
-  %79 = getelementptr inbounds nuw double, ptr %78, i64 %indvars.iv117
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv117
   %80 = load double, ptr %79, align 8, !tbaa !115
   %81 = zext nneg i32 %73 to i64
-  %82 = getelementptr inbounds nuw double, ptr %3, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %81
   %83 = load double, ptr %82, align 8, !tbaa !115
   %84 = tail call double @llvm.fmuladd.f64(double %80, double %69, double %83)
   store double %84, ptr %82, align 8, !tbaa !115
@@ -8139,19 +8139,19 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
 
 86:                                               ; preds = %.lr.ph79.us93, %100
   %indvars.iv123 = phi i64 [ 0, %.lr.ph79.us93 ], [ %indvars.iv.next124, %100 ]
-  %87 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv123
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv123
   %88 = load i32, ptr %87, align 4, !tbaa !119
   %89 = icmp sgt i32 %88, -1
   br i1 %89, label %90, label %100
 
 90:                                               ; preds = %86
   %91 = load ptr, ptr %101, align 8, !tbaa !219
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %20
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %20
   %93 = load ptr, ptr %92, align 8, !tbaa !221
-  %94 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv123
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv123
   %95 = load double, ptr %94, align 8, !tbaa !115
   %96 = zext nneg i32 %88 to i64
-  %97 = getelementptr inbounds nuw double, ptr %4, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %96
   %98 = load double, ptr %97, align 8, !tbaa !115
   %99 = tail call double @llvm.fmuladd.f64(double %95, double %69, double %98)
   store double %99, ptr %97, align 8, !tbaa !115
@@ -8167,7 +8167,7 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
   br i1 %exitcond133.not, label %.loopexit72, label %.preheader69.us84
 
 .lr.ph79.us93:                                    ; preds = %85
-  %101 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv129
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv129
   br label %86
 
 .preheader69.preheader:                           ; preds = %.lr.ph82.split.split
@@ -8178,9 +8178,9 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %103 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store double 0.000000e+00, ptr %103, align 8, !tbaa !115
-  %104 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store double 0.000000e+00, ptr %104, align 8, !tbaa !115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -8192,24 +8192,24 @@ define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(non
   %105 = trunc nuw nsw i64 %indvars.iv.next113 to i32
   %106 = uitofp nneg i32 %105 to double
   %107 = fdiv double 1.000000e+00, %106
-  %108 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv112
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv112
   br label %109
 
 109:                                              ; preds = %.preheader69, %123
   %indvars.iv107 = phi i64 [ 0, %.preheader69 ], [ %indvars.iv.next108, %123 ]
-  %110 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv107
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv107
   %111 = load i32, ptr %110, align 4, !tbaa !119
   %112 = icmp sgt i32 %111, -1
   br i1 %112, label %113, label %123
 
 113:                                              ; preds = %109
   %114 = load ptr, ptr %108, align 8, !tbaa !219
-  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %20
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %20
   %116 = load ptr, ptr %115, align 8, !tbaa !221
-  %117 = getelementptr inbounds nuw double, ptr %116, i64 %indvars.iv107
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv107
   %118 = load double, ptr %117, align 8, !tbaa !115
   %119 = zext nneg i32 %111 to i64
-  %120 = getelementptr inbounds nuw double, ptr %4, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %119
   %121 = load double, ptr %120, align 8, !tbaa !115
   %122 = tail call double @llvm.fmuladd.f64(double %118, double %107, double %121)
   store double %122, ptr %120, align 8, !tbaa !115
@@ -8254,10 +8254,10 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !141
   %19 = sext i32 %8 to i64
-  %20 = getelementptr inbounds i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !119
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds double, ptr %16, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %16, i64 %22
   %24 = load double, ptr %23, align 8, !tbaa !115
   %25 = fmul double %14, %24
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 192
@@ -8316,7 +8316,7 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %67
   %indvars.iv88 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next89, %67 ]
   %.06270.us = phi i32 [ 2, %.lr.ph.split.us.split.preheader ], [ %.2.us, %67 ]
-  %51 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv88
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv88
   %52 = load i32, ptr %51, align 4, !tbaa !119
   %53 = icmp sgt i32 %52, -1
   br i1 %53, label %54, label %67
@@ -8324,16 +8324,16 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
 54:                                               ; preds = %.lr.ph.split.us.split
   %55 = load double, ptr %13, align 8, !tbaa !185
   %56 = zext nneg i32 %52 to i64
-  %57 = getelementptr inbounds nuw double, ptr %16, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %56
   %58 = load double, ptr %57, align 8, !tbaa !115
   %59 = fmul double %55, %58
   %60 = sext i32 %.06270.us to i64
-  %61 = getelementptr inbounds double, ptr %10, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %10, i64 %60
   store double %59, ptr %61, align 8, !tbaa !115
   %62 = load ptr, ptr %50, align 8, !tbaa !150
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %56
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %56
   %64 = load ptr, ptr %63, align 8, !tbaa !167
-  %65 = getelementptr inbounds ptr, ptr %12, i64 %60
+  %65 = getelementptr inbounds [8 x i8], ptr %12, i64 %60
   store ptr %64, ptr %65, align 8, !tbaa !167
   %66 = add nsw i32 %.06270.us, 1
   br label %67
@@ -8351,7 +8351,7 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %85
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %85 ], [ 0, %.lr.ph.split ]
   %.06270.us73 = phi i32 [ %.1.us74, %85 ], [ 2, %.lr.ph.split ]
-  %68 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv83
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv83
   %69 = load i32, ptr %68, align 4, !tbaa !119
   %70 = icmp sgt i32 %69, -1
   br i1 %70, label %71, label %85
@@ -8360,16 +8360,16 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   %72 = load double, ptr %13, align 8, !tbaa !185
   %73 = load ptr, ptr %46, align 8, !tbaa !143
   %74 = zext nneg i32 %69 to i64
-  %75 = getelementptr inbounds nuw double, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %74
   %76 = load double, ptr %75, align 8, !tbaa !115
   %77 = fmul double %72, %76
   %78 = sext i32 %.06270.us73 to i64
-  %79 = getelementptr inbounds double, ptr %10, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %10, i64 %78
   store double %77, ptr %79, align 8, !tbaa !115
   %80 = load ptr, ptr %47, align 8, !tbaa !151
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %74
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %74
   %82 = load ptr, ptr %81, align 8, !tbaa !167
-  %83 = getelementptr inbounds ptr, ptr %12, i64 %78
+  %83 = getelementptr inbounds [8 x i8], ptr %12, i64 %78
   store ptr %82, ptr %83, align 8, !tbaa !167
   %84 = add nsw i32 %.06270.us73, 1
   br label %85
@@ -8383,7 +8383,7 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %115
   %indvars.iv = phi i64 [ %indvars.iv.next, %115 ], [ 0, %.lr.ph.split ]
   %.06270 = phi i32 [ %.2, %115 ], [ 2, %.lr.ph.split ]
-  %86 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %87 = load i32, ptr %86, align 4, !tbaa !119
   %88 = icmp sgt i32 %87, -1
   br i1 %88, label %89, label %115
@@ -8392,30 +8392,30 @@ define range(i32 -28, 1) i32 @mriStep_StageSetup(ptr noundef readonly captures(n
   %90 = load double, ptr %13, align 8, !tbaa !185
   %91 = load ptr, ptr %46, align 8, !tbaa !143
   %92 = zext nneg i32 %87 to i64
-  %93 = getelementptr inbounds nuw double, ptr %91, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %92
   %94 = load double, ptr %93, align 8, !tbaa !115
   %95 = fmul double %90, %94
   %96 = sext i32 %.06270 to i64
-  %97 = getelementptr inbounds double, ptr %10, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %10, i64 %96
   store double %95, ptr %97, align 8, !tbaa !115
   %98 = load ptr, ptr %47, align 8, !tbaa !151
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %92
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %92
   %100 = load ptr, ptr %99, align 8, !tbaa !167
-  %101 = getelementptr inbounds ptr, ptr %12, i64 %96
+  %101 = getelementptr inbounds [8 x i8], ptr %12, i64 %96
   store ptr %100, ptr %101, align 8, !tbaa !167
   %102 = add nsw i32 %.06270, 1
   %103 = load double, ptr %13, align 8, !tbaa !185
   %104 = zext nneg i32 %87 to i64
-  %105 = getelementptr inbounds nuw double, ptr %16, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %104
   %106 = load double, ptr %105, align 8, !tbaa !115
   %107 = fmul double %103, %106
   %108 = sext i32 %102 to i64
-  %109 = getelementptr inbounds double, ptr %10, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %10, i64 %108
   store double %107, ptr %109, align 8, !tbaa !115
   %110 = load ptr, ptr %50, align 8, !tbaa !150
-  %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %104
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %104
   %112 = load ptr, ptr %111, align 8, !tbaa !167
-  %113 = getelementptr inbounds ptr, ptr %12, i64 %108
+  %113 = getelementptr inbounds [8 x i8], ptr %12, i64 %108
   store ptr %112, ptr %113, align 8, !tbaa !167
   %114 = add nsw i32 %.06270, 2
   br label %115
@@ -8951,11 +8951,11 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_AddForcing(ptr noundef readonl
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %.02327 = phi double [ 1.000000e+00, %.lr.ph ], [ %27, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.next
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next
   store double %.02327, ptr %23, align 8, !tbaa !115
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !167
-  %26 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next
   store ptr %25, ptr %26, align 8, !tbaa !167
   %27 = fmul double %16, %.02327
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

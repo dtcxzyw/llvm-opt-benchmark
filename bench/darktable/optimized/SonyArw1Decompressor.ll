@@ -300,7 +300,7 @@ _ZNK8rawspeed10ByteStream19peekRemainingBufferEv.exit: ; preds = %2
   %.sroa.13.0135 = phi i32 [ 0, %.preheader114.preheader ], [ %.sroa.13.6, %._ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequentialReplenisherIS0_EEEEENS_10Array1DRefIKSt4byteEE.exit.loopexit_crit_edge ]
   %.sroa.037.0134 = phi i64 [ 0, %.preheader114.preheader ], [ %.sroa.037.6, %._ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequentialReplenisherIS0_EEEEENS_10Array1DRefIKSt4byteEE.exit.loopexit_crit_edge ]
   %45 = icmp samesign ult i64 %indvars.iv, %42
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv
   br label %46
 
 _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequentialReplenisherIS0_EEEEENS_10Array1DRefIKSt4byteEE.exit._crit_edge: ; preds = %._ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequentialReplenisherIS0_EEEEENS_10Array1DRefIKSt4byteEE.exit.loopexit_crit_edge, %.preheader114.lr.ph
@@ -448,7 +448,7 @@ _ZN8rawspeed20SonyArw1Decompressor7getDiffERNS_14BitStreamerMSBEj.exit: ; preds 
   tail call void @llvm.assume(i1 %104)
   %105 = mul nuw nsw i32 %spec.store.select, %15
   %106 = zext nneg i32 %105 to i64
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %106
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %106
   store i16 %103, ptr %gep, align 2, !tbaa !111
   %107 = add nuw nsw i32 %spec.store.select, 2
   %.not = icmp sgt i32 %107, %12

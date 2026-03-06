@@ -347,7 +347,7 @@ _ZNSolsEm.exit91:                                 ; preds = %_ZStlsISt11char_tra
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93: ; preds = %_ZNSolsEm.exit91
   %113 = load ptr, ptr %96, align 8, !tbaa !51
-  %114 = getelementptr inbounds nuw i64, ptr %113, i64 %.045166
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %.045166
   %115 = load i64, ptr %114, align 8, !tbaa !52
   %116 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %111, i64 noundef %115)
           to label %_ZNSolsEm.exit95 unwind label %105
@@ -1203,7 +1203,7 @@ define noundef range(i32 -2147483648, 1) i32 @_Z22fdt_get_node_addr_sizePKviPmS1
 
 17:                                               ; preds = %15
   %18 = zext nneg i32 %10 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %18
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %26, label %.lr.ph
 

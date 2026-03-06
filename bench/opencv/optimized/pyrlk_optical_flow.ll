@@ -49,7 +49,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Point_.22" = type { float, float }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -690,7 +689,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
 
 .lr.ph.preheader.i.i.i.i.i319:                    ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %229, ptr %29, align 8, !tbaa !60
-  %230 = getelementptr inbounds nuw %"class.cv::Point_.22", ptr %229, i64 %225
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %225
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %229, i8 0, i64 %228, i1 false), !tbaa !63
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %229, i64 %228
   %231 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -712,7 +711,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIN2cv
 
 235:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i319
   store ptr %233, ptr %30, align 8, !tbaa !60
-  %236 = getelementptr inbounds nuw %"class.cv::Point_.22", ptr %233, i64 %225
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %225
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %233, i8 0, i64 %228, i1 false), !tbaa !63
   %scevgep.i.i.i.i.i320 = getelementptr i8, ptr %233, i64 %228
   %237 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -2587,7 +2586,7 @@ define internal fastcc void @_ZL10drawArrowsRN2cv4UMatERKSt6vectorINS_6Point_IfE
   br i1 %.not, label %91, label %25
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds nuw %"class.cv::Point_.22", ptr %20, i64 %.093
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.093
   %27 = load float, ptr %26, align 4, !tbaa !85
   %28 = insertelement <4 x float> poison, float %27, i64 0
   %29 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %28)
@@ -2596,7 +2595,7 @@ define internal fastcc void @_ZL10drawArrowsRN2cv4UMatERKSt6vectorINS_6Point_IfE
   %32 = insertelement <4 x float> poison, float %31, i64 0
   %33 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %32)
   %34 = load ptr, ptr %2, align 8, !tbaa !60
-  %35 = getelementptr inbounds nuw %"class.cv::Point_.22", ptr %34, i64 %.093
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.093
   %36 = load float, ptr %35, align 4, !tbaa !85
   %37 = insertelement <4 x float> poison, float %36, i64 0
   %38 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %37)

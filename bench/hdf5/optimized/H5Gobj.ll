@@ -1704,7 +1704,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__obj_remove_update_linfo(ptr no
   %.04465 = phi i64 [ 0, %.lr.ph ], [ %60, %59 ]
   %65 = load ptr, ptr %0, align 8, !tbaa !45
   %66 = load ptr, ptr %54, align 8, !tbaa !77
-  %67 = getelementptr inbounds nuw %struct.H5O_link_t, ptr %66, i64 %.04465
+  %67 = getelementptr inbounds nuw [48 x i8], ptr %66, i64 %.04465
   %68 = call i64 @H5O_msg_size_oh(ptr noundef %65, ptr noundef nonnull %51, i32 noundef 6, ptr noundef %67, i64 noundef 0) #5
   %69 = icmp ugt i64 %68, 65535
   br i1 %69, label %.loopexit, label %59
@@ -1719,7 +1719,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__obj_remove_update_linfo(ptr no
   %.14566 = phi i64 [ 0, %.lr.ph67 ], [ %70, %.critedge ]
   %74 = load ptr, ptr %0, align 8, !tbaa !45
   %75 = load ptr, ptr %63, align 8, !tbaa !77
-  %76 = getelementptr inbounds nuw %struct.H5O_link_t, ptr %75, i64 %.14566
+  %76 = getelementptr inbounds nuw [48 x i8], ptr %75, i64 %.14566
   %77 = call i32 @H5O_msg_append_oh(ptr noundef %74, ptr noundef nonnull %51, i32 noundef 6, i32 noundef 0, i32 noundef 1, ptr noundef %76) #5
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %79, label %.critedge

@@ -3,10 +3,6 @@ source_filename = "bench/linux/original/conditional.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.cond_node = type { i32, %struct.cond_expr, %struct.cond_av_list, %struct.cond_av_list }
-%struct.cond_expr = type { ptr, i32 }
-%struct.cond_av_list = type { ptr, i32 }
-%struct.cond_expr_node = type { i32, i32 }
 %struct.cond_insertf_data = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [67 x i8] c"\013SELinux: expression result was undefined - disabling all rules.\0A\00", align 1
@@ -35,7 +31,7 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
 9:                                                ; preds = %.loopexit, %6
   %10 = phi i64 [ 0, %6 ], [ %159, %.loopexit ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr %struct.cond_node, ptr %11, i64 %10
+  %12 = getelementptr [56 x i8], ptr %11, i64 %10
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, i8 0, i64 40, i1 false), !annotation !5
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -58,7 +54,7 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
 24:                                               ; preds = %20, %16
   %25 = phi i64 [ 0, %16 ], [ %22, %20 ]
   %26 = phi i32 [ -1, %16 ], [ %21, %20 ]
-  %27 = getelementptr %struct.cond_expr_node, ptr %18, i64 %25
+  %27 = getelementptr [8 x i8], ptr %18, i64 %25
   %28 = load i32, ptr %27, align 4
   switch i32 %28, label %.thread [
     i32 1, label %29
@@ -81,12 +77,12 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, -1
   %37 = zext i32 %36 to i64
-  %38 = getelementptr ptr, ptr %33, i64 %37
+  %38 = getelementptr [8 x i8], ptr %33, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %32 to i64
-  %43 = getelementptr i32, ptr %2, i64 %42
+  %43 = getelementptr [4 x i8], ptr %2, i64 %42
   store i32 %41, ptr %43, align 4
   br label %20
 
@@ -96,7 +92,7 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
 
 46:                                               ; preds = %44
   %47 = zext nneg i32 %26 to i64
-  %48 = getelementptr i32, ptr %2, i64 %47
+  %48 = getelementptr [4 x i8], ptr %2, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 0
   %51 = zext i1 %50 to i32
@@ -110,10 +106,10 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
 54:                                               ; preds = %52
   %55 = add nsw i32 %26, -1
   %56 = zext nneg i32 %26 to i64
-  %57 = getelementptr i32, ptr %2, i64 %56
+  %57 = getelementptr [4 x i8], ptr %2, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = zext nneg i32 %55 to i64
-  %60 = getelementptr i32, ptr %2, i64 %59
+  %60 = getelementptr [4 x i8], ptr %2, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = or i32 %61, %58
   store i32 %62, ptr %60, align 4
@@ -126,10 +122,10 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
 65:                                               ; preds = %63
   %66 = add nsw i32 %26, -1
   %67 = zext nneg i32 %26 to i64
-  %68 = getelementptr i32, ptr %2, i64 %67
+  %68 = getelementptr [4 x i8], ptr %2, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = zext nneg i32 %66 to i64
-  %71 = getelementptr i32, ptr %2, i64 %70
+  %71 = getelementptr [4 x i8], ptr %2, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = and i32 %72, %69
   store i32 %73, ptr %71, align 4
@@ -142,10 +138,10 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
 76:                                               ; preds = %74
   %77 = add nsw i32 %26, -1
   %78 = zext nneg i32 %26 to i64
-  %79 = getelementptr i32, ptr %2, i64 %78
+  %79 = getelementptr [4 x i8], ptr %2, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = zext nneg i32 %77 to i64
-  %82 = getelementptr i32, ptr %2, i64 %81
+  %82 = getelementptr [4 x i8], ptr %2, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = xor i32 %83, %80
   store i32 %84, ptr %82, align 4
@@ -158,10 +154,10 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
 87:                                               ; preds = %85
   %88 = add nsw i32 %26, -1
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr i32, ptr %2, i64 %89
+  %90 = getelementptr [4 x i8], ptr %2, i64 %89
   %91 = load i32, ptr %90, align 4
   %92 = zext nneg i32 %26 to i64
-  %93 = getelementptr i32, ptr %2, i64 %92
+  %93 = getelementptr [4 x i8], ptr %2, i64 %92
   %94 = load i32, ptr %93, align 4
   %95 = icmp eq i32 %91, %94
   %96 = zext i1 %95 to i32
@@ -175,10 +171,10 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
 99:                                               ; preds = %97
   %100 = add nsw i32 %26, -1
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr i32, ptr %2, i64 %101
+  %102 = getelementptr [4 x i8], ptr %2, i64 %101
   %103 = load i32, ptr %102, align 4
   %104 = zext nneg i32 %26 to i64
-  %105 = getelementptr i32, ptr %2, i64 %104
+  %105 = getelementptr [4 x i8], ptr %2, i64 %104
   %106 = load i32, ptr %105, align 4
   %107 = icmp ne i32 %103, %106
   %108 = zext i1 %107 to i32
@@ -232,7 +228,7 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
 133:                                              ; preds = %133, %122
   %134 = phi i64 [ 0, %122 ], [ %142, %133 ]
   %135 = load ptr, ptr %123, align 8
-  %136 = getelementptr ptr, ptr %135, i64 %134
+  %136 = getelementptr [8 x i8], ptr %135, i64 %134
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 6
   %139 = load i16, ptr %138, align 2
@@ -248,7 +244,7 @@ define dso_local void @evaluate_cond_nodes(ptr noundef readonly captures(none) %
 146:                                              ; preds = %146, %129
   %147 = phi i64 [ 0, %129 ], [ %155, %146 ]
   %148 = load ptr, ptr %130, align 8
-  %149 = getelementptr ptr, ptr %148, i64 %147
+  %149 = getelementptr [8 x i8], ptr %148, i64 %147
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 6
   %152 = load i16, ptr %151, align 2
@@ -307,7 +303,7 @@ define dso_local void @cond_policydb_destroy(ptr noundef %0) local_unnamed_addr 
 10:                                               ; preds = %10, %8
   %11 = phi i64 [ 0, %8 ], [ %20, %10 ]
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr %struct.cond_node, ptr %12, i64 %11
+  %13 = getelementptr [56 x i8], ptr %12, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @kfree(ptr noundef %15) #14
@@ -378,14 +374,14 @@ define dso_local noundef range(i32 -22, 1) i32 @cond_index_bool(ptr noundef %0, 
   %12 = load ptr, ptr %11, align 8
   %13 = add i32 %4, -1
   %14 = zext i32 %13 to i64
-  %15 = getelementptr ptr, ptr %12, i64 %14
+  %15 = getelementptr [8 x i8], ptr %12, i64 %14
   store ptr %0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 376
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %1, align 4
   %19 = add i32 %18, -1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr ptr, ptr %17, i64 %20
+  %21 = getelementptr [8 x i8], ptr %17, i64 %20
   store ptr %1, ptr %21, align 8
   br label %22
 
@@ -527,7 +523,7 @@ define dso_local i32 @cond_read_list(ptr noundef %0, ptr noundef %1) local_unnam
 36:                                               ; preds = %33, %27
   %37 = phi i64 [ 0, %27 ], [ %34, %33 ]
   %38 = load ptr, ptr %16, align 8
-  %39 = getelementptr %struct.cond_node, ptr %38, i64 %37
+  %39 = getelementptr [56 x i8], ptr %38, i64 %37
   %40 = load i64, ptr %5, align 8
   %41 = icmp ugt i64 %40, 7
   br i1 %41, label %42, label %.thread16
@@ -577,7 +573,7 @@ define dso_local i32 @cond_read_list(ptr noundef %0, ptr noundef %1) local_unnam
   store ptr %69, ptr %1, align 8
   %70 = add i64 %61, -8
   store i64 %70, ptr %5, align 8
-  %71 = getelementptr %struct.cond_expr_node, ptr %64, i64 %60
+  %71 = getelementptr [8 x i8], ptr %64, i64 %60
   store i32 %66, ptr %71, align 4
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   store i32 %68, ptr %72, align 4
@@ -633,7 +629,7 @@ define dso_local i32 @cond_read_list(ptr noundef %0, ptr noundef %1) local_unnam
 99:                                               ; preds = %96, %95
   %100 = phi i64 [ 0, %95 ], [ %97, %96 ]
   %101 = load ptr, ptr %81, align 8
-  %102 = getelementptr ptr, ptr %101, i64 %100
+  %102 = getelementptr [8 x i8], ptr %101, i64 %100
   store ptr %102, ptr %30, align 8
   %103 = call i32 @avtab_read_item(ptr noundef nonnull %19, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @cond_insertf, ptr noundef nonnull %4) #14
   %104 = icmp eq i32 %103, 0
@@ -695,7 +691,7 @@ cond_read_av_list.exit.thread:                    ; preds = %90, %.loopexit21, %
 128:                                              ; preds = %125, %124
   %129 = phi i64 [ 0, %124 ], [ %126, %125 ]
   %130 = load ptr, ptr %111, align 8
-  %131 = getelementptr ptr, ptr %130, i64 %129
+  %131 = getelementptr [8 x i8], ptr %130, i64 %129
   store ptr %131, ptr %32, align 8
   %132 = call i32 @avtab_read_item(ptr noundef nonnull %19, ptr noundef %1, ptr noundef %0, ptr noundef nonnull @cond_insertf, ptr noundef nonnull %3) #14
   %133 = icmp eq i32 %132, 0
@@ -727,7 +723,7 @@ cond_read_av_list.exit.thread:                    ; preds = %90, %.loopexit21, %
 .preheader:                                       ; preds = %.thread16, %.preheader
   %142 = phi i64 [ %151, %.preheader ], [ 0, %.thread16 ]
   %143 = load ptr, ptr %16, align 8
-  %144 = getelementptr %struct.cond_node, ptr %143, i64 %142
+  %144 = getelementptr [56 x i8], ptr %143, i64 %142
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %146 = load ptr, ptr %145, align 8
   tail call void @kfree(ptr noundef %146) #14
@@ -848,7 +844,7 @@ define dso_local i32 @cond_write_list(ptr noundef %0, ptr noundef %1) local_unna
 thread-pre-split:                                 ; preds = %.loopexit
   %.pr = load i64, ptr %4, align 8
   %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr %struct.cond_node, ptr %24, i64 %20
+  %25 = getelementptr [56 x i8], ptr %24, i64 %20
   %26 = icmp ugt i64 %.pr, 3
   br i1 %26, label %.lr.ph30, label %.thread21
 
@@ -890,7 +886,7 @@ thread-pre-split:                                 ; preds = %.loopexit
   %47 = phi ptr [ %55, %thread-pre-split10 ], [ %41, %.preheader24 ]
   %48 = phi i64 [ %58, %thread-pre-split10 ], [ 0, %.preheader24 ]
   %49 = load ptr, ptr %35, align 8
-  %.split = getelementptr %struct.cond_expr_node, ptr %49, i64 %48
+  %.split = getelementptr [8 x i8], ptr %49, i64 %48
   %50 = getelementptr i8, ptr %.split, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = load i32, ptr %.split, align 4
@@ -944,7 +940,7 @@ thread-pre-split13:                               ; preds = %.lr.ph, %38
 .preheader22:                                     ; preds = %68, %76
   %81 = phi i64 [ %77, %76 ], [ 0, %68 ]
   %82 = load ptr, ptr %65, align 8
-  %83 = getelementptr ptr, ptr %82, i64 %81
+  %83 = getelementptr [8 x i8], ptr %82, i64 %81
   %84 = load ptr, ptr %83, align 8
   %85 = tail call i32 @avtab_write_item(ptr noundef %0, ptr noundef %84, ptr noundef %1) #14
   %86 = icmp eq i32 %85, 0
@@ -985,7 +981,7 @@ thread-pre-split17:                               ; preds = %76
 .preheader:                                       ; preds = %92, %101
   %106 = phi i64 [ %102, %101 ], [ 0, %92 ]
   %107 = load ptr, ptr %89, align 8
-  %108 = getelementptr ptr, ptr %107, i64 %106
+  %108 = getelementptr [8 x i8], ptr %107, i64 %106
   %109 = load ptr, ptr %108, align 8
   %110 = tail call i32 @avtab_write_item(ptr noundef %0, ptr noundef %109, ptr noundef %1) #14
   %111 = icmp eq i32 %110, 0
@@ -1283,9 +1279,9 @@ define dso_local noundef range(i32 -12, 1) i32 @cond_policydb_dup(ptr noundef in
 42:                                               ; preds = %.loopexit5, %36
   %43 = phi i64 [ 0, %36 ], [ %38, %.loopexit5 ]
   %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr %struct.cond_node, ptr %44, i64 %43
+  %45 = getelementptr [56 x i8], ptr %44, i64 %43
   %46 = load ptr, ptr %37, align 8
-  %47 = getelementptr %struct.cond_node, ptr %46, i64 %43
+  %47 = getelementptr [56 x i8], ptr %46, i64 %43
   %48 = load i32, ptr %5, align 8
   %49 = add i32 %48, 1
   store i32 %49, ptr %5, align 8
@@ -1331,15 +1327,15 @@ define dso_local noundef range(i32 -12, 1) i32 @cond_policydb_dup(ptr noundef in
 76:                                               ; preds = %89, %74
   %77 = phi i64 [ %92, %89 ], [ 0, %74 ]
   %78 = load ptr, ptr %64, align 8
-  %79 = getelementptr ptr, ptr %78, i64 %77
+  %79 = getelementptr [8 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = tail call ptr @avtab_insert_nonunique(ptr noundef nonnull %6, ptr noundef %80, ptr noundef nonnull %81) #14
   %83 = load ptr, ptr %63, align 8
-  %84 = getelementptr ptr, ptr %83, i64 %77
+  %84 = getelementptr [8 x i8], ptr %83, i64 %77
   store ptr %82, ptr %84, align 8
   %85 = load ptr, ptr %63, align 8
-  %86 = getelementptr ptr, ptr %85, i64 %77
+  %86 = getelementptr [8 x i8], ptr %85, i64 %77
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %.loopexit4, label %89
@@ -1379,15 +1375,15 @@ define dso_local noundef range(i32 -12, 1) i32 @cond_policydb_dup(ptr noundef in
 109:                                              ; preds = %122, %107
   %110 = phi i64 [ %125, %122 ], [ 0, %107 ]
   %111 = load ptr, ptr %97, align 8
-  %112 = getelementptr ptr, ptr %111, i64 %110
+  %112 = getelementptr [8 x i8], ptr %111, i64 %110
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = tail call ptr @avtab_insert_nonunique(ptr noundef nonnull %6, ptr noundef %113, ptr noundef nonnull %114) #14
   %116 = load ptr, ptr %96, align 8
-  %117 = getelementptr ptr, ptr %116, i64 %110
+  %117 = getelementptr [8 x i8], ptr %116, i64 %110
   store ptr %115, ptr %117, align 8
   %118 = load ptr, ptr %96, align 8
-  %119 = getelementptr ptr, ptr %118, i64 %110
+  %119 = getelementptr [8 x i8], ptr %118, i64 %110
   %120 = load ptr, ptr %119, align 8
   %121 = icmp eq ptr %120, null
   br i1 %121, label %.loopexit4, label %122
@@ -1411,7 +1407,7 @@ define dso_local noundef range(i32 -12, 1) i32 @cond_policydb_dup(ptr noundef in
 .preheader:                                       ; preds = %.loopexit4, %.preheader
   %131 = phi i64 [ %140, %.preheader ], [ 0, %.loopexit4 ]
   %132 = load ptr, ptr %4, align 8
-  %133 = getelementptr %struct.cond_node, ptr %132, i64 %131
+  %133 = getelementptr [56 x i8], ptr %132, i64 %131
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8
   tail call void @kfree(ptr noundef %135) #14
@@ -1519,7 +1515,7 @@ define internal noundef range(i32 -22, 1) i32 @cond_insertf(ptr readnone capture
 
 39:                                               ; preds = %37, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %32 ]
-  %40 = getelementptr ptr, ptr %33, i64 %indvars.iv
+  %40 = getelementptr [8 x i8], ptr %33, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, %21
   br i1 %42, label %.loopexit, label %37
@@ -1590,7 +1586,7 @@ define internal noundef i32 @cond_bools_index(ptr readnone captures(none) %0, pt
   %4 = load i32, ptr %1, align 4
   %5 = add i32 %4, -1
   %6 = zext i32 %5 to i64
-  %7 = getelementptr ptr, ptr %2, i64 %6
+  %7 = getelementptr [8 x i8], ptr %2, i64 %6
   store ptr %1, ptr %7, align 8
   ret i32 0
 }

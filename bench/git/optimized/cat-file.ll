@@ -17,8 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.oid_array = type { ptr, i64, i64, i32 }
 %struct.batch_options = type { i32, i32, i32, i32, i32, i32, i32, i8, i8, ptr }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
-%struct.parse_cmd = type { ptr, ptr, i32 }
-%struct.queued_cmd = type { ptr, ptr }
 %struct.conv_attrs = type { ptr, i32, i32, i32, ptr }
 %struct.checkout_metadata = type { ptr, %struct.object_id, %struct.object_id }
 
@@ -997,7 +995,7 @@ switch.early.test:                                ; preds = %253
 
 .preheader.i.i:                                   ; preds = %387, %skip_prefix.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %skip_prefix.exit.i.i ], [ 0, %387 ]
-  %397 = getelementptr inbounds nuw %struct.parse_cmd, ptr @commands, i64 %indvars.iv.i.i
+  %397 = getelementptr inbounds nuw [24 x i8], ptr @commands, i64 %indvars.iv.i.i
   %398 = load ptr, ptr %397, align 8, !tbaa !76
   br label %399
 
@@ -1079,7 +1077,7 @@ skip_prefix.exit.i.i:                             ; preds = %402
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %426 = getelementptr inbounds nuw %struct.queued_cmd, ptr %.040135.i.i, i64 %indvars.iv.i.i.i
+  %426 = getelementptr inbounds nuw [16 x i8], ptr %.040135.i.i, i64 %indvars.iv.i.i.i
   %427 = load ptr, ptr %426, align 8, !tbaa !81
   %428 = getelementptr inbounds nuw i8, ptr %426, i64 8
   %429 = load ptr, ptr %428, align 8, !tbaa !83
@@ -1104,7 +1102,7 @@ dispatch_calls.exit.i.i:                          ; preds = %.preheader.i.i.i
 
 .lr.ph.i57.i.i:                                   ; preds = %.lr.ph.i57.i.i.preheader, %.lr.ph.i57.i.i
   %.07.i58.i.i = phi i64 [ %437, %.lr.ph.i57.i.i ], [ 0, %.lr.ph.i57.i.i.preheader ]
-  %434 = getelementptr inbounds nuw %struct.queued_cmd, ptr %.040135.i.i, i64 %.07.i58.i.i
+  %434 = getelementptr inbounds nuw [16 x i8], ptr %.040135.i.i, i64 %.07.i58.i.i
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 8
   %436 = load ptr, ptr %435, align 8, !tbaa !83
   call void @free(ptr noundef %436) #14
@@ -1158,7 +1156,7 @@ st_mult.exit.i.i:                                 ; preds = %445
 
 xstrdup_or_null.exit.i.i:                         ; preds = %456, %453
   %458 = phi ptr [ %457, %456 ], [ null, %453 ]
-  %459 = getelementptr inbounds nuw %struct.queued_cmd, ptr %.242.i.i, i64 %.091134.i.i
+  %459 = getelementptr inbounds nuw [16 x i8], ptr %.242.i.i, i64 %.091134.i.i
   store ptr %455, ptr %459, align 8, !tbaa !87
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %459, i64 8
   store ptr %458, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !26
@@ -1208,7 +1206,7 @@ free_cmds.exit.i.i:                               ; preds = %.lr.ph.i57.i.i, %xs
 
 .lr.ph.i64.i.i:                                   ; preds = %.lr.ph.i64.i.i, %.lr.ph.preheader.i62.i.i
   %indvars.iv.i65.i.i = phi i64 [ 0, %.lr.ph.preheader.i62.i.i ], [ %indvars.iv.next.i66.i.i, %.lr.ph.i64.i.i ]
-  %475 = getelementptr inbounds nuw %struct.queued_cmd, ptr %.141.i.i, i64 %indvars.iv.i65.i.i
+  %475 = getelementptr inbounds nuw [16 x i8], ptr %.141.i.i, i64 %indvars.iv.i65.i.i
   %476 = load ptr, ptr %475, align 8, !tbaa !81
   %477 = getelementptr inbounds nuw i8, ptr %475, i64 8
   %478 = load ptr, ptr %477, align 8, !tbaa !83
@@ -1224,7 +1222,7 @@ dispatch_calls.exit68.i.i:                        ; preds = %.lr.ph.i64.i.i, %.p
 
 .lr.ph.i70.i.i:                                   ; preds = %.lr.ph.i70.i.i, %dispatch_calls.exit68.i.i
   %.07.i71.i.i = phi i64 [ %484, %.lr.ph.i70.i.i ], [ 0, %dispatch_calls.exit68.i.i ]
-  %481 = getelementptr inbounds nuw %struct.queued_cmd, ptr %.141.i.i, i64 %.07.i71.i.i
+  %481 = getelementptr inbounds nuw [16 x i8], ptr %.141.i.i, i64 %.07.i71.i.i
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 8
   %483 = load ptr, ptr %482, align 8, !tbaa !83
   call void @free(ptr noundef %483) #14
@@ -1242,7 +1240,7 @@ free_cmds.exit72.i.i:                             ; preds = %._crit_edge.i.i
 
 .lr.ph.i74.i.i:                                   ; preds = %.lr.ph.i74.i.i.preheader, %.lr.ph.i74.i.i
   %.07.i75.i.i = phi i64 [ %488, %.lr.ph.i74.i.i ], [ 0, %.lr.ph.i74.i.i.preheader ]
-  %485 = getelementptr inbounds nuw %struct.queued_cmd, ptr %.141.i.i, i64 %.07.i75.i.i
+  %485 = getelementptr inbounds nuw [16 x i8], ptr %.141.i.i, i64 %.07.i75.i.i
   %486 = getelementptr inbounds nuw i8, ptr %485, i64 8
   %487 = load ptr, ptr %486, align 8, !tbaa !83
   call void @free(ptr noundef %487) #14
@@ -1682,7 +1680,7 @@ batch_objects.exit:                               ; preds = %364, %.loopexit.i
   %647 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %648 = load i32, ptr %647, align 4, !tbaa !100
   %649 = sext i32 %648 to i64
-  %650 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %649
+  %650 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %649
   %651 = call i32 @get_oid_hex_algop(ptr noundef nonnull %scevgep.i, ptr noundef nonnull %18, ptr noundef nonnull %650) #14
   %.not48.i = icmp eq i32 %651, 0
   br i1 %.not48.i, label %653, label %skip_prefix.exit.i

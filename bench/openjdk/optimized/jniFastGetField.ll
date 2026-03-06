@@ -25,13 +25,13 @@ define hidden noundef ptr @_ZN16JNI_FastGetField16find_slowcase_pcEPh(ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZN16JNI_FastGetField23speculative_load_pclistE, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZN16JNI_FastGetField23speculative_load_pclistE, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %0
   br i1 %7, label %8, label %4
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN16JNI_FastGetField21slowcase_entry_pclistE, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN16JNI_FastGetField21slowcase_entry_pclistE, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   br label %.loopexit
 

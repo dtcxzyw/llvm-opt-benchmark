@@ -3,8 +3,6 @@ source_filename = "bench/icu/original/scrptrun.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.icu_77::ParenStackEntry" = type { i32, i32 }
-
 @_ZN6icu_779ScriptRun9fgClassIDE = dso_local local_unnamed_addr constant i8 0, align 1
 @_ZN6icu_779ScriptRun11pairedCharsE = dso_local local_unnamed_addr global [34 x i32] [i32 40, i32 41, i32 60, i32 62, i32 91, i32 93, i32 123, i32 125, i32 171, i32 187, i32 8216, i32 8217, i32 8220, i32 8221, i32 8249, i32 8250, i32 12296, i32 12297, i32 12298, i32 12299, i32 12300, i32 12301, i32 12302, i32 12303, i32 12304, i32 12305, i32 12308, i32 12309, i32 12310, i32 12311, i32 12312, i32 12313, i32 12314, i32 12315], align 16
 @_ZN6icu_779ScriptRun15pairedCharCountE = dso_local local_unnamed_addr constant i32 34, align 4
@@ -60,7 +58,7 @@ define dso_local noundef i32 @_ZN6icu_779ScriptRun12getPairIndexEi(i32 noundef %
   %4 = lshr i32 %.01115, 1
   %5 = add nsw i32 %.116, %4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i32, ptr @_ZN6icu_779ScriptRun11pairedCharsE, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr @_ZN6icu_779ScriptRun11pairedCharsE, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %.not13 = icmp slt i32 %0, %8
   %spec.select14 = select i1 %.not13, i32 %.116, i32 %5
@@ -69,7 +67,7 @@ define dso_local noundef i32 @_ZN6icu_779ScriptRun12getPairIndexEi(i32 noundef %
 
 10:                                               ; preds = %3
   %11 = sext i32 %spec.select14 to i64
-  %12 = getelementptr inbounds i32, ptr @_ZN6icu_779ScriptRun11pairedCharsE, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr @_ZN6icu_779ScriptRun11pairedCharsE, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !4
   %.not12 = icmp eq i32 %13, %0
   %spec.store.select = select i1 %.not12, i32 %spec.select14, i32 -1
@@ -116,7 +114,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_779ScriptRun4nextEv(
   %.03364 = phi i32 [ %4, %.lr.ph65 ], [ %.6.ph, %101 ]
   %16 = load ptr, ptr %11, align 8, !tbaa !22
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds i16, ptr %16, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %16, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !23
   %20 = zext i16 %19 to i32
   %21 = and i16 %19, -1024
@@ -129,7 +127,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_779ScriptRun4nextEv(
 24:                                               ; preds = %13
   %25 = add nsw i32 %15, 1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %16, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %16, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !23
   %29 = and i16 %28, -1024
   %or.cond5 = icmp eq i16 %29, -9216
@@ -157,7 +155,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_779ScriptRun4nextEv(
   %39 = lshr i32 %.01115.i, 1
   %40 = add nsw i32 %39, %.116.i
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr @_ZN6icu_779ScriptRun11pairedCharsE, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr @_ZN6icu_779ScriptRun11pairedCharsE, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !4
   %.not13.i = icmp slt i32 %.037, %43
   %spec.select14.i = select i1 %.not13.i, i32 %.116.i, i32 %40
@@ -166,7 +164,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_779ScriptRun4nextEv(
 
 _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %38
   %45 = sext i32 %spec.select14.i to i64
-  %46 = getelementptr inbounds i32, ptr @_ZN6icu_779ScriptRun11pairedCharsE, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr @_ZN6icu_779ScriptRun11pairedCharsE, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !4
   %.not12.i = icmp eq i32 %47, %.037
   %spec.store.select.i = select i1 %.not12.i, i32 %spec.select14.i, i32 -1
@@ -183,7 +181,7 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %38
   %54 = add nsw i32 %52, 1
   store i32 %54, ptr %3, align 4, !tbaa !10
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds %"struct.icu_77::ParenStackEntry", ptr %12, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %12, i64 %55
   store i32 %spec.store.select.i, ptr %56, align 4, !tbaa !25
   %57 = load i32, ptr %9, align 8, !tbaa !20
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 4
@@ -201,7 +199,7 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %38
 63:                                               ; preds = %61, %68
   %64 = phi i32 [ %52, %61 ], [ %69, %68 ]
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw %"struct.icu_77::ParenStackEntry", ptr %12, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !25
   %.not49 = icmp eq i32 %67, %62
   br i1 %.not49, label %71, label %68
@@ -218,7 +216,7 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %38
 
 71:                                               ; preds = %63
   %spec.select56 = call i32 @llvm.smin.i32(i32 %64, i32 %.03364)
-  %72 = getelementptr inbounds nuw %"struct.icu_77::ParenStackEntry", ptr %0, i64 %65
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %65
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %74 = load i32, ptr %73, align 8, !tbaa !27
   br label %75
@@ -253,7 +251,7 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %38
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %86, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %87 = getelementptr %"struct.icu_77::ParenStackEntry", ptr %0, i64 %indvars.iv.next
+  %87 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv.next
   %88 = getelementptr i8, ptr %87, i64 40
   store i32 %.034, ptr %88, align 8, !tbaa !27
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [39 x i8] c"invalid input syntax for type %s: \22%s\22\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"tid\00", align 1
@@ -56,7 +53,7 @@ switch.early.test:                                ; preds = %1, %18
   %14 = getelementptr inbounds nuw i8, ptr %.04561, i64 1
   %15 = add nuw nsw i32 %.04660, 1
   %16 = zext nneg i32 %.04660 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %2, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %16
   store ptr %14, ptr %17, align 8
   br label %18
 
@@ -503,7 +500,7 @@ define internal fastcc ptr @currtid_internal(ptr noundef %0, ptr noundef readonl
 
 30:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %31 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %29, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [100 x i8], ptr %29, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(5) @.str.5) #12
   %34 = icmp eq i32 %33, 0
@@ -565,7 +562,7 @@ define internal fastcc ptr @currtid_internal(ptr noundef %0, ptr noundef readonl
 
 58:                                               ; preds = %.lr.ph37, %57
   %indvars.iv43 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next44, %57 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv43
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv43
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4
@@ -632,7 +629,7 @@ list_length.exit.thread:                          ; preds = %64, %list_length.ex
   %97 = getelementptr i8, ptr %96, i64 16
   %.val61.i = load ptr, ptr %97, align 8
   %98 = zext nneg i32 %88 to i64
-  %99 = getelementptr %union.ListCell, ptr %.val61.i, i64 %98
+  %99 = getelementptr [8 x i8], ptr %.val61.i, i64 %98
   %100 = getelementptr i8, ptr %99, i64 -8
   %101 = load ptr, ptr %100, align 8
   %.not58.i = icmp eq ptr %101, null

@@ -2033,7 +2033,7 @@ define hidden noundef zeroext i1 @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12cont
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !7
-  %14 = getelementptr inbounds nuw { { [490 x i64] }, i32, [1 x i32] }, ptr %13, i64 %10
+  %14 = getelementptr inbounds nuw [3928 x i8], ptr %13, i64 %10
   %15 = extractvalue { i32, i32 } %6, 0
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 3920
   %17 = load i32, ptr %16, align 8, !alias.scope !307, !noalias !312, !noundef !7
@@ -2089,7 +2089,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h36d6a040d6b9ad86E.exit": ; preds = %15, %20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !315, !noalias !318, !nonnull !7, !noundef !7
-  %23 = getelementptr inbounds nuw { { [1 x i64] }, i32, [1 x i32] }, ptr %22, i64 %9
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %9
   store i64 %1, ptr %23, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2104,7 +2104,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
 27:                                               ; preds = %7
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !nonnull !7, !noundef !7
-  %30 = getelementptr inbounds nuw { { [1 x i64] }, i32, [1 x i32] }, ptr %29, i64 %12
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %12
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8, !noundef !7
   %33 = or i32 %32, 1
@@ -2150,7 +2150,7 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17had9d1db271
 "_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17haa53f238598c405eE.llvm.11827717339075696348.exit": ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !320, !nonnull !7
-  %17 = getelementptr inbounds nuw { { [490 x i64] }, i32, [1 x i32] }, ptr %16, i64 %14
+  %17 = getelementptr inbounds nuw [3928 x i8], ptr %16, i64 %14
   %18 = extractvalue { i32, i32 } %10, 0
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 3920
   %20 = load i32, ptr %19, align 8, !alias.scope !323, !noalias !328, !noundef !7
@@ -2165,7 +2165,7 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6remove17had9d1db271
 23:                                               ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$12contains_key17haa53f238598c405eE.llvm.11827717339075696348.exit"
   %24 = extractvalue { i32, i32 } %8, 1
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw { { [490 x i64] }, i32, [1 x i32] }, ptr %16, i64 %25
+  %26 = getelementptr inbounds nuw [3928 x i8], ptr %16, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3920) %0, ptr noundef nonnull align 8 dereferenceable(3920) %26, i64 3920, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load i32, ptr %27, align 8, !noundef !7
@@ -2202,7 +2202,7 @@ define hidden noundef align 8 dereferenceable_or_null(3920) ptr @"_ZN7slotmap5ba
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !7
-  %14 = getelementptr inbounds nuw { { [490 x i64] }, i32, [1 x i32] }, ptr %13, i64 %10
+  %14 = getelementptr inbounds nuw [3928 x i8], ptr %13, i64 %10
   %15 = extractvalue { i32, i32 } %6, 0
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 3920
   %17 = load i32, ptr %16, align 8, !alias.scope !331, !noalias !334, !noundef !7
@@ -5410,7 +5410,7 @@ define void @"_ZN75_$LT$ui..components..icon..AnyIcon$u20$as$u20$gpui..element..
 define noundef float @_ZN2ui10components4icon8IconSize4rems17h635537f4a661e5e7E(i8 noundef %0) unnamed_addr #4 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table._ZN2ui10components4icon4Icon4size17h6acfc3a54898275cE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN2ui10components4icon4Icon4size17h6acfc3a54898275cE, i64 %1
   %switch.load = load float, ptr %switch.gep, align 4
   %2 = tail call noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef %switch.load)
   ret float %2
@@ -5545,7 +5545,7 @@ define void @_ZN2ui10components4icon4Icon5color17h8b0ca1bb4c2ec638E(ptr dead_on_
 define void @_ZN2ui10components4icon4Icon4size17h6acfc3a54898275cE(ptr dead_on_unwind noalias noundef writable writeonly sret([72 x i8]) align 8 captures(none) dereferenceable(72) %0, ptr noalias noundef align 8 captures(none) dereferenceable(72) %1, i8 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
 switch.lookup:
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table._ZN2ui10components4icon4Icon4size17h6acfc3a54898275cE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN2ui10components4icon4Icon4size17h6acfc3a54898275cE, i64 %3
   %switch.load = load float, ptr %switch.gep, align 4
   %4 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef %switch.load)
           to label %_ZN2ui10components4icon8IconSize4rems17h635537f4a661e5e7E.exit unwind label %5
@@ -9712,7 +9712,7 @@ define void @_ZN2ui10components5modal5Modal7section17h88dac975547af8f6E(ptr dead
   %25 = phi i64 [ %.pre.i, %20 ], [ %15, %9 ]
   %.sroa.01.0.i = phi ptr [ %14, %20 ], [ %.sink9.i.i, %9 ]
   %.sroa.0.0.i = phi ptr [ %21, %20 ], [ %.sink10.i.i, %9 ]
-  %26 = getelementptr inbounds { { ptr, { ptr, ptr } } }, ptr %.sroa.0.0.i, i64 %25
+  %26 = getelementptr inbounds [24 x i8], ptr %.sroa.0.0.i, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %27 = load i64, ptr %.sroa.01.0.i, align 8, !alias.scope !1842, !noalias !1843, !noundef !7
   %28 = add i64 %27, 1
@@ -16104,10 +16104,10 @@ define { ptr, i64 } @"_ZN2ui10components4icon95_$LT$impl$u20$core..convert..From
 switch.lookup:
   %switch.tableidx = xor i8 %0, -128
   %1 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN2ui10components4icon99_$LT$impl$u20$core..convert..From$LT$$RF$ui..components..icon..IconName$GT$$u20$for$u20$$RF$str$GT$4from17h4f5010bddc170b82E.35", i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN2ui10components4icon99_$LT$impl$u20$core..convert..From$LT$$RF$ui..components..icon..IconName$GT$$u20$for$u20$$RF$str$GT$4from17h4f5010bddc170b82E.35", i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN2ui10components4icon99_$LT$impl$u20$core..convert..From$LT$$RF$ui..components..icon..IconName$GT$$u20$for$u20$$RF$str$GT$4from17h4f5010bddc170b82E", i64 %2
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN2ui10components4icon99_$LT$impl$u20$core..convert..From$LT$$RF$ui..components..icon..IconName$GT$$u20$for$u20$$RF$str$GT$4from17h4f5010bddc170b82E", i64 %2
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load3, 1
@@ -16120,10 +16120,10 @@ switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !3278, !noundef !7
   %switch.tableidx = xor i8 %1, -128
   %2 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN2ui10components4icon99_$LT$impl$u20$core..convert..From$LT$$RF$ui..components..icon..IconName$GT$$u20$for$u20$$RF$str$GT$4from17h4f5010bddc170b82E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN2ui10components4icon99_$LT$impl$u20$core..convert..From$LT$$RF$ui..components..icon..IconName$GT$$u20$for$u20$$RF$str$GT$4from17h4f5010bddc170b82E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN2ui10components4icon99_$LT$impl$u20$core..convert..From$LT$$RF$ui..components..icon..IconName$GT$$u20$for$u20$$RF$str$GT$4from17h4f5010bddc170b82E.35", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN2ui10components4icon99_$LT$impl$u20$core..convert..From$LT$$RF$ui..components..icon..IconName$GT$$u20$for$u20$$RF$str$GT$4from17h4f5010bddc170b82E.35", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -16148,10 +16148,10 @@ switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !3278, !noundef !7
   %switch.tableidx = xor i8 %1, -128
   %2 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN2ui10components4icon8IconName4path17hbf39b26447d409b5E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2ui10components4icon8IconName4path17hbf39b26447d409b5E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext i8 %switch.tableidx to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2ui10components4icon8IconName4path17hbf39b26447d409b5E.36, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2ui10components4icon8IconName4path17hbf39b26447d409b5E.36, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

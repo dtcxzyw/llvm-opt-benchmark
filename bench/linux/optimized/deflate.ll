@@ -99,7 +99,7 @@ define dso_local noundef range(i32 -2, 1) i32 @zlib_deflateInit2(ptr noundef %0,
   store i64 %40, ptr %66, align 8
   %67 = lshr exact i32 %62, 1
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr i16, ptr %64, i64 %68
+  %69 = getelementptr [2 x i8], ptr %64, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %27, i64 5880
   store ptr %69, ptr %70, align 8
   %71 = shl nuw nsw i32 192, %4
@@ -168,7 +168,7 @@ define dso_local noundef range(i32 -2, 1) i32 @zlib_deflateInit2(ptr noundef %0,
   %107 = load i32, ptr %106, align 4
   %108 = add i32 %107, -1
   %109 = zext i32 %108 to i64
-  %110 = getelementptr i16, ptr %105, i64 %109
+  %110 = getelementptr [2 x i8], ptr %105, i64 %109
   store i16 0, ptr %110, align 2
   %111 = load ptr, ptr %104, align 8
   %112 = load i32, ptr %106, align 4
@@ -179,7 +179,7 @@ define dso_local noundef range(i32 -2, 1) i32 @zlib_deflateInit2(ptr noundef %0,
   %116 = getelementptr inbounds nuw i8, ptr %78, i64 172
   %117 = load i32, ptr %116, align 4
   %118 = sext i32 %117 to i64
-  %.split.i = getelementptr %struct.config_s, ptr @configuration_table, i64 %118
+  %.split.i = getelementptr [16 x i8], ptr @configuration_table, i64 %118
   %119 = getelementptr i8, ptr %.split.i, i64 2
   %120 = load i16, ptr %119, align 2
   %121 = zext i16 %120 to i32
@@ -282,7 +282,7 @@ define dso_local noundef range(i32 -2, 1) i32 @zlib_deflateReset(ptr noundef cap
   %34 = load i32, ptr %33, align 4
   %35 = add i32 %34, -1
   %36 = zext i32 %35 to i64
-  %37 = getelementptr i16, ptr %32, i64 %36
+  %37 = getelementptr [2 x i8], ptr %32, i64 %36
   store i16 0, ptr %37, align 2
   %38 = load ptr, ptr %31, align 8
   %39 = load i32, ptr %33, align 4
@@ -293,7 +293,7 @@ define dso_local noundef range(i32 -2, 1) i32 @zlib_deflateReset(ptr noundef cap
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 172
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
-  %.split = getelementptr %struct.config_s, ptr @configuration_table, i64 %45
+  %.split = getelementptr [16 x i8], ptr @configuration_table, i64 %45
   %46 = getelementptr i8, ptr %.split, i64 2
   %47 = load i16, ptr %46, align 2
   %48 = zext i16 %47 to i32
@@ -639,7 +639,7 @@ thread-pre-split:                                 ; preds = %165, %177
   %206 = getelementptr inbounds nuw i8, ptr %6, i64 172
   %207 = load i32, ptr %206, align 4
   %208 = sext i32 %207 to i64
-  %.split = getelementptr %struct.config_s, ptr @configuration_table, i64 %208
+  %.split = getelementptr [16 x i8], ptr @configuration_table, i64 %208
   %209 = getelementptr i8, ptr %.split, i64 8
   %210 = load ptr, ptr %209, align 8
   %211 = tail call i32 %210(ptr noundef nonnull %6, i32 noundef %1) #11
@@ -695,7 +695,7 @@ thread-pre-split:                                 ; preds = %165, %177
   %233 = load i32, ptr %232, align 4
   %234 = add i32 %233, -1
   %235 = zext i32 %234 to i64
-  %236 = getelementptr i16, ptr %231, i64 %235
+  %236 = getelementptr [2 x i8], ptr %231, i64 %235
   store i16 0, ptr %236, align 2
   %237 = load ptr, ptr %230, align 8
   %238 = load i32, ptr %232, align 4
@@ -1537,21 +1537,21 @@ define internal noundef range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 no
   store i32 %43, ptr %5, align 8
   %44 = load ptr, ptr %10, align 8
   %45 = zext i32 %43 to i64
-  %46 = getelementptr i16, ptr %44, i64 %45
+  %46 = getelementptr [2 x i8], ptr %44, i64 %45
   %47 = load i16, ptr %46, align 2
   %48 = zext i16 %47 to i32
   %49 = load ptr, ptr %11, align 8
   %50 = load i32, ptr %12, align 8
   %51 = and i32 %50, %35
   %52 = zext i32 %51 to i64
-  %53 = getelementptr i16, ptr %49, i64 %52
+  %53 = getelementptr [2 x i8], ptr %49, i64 %52
   store i16 %47, ptr %53, align 2
   %54 = load i32, ptr %8, align 4
   %55 = trunc i32 %54 to i16
   %56 = load ptr, ptr %10, align 8
   %57 = load i32, ptr %5, align 8
   %58 = zext i32 %57 to i64
-  %59 = getelementptr i16, ptr %56, i64 %58
+  %59 = getelementptr [2 x i8], ptr %56, i64 %58
   store i16 %55, ptr %59, align 2
   br label %60
 
@@ -1627,20 +1627,20 @@ thread-pre-split:                                 ; preds = %60, %63, %69
   store i32 %106, ptr %5, align 8
   %107 = load ptr, ptr %10, align 8
   %108 = zext i32 %106 to i64
-  %109 = getelementptr i16, ptr %107, i64 %108
+  %109 = getelementptr [2 x i8], ptr %107, i64 %108
   %110 = load i16, ptr %109, align 2
   %111 = load ptr, ptr %11, align 8
   %112 = load i32, ptr %12, align 8
   %113 = and i32 %112, %94
   %114 = zext i32 %113 to i64
-  %115 = getelementptr i16, ptr %111, i64 %114
+  %115 = getelementptr [2 x i8], ptr %111, i64 %114
   store i16 %110, ptr %115, align 2
   %116 = load i32, ptr %8, align 4
   %117 = trunc i32 %116 to i16
   %118 = load ptr, ptr %10, align 8
   %119 = load i32, ptr %5, align 8
   %120 = zext i32 %119 to i64
-  %121 = getelementptr i16, ptr %118, i64 %120
+  %121 = getelementptr [2 x i8], ptr %118, i64 %120
   store i16 %117, ptr %121, align 2
   %122 = load i32, ptr %15, align 8
   %123 = add i32 %122, -1
@@ -2060,21 +2060,21 @@ define internal noundef range(i32 0, 4) i32 @deflate_slow(ptr noundef %0, i32 no
   store i32 %46, ptr %5, align 8
   %47 = load ptr, ptr %10, align 8
   %48 = zext i32 %46 to i64
-  %49 = getelementptr i16, ptr %47, i64 %48
+  %49 = getelementptr [2 x i8], ptr %47, i64 %48
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
   %52 = load ptr, ptr %11, align 8
   %53 = load i32, ptr %12, align 8
   %54 = and i32 %53, %38
   %55 = zext i32 %54 to i64
-  %56 = getelementptr i16, ptr %52, i64 %55
+  %56 = getelementptr [2 x i8], ptr %52, i64 %55
   store i16 %50, ptr %56, align 2
   %57 = load i32, ptr %8, align 4
   %58 = trunc i32 %57 to i16
   %59 = load ptr, ptr %10, align 8
   %60 = load i32, ptr %5, align 8
   %61 = zext i32 %60 to i64
-  %62 = getelementptr i16, ptr %59, i64 %61
+  %62 = getelementptr [2 x i8], ptr %59, i64 %61
   store i16 %58, ptr %62, align 2
   br label %63
 
@@ -2189,21 +2189,21 @@ thread-pre-split16:                               ; preds = %77, %68, %71, %thre
   store i32 %130, ptr %5, align 8
   %131 = load ptr, ptr %10, align 8
   %132 = zext i32 %130 to i64
-  %133 = getelementptr i16, ptr %131, i64 %132
+  %133 = getelementptr [2 x i8], ptr %131, i64 %132
   %134 = load i16, ptr %133, align 2
   %135 = zext i16 %134 to i32
   %136 = load ptr, ptr %11, align 8
   %137 = load i32, ptr %12, align 8
   %138 = and i32 %137, %116
   %139 = zext i32 %138 to i64
-  %140 = getelementptr i16, ptr %136, i64 %139
+  %140 = getelementptr [2 x i8], ptr %136, i64 %139
   store i16 %134, ptr %140, align 2
   %141 = load i32, ptr %8, align 4
   %142 = trunc i32 %141 to i16
   %143 = load ptr, ptr %10, align 8
   %144 = load i32, ptr %5, align 8
   %145 = zext i32 %144 to i64
-  %146 = getelementptr i16, ptr %143, i64 %145
+  %146 = getelementptr [2 x i8], ptr %143, i64 %145
   store i16 %142, ptr %146, align 2
   %.pre = load i32, ptr %14, align 8
   br label %147
@@ -2774,7 +2774,7 @@ define internal fastcc void @fill_window(ptr noundef captures(none) %0) unnamed_
   %45 = load i32, ptr %12, align 4
   %46 = load ptr, ptr %13, align 8
   %47 = zext i32 %45 to i64
-  %48 = getelementptr i16, ptr %46, i64 %47
+  %48 = getelementptr [2 x i8], ptr %46, i64 %47
   br label %49
 
 49:                                               ; preds = %49, %36
@@ -2792,7 +2792,7 @@ define internal fastcc void @fill_window(ptr noundef captures(none) %0) unnamed_
 
 59:                                               ; preds = %49
   %60 = load ptr, ptr %14, align 8
-  %61 = getelementptr i16, ptr %60, i64 %9
+  %61 = getelementptr [2 x i8], ptr %60, i64 %9
   br label %62
 
 62:                                               ; preds = %62, %59
@@ -3272,7 +3272,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %151 = phi i8 [ %48, %43 ], [ %48, %55 ], [ %48, %61 ], [ %48, %65 ], [ %147, %139 ], [ %48, %.split.loop.exit20 ]
   %152 = and i32 %44, %22
   %153 = zext nneg i32 %152 to i64
-  %154 = getelementptr i16, ptr %20, i64 %153
+  %154 = getelementptr [2 x i8], ptr %20, i64 %153
   %155 = load i16, ptr %154, align 2
   %156 = zext i16 %155 to i32
   %157 = icmp uge i32 %18, %156

@@ -54,7 +54,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.colvarmodule::atom" = type { i32, i32, double, double, %"class.colvarmodule::rvector", %"class.colvarmodule::rvector", %"class.colvarmodule::rvector", %"class.colvarmodule::rvector" }
 %"class.std::tuple.98" = type { %"struct.std::_Tuple_impl.99" }
 %"struct.std::_Tuple_impl.99" = type { %"struct.std::_Head_base.100" }
 %"struct.std::_Head_base.100" = type { ptr }
@@ -4608,7 +4607,7 @@ _ZNSt10unique_ptrIN15neuralnetworkCV20neuralNetworkComputeESt14default_deleteIS1
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %1550, i8 0, i64 112, i1 false)
   %1554 = load ptr, ptr %47, align 8, !tbaa !108
-  %1555 = getelementptr inbounds nuw %"struct.std::pair", ptr %1554, i64 %storemerge2177
+  %1555 = getelementptr inbounds nuw [40 x i8], ptr %1554, i64 %storemerge2177
   %1556 = getelementptr inbounds nuw i8, ptr %1555, i64 8
   %1557 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairISt8functionIFddEES9_ESt4lessIS5_ESaIS6_IKS5_SA_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN15neuralnetworkCV23activation_function_mapB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %1556)
           to label %1558 unwind label %1576
@@ -4616,7 +4615,7 @@ _ZNSt10unique_ptrIN15neuralnetworkCV20neuralNetworkComputeESt14default_deleteIS1
 1558:                                             ; preds = %1553
   %1559 = load i64, ptr %74, align 8, !tbaa !4
   %1560 = load ptr, ptr %47, align 8, !tbaa !108
-  %1561 = getelementptr inbounds nuw %"struct.std::pair", ptr %1560, i64 %1559
+  %1561 = getelementptr inbounds nuw [40 x i8], ptr %1560, i64 %1559
   %1562 = getelementptr inbounds nuw i8, ptr %1561, i64 8
   %1563 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairISt8functionIFddEES9_ESt4lessIS5_ESaIS6_IKS5_SA_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN15neuralnetworkCV23activation_function_mapB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %1562)
           to label %1564 unwind label %1578
@@ -4626,9 +4625,9 @@ _ZNSt10unique_ptrIN15neuralnetworkCV20neuralNetworkComputeESt14default_deleteIS1
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   %1566 = load i64, ptr %74, align 8, !tbaa !4
   %1567 = load ptr, ptr %13, align 8, !tbaa !109
-  %1568 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1567, i64 %1566
+  %1568 = getelementptr inbounds nuw [32 x i8], ptr %1567, i64 %1566
   %1569 = load ptr, ptr %30, align 8, !tbaa !109
-  %1570 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1569, i64 %1566
+  %1570 = getelementptr inbounds nuw [32 x i8], ptr %1569, i64 %1566
   invoke void @_ZN15neuralnetworkCV10denseLayerC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKSt8functionIFddEESD_(ptr noundef nonnull align 8 dereferenceable(128) %76, ptr noundef nonnull align 8 dereferenceable(32) %1568, ptr noundef nonnull align 8 dereferenceable(32) %1570, ptr noundef nonnull align 8 dereferenceable(32) %1557, ptr noundef nonnull align 8 dereferenceable(32) %1565)
           to label %1571 unwind label %1580
 
@@ -5217,14 +5216,14 @@ define void @_ZN6colvar13neuralNetwork10calc_valueEv(ptr noundef nonnull align 8
 .lr.ph:                                           ; preds = %1, %44
   %13 = phi ptr [ %19, %44 ], [ %12, %1 ]
   %.01532 = phi i64 [ %58, %44 ], [ 0, %1 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.01532
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.01532
   %15 = load ptr, ptr %14, align 8, !tbaa !124
   %16 = load ptr, ptr %15, align 8, !tbaa !110
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(1608) %15)
   %19 = load ptr, ptr %9, align 8, !tbaa !117
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01532
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.01532
   %21 = load ptr, ptr %20, align 8, !tbaa !124
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 592
   %23 = load i32, ptr %22, align 8, !tbaa !126
@@ -5300,7 +5299,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %38,
   %54 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !106
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !121
-  %57 = getelementptr inbounds nuw double, ptr %56, i64 %.01532
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.01532
   store double %53, ptr %57, align 8, !tbaa !190
   %58 = add nuw i64 %.01532, 1
   %59 = load ptr, ptr %10, align 8, !tbaa !113
@@ -5328,7 +5327,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %71 = load ptr, ptr %70, align 8, !tbaa !205
   %72 = getelementptr inbounds i8, ptr %71, i64 -24
   %73 = load ptr, ptr %72, align 8, !tbaa !121
-  %74 = getelementptr inbounds nuw double, ptr %73, i64 %69
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %69
   %75 = load double, ptr %74, align 8, !tbaa !190
   store double %75, ptr %7, align 8, !tbaa !190
   call void @_ZN11colvarvalueC1ERKd(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -5514,14 +5513,14 @@ define void @_ZN6colvar13neuralNetwork14calc_gradientsEv(ptr noundef nonnull ali
 8:                                                ; preds = %.lr.ph33, %.loopexit
   %9 = phi ptr [ %5, %.lr.ph33 ], [ %84, %.loopexit ]
   %.02631 = phi i64 [ 0, %.lr.ph33 ], [ %85, %.loopexit ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.02631
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.02631
   %11 = load ptr, ptr %10, align 8, !tbaa !124
   %12 = load ptr, ptr %11, align 8, !tbaa !110
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(1608) %11)
   %15 = load ptr, ptr %2, align 8, !tbaa !117
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.02631
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.02631
   %17 = load ptr, ptr %16, align 8, !tbaa !124
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 368
   %19 = load ptr, ptr %18, align 8, !tbaa !216
@@ -5535,13 +5534,13 @@ define void @_ZN6colvar13neuralNetwork14calc_gradientsEv(ptr noundef nonnull ali
   %25 = load i64, ptr %7, align 8, !tbaa !193
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %27 = load ptr, ptr %26, align 8, !tbaa !219
-  %28 = getelementptr inbounds nuw %"class.std::vector.5", ptr %27, i64 %25
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %25
   %29 = load ptr, ptr %28, align 8, !tbaa !121
-  %30 = getelementptr inbounds nuw double, ptr %29, i64 %.02631
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.02631
   %31 = load double, ptr %30, align 8, !tbaa !190
   %32 = tail call noundef double @_ZNK6colvar17linearCombination31getPolynomialFactorOfCVGradientEm(ptr noundef nonnull align 8 dereferenceable(1633) %0, i64 noundef %.02631)
   %33 = load ptr, ptr %2, align 8, !tbaa !117
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.02631
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.02631
   %35 = load ptr, ptr %34, align 8, !tbaa !124
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 592
   %37 = load i32, ptr %36, align 8, !tbaa !126
@@ -5602,7 +5601,7 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %43, %44, %45, %46, 
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %.02429 = phi i64 [ %72, %._crit_edge ], [ 0, %.preheader.preheader ]
-  %61 = getelementptr inbounds nuw ptr, ptr %56, i64 %.02429
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.02429
   %62 = load ptr, ptr %61, align 8, !tbaa !223
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 504
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 512
@@ -5629,7 +5628,7 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %43, %44, %45, %46, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.028 = phi i64 [ %83, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %73 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %66, i64 %.028
+  %73 = getelementptr inbounds nuw [120 x i8], ptr %66, i64 %.028
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 96
   %75 = load double, ptr %74, align 8, !tbaa !231, !noalias !232
   %76 = fmul double %42, %75
@@ -5698,7 +5697,7 @@ define void @_ZN6colvar13neuralNetwork11apply_forceERK11colvarvalue(ptr noundef 
 21:                                               ; preds = %.lr.ph21, %.loopexit
   %22 = phi ptr [ %8, %.lr.ph21 ], [ %98, %.loopexit ]
   %.019 = phi i64 [ 0, %.lr.ph21 ], [ %99, %.loopexit ]
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.019
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.019
   %24 = load ptr, ptr %23, align 8, !tbaa !124
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 368
   %26 = load ptr, ptr %25, align 8, !tbaa !216
@@ -5718,12 +5717,12 @@ define void @_ZN6colvar13neuralNetwork11apply_forceERK11colvarvalue(ptr noundef 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %34 = phi ptr [ %44, %.lr.ph ], [ %33, %.preheader ]
   %.01718 = phi i64 [ %37, %.lr.ph ], [ 0, %.preheader ]
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.01718
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.01718
   %36 = load ptr, ptr %35, align 8, !tbaa !223
   call void @_ZN12colvarmodule10atom_group18apply_colvar_forceERKd(ptr noundef nonnull align 8 dereferenceable(1496) %36, ptr noundef nonnull align 8 dereferenceable(8) %11)
   %37 = add nuw i64 %.01718, 1
   %38 = load ptr, ptr %5, align 8, !tbaa !117
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.019
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.019
   %40 = load ptr, ptr %39, align 8, !tbaa !124
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 536
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 544
@@ -5742,9 +5741,9 @@ define void @_ZN6colvar13neuralNetwork11apply_forceERK11colvarvalue(ptr noundef 
   %53 = load i64, ptr %10, align 8, !tbaa !193
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 96
   %55 = load ptr, ptr %54, align 8, !tbaa !219
-  %56 = getelementptr inbounds nuw %"class.std::vector.5", ptr %55, i64 %53
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %53
   %57 = load ptr, ptr %56, align 8, !tbaa !121
-  %58 = getelementptr inbounds nuw double, ptr %57, i64 %.019
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.019
   %59 = load double, ptr %58, align 8, !tbaa !190
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -5755,7 +5754,7 @@ define void @_ZN6colvar13neuralNetwork11apply_forceERK11colvarvalue(ptr noundef 
   call void @_ZN11colvarvalueC1ERKd(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %63 = load ptr, ptr %5, align 8, !tbaa !117
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %.019
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.019
   %65 = load ptr, ptr %64, align 8, !tbaa !124
   %66 = load ptr, ptr %65, align 8, !tbaa !110
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 160
@@ -7147,7 +7146,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !109
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !22
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !25
   ret void
 
@@ -7378,7 +7377,7 @@ _ZNSt6vectorISt4pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7
 _ZNSt12_Vector_baseISt4pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit26, %76
   store ptr %20, ptr %0, align 8, !tbaa !108
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !87
-  %80 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i64 %16
+  %80 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %80, ptr %75, align 8, !tbaa !90
   ret void
 }
@@ -8640,9 +8639,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !121
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !118
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !215
   br label %41
 

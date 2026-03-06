@@ -4123,7 +4123,7 @@ define hidden void @_ZN17opencv_tensorflow5OpDef5ClearEv(ptr noundef nonnull ali
 9:                                                ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow12OpDef_ArgDefEE5ClearEPS4_.exit.i.i, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow12OpDef_ArgDefEE5ClearEPS4_.exit.i.i ], [ 0, %5 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -4170,7 +4170,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow12OpDef_ArgDefEE5Clear
 30:                                               ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow12OpDef_ArgDefEE5ClearEPS4_.exit.i.i4, %26
   %indvars.iv.i.i2 = phi i64 [ %indvars.iv.next.i.i3, %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow12OpDef_ArgDefEE5ClearEPS4_.exit.i.i4 ], [ 0, %26 ]
   %indvars.iv.next.i.i3 = add nuw nsw i64 %indvars.iv.i.i2, 1
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i.i2
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i.i2
   %32 = load ptr, ptr %31, align 8, !tbaa !56
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %33)
@@ -4217,7 +4217,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN17opencv_tensorflow12OpDef_ArgDefEE5Clear
 51:                                               ; preds = %51, %47
   %indvars.iv.i.i8 = phi i64 [ %indvars.iv.next.i.i9, %51 ], [ 0, %47 ]
   %indvars.iv.next.i.i9 = add nuw nsw i64 %indvars.iv.i.i8, 1
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.i.i8
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i.i8
   %53 = load ptr, ptr %52, align 8, !tbaa !56
   tail call void @_ZN17opencv_tensorflow13OpDef_AttrDef5ClearEv(ptr noundef nonnull align 8 dereferenceable(72) %53)
   %exitcond.not.i.i10 = icmp eq i64 %indvars.iv.next.i.i9, %wide.trip.count.i.i7
@@ -4436,7 +4436,7 @@ _ZN17opencv_tensorflow5OpDef22_internal_mutable_nameB5cxx11Ev.exit: ; preds = %6
   %89 = add nsw i32 %84, 1
   store i32 %89, ptr %23, align 8, !tbaa !72
   %90 = sext i32 %84 to i64
-  %91 = getelementptr inbounds ptr, ptr %88, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %88, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !56
   br label %_ZN17opencv_tensorflow5OpDef23_internal_add_input_argEv.exit
 
@@ -4489,7 +4489,7 @@ _ZN17opencv_tensorflow5OpDef23_internal_add_input_argEv.exit: ; preds = %87, %93
   %118 = add nsw i32 %113, 1
   store i32 %118, ptr %20, align 8, !tbaa !72
   %119 = sext i32 %113 to i64
-  %120 = getelementptr inbounds ptr, ptr %117, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr %117, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !56
   br label %_ZN17opencv_tensorflow5OpDef24_internal_add_output_argEv.exit
 
@@ -4542,7 +4542,7 @@ _ZN17opencv_tensorflow5OpDef24_internal_add_output_argEv.exit: ; preds = %116, %
   %147 = add nsw i32 %142, 1
   store i32 %147, ptr %17, align 8, !tbaa !72
   %148 = sext i32 %142 to i64
-  %149 = getelementptr inbounds ptr, ptr %146, i64 %148
+  %149 = getelementptr inbounds [8 x i8], ptr %146, i64 %148
   %150 = load ptr, ptr %149, align 8, !tbaa !56
   br label %_ZN17opencv_tensorflow5OpDef18_internal_add_attrEv.exit
 
@@ -4987,7 +4987,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %42,
   %46 = load ptr, ptr %38, align 8, !tbaa !71
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = sext i32 %.05091 to i64
-  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !56
   store i8 18, ptr %.0.i53, align 1, !tbaa !35
   %51 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 1
@@ -5040,7 +5040,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit57: ; preds = %6
   %69 = load ptr, ptr %41, align 8, !tbaa !71
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = sext i32 %.05193 to i64
-  %72 = getelementptr inbounds ptr, ptr %70, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %70, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !56
   store i8 26, ptr %.0.i56, align 1, !tbaa !35
   %74 = getelementptr inbounds nuw i8, ptr %.0.i56, i64 1
@@ -5094,7 +5094,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit62: ; preds = %9
   %97 = load ptr, ptr %64, align 8, !tbaa !71
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = sext i32 %.04999 to i64
-  %100 = getelementptr inbounds ptr, ptr %98, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr %98, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !56
   store i8 34, ptr %.0.i61, align 1, !tbaa !35
   %102 = getelementptr inbounds nuw i8, ptr %.0.i61, i64 1
@@ -7182,7 +7182,7 @@ define hidden void @_ZN17opencv_tensorflow6OpList5ClearEv(ptr noundef nonnull al
 9:                                                ; preds = %9, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %9 ], [ 0, %5 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !56
   tail call void @_ZN17opencv_tensorflow5OpDef5ClearEv(ptr noundef nonnull align 8 dereferenceable(128) %11)
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -7305,7 +7305,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   %57 = add nsw i32 %52, 1
   store i32 %57, ptr %10, align 8, !tbaa !72
   %58 = sext i32 %52 to i64
-  %59 = getelementptr inbounds ptr, ptr %56, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %56, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !56
   br label %_ZN17opencv_tensorflow6OpList16_internal_add_opEv.exit
 
@@ -7413,7 +7413,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %10,
   %14 = load ptr, ptr %6, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = sext i32 %.01114 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !56
   store i8 10, ptr %.0.i12, align 1, !tbaa !35
   %19 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 1
@@ -7618,7 +7618,7 @@ define hidden void @_ZN17opencv_tensorflow6OpList8CopyFromERKS0_(ptr noundef non
 12:                                               ; preds = %12, %8
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %12 ], [ 0, %8 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !56
   tail call void @_ZN17opencv_tensorflow5OpDef5ClearEv(ptr noundef nonnull align 8 dereferenceable(128) %14)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -8259,7 +8259,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 10:                                               ; preds = %7, %10
   %indvars.iv = phi i64 [ %9, %7 ], [ %indvars.iv.next, %10 ]
   %11 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17opencv_tensorflow12OpDef_ArgDefEJEEEPT_PS1_DpOT0_(ptr noundef %8)
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !56
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -8279,9 +8279,9 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next28, %.lr.ph ]
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %15 = load ptr, ptr %14, align 8, !tbaa !56
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %17 = load ptr, ptr %16, align 8, !tbaa !56
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow12OpDef_ArgDefEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
@@ -8310,7 +8310,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 10:                                               ; preds = %7, %10
   %indvars.iv = phi i64 [ %9, %7 ], [ %indvars.iv.next, %10 ]
   %11 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17opencv_tensorflow13OpDef_AttrDefEJEEEPT_PS1_DpOT0_(ptr noundef %8)
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !56
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -8330,9 +8330,9 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next28, %.lr.ph ]
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %15 = load ptr, ptr %14, align 8, !tbaa !56
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %17 = load ptr, ptr %16, align 8, !tbaa !56
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow13OpDef_AttrDefEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(72) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
@@ -8359,7 +8359,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 10:                                               ; preds = %7, %10
   %indvars.iv = phi i64 [ %9, %7 ], [ %indvars.iv.next, %10 ]
   %11 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17opencv_tensorflow5OpDefEJEEEPT_PS1_DpOT0_(ptr noundef %8)
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !56
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -8379,9 +8379,9 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next28, %.lr.ph ]
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %15 = load ptr, ptr %14, align 8, !tbaa !56
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %17 = load ptr, ptr %16, align 8, !tbaa !56
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow5OpDefEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1

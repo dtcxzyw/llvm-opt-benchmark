@@ -731,7 +731,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9c59dd1ab298e68fE.ll
 9:                                                ; preds = %8, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !8, !noundef !8
-  %12 = getelementptr inbounds { i32, [5 x i32] }, ptr %11, i64 %5
+  %12 = getelementptr inbounds [24 x i8], ptr %11, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %13 = add i64 %5, 1
   store i64 %13, ptr %4, align 8
@@ -912,7 +912,7 @@ common.resume:                                    ; preds = %32, %17
 "_ZN90_$LT$winnow..error..ErrMode$LT$E$GT$$u20$as$u20$winnow..error..AddContext$LT$I$C$C$GT$$GT$11add_context28_$u7b$$u7b$closure$u7d$$u7d$17hba76dfe2ba2c663aE.llvm.13696845104606942333.exit": ; preds = %11, %16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !182, !noalias !189, !nonnull !8, !noundef !8
-  %23 = getelementptr inbounds { i32, [5 x i32] }, ptr %22, i64 %13
+  %23 = getelementptr inbounds [24 x i8], ptr %22, i64 %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 24, i1 false), !noalias !197
   %24 = add i64 %13, 1
   store i64 %24, ptr %12, align 8, !alias.scope !182, !noalias !189
@@ -949,7 +949,7 @@ common.resume:                                    ; preds = %32, %17
 "_ZN90_$LT$winnow..error..ErrMode$LT$E$GT$$u20$as$u20$winnow..error..AddContext$LT$I$C$C$GT$$GT$11add_context28_$u7b$$u7b$closure$u7d$$u7d$17hba76dfe2ba2c663aE.llvm.13696845104606942333.exit1": ; preds = %26, %31
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %37 = load ptr, ptr %36, align 8, !alias.scope !198, !noalias !205, !nonnull !8, !noundef !8
-  %38 = getelementptr inbounds { i32, [5 x i32] }, ptr %37, i64 %28
+  %38 = getelementptr inbounds [24 x i8], ptr %37, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 24, i1 false), !noalias !213
   %39 = add i64 %28, 1
   store i64 %39, ptr %27, align 8, !alias.scope !198, !noalias !205
@@ -2383,7 +2383,7 @@ define hidden void @"_ZN90_$LT$winnow..error..ErrMode$LT$E$GT$$u20$as$u20$winnow
 "_ZN95_$LT$winnow..error..ContextError$LT$C$GT$$u20$as$u20$winnow..error..AddContext$LT$I$C$C$GT$$GT$11add_context17h70ca00fcfc83c492E.llvm.13696845104606942333.exit": ; preds = %3, %8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !594, !noalias !598, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds { i32, [5 x i32] }, ptr %15, i64 %5
+  %16 = getelementptr inbounds [24 x i8], ptr %15, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !591
   %17 = add i64 %5, 1
   store i64 %17, ptr %4, align 8, !alias.scope !594, !noalias !598
@@ -2641,7 +2641,7 @@ define hidden void @"_ZN95_$LT$winnow..error..ContextError$LT$C$GT$$u20$as$u20$w
 13:                                               ; preds = %5, %10
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !680, !noalias !683, !nonnull !8, !noundef !8
-  %16 = getelementptr inbounds { i32, [5 x i32] }, ptr %15, i64 %7
+  %16 = getelementptr inbounds [24 x i8], ptr %15, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false)
   %17 = add i64 %7, 1
   store i64 %17, ptr %6, align 8, !alias.scope !680, !noalias !683

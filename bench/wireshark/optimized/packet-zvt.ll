@@ -8,9 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct.true_false_string = type { ptr, ptr }
 %struct.expert_field = type { i32, i32 }
-%struct._apdu_info_t = type { i16, i32, i32, ptr }
-%struct._bitmap_info_t = type { i8, i16, ptr }
-%struct._tlv_info_t = type { i32, ptr }
 
 @proto_register_zvt.ett = internal global [7 x ptr] [ptr @ett_zvt, ptr @ett_zvt_apdu, ptr @ett_zvt_bitmap, ptr @ett_zvt_tlv_dat_obj, ptr @ett_zvt_tlv_subseq, ptr @ett_zvt_tlv_tag, ptr @ett_zvt_tlv_receipt], align 16
 @ett_zvt = internal global i32 0, align 4
@@ -297,7 +294,7 @@ define hidden void @proto_register_zvt() local_unnamed_addr #0 {
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
   %3 = load ptr, ptr @apdu_table, align 8
-  %4 = getelementptr %struct._apdu_info_t, ptr @apdu_info, i64 %indvars.iv
+  %4 = getelementptr [24 x i8], ptr @apdu_info, i64 %indvars.iv
   %5 = load i16, ptr %4, align 8
   %6 = zext i16 %5 to i64
   %7 = inttoptr i64 %6 to ptr
@@ -314,7 +311,7 @@ define hidden void @proto_register_zvt() local_unnamed_addr #0 {
 11:                                               ; preds = %9, %11
   %indvars.iv19 = phi i64 [ 0, %9 ], [ %indvars.iv.next20, %11 ]
   %12 = load ptr, ptr @bitmap_table, align 8
-  %13 = getelementptr %struct._bitmap_info_t, ptr @bitmap_info, i64 %indvars.iv19
+  %13 = getelementptr [16 x i8], ptr @bitmap_info, i64 %indvars.iv19
   %14 = load i8, ptr %13, align 16
   %15 = zext i8 %14 to i64
   %16 = inttoptr i64 %15 to ptr
@@ -331,7 +328,7 @@ define hidden void @proto_register_zvt() local_unnamed_addr #0 {
 20:                                               ; preds = %18, %20
   %indvars.iv23 = phi i64 [ 0, %18 ], [ %indvars.iv.next24, %20 ]
   %21 = load ptr, ptr @tlv_table, align 8
-  %22 = getelementptr %struct._tlv_info_t, ptr @tlv_info, i64 %indvars.iv23
+  %22 = getelementptr [16 x i8], ptr @tlv_info, i64 %indvars.iv23
   %23 = load i32, ptr %22, align 16
   %24 = zext i32 %23 to i64
   %25 = inttoptr i64 %24 to ptr

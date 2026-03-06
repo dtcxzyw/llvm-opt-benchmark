@@ -277,7 +277,7 @@ common.resume:                                    ; preds = %28, %42
   %35 = phi i64 [ %.pre.i9, %31 ], [ %26, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h28f4d85d54595873E.llvm.368415048798493651.exit.i7" ]
   %.05.i = phi ptr [ %21, %31 ], [ %.sink2.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h28f4d85d54595873E.llvm.368415048798493651.exit.i7" ]
   %.0.i = phi ptr [ %32, %31 ], [ %.sink3.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h28f4d85d54595873E.llvm.368415048798493651.exit.i7" ]
-  %36 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %.0.i, i64 %35
+  %36 = getelementptr inbounds [40 x i8], ptr %.0.i, i64 %35
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %37 = load i64, ptr %.05.i, align 8, !alias.scope !61, !noalias !62, !noundef !4
   %38 = add i64 %37, 1
@@ -305,7 +305,7 @@ common.resume:                                    ; preds = %28, %42
   br i1 %.not, label %49, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds { ptr, { { ptr, ptr, i64 } }, i64 }, ptr %.sink3.i, i64 %.sroa.7.022
+  %47 = getelementptr inbounds [40 x i8], ptr %.sink3.i, i64 %.sroa.7.022
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
   %48 = add i64 %.sroa.7.022, 1
   %exitcond.not = icmp eq i64 %48, %.sink.i
@@ -1184,7 +1184,7 @@ define hidden { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A
   %12 = add i64 %3, -1
   store i64 %12, ptr %2, align 8
   %13 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds i64, ptr %13, i64 %7
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %7
   %15 = load i64, ptr %14, align 8, !noundef !4
   br label %16
 

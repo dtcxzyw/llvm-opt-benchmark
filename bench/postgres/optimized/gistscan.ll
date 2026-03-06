@@ -3,12 +3,6 @@ source_filename = "bench/postgres/original/gistscan.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.IndexOrderByDistance = type { double, i8 }
-
 @.str = private unnamed_addr constant [19 x i8] c"GiST queue context\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"GiST page data context\00", align 1
 @.str.2 = private unnamed_addr constant [59 x i8] c"missing support function %d for attribute %d of index \22%s\22\00", align 1
@@ -175,7 +169,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
   %49 = load ptr, ptr %28, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 368
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr i32, ptr %51, i64 %indvars.iv
+  %52 = getelementptr [4 x i8], ptr %51, i64 %indvars.iv
   %53 = getelementptr i8, ptr %52, i64 -4
   %54 = load i32, ptr %53, align 4
   tail call void @TupleDescInitEntry(ptr noundef %47, i16 noundef signext %48, ptr noundef null, i32 noundef %54, i32 noundef -1, i32 noundef 0) #5
@@ -195,7 +189,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
   %62 = sext i32 %61 to i64
   %63 = shl nsw i64 %62, 4
   %64 = getelementptr i8, ptr %60, i64 %63
-  %65 = getelementptr %struct.FormData_pg_attribute, ptr %64, i64 %indvars.iv149
+  %65 = getelementptr [100 x i8], ptr %64, i64 %indvars.iv149
   %66 = getelementptr i8, ptr %65, i64 -8
   %67 = load i32, ptr %66, align 4
   tail call void @TupleDescInitEntry(ptr noundef %57, i16 noundef signext %58, ptr noundef null, i32 noundef %67, i32 noundef -1, i32 noundef 0) #5
@@ -252,10 +246,10 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
 93:                                               ; preds = %.lr.ph133, %93
   %indvars.iv154 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next155, %93 ]
   %94 = load ptr, ptr %92, align 8
-  %95 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %94, i64 %indvars.iv154
+  %95 = getelementptr inbounds nuw [72 x i8], ptr %94, i64 %indvars.iv154
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv154
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv154
   store ptr %97, ptr %98, align 8
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %99 = load i32, ptr %82, align 8
@@ -280,20 +274,20 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
 .lr.ph136:                                        ; preds = %.loopexit125, %128
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %128 ], [ 0, %.loopexit125 ]
   %110 = load ptr, ptr %103, align 8
-  %111 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %110, i64 %indvars.iv157
+  %111 = getelementptr inbounds nuw [72 x i8], ptr %110, i64 %indvars.iv157
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %113 = load ptr, ptr %7, align 8
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %115 = load i16, ptr %114, align 4
   %116 = sext i16 %115 to i64
   %117 = getelementptr i8, ptr %113, i64 -8
-  %118 = getelementptr %struct.FmgrInfo, ptr %117, i64 %116
+  %118 = getelementptr [48 x i8], ptr %117, i64 %116
   %119 = load ptr, ptr %113, align 8
   tail call void @fmgr_info_copy(ptr noundef nonnull %112, ptr noundef %118, ptr noundef %119) #5
   br i1 %10, label %124, label %120
 
 120:                                              ; preds = %.lr.ph136
-  %121 = getelementptr inbounds nuw ptr, ptr %.0111, i64 %indvars.iv157
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %.0111, i64 %indvars.iv157
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr inbounds nuw i8, ptr %111, i64 40
   store ptr %122, ptr %123, align 8
@@ -351,10 +345,10 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
 146:                                              ; preds = %.lr.ph140, %146
   %indvars.iv160 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next161, %146 ]
   %147 = load ptr, ptr %145, align 8
-  %148 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %147, i64 %indvars.iv160
+  %148 = getelementptr inbounds nuw [72 x i8], ptr %147, i64 %indvars.iv160
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 40
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds nuw ptr, ptr %142, i64 %indvars.iv160
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv160
   store ptr %150, ptr %151, align 8
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %152 = load i32, ptr %135, align 4
@@ -383,13 +377,13 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
 .lr.ph144:                                        ; preds = %.loopexit, %201
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %201 ], [ 0, %.loopexit ]
   %167 = load ptr, ptr %156, align 8
-  %168 = getelementptr inbounds nuw %struct.ScanKeyData, ptr %167, i64 %indvars.iv163
+  %168 = getelementptr inbounds nuw [72 x i8], ptr %167, i64 %indvars.iv163
   %169 = load ptr, ptr %7, align 8
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %171 = load i16, ptr %170, align 4
   %172 = sext i16 %171 to i64
   %173 = getelementptr i8, ptr %169, i64 10744
-  %174 = getelementptr %struct.FmgrInfo, ptr %173, i64 %172
+  %174 = getelementptr [48 x i8], ptr %173, i64 %172
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load i32, ptr %175, align 8
   %.not122 = icmp eq i32 %176, 0
@@ -415,7 +409,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
   %191 = load i32, ptr %190, align 8
   %192 = tail call i32 @get_func_rettype(i32 noundef %191) #5
   %193 = load ptr, ptr %164, align 8
-  %194 = getelementptr inbounds nuw i32, ptr %193, i64 %indvars.iv163
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv163
   store i32 %192, ptr %194, align 4
   %195 = load ptr, ptr %7, align 8
   %196 = load ptr, ptr %195, align 8
@@ -423,7 +417,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly captures(
   br i1 %10, label %201, label %197
 
 197:                                              ; preds = %188
-  %198 = getelementptr inbounds nuw ptr, ptr %.0108, i64 %indvars.iv163
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %.0108, i64 %indvars.iv163
   %199 = load ptr, ptr %198, align 8
   %200 = getelementptr inbounds nuw i8, ptr %168, i64 40
   store ptr %199, ptr %200, align 8
@@ -474,21 +468,21 @@ define internal i32 @pairingheap_GISTSearchItem_cmp(ptr noundef readonly capture
 9:                                                ; preds = %.lr.ph, %29
   %10 = phi i32 [ %5, %.lr.ph ], [ %30, %29 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %11 = getelementptr inbounds nuw %struct.IndexOrderByDistance, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i8, ptr %12, align 8, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %9
-  %16 = getelementptr %struct.IndexOrderByDistance, ptr %1, i64 %indvars.iv
+  %16 = getelementptr [16 x i8], ptr %1, i64 %indvars.iv
   %17 = getelementptr i8, ptr %16, i64 64
   %18 = load i8, ptr %17, align 8, !range !4, !noundef !5
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %29, label %.loopexit
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds nuw %struct.IndexOrderByDistance, ptr %8, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 8, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1

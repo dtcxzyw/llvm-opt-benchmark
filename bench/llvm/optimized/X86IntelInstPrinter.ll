@@ -12,14 +12,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
 %"struct.std::_Head_base" = type { i64 }
-%"class.llvm::MCOperand" = type { i8, %union.anon.10 }
-%union.anon.10 = type { i64 }
 %"struct.llvm::AliasMatchingData" = type { %"class.llvm::ArrayRef", %"class.llvm::ArrayRef.5", %"class.llvm::ArrayRef.6", %"class.llvm::StringRef", ptr }
 %"class.llvm::ArrayRef" = type { ptr, i64 }
 %"class.llvm::ArrayRef.5" = type { ptr, i64 }
 %"class.llvm::ArrayRef.6" = type { ptr, i64 }
 %"class.llvm::StringRef" = type { ptr, i64 }
-%"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
 
 $_ZN4llvm11raw_ostreamlsEPKc = comdat any
 
@@ -126,10 +123,10 @@ $_ZN4llvm13MCInstPrinter27applyTargetSpecificCLOptionENS_9StringRefE = comdat an
 define dso_local { ptr, i64 } @_ZNK4llvm19X86IntelInstPrinter11getMnemonicERKNS_6MCInstE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 8, !tbaa !3
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @_ZZNK4llvm19X86IntelInstPrinter11getMnemonicERKNS_6MCInstEE7OpInfo0, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZZNK4llvm19X86IntelInstPrinter11getMnemonicERKNS_6MCInstEE7OpInfo0, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !17
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr @_ZZNK4llvm19X86IntelInstPrinter11getMnemonicERKNS_6MCInstEE7OpInfo1, i64 %4
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @_ZZNK4llvm19X86IntelInstPrinter11getMnemonicERKNS_6MCInstEE7OpInfo1, i64 %4
   %9 = load i32, ptr %8, align 4, !tbaa !17
   %10 = zext i32 %9 to i64
   %11 = shl nuw i64 %10, 32
@@ -1408,7 +1405,7 @@ define dso_local void @_ZN4llvm19X86IntelInstPrinter12printOperandEPKNS_6MCInstE
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = zext i32 %2 to i64
   %10 = load ptr, ptr %8, align 8, !tbaa !24
-  %11 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %9
   %12 = load i8, ptr %11, align 8, !tbaa !25
   switch i8 %12, label %50 [
     i8 1, label %13
@@ -1422,7 +1419,7 @@ define dso_local void @_ZN4llvm19X86IntelInstPrinter12printOperandEPKNS_6MCInstE
   call void @_ZN4llvm13MCInstPrinter6markupERNS_11raw_ostreamENS0_6MarkupE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MCInstPrinter::WithMarkup") align 8 %5, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i32 noundef 1) #13
   %16 = add i32 %15, -1
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !29
   %20 = zext i16 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE7AsmStrs, i64 %20
@@ -1639,7 +1636,7 @@ define dso_local void @_ZN4llvm19X86IntelInstPrinter18printSTiRegOperandEPKNS_6M
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = zext i32 %2 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !24
-  %9 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !28
   %12 = icmp eq i32 %11, 127
@@ -1672,7 +1669,7 @@ define dso_local void @_ZN4llvm19X86IntelInstPrinter18printSTiRegOperandEPKNS_6M
   call void @_ZN4llvm13MCInstPrinter6markupERNS_11raw_ostreamENS0_6MarkupE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MCInstPrinter::WithMarkup") align 8 %5, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i32 noundef 1) #13
   %28 = add i32 %11, -1
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !29
   %32 = zext i16 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE7AsmStrs, i64 %32
@@ -1757,18 +1754,18 @@ define dso_local void @_ZN4llvm19X86IntelInstPrinter17printMemReferenceEPKNS_6MC
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = zext i32 %2 to i64
   %31 = load ptr, ptr %29, align 8, !tbaa !24
-  %32 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %30
   %33 = add i32 %2, 1
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !28
   %38 = add i32 %2, 2
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %31, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %39
   %41 = add i32 %2, 3
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %31, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %42
   %44 = add i32 %2, 4
   call void @_ZN4llvm20X86InstPrinterCommon19printOptionalSegRegEPKNS_6MCInstEjRNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, i32 noundef %44, ptr noundef nonnull align 8 dereferenceable(48) %3) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2318,7 +2315,7 @@ define dso_local void @_ZN4llvm19X86IntelInstPrinter10printU8ImmEPKNS_6MCInstEjR
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = zext i32 %2 to i64
   %9 = load ptr, ptr %7, align 8, !tbaa !24
-  %10 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %8
   %11 = load i8, ptr %10, align 8, !tbaa !25
   %12 = icmp eq i8 %11, 5
   br i1 %12, label %13, label %18
@@ -2336,7 +2333,7 @@ define dso_local void @_ZN4llvm19X86IntelInstPrinter10printU8ImmEPKNS_6MCInstEjR
   call void @_ZN4llvm13MCInstPrinter6markupERNS_11raw_ostreamENS0_6MarkupE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MCInstPrinter::WithMarkup") align 8 %5, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i32 noundef 0) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = load ptr, ptr %7, align 8, !tbaa !24
-  %20 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %19, i64 %8
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !28
   %23 = and i64 %22, 255
@@ -2546,7 +2543,7 @@ declare void @_ZN4llvm20X86InstPrinterCommon20printRoundingControlEPKNS_6MCInstE
 define dso_local noundef nonnull ptr @_ZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterE(i32 %0) local_unnamed_addr #4 align 2 {
   %2 = add i32 %0, -1
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 %3
+  %4 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !29
   %6 = zext i16 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE7AsmStrs, i64 %6
@@ -2739,7 +2736,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i:
   call void @_ZN4llvm13MCInstPrinter6markupERNS_11raw_ostreamENS0_6MarkupE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MCInstPrinter::WithMarkup") align 8 %3, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef 1) #13
   %4 = add i32 %2, -1
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE12RegAsmOffset, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !29
   %8 = zext i16 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm19X86IntelInstPrinter15getRegisterNameENS_10MCRegisterEE7AsmStrs, i64 %8
@@ -2864,7 +2861,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19X86IntelInstPrinter20printVecComp
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = zext i32 %8 to i64
   %11 = load ptr, ptr %9, align 8, !tbaa !24
-  %12 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %10
   %13 = load i8, ptr %12, align 8, !tbaa !25
   %14 = icmp eq i8 %13, 2
   br i1 %14, label %15, label %_ZN4llvm11raw_ostreamlsEPKc.exit237
@@ -2878,7 +2875,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm19X86IntelInstPrinter20printVecComp
   %21 = load ptr, ptr %19, align 8, !tbaa !88
   %22 = zext i32 %20 to i64
   %23 = sub nsw i64 0, %22
-  %24 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %21, i64 %23
+  %24 = getelementptr inbounds [32 x i8], ptr %21, i64 %23
   switch i32 %20, label %_ZN4llvm11raw_ostreamlsEPKc.exit237 [
     i32 1318, label %25
     i32 1319, label %25
@@ -3869,7 +3866,7 @@ define dso_local void @_ZN4llvm19X86IntelInstPrinter14printMemOffsetEPKNS_6MCIns
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = zext i32 %2 to i64
   %10 = load ptr, ptr %8, align 8, !tbaa !24
-  %11 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %9
   %12 = add i32 %2, 1
   tail call void @_ZN4llvm20X86InstPrinterCommon19printOptionalSegRegEPKNS_6MCInstEjRNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, i32 noundef %12, ptr noundef nonnull align 8 dereferenceable(48) %3) #13
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

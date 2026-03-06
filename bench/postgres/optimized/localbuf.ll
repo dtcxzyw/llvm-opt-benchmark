@@ -8,10 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ResourceOwnerDesc = type { ptr, i32, i32, ptr, ptr }
 %struct.buftag = type { i32, i32, i32, i32, i32 }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.BufferDesc = type { %struct.buftag, i32, %struct.pg_atomic_uint32, i32, i32, %struct.LWLock }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.proclist_head = type { i32, i32 }
 %struct.BufferManagerRelation = type { ptr, ptr, i8 }
 
 @NLocBuffer = dso_local local_unnamed_addr global i32 0, align 4
@@ -164,7 +160,7 @@ define internal fastcc void @InitLocalBuffers() unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %23 = load ptr, ptr @LocalBufferDescriptors, align 8
-  %24 = getelementptr inbounds nuw %struct.BufferDesc, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [52 x i8], ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %26 = trunc i64 %indvars.iv to i32
   %27 = sub i32 -2, %26
@@ -240,7 +236,7 @@ define dso_local ptr @LocalBufferAlloc(ptr noundef readonly captures(none) %0, i
   %25 = load i32, ptr %24, align 4
   %26 = load ptr, ptr @LocalBufferDescriptors, align 8
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw %struct.BufferDesc, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [52 x i8], ptr %26, i64 %27
   %29 = getelementptr i8, ptr %28, i64 20
   %.val.i = load i32, ptr %29, align 4
   %30 = sub i32 -2, %.val.i
@@ -248,7 +244,7 @@ define dso_local ptr @LocalBufferAlloc(ptr noundef readonly captures(none) %0, i
   %32 = load volatile i32, ptr %31, align 4
   %33 = load ptr, ptr @LocalRefCount, align 8
   %34 = sext i32 %30 to i64
-  %35 = getelementptr inbounds i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %33, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %PinLocalBuffer.exit
@@ -300,7 +296,7 @@ PinLocalBuffer.exit:                              ; preds = %23, %38, %43
 63:                                               ; preds = %53
   %64 = xor i32 %54, -1
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw %struct.BufferDesc, ptr %55, i64 %65
+  %66 = getelementptr inbounds nuw [52 x i8], ptr %55, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 20
   store i32 %64, ptr %67, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %66, ptr noundef nonnull align 4 dereferenceable(20) %5, i64 20, i1 false)
@@ -331,7 +327,7 @@ define dso_local zeroext i1 @PinLocalBuffer(ptr noundef %0, i1 noundef zeroext %
   %6 = load volatile i32, ptr %5, align 4
   %7 = load ptr, ptr @LocalRefCount, align 8
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %19
@@ -387,7 +383,7 @@ define internal fastcc i32 @GetLocalVictimBuffer() unnamed_addr #0 {
   %.not = icmp slt i32 %4, %.0.ph
   %spec.store.select = select i1 %.not, i32 %4, i32 0
   %5 = sext i32 %spec.store.select49 to i64
-  %6 = getelementptr inbounds i32, ptr %.ph, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %.ph, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %40
@@ -396,7 +392,7 @@ define internal fastcc i32 @GetLocalVictimBuffer() unnamed_addr #0 {
   store i32 %spec.store.select, ptr @nextFreeLocalBufId, align 4
   %10 = load ptr, ptr @LocalBufferDescriptors, align 8
   %11 = zext i32 %spec.store.select49 to i64
-  %12 = getelementptr inbounds nuw %struct.BufferDesc, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [52 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load volatile i32, ptr %13, align 4
   %15 = and i32 %14, 3932160
@@ -414,7 +410,7 @@ define internal fastcc i32 @GetLocalVictimBuffer() unnamed_addr #0 {
   %20 = sub i32 -2, %.val.i
   %21 = load volatile i32, ptr %13, align 4
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds i32, ptr %.ph, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %.ph, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %PinLocalBuffer.exit
@@ -437,7 +433,7 @@ PinLocalBuffer.exit:                              ; preds = %18, %26
   %34 = load i32, ptr %19, align 4
   %35 = sub i32 -2, %34
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %33, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %33, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %47, label %84
@@ -516,7 +512,7 @@ GetLocalBufferStorage.exit:                       ; preds = %._crit_edge.i, %56
   %81 = load i32, ptr @GetLocalBufferStorage.total_bufs_allocated, align 4
   %82 = add i32 %81, 1
   store i32 %82, ptr @GetLocalBufferStorage.total_bufs_allocated, align 4
-  %83 = getelementptr inbounds ptr, ptr %74, i64 %.pre-phi59
+  %83 = getelementptr inbounds [8 x i8], ptr %74, i64 %.pre-phi59
   store ptr %79, ptr %83, align 8
   br label %84
 
@@ -530,7 +526,7 @@ GetLocalBufferStorage.exit:                       ; preds = %._crit_edge.i, %56
   %88 = load i32, ptr %19, align 4
   %89 = sub i32 -2, %88
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds ptr, ptr %87, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %87, i64 %90
   %92 = load ptr, ptr %91, align 8
   %93 = load i64, ptr %12, align 4
   %94 = getelementptr i8, ptr %12, i64 8
@@ -685,18 +681,18 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %31 = tail call fastcc i32 @GetLocalVictimBuffer()
-  %32 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %31, ptr %32, align 4
   %33 = xor i32 %31, -1
   %34 = load ptr, ptr @LocalBufferDescriptors, align 8
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw %struct.BufferDesc, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [52 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %39 = load i32, ptr %38, align 4
   %40 = sub i32 -2, %39
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds ptr, ptr %37, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %37, i64 %41
   %43 = load ptr, ptr %42, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %43, i8 0, i64 8192, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -732,12 +728,12 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   %indvars.iv90 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next91, %122 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %62 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv90
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv90
   %63 = load i32, ptr %62, align 4
   %64 = xor i32 %63, -1
   %65 = load ptr, ptr @LocalBufferDescriptors, align 8
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw %struct.BufferDesc, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [52 x i8], ptr %65, i64 %66
   %68 = load ptr, ptr @CurrentResourceOwner, align 8
   call void @ResourceOwnerEnlarge(ptr noundef %68) #13
   %69 = trunc nuw i64 %indvars.iv90 to i32
@@ -763,7 +759,7 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   %81 = sub i32 -2, %.val
   %82 = load ptr, ptr @LocalRefCount, align 8
   %83 = sext i32 %81 to i64
-  %84 = getelementptr inbounds i32, ptr %82, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %82, i64 %83
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %85, -1
   store i32 %86, ptr %84, align 4
@@ -784,7 +780,7 @@ UnpinLocalBuffer.exit:                            ; preds = %78, %88
   %94 = load i32, ptr %93, align 4
   %95 = load ptr, ptr @LocalBufferDescriptors, align 8
   %96 = zext i32 %94 to i64
-  %97 = getelementptr inbounds nuw %struct.BufferDesc, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [52 x i8], ptr %95, i64 %96
   %98 = getelementptr i8, ptr %97, i64 20
   %.val.i = load i32, ptr %98, align 4
   %99 = sub i32 -2, %.val.i
@@ -792,7 +788,7 @@ UnpinLocalBuffer.exit:                            ; preds = %78, %88
   %101 = load volatile i32, ptr %100, align 4
   %102 = load ptr, ptr @LocalRefCount, align 8
   %103 = sext i32 %99 to i64
-  %104 = getelementptr inbounds i32, ptr %102, i64 %103
+  %104 = getelementptr inbounds [4 x i8], ptr %102, i64 %103
   %105 = load i32, ptr %104, align 4
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %PinLocalBuffer.exit
@@ -853,12 +849,12 @@ PinLocalBuffer.exit:                              ; preds = %UnpinLocalBuffer.ex
 
 .lr.ph85:                                         ; preds = %._crit_edge82, %.lr.ph85
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %.lr.ph85 ], [ 0, %._crit_edge82 ]
-  %128 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv95
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv95
   %129 = load i32, ptr %128, align 4
   %130 = xor i32 %129, -1
   %131 = load ptr, ptr @LocalBufferDescriptors, align 8
   %132 = zext i32 %130 to i64
-  %133 = getelementptr inbounds nuw %struct.BufferDesc, ptr %131, i64 %132
+  %133 = getelementptr inbounds nuw [52 x i8], ptr %131, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %135 = load volatile i32, ptr %134, align 4
   %136 = or i32 %135, 16777216
@@ -881,7 +877,7 @@ define dso_local void @UnpinLocalBuffer(i32 noundef %0) local_unnamed_addr #0 {
   %2 = xor i32 %0, -1
   %3 = load ptr, ptr @LocalRefCount, align 8
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds i32, ptr %3, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -1
   store i32 %7, ptr %5, align 4
@@ -912,7 +908,7 @@ define dso_local void @MarkLocalBufferDirty(i32 noundef %0) local_unnamed_addr #
   %2 = xor i32 %0, -1
   %3 = load ptr, ptr @LocalBufferDescriptors, align 8
   %4 = zext i32 %2 to i64
-  %5 = getelementptr inbounds nuw %struct.BufferDesc, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [52 x i8], ptr %3, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load volatile i32, ptr %6, align 4
   %8 = and i32 %7, 8388608
@@ -948,7 +944,7 @@ define dso_local void @DropRelationLocalBuffers(i64 %0, i32 %1, i32 noundef %2, 
   %7 = phi i32 [ %5, %.lr.ph.preheader ], [ %50, %BufTagMatchesRelFileLocator.exit.thread ]
   %8 = phi ptr [ %.pre67, %.lr.ph.preheader ], [ %51, %BufTagMatchesRelFileLocator.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %BufTagMatchesRelFileLocator.exit.thread ]
-  %9 = getelementptr inbounds nuw %struct.BufferDesc, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [52 x i8], ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load volatile i32, ptr %10, align 4
   %12 = and i32 %11, 33554432
@@ -986,7 +982,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %16
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr @LocalRefCount, align 8
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %.not40 = icmp eq i32 %31, 0
   br i1 %.not40, label %42, label %32
@@ -1003,7 +999,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %16
   %.val42 = load i32, ptr %23, align 4
   %37 = tail call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc, i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.val.i43, i32 noundef %36, i32 noundef %.val42) #13
   %38 = load ptr, ptr @LocalRefCount, align 8
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
   %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %34, ptr noundef %37, i32 noundef %40) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 514, ptr noundef nonnull @__func__.DropRelationLocalBuffers) #13
@@ -1062,7 +1058,7 @@ define dso_local void @DropRelationAllLocalBuffers(i64 %0, i32 %1) local_unnamed
   %5 = phi i32 [ %3, %.lr.ph.preheader ], [ %46, %BufTagMatchesRelFileLocator.exit.thread ]
   %6 = phi ptr [ %.pre53, %.lr.ph.preheader ], [ %47, %BufTagMatchesRelFileLocator.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %BufTagMatchesRelFileLocator.exit.thread ]
-  %7 = getelementptr inbounds nuw %struct.BufferDesc, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [52 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load volatile i32, ptr %8, align 4
   %10 = and i32 %9, 33554432
@@ -1088,7 +1084,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %14
 
 20:                                               ; preds = %BufTagMatchesRelFileLocator.exit
   %21 = load ptr, ptr @LocalRefCount, align 8
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %.not35 = icmp eq i32 %23, 0
   br i1 %.not35, label %36, label %24
@@ -1107,7 +1103,7 @@ BufTagMatchesRelFileLocator.exit:                 ; preds = %14
   %.val = load i32, ptr %30, align 4
   %31 = tail call ptr @GetRelationPath(i32 noundef %.sroa.113.0.extract.trunc, i32 noundef %.sroa.06.0.extract.trunc, i32 noundef %.val.i37, i32 noundef %29, i32 noundef %.val) #13
   %32 = load ptr, ptr @LocalRefCount, align 8
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.3, i32 noundef %27, ptr noundef %31, i32 noundef %34) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 559, ptr noundef nonnull @__func__.DropRelationAllLocalBuffers) #13
@@ -1156,7 +1152,7 @@ define dso_local void @UnpinLocalBufferNoOwner(i32 noundef %0) local_unnamed_add
   %2 = xor i32 %0, -1
   %3 = load ptr, ptr @LocalRefCount, align 8
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds i32, ptr %3, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -1
   store i32 %7, ptr %5, align 4

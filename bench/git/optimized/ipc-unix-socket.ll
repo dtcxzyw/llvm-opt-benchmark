@@ -645,7 +645,7 @@ fifo_dequeue.exit.i:                              ; preds = %76, %fifo_dequeue.e
   %67 = phi i32 [ %64, %fifo_dequeue.exit.lr.ph.i ], [ %79, %76 ]
   %68 = load ptr, ptr %60, align 8, !tbaa !40
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds i32, ptr %68, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr %68, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !4
   store i32 -1, ptr %70, align 4, !tbaa !4
   %72 = load i32, ptr %62, align 8, !tbaa !61
@@ -741,7 +741,7 @@ accept_thread__wait_for_connection.exit:          ; preds = %32, %85, %91
 120:                                              ; preds = %111
   %121 = load ptr, ptr %23, align 8, !tbaa !40
   %122 = sext i32 %112 to i64
-  %123 = getelementptr inbounds i32, ptr %121, i64 %122
+  %123 = getelementptr inbounds [4 x i8], ptr %121, i64 %122
   store i32 %.1.i, ptr %123, align 4, !tbaa !4
   store i32 %spec.store.select.i, ptr %20, align 4, !tbaa !60
   br label %fifo_enqueue.exit
@@ -822,7 +822,7 @@ worker_thread__wait_for_connection.exit.thread:   ; preds = %.backedge, %1
 fifo_dequeue.exit.i:                              ; preds = %31
   %35 = load ptr, ptr %26, align 8, !tbaa !40
   %36 = sext i32 %33 to i64
-  %37 = getelementptr inbounds i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %35, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !4
   store i32 -1, ptr %37, align 4, !tbaa !4
   %39 = load i32, ptr %28, align 8, !tbaa !61
@@ -1028,7 +1028,7 @@ fifo_dequeue.exit:                                ; preds = %fifo_dequeue.exit.l
   %26 = phi i32 [ %23, %fifo_dequeue.exit.lr.ph ], [ %38, %35 ]
   %27 = load ptr, ptr %19, align 8, !tbaa !40
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !4
   store i32 -1, ptr %29, align 4, !tbaa !4
   %31 = load i32, ptr %21, align 8, !tbaa !61

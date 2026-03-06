@@ -1289,7 +1289,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 128:                                              ; preds = %141, %122
   %129 = phi i64 [ 0, %122 ], [ %142, %141 ]
-  %130 = getelementptr ptr, ptr %123, i64 %129
+  %130 = getelementptr [8 x i8], ptr %123, i64 %129
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null
   br i1 %132, label %141, label %133
@@ -1751,7 +1751,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 353:                                              ; preds = %371, %347
   %354 = phi i64 [ 0, %347 ], [ %372, %371 ]
-  %355 = getelementptr ptr, ptr %348, i64 %354
+  %355 = getelementptr [8 x i8], ptr %348, i64 %354
   %356 = load ptr, ptr %355, align 8
   %357 = icmp eq ptr %356, null
   br i1 %357, label %371, label %358
@@ -2229,7 +2229,7 @@ define dso_local void @intel_gt_init_workarounds(ptr noundef %0) local_unnamed_a
 
 572:                                              ; preds = %590, %566
   %573 = phi i64 [ 0, %566 ], [ %591, %590 ]
-  %574 = getelementptr ptr, ptr %567, i64 %573
+  %574 = getelementptr [8 x i8], ptr %567, i64 %573
   %575 = load ptr, ptr %574, align 8
   %576 = icmp eq ptr %575, null
   br i1 %576, label %590, label %577
@@ -6500,7 +6500,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr noundef readonly captu
 157:                                              ; preds = %153, %148
   %158 = add i32 %151, 1
   %159 = sext i32 %158 to i64
-  %160 = getelementptr %struct.i915_range, ptr %139, i64 %159
+  %160 = getelementptr [8 x i8], ptr %139, i64 %159
   %161 = load i32, ptr %160, align 8
   %162 = icmp eq i32 %161, 0
   br i1 %162, label %.loopexit63, label %148, !llvm.loop !192
@@ -6584,7 +6584,7 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr noundef readonly captu
 210:                                              ; preds = %206, %.preheader59
   %211 = add i32 %204, 1
   %212 = sext i32 %211 to i64
-  %213 = getelementptr %struct.i915_range, ptr %199, i64 %212
+  %213 = getelementptr [8 x i8], ptr %199, i64 %212
   %214 = load i32, ptr %213, align 8
   %215 = icmp eq i32 %214, 0
   br i1 %215, label %.loopexit61, label %.preheader59, !llvm.loop !192
@@ -6721,14 +6721,14 @@ define dso_local i32 @intel_engine_verify_workarounds(ptr noundef readonly captu
 295:                                              ; preds = %291, %.preheader
   %296 = add i32 %289, 1
   %297 = sext i32 %296 to i64
-  %298 = getelementptr %struct.i915_range, ptr %284, i64 %297
+  %298 = getelementptr [8 x i8], ptr %284, i64 %297
   %299 = load i32, ptr %298, align 8
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %.loopexit58, label %.preheader, !llvm.loop !192
 
 .loopexit58:                                      ; preds = %295, %283, %281
   %301 = load ptr, ptr %6, align 8
-  %302 = getelementptr i32, ptr %252, i64 %265
+  %302 = getelementptr [4 x i8], ptr %252, i64 %265
   %303 = load i32, ptr %302, align 4
   %304 = load ptr, ptr %50, align 8
   %305 = getelementptr inbounds nuw i8, ptr %267, i64 8
@@ -7615,7 +7615,7 @@ define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef 
   %47 = lshr i32 %46, 1
   %48 = add i32 %47, %45
   %49 = zext i32 %48 to i64
-  %50 = getelementptr %struct.i915_wa, ptr %.pre27, i64 %49
+  %50 = getelementptr [20 x i8], ptr %.pre27, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = icmp ult i32 %51, %4
   br i1 %52, label %53, label %55
@@ -7698,7 +7698,7 @@ define internal fastcc void @_wa_add(ptr noundef captures(none) %0, ptr noundef 
   %100 = add i32 %99, 1
   store i32 %100, ptr %7, align 8
   %101 = zext i32 %99 to i64
-  %102 = getelementptr %struct.i915_wa, ptr %.pre28, i64 %101
+  %102 = getelementptr [20 x i8], ptr %.pre28, i64 %101
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(20) %102, ptr noundef align 4 dereferenceable(20) %1, i64 20, i1 false)
   %103 = load ptr, ptr %96, align 8
   %104 = icmp ugt ptr %102, %103
@@ -8202,7 +8202,7 @@ icl_wa_init_mcr.exit:                             ; preds = %21, %37
 
 43:                                               ; preds = %61, %icl_wa_init_mcr.exit
   %44 = phi i64 [ 0, %icl_wa_init_mcr.exit ], [ %62, %61 ]
-  %45 = getelementptr ptr, ptr %38, i64 %44
+  %45 = getelementptr [8 x i8], ptr %38, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %61, label %48

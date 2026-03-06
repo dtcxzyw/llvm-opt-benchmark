@@ -15,10 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.casadi::MX" = type { %"class.casadi::SharedObject" }
 %"class.casadi::SharedObject" = type { %"class.casadi::GenericShared" }
 %"class.casadi::GenericShared" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" }
-%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -50,6 +46,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.21" = type { %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl" }
 %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<long long, std::allocator<long long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" }
+%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl" = type { %"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<casadi::MX, std::allocator<casadi::MX>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.casadi::SXElem" = type { ptr }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_ = comdat any
@@ -2076,17 +2076,17 @@ _ZNK6casadi6MXNode3depEx.exit13:                  ; preds = %_ZNK6casadi6MXNode3
   %47 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !49
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %50 = getelementptr inbounds i64, ptr %49, i64 %48
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %48
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !49
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %55 = getelementptr inbounds i64, ptr %54, i64 %53
+  %55 = getelementptr inbounds [8 x i8], ptr %54, i64 %53
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %58 = load i64, ptr %57, align 8, !tbaa !49
   %59 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %60 = getelementptr inbounds i64, ptr %59, i64 %58
+  %60 = getelementptr inbounds [8 x i8], ptr %59, i64 %58
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = icmp sgt i64 %53, 0
   br i1 %62, label %.lr.ph131.preheader.i, label %_ZN6casadi13casadi_mtimesIdEEvPKT_PKxS3_S5_PS1_S5_S6_x.exit
@@ -2103,27 +2103,27 @@ _ZNK6casadi6MXNode3depEx.exit13:                  ; preds = %_ZNK6casadi6MXNode3
   %63 = phi i64 [ %66, %.loopexit.i ], [ %.pre141.i, %.lr.ph131.preheader.i ]
   %.1130.i = phi i64 [ %64, %.loopexit.i ], [ 0, %.lr.ph131.preheader.i ]
   %64 = add nuw nsw i64 %.1130.i, 1
-  %65 = getelementptr inbounds nuw i64, ptr %59, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !49
   %67 = icmp slt i64 %63, %66
   br i1 %67, label %.lr.ph118.i, label %._crit_edge119.i
 
 .lr.ph118.i:                                      ; preds = %.lr.ph131.i, %.lr.ph118.i
   %.094116.i = phi i64 [ %73, %.lr.ph118.i ], [ %63, %.lr.ph131.i ]
-  %68 = getelementptr inbounds double, ptr %44, i64 %.094116.i
+  %68 = getelementptr inbounds [8 x i8], ptr %44, i64 %.094116.i
   %69 = load double, ptr %68, align 8, !tbaa !52
-  %70 = getelementptr inbounds i64, ptr %61, i64 %.094116.i
+  %70 = getelementptr inbounds [8 x i8], ptr %61, i64 %.094116.i
   %71 = load i64, ptr %70, align 8, !tbaa !49
-  %72 = getelementptr inbounds double, ptr %4, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %4, i64 %71
   store double %69, ptr %72, align 8, !tbaa !52
   %73 = add nsw i64 %.094116.i, 1
   %exitcond136.not.i = icmp eq i64 %73, %66
   br i1 %exitcond136.not.i, label %._crit_edge119.i, label %.lr.ph118.i, !llvm.loop !54
 
 ._crit_edge119.i:                                 ; preds = %.lr.ph118.i, %.lr.ph131.i
-  %74 = getelementptr inbounds nuw i64, ptr %54, i64 %.1130.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.1130.i
   %75 = load i64, ptr %74, align 8, !tbaa !49
-  %76 = getelementptr inbounds nuw i64, ptr %54, i64 %64
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %64
   %77 = load i64, ptr %76, align 8, !tbaa !49
   %78 = icmp slt i64 %75, %77
   br i1 %78, label %.lr.ph127.i, label %.preheader.i
@@ -2133,9 +2133,9 @@ _ZNK6casadi6MXNode3depEx.exit13:                  ; preds = %_ZNK6casadi6MXNode3
 
 .lr.ph127.i:                                      ; preds = %._crit_edge119.i, %._crit_edge124.i
   %.195125.i = phi i64 [ %97, %._crit_edge124.i ], [ %75, %._crit_edge119.i ]
-  %79 = getelementptr inbounds i64, ptr %56, i64 %.195125.i
+  %79 = getelementptr inbounds [8 x i8], ptr %56, i64 %.195125.i
   %80 = load i64, ptr %79, align 8, !tbaa !49
-  %81 = getelementptr inbounds i64, ptr %49, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %49, i64 %80
   %82 = load i64, ptr %81, align 8, !tbaa !49
   %83 = getelementptr i8, ptr %81, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !49
@@ -2143,17 +2143,17 @@ _ZNK6casadi6MXNode3depEx.exit13:                  ; preds = %_ZNK6casadi6MXNode3
   br i1 %85, label %.lr.ph123.i, label %._crit_edge124.i
 
 .lr.ph123.i:                                      ; preds = %.lr.ph127.i
-  %86 = getelementptr inbounds double, ptr %33, i64 %.195125.i
+  %86 = getelementptr inbounds [8 x i8], ptr %33, i64 %.195125.i
   br label %87
 
 87:                                               ; preds = %87, %.lr.ph123.i
   %.093121.i = phi i64 [ %82, %.lr.ph123.i ], [ %96, %87 ]
-  %88 = getelementptr inbounds double, ptr %19, i64 %.093121.i
+  %88 = getelementptr inbounds [8 x i8], ptr %19, i64 %.093121.i
   %89 = load double, ptr %88, align 8, !tbaa !52
   %90 = load double, ptr %86, align 8, !tbaa !52
-  %91 = getelementptr inbounds i64, ptr %51, i64 %.093121.i
+  %91 = getelementptr inbounds [8 x i8], ptr %51, i64 %.093121.i
   %92 = load i64, ptr %91, align 8, !tbaa !49
-  %93 = getelementptr inbounds double, ptr %4, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %4, i64 %92
   %94 = load double, ptr %93, align 8, !tbaa !52
   %95 = tail call double @llvm.fmuladd.f64(double %89, double %90, double %94)
   store double %95, ptr %93, align 8, !tbaa !52
@@ -2168,11 +2168,11 @@ _ZNK6casadi6MXNode3depEx.exit13:                  ; preds = %_ZNK6casadi6MXNode3
 
 .lr.ph129.i:                                      ; preds = %.preheader.i, %.lr.ph129.i
   %.2128.i = phi i64 [ %103, %.lr.ph129.i ], [ %63, %.preheader.i ]
-  %98 = getelementptr inbounds i64, ptr %61, i64 %.2128.i
+  %98 = getelementptr inbounds [8 x i8], ptr %61, i64 %.2128.i
   %99 = load i64, ptr %98, align 8, !tbaa !49
-  %100 = getelementptr inbounds double, ptr %4, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr %4, i64 %99
   %101 = load double, ptr %100, align 8, !tbaa !52
-  %102 = getelementptr inbounds double, ptr %44, i64 %.2128.i
+  %102 = getelementptr inbounds [8 x i8], ptr %44, i64 %.2128.i
   store double %101, ptr %102, align 8, !tbaa !52
   %103 = add nsw i64 %.2128.i, 1
   %exitcond139.not.i = icmp eq i64 %103, %66
@@ -2303,7 +2303,7 @@ define void @_ZNK6casadi14Multiplication10ad_forwardERKSt6vectorIS1_INS_2MXESaIS
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %16 = load ptr, ptr %1, align 8, !tbaa !64
-  %17 = getelementptr inbounds nuw %"class.std::vector", ptr %16, i64 %.01951
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %.01951
   %18 = load ptr, ptr %17, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %19 = load ptr, ptr %14, align 8, !tbaa !45
@@ -2335,7 +2335,7 @@ _ZN6casadi3macERKNS_2MXES2_S2_.exit:              ; preds = %_ZNK6casadi6MXNode3
 _ZN6casadiplERKNS_2MXES2_.exit:                   ; preds = %_ZN6casadi3macERKNS_2MXES2_S2_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %29 = load ptr, ptr %1, align 8, !tbaa !64
-  %30 = getelementptr inbounds nuw %"class.std::vector", ptr %29, i64 %.01951
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %.01951
   %31 = load ptr, ptr %30, align 8, !tbaa !48
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %14, align 8, !tbaa !45
@@ -2374,7 +2374,7 @@ _ZN6casadi3macERKNS_2MXES2_S2_.exit35:            ; preds = %_ZN6casadi13Generic
 
 _ZN6casadiplERKNS_2MXES2_.exit37:                 ; preds = %_ZN6casadi3macERKNS_2MXES2_S2_.exit35
   %44 = load ptr, ptr %2, align 8, !tbaa !64
-  %45 = getelementptr inbounds nuw %"class.std::vector", ptr %44, i64 %.01951
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %.01951
   %46 = load ptr, ptr %45, align 8, !tbaa !48
   %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZN6casadi2MXaSERKS0_.exit unwind label %68
@@ -2506,7 +2506,7 @@ define void @_ZNK6casadi14Multiplication10ad_reverseERKSt6vectorIS1_INS_2MXESaIS
   %19 = phi ptr [ %15, %.lr.ph ], [ %90, %_ZN6casadi17GenericExpressionINS_2MXEEpLERKS1_.exit47 ]
   %.02290 = phi i64 [ 0, %.lr.ph ], [ %88, %_ZN6casadi17GenericExpressionINS_2MXEEpLERKS1_.exit47 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %20 = getelementptr inbounds nuw %"class.std::vector", ptr %19, i64 %.02290
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %.02290
   %21 = load ptr, ptr %20, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %22 = load ptr, ptr %17, align 8, !tbaa !45
@@ -2557,7 +2557,7 @@ _ZN6casadi13GenericMatrixINS_2MXEE5zerosERKNS_8SparsityE.exit: ; preds = %40
 
 _ZN6casadi3macERKNS_2MXES2_S2_.exit:              ; preds = %_ZN6casadi13GenericMatrixINS_2MXEE5zerosERKNS_8SparsityE.exit
   %41 = load ptr, ptr %2, align 8, !tbaa !64
-  %42 = getelementptr inbounds nuw %"class.std::vector", ptr %41, i64 %.02290
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %.02290
   %43 = load ptr, ptr %42, align 8, !tbaa !48
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2603,7 +2603,7 @@ _ZNK6casadi6MXNode3depEx.exit35:                  ; preds = %48
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 8
   call void @_ZNK6casadi2MX1TEv(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %56)
   %57 = load ptr, ptr %1, align 8, !tbaa !64
-  %58 = getelementptr inbounds nuw %"class.std::vector", ptr %57, i64 %.02290
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %57, i64 %.02290
   %59 = load ptr, ptr %58, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %60 = load ptr, ptr %17, align 8, !tbaa !45
@@ -2637,7 +2637,7 @@ _ZN6casadi13GenericMatrixINS_2MXEE5zerosERKNS_8SparsityE.exit40: ; preds = %70
 
 _ZN6casadi3macERKNS_2MXES2_S2_.exit42:            ; preds = %_ZN6casadi13GenericMatrixINS_2MXEE5zerosERKNS_8SparsityE.exit40
   %71 = load ptr, ptr %2, align 8, !tbaa !64
-  %72 = getelementptr inbounds nuw %"class.std::vector", ptr %71, i64 %.02290
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %71, i64 %.02290
   %73 = load ptr, ptr %72, align 8, !tbaa !48
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2665,10 +2665,10 @@ _ZN6casadi3macERKNS_2MXES2_S2_.exit42:            ; preds = %_ZN6casadi13Generic
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %79 = load ptr, ptr %1, align 8, !tbaa !64
-  %80 = getelementptr inbounds nuw %"class.std::vector", ptr %79, i64 %.02290
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %79, i64 %.02290
   %81 = load ptr, ptr %80, align 8, !tbaa !48
   %82 = load ptr, ptr %2, align 8, !tbaa !64
-  %83 = getelementptr inbounds nuw %"class.std::vector", ptr %82, i64 %.02290
+  %83 = getelementptr inbounds nuw [24 x i8], ptr %82, i64 %.02290
   %84 = load ptr, ptr %83, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6casadi2MX6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::MX") align 8 %4, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull align 8 dereferenceable(8) %81)
@@ -6284,17 +6284,17 @@ define linkonce_odr hidden void @_ZN6casadi13casadi_mtimesINS_6SXElemEEEvPKT_PKx
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !49
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = getelementptr inbounds i64, ptr %15, i64 %14
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !49
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %21 = getelementptr inbounds i64, ptr %20, i64 %19
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %19
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !49
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %26 = getelementptr inbounds i64, ptr %25, i64 %24
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %24
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %.preheader, label %.preheader110
@@ -6317,20 +6317,20 @@ define linkonce_odr hidden void @_ZN6casadi13casadi_mtimesINS_6SXElemEEEvPKT_PKx
 
 .lr.ph123:                                        ; preds = %.preheader110, %.loopexit109
   %.0122 = phi i64 [ %32, %.loopexit109 ], [ 0, %.preheader110 ]
-  %30 = getelementptr inbounds nuw i64, ptr %20, i64 %.0122
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0122
   %31 = load i64, ptr %30, align 8, !tbaa !49
   %32 = add nuw nsw i64 %.0122, 1
-  %33 = getelementptr inbounds nuw i64, ptr %20, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !49
   %35 = icmp slt i64 %31, %34
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph123, %.lr.ph
   %.0100114 = phi i64 [ %41, %.lr.ph ], [ %31, %.lr.ph123 ]
-  %36 = getelementptr inbounds %"class.casadi::SXElem", ptr %2, i64 %.0100114
-  %37 = getelementptr inbounds i64, ptr %22, i64 %.0100114
+  %36 = getelementptr inbounds [8 x i8], ptr %2, i64 %.0100114
+  %37 = getelementptr inbounds [8 x i8], ptr %22, i64 %.0100114
   %38 = load i64, ptr %37, align 8, !tbaa !49
-  %39 = getelementptr inbounds %"class.casadi::SXElem", ptr %6, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %6, i64 %38
   %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %36)
   %41 = add nsw i64 %.0100114, 1
   %42 = load i64, ptr %33, align 8, !tbaa !49
@@ -6338,9 +6338,9 @@ define linkonce_odr hidden void @_ZN6casadi13casadi_mtimesINS_6SXElemEEEvPKT_PKx
   br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !142
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph123
-  %44 = getelementptr inbounds nuw i64, ptr %25, i64 %.0122
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0122
   %45 = load i64, ptr %44, align 8, !tbaa !49
-  %46 = getelementptr inbounds nuw i64, ptr %25, i64 %32
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %32
   %47 = load i64, ptr %46, align 8, !tbaa !49
   %48 = icmp slt i64 %45, %47
   br i1 %48, label %.lr.ph121, label %.loopexit109
@@ -6348,9 +6348,9 @@ define linkonce_odr hidden void @_ZN6casadi13casadi_mtimesINS_6SXElemEEEvPKT_PKx
 .lr.ph121:                                        ; preds = %._crit_edge, %._crit_edge118
   %49 = phi i64 [ %72, %._crit_edge118 ], [ %47, %._crit_edge ]
   %.1101119 = phi i64 [ %73, %._crit_edge118 ], [ %45, %._crit_edge ]
-  %50 = getelementptr inbounds i64, ptr %27, i64 %.1101119
+  %50 = getelementptr inbounds [8 x i8], ptr %27, i64 %.1101119
   %51 = load i64, ptr %50, align 8, !tbaa !49
-  %52 = getelementptr inbounds i64, ptr %15, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %15, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !49
   %54 = getelementptr i8, ptr %52, i64 8
   %55 = load i64, ptr %54, align 8, !tbaa !49
@@ -6358,16 +6358,16 @@ define linkonce_odr hidden void @_ZN6casadi13casadi_mtimesINS_6SXElemEEEvPKT_PKx
   br i1 %56, label %.lr.ph117, label %._crit_edge118
 
 .lr.ph117:                                        ; preds = %.lr.ph121
-  %57 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %.1101119
+  %57 = getelementptr inbounds [8 x i8], ptr %4, i64 %.1101119
   br label %58
 
 58:                                               ; preds = %.lr.ph117, %66
   %.0102115 = phi i64 [ %53, %.lr.ph117 ], [ %67, %66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %59 = getelementptr inbounds %"class.casadi::SXElem", ptr %0, i64 %.0102115
-  %60 = getelementptr inbounds i64, ptr %17, i64 %.0102115
+  %59 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0102115
+  %60 = getelementptr inbounds [8 x i8], ptr %17, i64 %.0102115
   %61 = load i64, ptr %60, align 8, !tbaa !49
-  %62 = getelementptr inbounds %"class.casadi::SXElem", ptr %6, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %6, i64 %61
   call void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %11, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 8 dereferenceable(8) %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %10, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull align 8 dereferenceable(8) %11)
@@ -6423,19 +6423,19 @@ define linkonce_odr hidden void @_ZN6casadi13casadi_mtimesINS_6SXElemEEEvPKT_PKx
 .lr.ph142:                                        ; preds = %.lr.ph142.preheader, %.loopexit
   %76 = phi i64 [ %75, %.loopexit ], [ %.pre145, %.lr.ph142.preheader ]
   %.1141 = phi i64 [ %78, %.loopexit ], [ 0, %.lr.ph142.preheader ]
-  %77 = getelementptr inbounds nuw i64, ptr %25, i64 %.1141
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.1141
   %78 = add nuw nsw i64 %.1141, 1
-  %79 = getelementptr inbounds nuw i64, ptr %25, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !49
   %81 = icmp slt i64 %76, %80
   br i1 %81, label %.lr.ph127, label %._crit_edge128
 
 .lr.ph127:                                        ; preds = %.lr.ph142, %.lr.ph127
   %.096125 = phi i64 [ %87, %.lr.ph127 ], [ %76, %.lr.ph142 ]
-  %82 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %.096125
-  %83 = getelementptr inbounds i64, ptr %27, i64 %.096125
+  %82 = getelementptr inbounds [8 x i8], ptr %4, i64 %.096125
+  %83 = getelementptr inbounds [8 x i8], ptr %27, i64 %.096125
   %84 = load i64, ptr %83, align 8, !tbaa !49
-  %85 = getelementptr inbounds %"class.casadi::SXElem", ptr %6, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %6, i64 %84
   %86 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull align 8 dereferenceable(8) %82)
   %87 = add nsw i64 %.096125, 1
   %88 = load i64, ptr %79, align 8, !tbaa !49
@@ -6444,9 +6444,9 @@ define linkonce_odr hidden void @_ZN6casadi13casadi_mtimesINS_6SXElemEEEvPKT_PKx
 
 ._crit_edge128:                                   ; preds = %.lr.ph127, %.lr.ph142
   %90 = phi i64 [ %80, %.lr.ph142 ], [ %88, %.lr.ph127 ]
-  %91 = getelementptr inbounds nuw i64, ptr %20, i64 %.1141
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.1141
   %92 = load i64, ptr %91, align 8, !tbaa !49
-  %93 = getelementptr inbounds nuw i64, ptr %20, i64 %78
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %78
   %94 = load i64, ptr %93, align 8, !tbaa !49
   %95 = icmp slt i64 %92, %94
   br i1 %95, label %.lr.ph136, label %._crit_edge137
@@ -6454,9 +6454,9 @@ define linkonce_odr hidden void @_ZN6casadi13casadi_mtimesINS_6SXElemEEEvPKT_PKx
 .lr.ph136:                                        ; preds = %._crit_edge128, %._crit_edge133
   %96 = phi i64 [ %119, %._crit_edge133 ], [ %94, %._crit_edge128 ]
   %.197134 = phi i64 [ %120, %._crit_edge133 ], [ %92, %._crit_edge128 ]
-  %97 = getelementptr inbounds i64, ptr %22, i64 %.197134
+  %97 = getelementptr inbounds [8 x i8], ptr %22, i64 %.197134
   %98 = load i64, ptr %97, align 8, !tbaa !49
-  %99 = getelementptr inbounds i64, ptr %15, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %15, i64 %98
   %100 = load i64, ptr %99, align 8, !tbaa !49
   %101 = getelementptr i8, ptr %99, i64 8
   %102 = load i64, ptr %101, align 8, !tbaa !49
@@ -6464,17 +6464,17 @@ define linkonce_odr hidden void @_ZN6casadi13casadi_mtimesINS_6SXElemEEEvPKT_PKx
   br i1 %103, label %.lr.ph132, label %._crit_edge133
 
 .lr.ph132:                                        ; preds = %.lr.ph136
-  %104 = getelementptr inbounds %"class.casadi::SXElem", ptr %2, i64 %.197134
+  %104 = getelementptr inbounds [8 x i8], ptr %2, i64 %.197134
   br label %105
 
 105:                                              ; preds = %.lr.ph132, %113
   %.095130 = phi i64 [ %100, %.lr.ph132 ], [ %114, %113 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %106 = getelementptr inbounds %"class.casadi::SXElem", ptr %0, i64 %.095130
+  %106 = getelementptr inbounds [8 x i8], ptr %0, i64 %.095130
   call void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %12, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(8) %106, ptr noundef nonnull align 8 dereferenceable(8) %104)
-  %107 = getelementptr inbounds i64, ptr %17, i64 %.095130
+  %107 = getelementptr inbounds [8 x i8], ptr %17, i64 %.095130
   %108 = load i64, ptr %107, align 8, !tbaa !49
-  %109 = getelementptr inbounds %"class.casadi::SXElem", ptr %6, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %6, i64 %108
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %9, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %109, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %.noexc104 unwind label %117
@@ -6533,10 +6533,10 @@ define linkonce_odr hidden void @_ZN6casadi13casadi_mtimesINS_6SXElemEEEvPKT_PKx
 
 .lr.ph140:                                        ; preds = %._crit_edge137, %.lr.ph140
   %.2138 = phi i64 [ %130, %.lr.ph140 ], [ %123, %._crit_edge137 ]
-  %125 = getelementptr inbounds i64, ptr %27, i64 %.2138
+  %125 = getelementptr inbounds [8 x i8], ptr %27, i64 %.2138
   %126 = load i64, ptr %125, align 8, !tbaa !49
-  %127 = getelementptr inbounds %"class.casadi::SXElem", ptr %6, i64 %126
-  %128 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %.2138
+  %127 = getelementptr inbounds [8 x i8], ptr %6, i64 %126
+  %128 = getelementptr inbounds [8 x i8], ptr %4, i64 %.2138
   %129 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %128, ptr noundef nonnull align 8 dereferenceable(8) %127)
   %130 = add nsw i64 %.2138, 1
   %131 = load i64, ptr %79, align 8, !tbaa !49

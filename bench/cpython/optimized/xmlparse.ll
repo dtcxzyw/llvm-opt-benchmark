@@ -3,15 +3,10 @@ source_filename = "bench/cpython/original/xmlparse.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.DEFAULT_ATTRIBUTE = type { ptr, i8, ptr }
 %struct.timeval = type { i64, i64 }
 %struct.XML_Encoding = type { [256 x i32], ptr, ptr, ptr }
-%struct.CONTENT_SCAFFOLD = type { i32, i32, ptr, i32, i32, i32, i32 }
-%struct.XML_cp = type { i32, i32, ptr, i32, ptr }
 %struct.siphash = type { i64, i64, i64, i64, [8 x i8], ptr, i64 }
 %struct.TAG_NAME = type { ptr, ptr, ptr, i32, i32, i32 }
-%struct.ATTRIBUTE = type { ptr, ptr, ptr, i8 }
-%struct.NS_ATT = type { i64, i64, ptr }
 
 @g_reparseDeferralEnabledDefault = hidden local_unnamed_addr constant i8 1, align 1
 @.str = private unnamed_addr constant [14 x i8] c"out of memory\00", align 1
@@ -825,7 +820,7 @@ poolClear.exit60:                                 ; preds = %59, %.loopexit.sink
 70:                                               ; preds = %poolClear.exit60
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 56
   %72 = load i64, ptr %71, align 8, !tbaa !91
-  %73 = getelementptr ptr, ptr %69, i64 %72
+  %73 = getelementptr [8 x i8], ptr %69, i64 %72
   br label %hashTableIterInit.exit.i
 
 hashTableIterInit.exit.i:                         ; preds = %70, %poolClear.exit60
@@ -875,11 +870,11 @@ hashTableIterNext.exit.i:                         ; preds = %77
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load ptr, ptr %92, align 8, !tbaa !10
   %94 = load ptr, ptr %67, align 8, !tbaa !44
-  %95 = getelementptr ptr, ptr %94, i64 %.08.i.i
+  %95 = getelementptr [8 x i8], ptr %94, i64 %.08.i.i
   %96 = load ptr, ptr %95, align 8, !tbaa !92
   tail call void %93(ptr noundef %96) #26
   %97 = load ptr, ptr %67, align 8, !tbaa !44
-  %98 = getelementptr ptr, ptr %97, i64 %.08.i.i
+  %98 = getelementptr [8 x i8], ptr %97, i64 %.08.i.i
   store ptr null, ptr %98, align 8, !tbaa !92
   %99 = add nuw i64 %.08.i.i, 1
   %100 = load i64, ptr %87, align 8, !tbaa !91
@@ -907,11 +902,11 @@ hashTableClear.exit.i:                            ; preds = %90, %86
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load ptr, ptr %110, align 8, !tbaa !10
   %112 = load ptr, ptr %104, align 8, !tbaa !44
-  %113 = getelementptr ptr, ptr %112, i64 %.08.i35.i
+  %113 = getelementptr [8 x i8], ptr %112, i64 %.08.i35.i
   %114 = load ptr, ptr %113, align 8, !tbaa !92
   tail call void %111(ptr noundef %114) #26
   %115 = load ptr, ptr %104, align 8, !tbaa !44
-  %116 = getelementptr ptr, ptr %115, i64 %.08.i35.i
+  %116 = getelementptr [8 x i8], ptr %115, i64 %.08.i35.i
   store ptr null, ptr %116, align 8, !tbaa !92
   %117 = add nuw i64 %.08.i35.i, 1
   %118 = load i64, ptr %105, align 8, !tbaa !91
@@ -936,11 +931,11 @@ hashTableClear.exit36.i:                          ; preds = %108, %hashTableClea
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !10
   %128 = load ptr, ptr %68, align 8, !tbaa !44
-  %129 = getelementptr ptr, ptr %128, i64 %.08.i39.i
+  %129 = getelementptr [8 x i8], ptr %128, i64 %.08.i39.i
   %130 = load ptr, ptr %129, align 8, !tbaa !92
   tail call void %127(ptr noundef %130) #26
   %131 = load ptr, ptr %68, align 8, !tbaa !44
-  %132 = getelementptr ptr, ptr %131, i64 %.08.i39.i
+  %132 = getelementptr [8 x i8], ptr %131, i64 %.08.i39.i
   store ptr null, ptr %132, align 8, !tbaa !92
   %133 = add nuw i64 %.08.i39.i, 1
   %134 = load i64, ptr %121, align 8, !tbaa !91
@@ -966,11 +961,11 @@ hashTableClear.exit40.i:                          ; preds = %124, %hashTableClea
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load ptr, ptr %143, align 8, !tbaa !10
   %145 = load ptr, ptr %137, align 8, !tbaa !44
-  %146 = getelementptr ptr, ptr %145, i64 %.08.i43.i
+  %146 = getelementptr [8 x i8], ptr %145, i64 %.08.i43.i
   %147 = load ptr, ptr %146, align 8, !tbaa !92
   tail call void %144(ptr noundef %147) #26
   %148 = load ptr, ptr %137, align 8, !tbaa !44
-  %149 = getelementptr ptr, ptr %148, i64 %.08.i43.i
+  %149 = getelementptr [8 x i8], ptr %148, i64 %.08.i43.i
   store ptr null, ptr %149, align 8, !tbaa !92
   %150 = add nuw i64 %.08.i43.i, 1
   %151 = load i64, ptr %138, align 8, !tbaa !91
@@ -996,11 +991,11 @@ hashTableClear.exit44.i:                          ; preds = %141, %hashTableClea
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %161 = load ptr, ptr %160, align 8, !tbaa !10
   %162 = load ptr, ptr %154, align 8, !tbaa !44
-  %163 = getelementptr ptr, ptr %162, i64 %.08.i47.i
+  %163 = getelementptr [8 x i8], ptr %162, i64 %.08.i47.i
   %164 = load ptr, ptr %163, align 8, !tbaa !92
   tail call void %161(ptr noundef %164) #26
   %165 = load ptr, ptr %154, align 8, !tbaa !44
-  %166 = getelementptr ptr, ptr %165, i64 %.08.i47.i
+  %166 = getelementptr [8 x i8], ptr %165, i64 %.08.i47.i
   store ptr null, ptr %166, align 8, !tbaa !92
   %167 = add nuw i64 %.08.i47.i, 1
   %168 = load i64, ptr %155, align 8, !tbaa !91
@@ -1490,7 +1485,7 @@ define hidden ptr @PyExpat_XML_ExternalEntityParserCreate(ptr noundef %0, ptr no
 120:                                              ; preds = %114
   %121 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %122 = load i64, ptr %121, align 8, !tbaa !91
-  %123 = getelementptr ptr, ptr %119, i64 %122
+  %123 = getelementptr [8 x i8], ptr %119, i64 %122
   br label %hashTableIterInit.exit.i
 
 hashTableIterInit.exit.i:                         ; preds = %120, %114
@@ -1736,7 +1731,7 @@ poolCopyString.exit.i:                            ; preds = %._crit_edge.i.i
 245:                                              ; preds = %242
   %246 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %247 = load i64, ptr %246, align 8, !tbaa !91
-  %248 = getelementptr ptr, ptr %244, i64 %247
+  %248 = getelementptr [8 x i8], ptr %244, i64 %247
   br label %hashTableIterInit.exit155.i
 
 hashTableIterInit.exit155.i:                      ; preds = %245, %242
@@ -1855,7 +1850,7 @@ poolCopyString.exit167.i:                         ; preds = %275
   %304 = add i64 %303, -1
   %305 = and i64 %304, %302
   %306 = load ptr, ptr %131, align 8, !tbaa !44
-  %307 = getelementptr ptr, ptr %306, i64 %305
+  %307 = getelementptr [8 x i8], ptr %306, i64 %305
   %308 = load ptr, ptr %307, align 8, !tbaa !92
   %.not184.i.i = icmp eq ptr %308, null
   br i1 %.not184.i.i, label %.sink.split.i, label %.lr.ph.i.i
@@ -1913,7 +1908,7 @@ poolCopyString.exit167.i:                         ; preds = %275
   %.4131.p.v.i.i = select i1 %337, i64 %303, i64 0
   %.4131.p.i.i = sub i64 %.2129186.i.i, %336
   %.4131.i.i = add i64 %.4131.p.v.i.i, %.4131.p.i.i
-  %338 = getelementptr ptr, ptr %306, i64 %.4131.i.i
+  %338 = getelementptr [8 x i8], ptr %306, i64 %.4131.i.i
   %339 = load ptr, ptr %338, align 8, !tbaa !92
   %.not.i168.i = icmp eq ptr %339, null
   br i1 %.not.i168.i, label %.sink.split.i, label %313, !llvm.loop !161
@@ -1933,7 +1928,7 @@ poolCopyString.exit167.i:                         ; preds = %275
 344:                                              ; preds = %341
   %345 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %346 = load i64, ptr %345, align 8, !tbaa !91
-  %347 = getelementptr ptr, ptr %343, i64 %346
+  %347 = getelementptr [8 x i8], ptr %343, i64 %346
   br label %hashTableIterInit.exit171.i
 
 hashTableIterInit.exit171.i:                      ; preds = %344, %341
@@ -2034,7 +2029,7 @@ poolCopyString.exit184.i:                         ; preds = %363
   %392 = add i64 %391, -1
   %393 = and i64 %392, %390
   %394 = load ptr, ptr %250, align 8, !tbaa !44
-  %395 = getelementptr ptr, ptr %394, i64 %393
+  %395 = getelementptr [8 x i8], ptr %394, i64 %393
   %396 = load ptr, ptr %395, align 8, !tbaa !92
   %.not184.i185.i = icmp eq ptr %396, null
   br i1 %.not184.i185.i, label %lookup.exit202.i, label %.lr.ph.i186.i
@@ -2092,7 +2087,7 @@ poolCopyString.exit184.i:                         ; preds = %363
   %.4131.p.v.i192.i = select i1 %425, i64 %391, i64 0
   %.4131.p.i193.i = sub i64 %.2129186.i187.i, %424
   %.4131.i194.i = add i64 %.4131.p.v.i192.i, %.4131.p.i193.i
-  %426 = getelementptr ptr, ptr %394, i64 %.4131.i194.i
+  %426 = getelementptr [8 x i8], ptr %394, i64 %.4131.i194.i
   %427 = load ptr, ptr %426, align 8, !tbaa !92
   %.not.i195.i = icmp eq ptr %427, null
   br i1 %.not.i195.i, label %lookup.exit202.i, label %401, !llvm.loop !161
@@ -2126,7 +2121,7 @@ lookup.exit202.i:                                 ; preds = %423, %.lr.ph.i.i199
   %442 = add i64 %441, -1
   %443 = and i64 %442, %440
   %444 = load ptr, ptr %131, align 8, !tbaa !44
-  %445 = getelementptr ptr, ptr %444, i64 %443
+  %445 = getelementptr [8 x i8], ptr %444, i64 %443
   %446 = load ptr, ptr %445, align 8, !tbaa !92
   %.not184.i203.i = icmp eq ptr %446, null
   br i1 %.not184.i203.i, label %lookup.exit220.i, label %.lr.ph.i204.i
@@ -2184,7 +2179,7 @@ lookup.exit202.i:                                 ; preds = %423, %.lr.ph.i.i199
   %.4131.p.v.i210.i = select i1 %475, i64 %441, i64 0
   %.4131.p.i211.i = sub i64 %.2129186.i205.i, %474
   %.4131.i212.i = add i64 %.4131.p.v.i210.i, %.4131.p.i211.i
-  %476 = getelementptr ptr, ptr %444, i64 %.4131.i212.i
+  %476 = getelementptr [8 x i8], ptr %444, i64 %.4131.i212.i
   %477 = load ptr, ptr %476, align 8, !tbaa !92
   %.not.i213.i = icmp eq ptr %477, null
   br i1 %.not.i213.i, label %lookup.exit220.i, label %451, !llvm.loop !161
@@ -2209,7 +2204,7 @@ lookup.exit220.i:                                 ; preds = %473, %.lr.ph.i.i217
 484:                                              ; preds = %648, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %648 ]
   %485 = load ptr, ptr %482, align 8, !tbaa !95
-  %486 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %485, i64 %indvars.iv.i
+  %486 = getelementptr [24 x i8], ptr %485, i64 %indvars.iv.i
   %487 = load ptr, ptr %486, align 8, !tbaa !166
   %488 = load ptr, ptr %487, align 8, !tbaa !153
   %489 = load i64, ptr %350, align 8, !tbaa !91
@@ -2222,7 +2217,7 @@ lookup.exit220.i:                                 ; preds = %473, %.lr.ph.i.i217
   %494 = add i64 %493, -1
   %495 = and i64 %494, %492
   %496 = load ptr, ptr %250, align 8, !tbaa !44
-  %497 = getelementptr ptr, ptr %496, i64 %495
+  %497 = getelementptr [8 x i8], ptr %496, i64 %495
   %498 = load ptr, ptr %497, align 8, !tbaa !92
   %.not184.i221.i = icmp eq ptr %498, null
   br i1 %.not184.i221.i, label %lookup.exit238.i, label %.lr.ph.i222.i
@@ -2280,7 +2275,7 @@ lookup.exit220.i:                                 ; preds = %473, %.lr.ph.i.i217
   %.4131.p.v.i228.i = select i1 %527, i64 %493, i64 0
   %.4131.p.i229.i = sub i64 %.2129186.i223.i, %526
   %.4131.i230.i = add i64 %.4131.p.v.i228.i, %.4131.p.i229.i
-  %528 = getelementptr ptr, ptr %496, i64 %.4131.i230.i
+  %528 = getelementptr [8 x i8], ptr %496, i64 %.4131.i230.i
   %529 = load ptr, ptr %528, align 8, !tbaa !92
   %.not.i231.i = icmp eq ptr %529, null
   br i1 %.not.i231.i, label %lookup.exit238.i, label %503, !llvm.loop !161
@@ -2288,10 +2283,10 @@ lookup.exit220.i:                                 ; preds = %473, %.lr.ph.i.i217
 lookup.exit238.i:                                 ; preds = %525, %.lr.ph.i.i235.i, %491, %484
   %.1126.i234.i = phi ptr [ null, %484 ], [ null, %491 ], [ %504, %.lr.ph.i.i235.i ], [ null, %525 ]
   %530 = load ptr, ptr %483, align 8, !tbaa !95
-  %531 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %530, i64 %indvars.iv.i
+  %531 = getelementptr [24 x i8], ptr %530, i64 %indvars.iv.i
   store ptr %.1126.i234.i, ptr %531, align 8, !tbaa !166
   %532 = load ptr, ptr %482, align 8, !tbaa !95
-  %533 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %532, i64 %indvars.iv.i
+  %533 = getelementptr [24 x i8], ptr %532, i64 %indvars.iv.i
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 8
   %535 = load i8, ptr %534, align 8, !tbaa !168
   %536 = getelementptr inbounds nuw i8, ptr %531, i64 8
@@ -2485,7 +2480,7 @@ lookup.exit238.i:                                 ; preds = %525, %.lr.ph.i.i235
 
 poolCopyString.exit246.thread.i:                  ; preds = %609, %607, %604, %._crit_edge.i256.i, %589, %585, %582
   %633 = load ptr, ptr %483, align 8, !tbaa !95
-  %634 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %633, i64 %indvars.iv.i
+  %634 = getelementptr [24 x i8], ptr %633, i64 %indvars.iv.i
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 16
   store ptr null, ptr %635, align 8, !tbaa !169
   br label %dtdCopy.exit.thread
@@ -2506,7 +2501,7 @@ poolCopyString.exit246.i:                         ; preds = %._crit_edge.i244.i
   %642 = load ptr, ptr %126, align 8, !tbaa !146
   store ptr %642, ptr %129, align 8, !tbaa !148
   %643 = load ptr, ptr %483, align 8, !tbaa !95
-  %644 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %643, i64 %indvars.iv.i
+  %644 = getelementptr [24 x i8], ptr %643, i64 %indvars.iv.i
   %645 = getelementptr inbounds nuw i8, ptr %644, i64 16
   store ptr %641, ptr %645, align 8, !tbaa !169
   %.not149.i = icmp eq ptr %641, null
@@ -2673,7 +2668,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @setContext(ptr noundef nonnull
   %38 = add i64 %37, -1
   %39 = and i64 %38, %36
   %40 = load ptr, ptr %6, align 8, !tbaa !44
-  %41 = getelementptr ptr, ptr %40, i64 %39
+  %41 = getelementptr [8 x i8], ptr %40, i64 %39
   %42 = load ptr, ptr %41, align 8, !tbaa !92
   %.not184.i = icmp eq ptr %42, null
   br i1 %.not184.i, label %.thread, label %.lr.ph.i
@@ -2731,7 +2726,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @setContext(ptr noundef nonnull
   %.4131.p.v.i = select i1 %71, i64 %37, i64 0
   %.4131.p.i = sub i64 %.2129186.i, %70
   %.4131.i = add i64 %.4131.p.v.i, %.4131.p.i
-  %72 = getelementptr ptr, ptr %40, i64 %.4131.i
+  %72 = getelementptr [8 x i8], ptr %40, i64 %.4131.i
   %73 = load ptr, ptr %72, align 8, !tbaa !92
   %.not.i = icmp eq ptr %73, null
   br i1 %.not.i, label %.thread, label %47, !llvm.loop !161
@@ -3167,7 +3162,7 @@ poolDestroy.exit89:                               ; preds = %86, %._crit_edge.i8
 104:                                              ; preds = %99
   %105 = getelementptr inbounds nuw i8, ptr %98, i64 56
   %106 = load i64, ptr %105, align 8, !tbaa !91
-  %107 = getelementptr ptr, ptr %103, i64 %106
+  %107 = getelementptr [8 x i8], ptr %103, i64 %106
   br label %hashTableIterInit.exit.i
 
 hashTableIterInit.exit.i:                         ; preds = %104, %99
@@ -3217,7 +3212,7 @@ hashTableIterNext.exit.i:                         ; preds = %111
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load ptr, ptr %126, align 8, !tbaa !10
   %128 = load ptr, ptr %98, align 8, !tbaa !44
-  %129 = getelementptr ptr, ptr %128, i64 %.07.i.i
+  %129 = getelementptr [8 x i8], ptr %128, i64 %.07.i.i
   %130 = load ptr, ptr %129, align 8, !tbaa !92
   tail call void %127(ptr noundef %130) #26
   %131 = add nuw i64 %.07.i.i, 1
@@ -3248,7 +3243,7 @@ hashTableDestroy.exit.i:                          ; preds = %124, %120
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %146 = load ptr, ptr %145, align 8, !tbaa !10
   %147 = load ptr, ptr %139, align 8, !tbaa !44
-  %148 = getelementptr ptr, ptr %147, i64 %.07.i26.i
+  %148 = getelementptr [8 x i8], ptr %147, i64 %.07.i26.i
   %149 = load ptr, ptr %148, align 8, !tbaa !92
   tail call void %146(ptr noundef %149) #26
   %150 = add nuw i64 %.07.i26.i, 1
@@ -3278,7 +3273,7 @@ hashTableDestroy.exit27.i:                        ; preds = %143, %hashTableDest
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
   %164 = load ptr, ptr %163, align 8, !tbaa !10
   %165 = load ptr, ptr %102, align 8, !tbaa !44
-  %166 = getelementptr ptr, ptr %165, i64 %.07.i30.i
+  %166 = getelementptr [8 x i8], ptr %165, i64 %.07.i30.i
   %167 = load ptr, ptr %166, align 8, !tbaa !92
   tail call void %164(ptr noundef %167) #26
   %168 = add nuw i64 %.07.i30.i, 1
@@ -3309,7 +3304,7 @@ hashTableDestroy.exit31.i:                        ; preds = %161, %hashTableDest
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %183 = load ptr, ptr %182, align 8, !tbaa !10
   %184 = load ptr, ptr %176, align 8, !tbaa !44
-  %185 = getelementptr ptr, ptr %184, i64 %.07.i34.i
+  %185 = getelementptr [8 x i8], ptr %184, i64 %.07.i34.i
   %186 = load ptr, ptr %185, align 8, !tbaa !92
   tail call void %183(ptr noundef %186) #26
   %187 = add nuw i64 %.07.i34.i, 1
@@ -3340,7 +3335,7 @@ hashTableDestroy.exit35.i:                        ; preds = %180, %hashTableDest
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %202 = load ptr, ptr %201, align 8, !tbaa !10
   %203 = load ptr, ptr %195, align 8, !tbaa !44
-  %204 = getelementptr ptr, ptr %203, i64 %.07.i38.i
+  %204 = getelementptr [8 x i8], ptr %203, i64 %.07.i38.i
   %205 = load ptr, ptr %204, align 8, !tbaa !92
   tail call void %202(ptr noundef %205) #26
   %206 = add nuw i64 %.07.i38.i, 1
@@ -5650,7 +5645,7 @@ define hidden noundef ptr @PyExpat_XML_ErrorString(i32 noundef %0) local_unnamed
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.PyExpat_XML_ErrorString, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PyExpat_XML_ErrorString, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -5774,7 +5769,7 @@ define hidden noundef nonnull ptr @PyExpat_unsignedCharToPrintable(i8 noundef ze
 switch.lookup:
   %switch.tableidx = xor i8 %0, -128
   %1 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.PyExpat_unsignedCharToPrintable, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PyExpat_unsignedCharToPrintable, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -7302,7 +7297,7 @@ poolAppend.exit:                                  ; preds = %563
 
 583:                                              ; preds = %582, %.lr.ph.i1168
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i1168 ], [ %indvars.iv.next.i, %582 ]
-  %584 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %581, i64 %indvars.iv.i
+  %584 = getelementptr [24 x i8], ptr %581, i64 %indvars.iv.i
   %585 = load ptr, ptr %584, align 8, !tbaa !166
   %586 = icmp eq ptr %575, %585
   br i1 %586, label %defineAttribute.exit, label %582
@@ -7375,7 +7370,7 @@ poolAppend.exit:                                  ; preds = %563
   %615 = phi ptr [ %.pre66.i, %.thread._crit_edge.i ], [ %612, %613 ], [ %600, %598 ]
   %616 = load i32, ptr %578, align 8, !tbaa !163
   %617 = sext i32 %616 to i64
-  %618 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %615, i64 %617
+  %618 = getelementptr [24 x i8], ptr %615, i64 %617
   store ptr %575, ptr %618, align 8, !tbaa !166
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 16
   store ptr null, ptr %619, align 8, !tbaa !169
@@ -7590,7 +7585,7 @@ poolClear.exit1176:                               ; preds = %666, %.loopexit.sin
 
 709:                                              ; preds = %708, %.lr.ph.i1194
   %indvars.iv.i1196 = phi i64 [ 0, %.lr.ph.i1194 ], [ %indvars.iv.next.i1197, %708 ]
-  %710 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %707, i64 %indvars.iv.i1196
+  %710 = getelementptr [24 x i8], ptr %707, i64 %indvars.iv.i1196
   %711 = load ptr, ptr %710, align 8, !tbaa !166
   %712 = icmp eq ptr %701, %711
   br i1 %712, label %defineAttribute.exit1199, label %708
@@ -7647,7 +7642,7 @@ poolClear.exit1176:                               ; preds = %666, %.loopexit.sin
   %735 = phi ptr [ %.pre66.i1186, %.thread._crit_edge.i1184 ], [ %732, %733 ], [ %720, %718 ]
   %736 = load i32, ptr %704, align 8, !tbaa !163
   %737 = sext i32 %736 to i64
-  %738 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %735, i64 %737
+  %738 = getelementptr [24 x i8], ptr %735, i64 %737
   store ptr %701, ptr %738, align 8, !tbaa !166
   %739 = getelementptr inbounds nuw i8, ptr %738, i64 16
   store ptr %698, ptr %739, align 8, !tbaa !169
@@ -9002,14 +8997,14 @@ reportDefault.exit:                               ; preds = %1239, %1255
   %1303 = load ptr, ptr %54, align 8, !tbaa !98
   %1304 = load i32, ptr %52, align 4, !tbaa !174
   %1305 = sext i32 %1304 to i64
-  %1306 = getelementptr i32, ptr %1303, i64 %1305
+  %1306 = getelementptr [4 x i8], ptr %1303, i64 %1305
   store i32 %1301, ptr %1306, align 4, !tbaa !115
   %1307 = load i32, ptr %52, align 4, !tbaa !174
   %1308 = add i32 %1307, 1
   store i32 %1308, ptr %52, align 4, !tbaa !174
   %1309 = load ptr, ptr %53, align 8, !tbaa !99
   %1310 = zext nneg i32 %1301 to i64
-  %1311 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %1309, i64 %1310
+  %1311 = getelementptr [32 x i8], ptr %1309, i64 %1310
   store i32 6, ptr %1311, align 8, !tbaa !263
   %1312 = load ptr, ptr %45, align 8, !tbaa !135
   %.not976 = icmp eq ptr %1312, null
@@ -9057,10 +9052,10 @@ reportDefault.exit:                               ; preds = %1239, %1255
   %1336 = load i32, ptr %52, align 4, !tbaa !174
   %1337 = add i32 %1336, -1
   %1338 = sext i32 %1337 to i64
-  %1339 = getelementptr i32, ptr %1335, i64 %1338
+  %1339 = getelementptr [4 x i8], ptr %1335, i64 %1338
   %1340 = load i32, ptr %1339, align 4, !tbaa !115
   %1341 = sext i32 %1340 to i64
-  %1342 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %1334, i64 %1341
+  %1342 = getelementptr [32 x i8], ptr %1334, i64 %1341
   %1343 = load i32, ptr %1342, align 8, !tbaa !263
   %.not965 = icmp eq i32 %1343, 3
   br i1 %.not965, label %1346, label %1344
@@ -9168,7 +9163,7 @@ poolStoreString.exit1344:                         ; preds = %1371, %._crit_edge.
   %1386 = add i64 %1385, -1
   %1387 = and i64 %1386, %1384
   %1388 = load ptr, ptr %67, align 8, !tbaa !44
-  %1389 = getelementptr ptr, ptr %1388, i64 %1387
+  %1389 = getelementptr [8 x i8], ptr %1388, i64 %1387
   %1390 = load ptr, ptr %1389, align 8, !tbaa !92
   %.not184.i = icmp eq ptr %1390, null
   br i1 %.not184.i, label %lookup.exit, label %.lr.ph.i1345
@@ -9226,7 +9221,7 @@ poolStoreString.exit1344:                         ; preds = %1371, %._crit_edge.
   %.4131.p.v.i = select i1 %1419, i64 %1385, i64 0
   %.4131.p.i = sub i64 %.2129186.i, %1418
   %.4131.i = add i64 %.4131.p.v.i, %.4131.p.i
-  %1420 = getelementptr ptr, ptr %1388, i64 %.4131.i
+  %1420 = getelementptr [8 x i8], ptr %1388, i64 %.4131.i
   %1421 = load ptr, ptr %1420, align 8, !tbaa !92
   %.not.i1346 = icmp eq ptr %1421, null
   br i1 %.not.i1346, label %lookup.exit, label %1395, !llvm.loop !161
@@ -9429,10 +9424,10 @@ lookup.exit:                                      ; preds = %1417, %.lr.ph.i.i, 
   %1505 = load i32, ptr %52, align 4, !tbaa !174
   %1506 = add i32 %1505, -1
   %1507 = sext i32 %1506 to i64
-  %1508 = getelementptr i32, ptr %1504, i64 %1507
+  %1508 = getelementptr [4 x i8], ptr %1504, i64 %1507
   %1509 = load i32, ptr %1508, align 4, !tbaa !115
   %1510 = sext i32 %1509 to i64
-  %1511 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %1503, i64 %1510
+  %1511 = getelementptr [32 x i8], ptr %1503, i64 %1510
   store i32 3, ptr %1511, align 8, !tbaa !263
   %1512 = load ptr, ptr %45, align 8, !tbaa !135
   %.not938 = icmp eq ptr %1512, null
@@ -9478,7 +9473,7 @@ lookup.exit:                                      ; preds = %1417, %.lr.ph.i.i, 
 1531:                                             ; preds = %1527
   %1532 = load ptr, ptr %53, align 8, !tbaa !99
   %1533 = zext nneg i32 %1529 to i64
-  %1534 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %1532, i64 %1533
+  %1534 = getelementptr [32 x i8], ptr %1532, i64 %1533
   store i32 4, ptr %1534, align 8, !tbaa !263
   %1535 = getelementptr inbounds nuw i8, ptr %1534, i64 4
   store i32 %.080914991502, ptr %1535, align 4, !tbaa !271
@@ -9489,7 +9484,7 @@ lookup.exit:                                      ; preds = %1417, %.lr.ph.i.i, 
 1537:                                             ; preds = %1531
   %1538 = load ptr, ptr %1536, align 8, !tbaa !162
   %1539 = load ptr, ptr %53, align 8, !tbaa !99
-  %1540 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %1539, i64 %1533
+  %1540 = getelementptr [32 x i8], ptr %1539, i64 %1533
   %1541 = getelementptr inbounds nuw i8, ptr %1540, i64 8
   store ptr %1538, ptr %1541, align 8, !tbaa !272
   %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1538)
@@ -9533,10 +9528,10 @@ lookup.exit:                                      ; preds = %1417, %.lr.ph.i.i, 
   %1560 = load ptr, ptr %53, align 8, !tbaa !99
   %1561 = load ptr, ptr %54, align 8, !tbaa !98
   %1562 = sext i32 %1559 to i64
-  %1563 = getelementptr i32, ptr %1561, i64 %1562
+  %1563 = getelementptr [4 x i8], ptr %1561, i64 %1562
   %1564 = load i32, ptr %1563, align 4, !tbaa !115
   %1565 = sext i32 %1564 to i64
-  %1566 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %1560, i64 %1565
+  %1566 = getelementptr [32 x i8], ptr %1560, i64 %1565
   %1567 = getelementptr inbounds nuw i8, ptr %1566, i64 4
   store i32 %.1810, ptr %1567, align 4, !tbaa !271
   %1568 = icmp eq i32 %1559, 0
@@ -9563,7 +9558,7 @@ lookup.exit:                                      ; preds = %1417, %.lr.ph.i.i, 
 1580:                                             ; preds = %1570
   %1581 = load i32, ptr %1571, align 8, !tbaa !266
   %1582 = zext i32 %1581 to i64
-  %1583 = getelementptr %struct.XML_cp, ptr %1579, i64 %1582
+  %1583 = getelementptr [32 x i8], ptr %1579, i64 %1582
   %1584 = getelementptr inbounds nuw i8, ptr %1579, i64 16
   store i32 0, ptr %1584, align 8, !tbaa !273
   %1585 = icmp ult ptr %1579, %1583
@@ -9582,7 +9577,7 @@ lookup.exit:                                      ; preds = %1417, %.lr.ph.i.i, 
   %1590 = load i32, ptr %1589, align 8, !tbaa !273
   %1591 = load ptr, ptr %1587, align 8, !tbaa !99
   %1592 = sext i32 %1590 to i64
-  %1593 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %1591, i64 %1592
+  %1593 = getelementptr [32 x i8], ptr %1591, i64 %1592
   %1594 = load i32, ptr %1593, align 8, !tbaa !263
   store i32 %1594, ptr %.0605.i, align 8, !tbaa !270
   %1595 = getelementptr inbounds nuw i8, ptr %1593, i64 4
@@ -9639,7 +9634,7 @@ lookup.exit:                                      ; preds = %1417, %.lr.ph.i.i, 
   store i32 %.0.i1352, ptr %1615, align 8, !tbaa !273
   %1616 = add nuw i32 %.0523.i, 1
   %1617 = sext i32 %.0.i1352 to i64
-  %1618 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %1591, i64 %1617
+  %1618 = getelementptr [32 x i8], ptr %1591, i64 %1617
   %1619 = getelementptr inbounds nuw i8, ptr %1618, i64 28
   %1620 = load i32, ptr %1589, align 8, !tbaa !273
   %1621 = icmp ult i32 %1616, %1620
@@ -10557,7 +10552,7 @@ define internal fastcc ptr @lookup(ptr noundef readonly captures(none) %0, ptr n
   %24 = add i64 %23, -1
   %25 = and i64 %24, %22
   %26 = load ptr, ptr %1, align 8, !tbaa !44
-  %27 = getelementptr ptr, ptr %26, i64 %25
+  %27 = getelementptr [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8, !tbaa !92
   %.not184 = icmp eq ptr %28, null
   br i1 %.not184, label %._crit_edge, label %.lr.ph
@@ -10616,7 +10611,7 @@ define internal fastcc ptr @lookup(ptr noundef readonly captures(none) %0, ptr n
   %.4131.p.v = select i1 %58, i64 %23, i64 0
   %.4131.p = sub i64 %.2129186, %57
   %.4131 = add i64 %.4131.p, %.4131.p.v
-  %59 = getelementptr ptr, ptr %26, i64 %.4131
+  %59 = getelementptr [8 x i8], ptr %26, i64 %.4131
   %60 = load ptr, ptr %59, align 8, !tbaa !92
   %.not = icmp eq ptr %60, null
   br i1 %.not, label %._crit_edge, label %34, !llvm.loop !161
@@ -10677,7 +10672,7 @@ define internal fastcc ptr @lookup(ptr noundef readonly captures(none) %0, ptr n
   %92 = phi i64 [ %86, %.lr.ph196 ], [ %117, %116 ]
   %.9194 = phi i64 [ 0, %.lr.ph196 ], [ %118, %116 ]
   %93 = load ptr, ptr %1, align 8, !tbaa !44
-  %94 = getelementptr ptr, ptr %93, i64 %.9194
+  %94 = getelementptr [8 x i8], ptr %93, i64 %.9194
   %95 = load ptr, ptr %94, align 8, !tbaa !92
   %.not162 = icmp eq ptr %95, null
   br i1 %.not162, label %116, label %96
@@ -10686,7 +10681,7 @@ define internal fastcc ptr @lookup(ptr noundef readonly captures(none) %0, ptr n
   %97 = load ptr, ptr %95, align 8, !tbaa !158
   %98 = tail call fastcc i64 @hash(ptr noundef %0, ptr noundef %97)
   %99 = and i64 %98, %77
-  %100 = getelementptr ptr, ptr %84, i64 %99
+  %100 = getelementptr [8 x i8], ptr %84, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !92
   %.not163187 = icmp eq ptr %101, null
   br i1 %.not163187, label %._crit_edge192, label %.lr.ph191
@@ -10709,16 +10704,16 @@ define internal fastcc ptr @lookup(ptr noundef readonly captures(none) %0, ptr n
   %.1.p.v = select i1 %109, i64 %76, i64 0
   %.1.p = sub i64 %.0189, %108
   %.1 = add i64 %.1.p, %.1.p.v
-  %110 = getelementptr ptr, ptr %84, i64 %.1
+  %110 = getelementptr [8 x i8], ptr %84, i64 %.1
   %111 = load ptr, ptr %110, align 8, !tbaa !92
   %.not163 = icmp eq ptr %111, null
   br i1 %.not163, label %._crit_edge192, label %107, !llvm.loop !284
 
 ._crit_edge192:                                   ; preds = %107, %96
   %.0.lcssa = phi i64 [ %99, %96 ], [ %.1, %107 ]
-  %112 = getelementptr ptr, ptr %84, i64 %.0.lcssa
+  %112 = getelementptr [8 x i8], ptr %84, i64 %.0.lcssa
   %113 = load ptr, ptr %1, align 8, !tbaa !44
-  %114 = getelementptr ptr, ptr %113, i64 %.9194
+  %114 = getelementptr [8 x i8], ptr %113, i64 %.9194
   %115 = load ptr, ptr %114, align 8, !tbaa !92
   store ptr %115, ptr %112, align 8, !tbaa !92
   %.pre = load i64, ptr %5, align 8, !tbaa !91
@@ -10740,7 +10735,7 @@ define internal fastcc ptr @lookup(ptr noundef readonly captures(none) %0, ptr n
   store i8 %71, ptr %64, align 8, !tbaa !42
   store i64 %76, ptr %5, align 8, !tbaa !91
   %124 = and i64 %77, %22
-  %125 = getelementptr ptr, ptr %84, i64 %124
+  %125 = getelementptr [8 x i8], ptr %84, i64 %124
   %126 = load ptr, ptr %125, align 8, !tbaa !92
   %.not160198 = icmp eq ptr %126, null
   br i1 %.not160198, label %keyeq.exit, label %.lr.ph202
@@ -10767,7 +10762,7 @@ define internal fastcc ptr @lookup(ptr noundef readonly captures(none) %0, ptr n
   %.11.p.v = select i1 %138, i64 %76, i64 0
   %.11.p = sub i64 %.10200, %137
   %.11 = add i64 %.11.p, %.11.p.v
-  %139 = getelementptr ptr, ptr %84, i64 %.11
+  %139 = getelementptr [8 x i8], ptr %84, i64 %.11
   %140 = load ptr, ptr %139, align 8, !tbaa !92
   %.not160 = icmp eq ptr %140, null
   br i1 %.not160, label %keyeq.exit, label %136, !llvm.loop !286
@@ -10779,10 +10774,10 @@ keyeq.exit:                                       ; preds = %136, %._crit_edge19
   %143 = load ptr, ptr %142, align 8, !tbaa !6
   %144 = tail call ptr %143(i64 noundef %3) #26
   %145 = load ptr, ptr %1, align 8, !tbaa !44
-  %146 = getelementptr ptr, ptr %145, i64 %.1128
+  %146 = getelementptr [8 x i8], ptr %145, i64 %.1128
   store ptr %144, ptr %146, align 8, !tbaa !92
   %147 = load ptr, ptr %1, align 8, !tbaa !44
-  %148 = getelementptr ptr, ptr %147, i64 %.1128
+  %148 = getelementptr [8 x i8], ptr %147, i64 %.1128
   %149 = load ptr, ptr %148, align 8, !tbaa !92
   %.not169 = icmp eq ptr %149, null
   br i1 %.not169, label %.thread, label %150
@@ -10790,7 +10785,7 @@ keyeq.exit:                                       ; preds = %136, %._crit_edge19
 150:                                              ; preds = %keyeq.exit
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %149, i8 0, i64 %3, i1 false)
   %151 = load ptr, ptr %1, align 8, !tbaa !44
-  %152 = getelementptr ptr, ptr %151, i64 %.1128
+  %152 = getelementptr [8 x i8], ptr %151, i64 %.1128
   %153 = load ptr, ptr %152, align 8, !tbaa !92
   store ptr %2, ptr %153, align 8, !tbaa !158
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -11809,7 +11804,7 @@ poolStoreString.exit:                             ; preds = %151, %._crit_edge.i
   %166 = add i64 %165, -1
   %167 = and i64 %166, %164
   %168 = load ptr, ptr %35, align 8, !tbaa !44
-  %169 = getelementptr ptr, ptr %168, i64 %167
+  %169 = getelementptr [8 x i8], ptr %168, i64 %167
   %170 = load ptr, ptr %169, align 8, !tbaa !92
   %.not184.i = icmp eq ptr %170, null
   br i1 %.not184.i, label %lookup.exit.thread, label %.lr.ph.i
@@ -11867,7 +11862,7 @@ poolStoreString.exit:                             ; preds = %151, %._crit_edge.i
   %.4131.p.v.i = select i1 %199, i64 %165, i64 0
   %.4131.p.i = sub i64 %.2129186.i, %198
   %.4131.i = add i64 %.4131.p.v.i, %.4131.p.i
-  %200 = getelementptr ptr, ptr %168, i64 %.4131.i
+  %200 = getelementptr [8 x i8], ptr %168, i64 %.4131.i
   %201 = load ptr, ptr %200, align 8, !tbaa !92
   %.not.i152 = icmp eq ptr %201, null
   br i1 %.not.i152, label %lookup.exit.thread, label %175, !llvm.loop !161
@@ -12729,7 +12724,7 @@ define internal fastcc i32 @nextScaffoldPart(ptr noundef readonly captures(none)
   %42 = add i32 %41, 1
   store i32 %42, ptr %16, align 8, !tbaa !266
   %43 = sext i32 %41 to i64
-  %44 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %40, i64 %43
+  %44 = getelementptr [32 x i8], ptr %40, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 348
   %46 = load i32, ptr %45, align 4, !tbaa !174
   %.not56 = icmp eq i32 %46, 0
@@ -12739,10 +12734,10 @@ define internal fastcc i32 @nextScaffoldPart(ptr noundef readonly captures(none)
   %48 = load ptr, ptr %4, align 8, !tbaa !98
   %49 = add i32 %46, -1
   %50 = sext i32 %49 to i64
-  %51 = getelementptr i32, ptr %48, i64 %50
+  %51 = getelementptr [4 x i8], ptr %48, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !115
   %53 = sext i32 %52 to i64
-  %54 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %40, i64 %53
+  %54 = getelementptr [32 x i8], ptr %40, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 20
   %56 = load i32, ptr %55, align 4, !tbaa !294
   %.not57 = icmp eq i32 %56, 0
@@ -12750,7 +12745,7 @@ define internal fastcc i32 @nextScaffoldPart(ptr noundef readonly captures(none)
 
 57:                                               ; preds = %47
   %58 = sext i32 %56 to i64
-  %59 = getelementptr %struct.CONTENT_SCAFFOLD, ptr %40, i64 %58
+  %59 = getelementptr [32 x i8], ptr %40, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 28
   store i32 %41, ptr %60, align 4, !tbaa !295
   br label %61
@@ -14804,7 +14799,7 @@ poolStoreString.exit:                             ; preds = %341, %._crit_edge.i
   %356 = add i64 %355, -1
   %357 = and i64 %356, %354
   %358 = load ptr, ptr %46, align 8, !tbaa !44
-  %359 = getelementptr ptr, ptr %358, i64 %357
+  %359 = getelementptr [8 x i8], ptr %358, i64 %357
   %360 = load ptr, ptr %359, align 8, !tbaa !92
   %.not184.i = icmp eq ptr %360, null
   br i1 %.not184.i, label %lookup.exit, label %.lr.ph.i
@@ -14862,7 +14857,7 @@ poolStoreString.exit:                             ; preds = %341, %._crit_edge.i
   %.4131.p.v.i = select i1 %389, i64 %355, i64 0
   %.4131.p.i = sub i64 %.2129186.i, %388
   %.4131.i = add i64 %.4131.p.v.i, %.4131.p.i
-  %390 = getelementptr ptr, ptr %358, i64 %.4131.i
+  %390 = getelementptr [8 x i8], ptr %358, i64 %.4131.i
   %391 = load ptr, ptr %390, align 8, !tbaa !92
   %.not.i562 = icmp eq ptr %391, null
   br i1 %.not.i562, label %lookup.exit, label %365, !llvm.loop !161
@@ -16664,7 +16659,7 @@ define internal fastcc ptr @getContext(ptr noundef captures(none) %0) unnamed_ad
 40:                                               ; preds = %.loopexit152
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %42 = load i64, ptr %41, align 8, !tbaa !91
-  %43 = getelementptr ptr, ptr %39, i64 %42
+  %43 = getelementptr [8 x i8], ptr %39, i64 %42
   br label %hashTableIterInit.exit
 
 hashTableIterInit.exit:                           ; preds = %.loopexit152, %40
@@ -17000,7 +16995,7 @@ poolGrow.exit:                                    ; preds = %160, %132, %95, %80
 204:                                              ; preds = %202
   %205 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %206 = load i64, ptr %205, align 8, !tbaa !91
-  %207 = getelementptr ptr, ptr %203, i64 %206
+  %207 = getelementptr [8 x i8], ptr %203, i64 %206
   br label %hashTableIterInit.exit113
 
 hashTableIterInit.exit113:                        ; preds = %202, %204
@@ -17143,7 +17138,7 @@ define internal fastcc range(i32 0, 44) i32 @storeAtts(ptr noundef %0, ptr nound
   %19 = add i64 %18, -1
   %20 = and i64 %19, %17
   %21 = load ptr, ptr %11, align 8, !tbaa !44
-  %22 = getelementptr ptr, ptr %21, i64 %20
+  %22 = getelementptr [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !92
   %.not184.i = icmp eq ptr %23, null
   br i1 %.not184.i, label %lookup.exit.thread, label %.lr.ph.i
@@ -17202,7 +17197,7 @@ define internal fastcc range(i32 0, 44) i32 @storeAtts(ptr noundef %0, ptr nound
   %.4131.p.v.i = select i1 %53, i64 %18, i64 0
   %.4131.p.i = sub i64 %.2129186.i, %52
   %.4131.i = add i64 %.4131.p.v.i, %.4131.p.i
-  %54 = getelementptr ptr, ptr %21, i64 %.4131.i
+  %54 = getelementptr [8 x i8], ptr %21, i64 %.4131.i
   %55 = load ptr, ptr %54, align 8, !tbaa !92
   %.not.i = icmp eq ptr %55, null
   br i1 %.not.i, label %lookup.exit.thread, label %29, !llvm.loop !161
@@ -17342,7 +17337,7 @@ lookup.exit:                                      ; preds = %.lr.ph.i.i, %77, %8
   %.0409764 = phi i32 [ 0, %.lr.ph765 ], [ %.1410624, %.thread618 ]
   %.0443762 = phi i32 [ 0, %.lr.ph765 ], [ %.1444623, %.thread618 ]
   %128 = load ptr, ptr %88, align 8, !tbaa !36
-  %129 = getelementptr %struct.ATTRIBUTE, ptr %128, i64 %indvars.iv857
+  %129 = getelementptr [32 x i8], ptr %128, i64 %indvars.iv857
   %130 = load ptr, ptr %129, align 8, !tbaa !335
   %131 = load ptr, ptr %119, align 8, !tbaa !281
   %132 = call i32 %131(ptr noundef %1, ptr noundef %130) #26
@@ -17367,7 +17362,7 @@ lookup.exit:                                      ; preds = %.lr.ph.i.i, %77, %8
 
 144:                                              ; preds = %140
   %145 = load ptr, ptr %88, align 8, !tbaa !36
-  %146 = getelementptr %struct.ATTRIBUTE, ptr %145, i64 %indvars.iv857
+  %146 = getelementptr [32 x i8], ptr %145, i64 %indvars.iv857
   %147 = load ptr, ptr %146, align 8, !tbaa !335
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 560
   store ptr %147, ptr %148, align 8, !tbaa !203
@@ -17378,10 +17373,10 @@ lookup.exit:                                      ; preds = %.lr.ph.i.i, %77, %8
   %150 = load ptr, ptr %135, align 8, !tbaa !153
   %151 = add i32 %.0409764, 1
   %152 = sext i32 %.0409764 to i64
-  %153 = getelementptr ptr, ptr %117, i64 %152
+  %153 = getelementptr [8 x i8], ptr %117, i64 %152
   store ptr %150, ptr %153, align 8, !tbaa !116
   %154 = load ptr, ptr %88, align 8, !tbaa !36
-  %155 = getelementptr %struct.ATTRIBUTE, ptr %154, i64 %indvars.iv857
+  %155 = getelementptr [32 x i8], ptr %154, i64 %indvars.iv857
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
   %157 = load i8, ptr %156, align 8, !tbaa !337
   %.not557 = icmp eq i8 %157, 0
@@ -17405,7 +17400,7 @@ lookup.exit:                                      ; preds = %.lr.ph.i.i, %77, %8
 
 163:                                              ; preds = %.lr.ph, %162
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %162 ]
-  %164 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %161, i64 %indvars.iv
+  %164 = getelementptr [24 x i8], ptr %161, i64 %indvars.iv
   %165 = load ptr, ptr %164, align 8, !tbaa !166
   %166 = icmp eq ptr %135, %165
   br i1 %166, label %167, label %162
@@ -17467,7 +17462,7 @@ lookup.exit:                                      ; preds = %.lr.ph.i.i, %77, %8
   store i8 0, ptr %189, align 1, !tbaa !3
   %191 = load ptr, ptr %124, align 8, !tbaa !177
   %192 = sext i32 %151 to i64
-  %193 = getelementptr ptr, ptr %117, i64 %192
+  %193 = getelementptr [8 x i8], ptr %117, i64 %192
   store ptr %191, ptr %193, align 8, !tbaa !116
   br label %223
 
@@ -17529,7 +17524,7 @@ poolAppend.exit.i:                                ; preds = %202
 
 poolStoreString.exit.thread:                      ; preds = %poolAppend.exit.i, %213, %poolAppend.exit.thread.i
   %215 = sext i32 %151 to i64
-  %216 = getelementptr ptr, ptr %117, i64 %215
+  %216 = getelementptr [8 x i8], ptr %117, i64 %215
   store ptr null, ptr %216, align 8, !tbaa !116
   br label %.critedge564
 
@@ -17540,7 +17535,7 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
   store i8 0, ptr %217, align 1, !tbaa !3
   %219 = load ptr, ptr %124, align 8, !tbaa !148
   %220 = sext i32 %151 to i64
-  %221 = getelementptr ptr, ptr %117, i64 %220
+  %221 = getelementptr [8 x i8], ptr %117, i64 %220
   store ptr %219, ptr %221, align 8, !tbaa !116
   %222 = icmp eq ptr %219, null
   br i1 %222, label %.critedge564, label %223
@@ -17573,7 +17568,7 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
 
 236:                                              ; preds = %226
   %237 = sext i32 %151 to i64
-  %238 = getelementptr ptr, ptr %117, i64 %237
+  %238 = getelementptr [8 x i8], ptr %117, i64 %237
   %239 = load ptr, ptr %238, align 8, !tbaa !116
   %240 = call fastcc i32 @addBinding(ptr noundef nonnull %0, ptr noundef nonnull %225, ptr noundef nonnull %135, ptr noundef %239, ptr noundef %4)
   %.not562 = icmp eq i32 %240, 0
@@ -17610,7 +17605,7 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
 .lr.ph768:                                        ; preds = %.preheader703, %253
   %.1419767 = phi i32 [ %254, %253 ], [ 0, %.preheader703 ]
   %249 = sext i32 %.1419767 to i64
-  %250 = getelementptr ptr, ptr %117, i64 %249
+  %250 = getelementptr [8 x i8], ptr %117, i64 %249
   %251 = load ptr, ptr %250, align 8, !tbaa !116
   %252 = icmp eq ptr %251, %245
   br i1 %252, label %.loopexit704.sink.split, label %253
@@ -17640,7 +17635,7 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
   %.4413771 = phi i32 [ %.0409.lcssa, %.lr.ph773 ], [ %.6415633, %.thread627 ]
   %.3446769 = phi i32 [ %.0443.lcssa, %.lr.ph773 ], [ %.5448632, %.thread627 ]
   %260 = load ptr, ptr %258, align 8, !tbaa !95
-  %261 = getelementptr %struct.DEFAULT_ATTRIBUTE, ptr %260, i64 %indvars.iv862
+  %261 = getelementptr [24 x i8], ptr %260, i64 %indvars.iv862
   %262 = load ptr, ptr %261, align 8, !tbaa !166
   %263 = load ptr, ptr %262, align 8, !tbaa !153
   %264 = getelementptr i8, ptr %263, i64 -1
@@ -17686,12 +17681,12 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
   %281 = load ptr, ptr %280, align 8, !tbaa !153
   %282 = add i32 %.4413771, 1
   %283 = sext i32 %.4413771 to i64
-  %284 = getelementptr ptr, ptr %117, i64 %283
+  %284 = getelementptr [8 x i8], ptr %117, i64 %283
   store ptr %281, ptr %284, align 8, !tbaa !116
   %285 = load ptr, ptr %267, align 8, !tbaa !169
   %286 = add i32 %.4413771, 2
   %287 = sext i32 %282 to i64
-  %288 = getelementptr ptr, ptr %117, i64 %287
+  %288 = getelementptr [8 x i8], ptr %117, i64 %287
   store ptr %285, ptr %288, align 8, !tbaa !116
   br label %.thread627
 
@@ -17706,7 +17701,7 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
   %.3446.lcssa = phi i32 [ %.0443.lcssa, %.loopexit704 ], [ %.5448632, %.thread627 ]
   %.4413.lcssa = phi i32 [ %.0409.lcssa, %.loopexit704 ], [ %.6415633, %.thread627 ]
   %289 = sext i32 %.4413.lcssa to i64
-  %290 = getelementptr ptr, ptr %117, i64 %289
+  %290 = getelementptr [8 x i8], ptr %117, i64 %289
   store ptr null, ptr %290, align 8, !tbaa !116
   %.not516 = icmp eq i32 %.3446.lcssa, 0
   br i1 %.not516, label %.thread681, label %291
@@ -17788,7 +17783,7 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
   %.0439778 = phi i32 [ %.0434939, %.preheader700 ], [ %325, %324 ]
   %325 = add i32 %.0439778, -1
   %326 = sext i32 %325 to i64
-  %327 = getelementptr %struct.NS_ATT, ptr %323, i64 %326
+  %327 = getelementptr [24 x i8], ptr %323, i64 %326
   store i64 4294967295, ptr %327, align 8, !tbaa !347
   %.not521 = icmp eq i32 %325, 0
   br i1 %.not521, label %.loopexit701, label %324, !llvm.loop !349
@@ -17828,7 +17823,7 @@ poolStoreString.exit:                             ; preds = %209, %._crit_edge.i
   %.6424797 = phi i32 [ 0, %.lr.ph799 ], [ %522, %521 ]
   %.6449796 = phi i32 [ %.3446.lcssa, %.lr.ph799 ], [ %.8451.ph, %521 ]
   %351 = sext i32 %.6424797 to i64
-  %352 = getelementptr ptr, ptr %117, i64 %351
+  %352 = getelementptr [8 x i8], ptr %117, i64 %351
   %353 = load ptr, ptr %352, align 8, !tbaa !116
   %354 = getelementptr i8, ptr %353, i64 -1
   %355 = load i8, ptr %354, align 1, !tbaa !3
@@ -17868,7 +17863,7 @@ copy_salt_to_sipkey.exit:                         ; preds = %tailrecurse.i.i
   %369 = add i64 %368, -1
   %370 = and i64 %369, %367
   %371 = load ptr, ptr %337, align 8, !tbaa !44
-  %372 = getelementptr ptr, ptr %371, i64 %370
+  %372 = getelementptr [8 x i8], ptr %371, i64 %370
   %373 = load ptr, ptr %372, align 8, !tbaa !92
   %.not184.i583 = icmp eq ptr %373, null
   br i1 %.not184.i583, label %.thread671, label %.lr.ph.i584
@@ -17926,7 +17921,7 @@ copy_salt_to_sipkey.exit:                         ; preds = %tailrecurse.i.i
   %.4131.p.v.i590 = select i1 %402, i64 %368, i64 0
   %.4131.p.i591 = sub i64 %.2129186.i585, %401
   %.4131.i592 = add i64 %.4131.p.v.i590, %.4131.p.i591
-  %403 = getelementptr ptr, ptr %371, i64 %.4131.i592
+  %403 = getelementptr [8 x i8], ptr %371, i64 %.4131.i592
   %404 = load ptr, ptr %403, align 8, !tbaa !92
   %.not.i593 = icmp eq ptr %404, null
   br i1 %.not.i593, label %.thread671, label %378, !llvm.loop !161
@@ -18050,7 +18045,7 @@ keylen.exit:                                      ; preds = %435, %.lr.ph.prehea
   %454 = and i32 %342, %453
   %455 = load ptr, ptr %344, align 8, !tbaa !187
   %456 = zext nneg i32 %454 to i64
-  %457 = getelementptr %struct.NS_ATT, ptr %455, i64 %456
+  %457 = getelementptr [24 x i8], ptr %455, i64 %456
   %458 = load i64, ptr %457, align 8, !tbaa !347
   %.not530790 = icmp eq i64 %458, %328
   br i1 %.not530790, label %.lr.ph794, label %.thread648
@@ -18118,7 +18113,7 @@ keylen.exit:                                      ; preds = %435, %.lr.ph.prehea
   %.3442.p = sub i32 %.2441791, %488
   %.3442 = add i32 %.3442.p, %.3442.p.v
   %490 = sext i32 %.3442 to i64
-  %491 = getelementptr %struct.NS_ATT, ptr %455, i64 %490
+  %491 = getelementptr [24 x i8], ptr %455, i64 %490
   %492 = load i64, ptr %491, align 8, !tbaa !347
   %.not530 = icmp eq i64 %492, %328
   br i1 %.not530, label %460, label %.thread648, !llvm.loop !356
@@ -18175,7 +18170,7 @@ keylen.exit:                                      ; preds = %435, %.lr.ph.prehea
   %514 = load ptr, ptr %339, align 8, !tbaa !175
   store ptr %514, ptr %345, align 8, !tbaa !177
   store ptr %513, ptr %352, align 8, !tbaa !116
-  %515 = getelementptr %struct.NS_ATT, ptr %512, i64 %.lcssa724
+  %515 = getelementptr [24 x i8], ptr %512, i64 %.lcssa724
   store i64 %328, ptr %515, align 8, !tbaa !347
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 8
   store i64 %452, ptr %516, align 8, !tbaa !353
@@ -18222,7 +18217,7 @@ keylen.exit:                                      ; preds = %435, %.lr.ph.prehea
 .lr.ph802:                                        ; preds = %.thread681, %.lr.ph802
   %.11429801 = phi i32 [ %531, %.lr.ph802 ], [ %.3421, %.thread681 ]
   %527 = sext i32 %.11429801 to i64
-  %528 = getelementptr ptr, ptr %117, i64 %527
+  %528 = getelementptr [8 x i8], ptr %117, i64 %527
   %529 = load ptr, ptr %528, align 8, !tbaa !116
   %530 = getelementptr i8, ptr %529, i64 -1
   store i8 0, ptr %530, align 1, !tbaa !3
@@ -20791,7 +20786,7 @@ poolStoreString.exit:                             ; preds = %250, %._crit_edge.i
   %265 = add i64 %264, -1
   %266 = and i64 %265, %263
   %267 = load ptr, ptr %14, align 8, !tbaa !44
-  %268 = getelementptr ptr, ptr %267, i64 %266
+  %268 = getelementptr [8 x i8], ptr %267, i64 %266
   %269 = load ptr, ptr %268, align 8, !tbaa !92
   %.not184.i = icmp eq ptr %269, null
   br i1 %.not184.i, label %lookup.exit, label %.lr.ph.i
@@ -20849,7 +20844,7 @@ poolStoreString.exit:                             ; preds = %250, %._crit_edge.i
   %.4131.p.v.i = select i1 %298, i64 %264, i64 0
   %.4131.p.i = sub i64 %.2129186.i, %297
   %.4131.i = add i64 %.4131.p.v.i, %.4131.p.i
-  %299 = getelementptr ptr, ptr %267, i64 %.4131.i
+  %299 = getelementptr [8 x i8], ptr %267, i64 %.4131.i
   %300 = load ptr, ptr %299, align 8, !tbaa !92
   %.not.i175 = icmp eq ptr %300, null
   br i1 %.not.i175, label %lookup.exit, label %274, !llvm.loop !161
@@ -21970,7 +21965,7 @@ define internal fastcc range(i32 0, 2) i32 @copyEntityTable(ptr noundef nonnull 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !91
-  %9 = getelementptr ptr, ptr %5, i64 %8
+  %9 = getelementptr [8 x i8], ptr %5, i64 %8
   br label %hashTableIterInit.exit
 
 hashTableIterInit.exit:                           ; preds = %4, %6

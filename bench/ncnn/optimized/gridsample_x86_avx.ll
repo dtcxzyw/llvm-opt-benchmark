@@ -6599,16 +6599,16 @@ _ZN4ncnn3MatD2Ev.exit397:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %176 = fmul fast <8 x float> %172, %57
   %177 = fadd fast <8 x float> %176, %72
   %178 = fmul fast <8 x float> %90, %177
-  %179 = getelementptr inbounds nuw <8 x float>, ptr %4, i64 %indvars.iv557
+  %179 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv557
   %180 = fadd fast <8 x float> %176, %70
   %181 = fmul fast <8 x float> %90, %180
-  %182 = getelementptr inbounds nuw <8 x float>, ptr %5, i64 %indvars.iv557
+  %182 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv557
   %183 = fadd fast <8 x float> %176, %73
   %184 = fmul fast <8 x float> %90, %183
-  %185 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %indvars.iv557
+  %185 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv557
   %186 = fadd fast <8 x float> %176, %74
   %187 = fmul fast <8 x float> %90, %186
-  %188 = getelementptr inbounds nuw <8 x float>, ptr %7, i64 %indvars.iv557
+  %188 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv557
   %189 = and <8 x i1> %77, %175
   %190 = select <8 x i1> %189, <8 x float> %178, <8 x float> splat (float -1.000000e+00)
   %191 = and <8 x i1> %80, %175
@@ -6643,19 +6643,19 @@ _ZN4ncnn3MatD2Ev.exit397:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 206:                                              ; preds = %91, %206
   %indvars.iv561 = phi i64 [ 0, %91 ], [ %indvars.iv.next562, %206 ]
   %.2516 = phi ptr [ %165, %91 ], [ %218, %206 ]
-  %207 = getelementptr inbounds nuw <8 x float>, ptr %4, i64 %indvars.iv561
+  %207 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv561
   %208 = load <8 x float>, ptr %207, align 32, !tbaa !59
   store <8 x float> %208, ptr %.2516, align 1, !tbaa !59
   %209 = getelementptr inbounds nuw i8, ptr %.2516, i64 32
-  %210 = getelementptr inbounds nuw <8 x float>, ptr %5, i64 %indvars.iv561
+  %210 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv561
   %211 = load <8 x float>, ptr %210, align 32, !tbaa !59
   store <8 x float> %211, ptr %209, align 1, !tbaa !59
   %212 = getelementptr inbounds nuw i8, ptr %.2516, i64 64
-  %213 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %indvars.iv561
+  %213 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv561
   %214 = load <8 x float>, ptr %213, align 32, !tbaa !59
   store <8 x float> %214, ptr %212, align 1, !tbaa !59
   %215 = getelementptr inbounds nuw i8, ptr %.2516, i64 96
-  %216 = getelementptr inbounds nuw <8 x float>, ptr %7, i64 %indvars.iv561
+  %216 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv561
   %217 = load <8 x float>, ptr %216, align 32, !tbaa !59
   store <8 x float> %217, ptr %215, align 1, !tbaa !59
   %218 = getelementptr inbounds nuw i8, ptr %.2516, i64 128
@@ -7018,16 +7018,16 @@ _ZN4ncnn3MatD2Ev.exit398:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %486 = fmul fast <8 x float> %482, %367
   %487 = fadd fast <8 x float> %486, %382
   %488 = fmul fast <8 x float> %400, %487
-  %489 = getelementptr inbounds nuw <8 x float>, ptr %8, i64 %indvars.iv
+  %489 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv
   %490 = fadd fast <8 x float> %486, %380
   %491 = fmul fast <8 x float> %400, %490
-  %492 = getelementptr inbounds nuw <8 x float>, ptr %9, i64 %indvars.iv
+  %492 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
   %493 = fadd fast <8 x float> %486, %383
   %494 = fmul fast <8 x float> %400, %493
-  %495 = getelementptr inbounds nuw <8 x float>, ptr %10, i64 %indvars.iv
+  %495 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv
   %496 = fadd fast <8 x float> %486, %384
   %497 = fmul fast <8 x float> %400, %496
-  %498 = getelementptr inbounds nuw <8 x float>, ptr %11, i64 %indvars.iv
+  %498 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %499 = and <8 x i1> %387, %485
   %500 = select <8 x i1> %499, <8 x float> %488, <8 x float> splat (float -1.000000e+00)
   %501 = and <8 x i1> %390, %485
@@ -7063,19 +7063,19 @@ _ZN4ncnn3MatD2Ev.exit398:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 517:                                              ; preds = %401, %517
   %indvars.iv550 = phi i64 [ 0, %401 ], [ %indvars.iv.next551, %517 ]
   %.5497 = phi ptr [ %475, %401 ], [ %529, %517 ]
-  %518 = getelementptr inbounds nuw <8 x float>, ptr %8, i64 %indvars.iv550
+  %518 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv550
   %519 = load <8 x float>, ptr %518, align 32, !tbaa !59
   store <8 x float> %519, ptr %.5497, align 1, !tbaa !59
   %520 = getelementptr inbounds nuw i8, ptr %.5497, i64 32
-  %521 = getelementptr inbounds nuw <8 x float>, ptr %9, i64 %indvars.iv550
+  %521 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv550
   %522 = load <8 x float>, ptr %521, align 32, !tbaa !59
   store <8 x float> %522, ptr %520, align 1, !tbaa !59
   %523 = getelementptr inbounds nuw i8, ptr %.5497, i64 64
-  %524 = getelementptr inbounds nuw <8 x float>, ptr %10, i64 %indvars.iv550
+  %524 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv550
   %525 = load <8 x float>, ptr %524, align 32, !tbaa !59
   store <8 x float> %525, ptr %523, align 1, !tbaa !59
   %526 = getelementptr inbounds nuw i8, ptr %.5497, i64 96
-  %527 = getelementptr inbounds nuw <8 x float>, ptr %11, i64 %indvars.iv550
+  %527 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv550
   %528 = load <8 x float>, ptr %527, align 32, !tbaa !59
   store <8 x float> %528, ptr %526, align 1, !tbaa !59
   %529 = getelementptr inbounds nuw i8, ptr %.5497, i64 128
@@ -7461,16 +7461,16 @@ _ZN4ncnn3MatD2Ev.exit397:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %176 = fmul fast <8 x float> %172, %57
   %177 = fadd fast <8 x float> %176, %72
   %178 = fmul fast <8 x float> %90, %177
-  %179 = getelementptr inbounds nuw <8 x float>, ptr %4, i64 %indvars.iv557
+  %179 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv557
   %180 = fadd fast <8 x float> %176, %70
   %181 = fmul fast <8 x float> %90, %180
-  %182 = getelementptr inbounds nuw <8 x float>, ptr %5, i64 %indvars.iv557
+  %182 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv557
   %183 = fadd fast <8 x float> %176, %73
   %184 = fmul fast <8 x float> %90, %183
-  %185 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %indvars.iv557
+  %185 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv557
   %186 = fadd fast <8 x float> %176, %74
   %187 = fmul fast <8 x float> %90, %186
-  %188 = getelementptr inbounds nuw <8 x float>, ptr %7, i64 %indvars.iv557
+  %188 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv557
   %189 = and <8 x i1> %77, %175
   %190 = select <8 x i1> %189, <8 x float> %178, <8 x float> splat (float -1.000000e+00)
   %191 = and <8 x i1> %80, %175
@@ -7505,19 +7505,19 @@ _ZN4ncnn3MatD2Ev.exit397:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 206:                                              ; preds = %91, %206
   %indvars.iv561 = phi i64 [ 0, %91 ], [ %indvars.iv.next562, %206 ]
   %.2516 = phi ptr [ %165, %91 ], [ %218, %206 ]
-  %207 = getelementptr inbounds nuw <8 x float>, ptr %4, i64 %indvars.iv561
+  %207 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv561
   %208 = load <8 x float>, ptr %207, align 32, !tbaa !59
   store <8 x float> %208, ptr %.2516, align 1, !tbaa !59
   %209 = getelementptr inbounds nuw i8, ptr %.2516, i64 32
-  %210 = getelementptr inbounds nuw <8 x float>, ptr %5, i64 %indvars.iv561
+  %210 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv561
   %211 = load <8 x float>, ptr %210, align 32, !tbaa !59
   store <8 x float> %211, ptr %209, align 1, !tbaa !59
   %212 = getelementptr inbounds nuw i8, ptr %.2516, i64 64
-  %213 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %indvars.iv561
+  %213 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv561
   %214 = load <8 x float>, ptr %213, align 32, !tbaa !59
   store <8 x float> %214, ptr %212, align 1, !tbaa !59
   %215 = getelementptr inbounds nuw i8, ptr %.2516, i64 96
-  %216 = getelementptr inbounds nuw <8 x float>, ptr %7, i64 %indvars.iv561
+  %216 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv561
   %217 = load <8 x float>, ptr %216, align 32, !tbaa !59
   store <8 x float> %217, ptr %215, align 1, !tbaa !59
   %218 = getelementptr inbounds nuw i8, ptr %.2516, i64 128
@@ -7880,16 +7880,16 @@ _ZN4ncnn3MatD2Ev.exit398:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %486 = fmul fast <8 x float> %482, %367
   %487 = fadd fast <8 x float> %486, %382
   %488 = fmul fast <8 x float> %400, %487
-  %489 = getelementptr inbounds nuw <8 x float>, ptr %8, i64 %indvars.iv
+  %489 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv
   %490 = fadd fast <8 x float> %486, %380
   %491 = fmul fast <8 x float> %400, %490
-  %492 = getelementptr inbounds nuw <8 x float>, ptr %9, i64 %indvars.iv
+  %492 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
   %493 = fadd fast <8 x float> %486, %383
   %494 = fmul fast <8 x float> %400, %493
-  %495 = getelementptr inbounds nuw <8 x float>, ptr %10, i64 %indvars.iv
+  %495 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv
   %496 = fadd fast <8 x float> %486, %384
   %497 = fmul fast <8 x float> %400, %496
-  %498 = getelementptr inbounds nuw <8 x float>, ptr %11, i64 %indvars.iv
+  %498 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %499 = and <8 x i1> %387, %485
   %500 = select <8 x i1> %499, <8 x float> %488, <8 x float> splat (float -1.000000e+00)
   %501 = and <8 x i1> %390, %485
@@ -7925,19 +7925,19 @@ _ZN4ncnn3MatD2Ev.exit398:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 517:                                              ; preds = %401, %517
   %indvars.iv550 = phi i64 [ 0, %401 ], [ %indvars.iv.next551, %517 ]
   %.5497 = phi ptr [ %475, %401 ], [ %529, %517 ]
-  %518 = getelementptr inbounds nuw <8 x float>, ptr %8, i64 %indvars.iv550
+  %518 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv550
   %519 = load <8 x float>, ptr %518, align 32, !tbaa !59
   store <8 x float> %519, ptr %.5497, align 1, !tbaa !59
   %520 = getelementptr inbounds nuw i8, ptr %.5497, i64 32
-  %521 = getelementptr inbounds nuw <8 x float>, ptr %9, i64 %indvars.iv550
+  %521 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv550
   %522 = load <8 x float>, ptr %521, align 32, !tbaa !59
   store <8 x float> %522, ptr %520, align 1, !tbaa !59
   %523 = getelementptr inbounds nuw i8, ptr %.5497, i64 64
-  %524 = getelementptr inbounds nuw <8 x float>, ptr %10, i64 %indvars.iv550
+  %524 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv550
   %525 = load <8 x float>, ptr %524, align 32, !tbaa !59
   store <8 x float> %525, ptr %523, align 1, !tbaa !59
   %526 = getelementptr inbounds nuw i8, ptr %.5497, i64 96
-  %527 = getelementptr inbounds nuw <8 x float>, ptr %11, i64 %indvars.iv550
+  %527 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv550
   %528 = load <8 x float>, ptr %527, align 32, !tbaa !59
   store <8 x float> %528, ptr %526, align 1, !tbaa !59
   %529 = getelementptr inbounds nuw i8, ptr %.5497, i64 128
@@ -8335,16 +8335,16 @@ _ZN4ncnn3MatD2Ev.exit397:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %188 = fmul fast <8 x float> %184, %57
   %189 = fadd fast <8 x float> %188, %77
   %190 = fmul fast <8 x float> %100, %189
-  %191 = getelementptr inbounds nuw <8 x float>, ptr %4, i64 %indvars.iv575
+  %191 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv575
   %192 = fadd fast <8 x float> %188, %79
   %193 = fmul fast <8 x float> %100, %192
-  %194 = getelementptr inbounds nuw <8 x float>, ptr %5, i64 %indvars.iv575
+  %194 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv575
   %195 = fadd fast <8 x float> %188, %81
   %196 = fmul fast <8 x float> %100, %195
-  %197 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %indvars.iv575
+  %197 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv575
   %198 = fadd fast <8 x float> %188, %83
   %199 = fmul fast <8 x float> %100, %198
-  %200 = getelementptr inbounds nuw <8 x float>, ptr %7, i64 %indvars.iv575
+  %200 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv575
   %201 = and <8 x i1> %86, %187
   %202 = select <8 x i1> %201, <8 x float> %190, <8 x float> splat (float -1.000000e+00)
   %203 = and <8 x i1> %89, %187
@@ -8379,19 +8379,19 @@ _ZN4ncnn3MatD2Ev.exit397:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 218:                                              ; preds = %101, %218
   %indvars.iv579 = phi i64 [ 0, %101 ], [ %indvars.iv.next580, %218 ]
   %.2534 = phi ptr [ %175, %101 ], [ %230, %218 ]
-  %219 = getelementptr inbounds nuw <8 x float>, ptr %4, i64 %indvars.iv579
+  %219 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv579
   %220 = load <8 x float>, ptr %219, align 32, !tbaa !59
   store <8 x float> %220, ptr %.2534, align 1, !tbaa !59
   %221 = getelementptr inbounds nuw i8, ptr %.2534, i64 32
-  %222 = getelementptr inbounds nuw <8 x float>, ptr %5, i64 %indvars.iv579
+  %222 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv579
   %223 = load <8 x float>, ptr %222, align 32, !tbaa !59
   store <8 x float> %223, ptr %221, align 1, !tbaa !59
   %224 = getelementptr inbounds nuw i8, ptr %.2534, i64 64
-  %225 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %indvars.iv579
+  %225 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv579
   %226 = load <8 x float>, ptr %225, align 32, !tbaa !59
   store <8 x float> %226, ptr %224, align 1, !tbaa !59
   %227 = getelementptr inbounds nuw i8, ptr %.2534, i64 96
-  %228 = getelementptr inbounds nuw <8 x float>, ptr %7, i64 %indvars.iv579
+  %228 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv579
   %229 = load <8 x float>, ptr %228, align 32, !tbaa !59
   store <8 x float> %229, ptr %227, align 1, !tbaa !59
   %230 = getelementptr inbounds nuw i8, ptr %.2534, i64 128
@@ -8784,16 +8784,16 @@ _ZN4ncnn3MatD2Ev.exit398:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %516 = fmul fast <8 x float> %512, %385
   %517 = fadd fast <8 x float> %516, %405
   %518 = fmul fast <8 x float> %428, %517
-  %519 = getelementptr inbounds nuw <8 x float>, ptr %8, i64 %indvars.iv
+  %519 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv
   %520 = fadd fast <8 x float> %516, %407
   %521 = fmul fast <8 x float> %428, %520
-  %522 = getelementptr inbounds nuw <8 x float>, ptr %9, i64 %indvars.iv
+  %522 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
   %523 = fadd fast <8 x float> %516, %409
   %524 = fmul fast <8 x float> %428, %523
-  %525 = getelementptr inbounds nuw <8 x float>, ptr %10, i64 %indvars.iv
+  %525 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv
   %526 = fadd fast <8 x float> %516, %411
   %527 = fmul fast <8 x float> %428, %526
-  %528 = getelementptr inbounds nuw <8 x float>, ptr %11, i64 %indvars.iv
+  %528 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %529 = and <8 x i1> %414, %515
   %530 = select <8 x i1> %529, <8 x float> %518, <8 x float> splat (float -1.000000e+00)
   %531 = and <8 x i1> %417, %515
@@ -8829,19 +8829,19 @@ _ZN4ncnn3MatD2Ev.exit398:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 547:                                              ; preds = %429, %547
   %indvars.iv568 = phi i64 [ 0, %429 ], [ %indvars.iv.next569, %547 ]
   %.5515 = phi ptr [ %503, %429 ], [ %559, %547 ]
-  %548 = getelementptr inbounds nuw <8 x float>, ptr %8, i64 %indvars.iv568
+  %548 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv568
   %549 = load <8 x float>, ptr %548, align 32, !tbaa !59
   store <8 x float> %549, ptr %.5515, align 1, !tbaa !59
   %550 = getelementptr inbounds nuw i8, ptr %.5515, i64 32
-  %551 = getelementptr inbounds nuw <8 x float>, ptr %9, i64 %indvars.iv568
+  %551 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv568
   %552 = load <8 x float>, ptr %551, align 32, !tbaa !59
   store <8 x float> %552, ptr %550, align 1, !tbaa !59
   %553 = getelementptr inbounds nuw i8, ptr %.5515, i64 64
-  %554 = getelementptr inbounds nuw <8 x float>, ptr %10, i64 %indvars.iv568
+  %554 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv568
   %555 = load <8 x float>, ptr %554, align 32, !tbaa !59
   store <8 x float> %555, ptr %553, align 1, !tbaa !59
   %556 = getelementptr inbounds nuw i8, ptr %.5515, i64 96
-  %557 = getelementptr inbounds nuw <8 x float>, ptr %11, i64 %indvars.iv568
+  %557 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv568
   %558 = load <8 x float>, ptr %557, align 32, !tbaa !59
   store <8 x float> %558, ptr %556, align 1, !tbaa !59
   %559 = getelementptr inbounds nuw i8, ptr %.5515, i64 128
@@ -9255,16 +9255,16 @@ _ZN4ncnn3MatD2Ev.exit397:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %186 = fmul fast <8 x float> %182, %57
   %187 = fadd fast <8 x float> %186, %76
   %188 = fmul fast <8 x float> %98, %187
-  %189 = getelementptr inbounds nuw <8 x float>, ptr %4, i64 %indvars.iv575
+  %189 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv575
   %190 = fadd fast <8 x float> %186, %78
   %191 = fmul fast <8 x float> %98, %190
-  %192 = getelementptr inbounds nuw <8 x float>, ptr %5, i64 %indvars.iv575
+  %192 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv575
   %193 = fadd fast <8 x float> %186, %80
   %194 = fmul fast <8 x float> %98, %193
-  %195 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %indvars.iv575
+  %195 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv575
   %196 = fadd fast <8 x float> %186, %82
   %197 = fmul fast <8 x float> %98, %196
-  %198 = getelementptr inbounds nuw <8 x float>, ptr %7, i64 %indvars.iv575
+  %198 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv575
   %199 = and <8 x i1> %85, %185
   %200 = select <8 x i1> %199, <8 x float> %188, <8 x float> splat (float -1.000000e+00)
   %201 = and <8 x i1> %88, %185
@@ -9299,19 +9299,19 @@ _ZN4ncnn3MatD2Ev.exit397:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 216:                                              ; preds = %99, %216
   %indvars.iv579 = phi i64 [ 0, %99 ], [ %indvars.iv.next580, %216 ]
   %.2534 = phi ptr [ %173, %99 ], [ %228, %216 ]
-  %217 = getelementptr inbounds nuw <8 x float>, ptr %4, i64 %indvars.iv579
+  %217 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv579
   %218 = load <8 x float>, ptr %217, align 32, !tbaa !59
   store <8 x float> %218, ptr %.2534, align 1, !tbaa !59
   %219 = getelementptr inbounds nuw i8, ptr %.2534, i64 32
-  %220 = getelementptr inbounds nuw <8 x float>, ptr %5, i64 %indvars.iv579
+  %220 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv579
   %221 = load <8 x float>, ptr %220, align 32, !tbaa !59
   store <8 x float> %221, ptr %219, align 1, !tbaa !59
   %222 = getelementptr inbounds nuw i8, ptr %.2534, i64 64
-  %223 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %indvars.iv579
+  %223 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv579
   %224 = load <8 x float>, ptr %223, align 32, !tbaa !59
   store <8 x float> %224, ptr %222, align 1, !tbaa !59
   %225 = getelementptr inbounds nuw i8, ptr %.2534, i64 96
-  %226 = getelementptr inbounds nuw <8 x float>, ptr %7, i64 %indvars.iv579
+  %226 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv579
   %227 = load <8 x float>, ptr %226, align 32, !tbaa !59
   store <8 x float> %227, ptr %225, align 1, !tbaa !59
   %228 = getelementptr inbounds nuw i8, ptr %.2534, i64 128
@@ -9703,16 +9703,16 @@ _ZN4ncnn3MatD2Ev.exit398:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %513 = fmul fast <8 x float> %509, %384
   %514 = fadd fast <8 x float> %513, %403
   %515 = fmul fast <8 x float> %425, %514
-  %516 = getelementptr inbounds nuw <8 x float>, ptr %8, i64 %indvars.iv
+  %516 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv
   %517 = fadd fast <8 x float> %513, %405
   %518 = fmul fast <8 x float> %425, %517
-  %519 = getelementptr inbounds nuw <8 x float>, ptr %9, i64 %indvars.iv
+  %519 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
   %520 = fadd fast <8 x float> %513, %407
   %521 = fmul fast <8 x float> %425, %520
-  %522 = getelementptr inbounds nuw <8 x float>, ptr %10, i64 %indvars.iv
+  %522 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv
   %523 = fadd fast <8 x float> %513, %409
   %524 = fmul fast <8 x float> %425, %523
-  %525 = getelementptr inbounds nuw <8 x float>, ptr %11, i64 %indvars.iv
+  %525 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %526 = and <8 x i1> %412, %512
   %527 = select <8 x i1> %526, <8 x float> %515, <8 x float> splat (float -1.000000e+00)
   %528 = and <8 x i1> %415, %512
@@ -9748,19 +9748,19 @@ _ZN4ncnn3MatD2Ev.exit398:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 544:                                              ; preds = %426, %544
   %indvars.iv568 = phi i64 [ 0, %426 ], [ %indvars.iv.next569, %544 ]
   %.5515 = phi ptr [ %500, %426 ], [ %556, %544 ]
-  %545 = getelementptr inbounds nuw <8 x float>, ptr %8, i64 %indvars.iv568
+  %545 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv568
   %546 = load <8 x float>, ptr %545, align 32, !tbaa !59
   store <8 x float> %546, ptr %.5515, align 1, !tbaa !59
   %547 = getelementptr inbounds nuw i8, ptr %.5515, i64 32
-  %548 = getelementptr inbounds nuw <8 x float>, ptr %9, i64 %indvars.iv568
+  %548 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv568
   %549 = load <8 x float>, ptr %548, align 32, !tbaa !59
   store <8 x float> %549, ptr %547, align 1, !tbaa !59
   %550 = getelementptr inbounds nuw i8, ptr %.5515, i64 64
-  %551 = getelementptr inbounds nuw <8 x float>, ptr %10, i64 %indvars.iv568
+  %551 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv568
   %552 = load <8 x float>, ptr %551, align 32, !tbaa !59
   store <8 x float> %552, ptr %550, align 1, !tbaa !59
   %553 = getelementptr inbounds nuw i8, ptr %.5515, i64 96
-  %554 = getelementptr inbounds nuw <8 x float>, ptr %11, i64 %indvars.iv568
+  %554 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv568
   %555 = load <8 x float>, ptr %554, align 32, !tbaa !59
   store <8 x float> %555, ptr %553, align 1, !tbaa !59
   %556 = getelementptr inbounds nuw i8, ptr %.5515, i64 128
@@ -10201,16 +10201,16 @@ _ZN4ncnn3MatD2Ev.exit397:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %211 = fmul fast <8 x float> %207, %57
   %212 = fadd fast <8 x float> %211, %80
   %213 = fmul fast <8 x float> %119, %212
-  %214 = getelementptr inbounds nuw <8 x float>, ptr %4, i64 %indvars.iv586
+  %214 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv586
   %215 = fadd fast <8 x float> %211, %87
   %216 = fmul fast <8 x float> %119, %215
-  %217 = getelementptr inbounds nuw <8 x float>, ptr %5, i64 %indvars.iv586
+  %217 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv586
   %218 = fadd fast <8 x float> %211, %94
   %219 = fmul fast <8 x float> %119, %218
-  %220 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %indvars.iv586
+  %220 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv586
   %221 = fadd fast <8 x float> %211, %101
   %222 = fmul fast <8 x float> %119, %221
-  %223 = getelementptr inbounds nuw <8 x float>, ptr %7, i64 %indvars.iv586
+  %223 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv586
   %224 = and <8 x i1> %104, %210
   %225 = select <8 x i1> %224, <8 x float> %213, <8 x float> splat (float -1.000000e+00)
   %226 = and <8 x i1> %107, %210
@@ -10245,19 +10245,19 @@ _ZN4ncnn3MatD2Ev.exit397:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 241:                                              ; preds = %120, %241
   %indvars.iv590 = phi i64 [ 0, %120 ], [ %indvars.iv.next591, %241 ]
   %.2545 = phi ptr [ %194, %120 ], [ %253, %241 ]
-  %242 = getelementptr inbounds nuw <8 x float>, ptr %4, i64 %indvars.iv590
+  %242 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv590
   %243 = load <8 x float>, ptr %242, align 32, !tbaa !59
   store <8 x float> %243, ptr %.2545, align 1, !tbaa !59
   %244 = getelementptr inbounds nuw i8, ptr %.2545, i64 32
-  %245 = getelementptr inbounds nuw <8 x float>, ptr %5, i64 %indvars.iv590
+  %245 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv590
   %246 = load <8 x float>, ptr %245, align 32, !tbaa !59
   store <8 x float> %246, ptr %244, align 1, !tbaa !59
   %247 = getelementptr inbounds nuw i8, ptr %.2545, i64 64
-  %248 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %indvars.iv590
+  %248 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv590
   %249 = load <8 x float>, ptr %248, align 32, !tbaa !59
   store <8 x float> %249, ptr %247, align 1, !tbaa !59
   %250 = getelementptr inbounds nuw i8, ptr %.2545, i64 96
-  %251 = getelementptr inbounds nuw <8 x float>, ptr %7, i64 %indvars.iv590
+  %251 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv590
   %252 = load <8 x float>, ptr %251, align 32, !tbaa !59
   store <8 x float> %252, ptr %250, align 1, !tbaa !59
   %253 = getelementptr inbounds nuw i8, ptr %.2545, i64 128
@@ -10707,16 +10707,16 @@ _ZN4ncnn3MatD2Ev.exit398:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %595 = fmul fast <8 x float> %591, %441
   %596 = fadd fast <8 x float> %595, %464
   %597 = fmul fast <8 x float> %503, %596
-  %598 = getelementptr inbounds nuw <8 x float>, ptr %8, i64 %indvars.iv
+  %598 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv
   %599 = fadd fast <8 x float> %595, %471
   %600 = fmul fast <8 x float> %503, %599
-  %601 = getelementptr inbounds nuw <8 x float>, ptr %9, i64 %indvars.iv
+  %601 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
   %602 = fadd fast <8 x float> %595, %478
   %603 = fmul fast <8 x float> %503, %602
-  %604 = getelementptr inbounds nuw <8 x float>, ptr %10, i64 %indvars.iv
+  %604 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv
   %605 = fadd fast <8 x float> %595, %485
   %606 = fmul fast <8 x float> %503, %605
-  %607 = getelementptr inbounds nuw <8 x float>, ptr %11, i64 %indvars.iv
+  %607 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %608 = and <8 x i1> %488, %594
   %609 = select <8 x i1> %608, <8 x float> %597, <8 x float> splat (float -1.000000e+00)
   %610 = and <8 x i1> %491, %594
@@ -10752,19 +10752,19 @@ _ZN4ncnn3MatD2Ev.exit398:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 626:                                              ; preds = %504, %626
   %indvars.iv579 = phi i64 [ 0, %504 ], [ %indvars.iv.next580, %626 ]
   %.5526 = phi ptr [ %578, %504 ], [ %638, %626 ]
-  %627 = getelementptr inbounds nuw <8 x float>, ptr %8, i64 %indvars.iv579
+  %627 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv579
   %628 = load <8 x float>, ptr %627, align 32, !tbaa !59
   store <8 x float> %628, ptr %.5526, align 1, !tbaa !59
   %629 = getelementptr inbounds nuw i8, ptr %.5526, i64 32
-  %630 = getelementptr inbounds nuw <8 x float>, ptr %9, i64 %indvars.iv579
+  %630 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv579
   %631 = load <8 x float>, ptr %630, align 32, !tbaa !59
   store <8 x float> %631, ptr %629, align 1, !tbaa !59
   %632 = getelementptr inbounds nuw i8, ptr %.5526, i64 64
-  %633 = getelementptr inbounds nuw <8 x float>, ptr %10, i64 %indvars.iv579
+  %633 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv579
   %634 = load <8 x float>, ptr %633, align 32, !tbaa !59
   store <8 x float> %634, ptr %632, align 1, !tbaa !59
   %635 = getelementptr inbounds nuw i8, ptr %.5526, i64 96
-  %636 = getelementptr inbounds nuw <8 x float>, ptr %11, i64 %indvars.iv579
+  %636 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv579
   %637 = load <8 x float>, ptr %636, align 32, !tbaa !59
   store <8 x float> %637, ptr %635, align 1, !tbaa !59
   %638 = getelementptr inbounds nuw i8, ptr %.5526, i64 128
@@ -11221,16 +11221,16 @@ _ZN4ncnn3MatD2Ev.exit397:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %196 = fmul fast <8 x float> %192, %57
   %197 = fadd fast <8 x float> %196, %78
   %198 = fmul fast <8 x float> %106, %197
-  %199 = getelementptr inbounds nuw <8 x float>, ptr %4, i64 %indvars.iv575
+  %199 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv575
   %200 = fadd fast <8 x float> %196, %82
   %201 = fmul fast <8 x float> %106, %200
-  %202 = getelementptr inbounds nuw <8 x float>, ptr %5, i64 %indvars.iv575
+  %202 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv575
   %203 = fadd fast <8 x float> %196, %86
   %204 = fmul fast <8 x float> %106, %203
-  %205 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %indvars.iv575
+  %205 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv575
   %206 = fadd fast <8 x float> %196, %90
   %207 = fmul fast <8 x float> %106, %206
-  %208 = getelementptr inbounds nuw <8 x float>, ptr %7, i64 %indvars.iv575
+  %208 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv575
   %209 = and <8 x i1> %93, %195
   %210 = select <8 x i1> %209, <8 x float> %198, <8 x float> splat (float -1.000000e+00)
   %211 = and <8 x i1> %96, %195
@@ -11265,19 +11265,19 @@ _ZN4ncnn3MatD2Ev.exit397:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 226:                                              ; preds = %107, %226
   %indvars.iv579 = phi i64 [ 0, %107 ], [ %indvars.iv.next580, %226 ]
   %.2534 = phi ptr [ %181, %107 ], [ %238, %226 ]
-  %227 = getelementptr inbounds nuw <8 x float>, ptr %4, i64 %indvars.iv579
+  %227 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv579
   %228 = load <8 x float>, ptr %227, align 32, !tbaa !59
   store <8 x float> %228, ptr %.2534, align 1, !tbaa !59
   %229 = getelementptr inbounds nuw i8, ptr %.2534, i64 32
-  %230 = getelementptr inbounds nuw <8 x float>, ptr %5, i64 %indvars.iv579
+  %230 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv579
   %231 = load <8 x float>, ptr %230, align 32, !tbaa !59
   store <8 x float> %231, ptr %229, align 1, !tbaa !59
   %232 = getelementptr inbounds nuw i8, ptr %.2534, i64 64
-  %233 = getelementptr inbounds nuw <8 x float>, ptr %6, i64 %indvars.iv579
+  %233 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv579
   %234 = load <8 x float>, ptr %233, align 32, !tbaa !59
   store <8 x float> %234, ptr %232, align 1, !tbaa !59
   %235 = getelementptr inbounds nuw i8, ptr %.2534, i64 96
-  %236 = getelementptr inbounds nuw <8 x float>, ptr %7, i64 %indvars.iv579
+  %236 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv579
   %237 = load <8 x float>, ptr %236, align 32, !tbaa !59
   store <8 x float> %237, ptr %235, align 1, !tbaa !59
   %238 = getelementptr inbounds nuw i8, ptr %.2534, i64 128
@@ -11707,16 +11707,16 @@ _ZN4ncnn3MatD2Ev.exit398:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
   %561 = fmul fast <8 x float> %557, %422
   %562 = fadd fast <8 x float> %561, %443
   %563 = fmul fast <8 x float> %471, %562
-  %564 = getelementptr inbounds nuw <8 x float>, ptr %8, i64 %indvars.iv
+  %564 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv
   %565 = fadd fast <8 x float> %561, %447
   %566 = fmul fast <8 x float> %471, %565
-  %567 = getelementptr inbounds nuw <8 x float>, ptr %9, i64 %indvars.iv
+  %567 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
   %568 = fadd fast <8 x float> %561, %451
   %569 = fmul fast <8 x float> %471, %568
-  %570 = getelementptr inbounds nuw <8 x float>, ptr %10, i64 %indvars.iv
+  %570 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv
   %571 = fadd fast <8 x float> %561, %455
   %572 = fmul fast <8 x float> %471, %571
-  %573 = getelementptr inbounds nuw <8 x float>, ptr %11, i64 %indvars.iv
+  %573 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %574 = and <8 x i1> %458, %560
   %575 = select <8 x i1> %574, <8 x float> %563, <8 x float> splat (float -1.000000e+00)
   %576 = and <8 x i1> %461, %560
@@ -11752,19 +11752,19 @@ _ZN4ncnn3MatD2Ev.exit398:                         ; preds = %_ZN4ncnn3MatD2Ev.ex
 592:                                              ; preds = %472, %592
   %indvars.iv568 = phi i64 [ 0, %472 ], [ %indvars.iv.next569, %592 ]
   %.5515 = phi ptr [ %546, %472 ], [ %604, %592 ]
-  %593 = getelementptr inbounds nuw <8 x float>, ptr %8, i64 %indvars.iv568
+  %593 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv568
   %594 = load <8 x float>, ptr %593, align 32, !tbaa !59
   store <8 x float> %594, ptr %.5515, align 1, !tbaa !59
   %595 = getelementptr inbounds nuw i8, ptr %.5515, i64 32
-  %596 = getelementptr inbounds nuw <8 x float>, ptr %9, i64 %indvars.iv568
+  %596 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv568
   %597 = load <8 x float>, ptr %596, align 32, !tbaa !59
   store <8 x float> %597, ptr %595, align 1, !tbaa !59
   %598 = getelementptr inbounds nuw i8, ptr %.5515, i64 64
-  %599 = getelementptr inbounds nuw <8 x float>, ptr %10, i64 %indvars.iv568
+  %599 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv568
   %600 = load <8 x float>, ptr %599, align 32, !tbaa !59
   store <8 x float> %600, ptr %598, align 1, !tbaa !59
   %601 = getelementptr inbounds nuw i8, ptr %.5515, i64 96
-  %602 = getelementptr inbounds nuw <8 x float>, ptr %11, i64 %indvars.iv568
+  %602 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv568
   %603 = load <8 x float>, ptr %602, align 32, !tbaa !59
   store <8 x float> %603, ptr %601, align 1, !tbaa !59
   %604 = getelementptr inbounds nuw i8, ptr %.5515, i64 128
@@ -20857,7 +20857,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p8ER
 
 47:                                               ; preds = %.lr.ph
   %48 = zext nneg i32 %45 to i64
-  %49 = getelementptr inbounds nuw float, ptr %34, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %48
   %50 = load <8 x float>, ptr %49, align 1, !tbaa !59
   br label %51
 
@@ -20870,7 +20870,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p8ER
 
 56:                                               ; preds = %51
   %57 = zext nneg i32 %54 to i64
-  %58 = getelementptr inbounds nuw float, ptr %34, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %57
   %59 = load <8 x float>, ptr %58, align 1, !tbaa !59
   br label %60
 
@@ -20883,7 +20883,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p8ER
 
 65:                                               ; preds = %60
   %66 = zext nneg i32 %63 to i64
-  %67 = getelementptr inbounds nuw float, ptr %34, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %66
   %68 = load <8 x float>, ptr %67, align 1, !tbaa !59
   br label %69
 
@@ -20896,7 +20896,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p8ER
 
 74:                                               ; preds = %69
   %75 = zext nneg i32 %72 to i64
-  %76 = getelementptr inbounds nuw float, ptr %34, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %75
   %77 = load <8 x float>, ptr %76, align 1, !tbaa !59
   br label %78
 
@@ -21048,7 +21048,7 @@ define internal void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p8ERKNS_
 
 46:                                               ; preds = %.lr.ph
   %47 = zext nneg i32 %44 to i64
-  %48 = getelementptr inbounds nuw float, ptr %34, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %47
   %49 = load <8 x float>, ptr %48, align 1, !tbaa !59
   br label %50
 
@@ -21239,7 +21239,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p8ERK
 
 118:                                              ; preds = %115
   %119 = zext nneg i32 %116 to i64
-  %120 = getelementptr inbounds nuw float, ptr %38, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %119
   %121 = load <8 x float>, ptr %120, align 1, !tbaa !59
   %122 = fmul fast <8 x float> %121, %58
   br label %123
@@ -21253,7 +21253,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p8ERK
 
 128:                                              ; preds = %123
   %129 = zext nneg i32 %126 to i64
-  %130 = getelementptr inbounds nuw float, ptr %38, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %129
   %131 = load <8 x float>, ptr %130, align 1, !tbaa !59
   %132 = fmul fast <8 x float> %131, %64
   %133 = fadd fast <8 x float> %132, %124
@@ -21268,7 +21268,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p8ERK
 
 139:                                              ; preds = %134
   %140 = zext nneg i32 %137 to i64
-  %141 = getelementptr inbounds nuw float, ptr %38, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %140
   %142 = load <8 x float>, ptr %141, align 1, !tbaa !59
   %143 = fmul fast <8 x float> %142, %69
   %144 = fadd fast <8 x float> %143, %135
@@ -21283,7 +21283,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p8ERK
 
 150:                                              ; preds = %145
   %151 = zext nneg i32 %148 to i64
-  %152 = getelementptr inbounds nuw float, ptr %38, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %151
   %153 = load <8 x float>, ptr %152, align 1, !tbaa !59
   %154 = fmul fast <8 x float> %153, %71
   %155 = fsub fast <8 x float> %146, %154
@@ -21291,7 +21291,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p8ERK
 
 156:                                              ; preds = %145, %150
   %157 = phi <8 x float> [ %155, %150 ], [ %146, %145 ]
-  %158 = getelementptr inbounds nuw <8 x float>, ptr %12, i64 %indvars.iv
+  %158 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv
   store <8 x float> %157, ptr %158, align 32, !tbaa !59
   %159 = getelementptr inbounds nuw i8, ptr %.051135, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -21393,7 +21393,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p8ER
 
 47:                                               ; preds = %.lr.ph
   %48 = zext nneg i32 %45 to i64
-  %49 = getelementptr inbounds nuw float, ptr %34, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %48
   %50 = load <8 x float>, ptr %49, align 1, !tbaa !59
   br label %51
 
@@ -21406,7 +21406,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p8ER
 
 56:                                               ; preds = %51
   %57 = zext nneg i32 %54 to i64
-  %58 = getelementptr inbounds nuw float, ptr %34, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %57
   %59 = load <8 x float>, ptr %58, align 1, !tbaa !59
   br label %60
 
@@ -21419,7 +21419,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p8ER
 
 65:                                               ; preds = %60
   %66 = zext nneg i32 %63 to i64
-  %67 = getelementptr inbounds nuw float, ptr %34, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %66
   %68 = load <8 x float>, ptr %67, align 1, !tbaa !59
   br label %69
 
@@ -21432,7 +21432,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p8ER
 
 74:                                               ; preds = %69
   %75 = zext nneg i32 %72 to i64
-  %76 = getelementptr inbounds nuw float, ptr %34, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %75
   %77 = load <8 x float>, ptr %76, align 1, !tbaa !59
   br label %78
 
@@ -21445,7 +21445,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p8ER
 
 83:                                               ; preds = %78
   %84 = zext nneg i32 %81 to i64
-  %85 = getelementptr inbounds nuw float, ptr %34, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %84
   %86 = load <8 x float>, ptr %85, align 1, !tbaa !59
   br label %87
 
@@ -21458,7 +21458,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p8ER
 
 92:                                               ; preds = %87
   %93 = zext nneg i32 %90 to i64
-  %94 = getelementptr inbounds nuw float, ptr %34, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %93
   %95 = load <8 x float>, ptr %94, align 1, !tbaa !59
   br label %96
 
@@ -21471,7 +21471,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p8ER
 
 101:                                              ; preds = %96
   %102 = zext nneg i32 %99 to i64
-  %103 = getelementptr inbounds nuw float, ptr %34, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %102
   %104 = load <8 x float>, ptr %103, align 1, !tbaa !59
   br label %105
 
@@ -21484,7 +21484,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p8ER
 
 110:                                              ; preds = %105
   %111 = zext nneg i32 %108 to i64
-  %112 = getelementptr inbounds nuw float, ptr %34, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %111
   %113 = load <8 x float>, ptr %112, align 1, !tbaa !59
   br label %114
 
@@ -21628,7 +21628,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p4ER
 
 47:                                               ; preds = %.lr.ph
   %48 = zext nneg i32 %45 to i64
-  %49 = getelementptr inbounds nuw float, ptr %34, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %48
   %50 = load <4 x float>, ptr %49, align 1, !tbaa !59
   br label %51
 
@@ -21641,7 +21641,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p4ER
 
 56:                                               ; preds = %51
   %57 = zext nneg i32 %54 to i64
-  %58 = getelementptr inbounds nuw float, ptr %34, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %57
   %59 = load <4 x float>, ptr %58, align 1, !tbaa !59
   br label %60
 
@@ -21654,7 +21654,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p4ER
 
 65:                                               ; preds = %60
   %66 = zext nneg i32 %63 to i64
-  %67 = getelementptr inbounds nuw float, ptr %34, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %66
   %68 = load <4 x float>, ptr %67, align 1, !tbaa !59
   br label %69
 
@@ -21667,7 +21667,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p4ER
 
 74:                                               ; preds = %69
   %75 = zext nneg i32 %72 to i64
-  %76 = getelementptr inbounds nuw float, ptr %34, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %75
   %77 = load <4 x float>, ptr %76, align 1, !tbaa !59
   br label %78
 
@@ -21792,7 +21792,7 @@ define internal void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p4ERKNS_
 
 46:                                               ; preds = %.lr.ph
   %47 = zext nneg i32 %44 to i64
-  %48 = getelementptr inbounds nuw float, ptr %34, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %47
   %49 = load <4 x float>, ptr %48, align 1, !tbaa !59
   br label %50
 
@@ -21974,7 +21974,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p4ERK
 
 115:                                              ; preds = %112
   %116 = zext nneg i32 %113 to i64
-  %117 = getelementptr inbounds nuw float, ptr %46, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %116
   %118 = load <4 x float>, ptr %117, align 1, !tbaa !59
   br label %119
 
@@ -21987,7 +21987,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p4ERK
 
 124:                                              ; preds = %119
   %125 = zext nneg i32 %122 to i64
-  %126 = getelementptr inbounds nuw float, ptr %46, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %125
   %127 = load <4 x float>, ptr %126, align 1, !tbaa !59
   br label %128
 
@@ -22000,7 +22000,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p4ERK
 
 133:                                              ; preds = %128
   %134 = zext nneg i32 %131 to i64
-  %135 = getelementptr inbounds nuw float, ptr %46, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %134
   %136 = load <4 x float>, ptr %135, align 1, !tbaa !59
   br label %137
 
@@ -22013,7 +22013,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p4ERK
 
 142:                                              ; preds = %137
   %143 = zext nneg i32 %140 to i64
-  %144 = getelementptr inbounds nuw float, ptr %46, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %143
   %145 = load <4 x float>, ptr %144, align 1, !tbaa !59
   br label %146
 
@@ -22021,7 +22021,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p4ERK
   %147 = phi fast <4 x float> [ %145, %142 ], [ zeroinitializer, %137 ]
   %148 = load <4 x float>, ptr %7, align 16, !tbaa !59
   %149 = fmul fast <4 x float> %148, %120
-  %150 = getelementptr inbounds nuw <4 x float>, ptr %15, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv
   store <4 x float> %149, ptr %150, align 16, !tbaa !59
   %151 = load <4 x float>, ptr %8, align 16, !tbaa !59
   %152 = fmul fast <4 x float> %151, %129
@@ -22159,7 +22159,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ER
 
 47:                                               ; preds = %.lr.ph
   %48 = zext nneg i32 %45 to i64
-  %49 = getelementptr inbounds nuw float, ptr %34, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %48
   %50 = load <4 x float>, ptr %49, align 1, !tbaa !59
   br label %51
 
@@ -22172,7 +22172,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ER
 
 56:                                               ; preds = %51
   %57 = zext nneg i32 %54 to i64
-  %58 = getelementptr inbounds nuw float, ptr %34, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %57
   %59 = load <4 x float>, ptr %58, align 1, !tbaa !59
   br label %60
 
@@ -22185,7 +22185,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ER
 
 65:                                               ; preds = %60
   %66 = zext nneg i32 %63 to i64
-  %67 = getelementptr inbounds nuw float, ptr %34, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %66
   %68 = load <4 x float>, ptr %67, align 1, !tbaa !59
   br label %69
 
@@ -22198,7 +22198,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ER
 
 74:                                               ; preds = %69
   %75 = zext nneg i32 %72 to i64
-  %76 = getelementptr inbounds nuw float, ptr %34, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %75
   %77 = load <4 x float>, ptr %76, align 1, !tbaa !59
   br label %78
 
@@ -22211,7 +22211,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ER
 
 83:                                               ; preds = %78
   %84 = zext nneg i32 %81 to i64
-  %85 = getelementptr inbounds nuw float, ptr %34, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %84
   %86 = load <4 x float>, ptr %85, align 1, !tbaa !59
   br label %87
 
@@ -22224,7 +22224,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ER
 
 92:                                               ; preds = %87
   %93 = zext nneg i32 %90 to i64
-  %94 = getelementptr inbounds nuw float, ptr %34, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %93
   %95 = load <4 x float>, ptr %94, align 1, !tbaa !59
   br label %96
 
@@ -22237,7 +22237,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ER
 
 101:                                              ; preds = %96
   %102 = zext nneg i32 %99 to i64
-  %103 = getelementptr inbounds nuw float, ptr %34, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %102
   %104 = load <4 x float>, ptr %103, align 1, !tbaa !59
   br label %105
 
@@ -22250,7 +22250,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ER
 
 110:                                              ; preds = %105
   %111 = zext nneg i32 %108 to i64
-  %112 = getelementptr inbounds nuw float, ptr %34, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %111
   %113 = load <4 x float>, ptr %112, align 1, !tbaa !59
   br label %114
 
@@ -22382,7 +22382,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p1ER
 
 41:                                               ; preds = %37
   %42 = zext nneg i32 %39 to i64
-  %43 = getelementptr inbounds nuw float, ptr %35, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !62
   br label %45
 
@@ -22395,7 +22395,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p1ER
 
 50:                                               ; preds = %45
   %51 = zext nneg i32 %48 to i64
-  %52 = getelementptr inbounds nuw float, ptr %35, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %51
   %53 = load float, ptr %52, align 4, !tbaa !62
   br label %54
 
@@ -22408,7 +22408,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p1ER
 
 59:                                               ; preds = %54
   %60 = zext nneg i32 %57 to i64
-  %61 = getelementptr inbounds nuw float, ptr %35, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %60
   %62 = load float, ptr %61, align 4, !tbaa !62
   br label %63
 
@@ -22421,7 +22421,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p1ER
 
 68:                                               ; preds = %63
   %69 = zext nneg i32 %66 to i64
-  %70 = getelementptr inbounds nuw float, ptr %35, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %69
   %71 = load float, ptr %70, align 4, !tbaa !62
   br label %72
 
@@ -22535,7 +22535,7 @@ define internal void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p1ERKNS_
 
 40:                                               ; preds = %37
   %41 = zext nneg i32 %38 to i64
-  %42 = getelementptr inbounds nuw float, ptr %35, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %41
   %43 = load float, ptr %42, align 4, !tbaa !62
   br label %44
 
@@ -22712,7 +22712,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERK
 
 100:                                              ; preds = %97
   %101 = zext nneg i32 %98 to i64
-  %102 = getelementptr inbounds nuw float, ptr %39, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %101
   %103 = load float, ptr %102, align 4, !tbaa !62
   %104 = fmul fast float %103, %50
   br label %105
@@ -22726,7 +22726,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERK
 
 110:                                              ; preds = %105
   %111 = zext nneg i32 %108 to i64
-  %112 = getelementptr inbounds nuw float, ptr %39, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %111
   %113 = load float, ptr %112, align 4, !tbaa !62
   %114 = fmul fast float %113, %53
   %115 = fadd fast float %114, %106
@@ -22741,7 +22741,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERK
 
 121:                                              ; preds = %116
   %122 = zext nneg i32 %119 to i64
-  %123 = getelementptr inbounds nuw float, ptr %39, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %122
   %124 = load float, ptr %123, align 4, !tbaa !62
   %125 = fmul fast float %124, %58
   %126 = fadd fast float %125, %117
@@ -22756,7 +22756,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERK
 
 132:                                              ; preds = %127
   %133 = zext nneg i32 %130 to i64
-  %134 = getelementptr inbounds nuw float, ptr %39, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %133
   %135 = load float, ptr %134, align 4, !tbaa !62
   %136 = fmul fast float %135, %60
   %137 = fsub fast float %128, %136
@@ -22764,7 +22764,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERK
 
 138:                                              ; preds = %132, %127
   %139 = phi float [ %137, %132 ], [ %128, %127 ]
-  %140 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store float %139, ptr %140, align 4, !tbaa !62
   %141 = getelementptr inbounds nuw i8, ptr %.061136.us, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -22860,7 +22860,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ER
 
 41:                                               ; preds = %37
   %42 = zext nneg i32 %39 to i64
-  %43 = getelementptr inbounds nuw float, ptr %35, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !62
   br label %45
 
@@ -22873,7 +22873,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ER
 
 50:                                               ; preds = %45
   %51 = zext nneg i32 %48 to i64
-  %52 = getelementptr inbounds nuw float, ptr %35, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %51
   %53 = load float, ptr %52, align 4, !tbaa !62
   br label %54
 
@@ -22886,7 +22886,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ER
 
 59:                                               ; preds = %54
   %60 = zext nneg i32 %57 to i64
-  %61 = getelementptr inbounds nuw float, ptr %35, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %60
   %62 = load float, ptr %61, align 4, !tbaa !62
   br label %63
 
@@ -22899,7 +22899,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ER
 
 68:                                               ; preds = %63
   %69 = zext nneg i32 %66 to i64
-  %70 = getelementptr inbounds nuw float, ptr %35, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %69
   %71 = load float, ptr %70, align 4, !tbaa !62
   br label %72
 
@@ -22912,7 +22912,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ER
 
 77:                                               ; preds = %72
   %78 = zext nneg i32 %75 to i64
-  %79 = getelementptr inbounds nuw float, ptr %35, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %78
   %80 = load float, ptr %79, align 4, !tbaa !62
   br label %81
 
@@ -22925,7 +22925,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ER
 
 86:                                               ; preds = %81
   %87 = zext nneg i32 %84 to i64
-  %88 = getelementptr inbounds nuw float, ptr %35, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %87
   %89 = load float, ptr %88, align 4, !tbaa !62
   br label %90
 
@@ -22938,7 +22938,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ER
 
 95:                                               ; preds = %90
   %96 = zext nneg i32 %93 to i64
-  %97 = getelementptr inbounds nuw float, ptr %35, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %96
   %98 = load float, ptr %97, align 4, !tbaa !62
   br label %99
 
@@ -22951,7 +22951,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ER
 
 104:                                              ; preds = %99
   %105 = zext nneg i32 %102 to i64
-  %106 = getelementptr inbounds nuw float, ptr %35, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %105
   %107 = load float, ptr %106, align 4, !tbaa !62
   br label %108
 

@@ -876,7 +876,7 @@ _ZNSt12_Vector_baseIPKcSaIS1_EE13_M_deallocateEPS1_m.exit.i.i: ; preds = %38, %_
   store ptr %35, ptr %18, align 8, !tbaa !83
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 %33
   store ptr %39, ptr %30, align 8, !tbaa !84
-  %40 = getelementptr inbounds nuw ptr, ptr %35, i64 %8
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %8
   store ptr %40, ptr %22, align 8, !tbaa !80
   br label %_ZN7rocksdb12_GLOBAL__N_19VectorRepC2ERKNS_11MemTableRep13KeyComparatorEPNS_9AllocatorEm.exit
 
@@ -1635,7 +1635,7 @@ _ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %28, 
 _ZNSt6vectorIPKcSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPKcSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %25, ptr %5, align 8, !tbaa !83
   store ptr %29, ptr %6, align 8, !tbaa !84
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !80
   br label %_ZNSt6vectorIPKcSaIS1_EE9push_backERKS1_.exit
 
@@ -3464,7 +3464,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElEvRT_T0_
   %.015.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i ], [ %20, %.critedge.i.i ]
   %.sroa.013.014.i.i.i = phi ptr [ %.sroa.013.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i ], [ %.sroa.045.057.i.i, %.critedge.i.i ]
   %39 = lshr i64 %.015.i.i.i, 1
-  %40 = getelementptr inbounds nuw ptr, ptr %.sroa.013.014.i.i.i, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.013.014.i.i.i, i64 %39
   %.val.val.i.i.i = load ptr, ptr %19, align 8, !tbaa !121
   %41 = load ptr, ptr %40, align 8, !tbaa !91
   %42 = load ptr, ptr %.val.val.i.i.i, align 8, !tbaa !49
@@ -3497,7 +3497,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElEvRT_T0_
   %.015.i31.i.i = phi i64 [ %.1.i38.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i30.i.i ], [ %52, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i30.i.i.preheader ]
   %.sroa.013.014.i32.i.i = phi ptr [ %.sroa.013.1.i37.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i30.i.i ], [ %54, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i30.i.i.preheader ]
   %55 = lshr i64 %.015.i31.i.i, 1
-  %56 = getelementptr inbounds nuw ptr, ptr %.sroa.013.014.i32.i.i, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.013.014.i32.i.i, i64 %55
   %.val.val.i36.i.i = load ptr, ptr %19, align 8, !tbaa !121
   %57 = load ptr, ptr %56, align 8, !tbaa !91
   %58 = load ptr, ptr %.val.val.i36.i.i, align 8, !tbaa !49
@@ -4060,13 +4060,13 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %20 = and i64 %.fr.i20.lcssa, 8
   %21 = icmp eq i64 %20, 0
   %22 = or disjoint i64 %16, 1
-  %23 = getelementptr inbounds nuw ptr, ptr %.fr21, i64 %22
-  %24 = getelementptr inbounds nuw ptr, ptr %.fr21, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.fr21, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.fr21, i64 %17
   br label %25
 
 25:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_T0_SG_T1_T2_.exit.i.i, %._crit_edge
   %.09.i.i = phi i64 [ %17, %._crit_edge ], [ %62, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_T0_SG_T1_T2_.exit.i.i ]
-  %26 = getelementptr inbounds ptr, ptr %.fr21, i64 %.09.i.i
+  %26 = getelementptr inbounds [8 x i8], ptr %.fr21, i64 %.09.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !91
   %28 = icmp slt i64 %.09.i.i, %19
   br i1 %28, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
@@ -4075,9 +4075,9 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.035.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %.09.i.i, %25 ]
   %29 = shl i64 %.035.i.i.i, 1
   %30 = add i64 %29, 2
-  %31 = getelementptr inbounds ptr, ptr %.fr21, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.fr21, i64 %30
   %32 = or disjoint i64 %29, 1
-  %33 = getelementptr inbounds ptr, ptr %.fr21, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.fr21, i64 %32
   %34 = load ptr, ptr %31, align 8, !tbaa !91
   %35 = load ptr, ptr %33, align 8, !tbaa !91
   %36 = load ptr, ptr %3, align 8, !tbaa !49
@@ -4086,9 +4086,9 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %39 = tail call noundef i32 %38(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %34, ptr noundef %35)
   %40 = icmp slt i32 %39, 0
   %spec.select.i.i.i = select i1 %40, i64 %32, i64 %30
-  %41 = getelementptr inbounds ptr, ptr %.fr21, i64 %spec.select.i.i.i
+  %41 = getelementptr inbounds [8 x i8], ptr %.fr21, i64 %spec.select.i.i.i
   %42 = load ptr, ptr %41, align 8, !tbaa !91
-  %43 = getelementptr inbounds ptr, ptr %.fr21, i64 %.035.i.i.i
+  %43 = getelementptr inbounds [8 x i8], ptr %.fr21, i64 %.035.i.i.i
   store ptr %42, ptr %43, align 8, !tbaa !91
   %44 = icmp slt i64 %spec.select.i.i.i, %19
   br i1 %44, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !126
@@ -4113,7 +4113,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.019.i.i.i.i = phi i64 [ %.0920.i.i.i.i, %57 ], [ %.1.i.i.i, %48 ]
   %.0920.in.i.i.i.i = add nsw i64 %.019.i.i.i.i, -1
   %.0920.i.i.i.i = sdiv i64 %.0920.in.i.i.i.i, 2
-  %50 = getelementptr inbounds nuw ptr, ptr %.fr21, i64 %.0920.i.i.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.fr21, i64 %.0920.i.i.i.i
   %51 = load ptr, ptr %50, align 8, !tbaa !91
   %52 = load ptr, ptr %3, align 8, !tbaa !49
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -4124,14 +4124,14 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 57:                                               ; preds = %.lr.ph.i.i.i.i
   %58 = load ptr, ptr %50, align 8, !tbaa !91
-  %59 = getelementptr inbounds nuw ptr, ptr %.fr21, i64 %.019.i.i.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.fr21, i64 %.019.i.i.i.i
   store ptr %58, ptr %59, align 8, !tbaa !91
   %60 = icmp sgt i64 %.0920.i.i.i.i, %.09.i.i
   br i1 %60, label %.lr.ph.i.i.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_T0_SG_T1_T2_.exit.i.i, !llvm.loop !127
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_T0_SG_T1_T2_.exit.i.i: ; preds = %57, %.lr.ph.i.i.i.i, %48
   %.0.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %48 ], [ %.0920.i.i.i.i, %57 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %61 = getelementptr inbounds nuw ptr, ptr %.fr21, i64 %.0.lcssa.i.i.i.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.fr21, i64 %.0.lcssa.i.i.i.i
   store ptr %27, ptr %61, align 8, !tbaa !91
   %.not.i.i = icmp eq i64 %.09.i.i, 0
   %62 = add nsw i64 %.09.i.i, -1
@@ -4147,7 +4147,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEENS
   %.01932 = phi i64 [ %89, %13 ], [ %2, %.lr.ph ]
   %63 = phi i64 [ %92, %13 ], [ %9, %.lr.ph ]
   %64 = lshr i64 %63, 1
-  %65 = getelementptr inbounds nuw ptr, ptr %.fr21, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %.fr21, i64 %64
   %66 = getelementptr inbounds i8, ptr %storemerge1833, i64 -8
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_SF_SF_SF_T0_(ptr %.fr21, ptr nonnull %11, ptr %65, ptr nonnull %66, ptr %3)
   br label %67
@@ -4329,7 +4329,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEES8
   %59 = sub i64 %58, %5
   %60 = ashr exact i64 %59, 3
   %61 = sub nsw i64 0, %60
-  %62 = getelementptr inbounds ptr, ptr %57, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %57, i64 %61
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %62, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %59, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_T0_.exit.i23
 
@@ -4394,9 +4394,9 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPPKcS
   %.035.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph ]
   %17 = shl i64 %.035.i.i, 1
   %18 = add i64 %17, 2
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %0, i64 %18
   %20 = or disjoint i64 %17, 1
-  %21 = getelementptr inbounds ptr, ptr %0, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %0, i64 %20
   %22 = load ptr, ptr %19, align 8, !tbaa !91
   %23 = load ptr, ptr %21, align 8, !tbaa !91
   %24 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !49
@@ -4405,9 +4405,9 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPPKcS
   %27 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.0.copyload.i, ptr noundef %22, ptr noundef %23)
   %28 = icmp slt i32 %27, 0
   %spec.select.i.i = select i1 %28, i64 %20, i64 %18
-  %29 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i
+  %29 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select.i.i
   %30 = load ptr, ptr %29, align 8, !tbaa !91
-  %31 = getelementptr inbounds ptr, ptr %0, i64 %.035.i.i
+  %31 = getelementptr inbounds [8 x i8], ptr %0, i64 %.035.i.i
   store ptr %30, ptr %31, align 8, !tbaa !91
   %32 = icmp slt i64 %spec.select.i.i, %15
   br i1 %32, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !126
@@ -4427,9 +4427,9 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPPKcS
 .thread.i:                                        ; preds = %35
   %39 = shl nuw nsw i64 %.0.lcssa.i.i, 1
   %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !91
-  %43 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i
+  %43 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i.i
   store ptr %42, ptr %43, align 8, !tbaa !91
   br label %.lr.ph.i.i.i.preheader
 
@@ -4445,7 +4445,7 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPPKcS
   %.019.i.i.i = phi i64 [ %.0920.i.i78.i, %52 ], [ %.019.i.i.i.ph, %.lr.ph.i.i.i.preheader ]
   %.0920.in.i.i.i = add nsw i64 %.019.i.i.i, -1
   %.0920.i.i78.i = lshr i64 %.0920.in.i.i.i, 1
-  %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0920.i.i78.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0920.i.i78.i
   %46 = load ptr, ptr %45, align 8, !tbaa !91
   %47 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !49
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -4456,14 +4456,14 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPPKcS
 
 52:                                               ; preds = %.lr.ph.i.i.i
   %53 = load ptr, ptr %45, align 8, !tbaa !91
-  %54 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i.i
+  %54 = getelementptr inbounds [8 x i8], ptr %0, i64 %.019.i.i.i
   store ptr %53, ptr %54, align 8, !tbaa !91
   %.not9.i = icmp eq i64 %.0920.i.i78.i, 0
   br i1 %.not9.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_SF_SF_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !127
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_SF_SF_RT0_.exit: ; preds = %.lr.ph.i.i.i, %52, %44
   %.0.lcssa.i.i.i = phi i64 [ 0, %44 ], [ %.019.i.i.i, %.lr.ph.i.i.i ], [ 0, %52 ]
-  %55 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i
+  %55 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i.i.i
   store ptr %9, ptr %55, align 8, !tbaa !91
   %56 = icmp sgt i64 %12, 8
   br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !135
@@ -4762,7 +4762,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 34:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N7rocksdb14OptionTypeInfoEENS_10_Select1stESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS6_EEmRKT_.exit
   %35 = load ptr, ptr %0, align 8, !tbaa !47
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %37 = load ptr, ptr %36, align 8, !tbaa !143
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %.critedge, label %38
@@ -4919,7 +4919,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 224
   store i64 %2, ptr %32, align 8, !tbaa !144
   %33 = load ptr, ptr %0, align 8, !tbaa !47
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !143
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -4945,7 +4945,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 224
   %46 = load i64, ptr %45, align 8, !tbaa !144
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !143
   br label %49
 
@@ -5144,7 +5144,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 224
   %16 = load i64, ptr %15, align 8, !tbaa !144
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !143
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -5159,7 +5159,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !143
   br label %28
 

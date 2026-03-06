@@ -422,7 +422,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorImSaImE
   %mul.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i, 1
   %call5.i.i.i.i2.i.i7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #19
   store ptr %call5.i.i.i.i2.i.i7, ptr %dim, align 8, !tbaa !18
-  %add.ptr.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i7, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i7, i64 %sub.ptr.div.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %dim, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !20
   store i64 0, ptr %call5.i.i.i.i2.i.i7, align 8, !tbaa !21
@@ -454,7 +454,7 @@ for.cond.cleanup:                                 ; preds = %invoke.cont4, %invo
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont4
   %i.030 = phi i64 [ %inc, %invoke.cont4 ], [ 0, %for.body.preheader ]
   %3 = load ptr, ptr %meshers, align 8, !tbaa !10
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.0", ptr %3, i64 %i.030
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %i.030
   %4 = load ptr, ptr %add.ptr.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %4, null
   br i1 %cmp.not.i, label %cond.false.i, label %invoke.cont4, !prof !24
@@ -477,7 +477,7 @@ invoke.cont4:                                     ; preds = %.noexc13, %for.body
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %add.ptr.i14 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i7, i64 %i.030
+  %add.ptr.i14 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i7, i64 %i.030
   store i64 %sub.ptr.div.i.i, ptr %add.ptr.i14, align 8, !tbaa !21
   %inc = add nuw i64 %i.030, 1
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i12
@@ -2112,7 +2112,7 @@ lpad2:                                            ; preds = %_ZNSt16allocator_tr
 do.body:                                          ; preds = %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEESaIS4_EEC2ERKS6_.exit, %for.inc
   %13 = phi ptr [ %42, %for.inc ], [ %10, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEESaIS4_EEC2ERKS6_.exit ]
   %i.080 = phi i64 [ %inc, %for.inc ], [ 0, %_ZNSt6vectorIN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEESaIS4_EEC2ERKS6_.exit ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.0", ptr %13, i64 %i.080
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %i.080
   %14 = load ptr, ptr %add.ptr.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %14, null
   br i1 %cmp.not.i, label %cond.false.i, label %invoke.cont6, !prof !24
@@ -2151,7 +2151,7 @@ invoke.cont10:                                    ; preds = %.noexc28, %invoke.c
   %19 = phi ptr [ %18, %invoke.cont6 ], [ %.pre.i27, %.noexc28 ]
   %dim_.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %20 = load ptr, ptr %dim_.i, align 8, !tbaa !18
-  %add.ptr.i29 = getelementptr inbounds nuw i64, ptr %20, i64 %i.080
+  %add.ptr.i29 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %i.080
   %21 = load i64, ptr %add.ptr.i29, align 8, !tbaa !21
   %cmp15 = icmp eq i64 %sub.ptr.div.i.i, %21
   br i1 %cmp15, label %for.inc, label %if.then
@@ -2461,7 +2461,7 @@ define noundef double @_ZNK8QuantLib18FdmMesherComposite5dplusERKNS_19FdmLinearO
 entry:
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %mesher_, align 8, !tbaa !10
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.0", ptr %0, i64 %direction
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %direction
   %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEptEv.exit, !prof !24
@@ -2475,11 +2475,11 @@ _ZNK5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEptEv.exit: ; preds = %entry, %co
   %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
   %coordinates_.i = getelementptr inbounds nuw i8, ptr %iter, i64 32
   %3 = load ptr, ptr %coordinates_.i, align 8, !tbaa !18
-  %add.ptr.i2 = getelementptr inbounds nuw i64, ptr %3, i64 %direction
+  %add.ptr.i2 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %direction
   %4 = load i64, ptr %add.ptr.i2, align 8, !tbaa !21
   %dplus_.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %dplus_.i, align 8, !tbaa !27
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %5, i64 %4
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %4
   %6 = load double, ptr %add.ptr.i.i, align 8, !tbaa !41
   ret double %6
 }
@@ -2489,7 +2489,7 @@ define noundef double @_ZNK8QuantLib18FdmMesherComposite6dminusERKNS_19FdmLinear
 entry:
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %mesher_, align 8, !tbaa !10
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.0", ptr %0, i64 %direction
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %direction
   %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEptEv.exit, !prof !24
@@ -2503,11 +2503,11 @@ _ZNK5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEptEv.exit: ; preds = %entry, %co
   %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
   %coordinates_.i = getelementptr inbounds nuw i8, ptr %iter, i64 32
   %3 = load ptr, ptr %coordinates_.i, align 8, !tbaa !18
-  %add.ptr.i2 = getelementptr inbounds nuw i64, ptr %3, i64 %direction
+  %add.ptr.i2 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %direction
   %4 = load i64, ptr %add.ptr.i2, align 8, !tbaa !21
   %dminus_.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = load ptr, ptr %dminus_.i, align 8, !tbaa !27
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %5, i64 %4
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %4
   %6 = load double, ptr %add.ptr.i.i, align 8, !tbaa !41
   ret double %6
 }
@@ -2517,7 +2517,7 @@ define noundef double @_ZNK8QuantLib18FdmMesherComposite8locationERKNS_19FdmLine
 entry:
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %mesher_, align 8, !tbaa !10
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.0", ptr %0, i64 %direction
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %direction
   %1 = load ptr, ptr %add.ptr.i, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %1, null
   br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEptEv.exit, !prof !24
@@ -2531,11 +2531,11 @@ _ZNK5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEptEv.exit: ; preds = %entry, %co
   %2 = phi ptr [ %1, %entry ], [ %.pre.i, %cond.false.i ]
   %coordinates_.i = getelementptr inbounds nuw i8, ptr %iter, i64 32
   %3 = load ptr, ptr %coordinates_.i, align 8, !tbaa !18
-  %add.ptr.i2 = getelementptr inbounds nuw i64, ptr %3, i64 %direction
+  %add.ptr.i2 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %direction
   %4 = load i64, ptr %add.ptr.i2, align 8, !tbaa !21
   %locations_.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %locations_.i, align 8, !tbaa !27
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %5, i64 %4
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %4
   %6 = load double, ptr %add.ptr.i.i, align 8, !tbaa !41
   ret double %6
 }
@@ -2594,7 +2594,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont6
   %dim_.i34 = getelementptr inbounds nuw i8, ptr %__begin1, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %__begin1, i64 16
   %8 = load ptr, ptr %mesher_, align 8, !tbaa !10
-  %9 = getelementptr inbounds nuw %"class.boost::shared_ptr.0", ptr %8, i64 %direction
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %direction
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = icmp eq ptr %10, null
   br i1 %11, label %for.body, label %for.body.lr.ph.split.us, !prof !24
@@ -2602,7 +2602,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont6
 for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
   %locations_.i.us = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %coordinates_.i31, align 8, !tbaa !18
-  %add.ptr.i32.us = getelementptr inbounds nuw i64, ptr %12, i64 %direction
+  %add.ptr.i32.us = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %direction
   %13 = load ptr, ptr %locations_.i.us, align 8, !tbaa !27
   %14 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !23
   %15 = load ptr, ptr %dim_.i34, align 8, !tbaa !18
@@ -2616,9 +2616,9 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
 for.body.us.us:                                   ; preds = %for.body.lr.ph.split.us, %for.body.us.us
   %16 = phi i64 [ %inc.i.us.us, %for.body.us.us ], [ %7, %for.body.lr.ph.split.us ]
   %17 = load i64, ptr %add.ptr.i32.us, align 8, !tbaa !21
-  %add.ptr.i33.us.us = getelementptr inbounds nuw double, ptr %13, i64 %17
+  %add.ptr.i33.us.us = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %17
   %18 = load double, ptr %add.ptr.i33.us.us, align 8, !tbaa !41
-  %arrayidx.i.us.us = getelementptr inbounds nuw double, ptr %cond.i, i64 %16
+  %arrayidx.i.us.us = getelementptr inbounds nuw [8 x i8], ptr %cond.i, i64 %16
   store double %18, ptr %arrayidx.i.us.us, align 8, !tbaa !41
   %inc.i.us.us = add i64 %16, 1
   store i64 %inc.i.us.us, ptr %__begin1, align 8, !tbaa !59
@@ -2628,9 +2628,9 @@ for.body.us.us:                                   ; preds = %for.body.lr.ph.spli
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.us
   %19 = phi i64 [ %24, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.us ], [ %7, %for.body.lr.ph.split.us ]
   %20 = load i64, ptr %add.ptr.i32.us, align 8, !tbaa !21
-  %add.ptr.i33.us = getelementptr inbounds nuw double, ptr %13, i64 %20
+  %add.ptr.i33.us = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %20
   %21 = load double, ptr %add.ptr.i33.us, align 8, !tbaa !41
-  %arrayidx.i.us = getelementptr inbounds nuw double, ptr %cond.i, i64 %19
+  %arrayidx.i.us = getelementptr inbounds nuw [8 x i8], ptr %cond.i, i64 %19
   store double %21, ptr %arrayidx.i.us, align 8, !tbaa !41
   %inc.i.us = add i64 %19, 1
   store i64 %inc.i.us, ptr %__begin1, align 8, !tbaa !59
@@ -2638,11 +2638,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph.spli
 
 for.body.i.us:                                    ; preds = %if.then.i.us, %for.body.us
   %i.08.i.us = phi i64 [ 0, %for.body.us ], [ %inc9.i.us, %if.then.i.us ]
-  %add.ptr.i.i.us = getelementptr inbounds nuw i64, ptr %12, i64 %i.08.i.us
+  %add.ptr.i.i.us = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %i.08.i.us
   %22 = load i64, ptr %add.ptr.i.i.us, align 8, !tbaa !21
   %inc3.i.us = add i64 %22, 1
   store i64 %inc3.i.us, ptr %add.ptr.i.i.us, align 8, !tbaa !21
-  %add.ptr.i5.i.us = getelementptr inbounds nuw i64, ptr %15, i64 %i.08.i.us
+  %add.ptr.i5.i.us = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %i.08.i.us
   %23 = load i64, ptr %add.ptr.i5.i.us, align 8, !tbaa !21
   %cmp6.i.us = icmp eq i64 %inc3.i.us, %23
   br i1 %cmp6.i.us, label %if.then.i.us, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.us
@@ -2701,7 +2701,7 @@ lpad5:                                            ; preds = %invoke.cont
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit
   %29 = phi i64 [ %42, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit ], [ %7, %for.body.lr.ph ]
   %30 = load ptr, ptr %mesher_, align 8, !tbaa !10
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.0", ptr %30, i64 %direction
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %direction
   %31 = load ptr, ptr %add.ptr.i, align 8, !tbaa !3
   %cmp.not.i27 = icmp eq ptr %31, null
   br i1 %cmp.not.i27, label %cond.false.i28, label %invoke.cont16, !prof !24
@@ -2720,12 +2720,12 @@ invoke.cont16:                                    ; preds = %.noexc30, %for.body
   %33 = phi ptr [ %31, %for.body ], [ %.pre.i29, %.noexc30 ]
   %locations_.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   %34 = load ptr, ptr %coordinates_.i31, align 8, !tbaa !18
-  %add.ptr.i32 = getelementptr inbounds nuw i64, ptr %34, i64 %direction
+  %add.ptr.i32 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %direction
   %35 = load i64, ptr %add.ptr.i32, align 8, !tbaa !21
   %36 = load ptr, ptr %locations_.i, align 8, !tbaa !27
-  %add.ptr.i33 = getelementptr inbounds nuw double, ptr %36, i64 %35
+  %add.ptr.i33 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %35
   %37 = load double, ptr %add.ptr.i33, align 8, !tbaa !41
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %cond.i, i64 %32
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i, i64 %32
   store double %37, ptr %arrayidx.i, align 8, !tbaa !41
   %inc.i = add i64 %32, 1
   store i64 %inc.i, ptr %__begin1, align 8, !tbaa !59
@@ -2743,11 +2743,11 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont16
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.lr.ph.i
   %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc9.i, %if.then.i ]
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %34, i64 %i.08.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %i.08.i
   %40 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !21
   %inc3.i = add i64 %40, 1
   store i64 %inc3.i, ptr %add.ptr.i.i, align 8, !tbaa !21
-  %add.ptr.i5.i = getelementptr inbounds nuw i64, ptr %39, i64 %i.08.i
+  %add.ptr.i5.i = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %i.08.i
   %41 = load i64, ptr %add.ptr.i5.i, align 8, !tbaa !21
   %cmp6.i = icmp eq i64 %inc3.i, %41
   br i1 %cmp6.i, label %if.then.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit

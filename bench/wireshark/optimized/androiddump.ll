@@ -506,7 +506,7 @@ define hidden range(i32 -1, 46) i32 @main(i32 noundef %0, ptr noundef %1) local_
   %90 = load i32, ptr @ws_optind, align 4
   %91 = add i32 %90, -1
   %92 = sext i32 %91 to i64
-  %93 = getelementptr ptr, ptr %1, i64 %92
+  %93 = getelementptr [8 x i8], ptr %1, i64 %92
   %94 = load ptr, ptr %93, align 8
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2701, ptr noundef nonnull @__func__.main, ptr noundef nonnull @.str.36, ptr noundef %94)
   br label %.thread141
@@ -1590,7 +1590,7 @@ define internal fastcc range(i32 -1, 43) i32 @capture_android_logcat_text(ptr no
 
 12:                                               ; preds = %24, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %24 ]
-  %13 = getelementptr ptr, ptr @get_serial_from_interface.iface_prefix, i64 %indvars.iv.i
+  %13 = getelementptr [8 x i8], ptr @get_serial_from_interface.iface_prefix, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i64 @strlen(ptr noundef %14) #22
   %16 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %14, i64 noundef %15) #22
@@ -1831,7 +1831,7 @@ define internal fastcc range(i32 -1, 45) i32 @capture_android_logcat(ptr noundef
 
 9:                                                ; preds = %21, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %21 ]
-  %10 = getelementptr ptr, ptr @get_serial_from_interface.iface_prefix, i64 %indvars.iv.i
+  %10 = getelementptr [8 x i8], ptr @get_serial_from_interface.iface_prefix, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @strlen(ptr noundef %11) #22
   %13 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %11, i64 noundef %12) #22
@@ -2095,7 +2095,7 @@ define internal fastcc range(i32 -1, 39) i32 @capture_android_bluetooth_hcidump(
 
 12:                                               ; preds = %24, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %24 ]
-  %13 = getelementptr ptr, ptr @get_serial_from_interface.iface_prefix, i64 %indvars.iv.i
+  %13 = getelementptr [8 x i8], ptr @get_serial_from_interface.iface_prefix, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i64 @strlen(ptr noundef %14) #22
   %16 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %14, i64 noundef %15) #22
@@ -2608,7 +2608,7 @@ define internal fastcc range(i32 -1, 41) i32 @capture_android_bluetooth_external
 
 17:                                               ; preds = %29, %8
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %29 ]
-  %18 = getelementptr ptr, ptr @get_serial_from_interface.iface_prefix, i64 %indvars.iv.i
+  %18 = getelementptr [8 x i8], ptr @get_serial_from_interface.iface_prefix, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @strlen(ptr noundef %19) #22
   %21 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %19, i64 noundef %20) #22
@@ -3030,7 +3030,7 @@ define internal fastcc range(i32 -1, 42) i32 @capture_android_bluetooth_btsnoop_
 
 8:                                                ; preds = %20, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %20 ]
-  %9 = getelementptr ptr, ptr @get_serial_from_interface.iface_prefix, i64 %indvars.iv.i
+  %9 = getelementptr [8 x i8], ptr @get_serial_from_interface.iface_prefix, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 @strlen(ptr noundef %10) #22
   %12 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %10, i64 noundef %11) #22
@@ -3532,7 +3532,7 @@ define internal fastcc i32 @adb_connect(ptr noundef %0, ptr noundef readonly cap
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, i8 0, i64 128, i1 false)
   %37 = add nuw nsw i32 %.047, 1
   %38 = call i64 @__fdelt_chk(i64 noundef %34)
-  %39 = getelementptr i64, ptr %9, i64 %38
+  %39 = getelementptr [8 x i8], ptr %9, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = or i64 %40, %33
   store i64 %41, ptr %39, align 8
@@ -3542,7 +3542,7 @@ define internal fastcc i32 @adb_connect(ptr noundef %0, ptr noundef readonly cap
 
 43:                                               ; preds = %36
   %44 = call i64 @__fdelt_chk(i64 noundef %34)
-  %45 = getelementptr i64, ptr %9, i64 %44
+  %45 = getelementptr [8 x i8], ptr %9, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, %33
   %.not57 = icmp eq i64 %47, 0

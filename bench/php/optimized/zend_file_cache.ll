@@ -36,11 +36,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_object_handlers = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.iovec = type { ptr, i64 }
 %struct._zend_file_cache_metainfo = type { [8 x i8], [32 x i8], i64, i64, i64, i64, i32 }
-%struct._zend_early_binding = type { ptr, ptr, ptr, i32 }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%struct._zend_class_name = type { ptr, ptr }
-%struct.zend_attribute_arg = type { ptr, %struct._zval_struct }
 
 @jit_globals = external local_unnamed_addr global %struct._zend_jit_globals, align 8
 @accel_globals = external local_unnamed_addr global %struct._zend_accel_globals, align 8
@@ -502,7 +499,7 @@ define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr nound
 
 85:                                               ; preds = %179, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %179 ]
-  %86 = getelementptr inbounds nuw ptr, ptr %spec.select.i, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %spec.select.i, i64 %indvars.iv.i
   %87 = load ptr, ptr %86, align 8, !tbaa !78
   %.not101.i = icmp eq ptr %87, null
   br i1 %.not101.i, label %.thread.i, label %88
@@ -737,7 +734,7 @@ zend_file_cache_serialize_warnings.exit:          ; preds = %179, %57, %75
 
 207:                                              ; preds = %321, %.lr.ph.i60
   %indvars.iv.i61 = phi i64 [ 0, %.lr.ph.i60 ], [ %indvars.iv.next.i64, %321 ]
-  %208 = getelementptr inbounds nuw %struct._zend_early_binding, ptr %spec.select.i59, i64 %indvars.iv.i61
+  %208 = getelementptr inbounds nuw [32 x i8], ptr %spec.select.i59, i64 %indvars.iv.i61
   %209 = load ptr, ptr %208, align 8, !tbaa !85
   %.not132.i = icmp eq ptr %209, null
   br i1 %.not132.i, label %245, label %210
@@ -1493,7 +1490,7 @@ zend_file_cache_unserialize_interned.exit.i:      ; preds = %235, %225, %219
 .lr.ph.i.i:                                       ; preds = %261, %376
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %376 ], [ 0, %261 ]
   %270 = load ptr, ptr %259, align 8, !tbaa !76
-  %271 = getelementptr inbounds nuw ptr, ptr %270, i64 %indvars.iv.i.i
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %indvars.iv.i.i
   %272 = load ptr, ptr %271, align 8, !tbaa !78, !nonnull !18, !noundef !18
   %273 = load i64, ptr %262, align 8, !tbaa !49
   %274 = inttoptr i64 %273 to ptr
@@ -1550,7 +1547,7 @@ zend_file_cache_unserialize_interned.exit.i:      ; preds = %235, %225, %219
 zend_file_cache_unserialize_interned.exit.i.i:    ; preds = %299, %289, %283
   %.0.i.i.i = phi ptr [ %288, %283 ], [ %296, %299 ], [ %290, %289 ]
   %301 = load ptr, ptr %259, align 8, !tbaa !76
-  %302 = getelementptr inbounds nuw ptr, ptr %301, i64 %indvars.iv.i.i
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %301, i64 %indvars.iv.i.i
   %303 = load ptr, ptr %302, align 8, !tbaa !78
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 8
   store ptr %.0.i.i.i, ptr %304, align 8, !tbaa !80
@@ -1576,7 +1573,7 @@ zend_file_cache_unserialize_interned.exit.i.i:    ; preds = %299, %289, %283
   %315 = or i32 %311, 64
   store i32 %315, ptr %310, align 4, !tbaa !47
   %316 = load ptr, ptr %259, align 8, !tbaa !76
-  %317 = getelementptr inbounds nuw ptr, ptr %316, i64 %indvars.iv.i.i
+  %317 = getelementptr inbounds nuw [8 x i8], ptr %316, i64 %indvars.iv.i.i
   %318 = load ptr, ptr %317, align 8, !tbaa !78
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 8
   %320 = load ptr, ptr %319, align 8, !tbaa !80
@@ -1588,7 +1585,7 @@ zend_file_cache_unserialize_interned.exit.i.i:    ; preds = %299, %289, %283
 
 324:                                              ; preds = %314, %312, %zend_file_cache_unserialize_interned.exit.i.i, %.lr.ph.i.i
   %325 = load ptr, ptr %259, align 8, !tbaa !76
-  %326 = getelementptr inbounds nuw ptr, ptr %325, i64 %indvars.iv.i.i
+  %326 = getelementptr inbounds nuw [8 x i8], ptr %325, i64 %indvars.iv.i.i
   %327 = load ptr, ptr %326, align 8, !tbaa !78
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 16
   %329 = load ptr, ptr %328, align 8, !tbaa !82
@@ -1638,7 +1635,7 @@ zend_file_cache_unserialize_interned.exit.i.i:    ; preds = %299, %289, %283
 zend_file_cache_unserialize_interned.exit78.i.i:  ; preds = %349, %339, %333
   %.0.i76.i.i = phi ptr [ %338, %333 ], [ %346, %349 ], [ %340, %339 ]
   %351 = load ptr, ptr %259, align 8, !tbaa !76
-  %352 = getelementptr inbounds nuw ptr, ptr %351, i64 %indvars.iv.i.i
+  %352 = getelementptr inbounds nuw [8 x i8], ptr %351, i64 %indvars.iv.i.i
   %353 = load ptr, ptr %352, align 8, !tbaa !78
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 16
   store ptr %.0.i76.i.i, ptr %354, align 8, !tbaa !82
@@ -1666,7 +1663,7 @@ zend_file_cache_unserialize_interned.exit78.i.i:  ; preds = %349, %339, %333
   %367 = or i32 %363, 64
   store i32 %367, ptr %362, align 4, !tbaa !47
   %368 = load ptr, ptr %259, align 8, !tbaa !76
-  %369 = getelementptr inbounds nuw ptr, ptr %368, i64 %indvars.iv.i.i
+  %369 = getelementptr inbounds nuw [8 x i8], ptr %368, i64 %indvars.iv.i.i
   %370 = load ptr, ptr %369, align 8, !tbaa !78
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 16
   %372 = load ptr, ptr %371, align 8, !tbaa !82
@@ -1706,7 +1703,7 @@ zend_file_cache_unserialize_warnings.exit.i:      ; preds = %376, %261, %255
 .lr.ph.i32.i:                                     ; preds = %382, %534
   %indvars.iv.i33.i = phi i64 [ %indvars.iv.next.i36.i, %534 ], [ 0, %382 ]
   %391 = load ptr, ptr %380, align 8, !tbaa !83
-  %392 = getelementptr inbounds nuw %struct._zend_early_binding, ptr %391, i64 %indvars.iv.i33.i
+  %392 = getelementptr inbounds nuw [32 x i8], ptr %391, i64 %indvars.iv.i33.i
   %393 = load ptr, ptr %392, align 8, !tbaa !85
   %.not85.i.i = icmp eq ptr %393, null
   br i1 %.not85.i.i, label %436, label %394
@@ -1754,7 +1751,7 @@ zend_file_cache_unserialize_warnings.exit.i:      ; preds = %376, %261, %255
 zend_file_cache_unserialize_interned.exit.i34.i:  ; preds = %413, %403, %397
   %.0.i.i35.i = phi ptr [ %402, %397 ], [ %410, %413 ], [ %404, %403 ]
   %415 = load ptr, ptr %380, align 8, !tbaa !83
-  %416 = getelementptr inbounds nuw %struct._zend_early_binding, ptr %415, i64 %indvars.iv.i33.i
+  %416 = getelementptr inbounds nuw [32 x i8], ptr %415, i64 %indvars.iv.i33.i
   store ptr %.0.i.i35.i, ptr %416, align 8, !tbaa !85
   br label %436
 
@@ -1780,7 +1777,7 @@ zend_file_cache_unserialize_interned.exit.i34.i:  ; preds = %413, %403, %397
   %429 = or i32 %425, 64
   store i32 %429, ptr %424, align 4, !tbaa !47
   %430 = load ptr, ptr %380, align 8, !tbaa !83
-  %431 = getelementptr inbounds nuw %struct._zend_early_binding, ptr %430, i64 %indvars.iv.i33.i
+  %431 = getelementptr inbounds nuw [32 x i8], ptr %430, i64 %indvars.iv.i33.i
   %432 = load ptr, ptr %431, align 8, !tbaa !85
   %433 = getelementptr inbounds nuw i8, ptr %432, i64 4
   %434 = load i32, ptr %433, align 4, !tbaa !47
@@ -1790,7 +1787,7 @@ zend_file_cache_unserialize_interned.exit.i34.i:  ; preds = %413, %403, %397
 
 436:                                              ; preds = %428, %426, %zend_file_cache_unserialize_interned.exit.i34.i, %.lr.ph.i32.i
   %437 = load ptr, ptr %380, align 8, !tbaa !83
-  %438 = getelementptr inbounds nuw %struct._zend_early_binding, ptr %437, i64 %indvars.iv.i33.i
+  %438 = getelementptr inbounds nuw [32 x i8], ptr %437, i64 %indvars.iv.i33.i
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 8
   %440 = load ptr, ptr %439, align 8, !tbaa !87
   %.not87.i.i = icmp eq ptr %440, null
@@ -1839,7 +1836,7 @@ zend_file_cache_unserialize_interned.exit.i34.i:  ; preds = %413, %403, %397
 zend_file_cache_unserialize_interned.exit93.i.i:  ; preds = %460, %450, %444
   %.0.i91.i.i = phi ptr [ %449, %444 ], [ %457, %460 ], [ %451, %450 ]
   %462 = load ptr, ptr %380, align 8, !tbaa !83
-  %463 = getelementptr inbounds nuw %struct._zend_early_binding, ptr %462, i64 %indvars.iv.i33.i
+  %463 = getelementptr inbounds nuw [32 x i8], ptr %462, i64 %indvars.iv.i33.i
   %464 = getelementptr inbounds nuw i8, ptr %463, i64 8
   store ptr %.0.i91.i.i, ptr %464, align 8, !tbaa !87
   br label %485
@@ -1866,7 +1863,7 @@ zend_file_cache_unserialize_interned.exit93.i.i:  ; preds = %460, %450, %444
   %477 = or i32 %473, 64
   store i32 %477, ptr %472, align 4, !tbaa !47
   %478 = load ptr, ptr %380, align 8, !tbaa !83
-  %479 = getelementptr inbounds nuw %struct._zend_early_binding, ptr %478, i64 %indvars.iv.i33.i
+  %479 = getelementptr inbounds nuw [32 x i8], ptr %478, i64 %indvars.iv.i33.i
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 8
   %481 = load ptr, ptr %480, align 8, !tbaa !87
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 4
@@ -1877,7 +1874,7 @@ zend_file_cache_unserialize_interned.exit93.i.i:  ; preds = %460, %450, %444
 
 485:                                              ; preds = %476, %474, %zend_file_cache_unserialize_interned.exit93.i.i, %436
   %486 = load ptr, ptr %380, align 8, !tbaa !83
-  %487 = getelementptr inbounds nuw %struct._zend_early_binding, ptr %486, i64 %indvars.iv.i33.i
+  %487 = getelementptr inbounds nuw [32 x i8], ptr %486, i64 %indvars.iv.i33.i
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 16
   %489 = load ptr, ptr %488, align 8, !tbaa !88
   %.not89.i.i = icmp eq ptr %489, null
@@ -1926,7 +1923,7 @@ zend_file_cache_unserialize_interned.exit93.i.i:  ; preds = %460, %450, %444
 zend_file_cache_unserialize_interned.exit96.i.i:  ; preds = %509, %499, %493
   %.0.i94.i.i = phi ptr [ %498, %493 ], [ %506, %509 ], [ %500, %499 ]
   %511 = load ptr, ptr %380, align 8, !tbaa !83
-  %512 = getelementptr inbounds nuw %struct._zend_early_binding, ptr %511, i64 %indvars.iv.i33.i
+  %512 = getelementptr inbounds nuw [32 x i8], ptr %511, i64 %indvars.iv.i33.i
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 16
   store ptr %.0.i94.i.i, ptr %513, align 8, !tbaa !88
   br label %534
@@ -1953,7 +1950,7 @@ zend_file_cache_unserialize_interned.exit96.i.i:  ; preds = %509, %499, %493
   %526 = or i32 %522, 64
   store i32 %526, ptr %521, align 4, !tbaa !47
   %527 = load ptr, ptr %380, align 8, !tbaa !83
-  %528 = getelementptr inbounds nuw %struct._zend_early_binding, ptr %527, i64 %indvars.iv.i33.i
+  %528 = getelementptr inbounds nuw [32 x i8], ptr %527, i64 %indvars.iv.i33.i
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 16
   %530 = load ptr, ptr %529, align 8, !tbaa !88
   %531 = getelementptr inbounds nuw i8, ptr %530, i64 4
@@ -3008,7 +3005,7 @@ define internal void @zend_file_cache_serialize_class(ptr noundef captures(none)
 
 313:                                              ; preds = %.lr.ph1267, %327
   %indvars.iv = phi i64 [ 0, %.lr.ph1267 ], [ %indvars.iv.next, %327 ]
-  %314 = getelementptr inbounds nuw ptr, ptr %spec.select1250, i64 %indvars.iv
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %spec.select1250, i64 %indvars.iv
   %315 = load ptr, ptr %314, align 8, !tbaa !179
   %.not1240 = icmp eq ptr %315, null
   br i1 %.not1240, label %327, label %316
@@ -3094,7 +3091,7 @@ define internal void @zend_file_cache_serialize_class(ptr noundef captures(none)
 
 354:                                              ; preds = %.lr.ph1269, %430
   %indvars.iv1290 = phi i64 [ 0, %.lr.ph1269 ], [ %indvars.iv.next1291, %430 ]
-  %355 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.0904, i64 %indvars.iv1290
+  %355 = getelementptr inbounds nuw [16 x i8], ptr %.0904, i64 %indvars.iv1290
   %356 = load ptr, ptr %355, align 8, !tbaa !181
   %.not1232 = icmp eq ptr %356, null
   br i1 %.not1232, label %392, label %357
@@ -3297,7 +3294,7 @@ define internal void @zend_file_cache_serialize_class(ptr noundef captures(none)
 
 460:                                              ; preds = %.lr.ph1271, %536
   %indvars.iv1293 = phi i64 [ 0, %.lr.ph1271 ], [ %indvars.iv.next1294, %536 ]
-  %461 = getelementptr inbounds nuw %struct._zend_class_name, ptr %.0902, i64 %indvars.iv1293
+  %461 = getelementptr inbounds nuw [16 x i8], ptr %.0902, i64 %indvars.iv1293
   %462 = load ptr, ptr %461, align 8, !tbaa !181
   %.not1224 = icmp eq ptr %462, null
   br i1 %.not1224, label %498, label %463
@@ -3969,7 +3966,7 @@ define internal void @zend_file_cache_serialize_class(ptr noundef captures(none)
 
 807:                                              ; preds = %.lr.ph1278, %845
   %indvars.iv1296 = phi i64 [ 0, %.lr.ph1278 ], [ %indvars.iv.next1297, %845 ]
-  %808 = getelementptr inbounds nuw ptr, ptr %806, i64 %indvars.iv1296
+  %808 = getelementptr inbounds nuw [8 x i8], ptr %806, i64 %indvars.iv1296
   %809 = load ptr, ptr %808, align 8, !tbaa !201
   %.not1205 = icmp eq ptr %809, null
   br i1 %.not1205, label %845, label %810
@@ -6128,7 +6125,7 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef init
 
 612:                                              ; preds = %.lr.ph830, %.thread804
   %indvars.iv = phi i64 [ 0, %.lr.ph830 ], [ %indvars.iv.next, %.thread804 ]
-  %613 = getelementptr inbounds nuw ptr, ptr %.0572, i64 %indvars.iv
+  %613 = getelementptr inbounds nuw [8 x i8], ptr %.0572, i64 %indvars.iv
   %614 = load ptr, ptr %613, align 8, !tbaa !260
   %.not739 = icmp eq ptr %614, null
   br i1 %.not739, label %.thread804, label %615
@@ -7201,7 +7198,7 @@ define internal void @zend_file_cache_serialize_attribute(ptr noundef captures(n
 
 111:                                              ; preds = %.lr.ph, %149
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %149 ]
-  %112 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %107, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %107, i64 %indvars.iv
   %113 = load ptr, ptr %112, align 8, !tbaa !269
   %.not119 = icmp eq ptr %113, null
   br i1 %.not119, label %149, label %114
@@ -7601,7 +7598,7 @@ define internal void @zend_file_cache_serialize_prop_info(ptr noundef captures(n
 169:                                              ; preds = %163, %189
   %170 = phi i1 [ true, %163 ], [ false, %189 ]
   %indvars.iv = phi i64 [ 0, %163 ], [ 1, %189 ]
-  %171 = getelementptr inbounds nuw ptr, ptr %spec.select225, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %spec.select225, i64 %indvars.iv
   %172 = load ptr, ptr %171, align 8, !tbaa !279
   %.not217 = icmp eq ptr %172, null
   br i1 %.not217, label %189, label %173
@@ -7683,7 +7680,7 @@ define internal fastcc void @zend_file_cache_serialize_ast(ptr noundef captures(
 16:                                               ; preds = %.lr.ph, %37
   %17 = phi i32 [ %12, %.lr.ph ], [ %38, %37 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !285
   %.not104 = icmp eq ptr %19, null
   br i1 %.not104, label %37, label %20
@@ -7764,7 +7761,7 @@ zend_ast_is_decl.exit:                            ; preds = %41
 
 57:                                               ; preds = %.lr.ph118, %77
   %indvars.iv123 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next124, %77 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv123
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv123
   %59 = load ptr, ptr %58, align 8, !tbaa !285
   %.not = icmp eq ptr %59, null
   br i1 %.not, label %77, label %60
@@ -8679,7 +8676,7 @@ zend_file_cache_unserialize_interned.exit719:     ; preds = %204, %211, %221
 
 .lr.ph759:                                        ; preds = %.lr.ph759.preheader, %286
   %indvars.iv = phi i64 [ 0, %.lr.ph759.preheader ], [ %indvars.iv.next, %286 ]
-  %280 = getelementptr inbounds nuw ptr, ptr %277, i64 %indvars.iv
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %indvars.iv
   %281 = load ptr, ptr %280, align 8, !tbaa !179
   %.not710 = icmp eq ptr %281, null
   br i1 %.not710, label %286, label %282
@@ -8728,7 +8725,7 @@ zend_file_cache_unserialize_interned.exit719:     ; preds = %204, %211, %221
 301:                                              ; preds = %.lr.ph761, %403
   %indvars.iv782 = phi i64 [ 0, %.lr.ph761 ], [ %indvars.iv.next783, %403 ]
   %302 = load ptr, ptr %290, align 8, !tbaa !47
-  %303 = getelementptr inbounds nuw %struct._zend_class_name, ptr %302, i64 %indvars.iv782
+  %303 = getelementptr inbounds nuw [16 x i8], ptr %302, i64 %indvars.iv782
   %304 = load ptr, ptr %303, align 8, !tbaa !181
   %.not706 = icmp eq ptr %304, null
   br i1 %.not706, label %350, label %305
@@ -8776,7 +8773,7 @@ zend_file_cache_unserialize_interned.exit719:     ; preds = %204, %211, %221
 zend_file_cache_unserialize_interned.exit722:     ; preds = %308, %314, %324
   %.0.i720 = phi ptr [ %313, %308 ], [ %321, %324 ], [ %315, %314 ]
   %326 = load ptr, ptr %290, align 8, !tbaa !47
-  %327 = getelementptr inbounds nuw %struct._zend_class_name, ptr %326, i64 %indvars.iv782
+  %327 = getelementptr inbounds nuw [16 x i8], ptr %326, i64 %indvars.iv782
   store ptr %.0.i720, ptr %327, align 8, !tbaa !181
   br label %350
 
@@ -8790,7 +8787,7 @@ zend_file_cache_unserialize_interned.exit722:     ; preds = %308, %314, %324
   %333 = load i8, ptr %299, align 8, !tbaa !53, !range !17, !noundef !18
   %334 = trunc nuw i8 %333 to i1
   %335 = load ptr, ptr %290, align 8, !tbaa !47
-  %336 = getelementptr inbounds nuw %struct._zend_class_name, ptr %335, i64 %indvars.iv782
+  %336 = getelementptr inbounds nuw [16 x i8], ptr %335, i64 %indvars.iv782
   %337 = load ptr, ptr %336, align 8, !tbaa !181
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 4
   %339 = load i32, ptr %338, align 4, !tbaa !47
@@ -8805,7 +8802,7 @@ zend_file_cache_unserialize_interned.exit722:     ; preds = %308, %314, %324
   %343 = or i32 %339, 64
   store i32 %343, ptr %338, align 4, !tbaa !47
   %344 = load ptr, ptr %290, align 8, !tbaa !47
-  %345 = getelementptr inbounds nuw %struct._zend_class_name, ptr %344, i64 %indvars.iv782
+  %345 = getelementptr inbounds nuw [16 x i8], ptr %344, i64 %indvars.iv782
   %346 = load ptr, ptr %345, align 8, !tbaa !181
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 4
   %348 = load i32, ptr %347, align 4, !tbaa !47
@@ -8815,7 +8812,7 @@ zend_file_cache_unserialize_interned.exit722:     ; preds = %308, %314, %324
 
 350:                                              ; preds = %301, %340, %342, %zend_file_cache_unserialize_interned.exit722
   %351 = load ptr, ptr %290, align 8, !tbaa !47
-  %352 = getelementptr inbounds nuw %struct._zend_class_name, ptr %351, i64 %indvars.iv782
+  %352 = getelementptr inbounds nuw [16 x i8], ptr %351, i64 %indvars.iv782
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 8
   %354 = load ptr, ptr %353, align 8, !tbaa !183
   %.not708 = icmp eq ptr %354, null
@@ -8864,7 +8861,7 @@ zend_file_cache_unserialize_interned.exit722:     ; preds = %308, %314, %324
 zend_file_cache_unserialize_interned.exit725:     ; preds = %358, %364, %374
   %.0.i723 = phi ptr [ %363, %358 ], [ %371, %374 ], [ %365, %364 ]
   %376 = load ptr, ptr %290, align 8, !tbaa !47
-  %377 = getelementptr inbounds nuw %struct._zend_class_name, ptr %376, i64 %indvars.iv782
+  %377 = getelementptr inbounds nuw [16 x i8], ptr %376, i64 %indvars.iv782
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 8
   store ptr %.0.i723, ptr %378, align 8, !tbaa !183
   br label %403
@@ -8879,7 +8876,7 @@ zend_file_cache_unserialize_interned.exit725:     ; preds = %358, %364, %374
   %384 = load i8, ptr %299, align 8, !tbaa !53, !range !17, !noundef !18
   %385 = trunc nuw i8 %384 to i1
   %386 = load ptr, ptr %290, align 8, !tbaa !47
-  %387 = getelementptr inbounds nuw %struct._zend_class_name, ptr %386, i64 %indvars.iv782
+  %387 = getelementptr inbounds nuw [16 x i8], ptr %386, i64 %indvars.iv782
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
   %389 = load ptr, ptr %388, align 8, !tbaa !183
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 4
@@ -8895,7 +8892,7 @@ zend_file_cache_unserialize_interned.exit725:     ; preds = %358, %364, %374
   %395 = or i32 %391, 64
   store i32 %395, ptr %390, align 4, !tbaa !47
   %396 = load ptr, ptr %290, align 8, !tbaa !47
-  %397 = getelementptr inbounds nuw %struct._zend_class_name, ptr %396, i64 %indvars.iv782
+  %397 = getelementptr inbounds nuw [16 x i8], ptr %396, i64 %indvars.iv782
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
   %399 = load ptr, ptr %398, align 8, !tbaa !183
   %400 = getelementptr inbounds nuw i8, ptr %399, i64 4
@@ -8942,7 +8939,7 @@ zend_file_cache_unserialize_interned.exit725:     ; preds = %358, %364, %374
 421:                                              ; preds = %.lr.ph763, %516
   %indvars.iv785 = phi i64 [ 0, %.lr.ph763 ], [ %indvars.iv.next786, %516 ]
   %422 = load ptr, ptr %410, align 8, !tbaa !185
-  %423 = getelementptr inbounds nuw %struct._zend_class_name, ptr %422, i64 %indvars.iv785
+  %423 = getelementptr inbounds nuw [16 x i8], ptr %422, i64 %indvars.iv785
   %424 = load ptr, ptr %423, align 8, !tbaa !181
   %.not702 = icmp eq ptr %424, null
   br i1 %.not702, label %467, label %425
@@ -8990,7 +8987,7 @@ zend_file_cache_unserialize_interned.exit725:     ; preds = %358, %364, %374
 zend_file_cache_unserialize_interned.exit728:     ; preds = %428, %434, %444
   %.0.i726 = phi ptr [ %433, %428 ], [ %441, %444 ], [ %435, %434 ]
   %446 = load ptr, ptr %410, align 8, !tbaa !185
-  %447 = getelementptr inbounds nuw %struct._zend_class_name, ptr %446, i64 %indvars.iv785
+  %447 = getelementptr inbounds nuw [16 x i8], ptr %446, i64 %indvars.iv785
   store ptr %.0.i726, ptr %447, align 8, !tbaa !181
   br label %467
 
@@ -9016,7 +9013,7 @@ zend_file_cache_unserialize_interned.exit728:     ; preds = %428, %434, %444
   %460 = or i32 %456, 64
   store i32 %460, ptr %455, align 4, !tbaa !47
   %461 = load ptr, ptr %410, align 8, !tbaa !185
-  %462 = getelementptr inbounds nuw %struct._zend_class_name, ptr %461, i64 %indvars.iv785
+  %462 = getelementptr inbounds nuw [16 x i8], ptr %461, i64 %indvars.iv785
   %463 = load ptr, ptr %462, align 8, !tbaa !181
   %464 = getelementptr inbounds nuw i8, ptr %463, i64 4
   %465 = load i32, ptr %464, align 4, !tbaa !47
@@ -9026,7 +9023,7 @@ zend_file_cache_unserialize_interned.exit728:     ; preds = %428, %434, %444
 
 467:                                              ; preds = %421, %457, %459, %zend_file_cache_unserialize_interned.exit728
   %468 = load ptr, ptr %410, align 8, !tbaa !185
-  %469 = getelementptr inbounds nuw %struct._zend_class_name, ptr %468, i64 %indvars.iv785
+  %469 = getelementptr inbounds nuw [16 x i8], ptr %468, i64 %indvars.iv785
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 8
   %471 = load ptr, ptr %470, align 8, !tbaa !183
   %.not704 = icmp eq ptr %471, null
@@ -9075,7 +9072,7 @@ zend_file_cache_unserialize_interned.exit728:     ; preds = %428, %434, %444
 zend_file_cache_unserialize_interned.exit731:     ; preds = %475, %481, %491
   %.0.i729 = phi ptr [ %480, %475 ], [ %488, %491 ], [ %482, %481 ]
   %493 = load ptr, ptr %410, align 8, !tbaa !185
-  %494 = getelementptr inbounds nuw %struct._zend_class_name, ptr %493, i64 %indvars.iv785
+  %494 = getelementptr inbounds nuw [16 x i8], ptr %493, i64 %indvars.iv785
   %495 = getelementptr inbounds nuw i8, ptr %494, i64 8
   store ptr %.0.i729, ptr %495, align 8, !tbaa !183
   br label %516
@@ -9102,7 +9099,7 @@ zend_file_cache_unserialize_interned.exit731:     ; preds = %475, %481, %491
   %508 = or i32 %504, 64
   store i32 %508, ptr %503, align 4, !tbaa !47
   %509 = load ptr, ptr %410, align 8, !tbaa !185
-  %510 = getelementptr inbounds nuw %struct._zend_class_name, ptr %509, i64 %indvars.iv785
+  %510 = getelementptr inbounds nuw [16 x i8], ptr %509, i64 %indvars.iv785
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 8
   %512 = load ptr, ptr %511, align 8, !tbaa !183
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 4
@@ -9589,7 +9586,7 @@ zend_file_cache_unserialize_interned.exit746:     ; preds = %721, %727, %737
 
 760:                                              ; preds = %.lr.ph770, %801
   %indvars.iv788 = phi i64 [ 0, %.lr.ph770 ], [ %indvars.iv.next789, %801 ]
-  %761 = getelementptr inbounds nuw ptr, ptr %759, i64 %indvars.iv788
+  %761 = getelementptr inbounds nuw [8 x i8], ptr %759, i64 %indvars.iv788
   %762 = load ptr, ptr %761, align 8, !tbaa !201
   %.not694 = icmp eq ptr %762, null
   br i1 %.not694, label %801, label %763
@@ -10771,7 +10768,7 @@ zend_file_cache_unserialize_interned.exit505:     ; preds = %206, %212, %222
   %342 = getelementptr inbounds nuw i8, ptr %.0383526, i64 8
   %343 = load i32, ptr %342, align 8, !tbaa !47
   %344 = zext i32 %343 to i64
-  %345 = getelementptr inbounds nuw %struct._zval_struct, ptr %341, i64 %344
+  %345 = getelementptr inbounds nuw [16 x i8], ptr %341, i64 %344
   %346 = ptrtoint ptr %345 to i64
   %347 = ptrtoint ptr %.0383526 to i64
   %348 = sub i64 %346, %347
@@ -10790,7 +10787,7 @@ zend_file_cache_unserialize_interned.exit505:     ; preds = %206, %212, %222
   %356 = getelementptr inbounds nuw i8, ptr %.0383526, i64 12
   %357 = load i32, ptr %356, align 4, !tbaa !47
   %358 = zext i32 %357 to i64
-  %359 = getelementptr inbounds nuw %struct._zval_struct, ptr %355, i64 %358
+  %359 = getelementptr inbounds nuw [16 x i8], ptr %355, i64 %358
   %360 = ptrtoint ptr %359 to i64
   %361 = ptrtoint ptr %.0383526 to i64
   %362 = sub i64 %360, %361
@@ -11132,7 +11129,7 @@ zend_file_cache_unserialize_interned.exit511:     ; preds = %483, %489, %499
 534:                                              ; preds = %.lr.ph536, %544
   %indvars.iv = phi i64 [ 0, %.lr.ph536 ], [ %indvars.iv.next, %544 ]
   %535 = load ptr, ptr %524, align 8, !tbaa !259
-  %536 = getelementptr inbounds nuw ptr, ptr %535, i64 %indvars.iv
+  %536 = getelementptr inbounds nuw [8 x i8], ptr %535, i64 %indvars.iv
   %537 = load ptr, ptr %536, align 8, !tbaa !260
   %.not467 = icmp eq ptr %537, null
   br i1 %.not467, label %544, label %538
@@ -12122,7 +12119,7 @@ zend_file_cache_unserialize_interned.exit77:      ; preds = %59, %66, %76
 
 103:                                              ; preds = %.lr.ph, %144
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %144 ]
-  %104 = getelementptr inbounds nuw %struct.zend_attribute_arg, ptr %100, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [24 x i8], ptr %100, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8, !tbaa !269
   %.not73 = icmp eq ptr %105, null
   br i1 %.not73, label %144, label %106
@@ -12522,7 +12519,7 @@ zend_file_cache_unserialize_interned.exit148:     ; preds = %93, %100, %110
   %171 = phi i1 [ true, %164 ], [ false, %181 ]
   %indvars.iv = phi i64 [ 0, %164 ], [ 1, %181 ]
   %172 = load ptr, ptr %162, align 8, !tbaa !278
-  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %indvars.iv
   %174 = load ptr, ptr %173, align 8, !tbaa !279
   %.not145 = icmp eq ptr %174, null
   br i1 %.not145, label %181, label %175
@@ -12586,7 +12583,7 @@ define internal fastcc void @zend_file_cache_unserialize_ast(ptr noundef capture
 15:                                               ; preds = %.lr.ph, %38
   %16 = phi i32 [ %11, %.lr.ph ], [ %39, %38 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !285
   %.not87 = icmp eq ptr %18, null
   br i1 %.not87, label %38, label %19
@@ -12664,7 +12661,7 @@ zend_ast_is_decl.exit:                            ; preds = %42
 
 54:                                               ; preds = %.lr.ph98, %76
   %indvars.iv103 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next104, %76 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv103
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv103
   %56 = load ptr, ptr %55, align 8, !tbaa !285
   %.not = icmp eq ptr %56, null
   br i1 %.not, label %76, label %57

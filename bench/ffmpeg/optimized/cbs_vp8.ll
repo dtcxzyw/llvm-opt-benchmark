@@ -2300,17 +2300,17 @@ define internal fastcc range(i32 -1094995529, 1) i32 @cbs_vp8_read_update_token_
 
 .preheader168:                                    ; preds = %3, %154
   %indvars.iv215 = phi i64 [ 0, %3 ], [ %indvars.iv.next216, %154 ]
-  %19 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr @ff_vp8_token_update_probs, i64 %indvars.iv215
-  %20 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %10, i64 %indvars.iv215
-  %21 = getelementptr inbounds nuw [8 x [3 x [11 x i8]]], ptr %18, i64 %indvars.iv215
+  %19 = getelementptr inbounds nuw [264 x i8], ptr @ff_vp8_token_update_probs, i64 %indvars.iv215
+  %20 = getelementptr inbounds nuw [264 x i8], ptr %10, i64 %indvars.iv215
+  %21 = getelementptr inbounds nuw [264 x i8], ptr %18, i64 %indvars.iv215
   %22 = trunc nuw nsw i64 %indvars.iv215 to i32
   br label %.preheader167
 
 .preheader167:                                    ; preds = %.preheader168, %153
   %indvars.iv211 = phi i64 [ 0, %.preheader168 ], [ %indvars.iv.next212, %153 ]
-  %23 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %19, i64 %indvars.iv211
-  %24 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %20, i64 %indvars.iv211
-  %25 = getelementptr inbounds nuw [3 x [11 x i8]], ptr %21, i64 %indvars.iv211
+  %23 = getelementptr inbounds nuw [33 x i8], ptr %19, i64 %indvars.iv211
+  %24 = getelementptr inbounds nuw [33 x i8], ptr %20, i64 %indvars.iv211
+  %25 = getelementptr inbounds nuw [33 x i8], ptr %21, i64 %indvars.iv211
   %26 = trunc nuw nsw i64 %indvars.iv211 to i32
   br label %.preheader
 

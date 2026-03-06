@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.ZXing::PerspectiveTransform" = type { double, double, double, double, double, double, double, double, double }
-%"struct.ZXing::PointT" = type { double, double }
 
 @_ZN5ZXing20PerspectiveTransformC1ERKNS_13QuadrilateralINS_6PointTIdEEEES6_ = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5ZXing20PerspectiveTransformC2ERKNS_13QuadrilateralINS_6PointTIdEEEES6_
 
@@ -256,10 +255,10 @@ define void @_ZN5ZXing20PerspectiveTransformC2ERKNS_13QuadrilateralINS_6PointTId
   %.047.i = phi double [ 0.000000e+00, %3 ], [ %.sroa.speculated.i.i, %35 ]
   %.04246.i = phi double [ 0x7FF0000000000000, %3 ], [ %.sroa.speculated8.i.i, %35 ]
   %6 = xor i64 %indvars.iv.i, 2
-  %7 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %8 = and i64 %indvars.iv.next.i, 3
-  %9 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %1, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %8
   %10 = load double, ptr %7, align 8, !tbaa !18
   %11 = load double, ptr %9, align 8, !tbaa !18
   %12 = fsub double %10, %11
@@ -268,7 +267,7 @@ define void @_ZN5ZXing20PerspectiveTransformC2ERKNS_13QuadrilateralINS_6PointTId
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = load double, ptr %15, align 8, !tbaa !16
   %17 = fsub double %14, %16
-  %18 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %1, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv.i
   %19 = load double, ptr %18, align 8, !tbaa !18
   %20 = fsub double %19, %11
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -310,10 +309,10 @@ _ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit: ; preds = %3
   %.047.i7 = phi double [ %.sroa.speculated.i.i11, %67 ], [ 0.000000e+00, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit ]
   %.04246.i8 = phi double [ %.sroa.speculated8.i.i10, %67 ], [ 0x7FF0000000000000, %_ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit ]
   %38 = xor i64 %indvars.iv.i5, 2
-  %39 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %2, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %38
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i5, 1
   %40 = and i64 %indvars.iv.next.i9, 3
-  %41 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %2, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %40
   %42 = load double, ptr %39, align 8, !tbaa !18
   %43 = load double, ptr %41, align 8, !tbaa !18
   %44 = fsub double %42, %43
@@ -322,7 +321,7 @@ _ZN5ZXing8IsConvexINS_6PointTIdEEEEbRKNS_13QuadrilateralIT_EE.exit: ; preds = %3
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %48 = load double, ptr %47, align 8, !tbaa !16
   %49 = fsub double %46, %48
-  %50 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %2, i64 %indvars.iv.i5
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv.i5
   %51 = load double, ptr %50, align 8, !tbaa !18
   %52 = fsub double %51, %43
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 8

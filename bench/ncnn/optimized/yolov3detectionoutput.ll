@@ -17,8 +17,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ncnn::Yolov3DetectionOutput::BBoxRect" = type { float, float, float, float, float, float, i32 }
 %"class.ncnn::ParamDict" = type { ptr, ptr }
+%"struct.ncnn::Yolov3DetectionOutput::BBoxRect" = type { float, float, float, float, float, float, i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -996,7 +996,7 @@ _ZNKSt6vectorIS_IN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EESaIS4_EE12_M_che
 .noexc108:                                        ; preds = %_ZNKSt6vectorIS_IN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %36, i8 0, i64 %35, i1 false)
   store ptr %36, ptr %6, align 8, !tbaa !48
-  %37 = getelementptr inbounds nuw %"class.std::vector.8", ptr %36, i64 %32
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %32
   store ptr %37, ptr %19, align 8, !tbaa !51
   store ptr %37, ptr %20, align 8, !tbaa !52
   br label %_ZNSt6vectorIS_IN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EESaIS4_EE6resizeEm.exit
@@ -1004,7 +1004,7 @@ _ZNKSt6vectorIS_IN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EESaIS4_EE12_M_che
 _ZNSt6vectorIS_IN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EESaIS4_EE6resizeEm.exit: ; preds = %26, %.noexc108
   %38 = phi ptr [ null, %26 ], [ %37, %.noexc108 ]
   %39 = phi ptr [ null, %26 ], [ %36, %.noexc108 ]
-  %40 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %29, i64 %.056156
+  %40 = getelementptr inbounds nuw [72 x i8], ptr %29, i64 %.056156
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 44
   %42 = load i32, ptr %41, align 4, !tbaa !42
@@ -1040,7 +1040,7 @@ _ZNSt6vectorIS_IN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EESaIS4_EE6resizeEm
   store i64 %52, ptr %10, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %53 = load ptr, ptr %22, align 8, !tbaa !36
-  %54 = getelementptr inbounds nuw float, ptr %53, i64 %.056156
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %.056156
   %55 = load float, ptr %54, align 4, !tbaa !55
   %56 = sitofp i32 %42 to float
   %57 = fmul fast float %55, %56
@@ -1116,7 +1116,7 @@ _ZSt8_DestroyIPSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS3_EES5_EvT_S
   %indvars.iv = phi i64 [ %indvars.iv.next, %121 ], [ 0, %50 ]
   %83 = phi ptr [ %123, %121 ], [ %.promoted, %50 ]
   %84 = load ptr, ptr %6, align 8, !tbaa !48
-  %85 = getelementptr inbounds nuw %"class.std::vector.8", ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %84, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8, !tbaa !64
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !64
@@ -1194,7 +1194,7 @@ _ZNSt12_Vector_baseIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE11_M_allocate
 
 _ZNSt12_Vector_baseIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %118, %115
   store ptr %117, ptr %24, align 8, !tbaa !65
-  %120 = getelementptr inbounds nuw %"struct.ncnn::Yolov3DetectionOutput::BBoxRect", ptr %113, i64 %109
+  %120 = getelementptr inbounds nuw [28 x i8], ptr %113, i64 %109
   store ptr %120, ptr %25, align 8, !tbaa !61
   br label %121
 
@@ -1354,10 +1354,10 @@ _ZNK4ncnn21Yolov3DetectionOutput21qsort_descent_inplaceERSt6vectorINS0_8BBoxRect
   %.sroa.15.0161 = phi ptr [ %.sroa.15.1, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit ], [ null, %.preheader127 ]
   %.sroa.10.0160 = phi ptr [ %.sroa.10.1, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit ], [ null, %.preheader127 ]
   %.sroa.0.0159 = phi ptr [ %.sroa.0.1, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit ], [ null, %.preheader127 ]
-  %177 = getelementptr inbounds nuw i64, ptr %175, i64 %.069162
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.069162
   %178 = load i64, ptr %177, align 8, !tbaa !54
   %179 = load ptr, ptr %5, align 8, !tbaa !58
-  %180 = getelementptr inbounds nuw %"struct.ncnn::Yolov3DetectionOutput::BBoxRect", ptr %179, i64 %178
+  %180 = getelementptr inbounds nuw [28 x i8], ptr %179, i64 %178
   %.not.i = icmp eq ptr %.sroa.10.0160, %.sroa.15.0161
   br i1 %.not.i, label %182, label %181
 
@@ -1415,7 +1415,7 @@ _ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE11_S_relocateEPS2_S5
 _ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %198, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   %.pre183 = phi ptr [ %.pre183.pre, %198 ], [ %.pre183189, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i ]
   %.pre = phi ptr [ %.pre.pre, %198 ], [ %.pre186, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i ]
-  %199 = getelementptr inbounds nuw %"struct.ncnn::Yolov3DetectionOutput::BBoxRect", ptr %194, i64 %192
+  %199 = getelementptr inbounds nuw [28 x i8], ptr %194, i64 %192
   br label %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %181
@@ -1488,7 +1488,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %212
 
 230:                                              ; preds = %.lr.ph169, %230
   %indvars.iv180 = phi i64 [ 0, %.lr.ph169 ], [ %indvars.iv.next181, %230 ]
-  %231 = getelementptr inbounds nuw %"struct.ncnn::Yolov3DetectionOutput::BBoxRect", ptr %.sroa.0.0.lcssa, i64 %indvars.iv180
+  %231 = getelementptr inbounds nuw [28 x i8], ptr %.sroa.0.0.lcssa, i64 %indvars.iv180
   %232 = load float, ptr %231, align 4, !tbaa !75
   %.reass = mul i64 %factor.op.mul, %indvars.iv180
   %233 = getelementptr inbounds nuw i8, ptr %213, i64 %.reass
@@ -2011,7 +2011,7 @@ tailrecurse:                                      ; preds = %34, %4
   %7 = add nsw i32 %.tr40, %3
   %8 = sdiv i32 %7, 2
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.ncnn::Yolov3DetectionOutput::BBoxRect", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [28 x i8], ptr %6, i64 %9
   %11 = load float, ptr %10, align 4, !tbaa !75
   %.not45 = icmp sgt i32 %.tr40, %3
   br i1 %.not45, label %._crit_edge, label %.preheader42
@@ -2026,7 +2026,7 @@ tailrecurse:                                      ; preds = %34, %4
 
 14:                                               ; preds = %14, %.preheader42
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ %13, %.preheader42 ]
-  %15 = getelementptr inbounds nuw %"struct.ncnn::Yolov3DetectionOutput::BBoxRect", ptr %12, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [28 x i8], ptr %12, i64 %indvars.iv
   %16 = load float, ptr %15, align 4, !tbaa !75
   %17 = fcmp fast ogt float %16, %11
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -2038,7 +2038,7 @@ tailrecurse:                                      ; preds = %34, %4
 
 19:                                               ; preds = %19, %.preheader
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %19 ], [ %18, %.preheader ]
-  %20 = getelementptr inbounds nuw %"struct.ncnn::Yolov3DetectionOutput::BBoxRect", ptr %12, i64 %indvars.iv51
+  %20 = getelementptr inbounds nuw [28 x i8], ptr %12, i64 %indvars.iv51
   %21 = load float, ptr %20, align 4, !tbaa !75
   %22 = fcmp fast olt float %21, %11
   %indvars.iv.next52 = add nsw i64 %indvars.iv51, -1
@@ -2162,7 +2162,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %4, %8
   br i1 %27, label %.lr.ph, label %.critedge.loopexit
 
 .lr.ph:                                           ; preds = %18
-  %28 = getelementptr inbounds nuw %"struct.ncnn::Yolov3DetectionOutput::BBoxRect", ptr %21, i64 %storemerge36
+  %28 = getelementptr inbounds nuw [28 x i8], ptr %21, i64 %storemerge36
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load float, ptr %29, align 4, !tbaa !78
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 12
@@ -2180,9 +2180,9 @@ _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %4, %8
 
 37:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %38 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %39 = load i64, ptr %38, align 8, !tbaa !54
-  %40 = getelementptr inbounds nuw %"struct.ncnn::Yolov3DetectionOutput::BBoxRect", ptr %21, i64 %39
+  %40 = getelementptr inbounds nuw [28 x i8], ptr %21, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 12
   %42 = load float, ptr %41, align 4, !tbaa !80
   %43 = fcmp fast ogt float %30, %42
@@ -2279,7 +2279,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %87, %_ZNKS
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %89, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %84, ptr %2, align 8, !tbaa !71
   store ptr %88, ptr %6, align 8, !tbaa !68
-  %90 = getelementptr inbounds nuw i64, ptr %84, i64 %82
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %82
   store ptr %90, ptr %17, align 8, !tbaa !83
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -2354,14 +2354,14 @@ define internal void @_ZNK4ncnn21Yolov3DetectionOutput7forwardERKSt6vectorINS_3M
   %40 = mul nsw i32 %38, %39
   %41 = load i64, ptr %4, align 8, !tbaa !54
   %42 = load ptr, ptr %25, align 8, !tbaa !36
-  %43 = getelementptr float, ptr %42, i64 %41
-  %44 = getelementptr float, ptr %43, i64 %indvars.iv321
+  %43 = getelementptr [4 x i8], ptr %42, i64 %41
+  %44 = getelementptr [4 x i8], ptr %43, i64 %indvars.iv321
   %45 = load float, ptr %44, align 4, !tbaa !55
   %46 = fptosi float %45 to i32
   %47 = shl nsw i32 %46, 1
   %48 = sext i32 %47 to i64
   %49 = load ptr, ptr %26, align 8, !tbaa !36
-  %50 = getelementptr float, ptr %49, i64 %48
+  %50 = getelementptr [4 x i8], ptr %49, i64 %48
   %51 = load float, ptr %50, align 4, !tbaa !55
   %52 = getelementptr i8, ptr %50, i64 4
   %53 = load float, ptr %52, align 4, !tbaa !55
@@ -2467,7 +2467,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %.preheader270.lr.ph
   br i1 %114, label %.noexc151.lr.ph, label %._crit_edge
 
 .noexc151.lr.ph:                                  ; preds = %.preheader
-  %invariant.gep285 = getelementptr float, ptr %invariant.gep, i64 %indvars.iv315
+  %invariant.gep285 = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv315
   %wide.trip.count = zext nneg i32 %113 to i64
   br label %.noexc151
 
@@ -2559,7 +2559,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %.preheader270.lr.ph
   %171 = fadd fast float %168, %153
   %172 = fmul fast float %165, %159
   %173 = load ptr, ptr %10, align 8, !tbaa !48
-  %174 = getelementptr inbounds nuw %"class.std::vector.8", ptr %173, i64 %indvars.iv321
+  %174 = getelementptr inbounds nuw [24 x i8], ptr %173, i64 %indvars.iv321
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = load ptr, ptr %175, align 8, !tbaa !65
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 16
@@ -2647,7 +2647,7 @@ _ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE11_S_relocateEPS2_S5
 _ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %199, %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %194, ptr %174, align 8, !tbaa !58
   store ptr %198, ptr %175, align 8, !tbaa !65
-  %200 = getelementptr inbounds nuw %"struct.ncnn::Yolov3DetectionOutput::BBoxRect", ptr %194, i64 %192
+  %200 = getelementptr inbounds nuw [28 x i8], ptr %194, i64 %192
   store ptr %200, ptr %177, align 8, !tbaa !61
   br label %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exit
 

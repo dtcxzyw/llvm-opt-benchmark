@@ -693,19 +693,19 @@ define range(i32 0, 2) i32 @RSA_set0_multi_prime_params(ptr noundef %0, ptr noun
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !50
   %.not62 = icmp eq ptr %21, null
   br i1 %.not62, label %40, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !50
   %.not63 = icmp eq ptr %24, null
   br i1 %.not63, label %40, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !50
   %.not64 = icmp eq ptr %27, null
   br i1 %.not64, label %40, label %28
@@ -867,7 +867,7 @@ define range(i32 0, 2) i32 @RSA_get0_multi_prime_factors(ptr noundef readonly ca
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = tail call ptr @OPENSSL_sk_value(ptr noundef %7, i32 noundef %8) #11
   %10 = load ptr, ptr %9, align 8, !tbaa !51
-  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %10, ptr %11, align 8, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -941,11 +941,11 @@ define range(i32 0, 2) i32 @RSA_get0_multi_prime_crt_params(ptr noundef readonly
   %13 = tail call ptr @OPENSSL_sk_value(ptr noundef %11, i32 noundef %12) #11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !53
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv34
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv34
   store ptr %15, ptr %16, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !54
-  %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv34
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv34
   store ptr %18, ptr %19, align 8, !tbaa !50
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
@@ -958,7 +958,7 @@ define range(i32 0, 2) i32 @RSA_get0_multi_prime_crt_params(ptr noundef readonly
   %22 = tail call ptr @OPENSSL_sk_value(ptr noundef %20, i32 noundef %21) #11
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !53
-  %25 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv29
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv29
   store ptr %24, ptr %25, align 8, !tbaa !50
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count37
@@ -978,7 +978,7 @@ define range(i32 0, 2) i32 @RSA_get0_multi_prime_crt_params(ptr noundef readonly
   %28 = tail call ptr @OPENSSL_sk_value(ptr noundef %26, i32 noundef %27) #11
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !54
-  %31 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store ptr %30, ptr %31, align 8, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

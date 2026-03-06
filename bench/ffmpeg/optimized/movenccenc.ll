@@ -3,9 +3,6 @@ source_filename = "bench/ffmpeg/original/movenccenc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
-%struct.MOVMuxCencAV1TGInfo = type { i32, i32, i32 }
-
 @.str = private unnamed_addr constant [61 x i8] c"CENC-AVC: remaining size %d smaller than nal length+type %d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [36 x i8] c"CENC-AVC: nal size %d remaining %d\0A\00", align 1
 @.str.2 = private unnamed_addr constant [42 x i8] c"CENC-AV1: Failed to parse temporal unit.\0A\00", align 1
@@ -697,7 +694,7 @@ define i32 @ff_mov_cenc_av1_write_obus(ptr noundef %0, ptr noundef %1, ptr nound
   %.081176 = phi i64 [ undef, %.lr.ph180 ], [ %.384.ph, %240 ]
   %.085175 = phi ptr [ null, %.lr.ph180 ], [ %.388.ph, %240 ]
   %34 = load ptr, ptr %23, align 8, !tbaa !45
-  %35 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [56 x i8], ptr %34, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8, !tbaa !46
   %38 = load i32, ptr %35, align 8, !tbaa !48
@@ -848,7 +845,7 @@ bytestream2_init.exit.i:                          ; preds = %.critedge.i
   %116 = and i32 %114, 15
   %117 = add i32 %116, %.lcssa155
   store i32 %117, ptr %26, align 8, !tbaa !51
-  %118 = getelementptr inbounds nuw %struct.MOVMuxCencAV1TGInfo, ptr %111, i64 %103
+  %118 = getelementptr inbounds nuw [12 x i8], ptr %111, i64 %103
   store i32 %115, ptr %118, align 4, !tbaa !66
   %.not131.i = icmp eq i32 %115, 0
   br i1 %.not131.i, label %.critedge135.i, label %119
@@ -899,7 +896,7 @@ bytestream2_init.exit.i:                          ; preds = %.critedge.i
   %141 = add i32 %140, %121
   store i32 %141, ptr %26, align 8, !tbaa !51
   %142 = load ptr, ptr %25, align 8, !tbaa !64
-  %143 = getelementptr inbounds nuw %struct.MOVMuxCencAV1TGInfo, ptr %142, i64 %indvars.iv.i170
+  %143 = getelementptr inbounds nuw [12 x i8], ptr %142, i64 %indvars.iv.i170
   store i32 %138, ptr %143, align 4, !tbaa !66
   %.not130.i = icmp eq i32 %138, 0
   br i1 %.not130.i, label %.critedge137.i, label %144
@@ -952,7 +949,7 @@ bytestream2_init.exit138.i:                       ; preds = %.critedge135.i, %by
   %indvars.iv59.i = phi i64 [ %161, %.lr.ph47.i ], [ %indvars.iv.next60.i, %auxiliary_info_add_subsample.exit144.i ]
   %.sroa.0.345.i = phi ptr [ %92, %.lr.ph47.i ], [ %180, %auxiliary_info_add_subsample.exit144.i ]
   %163 = load ptr, ptr %25, align 8, !tbaa !64
-  %164 = getelementptr inbounds nuw %struct.MOVMuxCencAV1TGInfo, ptr %163, i64 %indvars.iv59.i
+  %164 = getelementptr inbounds nuw [12 x i8], ptr %163, i64 %indvars.iv59.i
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %166 = load i32, ptr %165, align 4, !tbaa !70
   call void @avio_write(ptr noundef %2, ptr noundef %.sroa.0.345.i, i32 noundef %166) #5

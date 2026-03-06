@@ -488,67 +488,67 @@ define dso_local void @hllDenseRegHisto(ptr noundef readonly captures(none) %0, 
   %84 = zext nneg i32 %83 to i64
   %85 = lshr i32 %81, 2
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %1, i64 %7
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %7
   %88 = load i32, ptr %87, align 4, !tbaa !12
   %89 = add nsw i32 %88, 1
   store i32 %89, ptr %87, align 4, !tbaa !12
-  %90 = getelementptr inbounds nuw i32, ptr %1, i64 %14
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %14
   %91 = load i32, ptr %90, align 4, !tbaa !12
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %90, align 4, !tbaa !12
-  %93 = getelementptr inbounds nuw i32, ptr %1, i64 %21
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %21
   %94 = load i32, ptr %93, align 4, !tbaa !12
   %95 = add nsw i32 %94, 1
   store i32 %95, ptr %93, align 4, !tbaa !12
-  %96 = getelementptr inbounds nuw i32, ptr %1, i64 %23
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %23
   %97 = load i32, ptr %96, align 4, !tbaa !12
   %98 = add nsw i32 %97, 1
   store i32 %98, ptr %96, align 4, !tbaa !12
-  %99 = getelementptr inbounds nuw i32, ptr %1, i64 %28
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %28
   %100 = load i32, ptr %99, align 4, !tbaa !12
   %101 = add nsw i32 %100, 1
   store i32 %101, ptr %99, align 4, !tbaa !12
-  %102 = getelementptr inbounds nuw i32, ptr %1, i64 %35
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %35
   %103 = load i32, ptr %102, align 4, !tbaa !12
   %104 = add nsw i32 %103, 1
   store i32 %104, ptr %102, align 4, !tbaa !12
-  %105 = getelementptr inbounds nuw i32, ptr %1, i64 %42
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %42
   %106 = load i32, ptr %105, align 4, !tbaa !12
   %107 = add nsw i32 %106, 1
   store i32 %107, ptr %105, align 4, !tbaa !12
-  %108 = getelementptr inbounds nuw i32, ptr %1, i64 %44
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %44
   %109 = load i32, ptr %108, align 4, !tbaa !12
   %110 = add nsw i32 %109, 1
   store i32 %110, ptr %108, align 4, !tbaa !12
-  %111 = getelementptr inbounds nuw i32, ptr %1, i64 %49
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %49
   %112 = load i32, ptr %111, align 4, !tbaa !12
   %113 = add nsw i32 %112, 1
   store i32 %113, ptr %111, align 4, !tbaa !12
-  %114 = getelementptr inbounds nuw i32, ptr %1, i64 %56
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %56
   %115 = load i32, ptr %114, align 4, !tbaa !12
   %116 = add nsw i32 %115, 1
   store i32 %116, ptr %114, align 4, !tbaa !12
-  %117 = getelementptr inbounds nuw i32, ptr %1, i64 %63
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %63
   %118 = load i32, ptr %117, align 4, !tbaa !12
   %119 = add nsw i32 %118, 1
   store i32 %119, ptr %117, align 4, !tbaa !12
-  %120 = getelementptr inbounds nuw i32, ptr %1, i64 %65
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %65
   %121 = load i32, ptr %120, align 4, !tbaa !12
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr %120, align 4, !tbaa !12
-  %123 = getelementptr inbounds nuw i32, ptr %1, i64 %70
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %70
   %124 = load i32, ptr %123, align 4, !tbaa !12
   %125 = add nsw i32 %124, 1
   store i32 %125, ptr %123, align 4, !tbaa !12
-  %126 = getelementptr inbounds nuw i32, ptr %1, i64 %77
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %77
   %127 = load i32, ptr %126, align 4, !tbaa !12
   %128 = add nsw i32 %127, 1
   store i32 %128, ptr %126, align 4, !tbaa !12
-  %129 = getelementptr inbounds nuw i32, ptr %1, i64 %84
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %84
   %130 = load i32, ptr %129, align 4, !tbaa !12
   %131 = add nsw i32 %130, 1
   store i32 %131, ptr %129, align 4, !tbaa !12
-  %132 = getelementptr inbounds nuw i32, ptr %1, i64 %86
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %86
   %133 = load i32, ptr %132, align 4, !tbaa !12
   %134 = add nsw i32 %133, 1
   store i32 %134, ptr %132, align 4, !tbaa !12
@@ -1579,7 +1579,7 @@ define dso_local void @hllSparseRegHisto(ptr noundef readonly captures(address) 
   %27 = lshr i32 %9, 2
   %28 = and i32 %27, 31
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %3, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !12
   %33 = add nsw i32 %32, %26
@@ -1631,56 +1631,56 @@ define dso_local void @hllRawRegHisto(ptr noundef readonly captures(none) %0, pt
 
 9:                                                ; preds = %3
   %10 = and i64 %4, 255
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !12
   %13 = add nsw i32 %12, 1
   store i32 %13, ptr %11, align 4, !tbaa !12
   %14 = getelementptr inbounds nuw i8, ptr %.02223, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !11
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !12
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 4, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %.02223, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !11
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %1, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !12
   %25 = add nsw i32 %24, 1
   store i32 %25, ptr %23, align 4, !tbaa !12
   %26 = getelementptr inbounds nuw i8, ptr %.02223, i64 3
   %27 = load i8, ptr %26, align 1, !tbaa !11
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %1, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !12
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %29, align 4, !tbaa !12
   %32 = getelementptr inbounds nuw i8, ptr %.02223, i64 4
   %33 = load i8, ptr %32, align 1, !tbaa !11
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %1, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !12
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %35, align 4, !tbaa !12
   %38 = getelementptr inbounds nuw i8, ptr %.02223, i64 5
   %39 = load i8, ptr %38, align 1, !tbaa !11
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %1, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !12
   %43 = add nsw i32 %42, 1
   store i32 %43, ptr %41, align 4, !tbaa !12
   %44 = getelementptr inbounds nuw i8, ptr %.02223, i64 6
   %45 = load i8, ptr %44, align 1, !tbaa !11
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %1, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !12
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %47, align 4, !tbaa !12
   %50 = getelementptr inbounds nuw i8, ptr %.02223, i64 7
   %51 = load i8, ptr %50, align 1, !tbaa !11
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %1, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !12
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %53, align 4, !tbaa !12
@@ -1861,7 +1861,7 @@ sdslen.exit:                                      ; preds = %14, %17, %21, %25, 
   %55 = lshr i32 %39, 2
   %56 = and i32 %55, 31
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %3, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4, !tbaa !12
   %61 = add nsw i32 %60, %54
@@ -1918,41 +1918,41 @@ sdslen.exit:                                      ; preds = %14, %17, %21, %25, 
   %83 = lshr i64 %72, 16
   %84 = lshr i64 %72, 8
   %85 = and i64 %72, 255
-  %86 = getelementptr inbounds nuw i32, ptr %3, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !12
   %88 = add nsw i32 %87, 1
   store i32 %88, ptr %86, align 4, !tbaa !12
   %89 = and i64 %84, 255
-  %90 = getelementptr inbounds nuw i32, ptr %3, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !12
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %90, align 4, !tbaa !12
   %93 = and i64 %83, 255
-  %94 = getelementptr inbounds nuw i32, ptr %3, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !12
   %96 = add nsw i32 %95, 1
   store i32 %96, ptr %94, align 4, !tbaa !12
   %97 = and i64 %82, 255
-  %98 = getelementptr inbounds nuw i32, ptr %3, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !12
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %98, align 4, !tbaa !12
   %101 = and i64 %81, 255
-  %102 = getelementptr inbounds nuw i32, ptr %3, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !12
   %104 = add nsw i32 %103, 1
   store i32 %104, ptr %102, align 4, !tbaa !12
   %105 = and i64 %80, 255
-  %106 = getelementptr inbounds nuw i32, ptr %3, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !12
   %108 = add nsw i32 %107, 1
   store i32 %108, ptr %106, align 4, !tbaa !12
   %109 = and i64 %79, 255
-  %110 = getelementptr inbounds nuw i32, ptr %3, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !12
   %112 = add nsw i32 %111, 1
   store i32 %112, ptr %110, align 4, !tbaa !12
-  %113 = getelementptr inbounds nuw i32, ptr %3, i64 %78
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %78
   %114 = load i32, ptr %113, align 4, !tbaa !12
   %115 = add nsw i32 %114, 1
   store i32 %115, ptr %113, align 4, !tbaa !12
@@ -2009,7 +2009,7 @@ hllTau.exit.preheader:                            ; preds = %hllSparseRegHisto.e
 hllTau.exit:                                      ; preds = %hllTau.exit.preheader, %hllTau.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %hllTau.exit ], [ 50, %hllTau.exit.preheader ]
   %.034 = phi double [ %144, %hllTau.exit ], [ %.034.ph, %hllTau.exit.preheader ]
-  %140 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %141 = load i32, ptr %140, align 4, !tbaa !12
   %142 = sitofp i32 %141 to double
   %143 = fadd double %.034, %142
@@ -2753,7 +2753,7 @@ define dso_local void @pfaddCommand(ptr noundef %0) local_unnamed_addr #4 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 2, %31 ]
   %.140 = phi i32 [ %.3, %65 ], [ %.036, %31 ]
   %35 = load ptr, ptr %4, align 8, !tbaa !77
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !78
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !15
@@ -2897,7 +2897,7 @@ define dso_local void @pfcountCommand(ptr noundef %0) local_unnamed_addr #4 {
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %12 = load ptr, ptr %9, align 8, !tbaa !66
   %13 = load ptr, ptr %10, align 8, !tbaa !77
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !78
   %16 = tail call ptr @lookupKeyRead(ptr noundef %12, ptr noundef %15) #22
   %17 = icmp eq ptr %16, null
@@ -3050,7 +3050,7 @@ define dso_local void @pfmergeCommand(ptr noundef %0) local_unnamed_addr #4 {
   %.04860 = phi i32 [ 0, %.lr.ph ], [ %.1, %26 ]
   %9 = load ptr, ptr %6, align 8, !tbaa !66
   %10 = load ptr, ptr %7, align 8, !tbaa !77
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !78
   %13 = tail call ptr @lookupKeyRead(ptr noundef %9, ptr noundef %12) #22
   %14 = icmp eq ptr %13, null
@@ -3797,7 +3797,7 @@ define dso_local void @pfdebugCommand(ptr noundef %0) local_unnamed_addr #4 {
   %125 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %126 = load i8, ptr %125, align 1, !tbaa !11
   %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds nuw ptr, ptr @__const.pfdebugCommand.encodingstr, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr @__const.pfdebugCommand.encodingstr, i64 %127
   %129 = load ptr, ptr %128, align 8, !tbaa !96
   tail call void @addReplyStatus(ptr noundef nonnull %0, ptr noundef %129) #22
   br label %.thread116

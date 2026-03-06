@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.nameData = type { [64 x i8] }
 %struct.ObjectAddress = type { i32, i32, i32 }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @binary_upgrade_next_pg_type_oid = dso_local local_unnamed_addr global i32 0, align 4
 @IsBinaryUpgrade = external local_unnamed_addr global i8, align 1
@@ -965,7 +964,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 3
 
 17:                                               ; preds = %14
   %18 = zext nneg i32 %1 to i64
-  %19 = getelementptr %struct.CompactAttribute, ptr %2, i64 %18
+  %19 = getelementptr [16 x i8], ptr %2, i64 %18
   %20 = getelementptr i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, -1

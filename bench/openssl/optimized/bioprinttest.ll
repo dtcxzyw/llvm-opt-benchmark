@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.options_st = type { ptr, i32, i32, ptr }
 %struct.z_data_st = type { i64, ptr, ptr }
 %struct.j_data_st = type { i64, ptr, ptr }
-%struct.pw_st = type { i32, ptr }
 
 @test_get_options.options = internal constant [10 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st { ptr @.str.14, i32 1, i32 45, ptr @.str.15 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -371,7 +370,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_fp(i32 noundef %0) #1 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.pw_st, ptr @pw_params, i64 %2
+  %3 = getelementptr inbounds [16 x i8], ptr @pw_params, i64 %2
   %.b41 = load i1, ptr @justprint, align 4
   br i1 %.b41, label %4, label %5
 
@@ -461,7 +460,7 @@ define internal range(i32 0, 2) i32 @test_zu(i32 noundef %0) #1 {
   %2 = alloca [80 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.z_data_st, ptr @zu_data, i64 %3
+  %4 = getelementptr inbounds [24 x i8], ptr @zu_data, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !14
   %7 = load i64, ptr %4, align 8, !tbaa !17
@@ -479,7 +478,7 @@ define internal range(i32 0, 2) i32 @test_zu(i32 noundef %0) #1 {
 define internal range(i32 0, 2) i32 @test_j(i32 noundef %0) #1 {
   %2 = alloca [80 x i8], align 16
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.j_data_st, ptr @jf_data, i64 %3
+  %4 = getelementptr inbounds [24 x i8], ptr @jf_data, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !19
@@ -608,15 +607,15 @@ define internal fastcc range(i32 0, 2) i32 @dofptest(i32 noundef %0, i32 noundef
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = icmp sgt i32 %4, -1
   %9 = sext i32 %0 to i64
-  %10 = getelementptr inbounds [10 x [5 x ptr]], ptr @fpexpected, i64 %9
+  %10 = getelementptr inbounds [400 x i8], ptr @fpexpected, i64 %9
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw [5 x ptr], ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %11
   br i1 %8, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %5, %28
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %28 ], [ 0, %5 ]
   %.024.us = phi i32 [ %.1.us, %28 ], [ 1, %5 ]
-  %13 = getelementptr inbounds nuw ptr, ptr @dofptest.fspecs, i64 %indvars.iv29
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @dofptest.fspecs, i64 %indvars.iv29
   %14 = load ptr, ptr %13, align 8, !tbaa !26
   %15 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull @.str.47, ptr noundef %3, i32 noundef %4, ptr noundef %14) #9
   %16 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %7, i64 noundef 80, ptr noundef nonnull %6, double noundef %2) #9
@@ -624,7 +623,7 @@ define internal fastcc range(i32 0, 2) i32 @dofptest(i32 noundef %0, i32 noundef
   br i1 %.b22.us, label %22, label %17
 
 17:                                               ; preds = %.split.us
-  %18 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv29
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv29
   %19 = load ptr, ptr %18, align 8, !tbaa !26
   %20 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 209, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef %19, ptr noundef nonnull %7) #9
   %.not.us = icmp eq i32 %20, 0
@@ -655,7 +654,7 @@ define internal fastcc range(i32 0, 2) i32 @dofptest(i32 noundef %0, i32 noundef
 .split:                                           ; preds = %5, %44
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %5 ]
   %.024 = phi i32 [ %.1, %44 ], [ 1, %5 ]
-  %29 = getelementptr inbounds nuw ptr, ptr @dofptest.fspecs, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @dofptest.fspecs, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !26
   %31 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %6, i64 noundef 80, ptr noundef nonnull @.str.48, ptr noundef %3, ptr noundef %30) #9
   %32 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %7, i64 noundef 80, ptr noundef nonnull %6, double noundef %2) #9
@@ -675,7 +674,7 @@ define internal fastcc range(i32 0, 2) i32 @dofptest(i32 noundef %0, i32 noundef
   br label %44
 
 39:                                               ; preds = %.split
-  %40 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !26
   %42 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 209, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, ptr noundef %41, ptr noundef nonnull %7) #9
   %.not = icmp eq i32 %42, 0

@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct._GHashTableIter = type { ptr, ptr, ptr, i32, i32, ptr }
 %struct.df_cell_iter_t = type { ptr, i32 }
-%struct.df_cell_t = type { ptr }
 
 @.str = private unnamed_addr constant [12 x i8] c"(DFVM_NULL)\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"IF_TRUE_GOTO\00", align 1
@@ -129,7 +128,7 @@ define hidden noundef nonnull ptr @dfvm_opcode_tostr(i32 noundef %0) local_unnam
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dfvm_dump_str, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dfvm_dump_str, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -667,7 +666,7 @@ define hidden ptr @dfvm_dump_str(ptr noundef %0, ptr noundef readonly captures(n
   %.04143 = phi ptr [ null, %.lr.ph ], [ %.1, %195 ]
   %30 = load ptr, ptr %1, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %34 = load i64, ptr %26, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
@@ -677,7 +676,7 @@ define hidden ptr @dfvm_dump_str(ptr noundef %0, ptr noundef readonly captures(n
 
 switch.lookup:                                    ; preds = %29
   %38 = zext nneg i32 %36 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dfvm_dump_str, i64 %38
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dfvm_dump_str, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dfvm_opcode_tostr.exit
 
@@ -1265,7 +1264,7 @@ define internal fastcc void @append_references(ptr noundef %0, ptr noundef %1, i
 
 16:                                               ; preds = %15, %.lr.ph.us
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr ptr, ptr %17, i64 %indvars.iv28
+  %18 = getelementptr [8 x i8], ptr %17, i64 %indvars.iv28
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
@@ -1302,7 +1301,7 @@ define internal fastcc void @append_references(ptr noundef %0, ptr noundef %1, i
 
 35:                                               ; preds = %34, %.lr.ph
   %36 = load ptr, ptr %31, align 8
-  %37 = getelementptr ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
@@ -1443,7 +1442,7 @@ define hidden zeroext i1 @dfvm_apply_full(ptr noundef captures(none) %0, ptr nou
 25:                                               ; preds = %.backedge, %.preheader
   %.1 = phi i32 [ %.0985, %.preheader ], [ %.1.be, %.backedge ]
   %26 = sext i32 %.1 to i64
-  %27 = getelementptr ptr, ptr %23, i64 %26
+  %27 = getelementptr [8 x i8], ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
@@ -1657,7 +1656,7 @@ check_exists_finfos.exit.thread.i:                ; preds = %check_exists_finfos
   %107 = getelementptr i8, ptr %106, i64 8
   %.val178 = load i32, ptr %107, align 8
   %108 = zext i32 %.val178 to i64
-  %109 = getelementptr %struct.df_cell_t, ptr %.val177, i64 %108
+  %109 = getelementptr [8 x i8], ptr %.val177, i64 %108
   call void @df_cell_init(ptr noundef %109, i1 noundef zeroext false)
   %110 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %111 = load ptr, ptr %110, align 8
@@ -1679,7 +1678,7 @@ check_exists_finfos.exit.thread.i:                ; preds = %check_exists_finfos
   %.val181 = load i32, ptr %121, align 8
   %122 = load ptr, ptr %.phi.trans.insert.i338, align 8
   %123 = zext i32 %.val180 to i64
-  %124 = getelementptr %struct.df_cell_t, ptr %122, i64 %123
+  %124 = getelementptr [8 x i8], ptr %122, i64 %123
   call void @df_cell_init(ptr noundef %124, i1 noundef zeroext true)
   %125 = getelementptr inbounds nuw i8, ptr %.val179, i64 8
   %126 = load ptr, ptr %125, align 8
@@ -1706,7 +1705,7 @@ check_exists_finfos.exit.thread.i:                ; preds = %check_exists_finfos
   %138 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %139 = load i32, ptr %138, align 8
   %140 = zext i32 %139 to i64
-  %141 = getelementptr %struct.df_cell_t, ptr %137, i64 %140
+  %141 = getelementptr [8 x i8], ptr %137, i64 %140
   %142 = call ptr @df_cell_ref(ptr noundef %141)
   br label %stack_push.exit
 
@@ -1761,13 +1760,13 @@ stack_push.exit:                                  ; preds = %132, %136
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %162 = load ptr, ptr %.phi.trans.insert.i338, align 8
   %163 = zext i32 %.val183 to i64
-  %164 = getelementptr %struct.df_cell_t, ptr %162, i64 %163
+  %164 = getelementptr [8 x i8], ptr %162, i64 %163
   call void @df_cell_init(ptr noundef %164, i1 noundef zeroext true)
   %165 = load ptr, ptr %.phi.trans.insert.i338, align 8
   %166 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %167 = load i32, ptr %166, align 8
   %168 = zext i32 %167 to i64
-  %169 = getelementptr %struct.df_cell_t, ptr %165, i64 %168
+  %169 = getelementptr [8 x i8], ptr %165, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %171 = load ptr, ptr %170, align 8
   call void @df_cell_iter_init(ptr noundef %169, ptr noundef nonnull %15)
@@ -1795,13 +1794,13 @@ mk_slice.exit:                                    ; preds = %.lr.ph.i210, %156
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %180 = load ptr, ptr %.phi.trans.insert.i338, align 8
   %181 = zext i32 %.val184 to i64
-  %182 = getelementptr %struct.df_cell_t, ptr %180, i64 %181
+  %182 = getelementptr [8 x i8], ptr %180, i64 %181
   call void @df_cell_init(ptr noundef %182, i1 noundef zeroext true)
   %183 = load ptr, ptr %.phi.trans.insert.i338, align 8
   %184 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %185 = load i32, ptr %184, align 8
   %186 = zext i32 %185 to i64
-  %187 = getelementptr %struct.df_cell_t, ptr %183, i64 %186
+  %187 = getelementptr [8 x i8], ptr %183, i64 %186
   call void @df_cell_iter_init(ptr noundef %187, ptr noundef nonnull %14)
   %188 = call ptr @df_cell_iter_next(ptr noundef nonnull %14)
   %.not1.i212 = icmp eq ptr %188, null
@@ -1835,13 +1834,13 @@ mk_length.exit:                                   ; preds = %.lr.ph.i213, %176
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %201 = load ptr, ptr %.phi.trans.insert.i338, align 8
   %202 = zext i32 %.val186 to i64
-  %203 = getelementptr %struct.df_cell_t, ptr %201, i64 %202
+  %203 = getelementptr [8 x i8], ptr %201, i64 %202
   call void @df_cell_init(ptr noundef %203, i1 noundef zeroext true)
   %204 = load ptr, ptr %.phi.trans.insert.i338, align 8
   %205 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %206 = load i32, ptr %205, align 8
   %207 = zext i32 %206 to i64
-  %208 = getelementptr %struct.df_cell_t, ptr %204, i64 %207
+  %208 = getelementptr [8 x i8], ptr %204, i64 %207
   call void @df_cell_iter_init(ptr noundef %208, ptr noundef nonnull %12)
   %209 = call ptr @df_cell_iter_next(ptr noundef nonnull %12)
   %.not5.i = icmp eq ptr %209, null
@@ -2014,7 +2013,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %278 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %279 = load i32, ptr %278, align 8
   %280 = zext i32 %279 to i64
-  %281 = getelementptr %struct.df_cell_t, ptr %277, i64 %280
+  %281 = getelementptr [8 x i8], ptr %277, i64 %280
   br label %285
 
 282:                                              ; preds = %272
@@ -2039,7 +2038,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %289 = getelementptr inbounds nuw i8, ptr %274, i64 8
   %290 = load i32, ptr %289, align 8
   %291 = zext i32 %290 to i64
-  %292 = getelementptr %struct.df_cell_t, ptr %288, i64 %291
+  %292 = getelementptr [8 x i8], ptr %288, i64 %291
   br label %296
 
 293:                                              ; preds = %285
@@ -2085,10 +2084,10 @@ mk_value_string.exit:                             ; preds = %267, %194
 .lr.ph.us.i.i:                                    ; preds = %.preheader.us.i.i, %314
   %.032.us33.us.i.i = phi i64 [ %315, %314 ], [ 0, %.preheader.us.i.i ]
   %306 = load ptr, ptr %.013.i, align 8
-  %307 = getelementptr ptr, ptr %306, i64 %.02539.us.i.i
+  %307 = getelementptr [8 x i8], ptr %306, i64 %.02539.us.i.i
   %308 = load ptr, ptr %307, align 8
   %309 = load ptr, ptr %.0.i348, align 8
-  %310 = getelementptr ptr, ptr %309, i64 %.032.us33.us.i.i
+  %310 = getelementptr [8 x i8], ptr %309, i64 %.032.us33.us.i.i
   %311 = load ptr, ptr %310, align 8
   %312 = call i32 @fvalue_eq(ptr noundef %308, ptr noundef %311)
   %313 = icmp eq i32 %312, 0
@@ -2115,7 +2114,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %324 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %325 = load i32, ptr %324, align 8
   %326 = zext i32 %325 to i64
-  %327 = getelementptr %struct.df_cell_t, ptr %323, i64 %326
+  %327 = getelementptr [8 x i8], ptr %323, i64 %326
   br label %331
 
 328:                                              ; preds = %318
@@ -2140,7 +2139,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %335 = getelementptr inbounds nuw i8, ptr %320, i64 8
   %336 = load i32, ptr %335, align 8
   %337 = zext i32 %336 to i64
-  %338 = getelementptr %struct.df_cell_t, ptr %334, i64 %337
+  %338 = getelementptr [8 x i8], ptr %334, i64 %337
   br label %342
 
 339:                                              ; preds = %331
@@ -2186,10 +2185,10 @@ mk_value_string.exit:                             ; preds = %267, %194
 .lr.ph.us55.i.i:                                  ; preds = %.preheader.us51.i.i, %360
   %.032.us.us56.i.i = phi i64 [ %361, %360 ], [ 0, %.preheader.us51.i.i ]
   %352 = load ptr, ptr %.013.i351, align 8
-  %353 = getelementptr ptr, ptr %352, i64 %.02539.us52.i.i
+  %353 = getelementptr [8 x i8], ptr %352, i64 %.02539.us52.i.i
   %354 = load ptr, ptr %353, align 8
   %355 = load ptr, ptr %.0.i353, align 8
-  %356 = getelementptr ptr, ptr %355, i64 %.032.us.us56.i.i
+  %356 = getelementptr [8 x i8], ptr %355, i64 %.032.us.us56.i.i
   %357 = load ptr, ptr %356, align 8
   %358 = call i32 @fvalue_eq(ptr noundef %354, ptr noundef %357)
   %359 = icmp eq i32 %358, 1
@@ -2216,7 +2215,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %370 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %371 = load i32, ptr %370, align 8
   %372 = zext i32 %371 to i64
-  %373 = getelementptr %struct.df_cell_t, ptr %369, i64 %372
+  %373 = getelementptr [8 x i8], ptr %369, i64 %372
   br label %377
 
 374:                                              ; preds = %364
@@ -2241,7 +2240,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %381 = getelementptr inbounds nuw i8, ptr %366, i64 8
   %382 = load i32, ptr %381, align 8
   %383 = zext i32 %382 to i64
-  %384 = getelementptr %struct.df_cell_t, ptr %380, i64 %383
+  %384 = getelementptr [8 x i8], ptr %380, i64 %383
   br label %388
 
 385:                                              ; preds = %377
@@ -2287,10 +2286,10 @@ mk_value_string.exit:                             ; preds = %267, %194
 .lr.ph.us.i.i369:                                 ; preds = %.preheader.us.i.i366, %406
   %.032.us33.us.i.i370 = phi i64 [ %407, %406 ], [ 0, %.preheader.us.i.i366 ]
   %398 = load ptr, ptr %.013.i360, align 8
-  %399 = getelementptr ptr, ptr %398, i64 %.02539.us.i.i367
+  %399 = getelementptr [8 x i8], ptr %398, i64 %.02539.us.i.i367
   %400 = load ptr, ptr %399, align 8
   %401 = load ptr, ptr %.0.i362, align 8
-  %402 = getelementptr ptr, ptr %401, i64 %.032.us33.us.i.i370
+  %402 = getelementptr [8 x i8], ptr %401, i64 %.032.us33.us.i.i370
   %403 = load ptr, ptr %402, align 8
   %404 = call i32 @fvalue_ne(ptr noundef %400, ptr noundef %403)
   %405 = icmp eq i32 %404, 0
@@ -2317,7 +2316,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %416 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %417 = load i32, ptr %416, align 8
   %418 = zext i32 %417 to i64
-  %419 = getelementptr %struct.df_cell_t, ptr %415, i64 %418
+  %419 = getelementptr [8 x i8], ptr %415, i64 %418
   br label %423
 
 420:                                              ; preds = %410
@@ -2342,7 +2341,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %427 = getelementptr inbounds nuw i8, ptr %412, i64 8
   %428 = load i32, ptr %427, align 8
   %429 = zext i32 %428 to i64
-  %430 = getelementptr %struct.df_cell_t, ptr %426, i64 %429
+  %430 = getelementptr [8 x i8], ptr %426, i64 %429
   br label %434
 
 431:                                              ; preds = %423
@@ -2388,10 +2387,10 @@ mk_value_string.exit:                             ; preds = %267, %194
 .lr.ph.us55.i.i388:                               ; preds = %.preheader.us51.i.i385, %452
   %.032.us.us56.i.i389 = phi i64 [ %453, %452 ], [ 0, %.preheader.us51.i.i385 ]
   %444 = load ptr, ptr %.013.i379, align 8
-  %445 = getelementptr ptr, ptr %444, i64 %.02539.us52.i.i386
+  %445 = getelementptr [8 x i8], ptr %444, i64 %.02539.us52.i.i386
   %446 = load ptr, ptr %445, align 8
   %447 = load ptr, ptr %.0.i381, align 8
-  %448 = getelementptr ptr, ptr %447, i64 %.032.us.us56.i.i389
+  %448 = getelementptr [8 x i8], ptr %447, i64 %.032.us.us56.i.i389
   %449 = load ptr, ptr %448, align 8
   %450 = call i32 @fvalue_ne(ptr noundef %446, ptr noundef %449)
   %451 = icmp eq i32 %450, 1
@@ -2418,7 +2417,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %462 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %463 = load i32, ptr %462, align 8
   %464 = zext i32 %463 to i64
-  %465 = getelementptr %struct.df_cell_t, ptr %461, i64 %464
+  %465 = getelementptr [8 x i8], ptr %461, i64 %464
   br label %469
 
 466:                                              ; preds = %456
@@ -2443,7 +2442,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %473 = getelementptr inbounds nuw i8, ptr %458, i64 8
   %474 = load i32, ptr %473, align 8
   %475 = zext i32 %474 to i64
-  %476 = getelementptr %struct.df_cell_t, ptr %472, i64 %475
+  %476 = getelementptr [8 x i8], ptr %472, i64 %475
   br label %480
 
 477:                                              ; preds = %469
@@ -2489,10 +2488,10 @@ mk_value_string.exit:                             ; preds = %267, %194
 .lr.ph.us.i.i407:                                 ; preds = %.preheader.us.i.i404, %498
   %.032.us33.us.i.i408 = phi i64 [ %499, %498 ], [ 0, %.preheader.us.i.i404 ]
   %490 = load ptr, ptr %.013.i398, align 8
-  %491 = getelementptr ptr, ptr %490, i64 %.02539.us.i.i405
+  %491 = getelementptr [8 x i8], ptr %490, i64 %.02539.us.i.i405
   %492 = load ptr, ptr %491, align 8
   %493 = load ptr, ptr %.0.i400, align 8
-  %494 = getelementptr ptr, ptr %493, i64 %.032.us33.us.i.i408
+  %494 = getelementptr [8 x i8], ptr %493, i64 %.032.us33.us.i.i408
   %495 = load ptr, ptr %494, align 8
   %496 = call i32 @fvalue_gt(ptr noundef %492, ptr noundef %495)
   %497 = icmp eq i32 %496, 0
@@ -2519,7 +2518,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %508 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %509 = load i32, ptr %508, align 8
   %510 = zext i32 %509 to i64
-  %511 = getelementptr %struct.df_cell_t, ptr %507, i64 %510
+  %511 = getelementptr [8 x i8], ptr %507, i64 %510
   br label %515
 
 512:                                              ; preds = %502
@@ -2544,7 +2543,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %519 = getelementptr inbounds nuw i8, ptr %504, i64 8
   %520 = load i32, ptr %519, align 8
   %521 = zext i32 %520 to i64
-  %522 = getelementptr %struct.df_cell_t, ptr %518, i64 %521
+  %522 = getelementptr [8 x i8], ptr %518, i64 %521
   br label %526
 
 523:                                              ; preds = %515
@@ -2590,10 +2589,10 @@ mk_value_string.exit:                             ; preds = %267, %194
 .lr.ph.us55.i.i426:                               ; preds = %.preheader.us51.i.i423, %544
   %.032.us.us56.i.i427 = phi i64 [ %545, %544 ], [ 0, %.preheader.us51.i.i423 ]
   %536 = load ptr, ptr %.013.i417, align 8
-  %537 = getelementptr ptr, ptr %536, i64 %.02539.us52.i.i424
+  %537 = getelementptr [8 x i8], ptr %536, i64 %.02539.us52.i.i424
   %538 = load ptr, ptr %537, align 8
   %539 = load ptr, ptr %.0.i419, align 8
-  %540 = getelementptr ptr, ptr %539, i64 %.032.us.us56.i.i427
+  %540 = getelementptr [8 x i8], ptr %539, i64 %.032.us.us56.i.i427
   %541 = load ptr, ptr %540, align 8
   %542 = call i32 @fvalue_gt(ptr noundef %538, ptr noundef %541)
   %543 = icmp eq i32 %542, 1
@@ -2620,7 +2619,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %554 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %555 = load i32, ptr %554, align 8
   %556 = zext i32 %555 to i64
-  %557 = getelementptr %struct.df_cell_t, ptr %553, i64 %556
+  %557 = getelementptr [8 x i8], ptr %553, i64 %556
   br label %561
 
 558:                                              ; preds = %548
@@ -2645,7 +2644,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %565 = getelementptr inbounds nuw i8, ptr %550, i64 8
   %566 = load i32, ptr %565, align 8
   %567 = zext i32 %566 to i64
-  %568 = getelementptr %struct.df_cell_t, ptr %564, i64 %567
+  %568 = getelementptr [8 x i8], ptr %564, i64 %567
   br label %572
 
 569:                                              ; preds = %561
@@ -2691,10 +2690,10 @@ mk_value_string.exit:                             ; preds = %267, %194
 .lr.ph.us.i.i445:                                 ; preds = %.preheader.us.i.i442, %590
   %.032.us33.us.i.i446 = phi i64 [ %591, %590 ], [ 0, %.preheader.us.i.i442 ]
   %582 = load ptr, ptr %.013.i436, align 8
-  %583 = getelementptr ptr, ptr %582, i64 %.02539.us.i.i443
+  %583 = getelementptr [8 x i8], ptr %582, i64 %.02539.us.i.i443
   %584 = load ptr, ptr %583, align 8
   %585 = load ptr, ptr %.0.i438, align 8
-  %586 = getelementptr ptr, ptr %585, i64 %.032.us33.us.i.i446
+  %586 = getelementptr [8 x i8], ptr %585, i64 %.032.us33.us.i.i446
   %587 = load ptr, ptr %586, align 8
   %588 = call i32 @fvalue_ge(ptr noundef %584, ptr noundef %587)
   %589 = icmp eq i32 %588, 0
@@ -2721,7 +2720,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %600 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %601 = load i32, ptr %600, align 8
   %602 = zext i32 %601 to i64
-  %603 = getelementptr %struct.df_cell_t, ptr %599, i64 %602
+  %603 = getelementptr [8 x i8], ptr %599, i64 %602
   br label %607
 
 604:                                              ; preds = %594
@@ -2746,7 +2745,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %611 = getelementptr inbounds nuw i8, ptr %596, i64 8
   %612 = load i32, ptr %611, align 8
   %613 = zext i32 %612 to i64
-  %614 = getelementptr %struct.df_cell_t, ptr %610, i64 %613
+  %614 = getelementptr [8 x i8], ptr %610, i64 %613
   br label %618
 
 615:                                              ; preds = %607
@@ -2792,10 +2791,10 @@ mk_value_string.exit:                             ; preds = %267, %194
 .lr.ph.us55.i.i464:                               ; preds = %.preheader.us51.i.i461, %636
   %.032.us.us56.i.i465 = phi i64 [ %637, %636 ], [ 0, %.preheader.us51.i.i461 ]
   %628 = load ptr, ptr %.013.i455, align 8
-  %629 = getelementptr ptr, ptr %628, i64 %.02539.us52.i.i462
+  %629 = getelementptr [8 x i8], ptr %628, i64 %.02539.us52.i.i462
   %630 = load ptr, ptr %629, align 8
   %631 = load ptr, ptr %.0.i457, align 8
-  %632 = getelementptr ptr, ptr %631, i64 %.032.us.us56.i.i465
+  %632 = getelementptr [8 x i8], ptr %631, i64 %.032.us.us56.i.i465
   %633 = load ptr, ptr %632, align 8
   %634 = call i32 @fvalue_ge(ptr noundef %630, ptr noundef %633)
   %635 = icmp eq i32 %634, 1
@@ -2822,7 +2821,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %646 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %647 = load i32, ptr %646, align 8
   %648 = zext i32 %647 to i64
-  %649 = getelementptr %struct.df_cell_t, ptr %645, i64 %648
+  %649 = getelementptr [8 x i8], ptr %645, i64 %648
   br label %653
 
 650:                                              ; preds = %640
@@ -2847,7 +2846,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %657 = getelementptr inbounds nuw i8, ptr %642, i64 8
   %658 = load i32, ptr %657, align 8
   %659 = zext i32 %658 to i64
-  %660 = getelementptr %struct.df_cell_t, ptr %656, i64 %659
+  %660 = getelementptr [8 x i8], ptr %656, i64 %659
   br label %664
 
 661:                                              ; preds = %653
@@ -2893,10 +2892,10 @@ mk_value_string.exit:                             ; preds = %267, %194
 .lr.ph.us.i.i483:                                 ; preds = %.preheader.us.i.i480, %682
   %.032.us33.us.i.i484 = phi i64 [ %683, %682 ], [ 0, %.preheader.us.i.i480 ]
   %674 = load ptr, ptr %.013.i474, align 8
-  %675 = getelementptr ptr, ptr %674, i64 %.02539.us.i.i481
+  %675 = getelementptr [8 x i8], ptr %674, i64 %.02539.us.i.i481
   %676 = load ptr, ptr %675, align 8
   %677 = load ptr, ptr %.0.i476, align 8
-  %678 = getelementptr ptr, ptr %677, i64 %.032.us33.us.i.i484
+  %678 = getelementptr [8 x i8], ptr %677, i64 %.032.us33.us.i.i484
   %679 = load ptr, ptr %678, align 8
   %680 = call i32 @fvalue_lt(ptr noundef %676, ptr noundef %679)
   %681 = icmp eq i32 %680, 0
@@ -2923,7 +2922,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %692 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %693 = load i32, ptr %692, align 8
   %694 = zext i32 %693 to i64
-  %695 = getelementptr %struct.df_cell_t, ptr %691, i64 %694
+  %695 = getelementptr [8 x i8], ptr %691, i64 %694
   br label %699
 
 696:                                              ; preds = %686
@@ -2948,7 +2947,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %703 = getelementptr inbounds nuw i8, ptr %688, i64 8
   %704 = load i32, ptr %703, align 8
   %705 = zext i32 %704 to i64
-  %706 = getelementptr %struct.df_cell_t, ptr %702, i64 %705
+  %706 = getelementptr [8 x i8], ptr %702, i64 %705
   br label %710
 
 707:                                              ; preds = %699
@@ -2994,10 +2993,10 @@ mk_value_string.exit:                             ; preds = %267, %194
 .lr.ph.us55.i.i502:                               ; preds = %.preheader.us51.i.i499, %728
   %.032.us.us56.i.i503 = phi i64 [ %729, %728 ], [ 0, %.preheader.us51.i.i499 ]
   %720 = load ptr, ptr %.013.i493, align 8
-  %721 = getelementptr ptr, ptr %720, i64 %.02539.us52.i.i500
+  %721 = getelementptr [8 x i8], ptr %720, i64 %.02539.us52.i.i500
   %722 = load ptr, ptr %721, align 8
   %723 = load ptr, ptr %.0.i495, align 8
-  %724 = getelementptr ptr, ptr %723, i64 %.032.us.us56.i.i503
+  %724 = getelementptr [8 x i8], ptr %723, i64 %.032.us.us56.i.i503
   %725 = load ptr, ptr %724, align 8
   %726 = call i32 @fvalue_lt(ptr noundef %722, ptr noundef %725)
   %727 = icmp eq i32 %726, 1
@@ -3024,7 +3023,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %738 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %739 = load i32, ptr %738, align 8
   %740 = zext i32 %739 to i64
-  %741 = getelementptr %struct.df_cell_t, ptr %737, i64 %740
+  %741 = getelementptr [8 x i8], ptr %737, i64 %740
   br label %745
 
 742:                                              ; preds = %732
@@ -3049,7 +3048,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %749 = getelementptr inbounds nuw i8, ptr %734, i64 8
   %750 = load i32, ptr %749, align 8
   %751 = zext i32 %750 to i64
-  %752 = getelementptr %struct.df_cell_t, ptr %748, i64 %751
+  %752 = getelementptr [8 x i8], ptr %748, i64 %751
   br label %756
 
 753:                                              ; preds = %745
@@ -3095,10 +3094,10 @@ mk_value_string.exit:                             ; preds = %267, %194
 .lr.ph.us.i.i521:                                 ; preds = %.preheader.us.i.i518, %774
   %.032.us33.us.i.i522 = phi i64 [ %775, %774 ], [ 0, %.preheader.us.i.i518 ]
   %766 = load ptr, ptr %.013.i512, align 8
-  %767 = getelementptr ptr, ptr %766, i64 %.02539.us.i.i519
+  %767 = getelementptr [8 x i8], ptr %766, i64 %.02539.us.i.i519
   %768 = load ptr, ptr %767, align 8
   %769 = load ptr, ptr %.0.i514, align 8
-  %770 = getelementptr ptr, ptr %769, i64 %.032.us33.us.i.i522
+  %770 = getelementptr [8 x i8], ptr %769, i64 %.032.us33.us.i.i522
   %771 = load ptr, ptr %770, align 8
   %772 = call i32 @fvalue_le(ptr noundef %768, ptr noundef %771)
   %773 = icmp eq i32 %772, 0
@@ -3125,7 +3124,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %784 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %785 = load i32, ptr %784, align 8
   %786 = zext i32 %785 to i64
-  %787 = getelementptr %struct.df_cell_t, ptr %783, i64 %786
+  %787 = getelementptr [8 x i8], ptr %783, i64 %786
   br label %791
 
 788:                                              ; preds = %778
@@ -3150,7 +3149,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %795 = getelementptr inbounds nuw i8, ptr %780, i64 8
   %796 = load i32, ptr %795, align 8
   %797 = zext i32 %796 to i64
-  %798 = getelementptr %struct.df_cell_t, ptr %794, i64 %797
+  %798 = getelementptr [8 x i8], ptr %794, i64 %797
   br label %802
 
 799:                                              ; preds = %791
@@ -3196,10 +3195,10 @@ mk_value_string.exit:                             ; preds = %267, %194
 .lr.ph.us55.i.i540:                               ; preds = %.preheader.us51.i.i537, %820
   %.032.us.us56.i.i541 = phi i64 [ %821, %820 ], [ 0, %.preheader.us51.i.i537 ]
   %812 = load ptr, ptr %.013.i531, align 8
-  %813 = getelementptr ptr, ptr %812, i64 %.02539.us52.i.i538
+  %813 = getelementptr [8 x i8], ptr %812, i64 %.02539.us52.i.i538
   %814 = load ptr, ptr %813, align 8
   %815 = load ptr, ptr %.0.i533, align 8
-  %816 = getelementptr ptr, ptr %815, i64 %.032.us.us56.i.i541
+  %816 = getelementptr [8 x i8], ptr %815, i64 %.032.us.us56.i.i541
   %817 = load ptr, ptr %816, align 8
   %818 = call i32 @fvalue_le(ptr noundef %814, ptr noundef %817)
   %819 = icmp eq i32 %818, 1
@@ -3228,7 +3227,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %832 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %833 = load i32, ptr %832, align 8
   %834 = zext i32 %833 to i64
-  %835 = getelementptr %struct.df_cell_t, ptr %831, i64 %834
+  %835 = getelementptr [8 x i8], ptr %831, i64 %834
   br label %839
 
 836:                                              ; preds = %824
@@ -3253,7 +3252,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %843 = getelementptr inbounds nuw i8, ptr %826, i64 8
   %844 = load i32, ptr %843, align 8
   %845 = zext i32 %844 to i64
-  %846 = getelementptr %struct.df_cell_t, ptr %842, i64 %845
+  %846 = getelementptr [8 x i8], ptr %842, i64 %845
   br label %850
 
 847:                                              ; preds = %839
@@ -3272,7 +3271,7 @@ mk_value_string.exit:                             ; preds = %267, %194
   %852 = getelementptr inbounds nuw i8, ptr %828, i64 8
   %853 = load i32, ptr %852, align 8
   %854 = zext i32 %853 to i64
-  %855 = getelementptr %struct.df_cell_t, ptr %851, i64 %854
+  %855 = getelementptr [8 x i8], ptr %851, i64 %854
   call void @df_cell_init(ptr noundef %855, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8
@@ -3308,10 +3307,10 @@ mk_value_string.exit:                             ; preds = %267, %194
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %885
   %.019.i.i = phi i64 [ %886, %885 ], [ 0, %.preheader.i.i ]
   %866 = load ptr, ptr %.0.i217, align 8
-  %867 = getelementptr ptr, ptr %866, i64 %.01720.i.i
+  %867 = getelementptr [8 x i8], ptr %866, i64 %.01720.i.i
   %868 = load ptr, ptr %867, align 8
   %869 = load ptr, ptr %.017.i, align 8
-  %870 = getelementptr ptr, ptr %869, i64 %.019.i.i
+  %870 = getelementptr [8 x i8], ptr %869, i64 %.019.i.i
   %871 = load ptr, ptr %870, align 8
   %872 = call ptr @fvalue_bitwise_and(ptr noundef %868, ptr noundef %871, ptr noundef nonnull %10)
   %873 = icmp eq ptr %872, null
@@ -3319,10 +3318,10 @@ mk_value_string.exit:                             ; preds = %267, %194
 
 874:                                              ; preds = %.lr.ph.i.i
   %875 = load ptr, ptr %.0.i217, align 8
-  %876 = getelementptr ptr, ptr %875, i64 %.01720.i.i
+  %876 = getelementptr [8 x i8], ptr %875, i64 %.01720.i.i
   %877 = load ptr, ptr %876, align 8
   %878 = load ptr, ptr %.017.i, align 8
-  %879 = getelementptr ptr, ptr %878, i64 %.01720.i.i
+  %879 = getelementptr [8 x i8], ptr %878, i64 %.01720.i.i
   %880 = load ptr, ptr %879, align 8
   %881 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %877, i32 noundef 1, i32 noundef 0)
   %882 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %880, i32 noundef 1, i32 noundef 0)
@@ -3364,7 +3363,7 @@ mk_binary.exit:                                   ; preds = %._crit_edge.i.i, %8
   %898 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %899 = load i32, ptr %898, align 8
   %900 = zext i32 %899 to i64
-  %901 = getelementptr %struct.df_cell_t, ptr %897, i64 %900
+  %901 = getelementptr [8 x i8], ptr %897, i64 %900
   br label %905
 
 902:                                              ; preds = %890
@@ -3389,7 +3388,7 @@ mk_binary.exit:                                   ; preds = %._crit_edge.i.i, %8
   %909 = getelementptr inbounds nuw i8, ptr %892, i64 8
   %910 = load i32, ptr %909, align 8
   %911 = zext i32 %910 to i64
-  %912 = getelementptr %struct.df_cell_t, ptr %908, i64 %911
+  %912 = getelementptr [8 x i8], ptr %908, i64 %911
   br label %916
 
 913:                                              ; preds = %905
@@ -3408,7 +3407,7 @@ mk_binary.exit:                                   ; preds = %._crit_edge.i.i, %8
   %918 = getelementptr inbounds nuw i8, ptr %894, i64 8
   %919 = load i32, ptr %918, align 8
   %920 = zext i32 %919 to i64
-  %921 = getelementptr %struct.df_cell_t, ptr %917, i64 %920
+  %921 = getelementptr [8 x i8], ptr %917, i64 %920
   call void @df_cell_init(ptr noundef %921, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8
@@ -3444,10 +3443,10 @@ mk_binary.exit:                                   ; preds = %._crit_edge.i.i, %8
 .lr.ph.i.i232:                                    ; preds = %.preheader.i.i229, %951
   %.019.i.i233 = phi i64 [ %952, %951 ], [ 0, %.preheader.i.i229 ]
   %932 = load ptr, ptr %.0.i221, align 8
-  %933 = getelementptr ptr, ptr %932, i64 %.01720.i.i230
+  %933 = getelementptr [8 x i8], ptr %932, i64 %.01720.i.i230
   %934 = load ptr, ptr %933, align 8
   %935 = load ptr, ptr %.017.i225, align 8
-  %936 = getelementptr ptr, ptr %935, i64 %.019.i.i233
+  %936 = getelementptr [8 x i8], ptr %935, i64 %.019.i.i233
   %937 = load ptr, ptr %936, align 8
   %938 = call ptr @fvalue_add(ptr noundef %934, ptr noundef %937, ptr noundef nonnull %9)
   %939 = icmp eq ptr %938, null
@@ -3455,10 +3454,10 @@ mk_binary.exit:                                   ; preds = %._crit_edge.i.i, %8
 
 940:                                              ; preds = %.lr.ph.i.i232
   %941 = load ptr, ptr %.0.i221, align 8
-  %942 = getelementptr ptr, ptr %941, i64 %.01720.i.i230
+  %942 = getelementptr [8 x i8], ptr %941, i64 %.01720.i.i230
   %943 = load ptr, ptr %942, align 8
   %944 = load ptr, ptr %.017.i225, align 8
-  %945 = getelementptr ptr, ptr %944, i64 %.01720.i.i230
+  %945 = getelementptr [8 x i8], ptr %944, i64 %.01720.i.i230
   %946 = load ptr, ptr %945, align 8
   %947 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %943, i32 noundef 1, i32 noundef 0)
   %948 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %946, i32 noundef 1, i32 noundef 0)
@@ -3500,7 +3499,7 @@ mk_binary.exit237:                                ; preds = %._crit_edge.i.i236,
   %964 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %965 = load i32, ptr %964, align 8
   %966 = zext i32 %965 to i64
-  %967 = getelementptr %struct.df_cell_t, ptr %963, i64 %966
+  %967 = getelementptr [8 x i8], ptr %963, i64 %966
   br label %971
 
 968:                                              ; preds = %956
@@ -3525,7 +3524,7 @@ mk_binary.exit237:                                ; preds = %._crit_edge.i.i236,
   %975 = getelementptr inbounds nuw i8, ptr %958, i64 8
   %976 = load i32, ptr %975, align 8
   %977 = zext i32 %976 to i64
-  %978 = getelementptr %struct.df_cell_t, ptr %974, i64 %977
+  %978 = getelementptr [8 x i8], ptr %974, i64 %977
   br label %982
 
 979:                                              ; preds = %971
@@ -3544,7 +3543,7 @@ mk_binary.exit237:                                ; preds = %._crit_edge.i.i236,
   %984 = getelementptr inbounds nuw i8, ptr %960, i64 8
   %985 = load i32, ptr %984, align 8
   %986 = zext i32 %985 to i64
-  %987 = getelementptr %struct.df_cell_t, ptr %983, i64 %986
+  %987 = getelementptr [8 x i8], ptr %983, i64 %986
   call void @df_cell_init(ptr noundef %987, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8
@@ -3580,10 +3579,10 @@ mk_binary.exit237:                                ; preds = %._crit_edge.i.i236,
 .lr.ph.i.i250:                                    ; preds = %.preheader.i.i247, %1017
   %.019.i.i251 = phi i64 [ %1018, %1017 ], [ 0, %.preheader.i.i247 ]
   %998 = load ptr, ptr %.0.i239, align 8
-  %999 = getelementptr ptr, ptr %998, i64 %.01720.i.i248
+  %999 = getelementptr [8 x i8], ptr %998, i64 %.01720.i.i248
   %1000 = load ptr, ptr %999, align 8
   %1001 = load ptr, ptr %.017.i243, align 8
-  %1002 = getelementptr ptr, ptr %1001, i64 %.019.i.i251
+  %1002 = getelementptr [8 x i8], ptr %1001, i64 %.019.i.i251
   %1003 = load ptr, ptr %1002, align 8
   %1004 = call ptr @fvalue_subtract(ptr noundef %1000, ptr noundef %1003, ptr noundef nonnull %8)
   %1005 = icmp eq ptr %1004, null
@@ -3591,10 +3590,10 @@ mk_binary.exit237:                                ; preds = %._crit_edge.i.i236,
 
 1006:                                             ; preds = %.lr.ph.i.i250
   %1007 = load ptr, ptr %.0.i239, align 8
-  %1008 = getelementptr ptr, ptr %1007, i64 %.01720.i.i248
+  %1008 = getelementptr [8 x i8], ptr %1007, i64 %.01720.i.i248
   %1009 = load ptr, ptr %1008, align 8
   %1010 = load ptr, ptr %.017.i243, align 8
-  %1011 = getelementptr ptr, ptr %1010, i64 %.01720.i.i248
+  %1011 = getelementptr [8 x i8], ptr %1010, i64 %.01720.i.i248
   %1012 = load ptr, ptr %1011, align 8
   %1013 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %1009, i32 noundef 1, i32 noundef 0)
   %1014 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %1012, i32 noundef 1, i32 noundef 0)
@@ -3636,7 +3635,7 @@ mk_binary.exit255:                                ; preds = %._crit_edge.i.i254,
   %1030 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1031 = load i32, ptr %1030, align 8
   %1032 = zext i32 %1031 to i64
-  %1033 = getelementptr %struct.df_cell_t, ptr %1029, i64 %1032
+  %1033 = getelementptr [8 x i8], ptr %1029, i64 %1032
   br label %1037
 
 1034:                                             ; preds = %1022
@@ -3661,7 +3660,7 @@ mk_binary.exit255:                                ; preds = %._crit_edge.i.i254,
   %1041 = getelementptr inbounds nuw i8, ptr %1024, i64 8
   %1042 = load i32, ptr %1041, align 8
   %1043 = zext i32 %1042 to i64
-  %1044 = getelementptr %struct.df_cell_t, ptr %1040, i64 %1043
+  %1044 = getelementptr [8 x i8], ptr %1040, i64 %1043
   br label %1048
 
 1045:                                             ; preds = %1037
@@ -3680,7 +3679,7 @@ mk_binary.exit255:                                ; preds = %._crit_edge.i.i254,
   %1050 = getelementptr inbounds nuw i8, ptr %1026, i64 8
   %1051 = load i32, ptr %1050, align 8
   %1052 = zext i32 %1051 to i64
-  %1053 = getelementptr %struct.df_cell_t, ptr %1049, i64 %1052
+  %1053 = getelementptr [8 x i8], ptr %1049, i64 %1052
   call void @df_cell_init(ptr noundef %1053, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8
@@ -3716,10 +3715,10 @@ mk_binary.exit255:                                ; preds = %._crit_edge.i.i254,
 .lr.ph.i.i268:                                    ; preds = %.preheader.i.i265, %1083
   %.019.i.i269 = phi i64 [ %1084, %1083 ], [ 0, %.preheader.i.i265 ]
   %1064 = load ptr, ptr %.0.i257, align 8
-  %1065 = getelementptr ptr, ptr %1064, i64 %.01720.i.i266
+  %1065 = getelementptr [8 x i8], ptr %1064, i64 %.01720.i.i266
   %1066 = load ptr, ptr %1065, align 8
   %1067 = load ptr, ptr %.017.i261, align 8
-  %1068 = getelementptr ptr, ptr %1067, i64 %.019.i.i269
+  %1068 = getelementptr [8 x i8], ptr %1067, i64 %.019.i.i269
   %1069 = load ptr, ptr %1068, align 8
   %1070 = call ptr @fvalue_multiply(ptr noundef %1066, ptr noundef %1069, ptr noundef nonnull %7)
   %1071 = icmp eq ptr %1070, null
@@ -3727,10 +3726,10 @@ mk_binary.exit255:                                ; preds = %._crit_edge.i.i254,
 
 1072:                                             ; preds = %.lr.ph.i.i268
   %1073 = load ptr, ptr %.0.i257, align 8
-  %1074 = getelementptr ptr, ptr %1073, i64 %.01720.i.i266
+  %1074 = getelementptr [8 x i8], ptr %1073, i64 %.01720.i.i266
   %1075 = load ptr, ptr %1074, align 8
   %1076 = load ptr, ptr %.017.i261, align 8
-  %1077 = getelementptr ptr, ptr %1076, i64 %.01720.i.i266
+  %1077 = getelementptr [8 x i8], ptr %1076, i64 %.01720.i.i266
   %1078 = load ptr, ptr %1077, align 8
   %1079 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %1075, i32 noundef 1, i32 noundef 0)
   %1080 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %1078, i32 noundef 1, i32 noundef 0)
@@ -3772,7 +3771,7 @@ mk_binary.exit273:                                ; preds = %._crit_edge.i.i272,
   %1096 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1097 = load i32, ptr %1096, align 8
   %1098 = zext i32 %1097 to i64
-  %1099 = getelementptr %struct.df_cell_t, ptr %1095, i64 %1098
+  %1099 = getelementptr [8 x i8], ptr %1095, i64 %1098
   br label %1103
 
 1100:                                             ; preds = %1088
@@ -3797,7 +3796,7 @@ mk_binary.exit273:                                ; preds = %._crit_edge.i.i272,
   %1107 = getelementptr inbounds nuw i8, ptr %1090, i64 8
   %1108 = load i32, ptr %1107, align 8
   %1109 = zext i32 %1108 to i64
-  %1110 = getelementptr %struct.df_cell_t, ptr %1106, i64 %1109
+  %1110 = getelementptr [8 x i8], ptr %1106, i64 %1109
   br label %1114
 
 1111:                                             ; preds = %1103
@@ -3816,7 +3815,7 @@ mk_binary.exit273:                                ; preds = %._crit_edge.i.i272,
   %1116 = getelementptr inbounds nuw i8, ptr %1092, i64 8
   %1117 = load i32, ptr %1116, align 8
   %1118 = zext i32 %1117 to i64
-  %1119 = getelementptr %struct.df_cell_t, ptr %1115, i64 %1118
+  %1119 = getelementptr [8 x i8], ptr %1115, i64 %1118
   call void @df_cell_init(ptr noundef %1119, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8
@@ -3852,10 +3851,10 @@ mk_binary.exit273:                                ; preds = %._crit_edge.i.i272,
 .lr.ph.i.i286:                                    ; preds = %.preheader.i.i283, %1149
   %.019.i.i287 = phi i64 [ %1150, %1149 ], [ 0, %.preheader.i.i283 ]
   %1130 = load ptr, ptr %.0.i275, align 8
-  %1131 = getelementptr ptr, ptr %1130, i64 %.01720.i.i284
+  %1131 = getelementptr [8 x i8], ptr %1130, i64 %.01720.i.i284
   %1132 = load ptr, ptr %1131, align 8
   %1133 = load ptr, ptr %.017.i279, align 8
-  %1134 = getelementptr ptr, ptr %1133, i64 %.019.i.i287
+  %1134 = getelementptr [8 x i8], ptr %1133, i64 %.019.i.i287
   %1135 = load ptr, ptr %1134, align 8
   %1136 = call ptr @fvalue_divide(ptr noundef %1132, ptr noundef %1135, ptr noundef nonnull %6)
   %1137 = icmp eq ptr %1136, null
@@ -3863,10 +3862,10 @@ mk_binary.exit273:                                ; preds = %._crit_edge.i.i272,
 
 1138:                                             ; preds = %.lr.ph.i.i286
   %1139 = load ptr, ptr %.0.i275, align 8
-  %1140 = getelementptr ptr, ptr %1139, i64 %.01720.i.i284
+  %1140 = getelementptr [8 x i8], ptr %1139, i64 %.01720.i.i284
   %1141 = load ptr, ptr %1140, align 8
   %1142 = load ptr, ptr %.017.i279, align 8
-  %1143 = getelementptr ptr, ptr %1142, i64 %.01720.i.i284
+  %1143 = getelementptr [8 x i8], ptr %1142, i64 %.01720.i.i284
   %1144 = load ptr, ptr %1143, align 8
   %1145 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %1141, i32 noundef 1, i32 noundef 0)
   %1146 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %1144, i32 noundef 1, i32 noundef 0)
@@ -3908,7 +3907,7 @@ mk_binary.exit291:                                ; preds = %._crit_edge.i.i290,
   %1162 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1163 = load i32, ptr %1162, align 8
   %1164 = zext i32 %1163 to i64
-  %1165 = getelementptr %struct.df_cell_t, ptr %1161, i64 %1164
+  %1165 = getelementptr [8 x i8], ptr %1161, i64 %1164
   br label %1169
 
 1166:                                             ; preds = %1154
@@ -3933,7 +3932,7 @@ mk_binary.exit291:                                ; preds = %._crit_edge.i.i290,
   %1173 = getelementptr inbounds nuw i8, ptr %1156, i64 8
   %1174 = load i32, ptr %1173, align 8
   %1175 = zext i32 %1174 to i64
-  %1176 = getelementptr %struct.df_cell_t, ptr %1172, i64 %1175
+  %1176 = getelementptr [8 x i8], ptr %1172, i64 %1175
   br label %1180
 
 1177:                                             ; preds = %1169
@@ -3952,7 +3951,7 @@ mk_binary.exit291:                                ; preds = %._crit_edge.i.i290,
   %1182 = getelementptr inbounds nuw i8, ptr %1158, i64 8
   %1183 = load i32, ptr %1182, align 8
   %1184 = zext i32 %1183 to i64
-  %1185 = getelementptr %struct.df_cell_t, ptr %1181, i64 %1184
+  %1185 = getelementptr [8 x i8], ptr %1181, i64 %1184
   call void @df_cell_init(ptr noundef %1185, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8
@@ -3988,10 +3987,10 @@ mk_binary.exit291:                                ; preds = %._crit_edge.i.i290,
 .lr.ph.i.i304:                                    ; preds = %.preheader.i.i301, %1215
   %.019.i.i305 = phi i64 [ %1216, %1215 ], [ 0, %.preheader.i.i301 ]
   %1196 = load ptr, ptr %.0.i293, align 8
-  %1197 = getelementptr ptr, ptr %1196, i64 %.01720.i.i302
+  %1197 = getelementptr [8 x i8], ptr %1196, i64 %.01720.i.i302
   %1198 = load ptr, ptr %1197, align 8
   %1199 = load ptr, ptr %.017.i297, align 8
-  %1200 = getelementptr ptr, ptr %1199, i64 %.019.i.i305
+  %1200 = getelementptr [8 x i8], ptr %1199, i64 %.019.i.i305
   %1201 = load ptr, ptr %1200, align 8
   %1202 = call ptr @fvalue_modulo(ptr noundef %1198, ptr noundef %1201, ptr noundef nonnull %5)
   %1203 = icmp eq ptr %1202, null
@@ -3999,10 +3998,10 @@ mk_binary.exit291:                                ; preds = %._crit_edge.i.i290,
 
 1204:                                             ; preds = %.lr.ph.i.i304
   %1205 = load ptr, ptr %.0.i293, align 8
-  %1206 = getelementptr ptr, ptr %1205, i64 %.01720.i.i302
+  %1206 = getelementptr [8 x i8], ptr %1205, i64 %.01720.i.i302
   %1207 = load ptr, ptr %1206, align 8
   %1208 = load ptr, ptr %.017.i297, align 8
-  %1209 = getelementptr ptr, ptr %1208, i64 %.01720.i.i302
+  %1209 = getelementptr [8 x i8], ptr %1208, i64 %.01720.i.i302
   %1210 = load ptr, ptr %1209, align 8
   %1211 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %1207, i32 noundef 1, i32 noundef 0)
   %1212 = call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %1210, i32 noundef 1, i32 noundef 0)
@@ -4033,7 +4032,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1221 = getelementptr i8, ptr %30, i64 8
   %.val188 = load i32, ptr %1221, align 8
   %1222 = zext i32 %.val188 to i64
-  %1223 = getelementptr %struct.df_cell_t, ptr %.val187, i64 %1222
+  %1223 = getelementptr [8 x i8], ptr %.val187, i64 %1222
   %1224 = call ptr @df_cell_array(ptr noundef %1223)
   %1225 = call i64 @df_cell_size(ptr noundef %1223)
   %.not1.i.i = icmp eq i64 %1225, 0
@@ -4046,7 +4045,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
 
 .lr.ph.i.i310:                                    ; preds = %1220, %1226
   %.0172.i.i = phi i64 [ %1227, %1226 ], [ 0, %1220 ]
-  %1228 = getelementptr ptr, ptr %1224, i64 %.0172.i.i
+  %1228 = getelementptr [8 x i8], ptr %1224, i64 %.0172.i.i
   %1229 = load ptr, ptr %1228, align 8
   %1230 = call i32 @fvalue_is_zero(ptr noundef %1229)
   %.not.i.not.i = icmp eq i32 %1230, 0
@@ -4066,7 +4065,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1237 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1238 = load i32, ptr %1237, align 8
   %1239 = zext i32 %1238 to i64
-  %1240 = getelementptr %struct.df_cell_t, ptr %1236, i64 %1239
+  %1240 = getelementptr [8 x i8], ptr %1236, i64 %1239
   br label %1244
 
 1241:                                             ; preds = %1231
@@ -4091,7 +4090,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1248 = getelementptr inbounds nuw i8, ptr %1233, i64 8
   %1249 = load i32, ptr %1248, align 8
   %1250 = zext i32 %1249 to i64
-  %1251 = getelementptr %struct.df_cell_t, ptr %1247, i64 %1250
+  %1251 = getelementptr [8 x i8], ptr %1247, i64 %1250
   br label %1255
 
 1252:                                             ; preds = %1244
@@ -4137,10 +4136,10 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
 .lr.ph.us.i.i559:                                 ; preds = %.preheader.us.i.i556, %1273
   %.032.us33.us.i.i560 = phi i64 [ %1274, %1273 ], [ 0, %.preheader.us.i.i556 ]
   %1265 = load ptr, ptr %.013.i550, align 8
-  %1266 = getelementptr ptr, ptr %1265, i64 %.02539.us.i.i557
+  %1266 = getelementptr [8 x i8], ptr %1265, i64 %.02539.us.i.i557
   %1267 = load ptr, ptr %1266, align 8
   %1268 = load ptr, ptr %.0.i552, align 8
-  %1269 = getelementptr ptr, ptr %1268, i64 %.032.us33.us.i.i560
+  %1269 = getelementptr [8 x i8], ptr %1268, i64 %.032.us33.us.i.i560
   %1270 = load ptr, ptr %1269, align 8
   %1271 = call i32 @fvalue_contains(ptr noundef %1267, ptr noundef %1270)
   %1272 = icmp eq i32 %1271, 0
@@ -4167,7 +4166,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1283 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1284 = load i32, ptr %1283, align 8
   %1285 = zext i32 %1284 to i64
-  %1286 = getelementptr %struct.df_cell_t, ptr %1282, i64 %1285
+  %1286 = getelementptr [8 x i8], ptr %1282, i64 %1285
   br label %1290
 
 1287:                                             ; preds = %1277
@@ -4192,7 +4191,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1294 = getelementptr inbounds nuw i8, ptr %1279, i64 8
   %1295 = load i32, ptr %1294, align 8
   %1296 = zext i32 %1295 to i64
-  %1297 = getelementptr %struct.df_cell_t, ptr %1293, i64 %1296
+  %1297 = getelementptr [8 x i8], ptr %1293, i64 %1296
   br label %1301
 
 1298:                                             ; preds = %1290
@@ -4238,10 +4237,10 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
 .lr.ph.us55.i.i578:                               ; preds = %.preheader.us51.i.i575, %1319
   %.032.us.us56.i.i579 = phi i64 [ %1320, %1319 ], [ 0, %.preheader.us51.i.i575 ]
   %1311 = load ptr, ptr %.013.i569, align 8
-  %1312 = getelementptr ptr, ptr %1311, i64 %.02539.us52.i.i576
+  %1312 = getelementptr [8 x i8], ptr %1311, i64 %.02539.us52.i.i576
   %1313 = load ptr, ptr %1312, align 8
   %1314 = load ptr, ptr %.0.i571, align 8
-  %1315 = getelementptr ptr, ptr %1314, i64 %.032.us.us56.i.i579
+  %1315 = getelementptr [8 x i8], ptr %1314, i64 %.032.us.us56.i.i579
   %1316 = load ptr, ptr %1315, align 8
   %1317 = call i32 @fvalue_contains(ptr noundef %1313, ptr noundef %1316)
   %1318 = icmp eq i32 %1317, 1
@@ -4263,7 +4262,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1327 = getelementptr i8, ptr %1325, i64 8
   %.val191 = load ptr, ptr %1327, align 8
   %1328 = zext i32 %.val190 to i64
-  %1329 = getelementptr %struct.df_cell_t, ptr %.val189, i64 %1328
+  %1329 = getelementptr [8 x i8], ptr %.val189, i64 %1328
   %1330 = call ptr @df_cell_array(ptr noundef %1329)
   %1331 = call i64 @df_cell_size(ptr noundef %1329)
   %.not3.i = icmp eq i64 %1331, 0
@@ -4277,7 +4276,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
 
 .lr.ph.i311:                                      ; preds = %1323, %1332
   %.0114.i = phi i64 [ %1333, %1332 ], [ 0, %1323 ]
-  %1335 = getelementptr ptr, ptr %1330, i64 %.0114.i
+  %1335 = getelementptr [8 x i8], ptr %1330, i64 %.0114.i
   %1336 = load ptr, ptr %1335, align 8
   %1337 = call i32 @fvalue_matches(ptr noundef %1336, ptr noundef %.val191)
   %.not.i312 = icmp eq i32 %1337, 0
@@ -4292,7 +4291,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1342 = getelementptr i8, ptr %1340, i64 8
   %.val194 = load ptr, ptr %1342, align 8
   %1343 = zext i32 %.val193 to i64
-  %1344 = getelementptr %struct.df_cell_t, ptr %.val192, i64 %1343
+  %1344 = getelementptr [8 x i8], ptr %.val192, i64 %1343
   %1345 = call ptr @df_cell_array(ptr noundef %1344)
   %1346 = call i64 @df_cell_size(ptr noundef %1344)
   %.not3.not.i = icmp eq i64 %1346, 0
@@ -4306,7 +4305,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
 
 .lr.ph.i313:                                      ; preds = %1338, %1347
   %.0114.i314 = phi i64 [ %1348, %1347 ], [ 0, %1338 ]
-  %1350 = getelementptr ptr, ptr %1345, i64 %.0114.i314
+  %1350 = getelementptr [8 x i8], ptr %1345, i64 %.0114.i314
   %1351 = load ptr, ptr %1350, align 8
   %1352 = call i32 @fvalue_matches(ptr noundef %1351, ptr noundef %.val194)
   %1353 = icmp eq i32 %1352, 1
@@ -4329,7 +4328,7 @@ mk_binary.exit309:                                ; preds = %._crit_edge.i.i308,
   %1361 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1362 = load i32, ptr %1361, align 8
   %1363 = zext i32 %1362 to i64
-  %1364 = getelementptr %struct.df_cell_t, ptr %1360, i64 %1363
+  %1364 = getelementptr [8 x i8], ptr %1360, i64 %1363
   br label %set_push.exit
 
 1365:                                             ; preds = %1354
@@ -4364,7 +4363,7 @@ set_push.exit:                                    ; preds = %1357, %1359
   %1377 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1378 = load i32, ptr %1377, align 8
   %1379 = zext i32 %1378 to i64
-  %1380 = getelementptr %struct.df_cell_t, ptr %1376, i64 %1379
+  %1380 = getelementptr [8 x i8], ptr %1376, i64 %1379
   br label %1382
 
 1381:                                             ; preds = %1368
@@ -4394,7 +4393,7 @@ set_push.exit:                                    ; preds = %1357, %1359
   %1389 = getelementptr inbounds nuw i8, ptr %1370, i64 8
   %1390 = load i32, ptr %1389, align 8
   %1391 = zext i32 %1390 to i64
-  %1392 = getelementptr %struct.df_cell_t, ptr %1388, i64 %1391
+  %1392 = getelementptr [8 x i8], ptr %1388, i64 %1391
   br label %.sink.split.i
 
 1393:                                             ; preds = %1383
@@ -4419,7 +4418,7 @@ set_push.exit320:                                 ; preds = %1382, %.sink.split.
   %.val195 = load i32, ptr %1398, align 8
   %1399 = load ptr, ptr %.phi.trans.insert.i338, align 8
   %1400 = zext i32 %.val195 to i64
-  %1401 = getelementptr %struct.df_cell_t, ptr %1399, i64 %1400
+  %1401 = getelementptr [8 x i8], ptr %1399, i64 %1400
   %1402 = load ptr, ptr %1401, align 8
   %1403 = getelementptr inbounds nuw i8, ptr %1402, i64 8
   %1404 = load i32, ptr %1403, align 8
@@ -4441,7 +4440,7 @@ set_push.exit320:                                 ; preds = %1382, %.sink.split.
 .lr.ph.i321:                                      ; preds = %.lr.ph12.i, %1405
   %.0166.i = phi ptr [ %.016.i, %1405 ], [ %.0164.i, %.lr.ph12.i ]
   %1407 = load ptr, ptr %1402, align 8
-  %1408 = getelementptr ptr, ptr %1407, i64 %.01410.i
+  %1408 = getelementptr [8 x i8], ptr %1407, i64 %.01410.i
   %1409 = load ptr, ptr %1408, align 8
   %1410 = load ptr, ptr %.0166.i, align 8
   %.val.i = load ptr, ptr %1410, align 8
@@ -4469,7 +4468,7 @@ set_push.exit320:                                 ; preds = %1382, %.sink.split.
   %.val196 = load i32, ptr %1422, align 8
   %1423 = load ptr, ptr %.phi.trans.insert.i338, align 8
   %1424 = zext i32 %.val196 to i64
-  %1425 = getelementptr %struct.df_cell_t, ptr %1423, i64 %1424
+  %1425 = getelementptr [8 x i8], ptr %1423, i64 %1424
   %1426 = load ptr, ptr %1425, align 8
   %1427 = getelementptr inbounds nuw i8, ptr %1426, i64 8
   %1428 = load i32, ptr %1427, align 8
@@ -4491,7 +4490,7 @@ set_push.exit320:                                 ; preds = %1382, %.sink.split.
 .lr.ph.i329:                                      ; preds = %.lr.ph12.i325, %1429
   %.0166.i330 = phi ptr [ %.016.i333, %1429 ], [ %.0164.i327, %.lr.ph12.i325 ]
   %1431 = load ptr, ptr %1426, align 8
-  %1432 = getelementptr ptr, ptr %1431, i64 %.01410.i326
+  %1432 = getelementptr [8 x i8], ptr %1431, i64 %.01410.i326
   %1433 = load ptr, ptr %1432, align 8
   %1434 = load ptr, ptr %.0166.i330, align 8
   %.val.i331 = load ptr, ptr %1434, align 8
@@ -4535,7 +4534,7 @@ set_push.exit320:                                 ; preds = %1382, %.sink.split.
   %1454 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1455 = load i32, ptr %1454, align 8
   %1456 = zext i32 %1455 to i64
-  %1457 = getelementptr %struct.df_cell_t, ptr %1453, i64 %1456
+  %1457 = getelementptr [8 x i8], ptr %1453, i64 %1456
   br label %1461
 
 1458:                                             ; preds = %1448
@@ -4554,7 +4553,7 @@ set_push.exit320:                                 ; preds = %1382, %.sink.split.
   %1463 = getelementptr inbounds nuw i8, ptr %1450, i64 8
   %1464 = load i32, ptr %1463, align 8
   %1465 = zext i32 %1464 to i64
-  %1466 = getelementptr %struct.df_cell_t, ptr %1462, i64 %1465
+  %1466 = getelementptr [8 x i8], ptr %1462, i64 %1465
   call void @df_cell_init(ptr noundef %1466, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8
@@ -4566,7 +4565,7 @@ set_push.exit320:                                 ; preds = %1382, %.sink.split.
 .lr.ph.i.i343:                                    ; preds = %1461, %1477
   %.08.i.i = phi i64 [ %1478, %1477 ], [ 0, %1461 ]
   %1469 = load ptr, ptr %.0.i341, align 8
-  %1470 = getelementptr ptr, ptr %1469, i64 %.08.i.i
+  %1470 = getelementptr [8 x i8], ptr %1469, i64 %.08.i.i
   %1471 = load ptr, ptr %1470, align 8
   %1472 = call ptr @fvalue_unary_minus(ptr noundef %1471, ptr noundef nonnull %4)
   %1473 = icmp eq ptr %1472, null
@@ -4608,7 +4607,7 @@ mk_minus.exit:                                    ; preds = %1477, %1461
   %1489 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %1490 = load i32, ptr %1489, align 8
   %1491 = zext i32 %1490 to i64
-  %1492 = getelementptr %struct.df_cell_t, ptr %1488, i64 %1491
+  %1492 = getelementptr [8 x i8], ptr %1488, i64 %1491
   %1493 = call ptr @df_cell_ref(ptr noundef %1492)
   store ptr %1493, ptr %2, align 8
   %1494 = icmp eq ptr %1493, null
@@ -4628,7 +4627,7 @@ mk_minus.exit:                                    ; preds = %1477, %1461
 .lr.ph.i345:                                      ; preds = %1497, %.lr.ph.i345
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i345 ], [ 0, %1497 ]
   %1500 = load ptr, ptr %.phi.trans.insert.i338, align 8
-  %1501 = getelementptr %struct.df_cell_t, ptr %1500, i64 %indvars.iv.i
+  %1501 = getelementptr [8 x i8], ptr %1500, i64 %indvars.iv.i
   call void @df_cell_clear(ptr noundef %1501)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %1502 = load i32, ptr %1498, align 8
@@ -4682,7 +4681,7 @@ define internal fastcc zeroext i1 @read_tree(ptr noundef readonly captures(none)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %.8.val1 to i64
-  %13 = getelementptr %struct.df_cell_t, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = tail call zeroext i1 @df_cell_is_null(ptr noundef %13)
   br i1 %14, label %15, label %._crit_edge
 
@@ -4715,7 +4714,7 @@ define internal fastcc zeroext i1 @read_tree(ptr noundef readonly captures(none)
 .lr.ph.split.us.i.us.us:                          ; preds = %19, %dfvm_get_raw_fvalue.exit.us.i.us.us
   %indvars.iv5.i.us.us = phi i64 [ %indvars.iv.next6.i.us.us, %dfvm_get_raw_fvalue.exit.us.i.us.us ], [ 0, %19 ]
   %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr ptr, ptr %23, i64 %indvars.iv5.i.us.us
+  %24 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv5.i.us.us
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
@@ -4770,7 +4769,7 @@ read_tree_finfos.exit.us.us:                      ; preds = %dfvm_get_raw_fvalue
 dfvm_get_raw_fvalue.exit.i.us:                    ; preds = %49, %dfvm_get_raw_fvalue.exit.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %dfvm_get_raw_fvalue.exit.i.us ], [ 0, %49 ]
   %53 = load ptr, ptr %47, align 8
-  %54 = getelementptr ptr, ptr %53, i64 %indvars.iv.i.us
+  %54 = getelementptr [8 x i8], ptr %53, i64 %indvars.iv.i.us
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = load ptr, ptr %56, align 8
@@ -4833,7 +4832,7 @@ define internal fastcc zeroext i1 @read_reference(ptr noundef readonly captures(
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %.8.val1 to i64
-  %11 = getelementptr %struct.df_cell_t, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = tail call zeroext i1 @df_cell_is_null(ptr noundef %11)
   br i1 %12, label %16, label %13
 
@@ -4866,7 +4865,7 @@ define internal fastcc zeroext i1 @read_reference(ptr noundef readonly captures(
   %27 = load ptr, ptr %18, align 8
   %28 = add i32 %25, -1
   %29 = zext i32 %28 to i64
-  %30 = getelementptr ptr, ptr %27, i64 %29
+  %30 = getelementptr [8 x i8], ptr %27, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i32, ptr %32, align 8
@@ -4877,7 +4876,7 @@ define internal fastcc zeroext i1 @read_reference(ptr noundef readonly captures(
 drange_contains_layer.exit.thread.us.i:           ; preds = %.lr.ph.i, %drange_contains_layer.exit.thread.us.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %drange_contains_layer.exit.thread.us.i ], [ 0, %.lr.ph.i ]
   %36 = load ptr, ptr %18, align 8
-  %37 = getelementptr ptr, ptr %36, i64 %indvars.iv38.i
+  %37 = getelementptr [8 x i8], ptr %36, i64 %indvars.iv38.i
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
@@ -4894,7 +4893,7 @@ drange_contains_layer.exit.thread.us.i:           ; preds = %.lr.ph.i, %drange_c
   %.036.i = phi i32 [ %.1.i, %drange_contains_layer.exit.thread.i ], [ -1, %.lr.ph.i ]
   %.02634.i = phi i1 [ %.127.i, %drange_contains_layer.exit.thread.i ], [ false, %.lr.ph.i ]
   %45 = load ptr, ptr %18, align 8
-  %46 = getelementptr ptr, ptr %45, i64 %indvars.iv.i
+  %46 = getelementptr [8 x i8], ptr %45, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i32, ptr %48, align 8
@@ -5022,7 +5021,7 @@ define internal fastcc noundef zeroext i1 @any_in(ptr noundef readonly captures(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = zext i32 %.8.val to i64
-  %5 = getelementptr %struct.df_cell_t, ptr %3, i64 %4
+  %5 = getelementptr [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
@@ -5049,7 +5048,7 @@ define internal fastcc noundef zeroext i1 @any_in(ptr noundef readonly captures(
 .lr.ph:                                           ; preds = %.lr.ph15.split, %.loopexit
   %.01611 = phi ptr [ %.016, %.loopexit ], [ %.0169, %.lr.ph15.split ]
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr ptr, ptr %13, i64 %.01413
+  %14 = getelementptr [8 x i8], ptr %13, i64 %.01413
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %.01611, align 8
   %.val = load ptr, ptr %16, align 8
@@ -5080,7 +5079,7 @@ define internal fastcc noundef zeroext i1 @any_in(ptr noundef readonly captures(
 .lr.ph.i:                                         ; preds = %.preheader4.i, %22
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %22 ], [ 0, %.preheader4.i ]
   %26 = load ptr, ptr %.val20, align 8
-  %27 = getelementptr ptr, ptr %26, i64 %indvars.iv.i
+  %27 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @fvalue_le(ptr noundef %15, ptr noundef %28)
   %30 = icmp eq i32 %29, 1
@@ -5102,7 +5101,7 @@ define internal fastcc noundef zeroext i1 @any_in(ptr noundef readonly captures(
 .lr.ph8.i:                                        ; preds = %.preheader1.i, %33
   %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %33 ], [ 0, %.preheader1.i ]
   %37 = load ptr, ptr %.val, align 8
-  %38 = getelementptr ptr, ptr %37, i64 %indvars.iv23.i
+  %38 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv23.i
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @fvalue_ge(ptr noundef %15, ptr noundef %39)
   %41 = icmp eq i32 %40, 1
@@ -5118,7 +5117,7 @@ define internal fastcc noundef zeroext i1 @any_in(ptr noundef readonly captures(
 .lr.ph12.i:                                       ; preds = %.preheader.i, %42
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %42 ], [ 0, %.preheader.i ]
   %46 = load ptr, ptr %.val, align 8
-  %47 = getelementptr ptr, ptr %46, i64 %indvars.iv26.i
+  %47 = getelementptr [8 x i8], ptr %46, i64 %indvars.iv26.i
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i32 @fvalue_eq(ptr noundef %15, ptr noundef %48)
   %50 = icmp eq i32 %49, 1
@@ -5382,7 +5381,7 @@ define internal fastcc i64 @filter_finfo_fvalues(ptr noundef %0, ptr noundef non
   %7 = load ptr, ptr %1, align 8
   %8 = add i32 %6, -1
   %9 = zext i32 %8 to i64
-  %10 = getelementptr ptr, ptr %7, i64 %9
+  %10 = getelementptr [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 60
   %13 = load i32, ptr %12, align 4
@@ -5400,7 +5399,7 @@ define internal fastcc i64 @filter_finfo_fvalues(ptr noundef %0, ptr noundef non
   %.03550 = phi i1 [ false, %.lr.ph ], [ %.136, %drange_contains_layer.exit.thread ]
   %.03749 = phi i32 [ -1, %.lr.ph ], [ %.138, %drange_contains_layer.exit.thread ]
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 60
   %20 = load i32, ptr %19, align 4
@@ -5665,7 +5664,7 @@ define internal fastcc noundef zeroext i1 @test_in_internal(ptr noundef %0, ptr 
 .lr.ph:                                           ; preds = %.preheader4, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %.preheader4 ]
   %10 = load ptr, ptr %.8.val, align 8
-  %11 = getelementptr ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @fvalue_le(ptr noundef %0, ptr noundef %12)
   %14 = icmp eq i32 %13, 1
@@ -5687,7 +5686,7 @@ define internal fastcc noundef zeroext i1 @test_in_internal(ptr noundef %0, ptr 
 .lr.ph8:                                          ; preds = %.preheader1, %17
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %17 ], [ 0, %.preheader1 ]
   %21 = load ptr, ptr %.0.val, align 8
-  %22 = getelementptr ptr, ptr %21, i64 %indvars.iv23
+  %22 = getelementptr [8 x i8], ptr %21, i64 %indvars.iv23
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @fvalue_ge(ptr noundef %0, ptr noundef %23)
   %25 = icmp eq i32 %24, 1
@@ -5703,7 +5702,7 @@ define internal fastcc noundef zeroext i1 @test_in_internal(ptr noundef %0, ptr 
 .lr.ph12:                                         ; preds = %.preheader, %26
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %26 ], [ 0, %.preheader ]
   %30 = load ptr, ptr %.0.val, align 8
-  %31 = getelementptr ptr, ptr %30, i64 %indvars.iv26
+  %31 = getelementptr [8 x i8], ptr %30, i64 %indvars.iv26
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @fvalue_eq(ptr noundef %0, ptr noundef %32)
   %34 = icmp eq i32 %33, 1

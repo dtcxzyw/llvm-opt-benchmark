@@ -417,7 +417,7 @@ define internal i64 @ast_node_all_tokens(ptr readnone captures(none) %0, i64 nou
 17:                                               ; preds = %.lr.ph, %17
   %.02426 = phi i64 [ 0, %.lr.ph ], [ %59, %17 ]
   %18 = load ptr, ptr %16, align 8, !tbaa !87
-  %19 = getelementptr ptr, ptr %18, i64 %.02426
+  %19 = getelementptr [8 x i8], ptr %18, i64 %.02426
   %20 = load ptr, ptr %19, align 8, !tbaa !88
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !89
@@ -921,7 +921,7 @@ rb_array_len.exit.thread:                         ; preds = %15
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.thread, %23
   %.0.i.i = phi ptr [ %24, %23 ], [ %13, %rb_array_len.exit.thread ]
-  %25 = getelementptr i64, ptr %.0.i.i, i64 %.019
+  %25 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.019
   %26 = load i64, ptr %25, align 8, !tbaa !47
   %27 = icmp eq i64 %26, 0
   %28 = and i64 %26, 7
@@ -2381,7 +2381,7 @@ define internal fastcc i64 @node_children(i64 noundef %0, ptr noundef %1) unname
 
 809:                                              ; preds = %.lr.ph, %var_name.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %var_name.exit ]
-  %810 = getelementptr i64, ptr %808, i64 %indvars.iv
+  %810 = getelementptr [8 x i8], ptr %808, i64 %indvars.iv
   %811 = load i64, ptr %810, align 8, !tbaa !47
   %.not.i = icmp eq i64 %811, 0
   br i1 %.not.i, label %var_name.exit, label %812
@@ -2849,7 +2849,7 @@ define internal fastcc i64 @dump_parser_array(i64 noundef %0, ptr noundef readon
 11:                                               ; preds = %.lr.ph, %20
   %.014 = phi i64 [ 0, %.lr.ph ], [ %23, %20 ]
   %12 = load ptr, ptr %10, align 8, !tbaa !87
-  %13 = getelementptr ptr, ptr %12, i64 %.014
+  %13 = getelementptr [8 x i8], ptr %12, i64 %.014
   %14 = load ptr, ptr %13, align 8, !tbaa !88
   %.not13 = icmp eq ptr %14, null
   br i1 %.not13, label %20, label %15

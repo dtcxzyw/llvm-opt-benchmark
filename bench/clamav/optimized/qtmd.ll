@@ -3,8 +3,6 @@ source_filename = "bench/clamav/original/qtmd.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.qtmd_modelsym = type { i16, i16 }
-
 @extra_bits = internal unnamed_addr constant [42 x i8] c"\00\00\00\00\01\01\02\02\03\03\04\04\05\05\06\06\07\07\08\08\09\09\0A\0A\0B\0B\0C\0C\0D\0D\0E\0E\0F\0F\10\10\11\11\12\12\13\13", align 16
 @position_base = internal unnamed_addr constant [42 x i32] [i32 0, i32 1, i32 2, i32 3, i32 4, i32 6, i32 8, i32 12, i32 16, i32 24, i32 32, i32 48, i32 64, i32 96, i32 128, i32 192, i32 256, i32 384, i32 512, i32 768, i32 1024, i32 1536, i32 2048, i32 3072, i32 4096, i32 6144, i32 8192, i32 12288, i32 16384, i32 24576, i32 32768, i32 49152, i32 65536, i32 98304, i32 131072, i32 196608, i32 262144, i32 393216, i32 524288, i32 786432, i32 1048576, i32 1572864], align 16
 @length_extra = internal unnamed_addr constant [27 x i8] c"\00\00\00\00\00\00\01\01\01\01\02\02\02\02\03\03\03\03\04\04\04\04\05\05\05\05\00", align 16
@@ -104,7 +102,7 @@ define ptr @qtmd_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 nounde
 52:                                               ; preds = %52, %32
   %indvars.iv.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i, %52 ]
   %53 = trunc i64 %indvars.iv.i to i16
-  %54 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %49, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i
   store i16 %53, ptr %54, align 2, !tbaa !38
   %55 = sub i16 64, %53
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 2
@@ -127,7 +125,7 @@ qtmd_init_model.exit:                             ; preds = %52
   %indvars.iv.i82 = phi i64 [ 0, %qtmd_init_model.exit ], [ %indvars.iv.next.i83, %61 ]
   %62 = trunc i64 %indvars.iv.i82 to i16
   %63 = add i16 %62, 64
-  %64 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %58, i64 %indvars.iv.i82
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv.i82
   store i16 %63, ptr %64, align 2, !tbaa !38
   %65 = sub i16 64, %62
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 2
@@ -150,7 +148,7 @@ qtmd_init_model.exit85:                           ; preds = %61
   %indvars.iv.i86 = phi i64 [ 0, %qtmd_init_model.exit85 ], [ %indvars.iv.next.i87, %71 ]
   %72 = trunc i64 %indvars.iv.i86 to i16
   %73 = add i16 %72, 128
-  %74 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %68, i64 %indvars.iv.i86
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv.i86
   store i16 %73, ptr %74, align 2, !tbaa !38
   %75 = sub i16 64, %72
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 2
@@ -173,7 +171,7 @@ qtmd_init_model.exit89:                           ; preds = %71
   %indvars.iv.i90 = phi i64 [ 0, %qtmd_init_model.exit89 ], [ %indvars.iv.next.i91, %81 ]
   %82 = trunc i64 %indvars.iv.i90 to i16
   %83 = add i16 %82, 192
-  %84 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %78, i64 %indvars.iv.i90
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv.i90
   store i16 %83, ptr %84, align 2, !tbaa !38
   %85 = sub i16 64, %82
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 2
@@ -200,7 +198,7 @@ qtmd_init_model.exit93:                           ; preds = %81
   %indvars.iv.i94 = phi i64 [ 0, %qtmd_init_model.exit93 ], [ %indvars.iv.next.i95, %94 ]
   %95 = trunc i64 %indvars.iv.i94 to i32
   %96 = trunc i64 %indvars.iv.i94 to i16
-  %97 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %89, i64 %indvars.iv.i94
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv.i94
   store i16 %96, ptr %97, align 2, !tbaa !38
   %98 = sub i32 %90, %95
   %99 = trunc nuw nsw i32 %98 to i16
@@ -227,7 +225,7 @@ qtmd_init_model.exit97:                           ; preds = %94
   %indvars.iv.i99 = phi i64 [ 0, %qtmd_init_model.exit97 ], [ %indvars.iv.next.i100, %107 ]
   %108 = trunc i64 %indvars.iv.i99 to i32
   %109 = trunc i64 %indvars.iv.i99 to i16
-  %110 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %102, i64 %indvars.iv.i99
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %indvars.iv.i99
   store i16 %109, ptr %110, align 2, !tbaa !38
   %111 = sub i32 %103, %108
   %112 = trunc nuw nsw i32 %111 to i16
@@ -253,7 +251,7 @@ qtmd_init_model.exit102:                          ; preds = %107
   %indvars.iv.i104 = phi i64 [ 0, %qtmd_init_model.exit102 ], [ %indvars.iv.next.i105, %119 ]
   %120 = trunc i64 %indvars.iv.i104 to i32
   %121 = trunc i64 %indvars.iv.i104 to i16
-  %122 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %115, i64 %indvars.iv.i104
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv.i104
   store i16 %121, ptr %122, align 2, !tbaa !38
   %123 = sub i32 %87, %120
   %124 = trunc nuw nsw i32 %123 to i16
@@ -276,7 +274,7 @@ qtmd_init_model.exit107:                          ; preds = %119
 130:                                              ; preds = %130, %qtmd_init_model.exit107
   %indvars.iv.i108 = phi i64 [ 0, %qtmd_init_model.exit107 ], [ %indvars.iv.next.i109, %130 ]
   %131 = trunc i64 %indvars.iv.i108 to i16
-  %132 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %127, i64 %indvars.iv.i108
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv.i108
   store i16 %131, ptr %132, align 2, !tbaa !38
   %133 = sub i16 27, %131
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 2
@@ -298,7 +296,7 @@ qtmd_init_model.exit111:                          ; preds = %130
 139:                                              ; preds = %139, %qtmd_init_model.exit111
   %indvars.iv.i112 = phi i64 [ 0, %qtmd_init_model.exit111 ], [ %indvars.iv.next.i113, %139 ]
   %140 = trunc i64 %indvars.iv.i112 to i16
-  %141 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %136, i64 %indvars.iv.i112
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %indvars.iv.i112
   store i16 %140, ptr %141, align 2, !tbaa !38
   %142 = sub i16 7, %140
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 2
@@ -641,7 +639,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 182:                                              ; preds = %.lr.ph1916, %186
   %indvars.iv = phi i64 [ 1, %.lr.ph1916 ], [ %indvars.iv.next, %186 ]
-  %183 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %167, i64 %indvars.iv
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %indvars.iv
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 2
   %185 = load i16, ptr %184, align 2, !tbaa !40
   %.not1230 = icmp ugt i16 %185, %181
@@ -659,7 +657,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 ._crit_edge1917:                                  ; preds = %186, %._crit_edge1917.loopexit.split.loop.exit, %.lr.ph2109
   %.11073.lcssa = phi i32 [ 1, %.lr.ph2109 ], [ %187, %._crit_edge1917.loopexit.split.loop.exit ], [ %171, %186 ]
   %188 = zext nneg i32 %.11073.lcssa to i64
-  %189 = getelementptr %struct.qtmd_modelsym, ptr %167, i64 %188
+  %189 = getelementptr [4 x i8], ptr %167, i64 %188
   %190 = getelementptr i8, ptr %189, i64 -4
   %191 = load i16, ptr %190, align 2, !tbaa !38
   %192 = getelementptr i8, ptr %189, i64 -2
@@ -672,7 +670,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 197:                                              ; preds = %197, %._crit_edge1917
   %indvars.iv2369 = phi i64 [ %indvars.iv.next2370, %197 ], [ %196, %._crit_edge1917 ]
   %indvars.iv.next2370 = add nsw i64 %indvars.iv2369, -1
-  %198 = getelementptr inbounds %struct.qtmd_modelsym, ptr %167, i64 %indvars.iv.next2370
+  %198 = getelementptr inbounds [4 x i8], ptr %167, i64 %indvars.iv.next2370
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 2
   %200 = load i16, ptr %199, align 2, !tbaa !40
   %201 = add i16 %200, 8
@@ -917,7 +915,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 326:                                              ; preds = %.lr.ph2083, %330
   %indvars.iv2404 = phi i64 [ 1, %.lr.ph2083 ], [ %indvars.iv.next2405, %330 ]
-  %327 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %310, i64 %indvars.iv2404
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %310, i64 %indvars.iv2404
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 2
   %329 = load i16, ptr %328, align 2, !tbaa !40
   %.not1307 = icmp ugt i16 %329, %325
@@ -935,7 +933,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 ._crit_edge2084:                                  ; preds = %330, %._crit_edge2084.loopexit.split.loop.exit, %306
   %.31075.lcssa = phi i32 [ 1, %306 ], [ %331, %._crit_edge2084.loopexit.split.loop.exit ], [ %315, %330 ]
   %332 = zext nneg i32 %.31075.lcssa to i64
-  %333 = getelementptr %struct.qtmd_modelsym, ptr %310, i64 %332
+  %333 = getelementptr [4 x i8], ptr %310, i64 %332
   %334 = getelementptr i8, ptr %333, i64 -4
   %335 = load i16, ptr %334, align 2, !tbaa !38
   %336 = getelementptr i8, ptr %333, i64 -2
@@ -948,7 +946,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 341:                                              ; preds = %341, %._crit_edge2084
   %indvars.iv2409 = phi i64 [ %indvars.iv.next2410, %341 ], [ %340, %._crit_edge2084 ]
   %indvars.iv.next2410 = add nsw i64 %indvars.iv2409, -1
-  %342 = getelementptr inbounds %struct.qtmd_modelsym, ptr %310, i64 %indvars.iv.next2410
+  %342 = getelementptr inbounds [4 x i8], ptr %310, i64 %indvars.iv.next2410
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 2
   %344 = load i16, ptr %343, align 2, !tbaa !40
   %345 = add i16 %344, 8
@@ -1131,7 +1129,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 436:                                              ; preds = %.lr.ph2034, %440
   %indvars.iv2396 = phi i64 [ 1, %.lr.ph2034 ], [ %indvars.iv.next2397, %440 ]
-  %437 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %421, i64 %indvars.iv2396
+  %437 = getelementptr inbounds nuw [4 x i8], ptr %421, i64 %indvars.iv2396
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 2
   %439 = load i16, ptr %438, align 2, !tbaa !40
   %.not1277 = icmp ugt i16 %439, %435
@@ -1149,7 +1147,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 ._crit_edge2035:                                  ; preds = %440, %._crit_edge2035.loopexit.split.loop.exit, %419
   %.51077.lcssa = phi i32 [ 1, %419 ], [ %441, %._crit_edge2035.loopexit.split.loop.exit ], [ %425, %440 ]
   %442 = zext nneg i32 %.51077.lcssa to i64
-  %443 = getelementptr %struct.qtmd_modelsym, ptr %421, i64 %442
+  %443 = getelementptr [4 x i8], ptr %421, i64 %442
   %444 = getelementptr i8, ptr %443, i64 -4
   %445 = load i16, ptr %444, align 2, !tbaa !38
   %446 = getelementptr i8, ptr %443, i64 -2
@@ -1162,7 +1160,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 451:                                              ; preds = %451, %._crit_edge2035
   %indvars.iv2401 = phi i64 [ %indvars.iv.next2402, %451 ], [ %450, %._crit_edge2035 ]
   %indvars.iv.next2402 = add nsw i64 %indvars.iv2401, -1
-  %452 = getelementptr inbounds %struct.qtmd_modelsym, ptr %421, i64 %indvars.iv.next2402
+  %452 = getelementptr inbounds [4 x i8], ptr %421, i64 %indvars.iv.next2402
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 2
   %454 = load i16, ptr %453, align 2, !tbaa !40
   %455 = add i16 %454, 8
@@ -1423,7 +1421,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 586:                                              ; preds = %.lr.ph2001, %590
   %indvars.iv2388 = phi i64 [ 1, %.lr.ph2001 ], [ %indvars.iv.next2389, %590 ]
-  %587 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %571, i64 %indvars.iv2388
+  %587 = getelementptr inbounds nuw [4 x i8], ptr %571, i64 %indvars.iv2388
   %588 = getelementptr inbounds nuw i8, ptr %587, i64 2
   %589 = load i16, ptr %588, align 2, !tbaa !40
   %.not1264 = icmp ugt i16 %589, %585
@@ -1441,7 +1439,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 ._crit_edge2002:                                  ; preds = %590, %._crit_edge2002.loopexit.split.loop.exit, %569
   %.71079.lcssa = phi i32 [ 1, %569 ], [ %591, %._crit_edge2002.loopexit.split.loop.exit ], [ %575, %590 ]
   %592 = zext nneg i32 %.71079.lcssa to i64
-  %593 = getelementptr %struct.qtmd_modelsym, ptr %571, i64 %592
+  %593 = getelementptr [4 x i8], ptr %571, i64 %592
   %594 = getelementptr i8, ptr %593, i64 -4
   %595 = load i16, ptr %594, align 2, !tbaa !38
   %596 = getelementptr i8, ptr %593, i64 -2
@@ -1454,7 +1452,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 601:                                              ; preds = %601, %._crit_edge2002
   %indvars.iv2393 = phi i64 [ %indvars.iv.next2394, %601 ], [ %600, %._crit_edge2002 ]
   %indvars.iv.next2394 = add nsw i64 %indvars.iv2393, -1
-  %602 = getelementptr inbounds %struct.qtmd_modelsym, ptr %571, i64 %indvars.iv.next2394
+  %602 = getelementptr inbounds [4 x i8], ptr %571, i64 %indvars.iv.next2394
   %603 = getelementptr inbounds nuw i8, ptr %602, i64 2
   %604 = load i16, ptr %603, align 2, !tbaa !40
   %605 = add i16 %604, 8
@@ -1715,7 +1713,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 736:                                              ; preds = %.lr.ph1935, %740
   %indvars.iv2372 = phi i64 [ 1, %.lr.ph1935 ], [ %indvars.iv.next2373, %740 ]
-  %737 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %721, i64 %indvars.iv2372
+  %737 = getelementptr inbounds nuw [4 x i8], ptr %721, i64 %indvars.iv2372
   %738 = getelementptr inbounds nuw i8, ptr %737, i64 2
   %739 = load i16, ptr %738, align 2, !tbaa !40
   %.not1238 = icmp ugt i16 %739, %735
@@ -1733,7 +1731,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 ._crit_edge1936:                                  ; preds = %740, %._crit_edge1936.loopexit.split.loop.exit, %719
   %.91081.lcssa = phi i32 [ 1, %719 ], [ %741, %._crit_edge1936.loopexit.split.loop.exit ], [ %725, %740 ]
   %742 = zext nneg i32 %.91081.lcssa to i64
-  %743 = getelementptr %struct.qtmd_modelsym, ptr %721, i64 %742
+  %743 = getelementptr [4 x i8], ptr %721, i64 %742
   %744 = getelementptr i8, ptr %743, i64 -4
   %745 = load i16, ptr %744, align 2, !tbaa !38
   %746 = getelementptr i8, ptr %743, i64 -2
@@ -1746,7 +1744,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 751:                                              ; preds = %751, %._crit_edge1936
   %indvars.iv2377 = phi i64 [ %indvars.iv.next2378, %751 ], [ %750, %._crit_edge1936 ]
   %indvars.iv.next2378 = add nsw i64 %indvars.iv2377, -1
-  %752 = getelementptr inbounds %struct.qtmd_modelsym, ptr %721, i64 %indvars.iv.next2378
+  %752 = getelementptr inbounds [4 x i8], ptr %721, i64 %indvars.iv.next2378
   %753 = getelementptr inbounds nuw i8, ptr %752, i64 2
   %754 = load i16, ptr %753, align 2, !tbaa !40
   %755 = add i16 %754, 8
@@ -2021,7 +2019,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 891:                                              ; preds = %.lr.ph1968, %895
   %indvars.iv2380 = phi i64 [ 1, %.lr.ph1968 ], [ %indvars.iv.next2381, %895 ]
-  %892 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %876, i64 %indvars.iv2380
+  %892 = getelementptr inbounds nuw [4 x i8], ptr %876, i64 %indvars.iv2380
   %893 = getelementptr inbounds nuw i8, ptr %892, i64 2
   %894 = load i16, ptr %893, align 2, !tbaa !40
   %.not1251 = icmp ugt i16 %894, %890
@@ -2039,7 +2037,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 ._crit_edge1969:                                  ; preds = %895, %._crit_edge1969.loopexit.split.loop.exit, %._crit_edge1960
   %.111083.lcssa = phi i32 [ 1, %._crit_edge1960 ], [ %896, %._crit_edge1969.loopexit.split.loop.exit ], [ %880, %895 ]
   %897 = zext nneg i32 %.111083.lcssa to i64
-  %898 = getelementptr %struct.qtmd_modelsym, ptr %876, i64 %897
+  %898 = getelementptr [4 x i8], ptr %876, i64 %897
   %899 = getelementptr i8, ptr %898, i64 -4
   %900 = load i16, ptr %899, align 2, !tbaa !38
   %901 = getelementptr i8, ptr %898, i64 -2
@@ -2052,7 +2050,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 906:                                              ; preds = %906, %._crit_edge1969
   %indvars.iv2385 = phi i64 [ %indvars.iv.next2386, %906 ], [ %905, %._crit_edge1969 ]
   %indvars.iv.next2386 = add nsw i64 %indvars.iv2385, -1
-  %907 = getelementptr inbounds %struct.qtmd_modelsym, ptr %876, i64 %indvars.iv.next2386
+  %907 = getelementptr inbounds [4 x i8], ptr %876, i64 %indvars.iv.next2386
   %908 = getelementptr inbounds nuw i8, ptr %907, i64 2
   %909 = load i16, ptr %908, align 2, !tbaa !40
   %910 = add i16 %909, 8
@@ -2303,7 +2301,7 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
   %.22967 = phi i32 [ %.23968, %673 ], [ %.15960, %523 ], [ %.37982, %978 ], [ %715, %708 ], [ %565, %558 ], [ %1020, %1013 ]
   %.32905 = phi ptr [ %.33906, %673 ], [ %.21894, %523 ], [ %.55928, %978 ], [ %.39912, %708 ], [ %.27900, %558 ], [ %.61934, %1013 ]
   %.32857 = phi ptr [ %.33858, %673 ], [ %.21846, %523 ], [ %.55, %978 ], [ %.39864, %708 ], [ %.27852, %558 ], [ %.61, %1013 ]
-  %1025 = getelementptr inbounds nuw i32, ptr @position_base, i64 %.sink
+  %1025 = getelementptr inbounds nuw [4 x i8], ptr @position_base, i64 %.sink
   %1026 = load i32, ptr %1025, align 4, !tbaa !57
   %1027 = add i32 %1026, %.31097.lcssa.sink
   %.01060 = add i32 %1027, 1
@@ -2802,7 +2800,7 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !37
   %10 = zext nneg i32 %6 to i64
-  %.phi.trans.insert = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %9, i64 %10
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %10
   %.phi.trans.insert87 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 2
   %.pre = load i16, ptr %.phi.trans.insert87, align 2, !tbaa !40
   br label %11
@@ -2811,7 +2809,7 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
   %12 = phi i16 [ %.pre, %.lr.ph ], [ %spec.select, %11 ]
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %13 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %9, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.next
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %15 = load i16, ptr %14, align 2, !tbaa !40
   %16 = lshr i16 %15, 1
@@ -2849,10 +2847,10 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
   %27 = phi i16 [ %.pre89, %.lr.ph63 ], [ %30, %26 ]
   %indvars.iv73 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next74, %26 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %28 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %24, i64 %indvars.iv.next74
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv.next74
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %30 = load i16, ptr %29, align 2, !tbaa !40
-  %31 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %24, i64 %indvars.iv73
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv73
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 2
   %reass.sub = sub i16 %27, %30
   %33 = add i16 %reass.sub, 1
@@ -2894,10 +2892,10 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
   %48 = phi i32 [ %64, %62 ], [ %44, %43 ]
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %62 ], [ %indvars.iv76, %43 ]
   %49 = load ptr, ptr %25, align 8, !tbaa !37
-  %50 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %49, i64 %indvars.iv81
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv81
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 2
   %52 = load i16, ptr %51, align 2, !tbaa !40
-  %53 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %49, i64 %indvars.iv78
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv78
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
   %55 = load i16, ptr %54, align 2, !tbaa !40
   %56 = icmp ult i16 %52, %55
@@ -2908,7 +2906,7 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
   %59 = load i32, ptr %53, align 2
   store i32 %59, ptr %50, align 2
   %60 = load ptr, ptr %25, align 8, !tbaa !37
-  %61 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %60, i64 %indvars.iv78
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv78
   store i32 %58, ptr %61, align 2
   %.pre90 = load i32, ptr %20, align 4, !tbaa !36
   br label %62
@@ -2923,7 +2921,7 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
 
 67:                                               ; preds = %.lr.ph69, %67
   %indvars.iv84 = phi i64 [ %42, %.lr.ph69 ], [ %indvars.iv.next85, %67 ]
-  %68 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %41, i64 %indvars.iv84
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv84
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 6
   %70 = load i16, ptr %69, align 2, !tbaa !40
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 2

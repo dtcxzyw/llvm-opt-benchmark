@@ -3,8 +3,6 @@ source_filename = "bench/opencv/original/tgt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.opj_tgt_node = type { ptr, i32, i32, i32 }
-
 @.str = private unnamed_addr constant [38 x i8] c"Not enough memory to create Tag-tree\0A\00", align 1
 @.str.1 = private unnamed_addr constant [44 x i8] c"Not enough memory to create Tag-tree nodes\0A\00", align 1
 @.str.2 = private unnamed_addr constant [48 x i8] c"Not enough memory to reinitialize the tag tree\0A\00", align 1
@@ -42,11 +40,11 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %18 = sdiv i32 %17, 2
   %19 = add i32 %.059, 1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %4, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %20
   store i32 %18, ptr %21, align 4, !tbaa !11
   %22 = add nsw i32 %13, 1
   %23 = sdiv i32 %22, 2
-  %24 = getelementptr inbounds nuw i32, ptr %5, i64 %20
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %20
   store i32 %23, ptr %24, align 4, !tbaa !11
   %25 = add i32 %15, %16
   %26 = icmp ugt i32 %16, 1
@@ -88,7 +86,7 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %42 = load i32, ptr %6, align 8, !tbaa !3
   %43 = mul i32 %41, %42
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %struct.opj_tgt_node, ptr %33, i64 %44
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %44
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge88
@@ -96,13 +94,13 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %.06396 = phi ptr [ %45, %.preheader.preheader ], [ %.1.lcssa, %._crit_edge88 ]
   %.06495 = phi ptr [ %45, %.preheader.preheader ], [ %.165.lcssa, %._crit_edge88 ]
   %.06794 = phi ptr [ %33, %.preheader.preheader ], [ %.168.lcssa, %._crit_edge88 ]
-  %46 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4, !tbaa !11
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %.lr.ph87, label %._crit_edge88
 
 .lr.ph87:                                         ; preds = %.preheader
-  %49 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !11
   %51 = icmp sgt i32 %50, 0
   %52 = add nsw i32 %47, -1
@@ -143,7 +141,7 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %.not75.us = trunc i32 %.06186.us to i1
   %63 = icmp eq i32 %.06186.us, %52
   %or.cond.us = select i1 %.not75.us, i1 true, i1 %63
-  %64 = getelementptr inbounds nuw %struct.opj_tgt_node, ptr %.185.us, i64 %53
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %.185.us, i64 %53
   %.3.us = select i1 %or.cond.us, ptr %62, ptr %.185.us
   %.2.us = select i1 %or.cond.us, ptr %62, ptr %64
   %65 = add nuw nsw i32 %.06186.us, 1
@@ -157,7 +155,7 @@ define hidden ptr @opj_tgt_create(i32 noundef %0, i32 noundef %1, ptr noundef %2
   %.not75 = trunc i32 %.06186 to i1
   %66 = icmp eq i32 %.06186, %52
   %or.cond = select i1 %.not75, i1 true, i1 %66
-  %67 = getelementptr inbounds %struct.opj_tgt_node, ptr %.185, i64 %53
+  %67 = getelementptr inbounds [24 x i8], ptr %.185, i64 %53
   %.3 = select i1 %or.cond, ptr %.16584, ptr %.185
   %.2 = select i1 %or.cond, ptr %.16584, ptr %67
   %68 = add nuw nsw i32 %.06186, 1
@@ -278,11 +276,11 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
   %21 = sdiv i32 %20, 2
   %22 = add i32 %.079, 1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %5, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %23
   store i32 %21, ptr %24, align 4, !tbaa !11
   %25 = add nsw i32 %16, 1
   %26 = sdiv i32 %25, 2
-  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %23
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %23
   store i32 %26, ptr %27, align 4, !tbaa !11
   %28 = add i32 %18, %19
   %29 = icmp ugt i32 %19, 1
@@ -355,7 +353,7 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
 .preheader.preheader:                             ; preds = %57
   %62 = mul i32 %58, %59
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw %struct.opj_tgt_node, ptr %61, i64 %63
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %63
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge111
@@ -363,13 +361,13 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
   %.073120 = phi ptr [ %61, %.preheader.preheader ], [ %.174.lcssa, %._crit_edge111 ]
   %.075119 = phi ptr [ %64, %.preheader.preheader ], [ %.176.lcssa, %._crit_edge111 ]
   %.083117 = phi ptr [ %64, %.preheader.preheader ], [ %.184.lcssa, %._crit_edge111 ]
-  %65 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !11
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph110, label %._crit_edge111
 
 .lr.ph110:                                        ; preds = %.preheader
-  %68 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !11
   %70 = icmp sgt i32 %69, 0
   %71 = add nsw i32 %66, -1
@@ -410,7 +408,7 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
   %.not94.us = trunc i32 %.081107.us to i1
   %82 = icmp eq i32 %.081107.us, %71
   %or.cond.us = select i1 %.not94.us, i1 true, i1 %82
-  %83 = getelementptr inbounds nuw %struct.opj_tgt_node, ptr %.184106.us, i64 %72
+  %83 = getelementptr inbounds nuw [24 x i8], ptr %.184106.us, i64 %72
   %.285.us = select i1 %or.cond.us, ptr %81, ptr %83
   %.378.us = select i1 %or.cond.us, ptr %81, ptr %.184106.us
   %84 = add nuw nsw i32 %.081107.us, 1
@@ -424,7 +422,7 @@ define hidden noundef ptr @opj_tgt_init(ptr noundef %0, i32 noundef %1, i32 noun
   %.not94 = trunc i32 %.081107 to i1
   %85 = icmp eq i32 %.081107, %71
   %or.cond = select i1 %.not94, i1 true, i1 %85
-  %86 = getelementptr inbounds %struct.opj_tgt_node, ptr %.184106, i64 %72
+  %86 = getelementptr inbounds [24 x i8], ptr %.184106, i64 %72
   %.285 = select i1 %or.cond, ptr %.176108, ptr %86
   %.378 = select i1 %or.cond, ptr %.176108, ptr %.184106
   %87 = add nuw nsw i32 %.081107, 1
@@ -518,7 +516,7 @@ define hidden void @opj_tgt_setvalue(ptr noundef readonly captures(none) %0, i32
 
 .lr.ph.preheader:                                 ; preds = %3
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.opj_tgt_node, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %6
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
@@ -545,7 +543,7 @@ define hidden void @opj_tgt_encode(ptr noundef %0, ptr noundef readonly captures
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.opj_tgt_node, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %.not32 = icmp eq ptr %10, null
   br i1 %.not32, label %.preheader.preheader, label %.lr.ph
@@ -635,7 +633,7 @@ define hidden range(i32 0, 2) i32 @opj_tgt_decode(ptr noundef %0, ptr noundef re
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds nuw %struct.opj_tgt_node, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %.not30 = icmp eq ptr %10, null
   br i1 %.not30, label %.preheader.preheader, label %.lr.ph

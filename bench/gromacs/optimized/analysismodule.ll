@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.64" = type { %"struct.std::_Vector_base<gmx::Selection, std::allocator<gmx::Selection>>::_Vector_impl" }
 %"struct.std::_Vector_base<gmx::Selection, std::allocator<gmx::Selection>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::Selection, std::allocator<gmx::Selection>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<gmx::Selection, std::allocator<gmx::Selection>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::Selection" = type { ptr }
 %"class.gmx::APIError" = type { %"class.gmx::GromacsException" }
 %"class.gmx::GromacsException" = type { %"class.std::exception", %"class.std::shared_ptr" }
 %"class.std::exception" = type { ptr }
@@ -969,7 +968,7 @@ _ZNSt6vectorIN3gmx9SelectionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: 
 _ZNSt6vectorIN3gmx9SelectionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %43, %_ZNSt6vectorIN3gmx9SelectionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   %.pre = phi ptr [ %.pre.pre, %43 ], [ %.pre36, %_ZNSt6vectorIN3gmx9SelectionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i ]
   store ptr %42, ptr %15, align 8, !tbaa !52
-  %44 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %36, i64 %34
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %34
   br label %_ZNSt6vectorIN3gmx9SelectionESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN3gmx9SelectionESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIN3gmx9SelectionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %21
@@ -1443,7 +1442,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx24TrajectoryAnal
 
 .lr.ph.i.i.i:                                     ; preds = %29
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %12, i64 %33
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !78
   %37 = load ptr, ptr %34, align 8
@@ -3176,7 +3175,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit37, %74
   store ptr %23, ptr %0, align 8, !tbaa !65
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !68
-  %78 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %78, ptr %73, align 8, !tbaa !72
   ret void
 

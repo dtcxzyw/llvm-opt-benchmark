@@ -372,7 +372,7 @@ define hidden void @_RNCINvMsi_NtCs68wO5nsWeTG_5alloc3vecINtB8_3VecNtNtNtCseG2FY
   %4 = load ptr, ptr %3, align 8, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !5
-  %7 = getelementptr inbounds { i64, [3 x i64] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %4, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8
@@ -534,7 +534,7 @@ define hidden void @_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8It
   %4 = load ptr, ptr %3, align 8, !alias.scope !69, !noalias !72, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !69, !noalias !72, !noundef !5
-  %7 = getelementptr inbounds { i64, [3 x i64] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %4, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !69
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8, !alias.scope !69, !noalias !72
@@ -742,7 +742,7 @@ _RNvMNtCs68wO5nsWeTG_5alloc5boxedINtB2_3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4
   %47 = urem i64 %2, %16
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8, !nonnull !5, !noundef !5
-  %50 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [64 x i8], ptr %49, i64 %47
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   %51 = cmpxchg ptr %50, i32 0, i32 1 acquire monotonic, align 4, !noalias !126
   %52 = extractvalue { i32, i1 } %51, 1
@@ -792,7 +792,7 @@ _RNvMs5_NtNtCsapf13pIxsjn_3std4sync5mutexINtB5_5MutexINtNtCs68wO5nsWeTG_5alloc3v
   tail call void @llvm.assume(i1 %71)
   %72 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %73 = load ptr, ptr %72, align 8, !nonnull !5, !noundef !5
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %69
+  %74 = getelementptr inbounds [8 x i8], ptr %73, i64 %69
   %75 = load ptr, ptr %74, align 8, !nonnull !5, !align !19, !noundef !5
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %76, align 8
@@ -1138,7 +1138,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc5boxed3Box
 
 93:                                               ; preds = %89
   %94 = load ptr, ptr %81, align 8, !noalias !183, !nonnull !5, !noundef !5
-  %95 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %94, i64 %80
+  %95 = getelementptr inbounds [64 x i8], ptr %94, i64 %80
   call void @llvm.experimental.noalias.scope.decl(metadata !185)
   %96 = cmpxchg ptr %95, i32 0, i32 1 acquire monotonic, align 4, !noalias !188
   %97 = extractvalue { i32, i1 } %96, 1
@@ -1211,7 +1211,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc5boxed3Box
 121:                                              ; preds = %116, %110
   %122 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %123 = load ptr, ptr %122, align 8, !alias.scope !190, !noalias !193, !nonnull !5, !noundef !5
-  %124 = getelementptr inbounds ptr, ptr %123, i64 %113
+  %124 = getelementptr inbounds [8 x i8], ptr %123, i64 %113
   store ptr %.sroa.46.0.copyload.i, ptr %124, align 8, !noalias !193
   %125 = add i64 %113, 1
   store i64 %125, ptr %112, align 8, !alias.scope !190, !noalias !195
@@ -1392,7 +1392,7 @@ define void @_RNvXs1_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQNCINvNvNtNtNtN
   %5 = load ptr, ptr %4, align 8, !alias.scope !208, !noalias !209, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !208, !noalias !209, !noundef !5
-  %8 = getelementptr inbounds { i64, [3 x i64] }, ptr %5, i64 %7
+  %8 = getelementptr inbounds [32 x i8], ptr %5, i64 %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !208
   %9 = add i64 %7, 1
   store i64 %9, ptr %6, align 8, !alias.scope !208, !noalias !209
@@ -1410,7 +1410,7 @@ define void @_RNvXs1_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQQNCINvNvNtNtNt
   %6 = load ptr, ptr %5, align 8, !alias.scope !223, !noalias !224, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i64, ptr %7, align 8, !alias.scope !223, !noalias !224, !noundef !5
-  %9 = getelementptr inbounds { i64, [3 x i64] }, ptr %6, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr %6, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !227
   %10 = add i64 %8, 1
   store i64 %10, ptr %7, align 8, !alias.scope !223, !noalias !224

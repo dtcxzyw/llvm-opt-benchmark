@@ -3,8 +3,6 @@ source_filename = "bench/clamav/original/hostid_internal.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.device = type { ptr, [19 x i8] }
-
 ; Function Attrs: nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define noundef ptr @get_device_entry(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
@@ -22,7 +20,7 @@ define noundef ptr @get_device_entry(ptr noundef captures(address_is_null, ret: 
 
 .lr.ph:                                           ; preds = %.preheader56, %5
   %.03559 = phi i64 [ %6, %5 ], [ 0, %.preheader56 ]
-  %7 = getelementptr inbounds nuw %struct.device, ptr %0, i64 %.03559
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %.03559
   %8 = load ptr, ptr %7, align 8, !tbaa !7
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %2) #8
   %.not46 = icmp eq i32 %9, 0
@@ -42,7 +40,7 @@ define noundef ptr @get_device_entry(ptr noundef captures(address_is_null, ret: 
 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
   %.160 = phi i64 [ %16, %.lr.ph61 ], [ 0, %.preheader ]
-  %14 = getelementptr inbounds nuw %struct.device, ptr %0, i64 %.160
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %.160
   %15 = load ptr, ptr %14, align 8, !tbaa !7
   tail call void @free(ptr noundef %15) #10
   %16 = add nuw i64 %.160, 1
@@ -55,7 +53,7 @@ define noundef ptr @get_device_entry(ptr noundef captures(address_is_null, ret: 
   br label %34
 
 19:                                               ; preds = %.critedge
-  %20 = getelementptr inbounds nuw %struct.device, ptr %12, i64 %13
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   %21 = add i64 %13, 1
   store i64 %21, ptr %1, align 8, !tbaa !3
@@ -79,7 +77,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %19
 25:                                               ; preds = %.thread, %thread-pre-split
   %.255 = phi ptr [ %23, %.thread ], [ %.2, %thread-pre-split ]
   %26 = phi i64 [ 1, %.thread ], [ %24, %thread-pre-split ]
-  %27 = getelementptr %struct.device, ptr %.255, i64 %26
+  %27 = getelementptr [32 x i8], ptr %.255, i64 %26
   %28 = getelementptr i8, ptr %27, i64 -32
   %29 = load ptr, ptr %28, align 8, !tbaa !7
   %30 = icmp eq ptr %29, null

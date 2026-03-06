@@ -672,7 +672,7 @@ define internal fastcc noundef zeroext i1 @dissect_cbor_main_type(ptr noundef %0
 
 switch.lookup:                                    ; preds = %43
   %52 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_cbor_main_type.1, i64 %52
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_cbor_main_type.1, i64 %52
   %switch.load = load i32, ptr %switch.gep, align 4
   %53 = load i32, ptr @hf_cbor_type_uint, align 4
   %54 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %29, i32 noundef %53, ptr noundef %0, i32 noundef %46, i32 noundef %switch.load, i32 noundef 0, ptr noundef nonnull %10)
@@ -1159,7 +1159,7 @@ dissect_cbor_map.exit:                            ; preds = %229, %227, %249, %.
 
 switch.lookup167:                                 ; preds = %276
   %284 = zext nneg i8 %switch.tableidx166 to i64
-  %switch.gep168 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_cbor_main_type.1, i64 %284
+  %switch.gep168 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_cbor_main_type.1, i64 %284
   %switch.load169 = load i32, ptr %switch.gep168, align 4
   %285 = load i32, ptr @hf_cbor_type_tag, align 4
   %286 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %261, i32 noundef %285, ptr noundef %0, i32 noundef %278, i32 noundef %switch.load169, i32 noundef 0, ptr noundef nonnull %7)

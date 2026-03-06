@@ -157,7 +157,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %29 = phi i32 [ %24, %23 ], [ %.pre.i, %26 ]
   %30 = load ptr, ptr %2, align 8, !tbaa !23
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %31
   store ptr %.sroa.019.022, ptr %32, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %.sroa.520.023, ptr %.sroa.2.0..sroa_idx.i, align 1

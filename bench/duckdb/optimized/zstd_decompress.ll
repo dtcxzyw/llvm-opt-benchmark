@@ -472,10 +472,10 @@ define noundef i64 @_ZN11duckdb_zstd20ZSTD_frameHeaderSizeEPKvm(ptr noundef read
   %12 = xor i1 %11, true
   %13 = zext i1 %12 to i64
   %14 = zext nneg i32 %8 to i64
-  %15 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_did_fieldSizeE, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11duckdb_zstdL18ZSTD_did_fieldSizeE, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !57
   %17 = zext nneg i32 %9 to i64
-  %18 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !57
   %.not.i = icmp eq i32 %9, 0
   %20 = and i1 %11, %.not.i
@@ -579,10 +579,10 @@ _ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit: ;
   %35 = xor i1 %34, true
   %36 = zext i1 %35 to i64
   %37 = zext nneg i32 %31 to i64
-  %38 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_did_fieldSizeE, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11duckdb_zstdL18ZSTD_did_fieldSizeE, i64 %37
   %39 = load i64, ptr %38, align 8, !tbaa !57
   %40 = zext nneg i32 %32 to i64
-  %41 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !57
   %.not.i128 = icmp eq i32 %32, 0
   %43 = and i1 %34, %.not.i128
@@ -1383,10 +1383,10 @@ _ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit.i:
   %107 = xor i1 %106, true
   %108 = zext i1 %107 to i64
   %109 = zext nneg i32 %103 to i64
-  %110 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_did_fieldSizeE, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11duckdb_zstdL18ZSTD_did_fieldSizeE, i64 %109
   %111 = load i64, ptr %110, align 8, !tbaa !57
   %112 = zext nneg i32 %104 to i64
-  %113 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 %112
   %114 = load i64, ptr %113, align 8, !tbaa !57
   %.not.i.i75 = icmp eq i32 %104, 0
   %115 = and i1 %106, %.not.i.i75
@@ -1820,7 +1820,7 @@ define noundef range(i32 0, 6) i32 @_ZN11duckdb_zstd18ZSTD_nextInputTypeEPNS_11Z
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11duckdb_zstd18ZSTD_nextInputTypeEPNS_11ZSTD_DCtx_sE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN11duckdb_zstd18ZSTD_nextInputTypeEPNS_11ZSTD_DCtx_sE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -1923,10 +1923,10 @@ _ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit: ;
   %47 = xor i1 %46, true
   %48 = zext i1 %47 to i64
   %49 = zext nneg i32 %43 to i64
-  %50 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_did_fieldSizeE, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11duckdb_zstdL18ZSTD_did_fieldSizeE, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !57
   %52 = zext nneg i32 %44 to i64
-  %53 = getelementptr inbounds nuw i64, ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @_ZN11duckdb_zstdL18ZSTD_fcs_fieldSizeE, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !57
   %.not.i163 = icmp eq i32 %44, 0
   %55 = and i1 %46, %.not.i163
@@ -2315,7 +2315,7 @@ define internal fastcc noundef range(i64 -119, 1) i64 @_ZN11duckdb_zstdL22ZSTD_d
 29:                                               ; preds = %29, %21
   %.014.i.i = phi i64 [ %28, %21 ], [ %37, %29 ]
   %30 = load ptr, ptr %17, align 8, !tbaa !52
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %.014.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.014.i.i
   %32 = load ptr, ptr %31, align 8, !tbaa !125
   %33 = call noundef i32 @_ZN11duckdb_zstd24ZSTD_getDictID_fromDDictEPKNS_12ZSTD_DDict_sE(ptr noundef %32)
   %34 = icmp eq i32 %33, %23
@@ -2327,7 +2327,7 @@ define internal fastcc noundef range(i64 -119, 1) i64 @_ZN11duckdb_zstdL22ZSTD_d
 
 _ZN11duckdb_zstdL26ZSTD_DDictHashSet_getDDictEPNS_17ZSTD_DDictHashSetEj.exit.i: ; preds = %29
   %38 = load ptr, ptr %17, align 8, !tbaa !52
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.014.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.014.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !125
   %.not10.i = icmp eq ptr %40, null
   br i1 %.not10.i, label %_ZN11duckdb_zstdL26ZSTD_DCtx_selectFrameDDictEPNS_11ZSTD_DCtx_sE.exit, label %41
@@ -2583,7 +2583,7 @@ define noundef i64 @_ZN11duckdb_zstd17ZSTD_loadDEntropyEPNS_21ZSTD_entropyDTable
 
 .critedge95:                                      ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %.469106, i64 4
-  %70 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv
   store i32 %.469.val, ptr %70, align 4, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3
@@ -3628,7 +3628,7 @@ _ZN11duckdb_zstdL17ZSTD_customCallocEmNS_14ZSTD_customMemE.exit.i.i: ; preds = %
 
 .lr.ph.i.i:                                       ; preds = %48, %_ZN11duckdb_zstdL30ZSTD_DDictHashSet_emplaceDDictEPNS_17ZSTD_DDictHashSetEPKNS_12ZSTD_DDict_sE.exit.thread.i.i
   %.02342.i.i = phi i64 [ %78, %_ZN11duckdb_zstdL30ZSTD_DDictHashSet_emplaceDDictEPNS_17ZSTD_DDictHashSetEPKNS_12ZSTD_DDict_sE.exit.thread.i.i ], [ 0, %48 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %.02342.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.02342.i.i
   %51 = load ptr, ptr %50, align 8, !tbaa !125
   %.not26.i.i = icmp eq ptr %51, null
   br i1 %.not26.i.i, label %_ZN11duckdb_zstdL30ZSTD_DDictHashSet_emplaceDDictEPNS_17ZSTD_DDictHashSetEPKNS_12ZSTD_DDict_sE.exit.thread.i.i, label %52
@@ -3648,7 +3648,7 @@ _ZN11duckdb_zstdL17ZSTD_customCallocEmNS_14ZSTD_customMemE.exit.i.i: ; preds = %
 .preheader.i.i.i:                                 ; preds = %52
   %59 = and i64 %56, %54
   %60 = load ptr, ptr %19, align 8, !tbaa !52
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %59
   %62 = load ptr, ptr %61, align 8, !tbaa !125
   %.not26.i.i.i = icmp eq ptr %62, null
   br i1 %.not26.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
@@ -3662,7 +3662,7 @@ _ZN11duckdb_zstdL17ZSTD_customCallocEmNS_14ZSTD_customMemE.exit.i.i: ; preds = %
 
 66:                                               ; preds = %.lr.ph.i.i.i
   %67 = load ptr, ptr %19, align 8, !tbaa !52
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %.02127.i.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.02127.i.i.i
   store ptr %51, ptr %68, align 8, !tbaa !125
   br label %_ZN11duckdb_zstdL30ZSTD_DDictHashSet_emplaceDDictEPNS_17ZSTD_DDictHashSetEPKNS_12ZSTD_DDict_sE.exit.thread.i.i
 
@@ -3670,7 +3670,7 @@ _ZN11duckdb_zstdL17ZSTD_customCallocEmNS_14ZSTD_customMemE.exit.i.i: ; preds = %
   %70 = and i64 %.02127.i.i.i, %56
   %71 = add i64 %70, 1
   %72 = load ptr, ptr %19, align 8, !tbaa !52
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %71
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %71
   %74 = load ptr, ptr %73, align 8, !tbaa !125
   %.not.i31.i.i = icmp eq ptr %74, null
   br i1 %.not.i31.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !131
@@ -3683,7 +3683,7 @@ _ZN11duckdb_zstdL17ZSTD_customCallocEmNS_14ZSTD_customMemE.exit.i.i: ; preds = %
   %75 = phi i64 [ %57, %.preheader.i.i.i ], [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ]
   %.021.lcssa.i.i.i = phi i64 [ %59, %.preheader.i.i.i ], [ %71, %._crit_edge.loopexit.i.i.i ]
   %.lcssa25.i.i.i = phi ptr [ %60, %.preheader.i.i.i ], [ %72, %._crit_edge.loopexit.i.i.i ]
-  %76 = getelementptr inbounds nuw ptr, ptr %.lcssa25.i.i.i, i64 %.021.lcssa.i.i.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %.lcssa25.i.i.i, i64 %.021.lcssa.i.i.i
   store ptr %51, ptr %76, align 8, !tbaa !125
   %77 = add i64 %75, 1
   store i64 %77, ptr %38, align 8, !tbaa !130
@@ -3728,7 +3728,7 @@ _ZN11duckdb_zstdL24ZSTD_DDictHashSet_expandEPNS_17ZSTD_DDictHashSetENS_14ZSTD_cu
 .preheader.i.i:                                   ; preds = %_ZN11duckdb_zstdL24ZSTD_DDictHashSet_expandEPNS_17ZSTD_DDictHashSetENS_14ZSTD_customMemE.exit.thread.i
   %90 = and i64 %88, %86
   %91 = load ptr, ptr %84, align 8, !tbaa !52
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %90
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %90
   %93 = load ptr, ptr %92, align 8, !tbaa !125
   %.not26.i16.i = icmp eq ptr %93, null
   br i1 %.not26.i16.i, label %._crit_edge.i20.i, label %.lr.ph.i17.i
@@ -3742,7 +3742,7 @@ _ZN11duckdb_zstdL24ZSTD_DDictHashSet_expandEPNS_17ZSTD_DDictHashSetENS_14ZSTD_cu
 
 97:                                               ; preds = %.lr.ph.i17.i
   %98 = load ptr, ptr %84, align 8, !tbaa !52
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %.02127.i.i
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %.02127.i.i
   store ptr %1, ptr %99, align 8, !tbaa !125
   br label %_ZN11duckdb_zstdL26ZSTD_DDictHashSet_addDDictEPNS_17ZSTD_DDictHashSetEPKNS_12ZSTD_DDict_sENS_14ZSTD_customMemE.exit.thread
 
@@ -3750,7 +3750,7 @@ _ZN11duckdb_zstdL24ZSTD_DDictHashSet_expandEPNS_17ZSTD_DDictHashSetENS_14ZSTD_cu
   %101 = and i64 %.02127.i.i, %88
   %102 = add i64 %101, 1
   %103 = load ptr, ptr %84, align 8, !tbaa !52
-  %104 = getelementptr inbounds nuw ptr, ptr %103, i64 %102
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %102
   %105 = load ptr, ptr %104, align 8, !tbaa !125
   %.not.i18.i = icmp eq ptr %105, null
   br i1 %.not.i18.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i17.i, !llvm.loop !131
@@ -3763,7 +3763,7 @@ _ZN11duckdb_zstdL24ZSTD_DDictHashSet_expandEPNS_17ZSTD_DDictHashSetENS_14ZSTD_cu
   %106 = phi i64 [ %89, %.preheader.i.i ], [ %.pre.i19.i, %._crit_edge.loopexit.i.i ]
   %.021.lcssa.i.i = phi i64 [ %90, %.preheader.i.i ], [ %102, %._crit_edge.loopexit.i.i ]
   %.lcssa25.i.i = phi ptr [ %91, %.preheader.i.i ], [ %103, %._crit_edge.loopexit.i.i ]
-  %107 = getelementptr inbounds nuw ptr, ptr %.lcssa25.i.i, i64 %.021.lcssa.i.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %.lcssa25.i.i, i64 %.021.lcssa.i.i
   store ptr %1, ptr %107, align 8, !tbaa !125
   %108 = add i64 %106, 1
   store i64 %108, ptr %83, align 8, !tbaa !130
@@ -4294,7 +4294,7 @@ _ZN11duckdb_zstdL19ZSTD_checkOutBufferEPKNS_11ZSTD_DCtx_sEPKNS_16ZSTD_outBuffer_
 104:                                              ; preds = %104, %97
   %.014.i.i = phi i64 [ %103, %97 ], [ %112, %104 ]
   %105 = load ptr, ptr %94, align 8, !tbaa !52
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %.014.i.i
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %.014.i.i
   %107 = load ptr, ptr %106, align 8, !tbaa !125
   %108 = call noundef i32 @_ZN11duckdb_zstd24ZSTD_getDictID_fromDDictEPKNS_12ZSTD_DDict_sE(ptr noundef %107)
   %109 = icmp eq i32 %108, %98
@@ -4306,7 +4306,7 @@ _ZN11duckdb_zstdL19ZSTD_checkOutBufferEPKNS_11ZSTD_DCtx_sEPKNS_16ZSTD_outBuffer_
 
 _ZN11duckdb_zstdL26ZSTD_DDictHashSet_getDDictEPNS_17ZSTD_DDictHashSetEj.exit.i: ; preds = %104
   %113 = load ptr, ptr %94, align 8, !tbaa !52
-  %114 = getelementptr inbounds nuw ptr, ptr %113, i64 %.014.i.i
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %.014.i.i
   %115 = load ptr, ptr %114, align 8, !tbaa !125
   %.not10.i = icmp eq ptr %115, null
   br i1 %.not10.i, label %_ZN11duckdb_zstdL26ZSTD_DCtx_selectFrameDDictEPNS_11ZSTD_DCtx_sE.exit, label %116

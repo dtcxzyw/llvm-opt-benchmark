@@ -14,7 +14,7 @@ define void @_Z10rangeArrayPii(ptr noundef writeonly captures(none) %0, i32 noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %5, ptr %4, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -43,24 +43,24 @@ define void @_Z13insertionSortPfPiiii(ptr noundef captures(none) %0, ptr noundef
   br i1 %8, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader47
-  %.phi.trans.insert = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv
   %.pre = load float, ptr %.phi.trans.insert, align 4, !tbaa !10
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv60 = phi i64 [ %indvars.iv, %.lr.ph.preheader ], [ %indvars.iv.next61, %12 ]
   %indvars.iv.next61 = add nsw i64 %indvars.iv60, -1
-  %9 = getelementptr inbounds float, ptr %0, i64 %indvars.iv.next61
+  %9 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv.next61
   %10 = load float, ptr %9, align 4, !tbaa !10
   %11 = fcmp ogt float %10, %.pre
   br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds float, ptr %0, i64 %indvars.iv60
+  %13 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv60
   store float %10, ptr %13, align 4, !tbaa !10
   store float %.pre, ptr %9, align 4, !tbaa !10
-  %14 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv60
-  %15 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next61
+  %14 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv60
+  %15 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv.next61
   %16 = load i32, ptr %14, align 4, !tbaa !4
   %17 = load i32, ptr %15, align 4, !tbaa !4
   store i32 %17, ptr %14, align 4, !tbaa !4
@@ -89,24 +89,24 @@ define void @_Z13insertionSortPfPiiii(ptr noundef captures(none) %0, ptr noundef
   br i1 %21, label %.lr.ph55.preheader, label %.critedge2
 
 .lr.ph55.preheader:                               ; preds = %.preheader
-  %.phi.trans.insert70 = getelementptr inbounds float, ptr %0, i64 %indvars.iv64
+  %.phi.trans.insert70 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv64
   %.pre71 = load float, ptr %.phi.trans.insert70, align 4, !tbaa !10
   br label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %.lr.ph55.preheader, %25
   %indvars.iv66 = phi i64 [ %indvars.iv64, %.lr.ph55.preheader ], [ %indvars.iv.next67, %25 ]
   %indvars.iv.next67 = add nsw i64 %indvars.iv66, -1
-  %22 = getelementptr inbounds float, ptr %0, i64 %indvars.iv.next67
+  %22 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv.next67
   %23 = load float, ptr %22, align 4, !tbaa !10
   %24 = fcmp olt float %23, %.pre71
   br i1 %24, label %25, label %.critedge2
 
 25:                                               ; preds = %.lr.ph55
-  %26 = getelementptr inbounds float, ptr %0, i64 %indvars.iv66
+  %26 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv66
   store float %23, ptr %26, align 4, !tbaa !10
   store float %.pre71, ptr %22, align 4, !tbaa !10
-  %27 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv66
-  %28 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next67
+  %27 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv66
+  %28 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv.next67
   %29 = load i32, ptr %27, align 4, !tbaa !4
   %30 = load i32, ptr %28, align 4, !tbaa !4
   store i32 %30, ptr %27, align 4, !tbaa !4
@@ -144,7 +144,7 @@ define noundef i32 @_Z12BinarySearchPKfiifi(ptr noundef readonly captures(none) 
   %11 = add nsw i32 %.032, %.02331
   %12 = ashr i32 %11, 1
   %13 = sext i32 %12 to i64
-  %14 = getelementptr float, ptr %0, i64 %13
+  %14 = getelementptr [4 x i8], ptr %0, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load float, ptr %15, align 4, !tbaa !10
   %17 = fcmp olt float %3, %16
@@ -160,7 +160,7 @@ define noundef i32 @_Z12BinarySearchPKfiifi(ptr noundef readonly captures(none) 
   %20 = add nsw i32 %.230, %.22529
   %21 = ashr i32 %20, 1
   %22 = sext i32 %21 to i64
-  %23 = getelementptr float, ptr %0, i64 %22
+  %23 = getelementptr [4 x i8], ptr %0, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -4
   %25 = load float, ptr %24, align 4, !tbaa !10
   %26 = fcmp ogt float %3, %25
@@ -197,24 +197,24 @@ define noundef i32 @_Z15start_binsearchPfPiiifi(ptr noundef captures(none) %0, p
   br i1 %10, label %.lr.ph.preheader.i, label %.critedge.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader47.i
-  %.phi.trans.insert.i = getelementptr inbounds float, ptr %0, i64 %indvars.iv.i
+  %.phi.trans.insert.i = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv.i
   %.pre.i = load float, ptr %.phi.trans.insert.i, align 4, !tbaa !10
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.preheader.i
   %indvars.iv60.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next61.i, %14 ]
   %indvars.iv.next61.i = add nsw i64 %indvars.iv60.i, -1
-  %11 = getelementptr inbounds float, ptr %0, i64 %indvars.iv.next61.i
+  %11 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv.next61.i
   %12 = load float, ptr %11, align 4, !tbaa !10
   %13 = fcmp ogt float %12, %.pre.i
   br i1 %13, label %14, label %.critedge.i
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds float, ptr %0, i64 %indvars.iv60.i
+  %15 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv60.i
   store float %12, ptr %15, align 4, !tbaa !10
   store float %.pre.i, ptr %11, align 4, !tbaa !10
-  %16 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv60.i
-  %17 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next61.i
+  %16 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv60.i
+  %17 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv.next61.i
   %18 = load i32, ptr %16, align 4, !tbaa !4
   %19 = load i32, ptr %17, align 4, !tbaa !4
   store i32 %19, ptr %16, align 4, !tbaa !4
@@ -244,24 +244,24 @@ define noundef i32 @_Z15start_binsearchPfPiiifi(ptr noundef captures(none) %0, p
   br i1 %24, label %.lr.ph55.preheader.i, label %.critedge2.i
 
 .lr.ph55.preheader.i:                             ; preds = %.preheader.i
-  %.phi.trans.insert70.i = getelementptr inbounds float, ptr %0, i64 %indvars.iv64.i
+  %.phi.trans.insert70.i = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv64.i
   %.pre71.i = load float, ptr %.phi.trans.insert70.i, align 4, !tbaa !10
   br label %.lr.ph55.i
 
 .lr.ph55.i:                                       ; preds = %28, %.lr.ph55.preheader.i
   %indvars.iv66.i = phi i64 [ %indvars.iv64.i, %.lr.ph55.preheader.i ], [ %indvars.iv.next67.i, %28 ]
   %indvars.iv.next67.i = add nsw i64 %indvars.iv66.i, -1
-  %25 = getelementptr inbounds float, ptr %0, i64 %indvars.iv.next67.i
+  %25 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv.next67.i
   %26 = load float, ptr %25, align 4, !tbaa !10
   %27 = fcmp olt float %26, %.pre71.i
   br i1 %27, label %28, label %.critedge2.i
 
 28:                                               ; preds = %.lr.ph55.i
-  %29 = getelementptr inbounds float, ptr %0, i64 %indvars.iv66.i
+  %29 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv66.i
   store float %26, ptr %29, align 4, !tbaa !10
   store float %.pre71.i, ptr %25, align 4, !tbaa !10
-  %30 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv66.i
-  %31 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next67.i
+  %30 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv66.i
+  %31 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv.next67.i
   %32 = load i32, ptr %30, align 4, !tbaa !4
   %33 = load i32, ptr %31, align 4, !tbaa !4
   store i32 %33, ptr %30, align 4, !tbaa !4
@@ -294,7 +294,7 @@ _Z13insertionSortPfPiiii.exit:                    ; preds = %.critedge2.i, %.loo
   %39 = add nsw i32 %.02331.i, %.032.i
   %40 = ashr i32 %39, 1
   %41 = sext i32 %40 to i64
-  %42 = getelementptr float, ptr %0, i64 %41
+  %42 = getelementptr [4 x i8], ptr %0, i64 %41
   %43 = getelementptr i8, ptr %42, i64 -4
   %44 = load float, ptr %43, align 4, !tbaa !10
   %45 = fcmp olt float %4, %44
@@ -310,7 +310,7 @@ _Z13insertionSortPfPiiii.exit:                    ; preds = %.critedge2.i, %.loo
   %48 = add nsw i32 %.22529.i, %.230.i
   %49 = ashr i32 %48, 1
   %50 = sext i32 %49 to i64
-  %51 = getelementptr float, ptr %0, i64 %50
+  %51 = getelementptr [4 x i8], ptr %0, i64 %50
   %52 = getelementptr i8, ptr %51, i64 -4
   %53 = load float, ptr %52, align 4, !tbaa !10
   %54 = fcmp ogt float %4, %53

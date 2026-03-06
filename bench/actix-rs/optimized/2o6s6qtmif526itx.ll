@@ -179,12 +179,12 @@ define hidden void @"_ZN122_$LT$alloc..collections..vec_deque..into_iter..IntoIt
   %.sroa.11.0.i = select i1 %.not.i.i, i64 %21, i64 0
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !14, !noalias !17, !nonnull !10, !noundef !10
-  %24 = getelementptr inbounds { { ptr, [4 x i64] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %23, i64 %.sroa.5.0.i
+  %24 = getelementptr inbounds [72 x i8], ptr %23, i64 %.sroa.5.0.i
   %25 = icmp eq i64 %.0.i.i.i, %.sroa.5.0.i
   br i1 %25, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc934e8d40f3a41a6E.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %11
-  %26 = getelementptr inbounds { { ptr, [4 x i64] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %23, i64 %.0.i.i.i
+  %26 = getelementptr inbounds [72 x i8], ptr %23, i64 %.0.i.i.i
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !noalias !26, !nonnull !10, !align !12, !noundef !10
   br label %.lr.ph.i
 
@@ -306,12 +306,12 @@ define hidden void @"_ZN122_$LT$alloc..collections..vec_deque..into_iter..IntoIt
   %.sroa.11.0.i = select i1 %.not.i.i, i64 %21, i64 0
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !76, !noalias !79, !nonnull !10, !noundef !10
-  %24 = getelementptr inbounds { { ptr, [4 x i64] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %23, i64 %.sroa.5.0.i
+  %24 = getelementptr inbounds [72 x i8], ptr %23, i64 %.sroa.5.0.i
   %25 = icmp eq i64 %.0.i.i.i, %.sroa.5.0.i
   br i1 %25, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha9bf6c45d52cfac4E.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %11
-  %26 = getelementptr inbounds { { ptr, [4 x i64] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } } }, ptr %23, i64 %.0.i.i.i
+  %26 = getelementptr inbounds [72 x i8], ptr %23, i64 %.0.i.i.i
   %.val.i.i.i.i = load ptr, ptr %1, align 8, !noalias !88, !nonnull !10, !align !12, !noundef !10
   br label %.lr.ph.i
 

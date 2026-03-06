@@ -80,12 +80,12 @@ define internal void @horiz_filter(ptr noundef writeonly captures(none) %0, i64 
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %12 ]
-  %50 = getelementptr i16, ptr %.01321, i64 %indvars.iv
+  %50 = getelementptr [2 x i8], ptr %.01321, i64 %indvars.iv
   %51 = getelementptr i8, ptr %50, i64 -2
   %52 = load i16, ptr %51, align 2, !tbaa !11
   %53 = sext i16 %52 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %54 = getelementptr inbounds nuw i16, ptr %.01321, i64 %indvars.iv.next
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %.01321, i64 %indvars.iv.next
   %55 = load i16, ptr %54, align 2, !tbaa !11
   %56 = sext i16 %55 to i32
   %57 = sub nsw i32 %53, %56
@@ -94,7 +94,7 @@ define internal void @horiz_filter(ptr noundef writeonly captures(none) %0, i64 
   %60 = ashr i32 %59, 16
   %61 = load i16, ptr %50, align 2, !tbaa !11
   %62 = sext i16 %61 to i32
-  %63 = getelementptr inbounds nuw i16, ptr %.01420, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %.01420, i64 %indvars.iv
   %64 = load i16, ptr %63, align 2, !tbaa !11
   %65 = sext i16 %64 to i32
   %66 = add nsw i32 %65, %62
@@ -128,7 +128,7 @@ define internal void @horiz_filter(ptr noundef writeonly captures(none) %0, i64 
 filter.exit:                                      ; preds = %.lr.ph, %12
   %.0.i.lcssa = phi i32 [ 1, %12 ], [ %10, %.lr.ph ]
   %86 = zext nneg i32 %.0.i.lcssa to i64
-  %87 = getelementptr i16, ptr %.01321, i64 %86
+  %87 = getelementptr [2 x i8], ptr %.01321, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !11
   %89 = sext i16 %88 to i32
   %90 = mul nsw i32 %89, 5
@@ -144,14 +144,14 @@ filter.exit:                                      ; preds = %.lr.ph, %12
   %100 = shl i32 %99, 13
   %101 = add i32 %100, 32768
   %102 = ashr i32 %101, 16
-  %103 = getelementptr inbounds nuw i16, ptr %.01420, i64 %86
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %.01420, i64 %86
   %104 = load i16, ptr %103, align 2, !tbaa !11
   %105 = sext i16 %104 to i32
   %106 = add nsw i32 %102, %105
   %107 = lshr i32 %106, 1
   %108 = shl nuw nsw i32 %.0.i.lcssa, 1
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds nuw i16, ptr %.01222, i64 %109
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %.01222, i64 %109
   %storemerge138.i = trunc i32 %107 to i16
   store i16 %storemerge138.i, ptr %110, align 2, !tbaa !11
   %111 = load i16, ptr %87, align 2, !tbaa !11
@@ -174,8 +174,8 @@ filter.exit:                                      ; preds = %.lr.ph, %12
   %128 = getelementptr inbounds nuw i8, ptr %110, i64 2
   %storemerge141.i = trunc i32 %127 to i16
   store i16 %storemerge141.i, ptr %128, align 2, !tbaa !11
-  %129 = getelementptr inbounds i16, ptr %.01321, i64 %3
-  %130 = getelementptr inbounds i16, ptr %.01420, i64 %5
+  %129 = getelementptr inbounds [2 x i8], ptr %.01321, i64 %3
+  %130 = getelementptr inbounds [2 x i8], ptr %.01420, i64 %5
   %131 = getelementptr inbounds i8, ptr %.01222, i64 %.idx
   %132 = add nuw nsw i32 %.023, 1
   %exitcond27.not = icmp eq i32 %132, %7
@@ -205,7 +205,7 @@ define internal void @vert_filter(ptr noundef writeonly captures(none) %0, i64 n
   %13 = load i16, ptr %.01321, align 2, !tbaa !11
   %14 = sext i16 %13 to i32
   %15 = mul nsw i32 %14, 11
-  %16 = getelementptr inbounds i16, ptr %.01321, i64 %3
+  %16 = getelementptr inbounds [2 x i8], ptr %.01321, i64 %3
   %17 = load i16, ptr %16, align 2, !tbaa !11
   %18 = sext i16 %17 to i32
   %19 = shl nsw i32 %18, 2
@@ -240,7 +240,7 @@ define internal void @vert_filter(ptr noundef writeonly captures(none) %0, i64 n
   %46 = sext i16 %45 to i32
   %47 = sub nsw i32 %44, %46
   %48 = lshr i32 %47, 1
-  %49 = getelementptr inbounds i16, ptr %.01222, i64 %1
+  %49 = getelementptr inbounds [2 x i8], ptr %.01222, i64 %1
   %storemerge135.i = trunc i32 %48 to i16
   store i16 %storemerge135.i, ptr %49, align 2, !tbaa !11
   br i1 %11, label %.lr.ph, label %filter.exit
@@ -249,12 +249,12 @@ define internal void @vert_filter(ptr noundef writeonly captures(none) %0, i64 n
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %12 ]
   %50 = add nsw i64 %indvars.iv, -1
   %51 = mul nsw i64 %3, %50
-  %52 = getelementptr inbounds i16, ptr %.01321, i64 %51
+  %52 = getelementptr inbounds [2 x i8], ptr %.01321, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !11
   %54 = sext i16 %53 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = mul nsw i64 %3, %indvars.iv.next
-  %56 = getelementptr inbounds i16, ptr %.01321, i64 %55
+  %56 = getelementptr inbounds [2 x i8], ptr %.01321, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !11
   %58 = sext i16 %57 to i32
   %59 = sub nsw i32 %54, %58
@@ -262,11 +262,11 @@ define internal void @vert_filter(ptr noundef writeonly captures(none) %0, i64 n
   %61 = add nsw i32 %60, 32768
   %62 = ashr i32 %61, 16
   %63 = mul nsw i64 %3, %indvars.iv
-  %64 = getelementptr inbounds i16, ptr %.01321, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr %.01321, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !11
   %66 = sext i16 %65 to i32
   %67 = mul nsw i64 %5, %indvars.iv
-  %68 = getelementptr inbounds i16, ptr %.01420, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %.01420, i64 %67
   %69 = load i16, ptr %68, align 2, !tbaa !11
   %70 = sext i16 %69 to i32
   %71 = add nsw i32 %70, %66
@@ -274,7 +274,7 @@ define internal void @vert_filter(ptr noundef writeonly captures(none) %0, i64 n
   %73 = lshr i32 %72, 1
   %74 = shl nuw nsw i64 %indvars.iv, 1
   %75 = mul nsw i64 %1, %74
-  %76 = getelementptr inbounds i16, ptr %.01222, i64 %75
+  %76 = getelementptr inbounds [2 x i8], ptr %.01222, i64 %75
   %storemerge144.i = trunc i32 %73 to i16
   store i16 %storemerge144.i, ptr %76, align 2, !tbaa !11
   %77 = load i16, ptr %56, align 2, !tbaa !11
@@ -294,7 +294,7 @@ define internal void @vert_filter(ptr noundef writeonly captures(none) %0, i64 n
   %91 = lshr i32 %90, 1
   %92 = or disjoint i64 %74, 1
   %93 = mul nsw i64 %1, %92
-  %94 = getelementptr inbounds i16, ptr %.01222, i64 %93
+  %94 = getelementptr inbounds [2 x i8], ptr %.01222, i64 %93
   %storemerge147.i = trunc i32 %91 to i16
   store i16 %storemerge147.i, ptr %94, align 2, !tbaa !11
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -304,14 +304,14 @@ filter.exit:                                      ; preds = %.lr.ph, %12
   %.0.i.lcssa = phi i32 [ 1, %12 ], [ %10, %.lr.ph ]
   %95 = zext nneg i32 %.0.i.lcssa to i64
   %96 = mul nsw i64 %3, %95
-  %97 = getelementptr inbounds i16, ptr %.01321, i64 %96
+  %97 = getelementptr inbounds [2 x i8], ptr %.01321, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !11
   %99 = sext i16 %98 to i32
   %100 = mul nsw i32 %99, 5
   %101 = add nsw i32 %.0.i.lcssa, -1
   %102 = zext nneg i32 %101 to i64
   %103 = mul nsw i64 %3, %102
-  %104 = getelementptr inbounds i16, ptr %.01321, i64 %103
+  %104 = getelementptr inbounds [2 x i8], ptr %.01321, i64 %103
   %105 = load i16, ptr %104, align 2, !tbaa !11
   %106 = sext i16 %105 to i32
   %107 = shl nsw i32 %106, 2
@@ -319,7 +319,7 @@ filter.exit:                                      ; preds = %.lr.ph, %12
   %109 = add nsw i32 %.0.i.lcssa, -2
   %110 = sext i32 %109 to i64
   %111 = mul nsw i64 %3, %110
-  %112 = getelementptr inbounds i16, ptr %.01321, i64 %111
+  %112 = getelementptr inbounds [2 x i8], ptr %.01321, i64 %111
   %113 = load i16, ptr %112, align 2, !tbaa !11
   %114 = sext i16 %113 to i32
   %115 = sub nsw i32 %108, %114
@@ -327,7 +327,7 @@ filter.exit:                                      ; preds = %.lr.ph, %12
   %117 = add i32 %116, 32768
   %118 = ashr i32 %117, 16
   %119 = mul nsw i64 %5, %95
-  %120 = getelementptr inbounds i16, ptr %.01420, i64 %119
+  %120 = getelementptr inbounds [2 x i8], ptr %.01420, i64 %119
   %121 = load i16, ptr %120, align 2, !tbaa !11
   %122 = sext i16 %121 to i32
   %123 = add nsw i32 %118, %122
@@ -335,7 +335,7 @@ filter.exit:                                      ; preds = %.lr.ph, %12
   %125 = shl nuw nsw i32 %.0.i.lcssa, 1
   %126 = zext nneg i32 %125 to i64
   %127 = mul nsw i64 %1, %126
-  %128 = getelementptr inbounds i16, ptr %.01222, i64 %127
+  %128 = getelementptr inbounds [2 x i8], ptr %.01222, i64 %127
   %storemerge138.i = trunc i32 %124 to i16
   store i16 %storemerge138.i, ptr %128, align 2, !tbaa !11
   %129 = load i16, ptr %97, align 2, !tbaa !11
@@ -358,7 +358,7 @@ filter.exit:                                      ; preds = %.lr.ph, %12
   %146 = or disjoint i32 %125, 1
   %147 = zext nneg i32 %146 to i64
   %148 = mul nsw i64 %1, %147
-  %149 = getelementptr inbounds i16, ptr %.01222, i64 %148
+  %149 = getelementptr inbounds [2 x i8], ptr %.01222, i64 %148
   %storemerge141.i = trunc i32 %145 to i16
   store i16 %storemerge141.i, ptr %149, align 2, !tbaa !11
   %150 = getelementptr inbounds nuw i8, ptr %.01321, i64 2
@@ -464,12 +464,12 @@ define internal void @horiz_filter_clip_bayer(ptr noundef writeonly captures(non
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %indvars.iv35 = phi i64 [ 1, %.lr.ph.split.us.preheader ], [ %indvars.iv.next36, %.lr.ph.split.us ]
-  %59 = getelementptr i16, ptr %1, i64 %indvars.iv35
+  %59 = getelementptr [2 x i8], ptr %1, i64 %indvars.iv35
   %60 = getelementptr i8, ptr %59, i64 -2
   %61 = load i16, ptr %60, align 2, !tbaa !11
   %62 = sext i16 %61 to i32
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %63 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.next36
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv.next36
   %64 = load i16, ptr %63, align 2, !tbaa !11
   %65 = sext i16 %64 to i32
   %66 = sub nsw i32 %62, %65
@@ -478,7 +478,7 @@ define internal void @horiz_filter_clip_bayer(ptr noundef writeonly captures(non
   %69 = ashr i32 %68, 16
   %70 = load i16, ptr %59, align 2, !tbaa !11
   %71 = sext i16 %70 to i32
-  %72 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv35
   %73 = load i16, ptr %72, align 2, !tbaa !11
   %74 = sext i16 %73 to i32
   %75 = add nsw i32 %74, %71
@@ -487,7 +487,7 @@ define internal void @horiz_filter_clip_bayer(ptr noundef writeonly captures(non
   %78 = trunc nuw nsw i64 %indvars.iv35 to i32
   %79 = shl i32 %78, 2
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds nuw i16, ptr %0, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %80
   %storemerge144.i.us = trunc i32 %77 to i16
   store i16 %storemerge144.i.us, ptr %81, align 2, !tbaa !11
   %82 = load i16, ptr %63, align 2, !tbaa !11
@@ -507,7 +507,7 @@ define internal void @horiz_filter_clip_bayer(ptr noundef writeonly captures(non
   %96 = lshr i32 %95, 1
   %97 = or disjoint i32 %79, 2
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw i16, ptr %0, i64 %98
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %98
   %storemerge147.i.us = trunc i32 %96 to i16
   store i16 %storemerge147.i.us, ptr %99, align 2, !tbaa !11
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
@@ -515,12 +515,12 @@ define internal void @horiz_filter_clip_bayer(ptr noundef writeonly captures(non
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %100 = getelementptr i16, ptr %1, i64 %indvars.iv
+  %100 = getelementptr [2 x i8], ptr %1, i64 %indvars.iv
   %101 = getelementptr i8, ptr %100, i64 -2
   %102 = load i16, ptr %101, align 2, !tbaa !11
   %103 = sext i16 %102 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %104 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.next
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv.next
   %105 = load i16, ptr %104, align 2, !tbaa !11
   %106 = sext i16 %105 to i32
   %107 = sub nsw i32 %103, %106
@@ -529,7 +529,7 @@ define internal void @horiz_filter_clip_bayer(ptr noundef writeonly captures(non
   %110 = ashr i32 %109, 16
   %111 = load i16, ptr %100, align 2, !tbaa !11
   %112 = sext i16 %111 to i32
-  %113 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %114 = load i16, ptr %113, align 2, !tbaa !11
   %115 = sext i16 %114 to i32
   %116 = add nsw i32 %115, %112
@@ -537,7 +537,7 @@ define internal void @horiz_filter_clip_bayer(ptr noundef writeonly captures(non
   %118 = trunc nuw nsw i64 %indvars.iv to i32
   %119 = shl i32 %118, 2
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw i16, ptr %0, i64 %120
+  %121 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %120
   %122 = shl i32 %117, 15
   %123 = ashr i32 %122, 16
   %124 = and i32 %123, %notmask.i642
@@ -563,7 +563,7 @@ define internal void @horiz_filter_clip_bayer(ptr noundef writeonly captures(non
   %139 = add nsw i32 %138, %133
   %140 = or disjoint i32 %119, 2
   %141 = zext i32 %140 to i64
-  %142 = getelementptr inbounds nuw i16, ptr %0, i64 %141
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %141
   %143 = shl i32 %139, 15
   %144 = ashr i32 %143, 16
   %145 = and i32 %144, %notmask.i642
@@ -579,7 +579,7 @@ define internal void @horiz_filter_clip_bayer(ptr noundef writeonly captures(non
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread, %49
   %.0.i.lcssa = phi i32 [ %50, %.lr.ph.split.us ], [ 1, %.thread ], [ 1, %49 ], [ %56, %.lr.ph.split ]
   %147 = zext nneg i32 %.0.i.lcssa to i64
-  %148 = getelementptr i16, ptr %1, i64 %147
+  %148 = getelementptr [2 x i8], ptr %1, i64 %147
   %149 = load i16, ptr %148, align 2, !tbaa !11
   %150 = sext i16 %149 to i32
   %151 = mul nsw i32 %150, 5
@@ -595,14 +595,14 @@ define internal void @horiz_filter_clip_bayer(ptr noundef writeonly captures(non
   %161 = shl i32 %160, 13
   %162 = add i32 %161, 32768
   %163 = ashr i32 %162, 16
-  %164 = getelementptr inbounds nuw i16, ptr %2, i64 %147
+  %164 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %147
   %165 = load i16, ptr %164, align 2, !tbaa !11
   %166 = sext i16 %165 to i32
   %167 = add nsw i32 %163, %166
   %168 = lshr i32 %167, 1
   %169 = shl i32 %.0.i.lcssa, 2
   %170 = zext i32 %169 to i64
-  %171 = getelementptr inbounds nuw i16, ptr %0, i64 %170
+  %171 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %170
   br i1 %.not.i, label %177, label %172
 
 172:                                              ; preds = %._crit_edge
@@ -656,7 +656,7 @@ filter.exit:                                      ; preds = %177, %195
   %storemerge141.in.i = phi i32 [ %.0.i13, %195 ], [ %194, %177 ]
   %200 = or disjoint i32 %169, 2
   %201 = zext i32 %200 to i64
-  %202 = getelementptr inbounds nuw i16, ptr %0, i64 %201
+  %202 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %201
   %storemerge141.i = trunc i32 %storemerge141.in.i to i16
   store i16 %storemerge141.i, ptr %202, align 2, !tbaa !11
   ret void
@@ -757,12 +757,12 @@ define internal void @horiz_filter_clip(ptr noundef writeonly captures(none) ini
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %indvars.iv35 = phi i64 [ 1, %.lr.ph.split.us.preheader ], [ %indvars.iv.next36, %.lr.ph.split.us ]
-  %59 = getelementptr i16, ptr %1, i64 %indvars.iv35
+  %59 = getelementptr [2 x i8], ptr %1, i64 %indvars.iv35
   %60 = getelementptr i8, ptr %59, i64 -2
   %61 = load i16, ptr %60, align 2, !tbaa !11
   %62 = sext i16 %61 to i32
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %63 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.next36
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv.next36
   %64 = load i16, ptr %63, align 2, !tbaa !11
   %65 = sext i16 %64 to i32
   %66 = sub nsw i32 %62, %65
@@ -771,7 +771,7 @@ define internal void @horiz_filter_clip(ptr noundef writeonly captures(none) ini
   %69 = ashr i32 %68, 16
   %70 = load i16, ptr %59, align 2, !tbaa !11
   %71 = sext i16 %70 to i32
-  %72 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv35
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv35
   %73 = load i16, ptr %72, align 2, !tbaa !11
   %74 = sext i16 %73 to i32
   %75 = add nsw i32 %74, %71
@@ -804,12 +804,12 @@ define internal void @horiz_filter_clip(ptr noundef writeonly captures(none) ini
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %95 = getelementptr i16, ptr %1, i64 %indvars.iv
+  %95 = getelementptr [2 x i8], ptr %1, i64 %indvars.iv
   %96 = getelementptr i8, ptr %95, i64 -2
   %97 = load i16, ptr %96, align 2, !tbaa !11
   %98 = sext i16 %97 to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %99 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.next
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv.next
   %100 = load i16, ptr %99, align 2, !tbaa !11
   %101 = sext i16 %100 to i32
   %102 = sub nsw i32 %98, %101
@@ -818,7 +818,7 @@ define internal void @horiz_filter_clip(ptr noundef writeonly captures(none) ini
   %105 = ashr i32 %104, 16
   %106 = load i16, ptr %95, align 2, !tbaa !11
   %107 = sext i16 %106 to i32
-  %108 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   %109 = load i16, ptr %108, align 2, !tbaa !11
   %110 = sext i16 %109 to i32
   %111 = add nsw i32 %110, %107
@@ -864,7 +864,7 @@ define internal void @horiz_filter_clip(ptr noundef writeonly captures(none) ini
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread, %49
   %.0.i.lcssa = phi i32 [ %50, %.lr.ph.split.us ], [ 1, %.thread ], [ 1, %49 ], [ %56, %.lr.ph.split ]
   %137 = zext nneg i32 %.0.i.lcssa to i64
-  %138 = getelementptr i16, ptr %1, i64 %137
+  %138 = getelementptr [2 x i8], ptr %1, i64 %137
   %139 = load i16, ptr %138, align 2, !tbaa !11
   %140 = sext i16 %139 to i32
   %141 = mul nsw i32 %140, 5
@@ -880,14 +880,14 @@ define internal void @horiz_filter_clip(ptr noundef writeonly captures(none) ini
   %151 = shl i32 %150, 13
   %152 = add i32 %151, 32768
   %153 = ashr i32 %152, 16
-  %154 = getelementptr inbounds nuw i16, ptr %2, i64 %137
+  %154 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %137
   %155 = load i16, ptr %154, align 2, !tbaa !11
   %156 = sext i16 %155 to i32
   %157 = add nsw i32 %153, %156
   %158 = lshr i32 %157, 1
   %159 = shl nuw nsw i32 %.0.i.lcssa, 1
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw i16, ptr %0, i64 %160
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %160
   br i1 %.not.i, label %167, label %162
 
 162:                                              ; preds = %._crit_edge

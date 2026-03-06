@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pmix_tma = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.pmix_list_t = type { %struct.pmix_object_t, %struct.pmix_list_item_t, i64 }
 %struct.pmix_list_item_t = type { %struct.pmix_object_t, ptr, ptr, i32 }
-%struct.pmix_signal_t = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [6 x i8] c"pctrl\00", align 1
 @pmix_tool_basename = external local_unnamed_addr global ptr, align 8
@@ -212,7 +211,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %17
   call void @pmix_expose_param(ptr noundef nonnull %44) #16
   %45 = add i64 %.0221502, 1
   %46 = load ptr, ptr %41, align 8, !tbaa !33
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   %48 = load ptr, ptr %47, align 8, !tbaa !8
   %.not312 = icmp eq ptr %48, null
   br i1 %.not312, label %.loopexit487, label %.lr.ph, !llvm.loop !34
@@ -268,11 +267,11 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i314
 .lr.ph.i316:                                      ; preds = %pmix_cmd_line_get_param.exit, %79
   %68 = phi ptr [ %83, %79 ], [ %67, %pmix_cmd_line_get_param.exit ]
   %.023.i = phi i64 [ %81, %79 ], [ 0, %pmix_cmd_line_get_param.exit ]
-  %69 = getelementptr inbounds nuw ptr, ptr %62, i64 %.023.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.023.i
   %70 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %68, i32 noundef 58) #20
   store i8 0, ptr %70, align 1, !tbaa !41
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
-  %72 = getelementptr inbounds nuw %struct.pmix_proc, ptr %66, i64 %.023.i
+  %72 = getelementptr inbounds nuw [260 x i8], ptr %66, i64 %.023.i
   %73 = load ptr, ptr %69, align 8, !tbaa !8
   call void @PMIx_Load_nspace(ptr noundef %72, ptr noundef %73) #16
   %74 = load i8, ptr %71, align 1, !tbaa !41
@@ -289,7 +288,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i314
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 256
   store i32 %.sink.i, ptr %80, align 4, !tbaa !42
   %81 = add i64 %.023.i, 1
-  %82 = getelementptr inbounds nuw ptr, ptr %62, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !8
   %.not.i317 = icmp eq ptr %83, null
   br i1 %.not.i317, label %convert_procs.exitthread-pre-split, label %.lr.ph.i316, !llvm.loop !44
@@ -986,7 +985,7 @@ convert_signal.exit.thread:                       ; preds = %357
 
 358:                                              ; preds = %357, %pmix_cmd_line_get_param.exit429
   %indvars.iv.i = phi i64 [ 0, %pmix_cmd_line_get_param.exit429 ], [ %indvars.iv.next.i, %357 ]
-  %359 = getelementptr inbounds nuw %struct.pmix_signal_t, ptr @sigs, i64 %indvars.iv.i
+  %359 = getelementptr inbounds nuw [16 x i8], ptr @sigs, i64 %indvars.iv.i
   %360 = load ptr, ptr %359, align 16, !tbaa !47
   %361 = call i32 @strcasecmp(ptr noundef readonly %356, ptr noundef %360) #20
   %362 = icmp eq i32 %361, 0

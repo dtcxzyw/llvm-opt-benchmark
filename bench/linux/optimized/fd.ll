@@ -809,7 +809,7 @@ define internal noundef range(i32 -2, 1) i32 @seq_show(ptr noundef %0, ptr readn
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = and i64 %24, %21
-  %28 = getelementptr ptr, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %29 = load volatile ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %31 = and i64 %24, %30

@@ -131,16 +131,16 @@ define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %
 .preheader:                                       ; preds = %.preheader.preheader, %20
   %indvars.iv35 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next36, %20 ]
   %.032 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %19, %20 ]
-  %10 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv35
-  %11 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv35
+  %10 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv35
+  %11 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %indvars.iv35
   br label %12
 
 12:                                               ; preds = %.preheader, %12
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %12 ]
   %.130 = phi double [ %.032, %.preheader ], [ %19, %12 ]
-  %13 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !4
-  %15 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %16 = load float, ptr %15, align 4, !tbaa !4
   %17 = fsub float %14, %16
   %18 = fpext float %17 to double
@@ -172,16 +172,16 @@ define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %
 .preheader.i:                                     ; preds = %37, %.preheader.preheader.i
   %indvars.iv49.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next50.i, %37 ]
   %.044.i = phi double [ 0.000000e+00, %.preheader.preheader.i ], [ %36, %37 ]
-  %26 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv49.i
-  %27 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv49.i
+  %26 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv49.i
+  %27 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %indvars.iv49.i
   br label %28
 
 28:                                               ; preds = %28, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %28 ]
   %.142.i = phi double [ %.044.i, %.preheader.i ], [ %36, %28 ]
-  %29 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv.i
   %30 = load float, ptr %29, align 4, !tbaa !4
-  %31 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv.i
   %32 = load float, ptr %31, align 4, !tbaa !4
   %33 = fmul float %32, %32
   %34 = tail call float @llvm.fmuladd.f32(float %30, float %30, float %33)
@@ -211,8 +211,8 @@ define void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef captures(none) %
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %._crit_edge.i
   %indvars.iv53.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next54.i, %.lr.ph.i ]
-  %47 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv53.i
-  %48 = getelementptr inbounds nuw [3 x float], ptr %4, i64 %indvars.iv53.i
+  %47 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv53.i
+  %48 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %indvars.iv53.i
   %49 = trunc nuw nsw i64 %indvars.iv53.i to i32
   tail call void @_Z8cmp_rvecP8_IO_FILEPKciPKfS4_ff(ptr noundef %0, ptr noundef %1, i32 noundef %49, ptr noundef readonly %47, ptr noundef readonly %48, float noundef 0.000000e+00, float noundef %.038.i)
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1

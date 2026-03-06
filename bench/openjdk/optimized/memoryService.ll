@@ -119,7 +119,7 @@ define hidden void @_ZN13MemoryService17set_universe_heapEP13CollectedHeap(ptr n
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit.i ]
   %27 = load i32, ptr %20, align 8
   %28 = load ptr, ptr %23, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   %30 = load i32, ptr %24, align 4
   %.not12.i.i = icmp slt i32 %27, %30
   %.pre.i = add nsw i32 %27, 1
@@ -147,7 +147,7 @@ define hidden void @_ZN13MemoryService17set_universe_heapEP13CollectedHeap(ptr n
 40:                                               ; preds = %40, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %39, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %40 ]
   %41 = load ptr, ptr %25, align 8
-  %42 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv.i.i
+  %42 = getelementptr inbounds [8 x i8], ptr %41, i64 %indvars.iv.i.i
   store ptr null, ptr %42, align 8
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -158,7 +158,7 @@ _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE11at_put_growE
   %43 = load ptr, ptr %29, align 8
   %44 = load ptr, ptr %25, align 8
   %45 = sext i32 %27 to i64
-  %46 = getelementptr inbounds ptr, ptr %44, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %44, i64 %45
   store ptr %43, ptr %46, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %47 = load i32, ptr %2, align 8
@@ -191,7 +191,7 @@ _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE9appendAllEPK1
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit.us
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit.us ], [ 0, %.lr.ph ]
   %62 = load ptr, ptr %60, align 8
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv21
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv21
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 176
   store i32 %54, ptr %65, align 8
@@ -224,7 +224,7 @@ _ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS
   %81 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %82 = load ptr, ptr %81, align 8
   %83 = sext i32 %79 to i64
-  %84 = getelementptr inbounds ptr, ptr %82, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %82, i64 %83
   store ptr %64, ptr %84, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %85 = load i32, ptr %4, align 8
@@ -235,7 +235,7 @@ _ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit ], [ 0, %.lr.ph ]
   %88 = load ptr, ptr %60, align 8
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8
   call void @_ZN15GCMemoryManager23initialize_gc_stat_infoEv(ptr noundef nonnull align 8 dereferenceable(191) %90) #8
   %91 = load ptr, ptr @_ZN13MemoryService14_managers_listE, align 8
@@ -266,7 +266,7 @@ _ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS
   %106 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %107 = load ptr, ptr %106, align 8
   %108 = sext i32 %104 to i64
-  %109 = getelementptr inbounds ptr, ptr %107, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %107, i64 %108
   store ptr %90, ptr %109, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %110 = load i32, ptr %4, align 8
@@ -389,7 +389,7 @@ _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = sext i32 %17 to i64
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %21
   store ptr %3, ptr %22, align 8
   %23 = load ptr, ptr @_ZN13MemoryService11_pools_listE, align 8
   %24 = load i32, ptr %23, align 8
@@ -419,7 +419,7 @@ _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %39, i64 %40
   store ptr %3, ptr %41, align 8
   %42 = load ptr, ptr @_ZN13MemoryService19_code_cache_managerE, align 8
   %43 = icmp eq ptr %42, null
@@ -457,7 +457,7 @@ _ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = sext i32 %59 to i64
-  %65 = getelementptr inbounds ptr, ptr %63, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %63, i64 %64
   store ptr %61, ptr %65, align 8
   br label %66
 
@@ -509,7 +509,7 @@ _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %17 to i64
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %21, i64 %22
   store ptr %19, ptr %23, align 8
   %24 = load i8, ptr @UseCompressedClassPointers, align 1
   %25 = trunc i8 %24 to i1
@@ -549,7 +549,7 @@ _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.
   %45 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = sext i32 %42 to i64
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %46, i64 %47
   store ptr %44, ptr %48, align 8
   br label %49
 
@@ -582,7 +582,7 @@ _ZN26GrowableArrayWithAllocatorIP13MemoryManager13GrowableArrayIS1_EE6appendERKS
   %65 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = sext i32 %63 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   store ptr %1, ptr %68, align 8
   ret void
 }
@@ -613,7 +613,7 @@ define hidden noundef ptr @_ZN13MemoryService18get_memory_managerE14instanceHand
   %10 = phi ptr [ %6, %5 ], [ %2, %1 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 @_ZNK13MemoryManager10is_managerE14instanceHandle(ptr noundef nonnull align 8 dereferenceable(113) %14, ptr %0) #8
   br i1 %15, label %._crit_edge, label %5
@@ -645,7 +645,7 @@ define hidden noundef ptr @_ZN13MemoryService15get_memory_poolE14instanceHandle(
   %10 = phi ptr [ %6, %5 ], [ %2, %1 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i1 @_ZNK10MemoryPool7is_poolE14instanceHandle(ptr noundef nonnull align 8 dereferenceable(201) %14, ptr %0) #8
   br i1 %15, label %._crit_edge, label %5
@@ -669,7 +669,7 @@ define hidden void @_ZN13MemoryService18track_memory_usageEv() local_unnamed_add
   %4 = phi ptr [ %9, %.lr.ph ], [ %1, %0 ]
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN10MemoryPool24record_peak_memory_usageEv(ptr noundef nonnull align 8 dereferenceable(201) %8) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -735,7 +735,7 @@ define hidden void @_ZN13MemoryService8gc_beginEP15GCMemoryManagerbbbb(ptr nound
   %9 = phi ptr [ %14, %.lr.ph ], [ %6, %.preheader ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   tail call void @_ZN10MemoryPool24record_peak_memory_usageEv(ptr noundef nonnull align 8 dereferenceable(201) %13) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -913,7 +913,7 @@ define hidden void @_ZN23TraceMemoryManagerStatsC2EP15GCMemoryManagerN7GCCause5C
   %34 = phi ptr [ %39, %.lr.ph.i.i ], [ %31, %.preheader.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i.i
   %38 = load ptr, ptr %37, align 8
   tail call void @_ZN10MemoryPool24record_peak_memory_usageEv(ptr noundef nonnull align 8 dereferenceable(201) %38) #8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -972,7 +972,7 @@ define hidden void @_ZN23TraceMemoryManagerStats10initializeEP15GCMemoryManagerN
   %34 = phi ptr [ %39, %.lr.ph.i ], [ %31, %.preheader.i ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8
   tail call void @_ZN10MemoryPool24record_peak_memory_usageEv(ptr noundef nonnull align 8 dereferenceable(201) %38) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1197,9 +1197,9 @@ _ZN13GrowableArrayIP10MemoryPoolE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1216,7 +1216,7 @@ _ZN13GrowableArrayIP10MemoryPoolE8allocateEv.exit: ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -1295,9 +1295,9 @@ _ZN13GrowableArrayIP13MemoryManagerE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1314,7 +1314,7 @@ _ZN13GrowableArrayIP13MemoryManagerE8allocateEv.exit: ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

@@ -63,15 +63,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Expected.145" = type { %union.anon.146, i8, [7 x i8] }
 %union.anon.146 = type { %"struct.llvm::AlignedCharArrayUnion.147" }
 %"struct.llvm::AlignedCharArrayUnion.147" = type { [64 x i8] }
-%"struct.llvm::remarks::Argument" = type { %"class.llvm::StringRef", %"class.llvm::StringRef", %"class.std::optional.107" }
-%"class.std::optional.107" = type { %"struct.std::_Optional_base.108" }
-%"struct.std::_Optional_base.108" = type { %"struct.std::_Optional_payload.110" }
-%"struct.std::_Optional_payload.110" = type { %"struct.std::_Optional_payload_base.base.112", [7 x i8] }
-%"struct.std::_Optional_payload_base.base.112" = type <{ %"union.std::_Optional_payload_base<llvm::remarks::RemarkLocation>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<llvm::remarks::RemarkLocation>::_Storage" = type { %"struct.llvm::remarks::RemarkLocation" }
-%"struct.llvm::remarks::RemarkLocation" = type { %"class.llvm::StringRef", i32, i32 }
 %"class.llvm::SmallVector.157" = type <{ %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage.158", [4 x i8] }>
 %"struct.llvm::SmallVectorStorage.158" = type { [4 x i8] }
+%"struct.llvm::remarks::RemarkLocation" = type { %"class.llvm::StringRef", i32, i32 }
 %"class.std::unique_ptr.177" = type { %"struct.std::__uniq_ptr_data.178" }
 %"struct.std::__uniq_ptr_data.178" = type { %"class.std::__uniq_ptr_impl.179" }
 %"class.std::__uniq_ptr_impl.179" = type { %"class.std::tuple.180" }
@@ -1827,7 +1821,7 @@ _ZN4llvm5ErrorD2Ev.exit159:                       ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7remarks8ArgumentELb1EE9push_backERKS2_.exit, label %181, !prof !336
 
 181:                                              ; preds = %176
-  %182 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %.pre3.i, i64 %178
+  %182 = getelementptr inbounds nuw [64 x i8], ptr %.pre3.i, i64 %178
   %183 = icmp uge ptr %14, %.pre3.i
   %184 = icmp ult ptr %14, %182
   %spec.select.i.i.i.i.i = and i1 %183, %184
@@ -1851,7 +1845,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7remarks8ArgumentELb1EE9push_backERKS2_.exi
   %.016.i.i.i = phi ptr [ %14, %176 ], [ %189, %185 ], [ %14, %.critedge.i.i.i ]
   %191 = load i32, ptr %90, align 8, !tbaa !335
   %192 = zext i32 %191 to i64
-  %193 = getelementptr inbounds nuw %"struct.llvm::remarks::Argument", ptr %190, i64 %192
+  %193 = getelementptr inbounds nuw [64 x i8], ptr %190, i64 %192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %193, ptr noundef nonnull align 8 dereferenceable(64) %.016.i.i.i, i64 64, i1 false)
   %194 = load i32, ptr %90, align 8, !tbaa !335
   %195 = add i32 %194, 1
@@ -3871,7 +3865,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !614
   store ptr %67, ptr %41, align 8, !tbaa !611
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.177", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !613
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -4021,7 +4015,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !614
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !611
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.177", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !613
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -4141,7 +4135,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !614
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !611
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.177", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !613
   ret void
 }

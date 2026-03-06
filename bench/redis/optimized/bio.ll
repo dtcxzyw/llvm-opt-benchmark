@@ -64,12 +64,12 @@ define dso_local void @bioInit() local_unnamed_addr #0 {
 
 4:                                                ; preds = %0, %4
   %.012 = phi i64 [ 0, %0 ], [ %11, %4 ]
-  %5 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @bio_mutex, i64 %.012
+  %5 = getelementptr inbounds nuw [40 x i8], ptr @bio_mutex, i64 %.012
   %6 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %5, ptr noundef null) #11
-  %7 = getelementptr inbounds nuw %union.pthread_cond_t, ptr @bio_newjob_cond, i64 %.012
+  %7 = getelementptr inbounds nuw [48 x i8], ptr @bio_newjob_cond, i64 %.012
   %8 = tail call i32 @pthread_cond_init(ptr noundef nonnull %7, ptr noundef null) #11
   %9 = tail call ptr @listCreate() #11
-  %10 = getelementptr inbounds nuw ptr, ptr @bio_jobs, i64 %.012
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @bio_jobs, i64 %.012
   store ptr %9, ptr %10, align 8, !tbaa !5
   %11 = add nuw nsw i64 %.012, 1
   %exitcond.not = icmp eq i64 %11, 3
@@ -166,7 +166,7 @@ define dso_local void @bioInit() local_unnamed_addr #0 {
 
 53:                                               ; preds = %42
   %54 = load i64, ptr %2, align 8, !tbaa !43
-  %55 = getelementptr inbounds nuw i64, ptr @bio_threads, i64 %.114
+  %55 = getelementptr inbounds nuw [8 x i8], ptr @bio_threads, i64 %.114
   store i64 %54, ptr %55, align 8, !tbaa !43
   %56 = add nuw nsw i64 %.114, 1
   %exitcond16.not = icmp eq i64 %56, 3
@@ -290,13 +290,13 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
 
 6:                                                ; preds = %1
   %7 = tail call i64 @pthread_self() #12
-  %8 = getelementptr inbounds nuw ptr, ptr @bio_worker_title, i64 %3
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @bio_worker_title, i64 %3
   %9 = load ptr, ptr %8, align 8, !tbaa !59
   %10 = tail call i32 @pthread_setname_np(i64 noundef %7, ptr noundef %9) #11
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8296), align 8, !tbaa !60
   tail call void @redisSetCpuAffinity(ptr noundef %11) #11
   tail call void @makeThreadKillable() #11
-  %12 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @bio_mutex, i64 %3
+  %12 = getelementptr inbounds nuw [40 x i8], ptr @bio_mutex, i64 %3
   %13 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #11
   %14 = call i32 @sigemptyset(ptr noundef nonnull %2) #11
   %15 = call i32 @sigaddset(ptr noundef nonnull %2, i32 noundef 14) #11
@@ -315,8 +315,8 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
   br label %24
 
 24:                                               ; preds = %20, %6
-  %25 = getelementptr inbounds nuw ptr, ptr @bio_jobs, i64 %3
-  %26 = getelementptr inbounds nuw %union.pthread_cond_t, ptr @bio_newjob_cond, i64 %3
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @bio_jobs, i64 %3
+  %26 = getelementptr inbounds nuw [48 x i8], ptr @bio_newjob_cond, i64 %3
   br label %27
 
 27:                                               ; preds = %.backedge, %24
@@ -521,7 +521,7 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
   %141 = load ptr, ptr %25, align 8, !tbaa !5
   call void @listDelNode(ptr noundef %141, ptr noundef nonnull %35) #11
   %142 = zext nneg i32 %39 to i64
-  %143 = getelementptr inbounds nuw i64, ptr @bio_jobs_counter, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr @bio_jobs_counter, i64 %142
   %144 = load i64, ptr %143, align 8, !tbaa !43
   %145 = add i64 %144, -1
   store i64 %145, ptr %143, align 8, !tbaa !43
@@ -536,19 +536,19 @@ define dso_local noalias noundef nonnull ptr @bioProcessBackgroundJobs(ptr nound
 define dso_local void @bioSubmitJob(i32 noundef %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
   store i32 %0, ptr %1, align 8, !tbaa !61
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds i32, ptr @bio_job_to_worker, i64 %3
+  %4 = getelementptr inbounds [4 x i8], ptr @bio_job_to_worker, i64 %3
   %5 = load i32, ptr %4, align 4, !tbaa !41
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @bio_mutex, i64 %6
+  %7 = getelementptr inbounds nuw [40 x i8], ptr @bio_mutex, i64 %6
   %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #11
-  %9 = getelementptr inbounds nuw ptr, ptr @bio_jobs, i64 %6
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @bio_jobs, i64 %6
   %10 = load ptr, ptr %9, align 8, !tbaa !5
   %11 = tail call ptr @listAddNodeTail(ptr noundef %10, ptr noundef nonnull %1) #11
-  %12 = getelementptr inbounds i64, ptr @bio_jobs_counter, i64 %3
+  %12 = getelementptr inbounds [8 x i8], ptr @bio_jobs_counter, i64 %3
   %13 = load i64, ptr %12, align 8, !tbaa !43
   %14 = add i64 %13, 1
   store i64 %14, ptr %12, align 8, !tbaa !43
-  %15 = getelementptr inbounds nuw %union.pthread_cond_t, ptr @bio_newjob_cond, i64 %6
+  %15 = getelementptr inbounds nuw [48 x i8], ptr @bio_newjob_cond, i64 %6
   %16 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %15) #11
   %17 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #11
   ret void
@@ -627,7 +627,7 @@ define dso_local void @bioCreateLazyFreeJob(ptr noundef %0, i32 noundef %1, ...)
   %33 = phi i32 [ %28, %25 ], [ %23, %29 ]
   %34 = phi ptr [ %27, %25 ], [ %22, %29 ]
   %35 = load ptr, ptr %34, align 8, !tbaa !62
-  %36 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   store ptr %35, ptr %36, align 8, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -664,19 +664,19 @@ switch.lookup:                                    ; preds = %4
   store ptr %3, ptr %10, align 8, !tbaa !61
   store i32 %switch.offset, ptr %7, align 8, !tbaa !61
   %11 = zext nneg i32 %switch.offset to i64
-  %12 = getelementptr inbounds nuw i32, ptr @bio_job_to_worker, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @bio_job_to_worker, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !41
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @bio_mutex, i64 %14
+  %15 = getelementptr inbounds nuw [40 x i8], ptr @bio_mutex, i64 %14
   %16 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %15) #11
-  %17 = getelementptr inbounds nuw ptr, ptr @bio_jobs, i64 %14
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @bio_jobs, i64 %14
   %18 = load ptr, ptr %17, align 8, !tbaa !5
   %19 = tail call ptr @listAddNodeTail(ptr noundef %18, ptr noundef nonnull %7) #11
-  %20 = getelementptr inbounds nuw i64, ptr @bio_jobs_counter, i64 %11
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @bio_jobs_counter, i64 %11
   %21 = load i64, ptr %20, align 8, !tbaa !43
   %22 = add i64 %21, 1
   store i64 %22, ptr %20, align 8, !tbaa !43
-  %23 = getelementptr inbounds nuw %union.pthread_cond_t, ptr @bio_newjob_cond, i64 %14
+  %23 = getelementptr inbounds nuw [48 x i8], ptr @bio_newjob_cond, i64 %14
   %24 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %23) #11
   %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %15) #11
   ret void
@@ -804,12 +804,12 @@ declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @bioPendingJobsOfType(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds i32, ptr @bio_job_to_worker, i64 %2
+  %3 = getelementptr inbounds [4 x i8], ptr @bio_job_to_worker, i64 %2
   %4 = load i32, ptr %3, align 4, !tbaa !41
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @bio_mutex, i64 %5
+  %6 = getelementptr inbounds nuw [40 x i8], ptr @bio_mutex, i64 %5
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #11
-  %8 = getelementptr inbounds i64, ptr @bio_jobs_counter, i64 %2
+  %8 = getelementptr inbounds [8 x i8], ptr @bio_jobs_counter, i64 %2
   %9 = load i64, ptr %8, align 8, !tbaa !43
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #11
   ret i64 %9
@@ -818,12 +818,12 @@ define dso_local i64 @bioPendingJobsOfType(i32 noundef %0) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define dso_local void @bioDrainWorker(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds i32, ptr @bio_job_to_worker, i64 %2
+  %3 = getelementptr inbounds [4 x i8], ptr @bio_job_to_worker, i64 %2
   %4 = load i32, ptr %3, align 4, !tbaa !41
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr @bio_mutex, i64 %5
+  %6 = getelementptr inbounds nuw [40 x i8], ptr @bio_mutex, i64 %5
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #11
-  %8 = getelementptr inbounds nuw ptr, ptr @bio_jobs, i64 %5
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @bio_jobs, i64 %5
   %9 = load ptr, ptr %8, align 8, !tbaa !5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load i64, ptr %10, align 8, !tbaa !47
@@ -831,7 +831,7 @@ define dso_local void @bioDrainWorker(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %12 = getelementptr inbounds nuw %union.pthread_cond_t, ptr @bio_newjob_cond, i64 %5
+  %12 = getelementptr inbounds nuw [48 x i8], ptr @bio_newjob_cond, i64 %5
   br label %13
 
 13:                                               ; preds = %.lr.ph, %13
@@ -854,7 +854,7 @@ define dso_local void @bioKillThreads() local_unnamed_addr #0 {
 
 2:                                                ; preds = %0, %19
   %.012 = phi i64 [ 0, %0 ], [ %20, %19 ]
-  %3 = getelementptr inbounds nuw i64, ptr @bio_threads, i64 %.012
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @bio_threads, i64 %.012
   %4 = load i64, ptr %3, align 8, !tbaa !43
   %5 = icmp eq i64 %4, %1
   %.not = icmp eq i64 %4, 0

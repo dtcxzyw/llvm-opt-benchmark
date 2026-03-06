@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<(anonymous namespace)::Match, std::allocator<(anonymous namespace)::Match>>::_Vector_impl" }
 %"struct.std::_Vector_base<(anonymous namespace)::Match, std::allocator<(anonymous namespace)::Match>>::_Vector_impl" = type { %"struct.std::_Vector_base<(anonymous namespace)::Match, std::allocator<(anonymous namespace)::Match>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<(anonymous namespace)::Match, std::allocator<(anonymous namespace)::Match>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.(anonymous namespace)::Match" = type { i32, i64, i64 }
 %"class.testing::internal::ParamGenerator" = type { %"class.testing::internal::linked_ptr" }
 %"class.testing::internal::linked_ptr" = type { ptr, %"class.testing::internal::linked_ptr_internal" }
 %"class.testing::internal::linked_ptr_internal" = type { ptr }
@@ -3663,7 +3662,7 @@ _ZNSt6vectorIN12_GLOBAL__N_15MatchESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i
 _ZNSt6vectorIN12_GLOBAL__N_15MatchESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN12_GLOBAL__N_15MatchESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i.i
   store ptr %26, ptr %4, align 8
   store ptr %30, ptr %6, align 8
-  %32 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Match", ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %32, ptr %8, align 8
   br label %_ZNSt6vectorIN12_GLOBAL__N_15MatchESaIS1_EE9push_backEOS1_.exit
 
@@ -7020,7 +7019,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %73, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %68, ptr %0, align 8
   store ptr %72, ptr %7, align 8
-  %74 = getelementptr inbounds nuw ptr, ptr %68, i64 %66
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %66
   store ptr %74, ptr %50, align 8
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -7609,7 +7608,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8
-  %57 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.19", ptr %20, i64 %16
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %57, ptr %56, align 8
   ret void
 }
@@ -10638,7 +10637,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8
-  %79 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %16
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %79, ptr %78, align 8
   ret void
 }

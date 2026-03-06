@@ -355,7 +355,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
 .noexc58:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %11 = shl nuw nsw i64 %9, 2
   %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #21
-  %13 = getelementptr inbounds nuw float, ptr %12, i64 %9
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %9
   store float 0.000000e+00, ptr %12, align 4, !tbaa !39
   %14 = add nsw i64 %9, -1
   %15 = icmp eq i64 %14, 0
@@ -494,7 +494,7 @@ _ZN9benchmark5State3endEv.exit.preheader.split:   ; preds = %46
 55:                                               ; preds = %._crit_edge.us.us, %.lr.ph114.us
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %._crit_edge.us.us ], [ 0, %.lr.ph114.us ]
   %56 = mul nsw i64 %indvars.iv125, %18
-  %57 = getelementptr inbounds nuw float, ptr %.sroa.096.0, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.096.0, i64 %56
   %58 = load ptr, ptr %45, align 8, !tbaa !31
   %59 = load ptr, ptr %58, align 8
   invoke void %59(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull %57)

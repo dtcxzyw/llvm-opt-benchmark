@@ -166,7 +166,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit.thread: ; preds = %5, %_ZNSt12
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.0231.i = phi i32 [ %26, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
-  %24 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i
   %25 = load i32, ptr %24, align 4, !tbaa !21
   %26 = mul nsw i32 %25, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -197,7 +197,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit.thread: ; preds = %5, %_ZNSt12
 .lr.ph.i33:                                       ; preds = %.lr.ph.i33, %.lr.ph.preheader.i32
   %indvars.iv.i34 = phi i64 [ %30, %.lr.ph.preheader.i32 ], [ %indvars.iv.next.i36, %.lr.ph.i33 ]
   %.0231.i35 = phi i32 [ 1, %.lr.ph.preheader.i32 ], [ %33, %.lr.ph.i33 ]
-  %31 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i34
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i34
   %32 = load i32, ptr %31, align 4, !tbaa !21
   %33 = mul nsw i32 %32, %.0231.i35
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i34, 1
@@ -565,7 +565,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit.thread: ; preds = %5, %_ZNSt12
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.0231.i = phi i32 [ %24, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
-  %22 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !21
   %24 = mul nsw i32 %23, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -596,7 +596,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit.thread: ; preds = %5, %_ZNSt12
 .lr.ph.i34:                                       ; preds = %.lr.ph.i34, %.lr.ph.preheader.i33
   %indvars.iv.i35 = phi i64 [ %28, %.lr.ph.preheader.i33 ], [ %indvars.iv.next.i37, %.lr.ph.i34 ]
   %.0231.i36 = phi i32 [ 1, %.lr.ph.preheader.i33 ], [ %31, %.lr.ph.i34 ]
-  %29 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i35
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i35
   %30 = load i32, ptr %29, align 4, !tbaa !21
   %31 = mul nsw i32 %30, %.0231.i36
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i35, 1
@@ -845,7 +845,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %6, %_ZNSt12_Vector
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.0231.i = phi i32 [ %52, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
-  %50 = getelementptr inbounds nuw i32, ptr %.sroa.055.0, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.055.0, i64 %indvars.iv.i
   %51 = load i32, ptr %50, align 4, !tbaa !21
   %52 = mul nsw i32 %51, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -888,7 +888,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %39
 .lr.ph.i39:                                       ; preds = %.lr.ph.i39, %.lr.ph.preheader.i38
   %indvars.iv.i40 = phi i64 [ %60, %.lr.ph.preheader.i38 ], [ %indvars.iv.next.i42, %.lr.ph.i39 ]
   %.0231.i41 = phi i32 [ 1, %.lr.ph.preheader.i38 ], [ %63, %.lr.ph.i39 ]
-  %61 = getelementptr inbounds nuw i32, ptr %.sroa.055.0, i64 %indvars.iv.i40
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.055.0, i64 %indvars.iv.i40
   %62 = load i32, ptr %61, align 4, !tbaa !21
   %63 = mul nsw i32 %62, %.0231.i41
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i40, 1
@@ -1140,7 +1140,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %5
 .lr.ph.i:                                         ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 2, %49 ]
   %.0231.i = phi i32 [ %52, %.lr.ph.i ], [ 1, %49 ]
-  %50 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i
   %51 = load i32, ptr %50, align 4, !tbaa !21
   %52 = mul nsw i32 %51, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1384,7 +1384,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %6
 .lr.ph.i:                                         ; preds = %53, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 2, %53 ]
   %.0231.i = phi i32 [ %56, %.lr.ph.i ], [ 1, %53 ]
-  %54 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4, !tbaa !21
   %56 = mul nsw i32 %55, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1660,14 +1660,14 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNo
 .lr.ph.us.us.i.us.i.i:                            ; preds = %.lr.ph.us.us.preheader.i.i.i, %._crit_edge42.us.us.i.us.i.i
   %indvars.iv62.i.us.i.i = phi i64 [ %indvars.iv.next63.i.us.i.i, %._crit_edge42.us.us.i.us.i.i ], [ %25, %.lr.ph.us.us.preheader.i.i.i ]
   %26 = mul i64 %indvars.iv62.i.us.i.i, %16
-  %27 = getelementptr inbounds nuw float, ptr %5, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %26
   br label %28
 
 28:                                               ; preds = %28, %.lr.ph.us.us.i.us.i.i
   %indvars.iv.i.us.i.i = phi i64 [ 0, %.lr.ph.us.us.i.us.i.i ], [ %indvars.iv.next.i.us.i.i, %28 ]
   %.03236.us.us.i.us.i.i = phi float [ 0.000000e+00, %.lr.ph.us.us.i.us.i.i ], [ %32, %28 ]
   %.03335.us.us.i.us.i.i = phi float [ 0.000000e+00, %.lr.ph.us.us.i.us.i.i ], [ %31, %28 ]
-  %29 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv.i.us.i.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv.i.us.i.i
   %30 = load float, ptr %29, align 4, !tbaa !3
   %31 = fadd float %.03335.us.us.i.us.i.i, %30
   %32 = tail call float @llvm.fmuladd.f32(float %30, float %30, float %.03236.us.us.i.us.i.i)
@@ -1676,7 +1676,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNo
   br i1 %exitcond.not.i.us.i.i, label %._crit_edge.us.us.i.us.i.i, label %28, !llvm.loop !53
 
 ._crit_edge.us.us.i.us.i.i:                       ; preds = %28
-  %33 = getelementptr inbounds nuw float, ptr %9, i64 %26
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %26
   %34 = load float, ptr %18, align 4, !tbaa !3
   %35 = fmul float %31, %34
   %36 = fneg float %35
@@ -1692,11 +1692,11 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNo
 
 44:                                               ; preds = %44, %._crit_edge.us.us.i.us.i.i
   %.039.us.us.i.us.i.i = phi i64 [ 0, %._crit_edge.us.us.i.us.i.i ], [ %50, %44 ]
-  %45 = getelementptr inbounds nuw float, ptr %27, i64 %.039.us.us.i.us.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.039.us.us.i.us.i.i
   %46 = load float, ptr %45, align 4, !tbaa !3
   %47 = fsub float %46, %35
   %48 = fmul float %43, %47
-  %49 = getelementptr inbounds nuw float, ptr %33, i64 %.039.us.us.i.us.i.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.039.us.us.i.us.i.i
   store float %48, ptr %49, align 4, !tbaa !3
   %50 = add nuw i64 %.039.us.us.i.us.i.i, 1
   %exitcond61.not.i.us.i.i = icmp eq i64 %50, %16
@@ -1733,15 +1733,15 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNo
 .lr.ph.us.us.i.i.i:                               ; preds = %.lr.ph.us.us.preheader.i.i.i, %._crit_edge42.us.us.i.i.i
   %indvars.iv62.i.i.i = phi i64 [ %indvars.iv.next63.i.i.i, %._crit_edge42.us.us.i.i.i ], [ %25, %.lr.ph.us.us.preheader.i.i.i ]
   %65 = mul i64 %indvars.iv62.i.i.i, %16
-  %66 = getelementptr inbounds nuw float, ptr %5, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %65
   br label %72
 
 cdce.end3.i:                                      ; preds = %cdce.end3.i.preheader, %cdce.end3.i
   %.039.us.us.i.i.i = phi i64 [ %71, %cdce.end3.i ], [ 0, %cdce.end3.i.preheader ]
-  %67 = getelementptr inbounds nuw float, ptr %66, i64 %.039.us.us.i.i.i
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %.039.us.us.i.i.i
   %68 = load float, ptr %67, align 4, !tbaa !3
   %69 = fsub float %68, %79
-  %70 = getelementptr inbounds nuw float, ptr %77, i64 %.039.us.us.i.i.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.039.us.us.i.i.i
   store float %69, ptr %70, align 4, !tbaa !3
   %71 = add nuw i64 %.039.us.us.i.i.i, 1
   %exitcond61.not.i.i.i = icmp eq i64 %71, %16
@@ -1751,7 +1751,7 @@ cdce.end3.i:                                      ; preds = %cdce.end3.i.prehead
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.us.us.i.i.i ], [ %indvars.iv.next.i.i.i, %72 ]
   %.03236.us.us.i.i.i = phi float [ 0.000000e+00, %.lr.ph.us.us.i.i.i ], [ %76, %72 ]
   %.03335.us.us.i.i.i = phi float [ 0.000000e+00, %.lr.ph.us.us.i.i.i ], [ %75, %72 ]
-  %73 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv.i.i.i
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv.i.i.i
   %74 = load float, ptr %73, align 4, !tbaa !3
   %75 = fadd float %.03335.us.us.i.i.i, %74
   %76 = tail call float @llvm.fmuladd.f32(float %74, float %74, float %.03236.us.us.i.i.i)
@@ -1760,7 +1760,7 @@ cdce.end3.i:                                      ; preds = %cdce.end3.i.prehead
   br i1 %exitcond.not.i.i.i, label %._crit_edge.us.us.i.i.i, label %72, !llvm.loop !53
 
 ._crit_edge.us.us.i.i.i:                          ; preds = %72
-  %77 = getelementptr inbounds nuw float, ptr %9, i64 %65
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %65
   %78 = load float, ptr %18, align 4, !tbaa !3
   %79 = fmul float %75, %78
   %80 = fneg float %79
@@ -1897,19 +1897,19 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNo
 .lr.ph.us.us.i.i.i:                               ; preds = %._crit_edge44.us.us.i.i.i, %.lr.ph.us.us.preheader.i.i.i
   %indvars.iv64.i.i.i = phi i64 [ %25, %.lr.ph.us.us.preheader.i.i.i ], [ %indvars.iv.next65.i.i.i, %._crit_edge44.us.us.i.i.i ]
   %37 = mul i64 %indvars.iv64.i.i.i, %20
-  %38 = getelementptr inbounds nuw float, ptr %5, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %37
   br label %49
 
 39:                                               ; preds = %._crit_edge.us.us.i.i.i, %39
   %.041.us.us.i.i.i = phi i64 [ 0, %._crit_edge.us.us.i.i.i ], [ %48, %39 ]
-  %40 = getelementptr inbounds nuw float, ptr %9, i64 %.041.us.us.i.i.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.041.us.us.i.i.i
   %41 = load float, ptr %40, align 4, !tbaa !3
-  %42 = getelementptr inbounds nuw float, ptr %38, i64 %.041.us.us.i.i.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.041.us.us.i.i.i
   %43 = load float, ptr %42, align 4, !tbaa !3
   %44 = fsub float %43, %56
   %45 = fmul float %41, %44
   %46 = fmul float %64, %45
-  %47 = getelementptr inbounds nuw float, ptr %54, i64 %.041.us.us.i.i.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %.041.us.us.i.i.i
   store float %46, ptr %47, align 4, !tbaa !3
   %48 = add nuw i64 %.041.us.us.i.i.i, 1
   %exitcond63.not.i.i.i = icmp eq i64 %48, %20
@@ -1919,7 +1919,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNo
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.us.us.i.i.i ], [ %indvars.iv.next.i.i.i, %49 ]
   %.03438.us.us.i.i.i = phi float [ 0.000000e+00, %.lr.ph.us.us.i.i.i ], [ %53, %49 ]
   %.03537.us.us.i.i.i = phi float [ 0.000000e+00, %.lr.ph.us.us.i.i.i ], [ %52, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv.i.i.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv.i.i.i
   %51 = load float, ptr %50, align 4, !tbaa !3
   %52 = fadd float %.03537.us.us.i.i.i, %51
   %53 = tail call float @llvm.fmuladd.f32(float %51, float %51, float %.03438.us.us.i.i.i)
@@ -1928,7 +1928,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNo
   br i1 %exitcond.not.i.i.i, label %._crit_edge.us.us.i.i.i, label %49, !llvm.loop !69
 
 ._crit_edge.us.us.i.i.i:                          ; preds = %49
-  %54 = getelementptr inbounds nuw float, ptr %13, i64 %37
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %37
   %55 = load float, ptr %22, align 4, !tbaa !3
   %56 = fmul float %52, %55
   %57 = fneg float %56
@@ -2054,21 +2054,21 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNo
 .lr.ph.us.us.i.i.i:                               ; preds = %._crit_edge46.us.us.i.i.i, %.lr.ph.us.us.preheader.i.i.i
   %indvars.iv66.i.i.i = phi i64 [ %29, %.lr.ph.us.us.preheader.i.i.i ], [ %indvars.iv.next67.i.i.i, %._crit_edge46.us.us.i.i.i ]
   %41 = mul i64 %indvars.iv66.i.i.i, %24
-  %42 = getelementptr inbounds nuw float, ptr %5, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %41
   br label %55
 
 43:                                               ; preds = %._crit_edge.us.us.i.i.i, %43
   %.043.us.us.i.i.i = phi i64 [ 0, %._crit_edge.us.us.i.i.i ], [ %54, %43 ]
-  %44 = getelementptr inbounds nuw float, ptr %9, i64 %.043.us.us.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.043.us.us.i.i.i
   %45 = load float, ptr %44, align 4, !tbaa !3
-  %46 = getelementptr inbounds nuw float, ptr %42, i64 %.043.us.us.i.i.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %.043.us.us.i.i.i
   %47 = load float, ptr %46, align 4, !tbaa !3
   %48 = fsub float %47, %62
   %49 = fmul float %45, %48
-  %50 = getelementptr inbounds nuw float, ptr %13, i64 %.043.us.us.i.i.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.043.us.us.i.i.i
   %51 = load float, ptr %50, align 4, !tbaa !3
   %52 = tail call float @llvm.fmuladd.f32(float %49, float %70, float %51)
-  %53 = getelementptr inbounds nuw float, ptr %60, i64 %.043.us.us.i.i.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %.043.us.us.i.i.i
   store float %52, ptr %53, align 4, !tbaa !3
   %54 = add nuw i64 %.043.us.us.i.i.i, 1
   %exitcond65.not.i.i.i = icmp eq i64 %54, %24
@@ -2078,7 +2078,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNo
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.us.us.i.i.i ], [ %indvars.iv.next.i.i.i, %55 ]
   %.03640.us.us.i.i.i = phi float [ 0.000000e+00, %.lr.ph.us.us.i.i.i ], [ %59, %55 ]
   %.03739.us.us.i.i.i = phi float [ 0.000000e+00, %.lr.ph.us.us.i.i.i ], [ %58, %55 ]
-  %56 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv.i.i.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.i.i.i
   %57 = load float, ptr %56, align 4, !tbaa !3
   %58 = fadd float %.03739.us.us.i.i.i, %57
   %59 = tail call float @llvm.fmuladd.f32(float %57, float %57, float %.03640.us.us.i.i.i)
@@ -2087,7 +2087,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNo
   br i1 %exitcond.not.i.i.i, label %._crit_edge.us.us.i.i.i, label %55, !llvm.loop !81
 
 ._crit_edge.us.us.i.i.i:                          ; preds = %55
-  %60 = getelementptr inbounds nuw float, ptr %17, i64 %41
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %41
   %61 = load float, ptr %26, align 4, !tbaa !3
   %62 = fmul float %58, %61
   %63 = fneg float %62
@@ -2216,16 +2216,16 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn15fastN
 .lr.ph.us.us.i.i.i:                               ; preds = %._crit_edge49.us.us.i.i.i, %.lr.ph.us.us.preheader.i.i.i
   %indvars.iv69.i.i.i = phi i64 [ %32, %.lr.ph.us.us.preheader.i.i.i ], [ %indvars.iv.next70.i.i.i, %._crit_edge49.us.us.i.i.i ]
   %44 = mul i64 %indvars.iv69.i.i.i, %24
-  %45 = getelementptr inbounds nuw float, ptr %5, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %44
   br label %53
 
 46:                                               ; preds = %._crit_edge.us.us.i.i.i, %46
   %.046.us.us.i.i.i = phi i64 [ 0, %._crit_edge.us.us.i.i.i ], [ %52, %46 ]
-  %47 = getelementptr inbounds nuw float, ptr %45, i64 %.046.us.us.i.i.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.046.us.us.i.i.i
   %48 = load float, ptr %47, align 4, !tbaa !3
   %49 = fsub float %48, %60
   %50 = tail call float @llvm.fmuladd.f32(float %72, float %49, float %74)
-  %51 = getelementptr inbounds nuw float, ptr %58, i64 %.046.us.us.i.i.i
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %.046.us.us.i.i.i
   store float %50, ptr %51, align 4, !tbaa !3
   %52 = add nuw i64 %.046.us.us.i.i.i, 1
   %exitcond68.not.i.i.i = icmp eq i64 %52, %24
@@ -2235,7 +2235,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn15fastN
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.us.us.i.i.i ], [ %indvars.iv.next.i.i.i, %53 ]
   %.03844.us.us.i.i.i = phi float [ 0.000000e+00, %.lr.ph.us.us.i.i.i ], [ %56, %53 ]
   %.03943.us.us.i.i.i = phi float [ 0.000000e+00, %.lr.ph.us.us.i.i.i ], [ %57, %53 ]
-  %54 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv.i.i.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i.i.i
   %55 = load float, ptr %54, align 4, !tbaa !3
   %56 = fadd float %.03844.us.us.i.i.i, %55
   %57 = tail call float @llvm.fmuladd.f32(float %55, float %55, float %.03943.us.us.i.i.i)
@@ -2244,7 +2244,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn15fastN
   br i1 %exitcond.not.i.i.i, label %._crit_edge.us.us.i.i.i, label %53, !llvm.loop !94
 
 ._crit_edge.us.us.i.i.i:                          ; preds = %53
-  %58 = getelementptr inbounds nuw float, ptr %17, i64 %44
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %44
   %59 = load float, ptr %26, align 4, !tbaa !3
   %60 = fmul float %56, %59
   %61 = fneg float %60
@@ -2257,10 +2257,10 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn15fastN
   %67 = tail call noundef float @sqrtf(float noundef %66) #23, !tbaa !21
   %68 = fdiv float 1.000000e+00, %67
   %69 = urem i64 %indvars.iv69.i.i.i, %31
-  %70 = getelementptr inbounds nuw float, ptr %9, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %69
   %71 = load float, ptr %70, align 4, !tbaa !3
   %72 = fmul float %68, %71
-  %73 = getelementptr inbounds nuw float, ptr %13, i64 %69
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %69
   %74 = load float, ptr %73, align 4, !tbaa !3
   br label %46
 
@@ -2385,23 +2385,23 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13fastN
 .lr.ph.us.us.i.i.i:                               ; preds = %._crit_edge51.us.us.i.i.i, %.lr.ph54.split.us.i.i.i
   %indvars.iv71.i.i.i = phi i64 [ %indvars.iv.next72.i.i.i, %._crit_edge51.us.us.i.i.i ], [ %49, %.lr.ph54.split.us.i.i.i ]
   %50 = mul i64 %indvars.iv71.i.i.i, %24
-  %51 = getelementptr inbounds nuw float, ptr %5, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %50
   br label %66
 
 52:                                               ; preds = %._crit_edge.us.us.i.i.i, %52
   %.04048.us.us.i.i.i = phi i64 [ 0, %._crit_edge.us.us.i.i.i ], [ %65, %52 ]
   %53 = udiv i64 %.04048.us.us.i.i.i, %48
   %54 = add i64 %53, %83
-  %55 = getelementptr inbounds nuw float, ptr %9, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !3
   %57 = fmul float %81, %56
-  %58 = getelementptr inbounds nuw float, ptr %13, i64 %54
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %54
   %59 = load float, ptr %58, align 4, !tbaa !3
-  %60 = getelementptr inbounds nuw float, ptr %51, i64 %.04048.us.us.i.i.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %.04048.us.us.i.i.i
   %61 = load float, ptr %60, align 4, !tbaa !3
   %62 = fsub float %61, %73
   %63 = tail call float @llvm.fmuladd.f32(float %57, float %62, float %59)
-  %64 = getelementptr inbounds nuw float, ptr %71, i64 %.04048.us.us.i.i.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %.04048.us.us.i.i.i
   store float %63, ptr %64, align 4, !tbaa !3
   %65 = add nuw i64 %.04048.us.us.i.i.i, 1
   %exitcond70.not.i.i.i = icmp eq i64 %65, %24
@@ -2411,7 +2411,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13fastN
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.us.us.i.i.i ], [ %indvars.iv.next.i.i.i, %66 ]
   %.03946.us.us.i.i.i = phi float [ 0.000000e+00, %.lr.ph.us.us.i.i.i ], [ %69, %66 ]
   %.04145.us.us.i.i.i = phi float [ 0.000000e+00, %.lr.ph.us.us.i.i.i ], [ %70, %66 ]
-  %67 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv.i.i.i
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i.i.i
   %68 = load float, ptr %67, align 4, !tbaa !3
   %69 = fadd float %.03946.us.us.i.i.i, %68
   %70 = tail call float @llvm.fmuladd.f32(float %68, float %68, float %.04145.us.us.i.i.i)
@@ -2420,7 +2420,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13fastN
   br i1 %exitcond.not.i.i.i, label %._crit_edge.us.us.i.i.i, label %66, !llvm.loop !108
 
 ._crit_edge.us.us.i.i.i:                          ; preds = %66
-  %71 = getelementptr inbounds nuw float, ptr %17, i64 %50
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %50
   %72 = load float, ptr %26, align 4, !tbaa !3
   %73 = fmul float %69, %72
   %74 = fneg float %73

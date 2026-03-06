@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/pp_bnk.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.PPBnkCtxTrack = type { i64, i32, i32 }
-
 @.str = private unnamed_addr constant [7 x i8] c"pp_bnk\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"Pro Pinball Series Soundbank\00", align 1
 @ff_pp_bnk_demuxer = local_unnamed_addr constant { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr }, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr @.str, ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null, ptr null }, i32 0, i32 24, i32 1, [4 x i8] zeroinitializer, ptr @pp_bnk_probe, ptr @pp_bnk_read_header, ptr @pp_bnk_read_packet, ptr @pp_bnk_read_close, ptr @pp_bnk_seek, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -103,7 +101,7 @@ define internal i32 @pp_bnk_read_header(ptr noundef %0) #1 {
 .lr.ph:                                           ; preds = %21, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %21 ]
   %25 = load ptr, ptr %24, align 8, !tbaa !31
-  %26 = getelementptr inbounds nuw %struct.PPBnkCtxTrack, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %5, align 8, !tbaa !27
   %28 = call i32 @avio_read(ptr noundef %27, ptr noundef nonnull %2, i32 noundef 20) #6
   %29 = icmp slt i32 %28, 0
@@ -256,7 +254,7 @@ thread-pre-split:                                 ; preds = %59, %52
   %104 = getelementptr inbounds nuw i8, ptr %87, i64 40
   store i64 0, ptr %104, align 8, !tbaa !56
   %105 = load ptr, ptr %24, align 8, !tbaa !31
-  %106 = getelementptr inbounds nuw %struct.PPBnkCtxTrack, ptr %105, i64 %indvars.iv140
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %indvars.iv140
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load i32, ptr %107, align 8, !tbaa !34
   %109 = shl i32 %108, 1
@@ -301,7 +299,7 @@ define internal i32 @pp_bnk_read_packet(ptr noundef readonly captures(none) %0, 
   store i32 %17, ptr %6, align 8, !tbaa !59
   %18 = load ptr, ptr %7, align 8, !tbaa !31
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw %struct.PPBnkCtxTrack, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %22 = load i32, ptr %21, align 4, !tbaa !35
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -472,7 +470,7 @@ define internal range(i32 -22, 1) i32 @pp_bnk_seek(ptr noundef readonly captures
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !31
   %21 = sext i32 %1 to i64
-  %22 = getelementptr inbounds %struct.PPBnkCtxTrack, ptr %20, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i32 0, ptr %23, align 4, !tbaa !35
   br label %24

@@ -349,7 +349,7 @@ define internal i32 @dissect_cbsp_message(ptr noundef %0, ptr noundef %1, ptr no
   %44 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0156189.i)
   %45 = add i32 %.0156189.i, 1
   %46 = zext i8 %44 to i64
-  %47 = getelementptr %struct.tlv_def, ptr @cbsp_att_tlvdef, i64 %46
+  %47 = getelementptr [8 x i8], ptr @cbsp_att_tlvdef, i64 %46
   %48 = load i32, ptr %47, align 4
   switch i32 %48, label %.thread.i [
     i32 2, label %59
@@ -716,7 +716,7 @@ cbsp_warn_period_to_secs.exit160.i:               ; preds = %223, %221, %218, %2
 switch.lookup:                                    ; preds = %239
   %.mask80 = and i32 %.pre31.i.i, 7
   %242 = zext nneg i32 %.mask80 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_cbsp_message, i64 %242
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_cbsp_message, i64 %242
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %cell_id_len.exit.i.i
 
@@ -774,7 +774,7 @@ dissect_cell_id_list_ie.exit.i:                   ; preds = %236, %cell_id_len.e
 switch.lookup70:                                  ; preds = %.lr.ph.i.i
   %.mask79 = and i32 %262, 7
   %265 = zext nneg i32 %.mask79 to i64
-  %switch.gep71 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_cbsp_message.1, i64 %265
+  %switch.gep71 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_cbsp_message.1, i64 %265
   %switch.load72 = load i32, ptr %switch.gep71, align 4
   br label %cell_id_len.exit.i161.i
 
@@ -841,7 +841,7 @@ dissect_bc_compl_list_ie.exit.i:                  ; preds = %273, %.thread.i.i, 
 
 switch.lookup73:                                  ; preds = %.lr.ph.i164.i
   %295 = zext nneg i8 %293 to i64
-  %switch.gep74 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_cbsp_message.3, i64 %295
+  %switch.gep74 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_cbsp_message.3, i64 %295
   %switch.load75 = load i32, ptr %switch.gep74, align 4
   br label %cell_id_len.exit.i165.i
 
@@ -912,7 +912,7 @@ dissect_failure_list_ie.exit.i:                   ; preds = %304, %.thread.i167.
 switch.lookup76:                                  ; preds = %.lr.ph.i170.i
   %.mask = and i32 %323, 7
   %326 = zext nneg i32 %.mask to i64
-  %switch.gep77 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_cbsp_message.3, i64 %326
+  %switch.gep77 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_cbsp_message.3, i64 %326
   %switch.load78 = load i32, ptr %switch.gep77, align 4
   br label %cell_id_len.exit.i173.i
 

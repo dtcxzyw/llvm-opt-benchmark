@@ -717,7 +717,7 @@ define dso_local zeroext i16 @get_random_u16() #0 align 16 {
 24:                                               ; preds = %21, %17
   %25 = phi i32 [ 0, %21 ], [ %15, %17 ]
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr i16, ptr %12, i64 %26
+  %27 = getelementptr [2 x i8], ptr %12, i64 %26
   %28 = load i16, ptr %27, align 2
   store i16 0, ptr %27, align 2
   %29 = load i32, ptr %14, align 8
@@ -803,7 +803,7 @@ define dso_local i32 @get_random_u32() #0 align 16 {
 24:                                               ; preds = %21, %17
   %25 = phi i32 [ 0, %21 ], [ %15, %17 ]
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr i32, ptr %12, i64 %26
+  %27 = getelementptr [4 x i8], ptr %12, i64 %26
   %28 = load i32, ptr %27, align 4
   store i32 0, ptr %27, align 4
   %29 = load i32, ptr %14, align 8
@@ -889,7 +889,7 @@ define dso_local i64 @get_random_u64() #0 align 16 {
 24:                                               ; preds = %21, %17
   %25 = phi i32 [ 0, %21 ], [ %15, %17 ]
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr i64, ptr %12, i64 %26
+  %27 = getelementptr [8 x i8], ptr %12, i64 %26
   %28 = load i64, ptr %27, align 8
   store i64 0, ptr %27, align 8
   %29 = load i32, ptr %14, align 8
@@ -953,7 +953,7 @@ define dso_local i32 @__get_random_u32_below(i32 noundef %0) #0 align 16 {
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local noundef i32 @random_prepare_cpu(i32 noundef %0) local_unnamed_addr #4 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @crngs to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -1461,7 +1461,7 @@ define dso_local void @add_bootloader_randomness(ptr noundef %0, i64 noundef %1)
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: write, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local noundef i32 @random_online_cpu(i32 noundef %0) local_unnamed_addr #4 align 16 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @irq_randomness to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -2386,7 +2386,7 @@ define internal fastcc void @extract_entropy(ptr noundef %0) unnamed_addr #0 ali
 
 7:                                                ; preds = %16, %1
   %8 = phi i64 [ 0, %1 ], [ %17, %16 ]
-  %9 = getelementptr i64, ptr %6, i64 %8
+  %9 = getelementptr [8 x i8], ptr %6, i64 %8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 306, i32 4, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 78)) #18
           to label %10 [label %10, label %.critedge], !srcloc !45
 

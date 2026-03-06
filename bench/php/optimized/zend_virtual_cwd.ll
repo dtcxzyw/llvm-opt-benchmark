@@ -94,7 +94,7 @@ define dso_local void @virtual_cwd_shutdown() local_unnamed_addr #5 {
 
 1:                                                ; preds = %._crit_edge.i.i, %0
   %indvars.iv.i.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i.i, %._crit_edge.i.i ]
-  %2 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 40), i64 %indvars.iv.i.i
+  %2 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 40), i64 %indvars.iv.i.i
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not12.i.i = icmp eq ptr %3, null
   br i1 %.not12.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -265,7 +265,7 @@ define dso_local void @realpath_cache_clean() local_unnamed_addr #5 {
 
 1:                                                ; preds = %._crit_edge.i, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %2 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 40), i64 %indvars.iv.i
+  %2 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 40), i64 %indvars.iv.i
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %.not12.i = icmp eq ptr %3, null
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i
@@ -309,7 +309,7 @@ define dso_local void @realpath_cache_del(ptr noundef readonly captures(address)
 realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %2
   %.07.lcssa.i = phi i64 [ 2166136261, %2 ], [ %8, %.lr.ph.i ]
   %10 = and i64 %.07.lcssa.i, 1023
-  %11 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 40), i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 40), i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %.not30 = icmp eq ptr %12, null
   br i1 %.not30, label %.loopexit, label %.lr.ph
@@ -402,7 +402,7 @@ define internal fastcc ptr @realpath_cache_find(ptr noundef readonly captures(ad
 realpath_cache_key.exit:                          ; preds = %.lr.ph.i, %3
   %.07.lcssa.i = phi i64 [ 2166136261, %3 ], [ %9, %.lr.ph.i ]
   %11 = and i64 %.07.lcssa.i, 1023
-  %12 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 40), i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 40), i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !17
   %.not34 = icmp eq ptr %13, null
   br i1 %.not34, label %._crit_edge, label %.lr.ph
@@ -1270,7 +1270,7 @@ realpath_cache_key.exit.i:                        ; preds = %.lr.ph.i.i
   %257 = getelementptr inbounds nuw i8, ptr %226, i64 32
   store i64 %256, ptr %257, align 8, !tbaa !31
   %258 = and i64 %247, 1023
-  %259 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 40), i64 %258
+  %259 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @cwd_globals, i64 40), i64 %258
   %260 = load ptr, ptr %259, align 8, !tbaa !17
   %261 = getelementptr inbounds nuw i8, ptr %226, i64 24
   store ptr %260, ptr %261, align 8, !tbaa !19

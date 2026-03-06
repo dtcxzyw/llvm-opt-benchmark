@@ -57,7 +57,7 @@ define noundef zeroext range(i8 0, 4) i8 @_ZN9grpc_core24ValidateHeaderKeyIsLega
   %10 = load i8, ptr %.01319.i, align 1, !tbaa !3
   %11 = zext i8 %10 to i64
   %12 = lshr i64 %11, 6
-  %13 = getelementptr inbounds nuw i64, ptr @_ZN9grpc_core12_GLOBAL__N_123g_legal_header_key_bitsE, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_123g_legal_header_key_bitsE, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !6
   %15 = and i64 %11, 63
   %16 = shl nuw i64 1, %15
@@ -81,7 +81,7 @@ define noundef nonnull ptr @_ZN9grpc_core30ValidateMetadataResultToStringENS_22V
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9grpc_core30ValidateMetadataResultToStringENS_22ValidateMetadataResultE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9grpc_core30ValidateMetadataResultToStringENS_22ValidateMetadataResultE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -122,7 +122,7 @@ define void @_Z33grpc_validate_header_key_is_legalRK10grpc_slice(ptr dead_on_unw
   %19 = load i8, ptr %.01319.i.i, align 1, !tbaa !3
   %20 = zext i8 %19 to i64
   %21 = lshr i64 %20, 6
-  %22 = getelementptr inbounds nuw i64, ptr @_ZN9grpc_core12_GLOBAL__N_123g_legal_header_key_bitsE, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_123g_legal_header_key_bitsE, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !6
   %24 = and i64 %20, 63
   %25 = shl nuw i64 1, %24
@@ -182,7 +182,7 @@ define range(i32 0, 2) i32 @grpc_header_key_is_legal(ptr noundef readonly byval(
   %19 = load i8, ptr %.01319.i.i.i, align 1, !tbaa !3, !noalias !20
   %20 = zext i8 %19 to i64
   %21 = lshr i64 %20, 6
-  %22 = getelementptr inbounds nuw i64, ptr @_ZN9grpc_core12_GLOBAL__N_123g_legal_header_key_bitsE, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @_ZN9grpc_core12_GLOBAL__N_123g_legal_header_key_bitsE, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !6, !noalias !20
   %24 = and i64 %20, 63
   %25 = shl nuw i64 1, %24
@@ -245,7 +245,7 @@ define void @_Z42grpc_validate_header_nonbin_value_is_legalRK10grpc_slice(ptr de
   %15 = load i8, ptr %.01319.i, align 1, !tbaa !3
   %16 = zext i8 %15 to i64
   %17 = lshr i64 %16, 6
-  %18 = getelementptr inbounds nuw i64, ptr @_ZN12_GLOBAL__N_133g_legal_header_non_bin_value_bitsE, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_133g_legal_header_non_bin_value_bitsE, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !6
   %20 = and i64 %16, 63
   %21 = shl nuw i64 1, %20
@@ -292,7 +292,7 @@ define range(i32 0, 2) i32 @grpc_header_nonbin_value_is_legal(ptr noundef readon
   %15 = load i8, ptr %.01319.i.i, align 1, !tbaa !3, !noalias !31
   %16 = zext i8 %15 to i64
   %17 = lshr i64 %16, 6
-  %18 = getelementptr inbounds nuw i64, ptr @_ZN12_GLOBAL__N_133g_legal_header_non_bin_value_bitsE, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_133g_legal_header_non_bin_value_bitsE, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !6, !noalias !31
   %20 = and i64 %16, 63
   %21 = shl nuw i64 1, %20

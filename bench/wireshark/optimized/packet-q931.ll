@@ -1910,8 +1910,8 @@ define hidden void @proto_register_q931() local_unnamed_addr #0 {
 1:                                                ; preds = %0, %1
   %indvars.iv11 = phi i64 [ 3, %0 ], [ %indvars.iv.next12, %1 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr i32, ptr @ett_q931_ie, i64 %indvars.iv
-  %3 = getelementptr ptr, ptr @proto_register_q931.ett, i64 %indvars.iv11
+  %2 = getelementptr [4 x i8], ptr @ett_q931_ie, i64 %indvars.iv
+  %3 = getelementptr [8 x i8], ptr @proto_register_q931.ett, i64 %indvars.iv11
   store ptr %2, ptr %3, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
@@ -2666,7 +2666,7 @@ define internal fastcc void @dissect_q931_IEs(ptr noundef %0, ptr noundef %1, pt
 90:                                               ; preds = %87
   %91 = add nuw nsw i32 %.pre530, 3
   %92 = zext nneg i8 %21 to i64
-  %93 = getelementptr i32, ptr @ett_q931_ie, i64 %92
+  %93 = getelementptr [4 x i8], ptr @ett_q931_ie, i64 %92
   %94 = load i32, ptr %93, align 4
   %95 = call ptr @val_to_str(i32 noundef %22, ptr noundef nonnull @q931_info_element_vals0, ptr noundef nonnull @.str.839)
   %96 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %.0472, i32 noundef %91, i32 noundef %94, ptr noundef null, ptr noundef %95)
@@ -2793,10 +2793,10 @@ split:                                            ; preds = %154, %._crit_edge52
   %.pre-phi521 = phi i32 [ %146, %._crit_edge523 ], [ %.pre-phi539, %154 ]
   %159 = zext i8 %132 to i16
   %160 = zext nneg i8 %21 to i64
-  %161 = getelementptr i32, ptr @ett_q931_ie, i64 %160
+  %161 = getelementptr [4 x i8], ptr @ett_q931_ie, i64 %160
   %162 = load i32, ptr %161, align 4
   %163 = zext nneg i32 %.0357471 to i64
-  %164 = getelementptr ptr, ptr @q931_info_element_vals, i64 %163
+  %164 = getelementptr [8 x i8], ptr @q931_info_element_vals, i64 %163
   %165 = load ptr, ptr %164, align 8
   %166 = call ptr @val_to_str(i32 noundef %22, ptr noundef %165, ptr noundef nonnull @.str.839)
   %167 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %.0472, i32 noundef %.pre-phi535, i32 noundef %162, ptr noundef nonnull %9, ptr noundef %166)

@@ -988,7 +988,7 @@ get_netbios_name.exit123:                         ; preds = %117, %120
 
 143:                                              ; preds = %141
   %144 = zext nneg i8 %20 to i64
-  %145 = getelementptr ptr, ptr @dissect_netb, i64 %144
+  %145 = getelementptr [8 x i8], ptr @dissect_netb, i64 %144
   %146 = load ptr, ptr %145, align 8
   %147 = call i32 %146(ptr noundef %0, ptr noundef %1, i32 noundef %.0, ptr noundef %.099)
   %148 = zext i16 %17 to i32

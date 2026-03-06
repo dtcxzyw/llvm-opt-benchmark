@@ -13,13 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.3 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.3 = type { i64, [8 x i8] }
-%"struct.std::pair" = type { ptr, %"class.std::unique_ptr" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.5" }
-%"struct.std::_Head_base.5" = type { ptr }
 %"class.std::allocator.0" = type { i8 }
 
 $_ZSt18make_exception_ptrISt13runtime_errorENSt15__exception_ptr13exception_ptrET_ = comdat any
@@ -1172,7 +1165,7 @@ define ptr @faiss_IndexShards_at(ptr noundef readonly captures(none) %0, i32 nou
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !37
-  %6 = getelementptr inbounds nuw %"struct.std::pair", ptr %5, i64 %3
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %3
   %7 = load ptr, ptr %6, align 8, !tbaa !38
   ret ptr %7
 }

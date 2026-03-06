@@ -48,7 +48,7 @@ define double @dasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unn
 .lr.ph.i.i:                                       ; preds = %20, %.lr.ph.i.i
   %.089108.i.i = phi i64 [ %31, %.lr.ph.i.i ], [ 0, %20 ]
   %.191107.i.i = phi double [ %30, %.lr.ph.i.i ], [ 0.000000e+00, %20 ]
-  %25 = getelementptr inbounds nuw double, ptr %1, i64 %.089108.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.089108.i.i
   %26 = load double, ptr %25, align 8, !tbaa !7
   %27 = fcmp ogt double %26, 0.000000e+00
   %28 = fneg double %26
@@ -61,7 +61,7 @@ define double @dasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unn
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %20
   %.191.lcssa.i.i = phi double [ 0.000000e+00, %20 ], [ %30, %.lr.ph.i.i ]
   %32 = sub nuw nsw i64 %0, %24
-  %33 = getelementptr inbounds nuw double, ptr %1, i64 %24
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %24
   %34 = and i64 %32, 9223372036854775800
   %35 = and i64 %32, 9223372036854775552
   %36 = icmp samesign ugt i64 %32, 255
@@ -77,7 +77,7 @@ define double @dasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unn
   %.087111.i.i = phi <8 x double> [ %46, %.lr.ph114.i.i ], [ zeroinitializer, %.preheader106.i.i ]
   %.088110.i.i = phi <8 x double> [ %41, %.lr.ph114.i.i ], [ zeroinitializer, %.preheader106.i.i ]
   %.1109.i.i = phi i64 [ %57, %.lr.ph114.i.i ], [ 0, %.preheader106.i.i ]
-  %37 = getelementptr inbounds nuw double, ptr %33, i64 %.1109.i.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.1109.i.i
   %38 = load <8 x i64>, ptr %37, align 64, !tbaa !11
   %39 = and <8 x i64> %38, splat (i64 9223372036854775807)
   %40 = bitcast <8 x i64> %39 to <8 x double>
@@ -133,7 +133,7 @@ define double @dasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unn
   %.083122.i.i = phi <2 x double> [ %80, %.lr.ph125.i.i ], [ zeroinitializer, %.preheader.i.i ]
   %.084121.i.i = phi <2 x double> [ %75, %.lr.ph125.i.i ], [ zeroinitializer, %.preheader.i.i ]
   %.2120.i.i = phi i64 [ %91, %.lr.ph125.i.i ], [ %69, %.preheader.i.i ]
-  %71 = getelementptr inbounds nuw double, ptr %.080104161.i.i, i64 %.2120.i.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.080104161.i.i, i64 %.2120.i.i
   %72 = load <2 x i64>, ptr %71, align 1, !tbaa !11
   %73 = and <2 x i64> %72, splat (i64 9223372036854775807)
   %74 = bitcast <2 x i64> %73 to <2 x double>
@@ -181,7 +181,7 @@ define double @dasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unn
 .lr.ph134.i.i:                                    ; preds = %100, %.lr.ph134.i.i
   %.3132.i.i = phi i64 [ %109, %.lr.ph134.i.i ], [ %101, %100 ]
   %.4131.i.i = phi double [ %108, %.lr.ph134.i.i ], [ %.393.i.i, %100 ]
-  %103 = getelementptr inbounds nuw double, ptr %.080104162.i.i, i64 %.3132.i.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %.080104162.i.i, i64 %.3132.i.i
   %104 = load double, ptr %103, align 8, !tbaa !7
   %105 = fcmp ogt double %104, 0.000000e+00
   %106 = fneg double %104
@@ -198,7 +198,7 @@ define double @dasum_k(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unn
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.138.i = phi double [ %116, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.preheader.i ]
   %.02137.i = phi i64 [ %117, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %111 = getelementptr inbounds nuw double, ptr %1, i64 %.02137.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02137.i
   %112 = load double, ptr %111, align 8, !tbaa !7
   %113 = fcmp ogt double %112, 0.000000e+00
   %114 = fneg double %112
@@ -264,7 +264,7 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
 .lr.ph.i.i:                                       ; preds = %17, %.lr.ph.i.i
   %.089108.i.i = phi i64 [ %28, %.lr.ph.i.i ], [ 0, %17 ]
   %.191107.i.i = phi double [ %27, %.lr.ph.i.i ], [ 0.000000e+00, %17 ]
-  %22 = getelementptr inbounds nuw double, ptr %4, i64 %.089108.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.089108.i.i
   %23 = load double, ptr %22, align 8, !tbaa !7
   %24 = fcmp ogt double %23, 0.000000e+00
   %25 = fneg double %23
@@ -277,7 +277,7 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %17
   %.191.lcssa.i.i = phi double [ 0.000000e+00, %17 ], [ %27, %.lr.ph.i.i ]
   %29 = sub nuw nsw i64 %0, %21
-  %30 = getelementptr inbounds nuw double, ptr %4, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %21
   %31 = and i64 %29, 9223372036854775800
   %32 = and i64 %29, 9223372036854775552
   %33 = icmp samesign ugt i64 %29, 255
@@ -293,7 +293,7 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
   %.087111.i.i = phi <8 x double> [ %43, %.lr.ph114.i.i ], [ zeroinitializer, %.preheader106.i.i ]
   %.088110.i.i = phi <8 x double> [ %38, %.lr.ph114.i.i ], [ zeroinitializer, %.preheader106.i.i ]
   %.1109.i.i = phi i64 [ %54, %.lr.ph114.i.i ], [ 0, %.preheader106.i.i ]
-  %34 = getelementptr inbounds nuw double, ptr %30, i64 %.1109.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.1109.i.i
   %35 = load <8 x i64>, ptr %34, align 64, !tbaa !11
   %36 = and <8 x i64> %35, splat (i64 9223372036854775807)
   %37 = bitcast <8 x i64> %36 to <8 x double>
@@ -349,7 +349,7 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
   %.083122.i.i = phi <2 x double> [ %77, %.lr.ph125.i.i ], [ zeroinitializer, %.preheader.i.i ]
   %.084121.i.i = phi <2 x double> [ %72, %.lr.ph125.i.i ], [ zeroinitializer, %.preheader.i.i ]
   %.2120.i.i = phi i64 [ %88, %.lr.ph125.i.i ], [ %66, %.preheader.i.i ]
-  %68 = getelementptr inbounds nuw double, ptr %.080104161.i.i, i64 %.2120.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.080104161.i.i, i64 %.2120.i.i
   %69 = load <2 x i64>, ptr %68, align 1, !tbaa !11
   %70 = and <2 x i64> %69, splat (i64 9223372036854775807)
   %71 = bitcast <2 x i64> %70 to <2 x double>
@@ -397,7 +397,7 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
 .lr.ph134.i.i:                                    ; preds = %97, %.lr.ph134.i.i
   %.3132.i.i = phi i64 [ %106, %.lr.ph134.i.i ], [ %98, %97 ]
   %.4131.i.i = phi double [ %105, %.lr.ph134.i.i ], [ %.393.i.i, %97 ]
-  %100 = getelementptr inbounds nuw double, ptr %.080104162.i.i, i64 %.3132.i.i
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %.080104162.i.i, i64 %.3132.i.i
   %101 = load double, ptr %100, align 8, !tbaa !7
   %102 = fcmp ogt double %101, 0.000000e+00
   %103 = fneg double %101
@@ -414,7 +414,7 @@ define internal noundef i32 @asum_thread_function(i64 noundef %0, i64 %1, i64 %2
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.138.i = phi double [ %113, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.preheader.i ]
   %.02137.i = phi i64 [ %114, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %108 = getelementptr inbounds nuw double, ptr %4, i64 %.02137.i
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.02137.i
   %109 = load double, ptr %108, align 8, !tbaa !7
   %110 = fcmp ogt double %109, 0.000000e+00
   %111 = fneg double %109

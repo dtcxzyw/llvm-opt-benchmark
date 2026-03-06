@@ -432,7 +432,7 @@ isReferenceTag.exit.i.i:                          ; preds = %126, %122, %119
   br i1 %.not69.i.i, label %133, label %129
 
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw ptr, ptr %.0.ph.i.i, i64 %indvars.iv.i.i
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %.0.ph.i.i, i64 %indvars.iv.i.i
   call void @saveGlobalRef(ptr noundef %15, ptr noundef nonnull %128, ptr noundef nonnull %130) #5
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null
@@ -517,7 +517,7 @@ isReferenceTag.exit79.i.i:                        ; preds = %155, %151, %148
   ]
 
 156:                                              ; preds = %isReferenceTag.exit79.i.i, %isReferenceTag.exit79.i.i, %switch.early.test.i78.i.i, %switch.early.test.i78.i.i
-  %157 = getelementptr inbounds nuw ptr, ptr %.0.ph.i.i, i64 %indvars.iv124.i.i
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %.0.ph.i.i, i64 %indvars.iv124.i.i
   %158 = load ptr, ptr %157, align 8
   store ptr %158, ptr %.1118.i.i, align 8
   br label %159
@@ -567,7 +567,7 @@ isReferenceTag.exit79.i.i:                        ; preds = %155, %151, %148
 .lr.ph122.i.i:                                    ; preds = %.preheader.i.i, %176
   %172 = phi i32 [ %177, %176 ], [ %170, %.preheader.i.i ]
   %indvars.iv127.i.i = phi i64 [ %indvars.iv.next128.i.i, %176 ], [ 0, %.preheader.i.i ]
-  %173 = getelementptr inbounds nuw ptr, ptr %.0828893103142.i.i, i64 %indvars.iv127.i.i
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %.0828893103142.i.i, i64 %indvars.iv127.i.i
   %174 = load ptr, ptr %173, align 8
   %.not72.i.i = icmp eq ptr %174, null
   br i1 %.not72.i.i, label %176, label %175

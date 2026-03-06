@@ -3,7 +3,6 @@ source_filename = "bench/llvm/original/OMPContext.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::APInt" = type <{ %union.anon.10, i32, [4 x i8] }>
 %union.anon.10 = type { i64 }
 %"class.llvm::SmallVector.14" = type { %"class.llvm::SmallVectorImpl.15", %"struct.llvm::SmallVectorStorage.18" }
@@ -12,27 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.17" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.18" = type { [32 x i8] }
-%"struct.llvm::omp::VariantMatchInfo" = type { %"class.llvm::BitVector", %"class.llvm::SmallVector.5", %"class.llvm::SmallVector.0", %"class.llvm::SmallDenseMap" }
-%"class.llvm::BitVector" = type <{ %"class.llvm::SmallVector", i32, [4 x i8] }>
-%"class.llvm::SmallVector" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage" }
-%"class.llvm::SmallVectorImpl" = type { %"class.llvm::SmallVectorTemplateBase" }
-%"class.llvm::SmallVectorTemplateBase" = type { %"class.llvm::SmallVectorTemplateCommon" }
-%"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage" = type { [48 x i8] }
-%"class.llvm::SmallVector.5" = type { %"class.llvm::SmallVectorImpl.6", %"struct.llvm::SmallVectorStorage.9" }
-%"class.llvm::SmallVectorImpl.6" = type { %"class.llvm::SmallVectorTemplateBase.7" }
-%"class.llvm::SmallVectorTemplateBase.7" = type { %"class.llvm::SmallVectorTemplateCommon.8" }
-%"class.llvm::SmallVectorTemplateCommon.8" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.9" = type { [128 x i8] }
-%"class.llvm::SmallVector.0" = type { %"class.llvm::SmallVectorImpl.1", %"struct.llvm::SmallVectorStorage.4" }
-%"class.llvm::SmallVectorImpl.1" = type { %"class.llvm::SmallVectorTemplateBase.2" }
-%"class.llvm::SmallVectorTemplateBase.2" = type { %"class.llvm::SmallVectorTemplateCommon.3" }
-%"class.llvm::SmallVectorTemplateCommon.3" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::SmallVectorStorage.4" = type { [32 x i8] }
-%"class.llvm::SmallDenseMap" = type { i32, i32, %"struct.llvm::AlignedCharArrayUnion" }
-%"struct.llvm::AlignedCharArrayUnion" = type { [96 x i8] }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { i32, [4 x i8], %"class.llvm::APInt" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -220,7 +198,7 @@ define dso_local void @_ZN4llvm3omp10OMPContextC2EbNS_6TripleE(ptr noundef nonnu
 
 switch.lookup:                                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %15 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm3omp10OMPContextC2EbNS_6TripleE, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp10OMPContextC2EbNS_6TripleE, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %16 = or disjoint i64 %11, %switch.load
   store i64 %16, ptr %.ptr175, align 8, !tbaa !20
@@ -456,7 +434,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL34isVariantApplicableInCo
 
 22:                                               ; preds = %27, %13
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i.i.i.i.i, %27 ]
-  %23 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i.i.i.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i.i.i.i
   %24 = load i64, ptr %23, align 8, !tbaa !20, !noalias !33
   %25 = icmp eq i64 %indvars.iv.i.i.i.i.i, %20
   %26 = select i1 %25, i64 %19, i64 -1
@@ -506,7 +484,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %22
   %47 = lshr i32 %.sroa.4110.0177, 6
   %48 = zext nneg i32 %47 to i64
   %49 = load ptr, ptr %33, align 8, !tbaa !6
-  %50 = getelementptr inbounds nuw i64, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %48
   %51 = load i64, ptr %50, align 8, !tbaa !20
   %52 = and i64 %51, %46
   %.not156 = icmp eq i64 %52, 0
@@ -528,7 +506,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %22
   %.val87 = load ptr, ptr %35, align 8, !tbaa !6
   %.val88 = load i32, ptr %36, align 8, !tbaa !12
   %56 = zext i32 %.val88 to i64
-  %57 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.val87, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %.val87, i64 %56
   %58 = ptrtoint ptr %57 to i64
   %59 = lshr i64 %56, 2
   %.not.i = icmp eq i64 %59, 0
@@ -701,7 +679,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %22
 
 .lr.ph.i.split.us.i.i.i:                          ; preds = %.lr.ph.i.i.i.i, %144
   %indvars.iv.i.us.i.i.i = phi i64 [ %indvars.iv.next.i.us.i.i.i, %144 ], [ %137, %.lr.ph.i.i.i.i ]
-  %140 = getelementptr inbounds nuw i64, ptr %127, i64 %indvars.iv.i.us.i.i.i
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv.i.us.i.i.i
   %141 = load i64, ptr %140, align 8, !tbaa !20
   %142 = icmp eq i64 %indvars.iv.i.us.i.i.i, %138
   %143 = select i1 %142, i64 %136, i64 -1
@@ -716,7 +694,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %22
 
 .lr.ph.i.split.i.i.i:                             ; preds = %.lr.ph.i.i.i.i, %150
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %150 ], [ %137, %.lr.ph.i.i.i.i ]
-  %145 = getelementptr inbounds nuw i64, ptr %127, i64 %indvars.iv.i.i.i.i
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv.i.i.i.i
   %146 = load i64, ptr %145, align 8, !tbaa !20
   %147 = icmp eq i64 %indvars.iv.i.i.i.i, %137
   %spec.select.i.i.i = select i1 %147, i64 %132, i64 -1
@@ -781,7 +759,7 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit: ; preds = %.lr.
   %.175178.us.us = phi i32 [ %173, %.lr.ph179.us.us ], [ 0, %.lr.ph185.split.us.split.us ]
   %173 = add nuw i32 %.175178.us.us, 1
   %174 = zext i32 %.175178.us.us to i64
-  %175 = getelementptr inbounds nuw i32, ptr %170, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !40
   %177 = icmp eq i32 %176, %171
   %178 = icmp eq i32 %173, %159
@@ -804,7 +782,7 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit: ; preds = %.lr.
   %.175178.us = phi i32 [ %183, %.lr.ph179.us ], [ %.074182.us, %.lr.ph185.split.us.split ]
   %183 = add i32 %.175178.us, 1
   %184 = zext i32 %.175178.us to i64
-  %185 = getelementptr inbounds nuw i32, ptr %170, i64 %184
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %184
   %186 = load i32, ptr %185, align 4, !tbaa !40
   %187 = icmp eq i32 %186, %179
   %cond.fr = freeze i1 %187
@@ -830,7 +808,7 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit: ; preds = %.lr.
   %.175178.us190 = phi i32 [ 0, %.lr.ph179.us194 ], [ %192, %191 ]
   %192 = add nuw i32 %.175178.us190, 1
   %193 = zext i32 %.175178.us190 to i64
-  %194 = getelementptr inbounds nuw i32, ptr %209, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %209, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !40
   %196 = icmp eq i32 %195, %189
   %197 = icmp eq i32 %192, %159
@@ -856,7 +834,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.us: ; preds = %200, %.
   %203 = phi i32 [ %198, %._crit_edge.us195 ], [ %.pre.i.us, %200 ]
   %204 = load ptr, ptr %2, align 8, !tbaa !6
   %205 = zext i32 %203 to i64
-  %206 = getelementptr inbounds nuw i32, ptr %204, i64 %205
+  %206 = getelementptr inbounds nuw [4 x i8], ptr %204, i64 %205
   store i32 %.175.lcssa.us192, ptr %206, align 1
   %207 = load i32, ptr %166, align 8, !tbaa !12
   %208 = add i32 %207, 1
@@ -887,7 +865,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.us: ; preds = %200, %.
   %.175178 = phi i32 [ %.074182, %.lr.ph179 ], [ %216, %215 ]
   %216 = add i32 %.175178, 1
   %217 = zext i32 %.175178 to i64
-  %218 = getelementptr inbounds nuw i32, ptr %214, i64 %217
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %217
   %219 = load i32, ptr %218, align 4, !tbaa !40
   %220 = icmp eq i32 %219, %212
   %221 = icmp eq i32 %216, %159
@@ -914,7 +892,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %._crit_edg
   %228 = phi i32 [ %223, %._crit_edge ], [ %.pre.i, %225 ]
   %229 = load ptr, ptr %2, align 8, !tbaa !6
   %230 = zext i32 %228 to i64
-  %231 = getelementptr inbounds nuw i32, ptr %229, i64 %230
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %229, i64 %230
   store i32 %222, ptr %231, align 1
   %232 = load i32, ptr %166, align 8, !tbaa !12
   %233 = add i32 %232, 1
@@ -982,7 +960,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %2, %._crit_edge, %1
   %.039 = phi i32 [ -1, %.lr.ph ], [ %.1, %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit ]
   %.01638 = phi ptr [ null, %.lr.ph ], [ %.117, %_ZN4llvm11SmallVectorIjLj8EED2Ev.exit ]
   %21 = load ptr, ptr %0, align 8, !tbaa !6
-  %22 = getelementptr inbounds nuw %"struct.llvm::omp::VariantMatchInfo", ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [368 x i8], ptr %21, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %10, ptr %5, align 8, !tbaa !6
   store i32 0, ptr %11, align 8, !tbaa !12
@@ -1020,7 +998,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %2, %._crit_edge, %1
 
 42:                                               ; preds = %47, %32
   %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i.i.i.i.i.i, %47 ]
-  %43 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv.i.i.i.i.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i.i.i.i.i.i
   %44 = load i64, ptr %43, align 8, !tbaa !20, !noalias !53
   %45 = icmp eq i64 %indvars.iv.i.i.i.i.i.i, %40
   %46 = select i1 %45, i64 %39, i64 -1
@@ -1085,7 +1063,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit.i:            ; preds = %42
   %75 = add i32 %72, -1
   %.01826.i.i.i.i.i = and i32 %75, %.sroa.4.024.i
   %76 = zext i32 %.01826.i.i.i.i.i to i64
-  %77 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %70, i64 %76
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !40
   %79 = icmp eq i32 %.sroa.4.024.i, %78
   br i1 %79, label %.thread.i, label %.lr.ph.i.i.i.i.i, !prof !54
@@ -1106,7 +1084,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit.i:            ; preds = %42
   %83 = add i32 %.01627.i.i.i.i.i, %.01828.i.i.i.i.i
   %.018.i.i.i.i.i = and i32 %83, %75
   %84 = zext i32 %.018.i.i.i.i.i to i64
-  %85 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %70, i64 %84
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !40
   %87 = icmp eq i32 %.sroa.4.024.i, %86
   br i1 %87, label %88, label %.lr.ph.i.i.i.i.i, !prof !55, !llvm.loop !56
@@ -1128,14 +1106,14 @@ _ZNK4llvm9BitVector8set_bitsEv.exit.i:            ; preds = %42
   %93 = add i32 %.01627.i.i.i.i, %.01828.i.i.i.i
   %.018.i.i.i.i = and i32 %93, %75
   %94 = zext i32 %.018.i.i.i.i to i64
-  %95 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %70, i64 %94
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !40, !noalias !57
   %97 = icmp eq i32 %.sroa.4.024.i, %96
   br i1 %97, label %.loopexit.i.i, label %.lr.ph.i.i.i.i, !prof !55, !llvm.loop !56
 
 .loopexit.i.i:                                    ; preds = %91, %.thread.i
   %98 = phi i64 [ %76, %.thread.i ], [ %94, %91 ]
-  %99 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %70, i64 %98
+  %99 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %102 = load i32, ptr %101, align 8, !tbaa !44, !noalias !57
@@ -1247,7 +1225,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %115, %112, %_ZNK4ll
 
 .lr.ph.i.split.us.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i32.i, %152
   %indvars.iv.i.us.i.i.i.i = phi i64 [ %indvars.iv.next.i.us.i.i.i.i, %152 ], [ %145, %.lr.ph.i.i.i.i32.i ]
-  %148 = getelementptr inbounds nuw i64, ptr %135, i64 %indvars.iv.i.us.i.i.i.i
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv.i.us.i.i.i.i
   %149 = load i64, ptr %148, align 8, !tbaa !20
   %150 = icmp eq i64 %indvars.iv.i.us.i.i.i.i, %146
   %151 = select i1 %150, i64 %144, i64 -1
@@ -1262,7 +1240,7 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %115, %112, %_ZNK4ll
 
 .lr.ph.i.split.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i32.i, %158
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %158 ], [ %145, %.lr.ph.i.i.i.i32.i ]
-  %153 = getelementptr inbounds nuw i64, ptr %135, i64 %indvars.iv.i.i.i.i.i
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv.i.i.i.i.i
   %154 = load i64, ptr %153, align 8, !tbaa !20
   %155 = icmp eq i64 %indvars.iv.i.i.i.i.i, %145
   %spec.select.i.i.i.i = select i1 %155, i64 %140, i64 -1
@@ -1294,7 +1272,7 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit.i: ; preds = %.l
   %.027.i = phi ptr [ %170, %.lr.ph29.i ], [ %64, %._crit_edge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %164 = load ptr, ptr %5, align 8, !tbaa !6, !noalias !47
-  %165 = getelementptr inbounds nuw i32, ptr %164, i64 %indvars.iv.i
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %indvars.iv.i
   %166 = load i32, ptr %165, align 4, !tbaa !60
   %167 = zext nneg i32 %166 to i64
   %168 = shl nuw i64 1, %167
@@ -1466,7 +1444,7 @@ _ZNK4llvm9BitVector5countEv.exit24:               ; preds = %.lr.ph.i19
 
 37:                                               ; preds = %42, %28
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %28 ], [ %indvars.iv.next.i.i.i.i.i, %42 ]
-  %38 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i.i.i.i.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i.i.i.i
   %39 = load i64, ptr %38, align 8, !tbaa !20, !noalias !62
   %40 = icmp eq i64 %indvars.iv.i.i.i.i.i, %35
   %41 = select i1 %40, i64 %34, i64 -1
@@ -1507,7 +1485,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %37
   %59 = shl nuw i64 1, %58
   %60 = lshr i32 %.sroa.4.057, 6
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i64, ptr %13, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !20
   %64 = and i64 %63, %59
   %.not43 = icmp eq i64 %64, 0
@@ -1535,7 +1513,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %37
 
 .lr.ph.i.split.us.i.i.i:                          ; preds = %.lr.ph.i.i.i.i, %80
   %indvars.iv.i.us.i.i.i = phi i64 [ %indvars.iv.next.i.us.i.i.i, %80 ], [ %75, %.lr.ph.i.i.i.i ]
-  %76 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i.us.i.i.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.us.i.i.i
   %77 = load i64, ptr %76, align 8, !tbaa !20
   %78 = icmp eq i64 %indvars.iv.i.us.i.i.i, %54
   %79 = select i1 %78, i64 %53, i64 -1
@@ -1550,7 +1528,7 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %37
 
 .lr.ph.i.split.i.i.i:                             ; preds = %.lr.ph.i.i.i.i, %86
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %86 ], [ %75, %.lr.ph.i.i.i.i ]
-  %81 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i.i.i.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i.i.i
   %82 = load i64, ptr %81, align 8, !tbaa !20
   %83 = icmp eq i64 %indvars.iv.i.i.i.i, %75
   %spec.select.i.i.i = select i1 %83, i64 %74, i64 -1
@@ -1679,7 +1657,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define dso_local noundef range(i32 0, 5) i32 @_ZN4llvm3omp35getOpenMPContextTraitSetForSelectorENS0_13TraitSelectorE(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm3omp31isValidTraitSelectorForTraitSetENS0_13TraitSelectorENS0_8TraitSetERbS3_.9, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm3omp31isValidTraitSelectorForTraitSetENS0_13TraitSelectorENS0_8TraitSetERbS3_.9, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1688,7 +1666,7 @@ switch.lookup:
 define dso_local noundef range(i32 0, 5) i32 @_ZN4llvm3omp35getOpenMPContextTraitSetForPropertyENS0_13TraitPropertyE(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm3omp35getOpenMPContextTraitSetForPropertyENS0_13TraitPropertyE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm3omp35getOpenMPContextTraitSetForPropertyENS0_13TraitPropertyE, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1697,10 +1675,10 @@ switch.lookup:
 define dso_local { ptr, i64 } @_ZN4llvm3omp28getOpenMPContextTraitSetNameENS0_8TraitSetE(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm3omp28getOpenMPContextTraitSetNameENS0_8TraitSetE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp28getOpenMPContextTraitSetNameENS0_8TraitSetE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3omp28getOpenMPContextTraitSetNameENS0_8TraitSetE.6, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp28getOpenMPContextTraitSetNameENS0_8TraitSetE.6, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -1838,7 +1816,7 @@ _ZN4llvm12StringSwitchINS_3omp13TraitSelectorES2_E4CaseENS_13StringLiteralES2_.e
 define dso_local noundef range(i32 0, 18) i32 @_ZN4llvm3omp40getOpenMPContextTraitSelectorForPropertyENS0_13TraitPropertyE(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm3omp40getOpenMPContextTraitSelectorForPropertyENS0_13TraitPropertyE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm3omp40getOpenMPContextTraitSelectorForPropertyENS0_13TraitPropertyE, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1847,10 +1825,10 @@ switch.lookup:
 define dso_local { ptr, i64 } @_ZN4llvm3omp33getOpenMPContextTraitSelectorNameENS0_13TraitSelectorE(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm3omp33getOpenMPContextTraitSelectorNameENS0_13TraitSelectorE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp33getOpenMPContextTraitSelectorNameENS0_13TraitSelectorE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3omp33getOpenMPContextTraitSelectorNameENS0_13TraitSelectorE.7, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp33getOpenMPContextTraitSelectorNameENS0_13TraitSelectorE.7, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -3268,10 +3246,10 @@ define dso_local { ptr, i64 } @_ZN4llvm3omp33getOpenMPContextTraitPropertyNameEN
 define dso_local { ptr, i64 } @_ZN4llvm3omp37getOpenMPContextTraitPropertyFullNameENS0_13TraitPropertyE(i32 noundef %0) local_unnamed_addr #5 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm3omp37getOpenMPContextTraitPropertyFullNameENS0_13TraitPropertyE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp37getOpenMPContextTraitPropertyFullNameENS0_13TraitPropertyE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm3omp37getOpenMPContextTraitPropertyFullNameENS0_13TraitPropertyE.8, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm3omp37getOpenMPContextTraitPropertyFullNameENS0_13TraitPropertyE.8, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -3289,7 +3267,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4llvm3omp31isValidTraitSelectorForTraitSetENS0_13TraitSelectorENS0_8TraitSetERbS3_, i64 %7
   %switch.load = load i8, ptr %switch.gep, align 1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep41 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm3omp31isValidTraitSelectorForTraitSetENS0_13TraitSelectorENS0_8TraitSetERbS3_.9, i64 %8
+  %switch.gep41 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm3omp31isValidTraitSelectorForTraitSetENS0_13TraitSelectorENS0_8TraitSetERbS3_.9, i64 %8
   %switch.load42 = load i32, ptr %switch.gep41, align 4
   store i8 %switch.load, ptr %3, align 1, !tbaa !66
   %9 = icmp eq i32 %1, %switch.load42

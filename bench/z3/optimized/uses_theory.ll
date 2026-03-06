@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.bit_vector = type { i32, i32, ptr }
 %class.sbuffer = type { %class.buffer }
 %class.buffer = type { ptr, i32, i32, [256 x i8] }
-%"struct.std::pair" = type <{ ptr, i32, [4 x i8] }>
-%class.symbol = type { ptr }
 
 $_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev = comdat any
 
@@ -88,7 +86,7 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.i.i: ;
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = lshr i32 %5, 5
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !13
   %17 = and i32 %16, %10
   %.not.i.i = icmp eq i32 %17, 0
@@ -104,7 +102,7 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.i.i: ;
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !3
   %.pre234.i.i = lshr i32 %5, 5
   %.pre235.i.i = zext nneg i32 %.pre234.i.i to i64
-  %.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %.pre.i.i, i64 %.pre235.i.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [4 x i8], ptr %.pre.i.i, i64 %.pre235.i.i
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !13
   br label %20
 
@@ -113,7 +111,7 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.i.i: ;
   %.pre-phi236.i.i = phi i64 [ %.pre235.i.i, %.noexc ], [ %14, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.i.i ]
   %22 = phi ptr [ %.pre.i.i, %.noexc ], [ %12, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit.i.i ]
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %.pre-phi236.i.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %.pre-phi236.i.i
   %25 = or i32 %21, %10
   store i32 %25, ptr %24, align 4, !tbaa !13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -142,7 +140,7 @@ thread-pre-split.i.i:                             ; preds = %.thread-pre-split_c
   %33 = phi i32 [ %31, %.preheader.i.i ], [ %210, %_ZN12_GLOBAL__N_14procclEP3app.exit106.i.i ]
   %34 = load ptr, ptr %4, align 8, !tbaa !14
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw %"struct.std::pair", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !19
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4
@@ -178,7 +176,7 @@ thread-pre-split.i.i:                             ; preds = %.thread-pre-split_c
 50:                                               ; preds = %_ZN12_GLOBAL__N_14procclEP3app.exit.i.i, %.lr.ph.i.i
   %51 = phi i32 [ %47, %.lr.ph.i.i ], [ %125, %_ZN12_GLOBAL__N_14procclEP3app.exit.i.i ]
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %49, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !28
   %55 = add nuw i32 %51, 1
   store i32 %55, ptr %46, align 8, !tbaa !27
@@ -191,7 +189,7 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit61.i.i:
   %59 = load ptr, ptr %23, align 8, !tbaa !3
   %60 = lshr i32 %56, 5
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %59, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !13
   %64 = and i32 %56, 31
   %65 = shl nuw i32 1, %64
@@ -228,7 +226,7 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit61.i.i:
   %.pre243.i.i = zext nneg i32 %.pre241.i.i to i64
   %.pre245.i.i = and i32 %56, 31
   %.pre247.i.i = shl nuw i32 1, %.pre245.i.i
-  %.phi.trans.insert65.i = getelementptr inbounds nuw i32, ptr %.pre231.i.i, i64 %.pre243.i.i
+  %.phi.trans.insert65.i = getelementptr inbounds nuw [4 x i8], ptr %.pre231.i.i, i64 %.pre243.i.i
   %.pre66.i = load i32, ptr %.phi.trans.insert65.i, align 4, !tbaa !13
   br label %.thread155.i.i
 
@@ -237,7 +235,7 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit61.i.i:
   %.pre-phi248.i.i = phi i32 [ %.pre247.i.i, %..thread155_crit_edge.i.i ], [ %65, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit61.i.i ]
   %.pre-phi244.i.i = phi i64 [ %.pre243.i.i, %..thread155_crit_edge.i.i ], [ %61, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit61.i.i ]
   %72 = phi ptr [ %.pre231.i.i, %..thread155_crit_edge.i.i ], [ %59, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit61.i.i ]
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %.pre-phi244.i.i
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %.pre-phi244.i.i
   %74 = or i32 %.pre-phi248.i.i, %71
   store i32 %74, ptr %73, align 4, !tbaa !13
   %75 = getelementptr inbounds nuw i8, ptr %54, i64 4
@@ -292,8 +290,8 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit61.i.i:
 
 88:                                               ; preds = %88, %.lr.ph.i.i68.i.i
   %indvars.iv.i.i70.i.i = phi i64 [ 0, %.lr.ph.i.i68.i.i ], [ %indvars.iv.next.i.i71.i.i, %88 ]
-  %89 = getelementptr inbounds nuw %"struct.std::pair", ptr %84, i64 %indvars.iv.i.i70.i.i
-  %90 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre.i.i67.i.i, i64 %indvars.iv.i.i70.i.i
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %indvars.iv.i.i70.i.i
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %.pre.i.i67.i.i, i64 %indvars.iv.i.i70.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %90, i64 16, i1 false)
   %indvars.iv.next.i.i71.i.i = add nuw nsw i64 %indvars.iv.i.i70.i.i, 1
   %exitcond.not.i.i72.i.i = icmp eq i64 %indvars.iv.next.i.i71.i.i, %wide.trip.count.i.i69.i.i
@@ -385,8 +383,8 @@ _ZNK3app13get_family_idEv.exit.i.i.i:             ; preds = %101, %97
 
 118:                                              ; preds = %118, %.lr.ph.i.i88.i.i
   %indvars.iv.i.i90.i.i = phi i64 [ 0, %.lr.ph.i.i88.i.i ], [ %indvars.iv.next.i.i91.i.i, %118 ]
-  %119 = getelementptr inbounds nuw %"struct.std::pair", ptr %114, i64 %indvars.iv.i.i90.i.i
-  %120 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre.i.i87.i.i, i64 %indvars.iv.i.i90.i.i
+  %119 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %indvars.iv.i.i90.i.i
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %.pre.i.i87.i.i, i64 %indvars.iv.i.i90.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 8 dereferenceable(16) %120, i64 16, i1 false)
   %indvars.iv.next.i.i91.i.i = add nuw nsw i64 %indvars.iv.i.i90.i.i, 1
   %exitcond.not.i.i92.i.i = icmp eq i64 %indvars.iv.next.i.i91.i.i, %wide.trip.count.i.i89.i.i
@@ -486,9 +484,9 @@ _ZNK3app13get_family_idEv.exit.i104.i.i:          ; preds = %130, %._crit_edge.i
 156:                                              ; preds = %155
   %157 = load i32, ptr %145, align 4, !tbaa !48
   %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds nuw ptr, ptr %144, i64 %158
-  %160 = getelementptr inbounds nuw %class.symbol, ptr %159, i64 %158
-  %161 = getelementptr ptr, ptr %160, i64 %indvars.iv.i.i
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %158
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %158
+  %161 = getelementptr [8 x i8], ptr %160, i64 %indvars.iv.i.i
   %162 = getelementptr i8, ptr %161, i64 -8
   br label %172
 
@@ -497,10 +495,10 @@ _ZNK3app13get_family_idEv.exit.i104.i.i:          ; preds = %130, %._crit_edge.i
   %165 = add i32 %164, %151
   %166 = load i32, ptr %145, align 4, !tbaa !48
   %167 = zext i32 %166 to i64
-  %168 = getelementptr inbounds nuw ptr, ptr %144, i64 %167
-  %169 = getelementptr inbounds nuw %class.symbol, ptr %168, i64 %167
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %167
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %167
   %170 = zext i32 %165 to i64
-  %171 = getelementptr inbounds nuw ptr, ptr %169, i64 %170
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %170
   br label %172
 
 172:                                              ; preds = %163, %156, %153
@@ -516,7 +514,7 @@ _ZNK3app13get_family_idEv.exit.i104.i.i:          ; preds = %130, %._crit_edge.i
 _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit108.i.i: ; preds = %172
   %176 = lshr i32 %174, 5
   %177 = zext nneg i32 %176 to i64
-  %178 = getelementptr inbounds nuw i32, ptr %148, i64 %177
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %177
   %179 = load i32, ptr %178, align 4, !tbaa !13
   %180 = and i32 %174, 31
   %181 = shl nuw i32 1, %180
@@ -546,7 +544,7 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit108.i.i
   %.pre-phi258.i.i = phi i32 [ %.pre257.i.i, %..thread159_crit_edge.i.i ], [ %181, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit108.i.i ]
   %.pre-phi254.i.i = phi i64 [ %.pre253.i.i, %..thread159_crit_edge.i.i ], [ %177, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit108.i.i ]
   %187 = load ptr, ptr %23, align 8, !tbaa !3
-  %188 = getelementptr inbounds nuw i32, ptr %187, i64 %.pre-phi254.i.i
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %.pre-phi254.i.i
   %189 = load i32, ptr %188, align 4, !tbaa !13
   %190 = or i32 %189, %.pre-phi258.i.i
   store i32 %190, ptr %188, align 4, !tbaa !13
@@ -592,8 +590,8 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit108.i.i
 
 201:                                              ; preds = %201, %.lr.ph.i.i115.i.i
   %indvars.iv.i.i117.i.i = phi i64 [ 0, %.lr.ph.i.i115.i.i ], [ %indvars.iv.next.i.i118.i.i, %201 ]
-  %202 = getelementptr inbounds nuw %"struct.std::pair", ptr %197, i64 %indvars.iv.i.i117.i.i
-  %203 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre.i.i114.i.i, i64 %indvars.iv.i.i117.i.i
+  %202 = getelementptr inbounds nuw [16 x i8], ptr %197, i64 %indvars.iv.i.i117.i.i
+  %203 = getelementptr inbounds nuw [16 x i8], ptr %.pre.i.i114.i.i, i64 %indvars.iv.i.i117.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %202, ptr noundef nonnull align 8 dereferenceable(16) %203, i64 16, i1 false)
   %indvars.iv.next.i.i118.i.i = add nuw nsw i64 %indvars.iv.i.i117.i.i, 1
   %exitcond.not.i.i119.i.i = icmp eq i64 %indvars.iv.next.i.i118.i.i, %wide.trip.count.i.i116.i.i
@@ -632,7 +630,7 @@ _ZN12_GLOBAL__N_14procclEP3app.exit106.i.i:       ; preds = %_ZN6bufferISt4pairI
   %.sink311.i.i = phi ptr [ %114, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i97.i.i ], [ %84, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i77.i.i ], [ %.pre.i80.i.i, %._crit_edge.i79.i.i ], [ %.pre.i100.i.i, %._crit_edge.i99.i.i ], [ %.pre.i127.i.i, %._crit_edge.i126.i.i ], [ %197, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i124.i.i ]
   %.0.i279.sink.i.i = phi ptr [ %54, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i97.i.i ], [ %54, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i77.i.i ], [ %54, %._crit_edge.i79.i.i ], [ %54, %._crit_edge.i99.i.i ], [ %.0.i.i.i, %._crit_edge.i126.i.i ], [ %.0.i.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i124.i.i ]
   %208 = zext i32 %.sink.i.i to i64
-  %209 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink311.i.i, i64 %208
+  %209 = getelementptr inbounds nuw [16 x i8], ptr %.sink311.i.i, i64 %208
   store ptr %.0.i279.sink.i.i, ptr %209, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %209, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx.i.i, align 8

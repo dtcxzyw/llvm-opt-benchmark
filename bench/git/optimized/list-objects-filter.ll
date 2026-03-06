@@ -6,11 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.object_context = type { i16, %struct.strbuf, ptr }
 %struct.strbuf = type { i64, i64, ptr }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.frame = type { i32, i8 }
-%struct.subfilter = type { ptr, %struct.oidset, %struct.oidset, %struct.object_id, i8 }
-%struct.oidset = type { %struct.kh_oid_set }
-%struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.list_objects_filter_options = type { %struct.strbuf, i32, i8, ptr, i64, i64, i32, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [22 x i8] c"list-objects-filter.c\00", align 1
 @.str.1 = private unnamed_addr constant [39 x i8] c"invalid list-objects filter choice: %d\00", align 1
@@ -46,7 +41,7 @@ define dso_local noundef ptr @list_objects_filter__init(ptr noundef %0, ptr noun
 
 9:                                                ; preds = %8
   %10 = zext nneg i32 %5 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @s_filters, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @s_filters, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   %13 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #13
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -243,7 +238,7 @@ st_mult.exit:                                     ; preds = %26
 36:                                               ; preds = %._crit_edge, %st_mult.exit
   %37 = phi i64 [ %21, %._crit_edge ], [ %.pre25, %st_mult.exit ]
   %38 = phi ptr [ %.pre, %._crit_edge ], [ %35, %st_mult.exit ]
-  %39 = getelementptr inbounds nuw %struct.frame, ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %37
   store i32 0, ptr %39, align 4, !tbaa !42
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i8, ptr %40, align 4
@@ -301,11 +296,11 @@ define internal void @filter_combine__init(ptr noundef readonly captures(none) %
   %.018 = phi i64 [ 0, %.lr.ph ], [ %35, %list_objects_filter__init.exit ]
   %14 = load ptr, ptr %9, align 8, !tbaa !15
   %.not = icmp eq ptr %14, null
-  %15 = getelementptr inbounds nuw %struct.subfilter, ptr %13, i64 %.018
+  %15 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 %.018
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = select i1 %.not, ptr null, ptr %16
   %18 = load ptr, ptr %10, align 8, !tbaa !52
-  %19 = getelementptr inbounds nuw %struct.list_objects_filter_options, ptr %18, i64 %.018
+  %19 = getelementptr inbounds nuw [88 x i8], ptr %18, i64 %.018
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %list_objects_filter__init.exit, label %20
 
@@ -325,7 +320,7 @@ define internal void @filter_combine__init(ptr noundef readonly captures(none) %
 
 26:                                               ; preds = %25
   %27 = zext nneg i32 %22 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr @s_filters, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @s_filters, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !14
   %30 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #13
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
@@ -339,7 +334,7 @@ list_objects_filter__init.exit:                   ; preds = %11, %25, %26
   %32 = phi i64 [ %.pre20, %26 ], [ %12, %11 ], [ %12, %25 ]
   %33 = phi ptr [ %.pre, %26 ], [ %13, %11 ], [ %13, %25 ]
   %.0.i = phi ptr [ %30, %26 ], [ null, %11 ], [ null, %25 ]
-  %34 = getelementptr inbounds nuw %struct.subfilter, ptr %33, i64 %.018
+  %34 = getelementptr inbounds nuw [128 x i8], ptr %33, i64 %.018
   store ptr %.0.i, ptr %34, align 8, !tbaa !53
   %35 = add nuw i64 %.018, 1
   %36 = icmp ult i64 %35, %32
@@ -648,7 +643,7 @@ define internal range(i32 0, 4) i32 @filter_sparse(ptr noundef readonly captures
   %19 = load ptr, ptr %18, align 8, !tbaa !41
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %21 = load i64, ptr %20, align 8, !tbaa !35
-  %22 = getelementptr %struct.frame, ptr %19, i64 %21
+  %22 = getelementptr [8 x i8], ptr %19, i64 %21
   %23 = getelementptr i8, ptr %22, i64 -8
   %24 = load i32, ptr %23, align 4, !tbaa !42
   br label %25
@@ -693,7 +688,7 @@ st_mult.exit:                                     ; preds = %32
 42:                                               ; preds = %._crit_edge65, %st_mult.exit
   %43 = phi i64 [ %26, %._crit_edge65 ], [ %.pre68, %st_mult.exit ]
   %44 = phi ptr [ %.pre67, %._crit_edge65 ], [ %41, %st_mult.exit ]
-  %45 = getelementptr inbounds nuw %struct.frame, ptr %44, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %43
   store i32 %.0, ptr %45, align 4, !tbaa !42
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i8, ptr %46, align 4
@@ -719,10 +714,10 @@ st_mult.exit:                                     ; preds = %32
   %59 = load i64, ptr %58, align 8, !tbaa !35
   %60 = add i64 %59, -1
   store i64 %60, ptr %58, align 8, !tbaa !35
-  %61 = getelementptr inbounds nuw %struct.frame, ptr %57, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i8, ptr %62, align 4
-  %64 = getelementptr %struct.frame, ptr %57, i64 %59
+  %64 = getelementptr [8 x i8], ptr %57, i64 %59
   %65 = getelementptr i8, ptr %64, i64 -12
   %66 = load i8, ptr %65, align 4
   %67 = and i8 %63, 1
@@ -737,7 +732,7 @@ st_mult.exit:                                     ; preds = %32
   %72 = load ptr, ptr %71, align 8, !tbaa !41
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %74 = load i64, ptr %73, align 8, !tbaa !35
-  %75 = getelementptr %struct.frame, ptr %72, i64 %74
+  %75 = getelementptr [8 x i8], ptr %72, i64 %74
   store i32 8, ptr %8, align 4, !tbaa !71
   %76 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
   %77 = trunc i64 %76 to i32
@@ -849,7 +844,7 @@ define internal range(i32 0, 5) i32 @filter_object_type(ptr readnone captures(no
 
 switch.lookup:                                    ; preds = %15
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.filter_object_type, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.filter_object_type, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %22
 
@@ -876,7 +871,7 @@ define internal range(i32 0, 8) i32 @filter_combine(ptr noundef %0, i32 noundef 
   %13 = phi ptr [ %.pre, %.lr.ph ], [ %51, %process_subfilter.exit ]
   %.022 = phi i32 [ 7, %.lr.ph ], [ %.3, %process_subfilter.exit ]
   %.01821 = phi i64 [ 0, %.lr.ph ], [ %57, %process_subfilter.exit ]
-  %14 = getelementptr inbounds nuw %struct.subfilter, ptr %13, i64 %.01821
+  %14 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 %.01821
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 124
   %16 = load i8, ptr %15, align 4
   %17 = and i8 %16, 1
@@ -957,7 +952,7 @@ process_subfilter.exit:                           ; preds = %18, %19, %23, %41, 
   %50 = and i32 %spec.select, -2
   %.2 = select i1 %.not19, i32 %50, i32 %spec.select
   %51 = load ptr, ptr %6, align 8, !tbaa !51
-  %52 = getelementptr inbounds nuw %struct.subfilter, ptr %51, i64 %.01821
+  %52 = getelementptr inbounds nuw [128 x i8], ptr %51, i64 %.01821
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 124
   %54 = load i8, ptr %53, align 4
   %55 = and i8 %54, 1
@@ -991,7 +986,7 @@ define internal void @filter_combine__free(ptr noundef captures(none) %0) #0 {
 .lr.ph:                                           ; preds = %1, %4
   %8 = phi ptr [ %28, %4 ], [ %.pre14, %1 ]
   %.011 = phi i64 [ %5, %4 ], [ 0, %1 ]
-  %9 = getelementptr inbounds nuw %struct.subfilter, ptr %8, i64 %.011
+  %9 = getelementptr inbounds nuw [128 x i8], ptr %8, i64 %.011
   %10 = load ptr, ptr %9, align 8, !tbaa !53
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %list_objects_filter__free.exit, label %11
@@ -1026,11 +1021,11 @@ define internal void @filter_combine__free(ptr noundef captures(none) %0) #0 {
 
 list_objects_filter__free.exit:                   ; preds = %.lr.ph, %20
   %25 = phi ptr [ %8, %.lr.ph ], [ %.pre13, %20 ]
-  %26 = getelementptr inbounds nuw %struct.subfilter, ptr %25, i64 %.011
+  %26 = getelementptr inbounds nuw [128 x i8], ptr %25, i64 %.011
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   tail call void @oidset_clear(ptr noundef nonnull %27) #13
   %28 = load ptr, ptr %0, align 8, !tbaa !51
-  %29 = getelementptr inbounds nuw %struct.subfilter, ptr %28, i64 %.011
+  %29 = getelementptr inbounds nuw [128 x i8], ptr %28, i64 %.011
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 52
   %31 = load i32, ptr %30, align 4, !tbaa !91
   %.not = icmp eq i32 %31, 0
@@ -1057,11 +1052,11 @@ define internal void @filter_combine__finalize_omits(ptr noundef %0, ptr noundef
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.08 = phi i64 [ %11, %.lr.ph ], [ 0, %2 ]
   %5 = load ptr, ptr %1, align 8, !tbaa !51
-  %6 = getelementptr inbounds nuw %struct.subfilter, ptr %5, i64 %.08
+  %6 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 %.08
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   tail call void @oidset_insert_from_set(ptr noundef %0, ptr noundef nonnull %7) #13
   %8 = load ptr, ptr %1, align 8, !tbaa !51
-  %9 = getelementptr inbounds nuw %struct.subfilter, ptr %8, i64 %.08
+  %9 = getelementptr inbounds nuw [128 x i8], ptr %8, i64 %.08
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   tail call void @oidset_clear(ptr noundef nonnull %10) #13
   %11 = add nuw i64 %.08, 1

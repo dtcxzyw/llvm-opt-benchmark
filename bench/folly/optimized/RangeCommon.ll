@@ -27,7 +27,7 @@ define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPie
   %9 = load i8, ptr %.01423, align 1, !tbaa !7
   %10 = zext i8 %9 to i64
   %11 = lshr i64 %10, 6
-  %12 = getelementptr inbounds nuw i64, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %11
   %13 = and i64 %10, 63
   %14 = shl nuw i64 1, %13
   %15 = load i64, ptr %12, align 8, !tbaa !10
@@ -43,7 +43,7 @@ define noundef i64 @_ZN5folly6detail26qfind_first_byte_of_bitsetENS0_15StringPie
   %19 = load i8, ptr %18, align 1, !tbaa !7
   %20 = zext i8 %19 to i64
   %21 = lshr i64 %20, 6
-  %22 = getelementptr inbounds nuw i64, ptr %5, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %21
   %23 = and i64 %20, 63
   %24 = load i64, ptr %22, align 8, !tbaa !10
   %25 = shl nuw i64 1, %23

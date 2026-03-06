@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { ptr, ptr, ptr }
 %struct.anon.0 = type { ptr, ptr, ptr }
 %struct.lbtru_sqn_frame_list_callback_data_t = type { ptr, ptr, i32 }
-%struct.lbtru_tag_entry_t = type { ptr, i32, i32, i32, i32 }
 
 @lbtru_null_address = internal constant %struct._address zeroinitializer, align 8
 @proto_lbtru = internal unnamed_addr global i32 0, align 4
@@ -664,7 +663,7 @@ define internal i32 @dissect_lbtru(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 18:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
-  %19 = getelementptr %struct.lbtru_tag_entry_t, ptr %14, i64 %indvars.iv.i
+  %19 = getelementptr [24 x i8], ptr %14, i64 %indvars.iv.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
   %.not.i = icmp ult i32 %16, %21
@@ -946,7 +945,7 @@ proto_item_set_generated.exit524:                 ; preds = %proto_item_set_gene
   br label %181
 
 181:                                              ; preds = %179, %.lr.ph.i.i
-  %182 = getelementptr i32, ptr %167, i64 %indvars.iv.i.i
+  %182 = getelementptr [4 x i8], ptr %167, i64 %indvars.iv.i.i
   store i32 %174, ptr %182, align 4
   %183 = add nuw nsw i32 %.025.i.i, 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1029,7 +1028,7 @@ dissect_lbtru_nak.exit:                           ; preds = %181, %162
   br label %232
 
 232:                                              ; preds = %229, %.lr.ph.i.i527
-  %233 = getelementptr i32, ptr %217, i64 %indvars.iv.i.i528
+  %233 = getelementptr [4 x i8], ptr %217, i64 %indvars.iv.i.i528
   store i32 %224, ptr %233, align 4
   %234 = add nuw nsw i32 %.026.i.i, 4
   %indvars.iv.next.i.i529 = add nuw nsw i64 %indvars.iv.i.i528, 1
@@ -2792,7 +2791,7 @@ define internal noundef zeroext i1 @test_lbtru_packet(ptr noundef %0, ptr nounde
 
 21:                                               ; preds = %46, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %46 ]
-  %22 = getelementptr %struct.lbtru_tag_entry_t, ptr %17, i64 %indvars.iv.i
+  %22 = getelementptr [24 x i8], ptr %17, i64 %indvars.iv.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %.not.i = icmp ult i32 %19, %24

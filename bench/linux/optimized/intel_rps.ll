@@ -1871,7 +1871,7 @@ gen9_rps_enable.exit:                             ; preds = %236
 261:                                              ; preds = %272, %259
   %262 = phi i64 [ 0, %259 ], [ %273, %272 ]
   %263 = phi i1 [ false, %259 ], [ %274, %272 ]
-  %264 = getelementptr ptr, ptr %260, i64 %262
+  %264 = getelementptr [8 x i8], ptr %260, i64 %262
   %265 = load ptr, ptr %264, align 8
   %266 = icmp eq ptr %265, null
   br i1 %266, label %272, label %267
@@ -3059,7 +3059,7 @@ define internal void @rps_timer(ptr noundef %0) #0 align 16 {
 
 5:                                                ; preds = %.loopexit, %1
   %6 = phi i64 [ 0, %1 ], [ %24, %.loopexit ]
-  %7 = getelementptr ptr, ptr %4, i64 %6
+  %7 = getelementptr [8 x i8], ptr %4, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10
@@ -3075,7 +3075,7 @@ define internal void @rps_timer(ptr noundef %0) #0 align 16 {
 15:                                               ; preds = %15, %10
   %16 = phi i64 [ 0, %10 ], [ %22, %15 ]
   %17 = phi i64 [ %14, %10 ], [ %21, %15 ]
-  %18 = getelementptr i64, ptr %3, i64 %16
+  %18 = getelementptr [8 x i8], ptr %3, i64 %16
   %19 = load i64, ptr %18, align 8
   %20 = call i64 @llvm.smax.i64(i64 %17, i64 %19)
   store i64 %20, ptr %18, align 8
@@ -4099,7 +4099,7 @@ define dso_local void @intel_rps_init(ptr noundef %0) local_unnamed_addr #0 alig
 
 595:                                              ; preds = %616, %585
   %596 = phi i64 [ 0, %585 ], [ %617, %616 ]
-  %597 = getelementptr %struct.cparams, ptr @cparams, i64 %596
+  %597 = getelementptr [8 x i8], ptr @cparams, i64 %596
   %598 = load i16, ptr %597, align 8
   %599 = zext i16 %598 to i32
   %600 = icmp eq i32 %593, %599

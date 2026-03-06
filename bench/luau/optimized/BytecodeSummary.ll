@@ -140,7 +140,7 @@ _ZNSt6vectorIS_IjSaIjEESaIS1_EE7reserveEm.exit:   ; preds = %_ZNSt12_Vector_base
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %40, ptr %36, align 8, !tbaa !24
   store ptr %40, ptr %41, align 8, !tbaa !25
-  %42 = getelementptr inbounds nuw %"class.std::vector.3", ptr %40, i64 %37
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %37
   store ptr %42, ptr %38, align 8, !tbaa !26
   %.not24 = icmp eq i32 %4, -1
   br i1 %.not24, label %._crit_edge, label %.lr.ph
@@ -496,13 +496,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   %.042 = phi i32 [ 0, %.lr.ph ], [ %88, %75 ]
   %76 = load ptr, ptr %61, align 8, !tbaa !49
   %77 = sext i32 %.042 to i64
-  %78 = getelementptr inbounds i32, ptr %76, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %76, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !31
   %80 = load ptr, ptr %62, align 8, !tbaa !24
   %81 = and i32 %79, 255
   %82 = zext nneg i32 %81 to i64
   %83 = load ptr, ptr %80, align 8, !tbaa !27
-  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %82
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %82
   %85 = load i32, ptr %84, align 4, !tbaa !31
   %86 = add i32 %85, 1
   store i32 %86, ptr %84, align 4, !tbaa !31
@@ -1068,7 +1068,7 @@ _ZNSt12_Vector_baseIN4Luau7CodeGen23FunctionBytecodeSummaryESaIS2_EE13_M_dealloc
   store ptr %19, ptr %0, align 8, !tbaa !63
   %68 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %68, ptr %14, align 8, !tbaa !59
-  %69 = getelementptr inbounds nuw %"class.Luau::CodeGen::FunctionBytecodeSummary", ptr %19, i64 %1
+  %69 = getelementptr inbounds nuw [96 x i8], ptr %19, i64 %1
   store ptr %69, ptr %6, align 8, !tbaa !62
   br label %70
 
@@ -1143,7 +1143,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen21gatherFunctionsHelperERSt6
   br i1 %23, label %24, label %_ZNSt6vectorIP5ProtoSaIS1_EE6resizeEm.exit
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %.not.i.i = icmp eq ptr %7, %25
   br i1 %.not.i.i, label %_ZNSt6vectorIP5ProtoSaIS1_EE6resizeEm.exit, label %26
 
@@ -1154,7 +1154,7 @@ define linkonce_odr dso_local void @_ZN4Luau7CodeGen21gatherFunctionsHelperERSt6
 _ZNSt6vectorIP5ProtoSaIS1_EE6resizeEm.exit:       ; preds = %26, %24, %22, %20, %5
   %.pre-phi = phi i64 [ %15, %26 ], [ %15, %24 ], [ %15, %22 ], [ %.pre27, %20 ], [ %15, %5 ]
   %27 = phi ptr [ %8, %26 ], [ %8, %24 ], [ %8, %22 ], [ %.pre26, %20 ], [ %8, %5 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %.pre-phi
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.pre-phi
   %29 = load ptr, ptr %28, align 8, !tbaa !57
   %.not22 = icmp eq ptr %29, null
   br i1 %.not22, label %30, label %.loopexit
@@ -1199,7 +1199,7 @@ _ZNSt6vectorIP5ProtoSaIS1_EE6resizeEm.exit:       ; preds = %26, %24, %22, %20, 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %50 = load ptr, ptr %48, align 8, !tbaa !73
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !57
   tail call void @_ZN4Luau7CodeGen21gatherFunctionsHelperERSt6vectorIP5ProtoSaIS3_EES3_jbb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %52, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1301,9 +1301,9 @@ _ZNSt6vectorIP5ProtoSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %_ZSt27
 
 _ZNSt12_Vector_baseIP5ProtoSaIS1_EE13_M_deallocateEPS1_m.exit36: ; preds = %_ZNSt6vectorIP5ProtoSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !54
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !52
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !56
   br label %41
 
@@ -1445,7 +1445,7 @@ _ZNSt6vectorIS_IjSaIjEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds = %.
 _ZNSt12_Vector_baseISt6vectorIjSaIjEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_IjSaIjEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !24
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !25
-  %53 = getelementptr inbounds nuw %"class.std::vector.3", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !26
   ret void
 }
@@ -1948,7 +1948,7 @@ _ZNSt6vectorIN4Luau7CodeGen23FunctionBytecodeSummaryESaIS2_EE11_S_relocateEPS2_S
 _ZNSt12_Vector_baseIN4Luau7CodeGen23FunctionBytecodeSummaryESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4Luau7CodeGen23FunctionBytecodeSummaryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit30, %150
   store ptr %22, ptr %0, align 8, !tbaa !63
   store ptr %.0.lcssa.i.i.i29, ptr %4, align 8, !tbaa !59
-  %154 = getelementptr inbounds nuw %"class.Luau::CodeGen::FunctionBytecodeSummary", ptr %22, i64 %16
+  %154 = getelementptr inbounds nuw [96 x i8], ptr %22, i64 %16
   store ptr %154, ptr %149, align 8, !tbaa !62
   ret void
 }

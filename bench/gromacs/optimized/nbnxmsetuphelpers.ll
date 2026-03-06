@@ -71,7 +71,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.80" = type { ptr }
 %"class.gmx::MDLogger" = type { %"class.gmx::LogLevelHelper", %"class.gmx::LogLevelHelper", %"class.gmx::LogLevelHelper", %"class.gmx::LogLevelHelper", %"class.gmx::LogLevelHelper" }
 %"class.gmx::LogLevelHelper" = type { ptr }
-%"class.gmx::BasicVector" = type { [3 x float] }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -619,7 +618,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
   %4 = shl nuw nsw i64 %1, 2
   %5 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %4) #26
   store ptr %5, ptr %0, align 8, !tbaa !24
-  %6 = getelementptr inbounds nuw i32, ptr %5, i64 %1
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %7, align 8, !tbaa !27
   store i32 0, ptr %5, align 4, !tbaa !4
@@ -646,7 +645,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc8
 
 14:                                               ; preds = %.lr.ph, %14
   %.09 = phi i64 [ 0, %.lr.ph ], [ %18, %14 ]
-  %15 = getelementptr inbounds nuw i32, ptr %5, i64 %.09
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.09
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = or i32 %16, 49152
   store i32 %17, ptr %15, align 4, !tbaa !4
@@ -695,7 +694,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i: ; preds = %18
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #26
   store ptr %22, ptr %0, align 8, !tbaa !34
   store ptr %22, ptr %20, align 8, !tbaa !37
-  %23 = getelementptr inbounds nuw float, ptr %22, i64 %16
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %16
   store ptr %23, ptr %19, align 8, !tbaa !38
   br label %_ZNSt6vectorIfSaIfEE7reserveEm.exit
 
@@ -815,7 +814,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i: ; preds = %59, %.no
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i: ; preds = %61, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i
   store ptr %60, ptr %24, align 8, !tbaa !37
-  %62 = getelementptr inbounds nuw float, ptr %56, i64 %54
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %54
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit:           ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i, %42
@@ -920,7 +919,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i39: ; preds = %96, %.
 
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i41: ; preds = %98, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i39
   store ptr %97, ptr %24, align 8, !tbaa !37
-  %99 = getelementptr inbounds nuw float, ptr %93, i64 %91
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %91
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit44
 
 _ZNSt6vectorIfSaIfEE9push_backEOf.exit44:         ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i41, %79
@@ -2875,9 +2874,9 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
 
 _ZNSt12_Vector_baseIN3gmx11BasicVectorIfEESaIS2_EE13_M_deallocateEPS2_m.exit32.i.i: ; preds = %30, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
   store ptr %26, ptr %3, align 8, !tbaa !198
-  %32 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %27, i64 %13
+  %32 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %13
   store ptr %32, ptr %4, align 8, !tbaa !195
-  %33 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %26, i64 %24
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 %24
   store ptr %33, ptr %14, align 8, !tbaa !199
   %.pre = ptrtoint ptr %26 to i64
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit

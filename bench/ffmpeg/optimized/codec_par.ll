@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/codec_par.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.AVPacketSideData = type { ptr, i64, i32 }
-
 ; Function Attrs: nounwind uwtable
 define ptr @avcodec_parameters_alloc() local_unnamed_addr #0 {
   %1 = tail call noalias ptr @av_mallocz(i64 noundef 176) #5
@@ -179,8 +177,8 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_copy(ptr noundef %0, pt
 .lr.ph.i:                                         ; preds = %43, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %43 ]
   %.02537.i = phi i32 [ %34, %.lr.ph.preheader.i ], [ %49, %43 ]
-  %37 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %30, i64 %indvars.iv.i
-  %38 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %36, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %indvars.iv.i
   %39 = load ptr, ptr %37, align 8, !tbaa !30
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !32
@@ -427,8 +425,8 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_from_context(ptr nounde
 .lr.ph.i:                                         ; preds = %128, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %128 ]
   %.02537.i = phi i32 [ %119, %.lr.ph.preheader.i ], [ %134, %128 ]
-  %122 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %115, i64 %indvars.iv.i
-  %123 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %121, i64 %indvars.iv.i
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %115, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw [24 x i8], ptr %121, i64 %indvars.iv.i
   %124 = load ptr, ptr %122, align 8, !tbaa !30
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %126 = load i64, ptr %125, align 8, !tbaa !32
@@ -655,8 +653,8 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_to_context(ptr noundef 
 .lr.ph.i:                                         ; preds = %130, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %130 ]
   %.02537.i = phi i32 [ %121, %.lr.ph.preheader.i ], [ %136, %130 ]
-  %124 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %117, i64 %indvars.iv.i
-  %125 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %123, i64 %indvars.iv.i
+  %124 = getelementptr inbounds nuw [24 x i8], ptr %117, i64 %indvars.iv.i
+  %125 = getelementptr inbounds nuw [24 x i8], ptr %123, i64 %indvars.iv.i
   %126 = load ptr, ptr %124, align 8, !tbaa !30
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %128 = load i64, ptr %127, align 8, !tbaa !32

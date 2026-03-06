@@ -15,8 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__1::vector" = type { ptr, ptr, %"class.std::__1::__compressed_pair.14" }
 %"class.std::__1::__compressed_pair.14" = type { %"struct.std::__1::__compressed_pair_elem.15" }
 %"struct.std::__1::__compressed_pair_elem.15" = type { ptr }
-%"struct.mitsuba::RadicalInverse::PrimeBase" = type <{ %"struct.drjit::divisor", i16, float }>
-%"struct.drjit::divisor" = type <{ i64, i64, i8 }>
 %"class.std::__1::__bit_iterator" = type <{ ptr, i32, [4 x i8] }>
 %"class.std::__1::vector.31" = type { ptr, i64, %"class.std::__1::__compressed_pair.32" }
 %"class.std::__1::__compressed_pair.32" = type { %"struct.std::__1::__compressed_pair_elem.33" }
@@ -252,8 +250,8 @@ _ZNSt3__110unique_ptrIA_N7mitsuba14RadicalInverse9PrimeBaseENS_14default_deleteI
   %59 = phi ptr [ %93, %_ZN5drjit7divisorImiEC2Em.exit ], [ %56, %54 ]
   %.0136214 = phi i64 [ %91, %_ZN5drjit7divisorImiEC2Em.exit ], [ 0, %54 ]
   %60 = load ptr, ptr %17, align 8
-  %61 = getelementptr inbounds %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %60, i64 %.0136214
-  %62 = getelementptr inbounds i64, ptr %59, i64 %.0136214
+  %61 = getelementptr inbounds [23 x i8], ptr %60, i64 %.0136214
+  %62 = getelementptr inbounds [8 x i8], ptr %59, i64 %.0136214
   %63 = load i64, ptr %62, align 8
   %64 = trunc i64 %63 to i16
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 17
@@ -337,7 +335,7 @@ _ZN5drjit7divisorImiEC2Em.exit:                   ; preds = %75, %73
 107:                                              ; preds = %.lr.ph217, %107
   %.0137216 = phi i64 [ 0, %.lr.ph217 ], [ %112, %107 ]
   %.0138215 = phi i64 [ 0, %.lr.ph217 ], [ %113, %107 ]
-  %108 = getelementptr inbounds %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %58, i64 %.0138215
+  %108 = getelementptr inbounds [23 x i8], ptr %58, i64 %.0138215
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 17
   %110 = load i16, ptr %109, align 1
   %.fr303 = freeze i16 %110
@@ -397,7 +395,7 @@ _ZNSt3__110unique_ptrIA_PtNS_14default_deleteIS2_EEED2B8ne190000Ev.exit: ; preds
 130:                                              ; preds = %_ZNSt3__110unique_ptrIA_PtNS_14default_deleteIS2_EEED2B8ne190000Ev.exit
   %131 = load i64, ptr %16, align 8
   %132 = load ptr, ptr %17, align 8
-  %133 = getelementptr %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %132, i64 %131
+  %133 = getelementptr [23 x i8], ptr %132, i64 %131
   %134 = getelementptr i8, ptr %133, i64 -6
   %135 = load i16, ptr %134, align 1
   %136 = zext i16 %135 to i64
@@ -462,9 +460,9 @@ _ZNSt3__110unique_ptrIA_PtNS_14default_deleteIS2_EEED2B8ne190000Ev.exit: ; preds
 .lr.ph231:                                        ; preds = %160, %.lr.ph231
   %.0133229 = phi i64 [ %163, %.lr.ph231 ], [ 1, %160 ]
   %.0134228 = phi ptr [ %162, %.lr.ph231 ], [ %140, %160 ]
-  %161 = getelementptr inbounds nuw ptr, ptr %143, i64 %.0133229
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %.0133229
   store ptr %.0134228, ptr %161, align 8
-  %162 = getelementptr inbounds nuw i16, ptr %.0134228, i64 %.0133229
+  %162 = getelementptr inbounds nuw [2 x i8], ptr %.0134228, i64 %.0133229
   %163 = add nuw nsw i64 %.0133229, 1
   %exitcond248.not = icmp eq i64 %.0133229, %136
   br i1 %exitcond248.not, label %._crit_edge232, label %.lr.ph231, !llvm.loop !7
@@ -504,8 +502,8 @@ _ZNSt3__110unique_ptrIA_PtNS_14default_deleteIS2_EEED2B8ne190000Ev.exit: ; preds
   %178 = lshr exact i32 %177, 1
   %179 = trunc i32 %178 to i16
   %180 = and i32 %178, 65535
-  %181 = getelementptr inbounds nuw ptr, ptr %143, i64 %176
-  %182 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %176
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %indvars.iv.i
   br label %183
 
 183:                                              ; preds = %197, %175
@@ -520,7 +518,7 @@ _ZNSt3__110unique_ptrIA_PtNS_14default_deleteIS2_EEED2B8ne190000Ev.exit: ; preds
   %.neg.i = sext i1 %188 to i32
   %189 = add nsw i32 %184, %.neg.i
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds i16, ptr %187, i64 %190
+  %191 = getelementptr inbounds [2 x i8], ptr %187, i64 %190
   %192 = load i16, ptr %191, align 2
   %193 = zext i16 %192 to i32
   %194 = icmp samesign ule i32 %180, %193
@@ -531,7 +529,7 @@ _ZNSt3__110unique_ptrIA_PtNS_14default_deleteIS2_EEED2B8ne190000Ev.exit: ; preds
 197:                                              ; preds = %186, %183
   %.sink.i = phi i16 [ %196, %186 ], [ %179, %183 ]
   %198 = load ptr, ptr %182, align 8
-  %199 = getelementptr inbounds nuw i16, ptr %198, i64 %indvars.iv249
+  %199 = getelementptr inbounds nuw [2 x i8], ptr %198, i64 %indvars.iv249
   store i16 %.sink.i, ptr %199, align 2
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
   %200 = trunc nuw i64 %indvars.iv.next250 to i32
@@ -541,8 +539,8 @@ _ZNSt3__110unique_ptrIA_PtNS_14default_deleteIS2_EEED2B8ne190000Ev.exit: ; preds
 201:                                              ; preds = %.lr.ph.i
   %202 = lshr exact i64 %indvars.iv.i, 1
   %203 = and i64 %202, 65535
-  %204 = getelementptr inbounds nuw ptr, ptr %143, i64 %203
-  %205 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv.i
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %203
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %indvars.iv.i
   br label %206
 
 206:                                              ; preds = %219, %201
@@ -552,14 +550,14 @@ _ZNSt3__110unique_ptrIA_PtNS_14default_deleteIS2_EEED2B8ne190000Ev.exit: ; preds
   br i1 %207, label %209, label %213
 
 209:                                              ; preds = %206
-  %210 = getelementptr inbounds nuw i16, ptr %208, i64 %indvars.iv252
+  %210 = getelementptr inbounds nuw [2 x i8], ptr %208, i64 %indvars.iv252
   %211 = load i16, ptr %210, align 2
   %212 = shl i16 %211, 1
   br label %219
 
 213:                                              ; preds = %206
   %214 = sub nuw nsw i64 %indvars.iv252, %203
-  %215 = getelementptr inbounds nuw i16, ptr %208, i64 %214
+  %215 = getelementptr inbounds nuw [2 x i8], ptr %208, i64 %214
   %216 = load i16, ptr %215, align 2
   %217 = shl i16 %216, 1
   %218 = or disjoint i16 %217, 1
@@ -568,7 +566,7 @@ _ZNSt3__110unique_ptrIA_PtNS_14default_deleteIS2_EEED2B8ne190000Ev.exit: ; preds
 219:                                              ; preds = %213, %209
   %220 = phi i16 [ %218, %213 ], [ %212, %209 ]
   %221 = load ptr, ptr %205, align 8
-  %222 = getelementptr inbounds nuw i16, ptr %221, i64 %indvars.iv252
+  %222 = getelementptr inbounds nuw [2 x i8], ptr %221, i64 %indvars.iv252
   store i16 %220, ptr %222, align 2
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
   %exitcond254.not = icmp eq i64 %indvars.iv.next253, %indvars.iv.i
@@ -634,18 +632,18 @@ _ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt.exit: ; preds = %.l
   %.0132234 = phi i64 [ %252, %.lr.ph236 ], [ 0, %.lr.ph236.preheader ]
   %.1135233 = phi ptr [ %251, %.lr.ph236 ], [ %240, %.lr.ph236.preheader ]
   %241 = load ptr, ptr %17, align 8
-  %242 = getelementptr inbounds %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %241, i64 %.0132234
+  %242 = getelementptr inbounds [23 x i8], ptr %241, i64 %.0132234
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 17
   %244 = load i16, ptr %243, align 1
   %245 = zext i16 %244 to i64
-  %246 = getelementptr inbounds nuw ptr, ptr %143, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %245
   %247 = load ptr, ptr %246, align 8
   %248 = shl nuw nsw i64 %245, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.1135233, ptr align 2 %247, i64 %248, i1 false)
   %249 = load ptr, ptr %19, align 8
-  %250 = getelementptr inbounds ptr, ptr %249, i64 %.0132234
+  %250 = getelementptr inbounds [8 x i8], ptr %249, i64 %.0132234
   store ptr %.1135233, ptr %250, align 8
-  %251 = getelementptr inbounds nuw i16, ptr %.1135233, i64 %245
+  %251 = getelementptr inbounds nuw [2 x i8], ptr %.1135233, i64 %245
   %252 = add nuw i64 %.0132234, 1
   %253 = load i64, ptr %16, align 8
   %254 = icmp ult i64 %252, %253
@@ -717,7 +715,7 @@ _ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt.exit: ; preds = %.l
   %.0129223 = phi ptr [ %312, %_ZN5drjit5PCG32IjE7shuffleIPtjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT0_EEiE4typeELi0EEEvT_S9_.exit ], [ %276, %.lr.ph226.preheader ]
   %.sroa.0202.0222 = phi i64 [ %.sroa.0202.2, %_ZN5drjit5PCG32IjE7shuffleIPtjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT0_EEiE4typeELi0EEEvT_S9_.exit ], [ -1577521893908812255, %.lr.ph226.preheader ]
   %277 = load ptr, ptr %17, align 8
-  %278 = getelementptr inbounds %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %277, i64 %.0128224
+  %278 = getelementptr inbounds [23 x i8], ptr %277, i64 %.0128224
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 17
   %280 = load i16, ptr %279, align 1
   %.not241 = icmp eq i16 %280, 0
@@ -727,7 +725,7 @@ _ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt.exit: ; preds = %.l
 .lr.ph220:                                        ; preds = %.lr.ph226, %.lr.ph220
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph220 ], [ 0, %.lr.ph226 ]
   %282 = trunc i64 %indvars.iv to i16
-  %283 = getelementptr inbounds nuw i16, ptr %.0129223, i64 %indvars.iv
+  %283 = getelementptr inbounds nuw [2 x i8], ptr %.0129223, i64 %indvars.iv
   store i16 %282, ptr %283, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond247.not = icmp eq i64 %indvars.iv.next, %281
@@ -774,7 +772,7 @@ _ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt.exit: ; preds = %.l
 _ZN5drjit5PCG32IjE19next_uint32_boundedEjb.exit.i: ; preds = %295
   %306 = urem i32 %305, %292
   %307 = zext i32 %306 to i64
-  %308 = getelementptr inbounds nuw i16, ptr %.0129223, i64 %307
+  %308 = getelementptr inbounds nuw [2 x i8], ptr %.0129223, i64 %307
   %309 = load i16, ptr %.012.i, align 2
   %310 = load i16, ptr %308, align 2
   store i16 %310, ptr %.012.i, align 2
@@ -787,7 +785,7 @@ _ZN5drjit5PCG32IjE7shuffleIPtjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT0_EEiE4
   %312 = phi ptr [ %285, %._crit_edge221 ], [ %.0129223, %.lr.ph226 ], [ %285, %_ZN5drjit5PCG32IjE19next_uint32_boundedEjb.exit.i ]
   %.sroa.0202.2 = phi i64 [ %.sroa.0202.0222, %._crit_edge221 ], [ %.sroa.0202.0222, %.lr.ph226 ], [ %298, %_ZN5drjit5PCG32IjE19next_uint32_boundedEjb.exit.i ]
   %313 = load ptr, ptr %19, align 8
-  %314 = getelementptr inbounds ptr, ptr %313, i64 %.0128224
+  %314 = getelementptr inbounds [8 x i8], ptr %313, i64 %.0128224
   store ptr %.0129223, ptr %314, align 8
   %315 = add nuw i64 %.0128224, 1
   %316 = load i64, ptr %16, align 8
@@ -890,10 +888,10 @@ _ZNSt3__110unique_ptrIA_PtNS_14default_deleteIS2_EEED2B8ne190000Ev.exit173: ; pr
 .lr.ph.i175:                                      ; preds = %_ZNSt3__110unique_ptrIA_PtNS_14default_deleteIS2_EEED2B8ne190000Ev.exit173, %.lr.ph.i175
   %.09.i = phi i64 [ %361, %.lr.ph.i175 ], [ 0, %_ZNSt3__110unique_ptrIA_PtNS_14default_deleteIS2_EEED2B8ne190000Ev.exit173 ]
   %356 = trunc nuw i64 %.09.i to i16
-  %357 = getelementptr inbounds nuw i16, ptr %350, i64 %.09.i
+  %357 = getelementptr inbounds nuw [2 x i8], ptr %350, i64 %.09.i
   %358 = load i16, ptr %357, align 2
   %359 = zext i16 %358 to i64
-  %360 = getelementptr inbounds nuw i16, ptr %352, i64 %359
+  %360 = getelementptr inbounds nuw [2 x i8], ptr %352, i64 %359
   store i16 %356, ptr %360, align 2
   %361 = add nuw nsw i64 %.09.i, 1
   %362 = load ptr, ptr %17, align 8
@@ -924,10 +922,10 @@ _ZN7mitsuba14RadicalInverse18invert_permutationEj.exit: ; preds = %_ZN7mitsuba14
 .lr.ph.i177:                                      ; preds = %_ZN7mitsuba14RadicalInverse18invert_permutationEj.exit, %.lr.ph.i177
   %.09.i178 = phi i64 [ %381, %.lr.ph.i177 ], [ 0, %_ZN7mitsuba14RadicalInverse18invert_permutationEj.exit ]
   %376 = trunc nuw i64 %.09.i178 to i16
-  %377 = getelementptr inbounds nuw i16, ptr %371, i64 %.09.i178
+  %377 = getelementptr inbounds nuw [2 x i8], ptr %371, i64 %.09.i178
   %378 = load i16, ptr %377, align 2
   %379 = zext i16 %378 to i64
-  %380 = getelementptr inbounds nuw i16, ptr %373, i64 %379
+  %380 = getelementptr inbounds nuw [2 x i8], ptr %373, i64 %379
   store i16 %376, ptr %380, align 2
   %381 = add nuw nsw i64 %.09.i178, 1
   %382 = load ptr, ptr %17, align 8
@@ -1064,7 +1062,7 @@ define linkonce_odr hidden void @_ZN7mitsuba6detail5sieveImEENSt3__16vectorIT_NS
   br label %_ZNSt3__16vectorIbNS_9allocatorIbEEE18__construct_at_endB8ne190000Emb.exit.i
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %12
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %12
   store i64 0, ptr %19, align 8
   br label %_ZNSt3__16vectorIbNS_9allocatorIbEEE18__construct_at_endB8ne190000Emb.exit.i
 
@@ -1095,7 +1093,7 @@ _ZNSt3__16vectorIbNS_9allocatorIbEEEC2EmRKb.exit: ; preds = %2, %_ZNSt3__16vecto
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.loopexit53
   %.01557 = phi i64 [ %41, %.loopexit53 ], [ 2, %.lr.ph58.preheader ]
   %26 = lshr i64 %.01557, 6
-  %27 = getelementptr inbounds nuw i64, ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %26
   %28 = and i64 %.01557, 63
   %29 = shl nuw i64 1, %28
   %30 = load i64, ptr %27, align 8
@@ -1109,7 +1107,7 @@ _ZNSt3__16vectorIbNS_9allocatorIbEEEC2EmRKb.exit: ; preds = %2, %_ZNSt3__16vecto
 .lr.ph:                                           ; preds = %.lr.ph58, %.lr.ph
   %.055 = phi i64 [ %40, %.lr.ph ], [ %32, %.lr.ph58 ]
   %33 = lshr i64 %.055, 6
-  %34 = getelementptr inbounds nuw i64, ptr %21, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %33
   %35 = and i64 %.055, 63
   %36 = shl nuw i64 1, %35
   %37 = xor i64 %36, -1
@@ -1145,7 +1143,7 @@ _ZNSt3__16vectorImNS_9allocatorImEEE9push_backB8ne190000EOm.exit: ; preds = %_ZN
   %46 = phi ptr [ %85, %84 ], [ %45, %_ZNSt3__16vectorImNS_9allocatorImEEE9push_backB8ne190000EOm.exit ]
   %storemerge60 = phi i64 [ %86, %84 ], [ 3, %_ZNSt3__16vectorImNS_9allocatorImEEE9push_backB8ne190000EOm.exit ]
   %47 = lshr i64 %storemerge60, 6
-  %48 = getelementptr inbounds nuw i64, ptr %21, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %47
   %49 = and i64 %storemerge60, 63
   %50 = shl nuw i64 1, %49
   %51 = load i64, ptr %48, align 8
@@ -1228,11 +1226,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorImEEEENS_19__allocation_re
 
 .noexc35:                                         ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorImEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS5_m.exit.i.i.i30
   %78 = getelementptr inbounds i8, ptr %77, i64 %65
-  %79 = getelementptr inbounds nuw i64, ptr %77, i64 %.0.i.i.i29
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.0.i.i.i29
   store i64 %storemerge60, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %81 = sub nsw i64 0, %66
-  %82 = getelementptr inbounds i64, ptr %78, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %78, i64 %81
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %82, ptr align 8 %62, i64 %65, i1 false)
   store ptr %82, ptr %0, align 8
   store ptr %79, ptr %43, align 8
@@ -1323,8 +1321,8 @@ define void @_ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt(ptr no
   %16 = lshr exact i32 %15, 1
   %17 = trunc i32 %16 to i16
   %18 = and i32 %16, 65535
-  %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %14
-  %20 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %14
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   br label %21
 
 21:                                               ; preds = %13, %35
@@ -1339,7 +1337,7 @@ define void @_ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt(ptr no
   %.neg = sext i1 %26 to i32
   %27 = add nsw i32 %22, %.neg
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i16, ptr %25, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %25, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i32
   %32 = icmp samesign ule i32 %18, %31
@@ -1351,7 +1349,7 @@ define void @_ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt(ptr no
   %.sink = phi i16 [ %34, %24 ], [ %17, %21 ]
   %36 = load ptr, ptr %20, align 8
   %37 = zext i16 %.04451 to i64
-  %38 = getelementptr inbounds nuw i16, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %37
   store i16 %.sink, ptr %38, align 2
   %39 = add i16 %.04451, 1
   %40 = zext i16 %39 to i32
@@ -1363,8 +1361,8 @@ define void @_ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt(ptr no
   %44 = lshr exact i32 %11, 1
   %45 = and i32 %44, 65535
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %2, i64 %46
-  %48 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   br label %49
 
 49:                                               ; preds = %43, %65
@@ -1376,7 +1374,7 @@ define void @_ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt(ptr no
 
 53:                                               ; preds = %49
   %54 = zext i16 %.052 to i64
-  %55 = getelementptr inbounds nuw i16, ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %54
   %56 = load i16, ptr %55, align 2
   %57 = shl i16 %56, 1
   br label %65
@@ -1384,7 +1382,7 @@ define void @_ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt(ptr no
 58:                                               ; preds = %49
   %59 = sub nuw nsw i32 %50, %45
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw i16, ptr %52, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %60
   %62 = load i16, ptr %61, align 2
   %63 = shl i16 %62, 1
   %64 = or disjoint i16 %63, 1
@@ -1395,7 +1393,7 @@ define void @_ZN7mitsuba14RadicalInverse26compute_faure_permutationsEjPPt(ptr no
   %.pre-phi = phi i64 [ %.pre, %58 ], [ %54, %53 ]
   %66 = phi i16 [ %64, %58 ], [ %57, %53 ]
   %67 = load ptr, ptr %48, align 8
-  %68 = getelementptr inbounds nuw i16, ptr %67, i64 %.pre-phi
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %.pre-phi
   store i16 %66, ptr %68, align 2
   %69 = add i16 %.052, 1
   %70 = zext i16 %69 to i32
@@ -1422,15 +1420,15 @@ define void @_ZN7mitsuba14RadicalInverse18invert_permutationEj(ptr noundef nonnu
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %4
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %4
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %13, i64 %4
+  %14 = getelementptr inbounds nuw [23 x i8], ptr %13, i64 %4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 17
   %16 = load i16, ptr %15, align 1
   %.not = icmp eq i16 %16, 0
@@ -1439,14 +1437,14 @@ define void @_ZN7mitsuba14RadicalInverse18invert_permutationEj(ptr noundef nonnu
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.09 = phi i64 [ %22, %.lr.ph ], [ 0, %2 ]
   %17 = trunc nuw i64 %.09 to i16
-  %18 = getelementptr inbounds nuw i16, ptr %7, i64 %.09
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %.09
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %11, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %20
   store i16 %17, ptr %21, align 2
   %22 = add nuw nsw i64 %.09, 1
   %23 = load ptr, ptr %12, align 8
-  %24 = getelementptr inbounds nuw %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %23, i64 %4
+  %24 = getelementptr inbounds nuw [23 x i8], ptr %23, i64 %4
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 17
   %26 = load i16, ptr %25, align 1
   %27 = zext i16 %26 to i64
@@ -1484,7 +1482,7 @@ define noundef range(i64 0, 65536) i64 @_ZNK7mitsuba14RadicalInverse4baseEm(ptr 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw %"struct.mitsuba::RadicalInverse::PrimeBase", ptr %12, i64 %1
+  %13 = getelementptr inbounds nuw [23 x i8], ptr %12, i64 %1
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 17
   %15 = load i16, ptr %14, align 1
   %16 = zext i16 %15 to i64
@@ -1961,7 +1959,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 67:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKc.exit
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %2, i64 %68
   %70 = load i8, ptr %8, align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %77, label %72
@@ -2519,7 +2517,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %153 = add nsw i32 %150, 1
   store i32 %153, ptr %5, align 4
   %154 = sext i32 %150 to i64
-  %155 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %154
+  %155 = getelementptr inbounds [24 x i8], ptr %4, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %155, align 8
@@ -2612,7 +2610,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %206 = add nsw i32 %203, 1
   store i32 %206, ptr %5, align 4
   %207 = sext i32 %203 to i64
-  %208 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %207
+  %208 = getelementptr inbounds [24 x i8], ptr %4, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %208, align 8
@@ -3270,7 +3268,7 @@ _ZNSt3__18__fill_nB8ne190000IPmmmEET_S2_T0_RKT1_.exit.i: ; preds = %.lr.ph.i.pre
   br i1 %.not7.i, label %_ZNSt3__113__fill_n_boolB8ne190000ILb1ENS_6vectorIbNS_9allocatorIbEEEEEEvNS_14__bit_iteratorIT0_Lb0ELi0EEENS6_9size_typeE.exit, label %32
 
 32:                                               ; preds = %_ZNSt3__18__fill_nB8ne190000IPmmmEET_S2_T0_RKT1_.exit.i
-  %33 = getelementptr inbounds nuw i64, ptr %.sroa.013.0, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.013.0, i64 %29
   %34 = sub nuw nsw i64 64, %31
   %35 = lshr i64 -1, %34
   %36 = load i64, ptr %33, align 8
@@ -3316,7 +3314,7 @@ _ZNSt3__18__fill_nB8ne190000IPmmmEET_S2_T0_RKT1_.exit.i10: ; preds = %.lr.ph.i.p
   br i1 %.not7.i11, label %_ZNSt3__113__fill_n_boolB8ne190000ILb1ENS_6vectorIbNS_9allocatorIbEEEEEEvNS_14__bit_iteratorIT0_Lb0ELi0EEENS6_9size_typeE.exit, label %56
 
 56:                                               ; preds = %_ZNSt3__18__fill_nB8ne190000IPmmmEET_S2_T0_RKT1_.exit.i10
-  %57 = getelementptr inbounds nuw i64, ptr %.sroa.0.0, i64 %53
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0, i64 %53
   %58 = sub nuw nsw i64 64, %55
   %59 = lshr i64 -1, %58
   %60 = xor i64 %59, -1
@@ -3352,7 +3350,7 @@ _ZNKSt3__114__bit_iteratorINS_6vectorIbNS_9allocatorIbEEEELb0ELm0EEplB8ne190000E
   %78 = phi ptr [ %63, %74 ], [ %72, %69 ]
   %.sink5.i.i = phi i64 [ %76, %74 ], [ %73, %69 ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %80 = getelementptr inbounds i64, ptr %78, i64 %.sink5.i.i
+  %80 = getelementptr inbounds [8 x i8], ptr %78, i64 %.sink5.i.i
   store ptr %80, ptr %0, align 8, !alias.scope !35
   %81 = trunc i64 %2 to i32
   %82 = add i32 %77, %81

@@ -168,7 +168,7 @@ define internal noundef range(i32 0, 256) i32 @_ZL23hb_ucd_general_categoryP18hb
   %23 = and i32 %7, 7
   %24 = or disjoint i32 %22, %23
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i16, ptr @_ZL11_hb_ucd_u16, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr @_ZL11_hb_ucd_u16, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
   %29 = shl nuw nsw i32 %28, 3
@@ -233,7 +233,7 @@ define internal noundef i32 @_ZL16hb_ucd_mirroringP18hb_unicode_funcs_tjPv(ptr r
   %34 = and i32 %1, 3
   %35 = or disjoint i32 %33, %34
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw i16, ptr @_ZL11_hb_ucd_i16, i64 %36
+  %37 = getelementptr inbounds nuw [2 x i8], ptr @_ZL11_hb_ucd_i16, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = sext i16 %38 to i32
   br label %_ZL11_hb_ucd_bmgj.exit
@@ -272,7 +272,7 @@ define internal noundef i32 @_ZL13hb_ucd_scriptP18hb_unicode_funcs_tjPv(ptr read
   %23 = and i32 %6, 15
   %24 = or disjoint i32 %22, %23
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i16, ptr @_ZL11_hb_ucd_u16, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr @_ZL11_hb_ucd_u16, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4096
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
@@ -288,7 +288,7 @@ define internal noundef i32 @_ZL13hb_ucd_scriptP18hb_unicode_funcs_tjPv(ptr read
 
 _ZL10_hb_ucd_scj.exit:                            ; preds = %3, %5
   %38 = phi i64 [ %37, %5 ], [ 2, %3 ]
-  %39 = getelementptr inbounds nuw i32, ptr @_ZL14_hb_ucd_sc_map, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @_ZL14_hb_ucd_sc_map, i64 %38
   %40 = load i32, ptr %39, align 4
   ret i32 %40
 }
@@ -498,7 +498,7 @@ _ZL10_hb_ucd_dmj.exit:                            ; preds = %_ZL24_hb_ucd_decomp
   %37 = and i32 %1, 15
   %38 = or disjoint i32 %36, %37
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i16, ptr @_ZL11_hb_ucd_u16, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr @_ZL11_hb_ucd_u16, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 12064
   %42 = load i16, ptr %41, align 2
   %43 = zext i16 %42 to i64
@@ -516,7 +516,7 @@ _ZL10_hb_ucd_dmj.exit:                            ; preds = %_ZL24_hb_ucd_decomp
 
 49:                                               ; preds = %47
   %50 = and i64 %45, 4294967295
-  %51 = getelementptr inbounds nuw i16, ptr @_ZL18_hb_ucd_dm1_p0_map, i64 %50
+  %51 = getelementptr inbounds nuw [2 x i8], ptr @_ZL18_hb_ucd_dm1_p0_map, i64 %50
   %52 = load i16, ptr %51, align 2
   %53 = zext i16 %52 to i32
   br label %61
@@ -524,7 +524,7 @@ _ZL10_hb_ucd_dmj.exit:                            ; preds = %_ZL24_hb_ucd_decomp
 54:                                               ; preds = %47
   %55 = add nuw nsw i64 %43, 4294966470
   %56 = and i64 %55, 4294967295
-  %57 = getelementptr inbounds nuw i16, ptr @_ZL18_hb_ucd_dm1_p2_map, i64 %56
+  %57 = getelementptr inbounds nuw [2 x i8], ptr @_ZL18_hb_ucd_dm1_p2_map, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = zext i16 %58 to i32
   %60 = or disjoint i32 %59, 131072
@@ -542,7 +542,7 @@ _ZL10_hb_ucd_dmj.exit:                            ; preds = %_ZL24_hb_ucd_decomp
 64:                                               ; preds = %62
   %65 = add nuw nsw i64 %43, 4294966360
   %66 = and i64 %65, 4294967295
-  %67 = getelementptr inbounds nuw i32, ptr @_ZL19_hb_ucd_dm2_u32_map, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr @_ZL19_hb_ucd_dm2_u32_map, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = lshr i32 %68, 21
   store i32 %69, ptr %2, align 4
@@ -554,7 +554,7 @@ _ZL10_hb_ucd_dmj.exit:                            ; preds = %_ZL24_hb_ucd_decomp
 73:                                               ; preds = %62
   %74 = add nuw nsw i64 %43, 4294965722
   %75 = and i64 %74, 4294967295
-  %76 = getelementptr inbounds nuw i64, ptr @_ZL19_hb_ucd_dm2_u64_map, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr @_ZL19_hb_ucd_dm2_u64_map, i64 %75
   %77 = load i64, ptr %76, align 8
   %78 = lshr i64 %77, 42
   %79 = trunc nuw nsw i64 %78 to i32

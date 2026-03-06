@@ -596,10 +596,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !12, !align !85, !noundef !12
   %.val = load i8, ptr %2, align 1, !range !86, !noundef !12
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd63be35f7272b6c9E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd63be35f7272b6c9E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd63be35f7272b6c9E.15", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd63be35f7272b6c9E.15", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -6584,7 +6584,7 @@ define hidden void @_ZN6quiche8recovery10congestion4bbr25State3new17hcbb9140294c
 
 8:                                                ; preds = %1, %8
   %9 = phi i64 [ 0, %1 ], [ %11, %8 ]
-  %10 = getelementptr inbounds nuw { i64, { { { i64, i32, [1 x i32] } } } }, ptr %3, i64 %9
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %9
   store i64 0, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %6, ptr %.sroa.4.0..sroa_idx, align 8
@@ -6602,7 +6602,7 @@ define hidden void @_ZN6quiche8recovery10congestion4bbr25State3new17hcbb9140294c
 
 16:                                               ; preds = %12, %16
   %17 = phi i64 [ 0, %12 ], [ %19, %16 ]
-  %18 = getelementptr inbounds nuw { i64, { { { i64, i32, [1 x i32] } } } }, ptr %2, i64 %17
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %17
   store i64 0, ptr %18, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 %14, ptr %.sroa.42.0..sroa_idx, align 8
@@ -6730,7 +6730,7 @@ define internal void @_ZN6quiche8recovery10congestion4bbr216on_packets_acked17hc
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !12, !noundef !12
-  %16 = getelementptr { { { { i64, i32, [1 x i32] } } }, { i64, i32, [1 x i32] }, { { { i64, i32, [1 x i32] } } }, { { { i64, i32, [1 x i32] } } }, i64, i64, i64, i8, [7 x i8] }, ptr %15, i64 %12
+  %16 = getelementptr [96 x i8], ptr %15, i64 %12
   %17 = getelementptr i8, ptr %16, i64 -96
   %18 = load i64, ptr %17, align 8, !noundef !12
   %19 = getelementptr i8, ptr %16, i64 -88
@@ -7271,7 +7271,7 @@ define hidden void @"_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler27Co
   %.sroa.01.0.i = sub nuw i64 %14, %16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !312, !nonnull !12, !noundef !12
-  %19 = getelementptr inbounds nuw { i64, { [24 x i32], i32, [1 x i32] } }, ptr %18, i64 %.sroa.01.0.i
+  %19 = getelementptr inbounds nuw [112 x i8], ptr %18, i64 %.sroa.01.0.i
   %20 = load i64, ptr %19, align 8, !noundef !12
   %21 = icmp ugt i64 %1, %20
   br i1 %21, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17h5a0993452aac7285E.exit.thread", label %23, !prof !109
@@ -7330,7 +7330,7 @@ define hidden void @"_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler27Co
   %.sroa.01.0.i = sub nuw i64 %12, %14
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !316, !nonnull !12, !noundef !12
-  %17 = getelementptr inbounds nuw { i64, { [24 x i32], i32, [1 x i32] } }, ptr %16, i64 %.sroa.01.0.i
+  %17 = getelementptr inbounds nuw [112 x i8], ptr %16, i64 %.sroa.01.0.i
   %18 = load i64, ptr %17, align 8, !noundef !12
   %19 = icmp eq i64 %18, %2
   br i1 %19, label %27, label %23
@@ -7372,7 +7372,7 @@ define hidden void @"_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler27Co
   %37 = select i1 %.not.i24, i64 0, i64 %36
   %.sroa.01.0.i25 = sub nuw i64 %35, %37
   %38 = load ptr, ptr %15, align 8, !alias.scope !323, !nonnull !12, !noundef !12
-  %39 = getelementptr inbounds nuw { i64, { [24 x i32], i32, [1 x i32] } }, ptr %38, i64 %.sroa.01.0.i25
+  %39 = getelementptr inbounds nuw [112 x i8], ptr %38, i64 %.sroa.01.0.i25
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.03, ptr noundef nonnull align 8 dereferenceable(96) %40, i64 96, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 104
@@ -7397,7 +7397,7 @@ define hidden void @"_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler27Co
   %44 = select i1 %.not.i27, i64 0, i64 %43
   %.sroa.01.0.i28 = sub nuw i64 %42, %44
   %45 = load ptr, ptr %15, align 8, !alias.scope !319, !nonnull !12, !noundef !12
-  %46 = getelementptr inbounds nuw { i64, { [24 x i32], i32, [1 x i32] } }, ptr %45, i64 %.sroa.01.0.i28
+  %46 = getelementptr inbounds nuw [112 x i8], ptr %45, i64 %.sroa.01.0.i28
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 104
   %48 = load i32, ptr %47, align 8, !range !326, !noundef !12
   %.not21 = icmp eq i32 %48, 1000000000
@@ -7455,7 +7455,7 @@ define hidden void @"_ZN6quiche8recovery11gcongestion3bbr17bandwidth_sampler27Co
   %11 = select i1 %.not.i, i64 0, i64 %10
   %.sroa.01.0.i = sub nuw i64 %9, %11
   %12 = load ptr, ptr %7, align 8, !alias.scope !327, !nonnull !12, !noundef !12
-  %13 = getelementptr inbounds nuw { i64, { [24 x i32], i32, [1 x i32] } }, ptr %12, i64 %.sroa.01.0.i
+  %13 = getelementptr inbounds nuw [112 x i8], ptr %12, i64 %.sroa.01.0.i
   %14 = load i64, ptr %13, align 8, !noundef !12
   %15 = icmp ult i64 %14, %1
   br i1 %15, label %16, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17h5a0993452aac7285E.exit.thread"
@@ -8062,10 +8062,10 @@ define internal noundef zeroext i1 @"_ZN89_$LT$quiche..recovery..congestion..bbr
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !349, !noundef !12
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN89_$LT$quiche..recovery..congestion..bbr2..BBR2StateMachine$u20$as$u20$core..fmt..Debug$GT$3fmt17he6502309d73b6581E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$quiche..recovery..congestion..bbr2..BBR2StateMachine$u20$as$u20$core..fmt..Debug$GT$3fmt17he6502309d73b6581E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN89_$LT$quiche..recovery..congestion..bbr2..BBR2StateMachine$u20$as$u20$core..fmt..Debug$GT$3fmt17he6502309d73b6581E.16", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN89_$LT$quiche..recovery..congestion..bbr2..BBR2StateMachine$u20$as$u20$core..fmt..Debug$GT$3fmt17he6502309d73b6581E.16", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -8076,10 +8076,10 @@ define internal noundef zeroext i1 @"_ZN85_$LT$quiche..recovery..congestion..bbr
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !350, !noundef !12
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN85_$LT$quiche..recovery..congestion..bbr2..BBR2AckPhase$u20$as$u20$core..fmt..Debug$GT$3fmt17h15c0a0bc8e6322f9E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN85_$LT$quiche..recovery..congestion..bbr2..BBR2AckPhase$u20$as$u20$core..fmt..Debug$GT$3fmt17h15c0a0bc8e6322f9E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN85_$LT$quiche..recovery..congestion..bbr2..BBR2AckPhase$u20$as$u20$core..fmt..Debug$GT$3fmt17h15c0a0bc8e6322f9E.17", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN85_$LT$quiche..recovery..congestion..bbr2..BBR2AckPhase$u20$as$u20$core..fmt..Debug$GT$3fmt17h15c0a0bc8e6322f9E.17", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

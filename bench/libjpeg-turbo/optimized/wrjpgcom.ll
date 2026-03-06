@@ -74,7 +74,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   %.086239 = phi ptr [ %.187, %keymatch.exit ], [ null, %.lr.ph.preheader ]
   %.088238 = phi ptr [ %.290, %keymatch.exit ], [ null, %.lr.ph.preheader ]
   %13 = sext i32 %.0242 to i64
-  %14 = getelementptr inbounds ptr, ptr %1, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %1, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = load i8, ptr %15, align 1, !tbaa !9
   %.not.not.not.not = icmp ne i8 %16, 45
@@ -106,7 +106,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   %26 = tail call ptr @__ctype_b_loc() #10
   %27 = load ptr, ptr %26, align 8, !tbaa !10
   %28 = sext i8 %20 to i64
-  %29 = getelementptr inbounds i16, ptr %27, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %27, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !12
   %31 = and i16 %30, 256
   %.not25.i = icmp eq i16 %31, 0
@@ -115,7 +115,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 32:                                               ; preds = %24
   %33 = tail call ptr @__ctype_tolower_loc() #10
   %34 = load ptr, ptr %33, align 8, !tbaa !14
-  %35 = getelementptr inbounds i32, ptr %34, i64 %28
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %28
   %36 = load i32, ptr %35, align 4, !tbaa !16
   br label %37
 
@@ -146,7 +146,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   %47 = tail call ptr @__ctype_b_loc() #10
   %48 = load ptr, ptr %47, align 8, !tbaa !10
   %49 = sext i8 %40 to i64
-  %50 = getelementptr inbounds i16, ptr %48, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %48, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !12
   %52 = and i16 %51, 256
   %.not25.i118 = icmp eq i16 %52, 0
@@ -155,7 +155,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 53:                                               ; preds = %45
   %54 = tail call ptr @__ctype_tolower_loc() #10
   %55 = load ptr, ptr %54, align 8, !tbaa !14
-  %56 = getelementptr inbounds i32, ptr %55, i64 %49
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %49
   %57 = load i32, ptr %56, align 4, !tbaa !16
   br label %58
 
@@ -188,14 +188,14 @@ keymatch.exit124:                                 ; preds = %59
 
 65:                                               ; preds = %62
   %66 = sext i32 %63 to i64
-  %67 = getelementptr inbounds ptr, ptr %1, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %1, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !4
   %69 = tail call noalias ptr @fopen(ptr noundef %68, ptr noundef nonnull @.str.3)
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %keymatch.exit
 
 71:                                               ; preds = %65
-  %72 = getelementptr inbounds ptr, ptr %1, i64 %66
+  %72 = getelementptr inbounds [8 x i8], ptr %1, i64 %66
   %73 = load ptr, ptr @stderr, align 8, !tbaa !20
   %74 = load ptr, ptr @progname, align 8, !tbaa !4
   %75 = load ptr, ptr %72, align 8, !tbaa !4
@@ -220,7 +220,7 @@ keymatch.exit124:                                 ; preds = %59
   %83 = tail call ptr @__ctype_b_loc() #10
   %84 = load ptr, ptr %83, align 8, !tbaa !10
   %85 = sext i8 %77 to i64
-  %86 = getelementptr inbounds i16, ptr %84, i64 %85
+  %86 = getelementptr inbounds [2 x i8], ptr %84, i64 %85
   %87 = load i16, ptr %86, align 2, !tbaa !12
   %88 = and i16 %87, 256
   %.not25.i130 = icmp eq i16 %88, 0
@@ -229,7 +229,7 @@ keymatch.exit124:                                 ; preds = %59
 89:                                               ; preds = %81
   %90 = tail call ptr @__ctype_tolower_loc() #10
   %91 = load ptr, ptr %90, align 8, !tbaa !14
-  %92 = getelementptr inbounds i32, ptr %91, i64 %85
+  %92 = getelementptr inbounds [4 x i8], ptr %91, i64 %85
   %93 = load i32, ptr %92, align 4, !tbaa !16
   br label %94
 
@@ -254,7 +254,7 @@ keymatch.exit136:                                 ; preds = %95
 
 99:                                               ; preds = %keymatch.exit136
   %100 = sext i32 %97 to i64
-  %101 = getelementptr inbounds ptr, ptr %1, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %1, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !4
   %103 = load i8, ptr %102, align 1, !tbaa !9
   %104 = icmp eq i8 %103, 34
@@ -321,7 +321,7 @@ keymatch.exit136:                                 ; preds = %95
   unreachable
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
+  %138 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv.next
   %139 = load ptr, ptr %138, align 8, !tbaa !4
   %140 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %139) #14
   %141 = add i64 %122, -64998
@@ -403,7 +403,7 @@ keymatch.exit:                                    ; preds = %38, %155, %65
 
 165:                                              ; preds = %164
   %166 = sext i32 %.0.lcssa.ph to i64
-  %167 = getelementptr inbounds ptr, ptr %1, i64 %166
+  %167 = getelementptr inbounds [8 x i8], ptr %1, i64 %166
   %168 = load ptr, ptr %167, align 8, !tbaa !4
   %169 = tail call noalias ptr @fopen(ptr noundef %168, ptr noundef nonnull @.str.11)
   store ptr %169, ptr @infile, align 8, !tbaa !20

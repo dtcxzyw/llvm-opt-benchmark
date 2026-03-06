@@ -920,7 +920,7 @@ define dso_local void @common_lsm_audit(ptr noundef %0, ptr noundef readonly cap
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %266 = load i32, ptr %265, align 8
   %267 = sext i32 %266 to i64
-  %268 = getelementptr ptr, ptr @lockdown_reasons, i64 %267
+  %268 = getelementptr [8 x i8], ptr @lockdown_reasons, i64 %267
   %269 = load ptr, ptr %268, align 8
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %15, ptr noundef nonnull @.str.23, ptr noundef %269) #8
   br label %273

@@ -156,8 +156,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i: ; preds = %31
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %47, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %41, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %44 = getelementptr inbounds i32, ptr %39, i64 %.05.i.i.i.i.i.i.i.i.i
-  %45 = getelementptr inbounds i32, ptr %25, i64 %.05.i.i.i.i.i.i.i.i.i
+  %44 = getelementptr inbounds [4 x i8], ptr %39, i64 %.05.i.i.i.i.i.i.i.i.i
+  %45 = getelementptr inbounds [4 x i8], ptr %25, i64 %.05.i.i.i.i.i.i.i.i.i
   %46 = load i32, ptr %45, align 4, !tbaa !25
   store i32 %46, ptr %44, align 4, !tbaa !25
   %47 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i, 1
@@ -166,8 +166,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i: ; preds = %31
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %38, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %38 ]
-  %48 = getelementptr inbounds nuw i32, ptr %39, i64 %.011.i.i.i.i.i.i.i.i
-  %49 = getelementptr inbounds nuw i32, ptr %25, i64 %.011.i.i.i.i.i.i.i.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.011.i.i.i.i.i.i.i.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.011.i.i.i.i.i.i.i.i
   %50 = load <2 x i64>, ptr %49, align 1, !tbaa !45
   store <2 x i64> %50, ptr %48, align 16, !tbaa !45
   %51 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 4

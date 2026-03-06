@@ -1473,7 +1473,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %last.addr.022 = phi ptr [ %last, %while.body.lr.ph ], [ %call11, %_ZN5eastl6medianINS_8optionalIiEEEEOT_S4_S4_S4_.exit ]
   %kRecursionCount.addr.021 = phi i64 [ %kRecursionCount, %while.body.lr.ph ], [ %dec, %_ZN5eastl6medianINS_8optionalIiEEEEOT_S4_S4_S4_.exit ]
   %div15 = lshr i64 %sub.ptr.div23, 1
-  %add.ptr = getelementptr inbounds nuw %"class.eastl::optional", ptr %first, i64 %div15
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %first, i64 %div15
   %add.ptr7 = getelementptr inbounds i8, ptr %last.addr.022, i64 -8
   %engaged.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   %1 = load i8, ptr %engaged.i.i.i.i, align 4
@@ -1756,7 +1756,7 @@ if.then.i:                                        ; preds = %entry
 do.body.i:                                        ; preds = %_ZN5eastl8optionalIiEC2EOS1_.exit.i, %if.then.i
   %parentPosition.0.i = phi i64 [ %add.i, %if.then.i ], [ %dec.i, %_ZN5eastl8optionalIiEC2EOS1_.exit.i ]
   %dec.i = add nsw i64 %parentPosition.0.i, -1
-  %add.ptr.i = getelementptr inbounds nuw %"class.eastl::optional", ptr %first, i64 %dec.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %first, i64 %dec.i
   %engaged.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   store i32 0, ptr %temp.i, align 4
   %0 = load i8, ptr %engaged.i.i, align 4
@@ -1907,8 +1907,8 @@ for.body:                                         ; preds = %entry, %_ZN5eastl8o
   %childPosition.044 = phi i64 [ %childPosition.0, %_ZN5eastl8optionalIiEaSEOS1_.exit ], [ %childPosition.040, %entry ]
   %childPosition.0.in43 = phi i64 [ %childPosition.0.in, %_ZN5eastl8optionalIiEaSEOS1_.exit ], [ %childPosition.0.in39, %entry ]
   %position.addr.042 = phi i64 [ %5, %_ZN5eastl8optionalIiEaSEOS1_.exit ], [ %position, %entry ]
-  %add.ptr = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 %childPosition.044
-  %0 = getelementptr %"class.eastl::optional", ptr %first, i64 %childPosition.0.in43
+  %add.ptr = getelementptr inbounds [8 x i8], ptr %first, i64 %childPosition.044
+  %0 = getelementptr [8 x i8], ptr %first, i64 %childPosition.0.in43
   %add.ptr1 = getelementptr i8, ptr %0, i64 8
   %engaged.i.i = getelementptr i8, ptr %0, i64 12
   %1 = load i8, ptr %engaged.i.i, align 4
@@ -1936,8 +1936,8 @@ _ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit:      ; preds = %cond.false.i
 
 _ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.thread35: ; preds = %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit, %for.body, %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.thread
   %5 = phi i64 [ %childPosition.044, %for.body ], [ %spec.select, %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit ], [ %dec32, %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.thread ]
-  %add.ptr2 = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 %5
-  %add.ptr4 = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 %position.addr.042
+  %add.ptr2 = getelementptr inbounds [8 x i8], ptr %first, i64 %5
+  %add.ptr4 = getelementptr inbounds [8 x i8], ptr %first, i64 %position.addr.042
   %engaged.i = getelementptr inbounds nuw i8, ptr %add.ptr4, i64 4
   %6 = load i8, ptr %engaged.i, align 4
   %tobool.i = trunc i8 %6 to i1
@@ -1984,8 +1984,8 @@ for.end:                                          ; preds = %_ZN5eastl8optionalI
 
 if.then9:                                         ; preds = %for.end
   %sub10 = or disjoint i64 %childPosition.0.in.lcssa, 1
-  %add.ptr11 = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 %sub10
-  %add.ptr13 = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 %position.addr.0.lcssa
+  %add.ptr11 = getelementptr inbounds [8 x i8], ptr %first, i64 %sub10
+  %add.ptr13 = getelementptr inbounds [8 x i8], ptr %first, i64 %position.addr.0.lcssa
   %engaged.i21 = getelementptr inbounds nuw i8, ptr %add.ptr13, i64 4
   %12 = load i8, ptr %engaged.i21, align 4
   %tobool.i22 = trunc i8 %12 to i1
@@ -2030,7 +2030,7 @@ land.rhs.i.i:                                     ; preds = %_ZN5eastl8optionalI
   %position.addr.028.i.i = phi i64 [ %position.addr.1, %land.rhs.lr.ph.i.i ], [ %parentPosition.029.i.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i ]
   %parentPosition.029.in.i.i = add nsw i64 %position.addr.028.i.i, -1
   %parentPosition.029.i.i = ashr i64 %parentPosition.029.in.i.i, 1
-  %add.ptr.i.i = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 %parentPosition.029.i.i
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %first, i64 %parentPosition.029.i.i
   %18 = load i8, ptr %engaged.i.i.i.i, align 4
   %tobool.i.i.i.i = trunc i8 %18 to i1
   br i1 %tobool.i.i.i.i, label %cond.false.i.i.i, label %for.end.i.i
@@ -2048,7 +2048,7 @@ _ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.i.i:  ; preds = %cond.false.i.i.i
   br i1 %cmp.i.i.i, label %for.body.i.i, label %for.end.i.i
 
 for.body.i.i:                                     ; preds = %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.i.i, %cond.false.i.i.i
-  %add.ptr3.i.i = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 %position.addr.028.i.i
+  %add.ptr3.i.i = getelementptr inbounds [8 x i8], ptr %first, i64 %position.addr.028.i.i
   %engaged.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr3.i.i, i64 4
   %22 = load i8, ptr %engaged.i.i.i, align 4
   %tobool.i.i.i = trunc i8 %22 to i1
@@ -2084,7 +2084,7 @@ _ZN5eastl8optionalIiEaSEOS1_.exit.i.i:            ; preds = %if.else14.i.i.i, %i
 
 for.end.i.i:                                      ; preds = %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i, %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.i.i, %land.rhs.i.i, %if.end16
   %position.addr.0.lcssa.i.i = phi i64 [ %position.addr.1, %if.end16 ], [ %position.addr.028.i.i, %land.rhs.i.i ], [ %parentPosition.029.i.i, %_ZN5eastl8optionalIiEaSEOS1_.exit.i.i ], [ %position.addr.028.i.i, %_ZN5eastlltIiEEbRKNS_8optionalIT_EES5_.exit.i.i ]
-  %add.ptr8.i.i = getelementptr inbounds %"class.eastl::optional", ptr %first, i64 %position.addr.0.lcssa.i.i
+  %add.ptr8.i.i = getelementptr inbounds [8 x i8], ptr %first, i64 %position.addr.0.lcssa.i.i
   %engaged.i12.i.i = getelementptr inbounds nuw i8, ptr %add.ptr8.i.i, i64 4
   %27 = load i8, ptr %engaged.i12.i.i, align 4
   %tobool.i13.i.i = trunc i8 %27 to i1

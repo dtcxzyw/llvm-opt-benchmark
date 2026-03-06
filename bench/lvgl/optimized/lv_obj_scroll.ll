@@ -259,7 +259,7 @@ define i32 @lv_obj_get_scroll_bottom(ptr noundef %0) local_unnamed_addr #0 {
   %.041 = phi i32 [ -536870911, %.lr.ph ], [ %.1, %18 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !3
   %7 = load ptr, ptr %6, align 8, !tbaa !25
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !26
   %10 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %9, i32 noundef 262145) #5
   br i1 %10, label %18, label %11
@@ -414,7 +414,7 @@ define i32 @lv_obj_get_scroll_left(ptr noundef %0) local_unnamed_addr #0 {
   %.03747 = phi i32 [ 536870911, %.lr.ph ], [ %.1, %48 ]
   %36 = load ptr, ptr %34, align 8, !tbaa !3
   %37 = load ptr, ptr %36, align 8, !tbaa !25
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !26
   %40 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %39, i32 noundef 262145) #5
   br i1 %40, label %48, label %41
@@ -520,7 +520,7 @@ define i32 @lv_obj_get_scroll_right(ptr noundef %0) local_unnamed_addr #0 {
   %.03448 = phi i32 [ -536870911, %.lr.ph ], [ %.1, %30 ]
   %18 = load ptr, ptr %16, align 8, !tbaa !3
   %19 = load ptr, ptr %18, align 8, !tbaa !25
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !26
   %22 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %21, i32 noundef 262145) #5
   br i1 %22, label %30, label %23

@@ -1484,7 +1484,7 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
 
 51:                                               ; preds = %45, %40
   %52 = load ptr, ptr %27, align 8, !alias.scope !243, !noalias !248, !nonnull !3, !noundef !3
-  %53 = getelementptr inbounds nuw { { i64, [1 x i64] } }, ptr %52, i64 %42
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %42
   store i64 %.sroa.03.0.i.i, ptr %53, align 8, !noalias !234
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %.sroa.5.0.i.i, ptr %54, align 8, !noalias !234
@@ -1563,7 +1563,7 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
 
 80:                                               ; preds = %75, %71
   %81 = load ptr, ptr %66, align 8, !alias.scope !259, !noalias !262, !nonnull !3, !noundef !3
-  %82 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { ptr, i64 }, { ptr, ptr } }, ptr %81, i64 %72
+  %82 = getelementptr inbounds nuw [80 x i8], ptr %81, i64 %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %82, ptr noundef nonnull align 8 dereferenceable(80) %12, i64 80, i1 false), !noalias !234
   %83 = add i64 %72, 1
   store i64 %83, ptr %67, align 8, !alias.scope !259, !noalias !262
@@ -1623,7 +1623,7 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
 
 102:                                              ; preds = %101, %97
   %103 = load ptr, ptr %94, align 8, !alias.scope !275, !noalias !278, !nonnull !3, !noundef !3
-  %104 = getelementptr inbounds nuw { { ptr, i64 }, { { i64, i64 } }, { { i64, i64 } } }, ptr %103, i64 %98
+  %104 = getelementptr inbounds nuw [48 x i8], ptr %103, i64 %98
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %104, ptr noundef nonnull readonly align 8 dereferenceable(48) %9, i64 48, i1 false), !noalias !234
   %105 = add i64 %98, 1
   store i64 %105, ptr %95, align 8, !alias.scope !275, !noalias !278
@@ -2201,7 +2201,7 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
 
 53:                                               ; preds = %47, %42
   %54 = load ptr, ptr %29, align 8, !alias.scope !354, !noalias !359, !nonnull !3, !noundef !3
-  %55 = getelementptr inbounds nuw { { i64, [1 x i64] } }, ptr %54, i64 %44
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %44
   store i64 %.sroa.03.0.i.i, ptr %55, align 8, !noalias !346
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %.sroa.5.0.i.i, ptr %56, align 8, !noalias !346
@@ -2272,7 +2272,7 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
 
 81:                                               ; preds = %76, %72
   %82 = load ptr, ptr %68, align 8, !alias.scope !363, !noalias !366, !nonnull !3, !noundef !3
-  %83 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { ptr, i64 }, { ptr, ptr } }, ptr %82, i64 %73
+  %83 = getelementptr inbounds nuw [80 x i8], ptr %82, i64 %73
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %83, ptr noundef nonnull align 8 dereferenceable(80) %15, i64 80, i1 false), !noalias !346
   %84 = add i64 %73, 1
   store i64 %84, ptr %69, align 8, !alias.scope !363, !noalias !366
@@ -2305,7 +2305,7 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
 
 94:                                               ; preds = %89, %85
   %95 = load ptr, ptr %68, align 8, !alias.scope !370, !noalias !373, !nonnull !3, !noundef !3
-  %96 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { ptr, i64 }, { ptr, ptr } }, ptr %95, i64 %86
+  %96 = getelementptr inbounds nuw [80 x i8], ptr %95, i64 %86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %96, ptr noundef nonnull align 8 dereferenceable(80) %14, i64 80, i1 false), !noalias !346
   %97 = add i64 %86, 1
   store i64 %97, ptr %69, align 8, !alias.scope !370, !noalias !373
@@ -2338,7 +2338,7 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
 
 107:                                              ; preds = %102, %98
   %108 = load ptr, ptr %68, align 8, !alias.scope !377, !noalias !380, !nonnull !3, !noundef !3
-  %109 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { ptr, i64 }, { ptr, ptr } }, ptr %108, i64 %99
+  %109 = getelementptr inbounds nuw [80 x i8], ptr %108, i64 %99
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %109, ptr noundef nonnull align 8 dereferenceable(80) %13, i64 80, i1 false), !noalias !346
   %110 = add i64 %99, 1
   store i64 %110, ptr %69, align 8, !alias.scope !377, !noalias !380
@@ -2371,7 +2371,7 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
 
 120:                                              ; preds = %115, %111
   %121 = load ptr, ptr %68, align 8, !alias.scope !384, !noalias !387, !nonnull !3, !noundef !3
-  %122 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { ptr, i64 }, { ptr, ptr } }, ptr %121, i64 %112
+  %122 = getelementptr inbounds nuw [80 x i8], ptr %121, i64 %112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %122, ptr noundef nonnull align 8 dereferenceable(80) %12, i64 80, i1 false), !noalias !346
   %123 = add i64 %112, 1
   store i64 %123, ptr %69, align 8, !alias.scope !384, !noalias !387
@@ -2404,7 +2404,7 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
 
 133:                                              ; preds = %128, %124
   %134 = load ptr, ptr %68, align 8, !alias.scope !391, !noalias !394, !nonnull !3, !noundef !3
-  %135 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { ptr, i64 }, { ptr, ptr } }, ptr %134, i64 %125
+  %135 = getelementptr inbounds nuw [80 x i8], ptr %134, i64 %125
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %135, ptr noundef nonnull align 8 dereferenceable(80) %11, i64 80, i1 false), !noalias !346
   %136 = add i64 %125, 1
   store i64 %136, ptr %69, align 8, !alias.scope !391, !noalias !394
@@ -2437,7 +2437,7 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
 
 146:                                              ; preds = %141, %137
   %147 = load ptr, ptr %68, align 8, !alias.scope !398, !noalias !401, !nonnull !3, !noundef !3
-  %148 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { ptr, i64 }, { ptr, ptr } }, ptr %147, i64 %138
+  %148 = getelementptr inbounds nuw [80 x i8], ptr %147, i64 %138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %148, ptr noundef nonnull align 8 dereferenceable(80) %10, i64 80, i1 false), !noalias !346
   %149 = add i64 %138, 1
   store i64 %149, ptr %69, align 8, !alias.scope !398, !noalias !401

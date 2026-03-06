@@ -1828,7 +1828,7 @@ PyUnicode_READ.exit.us:                           ; preds = %.lr.ph, %81
 PyUnicode_READ.exit.us76:                         ; preds = %.lr.ph, %90
   %84 = phi i64 [ %92, %90 ], [ %74, %.lr.ph ]
   %.03670.us72 = phi i64 [ %91, %90 ], [ 0, %.lr.ph ]
-  %85 = getelementptr i16, ptr %.0.i58, i64 %.03670.us72
+  %85 = getelementptr [2 x i8], ptr %.0.i58, i64 %.03670.us72
   %86 = load i16, ptr %85, align 2, !tbaa !30
   %87 = zext i16 %86 to i32
   %88 = tail call fastcc i32 @parse_process_char(ptr noundef %0, ptr noundef %6, i32 noundef %87)
@@ -1850,7 +1850,7 @@ PyUnicode_READ.exit.us76:                         ; preds = %.lr.ph, %90
 PyUnicode_READ.exit:                              ; preds = %.lr.ph, %93
   %96 = phi i64 [ %95, %93 ], [ %74, %.lr.ph ]
   %.03670 = phi i64 [ %94, %93 ], [ 0, %.lr.ph ]
-  %97 = getelementptr i32, ptr %.0.i58, i64 %.03670
+  %97 = getelementptr [4 x i8], ptr %.0.i58, i64 %.03670
   %98 = load i32, ptr %97, align 4, !tbaa !31
   %99 = tail call fastcc i32 @parse_process_char(ptr noundef %0, ptr noundef %6, i32 noundef %98)
   %100 = icmp slt i32 %99, 0
@@ -2280,7 +2280,7 @@ parse_grow_buff.exit.i:                           ; preds = %62
   %70 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %65, %parse_grow_buff.exit.i ]
   %71 = add i64 %69, 1
   store i64 %71, ptr %49, align 8, !tbaa !52
-  %72 = getelementptr i32, ptr %70, i64 %69
+  %72 = getelementptr [4 x i8], ptr %70, i64 %69
   store i32 %2, ptr %72, align 4, !tbaa !31
   br label %.sink.split
 
@@ -2340,7 +2340,7 @@ parse_grow_buff.exit.i139:                        ; preds = %90
   %98 = phi ptr [ %.pre.i136, %._crit_edge.i134 ], [ %93, %parse_grow_buff.exit.i139 ]
   %99 = add i64 %97, 1
   store i64 %99, ptr %77, align 8, !tbaa !52
-  %100 = getelementptr i32, ptr %98, i64 %97
+  %100 = getelementptr [4 x i8], ptr %98, i64 %97
   store i32 %spec.store.select, ptr %100, align 4, !tbaa !31
   br label %.sink.split
 
@@ -2477,7 +2477,7 @@ parse_grow_buff.exit.i150:                        ; preds = %160
   %168 = phi ptr [ %.pre.i147, %._crit_edge.i145 ], [ %163, %parse_grow_buff.exit.i150 ]
   %169 = add i64 %167, 1
   store i64 %169, ptr %147, align 8, !tbaa !52
-  %170 = getelementptr i32, ptr %168, i64 %167
+  %170 = getelementptr [4 x i8], ptr %168, i64 %167
   store i32 %spec.store.select12, ptr %170, align 4, !tbaa !31
   br label %.sink.split
 
@@ -2547,7 +2547,7 @@ parse_grow_buff.exit.i161:                        ; preds = %194
   %202 = phi ptr [ %.pre.i158, %._crit_edge.i156 ], [ %197, %parse_grow_buff.exit.i161 ]
   %203 = add i64 %201, 1
   store i64 %203, ptr %181, align 8, !tbaa !52
-  %204 = getelementptr i32, ptr %202, i64 %201
+  %204 = getelementptr [4 x i8], ptr %202, i64 %201
   store i32 %2, ptr %204, align 4, !tbaa !31
   br label %.sink.split
 
@@ -2685,7 +2685,7 @@ parse_grow_buff.exit:                             ; preds = %19
   %27 = phi ptr [ %.pre, %._crit_edge ], [ %22, %parse_grow_buff.exit ]
   %28 = add i64 %26, 1
   store i64 %28, ptr %6, align 8, !tbaa !52
-  %29 = getelementptr i32, ptr %27, i64 %26
+  %29 = getelementptr [4 x i8], ptr %27, i64 %26
   store i32 %2, ptr %29, align 4, !tbaa !31
   br label %30
 
@@ -3178,7 +3178,7 @@ _PyUnicode_DATA.exit.i:                           ; preds = %140, %138
   br i1 %142, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %_PyUnicode_DATA.exit.i
-  %145 = getelementptr i32, ptr %144, i64 %.pre33.i
+  %145 = getelementptr [4 x i8], ptr %144, i64 %.pre33.i
   switch i16 %136, label %PyUnicode_READ.exit.i [
     i16 1, label %PyUnicode_READ.exit.us.i
     i16 2, label %PyUnicode_READ.exit.us26.i
@@ -3189,7 +3189,7 @@ PyUnicode_READ.exit.us.i:                         ; preds = %.lr.ph.i, %PyUnicod
   %146 = getelementptr i8, ptr %.0.i.i, i64 %.01823.us.i
   %147 = load i8, ptr %146, align 1, !tbaa !24
   %148 = zext i8 %147 to i32
-  %149 = getelementptr i32, ptr %145, i64 %.01823.us.i
+  %149 = getelementptr [4 x i8], ptr %145, i64 %.01823.us.i
   store i32 %148, ptr %149, align 4, !tbaa !31
   %150 = add nuw nsw i64 %.01823.us.i, 1
   %exitcond30.not.i = icmp eq i64 %150, %.val.i
@@ -3197,10 +3197,10 @@ PyUnicode_READ.exit.us.i:                         ; preds = %.lr.ph.i, %PyUnicod
 
 PyUnicode_READ.exit.us26.i:                       ; preds = %.lr.ph.i, %PyUnicode_READ.exit.us26.i
   %.01823.us25.i = phi i64 [ %155, %PyUnicode_READ.exit.us26.i ], [ 0, %.lr.ph.i ]
-  %151 = getelementptr i16, ptr %.0.i.i, i64 %.01823.us25.i
+  %151 = getelementptr [2 x i8], ptr %.0.i.i, i64 %.01823.us25.i
   %152 = load i16, ptr %151, align 2, !tbaa !30
   %153 = zext i16 %152 to i32
-  %154 = getelementptr i32, ptr %145, i64 %.01823.us25.i
+  %154 = getelementptr [4 x i8], ptr %145, i64 %.01823.us25.i
   store i32 %153, ptr %154, align 4, !tbaa !31
   %155 = add nuw nsw i64 %.01823.us25.i, 1
   %exitcond.not.i = icmp eq i64 %155, %.val.i
@@ -3208,9 +3208,9 @@ PyUnicode_READ.exit.us26.i:                       ; preds = %.lr.ph.i, %PyUnicod
 
 PyUnicode_READ.exit.i:                            ; preds = %.lr.ph.i, %PyUnicode_READ.exit.i
   %.01823.i = phi i64 [ %159, %PyUnicode_READ.exit.i ], [ 0, %.lr.ph.i ]
-  %156 = getelementptr i32, ptr %.0.i.i, i64 %.01823.i
+  %156 = getelementptr [4 x i8], ptr %.0.i.i, i64 %.01823.i
   %157 = load i32, ptr %156, align 4, !tbaa !31
-  %158 = getelementptr i32, ptr %145, i64 %.01823.i
+  %158 = getelementptr [4 x i8], ptr %145, i64 %.01823.i
   store i32 %157, ptr %158, align 4, !tbaa !31
   %159 = add nuw nsw i64 %.01823.i, 1
   %exitcond31.not.i = icmp eq i64 %159, %.val.i
@@ -3494,7 +3494,7 @@ define internal fastcc i64 @join_append_data(ptr noundef readonly captures(none)
   %16 = load i32, ptr %15, align 8, !tbaa !38
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8, !tbaa !70
-  %19 = getelementptr i32, ptr %18, i64 %10
+  %19 = getelementptr [4 x i8], ptr %18, i64 %10
   store i32 %16, ptr %19, align 4, !tbaa !31
   br label %22
 
@@ -3521,7 +3521,7 @@ define internal fastcc i64 @join_append_data(ptr noundef readonly captures(none)
   %29 = load i32, ptr %28, align 4, !tbaa !39
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !70
-  %32 = getelementptr i32, ptr %31, i64 %.0108
+  %32 = getelementptr [4 x i8], ptr %31, i64 %.0108
   store i32 %29, ptr %32, align 4, !tbaa !31
   %33 = add i64 %.0108, 1
   br label %34
@@ -3558,13 +3558,13 @@ define internal fastcc i64 @join_append_data(ptr noundef readonly captures(none)
   br label %PyUnicode_READ.exit
 
 50:                                               ; preds = %45
-  %51 = getelementptr i16, ptr %2, i64 %.0111155
+  %51 = getelementptr [2 x i8], ptr %2, i64 %.0111155
   %52 = load i16, ptr %51, align 2, !tbaa !30
   %53 = zext i16 %52 to i32
   br label %PyUnicode_READ.exit
 
 54:                                               ; preds = %45
-  %55 = getelementptr i32, ptr %2, i64 %.0111155
+  %55 = getelementptr [4 x i8], ptr %2, i64 %.0111155
   %56 = load i32, ptr %55, align 4, !tbaa !31
   br label %PyUnicode_READ.exit
 
@@ -3619,7 +3619,7 @@ switch.early.test:                                ; preds = %62
 
 .thread127:                                       ; preds = %79
   %80 = load ptr, ptr %44, align 8, !tbaa !70
-  %81 = getelementptr i32, ptr %80, i64 %.2110156
+  %81 = getelementptr [4 x i8], ptr %80, i64 %.2110156
   store i32 %.0.i, ptr %81, align 4, !tbaa !31
   br label %.thread129
 
@@ -3661,7 +3661,7 @@ switch.early.test:                                ; preds = %62
 
 .thread140:                                       ; preds = %93
   %94 = load ptr, ptr %44, align 8, !tbaa !70
-  %95 = getelementptr i32, ptr %94, i64 %.2110156
+  %95 = getelementptr [4 x i8], ptr %94, i64 %.2110156
   store i32 %88, ptr %95, align 4, !tbaa !31
   br label %98
 
@@ -3679,7 +3679,7 @@ switch.early.test:                                ; preds = %62
 
 .thread149:                                       ; preds = %100
   %101 = load ptr, ptr %44, align 8, !tbaa !70
-  %102 = getelementptr i32, ptr %101, i64 %.6
+  %102 = getelementptr [4 x i8], ptr %101, i64 %.6
   store i32 %.0.i, ptr %102, align 4, !tbaa !31
   br label %105
 
@@ -3707,7 +3707,7 @@ switch.early.test:                                ; preds = %62
   %112 = load i32, ptr %111, align 4, !tbaa !39
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %114 = load ptr, ptr %113, align 8, !tbaa !70
-  %115 = getelementptr i32, ptr %114, i64 %.2110.lcssa
+  %115 = getelementptr [4 x i8], ptr %114, i64 %.2110.lcssa
   store i32 %112, ptr %115, align 4, !tbaa !31
   %116 = add i64 %.2110.lcssa, 1
   br label %121

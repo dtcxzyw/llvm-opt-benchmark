@@ -1154,7 +1154,7 @@ RARRAY_AREF.exit29:                               ; preds = %8, %14
 RARRAY_AREF.exit32:                               ; preds = %41, %43
   %.0.i.i31 = phi ptr [ %42, %41 ], [ %45, %43 ]
   %46 = ashr i64 %27, 1
-  %47 = getelementptr inbounds i64, ptr %.0.i.i31, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %.0.i.i31, i64 %46
   %48 = load i64, ptr %47, align 8, !tbaa !10
   %49 = tail call i64 @rb_hash_aset(i64 noundef %29, i64 noundef %35, i64 noundef %48) #9
   ret i32 0

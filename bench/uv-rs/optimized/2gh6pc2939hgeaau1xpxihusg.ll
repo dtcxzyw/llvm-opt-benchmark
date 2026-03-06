@@ -371,7 +371,7 @@ default.unreachable40:                            ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.530.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.530.sroa.6.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.530.sroa.6.sroa.6.i)
-  %129 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %126, i64 %128
+  %129 = getelementptr inbounds [64 x i8], ptr %126, i64 %128
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !92
   store ptr %126, ptr %14, align 8, !noalias !92
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1155,7 +1155,7 @@ default.unreachable40:                            ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.528.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.528.sroa.6.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.528.sroa.6.sroa.6.i)
-  %129 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %126, i64 %128
+  %129 = getelementptr inbounds [64 x i8], ptr %126, i64 %128
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !244
   store ptr %126, ptr %14, align 8, !noalias !244
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1890,7 +1890,7 @@ default.unreachable16:                            ; preds = %2
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %125 = load i64, ptr %124, align 8, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !374)
-  %126 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %123, i64 %125
+  %126 = getelementptr inbounds [64 x i8], ptr %123, i64 %125
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !377
   store ptr %123, ptr %11, align 8, !noalias !377
   %127 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2410,7 +2410,7 @@ default.unreachable40:                            ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.530.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.530.sroa.6.sroa.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.530.sroa.6.sroa.6.i)
-  %129 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %126, i64 %128
+  %129 = getelementptr inbounds [64 x i8], ptr %126, i64 %128
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !490
   store ptr %126, ptr %14, align 8, !noalias !490
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -4327,7 +4327,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2ac0befc74d76aaeE.ll
 9:                                                ; preds = %3, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %11, i64 %5
+  %12 = getelementptr inbounds [64 x i8], ptr %11, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   %13 = add i64 %5, 1
   store i64 %13, ptr %4, align 8
@@ -5115,7 +5115,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h9750
   %8 = alloca [96 x i8], align 8
   %9 = alloca [96 x i8], align 8
   %10 = alloca [32 x i8], align 8
-  %11 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %1, i64 %2
+  %11 = getelementptr inbounds [64 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %1, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -5390,7 +5390,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h7e2c
   %8 = alloca [96 x i8], align 8
   %9 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %10 = getelementptr inbounds { i8, [31 x i8] }, ptr %1, i64 %2
+  %10 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   store ptr %1, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %10, ptr %11, align 8
@@ -6544,7 +6544,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
 
 51:                                               ; preds = %46, %42
   %52 = load ptr, ptr %20, align 8, !alias.scope !1185, !noalias !1188, !nonnull !4, !noundef !4
-  %53 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %52, i64 %43
+  %53 = getelementptr inbounds [64 x i8], ptr %52, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   %54 = add i64 %43, 1
   store i64 %54, ptr %21, align 8, !alias.scope !1185, !noalias !1188
@@ -6761,7 +6761,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
 
 43:                                               ; preds = %38, %34
   %44 = load ptr, ptr %15, align 8, !alias.scope !1211, !noalias !1214, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %44, i64 %35
+  %45 = getelementptr inbounds [64 x i8], ptr %44, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   %46 = add i64 %35, 1
   store i64 %46, ptr %16, align 8, !alias.scope !1211, !noalias !1214
@@ -6948,7 +6948,7 @@ define hidden void @"_ZN84_$LT$serde..__private..de..content..ContentVisitor$u20
 
 51:                                               ; preds = %46, %42
   %52 = load ptr, ptr %21, align 8, !alias.scope !1245, !noalias !1248, !nonnull !4, !noundef !4
-  %53 = getelementptr inbounds { i8, [31 x i8] }, ptr %52, i64 %43
+  %53 = getelementptr inbounds [32 x i8], ptr %52, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   %54 = add i64 %43, 1
   store i64 %54, ptr %22, align 8, !alias.scope !1245, !noalias !1248

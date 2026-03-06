@@ -192,9 +192,9 @@ define dso_local ptr @jent_entropy_collector_alloc(i32 noundef %0, i32 noundef %
 19:                                               ; preds = %15
   %20 = add nsw i32 %spec.store.select, -1
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr i32, ptr @jent_apt_cutoff_lookup, i64 %21
+  %22 = getelementptr [4 x i8], ptr @jent_apt_cutoff_lookup, i64 %21
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr i32, ptr @jent_apt_cutoff_permanent_lookup, i64 %21
+  %24 = getelementptr [4 x i8], ptr @jent_apt_cutoff_permanent_lookup, i64 %21
   %25 = load i32, ptr %24, align 4
   br label %jent_apt_init.exit
 

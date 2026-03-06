@@ -368,10 +368,7 @@ module asm ".previous\09\09\09\09\09"
 %struct.anon.20 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.cpumask = type { [1 x i64] }
 %struct.trace_event_buffer = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.regmap_range_cfg = type { ptr, i32, i32, i32, i32, i32, i32, i32 }
 %struct.reg_field = type { i32, i32, i32, i32, i32 }
-%struct.regmap_field = type { ptr, i32, i32, i32, i32, i32 }
-%struct.reg_sequence = type { i32, i32, i32 }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 
 @__tpstrtab_regmap_reg_write = internal constant [17 x i8] c"regmap_reg_write\00", section "__tracepoints_strings", align 16
@@ -4658,7 +4655,7 @@ define dso_local ptr @__regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef 
   %471 = phi i32 [ 0, %466 ], [ %577, %576 ]
   %472 = load ptr, ptr %467, align 8
   %473 = sext i32 %471 to i64
-  %474 = getelementptr %struct.regmap_range_cfg, ptr %472, i64 %473
+  %474 = getelementptr [40 x i8], ptr %472, i64 %473
   %475 = getelementptr inbounds nuw i8, ptr %474, i64 12
   %476 = load i32, ptr %475, align 4
   %477 = getelementptr inbounds nuw i8, ptr %474, i64 8
@@ -4706,7 +4703,7 @@ define dso_local ptr @__regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef 
 .preheader48:                                     ; preds = %493, %520
   %499 = phi i32 [ %521, %520 ], [ 0, %493 ]
   %500 = sext i32 %499 to i64
-  %501 = getelementptr %struct.regmap_range_cfg, ptr %472, i64 %500
+  %501 = getelementptr [40 x i8], ptr %472, i64 %500
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 28
   %503 = load i32, ptr %502, align 4
   %504 = getelementptr inbounds nuw i8, ptr %501, i64 32
@@ -5894,8 +5891,8 @@ define dso_local noundef range(i32 -12, 1) i32 @regmap_field_bulk_alloc(ptr noun
 13:                                               ; preds = %40, %12
   %14 = phi i1 [ %.pre3, %12 ], [ %41, %40 ]
   %15 = phi i64 [ 0, %12 ], [ %45, %40 ]
-  %16 = getelementptr %struct.regmap_field, ptr %9, i64 %15
-  %17 = getelementptr %struct.reg_field, ptr %2, i64 %15
+  %16 = getelementptr [32 x i8], ptr %9, i64 %15
+  %17 = getelementptr [20 x i8], ptr %2, i64 %15
   %18 = load i32, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %20 = load i32, ptr %19, align 4
@@ -5940,7 +5937,7 @@ define dso_local noundef range(i32 -12, 1) i32 @regmap_field_bulk_alloc(ptr noun
   store i32 %24, ptr %42, align 4
   %43 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 %26, ptr %43, align 8
-  %44 = getelementptr ptr, ptr %1, i64 %15
+  %44 = getelementptr [8 x i8], ptr %1, i64 %15
   store ptr %16, ptr %44, align 8
   %45 = add nuw nsw i64 %15, 1
   %46 = icmp eq i64 %45, %7
@@ -5974,8 +5971,8 @@ define dso_local noundef range(i32 -12, 1) i32 @devm_regmap_field_bulk_alloc(ptr
 14:                                               ; preds = %41, %13
   %15 = phi i1 [ %.pre3, %13 ], [ %42, %41 ]
   %16 = phi i64 [ 0, %13 ], [ %46, %41 ]
-  %17 = getelementptr %struct.regmap_field, ptr %10, i64 %16
-  %18 = getelementptr %struct.reg_field, ptr %3, i64 %16
+  %17 = getelementptr [32 x i8], ptr %10, i64 %16
+  %18 = getelementptr [20 x i8], ptr %3, i64 %16
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %21 = load i32, ptr %20, align 4
@@ -6020,7 +6017,7 @@ define dso_local noundef range(i32 -12, 1) i32 @devm_regmap_field_bulk_alloc(ptr
   store i32 %25, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %27, ptr %44, align 8
-  %45 = getelementptr ptr, ptr %2, i64 %16
+  %45 = getelementptr [8 x i8], ptr %2, i64 %16
   store ptr %17, ptr %45, align 8
   %46 = add nuw nsw i64 %16, 1
   %47 = icmp eq i64 %46, %8
@@ -8015,14 +8012,14 @@ define dso_local i32 @regmap_noinc_write(ptr noundef %0, i32 noundef %1, ptr nou
   br label %120
 
 111:                                              ; preds = %102
-  %112 = getelementptr i16, ptr %2, i64 %105
+  %112 = getelementptr [2 x i8], ptr %2, i64 %105
   %113 = getelementptr i8, ptr %112, i64 -2
   %114 = load i16, ptr %113, align 2
   %115 = zext i16 %114 to i32
   br label %120
 
 116:                                              ; preds = %102
-  %117 = getelementptr i32, ptr %2, i64 %105
+  %117 = getelementptr [4 x i8], ptr %2, i64 %105
   %118 = getelementptr i8, ptr %117, i64 -4
   %119 = load i32, ptr %118, align 4
   br label %120
@@ -8629,7 +8626,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
 12:                                               ; preds = %41, %10
   %13 = phi i64 [ 0, %10 ], [ %43, %41 ]
   %14 = phi i32 [ 0, %10 ], [ %42, %41 ]
-  %15 = getelementptr %struct.reg_sequence, ptr %1, i64 %13
+  %15 = getelementptr [12 x i8], ptr %1, i64 %13
   %16 = load i32, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %18 = load i32, ptr %17, align 4
@@ -8711,7 +8708,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
 62:                                               ; preds = %58, %55
   %63 = phi i64 [ 0, %55 ], [ %60, %58 ]
   %64 = phi i32 [ 0, %55 ], [ %59, %58 ]
-  %65 = getelementptr %struct.reg_sequence, ptr %1, i64 %63
+  %65 = getelementptr [12 x i8], ptr %1, i64 %63
   %66 = load i32, ptr %65, align 4
   %67 = load ptr, ptr %50, align 8
   %68 = load ptr, ptr %56, align 8
@@ -8748,7 +8745,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
 86:                                               ; preds = %82, %80
   %87 = phi i64 [ 0, %80 ], [ %84, %82 ]
   %88 = phi i32 [ 0, %80 ], [ %83, %82 ]
-  %89 = getelementptr %struct.reg_sequence, ptr %1, i64 %87
+  %89 = getelementptr [12 x i8], ptr %1, i64 %87
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = load i32, ptr %89, align 4
@@ -8801,7 +8798,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
 .split.us:                                        ; preds = %109, %123
   %117 = phi i64 [ %125, %123 ], [ 0, %109 ]
   %118 = phi i32 [ %124, %123 ], [ 0, %109 ]
-  %119 = getelementptr %struct.reg_sequence, ptr %1, i64 %117
+  %119 = getelementptr [12 x i8], ptr %1, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load i32, ptr %120, align 4
   %122 = icmp eq i32 %121, 0
@@ -8826,7 +8823,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
 .lr.ph:                                           ; preds = %109, %127
   %132 = phi i64 [ %129, %127 ], [ 0, %109 ]
   %133 = phi i32 [ %128, %127 ], [ 0, %109 ]
-  %134 = getelementptr %struct.reg_sequence, ptr %1, i64 %132
+  %134 = getelementptr [12 x i8], ptr %1, i64 %132
   %135 = load i32, ptr %134, align 4
   br label %136
 
@@ -8867,7 +8864,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
   %157 = phi ptr [ %.ph27, %251 ], [ %153, %.loopexit34 ]
   %158 = phi i32 [ %253, %251 ], [ 0, %.loopexit34 ]
   %159 = phi i32 [ %252, %251 ], [ 0, %.loopexit34 ]
-  %160 = getelementptr %struct.reg_sequence, ptr %153, i64 %155
+  %160 = getelementptr [12 x i8], ptr %153, i64 %155
   %161 = load i32, ptr %160, align 4
   %162 = load ptr, ptr %110, align 8
   %163 = icmp eq ptr %162, null
@@ -8971,7 +8968,7 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
   br label %221
 
 221:                                              ; preds = %220, %216, %214, %211, %201
-  %222 = getelementptr %struct.reg_sequence, ptr %157, i64 %198
+  %222 = getelementptr [12 x i8], ptr %157, i64 %198
   br i1 %193, label %251, label %223
 
 223:                                              ; preds = %221
@@ -10320,14 +10317,14 @@ define dso_local i32 @regmap_bulk_read(ptr noundef %0, i32 noundef %1, ptr nound
 
 83:                                               ; preds = %81
   %84 = load i32, ptr %5, align 4
-  %85 = getelementptr i32, ptr %2, i64 %67
+  %85 = getelementptr [4 x i8], ptr %2, i64 %67
   store i32 %84, ptr %85, align 4
   br label %62
 
 86:                                               ; preds = %81
   %87 = load i32, ptr %5, align 4
   %88 = trunc i32 %87 to i16
-  %89 = getelementptr i16, ptr %2, i64 %67
+  %89 = getelementptr [2 x i8], ptr %2, i64 %67
   store i16 %88, ptr %89, align 2
   br label %62
 
@@ -10811,7 +10808,7 @@ define dso_local i32 @regmap_register_patch(ptr noundef %0, ptr noundef %1, i32 
 18:                                               ; preds = %8
   %19 = load i32, ptr %11, align 8
   %20 = sext i32 %19 to i64
-  %21 = getelementptr %struct.reg_sequence, ptr %16, i64 %20
+  %21 = getelementptr [12 x i8], ptr %16, i64 %20
   %22 = zext nneg i32 %2 to i64
   %23 = mul nuw nsw i64 %22, 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %21, ptr align 4 %1, i64 %23, i1 false)
@@ -11249,7 +11246,7 @@ define internal fastcc i32 @_regmap_raw_multi_reg_write(ptr noundef %0, ptr noun
   %26 = phi i64 [ 0, %19 ], [ %74, %66 ]
   %27 = phi i32 [ 0, %19 ], [ %73, %66 ]
   %28 = phi ptr [ %15, %19 ], [ %72, %66 ]
-  %29 = getelementptr %struct.reg_sequence, ptr %1, i64 %26
+  %29 = getelementptr [12 x i8], ptr %1, i64 %26
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %32 = load i32, ptr %31, align 4
@@ -11345,7 +11342,7 @@ define internal fastcc i32 @_regmap_raw_multi_reg_write(ptr noundef %0, ptr noun
 .preheader:                                       ; preds = %.loopexit8, %110
   %86 = phi i64 [ %112, %110 ], [ 0, %.loopexit8 ]
   %87 = phi i32 [ %111, %110 ], [ 0, %.loopexit8 ]
-  %88 = getelementptr %struct.reg_sequence, ptr %1, i64 %86
+  %88 = getelementptr [12 x i8], ptr %1, i64 %86
   %89 = load i32, ptr %88, align 4
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_hw_write_done, i64 8), i32 2) #24
           to label %110 [label %90], !srcloc !49

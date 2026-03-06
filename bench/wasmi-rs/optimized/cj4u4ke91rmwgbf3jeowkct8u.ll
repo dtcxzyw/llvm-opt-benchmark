@@ -226,10 +226,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !47, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd3e115d03764251bE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd3e115d03764251bE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd3e115d03764251bE.22", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hd3e115d03764251bE.22", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -262,7 +262,7 @@ define hidden noundef range(i8 1, 6) i8 @_ZN5wasmi4func2ty8FuncType12match_param
   %8 = extractvalue { ptr, i64 } %7, 0
   %9 = extractvalue { ptr, i64 } %7, 1
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
-  %11 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %1, i64 %2
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %2
   %12 = tail call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17hab4d9df25472426eE(ptr noundef nonnull %8, ptr noundef %10, ptr noundef nonnull %1, ptr noundef nonnull %11)
   %. = select i1 %12, i8 5, i8 1
   br label %13
@@ -955,7 +955,7 @@ define hidden void @_ZN11wasmi_c_api4func26prepare_params_and_results17h19dea7ac
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8, !nonnull !3, !noundef !3
-  %31 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %30, i64 %10
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %10
   %32 = sub nuw i64 %22, %10
   store ptr %30, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8

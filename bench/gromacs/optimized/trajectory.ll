@@ -25,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_count" = type { ptr }
 %"class.std::shared_ptr.48" = type { %"class.std::__shared_ptr.49" }
 %"class.std::__shared_ptr.49" = type { ptr, %"class.std::__shared_count" }
-%"class.gmx::Selection" = type { ptr }
 %"class.gmx::AnalysisDataHandle" = type { ptr }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<gmx::Selection, std::allocator<gmx::Selection>>::_Vector_impl" }
@@ -709,7 +708,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Trajectory12initAn
   %29 = phi ptr [ %38, %.lr.ph ], [ %26, %14 ]
   %.02872 = phi i64 [ %36, %.lr.ph ], [ 0, %14 ]
   %30 = trunc i64 %.02872 to i32
-  %31 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %29, i64 %.02872
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.02872
   %32 = load ptr, ptr %31, align 8, !tbaa !67
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 112
   %34 = load i32, ptr %33, align 8, !tbaa !70
@@ -983,7 +982,7 @@ _ZNSt12__shared_ptrIN3gmx28AnalysisDataVectorPlotModuleELN9__gnu_cxx12_Lock_poli
 .lr.ph75:                                         ; preds = %135, %.lr.ph75
   %150 = phi ptr [ %161, %.lr.ph75 ], [ %147, %135 ]
   %.01973 = phi i64 [ %159, %.lr.ph75 ], [ 0, %135 ]
-  %151 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %150, i64 %.01973
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %.01973
   %152 = load ptr, ptr %151, align 8, !tbaa !67
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 264
   %154 = load i64, ptr %153, align 8, !tbaa !56
@@ -1258,7 +1257,7 @@ _ZNSt12__shared_ptrIN3gmx28AnalysisDataVectorPlotModuleELN9__gnu_cxx12_Lock_poli
 .lr.ph79:                                         ; preds = %258, %.lr.ph79
   %273 = phi ptr [ %284, %.lr.ph79 ], [ %270, %258 ]
   %.077 = phi i64 [ %282, %.lr.ph79 ], [ 0, %258 ]
-  %274 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %273, i64 %.077
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %.077
   %275 = load ptr, ptr %274, align 8, !tbaa !67
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 264
   %277 = load i64, ptr %276, align 8, !tbaa !56
@@ -1547,7 +1546,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Trajectory12analyz
 
 .noexc17:                                         ; preds = %.lr.ph5.i
   %17 = load ptr, ptr %7, align 8, !tbaa !19
-  %18 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %17, i64 %.03.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.03.i
   %19 = load ptr, ptr %18, align 8, !tbaa !67
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %21 = load i32, ptr %20, align 8, !tbaa !70
@@ -1570,10 +1569,10 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Trajectory12analyz
   %31 = phi ptr [ %43, %.noexc18 ], [ %19, %.noexc17 ]
   %32 = getelementptr i8, ptr %31, i64 64
   %.val.val.i = load ptr, ptr %32, align 8, !tbaa !96
-  %33 = getelementptr inbounds nuw [3 x float], ptr %.val.val.i, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %.val.val.i, i64 %indvars.iv.i
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %35 = load ptr, ptr %34, align 8, !tbaa !105
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i
   %37 = load i32, ptr %36, align 4, !tbaa !91
   %38 = icmp sgt i32 %37, -1
   %39 = trunc i64 %indvars.iv.i to i32
@@ -1584,7 +1583,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Trajectory12analyz
 .noexc18:                                         ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %41 = load ptr, ptr %7, align 8, !tbaa !19
-  %42 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %41, i64 %.03.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.03.i
   %43 = load ptr, ptr %42, align 8, !tbaa !67
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 112
   %45 = load i32, ptr %44, align 8, !tbaa !70
@@ -1629,7 +1628,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Trajectory12analyz
 
 .noexc31:                                         ; preds = %.lr.ph5.i21
   %56 = load ptr, ptr %7, align 8, !tbaa !19
-  %57 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %56, i64 %.03.i22
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.03.i22
   %58 = load ptr, ptr %57, align 8, !tbaa !67
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 112
   %60 = load i32, ptr %59, align 8, !tbaa !70
@@ -1652,10 +1651,10 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Trajectory12analyz
   %70 = phi ptr [ %82, %.noexc32 ], [ %58, %.noexc31 ]
   %71 = getelementptr i8, ptr %70, i64 72
   %.val.val.i27 = load ptr, ptr %71, align 8, !tbaa !112
-  %72 = getelementptr inbounds nuw [3 x float], ptr %.val.val.i27, i64 %indvars.iv.i26
+  %72 = getelementptr inbounds nuw [12 x i8], ptr %.val.val.i27, i64 %indvars.iv.i26
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 96
   %74 = load ptr, ptr %73, align 8, !tbaa !105
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv.i26
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv.i26
   %76 = load i32, ptr %75, align 4, !tbaa !91
   %77 = icmp sgt i32 %76, -1
   %78 = trunc i64 %indvars.iv.i26 to i32
@@ -1666,7 +1665,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110Trajectory12analyz
 .noexc32:                                         ; preds = %.lr.ph.i25
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i26, 1
   %80 = load ptr, ptr %7, align 8, !tbaa !19
-  %81 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %80, i64 %.03.i22
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %.03.i22
   %82 = load ptr, ptr %81, align 8, !tbaa !67
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 112
   %84 = load i32, ptr %83, align 8, !tbaa !70
@@ -1762,7 +1761,7 @@ _ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit:   ; preds = %.loopexit.split-lp,
 
 .noexc45:                                         ; preds = %.lr.ph5.i35
   %103 = load ptr, ptr %7, align 8, !tbaa !19
-  %104 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %103, i64 %.03.i36
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %.03.i36
   %105 = load ptr, ptr %104, align 8, !tbaa !67
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 112
   %107 = load i32, ptr %106, align 8, !tbaa !70
@@ -1785,10 +1784,10 @@ _ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit:   ; preds = %.loopexit.split-lp,
   %117 = phi ptr [ %129, %.noexc46 ], [ %105, %.noexc45 ]
   %118 = getelementptr i8, ptr %117, i64 80
   %.val.val.i41 = load ptr, ptr %118, align 8, !tbaa !116
-  %119 = getelementptr inbounds nuw [3 x float], ptr %.val.val.i41, i64 %indvars.iv.i40
+  %119 = getelementptr inbounds nuw [12 x i8], ptr %.val.val.i41, i64 %indvars.iv.i40
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 96
   %121 = load ptr, ptr %120, align 8, !tbaa !105
-  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv.i40
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %indvars.iv.i40
   %123 = load i32, ptr %122, align 4, !tbaa !91
   %124 = icmp sgt i32 %123, -1
   %125 = trunc i64 %indvars.iv.i40 to i32
@@ -1799,7 +1798,7 @@ _ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit:   ; preds = %.loopexit.split-lp,
 .noexc46:                                         ; preds = %.lr.ph.i39
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i40, 1
   %127 = load ptr, ptr %7, align 8, !tbaa !19
-  %128 = getelementptr inbounds nuw %"class.gmx::Selection", ptr %127, i64 %.03.i36
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %.03.i36
   %129 = load ptr, ptr %128, align 8, !tbaa !67
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 112
   %131 = load i32, ptr %130, align 8, !tbaa !70

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.object_id = type { [32 x i8], i32 }
 
 @the_repository = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
@@ -51,7 +50,7 @@ st_mult.exit:                                     ; preds = %9
   %19 = phi i64 [ %4, %._crit_edge ], [ %.pre22, %st_mult.exit ]
   %20 = phi ptr [ %.pre, %._crit_edge ], [ %17, %st_mult.exit ]
   store i64 %.pre-phi, ptr %3, align 8, !tbaa !4
-  %21 = getelementptr inbounds nuw %struct.object_id, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [36 x i8], ptr %20, i64 %19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %21, ptr noundef nonnull readonly align 4 dereferenceable(32) %1, i64 32, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load i32, ptr %22, align 4, !tbaa !14
@@ -63,7 +62,7 @@ st_mult.exit:                                     ; preds = %9
 25:                                               ; preds = %18
   %26 = load ptr, ptr %0, align 8, !tbaa !13
   %27 = load i64, ptr %3, align 8, !tbaa !4
-  %28 = getelementptr %struct.object_id, ptr %26, i64 %27
+  %28 = getelementptr [36 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr @the_repository, align 8, !tbaa !16
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 400
   %31 = load ptr, ptr %30, align 8, !tbaa !18
@@ -71,7 +70,7 @@ st_mult.exit:                                     ; preds = %9
 
 32:                                               ; preds = %34, %25
   %.0811.i.i = phi i64 [ 0, %25 ], [ %35, %34 ]
-  %33 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %33 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %31, %33
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %34
 
@@ -181,7 +180,7 @@ declare i32 @oid_pos(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal ptr @oid_access(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1) #4 {
-  %3 = getelementptr inbounds nuw %struct.object_id, ptr %1, i64 %0
+  %3 = getelementptr inbounds nuw [36 x i8], ptr %1, i64 %0
   ret ptr %3
 }
 
@@ -212,7 +211,7 @@ define dso_local i32 @oid_array_for_each(ptr noundef readonly captures(none) %0,
 .lr.ph:                                           ; preds = %3, %6
   %.01113 = phi i64 [ %7, %6 ], [ 0, %3 ]
   %10 = load ptr, ptr %0, align 8, !tbaa !13
-  %11 = getelementptr inbounds nuw %struct.object_id, ptr %10, i64 %.01113
+  %11 = getelementptr inbounds nuw [36 x i8], ptr %10, i64 %.01113
   %12 = tail call i32 %1(ptr noundef %11, ptr noundef %2) #15
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %6, label %._crit_edge
@@ -253,7 +252,7 @@ oid_array_sort.exit:                              ; preds = %3, %sane_qsort.exit
 .lr.ph:                                           ; preds = %oid_array_sort.exit, %oid_array_next_unique.exit
   %.01315 = phi i64 [ %23, %oid_array_next_unique.exit ], [ 0, %oid_array_sort.exit ]
   %14 = load ptr, ptr %0, align 8, !tbaa !13
-  %15 = getelementptr inbounds nuw %struct.object_id, ptr %14, i64 %.01315
+  %15 = getelementptr inbounds nuw [36 x i8], ptr %14, i64 %.01315
   %16 = tail call i32 %1(ptr noundef %15, ptr noundef %2) #15
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %17, label %._crit_edge
@@ -273,7 +272,7 @@ oid_array_sort.exit:                              ; preds = %3, %sane_qsort.exit
 22:                                               ; preds = %21
   %23 = add i64 %.0.i, 1
   %24 = load ptr, ptr %0, align 8, !tbaa !13
-  %25 = getelementptr inbounds nuw %struct.object_id, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [36 x i8], ptr %24, i64 %23
   %26 = getelementptr inbounds i8, ptr %25, i64 -36
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %25, ptr noundef nonnull readonly dereferenceable(32) %26, i64 32)
   %.not.i.not.i = icmp eq i32 %bcmp.i.i, 0
@@ -299,7 +298,7 @@ define dso_local void @oid_array_filter(ptr noundef captures(none) %0, ptr nound
 .lr.ph:                                           ; preds = %3, %17
   %.020 = phi i64 [ %18, %17 ], [ 0, %3 ]
   %.01719 = phi i64 [ %.1, %17 ], [ 0, %3 ]
-  %7 = getelementptr inbounds nuw %struct.object_id, ptr %6, i64 %.020
+  %7 = getelementptr inbounds nuw [36 x i8], ptr %6, i64 %.020
   %8 = tail call i32 %1(ptr noundef %7, ptr noundef %2) #15
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %17, label %9
@@ -309,7 +308,7 @@ define dso_local void @oid_array_filter(ptr noundef captures(none) %0, ptr nound
   br i1 %.not18, label %15, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw %struct.object_id, ptr %6, i64 %.01719
+  %11 = getelementptr inbounds nuw [36 x i8], ptr %6, i64 %.01719
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %11, ptr noundef nonnull readonly align 4 dereferenceable(32) %7, i64 32, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %13 = load i32, ptr %12, align 4, !tbaa !14

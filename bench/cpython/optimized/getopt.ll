@@ -49,7 +49,7 @@ define hidden i32 @_PyOS_GetOpt(i64 noundef %0, ptr noundef readonly captures(no
   br i1 %.not, label %9, label %115
 
 9:                                                ; preds = %7
-  %10 = getelementptr ptr, ptr %1, i64 %8
+  %10 = getelementptr [8 x i8], ptr %1, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = load i32, ptr %11, align 4, !tbaa !4
   %.not37 = icmp eq i32 %12, 45
@@ -121,7 +121,7 @@ define hidden i32 @_PyOS_GetOpt(i64 noundef %0, ptr noundef readonly captures(no
 
 45:                                               ; preds = %.lr.ph
   %46 = sext i32 %51 to i64
-  %47 = getelementptr %struct._PyOS_LongOption, ptr @longopts, i64 %46
+  %47 = getelementptr [16 x i8], ptr @longopts, i64 %46
   %48 = load ptr, ptr %47, align 16, !tbaa !15
   %49 = tail call i32 @wcscmp(ptr noundef nonnull %48, ptr noundef nonnull %34) #5
   %.not45 = icmp eq i32 %49, 0
@@ -142,7 +142,7 @@ define hidden i32 @_PyOS_GetOpt(i64 noundef %0, ptr noundef readonly captures(no
 54:                                               ; preds = %52
   %55 = load ptr, ptr @stderr, align 8, !tbaa !13
   %56 = load i64, ptr @_PyOS_optind, align 8, !tbaa !8
-  %57 = getelementptr ptr, ptr %1, i64 %56
+  %57 = getelementptr [8 x i8], ptr %1, i64 %56
   %58 = getelementptr i8, ptr %57, i64 -8
   %59 = load ptr, ptr %58, align 8, !tbaa !10
   %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %55, ptr noundef nonnull @.str.5, ptr noundef %59) #7
@@ -173,7 +173,7 @@ define hidden i32 @_PyOS_GetOpt(i64 noundef %0, ptr noundef readonly captures(no
 
 70:                                               ; preds = %68
   %71 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %72 = getelementptr ptr, ptr %1, i64 %67
+  %72 = getelementptr [8 x i8], ptr %1, i64 %67
   %73 = getelementptr i8, ptr %72, i64 -8
   %74 = load ptr, ptr %73, align 8, !tbaa !10
   %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.6, ptr noundef %74) #7
@@ -182,7 +182,7 @@ define hidden i32 @_PyOS_GetOpt(i64 noundef %0, ptr noundef readonly captures(no
 76:                                               ; preds = %66
   %77 = add nsw i64 %67, 1
   store i64 %77, ptr @_PyOS_optind, align 8, !tbaa !8
-  %78 = getelementptr ptr, ptr %1, i64 %67
+  %78 = getelementptr [8 x i8], ptr %1, i64 %67
   %79 = load ptr, ptr %78, align 8, !tbaa !10
   store ptr %79, ptr @_PyOS_optarg, align 8, !tbaa !10
   %80 = getelementptr inbounds nuw i8, ptr %.053.lcssa, i64 12
@@ -252,7 +252,7 @@ define hidden i32 @_PyOS_GetOpt(i64 noundef %0, ptr noundef readonly captures(no
 111:                                              ; preds = %103
   %112 = add nsw i64 %104, 1
   store i64 %112, ptr @_PyOS_optind, align 8, !tbaa !8
-  %113 = getelementptr ptr, ptr %1, i64 %104
+  %113 = getelementptr [8 x i8], ptr %1, i64 %104
   %114 = load ptr, ptr %113, align 8, !tbaa !10
   store ptr %114, ptr @_PyOS_optarg, align 8, !tbaa !10
   br label %115

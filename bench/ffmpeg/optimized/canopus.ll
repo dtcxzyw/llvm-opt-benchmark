@@ -85,7 +85,7 @@ bytestream2_get_le32.exit20:                      ; preds = %28
 
 switch.lookup:                                    ; preds = %bytestream2_get_le32.exit20
   %40 = zext nneg i32 %38 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ff_canopus_parse_info_tag, i64 %40
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ff_canopus_parse_info_tag, i64 %40
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split
 

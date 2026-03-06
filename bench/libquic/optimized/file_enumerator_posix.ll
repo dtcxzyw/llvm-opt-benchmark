@@ -11,10 +11,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<base::FileEnumerator::FileInfo, std::allocator<base::FileEnumerator::FileInfo>>::_Vector_impl" }
 %"struct.std::_Vector_base<base::FileEnumerator::FileInfo, std::allocator<base::FileEnumerator::FileInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<base::FileEnumerator::FileInfo, std::allocator<base::FileEnumerator::FileInfo>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<base::FileEnumerator::FileInfo, std::allocator<base::FileEnumerator::FileInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
 %"class.base::FileEnumerator::FileInfo" = type { %struct.stat, %"class.base::FilePath" }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.dirent = type { i64, i64, i16, i8, [256 x i8] }
 
 $_ZNSt6vectorIN4base14FileEnumerator8FileInfoESaIS2_EED2Ev = comdat any
 
@@ -769,7 +769,7 @@ _ZNSt6vectorIN4base14FileEnumerator8FileInfoESaIS2_EED2Ev.exit: ; preds = %_ZSt8
   %.lcssa31 = phi i64 [ %8, %2 ], [ %128, %_ZNSt6vectorIN4base14FileEnumerator8FileInfoESaIS2_EED2Ev.exit ]
   %.lcssa = phi ptr [ %11, %2 ], [ %130, %_ZNSt6vectorIN4base14FileEnumerator8FileInfoESaIS2_EED2Ev.exit ]
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %137 = getelementptr inbounds nuw %"class.base::FileEnumerator::FileInfo", ptr %.lcssa, i64 %.lcssa31
+  %137 = getelementptr inbounds nuw [176 x i8], ptr %.lcssa, i64 %.lcssa31
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 144
   call void @_ZNK4base8FilePath6AppendERKS0_(ptr dead_on_unwind writable sret(%"class.base::FilePath") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull align 8 dereferenceable(32) %138)
   br label %139
@@ -954,7 +954,7 @@ define void @_ZNK4base14FileEnumerator7GetInfoEv(ptr dead_on_unwind noalias writ
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8, !tbaa !47
   %5 = load ptr, ptr %1, align 8, !tbaa !41
-  %6 = getelementptr inbounds nuw %"class.base::FileEnumerator::FileInfo", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [176 x i8], ptr %5, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %6, i64 144, i1 false), !tbaa.struct !63
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 144
@@ -1128,7 +1128,7 @@ _ZNSt11_Deque_baseIN4base8FilePathESaIS1_EE15_M_allocate_mapEm.exit: ; preds = %
   store ptr %9, ptr %0, align 8, !tbaa !77
   %10 = sub nsw i64 %.sroa.speculated, %7
   %11 = lshr i64 %10, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %.idx = shl nuw nsw i64 %7, 3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
@@ -1220,7 +1220,7 @@ _ZNSt11_Deque_baseIN4base8FilePathESaIS1_EE15_M_create_nodesEPPS1_S5_.exit: ; pr
   store ptr %48, ptr %49, align 8, !tbaa !57
   store ptr %39, ptr %37, align 8, !tbaa !82
   %50 = and i64 %1, 15
-  %51 = getelementptr inbounds nuw %"class.base::FilePath", ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !38
   ret void
 
@@ -1381,9 +1381,9 @@ define linkonce_odr void @_ZNSt5dequeIN4base8FilePathESaIS1_EE17_M_reallocate_ma
   %19 = load ptr, ptr %0, align 8, !tbaa !77
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -1402,12 +1402,12 @@ define linkonce_odr void @_ZNSt5dequeIN4base8FilePathESaIS1_EE17_M_reallocate_ma
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN4base8FilePathES3_ET0_T_S5_S4_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN4base8FilePathES3_ET0_T_S5_S4_.exit
 
@@ -1435,9 +1435,9 @@ _ZNSt11_Deque_baseIN4base8FilePathESaIS1_EE15_M_allocate_mapEm.exit: ; preds = %
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #21
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN4base8FilePathES3_ET0_T_S5_S4_.exit26, label %53
@@ -1464,7 +1464,7 @@ _ZSt4copyIPPN4base8FilePathES3_ET0_T_S5_S4_.exit: ; preds = %32, %31, %28, %27, 
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 512
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %59, ptr %60, align 8, !tbaa !57
-  %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   store ptr %62, ptr %4, align 8, !tbaa !53
   %63 = load ptr, ptr %62, align 8, !tbaa !54
@@ -1653,7 +1653,7 @@ _ZNSt12_Vector_baseIN4base14FileEnumerator8FileInfoESaIS2_EE13_M_deallocateEPS2_
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !41
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !42
-  %56 = getelementptr inbounds nuw %"class.base::FileEnumerator::FileInfo", ptr %20, i64 %16
+  %56 = getelementptr inbounds nuw [176 x i8], ptr %20, i64 %16
   store ptr %56, ptr %55, align 8, !tbaa !62
   ret void
 

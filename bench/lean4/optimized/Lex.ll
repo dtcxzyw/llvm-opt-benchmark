@@ -843,7 +843,7 @@ lean_dec.exit71:                                  ; preds = %48, %47, %45, %lean
 
 57:                                               ; preds = %lean_nat_lt.exit.thread132, %lean_nat_lt.exit.thread, %lean_nat_lt.exit
   %58 = lshr i64 %21, 1
-  %59 = getelementptr inbounds nuw ptr, ptr %13, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !10
   %61 = ptrtoint ptr %60 to i64
   %62 = trunc i64 %61 to i1
@@ -868,7 +868,7 @@ lean_dec.exit71:                                  ; preds = %48, %47, %45, %lean
   br label %lean_array_fget.exit
 
 lean_array_fget.exit:                             ; preds = %57, %65, %67, %68
-  %69 = getelementptr inbounds nuw ptr, ptr %14, i64 %58
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %58
   %70 = load ptr, ptr %69, align 8, !tbaa !10
   %71 = ptrtoint ptr %70 to i64
   %72 = trunc i64 %71 to i1
@@ -1979,7 +1979,7 @@ lean_dec.exit71:                                  ; preds = %48, %47, %45, %lean
 
 57:                                               ; preds = %lean_nat_lt.exit.thread132, %lean_nat_lt.exit.thread, %lean_nat_lt.exit
   %58 = lshr i64 %21, 1
-  %59 = getelementptr inbounds nuw ptr, ptr %13, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !10
   %61 = ptrtoint ptr %60 to i64
   %62 = trunc i64 %61 to i1
@@ -2004,7 +2004,7 @@ lean_dec.exit71:                                  ; preds = %48, %47, %45, %lean
   br label %lean_array_fget.exit
 
 lean_array_fget.exit:                             ; preds = %57, %65, %67, %68
-  %69 = getelementptr inbounds nuw ptr, ptr %14, i64 %58
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %58
   %70 = load ptr, ptr %69, align 8, !tbaa !10
   %71 = ptrtoint ptr %70 to i64
   %72 = trunc i64 %71 to i1

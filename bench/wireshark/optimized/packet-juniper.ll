@@ -1385,7 +1385,7 @@ define internal i32 @dissect_juniper_st(ptr noundef %0, ptr noundef %1, ptr noun
 
 switch.lookup:                                    ; preds = %46
   %62 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_juniper_st, i64 %62
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_juniper_st, i64 %62
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %ip_heuristic_guess.exit
 

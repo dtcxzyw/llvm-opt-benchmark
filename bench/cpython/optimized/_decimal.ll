@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ssize_constmap = type { ptr, i64 }
 %struct.PyGetSetDef = type { ptr, ptr, ptr, ptr, ptr }
 %struct.mpd_context_t = type { i64, i64, i64, i32, i32, i32, i32, i32, i32 }
-%struct.DecCondMap = type { ptr, ptr, i32, ptr }
 %struct.mpd_t = type { i8, i64, i64, i64, i64, ptr }
 %struct.PyLongExport = type { i64, i8, i64, ptr, i64 }
 %struct.mpd_spec_t = type { i64, i64, i8, i8, i8, [5 x i8], ptr, ptr, ptr }
@@ -1657,7 +1656,7 @@ context_setprec.exit:                             ; preds = %15, %9
 
 24:                                               ; preds = %28, %.preheader16.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader16.i.i ], [ %indvars.iv.next.i.i, %28 ]
-  %25 = getelementptr ptr, ptr %23, i64 %indvars.iv.i.i
+  %25 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !39
   %27 = icmp eq ptr %2, %26
   br i1 %27, label %getround.exit.i, label %28
@@ -1669,7 +1668,7 @@ context_setprec.exit:                             ; preds = %15, %9
 
 .preheader.i.i:                                   ; preds = %28, %33
   %indvars.iv26.i.i = phi i64 [ %indvars.iv.next27.i.i, %33 ], [ 0, %28 ]
-  %29 = getelementptr ptr, ptr %23, i64 %indvars.iv26.i.i
+  %29 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv26.i.i
   %30 = load ptr, ptr %29, align 8, !tbaa !39
   %31 = tail call i32 @PyUnicode_Compare(ptr noundef %2, ptr noundef %30) #14
   %32 = icmp eq i32 %31, 0
@@ -2033,7 +2032,7 @@ define internal range(i32 -1, 1) i32 @context_setround(ptr noundef %0, ptr nound
 
 9:                                                ; preds = %13, %.preheader16.i
   %indvars.iv.i = phi i64 [ 0, %.preheader16.i ], [ %indvars.iv.next.i, %13 ]
-  %10 = getelementptr ptr, ptr %8, i64 %indvars.iv.i
+  %10 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !39
   %12 = icmp eq ptr %1, %11
   br i1 %12, label %getround.exit, label %13
@@ -2045,7 +2044,7 @@ define internal range(i32 -1, 1) i32 @context_setround(ptr noundef %0, ptr nound
 
 .preheader.i:                                     ; preds = %13, %18
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %18 ], [ 0, %13 ]
-  %14 = getelementptr ptr, ptr %8, i64 %indvars.iv26.i
+  %14 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv26.i
   %15 = load ptr, ptr %14, align 8, !tbaa !39
   %16 = tail call i32 @PyUnicode_Compare(ptr noundef %1, ptr noundef %15) #14
   %17 = icmp eq i32 %16, 0
@@ -2714,7 +2713,7 @@ dec_cond_map_init.exit:                           ; preds = %194
 199:                                              ; preds = %dec_cond_map_init.exit, %254
   %indvars.iv = phi i64 [ 8, %dec_cond_map_init.exit ], [ %indvars.iv.next, %254 ]
   %200 = load ptr, ptr %197, align 8, !tbaa !27
-  %201 = getelementptr %struct.DecCondMap, ptr %200, i64 %indvars.iv
+  %201 = getelementptr [32 x i8], ptr %200, i64 %indvars.iv
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
   %203 = load i32, ptr %202, align 8, !tbaa !67
   switch i32 %203, label %226 [
@@ -2809,7 +2808,7 @@ Py_DECREF.exit291:                                ; preds = %237, %239, %242
 
 254:                                              ; preds = %247, %252
   %255 = getelementptr inbounds nuw i8, ptr %248, i64 24
-  %256 = getelementptr ptr, ptr %255, i64 %indvars.iv
+  %256 = getelementptr [8 x i8], ptr %255, i64 %indvars.iv
   store ptr %249, ptr %256, align 8, !tbaa !39
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not474 = icmp eq i64 %indvars.iv, 0
@@ -3006,10 +3005,10 @@ Py_DECREF.exit289:                                ; preds = %289, %291, %294
 
 350:                                              ; preds = %.preheader, %349
   %indvars.iv434 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next435, %349 ]
-  %351 = getelementptr ptr, ptr @mpd_round_string, i64 %indvars.iv434
+  %351 = getelementptr [8 x i8], ptr @mpd_round_string, i64 %indvars.iv434
   %352 = load ptr, ptr %351, align 8, !tbaa !103
   %353 = tail call ptr @PyUnicode_InternFromString(ptr noundef %352) #14
-  %354 = getelementptr ptr, ptr %348, i64 %indvars.iv434
+  %354 = getelementptr [8 x i8], ptr %348, i64 %indvars.iv434
   store ptr %353, ptr %354, align 8, !tbaa !39
   %355 = icmp eq ptr %353, null
   br i1 %355, label %Py_DECREF.exit279.thread413, label %356
@@ -10678,7 +10677,7 @@ Py_DECREF.exit27:                                 ; preds = %57, %56, %53, %curr
 
 72:                                               ; preds = %76, %.preheader16.i
   %indvars.iv.i = phi i64 [ 0, %.preheader16.i ], [ %indvars.iv.next.i, %76 ]
-  %73 = getelementptr ptr, ptr %71, i64 %indvars.iv.i
+  %73 = getelementptr [8 x i8], ptr %71, i64 %indvars.iv.i
   %74 = load ptr, ptr %73, align 8, !tbaa !39
   %75 = icmp eq ptr %66, %74
   br i1 %75, label %getround.exit, label %76
@@ -10690,7 +10689,7 @@ Py_DECREF.exit27:                                 ; preds = %57, %56, %53, %curr
 
 .preheader.i:                                     ; preds = %76, %81
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %81 ], [ 0, %76 ]
-  %77 = getelementptr ptr, ptr %71, i64 %indvars.iv26.i
+  %77 = getelementptr [8 x i8], ptr %71, i64 %indvars.iv26.i
   %78 = load ptr, ptr %77, align 8, !tbaa !39
   %79 = call i32 @PyUnicode_Compare(ptr noundef %66, ptr noundef %78) #14
   %80 = icmp eq i32 %79, 0
@@ -10945,7 +10944,7 @@ Py_DECREF.exit27:                                 ; preds = %57, %56, %53, %curr
 
 72:                                               ; preds = %76, %.preheader16.i
   %indvars.iv.i = phi i64 [ 0, %.preheader16.i ], [ %indvars.iv.next.i, %76 ]
-  %73 = getelementptr ptr, ptr %71, i64 %indvars.iv.i
+  %73 = getelementptr [8 x i8], ptr %71, i64 %indvars.iv.i
   %74 = load ptr, ptr %73, align 8, !tbaa !39
   %75 = icmp eq ptr %66, %74
   br i1 %75, label %getround.exit, label %76
@@ -10957,7 +10956,7 @@ Py_DECREF.exit27:                                 ; preds = %57, %56, %53, %curr
 
 .preheader.i:                                     ; preds = %76, %81
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %81 ], [ 0, %76 ]
-  %77 = getelementptr ptr, ptr %71, i64 %indvars.iv26.i
+  %77 = getelementptr [8 x i8], ptr %71, i64 %indvars.iv26.i
   %78 = load ptr, ptr %77, align 8, !tbaa !39
   %79 = call i32 @PyUnicode_Compare(ptr noundef %66, ptr noundef %78) #14
   %80 = icmp eq i32 %79, 0
@@ -13999,7 +13998,7 @@ Py_DECREF.exit39:                                 ; preds = %58, %57, %54, %curr
 
 73:                                               ; preds = %77, %.preheader16.i
   %indvars.iv.i = phi i64 [ 0, %.preheader16.i ], [ %indvars.iv.next.i, %77 ]
-  %74 = getelementptr ptr, ptr %72, i64 %indvars.iv.i
+  %74 = getelementptr [8 x i8], ptr %72, i64 %indvars.iv.i
   %75 = load ptr, ptr %74, align 8, !tbaa !39
   %76 = icmp eq ptr %67, %75
   br i1 %76, label %getround.exit, label %77
@@ -14011,7 +14010,7 @@ Py_DECREF.exit39:                                 ; preds = %58, %57, %54, %curr
 
 .preheader.i:                                     ; preds = %77, %82
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %82 ], [ 0, %77 ]
-  %78 = getelementptr ptr, ptr %72, i64 %indvars.iv26.i
+  %78 = getelementptr [8 x i8], ptr %72, i64 %indvars.iv26.i
   %79 = load ptr, ptr %78, align 8, !tbaa !39
   %80 = call i32 @PyUnicode_Compare(ptr noundef %67, ptr noundef %79) #14
   %81 = icmp eq i32 %80, 0
@@ -20650,7 +20649,7 @@ Py_XDECREF.exit69.thread:                         ; preds = %2
   br i1 %54, label %.thread.thread148, label %55
 
 55:                                               ; preds = %48
-  %56 = getelementptr ptr, ptr %47, i64 %.041124
+  %56 = getelementptr [8 x i8], ptr %47, i64 %.041124
   store ptr %53, ptr %56, align 8, !tbaa !39
   %57 = add nuw nsw i64 %.041124, 1
   %exitcond.not = icmp eq i64 %57, %43
@@ -23066,7 +23065,7 @@ is_space.exit.us:                                 ; preds = %27, %24
 
 PyUnicode_READ.exit.i.us65:                       ; preds = %.preheader.split.us63
   %33 = add nsw i64 %.1.us64, -1
-  %34 = getelementptr i16, ptr %.0.i, i64 %33
+  %34 = getelementptr [2 x i8], ptr %.0.i, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !157
   %36 = icmp ult i16 %35, 128
   br i1 %36, label %40, label %37
@@ -23095,7 +23094,7 @@ is_space.exit.us67:                               ; preds = %40, %37
 
 PyUnicode_READ.exit.i:                            ; preds = %.preheader.split
   %46 = add nsw i64 %.1, -1
-  %47 = getelementptr i32, ptr %.0.i, i64 %46
+  %47 = getelementptr [4 x i8], ptr %.0.i, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !49
   %49 = icmp ult i32 %48, 128
   br i1 %49, label %50, label %55
@@ -23134,13 +23133,13 @@ is_space.exit:                                    ; preds = %50, %55
   br label %PyUnicode_READ.exit.i56
 
 61:                                               ; preds = %.lr.ph
-  %62 = getelementptr i16, ptr %.0.i, i64 %.14672
+  %62 = getelementptr [2 x i8], ptr %.0.i, i64 %.14672
   %63 = load i16, ptr %62, align 2, !tbaa !157
   %64 = zext i16 %63 to i32
   br label %PyUnicode_READ.exit.i56
 
 65:                                               ; preds = %.lr.ph
-  %66 = getelementptr i32, ptr %.0.i, i64 %.14672
+  %66 = getelementptr [4 x i8], ptr %.0.i, i64 %.14672
   %67 = load i32, ptr %66, align 4, !tbaa !49
   br label %PyUnicode_READ.exit.i56
 
@@ -23195,13 +23194,13 @@ is_space.exit59:                                  ; preds = %69, %74
   br label %PyUnicode_READ.exit
 
 85:                                               ; preds = %80
-  %86 = getelementptr i16, ptr %.0.i, i64 %.275
+  %86 = getelementptr [2 x i8], ptr %.0.i, i64 %.275
   %87 = load i16, ptr %86, align 2, !tbaa !157
   %88 = zext i16 %87 to i32
   br label %PyUnicode_READ.exit
 
 89:                                               ; preds = %80
-  %90 = getelementptr i32, ptr %.0.i, i64 %.275
+  %90 = getelementptr [4 x i8], ptr %.0.i, i64 %.275
   %91 = load i32, ptr %90, align 4, !tbaa !49
   br label %PyUnicode_READ.exit
 
@@ -23584,7 +23583,7 @@ sequence_as_tuple.exit.thread:                    ; preds = %62, %59, %sequence_
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %99
   %.066130.us = phi i64 [ %103, %99 ], [ 0, %.lr.ph ]
   %.1129.us = phi ptr [ %102, %99 ], [ %82, %.lr.ph ]
-  %90 = getelementptr ptr, ptr %89, i64 %.066130.us
+  %90 = getelementptr [8 x i8], ptr %89, i64 %.066130.us
   %91 = load ptr, ptr %90, align 8, !tbaa !39
   %92 = getelementptr i8, ptr %91, i64 8
   %.val.us = load ptr, ptr %92, align 8, !tbaa !53
@@ -23614,7 +23613,7 @@ sequence_as_tuple.exit.thread:                    ; preds = %62, %59, %sequence_
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %116
   %.066130 = phi i64 [ %117, %116 ], [ 0, %.lr.ph ]
-  %104 = getelementptr ptr, ptr %89, i64 %.066130
+  %104 = getelementptr [8 x i8], ptr %89, i64 %.066130
   %105 = load ptr, ptr %104, align 8, !tbaa !39
   %106 = getelementptr i8, ptr %105, i64 8
   %.val = load ptr, ptr %106, align 8, !tbaa !53
@@ -23941,7 +23940,7 @@ define internal ptr @context_repr(ptr noundef readonly captures(none) %0) #0 {
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %19 = load i32, ptr %18, align 4, !tbaa !152
   %20 = sext i32 %19 to i64
-  %21 = getelementptr ptr, ptr @mpd_round_string, i64 %20
+  %21 = getelementptr [8 x i8], ptr @mpd_round_string, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !103
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i64, ptr %23, align 8, !tbaa !118
@@ -35141,7 +35140,7 @@ signals_as_list.exit39.thread45:                  ; preds = %50, %33
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %60 = load i32, ptr %59, align 4, !tbaa !152
   %61 = sext i32 %60 to i64
-  %62 = getelementptr ptr, ptr @mpd_round_string, i64 %61
+  %62 = getelementptr [8 x i8], ptr @mpd_round_string, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !103
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = load i64, ptr %64, align 8, !tbaa !118
@@ -35763,7 +35762,7 @@ define internal noundef ptr @context_getround(ptr noundef %0, ptr readnone captu
   %.val = load ptr, ptr %5, align 8, !tbaa !42
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %7 = sext i32 %4 to i64
-  %8 = getelementptr ptr, ptr %6, i64 %7
+  %8 = getelementptr [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !39
   %10 = load i32, ptr %9, align 8, !tbaa !38
   %11 = icmp slt i32 %10, 0
@@ -36122,14 +36121,14 @@ define internal ptr @signaldict_repr(ptr noundef readonly captures(none) %0) #0 
   %17 = getelementptr inbounds nuw i8, ptr %.01215, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !94
   %19 = sext i32 %.01116 to i64
-  %20 = getelementptr ptr, ptr %2, i64 %19
+  %20 = getelementptr [8 x i8], ptr %2, i64 %19
   store ptr %18, ptr %20, align 8, !tbaa !103
   %21 = getelementptr inbounds nuw i8, ptr %.01215, i64 16
   %22 = load i32, ptr %21, align 8, !tbaa !67
   %23 = and i32 %22, %15
   %.not13 = icmp eq i32 %23, 0
   %24 = select i1 %.not13, ptr @.str.244, ptr @.str.243
-  %25 = getelementptr ptr, ptr %3, i64 %19
+  %25 = getelementptr [8 x i8], ptr %3, i64 %19
   store ptr %24, ptr %25, align 8, !tbaa !103
   %26 = getelementptr i8, ptr %.01215, i64 32
   %27 = add i32 %.01116, 1

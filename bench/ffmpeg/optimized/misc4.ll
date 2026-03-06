@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.ChannelContext = type { i32, i64, i64, [6 x i64], [6 x i32] }
 
 @.str = private unnamed_addr constant [6 x i8] c"misc4\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"Micronas SC-4 Audio\00", align 1
@@ -125,7 +124,7 @@ bytestream2_peek_be32.exit:                       ; preds = %24, %31
   %47 = icmp eq i32 %46, 2
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %49 = zext i1 %47 to i64
-  %50 = getelementptr inbounds nuw %struct.ChannelContext, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [96 x i8], ptr %48, i64 %49
   br label %51
 
 51:                                               ; preds = %43, %76
@@ -212,7 +211,7 @@ declare i32 @ff_get_buffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc signext i16 @decode(ptr noundef captures(none) initializes((8, 16)) %0, i32 noundef range(i32 0, 16) %1) unnamed_addr #3 {
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds nuw i16, ptr @diffs, i64 %3
+  %4 = getelementptr inbounds nuw [2 x i8], ptr @diffs, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !46
   %6 = zext i16 %5 to i32
   %7 = load i32, ptr %0, align 8, !tbaa !51
@@ -262,10 +261,10 @@ define internal fastcc signext i16 @decode(ptr noundef captures(none) initialize
 
 34:                                               ; preds = %34, %19
   %indvars.iv.i = phi i64 [ 0, %19 ], [ %indvars.iv.next.i, %34 ]
-  %35 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv.i
   %36 = load i32, ptr %35, align 4, !tbaa !50
   %.inv.i = icmp slt i32 %36, 1
-  %37 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i
   %38 = load i64, ptr %37, align 8, !tbaa !55
   %39 = mul nsw i64 %38, 255
   %40 = sdiv i64 %39, 256
@@ -280,10 +279,10 @@ define internal fastcc signext i16 @decode(ptr noundef captures(none) initialize
 44:                                               ; preds = %44, %32
   %indvars.iv42.i = phi i64 [ 0, %32 ], [ %indvars.iv.next43.i, %44 ]
   %.03639.i = phi i64 [ 0, %32 ], [ %52, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv42.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv42.i
   %46 = load i32, ptr %45, align 4, !tbaa !50
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv42.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv42.i
   %49 = load i64, ptr %48, align 8, !tbaa !55
   %50 = mul nsw i64 %49, %47
   %51 = ashr i64 %50, 26
@@ -301,7 +300,7 @@ prediction.exit:                                  ; preds = %44
   %56 = sdiv i32 %.lhs.trunc.i, 10
   %.sext.i = sext i32 %56 to i64
   store i64 %.sext.i, ptr %25, align 8, !tbaa !53
-  %57 = getelementptr inbounds nuw i16, ptr @steps, i64 %3
+  %57 = getelementptr inbounds nuw [2 x i8], ptr @steps, i64 %3
   %58 = load i16, ptr %57, align 2, !tbaa !46
   %59 = sext i16 %58 to i32
   %60 = shl nsw i32 %59, 5

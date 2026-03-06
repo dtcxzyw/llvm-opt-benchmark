@@ -25,8 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._coherent_set_entity_info = type { %struct._endpoint_guid, i64, i64, i64 }
 %struct.rtps_guid_prefix_t = type { i32, i32, i32 }
 %struct._submessage_col_info = type { ptr, ptr, ptr }
-%struct.rtps_psk_options_entry_t = type { ptr, ptr, %struct.rtps_psk_options_entry_uint32_string_t, ptr, %struct.rtps_psk_options_entry_uint32_string_t, ptr, %struct.rtps_psk_options_entry_uint32_string_t, ptr, %struct.rtps_psk_options_entry_uint32_string_t }
-%struct.rtps_psk_options_entry_uint32_string_t = type { i32, i8 }
 %struct._dissection_element = type { i64, i16, i32, [256 x i8] }
 %struct._rtps_tvb_field = type { ptr, i32, i32 }
 
@@ -5288,7 +5286,7 @@ dissect_RTPS_DATA_FRAG_kind.exit:                 ; preds = %1398, %1530, %1551
   %1643 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1625, ptr noundef %0, i32 noundef %.1285.i, i32 noundef -1, i32 noundef %1642, ptr noundef nonnull %43, ptr noundef nonnull @.str.1408, i32 noundef %.0241283.i)
   %1644 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1285.i)
   %1645 = sext i32 %.0241283.i to i64
-  %1646 = getelementptr i16, ptr %1631, i64 %1645
+  %1646 = getelementptr [2 x i8], ptr %1631, i64 %1645
   store i16 %1644, ptr %1646, align 2
   %1647 = load i32, ptr @hf_rtps_sm_flags2, align 4
   %1648 = load i32, ptr @ett_rtps_flags, align 4
@@ -5311,7 +5309,7 @@ dissect_RTPS_DATA_FRAG_kind.exit:                 ; preds = %1398, %1530, %1551
   %1661 = and i32 %1655, 1
   %.not250.i = icmp eq i32 %1661, 0
   %1662 = load i32, ptr @hf_rtps_data_batch_serialized_data_length, align 4
-  %1663 = getelementptr i32, ptr %1634, i64 %1645
+  %1663 = getelementptr [4 x i8], ptr %1634, i64 %1645
   %1664 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1643, i32 noundef %1662, ptr noundef %0, i32 noundef %1654, i32 noundef 4, i32 noundef range(i32 0, -2147483647) %115, ptr noundef %1663)
   %1665 = add i32 %.1285.i, 8
   br i1 %.not250.i, label %1670, label %1666
@@ -5418,7 +5416,7 @@ dissect_RTPS_DATA_FRAG_kind.exit:                 ; preds = %1398, %1530, %1551
   %.9289.i = phi i32 [ %.8.i, %.lr.ph291.i ], [ %1743, %1741 ]
   %.0233288.i = phi i1 [ false, %.lr.ph291.i ], [ %spec.select, %1741 ]
   %1713 = sub i32 %1711, %.9289.i
-  %1714 = getelementptr i32, ptr %1634, i64 %indvars.iv.i
+  %1714 = getelementptr [4 x i8], ptr %1634, i64 %indvars.iv.i
   %1715 = load i32, ptr %1714, align 4
   %1716 = icmp slt i32 %1713, %1715
   br i1 %1716, label %1717, label %switch.lookup
@@ -5439,7 +5437,7 @@ switch.lookup:                                    ; preds = %1712
   %switch.lobit = trunc i8 %switch.shifted to i1
   %or.cond285 = select i1 %1722, i1 %switch.lobit, i1 false
   %spec.select = select i1 %or.cond285, i1 true, i1 %.0233288.i
-  %1723 = getelementptr i16, ptr %1631, i64 %indvars.iv.i
+  %1723 = getelementptr [2 x i8], ptr %1631, i64 %indvars.iv.i
   %1724 = load i16, ptr %1723, align 2
   %1725 = and i16 %1724, 32
   %.not255.i = icmp eq i16 %1725, 0
@@ -5457,7 +5455,7 @@ switch.lookup:                                    ; preds = %1712
 
 switch.lookup286:                                 ; preds = %1729
   %1731 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_RTPS_DATA.28, i64 %1731
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_RTPS_DATA.28, i64 %1731
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_encapsulation_endianness.exit.i
 
@@ -5469,7 +5467,7 @@ get_encapsulation_endianness.exit.i:              ; preds = %1729, %switch.looku
 
 switch.lookup288:                                 ; preds = %get_encapsulation_endianness.exit.i
   %1734 = zext nneg i16 %switch.tableidx287 to i64
-  %switch.gep289 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_serialized_data.22, i64 %1734
+  %switch.gep289 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_serialized_data.22, i64 %1734
   %switch.load290 = load i32, ptr %switch.gep289, align 4
   br label %get_encapsulation_version.exit.i
 
@@ -5587,7 +5585,7 @@ dissect_RTPS_DATA_BATCH.exit:                     ; preds = %1564, %1687, %1717,
 1795:                                             ; preds = %.lr.ph, %1955
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %1955 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
-  %1796 = getelementptr %struct.rtps_psk_options_entry_t, ptr %1791, i64 %indvars.iv
+  %1796 = getelementptr [72 x i8], ptr %1791, i64 %indvars.iv
   %1797 = getelementptr inbounds nuw i8, ptr %1796, i64 36
   %1798 = load i8, ptr %1797, align 4, !range !8, !noundef !9
   %1799 = trunc nuw i8 %1798 to i1
@@ -5789,10 +5787,10 @@ rtps_psk_generate_session_key.exit.i.i:           ; preds = %rtps_psk_generate_m
 
 switch.lookup292:                                 ; preds = %1891
   %1894 = zext nneg i32 %switch.tableidx291 to i64
-  %switch.gep293 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_rtps_submessages.16, i64 %1894
+  %switch.gep293 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_rtps_submessages.16, i64 %1894
   %switch.load294 = load i32, ptr %switch.gep293, align 4
   %1895 = zext nneg i32 %switch.tableidx291 to i64
-  %switch.gep295 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_rtps_submessages.17, i64 %1895
+  %switch.gep295 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_rtps_submessages.17, i64 %1895
   %switch.load296 = load i32, ptr %switch.gep295, align 4
   br label %rtps_encryption_algorithm_to_gcry_enum.exit.i.i.i
 
@@ -6413,23 +6411,23 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %switch.shiftamt = shl nuw nsw i64 %indvars.iv.i, 4
   %switch.downshift = lshr i64 131074, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i16
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.proto_register_rtps, i64 %indvars.iv.i
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.proto_register_rtps, i64 %indvars.iv.i
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep15 = getelementptr inbounds nuw ptr, ptr @switch.table.proto_register_rtps.18, i64 %indvars.iv.i
+  %switch.gep15 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.proto_register_rtps.18, i64 %indvars.iv.i
   %switch.load16 = load ptr, ptr %switch.gep15, align 8
   %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2680), align 8
-  %117 = getelementptr %struct._dissection_element, ptr %116, i64 %indvars.iv.i
+  %117 = getelementptr [272 x i8], ptr %116, i64 %indvars.iv.i
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i16 %switch.masked, ptr %118, align 8
   %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2680), align 8
-  %120 = getelementptr %struct._dissection_element, ptr %119, i64 %indvars.iv.i
+  %120 = getelementptr [272 x i8], ptr %119, i64 %indvars.iv.i
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 12
   store i32 %115, ptr %121, align 4
   %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2680), align 8
-  %123 = getelementptr %struct._dissection_element, ptr %122, i64 %indvars.iv.i
+  %123 = getelementptr [272 x i8], ptr %122, i64 %indvars.iv.i
   store i64 %switch.load, ptr %123, align 8
   %124 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2680), align 8
-  %125 = getelementptr %struct._dissection_element, ptr %124, i64 %indvars.iv.i
+  %125 = getelementptr [272 x i8], ptr %124, i64 %indvars.iv.i
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = tail call i64 @g_strlcpy(ptr noundef nonnull %126, ptr noundef nonnull %switch.load16, i64 noundef 256)
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 2676), align 4
@@ -6480,25 +6478,25 @@ switch.lookup:                                    ; preds = %.lr.ph.i
 
 switch.lookup17:                                  ; preds = %.lr.ph4.i
   %145 = trunc nuw i64 %indvars.iv8.i to i32
-  %switch.gep18 = getelementptr inbounds nuw i16, ptr @switch.table.proto_register_rtps.19, i64 %indvars.iv8.i
+  %switch.gep18 = getelementptr inbounds nuw [2 x i8], ptr @switch.table.proto_register_rtps.19, i64 %indvars.iv8.i
   %switch.load19 = load i16, ptr %switch.gep18, align 2
-  %switch.gep20 = getelementptr inbounds nuw ptr, ptr @switch.table.proto_register_rtps.20, i64 %indvars.iv8.i
+  %switch.gep20 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.proto_register_rtps.20, i64 %indvars.iv8.i
   %switch.load21 = load ptr, ptr %switch.gep20, align 8
-  %switch.gep22 = getelementptr inbounds nuw i64, ptr @switch.table.proto_register_rtps.21, i64 %indvars.iv8.i
+  %switch.gep22 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.proto_register_rtps.21, i64 %indvars.iv8.i
   %switch.load23 = load i64, ptr %switch.gep22, align 8
   %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 856), align 8
-  %147 = getelementptr %struct._dissection_element, ptr %146, i64 %indvars.iv8.i
+  %147 = getelementptr [272 x i8], ptr %146, i64 %indvars.iv8.i
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store i16 %switch.load19, ptr %148, align 8
   %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 856), align 8
-  %150 = getelementptr %struct._dissection_element, ptr %149, i64 %indvars.iv8.i
+  %150 = getelementptr [272 x i8], ptr %149, i64 %indvars.iv8.i
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %152 = tail call i64 @g_strlcpy(ptr noundef nonnull %151, ptr noundef nonnull %switch.load21, i64 noundef 256)
   %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 856), align 8
-  %154 = getelementptr %struct._dissection_element, ptr %153, i64 %indvars.iv8.i
+  %154 = getelementptr [272 x i8], ptr %153, i64 %indvars.iv8.i
   store i64 %switch.load23, ptr %154, align 8
   %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 856), align 8
-  %156 = getelementptr %struct._dissection_element, ptr %155, i64 %indvars.iv8.i
+  %156 = getelementptr [272 x i8], ptr %155, i64 %indvars.iv8.i
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 12
   store i32 %145, ptr %157, align 4
   %.pre13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 852), align 4
@@ -11221,7 +11219,7 @@ check_offset_addition.exit439:                    ; preds = %rtps_util_typecode_
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.8475 = phi i32 [ %.8473, %.lr.ph.preheader ], [ %.8, %.lr.ph ]
   %232 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %.8475, i32 noundef %4)
-  %233 = getelementptr i32, ptr %16, i64 %indvars.iv
+  %233 = getelementptr [4 x i8], ptr %16, i64 %indvars.iv
   store i32 %232, ptr %233, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.8 = add i32 %.8475, 4
@@ -11304,7 +11302,7 @@ check_offset_addition.exit442:                    ; preds = %238
 
 265:                                              ; preds = %261, %268
   %indvars.iv507 = phi i64 [ 0, %261 ], [ %indvars.iv.next508, %268 ]
-  %266 = getelementptr i32, ptr %12, i64 %indvars.iv507
+  %266 = getelementptr [4 x i8], ptr %12, i64 %indvars.iv507
   %267 = load i32, ptr %266, align 4
   %.not429 = icmp eq i32 %267, 0
   br i1 %.not429, label %269, label %268
@@ -13195,7 +13193,7 @@ define internal fastcc void @dissect_serialized_data(ptr noundef %0, ptr noundef
 
 switch.lookup:                                    ; preds = %27
   %37 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_RTPS_DATA.28, i64 %37
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_RTPS_DATA.28, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_encapsulation_endianness.exit
 
@@ -13226,7 +13224,7 @@ get_encapsulation_endianness.exit:                ; preds = %27, %switch.lookup
 
 switch.lookup78:                                  ; preds = %44
   %46 = zext nneg i16 %switch.tableidx77 to i64
-  %switch.gep79 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_serialized_data.22, i64 %46
+  %switch.gep79 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_serialized_data.22, i64 %46
   %switch.load80 = load i32, ptr %switch.gep79, align 4
   br label %get_encapsulation_version.exit
 
@@ -13377,10 +13375,10 @@ define internal fastcc void @generate_status_info(ptr noundef %0, i32 noundef %1
 
 switch.lookup:                                    ; preds = %31
   %33 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.generate_status_info, i64 %33
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.generate_status_info, i64 %33
   %switch.load = load ptr, ptr %switch.gep, align 8
   %34 = zext nneg i32 %2 to i64
-  %switch.gep57 = getelementptr inbounds nuw ptr, ptr @switch.table.generate_status_info.23, i64 %34
+  %switch.gep57 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.generate_status_info.23, i64 %34
   %switch.load58 = load ptr, ptr %switch.gep57, align 8
   %.not54 = icmp eq ptr %.0, null
   tail call void @wmem_strbuf_append(ptr noundef %6, ptr noundef nonnull @.str.1322)
@@ -14799,7 +14797,7 @@ dissect_mutable_member.exit:                      ; preds = %proto_item_set_hidd
   %.3470813 = phi i8 [ 1, %.lr.ph815 ], [ %.5472, %528 ]
   %.24809 = phi i32 [ %.23, %.lr.ph815 ], [ %.25, %528 ]
   %510 = load ptr, ptr %506, align 8
-  %511 = getelementptr %struct._dissection_element, ptr %510, i64 %indvars.iv
+  %511 = getelementptr [272 x i8], ptr %510, i64 %indvars.iv
   %512 = load i64, ptr %511, align 8
   %.not534 = icmp eq i64 %512, 0
   br i1 %.not534, label %528, label %513
@@ -14897,7 +14895,7 @@ define internal fastcc range(i32 1, 17) i32 @get_native_type_cdr_length(i64 noun
   br i1 %2, label %switch.lookup, label %3
 
 switch.lookup:                                    ; preds = %1
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.get_native_type_cdr_length, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.get_native_type_cdr_length, i64 %switch.tableidx
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %3
 
@@ -15386,7 +15384,7 @@ define internal fastcc void @dissect_RTPS_DATA(ptr noundef %0, ptr noundef %1, i
 
 switch.lookup:                                    ; preds = %124
   %134 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_RTPS_DATA.28, i64 %134
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_RTPS_DATA.28, i64 %134
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_encapsulation_endianness.exit
 
@@ -15475,7 +15473,7 @@ rtps_util_add_seq_octets.exit:                    ; preds = %166, %thread-pre-sp
 
 switch.lookup330:                                 ; preds = %170
   %181 = zext nneg i32 %switch.tableidx329 to i64
-  %switch.gep331 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_RTPS_DATA.28, i64 %181
+  %switch.gep331 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_RTPS_DATA.28, i64 %181
   %switch.load332 = load i32, ptr %switch.gep331, align 4
   br label %get_encapsulation_endianness.exit282
 
@@ -15747,7 +15745,7 @@ rtps_util_add_data_holder_seq.exit:               ; preds = %rtps_util_add_data_
 
 switch.lookup334:                                 ; preds = %344
   %354 = zext nneg i32 %switch.tableidx333 to i64
-  %switch.gep335 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_RTPS_DATA.28, i64 %354
+  %switch.gep335 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_RTPS_DATA.28, i64 %354
   %switch.load336 = load i32, ptr %switch.gep335, align 4
   br label %get_encapsulation_endianness.exit284
 
@@ -15795,7 +15793,7 @@ get_encapsulation_endianness.exit284:             ; preds = %344, %switch.lookup
 
 switch.lookup338:                                 ; preds = %371
   %383 = zext nneg i32 %switch.tableidx337 to i64
-  %switch.gep339 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_RTPS_DATA.28, i64 %383
+  %switch.gep339 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_RTPS_DATA.28, i64 %383
   %switch.load340 = load i32, ptr %switch.gep339, align 4
   br label %get_encapsulation_endianness.exit285
 
@@ -15848,7 +15846,7 @@ get_encapsulation_endianness.exit285:             ; preds = %371, %switch.lookup
 
 switch.lookup342:                                 ; preds = %406
   %416 = zext nneg i16 %switch.tableidx341 to i64
-  %switch.gep343 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_RTPS_DATA.28, i64 %416
+  %switch.gep343 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_RTPS_DATA.28, i64 %416
   %switch.load344 = load i32, ptr %switch.gep343, align 4
   br label %get_encapsulation_endianness.exit.i.i
 
@@ -16194,7 +16192,7 @@ rtps_util_add_rti_topic_query_service_request.exit.i: ; preds = %rtps_util_disse
 
 switch.lookup346:                                 ; preds = %628
   %638 = zext nneg i16 %switch.tableidx345 to i64
-  %switch.gep347 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_RTPS_DATA.28, i64 %638
+  %switch.gep347 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_RTPS_DATA.28, i64 %638
   %switch.load348 = load i32, ptr %switch.gep347, align 4
   br label %get_encapsulation_endianness.exit.i36.i
 

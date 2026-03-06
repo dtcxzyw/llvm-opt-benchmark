@@ -18,10 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::ArrayRef.58" = type { ptr, i64 }
 %"struct.llvm::TargetLowering::MakeLibCallOptions" = type <{ %"class.llvm::ArrayRef", %"struct.llvm::EVT", i8, [7 x i8] }>
 %"class.llvm::ArrayRef" = type { ptr, i64 }
-%"class.llvm::SDUse" = type { %"class.llvm::SDValue", ptr, ptr, ptr }
 %"struct.std::pair.215" = type { i8, %"struct.llvm::EVT" }
-%"struct.llvm::detail::DenseMapPair.205" = type { %"struct.std::pair.202" }
-%"struct.std::pair.202" = type { i32, [4 x i8], %"class.llvm::SDValue" }
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
@@ -34,8 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
 %"struct.llvm::AAMDNodes" = type { ptr, ptr, ptr, ptr }
 %"struct.llvm::SDVTList" = type { ptr, i32 }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.189" }
-%"struct.std::pair.189" = type { i32, i32 }
 %"struct.std::array" = type { [3 x %"class.llvm::SDValue"] }
 %"struct.std::array.182" = type { [3 x %"struct.llvm::EVT"] }
 %"class.llvm::APFloat" = type { %"union.llvm::APFloat::Storage" }
@@ -56,10 +51,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.193" = type { %"class.llvm::SDValue", i32, [4 x i8] }
 %"struct.std::pair.195" = type <{ %"class.llvm::DenseMapIterator.191", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator.191" = type { ptr, ptr }
+%"struct.std::pair.202" = type { i32, [4 x i8], %"class.llvm::SDValue" }
 %"struct.std::pair.198" = type <{ %"class.llvm::DenseMapIterator.200", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator.200" = type { ptr, ptr }
-%"struct.llvm::detail::DenseMapPair.192" = type { %"struct.std::pair.base", [4 x i8] }
-%"struct.std::pair.base" = type { %"class.llvm::SDValue", i32 }
 %"struct.llvm::AlignedCharArrayUnion.204" = type { [192 x i8] }
 %"struct.llvm::AlignedCharArrayUnion.206" = type { [192 x i8] }
 %"struct.llvm::AlignedCharArrayUnion.217" = type { [64 x i8] }
@@ -1376,7 +1370,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %14
   %19 = getelementptr inbounds nuw i8, ptr %.fca.0.extract3, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !27
   %21 = zext i32 %.fca.1.extract4 to i64
-  %22 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %.sroa.0.0.copyload.i.i = load i16, ptr %22, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -1388,7 +1382,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %14
 
 24:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %25 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %26 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %25
+  %26 = getelementptr [2 x i8], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -2
   %28 = load i16, ptr %27, align 2, !tbaa !28
   %29 = insertvalue { i16, ptr } poison, i16 %28, 0
@@ -1458,7 +1452,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer19SoftenFloatRes_FABSEPNS_
 
 24:                                               ; preds = %2
   %25 = zext i16 %21 to i64
-  %26 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %25
+  %26 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %27, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %26, i64 -8
@@ -1522,7 +1516,7 @@ _ZN4llvm5APInt10getAllOnesEj.exit:                ; preds = %_ZNK4llvm3EVT13getS
   %53 = load ptr, ptr %5, align 8, !tbaa !182
   %54 = lshr i32 %43, 6
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i64, ptr %53, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %55
   %57 = load i64, ptr %56, align 8, !tbaa !188
   %58 = and i64 %57, %47
   store i64 %58, ptr %56, align 8, !tbaa !188
@@ -1911,7 +1905,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %35
   %40 = getelementptr inbounds nuw i8, ptr %.fca.0.extract178, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !27
   %42 = zext i32 %.fca.1.extract179 to i64
-  %43 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %42
   %.sroa.0.0.copyload.i.i = load i16, ptr %43, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -1922,7 +1916,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %35
   %45 = getelementptr inbounds nuw i8, ptr %.fca.0.extract172, i64 48
   %46 = load ptr, ptr %45, align 8, !tbaa !27
   %47 = zext i32 %.fca.1.extract173 to i64
-  %48 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %47
   %.sroa.0.0.copyload.i.i190 = load i16, ptr %48, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i191 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.sroa.21.0.copyload.i.i192 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i191, align 8, !tbaa !54
@@ -1935,7 +1929,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %35
 
 50:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %51 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %52 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %51
+  %52 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %51
   %53 = getelementptr i8, ptr %52, i64 -16
   %.sroa.0.0.copyload.i.i195 = load i64, ptr %53, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %52, i64 -8
@@ -1963,7 +1957,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %50, %54
 
 57:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit
   %58 = zext i16 %.sroa.0.0.copyload.i.i190 to i64
-  %59 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %58
+  %59 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %58
   %60 = getelementptr i8, ptr %59, i64 -16
   %.sroa.0.0.copyload.i.i199 = load i64, ptr %60, align 16
   %.sroa.2.0..sroa_idx.i.i200 = getelementptr i8, ptr %59, i64 -8
@@ -2035,7 +2029,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit205:           ; preds = %57, %61
 
 82:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit205
   %83 = zext i16 %81 to i64
-  %84 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %83
+  %84 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %83
   %85 = getelementptr i8, ptr %84, i64 -16
   %.sroa.0.0.copyload.i.i207 = load i64, ptr %85, align 16
   %.sroa.2.0..sroa_idx.i.i208 = getelementptr i8, ptr %84, i64 -8
@@ -2058,7 +2052,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit213:           ; preds = %82, %86
 
 89:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit213
   %90 = zext i16 %88 to i64
-  %91 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %90
+  %91 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %90
   %92 = getelementptr i8, ptr %91, i64 -16
   %.sroa.0.0.copyload.i.i215 = load i64, ptr %92, align 16
   %.sroa.2.0..sroa_idx.i.i216 = getelementptr i8, ptr %91, i64 -8
@@ -2099,7 +2093,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit221:           ; preds = %89, %93
   %104 = getelementptr inbounds nuw i8, ptr %.fca.0.extract129, i64 48
   %105 = load ptr, ptr %104, align 8, !tbaa !27
   %106 = zext i32 %.fca.1.extract130 to i64
-  %107 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %106
   %.sroa.0.0.copyload.i.i222 = load i16, ptr %107, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i223 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %.sroa.21.0.copyload.i.i224 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i223, align 8, !tbaa !54
@@ -2155,7 +2149,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit221:           ; preds = %89, %93
   %127 = getelementptr inbounds nuw i8, ptr %.fca.0.extract76, i64 48
   %128 = load ptr, ptr %127, align 8, !tbaa !27
   %129 = zext i32 %.fca.1.extract77 to i64
-  %130 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %128, i64 %129
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %128, i64 %129
   %.sroa.0.0.copyload.i.i227 = load i16, ptr %130, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i228 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %.sroa.21.0.copyload.i.i229 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i228, align 8, !tbaa !54
@@ -2441,7 +2435,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer18SoftenFloatRes_FMAEPNS_6
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !23
   %26 = zext i1 %10 to i64
-  %27 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %26
   %.sroa.024.0.copyload = load ptr, ptr %27, align 8, !tbaa !24
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.225.0.copyload = load i32, ptr %.sroa.225.0..sroa_idx, align 8, !tbaa !26
@@ -2454,7 +2448,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer18SoftenFloatRes_FMAEPNS_6
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = load ptr, ptr %24, align 8, !tbaa !23
   %31 = select i1 %10, i64 2, i64 1
-  %32 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %31
   %.sroa.017.0.copyload = load ptr, ptr %32, align 8, !tbaa !24
   %.sroa.218.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.218.0.copyload = load i32, ptr %.sroa.218.0..sroa_idx, align 8, !tbaa !26
@@ -2467,7 +2461,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer18SoftenFloatRes_FMAEPNS_6
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %35 = load ptr, ptr %24, align 8, !tbaa !23
   %36 = select i1 %10, i64 3, i64 2
-  %37 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %35, i64 %36
   %.sroa.010.0.copyload = load ptr, ptr %37, align 8, !tbaa !24
   %.sroa.211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.sroa.211.0.copyload = load i32, ptr %.sroa.211.0..sroa_idx, align 8, !tbaa !26
@@ -2493,14 +2487,14 @@ _ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit: ; preds = %2, %
   %.sroa.683.0 = phi i32 [ %.sroa.683.0.copyload, %39 ], [ 0, %2 ]
   %.sroa.081.0 = phi ptr [ %.sroa.081.0.copyload, %39 ], [ null, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %40 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %.pre, i64 %26
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %.pre, i64 %26
   %41 = load ptr, ptr %40, align 8, !tbaa !202
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 8, !tbaa !203
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %45 = load ptr, ptr %44, align 8, !tbaa !27
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %46
   %.sroa.0.0.copyload.i.i = load i16, ptr %47, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %47, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -2508,14 +2502,14 @@ _ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit: ; preds = %2, %
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.sroa.21.0.copyload.i.i, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %50 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %.pre, i64 %31
+  %50 = getelementptr inbounds nuw [40 x i8], ptr %.pre, i64 %31
   %51 = load ptr, ptr %50, align 8, !tbaa !202
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !203
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %55 = load ptr, ptr %54, align 8, !tbaa !27
   %56 = zext i32 %53 to i64
-  %57 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %56
   %.sroa.0.0.copyload.i.i54 = load i16, ptr %57, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i55 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.21.0.copyload.i.i56 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i55, align 8, !tbaa !54
@@ -2523,14 +2517,14 @@ _ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit: ; preds = %2, %
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %.sroa.21.0.copyload.i.i56, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %60 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %.pre, i64 %36
+  %60 = getelementptr inbounds nuw [40 x i8], ptr %.pre, i64 %36
   %61 = load ptr, ptr %60, align 8, !tbaa !202
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = load i32, ptr %62, align 8, !tbaa !203
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %65 = load ptr, ptr %64, align 8, !tbaa !27
   %66 = zext i32 %63 to i64
-  %67 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %66
   %.sroa.0.0.copyload.i.i59 = load i16, ptr %67, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i60 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.sroa.21.0.copyload.i.i61 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i60, align 8, !tbaa !54
@@ -2696,7 +2690,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %25
 
 30:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %31 = zext i16 %20 to i64
-  %32 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %31
+  %32 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %31
   %33 = getelementptr i8, ptr %32, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %33, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %32, i64 -8
@@ -2753,7 +2747,7 @@ _ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i.i:        ; preds = %_ZN4llvm5APIntC2Ejm
   %52 = load ptr, ptr %5, align 8, !tbaa !182, !alias.scope !209
   %53 = lshr i32 %43, 6
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %54
   %56 = load i64, ptr %55, align 8, !tbaa !188
   %57 = or i64 %56, %46
   store i64 %57, ptr %55, align 8, !tbaa !188
@@ -2851,7 +2845,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24SoftenFloatRes_FP_EXTEND
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %32 = load ptr, ptr %31, align 8, !tbaa !23
   %33 = zext i1 %17 to i64
-  %34 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %32, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !214
   br i1 %17, label %35, label %36
 
@@ -2873,7 +2867,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24SoftenFloatRes_FP_EXTEND
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !27
   %42 = zext i32 %39 to i64
-  %43 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %42
   %.sroa.0.0.copyload.i.i = load i16, ptr %43, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -2890,7 +2884,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24SoftenFloatRes_FP_EXTEND
 
 ._ZNK4llvm3EVTeqES0_.exit.thread206_crit_edge:    ; preds = %36
   %.pre = load ptr, ptr %40, align 8, !tbaa !27
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %.pre, i64 %42
+  %.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %42
   %.sroa.0.0.copyload.i.i99.pre = load i16, ptr %.phi.trans.insert, align 8, !tbaa !28
   br label %_ZNK4llvm3EVTeqES0_.exit.thread206
 
@@ -2921,7 +2915,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24SoftenFloatRes_FP_EXTEND
   %67 = add i32 %62, -1
   %.01726.i.i.i.i = and i32 %66, %67
   %68 = zext i32 %.01726.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %59, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !26
   %71 = icmp eq i32 %65, %70
   br i1 %71, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -2938,14 +2932,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24SoftenFloatRes_FP_EXTEND
   %76 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.017.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %59, i64 %77
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !26
   %80 = icmp eq i32 %65, %79
   br i1 %80, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %50
   %81 = zext i32 %62 to i64
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %59, i64 %81
+  %82 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %81
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %74, %64, %.loopexit.i.i.i
@@ -2959,7 +2953,7 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %74, %
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 48
   %85 = load ptr, ptr %84, align 8, !tbaa !27
   %86 = zext i32 %.sroa.25.0.copyload.i to i64
-  %87 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %86
   %.sroa.0.0.copyload.i.i89 = load i16, ptr %87, align 8, !tbaa !28
   %88 = load ptr, ptr %23, align 8, !tbaa !27
   %.sroa.0.0.copyload.i94 = load i16, ptr %88, align 8, !tbaa !28
@@ -3093,7 +3087,7 @@ _ZNK4llvm3EVTneES0_.exit:                         ; preds = %89, %_ZNK4llvm3EVTe
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 48
   %127 = load ptr, ptr %126, align 8, !tbaa !27
   %128 = zext i32 %124 to i64
-  %129 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %127, i64 %128
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %127, i64 %128
   %.sroa.0.0.copyload.i.i127 = load i16, ptr %129, align 8, !tbaa !28
   %.not.i.i132 = icmp eq i16 %.sroa.0.0.copyload.i.i127, 10
   br i1 %.not.i.i132, label %130, label %_ZNK4llvm3EVTeqES0_.exit134
@@ -3112,14 +3106,14 @@ _ZNK4llvm3EVTeqES0_.exit134:                      ; preds = %_ZNK4llvm3EVTneES0_
   %133 = call noundef i32 @_ZN4llvm5RTLIB8getFPEXTENS_3EVTES1_(i16 %.sroa.0.0.copyload.i.i127, ptr %.sroa.21.0.copyload.i.i129, i16 %.sroa.0.0.copyload.i140, ptr %.sroa.21.0.copyload.i142) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %134 = load ptr, ptr %31, align 8, !tbaa !23
-  %135 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %134, i64 %33
+  %135 = getelementptr inbounds nuw [40 x i8], ptr %134, i64 %33
   %136 = load ptr, ptr %135, align 8, !tbaa !202
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %138 = load i32, ptr %137, align 8, !tbaa !203
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 48
   %140 = load ptr, ptr %139, align 8, !tbaa !27
   %141 = zext i32 %138 to i64
-  %142 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %140, i64 %141
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %140, i64 %141
   %.sroa.0.0.copyload.i.i145 = load i16, ptr %142, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i146 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %.sroa.21.0.copyload.i.i147 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i146, align 8, !tbaa !54
@@ -3233,7 +3227,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer23SoftenFloatRes_FP_ROUNDE
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !23
   %26 = zext i1 %10 to i64
-  %27 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !214
   br i1 %10, label %28, label %29
 
@@ -3255,7 +3249,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer23SoftenFloatRes_FP_ROUNDE
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %34 = load ptr, ptr %33, align 8, !tbaa !27
   %35 = zext i32 %32 to i64
-  %36 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %35
   %.sroa.0.0.copyload.i.i = load i16, ptr %36, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -3266,14 +3260,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer23SoftenFloatRes_FP_ROUNDE
   %38 = tail call noundef i32 @_ZN4llvm5RTLIB10getFPROUNDENS_3EVTES1_(i16 %.sroa.0.0.copyload.i.i, ptr %.sroa.21.0.copyload.i.i, i16 %.sroa.0.0.copyload.i29, ptr %.sroa.21.0.copyload.i31) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load ptr, ptr %24, align 8, !tbaa !23
-  %40 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %39, i64 %26
+  %40 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %26
   %41 = load ptr, ptr %40, align 8, !tbaa !202
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 8, !tbaa !203
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %45 = load ptr, ptr %44, align 8, !tbaa !27
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %46
   %.sroa.0.0.copyload.i.i34 = load i16, ptr %47, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i35 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %.sroa.21.0.copyload.i.i36 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i35, align 8, !tbaa !54
@@ -3390,7 +3384,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer25SoftenFloatRes_FP16_TO_F
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %33 = load ptr, ptr %32, align 8, !tbaa !27
   %34 = zext i32 %31 to i64
-  %35 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %34
   %.sroa.0.0.copyload.i.i = load i16, ptr %35, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -3673,7 +3667,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer20SoftenFloatRes_ExpOpEPNS
   %26 = load ptr, ptr %0, align 8, !tbaa !30
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 400896
   %28 = zext i32 %25 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !224
   %.not = icmp eq ptr %30, null
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3724,14 +3718,14 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit:    ; preds = %33, %43
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load ptr, ptr %51, align 8, !tbaa !23
   %53 = select i1 %16, i64 2, i64 1
-  %54 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [40 x i8], ptr %52, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !202
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %57 = load i32, ptr %56, align 8, !tbaa !203
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %59 = load ptr, ptr %58, align 8, !tbaa !27
   %60 = zext i32 %57 to i64
-  %61 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %60
   %.sroa.0.0.copyload.i.i = load i16, ptr %61, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %61, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -3743,7 +3737,7 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit:    ; preds = %33, %43
 
 63:                                               ; preds = %44
   %64 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %65 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %64
+  %65 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %64
   %66 = getelementptr i8, ptr %65, i64 -16
   %.sroa.0.0.copyload.i.i74 = load i64, ptr %66, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %65, i64 -8
@@ -3821,7 +3815,7 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit83:  ; preds = %70, %81
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %95 = load ptr, ptr %51, align 8, !tbaa !23
   %96 = zext i1 %16 to i64
-  %97 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [40 x i8], ptr %95, i64 %96
   %.sroa.08.0.copyload = load ptr, ptr %97, align 8, !tbaa !24
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 8
   %.sroa.29.0.copyload = load i32, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !26
@@ -3833,7 +3827,7 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit83:  ; preds = %70, %81
   store i32 %.fca.1.extract, ptr %.sroa.27.0..sroa_idx, align 8
   %99 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %100 = load ptr, ptr %51, align 8, !tbaa !23
-  %101 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %100, i64 %53
+  %101 = getelementptr inbounds nuw [40 x i8], ptr %100, i64 %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %99, ptr noundef nonnull align 8 dereferenceable(12) %101, i64 12, i1 false), !tbaa.struct !214
   br i1 %16, label %102, label %103
 
@@ -3850,14 +3844,14 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit83:  ; preds = %70, %81
   %.sroa.6113.0 = phi i32 [ %.sroa.6113.0.copyload, %102 ], [ 0, %82 ]
   %.sroa.0111.0 = phi ptr [ %.sroa.0111.0.copyload, %102 ], [ null, %82 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %104 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %100, i64 %96
+  %104 = getelementptr inbounds nuw [40 x i8], ptr %100, i64 %96
   %105 = load ptr, ptr %104, align 8, !tbaa !202
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %107 = load i32, ptr %106, align 8, !tbaa !203
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 48
   %109 = load ptr, ptr %108, align 8, !tbaa !27
   %110 = zext i32 %107 to i64
-  %111 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %110
   %.sroa.0.0.copyload.i.i89 = load i16, ptr %111, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i90 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %.sroa.21.0.copyload.i.i91 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i90, align 8, !tbaa !54
@@ -3871,7 +3865,7 @@ _ZN4llvm12SelectionDAG8getUNDEFENS_3EVTE.exit83:  ; preds = %70, %81
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 48
   %118 = load ptr, ptr %117, align 8, !tbaa !27
   %119 = zext i32 %116 to i64
-  %120 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %118, i64 %119
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %118, i64 %119
   %.sroa.0.0.copyload.i.i94 = load i16, ptr %120, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i95 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %.sroa.21.0.copyload.i.i96 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i95, align 8, !tbaa !54
@@ -3999,7 +3993,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer21SoftenFloatRes_FFREXPEPN
 
 30:                                               ; preds = %2
   %31 = zext i16 %.sroa.0.0.copyload.i61 to i64
-  %32 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %31
+  %32 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %31
   %33 = getelementptr i8, ptr %32, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %33, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %32, i64 -8
@@ -4113,7 +4107,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %48, %63
   %73 = getelementptr inbounds nuw i8, ptr %.fca.0.extract24, i64 48
   %74 = load ptr, ptr %73, align 8, !tbaa !27
   %75 = zext i32 %.fca.1.extract25 to i64
-  %76 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %75
   %.sroa.0.0.copyload.i.i71 = load i16, ptr %76, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %76, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -4624,7 +4618,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %13
   %25 = getelementptr inbounds nuw i8, ptr %.fca.0.extract42, i64 48
   %26 = load ptr, ptr %25, align 8, !tbaa !27
   %27 = zext i32 %.fca.1.extract43 to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %27
   %.sroa.0.0.copyload.i.i = load i16, ptr %28, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -4769,7 +4763,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %19
   %24 = getelementptr inbounds nuw i8, ptr %.fca.0.extract13, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = zext i32 %.fca.1.extract14 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %26
   %.sroa.0.0.copyload.i.i = load i16, ptr %27, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -4790,7 +4784,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %19
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 48
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = zext i32 %.sroa.22.0.copyload to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %31
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %32, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.21.0.copyload.i.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8, !tbaa !54
@@ -4876,7 +4870,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %17
   %22 = getelementptr inbounds nuw i8, ptr %.fca.0.extract10, i64 48
   %23 = load ptr, ptr %22, align 8, !tbaa !27
   %24 = zext i32 %.fca.1.extract11 to i64
-  %25 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %24
   %.sroa.0.0.copyload.i.i = load i16, ptr %25, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -4986,14 +4980,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer25SoftenFloatRes_XINT_TO_F
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !23
   %18 = zext i1 %11 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !202
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !203
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %24 = load ptr, ptr %23, align 8, !tbaa !27
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %25
   %.sroa.0.0.copyload.i.i = load i16, ptr %26, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -5024,7 +5018,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %32
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.not.i5.i.i = icmp eq i16 %.sroa.0.0.copyload.i.i, 0
   %38 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %39 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %38
+  %39 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -16
   %.sroa.2.0..sroa_idx.i.i7.i.i = getelementptr i8, ptr %39, i64 -8
   switch i32 %.fr, label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.split [
@@ -5045,7 +5039,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i.us:       ; preds = %_ZN4llvm5SDLocC2EPK
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 %.sroa.0.0.copyload.i.i, ptr %3, align 8
   store ptr %.sroa.21.0.copyload.i.i, ptr %37, align 8
-  %42 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %indvars.iv
+  %42 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %indvars.iv
   %43 = getelementptr i8, ptr %42, i64 -16
   %.sroa.0.0.copyload.i.i.i.i.us = load i64, ptr %43, align 16
   %.sroa.2.0..sroa_idx.i.i.i.i.us = getelementptr i8, ptr %42, i64 -8
@@ -5110,7 +5104,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i:          ; preds = %_ZN4llvm5SDLocC2EPK
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 %.sroa.0.0.copyload.i.i, ptr %3, align 8
   store ptr %.sroa.21.0.copyload.i.i, ptr %37, align 8
-  %55 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %indvars.iv86
+  %55 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %indvars.iv86
   %56 = getelementptr i8, ptr %55, i64 -16
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %56, align 16
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr i8, ptr %55, i64 -8
@@ -5175,7 +5169,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread:             ; preds = %_ZN4llvm5SDLocC2EPK
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !49
   %71 = select i1 %spec.select, i32 213, i32 214
-  %72 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %.pre, i64 %18
+  %72 = getelementptr inbounds nuw [40 x i8], ptr %.pre, i64 %18
   %73 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %70, i32 noundef %71, ptr noundef nonnull align 8 dereferenceable(12) %5, i16 %.us-phi81, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %72) #17
   %.fca.0.extract = extractvalue { ptr, i32 } %73, 0
   %.fca.1.extract = extractvalue { ptr, i32 } %73, 1
@@ -5417,7 +5411,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer20SoftenFloatRes_UnaryEPNS
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = zext i1 %11 to i64
-  %28 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %27
   %.sroa.08.0.copyload = load ptr, ptr %28, align 8, !tbaa !24
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.29.0.copyload = load i32, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !26
@@ -5443,14 +5437,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer20SoftenFloatRes_UnaryEPNS
   %.sroa.644.0 = phi i32 [ %.sroa.644.0.copyload, %30 ], [ 0, %3 ]
   %.sroa.042.0 = phi ptr [ %.sroa.042.0.copyload, %30 ], [ null, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %32 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %.pre, i64 %27
+  %32 = getelementptr inbounds nuw [40 x i8], ptr %.pre, i64 %27
   %33 = load ptr, ptr %32, align 8, !tbaa !202
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !203
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %37 = load ptr, ptr %36, align 8, !tbaa !27
   %38 = zext i32 %35 to i64
-  %39 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %38
   %.sroa.0.0.copyload.i.i = load i16, ptr %39, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -5618,7 +5612,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer16GetSoftened
   %17 = add i32 %13, -1
   %.01728.i.i = and i32 %17, %16
   %18 = zext i32 %.01728.i.i to i64
-  %19 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !26
   %21 = icmp eq i32 %4, %20
   br i1 %21, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit, label %.lr.ph.i.i, !prof !218
@@ -5635,7 +5629,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer16GetSoftened
   %26 = add i32 %.01529.i.i, %.01730.i.i
   %.017.i.i = and i32 %26, %17
   %27 = zext i32 %.017.i.i to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !26
   %30 = icmp eq i32 %4, %29
   br i1 %30, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit, label %.lr.ph.i.i, !prof !220, !llvm.loop !269
@@ -5647,7 +5641,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail
   br i1 %32, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %33
 
 33:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
-  %.sroa.0.1.i = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %.pn
+  %.sroa.0.1.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.pn
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 4
   tail call void @_ZN4llvm16DAGTypeLegalizer7RemapIdERj(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef nonnull align 4 dereferenceable(4) %34) #17
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -5669,7 +5663,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail
   %48 = add i32 %43, -1
   %.01726.i.i.i = and i32 %47, %48
   %49 = zext i32 %.01726.i.i.i to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %40, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !26
   %52 = icmp eq i32 %46, %51
   br i1 %52, label %_ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit, label %.lr.ph.i.i.i, !prof !218
@@ -5686,14 +5680,14 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail
   %57 = add i32 %.01527.i.i.i, %.01728.i.i.i
   %.017.i.i.i = and i32 %57, %48
   %58 = zext i32 %.017.i.i.i to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %40, i64 %58
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !26
   %61 = icmp eq i32 %46, %60
   br i1 %61, label %_ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit, label %.lr.ph.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i, %33
   %62 = zext i32 %43 to i64
-  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %40, i64 %62
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %62
   br label %_ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit
 
 _ZN4llvm16DAGTypeLegalizer10getSDValueERj.exit:   ; preds = %55, %45, %.loopexit.i.i
@@ -5746,7 +5740,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer21SoftenFloatRes_BinaryEPN
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = zext i1 %11 to i64
-  %28 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %27
   %.sroa.015.0.copyload = load ptr, ptr %28, align 8, !tbaa !24
   %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.216.0.copyload = load i32, ptr %.sroa.216.0..sroa_idx, align 8, !tbaa !26
@@ -5759,7 +5753,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer21SoftenFloatRes_BinaryEPN
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %31 = load ptr, ptr %25, align 8, !tbaa !23
   %32 = select i1 %11, i64 2, i64 1
-  %33 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %32
   %.sroa.08.0.copyload = load ptr, ptr %33, align 8, !tbaa !24
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.29.0.copyload = load i32, ptr %.sroa.29.0..sroa_idx, align 8, !tbaa !26
@@ -5785,14 +5779,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer21SoftenFloatRes_BinaryEPN
   %.sroa.660.0 = phi i32 [ %.sroa.660.0.copyload, %35 ], [ 0, %3 ]
   %.sroa.058.0 = phi ptr [ %.sroa.058.0.copyload, %35 ], [ null, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %37 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %.pre, i64 %27
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %.pre, i64 %27
   %38 = load ptr, ptr %37, align 8, !tbaa !202
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load i32, ptr %39, align 8, !tbaa !203
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %42 = load ptr, ptr %41, align 8, !tbaa !27
   %43 = zext i32 %40 to i64
-  %44 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %43
   %.sroa.0.0.copyload.i.i = load i16, ptr %44, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %44, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -5800,14 +5794,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer21SoftenFloatRes_BinaryEPN
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.sroa.21.0.copyload.i.i, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %47 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %.pre, i64 %32
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %.pre, i64 %32
   %48 = load ptr, ptr %47, align 8, !tbaa !202
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load i32, ptr %49, align 8, !tbaa !203
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %52 = load ptr, ptr %51, align 8, !tbaa !27
   %53 = zext i32 %50 to i64
-  %54 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %53
   %.sroa.0.0.copyload.i.i41 = load i16, ptr %54, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i42 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.sroa.21.0.copyload.i.i43 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i42, align 8, !tbaa !54
@@ -5956,7 +5950,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer36SoftenFloatRes_UnaryWith
   %19 = load ptr, ptr %0, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 400896
   %21 = zext i32 %2 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !224
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %83, label %24
@@ -6024,7 +6018,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %24, %41
   %52 = getelementptr inbounds nuw i8, ptr %.fca.0.extract34, i64 48
   %53 = load ptr, ptr %52, align 8, !tbaa !27
   %54 = zext i32 %.fca.1.extract35 to i64
-  %55 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %54
   %.sroa.0.0.copyload.i.i = load i16, ptr %55, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -6035,7 +6029,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %24, %41
   %58 = getelementptr inbounds nuw i8, ptr %.fca.0.extract27, i64 48
   %59 = load ptr, ptr %58, align 8, !tbaa !27
   %60 = zext i32 %.fca.1.extract28 to i64
-  %61 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %60
   %.sroa.0.0.copyload.i.i52 = load i16, ptr %61, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i53 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %.sroa.21.0.copyload.i.i54 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i53, align 8, !tbaa !54
@@ -6212,14 +6206,14 @@ define hidden noundef zeroext i1 @_ZN4llvm16DAGTypeLegalizer18SoftenFloatOperand
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load ptr, ptr %22, align 8, !tbaa !23
   %24 = zext i1 %21 to i64
-  %25 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !202
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !203
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %31
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %32, align 8, !tbaa !28
   %switch.tableidx.i = add i16 %.sroa.0.0.copyload.i.i.i, -12
   %33 = icmp ult i16 %switch.tableidx.i, 5
@@ -6234,14 +6228,14 @@ define hidden noundef zeroext i1 @_ZN4llvm16DAGTypeLegalizer18SoftenFloatOperand
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = zext i1 %37 to i64
-  %41 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !202
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !203
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %46 = load ptr, ptr %45, align 8, !tbaa !27
   %47 = zext i32 %44 to i64
-  %48 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %47
   %.sroa.0.0.copyload.i.i.i115 = load i16, ptr %48, align 8, !tbaa !28
   %switch.tableidx.i116 = add i16 %.sroa.0.0.copyload.i.i.i115, -12
   %49 = icmp ult i16 %switch.tableidx.i116, 5
@@ -6256,14 +6250,14 @@ define hidden noundef zeroext i1 @_ZN4llvm16DAGTypeLegalizer18SoftenFloatOperand
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !23
   %56 = zext i1 %53 to i64
-  %57 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !202
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %60 = load i32, ptr %59, align 8, !tbaa !203
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %62 = load ptr, ptr %61, align 8, !tbaa !27
   %63 = zext i32 %60 to i64
-  %64 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %63
   %.sroa.0.0.copyload.i.i.i119 = load i16, ptr %64, align 8, !tbaa !28
   %switch.tableidx.i120 = add i16 %.sroa.0.0.copyload.i.i.i119, -12
   %65 = icmp ult i16 %switch.tableidx.i120, 5
@@ -6278,14 +6272,14 @@ define hidden noundef zeroext i1 @_ZN4llvm16DAGTypeLegalizer18SoftenFloatOperand
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %71 = load ptr, ptr %70, align 8, !tbaa !23
   %72 = zext i1 %69 to i64
-  %73 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [40 x i8], ptr %71, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !202
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %76 = load i32, ptr %75, align 8, !tbaa !203
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %78 = load ptr, ptr %77, align 8, !tbaa !27
   %79 = zext i32 %76 to i64
-  %80 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %79
   %.sroa.0.0.copyload.i.i.i123 = load i16, ptr %80, align 8, !tbaa !28
   %switch.tableidx.i124 = add i16 %.sroa.0.0.copyload.i.i.i123, -12
   %81 = icmp ult i16 %switch.tableidx.i124, 5
@@ -6414,7 +6408,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer19SoftenFloatOp_BR_CCEPNS_
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !27
   %21 = zext i32 %18 to i64
-  %22 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %.sroa.0.0.copyload.i.i = load i16, ptr %22, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -6493,7 +6487,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit50:            ; preds = %41, %44
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %51 = load ptr, ptr %50, align 8, !tbaa !27
   %52 = zext i32 %49 to i64
-  %53 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %52
   %.sroa.0.0.copyload.i.i51 = load i16, ptr %53, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i52 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.sroa.21.0.copyload.i.i53 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i52, align 8, !tbaa !54
@@ -6550,7 +6544,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer22SoftenFloatOp_FP_ROUNDEP
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !23
   %13 = zext i1 %10 to i64
-  %14 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !214
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = load ptr, ptr %3, align 8, !tbaa !202
@@ -6559,7 +6553,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer22SoftenFloatOp_FP_ROUNDEP
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !27
   %20 = zext i32 %17 to i64
-  %21 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %20
   %.sroa.0.0.copyload.i.i = load i16, ptr %21, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -6583,7 +6577,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer22SoftenFloatOp_FP_ROUNDEP
 
 switch.lookup:                                    ; preds = %2
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN4llvm16DAGTypeLegalizer22SoftenFloatOp_FP_ROUNDEPNS_6SDNodeE, i64 %28
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN4llvm16DAGTypeLegalizer22SoftenFloatOp_FP_ROUNDEPNS_6SDNodeE, i64 %28
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %.fold.split
 
@@ -6710,7 +6704,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24SoftenFloatOp_FP_TO_XINT
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !23
   %18 = zext i1 %11 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %17, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false), !tbaa.struct !214
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = load ptr, ptr %3, align 8, !tbaa !202
@@ -6719,7 +6713,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24SoftenFloatOp_FP_TO_XINT
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %24 = load ptr, ptr %23, align 8, !tbaa !27
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %25
   %.sroa.0.0.copyload.i.i = load i16, ptr %26, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -6849,14 +6843,14 @@ _ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit:
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = zext i1 %2 to i64
-  %6 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !202
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !203
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %12
   %.sroa.0.0.copyload.i.i = load i16, ptr %13, align 8, !tbaa !28
   %switch.tableidx = add i16 %.sroa.0.0.copyload.i.i, -12
   %14 = icmp ult i16 %switch.tableidx, 5
@@ -6874,14 +6868,14 @@ _ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit:
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = zext i1 %2 to i64
-  %6 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !202
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !203
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %12
   %.sroa.0.0.copyload.i.i = load i16, ptr %13, align 8, !tbaa !28
   %switch.tableidx = add i16 %.sroa.0.0.copyload.i.i, -12
   %14 = icmp ult i16 %switch.tableidx, 5
@@ -6899,14 +6893,14 @@ _ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit:
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = zext i1 %2 to i64
-  %6 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !202
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !203
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %12
   %.sroa.0.0.copyload.i.i = load i16, ptr %13, align 8, !tbaa !28
   %switch.tableidx = add i16 %.sroa.0.0.copyload.i.i, -12
   %14 = icmp ult i16 %switch.tableidx, 5
@@ -6924,14 +6918,14 @@ _ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit:
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = zext i1 %2 to i64
-  %6 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !202
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !203
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %12
   %.sroa.0.0.copyload.i.i = load i16, ptr %13, align 8, !tbaa !28
   %switch.tableidx = add i16 %.sroa.0.0.copyload.i.i, -12
   %14 = icmp ult i16 %switch.tableidx, 5
@@ -6971,7 +6965,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer23SoftenFloatOp_SELECT_CCE
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %22 = load ptr, ptr %21, align 8, !tbaa !27
   %23 = zext i32 %20 to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   %.sroa.0.0.copyload.i.i = load i16, ptr %24, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -7049,7 +7043,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit51:            ; preds = %42, %45
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %52 = load ptr, ptr %51, align 8, !tbaa !27
   %53 = zext i32 %50 to i64
-  %54 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %53
   %.sroa.0.0.copyload.i.i52 = load i16, ptr %54, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i53 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.sroa.21.0.copyload.i.i54 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i53, align 8, !tbaa !54
@@ -7118,14 +7112,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer19SoftenFloatOp_SETCCEPNS_
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !23
   %18 = zext i1 %15 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %17, i64 %18
   %.sroa.074.0.copyload = load ptr, ptr %19, align 8, !tbaa !24
   %.sroa.6.0..sroa_idx76 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.6.0.copyload77 = load i32, ptr %.sroa.6.0..sroa_idx76, align 8, !tbaa !26
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 12
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 4
   %20 = select i1 %15, i64 2, i64 1
-  %21 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %17, i64 %20
   %.sroa.043.0.copyload = load ptr, ptr %21, align 8, !tbaa !24
   %.sroa.545.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.545.0.copyload = load i32, ptr %.sroa.545.0..sroa_idx, align 8, !tbaa !26
@@ -7145,7 +7139,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer19SoftenFloatOp_SETCCEPNS_
 24:                                               ; preds = %23, %22
   %25 = phi i64 [ 2, %23 ], [ 3, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %26 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %17, i64 %25
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %17, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !202
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 88
   %29 = load i32, ptr %28, align 8, !tbaa !270
@@ -7153,7 +7147,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer19SoftenFloatOp_SETCCEPNS_
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.074.0.copyload, i64 48
   %31 = load ptr, ptr %30, align 8, !tbaa !27
   %32 = zext i32 %.sroa.6.0.copyload77 to i64
-  %33 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %32
   %.sroa.0.0.copyload.i.i = load i16, ptr %33, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -7422,7 +7416,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer26SoftenFloatOp_ATOMIC_STO
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !27
   %14 = zext i32 %.sroa.5.0.copyload to i64
-  %15 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %14
   %.sroa.0.0.copyload.i.i = load i16, ptr %15, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -7521,7 +7515,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %23
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0161.0.copyload, i64 48
   %29 = load ptr, ptr %28, align 8, !tbaa !27
   %30 = zext i32 %.sroa.5.0.copyload to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %30
   %.sroa.0.0.copyload.i.i = load i16, ptr %31, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -7538,7 +7532,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %23
 
 37:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %38 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %39 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %38
+  %39 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -16
   %.sroa.0.0.copyload.i.i102 = load i64, ptr %40, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %39, i64 -8
@@ -7589,7 +7583,7 @@ _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZN4llvm3MVT12ge
   %54 = getelementptr inbounds nuw i8, ptr %.fca.0.extract90, i64 48
   %55 = load ptr, ptr %54, align 8, !tbaa !27
   %56 = zext i32 %.fca.1.extract91 to i64
-  %57 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %56
   %.sroa.0.0.copyload.i.i105 = load i16, ptr %57, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i106 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.21.0.copyload.i.i107 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i106, align 8, !tbaa !54
@@ -7603,7 +7597,7 @@ _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZN4llvm3MVT12ge
 
 60:                                               ; preds = %_ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit
   %61 = zext i16 %59 to i64
-  %62 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %61
+  %62 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %61
   %63 = getelementptr i8, ptr %62, i64 -16
   %.sroa.0.0.copyload.i.i111 = load i64, ptr %63, align 16
   %.sroa.2.0..sroa_idx.i.i112 = getelementptr i8, ptr %62, i64 -8
@@ -7632,7 +7626,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit117:           ; preds = %60, %64
 
 68:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit117
   %69 = zext i16 %.sroa.0.0.copyload.i.i105 to i64
-  %70 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %69
+  %70 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %69
   %71 = getelementptr i8, ptr %70, i64 -16
   %.sroa.0.0.copyload.i.i119 = load i64, ptr %71, align 16
   %.sroa.2.0..sroa_idx.i.i120 = getelementptr i8, ptr %70, i64 -8
@@ -7669,7 +7663,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit125:           ; preds = %68, %72
   %80 = zext nneg i32 %76 to i64
   %81 = load ptr, ptr %0, align 8, !tbaa !30
   %82 = load ptr, ptr %54, align 8, !tbaa !27
-  %83 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %82, i64 %56
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %56
   %.sroa.0.0.copyload.i.i126 = load i16, ptr %83, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i127 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %.sroa.21.0.copyload.i.i128 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i127, align 8, !tbaa !54
@@ -7721,7 +7715,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit125:           ; preds = %68, %72
   %103 = getelementptr inbounds nuw i8, ptr %.fca.0.extract32, i64 48
   %104 = load ptr, ptr %103, align 8, !tbaa !27
   %105 = zext i32 %.fca.1.extract33 to i64
-  %106 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %105
   %.sroa.0.0.copyload.i.i131 = load i16, ptr %106, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i132 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %.sroa.21.0.copyload.i.i133 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i132, align 8, !tbaa !54
@@ -7792,7 +7786,7 @@ define internal fastcc noundef i32 @_ZL18findFPToIntLibcallN4llvm3EVTES0_RS0_b(i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.not.i5.i.i = icmp eq i16 %.fr, 0
   %9 = zext i16 %.fr to i64
-  %10 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %9
+  %10 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -16
   %.sroa.2.0..sroa_idx.i.i7.i.i = getelementptr i8, ptr %10, i64 -8
   br i1 %5, label %.split.us, label %.split
@@ -7808,7 +7802,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i.us.us:    ; preds = %.split.us, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 0, ptr %7, align 8
   store ptr %3, ptr %8, align 8
-  %13 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %indvars.iv67
+  %13 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %indvars.iv67
   %.sroa.2.0..sroa_idx.i.i.i.i.us.us = getelementptr i8, ptr %13, i64 -8
   %.sroa.2.0.copyload.i.i.i.i.us.us = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i.us.us, align 8
   %14 = call { i64, i8 } @_ZNK4llvm3EVT21getExtendedSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
@@ -7853,7 +7847,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread.us.us:       ; preds = %_ZNK4llvm3EVT6bitsG
 
 _ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i.us:       ; preds = %.split.us.split
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %24 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %indvars.iv64
+  %24 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %indvars.iv64
   %.sroa.2.0..sroa_idx.i.i.i.i.us = getelementptr i8, ptr %24, i64 -8
   %.sroa.2.0.copyload.i.i.i.i.us = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i.us, align 8
   %.sroa.2.0.copyload.i.i8.i.i.us = load i8, ptr %.sroa.2.0..sroa_idx.i.i7.i.i, align 8
@@ -7898,7 +7892,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i.us38:     ; preds = %.split, %40
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 0, ptr %7, align 8
   store ptr %3, ptr %8, align 8
-  %34 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %indvars.iv61
+  %34 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %indvars.iv61
   %.sroa.2.0..sroa_idx.i.i.i.i.us40 = getelementptr i8, ptr %34, i64 -8
   %.sroa.2.0.copyload.i.i.i.i.us41 = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i.us40, align 8
   %35 = call { i64, i8 } @_ZNK4llvm3EVT21getExtendedSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #18
@@ -7947,7 +7941,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread.us51:        ; preds = %_ZNK4llvm3EVT6bitsG
 
 _ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i:          ; preds = %.split.split
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %45 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %indvars.iv
+  %45 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %indvars.iv
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr i8, ptr %45, i64 -8
   %.sroa.2.0.copyload.i.i.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   %.sroa.2.0.copyload.i.i8.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i7.i.i, align 8
@@ -8026,7 +8020,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer19SoftenFloatOp_UnaryEPNS_
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = zext i1 %24 to i64
-  %28 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %27
   %.sroa.011.0.copyload = load ptr, ptr %28, align 8, !tbaa !24
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.212.0.copyload = load i32, ptr %.sroa.212.0..sroa_idx, align 8, !tbaa !26
@@ -8052,14 +8046,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer19SoftenFloatOp_UnaryEPNS_
   %.sroa.647.0 = phi i32 [ %.sroa.647.0.copyload, %30 ], [ 0, %3 ]
   %.sroa.045.0 = phi ptr [ %.sroa.045.0.copyload, %30 ], [ null, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %32 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %.pre, i64 %27
+  %32 = getelementptr inbounds nuw [40 x i8], ptr %.pre, i64 %27
   %33 = load ptr, ptr %32, align 8, !tbaa !202
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !203
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %37 = load ptr, ptr %36, align 8, !tbaa !27
   %38 = zext i32 %35 to i64
-  %39 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %38
   %.sroa.0.0.copyload.i.i = load i16, ptr %39, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -8160,7 +8154,7 @@ define hidden void @_ZN4llvm16DAGTypeLegalizer17ExpandFloatResultEPNS_6SDNodeEj(
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %9
   %.sroa.0.0.copyload.i = load i16, ptr %10, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.21.0.copyload.i = load ptr, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !54
@@ -9021,7 +9015,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %4, %14
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !27
   %28 = zext i32 %25 to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %28
   %.sroa.0.0.copyload.i.i = load i16, ptr %29, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -9042,7 +9036,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %4, %14
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %36 = load ptr, ptr %35, align 8, !tbaa !27
   %37 = zext i32 %34 to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %37
   %.sroa.0.0.copyload.i.i34 = load i16, ptr %38, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i35 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %.sroa.21.0.copyload.i.i36 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i35, align 8, !tbaa !54
@@ -9062,7 +9056,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %4, %14
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !27
   %45 = zext i32 %42 to i64
-  %46 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %45
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %46, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.sroa.21.0.copyload.i.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8, !tbaa !54
@@ -9445,15 +9439,15 @@ define hidden void @_ZN4llvm16DAGTypeLegalizer18ExpandFloatRes_FMAEPNS_6SDNodeER
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = zext i1 %11 to i64
-  %15 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %15, i64 12, i1 false), !tbaa.struct !214
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = select i1 %11, i64 2, i64 1
-  %18 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %13, i64 %17
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(12) %18, i64 12, i1 false), !tbaa.struct !214
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %20 = select i1 %11, i64 3, i64 2
-  %21 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %13, i64 %20
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %19, ptr noundef nonnull align 8 dereferenceable(12) %21, i64 12, i1 false), !tbaa.struct !214
   br i1 %11, label %22, label %_ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit
 
@@ -9606,7 +9600,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %4, %8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !27
   %22 = zext i32 %19 to i64
-  %23 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %22
   %.sroa.0.0.copyload.i.i = load i16, ptr %23, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -9622,7 +9616,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %4, %8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %31
   %.sroa.0.0.copyload.i.i25 = load i16, ptr %32, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i26 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.21.0.copyload.i.i27 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i26, align 8, !tbaa !54
@@ -9701,7 +9695,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %4, %27
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %41 = load ptr, ptr %40, align 8, !tbaa !27
   %42 = zext i32 %39 to i64
-  %43 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %42
   %.sroa.0.0.copyload.i.i = load i16, ptr %43, align 8, !tbaa !28
   %.not.i.i = icmp eq i16 %22, %.sroa.0.0.copyload.i.i
   br i1 %.not.i.i, label %44, label %_ZNK4llvm3EVTeqES0_.exit.thread63
@@ -9906,7 +9900,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %4, %8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !27
   %22 = zext i32 %19 to i64
-  %23 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %22
   %.sroa.0.0.copyload.i.i = load i16, ptr %23, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -9922,7 +9916,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %4, %8
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %31
   %.sroa.0.0.copyload.i.i25 = load i16, ptr %32, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i26 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.21.0.copyload.i.i27 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i26, align 8, !tbaa !54
@@ -10309,7 +10303,7 @@ define hidden void @_ZN4llvm16DAGTypeLegalizer25ExpandFloatRes_XINT_TO_FPEPNS_6S
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %42 = load ptr, ptr %41, align 8, !tbaa !23
   %43 = zext i1 %40 to i64
-  %44 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [40 x i8], ptr %42, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !214
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %45 = load ptr, ptr %11, align 8, !tbaa !202
@@ -10318,7 +10312,7 @@ define hidden void @_ZN4llvm16DAGTypeLegalizer25ExpandFloatRes_XINT_TO_FPEPNS_6S
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %49 = load ptr, ptr %48, align 8, !tbaa !27
   %50 = zext i32 %47 to i64
-  %51 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %50
   %.sroa.0.0.copyload.i.i = load i16, ptr %51, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -10377,7 +10371,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %4, %59
 
 73:                                               ; preds = %69
   %74 = zext i16 %72 to i64
-  %75 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %74
+  %75 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %74
   %76 = getelementptr i8, ptr %75, i64 -16
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %76, align 16
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr i8, ptr %75, i64 -8
@@ -10496,7 +10490,7 @@ _ZNK4llvm3EVT6bitsLEES0_.exit.thread349:          ; preds = %_ZNK4llvm3EVT13getS
 
 104:                                              ; preds = %_ZNK4llvm3EVT6bitsLEES0_.exit.thread349
   %105 = zext i16 %72 to i64
-  %106 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %105
+  %106 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %105
   %107 = getelementptr i8, ptr %106, i64 -16
   %.sroa.0.0.copyload.i.i.i.i218 = load i64, ptr %107, align 16
   %.sroa.2.0..sroa_idx.i.i.i.i219 = getelementptr i8, ptr %106, i64 -8
@@ -10532,7 +10526,7 @@ _ZNK4llvm3EVT6bitsLEES0_.exit243.thread352:       ; preds = %_ZNK4llvm3EVT13getS
 
 115:                                              ; preds = %_ZNK4llvm3EVT6bitsLEES0_.exit243.thread352
   %116 = zext i16 %72 to i64
-  %117 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %116
+  %117 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %116
   %118 = getelementptr i8, ptr %117, i64 -16
   %.sroa.0.0.copyload.i.i.i.i247 = load i64, ptr %118, align 16
   %.sroa.2.0..sroa_idx.i.i.i.i248 = getelementptr i8, ptr %117, i64 -8
@@ -10617,7 +10611,7 @@ _ZNK4llvm3EVT6bitsLEES0_.exit272.thread355:       ; preds = %_ZNK4llvm3EVT6bitsL
 
 132:                                              ; preds = %130
   %133 = zext i16 %131 to i64
-  %134 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %133
+  %134 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %133
   %135 = getelementptr i8, ptr %134, i64 -16
   %.sroa.0.0.copyload.i.i.i.i276 = load i64, ptr %135, align 16
   %.sroa.2.0..sroa_idx.i.i.i.i277 = getelementptr i8, ptr %134, i64 -8
@@ -10659,14 +10653,14 @@ _ZNK4llvm3EVT6bitsLEES0_.exit301.thread358:       ; preds = %_ZNK4llvm3EVT13getS
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 48
   %146 = load ptr, ptr %145, align 8, !tbaa !27
   %147 = zext i32 %144 to i64
-  %148 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %147
   %.sroa.0.0.copyload.i.i302 = load i16, ptr %148, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i303 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %.sroa.21.0.copyload.i.i304 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i303, align 8, !tbaa !54
   store i16 %.sroa.0.0.copyload.i.i302, ptr %12, align 8, !tbaa !28
   store ptr %.sroa.21.0.copyload.i.i304, ptr %52, align 8, !tbaa !54
   %149 = sext i16 %.sroa.0.0.copyload.i.i302 to i64
-  %150 = getelementptr ptr, ptr @switch.table._ZN4llvm16DAGTypeLegalizer25ExpandFloatRes_XINT_TO_FPEPNS_6SDNodeERNS_7SDValueES4_, i64 %149
+  %150 = getelementptr [8 x i8], ptr @switch.table._ZN4llvm16DAGTypeLegalizer25ExpandFloatRes_XINT_TO_FPEPNS_6SDNodeERNS_7SDValueES4_, i64 %149
   %switch.gep = getelementptr i8, ptr %150, i64 -56
   %switch.load = load ptr, ptr %switch.gep, align 8
   %151 = load ptr, ptr %29, align 8, !tbaa !49
@@ -10772,7 +10766,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm7APFloatD2E
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 48
   %182 = load ptr, ptr %181, align 8, !tbaa !27
   %183 = zext i32 %180 to i64
-  %184 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %182, i64 %183
+  %184 = getelementptr inbounds nuw [16 x i8], ptr %182, i64 %183
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %184, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %184, i64 8
   %.sroa.21.0.copyload.i.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8, !tbaa !54
@@ -10855,7 +10849,7 @@ define hidden void @_ZN4llvm16DAGTypeLegalizer20ExpandFloatRes_UnaryEPNS_6SDNode
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   %15 = zext i1 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !214
   br i1 %12, label %17, label %18
 
@@ -10955,11 +10949,11 @@ define hidden void @_ZN4llvm16DAGTypeLegalizer21ExpandFloatRes_BinaryEPNS_6SDNod
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   %15 = zext i1 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %16, i64 12, i1 false), !tbaa.struct !214
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %18 = select i1 %12, i64 2, i64 1
-  %19 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %14, i64 %18
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(12) %19, i64 12, i1 false), !tbaa.struct !214
   br i1 %12, label %20, label %21
 
@@ -11060,14 +11054,14 @@ define hidden noundef zeroext i1 @_ZN4llvm16DAGTypeLegalizer18ExpandFloatOperand
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !202
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !203
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %13
   %.sroa.0.0.copyload.i.i = load i16, ptr %14, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -11264,7 +11258,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit22:            ; preds = %28, %32
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %40 = load ptr, ptr %39, align 8, !tbaa !27
   %41 = zext i32 %38 to i64
-  %42 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %41
   %.sroa.0.0.copyload.i.i = load i16, ptr %42, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -11388,7 +11382,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer22ExpandFloatOp_FP_ROUNDEP
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   %15 = zext i1 %10 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %15
   %.sroa.027.0.copyload = load ptr, ptr %16, align 8, !tbaa !24
   %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.228.0.copyload = load i32, ptr %.sroa.228.0..sroa_idx, align 8, !tbaa !26
@@ -11442,7 +11436,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2EPK
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !27
   %39 = zext i32 %36 to i64
-  %40 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %39
   %.sroa.0.0.copyload.i.i = load i16, ptr %40, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %42 = load ptr, ptr %41, align 8, !tbaa !27
@@ -11584,7 +11578,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %14
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !23
   %26 = zext i1 %19 to i64
-  %27 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %25, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 16, i1 false), !tbaa.struct !214
   br i1 %19, label %28, label %29
 
@@ -11609,7 +11603,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %14
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %35 = load ptr, ptr %34, align 8, !tbaa !27
   %36 = zext i32 %33 to i64
-  %37 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %36
   %.sroa.0.0.copyload.i.i = load i16, ptr %37, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -11696,7 +11690,7 @@ _ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit:
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !27
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   %.sroa.0.0.copyload.i.i = load i16, ptr %17, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = load ptr, ptr %0, align 8, !tbaa !30
@@ -11773,7 +11767,7 @@ _ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit:
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !27
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   %.sroa.0.0.copyload.i.i = load i16, ptr %17, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = load ptr, ptr %0, align 8, !tbaa !30
@@ -11850,7 +11844,7 @@ _ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit:
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !27
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   %.sroa.0.0.copyload.i.i = load i16, ptr %17, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = load ptr, ptr %0, align 8, !tbaa !30
@@ -11927,7 +11921,7 @@ _ZL12GetFPLibCallN4llvm3EVTENS_5RTLIB7LibcallES2_S2_S2_S2_.exit:
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !27
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   %.sroa.0.0.copyload.i.i = load i16, ptr %17, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %18 = load ptr, ptr %0, align 8, !tbaa !30
@@ -12073,7 +12067,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit23:            ; preds = %30, %34
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %42 = load ptr, ptr %41, align 8, !tbaa !27
   %43 = zext i32 %40 to i64
-  %44 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %43
   %.sroa.0.0.copyload.i.i = load i16, ptr %44, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %44, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -12133,11 +12127,11 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer19ExpandFloatOp_SETCCEPNS_
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = zext i1 %8 to i64
-  %12 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !214
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = select i1 %8, i64 2, i64 1
-  %14 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !214
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br i1 %8, label %15, label %16
@@ -12153,7 +12147,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer19ExpandFloatOp_SETCCEPNS_
 17:                                               ; preds = %16, %15
   %18 = phi i64 [ 2, %16 ], [ 3, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %19 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %10, i64 %18
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !202
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 88
   %22 = load i32, ptr %21, align 8, !tbaa !270
@@ -12260,7 +12254,7 @@ _ZN4llvm3ISD13isNormalStoreEPKNS_6SDNodeE.exit.thread: ; preds = %3, %13
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %32 = load ptr, ptr %31, align 8, !tbaa !27
   %33 = zext i32 %30 to i64
-  %34 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %33
   %.sroa.0.0.copyload.i.i = load i16, ptr %34, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -12285,7 +12279,7 @@ _ZN4llvm3ISD13isNormalStoreEPKNS_6SDNodeE.exit.thread: ; preds = %3, %13
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !27
   %45 = zext i32 %.sroa.27.0.copyload to i64
-  %46 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %45
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %46, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.sroa.21.0.copyload.i.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8, !tbaa !54
@@ -12442,7 +12436,7 @@ define hidden void @_ZN4llvm16DAGTypeLegalizer24FloatExpandSetCCOperandsERNS_7SD
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 48
   %51 = load ptr, ptr %50, align 8, !tbaa !27
   %52 = zext i32 %49 to i64
-  %53 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %52
   %.sroa.0.0.copyload.i.i = load i16, ptr %53, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -12538,7 +12532,7 @@ _ZN4llvm12SelectionDAG8getSetCCERKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_3ISD8CondC
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 48
   %88 = load ptr, ptr %87, align 8, !tbaa !27
   %89 = zext i32 %86 to i64
-  %90 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %89
   %.sroa.0.0.copyload.i.i117 = load i16, ptr %90, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i118 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %.sroa.21.0.copyload.i.i119 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i118, align 8, !tbaa !54
@@ -12630,7 +12624,7 @@ _ZN4llvm12SelectionDAG8getSetCCERKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_3ISD8CondC
   %122 = getelementptr inbounds nuw i8, ptr %.fca.0.extract79, i64 48
   %123 = load ptr, ptr %122, align 8, !tbaa !27
   %124 = zext i32 %.fca.1.extract80 to i64
-  %125 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %123, i64 %124
+  %125 = getelementptr inbounds nuw [16 x i8], ptr %123, i64 %124
   %.sroa.0.0.copyload.i.i136 = load i16, ptr %125, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i137 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %.sroa.21.0.copyload.i.i138 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i137, align 8, !tbaa !54
@@ -12647,7 +12641,7 @@ _ZN4llvm12SelectionDAG8getSetCCERKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_3ISD8CondC
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 48
   %131 = load ptr, ptr %130, align 8, !tbaa !27
   %132 = zext i32 %129 to i64
-  %133 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %131, i64 %132
+  %133 = getelementptr inbounds nuw [16 x i8], ptr %131, i64 %132
   %.sroa.0.0.copyload.i.i141 = load i16, ptr %133, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i142 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %.sroa.21.0.copyload.i.i143 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i142, align 8, !tbaa !54
@@ -12739,7 +12733,7 @@ _ZN4llvm12SelectionDAG8getSetCCERKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_3ISD8CondC
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 48
   %167 = load ptr, ptr %166, align 8, !tbaa !27
   %168 = zext i32 %165 to i64
-  %169 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %167, i64 %168
+  %169 = getelementptr inbounds nuw [16 x i8], ptr %167, i64 %168
   %.sroa.0.0.copyload.i.i160 = load i16, ptr %169, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i161 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %.sroa.21.0.copyload.i.i162 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i161, align 8, !tbaa !54
@@ -12836,7 +12830,7 @@ _ZN4llvm12SelectionDAG8getSetCCERKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_3ISD8CondC
   %201 = getelementptr inbounds nuw i8, ptr %.fca.0.extract34, i64 48
   %202 = load ptr, ptr %201, align 8, !tbaa !27
   %203 = zext i32 %.fca.1.extract35 to i64
-  %204 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %202, i64 %203
+  %204 = getelementptr inbounds nuw [16 x i8], ptr %202, i64 %203
   %.sroa.0.0.copyload.i.i179 = load i16, ptr %204, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i180 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %.sroa.21.0.copyload.i.i181 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i180, align 8, !tbaa !54
@@ -12853,7 +12847,7 @@ _ZN4llvm12SelectionDAG8getSetCCERKNS_5SDLocENS_3EVTENS_7SDValueES5_NS_3ISD8CondC
   %207 = getelementptr inbounds nuw i8, ptr %.fca.0.extract4, i64 48
   %208 = load ptr, ptr %207, align 8, !tbaa !27
   %209 = zext i32 %.fca.1.extract5 to i64
-  %210 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %208, i64 %209
+  %210 = getelementptr inbounds nuw [16 x i8], ptr %208, i64 %209
   %.sroa.0.0.copyload.i.i184 = load i16, ptr %210, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i185 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %.sroa.21.0.copyload.i.i186 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i185, align 8, !tbaa !54
@@ -12888,14 +12882,14 @@ define hidden noundef zeroext i1 @_ZN4llvm16DAGTypeLegalizer19PromoteFloatOperan
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !202
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !203
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %13
   %.sroa.0.0.copyload.i.i = load i16, ptr %14, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -13035,7 +13029,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer22PromoteFloatOp_BITCASTEP
   %30 = add i32 %25, -1
   %.01726.i.i.i.i = and i32 %29, %30
   %31 = zext i32 %.01726.i.i.i.i to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %22, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !26
   %34 = icmp eq i32 %28, %33
   br i1 %34, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -13052,14 +13046,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer22PromoteFloatOp_BITCASTEP
   %39 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %39, %30
   %40 = zext i32 %.017.i.i.i.i to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %22, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !26
   %43 = icmp eq i32 %28, %42
   br i1 %43, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %3
   %44 = zext i32 %25 to i64
-  %45 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %22, i64 %44
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %44
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %37, %27, %.loopexit.i.i.i
@@ -13081,7 +13075,7 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %37, %
 
 53:                                               ; preds = %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
   %54 = zext i16 %.sroa.0.0.copyload.i to i64
-  %55 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %54
+  %55 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %54
   %56 = getelementptr i8, ptr %55, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %56, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %55, i64 -8
@@ -13202,7 +13196,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer23PromoteFloatOp_FAKE_USEE
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %9
   %.sroa.05.0.copyload = load ptr, ptr %10, align 8, !tbaa !24
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.26.0.copyload = load i32, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !26
@@ -13232,7 +13226,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer23PromoteFloatOp_FAKE_USEE
   %27 = add i32 %22, -1
   %.01726.i.i.i.i = and i32 %26, %27
   %28 = zext i32 %.01726.i.i.i.i to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !26
   %31 = icmp eq i32 %25, %30
   br i1 %31, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -13249,14 +13243,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer23PromoteFloatOp_FAKE_USEE
   %36 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %36, %27
   %37 = zext i32 %.017.i.i.i.i to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !26
   %40 = icmp eq i32 %25, %39
   br i1 %40, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %3
   %41 = zext i32 %22 to i64
-  %42 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %41
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %34, %24, %.loopexit.i.i.i
@@ -13340,7 +13334,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24PromoteFloatOp_FCOPYSIGN
   %26 = add i32 %21, -1
   %.01726.i.i.i.i = and i32 %25, %26
   %27 = zext i32 %.01726.i.i.i.i to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %18, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !26
   %30 = icmp eq i32 %24, %29
   br i1 %30, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -13357,14 +13351,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24PromoteFloatOp_FCOPYSIGN
   %35 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %35, %26
   %36 = zext i32 %.017.i.i.i.i to i64
-  %37 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %18, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !26
   %39 = icmp eq i32 %24, %38
   br i1 %39, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %3
   %40 = zext i32 %21 to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %18, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %40
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %33, %23, %.loopexit.i.i.i
@@ -13452,7 +13446,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer22PromoteFloatOp_UnaryOpEP
   %25 = add i32 %20, -1
   %.01726.i.i.i.i = and i32 %24, %25
   %26 = zext i32 %.01726.i.i.i.i to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %17, i64 %26
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !26
   %29 = icmp eq i32 %23, %28
   br i1 %29, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -13469,14 +13463,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer22PromoteFloatOp_UnaryOpEP
   %34 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %34, %25
   %35 = zext i32 %.017.i.i.i.i to i64
-  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %17, i64 %35
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !26
   %38 = icmp eq i32 %23, %37
   br i1 %38, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %3
   %39 = zext i32 %20 to i64
-  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %17, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %39
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %32, %22, %.loopexit.i.i.i
@@ -13563,7 +13557,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer29PromoteFloatOp_FP_TO_XIN
   %25 = add i32 %20, -1
   %.01726.i.i.i.i = and i32 %24, %25
   %26 = zext i32 %.01726.i.i.i.i to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %17, i64 %26
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !26
   %29 = icmp eq i32 %23, %28
   br i1 %29, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -13580,14 +13574,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer29PromoteFloatOp_FP_TO_XIN
   %34 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %34, %25
   %35 = zext i32 %.017.i.i.i.i to i64
-  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %17, i64 %35
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !26
   %38 = icmp eq i32 %23, %37
   br i1 %38, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %3
   %39 = zext i32 %20 to i64
-  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %17, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %39
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %32, %22, %.loopexit.i.i.i
@@ -13676,7 +13670,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24PromoteFloatOp_FP_EXTEND
   %25 = add i32 %20, -1
   %.01726.i.i.i.i = and i32 %24, %25
   %26 = zext i32 %.01726.i.i.i.i to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %17, i64 %26
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !26
   %29 = icmp eq i32 %23, %28
   br i1 %29, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -13693,14 +13687,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24PromoteFloatOp_FP_EXTEND
   %34 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %34, %25
   %35 = zext i32 %.017.i.i.i.i to i64
-  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %17, i64 %35
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !26
   %38 = icmp eq i32 %23, %37
   br i1 %38, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %3
   %39 = zext i32 %20 to i64
-  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %17, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %39
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %32, %22, %.loopexit.i.i.i
@@ -13807,7 +13801,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer31PromoteFloatOp_STRICT_FP
   %26 = add i32 %21, -1
   %.01726.i.i.i.i = and i32 %25, %26
   %27 = zext i32 %.01726.i.i.i.i to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %18, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !26
   %30 = icmp eq i32 %24, %29
   br i1 %30, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -13824,14 +13818,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer31PromoteFloatOp_STRICT_FP
   %35 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %35, %26
   %36 = zext i32 %.017.i.i.i.i to i64
-  %37 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %18, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !26
   %39 = icmp eq i32 %24, %38
   br i1 %39, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %3
   %40 = zext i32 %21 to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %18, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %40
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %33, %23, %.loopexit.i.i.i
@@ -13955,7 +13949,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24PromoteFloatOp_SELECT_CC
   %27 = add i32 %22, -1
   %.01726.i.i.i.i = and i32 %26, %27
   %28 = zext i32 %.01726.i.i.i.i to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !26
   %31 = icmp eq i32 %25, %30
   br i1 %31, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -13972,14 +13966,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24PromoteFloatOp_SELECT_CC
   %36 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %36, %27
   %37 = zext i32 %.017.i.i.i.i to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !26
   %40 = icmp eq i32 %25, %39
   br i1 %40, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %3
   %41 = zext i32 %22 to i64
-  %42 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %41
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %34, %24, %.loopexit.i.i.i
@@ -14015,7 +14009,7 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %34, %
   %58 = add i32 %53, -1
   %.01726.i.i.i.i30 = and i32 %57, %58
   %59 = zext i32 %.01726.i.i.i.i30 to i64
-  %60 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %51, i64 %59
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !26
   %62 = icmp eq i32 %56, %61
   br i1 %62, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit42, label %.lr.ph.i.i.i.i31, !prof !218
@@ -14032,14 +14026,14 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %34, %
   %67 = add i32 %.01527.i.i.i.i33, %.01728.i.i.i.i32
   %.017.i.i.i.i34 = and i32 %67, %58
   %68 = zext i32 %.017.i.i.i.i34 to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %51, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !26
   %71 = icmp eq i32 %56, %70
   br i1 %71, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit42, label %.lr.ph.i.i.i.i31, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i41:                                ; preds = %.lr.ph.i.i.i.i31, %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
   %72 = zext i32 %53 to i64
-  %73 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %51, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %72
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit42
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit42: ; preds = %65, %55, %.loopexit.i.i.i41
@@ -14139,7 +14133,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer20PromoteFloatOp_SETCCEPNS
   %30 = add i32 %25, -1
   %.01726.i.i.i.i = and i32 %29, %30
   %31 = zext i32 %.01726.i.i.i.i to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %22, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !26
   %34 = icmp eq i32 %28, %33
   br i1 %34, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -14156,14 +14150,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer20PromoteFloatOp_SETCCEPNS
   %39 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %39, %30
   %40 = zext i32 %.017.i.i.i.i to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %22, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !26
   %43 = icmp eq i32 %28, %42
   br i1 %43, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %3
   %44 = zext i32 %25 to i64
-  %45 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %22, i64 %44
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %44
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %37, %27, %.loopexit.i.i.i
@@ -14199,7 +14193,7 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %37, %
   %61 = add i32 %56, -1
   %.01726.i.i.i.i36 = and i32 %60, %61
   %62 = zext i32 %.01726.i.i.i.i36 to i64
-  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %54, i64 %62
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !26
   %65 = icmp eq i32 %59, %64
   br i1 %65, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit48, label %.lr.ph.i.i.i.i37, !prof !218
@@ -14216,14 +14210,14 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %37, %
   %70 = add i32 %.01527.i.i.i.i39, %.01728.i.i.i.i38
   %.017.i.i.i.i40 = and i32 %70, %61
   %71 = zext i32 %.017.i.i.i.i40 to i64
-  %72 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %54, i64 %71
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !26
   %74 = icmp eq i32 %59, %73
   br i1 %74, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit48, label %.lr.ph.i.i.i.i37, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i47:                                ; preds = %.lr.ph.i.i.i.i37, %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
   %75 = zext i32 %56 to i64
-  %76 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %54, i64 %75
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %75
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit48
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit48: ; preds = %68, %58, %.loopexit.i.i.i47
@@ -14342,7 +14336,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %14
   %35 = add i32 %30, -1
   %.01726.i.i.i.i = and i32 %34, %35
   %36 = zext i32 %.01726.i.i.i.i to i64
-  %37 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %27, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !26
   %39 = icmp eq i32 %33, %38
   br i1 %39, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -14359,14 +14353,14 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %14
   %44 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %44, %35
   %45 = zext i32 %.017.i.i.i.i to i64
-  %46 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %27, i64 %45
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !26
   %48 = icmp eq i32 %33, %47
   br i1 %48, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %49 = zext i32 %30 to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %27, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %49
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %42, %32, %.loopexit.i.i.i
@@ -14384,7 +14378,7 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %42, %
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %58 = load ptr, ptr %57, align 8, !tbaa !27
   %59 = zext i32 %56 to i64
-  %60 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %59
   %.sroa.0.0.copyload.i.i = load i16, ptr %60, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -14401,7 +14395,7 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %42, %
 
 66:                                               ; preds = %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
   %67 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %68 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %67
+  %68 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %67
   %69 = getelementptr i8, ptr %68, i64 -16
   %.sroa.0.0.copyload.i.i45 = load i64, ptr %69, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %68, i64 -8
@@ -14452,7 +14446,7 @@ _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZN4llvm3MVT12ge
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 48
   %85 = load ptr, ptr %84, align 8, !tbaa !27
   %86 = zext i32 %.sroa.25.0.copyload.i to i64
-  %87 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %86
   %.sroa.0.0.copyload.i.i48 = load i16, ptr %87, align 8, !tbaa !28
   %.sroa.013.0.copyload = load i16, ptr %6, align 8, !tbaa !28
   %.not.i.i.i = icmp eq i16 %.sroa.0.0.copyload.i.i48, 11
@@ -14565,7 +14559,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %18
   %39 = add i32 %34, -1
   %.01726.i.i.i.i = and i32 %38, %39
   %40 = zext i32 %.01726.i.i.i.i to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !26
   %43 = icmp eq i32 %37, %42
   br i1 %43, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -14582,14 +14576,14 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %18
   %48 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %48, %39
   %49 = zext i32 %.017.i.i.i.i to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !26
   %52 = icmp eq i32 %37, %51
   br i1 %52, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %53 = zext i32 %34 to i64
-  %54 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %53
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %53
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %46, %36, %.loopexit.i.i.i
@@ -14607,7 +14601,7 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %46, %
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %62 = load ptr, ptr %61, align 8, !tbaa !27
   %63 = zext i32 %60 to i64
-  %64 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %63
   %.sroa.0.0.copyload.i.i = load i16, ptr %64, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %64, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -14624,7 +14618,7 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %46, %
 
 70:                                               ; preds = %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
   %71 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %72 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %71
+  %72 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %71
   %73 = getelementptr i8, ptr %72, i64 -16
   %.sroa.0.0.copyload.i.i42 = load i64, ptr %73, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %72, i64 -8
@@ -14675,7 +14669,7 @@ _ZN4llvm3EVT12getIntegerVTERNS_11LLVMContextEj.exit: ; preds = %_ZN4llvm3MVT12ge
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 48
   %89 = load ptr, ptr %88, align 8, !tbaa !27
   %90 = zext i32 %.sroa.25.0.copyload.i to i64
-  %91 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %90
   %.sroa.0.0.copyload.i.i45 = load i16, ptr %91, align 8, !tbaa !28
   %.sroa.011.0.copyload = load i16, ptr %6, align 8, !tbaa !28
   %.not.i.i.i = icmp eq i16 %.sroa.0.0.copyload.i.i45, 11
@@ -14738,7 +14732,7 @@ define hidden void @_ZN4llvm16DAGTypeLegalizer18PromoteFloatResultEPNS_6SDNodeEj
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %.sroa.0.0.copyload.i = load i16, ptr %7, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.21.0.copyload.i = load ptr, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !54
@@ -14965,7 +14959,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer23PromoteFloatRes_BITCASTE
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %29 = load ptr, ptr %28, align 8, !tbaa !27
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %30
   %.sroa.0.0.copyload.i.i = load i16, ptr %31, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -14977,7 +14971,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer23PromoteFloatRes_BITCASTE
 
 33:                                               ; preds = %2
   %34 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %35 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %34
+  %35 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %34
   %36 = getelementptr i8, ptr %35, i64 -16
   %.sroa.0.0.copyload.i.i43 = load i64, ptr %36, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %35, i64 -8
@@ -15130,7 +15124,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %13
 
 22:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %23 = zext i16 %.sroa.0.0.copyload.i to i64
-  %24 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %23
+  %24 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %25, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %24, i64 -8
@@ -15338,7 +15332,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %22
 
 37:                                               ; preds = %33
   %38 = zext i16 %.sroa.0.0.copyload.i to i64
-  %39 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %38
+  %39 = getelementptr [2 x i8], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -2
   %41 = load i16, ptr %40, align 2, !tbaa !28
   %42 = insertvalue { i16, ptr } poison, i16 %41, 0
@@ -15412,7 +15406,7 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %37, %44
   %79 = add i32 %74, -1
   %.01726.i.i.i.i = and i32 %78, %79
   %80 = zext i32 %.01726.i.i.i.i to i64
-  %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %71, i64 %80
+  %81 = getelementptr inbounds nuw [24 x i8], ptr %71, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !26
   %83 = icmp eq i32 %77, %82
   br i1 %83, label %_ZN4llvm16DAGTypeLegalizer19GetScalarizedVectorENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -15429,14 +15423,14 @@ _ZNK4llvm3EVT20getVectorElementTypeEv.exit:       ; preds = %37, %44
   %88 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %88, %79
   %89 = zext i32 %.017.i.i.i.i to i64
-  %90 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %71, i64 %89
+  %90 = getelementptr inbounds nuw [24 x i8], ptr %71, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !26
   %92 = icmp eq i32 %77, %91
   br i1 %92, label %_ZN4llvm16DAGTypeLegalizer19GetScalarizedVectorENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %61
   %93 = zext i32 %74 to i64
-  %94 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %71, i64 %93
+  %94 = getelementptr inbounds nuw [24 x i8], ptr %71, i64 %93
   br label %_ZN4llvm16DAGTypeLegalizer19GetScalarizedVectorENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetScalarizedVectorENS_7SDValueE.exit: ; preds = %86, %76, %.loopexit.i.i.i
@@ -15475,7 +15469,7 @@ _ZN4llvm16DAGTypeLegalizer19GetScalarizedVectorENS_7SDValueE.exit: ; preds = %86
   %113 = add i32 %108, -1
   %.01726.i.i.i.i135 = and i32 %112, %113
   %114 = zext i32 %.01726.i.i.i.i135 to i64
-  %115 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %105, i64 %114
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !26
   %117 = icmp eq i32 %111, %116
   br i1 %117, label %_ZN4llvm16DAGTypeLegalizer16GetWidenedVectorENS_7SDValueE.exit, label %.lr.ph.i.i.i.i136, !prof !218
@@ -15492,14 +15486,14 @@ _ZN4llvm16DAGTypeLegalizer19GetScalarizedVectorENS_7SDValueE.exit: ; preds = %86
   %122 = add i32 %.01527.i.i.i.i138, %.01728.i.i.i.i137
   %.017.i.i.i.i139 = and i32 %122, %113
   %123 = zext i32 %.017.i.i.i.i139 to i64
-  %124 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %105, i64 %123
+  %124 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !26
   %126 = icmp eq i32 %111, %125
   br i1 %126, label %_ZN4llvm16DAGTypeLegalizer16GetWidenedVectorENS_7SDValueE.exit, label %.lr.ph.i.i.i.i136, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i146:                               ; preds = %.lr.ph.i.i.i.i136, %96
   %127 = zext i32 %108 to i64
-  %128 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %105, i64 %127
+  %128 = getelementptr inbounds nuw [24 x i8], ptr %105, i64 %127
   br label %_ZN4llvm16DAGTypeLegalizer16GetWidenedVectorENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetWidenedVectorENS_7SDValueE.exit: ; preds = %120, %110, %.loopexit.i.i.i146
@@ -15543,7 +15537,7 @@ _ZN4llvm16DAGTypeLegalizer16GetWidenedVectorENS_7SDValueE.exit: ; preds = %120, 
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 48
   %140 = load ptr, ptr %139, align 8, !tbaa !27
   %141 = zext i32 %138 to i64
-  %142 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %140, i64 %141
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %140, i64 %141
   %.sroa.0.0.copyload.i.i = load i16, ptr %142, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %142, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -15585,7 +15579,7 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit.i:         ; preds = %134
 _ZNK4llvm3MVT20getVectorNumElementsEv.exit.i:     ; preds = %152, %150
   %153 = phi i16 [ %.pre.i.i, %152 ], [ %149, %150 ]
   %154 = zext i16 %153 to i64
-  %155 = getelementptr i16, ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %154
+  %155 = getelementptr [2 x i8], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %154
   %156 = getelementptr i8, ptr %155, i64 -2
   %157 = load i16, ptr %156, align 2, !tbaa !294
   %158 = zext i16 %157 to i32
@@ -15620,7 +15614,7 @@ _ZNK4llvm3EVT20getVectorNumElementsEv.exit:       ; preds = %_ZNK4llvm3MVT20getV
   %170 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %171 = load ptr, ptr %170, align 8, !tbaa !27
   %172 = zext i32 %.sroa.8.0.copyload to i64
-  %173 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %171, i64 %172
+  %173 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %172
   %.sroa.0.0.copyload.i.i148 = load i16, ptr %173, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i149 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %.sroa.21.0.copyload.i.i150 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i149, align 8, !tbaa !54
@@ -15659,7 +15653,7 @@ _ZNK4llvm3EVT20getVectorNumElementsEv.exit:       ; preds = %_ZNK4llvm3MVT20getV
   %181 = getelementptr inbounds nuw i8, ptr %.fca.0.extract31, i64 48
   %182 = load ptr, ptr %181, align 8, !tbaa !27
   %183 = zext i32 %.fca.1.extract32 to i64
-  %184 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %182, i64 %183
+  %184 = getelementptr inbounds nuw [16 x i8], ptr %182, i64 %183
   %.sroa.0.0.copyload.i.i153 = load i16, ptr %184, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i154 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %.sroa.21.0.copyload.i.i155 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i154, align 8, !tbaa !54
@@ -15671,7 +15665,7 @@ _ZNK4llvm3EVT20getVectorNumElementsEv.exit:       ; preds = %_ZNK4llvm3MVT20getV
 
 186:                                              ; preds = %178
   %187 = zext i16 %.sroa.0.0.copyload.i.i153 to i64
-  %188 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %187
+  %188 = getelementptr [2 x i8], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %187
   %189 = getelementptr i8, ptr %188, i64 -2
   %190 = load i16, ptr %189, align 2, !tbaa !28
   %191 = insertvalue { i16, ptr } poison, i16 %190, 0
@@ -15841,7 +15835,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer25PromoteFloatRes_FCOPYSIG
   %38 = add i32 %33, -1
   %.01726.i.i.i.i = and i32 %37, %38
   %39 = zext i32 %.01726.i.i.i.i to i64
-  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %30, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !26
   %42 = icmp eq i32 %36, %41
   br i1 %42, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -15858,14 +15852,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer25PromoteFloatRes_FCOPYSIG
   %47 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %47, %38
   %48 = zext i32 %.017.i.i.i.i to i64
-  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %30, i64 %48
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !26
   %51 = icmp eq i32 %36, %50
   br i1 %51, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %52 = zext i32 %33 to i64
-  %53 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %30, i64 %52
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %52
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %45, %35, %.loopexit.i.i.i
@@ -15965,7 +15959,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer23PromoteFloatRes_UnaryOpE
   %37 = add i32 %32, -1
   %.01726.i.i.i.i = and i32 %36, %37
   %38 = zext i32 %.01726.i.i.i.i to i64
-  %39 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %29, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !26
   %41 = icmp eq i32 %35, %40
   br i1 %41, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -15982,14 +15976,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer23PromoteFloatRes_UnaryOpE
   %46 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %46, %37
   %47 = zext i32 %.017.i.i.i.i to i64
-  %48 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %29, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !26
   %50 = icmp eq i32 %35, %49
   br i1 %50, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %51 = zext i32 %32 to i64
-  %52 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %29, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %51
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %44, %34, %.loopexit.i.i.i
@@ -16088,7 +16082,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer21PromoteFloatRes_BinOpEPN
   %39 = add i32 %34, -1
   %.01726.i.i.i.i = and i32 %38, %39
   %40 = zext i32 %.01726.i.i.i.i to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !26
   %43 = icmp eq i32 %37, %42
   br i1 %43, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -16105,14 +16099,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer21PromoteFloatRes_BinOpEPN
   %48 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %48, %39
   %49 = zext i32 %.017.i.i.i.i to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !26
   %52 = icmp eq i32 %37, %51
   br i1 %52, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %53 = zext i32 %34 to i64
-  %54 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %53
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %53
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %46, %36, %.loopexit.i.i.i
@@ -16148,7 +16142,7 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %46, %
   %70 = add i32 %65, -1
   %.01726.i.i.i.i42 = and i32 %69, %70
   %71 = zext i32 %.01726.i.i.i.i42 to i64
-  %72 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %63, i64 %71
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !26
   %74 = icmp eq i32 %68, %73
   br i1 %74, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit54, label %.lr.ph.i.i.i.i43, !prof !218
@@ -16165,14 +16159,14 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %46, %
   %79 = add i32 %.01527.i.i.i.i45, %.01728.i.i.i.i44
   %.017.i.i.i.i46 = and i32 %79, %70
   %80 = zext i32 %.017.i.i.i.i46 to i64
-  %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %63, i64 %80
+  %81 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !26
   %83 = icmp eq i32 %68, %82
   br i1 %83, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit54, label %.lr.ph.i.i.i.i43, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i53:                                ; preds = %.lr.ph.i.i.i.i43, %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
   %84 = zext i32 %65 to i64
-  %85 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %63, i64 %84
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %84
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit54
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit54: ; preds = %77, %67, %.loopexit.i.i.i53
@@ -16278,7 +16272,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer20PromoteFloatRes_FMADEPNS
   %41 = add i32 %36, -1
   %.01726.i.i.i.i = and i32 %40, %41
   %42 = zext i32 %.01726.i.i.i.i to i64
-  %43 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %33, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !26
   %45 = icmp eq i32 %39, %44
   br i1 %45, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -16295,14 +16289,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer20PromoteFloatRes_FMADEPNS
   %50 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %50, %41
   %51 = zext i32 %.017.i.i.i.i to i64
-  %52 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %33, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !26
   %54 = icmp eq i32 %39, %53
   br i1 %54, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %55 = zext i32 %36 to i64
-  %56 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %33, i64 %55
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %55
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %48, %38, %.loopexit.i.i.i
@@ -16338,7 +16332,7 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %48, %
   %72 = add i32 %67, -1
   %.01726.i.i.i.i51 = and i32 %71, %72
   %73 = zext i32 %.01726.i.i.i.i51 to i64
-  %74 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %65, i64 %73
+  %74 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !26
   %76 = icmp eq i32 %70, %75
   br i1 %76, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit63, label %.lr.ph.i.i.i.i52, !prof !218
@@ -16355,14 +16349,14 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %48, %
   %81 = add i32 %.01527.i.i.i.i54, %.01728.i.i.i.i53
   %.017.i.i.i.i55 = and i32 %81, %72
   %82 = zext i32 %.017.i.i.i.i55 to i64
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %65, i64 %82
+  %83 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !26
   %85 = icmp eq i32 %70, %84
   br i1 %85, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit63, label %.lr.ph.i.i.i.i52, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i62:                                ; preds = %.lr.ph.i.i.i.i52, %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
   %86 = zext i32 %67 to i64
-  %87 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %65, i64 %86
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %86
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit63
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit63: ; preds = %79, %69, %.loopexit.i.i.i62
@@ -16398,7 +16392,7 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit63: ; preds = %79,
   %103 = add i32 %98, -1
   %.01726.i.i.i.i65 = and i32 %102, %103
   %104 = zext i32 %.01726.i.i.i.i65 to i64
-  %105 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %96, i64 %104
+  %105 = getelementptr inbounds nuw [24 x i8], ptr %96, i64 %104
   %106 = load i32, ptr %105, align 4, !tbaa !26
   %107 = icmp eq i32 %101, %106
   br i1 %107, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit77, label %.lr.ph.i.i.i.i66, !prof !218
@@ -16415,14 +16409,14 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit63: ; preds = %79,
   %112 = add i32 %.01527.i.i.i.i68, %.01728.i.i.i.i67
   %.017.i.i.i.i69 = and i32 %112, %103
   %113 = zext i32 %.017.i.i.i.i69 to i64
-  %114 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %96, i64 %113
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %96, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !26
   %116 = icmp eq i32 %101, %115
   br i1 %116, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit77, label %.lr.ph.i.i.i.i66, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i76:                                ; preds = %.lr.ph.i.i.i.i66, %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit63
   %117 = zext i32 %98 to i64
-  %118 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %96, i64 %117
+  %118 = getelementptr inbounds nuw [24 x i8], ptr %96, i64 %117
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit77
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit77: ; preds = %110, %100, %.loopexit.i.i.i76
@@ -16526,7 +16520,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer21PromoteFloatRes_ExpOpEPN
   %38 = add i32 %33, -1
   %.01726.i.i.i.i = and i32 %37, %38
   %39 = zext i32 %.01726.i.i.i.i to i64
-  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %30, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !26
   %42 = icmp eq i32 %36, %41
   br i1 %42, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -16543,14 +16537,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer21PromoteFloatRes_ExpOpEPN
   %47 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %47, %38
   %48 = zext i32 %.017.i.i.i.i to i64
-  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %30, i64 %48
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !26
   %51 = icmp eq i32 %36, %50
   br i1 %51, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %52 = zext i32 %33 to i64
-  %53 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %30, i64 %52
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %52
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %45, %35, %.loopexit.i.i.i
@@ -16653,7 +16647,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer22PromoteFloatRes_FFREXPEP
   %39 = add i32 %34, -1
   %.01726.i.i.i.i = and i32 %38, %39
   %40 = zext i32 %.01726.i.i.i.i to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !26
   %43 = icmp eq i32 %37, %42
   br i1 %43, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -16670,14 +16664,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer22PromoteFloatRes_FFREXPEP
   %48 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %48, %39
   %49 = zext i32 %.017.i.i.i.i to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !26
   %52 = icmp eq i32 %37, %51
   br i1 %52, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %53 = zext i32 %34 to i64
-  %54 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %53
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %53
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %46, %36, %.loopexit.i.i.i
@@ -16797,7 +16791,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer37PromoteFloatRes_UnaryWit
   %39 = add i32 %34, -1
   %.01726.i.i.i.i = and i32 %38, %39
   %40 = zext i32 %.01726.i.i.i.i to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !26
   %43 = icmp eq i32 %37, %42
   br i1 %43, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -16814,14 +16808,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer37PromoteFloatRes_UnaryWit
   %48 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %48, %39
   %49 = zext i32 %.017.i.i.i.i to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !26
   %52 = icmp eq i32 %37, %51
   br i1 %52, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %53 = zext i32 %34 to i64
-  %54 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %53
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %53
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %46, %36, %.loopexit.i.i.i
@@ -16957,7 +16951,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %10
 
 37:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %38 = zext i16 %.sroa.0.0.copyload.i to i64
-  %39 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %38
+  %39 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %40, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %39, i64 -8
@@ -17138,7 +17132,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %12
 
 40:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %41 = zext i16 %.sroa.0.0.copyload.i to i64
-  %42 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %41
+  %42 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %41
   %43 = getelementptr i8, ptr %42, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %43, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %42, i64 -8
@@ -17294,7 +17288,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer20PromoteFloatRes_LOADEPNS
 
 17:                                               ; preds = %2
   %18 = zext i16 %.sroa.0.0.copyload.i to i64
-  %19 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %18
+  %19 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %18
   %20 = getelementptr i8, ptr %19, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %20, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %19, i64 -8
@@ -17493,7 +17487,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer27PromoteFloatRes_ATOMIC_L
 
 18:                                               ; preds = %2
   %19 = zext i16 %.sroa.0.0.copyload.i to i64
-  %20 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %19
+  %20 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %21, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %20, i64 -8
@@ -17702,7 +17696,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer22PromoteFloatRes_SELECTEP
   %27 = add i32 %22, -1
   %.01726.i.i.i.i = and i32 %26, %27
   %28 = zext i32 %.01726.i.i.i.i to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !26
   %31 = icmp eq i32 %25, %30
   br i1 %31, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -17719,14 +17713,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer22PromoteFloatRes_SELECTEP
   %36 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %36, %27
   %37 = zext i32 %.017.i.i.i.i to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !26
   %40 = icmp eq i32 %25, %39
   br i1 %40, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %41 = zext i32 %22 to i64
-  %42 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %41
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %34, %24, %.loopexit.i.i.i
@@ -17762,7 +17756,7 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %34, %
   %58 = add i32 %53, -1
   %.01726.i.i.i.i24 = and i32 %57, %58
   %59 = zext i32 %.01726.i.i.i.i24 to i64
-  %60 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %51, i64 %59
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !26
   %62 = icmp eq i32 %56, %61
   br i1 %62, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit36, label %.lr.ph.i.i.i.i25, !prof !218
@@ -17779,14 +17773,14 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %34, %
   %67 = add i32 %.01527.i.i.i.i27, %.01728.i.i.i.i26
   %.017.i.i.i.i28 = and i32 %67, %58
   %68 = zext i32 %.017.i.i.i.i28 to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %51, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !26
   %71 = icmp eq i32 %56, %70
   br i1 %71, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit36, label %.lr.ph.i.i.i.i25, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i35:                                ; preds = %.lr.ph.i.i.i.i25, %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
   %72 = zext i32 %53 to i64
-  %73 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %51, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %72
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit36
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit36: ; preds = %65, %55, %.loopexit.i.i.i35
@@ -17878,7 +17872,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer25PromoteFloatRes_SELECT_C
   %27 = add i32 %22, -1
   %.01726.i.i.i.i = and i32 %26, %27
   %28 = zext i32 %.01726.i.i.i.i to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !26
   %31 = icmp eq i32 %25, %30
   br i1 %31, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -17895,14 +17889,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer25PromoteFloatRes_SELECT_C
   %36 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %36, %27
   %37 = zext i32 %.017.i.i.i.i to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !26
   %40 = icmp eq i32 %25, %39
   br i1 %40, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %41 = zext i32 %22 to i64
-  %42 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %41
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %34, %24, %.loopexit.i.i.i
@@ -17938,7 +17932,7 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %34, %
   %58 = add i32 %53, -1
   %.01726.i.i.i.i26 = and i32 %57, %58
   %59 = zext i32 %.01726.i.i.i.i26 to i64
-  %60 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %51, i64 %59
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !26
   %62 = icmp eq i32 %56, %61
   br i1 %62, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit38, label %.lr.ph.i.i.i.i27, !prof !218
@@ -17955,14 +17949,14 @@ _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit: ; preds = %34, %
   %67 = add i32 %.01527.i.i.i.i29, %.01728.i.i.i.i28
   %.017.i.i.i.i30 = and i32 %67, %58
   %68 = zext i32 %.017.i.i.i.i30 to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %51, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !26
   %71 = icmp eq i32 %56, %70
   br i1 %71, label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit38, label %.lr.ph.i.i.i.i27, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i37:                                ; preds = %.lr.ph.i.i.i.i27, %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit
   %72 = zext i32 %53 to i64
-  %73 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %51, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %72
   br label %_ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit38
 
 _ZN4llvm16DAGTypeLegalizer16GetPromotedFloatENS_7SDValueE.exit38: ; preds = %65, %55, %.loopexit.i.i.i37
@@ -18163,7 +18157,7 @@ define hidden void @_ZN4llvm16DAGTypeLegalizer21SoftPromoteHalfResultEPNS_6SDNod
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %6
   %.sroa.0.0.copyload.i = load i16, ptr %7, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.21.0.copyload.i = load ptr, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !54
@@ -18525,7 +18519,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %13
   %18 = getelementptr inbounds nuw i8, ptr %.fca.0.extract3, i64 48
   %19 = load ptr, ptr %18, align 8, !tbaa !27
   %20 = zext i32 %.fca.1.extract4 to i64
-  %21 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %20
   %.sroa.0.0.copyload.i.i = load i16, ptr %21, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -18537,7 +18531,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %13
 
 23:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %24 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %25 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %24
+  %25 = getelementptr [2 x i8], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -2
   %27 = load i16, ptr %26, align 2, !tbaa !28
   %28 = insertvalue { i16, ptr } poison, i16 %27, 0
@@ -18630,7 +18624,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer28SoftPromoteHalfRes_FCOPY
   %46 = add i32 %41, -1
   %.01726.i.i.i.i = and i32 %45, %46
   %47 = zext i32 %.01726.i.i.i.i to i64
-  %48 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %38, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !26
   %50 = icmp eq i32 %44, %49
   br i1 %50, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -18647,14 +18641,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer28SoftPromoteHalfRes_FCOPY
   %55 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %55, %46
   %56 = zext i32 %.017.i.i.i.i to i64
-  %57 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %38, i64 %56
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !26
   %59 = icmp eq i32 %44, %58
   br i1 %59, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %60 = zext i32 %41 to i64
-  %61 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %38, i64 %60
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %60
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %53, %43, %.loopexit.i.i.i
@@ -18691,7 +18685,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %_ZN4llvm16DAGTypeLe
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 48
   %74 = load ptr, ptr %73, align 8, !tbaa !27
   %75 = zext i32 %.sroa.25.0.copyload.i to i64
-  %76 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %75
   %.sroa.0.0.copyload.i.i = load i16, ptr %76, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %76, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -18702,7 +18696,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %_ZN4llvm16DAGTypeLe
   %78 = getelementptr inbounds nuw i8, ptr %.fca.0.extract172, i64 48
   %79 = load ptr, ptr %78, align 8, !tbaa !27
   %80 = zext i32 %.fca.1.extract173 to i64
-  %81 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %80
   %.sroa.0.0.copyload.i.i190 = load i16, ptr %81, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i191 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %.sroa.21.0.copyload.i.i192 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i191, align 8, !tbaa !54
@@ -18715,7 +18709,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %_ZN4llvm16DAGTypeLe
 
 83:                                               ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %84 = zext i16 %.sroa.0.0.copyload.i.i to i64
-  %85 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %84
+  %85 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %84
   %86 = getelementptr i8, ptr %85, i64 -16
   %.sroa.0.0.copyload.i.i195 = load i64, ptr %86, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %85, i64 -8
@@ -18743,7 +18737,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit:              ; preds = %83, %87
 
 90:                                               ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit
   %91 = zext i16 %.sroa.0.0.copyload.i.i190 to i64
-  %92 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %91
+  %92 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %91
   %93 = getelementptr i8, ptr %92, i64 -16
   %.sroa.0.0.copyload.i.i199 = load i64, ptr %93, align 16
   %.sroa.2.0..sroa_idx.i.i200 = getelementptr i8, ptr %92, i64 -8
@@ -18815,7 +18809,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit205:           ; preds = %90, %94
 
 115:                                              ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit205
   %116 = zext i16 %114 to i64
-  %117 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %116
+  %117 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %116
   %118 = getelementptr i8, ptr %117, i64 -16
   %.sroa.0.0.copyload.i.i207 = load i64, ptr %118, align 16
   %.sroa.2.0..sroa_idx.i.i208 = getelementptr i8, ptr %117, i64 -8
@@ -18838,7 +18832,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit213:           ; preds = %115, %119
 
 122:                                              ; preds = %_ZNK4llvm3EVT13getSizeInBitsEv.exit213
   %123 = zext i16 %121 to i64
-  %124 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %123
+  %124 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %123
   %125 = getelementptr i8, ptr %124, i64 -16
   %.sroa.0.0.copyload.i.i215 = load i64, ptr %125, align 16
   %.sroa.2.0..sroa_idx.i.i216 = getelementptr i8, ptr %124, i64 -8
@@ -18879,7 +18873,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit221:           ; preds = %122, %126
   %137 = getelementptr inbounds nuw i8, ptr %.fca.0.extract129, i64 48
   %138 = load ptr, ptr %137, align 8, !tbaa !27
   %139 = zext i32 %.fca.1.extract130 to i64
-  %140 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %138, i64 %139
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %138, i64 %139
   %.sroa.0.0.copyload.i.i224 = load i16, ptr %140, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i225 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %.sroa.21.0.copyload.i.i226 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i225, align 8, !tbaa !54
@@ -18935,7 +18929,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit221:           ; preds = %122, %126
   %160 = getelementptr inbounds nuw i8, ptr %.fca.0.extract76, i64 48
   %161 = load ptr, ptr %160, align 8, !tbaa !27
   %162 = zext i32 %.fca.1.extract77 to i64
-  %163 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %161, i64 %162
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %161, i64 %162
   %.sroa.0.0.copyload.i.i229 = load i16, ptr %163, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i230 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %.sroa.21.0.copyload.i.i231 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i230, align 8, !tbaa !54
@@ -19067,7 +19061,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer27SoftPromoteHalfRes_FP_RO
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !23
   %22 = zext i1 %19 to i64
-  %23 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %23, i64 16, i1 false), !tbaa.struct !214
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %24 = load ptr, ptr %4, align 8, !tbaa !202
@@ -19076,7 +19070,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer27SoftPromoteHalfRes_FP_RO
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %28 = load ptr, ptr %27, align 8, !tbaa !27
   %29 = zext i32 %26 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %29
   %.sroa.0.0.copyload.i.i = load i16, ptr %30, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -19385,7 +19379,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer26SoftPromoteHalfRes_Unary
   %39 = add i32 %34, -1
   %.01726.i.i.i.i = and i32 %38, %39
   %40 = zext i32 %.01726.i.i.i.i to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !26
   %43 = icmp eq i32 %37, %42
   br i1 %43, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -19402,14 +19396,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer26SoftPromoteHalfRes_Unary
   %48 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %48, %39
   %49 = zext i32 %.017.i.i.i.i to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !26
   %52 = icmp eq i32 %37, %51
   br i1 %52, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %53 = zext i32 %34 to i64
-  %54 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %53
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %53
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %46, %36, %.loopexit.i.i.i
@@ -19565,7 +19559,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24SoftPromoteHalfRes_BinOp
   %42 = add i32 %37, -1
   %.01726.i.i.i.i = and i32 %41, %42
   %43 = zext i32 %.01726.i.i.i.i to i64
-  %44 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %34, i64 %43
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !26
   %46 = icmp eq i32 %40, %45
   br i1 %46, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -19582,14 +19576,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24SoftPromoteHalfRes_BinOp
   %51 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %51, %42
   %52 = zext i32 %.017.i.i.i.i to i64
-  %53 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %34, i64 %52
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !26
   %55 = icmp eq i32 %40, %54
   br i1 %55, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %56 = zext i32 %37 to i64
-  %57 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %34, i64 %56
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %56
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %49, %39, %.loopexit.i.i.i
@@ -19625,7 +19619,7 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %49
   %73 = add i32 %68, -1
   %.01726.i.i.i.i92 = and i32 %72, %73
   %74 = zext i32 %.01726.i.i.i.i92 to i64
-  %75 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %66, i64 %74
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !26
   %77 = icmp eq i32 %71, %76
   br i1 %77, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit104, label %.lr.ph.i.i.i.i93, !prof !218
@@ -19642,14 +19636,14 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %49
   %82 = add i32 %.01527.i.i.i.i95, %.01728.i.i.i.i94
   %.017.i.i.i.i96 = and i32 %82, %73
   %83 = zext i32 %.017.i.i.i.i96 to i64
-  %84 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %66, i64 %83
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !26
   %86 = icmp eq i32 %71, %85
   br i1 %86, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit104, label %.lr.ph.i.i.i.i93, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i103:                               ; preds = %.lr.ph.i.i.i.i93, %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
   %87 = zext i32 %68 to i64
-  %88 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %66, i64 %87
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %87
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit104
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit104: ; preds = %80, %70, %.loopexit.i.i.i103
@@ -19818,7 +19812,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer23SoftPromoteHalfRes_FMADE
   %45 = add i32 %40, -1
   %.01726.i.i.i.i = and i32 %44, %45
   %46 = zext i32 %.01726.i.i.i.i to i64
-  %47 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %37, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !26
   %49 = icmp eq i32 %43, %48
   br i1 %49, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -19835,14 +19829,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer23SoftPromoteHalfRes_FMADE
   %54 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %54, %45
   %55 = zext i32 %.017.i.i.i.i to i64
-  %56 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %37, i64 %55
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !26
   %58 = icmp eq i32 %43, %57
   br i1 %58, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %59 = zext i32 %40 to i64
-  %60 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %37, i64 %59
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %59
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %52, %42, %.loopexit.i.i.i
@@ -19878,7 +19872,7 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %52
   %76 = add i32 %71, -1
   %.01726.i.i.i.i120 = and i32 %75, %76
   %77 = zext i32 %.01726.i.i.i.i120 to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %69, i64 %77
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !26
   %80 = icmp eq i32 %74, %79
   br i1 %80, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit132, label %.lr.ph.i.i.i.i121, !prof !218
@@ -19895,14 +19889,14 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %52
   %85 = add i32 %.01527.i.i.i.i123, %.01728.i.i.i.i122
   %.017.i.i.i.i124 = and i32 %85, %76
   %86 = zext i32 %.017.i.i.i.i124 to i64
-  %87 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %69, i64 %86
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !26
   %89 = icmp eq i32 %74, %88
   br i1 %89, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit132, label %.lr.ph.i.i.i.i121, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i131:                               ; preds = %.lr.ph.i.i.i.i121, %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
   %90 = zext i32 %71 to i64
-  %91 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %69, i64 %90
+  %91 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %90
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit132
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit132: ; preds = %83, %73, %.loopexit.i.i.i131
@@ -19938,7 +19932,7 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit132: ; preds = 
   %107 = add i32 %102, -1
   %.01726.i.i.i.i134 = and i32 %106, %107
   %108 = zext i32 %.01726.i.i.i.i134 to i64
-  %109 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %100, i64 %108
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %100, i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !26
   %111 = icmp eq i32 %105, %110
   br i1 %111, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit146, label %.lr.ph.i.i.i.i135, !prof !218
@@ -19955,14 +19949,14 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit132: ; preds = 
   %116 = add i32 %.01527.i.i.i.i137, %.01728.i.i.i.i136
   %.017.i.i.i.i138 = and i32 %116, %107
   %117 = zext i32 %.017.i.i.i.i138 to i64
-  %118 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %100, i64 %117
+  %118 = getelementptr inbounds nuw [24 x i8], ptr %100, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !26
   %120 = icmp eq i32 %105, %119
   br i1 %120, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit146, label %.lr.ph.i.i.i.i135, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i145:                               ; preds = %.lr.ph.i.i.i.i135, %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit132
   %121 = zext i32 %102 to i64
-  %122 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %100, i64 %121
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %100, i64 %121
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit146
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit146: ; preds = %114, %104, %.loopexit.i.i.i145
@@ -20136,7 +20130,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24SoftPromoteHalfRes_ExpOp
   %40 = add i32 %35, -1
   %.01726.i.i.i.i = and i32 %39, %40
   %41 = zext i32 %.01726.i.i.i.i to i64
-  %42 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %32, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !26
   %44 = icmp eq i32 %38, %43
   br i1 %44, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -20153,14 +20147,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer24SoftPromoteHalfRes_ExpOp
   %49 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %49, %40
   %50 = zext i32 %.017.i.i.i.i to i64
-  %51 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %32, i64 %50
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !26
   %53 = icmp eq i32 %38, %52
   br i1 %53, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %54 = zext i32 %35 to i64
-  %55 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %32, i64 %54
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %54
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %47, %37, %.loopexit.i.i.i
@@ -20316,7 +20310,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer25SoftPromoteHalfRes_FFREX
   %39 = add i32 %34, -1
   %.01726.i.i.i.i = and i32 %38, %39
   %40 = zext i32 %.01726.i.i.i.i to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !26
   %43 = icmp eq i32 %37, %42
   br i1 %43, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -20333,14 +20327,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer25SoftPromoteHalfRes_FFREX
   %48 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %48, %39
   %49 = zext i32 %.017.i.i.i.i to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !26
   %52 = icmp eq i32 %37, %51
   br i1 %52, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %53 = zext i32 %34 to i64
-  %54 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %53
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %53
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %46, %36, %.loopexit.i.i.i
@@ -20502,7 +20496,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer40SoftPromoteHalfRes_Unary
   %39 = add i32 %34, -1
   %.01726.i.i.i.i = and i32 %38, %39
   %40 = zext i32 %.01726.i.i.i.i to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !26
   %43 = icmp eq i32 %37, %42
   br i1 %43, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -20519,14 +20513,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer40SoftPromoteHalfRes_Unary
   %48 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %48, %39
   %49 = zext i32 %.017.i.i.i.i to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !26
   %52 = icmp eq i32 %37, %51
   br i1 %52, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %53 = zext i32 %34 to i64
-  %54 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %31, i64 %53
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %53
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %46, %36, %.loopexit.i.i.i
@@ -20816,7 +20810,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer25SoftPromoteHalfRes_SELEC
   %29 = add i32 %24, -1
   %.01726.i.i.i.i = and i32 %28, %29
   %30 = zext i32 %.01726.i.i.i.i to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %21, i64 %30
+  %31 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !26
   %33 = icmp eq i32 %27, %32
   br i1 %33, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -20833,14 +20827,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer25SoftPromoteHalfRes_SELEC
   %38 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %38, %29
   %39 = zext i32 %.017.i.i.i.i to i64
-  %40 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %21, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !26
   %42 = icmp eq i32 %27, %41
   br i1 %42, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %43 = zext i32 %24 to i64
-  %44 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %21, i64 %43
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %43
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %36, %26, %.loopexit.i.i.i
@@ -20876,7 +20870,7 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %36
   %60 = add i32 %55, -1
   %.01726.i.i.i.i27 = and i32 %59, %60
   %61 = zext i32 %.01726.i.i.i.i27 to i64
-  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %53, i64 %61
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !26
   %64 = icmp eq i32 %58, %63
   br i1 %64, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit39, label %.lr.ph.i.i.i.i28, !prof !218
@@ -20893,14 +20887,14 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %36
   %69 = add i32 %.01527.i.i.i.i30, %.01728.i.i.i.i29
   %.017.i.i.i.i31 = and i32 %69, %60
   %70 = zext i32 %.017.i.i.i.i31 to i64
-  %71 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %53, i64 %70
+  %71 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !26
   %73 = icmp eq i32 %58, %72
   br i1 %73, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit39, label %.lr.ph.i.i.i.i28, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i38:                                ; preds = %.lr.ph.i.i.i.i28, %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
   %74 = zext i32 %55 to i64
-  %75 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %53, i64 %74
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %74
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit39
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit39: ; preds = %67, %57, %.loopexit.i.i.i38
@@ -20930,7 +20924,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %_ZN4llvm16DAGTypeLe
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 48
   %87 = load ptr, ptr %86, align 8, !tbaa !27
   %88 = zext i32 %.sroa.25.0.copyload.i to i64
-  %89 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 %88
   %.sroa.0.0.copyload.i.i = load i16, ptr %89, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %89, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -20951,7 +20945,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %_ZN4llvm16DAGTypeLe
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 48
   %92 = load ptr, ptr %91, align 8, !tbaa !27
   %93 = zext i32 %.sroa.22.0.copyload to i64
-  %94 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %93
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %94, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %94, i64 8
   %.sroa.21.0.copyload.i.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i.i, align 8, !tbaa !54
@@ -21033,7 +21027,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer28SoftPromoteHalfRes_SELEC
   %27 = add i32 %22, -1
   %.01726.i.i.i.i = and i32 %26, %27
   %28 = zext i32 %.01726.i.i.i.i to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !26
   %31 = icmp eq i32 %25, %30
   br i1 %31, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -21050,14 +21044,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer28SoftPromoteHalfRes_SELEC
   %36 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %36, %27
   %37 = zext i32 %.017.i.i.i.i to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !26
   %40 = icmp eq i32 %25, %39
   br i1 %40, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %41 = zext i32 %22 to i64
-  %42 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %41
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %34, %24, %.loopexit.i.i.i
@@ -21093,7 +21087,7 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %34
   %58 = add i32 %53, -1
   %.01726.i.i.i.i26 = and i32 %57, %58
   %59 = zext i32 %.01726.i.i.i.i26 to i64
-  %60 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %51, i64 %59
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !26
   %62 = icmp eq i32 %56, %61
   br i1 %62, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit38, label %.lr.ph.i.i.i.i27, !prof !218
@@ -21110,14 +21104,14 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %34
   %67 = add i32 %.01527.i.i.i.i29, %.01728.i.i.i.i28
   %.017.i.i.i.i30 = and i32 %67, %58
   %68 = zext i32 %.017.i.i.i.i30 to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %51, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !26
   %71 = icmp eq i32 %56, %70
   br i1 %71, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit38, label %.lr.ph.i.i.i.i27, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i37:                                ; preds = %.lr.ph.i.i.i.i27, %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
   %72 = zext i32 %53 to i64
-  %73 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %51, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %72
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit38
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit38: ; preds = %65, %55, %.loopexit.i.i.i37
@@ -21147,7 +21141,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %_ZN4llvm16DAGTypeLe
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 48
   %85 = load ptr, ptr %84, align 8, !tbaa !27
   %86 = zext i32 %.sroa.25.0.copyload.i to i64
-  %87 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %86
   %.sroa.0.0.copyload.i.i = load i16, ptr %87, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %87, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -21391,14 +21385,14 @@ define hidden noundef zeroext i1 @_ZN4llvm16DAGTypeLegalizer22SoftPromoteHalfOpe
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !202
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !203
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %13
   %.sroa.0.0.copyload.i.i = load i16, ptr %14, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -21531,7 +21525,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer25SoftPromoteHalfOp_BITCAS
   %24 = add i32 %19, -1
   %.01726.i.i.i.i = and i32 %23, %24
   %25 = zext i32 %.01726.i.i.i.i to i64
-  %26 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %16, i64 %25
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !26
   %28 = icmp eq i32 %22, %27
   br i1 %28, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -21548,14 +21542,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer25SoftPromoteHalfOp_BITCAS
   %33 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %33, %24
   %34 = zext i32 %.017.i.i.i.i to i64
-  %35 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %16, i64 %34
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !26
   %37 = icmp eq i32 %22, %36
   br i1 %37, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %38 = zext i32 %19 to i64
-  %39 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %16, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %38
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %31, %21, %.loopexit.i.i.i
@@ -21612,7 +21606,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer26SoftPromoteHalfOp_FAKE_U
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %9
   %.sroa.05.0.copyload = load ptr, ptr %10, align 8, !tbaa !24
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.26.0.copyload = load i32, ptr %.sroa.26.0..sroa_idx, align 8, !tbaa !26
@@ -21642,7 +21636,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer26SoftPromoteHalfOp_FAKE_U
   %27 = add i32 %22, -1
   %.01726.i.i.i.i = and i32 %26, %27
   %28 = zext i32 %.01726.i.i.i.i to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !26
   %31 = icmp eq i32 %25, %30
   br i1 %31, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -21659,14 +21653,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer26SoftPromoteHalfOp_FAKE_U
   %36 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %36, %27
   %37 = zext i32 %.017.i.i.i.i to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !26
   %40 = icmp eq i32 %25, %39
   br i1 %40, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %3
   %41 = zext i32 %22 to i64
-  %42 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %19, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %41
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %34, %24, %.loopexit.i.i.i
@@ -21730,7 +21724,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer27SoftPromoteHalfOp_FCOPYS
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = zext i32 %.sroa.10.0.copyload to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %13
   %.sroa.0.0.copyload.i.i = load i16, ptr %14, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -21742,7 +21736,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer27SoftPromoteHalfOp_FCOPYS
 17:                                               ; preds = %3
   %18 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(8) %16, i64 1) #17
   %.pre = load ptr, ptr %11, align 8, !tbaa !27
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %.pre, i64 %13
+  %.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %13
   %.sroa.0.0.copyload.i.i41.pre = load i16, ptr %.phi.trans.insert, align 8, !tbaa !28
   br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
 
@@ -21758,7 +21752,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %17
   %25 = load ptr, ptr %24, align 8, !tbaa !49
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = load ptr, ptr %26, align 8, !tbaa !56
-  %28 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %19, i64 %13
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %13
   %.sroa.21.0..sroa_idx.i.i42 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.21.0.copyload.i.i43 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i42, align 8, !tbaa !54
   %29 = load ptr, ptr %23, align 8, !tbaa !142
@@ -21793,7 +21787,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %17
   %51 = add i32 %46, -1
   %.01726.i.i.i.i = and i32 %50, %51
   %52 = zext i32 %.01726.i.i.i.i to i64
-  %53 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %43, i64 %52
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !26
   %55 = icmp eq i32 %49, %54
   br i1 %55, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -21810,14 +21804,14 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %17
   %60 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %60, %51
   %61 = zext i32 %.017.i.i.i.i to i64
-  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %43, i64 %61
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !26
   %64 = icmp eq i32 %49, %63
   br i1 %64, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %65 = zext i32 %46 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %43, i64 %65
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %65
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %58, %48, %.loopexit.i.i.i
@@ -21905,7 +21899,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer28SoftPromoteHalfOp_FP_TO_
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !23
   %18 = zext i1 %15 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %17, i64 %18
   %.sroa.0110.0.copyload = load ptr, ptr %19, align 8, !tbaa !24
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.14.0.copyload = load i32, ptr %.sroa.14.0..sroa_idx, align 8, !tbaa !26
@@ -21914,7 +21908,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer28SoftPromoteHalfOp_FP_TO_
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0.copyload, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !27
   %22 = zext i32 %.sroa.14.0.copyload to i64
-  %23 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %22
   %.sroa.0.0.copyload.i.i = load i16, ptr %23, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -21971,7 +21965,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %26
   %58 = add i32 %53, -1
   %.01726.i.i.i.i = and i32 %57, %58
   %59 = zext i32 %.01726.i.i.i.i to i64
-  %60 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %50, i64 %59
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !26
   %62 = icmp eq i32 %56, %61
   br i1 %62, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -21988,14 +21982,14 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %26
   %67 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %67, %58
   %68 = zext i32 %.017.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %50, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !26
   %71 = icmp eq i32 %56, %70
   br i1 %71, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %72 = zext i32 %53 to i64
-  %73 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %50, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %72
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %65, %55, %.loopexit.i.i.i
@@ -22160,7 +22154,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer32SoftPromoteHalfOp_FP_TO_
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = zext i32 %.sroa.8.0.copyload to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %13
   %.sroa.0.0.copyload.i.i = load i16, ptr %14, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -22172,7 +22166,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer32SoftPromoteHalfOp_FP_TO_
 17:                                               ; preds = %2
   %18 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(8) %16, i64 1) #17
   %.pre = load ptr, ptr %11, align 8, !tbaa !27
-  %.phi.trans.insert = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %.pre, i64 %13
+  %.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %13
   %.sroa.0.0.copyload.i.i45.pre = load i16, ptr %.phi.trans.insert, align 8, !tbaa !28
   br label %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
 
@@ -22188,7 +22182,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %17
   %25 = load ptr, ptr %24, align 8, !tbaa !49
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = load ptr, ptr %26, align 8, !tbaa !56
-  %28 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %19, i64 %13
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %13
   %.sroa.21.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.21.0.copyload.i.i47 = load ptr, ptr %.sroa.21.0..sroa_idx.i.i46, align 8, !tbaa !54
   %29 = load ptr, ptr %23, align 8, !tbaa !142
@@ -22223,7 +22217,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %17
   %51 = add i32 %46, -1
   %.01726.i.i.i.i = and i32 %50, %51
   %52 = zext i32 %.01726.i.i.i.i to i64
-  %53 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %43, i64 %52
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !26
   %55 = icmp eq i32 %49, %54
   br i1 %55, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -22240,14 +22234,14 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %17
   %60 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %60, %51
   %61 = zext i32 %.017.i.i.i.i to i64
-  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %43, i64 %61
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !26
   %64 = icmp eq i32 %49, %63
   br i1 %64, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %65 = zext i32 %46 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %43, i64 %65
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %65
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %58, %48, %.loopexit.i.i.i
@@ -22330,7 +22324,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer27SoftPromoteHalfOp_FP_EXT
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   %15 = zext i1 %12 to i64
-  %16 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %15
   %.sroa.079.0.copyload = load ptr, ptr %16, align 8, !tbaa !24
   %.sroa.782.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.sroa.782.0.copyload = load i32, ptr %.sroa.782.0..sroa_idx, align 8, !tbaa !26
@@ -22339,7 +22333,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer27SoftPromoteHalfOp_FP_EXT
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.079.0.copyload, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !27
   %19 = zext i32 %.sroa.782.0.copyload to i64
-  %20 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %19
   %.sroa.0.0.copyload.i.i = load i16, ptr %20, align 8, !tbaa !28
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 976
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -22367,7 +22361,7 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer27SoftPromoteHalfOp_FP_EXT
   %37 = add i32 %32, -1
   %.01726.i.i.i.i = and i32 %36, %37
   %38 = zext i32 %.01726.i.i.i.i to i64
-  %39 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %29, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !26
   %41 = icmp eq i32 %35, %40
   br i1 %41, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -22384,14 +22378,14 @@ define hidden { ptr, i32 } @_ZN4llvm16DAGTypeLegalizer27SoftPromoteHalfOp_FP_EXT
   %46 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %46, %37
   %47 = zext i32 %.017.i.i.i.i to i64
-  %48 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %29, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !26
   %50 = icmp eq i32 %35, %49
   br i1 %50, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %2
   %51 = zext i32 %32 to i64
-  %52 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %29, i64 %51
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %51
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %44, %34, %.loopexit.i.i.i
@@ -22586,7 +22580,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %17
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 48
   %23 = load ptr, ptr %22, align 8, !tbaa !27
   %24 = zext i32 %.sroa.9.0.copyload to i64
-  %25 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %24
   %.sroa.0.0.copyload.i.i = load i16, ptr %25, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -22627,7 +22621,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %17
   %53 = add i32 %48, -1
   %.01726.i.i.i.i = and i32 %52, %53
   %54 = zext i32 %.01726.i.i.i.i to i64
-  %55 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %45, i64 %54
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !26
   %57 = icmp eq i32 %51, %56
   br i1 %57, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -22644,14 +22638,14 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %17
   %62 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %62, %53
   %63 = zext i32 %.017.i.i.i.i to i64
-  %64 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %45, i64 %63
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !26
   %66 = icmp eq i32 %51, %65
   br i1 %66, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %67 = zext i32 %48 to i64
-  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %45, i64 %67
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %67
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %60, %50, %.loopexit.i.i.i
@@ -22682,7 +22676,7 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %60
   %82 = add i32 %77, -1
   %.01726.i.i.i.i78 = and i32 %81, %82
   %83 = zext i32 %.01726.i.i.i.i78 to i64
-  %84 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %75, i64 %83
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %75, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !26
   %86 = icmp eq i32 %80, %85
   br i1 %86, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit90, label %.lr.ph.i.i.i.i79, !prof !218
@@ -22699,14 +22693,14 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %60
   %91 = add i32 %.01527.i.i.i.i81, %.01728.i.i.i.i80
   %.017.i.i.i.i82 = and i32 %91, %82
   %92 = zext i32 %.017.i.i.i.i82 to i64
-  %93 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %75, i64 %92
+  %93 = getelementptr inbounds nuw [24 x i8], ptr %75, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !26
   %95 = icmp eq i32 %80, %94
   br i1 %95, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit90, label %.lr.ph.i.i.i.i79, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i89:                                ; preds = %.lr.ph.i.i.i.i79, %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
   %96 = zext i32 %77 to i64
-  %97 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %75, i64 %96
+  %97 = getelementptr inbounds nuw [24 x i8], ptr %75, i64 %96
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit90
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit90: ; preds = %89, %79, %.loopexit.i.i.i89
@@ -22859,7 +22853,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %21
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0.copyload, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !27
   %28 = zext i32 %.sroa.10.0.copyload to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %28
   %.sroa.0.0.copyload.i.i = load i16, ptr %29, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -22900,7 +22894,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %21
   %57 = add i32 %52, -1
   %.01726.i.i.i.i = and i32 %56, %57
   %58 = zext i32 %.01726.i.i.i.i to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %49, i64 %58
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !26
   %61 = icmp eq i32 %55, %60
   br i1 %61, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -22917,14 +22911,14 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %2, %21
   %66 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %66, %57
   %67 = zext i32 %.017.i.i.i.i to i64
-  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %49, i64 %67
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !26
   %70 = icmp eq i32 %55, %69
   br i1 %70, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %71 = zext i32 %52 to i64
-  %72 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %49, i64 %71
+  %72 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %71
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %64, %54, %.loopexit.i.i.i
@@ -22955,7 +22949,7 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %64
   %86 = add i32 %81, -1
   %.01726.i.i.i.i84 = and i32 %85, %86
   %87 = zext i32 %.01726.i.i.i.i84 to i64
-  %88 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %79, i64 %87
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %79, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !26
   %90 = icmp eq i32 %84, %89
   br i1 %90, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit96, label %.lr.ph.i.i.i.i85, !prof !218
@@ -22972,14 +22966,14 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %64
   %95 = add i32 %.01527.i.i.i.i87, %.01728.i.i.i.i86
   %.017.i.i.i.i88 = and i32 %95, %86
   %96 = zext i32 %.017.i.i.i.i88 to i64
-  %97 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %79, i64 %96
+  %97 = getelementptr inbounds nuw [24 x i8], ptr %79, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !26
   %99 = icmp eq i32 %84, %98
   br i1 %99, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit96, label %.lr.ph.i.i.i.i85, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i95:                                ; preds = %.lr.ph.i.i.i.i85, %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
   %100 = zext i32 %81 to i64
-  %101 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %79, i64 %100
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %79, i64 %100
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit96
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit96: ; preds = %93, %83, %.loopexit.i.i.i95
@@ -23143,7 +23137,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %11
   %32 = add i32 %27, -1
   %.01726.i.i.i.i = and i32 %31, %32
   %33 = zext i32 %.01726.i.i.i.i to i64
-  %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %24, i64 %33
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !26
   %36 = icmp eq i32 %30, %35
   br i1 %36, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -23160,14 +23154,14 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %11
   %41 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %41, %32
   %42 = zext i32 %.017.i.i.i.i to i64
-  %43 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %24, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !26
   %45 = icmp eq i32 %30, %44
   br i1 %45, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %46 = zext i32 %27 to i64
-  %47 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %24, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %46
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %39, %29, %.loopexit.i.i.i
@@ -23256,7 +23250,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %15
   %36 = add i32 %31, -1
   %.01726.i.i.i.i = and i32 %35, %36
   %37 = zext i32 %.01726.i.i.i.i to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %28, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !26
   %40 = icmp eq i32 %34, %39
   br i1 %40, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -23273,14 +23267,14 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %3, %15
   %45 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %45, %36
   %46 = zext i32 %.017.i.i.i.i to i64
-  %47 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %28, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !26
   %49 = icmp eq i32 %34, %48
   br i1 %49, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit
   %50 = zext i32 %31 to i64
-  %51 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %28, i64 %50
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %50
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %43, %33, %.loopexit.i.i.i
@@ -23294,7 +23288,7 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %43
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 48
   %56 = load ptr, ptr %55, align 8, !tbaa !27
   %57 = zext i32 %.sroa.25.0.copyload.i to i64
-  %58 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %57
   %.sroa.0.0.copyload.i.i = load i16, ptr %58, align 8, !tbaa !28
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %58, i64 8
   %.sroa.21.0.copyload.i.i = load ptr, ptr %.sroa.21.0..sroa_idx.i.i, align 8, !tbaa !54
@@ -23359,7 +23353,7 @@ _ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i.i: ; preds = %3
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i.i, %_ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i.thread.i
   %18 = phi ptr [ %.pre, %_ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i.thread.i ], [ %13, %_ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i.i ]
   %.pre-phi.i4.i = phi i64 [ %.pre9.i.i, %_ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i.i ]
-  %19 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %18, i64 %.pre-phi.i4.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %.pre-phi.i4.i
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i
@@ -23383,7 +23377,7 @@ _ZN4llvm11SmallVectorINS_7SDValueELj3EEC2INS_5SDUseEvEENS_8ArrayRefIT_EE.exit: ;
   %25 = add i32 %23, %24
   store i32 %25, ptr %14, align 8, !tbaa !302
   %26 = zext i32 %2 to i64
-  %27 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %22, i64 %26
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %26
   %.sroa.019.0.copyload = load ptr, ptr %27, align 8, !tbaa !24
   %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.420.0.copyload = load i32, ptr %.sroa.420.0..sroa_idx, align 8, !tbaa !26
@@ -23413,7 +23407,7 @@ _ZN4llvm11SmallVectorINS_7SDValueELj3EEC2INS_5SDUseEvEENS_8ArrayRefIT_EE.exit: ;
   %44 = add i32 %39, -1
   %.01726.i.i.i.i = and i32 %43, %44
   %45 = zext i32 %.01726.i.i.i.i to i64
-  %46 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %36, i64 %45
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !26
   %48 = icmp eq i32 %42, %47
   br i1 %48, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -23430,14 +23424,14 @@ _ZN4llvm11SmallVectorINS_7SDValueELj3EEC2INS_5SDUseEvEENS_8ArrayRefIT_EE.exit: ;
   %53 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %53, %44
   %54 = zext i32 %.017.i.i.i.i to i64
-  %55 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %36, i64 %54
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !26
   %57 = icmp eq i32 %42, %56
   br i1 %57, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm11SmallVectorINS_7SDValueELj3EEC2INS_5SDUseEvEENS_8ArrayRefIT_EE.exit
   %58 = zext i32 %39 to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %36, i64 %58
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %58
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %51, %41, %.loopexit.i.i.i
@@ -23447,7 +23441,7 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %51
   %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 16
   %.sroa.25.0.copyload.i = load i32, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !26
   %61 = load ptr, ptr %5, align 8, !tbaa !301
-  %62 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %61, i64 %26
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %26
   store ptr %.sroa.04.0.copyload.i, ptr %62, align 8, !tbaa !24
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i32 %.sroa.25.0.copyload.i, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !26
@@ -23562,7 +23556,7 @@ _ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i.i: ; preds = %3
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i.i, %_ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i.thread.i
   %18 = phi ptr [ %.pre, %_ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i.thread.i ], [ %13, %_ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i.i ]
   %.pre-phi.i4.i = phi i64 [ %.pre9.i.i, %_ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplINS_7SDValueEE7reserveEm.exit.i.i ]
-  %19 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %18, i64 %.pre-phi.i4.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %.pre-phi.i4.i
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i
@@ -23586,7 +23580,7 @@ _ZN4llvm11SmallVectorINS_7SDValueELj3EEC2INS_5SDUseEvEENS_8ArrayRefIT_EE.exit: ;
   %25 = add i32 %23, %24
   store i32 %25, ptr %14, align 8, !tbaa !302
   %26 = zext i32 %2 to i64
-  %27 = getelementptr inbounds nuw %"class.llvm::SDUse", ptr %22, i64 %26
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %26
   %.sroa.019.0.copyload = load ptr, ptr %27, align 8, !tbaa !24
   %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.420.0.copyload = load i32, ptr %.sroa.420.0..sroa_idx, align 8, !tbaa !26
@@ -23616,7 +23610,7 @@ _ZN4llvm11SmallVectorINS_7SDValueELj3EEC2INS_5SDUseEvEENS_8ArrayRefIT_EE.exit: ;
   %44 = add i32 %39, -1
   %.01726.i.i.i.i = and i32 %43, %44
   %45 = zext i32 %.01726.i.i.i.i to i64
-  %46 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %36, i64 %45
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !26
   %48 = icmp eq i32 %42, %47
   br i1 %48, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !218
@@ -23633,14 +23627,14 @@ _ZN4llvm11SmallVectorINS_7SDValueELj3EEC2INS_5SDUseEvEENS_8ArrayRefIT_EE.exit: ;
   %53 = add i32 %.01527.i.i.i.i, %.01728.i.i.i.i
   %.017.i.i.i.i = and i32 %53, %44
   %54 = zext i32 %.017.i.i.i.i to i64
-  %55 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %36, i64 %54
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !26
   %57 = icmp eq i32 %42, %56
   br i1 %57, label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit, label %.lr.ph.i.i.i.i, !prof !220, !llvm.loop !221
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %_ZN4llvm11SmallVectorINS_7SDValueELj3EEC2INS_5SDUseEvEENS_8ArrayRefIT_EE.exit
   %58 = zext i32 %39 to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %36, i64 %58
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %58
   br label %_ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit
 
 _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %51, %41, %.loopexit.i.i.i
@@ -23650,7 +23644,7 @@ _ZN4llvm16DAGTypeLegalizer19GetSoftPromotedHalfENS_7SDValueE.exit: ; preds = %51
   %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i, i64 16
   %.sroa.25.0.copyload.i = load i32, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !26
   %61 = load ptr, ptr %5, align 8, !tbaa !301
-  %62 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %61, i64 %26
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %26
   store ptr %.sroa.04.0.copyload.i, ptr %62, align 8, !tbaa !24
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i32 %.sroa.25.0.copyload.i, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !26
@@ -23759,7 +23753,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm16DAGTypeLegalizer10getTableIdEN
   %25 = add i32 %16, -1
   %.01726.i.i = and i32 %25, %24
   %26 = zext i32 %.01726.i.i to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.192", ptr %13, i64 %26
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !202
   %29 = icmp eq ptr %1, %28
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -23783,7 +23777,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm16DAGTypeLegalizer10getTableIdEN
   %41 = add i32 %.01527.i.i, %.01728.i.i
   %.017.i.i = and i32 %41, %25
   %42 = zext i32 %.017.i.i to i64
-  %43 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.192", ptr %13, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !202
   %45 = icmp eq ptr %1, %44
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -23794,13 +23788,13 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm16DAGTypeLegalizer10getTableIdEN
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i, %3
   %50 = zext i32 %16 to i64
-  %51 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.192", ptr %13, i64 %50
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %50
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit: ; preds = %39, %18, %.loopexit.i
   %.sroa.0.1.i = phi ptr [ %51, %.loopexit.i ], [ %27, %18 ], [ %43, %39 ]
   %52 = zext i32 %16 to i64
-  %53 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.192", ptr %13, i64 %52
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %52
   %.not = icmp eq ptr %.sroa.0.1.i, %53
   br i1 %.not, label %57, label %54
 
@@ -23877,7 +23871,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7S
   %25 = add i32 %13, -1
   %.03150.i = and i32 %24, %25
   %26 = zext i32 %.03150.i to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.192", ptr %10, i64 %26
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !202
   %29 = icmp eq ptr %16, %28
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -23913,7 +23907,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7S
   %47 = add i32 %.02952.i, %.03153.i
   %.031.i = and i32 %47, %25
   %48 = zext i32 %.031.i to i64
-  %49 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.192", ptr %10, i64 %48
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !202
   %51 = icmp eq ptr %16, %50
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -24000,7 +23994,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2_
   %.sink29 = phi ptr [ %69, %84 ], [ %27, %15 ], [ %49, %42 ]
   %.sink = phi i8 [ 1, %84 ], [ 0, %15 ], [ 0, %42 ]
   %93 = zext i32 %.sink32 to i64
-  %94 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.192", ptr %.sink30, i64 %93
+  %94 = getelementptr inbounds nuw [24 x i8], ptr %.sink30, i64 %93
   store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %94, ptr %.sroa.4.0..sroa_idx, align 8
@@ -24036,7 +24030,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_13Small
   %23 = add i32 %11, -1
   %.03150 = and i32 %22, %23
   %24 = zext i32 %.03150 to i64
-  %25 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.192", ptr %8, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !202
   %27 = icmp eq ptr %14, %26
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -24072,7 +24066,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_13Small
   %45 = add i32 %.03153, %.02952
   %.031 = and i32 %45, %23
   %46 = zext i32 %.031 to i64
-  %47 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.192", ptr %8, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !202
   %49 = icmp eq ptr %14, %48
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -24195,7 +24189,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapINS_7SDValueEjLj8ENS_12D
 
 56:                                               ; preds = %52, %50
   %57 = zext i32 %.sroa.6.0.copyload to i64
-  %58 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.192", ptr %.sroa.0.0.copyload, i64 %57
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.0.copyload, i64 %57
   tail call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E18moveFromOldBucketsEPS7_SA_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.sroa.0.0.copyload, ptr noundef %58)
   %59 = mul nuw nsw i64 %57, 24
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.sroa.0.0.copyload, i64 noundef %59, i64 noundef 8) #17
@@ -24270,7 +24264,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2_
   %35 = add i32 %27, -1
   %.03150.i = and i32 %35, %34
   %36 = zext i32 %.03150.i to i64
-  %37 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.192", ptr %25, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !202
   %39 = icmp eq ptr %16, %38
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -24306,7 +24300,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_7SDValueEjLj8ENS_12DenseMapInfoIS2_
   %57 = add i32 %.02952.i, %.03153.i
   %.031.i = and i32 %57, %35
   %58 = zext i32 %.031.i to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.192", ptr %25, i64 %58
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %58
   %60 = load ptr, ptr %59, align 8, !tbaa !202
   %61 = icmp eq ptr %16, %60
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -24361,7 +24355,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7
   %18 = add i32 %13, -1
   %.02744.i = and i32 %17, %18
   %19 = zext i32 %.02744.i to i64
-  %20 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %10, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !26
   %22 = icmp eq i32 %16, %21
   br i1 %22, label %.loopexit, label %.lr.ph.i, !prof !218
@@ -24389,7 +24383,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7
   %32 = add i32 %.02546.i, %.02747.i
   %.027.i = and i32 %32, %18
   %33 = zext i32 %.027.i to i64
-  %34 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %10, i64 %33
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !26
   %36 = icmp eq i32 %16, %35
   br i1 %36, label %.loopexit, label %.lr.ph.i, !prof !220, !llvm.loop !329
@@ -24468,7 +24462,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjvE
   %.sink33 = phi ptr [ %50, %61 ], [ %20, %15 ], [ %34, %28 ]
   %.sink = phi i8 [ 1, %61 ], [ 0, %15 ], [ 0, %28 ]
   %70 = zext i32 %.sink36 to i64
-  %71 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %.sink34, i64 %70
+  %71 = getelementptr inbounds nuw [24 x i8], ptr %.sink34, i64 %70
   store ptr %.sink33, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %71, ptr %.sroa.4.0..sroa_idx, align 8
@@ -24497,7 +24491,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_13Small
   %16 = add i32 %11, -1
   %.02744 = and i32 %15, %16
   %17 = zext i32 %.02744 to i64
-  %18 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %8, i64 %17
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !26
   %20 = icmp eq i32 %14, %19
   br i1 %20, label %._crit_edge, label %.lr.ph, !prof !218
@@ -24525,7 +24519,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_13Small
   %30 = add i32 %.02747, %.02546
   %.027 = and i32 %30, %16
   %31 = zext i32 %.027 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %8, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !26
   %34 = icmp eq i32 %14, %33
   br i1 %34, label %._crit_edge, label %.lr.ph, !prof !220, !llvm.loop !329
@@ -24639,7 +24633,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIjNS_7SDValueELj8ENS_12D
 
 51:                                               ; preds = %47, %45
   %52 = zext i32 %.sroa.6.0.copyload to i64
-  %53 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %.sroa.0.0.copyload, i64 %52
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.0.copyload, i64 %52
   tail call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E18moveFromOldBucketsEPS7_SA_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.sroa.0.0.copyload, ptr noundef %53)
   %54 = mul nuw nsw i64 %52, 24
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.sroa.0.0.copyload, i64 noundef %54, i64 noundef 8) #17
@@ -24703,7 +24697,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjvE
   %26 = add i32 %23, -1
   %.02744.i = and i32 %26, %25
   %27 = zext i32 %.02744.i to i64
-  %28 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !26
   %30 = icmp eq i32 %16, %29
   br i1 %30, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E15LookupBucketForIjEEbRKT_RPS7_.exit, label %.lr.ph.i14, !prof !218
@@ -24731,7 +24725,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjvE
   %40 = add i32 %.02546.i, %.02747.i
   %.027.i = and i32 %40, %26
   %41 = zext i32 %.027.i to i64
-  %42 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.205", ptr %21, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !26
   %44 = icmp eq i32 %16, %43
   br i1 %44, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_7SDValueELj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEEEjS2_S4_S7_E15LookupBucketForIjEEbRKT_RPS7_.exit, label %.lr.ph.i14, !prof !220, !llvm.loop !329
@@ -24778,12 +24772,12 @@ define linkonce_odr hidden { i16, ptr } @_ZNK4llvm3EVT32changeVectorElementTypeT
 
 4:                                                ; preds = %1
   %5 = zext i16 %3 to i64
-  %6 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %5
+  %6 = getelementptr [2 x i8], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -2
   %8 = load i16, ptr %7, align 2, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = zext i16 %8 to i64
-  %10 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %9
+  %10 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %11, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %10, i64 -8
@@ -24810,7 +24804,7 @@ switch.lookup.i.i:                                ; preds = %.split.i.i
 _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %switch.lookup.i.i, %.split.i.i, %4
   %.sroa.0.0.i.i = phi i16 [ %switch.offset.i.i, %switch.lookup.i.i ], [ 0, %.split.i.i ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %18 = getelementptr i16, ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %5
+  %18 = getelementptr [2 x i8], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %5
   %19 = getelementptr i8, ptr %18, i64 -2
   %20 = load i16, ptr %19, align 2, !tbaa !294
   %21 = add i16 %3, -191
@@ -24850,12 +24844,12 @@ define linkonce_odr hidden i16 @_ZN4llvm3MVT19changeTypeToIntegerEv(ptr noundef 
 
 6:                                                ; preds = %1
   %7 = zext nneg i16 %4 to i64
-  %8 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %7
+  %8 = getelementptr [2 x i8], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -2
   %10 = load i16, ptr %9, align 2, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %11 = zext i16 %10 to i64
-  %12 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %11
+  %12 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -16
   %.sroa.0.0.copyload.i.i = load i64, ptr %13, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %12, i64 -8
@@ -24884,7 +24878,7 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %switch.lookup.i.i, 
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %20 = load i16, ptr %0, align 2, !tbaa !279
   %21 = zext i16 %20 to i64
-  %22 = getelementptr i16, ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %21
+  %22 = getelementptr [2 x i8], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %21
   %23 = getelementptr i8, ptr %22, i64 -2
   %24 = load i16, ptr %23, align 2, !tbaa !294
   %25 = add i16 %20, -191
@@ -24903,7 +24897,7 @@ _ZN4llvm3MVT12getIntegerVTEj.exit.i:              ; preds = %switch.lookup.i.i, 
 30:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %31 = zext i16 %4 to i64
-  %32 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %31
+  %32 = getelementptr [16 x i8], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %31
   %33 = getelementptr i8, ptr %32, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %33, align 16
   %.sroa.2.0..sroa_idx.i2 = getelementptr i8, ptr %32, i64 -8
@@ -25732,7 +25726,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4l
   %16 = add i32 %11, -1
   %.02744.i = and i32 %15, %16
   %17 = zext i32 %.02744.i to i64
-  %18 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !26
   %20 = icmp eq i32 %14, %19
   br i1 %20, label %.loopexit, label %.lr.ph.i, !prof !218
@@ -25760,7 +25754,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4l
   %30 = add i32 %.02546.i, %.02747.i
   %.027.i = and i32 %30, %16
   %31 = zext i32 %.027.i to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !26
   %34 = icmp eq i32 %14, %33
   br i1 %34, label %.loopexit, label %.lr.ph.i, !prof !220, !llvm.loop !339
@@ -25852,7 +25846,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_13Small
   %16 = add i32 %11, -1
   %.02744 = and i32 %15, %16
   %17 = zext i32 %.02744 to i64
-  %18 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !26
   %20 = icmp eq i32 %14, %19
   br i1 %20, label %._crit_edge, label %.lr.ph, !prof !218
@@ -25880,7 +25874,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_13Small
   %30 = add i32 %.02747, %.02546
   %.027 = and i32 %30, %16
   %31 = zext i32 %.027 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !26
   %34 = icmp eq i32 %14, %33
   br i1 %34, label %._crit_edge, label %.lr.ph, !prof !220, !llvm.loop !339
@@ -26023,7 +26017,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail
   %63 = add i32 %60, -1
   %.02744.i.i = and i32 %63, %62
   %64 = zext i32 %.02744.i.i to i64
-  %65 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %58, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !26
   %67 = icmp eq i32 %53, %66
   br i1 %67, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i, label %.lr.ph.i14.i, !prof !218
@@ -26051,7 +26045,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail
   %77 = add i32 %.02546.i.i, %.02747.i.i
   %.027.i.i = and i32 %77, %63
   %78 = zext i32 %.027.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %58, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !26
   %81 = icmp eq i32 %53, %80
   br i1 %81, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i, label %.lr.ph.i14.i, !prof !220, !llvm.loop !339
@@ -26148,7 +26142,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail
   %122 = add i32 %119, -1
   %.02744.i.i45 = and i32 %122, %121
   %123 = zext i32 %.02744.i.i45 to i64
-  %124 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %117, i64 %123
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !26
   %126 = icmp eq i32 %112, %125
   br i1 %126, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i53, label %.lr.ph.i14.i46, !prof !218
@@ -26176,7 +26170,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail
   %136 = add i32 %.02546.i.i48, %.02747.i.i47
   %.027.i.i52 = and i32 %136, %122
   %137 = zext i32 %.027.i.i52 to i64
-  %138 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %117, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %137
   %139 = load i32, ptr %138, align 4, !tbaa !26
   %140 = icmp eq i32 %112, %139
   br i1 %140, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i53, label %.lr.ph.i14.i46, !prof !220, !llvm.loop !339

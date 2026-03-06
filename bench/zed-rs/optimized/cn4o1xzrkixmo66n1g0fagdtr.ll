@@ -32,7 +32,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 13:                                               ; preds = %30, %6
   %.sroa.6.0 = phi i64 [ %.sroa.6.0.copyload, %6 ], [ %32, %30 ]
   %.sroa.06.0.i = phi i64 [ 0, %6 ], [ %33, %30 ]
-  %14 = getelementptr inbounds ptr, ptr %0, i64 %.sroa.06.0.i
+  %14 = getelementptr inbounds [8 x i8], ptr %0, i64 %.sroa.06.0.i
   %.val21.i = load ptr, ptr %14, align 8, !noalias !4, !nonnull !7, !noundef !7
   %15 = atomicrmw add ptr %.val21.i, i64 1 monotonic, align 8, !noalias !8
   %16 = icmp slt i64 %15, 0
@@ -80,7 +80,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 30:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !8
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !8
-  %31 = getelementptr inbounds ptr, ptr %.sroa.10.0.copyload, i64 %.sroa.6.0
+  %31 = getelementptr inbounds [8 x i8], ptr %.sroa.10.0.copyload, i64 %.sroa.6.0
   store ptr %19, ptr %31, align 8, !noalias !23
   %32 = add i64 %.sroa.6.0, 1
   %33 = add nuw i64 %.sroa.06.0.i, 1
@@ -993,7 +993,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 21:                                               ; preds = %57, %7
   %.sroa.06.0 = phi i64 [ 0, %7 ], [ %61, %57 ]
-  %22 = getelementptr inbounds ptr, ptr %0, i64 %.sroa.06.0
+  %22 = getelementptr inbounds [8 x i8], ptr %0, i64 %.sroa.06.0
   %.val21 = load ptr, ptr %22, align 8, !nonnull !7, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !146
@@ -1117,7 +1117,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
   %58 = load i64, ptr %18, align 8, !alias.scope !167, !noundef !7
-  %59 = getelementptr inbounds ptr, ptr %17, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %17, i64 %58
   store ptr %48, ptr %59, align 8, !noalias !167
   %60 = add i64 %58, 1
   store i64 %60, ptr %18, align 8, !alias.scope !167
@@ -1171,7 +1171,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 18:                                               ; preds = %36, %6
   %19 = phi i64 [ %.promoted, %6 ], [ %38, %36 ]
   %.sroa.06.0 = phi i64 [ 0, %6 ], [ %39, %36 ]
-  %20 = getelementptr inbounds ptr, ptr %0, i64 %.sroa.06.0
+  %20 = getelementptr inbounds [8 x i8], ptr %0, i64 %.sroa.06.0
   %.val21 = load ptr, ptr %20, align 8, !nonnull !7, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   %21 = atomicrmw add ptr %.val21, i64 1 monotonic, align 8, !noalias !168
@@ -1222,7 +1222,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !168
   tail call void @llvm.experimental.noalias.scope.decl(metadata !183)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !186)
-  %37 = getelementptr inbounds ptr, ptr %14, i64 %19
+  %37 = getelementptr inbounds [8 x i8], ptr %14, i64 %19
   store ptr %25, ptr %37, align 8, !noalias !189
   %38 = add i64 %19, 1
   store i64 %38, ptr %15, align 8, !alias.scope !189

@@ -14,9 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<ue2::TeddyEngineDescription, std::allocator<ue2::TeddyEngineDescription>>::_Vector_impl" }
 %"struct.std::_Vector_base<ue2::TeddyEngineDescription, std::allocator<ue2::TeddyEngineDescription>>::_Vector_impl" = type { %"struct.std::_Vector_base<ue2::TeddyEngineDescription, std::allocator<ue2::TeddyEngineDescription>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ue2::TeddyEngineDescription, std::allocator<ue2::TeddyEngineDescription>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.ue2::TeddyEngineDescription" = type <{ %"class.ue2::EngineDescription.base", i32, i8, [7 x i8] }>
-%"class.ue2::EngineDescription.base" = type <{ ptr, i32, [4 x i8], %"struct.ue2::target_t", i32 }>
-%"struct.ue2::target_t" = type { i32, i64 }
 
 $_ZNSt6vectorIN3ue222TeddyEngineDescriptionESaIS1_EED2Ev = comdat any
 
@@ -285,7 +282,7 @@ _ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit: ; preds = 
   %.03468 = phi i64 [ %104, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread ], [ 0, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
   %.03567 = phi i32 [ %.136, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread ], [ 0, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
   %.04266 = phi ptr [ %.143, %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit.thread ], [ null, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
-  %54 = getelementptr inbounds nuw %"class.ue2::TeddyEngineDescription", ptr %53, i64 %.03468
+  %54 = getelementptr inbounds nuw [48 x i8], ptr %53, i64 %.03468
   %55 = invoke noundef zeroext i1 @_ZNK3ue217EngineDescription15isValidOnTargetERKNS_8target_tE(ptr noundef nonnull align 8 dereferenceable(41) %54, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %.noexc58 unwind label %88
 
@@ -791,7 +788,7 @@ _ZNSt12_Vector_baseIN3ue222TeddyEngineDescriptionESaIS1_EE13_M_deallocateEPS1_m.
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8
-  %61 = getelementptr inbounds nuw %"class.ue2::TeddyEngineDescription", ptr %22, i64 %16
+  %61 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %16
   store ptr %61, ptr %60, align 8
   ret void
 

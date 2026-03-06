@@ -1161,7 +1161,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134: ; preds = %_Z
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %322
   %325 = zext i8 %0 to i64
-  %326 = getelementptr inbounds nuw ptr, ptr @_ZZNK11V3ErrorCode5asciiEvE5names, i64 %325
+  %326 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11V3ErrorCode5asciiEvE5names, i64 %325
   %327 = load ptr, ptr %326, align 8, !tbaa !72
   %328 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %327) #19
   %329 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %323, ptr noundef nonnull %327, i64 noundef %328)
@@ -1502,7 +1502,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(pt
 define linkonce_odr dso_local noundef ptr @_ZNK11V3ErrorCode5asciiEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #5 comdat align 2 {
   %2 = load i8, ptr %0, align 1, !tbaa !93
   %3 = zext i8 %2 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK11V3ErrorCode5asciiEvE5names, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11V3ErrorCode5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !72
   ret ptr %5
 }
@@ -2113,7 +2113,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !106
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !85
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !86
   ret void
 }

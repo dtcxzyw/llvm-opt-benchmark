@@ -188,7 +188,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %loadedv, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i6.i10, i64 %i.057
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i6.i10, i64 %i.057
   %17 = load ptr, ptr %_M_finish.i15, align 8, !tbaa !13
   %18 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !24
   %cmp.not.i = icmp eq ptr %17, %18
@@ -252,7 +252,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i
   store ptr %call5.i.i.i.i.i19, ptr %exerciseTimes_, align 8, !tbaa !15
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i15, align 8, !tbaa !13
-  %add.ptr19.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i19, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i19, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !24
   br label %for.inc
 
@@ -549,7 +549,7 @@ entry:
   %currentExercise_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i64, ptr %currentExercise_, align 8, !tbaa !52
   %1 = load ptr, ptr %numberOfVariables_, align 8, !tbaa !29
-  %2 = getelementptr i64, ptr %1, i64 %0
+  %2 = getelementptr [8 x i8], ptr %1, i64 %0
   %add.ptr.i = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %add.ptr.i, align 8, !tbaa !53
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -572,7 +572,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i1 = getelementptr inbounds nuw double, ptr %5, i64 %3
+  %add.ptr.i1 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %3
   %tobool.not.i.i = icmp eq ptr %4, %add.ptr.i1
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %invoke.cont.i.i
 
@@ -593,7 +593,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %if.then.i, %if.else
   %sub7 = add i64 %9, -1
   %parameters_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %10 = load ptr, ptr %parameters_, align 8, !tbaa !9
-  %add.ptr.i2 = getelementptr inbounds nuw %"class.std::vector.2", ptr %10, i64 %sub7
+  %add.ptr.i2 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %sub7
   %vtable12 = load ptr, ptr %add.ptr, align 8, !tbaa !3
   %vfn13 = getelementptr inbounds nuw i8, ptr %vtable12, i64 32
   %11 = load ptr, ptr %vfn13, align 8
@@ -1342,9 +1342,9 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit37: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %if.then.i35
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !15
-  %add.ptr37 = getelementptr inbounds nuw double, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !13
-  %add.ptr40 = getelementptr inbounds nuw double, ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !24
   br label %if.end44
 

@@ -1733,7 +1733,7 @@ define internal void @"_ZN62_$LT$rand..rngs..std..StdRng$u20$as$u20$rand_core..R
 
 10:                                               ; preds = %9, %6
   %11 = phi i64 [ %7, %6 ], [ 0, %9 ]
-  %12 = getelementptr inbounds nuw i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %11
   %13 = sub nuw nsw i64 64, %11
   %14 = sub nuw i64 %2, %.020.i
   %15 = getelementptr inbounds i8, ptr %1, i64 %.020.i
@@ -1775,7 +1775,7 @@ define internal { ptr, ptr } @"_ZN62_$LT$rand..rngs..std..StdRng$u20$as$u20$rand
 
 10:                                               ; preds = %9, %6
   %11 = phi i64 [ %7, %6 ], [ 0, %9 ]
-  %12 = getelementptr inbounds nuw i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %11
   %13 = sub nuw nsw i64 64, %11
   %14 = sub nuw i64 %2, %.020.i
   %15 = getelementptr inbounds i8, ptr %1, i64 %.020.i
@@ -1807,7 +1807,7 @@ define internal noundef i32 @"_ZN62_$LT$rand..rngs..std..StdRng$u20$as$u20$rand_
 
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u3217h370d7fb04f6208e3E.exit": ; preds = %1, %5
   %7 = phi i64 [ %3, %1 ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %7
   %9 = load i32, ptr %8, align 4, !alias.scope !142, !noundef !4
   %10 = add nuw nsw i64 %7, 1
   store i64 %10, ptr %2, align 16, !alias.scope !142
@@ -1828,7 +1828,7 @@ define internal noundef i64 @"_ZN62_$LT$rand..rngs..std..StdRng$u20$as$u20$rand_
 6:                                                ; preds = %1
   %7 = add nuw nsw i64 %3, 2
   store i64 %7, ptr %2, align 16, !alias.scope !145
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %3
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %3
   %9 = load i64, ptr %8, align 4, !alias.scope !148
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417ha714a06e78e54754E.exit"
 
@@ -2047,7 +2047,7 @@ define void @_ZN11wasi_common4sync14WasiCtxBuilder3env17h4580bd887a3d560fE(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN11wasi_common4sync14WasiCtxBuilder4envs17h679515ccc23cef35E(ptr noalias noundef writeonly sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %2, i64 %3
+  %5 = getelementptr inbounds [48 x i8], ptr %2, i64 %3
   br label %6
 
 6:                                                ; preds = %10, %4
@@ -2321,7 +2321,7 @@ define void @_ZN11wasi_common4sync14WasiCtxBuilder3arg17had1b32e36bfc6650E(ptr n
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN11wasi_common4sync14WasiCtxBuilder4args17h860a9982ff13e6e3E(ptr noalias noundef writeonly sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %2, i64 %3
+  %5 = getelementptr inbounds [24 x i8], ptr %2, i64 %3
   br label %6
 
 6:                                                ; preds = %10, %4
@@ -2919,7 +2919,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit.thread.i: ; preds = %58, %"_ZN84_$
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread287.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit.i:  ; preds = %0
-  %61 = getelementptr inbounds nuw i32, ptr %37, i64 %39
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %39
   %62 = load i32, ptr %61, align 4, !alias.scope !373, !noalias !376, !noundef !4
   %63 = add nuw nsw i64 %39, 1
   store i64 %63, ptr %38, align 16, !alias.scope !373, !noalias !376
@@ -2980,7 +2980,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit.i:  ; preds = %0
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread287.i: ; preds = %83, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i33.i", %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit.thread.i
   %.ph.i = phi i8 [ %60, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit.thread.i ], [ %64, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i33.i" ], [ %64, %83 ]
   %.ph1.i = phi i64 [ 1, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit.thread.i ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i33.i" ], [ 0, %83 ]
-  %84 = getelementptr inbounds nuw i32, ptr %37, i64 %.ph1.i
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.ph1.i
   %85 = load i32, ptr %84, align 4, !alias.scope !392, !noalias !376, !noundef !4
   %86 = trunc i32 %85 to i8
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 4
@@ -2991,7 +2991,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread287.i: ; preds = %83, %"_Z
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit34.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit.i
-  %92 = getelementptr inbounds nuw i32, ptr %37, i64 %63
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %63
   %93 = load i32, ptr %92, align 4, !alias.scope !392, !noalias !376, !noundef !4
   %94 = add nuw nsw i64 %39, 2
   store i64 %94, ptr %38, align 16, !alias.scope !392, !noalias !376
@@ -3055,7 +3055,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.thread.i: ; preds = %114, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit34.i
-  %117 = getelementptr inbounds nuw i32, ptr %37, i64 %94
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %94
   %118 = load i32, ptr %117, align 4, !alias.scope !408, !noalias !376, !noundef !4
   %119 = add nuw nsw i64 %39, 3
   store i64 %119, ptr %38, align 16, !alias.scope !408, !noalias !376
@@ -3116,12 +3116,12 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.i: ; preds = %_ZN4rand3rng3Rng3g
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.thread.i: ; preds = %139, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i37.i", %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.thread.i
   %.ph2.i = phi i8 [ %116, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.thread.i ], [ %120, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i37.i" ], [ %120, %139 ]
   %.ph5.i = phi i64 [ 1, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.thread.i ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i37.i" ], [ 0, %139 ]
-  %140 = getelementptr inbounds nuw i32, ptr %37, i64 %.ph5.i
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.ph5.i
   %141 = add nuw nsw i64 %.ph5.i, 1
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit36.i
-  %142 = getelementptr inbounds nuw i32, ptr %37, i64 %119
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %119
   %143 = load i32, ptr %142, align 4, !alias.scope !424, !noalias !376, !noundef !4
   %144 = add nuw nsw i64 %39, 4
   store i64 %144, ptr %38, align 16, !alias.scope !424, !noalias !376
@@ -3193,7 +3193,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i: ; preds = %_ZN4rand
   %.ph288.in.i = load i32, ptr %.ph288.in.i.in, align 4, !alias.scope !424, !noalias !376, !noundef !4
   store i64 %storemerge149, ptr %38, align 16, !alias.scope !424, !noalias !376
   %.ph288.i = trunc i32 %.ph288.in.i to i8
-  %167 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge149
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %storemerge149
   %168 = load i32, ptr %167, align 4, !alias.scope !440, !noalias !376, !noundef !4
   %169 = add nuw nsw i64 %storemerge149, 1
   store i64 %169, ptr %38, align 16, !alias.scope !440, !noalias !376
@@ -3202,7 +3202,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit40.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit38.i
-  %172 = getelementptr inbounds nuw i32, ptr %37, i64 %144
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %144
   %173 = load i32, ptr %172, align 4, !alias.scope !440, !noalias !376, !noundef !4
   %174 = add nuw nsw i64 %39, 5
   store i64 %174, ptr %38, align 16, !alias.scope !440, !noalias !376
@@ -3267,7 +3267,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i: ; preds = %194, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit40.i
-  %196 = getelementptr inbounds nuw i32, ptr %37, i64 %174
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %174
   %197 = load i32, ptr %196, align 4, !alias.scope !456, !noalias !376, !noundef !4
   %198 = add nuw nsw i64 %39, 6
   store i64 %198, ptr %38, align 16, !alias.scope !456, !noalias !376
@@ -3338,11 +3338,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i: ; preds = %_ZN4rand
   %.ph298.i = phi i8 [ %64, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i ], [ %.ph290.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i ]
   %.ph299.i = phi i8 [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i ], [ %.ph291.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i ]
   %.ph300.i = phi i8 [ %.ph6.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread.i ], [ %170, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.thread294.i ]
-  %.ph295.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn
+  %.ph295.in.i.in = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.pn
   %.ph295.in.i = load i32, ptr %.ph295.in.i.in, align 4, !alias.scope !456, !noalias !376, !noundef !4
   store i64 %storemerge148, ptr %38, align 16, !alias.scope !456, !noalias !376
   %.ph295.i = trunc i32 %.ph295.in.i to i8
-  %221 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge148
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %storemerge148
   %222 = load i32, ptr %221, align 4, !alias.scope !472, !noalias !376, !noundef !4
   %223 = add nuw nsw i64 %storemerge148, 1
   store i64 %223, ptr %38, align 16, !alias.scope !472, !noalias !376
@@ -3351,7 +3351,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit44.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit42.i
-  %226 = getelementptr inbounds nuw i32, ptr %37, i64 %198
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %198
   %227 = load i32, ptr %226, align 4, !alias.scope !472, !noalias !376, !noundef !4
   %228 = add nuw nsw i64 %39, 7
   store i64 %228, ptr %38, align 16, !alias.scope !472, !noalias !376
@@ -3416,7 +3416,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i: ; preds = %248, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit44.i
-  %250 = getelementptr inbounds nuw i32, ptr %37, i64 %228
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %228
   %251 = load i32, ptr %250, align 4, !alias.scope !488, !noalias !376, !noundef !4
   %252 = add nuw nsw i64 %39, 8
   store i64 %252, ptr %38, align 16, !alias.scope !488, !noalias !376
@@ -3489,11 +3489,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i: ; preds = %_ZN4rand
   %.ph309.i = phi i8 [ %120, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i ], [ %.ph299.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i ]
   %.ph310.i = phi i8 [ %175, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i ], [ %.ph300.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i ]
   %.ph311.i = phi i8 [ %.ph12.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread.i ], [ %224, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.thread303.i ]
-  %.ph304.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn150
+  %.ph304.in.i.in = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.pn150
   %.ph304.in.i = load i32, ptr %.ph304.in.i.in, align 4, !alias.scope !488, !noalias !376, !noundef !4
   store i64 %storemerge147, ptr %38, align 16, !alias.scope !488, !noalias !376
   %.ph304.i = trunc i32 %.ph304.in.i to i8
-  %275 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge147
+  %275 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %storemerge147
   %276 = load i32, ptr %275, align 4, !alias.scope !504, !noalias !376, !noundef !4
   %277 = add nuw nsw i64 %storemerge147, 1
   store i64 %277, ptr %38, align 16, !alias.scope !504, !noalias !376
@@ -3502,7 +3502,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit48.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit46.i
-  %280 = getelementptr inbounds nuw i32, ptr %37, i64 %252
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %252
   %281 = load i32, ptr %280, align 4, !alias.scope !504, !noalias !376, !noundef !4
   %282 = add nuw nsw i64 %39, 9
   store i64 %282, ptr %38, align 16, !alias.scope !504, !noalias !376
@@ -3567,7 +3567,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i: ; preds = %302, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit48.i
-  %304 = getelementptr inbounds nuw i32, ptr %37, i64 %282
+  %304 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %282
   %305 = load i32, ptr %304, align 4, !alias.scope !520, !noalias !376, !noundef !4
   %306 = add nuw nsw i64 %39, 10
   store i64 %306, ptr %38, align 16, !alias.scope !520, !noalias !376
@@ -3642,11 +3642,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i: ; preds = %_ZN4rand
   %.ph322.i = phi i8 [ %175, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %.ph310.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
   %.ph323.i = phi i8 [ %229, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %.ph311.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
   %.ph324.i = phi i8 [ %.ph20.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread.i ], [ %278, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.thread314.i ]
-  %.ph315.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn151
+  %.ph315.in.i.in = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.pn151
   %.ph315.in.i = load i32, ptr %.ph315.in.i.in, align 4, !alias.scope !520, !noalias !376, !noundef !4
   store i64 %storemerge146, ptr %38, align 16, !alias.scope !520, !noalias !376
   %.ph315.i = trunc i32 %.ph315.in.i to i8
-  %329 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge146
+  %329 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %storemerge146
   %330 = load i32, ptr %329, align 4, !alias.scope !536, !noalias !376, !noundef !4
   %331 = add nuw nsw i64 %storemerge146, 1
   store i64 %331, ptr %38, align 16, !alias.scope !536, !noalias !376
@@ -3655,7 +3655,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit52.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit50.i
-  %334 = getelementptr inbounds nuw i32, ptr %37, i64 %306
+  %334 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %306
   %335 = load i32, ptr %334, align 4, !alias.scope !536, !noalias !376, !noundef !4
   %336 = add nuw nsw i64 %39, 11
   store i64 %336, ptr %38, align 16, !alias.scope !536, !noalias !376
@@ -3720,7 +3720,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i: ; preds = %356, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit52.i
-  %358 = getelementptr inbounds nuw i32, ptr %37, i64 %336
+  %358 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %336
   %359 = load i32, ptr %358, align 4, !alias.scope !552, !noalias !376, !noundef !4
   %360 = add nuw nsw i64 %39, 12
   store i64 %360, ptr %38, align 16, !alias.scope !552, !noalias !376
@@ -3797,11 +3797,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i: ; preds = %_ZN4rand
   %.ph337.i = phi i8 [ %229, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %.ph323.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
   %.ph338.i = phi i8 [ %283, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %.ph324.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
   %.ph339.i = phi i8 [ %.ph30.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread.i ], [ %332, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.thread327.i ]
-  %.ph328.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn152
+  %.ph328.in.i.in = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.pn152
   %.ph328.in.i = load i32, ptr %.ph328.in.i.in, align 4, !alias.scope !552, !noalias !376, !noundef !4
   store i64 %storemerge145, ptr %38, align 16, !alias.scope !552, !noalias !376
   %.ph328.i = trunc i32 %.ph328.in.i to i8
-  %383 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge145
+  %383 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %storemerge145
   %384 = load i32, ptr %383, align 4, !alias.scope !568, !noalias !376, !noundef !4
   %385 = add nuw nsw i64 %storemerge145, 1
   store i64 %385, ptr %38, align 16, !alias.scope !568, !noalias !376
@@ -3810,7 +3810,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit56.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit54.i
-  %388 = getelementptr inbounds nuw i32, ptr %37, i64 %360
+  %388 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %360
   %389 = load i32, ptr %388, align 4, !alias.scope !568, !noalias !376, !noundef !4
   %390 = add nuw nsw i64 %39, 13
   store i64 %390, ptr %38, align 16, !alias.scope !568, !noalias !376
@@ -3875,7 +3875,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i: ; preds = %410, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit56.i
-  %412 = getelementptr inbounds nuw i32, ptr %37, i64 %390
+  %412 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %390
   %413 = load i32, ptr %412, align 4, !alias.scope !584, !noalias !376, !noundef !4
   %414 = add nuw nsw i64 %39, 14
   store i64 %414, ptr %38, align 16, !alias.scope !584, !noalias !376
@@ -3954,11 +3954,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i: ; preds = %_ZN4rand
   %.ph354.i = phi i8 [ %283, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %.ph338.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
   %.ph355.i = phi i8 [ %337, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %.ph339.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
   %.ph356.i = phi i8 [ %.ph42.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread.i ], [ %386, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.thread342.i ]
-  %.ph343.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn153
+  %.ph343.in.i.in = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.pn153
   %.ph343.in.i = load i32, ptr %.ph343.in.i.in, align 4, !alias.scope !584, !noalias !376, !noundef !4
   store i64 %storemerge144, ptr %38, align 16, !alias.scope !584, !noalias !376
   %.ph343.i = trunc i32 %.ph343.in.i to i8
-  %437 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge144
+  %437 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %storemerge144
   %438 = load i32, ptr %437, align 4, !alias.scope !600, !noalias !376, !noundef !4
   %439 = add nuw nsw i64 %storemerge144, 1
   store i64 %439, ptr %38, align 16, !alias.scope !600, !noalias !376
@@ -3967,7 +3967,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit60.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit58.i
-  %442 = getelementptr inbounds nuw i32, ptr %37, i64 %414
+  %442 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %414
   %443 = load i32, ptr %442, align 4, !alias.scope !600, !noalias !376, !noundef !4
   %444 = add nuw nsw i64 %39, 15
   store i64 %444, ptr %38, align 16, !alias.scope !600, !noalias !376
@@ -4032,7 +4032,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i: ; preds = %464, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit60.i
-  %466 = getelementptr inbounds nuw i32, ptr %37, i64 %444
+  %466 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %444
   %467 = load i32, ptr %466, align 4, !alias.scope !616, !noalias !376, !noundef !4
   %468 = add nuw nsw i64 %39, 16
   store i64 %468, ptr %38, align 16, !alias.scope !616, !noalias !376
@@ -4113,11 +4113,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i: ; preds = %_ZN4rand
   %.ph373.i = phi i8 [ %337, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph355.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
   %.ph374.i = phi i8 [ %391, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %.ph356.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
   %.ph375.i = phi i8 [ %.ph56.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread.i ], [ %440, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.thread359.i ]
-  %.ph360.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn154
+  %.ph360.in.i.in = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.pn154
   %.ph360.in.i = load i32, ptr %.ph360.in.i.in, align 4, !alias.scope !616, !noalias !376, !noundef !4
   store i64 %storemerge143, ptr %38, align 16, !alias.scope !616, !noalias !376
   %.ph360.i = trunc i32 %.ph360.in.i to i8
-  %491 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge143
+  %491 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %storemerge143
   %492 = load i32, ptr %491, align 4, !alias.scope !632, !noalias !376, !noundef !4
   %493 = add nuw nsw i64 %storemerge143, 1
   store i64 %493, ptr %38, align 16, !alias.scope !632, !noalias !376
@@ -4126,7 +4126,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit64.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit62.i
-  %496 = getelementptr inbounds nuw i32, ptr %37, i64 %468
+  %496 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %468
   %497 = load i32, ptr %496, align 4, !alias.scope !632, !noalias !376, !noundef !4
   %498 = add nuw nsw i64 %39, 17
   store i64 %498, ptr %38, align 16, !alias.scope !632, !noalias !376
@@ -4191,7 +4191,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i: ; preds = %518, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit64.i
-  %520 = getelementptr inbounds nuw i32, ptr %37, i64 %498
+  %520 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %498
   %521 = load i32, ptr %520, align 4, !alias.scope !648, !noalias !376, !noundef !4
   %522 = add nuw nsw i64 %39, 18
   store i64 %522, ptr %38, align 16, !alias.scope !648, !noalias !376
@@ -4274,11 +4274,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i: ; preds = %_ZN4rand
   %.ph394.i = phi i8 [ %391, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph374.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
   %.ph395.i = phi i8 [ %445, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %.ph375.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
   %.ph396.i = phi i8 [ %.ph72.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread.i ], [ %494, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.thread378.i ]
-  %.ph379.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn155
+  %.ph379.in.i.in = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.pn155
   %.ph379.in.i = load i32, ptr %.ph379.in.i.in, align 4, !alias.scope !648, !noalias !376, !noundef !4
   store i64 %storemerge142, ptr %38, align 16, !alias.scope !648, !noalias !376
   %.ph379.i = trunc i32 %.ph379.in.i to i8
-  %545 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge142
+  %545 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %storemerge142
   %546 = load i32, ptr %545, align 4, !alias.scope !664, !noalias !376, !noundef !4
   %547 = add nuw nsw i64 %storemerge142, 1
   store i64 %547, ptr %38, align 16, !alias.scope !664, !noalias !376
@@ -4287,7 +4287,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit68.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit66.i
-  %550 = getelementptr inbounds nuw i32, ptr %37, i64 %522
+  %550 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %522
   %551 = load i32, ptr %550, align 4, !alias.scope !664, !noalias !376, !noundef !4
   %552 = add nuw nsw i64 %39, 19
   store i64 %552, ptr %38, align 16, !alias.scope !664, !noalias !376
@@ -4352,7 +4352,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i: ; preds = %572, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit68.i
-  %574 = getelementptr inbounds nuw i32, ptr %37, i64 %552
+  %574 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %552
   %575 = load i32, ptr %574, align 4, !alias.scope !680, !noalias !376, !noundef !4
   %576 = add nuw nsw i64 %39, 20
   store i64 %576, ptr %38, align 16, !alias.scope !680, !noalias !376
@@ -4437,11 +4437,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i: ; preds = %_ZN4rand
   %.ph417.i = phi i8 [ %445, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph395.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
   %.ph418.i = phi i8 [ %499, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %.ph396.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
   %.ph419.i = phi i8 [ %.ph90.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread.i ], [ %548, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.thread399.i ]
-  %.ph400.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn156
+  %.ph400.in.i.in = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.pn156
   %.ph400.in.i = load i32, ptr %.ph400.in.i.in, align 4, !alias.scope !680, !noalias !376, !noundef !4
   store i64 %storemerge141, ptr %38, align 16, !alias.scope !680, !noalias !376
   %.ph400.i = trunc i32 %.ph400.in.i to i8
-  %599 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge141
+  %599 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %storemerge141
   %600 = load i32, ptr %599, align 4, !alias.scope !696, !noalias !376, !noundef !4
   %601 = add nuw nsw i64 %storemerge141, 1
   store i64 %601, ptr %38, align 16, !alias.scope !696, !noalias !376
@@ -4450,7 +4450,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit72.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit70.i
-  %604 = getelementptr inbounds nuw i32, ptr %37, i64 %576
+  %604 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %576
   %605 = load i32, ptr %604, align 4, !alias.scope !696, !noalias !376, !noundef !4
   %606 = add nuw nsw i64 %39, 21
   store i64 %606, ptr %38, align 16, !alias.scope !696, !noalias !376
@@ -4515,7 +4515,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i: ; preds = %626, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit72.i
-  %628 = getelementptr inbounds nuw i32, ptr %37, i64 %606
+  %628 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %606
   %629 = load i32, ptr %628, align 4, !alias.scope !712, !noalias !376, !noundef !4
   %630 = add nuw nsw i64 %39, 22
   store i64 %630, ptr %38, align 16, !alias.scope !712, !noalias !376
@@ -4602,11 +4602,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i: ; preds = %_ZN4rand
   %.ph442.i = phi i8 [ %499, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph418.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
   %.ph443.i = phi i8 [ %553, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %.ph419.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
   %.ph444.i = phi i8 [ %.ph110.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread.i ], [ %602, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.thread422.i ]
-  %.ph423.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn157
+  %.ph423.in.i.in = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.pn157
   %.ph423.in.i = load i32, ptr %.ph423.in.i.in, align 4, !alias.scope !712, !noalias !376, !noundef !4
   store i64 %storemerge140, ptr %38, align 16, !alias.scope !712, !noalias !376
   %.ph423.i = trunc i32 %.ph423.in.i to i8
-  %653 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge140
+  %653 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %storemerge140
   %654 = load i32, ptr %653, align 4, !alias.scope !728, !noalias !376, !noundef !4
   %655 = add nuw nsw i64 %storemerge140, 1
   store i64 %655, ptr %38, align 16, !alias.scope !728, !noalias !376
@@ -4615,7 +4615,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit76.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit74.i
-  %658 = getelementptr inbounds nuw i32, ptr %37, i64 %630
+  %658 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %630
   %659 = load i32, ptr %658, align 4, !alias.scope !728, !noalias !376, !noundef !4
   %660 = add nuw nsw i64 %39, 23
   store i64 %660, ptr %38, align 16, !alias.scope !728, !noalias !376
@@ -4680,7 +4680,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i: ; preds = %680, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit76.i
-  %682 = getelementptr inbounds nuw i32, ptr %37, i64 %660
+  %682 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %660
   %683 = load i32, ptr %682, align 4, !alias.scope !744, !noalias !376, !noundef !4
   %684 = add nuw nsw i64 %39, 24
   store i64 %684, ptr %38, align 16, !alias.scope !744, !noalias !376
@@ -4769,11 +4769,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i: ; preds = %_ZN4rand
   %.ph469.i = phi i8 [ %553, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph443.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
   %.ph470.i = phi i8 [ %607, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %.ph444.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
   %.ph471.i = phi i8 [ %.ph132.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread.i ], [ %656, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.thread447.i ]
-  %.ph448.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn158
+  %.ph448.in.i.in = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.pn158
   %.ph448.in.i = load i32, ptr %.ph448.in.i.in, align 4, !alias.scope !744, !noalias !376, !noundef !4
   store i64 %storemerge139, ptr %38, align 16, !alias.scope !744, !noalias !376
   %.ph448.i = trunc i32 %.ph448.in.i to i8
-  %707 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge139
+  %707 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %storemerge139
   %708 = load i32, ptr %707, align 4, !alias.scope !760, !noalias !376, !noundef !4
   %709 = add nuw nsw i64 %storemerge139, 1
   store i64 %709, ptr %38, align 16, !alias.scope !760, !noalias !376
@@ -4782,7 +4782,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit80.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit78.i
-  %712 = getelementptr inbounds nuw i32, ptr %37, i64 %684
+  %712 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %684
   %713 = load i32, ptr %712, align 4, !alias.scope !760, !noalias !376, !noundef !4
   %714 = add nuw nsw i64 %39, 25
   store i64 %714, ptr %38, align 16, !alias.scope !760, !noalias !376
@@ -4847,7 +4847,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i: ; preds = %734, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit80.i
-  %736 = getelementptr inbounds nuw i32, ptr %37, i64 %714
+  %736 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %714
   %737 = load i32, ptr %736, align 4, !alias.scope !776, !noalias !376, !noundef !4
   %738 = add nuw nsw i64 %39, 26
   store i64 %738, ptr %38, align 16, !alias.scope !776, !noalias !376
@@ -4938,11 +4938,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i: ; preds = %_ZN4rand
   %.ph498.i = phi i8 [ %607, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph470.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
   %.ph499.i = phi i8 [ %661, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %.ph471.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
   %.ph500.i = phi i8 [ %.ph156.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread.i ], [ %710, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.thread474.i ]
-  %.ph475.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn159
+  %.ph475.in.i.in = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.pn159
   %.ph475.in.i = load i32, ptr %.ph475.in.i.in, align 4, !alias.scope !776, !noalias !376, !noundef !4
   store i64 %storemerge138, ptr %38, align 16, !alias.scope !776, !noalias !376
   %.ph475.i = trunc i32 %.ph475.in.i to i8
-  %761 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge138
+  %761 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %storemerge138
   %762 = load i32, ptr %761, align 4, !alias.scope !792, !noalias !376, !noundef !4
   %763 = add nuw nsw i64 %storemerge138, 1
   store i64 %763, ptr %38, align 16, !alias.scope !792, !noalias !376
@@ -4951,7 +4951,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit84.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit82.i
-  %766 = getelementptr inbounds nuw i32, ptr %37, i64 %738
+  %766 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %738
   %767 = load i32, ptr %766, align 4, !alias.scope !792, !noalias !376, !noundef !4
   %768 = add nuw nsw i64 %39, 27
   store i64 %768, ptr %38, align 16, !alias.scope !792, !noalias !376
@@ -5016,7 +5016,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i: ; preds = %788, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit84.i
-  %790 = getelementptr inbounds nuw i32, ptr %37, i64 %768
+  %790 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %768
   %791 = load i32, ptr %790, align 4, !alias.scope !808, !noalias !376, !noundef !4
   %792 = add nuw nsw i64 %39, 28
   store i64 %792, ptr %38, align 16, !alias.scope !808, !noalias !376
@@ -5109,11 +5109,11 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i: ; preds = %_ZN4rand
   %.ph529.i = phi i8 [ %661, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph499.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
   %.ph530.i = phi i8 [ %715, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %.ph500.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
   %.ph531.i = phi i8 [ %.ph182.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread.i ], [ %764, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.thread503.i ]
-  %.ph504.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn160
+  %.ph504.in.i.in = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.pn160
   %.ph504.in.i = load i32, ptr %.ph504.in.i.in, align 4, !alias.scope !808, !noalias !376, !noundef !4
   store i64 %storemerge137, ptr %38, align 16, !alias.scope !808, !noalias !376
   %.ph504.i = trunc i32 %.ph504.in.i to i8
-  %815 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge137
+  %815 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %storemerge137
   %816 = load i32, ptr %815, align 4, !alias.scope !824, !noalias !376, !noundef !4
   %817 = add nuw nsw i64 %storemerge137, 1
   store i64 %817, ptr %38, align 16, !alias.scope !824, !noalias !376
@@ -5122,7 +5122,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i: ; preds = %_ZN4rand
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit88.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit86.i
-  %820 = getelementptr inbounds nuw i32, ptr %37, i64 %792
+  %820 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %792
   %821 = load i32, ptr %820, align 4, !alias.scope !824, !noalias !376, !noundef !4
   %822 = add nuw nsw i64 %39, 29
   store i64 %822, ptr %38, align 16, !alias.scope !824, !noalias !376
@@ -5187,7 +5187,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i: ; preds = %842, %"_ZN8
   br label %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit88.i
-  %844 = getelementptr inbounds nuw i32, ptr %37, i64 %822
+  %844 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %822
   %845 = load i32, ptr %844, align 4, !alias.scope !840, !noalias !376, !noundef !4
   %846 = add nuw nsw i64 %39, 30
   store i64 %846, ptr %38, align 16, !alias.scope !840, !noalias !376
@@ -5281,17 +5281,17 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i: ; preds = %_ZN4rand
   %.ph562.i = phi i8 [ %715, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph530.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
   %.ph563.i = phi i8 [ %769, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %.ph531.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
   %.ph564.i = phi i8 [ %.ph210.i, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread.i ], [ %818, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.thread534.i ]
-  %.ph535.in.i.in = getelementptr inbounds nuw i32, ptr %37, i64 %.pn161
+  %.ph535.in.i.in = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.pn161
   %.ph535.in.i = load i32, ptr %.ph535.in.i.in, align 4, !alias.scope !840, !noalias !376, !noundef !4
   store i64 %storemerge, ptr %38, align 16, !alias.scope !840, !noalias !376
-  %867 = getelementptr inbounds nuw i32, ptr %37, i64 %storemerge
+  %867 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %storemerge
   %868 = load i32, ptr %867, align 4, !alias.scope !856, !noalias !376, !noundef !4
   %869 = add nuw nsw i64 %storemerge, 1
   store i64 %869, ptr %38, align 16, !alias.scope !856, !noalias !376
   br label %892
 
 _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i: ; preds = %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit90.i
-  %870 = getelementptr inbounds nuw i32, ptr %37, i64 %846
+  %870 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %846
   %871 = load i32, ptr %870, align 4, !alias.scope !856, !noalias !376, !noundef !4
   %872 = add nuw nsw i64 %39, 31
   store i64 %872, ptr %38, align 16, !alias.scope !856, !noalias !376
@@ -5553,7 +5553,7 @@ _ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i: ; preds = %_ZN4rand3rng3Rng3g
   %922 = phi i64 [ %872, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.i ], [ 0, %"_ZN84_$LT$rand_chacha..chacha..ChaCha12Core$u20$as$u20$rand_core..block..BlockRngCore$GT$8generate17h8ffdbb37e10c56dcE.llvm.5424185675891088685.exit.i.i.i.i.i.i93.i" ], [ %869, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread566.i ], [ 1, %_ZN4rand3rng3Rng3gen17hc8a6f048299e9040E.exit92.thread.i ], [ 0, %891 ]
   %923 = trunc i32 %.in567.i to i8
   %924 = trunc i32 %.in.i to i8
-  %925 = getelementptr inbounds nuw i32, ptr %37, i64 %922
+  %925 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %922
   %926 = load i32, ptr %925, align 4, !alias.scope !872, !noalias !376, !noundef !4
   %927 = add nuw nsw i64 %922, 1
   store i64 %927, ptr %38, align 16, !alias.scope !872, !noalias !376
@@ -5778,7 +5778,7 @@ default.unreachable122:                           ; preds = %45, %2
   %59 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %60 = load ptr, ptr %59, align 8, !alias.scope !903, !nonnull !4, !noundef !4
   %61 = load i64, ptr %50, align 8, !alias.scope !903, !noundef !4
-  %62 = getelementptr inbounds { { [10 x i32], i32, [1 x i32] }, i64 }, ptr %60, i64 %61
+  %62 = getelementptr inbounds [56 x i8], ptr %60, i64 %61
   %.sroa.4.0..sroa_idx.i239.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.5.0..sroa_idx.i240.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -5875,7 +5875,7 @@ default.unreachable122:                           ; preds = %45, %2
 98:                                               ; preds = %268, %.preheader.i
   %99 = load ptr, ptr %59, align 8, !alias.scope !918, !nonnull !4, !noundef !4
   %100 = load i64, ptr %50, align 8, !alias.scope !918, !noundef !4
-  %101 = getelementptr inbounds { { [10 x i32], i32, [1 x i32] }, i64 }, ptr %99, i64 %100
+  %101 = getelementptr inbounds [56 x i8], ptr %99, i64 %100
   %102 = invoke noundef align 8 dereferenceable_or_null(48) ptr @_ZN4core4iter6traits8iterator8Iterator6reduce17h9580562d09f55c56E.llvm.7437452962731462277(ptr noundef nonnull %99, ptr noundef nonnull %101)
           to label %_ZN11wasi_common5sched4Poll23earliest_clock_deadline17h57f423e063c6bd4aE.exit.i unwind label %103
 
@@ -6384,7 +6384,7 @@ _ZN11wasi_common5sched4Poll23earliest_clock_deadline17h57f423e063c6bd4aE.exit.i:
   br i1 %269, label %98, label %400
 
 270:                                              ; preds = %265
-  %271 = getelementptr inbounds { { [10 x i32], i32, [1 x i32] }, i64 }, ptr %266, i64 %267
+  %271 = getelementptr inbounds [56 x i8], ptr %266, i64 %267
   %272 = invoke noundef align 8 dereferenceable_or_null(48) ptr @_ZN4core4iter6traits8iterator8Iterator6reduce17h9580562d09f55c56E.llvm.7437452962731462277(ptr noundef nonnull %266, ptr noundef nonnull %271)
           to label %_ZN11wasi_common5sched4Poll23earliest_clock_deadline17h57f423e063c6bd4aE.exit191.i unwind label %273
 
@@ -6472,7 +6472,7 @@ _ZN11wasi_common5sched4Poll23earliest_clock_deadline17h57f423e063c6bd4aE.exit191
   %.sroa.0104.0.copyload.i = load i64, ptr %37, align 8
   %.sroa.5105.0.copyload.i = load ptr, ptr %57, align 8, !nonnull !4, !noundef !4
   %.sroa.6106.0.copyload.i = load i64, ptr %58, align 8
-  %306 = getelementptr inbounds { i32, i16, i16 }, ptr %.sroa.5105.0.copyload.i, i64 %.sroa.6106.0.copyload.i
+  %306 = getelementptr inbounds [8 x i8], ptr %.sroa.5105.0.copyload.i, i64 %.sroa.6106.0.copyload.i
   %.sroa.899.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.899.0..sroa_idx.i, i8 0, i64 24, i1 false)
@@ -6981,7 +6981,7 @@ _ZN5alloc7raw_vec11finish_grow17h5dc0bd592416ad76E.exit.i.i.i.i: ; preds = %451,
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h59e7b7c493b16d9eE.exit.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hc4baa36907a33654E.exit.i.i", %._crit_edge.i.i
   %.pre-phi.i.i = phi i64 [ %.pre3.i.i, %._crit_edge.i.i ], [ %442, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hc4baa36907a33654E.exit.i.i" ]
   %454 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %.sroa.012.1.i.i.pn.i.i.i.i.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hc4baa36907a33654E.exit.i.i" ]
-  %455 = getelementptr inbounds { i32, i16, i16 }, ptr %454, i64 %435
+  %455 = getelementptr inbounds [8 x i8], ptr %454, i64 %435
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %455, align 4, !noalias !1080
   br label %456
 
@@ -7149,7 +7149,7 @@ _ZN5alloc7raw_vec11finish_grow17h5dc0bd592416ad76E.exit.i.i.i266.i: ; preds = %4
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h59e7b7c493b16d9eE.exit275.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hc4baa36907a33654E.exit.i269.i", %._crit_edge.i257.i
   %.pre-phi.i261.i = phi i64 [ %.pre3.i260.i, %._crit_edge.i257.i ], [ %487, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hc4baa36907a33654E.exit.i269.i" ]
   %499 = phi ptr [ %.pre.i259.i, %._crit_edge.i257.i ], [ %.sroa.012.1.i.i.pn.i.i.i.i267.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hc4baa36907a33654E.exit.i269.i" ]
-  %500 = getelementptr inbounds { i32, i16, i16 }, ptr %499, i64 %480
+  %500 = getelementptr inbounds [8 x i8], ptr %499, i64 %480
   store i64 %.sroa.0.0.insert.insert.i256.i, ptr %500, align 4, !noalias !1111
   br label %456
 

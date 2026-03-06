@@ -3,8 +3,6 @@ source_filename = "bench/llvm/original/MPIFunctionClassifier.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.std::pair.360" = type { ptr, i64 }
-
 $_ZN5clang15IdentifierTable3getEN4llvm9StringRefE = comdat any
 
 $_ZN4llvm9StringMapIPN5clang14IdentifierInfoENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJDnEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEjDpOT_ = comdat any
@@ -78,7 +76,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %16 = phi i32 [ %9, %2 ], [ %.pre.i, %12 ]
   %17 = load ptr, ptr %7, align 8, !tbaa !387
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = ptrtoint ptr %5 to i64
   store i64 %20, ptr %19, align 1
   %21 = load i32, ptr %8, align 8, !tbaa !384
@@ -105,7 +103,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %33 = phi i32 [ %26, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit ], [ %.pre.i12, %29 ]
   %34 = load ptr, ptr %23, align 8, !tbaa !387
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %37 = ptrtoint ptr %24 to i64
   store i64 %37, ptr %36, align 1
   %38 = load i32, ptr %25, align 8, !tbaa !384
@@ -132,7 +130,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %49 = phi i32 [ %43, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit13 ], [ %.pre.i15, %45 ]
   %50 = load ptr, ptr %7, align 8, !tbaa !387
   %51 = zext i32 %49 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %51
   %53 = ptrtoint ptr %41 to i64
   store i64 %53, ptr %52, align 1
   %54 = load i32, ptr %8, align 8, !tbaa !384
@@ -158,7 +156,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %65 = phi i32 [ %58, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit16 ], [ %.pre.i18, %61 ]
   %66 = load ptr, ptr %0, align 8, !tbaa !387
   %67 = zext i32 %65 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %67
   %69 = ptrtoint ptr %56 to i64
   store i64 %69, ptr %68, align 1
   %70 = load i32, ptr %57, align 8, !tbaa !384
@@ -182,7 +180,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %79 = phi i32 [ %73, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit19 ], [ %.pre.i21, %75 ]
   %80 = load ptr, ptr %23, align 8, !tbaa !387
   %81 = zext i32 %79 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %81
   %83 = ptrtoint ptr %72 to i64
   store i64 %83, ptr %82, align 1
   %84 = load i32, ptr %25, align 8, !tbaa !384
@@ -209,7 +207,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %95 = phi i32 [ %89, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit22 ], [ %.pre.i24, %91 ]
   %96 = load ptr, ptr %7, align 8, !tbaa !387
   %97 = zext i32 %95 to i64
-  %98 = getelementptr inbounds nuw ptr, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %97
   %99 = ptrtoint ptr %87 to i64
   store i64 %99, ptr %98, align 1
   %100 = load i32, ptr %8, align 8, !tbaa !384
@@ -233,7 +231,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %109 = phi i32 [ %103, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit25 ], [ %.pre.i27, %105 ]
   %110 = load ptr, ptr %23, align 8, !tbaa !387
   %111 = zext i32 %109 to i64
-  %112 = getelementptr inbounds nuw ptr, ptr %110, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %111
   %113 = ptrtoint ptr %102 to i64
   store i64 %113, ptr %112, align 1
   %114 = load i32, ptr %25, align 8, !tbaa !384
@@ -260,7 +258,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %125 = phi i32 [ %119, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit28 ], [ %.pre.i30, %121 ]
   %126 = load ptr, ptr %7, align 8, !tbaa !387
   %127 = zext i32 %125 to i64
-  %128 = getelementptr inbounds nuw ptr, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %127
   %129 = ptrtoint ptr %117 to i64
   store i64 %129, ptr %128, align 1
   %130 = load i32, ptr %8, align 8, !tbaa !384
@@ -284,7 +282,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %139 = phi i32 [ %133, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit31 ], [ %.pre.i33, %135 ]
   %140 = load ptr, ptr %0, align 8, !tbaa !387
   %141 = zext i32 %139 to i64
-  %142 = getelementptr inbounds nuw ptr, ptr %140, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %141
   %143 = ptrtoint ptr %132 to i64
   store i64 %143, ptr %142, align 1
   %144 = load i32, ptr %57, align 8, !tbaa !384
@@ -308,7 +306,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %153 = phi i32 [ %147, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit34 ], [ %.pre.i36, %149 ]
   %154 = load ptr, ptr %23, align 8, !tbaa !387
   %155 = zext i32 %153 to i64
-  %156 = getelementptr inbounds nuw ptr, ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %155
   %157 = ptrtoint ptr %146 to i64
   store i64 %157, ptr %156, align 1
   %158 = load i32, ptr %25, align 8, !tbaa !384
@@ -335,7 +333,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %169 = phi i32 [ %163, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit37 ], [ %.pre.i39, %165 ]
   %170 = load ptr, ptr %7, align 8, !tbaa !387
   %171 = zext i32 %169 to i64
-  %172 = getelementptr inbounds nuw ptr, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %171
   %173 = ptrtoint ptr %161 to i64
   store i64 %173, ptr %172, align 1
   %174 = load i32, ptr %8, align 8, !tbaa !384
@@ -359,7 +357,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %183 = phi i32 [ %177, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit40 ], [ %.pre.i42, %179 ]
   %184 = load ptr, ptr %23, align 8, !tbaa !387
   %185 = zext i32 %183 to i64
-  %186 = getelementptr inbounds nuw ptr, ptr %184, i64 %185
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %185
   %187 = ptrtoint ptr %176 to i64
   store i64 %187, ptr %186, align 1
   %188 = load i32, ptr %25, align 8, !tbaa !384
@@ -386,7 +384,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %199 = phi i32 [ %193, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit43 ], [ %.pre.i45, %195 ]
   %200 = load ptr, ptr %7, align 8, !tbaa !387
   %201 = zext i32 %199 to i64
-  %202 = getelementptr inbounds nuw ptr, ptr %200, i64 %201
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %201
   %203 = ptrtoint ptr %191 to i64
   store i64 %203, ptr %202, align 1
   %204 = load i32, ptr %8, align 8, !tbaa !384
@@ -410,7 +408,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %213 = phi i32 [ %207, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit46 ], [ %.pre.i48, %209 ]
   %214 = load ptr, ptr %0, align 8, !tbaa !387
   %215 = zext i32 %213 to i64
-  %216 = getelementptr inbounds nuw ptr, ptr %214, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %215
   %217 = ptrtoint ptr %206 to i64
   store i64 %217, ptr %216, align 1
   %218 = load i32, ptr %57, align 8, !tbaa !384
@@ -434,7 +432,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %227 = phi i32 [ %221, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit49 ], [ %.pre.i51, %223 ]
   %228 = load ptr, ptr %23, align 8, !tbaa !387
   %229 = zext i32 %227 to i64
-  %230 = getelementptr inbounds nuw ptr, ptr %228, i64 %229
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %229
   %231 = ptrtoint ptr %220 to i64
   store i64 %231, ptr %230, align 1
   %232 = load i32, ptr %25, align 8, !tbaa !384
@@ -461,7 +459,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %243 = phi i32 [ %237, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit52 ], [ %.pre.i54, %239 ]
   %244 = load ptr, ptr %7, align 8, !tbaa !387
   %245 = zext i32 %243 to i64
-  %246 = getelementptr inbounds nuw ptr, ptr %244, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %245
   %247 = ptrtoint ptr %235 to i64
   store i64 %247, ptr %246, align 1
   %248 = load i32, ptr %8, align 8, !tbaa !384
@@ -485,7 +483,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %257 = phi i32 [ %251, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit55 ], [ %.pre.i57, %253 ]
   %258 = load ptr, ptr %23, align 8, !tbaa !387
   %259 = zext i32 %257 to i64
-  %260 = getelementptr inbounds nuw ptr, ptr %258, i64 %259
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %258, i64 %259
   %261 = ptrtoint ptr %250 to i64
   store i64 %261, ptr %260, align 1
   %262 = load i32, ptr %25, align 8, !tbaa !384
@@ -512,7 +510,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %273 = phi i32 [ %267, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit58 ], [ %.pre.i60, %269 ]
   %274 = load ptr, ptr %7, align 8, !tbaa !387
   %275 = zext i32 %273 to i64
-  %276 = getelementptr inbounds nuw ptr, ptr %274, i64 %275
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %274, i64 %275
   %277 = ptrtoint ptr %265 to i64
   store i64 %277, ptr %276, align 1
   %278 = load i32, ptr %8, align 8, !tbaa !384
@@ -536,7 +534,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %287 = phi i32 [ %281, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit61 ], [ %.pre.i63, %283 ]
   %288 = load ptr, ptr %23, align 8, !tbaa !387
   %289 = zext i32 %287 to i64
-  %290 = getelementptr inbounds nuw ptr, ptr %288, i64 %289
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %288, i64 %289
   %291 = ptrtoint ptr %280 to i64
   store i64 %291, ptr %290, align 1
   %292 = load i32, ptr %25, align 8, !tbaa !384
@@ -563,7 +561,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %303 = phi i32 [ %297, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit64 ], [ %.pre.i66, %299 ]
   %304 = load ptr, ptr %7, align 8, !tbaa !387
   %305 = zext i32 %303 to i64
-  %306 = getelementptr inbounds nuw ptr, ptr %304, i64 %305
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %304, i64 %305
   %307 = ptrtoint ptr %295 to i64
   store i64 %307, ptr %306, align 1
   %308 = load i32, ptr %8, align 8, !tbaa !384
@@ -587,7 +585,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %317 = phi i32 [ %311, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit67 ], [ %.pre.i69, %313 ]
   %318 = load ptr, ptr %23, align 8, !tbaa !387
   %319 = zext i32 %317 to i64
-  %320 = getelementptr inbounds nuw ptr, ptr %318, i64 %319
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %318, i64 %319
   %321 = ptrtoint ptr %310 to i64
   store i64 %321, ptr %320, align 1
   %322 = load i32, ptr %25, align 8, !tbaa !384
@@ -614,7 +612,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %333 = phi i32 [ %327, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit70 ], [ %.pre.i72, %329 ]
   %334 = load ptr, ptr %7, align 8, !tbaa !387
   %335 = zext i32 %333 to i64
-  %336 = getelementptr inbounds nuw ptr, ptr %334, i64 %335
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %335
   %337 = ptrtoint ptr %325 to i64
   store i64 %337, ptr %336, align 1
   %338 = load i32, ptr %8, align 8, !tbaa !384
@@ -638,7 +636,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %347 = phi i32 [ %341, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit73 ], [ %.pre.i75, %343 ]
   %348 = load ptr, ptr %0, align 8, !tbaa !387
   %349 = zext i32 %347 to i64
-  %350 = getelementptr inbounds nuw ptr, ptr %348, i64 %349
+  %350 = getelementptr inbounds nuw [8 x i8], ptr %348, i64 %349
   %351 = ptrtoint ptr %340 to i64
   store i64 %351, ptr %350, align 1
   %352 = load i32, ptr %57, align 8, !tbaa !384
@@ -662,7 +660,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %361 = phi i32 [ %355, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit76 ], [ %.pre.i78, %357 ]
   %362 = load ptr, ptr %23, align 8, !tbaa !387
   %363 = zext i32 %361 to i64
-  %364 = getelementptr inbounds nuw ptr, ptr %362, i64 %363
+  %364 = getelementptr inbounds nuw [8 x i8], ptr %362, i64 %363
   %365 = ptrtoint ptr %354 to i64
   store i64 %365, ptr %364, align 1
   %366 = load i32, ptr %25, align 8, !tbaa !384
@@ -698,7 +696,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %16 = phi i32 [ %9, %2 ], [ %.pre.i, %12 ]
   %17 = load ptr, ptr %7, align 8, !tbaa !387
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = ptrtoint ptr %5 to i64
   store i64 %20, ptr %19, align 1
   %21 = load i32, ptr %8, align 8, !tbaa !384
@@ -725,7 +723,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %33 = phi i32 [ %26, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit ], [ %.pre.i16, %29 ]
   %34 = load ptr, ptr %23, align 8, !tbaa !387
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %37 = ptrtoint ptr %24 to i64
   store i64 %37, ptr %36, align 1
   %38 = load i32, ptr %25, align 8, !tbaa !384
@@ -752,7 +750,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %50 = phi i32 [ %43, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit17 ], [ %.pre.i19, %46 ]
   %51 = load ptr, ptr %40, align 8, !tbaa !387
   %52 = zext i32 %50 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = ptrtoint ptr %41 to i64
   store i64 %54, ptr %53, align 1
   %55 = load i32, ptr %42, align 8, !tbaa !384
@@ -779,7 +777,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %66 = phi i32 [ %60, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit20 ], [ %.pre.i22, %62 ]
   %67 = load ptr, ptr %7, align 8, !tbaa !387
   %68 = zext i32 %66 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %68
   %70 = ptrtoint ptr %58 to i64
   store i64 %70, ptr %69, align 1
   %71 = load i32, ptr %8, align 8, !tbaa !384
@@ -803,7 +801,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %80 = phi i32 [ %74, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit23 ], [ %.pre.i25, %76 ]
   %81 = load ptr, ptr %23, align 8, !tbaa !387
   %82 = zext i32 %80 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %82
   %84 = ptrtoint ptr %73 to i64
   store i64 %84, ptr %83, align 1
   %85 = load i32, ptr %25, align 8, !tbaa !384
@@ -829,7 +827,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %96 = phi i32 [ %89, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit26 ], [ %.pre.i28, %92 ]
   %97 = load ptr, ptr %0, align 8, !tbaa !387
   %98 = zext i32 %96 to i64
-  %99 = getelementptr inbounds nuw ptr, ptr %97, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %98
   %100 = ptrtoint ptr %87 to i64
   store i64 %100, ptr %99, align 1
   %101 = load i32, ptr %88, align 8, !tbaa !384
@@ -853,7 +851,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %110 = phi i32 [ %104, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit29 ], [ %.pre.i31, %106 ]
   %111 = load ptr, ptr %40, align 8, !tbaa !387
   %112 = zext i32 %110 to i64
-  %113 = getelementptr inbounds nuw ptr, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %112
   %114 = ptrtoint ptr %103 to i64
   store i64 %114, ptr %113, align 1
   %115 = load i32, ptr %42, align 8, !tbaa !384
@@ -880,7 +878,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %126 = phi i32 [ %120, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit32 ], [ %.pre.i34, %122 ]
   %127 = load ptr, ptr %7, align 8, !tbaa !387
   %128 = zext i32 %126 to i64
-  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %128
   %130 = ptrtoint ptr %118 to i64
   store i64 %130, ptr %129, align 1
   %131 = load i32, ptr %8, align 8, !tbaa !384
@@ -907,7 +905,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %143 = phi i32 [ %136, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit35 ], [ %.pre.i37, %139 ]
   %144 = load ptr, ptr %133, align 8, !tbaa !387
   %145 = zext i32 %143 to i64
-  %146 = getelementptr inbounds nuw ptr, ptr %144, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %145
   %147 = ptrtoint ptr %134 to i64
   store i64 %147, ptr %146, align 1
   %148 = load i32, ptr %135, align 8, !tbaa !384
@@ -931,7 +929,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %157 = phi i32 [ %151, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit38 ], [ %.pre.i40, %153 ]
   %158 = load ptr, ptr %40, align 8, !tbaa !387
   %159 = zext i32 %157 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr %158, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %159
   %161 = ptrtoint ptr %150 to i64
   store i64 %161, ptr %160, align 1
   %162 = load i32, ptr %42, align 8, !tbaa !384
@@ -958,7 +956,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %173 = phi i32 [ %167, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit41 ], [ %.pre.i43, %169 ]
   %174 = load ptr, ptr %7, align 8, !tbaa !387
   %175 = zext i32 %173 to i64
-  %176 = getelementptr inbounds nuw ptr, ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %175
   %177 = ptrtoint ptr %165 to i64
   store i64 %177, ptr %176, align 1
   %178 = load i32, ptr %8, align 8, !tbaa !384
@@ -982,7 +980,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %187 = phi i32 [ %181, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit44 ], [ %.pre.i46, %183 ]
   %188 = load ptr, ptr %133, align 8, !tbaa !387
   %189 = zext i32 %187 to i64
-  %190 = getelementptr inbounds nuw ptr, ptr %188, i64 %189
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %189
   %191 = ptrtoint ptr %180 to i64
   store i64 %191, ptr %190, align 1
   %192 = load i32, ptr %135, align 8, !tbaa !384
@@ -1006,7 +1004,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %201 = phi i32 [ %195, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit47 ], [ %.pre.i49, %197 ]
   %202 = load ptr, ptr %0, align 8, !tbaa !387
   %203 = zext i32 %201 to i64
-  %204 = getelementptr inbounds nuw ptr, ptr %202, i64 %203
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %203
   %205 = ptrtoint ptr %194 to i64
   store i64 %205, ptr %204, align 1
   %206 = load i32, ptr %88, align 8, !tbaa !384
@@ -1030,7 +1028,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %215 = phi i32 [ %209, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit50 ], [ %.pre.i52, %211 ]
   %216 = load ptr, ptr %40, align 8, !tbaa !387
   %217 = zext i32 %215 to i64
-  %218 = getelementptr inbounds nuw ptr, ptr %216, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %217
   %219 = ptrtoint ptr %208 to i64
   store i64 %219, ptr %218, align 1
   %220 = load i32, ptr %42, align 8, !tbaa !384
@@ -1057,7 +1055,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %231 = phi i32 [ %225, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit53 ], [ %.pre.i55, %227 ]
   %232 = load ptr, ptr %7, align 8, !tbaa !387
   %233 = zext i32 %231 to i64
-  %234 = getelementptr inbounds nuw ptr, ptr %232, i64 %233
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %233
   %235 = ptrtoint ptr %223 to i64
   store i64 %235, ptr %234, align 1
   %236 = load i32, ptr %8, align 8, !tbaa !384
@@ -1084,7 +1082,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %248 = phi i32 [ %241, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit56 ], [ %.pre.i58, %244 ]
   %249 = load ptr, ptr %238, align 8, !tbaa !387
   %250 = zext i32 %248 to i64
-  %251 = getelementptr inbounds nuw ptr, ptr %249, i64 %250
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %250
   %252 = ptrtoint ptr %239 to i64
   store i64 %252, ptr %251, align 1
   %253 = load i32, ptr %240, align 8, !tbaa !384
@@ -1108,7 +1106,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %262 = phi i32 [ %256, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit59 ], [ %.pre.i61, %258 ]
   %263 = load ptr, ptr %40, align 8, !tbaa !387
   %264 = zext i32 %262 to i64
-  %265 = getelementptr inbounds nuw ptr, ptr %263, i64 %264
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %264
   %266 = ptrtoint ptr %255 to i64
   store i64 %266, ptr %265, align 1
   %267 = load i32, ptr %42, align 8, !tbaa !384
@@ -1135,7 +1133,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %278 = phi i32 [ %272, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit62 ], [ %.pre.i64, %274 ]
   %279 = load ptr, ptr %7, align 8, !tbaa !387
   %280 = zext i32 %278 to i64
-  %281 = getelementptr inbounds nuw ptr, ptr %279, i64 %280
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %280
   %282 = ptrtoint ptr %270 to i64
   store i64 %282, ptr %281, align 1
   %283 = load i32, ptr %8, align 8, !tbaa !384
@@ -1159,7 +1157,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %292 = phi i32 [ %286, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit65 ], [ %.pre.i67, %288 ]
   %293 = load ptr, ptr %238, align 8, !tbaa !387
   %294 = zext i32 %292 to i64
-  %295 = getelementptr inbounds nuw ptr, ptr %293, i64 %294
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %293, i64 %294
   %296 = ptrtoint ptr %285 to i64
   store i64 %296, ptr %295, align 1
   %297 = load i32, ptr %240, align 8, !tbaa !384
@@ -1183,7 +1181,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %306 = phi i32 [ %300, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit68 ], [ %.pre.i70, %302 ]
   %307 = load ptr, ptr %0, align 8, !tbaa !387
   %308 = zext i32 %306 to i64
-  %309 = getelementptr inbounds nuw ptr, ptr %307, i64 %308
+  %309 = getelementptr inbounds nuw [8 x i8], ptr %307, i64 %308
   %310 = ptrtoint ptr %299 to i64
   store i64 %310, ptr %309, align 1
   %311 = load i32, ptr %88, align 8, !tbaa !384
@@ -1207,7 +1205,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %320 = phi i32 [ %314, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit71 ], [ %.pre.i73, %316 ]
   %321 = load ptr, ptr %40, align 8, !tbaa !387
   %322 = zext i32 %320 to i64
-  %323 = getelementptr inbounds nuw ptr, ptr %321, i64 %322
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %321, i64 %322
   %324 = ptrtoint ptr %313 to i64
   store i64 %324, ptr %323, align 1
   %325 = load i32, ptr %42, align 8, !tbaa !384
@@ -1234,7 +1232,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %336 = phi i32 [ %330, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit74 ], [ %.pre.i76, %332 ]
   %337 = load ptr, ptr %7, align 8, !tbaa !387
   %338 = zext i32 %336 to i64
-  %339 = getelementptr inbounds nuw ptr, ptr %337, i64 %338
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %337, i64 %338
   %340 = ptrtoint ptr %328 to i64
   store i64 %340, ptr %339, align 1
   %341 = load i32, ptr %8, align 8, !tbaa !384
@@ -1258,7 +1256,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %350 = phi i32 [ %344, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit77 ], [ %.pre.i79, %346 ]
   %351 = load ptr, ptr %23, align 8, !tbaa !387
   %352 = zext i32 %350 to i64
-  %353 = getelementptr inbounds nuw ptr, ptr %351, i64 %352
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %351, i64 %352
   %354 = ptrtoint ptr %343 to i64
   store i64 %354, ptr %353, align 1
   %355 = load i32, ptr %25, align 8, !tbaa !384
@@ -1282,7 +1280,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %364 = phi i32 [ %358, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit80 ], [ %.pre.i82, %360 ]
   %365 = load ptr, ptr %40, align 8, !tbaa !387
   %366 = zext i32 %364 to i64
-  %367 = getelementptr inbounds nuw ptr, ptr %365, i64 %366
+  %367 = getelementptr inbounds nuw [8 x i8], ptr %365, i64 %366
   %368 = ptrtoint ptr %357 to i64
   store i64 %368, ptr %367, align 1
   %369 = load i32, ptr %42, align 8, !tbaa !384
@@ -1309,7 +1307,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %380 = phi i32 [ %374, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit83 ], [ %.pre.i85, %376 ]
   %381 = load ptr, ptr %7, align 8, !tbaa !387
   %382 = zext i32 %380 to i64
-  %383 = getelementptr inbounds nuw ptr, ptr %381, i64 %382
+  %383 = getelementptr inbounds nuw [8 x i8], ptr %381, i64 %382
   %384 = ptrtoint ptr %372 to i64
   store i64 %384, ptr %383, align 1
   %385 = load i32, ptr %8, align 8, !tbaa !384
@@ -1333,7 +1331,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %394 = phi i32 [ %388, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit86 ], [ %.pre.i88, %390 ]
   %395 = load ptr, ptr %23, align 8, !tbaa !387
   %396 = zext i32 %394 to i64
-  %397 = getelementptr inbounds nuw ptr, ptr %395, i64 %396
+  %397 = getelementptr inbounds nuw [8 x i8], ptr %395, i64 %396
   %398 = ptrtoint ptr %387 to i64
   store i64 %398, ptr %397, align 1
   %399 = load i32, ptr %25, align 8, !tbaa !384
@@ -1357,7 +1355,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %408 = phi i32 [ %402, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit89 ], [ %.pre.i91, %404 ]
   %409 = load ptr, ptr %0, align 8, !tbaa !387
   %410 = zext i32 %408 to i64
-  %411 = getelementptr inbounds nuw ptr, ptr %409, i64 %410
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %409, i64 %410
   %412 = ptrtoint ptr %401 to i64
   store i64 %412, ptr %411, align 1
   %413 = load i32, ptr %88, align 8, !tbaa !384
@@ -1381,7 +1379,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %422 = phi i32 [ %416, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit92 ], [ %.pre.i94, %418 ]
   %423 = load ptr, ptr %40, align 8, !tbaa !387
   %424 = zext i32 %422 to i64
-  %425 = getelementptr inbounds nuw ptr, ptr %423, i64 %424
+  %425 = getelementptr inbounds nuw [8 x i8], ptr %423, i64 %424
   %426 = ptrtoint ptr %415 to i64
   store i64 %426, ptr %425, align 1
   %427 = load i32, ptr %42, align 8, !tbaa !384
@@ -1408,7 +1406,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %438 = phi i32 [ %432, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit95 ], [ %.pre.i97, %434 ]
   %439 = load ptr, ptr %7, align 8, !tbaa !387
   %440 = zext i32 %438 to i64
-  %441 = getelementptr inbounds nuw ptr, ptr %439, i64 %440
+  %441 = getelementptr inbounds nuw [8 x i8], ptr %439, i64 %440
   %442 = ptrtoint ptr %430 to i64
   store i64 %442, ptr %441, align 1
   %443 = load i32, ptr %8, align 8, !tbaa !384
@@ -1432,7 +1430,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %452 = phi i32 [ %446, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit98 ], [ %.pre.i100, %448 ]
   %453 = load ptr, ptr %133, align 8, !tbaa !387
   %454 = zext i32 %452 to i64
-  %455 = getelementptr inbounds nuw ptr, ptr %453, i64 %454
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %453, i64 %454
   %456 = ptrtoint ptr %445 to i64
   store i64 %456, ptr %455, align 1
   %457 = load i32, ptr %135, align 8, !tbaa !384
@@ -1456,7 +1454,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %466 = phi i32 [ %460, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit101 ], [ %.pre.i103, %462 ]
   %467 = load ptr, ptr %40, align 8, !tbaa !387
   %468 = zext i32 %466 to i64
-  %469 = getelementptr inbounds nuw ptr, ptr %467, i64 %468
+  %469 = getelementptr inbounds nuw [8 x i8], ptr %467, i64 %468
   %470 = ptrtoint ptr %459 to i64
   store i64 %470, ptr %469, align 1
   %471 = load i32, ptr %42, align 8, !tbaa !384
@@ -1483,7 +1481,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %482 = phi i32 [ %476, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit104 ], [ %.pre.i106, %478 ]
   %483 = load ptr, ptr %7, align 8, !tbaa !387
   %484 = zext i32 %482 to i64
-  %485 = getelementptr inbounds nuw ptr, ptr %483, i64 %484
+  %485 = getelementptr inbounds nuw [8 x i8], ptr %483, i64 %484
   %486 = ptrtoint ptr %474 to i64
   store i64 %486, ptr %485, align 1
   %487 = load i32, ptr %8, align 8, !tbaa !384
@@ -1507,7 +1505,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %496 = phi i32 [ %490, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit107 ], [ %.pre.i109, %492 ]
   %497 = load ptr, ptr %133, align 8, !tbaa !387
   %498 = zext i32 %496 to i64
-  %499 = getelementptr inbounds nuw ptr, ptr %497, i64 %498
+  %499 = getelementptr inbounds nuw [8 x i8], ptr %497, i64 %498
   %500 = ptrtoint ptr %489 to i64
   store i64 %500, ptr %499, align 1
   %501 = load i32, ptr %135, align 8, !tbaa !384
@@ -1531,7 +1529,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %510 = phi i32 [ %504, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit110 ], [ %.pre.i112, %506 ]
   %511 = load ptr, ptr %0, align 8, !tbaa !387
   %512 = zext i32 %510 to i64
-  %513 = getelementptr inbounds nuw ptr, ptr %511, i64 %512
+  %513 = getelementptr inbounds nuw [8 x i8], ptr %511, i64 %512
   %514 = ptrtoint ptr %503 to i64
   store i64 %514, ptr %513, align 1
   %515 = load i32, ptr %88, align 8, !tbaa !384
@@ -1555,7 +1553,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %524 = phi i32 [ %518, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit113 ], [ %.pre.i115, %520 ]
   %525 = load ptr, ptr %40, align 8, !tbaa !387
   %526 = zext i32 %524 to i64
-  %527 = getelementptr inbounds nuw ptr, ptr %525, i64 %526
+  %527 = getelementptr inbounds nuw [8 x i8], ptr %525, i64 %526
   %528 = ptrtoint ptr %517 to i64
   store i64 %528, ptr %527, align 1
   %529 = load i32, ptr %42, align 8, !tbaa !384
@@ -1582,7 +1580,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %540 = phi i32 [ %534, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit116 ], [ %.pre.i118, %536 ]
   %541 = load ptr, ptr %7, align 8, !tbaa !387
   %542 = zext i32 %540 to i64
-  %543 = getelementptr inbounds nuw ptr, ptr %541, i64 %542
+  %543 = getelementptr inbounds nuw [8 x i8], ptr %541, i64 %542
   %544 = ptrtoint ptr %532 to i64
   store i64 %544, ptr %543, align 1
   %545 = load i32, ptr %8, align 8, !tbaa !384
@@ -1606,7 +1604,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %554 = phi i32 [ %548, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit119 ], [ %.pre.i121, %550 ]
   %555 = load ptr, ptr %238, align 8, !tbaa !387
   %556 = zext i32 %554 to i64
-  %557 = getelementptr inbounds nuw ptr, ptr %555, i64 %556
+  %557 = getelementptr inbounds nuw [8 x i8], ptr %555, i64 %556
   %558 = ptrtoint ptr %547 to i64
   store i64 %558, ptr %557, align 1
   %559 = load i32, ptr %240, align 8, !tbaa !384
@@ -1630,7 +1628,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %568 = phi i32 [ %562, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit122 ], [ %.pre.i124, %564 ]
   %569 = load ptr, ptr %40, align 8, !tbaa !387
   %570 = zext i32 %568 to i64
-  %571 = getelementptr inbounds nuw ptr, ptr %569, i64 %570
+  %571 = getelementptr inbounds nuw [8 x i8], ptr %569, i64 %570
   %572 = ptrtoint ptr %561 to i64
   store i64 %572, ptr %571, align 1
   %573 = load i32, ptr %42, align 8, !tbaa !384
@@ -1657,7 +1655,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %584 = phi i32 [ %578, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit125 ], [ %.pre.i127, %580 ]
   %585 = load ptr, ptr %7, align 8, !tbaa !387
   %586 = zext i32 %584 to i64
-  %587 = getelementptr inbounds nuw ptr, ptr %585, i64 %586
+  %587 = getelementptr inbounds nuw [8 x i8], ptr %585, i64 %586
   %588 = ptrtoint ptr %576 to i64
   store i64 %588, ptr %587, align 1
   %589 = load i32, ptr %8, align 8, !tbaa !384
@@ -1681,7 +1679,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %598 = phi i32 [ %592, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit128 ], [ %.pre.i130, %594 ]
   %599 = load ptr, ptr %238, align 8, !tbaa !387
   %600 = zext i32 %598 to i64
-  %601 = getelementptr inbounds nuw ptr, ptr %599, i64 %600
+  %601 = getelementptr inbounds nuw [8 x i8], ptr %599, i64 %600
   %602 = ptrtoint ptr %591 to i64
   store i64 %602, ptr %601, align 1
   %603 = load i32, ptr %240, align 8, !tbaa !384
@@ -1705,7 +1703,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %612 = phi i32 [ %606, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit131 ], [ %.pre.i133, %608 ]
   %613 = load ptr, ptr %0, align 8, !tbaa !387
   %614 = zext i32 %612 to i64
-  %615 = getelementptr inbounds nuw ptr, ptr %613, i64 %614
+  %615 = getelementptr inbounds nuw [8 x i8], ptr %613, i64 %614
   %616 = ptrtoint ptr %605 to i64
   store i64 %616, ptr %615, align 1
   %617 = load i32, ptr %88, align 8, !tbaa !384
@@ -1729,7 +1727,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %626 = phi i32 [ %620, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit134 ], [ %.pre.i136, %622 ]
   %627 = load ptr, ptr %40, align 8, !tbaa !387
   %628 = zext i32 %626 to i64
-  %629 = getelementptr inbounds nuw ptr, ptr %627, i64 %628
+  %629 = getelementptr inbounds nuw [8 x i8], ptr %627, i64 %628
   %630 = ptrtoint ptr %619 to i64
   store i64 %630, ptr %629, align 1
   %631 = load i32, ptr %42, align 8, !tbaa !384
@@ -1756,7 +1754,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %642 = phi i32 [ %636, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit137 ], [ %.pre.i139, %638 ]
   %643 = load ptr, ptr %7, align 8, !tbaa !387
   %644 = zext i32 %642 to i64
-  %645 = getelementptr inbounds nuw ptr, ptr %643, i64 %644
+  %645 = getelementptr inbounds nuw [8 x i8], ptr %643, i64 %644
   %646 = ptrtoint ptr %634 to i64
   store i64 %646, ptr %645, align 1
   %647 = load i32, ptr %8, align 8, !tbaa !384
@@ -1780,7 +1778,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %656 = phi i32 [ %650, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit140 ], [ %.pre.i142, %652 ]
   %657 = load ptr, ptr %238, align 8, !tbaa !387
   %658 = zext i32 %656 to i64
-  %659 = getelementptr inbounds nuw ptr, ptr %657, i64 %658
+  %659 = getelementptr inbounds nuw [8 x i8], ptr %657, i64 %658
   %660 = ptrtoint ptr %649 to i64
   store i64 %660, ptr %659, align 1
   %661 = load i32, ptr %240, align 8, !tbaa !384
@@ -1804,7 +1802,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %670 = phi i32 [ %664, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit143 ], [ %.pre.i145, %666 ]
   %671 = load ptr, ptr %40, align 8, !tbaa !387
   %672 = zext i32 %670 to i64
-  %673 = getelementptr inbounds nuw ptr, ptr %671, i64 %672
+  %673 = getelementptr inbounds nuw [8 x i8], ptr %671, i64 %672
   %674 = ptrtoint ptr %663 to i64
   store i64 %674, ptr %673, align 1
   %675 = load i32, ptr %42, align 8, !tbaa !384
@@ -1831,7 +1829,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %686 = phi i32 [ %680, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit146 ], [ %.pre.i148, %682 ]
   %687 = load ptr, ptr %7, align 8, !tbaa !387
   %688 = zext i32 %686 to i64
-  %689 = getelementptr inbounds nuw ptr, ptr %687, i64 %688
+  %689 = getelementptr inbounds nuw [8 x i8], ptr %687, i64 %688
   %690 = ptrtoint ptr %678 to i64
   store i64 %690, ptr %689, align 1
   %691 = load i32, ptr %8, align 8, !tbaa !384
@@ -1855,7 +1853,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %700 = phi i32 [ %694, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit149 ], [ %.pre.i151, %696 ]
   %701 = load ptr, ptr %238, align 8, !tbaa !387
   %702 = zext i32 %700 to i64
-  %703 = getelementptr inbounds nuw ptr, ptr %701, i64 %702
+  %703 = getelementptr inbounds nuw [8 x i8], ptr %701, i64 %702
   %704 = ptrtoint ptr %693 to i64
   store i64 %704, ptr %703, align 1
   %705 = load i32, ptr %240, align 8, !tbaa !384
@@ -1879,7 +1877,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %714 = phi i32 [ %708, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit152 ], [ %.pre.i154, %710 ]
   %715 = load ptr, ptr %0, align 8, !tbaa !387
   %716 = zext i32 %714 to i64
-  %717 = getelementptr inbounds nuw ptr, ptr %715, i64 %716
+  %717 = getelementptr inbounds nuw [8 x i8], ptr %715, i64 %716
   %718 = ptrtoint ptr %707 to i64
   store i64 %718, ptr %717, align 1
   %719 = load i32, ptr %88, align 8, !tbaa !384
@@ -1903,7 +1901,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %728 = phi i32 [ %722, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit155 ], [ %.pre.i157, %724 ]
   %729 = load ptr, ptr %40, align 8, !tbaa !387
   %730 = zext i32 %728 to i64
-  %731 = getelementptr inbounds nuw ptr, ptr %729, i64 %730
+  %731 = getelementptr inbounds nuw [8 x i8], ptr %729, i64 %730
   %732 = ptrtoint ptr %721 to i64
   store i64 %732, ptr %731, align 1
   %733 = load i32, ptr %42, align 8, !tbaa !384
@@ -1939,7 +1937,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %16 = phi i32 [ %9, %2 ], [ %.pre.i, %12 ]
   %17 = load ptr, ptr %7, align 8, !tbaa !387
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = ptrtoint ptr %5 to i64
   store i64 %20, ptr %19, align 1
   %21 = load i32, ptr %8, align 8, !tbaa !384
@@ -1966,7 +1964,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %32 = phi i32 [ %26, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit ], [ %.pre.i7, %28 ]
   %33 = load ptr, ptr %7, align 8, !tbaa !387
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = ptrtoint ptr %24 to i64
   store i64 %36, ptr %35, align 1
   %37 = load i32, ptr %8, align 8, !tbaa !384
@@ -1993,7 +1991,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %48 = phi i32 [ %42, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit8 ], [ %.pre.i10, %44 ]
   %49 = load ptr, ptr %7, align 8, !tbaa !387
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = ptrtoint ptr %40 to i64
   store i64 %52, ptr %51, align 1
   %53 = load i32, ptr %8, align 8, !tbaa !384
@@ -2020,7 +2018,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %64 = phi i32 [ %58, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit11 ], [ %.pre.i13, %60 ]
   %65 = load ptr, ptr %7, align 8, !tbaa !387
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %66
   %68 = ptrtoint ptr %56 to i64
   store i64 %68, ptr %67, align 1
   %69 = load i32, ptr %8, align 8, !tbaa !384
@@ -2050,7 +2048,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %83 = phi i32 [ %76, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit14 ], [ %.pre.i16, %79 ]
   %84 = load ptr, ptr %74, align 8, !tbaa !387
   %85 = zext i32 %83 to i64
-  %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %85
   %87 = ptrtoint ptr %72 to i64
   store i64 %87, ptr %86, align 1
   %88 = load i32, ptr %75, align 8, !tbaa !384
@@ -2074,7 +2072,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
   %97 = phi i32 [ %91, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.exit17 ], [ %.pre.i19, %93 ]
   %98 = load ptr, ptr %7, align 8, !tbaa !387
   %99 = zext i32 %97 to i64
-  %100 = getelementptr inbounds nuw ptr, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %99
   %101 = ptrtoint ptr %90 to i64
   store i64 %101, ptr %100, align 1
   %102 = load i32, ptr %8, align 8, !tbaa !384
@@ -2835,7 +2833,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang14IdentifierI
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #8
   %7 = load ptr, ptr %0, align 8, !tbaa !436
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !418
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -2918,7 +2916,7 @@ _ZN4llvm14StringMapEntryIPN5clang14IdentifierInfoEE6createINS_20BumpPtrAllocator
   %45 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #8
   %46 = load ptr, ptr %0, align 8, !tbaa !436
   %47 = zext i32 %45 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryIPN5clang14IdentifierInfoEE6createINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEJDnEEEPS4_NS_9StringRefERT_DpOT0_.exit
@@ -2979,7 +2977,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !387
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.360", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -3020,7 +3018,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !387
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !384

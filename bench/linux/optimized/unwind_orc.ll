@@ -165,7 +165,7 @@ define internal range(i32 -1, 2) i32 @orc_sort_cmp(ptr noundef %0, ptr noundef %
   %17 = ptrtoint ptr %16 to i64
   %18 = sub i64 %3, %17
   %19 = ashr exact i64 %18, 2
-  %.split = getelementptr %struct.orc_entry, ptr %15, i64 %19
+  %.split = getelementptr [6 x i8], ptr %15, i64 %19
   %20 = getelementptr i8, ptr %.split, i64 4
   %21 = load i16, ptr %20, align 1
   %22 = and i16 %21, 1792
@@ -196,10 +196,10 @@ define internal void @orc_sort_swap(ptr noundef %0, ptr noundef %1, i32 %2) #4 a
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %6, %15
   %17 = ashr exact i64 %16, 2
-  %18 = getelementptr %struct.orc_entry, ptr %13, i64 %17
+  %18 = getelementptr [6 x i8], ptr %13, i64 %17
   %19 = sub i64 %5, %15
   %20 = ashr exact i64 %19, 2
-  %21 = getelementptr %struct.orc_entry, ptr %13, i64 %20
+  %21 = getelementptr [6 x i8], ptr %13, i64 %20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, ptr noundef align 1 dereferenceable(6) %18, i64 6, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(6) %18, ptr noundef align 1 dereferenceable(6) %21, i64 6, i1 false)
@@ -244,7 +244,7 @@ define dso_local void @unwind_init() local_unnamed_addr #5 section ".init.text" 
 
 19:                                               ; preds = %13
   %20 = and i64 %1, 4294967295
-  %21 = getelementptr i32, ptr getelementptr (i8, ptr @__start_orc_unwind_ip, i64 -4), i64 %20
+  %21 = getelementptr [4 x i8], ptr getelementptr (i8, ptr @__start_orc_unwind_ip, i64 -4), i64 %20
   %22 = icmp ult ptr %21, @__start_orc_unwind_ip
   br i1 %18, label %.thread.split, label %.split
 
@@ -264,7 +264,7 @@ define dso_local void @unwind_init() local_unnamed_addr #5 section ".init.text" 
   %32 = sub i64 %30, %31
   %33 = ashr exact i64 %32, 2
   %34 = sdiv i64 %33, 2
-  %35 = getelementptr i32, ptr %29, i64 %34
+  %35 = getelementptr [4 x i8], ptr %29, i64 %34
   %36 = ptrtoint ptr %35 to i64
   %37 = load i32, ptr %35, align 4
   %38 = sext i32 %37 to i64
@@ -283,7 +283,7 @@ define dso_local void @unwind_init() local_unnamed_addr #5 section ".init.text" 
   %48 = ptrtoint ptr %47 to i64
   %49 = sub i64 %48, ptrtoint (ptr @__start_orc_unwind_ip to i64)
   %50 = ashr exact i64 %49, 2
-  %51 = getelementptr %struct.orc_entry, ptr @__start_orc_unwind, i64 %50
+  %51 = getelementptr [6 x i8], ptr @__start_orc_unwind, i64 %50
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.thread.split, label %56
 
@@ -301,7 +301,7 @@ define dso_local void @unwind_init() local_unnamed_addr #5 section ".init.text" 
   %57 = sdiv exact i64 %.idx, 6
   %58 = trunc i64 %57 to i32
   %59 = sext i32 %23 to i64
-  %60 = getelementptr i32, ptr @orc_lookup, i64 %59
+  %60 = getelementptr [4 x i8], ptr @orc_lookup, i64 %59
   store i32 %58, ptr %60, align 4
   %61 = add nuw i32 %23, 1
   %62 = icmp eq i32 %61, %16
@@ -312,7 +312,7 @@ define dso_local void @unwind_init() local_unnamed_addr #5 section ".init.text" 
 
 .loopexit11.thread:                               ; preds = %56, %.loopexit11
   %63 = and i64 %1, 4294967295
-  %64 = getelementptr i32, ptr @__start_orc_unwind_ip, i64 %63
+  %64 = getelementptr [4 x i8], ptr @__start_orc_unwind_ip, i64 %63
   %65 = getelementptr i8, ptr %64, i64 -4
   %66 = icmp ult ptr %65, @__start_orc_unwind_ip
   br i1 %66, label %.loopexit, label %.preheader
@@ -326,7 +326,7 @@ define dso_local void @unwind_init() local_unnamed_addr #5 section ".init.text" 
   %72 = sub i64 %70, %71
   %73 = ashr exact i64 %72, 2
   %74 = sdiv i64 %73, 2
-  %75 = getelementptr i32, ptr %69, i64 %74
+  %75 = getelementptr [4 x i8], ptr %69, i64 %74
   %76 = ptrtoint ptr %75 to i64
   %77 = load i32, ptr %75, align 4
   %78 = sext i32 %77 to i64
@@ -345,7 +345,7 @@ define dso_local void @unwind_init() local_unnamed_addr #5 section ".init.text" 
   %88 = ptrtoint ptr %87 to i64
   %89 = sub i64 %88, ptrtoint (ptr @__start_orc_unwind_ip to i64)
   %90 = ashr exact i64 %89, 2
-  %91 = getelementptr %struct.orc_entry, ptr @__start_orc_unwind, i64 %90
+  %91 = getelementptr [6 x i8], ptr @__start_orc_unwind, i64 %90
   %92 = icmp eq ptr %91, null
   br i1 %92, label %.thread7, label %96
 
@@ -363,7 +363,7 @@ define dso_local void @unwind_init() local_unnamed_addr #5 section ".init.text" 
   %97 = sdiv exact i64 %.idx8, 6
   %98 = trunc i64 %97 to i32
   %99 = zext i32 %16 to i64
-  %100 = getelementptr i32, ptr @orc_lookup, i64 %99
+  %100 = getelementptr [4 x i8], ptr @orc_lookup, i64 %99
   store i32 %98, ptr %100, align 4
   store i1 true, ptr @orc_init, align 1
   br label %101
@@ -494,18 +494,18 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 
 41:                                               ; preds = %29
   %42 = and i64 %31, 4294967295
-  %43 = getelementptr i32, ptr @orc_lookup, i64 %42
+  %43 = getelementptr [4 x i8], ptr @orc_lookup, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = add nuw nsw i64 %31, 1
   %46 = and i64 %45, 4294967295
-  %47 = getelementptr i32, ptr @orc_lookup, i64 %46
+  %47 = getelementptr [4 x i8], ptr @orc_lookup, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = add i32 %48, 1
   %50 = zext i32 %44 to i64
-  %51 = getelementptr %struct.orc_entry, ptr @__start_orc_unwind, i64 %50
+  %51 = getelementptr [6 x i8], ptr @__start_orc_unwind, i64 %50
   %52 = icmp uge ptr %51, @__stop_orc_unwind
   %53 = zext i32 %49 to i64
-  %54 = getelementptr %struct.orc_entry, ptr @__start_orc_unwind, i64 %53
+  %54 = getelementptr [6 x i8], ptr @__start_orc_unwind, i64 %53
   %55 = icmp ugt ptr %54, @__stop_orc_unwind
   %56 = select i1 %52, i1 true, i1 %55, !prof !19
   br i1 %56, label %57, label %62, !prof !19
@@ -521,14 +521,14 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   br label %.thread
 
 62:                                               ; preds = %41
-  %63 = getelementptr i32, ptr @__start_orc_unwind_ip, i64 %50
+  %63 = getelementptr [4 x i8], ptr @__start_orc_unwind_ip, i64 %50
   %64 = icmp eq i32 %49, %44
   br i1 %64, label %.thread, label %65
 
 65:                                               ; preds = %62
   %66 = sub i32 %49, %44
   %67 = zext i32 %66 to i64
-  %68 = getelementptr i32, ptr %63, i64 %67
+  %68 = getelementptr [4 x i8], ptr %63, i64 %67
   %69 = getelementptr i8, ptr %68, i64 -4
   %70 = icmp ult ptr %69, %63
   br i1 %70, label %.loopexit, label %.preheader
@@ -542,7 +542,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %76 = sub i64 %74, %75
   %77 = ashr exact i64 %76, 2
   %78 = sdiv i64 %77, 2
-  %79 = getelementptr i32, ptr %73, i64 %78
+  %79 = getelementptr [4 x i8], ptr %73, i64 %78
   %80 = ptrtoint ptr %79 to i64
   %81 = load i32, ptr %79, align 4
   %82 = sext i32 %81 to i64
@@ -562,7 +562,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %93 = ptrtoint ptr %63 to i64
   %94 = sub i64 %92, %93
   %95 = ashr exact i64 %94, 2
-  %96 = getelementptr %struct.orc_entry, ptr %51, i64 %95
+  %96 = getelementptr [6 x i8], ptr %51, i64 %95
   br label %183
 
 97:                                               ; preds = %25
@@ -579,7 +579,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 104:                                              ; preds = %101
   %105 = lshr exact i64 sub (i64 ptrtoint (ptr @__stop_orc_unwind_ip to i64), i64 ptrtoint (ptr @__start_orc_unwind_ip to i64)), 2
   %106 = and i64 %105, 4294967295
-  %107 = getelementptr i32, ptr @__start_orc_unwind_ip, i64 %106
+  %107 = getelementptr [4 x i8], ptr @__start_orc_unwind_ip, i64 %106
   %108 = getelementptr i8, ptr %107, i64 -4
   %109 = icmp ult ptr %108, @__start_orc_unwind_ip
   br i1 %109, label %.loopexit72, label %.preheader71
@@ -593,7 +593,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %115 = sub i64 %113, %114
   %116 = ashr exact i64 %115, 2
   %117 = sdiv i64 %116, 2
-  %118 = getelementptr i32, ptr %112, i64 %117
+  %118 = getelementptr [4 x i8], ptr %112, i64 %117
   %119 = ptrtoint ptr %118 to i64
   %120 = load i32, ptr %118, align 4
   %121 = sext i32 %120 to i64
@@ -612,7 +612,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %131 = ptrtoint ptr %130 to i64
   %132 = sub i64 %131, ptrtoint (ptr @__start_orc_unwind_ip to i64)
   %133 = ashr exact i64 %132, 2
-  %134 = getelementptr %struct.orc_entry, ptr @__start_orc_unwind, i64 %133
+  %134 = getelementptr [6 x i8], ptr @__start_orc_unwind, i64 %133
   br label %183
 
 135:                                              ; preds = %97
@@ -640,7 +640,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
 
 150:                                              ; preds = %147
   %151 = zext i32 %148 to i64
-  %152 = getelementptr i32, ptr %145, i64 %151
+  %152 = getelementptr [4 x i8], ptr %145, i64 %151
   %153 = getelementptr i8, ptr %152, i64 -4
   %154 = icmp ult ptr %153, %145
   br i1 %154, label %.loopexit74, label %.preheader73
@@ -654,7 +654,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %160 = sub i64 %158, %159
   %161 = ashr exact i64 %160, 2
   %162 = sdiv i64 %161, 2
-  %163 = getelementptr i32, ptr %157, i64 %162
+  %163 = getelementptr [4 x i8], ptr %157, i64 %162
   %164 = ptrtoint ptr %163 to i64
   %165 = load i32, ptr %163, align 4
   %166 = sext i32 %165 to i64
@@ -674,7 +674,7 @@ define dso_local noundef zeroext i1 @unwind_next_frame(ptr noundef %0) #1 align 
   %177 = ptrtoint ptr %145 to i64
   %178 = sub i64 %176, %177
   %179 = ashr exact i64 %178, 2
-  %180 = getelementptr %struct.orc_entry, ptr %141, i64 %179
+  %180 = getelementptr [6 x i8], ptr %141, i64 %179
   br label %181
 
 181:                                              ; preds = %.loopexit74, %147, %143, %138, %135

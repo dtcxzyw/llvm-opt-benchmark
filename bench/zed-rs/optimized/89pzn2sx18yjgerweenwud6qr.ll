@@ -586,7 +586,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4c9f40a581bfa077E.exit.i.i9.i.i: ; pred
 
 147:                                              ; preds = %143
   %148 = load ptr, ptr %135, align 8, !noalias !102, !nonnull !13, !noundef !13
-  %149 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %148, i64 %134
+  %149 = getelementptr inbounds [64 x i8], ptr %148, i64 %134
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h89e9bb9a76b7f3c3E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 8 %149)
           to label %151 unwind label %.loopexit.i.i.i, !noalias !102
 
@@ -633,7 +633,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4c9f40a581bfa077E.exit.i.i9.i.i: ; pred
 166:                                              ; preds = %161, %153
   %167 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %168 = load ptr, ptr %167, align 8, !alias.scope !105, !noalias !108, !nonnull !13, !noundef !13
-  %169 = getelementptr inbounds ptr, ptr %168, i64 %158
+  %169 = getelementptr inbounds [8 x i8], ptr %168, i64 %158
   store ptr %.sroa.46.0.copyload.i.i, ptr %169, align 8, !noalias !108
   %170 = add i64 %158, 1
   store i64 %170, ptr %157, align 8, !alias.scope !105, !noalias !110
@@ -1054,8 +1054,8 @@ define noundef zeroext i1 @"_ZN65_$LT$util..paths..PathMatcher$u20$as$u20$core..
 
 7:                                                ; preds = %.preheader.split.i.i
   %8 = add i64 %.sroa.01.0.i.i, 1
-  %9 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val, i64 %.sroa.01.0.i.i
-  %10 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.val2, i64 %.sroa.01.0.i.i
+  %9 = getelementptr inbounds [24 x i8], ptr %.val, i64 %.sroa.01.0.i.i
+  %10 = getelementptr inbounds [24 x i8], ptr %.val2, i64 %.sroa.01.0.i.i
   %11 = tail call noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h51ee4c3ad9daa674E.llvm.14573002201828667423"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
   br i1 %11, label %.preheader.split.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hdd22652f963633b7E.exit"
 
@@ -1079,7 +1079,7 @@ define void @_ZN4util5paths11PathMatcher3new17ha03709037c26ef9fE(ptr dead_on_unw
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %2
+  %12 = getelementptr inbounds [24 x i8], ptr %1, i64 %2
   call void @_ZN4core4iter8adapters11try_process17h0a6bb180fb47e74fE(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %10, ptr noundef nonnull %1, ptr noundef nonnull %12)
   %13 = load i64, ptr %10, align 8, !range !173, !noundef !13
   %14 = icmp eq i64 %13, -9223372036854775807
@@ -1096,7 +1096,7 @@ define void @_ZN4util5paths11PathMatcher3new17ha03709037c26ef9fE(ptr dead_on_unw
   %18 = load ptr, ptr %17, align 8, !nonnull !13, !noundef !13
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !13
-  %21 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i8, i8, i8, i8 }, [4 x i8] }, ptr %18, i64 %20
+  %21 = getelementptr inbounds [80 x i8], ptr %18, i64 %20
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h8339169c6e912644E.llvm.17206242379407135106"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noundef nonnull %18, ptr noundef nonnull %21)
           to label %26 unwind label %95
 
@@ -1209,7 +1209,7 @@ define void @_ZN4util5paths11PathMatcher3new17ha03709037c26ef9fE(ptr dead_on_unw
   br i1 %44, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hba89097044cb4ca3E.llvm.16791777274191314885.exit.i", label %45
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i8, i8, i8, i8 }, [4 x i8] }, ptr %41, i64 %.sroa.0.0.i.i.i
+  %46 = getelementptr inbounds [80 x i8], ptr %41, i64 %.sroa.0.0.i.i.i
   %47 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN4core3ptr40drop_in_place$LT$globset..glob..Glob$GT$17had6dd07374011a5eE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %46)
           to label %43 unwind label %50, !noalias !185
@@ -1225,7 +1225,7 @@ define void @_ZN4util5paths11PathMatcher3new17ha03709037c26ef9fE(ptr dead_on_unw
   br label %48
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i8, i8, i8, i8 }, [4 x i8] }, ptr %41, i64 %.sroa.0.1.i.i.i
+  %53 = getelementptr inbounds [80 x i8], ptr %41, i64 %.sroa.0.1.i.i.i
   %54 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr40drop_in_place$LT$globset..glob..Glob$GT$17had6dd07374011a5eE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %53) #15
           to label %48 unwind label %55, !noalias !185
@@ -1277,7 +1277,7 @@ define void @_ZN4util5paths11PathMatcher3new17ha03709037c26ef9fE(ptr dead_on_unw
   br i1 %68, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hba89097044cb4ca3E.llvm.16791777274191314885.exit.i49", label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i8, i8, i8, i8 }, [4 x i8] }, ptr %65, i64 %.sroa.0.0.i.i.i45
+  %70 = getelementptr inbounds [80 x i8], ptr %65, i64 %.sroa.0.0.i.i.i45
   %71 = add i64 %.sroa.0.0.i.i.i45, 1
   invoke void @"_ZN4core3ptr40drop_in_place$LT$globset..glob..Glob$GT$17had6dd07374011a5eE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %70)
           to label %67 unwind label %74, !noalias !213
@@ -1293,7 +1293,7 @@ define void @_ZN4util5paths11PathMatcher3new17ha03709037c26ef9fE(ptr dead_on_unw
   br label %72
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i8, i8, i8, i8 }, [4 x i8] }, ptr %65, i64 %.sroa.0.1.i.i.i46
+  %77 = getelementptr inbounds [80 x i8], ptr %65, i64 %.sroa.0.1.i.i.i46
   %78 = add i64 %.sroa.0.1.i.i.i46, 1
   invoke void @"_ZN4core3ptr40drop_in_place$LT$globset..glob..Glob$GT$17had6dd07374011a5eE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %77) #15
           to label %72 unwind label %79, !noalias !213

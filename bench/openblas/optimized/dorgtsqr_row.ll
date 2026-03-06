@@ -29,11 +29,11 @@ define void @dorgtsqr_row_(ptr noundef %0, ptr noundef %1, ptr noundef readonly 
   %18 = load i32, ptr %5, align 4, !tbaa !3
   %narrow195 = xor i32 %18, -1
   %19 = sext i32 %narrow195 to i64
-  %20 = getelementptr inbounds double, ptr %4, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %4, i64 %19
   %21 = load i32, ptr %7, align 4, !tbaa !3
   %narrow = xor i32 %21, -1
   %22 = sext i32 %narrow to i64
-  %23 = getelementptr inbounds double, ptr %6, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %6, i64 %22
   store i32 0, ptr %10, align 4, !tbaa !3
   %24 = load i32, ptr %9, align 4, !tbaa !3
   %25 = icmp eq i32 %24, -1
@@ -171,15 +171,15 @@ define void @dorgtsqr_row_(ptr noundef %0, ptr noundef %1, ptr noundef readonly 
   %97 = add i32 %91, %.0174218
   %98 = mul nsw i32 %97, %21
   %99 = sext i32 %98 to i64
-  %100 = getelementptr double, ptr %23, i64 %99
+  %100 = getelementptr [8 x i8], ptr %23, i64 %99
   %101 = getelementptr i8, ptr %100, i64 8
   %102 = mul nsw i32 %.0174218, %18
   %103 = add nsw i32 %102, %.0174218
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds double, ptr %20, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %20, i64 %104
   %106 = add nsw i32 %102, %.0173220
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds double, ptr %20, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %20, i64 %107
   call void @dlarfb_gett_(ptr noundef nonnull @.str.2, ptr noundef nonnull %16, ptr noundef nonnull %14, ptr noundef nonnull %17, ptr noundef %101, ptr noundef nonnull %7, ptr noundef %105, ptr noundef nonnull %5, ptr noundef %108, ptr noundef nonnull %5, ptr noundef %8, ptr noundef nonnull %17) #4
   %109 = sub nsw i32 %.0174218, %46
   %110 = icmp sgt i32 %109, 0
@@ -232,7 +232,7 @@ define void @dorgtsqr_row_(ptr noundef %0, ptr noundef %1, ptr noundef readonly 
   %130 = icmp eq i32 %129, 0
   %131 = mul nsw i32 %.1225, %21
   %132 = sext i32 %131 to i64
-  %133 = getelementptr double, ptr %23, i64 %132
+  %133 = getelementptr [8 x i8], ptr %23, i64 %132
   %134 = getelementptr i8, ptr %133, i64 8
   br i1 %130, label %135, label %139
 
@@ -240,7 +240,7 @@ define void @dorgtsqr_row_(ptr noundef %0, ptr noundef %1, ptr noundef readonly 
   store i32 %125, ptr %12, align 4, !tbaa !3
   %136 = mul i32 %.1225, %121
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds double, ptr %20, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %20, i64 %137
   call void @dlarfb_gett_(ptr noundef nonnull @.str.3, ptr noundef nonnull @c__0, ptr noundef nonnull %12, ptr noundef nonnull %17, ptr noundef %134, ptr noundef nonnull %7, ptr noundef %138, ptr noundef nonnull %5, ptr noundef nonnull %15, ptr noundef nonnull @c__1, ptr noundef %8, ptr noundef nonnull %17) #4
   br label %147
 
@@ -249,10 +249,10 @@ define void @dorgtsqr_row_(ptr noundef %0, ptr noundef %1, ptr noundef readonly 
   %140 = mul nsw i32 %.1225, %18
   %141 = add nsw i32 %140, %.1225
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds double, ptr %20, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %20, i64 %142
   %144 = add nsw i32 %127, %140
   %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds double, ptr %20, i64 %145
+  %146 = getelementptr inbounds [8 x i8], ptr %20, i64 %145
   call void @dlarfb_gett_(ptr noundef nonnull @.str.3, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %17, ptr noundef %134, ptr noundef nonnull %7, ptr noundef %143, ptr noundef nonnull %5, ptr noundef %146, ptr noundef nonnull %5, ptr noundef %8, ptr noundef nonnull %17) #4
   br label %147
 

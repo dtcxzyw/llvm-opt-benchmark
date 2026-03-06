@@ -3,8 +3,6 @@ source_filename = "bench/clamav/original/events.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.cli_event = type { ptr, %union.ev_val, i32, i16 }
-%union.ev_val = type { ptr }
 %struct.timeval = type { i64, i64 }
 
 @.str = private unnamed_addr constant [7 x i8] c"errors\00", align 1
@@ -124,7 +122,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #5
 define range(i32 -1, 1) i32 @cli_event_define(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %6 = load ptr, ptr %0, align 8, !tbaa !13
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.cli_event, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8, !tbaa !3
   %.not = icmp ult i32 %1, %10
@@ -182,7 +180,7 @@ define range(i32 -1, 1) i32 @cli_event_define(ptr noundef captures(none) %0, i32
   store ptr %28, ptr %25, align 8, !tbaa !17
   %38 = load i32, ptr %21, align 8, !tbaa !18
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %union.ev_val, ptr %28, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %39
   store i64 ptrtoint (ptr @.str.2 to i64), ptr %40, align 8, !tbaa !17
   %41 = load i32, ptr %21, align 8, !tbaa !18
   %42 = add i32 %41, 1
@@ -248,7 +246,7 @@ define range(i32 -1, 1) i32 @cli_event_define(ptr noundef captures(none) %0, i32
   store ptr %64, ptr %61, align 8, !tbaa !17
   %74 = load i32, ptr %57, align 8, !tbaa !18
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %union.ev_val, ptr %64, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %75
   store i64 ptrtoint (ptr @.str.3 to i64), ptr %76, align 8, !tbaa !17
   %77 = load i32, ptr %57, align 8, !tbaa !18
   %78 = add i32 %77, 1
@@ -313,7 +311,7 @@ define range(i32 -1, 1) i32 @cli_event_define(ptr noundef captures(none) %0, i32
   store ptr %99, ptr %96, align 8, !tbaa !17
   %109 = load i32, ptr %92, align 8, !tbaa !18
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds nuw %union.ev_val, ptr %99, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %110
   store i64 ptrtoint (ptr @.str.4 to i64), ptr %111, align 8, !tbaa !17
   %112 = load i32, ptr %92, align 8, !tbaa !18
   %113 = add i32 %112, 1
@@ -378,7 +376,7 @@ define range(i32 -1, 1) i32 @cli_event_define(ptr noundef captures(none) %0, i32
   store ptr %134, ptr %131, align 8, !tbaa !17
   %144 = load i32, ptr %127, align 8, !tbaa !18
   %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds nuw %union.ev_val, ptr %134, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %145
   store i64 ptrtoint (ptr @.str.5 to i64), ptr %146, align 8, !tbaa !17
   %147 = load i32, ptr %127, align 8, !tbaa !18
   %148 = add i32 %147, 1
@@ -466,7 +464,7 @@ define void @cli_event_error_str(ptr noundef captures(address_is_null) %0, ptr n
   store ptr %20, ptr %17, align 8, !tbaa !17
   %31 = load i32, ptr %13, align 8, !tbaa !18
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw %union.ev_val, ptr %20, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %32
   store i64 %30, ptr %33, align 8, !tbaa !17
   %34 = load i32, ptr %13, align 8, !tbaa !18
   %35 = add i32 %34, 1
@@ -540,7 +538,7 @@ define ptr @cli_event_get_name(ptr noundef captures(address_is_null) %0, i32 nou
   store ptr %23, ptr %20, align 8, !tbaa !17
   %33 = load i32, ptr %16, align 8, !tbaa !18
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %union.ev_val, ptr %23, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %34
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %35, align 8, !tbaa !17
   %36 = load i32, ptr %16, align 8, !tbaa !18
   %37 = add i32 %36, 1
@@ -554,7 +552,7 @@ get_event.exit:                                   ; preds = %3
 
 39:                                               ; preds = %get_event.exit
   %40 = zext i32 %1 to i64
-  %41 = getelementptr inbounds nuw %struct.cli_event, ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !19
   br label %get_event.exit.thread
 
@@ -626,7 +624,7 @@ define void @cli_event_int(ptr noundef captures(address_is_null) %0, i32 noundef
   store ptr %24, ptr %21, align 8, !tbaa !17
   %34 = load i32, ptr %17, align 8, !tbaa !18
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %union.ev_val, ptr %24, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %35
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %36, align 8, !tbaa !17
   %37 = load i32, ptr %17, align 8, !tbaa !18
   %38 = add i32 %37, 1
@@ -636,7 +634,7 @@ define void @cli_event_int(ptr noundef captures(address_is_null) %0, i32 noundef
 get_event.exit:                                   ; preds = %4
   %39 = load ptr, ptr %0, align 8, !tbaa !13
   %40 = zext i32 %1 to i64
-  %41 = getelementptr inbounds nuw %struct.cli_event, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %40
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %cli_event_error_str.exit, label %42
 
@@ -699,7 +697,7 @@ get_event.exit:                                   ; preds = %4
   store ptr %63, ptr %60, align 8, !tbaa !17
   %73 = load i32, ptr %56, align 8, !tbaa !18
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %union.ev_val, ptr %63, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %74
   store i64 ptrtoint (ptr @.str.6 to i64), ptr %75, align 8, !tbaa !17
   %76 = load i32, ptr %56, align 8, !tbaa !18
   %77 = add i32 %76, 1
@@ -767,7 +765,7 @@ get_event.exit:                                   ; preds = %4
   store ptr %100, ptr %97, align 8, !tbaa !17
   %110 = load i32, ptr %93, align 8, !tbaa !18
   %111 = zext i32 %110 to i64
-  %112 = getelementptr inbounds nuw %union.ev_val, ptr %100, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %111
   store i64 %2, ptr %112, align 8, !tbaa !17
   %113 = load i32, ptr %93, align 8, !tbaa !18
   %114 = add i32 %113, 1
@@ -843,7 +841,7 @@ define void @cli_event_time_start(ptr noundef captures(address_is_null) %0, i32 
   store ptr %24, ptr %21, align 8, !tbaa !17
   %34 = load i32, ptr %17, align 8, !tbaa !18
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %union.ev_val, ptr %24, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %35
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %36, align 8, !tbaa !17
   %37 = load i32, ptr %17, align 8, !tbaa !18
   %38 = add i32 %37, 1
@@ -853,7 +851,7 @@ define void @cli_event_time_start(ptr noundef captures(address_is_null) %0, i32 
 get_event.exit:                                   ; preds = %4
   %39 = load ptr, ptr %0, align 8, !tbaa !13
   %40 = zext i32 %1 to i64
-  %41 = getelementptr inbounds nuw %struct.cli_event, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %40
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %cli_event_error_str.exit, label %42
 
@@ -916,7 +914,7 @@ get_event.exit:                                   ; preds = %4
   store ptr %63, ptr %60, align 8, !tbaa !17
   %73 = load i32, ptr %56, align 8, !tbaa !18
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %union.ev_val, ptr %63, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %74
   store i64 ptrtoint (ptr @.str.7 to i64), ptr %75, align 8, !tbaa !17
   %76 = load i32, ptr %56, align 8, !tbaa !18
   %77 = add i32 %76, 1
@@ -1013,7 +1011,7 @@ define void @cli_event_time_nested_start(ptr noundef captures(address_is_null) %
   store ptr %25, ptr %22, align 8, !tbaa !17
   %35 = load i32, ptr %18, align 8, !tbaa !18
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %union.ev_val, ptr %25, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %36
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %37, align 8, !tbaa !17
   %38 = load i32, ptr %18, align 8, !tbaa !18
   %39 = add i32 %38, 1
@@ -1023,7 +1021,7 @@ define void @cli_event_time_nested_start(ptr noundef captures(address_is_null) %
 40:                                               ; preds = %5
   %41 = load ptr, ptr %0, align 8, !tbaa !13
   %42 = zext i32 %1 to i64
-  %43 = getelementptr inbounds nuw %struct.cli_event, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %42
   br label %44
 
 44:                                               ; preds = %8, %12, %26, %33, %34, %40
@@ -1084,7 +1082,7 @@ define void @cli_event_time_nested_start(ptr noundef captures(address_is_null) %
   store ptr %63, ptr %60, align 8, !tbaa !17
   %73 = load i32, ptr %56, align 8, !tbaa !18
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %union.ev_val, ptr %63, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %74
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %75, align 8, !tbaa !17
   %76 = load i32, ptr %56, align 8, !tbaa !18
   %77 = add i32 %76, 1
@@ -1094,7 +1092,7 @@ define void @cli_event_time_nested_start(ptr noundef captures(address_is_null) %
 get_event.exit21:                                 ; preds = %44
   %78 = load ptr, ptr %0, align 8, !tbaa !13
   %79 = zext i32 %2 to i64
-  %80 = getelementptr inbounds nuw %struct.cli_event, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %79
   %81 = icmp ne ptr %.0.i.ph, null
   %82 = icmp ne ptr %78, null
   %or.cond = select i1 %81, i1 %82, i1 false
@@ -1166,7 +1164,7 @@ get_event.exit21:                                 ; preds = %44
   store ptr %108, ptr %105, align 8, !tbaa !17
   %118 = load i32, ptr %101, align 8, !tbaa !18
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw %union.ev_val, ptr %108, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %119
   store i64 ptrtoint (ptr @.str.7 to i64), ptr %120, align 8, !tbaa !17
   %121 = load i32, ptr %101, align 8, !tbaa !18
   %122 = add i32 %121, 1
@@ -1264,7 +1262,7 @@ define void @cli_event_time_stop(ptr noundef captures(address_is_null) %0, i32 n
   store ptr %24, ptr %21, align 8, !tbaa !17
   %34 = load i32, ptr %17, align 8, !tbaa !18
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %union.ev_val, ptr %24, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %35
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %36, align 8, !tbaa !17
   %37 = load i32, ptr %17, align 8, !tbaa !18
   %38 = add i32 %37, 1
@@ -1274,7 +1272,7 @@ define void @cli_event_time_stop(ptr noundef captures(address_is_null) %0, i32 n
 get_event.exit:                                   ; preds = %4
   %39 = load ptr, ptr %0, align 8, !tbaa !13
   %40 = zext i32 %1 to i64
-  %41 = getelementptr inbounds nuw %struct.cli_event, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %40
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %cli_event_error_str.exit, label %42
 
@@ -1337,7 +1335,7 @@ get_event.exit:                                   ; preds = %4
   store ptr %63, ptr %60, align 8, !tbaa !17
   %73 = load i32, ptr %56, align 8, !tbaa !18
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %union.ev_val, ptr %63, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %74
   store i64 ptrtoint (ptr @.str.7 to i64), ptr %75, align 8, !tbaa !17
   %76 = load i32, ptr %56, align 8, !tbaa !18
   %77 = add i32 %76, 1
@@ -1427,7 +1425,7 @@ define void @cli_event_time_nested_stop(ptr noundef captures(address_is_null) %0
   store ptr %25, ptr %22, align 8, !tbaa !17
   %35 = load i32, ptr %18, align 8, !tbaa !18
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %union.ev_val, ptr %25, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %36
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %37, align 8, !tbaa !17
   %38 = load i32, ptr %18, align 8, !tbaa !18
   %39 = add i32 %38, 1
@@ -1437,7 +1435,7 @@ define void @cli_event_time_nested_stop(ptr noundef captures(address_is_null) %0
 40:                                               ; preds = %5
   %41 = load ptr, ptr %0, align 8, !tbaa !13
   %42 = zext i32 %1 to i64
-  %43 = getelementptr inbounds nuw %struct.cli_event, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %41, i64 %42
   br label %44
 
 44:                                               ; preds = %8, %12, %26, %33, %34, %40
@@ -1498,7 +1496,7 @@ define void @cli_event_time_nested_stop(ptr noundef captures(address_is_null) %0
   store ptr %63, ptr %60, align 8, !tbaa !17
   %73 = load i32, ptr %56, align 8, !tbaa !18
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %union.ev_val, ptr %63, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %74
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %75, align 8, !tbaa !17
   %76 = load i32, ptr %56, align 8, !tbaa !18
   %77 = add i32 %76, 1
@@ -1508,7 +1506,7 @@ define void @cli_event_time_nested_stop(ptr noundef captures(address_is_null) %0
 get_event.exit20:                                 ; preds = %44
   %78 = load ptr, ptr %0, align 8, !tbaa !13
   %79 = zext i32 %2 to i64
-  %80 = getelementptr inbounds nuw %struct.cli_event, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %79
   %81 = icmp ne ptr %.0.i.ph, null
   %82 = icmp ne ptr %78, null
   %or.cond = select i1 %81, i1 %82, i1 false
@@ -1580,7 +1578,7 @@ get_event.exit20:                                 ; preds = %44
   store ptr %108, ptr %105, align 8, !tbaa !17
   %118 = load i32, ptr %101, align 8, !tbaa !18
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw %union.ev_val, ptr %108, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %119
   store i64 ptrtoint (ptr @.str.7 to i64), ptr %120, align 8, !tbaa !17
   %121 = load i32, ptr %101, align 8, !tbaa !18
   %122 = add i32 %121, 1
@@ -1674,7 +1672,7 @@ define void @cli_event_string(ptr noundef captures(address_is_null) %0, i32 noun
   store ptr %24, ptr %21, align 8, !tbaa !17
   %34 = load i32, ptr %17, align 8, !tbaa !18
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %union.ev_val, ptr %24, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %35
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %36, align 8, !tbaa !17
   %37 = load i32, ptr %17, align 8, !tbaa !18
   %38 = add i32 %37, 1
@@ -1684,7 +1682,7 @@ define void @cli_event_string(ptr noundef captures(address_is_null) %0, i32 noun
 get_event.exit:                                   ; preds = %4
   %39 = load ptr, ptr %0, align 8, !tbaa !13
   %40 = zext i32 %1 to i64
-  %41 = getelementptr inbounds nuw %struct.cli_event, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %40
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %cli_event_error_str.exit, label %42
 
@@ -1747,7 +1745,7 @@ get_event.exit:                                   ; preds = %4
   store ptr %63, ptr %60, align 8, !tbaa !17
   %73 = load i32, ptr %56, align 8, !tbaa !18
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %union.ev_val, ptr %63, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %74
   store i64 ptrtoint (ptr @.str.9 to i64), ptr %75, align 8, !tbaa !17
   %76 = load i32, ptr %56, align 8, !tbaa !18
   %77 = add i32 %76, 1
@@ -1806,7 +1804,7 @@ get_event.exit:                                   ; preds = %4
   store ptr %93, ptr %90, align 8, !tbaa !17
   %104 = load i32, ptr %86, align 8, !tbaa !18
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw %union.ev_val, ptr %93, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %105
   store i64 %103, ptr %106, align 8, !tbaa !17
   %107 = load i32, ptr %86, align 8, !tbaa !18
   %108 = add i32 %107, 1
@@ -1880,7 +1878,7 @@ define void @cli_event_data(ptr noundef captures(address_is_null) %0, i32 nounde
   store ptr %25, ptr %22, align 8, !tbaa !17
   %35 = load i32, ptr %18, align 8, !tbaa !18
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %union.ev_val, ptr %25, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %36
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %37, align 8, !tbaa !17
   %38 = load i32, ptr %18, align 8, !tbaa !18
   %39 = add i32 %38, 1
@@ -1890,7 +1888,7 @@ define void @cli_event_data(ptr noundef captures(address_is_null) %0, i32 nounde
 get_event.exit:                                   ; preds = %5
   %40 = load ptr, ptr %0, align 8, !tbaa !13
   %41 = zext i32 %1 to i64
-  %42 = getelementptr inbounds nuw %struct.cli_event, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %41
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %cli_event_error_str.exit, label %43
 
@@ -1953,7 +1951,7 @@ get_event.exit:                                   ; preds = %5
   store ptr %64, ptr %61, align 8, !tbaa !17
   %74 = load i32, ptr %57, align 8, !tbaa !18
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %union.ev_val, ptr %64, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %75
   store i64 ptrtoint (ptr @.str.10 to i64), ptr %76, align 8, !tbaa !17
   %77 = load i32, ptr %57, align 8, !tbaa !18
   %78 = add i32 %77, 1
@@ -2113,7 +2111,7 @@ define void @cli_event_fastdata(ptr noundef captures(address_is_null) %0, i32 no
   store ptr %25, ptr %22, align 8, !tbaa !17
   %35 = load i32, ptr %18, align 8, !tbaa !18
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %union.ev_val, ptr %25, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %36
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %37, align 8, !tbaa !17
   %38 = load i32, ptr %18, align 8, !tbaa !18
   %39 = add i32 %38, 1
@@ -2123,7 +2121,7 @@ define void @cli_event_fastdata(ptr noundef captures(address_is_null) %0, i32 no
 get_event.exit:                                   ; preds = %5
   %40 = load ptr, ptr %0, align 8, !tbaa !13
   %41 = zext i32 %1 to i64
-  %42 = getelementptr inbounds nuw %struct.cli_event, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %41
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %cli_event_error_str.exit, label %43
 
@@ -2186,7 +2184,7 @@ get_event.exit:                                   ; preds = %5
   store ptr %64, ptr %61, align 8, !tbaa !17
   %74 = load i32, ptr %57, align 8, !tbaa !18
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %union.ev_val, ptr %64, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %75
   store i64 ptrtoint (ptr @.str.11 to i64), ptr %76, align 8, !tbaa !17
   %77 = load i32, ptr %57, align 8, !tbaa !18
   %78 = add i32 %77, 1
@@ -2282,7 +2280,7 @@ define void @cli_event_get(ptr noundef captures(address_is_null) %0, i32 noundef
   store ptr %25, ptr %22, align 8, !tbaa !17
   %35 = load i32, ptr %18, align 8, !tbaa !18
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %union.ev_val, ptr %25, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %36
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %37, align 8, !tbaa !17
   %38 = load i32, ptr %18, align 8, !tbaa !18
   %39 = add i32 %38, 1
@@ -2296,7 +2294,7 @@ get_event.exit:                                   ; preds = %5
 
 41:                                               ; preds = %get_event.exit
   %42 = zext i32 %1 to i64
-  %43 = getelementptr inbounds nuw %struct.cli_event, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i64, ptr %44, align 8
   store i64 %45, ptr %2, align 8
@@ -2372,7 +2370,7 @@ define void @cli_event_debug(ptr noundef captures(address_is_null) %0, i32 nound
   store ptr %23, ptr %20, align 8, !tbaa !17
   %33 = load i32, ptr %16, align 8, !tbaa !18
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %union.ev_val, ptr %23, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %34
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %35, align 8, !tbaa !17
   %36 = load i32, ptr %16, align 8, !tbaa !18
   %37 = add i32 %36, 1
@@ -2382,7 +2380,7 @@ define void @cli_event_debug(ptr noundef captures(address_is_null) %0, i32 nound
 get_event.exit:                                   ; preds = %3
   %38 = load ptr, ptr %0, align 8, !tbaa !13
   %39 = zext i32 %1 to i64
-  %40 = getelementptr inbounds nuw %struct.cli_event, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %39
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %get_event.exit.thread, label %41
 
@@ -2397,7 +2395,7 @@ get_event.exit:                                   ; preds = %3
 
 switch.lookup:                                    ; preds = %41
   %46 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.cli_event_debug, i64 %46
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cli_event_debug, i64 %46
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %evtype.exit
 
@@ -2428,7 +2426,7 @@ evtype.exit:                                      ; preds = %41, %switch.lookup
   %56 = and i16 %55, 255
   %57 = zext nneg i16 %56 to i32
   %58 = load ptr, ptr %53, align 8, !tbaa !17
-  %59 = getelementptr inbounds nuw %union.ev_val, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv
   %60 = trunc nuw i64 %indvars.iv to i32
   tail call fastcc void @ev_debug(i32 noundef %57, ptr noundef %59, i32 noundef %60)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2513,7 +2511,7 @@ define void @cli_event_debug_all(ptr noundef captures(address_is_null) %0) local
   %4 = phi i32 [ %12, %11 ], [ %3, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !13
-  %6 = getelementptr inbounds nuw %struct.cli_event, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !18
   %.not = icmp eq i32 %8, 0
@@ -2599,7 +2597,7 @@ define range(i32 0, 2) i32 @cli_event_diff(ptr noundef captures(address_is_null)
   store ptr %24, ptr %21, align 8, !tbaa !17
   %34 = load i32, ptr %17, align 8, !tbaa !18
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw %union.ev_val, ptr %24, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %35
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %36, align 8, !tbaa !17
   %37 = load i32, ptr %17, align 8, !tbaa !18
   %38 = add i32 %37, 1
@@ -2609,7 +2607,7 @@ define range(i32 0, 2) i32 @cli_event_diff(ptr noundef captures(address_is_null)
 39:                                               ; preds = %4
   %40 = load ptr, ptr %0, align 8, !tbaa !13
   %41 = zext i32 %2 to i64
-  %42 = getelementptr inbounds nuw %struct.cli_event, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %41
   br label %get_event.exit
 
 get_event.exit:                                   ; preds = %3, %7, %11, %25, %32, %33, %39
@@ -2675,7 +2673,7 @@ get_event.exit:                                   ; preds = %3, %7, %11, %25, %3
   store ptr %63, ptr %60, align 8, !tbaa !17
   %73 = load i32, ptr %56, align 8, !tbaa !18
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %union.ev_val, ptr %63, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %74
   store i64 ptrtoint (ptr @.str.18 to i64), ptr %75, align 8, !tbaa !17
   %76 = load i32, ptr %56, align 8, !tbaa !18
   %77 = add i32 %76, 1
@@ -2685,7 +2683,7 @@ get_event.exit:                                   ; preds = %3, %7, %11, %25, %3
 get_event.exit82:                                 ; preds = %43
   %78 = load ptr, ptr %1, align 8, !tbaa !13
   %79 = zext i32 %2 to i64
-  %80 = getelementptr inbounds nuw %struct.cli_event, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %78, i64 %79
   %81 = icmp ne ptr %.0.i, null
   %82 = icmp ne ptr %78, null
   %or.cond = select i1 %81, i1 %82, i1 false
@@ -2750,9 +2748,9 @@ get_event.exit82:                                 ; preds = %43
   %.056.fr95 = phi i32 [ 0, %.lr.ph ], [ %145, %ev_diff.exit.thread ]
   %109 = load i16, ptr %84, align 4
   %110 = load ptr, ptr %105, align 8, !tbaa !17
-  %111 = getelementptr inbounds nuw %union.ev_val, ptr %110, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv
   %112 = load ptr, ptr %106, align 8, !tbaa !17
-  %113 = getelementptr inbounds nuw %union.ev_val, ptr %112, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv
   %trunc.i = trunc i16 %109 to i8
   switch i8 %trunc.i, label %ev_diff.exit.thread [
     i8 3, label %114
@@ -2803,14 +2801,14 @@ ev_diff.exit:                                     ; preds = %114, %119, %123
   %134 = phi i16 [ %.pre, %130 ], [ %109, %129 ]
   %135 = and i16 %134, 255
   %136 = zext nneg i16 %135 to i32
-  %137 = getelementptr inbounds nuw %union.ev_val, ptr %133, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv
   %138 = trunc nuw i64 %indvars.iv to i32
   tail call fastcc void @ev_debug(i32 noundef %136, ptr noundef %137, i32 noundef %138)
   %139 = load i16, ptr %87, align 4
   %140 = and i16 %139, 255
   %141 = zext nneg i16 %140 to i32
   %142 = load ptr, ptr %106, align 8, !tbaa !17
-  %143 = getelementptr inbounds nuw %union.ev_val, ptr %142, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv
   tail call fastcc void @ev_debug(i32 noundef %141, ptr noundef %143, i32 noundef %138)
   %.pre99 = load i32, ptr %98, align 8, !tbaa !18
   br label %ev_diff.exit.thread
@@ -2928,7 +2926,7 @@ define range(i32 0, 2) i32 @cli_event_diff_all(ptr noundef captures(address_is_n
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.lr.ph ]
   %.01828 = phi i32 [ %.1, %25 ], [ 0, %.lr.ph ]
   %14 = load ptr, ptr %0, align 8, !tbaa !13
-  %15 = getelementptr inbounds nuw %struct.cli_event, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %17 = load i16, ptr %16, align 4
   %18 = and i16 %17, 255

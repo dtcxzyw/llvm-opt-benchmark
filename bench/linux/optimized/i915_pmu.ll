@@ -10,7 +10,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.attribute = type { ptr, i16 }
 %struct.anon.77 = type { i32, ptr, ptr, i8 }
 %struct.anon.78 = type { i32, ptr }
-%struct.i915_pmu_sample = type { i64 }
 
 @.str = private unnamed_addr constant [27 x i8] c"perf/x86/intel/i915:online\00", align 1
 @.str.1 = private unnamed_addr constant [50 x i8] c"\015Failed to setup cpuhp state for i915 PMU! (%d)\0A\00", align 1
@@ -100,7 +99,7 @@ define dso_local void @i915_pmu_gt_parked(ptr noundef %0) local_unnamed_addr #0 
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 9920
   %29 = load i32, ptr %9, align 8
   %30 = zext i32 %29 to i64
-  %31 = getelementptr i64, ptr %28, i64 %30
+  %31 = getelementptr [8 x i8], ptr %28, i64 %30
   store i64 %27, ptr %31, align 8
   %32 = load i32, ptr %9, align 8
   %33 = zext nneg i32 %32 to i64
@@ -237,7 +236,7 @@ define internal noundef i32 @i915_pmu_cpu_offline(i32 noundef %0, ptr noundef %1
   br i1 %11, label %39, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %8
+  %13 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %8
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @cpu_sibling_map to i64)
   %16 = inttoptr i64 %15 to ptr
@@ -366,7 +365,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
 26:                                               ; preds = %62, %18
   %27 = phi i1 [ true, %18 ], [ false, %62 ]
   %28 = phi i64 [ 0, %18 ], [ 1, %62 ]
-  %29 = getelementptr ptr, ptr %23, i64 %28
+  %29 = getelementptr [8 x i8], ptr %23, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %62, label %32
@@ -386,7 +385,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %41 = getelementptr i8, ptr %24, i64 %.idx
   %42 = getelementptr i8, ptr %41, i64 16
   %43 = getelementptr i8, ptr %41, i64 24
-  %44 = getelementptr i64, ptr %25, i64 %28
+  %44 = getelementptr [8 x i8], ptr %25, i64 %28
   %45 = load ptr, ptr %30, align 8
   %46 = tail call i64 @intel_rc6_residency_ns(ptr noundef nonnull %40, i32 noundef 1) #12
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 7168
@@ -481,7 +480,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %101 = phi i1 [ true, %96 ], [ false, %.loopexit46 ]
   %102 = phi i64 [ 0, %96 ], [ 1, %.loopexit46 ]
   %103 = phi i32 [ 0, %96 ], [ %158, %.loopexit46 ]
-  %104 = getelementptr ptr, ptr %23, i64 %102
+  %104 = getelementptr [8 x i8], ptr %23, i64 %102
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
   br i1 %106, label %.loopexit46, label %107
@@ -503,7 +502,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
 .split.split.us:                                  ; preds = %.split, %132
   %116 = phi i64 [ %135, %132 ], [ 0, %.split ]
   %117 = phi i32 [ %134, %132 ], [ %103, %.split ]
-  %118 = getelementptr %struct.anon.77, ptr @create_event_attributes.events, i64 %116
+  %118 = getelementptr [32 x i8], ptr @create_event_attributes.events, i64 %116
   %119 = load i32, ptr %118, align 16
   switch i32 %119, label %132 [
     i32 0, label %124
@@ -543,7 +542,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
 .split.split:                                     ; preds = %.split, %153
   %137 = phi i64 [ %156, %153 ], [ 0, %.split ]
   %138 = phi i32 [ %155, %153 ], [ %103, %.split ]
-  %139 = getelementptr %struct.anon.77, ptr @create_event_attributes.events, i64 %137
+  %139 = getelementptr [32 x i8], ptr @create_event_attributes.events, i64 %137
   %140 = load i32, ptr %139, align 16
   switch i32 %140, label %153 [
     i32 0, label %141
@@ -600,7 +599,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
 168:                                              ; preds = %179, %.preheader44
   %169 = phi i64 [ 0, %.preheader44 ], [ %182, %179 ]
   %170 = phi i32 [ %166, %.preheader44 ], [ %181, %179 ]
-  %171 = getelementptr %struct.anon.78, ptr @create_event_attributes.engine_events, i64 %169
+  %171 = getelementptr [16 x i8], ptr @create_event_attributes.engine_events, i64 %169
   %172 = load i32, ptr %171, align 16
   switch i32 %172, label %179 [
     i32 0, label %178
@@ -663,7 +662,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %209 = phi ptr [ %291, %.loopexit42 ], [ %198, %200 ]
   %210 = phi ptr [ %290, %.loopexit42 ], [ %194, %200 ]
   %211 = phi ptr [ %289, %.loopexit42 ], [ %205, %200 ]
-  %212 = getelementptr ptr, ptr %23, i64 %208
+  %212 = getelementptr [8 x i8], ptr %23, i64 %208
   %213 = load ptr, ptr %212, align 8
   %214 = icmp eq ptr %213, null
   br i1 %214, label %.loopexit42, label %215
@@ -679,7 +678,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %220 = phi ptr [ %209, %215 ], [ %.ph29, %286 ]
   %221 = phi ptr [ %210, %215 ], [ %.ph27, %286 ]
   %222 = phi ptr [ %211, %215 ], [ %.ph, %286 ]
-  %223 = getelementptr %struct.anon.77, ptr @create_event_attributes.events, i64 %219
+  %223 = getelementptr [32 x i8], ptr @create_event_attributes.events, i64 %219
   %224 = load i32, ptr %223, align 16
   %225 = zext i32 %224 to i64
   %.reass = add nuw nsw i64 %invariant.op, %225
@@ -828,7 +827,7 @@ define dso_local void @i915_pmu_register(ptr noundef %0) local_unnamed_addr #0 a
   %307 = phi ptr [ %298, %.preheader39 ], [ %.ph34, %345 ]
   %308 = phi ptr [ %299, %.preheader39 ], [ %.ph32, %345 ]
   %309 = phi ptr [ %300, %.preheader39 ], [ %.ph31, %345 ]
-  %310 = getelementptr %struct.anon.78, ptr @create_event_attributes.engine_events, i64 %306
+  %310 = getelementptr [16 x i8], ptr @create_event_attributes.engine_events, i64 %306
   %311 = load i32, ptr %310, align 16
   switch i32 %311, label %345 [
     i32 0, label %317
@@ -1098,7 +1097,7 @@ define internal noundef range(i32 0, 2) i32 @i915_sample(ptr noundef %0) #0 alig
 16:                                               ; preds = %.thread29, %5
   %17 = phi i1 [ true, %5 ], [ false, %.thread29 ]
   %18 = phi i64 [ 0, %5 ], [ 1, %.thread29 ]
-  %19 = getelementptr ptr, ptr %11, i64 %18
+  %19 = getelementptr [8 x i8], ptr %11, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.thread29, label %22
@@ -1132,7 +1131,7 @@ define internal noundef range(i32 0, 2) i32 @i915_sample(ptr noundef %0) #0 alig
 
 41:                                               ; preds = %.thread26, %38
   %42 = phi i64 [ 0, %38 ], [ %200, %.thread26 ]
-  %43 = getelementptr ptr, ptr %39, i64 %42
+  %43 = getelementptr [8 x i8], ptr %39, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.thread26, label %46
@@ -1476,7 +1475,7 @@ define internal noundef range(i32 0, 2) i32 @i915_sample(ptr noundef %0) #0 alig
   %250 = zext i32 %249 to i64
   %251 = mul nuw nsw i64 %250, %15
   %252 = getelementptr inbounds nuw i8, ptr %203, i64 9856
-  %253 = getelementptr [4 x %struct.i915_pmu_sample], ptr %252, i64 %208
+  %253 = getelementptr [32 x i8], ptr %252, i64 %208
   %254 = load i64, ptr %253, align 8
   %255 = add i64 %251, %254
   store i64 %255, ptr %253, align 8
@@ -1719,7 +1718,7 @@ define internal void @i915_pmu_event_start(ptr noundef %0, i32 %1) #0 align 16 {
   %32 = or i32 %30, %31
   store i32 %32, ptr %29, align 8
   %33 = getelementptr i8, ptr %4, i64 408
-  %34 = getelementptr i32, ptr %33, i64 %.ph
+  %34 = getelementptr [4 x i8], ptr %33, i64 %.ph
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 4
@@ -1767,7 +1766,7 @@ define internal void @i915_pmu_event_start(ptr noundef %0, i32 %1) #0 align 16 {
   store i32 %66, ptr %64, align 8
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 548
   %68 = and i64 %53, 15
-  %69 = getelementptr i32, ptr %67, i64 %68
+  %69 = getelementptr [4 x i8], ptr %67, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, 1
   store i32 %71, ptr %69, align 4
@@ -1892,7 +1891,7 @@ define internal void @i915_pmu_event_stop(ptr noundef %0, i32 noundef %1) #0 ali
   %57 = tail call ptr @intel_engine_lookup_user(ptr noundef %31, i8 noundef zeroext %54, i8 noundef zeroext %56) #12
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 548
   %59 = and i64 %50, 15
-  %60 = getelementptr i32, ptr %58, i64 %59
+  %60 = getelementptr [4 x i8], ptr %58, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = add i32 %61, -1
   store i32 %62, ptr %60, align 4
@@ -1912,7 +1911,7 @@ define internal void @i915_pmu_event_stop(ptr noundef %0, i32 noundef %1) #0 ali
 
 72:                                               ; preds = %64, %52, %47
   %73 = getelementptr i8, ptr %30, i64 408
-  %74 = getelementptr i32, ptr %73, i64 %.ph
+  %74 = getelementptr [4 x i8], ptr %73, i64 %.ph
   %75 = load i32, ptr %74, align 4
   %76 = add i32 %75, -1
   store i32 %76, ptr %74, align 4
@@ -2437,7 +2436,7 @@ define internal fastcc i64 @__i915_pmu_event_read(ptr %.152.val, i64 %.224.val) 
 
 35:                                               ; preds = %28, %25
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 560
-  %37 = getelementptr %struct.i915_pmu_sample, ptr %36, i64 %26
+  %37 = getelementptr [8 x i8], ptr %36, i64 %26
   %38 = load i64, ptr %37, align 8
   br label %132
 
@@ -2454,7 +2453,7 @@ define internal fastcc i64 @__i915_pmu_event_read(ptr %.152.val, i64 %.224.val) 
 
 42:                                               ; preds = %39
   %43 = getelementptr i8, ptr %.152.val, i64 448
-  %44 = getelementptr [4 x %struct.i915_pmu_sample], ptr %43, i64 %40
+  %44 = getelementptr [32 x i8], ptr %43, i64 %40
   %45 = load i64, ptr %44, align 8
   %46 = udiv i64 %45, 1000000
   br label %132
@@ -2474,7 +2473,7 @@ define internal fastcc i64 @__i915_pmu_event_read(ptr %.152.val, i64 %.224.val) 
 
 55:                                               ; preds = %39
   %56 = getelementptr i8, ptr %.152.val, i64 -104
-  %57 = getelementptr ptr, ptr %56, i64 %40
+  %57 = getelementptr [8 x i8], ptr %56, i64 %40
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 4952
@@ -2556,7 +2555,7 @@ define internal fastcc i64 @__i915_pmu_event_read(ptr %.152.val, i64 %.224.val) 
   %106 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %105) #12
   %107 = zext i32 %61 to i64
   %108 = getelementptr inbounds nuw i8, ptr %59, i64 9920
-  %109 = getelementptr i64, ptr %108, i64 %107
+  %109 = getelementptr [8 x i8], ptr %108, i64 %107
   %110 = load i64, ptr %109, align 8
   %111 = tail call i64 @ktime_get_raw() #12
   %112 = sub i64 %111, %110

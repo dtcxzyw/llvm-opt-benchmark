@@ -61,12 +61,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::unique_ptr<llvm::Module>, std::allocator<std::unique_ptr<llvm::Module>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::unique_ptr<llvm::Module>, std::allocator<std::unique_ptr<llvm::Module>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<llvm::Module>, std::allocator<std::unique_ptr<llvm::Module>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::unique_ptr<llvm::Module>, std::allocator<std::unique_ptr<llvm::Module>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.12" }
-%"struct.std::_Head_base.12" = type { ptr }
 %"class.llvm::Expected.183" = type { %union.anon.184, i8, [7 x i8] }
 %union.anon.184 = type { %"struct.llvm::AlignedCharArrayUnion.185" }
 %"struct.llvm::AlignedCharArrayUnion.185" = type { [184 x i8] }
@@ -749,7 +743,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE11_S_r
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit
 
 _ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %91
-  %92 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %84, i64 %82
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %82
   %.pr.pre = load ptr, ptr %7, align 8, !tbaa !72
   br label %_ZNSt6vectorISt10unique_ptrIN4llvm6ModuleESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
 
@@ -1424,7 +1418,7 @@ define linkonce_odr hidden void @_ZN4llvm24SpecificBumpPtrAllocatorISt4pairINSt7
   %26 = inttoptr i64 %25 to ptr
   %27 = load i32, ptr %4, align 8, !tbaa !16
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %14, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -8
   %31 = load ptr, ptr %30, align 8, !tbaa !72
   %32 = icmp eq ptr %22, %31

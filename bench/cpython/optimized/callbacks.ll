@@ -92,10 +92,10 @@ define hidden ptr @_ctypes_alloc_callback(ptr noundef %0, ptr noundef %1, ptr no
 
 35:                                               ; preds = %.lr.ph, %35
   %.05374 = phi i64 [ 0, %.lr.ph ], [ %40, %35 ]
-  %36 = getelementptr ptr, ptr %32, i64 %.05374
+  %36 = getelementptr [8 x i8], ptr %32, i64 %.05374
   %37 = load ptr, ptr %36, align 8, !tbaa !33
   %38 = tail call ptr @_ctypes_get_ffi_type(ptr noundef nonnull %0, ptr noundef %37) #6
-  %39 = getelementptr ptr, ptr %34, i64 %.05374
+  %39 = getelementptr [8 x i8], ptr %34, i64 %.05374
   store ptr %38, ptr %39, align 8, !tbaa !14
   %40 = add nuw nsw i64 %.05374, 1
   %exitcond.not = icmp eq i64 %40, %.val
@@ -104,7 +104,7 @@ define hidden ptr @_ctypes_alloc_callback(ptr noundef %0, ptr noundef %1, ptr no
 ._crit_edge:                                      ; preds = %35, %31
   %.053.lcssa = phi i64 [ 0, %31 ], [ %.val, %35 ]
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 120
-  %42 = getelementptr ptr, ptr %41, i64 %.053.lcssa
+  %42 = getelementptr [8 x i8], ptr %41, i64 %.053.lcssa
   store ptr null, ptr %42, align 8, !tbaa !14
   %43 = load i32, ptr %3, align 8, !tbaa !36
   %44 = icmp slt i32 %43, 0
@@ -547,7 +547,7 @@ define internal fastcc void @_CallPythonObject(ptr noundef %0, ptr noundef %1, p
 24:                                               ; preds = %.lr.ph, %76
   %.0142 = phi ptr [ %7, %.lr.ph ], [ %78, %76 ]
   %.071140 = phi i64 [ 0, %.lr.ph ], [ %79, %76 ]
-  %25 = getelementptr ptr, ptr %20, i64 %.071140
+  %25 = getelementptr [8 x i8], ptr %20, i64 %.071140
   %26 = load ptr, ptr %25, align 8, !tbaa !33
   %27 = load ptr, ptr %22, align 8, !tbaa !39
   %28 = tail call i32 @PyObject_IsInstance(ptr noundef %26, ptr noundef %27) #6
@@ -658,7 +658,7 @@ Py_DECREF.exit99:                                 ; preds = %56, %PyObject_TypeC
 
 76:                                               ; preds = %37, %Py_DECREF.exit99
   %.0.i.i105.sink = phi ptr [ %.0.i.i105, %Py_DECREF.exit99 ], [ %42, %37 ]
-  %77 = getelementptr ptr, ptr %12, i64 %.071140
+  %77 = getelementptr [8 x i8], ptr %12, i64 %.071140
   store ptr %.0.i.i105.sink, ptr %77, align 8, !tbaa !33
   %78 = getelementptr i8, ptr %.0142, i64 8
   %79 = add nuw nsw i64 %.071140, 1
@@ -814,7 +814,7 @@ Py_XDECREF.exit111:                               ; preds = %138, %135, %Py_DECR
 
 .lr.ph144:                                        ; preds = %Py_XDECREF.exit111, %Py_DECREF.exit
   %.072143 = phi i64 [ %146, %Py_DECREF.exit ], [ 0, %Py_XDECREF.exit111 ]
-  %139 = getelementptr ptr, ptr %12, i64 %.072143
+  %139 = getelementptr [8 x i8], ptr %12, i64 %.072143
   %140 = load ptr, ptr %139, align 8, !tbaa !33
   %141 = load i32, ptr %140, align 8, !tbaa !36
   %.not.i = icmp sgt i32 %141, -1

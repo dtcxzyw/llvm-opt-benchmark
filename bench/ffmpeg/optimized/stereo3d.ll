@@ -108,7 +108,7 @@ define ptr @av_stereo3d_type_name(i32 noundef %0) local_unnamed_addr #3 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @stereo3d_type_names, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @stereo3d_type_names, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   br label %7
 
@@ -123,7 +123,7 @@ define range(i32 -1, 9) i32 @av_stereo3d_from_name(ptr noundef %0) local_unnamed
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @stereo3d_type_names, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @stereo3d_type_names, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %5 = tail call i32 @av_strstart(ptr noundef %0, ptr noundef %4, ptr noundef null) #4
   %.not = icmp eq i32 %5, 0
@@ -152,7 +152,7 @@ define ptr @av_stereo3d_view_name(i32 noundef %0) local_unnamed_addr #3 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @stereo3d_view_names, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @stereo3d_view_names, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   br label %7
 
@@ -167,7 +167,7 @@ define range(i32 -1, 4) i32 @av_stereo3d_view_from_name(ptr noundef %0) local_un
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @stereo3d_view_names, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @stereo3d_view_names, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %5 = tail call i32 @av_strstart(ptr noundef %0, ptr noundef %4, ptr noundef null) #4
   %.not = icmp eq i32 %5, 0
@@ -194,7 +194,7 @@ define ptr @av_stereo3d_primary_eye_name(i32 noundef %0) local_unnamed_addr #3 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @stereo3d_primary_eye_names, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @stereo3d_primary_eye_names, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   br label %7
 
@@ -209,7 +209,7 @@ define range(i32 -1, 3) i32 @av_stereo3d_primary_eye_from_name(ptr noundef %0) l
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @stereo3d_primary_eye_names, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @stereo3d_primary_eye_names, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %5 = tail call i32 @av_strstart(ptr noundef %0, ptr noundef %4, ptr noundef null) #4
   %.not = icmp eq i32 %5, 0

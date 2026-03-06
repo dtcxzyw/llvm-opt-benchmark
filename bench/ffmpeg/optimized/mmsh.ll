@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.URLProtocol = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.MMSStream = type { i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"mmsh\00", align 1
 @.str.1 = private unnamed_addr constant [9 x i8] c"http,tcp\00", align 1
@@ -335,7 +334,7 @@ define internal fastcc i32 @mmsh_open_internal(ptr noundef initializes((40, 44))
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %66 = load ptr, ptr %64, align 8, !tbaa !36
-  %67 = getelementptr inbounds nuw %struct.MMSStream, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4, !tbaa !37
   %69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 20, ptr noundef nonnull @.str.7, i32 noundef %68) #7
   %70 = icmp slt i32 %69, 0
@@ -623,7 +622,7 @@ define internal fastcc range(i32 -1094995529, 65536) i32 @get_chunk_header(ptr n
 
 switch.lookup:                                    ; preds = %8
   %18 = zext nneg i32 %15 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.get_chunk_header, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.get_chunk_header, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   %19 = load ptr, ptr %0, align 8, !tbaa !33
   %20 = call i32 @ffurl_read_complete(ptr noundef %19, ptr noundef nonnull %4, i32 noundef %switch.load) #7

@@ -38,17 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, bool>, std::allocator<std::pair<std::__cxx11::basic_string<char>, bool>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, bool>, std::allocator<std::pair<std::__cxx11::basic_string<char>, bool>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, bool>, std::allocator<std::pair<std::__cxx11::basic_string<char>, bool>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<std::__cxx11::basic_string<char>, bool>, std::allocator<std::pair<std::__cxx11::basic_string<char>, bool>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.clang::HeaderSearchOptions::Entry" = type <{ %"class.std::__cxx11::basic_string", i32, i8, [3 x i8] }>
-%"struct.clang::HeaderSearchOptions::SystemHeaderPrefix" = type <{ %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%"struct.(anonymous namespace)::DirectoryLookupInfo" = type { i32, [4 x i8], %"class.clang::DirectoryLookup", %"class.std::optional.120" }
-%"class.clang::DirectoryLookup" = type <{ %"union.clang::DirectoryLookup::DLU", i8, [7 x i8] }>
-%"union.clang::DirectoryLookup::DLU" = type { %"class.clang::DirectoryEntryRef" }
-%"class.clang::DirectoryEntryRef" = type { ptr }
-%"class.std::optional.120" = type { %"struct.std::_Optional_base.121" }
-%"struct.std::_Optional_base.121" = type { %"struct.std::_Optional_payload.123" }
-%"struct.std::_Optional_payload.123" = type { %"struct.std::_Optional_payload_base.base.125", [3 x i8] }
-%"struct.std::_Optional_payload_base.base.125" = type <{ %"union.std::_Optional_payload_base<unsigned int>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<unsigned int>::_Storage" = type { i32 }
 %"class.llvm::Expected" = type { %union.anon.230, i8, [7 x i8] }
 %union.anon.230 = type { %"struct.llvm::AlignedCharArrayUnion" }
 %"struct.llvm::AlignedCharArrayUnion" = type { [8 x i8] }
@@ -58,19 +47,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::DiagnosticBuilder" = type <{ %"class.clang::StreamingDiagnostic", ptr, %"class.clang::SourceLocation", i32, %"class.std::__cxx11::basic_string", i8, i8, [6 x i8] }>
 %"class.clang::StreamingDiagnostic" = type { ptr, ptr }
 %"class.clang::SourceLocation" = type { i32 }
-%"class.std::unique_ptr.232" = type { %"struct.std::__uniq_ptr_data.233" }
-%"struct.std::__uniq_ptr_data.233" = type { %"class.std::__uniq_ptr_impl.234" }
-%"class.std::__uniq_ptr_impl.234" = type { %"class.std::tuple.235" }
-%"class.std::tuple.235" = type { %"struct.std::_Tuple_impl.236" }
-%"struct.std::_Tuple_impl.236" = type { %"struct.std::_Head_base.239" }
-%"struct.std::_Head_base.239" = type { ptr }
-%"struct.std::pair" = type <{ %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"class.llvm::SmallPtrSet" = type { %"class.llvm::SmallPtrSetImpl.base", [8 x ptr] }
 %"class.llvm::SmallPtrSetImpl.base" = type { %"class.llvm::SmallPtrSetImplBase.base" }
 %"class.llvm::SmallPtrSetImplBase.base" = type <{ ptr, i32, i32, i32, i8 }>
 %"class.llvm::SmallPtrSet.275" = type { %"class.llvm::SmallPtrSetImpl.base.277", [8 x ptr] }
 %"class.llvm::SmallPtrSetImpl.base.277" = type { %"class.llvm::SmallPtrSetImplBase.base" }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.302" }
 
 $_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE = comdat any
 
@@ -609,7 +590,7 @@ _ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptio
 206:                                              ; preds = %.lr.ph, %222
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %222 ]
   %207 = load ptr, ptr %79, align 8, !tbaa !34
-  %208 = getelementptr inbounds nuw %"struct.clang::HeaderSearchOptions::Entry", ptr %207, i64 %indvars.iv
+  %208 = getelementptr inbounds nuw [40 x i8], ptr %207, i64 %indvars.iv
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 36
   %210 = load i8, ptr %209, align 4
   %211 = and i8 %210, 2
@@ -657,7 +638,7 @@ _ZN12_GLOBAL__N_116InitHeaderSearch22AddDefaultIncludePathsERKN5clang11LangOptio
   %.088 = phi i32 [ 0, %.lr.ph89 ], [ %268, %_ZN12_GLOBAL__N_116InitHeaderSearch21AddSystemHeaderPrefixEN4llvm9StringRefEb.exit ]
   %226 = zext i32 %.088 to i64
   %227 = load ptr, ptr %192, align 8, !tbaa !57
-  %228 = getelementptr inbounds nuw %"struct.clang::HeaderSearchOptions::SystemHeaderPrefix", ptr %227, i64 %226
+  %228 = getelementptr inbounds nuw [40 x i8], ptr %227, i64 %226
   %229 = load ptr, ptr %228, align 8, !tbaa !3
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 8
   %231 = load i64, ptr %230, align 8, !tbaa !11
@@ -1019,7 +1000,7 @@ _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJR
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %360, %_ZNKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %363, %.lr.ph.i.i.i.i.i.i ]
   %364 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 32
   call void @_ZdlPvm(ptr noundef nonnull %341, i64 noundef %350) #16
-  %365 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %360, i64 %358
+  %365 = getelementptr inbounds nuw [32 x i8], ptr %360, i64 %358
   br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE9push_backERKS1_.exit.i
 
 _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %345, %338
@@ -1118,7 +1099,7 @@ _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S
   br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i100.i
 
 _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i100.i: ; preds = %404, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i97.i
-  %405 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %399, i64 %397
+  %405 = getelementptr inbounds nuw [32 x i8], ptr %399, i64 %397
   br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE9push_backERKS1_.exit101.i
 
 _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE9push_backERKS1_.exit101.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i100.i, %384, %.lr.ph200.i
@@ -1228,7 +1209,7 @@ _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S
   br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i114.i
 
 _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i114.i: ; preds = %448, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i111.i
-  %449 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %443, i64 %441
+  %449 = getelementptr inbounds nuw [32 x i8], ptr %443, i64 %441
   br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE9push_backERKS1_.exit115.i
 
 _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE9push_backERKS1_.exit115.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i114.i, %428, %425, %422
@@ -1276,7 +1257,7 @@ _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE9push_backERKS1_.exit1
   %468 = ashr exact i64 %461, 1
   %469 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %468) #17, !noalias !251
   store ptr %469, ptr %8, align 8, !tbaa !254, !alias.scope !251
-  %470 = getelementptr inbounds nuw %"class.clang::DirectoryLookup", ptr %469, i64 %462
+  %470 = getelementptr inbounds nuw [16 x i8], ptr %469, i64 %462
   store ptr %470, ptr %466, align 8, !tbaa !255, !alias.scope !251
   br label %471
 
@@ -1345,7 +1326,7 @@ _ZNSt6vectorIN5clang15DirectoryLookupESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gn
   call void @_ZdlPvm(ptr noundef nonnull %472, i64 noundef %482) #16, !noalias !251
   store ptr %491, ptr %8, align 8, !tbaa !254, !alias.scope !251
   store ptr %495, ptr %467, align 8, !tbaa !256, !alias.scope !251
-  %496 = getelementptr inbounds nuw %"class.clang::DirectoryLookup", ptr %491, i64 %489
+  %496 = getelementptr inbounds nuw [16 x i8], ptr %491, i64 %489
   store ptr %496, ptr %466, align 8, !tbaa !255, !alias.scope !251
   br label %_ZNSt20back_insert_iteratorISt6vectorIN5clang15DirectoryLookupESaIS2_EEEaSEOS2_.exit.i.i.i.i
 
@@ -1383,7 +1364,7 @@ _ZL14extractLookupsRKSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE.exi
 
 505:                                              ; preds = %514, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %514 ]
-  %506 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %.val.i118.i, i64 %indvars.iv.i.i
+  %506 = getelementptr inbounds nuw [32 x i8], ptr %.val.i118.i, i64 %indvars.iv.i.i
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 28
   %508 = load i8, ptr %507, align 4, !tbaa !267, !range !66, !noundef !67
   %509 = trunc nuw i8 %508 to i1
@@ -1508,7 +1489,7 @@ _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S
   br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i134.i
 
 _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i134.i: ; preds = %564, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26.i.i131.i
-  %565 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %559, i64 %557
+  %565 = getelementptr inbounds nuw [32 x i8], ptr %559, i64 %557
   br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE9push_backERKS1_.exit135.i
 
 _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE9push_backERKS1_.exit135.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i134.i, %544, %.lr.ph234.i
@@ -1604,7 +1585,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %582, %580
 
 _ZN4llvm11raw_ostreamlsEPKc.exit141.i:            ; preds = %615, %613, %.lr.ph244.i
   %.val83.i = load ptr, ptr %7, align 8, !tbaa !227
-  %618 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %.val83.i, i64 %indvars.iv.i
+  %618 = getelementptr inbounds nuw [32 x i8], ptr %.val83.i, i64 %indvars.iv.i
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 8
   %620 = call { ptr, i64 } @_ZNK5clang15DirectoryLookup7getNameEv(ptr noundef nonnull align 8 dereferenceable(9) %619) #15
   %621 = extractvalue { ptr, i64 } %620, 0
@@ -2099,7 +2080,7 @@ _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S
 _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %126, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i
   store ptr %119, ptr %0, align 8, !tbaa !227
   store ptr %125, ptr %97, align 8, !tbaa !228
-  %127 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %119, i64 %117
+  %127 = getelementptr inbounds nuw [32 x i8], ptr %119, i64 %117
   store ptr %127, ptr %99, align 8, !tbaa !286
   br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.exit
 
@@ -2250,7 +2231,7 @@ _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S
 _ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE17_M_realloc_insertIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i66: ; preds = %183, %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i63
   store ptr %176, ptr %0, align 8, !tbaa !227
   store ptr %182, ptr %154, align 8, !tbaa !228
-  %184 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %176, i64 %174
+  %184 = getelementptr inbounds nuw [32 x i8], ptr %176, i64 %174
   store ptr %184, ptr %156, align 8, !tbaa !286
   br label %_ZNSt6vectorIN12_GLOBAL__N_119DirectoryLookupInfoESaIS1_EE12emplace_backIJRN5clang8frontend15IncludeDirGroupENS5_15DirectoryLookupERSt8optionalIjEEEERS1_DpOT_.exit
 
@@ -2575,7 +2556,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %15
   %29 = add i32 %11, -1
   store i32 %29, ptr %10, align 8, !tbaa !321
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !338
   store i8 0, ptr %32, align 8, !tbaa !323
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 424
@@ -2683,7 +2664,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %73 = add i8 %72, 1
   store i8 %73, ptr %70, align 8, !tbaa !323
   %74 = zext i8 %72 to i64
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %71, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !3
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %78 = icmp eq ptr %76, %77
@@ -2796,7 +2777,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !321
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !338
   br label %43
 
@@ -3197,7 +3178,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !373
   store ptr %67, ptr %41, align 8, !tbaa !370
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.232", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !372
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -3347,7 +3328,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !373
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !370
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.232", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !372
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -3467,7 +3448,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !373
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !370
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.232", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !372
   ret void
 }
@@ -3852,7 +3833,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS7
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit27, %78
   store ptr %23, ptr %0, align 8, !tbaa !275
   store ptr %.0.lcssa.i.i.i26, ptr %5, align 8, !tbaa !69
-  %82 = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %17
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %17
   store ptr %82, ptr %77, align 8, !tbaa !70
   ret void
 }
@@ -3950,7 +3931,7 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit66:         ; preds = %_ZN4llvm19SmallPtrS
   %39 = phi i64 [ %232, %230 ], [ %23, %3 ]
   %.0164 = phi i32 [ %.1, %230 ], [ 0, %3 ]
   %.044163 = phi i32 [ %231, %230 ], [ %1, %3 ]
-  %40 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %.val165, i64 %39
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %.val165, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load i8, ptr %42, align 8
@@ -4110,7 +4091,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i98: ; preds = %._crit_edge.i
 103:                                              ; preds = %.preheader, %141
   %.051 = phi i32 [ %142, %141 ], [ %1, %.preheader ]
   %104 = zext i32 %.051 to i64
-  %105 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %.val61, i64 %104
+  %105 = getelementptr inbounds nuw [32 x i8], ptr %.val61, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %108 = load i8, ptr %107, align 8
@@ -4321,7 +4302,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit141:              ; preds = %216, %214, %_ZN4llv
   %spec.select57 = add i32 %.0164, %220
   %.val59 = load ptr, ptr %0, align 8, !tbaa !229
   %221 = zext i32 %.049 to i64
-  %222 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DirectoryLookupInfo", ptr %.val59, i64 %221
+  %222 = getelementptr inbounds nuw [32 x i8], ptr %.val59, i64 %221
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 32
   %.val5.i.i = load ptr, ptr %22, align 8, !tbaa !229
   %.not.i.i142 = icmp eq ptr %223, %.val5.i.i
@@ -4383,7 +4364,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12Dens
   %13 = add i32 %8, -1
   %.02744.i = and i32 %12, %13
   %14 = zext i32 %.02744.i to i64
-  %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !270
   %17 = icmp eq i32 %11, %16
   br i1 %17, label %.loopexit, label %.lr.ph.i, !prof !519
@@ -4411,7 +4392,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12Dens
   %27 = add i32 %.02546.i, %.02747.i
   %.027.i = and i32 %27, %13
   %28 = zext i32 %.027.i to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !270
   %31 = icmp eq i32 %11, %30
   br i1 %31, label %.loopexit, label %.lr.ph.i, !prof !521, !llvm.loop !522
@@ -4483,7 +4464,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   %.sink29 = phi ptr [ %46, %55 ], [ %15, %10 ], [ %29, %23 ]
   %.sink = phi i8 [ 1, %55 ], [ 0, %10 ], [ 0, %23 ]
   %61 = zext i32 %.sink32 to i64
-  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.sink30, i64 %61
   store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %62, ptr %.sroa.4.0..sroa_idx, align 8
@@ -4506,7 +4487,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %11 = add i32 %6, -1
   %.02744 = and i32 %10, %11
   %12 = zext i32 %.02744 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !270
   %15 = icmp eq i32 %9, %14
   br i1 %15, label %._crit_edge, label %.lr.ph, !prof !519
@@ -4534,7 +4515,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %25 = add i32 %.02747, %.02546
   %.027 = and i32 %25, %11
   %26 = zext i32 %.027 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !270
   %29 = icmp eq i32 %9, %28
   br i1 %29, label %._crit_edge, label %.lr.ph, !prof !521, !llvm.loop !522
@@ -4635,7 +4616,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   %44 = add i32 %41, -1
   %.02744.i.i = and i32 %44, %43
   %45 = zext i32 %.02744.i.i to i64
-  %46 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !270
   %48 = icmp eq i32 %39, %47
   br i1 %48, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i, label %.lr.ph.i13.i, !prof !519
@@ -4663,7 +4644,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   %58 = add i32 %.02546.i.i, %.02747.i.i
   %.027.i.i = and i32 %58, %44
   %59 = zext i32 %.027.i.i to i64
-  %60 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !270
   %62 = icmp eq i32 %39, %61
   br i1 %62, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E15LookupBucketForIjEEbRKT_RPS6_.exit.i, label %.lr.ph.i13.i, !prof !521, !llvm.loop !522

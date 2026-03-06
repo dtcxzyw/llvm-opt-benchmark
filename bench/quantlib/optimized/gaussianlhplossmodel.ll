@@ -37,8 +37,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.boost::shared_ptr.41" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::shared_ptr.43" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.QuantLib::Handle.39" = type { %"class.boost::shared_ptr.40" }
-%"class.boost::shared_ptr.40" = type { ptr, %"class.boost::detail::shared_count" }
 %"struct.QuantLib::GaussianCopulaPolicy" = type { i64 }
 %"class.std::map" = type { %"class.std::_Rb_tree.63" }
 %"class.std::_Rb_tree.63" = type { %"struct.std::_Rb_tree<double, std::pair<const double, double>, std::_Select1st<std::pair<const double, double>>, std::less<double>>::_Rb_tree_impl" }
@@ -2200,7 +2198,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt1
   store ptr %cond.i.i.i.i, ptr %factorWeights_, align 8, !tbaa !98
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !99
-  %add.ptr.i.i.i9 = getelementptr inbounds nuw %"class.std::vector.20", ptr %cond.i.i.i.i, i64 %nVariables
+  %add.ptr.i.i.i9 = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i.i.i, i64 %nVariables
   %_M_end_of_storage.i.i.i10 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i9, ptr %_M_end_of_storage.i.i.i10, align 8, !tbaa !100
   %call.i.i.i.i3.i = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIdSaIdEEmS2_ET_S4_T0_RKT1_(ptr noundef %cond.i.i.i.i, i64 noundef %nVariables, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
@@ -2305,7 +2303,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIdSaIdE
 
 call5.i.i.i.i2.i.i.noexc35:                       ; preds = %if.end.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i36, ptr %idiosyncFctrs_, align 8, !tbaa !94
-  %add.ptr.i.i.i24 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i36, i64 %nVariables
+  %add.ptr.i.i.i24 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i36, i64 %nVariables
   %_M_end_of_storage.i.i.i25 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr %add.ptr.i.i.i24, ptr %_M_end_of_storage.i.i.i25, align 8, !tbaa !95
   %add.ptr.i.i.i.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i36, i64 %mul.i.i.i.i.i.i23
@@ -6485,7 +6483,7 @@ lpad:                                             ; preds = %cond.false.i8, %inv
 
 for.body:                                         ; preds = %invoke.cont7
   %5 = load ptr, ptr %rrQuotes_, align 8, !tbaa !50
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Handle.39", ptr %5, i64 %i.0
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %i.0
   %call12 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_17RecoveryRateQuoteEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i)
           to label %invoke.cont11 unwind label %lpad10.loopexit
 
@@ -6564,7 +6562,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   br label %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i
-  %add.ptr19.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i.i16, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i16, i64 %cond.i.i.i.i
   br label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i, %if.then.i.i
@@ -7499,7 +7497,7 @@ if.then.i.i.i:                                    ; preds = %lpad.i
   br label %lpad9.body
 
 invoke.cont10:                                    ; preds = %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.i
-  %add.ptr.i.i.i5 = getelementptr inbounds nuw %"class.std::vector.20", ptr %cond.i.i.i.i, i64 %0
+  %add.ptr.i.i.i5 = getelementptr inbounds nuw [24 x i8], ptr %cond.i.i.i.i, i64 %0
   %factorWeights_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load ptr, ptr %factorWeights_, align 8, !tbaa !98
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -7602,7 +7600,7 @@ for.body.i.i.i.i.i.i.i.i.i33:                     ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i36, label %invoke.cont28.loopexit, label %for.body.i.i.i.i.i.i.i.i.i33, !llvm.loop !101
 
 invoke.cont28.loopexit:                           ; preds = %for.body.i.i.i.i.i.i.i.i.i33
-  %add.ptr.i.i.i30 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i42, i64 %12
+  %add.ptr.i.i.i30 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i42, i64 %12
   br label %invoke.cont28
 
 invoke.cont28:                                    ; preds = %invoke.cont28.loopexit, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -9738,7 +9736,7 @@ define linkonce_odr noundef double @_ZNK8QuantLib20GaussianLHPLossModel16expecte
 entry:
   %rrQuotes_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %rrQuotes_, align 8, !tbaa !50
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Handle.39", ptr %0, i64 %iName
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %iName
   %call2 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_17RecoveryRateQuoteEE11currentLinkEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i)
   %1 = load ptr, ptr %call2, align 8, !tbaa !127
   %cmp.not.i = icmp eq ptr %1, null
@@ -17460,7 +17458,7 @@ if.then.i29:                                      ; preds = %_ZNSt6vectorIN8Quan
 _ZNSt12_Vector_baseIN8QuantLib6HandleINS0_17RecoveryRateQuoteEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN8QuantLib6HandleINS0_17RecoveryRateQuoteEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit28, %if.then.i29
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !50
   store ptr %__cur.0.lcssa.i.i.i27, ptr %_M_finish.i.i, align 8, !tbaa !48
-  %add.ptr26 = getelementptr inbounds nuw %"class.QuantLib::Handle.39", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !78
   ret void
 

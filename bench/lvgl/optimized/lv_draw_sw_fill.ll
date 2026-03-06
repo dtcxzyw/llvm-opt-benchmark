@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._lv_draw_sw_mask_radius_param_t = type { %struct._lv_draw_sw_mask_common_dsc_t, %struct.anon, ptr }
 %struct._lv_draw_sw_mask_common_dsc_t = type { ptr, i32 }
 %struct.anon = type { %struct.lv_area_t, i32, i8 }
-%struct.lv_grad_stop_t = type { %struct.lv_color_t, i8, i8 }
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -126,11 +125,11 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %68 = load ptr, ptr %63, align 8, !tbaa !31
   %69 = load i32, ptr %5, align 4, !tbaa !15
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds %struct.lv_color_t, ptr %68, i64 %70
+  %71 = getelementptr inbounds [3 x i8], ptr %68, i64 %70
   %72 = load i32, ptr %4, align 4, !tbaa !15
   %73 = sext i32 %72 to i64
   %74 = sub nsw i64 0, %73
-  %75 = getelementptr inbounds %struct.lv_color_t, ptr %71, i64 %74
+  %75 = getelementptr inbounds [3 x i8], ptr %71, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %75, ptr %76, align 8, !tbaa !33
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 66
@@ -149,7 +148,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %79 ]
-  %80 = getelementptr inbounds nuw %struct.lv_grad_stop_t, ptr %28, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [5 x i8], ptr %28, i64 %indvars.iv
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 3
   %82 = load i8, ptr %81, align 1, !tbaa !37
   %.not = icmp eq i8 %82, -1
@@ -237,7 +236,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %121 = load i32, ptr %18, align 4, !tbaa !17
   %122 = sub nsw i32 %105, %121
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds %struct.lv_color_t, ptr %120, i64 %123
+  %124 = getelementptr inbounds [3 x i8], ptr %120, i64 %123
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %34, ptr noundef nonnull align 1 dereferenceable(3) %124, i64 3, i1 false), !tbaa.struct !20
   %125 = load ptr, ptr %100, align 8, !tbaa !39
   %126 = getelementptr inbounds i8, ptr %125, i64 %123
@@ -310,7 +309,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %148 = load i32, ptr %18, align 4, !tbaa !17
   %149 = sub nsw i32 %107, %148
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds %struct.lv_color_t, ptr %147, i64 %150
+  %151 = getelementptr inbounds [3 x i8], ptr %147, i64 %150
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %34, ptr noundef nonnull align 1 dereferenceable(3) %151, i64 3, i1 false), !tbaa.struct !20
   %152 = load ptr, ptr %100, align 8, !tbaa !39
   %153 = getelementptr inbounds i8, ptr %152, i64 %150
@@ -452,7 +451,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %207 = load i32, ptr %18, align 4, !tbaa !17
   %208 = sub nsw i32 %.1151199.us.us, %207
   %209 = sext i32 %208 to i64
-  %210 = getelementptr inbounds %struct.lv_color_t, ptr %206, i64 %209
+  %210 = getelementptr inbounds [3 x i8], ptr %206, i64 %209
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %34, ptr noundef nonnull align 1 dereferenceable(3) %210, i64 3, i1 false), !tbaa.struct !20
   %211 = load ptr, ptr %205, align 8, !tbaa !39
   %212 = getelementptr inbounds i8, ptr %211, i64 %209

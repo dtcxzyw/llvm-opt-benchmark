@@ -96,8 +96,8 @@ define hidden void @_ZN20MallocMemorySnapshot7copy_toEPS_(ptr noundef nonnull re
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %6 ]
   %.01518 = phi i64 [ 0, %2 ], [ %13, %6 ]
   %.01617 = phi i64 [ 0, %2 ], [ %11, %6 ]
-  %7 = getelementptr inbounds nuw %class.MallocMemory, ptr %0, i64 %indvars.iv
-  %8 = getelementptr inbounds nuw %class.MallocMemory, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr nonnull align 8 %7, i64 64, i1 true)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load volatile i64, ptr %9, align 8
@@ -151,7 +151,7 @@ define hidden noundef i64 @_ZNK20MallocMemorySnapshot11total_arenaEv(ptr noundef
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %.056 = phi i64 [ 0, %1 ], [ %6, %2 ]
-  %3 = getelementptr inbounds nuw %class.MallocMemory, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load volatile i64, ptr %4, align 8
   %6 = add i64 %5, %.056
@@ -170,7 +170,7 @@ define hidden void @_ZN20MallocMemorySnapshot15make_adjustmentEv(ptr noundef non
 2:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
   %.056.i = phi i64 [ 0, %1 ], [ %6, %2 ]
-  %3 = getelementptr inbounds nuw %class.MallocMemory, ptr %0, i64 %indvars.iv.i
+  %3 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %indvars.iv.i
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load volatile i64, ptr %4, align 8
   %6 = add i64 %5, %.056.i
@@ -519,7 +519,7 @@ define hidden noundef zeroext i1 @_ZN19MallocMemorySummary22category_limit_reach
 
 12:                                               ; preds = %10
   %13 = zext i8 %0 to i64
-  %14 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @_ZN7NMTUtil8_stringsE, i64 %13
   %15 = load ptr, ptr %14, align 16
   %16 = icmp ugt i64 %1, 107374182399
   br i1 %16, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %17
@@ -610,7 +610,7 @@ _Z25proper_unit_for_byte_sizem.exit34:            ; preds = %.thread74, %_Z24byt
   %46 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %46, align 1
   %47 = zext i8 %0 to i64
-  %48 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %47
+  %48 = getelementptr inbounds nuw [16 x i8], ptr @_ZN7NMTUtil8_stringsE, i64 %47
   %49 = load ptr, ptr %48, align 16
   %50 = tail call noundef i64 @_Z24byte_size_in_proper_unitImET_S0_(i64 noundef %1)
   %51 = icmp ugt i64 %1, 107374182399
@@ -669,7 +669,7 @@ _Z25proper_unit_for_byte_sizem.exit43:            ; preds = %_Z25proper_unit_for
 
 72:                                               ; preds = %70
   %73 = zext i8 %0 to i64
-  %74 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr @_ZN7NMTUtil8_stringsE, i64 %73
   %75 = load ptr, ptr %74, align 16
   %76 = icmp ugt i64 %1, 107374182399
   br i1 %76, label %_Z24byte_size_in_proper_unitImET_S0_.exit46, label %77
@@ -781,7 +781,7 @@ declare noundef zeroext i1 @_ZN15MallocSiteTable10initializeEv() local_unnamed_a
 define hidden noundef nonnull ptr @_ZN13MallocTracker13record_mallocEPvm8MEMFLAGSRK15NativeCallStack(ptr noundef captures(ret: address, provenance) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = zext i8 %2 to i64
-  %7 = getelementptr inbounds nuw %class.MallocMemory, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %6
+  %7 = getelementptr inbounds nuw [64 x i8], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %6
   %8 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(64) %7) #10, !srcloc !11
   %9 = add i64 %8, 1
   %.not.i.i.i = icmp eq i64 %1, 0
@@ -906,7 +906,7 @@ define hidden noundef ptr @_ZN13MallocTracker17record_free_blockEPv(ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8
   %.sroa.2.8.insert.ext.i = zext i8 %5 to i64
-  %8 = getelementptr inbounds nuw %class.MallocMemory, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %.sroa.2.8.insert.ext.i
+  %8 = getelementptr inbounds nuw [64 x i8], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %.sroa.2.8.insert.ext.i
   %9 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(64) %8) #10, !srcloc !11
   %.not.i.i.i.i = icmp eq i64 %3, 0
   br i1 %.not.i.i.i.i, label %_ZN12MallocMemory11record_freeEm.exit.thread.i.i, label %11
@@ -961,7 +961,7 @@ _ZN13MallocTracker9deaccountEN12MallocHeader8FreeInfoE.exit: ; preds = %_ZN19Mal
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13MallocTracker9deaccountEN12MallocHeader8FreeInfoE(i64 %0, i64 %1) local_unnamed_addr #0 align 2 {
   %3 = and i64 %1, 255
-  %4 = getelementptr inbounds nuw %class.MallocMemory, ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %3
+  %4 = getelementptr inbounds nuw [64 x i8], ptr @_ZN19MallocMemorySummary9_snapshotE, i64 %3
   %5 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull align 8 dereferenceable(64) %4) #10, !srcloc !11
   %.not.i.i.i = icmp eq i64 %0, 0
   br i1 %.not.i.i.i, label %_ZN12MallocMemory11record_freeEm.exit.thread.i, label %7
@@ -1077,7 +1077,7 @@ _ZNK12MallocHeader11looks_validEv.exit.thread:    ; preds = %10, %19, %15, %_ZNK
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %34 = load i8, ptr %33, align 4
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr @_ZN7NMTUtil8_stringsE, i64 %35
   %37 = load ptr, ptr %36, align 16
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.10, i64 noundef %4, ptr noundef nonnull %.047, ptr noundef nonnull %.str.11..str.12, i64 noundef %32, i64 noundef %25, ptr noundef %37) #10
   %38 = load i32, ptr @_ZN10MemTracker15_tracking_levelE, align 4

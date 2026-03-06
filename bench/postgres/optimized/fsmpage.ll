@@ -185,7 +185,7 @@ define dso_local range(i32 -1, 65536) i32 @fsm_search_avail(i32 noundef %0, i8 n
   %10 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %11 = xor i32 %0, -1
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8
   br label %BufferGetPage.exit
 

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.Kit_Node_t_ = type { %struct.Kit_Edge_t_, %struct.Kit_Edge_t_, %union.anon.1, i32 }
-%struct.Kit_Edge_t_ = type { i32 }
-%union.anon.1 = type { ptr }
 %struct.timespec = type { i64, i64 }
 
 @.str = private unnamed_addr constant [57 x i8] c"NodesBeg = %8d. NodesEnd = %8d. Gain = %6d. (%6.2f %%).\0A\00", align 1
@@ -77,7 +74,7 @@ Vec_VecAlloc.exit.i:                              ; preds = %8, %2
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   store ptr %calloc.i, ptr %15, align 8, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -101,7 +98,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   %27 = sext i32 %19 to i64
   %28 = mul i64 %26, %27
   %29 = tail call noalias ptr @malloc(i64 noundef %28) #21
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %27
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %27
   %31 = icmp sgt i32 %19, 0
   br i1 %31, label %.lr.ph.preheader.i.i, label %Vec_PtrAllocSimInfo.exit.i
 
@@ -112,8 +109,8 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %32 = mul nsw i64 %indvars.iv.i.i, %24
-  %33 = getelementptr inbounds i32, ptr %30, i64 %32
-  %34 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds [4 x i8], ptr %30, i64 %32
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i.i
   store ptr %33, ptr %34, align 8, !tbaa !26
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -137,7 +134,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i, %Vec_Ve
 
 .lr.ph33.split.us.split.us.i:                     ; preds = %..loopexit27_crit_edge.us.us.i, %.lr.ph33.split.us.split.us.preheader.i
   %indvars.iv74.i = phi i64 [ 0, %.lr.ph33.split.us.split.us.preheader.i ], [ %indvars.iv.next75.i, %..loopexit27_crit_edge.us.us.i ]
-  %39 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv74.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv74.i
   %40 = load ptr, ptr %39, align 8, !tbaa !26
   %41 = icmp samesign ult i64 %indvars.iv74.i, 5
   br i1 %41, label %.preheader.us.us.i, label %.preheader26.us.us.i
@@ -148,7 +145,7 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i, %Vec_Ve
   %44 = and i32 %52, %43
   %.not.us.us.i = icmp ne i32 %44, 0
   %spec.select.i = sext i1 %.not.us.us.i to i32
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv64.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv64.i
   store i32 %spec.select.i, ptr %45, align 4, !tbaa !36
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond68.not.i = icmp eq i64 %indvars.iv.next65.i, %wide.trip.count67.i
@@ -161,14 +158,14 @@ Vec_PtrAllocSimInfo.exit.i:                       ; preds = %.lr.ph.i.i, %Vec_Ve
 
 46:                                               ; preds = %.preheader.us.us.i, %46
   %indvars.iv69.i = phi i64 [ 0, %.preheader.us.us.i ], [ %indvars.iv.next70.i, %46 ]
-  %47 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv69.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv69.i
   store i32 %49, ptr %47, align 4, !tbaa !36
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
   %exitcond73.not.i = icmp eq i64 %indvars.iv.next70.i, %wide.trip.count67.i
   br i1 %exitcond73.not.i, label %..loopexit27_crit_edge.us.us.i, label %46, !llvm.loop !39
 
 .preheader.us.us.i:                               ; preds = %.lr.ph33.split.us.split.us.i
-  %48 = getelementptr inbounds nuw i32, ptr @__const.Vec_PtrAllocTruthTables.Masks, i64 %indvars.iv74.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr @__const.Vec_PtrAllocTruthTables.Masks, i64 %indvars.iv74.i
   %49 = load i32, ptr %48, align 4, !tbaa !36
   br label %46
 
@@ -201,8 +198,8 @@ Vec_PtrAllocTruthTables.exit:                     ; preds = %Vec_PtrAllocTruthTa
 .lr.ph.i22:                                       ; preds = %.lr.ph.i22, %Vec_PtrAllocTruthTables.exit
   %indvars.iv.i23 = phi i64 [ 0, %Vec_PtrAllocTruthTables.exit ], [ %indvars.iv.next.i24, %.lr.ph.i22 ]
   %62 = mul nsw i64 %indvars.iv.i23, %57
-  %63 = getelementptr inbounds i32, ptr %61, i64 %62
-  %64 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i23
+  %63 = getelementptr inbounds [4 x i8], ptr %61, i64 %62
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.i23
   store ptr %63, ptr %64, align 8, !tbaa !26
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i23, 1
   %exitcond.not.i25 = icmp eq i64 %indvars.iv.next.i24, 1024
@@ -407,7 +404,7 @@ define void @Dar_ManRefStop(ptr noundef captures(none) %0) local_unnamed_addr #4
   %.val14.i = phi i32 [ %.val11.i, %.lr.ph.i ], [ %.val.i, %23 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
   %.val8.i = load ptr, ptr %15, align 8, !tbaa !25
-  %17 = getelementptr inbounds nuw ptr, ptr %.val8.i, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.val8.i, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !26
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %23, label %19
@@ -592,9 +589,9 @@ define i32 @Dar_RefactTryGraph(ptr noundef %0, ptr noundef readnone captures(add
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.val80 = load ptr, ptr %12, align 8, !tbaa !79
-  %22 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val80, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %.val80, i64 %indvars.iv
   %.val84 = load ptr, ptr %13, align 8, !tbaa !35
-  %23 = getelementptr inbounds nuw ptr, ptr %.val84, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.val84, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !26
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %24, ptr %25, align 8, !tbaa !80
@@ -621,18 +618,18 @@ define i32 @Dar_RefactTryGraph(ptr noundef %0, ptr noundef readnone captures(add
   %indvars.iv110 = phi i64 [ %20, %.lr.ph102 ], [ %indvars.iv.next111, %.critedge ]
   %.063101 = phi i32 [ 0, %.lr.ph102 ], [ %.164, %.critedge ]
   %.val81 = load ptr, ptr %17, align 8, !tbaa !79
-  %42 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val81, i64 %indvars.iv110
+  %42 = getelementptr inbounds [24 x i8], ptr %.val81, i64 %indvars.iv110
   %43 = load i32, ptr %42, align 8
   %44 = lshr i32 %43, 1
   %45 = and i32 %44, 1073741823
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val81, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %.val81, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = lshr i32 %49, 1
   %51 = and i32 %50, 1073741823
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val81, i64 %52
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %.val81, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !80
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -780,9 +777,9 @@ define ptr @Dar_RefactBuildGraph(ptr noundef %0, ptr noundef readonly captures(n
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.val43 = load ptr, ptr %7, align 8, !tbaa !79
-  %17 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val43, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %.val43, i64 %indvars.iv
   %.val44 = load ptr, ptr %8, align 8, !tbaa !35
-  %18 = getelementptr inbounds nuw ptr, ptr %.val44, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.val44, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !26
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %19, ptr %20, align 8, !tbaa !80
@@ -822,7 +819,7 @@ define ptr @Dar_RefactBuildGraph(ptr noundef %0, ptr noundef readonly captures(n
   %33 = getelementptr i8, ptr %2, i64 16
   %.val49 = load ptr, ptr %33, align 8, !tbaa !79
   %34 = zext nneg i32 %26 to i64
-  %35 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val49, i64 %34
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %.val49, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !80
   %38 = and i32 %.val39, 1
@@ -834,12 +831,12 @@ define ptr @Dar_RefactBuildGraph(ptr noundef %0, ptr noundef readonly captures(n
 42:                                               ; preds = %.lr.ph56, %42
   %indvars.iv62 = phi i64 [ %31, %.lr.ph56 ], [ %indvars.iv.next63, %42 ]
   %.val42 = load ptr, ptr %30, align 8, !tbaa !79
-  %43 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val42, i64 %indvars.iv62
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %.val42, i64 %indvars.iv62
   %44 = load i32, ptr %43, align 8
   %45 = lshr i32 %44, 1
   %46 = and i32 %45, 1073741823
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val42, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %.val42, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !80
   %51 = and i32 %44, 1
@@ -852,7 +849,7 @@ define ptr @Dar_RefactBuildGraph(ptr noundef %0, ptr noundef readonly captures(n
   %58 = lshr i32 %57, 1
   %59 = and i32 %58, 1073741823
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val42, i64 %60
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %.val42, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !80
   %64 = and i32 %57, 1
@@ -918,7 +915,7 @@ define i32 @Dar_ManRefactorTryCuts(ptr noundef captures(none) initializes((64, 7
   %19 = phi ptr [ %8, %.lr.ph ], [ %249, %248 ]
   %20 = getelementptr i8, ptr %19, i64 8
   %.val124 = load ptr, ptr %20, align 8, !tbaa !25
-  %21 = getelementptr inbounds nuw ptr, ptr %.val124, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.val124, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !26
   %23 = getelementptr i8, ptr %22, i64 4
   %.val127 = load i32, ptr %23, align 4, !tbaa !32
@@ -951,7 +948,7 @@ select.unfold.i:                                  ; preds = %39, %25
 
 39:                                               ; preds = %select.unfold.i
   %40 = add nsw i64 %indvars.iv.i, -1
-  %41 = getelementptr inbounds nuw i32, ptr %32, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !36
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %select.unfold.i, label %select.unfold.i144, !llvm.loop !96
@@ -1014,7 +1011,7 @@ select.unfold.i144:                               ; preds = %39, %70
 
 70:                                               ; preds = %select.unfold.i144
   %71 = add nsw i64 %indvars.iv.i145, -1
-  %72 = getelementptr inbounds nuw i32, ptr %32, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !36
   %.not.i147 = icmp eq i32 %73, -1
   br i1 %.not.i147, label %select.unfold.i144, label %99, !llvm.loop !97
@@ -1118,7 +1115,7 @@ Vec_PtrCopy.exit152:                              ; preds = %Kit_TruthIsConst1.e
   %123 = lshr i32 %.val136, 1
   %124 = and i32 %123, 1073741823
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val135, i64 %125
+  %126 = getelementptr inbounds nuw [24 x i8], ptr %.val135, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load i32, ptr %127, align 8
   %129 = and i32 %128, 16383
@@ -1129,7 +1126,7 @@ Vec_PtrCopy.exit152:                              ; preds = %Kit_TruthIsConst1.e
   %132 = lshr i32 %.val138, 1
   %133 = and i32 %132, 1073741823
   %134 = zext nneg i32 %133 to i64
-  %135 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val137, i64 %134
+  %135 = getelementptr inbounds nuw [24 x i8], ptr %.val137, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %137 = load i32, ptr %136, align 8
   %138 = and i32 %137, 16383
@@ -1221,7 +1218,7 @@ select.unfold.preheader.i:                        ; preds = %169
 select.unfold.i159:                               ; preds = %select.unfold.i159, %select.unfold.preheader.i
   %indvars.iv.i160 = phi i64 [ %174, %select.unfold.preheader.i ], [ %indvars.iv.next.i, %select.unfold.i159 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i160, -1
-  %175 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.next.i
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.next.i
   %176 = load i32, ptr %175, align 4, !tbaa !36
   %177 = xor i32 %176, -1
   store i32 %177, ptr %175, align 4, !tbaa !36
@@ -1282,7 +1279,7 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
   %202 = lshr i32 %.val140, 1
   %203 = and i32 %202, 1073741823
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val139, i64 %204
+  %205 = getelementptr inbounds nuw [24 x i8], ptr %.val139, i64 %204
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %207 = load i32, ptr %206, align 8
   %208 = and i32 %207, 16383
@@ -1293,7 +1290,7 @@ Kit_TruthNot.exit:                                ; preds = %Kit_TruthNot.exit.l
   %211 = lshr i32 %.val142, 1
   %212 = and i32 %211, 1073741823
   %213 = zext nneg i32 %212 to i64
-  %214 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val141, i64 %213
+  %214 = getelementptr inbounds nuw [24 x i8], ptr %.val141, i64 %213
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %216 = load i32, ptr %215, align 8
   %217 = and i32 %216, 16383
@@ -1414,7 +1411,7 @@ define range(i32 0, 2) i32 @Dar_ObjCutLevelAchieved(ptr noundef readonly capture
 
 6:                                                ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = getelementptr i8, ptr %8, i64 24
   %.val11 = load i64, ptr %9, align 8
@@ -1532,7 +1529,7 @@ Abc_Clock.exit:                                   ; preds = %17, %20
   %62 = phi ptr [ %35, %.lr.ph ], [ %219, %218 ]
   %63 = getelementptr i8, ptr %62, i64 8
   %.val125 = load ptr, ptr %63, align 8, !tbaa !35
-  %64 = getelementptr inbounds nuw ptr, ptr %.val125, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.val125, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !26
   %66 = icmp eq ptr %65, null
   br i1 %66, label %218, label %67
@@ -1594,7 +1591,7 @@ Abc_Clock.exit135:                                ; preds = %77, %80
 
 93:                                               ; preds = %93, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %93 ]
-  %94 = getelementptr inbounds nuw ptr, ptr %.val5.i, i64 %indvars.iv.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %.val5.i, i64 %indvars.iv.i
   %95 = load ptr, ptr %94, align 8, !tbaa !26
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store i32 0, ptr %96, align 4, !tbaa !32
@@ -1692,7 +1689,7 @@ Abc_Clock.exit139:                                ; preds = %110, %113
 
 140:                                              ; preds = %149, %.lr.ph.i140
   %indvars.iv.i143 = phi i64 [ 0, %.lr.ph.i140 ], [ %indvars.iv.next.i144, %149 ]
-  %141 = getelementptr inbounds nuw ptr, ptr %.val.i141, i64 %indvars.iv.i143
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %.val.i141, i64 %indvars.iv.i143
   %142 = load ptr, ptr %141, align 8, !tbaa !26
   %143 = getelementptr i8, ptr %142, i64 24
   %.val11.i = load i64, ptr %143, align 8

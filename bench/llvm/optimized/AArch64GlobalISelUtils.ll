@@ -460,18 +460,18 @@ define linkonce_odr hidden void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLoc
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %21 = load i32, ptr %14, align 8, !tbaa !189
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %25 = load i8, ptr %24, align 4, !tbaa !190, !range !8, !noundef !9
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 5
   %27 = load i8, ptr %26, align 1, !tbaa !191, !range !8, !noundef !9
   %narrow.i.i.i.i.i.i.i = add nuw nsw i8 %27, %25
   %28 = zext nneg i8 %narrow.i.i.i.i.i.i.i to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %23, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 6
   %31 = load i8, ptr %30, align 2, !tbaa !192, !range !8, !noundef !9
   %32 = zext nneg i8 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !193
   br label %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i
 
@@ -500,21 +500,21 @@ _ZNK4llvm12MachineInstr13getPCSectionsEv.exit.i:  ; preds = %19, %15, %11, %2
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %48 = load i32, ptr %41, align 8, !tbaa !189
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %52 = load i8, ptr %51, align 4, !tbaa !190, !range !8, !noundef !9
   %53 = getelementptr inbounds nuw i8, ptr %41, i64 5
   %54 = load i8, ptr %53, align 1, !tbaa !191, !range !8, !noundef !9
   %narrow.i.i.i.i.i.i7.i = add nuw nsw i8 %54, %52
   %55 = zext nneg i8 %narrow.i.i.i.i.i.i7.i to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %50, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %41, i64 6
   %58 = load i8, ptr %57, align 2, !tbaa !192, !range !8, !noundef !9
   %59 = getelementptr inbounds nuw i8, ptr %41, i64 7
   %60 = load i8, ptr %59, align 1, !tbaa !187, !range !8, !noundef !9
   %narrow.i.i.i = add nuw nsw i8 %60, %58
   %61 = zext nneg i8 %narrow.i.i.i to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %56, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !193
   br label %_ZN4llvm16MachineIRBuilder8setInstrERNS_12MachineInstrE.exit
 

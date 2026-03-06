@@ -317,7 +317,7 @@ _ZN14num_bigint_dig7biguint16ensure_big_digit17hd48a60493c53c5e9E.exit: ; preds 
   %.sink11.i6.i.i = phi i64 [ %.sink11.i4.i.i, %.lr.ph.i.i ], [ %.sink11.i.i.i, %136 ]
   %126 = phi i1 [ %120, %.lr.ph.i.i ], [ %139, %136 ]
   %.sink12.i.i.i = select i1 %126, ptr %122, ptr %97
-  %127 = getelementptr i64, ptr %.sink12.i.i.i, i64 %.sink11.i6.i.i
+  %127 = getelementptr [8 x i8], ptr %.sink12.i.i.i, i64 %.sink11.i6.i.i
   %128 = getelementptr i8, ptr %127, i64 -8
   %129 = load i64, ptr %128, align 8, !noalias !42, !noundef !7
   %130 = icmp eq i64 %129, 0
@@ -551,7 +551,7 @@ _ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit: ; pred
 269:                                              ; preds = %264
   %270 = load ptr, ptr %101, align 8, !alias.scope !55, !noalias !60, !nonnull !7
   %.sink12.i3.i = select i1 %266, ptr %270, ptr %101
-  %271 = getelementptr i64, ptr %.sink12.i3.i, i64 %.sink11.i.i
+  %271 = getelementptr [8 x i8], ptr %.sink12.i3.i, i64 %.sink11.i.i
   %272 = getelementptr i8, ptr %271, i64 -8
   %273 = load i64, ptr %272, align 8, !noundef !7
   %274 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %273, i1 false)
@@ -644,7 +644,7 @@ _ZN14num_bigint_dig7biguint16ensure_big_digit17hd48a60493c53c5e9E.exit.i88: ; pr
   %.sink11.i6.i.i.i92 = phi i64 [ %.sink11.i4.i.i.i89, %.lr.ph.i.i.i91 ], [ %.sink11.i.i.i.i97, %304 ]
   %294 = phi i1 [ %288, %.lr.ph.i.i.i91 ], [ %307, %304 ]
   %.sink12.i.i.i.i93 = select i1 %294, ptr %290, ptr %21
-  %295 = getelementptr i64, ptr %.sink12.i.i.i.i93, i64 %.sink11.i6.i.i.i92
+  %295 = getelementptr [8 x i8], ptr %.sink12.i.i.i.i93, i64 %.sink11.i6.i.i.i92
   %296 = getelementptr i8, ptr %295, i64 -8
   %297 = load i64, ptr %296, align 8, !noalias !104, !noundef !7
   %298 = icmp eq i64 %297, 0
@@ -771,7 +771,7 @@ _ZN14num_bigint_dig7biguint16ensure_big_digit17hd48a60493c53c5e9E.exit.i: ; pred
   %.sink11.i6.i.i.i = phi i64 [ %.sink11.i4.i.i.i, %.lr.ph.i.i.i ], [ %.sink11.i.i.i.i82, %338 ]
   %328 = phi i1 [ %322, %.lr.ph.i.i.i ], [ %341, %338 ]
   %.sink12.i.i.i.i = select i1 %328, ptr %324, ptr %24
-  %329 = getelementptr i64, ptr %.sink12.i.i.i.i, i64 %.sink11.i6.i.i.i
+  %329 = getelementptr [8 x i8], ptr %.sink12.i.i.i.i, i64 %.sink11.i6.i.i.i
   %330 = getelementptr i8, ptr %329, i64 -8
   %331 = load i64, ptr %330, align 8, !noalias !145, !noundef !7
   %332 = icmp eq i64 %331, 0
@@ -862,7 +862,7 @@ _ZN14num_bigint_dig7biguint16ensure_big_digit17hd48a60493c53c5e9E.exit.i.i: ; pr
   %.sink11.i6.i.i.i.i = phi i64 [ %.sink11.i4.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.sink11.i.i.i.i.i, %367 ]
   %357 = phi i1 [ %351, %.lr.ph.i.i.i.i ], [ %370, %367 ]
   %.sink12.i.i.i.i.i = select i1 %357, ptr %353, ptr %88
-  %358 = getelementptr i64, ptr %.sink12.i.i.i.i.i, i64 %.sink11.i6.i.i.i.i
+  %358 = getelementptr [8 x i8], ptr %.sink12.i.i.i.i.i, i64 %.sink11.i6.i.i.i.i
   %359 = getelementptr i8, ptr %358, i64 -8
   %360 = load i64, ptr %359, align 8, !noalias !62, !noundef !7
   %361 = icmp eq i64 %360, 0
@@ -896,7 +896,7 @@ _ZN14num_bigint_dig7biguint16ensure_big_digit17hd48a60493c53c5e9E.exit.i.i: ; pr
   %375 = load i64, ptr %216, align 8, !alias.scope !162, !noalias !165
   %.sink12.i.i.i33 = select i1 %373, ptr %374, ptr %89
   %.sink11.i.i.i34 = select i1 %373, i64 %375, i64 %372
-  %376 = getelementptr inbounds i64, ptr %.sink12.i.i.i33, i64 %.sink11.i.i.i34
+  %376 = getelementptr inbounds [8 x i8], ptr %.sink12.i.i.i33, i64 %.sink11.i.i.i34
   call void @llvm.lifetime.start.p0(ptr nonnull %85), !noalias !167
   store i64 0, ptr %217, align 8, !noalias !167
   invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17hce54466d28d55fe2E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %85, ptr noundef nonnull %.sink12.i.i.i33, ptr noundef nonnull %376)
@@ -1285,7 +1285,7 @@ _ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit.i.i: ; 
   %472 = load i64, ptr %471, align 8, !alias.scope !300, !noalias !303
   %.sink12.i = select i1 %469, ptr %470, ptr %4
   %.sink11.i = select i1 %469, i64 %472, i64 %468
-  %473 = getelementptr inbounds i64, ptr %.sink12.i, i64 %.sink11.i
+  %473 = getelementptr inbounds [8 x i8], ptr %.sink12.i, i64 %.sink11.i
   call void @llvm.lifetime.start.p0(ptr nonnull %66), !noalias !305
   %474 = getelementptr inbounds nuw i8, ptr %66, i64 32
   store i64 0, ptr %474, align 8, !noalias !305
@@ -2001,7 +2001,7 @@ _ZN14num_bigint_dig7biguint7BigUint13from_bytes_be17hbb6c888aca4cc4ccE.exit.i: ;
 _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit.i: ; preds = %"_ZN80_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core..ops..arith..AddAssign$GT$10add_assign17hce1c936e0a55d065E.exit.i"
   %700 = load ptr, ptr %59, align 8, !alias.scope !509, !noalias !514, !nonnull !7
   %.sink12.i3.i.i = select i1 %697, ptr %700, ptr %59
-  %701 = getelementptr i64, ptr %.sink12.i3.i.i, i64 %.sink11.i.i29.i
+  %701 = getelementptr [8 x i8], ptr %.sink12.i3.i.i, i64 %.sink11.i.i29.i
   %702 = getelementptr i8, ptr %701, i64 -8
   %703 = load i64, ptr %702, align 8, !noalias !345, !noundef !7
   %704 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %703, i1 false)
@@ -2047,7 +2047,7 @@ _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit.i: ; preds = %
   %.sink11.i6.i.i.i33.i = phi i64 [ 1, %716 ], [ %.sink11.i.i.i.i39.i, %732 ]
   %722 = phi i1 [ false, %716 ], [ %735, %732 ]
   %.sink12.i.i.i.i34.i = select i1 %722, ptr %717, ptr %46
-  %723 = getelementptr i64, ptr %.sink12.i.i.i.i34.i, i64 %.sink11.i6.i.i.i33.i
+  %723 = getelementptr [8 x i8], ptr %.sink12.i.i.i.i34.i, i64 %.sink11.i6.i.i.i33.i
   %724 = getelementptr i8, ptr %723, i64 -8
   %725 = load i64, ptr %724, align 8, !noalias !530, !noundef !7
   %726 = icmp eq i64 %725, 0
@@ -2124,7 +2124,7 @@ _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit.i: ; preds = %
   br label %.invoke.i.i
 
 751:                                              ; preds = %.noexc1.i42.i
-  %752 = getelementptr inbounds i64, ptr %745, i64 %749
+  %752 = getelementptr inbounds [8 x i8], ptr %745, i64 %749
   %.not36.i.i.i.i = icmp eq i64 %749, 0
   br i1 %.not36.i.i.i.i, label %"_ZN124_$LT$num_bigint_dig..biguint..BigUint$u20$as$u20$core..ops..arith..AddAssign$LT$$RF$num_bigint_dig..biguint..BigUint$GT$$GT$10add_assign17h01a0a1970719c5b7E.exit.i.i", label %.lr.ph.i.i.i44.i
 
@@ -2136,8 +2136,8 @@ _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit.i: ; preds = %
   %.sroa.04.035.i.i.i.i = phi i128 [ %764, %.lr.ph.i.i.i44.i ], [ 0, %751 ]
   %.sroa.8.034.i.i.i.i = phi i64 [ %754, %.lr.ph.i.i.i44.i ], [ 0, %751 ]
   %754 = add nuw i64 %.sroa.8.034.i.i.i.i, 1
-  %755 = getelementptr inbounds i64, ptr %745, i64 %.sroa.8.034.i.i.i.i
-  %756 = getelementptr inbounds i64, ptr %748, i64 %.sroa.8.034.i.i.i.i
+  %755 = getelementptr inbounds [8 x i8], ptr %745, i64 %.sroa.8.034.i.i.i.i
+  %756 = getelementptr inbounds [8 x i8], ptr %748, i64 %.sroa.8.034.i.i.i.i
   %757 = load i64, ptr %755, align 8, !alias.scope !561, !noalias !567, !noundef !7
   %758 = load i64, ptr %756, align 8, !alias.scope !564, !noalias !568, !noundef !7
   %759 = zext i64 %757 to i128
@@ -2151,7 +2151,7 @@ _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit.i: ; preds = %
   br i1 %exitcond.not.i.i.i45.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i44.i
 
 765:                                              ; preds = %._crit_edge.i.i.i.i
-  %766 = getelementptr inbounds i64, ptr %745, i64 %747
+  %766 = getelementptr inbounds [8 x i8], ptr %745, i64 %747
   br label %767
 
 767:                                              ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha6e28f292d5220afE.exit.i.i.i.i", %765
@@ -2210,7 +2210,7 @@ _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit.i: ; preds = %
   br label %.invoke.i.i
 
 781:                                              ; preds = %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf53cb17c688ed34cE.exit.i.i.i"
-  %782 = getelementptr inbounds i64, ptr %773, i64 %.sink11.i.i.i.i
+  %782 = getelementptr inbounds [8 x i8], ptr %773, i64 %.sink11.i.i.i.i
   %.not36.i6.i.i.i = icmp eq i64 %.sink11.i.i.i.i, 0
   br i1 %.not36.i6.i.i.i, label %_ZN14num_bigint_dig10algorithms3add6__add217h6e3cc0f47dbc08b2E.exit16.i.i.i, label %.lr.ph.i7.i.i.i
 
@@ -2222,8 +2222,8 @@ _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit.i: ; preds = %
   %.sroa.04.035.i8.i.i.i = phi i128 [ %794, %.lr.ph.i7.i.i.i ], [ 0, %781 ]
   %.sroa.8.034.i9.i.i.i = phi i64 [ %784, %.lr.ph.i7.i.i.i ], [ 0, %781 ]
   %784 = add nuw i64 %.sroa.8.034.i9.i.i.i, 1
-  %785 = getelementptr inbounds i64, ptr %773, i64 %.sroa.8.034.i9.i.i.i
-  %786 = getelementptr inbounds i64, ptr %776, i64 %.sroa.8.034.i9.i.i.i
+  %785 = getelementptr inbounds [8 x i8], ptr %773, i64 %.sroa.8.034.i9.i.i.i
+  %786 = getelementptr inbounds [8 x i8], ptr %776, i64 %.sroa.8.034.i9.i.i.i
   %787 = load i64, ptr %785, align 8, !alias.scope !576, !noalias !582, !noundef !7
   %788 = load i64, ptr %786, align 8, !alias.scope !579, !noalias !583, !noundef !7
   %789 = zext i64 %787 to i128
@@ -2237,7 +2237,7 @@ _ZN14num_bigint_dig7biguint7BigUint4bits17h01b8eccdbbf1b049E.exit.i: ; preds = %
   br i1 %exitcond.not.i10.i.i.i, label %._crit_edge.i11.i.i.i, label %.lr.ph.i7.i.i.i
 
 795:                                              ; preds = %._crit_edge.i11.i.i.i
-  %796 = getelementptr inbounds i64, ptr %773, i64 %775
+  %796 = getelementptr inbounds [8 x i8], ptr %773, i64 %775
   br label %797
 
 797:                                              ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha6e28f292d5220afE.exit.i13.i.i.i", %795
@@ -2268,7 +2268,7 @@ _ZN14num_bigint_dig10algorithms3add6__add217h6e3cc0f47dbc08b2E.exit16.i.i.i: ; p
 
 "_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h2c33681364fc2ffaE.exit.i.i.i": ; preds = %.noexc7.i.i
   %805 = sub nuw i64 %803, %.sink11.i.i.i.i
-  %806 = getelementptr inbounds i64, ptr %802, i64 %.sink11.i.i.i.i
+  %806 = getelementptr inbounds [8 x i8], ptr %802, i64 %.sink11.i.i.i.i
   %807 = load i64, ptr %162, align 8, !alias.scope !588, !noalias !591, !noundef !7
   %808 = icmp ugt i64 %807, 4
   %809 = load i64, ptr %163, align 8, !alias.scope !588, !noalias !591
@@ -2312,8 +2312,8 @@ _ZN8smallvec10infallible17h2d00bcfe86248a30E.exit.i.i.i.i: ; preds = %.noexc9.i.
 "_ZN8smallvec17SmallVec$LT$A$GT$17insert_from_slice17h045f04ae49651173E.exit.i.i.i": ; preds = %_ZN8smallvec10infallible17h2d00bcfe86248a30E.exit.i.i.i.i
   %820 = load ptr, ptr %59, align 8, !alias.scope !593, !noalias !598, !nonnull !7
   %.sink10.i.i.i.i.i = select i1 %815, ptr %820, ptr %59
-  %821 = getelementptr inbounds i64, ptr %.sink10.i.i.i.i.i, i64 %.sink11.i18.i.i.i
-  %822 = getelementptr inbounds i64, ptr %821, i64 %805
+  %821 = getelementptr inbounds [8 x i8], ptr %.sink10.i.i.i.i.i, i64 %.sink11.i18.i.i.i
+  %822 = getelementptr inbounds [8 x i8], ptr %821, i64 %805
   %823 = sub nuw i64 %.sink11.i.i.i.i49.i, %.sink11.i18.i.i.i
   %824 = shl i64 %823, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %822, ptr nonnull align 8 %821, i64 %824, i1 false), !noalias !601
@@ -2346,7 +2346,7 @@ _ZN8smallvec10infallible17h2d00bcfe86248a30E.exit.i.i.i.i: ; preds = %.noexc9.i.
   unreachable
 
 "_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hb632189aa97c5997E.exit.i.i.i": ; preds = %.noexc13.i.i
-  %835 = getelementptr inbounds i64, ptr %829, i64 %.sink11.i.i.i.i
+  %835 = getelementptr inbounds [8 x i8], ptr %829, i64 %.sink11.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !614)
   %.not.i21.i.i.i = icmp eq i64 %831, %.sink11.i.i.i.i
   br i1 %.not.i21.i.i.i, label %837, label %.lr.ph.i22.preheader.i.i.i
@@ -2384,7 +2384,7 @@ _ZN8smallvec10infallible17h2d00bcfe86248a30E.exit.i.i.i.i: ; preds = %.noexc9.i.
   unreachable
 
 838:                                              ; preds = %.lr.ph.i22.preheader.i.i.i
-  %839 = getelementptr inbounds i64, ptr %829, i64 %831
+  %839 = getelementptr inbounds [8 x i8], ptr %829, i64 %831
   br label %840
 
 840:                                              ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha6e28f292d5220afE.exit.i28.i.i.i", %838
@@ -2475,7 +2475,7 @@ _ZN14num_bigint_dig10algorithms3add6__add217h6e3cc0f47dbc08b2E.exit.thread40.i.i
   %866 = phi i64 [ %.pre.i.i.i48.i, %.noexc16.i.i ], [ %847, %_ZN14num_bigint_dig10algorithms3add6__add217h6e3cc0f47dbc08b2E.exit.thread40.i.i.i ]
   %.sroa.01.0.i.i.i.i = phi ptr [ %163, %.noexc16.i.i ], [ %.sink9.i.i.i.i47.i, %_ZN14num_bigint_dig10algorithms3add6__add217h6e3cc0f47dbc08b2E.exit.thread40.i.i.i ]
   %.sroa.0.0.i.i.i.i = phi ptr [ %865, %.noexc16.i.i ], [ %.sink10.i.i32.i.i.i, %_ZN14num_bigint_dig10algorithms3add6__add217h6e3cc0f47dbc08b2E.exit.thread40.i.i.i ]
-  %867 = getelementptr inbounds i64, ptr %.sroa.0.0.i.i.i.i, i64 %866
+  %867 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.i.i.i.i, i64 %866
   store i64 1, ptr %867, align 8, !noalias !345
   %868 = load i64, ptr %.sroa.01.0.i.i.i.i, align 8, !alias.scope !628, !noalias !629, !noundef !7
   %869 = add i64 %868, 1
@@ -2766,7 +2766,7 @@ _ZN14num_bigint_dig10algorithms3add6__add217h6e3cc0f47dbc08b2E.exit.thread40.i.i
 949:                                              ; preds = %"_ZN4core3ptr53drop_in_place$LT$num_bigint_dig..biguint..BigUint$GT$17haab70f3df1dd011aE.exit71"
   %950 = load ptr, ptr %.sroa.0.0828, align 8, !alias.scope !727, !noalias !732, !nonnull !7
   %.sink12.i3.i73 = select i1 %945, ptr %950, ptr %.sroa.0.0828
-  %951 = getelementptr i64, ptr %.sink12.i3.i73, i64 %.sink11.i.i72
+  %951 = getelementptr [8 x i8], ptr %.sink12.i3.i73, i64 %.sink11.i.i72
   %952 = getelementptr i8, ptr %951, i64 -8
   %953 = load i64, ptr %952, align 8, !noundef !7
   %954 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %953, i1 false)

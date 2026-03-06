@@ -870,7 +870,7 @@ sema_resolve_type_identifier.exit:                ; preds = %223, %217, %205, %1
 
 392:                                              ; preds = %387, %376
   %.0.i304 = phi i64 [ %391, %387 ], [ 4294967295, %376 ]
-  %393 = getelementptr inbounds nuw ptr, ptr %386, i64 %.0.i304
+  %393 = getelementptr inbounds nuw [8 x i8], ptr %386, i64 %.0.i304
   store ptr %1, ptr %393, align 8
   %.pre = load ptr, ptr %348, align 8
   br label %.loopexit

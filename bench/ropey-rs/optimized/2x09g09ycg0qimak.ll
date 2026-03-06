@@ -210,8 +210,8 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11copy_within1
   unreachable
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds { [4 x i64] }, ptr %0, i64 %9
-  %20 = getelementptr inbounds { [4 x i64] }, ptr %0, i64 %4
+  %19 = getelementptr inbounds [32 x i8], ptr %0, i64 %9
+  %20 = getelementptr inbounds [32 x i8], ptr %0, i64 %4
   %21 = shl i64 %11, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 8 %19, i64 %21, i1 false)
   ret void
@@ -283,7 +283,7 @@ define void @"_ZN94_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$
 
 .lr.ph:                                           ; preds = %.preheader, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit"
   %.sroa.8.061 = phi i64 [ %22, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit" ], [ 0, %.preheader ]
-  %13 = getelementptr inbounds nuw ptr, ptr %1, i64 %.sroa.8.061
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.8.061
   %.val = load ptr, ptr %13, align 8, !nonnull !7, !noundef !7
   %14 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %15 = icmp slt i64 %14, 0
@@ -306,14 +306,14 @@ define void @"_ZN94_$LT$ropey..tree..node_children..inner..NodeChildrenInternal$
 .lr.ph64:                                         ; preds = %._crit_edge, %.lr.ph64
   %.sroa.851.062 = phi i64 [ %18, %.lr.ph64 ], [ 0, %._crit_edge ]
   %18 = add nuw nsw i64 %.sroa.851.062, 1
-  %19 = getelementptr inbounds nuw { [4 x i64] }, ptr %4, i64 %.sroa.851.062
-  %20 = getelementptr inbounds nuw { [4 x i64] }, ptr %17, i64 %.sroa.851.062
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %.sroa.851.062
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %.sroa.851.062
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
   %exitcond67.not = icmp eq i64 %18, %8
   br i1 %exitcond67.not, label %._crit_edge65, label %.lr.ph64
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb954e7aa16a42abdE.exit": ; preds = %.lr.ph
-  %21 = getelementptr inbounds nuw ptr, ptr %3, i64 %.sroa.8.061
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.sroa.8.061
   %22 = add nuw nsw i64 %.sroa.8.061, 1
   store ptr %.val, ptr %21, align 8
   %exitcond.not = icmp eq i64 %22, %8

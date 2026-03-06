@@ -193,7 +193,7 @@ _ZN14TypeArrayKlassC2E9BasicTypeP6Symbol.exit:    ; preds = %16, %_ZN12arrayOopD
   %28 = and i64 %24, %27
   %29 = shl nuw i64 %28, 3
   %30 = zext i8 %1 to i64
-  %31 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = udiv i64 %29, %33
@@ -266,7 +266,7 @@ _ZN12arrayOopDesc16max_array_lengthE9BasicType.exit: ; preds = %10, %_ZN12arrayO
   %22 = and i64 %18, %21
   %23 = shl nuw i64 %22, 3
   %24 = zext i8 %1 to i64
-  %25 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = sext i32 %26 to i64
   %28 = udiv i64 %23, %27
@@ -466,7 +466,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %60, %67
   %72 = lshr i32 %71, 8
   %73 = and i32 %72, 255
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr @type2name_tab, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @type2name_tab, i64 %74
   %76 = load ptr, ptr %75, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str, ptr noundef %76) #10
   br label %78
@@ -562,14 +562,14 @@ _ZNK7oopDesc5klassEv.exit70:                      ; preds = %106, %121
   %.pn.in.in = lshr i32 %.pn.in.in.in, 8
   %.pn.in = and i32 %.pn.in.in, 255
   %.pn = zext nneg i32 %.pn.in to i64
-  %.in128 = getelementptr inbounds nuw ptr, ptr @type2name_tab, i64 %.pn
+  %.in128 = getelementptr inbounds nuw [8 x i8], ptr @type2name_tab, i64 %.pn
   %124 = load ptr, ptr %.in128, align 8
   %125 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 8
   %126 = load i32, ptr %125, align 8
   %127 = lshr i32 %126, 8
   %128 = and i32 %127, 255
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw ptr, ptr @type2name_tab, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr @type2name_tab, i64 %129
   %131 = load ptr, ptr %130, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.6, ptr noundef %124, ptr noundef %131) #10
   %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1064), align 8
@@ -648,7 +648,7 @@ _ZNK7oopDesc5klassEv.exit75:                      ; preds = %159, %169
   %174 = lshr i32 %173, 8
   %175 = and i32 %174, 255
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw ptr, ptr @type2name_tab, i64 %176
+  %177 = getelementptr inbounds nuw [8 x i8], ptr @type2name_tab, i64 %176
   %178 = load ptr, ptr %177, align 8
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 %171
   %180 = load i32, ptr %179, align 4
@@ -687,7 +687,7 @@ _ZNK7oopDesc5klassEv.exit77:                      ; preds = %185, %195
   %200 = lshr i32 %199, 8
   %201 = and i32 %200, 255
   %202 = zext nneg i32 %201 to i64
-  %203 = getelementptr inbounds nuw ptr, ptr @type2name_tab, i64 %202
+  %203 = getelementptr inbounds nuw [8 x i8], ptr @type2name_tab, i64 %202
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds nuw i8, ptr %3, i64 %197
   %206 = load i32, ptr %205, align 4
@@ -785,7 +785,7 @@ _ZNK7oopDesc5klassEv.exit82:                      ; preds = %246, %256
   %260 = lshr i32 %259, 8
   %261 = and i32 %260, 255
   %262 = zext nneg i32 %261 to i64
-  %263 = getelementptr inbounds nuw ptr, ptr @type2name_tab, i64 %262
+  %263 = getelementptr inbounds nuw [8 x i8], ptr @type2name_tab, i64 %262
   %264 = load ptr, ptr %263, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull @.str.10, i32 noundef %217, ptr noundef %264, i32 noundef %242) #10
   br label %288
@@ -817,7 +817,7 @@ _ZNK7oopDesc5klassEv.exit84:                      ; preds = %267, %277
   %281 = lshr i32 %280, 8
   %282 = and i32 %281, 255
   %283 = zext nneg i32 %282 to i64
-  %284 = getelementptr inbounds nuw ptr, ptr @type2name_tab, i64 %283
+  %284 = getelementptr inbounds nuw [8 x i8], ptr @type2name_tab, i64 %283
   %285 = load ptr, ptr %284, align 8
   %286 = getelementptr inbounds nuw i8, ptr %3, i64 %240
   %287 = load i32, ptr %286, align 4
@@ -993,7 +993,7 @@ define hidden noundef nonnull ptr @_ZN14TypeArrayKlass13external_nameE9BasicType
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN14TypeArrayKlass13external_nameE9BasicType, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN14TypeArrayKlass13external_nameE9BasicType, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -1023,7 +1023,7 @@ define hidden void @_ZNK14TypeArrayKlass14print_value_onEP12outputStream(ptr nou
   %9 = lshr i32 %4, 8
   %.mask = and i32 %9, 255
   %10 = zext nneg i32 %.mask to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @type2name_tab, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @type2name_tab, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.22, ptr noundef %12) #10
   br label %13
@@ -1107,7 +1107,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   %34 = select i1 %33, i64 16, i64 20
   %35 = add nsw i64 %34, %30
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv.i32
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %indvars.iv.i32
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i32
   %40 = tail call i32 @isprint(i32 noundef %39) #12
@@ -1135,7 +1135,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   %49 = select i1 %48, i64 16, i64 20
   %50 = add nsw i64 %49, %45
   %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv.i37
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i37
   %53 = load float, ptr %52, align 4
   %54 = fpext float %53 to double
   %55 = trunc nuw nsw i64 %indvars.iv.i37 to i32
@@ -1160,7 +1160,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   %62 = select i1 %61, i64 16, i64 24
   %63 = add nsw i64 %62, %58
   %64 = inttoptr i64 %63 to ptr
-  %65 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv.i42
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv.i42
   %66 = load double, ptr %65, align 8
   %67 = trunc nuw nsw i64 %indvars.iv.i42 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.33, i32 noundef %67, double noundef %66) #10
@@ -1212,7 +1212,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   %89 = select i1 %88, i64 16, i64 20
   %90 = add nsw i64 %89, %85
   %91 = inttoptr i64 %90 to ptr
-  %92 = getelementptr inbounds nuw i16, ptr %91, i64 %indvars.iv.i53
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %indvars.iv.i53
   %93 = load i16, ptr %92, align 2
   %94 = zext i16 %93 to i32
   %95 = trunc nuw nsw i64 %indvars.iv.i53 to i32
@@ -1237,7 +1237,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   %102 = select i1 %101, i64 16, i64 20
   %103 = add nsw i64 %102, %98
   %104 = inttoptr i64 %103 to ptr
-  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv.i58
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv.i58
   %106 = load i32, ptr %105, align 4
   %107 = trunc nuw nsw i64 %indvars.iv.i58 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.35, i32 noundef %107, i32 noundef %106, i32 noundef %106) #10
@@ -1261,7 +1261,7 @@ define hidden void @_ZN14TypeArrayKlass21oop_print_elements_onEP16typeArrayOopDe
   %114 = select i1 %113, i64 16, i64 24
   %115 = add nsw i64 %114, %110
   %116 = inttoptr i64 %115 to ptr
-  %117 = getelementptr inbounds nuw i64, ptr %116, i64 %indvars.iv.i63
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv.i63
   %118 = load i64, ptr %117, align 8
   %119 = lshr i64 %118, 32
   %120 = trunc nuw i64 %119 to i32

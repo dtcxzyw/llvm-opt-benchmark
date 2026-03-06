@@ -125,7 +125,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEE
   %41 = phi double [ 0.000000e+00, %18 ], [ %56, %55 ]
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %.048.i.i, 4
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i.i.i.i.i
-  %43 = getelementptr inbounds nuw double, ptr %42, i64 %.048.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.048.i.i
   br i1 %.not.i.i.i.i.i.not.i.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i, label %47
 
 _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i: ; preds = %40
@@ -199,17 +199,17 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   %.0169 = phi i32 [ %80, %.split.loop.exit ], [ -1, %79 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !10
   %81 = sext i32 %.0169 to i64
-  %82 = getelementptr inbounds double, ptr %2, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %2, i64 %81
   %83 = load double, ptr %82, align 8, !tbaa !20
   %84 = fneg double %83
-  %85 = getelementptr inbounds double, ptr %0, i64 %81
+  %85 = getelementptr inbounds [8 x i8], ptr %0, i64 %81
   %.idx.i.i.i256 = shl nsw i64 %81, 4
   %invariant.gep = getelementptr i8, ptr %1, i64 %.idx.i.i.i256
   %86 = zext i32 %.0169 to i64
   br label %92
 
 87:                                               ; preds = %101
-  %88 = getelementptr double, ptr %1, i64 %81
+  %88 = getelementptr [8 x i8], ptr %1, i64 %81
   %89 = getelementptr i8, ptr %88, i64 %.idx.i.i.i256
   %90 = load double, ptr %89, align 8, !tbaa !20
   %91 = fdiv double %102, %90
@@ -224,9 +224,9 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   br i1 %.not, label %101, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv262
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv262
   %97 = load double, ptr %96, align 8, !tbaa !20
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv262
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv262
   %98 = load double, ptr %gep, align 8, !tbaa !20
   %99 = fneg double %97
   %100 = tail call double @llvm.fmuladd.f64(double %99, double %98, double %93)

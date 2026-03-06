@@ -9,12 +9,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"struct.irr::gui::CGUIEnvironment::SFont" = type { %"struct.irr::io::SNamedPath", ptr }
 %"struct.irr::io::SNamedPath" = type { %"class.irr::core::string", %"class.irr::core::string" }
-%"struct.irr::gui::CGUIEnvironment::SSpriteBank" = type { %"struct.irr::io::SNamedPath", ptr }
 %"struct.irr::SEvent" = type { i32, %union.anon.39 }
 %union.anon.39 = type { %"struct.irr::SEvent::SGUIEvent", [24 x i8] }
 %"struct.irr::SEvent::SGUIEvent" = type { ptr, ptr, i32 }
 %"class.irr::core::rect" = type { %"class.irr::core::vector2d", %"class.irr::core::vector2d" }
 %"class.irr::core::vector2d" = type { i32, i32 }
+%"struct.irr::gui::CGUIEnvironment::SSpriteBank" = type { %"struct.irr::io::SNamedPath", ptr }
 %"class.std::__cxx11::basic_string.6" = type { %"struct.std::__cxx11::basic_string<wchar_t>::_Alloc_hider", i64, %union.anon.10 }
 %"struct.std::__cxx11::basic_string<wchar_t>::_Alloc_hider" = type { ptr }
 %union.anon.10 = type { i64, [8 x i8] }
@@ -911,14 +911,14 @@ _ZN3irr4core5arrayIPNS_3gui11IGUIElementEE5clearEv.exit.i: ; preds = %if.then.i.
 for.body.i:                                       ; preds = %for.cond.preheader.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i ], [ 0, %for.cond.preheader.i ]
   %8 = phi ptr [ %.pr.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i ], [ %5, %for.cond.preheader.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %9 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !85
   %vtable.i = load ptr, ptr %9, align 8, !tbaa !10
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %10 = load ptr, ptr %vfn.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(308) %9) #24
   %11 = load ptr, ptr %DeletionQueue.i, align 8, !tbaa !89
-  %add.ptr.i.i16.i = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %add.ptr.i.i16.i = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %12 = load ptr, ptr %add.ptr.i.i16.i, align 8, !tbaa !85
   %vtable8.i = load ptr, ptr %12, align 8, !tbaa !10
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable8.i, i64 -24
@@ -1130,7 +1130,7 @@ for.body:                                         ; preds = %if.end57, %for.inc
   %38 = phi ptr [ %43, %for.inc ], [ %33, %if.end57 ]
   %39 = phi ptr [ %44, %for.inc ], [ %32, %if.end57 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end57 ]
-  %Bank.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %38, i64 %indvars.iv
+  %Bank.split = getelementptr inbounds nuw [72 x i8], ptr %38, i64 %indvars.iv
   %Bank = getelementptr inbounds nuw i8, ptr %Bank.split, i64 64
   %40 = load ptr, ptr %Bank, align 8, !tbaa !100
   %tobool62.not = icmp eq ptr %40, null
@@ -1173,7 +1173,7 @@ for.body76:                                       ; preds = %for.cond73.preheade
   %46 = phi ptr [ %51, %_ZNK3irr17IReferenceCounted4dropEv.exit187 ], [ %36, %for.cond73.preheader ]
   %47 = phi ptr [ %52, %_ZNK3irr17IReferenceCounted4dropEv.exit187 ], [ %35, %for.cond73.preheader ]
   %indvars.iv248 = phi i64 [ %indvars.iv.next249, %_ZNK3irr17IReferenceCounted4dropEv.exit187 ], [ 0, %for.cond73.preheader ]
-  %Font.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SFont", ptr %46, i64 %indvars.iv248
+  %Font.split = getelementptr inbounds nuw [72 x i8], ptr %46, i64 %indvars.iv248
   %Font = getelementptr inbounds nuw i8, ptr %Font.split, i64 64
   %48 = load ptr, ptr %Font, align 8, !tbaa !82
   %vtable79 = load ptr, ptr %48, align 8, !tbaa !10
@@ -1438,14 +1438,14 @@ _ZN3irr4core5arrayIPNS_3gui11IGUIElementEE5clearEv.exit: ; preds = %if.then.i.i.
 for.body:                                         ; preds = %for.cond.preheader, %_ZNK3irr17IReferenceCounted4dropEv.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ 0, %for.cond.preheader ]
   %3 = phi ptr [ %.pr, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ %0, %for.cond.preheader ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !85
   %vtable = load ptr, ptr %4, align 8, !tbaa !10
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(308) %4) #24
   %6 = load ptr, ptr %DeletionQueue, align 8, !tbaa !89
-  %add.ptr.i.i16 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %add.ptr.i.i16 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %7 = load ptr, ptr %add.ptr.i.i16, align 8, !tbaa !85
   %vtable8 = load ptr, ptr %7, align 8, !tbaa !10
   %vbase.offset.ptr = getelementptr i8, ptr %vtable8, i64 -24
@@ -2389,14 +2389,14 @@ _ZN3irr4core5arrayIPNS_3gui11IGUIElementEE5clearEv.exit.i: ; preds = %if.then.i.
 for.body.i:                                       ; preds = %for.cond.preheader.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i ], [ 0, %for.cond.preheader.i ]
   %21 = phi ptr [ %.pr.i, %_ZNK3irr17IReferenceCounted4dropEv.exit.i ], [ %18, %for.cond.preheader.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i
   %22 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !85
   %vtable.i41 = load ptr, ptr %22, align 8, !tbaa !10
   %vfn.i42 = getelementptr inbounds nuw i8, ptr %vtable.i41, i64 72
   %23 = load ptr, ptr %vfn.i42, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(308) %22) #24
   %24 = load ptr, ptr %DeletionQueue.i, align 8, !tbaa !89
-  %add.ptr.i.i16.i = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
+  %add.ptr.i.i16.i = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i
   %25 = load ptr, ptr %add.ptr.i.i16.i, align 8, !tbaa !85
   %vtable8.i = load ptr, ptr %25, align 8, !tbaa !10
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable8.i, i64 -24
@@ -3573,7 +3573,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr3gui11IGUIElementESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIPN3irr3gui11IGUIElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %DeletionQueue, align 8, !tbaa !89
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !90
-  %add.ptr19.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !144
   br label %_ZN3irr4core5arrayIPNS_3gui11IGUIElementEE9push_backERKS4_.exit
 
@@ -4745,7 +4745,7 @@ entry:
 if.then:                                          ; preds = %entry
   %conv.i = zext i32 %call to i64
   %2 = load ptr, ptr %Fonts, align 8, !tbaa !99
-  %Font.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SFont", ptr %2, i64 %conv.i
+  %Font.split = getelementptr inbounds nuw [72 x i8], ptr %2, i64 %conv.i
   %Font = getelementptr inbounds nuw i8, ptr %Font.split, i64 64
   %3 = load ptr, ptr %Font, align 8, !tbaa !82
   br label %cleanup24
@@ -4962,7 +4962,7 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   %conv.i = zext i32 %call to i64
   %2 = load ptr, ptr %Fonts, align 8, !tbaa !99
-  %Font.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SFont", ptr %2, i64 %conv.i
+  %Font.split = getelementptr inbounds nuw [72 x i8], ptr %2, i64 %conv.i
   %Font = getelementptr inbounds nuw i8, ptr %Font.split, i64 64
   %3 = load ptr, ptr %Font, align 8, !tbaa !82
   br label %cleanup
@@ -5081,7 +5081,7 @@ for.cond.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
-  %Font.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SFont", ptr %1, i64 %indvars.iv
+  %Font.split = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %indvars.iv
   %Font = getelementptr inbounds nuw i8, ptr %Font.split, i64 64
   %3 = load ptr, ptr %Font, align 8, !tbaa !82
   %cmp4 = icmp eq ptr %3, %font
@@ -5113,7 +5113,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
   %sub.ptr.rhs.cast.i.i.i.pre-phi = phi i64 [ %sub.ptr.rhs.cast.i.i, %if.then5 ], [ %.pre31, %delete.notnull.i ]
   %6 = phi ptr [ %0, %if.then5 ], [ %.pre30, %delete.notnull.i ]
   %7 = phi ptr [ %1, %if.then5 ], [ %.pre, %delete.notnull.i ]
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SFont", ptr %7, i64 %indvars.iv
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [72 x i8], ptr %7, i64 %indvars.iv
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i.pre-phi
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i.i.i
@@ -5232,7 +5232,7 @@ entry:
 if.then:                                          ; preds = %entry
   %conv.i = zext i32 %call to i64
   %2 = load ptr, ptr %Banks, align 8, !tbaa !98
-  %Bank.split = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %2, i64 %conv.i
+  %Bank.split = getelementptr inbounds nuw [72 x i8], ptr %2, i64 %conv.i
   %Bank = getelementptr inbounds nuw i8, ptr %Bank.split, i64 64
   %3 = load ptr, ptr %Bank, align 8, !tbaa !100
   br label %cleanup
@@ -6356,11 +6356,11 @@ vector.ph:                                        ; preds = %for.body.lr.ph.i
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %5 = getelementptr inbounds i32, ptr %text, i64 %index
+  %5 = getelementptr inbounds [4 x i8], ptr %text, i64 %index
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %wide.load = load <4 x i32>, ptr %5, align 4, !tbaa !26
   %wide.load3 = load <4 x i32>, ptr %6, align 4, !tbaa !26
-  %7 = getelementptr inbounds i32, ptr %2, i64 %index
+  %7 = getelementptr inbounds [4 x i8], ptr %2, i64 %index
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store <4 x i32> %wide.load, ptr %7, align 4, !tbaa !26
   store <4 x i32> %wide.load3, ptr %8, align 4, !tbaa !26
@@ -6382,9 +6382,9 @@ for.body.i.preheader:                             ; preds = %middle.block, %for.
 for.body.i.prol:                                  ; preds = %for.body.i.preheader, %for.body.i.prol
   %indvars.iv.i.prol = phi i64 [ %indvars.iv.next.i.prol, %for.body.i.prol ], [ %indvars.iv.i.ph, %for.body.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.prol ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i.prol = getelementptr inbounds nuw i32, ptr %text, i64 %indvars.iv.i.prol
+  %arrayidx.i.prol = getelementptr inbounds nuw [4 x i8], ptr %text, i64 %indvars.iv.i.prol
   %10 = load i32, ptr %arrayidx.i.prol, align 4, !tbaa !26
-  %arrayidx.i.i.prol = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.prol
+  %arrayidx.i.i.prol = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.prol
   store i32 %10, ptr %arrayidx.i.i.prol, align 4, !tbaa !26
   %indvars.iv.next.i.prol = add nuw nsw i64 %indvars.iv.i.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -6399,24 +6399,24 @@ for.body.i.prol.loopexit:                         ; preds = %for.body.i.prol, %f
 
 for.body.i:                                       ; preds = %for.body.i.prol.loopexit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i.3, %for.body.i ], [ %indvars.iv.i.unr, %for.body.i.prol.loopexit ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.i
   %13 = load i32, ptr %arrayidx.i, align 4, !tbaa !26
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.i
   store i32 %13, ptr %arrayidx.i.i, align 4, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i.1 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i
+  %arrayidx.i.1 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i
   %14 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !26
-  %arrayidx.i.i.1 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i
+  %arrayidx.i.i.1 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i
   store i32 %14, ptr %arrayidx.i.i.1, align 4, !tbaa !26
   %indvars.iv.next.i.1 = add nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx.i.2 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.1
+  %arrayidx.i.2 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.1
   %15 = load i32, ptr %arrayidx.i.2, align 4, !tbaa !26
-  %arrayidx.i.i.2 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i.1
+  %arrayidx.i.i.2 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i.1
   store i32 %15, ptr %arrayidx.i.i.2, align 4, !tbaa !26
   %indvars.iv.next.i.2 = add nuw nsw i64 %indvars.iv.i, 3
-  %arrayidx.i.3 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.2
+  %arrayidx.i.3 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.2
   %16 = load i32, ptr %arrayidx.i.3, align 4, !tbaa !26
-  %arrayidx.i.i.3 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i.2
+  %arrayidx.i.i.3 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i.2
   store i32 %16, ptr %arrayidx.i.i.3, align 4, !tbaa !26
   %indvars.iv.next.i.3 = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i.3 = icmp eq i64 %indvars.iv.next.i.3, %conv.i
@@ -6485,11 +6485,11 @@ vector.ph:                                        ; preds = %for.body.lr.ph.i
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %5 = getelementptr inbounds i32, ptr %text, i64 %index
+  %5 = getelementptr inbounds [4 x i8], ptr %text, i64 %index
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %wide.load = load <4 x i32>, ptr %5, align 4, !tbaa !26
   %wide.load3 = load <4 x i32>, ptr %6, align 4, !tbaa !26
-  %7 = getelementptr inbounds i32, ptr %2, i64 %index
+  %7 = getelementptr inbounds [4 x i8], ptr %2, i64 %index
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store <4 x i32> %wide.load, ptr %7, align 4, !tbaa !26
   store <4 x i32> %wide.load3, ptr %8, align 4, !tbaa !26
@@ -6511,9 +6511,9 @@ for.body.i.preheader:                             ; preds = %middle.block, %for.
 for.body.i.prol:                                  ; preds = %for.body.i.preheader, %for.body.i.prol
   %indvars.iv.i.prol = phi i64 [ %indvars.iv.next.i.prol, %for.body.i.prol ], [ %indvars.iv.i.ph, %for.body.i.preheader ]
   %prol.iter = phi i64 [ %prol.iter.next, %for.body.i.prol ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i.prol = getelementptr inbounds nuw i32, ptr %text, i64 %indvars.iv.i.prol
+  %arrayidx.i.prol = getelementptr inbounds nuw [4 x i8], ptr %text, i64 %indvars.iv.i.prol
   %10 = load i32, ptr %arrayidx.i.prol, align 4, !tbaa !26
-  %arrayidx.i.i.prol = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.prol
+  %arrayidx.i.i.prol = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.prol
   store i32 %10, ptr %arrayidx.i.i.prol, align 4, !tbaa !26
   %indvars.iv.next.i.prol = add nuw nsw i64 %indvars.iv.i.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
@@ -6528,24 +6528,24 @@ for.body.i.prol.loopexit:                         ; preds = %for.body.i.prol, %f
 
 for.body.i:                                       ; preds = %for.body.i.prol.loopexit, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i.3, %for.body.i ], [ %indvars.iv.i.unr, %for.body.i.prol.loopexit ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.i
   %13 = load i32, ptr %arrayidx.i, align 4, !tbaa !26
-  %arrayidx.i.i = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.i
   store i32 %13, ptr %arrayidx.i.i, align 4, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i.1 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i
+  %arrayidx.i.1 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i
   %14 = load i32, ptr %arrayidx.i.1, align 4, !tbaa !26
-  %arrayidx.i.i.1 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i
+  %arrayidx.i.i.1 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i
   store i32 %14, ptr %arrayidx.i.i.1, align 4, !tbaa !26
   %indvars.iv.next.i.1 = add nuw nsw i64 %indvars.iv.i, 2
-  %arrayidx.i.2 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.1
+  %arrayidx.i.2 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.1
   %15 = load i32, ptr %arrayidx.i.2, align 4, !tbaa !26
-  %arrayidx.i.i.2 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i.1
+  %arrayidx.i.i.2 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i.1
   store i32 %15, ptr %arrayidx.i.i.2, align 4, !tbaa !26
   %indvars.iv.next.i.2 = add nuw nsw i64 %indvars.iv.i, 3
-  %arrayidx.i.3 = getelementptr inbounds i32, ptr %text, i64 %indvars.iv.next.i.2
+  %arrayidx.i.3 = getelementptr inbounds [4 x i8], ptr %text, i64 %indvars.iv.next.i.2
   %16 = load i32, ptr %arrayidx.i.3, align 4, !tbaa !26
-  %arrayidx.i.i.3 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next.i.2
+  %arrayidx.i.i.3 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv.next.i.2
   store i32 %16, ptr %arrayidx.i.i.3, align 4, !tbaa !26
   %indvars.iv.next.i.3 = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i.3 = icmp eq i64 %indvars.iv.next.i.3, %conv.i
@@ -6731,7 +6731,7 @@ entry:
   %Type = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load i32, ptr %Type, align 8, !tbaa !51
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN3irr3guiL19GUIElementTypeNamesE, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN3irr3guiL19GUIElementTypeNamesE, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8, !tbaa !85
   ret ptr %1
 }
@@ -7562,7 +7562,7 @@ _ZNSt12_Vector_baseIN3irr3gui15CGUIEnvironment5SFontESaIS3_EE13_M_deallocateEPS3
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !99
   store ptr %__cur.0.lcssa.i.i.i.i.i51, ptr %_M_finish.i.i, align 8, !tbaa !87
-  %add.ptr20 = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SFont", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr20 = getelementptr inbounds nuw [72 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr20, ptr %_M_end_of_storage, align 8, !tbaa !86
   ret void
 }
@@ -7600,7 +7600,7 @@ while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__op
   %__len.018.i.i = phi i64 [ %add.ptr.i.i.i.i42.idx1, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
   %__first.sroa.0.017.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i ], [ %__first.sroa.0.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
   %shr.i.i = lshr i64 %__len.018.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SFont", ptr %__first.sroa.0.017.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [72 x i8], ptr %__first.sroa.0.017.i.i, i64 %shr.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 40
   %3 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !29
   %.sroa.speculated.i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
@@ -7752,7 +7752,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3irr3gui15CGUIEnvironment5
 
 if.end:                                           ; preds = %while.body
   %div.i = udiv i64 %sub.ptr.sub.i33, 144
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SFont", ptr %__first.coerce, i64 %div.i
+  %add.ptr.i.i = getelementptr inbounds nuw [72 x i8], ptr %__first.coerce, i64 %div.i
   %add.ptr.i29.i = getelementptr inbounds i8, ptr %storemerge31, i64 -72
   call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_SD_T0_(ptr %__first.coerce, ptr nonnull %add.ptr.i28.i, ptr %add.ptr.i.i, ptr nonnull %add.ptr.i29.i)
   br label %while.body.i.i23
@@ -7939,7 +7939,7 @@ if.end:                                           ; preds = %entry
 while.cond:                                       ; preds = %_ZN3irr3gui15CGUIEnvironment5SFontD2Ev.exit45, %if.end
   %__parent.0 = phi i64 [ %div4950, %if.end ], [ %dec, %_ZN3irr3gui15CGUIEnvironment5SFontD2Ev.exit45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %__value)
-  %add.ptr.i = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SFont", ptr %__first.coerce, i64 %__parent.0
+  %add.ptr.i = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__parent.0
   store ptr %0, ptr %__value, align 8, !tbaa !28
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !29
   store i8 0, ptr %0, align 8, !tbaa !30
@@ -8152,9 +8152,9 @@ while.body:                                       ; preds = %entry, %_ZN3irr3gui
   %__holeIndex.addr.081 = phi i64 [ %spec.select, %_ZN3irr3gui15CGUIEnvironment5SFontaSEOS2_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.081, 1
   %mul = add i64 %add, 2
-  %add.ptr.i = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SFont", ptr %__first.coerce, i64 %mul
+  %add.ptr.i = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %mul
   %sub3 = or disjoint i64 %add, 1
-  %add.ptr.i56 = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SFont", ptr %__first.coerce, i64 %sub3
+  %add.ptr.i56 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %sub3
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 40
   %0 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !29
   %_M_string_length.i10.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i56, i64 40
@@ -8183,8 +8183,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIE
   %__r.0.i.i.i.i.i.i = phi i32 [ %call.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %retval.0.i12.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp slt i32 %__r.0.i.i.i.i.i.i, 0
   %spec.select = select i1 %cmp.i.i.i.i.i, i64 %sub3, i64 %mul
-  %add.ptr.i57 = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SFont", ptr %__first.coerce, i64 %spec.select
-  %add.ptr.i58 = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SFont", ptr %__first.coerce, i64 %__holeIndex.addr.081
+  %add.ptr.i57 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %spec.select
+  %add.ptr.i58 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.081
   %cmp.i.i.i = icmp eq i64 %__holeIndex.addr.081, %spec.select
   br i1 %cmp.i.i.i, label %_ZN3irr3gui15CGUIEnvironment5SFontaSEOS2_.exit, label %if.end.i7.i.i
 
@@ -8218,8 +8218,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then21:                                        ; preds = %land.lhs.true
   %add22 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub25 = or disjoint i64 %add22, 1
-  %add.ptr.i59 = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SFont", ptr %__first.coerce, i64 %sub25
-  %add.ptr.i60 = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SFont", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i59 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %sub25
+  %add.ptr.i60 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   %cmp.i.i.i61 = icmp eq i64 %__holeIndex.addr.0.lcssa, %sub25
   br i1 %cmp.i.i.i61, label %_ZN3irr3gui15CGUIEnvironment5SFontaSEOS2_.exit67, label %if.end.i7.i.i62
 
@@ -8314,7 +8314,7 @@ land.rhs:                                         ; preds = %_ZN3irr3gui15CGUIEn
   %__holeIndex.addr.041 = phi i64 [ %__holeIndex, %land.rhs.lr.ph ], [ %__parent.042, %_ZN3irr3gui15CGUIEnvironment5SFontaSEOS2_.exit ]
   %__parent.042.in = add nsw i64 %__holeIndex.addr.041, -1
   %__parent.042 = sdiv i64 %__parent.042.in, 2
-  %add.ptr.i = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SFont", ptr %__first.coerce, i64 %__parent.042
+  %add.ptr.i = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__parent.042
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 40
   %0 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !29
   %1 = load i64, ptr %_M_string_length.i10.i.i.i.i.i.i, align 8, !tbaa !29
@@ -8343,7 +8343,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr3gui15CGUIEn
   br i1 %cmp.i.i.i.i.i, label %while.body, label %while.end
 
 while.body:                                       ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit
-  %add.ptr.i26 = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SFont", ptr %__first.coerce, i64 %__holeIndex.addr.041
+  %add.ptr.i26 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.041
   %cmp.i.i.i = icmp eq i64 %__holeIndex.addr.041, %__parent.042
   br i1 %cmp.i.i.i, label %_ZN3irr3gui15CGUIEnvironment5SFontaSEOS2_.exit, label %if.end.i7.i.i
 
@@ -8364,7 +8364,7 @@ _ZN3irr3gui15CGUIEnvironment5SFontaSEOS2_.exit:   ; preds = %if.end.i7.i.i, %whi
 
 while.end:                                        ; preds = %_ZN3irr3gui15CGUIEnvironment5SFontaSEOS2_.exit, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit, %entry
   %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %__holeIndex.addr.041, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment5SFontESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit ], [ %__parent.042, %_ZN3irr3gui15CGUIEnvironment5SFontaSEOS2_.exit ]
-  %add.ptr.i27 = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SFont", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i27 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   %cmp.i.i.i28 = icmp eq ptr %add.ptr.i27, %__value
   br i1 %cmp.i.i.i28, label %_ZN3irr3gui15CGUIEnvironment5SFontaSEOS2_.exit34, label %if.end.i7.i.i29
 
@@ -8929,7 +8929,7 @@ while.body.i.i:                                   ; preds = %_ZNK9__gnu_cxx5__op
   %__len.018.i.i = phi i64 [ %add.ptr.i.i.i.i42.idx1, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
   %__first.sroa.0.017.i.i = phi ptr [ %add.ptr.i.i.i.i, %while.body.lr.ph.i.i ], [ %__first.sroa.0.1.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPKN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEES8_EEbT_RT0_.exit.i.i ]
   %shr.i.i = lshr i64 %__len.018.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %__first.sroa.0.017.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [72 x i8], ptr %__first.sroa.0.017.i.i, i64 %shr.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 40
   %3 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !29
   %.sroa.speculated.i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %3)
@@ -9081,7 +9081,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3irr3gui15CGUIEnvironment1
 
 if.end:                                           ; preds = %while.body
   %div.i = udiv i64 %sub.ptr.sub.i33, 144
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %__first.coerce, i64 %div.i
+  %add.ptr.i.i = getelementptr inbounds nuw [72 x i8], ptr %__first.coerce, i64 %div.i
   %add.ptr.i29.i = getelementptr inbounds i8, ptr %storemerge31, i64 -72
   call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_SD_T0_(ptr %__first.coerce, ptr nonnull %add.ptr.i28.i, ptr %add.ptr.i.i, ptr nonnull %add.ptr.i29.i)
   br label %while.body.i.i23
@@ -9268,7 +9268,7 @@ if.end:                                           ; preds = %entry
 while.cond:                                       ; preds = %_ZN3irr3gui15CGUIEnvironment11SSpriteBankD2Ev.exit45, %if.end
   %__parent.0 = phi i64 [ %div4950, %if.end ], [ %dec, %_ZN3irr3gui15CGUIEnvironment11SSpriteBankD2Ev.exit45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %__value)
-  %add.ptr.i = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %__first.coerce, i64 %__parent.0
+  %add.ptr.i = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__parent.0
   store ptr %0, ptr %__value, align 8, !tbaa !28
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !29
   store i8 0, ptr %0, align 8, !tbaa !30
@@ -9481,9 +9481,9 @@ while.body:                                       ; preds = %entry, %_ZN3irr3gui
   %__holeIndex.addr.081 = phi i64 [ %spec.select, %_ZN3irr3gui15CGUIEnvironment11SSpriteBankaSEOS2_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.081, 1
   %mul = add i64 %add, 2
-  %add.ptr.i = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %__first.coerce, i64 %mul
+  %add.ptr.i = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %mul
   %sub3 = or disjoint i64 %add, 1
-  %add.ptr.i56 = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %__first.coerce, i64 %sub3
+  %add.ptr.i56 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %sub3
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 40
   %0 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !29
   %_M_string_length.i10.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i56, i64 40
@@ -9512,8 +9512,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3irr3gui15CGUIE
   %__r.0.i.i.i.i.i.i = phi i32 [ %call.i.i.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i ], [ %retval.0.i12.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
   %cmp.i.i.i.i.i = icmp slt i32 %__r.0.i.i.i.i.i.i, 0
   %spec.select = select i1 %cmp.i.i.i.i.i, i64 %sub3, i64 %mul
-  %add.ptr.i57 = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %__first.coerce, i64 %spec.select
-  %add.ptr.i58 = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %__first.coerce, i64 %__holeIndex.addr.081
+  %add.ptr.i57 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %spec.select
+  %add.ptr.i58 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.081
   %cmp.i.i.i = icmp eq i64 %__holeIndex.addr.081, %spec.select
   br i1 %cmp.i.i.i, label %_ZN3irr3gui15CGUIEnvironment11SSpriteBankaSEOS2_.exit, label %if.end.i7.i.i
 
@@ -9547,8 +9547,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then21:                                        ; preds = %land.lhs.true
   %add22 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub25 = or disjoint i64 %add22, 1
-  %add.ptr.i59 = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %__first.coerce, i64 %sub25
-  %add.ptr.i60 = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i59 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %sub25
+  %add.ptr.i60 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   %cmp.i.i.i61 = icmp eq i64 %__holeIndex.addr.0.lcssa, %sub25
   br i1 %cmp.i.i.i61, label %_ZN3irr3gui15CGUIEnvironment11SSpriteBankaSEOS2_.exit67, label %if.end.i7.i.i62
 
@@ -9643,7 +9643,7 @@ land.rhs:                                         ; preds = %_ZN3irr3gui15CGUIEn
   %__holeIndex.addr.041 = phi i64 [ %__holeIndex, %land.rhs.lr.ph ], [ %__parent.042, %_ZN3irr3gui15CGUIEnvironment11SSpriteBankaSEOS2_.exit ]
   %__parent.042.in = add nsw i64 %__holeIndex.addr.041, -1
   %__parent.042 = sdiv i64 %__parent.042.in, 2
-  %add.ptr.i = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %__first.coerce, i64 %__parent.042
+  %add.ptr.i = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__parent.042
   %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 40
   %0 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !29
   %1 = load i64, ptr %_M_string_length.i10.i.i.i.i.i.i, align 8, !tbaa !29
@@ -9672,7 +9672,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr3gui15CGUIEn
   br i1 %cmp.i.i.i.i.i, label %while.body, label %while.end
 
 while.body:                                       ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit
-  %add.ptr.i26 = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %__first.coerce, i64 %__holeIndex.addr.041
+  %add.ptr.i26 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.041
   %cmp.i.i.i = icmp eq i64 %__holeIndex.addr.041, %__parent.042
   br i1 %cmp.i.i.i, label %_ZN3irr3gui15CGUIEnvironment11SSpriteBankaSEOS2_.exit, label %if.end.i7.i.i
 
@@ -9693,7 +9693,7 @@ _ZN3irr3gui15CGUIEnvironment11SSpriteBankaSEOS2_.exit: ; preds = %if.end.i7.i.i,
 
 while.end:                                        ; preds = %_ZN3irr3gui15CGUIEnvironment11SSpriteBankaSEOS2_.exit, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit, %entry
   %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %__holeIndex.addr.041, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN3irr3gui15CGUIEnvironment11SSpriteBankESt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit ], [ %__parent.042, %_ZN3irr3gui15CGUIEnvironment11SSpriteBankaSEOS2_.exit ]
-  %add.ptr.i27 = getelementptr inbounds %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i27 = getelementptr inbounds [72 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   %cmp.i.i.i28 = icmp eq ptr %add.ptr.i27, %__value
   br i1 %cmp.i.i.i28, label %_ZN3irr3gui15CGUIEnvironment11SSpriteBankaSEOS2_.exit34, label %if.end.i7.i.i29
 
@@ -10426,7 +10426,7 @@ _ZNSt12_Vector_baseIN3irr3gui15CGUIEnvironment11SSpriteBankESaIS3_EE13_M_dealloc
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !98
   store ptr %__cur.0.lcssa.i.i.i.i.i51, ptr %_M_finish.i.i, align 8, !tbaa !97
-  %add.ptr20 = getelementptr inbounds nuw %"struct.irr::gui::CGUIEnvironment::SSpriteBank", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr20 = getelementptr inbounds nuw [72 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr20, ptr %_M_end_of_storage, align 8, !tbaa !153
   ret void
 }

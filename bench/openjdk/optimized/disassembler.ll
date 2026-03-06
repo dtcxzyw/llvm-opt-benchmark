@@ -174,7 +174,7 @@ _ZN10decode_env9src_tableEv.exit:                 ; preds = %3, %10
   %15 = xor i32 %14, %13
   %16 = urem i32 %15, 15889
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not11.i.i.i = icmp eq ptr %19, null
   br i1 %.not11.i.i.i, label %_ZN10decode_env14SourceFileInfoC2EPKci.exit, label %.lr.ph.i.i.i
@@ -264,7 +264,7 @@ _ZN10decode_env14SourceFileInfoC2EPKci.exit:      ; preds = %27, %_ZN10decode_en
 
 _ZN10decode_env9src_tableEv.exit6:                ; preds = %_ZN10decode_env14SourceFileInfoC2EPKci.exit, %60
   %61 = phi ptr [ %57, %60 ], [ %54, %_ZN10decode_env14SourceFileInfoC2EPKci.exit ]
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %17
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %17
   %63 = load ptr, ptr %62, align 8
   %.not11.i.i = icmp eq ptr %63, null
   br i1 %.not11.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE11lookup_nodeEjRKS1_.exit.thread.i, label %.lr.ph.i.i
@@ -356,7 +356,7 @@ _ZN10decode_env9src_tableEv.exit:                 ; preds = %3, %11
   %16 = xor i32 %15, %14
   %17 = urem i32 %16, 15889
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %12, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not11.i.i.i = icmp eq ptr %20, null
   br i1 %.not11.i.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EPhN10decode_env14SourceFileInfoEES1_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS9EXadL_Z14primitive_hashIS1_EjRKT_EEXadL_Z16primitive_equalsIS1_EbSB_SB_EEE3getERKS1_.exit.thread, label %.lr.ph.i.i.i
@@ -421,7 +421,7 @@ _ZN10decode_env9src_tableEv.exit:                 ; preds = %3, %11
   %47 = phi ptr [ %52, %.lr.ph ], [ %44, %.preheader ]
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   call void @_ZN2os4freeEPv(ptr noundef %51) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -562,9 +562,9 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit.i:        ; preds = %104, %100, %96
 
 114:                                              ; preds = %114, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %114 ]
-  %115 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %indvars.iv.i
   %116 = load ptr, ptr %109, align 8
-  %117 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv.i
   %118 = load ptr, ptr %117, align 8
   store ptr %118, ptr %115, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -581,7 +581,7 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit.i:        ; preds = %104, %100, %96
 
 .lr.ph18.i:                                       ; preds = %.lr.ph18.i, %.lr.ph18.preheader.i
   %indvars.iv20.i = phi i64 [ %113, %.lr.ph18.preheader.i ], [ %indvars.iv.next21.i, %.lr.ph18.i ]
-  %124 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %indvars.iv20.i
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %indvars.iv20.i
   store ptr null, ptr %124, align 8
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %125 = load i32, ptr %82, align 4
@@ -609,7 +609,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; pr
   %134 = add nsw i32 %133, 1
   store i32 %134, ptr %79, align 8
   %135 = sext i32 %133 to i64
-  %136 = getelementptr inbounds ptr, ptr %132, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %132, i64 %135
   store ptr %80, ptr %136, align 8
   %137 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 500, ptr noundef nonnull %66)
   %.not42 = icmp eq ptr %137, null
@@ -649,7 +649,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; pr
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %150 = load ptr, ptr %149, align 8
   %151 = sext i32 %38 to i64
-  %152 = getelementptr ptr, ptr %150, i64 %151
+  %152 = getelementptr [8 x i8], ptr %150, i64 %151
   %153 = getelementptr i8, ptr %152, i64 -8
   %154 = load ptr, ptr %153, align 8
   %155 = trunc nuw i8 %.1 to i1

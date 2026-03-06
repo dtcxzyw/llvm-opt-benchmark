@@ -46,9 +46,9 @@ define internal fastcc void @sort_rec(ptr noundef %0, i32 noundef %1, ptr nounde
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next31.i, %.lr.ph.i ]
   %.02225.i = phi i32 [ %9, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv30.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv30.i
   %11 = sext i32 %.02225.i to i64
-  %12 = getelementptr inbounds i32, ptr %0, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %11
   %13 = tail call i32 %2(ptr noundef nonnull %10, ptr noundef %12) #16
   %.not.i = icmp eq i32 %13, 0
   %14 = trunc nuw nsw i64 %indvars.iv30.i to i32
@@ -59,10 +59,10 @@ define internal fastcc void @sort_rec(ptr noundef %0, i32 noundef %1, ptr nounde
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv33.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv33.i
   %16 = load i32, ptr %15, align 4, !tbaa !5
   %17 = sext i32 %spec.select.i to i64
-  %18 = getelementptr inbounds i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !5
   store i32 %19, ptr %15, align 4, !tbaa !5
   store i32 %16, ptr %18, align 4, !tbaa !5
@@ -74,7 +74,7 @@ define internal fastcc void @sort_rec(ptr noundef %0, i32 noundef %1, ptr nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = lshr i32 %1, 1
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !5
   store i32 %24, ptr %4, align 4, !tbaa !5
   br label %25
@@ -89,7 +89,7 @@ define internal fastcc void @sort_rec(ptr noundef %0, i32 noundef %1, ptr nounde
 27:                                               ; preds = %27, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ %26, %25 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
+  %28 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv.next
   %29 = call i32 %2(ptr noundef %28, ptr noundef nonnull %4) #16
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %.preheader, label %27, !llvm.loop !10
@@ -101,7 +101,7 @@ define internal fastcc void @sort_rec(ptr noundef %0, i32 noundef %1, ptr nounde
 31:                                               ; preds = %.preheader, %31
   %indvars.iv49 = phi i64 [ %30, %.preheader ], [ %indvars.iv.next50, %31 ]
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, -1
-  %32 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next50
+  %32 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv.next50
   %33 = call i32 %2(ptr noundef nonnull %4, ptr noundef %32) #16
   %.not40 = icmp eq i32 %33, 0
   br i1 %.not40, label %34, label %31, !llvm.loop !11
@@ -162,10 +162,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv29.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph.i ]
   %.02124.i = phi i32 [ %6, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %7 = getelementptr inbounds nuw i32, ptr %.tr.lcssa, i64 %indvars.iv29.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %.tr.lcssa, i64 %indvars.iv29.i
   %8 = load i32, ptr %7, align 4, !tbaa !5
   %9 = sext i32 %.02124.i to i64
-  %10 = getelementptr inbounds i32, ptr %.tr.lcssa, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %.tr.lcssa, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !5
   %12 = icmp slt i32 %8, %11
   %13 = trunc nuw nsw i64 %indvars.iv29.i to i32
@@ -176,10 +176,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
-  %14 = getelementptr inbounds nuw i32, ptr %.tr.lcssa, i64 %indvars.iv32.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.tr.lcssa, i64 %indvars.iv32.i
   %15 = load i32, ptr %14, align 4, !tbaa !5
   %16 = sext i32 %spec.select.i to i64
-  %17 = getelementptr inbounds i32, ptr %.tr.lcssa, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %.tr.lcssa, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !5
   store i32 %18, ptr %14, align 4, !tbaa !5
   store i32 %15, ptr %17, align 4, !tbaa !5
@@ -192,7 +192,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %.tr46 = phi ptr [ %29, %tailrecurse ], [ %0, %2 ]
   %19 = lshr i32 %.tr3847, 1
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %.tr46, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.tr46, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !5
   br label %23
 
@@ -206,20 +206,20 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 25:                                               ; preds = %25, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ %24, %23 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %26 = getelementptr inbounds i32, ptr %.tr46, i64 %indvars.iv.next
+  %26 = getelementptr inbounds [4 x i8], ptr %.tr46, i64 %indvars.iv.next
   %27 = load i32, ptr %26, align 4, !tbaa !5
   %28 = icmp slt i32 %27, %22
   br i1 %28, label %25, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %25
-  %29 = getelementptr inbounds i32, ptr %.tr46, i64 %indvars.iv.next
+  %29 = getelementptr inbounds [4 x i8], ptr %.tr46, i64 %indvars.iv.next
   %30 = sext i32 %.0 to i64
   br label %31
 
 31:                                               ; preds = %.preheader, %31
   %indvars.iv57 = phi i64 [ %30, %.preheader ], [ %indvars.iv.next58, %31 ]
   %indvars.iv.next58 = add nsw i64 %indvars.iv57, -1
-  %32 = getelementptr inbounds i32, ptr %.tr46, i64 %indvars.iv.next58
+  %32 = getelementptr inbounds [4 x i8], ptr %.tr46, i64 %indvars.iv.next58
   %33 = load i32, ptr %32, align 4, !tbaa !5
   %34 = icmp slt i32 %22, %33
   br i1 %34, label %31, label %35, !llvm.loop !15
@@ -229,7 +229,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   br i1 %.not, label %36, label %tailrecurse
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i32, ptr %.tr46, i64 %indvars.iv.next58
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr46, i64 %indvars.iv.next58
   %38 = trunc nsw i64 %indvars.iv.next58 to i32
   store i32 %33, ptr %29, align 4, !tbaa !5
   store i32 %27, ptr %37, align 4, !tbaa !5
@@ -262,7 +262,7 @@ define noalias noundef ptr @Gia_SortGetTest(i32 noundef %0) local_unnamed_addr #
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = tail call i32 @rand() #16
-  %7 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %6, ptr %7, align 4, !tbaa !5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -307,7 +307,7 @@ Abc_Clock.exit:
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %Abc_Clock.exit
   %indvars.iv.i = phi i64 [ 0, %Abc_Clock.exit ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %10 = call i32 @rand() #16
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   store i32 %10, ptr %11, align 4, !tbaa !5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 100000000
@@ -362,7 +362,7 @@ Abc_Clock.exit29:                                 ; preds = %Gia_SortGetTest.exi
 .lr.ph.i32:                                       ; preds = %.lr.ph.i32, %27
   %indvars.iv.i33 = phi i64 [ 0, %27 ], [ %indvars.iv.next.i34, %.lr.ph.i32 ]
   %32 = call i32 @rand() #16
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i33
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i33
   store i32 %32, ptr %33, align 4, !tbaa !5
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, 100000000
@@ -417,7 +417,7 @@ Abc_Clock.exit38:                                 ; preds = %Gia_SortGetTest.exi
 .lr.ph.i41:                                       ; preds = %.lr.ph.i41, %49
   %indvars.iv.i42 = phi i64 [ 0, %49 ], [ %indvars.iv.next.i43, %.lr.ph.i41 ]
   %54 = call i32 @rand() #16
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i42
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv.i42
   store i32 %54, ptr %55, align 4, !tbaa !5
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 100000000
@@ -565,10 +565,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv38.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next39.i, %.lr.ph.i ]
   %.033.i = phi i32 [ %7, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
-  %8 = getelementptr inbounds nuw float, ptr %.tr.lcssa, i64 %indvars.iv38.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %.tr.lcssa, i64 %indvars.iv38.i
   %9 = load float, ptr %8, align 4, !tbaa !27
   %10 = sext i32 %.033.i to i64
-  %11 = getelementptr inbounds float, ptr %.tr.lcssa, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %.tr.lcssa, i64 %10
   %12 = load float, ptr %11, align 4, !tbaa !27
   %13 = fcmp olt float %9, %12
   %14 = trunc nuw nsw i64 %indvars.iv38.i to i32
@@ -579,16 +579,16 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
-  %15 = getelementptr inbounds nuw float, ptr %.tr.lcssa, i64 %indvars.iv41.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %.tr.lcssa, i64 %indvars.iv41.i
   %16 = load float, ptr %15, align 4, !tbaa !27
   %17 = sext i32 %.1.i to i64
-  %18 = getelementptr inbounds float, ptr %.tr.lcssa, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %.tr.lcssa, i64 %17
   %19 = load float, ptr %18, align 4, !tbaa !27
   store float %19, ptr %15, align 4, !tbaa !27
   store float %16, ptr %18, align 4, !tbaa !27
-  %20 = getelementptr inbounds nuw i32, ptr %.tr51.lcssa, i64 %indvars.iv41.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.tr51.lcssa, i64 %indvars.iv41.i
   %21 = load i32, ptr %20, align 4, !tbaa !5
-  %22 = getelementptr inbounds i32, ptr %.tr51.lcssa, i64 %17
+  %22 = getelementptr inbounds [4 x i8], ptr %.tr51.lcssa, i64 %17
   %23 = load i32, ptr %22, align 4, !tbaa !5
   store i32 %23, ptr %20, align 4, !tbaa !5
   store i32 %21, ptr %22, align 4, !tbaa !5
@@ -602,7 +602,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   %.tr62 = phi ptr [ %34, %tailrecurse ], [ %0, %3 ]
   %24 = lshr i32 %.tr5264, 1
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw float, ptr %.tr62, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.tr62, i64 %25
   %27 = load float, ptr %26, align 4, !tbaa !27
   br label %28
 
@@ -616,20 +616,20 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 30:                                               ; preds = %30, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ %29, %28 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %31 = getelementptr inbounds float, ptr %.tr62, i64 %indvars.iv.next
+  %31 = getelementptr inbounds [4 x i8], ptr %.tr62, i64 %indvars.iv.next
   %32 = load float, ptr %31, align 4, !tbaa !27
   %33 = fcmp olt float %32, %27
   br i1 %33, label %30, label %.preheader, !llvm.loop !31
 
 .preheader:                                       ; preds = %30
-  %34 = getelementptr inbounds float, ptr %.tr62, i64 %indvars.iv.next
+  %34 = getelementptr inbounds [4 x i8], ptr %.tr62, i64 %indvars.iv.next
   %35 = sext i32 %.0 to i64
   br label %36
 
 36:                                               ; preds = %.preheader, %36
   %indvars.iv76 = phi i64 [ %35, %.preheader ], [ %indvars.iv.next77, %36 ]
   %indvars.iv.next77 = add nsw i64 %indvars.iv76, -1
-  %37 = getelementptr inbounds float, ptr %.tr62, i64 %indvars.iv.next77
+  %37 = getelementptr inbounds [4 x i8], ptr %.tr62, i64 %indvars.iv.next77
   %38 = load float, ptr %37, align 4, !tbaa !27
   %39 = fcmp olt float %27, %38
   br i1 %39, label %36, label %40, !llvm.loop !32
@@ -639,13 +639,13 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   br i1 %.not, label %41, label %tailrecurse
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds float, ptr %.tr62, i64 %indvars.iv.next77
+  %42 = getelementptr inbounds [4 x i8], ptr %.tr62, i64 %indvars.iv.next77
   %43 = trunc nsw i64 %indvars.iv.next77 to i32
   store float %38, ptr %34, align 4, !tbaa !27
   store float %32, ptr %42, align 4, !tbaa !27
-  %44 = getelementptr inbounds i32, ptr %.tr5163, i64 %indvars.iv.next
+  %44 = getelementptr inbounds [4 x i8], ptr %.tr5163, i64 %indvars.iv.next
   %45 = load i32, ptr %44, align 4, !tbaa !5
-  %46 = getelementptr inbounds i32, ptr %.tr5163, i64 %indvars.iv.next77
+  %46 = getelementptr inbounds [4 x i8], ptr %.tr5163, i64 %indvars.iv.next77
   %47 = load i32, ptr %46, align 4, !tbaa !5
   store i32 %47, ptr %44, align 4, !tbaa !5
   store i32 %45, ptr %46, align 4, !tbaa !5
@@ -654,7 +654,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
 tailrecurse:                                      ; preds = %40
   %48 = trunc nsw i64 %indvars.iv.next to i32
   tail call fastcc void @sort_rec3(ptr noundef nonnull %.tr62, ptr noundef %.tr5163, i32 noundef %48)
-  %49 = getelementptr inbounds i32, ptr %.tr5163, i64 %indvars.iv.next
+  %49 = getelementptr inbounds [4 x i8], ptr %.tr5163, i64 %indvars.iv.next
   %50 = sub nsw i32 %.tr5264, %48
   %51 = icmp slt i32 %50, 16
   br i1 %51, label %tailrecurse._crit_edge, label %.lr.ph
@@ -681,7 +681,7 @@ define noundef ptr @Gia_SortFloats(ptr noundef captures(none) %0, ptr noundef ca
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %11, ptr %10, align 4, !tbaa !5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

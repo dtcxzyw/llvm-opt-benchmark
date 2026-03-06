@@ -635,7 +635,7 @@ _ZNSt12_Vector_baseI25cmExpandedCommandArgumentSaIS0_EE11_M_allocateEm.exit.i.i:
   %.06.i.i.i811.i.i = phi i64 [ 0, %.preheader.i.i.i52.preheader ], [ %62, %_ZNSt16allocator_traitsISaI25cmExpandedCommandArgumentEE8allocateERS1_m.exit.i.i.i ]
   %66 = phi ptr [ null, %.preheader.i.i.i52.preheader ], [ %65, %_ZNSt16allocator_traitsISaI25cmExpandedCommandArgumentEE8allocateERS1_m.exit.i.i.i ]
   store ptr %66, ptr %5, align 8, !tbaa !56
-  %67 = getelementptr inbounds nuw %class.cmExpandedCommandArgument, ptr %66, i64 %.06.i.i.i811.i.i
+  %67 = getelementptr inbounds nuw [40 x i8], ptr %66, i64 %.06.i.i.i811.i.i
   store ptr %67, ptr %8, align 8, !tbaa !58
   %68 = invoke noundef ptr @_ZSt16__do_uninit_copyISt14_List_iteratorI25cmExpandedCommandArgumentEPS1_ET0_T_S5_S4_(ptr %55, ptr nonnull %57, ptr noundef %66)
           to label %71 unwind label %69
@@ -2355,7 +2355,7 @@ _ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK
 345:                                              ; preds = %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189.thread, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189
   %.0.i.i184383 = phi i32 [ %.0.i.i184.ph, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189.thread ], [ %344, %_ZN20cmConditionEvaluator9matchKeysIJN2cm18static_string_viewES2_S2_S2_S2_EEEiRK25cmExpandedCommandArgumentDpT_.exit189 ]
   %346 = sext i32 %.0.i.i184383 to i64
-  %347 = getelementptr i32, ptr @_ZN12_GLOBAL__N_111MATCH2CMPOPE, i64 %346
+  %347 = getelementptr [4 x i8], ptr @_ZN12_GLOBAL__N_111MATCH2CMPOPE, i64 %346
   %348 = getelementptr i8, ptr %347, i64 -4
   %349 = load i32, ptr %348, align 4, !tbaa !99
   %350 = getelementptr inbounds nuw i8, ptr %.sroa.0289.0437, i64 16

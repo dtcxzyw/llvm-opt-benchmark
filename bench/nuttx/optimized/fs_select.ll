@@ -3,8 +3,6 @@ source_filename = "bench/nuttx/original/fs_select.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.pollfd = type { i32, i32, i32, ptr, ptr, ptr }
-
 ; Function Attrs: nounwind uwtable
 define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %0, 0
@@ -31,7 +29,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   %.0103142.us.us = phi i32 [ %14, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.us ]
   %7 = lshr i32 %.0103142.us.us, 5
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %.0103142.us.us, 31
   %12 = lshr i32 %10, %11
@@ -46,7 +44,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   %.0103142.us = phi i32 [ %30, %29 ], [ 0, %.lr.ph.split.us ]
   %15 = lshr i32 %.0103142.us, 5
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %2, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = and i32 %.0103142.us, 31
   %20 = shl nuw i32 1, %19
@@ -58,7 +56,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   br i1 %.not139, label %29, label %23
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds nuw i32, ptr %3, i64 %16
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %16
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, %20
   %.not140.us = icmp eq i32 %26, 0
@@ -85,7 +83,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   %.0103142.us145.us = phi i32 [ %38, %.lr.ph.split.split.us.split.us ], [ 0, %.lr.ph.split.split.us ]
   %31 = lshr i32 %.0103142.us145.us, 5
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %1, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %.0103142.us145.us, 31
   %36 = lshr i32 %34, %35
@@ -100,7 +98,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   %.0103142.us145 = phi i32 [ %53, %52 ], [ 0, %.lr.ph.split.split.us ]
   %39 = lshr i32 %.0103142.us145, 5
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %1, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %.0103142.us145, 31
   %44 = shl nuw i32 1, %43
@@ -109,7 +107,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   br i1 %.not136.us, label %46, label %50
 
 46:                                               ; preds = %.lr.ph.split.split.us.split
-  %47 = getelementptr inbounds nuw i32, ptr %3, i64 %40
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %40
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, %44
   %.not140.us146 = icmp eq i32 %49, 0
@@ -133,7 +131,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   %.0103142.us151 = phi i32 [ %68, %67 ], [ 0, %.lr.ph.split.split ]
   %54 = lshr i32 %.0103142.us151, 5
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %1, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %.0103142.us151, 31
   %59 = shl nuw i32 1, %58
@@ -142,7 +140,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   br i1 %.not136.us152, label %61, label %65
 
 61:                                               ; preds = %.lr.ph.split.split.split.us
-  %62 = getelementptr inbounds nuw i32, ptr %2, i64 %55
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %55
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, %59
   %.not138.us153 = icmp eq i32 %64, 0
@@ -168,7 +166,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   %.0103142 = phi i32 [ %89, %88 ], [ 0, %.lr.ph.split.split ]
   %71 = lshr i32 %.0103142, 5
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %1, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = and i32 %.0103142, 31
   %76 = shl nuw i32 1, %75
@@ -177,14 +175,14 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   br i1 %.not136, label %78, label %86
 
 78:                                               ; preds = %.lr.ph.split.split.split
-  %79 = getelementptr inbounds nuw i32, ptr %2, i64 %72
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %72
   %80 = load i32, ptr %79, align 4
   %81 = and i32 %80, %76
   %.not138 = icmp eq i32 %81, 0
   br i1 %.not138, label %82, label %86
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds nuw i32, ptr %3, i64 %72
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %72
   %84 = load i32, ptr %83, align 4
   %85 = and i32 %84, %76
   %.not140 = icmp eq i32 %85, 0
@@ -234,7 +232,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
 100:                                              ; preds = %99
   %101 = lshr i32 %.1104160, 5
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw i32, ptr %1, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %102
   %104 = load i32, ptr %103, align 4
   %105 = and i32 %.1104160, 31
   %106 = shl nuw i32 1, %105
@@ -244,7 +242,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
 
 108:                                              ; preds = %100
   %109 = sext i32 %.098161 to i64
-  %110 = getelementptr inbounds %struct.pollfd, ptr %.0105214, i64 %109
+  %110 = getelementptr inbounds [40 x i8], ptr %.0105214, i64 %109
   store i32 %.1104160, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %112 = load i32, ptr %111, align 4
@@ -259,7 +257,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
 115:                                              ; preds = %114
   %116 = lshr i32 %.1104160, 5
   %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw i32, ptr %2, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = and i32 %.1104160, 31
   %121 = shl nuw i32 1, %120
@@ -269,7 +267,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
 
 123:                                              ; preds = %115
   %124 = sext i32 %.098161 to i64
-  %125 = getelementptr inbounds %struct.pollfd, ptr %.0105214, i64 %124
+  %125 = getelementptr inbounds [40 x i8], ptr %.0105214, i64 %124
   store i32 %.1104160, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %127 = load i32, ptr %126, align 4
@@ -284,7 +282,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
 130:                                              ; preds = %129
   %131 = lshr i32 %.1104160, 5
   %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr inbounds nuw i32, ptr %3, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %132
   %134 = load i32, ptr %133, align 4
   %135 = and i32 %.1104160, 31
   %136 = shl nuw i32 1, %135
@@ -294,7 +292,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
 
 138:                                              ; preds = %130
   %139 = sext i32 %.098161 to i64
-  %140 = getelementptr inbounds %struct.pollfd, ptr %.0105214, i64 %139
+  %140 = getelementptr inbounds [40 x i8], ptr %.0105214, i64 %139
   store i32 %.1104160, ptr %140, align 8
   br label %141
 
@@ -364,7 +362,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   br i1 %.not123, label %177, label %162
 
 162:                                              ; preds = %.lr.ph167
-  %163 = getelementptr inbounds nuw %struct.pollfd, ptr %.0105215, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw [40 x i8], ptr %.0105215, i64 %indvars.iv
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = load i32, ptr %164, align 8
   %166 = and i32 %165, 17
@@ -377,7 +375,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   %170 = shl nuw i32 1, %169
   %171 = ashr i32 %168, 5
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds i32, ptr %1, i64 %172
+  %173 = getelementptr inbounds [4 x i8], ptr %1, i64 %172
   %174 = load i32, ptr %173, align 4
   %175 = or i32 %170, %174
   store i32 %175, ptr %173, align 4
@@ -389,7 +387,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   br i1 %.not124, label %193, label %178
 
 178:                                              ; preds = %177
-  %179 = getelementptr inbounds nuw %struct.pollfd, ptr %.0105215, i64 %indvars.iv
+  %179 = getelementptr inbounds nuw [40 x i8], ptr %.0105215, i64 %indvars.iv
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load i32, ptr %180, align 8
   %182 = and i32 %181, 20
@@ -402,7 +400,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   %186 = shl nuw i32 1, %185
   %187 = ashr i32 %184, 5
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds i32, ptr %2, i64 %188
+  %189 = getelementptr inbounds [4 x i8], ptr %2, i64 %188
   %190 = load i32, ptr %189, align 4
   %191 = or i32 %186, %190
   store i32 %191, ptr %189, align 4
@@ -414,7 +412,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   br i1 %.not125, label %209, label %194
 
 194:                                              ; preds = %193
-  %195 = getelementptr inbounds nuw %struct.pollfd, ptr %.0105215, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw [40 x i8], ptr %.0105215, i64 %indvars.iv
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %197 = load i32, ptr %196, align 8
   %198 = and i32 %197, 8
@@ -427,7 +425,7 @@ define i32 @select(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr
   %202 = shl nuw i32 1, %201
   %203 = ashr i32 %200, 5
   %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds i32, ptr %3, i64 %204
+  %205 = getelementptr inbounds [4 x i8], ptr %3, i64 %204
   %206 = load i32, ptr %205, align 4
   %207 = or i32 %202, %206
   store i32 %207, ptr %205, align 4

@@ -24,7 +24,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dm_copy_name
 %struct.dm_ioctl = type { [3 x i32], i32, i32, i32, i32, i32, i32, i32, i64, [128 x i8], [129 x i8], [7 x i8] }
 %struct.vers_iter = type { i64, ptr, ptr, ptr, i32 }
 %struct.hd_geometry = type { i8, i8, i16, i64 }
-%struct.dm_target = type { ptr, ptr, i64, i64, i32, i32, i32, i32, i32, i32, ptr, ptr, i16 }
 
 @__UNIQUE_ID_alias752 = internal constant [31 x i8] c"dm_mod.alias=char-major-10-236\00", section ".modinfo", align 1
 @__UNIQUE_ID_alias753 = internal constant [36 x i8] c"dm_mod.alias=devname:mapper/control\00", section ".modinfo", align 1
@@ -393,13 +392,13 @@ sub_0.i:                                          ; preds = %15
 .preheader:                                       ; preds = %60, %63
   %68 = phi i64 [ %64, %63 ], [ 0, %60 ]
   %69 = load ptr, ptr %4, align 8
-  %70 = getelementptr ptr, ptr %1, i64 %68
+  %70 = getelementptr [8 x i8], ptr %1, i64 %68
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = load i64, ptr %71, align 8
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr ptr, ptr %2, i64 %68
+  %76 = getelementptr [8 x i8], ptr %2, i64 %68
   %77 = load ptr, ptr %76, align 8
   %78 = call i32 @dm_table_add_target(ptr noundef %69, ptr noundef nonnull %72, i64 noundef %73, i64 noundef %75, ptr noundef %77) #21
   %79 = icmp eq i32 %78, 0
@@ -997,7 +996,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @dm_ctl_ioctl(ptr noundef
   %36 = trunc i64 %35 to i32
   %37 = and i32 %11, %36
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr %struct.anon.5, ptr @lookup_ioctl._ioctls, i64 %38
+  %39 = getelementptr [16 x i8], ptr @lookup_ioctl._ioctls, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq i32 %37, 0
@@ -2819,7 +2818,7 @@ define internal noundef range(i32 -6, 1) i32 @table_deps(ptr readnone captures(n
   %81 = zext i32 %80 to i64
   %82 = add i32 %68, 1
   %83 = zext i32 %68 to i64
-  %84 = getelementptr i64, ptr %65, i64 %83
+  %84 = getelementptr [8 x i8], ptr %65, i64 %83
   store i64 %81, ptr %84, align 8
   %85 = load ptr, ptr %67, align 8
   %86 = call ptr @dm_table_get_devices(ptr noundef nonnull %28) #21
@@ -3866,7 +3865,7 @@ define internal fastcc void @retrieve_status(ptr noundef nonnull readonly captur
 
 39:                                               ; preds = %30
   %40 = load ptr, ptr %26, align 8
-  %41 = getelementptr %struct.dm_target, ptr %40, i64 %31
+  %41 = getelementptr [80 x i8], ptr %40, i64 %31
   %42 = ptrtoint ptr %34 to i64
   %43 = sub i64 %28, %42
   %44 = icmp ult i64 %43, 41

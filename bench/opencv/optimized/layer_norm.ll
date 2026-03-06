@@ -20,10 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::utils::trace::details::Region" = type <{ ptr, i32, [4 x i8] }>
 %"class.std::allocator.7" = type { i8 }
-%"class.std::vector.21" = type { %"struct.std::_Vector_base.22" }
-%"struct.std::_Vector_base.22" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -1134,7 +1130,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %53, %.noexc85, %_Z
 .lr.ph.preheader:                                 ; preds = %.preheader152
   %78 = sext i32 %69 to i64
   %wide.trip.count = zext nneg i32 %74 to i64
-  %invariant.gep = getelementptr i32, ptr %36, i64 %78
+  %invariant.gep = getelementptr [4 x i8], ptr %36, i64 %78
   br label %.lr.ph
 
 79:                                               ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i55, %.noexc.i.i57
@@ -1165,9 +1161,9 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit: ; preds = %53, %.noexc85, %_Z
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %85 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %87 = load i32, ptr %gep, align 4, !tbaa !79
-  %88 = getelementptr inbounds nuw i32, ptr %.sroa.0118.0, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0118.0, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4, !tbaa !79
   %90 = icmp eq i32 %87, %89
   br i1 %90, label %85, label %91
@@ -1299,9 +1295,9 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit71: ; preds = %108, %.noexc107,
 
 .lr.ph158:                                        ; preds = %.preheader, %127
   %.0157 = phi i64 [ %128, %127 ], [ 0, %.preheader ]
-  %129 = getelementptr inbounds nuw i32, ptr %.sroa.0118.0, i64 %.0157
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0118.0, i64 %.0157
   %130 = load i32, ptr %129, align 4, !tbaa !79
-  %131 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %.0157
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0, i64 %.0157
   %132 = load i32, ptr %131, align 4, !tbaa !79
   %133 = icmp eq i32 %130, %132
   br i1 %133, label %127, label %134
@@ -1546,14 +1542,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %46, %
 55:                                               ; preds = %51
   %56 = zext nneg i32 %54 to i64
   %57 = load ptr, ptr %52, align 8, !tbaa !85
-  %58 = getelementptr inbounds nuw i64, ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   %59 = load i64, ptr %58, align 8, !tbaa !84
   br label %98
 
 60:                                               ; preds = %51
   %61 = zext nneg i32 %54 to i64
   %62 = load ptr, ptr %52, align 8, !tbaa !87
-  %63 = getelementptr inbounds nuw double, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load double, ptr %63, align 8, !tbaa !90
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %65 = call double @modf(double noundef %64, ptr noundef nonnull %7) #22
@@ -1605,7 +1601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35: ; preds = %72,
 79:                                               ; preds = %51
   %80 = zext nneg i32 %54 to i64
   %81 = load ptr, ptr %52, align 8, !tbaa !92
-  %82 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [32 x i8], ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8, !tbaa !37
   %84 = tail call i64 @strtol(ptr noundef nonnull captures(none) %83, ptr noundef null, i32 noundef 10) #22
   %sext = shl i64 %84, 32
@@ -1821,14 +1817,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43, %
 52:                                               ; preds = %48
   %53 = zext nneg i32 %51 to i64
   %54 = load ptr, ptr %49, align 8, !tbaa !87
-  %55 = getelementptr inbounds nuw double, ptr %54, i64 %53
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %53
   %56 = load double, ptr %55, align 8, !tbaa !90
   br label %79
 
 57:                                               ; preds = %48
   %58 = zext nneg i32 %51 to i64
   %59 = load ptr, ptr %49, align 8, !tbaa !85
-  %60 = getelementptr inbounds nuw i64, ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %58
   %61 = load i64, ptr %60, align 8, !tbaa !84
   %62 = sitofp i64 %61 to double
   br label %79
@@ -1836,7 +1832,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %43, %
 63:                                               ; preds = %48
   %64 = zext nneg i32 %51 to i64
   %65 = load ptr, ptr %49, align 8, !tbaa !92
-  %66 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %64
   %67 = load ptr, ptr %66, align 8, !tbaa !37
   %68 = tail call double @strtod(ptr noundef nonnull captures(none) %67, ptr noundef null) #22
   br label %79
@@ -2010,7 +2006,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EED2Ev.exit.i: ; preds = %_ZNSt12_Vec
   resume { ptr, i32 } %18
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %_ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EEC2EmRKS3_.exit.i
-  %19 = getelementptr inbounds nuw %"class.std::vector.21", ptr %16, i64 %1
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %1
   %20 = load ptr, ptr %0, align 8, !tbaa !73
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !70

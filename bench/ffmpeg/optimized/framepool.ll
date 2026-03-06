@@ -57,7 +57,7 @@ define ptr @ff_frame_pool_video_init(ptr noundef %0, i32 noundef %1, i32 noundef
 
 .preheader41:                                     ; preds = %20, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %20 ]
-  %29 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !16
   %.not37 = icmp eq i32 %30, 0
   br i1 %.not37, label %.critedge.preheader, label %31
@@ -78,10 +78,10 @@ define ptr @ff_frame_pool_video_init(ptr noundef %0, i32 noundef %1, i32 noundef
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.critedge ], [ 0, %.critedge.preheader ]
-  %37 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv46
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv46
   %38 = load i32, ptr %37, align 4, !tbaa !16
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv46
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv46
   store i64 %39, ptr %40, align 8, !tbaa !19
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 4
@@ -107,7 +107,7 @@ define ptr @ff_frame_pool_video_init(ptr noundef %0, i32 noundef %1, i32 noundef
 
 50:                                               ; preds = %.preheader, %49
   %indvars.iv50 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next51, %49 ]
-  %51 = getelementptr inbounds nuw i64, ptr %8, i64 %indvars.iv50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv50
   %52 = load i64, ptr %51, align 8, !tbaa !19
   %.not39 = icmp eq i64 %52, 0
   br i1 %.not39, label %ff_frame_pool_uninit.exit, label %53
@@ -119,7 +119,7 @@ define ptr @ff_frame_pool_video_init(ptr noundef %0, i32 noundef %1, i32 noundef
 55:                                               ; preds = %53
   %56 = add i64 %52, %46
   %57 = call ptr @av_buffer_pool_init(i64 noundef %56, ptr noundef %0) #5
-  %58 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv50
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv50
   store ptr %57, ptr %58, align 8, !tbaa !23
   %.not40 = icmp eq ptr %57, null
   br i1 %.not40, label %.preheader.i.preheader, label %49
@@ -130,7 +130,7 @@ define ptr @ff_frame_pool_video_init(ptr noundef %0, i32 noundef %1, i32 noundef
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv.i
   call void @av_buffer_pool_uninit(ptr noundef nonnull %60) #5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -172,7 +172,7 @@ define void @ff_frame_pool_uninit(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
   %4 = load ptr, ptr %0, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   tail call void @av_buffer_pool_uninit(ptr noundef nonnull %6) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -236,7 +236,7 @@ define ptr @ff_frame_pool_audio_init(ptr noundef readnone captures(none) %0, i32
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   tail call void @av_buffer_pool_uninit(ptr noundef nonnull %29) #5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -375,18 +375,18 @@ define ptr @ff_frame_pool_get(ptr noundef readonly captures(none) %0) local_unna
 
 24:                                               ; preds = %10, %33
   %indvars.iv90 = phi i64 [ 0, %10 ], [ %indvars.iv.next91, %33 ]
-  %25 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv90
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv90
   %26 = load i32, ptr %25, align 4, !tbaa !16
-  %27 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv90
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv90
   store i32 %26, ptr %27, align 4, !tbaa !16
-  %28 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv90
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv90
   %29 = load ptr, ptr %28, align 8, !tbaa !23
   %.not71 = icmp eq ptr %29, null
   br i1 %.not71, label %46, label %30
 
 30:                                               ; preds = %24
   %31 = tail call ptr @av_buffer_pool_get(ptr noundef nonnull %29) #5
-  %32 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv90
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv90
   store ptr %31, ptr %32, align 8, !tbaa !43
   %.not74 = icmp eq ptr %31, null
   br i1 %.not74, label %.loopexit, label %33
@@ -403,7 +403,7 @@ define ptr @ff_frame_pool_get(ptr noundef readonly captures(none) %0) local_unna
   %42 = sext i32 %41 to i64
   %43 = and i64 %40, %42
   %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv90
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv90
   store ptr %44, ptr %45, align 8, !tbaa !48
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next91, 4
@@ -527,7 +527,7 @@ define ptr @ff_frame_pool_get(ptr noundef readonly captures(none) %0) local_unna
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %112 ]
   %109 = load ptr, ptr %97, align 8, !tbaa !23
   %110 = tail call ptr @av_buffer_pool_get(ptr noundef %109) #5
-  %111 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv
   store ptr %110, ptr %111, align 8, !tbaa !43
   %.not69 = icmp eq ptr %110, null
   br i1 %.not69, label %.loopexit, label %112
@@ -544,10 +544,10 @@ define ptr @ff_frame_pool_get(ptr noundef readonly captures(none) %0) local_unna
   %121 = sext i32 %120 to i64
   %122 = and i64 %119, %121
   %123 = inttoptr i64 %122 to ptr
-  %124 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store ptr %123, ptr %124, align 8, !tbaa !48
   %125 = load ptr, ptr %100, align 8, !tbaa !52
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %indvars.iv
   store ptr %123, ptr %126, align 8, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %127 = load i32, ptr %74, align 4, !tbaa !26
@@ -561,7 +561,7 @@ define ptr @ff_frame_pool_get(ptr noundef readonly captures(none) %0) local_unna
   %131 = load ptr, ptr %104, align 8, !tbaa !23
   %132 = tail call ptr @av_buffer_pool_get(ptr noundef %131) #5
   %133 = load ptr, ptr %105, align 8, !tbaa !56
-  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv87
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv87
   store ptr %132, ptr %134, align 8, !tbaa !43
   %.not68 = icmp eq ptr %132, null
   br i1 %.not68, label %.loopexit, label %135
@@ -579,7 +579,7 @@ define ptr @ff_frame_pool_get(ptr noundef readonly captures(none) %0) local_unna
   %145 = and i64 %142, %144
   %146 = inttoptr i64 %145 to ptr
   %147 = load ptr, ptr %107, align 8, !tbaa !52
-  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv87
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %indvars.iv87
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 64
   store ptr %146, ptr %149, align 8, !tbaa !48
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1

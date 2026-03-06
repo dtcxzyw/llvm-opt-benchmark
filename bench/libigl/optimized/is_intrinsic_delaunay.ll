@@ -5,10 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 module asm ".globl _ZSt21ios_base_library_initv"
 
-%"class.std::vector.1" = type { %"struct.std::_Vector_base.2" }
-%"struct.std::_Vector_base.2" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.Eigen::Matrix.28" = type { %"class.Eigen::PlainObjectBase.29" }
 %"class.Eigen::PlainObjectBase.29" = type { %"class.Eigen::DenseStorage.36" }
 %"class.Eigen::DenseStorage.36" = type { ptr, i64 }
@@ -47,7 +43,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl21is_intrinsic_delaunayIN5E
   %9 = alloca double, align 8
   %10 = sext i32 %3 to i64
   %11 = load ptr, ptr %1, align 8, !tbaa !4
-  %12 = getelementptr inbounds nuw %"class.std::vector.1", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %15 = load ptr, ptr %12, align 8, !tbaa !13
@@ -76,8 +72,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl21is_intrinsic_delaunayIN5E
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !20
   %35 = mul nsw i64 %34, %31
-  %36 = getelementptr double, ptr %32, i64 %30
-  %37 = getelementptr double, ptr %36, i64 %35
+  %36 = getelementptr [8 x i8], ptr %32, i64 %30
+  %37 = getelementptr [8 x i8], ptr %36, i64 %35
   %38 = load double, ptr %37, align 8, !tbaa !21
   store double %38, ptr %5, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -85,7 +81,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl21is_intrinsic_delaunayIN5E
   %40 = srem i32 %39, 3
   %41 = sext i32 %40 to i64
   %42 = mul nsw i64 %34, %41
-  %43 = getelementptr double, ptr %36, i64 %42
+  %43 = getelementptr [8 x i8], ptr %36, i64 %42
   %44 = load double, ptr %43, align 8, !tbaa !21
   store double %44, ptr %6, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -93,7 +89,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl21is_intrinsic_delaunayIN5E
   %46 = srem i32 %45, 3
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %34, %47
-  %49 = getelementptr double, ptr %36, i64 %48
+  %49 = getelementptr [8 x i8], ptr %36, i64 %48
   %50 = load double, ptr %49, align 8, !tbaa !21
   store double %50, ptr %7, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -102,8 +98,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl21is_intrinsic_delaunayIN5E
   %53 = srem i32 %52, 3
   %54 = sext i32 %53 to i64
   %55 = mul nsw i64 %34, %54
-  %56 = getelementptr double, ptr %32, i64 %51
-  %57 = getelementptr double, ptr %56, i64 %55
+  %56 = getelementptr [8 x i8], ptr %32, i64 %51
+  %57 = getelementptr [8 x i8], ptr %56, i64 %55
   %58 = load double, ptr %57, align 8, !tbaa !21
   store double %58, ptr %8, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -111,7 +107,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl21is_intrinsic_delaunayIN5E
   %60 = srem i32 %59, 3
   %61 = sext i32 %60 to i64
   %62 = mul nsw i64 %34, %61
-  %63 = getelementptr double, ptr %56, i64 %62
+  %63 = getelementptr [8 x i8], ptr %56, i64 %62
   %64 = load double, ptr %63, align 8, !tbaa !21
   store double %64, ptr %9, align 8, !tbaa !21
   %65 = call noundef double @_ZN3igl14tan_half_angleIdEET_RKS1_S3_S3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -147,7 +143,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl21is_intrinsic_delaunayIN5E
   %9 = alloca double, align 8
   %10 = sext i32 %3 to i64
   %11 = load ptr, ptr %1, align 8, !tbaa !4
-  %12 = getelementptr inbounds nuw %"class.std::vector.1", ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %15 = load ptr, ptr %12, align 8, !tbaa !13
@@ -176,8 +172,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl21is_intrinsic_delaunayIN5E
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !25
   %35 = mul nsw i64 %34, %31
-  %36 = getelementptr double, ptr %32, i64 %30
-  %37 = getelementptr double, ptr %36, i64 %35
+  %36 = getelementptr [8 x i8], ptr %32, i64 %30
+  %37 = getelementptr [8 x i8], ptr %36, i64 %35
   %38 = load double, ptr %37, align 8, !tbaa !21
   store double %38, ptr %5, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -185,7 +181,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl21is_intrinsic_delaunayIN5E
   %40 = srem i32 %39, 3
   %41 = sext i32 %40 to i64
   %42 = mul nsw i64 %34, %41
-  %43 = getelementptr double, ptr %36, i64 %42
+  %43 = getelementptr [8 x i8], ptr %36, i64 %42
   %44 = load double, ptr %43, align 8, !tbaa !21
   store double %44, ptr %6, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -193,7 +189,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl21is_intrinsic_delaunayIN5E
   %46 = srem i32 %45, 3
   %47 = sext i32 %46 to i64
   %48 = mul nsw i64 %34, %47
-  %49 = getelementptr double, ptr %36, i64 %48
+  %49 = getelementptr [8 x i8], ptr %36, i64 %48
   %50 = load double, ptr %49, align 8, !tbaa !21
   store double %50, ptr %7, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -202,8 +198,8 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl21is_intrinsic_delaunayIN5E
   %53 = srem i32 %52, 3
   %54 = sext i32 %53 to i64
   %55 = mul nsw i64 %34, %54
-  %56 = getelementptr double, ptr %32, i64 %51
-  %57 = getelementptr double, ptr %56, i64 %55
+  %56 = getelementptr [8 x i8], ptr %32, i64 %51
+  %57 = getelementptr [8 x i8], ptr %56, i64 %55
   %58 = load double, ptr %57, align 8, !tbaa !21
   store double %58, ptr %8, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -211,7 +207,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl21is_intrinsic_delaunayIN5E
   %60 = srem i32 %59, 3
   %61 = sext i32 %60 to i64
   %62 = mul nsw i64 %34, %61
-  %63 = getelementptr double, ptr %56, i64 %62
+  %63 = getelementptr [8 x i8], ptr %56, i64 %62
   %64 = load double, ptr %63, align 8, !tbaa !21
   store double %64, ptr %9, align 8, !tbaa !21
   %65 = call noundef double @_ZN3igl14tan_half_angleIdEET_RKS1_S3_S3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -318,7 +314,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIbLin1ELi3ELi0ELin1ELi3EEEE11setConstantEll
   %36 = tail call noundef zeroext i1 @_ZN3igl21is_intrinsic_delaunayIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEiiEEbRKNS1_10MatrixBaseIT_EERKSt6vectorIS9_IT0_SaISA_EESaISC_EET1_SH_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %7, i32 noundef %35)
   %37 = zext i1 %36 to i8
   %38 = load ptr, ptr %2, align 8, !tbaa !4
-  %39 = getelementptr inbounds nuw %"class.std::vector.1", ptr %38, i64 %indvars.iv33
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %indvars.iv33
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !10
   %42 = load ptr, ptr %39, align 8, !tbaa !13
@@ -346,7 +342,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIbLin1ELi3ELi0ELin1ELi3EEEE11setConstantEll
 
 55:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %56 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !14
   %58 = srem i32 %57, %7
   %59 = sext i32 %58 to i64
@@ -543,7 +539,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIbLin1ELin1ELi0ELin1ELin1EEEE11setConstantE
   %37 = tail call noundef zeroext i1 @_ZN3igl21is_intrinsic_delaunayIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEEiiEEbRKNS1_10MatrixBaseIT_EERKSt6vectorIS9_IT0_SaISA_EESaISC_EET1_SH_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %7, i32 noundef %36)
   %38 = zext i1 %37 to i8
   %39 = load ptr, ptr %2, align 8, !tbaa !4
-  %40 = getelementptr inbounds nuw %"class.std::vector.1", ptr %39, i64 %indvars.iv33
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %indvars.iv33
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !10
   %43 = load ptr, ptr %40, align 8, !tbaa !13
@@ -571,7 +567,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIbLin1ELin1ELi0ELin1ELin1EEEE11setConstantE
 
 56:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %57 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4, !tbaa !14
   %59 = srem i32 %58, %7
   %60 = sext i32 %59 to i64

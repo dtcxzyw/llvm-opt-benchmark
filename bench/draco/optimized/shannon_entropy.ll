@@ -43,7 +43,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   %8 = shl nuw nsw i64 %6, 2
   %9 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #19
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %9, i8 0, i64 %8, i1 false), !tbaa !3
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %6
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %6
   %11 = ptrtoint ptr %10 to i64
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
 
@@ -68,10 +68,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc28, %_ZNSt6ve
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !3
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %.sroa.029.0, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.029.0, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !3
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 4, !tbaa !3
@@ -89,7 +89,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc28, %_ZNSt6ve
   %indvars.iv44 = phi i64 [ 0, %.lr.ph40.preheader ], [ %indvars.iv.next45, %29 ]
   %.02137 = phi i32 [ 0, %.lr.ph40.preheader ], [ %.1, %29 ]
   %.02236 = phi double [ 0.000000e+00, %.lr.ph40.preheader ], [ %.123, %29 ]
-  %20 = getelementptr inbounds nuw i32, ptr %.sroa.029.0, i64 %indvars.iv44
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.029.0, i64 %indvars.iv44
   %21 = load i32, ptr %20, align 4, !tbaa !3
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %23, label %29
@@ -221,7 +221,7 @@ define void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_u
   %19 = phi i32 [ %.promoted35, %.lr.ph ], [ %56, %54 ]
   %20 = phi i32 [ %.promoted33, %.lr.ph ], [ %57, %54 ]
   %21 = phi double [ %.promoted, %.lr.ph ], [ %63, %54 ]
-  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = load ptr, ptr %12, align 8, !tbaa !19
   %25 = ptrtoint ptr %24 to i64
@@ -251,7 +251,7 @@ define void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_u
   br i1 %37, label %38, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i32, ptr %18, i64 %32
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %32
   %.not.i.i = icmp eq ptr %24, %39
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, label %40
 
@@ -267,7 +267,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %34, %36, %38, %40
 41:                                               ; preds = %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, %17
   %.pre4851 = phi ptr [ %.pre48, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ], [ %.pre4850, %17 ]
   %42 = phi ptr [ %.pre48, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit ], [ %18, %17 ]
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %29
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %29
   %44 = load i32, ptr %43, align 4, !tbaa !3
   %45 = icmp sgt i32 %44, 1
   br i1 %45, label %46, label %50
@@ -310,10 +310,10 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %34, %36, %38, %40
 
 65:                                               ; preds = %.lr.ph38, %65
   %indvars.iv43 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next44, %65 ]
-  %66 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv43
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv43
   %67 = load i32, ptr %66, align 4, !tbaa !3
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %16, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !3
   %71 = add nsw i32 %70, -1
   store i32 %71, ptr %69, align 4, !tbaa !3
@@ -426,7 +426,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !19
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, label %26
@@ -435,7 +435,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit
 
@@ -546,7 +546,7 @@ _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -568,7 +568,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !15
   store ptr %72, ptr %8, align 8, !tbaa !19
-  %75 = getelementptr inbounds nuw i32, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !25
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 

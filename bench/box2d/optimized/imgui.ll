@@ -9,11 +9,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ImGuiResizeGripDef = type { %struct.ImVec2, %struct.ImVec2, i32, i32 }
 %struct.ImVec2 = type { float, float }
 %struct.ImGuiResizeBorderDef = type { %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, float }
-%struct.ImGuiKeyData = type { i8, float, float, float }
 %struct.ImGuiInputEvent = type <{ i32, i32, i32, %union.anon, i8, [3 x i8] }>
 %union.anon = type { %struct.ImGuiInputEventMousePos }
 %struct.ImGuiInputEventMousePos = type { float, float, i32 }
-%struct.ImGuiDebugAllocEntry = type { i32, i16, i16 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.ImGuiStoragePair = type { i32, %union.anon.35 }
 %union.anon.35 = type { ptr }
@@ -21,54 +19,21 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ImGuiListClipperData = type { ptr, float, i32, i32, %struct.ImVector.46 }
 %struct.ImVector.46 = type { i32, i32, ptr }
 %struct.ImGuiListClipperRange = type { i32, i32, i8, i8, i8 }
-%struct.ImVec4 = type { float, float, float, float }
 %struct.ImGuiColorMod = type { i32, %struct.ImVec4 }
+%struct.ImVec4 = type { float, float, float, float }
 %struct.ImGuiStyleMod = type { i32, %union.anon.47 }
 %union.anon.47 = type { [2 x i32] }
 %struct.ImRect = type { %struct.ImVec2, %struct.ImVec2 }
 %struct.ImGuiSettingsHandler = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ImGuiTableTempData = type <{ i32, float, float, [4 x i8], %struct.ImVector.51, %struct.ImVec2, %struct.ImDrawListSplitter, %struct.ImRect, %struct.ImRect, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec1, float, i32, [4 x i8] }>
-%struct.ImVector.51 = type { i32, i32, ptr }
-%struct.ImDrawListSplitter = type { i32, i32, %struct.ImVector.20 }
-%struct.ImVector.20 = type { i32, i32, ptr }
-%struct.ImVec1 = type { float }
-%struct.ImGuiTabBar = type { ptr, %struct.ImVector.53, i32, i32, i32, i32, i32, i32, i32, %struct.ImRect, float, float, float, float, float, float, float, float, float, float, float, float, i32, i16, i8, i8, i8, i8, i16, i16, float, %struct.ImVec2, %struct.ImVec2, %struct.ImGuiTextBuffer }
-%struct.ImVector.53 = type { i32, i32, ptr }
-%struct.ImGuiTextBuffer = type { %struct.ImVector.28 }
-%struct.ImVector.28 = type { i32, i32, ptr }
-%struct.ImGuiTable = type <{ i32, i32, ptr, ptr, %struct.ImSpan, %struct.ImSpan.42, %struct.ImSpan.43, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i16, i16, float, float, float, float, float, float, i32, i32, [2 x i32], i32, i32, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, ptr, ptr, %struct.ImGuiTextBuffer, ptr, %struct.ImGuiTableInstanceData, %struct.ImVector.44, %struct.ImGuiTableColumnSortSpecs, [4 x i8], %struct.ImVector.45, %struct.ImGuiTableSortSpecs, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [6 x i8] }>
-%struct.ImSpan = type { ptr, ptr }
-%struct.ImSpan.42 = type { ptr, ptr }
-%struct.ImSpan.43 = type { ptr, ptr }
-%struct.ImGuiTableInstanceData = type { i32, float, float, float, i32, i32 }
-%struct.ImVector.44 = type { i32, i32, ptr }
-%struct.ImGuiTableColumnSortSpecs = type <{ i32, i16, i16, i8, [3 x i8] }>
-%struct.ImVector.45 = type { i32, i32, ptr }
-%struct.ImGuiTableSortSpecs = type <{ ptr, i32, i8, [3 x i8] }>
-%struct.ImGuiMultiSelectTempData = type <{ %struct.ImGuiMultiSelectIO, ptr, i32, i32, %struct.ImVec2, %struct.ImVec2, i64, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8 }>
-%struct.ImGuiMultiSelectIO = type { %struct.ImVector.54, i64, i64, i8, i8, i32 }
-%struct.ImVector.54 = type { i32, i32, ptr }
-%struct.ImGuiContextHook = type { i32, i32, i32, ptr, ptr }
 %struct.ImGuiStackLevelInfo = type { i32, i8, i8, i8, [57 x i8] }
-%struct.ImGuiOldColumns = type { i32, i32, i8, i8, i32, i32, float, float, float, float, float, float, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImVector.55, %struct.ImDrawListSplitter }
-%struct.ImVector.55 = type { i32, i32, ptr }
-%struct.ImGuiPopupData = type <{ i32, [4 x i8], ptr, ptr, i32, i32, i32, %struct.ImVec2, %struct.ImVec2, [4 x i8] }>
-%struct.ImGuiKeyOwnerData = type <{ i32, i32, i8, i8, [2 x i8] }>
-%struct.ImGuiKeyRoutingData = type { i16, i16, i8, i8, i32, i32 }
 %struct.ImBitArray.52 = type { [5 x i32] }
 %struct.ImGuiFocusScopeData = type { i32, i32 }
-%struct.ImGuiWindowStackData = type <{ ptr, %struct.ImGuiLastItemData, %struct.ImGuiErrorRecoveryState, i8, i8 }>
-%struct.ImGuiLastItemData = type { i32, i32, i32, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, i32 }
-%struct.ImGuiErrorRecoveryState = type { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 }
-%struct.ImDrawCmd = type { %struct.ImVec4, ptr, i32, i32, i32, ptr, ptr }
 %struct.ImGuiSizeCallbackData = type { ptr, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2 }
-%struct.ImGuiGroupData = type { i32, %struct.ImVec2, %struct.ImVec2, %struct.ImVec2, %struct.ImVec1, %struct.ImVec1, %struct.ImVec2, float, i32, i8, i8, i8, i8 }
-%struct.ImFontConfig = type { ptr, i32, i8, i32, float, i32, i32, i8, %struct.ImVec2, %struct.ImVec2, ptr, float, float, i8, i32, float, float, i16, [40 x i8], ptr }
-%struct.ImGuiTableColumn = type <{ i32, float, float, float, float, float, float, float, float, %struct.ImRect, i32, float, float, float, float, float, float, float, i16, i16, i16, i16, i16, i16, i16, i16, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }>
-%struct.ImGuiMultiSelectState = type { ptr, i32, i32, i32, i8, i8, i64, i64 }
+%struct.ImGuiLastItemData = type { i32, i32, i32, %struct.ImRect, %struct.ImRect, %struct.ImRect, %struct.ImRect, i32 }
+%struct.ImGuiKeyRoutingData = type { i16, i16, i8, i8, i32, i32 }
+%struct.ImGuiPopupData = type <{ i32, [4 x i8], ptr, ptr, i32, i32, i32, %struct.ImVec2, %struct.ImVec2, [4 x i8] }>
 %struct.ImGuiListClipper = type { ptr, i32, i32, i32, float, float, double, ptr }
-%struct.ImDrawVert = type { %struct.ImVec2, %struct.ImVec2, i32 }
-%struct.ImGuiTabItem = type <{ i32, i32, i32, i32, float, float, float, float, i32, i16, i16, i8, [3 x i8] }>
+%struct.ImDrawCmd = type { %struct.ImVec4, ptr, i32, i32, i32, ptr, ptr }
 
 $_ZN8ImVectorI15ImGuiInputEventE9push_backERKS0_ = comdat any
 
@@ -1478,9 +1443,9 @@ define dso_local void @_ZN7ImGuiIOC2Ev(ptr noundef nonnull writeonly align 8 cap
 
 36:                                               ; preds = %1, %36
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %36 ]
-  %37 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   store float -1.000000e+00, ptr %37, align 4, !tbaa !81
-  %38 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   store float -1.000000e+00, ptr %38, align 4, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -1497,7 +1462,7 @@ define dso_local void @_ZN7ImGuiIOC2Ev(ptr noundef nonnull writeonly align 8 cap
 
 43:                                               ; preds = %.preheader, %43
   %indvars.iv24 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next25, %43 ]
-  %44 = getelementptr inbounds nuw %struct.ImGuiKeyData, ptr %35, i64 %indvars.iv24
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %indvars.iv24
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store float -1.000000e+00, ptr %45, align 4, !tbaa !87
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -1591,7 +1556,7 @@ _ZNK8ImVectorI15ImGuiInputEventE14_grow_capacityEi.exit: ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -1609,7 +1574,7 @@ _ZNK8ImVectorI15ImGuiInputEventE14_grow_capacityEi.exit: ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -1620,7 +1585,7 @@ _ZNK8ImVectorI15ImGuiInputEventE14_grow_capacityEi.exit: ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -1655,7 +1620,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -1673,7 +1638,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -1684,7 +1649,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -1709,7 +1674,7 @@ _ZN8ImVectorI15ImGuiInputEventE7reserveEi.exit:   ; preds = %._ZN8ImVectorI15ImG
   %85 = phi i32 [ %3, %._ZN8ImVectorI15ImGuiInputEventE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorI15ImGuiInputEventE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds %struct.ImGuiInputEvent, ptr %86, i64 %87
+  %88 = getelementptr inbounds [28 x i8], ptr %86, i64 %87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %88, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false)
   %89 = load i32, ptr %0, align 8, !tbaa !206
   %90 = add nsw i32 %89, 1
@@ -1950,7 +1915,7 @@ define dso_local noundef range(i32 -128, 129) i32 @_Z18ImTextCharFromUtf8PjPKcS1
   %35 = phi i8 [ %33, %32 ], [ 0, %28 ]
   %36 = zext i8 %spec.select to i32
   %37 = sext i8 %8 to i64
-  %38 = getelementptr inbounds i32, ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E5masks, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E5masks, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !221
   %40 = and i32 %39, %36
   %41 = shl nuw nsw i32 %40, 18
@@ -1965,11 +1930,11 @@ define dso_local noundef range(i32 -128, 129) i32 @_Z18ImTextCharFromUtf8PjPKcS1
   %50 = zext i8 %35 to i32
   %51 = and i32 %50, 63
   %52 = or disjoint i32 %49, %51
-  %53 = getelementptr inbounds i32, ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E6shiftc, i64 %37
+  %53 = getelementptr inbounds [4 x i8], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E6shiftc, i64 %37
   %54 = load i32, ptr %53, align 4, !tbaa !221
   %55 = lshr i32 %52, %54
   store i32 %55, ptr %0, align 4, !tbaa !221
-  %56 = getelementptr inbounds i32, ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E4mins, i64 %37
+  %56 = getelementptr inbounds [4 x i8], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E4mins, i64 %37
   %57 = load i32, ptr %56, align 4, !tbaa !221
   %58 = icmp ult i32 %55, %57
   %59 = select i1 %58, i32 64, i32 0
@@ -1989,7 +1954,7 @@ define dso_local noundef range(i32 -128, 129) i32 @_Z18ImTextCharFromUtf8PjPKcS1
   %72 = or disjoint i32 %71, %63
   %73 = or disjoint i32 %72, %61
   %74 = xor i32 %73, 42
-  %75 = getelementptr inbounds i32, ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E6shifte, i64 %37
+  %75 = getelementptr inbounds [4 x i8], ptr @_ZZ18ImTextCharFromUtf8PjPKcS1_E6shifte, i64 %37
   %76 = load i32, ptr %75, align 4, !tbaa !221
   %77 = lshr i32 %74, %76
   %.not = icmp eq i32 %77, 0
@@ -2041,7 +2006,7 @@ define dso_local void @_ZN7ImGuiIO16ClearEventsQueueEv(ptr noundef nonnull reado
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 10016
   %15 = load i16, ptr %14, align 8, !tbaa !212
   %16 = sext i16 %15 to i64
-  %17 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %13, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %13, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %18, %12
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %20
@@ -2059,7 +2024,7 @@ define dso_local void @_ZN7ImGuiIO16ClearEventsQueueEv(ptr noundef nonnull reado
   %24 = trunc nsw i32 %23 to i16
   store i16 %24, ptr %14, align 4, !tbaa !212
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %13, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %13, i64 %25
   store i32 %12, ptr %26, align 4, !tbaa !213
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 6
   store i16 0, ptr %27, align 2, !tbaa !216
@@ -2070,7 +2035,7 @@ define dso_local void @_ZN7ImGuiIO16ClearEventsQueueEv(ptr noundef nonnull reado
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %20, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %29 = phi i16 [ 1, %20 ], [ %19, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %30 = phi i64 [ %25, %20 ], [ %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %31 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %13, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %13, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 6
   store i16 %29, ptr %32, align 2, !tbaa !216
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 10012
@@ -2110,7 +2075,7 @@ define dso_local void @_ZN7ImGuiIO14ClearInputKeysEv(ptr noundef nonnull align 8
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw %struct.ImGuiKeyData, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   store i8 0, ptr %11, align 4, !tbaa !223
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store float -1.000000e+00, ptr %12, align 8, !tbaa !89
@@ -2160,7 +2125,7 @@ _ZNK8ImVectorItE14_grow_capacityEi.exit:          ; preds = %6, %7
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 10016
   %24 = load i16, ptr %23, align 8, !tbaa !212
   %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %27, %21
   br i1 %.not.i.i.i, label %._crit_edge.i, label %29
@@ -2178,7 +2143,7 @@ _ZNK8ImVectorItE14_grow_capacityEi.exit:          ; preds = %6, %7
   %33 = trunc nsw i32 %32 to i16
   store i16 %33, ptr %23, align 4, !tbaa !212
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %22, i64 %34
   store i32 %21, ptr %35, align 4, !tbaa !213
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i16 0, ptr %36, align 2, !tbaa !216
@@ -2189,7 +2154,7 @@ _ZNK8ImVectorItE14_grow_capacityEi.exit:          ; preds = %6, %7
 38:                                               ; preds = %29, %._crit_edge.i
   %39 = phi i16 [ 1, %29 ], [ %28, %._crit_edge.i ]
   %40 = phi i64 [ %34, %29 ], [ %25, %._crit_edge.i ]
-  %41 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %22, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 %39, ptr %42, align 4, !tbaa !215
   %43 = load i32, ptr %19, align 4, !tbaa !217
@@ -2224,7 +2189,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 10016
   %59 = load i16, ptr %58, align 8, !tbaa !212
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %62, %56
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %64
@@ -2242,7 +2207,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %68 = trunc nsw i32 %67 to i16
   store i16 %68, ptr %58, align 4, !tbaa !212
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %57, i64 %69
   store i32 %56, ptr %70, align 4, !tbaa !213
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 0, ptr %71, align 2, !tbaa !216
@@ -2253,7 +2218,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %73 = phi i16 [ 1, %64 ], [ %63, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %74 = phi i64 [ %69, %64 ], [ %60, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %75 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %57, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   store i16 %73, ptr %76, align 2, !tbaa !216
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 10012
@@ -2295,7 +2260,7 @@ define dso_local void @_ZN7ImGuiIO15ClearInputMouseEv(ptr noundef nonnull writeo
 
 7:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 655, %1 ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr %struct.ImGuiKeyData, ptr %0, i64 %indvars.iv
+  %8 = getelementptr [16 x i8], ptr %0, i64 %indvars.iv
   %9 = getelementptr i8, ptr %8, i64 -7940
   store i8 0, ptr %9, align 4, !tbaa !223
   %10 = getelementptr i8, ptr %8, i64 -7936
@@ -2315,9 +2280,9 @@ define dso_local void @_ZN7ImGuiIO15ClearInputMouseEv(ptr noundef nonnull writeo
 
 15:                                               ; preds = %2, %15
   %indvars.iv16 = phi i64 [ 0, %2 ], [ %indvars.iv.next17, %15 ]
-  %16 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv16
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv16
   store float -1.000000e+00, ptr %16, align 4, !tbaa !81
-  %17 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv16
   store float -1.000000e+00, ptr %17, align 4, !tbaa !81
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 5
@@ -2395,7 +2360,7 @@ switch.edge:                                      ; preds = %17
 
 .lr.ph.split.us.i:                                ; preds = %39, %.lr.ph.i
   %indvars.iv48.i = phi i64 [ %33, %.lr.ph.i ], [ %indvars.iv.next49.i, %39 ]
-  %34 = getelementptr inbounds nuw %struct.ImGuiInputEvent, ptr %32, i64 %indvars.iv48.i
+  %34 = getelementptr inbounds nuw [28 x i8], ptr %32, i64 %indvars.iv48.i
   %35 = load i32, ptr %34, align 4, !tbaa !93
   %.not.us.i = icmp eq i32 %35, 4
   br i1 %.not.us.i, label %36, label %39
@@ -2431,7 +2396,7 @@ _ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit: ; preds = %
 _ZN5ImGui10GetKeyDataEP12ImGuiContext8ImGuiKey.exit: ; preds = %_ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit, %.split.i.i
   %.0.i = phi i32 [ %.035, %_ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit ], [ %spec.select.i.i, %.split.i.i ]
   %47 = sext i32 %.0.i to i64
-  %48 = getelementptr %struct.ImGuiKeyData, ptr %13, i64 %47
+  %48 = getelementptr [16 x i8], ptr %13, i64 %47
   %49 = getelementptr i8, ptr %48, i64 -7932
   %.not = icmp eq ptr %spec.select.i, null
   %50 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 16
@@ -2495,7 +2460,7 @@ define dso_local noundef ptr @_ZN5ImGui10GetKeyDataEP12ImGuiContext8ImGuiKey(ptr
 _ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit: ; preds = %.split.i, %2
   %.0 = phi i32 [ %1, %2 ], [ %spec.select.i, %.split.i ]
   %9 = sext i32 %.0 to i64
-  %10 = getelementptr %struct.ImGuiKeyData, ptr %0, i64 %9
+  %10 = getelementptr [16 x i8], ptr %0, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -7932
   ret ptr %11
 }
@@ -2586,7 +2551,7 @@ define dso_local void @_ZN7ImGuiIO16AddMousePosEventEff(ptr noundef nonnull read
 .lr.ph.split.i:                                   ; preds = %41, %.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ %38, %.lr.ph.i ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %39 = getelementptr inbounds nuw %struct.ImGuiInputEvent, ptr %37, i64 %indvars.iv.next
+  %39 = getelementptr inbounds nuw [28 x i8], ptr %37, i64 %indvars.iv.next
   %40 = load i32, ptr %39, align 4, !tbaa !93
   %.not.i = icmp eq i32 %40, 1
   br i1 %.not.i, label %_ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit, label %41
@@ -2693,7 +2658,7 @@ define dso_local void @_ZN7ImGuiIO19AddMouseButtonEventEib(ptr noundef nonnull a
 
 .lr.ph.split.us35.i:                              ; preds = %34, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %28, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
-  %29 = getelementptr inbounds nuw %struct.ImGuiInputEvent, ptr %27, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [28 x i8], ptr %27, i64 %indvars.iv.i
   %30 = load i32, ptr %29, align 4, !tbaa !93
   %.not.us37.i = icmp eq i32 %30, 3
   br i1 %.not.us37.i, label %31, label %34
@@ -2739,7 +2704,7 @@ _ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit: ; preds = %
 
 .lr.ph.split.us.i:                                ; preds = %52, %.lr.ph.i36
   %indvars.iv48.i = phi i64 [ %46, %.lr.ph.i36 ], [ %indvars.iv.next49.i, %52 ]
-  %47 = getelementptr inbounds nuw %struct.ImGuiInputEvent, ptr %45, i64 %indvars.iv48.i
+  %47 = getelementptr inbounds nuw [28 x i8], ptr %45, i64 %indvars.iv48.i
   %48 = load i32, ptr %47, align 4, !tbaa !93
   %.not.us.i = icmp eq i32 %48, 4
   br i1 %.not.us.i, label %49, label %52
@@ -2802,7 +2767,7 @@ _ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit39: ; preds =
 
 .lr.ph.split.us35.i.i:                            ; preds = %78, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %72, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %78 ]
-  %73 = getelementptr inbounds nuw %struct.ImGuiInputEvent, ptr %71, i64 %indvars.iv.i.i
+  %73 = getelementptr inbounds nuw [28 x i8], ptr %71, i64 %indvars.iv.i.i
   %74 = load i32, ptr %73, align 4, !tbaa !93
   %.not.us37.i.i = icmp eq i32 %74, 3
   br i1 %.not.us37.i.i, label %75, label %78
@@ -2968,7 +2933,7 @@ define dso_local void @_ZN7ImGuiIO13AddFocusEventEb(ptr noundef nonnull readonly
 .lr.ph.split.i:                                   ; preds = %15, %.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ %12, %.lr.ph.i ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %13 = getelementptr inbounds nuw %struct.ImGuiInputEvent, ptr %11, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw [28 x i8], ptr %11, i64 %indvars.iv.next
   %14 = load i32, ptr %13, align 4, !tbaa !93
   %.not.i = icmp eq i32 %14, 6
   br i1 %.not.i, label %_ZL20FindLatestInputEventP12ImGuiContext19ImGuiInputEventTypei.exit, label %15
@@ -3711,7 +3676,7 @@ define dso_local noundef ptr @_Z8ImStrdupPKc(ptr noundef readonly captures(none)
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 10016
   %14 = load i16, ptr %13, align 8, !tbaa !212
   %15 = sext i16 %14 to i64
-  %16 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %12, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %12, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %17, %11
   br i1 %.not.i.i, label %27, label %18
@@ -3723,7 +3688,7 @@ define dso_local noundef ptr @_Z8ImStrdupPKc(ptr noundef readonly captures(none)
   %22 = trunc nsw i32 %21 to i16
   store i16 %22, ptr %13, align 4, !tbaa !212
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %12, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %12, i64 %23
   store i32 %11, ptr %24, align 4, !tbaa !213
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 6
   store i16 0, ptr %25, align 2, !tbaa !216
@@ -3782,7 +3747,7 @@ define dso_local noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %0) local_unnamed
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %12 = load i16, ptr %11, align 8, !tbaa !212
   %13 = sext i16 %12 to i64
-  %14 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !213
   %.not.i = icmp eq i32 %15, %9
   br i1 %.not.i, label %25, label %16
@@ -3794,7 +3759,7 @@ define dso_local noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %0) local_unnamed
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %11, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %10, i64 %21
   store i32 %9, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -3869,7 +3834,7 @@ define dso_local noundef ptr @_Z11ImStrdupcpyPcPmPKc(ptr noundef %0, ptr noundef
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 10016
   %22 = load i16, ptr %21, align 8, !tbaa !212
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %25, %19
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %27
@@ -3887,7 +3852,7 @@ define dso_local noundef ptr @_Z11ImStrdupcpyPcPmPKc(ptr noundef %0, ptr noundef
   %31 = trunc nsw i32 %30 to i16
   store i16 %31, ptr %21, align 4, !tbaa !212
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %20, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %20, i64 %32
   store i32 %19, ptr %33, align 4, !tbaa !213
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 6
   store i16 0, ptr %34, align 2, !tbaa !216
@@ -3898,7 +3863,7 @@ define dso_local noundef ptr @_Z11ImStrdupcpyPcPmPKc(ptr noundef %0, ptr noundef
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %27, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %36 = phi i16 [ 1, %27 ], [ %26, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %37 = phi i64 [ %32, %27 ], [ %23, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %38 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %20, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %20, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 6
   store i16 %36, ptr %39, align 2, !tbaa !216
   %40 = getelementptr inbounds nuw i8, ptr %16, i64 10012
@@ -3926,7 +3891,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %14, %15, %_ZN5ImGui
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 10016
   %55 = load i16, ptr %54, align 8, !tbaa !212
   %56 = sext i16 %55 to i64
-  %57 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %53, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %53, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !213
   %.not.i.i16 = icmp eq i32 %58, %52
   br i1 %.not.i.i16, label %68, label %59
@@ -3938,7 +3903,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %14, %15, %_ZN5ImGui
   %63 = trunc nsw i32 %62 to i16
   store i16 %63, ptr %54, align 4, !tbaa !212
   %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %53, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %53, i64 %64
   store i32 %52, ptr %65, align 4, !tbaa !213
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 6
   store i16 0, ptr %66, align 2, !tbaa !216
@@ -4002,7 +3967,7 @@ define dso_local void @_ZN5ImGui7MemFreeEPv(ptr noundef %0) local_unnamed_addr #
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 10016
   %9 = load i16, ptr %8, align 8, !tbaa !212
   %10 = sext i16 %9 to i64
-  %11 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %7, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %7, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !213
   %.not.i = icmp eq i32 %12, %6
   br i1 %.not.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge, label %14
@@ -4020,7 +3985,7 @@ define dso_local void @_ZN5ImGui7MemFreeEPv(ptr noundef %0) local_unnamed_addr #
   %18 = trunc nsw i32 %17 to i16
   store i16 %18, ptr %8, align 4, !tbaa !212
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %7, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %7, i64 %19
   store i32 %6, ptr %20, align 4, !tbaa !213
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 6
   store i16 0, ptr %21, align 2, !tbaa !216
@@ -4031,7 +3996,7 @@ define dso_local void @_ZN5ImGui7MemFreeEPv(ptr noundef %0) local_unnamed_addr #
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit: ; preds = %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge, %14
   %23 = phi i16 [ 1, %14 ], [ %13, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge ]
   %24 = phi i64 [ %19, %14 ], [ %10, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge ]
-  %25 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %7, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %7, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 6
   store i16 %23, ptr %26, align 2, !tbaa !216
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 10012
@@ -4567,7 +4532,7 @@ define dso_local noundef i32 @_Z10ImHashDataPKvmj(ptr noundef readonly captures(
   %10 = zext i8 %9 to i32
   %11 = xor i32 %7, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !221
   %15 = xor i32 %14, %6
   %.not = icmp eq i64 %5, 0
@@ -4624,7 +4589,7 @@ define dso_local noundef i32 @_Z9ImHashStrPKcmj(ptr noundef readonly captures(no
   %21 = and i32 %.1, 255
   %22 = xor i32 %21, %9
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !221
   %26 = xor i32 %20, %25
   %.not34 = icmp eq i64 %6, 0
@@ -4655,7 +4620,7 @@ define dso_local noundef i32 @_Z9ImHashStrPKcmj(ptr noundef readonly captures(no
   %38 = and i32 %.5, 255
   %39 = xor i32 %38, %29
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !221
   %43 = xor i32 %37, %42
   %.not33 = icmp eq i8 %.pre, 0
@@ -4793,7 +4758,7 @@ _Z13ImFileGetSizeP8_IO_FILE.exit:                 ; preds = %15
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 10016
   %31 = load i16, ptr %30, align 8, !tbaa !212
   %32 = sext i16 %31 to i64
-  %33 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %29, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %29, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %34, %28
   br i1 %.not.i.i, label %44, label %35
@@ -4805,7 +4770,7 @@ _Z13ImFileGetSizeP8_IO_FILE.exit:                 ; preds = %15
   %39 = trunc nsw i32 %38 to i16
   store i16 %39, ptr %30, align 4, !tbaa !212
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %29, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %29, i64 %40
   store i32 %28, ptr %41, align 4, !tbaa !213
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 6
   store i16 0, ptr %42, align 2, !tbaa !216
@@ -4865,7 +4830,7 @@ _ZN5ImGui8MemAllocEm.exit:                        ; preds = %_Z13ImFileGetSizeP8
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 10016
   %71 = load i16, ptr %70, align 8, !tbaa !212
   %72 = sext i16 %71 to i64
-  %73 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %69, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %69, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !213
   %.not.i.i35 = icmp eq i32 %74, %68
   br i1 %.not.i.i35, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %76
@@ -4883,7 +4848,7 @@ _ZN5ImGui8MemAllocEm.exit:                        ; preds = %_Z13ImFileGetSizeP8
   %80 = trunc nsw i32 %79 to i16
   store i16 %80, ptr %70, align 4, !tbaa !212
   %81 = sext i32 %79 to i64
-  %82 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %69, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %69, i64 %81
   store i32 %68, ptr %82, align 4, !tbaa !213
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 6
   store i16 0, ptr %83, align 2, !tbaa !216
@@ -4894,7 +4859,7 @@ _ZN5ImGui8MemAllocEm.exit:                        ; preds = %_Z13ImFileGetSizeP8
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %76, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %85 = phi i16 [ 1, %76 ], [ %75, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %86 = phi i64 [ %81, %76 ], [ %72, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %87 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %69, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %69, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 6
   store i16 %85, ptr %88, align 2, !tbaa !216
   %89 = getelementptr inbounds nuw i8, ptr %65, i64 10012
@@ -5675,7 +5640,7 @@ define dso_local noundef ptr @_Z12ImLowerBoundP16ImGuiStoragePairS0_j(ptr nounde
   %.017 = phi ptr [ %.1, %.lr.ph ], [ %0, %.lr.ph.preheader ]
   %.01316 = phi i64 [ %.114, %.lr.ph ], [ %7, %.lr.ph.preheader ]
   %8 = lshr i64 %.01316, 1
-  %9 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %.017, i64 %8
   %10 = load i32, ptr %9, align 8, !tbaa !270
   %11 = icmp ult i32 %10, %2
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -5727,7 +5692,7 @@ define dso_local noundef i32 @_ZNK12ImGuiStorage6GetIntEji(ptr noundef nonnull r
   %.017.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %5, %3 ]
   %.01316.i = phi i64 [ %.114.i, %.lr.ph.i ], [ %7, %3 ]
   %9 = lshr i64 %.01316.i, 1
-  %10 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %.017.i, i64 %9
   %11 = load i32, ptr %10, align 8, !tbaa !270
   %12 = icmp ult i32 %11, %1
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -5773,7 +5738,7 @@ define dso_local noundef zeroext i1 @_ZNK12ImGuiStorage7GetBoolEjb(ptr noundef n
   %.017.i.i = phi ptr [ %.1.i.i, %.lr.ph.i.i ], [ %5, %3 ]
   %.01316.i.i = phi i64 [ %.114.i.i, %.lr.ph.i.i ], [ %7, %3 ]
   %9 = lshr i64 %.01316.i.i, 1
-  %10 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i, i64 %9
   %11 = load i32, ptr %10, align 8, !tbaa !270
   %12 = icmp ult i32 %11, %1
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -5820,7 +5785,7 @@ define dso_local noundef float @_ZNK12ImGuiStorage8GetFloatEjf(ptr noundef nonnu
   %.017.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %5, %3 ]
   %.01316.i = phi i64 [ %.114.i, %.lr.ph.i ], [ %7, %3 ]
   %9 = lshr i64 %.01316.i, 1
-  %10 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %.017.i, i64 %9
   %11 = load i32, ptr %10, align 8, !tbaa !270
   %12 = icmp ult i32 %11, %1
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -5866,7 +5831,7 @@ define dso_local noundef ptr @_ZNK12ImGuiStorage10GetVoidPtrEj(ptr noundef nonnu
   %.017.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %4, %2 ]
   %.01316.i = phi i64 [ %.114.i, %.lr.ph.i ], [ %6, %2 ]
   %8 = lshr i64 %.01316.i, 1
-  %9 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i, i64 %8
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %.017.i, i64 %8
   %10 = load i32, ptr %9, align 8, !tbaa !270
   %11 = icmp ult i32 %10, %1
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -5913,7 +5878,7 @@ define dso_local noundef nonnull ptr @_ZN12ImGuiStorage9GetIntRefEji(ptr noundef
   %.017.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %6, %3 ]
   %.01316.i = phi i64 [ %.114.i, %.lr.ph.i ], [ %8, %3 ]
   %10 = lshr i64 %.01316.i, 1
-  %11 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %.017.i, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !270
   %13 = icmp ult i32 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -5993,7 +5958,7 @@ _ZNK8ImVectorI16ImGuiStoragePairE14_grow_capacityEi.exit: ; preds = %14, %16
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 10016
   %33 = load i16, ptr %32, align 8, !tbaa !212
   %34 = sext i16 %33 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %31, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %31, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %36, %30
   br i1 %.not.i.i.i, label %._crit_edge.i, label %38
@@ -6011,7 +5976,7 @@ _ZNK8ImVectorI16ImGuiStoragePairE14_grow_capacityEi.exit: ; preds = %14, %16
   %42 = trunc nsw i32 %41 to i16
   store i16 %42, ptr %32, align 4, !tbaa !212
   %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %31, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %31, i64 %43
   store i32 %30, ptr %44, align 4, !tbaa !213
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 6
   store i16 0, ptr %45, align 2, !tbaa !216
@@ -6022,7 +5987,7 @@ _ZNK8ImVectorI16ImGuiStoragePairE14_grow_capacityEi.exit: ; preds = %14, %16
 47:                                               ; preds = %38, %._crit_edge.i
   %48 = phi i16 [ 1, %38 ], [ %37, %._crit_edge.i ]
   %49 = phi i64 [ %43, %38 ], [ %34, %._crit_edge.i ]
-  %50 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %31, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %31, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i16 %48, ptr %51, align 4, !tbaa !215
   %52 = load i32, ptr %28, align 4, !tbaa !217
@@ -6056,7 +6021,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %47, %_ZNK8ImVectorI
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 10016
   %67 = load i16, ptr %66, align 8, !tbaa !212
   %68 = sext i16 %67 to i64
-  %69 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %65, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %65, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %70, %64
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %72
@@ -6074,7 +6039,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %47, %_ZNK8ImVectorI
   %76 = trunc nsw i32 %75 to i16
   store i16 %76, ptr %66, align 4, !tbaa !212
   %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %65, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %65, i64 %77
   store i32 %64, ptr %78, align 4, !tbaa !213
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 6
   store i16 0, ptr %79, align 2, !tbaa !216
@@ -6085,7 +6050,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %47, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %72, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %81 = phi i16 [ 1, %72 ], [ %71, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %82 = phi i64 [ %77, %72 ], [ %68, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %83 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %65, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %65, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 6
   store i16 %81, ptr %84, align 2, !tbaa !216
   %85 = getelementptr inbounds nuw i8, ptr %61, i64 10012
@@ -6151,7 +6116,7 @@ define dso_local noundef nonnull ptr @_ZN12ImGuiStorage10GetBoolRefEjb(ptr nound
   %.017.i.i = phi ptr [ %.1.i.i, %.lr.ph.i.i ], [ %7, %3 ]
   %.01316.i.i = phi i64 [ %.114.i.i, %.lr.ph.i.i ], [ %9, %3 ]
   %11 = lshr i64 %.01316.i.i, 1
-  %12 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i, i64 %11
   %13 = load i32, ptr %12, align 8, !tbaa !270
   %14 = icmp ult i32 %13, %1
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -6203,7 +6168,7 @@ define dso_local noundef nonnull ptr @_ZN12ImGuiStorage11GetFloatRefEjf(ptr noun
   %.017.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %6, %3 ]
   %.01316.i = phi i64 [ %.114.i, %.lr.ph.i ], [ %8, %3 ]
   %10 = lshr i64 %.01316.i, 1
-  %11 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %.017.i, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !270
   %13 = icmp ult i32 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -6255,7 +6220,7 @@ define dso_local noundef nonnull ptr @_ZN12ImGuiStorage13GetVoidPtrRefEjPv(ptr n
   %.017.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %6, %3 ]
   %.01316.i = phi i64 [ %.114.i, %.lr.ph.i ], [ %8, %3 ]
   %10 = lshr i64 %.01316.i, 1
-  %11 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %.017.i, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !270
   %13 = icmp ult i32 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -6307,7 +6272,7 @@ define dso_local void @_ZN12ImGuiStorage6SetIntEji(ptr noundef nonnull align 8 d
   %.017.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %6, %3 ]
   %.01316.i = phi i64 [ %.114.i, %.lr.ph.i ], [ %8, %3 ]
   %10 = lshr i64 %.01316.i, 1
-  %11 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %.017.i, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !270
   %13 = icmp ult i32 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -6363,7 +6328,7 @@ define dso_local void @_ZN12ImGuiStorage7SetBoolEjb(ptr noundef nonnull align 8 
   %.017.i.i = phi ptr [ %.1.i.i, %.lr.ph.i.i ], [ %7, %3 ]
   %.01316.i.i = phi i64 [ %.114.i.i, %.lr.ph.i.i ], [ %9, %3 ]
   %11 = lshr i64 %.01316.i.i, 1
-  %12 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i, i64 %11
   %13 = load i32, ptr %12, align 8, !tbaa !270
   %14 = icmp ult i32 %13, %1
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -6418,7 +6383,7 @@ define dso_local void @_ZN12ImGuiStorage8SetFloatEjf(ptr noundef nonnull align 8
   %.017.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %6, %3 ]
   %.01316.i = phi i64 [ %.114.i, %.lr.ph.i ], [ %8, %3 ]
   %10 = lshr i64 %.01316.i, 1
-  %11 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %.017.i, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !270
   %13 = icmp ult i32 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -6473,7 +6438,7 @@ define dso_local void @_ZN12ImGuiStorage10SetVoidPtrEjPv(ptr noundef nonnull ali
   %.017.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %6, %3 ]
   %.01316.i = phi i64 [ %.114.i, %.lr.ph.i ], [ %8, %3 ]
   %10 = lshr i64 %.01316.i, 1
-  %11 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %.017.i, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !270
   %13 = icmp ult i32 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -6528,7 +6493,7 @@ define dso_local void @_ZN12ImGuiStorage9SetAllIntEi(ptr noundef nonnull readonl
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !275
-  %8 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %1, ptr %9, align 8, !tbaa !205
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6719,7 +6684,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIN15ImGuiTextFilter14ImGuiTextRa
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -6737,7 +6702,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIN15ImGuiTextFilter14ImGuiTextRa
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -6748,7 +6713,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIN15ImGuiTextFilter14ImGuiTextRa
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -6908,7 +6873,7 @@ _ZNK8ImVectorIN15ImGuiTextFilter14ImGuiTextRangeEE14_grow_capacityEi.exit: ; pre
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 10016
   %24 = load i16, ptr %23, align 8, !tbaa !212
   %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %27, %21
   br i1 %.not.i.i.i, label %._crit_edge.i, label %29
@@ -6926,7 +6891,7 @@ _ZNK8ImVectorIN15ImGuiTextFilter14ImGuiTextRangeEE14_grow_capacityEi.exit: ; pre
   %33 = trunc nsw i32 %32 to i16
   store i16 %33, ptr %23, align 4, !tbaa !212
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %22, i64 %34
   store i32 %21, ptr %35, align 4, !tbaa !213
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i16 0, ptr %36, align 2, !tbaa !216
@@ -6937,7 +6902,7 @@ _ZNK8ImVectorIN15ImGuiTextFilter14ImGuiTextRangeEE14_grow_capacityEi.exit: ; pre
 38:                                               ; preds = %29, %._crit_edge.i
   %39 = phi i16 [ 1, %29 ], [ %28, %._crit_edge.i ]
   %40 = phi i64 [ %34, %29 ], [ %25, %._crit_edge.i ]
-  %41 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %22, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 %39, ptr %42, align 4, !tbaa !215
   %43 = load i32, ptr %19, align 4, !tbaa !217
@@ -6972,7 +6937,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 10016
   %59 = load i16, ptr %58, align 8, !tbaa !212
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %62, %56
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %64
@@ -6990,7 +6955,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %68 = trunc nsw i32 %67 to i16
   store i16 %68, ptr %58, align 4, !tbaa !212
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %57, i64 %69
   store i32 %56, ptr %70, align 4, !tbaa !213
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 0, ptr %71, align 2, !tbaa !216
@@ -7001,7 +6966,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %73 = phi i16 [ 1, %64 ], [ %63, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %74 = phi i64 [ %69, %64 ], [ %60, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %75 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %57, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   store i16 %73, ptr %76, align 2, !tbaa !216
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 10012
@@ -7069,7 +7034,7 @@ _ZNK8ImVectorIN15ImGuiTextFilter14ImGuiTextRangeEE14_grow_capacityEi.exit: ; pre
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -7087,7 +7052,7 @@ _ZNK8ImVectorIN15ImGuiTextFilter14ImGuiTextRangeEE14_grow_capacityEi.exit: ; pre
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -7098,7 +7063,7 @@ _ZNK8ImVectorIN15ImGuiTextFilter14ImGuiTextRangeEE14_grow_capacityEi.exit: ; pre
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -7133,7 +7098,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -7151,7 +7116,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -7162,7 +7127,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -7187,7 +7152,7 @@ _ZN8ImVectorIN15ImGuiTextFilter14ImGuiTextRangeEE7reserveEi.exit: ; preds = %._Z
   %85 = phi i32 [ %3, %._ZN8ImVectorIN15ImGuiTextFilter14ImGuiTextRangeEE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorIN15ImGuiTextFilter14ImGuiTextRangeEE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds %"struct.ImGuiTextFilter::ImGuiTextRange", ptr %86, i64 %87
+  %88 = getelementptr inbounds [16 x i8], ptr %86, i64 %87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %89 = load i32, ptr %0, align 8, !tbaa !288
   %90 = add nsw i32 %89, 1
@@ -7348,7 +7313,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIcE7reserveEi(ptr noundef nonnul
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 10016
   %17 = load i16, ptr %16, align 8, !tbaa !212
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %15, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %20, %14
   br i1 %.not.i.i, label %30, label %21
@@ -7360,7 +7325,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIcE7reserveEi(ptr noundef nonnul
   %25 = trunc nsw i32 %24 to i16
   store i16 %25, ptr %16, align 4, !tbaa !212
   %26 = sext i32 %24 to i64
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %15, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %15, i64 %26
   store i32 %14, ptr %27, align 4, !tbaa !213
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 0, ptr %28, align 2, !tbaa !216
@@ -7420,7 +7385,7 @@ _ZN5ImGui8MemAllocEm.exit:                        ; preds = %5, %31, %37
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 10016
   %57 = load i16, ptr %56, align 8, !tbaa !212
   %58 = sext i16 %57 to i64
-  %59 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %55, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %55, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !213
   %.not.i.i8 = icmp eq i32 %60, %54
   br i1 %.not.i.i8, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %62
@@ -7438,7 +7403,7 @@ _ZN5ImGui8MemAllocEm.exit:                        ; preds = %5, %31, %37
   %66 = trunc nsw i32 %65 to i16
   store i16 %66, ptr %56, align 4, !tbaa !212
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %55, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %55, i64 %67
   store i32 %54, ptr %68, align 4, !tbaa !213
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 6
   store i16 0, ptr %69, align 2, !tbaa !216
@@ -7449,7 +7414,7 @@ _ZN5ImGui8MemAllocEm.exit:                        ; preds = %5, %31, %37
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %71 = phi i16 [ 1, %62 ], [ %61, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %72 = phi i64 [ %67, %62 ], [ %58, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %73 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %55, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %55, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 6
   store i16 %71, ptr %74, align 2, !tbaa !216
   %75 = getelementptr inbounds nuw i8, ptr %51, i64 10012
@@ -7676,7 +7641,7 @@ _ZNK8ImVectorIiE14_grow_capacityEi.exit:          ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -7694,7 +7659,7 @@ _ZNK8ImVectorIiE14_grow_capacityEi.exit:          ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -7705,7 +7670,7 @@ _ZNK8ImVectorIiE14_grow_capacityEi.exit:          ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -7740,7 +7705,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -7758,7 +7723,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -7769,7 +7734,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -7794,7 +7759,7 @@ _ZN8ImVectorIiE7reserveEi.exit:                   ; preds = %._ZN8ImVectorIiE7re
   %85 = phi i32 [ %3, %._ZN8ImVectorIiE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorIiE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds i32, ptr %86, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %86, i64 %87
   %89 = load i32, ptr %1, align 4
   store i32 %89, ptr %88, align 4
   %90 = load i32, ptr %0, align 8, !tbaa !301
@@ -7949,7 +7914,7 @@ _ZN16ImGuiListClipper17SeekCursorForItemEi.exit:  ; preds = %63, %55, %14
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 8528
   %81 = load ptr, ptr %80, align 8, !tbaa !369
   %82 = zext nneg i32 %76 to i64
-  %83 = getelementptr %struct.ImGuiListClipperData, ptr %81, i64 %82
+  %83 = getelementptr [40 x i8], ptr %81, i64 %82
   %84 = getelementptr i8, ptr %83, i64 -80
   %85 = load ptr, ptr %84, align 8, !tbaa !370
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 40
@@ -8069,7 +8034,7 @@ define dso_local void @_ZN16ImGuiListClipper5BeginEif(ptr noundef nonnull align 
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 10016
   %52 = load i16, ptr %51, align 8, !tbaa !212
   %53 = sext i16 %52 to i64
-  %54 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %50, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %50, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %55, %49
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %57
@@ -8087,7 +8052,7 @@ define dso_local void @_ZN16ImGuiListClipper5BeginEif(ptr noundef nonnull align 
   %61 = trunc nsw i32 %60 to i16
   store i16 %61, ptr %51, align 4, !tbaa !212
   %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %50, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %50, i64 %62
   store i32 %49, ptr %63, align 4, !tbaa !213
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 6
   store i16 0, ptr %64, align 2, !tbaa !216
@@ -8098,7 +8063,7 @@ define dso_local void @_ZN16ImGuiListClipper5BeginEif(ptr noundef nonnull align 
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %57, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %66 = phi i16 [ 1, %57 ], [ %56, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %67 = phi i64 [ %62, %57 ], [ %53, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %68 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %50, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %50, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 6
   store i16 %66, ptr %69, align 2, !tbaa !216
   %70 = getelementptr inbounds nuw i8, ptr %46, i64 10012
@@ -8137,7 +8102,7 @@ _ZN20ImGuiListClipperDataD2Ev.exit:               ; preds = %42, %73
   %83 = getelementptr inbounds nuw i8, ptr %10, i64 8528
   %84 = load ptr, ptr %83, align 8, !tbaa !369
   %85 = sext i32 %82 to i64
-  %86 = getelementptr %struct.ImGuiListClipperData, ptr %84, i64 %85
+  %86 = getelementptr [40 x i8], ptr %84, i64 %85
   %87 = getelementptr i8, ptr %86, i64 -40
   store ptr %0, ptr %87, align 8, !tbaa !370
   %88 = getelementptr i8, ptr %86, i64 -24
@@ -8202,7 +8167,7 @@ _ZNK8ImVectorI20ImGuiListClipperDataE14_grow_capacityEi.exit: ; preds = %7, %8
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 10016
   %25 = load i16, ptr %24, align 8, !tbaa !212
   %26 = sext i16 %25 to i64
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %23, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %23, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %28, %22
   br i1 %.not.i.i.i, label %._crit_edge.i, label %30
@@ -8220,7 +8185,7 @@ _ZNK8ImVectorI20ImGuiListClipperDataE14_grow_capacityEi.exit: ; preds = %7, %8
   %34 = trunc nsw i32 %33 to i16
   store i16 %34, ptr %24, align 4, !tbaa !212
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %23, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %23, i64 %35
   store i32 %22, ptr %36, align 4, !tbaa !213
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 6
   store i16 0, ptr %37, align 2, !tbaa !216
@@ -8231,7 +8196,7 @@ _ZNK8ImVectorI20ImGuiListClipperDataE14_grow_capacityEi.exit: ; preds = %7, %8
 39:                                               ; preds = %30, %._crit_edge.i
   %40 = phi i16 [ 1, %30 ], [ %29, %._crit_edge.i ]
   %41 = phi i64 [ %35, %30 ], [ %26, %._crit_edge.i ]
-  %42 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %23, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %23, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i16 %40, ptr %43, align 4, !tbaa !215
   %44 = load i32, ptr %20, align 4, !tbaa !217
@@ -8266,7 +8231,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %39, %_ZNK8ImVectorI
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 10016
   %60 = load i16, ptr %59, align 8, !tbaa !212
   %61 = sext i16 %60 to i64
-  %62 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %58, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %58, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %63, %57
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %65
@@ -8284,7 +8249,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %39, %_ZNK8ImVectorI
   %69 = trunc nsw i32 %68 to i16
   store i16 %69, ptr %59, align 4, !tbaa !212
   %70 = sext i32 %68 to i64
-  %71 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %58, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %58, i64 %70
   store i32 %57, ptr %71, align 4, !tbaa !213
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 6
   store i16 0, ptr %72, align 2, !tbaa !216
@@ -8295,7 +8260,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %39, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %74 = phi i16 [ 1, %65 ], [ %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %75 = phi i64 [ %70, %65 ], [ %61, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %76 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %58, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %58, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 6
   store i16 %74, ptr %77, align 2, !tbaa !216
   %78 = getelementptr inbounds nuw i8, ptr %54, i64 10012
@@ -8329,7 +8294,7 @@ _ZN8ImVectorI20ImGuiListClipperDataE7reserveEi.exit: ; preds = %83, %3
 88:                                               ; preds = %.preheader, %88
   %indvars.iv = phi i64 [ %87, %.preheader ], [ %indvars.iv.next, %88 ]
   %89 = load ptr, ptr %86, align 8, !tbaa !369
-  %90 = getelementptr inbounds %struct.ImGuiListClipperData, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds [40 x i8], ptr %89, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %90, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -8359,7 +8324,7 @@ define linkonce_odr dso_local void @_ZN20ImGuiListClipperDataD2Ev(ptr noundef no
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %16
@@ -8377,7 +8342,7 @@ define linkonce_odr dso_local void @_ZN20ImGuiListClipperDataD2Ev(ptr noundef no
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -8388,7 +8353,7 @@ define linkonce_odr dso_local void @_ZN20ImGuiListClipperDataD2Ev(ptr noundef no
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -8563,7 +8528,7 @@ _ZNK8ImVectorI21ImGuiListClipperRangeE14_grow_capacityEi.exit: ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -8581,7 +8546,7 @@ _ZNK8ImVectorI21ImGuiListClipperRangeE14_grow_capacityEi.exit: ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -8592,7 +8557,7 @@ _ZNK8ImVectorI21ImGuiListClipperRangeE14_grow_capacityEi.exit: ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -8627,7 +8592,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -8645,7 +8610,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -8656,7 +8621,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -8681,7 +8646,7 @@ _ZN8ImVectorI21ImGuiListClipperRangeE7reserveEi.exit: ; preds = %._ZN8ImVectorI2
   %85 = phi i32 [ %3, %._ZN8ImVectorI21ImGuiListClipperRangeE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorI21ImGuiListClipperRangeE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds %struct.ImGuiListClipperRange, ptr %86, i64 %87
+  %88 = getelementptr inbounds [12 x i8], ptr %86, i64 %87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %88, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %89 = load i32, ptr %0, align 8, !tbaa !381
   %90 = add nsw i32 %89, 1
@@ -9156,10 +9121,10 @@ thread-pre-split.i:                               ; preds = %.critedge.i, %88
 .lr.ph.i.i:                                       ; preds = %253, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %240, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %253 ]
   %246 = load ptr, ptr %227, align 8, !tbaa !374
-  %247 = getelementptr inbounds %struct.ImGuiListClipperRange, ptr %246, i64 %indvars.iv.i.i
+  %247 = getelementptr inbounds [12 x i8], ptr %246, i64 %indvars.iv.i.i
   %248 = load i32, ptr %247, align 4, !tbaa !384
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %249 = getelementptr inbounds %struct.ImGuiListClipperRange, ptr %246, i64 %indvars.iv.next.i.i
+  %249 = getelementptr inbounds [12 x i8], ptr %246, i64 %indvars.iv.next.i.i
   %250 = load i32, ptr %249, align 4, !tbaa !384
   %251 = icmp sgt i32 %248, %250
   br i1 %251, label %252, label %253
@@ -9182,11 +9147,11 @@ thread-pre-split.i:                               ; preds = %.critedge.i, %88
   %.0.in52.i.i = phi i32 [ %.1.i.i, %278 ], [ %237, %.preheader.i.i ]
   %256 = load ptr, ptr %227, align 8, !tbaa !374
   %257 = sext i32 %.0.in52.i.i to i64
-  %258 = getelementptr inbounds %struct.ImGuiListClipperRange, ptr %256, i64 %257
+  %258 = getelementptr inbounds [12 x i8], ptr %256, i64 %257
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 4
   %260 = load i32, ptr %259, align 4, !tbaa !386
   %261 = sext i32 %.053.i.i to i64
-  %262 = getelementptr inbounds %struct.ImGuiListClipperRange, ptr %256, i64 %261
+  %262 = getelementptr inbounds [12 x i8], ptr %256, i64 %261
   %263 = load i32, ptr %262, align 4, !tbaa !384
   %264 = icmp slt i32 %260, %263
   br i1 %264, label %278, label %265
@@ -9291,7 +9256,7 @@ _ZL34ImGuiListClipper_SortAndFuseRangesR8ImVectorI21ImGuiListClipperRangeEi.exit
 333:                                              ; preds = %330
   %334 = load ptr, ptr %325, align 8, !tbaa !374
   %335 = sext i32 %332 to i64
-  %336 = getelementptr inbounds %struct.ImGuiListClipperRange, ptr %334, i64 %335
+  %336 = getelementptr inbounds [12 x i8], ptr %334, i64 %335
   %337 = load i32, ptr %336, align 4, !tbaa !384
   %338 = call noundef i32 @llvm.smax.i32(i32 %337, i32 %322)
   store i32 %338, ptr %326, align 8, !tbaa !371
@@ -9572,7 +9537,7 @@ define dso_local noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %0, float no
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 3016
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 3256
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.ImVec4, ptr %5, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %5, i64 %6
   %.sroa.0.0.copyload = load float, ptr %7, align 4, !tbaa !81
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !81
@@ -9675,7 +9640,7 @@ define dso_local noundef nonnull align 4 dereferenceable(16) ptr @_ZN5ImGui17Get
   %2 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 3256
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.ImVec4, ptr %3, i64 %4
+  %5 = getelementptr inbounds [16 x i8], ptr %3, i64 %4
   ret ptr %5
 }
 
@@ -9712,7 +9677,7 @@ define dso_local void @_ZN5ImGui14PushStyleColorEij(i32 noundef %0, i32 noundef 
   store i32 %0, ptr %3, align 4, !tbaa !414
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 3256
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.ImVec4, ptr %6, i64 %7
+  %8 = getelementptr inbounds [16 x i8], ptr %6, i64 %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !416
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 7632
   call void @_ZN8ImVectorI13ImGuiColorModE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(20) %3)
@@ -9793,7 +9758,7 @@ _ZNK8ImVectorI13ImGuiColorModE14_grow_capacityEi.exit: ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -9811,7 +9776,7 @@ _ZNK8ImVectorI13ImGuiColorModE14_grow_capacityEi.exit: ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -9822,7 +9787,7 @@ _ZNK8ImVectorI13ImGuiColorModE14_grow_capacityEi.exit: ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -9857,7 +9822,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -9875,7 +9840,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -9886,7 +9851,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -9911,7 +9876,7 @@ _ZN8ImVectorI13ImGuiColorModE7reserveEi.exit:     ; preds = %._ZN8ImVectorI13ImG
   %85 = phi i32 [ %3, %._ZN8ImVectorI13ImGuiColorModE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorI13ImGuiColorModE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds %struct.ImGuiColorMod, ptr %86, i64 %87
+  %88 = getelementptr inbounds [20 x i8], ptr %86, i64 %87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %88, ptr noundef nonnull align 4 dereferenceable(20) %1, i64 20, i1 false)
   %89 = load i32, ptr %0, align 8, !tbaa !418
   %90 = add nsw i32 %89, 1
@@ -9928,7 +9893,7 @@ define dso_local void @_ZN5ImGui14PushStyleColorEiRK6ImVec4(i32 noundef %0, ptr 
   store i32 %0, ptr %3, align 4, !tbaa !414
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 3256
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.ImVec4, ptr %6, i64 %7
+  %8 = getelementptr inbounds [16 x i8], ptr %6, i64 %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !416
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 7632
   call void @_ZN8ImVectorI13ImGuiColorModE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(20) %3)
@@ -9975,12 +9940,12 @@ define dso_local void @_ZN5ImGui13PopStyleColorEi(i32 noundef %0) local_unnamed_
   %.110 = phi i32 [ %.0, %.lr.ph ], [ %26, %14 ]
   %16 = load ptr, ptr %12, align 8, !tbaa !420
   %17 = sext i32 %15 to i64
-  %18 = getelementptr %struct.ImGuiColorMod, ptr %16, i64 %17
+  %18 = getelementptr [20 x i8], ptr %16, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -20
   %20 = getelementptr i8, ptr %18, i64 -16
   %21 = load i32, ptr %19, align 4, !tbaa !414
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.ImVec4, ptr %13, i64 %22
+  %23 = getelementptr inbounds [16 x i8], ptr %13, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !416
   %24 = load i32, ptr %3, align 8, !tbaa !418
   %25 = add nsw i32 %24, -1
@@ -10175,7 +10140,7 @@ thread-pre-split:                                 ; preds = %65, %61, %.critedge
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZN5ImGui15GetStyleVarInfoEi(i32 noundef %0) local_unnamed_addr #8 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.ImGuiDataVarInfo, ptr @_ZL13GStyleVarInfo, i64 %2
+  %3 = getelementptr inbounds [12 x i8], ptr @_ZL13GStyleVarInfo, i64 %2
   ret ptr %3
 }
 
@@ -10193,7 +10158,7 @@ define dso_local void @_ZN5ImGui12PushStyleVarEif(i32 noundef %0, float noundef 
   br label %20
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds %struct.ImGuiDataVarInfo, ptr @_ZL13GStyleVarInfo, i64 %4
+  %10 = getelementptr inbounds [12 x i8], ptr @_ZL13GStyleVarInfo, i64 %4
   %11 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 3016
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -10258,7 +10223,7 @@ _ZNK8ImVectorI13ImGuiStyleModE14_grow_capacityEi.exit: ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -10276,7 +10241,7 @@ _ZNK8ImVectorI13ImGuiStyleModE14_grow_capacityEi.exit: ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -10287,7 +10252,7 @@ _ZNK8ImVectorI13ImGuiStyleModE14_grow_capacityEi.exit: ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -10322,7 +10287,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -10340,7 +10305,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -10351,7 +10316,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -10376,7 +10341,7 @@ _ZN8ImVectorI13ImGuiStyleModE7reserveEi.exit:     ; preds = %._ZN8ImVectorI13ImG
   %85 = phi i32 [ %3, %._ZN8ImVectorI13ImGuiStyleModE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorI13ImGuiStyleModE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds %struct.ImGuiStyleMod, ptr %86, i64 %87
+  %88 = getelementptr inbounds [12 x i8], ptr %86, i64 %87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %88, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %89 = load i32, ptr %0, align 8, !tbaa !439
   %90 = add nsw i32 %89, 1
@@ -10398,7 +10363,7 @@ define dso_local void @_ZN5ImGui13PushStyleVarXEif(i32 noundef %0, float noundef
   br label %20
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds %struct.ImGuiDataVarInfo, ptr @_ZL13GStyleVarInfo, i64 %4
+  %10 = getelementptr inbounds [12 x i8], ptr @_ZL13GStyleVarInfo, i64 %4
   %11 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 3016
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -10438,7 +10403,7 @@ define dso_local void @_ZN5ImGui13PushStyleVarYEif(i32 noundef %0, float noundef
   br label %21
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds %struct.ImGuiDataVarInfo, ptr @_ZL13GStyleVarInfo, i64 %4
+  %10 = getelementptr inbounds [12 x i8], ptr @_ZL13GStyleVarInfo, i64 %4
   %11 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 3016
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -10479,7 +10444,7 @@ define dso_local void @_ZN5ImGui12PushStyleVarEiRK6ImVec2(i32 noundef %0, ptr no
   br label %21
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds %struct.ImGuiDataVarInfo, ptr @_ZL13GStyleVarInfo, i64 %4
+  %10 = getelementptr inbounds [12 x i8], ptr @_ZL13GStyleVarInfo, i64 %4
   %11 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 3016
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -10535,11 +10500,11 @@ define dso_local void @_ZN5ImGui11PopStyleVarEi(i32 noundef %0) local_unnamed_ad
 15:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %.121 = phi i32 [ %.0, %.lr.ph ], [ %40, %38 ]
-  %16 = getelementptr %struct.ImGuiStyleMod, ptr %12, i64 %indvars.iv
+  %16 = getelementptr [12 x i8], ptr %12, i64 %indvars.iv
   %17 = getelementptr i8, ptr %16, i64 -12
   %18 = load i32, ptr %17, align 4, !tbaa !437
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.ImGuiDataVarInfo, ptr @_ZL13GStyleVarInfo, i64 %19
+  %20 = getelementptr inbounds [12 x i8], ptr @_ZL13GStyleVarInfo, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 4, !tbaa !435
   %23 = zext i32 %22 to i64
@@ -10589,7 +10554,7 @@ define dso_local noundef nonnull ptr @_ZN5ImGui17GetStyleColorNameEi(i32 noundef
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5ImGui17GetStyleColorNameEi, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5ImGui17GetStyleColorNameEi, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -12461,7 +12426,7 @@ define dso_local noundef ptr @_ZN5ImGui13CreateContextEP11ImFontAtlas(ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 10016
   %13 = load i16, ptr %12, align 8, !tbaa !212
   %14 = sext i16 %13 to i64
-  %15 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %16, %10
   br i1 %.not.i.i, label %._crit_edge, label %18
@@ -12479,7 +12444,7 @@ define dso_local noundef ptr @_ZN5ImGui13CreateContextEP11ImFontAtlas(ptr nounde
   %22 = trunc nsw i32 %21 to i16
   store i16 %22, ptr %12, align 4, !tbaa !212
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %11, i64 %23
   store i32 %10, ptr %24, align 4, !tbaa !213
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 6
   store i16 0, ptr %25, align 2, !tbaa !216
@@ -12490,7 +12455,7 @@ define dso_local noundef ptr @_ZN5ImGui13CreateContextEP11ImFontAtlas(ptr nounde
 27:                                               ; preds = %._crit_edge, %18
   %28 = phi i16 [ 1, %18 ], [ %17, %._crit_edge ]
   %29 = phi i64 [ %23, %18 ], [ %14, %._crit_edge ]
-  %30 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %11, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i16 %28, ptr %31, align 4, !tbaa !215
   %32 = load i32, ptr %8, align 4, !tbaa !217
@@ -12536,7 +12501,7 @@ define dso_local void @_ZN5ImGui10InitializeEv() local_unnamed_addr #0 personali
   %8 = and i32 %.344.i, 255
   %9 = xor i32 %8, %6
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !221
   %13 = xor i32 %7, %12
   %exitcond = icmp eq i64 %.13043.i.add, 6
@@ -12566,12 +12531,12 @@ _Z9ImHashStrPKcmj.exit:                           ; preds = %.lr.ph.i
 
 24:                                               ; preds = %24, %_Z9ImHashStrPKcmj.exit
   %indvars.iv.i = phi i64 [ 0, %_Z9ImHashStrPKcmj.exit ], [ %indvars.iv.next.i, %24 ]
-  %25 = getelementptr inbounds nuw %struct.ImGuiLocEntry, ptr @_ZL24GLocalizationEntriesEnUS, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [16 x i8], ptr @_ZL24GLocalizationEntriesEnUS, i64 %indvars.iv.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !493
   %28 = load i32, ptr %25, align 16, !tbaa !496
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %23, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %23, i64 %29
   store ptr %27, ptr %30, align 8, !tbaa !255
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
@@ -12602,7 +12567,7 @@ _ZN5ImGui23LocalizeRegisterEntriesEPK13ImGuiLocEntryi.exit: ; preds = %24
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 10016
   %45 = load i16, ptr %44, align 8, !tbaa !212
   %46 = sext i16 %45 to i64
-  %47 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %43, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %43, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %48, %42
   br i1 %.not.i.i, label %._crit_edge, label %50
@@ -12620,7 +12585,7 @@ _ZN5ImGui23LocalizeRegisterEntriesEPK13ImGuiLocEntryi.exit: ; preds = %24
   %54 = trunc nsw i32 %53 to i16
   store i16 %54, ptr %44, align 4, !tbaa !212
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %43, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %43, i64 %55
   store i32 %42, ptr %56, align 4, !tbaa !213
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 6
   store i16 0, ptr %57, align 2, !tbaa !216
@@ -12631,7 +12596,7 @@ _ZN5ImGui23LocalizeRegisterEntriesEPK13ImGuiLocEntryi.exit: ; preds = %24
 59:                                               ; preds = %._crit_edge, %50
   %60 = phi i16 [ 1, %50 ], [ %49, %._crit_edge ]
   %61 = phi i64 [ %55, %50 ], [ %46, %._crit_edge ]
-  %62 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %43, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %43, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i16 %60, ptr %63, align 4, !tbaa !215
   %64 = load i32, ptr %40, align 4, !tbaa !217
@@ -12755,7 +12720,7 @@ _ZN8ImVectorIcE6resizeEiRKc.exit:                 ; preds = %90, %85
   %114 = shl nuw i32 1, %113
   %115 = ashr i32 %112, 5
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds i32, ptr %93, i64 %116
+  %117 = getelementptr inbounds [4 x i8], ptr %93, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !221
   %119 = or i32 %118, %114
   store i32 %119, ptr %117, align 4, !tbaa !221
@@ -12793,7 +12758,7 @@ define dso_local void @_ZN5ImGui14DestroyContextEP12ImGuiContext(ptr noundef %0)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 10016
   %12 = load i16, ptr %11, align 8, !tbaa !212
   %13 = sext i16 %12 to i64
-  %14 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %15, %9
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %17
@@ -12811,7 +12776,7 @@ define dso_local void @_ZN5ImGui14DestroyContextEP12ImGuiContext(ptr noundef %0)
   %21 = trunc nsw i32 %20 to i16
   store i16 %21, ptr %11, align 4, !tbaa !212
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %10, i64 %22
   store i32 %9, ptr %23, align 4, !tbaa !213
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 6
   store i16 0, ptr %24, align 2, !tbaa !216
@@ -12822,7 +12787,7 @@ define dso_local void @_ZN5ImGui14DestroyContextEP12ImGuiContext(ptr noundef %0)
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %17, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %26 = phi i16 [ 1, %17 ], [ %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %27 = phi i64 [ %22, %17 ], [ %13, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %10, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 6
   store i16 %26, ptr %29, align 2, !tbaa !216
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 10012
@@ -12890,7 +12855,7 @@ define dso_local void @_ZN5ImGui8ShutdownEv() local_unnamed_addr #0 {
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 10016
   %28 = load i16, ptr %27, align 8, !tbaa !212
   %29 = sext i16 %28 to i64
-  %30 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %26, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %26, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %31, %25
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %33
@@ -12908,7 +12873,7 @@ define dso_local void @_ZN5ImGui8ShutdownEv() local_unnamed_addr #0 {
   %37 = trunc nsw i32 %36 to i16
   store i16 %37, ptr %27, align 4, !tbaa !212
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %26, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %26, i64 %38
   store i32 %25, ptr %39, align 4, !tbaa !213
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 6
   store i16 0, ptr %40, align 2, !tbaa !216
@@ -12919,7 +12884,7 @@ define dso_local void @_ZN5ImGui8ShutdownEv() local_unnamed_addr #0 {
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %33, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %42 = phi i16 [ 1, %33 ], [ %32, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %43 = phi i64 [ %38, %33 ], [ %29, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %44 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %26, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %26, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 6
   store i16 %42, ptr %45, align 2, !tbaa !216
   %46 = getelementptr inbounds nuw i8, ptr %22, i64 10012
@@ -12957,7 +12922,7 @@ _Z9IM_DELETEI11ImFontAtlasEvPT_.exit:             ; preds = %20, %_ZN5ImGui14Deb
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 10016
   %63 = load i16, ptr %62, align 8, !tbaa !212
   %64 = sext i16 %63 to i64
-  %65 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %61, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %61, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !213
   %.not.i.i.i63 = icmp eq i32 %66, %60
   br i1 %.not.i.i.i63, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i66, label %68
@@ -12975,7 +12940,7 @@ _Z9IM_DELETEI11ImFontAtlasEvPT_.exit:             ; preds = %20, %_ZN5ImGui14Deb
   %72 = trunc nsw i32 %71 to i16
   store i16 %72, ptr %62, align 4, !tbaa !212
   %73 = sext i32 %71 to i64
-  %74 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %61, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %61, i64 %73
   store i32 %60, ptr %74, align 4, !tbaa !213
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 6
   store i16 0, ptr %75, align 2, !tbaa !216
@@ -12986,7 +12951,7 @@ _Z9IM_DELETEI11ImFontAtlasEvPT_.exit:             ; preds = %20, %_ZN5ImGui14Deb
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i64: ; preds = %68, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i66
   %77 = phi i16 [ 1, %68 ], [ %67, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i66 ]
   %78 = phi i64 [ %73, %68 ], [ %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i66 ]
-  %79 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %61, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %61, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 6
   store i16 %77, ptr %80, align 2, !tbaa !216
   %81 = getelementptr inbounds nuw i8, ptr %57, i64 10012
@@ -13076,7 +13041,7 @@ _ZN5ImGui16CallContextHooksEP12ImGuiContext20ImGuiContextHookType.exit: ; preds 
   %122 = getelementptr inbounds nuw i8, ptr %117, i64 10016
   %123 = load i16, ptr %122, align 8, !tbaa !212
   %124 = sext i16 %123 to i64
-  %125 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %121, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %121, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !213
   %.not.i.i.i72 = icmp eq i32 %126, %120
   br i1 %.not.i.i.i72, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i75, label %128
@@ -13094,7 +13059,7 @@ _ZN5ImGui16CallContextHooksEP12ImGuiContext20ImGuiContextHookType.exit: ; preds 
   %132 = trunc nsw i32 %131 to i16
   store i16 %132, ptr %122, align 4, !tbaa !212
   %133 = sext i32 %131 to i64
-  %134 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %121, i64 %133
+  %134 = getelementptr inbounds [8 x i8], ptr %121, i64 %133
   store i32 %120, ptr %134, align 4, !tbaa !213
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 6
   store i16 0, ptr %135, align 2, !tbaa !216
@@ -13105,7 +13070,7 @@ _ZN5ImGui16CallContextHooksEP12ImGuiContext20ImGuiContextHookType.exit: ; preds 
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i73: ; preds = %128, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i75
   %137 = phi i16 [ 1, %128 ], [ %127, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i75 ]
   %138 = phi i64 [ %133, %128 ], [ %124, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i75 ]
-  %139 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %121, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr %121, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 6
   store i16 %137, ptr %140, align 2, !tbaa !216
   %141 = getelementptr inbounds nuw i8, ptr %117, i64 10012
@@ -13143,7 +13108,7 @@ _ZN8ImVectorIP11ImGuiWindowE5clearEv.exit:        ; preds = %_ZN5ImGui16CallCont
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 10016
   %157 = load i16, ptr %156, align 8, !tbaa !212
   %158 = sext i16 %157 to i64
-  %159 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %155, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %155, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !213
   %.not.i.i.i80 = icmp eq i32 %160, %154
   br i1 %.not.i.i.i80, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i83, label %162
@@ -13161,7 +13126,7 @@ _ZN8ImVectorIP11ImGuiWindowE5clearEv.exit:        ; preds = %_ZN5ImGui16CallCont
   %166 = trunc nsw i32 %165 to i16
   store i16 %166, ptr %156, align 4, !tbaa !212
   %167 = sext i32 %165 to i64
-  %168 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %155, i64 %167
+  %168 = getelementptr inbounds [8 x i8], ptr %155, i64 %167
   store i32 %154, ptr %168, align 4, !tbaa !213
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 6
   store i16 0, ptr %169, align 2, !tbaa !216
@@ -13172,7 +13137,7 @@ _ZN8ImVectorIP11ImGuiWindowE5clearEv.exit:        ; preds = %_ZN5ImGui16CallCont
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i81: ; preds = %162, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i83
   %171 = phi i16 [ 1, %162 ], [ %161, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i83 ]
   %172 = phi i64 [ %167, %162 ], [ %158, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i83 ]
-  %173 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %155, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %155, i64 %172
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 6
   store i16 %171, ptr %174, align 2, !tbaa !216
   %175 = getelementptr inbounds nuw i8, ptr %151, i64 10012
@@ -13212,7 +13177,7 @@ _ZN8ImVectorIP11ImGuiWindowE5clearEv.exit86:      ; preds = %_ZN8ImVectorIP11ImG
   %191 = getelementptr inbounds nuw i8, ptr %186, i64 10016
   %192 = load i16, ptr %191, align 8, !tbaa !212
   %193 = sext i16 %192 to i64
-  %194 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %190, i64 %193
+  %194 = getelementptr inbounds [8 x i8], ptr %190, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !213
   %.not.i.i.i89 = icmp eq i32 %195, %189
   br i1 %.not.i.i.i89, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i92, label %197
@@ -13230,7 +13195,7 @@ _ZN8ImVectorIP11ImGuiWindowE5clearEv.exit86:      ; preds = %_ZN8ImVectorIP11ImG
   %201 = trunc nsw i32 %200 to i16
   store i16 %201, ptr %191, align 4, !tbaa !212
   %202 = sext i32 %200 to i64
-  %203 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %190, i64 %202
+  %203 = getelementptr inbounds [8 x i8], ptr %190, i64 %202
   store i32 %189, ptr %203, align 4, !tbaa !213
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 6
   store i16 0, ptr %204, align 2, !tbaa !216
@@ -13241,7 +13206,7 @@ _ZN8ImVectorIP11ImGuiWindowE5clearEv.exit86:      ; preds = %_ZN8ImVectorIP11ImG
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i90: ; preds = %197, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i92
   %206 = phi i16 [ 1, %197 ], [ %196, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i92 ]
   %207 = phi i64 [ %202, %197 ], [ %193, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i92 ]
-  %208 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %190, i64 %207
+  %208 = getelementptr inbounds [8 x i8], ptr %190, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 6
   store i16 %206, ptr %209, align 2, !tbaa !216
   %210 = getelementptr inbounds nuw i8, ptr %186, i64 10012
@@ -13279,7 +13244,7 @@ _ZN8ImVectorI20ImGuiWindowStackDataE5clearEv.exit: ; preds = %_ZN8ImVectorIP11Im
   %225 = getelementptr inbounds nuw i8, ptr %220, i64 10016
   %226 = load i16, ptr %225, align 8, !tbaa !212
   %227 = sext i16 %226 to i64
-  %228 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %224, i64 %227
+  %228 = getelementptr inbounds [8 x i8], ptr %224, i64 %227
   %229 = load i32, ptr %228, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %229, %223
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %231
@@ -13297,7 +13262,7 @@ _ZN8ImVectorI20ImGuiWindowStackDataE5clearEv.exit: ; preds = %_ZN8ImVectorIP11Im
   %235 = trunc nsw i32 %234 to i16
   store i16 %235, ptr %225, align 4, !tbaa !212
   %236 = sext i32 %234 to i64
-  %237 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %224, i64 %236
+  %237 = getelementptr inbounds [8 x i8], ptr %224, i64 %236
   store i32 %223, ptr %237, align 4, !tbaa !213
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 6
   store i16 0, ptr %238, align 2, !tbaa !216
@@ -13308,7 +13273,7 @@ _ZN8ImVectorI20ImGuiWindowStackDataE5clearEv.exit: ; preds = %_ZN8ImVectorIP11Im
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %231, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %240 = phi i16 [ 1, %231 ], [ %230, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %241 = phi i64 [ %236, %231 ], [ %227, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %242 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %224, i64 %241
+  %242 = getelementptr inbounds [8 x i8], ptr %224, i64 %241
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 6
   store i16 %240, ptr %243, align 2, !tbaa !216
   %244 = getelementptr inbounds nuw i8, ptr %220, i64 10012
@@ -13358,7 +13323,7 @@ _ZN12ImGuiStorage5ClearEv.exit:                   ; preds = %_ZN8ImVectorI20ImGu
   %265 = getelementptr inbounds nuw i8, ptr %260, i64 10016
   %266 = load i16, ptr %265, align 8, !tbaa !212
   %267 = sext i16 %266 to i64
-  %268 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %264, i64 %267
+  %268 = getelementptr inbounds [8 x i8], ptr %264, i64 %267
   %269 = load i32, ptr %268, align 4, !tbaa !213
   %.not.i.i.i97 = icmp eq i32 %269, %263
   br i1 %.not.i.i.i97, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i100, label %271
@@ -13376,7 +13341,7 @@ _ZN12ImGuiStorage5ClearEv.exit:                   ; preds = %_ZN8ImVectorI20ImGu
   %275 = trunc nsw i32 %274 to i16
   store i16 %275, ptr %265, align 4, !tbaa !212
   %276 = sext i32 %274 to i64
-  %277 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %264, i64 %276
+  %277 = getelementptr inbounds [8 x i8], ptr %264, i64 %276
   store i32 %263, ptr %277, align 4, !tbaa !213
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 6
   store i16 0, ptr %278, align 2, !tbaa !216
@@ -13387,7 +13352,7 @@ _ZN12ImGuiStorage5ClearEv.exit:                   ; preds = %_ZN8ImVectorI20ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i98: ; preds = %271, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i100
   %280 = phi i16 [ 1, %271 ], [ %270, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i100 ]
   %281 = phi i64 [ %276, %271 ], [ %267, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i100 ]
-  %282 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %264, i64 %281
+  %282 = getelementptr inbounds [8 x i8], ptr %264, i64 %281
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 6
   store i16 %280, ptr %283, align 2, !tbaa !216
   %284 = getelementptr inbounds nuw i8, ptr %260, i64 10012
@@ -13425,7 +13390,7 @@ _ZN8ImVectorI13ImGuiColorModE5clearEv.exit:       ; preds = %_ZN12ImGuiStorage5C
   %299 = getelementptr inbounds nuw i8, ptr %294, i64 10016
   %300 = load i16, ptr %299, align 8, !tbaa !212
   %301 = sext i16 %300 to i64
-  %302 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %298, i64 %301
+  %302 = getelementptr inbounds [8 x i8], ptr %298, i64 %301
   %303 = load i32, ptr %302, align 4, !tbaa !213
   %.not.i.i.i105 = icmp eq i32 %303, %297
   br i1 %.not.i.i.i105, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i108, label %305
@@ -13443,7 +13408,7 @@ _ZN8ImVectorI13ImGuiColorModE5clearEv.exit:       ; preds = %_ZN12ImGuiStorage5C
   %309 = trunc nsw i32 %308 to i16
   store i16 %309, ptr %299, align 4, !tbaa !212
   %310 = sext i32 %308 to i64
-  %311 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %298, i64 %310
+  %311 = getelementptr inbounds [8 x i8], ptr %298, i64 %310
   store i32 %297, ptr %311, align 4, !tbaa !213
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 6
   store i16 0, ptr %312, align 2, !tbaa !216
@@ -13454,7 +13419,7 @@ _ZN8ImVectorI13ImGuiColorModE5clearEv.exit:       ; preds = %_ZN12ImGuiStorage5C
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i106: ; preds = %305, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i108
   %314 = phi i16 [ 1, %305 ], [ %304, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i108 ]
   %315 = phi i64 [ %310, %305 ], [ %301, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i108 ]
-  %316 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %298, i64 %315
+  %316 = getelementptr inbounds [8 x i8], ptr %298, i64 %315
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 6
   store i16 %314, ptr %317, align 2, !tbaa !216
   %318 = getelementptr inbounds nuw i8, ptr %294, i64 10012
@@ -13492,7 +13457,7 @@ _ZN8ImVectorI13ImGuiStyleModE5clearEv.exit:       ; preds = %_ZN8ImVectorI13ImGu
   %333 = getelementptr inbounds nuw i8, ptr %328, i64 10016
   %334 = load i16, ptr %333, align 8, !tbaa !212
   %335 = sext i16 %334 to i64
-  %336 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %332, i64 %335
+  %336 = getelementptr inbounds [8 x i8], ptr %332, i64 %335
   %337 = load i32, ptr %336, align 4, !tbaa !213
   %.not.i.i.i113 = icmp eq i32 %337, %331
   br i1 %.not.i.i.i113, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i116, label %339
@@ -13510,7 +13475,7 @@ _ZN8ImVectorI13ImGuiStyleModE5clearEv.exit:       ; preds = %_ZN8ImVectorI13ImGu
   %343 = trunc nsw i32 %342 to i16
   store i16 %343, ptr %333, align 4, !tbaa !212
   %344 = sext i32 %342 to i64
-  %345 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %332, i64 %344
+  %345 = getelementptr inbounds [8 x i8], ptr %332, i64 %344
   store i32 %331, ptr %345, align 4, !tbaa !213
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 6
   store i16 0, ptr %346, align 2, !tbaa !216
@@ -13521,7 +13486,7 @@ _ZN8ImVectorI13ImGuiStyleModE5clearEv.exit:       ; preds = %_ZN8ImVectorI13ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i114: ; preds = %339, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i116
   %348 = phi i16 [ 1, %339 ], [ %338, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i116 ]
   %349 = phi i64 [ %344, %339 ], [ %335, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i116 ]
-  %350 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %332, i64 %349
+  %350 = getelementptr inbounds [8 x i8], ptr %332, i64 %349
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 6
   store i16 %348, ptr %351, align 2, !tbaa !216
   %352 = getelementptr inbounds nuw i8, ptr %328, i64 10012
@@ -13559,7 +13524,7 @@ _ZN8ImVectorIP6ImFontE5clearEv.exit:              ; preds = %_ZN8ImVectorI13ImGu
   %367 = getelementptr inbounds nuw i8, ptr %362, i64 10016
   %368 = load i16, ptr %367, align 8, !tbaa !212
   %369 = sext i16 %368 to i64
-  %370 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %366, i64 %369
+  %370 = getelementptr inbounds [8 x i8], ptr %366, i64 %369
   %371 = load i32, ptr %370, align 4, !tbaa !213
   %.not.i.i.i121 = icmp eq i32 %371, %365
   br i1 %.not.i.i.i121, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i124, label %373
@@ -13577,7 +13542,7 @@ _ZN8ImVectorIP6ImFontE5clearEv.exit:              ; preds = %_ZN8ImVectorI13ImGu
   %377 = trunc nsw i32 %376 to i16
   store i16 %377, ptr %367, align 4, !tbaa !212
   %378 = sext i32 %376 to i64
-  %379 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %366, i64 %378
+  %379 = getelementptr inbounds [8 x i8], ptr %366, i64 %378
   store i32 %365, ptr %379, align 4, !tbaa !213
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 6
   store i16 0, ptr %380, align 2, !tbaa !216
@@ -13588,7 +13553,7 @@ _ZN8ImVectorIP6ImFontE5clearEv.exit:              ; preds = %_ZN8ImVectorI13ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i122: ; preds = %373, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i124
   %382 = phi i16 [ 1, %373 ], [ %372, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i124 ]
   %383 = phi i64 [ %378, %373 ], [ %369, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i124 ]
-  %384 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %366, i64 %383
+  %384 = getelementptr inbounds [8 x i8], ptr %366, i64 %383
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 6
   store i16 %382, ptr %385, align 2, !tbaa !216
   %386 = getelementptr inbounds nuw i8, ptr %362, i64 10012
@@ -13626,7 +13591,7 @@ _ZN8ImVectorI14ImGuiPopupDataE5clearEv.exit:      ; preds = %_ZN8ImVectorIP6ImFo
   %401 = getelementptr inbounds nuw i8, ptr %396, i64 10016
   %402 = load i16, ptr %401, align 8, !tbaa !212
   %403 = sext i16 %402 to i64
-  %404 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %400, i64 %403
+  %404 = getelementptr inbounds [8 x i8], ptr %400, i64 %403
   %405 = load i32, ptr %404, align 4, !tbaa !213
   %.not.i.i.i129 = icmp eq i32 %405, %399
   br i1 %.not.i.i.i129, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i132, label %407
@@ -13644,7 +13609,7 @@ _ZN8ImVectorI14ImGuiPopupDataE5clearEv.exit:      ; preds = %_ZN8ImVectorIP6ImFo
   %411 = trunc nsw i32 %410 to i16
   store i16 %411, ptr %401, align 4, !tbaa !212
   %412 = sext i32 %410 to i64
-  %413 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %400, i64 %412
+  %413 = getelementptr inbounds [8 x i8], ptr %400, i64 %412
   store i32 %399, ptr %413, align 4, !tbaa !213
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 6
   store i16 0, ptr %414, align 2, !tbaa !216
@@ -13655,7 +13620,7 @@ _ZN8ImVectorI14ImGuiPopupDataE5clearEv.exit:      ; preds = %_ZN8ImVectorIP6ImFo
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i130: ; preds = %407, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i132
   %416 = phi i16 [ 1, %407 ], [ %406, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i132 ]
   %417 = phi i64 [ %412, %407 ], [ %403, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i132 ]
-  %418 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %400, i64 %417
+  %418 = getelementptr inbounds [8 x i8], ptr %400, i64 %417
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 6
   store i16 %416, ptr %419, align 2, !tbaa !216
   %420 = getelementptr inbounds nuw i8, ptr %396, i64 10012
@@ -13693,7 +13658,7 @@ _ZN8ImVectorI14ImGuiPopupDataE5clearEv.exit135:   ; preds = %_ZN8ImVectorI14ImGu
   %435 = getelementptr inbounds nuw i8, ptr %430, i64 10016
   %436 = load i16, ptr %435, align 8, !tbaa !212
   %437 = sext i16 %436 to i64
-  %438 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %434, i64 %437
+  %438 = getelementptr inbounds [8 x i8], ptr %434, i64 %437
   %439 = load i32, ptr %438, align 4, !tbaa !213
   %.not.i.i.i138 = icmp eq i32 %439, %433
   br i1 %.not.i.i.i138, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i141, label %441
@@ -13711,7 +13676,7 @@ _ZN8ImVectorI14ImGuiPopupDataE5clearEv.exit135:   ; preds = %_ZN8ImVectorI14ImGu
   %445 = trunc nsw i32 %444 to i16
   store i16 %445, ptr %435, align 4, !tbaa !212
   %446 = sext i32 %444 to i64
-  %447 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %434, i64 %446
+  %447 = getelementptr inbounds [8 x i8], ptr %434, i64 %446
   store i32 %433, ptr %447, align 4, !tbaa !213
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 6
   store i16 0, ptr %448, align 2, !tbaa !216
@@ -13722,7 +13687,7 @@ _ZN8ImVectorI14ImGuiPopupDataE5clearEv.exit135:   ; preds = %_ZN8ImVectorI14ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i139: ; preds = %441, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i141
   %450 = phi i16 [ 1, %441 ], [ %440, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i141 ]
   %451 = phi i64 [ %446, %441 ], [ %437, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i141 ]
-  %452 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %434, i64 %451
+  %452 = getelementptr inbounds [8 x i8], ptr %434, i64 %451
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 6
   store i16 %450, ptr %453, align 2, !tbaa !216
   %454 = getelementptr inbounds nuw i8, ptr %430, i64 10012
@@ -13764,7 +13729,7 @@ _ZN8ImVectorI22ImGuiTreeNodeStackDataE5clearEv.exit: ; preds = %_ZN8ImVectorI14I
   %471 = getelementptr inbounds nuw i8, ptr %466, i64 10016
   %472 = load i16, ptr %471, align 8, !tbaa !212
   %473 = sext i16 %472 to i64
-  %474 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %470, i64 %473
+  %474 = getelementptr inbounds [8 x i8], ptr %470, i64 %473
   %475 = load i32, ptr %474, align 4, !tbaa !213
   %.not.i.i.i146 = icmp eq i32 %475, %469
   br i1 %.not.i.i.i146, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i149, label %477
@@ -13782,7 +13747,7 @@ _ZN8ImVectorI22ImGuiTreeNodeStackDataE5clearEv.exit: ; preds = %_ZN8ImVectorI14I
   %481 = trunc nsw i32 %480 to i16
   store i16 %481, ptr %471, align 4, !tbaa !212
   %482 = sext i32 %480 to i64
-  %483 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %470, i64 %482
+  %483 = getelementptr inbounds [8 x i8], ptr %470, i64 %482
   store i32 %469, ptr %483, align 4, !tbaa !213
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 6
   store i16 0, ptr %484, align 2, !tbaa !216
@@ -13793,7 +13758,7 @@ _ZN8ImVectorI22ImGuiTreeNodeStackDataE5clearEv.exit: ; preds = %_ZN8ImVectorI14I
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i147: ; preds = %477, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i149
   %486 = phi i16 [ 1, %477 ], [ %476, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i149 ]
   %487 = phi i64 [ %482, %477 ], [ %473, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i149 ]
-  %488 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %470, i64 %487
+  %488 = getelementptr inbounds [8 x i8], ptr %470, i64 %487
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 6
   store i16 %486, ptr %489, align 2, !tbaa !216
   %490 = getelementptr inbounds nuw i8, ptr %466, i64 10012
@@ -13831,7 +13796,7 @@ _ZN8ImVectorI15ImGuiPtrOrIndexE5clearEv.exit:     ; preds = %_ZN8ImVectorI22ImGu
   %505 = getelementptr inbounds nuw i8, ptr %500, i64 10016
   %506 = load i16, ptr %505, align 8, !tbaa !212
   %507 = sext i16 %506 to i64
-  %508 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %504, i64 %507
+  %508 = getelementptr inbounds [8 x i8], ptr %504, i64 %507
   %509 = load i32, ptr %508, align 4, !tbaa !213
   %.not.i.i.i154 = icmp eq i32 %509, %503
   br i1 %.not.i.i.i154, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i157, label %511
@@ -13849,7 +13814,7 @@ _ZN8ImVectorI15ImGuiPtrOrIndexE5clearEv.exit:     ; preds = %_ZN8ImVectorI22ImGu
   %515 = trunc nsw i32 %514 to i16
   store i16 %515, ptr %505, align 4, !tbaa !212
   %516 = sext i32 %514 to i64
-  %517 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %504, i64 %516
+  %517 = getelementptr inbounds [8 x i8], ptr %504, i64 %516
   store i32 %503, ptr %517, align 4, !tbaa !213
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 6
   store i16 0, ptr %518, align 2, !tbaa !216
@@ -13860,7 +13825,7 @@ _ZN8ImVectorI15ImGuiPtrOrIndexE5clearEv.exit:     ; preds = %_ZN8ImVectorI22ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i155: ; preds = %511, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i157
   %520 = phi i16 [ 1, %511 ], [ %510, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i157 ]
   %521 = phi i64 [ %516, %511 ], [ %507, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i157 ]
-  %522 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %504, i64 %521
+  %522 = getelementptr inbounds [8 x i8], ptr %504, i64 %521
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 6
   store i16 %520, ptr %523, align 2, !tbaa !216
   %524 = getelementptr inbounds nuw i8, ptr %500, i64 10012
@@ -13911,7 +13876,7 @@ _ZN8ImVectorI20ImGuiShrinkWidthItemE5clearEv.exit: ; preds = %_ZN8ImVectorI15ImG
   %544 = getelementptr inbounds nuw i8, ptr %539, i64 10016
   %545 = load i16, ptr %544, align 8, !tbaa !212
   %546 = sext i16 %545 to i64
-  %547 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %543, i64 %546
+  %547 = getelementptr inbounds [8 x i8], ptr %543, i64 %546
   %548 = load i32, ptr %547, align 4, !tbaa !213
   %.not.i.i.i.i162 = icmp eq i32 %548, %542
   br i1 %.not.i.i.i.i162, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i165, label %550
@@ -13929,7 +13894,7 @@ _ZN8ImVectorI20ImGuiShrinkWidthItemE5clearEv.exit: ; preds = %_ZN8ImVectorI15ImG
   %554 = trunc nsw i32 %553 to i16
   store i16 %554, ptr %544, align 4, !tbaa !212
   %555 = sext i32 %553 to i64
-  %556 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %543, i64 %555
+  %556 = getelementptr inbounds [8 x i8], ptr %543, i64 %555
   store i32 %542, ptr %556, align 4, !tbaa !213
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 6
   store i16 0, ptr %557, align 2, !tbaa !216
@@ -13940,7 +13905,7 @@ _ZN8ImVectorI20ImGuiShrinkWidthItemE5clearEv.exit: ; preds = %_ZN8ImVectorI15ImG
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i163: ; preds = %550, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i165
   %559 = phi i16 [ 1, %550 ], [ %549, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i165 ]
   %560 = phi i64 [ %555, %550 ], [ %546, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i165 ]
-  %561 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %543, i64 %560
+  %561 = getelementptr inbounds [8 x i8], ptr %543, i64 %560
   %562 = getelementptr inbounds nuw i8, ptr %561, i64 6
   store i16 %559, ptr %562, align 2, !tbaa !216
   %563 = getelementptr inbounds nuw i8, ptr %539, i64 10012
@@ -13959,7 +13924,7 @@ _ZN5ImGui7MemFreeEPv.exit.i.i164:                 ; preds = %_ZN5ImGui14DebugAll
 568:                                              ; preds = %568, %.lr.ph.i168
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i168 ], [ %indvars.iv.next.i, %568 ]
   %569 = load ptr, ptr %534, align 8, !tbaa !547
-  %570 = getelementptr inbounds nuw %struct.ImGuiTableTempData, ptr %569, i64 %indvars.iv.i
+  %570 = getelementptr inbounds nuw [136 x i8], ptr %569, i64 %indvars.iv.i
   tail call void @_ZN18ImGuiTableTempDataD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %570) #44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %571 = load i32, ptr %531, align 8, !tbaa !546
@@ -13989,7 +13954,7 @@ _ZN8ImVectorI18ImGuiTableTempDataE14clear_destructEv.exit: ; preds = %._crit_edg
   %584 = getelementptr inbounds nuw i8, ptr %579, i64 10016
   %585 = load i16, ptr %584, align 8, !tbaa !212
   %586 = sext i16 %585 to i64
-  %587 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %583, i64 %586
+  %587 = getelementptr inbounds [8 x i8], ptr %583, i64 %586
   %588 = load i32, ptr %587, align 4, !tbaa !213
   %.not.i.i.i171 = icmp eq i32 %588, %582
   br i1 %.not.i.i.i171, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i174, label %590
@@ -14007,7 +13972,7 @@ _ZN8ImVectorI18ImGuiTableTempDataE14clear_destructEv.exit: ; preds = %._crit_edg
   %594 = trunc nsw i32 %593 to i16
   store i16 %594, ptr %584, align 4, !tbaa !212
   %595 = sext i32 %593 to i64
-  %596 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %583, i64 %595
+  %596 = getelementptr inbounds [8 x i8], ptr %583, i64 %595
   store i32 %582, ptr %596, align 4, !tbaa !213
   %597 = getelementptr inbounds nuw i8, ptr %596, i64 6
   store i16 0, ptr %597, align 2, !tbaa !216
@@ -14018,7 +13983,7 @@ _ZN8ImVectorI18ImGuiTableTempDataE14clear_destructEv.exit: ; preds = %._crit_edg
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i172: ; preds = %590, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i174
   %599 = phi i16 [ 1, %590 ], [ %589, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i174 ]
   %600 = phi i64 [ %595, %590 ], [ %586, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i174 ]
-  %601 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %583, i64 %600
+  %601 = getelementptr inbounds [8 x i8], ptr %583, i64 %600
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 6
   store i16 %599, ptr %602, align 2, !tbaa !216
   %603 = getelementptr inbounds nuw i8, ptr %579, i64 10012
@@ -14060,7 +14025,7 @@ _ZN8ImVectorI13ImDrawChannelE5clearEv.exit:       ; preds = %_ZN8ImVectorI18ImGu
   %620 = getelementptr inbounds nuw i8, ptr %615, i64 10016
   %621 = load i16, ptr %620, align 8, !tbaa !212
   %622 = sext i16 %621 to i64
-  %623 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %619, i64 %622
+  %623 = getelementptr inbounds [8 x i8], ptr %619, i64 %622
   %624 = load i32, ptr %623, align 4, !tbaa !213
   %.not.i.i.i179 = icmp eq i32 %624, %618
   br i1 %.not.i.i.i179, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i182, label %626
@@ -14078,7 +14043,7 @@ _ZN8ImVectorI13ImDrawChannelE5clearEv.exit:       ; preds = %_ZN8ImVectorI18ImGu
   %630 = trunc nsw i32 %629 to i16
   store i16 %630, ptr %620, align 4, !tbaa !212
   %631 = sext i32 %629 to i64
-  %632 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %619, i64 %631
+  %632 = getelementptr inbounds [8 x i8], ptr %619, i64 %631
   store i32 %618, ptr %632, align 4, !tbaa !213
   %633 = getelementptr inbounds nuw i8, ptr %632, i64 6
   store i16 0, ptr %633, align 2, !tbaa !216
@@ -14089,7 +14054,7 @@ _ZN8ImVectorI13ImDrawChannelE5clearEv.exit:       ; preds = %_ZN8ImVectorI18ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i180: ; preds = %626, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i182
   %635 = phi i16 [ 1, %626 ], [ %625, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i182 ]
   %636 = phi i64 [ %631, %626 ], [ %622, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i182 ]
-  %637 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %619, i64 %636
+  %637 = getelementptr inbounds [8 x i8], ptr %619, i64 %636
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 6
   store i16 %635, ptr %638, align 2, !tbaa !216
   %639 = getelementptr inbounds nuw i8, ptr %615, i64 10012
@@ -14127,7 +14092,7 @@ _ZN8ImVectorIcE5clearEv.exit:                     ; preds = %_ZN8ImVectorI13ImDr
   %654 = getelementptr inbounds nuw i8, ptr %649, i64 10016
   %655 = load i16, ptr %654, align 8, !tbaa !212
   %656 = sext i16 %655 to i64
-  %657 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %653, i64 %656
+  %657 = getelementptr inbounds [8 x i8], ptr %653, i64 %656
   %658 = load i32, ptr %657, align 4, !tbaa !213
   %.not.i.i.i187 = icmp eq i32 %658, %652
   br i1 %.not.i.i.i187, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i190, label %660
@@ -14145,7 +14110,7 @@ _ZN8ImVectorIcE5clearEv.exit:                     ; preds = %_ZN8ImVectorI13ImDr
   %664 = trunc nsw i32 %663 to i16
   store i16 %664, ptr %654, align 4, !tbaa !212
   %665 = sext i32 %663 to i64
-  %666 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %653, i64 %665
+  %666 = getelementptr inbounds [8 x i8], ptr %653, i64 %665
   store i32 %652, ptr %666, align 4, !tbaa !213
   %667 = getelementptr inbounds nuw i8, ptr %666, i64 6
   store i16 0, ptr %667, align 2, !tbaa !216
@@ -14156,7 +14121,7 @@ _ZN8ImVectorIcE5clearEv.exit:                     ; preds = %_ZN8ImVectorI13ImDr
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i188: ; preds = %660, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i190
   %669 = phi i16 [ 1, %660 ], [ %659, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i190 ]
   %670 = phi i64 [ %665, %660 ], [ %656, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i190 ]
-  %671 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %653, i64 %670
+  %671 = getelementptr inbounds [8 x i8], ptr %653, i64 %670
   %672 = getelementptr inbounds nuw i8, ptr %671, i64 6
   store i16 %669, ptr %672, align 2, !tbaa !216
   %673 = getelementptr inbounds nuw i8, ptr %649, i64 10012
@@ -14198,7 +14163,7 @@ _ZN8ImVectorIjE5clearEv.exit:                     ; preds = %_ZN8ImVectorIcE5cle
   %690 = getelementptr inbounds nuw i8, ptr %685, i64 10016
   %691 = load i16, ptr %690, align 8, !tbaa !212
   %692 = sext i16 %691 to i64
-  %693 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %689, i64 %692
+  %693 = getelementptr inbounds [8 x i8], ptr %689, i64 %692
   %694 = load i32, ptr %693, align 4, !tbaa !213
   %.not.i.i.i.i195 = icmp eq i32 %694, %688
   br i1 %.not.i.i.i.i195, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i198, label %696
@@ -14216,7 +14181,7 @@ _ZN8ImVectorIjE5clearEv.exit:                     ; preds = %_ZN8ImVectorIcE5cle
   %700 = trunc nsw i32 %699 to i16
   store i16 %700, ptr %690, align 4, !tbaa !212
   %701 = sext i32 %699 to i64
-  %702 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %689, i64 %701
+  %702 = getelementptr inbounds [8 x i8], ptr %689, i64 %701
   store i32 %688, ptr %702, align 4, !tbaa !213
   %703 = getelementptr inbounds nuw i8, ptr %702, i64 6
   store i16 0, ptr %703, align 2, !tbaa !216
@@ -14227,7 +14192,7 @@ _ZN8ImVectorIjE5clearEv.exit:                     ; preds = %_ZN8ImVectorIcE5cle
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i196: ; preds = %696, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i198
   %705 = phi i16 [ 1, %696 ], [ %695, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i198 ]
   %706 = phi i64 [ %701, %696 ], [ %692, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i198 ]
-  %707 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %689, i64 %706
+  %707 = getelementptr inbounds [8 x i8], ptr %689, i64 %706
   %708 = getelementptr inbounds nuw i8, ptr %707, i64 6
   store i16 %705, ptr %708, align 2, !tbaa !216
   %709 = getelementptr inbounds nuw i8, ptr %685, i64 10012
@@ -14265,7 +14230,7 @@ _ZN30ImGuiInputTextDeactivatedState15ClearFreeMemoryEv.exit: ; preds = %_ZN8ImVe
   %724 = getelementptr inbounds nuw i8, ptr %719, i64 10016
   %725 = load i16, ptr %724, align 8, !tbaa !212
   %726 = sext i16 %725 to i64
-  %727 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %723, i64 %726
+  %727 = getelementptr inbounds [8 x i8], ptr %723, i64 %726
   %728 = load i32, ptr %727, align 4, !tbaa !213
   %.not.i.i.i.i203 = icmp eq i32 %728, %722
   br i1 %.not.i.i.i.i203, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i206, label %730
@@ -14283,7 +14248,7 @@ _ZN30ImGuiInputTextDeactivatedState15ClearFreeMemoryEv.exit: ; preds = %_ZN8ImVe
   %734 = trunc nsw i32 %733 to i16
   store i16 %734, ptr %724, align 4, !tbaa !212
   %735 = sext i32 %733 to i64
-  %736 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %723, i64 %735
+  %736 = getelementptr inbounds [8 x i8], ptr %723, i64 %735
   store i32 %722, ptr %736, align 4, !tbaa !213
   %737 = getelementptr inbounds nuw i8, ptr %736, i64 6
   store i16 0, ptr %737, align 2, !tbaa !216
@@ -14294,7 +14259,7 @@ _ZN30ImGuiInputTextDeactivatedState15ClearFreeMemoryEv.exit: ; preds = %_ZN8ImVe
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i204: ; preds = %730, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i206
   %739 = phi i16 [ 1, %730 ], [ %729, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i206 ]
   %740 = phi i64 [ %735, %730 ], [ %726, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i206 ]
-  %741 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %723, i64 %740
+  %741 = getelementptr inbounds [8 x i8], ptr %723, i64 %740
   %742 = getelementptr inbounds nuw i8, ptr %741, i64 6
   store i16 %739, ptr %742, align 2, !tbaa !216
   %743 = getelementptr inbounds nuw i8, ptr %719, i64 10012
@@ -14332,7 +14297,7 @@ _ZN13ImChunkStreamI19ImGuiWindowSettingsE5clearEv.exit: ; preds = %_ZN30ImGuiInp
   %758 = getelementptr inbounds nuw i8, ptr %753, i64 10016
   %759 = load i16, ptr %758, align 8, !tbaa !212
   %760 = sext i16 %759 to i64
-  %761 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %757, i64 %760
+  %761 = getelementptr inbounds [8 x i8], ptr %757, i64 %760
   %762 = load i32, ptr %761, align 4, !tbaa !213
   %.not.i.i.i211 = icmp eq i32 %762, %756
   br i1 %.not.i.i.i211, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i214, label %764
@@ -14350,7 +14315,7 @@ _ZN13ImChunkStreamI19ImGuiWindowSettingsE5clearEv.exit: ; preds = %_ZN30ImGuiInp
   %768 = trunc nsw i32 %767 to i16
   store i16 %768, ptr %758, align 4, !tbaa !212
   %769 = sext i32 %767 to i64
-  %770 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %757, i64 %769
+  %770 = getelementptr inbounds [8 x i8], ptr %757, i64 %769
   store i32 %756, ptr %770, align 4, !tbaa !213
   %771 = getelementptr inbounds nuw i8, ptr %770, i64 6
   store i16 0, ptr %771, align 2, !tbaa !216
@@ -14361,7 +14326,7 @@ _ZN13ImChunkStreamI19ImGuiWindowSettingsE5clearEv.exit: ; preds = %_ZN30ImGuiInp
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i212: ; preds = %764, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i214
   %773 = phi i16 [ 1, %764 ], [ %763, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i214 ]
   %774 = phi i64 [ %769, %764 ], [ %760, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i214 ]
-  %775 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %757, i64 %774
+  %775 = getelementptr inbounds [8 x i8], ptr %757, i64 %774
   %776 = getelementptr inbounds nuw i8, ptr %775, i64 6
   store i16 %773, ptr %776, align 2, !tbaa !216
   %777 = getelementptr inbounds nuw i8, ptr %753, i64 10012
@@ -14418,7 +14383,7 @@ _ZN8ImVectorI20ImGuiSettingsHandlerE5clearEv.exit: ; preds = %_ZN13ImChunkStream
   %800 = getelementptr inbounds nuw i8, ptr %795, i64 10016
   %801 = load i16, ptr %800, align 8, !tbaa !212
   %802 = sext i16 %801 to i64
-  %803 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %799, i64 %802
+  %803 = getelementptr inbounds [8 x i8], ptr %799, i64 %802
   %804 = load i32, ptr %803, align 4, !tbaa !213
   %.not.i.i.i.i219 = icmp eq i32 %804, %798
   br i1 %.not.i.i.i.i219, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i222, label %806
@@ -14436,7 +14401,7 @@ _ZN8ImVectorI20ImGuiSettingsHandlerE5clearEv.exit: ; preds = %_ZN13ImChunkStream
   %810 = trunc nsw i32 %809 to i16
   store i16 %810, ptr %800, align 4, !tbaa !212
   %811 = sext i32 %809 to i64
-  %812 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %799, i64 %811
+  %812 = getelementptr inbounds [8 x i8], ptr %799, i64 %811
   store i32 %798, ptr %812, align 4, !tbaa !213
   %813 = getelementptr inbounds nuw i8, ptr %812, i64 6
   store i16 0, ptr %813, align 2, !tbaa !216
@@ -14447,7 +14412,7 @@ _ZN8ImVectorI20ImGuiSettingsHandlerE5clearEv.exit: ; preds = %_ZN13ImChunkStream
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i220: ; preds = %806, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i222
   %815 = phi i16 [ 1, %806 ], [ %805, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i222 ]
   %816 = phi i64 [ %811, %806 ], [ %802, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i222 ]
-  %817 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %799, i64 %816
+  %817 = getelementptr inbounds [8 x i8], ptr %799, i64 %816
   %818 = getelementptr inbounds nuw i8, ptr %817, i64 6
   store i16 %815, ptr %818, align 2, !tbaa !216
   %819 = getelementptr inbounds nuw i8, ptr %795, i64 10012
@@ -14485,7 +14450,7 @@ _ZN15ImGuiTextBuffer5clearEv.exit:                ; preds = %789, %_ZN5ImGui7Mem
   %834 = getelementptr inbounds nuw i8, ptr %829, i64 10016
   %835 = load i16, ptr %834, align 8, !tbaa !212
   %836 = sext i16 %835 to i64
-  %837 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %833, i64 %836
+  %837 = getelementptr inbounds [8 x i8], ptr %833, i64 %836
   %838 = load i32, ptr %837, align 4, !tbaa !213
   %.not.i.i.i.i227 = icmp eq i32 %838, %832
   br i1 %.not.i.i.i.i227, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i230, label %840
@@ -14503,7 +14468,7 @@ _ZN15ImGuiTextBuffer5clearEv.exit:                ; preds = %789, %_ZN5ImGui7Mem
   %844 = trunc nsw i32 %843 to i16
   store i16 %844, ptr %834, align 4, !tbaa !212
   %845 = sext i32 %843 to i64
-  %846 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %833, i64 %845
+  %846 = getelementptr inbounds [8 x i8], ptr %833, i64 %845
   store i32 %832, ptr %846, align 4, !tbaa !213
   %847 = getelementptr inbounds nuw i8, ptr %846, i64 6
   store i16 0, ptr %847, align 2, !tbaa !216
@@ -14514,7 +14479,7 @@ _ZN15ImGuiTextBuffer5clearEv.exit:                ; preds = %789, %_ZN5ImGui7Mem
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i228: ; preds = %840, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i230
   %849 = phi i16 [ 1, %840 ], [ %839, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i230 ]
   %850 = phi i64 [ %845, %840 ], [ %836, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i230 ]
-  %851 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %833, i64 %850
+  %851 = getelementptr inbounds [8 x i8], ptr %833, i64 %850
   %852 = getelementptr inbounds nuw i8, ptr %851, i64 6
   store i16 %849, ptr %852, align 2, !tbaa !216
   %853 = getelementptr inbounds nuw i8, ptr %829, i64 10012
@@ -14552,7 +14517,7 @@ _ZN15ImGuiTextBuffer5clearEv.exit233:             ; preds = %_ZN15ImGuiTextBuffe
   %868 = getelementptr inbounds nuw i8, ptr %863, i64 10016
   %869 = load i16, ptr %868, align 8, !tbaa !212
   %870 = sext i16 %869 to i64
-  %871 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %867, i64 %870
+  %871 = getelementptr inbounds [8 x i8], ptr %867, i64 %870
   %872 = load i32, ptr %871, align 4, !tbaa !213
   %.not.i.i.i.i236 = icmp eq i32 %872, %866
   br i1 %.not.i.i.i.i236, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i239, label %874
@@ -14570,7 +14535,7 @@ _ZN15ImGuiTextBuffer5clearEv.exit233:             ; preds = %_ZN15ImGuiTextBuffe
   %878 = trunc nsw i32 %877 to i16
   store i16 %878, ptr %868, align 4, !tbaa !212
   %879 = sext i32 %877 to i64
-  %880 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %867, i64 %879
+  %880 = getelementptr inbounds [8 x i8], ptr %867, i64 %879
   store i32 %866, ptr %880, align 4, !tbaa !213
   %881 = getelementptr inbounds nuw i8, ptr %880, i64 6
   store i16 0, ptr %881, align 2, !tbaa !216
@@ -14581,7 +14546,7 @@ _ZN15ImGuiTextBuffer5clearEv.exit233:             ; preds = %_ZN15ImGuiTextBuffe
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i237: ; preds = %874, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i239
   %883 = phi i16 [ 1, %874 ], [ %873, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i239 ]
   %884 = phi i64 [ %879, %874 ], [ %870, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i239 ]
-  %885 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %867, i64 %884
+  %885 = getelementptr inbounds [8 x i8], ptr %867, i64 %884
   %886 = getelementptr inbounds nuw i8, ptr %885, i64 6
   store i16 %883, ptr %886, align 2, !tbaa !216
   %887 = getelementptr inbounds nuw i8, ptr %863, i64 10012
@@ -14675,9 +14640,9 @@ define dso_local void @_ZN12ImGuiContextC2EP11ImFontAtlas(ptr noundef nonnull al
 
 34:                                               ; preds = %34, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %34 ]
-  %35 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   store float -1.000000e+00, ptr %35, align 4, !tbaa !81
-  %36 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.i
   store float -1.000000e+00, ptr %36, align 4, !tbaa !81
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
@@ -14685,7 +14650,7 @@ define dso_local void @_ZN12ImGuiContextC2EP11ImFontAtlas(ptr noundef nonnull al
 
 37:                                               ; preds = %37, %.preheader.i
   %indvars.iv24.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next25.i, %37 ]
-  %38 = getelementptr inbounds nuw %struct.ImGuiKeyData, ptr %33, i64 %indvars.iv24.i
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv24.i
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store float -1.000000e+00, ptr %39, align 4, !tbaa !87
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -15102,7 +15067,7 @@ _ZN10ImGuiStyleC2Ev.exit:                         ; preds = %_ZN7ImGuiIOC2Ev.exi
   %248 = getelementptr inbounds nuw i8, ptr %242, i64 10016
   %249 = load i16, ptr %248, align 8, !tbaa !212
   %250 = sext i16 %249 to i64
-  %251 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %247, i64 %250
+  %251 = getelementptr inbounds [8 x i8], ptr %247, i64 %250
   %252 = load i32, ptr %251, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %252, %246
   br i1 %.not.i.i, label %._crit_edge, label %254
@@ -15120,7 +15085,7 @@ _ZN10ImGuiStyleC2Ev.exit:                         ; preds = %_ZN7ImGuiIOC2Ev.exi
   %258 = trunc nsw i32 %257 to i16
   store i16 %258, ptr %248, align 4, !tbaa !212
   %259 = sext i32 %257 to i64
-  %260 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %247, i64 %259
+  %260 = getelementptr inbounds [8 x i8], ptr %247, i64 %259
   store i32 %246, ptr %260, align 4, !tbaa !213
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 6
   store i16 0, ptr %261, align 2, !tbaa !216
@@ -15131,7 +15096,7 @@ _ZN10ImGuiStyleC2Ev.exit:                         ; preds = %_ZN7ImGuiIOC2Ev.exi
 263:                                              ; preds = %._crit_edge, %254
   %264 = phi i16 [ 1, %254 ], [ %253, %._crit_edge ]
   %265 = phi i64 [ %259, %254 ], [ %250, %._crit_edge ]
-  %266 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %247, i64 %265
+  %266 = getelementptr inbounds [8 x i8], ptr %247, i64 %265
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 4
   store i16 %264, ptr %267, align 4, !tbaa !215
   %268 = load i32, ptr %244, align 4, !tbaa !217
@@ -15512,7 +15477,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull alig
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -15530,7 +15495,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull alig
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -15541,7 +15506,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIcED2Ev(ptr noundef nonnull alig
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -15586,7 +15551,7 @@ define linkonce_odr dso_local void @_ZN16ImGuiIDStackToolD2Ev(ptr noundef nonnul
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %16
@@ -15604,7 +15569,7 @@ define linkonce_odr dso_local void @_ZN16ImGuiIDStackToolD2Ev(ptr noundef nonnul
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -15615,7 +15580,7 @@ define linkonce_odr dso_local void @_ZN16ImGuiIDStackToolD2Ev(ptr noundef nonnul
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -15660,7 +15625,7 @@ define linkonce_odr dso_local void @_ZN14ImGuiTextIndexD2Ev(ptr noundef nonnull 
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %16
@@ -15678,7 +15643,7 @@ define linkonce_odr dso_local void @_ZN14ImGuiTextIndexD2Ev(ptr noundef nonnull 
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -15689,7 +15654,7 @@ define linkonce_odr dso_local void @_ZN14ImGuiTextIndexD2Ev(ptr noundef nonnull 
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -15734,7 +15699,7 @@ define linkonce_odr dso_local void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %16
@@ -15752,7 +15717,7 @@ define linkonce_odr dso_local void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -15763,7 +15728,7 @@ define linkonce_odr dso_local void @_ZN15ImGuiTextBufferD2Ev(ptr noundef nonnull
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -15808,7 +15773,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI16ImGuiContextHookED2Ev(ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -15826,7 +15791,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI16ImGuiContextHookED2Ev(ptr nou
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -15837,7 +15802,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI16ImGuiContextHookED2Ev(ptr nou
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -15882,7 +15847,7 @@ define linkonce_odr dso_local void @_ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %16
@@ -15900,7 +15865,7 @@ define linkonce_odr dso_local void @_ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -15911,7 +15876,7 @@ define linkonce_odr dso_local void @_ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -15956,7 +15921,7 @@ define linkonce_odr dso_local void @_ZN13ImChunkStreamI19ImGuiWindowSettingsED2E
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %16
@@ -15974,7 +15939,7 @@ define linkonce_odr dso_local void @_ZN13ImChunkStreamI19ImGuiWindowSettingsED2E
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -15985,7 +15950,7 @@ define linkonce_odr dso_local void @_ZN13ImChunkStreamI19ImGuiWindowSettingsED2E
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -16030,7 +15995,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI20ImGuiSettingsHandlerED2Ev(ptr
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -16048,7 +16013,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI20ImGuiSettingsHandlerED2Ev(ptr
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -16059,7 +16024,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI20ImGuiSettingsHandlerED2Ev(ptr
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -16104,7 +16069,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull alig
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -16122,7 +16087,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull alig
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -16133,7 +16098,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIjED2Ev(ptr noundef nonnull alig
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -16181,7 +16146,7 @@ define linkonce_odr dso_local void @_ZN30ImGuiInputTextDeactivatedStateD2Ev(ptr 
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %16
@@ -16199,7 +16164,7 @@ define linkonce_odr dso_local void @_ZN30ImGuiInputTextDeactivatedStateD2Ev(ptr 
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -16210,7 +16175,7 @@ define linkonce_odr dso_local void @_ZN30ImGuiInputTextDeactivatedStateD2Ev(ptr 
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -16262,7 +16227,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI21ImGuiMultiSelectStateED2Ev(ptr 
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 10016
   %12 = load i16, ptr %11, align 8, !tbaa !212
   %13 = sext i16 %12 to i64
-  %14 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %15, %9
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %17
@@ -16280,7 +16245,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI21ImGuiMultiSelectStateED2Ev(ptr 
   %21 = trunc nsw i32 %20 to i16
   store i16 %21, ptr %11, align 4, !tbaa !212
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %10, i64 %22
   store i32 %9, ptr %23, align 4, !tbaa !213
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 6
   store i16 0, ptr %24, align 2, !tbaa !216
@@ -16291,7 +16256,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI21ImGuiMultiSelectStateED2Ev(ptr 
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %17, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %26 = phi i16 [ 1, %17 ], [ %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %27 = phi i64 [ %22, %17 ], [ %13, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %10, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 6
   store i16 %26, ptr %29, align 2, !tbaa !216
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 10012
@@ -16331,7 +16296,7 @@ _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %2, %33
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 10016
   %48 = load i16, ptr %47, align 8, !tbaa !212
   %49 = sext i16 %48 to i64
-  %50 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %46, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %51, %45
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %53
@@ -16349,7 +16314,7 @@ _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %2, %33
   %57 = trunc nsw i32 %56 to i16
   store i16 %57, ptr %47, align 4, !tbaa !212
   %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %46, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %46, i64 %58
   store i32 %45, ptr %59, align 4, !tbaa !213
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 6
   store i16 0, ptr %60, align 2, !tbaa !216
@@ -16360,7 +16325,7 @@ _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %2, %33
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %53, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %62 = phi i16 [ 1, %53 ], [ %52, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %63 = phi i64 [ %58, %53 ], [ %49, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %64 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %46, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %46, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 6
   store i16 %62, ptr %65, align 2, !tbaa !216
   %66 = getelementptr inbounds nuw i8, ptr %42, i64 10012
@@ -16412,7 +16377,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI24ImGuiMultiSelectTempDataED2Ev
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -16430,7 +16395,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI24ImGuiMultiSelectTempDataED2Ev
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -16441,7 +16406,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI24ImGuiMultiSelectTempDataED2Ev
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -16486,7 +16451,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI20ImGuiShrinkWidthItemED2Ev(ptr
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -16504,7 +16469,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI20ImGuiShrinkWidthItemED2Ev(ptr
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -16515,7 +16480,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI20ImGuiShrinkWidthItemED2Ev(ptr
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -16560,7 +16525,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI15ImGuiPtrOrIndexED2Ev(ptr noun
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -16578,7 +16543,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI15ImGuiPtrOrIndexED2Ev(ptr noun
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -16589,7 +16554,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI15ImGuiPtrOrIndexED2Ev(ptr noun
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -16638,7 +16603,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI11ImGuiTabBarED2Ev(ptr noundef no
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 10016
   %12 = load i16, ptr %11, align 8, !tbaa !212
   %13 = sext i16 %12 to i64
-  %14 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %15, %9
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %17
@@ -16656,7 +16621,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI11ImGuiTabBarED2Ev(ptr noundef no
   %21 = trunc nsw i32 %20 to i16
   store i16 %21, ptr %11, align 4, !tbaa !212
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %10, i64 %22
   store i32 %9, ptr %23, align 4, !tbaa !213
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 6
   store i16 0, ptr %24, align 2, !tbaa !216
@@ -16667,7 +16632,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI11ImGuiTabBarED2Ev(ptr noundef no
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %17, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %26 = phi i16 [ 1, %17 ], [ %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %27 = phi i64 [ %22, %17 ], [ %13, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %10, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 6
   store i16 %26, ptr %29, align 2, !tbaa !216
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 10012
@@ -16707,7 +16672,7 @@ _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %2, %33
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 10016
   %48 = load i16, ptr %47, align 8, !tbaa !212
   %49 = sext i16 %48 to i64
-  %50 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %46, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %51, %45
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %53
@@ -16725,7 +16690,7 @@ _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %2, %33
   %57 = trunc nsw i32 %56 to i16
   store i16 %57, ptr %47, align 4, !tbaa !212
   %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %46, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %46, i64 %58
   store i32 %45, ptr %59, align 4, !tbaa !213
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 6
   store i16 0, ptr %60, align 2, !tbaa !216
@@ -16736,7 +16701,7 @@ _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %2, %33
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %53, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %62 = phi i16 [ 1, %53 ], [ %52, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %63 = phi i64 [ %58, %53 ], [ %49, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %64 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %46, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %46, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 6
   store i16 %62, ptr %65, align 2, !tbaa !216
   %66 = getelementptr inbounds nuw i8, ptr %42, i64 10012
@@ -16788,7 +16753,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI13ImDrawChannelED2Ev(ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -16806,7 +16771,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI13ImDrawChannelED2Ev(ptr nounde
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -16817,7 +16782,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI13ImDrawChannelED2Ev(ptr nounde
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -16862,7 +16827,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIfED2Ev(ptr noundef nonnull alig
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -16880,7 +16845,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIfED2Ev(ptr noundef nonnull alig
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -16891,7 +16856,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIfED2Ev(ptr noundef nonnull alig
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -16940,7 +16905,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI10ImGuiTableED2Ev(ptr noundef non
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 10016
   %12 = load i16, ptr %11, align 8, !tbaa !212
   %13 = sext i16 %12 to i64
-  %14 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %15, %9
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %17
@@ -16958,7 +16923,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI10ImGuiTableED2Ev(ptr noundef non
   %21 = trunc nsw i32 %20 to i16
   store i16 %21, ptr %11, align 4, !tbaa !212
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %10, i64 %22
   store i32 %9, ptr %23, align 4, !tbaa !213
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 6
   store i16 0, ptr %24, align 2, !tbaa !216
@@ -16969,7 +16934,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI10ImGuiTableED2Ev(ptr noundef non
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %17, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %26 = phi i16 [ 1, %17 ], [ %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %27 = phi i64 [ %22, %17 ], [ %13, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %10, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 6
   store i16 %26, ptr %29, align 2, !tbaa !216
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 10012
@@ -17009,7 +16974,7 @@ _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %2, %33
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 10016
   %48 = load i16, ptr %47, align 8, !tbaa !212
   %49 = sext i16 %48 to i64
-  %50 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %46, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %51, %45
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %53
@@ -17027,7 +16992,7 @@ _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %2, %33
   %57 = trunc nsw i32 %56 to i16
   store i16 %57, ptr %47, align 4, !tbaa !212
   %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %46, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %46, i64 %58
   store i32 %45, ptr %59, align 4, !tbaa !213
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 6
   store i16 0, ptr %60, align 2, !tbaa !216
@@ -17038,7 +17003,7 @@ _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %2, %33
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %53, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %62 = phi i16 [ 1, %53 ], [ %52, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %63 = phi i64 [ %58, %53 ], [ %49, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %64 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %46, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %46, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 6
   store i16 %62, ptr %65, align 2, !tbaa !216
   %66 = getelementptr inbounds nuw i8, ptr %42, i64 10012
@@ -17090,7 +17055,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI18ImGuiTableTempDataED2Ev(ptr n
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -17108,7 +17073,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI18ImGuiTableTempDataED2Ev(ptr n
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -17119,7 +17084,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI18ImGuiTableTempDataED2Ev(ptr n
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -17164,7 +17129,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI20ImGuiListClipperDataED2Ev(ptr
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -17182,7 +17147,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI20ImGuiListClipperDataED2Ev(ptr
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -17193,7 +17158,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI20ImGuiListClipperDataED2Ev(ptr
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -17238,7 +17203,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIhED2Ev(ptr noundef nonnull alig
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -17256,7 +17221,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIhED2Ev(ptr noundef nonnull alig
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -17267,7 +17232,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIhED2Ev(ptr noundef nonnull alig
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -17312,7 +17277,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI19ImGuiFocusScopeDataED2Ev(ptr 
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -17330,7 +17295,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI19ImGuiFocusScopeDataED2Ev(ptr 
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -17341,7 +17306,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI19ImGuiFocusScopeDataED2Ev(ptr 
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -17386,7 +17351,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP14ImGuiViewportPED2Ev(ptr noun
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -17404,7 +17369,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP14ImGuiViewportPED2Ev(ptr noun
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -17415,7 +17380,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP14ImGuiViewportPED2Ev(ptr noun
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -17460,7 +17425,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI22ImGuiTreeNodeStackDataED2Ev(p
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -17478,7 +17443,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI22ImGuiTreeNodeStackDataED2Ev(p
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -17489,7 +17454,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI22ImGuiTreeNodeStackDataED2Ev(p
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -17534,7 +17499,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI14ImGuiPopupDataED2Ev(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -17552,7 +17517,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI14ImGuiPopupDataED2Ev(ptr nound
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -17563,7 +17528,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI14ImGuiPopupDataED2Ev(ptr nound
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -17608,7 +17573,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI14ImGuiGroupDataED2Ev(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -17626,7 +17591,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI14ImGuiGroupDataED2Ev(ptr nound
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -17637,7 +17602,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI14ImGuiGroupDataED2Ev(ptr nound
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -17682,7 +17647,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIiED2Ev(ptr noundef nonnull alig
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -17700,7 +17665,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIiED2Ev(ptr noundef nonnull alig
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -17711,7 +17676,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIiED2Ev(ptr noundef nonnull alig
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -17756,7 +17721,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP6ImFontED2Ev(ptr noundef nonnu
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -17774,7 +17739,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP6ImFontED2Ev(ptr noundef nonnu
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -17785,7 +17750,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP6ImFontED2Ev(ptr noundef nonnu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -17830,7 +17795,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI13ImGuiStyleModED2Ev(ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -17848,7 +17813,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI13ImGuiStyleModED2Ev(ptr nounde
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -17859,7 +17824,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI13ImGuiStyleModED2Ev(ptr nounde
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -17904,7 +17869,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI13ImGuiColorModED2Ev(ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -17922,7 +17887,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI13ImGuiColorModED2Ev(ptr nounde
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -17933,7 +17898,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI13ImGuiColorModED2Ev(ptr nounde
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -17978,7 +17943,7 @@ define linkonce_odr dso_local void @_ZN20ImGuiKeyRoutingTableD2Ev(ptr noundef no
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %16
@@ -17996,7 +17961,7 @@ define linkonce_odr dso_local void @_ZN20ImGuiKeyRoutingTableD2Ev(ptr noundef no
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -18007,7 +17972,7 @@ define linkonce_odr dso_local void @_ZN20ImGuiKeyRoutingTableD2Ev(ptr noundef no
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -18047,7 +18012,7 @@ _ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev.exit:     ; preds = %1, %32
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 10016
   %47 = load i16, ptr %46, align 8, !tbaa !212
   %48 = sext i16 %47 to i64
-  %49 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %45, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !213
   %.not.i.i.i3 = icmp eq i32 %50, %44
   br i1 %.not.i.i.i3, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i5, label %52
@@ -18065,7 +18030,7 @@ _ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev.exit:     ; preds = %1, %32
   %56 = trunc nsw i32 %55 to i16
   store i16 %56, ptr %46, align 4, !tbaa !212
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %45, i64 %57
   store i32 %44, ptr %58, align 4, !tbaa !213
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 6
   store i16 0, ptr %59, align 2, !tbaa !216
@@ -18076,7 +18041,7 @@ _ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev.exit:     ; preds = %1, %32
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i4: ; preds = %52, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i5
   %61 = phi i16 [ 1, %52 ], [ %51, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i5 ]
   %62 = phi i64 [ %57, %52 ], [ %48, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i5 ]
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %45, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 6
   store i16 %61, ptr %64, align 2, !tbaa !216
   %65 = getelementptr inbounds nuw i8, ptr %41, i64 10012
@@ -18121,7 +18086,7 @@ define linkonce_odr dso_local void @_ZN12ImGuiStorageD2Ev(ptr noundef nonnull al
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %16
@@ -18139,7 +18104,7 @@ define linkonce_odr dso_local void @_ZN12ImGuiStorageD2Ev(ptr noundef nonnull al
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -18150,7 +18115,7 @@ define linkonce_odr dso_local void @_ZN12ImGuiStorageD2Ev(ptr noundef nonnull al
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -18195,7 +18160,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI20ImGuiWindowStackDataED2Ev(ptr
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -18213,7 +18178,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI20ImGuiWindowStackDataED2Ev(ptr
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -18224,7 +18189,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI20ImGuiWindowStackDataED2Ev(ptr
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -18269,7 +18234,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -18287,7 +18252,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -18298,7 +18263,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP11ImGuiWindowED2Ev(ptr noundef
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -18343,7 +18308,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI15ImGuiInputEventED2Ev(ptr noun
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -18361,7 +18326,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI15ImGuiInputEventED2Ev(ptr noun
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -18372,7 +18337,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI15ImGuiInputEventED2Ev(ptr noun
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -18417,7 +18382,7 @@ define linkonce_odr dso_local void @_ZN20ImDrawListSharedDataD2Ev(ptr noundef no
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %16
@@ -18435,7 +18400,7 @@ define linkonce_odr dso_local void @_ZN20ImDrawListSharedDataD2Ev(ptr noundef no
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -18446,7 +18411,7 @@ define linkonce_odr dso_local void @_ZN20ImDrawListSharedDataD2Ev(ptr noundef no
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -18491,7 +18456,7 @@ define linkonce_odr dso_local void @_ZN7ImGuiIOD2Ev(ptr noundef nonnull align 8 
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %16
@@ -18509,7 +18474,7 @@ define linkonce_odr dso_local void @_ZN7ImGuiIOD2Ev(ptr noundef nonnull align 8 
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -18520,7 +18485,7 @@ define linkonce_odr dso_local void @_ZN7ImGuiIOD2Ev(ptr noundef nonnull align 8 
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -18580,7 +18545,7 @@ define internal void @_ZL30WindowSettingsHandler_ClearAllP12ImGuiContextP20ImGui
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 10016
   %20 = load i16, ptr %19, align 8, !tbaa !212
   %21 = sext i16 %20 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %18, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %23, %17
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %25
@@ -18598,7 +18563,7 @@ define internal void @_ZL30WindowSettingsHandler_ClearAllP12ImGuiContextP20ImGui
   %29 = trunc nsw i32 %28 to i16
   store i16 %29, ptr %19, align 4, !tbaa !212
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %18, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %18, i64 %30
   store i32 %17, ptr %31, align 4, !tbaa !213
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 6
   store i16 0, ptr %32, align 2, !tbaa !216
@@ -18609,7 +18574,7 @@ define internal void @_ZL30WindowSettingsHandler_ClearAllP12ImGuiContextP20ImGui
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %25, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %34 = phi i16 [ 1, %25 ], [ %24, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %35 = phi i64 [ %30, %25 ], [ %21, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %36 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %18, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %18, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 6
   store i16 %34, ptr %37, align 2, !tbaa !216
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 10012
@@ -18669,7 +18634,7 @@ define internal noundef nonnull ptr @_ZL30WindowSettingsHandler_ReadOpenP12ImGui
   %16 = and i32 %.5.i, 255
   %17 = xor i32 %16, %7
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !221
   %21 = xor i32 %15, %20
   %.not33.i = icmp eq i8 %.pre.i, 0
@@ -18843,7 +18808,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %2
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %17, %15 ]
   %.01316.i.i.i = phi i64 [ %.114.i.i.i, %.lr.ph.i.i.i ], [ %19, %15 ]
   %21 = lshr i64 %.01316.i.i.i, 1
-  %22 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i.i, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i, i64 %21
   %23 = load i32, ptr %22, align 8, !tbaa !270
   %24 = icmp ult i32 %23, %16
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -19228,12 +19193,12 @@ define dso_local void @_ZN5ImGui23LocalizeRegisterEntriesEPK13ImGuiLocEntryi(ptr
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %struct.ImGuiLocEntry, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !493
   %10 = load i32, ptr %7, align 8, !tbaa !496
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %5, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %5, i64 %11
   store ptr %9, ptr %12, align 8, !tbaa !255
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -19280,7 +19245,7 @@ define internal void @_ZL39Platform_SetClipboardTextFn_DefaultImplP12ImGuiContex
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 10016
   %14 = load i16, ptr %13, align 8, !tbaa !212
   %15 = sext i16 %14 to i64
-  %16 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %12, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %12, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %17, %11
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %19
@@ -19298,7 +19263,7 @@ define internal void @_ZL39Platform_SetClipboardTextFn_DefaultImplP12ImGuiContex
   %23 = trunc nsw i32 %22 to i16
   store i16 %23, ptr %13, align 4, !tbaa !212
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %12, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %12, i64 %24
   store i32 %11, ptr %25, align 4, !tbaa !213
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 6
   store i16 0, ptr %26, align 2, !tbaa !216
@@ -19309,7 +19274,7 @@ define internal void @_ZL39Platform_SetClipboardTextFn_DefaultImplP12ImGuiContex
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %19, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %28 = phi i16 [ 1, %19 ], [ %18, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %29 = phi i64 [ %24, %19 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %30 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %12, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %12, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 6
   store i16 %28, ptr %31, align 2, !tbaa !216
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 10012
@@ -19448,7 +19413,7 @@ _ZNK8ImVectorIP14ImGuiViewportPE14_grow_capacityEi.exit: ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -19466,7 +19431,7 @@ _ZNK8ImVectorIP14ImGuiViewportPE14_grow_capacityEi.exit: ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -19477,7 +19442,7 @@ _ZNK8ImVectorIP14ImGuiViewportPE14_grow_capacityEi.exit: ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -19512,7 +19477,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -19530,7 +19495,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -19541,7 +19506,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -19566,7 +19531,7 @@ _ZN8ImVectorIP14ImGuiViewportPE7reserveEi.exit:   ; preds = %._ZN8ImVectorIP14Im
   %85 = phi i32 [ %3, %._ZN8ImVectorIP14ImGuiViewportPE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorIP14ImGuiViewportPE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds ptr, ptr %86, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %86, i64 %87
   %89 = load i64, ptr %1, align 8
   store i64 %89, ptr %88, align 8
   %90 = load i32, ptr %0, align 8, !tbaa !473
@@ -19606,7 +19571,7 @@ define dso_local void @_ZN5ImGui21SaveIniSettingsToDiskEPKc(ptr noundef readonly
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 10016
   %20 = load i16, ptr %19, align 8, !tbaa !212
   %21 = sext i16 %20 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %18, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !213
   %.not.i.i.i14 = icmp eq i32 %23, %17
   br i1 %.not.i.i.i14, label %._crit_edge, label %25
@@ -19624,7 +19589,7 @@ define dso_local void @_ZN5ImGui21SaveIniSettingsToDiskEPKc(ptr noundef readonly
   %29 = trunc nsw i32 %28 to i16
   store i16 %29, ptr %19, align 4, !tbaa !212
   %30 = sext i32 %28 to i64
-  %31 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %18, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %18, i64 %30
   store i32 %17, ptr %31, align 4, !tbaa !213
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 6
   store i16 0, ptr %32, align 2, !tbaa !216
@@ -19635,7 +19600,7 @@ define dso_local void @_ZN5ImGui21SaveIniSettingsToDiskEPKc(ptr noundef readonly
 34:                                               ; preds = %._crit_edge, %25
   %35 = phi i16 [ 1, %25 ], [ %24, %._crit_edge ]
   %36 = phi i64 [ %30, %25 ], [ %21, %._crit_edge ]
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %18, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %18, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i16 %35, ptr %38, align 4, !tbaa !215
   %39 = load i32, ptr %15, align 4, !tbaa !217
@@ -19669,7 +19634,7 @@ _ZN5ImGui8MemAllocEm.exit.i16:                    ; preds = %34, %9
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 10016
   %54 = load i16, ptr %53, align 8, !tbaa !212
   %55 = sext i16 %54 to i64
-  %56 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %52, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %52, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !213
   %.not.i.i8.i20 = icmp eq i32 %57, %51
   br i1 %.not.i.i8.i20, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i23, label %59
@@ -19687,7 +19652,7 @@ _ZN5ImGui8MemAllocEm.exit.i16:                    ; preds = %34, %9
   %63 = trunc nsw i32 %62 to i16
   store i16 %63, ptr %53, align 4, !tbaa !212
   %64 = sext i32 %62 to i64
-  %65 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %52, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %52, i64 %64
   store i32 %51, ptr %65, align 4, !tbaa !213
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 6
   store i16 0, ptr %66, align 2, !tbaa !216
@@ -19698,7 +19663,7 @@ _ZN5ImGui8MemAllocEm.exit.i16:                    ; preds = %34, %9
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i21: ; preds = %59, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i23
   %68 = phi i16 [ 1, %59 ], [ %58, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i23 ]
   %69 = phi i64 [ %64, %59 ], [ %55, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i23 ]
-  %70 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %52, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %52, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 %68, ptr %71, align 2, !tbaa !216
   %72 = getelementptr inbounds nuw i8, ptr %48, i64 10012
@@ -19740,7 +19705,7 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i:      ; preds = %_ZN8ImVectorIcE6res
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 10016
   %88 = load i16, ptr %87, align 8, !tbaa !212
   %89 = sext i16 %88 to i64
-  %90 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %86, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %86, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %91, %85
   br i1 %.not.i.i.i, label %._crit_edge28, label %93
@@ -19758,7 +19723,7 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i:      ; preds = %_ZN8ImVectorIcE6res
   %97 = trunc nsw i32 %96 to i16
   store i16 %97, ptr %87, align 4, !tbaa !212
   %98 = sext i32 %96 to i64
-  %99 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %86, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %86, i64 %98
   store i32 %85, ptr %99, align 4, !tbaa !213
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 6
   store i16 0, ptr %100, align 2, !tbaa !216
@@ -19769,7 +19734,7 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i:      ; preds = %_ZN8ImVectorIcE6res
 102:                                              ; preds = %._crit_edge28, %93
   %103 = phi i16 [ 1, %93 ], [ %92, %._crit_edge28 ]
   %104 = phi i64 [ %98, %93 ], [ %89, %._crit_edge28 ]
-  %105 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %86, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %86, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   store i16 %103, ptr %106, align 4, !tbaa !215
   %107 = load i32, ptr %83, align 4, !tbaa !217
@@ -19803,7 +19768,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %102, %_ZNK8ImVector
   %121 = getelementptr inbounds nuw i8, ptr %116, i64 10016
   %122 = load i16, ptr %121, align 8, !tbaa !212
   %123 = sext i16 %122 to i64
-  %124 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %120, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr %120, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %125, %119
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %127
@@ -19821,7 +19786,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %102, %_ZNK8ImVector
   %131 = trunc nsw i32 %130 to i16
   store i16 %131, ptr %121, align 4, !tbaa !212
   %132 = sext i32 %130 to i64
-  %133 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %120, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr %120, i64 %132
   store i32 %119, ptr %133, align 4, !tbaa !213
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 6
   store i16 0, ptr %134, align 2, !tbaa !216
@@ -19832,7 +19797,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %102, %_ZNK8ImVector
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %127, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %136 = phi i16 [ 1, %127 ], [ %126, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %137 = phi i64 [ %132, %127 ], [ %123, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %138 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %120, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %120, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 6
   store i16 %136, ptr %139, align 2, !tbaa !216
   %140 = getelementptr inbounds nuw i8, ptr %116, i64 10012
@@ -19971,7 +19936,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP11ImGuiWindowE12clear_deleteEv
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 10016
   %15 = load i16, ptr %14, align 8, !tbaa !212
   %16 = sext i16 %15 to i64
-  %17 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %13, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %13, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %18, %12
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %20
@@ -19989,7 +19954,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP11ImGuiWindowE12clear_deleteEv
   %24 = trunc nsw i32 %23 to i16
   store i16 %24, ptr %14, align 4, !tbaa !212
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %13, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %13, i64 %25
   store i32 %12, ptr %26, align 4, !tbaa !213
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 6
   store i16 0, ptr %27, align 2, !tbaa !216
@@ -20000,7 +19965,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP11ImGuiWindowE12clear_deleteEv
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %20, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %29 = phi i16 [ 1, %20 ], [ %19, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %30 = phi i64 [ %25, %20 ], [ %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %31 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %13, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %13, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 6
   store i16 %29, ptr %32, align 2, !tbaa !216
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 10012
@@ -20023,7 +19988,7 @@ _ZN8ImVectorIP11ImGuiWindowE5clearEv.exit:        ; preds = %._crit_edge, %_ZN5I
   %39 = phi i32 [ %2, %.lr.ph ], [ %73, %_Z9IM_DELETEI11ImGuiWindowEvPT_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Z9IM_DELETEI11ImGuiWindowEvPT_.exit ]
   %40 = load ptr, ptr %4, align 8, !tbaa !522
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !664
   %.not.i3 = icmp eq ptr %42, null
   br i1 %.not.i3, label %_Z9IM_DELETEI11ImGuiWindowEvPT_.exit, label %43
@@ -20041,7 +20006,7 @@ _ZN8ImVectorIP11ImGuiWindowE5clearEv.exit:        ; preds = %._crit_edge, %_ZN5I
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 10016
   %50 = load i16, ptr %49, align 8, !tbaa !212
   %51 = sext i16 %50 to i64
-  %52 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %48, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %48, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !213
   %.not.i.i.i5 = icmp eq i32 %53, %47
   br i1 %.not.i.i.i5, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i8, label %55
@@ -20059,7 +20024,7 @@ _ZN8ImVectorIP11ImGuiWindowE5clearEv.exit:        ; preds = %._crit_edge, %_ZN5I
   %59 = trunc nsw i32 %58 to i16
   store i16 %59, ptr %49, align 4, !tbaa !212
   %60 = sext i32 %58 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %48, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %48, i64 %60
   store i32 %47, ptr %61, align 4, !tbaa !213
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 6
   store i16 0, ptr %62, align 2, !tbaa !216
@@ -20070,7 +20035,7 @@ _ZN8ImVectorIP11ImGuiWindowE5clearEv.exit:        ; preds = %._crit_edge, %_ZN5I
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i6: ; preds = %55, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i8
   %64 = phi i16 [ 1, %55 ], [ %54, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i8 ]
   %65 = phi i64 [ %60, %55 ], [ %51, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i8 ]
-  %66 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %48, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %48, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 6
   store i16 %64, ptr %67, align 2, !tbaa !216
   %68 = getelementptr inbounds nuw i8, ptr %44, i64 10012
@@ -20118,7 +20083,7 @@ define linkonce_odr dso_local void @_ZN20ImGuiKeyRoutingTable5ClearEv(ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 10016
   %13 = load i16, ptr %12, align 8, !tbaa !212
   %14 = sext i16 %13 to i64
-  %15 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %16, %10
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %18
@@ -20136,7 +20101,7 @@ define linkonce_odr dso_local void @_ZN20ImGuiKeyRoutingTable5ClearEv(ptr nounde
   %22 = trunc nsw i32 %21 to i16
   store i16 %22, ptr %12, align 4, !tbaa !212
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %11, i64 %23
   store i32 %10, ptr %24, align 4, !tbaa !213
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 6
   store i16 0, ptr %25, align 2, !tbaa !216
@@ -20147,7 +20112,7 @@ define linkonce_odr dso_local void @_ZN20ImGuiKeyRoutingTable5ClearEv(ptr nounde
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %18, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %27 = phi i16 [ 1, %18 ], [ %17, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %28 = phi i64 [ %23, %18 ], [ %14, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %29 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %11, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 6
   store i16 %27, ptr %30, align 2, !tbaa !216
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 10012
@@ -20185,7 +20150,7 @@ _ZN8ImVectorI19ImGuiKeyRoutingDataE5clearEv.exit: ; preds = %1, %_ZN5ImGui7MemFr
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 10016
   %47 = load i16, ptr %46, align 8, !tbaa !212
   %48 = sext i16 %47 to i64
-  %49 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %45, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !213
   %.not.i.i.i5 = icmp eq i32 %50, %44
   br i1 %.not.i.i.i5, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i8, label %52
@@ -20203,7 +20168,7 @@ _ZN8ImVectorI19ImGuiKeyRoutingDataE5clearEv.exit: ; preds = %1, %_ZN5ImGui7MemFr
   %56 = trunc nsw i32 %55 to i16
   store i16 %56, ptr %46, align 4, !tbaa !212
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %45, i64 %57
   store i32 %44, ptr %58, align 4, !tbaa !213
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 6
   store i16 0, ptr %59, align 2, !tbaa !216
@@ -20214,7 +20179,7 @@ _ZN8ImVectorI19ImGuiKeyRoutingDataE5clearEv.exit: ; preds = %1, %_ZN5ImGui7MemFr
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i6: ; preds = %52, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i8
   %61 = phi i16 [ 1, %52 ], [ %51, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i8 ]
   %62 = phi i64 [ %57, %52 ], [ %48, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i8 ]
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %45, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 6
   store i16 %61, ptr %64, align 2, !tbaa !216
   %65 = getelementptr inbounds nuw i8, ptr %41, i64 10012
@@ -20265,7 +20230,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP14ImGuiViewportPE12clear_delet
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 10016
   %15 = load i16, ptr %14, align 8, !tbaa !212
   %16 = sext i16 %15 to i64
-  %17 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %13, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %13, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %18, %12
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %20
@@ -20283,7 +20248,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP14ImGuiViewportPE12clear_delet
   %24 = trunc nsw i32 %23 to i16
   store i16 %24, ptr %14, align 4, !tbaa !212
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %13, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %13, i64 %25
   store i32 %12, ptr %26, align 4, !tbaa !213
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 6
   store i16 0, ptr %27, align 2, !tbaa !216
@@ -20294,7 +20259,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP14ImGuiViewportPE12clear_delet
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %20, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %29 = phi i16 [ 1, %20 ], [ %19, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %30 = phi i64 [ %25, %20 ], [ %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %31 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %13, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %13, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 6
   store i16 %29, ptr %32, align 2, !tbaa !216
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 10012
@@ -20317,7 +20282,7 @@ _ZN8ImVectorIP14ImGuiViewportPE5clearEv.exit:     ; preds = %._crit_edge, %_ZN5I
   %39 = phi i32 [ %2, %.lr.ph ], [ %73, %_Z9IM_DELETEI14ImGuiViewportPEvPT_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Z9IM_DELETEI14ImGuiViewportPEvPT_.exit ]
   %40 = load ptr, ptr %4, align 8, !tbaa !431
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !432
   %.not.i3 = icmp eq ptr %42, null
   br i1 %.not.i3, label %_Z9IM_DELETEI14ImGuiViewportPEvPT_.exit, label %43
@@ -20335,7 +20300,7 @@ _ZN8ImVectorIP14ImGuiViewportPE5clearEv.exit:     ; preds = %._crit_edge, %_ZN5I
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 10016
   %50 = load i16, ptr %49, align 8, !tbaa !212
   %51 = sext i16 %50 to i64
-  %52 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %48, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %48, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !213
   %.not.i.i.i5 = icmp eq i32 %53, %47
   br i1 %.not.i.i.i5, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i8, label %55
@@ -20353,7 +20318,7 @@ _ZN8ImVectorIP14ImGuiViewportPE5clearEv.exit:     ; preds = %._crit_edge, %_ZN5I
   %59 = trunc nsw i32 %58 to i16
   store i16 %59, ptr %49, align 4, !tbaa !212
   %60 = sext i32 %58 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %48, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %48, i64 %60
   store i32 %47, ptr %61, align 4, !tbaa !213
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 6
   store i16 0, ptr %62, align 2, !tbaa !216
@@ -20364,7 +20329,7 @@ _ZN8ImVectorIP14ImGuiViewportPE5clearEv.exit:     ; preds = %._crit_edge, %_ZN5I
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i6: ; preds = %55, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i8
   %64 = phi i16 [ 1, %55 ], [ %54, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i8 ]
   %65 = phi i64 [ %60, %55 ], [ %51, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i8 ]
-  %66 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %48, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %48, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 6
   store i16 %64, ptr %67, align 2, !tbaa !216
   %68 = getelementptr inbounds nuw i8, ptr %44, i64 10012
@@ -20421,7 +20386,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI11ImGuiTabBarE5ClearEv(ptr nounde
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 10016
   %17 = load i16, ptr %16, align 8, !tbaa !212
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %15, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %20, %14
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %22
@@ -20439,7 +20404,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI11ImGuiTabBarE5ClearEv(ptr nounde
   %26 = trunc nsw i32 %25 to i16
   store i16 %26, ptr %16, align 4, !tbaa !212
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %15, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %15, i64 %27
   store i32 %14, ptr %28, align 4, !tbaa !213
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 6
   store i16 0, ptr %29, align 2, !tbaa !216
@@ -20450,7 +20415,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI11ImGuiTabBarE5ClearEv(ptr nounde
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %22, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %31 = phi i16 [ 1, %22 ], [ %21, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %32 = phi i64 [ %27, %22 ], [ %18, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %33 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %15, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %15, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 6
   store i16 %31, ptr %34, align 2, !tbaa !216
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 10012
@@ -20487,7 +20452,7 @@ _ZN12ImGuiStorage5ClearEv.exit:                   ; preds = %._crit_edge, %_ZN5I
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 10016
   %50 = load i16, ptr %49, align 8, !tbaa !212
   %51 = sext i16 %50 to i64
-  %52 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %48, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %48, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %53, %47
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %55
@@ -20505,7 +20470,7 @@ _ZN12ImGuiStorage5ClearEv.exit:                   ; preds = %._crit_edge, %_ZN5I
   %59 = trunc nsw i32 %58 to i16
   store i16 %59, ptr %49, align 4, !tbaa !212
   %60 = sext i32 %58 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %48, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %48, i64 %60
   store i32 %47, ptr %61, align 4, !tbaa !213
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 6
   store i16 0, ptr %62, align 2, !tbaa !216
@@ -20516,7 +20481,7 @@ _ZN12ImGuiStorage5ClearEv.exit:                   ; preds = %._crit_edge, %_ZN5I
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %55, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %64 = phi i16 [ 1, %55 ], [ %54, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %65 = phi i64 [ %60, %55 ], [ %51, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %66 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %48, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %48, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 6
   store i16 %64, ptr %67, align 2, !tbaa !216
   %68 = getelementptr inbounds nuw i8, ptr %44, i64 10012
@@ -20543,7 +20508,7 @@ _ZN8ImVectorI11ImGuiTabBarE5clearEv.exit:         ; preds = %_ZN12ImGuiStorage5C
   %76 = phi i32 [ %3, %.lr.ph ], [ %86, %85 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
   %77 = load ptr, ptr %5, align 8, !tbaa !275
-  %78 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 8, !tbaa !205
   %.not = icmp eq i32 %80, -1
@@ -20552,7 +20517,7 @@ _ZN8ImVectorI11ImGuiTabBarE5clearEv.exit:         ; preds = %_ZN12ImGuiStorage5C
 81:                                               ; preds = %75
   %82 = load ptr, ptr %6, align 8, !tbaa !657
   %83 = sext i32 %80 to i64
-  %84 = getelementptr inbounds %struct.ImGuiTabBar, ptr %82, i64 %83
+  %84 = getelementptr inbounds [168 x i8], ptr %82, i64 %83
   tail call void @_ZN11ImGuiTabBarD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %84) #44
   %.pre = load i32, ptr %2, align 8, !tbaa !687
   br label %85
@@ -20596,7 +20561,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI20ImGuiListClipperDataE14clear_
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 10016
   %15 = load i16, ptr %14, align 8, !tbaa !212
   %16 = sext i16 %15 to i64
-  %17 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %13, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %13, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %18, %12
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %20
@@ -20614,7 +20579,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI20ImGuiListClipperDataE14clear_
   %24 = trunc nsw i32 %23 to i16
   store i16 %24, ptr %14, align 4, !tbaa !212
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %13, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %13, i64 %25
   store i32 %12, ptr %26, align 4, !tbaa !213
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 6
   store i16 0, ptr %27, align 2, !tbaa !216
@@ -20625,7 +20590,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI20ImGuiListClipperDataE14clear_
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %20, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %29 = phi i16 [ 1, %20 ], [ %19, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %30 = phi i64 [ %25, %20 ], [ %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %31 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %13, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %13, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 6
   store i16 %29, ptr %32, align 2, !tbaa !216
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 10012
@@ -20648,7 +20613,7 @@ _ZN8ImVectorI20ImGuiListClipperDataE5clearEv.exit: ; preds = %._crit_edge, %_ZN5
   %39 = phi i32 [ %2, %.lr.ph ], [ %78, %_ZN20ImGuiListClipperDataD2Ev.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN20ImGuiListClipperDataD2Ev.exit ]
   %40 = load ptr, ptr %4, align 8, !tbaa !369
-  %41 = getelementptr inbounds nuw %struct.ImGuiListClipperData, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %40, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load ptr, ptr %42, align 8, !tbaa !374
   %.not.i.i = icmp eq ptr %43, null
@@ -20666,7 +20631,7 @@ _ZN8ImVectorI20ImGuiListClipperDataE5clearEv.exit: ; preds = %._crit_edge, %_ZN5
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 10016
   %51 = load i16, ptr %50, align 8, !tbaa !212
   %52 = sext i16 %51 to i64
-  %53 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %49, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %49, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %54, %48
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %56
@@ -20684,7 +20649,7 @@ _ZN8ImVectorI20ImGuiListClipperDataE5clearEv.exit: ; preds = %._crit_edge, %_ZN5
   %60 = trunc nsw i32 %59 to i16
   store i16 %60, ptr %50, align 4, !tbaa !212
   %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %49, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %49, i64 %61
   store i32 %48, ptr %62, align 4, !tbaa !213
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 6
   store i16 0, ptr %63, align 2, !tbaa !216
@@ -20695,7 +20660,7 @@ _ZN8ImVectorI20ImGuiListClipperDataE5clearEv.exit: ; preds = %._crit_edge, %_ZN5
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %56, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %65 = phi i16 [ 1, %56 ], [ %55, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %66 = phi i64 [ %61, %56 ], [ %52, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %67 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %49, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %49, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 6
   store i16 %65, ptr %68, align 2, !tbaa !216
   %69 = getelementptr inbounds nuw i8, ptr %45, i64 10012
@@ -20762,7 +20727,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI10ImGuiTableE5ClearEv(ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 10016
   %17 = load i16, ptr %16, align 8, !tbaa !212
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %15, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %20, %14
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %22
@@ -20780,7 +20745,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI10ImGuiTableE5ClearEv(ptr noundef
   %26 = trunc nsw i32 %25 to i16
   store i16 %26, ptr %16, align 4, !tbaa !212
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %15, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %15, i64 %27
   store i32 %14, ptr %28, align 4, !tbaa !213
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 6
   store i16 0, ptr %29, align 2, !tbaa !216
@@ -20791,7 +20756,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI10ImGuiTableE5ClearEv(ptr noundef
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %22, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %31 = phi i16 [ 1, %22 ], [ %21, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %32 = phi i64 [ %27, %22 ], [ %18, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %33 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %15, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %15, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 6
   store i16 %31, ptr %34, align 2, !tbaa !216
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 10012
@@ -20828,7 +20793,7 @@ _ZN12ImGuiStorage5ClearEv.exit:                   ; preds = %._crit_edge, %_ZN5I
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 10016
   %50 = load i16, ptr %49, align 8, !tbaa !212
   %51 = sext i16 %50 to i64
-  %52 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %48, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %48, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %53, %47
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %55
@@ -20846,7 +20811,7 @@ _ZN12ImGuiStorage5ClearEv.exit:                   ; preds = %._crit_edge, %_ZN5I
   %59 = trunc nsw i32 %58 to i16
   store i16 %59, ptr %49, align 4, !tbaa !212
   %60 = sext i32 %58 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %48, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %48, i64 %60
   store i32 %47, ptr %61, align 4, !tbaa !213
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 6
   store i16 0, ptr %62, align 2, !tbaa !216
@@ -20857,7 +20822,7 @@ _ZN12ImGuiStorage5ClearEv.exit:                   ; preds = %._crit_edge, %_ZN5I
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %55, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %64 = phi i16 [ 1, %55 ], [ %54, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %65 = phi i64 [ %60, %55 ], [ %51, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %66 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %48, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %48, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 6
   store i16 %64, ptr %67, align 2, !tbaa !216
   %68 = getelementptr inbounds nuw i8, ptr %44, i64 10012
@@ -20884,7 +20849,7 @@ _ZN8ImVectorI10ImGuiTableE5clearEv.exit:          ; preds = %_ZN12ImGuiStorage5C
   %76 = phi i32 [ %3, %.lr.ph ], [ %86, %85 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
   %77 = load ptr, ptr %5, align 8, !tbaa !275
-  %78 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 8, !tbaa !205
   %.not = icmp eq i32 %80, -1
@@ -20893,7 +20858,7 @@ _ZN8ImVectorI10ImGuiTableE5clearEv.exit:          ; preds = %_ZN12ImGuiStorage5C
 81:                                               ; preds = %75
   %82 = load ptr, ptr %6, align 8, !tbaa !659
   %83 = sext i32 %80 to i64
-  %84 = getelementptr inbounds %struct.ImGuiTable, ptr %82, i64 %83
+  %84 = getelementptr inbounds [592 x i8], ptr %82, i64 %83
   tail call void @_ZN10ImGuiTableD2Ev(ptr noundef nonnull align 8 dereferenceable(586) %84) #44
   %.pre = load i32, ptr %2, align 8, !tbaa !694
   br label %85
@@ -20929,7 +20894,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI21ImGuiMultiSelectStateE5ClearEv(
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 10016
   %13 = load i16, ptr %12, align 8, !tbaa !212
   %14 = sext i16 %13 to i64
-  %15 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %16, %10
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %18
@@ -20947,7 +20912,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI21ImGuiMultiSelectStateE5ClearEv(
   %22 = trunc nsw i32 %21 to i16
   store i16 %22, ptr %12, align 4, !tbaa !212
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %11, i64 %23
   store i32 %10, ptr %24, align 4, !tbaa !213
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 6
   store i16 0, ptr %25, align 2, !tbaa !216
@@ -20958,7 +20923,7 @@ define linkonce_odr dso_local void @_ZN6ImPoolI21ImGuiMultiSelectStateE5ClearEv(
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %18, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %27 = phi i16 [ 1, %18 ], [ %17, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %28 = phi i64 [ %23, %18 ], [ %14, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %29 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %11, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 6
   store i16 %27, ptr %30, align 2, !tbaa !216
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 10012
@@ -20995,7 +20960,7 @@ _ZN12ImGuiStorage5ClearEv.exit:                   ; preds = %1, %_ZN5ImGui7MemFr
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 10016
   %46 = load i16, ptr %45, align 8, !tbaa !212
   %47 = sext i16 %46 to i64
-  %48 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %44, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %44, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %49, %43
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %51
@@ -21013,7 +20978,7 @@ _ZN12ImGuiStorage5ClearEv.exit:                   ; preds = %1, %_ZN5ImGui7MemFr
   %55 = trunc nsw i32 %54 to i16
   store i16 %55, ptr %45, align 4, !tbaa !212
   %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %44, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %44, i64 %56
   store i32 %43, ptr %57, align 4, !tbaa !213
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 6
   store i16 0, ptr %58, align 2, !tbaa !216
@@ -21024,7 +20989,7 @@ _ZN12ImGuiStorage5ClearEv.exit:                   ; preds = %1, %_ZN5ImGui7MemFr
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %51, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %60 = phi i16 [ 1, %51 ], [ %50, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %61 = phi i64 [ %56, %51 ], [ %47, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %62 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %44, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %44, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 6
   store i16 %60, ptr %63, align 2, !tbaa !216
   %64 = getelementptr inbounds nuw i8, ptr %40, i64 10012
@@ -21079,7 +21044,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI24ImGuiMultiSelectTempDataE14cl
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 10016
   %15 = load i16, ptr %14, align 8, !tbaa !212
   %16 = sext i16 %15 to i64
-  %17 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %13, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %13, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %18, %12
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %20
@@ -21097,7 +21062,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI24ImGuiMultiSelectTempDataE14cl
   %24 = trunc nsw i32 %23 to i16
   store i16 %24, ptr %14, align 4, !tbaa !212
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %13, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %13, i64 %25
   store i32 %12, ptr %26, align 4, !tbaa !213
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 6
   store i16 0, ptr %27, align 2, !tbaa !216
@@ -21108,7 +21073,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI24ImGuiMultiSelectTempDataE14cl
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %20, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %29 = phi i16 [ 1, %20 ], [ %19, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %30 = phi i64 [ %25, %20 ], [ %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %31 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %13, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %13, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 6
   store i16 %29, ptr %32, align 2, !tbaa !216
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 10012
@@ -21131,7 +21096,7 @@ _ZN8ImVectorI24ImGuiMultiSelectTempDataE5clearEv.exit: ; preds = %._crit_edge, %
   %39 = phi i32 [ %2, %.lr.ph ], [ %78, %_ZN24ImGuiMultiSelectTempDataD2Ev.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN24ImGuiMultiSelectTempDataD2Ev.exit ]
   %40 = load ptr, ptr %4, align 8, !tbaa !656
-  %41 = getelementptr inbounds nuw %struct.ImGuiMultiSelectTempData, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [96 x i8], ptr %40, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !706
   %.not.i.i.i3 = icmp eq ptr %43, null
@@ -21149,7 +21114,7 @@ _ZN8ImVectorI24ImGuiMultiSelectTempDataE5clearEv.exit: ; preds = %._crit_edge, %
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 10016
   %51 = load i16, ptr %50, align 8, !tbaa !212
   %52 = sext i16 %51 to i64
-  %53 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %49, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %49, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !213
   %.not.i.i.i.i.i = icmp eq i32 %54, %48
   br i1 %.not.i.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i.i, label %56
@@ -21167,7 +21132,7 @@ _ZN8ImVectorI24ImGuiMultiSelectTempDataE5clearEv.exit: ; preds = %._crit_edge, %
   %60 = trunc nsw i32 %59 to i16
   store i16 %60, ptr %50, align 4, !tbaa !212
   %61 = sext i32 %59 to i64
-  %62 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %49, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %49, i64 %61
   store i32 %48, ptr %62, align 4, !tbaa !213
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 6
   store i16 0, ptr %63, align 2, !tbaa !216
@@ -21178,7 +21143,7 @@ _ZN8ImVectorI24ImGuiMultiSelectTempDataE5clearEv.exit: ; preds = %._crit_edge, %
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i.i: ; preds = %56, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i.i
   %65 = phi i16 [ 1, %56 ], [ %55, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i.i ]
   %66 = phi i64 [ %61, %56 ], [ %52, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i.i ]
-  %67 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %49, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %49, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 6
   store i16 %65, ptr %68, align 2, !tbaa !216
   %69 = getelementptr inbounds nuw i8, ptr %45, i64 10012
@@ -21235,7 +21200,7 @@ define linkonce_odr dso_local void @_ZN19ImGuiInputTextState15ClearFreeMemoryEv(
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 10016
   %13 = load i16, ptr %12, align 8, !tbaa !212
   %14 = sext i16 %13 to i64
-  %15 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %16, %10
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %18
@@ -21253,7 +21218,7 @@ define linkonce_odr dso_local void @_ZN19ImGuiInputTextState15ClearFreeMemoryEv(
   %22 = trunc nsw i32 %21 to i16
   store i16 %22, ptr %12, align 4, !tbaa !212
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %11, i64 %23
   store i32 %10, ptr %24, align 4, !tbaa !213
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 6
   store i16 0, ptr %25, align 2, !tbaa !216
@@ -21264,7 +21229,7 @@ define linkonce_odr dso_local void @_ZN19ImGuiInputTextState15ClearFreeMemoryEv(
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %18, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %27 = phi i16 [ 1, %18 ], [ %17, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %28 = phi i64 [ %23, %18 ], [ %14, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %29 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %11, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 6
   store i16 %27, ptr %30, align 2, !tbaa !216
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 10012
@@ -21302,7 +21267,7 @@ _ZN8ImVectorIcE5clearEv.exit:                     ; preds = %1, %_ZN5ImGui7MemFr
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 10016
   %47 = load i16, ptr %46, align 8, !tbaa !212
   %48 = sext i16 %47 to i64
-  %49 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %45, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !213
   %.not.i.i.i3 = icmp eq i32 %50, %44
   br i1 %.not.i.i.i3, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i6, label %52
@@ -21320,7 +21285,7 @@ _ZN8ImVectorIcE5clearEv.exit:                     ; preds = %1, %_ZN5ImGui7MemFr
   %56 = trunc nsw i32 %55 to i16
   store i16 %56, ptr %46, align 4, !tbaa !212
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %45, i64 %57
   store i32 %44, ptr %58, align 4, !tbaa !213
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 6
   store i16 0, ptr %59, align 2, !tbaa !216
@@ -21331,7 +21296,7 @@ _ZN8ImVectorIcE5clearEv.exit:                     ; preds = %1, %_ZN5ImGui7MemFr
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i4: ; preds = %52, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i6
   %61 = phi i16 [ 1, %52 ], [ %51, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i6 ]
   %62 = phi i64 [ %57, %52 ], [ %48, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i6 ]
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %45, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 6
   store i16 %61, ptr %64, align 2, !tbaa !216
   %65 = getelementptr inbounds nuw i8, ptr %41, i64 10012
@@ -21363,7 +21328,7 @@ define dso_local noundef i32 @_ZN5ImGui14AddContextHookEP12ImGuiContextPK16ImGui
   %8 = load ptr, ptr %7, align 8, !tbaa !516
   %9 = load i32, ptr %3, align 8, !tbaa !517
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct.ImGuiContextHook, ptr %8, i64 %10
+  %11 = getelementptr [32 x i8], ptr %8, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -32
   store i32 %6, ptr %12, align 8, !tbaa !710
   ret i32 %6
@@ -21412,7 +21377,7 @@ _ZNK8ImVectorI16ImGuiContextHookE14_grow_capacityEi.exit: ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -21430,7 +21395,7 @@ _ZNK8ImVectorI16ImGuiContextHookE14_grow_capacityEi.exit: ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -21441,7 +21406,7 @@ _ZNK8ImVectorI16ImGuiContextHookE14_grow_capacityEi.exit: ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -21476,7 +21441,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -21494,7 +21459,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -21505,7 +21470,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -21530,7 +21495,7 @@ _ZN8ImVectorI16ImGuiContextHookE7reserveEi.exit:  ; preds = %._ZN8ImVectorI16ImG
   %85 = phi i32 [ %3, %._ZN8ImVectorI16ImGuiContextHookE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorI16ImGuiContextHookE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds %struct.ImGuiContextHook, ptr %86, i64 %87
+  %88 = getelementptr inbounds [32 x i8], ptr %86, i64 %87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %89 = load i32, ptr %0, align 8, !tbaa !517
   %90 = add nsw i32 %89, 1
@@ -21599,7 +21564,7 @@ define dso_local void @_ZN11ImGuiWindowC2EP12ImGuiContextPKc(ptr noundef nonnull
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 10016
   %19 = load i16, ptr %18, align 8, !tbaa !212
   %20 = sext i16 %19 to i64
-  %21 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %17, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %17, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %22, %16
   br i1 %.not.i.i.i, label %32, label %23
@@ -21611,7 +21576,7 @@ define dso_local void @_ZN11ImGuiWindowC2EP12ImGuiContextPKc(ptr noundef nonnull
   %27 = trunc nsw i32 %26 to i16
   store i16 %27, ptr %18, align 4, !tbaa !212
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %17, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %17, i64 %28
   store i32 %16, ptr %29, align 4, !tbaa !213
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 6
   store i16 0, ptr %30, align 2, !tbaa !216
@@ -21683,7 +21648,7 @@ define dso_local void @_ZN11ImGuiWindowC2EP12ImGuiContextPKc(ptr noundef nonnull
   %64 = and i32 %.5.i, 255
   %65 = xor i32 %64, %55
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !221
   %69 = xor i32 %63, %68
   %.not33.i = icmp eq i8 %.pre.i, 0
@@ -21705,7 +21670,7 @@ _Z9ImHashStrPKcmj.exit:                           ; preds = %_Z9ImHashStrPKcmj.e
   %74 = load ptr, ptr %73, align 8, !tbaa !553
   %75 = load i32, ptr %4, align 8, !tbaa !555
   %76 = sext i32 %75 to i64
-  %77 = getelementptr i32, ptr %74, i64 %76
+  %77 = getelementptr [4 x i8], ptr %74, i64 %76
   %78 = getelementptr i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 4, !tbaa !221
   %80 = xor i32 %79, -1
@@ -21723,7 +21688,7 @@ _Z9ImHashStrPKcmj.exit:                           ; preds = %_Z9ImHashStrPKcmj.e
   %84 = and i32 %.344.i.i, 255
   %85 = xor i32 %84, %82
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !221
   %89 = xor i32 %83, %88
   %exitcond = icmp eq i64 %.13043.i.i.add, 5
@@ -21779,13 +21744,13 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %.lr.ph.i.i
 
 115:                                              ; preds = %113
   %116 = load ptr, ptr %108, align 8, !tbaa !553
-  %117 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv.i
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv.i
   %118 = load i32, ptr %117, align 4, !tbaa !221
   br label %119
 
 119:                                              ; preds = %115, %113
   %120 = phi i32 [ %118, %115 ], [ %90, %113 ]
-  %121 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %110, i64 %indvars.iv.i
+  %121 = getelementptr inbounds nuw [64 x i8], ptr %110, i64 %indvars.iv.i
   store i32 %120, ptr %121, align 4, !tbaa !717
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -21801,7 +21766,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %.lr.ph.i.i
   %126 = getelementptr inbounds nuw i8, ptr %96, i64 9992
   %127 = load ptr, ptr %126, align 8, !tbaa !654
   %128 = sext i32 %100 to i64
-  %129 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %127, i64 %128
+  %129 = getelementptr inbounds [64 x i8], ptr %127, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 7
   %131 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %130, i64 noundef 57, ptr noundef nonnull @.str.502, i32 noundef 5, ptr noundef nonnull @.str.74)
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 5
@@ -21923,7 +21888,7 @@ _ZNK8ImVectorIjE14_grow_capacityEi.exit:          ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -21941,7 +21906,7 @@ _ZNK8ImVectorIjE14_grow_capacityEi.exit:          ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -21952,7 +21917,7 @@ _ZNK8ImVectorIjE14_grow_capacityEi.exit:          ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -21987,7 +21952,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -22005,7 +21970,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -22016,7 +21981,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -22041,7 +22006,7 @@ _ZN8ImVectorIjE7reserveEi.exit:                   ; preds = %._ZN8ImVectorIjE7re
   %85 = phi i32 [ %3, %._ZN8ImVectorIjE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorIjE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds i32, ptr %86, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %86, i64 %87
   %89 = load i32, ptr %1, align 4
   store i32 %89, ptr %88, align 4
   %90 = load i32, ptr %0, align 8, !tbaa !555
@@ -22057,7 +22022,7 @@ define dso_local noundef i32 @_ZN11ImGuiWindow5GetIDEPKcS1_(ptr noundef nonnull 
   %6 = load ptr, ptr %5, align 8, !tbaa !553
   %7 = load i32, ptr %4, align 8, !tbaa !555
   %8 = sext i32 %7 to i64
-  %9 = getelementptr i32, ptr %6, i64 %8
+  %9 = getelementptr [4 x i8], ptr %6, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -4
   %11 = load i32, ptr %10, align 4, !tbaa !221
   %.not = icmp eq ptr %2, null
@@ -22105,7 +22070,7 @@ define dso_local noundef i32 @_ZN11ImGuiWindow5GetIDEPKcS1_(ptr noundef nonnull 
   %32 = and i32 %.1.i, 255
   %33 = xor i32 %32, %20
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !221
   %37 = xor i32 %31, %36
   %.not34.i = icmp eq i64 %17, 0
@@ -22136,7 +22101,7 @@ define dso_local noundef i32 @_ZN11ImGuiWindow5GetIDEPKcS1_(ptr noundef nonnull 
   %49 = and i32 %.5.i, 255
   %50 = xor i32 %49, %40
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !221
   %54 = xor i32 %48, %53
   %.not33.i = icmp eq i8 %.pre.i, 0
@@ -22182,7 +22147,7 @@ define linkonce_odr dso_local void @_ZN10ImDrawListD2Ev(ptr noundef nonnull alig
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 10016
   %12 = load i16, ptr %11, align 8, !tbaa !212
   %13 = sext i16 %12 to i64
-  %14 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %15, %9
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %17
@@ -22200,7 +22165,7 @@ define linkonce_odr dso_local void @_ZN10ImDrawListD2Ev(ptr noundef nonnull alig
   %21 = trunc nsw i32 %20 to i16
   store i16 %21, ptr %11, align 4, !tbaa !212
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %10, i64 %22
   store i32 %9, ptr %23, align 4, !tbaa !213
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 6
   store i16 0, ptr %24, align 2, !tbaa !216
@@ -22211,7 +22176,7 @@ define linkonce_odr dso_local void @_ZN10ImDrawListD2Ev(ptr noundef nonnull alig
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %17, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %26 = phi i16 [ 1, %17 ], [ %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %27 = phi i64 [ %22, %17 ], [ %13, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %10, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %10, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 6
   store i16 %26, ptr %29, align 2, !tbaa !216
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 10012
@@ -22251,7 +22216,7 @@ _ZN8ImVectorIPvED2Ev.exit:                        ; preds = %2, %33
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 10016
   %48 = load i16, ptr %47, align 8, !tbaa !212
   %49 = sext i16 %48 to i64
-  %50 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %46, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !213
   %.not.i.i.i3 = icmp eq i32 %51, %45
   br i1 %.not.i.i.i3, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i5, label %53
@@ -22269,7 +22234,7 @@ _ZN8ImVectorIPvED2Ev.exit:                        ; preds = %2, %33
   %57 = trunc nsw i32 %56 to i16
   store i16 %57, ptr %47, align 4, !tbaa !212
   %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %46, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %46, i64 %58
   store i32 %45, ptr %59, align 4, !tbaa !213
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 6
   store i16 0, ptr %60, align 2, !tbaa !216
@@ -22280,7 +22245,7 @@ _ZN8ImVectorIPvED2Ev.exit:                        ; preds = %2, %33
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i4: ; preds = %53, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i5
   %62 = phi i16 [ 1, %53 ], [ %52, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i5 ]
   %63 = phi i64 [ %58, %53 ], [ %49, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i5 ]
-  %64 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %46, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %46, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 6
   store i16 %62, ptr %65, align 2, !tbaa !216
   %66 = getelementptr inbounds nuw i8, ptr %42, i64 10012
@@ -22325,7 +22290,7 @@ _ZN8ImVectorI6ImVec4ED2Ev.exit:                   ; preds = %_ZN8ImVectorIPvED2E
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 10016
   %86 = load i16, ptr %85, align 8, !tbaa !212
   %87 = sext i16 %86 to i64
-  %88 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %84, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %84, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %89, %83
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %91
@@ -22343,7 +22308,7 @@ _ZN8ImVectorI6ImVec4ED2Ev.exit:                   ; preds = %_ZN8ImVectorIPvED2E
   %95 = trunc nsw i32 %94 to i16
   store i16 %95, ptr %85, align 4, !tbaa !212
   %96 = sext i32 %94 to i64
-  %97 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %84, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %84, i64 %96
   store i32 %83, ptr %97, align 4, !tbaa !213
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 6
   store i16 0, ptr %98, align 2, !tbaa !216
@@ -22354,7 +22319,7 @@ _ZN8ImVectorI6ImVec4ED2Ev.exit:                   ; preds = %_ZN8ImVectorIPvED2E
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %91, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %100 = phi i16 [ 1, %91 ], [ %90, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %101 = phi i64 [ %96, %91 ], [ %87, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %102 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %84, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %84, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 6
   store i16 %100, ptr %103, align 2, !tbaa !216
   %104 = getelementptr inbounds nuw i8, ptr %80, i64 10012
@@ -22401,7 +22366,7 @@ _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %76, %107
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 10016
   %125 = load i16, ptr %124, align 8, !tbaa !212
   %126 = sext i16 %125 to i64
-  %127 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %123, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %123, i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !213
   %.not.i.i.i10 = icmp eq i32 %128, %122
   br i1 %.not.i.i.i10, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i12, label %130
@@ -22419,7 +22384,7 @@ _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %76, %107
   %134 = trunc nsw i32 %133 to i16
   store i16 %134, ptr %124, align 4, !tbaa !212
   %135 = sext i32 %133 to i64
-  %136 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %123, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %123, i64 %135
   store i32 %122, ptr %136, align 4, !tbaa !213
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 6
   store i16 0, ptr %137, align 2, !tbaa !216
@@ -22430,7 +22395,7 @@ _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %76, %107
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i11: ; preds = %130, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i12
   %139 = phi i16 [ 1, %130 ], [ %129, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i12 ]
   %140 = phi i64 [ %135, %130 ], [ %126, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i12 ]
-  %141 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %123, i64 %140
+  %141 = getelementptr inbounds [8 x i8], ptr %123, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 6
   store i16 %139, ptr %142, align 2, !tbaa !216
   %143 = getelementptr inbounds nuw i8, ptr %119, i64 10012
@@ -22470,7 +22435,7 @@ _ZN8ImVectorI6ImVec2ED2Ev.exit:                   ; preds = %_ZN18ImDrawListSpli
   %160 = getelementptr inbounds nuw i8, ptr %155, i64 10016
   %161 = load i16, ptr %160, align 8, !tbaa !212
   %162 = sext i16 %161 to i64
-  %163 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %159, i64 %162
+  %163 = getelementptr inbounds [8 x i8], ptr %159, i64 %162
   %164 = load i32, ptr %163, align 4, !tbaa !213
   %.not.i.i.i17 = icmp eq i32 %164, %158
   br i1 %.not.i.i.i17, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i19, label %166
@@ -22488,7 +22453,7 @@ _ZN8ImVectorI6ImVec2ED2Ev.exit:                   ; preds = %_ZN18ImDrawListSpli
   %170 = trunc nsw i32 %169 to i16
   store i16 %170, ptr %160, align 4, !tbaa !212
   %171 = sext i32 %169 to i64
-  %172 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %159, i64 %171
+  %172 = getelementptr inbounds [8 x i8], ptr %159, i64 %171
   store i32 %158, ptr %172, align 4, !tbaa !213
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 6
   store i16 0, ptr %173, align 2, !tbaa !216
@@ -22499,7 +22464,7 @@ _ZN8ImVectorI6ImVec2ED2Ev.exit:                   ; preds = %_ZN18ImDrawListSpli
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i18: ; preds = %166, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i19
   %175 = phi i16 [ 1, %166 ], [ %165, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i19 ]
   %176 = phi i64 [ %171, %166 ], [ %162, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i19 ]
-  %177 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %159, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %159, i64 %176
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 6
   store i16 %175, ptr %178, align 2, !tbaa !216
   %179 = getelementptr inbounds nuw i8, ptr %155, i64 10012
@@ -22539,7 +22504,7 @@ _ZN8ImVectorI10ImDrawVertED2Ev.exit:              ; preds = %_ZN8ImVectorI6ImVec
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 10016
   %197 = load i16, ptr %196, align 8, !tbaa !212
   %198 = sext i16 %197 to i64
-  %199 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %195, i64 %198
+  %199 = getelementptr inbounds [8 x i8], ptr %195, i64 %198
   %200 = load i32, ptr %199, align 4, !tbaa !213
   %.not.i.i.i24 = icmp eq i32 %200, %194
   br i1 %.not.i.i.i24, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i26, label %202
@@ -22557,7 +22522,7 @@ _ZN8ImVectorI10ImDrawVertED2Ev.exit:              ; preds = %_ZN8ImVectorI6ImVec
   %206 = trunc nsw i32 %205 to i16
   store i16 %206, ptr %196, align 4, !tbaa !212
   %207 = sext i32 %205 to i64
-  %208 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %195, i64 %207
+  %208 = getelementptr inbounds [8 x i8], ptr %195, i64 %207
   store i32 %194, ptr %208, align 4, !tbaa !213
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 6
   store i16 0, ptr %209, align 2, !tbaa !216
@@ -22568,7 +22533,7 @@ _ZN8ImVectorI10ImDrawVertED2Ev.exit:              ; preds = %_ZN8ImVectorI6ImVec
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i25: ; preds = %202, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i26
   %211 = phi i16 [ 1, %202 ], [ %201, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i26 ]
   %212 = phi i64 [ %207, %202 ], [ %198, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i26 ]
-  %213 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %195, i64 %212
+  %213 = getelementptr inbounds [8 x i8], ptr %195, i64 %212
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 6
   store i16 %211, ptr %214, align 2, !tbaa !216
   %215 = getelementptr inbounds nuw i8, ptr %191, i64 10012
@@ -22608,7 +22573,7 @@ _ZN8ImVectorItED2Ev.exit:                         ; preds = %_ZN8ImVectorI10ImDr
   %232 = getelementptr inbounds nuw i8, ptr %227, i64 10016
   %233 = load i16, ptr %232, align 8, !tbaa !212
   %234 = sext i16 %233 to i64
-  %235 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %231, i64 %234
+  %235 = getelementptr inbounds [8 x i8], ptr %231, i64 %234
   %236 = load i32, ptr %235, align 4, !tbaa !213
   %.not.i.i.i31 = icmp eq i32 %236, %230
   br i1 %.not.i.i.i31, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i33, label %238
@@ -22626,7 +22591,7 @@ _ZN8ImVectorItED2Ev.exit:                         ; preds = %_ZN8ImVectorI10ImDr
   %242 = trunc nsw i32 %241 to i16
   store i16 %242, ptr %232, align 4, !tbaa !212
   %243 = sext i32 %241 to i64
-  %244 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %231, i64 %243
+  %244 = getelementptr inbounds [8 x i8], ptr %231, i64 %243
   store i32 %230, ptr %244, align 4, !tbaa !213
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 6
   store i16 0, ptr %245, align 2, !tbaa !216
@@ -22637,7 +22602,7 @@ _ZN8ImVectorItED2Ev.exit:                         ; preds = %_ZN8ImVectorI10ImDr
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i32: ; preds = %238, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i33
   %247 = phi i16 [ 1, %238 ], [ %237, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i33 ]
   %248 = phi i64 [ %243, %238 ], [ %234, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i33 ]
-  %249 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %231, i64 %248
+  %249 = getelementptr inbounds [8 x i8], ptr %231, i64 %248
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 6
   store i16 %247, ptr %250, align 2, !tbaa !216
   %251 = getelementptr inbounds nuw i8, ptr %227, i64 10012
@@ -22689,7 +22654,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI15ImGuiOldColumnsED2Ev(ptr noun
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -22707,7 +22672,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI15ImGuiOldColumnsED2Ev(ptr noun
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -22718,7 +22683,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI15ImGuiOldColumnsED2Ev(ptr noun
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -22763,7 +22728,7 @@ define linkonce_odr dso_local void @_ZN19ImGuiWindowTempDataD2Ev(ptr noundef non
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %16
@@ -22781,7 +22746,7 @@ define linkonce_odr dso_local void @_ZN19ImGuiWindowTempDataD2Ev(ptr noundef non
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -22792,7 +22757,7 @@ define linkonce_odr dso_local void @_ZN19ImGuiWindowTempDataD2Ev(ptr noundef non
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -22832,7 +22797,7 @@ _ZN8ImVectorIfED2Ev.exit:                         ; preds = %1, %32
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 10016
   %47 = load i16, ptr %46, align 8, !tbaa !212
   %48 = sext i16 %47 to i64
-  %49 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %45, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !213
   %.not.i.i.i3 = icmp eq i32 %50, %44
   br i1 %.not.i.i.i3, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i5, label %52
@@ -22850,7 +22815,7 @@ _ZN8ImVectorIfED2Ev.exit:                         ; preds = %1, %32
   %56 = trunc nsw i32 %55 to i16
   store i16 %56, ptr %46, align 4, !tbaa !212
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %45, i64 %57
   store i32 %44, ptr %58, align 4, !tbaa !213
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 6
   store i16 0, ptr %59, align 2, !tbaa !216
@@ -22861,7 +22826,7 @@ _ZN8ImVectorIfED2Ev.exit:                         ; preds = %1, %32
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i4: ; preds = %52, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i5
   %61 = phi i16 [ 1, %52 ], [ %51, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i5 ]
   %62 = phi i64 [ %57, %52 ], [ %48, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i5 ]
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %45, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 6
   store i16 %61, ptr %64, align 2, !tbaa !216
   %65 = getelementptr inbounds nuw i8, ptr %41, i64 10012
@@ -22901,7 +22866,7 @@ _ZN8ImVectorIfED2Ev.exit8:                        ; preds = %_ZN8ImVectorIfED2Ev
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 10016
   %83 = load i16, ptr %82, align 8, !tbaa !212
   %84 = sext i16 %83 to i64
-  %85 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %81, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %81, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !213
   %.not.i.i.i11 = icmp eq i32 %86, %80
   br i1 %.not.i.i.i11, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i13, label %88
@@ -22919,7 +22884,7 @@ _ZN8ImVectorIfED2Ev.exit8:                        ; preds = %_ZN8ImVectorIfED2Ev
   %92 = trunc nsw i32 %91 to i16
   store i16 %92, ptr %82, align 4, !tbaa !212
   %93 = sext i32 %91 to i64
-  %94 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %81, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %81, i64 %93
   store i32 %80, ptr %94, align 4, !tbaa !213
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 6
   store i16 0, ptr %95, align 2, !tbaa !216
@@ -22930,7 +22895,7 @@ _ZN8ImVectorIfED2Ev.exit8:                        ; preds = %_ZN8ImVectorIfED2Ev
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i12: ; preds = %88, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i13
   %97 = phi i16 [ 1, %88 ], [ %87, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i13 ]
   %98 = phi i64 [ %93, %88 ], [ %84, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i13 ]
-  %99 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %81, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %81, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 6
   store i16 %97, ptr %100, align 2, !tbaa !216
   %101 = getelementptr inbounds nuw i8, ptr %77, i64 10012
@@ -22975,7 +22940,7 @@ define dso_local void @_ZN11ImGuiWindowD2Ev(ptr noundef nonnull align 8 derefere
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %16
@@ -22993,7 +22958,7 @@ define dso_local void @_ZN11ImGuiWindowD2Ev(ptr noundef nonnull align 8 derefere
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -23004,7 +22969,7 @@ define dso_local void @_ZN11ImGuiWindowD2Ev(ptr noundef nonnull align 8 derefere
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -23050,7 +23015,7 @@ _Z9IM_DELETEIcEvPT_.exit:                         ; preds = %1, %_ZN5ImGui7MemFr
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 10016
   %48 = load i16, ptr %47, align 8, !tbaa !212
   %49 = sext i16 %48 to i64
-  %50 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %46, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %51, %45
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %53
@@ -23068,7 +23033,7 @@ _Z9IM_DELETEIcEvPT_.exit:                         ; preds = %1, %_ZN5ImGui7MemFr
   %57 = trunc nsw i32 %56 to i16
   store i16 %57, ptr %47, align 4, !tbaa !212
   %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %46, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %46, i64 %58
   store i32 %45, ptr %59, align 4, !tbaa !213
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 6
   store i16 0, ptr %60, align 2, !tbaa !216
@@ -23079,7 +23044,7 @@ _Z9IM_DELETEIcEvPT_.exit:                         ; preds = %1, %_ZN5ImGui7MemFr
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %53, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %62 = phi i16 [ 1, %53 ], [ %52, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %63 = phi i64 [ %58, %53 ], [ %49, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %64 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %46, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %46, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 6
   store i16 %62, ptr %65, align 2, !tbaa !216
   %66 = getelementptr inbounds nuw i8, ptr %42, i64 10012
@@ -23101,7 +23066,7 @@ _ZN5ImGui7MemFreeEPv.exit.i.i:                    ; preds = %_ZN5ImGui14DebugAll
 71:                                               ; preds = %71, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %71 ]
   %72 = load ptr, ptr %37, align 8, !tbaa !733
-  %73 = getelementptr inbounds nuw %struct.ImGuiOldColumns, ptr %72, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [136 x i8], ptr %72, i64 %indvars.iv.i
   tail call void @_ZN15ImGuiOldColumnsD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %73) #44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %74 = load i32, ptr %34, align 8, !tbaa !734
@@ -23128,7 +23093,7 @@ _ZN8ImVectorI15ImGuiOldColumnsE14clear_destructEv.exit: ; preds = %.noexc1, %._c
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 10016
   %86 = load i16, ptr %85, align 8, !tbaa !212
   %87 = sext i16 %86 to i64
-  %88 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %84, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %84, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !213
   %.not.i.i.i4 = icmp eq i32 %89, %83
   br i1 %.not.i.i.i4, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i7, label %91
@@ -23146,7 +23111,7 @@ _ZN8ImVectorI15ImGuiOldColumnsE14clear_destructEv.exit: ; preds = %.noexc1, %._c
   %95 = trunc nsw i32 %94 to i16
   store i16 %95, ptr %85, align 4, !tbaa !212
   %96 = sext i32 %94 to i64
-  %97 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %84, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %84, i64 %96
   store i32 %83, ptr %97, align 4, !tbaa !213
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 6
   store i16 0, ptr %98, align 2, !tbaa !216
@@ -23157,7 +23122,7 @@ _ZN8ImVectorI15ImGuiOldColumnsE14clear_destructEv.exit: ; preds = %.noexc1, %._c
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i5: ; preds = %91, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i7
   %100 = phi i16 [ 1, %91 ], [ %90, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i7 ]
   %101 = phi i64 [ %96, %91 ], [ %87, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i7 ]
-  %102 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %84, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %84, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 6
   store i16 %100, ptr %103, align 2, !tbaa !216
   %104 = getelementptr inbounds nuw i8, ptr %80, i64 10012
@@ -23197,7 +23162,7 @@ _ZN8ImVectorI15ImGuiOldColumnsED2Ev.exit:         ; preds = %_ZN8ImVectorI15ImGu
   %121 = getelementptr inbounds nuw i8, ptr %116, i64 10016
   %122 = load i16, ptr %121, align 8, !tbaa !212
   %123 = sext i16 %122 to i64
-  %124 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %120, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr %120, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !213
   %.not.i.i.i.i12 = icmp eq i32 %125, %119
   br i1 %.not.i.i.i.i12, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i14, label %127
@@ -23215,7 +23180,7 @@ _ZN8ImVectorI15ImGuiOldColumnsED2Ev.exit:         ; preds = %_ZN8ImVectorI15ImGu
   %131 = trunc nsw i32 %130 to i16
   store i16 %131, ptr %121, align 4, !tbaa !212
   %132 = sext i32 %130 to i64
-  %133 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %120, i64 %132
+  %133 = getelementptr inbounds [8 x i8], ptr %120, i64 %132
   store i32 %119, ptr %133, align 4, !tbaa !213
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 6
   store i16 0, ptr %134, align 2, !tbaa !216
@@ -23226,7 +23191,7 @@ _ZN8ImVectorI15ImGuiOldColumnsED2Ev.exit:         ; preds = %_ZN8ImVectorI15ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i13: ; preds = %127, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i14
   %136 = phi i16 [ 1, %127 ], [ %126, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i14 ]
   %137 = phi i64 [ %132, %127 ], [ %123, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i14 ]
-  %138 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %120, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %120, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 6
   store i16 %136, ptr %139, align 2, !tbaa !216
   %140 = getelementptr inbounds nuw i8, ptr %116, i64 10012
@@ -23268,7 +23233,7 @@ _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %_ZN8ImVectorI15ImGu
   %158 = getelementptr inbounds nuw i8, ptr %153, i64 10016
   %159 = load i16, ptr %158, align 8, !tbaa !212
   %160 = sext i16 %159 to i64
-  %161 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %157, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %157, i64 %160
   %162 = load i32, ptr %161, align 4, !tbaa !213
   %.not.i.i.i19 = icmp eq i32 %162, %156
   br i1 %.not.i.i.i19, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i22, label %164
@@ -23286,7 +23251,7 @@ _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %_ZN8ImVectorI15ImGu
   %168 = trunc nsw i32 %167 to i16
   store i16 %168, ptr %158, align 4, !tbaa !212
   %169 = sext i32 %167 to i64
-  %170 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %157, i64 %169
+  %170 = getelementptr inbounds [8 x i8], ptr %157, i64 %169
   store i32 %156, ptr %170, align 4, !tbaa !213
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 6
   store i16 0, ptr %171, align 2, !tbaa !216
@@ -23297,7 +23262,7 @@ _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %_ZN8ImVectorI15ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i20: ; preds = %164, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i22
   %173 = phi i16 [ 1, %164 ], [ %163, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i22 ]
   %174 = phi i64 [ %169, %164 ], [ %160, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i22 ]
-  %175 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %157, i64 %174
+  %175 = getelementptr inbounds [8 x i8], ptr %157, i64 %174
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 6
   store i16 %173, ptr %176, align 2, !tbaa !216
   %177 = getelementptr inbounds nuw i8, ptr %153, i64 10012
@@ -23349,7 +23314,7 @@ define dso_local void @_ZN5ImGui29GcCompactTransientMiscBuffersEv() local_unname
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %16
@@ -23367,7 +23332,7 @@ define dso_local void @_ZN5ImGui29GcCompactTransientMiscBuffersEv() local_unname
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -23378,7 +23343,7 @@ define dso_local void @_ZN5ImGui29GcCompactTransientMiscBuffersEv() local_unname
 _ZN5ImGui7MemFreeEPv.exit.i:                      ; preds = %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, %16
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 10012
@@ -23413,7 +23378,7 @@ _ZN8ImVectorIiE5clearEv.exit:                     ; preds = %0, %_ZN5ImGui7MemFr
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 10016
   %45 = load i16, ptr %44, align 8, !tbaa !212
   %46 = sext i16 %45 to i64
-  %47 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %43, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %43, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !213
   %.not.i.i.i6 = icmp eq i32 %48, %42
   br i1 %.not.i.i.i6, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i9, label %50
@@ -23431,7 +23396,7 @@ _ZN8ImVectorIiE5clearEv.exit:                     ; preds = %0, %_ZN5ImGui7MemFr
   %54 = trunc nsw i32 %53 to i16
   store i16 %54, ptr %44, align 4, !tbaa !212
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %43, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %43, i64 %55
   store i32 %42, ptr %56, align 4, !tbaa !213
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 6
   store i16 0, ptr %57, align 2, !tbaa !216
@@ -23442,7 +23407,7 @@ _ZN8ImVectorIiE5clearEv.exit:                     ; preds = %0, %_ZN5ImGui7MemFr
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i7: ; preds = %50, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i9
   %59 = phi i16 [ 1, %50 ], [ %49, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i9 ]
   %60 = phi i64 [ %55, %50 ], [ %46, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i9 ]
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %43, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %43, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 6
   store i16 %59, ptr %62, align 2, !tbaa !216
   %63 = getelementptr inbounds nuw i8, ptr %39, i64 10012
@@ -23504,7 +23469,7 @@ define dso_local void @_ZN5ImGui31GcCompactTransientWindowBuffersEP11ImGuiWindow
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 10016
   %22 = load i16, ptr %21, align 8, !tbaa !212
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %25, %19
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %27
@@ -23522,7 +23487,7 @@ define dso_local void @_ZN5ImGui31GcCompactTransientWindowBuffersEP11ImGuiWindow
   %31 = trunc nsw i32 %30 to i16
   store i16 %31, ptr %21, align 4, !tbaa !212
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %20, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %20, i64 %32
   store i32 %19, ptr %33, align 4, !tbaa !213
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 6
   store i16 0, ptr %34, align 2, !tbaa !216
@@ -23533,7 +23498,7 @@ define dso_local void @_ZN5ImGui31GcCompactTransientWindowBuffersEP11ImGuiWindow
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %27, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %36 = phi i16 [ 1, %27 ], [ %26, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %37 = phi i64 [ %32, %27 ], [ %23, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %38 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %20, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %20, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 6
   store i16 %36, ptr %39, align 2, !tbaa !216
   %40 = getelementptr inbounds nuw i8, ptr %16, i64 10012
@@ -23574,7 +23539,7 @@ _ZN8ImVectorIjE5clearEv.exit:                     ; preds = %1, %_ZN5ImGui7MemFr
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 10016
   %57 = load i16, ptr %56, align 8, !tbaa !212
   %58 = sext i16 %57 to i64
-  %59 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %55, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %55, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !213
   %.not.i.i.i12 = icmp eq i32 %60, %54
   br i1 %.not.i.i.i12, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i15, label %62
@@ -23592,7 +23557,7 @@ _ZN8ImVectorIjE5clearEv.exit:                     ; preds = %1, %_ZN5ImGui7MemFr
   %66 = trunc nsw i32 %65 to i16
   store i16 %66, ptr %56, align 4, !tbaa !212
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %55, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %55, i64 %67
   store i32 %54, ptr %68, align 4, !tbaa !213
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 6
   store i16 0, ptr %69, align 2, !tbaa !216
@@ -23603,7 +23568,7 @@ _ZN8ImVectorIjE5clearEv.exit:                     ; preds = %1, %_ZN5ImGui7MemFr
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i13: ; preds = %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i15
   %71 = phi i16 [ 1, %62 ], [ %61, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i15 ]
   %72 = phi i64 [ %67, %62 ], [ %58, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i15 ]
-  %73 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %55, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %55, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 6
   store i16 %71, ptr %74, align 2, !tbaa !216
   %75 = getelementptr inbounds nuw i8, ptr %51, i64 10012
@@ -23641,7 +23606,7 @@ _ZN8ImVectorIP11ImGuiWindowE5clearEv.exit:        ; preds = %_ZN8ImVectorIjE5cle
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 10016
   %91 = load i16, ptr %90, align 8, !tbaa !212
   %92 = sext i16 %91 to i64
-  %93 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %89, i64 %92
+  %93 = getelementptr inbounds [8 x i8], ptr %89, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !213
   %.not.i.i.i20 = icmp eq i32 %94, %88
   br i1 %.not.i.i.i20, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i23, label %96
@@ -23659,7 +23624,7 @@ _ZN8ImVectorIP11ImGuiWindowE5clearEv.exit:        ; preds = %_ZN8ImVectorIjE5cle
   %100 = trunc nsw i32 %99 to i16
   store i16 %100, ptr %90, align 4, !tbaa !212
   %101 = sext i32 %99 to i64
-  %102 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %89, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %89, i64 %101
   store i32 %88, ptr %102, align 4, !tbaa !213
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 6
   store i16 0, ptr %103, align 2, !tbaa !216
@@ -23670,7 +23635,7 @@ _ZN8ImVectorIP11ImGuiWindowE5clearEv.exit:        ; preds = %_ZN8ImVectorIjE5cle
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i21: ; preds = %96, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i23
   %105 = phi i16 [ 1, %96 ], [ %95, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i23 ]
   %106 = phi i64 [ %101, %96 ], [ %92, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i23 ]
-  %107 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %89, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %89, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 6
   store i16 %105, ptr %108, align 2, !tbaa !216
   %109 = getelementptr inbounds nuw i8, ptr %85, i64 10012
@@ -23708,7 +23673,7 @@ _ZN8ImVectorIfE5clearEv.exit:                     ; preds = %_ZN8ImVectorIP11ImG
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 10016
   %125 = load i16, ptr %124, align 8, !tbaa !212
   %126 = sext i16 %125 to i64
-  %127 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %123, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %123, i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !213
   %.not.i.i.i28 = icmp eq i32 %128, %122
   br i1 %.not.i.i.i28, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i31, label %130
@@ -23726,7 +23691,7 @@ _ZN8ImVectorIfE5clearEv.exit:                     ; preds = %_ZN8ImVectorIP11ImG
   %134 = trunc nsw i32 %133 to i16
   store i16 %134, ptr %124, align 4, !tbaa !212
   %135 = sext i32 %133 to i64
-  %136 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %123, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %123, i64 %135
   store i32 %122, ptr %136, align 4, !tbaa !213
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 6
   store i16 0, ptr %137, align 2, !tbaa !216
@@ -23737,7 +23702,7 @@ _ZN8ImVectorIfE5clearEv.exit:                     ; preds = %_ZN8ImVectorIP11ImG
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i29: ; preds = %130, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i31
   %139 = phi i16 [ 1, %130 ], [ %129, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i31 ]
   %140 = phi i64 [ %135, %130 ], [ %126, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i31 ]
-  %141 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %123, i64 %140
+  %141 = getelementptr inbounds [8 x i8], ptr %123, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 6
   store i16 %139, ptr %142, align 2, !tbaa !216
   %143 = getelementptr inbounds nuw i8, ptr %119, i64 10012
@@ -23791,7 +23756,7 @@ define dso_local void @_ZN5ImGui29GcAwakeTransientWindowBuffersEP11ImGuiWindow(p
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 10016
   %23 = load i16, ptr %22, align 8, !tbaa !212
   %24 = sext i16 %23 to i64
-  %25 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %21, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %21, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %26, %20
   br i1 %.not.i.i.i, label %._crit_edge.i, label %28
@@ -23809,7 +23774,7 @@ define dso_local void @_ZN5ImGui29GcAwakeTransientWindowBuffersEP11ImGuiWindow(p
   %32 = trunc nsw i32 %31 to i16
   store i16 %32, ptr %22, align 4, !tbaa !212
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %21, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %21, i64 %33
   store i32 %20, ptr %34, align 4, !tbaa !213
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 6
   store i16 0, ptr %35, align 2, !tbaa !216
@@ -23820,7 +23785,7 @@ define dso_local void @_ZN5ImGui29GcAwakeTransientWindowBuffersEP11ImGuiWindow(p
 37:                                               ; preds = %28, %._crit_edge.i
   %38 = phi i16 [ 1, %28 ], [ %27, %._crit_edge.i ]
   %39 = phi i64 [ %33, %28 ], [ %24, %._crit_edge.i ]
-  %40 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %21, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %21, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i16 %38, ptr %41, align 4, !tbaa !215
   %42 = load i32, ptr %18, align 4, !tbaa !217
@@ -23855,7 +23820,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %37, %10
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 10016
   %58 = load i16, ptr %57, align 8, !tbaa !212
   %59 = sext i16 %58 to i64
-  %60 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %56, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %56, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %61, %55
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %63
@@ -23873,7 +23838,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %37, %10
   %67 = trunc nsw i32 %66 to i16
   store i16 %67, ptr %57, align 4, !tbaa !212
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %56, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %56, i64 %68
   store i32 %55, ptr %69, align 4, !tbaa !213
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 6
   store i16 0, ptr %70, align 2, !tbaa !216
@@ -23884,7 +23849,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %37, %10
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %63, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %72 = phi i16 [ 1, %63 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %73 = phi i64 [ %68, %63 ], [ %59, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %74 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %56, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %56, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 6
   store i16 %72, ptr %75, align 2, !tbaa !216
   %76 = getelementptr inbounds nuw i8, ptr %52, i64 10012
@@ -23933,7 +23898,7 @@ _ZN8ImVectorItE7reserveEi.exit:                   ; preds = %1, %81
   %100 = getelementptr inbounds nuw i8, ptr %94, i64 10016
   %101 = load i16, ptr %100, align 8, !tbaa !212
   %102 = sext i16 %101 to i64
-  %103 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %99, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %99, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !213
   %.not.i.i.i9 = icmp eq i32 %104, %98
   br i1 %.not.i.i.i9, label %._crit_edge.i20, label %106
@@ -23951,7 +23916,7 @@ _ZN8ImVectorItE7reserveEi.exit:                   ; preds = %1, %81
   %110 = trunc nsw i32 %109 to i16
   store i16 %110, ptr %100, align 4, !tbaa !212
   %111 = sext i32 %109 to i64
-  %112 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %99, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %99, i64 %111
   store i32 %98, ptr %112, align 4, !tbaa !213
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 6
   store i16 0, ptr %113, align 2, !tbaa !216
@@ -23962,7 +23927,7 @@ _ZN8ImVectorItE7reserveEi.exit:                   ; preds = %1, %81
 115:                                              ; preds = %106, %._crit_edge.i20
   %116 = phi i16 [ 1, %106 ], [ %105, %._crit_edge.i20 ]
   %117 = phi i64 [ %111, %106 ], [ %102, %._crit_edge.i20 ]
-  %118 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %99, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %99, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   store i16 %116, ptr %119, align 4, !tbaa !215
   %120 = load i32, ptr %96, align 4, !tbaa !217
@@ -23997,7 +23962,7 @@ _ZN5ImGui8MemAllocEm.exit.i10:                    ; preds = %115, %88
   %135 = getelementptr inbounds nuw i8, ptr %130, i64 10016
   %136 = load i16, ptr %135, align 8, !tbaa !212
   %137 = sext i16 %136 to i64
-  %138 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %134, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %134, i64 %137
   %139 = load i32, ptr %138, align 4, !tbaa !213
   %.not.i.i8.i14 = icmp eq i32 %139, %133
   br i1 %.not.i.i8.i14, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i17, label %141
@@ -24015,7 +23980,7 @@ _ZN5ImGui8MemAllocEm.exit.i10:                    ; preds = %115, %88
   %145 = trunc nsw i32 %144 to i16
   store i16 %145, ptr %135, align 4, !tbaa !212
   %146 = sext i32 %144 to i64
-  %147 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %134, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %134, i64 %146
   store i32 %133, ptr %147, align 4, !tbaa !213
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 6
   store i16 0, ptr %148, align 2, !tbaa !216
@@ -24026,7 +23991,7 @@ _ZN5ImGui8MemAllocEm.exit.i10:                    ; preds = %115, %88
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i15: ; preds = %141, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i17
   %150 = phi i16 [ 1, %141 ], [ %140, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i17 ]
   %151 = phi i64 [ %146, %141 ], [ %137, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i17 ]
-  %152 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %134, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %134, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 6
   store i16 %150, ptr %153, align 2, !tbaa !216
   %154 = getelementptr inbounds nuw i8, ptr %130, i64 10012
@@ -24700,7 +24665,7 @@ define dso_local noundef i32 @_ZN11ImGuiWindow12GetIDFromPosERK6ImVec2(ptr nound
   %6 = load ptr, ptr %5, align 8, !tbaa !553
   %7 = load i32, ptr %4, align 8, !tbaa !555
   %8 = sext i32 %7 to i64
-  %9 = getelementptr i32, ptr %6, i64 %8
+  %9 = getelementptr [4 x i8], ptr %6, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -4
   %11 = load i32, ptr %10, align 4, !tbaa !221
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -24731,7 +24696,7 @@ define dso_local noundef i32 @_ZN11ImGuiWindow12GetIDFromPosERK6ImVec2(ptr nound
   %24 = zext i8 %23 to i32
   %25 = xor i32 %21, %24
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !221
   %29 = xor i32 %28, %20
   %.not.i = icmp eq i64 %19, 0
@@ -25199,7 +25164,7 @@ define dso_local noundef nonnull ptr @_ZN5ImGui15GetKeyChordNameEi(i32 noundef %
 
 switch.lookup:                                    ; preds = %7
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5ImGui17ShowMetricsWindowEPb, i64 %10
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5ImGui17ShowMetricsWindowEPb, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL17GetModForLRModKey8ImGuiKey.exit
 
@@ -25239,7 +25204,7 @@ _ZL17GetModForLRModKey8ImGuiKey.exit:             ; preds = %7, %switch.lookup, 
 
 30:                                               ; preds = %27
   %31 = zext nneg i32 %3 to i64
-  %32 = getelementptr ptr, ptr @_ZL9GKeyNames, i64 %31
+  %32 = getelementptr [8 x i8], ptr @_ZL9GKeyNames, i64 %31
   %33 = getelementptr i8, ptr %32, i64 -4096
   %34 = load ptr, ptr %33, align 8, !tbaa !255
   br label %_ZN5ImGui10GetKeyNameE8ImGuiKey.exit
@@ -25422,7 +25387,7 @@ define dso_local void @_ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm(ptr 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i16, ptr %6, align 4, !tbaa !212
   %8 = sext i16 %7 to i64
-  %9 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !213
   %.not = icmp eq i32 %10, %1
   br i1 %.not, label %20, label %11
@@ -25434,7 +25399,7 @@ define dso_local void @_ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm(ptr 
   %15 = trunc nsw i32 %14 to i16
   store i16 %15, ptr %6, align 4, !tbaa !212
   %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %5, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %5, i64 %16
   store i32 %1, ptr %17, align 4, !tbaa !213
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 6
   store i16 0, ptr %18, align 2, !tbaa !216
@@ -25564,7 +25529,7 @@ define internal fastcc noundef ptr @_ZL23GetViewportBgFgDrawListP14ImGuiViewport
   %4 = alloca %struct.ImVec2, align 8
   %5 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %1
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %1
   %8 = load ptr, ptr %7, align 8, !tbaa !803
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %46
@@ -25585,7 +25550,7 @@ define internal fastcc noundef ptr @_ZL23GetViewportBgFgDrawListP14ImGuiViewport
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 10016
   %21 = load i16, ptr %20, align 8, !tbaa !212
   %22 = sext i16 %21 to i64
-  %23 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %19, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %19, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %24, %18
   br i1 %.not.i.i, label %._crit_edge, label %26
@@ -25603,7 +25568,7 @@ define internal fastcc noundef ptr @_ZL23GetViewportBgFgDrawListP14ImGuiViewport
   %30 = trunc nsw i32 %29 to i16
   store i16 %30, ptr %20, align 4, !tbaa !212
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %19, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %19, i64 %31
   store i32 %18, ptr %32, align 4, !tbaa !213
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 6
   store i16 0, ptr %33, align 2, !tbaa !216
@@ -25614,7 +25579,7 @@ define internal fastcc noundef ptr @_ZL23GetViewportBgFgDrawListP14ImGuiViewport
 35:                                               ; preds = %._crit_edge, %26
   %36 = phi i16 [ 1, %26 ], [ %25, %._crit_edge ]
   %37 = phi i64 [ %31, %26 ], [ %22, %._crit_edge ]
-  %38 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %19, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %19, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i16 %36, ptr %39, align 4, !tbaa !215
   %40 = load i32, ptr %16, align 4, !tbaa !217
@@ -25635,7 +25600,7 @@ define internal fastcc noundef ptr @_ZL23GetViewportBgFgDrawListP14ImGuiViewport
 46:                                               ; preds = %42, %3
   %.0 = phi ptr [ %13, %42 ], [ %8, %3 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %1
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %1
   %49 = load i32, ptr %48, align 4, !tbaa !221
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 4744
   %51 = load i32, ptr %50, align 8, !tbaa !211
@@ -25968,14 +25933,14 @@ _ZN5ImGui22FindWindowDisplayIndexEP11ImGuiWindow.exit31.i: ; preds = %_ZN5ImGui2
   %114 = sext i32 %113 to i64
   %115 = shl nsw i64 %114, 3
   %116 = sext i32 %105 to i64
-  %117 = getelementptr ptr, ptr %84, i64 %116
+  %117 = getelementptr [8 x i8], ptr %84, i64 %116
   %118 = getelementptr i8, ptr %117, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %117, ptr align 8 %118, i64 %115, i1 false)
   %119 = load ptr, ptr %83, align 8, !tbaa !522
   %120 = shl i64 %107, 29
   %sext33.i = add i64 %120, -4294967296
   %121 = ashr i64 %sext33.i, 32
-  %122 = getelementptr inbounds ptr, ptr %119, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %119, i64 %121
   store ptr %71, ptr %122, align 8, !tbaa !664
   br label %_ZN5ImGui26BringWindowToDisplayBehindEP11ImGuiWindowS1_.exit
 
@@ -25985,11 +25950,11 @@ _ZN5ImGui22FindWindowDisplayIndexEP11ImGuiWindow.exit31.i: ; preds = %_ZN5ImGui2
   %126 = shl nuw nsw i64 %125, 3
   %sext.i = shl i64 %107, 29
   %127 = ashr i64 %sext.i, 32
-  %128 = getelementptr ptr, ptr %84, i64 %127
+  %128 = getelementptr [8 x i8], ptr %84, i64 %127
   %129 = getelementptr i8, ptr %128, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %129, ptr align 8 %128, i64 %126, i1 false)
   %130 = load ptr, ptr %83, align 8, !tbaa !522
-  %131 = getelementptr inbounds ptr, ptr %130, i64 %127
+  %131 = getelementptr inbounds [8 x i8], ptr %130, i64 %127
   store ptr %71, ptr %131, align 8, !tbaa !664
   br label %_ZN5ImGui26BringWindowToDisplayBehindEP11ImGuiWindowS1_.exit
 
@@ -26009,7 +25974,7 @@ _ZN5ImGui26BringWindowToDisplayBehindEP11ImGuiWindowS1_.exit: ; preds = %123, %1
 139:                                              ; preds = %147, %.lr.ph.i66
   %indvars.iv.i = phi i64 [ %138, %.lr.ph.i66 ], [ %indvars.iv.next.i, %147 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %140 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %137, i64 %indvars.iv.next.i
+  %140 = getelementptr inbounds nuw [56 x i8], ptr %137, i64 %indvars.iv.next.i
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load ptr, ptr %141, align 8, !tbaa !807
   %.not.i67 = icmp eq ptr %142, null
@@ -26046,7 +26011,7 @@ _ZN5ImGui20GetTopMostPopupModalEv.exit:           ; preds = %143, %147, %_ZN5ImG
 
 155:                                              ; preds = %select.unfold.i, %.lr.ph54.i
   %indvars.iv.i154 = phi i64 [ 0, %.lr.ph54.i ], [ %indvars.iv.next.i161, %select.unfold.i ]
-  %156 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %153, i64 %indvars.iv.i154
+  %156 = getelementptr inbounds nuw [56 x i8], ptr %153, i64 %indvars.iv.i154
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load ptr, ptr %157, align 8, !tbaa !807
   %.not34.i = icmp eq ptr %158, null
@@ -26054,7 +26019,7 @@ _ZN5ImGui20GetTopMostPopupModalEv.exit:           ; preds = %143, %147, %_ZN5ImG
 
 .lr.ph.i155:                                      ; preds = %155, %.loopexit.i159
   %indvars.iv59.i = phi i64 [ %indvars.iv.next60.i, %.loopexit.i159 ], [ %indvars.iv.i154, %155 ]
-  %159 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %153, i64 %indvars.iv59.i
+  %159 = getelementptr inbounds nuw [56 x i8], ptr %153, i64 %indvars.iv59.i
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load ptr, ptr %160, align 8, !tbaa !807
   %.not35.i = icmp eq ptr %161, null
@@ -26277,7 +26242,7 @@ _ZN5ImGui21ClosePopupsOverWindowEP11ImGuiWindowb.exit: ; preds = %_ZN5ImGuiL28Na
 
 255:                                              ; preds = %select.unfold.i182, %.lr.ph54.i168
   %indvars.iv.i170 = phi i64 [ 0, %.lr.ph54.i168 ], [ %indvars.iv.next.i183, %select.unfold.i182 ]
-  %256 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %253, i64 %indvars.iv.i170
+  %256 = getelementptr inbounds nuw [56 x i8], ptr %253, i64 %indvars.iv.i170
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %258 = load ptr, ptr %257, align 8, !tbaa !807
   %.not34.i171 = icmp eq ptr %258, null
@@ -26285,7 +26250,7 @@ _ZN5ImGui21ClosePopupsOverWindowEP11ImGuiWindowb.exit: ; preds = %_ZN5ImGuiL28Na
 
 .lr.ph.i172:                                      ; preds = %255, %.loopexit.i178
   %indvars.iv59.i173 = phi i64 [ %indvars.iv.next60.i179, %.loopexit.i178 ], [ %indvars.iv.i170, %255 ]
-  %259 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %253, i64 %indvars.iv59.i173
+  %259 = getelementptr inbounds nuw [56 x i8], ptr %253, i64 %indvars.iv59.i173
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %261 = load ptr, ptr %260, align 8, !tbaa !807
   %.not35.i174 = icmp eq ptr %261, null
@@ -26389,7 +26354,7 @@ _ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit.i165: ; preds = %_Z
   %300 = load ptr, ptr %299, align 8, !tbaa !522
   %301 = load i32, ptr %298, align 8, !tbaa !524
   %302 = sext i32 %301 to i64
-  %303 = getelementptr ptr, ptr %300, i64 %302
+  %303 = getelementptr [8 x i8], ptr %300, i64 %302
   %304 = getelementptr i8, ptr %303, i64 -8
   %305 = load ptr, ptr %304, align 8, !tbaa !664
   %306 = icmp eq ptr %305, %280
@@ -26413,7 +26378,7 @@ _ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit.i165: ; preds = %_Z
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i75, %.._crit_edge_crit_edge.i
   %.pre-phi.i74 = phi i64 [ %.pre.i73, %.._crit_edge_crit_edge.i ], [ %wide.trip.count.i, %.lr.ph.i75 ]
-  %313 = getelementptr inbounds ptr, ptr %300, i64 %.pre-phi.i74
+  %313 = getelementptr inbounds [8 x i8], ptr %300, i64 %.pre-phi.i74
   store ptr %280, ptr %313, align 8, !tbaa !664
   %314 = trunc i32 %310 to i16
   store i16 %314, ptr %297, align 8, !tbaa !819
@@ -26422,9 +26387,9 @@ _ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit.i165: ; preds = %_Z
 .lr.ph.i75:                                       ; preds = %.lr.ph.i75, %.lr.ph.preheader.i
   %indvars.iv.i76 = phi i64 [ %312, %.lr.ph.preheader.i ], [ %indvars.iv.next.i77, %.lr.ph.i75 ]
   %indvars.iv.next.i77 = add nsw i64 %indvars.iv.i76, 1
-  %315 = getelementptr inbounds ptr, ptr %300, i64 %indvars.iv.next.i77
+  %315 = getelementptr inbounds [8 x i8], ptr %300, i64 %indvars.iv.next.i77
   %316 = load ptr, ptr %315, align 8, !tbaa !664
-  %317 = getelementptr inbounds ptr, ptr %300, i64 %indvars.iv.i76
+  %317 = getelementptr inbounds [8 x i8], ptr %300, i64 %indvars.iv.i76
   store ptr %316, ptr %317, align 8, !tbaa !664
   %318 = getelementptr inbounds nuw i8, ptr %316, i64 224
   %319 = load i16, ptr %318, align 8, !tbaa !819
@@ -26449,7 +26414,7 @@ _ZN5ImGui23BringWindowToFocusFrontEP11ImGuiWindow.exit: ; preds = %295, %._crit_
   %331 = load ptr, ptr %330, align 8, !tbaa !522
   %332 = load i32, ptr %329, align 8, !tbaa !524
   %333 = sext i32 %332 to i64
-  %334 = getelementptr ptr, ptr %331, i64 %333
+  %334 = getelementptr [8 x i8], ptr %331, i64 %333
   %335 = getelementptr i8, ptr %334, i64 -8
   %336 = load ptr, ptr %335, align 8, !tbaa !664
   %337 = icmp eq ptr %336, %280
@@ -26470,13 +26435,13 @@ _ZN5ImGui23BringWindowToFocusFrontEP11ImGuiWindow.exit: ; preds = %295, %._crit_
 .lr.ph.i80:                                       ; preds = %360, %.lr.ph.preheader.i79
   %.023.i = phi i32 [ %361, %360 ], [ %343, %.lr.ph.preheader.i79 ]
   %344 = zext nneg i32 %.023.i to i64
-  %345 = getelementptr inbounds nuw ptr, ptr %331, i64 %344
+  %345 = getelementptr inbounds nuw [8 x i8], ptr %331, i64 %344
   %346 = load ptr, ptr %345, align 8, !tbaa !664
   %347 = icmp eq ptr %346, %280
   br i1 %347, label %348, label %360
 
 348:                                              ; preds = %.lr.ph.i80
-  %349 = getelementptr inbounds nuw ptr, ptr %331, i64 %344
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %331, i64 %344
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 8
   %351 = xor i32 %.023.i, -1
   %352 = add i32 %332, %351
@@ -26486,7 +26451,7 @@ _ZN5ImGui23BringWindowToFocusFrontEP11ImGuiWindow.exit: ; preds = %295, %._crit_
   %355 = load i32, ptr %329, align 8, !tbaa !821
   %356 = load ptr, ptr %330, align 8, !tbaa !522
   %357 = sext i32 %355 to i64
-  %358 = getelementptr ptr, ptr %356, i64 %357
+  %358 = getelementptr [8 x i8], ptr %356, i64 %357
   %359 = getelementptr i8, ptr %358, i64 -8
   store ptr %280, ptr %359, align 8, !tbaa !664
   br label %_ZN5ImGui25BringWindowToDisplayFrontEP11ImGuiWindow.exit
@@ -26919,7 +26884,7 @@ define dso_local void @_ZN5ImGui31UpdateMouseMovingWindowEndFrameEv() local_unna
 
 36:                                               ; preds = %35, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %35 ]
-  %37 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %34, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [56 x i8], ptr %34, i64 %indvars.iv.i
   %38 = load i32, ptr %37, align 8, !tbaa !827
   %39 = icmp eq i32 %38, %30
   br i1 %39, label %.critedge63, label %35
@@ -27061,7 +27026,7 @@ _ZN5ImGui11IsPopupOpenEji.exit:                   ; preds = %35, %28, %97, %93, 
 111:                                              ; preds = %119, %.lr.ph.i44
   %indvars.iv.i45 = phi i64 [ %110, %.lr.ph.i44 ], [ %indvars.iv.next.i46, %119 ]
   %indvars.iv.next.i46 = add nsw i64 %indvars.iv.i45, -1
-  %112 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %109, i64 %indvars.iv.next.i46
+  %112 = getelementptr inbounds nuw [56 x i8], ptr %109, i64 %indvars.iv.next.i46
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !807
   %.not.i47 = icmp eq ptr %114, null
@@ -27116,7 +27081,7 @@ _ZN5ImGui20GetTopMostPopupModalEv.exit:           ; preds = %115, %119, %103
 
 134:                                              ; preds = %select.unfold.i, %.lr.ph54.i
   %indvars.iv.i50 = phi i64 [ 0, %.lr.ph54.i ], [ %indvars.iv.next.i53, %select.unfold.i ]
-  %135 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %132, i64 %indvars.iv.i50
+  %135 = getelementptr inbounds nuw [56 x i8], ptr %132, i64 %indvars.iv.i50
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load ptr, ptr %136, align 8, !tbaa !807
   %.not34.i = icmp eq ptr %137, null
@@ -27124,7 +27089,7 @@ _ZN5ImGui20GetTopMostPopupModalEv.exit:           ; preds = %115, %119, %103
 
 .lr.ph.i51:                                       ; preds = %134, %.loopexit.i
   %indvars.iv59.i = phi i64 [ %indvars.iv.next60.i, %.loopexit.i ], [ %indvars.iv.i50, %134 ]
-  %138 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %132, i64 %indvars.iv59.i
+  %138 = getelementptr inbounds nuw [56 x i8], ptr %132, i64 %indvars.iv59.i
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !807
   %.not35.i = icmp eq ptr %140, null
@@ -27232,7 +27197,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui11IsPopupOpenEji(i32 noundef %0, i
 
 18:                                               ; preds = %18, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [56 x i8], ptr %17, i64 %indvars.iv
   %20 = load i32, ptr %19, align 8, !tbaa !827
   %21 = icmp eq i32 %20, %0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -27250,7 +27215,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui11IsPopupOpenEji(i32 noundef %0, i
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 7736
   %28 = load ptr, ptr %27, align 8, !tbaa !534
   %29 = sext i32 %24 to i64
-  %30 = getelementptr inbounds %struct.ImGuiPopupData, ptr %28, i64 %29
+  %30 = getelementptr inbounds [56 x i8], ptr %28, i64 %29
   %31 = load i32, ptr %30, align 8, !tbaa !827
   %32 = icmp eq i32 %31, %0
   br label %.loopexit
@@ -27277,7 +27242,7 @@ define dso_local noundef ptr @_ZN5ImGui20GetTopMostPopupModalEv() local_unnamed_
 8:                                                ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %9 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %6, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %6, i64 %indvars.iv.next
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !807
   %.not = icmp eq ptr %11, null
@@ -27333,7 +27298,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui13IsWindowAboveEP11ImGuiWindowS1_(
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %13, align 8, !tbaa !522
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %16
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   %22 = load ptr, ptr %21, align 8, !tbaa !664
   %23 = icmp eq ptr %22, %0
   br i1 %23, label %.thread, label %24
@@ -27370,7 +27335,7 @@ define dso_local void @_ZN5ImGui21ClosePopupsOverWindowEP11ImGuiWindowb(ptr noun
 
 12:                                               ; preds = %.lr.ph54, %select.unfold
   %indvars.iv = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next, %select.unfold ]
-  %13 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !807
   %.not34 = icmp eq ptr %15, null
@@ -27378,7 +27343,7 @@ define dso_local void @_ZN5ImGui21ClosePopupsOverWindowEP11ImGuiWindowb(ptr noun
 
 .lr.ph:                                           ; preds = %12, %.loopexit
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.loopexit ], [ %indvars.iv, %12 ]
-  %16 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %10, i64 %indvars.iv59
+  %16 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %indvars.iv59
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !807
   %.not35 = icmp eq ptr %18, null
@@ -27485,7 +27450,7 @@ define dso_local void @_ZN5ImGui34UpdateHoveredWindowAndCaptureFlagsEv() local_u
 19:                                               ; preds = %27, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %18, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %20 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %17, i64 %indvars.iv.next.i
+  %20 = getelementptr inbounds nuw [56 x i8], ptr %17, i64 %indvars.iv.next.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !807
   %.not.i = icmp eq ptr %22, null
@@ -27588,10 +27553,10 @@ _ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit: ; preds = %27, %36
   br i1 %77, label %85, label %78
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %80 = load double, ptr %79, align 8, !tbaa !835
   %81 = sext i32 %.084115 to i64
-  %82 = getelementptr inbounds double, ptr %54, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %54, i64 %81
   %83 = load double, ptr %82, align 8, !tbaa !835
   %84 = fcmp olt double %80, %83
   br i1 %84, label %85, label %87
@@ -27763,7 +27728,7 @@ define dso_local void @_ZN5ImGui19FindHoveredWindowExERK6ImVec2bPP11ImGuiWindowS
   %.1119 = phi ptr [ %.0, %.lr.ph ], [ %.398, %.thread93 ]
   %.048117 = phi ptr [ null, %.lr.ph ], [ %.25097, %.thread93 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %34 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.next
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.next
   %35 = load ptr, ptr %34, align 8, !tbaa !664
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 203
   %37 = load i8, ptr %36, align 1, !tbaa !430, !range !91, !noundef !220
@@ -28001,7 +27966,7 @@ _ZN5ImGui16CallContextHooksEP12ImGuiContext20ImGuiContextHookType.exit: ; preds 
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 10016
   %43 = load i16, ptr %42, align 8, !tbaa !212
   %44 = sext i16 %43 to i64
-  %45 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %46, %40
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %48
@@ -28019,7 +27984,7 @@ _ZN5ImGui16CallContextHooksEP12ImGuiContext20ImGuiContextHookType.exit: ; preds 
   %52 = trunc nsw i32 %51 to i16
   store i16 %52, ptr %42, align 4, !tbaa !212
   %53 = sext i32 %51 to i64
-  %54 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %41, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %41, i64 %53
   store i32 %40, ptr %54, align 4, !tbaa !213
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 6
   store i16 0, ptr %55, align 2, !tbaa !216
@@ -28030,7 +27995,7 @@ _ZN5ImGui16CallContextHooksEP12ImGuiContext20ImGuiContextHookType.exit: ; preds 
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %48, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %57 = phi i16 [ 1, %48 ], [ %47, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %58 = phi i64 [ %53, %48 ], [ %44, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %59 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %41, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %41, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 6
   store i16 %57, ptr %60, align 2, !tbaa !216
   %61 = getelementptr inbounds nuw i8, ptr %37, i64 10012
@@ -28111,7 +28076,7 @@ _ZN5ImGuiL14UpdateSettingsEv.exit:                ; preds = %67, %71, %82
   %98 = getelementptr inbounds nuw i8, ptr %5, i64 10308
   %99 = load i32, ptr %98, align 4, !tbaa !855
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds float, ptr %97, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %97, i64 %100
   %102 = load float, ptr %101, align 4, !tbaa !81
   %103 = fsub float %96, %102
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 10316
@@ -28425,7 +28390,7 @@ _ZN5ImGui14SetCurrentFontEP6ImFont.exit:          ; preds = %_ZN5ImGui14GetDefau
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %306 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %294 = load ptr, ptr %9, align 8, !tbaa !516
-  %295 = getelementptr inbounds nuw %struct.ImGuiContextHook, ptr %294, i64 %indvars.iv.next
+  %295 = getelementptr inbounds nuw [32 x i8], ptr %294, i64 %indvars.iv.next
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 4
   %297 = load i32, ptr %296, align 4, !tbaa !518
   %298 = icmp eq i32 %297, 7
@@ -28832,7 +28797,7 @@ _ZN5ImGui11KeepAliveIDEj.exit:                    ; preds = %331, %327, %315, %.
   br i1 %490, label %495, label %491
 
 491:                                              ; preds = %487
-  %492 = getelementptr inbounds nuw %struct.ImGuiKeyData, ptr %486, i64 %indvars.iv.i.i
+  %492 = getelementptr inbounds nuw [16 x i8], ptr %486, i64 %indvars.iv.i.i
   store i8 0, ptr %492, align 4, !tbaa !223
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 4
   store float -1.000000e+00, ptr %493, align 4, !tbaa !89
@@ -28965,7 +28930,7 @@ _ZL14UpdateAliasKey8ImGuiKeybf.exit.i:            ; preds = %_ZL14UpdateAliasKey
   %563 = load i8, ptr %562, align 1, !tbaa !228, !range !91, !noundef !220
   %564 = trunc nuw i8 %563 to i1
   %565 = select i1 %564, float 1.000000e+00, float 0.000000e+00
-  %566 = getelementptr %struct.ImGuiKeyData, ptr %499, i64 %indvars.iv.i
+  %566 = getelementptr [16 x i8], ptr %499, i64 %indvars.iv.i
   %567 = getelementptr i8, ptr %566, i64 2548
   store i8 %563, ptr %567, align 4, !tbaa !223
   %568 = getelementptr i8, ptr %566, i64 2560
@@ -29003,7 +28968,7 @@ _ZL14UpdateAliasKey8ImGuiKeybf.exit.i:            ; preds = %_ZL14UpdateAliasKey
 
 .preheader93.i:                                   ; preds = %580, %.preheader93.i
   %indvars.iv99.i = phi i64 [ %indvars.iv.next100.i, %.preheader93.i ], [ 631, %580 ]
-  %585 = getelementptr %struct.ImGuiKeyData, ptr %481, i64 %indvars.iv99.i
+  %585 = getelementptr [16 x i8], ptr %481, i64 %indvars.iv99.i
   %586 = getelementptr i8, ptr %585, i64 -7932
   store i8 0, ptr %586, align 4, !tbaa !223
   %587 = getelementptr i8, ptr %585, i64 -7920
@@ -29025,7 +28990,7 @@ _ZL14UpdateAliasKey8ImGuiKeybf.exit.i:            ; preds = %_ZL14UpdateAliasKey
 
 593:                                              ; preds = %614, %.loopexit.i
   %indvars.iv103.i = phi i64 [ 0, %.loopexit.i ], [ %indvars.iv.next104.i, %614 ]
-  %594 = getelementptr inbounds nuw %struct.ImGuiKeyData, ptr %588, i64 %indvars.iv103.i
+  %594 = getelementptr inbounds nuw [16 x i8], ptr %588, i64 %indvars.iv103.i
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 4
   %596 = load float, ptr %595, align 4, !tbaa !89
   %597 = getelementptr inbounds nuw i8, ptr %594, i64 8
@@ -29093,14 +29058,14 @@ _ZL14UpdateAliasKey8ImGuiKeybf.exit.i:            ; preds = %_ZL14UpdateAliasKey
 620:                                              ; preds = %._crit_edge50.i.i, %615
   %621 = phi i32 [ %.pre.i.i, %615 ], [ %626, %._crit_edge50.i.i ]
   %indvars.iv53.i.i = phi i64 [ 512, %615 ], [ %indvars.iv.next54.i.i, %._crit_edge50.i.i ]
-  %622 = getelementptr i16, ptr %481, i64 %indvars.iv53.i.i
+  %622 = getelementptr [2 x i8], ptr %481, i64 %indvars.iv53.i.i
   %623 = getelementptr i8, ptr %622, i64 5984
   %.042.in44.i.i = load i16, ptr %623, align 2, !tbaa !247
   %.not45.i.i = icmp eq i16 %.042.in44.i.i, -1
   br i1 %.not45.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %620
-  %624 = getelementptr %struct.ImGuiKeyOwnerData, ptr %499, i64 %indvars.iv53.i.i
+  %624 = getelementptr [12 x i8], ptr %499, i64 %indvars.iv53.i.i
   %625 = getelementptr i8, ptr %624, i64 -988
   br label %633
 
@@ -29123,7 +29088,7 @@ _ZL14UpdateAliasKey8ImGuiKeybf.exit.i:            ; preds = %_ZL14UpdateAliasKey
   %.042.in46.i.i = phi i16 [ %.042.in44.i.i, %.lr.ph.i.i ], [ %.042.in.i.i, %740 ]
   %635 = load ptr, ptr %617, align 8, !tbaa !663
   %636 = sext i16 %.042.in46.i.i to i64
-  %637 = getelementptr inbounds %struct.ImGuiKeyRoutingData, ptr %635, i64 %636
+  %637 = getelementptr inbounds [16 x i8], ptr %635, i64 %636
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 5
   %639 = load i8, ptr %638, align 1, !tbaa !905
   %640 = getelementptr inbounds nuw i8, ptr %637, i64 4
@@ -29176,7 +29141,7 @@ _ZNK8ImVectorI19ImGuiKeyRoutingDataE14_grow_capacityEi.exit.i.i.i: ; preds = %65
   %666 = getelementptr inbounds nuw i8, ptr %660, i64 10016
   %667 = load i16, ptr %666, align 8, !tbaa !212
   %668 = sext i16 %667 to i64
-  %669 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %665, i64 %668
+  %669 = getelementptr inbounds [8 x i8], ptr %665, i64 %668
   %670 = load i32, ptr %669, align 4, !tbaa !213
   %.not.i.i.i.i.i.i = icmp eq i32 %670, %664
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i, label %672
@@ -29194,7 +29159,7 @@ _ZNK8ImVectorI19ImGuiKeyRoutingDataE14_grow_capacityEi.exit.i.i.i: ; preds = %65
   %676 = trunc nsw i32 %675 to i16
   store i16 %676, ptr %666, align 4, !tbaa !212
   %677 = sext i32 %675 to i64
-  %678 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %665, i64 %677
+  %678 = getelementptr inbounds [8 x i8], ptr %665, i64 %677
   store i32 %664, ptr %678, align 4, !tbaa !213
   %679 = getelementptr inbounds nuw i8, ptr %678, i64 6
   store i16 0, ptr %679, align 2, !tbaa !216
@@ -29205,7 +29170,7 @@ _ZNK8ImVectorI19ImGuiKeyRoutingDataE14_grow_capacityEi.exit.i.i.i: ; preds = %65
 681:                                              ; preds = %672, %._crit_edge.i.i.i.i
   %682 = phi i16 [ 1, %672 ], [ %671, %._crit_edge.i.i.i.i ]
   %683 = phi i64 [ %677, %672 ], [ %668, %._crit_edge.i.i.i.i ]
-  %684 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %665, i64 %683
+  %684 = getelementptr inbounds [8 x i8], ptr %665, i64 %683
   %685 = getelementptr inbounds nuw i8, ptr %684, i64 4
   store i16 %682, ptr %685, align 4, !tbaa !215
   %686 = load i32, ptr %662, align 4, !tbaa !217
@@ -29239,7 +29204,7 @@ _ZN5ImGui8MemAllocEm.exit.i.i.i.i:                ; preds = %681, %_ZNK8ImVector
   %700 = getelementptr inbounds nuw i8, ptr %695, i64 10016
   %701 = load i16, ptr %700, align 8, !tbaa !212
   %702 = sext i16 %701 to i64
-  %703 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %699, i64 %702
+  %703 = getelementptr inbounds [8 x i8], ptr %699, i64 %702
   %704 = load i32, ptr %703, align 4, !tbaa !213
   %.not.i.i8.i.i.i.i = icmp eq i32 %704, %698
   br i1 %.not.i.i8.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i.i.i, label %706
@@ -29257,7 +29222,7 @@ _ZN5ImGui8MemAllocEm.exit.i.i.i.i:                ; preds = %681, %_ZNK8ImVector
   %710 = trunc nsw i32 %709 to i16
   store i16 %710, ptr %700, align 4, !tbaa !212
   %711 = sext i32 %709 to i64
-  %712 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %699, i64 %711
+  %712 = getelementptr inbounds [8 x i8], ptr %699, i64 %711
   store i32 %698, ptr %712, align 4, !tbaa !213
   %713 = getelementptr inbounds nuw i8, ptr %712, i64 6
   store i16 0, ptr %713, align 2, !tbaa !216
@@ -29268,7 +29233,7 @@ _ZN5ImGui8MemAllocEm.exit.i.i.i.i:                ; preds = %681, %_ZNK8ImVector
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i.i.i: ; preds = %706, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i.i.i
   %715 = phi i16 [ 1, %706 ], [ %705, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i.i.i ]
   %716 = phi i64 [ %711, %706 ], [ %702, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i.i.i ]
-  %717 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %699, i64 %716
+  %717 = getelementptr inbounds [8 x i8], ptr %699, i64 %716
   %718 = getelementptr inbounds nuw i8, ptr %717, i64 6
   store i16 %715, ptr %718, align 2, !tbaa !216
   %719 = getelementptr inbounds nuw i8, ptr %695, i64 10012
@@ -29293,7 +29258,7 @@ _ZN8ImVectorI19ImGuiKeyRoutingDataE9push_backERKS0_.exit.i.i: ; preds = %724, %.
   %725 = phi i32 [ %634, %._ZN8ImVectorI19ImGuiKeyRoutingDataE7reserveEi.exit_crit_edge.i.i.i ], [ %.pre3.i.i.i, %724 ]
   %726 = phi ptr [ %.pre.i.i.i276, %._ZN8ImVectorI19ImGuiKeyRoutingDataE7reserveEi.exit_crit_edge.i.i.i ], [ %659, %724 ]
   %727 = sext i32 %725 to i64
-  %728 = getelementptr inbounds %struct.ImGuiKeyRoutingData, ptr %726, i64 %727
+  %728 = getelementptr inbounds [16 x i8], ptr %726, i64 %727
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %728, ptr noundef nonnull align 4 dereferenceable(16) %637, i64 16, i1 false)
   %729 = load i32, ptr %616, align 8, !tbaa !685
   %730 = add nsw i32 %729, 1
@@ -29332,7 +29297,7 @@ _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i.i: ; preds = %_ZN8ImV
   %743 = icmp slt i64 %indvars.iv.next.i89.i, %632
   %744 = trunc i64 %indvars.iv.next.i89.i to i16
   %745 = select i1 %743, i16 %744, i16 -1
-  %746 = getelementptr inbounds %struct.ImGuiKeyRoutingData, ptr %630, i64 %indvars.iv.i88.i
+  %746 = getelementptr inbounds [16 x i8], ptr %630, i64 %indvars.iv.i88.i
   store i16 %745, ptr %746, align 4, !tbaa !914
   %exitcond.not.i90.i = icmp eq i64 %indvars.iv.next.i89.i, %632
   br i1 %exitcond.not.i90.i, label %._crit_edge50.i.i, label %742, !llvm.loop !915
@@ -29340,8 +29305,8 @@ _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i.i: ; preds = %_ZN8ImV
 747:                                              ; preds = %756, %.preheader.i
   %indvars.iv107.i = phi i64 [ 512, %.preheader.i ], [ %indvars.iv.next108.i, %756 ]
   %748 = add nsw i64 %indvars.iv107.i, -512
-  %749 = getelementptr inbounds %struct.ImGuiKeyData, ptr %588, i64 %748
-  %750 = getelementptr inbounds %struct.ImGuiKeyOwnerData, ptr %592, i64 %748
+  %749 = getelementptr inbounds [16 x i8], ptr %588, i64 %748
+  %750 = getelementptr inbounds [12 x i8], ptr %592, i64 %748
   %751 = getelementptr inbounds nuw i8, ptr %750, i64 4
   %752 = load i32, ptr %751, align 4, !tbaa !562
   store i32 %752, ptr %750, align 4, !tbaa !564
@@ -29420,7 +29385,7 @@ _ZN5ImGuiL20UpdateKeyboardInputsEv.exit:          ; preds = %._crit_edge50.i.i
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i.i.i:       ; preds = %.split.i.i.i.i.i.i, %778
   %.0.i.i.i.i.i = phi i32 [ %779, %778 ], [ %spec.select.i.i.i.i.i.i, %.split.i.i.i.i.i.i ]
   %786 = sext i32 %.0.i.i.i.i.i to i64
-  %787 = getelementptr %struct.ImGuiKeyData, ptr %768, i64 %786
+  %787 = getelementptr [16 x i8], ptr %768, i64 %786
   %788 = getelementptr i8, ptr %787, i64 -7932
   %789 = load i8, ptr %788, align 4, !tbaa !223, !range !91, !noundef !220
   %790 = trunc nuw i8 %789 to i1
@@ -29454,7 +29419,7 @@ switch.early.test.split.i.i.i.i.i:                ; preds = %switch.early.test.i
 _ZN5ImGui9IsKeyDownE8ImGuiKey.exit.i:             ; preds = %.split.i.i.i7.i.i.i, %795
   %.0.i.i6.i.i.i = phi i32 [ %779, %795 ], [ %spec.select.i.i.i9.i.i.i, %.split.i.i.i7.i.i.i ]
   %799 = sext i32 %.0.i.i6.i.i.i to i64
-  %800 = getelementptr %struct.ImGuiKeyOwnerData, ptr %768, i64 %799
+  %800 = getelementptr [12 x i8], ptr %768, i64 %799
   %801 = getelementptr i8, ptr %800, i64 -980
   %802 = load i8, ptr %801, align 4, !tbaa !566, !range !91, !noundef !220
   %803 = icmp eq i8 %802, 0
@@ -29500,7 +29465,7 @@ _ZN5ImGui9IsKeyDownE8ImGuiKey.exit.thread321.i:   ; preds = %_ZN5ImGui9IsKeyDown
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i.i243.i:    ; preds = %.split.i.i.i.i.i255.i, %807
   %.0.i.i.i.i244.i = phi i32 [ %808, %807 ], [ %spec.select.i.i.i.i.i257.i, %.split.i.i.i.i.i255.i ]
   %815 = sext i32 %.0.i.i.i.i244.i to i64
-  %816 = getelementptr %struct.ImGuiKeyData, ptr %768, i64 %815
+  %816 = getelementptr [16 x i8], ptr %768, i64 %815
   %817 = getelementptr i8, ptr %816, i64 -7932
   %818 = load i8, ptr %817, align 4, !tbaa !223, !range !91, !noundef !220
   %819 = trunc nuw i8 %818 to i1
@@ -29534,7 +29499,7 @@ switch.early.test.split.i.i.i.i248.i:             ; preds = %switch.early.test.i
 _ZN5ImGui9IsKeyDownE8ImGuiKey.exit258.i:          ; preds = %.split.i.i.i7.i.i252.i, %824
   %.0.i.i6.i.i251.i = phi i32 [ %808, %824 ], [ %spec.select.i.i.i9.i.i254.i, %.split.i.i.i7.i.i252.i ]
   %828 = sext i32 %.0.i.i6.i.i251.i to i64
-  %829 = getelementptr %struct.ImGuiKeyOwnerData, ptr %768, i64 %828
+  %829 = getelementptr [12 x i8], ptr %768, i64 %828
   %830 = getelementptr i8, ptr %829, i64 -980
   %831 = load i8, ptr %830, align 4, !tbaa !566, !range !91, !noundef !220
   %832 = icmp eq i8 %831, 0
@@ -29685,7 +29650,7 @@ _ZN5ImGuiL35NavSaveLastChildNavWindowIntoParentEP11ImGuiWindow.exit.thread.i: ; 
 897:                                              ; preds = %905, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %896, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %905 ]
   %indvars.iv.next.i.i.i = add nsw i64 %indvars.iv.i.i.i, -1
-  %898 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %895, i64 %indvars.iv.next.i.i.i
+  %898 = getelementptr inbounds nuw [56 x i8], ptr %895, i64 %indvars.iv.next.i.i.i
   %899 = getelementptr inbounds nuw i8, ptr %898, i64 8
   %900 = load ptr, ptr %899, align 8, !tbaa !807
   %.not.i.i.i = icmp eq ptr %900, null
@@ -29771,7 +29736,7 @@ _ZN5ImGui20GetTopMostPopupModalEv.exit.thread.i.i: ; preds = %905, %_ZN5ImGui20G
   %939 = and i32 %.5.i.i.i, 255
   %940 = xor i32 %939, %930
   %941 = zext nneg i32 %940 to i64
-  %942 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %941
+  %942 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %941
   %943 = load i32, ptr %942, align 4, !tbaa !221
   %944 = xor i32 %938, %943
   %exitcond.i.i = icmp eq i64 %.13043.i.add.i.i, 21
@@ -29897,7 +29862,7 @@ _ZN5ImGui12IsKeyPressedE8ImGuiKeyij.exit.i.i:     ; preds = %979, %975, %970, %9
 1001:                                             ; preds = %_ZN5ImGui20IsWindowNavFocusableEP11ImGuiWindow.exit.thread.i.i.i, %.lr.ph.i252.i.split.i
   %indvars.iv.i.i293 = phi i64 [ %indvars.iv.next.i.i294, %_ZN5ImGui20IsWindowNavFocusableEP11ImGuiWindow.exit.thread.i.i.i ], [ %998, %.lr.ph.i252.i.split.i ]
   %indvars.iv.next.i.i294 = add nsw i64 %indvars.iv.i.i293, -1
-  %1002 = getelementptr inbounds nuw ptr, ptr %1000, i64 %indvars.iv.next.i.i294
+  %1002 = getelementptr inbounds nuw [8 x i8], ptr %1000, i64 %indvars.iv.next.i.i294
   %1003 = load ptr, ptr %1002, align 8, !tbaa !664
   %1004 = getelementptr inbounds nuw i8, ptr %1003, i64 203
   %1005 = load i8, ptr %1004, align 1, !tbaa !430, !range !91, !noundef !220
@@ -30200,7 +30165,7 @@ _ZN5ImGui12IsKeyPressedE8ImGuiKeyij.exit353.i.i:  ; preds = %.thread388.i.i, %11
 1177:                                             ; preds = %1176
   %1178 = load ptr, ptr %1175, align 8, !tbaa !522
   %1179 = zext nneg i32 %.01317.i.i.i.i to i64
-  %1180 = getelementptr inbounds nuw ptr, ptr %1178, i64 %1179
+  %1180 = getelementptr inbounds nuw [8 x i8], ptr %1178, i64 %1179
   %1181 = load ptr, ptr %1180, align 8, !tbaa !664
   %1182 = getelementptr inbounds nuw i8, ptr %1181, i64 203
   %1183 = load i8, ptr %1182, align 1, !tbaa !430, !range !91, !noundef !220
@@ -30249,7 +30214,7 @@ _ZN5ImGui20IsWindowNavFocusableEP11ImGuiWindow.exit.thread.i.i.i.i: ; preds = %_
 1202:                                             ; preds = %1200
   %1203 = load ptr, ptr %1199, align 8, !tbaa !522
   %1204 = zext nneg i32 %.01317.i20.i.i.i to i64
-  %1205 = getelementptr inbounds nuw ptr, ptr %1203, i64 %1204
+  %1205 = getelementptr inbounds nuw [8 x i8], ptr %1203, i64 %1204
   %1206 = load ptr, ptr %1205, align 8, !tbaa !664
   %1207 = getelementptr inbounds nuw i8, ptr %1206, i64 203
   %1208 = load i8, ptr %1207, align 1, !tbaa !430, !range !91, !noundef !220
@@ -30398,7 +30363,7 @@ thread-pre-split.i.i:                             ; preds = %1241
 1277:                                             ; preds = %1276
   %1278 = load ptr, ptr %1275, align 8, !tbaa !522
   %1279 = zext nneg i32 %.01317.i.i271.i.i to i64
-  %1280 = getelementptr inbounds nuw ptr, ptr %1278, i64 %1279
+  %1280 = getelementptr inbounds nuw [8 x i8], ptr %1278, i64 %1279
   %1281 = load ptr, ptr %1280, align 8, !tbaa !664
   %1282 = getelementptr inbounds nuw i8, ptr %1281, i64 203
   %1283 = load i8, ptr %1282, align 1, !tbaa !430, !range !91, !noundef !220
@@ -30446,7 +30411,7 @@ _ZN5ImGui20IsWindowNavFocusableEP11ImGuiWindow.exit.thread.i.i273.i.i: ; preds =
 1301:                                             ; preds = %1299
   %1302 = load ptr, ptr %1298, align 8, !tbaa !522
   %1303 = zext nneg i32 %.01317.i20.i261.i.i to i64
-  %1304 = getelementptr inbounds nuw ptr, ptr %1302, i64 %1303
+  %1304 = getelementptr inbounds nuw [8 x i8], ptr %1302, i64 %1303
   %1305 = load ptr, ptr %1304, align 8, !tbaa !664
   %1306 = getelementptr inbounds nuw i8, ptr %1305, i64 203
   %1307 = load i8, ptr %1306, align 1, !tbaa !430, !range !91, !noundef !220
@@ -30531,7 +30496,7 @@ _ZL33NavUpdateWindowingHighlightWindowi.exit276.split.i.i: ; preds = %_ZL33NavUp
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i.i261.i:    ; preds = %.split.i.i.i.i.i268.i, %_ZL33NavUpdateWindowingHighlightWindowi.exit276.split.i.i
   %.0.i.i.i.i262.i = phi i32 [ %1332, %_ZL33NavUpdateWindowingHighlightWindowi.exit276.split.i.i ], [ %spec.select.i.i.i.i.i270.i, %.split.i.i.i.i.i268.i ]
   %1339 = sext i32 %.0.i.i.i.i262.i to i64
-  %1340 = getelementptr %struct.ImGuiKeyData, ptr %1329, i64 %1339
+  %1340 = getelementptr [16 x i8], ptr %1329, i64 %1339
   %1341 = getelementptr i8, ptr %1340, i64 -7932
   %1342 = load i8, ptr %1341, align 4, !tbaa !223, !range !91, !noundef !220
   %1343 = trunc nuw i8 %1342 to i1
@@ -30583,7 +30548,7 @@ switch.early.test.split.i.i.i.i265.i:             ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i.i.i267.i: ; preds = %.split.i.i.i45.i.i.i, %1358
   %.0.i.i44.i.i.i = phi i32 [ %1332, %1358 ], [ %spec.select.i.i.i47.i.i.i, %.split.i.i.i45.i.i.i ]
   %1362 = sext i32 %.0.i.i44.i.i.i to i64
-  %1363 = getelementptr %struct.ImGuiKeyOwnerData, ptr %1329, i64 %1362
+  %1363 = getelementptr [12 x i8], ptr %1329, i64 %1362
   %1364 = getelementptr i8, ptr %1363, i64 -988
   %1365 = load i32, ptr %1364, align 4, !tbaa !564
   %.not.i.i281.i.i = icmp eq i32 %1365, -1
@@ -30690,7 +30655,7 @@ _ZN5ImGui12TestKeyOwnerE8ImGuiKeyj.exit.thread.i.i: ; preds = %_ZN5ImGui12TestKe
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i.i.i.i:     ; preds = %.split.i.i.i.i.i.i.i, %_ZN5ImGui12TestKeyOwnerE8ImGuiKeyj.exit.thread.i.i
   %.0.i.i.i.i.i.i = phi i32 [ %1407, %_ZN5ImGui12TestKeyOwnerE8ImGuiKeyj.exit.thread.i.i ], [ %spec.select.i.i.i.i.i.i.i, %.split.i.i.i.i.i.i.i ]
   %1415 = sext i32 %.0.i.i.i.i.i.i to i64
-  %1416 = getelementptr %struct.ImGuiKeyData, ptr %1329, i64 %1415
+  %1416 = getelementptr [16 x i8], ptr %1329, i64 %1415
   %1417 = getelementptr i8, ptr %1416, i64 -7924
   %1418 = load float, ptr %1417, align 4, !tbaa !87
   %1419 = fcmp olt float %1418, 0.000000e+00
@@ -30730,7 +30695,7 @@ switch.early.test.split.i.i.i.i.i.i:              ; preds = %switch.early.test.i
 _ZN5ImGui13IsKeyReleasedE8ImGuiKey.exit.i.i:      ; preds = %.split.i.i.i8.i.i.i.i, %1428
   %.0.i.i7.i.i.i.i = phi i32 [ %1407, %1428 ], [ %spec.select.i.i.i10.i.i.i.i, %.split.i.i.i8.i.i.i.i ]
   %1432 = sext i32 %.0.i.i7.i.i.i.i to i64
-  %1433 = getelementptr %struct.ImGuiKeyOwnerData, ptr %1329, i64 %1432
+  %1433 = getelementptr [12 x i8], ptr %1329, i64 %1432
   %1434 = getelementptr i8, ptr %1433, i64 -980
   %1435 = load i8, ptr %1434, align 4, !tbaa !566, !range !91, !noundef !220
   %1436 = icmp eq i8 %1435, 0
@@ -30786,7 +30751,7 @@ _ZN5ImGui13IsKeyReleasedE8ImGuiKey.exit.thread408.i.i: ; preds = %1445, %1441, %
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i.i295.i.i:  ; preds = %.split.i.i.i.i.i302.i.i, %_ZN5ImGui13IsKeyReleasedE8ImGuiKey.exit.thread408.i.i
   %.0.i.i.i.i296.i.i = phi i32 [ %1407, %_ZN5ImGui13IsKeyReleasedE8ImGuiKey.exit.thread408.i.i ], [ %spec.select.i.i.i.i.i304.i.i, %.split.i.i.i.i.i302.i.i ]
   %1457 = sext i32 %.0.i.i.i.i296.i.i to i64
-  %1458 = getelementptr %struct.ImGuiKeyData, ptr %1329, i64 %1457
+  %1458 = getelementptr [16 x i8], ptr %1329, i64 %1457
   %1459 = getelementptr i8, ptr %1458, i64 -7932
   %1460 = load i8, ptr %1459, align 4, !tbaa !223, !range !91, !noundef !220
   %1461 = trunc nuw i8 %1460 to i1
@@ -30820,7 +30785,7 @@ switch.early.test.split.i.i.i.i299.i.i:           ; preds = %switch.early.test.i
 _ZN5ImGui9IsKeyDownE8ImGuiKey.exit305.i.i:        ; preds = %.split.i.i.i7.i.i.i.i, %1466
   %.0.i.i6.i.i.i.i = phi i32 [ %1407, %1466 ], [ %spec.select.i.i.i9.i.i.i.i, %.split.i.i.i7.i.i.i.i ]
   %1470 = sext i32 %.0.i.i6.i.i.i.i to i64
-  %1471 = getelementptr %struct.ImGuiKeyOwnerData, ptr %1329, i64 %1470
+  %1471 = getelementptr [12 x i8], ptr %1329, i64 %1470
   %1472 = getelementptr i8, ptr %1471, i64 -980
   %1473 = load i8, ptr %1472, align 4, !tbaa !566, !range !91, !noundef !220
   %1474 = icmp eq i8 %1473, 0
@@ -31058,7 +31023,7 @@ _ZN5ImGui12SetWindowPosEP11ImGuiWindowRK6ImVec2i.exit.i.i: ; preds = %_ZN5ImGui2
 
 1603:                                             ; preds = %select.unfold.i.i.i, %.lr.ph54.i.i.i
   %indvars.iv.i324.i.i = phi i64 [ 0, %.lr.ph54.i.i.i ], [ %indvars.iv.next.i330.i.i, %select.unfold.i.i.i ]
-  %1604 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %1601, i64 %indvars.iv.i324.i.i
+  %1604 = getelementptr inbounds nuw [56 x i8], ptr %1601, i64 %indvars.iv.i324.i.i
   %1605 = getelementptr inbounds nuw i8, ptr %1604, i64 8
   %1606 = load ptr, ptr %1605, align 8, !tbaa !807
   %.not34.i325.i.i = icmp eq ptr %1606, null
@@ -31066,7 +31031,7 @@ _ZN5ImGui12SetWindowPosEP11ImGuiWindowRK6ImVec2i.exit.i.i: ; preds = %_ZN5ImGui2
 
 .lr.ph.i326.i.i:                                  ; preds = %1603, %.loopexit.i329.i.i
   %indvars.iv59.i.i.i = phi i64 [ %indvars.iv.next60.i.i.i, %.loopexit.i329.i.i ], [ %indvars.iv.i324.i.i, %1603 ]
-  %1607 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %1601, i64 %indvars.iv59.i.i.i
+  %1607 = getelementptr inbounds nuw [56 x i8], ptr %1601, i64 %indvars.iv59.i.i.i
   %1608 = getelementptr inbounds nuw i8, ptr %1607, i64 8
   %1609 = load ptr, ptr %1608, align 8, !tbaa !807
   %.not35.i.i.i = icmp eq ptr %1609, null
@@ -31256,7 +31221,7 @@ _ZN5ImGui21ClosePopupsOverWindowEP11ImGuiWindowb.exit.i.i: ; preds = %select.unf
   %1691 = getelementptr inbounds nuw i8, ptr %1685, i64 7808
   %1692 = load i32, ptr %1691, align 8, !tbaa !816
   %1693 = zext i32 %1692 to i64
-  %1694 = getelementptr inbounds nuw %struct.ImVec2, ptr %1690, i64 %1693
+  %1694 = getelementptr inbounds nuw [8 x i8], ptr %1690, i64 %1693
   store float 0x47EFFFFFE0000000, ptr %1694, align 4, !tbaa !81
   %1695 = getelementptr inbounds nuw i8, ptr %1694, i64 4
   store float 0x47EFFFFFE0000000, ptr %1695, align 4, !tbaa !81
@@ -31383,7 +31348,7 @@ _ZN5ImGui12IsKeyPressedE8ImGuiKeyij.exit.thread.i.i: ; preds = %1752, %1749, %17
   %1757 = load i8, ptr %1756, align 2, !tbaa !942, !range !91, !noundef !220
   %1758 = trunc nuw i8 %1757 to i1
   %1759 = select i1 %1758, i64 636, i64 634
-  %1760 = getelementptr %struct.ImGuiKeyData, ptr %1726, i64 %1759
+  %1760 = getelementptr [16 x i8], ptr %1726, i64 %1759
   %1761 = getelementptr i8, ptr %1760, i64 -7932
   %1762 = load i8, ptr %1761, align 4, !tbaa !223, !range !91, !noundef !220
   %1763 = trunc nuw i8 %1762 to i1
@@ -31396,7 +31361,7 @@ _ZN5ImGui12IsKeyPressedE8ImGuiKeyij.exit.thread.i.i: ; preds = %1752, %1749, %17
   br i1 %1767, label %1768, label %_ZN5ImGuiL22NavUpdateCancelRequestEv.exit.i
 
 1768:                                             ; preds = %1764
-  %1769 = getelementptr %struct.ImGuiKeyOwnerData, ptr %1726, i64 %1759
+  %1769 = getelementptr [12 x i8], ptr %1726, i64 %1759
   %1770 = getelementptr i8, ptr %1769, i64 -988
   %1771 = load i32, ptr %1770, align 4, !tbaa !564
   %.not.i.i44.i.i = icmp eq i32 %1771, -1
@@ -31518,7 +31483,7 @@ _ZN5ImGui12IsKeyPressedE8ImGuiKeyij.exit.i273.i:  ; preds = %1768, %1752
   %1831 = getelementptr inbounds nuw i8, ptr %1726, i64 7736
   %1832 = load ptr, ptr %1831, align 8, !tbaa !534
   %1833 = zext nneg i32 %1828 to i64
-  %1834 = getelementptr %struct.ImGuiPopupData, ptr %1832, i64 %1833
+  %1834 = getelementptr [56 x i8], ptr %1832, i64 %1833
   %1835 = getelementptr i8, ptr %1834, i64 -48
   %1836 = load ptr, ptr %1835, align 8, !tbaa !807
   %.not38.i.i = icmp eq ptr %1836, null
@@ -32417,7 +32382,7 @@ _ZN5ImGui12IsKeyPressedE8ImGuiKeyij.exit64.i.i.i: ; preds = %2235, %2232, %2226,
   %2292 = getelementptr inbounds nuw i8, ptr %2111, i64 968
   %2293 = load i32, ptr %2240, align 8, !tbaa !816
   %2294 = zext i32 %2293 to i64
-  %2295 = getelementptr inbounds nuw %struct.ImRect, ptr %2292, i64 %2294
+  %2295 = getelementptr inbounds nuw [16 x i8], ptr %2292, i64 %2294
   %2296 = getelementptr inbounds nuw i8, ptr %2111, i64 540
   %2297 = load float, ptr %2296, align 4, !tbaa !396
   %2298 = getelementptr inbounds nuw i8, ptr %2111, i64 532
@@ -32937,7 +32902,7 @@ _ZNK11ImGuiWindow12CalcFontSizeEv.exit131.i.i:    ; preds = %2585, %2575
   %2602 = select i1 %2533, float %2601, float 0x47EFFFFFE0000000
   %2603 = load i32, ptr %2524, align 8, !tbaa !816
   %2604 = zext i32 %2603 to i64
-  %2605 = getelementptr inbounds nuw %struct.ImRect, ptr %2557, i64 %2604
+  %2605 = getelementptr inbounds nuw [16 x i8], ptr %2557, i64 %2604
   %.val.i.i290.i = load float, ptr %2605, align 4, !tbaa !49
   %2606 = getelementptr inbounds nuw i8, ptr %2605, i64 4
   %.val6.i.i.i = load float, ptr %2606, align 4
@@ -32978,7 +32943,7 @@ _ZNK11ImGuiWindow12CalcFontSizeEv.exit131.i.i:    ; preds = %2585, %2575
   %2622 = getelementptr inbounds nuw i8, ptr %2023, i64 7808
   %2623 = load i32, ptr %2622, align 8, !tbaa !816
   %2624 = zext i32 %2623 to i64
-  %2625 = getelementptr inbounds nuw %struct.ImRect, ptr %2621, i64 %2624
+  %2625 = getelementptr inbounds nuw [16 x i8], ptr %2621, i64 %2624
   %2626 = load float, ptr %2625, align 4, !tbaa !469
   %2627 = getelementptr inbounds nuw i8, ptr %2625, i64 8
   %2628 = load float, ptr %2627, align 4, !tbaa !470
@@ -33021,7 +32986,7 @@ _ZNK11ImGuiWindow12CalcFontSizeEv.exit131.i.i:    ; preds = %2585, %2575
   %2648 = getelementptr inbounds nuw i8, ptr %2026, i64 936
   %2649 = load ptr, ptr %2648, align 8, !tbaa !390
   %2650 = getelementptr inbounds nuw i8, ptr %2649, i64 1000
-  %2651 = getelementptr inbounds nuw %struct.ImVec2, ptr %2650, i64 %2624
+  %2651 = getelementptr inbounds nuw [8 x i8], ptr %2650, i64 %2624
   %2652 = load i32, ptr %2439, align 8, !tbaa !613
   %2653 = getelementptr inbounds nuw i8, ptr %2023, i64 7948
   %2654 = load i32, ptr %2653, align 4, !tbaa !393
@@ -33689,17 +33654,17 @@ _ZN5ImGuiL9NavUpdateEv.exit:                      ; preds = %.critedge240.i, %29
   %3037 = load i8, ptr %3036, align 1, !tbaa !228, !range !91, !noundef !220
   %3038 = trunc nuw i8 %3037 to i1
   %3039 = getelementptr inbounds nuw i8, ptr %3024, i64 %indvars.iv.i299
-  %3040 = getelementptr inbounds nuw float, ptr %3025, i64 %indvars.iv.i299
+  %3040 = getelementptr inbounds nuw [4 x i8], ptr %3025, i64 %indvars.iv.i299
   br i1 %3038, label %3041, label %3089
 
 3041:                                             ; preds = %3035
-  %3042 = getelementptr inbounds nuw float, ptr %3023, i64 %indvars.iv.i299
+  %3042 = getelementptr inbounds nuw [4 x i8], ptr %3023, i64 %indvars.iv.i299
   %3043 = load float, ptr %3042, align 4, !tbaa !81
   %3044 = fcmp olt float %3043, 0.000000e+00
   %3045 = zext i1 %3044 to i8
   %3046 = getelementptr inbounds nuw i8, ptr %3021, i64 %indvars.iv.i299
   store i8 %3045, ptr %3046, align 1, !tbaa !228
-  %3047 = getelementptr inbounds nuw i16, ptr %3022, i64 %indvars.iv.i299
+  %3047 = getelementptr inbounds nuw [2 x i8], ptr %3022, i64 %indvars.iv.i299
   store i16 0, ptr %3047, align 2, !tbaa !247
   store i8 0, ptr %3039, align 1, !tbaa !228
   store float %3043, ptr %3040, align 4, !tbaa !81
@@ -33708,7 +33673,7 @@ _ZN5ImGuiL9NavUpdateEv.exit:                      ; preds = %.critedge240.i, %29
 3048:                                             ; preds = %3041
   store float 0.000000e+00, ptr %3042, align 4, !tbaa !81
   %3049 = load double, ptr %3029, align 8, !tbaa !585
-  %3050 = getelementptr inbounds nuw double, ptr %3030, i64 %indvars.iv.i299
+  %3050 = getelementptr inbounds nuw [8 x i8], ptr %3030, i64 %indvars.iv.i299
   %3051 = load double, ptr %3050, align 8, !tbaa !835
   %3052 = fsub double %3049, %3051
   %3053 = fptrunc double %3052 to float
@@ -33723,7 +33688,7 @@ _ZN5ImGuiL9NavUpdateEv.exit:                      ; preds = %.critedge240.i, %29
   br i1 %3059, label %3060, label %3066
 
 3060:                                             ; preds = %3056
-  %3061 = getelementptr inbounds nuw %struct.ImVec2, ptr %3027, i64 %indvars.iv.i299
+  %3061 = getelementptr inbounds nuw [8 x i8], ptr %3027, i64 %indvars.iv.i299
   %.val108.i = load float, ptr %3061, align 4, !tbaa !49
   %3062 = getelementptr i8, ptr %3061, i64 4
   %.val109.i = load float, ptr %3062, align 4, !tbaa !50
@@ -33745,26 +33710,26 @@ _ZN5ImGuiL9NavUpdateEv.exit:                      ; preds = %.critedge240.i, %29
   br i1 %3070, label %3071, label %.critedge.i302
 
 3071:                                             ; preds = %3066
-  %3072 = getelementptr inbounds nuw i16, ptr %3033, i64 %indvars.iv.i299
+  %3072 = getelementptr inbounds nuw [2 x i8], ptr %3033, i64 %indvars.iv.i299
   %3073 = load i16, ptr %3072, align 2, !tbaa !247
   %3074 = add i16 %3073, 1
   store i16 %3074, ptr %3072, align 2, !tbaa !247
   br label %3076
 
 .critedge.i302:                                   ; preds = %3066, %3048
-  %3075 = getelementptr inbounds nuw i16, ptr %3033, i64 %indvars.iv.i299
+  %3075 = getelementptr inbounds nuw [2 x i8], ptr %3033, i64 %indvars.iv.i299
   store i16 1, ptr %3075, align 2, !tbaa !247
   br label %3076
 
 3076:                                             ; preds = %.critedge.i302, %3071
   store double %3049, ptr %3050, align 8, !tbaa !835
-  %3077 = getelementptr inbounds nuw %struct.ImVec2, ptr %3027, i64 %indvars.iv.i299
+  %3077 = getelementptr inbounds nuw [8 x i8], ptr %3027, i64 %indvars.iv.i299
   %3078 = load i64, ptr %2960, align 8
   store i64 %3078, ptr %3077, align 8
-  %3079 = getelementptr inbounds nuw i16, ptr %3033, i64 %indvars.iv.i299
+  %3079 = getelementptr inbounds nuw [2 x i8], ptr %3033, i64 %indvars.iv.i299
   %3080 = load i16, ptr %3079, align 2, !tbaa !247
   store i16 %3080, ptr %3047, align 2, !tbaa !247
-  %3081 = getelementptr inbounds nuw float, ptr %3028, i64 %indvars.iv.i299
+  %3081 = getelementptr inbounds nuw [4 x i8], ptr %3028, i64 %indvars.iv.i299
   store float 0.000000e+00, ptr %3081, align 4, !tbaa !81
   %3082 = trunc i64 %3078 to i32
   %3083 = bitcast i32 %3082 to float
@@ -33778,9 +33743,9 @@ _ZN5ImGuiL9NavUpdateEv.exit:                      ; preds = %.critedge240.i, %29
 3089:                                             ; preds = %3035
   %3090 = getelementptr inbounds nuw i8, ptr %3021, i64 %indvars.iv.i299
   store i8 0, ptr %3090, align 1, !tbaa !228
-  %3091 = getelementptr inbounds nuw i16, ptr %3022, i64 %indvars.iv.i299
+  %3091 = getelementptr inbounds nuw [2 x i8], ptr %3022, i64 %indvars.iv.i299
   store i16 0, ptr %3091, align 2, !tbaa !247
-  %3092 = getelementptr inbounds nuw float, ptr %3023, i64 %indvars.iv.i299
+  %3092 = getelementptr inbounds nuw [4 x i8], ptr %3023, i64 %indvars.iv.i299
   %3093 = load float, ptr %3092, align 4, !tbaa !81
   %3094 = fcmp oge float %3093, 0.000000e+00
   %3095 = zext i1 %3094 to i8
@@ -33799,7 +33764,7 @@ _ZN5ImGuiL9NavUpdateEv.exit:                      ; preds = %.critedge240.i, %29
   br i1 %3101, label %3102, label %3110
 
 3102:                                             ; preds = %3096
-  %3103 = getelementptr inbounds nuw %struct.ImVec2, ptr %3027, i64 %indvars.iv.i299
+  %3103 = getelementptr inbounds nuw [8 x i8], ptr %3027, i64 %indvars.iv.i299
   %.val104.i = load float, ptr %3103, align 4, !tbaa !49
   %3104 = getelementptr i8, ptr %3103, i64 4
   %.val105.i = load float, ptr %3104, align 4, !tbaa !50
@@ -33812,7 +33777,7 @@ _ZN5ImGuiL9NavUpdateEv.exit:                      ; preds = %.critedge240.i, %29
 
 3110:                                             ; preds = %3102, %3096
   %3111 = phi float [ %3109, %3102 ], [ 0.000000e+00, %3096 ]
-  %3112 = getelementptr inbounds nuw float, ptr %3028, i64 %indvars.iv.i299
+  %3112 = getelementptr inbounds nuw [4 x i8], ptr %3028, i64 %indvars.iv.i299
   %3113 = load float, ptr %3112, align 4, !tbaa !81
   %3114 = fcmp oge float %3113, %3111
   %3115 = select i1 %3114, float %3113, float %3111
@@ -33889,7 +33854,7 @@ _ZN5ImGuiL17UpdateMouseInputsEv.exit:             ; preds = %3123
 3150:                                             ; preds = %3158, %.lr.ph.i304
   %indvars.iv.i305 = phi i64 [ %3149, %.lr.ph.i304 ], [ %indvars.iv.next.i306, %3158 ]
   %indvars.iv.next.i306 = add nsw i64 %indvars.iv.i305, -1
-  %3151 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %3148, i64 %indvars.iv.next.i306
+  %3151 = getelementptr inbounds nuw [56 x i8], ptr %3148, i64 %indvars.iv.next.i306
   %3152 = getelementptr inbounds nuw i8, ptr %3151, i64 8
   %3153 = load ptr, ptr %3152, align 8, !tbaa !807
   %.not.i307 = icmp eq ptr %3153, null
@@ -34378,7 +34343,7 @@ _ZN5ImGui12SetWindowPosEP11ImGuiWindowRK6ImVec2i.exit: ; preds = %3308, %_ZN5ImG
   %3425 = phi i32 [ %3438, %3435 ], [ %3423, %3421 ]
   %.04055.i.i = phi ptr [ %.040.i.i, %3435 ], [ %.04053.i.i, %3421 ]
   %3426 = getelementptr inbounds nuw i8, ptr %.04055.i.i, i64 160
-  %3427 = getelementptr inbounds nuw float, ptr %3426, i64 %indvars.iv.i.i321
+  %3427 = getelementptr inbounds nuw [4 x i8], ptr %3426, i64 %indvars.iv.i.i321
   %3428 = load float, ptr %3427, align 4, !tbaa !81
   %3429 = fcmp oeq float %3428, 0.000000e+00
   %3430 = and i32 %3425, 16
@@ -34647,7 +34612,7 @@ _ZN5ImGuiL16UpdateMouseWheelEv.exit:              ; preds = %.cont.i.thread384, 
   %3566 = phi i32 [ %3555, %.lr.ph412 ], [ %3576, %3575 ]
   %indvars.iv435 = phi i64 [ 0, %.lr.ph412 ], [ %indvars.iv.next436, %3575 ]
   %3567 = load ptr, ptr %3557, align 8, !tbaa !658
-  %3568 = getelementptr inbounds nuw float, ptr %3567, i64 %indvars.iv435
+  %3568 = getelementptr inbounds nuw [4 x i8], ptr %3567, i64 %indvars.iv435
   %3569 = load float, ptr %3568, align 4, !tbaa !81
   %3570 = fcmp oge float %3569, 0.000000e+00
   %3571 = fcmp olt float %3569, %3136
@@ -34656,7 +34621,7 @@ _ZN5ImGuiL16UpdateMouseWheelEv.exit:              ; preds = %.cont.i.thread384, 
 
 3572:                                             ; preds = %3565
   %3573 = load ptr, ptr %3558, align 8, !tbaa !659
-  %3574 = getelementptr inbounds nuw %struct.ImGuiTable, ptr %3573, i64 %indvars.iv435
+  %3574 = getelementptr inbounds nuw [592 x i8], ptr %3573, i64 %indvars.iv435
   call void @_ZN5ImGui30TableGcCompactTransientBuffersEP10ImGuiTable(ptr noundef %3574)
   %.pre443 = load i32, ptr %3554, align 8, !tbaa !989
   br label %3575
@@ -34724,7 +34689,7 @@ _ZN5ImGuiL16UpdateMouseWheelEv.exit:              ; preds = %.cont.i.thread384, 
 
 3605:                                             ; preds = %3617, %.lr.ph33.i
   %indvars.iv.i333 = phi i64 [ %3604, %.lr.ph33.i ], [ %indvars.iv.next.i334, %3617 ]
-  %3606 = getelementptr inbounds nuw ptr, ptr %3603, i64 %indvars.iv.i333
+  %3606 = getelementptr inbounds nuw [8 x i8], ptr %3603, i64 %indvars.iv.i333
   %3607 = load ptr, ptr %3606, align 8, !tbaa !664
   %3608 = icmp eq ptr %3607, null
   br i1 %3608, label %3617, label %3609
@@ -34767,7 +34732,7 @@ _ZN5ImGui26FocusTopMostWindowUnderOneEP11ImGuiWindowS1_P13ImGuiViewporti.exit: ;
   %3624 = load ptr, ptr %3623, align 8, !tbaa !303
   %3625 = load i32, ptr %3622, align 8, !tbaa !301
   %3626 = sext i32 %3625 to i64
-  %3627 = getelementptr i32, ptr %3624, i64 %3626
+  %3627 = getelementptr [4 x i8], ptr %3624, i64 %3626
   %3628 = getelementptr i8, ptr %3627, i64 -4
   %3629 = load i32, ptr %3628, align 4, !tbaa !221
   %3630 = getelementptr inbounds nuw i8, ptr %5, i64 7368
@@ -34868,7 +34833,7 @@ _ZN5ImGui12IsKeyPressedE8ImGuiKeyij.exit.thread.i: ; preds = %3681, %.thread.i34
 
 3693:                                             ; preds = %3685
   %3694 = getelementptr inbounds nuw i8, ptr %3632, i64 2864
-  %3695 = getelementptr inbounds nuw float, ptr %3694, i64 %3688
+  %3695 = getelementptr inbounds nuw [4 x i8], ptr %3694, i64 %3688
   %3696 = load float, ptr %3695, align 4, !tbaa !81
   %3697 = fcmp oeq float %3696, 0.000000e+00
   br i1 %3697, label %.critedge.i.i337, label %.split.us.i
@@ -34878,7 +34843,7 @@ _ZN5ImGui12IsKeyPressedE8ImGuiKeyij.exit.thread.i: ; preds = %3681, %.thread.i34
   br i1 %or.cond.i.i.i.i, label %_ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i.i.i, label %_ZN5ImGui14IsMouseClickedEiij.exit.i
 
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i.i.i: ; preds = %.critedge.i.i337
-  %3698 = getelementptr %struct.ImGuiKeyOwnerData, ptr %3632, i64 %3688
+  %3698 = getelementptr [12 x i8], ptr %3632, i64 %3688
   %3699 = getelementptr i8, ptr %3698, i64 6880
   %3700 = load i8, ptr %3699, align 4, !tbaa !566, !range !91, !noundef !220
   %3701 = icmp eq i8 %3700, 0
@@ -34909,13 +34874,13 @@ _ZN5ImGui14IsMouseClickedEiij.exit.thread.split.us.i: ; preds = %_ZN5ImGui14IsMo
   br i1 %3709, label %3710, label %_ZN5ImGui14IsMouseClickedEiij.exit37.thread.us.i
 
 3710:                                             ; preds = %_ZN5ImGui14IsMouseClickedEiij.exit.thread.split.us.i
-  %3711 = getelementptr inbounds nuw float, ptr %3705, i64 %indvars.iv.i339
+  %3711 = getelementptr inbounds nuw [4 x i8], ptr %3705, i64 %indvars.iv.i339
   %3712 = load float, ptr %3711, align 4, !tbaa !81
   %3713 = fcmp oeq float %3712, 0.000000e+00
   br i1 %3713, label %_ZN5ImGui14IsMouseClickedEiij.exit37.us.i, label %_ZN5ImGui14IsMouseClickedEiij.exit37.thread.us.i
 
 _ZN5ImGui14IsMouseClickedEiij.exit37.us.i:        ; preds = %3710
-  %3714 = getelementptr %struct.ImGuiKeyOwnerData, ptr %3632, i64 %indvars.iv.i339
+  %3714 = getelementptr [12 x i8], ptr %3632, i64 %indvars.iv.i339
   %3715 = getelementptr i8, ptr %3714, i64 6880
   %3716 = load i8, ptr %3715, align 4, !tbaa !566, !range !91, !noundef !220
   %3717 = icmp eq i8 %3716, 0
@@ -34953,10 +34918,10 @@ _ZN5ImGui14IsMouseClickedEiij.exit37.thread.us.i: ; preds = %3718, %_ZN5ImGui14I
   %3728 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %3729 = getelementptr inbounds nuw i8, ptr %3728, i64 3256
   %3730 = zext i1 %.not.i336 to i64
-  %3731 = getelementptr inbounds nuw %struct.ImVec4, ptr %3729, i64 %3730
+  %3731 = getelementptr inbounds nuw [16 x i8], ptr %3729, i64 %3730
   %3732 = load i8, ptr %3720, align 2, !tbaa !643
   %3733 = zext i8 %3732 to i64
-  %3734 = getelementptr inbounds nuw ptr, ptr @__const._ZN5ImGuiL25UpdateDebugToolItemPickerEv.mouse_button_names, i64 %3733
+  %3734 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN5ImGuiL25UpdateDebugToolItemPickerEv.mouse_button_names, i64 %3733
   %3735 = load ptr, ptr %3734, align 8, !tbaa !255
   call void (ptr, ptr, ...) @_ZN5ImGui11TextColoredERK6ImVec4PKcz(ptr noundef nonnull align 4 dereferenceable(16) %3731, ptr noundef nonnull @.str.711, ptr noundef %3735)
   br label %3736
@@ -35024,7 +34989,7 @@ _ZN5ImGuiL25UpdateDebugToolItemPickerEv.exit:     ; preds = %3619, %3736
   %3768 = getelementptr inbounds nuw i8, ptr %3737, i64 9992
   %3769 = load ptr, ptr %3768, align 8, !tbaa !654
   %3770 = zext nneg i32 %3761 to i64
-  %3771 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %3769, i64 %3770
+  %3771 = getelementptr inbounds nuw [64 x i8], ptr %3769, i64 %3770
   %3772 = getelementptr inbounds nuw i8, ptr %3771, i64 5
   %3773 = load i8, ptr %3772, align 1, !tbaa !720, !range !91, !noundef !220
   %3774 = trunc nuw i8 %3773 to i1
@@ -35058,7 +35023,7 @@ thread-pre-split.i:                               ; preds = %3759
   %3784 = getelementptr inbounds nuw i8, ptr %3737, i64 9992
   %3785 = load ptr, ptr %3784, align 8, !tbaa !654
   %3786 = zext nneg i32 %3781 to i64
-  %3787 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %3785, i64 %3786
+  %3787 = getelementptr inbounds nuw [64 x i8], ptr %3785, i64 %3786
   %3788 = load i32, ptr %3787, align 4, !tbaa !717
   store i32 %3788, ptr %3739, align 8, !tbaa !714
   %3789 = getelementptr inbounds nuw i8, ptr %3787, i64 4
@@ -35083,7 +35048,7 @@ _ZN5ImGuiL27UpdateDebugToolStackQueriesEv.exit:   ; preds = %_ZN5ImGuiL25UpdateD
   %3802 = getelementptr inbounds nuw i8, ptr %3792, i64 7628
   %3803 = load i32, ptr %3802, align 4, !tbaa !417
   %3804 = sext i32 %3803 to i64
-  %3805 = getelementptr inbounds %struct.ImVec4, ptr %3801, i64 %3804
+  %3805 = getelementptr inbounds [16 x i8], ptr %3801, i64 %3804
   %3806 = getelementptr inbounds nuw i8, ptr %3805, i64 4
   %3807 = getelementptr inbounds nuw i8, ptr %3805, i64 8
   %3808 = call float @fmodf(float noundef %3800, float noundef 1.000000e+00) #44, !tbaa !221
@@ -35130,7 +35095,7 @@ _ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_.exit.i: ; preds = %3824, %3823, %382
   store float %.sink.i, ptr %3807, align 4, !tbaa !81
   %3825 = load i32, ptr %3802, align 4, !tbaa !417
   %3826 = sext i32 %3825 to i64
-  %3827 = getelementptr inbounds %struct.ImVec4, ptr %3801, i64 %3826
+  %3827 = getelementptr inbounds [16 x i8], ptr %3801, i64 %3826
   %3828 = getelementptr inbounds nuw i8, ptr %3827, i64 12
   store float 1.000000e+00, ptr %3828, align 4, !tbaa !269
   %3829 = getelementptr inbounds nuw i8, ptr %3792, i64 24
@@ -35363,7 +35328,7 @@ _ZNK8ImVectorIjE14_grow_capacityEi.exit:          ; preds = %6, %7
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 10016
   %24 = load i16, ptr %23, align 8, !tbaa !212
   %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %27, %21
   br i1 %.not.i.i.i, label %._crit_edge.i, label %29
@@ -35381,7 +35346,7 @@ _ZNK8ImVectorIjE14_grow_capacityEi.exit:          ; preds = %6, %7
   %33 = trunc nsw i32 %32 to i16
   store i16 %33, ptr %23, align 4, !tbaa !212
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %22, i64 %34
   store i32 %21, ptr %35, align 4, !tbaa !213
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i16 0, ptr %36, align 2, !tbaa !216
@@ -35392,7 +35357,7 @@ _ZNK8ImVectorIjE14_grow_capacityEi.exit:          ; preds = %6, %7
 38:                                               ; preds = %29, %._crit_edge.i
   %39 = phi i16 [ 1, %29 ], [ %28, %._crit_edge.i ]
   %40 = phi i64 [ %34, %29 ], [ %25, %._crit_edge.i ]
-  %41 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %22, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 %39, ptr %42, align 4, !tbaa !215
   %43 = load i32, ptr %19, align 4, !tbaa !217
@@ -35427,7 +35392,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 10016
   %59 = load i16, ptr %58, align 8, !tbaa !212
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %62, %56
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %64
@@ -35445,7 +35410,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %68 = trunc nsw i32 %67 to i16
   store i16 %68, ptr %58, align 4, !tbaa !212
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %57, i64 %69
   store i32 %56, ptr %70, align 4, !tbaa !213
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 0, ptr %71, align 2, !tbaa !216
@@ -35456,7 +35421,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %73 = phi i16 [ 1, %64 ], [ %63, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %74 = phi i64 [ %69, %64 ], [ %60, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %75 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %57, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   store i16 %73, ptr %76, align 2, !tbaa !216
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 10012
@@ -35517,7 +35482,7 @@ _ZNK8ImVectorI15ImGuiInputEventE14_grow_capacityEi.exit: ; preds = %6, %7
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 10016
   %24 = load i16, ptr %23, align 8, !tbaa !212
   %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %27, %21
   br i1 %.not.i.i.i, label %._crit_edge.i, label %29
@@ -35535,7 +35500,7 @@ _ZNK8ImVectorI15ImGuiInputEventE14_grow_capacityEi.exit: ; preds = %6, %7
   %33 = trunc nsw i32 %32 to i16
   store i16 %33, ptr %23, align 4, !tbaa !212
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %22, i64 %34
   store i32 %21, ptr %35, align 4, !tbaa !213
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i16 0, ptr %36, align 2, !tbaa !216
@@ -35546,7 +35511,7 @@ _ZNK8ImVectorI15ImGuiInputEventE14_grow_capacityEi.exit: ; preds = %6, %7
 38:                                               ; preds = %29, %._crit_edge.i
   %39 = phi i16 [ 1, %29 ], [ %28, %._crit_edge.i ]
   %40 = phi i64 [ %34, %29 ], [ %25, %._crit_edge.i ]
-  %41 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %22, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 %39, ptr %42, align 4, !tbaa !215
   %43 = load i32, ptr %19, align 4, !tbaa !217
@@ -35581,7 +35546,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 10016
   %59 = load i16, ptr %58, align 8, !tbaa !212
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %62, %56
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %64
@@ -35599,7 +35564,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %68 = trunc nsw i32 %67 to i16
   store i16 %68, ptr %58, align 4, !tbaa !212
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %57, i64 %69
   store i32 %56, ptr %70, align 4, !tbaa !213
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 0, ptr %71, align 2, !tbaa !216
@@ -35610,7 +35575,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %73 = phi i16 [ 1, %64 ], [ %63, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %74 = phi i64 [ %69, %64 ], [ %60, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %75 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %57, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   store i16 %73, ptr %76, align 2, !tbaa !216
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 10012
@@ -35685,7 +35650,7 @@ define dso_local void @_ZN5ImGui17UpdateInputEventsEb(i1 noundef zeroext %0) loc
   %.0158218 = phi i32 [ 0, %.lr.ph ], [ %.1159.ph, %186 ]
   %.0162216 = phi i32 [ 0, %.lr.ph ], [ %188, %186 ]
   %28 = load ptr, ptr %15, align 8, !tbaa !208
-  %29 = getelementptr inbounds nuw %struct.ImGuiInputEvent, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [28 x i8], ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !93
   switch i32 %30, label %186 [
     i32 1, label %31
@@ -35809,7 +35774,7 @@ define dso_local void @_ZN5ImGui17UpdateInputEventsEb(i1 noundef zeroext %0) loc
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit:             ; preds = %82, %.split.i.i.i
   %.0.i.i = phi i32 [ %84, %82 ], [ %spec.select.i.i.i, %.split.i.i.i ]
   %92 = sext i32 %.0.i.i to i64
-  %93 = getelementptr %struct.ImGuiKeyData, ptr %85, i64 %92
+  %93 = getelementptr [16 x i8], ptr %85, i64 %92
   %94 = getelementptr i8, ptr %93, i64 -7932
   %95 = ptrtoint ptr %94 to i64
   %96 = sub i64 %95, %19
@@ -35827,7 +35792,7 @@ _ZN5ImGui10GetKeyDataE8ImGuiKey.exit:             ; preds = %82, %.split.i.i.i
 103:                                              ; preds = %99
   %104 = ashr i32 %98, 5
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds i32, ptr %2, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %2, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !221
   %108 = and i32 %98, 31
   %109 = shl nuw i32 1, %108
@@ -35891,7 +35856,7 @@ _ZL21GetMergedModsFromKeysv.exit:                 ; preds = %_ZN5ImGui9IsKeyDown
   %143 = add nsw i32 %139, -512
   %144 = ashr i32 %143, 5
   %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds i32, ptr %142, i64 %145
+  %146 = getelementptr inbounds [4 x i8], ptr %142, i64 %145
   %147 = load i32, ptr %146, align 4, !tbaa !221
   %148 = and i32 %129, 31
   %149 = shl nuw i32 1, %148
@@ -35919,7 +35884,7 @@ _ZL30IsKeyChordPotentiallyCharInputi.exit:        ; preds = %_ZL21GetMergedModsF
   %160 = shl nuw i32 1, %159
   %161 = ashr i32 %98, 5
   %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds i32, ptr %2, i64 %162
+  %163 = getelementptr inbounds [4 x i8], ptr %2, i64 %162
   %164 = load i32, ptr %163, align 4, !tbaa !221
   %165 = or i32 %164, %160
   store i32 %165, ptr %163, align 4, !tbaa !221
@@ -36006,7 +35971,7 @@ _ZL30IsKeyChordPotentiallyCharInputi.exit:        ; preds = %_ZL21GetMergedModsF
 194:                                              ; preds = %.lr.ph240, %194
   %indvars.iv244 = phi i64 [ 0, %.lr.ph240 ], [ %indvars.iv.next245, %194 ]
   %195 = load ptr, ptr %193, align 8, !tbaa !208
-  %196 = getelementptr inbounds nuw %struct.ImGuiInputEvent, ptr %195, i64 %indvars.iv244
+  %196 = getelementptr inbounds nuw [28 x i8], ptr %195, i64 %indvars.iv244
   call void @_ZN8ImVectorI15ImGuiInputEventE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %192, ptr noundef nonnull align 4 dereferenceable(25) %196)
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next245, %wide.trip.count
@@ -36032,7 +35997,7 @@ _ZL30IsKeyChordPotentiallyCharInputi.exit:        ; preds = %_ZL21GetMergedModsF
   %204 = icmp samesign ult i64 %indvars.iv247, %202
   %.str.114..str.115 = select i1 %204, ptr @.str.114, ptr @.str.115
   %205 = load ptr, ptr %201, align 8, !tbaa !208
-  %206 = getelementptr inbounds nuw %struct.ImGuiInputEvent, ptr %205, i64 %indvars.iv247
+  %206 = getelementptr inbounds nuw [28 x i8], ptr %205, i64 %indvars.iv247
   %207 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %208 = load i32, ptr %206, align 4, !tbaa !93
   switch i32 %208, label %_ZL20DebugPrintInputEventPKcPK15ImGuiInputEvent.exit [
@@ -36082,7 +36047,7 @@ _ZL30IsKeyChordPotentiallyCharInputi.exit:        ; preds = %_ZL21GetMergedModsF
   %231 = getelementptr inbounds nuw i8, ptr %206, i64 20
   %232 = load i32, ptr %231, align 4, !tbaa !205
   %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds ptr, ptr @__const._ZL18GetMouseSourceName16ImGuiMouseSource.mouse_source_names, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr @__const._ZL18GetMouseSourceName16ImGuiMouseSource.mouse_source_names, i64 %233
   %235 = load ptr, ptr %234, align 8, !tbaa !255
   call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.670, ptr noundef nonnull %.str.114..str.115, double noundef %227, double noundef %230, ptr noundef %235)
   br label %_ZL20DebugPrintInputEventPKcPK15ImGuiInputEvent.exit
@@ -36104,7 +36069,7 @@ _ZL30IsKeyChordPotentiallyCharInputi.exit:        ; preds = %_ZL21GetMergedModsF
   %247 = getelementptr inbounds nuw i8, ptr %206, i64 20
   %248 = load i32, ptr %247, align 4, !tbaa !205
   %249 = sext i32 %248 to i64
-  %250 = getelementptr inbounds ptr, ptr @__const._ZL18GetMouseSourceName16ImGuiMouseSource.mouse_source_names, i64 %249
+  %250 = getelementptr inbounds [8 x i8], ptr @__const._ZL18GetMouseSourceName16ImGuiMouseSource.mouse_source_names, i64 %249
   %251 = load ptr, ptr %250, align 8, !tbaa !255
   call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.671, ptr noundef nonnull %.str.114..str.115, i32 noundef %242, ptr noundef nonnull %246, ptr noundef %251)
   br label %_ZL20DebugPrintInputEventPKcPK15ImGuiInputEvent.exit
@@ -36126,7 +36091,7 @@ _ZL30IsKeyChordPotentiallyCharInputi.exit:        ; preds = %_ZL21GetMergedModsF
   %263 = getelementptr inbounds nuw i8, ptr %206, i64 20
   %264 = load i32, ptr %263, align 4, !tbaa !205
   %265 = sext i32 %264 to i64
-  %266 = getelementptr inbounds ptr, ptr @__const._ZL18GetMouseSourceName16ImGuiMouseSource.mouse_source_names, i64 %265
+  %266 = getelementptr inbounds [8 x i8], ptr @__const._ZL18GetMouseSourceName16ImGuiMouseSource.mouse_source_names, i64 %265
   %267 = load ptr, ptr %266, align 8, !tbaa !255
   call void (ptr, ...) @_ZN5ImGui8DebugLogEPKcz(ptr noundef nonnull @.str.674, ptr noundef nonnull %.str.114..str.115, double noundef %259, double noundef %262, ptr noundef %267)
   br label %_ZL20DebugPrintInputEventPKcPK15ImGuiInputEvent.exit
@@ -36168,7 +36133,7 @@ _ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit.i.i: ; preds = %.split.i.i.i
 
 285:                                              ; preds = %_ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit.i.i
   %286 = zext nneg i32 %.0.i.i180 to i64
-  %287 = getelementptr ptr, ptr @_ZL9GKeyNames, i64 %286
+  %287 = getelementptr [8 x i8], ptr @_ZL9GKeyNames, i64 %286
   %288 = getelementptr i8, ptr %287, i64 -4096
   %289 = load ptr, ptr %288, align 8, !tbaa !255
   br label %_ZN5ImGui10GetKeyNameE8ImGuiKey.exit.i
@@ -36259,7 +36224,7 @@ _ZL20DebugPrintInputEventPKcPK15ImGuiInputEvent.exit: ; preds = %203, %217, %221
   br i1 %333, label %338, label %334
 
 334:                                              ; preds = %330
-  %335 = getelementptr inbounds nuw %struct.ImGuiKeyData, ptr %329, i64 %indvars.iv.i
+  %335 = getelementptr inbounds nuw [16 x i8], ptr %329, i64 %indvars.iv.i
   store i8 0, ptr %335, align 4, !tbaa !223
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 4
   store float -1.000000e+00, ptr %336, align 4, !tbaa !89
@@ -36292,7 +36257,7 @@ _ZN7ImGuiIO14ClearInputKeysEv.exit:               ; preds = %338
 
 346:                                              ; preds = %346, %_ZN7ImGuiIO14ClearInputKeysEv.exit
   %indvars.iv.i184 = phi i64 [ 655, %_ZN7ImGuiIO14ClearInputKeysEv.exit ], [ %indvars.iv.next.i185, %346 ]
-  %347 = getelementptr %struct.ImGuiKeyData, ptr %5, i64 %indvars.iv.i184
+  %347 = getelementptr [16 x i8], ptr %5, i64 %indvars.iv.i184
   %348 = getelementptr i8, ptr %347, i64 -7940
   store i8 0, ptr %348, align 4, !tbaa !223
   %349 = getelementptr i8, ptr %347, i64 -7936
@@ -36305,9 +36270,9 @@ _ZN7ImGuiIO14ClearInputKeysEv.exit:               ; preds = %338
 
 351:                                              ; preds = %351, %341
   %indvars.iv16.i = phi i64 [ 0, %341 ], [ %indvars.iv.next17.i, %351 ]
-  %352 = getelementptr inbounds nuw float, ptr %344, i64 %indvars.iv16.i
+  %352 = getelementptr inbounds nuw [4 x i8], ptr %344, i64 %indvars.iv16.i
   store float -1.000000e+00, ptr %352, align 4, !tbaa !81
-  %353 = getelementptr inbounds nuw float, ptr %345, i64 %indvars.iv16.i
+  %353 = getelementptr inbounds nuw [4 x i8], ptr %345, i64 %indvars.iv16.i
   store float -1.000000e+00, ptr %353, align 4, !tbaa !81
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next17.i, 5
@@ -36442,7 +36407,7 @@ define dso_local void @_ZN5ImGui26FocusTopMostWindowUnderOneEP11ImGuiWindowS1_P1
 
 25:                                               ; preds = %.lr.ph33, %37
   %indvars.iv = phi i64 [ %24, %.lr.ph33 ], [ %indvars.iv.next, %37 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !664
   %28 = icmp eq ptr %27, %1
   br i1 %28, label %37, label %29
@@ -36507,7 +36472,7 @@ _ZNK8ImVectorI20ImGuiWindowStackDataE14_grow_capacityEi.exit: ; preds = %6, %7
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 10016
   %24 = load i16, ptr %23, align 8, !tbaa !212
   %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %27, %21
   br i1 %.not.i.i.i, label %._crit_edge.i, label %29
@@ -36525,7 +36490,7 @@ _ZNK8ImVectorI20ImGuiWindowStackDataE14_grow_capacityEi.exit: ; preds = %6, %7
   %33 = trunc nsw i32 %32 to i16
   store i16 %33, ptr %23, align 4, !tbaa !212
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %22, i64 %34
   store i32 %21, ptr %35, align 4, !tbaa !213
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i16 0, ptr %36, align 2, !tbaa !216
@@ -36536,7 +36501,7 @@ _ZNK8ImVectorI20ImGuiWindowStackDataE14_grow_capacityEi.exit: ; preds = %6, %7
 38:                                               ; preds = %29, %._crit_edge.i
   %39 = phi i16 [ 1, %29 ], [ %28, %._crit_edge.i ]
   %40 = phi i64 [ %34, %29 ], [ %25, %._crit_edge.i ]
-  %41 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %22, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 %39, ptr %42, align 4, !tbaa !215
   %43 = load i32, ptr %19, align 4, !tbaa !217
@@ -36571,7 +36536,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 10016
   %59 = load i16, ptr %58, align 8, !tbaa !212
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %62, %56
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %64
@@ -36589,7 +36554,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %68 = trunc nsw i32 %67 to i16
   store i16 %68, ptr %58, align 4, !tbaa !212
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %57, i64 %69
   store i32 %56, ptr %70, align 4, !tbaa !213
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 0, ptr %71, align 2, !tbaa !216
@@ -36600,7 +36565,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %73 = phi i16 [ 1, %64 ], [ %63, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %74 = phi i64 [ %69, %64 ], [ %60, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %75 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %57, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   store i16 %73, ptr %76, align 2, !tbaa !216
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 10012
@@ -36661,7 +36626,7 @@ _ZNK8ImVectorI14ImGuiPopupDataE14_grow_capacityEi.exit: ; preds = %6, %7
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 10016
   %24 = load i16, ptr %23, align 8, !tbaa !212
   %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %27, %21
   br i1 %.not.i.i.i, label %._crit_edge.i, label %29
@@ -36679,7 +36644,7 @@ _ZNK8ImVectorI14ImGuiPopupDataE14_grow_capacityEi.exit: ; preds = %6, %7
   %33 = trunc nsw i32 %32 to i16
   store i16 %33, ptr %23, align 4, !tbaa !212
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %22, i64 %34
   store i32 %21, ptr %35, align 4, !tbaa !213
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i16 0, ptr %36, align 2, !tbaa !216
@@ -36690,7 +36655,7 @@ _ZNK8ImVectorI14ImGuiPopupDataE14_grow_capacityEi.exit: ; preds = %6, %7
 38:                                               ; preds = %29, %._crit_edge.i
   %39 = phi i16 [ 1, %29 ], [ %28, %._crit_edge.i ]
   %40 = phi i64 [ %34, %29 ], [ %25, %._crit_edge.i ]
-  %41 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %22, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 %39, ptr %42, align 4, !tbaa !215
   %43 = load i32, ptr %19, align 4, !tbaa !217
@@ -36725,7 +36690,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 10016
   %59 = load i16, ptr %58, align 8, !tbaa !212
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %62, %56
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %64
@@ -36743,7 +36708,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %68 = trunc nsw i32 %67 to i16
   store i16 %68, ptr %58, align 4, !tbaa !212
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %57, i64 %69
   store i32 %56, ptr %70, align 4, !tbaa !213
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 0, ptr %71, align 2, !tbaa !216
@@ -36754,7 +36719,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %73 = phi i16 [ 1, %64 ], [ %63, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %74 = phi i64 [ %69, %64 ], [ %60, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %75 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %57, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   store i16 %73, ptr %76, align 2, !tbaa !216
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 10012
@@ -36815,7 +36780,7 @@ _ZNK8ImVectorIiE14_grow_capacityEi.exit:          ; preds = %6, %7
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 10016
   %24 = load i16, ptr %23, align 8, !tbaa !212
   %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %27, %21
   br i1 %.not.i.i.i, label %._crit_edge.i, label %29
@@ -36833,7 +36798,7 @@ _ZNK8ImVectorIiE14_grow_capacityEi.exit:          ; preds = %6, %7
   %33 = trunc nsw i32 %32 to i16
   store i16 %33, ptr %23, align 4, !tbaa !212
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %22, i64 %34
   store i32 %21, ptr %35, align 4, !tbaa !213
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i16 0, ptr %36, align 2, !tbaa !216
@@ -36844,7 +36809,7 @@ _ZNK8ImVectorIiE14_grow_capacityEi.exit:          ; preds = %6, %7
 38:                                               ; preds = %29, %._crit_edge.i
   %39 = phi i16 [ 1, %29 ], [ %28, %._crit_edge.i ]
   %40 = phi i64 [ %34, %29 ], [ %25, %._crit_edge.i ]
-  %41 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %22, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 %39, ptr %42, align 4, !tbaa !215
   %43 = load i32, ptr %19, align 4, !tbaa !217
@@ -36879,7 +36844,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 10016
   %59 = load i16, ptr %58, align 8, !tbaa !212
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %62, %56
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %64
@@ -36897,7 +36862,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %68 = trunc nsw i32 %67 to i16
   store i16 %68, ptr %58, align 4, !tbaa !212
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %57, i64 %69
   store i32 %56, ptr %70, align 4, !tbaa !213
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 0, ptr %71, align 2, !tbaa !216
@@ -36908,7 +36873,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %73 = phi i16 [ 1, %64 ], [ %63, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %74 = phi i64 [ %69, %64 ], [ %60, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %75 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %57, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   store i16 %73, ptr %76, align 2, !tbaa !216
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 10012
@@ -36969,7 +36934,7 @@ _ZNK8ImVectorI14ImGuiGroupDataE14_grow_capacityEi.exit: ; preds = %6, %7
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 10016
   %24 = load i16, ptr %23, align 8, !tbaa !212
   %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %27, %21
   br i1 %.not.i.i.i, label %._crit_edge.i, label %29
@@ -36987,7 +36952,7 @@ _ZNK8ImVectorI14ImGuiGroupDataE14_grow_capacityEi.exit: ; preds = %6, %7
   %33 = trunc nsw i32 %32 to i16
   store i16 %33, ptr %23, align 4, !tbaa !212
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %22, i64 %34
   store i32 %21, ptr %35, align 4, !tbaa !213
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i16 0, ptr %36, align 2, !tbaa !216
@@ -36998,7 +36963,7 @@ _ZNK8ImVectorI14ImGuiGroupDataE14_grow_capacityEi.exit: ; preds = %6, %7
 38:                                               ; preds = %29, %._crit_edge.i
   %39 = phi i16 [ 1, %29 ], [ %28, %._crit_edge.i ]
   %40 = phi i64 [ %34, %29 ], [ %25, %._crit_edge.i ]
-  %41 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %22, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 %39, ptr %42, align 4, !tbaa !215
   %43 = load i32, ptr %19, align 4, !tbaa !217
@@ -37033,7 +36998,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 10016
   %59 = load i16, ptr %58, align 8, !tbaa !212
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %62, %56
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %64
@@ -37051,7 +37016,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %68 = trunc nsw i32 %67 to i16
   store i16 %68, ptr %58, align 4, !tbaa !212
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %57, i64 %69
   store i32 %56, ptr %70, align 4, !tbaa !213
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 0, ptr %71, align 2, !tbaa !216
@@ -37062,7 +37027,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %73 = phi i16 [ 1, %64 ], [ %63, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %74 = phi i64 [ %69, %64 ], [ %60, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %75 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %57, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   store i16 %73, ptr %76, align 2, !tbaa !216
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 10012
@@ -37181,7 +37146,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef %0, ptr 
   %62 = and i32 %.5.i.i, 255
   %63 = xor i32 %62, %53
   %64 = zext nneg i32 %63 to i64
-  %65 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !221
   %67 = xor i32 %61, %66
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -37207,7 +37172,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %71, %_Z9ImHashStrPKcmj.exit.i ]
   %.01316.i.i.i.i = phi i64 [ %.114.i.i.i.i, %.lr.ph.i.i.i.i ], [ %73, %_Z9ImHashStrPKcmj.exit.i ]
   %75 = lshr i64 %.01316.i.i.i.i, 1
-  %76 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i.i.i, i64 %75
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i.i, i64 %75
   %77 = load i32, ptr %76, align 8, !tbaa !270
   %78 = icmp ult i32 %77, %.2.i.i
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 16
@@ -37256,7 +37221,7 @@ _ZN5ImGui16FindWindowByNameEPKc.exit:             ; preds = %82
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 10016
   %98 = load i16, ptr %97, align 8, !tbaa !212
   %99 = sext i16 %98 to i64
-  %100 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %96, i64 %99
+  %100 = getelementptr inbounds [8 x i8], ptr %96, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !213
   %.not.i.i.i505 = icmp eq i32 %101, %95
   br i1 %.not.i.i.i505, label %._crit_edge.i, label %103
@@ -37274,7 +37239,7 @@ _ZN5ImGui16FindWindowByNameEPKc.exit:             ; preds = %82
   %107 = trunc nsw i32 %106 to i16
   store i16 %107, ptr %97, align 4, !tbaa !212
   %108 = sext i32 %106 to i64
-  %109 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %96, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %96, i64 %108
   store i32 %95, ptr %109, align 4, !tbaa !213
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 6
   store i16 0, ptr %110, align 2, !tbaa !216
@@ -37285,7 +37250,7 @@ _ZN5ImGui16FindWindowByNameEPKc.exit:             ; preds = %82
 112:                                              ; preds = %103, %._crit_edge.i
   %113 = phi i16 [ 1, %103 ], [ %102, %._crit_edge.i ]
   %114 = phi i64 [ %108, %103 ], [ %99, %._crit_edge.i ]
-  %115 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %96, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %96, i64 %114
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   store i16 %113, ptr %116, align 4, !tbaa !215
   %117 = load i32, ptr %93, align 4, !tbaa !217
@@ -37312,7 +37277,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %112, %87
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %122, %_ZN5ImGui8MemAllocEm.exit.i ]
   %.01316.i.i.i = phi i64 [ %.114.i.i.i, %.lr.ph.i.i.i ], [ %124, %_ZN5ImGui8MemAllocEm.exit.i ]
   %126 = lshr i64 %.01316.i.i.i, 1
-  %127 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i.i, i64 %126
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i, i64 %126
   %128 = load i32, ptr %127, align 8, !tbaa !270
   %129 = icmp ult i32 %128, %121
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 16
@@ -37503,7 +37468,7 @@ _ZL15CreateNewWindowPKci.exit:                    ; preds = %183, %184, %188
   %223 = getelementptr inbounds nuw i8, ptr %48, i64 7736
   %224 = load ptr, ptr %223, align 8, !tbaa !534
   %225 = sext i32 %222 to i64
-  %226 = getelementptr inbounds %struct.ImGuiPopupData, ptr %224, i64 %225
+  %226 = getelementptr inbounds [56 x i8], ptr %224, i64 %225
   %227 = getelementptr inbounds nuw i8, ptr %200, i64 148
   %228 = load i32, ptr %227, align 4, !tbaa !825
   %229 = load i32, ptr %226, align 8, !tbaa !827
@@ -37615,7 +37580,7 @@ _ZL15CreateNewWindowPKci.exit:                    ; preds = %183, %184, %188
 
 284:                                              ; preds = %284, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %274, %.lr.ph.i ], [ %indvars.iv.next.i, %284 ]
-  %285 = getelementptr inbounds ptr, ptr %272, i64 %indvars.iv.i
+  %285 = getelementptr inbounds [8 x i8], ptr %272, i64 %indvars.iv.i
   %286 = load ptr, ptr %285, align 8, !tbaa !664
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 224
   %288 = load i16, ptr %287, align 8, !tbaa !819
@@ -37682,7 +37647,7 @@ _ZL28UpdateWindowInFocusOrderListP11ImGuiWindowbi.exit: ; preds = %256, %263, %.
   %322 = getelementptr inbounds nuw i8, ptr %48, i64 4888
   %323 = load ptr, ptr %322, align 8, !tbaa !525
   %324 = sext i32 %319 to i64
-  %325 = getelementptr %struct.ImGuiWindowStackData, ptr %323, i64 %324
+  %325 = getelementptr [112 x i8], ptr %323, i64 %324
   %326 = getelementptr i8, ptr %325, i64 -112
   %327 = load ptr, ptr %326, align 8, !tbaa !1038
   br label %328
@@ -37727,7 +37692,7 @@ _ZL28UpdateWindowInFocusOrderListP11ImGuiWindowbi.exit: ; preds = %256, %263, %.
   %349 = load ptr, ptr %348, align 8, !tbaa !525
   %350 = load i32, ptr %208, align 8, !tbaa !527
   %351 = sext i32 %350 to i64
-  %352 = getelementptr %struct.ImGuiWindowStackData, ptr %349, i64 %351
+  %352 = getelementptr [112 x i8], ptr %349, i64 %351
   %353 = getelementptr i8, ptr %352, i64 -112
   %354 = load ptr, ptr %41, align 8, !tbaa !664
   store ptr %354, ptr %353, align 8, !tbaa !1038
@@ -37942,7 +37907,7 @@ _ZN5ImGui30UpdateWindowParentAndRootLinksEP11ImGuiWindowiS1_.exit: ; preds = %44
   %472 = getelementptr inbounds nuw i8, ptr %48, i64 7736
   %473 = load ptr, ptr %472, align 8, !tbaa !534
   %474 = sext i32 %471 to i64
-  %475 = getelementptr inbounds %struct.ImGuiPopupData, ptr %473, i64 %474
+  %475 = getelementptr inbounds [56 x i8], ptr %473, i64 %474
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 8
   store ptr %466, ptr %476, align 8, !tbaa !807
   %477 = getelementptr inbounds nuw i8, ptr %329, i64 368
@@ -38514,7 +38479,7 @@ _ZN5ImGui23UpdateWindowSkipRefreshEP11ImGuiWindow.exit: ; preds = %.lr.ph.i.i518
   %774 = load ptr, ptr %773, align 8, !tbaa !525
   %775 = load i32, ptr %772, align 8, !tbaa !527
   %776 = sext i32 %775 to i64
-  %777 = getelementptr %struct.ImGuiWindowStackData, ptr %774, i64 %776
+  %777 = getelementptr [112 x i8], ptr %774, i64 %776
   %778 = getelementptr i8, ptr %777, i64 -24
   %779 = getelementptr inbounds nuw i8, ptr %766, i64 9840
   store ptr %778, ptr %779, align 8, !tbaa !638
@@ -38527,7 +38492,7 @@ _ZN5ImGui23UpdateWindowSkipRefreshEP11ImGuiWindow.exit: ; preds = %.lr.ph.i.i518
   %783 = getelementptr inbounds nuw i8, ptr %766, i64 8576
   %784 = load ptr, ptr %783, align 8, !tbaa !659
   %785 = sext i32 %781 to i64
-  %786 = getelementptr inbounds %struct.ImGuiTable, ptr %784, i64 %785
+  %786 = getelementptr inbounds [592 x i8], ptr %784, i64 %785
   br label %787
 
 787:                                              ; preds = %782, %765
@@ -39031,7 +38996,7 @@ _ZN5ImGui20MarkIniSettingsDirtyEP11ImGuiWindow.exit530: ; preds = %1030, %1026, 
   %1064 = load ptr, ptr %1063, align 8, !tbaa !534
   %1065 = load i32, ptr %1062, align 8, !tbaa !536
   %1066 = sext i32 %1065 to i64
-  %1067 = getelementptr %struct.ImGuiPopupData, ptr %1064, i64 %1066
+  %1067 = getelementptr [56 x i8], ptr %1064, i64 %1066
   %1068 = getelementptr i8, ptr %1067, i64 -20
   %1069 = getelementptr inbounds nuw i8, ptr %1035, i64 40
   %1070 = load i64, ptr %1068, align 4
@@ -39464,7 +39429,7 @@ _ZL14ClampWindowPosP11ImGuiWindowRK6ImRect.exit:  ; preds = %1195, %1203, %1207
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %1464 ]
   %.0228.i1020 = phi i32 [ 0, %.lr.ph ], [ %.1.i, %1464 ]
   %1314 = phi <2 x float> [ %.promoted, %.lr.ph ], [ %1414, %1464 ]
-  %1315 = getelementptr inbounds nuw %struct.ImGuiResizeGripDef, ptr @_ZL15resize_grip_def, i64 %indvars.iv
+  %1315 = getelementptr inbounds nuw [24 x i8], ptr @_ZL15resize_grip_def, i64 %indvars.iv
   %.val307.i = load float, ptr %1221, align 4, !tbaa !49
   %.val308.i = load float, ptr %1222, align 4, !tbaa !50
   %.val309.i = load float, ptr %1299, align 4, !tbaa !49
@@ -39658,7 +39623,7 @@ _ZL14ClampWindowPosP11ImGuiWindowRK6ImRect.exit:  ; preds = %1195, %1203, %1207
   %1423 = getelementptr inbounds nuw i8, ptr %1421, i64 3256
   %1424 = select i1 %1419, i64 31, i64 30
   %1425 = select i1 %1417, i64 32, i64 %1424
-  %1426 = getelementptr inbounds nuw %struct.ImVec4, ptr %1423, i64 %1425
+  %1426 = getelementptr inbounds nuw [16 x i8], ptr %1423, i64 %1425
   %.sroa.0.0.copyload.i738 = load float, ptr %1426, align 4, !tbaa !81
   %.sroa.4.0..sroa_idx.i739 = getelementptr inbounds nuw i8, ptr %1426, i64 4
   %.sroa.4.0.copyload.i = load float, ptr %.sroa.4.0..sroa_idx.i739, align 4, !tbaa !81
@@ -39702,7 +39667,7 @@ _ZL14ClampWindowPosP11ImGuiWindowRK6ImRect.exit:  ; preds = %1195, %1203, %1207
   %1460 = fptosi float %1459 to i32
   %1461 = shl i32 %1460, 24
   %1462 = or i32 %1453, %1461
-  %1463 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
+  %1463 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   store i32 %1462, ptr %1463, align 4, !tbaa !221
   br label %1464
 
@@ -39788,7 +39753,7 @@ _ZN5ImGui5PopIDEv.exit:                           ; preds = %1501, %1503
   br i1 %1511, label %1679, label %1512
 
 1512:                                             ; preds = %1507
-  %1513 = getelementptr inbounds nuw %struct.ImGuiResizeBorderDef, ptr @_ZL17resize_border_def, i64 %indvars.iv1034
+  %1513 = getelementptr inbounds nuw [28 x i8], ptr @_ZL17resize_border_def, i64 %indvars.iv1034
   %1514 = icmp eq i64 %indvars.iv1034, 0
   %1515 = icmp eq i64 %indvars.iv1034, 1
   %1516 = icmp samesign ugt i64 %indvars.iv1034, 1
@@ -40003,12 +39968,12 @@ _ZN5ImGui15IsWindowChildOfEP11ImGuiWindowS1_b.exit.thread: ; preds = %.lr.ph.i73
   %1608 = fadd float %1606, %.val296.i
   %1609 = zext i1 %1516 to i64
   %.sroa.speculated = select i1 %1516, float %1608, float %1607
-  %1610 = getelementptr inbounds nuw float, ptr %1488, i64 %1609
+  %1610 = getelementptr inbounds nuw [4 x i8], ptr %1488, i64 %1609
   %1611 = load float, ptr %1610, align 4, !tbaa !81
   %1612 = fadd float %1611, %.sroa.speculated
-  %1613 = getelementptr inbounds nuw float, ptr %1489, i64 %1609
+  %1613 = getelementptr inbounds nuw [4 x i8], ptr %1489, i64 %1609
   %1614 = load float, ptr %1613, align 4, !tbaa !81
-  %1615 = getelementptr inbounds nuw float, ptr %1490, i64 %1609
+  %1615 = getelementptr inbounds nuw [4 x i8], ptr %1490, i64 %1609
   %1616 = load float, ptr %1615, align 4, !tbaa !81
   %1617 = fsub float %1614, %1616
   %1618 = fadd float %1617, 4.000000e+00
@@ -40790,7 +40755,7 @@ _ZN5ImGuiL24UpdateWindowManualResizeEP11ImGuiWindowRK6ImVec2PiS5_iPjRK6ImRect.ex
   %2040 = load ptr, ptr %2039, align 8, !tbaa !730
   %2041 = load i32, ptr %2038, align 8, !tbaa !1115
   %2042 = sext i32 %2041 to i64
-  %2043 = getelementptr %struct.ImVec4, ptr %2040, i64 %2042
+  %2043 = getelementptr [16 x i8], ptr %2040, i64 %2042
   %2044 = getelementptr i8, ptr %2043, i64 -16
   %2045 = load float, ptr %2044, align 4, !tbaa !266
   %2046 = getelementptr i8, ptr %2043, i64 -12
@@ -40823,7 +40788,7 @@ _ZN5ImGuiL24UpdateWindowManualResizeEP11ImGuiWindowRK6ImVec2PiS5_iPjRK6ImRect.ex
   %2058 = getelementptr inbounds nuw i8, ptr %337, i64 432
   %2059 = load ptr, ptr %2058, align 8, !tbaa !522
   %2060 = zext nneg i32 %2055 to i64
-  %2061 = getelementptr ptr, ptr %2059, i64 %2060
+  %2061 = getelementptr [8 x i8], ptr %2059, i64 %2060
   %2062 = getelementptr i8, ptr %2061, i64 -16
   %2063 = load ptr, ptr %2062, align 8, !tbaa !664
   %.not425 = icmp eq ptr %2063, null
@@ -40874,7 +40839,7 @@ _ZN5ImGuiL24UpdateWindowManualResizeEP11ImGuiWindowRK6ImVec2PiS5_iPjRK6ImRect.ex
   %2099 = load ptr, ptr %2098, align 8, !tbaa !732
   %2100 = load i32, ptr %2097, align 8, !tbaa !1117
   %2101 = sext i32 %2100 to i64
-  %2102 = getelementptr %struct.ImDrawCmd, ptr %2099, i64 %2101
+  %2102 = getelementptr [56 x i8], ptr %2099, i64 %2101
   %2103 = getelementptr i8, ptr %2102, i64 -24
   %2104 = load i32, ptr %2103, align 8, !tbaa !1118
   %2105 = icmp ne i32 %2104, 0
@@ -40953,7 +40918,7 @@ _ZN5ImGuiL24UpdateWindowManualResizeEP11ImGuiWindowRK6ImVec2PiS5_iPjRK6ImRect.ex
   %2144 = phi i64 [ 12, %2135 ], [ %2142, %2138 ]
   %2145 = getelementptr inbounds nuw i8, ptr %2124, i64 3016
   %2146 = getelementptr inbounds nuw i8, ptr %2124, i64 3256
-  %2147 = getelementptr inbounds nuw %struct.ImVec4, ptr %2146, i64 %2144
+  %2147 = getelementptr inbounds nuw [16 x i8], ptr %2146, i64 %2144
   %.sroa.0.0.copyload.i.i = load float, ptr %2147, align 4, !tbaa !81
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2147, i64 4
   %.sroa.4.0.copyload.i.i = load float, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !tbaa !81
@@ -41021,7 +40986,7 @@ _ZN5ImGuiL24UpdateWindowManualResizeEP11ImGuiWindowRK6ImVec2PiS5_iPjRK6ImRect.ex
   %.0.i.i644 = select i1 %.not.i.i642, i64 %..i.i643, i64 4
   %2189 = getelementptr inbounds nuw i8, ptr %2124, i64 3016
   %2190 = getelementptr inbounds nuw i8, ptr %2124, i64 3256
-  %2191 = getelementptr inbounds nuw %struct.ImVec4, ptr %2190, i64 %.0.i.i644
+  %2191 = getelementptr inbounds nuw [16 x i8], ptr %2190, i64 %.0.i.i644
   %.sroa.0.0.copyload.i146.i = load float, ptr %2191, align 4, !tbaa !81
   %.sroa.4.0..sroa_idx.i147.i = getelementptr inbounds nuw i8, ptr %2191, i64 4
   %.sroa.4.0.copyload.i148.i = load float, ptr %.sroa.4.0..sroa_idx.i147.i, align 4, !tbaa !81
@@ -41130,7 +41095,7 @@ _ZN5ImGuiL24UpdateWindowManualResizeEP11ImGuiWindowRK6ImVec2PiS5_iPjRK6ImRect.ex
   %2261 = getelementptr inbounds nuw i8, ptr %2260, i64 3016
   %2262 = getelementptr inbounds nuw i8, ptr %2260, i64 3256
   %2263 = select i1 %2123, i64 11, i64 10
-  %2264 = getelementptr inbounds nuw %struct.ImVec4, ptr %2262, i64 %2263
+  %2264 = getelementptr inbounds nuw [16 x i8], ptr %2262, i64 %2263
   %.sroa.0.0.copyload.i155.i = load float, ptr %2264, align 4, !tbaa !81
   %.sroa.4.0..sroa_idx.i156.i = getelementptr inbounds nuw i8, ptr %2264, i64 4
   %.sroa.4.0.copyload.i157.i = load float, ptr %.sroa.4.0..sroa_idx.i156.i, align 4, !tbaa !81
@@ -41386,13 +41351,13 @@ _ZN5ImGuiL24UpdateWindowManualResizeEP11ImGuiWindowRK6ImVec2PiS5_iPjRK6ImRect.ex
 
 2443:                                             ; preds = %2486, %.lr.ph.i637
   %indvars.iv.i639 = phi i64 [ 0, %.lr.ph.i637 ], [ %indvars.iv.next.i640, %2486 ]
-  %2444 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv.i639
+  %2444 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i639
   %2445 = load i32, ptr %2444, align 4, !tbaa !221
   %2446 = icmp ult i32 %2445, 16777216
   br i1 %2446, label %2486, label %2447
 
 2447:                                             ; preds = %2443
-  %2448 = getelementptr inbounds nuw %struct.ImGuiResizeGripDef, ptr @_ZL15resize_grip_def, i64 %indvars.iv.i639
+  %2448 = getelementptr inbounds nuw [24 x i8], ptr @_ZL15resize_grip_def, i64 %indvars.iv.i639
   %.val115.i = load float, ptr %2436, align 4, !tbaa !49
   %.val116.i = load float, ptr %2438, align 4, !tbaa !50
   %.val117.i = load float, ptr %2437, align 4, !tbaa !49
@@ -41681,7 +41646,7 @@ _ZN5ImGuiL24UpdateWindowManualResizeEP11ImGuiWindowRK6ImVec2PiS5_iPjRK6ImRect.ex
   %2628 = getelementptr inbounds nuw i8, ptr %2627, i64 3016
   %2629 = getelementptr inbounds nuw i8, ptr %2627, i64 3256
   %2630 = select i1 %.not44.i.i, i64 28, i64 29
-  %2631 = getelementptr inbounds nuw %struct.ImVec4, ptr %2629, i64 %2630
+  %2631 = getelementptr inbounds nuw [16 x i8], ptr %2629, i64 %2630
   %.sroa.0.0.copyload.i55.i.i = load float, ptr %2631, align 4, !tbaa !81
   %.sroa.4.0..sroa_idx.i56.i.i = getelementptr inbounds nuw i8, ptr %2631, i64 4
   %.sroa.4.0.copyload.i57.i.i = load float, ptr %.sroa.4.0..sroa_idx.i56.i.i, align 4, !tbaa !81
@@ -41789,7 +41754,7 @@ _ZL29RenderWindowOuterSingleBorderP11ImGuiWindowijf.exit.i.i: ; preds = %2695, %
   %.sroa.045.0.i.i.i.i = phi <2 x float> [ %.sroa.045.4.vec.insert58.i.i63.i.i, %2695 ], [ %.sroa.045.4.vec.insert.i.i.i.i, %2684 ], [ %.sroa.045.4.vec.insert54.i.i71.i.i, %2688 ], [ %.sroa.045.4.vec.insert56.i.i.i.i, %2691 ], [ zeroinitializer, %.critedge._crit_edge.i.i ]
   %.sroa.10.0.i.i.i.i = phi <2 x float> [ %.sroa.10.12.vec.insert71.i.i65.i.i, %2695 ], [ %.sroa.10.12.vec.insert.i.i.i.i, %2684 ], [ %.sroa.10.12.vec.insert67.i.i72.i.i, %2688 ], [ %.sroa.10.12.vec.insert69.i.i.i.i, %2691 ], [ zeroinitializer, %.critedge._crit_edge.i.i ]
   %2698 = sext i8 %spec.select.i.i to i64
-  %2699 = getelementptr inbounds %struct.ImGuiResizeBorderDef, ptr @_ZL17resize_border_def, i64 %2698
+  %2699 = getelementptr inbounds [28 x i8], ptr @_ZL17resize_border_def, i64 %2698
   %2700 = getelementptr inbounds nuw i8, ptr %2122, i64 688
   %2701 = load ptr, ptr %2700, align 8, !tbaa !445
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -42385,7 +42350,7 @@ _ZN5ImGuiL23RenderWindowDecorationsEP11ImGuiWindowRK6ImRectbbiPKjf.exit: ; preds
   %3095 = load ptr, ptr %3094, align 8, !tbaa !553
   %3096 = load i32, ptr %3093, align 8, !tbaa !555
   %3097 = sext i32 %3096 to i64
-  %3098 = getelementptr i32, ptr %3095, i64 %3097
+  %3098 = getelementptr [4 x i8], ptr %3095, i64 %3097
   %3099 = getelementptr i8, ptr %3098, i64 -4
   %3100 = load i32, ptr %3099, align 4, !tbaa !221
   %3101 = xor i32 %3100, -1
@@ -42403,7 +42368,7 @@ _ZN5ImGuiL23RenderWindowDecorationsEP11ImGuiWindowRK6ImRectbbiPKjf.exit: ; preds
   %3105 = and i32 %.344.i.i.i, 255
   %3106 = xor i32 %3105, %3103
   %3107 = zext nneg i32 %3106 to i64
-  %3108 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %3107
+  %3108 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %3107
   %3109 = load i32, ptr %3108, align 4, !tbaa !221
   %3110 = xor i32 %3109, %3104
   %exitcond.i = icmp eq i64 %.13043.i.i.add.i, 9
@@ -42455,13 +42420,13 @@ _Z9ImHashStrPKcmj.exit.i.i:                       ; preds = %.lr.ph.i.i.i669
 
 3135:                                             ; preds = %3133
   %3136 = load ptr, ptr %3128, align 8, !tbaa !553
-  %3137 = getelementptr inbounds nuw i32, ptr %3136, i64 %indvars.iv.i.i
+  %3137 = getelementptr inbounds nuw [4 x i8], ptr %3136, i64 %indvars.iv.i.i
   %3138 = load i32, ptr %3137, align 4, !tbaa !221
   br label %3139
 
 3139:                                             ; preds = %3135, %3133
   %3140 = phi i32 [ %3138, %3135 ], [ %3111, %3133 ]
-  %3141 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %3130, i64 %indvars.iv.i.i
+  %3141 = getelementptr inbounds nuw [64 x i8], ptr %3130, i64 %indvars.iv.i.i
   store i32 %3140, ptr %3141, align 4, !tbaa !717
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -42477,7 +42442,7 @@ _Z9ImHashStrPKcmj.exit.i.i:                       ; preds = %.lr.ph.i.i.i669
   %3146 = getelementptr inbounds nuw i8, ptr %3040, i64 9992
   %3147 = load ptr, ptr %3146, align 8, !tbaa !654
   %3148 = sext i32 %3120 to i64
-  %3149 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %3147, i64 %3148
+  %3149 = getelementptr inbounds [64 x i8], ptr %3147, i64 %3148
   %3150 = getelementptr inbounds nuw i8, ptr %3149, i64 7
   %3151 = call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %3150, i64 noundef 57, ptr noundef nonnull @.str.502, i32 noundef 9, ptr noundef nonnull @.str.526)
   %3152 = getelementptr inbounds nuw i8, ptr %3149, i64 5
@@ -42506,7 +42471,7 @@ _ZN11ImGuiWindow5GetIDEPKcS1_.exit.i:             ; preds = %3139, %3145, %3142,
   %3161 = load ptr, ptr %3160, align 8, !tbaa !553
   %3162 = load i32, ptr %3159, align 8, !tbaa !555
   %3163 = sext i32 %3162 to i64
-  %3164 = getelementptr i32, ptr %3161, i64 %3163
+  %3164 = getelementptr [4 x i8], ptr %3161, i64 %3163
   %3165 = getelementptr i8, ptr %3164, i64 -4
   %3166 = load i32, ptr %3165, align 4, !tbaa !221
   %3167 = xor i32 %3166, -1
@@ -42524,7 +42489,7 @@ _ZN11ImGuiWindow5GetIDEPKcS1_.exit.i:             ; preds = %3139, %3145, %3142,
   %3171 = and i32 %.344.i.i100.i, 255
   %3172 = xor i32 %3171, %3169
   %3173 = zext nneg i32 %3172 to i64
-  %3174 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %3173
+  %3174 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %3173
   %3175 = load i32, ptr %3174, align 4, !tbaa !221
   %3176 = xor i32 %3175, %3170
   %exitcond160.i = icmp eq i64 %.13043.i.i101.add.i, 6
@@ -42577,13 +42542,13 @@ _Z9ImHashStrPKcmj.exit.i98.i:                     ; preds = %.lr.ph.i.i99.i
 
 3202:                                             ; preds = %3200
   %3203 = load ptr, ptr %3195, align 8, !tbaa !553
-  %3204 = getelementptr inbounds nuw i32, ptr %3203, i64 %indvars.iv.i123.i
+  %3204 = getelementptr inbounds nuw [4 x i8], ptr %3203, i64 %indvars.iv.i123.i
   %3205 = load i32, ptr %3204, align 4, !tbaa !221
   br label %3206
 
 3206:                                             ; preds = %3202, %3200
   %3207 = phi i32 [ %3205, %3202 ], [ %3177, %3200 ]
-  %3208 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %3197, i64 %indvars.iv.i123.i
+  %3208 = getelementptr inbounds nuw [64 x i8], ptr %3197, i64 %indvars.iv.i123.i
   store i32 %3207, ptr %3208, align 4, !tbaa !717
   %indvars.iv.next.i124.i = add nuw nsw i64 %indvars.iv.i123.i, 1
   %exitcond.not.i125.i = icmp eq i64 %indvars.iv.next.i124.i, %wide.trip.count.i122.i
@@ -42599,7 +42564,7 @@ _Z9ImHashStrPKcmj.exit.i98.i:                     ; preds = %.lr.ph.i.i99.i
   %3213 = getelementptr inbounds nuw i8, ptr %3183, i64 9992
   %3214 = load ptr, ptr %3213, align 8, !tbaa !654
   %3215 = sext i32 %3187 to i64
-  %3216 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %3214, i64 %3215
+  %3216 = getelementptr inbounds [64 x i8], ptr %3214, i64 %3215
   %3217 = getelementptr inbounds nuw i8, ptr %3216, i64 7
   %3218 = call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %3217, i64 noundef 57, ptr noundef nonnull @.str.502, i32 noundef 6, ptr noundef nonnull @.str.527)
   %3219 = getelementptr inbounds nuw i8, ptr %3216, i64 5
@@ -43011,7 +42976,7 @@ _ZN5ImGuiL24SetLastItemDataForWindowEP11ImGuiWindowRK6ImRect.exit: ; preds = %33
   %3436 = load ptr, ptr %3435, align 8, !tbaa !525
   %3437 = load i32, ptr %3434, align 8, !tbaa !527
   %3438 = sext i32 %3437 to i64
-  %3439 = getelementptr %struct.ImGuiWindowStackData, ptr %3436, i64 %3438
+  %3439 = getelementptr [112 x i8], ptr %3436, i64 %3438
   %3440 = getelementptr i8, ptr %3439, i64 -24
   %3441 = getelementptr inbounds nuw i8, ptr %3432, i64 9840
   store ptr %3440, ptr %3441, align 8, !tbaa !638
@@ -43024,7 +42989,7 @@ _ZN5ImGuiL24SetLastItemDataForWindowEP11ImGuiWindowRK6ImRect.exit: ; preds = %33
   %3445 = getelementptr inbounds nuw i8, ptr %3432, i64 8576
   %3446 = load ptr, ptr %3445, align 8, !tbaa !659
   %3447 = sext i32 %3443 to i64
-  %3448 = getelementptr inbounds %struct.ImGuiTable, ptr %3446, i64 %3447
+  %3448 = getelementptr inbounds [592 x i8], ptr %3446, i64 %3447
   br label %3449
 
 3449:                                             ; preds = %3444, %.thread991
@@ -43166,7 +43131,7 @@ _ZN5ImGuiL24SetLastItemDataForWindowEP11ImGuiWindowRK6ImRect.exit690: ; preds = 
   %3537 = load ptr, ptr %3536, align 8, !tbaa !730
   %3538 = load i32, ptr %3535, align 8, !tbaa !1115
   %3539 = sext i32 %3538 to i64
-  %3540 = getelementptr %struct.ImVec4, ptr %3537, i64 %3539
+  %3540 = getelementptr [16 x i8], ptr %3537, i64 %3539
   %3541 = getelementptr i8, ptr %3540, i64 -16
   %3542 = load float, ptr %3541, align 4, !tbaa !266
   %3543 = getelementptr i8, ptr %3540, i64 -12
@@ -43542,7 +43507,7 @@ define dso_local void @_ZN5ImGui12PushClipRectERK6ImVec2S2_b(ptr noundef nonnull
   %13 = load ptr, ptr %12, align 8, !tbaa !730
   %14 = load i32, ptr %11, align 8, !tbaa !1115
   %15 = sext i32 %14 to i64
-  %16 = getelementptr %struct.ImVec4, ptr %13, i64 %15
+  %16 = getelementptr [16 x i8], ptr %13, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -16
   %18 = load float, ptr %17, align 4, !tbaa !266
   %19 = getelementptr i8, ptr %16, i64 -12
@@ -43578,7 +43543,7 @@ define dso_local void @_ZN5ImGui11PopClipRectEv() local_unnamed_addr #0 {
   %10 = load ptr, ptr %9, align 8, !tbaa !730
   %11 = load i32, ptr %8, align 8, !tbaa !1115
   %12 = sext i32 %11 to i64
-  %13 = getelementptr %struct.ImVec4, ptr %10, i64 %12
+  %13 = getelementptr [16 x i8], ptr %10, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -16
   %15 = load float, ptr %14, align 4, !tbaa !266
   %16 = getelementptr i8, ptr %13, i64 -12
@@ -43640,7 +43605,7 @@ _ZN5ImGui22FindWindowDisplayIndexEP11ImGuiWindow.exit: ; preds = %.lr.ph.i.i, %1
 23:                                               ; preds = %.lr.ph, %_ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit.thread
   %indvars.iv = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next, %_ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit.thread ]
   %.029 = phi ptr [ %0, %.lr.ph ], [ %.2.ph, %_ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit.thread ]
-  %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !664
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !679
@@ -43937,7 +43902,7 @@ _ZN5ImGui30ErrorRecoveryTryToRecoverStateEPK23ImGuiErrorRecoveryState.exit: ; pr
   %108 = and i32 %.5.i.i.i.i, 255
   %109 = xor i32 %108, %99
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !221
   %113 = xor i32 %107, %112
   %exitcond.i.i = icmp eq i64 %.13043.i.i.add.i.i, 19
@@ -43959,7 +43924,7 @@ _Z9ImHashStrPKcmj.exit.loopexit.i.i.i:            ; preds = %106
   %.017.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %117, %_Z9ImHashStrPKcmj.exit.loopexit.i.i.i ]
   %.01316.i.i.i.i.i.i = phi i64 [ %.114.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %119, %_Z9ImHashStrPKcmj.exit.loopexit.i.i.i ]
   %121 = lshr i64 %.01316.i.i.i.i.i.i, 1
-  %122 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i.i.i.i.i, i64 %121
+  %122 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i.i.i.i, i64 %121
   %123 = load i32, ptr %122, align 8, !tbaa !270
   %124 = icmp ult i32 %123, %114
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 16
@@ -44103,11 +44068,11 @@ _ZN5ImGui16FindWindowByNameEPKc.exit.i.i:         ; preds = %130, %128, %_Z12ImL
 191:                                              ; preds = %214, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %190, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %214 ]
   %.121.i.i.i = phi i32 [ %.0.i40.i.i, %.lr.ph.i.i.i ], [ %216, %214 ]
-  %192 = getelementptr %struct.ImGuiStyleMod, ptr %188, i64 %indvars.iv.i.i.i
+  %192 = getelementptr [12 x i8], ptr %188, i64 %indvars.iv.i.i.i
   %193 = getelementptr i8, ptr %192, i64 -12
   %194 = load i32, ptr %193, align 4, !tbaa !437
   %195 = sext i32 %194 to i64
-  %196 = getelementptr inbounds %struct.ImGuiDataVarInfo, ptr @_ZL13GStyleVarInfo, i64 %195
+  %196 = getelementptr inbounds [12 x i8], ptr @_ZL13GStyleVarInfo, i64 %195
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %198 = load i32, ptr %197, align 4, !tbaa !435
   %199 = zext i32 %198 to i64
@@ -44150,7 +44115,7 @@ _ZN5ImGui16FindWindowByNameEPKc.exit.i.i:         ; preds = %130, %128, %_Z12ImL
   %indvars.iv.i.i = phi i64 [ %178, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN5ImGui20IsWindowNavFocusableEP11ImGuiWindow.exit.thread.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %219 = load ptr, ptr %176, align 8, !tbaa !522
-  %220 = getelementptr inbounds nuw ptr, ptr %219, i64 %indvars.iv.next.i.i
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %indvars.iv.next.i.i
   %221 = load ptr, ptr %220, align 8, !tbaa !664
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 203
   %223 = load i8, ptr %222, align 1, !tbaa !430, !range !91, !noundef !220
@@ -44284,7 +44249,7 @@ _ZN5ImGui28NavMoveRequestButNoResultYetEv.exit.i: ; preds = %264
   %281 = getelementptr inbounds nuw i8, ptr %260, i64 7808
   %282 = load i32, ptr %281, align 8, !tbaa !816
   %283 = zext i32 %282 to i64
-  %284 = getelementptr inbounds nuw %struct.ImRect, ptr %280, i64 %283
+  %284 = getelementptr inbounds nuw [16 x i8], ptr %280, i64 %283
   %.sroa.0.0.copyload.i.i = load float, ptr %284, align 8, !tbaa !81
   %.sroa.12.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %284, i64 4
   %.sroa.12.0.copyload.i.i = load float, ptr %.sroa.12.0..sroa_idx.i.i, align 4, !tbaa !81
@@ -44396,7 +44361,7 @@ _ZN5ImGui28NavMoveRequestButNoResultYetEv.exit.i: ; preds = %264
   %340 = getelementptr inbounds nuw i8, ptr %279, i64 936
   %341 = load ptr, ptr %340, align 8, !tbaa !390
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 1000
-  %343 = getelementptr inbounds nuw %struct.ImVec2, ptr %342, i64 %283
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %342, i64 %283
   store float 0x47EFFFFFE0000000, ptr %343, align 4, !tbaa !81
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 4
   store float 0x47EFFFFFE0000000, ptr %344, align 4, !tbaa !81
@@ -44489,7 +44454,7 @@ switch.early.test.split.i.i.i:                    ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i.i: ; preds = %.split.i.i.i.i, %._crit_edge.i77
   %.0.i.i.i = phi i32 [ %379, %._crit_edge.i77 ], [ %spec.select.i.i.i.i, %.split.i.i.i.i ]
   %388 = zext nneg i32 %.0.i.i.i to i64
-  %389 = getelementptr %struct.ImGuiKeyOwnerData, ptr %372, i64 %388
+  %389 = getelementptr [12 x i8], ptr %372, i64 %388
   %390 = getelementptr i8, ptr %389, i64 -980
   %391 = load i8, ptr %390, align 4, !tbaa !566, !range !91, !noundef !220
   %392 = icmp ne i8 %391, 0
@@ -44565,7 +44530,7 @@ _ZN5ImGui11IsMouseDownEi.exit:                    ; preds = %switch.early.test.i
   %426 = getelementptr inbounds nuw i8, ptr %420, i64 10016
   %427 = load i16, ptr %426, align 8, !tbaa !212
   %428 = sext i16 %427 to i64
-  %429 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %425, i64 %428
+  %429 = getelementptr inbounds [8 x i8], ptr %425, i64 %428
   %430 = load i32, ptr %429, align 4, !tbaa !213
   %.not.i.i.i81 = icmp eq i32 %430, %424
   br i1 %.not.i.i.i81, label %._crit_edge.i83, label %432
@@ -44583,7 +44548,7 @@ _ZN5ImGui11IsMouseDownEi.exit:                    ; preds = %switch.early.test.i
   %436 = trunc nsw i32 %435 to i16
   store i16 %436, ptr %426, align 4, !tbaa !212
   %437 = sext i32 %435 to i64
-  %438 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %425, i64 %437
+  %438 = getelementptr inbounds [8 x i8], ptr %425, i64 %437
   store i32 %424, ptr %438, align 4, !tbaa !213
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 6
   store i16 0, ptr %439, align 2, !tbaa !216
@@ -44594,7 +44559,7 @@ _ZN5ImGui11IsMouseDownEi.exit:                    ; preds = %switch.early.test.i
 441:                                              ; preds = %432, %._crit_edge.i83
   %442 = phi i16 [ 1, %432 ], [ %431, %._crit_edge.i83 ]
   %443 = phi i64 [ %437, %432 ], [ %428, %._crit_edge.i83 ]
-  %444 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %425, i64 %443
+  %444 = getelementptr inbounds [8 x i8], ptr %425, i64 %443
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 4
   store i16 %442, ptr %445, align 4, !tbaa !215
   %446 = load i32, ptr %422, align 4, !tbaa !217
@@ -44629,7 +44594,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %441, %414
   %461 = getelementptr inbounds nuw i8, ptr %456, i64 10016
   %462 = load i16, ptr %461, align 8, !tbaa !212
   %463 = sext i16 %462 to i64
-  %464 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %460, i64 %463
+  %464 = getelementptr inbounds [8 x i8], ptr %460, i64 %463
   %465 = load i32, ptr %464, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %465, %459
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %467
@@ -44647,7 +44612,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %441, %414
   %471 = trunc nsw i32 %470 to i16
   store i16 %471, ptr %461, align 4, !tbaa !212
   %472 = sext i32 %470 to i64
-  %473 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %460, i64 %472
+  %473 = getelementptr inbounds [8 x i8], ptr %460, i64 %472
   store i32 %459, ptr %473, align 4, !tbaa !213
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 6
   store i16 0, ptr %474, align 2, !tbaa !216
@@ -44658,7 +44623,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %441, %414
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %467, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %476 = phi i16 [ 1, %467 ], [ %466, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %477 = phi i64 [ %472, %467 ], [ %463, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %478 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %460, i64 %477
+  %478 = getelementptr inbounds [8 x i8], ptr %460, i64 %477
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 6
   store i16 %476, ptr %479, align 2, !tbaa !216
   %480 = getelementptr inbounds nuw i8, ptr %456, i64 10012
@@ -45131,7 +45096,7 @@ define dso_local void @_ZN5ImGui3EndEv() local_unnamed_addr #0 {
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4888
   %15 = load ptr, ptr %14, align 8, !tbaa !525
   %16 = sext i32 %5 to i64
-  %17 = getelementptr %struct.ImGuiWindowStackData, ptr %15, i64 %16
+  %17 = getelementptr [112 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %19 = load i32, ptr %18, align 4, !tbaa !679
   %20 = and i32 %19, 16777216
@@ -45179,7 +45144,7 @@ define dso_local void @_ZN5ImGui3EndEv() local_unnamed_addr #0 {
   %44 = load ptr, ptr %43, align 8, !tbaa !730
   %45 = load i32, ptr %42, align 8, !tbaa !1115
   %46 = sext i32 %45 to i64
-  %47 = getelementptr %struct.ImVec4, ptr %44, i64 %46
+  %47 = getelementptr [16 x i8], ptr %44, i64 %46
   %48 = getelementptr i8, ptr %47, i64 -16
   %49 = load float, ptr %48, align 4, !tbaa !266
   %50 = getelementptr i8, ptr %47, i64 -12
@@ -45225,7 +45190,7 @@ define dso_local void @_ZN5ImGui3EndEv() local_unnamed_addr #0 {
   %71 = getelementptr inbounds nuw i8, ptr %58, i64 7688
   %72 = load ptr, ptr %71, align 8, !tbaa !661
   %73 = sext i32 %69 to i64
-  %74 = getelementptr %struct.ImGuiFocusScopeData, ptr %72, i64 %73
+  %74 = getelementptr [8 x i8], ptr %72, i64 %73
   %75 = getelementptr i8, ptr %74, i64 -8
   %76 = load i32, ptr %75, align 4, !tbaa !1047
   br label %77
@@ -45261,7 +45226,7 @@ _ZN5ImGui13PopFocusScopeEv.exit:                  ; preds = %66, %77
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 7704
   %96 = load ptr, ptr %95, align 8, !tbaa !303
   %97 = sext i32 %94 to i64
-  %98 = getelementptr i32, ptr %96, i64 %97
+  %98 = getelementptr [4 x i8], ptr %96, i64 %97
   %99 = getelementptr i8, ptr %98, i64 -4
   %100 = load i32, ptr %99, align 4, !tbaa !221
   %101 = getelementptr inbounds nuw i8, ptr %88, i64 7368
@@ -45365,7 +45330,7 @@ _ZN5ImGui13PopFocusScopeEv.exit:                  ; preds = %66, %77
 154:                                              ; preds = %148
   %155 = load ptr, ptr %14, align 8, !tbaa !525
   %156 = sext i32 %150 to i64
-  %157 = getelementptr %struct.ImGuiWindowStackData, ptr %155, i64 %156
+  %157 = getelementptr [112 x i8], ptr %155, i64 %156
   %158 = getelementptr i8, ptr %157, i64 -112
   %159 = load ptr, ptr %158, align 8, !tbaa !1038
   %160 = load ptr, ptr @GImGui, align 8, !tbaa !210
@@ -45380,7 +45345,7 @@ _ZN5ImGui13PopFocusScopeEv.exit:                  ; preds = %66, %77
   %165 = load ptr, ptr %164, align 8, !tbaa !525
   %166 = load i32, ptr %163, align 8, !tbaa !527
   %167 = sext i32 %166 to i64
-  %168 = getelementptr %struct.ImGuiWindowStackData, ptr %165, i64 %167
+  %168 = getelementptr [112 x i8], ptr %165, i64 %167
   %169 = getelementptr i8, ptr %168, i64 -24
   %170 = getelementptr inbounds nuw i8, ptr %160, i64 9840
   store ptr %169, ptr %170, align 8, !tbaa !638
@@ -45393,7 +45358,7 @@ _ZN5ImGui13PopFocusScopeEv.exit:                  ; preds = %66, %77
   %174 = getelementptr inbounds nuw i8, ptr %160, i64 8576
   %175 = load ptr, ptr %174, align 8, !tbaa !659
   %176 = sext i32 %172 to i64
-  %177 = getelementptr inbounds %struct.ImGuiTable, ptr %175, i64 %176
+  %177 = getelementptr inbounds [592 x i8], ptr %175, i64 %176
   br label %183
 
 178:                                              ; preds = %.thread, %154
@@ -45509,7 +45474,7 @@ switch.early.test.split.i.i:                      ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i: ; preds = %.split.i.i.i, %._crit_edge
   %.0.i.i = phi i32 [ %9, %._crit_edge ], [ %spec.select.i.i.i, %.split.i.i.i ]
   %18 = zext nneg i32 %.0.i.i to i64
-  %19 = getelementptr %struct.ImGuiKeyOwnerData, ptr %2, i64 %18
+  %19 = getelementptr [12 x i8], ptr %2, i64 %18
   %20 = getelementptr i8, ptr %19, i64 -980
   %21 = load i8, ptr %20, align 4, !tbaa !566, !range !91, !noundef !220
   %22 = icmp eq i8 %21, 0
@@ -45582,7 +45547,7 @@ define dso_local void @_ZN5ImGui13ClearDragDropEv() local_unnamed_addr #0 {
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 10016
   %32 = load i16, ptr %31, align 8, !tbaa !212
   %33 = sext i16 %32 to i64
-  %34 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %30, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %30, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %35, %29
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %37
@@ -45600,7 +45565,7 @@ define dso_local void @_ZN5ImGui13ClearDragDropEv() local_unnamed_addr #0 {
   %41 = trunc nsw i32 %40 to i16
   store i16 %41, ptr %31, align 4, !tbaa !212
   %42 = sext i32 %40 to i64
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %30, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %30, i64 %42
   store i32 %29, ptr %43, align 4, !tbaa !213
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 6
   store i16 0, ptr %44, align 2, !tbaa !216
@@ -45611,7 +45576,7 @@ define dso_local void @_ZN5ImGui13ClearDragDropEv() local_unnamed_addr #0 {
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %37, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %46 = phi i16 [ 1, %37 ], [ %36, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %47 = phi i64 [ %42, %37 ], [ %33, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %48 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %30, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %30, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 6
   store i16 %46, ptr %49, align 2, !tbaa !216
   %50 = getelementptr inbounds nuw i8, ptr %26, i64 10012
@@ -45669,7 +45634,7 @@ _ZNK8ImVectorIP11ImGuiWindowE14_grow_capacityEi.exit: ; preds = %6, %7
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 10016
   %24 = load i16, ptr %23, align 8, !tbaa !212
   %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %27, %21
   br i1 %.not.i.i.i, label %._crit_edge.i, label %29
@@ -45687,7 +45652,7 @@ _ZNK8ImVectorIP11ImGuiWindowE14_grow_capacityEi.exit: ; preds = %6, %7
   %33 = trunc nsw i32 %32 to i16
   store i16 %33, ptr %23, align 4, !tbaa !212
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %22, i64 %34
   store i32 %21, ptr %35, align 4, !tbaa !213
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i16 0, ptr %36, align 2, !tbaa !216
@@ -45698,7 +45663,7 @@ _ZNK8ImVectorIP11ImGuiWindowE14_grow_capacityEi.exit: ; preds = %6, %7
 38:                                               ; preds = %29, %._crit_edge.i
   %39 = phi i16 [ 1, %29 ], [ %28, %._crit_edge.i ]
   %40 = phi i64 [ %34, %29 ], [ %25, %._crit_edge.i ]
-  %41 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %22, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 %39, ptr %42, align 4, !tbaa !215
   %43 = load i32, ptr %19, align 4, !tbaa !217
@@ -45733,7 +45698,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 10016
   %59 = load i16, ptr %58, align 8, !tbaa !212
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %62, %56
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %64
@@ -45751,7 +45716,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %68 = trunc nsw i32 %67 to i16
   store i16 %68, ptr %58, align 4, !tbaa !212
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %57, i64 %69
   store i32 %56, ptr %70, align 4, !tbaa !213
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 0, ptr %71, align 2, !tbaa !216
@@ -45762,7 +45727,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %73 = phi i16 [ 1, %64 ], [ %63, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %74 = phi i64 [ %69, %64 ], [ %60, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %75 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %57, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   store i16 %73, ptr %76, align 2, !tbaa !216
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 10012
@@ -45824,7 +45789,7 @@ _ZL7ImQsortPvmmPFiPKvS1_E.exit:                   ; preds = %8, %12
   %17 = load ptr, ptr %3, align 8, !tbaa !664
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 432
   %19 = load ptr, ptr %18, align 8, !tbaa !522
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !664
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 202
   %23 = load i8, ptr %22, align 2, !tbaa !809, !range !91, !noundef !220
@@ -45927,7 +45892,7 @@ _ZN5ImGui16CallContextHooksEP12ImGuiContext20ImGuiContextHookType.exit: ; preds 
 43:                                               ; preds = %_ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit.thread.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %42, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit.thread.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %44 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %41, i64 %indvars.iv.next.i.i
+  %44 = getelementptr inbounds nuw [56 x i8], ptr %41, i64 %indvars.iv.next.i.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !807
   %.not.i.i = icmp eq ptr %46, null
@@ -46030,7 +45995,7 @@ _ZN5ImGui22FindWindowDisplayIndexEP11ImGuiWindow.exit.i.i: ; preds = %87, %.lr.p
 98:                                               ; preds = %_ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit.thread.i39.i, %.lr.ph.i36.i
   %indvars.iv.i37.i = phi i64 [ %97, %.lr.ph.i36.i ], [ %indvars.iv.next.i40.i, %_ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit.thread.i39.i ]
   %.029.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i36.i ], [ %.2.ph.i.i, %_ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit.thread.i39.i ]
-  %99 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv.i37.i
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv.i37.i
   %100 = load ptr, ptr %99, align 8, !tbaa !664
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 20
   %102 = load i32, ptr %101, align 4, !tbaa !679
@@ -46538,7 +46503,7 @@ _ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit99.thread: ; preds = %343, %.pre
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 8
   %392 = load ptr, ptr %391, align 8, !tbaa !1201
   %393 = sext i32 %382 to i64
-  %394 = getelementptr inbounds ptr, ptr %392, i64 %393
+  %394 = getelementptr inbounds [8 x i8], ptr %392, i64 %393
   %395 = getelementptr inbounds nuw i8, ptr %387, i64 8
   %396 = load ptr, ptr %395, align 8, !tbaa !1201
   %397 = sext i32 %388 to i64
@@ -46749,7 +46714,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui13IsItemClickedEi(i32 noundef %0) 
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 2864
-  %10 = getelementptr inbounds float, ptr %9, i64 %4
+  %10 = getelementptr inbounds [4 x i8], ptr %9, i64 %4
   %11 = load float, ptr %10, align 4, !tbaa !81
   %12 = fcmp oeq float %11, 0.000000e+00
   br i1 %12, label %.critedge.i, label %_ZN5ImGui14IsMouseClickedEiij.exit.thread
@@ -46789,7 +46754,7 @@ switch.early.test.split.i.i.i:                    ; preds = %switch.early.test.i
 _ZN5ImGui14IsMouseClickedEiij.exit:               ; preds = %.critedge.i._crit_edge, %.split.i.i.i.i
   %.0.i.i.i = phi i32 [ %13, %.critedge.i._crit_edge ], [ %spec.select.i.i.i.i, %.split.i.i.i.i ]
   %22 = zext nneg i32 %.0.i.i.i to i64
-  %23 = getelementptr %struct.ImGuiKeyOwnerData, ptr %2, i64 %22
+  %23 = getelementptr [12 x i8], ptr %2, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -980
   %25 = load i8, ptr %24, align 4, !tbaa !566, !range !91, !noundef !220
   %26 = icmp eq i8 %25, 0
@@ -46979,7 +46944,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr no
   %12 = load ptr, ptr %11, align 8, !tbaa !553
   %13 = load i32, ptr %10, align 8, !tbaa !555
   %14 = sext i32 %13 to i64
-  %15 = getelementptr i32, ptr %12, i64 %14
+  %15 = getelementptr [4 x i8], ptr %12, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -4
   %17 = load i32, ptr %16, align 4, !tbaa !221
   %18 = xor i32 %17, -1
@@ -47012,7 +46977,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui10BeginChildEPKcRK6ImVec2ii(ptr no
   %31 = and i32 %.5.i.i, 255
   %32 = xor i32 %31, %22
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !221
   %36 = xor i32 %30, %35
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -47063,13 +47028,13 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 
 56:                                               ; preds = %54
   %57 = load ptr, ptr %11, align 8, !tbaa !553
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.i
   %59 = load i32, ptr %58, align 4, !tbaa !221
   br label %60
 
 60:                                               ; preds = %56, %54
   %61 = phi i32 [ %59, %56 ], [ %.2.i.i, %54 ]
-  %62 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %51, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [64 x i8], ptr %51, i64 %indvars.iv.i
   store i32 %61, ptr %62, align 4, !tbaa !717
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -47082,7 +47047,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 64:                                               ; preds = %63
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 9992
   %66 = load ptr, ptr %65, align 8, !tbaa !654
-  %67 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %66, i64 %14
+  %67 = getelementptr inbounds [64 x i8], ptr %66, i64 %14
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 7
   %69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %70 = trunc i64 %69 to i32
@@ -47416,11 +47381,11 @@ _ZN5ImGui12CalcItemSizeE6ImVec2ff.exit:           ; preds = %98, %99, %101
 158:                                              ; preds = %181, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %157, %.lr.ph.i ], [ %indvars.iv.next.i, %181 ]
   %.121.i = phi i32 [ %.0.i95, %.lr.ph.i ], [ %183, %181 ]
-  %159 = getelementptr %struct.ImGuiStyleMod, ptr %155, i64 %indvars.iv.i
+  %159 = getelementptr [12 x i8], ptr %155, i64 %indvars.iv.i
   %160 = getelementptr i8, ptr %159, i64 -12
   %161 = load i32, ptr %160, align 4, !tbaa !437
   %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds %struct.ImGuiDataVarInfo, ptr @_ZL13GStyleVarInfo, i64 %162
+  %163 = getelementptr inbounds [12 x i8], ptr @_ZL13GStyleVarInfo, i64 %162
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = load i32, ptr %164, align 4, !tbaa !435
   %166 = zext i32 %165 to i64
@@ -47484,12 +47449,12 @@ _ZN5ImGui11PopStyleVarEi.exit:                    ; preds = %181, %150
   %.110.i = phi i32 [ %.0.i8798, %.lr.ph.i88 ], [ %208, %196 ]
   %198 = load ptr, ptr %194, align 8, !tbaa !420
   %199 = sext i32 %197 to i64
-  %200 = getelementptr %struct.ImGuiColorMod, ptr %198, i64 %199
+  %200 = getelementptr [20 x i8], ptr %198, i64 %199
   %201 = getelementptr i8, ptr %200, i64 -20
   %202 = getelementptr i8, ptr %200, i64 -16
   %203 = load i32, ptr %201, align 4, !tbaa !414
   %204 = sext i32 %203 to i64
-  %205 = getelementptr inbounds %struct.ImVec4, ptr %195, i64 %204
+  %205 = getelementptr inbounds [16 x i8], ptr %195, i64 %204
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %205, ptr noundef nonnull align 4 dereferenceable(16) %202, i64 16, i1 false), !tbaa.struct !416
   %206 = load i32, ptr %186, align 8, !tbaa !418
   %207 = add nsw i32 %206, -1
@@ -47545,7 +47510,7 @@ _ZN5ImGui13PopStyleColorEi.exit:                  ; preds = %196, %189, %141
   %231 = and i32 %.5.i, 255
   %232 = xor i32 %231, %222
   %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %233
+  %234 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %233
   %235 = load i32, ptr %234, align 4, !tbaa !221
   %236 = xor i32 %230, %235
   %exitcond = icmp eq i64 %.13043.i.add, 7
@@ -47797,10 +47762,10 @@ define dso_local void @_ZN5ImGui13NavInitWindowEP11ImGuiWindowb(ptr noundef read
   %41 = load ptr, ptr %40, align 8, !tbaa !389
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 960
   %43 = zext i32 %34 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 0, ptr %44, align 4, !tbaa !221
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 968
-  %46 = getelementptr inbounds nuw %struct.ImRect, ptr %45, i64 %43
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %43
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
   %47 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 7792
@@ -47811,7 +47776,7 @@ define dso_local void @_ZN5ImGui13NavInitWindowEP11ImGuiWindowb(ptr noundef read
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 7808
   %54 = load i32, ptr %53, align 8, !tbaa !816
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %struct.ImVec2, ptr %52, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %55
   store float 0x47EFFFFFE0000000, ptr %56, align 4, !tbaa !81
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   store float 0x47EFFFFFE0000000, ptr %57, align 4, !tbaa !81
@@ -48802,7 +48767,7 @@ _ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit.i:    ; preds = %341, %333
   %366 = getelementptr inbounds nuw i8, ptr %7, i64 968
   %367 = load i32, ptr %35, align 8, !tbaa !1050
   %368 = zext i32 %367 to i64
-  %369 = getelementptr inbounds nuw %struct.ImRect, ptr %366, i64 %368
+  %369 = getelementptr inbounds nuw [16 x i8], ptr %366, i64 %368
   store <2 x float> %.sroa.0.4.vec.insert.i.i, ptr %369, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %369, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i.i, ptr %.sroa.4.0..sroa_idx.i, align 8
@@ -49040,7 +49005,7 @@ define dso_local noundef ptr @_ZN5ImGui14FindWindowByIDEj(i32 noundef %0) local_
   %.017.i.i = phi ptr [ %.1.i.i, %.lr.ph.i.i ], [ %5, %1 ]
   %.01316.i.i = phi i64 [ %.114.i.i, %.lr.ph.i.i ], [ %7, %1 ]
   %9 = lshr i64 %.01316.i.i, 1
-  %10 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i, i64 %9
   %11 = load i32, ptr %10, align 8, !tbaa !270
   %12 = icmp ult i32 %11, %0
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -49102,7 +49067,7 @@ define dso_local noundef ptr @_ZN5ImGui16FindWindowByNameEPKc(ptr noundef readon
   %14 = and i32 %.5.i, 255
   %15 = xor i32 %14, %5
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !221
   %19 = xor i32 %13, %18
   %.not33.i = icmp eq i8 %.pre.i, 0
@@ -49129,7 +49094,7 @@ _Z9ImHashStrPKcmj.exit:                           ; preds = %_Z9ImHashStrPKcmj.e
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %24, %_Z9ImHashStrPKcmj.exit ]
   %.01316.i.i.i = phi i64 [ %.114.i.i.i, %.lr.ph.i.i.i ], [ %26, %_Z9ImHashStrPKcmj.exit ]
   %28 = lshr i64 %.01316.i.i.i, 1
-  %29 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i.i, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i, i64 %28
   %30 = load i32, ptr %29, align 8, !tbaa !270
   %31 = icmp ult i32 %30, %.2.i
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -49835,7 +49800,7 @@ define dso_local noundef i32 @_ZN5ImGui23GetWindowResizeCornerIDEP11ImGuiWindowi
   %10 = and i32 %.344.i, 255
   %11 = xor i32 %10, %8
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !221
   %15 = xor i32 %9, %14
   %exitcond = icmp eq i64 %.13043.i.add, 7
@@ -49853,7 +49818,7 @@ define dso_local noundef i32 @_ZN5ImGui23GetWindowResizeCornerIDEP11ImGuiWindowi
   %21 = zext i8 %20 to i32
   %22 = xor i32 %18, %21
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !221
   %26 = xor i32 %25, %17
   %.not.i = icmp eq i64 %16, 0
@@ -49887,7 +49852,7 @@ define dso_local noundef i32 @_ZN5ImGui23GetWindowResizeBorderIDEP11ImGuiWindow8
   %11 = and i32 %.344.i, 255
   %12 = xor i32 %11, %9
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !221
   %16 = xor i32 %10, %15
   %exitcond = icmp eq i64 %.13043.i.add, 7
@@ -49905,7 +49870,7 @@ define dso_local noundef i32 @_ZN5ImGui23GetWindowResizeBorderIDEP11ImGuiWindow8
   %22 = zext i8 %21 to i32
   %23 = xor i32 %19, %22
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !221
   %27 = xor i32 %26, %18
   %.not.i = icmp eq i64 %17, 0
@@ -50269,7 +50234,7 @@ _ZNK8ImVectorI14ImGuiPopupDataE14_grow_capacityEi.exit: ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -50287,7 +50252,7 @@ _ZNK8ImVectorI14ImGuiPopupDataE14_grow_capacityEi.exit: ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -50298,7 +50263,7 @@ _ZNK8ImVectorI14ImGuiPopupDataE14_grow_capacityEi.exit: ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -50333,7 +50298,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -50351,7 +50316,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -50362,7 +50327,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -50387,7 +50352,7 @@ _ZN8ImVectorI14ImGuiPopupDataE7reserveEi.exit:    ; preds = %._ZN8ImVectorI14ImG
   %85 = phi i32 [ %3, %._ZN8ImVectorI14ImGuiPopupDataE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorI14ImGuiPopupDataE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds %struct.ImGuiPopupData, ptr %86, i64 %87
+  %88 = getelementptr inbounds [56 x i8], ptr %86, i64 %87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %88, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   %89 = load i32, ptr %0, align 8, !tbaa !536
   %90 = add nsw i32 %89, 1
@@ -50626,7 +50591,7 @@ switch.early.test.split.i:                        ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit: ; preds = %._crit_edge, %.split.i.i
   %.0.i = phi i32 [ %0, %._crit_edge ], [ %spec.select.i.i, %.split.i.i ]
   %11 = sext i32 %.0.i to i64
-  %12 = getelementptr %struct.ImGuiKeyOwnerData, ptr %6, i64 %11
+  %12 = getelementptr [12 x i8], ptr %6, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -988
   %14 = load i32, ptr %13, align 4, !tbaa !564
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 7356
@@ -50720,7 +50685,7 @@ _ZNK8ImVectorIP11ImGuiWindowE14_grow_capacityEi.exit: ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -50738,7 +50703,7 @@ _ZNK8ImVectorIP11ImGuiWindowE14_grow_capacityEi.exit: ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -50749,7 +50714,7 @@ _ZNK8ImVectorIP11ImGuiWindowE14_grow_capacityEi.exit: ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -50784,7 +50749,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -50802,7 +50767,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -50813,7 +50778,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -50838,7 +50803,7 @@ _ZN8ImVectorIP11ImGuiWindowE7reserveEi.exit:      ; preds = %._ZN8ImVectorIP11Im
   %85 = phi i32 [ %3, %._ZN8ImVectorIP11ImGuiWindowE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorIP11ImGuiWindowE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds ptr, ptr %86, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %86, i64 %87
   %89 = load i64, ptr %1, align 8
   store i64 %89, ptr %88, align 8
   %90 = load i32, ptr %0, align 8, !tbaa !524
@@ -50904,7 +50869,7 @@ define dso_local <2 x float> @_ZN5ImGui25FindBestWindowPosForPopupEP11ImGuiWindo
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 4888
   %44 = load ptr, ptr %43, align 8, !tbaa !525
   %45 = sext i32 %42 to i64
-  %46 = getelementptr %struct.ImGuiWindowStackData, ptr %44, i64 %45
+  %46 = getelementptr [112 x i8], ptr %44, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -224
   %48 = load ptr, ptr %47, align 8, !tbaa !1038
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 3100
@@ -51091,7 +51056,7 @@ _ZNK6ImRect8ContainsERKS_.exit.thread:            ; preds = %._ZNK6ImRect8Contai
 150:                                              ; preds = %.critedge121.i, %136
   %indvars.iv264.i = phi i64 [ %149, %136 ], [ %indvars.iv.next265.i, %.critedge121.i ]
   %151 = icmp ne i64 %indvars.iv264.i, -1
-  %152 = getelementptr inbounds i32, ptr @__const._ZN5ImGui27FindBestWindowPosForPopupExERK6ImVec2S2_P8ImGuiDirRK6ImRectS7_24ImGuiPopupPositionPolicy.dir_prefered_order.162, i64 %indvars.iv264.i
+  %152 = getelementptr inbounds [4 x i8], ptr @__const._ZN5ImGui27FindBestWindowPosForPopupExERK6ImVec2S2_P8ImGuiDirRK6ImRectS7_24ImGuiPopupPositionPolicy.dir_prefered_order.162, i64 %indvars.iv264.i
   %.in111.i = select i1 %151, ptr %152, ptr %138
   %153 = load i32, ptr %.in111.i, align 4, !tbaa !1231
   %154 = icmp eq i32 %153, %148
@@ -51230,7 +51195,7 @@ define internal fastcc <2 x float> @_ZL38CalcNextScrollFromScrollTargetAndClampP
   %indvars.iv54.sroa.phi98 = phi ptr [ %.4.gep.sroa_idx111, %63 ], [ %2, %1 ]
   %indvars.iv54.sroa.phi108 = phi ptr [ %.4.gep109.sroa_idx, %63 ], [ %2, %1 ]
   %indvars.iv54 = phi i64 [ 1, %63 ], [ 0, %1 ]
-  %30 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv54
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv54
   %31 = load float, ptr %30, align 4, !tbaa !81
   %32 = fcmp olt float %31, 0x47EFFFFFE0000000
   br i1 %32, label %33, label %.split.us._crit_edge
@@ -51240,23 +51205,23 @@ define internal fastcc <2 x float> @_ZL38CalcNextScrollFromScrollTargetAndClampP
   br label %63
 
 33:                                               ; preds = %.split.us
-  %34 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv54
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv54
   %35 = load float, ptr %34, align 4, !tbaa !81
-  %36 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv54
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv54
   %37 = load float, ptr %36, align 4, !tbaa !81
   %38 = fcmp ogt float %37, 0.000000e+00
   br i1 %38, label %39, label %._ZL18CalcScrollEdgeSnapfffff.exit.us_crit_edge
 
 ._ZL18CalcScrollEdgeSnapfffff.exit.us_crit_edge:  ; preds = %33
-  %.phi.trans.insert67 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv54
+  %.phi.trans.insert67 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv54
   %.pre68 = load float, ptr %.phi.trans.insert67, align 4, !tbaa !81
   %.pre70 = load float, ptr %indvars.iv54.sroa.phi93, align 4, !tbaa !81
   br label %_ZL18CalcScrollEdgeSnapfffff.exit.us
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv54
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv54
   %41 = load float, ptr %40, align 4, !tbaa !81
-  %42 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv54
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv54
   %43 = load float, ptr %42, align 4, !tbaa !81
   %44 = fadd float %41, %43
   %45 = load float, ptr %indvars.iv54.sroa.phi93, align 4, !tbaa !81
@@ -51311,7 +51276,7 @@ _ZL18CalcScrollEdgeSnapfffff.exit.us:             ; preds = %._ZL18CalcScrollEdg
   %indvars.iv51.sroa.phi100 = phi ptr [ %.4.gep.sroa_idx112, %107 ], [ %2, %.split ]
   %indvars.iv51.sroa.phi105 = phi ptr [ %.4.gep106.sroa_idx, %107 ], [ %2, %.split ]
   %indvars.iv51 = phi i64 [ 1, %107 ], [ 0, %.split ]
-  %74 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv51
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv51
   %75 = load float, ptr %74, align 4, !tbaa !81
   %76 = fcmp olt float %75, 0x47EFFFFFE0000000
   br i1 %76, label %77, label %.split.split.us._crit_edge
@@ -51321,23 +51286,23 @@ _ZL18CalcScrollEdgeSnapfffff.exit.us:             ; preds = %._ZL18CalcScrollEdg
   br label %107
 
 77:                                               ; preds = %.split.split.us
-  %78 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv51
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv51
   %79 = load float, ptr %78, align 4, !tbaa !81
-  %80 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv51
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv51
   %81 = load float, ptr %80, align 4, !tbaa !81
   %82 = fcmp ogt float %81, 0.000000e+00
   br i1 %82, label %83, label %._ZL18CalcScrollEdgeSnapfffff.exit.us46_crit_edge
 
 ._ZL18CalcScrollEdgeSnapfffff.exit.us46_crit_edge: ; preds = %77
-  %.phi.trans.insert61 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv51
+  %.phi.trans.insert61 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv51
   %.pre62 = load float, ptr %.phi.trans.insert61, align 4, !tbaa !81
   %.pre64 = load float, ptr %indvars.iv51.sroa.phi90, align 4, !tbaa !81
   br label %_ZL18CalcScrollEdgeSnapfffff.exit.us46
 
 83:                                               ; preds = %77
-  %84 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv51
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv51
   %85 = load float, ptr %84, align 4, !tbaa !81
-  %86 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv51
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv51
   %87 = load float, ptr %86, align 4, !tbaa !81
   %88 = fadd float %85, %87
   %89 = load float, ptr %indvars.iv51.sroa.phi90, align 4, !tbaa !81
@@ -51392,7 +51357,7 @@ _ZL18CalcScrollEdgeSnapfffff.exit.us46:           ; preds = %._ZL18CalcScrollEdg
   %indvars.iv.sroa.phi96 = phi ptr [ %.4.gep.sroa_idx, %148 ], [ %2, %.split ]
   %indvars.iv.sroa.phi102 = phi ptr [ %.4.gep103.sroa_idx, %148 ], [ %2, %.split ]
   %indvars.iv = phi i64 [ 1, %148 ], [ 0, %.split ]
-  %115 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   %116 = load float, ptr %115, align 4, !tbaa !81
   %117 = fcmp olt float %116, 0x47EFFFFFE0000000
   br i1 %117, label %118, label %.split.split._crit_edge
@@ -51402,23 +51367,23 @@ _ZL18CalcScrollEdgeSnapfffff.exit.us46:           ; preds = %._ZL18CalcScrollEdg
   br label %148
 
 118:                                              ; preds = %.split.split
-  %119 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %120 = load float, ptr %119, align 4, !tbaa !81
-  %121 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %122 = load float, ptr %121, align 4, !tbaa !81
   %123 = fcmp ogt float %122, 0.000000e+00
   br i1 %123, label %124, label %._ZL18CalcScrollEdgeSnapfffff.exit_crit_edge
 
 ._ZL18CalcScrollEdgeSnapfffff.exit_crit_edge:     ; preds = %118
-  %.phi.trans.insert = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %.pre = load float, ptr %.phi.trans.insert, align 4, !tbaa !81
   %.pre58 = load float, ptr %indvars.iv.sroa.phi87, align 4, !tbaa !81
   br label %_ZL18CalcScrollEdgeSnapfffff.exit
 
 124:                                              ; preds = %118
-  %125 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %126 = load float, ptr %125, align 4, !tbaa !81
-  %127 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %128 = load float, ptr %127, align 4, !tbaa !81
   %129 = fadd float %126, %128
   %130 = load float, ptr %indvars.iv.sroa.phi87, align 4, !tbaa !81
@@ -51458,7 +51423,7 @@ _ZL18CalcScrollEdgeSnapfffff.exit:                ; preds = %._ZL18CalcScrollEdg
   %152 = fadd float %151, 5.000000e-01
   %153 = fptosi float %152 to i32
   %154 = sitofp i32 %153 to float
-  %155 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %156 = load float, ptr %155, align 4, !tbaa !81
   %157 = fcmp ogt float %156, %154
   %158 = select i1 %157, float %154, float %156
@@ -51504,7 +51469,7 @@ _ZNK8ImVectorIfE14_grow_capacityEi.exit:          ; preds = %6, %7
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 10016
   %24 = load i16, ptr %23, align 8, !tbaa !212
   %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %27, %21
   br i1 %.not.i.i.i, label %._crit_edge.i, label %29
@@ -51522,7 +51487,7 @@ _ZNK8ImVectorIfE14_grow_capacityEi.exit:          ; preds = %6, %7
   %33 = trunc nsw i32 %32 to i16
   store i16 %33, ptr %23, align 4, !tbaa !212
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %22, i64 %34
   store i32 %21, ptr %35, align 4, !tbaa !213
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i16 0, ptr %36, align 2, !tbaa !216
@@ -51533,7 +51498,7 @@ _ZNK8ImVectorIfE14_grow_capacityEi.exit:          ; preds = %6, %7
 38:                                               ; preds = %29, %._crit_edge.i
   %39 = phi i16 [ 1, %29 ], [ %28, %._crit_edge.i ]
   %40 = phi i64 [ %34, %29 ], [ %25, %._crit_edge.i ]
-  %41 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %22, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 %39, ptr %42, align 4, !tbaa !215
   %43 = load i32, ptr %19, align 4, !tbaa !217
@@ -51568,7 +51533,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 10016
   %59 = load i16, ptr %58, align 8, !tbaa !212
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %62, %56
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %64
@@ -51586,7 +51551,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %68 = trunc nsw i32 %67 to i16
   store i16 %68, ptr %58, align 4, !tbaa !212
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %57, i64 %69
   store i32 %56, ptr %70, align 4, !tbaa !213
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 0, ptr %71, align 2, !tbaa !216
@@ -51597,7 +51562,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %73 = phi i16 [ 1, %64 ], [ %63, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %74 = phi i64 [ %69, %64 ], [ %60, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %75 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %57, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   store i16 %73, ptr %76, align 2, !tbaa !216
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 10012
@@ -51766,7 +51731,7 @@ define dso_local void @_ZN5ImGui13PopFocusScopeEv() local_unnamed_addr #0 {
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 7688
   %15 = load ptr, ptr %14, align 8, !tbaa !661
   %16 = sext i32 %12 to i64
-  %17 = getelementptr %struct.ImGuiFocusScopeData, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -8
   %19 = load i32, ptr %18, align 4, !tbaa !1047
   br label %20
@@ -51795,7 +51760,7 @@ define dso_local void @_ZN5ImGui27EndDisabledOverrideReenableEv() local_unnamed_
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 7704
   %9 = load ptr, ptr %8, align 8, !tbaa !303
   %10 = sext i32 %7 to i64
-  %11 = getelementptr i32, ptr %9, i64 %10
+  %11 = getelementptr [4 x i8], ptr %9, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -4
   %13 = load i32, ptr %12, align 4, !tbaa !221
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 7368
@@ -51889,7 +51854,7 @@ _ZN5ImGui16SetClipboardTextEPKc.exit:             ; preds = %24, %20, %16, %12, 
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 10016
   %40 = load i16, ptr %39, align 8, !tbaa !212
   %41 = sext i16 %40 to i64
-  %42 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %38, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %38, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %43, %37
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %45
@@ -51907,7 +51872,7 @@ _ZN5ImGui16SetClipboardTextEPKc.exit:             ; preds = %24, %20, %16, %12, 
   %49 = trunc nsw i32 %48 to i16
   store i16 %49, ptr %39, align 4, !tbaa !212
   %50 = sext i32 %48 to i64
-  %51 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %38, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %38, i64 %50
   store i32 %37, ptr %51, align 4, !tbaa !213
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 6
   store i16 0, ptr %52, align 2, !tbaa !216
@@ -51918,7 +51883,7 @@ _ZN5ImGui16SetClipboardTextEPKc.exit:             ; preds = %24, %20, %16, %12, 
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %45, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %54 = phi i16 [ 1, %45 ], [ %44, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %55 = phi i64 [ %50, %45 ], [ %41, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %56 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %38, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %38, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 6
   store i16 %54, ptr %57, align 2, !tbaa !216
   %58 = getelementptr inbounds nuw i8, ptr %34, i64 10012
@@ -52143,7 +52108,7 @@ _ZN5ImGui13PopStyleColorEi.exit.preheader:        ; preds = %_ZN5ImGui11EndDisab
   %112 = getelementptr inbounds nuw i8, ptr %97, i64 7704
   %113 = load ptr, ptr %112, align 8, !tbaa !303
   %114 = sext i32 %111 to i64
-  %115 = getelementptr i32, ptr %113, i64 %114
+  %115 = getelementptr [4 x i8], ptr %113, i64 %114
   %116 = getelementptr i8, ptr %115, i64 -4
   %117 = load i32, ptr %116, align 4, !tbaa !221
   store i32 %117, ptr %106, align 8, !tbaa !602
@@ -52169,7 +52134,7 @@ _ZN5ImGui13PopStyleColorEi.exit.preheader:        ; preds = %_ZN5ImGui11EndDisab
   %129 = getelementptr inbounds nuw i8, ptr %97, i64 7704
   %130 = load ptr, ptr %129, align 8, !tbaa !303
   %131 = sext i32 %128 to i64
-  %132 = getelementptr i32, ptr %130, i64 %131
+  %132 = getelementptr [4 x i8], ptr %130, i64 %131
   %133 = getelementptr i8, ptr %132, i64 -4
   %134 = load i32, ptr %133, align 4, !tbaa !221
   %135 = getelementptr inbounds nuw i8, ptr %97, i64 7368
@@ -52184,7 +52149,7 @@ _ZN5ImGui13PopStyleColorEi.exit.preheader:        ; preds = %_ZN5ImGui11EndDisab
   %142 = load ptr, ptr %71, align 8, !tbaa !525
   %143 = load i32, ptr %70, align 8, !tbaa !527
   %144 = sext i32 %143 to i64
-  %145 = getelementptr %struct.ImGuiWindowStackData, ptr %142, i64 %144
+  %145 = getelementptr [112 x i8], ptr %142, i64 %144
   %146 = getelementptr i8, ptr %145, i64 -2
   store i8 0, ptr %146, align 2, !tbaa !1041
   br label %_ZN5ImGui11EndDisabledEv.exit
@@ -52237,12 +52202,12 @@ _ZN5ImGui13PopStyleColorEi.exit.loopexit:         ; preds = %172, %165
   %.1.i60 = phi i32 [ %.0.i84, %.lr.ph61 ], [ %184, %172 ]
   %174 = load ptr, ptr %170, align 8, !tbaa !420
   %175 = sext i32 %173 to i64
-  %176 = getelementptr %struct.ImGuiColorMod, ptr %174, i64 %175
+  %176 = getelementptr [20 x i8], ptr %174, i64 %175
   %177 = getelementptr i8, ptr %176, i64 -20
   %178 = getelementptr i8, ptr %176, i64 -16
   %179 = load i32, ptr %177, align 4, !tbaa !414
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds %struct.ImVec4, ptr %171, i64 %180
+  %181 = getelementptr inbounds [16 x i8], ptr %171, i64 %180
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %181, ptr noundef nonnull align 4 dereferenceable(16) %178, i64 16, i1 false), !tbaa.struct !416
   %182 = load i32, ptr %162, align 8, !tbaa !418
   %183 = add nsw i32 %182, -1
@@ -52278,7 +52243,7 @@ _ZN5ImGui13PopStyleColorEi.exit.loopexit:         ; preds = %172, %165
   %201 = getelementptr inbounds nuw i8, ptr %193, i64 7704
   %202 = load ptr, ptr %201, align 8, !tbaa !303
   %203 = zext nneg i32 %200 to i64
-  %204 = getelementptr i32, ptr %202, i64 %203
+  %204 = getelementptr [4 x i8], ptr %202, i64 %203
   %205 = getelementptr i8, ptr %204, i64 -4
   %206 = load i32, ptr %205, align 4, !tbaa !221
   %207 = getelementptr inbounds nuw i8, ptr %193, i64 7368
@@ -52327,11 +52292,11 @@ _ZN5ImGui11PopItemFlagEv.exit:                    ; preds = %197, %199
 231:                                              ; preds = %254, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %230, %.lr.ph.i ], [ %indvars.iv.next.i, %254 ]
   %.121.i = phi i32 [ %.0.i89, %.lr.ph.i ], [ %256, %254 ]
-  %232 = getelementptr %struct.ImGuiStyleMod, ptr %228, i64 %indvars.iv.i
+  %232 = getelementptr [12 x i8], ptr %228, i64 %indvars.iv.i
   %233 = getelementptr i8, ptr %232, i64 -12
   %234 = load i32, ptr %233, align 4, !tbaa !437
   %235 = sext i32 %234 to i64
-  %236 = getelementptr inbounds %struct.ImGuiDataVarInfo, ptr @_ZL13GStyleVarInfo, i64 %235
+  %236 = getelementptr inbounds [12 x i8], ptr @_ZL13GStyleVarInfo, i64 %235
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %238 = load i32, ptr %237, align 4, !tbaa !435
   %239 = zext i32 %238 to i64
@@ -52422,7 +52387,7 @@ _ZN5ImGui11PopStyleVarEi.exit:                    ; preds = %254, %223
   %288 = getelementptr inbounds nuw i8, ptr %269, i64 7672
   %289 = load ptr, ptr %288, align 8, !tbaa !531
   %290 = zext nneg i32 %276 to i64
-  %291 = getelementptr ptr, ptr %289, i64 %290
+  %291 = getelementptr [8 x i8], ptr %289, i64 %290
   %292 = getelementptr i8, ptr %291, i64 -8
   %293 = load ptr, ptr %292, align 8, !tbaa !871
   br label %_ZN5ImGui14GetDefaultFontEv.exit
@@ -52530,7 +52495,7 @@ _ZN5ImGui7PopFontEv.exit:                         ; preds = %273, %_ZN5ImGui14Se
   %359 = getelementptr inbounds nuw i8, ptr %346, i64 7688
   %360 = load ptr, ptr %359, align 8, !tbaa !661
   %361 = sext i32 %357 to i64
-  %362 = getelementptr %struct.ImGuiFocusScopeData, ptr %360, i64 %361
+  %362 = getelementptr [8 x i8], ptr %360, i64 %361
   %363 = getelementptr i8, ptr %362, i64 -8
   %364 = load i32, ptr %363, align 4, !tbaa !1047
   br label %365
@@ -52561,7 +52526,7 @@ define dso_local void @_ZN5ImGui23BringWindowToFocusFrontEP11ImGuiWindow(ptr nou
   %6 = load ptr, ptr %5, align 8, !tbaa !522
   %7 = load i32, ptr %4, align 8, !tbaa !524
   %8 = sext i32 %7 to i64
-  %9 = getelementptr ptr, ptr %6, i64 %8
+  %9 = getelementptr [8 x i8], ptr %6, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load ptr, ptr %10, align 8, !tbaa !664
   %12 = icmp eq ptr %11, %0
@@ -52585,7 +52550,7 @@ define dso_local void @_ZN5ImGui23BringWindowToFocusFrontEP11ImGuiWindow(ptr nou
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %wide.trip.count, %.lr.ph ]
-  %19 = getelementptr inbounds ptr, ptr %6, i64 %.pre-phi
+  %19 = getelementptr inbounds [8 x i8], ptr %6, i64 %.pre-phi
   store ptr %0, ptr %19, align 8, !tbaa !664
   %20 = trunc i32 %16 to i16
   store i16 %20, ptr %3, align 8, !tbaa !819
@@ -52594,9 +52559,9 @@ define dso_local void @_ZN5ImGui23BringWindowToFocusFrontEP11ImGuiWindow(ptr nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %18, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %21 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.next
+  %21 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv.next
   %22 = load ptr, ptr %21, align 8, !tbaa !664
-  %23 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %23 = getelementptr inbounds [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %22, ptr %23, align 8, !tbaa !664
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 224
   %25 = load i16, ptr %24, align 8, !tbaa !819
@@ -52617,7 +52582,7 @@ define dso_local void @_ZN5ImGui25BringWindowToDisplayFrontEP11ImGuiWindow(ptr n
   %5 = load ptr, ptr %4, align 8, !tbaa !522
   %6 = load i32, ptr %3, align 8, !tbaa !524
   %7 = sext i32 %6 to i64
-  %8 = getelementptr ptr, ptr %5, i64 %7
+  %8 = getelementptr [8 x i8], ptr %5, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8, !tbaa !664
   %11 = icmp eq ptr %10, %0
@@ -52638,13 +52603,13 @@ define dso_local void @_ZN5ImGui25BringWindowToDisplayFrontEP11ImGuiWindow(ptr n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %34
   %.023 = phi i32 [ %35, %34 ], [ %17, %.lr.ph.preheader ]
   %18 = zext nneg i32 %.023 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %5, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !664
   %21 = icmp eq ptr %20, %0
   br i1 %21, label %22, label %34
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds nuw ptr, ptr %5, i64 %18
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %18
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = xor i32 %.023, -1
   %26 = add i32 %6, %25
@@ -52654,7 +52619,7 @@ define dso_local void @_ZN5ImGui25BringWindowToDisplayFrontEP11ImGuiWindow(ptr n
   %29 = load i32, ptr %3, align 8, !tbaa !821
   %30 = load ptr, ptr %4, align 8, !tbaa !522
   %31 = sext i32 %29 to i64
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   %33 = getelementptr i8, ptr %32, i64 -8
   store ptr %0, ptr %33, align 8, !tbaa !664
   br label %.loopexit
@@ -52689,7 +52654,7 @@ define dso_local void @_ZN5ImGui24BringWindowToDisplayBackEP11ImGuiWindow(ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !664
   %12 = icmp eq ptr %11, %0
   br i1 %12, label %13, label %18
@@ -52785,14 +52750,14 @@ _ZN5ImGui22FindWindowDisplayIndexEP11ImGuiWindow.exit31: ; preds = %_ZN5ImGui22F
   %40 = sext i32 %39 to i64
   %41 = shl nsw i64 %40, 3
   %42 = sext i32 %31 to i64
-  %43 = getelementptr ptr, ptr %10, i64 %42
+  %43 = getelementptr [8 x i8], ptr %10, i64 %42
   %44 = getelementptr i8, ptr %43, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %43, ptr align 8 %44, i64 %41, i1 false)
   %45 = load ptr, ptr %9, align 8, !tbaa !522
   %46 = shl i64 %33, 29
   %sext33 = add i64 %46, -4294967296
   %47 = ashr i64 %sext33, 32
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
   store ptr %5, ptr %48, align 8, !tbaa !664
   br label %58
 
@@ -52802,11 +52767,11 @@ _ZN5ImGui22FindWindowDisplayIndexEP11ImGuiWindow.exit31: ; preds = %_ZN5ImGui22F
   %52 = shl nuw nsw i64 %51, 3
   %sext = shl i64 %33, 29
   %53 = ashr i64 %sext, 32
-  %54 = getelementptr ptr, ptr %10, i64 %53
+  %54 = getelementptr [8 x i8], ptr %10, i64 %53
   %55 = getelementptr i8, ptr %54, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %55, ptr align 8 %54, i64 %52, i1 false)
   %56 = load ptr, ptr %9, align 8, !tbaa !522
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %53
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %53
   store ptr %5, ptr %57, align 8, !tbaa !664
   br label %58
 
@@ -52910,7 +52875,7 @@ define dso_local void @_ZN5ImGui16SetNavFocusScopeEj(i32 noundef %0) local_unnam
   %indvars.iv = phi i64 [ %18, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %20 = load ptr, ptr %15, align 8, !tbaa !1257
-  %21 = getelementptr inbounds nuw %struct.ImGuiFocusScopeData, ptr %20, i64 %indvars.iv.next
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.next
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !1049
   %24 = load ptr, ptr %17, align 8, !tbaa !307
@@ -53120,7 +53085,7 @@ _ZNK8ImVectorIP6ImFontE14_grow_capacityEi.exit:   ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -53138,7 +53103,7 @@ _ZNK8ImVectorIP6ImFontE14_grow_capacityEi.exit:   ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -53149,7 +53114,7 @@ _ZNK8ImVectorIP6ImFontE14_grow_capacityEi.exit:   ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -53184,7 +53149,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -53202,7 +53167,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -53213,7 +53178,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -53238,7 +53203,7 @@ _ZN8ImVectorIP6ImFontE7reserveEi.exit:            ; preds = %._ZN8ImVectorIP6ImF
   %85 = phi i32 [ %3, %._ZN8ImVectorIP6ImFontE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorIP6ImFontE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds ptr, ptr %86, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %86, i64 %87
   %89 = load i64, ptr %1, align 8
   store i64 %89, ptr %88, align 8
   %90 = load i32, ptr %0, align 8, !tbaa !533
@@ -53285,7 +53250,7 @@ define dso_local void @_ZN5ImGui7PopFontEv() local_unnamed_addr #0 {
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 7672
   %21 = load ptr, ptr %20, align 8, !tbaa !531
   %22 = zext nneg i32 %8 to i64
-  %23 = getelementptr ptr, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -8
   %25 = load ptr, ptr %24, align 8, !tbaa !871
   br label %_ZN5ImGui14GetDefaultFontEv.exit
@@ -53400,7 +53365,7 @@ define dso_local void @_ZN5ImGui11PopItemFlagEv() local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 7704
   %10 = load ptr, ptr %9, align 8, !tbaa !303
   %11 = zext nneg i32 %8 to i64
-  %12 = getelementptr i32, ptr %10, i64 %11
+  %12 = getelementptr [4 x i8], ptr %10, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -4
   %14 = load i32, ptr %13, align 4, !tbaa !221
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 7368
@@ -53478,7 +53443,7 @@ define dso_local void @_ZN5ImGui11EndDisabledEv() local_unnamed_addr #0 {
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 7704
   %16 = load ptr, ptr %15, align 8, !tbaa !303
   %17 = sext i32 %14 to i64
-  %18 = getelementptr i32, ptr %16, i64 %17
+  %18 = getelementptr [4 x i8], ptr %16, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -4
   %20 = load i32, ptr %19, align 4, !tbaa !221
   store i32 %20, ptr %9, align 8, !tbaa !602
@@ -53553,7 +53518,7 @@ _ZNK8ImVectorIfE14_grow_capacityEi.exit:          ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -53571,7 +53536,7 @@ _ZNK8ImVectorIfE14_grow_capacityEi.exit:          ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -53582,7 +53547,7 @@ _ZNK8ImVectorIfE14_grow_capacityEi.exit:          ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -53617,7 +53582,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -53635,7 +53600,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -53646,7 +53611,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -53671,7 +53636,7 @@ _ZN8ImVectorIfE7reserveEi.exit:                   ; preds = %._ZN8ImVectorIfE7re
   %85 = phi i32 [ %3, %._ZN8ImVectorIfE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorIfE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds float, ptr %86, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %86, i64 %87
   %89 = load i32, ptr %1, align 4
   store i32 %89, ptr %88, align 4
   %90 = load i32, ptr %0, align 8, !tbaa !745
@@ -53698,7 +53663,7 @@ define dso_local void @_ZN5ImGui14PopTextWrapPosEv() local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 504
   %11 = load ptr, ptr %10, align 8, !tbaa !658
   %12 = zext nneg i32 %5 to i64
-  %13 = getelementptr float, ptr %11, i64 %12
+  %13 = getelementptr [4 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -4
   %15 = load float, ptr %14, align 4, !tbaa !81
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 476
@@ -54200,7 +54165,7 @@ define dso_local void @_ZN5ImGui12SetWindowPosEPKcRK6ImVec2i(ptr noundef readonl
   %16 = and i32 %.5.i.i, 255
   %17 = xor i32 %16, %7
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !221
   %21 = xor i32 %15, %20
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -54227,7 +54192,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %26, %_Z9ImHashStrPKcmj.exit.i ]
   %.01316.i.i.i.i = phi i64 [ %.114.i.i.i.i, %.lr.ph.i.i.i.i ], [ %28, %_Z9ImHashStrPKcmj.exit.i ]
   %30 = lshr i64 %.01316.i.i.i.i, 1
-  %31 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i.i.i, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i.i, i64 %30
   %32 = load i32, ptr %31, align 8, !tbaa !270
   %33 = icmp ult i32 %32, %.2.i.i
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -54312,7 +54277,7 @@ define dso_local void @_ZN5ImGui13SetWindowSizeEPKcRK6ImVec2i(ptr noundef readon
   %16 = and i32 %.5.i.i, 255
   %17 = xor i32 %16, %7
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !221
   %21 = xor i32 %15, %20
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -54339,7 +54304,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %26, %_Z9ImHashStrPKcmj.exit.i ]
   %.01316.i.i.i.i = phi i64 [ %.114.i.i.i.i, %.lr.ph.i.i.i.i ], [ %28, %_Z9ImHashStrPKcmj.exit.i ]
   %30 = lshr i64 %.01316.i.i.i.i, 1
-  %31 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i.i.i, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i.i, i64 %30
   %32 = load i32, ptr %31, align 8, !tbaa !270
   %33 = icmp ult i32 %32, %.2.i.i
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -54500,7 +54465,7 @@ define dso_local void @_ZN5ImGui18SetWindowCollapsedEPKcbi(ptr noundef readonly 
   %16 = and i32 %.5.i.i, 255
   %17 = xor i32 %16, %7
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !221
   %21 = xor i32 %15, %20
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -54527,7 +54492,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %26, %_Z9ImHashStrPKcmj.exit.i ]
   %.01316.i.i.i.i = phi i64 [ %.114.i.i.i.i, %.lr.ph.i.i.i.i ], [ %28, %_Z9ImHashStrPKcmj.exit.i ]
   %30 = lshr i64 %.01316.i.i.i.i, 1
-  %31 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i.i.i, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i.i, i64 %30
   %32 = load i32, ptr %31, align 8, !tbaa !270
   %33 = icmp ult i32 %32, %.2.i.i
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -54623,7 +54588,7 @@ define dso_local void @_ZN5ImGui14SetWindowFocusEPKc(ptr noundef readonly captur
   %15 = and i32 %.5.i.i, 255
   %16 = xor i32 %15, %6
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !221
   %20 = xor i32 %14, %19
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -54650,7 +54615,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %25, %_Z9ImHashStrPKcmj.exit.i ]
   %.01316.i.i.i.i = phi i64 [ %.114.i.i.i.i, %.lr.ph.i.i.i.i ], [ %27, %_Z9ImHashStrPKcmj.exit.i ]
   %29 = lshr i64 %.01316.i.i.i.i, 1
-  %30 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i.i.i, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i.i, i64 %29
   %31 = load i32, ptr %30, align 8, !tbaa !270
   %32 = icmp ult i32 %31, %.2.i.i
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -54930,7 +54895,7 @@ _ZNK8ImVectorI19ImGuiFocusScopeDataE14_grow_capacityEi.exit: ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -54948,7 +54913,7 @@ _ZNK8ImVectorI19ImGuiFocusScopeDataE14_grow_capacityEi.exit: ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -54959,7 +54924,7 @@ _ZNK8ImVectorI19ImGuiFocusScopeDataE14_grow_capacityEi.exit: ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -54994,7 +54959,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -55012,7 +54977,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -55023,7 +54988,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -55048,7 +55013,7 @@ _ZN8ImVectorI19ImGuiFocusScopeDataE7reserveEi.exit: ; preds = %._ZN8ImVectorI19I
   %85 = phi i32 [ %3, %._ZN8ImVectorI19ImGuiFocusScopeDataE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorI19ImGuiFocusScopeDataE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds %struct.ImGuiFocusScopeData, ptr %86, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %86, i64 %87
   %89 = load i64, ptr %1, align 4
   store i64 %89, ptr %88, align 4
   %90 = load i32, ptr %0, align 8, !tbaa !1177
@@ -55093,7 +55058,7 @@ _ZNK8ImVectorI19ImGuiFocusScopeDataE14_grow_capacityEi.exit: ; preds = %6, %7
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 10016
   %24 = load i16, ptr %23, align 8, !tbaa !212
   %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %27, %21
   br i1 %.not.i.i.i, label %._crit_edge.i, label %29
@@ -55111,7 +55076,7 @@ _ZNK8ImVectorI19ImGuiFocusScopeDataE14_grow_capacityEi.exit: ; preds = %6, %7
   %33 = trunc nsw i32 %32 to i16
   store i16 %33, ptr %23, align 4, !tbaa !212
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %22, i64 %34
   store i32 %21, ptr %35, align 4, !tbaa !213
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i16 0, ptr %36, align 2, !tbaa !216
@@ -55122,7 +55087,7 @@ _ZNK8ImVectorI19ImGuiFocusScopeDataE14_grow_capacityEi.exit: ; preds = %6, %7
 38:                                               ; preds = %29, %._crit_edge.i
   %39 = phi i16 [ 1, %29 ], [ %28, %._crit_edge.i ]
   %40 = phi i64 [ %34, %29 ], [ %25, %._crit_edge.i ]
-  %41 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %22, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 %39, ptr %42, align 4, !tbaa !215
   %43 = load i32, ptr %19, align 4, !tbaa !217
@@ -55157,7 +55122,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 10016
   %59 = load i16, ptr %58, align 8, !tbaa !212
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %62, %56
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %64
@@ -55175,7 +55140,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %68 = trunc nsw i32 %67 to i16
   store i16 %68, ptr %58, align 4, !tbaa !212
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %57, i64 %69
   store i32 %56, ptr %70, align 4, !tbaa !213
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 0, ptr %71, align 2, !tbaa !216
@@ -55186,7 +55151,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %73 = phi i16 [ 1, %64 ], [ %63, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %74 = phi i64 [ %69, %64 ], [ %60, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %75 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %57, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   store i16 %73, ptr %76, align 2, !tbaa !216
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 10012
@@ -56502,13 +56467,13 @@ define dso_local void @_ZN5ImGui15DebugHookIdInfoEjiPKvS1_(i32 noundef %0, i32 n
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr %18, align 8, !tbaa !553
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !221
   br label %29
 
 29:                                               ; preds = %23, %25
   %30 = phi i32 [ %28, %25 ], [ %0, %23 ]
-  %31 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %20, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %indvars.iv
   store i32 %30, ptr %31, align 4, !tbaa !717
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -56524,7 +56489,7 @@ define dso_local void @_ZN5ImGui15DebugHookIdInfoEjiPKvS1_(i32 noundef %0, i32 n
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 9992
   %37 = load ptr, ptr %36, align 8, !tbaa !654
   %38 = sext i32 %10 to i64
-  %39 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %37, i64 %38
+  %39 = getelementptr inbounds [64 x i8], ptr %37, i64 %38
   switch i32 %1, label %64 [
     i32 4, label %40
     i32 12, label %45
@@ -56597,7 +56562,7 @@ define dso_local noundef i32 @_ZN11ImGuiWindow5GetIDEPKv(ptr noundef nonnull rea
   %7 = load ptr, ptr %6, align 8, !tbaa !553
   %8 = load i32, ptr %5, align 8, !tbaa !555
   %9 = sext i32 %8 to i64
-  %10 = getelementptr i32, ptr %7, i64 %9
+  %10 = getelementptr [4 x i8], ptr %7, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -4
   %12 = load i32, ptr %11, align 4, !tbaa !221
   %13 = xor i32 %12, -1
@@ -56615,7 +56580,7 @@ define dso_local noundef i32 @_ZN11ImGuiWindow5GetIDEPKv(ptr noundef nonnull rea
   %19 = zext i8 %18 to i32
   %20 = xor i32 %16, %19
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !221
   %24 = xor i32 %23, %15
   %.not.i = icmp eq i64 %14, 0
@@ -56668,13 +56633,13 @@ _Z10ImHashDataPKvmj.exit:                         ; preds = %.lr.ph.i
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr %43, align 8, !tbaa !553
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i
   %53 = load i32, ptr %52, align 4, !tbaa !221
   br label %54
 
 54:                                               ; preds = %50, %48
   %55 = phi i32 [ %53, %50 ], [ %25, %48 ]
-  %56 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %45, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [64 x i8], ptr %45, i64 %indvars.iv.i
   store i32 %55, ptr %56, align 4, !tbaa !717
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -56690,7 +56655,7 @@ _Z10ImHashDataPKvmj.exit:                         ; preds = %.lr.ph.i
   %61 = getelementptr inbounds nuw i8, ptr %31, i64 9992
   %62 = load ptr, ptr %61, align 8, !tbaa !654
   %63 = sext i32 %35 to i64
-  %64 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %62, i64 %63
+  %64 = getelementptr inbounds [64 x i8], ptr %62, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 7
   %66 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %65, i64 noundef 57, ptr noundef nonnull @.str.503, ptr noundef %1)
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 5
@@ -56713,7 +56678,7 @@ define dso_local noundef i32 @_ZN11ImGuiWindow5GetIDEi(ptr noundef nonnull reado
   %7 = load ptr, ptr %6, align 8, !tbaa !553
   %8 = load i32, ptr %5, align 8, !tbaa !555
   %9 = sext i32 %8 to i64
-  %10 = getelementptr i32, ptr %7, i64 %9
+  %10 = getelementptr [4 x i8], ptr %7, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -4
   %12 = load i32, ptr %11, align 4, !tbaa !221
   %13 = xor i32 %12, -1
@@ -56731,7 +56696,7 @@ define dso_local noundef i32 @_ZN11ImGuiWindow5GetIDEi(ptr noundef nonnull reado
   %19 = zext i8 %18 to i32
   %20 = xor i32 %16, %19
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !221
   %24 = xor i32 %23, %15
   %.not.i = icmp eq i64 %14, 0
@@ -56784,13 +56749,13 @@ _Z10ImHashDataPKvmj.exit:                         ; preds = %.lr.ph.i
 
 50:                                               ; preds = %48
   %51 = load ptr, ptr %43, align 8, !tbaa !553
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv.i
   %53 = load i32, ptr %52, align 4, !tbaa !221
   br label %54
 
 54:                                               ; preds = %50, %48
   %55 = phi i32 [ %53, %50 ], [ %25, %48 ]
-  %56 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %45, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [64 x i8], ptr %45, i64 %indvars.iv.i
   store i32 %55, ptr %56, align 4, !tbaa !717
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -56806,7 +56771,7 @@ _Z10ImHashDataPKvmj.exit:                         ; preds = %.lr.ph.i
   %61 = getelementptr inbounds nuw i8, ptr %31, i64 9992
   %62 = load ptr, ptr %61, align 8, !tbaa !654
   %63 = sext i32 %35 to i64
-  %64 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %62, i64 %63
+  %64 = getelementptr inbounds [64 x i8], ptr %62, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 7
   %66 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %65, i64 noundef 57, ptr noundef nonnull @.str.204, i32 noundef %1)
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 5
@@ -56827,7 +56792,7 @@ define dso_local noundef i32 @_ZN11ImGuiWindow18GetIDFromRectangleERK6ImRect(ptr
   %6 = load ptr, ptr %5, align 8, !tbaa !553
   %7 = load i32, ptr %4, align 8, !tbaa !555
   %8 = sext i32 %7 to i64
-  %9 = getelementptr i32, ptr %6, i64 %8
+  %9 = getelementptr [4 x i8], ptr %6, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -4
   %11 = load i32, ptr %10, align 4, !tbaa !221
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -56868,7 +56833,7 @@ define dso_local noundef i32 @_ZN11ImGuiWindow18GetIDFromRectangleERK6ImRect(ptr
   %31 = zext i8 %30 to i32
   %32 = xor i32 %28, %31
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !221
   %36 = xor i32 %35, %27
   %.not.i = icmp eq i64 %26, 0
@@ -56893,7 +56858,7 @@ define dso_local void @_ZN5ImGui6PushIDEPKc(ptr noundef %0) local_unnamed_addr #
   %9 = load ptr, ptr %8, align 8, !tbaa !553
   %10 = load i32, ptr %7, align 8, !tbaa !555
   %11 = sext i32 %10 to i64
-  %12 = getelementptr i32, ptr %9, i64 %11
+  %12 = getelementptr [4 x i8], ptr %9, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -4
   %14 = load i32, ptr %13, align 4, !tbaa !221
   %15 = xor i32 %14, -1
@@ -56926,7 +56891,7 @@ define dso_local void @_ZN5ImGui6PushIDEPKc(ptr noundef %0) local_unnamed_addr #
   %28 = and i32 %.5.i.i, 255
   %29 = xor i32 %28, %19
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !221
   %33 = xor i32 %27, %32
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -56977,13 +56942,13 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %8, align 8, !tbaa !553
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4, !tbaa !221
   br label %57
 
 57:                                               ; preds = %53, %51
   %58 = phi i32 [ %56, %53 ], [ %.2.i.i, %51 ]
-  %59 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %48, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [64 x i8], ptr %48, i64 %indvars.iv.i
   store i32 %58, ptr %59, align 4, !tbaa !717
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -56996,7 +56961,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 61:                                               ; preds = %60
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 9992
   %63 = load ptr, ptr %62, align 8, !tbaa !654
-  %64 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %63, i64 %11
+  %64 = getelementptr inbounds [64 x i8], ptr %63, i64 %11
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 7
   %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %67 = trunc i64 %66 to i32
@@ -57108,13 +57073,13 @@ define dso_local void @_ZN5ImGui14PushOverrideIDEj(i32 noundef %0) local_unnamed
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %20, align 8, !tbaa !553
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i
   %30 = load i32, ptr %29, align 4, !tbaa !221
   br label %31
 
 31:                                               ; preds = %27, %25
   %32 = phi i32 [ %30, %27 ], [ %0, %25 ]
-  %33 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %22, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %indvars.iv.i
   store i32 %32, ptr %33, align 4, !tbaa !717
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -57130,7 +57095,7 @@ define dso_local void @_ZN5ImGui14PushOverrideIDEj(i32 noundef %0) local_unnamed
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 9992
   %39 = load ptr, ptr %38, align 8, !tbaa !654
   %40 = sext i32 %12 to i64
-  %41 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %39, i64 %40
+  %41 = getelementptr inbounds [64 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 7
   %43 = load i8, ptr %42, align 1, !tbaa !205
   %.not38.i = icmp eq i8 %43, 0
@@ -57197,7 +57162,7 @@ define dso_local noundef i32 @_ZN5ImGui13GetIDWithSeedEPKcS1_j(ptr noundef %0, p
   %24 = and i32 %.1.i, 255
   %25 = xor i32 %24, %12
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !221
   %29 = xor i32 %23, %28
   %.not34.i = icmp eq i64 %9, 0
@@ -57228,7 +57193,7 @@ define dso_local noundef i32 @_ZN5ImGui13GetIDWithSeedEPKcS1_j(ptr noundef %0, p
   %41 = and i32 %.5.i, 255
   %42 = xor i32 %41, %32
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !221
   %46 = xor i32 %40, %45
   %.not33.i = icmp eq i8 %.pre.i, 0
@@ -57271,7 +57236,7 @@ define dso_local noundef i32 @_ZN5ImGui13GetIDWithSeedEij(i32 noundef %0, i32 no
   %11 = zext i8 %10 to i32
   %12 = xor i32 %8, %11
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !221
   %16 = xor i32 %15, %7
   %.not.i = icmp eq i64 %6, 0
@@ -57323,13 +57288,13 @@ _Z10ImHashDataPKvmj.exit:                         ; preds = %.lr.ph.i
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %34, align 8, !tbaa !553
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.i
   %44 = load i32, ptr %43, align 4, !tbaa !221
   br label %45
 
 45:                                               ; preds = %41, %39
   %46 = phi i32 [ %44, %41 ], [ %17, %39 ]
-  %47 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %36, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [64 x i8], ptr %36, i64 %indvars.iv.i
   store i32 %46, ptr %47, align 4, !tbaa !717
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -57345,7 +57310,7 @@ _Z10ImHashDataPKvmj.exit:                         ; preds = %.lr.ph.i
   %52 = getelementptr inbounds nuw i8, ptr %18, i64 9992
   %53 = load ptr, ptr %52, align 8, !tbaa !654
   %54 = sext i32 %26 to i64
-  %55 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %53, i64 %54
+  %55 = getelementptr inbounds [64 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 7
   %57 = tail call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %56, i64 noundef 57, ptr noundef nonnull @.str.204, i32 noundef %0)
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 5
@@ -57392,7 +57357,7 @@ define dso_local noundef i32 @_ZN5ImGui5GetIDEPKc(ptr noundef %0) local_unnamed_
   %8 = load ptr, ptr %7, align 8, !tbaa !553
   %9 = load i32, ptr %6, align 8, !tbaa !555
   %10 = sext i32 %9 to i64
-  %11 = getelementptr i32, ptr %8, i64 %10
+  %11 = getelementptr [4 x i8], ptr %8, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -4
   %13 = load i32, ptr %12, align 4, !tbaa !221
   %14 = xor i32 %13, -1
@@ -57425,7 +57390,7 @@ define dso_local noundef i32 @_ZN5ImGui5GetIDEPKc(ptr noundef %0) local_unnamed_
   %27 = and i32 %.5.i.i, 255
   %28 = xor i32 %27, %18
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !221
   %32 = xor i32 %26, %31
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -57476,13 +57441,13 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr %7, align 8, !tbaa !553
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4, !tbaa !221
   br label %56
 
 56:                                               ; preds = %52, %50
   %57 = phi i32 [ %55, %52 ], [ %.2.i.i, %50 ]
-  %58 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %47, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [64 x i8], ptr %47, i64 %indvars.iv.i
   store i32 %57, ptr %58, align 4, !tbaa !717
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -57495,7 +57460,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 60:                                               ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 9992
   %62 = load ptr, ptr %61, align 8, !tbaa !654
-  %63 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %62, i64 %10
+  %63 = getelementptr inbounds [64 x i8], ptr %62, i64 %10
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 7
   %65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %66 = trunc i64 %65 to i32
@@ -57558,7 +57523,7 @@ define dso_local noundef i32 @_ZN5ImGui13FixupKeyChordEi(i32 noundef %0) local_u
 
 switch.lookup:                                    ; preds = %6
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5ImGui8ShortcutEiij, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5ImGui8ShortcutEiij, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL17GetModForLRModKey8ImGuiKey.exit
 
@@ -57601,7 +57566,7 @@ _ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit: ; preds = %.split.i, %3
 
 12:                                               ; preds = %_ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit
   %13 = zext nneg i32 %.0 to i64
-  %14 = getelementptr ptr, ptr @_ZL9GKeyNames, i64 %13
+  %14 = getelementptr [8 x i8], ptr @_ZL9GKeyNames, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -4096
   %16 = load ptr, ptr %15, align 8, !tbaa !255
   br label %17
@@ -57709,7 +57674,7 @@ define dso_local noundef i32 @_ZN5ImGui19GetKeyPressedAmountE8ImGuiKeyff(i32 nou
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit:             ; preds = %3, %.split.i.i.i
   %.0.i.i = phi i32 [ %0, %3 ], [ %spec.select.i.i.i, %.split.i.i.i ]
   %11 = sext i32 %.0.i.i to i64
-  %12 = getelementptr %struct.ImGuiKeyData, ptr %4, i64 %11
+  %12 = getelementptr [16 x i8], ptr %4, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -7932
   %14 = load i8, ptr %13, align 4, !tbaa !223, !range !91, !noundef !220
   %15 = trunc nuw i8 %14 to i1
@@ -57778,7 +57743,7 @@ define dso_local <2 x float> @_ZN5ImGui17GetKeyMagnitude2dE8ImGuiKeyS0_S0_S0_(i3
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit:             ; preds = %4, %.split.i.i.i
   %.0.i.i = phi i32 [ %1, %4 ], [ %spec.select.i.i.i, %.split.i.i.i ]
   %12 = sext i32 %.0.i.i to i64
-  %13 = getelementptr %struct.ImGuiKeyData, ptr %5, i64 %12
+  %13 = getelementptr [16 x i8], ptr %5, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -7920
   %15 = load float, ptr %14, align 4, !tbaa !894
   %16 = and i32 %0, 61440
@@ -57799,7 +57764,7 @@ _ZN5ImGui10GetKeyDataE8ImGuiKey.exit:             ; preds = %4, %.split.i.i.i
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit10:           ; preds = %_ZN5ImGui10GetKeyDataE8ImGuiKey.exit, %.split.i.i.i7
   %.0.i.i6 = phi i32 [ %0, %_ZN5ImGui10GetKeyDataE8ImGuiKey.exit ], [ %spec.select.i.i.i9, %.split.i.i.i7 ]
   %22 = sext i32 %.0.i.i6 to i64
-  %23 = getelementptr %struct.ImGuiKeyData, ptr %5, i64 %22
+  %23 = getelementptr [16 x i8], ptr %5, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -7920
   %25 = load float, ptr %24, align 4, !tbaa !894
   %26 = and i32 %3, 61440
@@ -57820,7 +57785,7 @@ _ZN5ImGui10GetKeyDataE8ImGuiKey.exit10:           ; preds = %_ZN5ImGui10GetKeyDa
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit17:           ; preds = %_ZN5ImGui10GetKeyDataE8ImGuiKey.exit10, %.split.i.i.i14
   %.0.i.i13 = phi i32 [ %3, %_ZN5ImGui10GetKeyDataE8ImGuiKey.exit10 ], [ %spec.select.i.i.i16, %.split.i.i.i14 ]
   %32 = sext i32 %.0.i.i13 to i64
-  %33 = getelementptr %struct.ImGuiKeyData, ptr %5, i64 %32
+  %33 = getelementptr [16 x i8], ptr %5, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -7920
   %35 = load float, ptr %34, align 4, !tbaa !894
   %36 = and i32 %2, 61440
@@ -57842,7 +57807,7 @@ _ZN5ImGui10GetKeyDataE8ImGuiKey.exit24:           ; preds = %_ZN5ImGui10GetKeyDa
   %.0.i.i20 = phi i32 [ %2, %_ZN5ImGui10GetKeyDataE8ImGuiKey.exit17 ], [ %spec.select.i.i.i23, %.split.i.i.i21 ]
   %42 = fsub float %15, %25
   %43 = sext i32 %.0.i.i20 to i64
-  %44 = getelementptr %struct.ImGuiKeyData, ptr %5, i64 %43
+  %44 = getelementptr [16 x i8], ptr %5, i64 %43
   %45 = getelementptr i8, ptr %44, i64 -7920
   %46 = load float, ptr %45, align 4, !tbaa !894
   %47 = fsub float %35, %46
@@ -57876,7 +57841,7 @@ define dso_local noundef ptr @_ZN5ImGui22GetShortcutRoutingDataEi(i32 noundef %0
 _ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit: ; preds = %.split.i, %7, %1
   %.030 = phi i32 [ %4, %1 ], [ %5, %7 ], [ %spec.select.i, %.split.i ]
   %13 = sext i32 %.030 to i64
-  %14 = getelementptr i16, ptr %3, i64 %13
+  %14 = getelementptr [2 x i8], ptr %3, i64 %13
   %15 = getelementptr i8, ptr %14, i64 5984
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 7328
   br label %17
@@ -57890,7 +57855,7 @@ _ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit: ; preds = %.split.i, %7, %1
 18:                                               ; preds = %17
   %19 = load ptr, ptr %16, align 8, !tbaa !663
   %20 = sext i16 %.029 to i64
-  %21 = getelementptr inbounds %struct.ImGuiKeyRoutingData, ptr %19, i64 %20
+  %21 = getelementptr inbounds [16 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %23 = load i16, ptr %22, align 2, !tbaa !910
   %24 = zext i16 %23 to i32
@@ -57919,7 +57884,7 @@ _ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit: ; preds = %.split.i, %7, %1
   %35 = ashr exact i32 %sext, 16
   %36 = load ptr, ptr %16, align 8, !tbaa !663
   %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds %struct.ImGuiKeyRoutingData, ptr %36, i64 %37
+  %38 = getelementptr inbounds [16 x i8], ptr %36, i64 %37
   %39 = trunc nuw i32 %5 to i16
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 2
   store i16 %39, ptr %40, align 2, !tbaa !910
@@ -57976,7 +57941,7 @@ _ZNK8ImVectorI19ImGuiKeyRoutingDataE14_grow_capacityEi.exit: ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -57994,7 +57959,7 @@ _ZNK8ImVectorI19ImGuiKeyRoutingDataE14_grow_capacityEi.exit: ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -58005,7 +57970,7 @@ _ZNK8ImVectorI19ImGuiKeyRoutingDataE14_grow_capacityEi.exit: ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -58040,7 +58005,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -58058,7 +58023,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -58069,7 +58034,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -58094,7 +58059,7 @@ _ZN8ImVectorI19ImGuiKeyRoutingDataE7reserveEi.exit: ; preds = %._ZN8ImVectorI19I
   %85 = phi i32 [ %3, %._ZN8ImVectorI19ImGuiKeyRoutingDataE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorI19ImGuiKeyRoutingDataE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds %struct.ImGuiKeyRoutingData, ptr %86, i64 %87
+  %88 = getelementptr inbounds [16 x i8], ptr %86, i64 %87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %88, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %89 = load i32, ptr %0, align 8, !tbaa !685
   %90 = add nsw i32 %89, 1
@@ -58129,7 +58094,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui18SetShortcutRoutingEiij(i32 nound
 
 switch.lookup:                                    ; preds = %13
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5ImGui8ShortcutEiij, i64 %16
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5ImGui8ShortcutEiij, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL17GetModForLRModKey8ImGuiKey.exit.i
 
@@ -58221,7 +58186,7 @@ _ZL30IsKeyChordPotentiallyCharInputi.exit:        ; preds = %55
   %59 = add nsw i32 %56, -512
   %60 = ashr i32 %59, 5
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i32, ptr %58, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %58, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !221
   %64 = and i32 %.0.i, 31
   %65 = shl nuw i32 1, %64
@@ -58326,7 +58291,7 @@ _ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit: ; preds = %.split.i, %82, %
 
 112:                                              ; preds = %119, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %119 ]
-  %113 = getelementptr inbounds nuw %struct.ImGuiFocusScopeData, ptr %111, i64 %indvars.iv.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv.i
   %114 = load i32, ptr %113, align 4, !tbaa !1047
   %115 = icmp eq i32 %114, %.056
   br i1 %115, label %116, label %119
@@ -58410,7 +58375,7 @@ _ZL16CalcRoutingScorejji.exit:                    ; preds = %119, %102, %106, %.
 _ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit.i: ; preds = %.split.i.i, %144, %139
   %.030.i = phi i32 [ %141, %139 ], [ %142, %144 ], [ %spec.select.i.i, %.split.i.i ]
   %150 = sext i32 %.030.i to i64
-  %151 = getelementptr i16, ptr %140, i64 %150
+  %151 = getelementptr [2 x i8], ptr %140, i64 %150
   %152 = getelementptr i8, ptr %151, i64 5984
   %153 = getelementptr inbounds nuw i8, ptr %140, i64 7328
   br label %154
@@ -58424,7 +58389,7 @@ _ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit.i: ; preds = %.split.i.i, %1
 155:                                              ; preds = %154
   %156 = load ptr, ptr %153, align 8, !tbaa !663
   %157 = sext i16 %.029.i to i64
-  %158 = getelementptr inbounds %struct.ImGuiKeyRoutingData, ptr %156, i64 %157
+  %158 = getelementptr inbounds [16 x i8], ptr %156, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 2
   %160 = load i16, ptr %159, align 2, !tbaa !910
   %161 = zext i16 %160 to i32
@@ -58453,7 +58418,7 @@ _ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit.i: ; preds = %.split.i.i, %1
   %172 = ashr exact i32 %sext.i, 16
   %173 = load ptr, ptr %153, align 8, !tbaa !663
   %174 = sext i32 %172 to i64
-  %175 = getelementptr inbounds %struct.ImGuiKeyRoutingData, ptr %173, i64 %174
+  %175 = getelementptr inbounds [16 x i8], ptr %173, i64 %174
   %176 = trunc nuw i32 %142 to i16
   %177 = getelementptr inbounds nuw i8, ptr %175, i64 2
   store i16 %176, ptr %177, align 2, !tbaa !910
@@ -58534,7 +58499,7 @@ _ZL23GetRoutingIdFromOwnerIdj.exit:               ; preds = %2, %5
 
 switch.lookup:                                    ; preds = %14
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5ImGui8ShortcutEiij, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5ImGui8ShortcutEiij, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL17GetModForLRModKey8ImGuiKey.exit.i
 
@@ -58567,7 +58532,7 @@ _ZN5ImGui13FixupKeyChordEi.exit:                  ; preds = %_ZL23GetRoutingIdFr
 _ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit.i: ; preds = %.split.i.i, %23, %_ZN5ImGui13FixupKeyChordEi.exit
   %.030.i = phi i32 [ %20, %_ZN5ImGui13FixupKeyChordEi.exit ], [ %21, %23 ], [ %spec.select.i.i, %.split.i.i ]
   %29 = sext i32 %.030.i to i64
-  %30 = getelementptr i16, ptr %19, i64 %29
+  %30 = getelementptr [2 x i8], ptr %19, i64 %29
   %31 = getelementptr i8, ptr %30, i64 5984
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 7328
   br label %33
@@ -58581,7 +58546,7 @@ _ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit.i: ; preds = %.split.i.i, %2
 34:                                               ; preds = %33
   %35 = load ptr, ptr %32, align 8, !tbaa !663
   %36 = sext i16 %.029.i to i64
-  %37 = getelementptr inbounds %struct.ImGuiKeyRoutingData, ptr %35, i64 %36
+  %37 = getelementptr inbounds [16 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %39 = load i16, ptr %38, align 2, !tbaa !910
   %40 = zext i16 %39 to i32
@@ -58610,7 +58575,7 @@ _ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit.i: ; preds = %.split.i.i, %2
   %51 = ashr exact i32 %sext.i, 16
   %52 = load ptr, ptr %32, align 8, !tbaa !663
   %53 = sext i32 %51 to i64
-  %54 = getelementptr inbounds %struct.ImGuiKeyRoutingData, ptr %52, i64 %53
+  %54 = getelementptr inbounds [16 x i8], ptr %52, i64 %53
   %55 = trunc nuw i32 %21 to i16
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 2
   store i16 %55, ptr %56, align 2, !tbaa !910
@@ -58648,7 +58613,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui9IsKeyDownE8ImGuiKey(i32 noundef %
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i:           ; preds = %.split.i.i.i.i, %1
   %.0.i.i.i = phi i32 [ %0, %1 ], [ %spec.select.i.i.i.i, %.split.i.i.i.i ]
   %9 = sext i32 %.0.i.i.i to i64
-  %10 = getelementptr %struct.ImGuiKeyData, ptr %2, i64 %9
+  %10 = getelementptr [16 x i8], ptr %2, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -7932
   %12 = load i8, ptr %11, align 4, !tbaa !223, !range !91, !noundef !220
   %13 = trunc nuw i8 %12 to i1
@@ -58682,7 +58647,7 @@ switch.early.test.split.i.i.i:                    ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i.i: ; preds = %.split.i.i.i7.i, %18
   %.0.i.i6.i = phi i32 [ %0, %18 ], [ %spec.select.i.i.i9.i, %.split.i.i.i7.i ]
   %22 = sext i32 %.0.i.i6.i to i64
-  %23 = getelementptr %struct.ImGuiKeyOwnerData, ptr %2, i64 %22
+  %23 = getelementptr [12 x i8], ptr %2, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -980
   %25 = load i8, ptr %24, align 4, !tbaa !566, !range !91, !noundef !220
   %26 = icmp eq i8 %25, 0
@@ -58714,7 +58679,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui9IsKeyDownE8ImGuiKeyj(i32 noundef 
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit:             ; preds = %2, %.split.i.i.i
   %.0.i.i = phi i32 [ %0, %2 ], [ %spec.select.i.i.i, %.split.i.i.i ]
   %10 = sext i32 %.0.i.i to i64
-  %11 = getelementptr %struct.ImGuiKeyData, ptr %3, i64 %10
+  %11 = getelementptr [16 x i8], ptr %3, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -7932
   %13 = load i8, ptr %12, align 4, !tbaa !223, !range !91, !noundef !220
   %14 = trunc nuw i8 %13 to i1
@@ -58764,7 +58729,7 @@ switch.early.test.split.i.i:                      ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i: ; preds = %.split.i.i.i7, %28
   %.0.i.i6 = phi i32 [ %0, %28 ], [ %spec.select.i.i.i9, %.split.i.i.i7 ]
   %32 = sext i32 %.0.i.i6 to i64
-  %33 = getelementptr %struct.ImGuiKeyOwnerData, ptr %3, i64 %32
+  %33 = getelementptr [12 x i8], ptr %3, i64 %32
   %34 = icmp eq i32 %1, 0
   br i1 %34, label %35, label %39
 
@@ -58849,7 +58814,7 @@ switch.early.test.split.i:                        ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit: ; preds = %18, %.split.i.i
   %.0.i = phi i32 [ %0, %18 ], [ %spec.select.i.i, %.split.i.i ]
   %25 = sext i32 %.0.i to i64
-  %26 = getelementptr %struct.ImGuiKeyOwnerData, ptr %9, i64 %25
+  %26 = getelementptr [12 x i8], ptr %9, i64 %25
   %27 = icmp eq i32 %1, 0
   br i1 %27, label %28, label %32
 
@@ -58909,7 +58874,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui12IsKeyPressedE8ImGuiKeyij(i32 nou
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit:             ; preds = %3, %.split.i.i.i
   %.0.i.i = phi i32 [ %0, %3 ], [ %spec.select.i.i.i, %.split.i.i.i ]
   %11 = sext i32 %.0.i.i to i64
-  %12 = getelementptr %struct.ImGuiKeyData, ptr %4, i64 %11
+  %12 = getelementptr [16 x i8], ptr %4, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -7932
   %14 = load i8, ptr %13, align 4, !tbaa !223, !range !91, !noundef !220
   %15 = trunc nuw i8 %14 to i1
@@ -58976,7 +58941,7 @@ _ZN5ImGui22GetTypematicRepeatRateEiPfS0_.exit:    ; preds = %27, %32, %37
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i:           ; preds = %.split.i.i.i.i, %41
   %.0.i.i.i = phi i32 [ %0, %41 ], [ %spec.select.i.i.i.i, %.split.i.i.i.i ]
   %45 = sext i32 %.0.i.i.i to i64
-  %46 = getelementptr %struct.ImGuiKeyData, ptr %4, i64 %45
+  %46 = getelementptr [16 x i8], ptr %4, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -7932
   %48 = load i8, ptr %47, align 4, !tbaa !223, !range !91, !noundef !220
   %49 = trunc nuw i8 %48 to i1
@@ -59119,7 +59084,7 @@ switch.early.test.split.i.i:                      ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i: ; preds = %.split.i.i.i45, %117
   %.0.i.i44 = phi i32 [ %0, %117 ], [ %spec.select.i.i.i47, %.split.i.i.i45 ]
   %121 = sext i32 %.0.i.i44 to i64
-  %122 = getelementptr %struct.ImGuiKeyOwnerData, ptr %4, i64 %121
+  %122 = getelementptr [12 x i8], ptr %4, i64 %121
   %123 = icmp eq i32 %2, 0
   br i1 %123, label %124, label %128
 
@@ -59172,7 +59137,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui13IsKeyReleasedE8ImGuiKey(i32 noun
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i:           ; preds = %.split.i.i.i.i, %1
   %.0.i.i.i = phi i32 [ %0, %1 ], [ %spec.select.i.i.i.i, %.split.i.i.i.i ]
   %9 = sext i32 %.0.i.i.i to i64
-  %10 = getelementptr %struct.ImGuiKeyData, ptr %2, i64 %9
+  %10 = getelementptr [16 x i8], ptr %2, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -7924
   %12 = load float, ptr %11, align 4, !tbaa !87
   %13 = fcmp olt float %12, 0.000000e+00
@@ -59212,7 +59177,7 @@ switch.early.test.split.i.i.i:                    ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i.i: ; preds = %.split.i.i.i8.i, %22
   %.0.i.i7.i = phi i32 [ %0, %22 ], [ %spec.select.i.i.i10.i, %.split.i.i.i8.i ]
   %26 = sext i32 %.0.i.i7.i to i64
-  %27 = getelementptr %struct.ImGuiKeyOwnerData, ptr %2, i64 %26
+  %27 = getelementptr [12 x i8], ptr %2, i64 %26
   %28 = getelementptr i8, ptr %27, i64 -980
   %29 = load i8, ptr %28, align 4, !tbaa !566, !range !91, !noundef !220
   %30 = icmp eq i8 %29, 0
@@ -59244,7 +59209,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui13IsKeyReleasedE8ImGuiKeyj(i32 nou
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit:             ; preds = %2, %.split.i.i.i
   %.0.i.i = phi i32 [ %0, %2 ], [ %spec.select.i.i.i, %.split.i.i.i ]
   %10 = sext i32 %.0.i.i to i64
-  %11 = getelementptr %struct.ImGuiKeyData, ptr %3, i64 %10
+  %11 = getelementptr [16 x i8], ptr %3, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -7924
   %13 = load float, ptr %12, align 4, !tbaa !87
   %14 = fcmp olt float %13, 0.000000e+00
@@ -59300,7 +59265,7 @@ switch.early.test.split.i.i:                      ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i: ; preds = %.split.i.i.i8, %32
   %.0.i.i7 = phi i32 [ %0, %32 ], [ %spec.select.i.i.i10, %.split.i.i.i8 ]
   %36 = sext i32 %.0.i.i7 to i64
-  %37 = getelementptr %struct.ImGuiKeyOwnerData, ptr %3, i64 %36
+  %37 = getelementptr [12 x i8], ptr %3, i64 %36
   %38 = icmp eq i32 %1, 0
   br i1 %38, label %39, label %43
 
@@ -59394,7 +59359,7 @@ switch.early.test.split.i.i:                      ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i: ; preds = %.split.i.i.i, %25
   %.0.i.i = phi i32 [ %10, %25 ], [ %spec.select.i.i.i, %.split.i.i.i ]
   %32 = zext nneg i32 %.0.i.i to i64
-  %33 = getelementptr %struct.ImGuiKeyOwnerData, ptr %3, i64 %32
+  %33 = getelementptr [12 x i8], ptr %3, i64 %32
   %34 = icmp eq i32 %1, 0
   br i1 %34, label %35, label %39
 
@@ -59438,7 +59403,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui14IsMouseClickedEiij(i32 noundef %
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 2864
-  %12 = getelementptr inbounds float, ptr %11, i64 %6
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %6
   %13 = load float, ptr %12, align 4, !tbaa !81
   %14 = fcmp olt float %13, 0.000000e+00
   br i1 %14, label %.critedge21, label %15
@@ -59542,7 +59507,7 @@ switch.early.test.split.i.i:                      ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i: ; preds = %.split.i.i.i, %61
   %.0.i.i = phi i32 [ %46, %61 ], [ %spec.select.i.i.i, %.split.i.i.i ]
   %68 = zext nneg i32 %.0.i.i to i64
-  %69 = getelementptr %struct.ImGuiKeyOwnerData, ptr %4, i64 %68
+  %69 = getelementptr [12 x i8], ptr %4, i64 %68
   %70 = icmp eq i32 %2, 0
   br i1 %70, label %71, label %75
 
@@ -59619,7 +59584,7 @@ switch.early.test.split.i.i:                      ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i: ; preds = %.split.i.i.i, %._crit_edge
   %.0.i.i = phi i32 [ %9, %._crit_edge ], [ %spec.select.i.i.i, %.split.i.i.i ]
   %18 = zext nneg i32 %.0.i.i to i64
-  %19 = getelementptr %struct.ImGuiKeyOwnerData, ptr %2, i64 %18
+  %19 = getelementptr [12 x i8], ptr %2, i64 %18
   %20 = getelementptr i8, ptr %19, i64 -980
   %21 = load i8, ptr %20, align 4, !tbaa !566, !range !91, !noundef !220
   %22 = icmp eq i8 %21, 0
@@ -59692,7 +59657,7 @@ switch.early.test.split.i.i:                      ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i: ; preds = %.split.i.i.i, %25
   %.0.i.i = phi i32 [ %10, %25 ], [ %spec.select.i.i.i, %.split.i.i.i ]
   %32 = zext nneg i32 %.0.i.i to i64
-  %33 = getelementptr %struct.ImGuiKeyOwnerData, ptr %3, i64 %32
+  %33 = getelementptr [12 x i8], ptr %3, i64 %32
   %34 = icmp eq i32 %1, 0
   br i1 %34, label %35, label %39
 
@@ -59729,7 +59694,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui20IsMouseDoubleClickedEi(i32 nound
   %2 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2826
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds i16, ptr %3, i64 %4
+  %5 = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !247
   %7 = icmp eq i16 %6, 2
   br i1 %7, label %8, label %_ZN5ImGui12TestKeyOwnerE8ImGuiKeyj.exit
@@ -59769,7 +59734,7 @@ switch.early.test.split.i.i:                      ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i: ; preds = %.split.i.i.i, %._crit_edge
   %.0.i.i = phi i32 [ %9, %._crit_edge ], [ %spec.select.i.i.i, %.split.i.i.i ]
   %18 = zext nneg i32 %.0.i.i to i64
-  %19 = getelementptr %struct.ImGuiKeyOwnerData, ptr %2, i64 %18
+  %19 = getelementptr [12 x i8], ptr %2, i64 %18
   %20 = getelementptr i8, ptr %19, i64 -980
   %21 = load i8, ptr %20, align 4, !tbaa !566, !range !91, !noundef !220
   %22 = icmp eq i8 %21, 0
@@ -59785,7 +59750,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui20IsMouseDoubleClickedEij(i32 noun
   %3 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2826
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds i16, ptr %4, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr %4, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !247
   %8 = icmp eq i16 %7, 2
   br i1 %8, label %9, label %_ZN5ImGui12TestKeyOwnerE8ImGuiKeyj.exit
@@ -59842,7 +59807,7 @@ switch.early.test.split.i.i:                      ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i: ; preds = %.split.i.i.i, %25
   %.0.i.i = phi i32 [ %10, %25 ], [ %spec.select.i.i.i, %.split.i.i.i ]
   %32 = zext nneg i32 %.0.i.i to i64
-  %33 = getelementptr %struct.ImGuiKeyOwnerData, ptr %3, i64 %32
+  %33 = getelementptr [12 x i8], ptr %3, i64 %32
   %34 = icmp eq i32 %1, 0
   br i1 %34, label %35, label %39
 
@@ -59879,7 +59844,7 @@ define dso_local noundef range(i32 0, 65536) i32 @_ZN5ImGui20GetMouseClickedCoun
   %2 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2826
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds i16, ptr %3, i64 %4
+  %5 = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !247
   %7 = zext i16 %6 to i32
   ret i32 %7
@@ -59900,7 +59865,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui24IsMouseDragPastThresholdEif(i32 
   %.0 = phi float [ %7, %5 ], [ %1, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 2904
   %10 = sext i32 %0 to i64
-  %11 = getelementptr inbounds float, ptr %9, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %9, i64 %10
   %12 = load float, ptr %11, align 4, !tbaa !81
   %13 = fmul float %.0, %.0
   %14 = fcmp oge float %12, %13
@@ -59929,7 +59894,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui15IsMouseDraggingEif(i32 noundef %
 _ZN5ImGui24IsMouseDragPastThresholdEif.exit:      ; preds = %9, %11
   %.0.i = phi float [ %13, %11 ], [ %1, %9 ]
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 2904
-  %15 = getelementptr inbounds float, ptr %14, i64 %5
+  %15 = getelementptr inbounds [4 x i8], ptr %14, i64 %5
   %16 = load float, ptr %15, align 4, !tbaa !81
   %17 = fmul float %.0.i, %.0.i
   %18 = fcmp oge float %16, %17
@@ -59977,7 +59942,7 @@ define dso_local <2 x float> @_ZN5ImGui32GetMousePosOnOpeningCurrentPopupEv() lo
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 7736
   %7 = load ptr, ptr %6, align 8, !tbaa !534
   %8 = zext nneg i32 %3 to i64
-  %9 = getelementptr %struct.ImGuiPopupData, ptr %7, i64 %8
+  %9 = getelementptr [56 x i8], ptr %7, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -12
   br label %13
 
@@ -60040,7 +60005,7 @@ define dso_local <2 x float> @_ZN5ImGui17GetMouseDragDeltaEif(i32 noundef %0, fl
 
 19:                                               ; preds = %14, %8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 2904
-  %21 = getelementptr inbounds float, ptr %20, i64 %10
+  %21 = getelementptr inbounds [4 x i8], ptr %20, i64 %10
   %22 = load float, ptr %21, align 4, !tbaa !81
   %23 = fmul float %.0, %.0
   %24 = fcmp ult float %22, %23
@@ -60058,7 +60023,7 @@ define dso_local <2 x float> @_ZN5ImGui17GetMouseDragDeltaEif(i32 noundef %0, fl
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 2736
-  %32 = getelementptr inbounds %struct.ImVec2, ptr %31, i64 %10
+  %32 = getelementptr inbounds [8 x i8], ptr %31, i64 %10
   %.sroa.0.0.copyload.i19 = load float, ptr %32, align 4, !tbaa !81
   %.sroa.4.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %.sroa.4.0.copyload.i21 = load float, ptr %.sroa.4.0..sroa_idx.i20, align 4, !tbaa !81
@@ -60085,7 +60050,7 @@ define dso_local void @_ZN5ImGui19ResetMouseDragDeltaEi(i32 noundef %0) local_un
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 2736
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.ImVec2, ptr %4, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %4, i64 %5
   %7 = load i64, ptr %3, align 8
   store i64 %7, ptr %6, align 8
   ret void
@@ -60168,7 +60133,7 @@ _ZNK8ImVectorItE14_grow_capacityEi.exit:          ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -60186,7 +60151,7 @@ _ZNK8ImVectorItE14_grow_capacityEi.exit:          ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -60197,7 +60162,7 @@ _ZNK8ImVectorItE14_grow_capacityEi.exit:          ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -60232,7 +60197,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -60250,7 +60215,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -60261,7 +60226,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -60286,7 +60251,7 @@ _ZN8ImVectorItE7reserveEi.exit:                   ; preds = %._ZN8ImVectorItE7re
   %85 = phi i32 [ %3, %._ZN8ImVectorItE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorItE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds i16, ptr %86, i64 %87
+  %88 = getelementptr inbounds [2 x i8], ptr %86, i64 %87
   %89 = load i16, ptr %1, align 2
   store i16 %89, ptr %88, align 2
   %90 = load i32, ptr %0, align 8, !tbaa !227
@@ -60316,7 +60281,7 @@ define dso_local void @_ZN5ImGui11SetKeyOwnerE8ImGuiKeyji(i32 noundef %0, i32 no
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit: ; preds = %3, %.split.i.i
   %.0.i = phi i32 [ %0, %3 ], [ %spec.select.i.i, %.split.i.i ]
   %11 = sext i32 %.0.i to i64
-  %12 = getelementptr %struct.ImGuiKeyOwnerData, ptr %4, i64 %11
+  %12 = getelementptr [12 x i8], ptr %4, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -988
   %14 = getelementptr i8, ptr %12, i64 -984
   store i32 %1, ptr %14, align 4, !tbaa !562
@@ -60435,7 +60400,7 @@ define dso_local void @_ZN5ImGui23SetKeyOwnersForKeyChordEiji(i32 noundef %0, i3
 57:                                               ; preds = %55
   %58 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %59 = sext i32 %56 to i64
-  %60 = getelementptr %struct.ImGuiKeyOwnerData, ptr %58, i64 %59
+  %60 = getelementptr [12 x i8], ptr %58, i64 %59
   %61 = getelementptr i8, ptr %60, i64 -988
   %62 = getelementptr i8, ptr %60, i64 -984
   store i32 %1, ptr %62, align 4, !tbaa !562
@@ -60515,7 +60480,7 @@ define dso_local void @_ZN5ImGui15SetItemKeyOwnerE8ImGuiKeyi(i32 noundef %0, i32
 _ZN5ImGui11SetKeyOwnerE8ImGuiKeyji.exit:          ; preds = %24, %.split.i.i.i
   %.0.i.i = phi i32 [ %0, %24 ], [ %spec.select.i.i.i, %.split.i.i.i ]
   %31 = sext i32 %.0.i.i to i64
-  %32 = getelementptr %struct.ImGuiKeyOwnerData, ptr %3, i64 %31
+  %32 = getelementptr [12 x i8], ptr %3, i64 %31
   %33 = getelementptr i8, ptr %32, i64 -988
   %34 = getelementptr i8, ptr %32, i64 -984
   store i32 %5, ptr %34, align 4, !tbaa !562
@@ -60581,7 +60546,7 @@ define dso_local void @_ZN5ImGui15SetItemKeyOwnerE8ImGuiKey(i32 noundef %0) loca
 _ZN5ImGui11SetKeyOwnerE8ImGuiKeyji.exit.i:        ; preds = %.split.i.i.i.i, %.thread
   %.0.i.i.i = phi i32 [ %0, %.thread ], [ %spec.select.i.i.i.i, %.split.i.i.i.i ]
   %21 = sext i32 %.0.i.i.i to i64
-  %22 = getelementptr %struct.ImGuiKeyOwnerData, ptr %2, i64 %21
+  %22 = getelementptr [12 x i8], ptr %2, i64 %21
   %23 = getelementptr i8, ptr %22, i64 -988
   %24 = getelementptr i8, ptr %22, i64 -984
   store i32 %4, ptr %24, align 4, !tbaa !562
@@ -60618,7 +60583,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui17IsKeyChordPressedEi(i32 noundef 
 
 switch.lookup:                                    ; preds = %7
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5ImGui8ShortcutEiij, i64 %10
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5ImGui8ShortcutEiij, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL17GetModForLRModKey8ImGuiKey.exit.i.i
 
@@ -60673,7 +60638,7 @@ _ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit.i: ; preds = %.split.i.i, %1
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i:           ; preds = %.split.i.i.i.i, %_ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit.i
   %.0.i.i.i1 = phi i32 [ %.0.i, %_ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit.i ], [ %spec.select.i.i.i.i, %.split.i.i.i.i ]
   %30 = sext i32 %.0.i.i.i1 to i64
-  %31 = getelementptr %struct.ImGuiKeyData, ptr %2, i64 %30
+  %31 = getelementptr [16 x i8], ptr %2, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -7932
   %33 = load i8, ptr %32, align 4, !tbaa !223, !range !91, !noundef !220
   %34 = trunc nuw i8 %33 to i1
@@ -60713,7 +60678,7 @@ switch.early.test.split.i.i.i:                    ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i.i: ; preds = %.split.i.i.i45.i, %43
   %.0.i.i44.i = phi i32 [ %.0.i, %43 ], [ %spec.select.i.i.i47.i, %.split.i.i.i45.i ]
   %47 = sext i32 %.0.i.i44.i to i64
-  %48 = getelementptr %struct.ImGuiKeyOwnerData, ptr %2, i64 %47
+  %48 = getelementptr [12 x i8], ptr %2, i64 %47
   %49 = getelementptr i8, ptr %48, i64 -980
   %50 = load i8, ptr %49, align 4, !tbaa !566, !range !91, !noundef !220
   %51 = icmp eq i8 %50, 0
@@ -60746,7 +60711,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui17IsKeyChordPressedEiij(i32 nounde
 
 switch.lookup:                                    ; preds = %9
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5ImGui8ShortcutEiij, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5ImGui8ShortcutEiij, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL17GetModForLRModKey8ImGuiKey.exit.i
 
@@ -60865,7 +60830,7 @@ _ZL23GetRoutingIdFromOwnerIdj.exit:               ; preds = %3
 
 switch.lookup:                                    ; preds = %25
   %28 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5ImGui8ShortcutEiij, i64 %28
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5ImGui8ShortcutEiij, i64 %28
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL17GetModForLRModKey8ImGuiKey.exit.i.i
 
@@ -61014,7 +60979,7 @@ define dso_local void @_ZN5ImGui8EndGroupEv() local_unnamed_addr #11 {
   %8 = load ptr, ptr %7, align 8, !tbaa !662
   %9 = load i32, ptr %6, align 8, !tbaa !738
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct.ImGuiGroupData, ptr %8, i64 %10
+  %11 = getelementptr [56 x i8], ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 345
   %14 = load i8, ptr %13, align 1, !tbaa !1179, !range !91, !noundef !220
@@ -61296,7 +61261,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui17BeginErrorTooltipEv() local_unna
   %13 = and i32 %.5.i.i, 255
   %14 = xor i32 %13, %4
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !221
   %18 = xor i32 %12, %17
   %exitcond = icmp eq i64 %.13043.i.i.add, 15
@@ -61318,7 +61283,7 @@ _Z9ImHashStrPKcmj.exit.loopexit.i:                ; preds = %11
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %22, %_Z9ImHashStrPKcmj.exit.loopexit.i ]
   %.01316.i.i.i.i = phi i64 [ %.114.i.i.i.i, %.lr.ph.i.i.i.i ], [ %24, %_Z9ImHashStrPKcmj.exit.loopexit.i ]
   %26 = lshr i64 %.01316.i.i.i.i, 1
-  %27 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i.i.i, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i.i, i64 %26
   %28 = load i32, ptr %27, align 8, !tbaa !270
   %29 = icmp ult i32 %28, %19
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -61445,12 +61410,12 @@ _ZN5ImGui14PushStyleColorEiRK6ImVec4.exit:        ; preds = %_ZN5ImGui16FindWind
   %.1.i25 = phi i32 [ %.0.i40, %.lr.ph ], [ %106, %94 ]
   %96 = load ptr, ptr %92, align 8, !tbaa !420
   %97 = sext i32 %95 to i64
-  %98 = getelementptr %struct.ImGuiColorMod, ptr %96, i64 %97
+  %98 = getelementptr [20 x i8], ptr %96, i64 %97
   %99 = getelementptr i8, ptr %98, i64 -20
   %100 = getelementptr i8, ptr %98, i64 -16
   %101 = load i32, ptr %99, align 4, !tbaa !414
   %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds %struct.ImVec4, ptr %93, i64 %102
+  %103 = getelementptr inbounds [16 x i8], ptr %93, i64 %102
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 4 dereferenceable(16) %100, i64 16, i1 false), !tbaa.struct !416
   %104 = load i32, ptr %84, align 8, !tbaa !418
   %105 = add nsw i32 %104, -1
@@ -61479,7 +61444,7 @@ _ZN5ImGui13PopStyleColorEi.exit:                  ; preds = %94, %87
   %119 = load ptr, ptr %118, align 8, !tbaa !522
   %120 = load i32, ptr %117, align 8, !tbaa !524
   %121 = sext i32 %120 to i64
-  %122 = getelementptr ptr, ptr %119, i64 %121
+  %122 = getelementptr [8 x i8], ptr %119, i64 %121
   %123 = getelementptr i8, ptr %122, i64 -8
   %124 = load ptr, ptr %123, align 8, !tbaa !664
   %125 = icmp eq ptr %124, %115
@@ -61500,13 +61465,13 @@ _ZN5ImGui13PopStyleColorEi.exit:                  ; preds = %94, %87
 .lr.ph.i:                                         ; preds = %148, %.lr.ph.preheader.i
   %.023.i = phi i32 [ %149, %148 ], [ %131, %.lr.ph.preheader.i ]
   %132 = zext nneg i32 %.023.i to i64
-  %133 = getelementptr inbounds nuw ptr, ptr %119, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %132
   %134 = load ptr, ptr %133, align 8, !tbaa !664
   %135 = icmp eq ptr %134, %115
   br i1 %135, label %136, label %148
 
 136:                                              ; preds = %.lr.ph.i
-  %137 = getelementptr inbounds nuw ptr, ptr %119, i64 %132
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %132
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = xor i32 %.023.i, -1
   %140 = add i32 %120, %139
@@ -61516,7 +61481,7 @@ _ZN5ImGui13PopStyleColorEi.exit:                  ; preds = %94, %87
   %143 = load i32, ptr %117, align 8, !tbaa !821
   %144 = load ptr, ptr %118, align 8, !tbaa !522
   %145 = sext i32 %143 to i64
-  %146 = getelementptr ptr, ptr %144, i64 %145
+  %146 = getelementptr [8 x i8], ptr %144, i64 %145
   %147 = getelementptr i8, ptr %146, i64 -8
   store ptr %115, ptr %147, align 8, !tbaa !664
   %.pre = load ptr, ptr %109, align 8, !tbaa !307
@@ -61537,7 +61502,7 @@ _ZN5ImGui25BringWindowToDisplayFrontEP11ImGuiWindow.exit: ; preds = %148, %114, 
   %156 = load ptr, ptr %155, align 8, !tbaa !522
   %157 = load i32, ptr %154, align 8, !tbaa !524
   %158 = sext i32 %157 to i64
-  %159 = getelementptr ptr, ptr %156, i64 %158
+  %159 = getelementptr [8 x i8], ptr %156, i64 %158
   %160 = getelementptr i8, ptr %159, i64 -8
   %161 = load ptr, ptr %160, align 8, !tbaa !664
   %162 = icmp eq ptr %161, %152
@@ -61561,7 +61526,7 @@ _ZN5ImGui25BringWindowToDisplayFrontEP11ImGuiWindow.exit: ; preds = %148, %114, 
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i14, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %.._crit_edge_crit_edge.i ], [ %wide.trip.count.i, %.lr.ph.i14 ]
-  %169 = getelementptr inbounds ptr, ptr %156, i64 %.pre-phi.i
+  %169 = getelementptr inbounds [8 x i8], ptr %156, i64 %.pre-phi.i
   store ptr %152, ptr %169, align 8, !tbaa !664
   %170 = trunc i32 %166 to i16
   store i16 %170, ptr %153, align 8, !tbaa !819
@@ -61570,9 +61535,9 @@ _ZN5ImGui25BringWindowToDisplayFrontEP11ImGuiWindow.exit: ; preds = %148, %114, 
 .lr.ph.i14:                                       ; preds = %.lr.ph.i14, %.lr.ph.preheader.i13
   %indvars.iv.i = phi i64 [ %168, %.lr.ph.preheader.i13 ], [ %indvars.iv.next.i, %.lr.ph.i14 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %171 = getelementptr inbounds ptr, ptr %156, i64 %indvars.iv.next.i
+  %171 = getelementptr inbounds [8 x i8], ptr %156, i64 %indvars.iv.next.i
   %172 = load ptr, ptr %171, align 8, !tbaa !664
-  %173 = getelementptr inbounds ptr, ptr %156, i64 %indvars.iv.i
+  %173 = getelementptr inbounds [8 x i8], ptr %156, i64 %indvars.iv.i
   store ptr %172, ptr %173, align 8, !tbaa !664
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 224
   %175 = load i16, ptr %174, align 8, !tbaa !819
@@ -62029,7 +61994,7 @@ define dso_local void @_ZN5ImGui12PopItemWidthEv() local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   %11 = load ptr, ptr %10, align 8, !tbaa !658
   %12 = zext nneg i32 %5 to i64
-  %13 = getelementptr float, ptr %11, i64 %12
+  %13 = getelementptr [4 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -4
   %15 = load float, ptr %14, align 4, !tbaa !81
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 472
@@ -62160,7 +62125,7 @@ define dso_local void @_ZN5ImGui10BeginGroupEv() local_unnamed_addr #0 {
   %8 = load ptr, ptr %7, align 8, !tbaa !662
   %9 = load i32, ptr %4, align 8, !tbaa !738
   %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct.ImGuiGroupData, ptr %8, i64 %10
+  %11 = getelementptr [56 x i8], ptr %8, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -56
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !680
@@ -62748,7 +62713,7 @@ _ZN11ImGuiWindow5GetIDEPKcS1_.exit.thread:        ; preds = %2
   %14 = load ptr, ptr %13, align 8, !tbaa !553
   %15 = load i32, ptr %12, align 8, !tbaa !555
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i32, ptr %14, i64 %16
+  %17 = getelementptr [4 x i8], ptr %14, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -4
   %19 = load i32, ptr %18, align 4, !tbaa !221
   %20 = xor i32 %19, -1
@@ -62781,7 +62746,7 @@ _ZN11ImGuiWindow5GetIDEPKcS1_.exit.thread:        ; preds = %2
   %33 = and i32 %.5.i.i, 255
   %34 = xor i32 %33, %24
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !221
   %38 = xor i32 %32, %37
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -62832,13 +62797,13 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr %13, align 8, !tbaa !553
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.i10
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i10
   %61 = load i32, ptr %60, align 4, !tbaa !221
   br label %62
 
 62:                                               ; preds = %58, %56
   %63 = phi i32 [ %61, %58 ], [ %.2.i.i, %56 ]
-  %64 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %53, i64 %indvars.iv.i10
+  %64 = getelementptr inbounds nuw [64 x i8], ptr %53, i64 %indvars.iv.i10
   store i32 %63, ptr %64, align 4, !tbaa !717
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %exitcond.not.i12 = icmp eq i64 %indvars.iv.next.i11, %wide.trip.count.i9
@@ -62851,7 +62816,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 66:                                               ; preds = %65
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 9992
   %68 = load ptr, ptr %67, align 8, !tbaa !654
-  %69 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %68, i64 %16
+  %69 = getelementptr inbounds [64 x i8], ptr %68, i64 %16
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 7
   %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %72 = trunc i64 %71 to i32
@@ -62892,7 +62857,7 @@ _ZN11ImGuiWindow5GetIDEPKcS1_.exit:               ; preds = %62, %_Z9ImHashStrPK
 
 88:                                               ; preds = %88, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %88 ]
-  %89 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %87, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [56 x i8], ptr %87, i64 %indvars.iv.i
   %90 = load i32, ptr %89, align 8, !tbaa !827
   %91 = icmp eq i32 %90, %.2.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -62910,7 +62875,7 @@ _ZN11ImGuiWindow5GetIDEPKcS1_.exit:               ; preds = %62, %_Z9ImHashStrPK
   %97 = getelementptr inbounds nuw i8, ptr %76, i64 7736
   %98 = load ptr, ptr %97, align 8, !tbaa !534
   %99 = sext i32 %94 to i64
-  %100 = getelementptr inbounds %struct.ImGuiPopupData, ptr %98, i64 %99
+  %100 = getelementptr inbounds [56 x i8], ptr %98, i64 %99
   %101 = load i32, ptr %100, align 8, !tbaa !827
   %102 = icmp eq i32 %101, %.2.i.i
   br label %_ZN5ImGui11IsPopupOpenEji.exit
@@ -62937,7 +62902,7 @@ define dso_local noundef ptr @_ZN5ImGui30GetTopMostAndVisiblePopupModalEv() loca
 8:                                                ; preds = %.lr.ph, %_ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit.thread
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %_ZL24IsWindowActiveAndVisibleP11ImGuiWindow.exit.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %9 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %6, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %6, i64 %indvars.iv.next
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !807
   %.not = icmp eq ptr %11, null
@@ -62982,7 +62947,7 @@ define dso_local void @_ZN5ImGui9OpenPopupEPKci(ptr noundef %0, i32 noundef %1) 
   %9 = load ptr, ptr %8, align 8, !tbaa !553
   %10 = load i32, ptr %7, align 8, !tbaa !555
   %11 = sext i32 %10 to i64
-  %12 = getelementptr i32, ptr %9, i64 %11
+  %12 = getelementptr [4 x i8], ptr %9, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -4
   %14 = load i32, ptr %13, align 4, !tbaa !221
   %15 = xor i32 %14, -1
@@ -63015,7 +62980,7 @@ define dso_local void @_ZN5ImGui9OpenPopupEPKci(ptr noundef %0, i32 noundef %1) 
   %28 = and i32 %.5.i.i, 255
   %29 = xor i32 %28, %19
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !221
   %33 = xor i32 %27, %32
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -63066,13 +63031,13 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %8, align 8, !tbaa !553
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4, !tbaa !221
   br label %57
 
 57:                                               ; preds = %53, %51
   %58 = phi i32 [ %56, %53 ], [ %.2.i.i, %51 ]
-  %59 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %48, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [64 x i8], ptr %48, i64 %indvars.iv.i
   store i32 %58, ptr %59, align 4, !tbaa !717
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -63085,7 +63050,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 61:                                               ; preds = %60
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 9992
   %63 = load ptr, ptr %62, align 8, !tbaa !654
-  %64 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %63, i64 %11
+  %64 = getelementptr inbounds [64 x i8], ptr %63, i64 %11
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 7
   %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %67 = trunc i64 %66 to i32
@@ -63149,7 +63114,7 @@ define dso_local void @_ZN5ImGui11OpenPopupExEji(i32 noundef %0, i32 noundef %1)
   %24 = load ptr, ptr %23, align 8, !tbaa !553
   %25 = load i32, ptr %22, align 8, !tbaa !555
   %26 = sext i32 %25 to i64
-  %27 = getelementptr i32, ptr %24, i64 %26
+  %27 = getelementptr [4 x i8], ptr %24, i64 %26
   %28 = getelementptr i8, ptr %27, i64 -4
   %29 = load i32, ptr %28, align 4, !tbaa !221
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -63192,7 +63157,7 @@ define dso_local void @_ZN5ImGui11OpenPopupExEji(i32 noundef %0, i32 noundef %1)
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 7736
   %50 = load ptr, ptr %49, align 8, !tbaa !534
   %51 = sext i32 %8 to i64
-  %52 = getelementptr inbounds %struct.ImGuiPopupData, ptr %50, i64 %51
+  %52 = getelementptr inbounds [56 x i8], ptr %50, i64 %51
   %53 = load i32, ptr %52, align 8, !tbaa !827
   %54 = icmp eq i32 %53, %0
   br i1 %54, label %55, label %62
@@ -63303,7 +63268,7 @@ define internal fastcc <2 x float> @_ZN5ImGuiL22NavCalcPreferredRefPosEv() unnam
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 7808
   %38 = load i32, ptr %37, align 8, !tbaa !816
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %struct.ImRect, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 296
   %.sroa.0.0.copyload.i49 = load float, ptr %41, align 8, !tbaa !81
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 300
@@ -63464,7 +63429,7 @@ define dso_local void @_ZN5ImGui17ClosePopupToLevelEib(i32 noundef %0, i1 nounde
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %13, align 8, !tbaa !534
-  %21 = getelementptr inbounds %struct.ImGuiPopupData, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds [56 x i8], ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 8, !tbaa !827
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !807
@@ -63494,7 +63459,7 @@ define dso_local void @_ZN5ImGui17ClosePopupToLevelEib(i32 noundef %0, i1 nounde
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 7736
   %36 = load ptr, ptr %35, align 8, !tbaa !534
   %37 = sext i32 %0 to i64
-  %38 = getelementptr inbounds %struct.ImGuiPopupData, ptr %36, i64 %37
+  %38 = getelementptr inbounds [56 x i8], ptr %36, i64 %37
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !664
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -63577,7 +63542,7 @@ define dso_local void @_ZN5ImGui17ClosePopupToLevelEib(i32 noundef %0, i1 nounde
 
 76:                                               ; preds = %.lr.ph44, %88
   %indvars.iv48 = phi i64 [ %75, %.lr.ph44 ], [ %indvars.iv.next49, %88 ]
-  %77 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv48
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv48
   %78 = load ptr, ptr %77, align 8, !tbaa !664
   %79 = icmp eq ptr %78, null
   br i1 %79, label %88, label %80
@@ -63631,7 +63596,7 @@ define dso_local void @_ZN5ImGui23ClosePopupsExceptModalsEv() local_unnamed_addr
 9:                                                ; preds = %6
   %10 = add nsw i64 %indvars.iv, -1
   %11 = load ptr, ptr %4, align 8, !tbaa !534
-  %12 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !807
   %.not = icmp eq ptr %14, null
@@ -63676,11 +63641,11 @@ define dso_local void @_ZN5ImGui17CloseCurrentPopupEv() local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 7752
   %11 = load ptr, ptr %10, align 8, !tbaa !534
   %12 = zext nneg i32 %4 to i64
-  %13 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [56 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 8, !tbaa !827
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 7736
   %16 = load ptr, ptr %15, align 8, !tbaa !534
-  %17 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %16, i64 %12
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %16, i64 %12
   %18 = load i32, ptr %17, align 8, !tbaa !827
   %.not = icmp eq i32 %14, %18
   br i1 %.not, label %.critedge, label %49
@@ -63692,12 +63657,12 @@ define dso_local void @_ZN5ImGui17CloseCurrentPopupEv() local_unnamed_addr #0 {
 
 20:                                               ; preds = %.critedge
   %21 = zext nneg i32 %.0 to i64
-  %22 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %16, i64 %21
+  %22 = getelementptr inbounds nuw [56 x i8], ptr %16, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !807
   %25 = add nsw i32 %.0, -1
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %16, i64 %26
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %16, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !807
   %.not33 = icmp eq ptr %24, null
@@ -63762,7 +63727,7 @@ _ZN5ImGui11IsPopupOpenEji.exit:                   ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 7736
   %11 = load ptr, ptr %10, align 8, !tbaa !534
   %12 = sext i32 %8 to i64
-  %13 = getelementptr inbounds %struct.ImGuiPopupData, ptr %11, i64 %12
+  %13 = getelementptr inbounds [56 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 8, !tbaa !827
   %15 = icmp eq i32 %14, %0
   br i1 %15, label %17, label %_ZN5ImGui11IsPopupOpenEji.exit.thread
@@ -63923,7 +63888,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui10BeginPopupEPKci(ptr noundef %0, 
   %17 = load ptr, ptr %16, align 8, !tbaa !553
   %18 = load i32, ptr %15, align 8, !tbaa !555
   %19 = sext i32 %18 to i64
-  %20 = getelementptr i32, ptr %17, i64 %19
+  %20 = getelementptr [4 x i8], ptr %17, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -4
   %22 = load i32, ptr %21, align 4, !tbaa !221
   %23 = xor i32 %22, -1
@@ -63956,7 +63921,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui10BeginPopupEPKci(ptr noundef %0, 
   %36 = and i32 %.5.i.i, 255
   %37 = xor i32 %36, %27
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !221
   %41 = xor i32 %35, %40
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -64007,13 +63972,13 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 
 61:                                               ; preds = %59
   %62 = load ptr, ptr %16, align 8, !tbaa !553
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i
   %64 = load i32, ptr %63, align 4, !tbaa !221
   br label %65
 
 65:                                               ; preds = %61, %59
   %66 = phi i32 [ %64, %61 ], [ %.2.i.i, %59 ]
-  %67 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %56, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [64 x i8], ptr %56, i64 %indvars.iv.i
   store i32 %66, ptr %67, align 4, !tbaa !717
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -64026,7 +63991,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 69:                                               ; preds = %68
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 9992
   %71 = load ptr, ptr %70, align 8, !tbaa !654
-  %72 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %71, i64 %19
+  %72 = getelementptr inbounds [64 x i8], ptr %71, i64 %19
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 7
   %74 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %75 = trunc i64 %74 to i32
@@ -64057,7 +64022,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui15BeginPopupModalEPKcPbi(ptr nound
   %10 = load ptr, ptr %9, align 8, !tbaa !553
   %11 = load i32, ptr %8, align 8, !tbaa !555
   %12 = sext i32 %11 to i64
-  %13 = getelementptr i32, ptr %10, i64 %12
+  %13 = getelementptr [4 x i8], ptr %10, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -4
   %15 = load i32, ptr %14, align 4, !tbaa !221
   %16 = xor i32 %15, -1
@@ -64090,7 +64055,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui15BeginPopupModalEPKcPbi(ptr nound
   %29 = and i32 %.5.i.i, 255
   %30 = xor i32 %29, %20
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !221
   %34 = xor i32 %28, %33
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -64141,13 +64106,13 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 
 54:                                               ; preds = %52
   %55 = load ptr, ptr %9, align 8, !tbaa !553
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv.i
   %57 = load i32, ptr %56, align 4, !tbaa !221
   br label %58
 
 58:                                               ; preds = %54, %52
   %59 = phi i32 [ %57, %54 ], [ %.2.i.i, %52 ]
-  %60 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %49, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [64 x i8], ptr %49, i64 %indvars.iv.i
   store i32 %59, ptr %60, align 4, !tbaa !717
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -64160,7 +64125,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 62:                                               ; preds = %61
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 9992
   %64 = load ptr, ptr %63, align 8, !tbaa !654
-  %65 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %64, i64 %12
+  %65 = getelementptr inbounds [64 x i8], ptr %64, i64 %12
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 7
   %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %68 = trunc i64 %67 to i32
@@ -64184,7 +64149,7 @@ _ZN5ImGui11IsPopupOpenEji.exit:                   ; preds = %_ZN11ImGuiWindow5Ge
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 7736
   %79 = load ptr, ptr %78, align 8, !tbaa !534
   %80 = sext i32 %76 to i64
-  %81 = getelementptr inbounds %struct.ImGuiPopupData, ptr %79, i64 %80
+  %81 = getelementptr inbounds [56 x i8], ptr %79, i64 %80
   %82 = load i32, ptr %81, align 8, !tbaa !827
   %83 = icmp eq i32 %82, %.2.i.i
   br i1 %83, label %89, label %_ZN5ImGui11IsPopupOpenEji.exit.thread
@@ -64410,7 +64375,7 @@ define dso_local void @_ZN5ImGui20OpenPopupOnItemClickEPKci(ptr noundef %0, i32 
   br i1 %or.cond.i.i.i, label %_ZN5ImGui15IsMouseReleasedEi.exit, label %_ZN5ImGui15IsMouseReleasedEi.exit.thread
 
 _ZN5ImGui15IsMouseReleasedEi.exit:                ; preds = %13
-  %14 = getelementptr %struct.ImGuiKeyOwnerData, ptr %4, i64 %9
+  %14 = getelementptr [12 x i8], ptr %4, i64 %9
   %15 = getelementptr i8, ptr %14, i64 6880
   %16 = load i8, ptr %15, align 4, !tbaa !566, !range !91, !noundef !220
   %17 = icmp eq i8 %16, 0
@@ -64430,7 +64395,7 @@ _ZN5ImGui15IsMouseReleasedEi.exit.thread:         ; preds = %13, %_ZN5ImGui15IsM
   %23 = load ptr, ptr %22, align 8, !tbaa !553
   %24 = load i32, ptr %21, align 8, !tbaa !555
   %25 = sext i32 %24 to i64
-  %26 = getelementptr i32, ptr %23, i64 %25
+  %26 = getelementptr [4 x i8], ptr %23, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -4
   %28 = load i32, ptr %27, align 4, !tbaa !221
   %29 = xor i32 %28, -1
@@ -64463,7 +64428,7 @@ _ZN5ImGui15IsMouseReleasedEi.exit.thread:         ; preds = %13, %_ZN5ImGui15IsM
   %42 = and i32 %.5.i.i, 255
   %43 = xor i32 %42, %33
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !221
   %47 = xor i32 %41, %46
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -64520,13 +64485,13 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 
 73:                                               ; preds = %71
   %74 = load ptr, ptr %66, align 8, !tbaa !553
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv.i
   %76 = load i32, ptr %75, align 4, !tbaa !221
   br label %77
 
 77:                                               ; preds = %73, %71
   %78 = phi i32 [ %76, %73 ], [ %.2.i.i, %71 ]
-  %79 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %68, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw [64 x i8], ptr %68, i64 %indvars.iv.i
   store i32 %78, ptr %79, align 4, !tbaa !717
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -64542,7 +64507,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %84 = getelementptr inbounds nuw i8, ptr %54, i64 9992
   %85 = load ptr, ptr %84, align 8, !tbaa !654
   %86 = sext i32 %58 to i64
-  %87 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %85, i64 %86
+  %87 = getelementptr inbounds [64 x i8], ptr %85, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 7
   %89 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %90 = trunc i64 %89 to i32
@@ -64588,7 +64553,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui21BeginPopupContextItemEPKci(ptr n
   %14 = load ptr, ptr %13, align 8, !tbaa !553
   %15 = load i32, ptr %12, align 8, !tbaa !555
   %16 = sext i32 %15 to i64
-  %17 = getelementptr i32, ptr %14, i64 %16
+  %17 = getelementptr [4 x i8], ptr %14, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -4
   %19 = load i32, ptr %18, align 4, !tbaa !221
   %20 = xor i32 %19, -1
@@ -64621,7 +64586,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui21BeginPopupContextItemEPKci(ptr n
   %33 = and i32 %.5.i.i, 255
   %34 = xor i32 %33, %24
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !221
   %38 = xor i32 %32, %37
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -64672,13 +64637,13 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr %13, align 8, !tbaa !553
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i
   %61 = load i32, ptr %60, align 4, !tbaa !221
   br label %62
 
 62:                                               ; preds = %58, %56
   %63 = phi i32 [ %61, %58 ], [ %.2.i.i, %56 ]
-  %64 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %53, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [64 x i8], ptr %53, i64 %indvars.iv.i
   store i32 %63, ptr %64, align 4, !tbaa !717
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -64691,7 +64656,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 66:                                               ; preds = %65
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 9992
   %68 = load ptr, ptr %67, align 8, !tbaa !654
-  %69 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %68, i64 %16
+  %69 = getelementptr inbounds [64 x i8], ptr %68, i64 %16
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 7
   %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %72 = trunc i64 %71 to i32
@@ -64723,7 +64688,7 @@ _ZN11ImGuiWindow5GetIDEPKcS1_.exit:               ; preds = %62, %_Z9ImHashStrPK
   br i1 %or.cond.i.i.i, label %_ZN5ImGui15IsMouseReleasedEi.exit, label %_ZN5ImGui15IsMouseReleasedEi.exit.thread
 
 _ZN5ImGui15IsMouseReleasedEi.exit:                ; preds = %87
-  %88 = getelementptr %struct.ImGuiKeyOwnerData, ptr %81, i64 %83
+  %88 = getelementptr [12 x i8], ptr %81, i64 %83
   %89 = getelementptr i8, ptr %88, i64 6880
   %90 = load i8, ptr %89, align 4, !tbaa !566, !range !91, !noundef !220
   %91 = icmp eq i8 %90, 0
@@ -64759,7 +64724,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui23BeginPopupContextWindowEPKci(ptr
   %9 = load ptr, ptr %8, align 8, !tbaa !553
   %10 = load i32, ptr %7, align 8, !tbaa !555
   %11 = sext i32 %10 to i64
-  %12 = getelementptr i32, ptr %9, i64 %11
+  %12 = getelementptr [4 x i8], ptr %9, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -4
   %14 = load i32, ptr %13, align 4, !tbaa !221
   %15 = xor i32 %14, -1
@@ -64792,7 +64757,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui23BeginPopupContextWindowEPKci(ptr
   %28 = and i32 %.5.i.i, 255
   %29 = xor i32 %28, %19
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !221
   %33 = xor i32 %27, %32
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -64843,13 +64808,13 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %8, align 8, !tbaa !553
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 4, !tbaa !221
   br label %57
 
 57:                                               ; preds = %53, %51
   %58 = phi i32 [ %56, %53 ], [ %.2.i.i, %51 ]
-  %59 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %48, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [64 x i8], ptr %48, i64 %indvars.iv.i
   store i32 %58, ptr %59, align 4, !tbaa !717
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -64862,7 +64827,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 61:                                               ; preds = %60
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 9992
   %63 = load ptr, ptr %62, align 8, !tbaa !654
-  %64 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %63, i64 %11
+  %64 = getelementptr inbounds [64 x i8], ptr %63, i64 %11
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 7
   %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #64
   %67 = trunc i64 %66 to i32
@@ -64888,7 +64853,7 @@ _ZN11ImGuiWindow5GetIDEPKcS1_.exit:               ; preds = %57, %61, %60, %43, 
   br i1 %or.cond.i.i.i, label %_ZN5ImGui15IsMouseReleasedEi.exit, label %_ZN5ImGui15IsMouseReleasedEi.exit.thread
 
 _ZN5ImGui15IsMouseReleasedEi.exit:                ; preds = %78
-  %79 = getelementptr %struct.ImGuiKeyOwnerData, ptr %72, i64 %74
+  %79 = getelementptr [12 x i8], ptr %72, i64 %74
   %80 = getelementptr i8, ptr %79, i64 6880
   %81 = load i8, ptr %80, align 4, !tbaa !566, !range !91, !noundef !220
   %82 = icmp eq i8 %81, 0
@@ -65009,7 +64974,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui21BeginPopupContextVoidEPKci(ptr n
   %9 = load ptr, ptr %8, align 8, !tbaa !553
   %10 = load i32, ptr %7, align 8, !tbaa !555
   %11 = sext i32 %10 to i64
-  %12 = getelementptr i32, ptr %9, i64 %11
+  %12 = getelementptr [4 x i8], ptr %9, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -4
   %14 = load i32, ptr %13, align 4, !tbaa !221
   %15 = xor i32 %14, -1
@@ -65042,7 +65007,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui21BeginPopupContextVoidEPKci(ptr n
   %28 = and i32 %.5.i.i, 255
   %29 = xor i32 %28, %19
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !221
   %33 = xor i32 %27, %32
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -65093,13 +65058,13 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %8, align 8, !tbaa !553
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i11
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i11
   %56 = load i32, ptr %55, align 4, !tbaa !221
   br label %57
 
 57:                                               ; preds = %53, %51
   %58 = phi i32 [ %56, %53 ], [ %.2.i.i, %51 ]
-  %59 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %48, i64 %indvars.iv.i11
+  %59 = getelementptr inbounds nuw [64 x i8], ptr %48, i64 %indvars.iv.i11
   store i32 %58, ptr %59, align 4, !tbaa !717
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i12, %wide.trip.count.i
@@ -65112,7 +65077,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 61:                                               ; preds = %60
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 9992
   %63 = load ptr, ptr %62, align 8, !tbaa !654
-  %64 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %63, i64 %11
+  %64 = getelementptr inbounds [64 x i8], ptr %63, i64 %11
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 7
   %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #64
   %67 = trunc i64 %66 to i32
@@ -65138,7 +65103,7 @@ _ZN11ImGuiWindow5GetIDEPKcS1_.exit:               ; preds = %57, %61, %60, %43, 
   br i1 %or.cond.i.i.i, label %_ZN5ImGui15IsMouseReleasedEi.exit, label %_ZN5ImGui15IsMouseReleasedEi.exit.thread
 
 _ZN5ImGui15IsMouseReleasedEi.exit:                ; preds = %78
-  %79 = getelementptr %struct.ImGuiKeyOwnerData, ptr %72, i64 %74
+  %79 = getelementptr [12 x i8], ptr %72, i64 %74
   %80 = getelementptr i8, ptr %79, i64 6880
   %81 = load i8, ptr %80, align 4, !tbaa !566, !range !91, !noundef !220
   %82 = icmp eq i8 %81, 0
@@ -65231,7 +65196,7 @@ _ZN5ImGui15IsMouseReleasedEi.exit.thread:         ; preds = %78, %_ZN5ImGui15IsM
 126:                                              ; preds = %134, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %125, %.lr.ph.i ], [ %indvars.iv.next.i, %134 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %127 = getelementptr inbounds nuw %struct.ImGuiPopupData, ptr %124, i64 %indvars.iv.next.i
+  %127 = getelementptr inbounds nuw [56 x i8], ptr %124, i64 %indvars.iv.next.i
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load ptr, ptr %128, align 8, !tbaa !807
   %.not.i = icmp eq ptr %129, null
@@ -65309,7 +65274,7 @@ define dso_local <2 x float> @_ZN5ImGui27FindBestWindowPosForPopupExERK6ImVec2S2
 33:                                               ; preds = %21, %_ZNK6ImRect8ContainsERKS_.exit.thread
   %indvars.iv = phi i64 [ %32, %21 ], [ %indvars.iv.next, %_ZNK6ImRect8ContainsERKS_.exit.thread ]
   %34 = icmp ne i64 %indvars.iv, -1
-  %35 = getelementptr inbounds i32, ptr @__const._ZN5ImGui27FindBestWindowPosForPopupExERK6ImVec2S2_P8ImGuiDirRK6ImRectS7_24ImGuiPopupPositionPolicy.dir_prefered_order, i64 %indvars.iv
+  %35 = getelementptr inbounds [4 x i8], ptr @__const._ZN5ImGui27FindBestWindowPosForPopupExERK6ImVec2S2_P8ImGuiDirRK6ImRectS7_24ImGuiPopupPositionPolicy.dir_prefered_order, i64 %indvars.iv
   %.in = select i1 %34, ptr %35, ptr %2
   %36 = load i32, ptr %.in, align 4, !tbaa !1231
   %37 = icmp eq i32 %36, %22
@@ -65383,7 +65348,7 @@ _ZNK6ImRect8ContainsERKS_.exit.thread:            ; preds = %33, %43
 57:                                               ; preds = %51, %.critedge121
   %indvars.iv264 = phi i64 [ %56, %51 ], [ %indvars.iv.next265, %.critedge121 ]
   %58 = icmp ne i64 %indvars.iv264, -1
-  %59 = getelementptr inbounds i32, ptr @__const._ZN5ImGui27FindBestWindowPosForPopupExERK6ImVec2S2_P8ImGuiDirRK6ImRectS7_24ImGuiPopupPositionPolicy.dir_prefered_order.162, i64 %indvars.iv264
+  %59 = getelementptr inbounds [4 x i8], ptr @__const._ZN5ImGui27FindBestWindowPosForPopupExERK6ImVec2S2_P8ImGuiDirRK6ImRectS7_24ImGuiPopupPositionPolicy.dir_prefered_order.162, i64 %indvars.iv264
   %.in111 = select i1 %58, ptr %59, ptr %2
   %60 = load i32, ptr %.in111, align 4, !tbaa !1231
   %61 = icmp eq i32 %60, %52
@@ -65553,9 +65518,9 @@ define dso_local void @_ZN5ImGui27NavClearPreferredPosForAxisE9ImGuiAxis(i32 nou
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 7808
   %9 = load i32, ptr %8, align 8, !tbaa !816
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %struct.ImVec2, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %10
   %12 = sext i32 %0 to i64
-  %13 = getelementptr inbounds nuw float, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   store float 0x47EFFFFFE0000000, ptr %13, align 4, !tbaa !81
   ret void
 }
@@ -65572,10 +65537,10 @@ define dso_local void @_ZN5ImGui8SetNavIDEj13ImGuiNavLayerjRK6ImRect(i32 noundef
   %9 = load ptr, ptr %8, align 8, !tbaa !389
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 960
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   store i32 %0, ptr %12, align 4, !tbaa !221
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 968
-  %14 = getelementptr inbounds nuw %struct.ImRect, ptr %13, i64 %11
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !416
   %15 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 7792
@@ -65586,7 +65551,7 @@ define dso_local void @_ZN5ImGui8SetNavIDEj13ImGuiNavLayerjRK6ImRect(i32 noundef
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 7808
   %22 = load i32, ptr %21, align 8, !tbaa !816
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %struct.ImVec2, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %23
   store float 0x47EFFFFFE0000000, ptr %24, align 4, !tbaa !81
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store float 0x47EFFFFFE0000000, ptr %25, align 4, !tbaa !81
@@ -65662,7 +65627,7 @@ _ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit:      ; preds = %16, %24
   tail call void @_ZN5ImGui16SetNavFocusScopeEj(i32 noundef %35)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 960
   %37 = zext i32 %31 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %37
   store i32 %0, ptr %38, align 4, !tbaa !221
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 7432
   %40 = load i32, ptr %39, align 8, !tbaa !775
@@ -65691,7 +65656,7 @@ _ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit:      ; preds = %16, %24
   %.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %52, i64 0
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i, float %55, i64 1
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 968
-  %57 = getelementptr inbounds nuw %struct.ImRect, ptr %56, i64 %37
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %37
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %57, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 8
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.4.0..sroa_idx, align 8
@@ -65724,7 +65689,7 @@ _ZN5ImGui12SetNavWindowEP11ImGuiWindow.exit:      ; preds = %16, %24
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 7808
   %74 = load i32, ptr %73, align 8, !tbaa !816
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %struct.ImVec2, ptr %72, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %75
   store float 0x47EFFFFFE0000000, ptr %76, align 4, !tbaa !81
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   store float 0x47EFFFFFE0000000, ptr %77, align 4, !tbaa !81
@@ -65838,7 +65803,7 @@ _ZN5ImGuiL20NavApplyItemToResultEP16ImGuiNavItemData.exit:
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 7808
   %37 = load i32, ptr %36, align 8, !tbaa !816
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %struct.ImVec2, ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1004
   store float 0x47EFFFFFE0000000, ptr %40, align 4, !tbaa !81
   %41 = load i8, ptr %3, align 1, !tbaa !388, !range !91, !noundef !220
@@ -65913,7 +65878,7 @@ define dso_local noundef float @_ZN5ImGui24GetNavTweakPressedAmountE9ImGuiAxis(i
   %16 = select i1 %12, i64 514, i64 516
   %.011 = select i1 %11, i64 %13, i64 %15
   %.010 = select i1 %11, i64 %14, i64 %16
-  %17 = getelementptr %struct.ImGuiKeyData, ptr %2, i64 %.010
+  %17 = getelementptr [16 x i8], ptr %2, i64 %.010
   %18 = getelementptr i8, ptr %17, i64 -7932
   %19 = load i8, ptr %18, align 4, !tbaa !223, !range !91, !noundef !220
   %20 = trunc nuw i8 %19 to i1
@@ -65959,7 +65924,7 @@ define dso_local noundef float @_ZN5ImGui24GetNavTweakPressedAmountE9ImGuiAxis(i
 _ZN5ImGui19GetKeyPressedAmountE8ImGuiKeyff.exit:  ; preds = %1, %21, %28, %33, %37
   %.0.i = phi i32 [ 0, %1 ], [ %47, %37 ], [ 1, %21 ], [ %36, %33 ], [ 0, %28 ]
   %48 = sitofp i32 %.0.i to float
-  %49 = getelementptr %struct.ImGuiKeyData, ptr %2, i64 %.011
+  %49 = getelementptr [16 x i8], ptr %2, i64 %.011
   %50 = getelementptr i8, ptr %49, i64 -7932
   %51 = load i8, ptr %50, align 4, !tbaa !223, !range !91, !noundef !220
   %52 = trunc nuw i8 %51 to i1
@@ -66010,7 +65975,7 @@ _ZN5ImGui19GetKeyPressedAmountE8ImGuiKeyff.exit14: ; preds = %53, %60, %65, %69
   br i1 %82, label %_ZN5ImGui9IsKeyDownE8ImGuiKey.exit.thread, label %_ZN5ImGui9IsKeyDownE8ImGuiKey.exit
 
 _ZN5ImGui9IsKeyDownE8ImGuiKey.exit:               ; preds = %_ZN5ImGui19GetKeyPressedAmountE8ImGuiKeyff.exit14
-  %83 = getelementptr %struct.ImGuiKeyOwnerData, ptr %2, i64 %.011
+  %83 = getelementptr [12 x i8], ptr %2, i64 %.011
   %84 = getelementptr i8, ptr %83, i64 -980
   %85 = load i8, ptr %84, align 4, !tbaa !566, !range !91, !noundef !220
   %86 = icmp eq i8 %85, 0
@@ -66018,7 +65983,7 @@ _ZN5ImGui9IsKeyDownE8ImGuiKey.exit:               ; preds = %_ZN5ImGui19GetKeyPr
   br i1 %brmerge29.not, label %_ZN5ImGui9IsKeyDownE8ImGuiKey.exit19, label %_ZN5ImGui9IsKeyDownE8ImGuiKey.exit.thread
 
 _ZN5ImGui9IsKeyDownE8ImGuiKey.exit19:             ; preds = %_ZN5ImGui9IsKeyDownE8ImGuiKey.exit
-  %87 = getelementptr %struct.ImGuiKeyOwnerData, ptr %2, i64 %.010
+  %87 = getelementptr [12 x i8], ptr %2, i64 %.010
   %88 = getelementptr i8, ptr %87, i64 -980
   %89 = load i8, ptr %88, align 4, !tbaa !566, !range !91, !noundef !220
   %90 = icmp eq i8 %89, 0
@@ -66106,10 +66071,10 @@ define dso_local void @_ZN5ImGui25NavInitRequestApplyResultEv() local_unnamed_ad
   %45 = load ptr, ptr %44, align 8, !tbaa !389
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 960
   %47 = zext i32 %38 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   store i32 %36, ptr %48, align 4, !tbaa !221
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 968
-  %50 = getelementptr inbounds nuw %struct.ImRect, ptr %49, i64 %47
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %47
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull readonly align 4 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !416
   %51 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 7792
@@ -66120,7 +66085,7 @@ define dso_local void @_ZN5ImGui25NavInitRequestApplyResultEv() local_unnamed_ad
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 7808
   %58 = load i32, ptr %57, align 8, !tbaa !816
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %struct.ImVec2, ptr %56, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %59
   store float 0x47EFFFFFE0000000, ptr %60, align 4, !tbaa !81
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store float 0x47EFFFFFE0000000, ptr %61, align 4, !tbaa !81
@@ -66269,9 +66234,9 @@ define dso_local void @_ZN5ImGui25NavMoveRequestApplyResultEv() local_unnamed_ad
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 7808
   %65 = load i32, ptr %64, align 8, !tbaa !816
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw %struct.ImVec2, ptr %63, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %66
   %68 = zext nneg i32 %49 to i64
-  %69 = getelementptr inbounds nuw float, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %68
   store float 0x47EFFFFFE0000000, ptr %69, align 4, !tbaa !81
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 9852
   %71 = load i32, ptr %70, align 4, !tbaa !238
@@ -66536,7 +66501,7 @@ define dso_local void @_ZN5ImGui25NavMoveRequestApplyResultEv() local_unnamed_ad
   %215 = load ptr, ptr %214, align 8, !tbaa !390
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 1000
   %217 = zext i32 %212 to i64
-  %218 = getelementptr inbounds nuw %struct.ImVec2, ptr %216, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %217
   %219 = load i64, ptr %218, align 8
   store i64 %219, ptr %2, align 8
   %220 = getelementptr inbounds nuw i8, ptr %.2, i64 12
@@ -66551,10 +66516,10 @@ define dso_local void @_ZN5ImGui25NavMoveRequestApplyResultEv() local_unnamed_ad
   %226 = getelementptr inbounds nuw i8, ptr %223, i64 7792
   %227 = load ptr, ptr %226, align 8, !tbaa !389
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 960
-  %229 = getelementptr inbounds nuw i32, ptr %228, i64 %217
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %228, i64 %217
   store i32 %211, ptr %229, align 4, !tbaa !221
   %230 = getelementptr inbounds nuw i8, ptr %227, i64 968
-  %231 = getelementptr inbounds nuw %struct.ImRect, ptr %230, i64 %217
+  %231 = getelementptr inbounds nuw [16 x i8], ptr %230, i64 %217
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %231, ptr noundef nonnull readonly align 4 dereferenceable(16) %222, i64 16, i1 false), !tbaa.struct !416
   %232 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 7792
@@ -66565,7 +66530,7 @@ define dso_local void @_ZN5ImGui25NavMoveRequestApplyResultEv() local_unnamed_ad
   %238 = getelementptr inbounds nuw i8, ptr %232, i64 7808
   %239 = load i32, ptr %238, align 8, !tbaa !816
   %240 = zext i32 %239 to i64
-  %241 = getelementptr inbounds nuw %struct.ImVec2, ptr %237, i64 %240
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %240
   store float 0x47EFFFFFE0000000, ptr %241, align 4, !tbaa !81
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 4
   store float 0x47EFFFFFE0000000, ptr %242, align 4, !tbaa !81
@@ -66602,9 +66567,9 @@ define dso_local void @_ZN5ImGui25NavMoveRequestApplyResultEv() local_unnamed_ad
   %.sroa.0.4.vec.insert.i132 = insertelement <2 x float> %.sroa.0.0.vec.insert.i131, float %262, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i132, ptr %3, align 8
   %263 = zext nneg i32 %75 to i64
-  %264 = getelementptr inbounds nuw float, ptr %3, i64 %263
+  %264 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %263
   %265 = load float, ptr %264, align 4, !tbaa !81
-  %266 = getelementptr inbounds nuw float, ptr %2, i64 %263
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %263
   store float %265, ptr %266, align 4, !tbaa !81
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %267 = load ptr, ptr %153, align 8, !tbaa !389
@@ -66613,7 +66578,7 @@ define dso_local void @_ZN5ImGui25NavMoveRequestApplyResultEv() local_unnamed_ad
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 1000
   %271 = load i32, ptr %115, align 8, !tbaa !816
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds nuw %struct.ImVec2, ptr %270, i64 %272
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %272
   %274 = load i64, ptr %2, align 8
   store i64 %274, ptr %273, align 8
   %.pre154 = load i32, ptr %77, align 4, !tbaa !393
@@ -66787,7 +66752,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui19BeginDragDropSourceEi(i32 nounde
   %52 = load ptr, ptr %51, align 8, !tbaa !553
   %53 = load i32, ptr %50, align 8, !tbaa !555
   %54 = sext i32 %53 to i64
-  %55 = getelementptr i32, ptr %52, i64 %54
+  %55 = getelementptr [4 x i8], ptr %52, i64 %54
   %56 = getelementptr i8, ptr %55, i64 -4
   %57 = load i32, ptr %56, align 4, !tbaa !221
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -66828,7 +66793,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui19BeginDragDropSourceEi(i32 nounde
   %77 = zext i8 %76 to i32
   %78 = xor i32 %74, %77
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !221
   %82 = xor i32 %81, %73
   %.not.i.i = icmp eq i64 %72, 0
@@ -66923,7 +66888,7 @@ _ZN5ImGui11KeepAliveIDEj.exit:                    ; preds = %89, %93
   %125 = and i32 %.344.i, 255
   %126 = xor i32 %125, %123
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !221
   %130 = xor i32 %124, %129
   %exitcond = icmp eq i64 %.13043.i.add, 13
@@ -66967,13 +66932,13 @@ _Z9ImHashStrPKcmj.exit:                           ; preds = %.lr.ph.i
   %151 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %152 = load i32, ptr %151, align 8, !tbaa !555
   %153 = sext i32 %152 to i64
-  %154 = getelementptr i32, ptr %150, i64 %153
+  %154 = getelementptr [4 x i8], ptr %150, i64 %153
   %155 = getelementptr i8, ptr %154, i64 -4
   %156 = load i32, ptr %155, align 4, !tbaa !221
   %157 = getelementptr inbounds nuw i8, ptr %109, i64 112
   %158 = load float, ptr %157, align 8, !tbaa !979
   %159 = getelementptr inbounds nuw i8, ptr %109, i64 2904
-  %160 = getelementptr inbounds float, ptr %159, i64 %111
+  %160 = getelementptr inbounds [4 x i8], ptr %159, i64 %111
   %161 = load float, ptr %160, align 4, !tbaa !81
   %162 = fmul float %158, %158
   %163 = fcmp ult float %161, %162
@@ -67575,7 +67540,7 @@ switch.early.test.split.i.i.i:                    ; preds = %switch.early.test.i
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.i.i: ; preds = %.split.i.i.i.i, %._crit_edge.i
   %.0.i.i.i = phi i32 [ %70, %._crit_edge.i ], [ %spec.select.i.i.i.i, %.split.i.i.i.i ]
   %79 = zext nneg i32 %.0.i.i.i to i64
-  %80 = getelementptr %struct.ImGuiKeyOwnerData, ptr %63, i64 %79
+  %80 = getelementptr [12 x i8], ptr %63, i64 %79
   %81 = getelementptr i8, ptr %80, i64 -980
   %82 = load i8, ptr %81, align 4, !tbaa !566, !range !91, !noundef !220
   br label %_ZN5ImGui11IsMouseDownEi.exit
@@ -67867,7 +67832,7 @@ define dso_local void @_ZN5ImGui7LogTextEPKcz(ptr noundef readonly captures(none
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge, label %31
@@ -67885,7 +67850,7 @@ define dso_local void @_ZN5ImGui7LogTextEPKcz(ptr noundef readonly captures(none
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -67896,7 +67861,7 @@ define dso_local void @_ZN5ImGui7LogTextEPKcz(ptr noundef readonly captures(none
 40:                                               ; preds = %._crit_edge, %31
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -67930,7 +67895,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %15
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 10016
   %60 = load i16, ptr %59, align 8, !tbaa !212
   %61 = sext i16 %60 to i64
-  %62 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %58, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %58, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %63, %57
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %65
@@ -67948,7 +67913,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %15
   %69 = trunc nsw i32 %68 to i16
   store i16 %69, ptr %59, align 4, !tbaa !212
   %70 = sext i32 %68 to i64
-  %71 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %58, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %58, i64 %70
   store i32 %57, ptr %71, align 4, !tbaa !213
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 6
   store i16 0, ptr %72, align 2, !tbaa !216
@@ -67959,7 +67924,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %15
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %74 = phi i16 [ 1, %65 ], [ %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %75 = phi i64 [ %70, %65 ], [ %61, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %76 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %58, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %58, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 6
   store i16 %74, ptr %77, align 2, !tbaa !216
   %78 = getelementptr inbounds nuw i8, ptr %54, i64 10012
@@ -68043,7 +68008,7 @@ define dso_local void @_ZN5ImGui8LogTextVEPKcP13__va_list_tag(ptr noundef readon
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge, label %31
@@ -68061,7 +68026,7 @@ define dso_local void @_ZN5ImGui8LogTextVEPKcP13__va_list_tag(ptr noundef readon
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -68072,7 +68037,7 @@ define dso_local void @_ZN5ImGui8LogTextVEPKcP13__va_list_tag(ptr noundef readon
 40:                                               ; preds = %._crit_edge, %31
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -68106,7 +68071,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %15
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 10016
   %60 = load i16, ptr %59, align 8, !tbaa !212
   %61 = sext i16 %60 to i64
-  %62 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %58, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %58, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %63, %57
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %65
@@ -68124,7 +68089,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %15
   %69 = trunc nsw i32 %68 to i16
   store i16 %69, ptr %59, align 4, !tbaa !212
   %70 = sext i32 %68 to i64
-  %71 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %58, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %58, i64 %70
   store i32 %57, ptr %71, align 4, !tbaa !213
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 6
   store i16 0, ptr %72, align 2, !tbaa !216
@@ -68135,7 +68100,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %15
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %74 = phi i16 [ 1, %65 ], [ %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %75 = phi i64 [ %70, %65 ], [ %61, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %76 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %58, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %58, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 6
   store i16 %74, ptr %77, align 2, !tbaa !216
   %78 = getelementptr inbounds nuw i8, ptr %54, i64 10012
@@ -68590,7 +68555,7 @@ _ZN5ImGui8SameLineEff.exit4:                      ; preds = %_ZN5ImGui8SameLineE
   %100 = getelementptr inbounds nuw i8, ptr %92, i64 7704
   %101 = load ptr, ptr %100, align 8, !tbaa !303
   %102 = zext nneg i32 %99 to i64
-  %103 = getelementptr i32, ptr %101, i64 %102
+  %103 = getelementptr [4 x i8], ptr %101, i64 %102
   %104 = getelementptr i8, ptr %103, i64 -4
   %105 = load i32, ptr %104, align 4, !tbaa !221
   %106 = getelementptr inbounds nuw i8, ptr %92, i64 7368
@@ -68809,7 +68774,7 @@ _ZNK8ImVectorI20ImGuiSettingsHandlerE14_grow_capacityEi.exit: ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -68827,7 +68792,7 @@ _ZNK8ImVectorI20ImGuiSettingsHandlerE14_grow_capacityEi.exit: ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -68838,7 +68803,7 @@ _ZNK8ImVectorI20ImGuiSettingsHandlerE14_grow_capacityEi.exit: ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -68873,7 +68838,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -68891,7 +68856,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -68902,7 +68867,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -68927,7 +68892,7 @@ _ZN8ImVectorI20ImGuiSettingsHandlerE7reserveEi.exit: ; preds = %._ZN8ImVectorI20
   %85 = phi i32 [ %3, %._ZN8ImVectorI20ImGuiSettingsHandlerE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorI20ImGuiSettingsHandlerE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds %struct.ImGuiSettingsHandler, ptr %86, i64 %87
+  %88 = getelementptr inbounds [72 x i8], ptr %86, i64 %87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %88, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   %89 = load i32, ptr %0, align 8, !tbaa !559
   %90 = add nsw i32 %89, 1
@@ -68967,7 +68932,7 @@ define dso_local void @_ZN5ImGui21RemoveSettingsHandlerEPKc(ptr noundef readonly
   %15 = and i32 %.5.i.i, 255
   %16 = xor i32 %15, %6
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !221
   %20 = xor i32 %14, %19
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -69050,7 +69015,7 @@ define dso_local noundef ptr @_ZN5ImGui19FindSettingsHandlerEPKc(ptr noundef rea
   %15 = and i32 %.5.i, 255
   %16 = xor i32 %15, %6
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !221
   %20 = xor i32 %14, %19
   %.not33.i = icmp eq i8 %.pre.i, 0
@@ -69105,7 +69070,7 @@ define dso_local void @_ZN5ImGui16ClearIniSettingsEv() local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %16
@@ -69123,7 +69088,7 @@ define dso_local void @_ZN5ImGui16ClearIniSettingsEv() local_unnamed_addr #0 {
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -69134,7 +69099,7 @@ define dso_local void @_ZN5ImGui16ClearIniSettingsEv() local_unnamed_addr #0 {
 _ZN5ImGui7MemFreeEPv.exit.i.i:                    ; preds = %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, %16
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 10012
@@ -69208,7 +69173,7 @@ define dso_local void @_ZN5ImGui23LoadIniSettingsFromDiskEPKc(ptr noundef readon
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 10016
   %14 = load i16, ptr %13, align 8, !tbaa !212
   %15 = sext i16 %14 to i64
-  %16 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %12, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %12, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %17, %11
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %19
@@ -69226,7 +69191,7 @@ define dso_local void @_ZN5ImGui23LoadIniSettingsFromDiskEPKc(ptr noundef readon
   %23 = trunc nsw i32 %22 to i16
   store i16 %23, ptr %13, align 4, !tbaa !212
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %12, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %12, i64 %24
   store i32 %11, ptr %25, align 4, !tbaa !213
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 6
   store i16 0, ptr %26, align 2, !tbaa !216
@@ -69237,7 +69202,7 @@ define dso_local void @_ZN5ImGui23LoadIniSettingsFromDiskEPKc(ptr noundef readon
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %19, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %28 = phi i16 [ 1, %19 ], [ %18, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %29 = phi i64 [ %24, %19 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %30 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %12, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %12, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 6
   store i16 %28, ptr %31, align 2, !tbaa !216
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 10012
@@ -69449,7 +69414,7 @@ _ZN8ImVectorIcE6resizeEi.exit:                    ; preds = %7, %_ZNK8ImVectorIc
   %78 = and i32 %.5.i.i, 255
   %79 = xor i32 %78, %69
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !221
   %83 = xor i32 %77, %82
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -69691,7 +69656,7 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i:      ; preds = %20, %19
   %47 = and i32 %.1.i, 255
   %48 = xor i32 %47, %35
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !221
   %52 = xor i32 %46, %51
   %.not34.i = icmp eq i64 %32, 0
@@ -69722,7 +69687,7 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i:      ; preds = %20, %19
   %64 = and i32 %.5.i, 255
   %65 = xor i32 %64, %55
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !221
   %69 = xor i32 %63, %68
   %.not33.i = icmp eq i8 %.pre.i, 0
@@ -69872,7 +69837,7 @@ define dso_local void @_ZN5ImGui19ClearWindowSettingsEPKc(ptr noundef readonly c
   %14 = and i32 %.5.i.i, 255
   %15 = xor i32 %14, %5
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !221
   %19 = xor i32 %13, %18
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -69899,7 +69864,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %24, %_Z9ImHashStrPKcmj.exit.i ]
   %.01316.i.i.i.i = phi i64 [ %.114.i.i.i.i, %.lr.ph.i.i.i.i ], [ %26, %_Z9ImHashStrPKcmj.exit.i ]
   %28 = lshr i64 %.01316.i.i.i.i, 1
-  %29 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i.i.i, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i.i, i64 %28
   %30 = load i32, ptr %29, align 8, !tbaa !270
   %31 = icmp ult i32 %30, %.2.i.i
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -70036,7 +70001,7 @@ select.unfold.i.i:                                ; preds = %73, %.lr.ph.i.i12
   %97 = and i32 %.5.i, 255
   %98 = xor i32 %97, %88
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !221
   %102 = xor i32 %96, %101
   %.not33.i = icmp eq i8 %.pre.i, 0
@@ -70562,7 +70527,7 @@ define dso_local void @_ZN5ImGui28DebugRenderViewportThumbnailEP10ImDrawListP14I
   %262 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 3016
   %264 = getelementptr inbounds nuw i8, ptr %262, i64 3256
-  %265 = getelementptr inbounds nuw %struct.ImVec4, ptr %264, i64 %220
+  %265 = getelementptr inbounds nuw [16 x i8], ptr %264, i64 %220
   %.sroa.0.0.copyload.i168 = load float, ptr %265, align 4, !tbaa !81
   %.sroa.4.0..sroa_idx.i169 = getelementptr inbounds nuw i8, ptr %265, i64 4
   %.sroa.4.0.copyload.i170 = load float, ptr %.sroa.4.0..sroa_idx.i169, align 4, !tbaa !81
@@ -70822,7 +70787,7 @@ define dso_local void @_ZN5ImGui26DebugRenderKeyboardPreviewEP10ImDrawList(ptr n
 
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i.i:         ; preds = %44, %_ZN5ImGui9IsKeyDownE8ImGuiKey.exit.thread74
   %indvars.iv = phi i64 [ 0, %44 ], [ %indvars.iv.next, %_ZN5ImGui9IsKeyDownE8ImGuiKey.exit.thread74 ]
-  %50 = getelementptr inbounds nuw %struct.KeyLayoutData, ptr @__const._ZN5ImGui26DebugRenderKeyboardPreviewEP10ImDrawList.keys_to_display, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [24 x i8], ptr @__const._ZN5ImGui26DebugRenderKeyboardPreviewEP10ImDrawList.keys_to_display, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !1315
@@ -70875,7 +70840,7 @@ _ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i.i:         ; preds = %44, %_ZN5ImGui9IsKe
   %79 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %77)
   %80 = icmp eq i32 %79, 1
   %81 = sext i32 %77 to i64
-  %82 = getelementptr %struct.ImGuiKeyData, ptr %78, i64 %81
+  %82 = getelementptr [16 x i8], ptr %78, i64 %81
   %83 = getelementptr i8, ptr %82, i64 -7932
   %84 = load i8, ptr %83, align 4, !tbaa !223, !range !91, !noundef !220
   %85 = trunc nuw i8 %84 to i1
@@ -70896,7 +70861,7 @@ switch.early.test.split.i.i.i.i:                  ; preds = %switch.early.test.i
   br i1 %switch.i.i.i.i, label %_ZN5ImGui9IsKeyDownE8ImGuiKey.exit, label %_ZN5ImGui9IsKeyDownE8ImGuiKey.exit.thread
 
 _ZN5ImGui9IsKeyDownE8ImGuiKey.exit:               ; preds = %86, %switch.early.test.split.i.i.i.i
-  %90 = getelementptr %struct.ImGuiKeyOwnerData, ptr %78, i64 %81
+  %90 = getelementptr [12 x i8], ptr %78, i64 %81
   %91 = getelementptr i8, ptr %90, i64 -980
   %92 = load i8, ptr %91, align 4, !tbaa !566, !range !91, !noundef !220
   %93 = icmp eq i8 %92, 0
@@ -71085,7 +71050,7 @@ define dso_local void @_ZN5ImGui20DebugFlashStyleColorEi(i32 noundef %0) local_u
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 9924
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 3256
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds %struct.ImVec4, ptr %7, i64 %8
+  %9 = getelementptr inbounds [16 x i8], ptr %7, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !416
   br label %_ZL24DebugFlashStyleColorStopv.exit
 
@@ -71095,7 +71060,7 @@ _ZL24DebugFlashStyleColorStopv.exit:              ; preds = %1, %5
   store i32 %0, ptr %3, align 4, !tbaa !417
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 3256
   %12 = sext i32 %0 to i64
-  %13 = getelementptr inbounds %struct.ImVec4, ptr %11, i64 %12
+  %13 = getelementptr inbounds [16 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 9924
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !416
   ret void
@@ -71483,7 +71448,7 @@ _Z16ImTextCharToUtf8Pcj.exit100:                  ; preds = %118, %122, %129
   br i1 %.not96, label %171, label %154
 
 154:                                              ; preds = %.lr.ph.split
-  %155 = getelementptr inbounds nuw %struct.ImFontConfig, ptr %152, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [144 x i8], ptr %152, i64 %indvars.iv
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 90
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 24
   %158 = load i32, ptr %157, align 8, !tbaa !1333
@@ -72341,7 +72306,7 @@ _ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs13GetWindowRectEP11ImGuiWindowi.exit: ; 
   %338 = fpext float %337 to double
   %339 = fsub float %.sroa.7.12.vec.extract, %.sroa.0952.4.vec.extract
   %340 = fpext float %339 to double
-  %341 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %342 = load ptr, ptr %341, align 8, !tbaa !255
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.250, double noundef %333, double noundef %334, double noundef %335, double noundef %336, double noundef %338, double noundef %340, ptr noundef %342)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -72425,13 +72390,13 @@ _ZN5ImGui8SameLineEff.exit575:                    ; preds = %343, %352
   %392 = phi i32 [ %384, %.lr.ph1001 ], [ %709, %708 ]
   %indvars.iv1101 = phi i64 [ 0, %.lr.ph1001 ], [ %indvars.iv.next1102, %708 ]
   %393 = load ptr, ptr %386, align 8, !tbaa !275
-  %394 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %393, i64 %indvars.iv1101
+  %394 = getelementptr inbounds nuw [16 x i8], ptr %393, i64 %indvars.iv1101
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 8
   %396 = load i32, ptr %395, align 8, !tbaa !205
   %397 = icmp eq i32 %396, -1
   %398 = load ptr, ptr %387, align 8
   %399 = sext i32 %396 to i64
-  %400 = getelementptr inbounds %struct.ImGuiTable, ptr %398, i64 %399
+  %400 = getelementptr inbounds [592 x i8], ptr %398, i64 %399
   %401 = icmp eq ptr %398, null
   %402 = select i1 %397, i1 true, i1 %401
   br i1 %402, label %708, label %403
@@ -72583,7 +72548,7 @@ _ZN5ImGui8SameLineEff.exit575:                    ; preds = %343, %352
   br i1 %491, label %.lr.ph, label %.loopexit993
 
 .lr.ph:                                           ; preds = %489
-  %492 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv1097
+  %492 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv1097
   br label %493
 
 493:                                              ; preds = %.lr.ph, %_ZN5ImGui13IsItemHoveredEi.exit.thread
@@ -72595,7 +72560,7 @@ _ZN5ImGui8SameLineEff.exit575:                    ; preds = %343, %352
 496:                                              ; preds = %493
   %497 = load ptr, ptr %461, align 8, !tbaa !1372
   %498 = sext i16 %494 to i64
-  %499 = getelementptr %struct.ImGuiTableInstanceData, ptr %497, i64 %498
+  %499 = getelementptr [24 x i8], ptr %497, i64 %498
   %500 = getelementptr i8, ptr %499, i64 -24
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i
 
@@ -72613,7 +72578,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i: ; preds = %493, %496
 
 501:                                              ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i
   %502 = load ptr, ptr %463, align 8, !tbaa !1373
-  %503 = getelementptr inbounds nuw %struct.ImGuiTableColumn, ptr %502, i64 %indvars.iv1094
+  %503 = getelementptr inbounds nuw [116 x i8], ptr %502, i64 %indvars.iv1094
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 8
   %505 = load float, ptr %504, align 4, !tbaa !1374
   %506 = load float, ptr %464, align 4, !tbaa !1376
@@ -72630,7 +72595,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i: ; preds = %493, %496
 
 512:                                              ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i
   %513 = load ptr, ptr %463, align 8, !tbaa !1373
-  %514 = getelementptr inbounds nuw %struct.ImGuiTableColumn, ptr %513, i64 %indvars.iv1094
+  %514 = getelementptr inbounds nuw [116 x i8], ptr %513, i64 %indvars.iv1094
   %515 = getelementptr inbounds nuw i8, ptr %514, i64 56
   %516 = load float, ptr %515, align 4, !tbaa !1379
   %517 = load float, ptr %466, align 4, !tbaa !1380
@@ -72645,7 +72610,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i: ; preds = %493, %496
 
 521:                                              ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i
   %522 = load ptr, ptr %463, align 8, !tbaa !1373
-  %523 = getelementptr inbounds nuw %struct.ImGuiTableColumn, ptr %522, i64 %indvars.iv1094
+  %523 = getelementptr inbounds nuw [116 x i8], ptr %522, i64 %indvars.iv1094
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 36
   %.sroa.0.0.copyload80.i = load <2 x float>, ptr %524, align 4
   %.sroa.21.0..sroa_idx101.i = getelementptr inbounds nuw i8, ptr %523, i64 44
@@ -72654,7 +72619,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i: ; preds = %493, %496
 
 525:                                              ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i
   %526 = load ptr, ptr %463, align 8, !tbaa !1373
-  %527 = getelementptr inbounds nuw %struct.ImGuiTableColumn, ptr %526, i64 %indvars.iv1094
+  %527 = getelementptr inbounds nuw [116 x i8], ptr %526, i64 %indvars.iv1094
   %528 = getelementptr inbounds nuw i8, ptr %527, i64 56
   %529 = load float, ptr %528, align 4, !tbaa !1379
   %530 = load float, ptr %464, align 4, !tbaa !1376
@@ -72671,7 +72636,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i: ; preds = %493, %496
 
 536:                                              ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i
   %537 = load ptr, ptr %463, align 8, !tbaa !1373
-  %538 = getelementptr inbounds nuw %struct.ImGuiTableColumn, ptr %537, i64 %indvars.iv1094
+  %538 = getelementptr inbounds nuw [116 x i8], ptr %537, i64 %indvars.iv1094
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 56
   %540 = load float, ptr %539, align 4, !tbaa !1379
   %541 = load float, ptr %464, align 4, !tbaa !1376
@@ -72688,7 +72653,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i: ; preds = %493, %496
 
 547:                                              ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i
   %548 = load ptr, ptr %463, align 8, !tbaa !1373
-  %549 = getelementptr inbounds nuw %struct.ImGuiTableColumn, ptr %548, i64 %indvars.iv1094
+  %549 = getelementptr inbounds nuw [116 x i8], ptr %548, i64 %indvars.iv1094
   %550 = getelementptr inbounds nuw i8, ptr %549, i64 56
   %551 = load float, ptr %550, align 4, !tbaa !1379
   %552 = load float, ptr %464, align 4, !tbaa !1376
@@ -72705,7 +72670,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i: ; preds = %493, %496
 
 558:                                              ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i
   %559 = load ptr, ptr %463, align 8, !tbaa !1373
-  %560 = getelementptr inbounds nuw %struct.ImGuiTableColumn, ptr %559, i64 %indvars.iv1094
+  %560 = getelementptr inbounds nuw [116 x i8], ptr %559, i64 %indvars.iv1094
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 56
   %562 = load float, ptr %561, align 4, !tbaa !1379
   %563 = load float, ptr %464, align 4, !tbaa !1376
@@ -72976,7 +72941,7 @@ _ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs12GetTableRectEP10ImGuiTableii.exit640: 
   %690 = fpext float %689 to double
   %691 = fsub float %.sroa.9.12.vec.extract923, %.sroa.0909.4.vec.extract
   %692 = fpext float %691 to double
-  %693 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv1097
+  %693 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv1097
   %694 = load ptr, ptr %693, align 8, !tbaa !255
   %695 = call noundef i32 (ptr, i64, ptr, ...) @_Z14ImFormatStringPcmPKcz(ptr noundef nonnull %11, i64 noundef 128, ptr noundef nonnull @.str.250, double noundef %685, double noundef %686, double noundef %687, double noundef %688, double noundef %690, double noundef %692, ptr noundef %694)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -73489,7 +73454,7 @@ _ZL25RenderViewportsThumbnailsv.exit:             ; preds = %870, %846
 952:                                              ; preds = %.lr.ph1032, %_ZN5ImGui5PopIDEv.exit
   %indvars.iv1104 = phi i64 [ 0, %.lr.ph1032 ], [ %indvars.iv.next1105, %_ZN5ImGui5PopIDEv.exit ]
   %953 = load ptr, ptr %950, align 8, !tbaa !275
-  %954 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %953, i64 %indvars.iv1104
+  %954 = getelementptr inbounds nuw [16 x i8], ptr %953, i64 %indvars.iv1104
   %955 = getelementptr inbounds nuw i8, ptr %954, i64 8
   %956 = load i32, ptr %955, align 8, !tbaa !205
   %957 = icmp eq i32 %956, -1
@@ -73500,7 +73465,7 @@ _ZL25RenderViewportsThumbnailsv.exit:             ; preds = %870, %846
 
 959:                                              ; preds = %952
   %960 = sext i32 %956 to i64
-  %961 = getelementptr inbounds %struct.ImGuiTabBar, ptr %958, i64 %960
+  %961 = getelementptr inbounds [168 x i8], ptr %958, i64 %960
   %962 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %963 = getelementptr inbounds nuw i8, ptr %962, i64 4928
   %964 = load ptr, ptr %963, align 8, !tbaa !307
@@ -73560,7 +73525,7 @@ _ZN5ImGui5PopIDEv.exit:                           ; preds = %975, %973, %952
   %990 = phi i32 [ %985, %.lr.ph1035 ], [ %1001, %1000 ]
   %indvars.iv1107 = phi i64 [ 0, %.lr.ph1035 ], [ %indvars.iv.next1108, %1000 ]
   %991 = load ptr, ptr %987, align 8, !tbaa !275
-  %992 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %991, i64 %indvars.iv1107
+  %992 = getelementptr inbounds nuw [16 x i8], ptr %991, i64 %indvars.iv1107
   %993 = getelementptr inbounds nuw i8, ptr %992, i64 8
   %994 = load i32, ptr %993, align 8, !tbaa !205
   %995 = icmp eq i32 %994, -1
@@ -73571,7 +73536,7 @@ _ZN5ImGui5PopIDEv.exit:                           ; preds = %975, %973, %952
 
 997:                                              ; preds = %989
   %998 = sext i32 %994 to i64
-  %999 = getelementptr inbounds %struct.ImGuiTable, ptr %996, i64 %998
+  %999 = getelementptr inbounds [592 x i8], ptr %996, i64 %998
   call void @_ZN5ImGui14DebugNodeTableEP10ImGuiTable(ptr noundef nonnull %999)
   %.pre1155 = load i32, ptr %984, align 8, !tbaa !694
   br label %1000
@@ -73654,7 +73619,7 @@ _ZN5ImGui5PopIDEv.exit:                           ; preds = %975, %973, %952
   %1041 = phi i32 [ %1036, %.lr.ph1039 ], [ %1052, %1051 ]
   %indvars.iv1110 = phi i64 [ 0, %.lr.ph1039 ], [ %indvars.iv.next1111, %1051 ]
   %1042 = load ptr, ptr %1038, align 8, !tbaa !275
-  %1043 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %1042, i64 %indvars.iv1110
+  %1043 = getelementptr inbounds nuw [16 x i8], ptr %1042, i64 %indvars.iv1110
   %1044 = getelementptr inbounds nuw i8, ptr %1043, i64 8
   %1045 = load i32, ptr %1044, align 8, !tbaa !205
   %1046 = icmp eq i32 %1045, -1
@@ -73665,7 +73630,7 @@ _ZN5ImGui5PopIDEv.exit:                           ; preds = %975, %973, %952
 
 1048:                                             ; preds = %1040
   %1049 = sext i32 %1045 to i64
-  %1050 = getelementptr inbounds %struct.ImGuiMultiSelectState, ptr %1047, i64 %1049
+  %1050 = getelementptr inbounds [40 x i8], ptr %1047, i64 %1049
   call void @_ZN5ImGui25DebugNodeMultiSelectStateEP21ImGuiMultiSelectState(ptr noundef nonnull %1050)
   %.pre1156 = load i32, ptr %1035, align 8, !tbaa !1401
   br label %1051
@@ -73703,7 +73668,7 @@ _ZN5ImGui5PopIDEv.exit:                           ; preds = %975, %973, %952
   %1069 = getelementptr inbounds nuw i8, ptr %1060, i64 10016
   %1070 = load i16, ptr %1069, align 8, !tbaa !212
   %1071 = sext i16 %1070 to i64
-  %1072 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1068, i64 %1071
+  %1072 = getelementptr inbounds [8 x i8], ptr %1068, i64 %1071
   %1073 = load i32, ptr %1072, align 4, !tbaa !213
   %.not.i.i.i.i.i = icmp eq i32 %1073, %1067
   br i1 %.not.i.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i.i, label %1075
@@ -73721,7 +73686,7 @@ _ZN5ImGui5PopIDEv.exit:                           ; preds = %975, %973, %952
   %1079 = trunc nsw i32 %1078 to i16
   store i16 %1079, ptr %1069, align 4, !tbaa !212
   %1080 = sext i32 %1078 to i64
-  %1081 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1068, i64 %1080
+  %1081 = getelementptr inbounds [8 x i8], ptr %1068, i64 %1080
   store i32 %1067, ptr %1081, align 4, !tbaa !213
   %1082 = getelementptr inbounds nuw i8, ptr %1081, i64 6
   store i16 0, ptr %1082, align 2, !tbaa !216
@@ -73732,7 +73697,7 @@ _ZN5ImGui5PopIDEv.exit:                           ; preds = %975, %973, %952
 _ZN5ImGui7MemFreeEPv.exit.i.i.i:                  ; preds = %1075, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i.i
   %1084 = phi i16 [ 1, %1075 ], [ %1074, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i.i ]
   %1085 = phi i64 [ %1080, %1075 ], [ %1071, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i.i ]
-  %1086 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1068, i64 %1085
+  %1086 = getelementptr inbounds [8 x i8], ptr %1068, i64 %1085
   %1087 = getelementptr inbounds nuw i8, ptr %1086, i64 6
   store i16 %1084, ptr %1087, align 2, !tbaa !216
   %1088 = getelementptr inbounds nuw i8, ptr %1060, i64 10012
@@ -73835,7 +73800,7 @@ _ZN5ImGui8SameLineEff.exit660:                    ; preds = %_ZN5ImGui16ClearIni
   %1145 = getelementptr inbounds nuw i8, ptr %1139, i64 10016
   %1146 = load i16, ptr %1145, align 8, !tbaa !212
   %1147 = sext i16 %1146 to i64
-  %1148 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1144, i64 %1147
+  %1148 = getelementptr inbounds [8 x i8], ptr %1144, i64 %1147
   %1149 = load i32, ptr %1148, align 4, !tbaa !213
   %.not.i.i.i879 = icmp eq i32 %1149, %1143
   br i1 %.not.i.i.i879, label %._crit_edge1157, label %1151
@@ -73853,7 +73818,7 @@ _ZN5ImGui8SameLineEff.exit660:                    ; preds = %_ZN5ImGui16ClearIni
   %1155 = trunc nsw i32 %1154 to i16
   store i16 %1155, ptr %1145, align 4, !tbaa !212
   %1156 = sext i32 %1154 to i64
-  %1157 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1144, i64 %1156
+  %1157 = getelementptr inbounds [8 x i8], ptr %1144, i64 %1156
   store i32 %1143, ptr %1157, align 4, !tbaa !213
   %1158 = getelementptr inbounds nuw i8, ptr %1157, i64 6
   store i16 0, ptr %1158, align 2, !tbaa !216
@@ -73864,7 +73829,7 @@ _ZN5ImGui8SameLineEff.exit660:                    ; preds = %_ZN5ImGui16ClearIni
 1160:                                             ; preds = %._crit_edge1157, %1151
   %1161 = phi i16 [ 1, %1151 ], [ %1150, %._crit_edge1157 ]
   %1162 = phi i64 [ %1156, %1151 ], [ %1147, %._crit_edge1157 ]
-  %1163 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1144, i64 %1162
+  %1163 = getelementptr inbounds [8 x i8], ptr %1144, i64 %1162
   %1164 = getelementptr inbounds nuw i8, ptr %1163, i64 4
   store i16 %1161, ptr %1164, align 4, !tbaa !215
   %1165 = load i32, ptr %1141, align 4, !tbaa !217
@@ -73898,7 +73863,7 @@ _ZN5ImGui8MemAllocEm.exit.i881:                   ; preds = %1160, %1135
   %1179 = getelementptr inbounds nuw i8, ptr %1174, i64 10016
   %1180 = load i16, ptr %1179, align 8, !tbaa !212
   %1181 = sext i16 %1180 to i64
-  %1182 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1178, i64 %1181
+  %1182 = getelementptr inbounds [8 x i8], ptr %1178, i64 %1181
   %1183 = load i32, ptr %1182, align 4, !tbaa !213
   %.not.i.i8.i885 = icmp eq i32 %1183, %1177
   br i1 %.not.i.i8.i885, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i888, label %1185
@@ -73916,7 +73881,7 @@ _ZN5ImGui8MemAllocEm.exit.i881:                   ; preds = %1160, %1135
   %1189 = trunc nsw i32 %1188 to i16
   store i16 %1189, ptr %1179, align 4, !tbaa !212
   %1190 = sext i32 %1188 to i64
-  %1191 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1178, i64 %1190
+  %1191 = getelementptr inbounds [8 x i8], ptr %1178, i64 %1190
   store i32 %1177, ptr %1191, align 4, !tbaa !213
   %1192 = getelementptr inbounds nuw i8, ptr %1191, i64 6
   store i16 0, ptr %1192, align 2, !tbaa !216
@@ -73927,7 +73892,7 @@ _ZN5ImGui8MemAllocEm.exit.i881:                   ; preds = %1160, %1135
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i886: ; preds = %1185, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i888
   %1194 = phi i16 [ 1, %1185 ], [ %1184, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i888 ]
   %1195 = phi i64 [ %1190, %1185 ], [ %1181, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i888 ]
-  %1196 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1178, i64 %1195
+  %1196 = getelementptr inbounds [8 x i8], ptr %1178, i64 %1195
   %1197 = getelementptr inbounds nuw i8, ptr %1196, i64 6
   store i16 %1194, ptr %1197, align 2, !tbaa !216
   %1198 = getelementptr inbounds nuw i8, ptr %1174, i64 10012
@@ -73969,7 +73934,7 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i:      ; preds = %_ZN8ImVectorIcE6res
   %1213 = getelementptr inbounds nuw i8, ptr %1207, i64 10016
   %1214 = load i16, ptr %1213, align 8, !tbaa !212
   %1215 = sext i16 %1214 to i64
-  %1216 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1212, i64 %1215
+  %1216 = getelementptr inbounds [8 x i8], ptr %1212, i64 %1215
   %1217 = load i32, ptr %1216, align 4, !tbaa !213
   %.not.i.i.i874 = icmp eq i32 %1217, %1211
   br i1 %.not.i.i.i874, label %._crit_edge1160, label %1219
@@ -73987,7 +73952,7 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i:      ; preds = %_ZN8ImVectorIcE6res
   %1223 = trunc nsw i32 %1222 to i16
   store i16 %1223, ptr %1213, align 4, !tbaa !212
   %1224 = sext i32 %1222 to i64
-  %1225 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1212, i64 %1224
+  %1225 = getelementptr inbounds [8 x i8], ptr %1212, i64 %1224
   store i32 %1211, ptr %1225, align 4, !tbaa !213
   %1226 = getelementptr inbounds nuw i8, ptr %1225, i64 6
   store i16 0, ptr %1226, align 2, !tbaa !216
@@ -73998,7 +73963,7 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i.i:      ; preds = %_ZN8ImVectorIcE6res
 1228:                                             ; preds = %._crit_edge1160, %1219
   %1229 = phi i16 [ 1, %1219 ], [ %1218, %._crit_edge1160 ]
   %1230 = phi i64 [ %1224, %1219 ], [ %1215, %._crit_edge1160 ]
-  %1231 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1212, i64 %1230
+  %1231 = getelementptr inbounds [8 x i8], ptr %1212, i64 %1230
   %1232 = getelementptr inbounds nuw i8, ptr %1231, i64 4
   store i16 %1229, ptr %1232, align 4, !tbaa !215
   %1233 = load i32, ptr %1209, align 4, !tbaa !217
@@ -74032,7 +73997,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %1228, %_ZNK8ImVecto
   %1247 = getelementptr inbounds nuw i8, ptr %1242, i64 10016
   %1248 = load i16, ptr %1247, align 8, !tbaa !212
   %1249 = sext i16 %1248 to i64
-  %1250 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1246, i64 %1249
+  %1250 = getelementptr inbounds [8 x i8], ptr %1246, i64 %1249
   %1251 = load i32, ptr %1250, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %1251, %1245
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %1253
@@ -74050,7 +74015,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %1228, %_ZNK8ImVecto
   %1257 = trunc nsw i32 %1256 to i16
   store i16 %1257, ptr %1247, align 4, !tbaa !212
   %1258 = sext i32 %1256 to i64
-  %1259 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1246, i64 %1258
+  %1259 = getelementptr inbounds [8 x i8], ptr %1246, i64 %1258
   store i32 %1245, ptr %1259, align 4, !tbaa !213
   %1260 = getelementptr inbounds nuw i8, ptr %1259, i64 6
   store i16 0, ptr %1260, align 2, !tbaa !216
@@ -74061,7 +74026,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %1228, %_ZNK8ImVecto
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %1253, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %1262 = phi i16 [ 1, %1253 ], [ %1252, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %1263 = phi i64 [ %1258, %1253 ], [ %1249, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %1264 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1246, i64 %1263
+  %1264 = getelementptr inbounds [8 x i8], ptr %1246, i64 %1263
   %1265 = getelementptr inbounds nuw i8, ptr %1264, i64 6
   store i16 %1262, ptr %1265, align 2, !tbaa !216
   %1266 = getelementptr inbounds nuw i8, ptr %1242, i64 10012
@@ -74376,7 +74341,7 @@ select.unfold964:                                 ; preds = %select.unfold964.pr
   %1431 = add i32 %reass.sub, 6
   %1432 = srem i32 %1431, 6
   %1433 = sext i32 %1432 to i64
-  %1434 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1421, i64 %1433
+  %1434 = getelementptr inbounds [8 x i8], ptr %1421, i64 %1433
   %1435 = load i32, ptr %1434, align 4, !tbaa !213
   %1436 = getelementptr inbounds nuw i8, ptr %1434, i64 4
   %1437 = load i16, ptr %1436, align 4, !tbaa !215
@@ -74459,14 +74424,14 @@ select.unfold964:                                 ; preds = %select.unfold964.pr
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i.i:         ; preds = %1471, %_ZN5ImGui9IsKeyDownE8ImGuiKey.exit.thread967
   %1489 = phi ptr [ %.pre1165, %1471 ], [ %1551, %_ZN5ImGui9IsKeyDownE8ImGuiKey.exit.thread967 ]
   %indvars.iv1113 = phi i64 [ 512, %1471 ], [ %indvars.iv.next1114, %_ZN5ImGui9IsKeyDownE8ImGuiKey.exit.thread967 ]
-  %1490 = getelementptr %struct.ImGuiKeyData, ptr %1489, i64 %indvars.iv1113
+  %1490 = getelementptr [16 x i8], ptr %1489, i64 %indvars.iv1113
   %1491 = getelementptr i8, ptr %1490, i64 -7932
   %1492 = load i8, ptr %1491, align 4, !tbaa !223, !range !91, !noundef !220
   %1493 = trunc nuw i8 %1492 to i1
   br i1 %1493, label %_ZN5ImGui9IsKeyDownE8ImGuiKey.exit, label %_ZN5ImGui9IsKeyDownE8ImGuiKey.exit.thread967
 
 _ZN5ImGui9IsKeyDownE8ImGuiKey.exit:               ; preds = %_ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i.i
-  %1494 = getelementptr %struct.ImGuiKeyOwnerData, ptr %1489, i64 %indvars.iv1113
+  %1494 = getelementptr [12 x i8], ptr %1489, i64 %indvars.iv1113
   %1495 = getelementptr i8, ptr %1494, i64 -980
   %1496 = load i8, ptr %1495, align 4, !tbaa !566, !range !91, !noundef !220
   %1497 = icmp eq i8 %1496, 0
@@ -74505,7 +74470,7 @@ _ZN5ImGui9IsKeyDownE8ImGuiKey.exit.thread:        ; preds = %_ZN5ImGui9IsKeyDown
   br label %_ZN5ImGui10GetKeyNameE8ImGuiKey.exit
 
 _ZN5ImGui10GetKeyNameE8ImGuiKey.exit:             ; preds = %_ZN5ImGui9IsKeyDownE8ImGuiKey.exit.thread, %1503
-  %1520 = getelementptr ptr, ptr @_ZL9GKeyNames, i64 %indvars.iv1113
+  %1520 = getelementptr [8 x i8], ptr @_ZL9GKeyNames, i64 %indvars.iv1113
   %1521 = getelementptr i8, ptr %1520, i64 -4096
   %1522 = load ptr, ptr %1521, align 8, !tbaa !255
   %1523 = trunc nuw nsw i64 %indvars.iv1113 to i32
@@ -74543,7 +74508,7 @@ _ZN5ImGui10GetKeyNameE8ImGuiKey.exit:             ; preds = %_ZN5ImGui9IsKeyDown
   br label %_ZN5ImGui10GetKeyDataE8ImGuiKey.exit
 
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit:             ; preds = %1530, %_ZN5ImGui10GetKeyNameE8ImGuiKey.exit
-  %1547 = getelementptr %struct.ImGuiKeyData, ptr %1524, i64 %indvars.iv1113
+  %1547 = getelementptr [16 x i8], ptr %1524, i64 %indvars.iv1113
   %1548 = getelementptr i8, ptr %1547, i64 -7928
   %1549 = load float, ptr %1548, align 4, !tbaa !89
   %1550 = fpext float %1549 to double
@@ -74602,7 +74567,7 @@ _ZN5ImGui9IsKeyDownE8ImGuiKey.exit.thread967:     ; preds = %_ZN5ImGui10GetKeyDa
   br label %_ZN5ImGui10GetKeyNameE8ImGuiKey.exit692
 
 _ZN5ImGui10GetKeyNameE8ImGuiKey.exit692:          ; preds = %1556, %1563
-  %1580 = getelementptr ptr, ptr @_ZL9GKeyNames, i64 %indvars.iv1117
+  %1580 = getelementptr [8 x i8], ptr @_ZL9GKeyNames, i64 %indvars.iv1117
   %1581 = getelementptr i8, ptr %1580, i64 -4096
   %1582 = load ptr, ptr %1581, align 8, !tbaa !255
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.297, ptr noundef %1582, i32 noundef %1554)
@@ -74644,7 +74609,7 @@ _ZN5ImGui10GetKeyNameE8ImGuiKey.exit692:          ; preds = %1556, %1563
 _ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i.i695:      ; preds = %1552, %_ZN5ImGui13IsKeyReleasedE8ImGuiKey.exit.thread971
   %1605 = phi ptr [ %.pre1167, %1552 ], [ %1644, %_ZN5ImGui13IsKeyReleasedE8ImGuiKey.exit.thread971 ]
   %indvars.iv1121 = phi i64 [ 512, %1552 ], [ %indvars.iv.next1122, %_ZN5ImGui13IsKeyReleasedE8ImGuiKey.exit.thread971 ]
-  %1606 = getelementptr %struct.ImGuiKeyData, ptr %1605, i64 %indvars.iv1121
+  %1606 = getelementptr [16 x i8], ptr %1605, i64 %indvars.iv1121
   %1607 = getelementptr i8, ptr %1606, i64 -7924
   %1608 = load float, ptr %1607, align 4, !tbaa !87
   %1609 = fcmp olt float %1608, 0.000000e+00
@@ -74657,7 +74622,7 @@ _ZN5ImGui10GetKeyDataE8ImGuiKey.exit.i.i695:      ; preds = %1552, %_ZN5ImGui13I
   br i1 %1613, label %_ZN5ImGui13IsKeyReleasedE8ImGuiKey.exit.thread971, label %_ZN5ImGui13IsKeyReleasedE8ImGuiKey.exit
 
 _ZN5ImGui13IsKeyReleasedE8ImGuiKey.exit:          ; preds = %1610
-  %1614 = getelementptr %struct.ImGuiKeyOwnerData, ptr %1605, i64 %indvars.iv1121
+  %1614 = getelementptr [12 x i8], ptr %1605, i64 %indvars.iv1121
   %1615 = getelementptr i8, ptr %1614, i64 -980
   %1616 = load i8, ptr %1615, align 4, !tbaa !566, !range !91, !noundef !220
   %1617 = icmp eq i8 %1616, 0
@@ -74696,7 +74661,7 @@ _ZN5ImGui13IsKeyReleasedE8ImGuiKey.exit.thread:   ; preds = %_ZN5ImGui13IsKeyRel
   br label %_ZN5ImGui10GetKeyNameE8ImGuiKey.exit714
 
 _ZN5ImGui10GetKeyNameE8ImGuiKey.exit714:          ; preds = %_ZN5ImGui13IsKeyReleasedE8ImGuiKey.exit.thread, %1623
-  %1640 = getelementptr ptr, ptr @_ZL9GKeyNames, i64 %indvars.iv1121
+  %1640 = getelementptr [8 x i8], ptr @_ZL9GKeyNames, i64 %indvars.iv1121
   %1641 = getelementptr i8, ptr %1640, i64 -4096
   %1642 = load ptr, ptr %1641, align 8, !tbaa !255
   %1643 = trunc nuw nsw i64 %indvars.iv1121 to i32
@@ -74770,7 +74735,7 @@ _ZN5ImGui13IsKeyReleasedE8ImGuiKey.exit.thread971: ; preds = %_ZN5ImGui10GetKeyD
 1687:                                             ; preds = %.lr.ph1060, %_ZN5ImGui8SameLineEff.exit716
   %indvars.iv1125 = phi i64 [ 0, %.lr.ph1060 ], [ %indvars.iv.next1126, %_ZN5ImGui8SameLineEff.exit716 ]
   %1688 = load ptr, ptr %1604, align 8, !tbaa !226
-  %1689 = getelementptr inbounds nuw i16, ptr %1688, i64 %indvars.iv1125
+  %1689 = getelementptr inbounds nuw [2 x i8], ptr %1688, i64 %indvars.iv1125
   %1690 = load i16, ptr %1689, align 2, !tbaa !247
   %1691 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %1692 = getelementptr inbounds nuw i8, ptr %1691, i64 4928
@@ -74861,7 +74826,7 @@ _ZN5ImGui8SameLineEff.exit716:                    ; preds = %1687, %1697
   br i1 %1744, label %_ZN5ImGui11IsMouseDownEi.exit, label %_ZN5ImGui11IsMouseDownEi.exit.thread
 
 _ZN5ImGui11IsMouseDownEi.exit:                    ; preds = %1739
-  %1745 = getelementptr %struct.ImGuiKeyOwnerData, ptr %1740, i64 %indvars.iv1128
+  %1745 = getelementptr [12 x i8], ptr %1740, i64 %indvars.iv1128
   %1746 = getelementptr i8, ptr %1745, i64 6880
   %1747 = load i8, ptr %1746, align 4, !tbaa !566, !range !91, !noundef !220
   %1748 = icmp eq i8 %1747, 0
@@ -74900,7 +74865,7 @@ _ZN5ImGui11IsMouseDownEi.exit:                    ; preds = %1739
   br label %_ZN5ImGui8SameLineEff.exit719
 
 _ZN5ImGui8SameLineEff.exit719:                    ; preds = %1749, %1755
-  %1772 = getelementptr inbounds nuw float, ptr %1736, i64 %indvars.iv1128
+  %1772 = getelementptr inbounds nuw [4 x i8], ptr %1736, i64 %indvars.iv1128
   %1773 = load float, ptr %1772, align 4, !tbaa !81
   %1774 = fpext float %1773 to double
   %1775 = trunc nuw nsw i64 %indvars.iv1128 to i32
@@ -74930,13 +74895,13 @@ _ZN5ImGui11IsMouseDownEi.exit.thread:             ; preds = %1739, %_ZN5ImGui11I
 
 1784:                                             ; preds = %1778
   %1785 = getelementptr inbounds nuw i8, ptr %1779, i64 2864
-  %1786 = getelementptr inbounds nuw float, ptr %1785, i64 %indvars.iv1132
+  %1786 = getelementptr inbounds nuw [4 x i8], ptr %1785, i64 %indvars.iv1132
   %1787 = load float, ptr %1786, align 4, !tbaa !81
   %1788 = fcmp oeq float %1787, 0.000000e+00
   br i1 %1788, label %_ZN5ImGui14IsMouseClickedEiij.exit, label %_ZN5ImGui14IsMouseClickedEiij.exit.thread
 
 _ZN5ImGui14IsMouseClickedEiij.exit:               ; preds = %1784
-  %1789 = getelementptr %struct.ImGuiKeyOwnerData, ptr %1779, i64 %indvars.iv1132
+  %1789 = getelementptr [12 x i8], ptr %1779, i64 %indvars.iv1132
   %1790 = getelementptr i8, ptr %1789, i64 6880
   %1791 = load i8, ptr %1790, align 4, !tbaa !566, !range !91, !noundef !220
   %1792 = icmp eq i8 %1791, 0
@@ -74975,7 +74940,7 @@ _ZN5ImGui14IsMouseClickedEiij.exit:               ; preds = %1784
   br label %_ZN5ImGui8SameLineEff.exit720
 
 _ZN5ImGui8SameLineEff.exit720:                    ; preds = %1793, %1799
-  %1816 = getelementptr inbounds nuw i16, ptr %1738, i64 %indvars.iv1132
+  %1816 = getelementptr inbounds nuw [2 x i8], ptr %1738, i64 %indvars.iv1132
   %1817 = load i16, ptr %1816, align 2, !tbaa !247
   %1818 = zext i16 %1817 to i32
   %1819 = trunc nuw nsw i64 %indvars.iv1132 to i32
@@ -75001,7 +74966,7 @@ _ZN5ImGui14IsMouseClickedEiij.exit.thread:        ; preds = %1784, %1778, %_ZN5I
   %1828 = getelementptr inbounds nuw i8, ptr %27, i64 248
   %1829 = load i32, ptr %1828, align 8, !tbaa !969
   %1830 = sext i32 %1829 to i64
-  %1831 = getelementptr inbounds ptr, ptr @__const._ZL18GetMouseSourceName16ImGuiMouseSource.mouse_source_names, i64 %1830
+  %1831 = getelementptr inbounds [8 x i8], ptr @__const._ZL18GetMouseSourceName16ImGuiMouseSource.mouse_source_names, i64 %1830
   %1832 = load ptr, ptr %1831, align 8, !tbaa !255
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.341, ptr noundef %1832)
   %1833 = getelementptr inbounds nuw i8, ptr %27, i64 2924
@@ -75062,7 +75027,7 @@ _ZN5ImGui14IsMouseClickedEiij.exit.thread:        ; preds = %1784, %1778, %_ZN5I
   br i1 %1875, label %_ZN5ImGui15IsMouseReleasedEi.exit, label %_ZN5ImGui15IsMouseReleasedEi.exit.thread
 
 _ZN5ImGui15IsMouseReleasedEi.exit:                ; preds = %1870
-  %1876 = getelementptr %struct.ImGuiKeyOwnerData, ptr %1871, i64 %indvars.iv1136
+  %1876 = getelementptr [12 x i8], ptr %1871, i64 %indvars.iv1136
   %1877 = getelementptr i8, ptr %1876, i64 6880
   %1878 = load i8, ptr %1877, align 4, !tbaa !566, !range !91, !noundef !220
   %1879 = icmp eq i8 %1878, 0
@@ -75190,14 +75155,14 @@ _ZN5ImGui15IsMouseReleasedEi.exit.thread:         ; preds = %1870, %_ZN5ImGui15I
 
 _ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.thread: ; preds = %1908, %1981
   %indvars.iv1140 = phi i64 [ %indvars.iv.next1141, %1981 ], [ 512, %1908 ]
-  %1963 = getelementptr %struct.ImGuiKeyOwnerData, ptr %27, i64 %indvars.iv1140
+  %1963 = getelementptr [12 x i8], ptr %27, i64 %indvars.iv1140
   %1964 = getelementptr i8, ptr %1963, i64 -988
   %1965 = load i32, ptr %1964, align 4, !tbaa !564
   %1966 = icmp eq i32 %1965, -1
   br i1 %1966, label %1981, label %_ZN5ImGui10GetKeyNameE8ImGuiKey.exit751
 
 _ZN5ImGui10GetKeyNameE8ImGuiKey.exit751:          ; preds = %_ZN5ImGui15GetKeyOwnerDataEP12ImGuiContext8ImGuiKey.exit.thread
-  %1967 = getelementptr ptr, ptr @_ZL9GKeyNames, i64 %indvars.iv1140
+  %1967 = getelementptr [8 x i8], ptr @_ZL9GKeyNames, i64 %indvars.iv1140
   %1968 = getelementptr i8, ptr %1967, i64 -4096
   %1969 = load ptr, ptr %1968, align 8, !tbaa !255
   %1970 = getelementptr i8, ptr %1963, i64 -979
@@ -75321,7 +75286,7 @@ _ZN5ImGui8SameLineEff.exit752:                    ; preds = %.loopexit990, %2004
 
 2048:                                             ; preds = %.preheader987, %._crit_edge1072
   %indvars.iv1144 = phi i64 [ 512, %.preheader987 ], [ %indvars.iv.next1145, %._crit_edge1072 ]
-  %2049 = getelementptr i16, ptr %27, i64 %indvars.iv1144
+  %2049 = getelementptr [2 x i8], ptr %27, i64 %indvars.iv1144
   %2050 = getelementptr i8, ptr %2049, i64 5984
   %.04671067 = load i16, ptr %2050, align 2, !tbaa !247
   %.not5311068 = icmp eq i16 %.04671067, -1
@@ -75340,7 +75305,7 @@ _ZN5ImGui8SameLineEff.exit752:                    ; preds = %.loopexit990, %2004
   %.04671069 = phi i16 [ %.0467, %2167 ], [ %.04671067, %.lr.ph1071.preheader ]
   %2052 = load ptr, ptr %2045, align 8, !tbaa !663
   %2053 = sext i16 %.04671069 to i64
-  %2054 = getelementptr inbounds %struct.ImGuiKeyRoutingData, ptr %2052, i64 %2053
+  %2054 = getelementptr inbounds [16 x i8], ptr %2052, i64 %2053
   %2055 = getelementptr inbounds nuw i8, ptr %2054, i64 2
   %2056 = load i16, ptr %2055, align 2, !tbaa !910
   %2057 = zext i16 %2056 to i32
@@ -75365,7 +75330,7 @@ _ZN5ImGui8SameLineEff.exit752:                    ; preds = %.loopexit990, %2004
 
 switch.lookup:                                    ; preds = %2064
   %2067 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5ImGui17ShowMetricsWindowEPb, i64 %2067
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5ImGui17ShowMetricsWindowEPb, i64 %2067
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL17GetModForLRModKey8ImGuiKey.exit.i
 
@@ -75405,7 +75370,7 @@ _ZL17GetModForLRModKey8ImGuiKey.exit.i:           ; preds = %2064, %switch.looku
 
 2087:                                             ; preds = %2084
   %2088 = zext nneg i32 %2060 to i64
-  %2089 = getelementptr ptr, ptr @_ZL9GKeyNames, i64 %2088
+  %2089 = getelementptr [8 x i8], ptr @_ZL9GKeyNames, i64 %2088
   %2090 = getelementptr i8, ptr %2089, i64 -4096
   %2091 = load ptr, ptr %2090, align 8, !tbaa !255
   br label %_ZN5ImGui10GetKeyNameE8ImGuiKey.exit.i
@@ -75712,7 +75677,7 @@ _ZN5ImGui8SameLineEff.exit760:                    ; preds = %2141, %2148
   %2279 = getelementptr inbounds nuw i8, ptr %27, i64 5080
   %2280 = load i32, ptr %2279, align 8, !tbaa !592
   %2281 = zext i32 %2280 to i64
-  %2282 = getelementptr inbounds nuw ptr, ptr @__const._ZL18GetInputSourceName16ImGuiInputSource.input_source_names, i64 %2281
+  %2282 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL18GetInputSourceName16ImGuiInputSource.input_source_names, i64 %2281
   %2283 = load ptr, ptr %2282, align 8, !tbaa !255
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.368, i32 noundef %2270, i32 noundef %2272, double noundef %2275, i32 noundef %2278, ptr noundef %2283)
   %2284 = load i32, ptr %2269, align 4, !tbaa !748
@@ -75827,7 +75792,7 @@ _ZN5ImGui8SameLineEff.exit760:                    ; preds = %2141, %2148
   %2366 = getelementptr inbounds nuw i8, ptr %27, i64 7864
   %2367 = load i32, ptr %2366, align 8, !tbaa !604
   %2368 = zext i32 %2367 to i64
-  %2369 = getelementptr inbounds nuw ptr, ptr @__const._ZL18GetInputSourceName16ImGuiInputSource.input_source_names, i64 %2368
+  %2369 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZL18GetInputSourceName16ImGuiInputSource.input_source_names, i64 %2368
   %2370 = load ptr, ptr %2369, align 8, !tbaa !255
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.377, ptr noundef %2370)
   %2371 = getelementptr inbounds nuw i8, ptr %27, i64 7872
@@ -75881,7 +75846,7 @@ _ZN5ImGui8SameLineEff.exit760:                    ; preds = %2141, %2148
   %indvars.iv1148 = phi i64 [ %2399, %.lr.ph1076 ], [ %indvars.iv.next1149, %_Z12ImLowerBoundP16ImGuiStoragePairS0_j.exit.i.i ]
   %indvars.iv.next1149 = add nsw i64 %indvars.iv1148, -1
   %2403 = load ptr, ptr %2398, align 8, !tbaa !661
-  %2404 = getelementptr inbounds nuw %struct.ImGuiFocusScopeData, ptr %2403, i64 %indvars.iv.next1149
+  %2404 = getelementptr inbounds nuw [8 x i8], ptr %2403, i64 %indvars.iv.next1149
   %2405 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %2406 = getelementptr inbounds nuw i8, ptr %2405, i64 4928
   %2407 = load ptr, ptr %2406, align 8, !tbaa !307
@@ -75932,7 +75897,7 @@ _ZN5ImGui8SameLineEff.exit761:                    ; preds = %2402, %2411
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i762 ], [ %2432, %_ZN5ImGui8SameLineEff.exit761 ]
   %.01316.i.i.i = phi i64 [ %.114.i.i.i, %.lr.ph.i.i.i762 ], [ %2434, %_ZN5ImGui8SameLineEff.exit761 ]
   %2436 = lshr i64 %.01316.i.i.i, 1
-  %2437 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i.i, i64 %2436
+  %2437 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i, i64 %2436
   %2438 = load i32, ptr %2437, align 8, !tbaa !270
   %2439 = icmp ult i32 %2438, %2428
   %2440 = getelementptr inbounds nuw i8, ptr %2437, i64 16
@@ -76231,13 +76196,13 @@ _ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs13GetWindowRectEP11ImGuiWindowi.exit813:
 2584:                                             ; preds = %.lr.ph1085, %.loopexit
   %indvars.iv1151 = phi i64 [ 0, %.lr.ph1085 ], [ %indvars.iv.next1152, %.loopexit ]
   %2585 = load ptr, ptr %2579, align 8, !tbaa !275
-  %2586 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %2585, i64 %indvars.iv1151
+  %2586 = getelementptr inbounds nuw [16 x i8], ptr %2585, i64 %indvars.iv1151
   %2587 = getelementptr inbounds nuw i8, ptr %2586, i64 8
   %2588 = load i32, ptr %2587, align 8, !tbaa !205
   %2589 = icmp eq i32 %2588, -1
   %2590 = load ptr, ptr %2580, align 8
   %2591 = sext i32 %2588 to i64
-  %2592 = getelementptr inbounds %struct.ImGuiTable, ptr %2590, i64 %2591
+  %2592 = getelementptr inbounds [592 x i8], ptr %2590, i64 %2591
   %2593 = icmp eq ptr %2590, null
   %2594 = select i1 %2589, i1 true, i1 %2593
   br i1 %2594, label %.loopexit, label %2595
@@ -76298,10 +76263,10 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i817: ; preds = %2601
 
 switch.lookup1239:                                ; preds = %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit.i817
   %2627 = zext nneg i32 %2607 to i64
-  %switch.gep1240 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5ImGui17ShowMetricsWindowEPb.24, i64 %2627
+  %switch.gep1240 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5ImGui17ShowMetricsWindowEPb.24, i64 %2627
   %switch.load1241 = load i64, ptr %switch.gep1240, align 8
   %2628 = zext nneg i32 %2607 to i64
-  %switch.gep1242 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5ImGui17ShowMetricsWindowEPb.25, i64 %2628
+  %switch.gep1242 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5ImGui17ShowMetricsWindowEPb.25, i64 %2628
   %switch.load1243 = load i64, ptr %switch.gep1242, align 8
   %2629 = getelementptr inbounds nuw i8, ptr %2592, i64 %switch.load1241
   %.sroa.0.0.copyload.i865 = load <2 x float>, ptr %2629, align 8
@@ -76418,7 +76383,7 @@ define dso_local void @_ZN5ImGui18ShowDebugLogWindowEPb(ptr noundef writeonly ca
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 10016
   %44 = load i16, ptr %43, align 8, !tbaa !212
   %45 = sext i16 %44 to i64
-  %46 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %42, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %42, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %47, %41
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %49
@@ -76436,7 +76401,7 @@ define dso_local void @_ZN5ImGui18ShowDebugLogWindowEPb(ptr noundef writeonly ca
   %53 = trunc nsw i32 %52 to i16
   store i16 %53, ptr %43, align 4, !tbaa !212
   %54 = sext i32 %52 to i64
-  %55 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %42, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %42, i64 %54
   store i32 %41, ptr %55, align 4, !tbaa !213
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 6
   store i16 0, ptr %56, align 2, !tbaa !216
@@ -76447,7 +76412,7 @@ define dso_local void @_ZN5ImGui18ShowDebugLogWindowEPb(ptr noundef writeonly ca
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %49, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %58 = phi i16 [ 1, %49 ], [ %48, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %59 = phi i64 [ %54, %49 ], [ %45, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %60 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %42, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %42, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 6
   store i16 %58, ptr %61, align 2, !tbaa !216
   %62 = getelementptr inbounds nuw i8, ptr %38, i64 10012
@@ -76485,7 +76450,7 @@ _ZN15ImGuiTextBuffer5clearEv.exit:                ; preds = %32, %_ZN5ImGui7MemF
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 10016
   %78 = load i16, ptr %77, align 8, !tbaa !212
   %79 = sext i16 %78 to i64
-  %80 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %76, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %76, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !213
   %.not.i.i.i.i29 = icmp eq i32 %81, %75
   br i1 %.not.i.i.i.i29, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i32, label %83
@@ -76503,7 +76468,7 @@ _ZN15ImGuiTextBuffer5clearEv.exit:                ; preds = %32, %_ZN5ImGui7MemF
   %87 = trunc nsw i32 %86 to i16
   store i16 %87, ptr %77, align 4, !tbaa !212
   %88 = sext i32 %86 to i64
-  %89 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %76, i64 %88
+  %89 = getelementptr inbounds [8 x i8], ptr %76, i64 %88
   store i32 %75, ptr %89, align 4, !tbaa !213
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 6
   store i16 0, ptr %90, align 2, !tbaa !216
@@ -76514,7 +76479,7 @@ _ZN15ImGuiTextBuffer5clearEv.exit:                ; preds = %32, %_ZN5ImGui7MemF
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i30: ; preds = %83, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i32
   %92 = phi i16 [ 1, %83 ], [ %82, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i32 ]
   %93 = phi i64 [ %88, %83 ], [ %79, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i32 ]
-  %94 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %76, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %76, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 6
   store i16 %92, ptr %95, align 2, !tbaa !216
   %96 = getelementptr inbounds nuw i8, ptr %72, i64 10012
@@ -76690,7 +76655,7 @@ _ZN5ImGui13BeginDisabledEb.exit:                  ; preds = %161, %167
   %194 = getelementptr inbounds nuw i8, ptr %180, i64 7704
   %195 = load ptr, ptr %194, align 8, !tbaa !303
   %196 = sext i32 %193 to i64
-  %197 = getelementptr i32, ptr %195, i64 %196
+  %197 = getelementptr [4 x i8], ptr %195, i64 %196
   %198 = getelementptr i8, ptr %197, i64 -4
   %199 = load i32, ptr %198, align 4, !tbaa !221
   store i32 %199, ptr %188, align 8, !tbaa !602
@@ -76814,7 +76779,7 @@ _ZN5ImGui8EndPopupEv.exit:                        ; preds = %_ZN5ImGui25NavMoveR
   %.not.i40 = icmp eq ptr %251, null
   %spec.select.i41 = select i1 %.not.i40, ptr @_ZN15ImGuiTextBuffer11EmptyStringE, ptr %251
   %252 = load ptr, ptr %241, align 8, !tbaa !303
-  %253 = getelementptr inbounds i32, ptr %252, i64 %indvars.iv
+  %253 = getelementptr inbounds [4 x i8], ptr %252, i64 %indvars.iv
   %254 = load i32, ptr %253, align 4, !tbaa !221
   %255 = sext i32 %254 to i64
   %256 = getelementptr inbounds i8, ptr %spec.select.i41, i64 %255
@@ -76825,7 +76790,7 @@ _ZN5ImGui8EndPopupEv.exit:                        ; preds = %_ZN5ImGui25NavMoveR
   br i1 %259, label %260, label %264
 
 260:                                              ; preds = %.lr.ph
-  %261 = getelementptr inbounds i32, ptr %252, i64 %indvars.iv.next
+  %261 = getelementptr inbounds [4 x i8], ptr %252, i64 %indvars.iv.next
   %262 = load i32, ptr %261, align 4, !tbaa !221
   %263 = add nsw i32 %262, -1
   br label %_ZN14ImGuiTextIndex12get_line_endEPKci.exit
@@ -77450,14 +77415,14 @@ _ZN5ImGui16SetClipboardTextEPKc.exit:             ; preds = %113, %107, %109, %1
 185:                                              ; preds = %.lr.ph82, %248
   %indvars.iv85 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next86, %248 ]
   %186 = load ptr, ptr %182, align 8, !tbaa !654
-  %187 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %186, i64 %indvars.iv85
+  %187 = getelementptr inbounds nuw [64 x i8], ptr %186, i64 %indvars.iv85
   %188 = call noundef zeroext i1 @_ZN5ImGui15TableNextColumnEv()
   %.not = icmp eq i64 %indvars.iv85, 0
   br i1 %.not, label %194, label %189
 
 189:                                              ; preds = %185
   %190 = load ptr, ptr %182, align 8, !tbaa !654
-  %191 = getelementptr %struct.ImGuiStackLevelInfo, ptr %190, i64 %indvars.iv85
+  %191 = getelementptr [64 x i8], ptr %190, i64 %indvars.iv85
   %192 = getelementptr i8, ptr %191, i64 -64
   %193 = load i32, ptr %192, align 4, !tbaa !717
   br label %194
@@ -77603,7 +77568,7 @@ define internal fastcc void @_ZL17MetricsHelpMarkerPKc(ptr noundef %0) unnamed_a
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 504
   %23 = load ptr, ptr %22, align 8, !tbaa !658
   %24 = zext nneg i32 %17 to i64
-  %25 = getelementptr float, ptr %23, i64 %24
+  %25 = getelementptr [4 x i8], ptr %23, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -4
   %27 = load float, ptr %26, align 4, !tbaa !81
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 476
@@ -77637,7 +77602,7 @@ define internal fastcc { <2 x float>, <2 x float> } @_ZZN5ImGui17ShowMetricsWind
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %11 = load ptr, ptr %10, align 8, !tbaa !1372
   %12 = sext i16 %5 to i64
-  %13 = getelementptr %struct.ImGuiTableInstanceData, ptr %11, i64 %12
+  %13 = getelementptr [24 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -24
   br label %_ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit
 
@@ -77705,7 +77670,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %7, %9
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !1373
   %30 = sext i32 %2 to i64
-  %31 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %29, i64 %30
+  %31 = getelementptr inbounds [116 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load float, ptr %32, align 4, !tbaa !1374
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 292
@@ -77725,7 +77690,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %7, %9
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !1373
   %44 = sext i32 %2 to i64
-  %45 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %43, i64 %44
+  %45 = getelementptr inbounds [116 x i8], ptr %43, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %47 = load float, ptr %46, align 4, !tbaa !1379
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 276
@@ -77744,7 +77709,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %7, %9
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !1373
   %57 = sext i32 %2 to i64
-  %58 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %56, i64 %57
+  %58 = getelementptr inbounds [116 x i8], ptr %56, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 36
   %.sroa.0.0.copyload80 = load <2 x float>, ptr %59, align 4
   %.sroa.21.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %58, i64 44
@@ -77755,7 +77720,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %7, %9
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !1373
   %63 = sext i32 %2 to i64
-  %64 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %62, i64 %63
+  %64 = getelementptr inbounds [116 x i8], ptr %62, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %66 = load float, ptr %65, align 4, !tbaa !1379
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 292
@@ -77775,7 +77740,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %7, %9
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %76 = load ptr, ptr %75, align 8, !tbaa !1373
   %77 = sext i32 %2 to i64
-  %78 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %76, i64 %77
+  %78 = getelementptr inbounds [116 x i8], ptr %76, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 56
   %80 = load float, ptr %79, align 4, !tbaa !1379
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 292
@@ -77795,7 +77760,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %7, %9
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %90 = load ptr, ptr %89, align 8, !tbaa !1373
   %91 = sext i32 %2 to i64
-  %92 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %90, i64 %91
+  %92 = getelementptr inbounds [116 x i8], ptr %90, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 56
   %94 = load float, ptr %93, align 4, !tbaa !1379
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 292
@@ -77815,7 +77780,7 @@ _ZN5ImGui20TableGetInstanceDataEP10ImGuiTablei.exit: ; preds = %7, %9
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %104 = load ptr, ptr %103, align 8, !tbaa !1373
   %105 = sext i32 %2 to i64
-  %106 = getelementptr inbounds %struct.ImGuiTableColumn, ptr %104, i64 %105
+  %106 = getelementptr inbounds [116 x i8], ptr %104, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %108 = load float, ptr %107, align 4, !tbaa !1379
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 292
@@ -77870,7 +77835,7 @@ define dso_local void @_ZN5ImGui20DebugNodeWindowsListEP8ImVectorIP11ImGuiWindow
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %_ZN5ImGui5PopIDEv.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %13 = load ptr, ptr %9, align 8, !tbaa !522
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.next
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.next
   %15 = load ptr, ptr %14, align 8, !tbaa !664
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 4928
   %17 = load ptr, ptr %16, align 8, !tbaa !307
@@ -77881,7 +77846,7 @@ define dso_local void @_ZN5ImGui20DebugNodeWindowsListEP8ImVectorIP11ImGuiWindow
   call void @_ZN8ImVectorIjE9push_backERKj(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %20 = load ptr, ptr %9, align 8, !tbaa !522
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.next
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.next
   %22 = load ptr, ptr %21, align 8, !tbaa !664
   call void @_ZN5ImGui15DebugNodeWindowEP11ImGuiWindowPKc(ptr noundef %22, ptr noundef nonnull @.str.71)
   %23 = load ptr, ptr @GImGui, align 8, !tbaa !210
@@ -77940,7 +77905,7 @@ define dso_local void @_ZN5ImGui38DebugNodeWindowsListByBeginStackParentEPP11ImG
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %51 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !664
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 904
   %9 = load ptr, ptr %8, align 8, !tbaa !771
@@ -78027,7 +77992,7 @@ define dso_local void @_ZN5ImGui17DebugNodeDrawListEP11ImGuiWindowP14ImGuiViewpo
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !732
   %21 = zext nneg i32 %16 to i64
-  %22 = getelementptr %struct.ImDrawCmd, ptr %20, i64 %21
+  %22 = getelementptr [56 x i8], ptr %20, i64 %21
   %23 = getelementptr i8, ptr %22, i64 -24
   %24 = load i32, ptr %23, align 8, !tbaa !1118
   %25 = icmp eq i32 %24, 0
@@ -78268,7 +78233,7 @@ _ZN5ImGui8SameLineEff.exit:                       ; preds = %46, %50
   %163 = getelementptr inbounds nuw i8, ptr %.0115186, i64 24
   %164 = load i32, ptr %163, align 8, !tbaa !1453
   %165 = zext i32 %164 to i64
-  %166 = getelementptr inbounds nuw %struct.ImDrawVert, ptr %162, i64 %165
+  %166 = getelementptr inbounds nuw [20 x i8], ptr %162, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %.0115186, i64 28
   %168 = load i32, ptr %167, align 4, !tbaa !1454
   %169 = load i32, ptr %122, align 8, !tbaa !1118
@@ -78307,8 +78272,8 @@ _ZN5ImGui8SameLineEff.exit:                       ; preds = %46, %50
   %indvars.iv201 = phi i64 [ %indvars.iv.next202, %.preheader159.split.us ], [ 0, %.preheader159 ]
   %.1125164.us = phi i32 [ %180, %.preheader159.split.us ], [ %.0124169, %.preheader159 ]
   %176 = zext i32 %.1125164.us to i64
-  %177 = getelementptr inbounds nuw %struct.ImDrawVert, ptr %166, i64 %176
-  %178 = getelementptr inbounds nuw %struct.ImVec2, ptr %10, i64 %indvars.iv201
+  %177 = getelementptr inbounds nuw [20 x i8], ptr %166, i64 %176
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv201
   %179 = load i64, ptr %177, align 4
   store i64 %179, ptr %178, align 8
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
@@ -78343,11 +78308,11 @@ _ZN5ImGui8SameLineEff.exit:                       ; preds = %46, %50
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader159.split ], [ 0, %.preheader159 ]
   %.1125164 = phi i32 [ %206, %.preheader159.split ], [ %.0124169, %.preheader159 ]
   %199 = zext i32 %.1125164 to i64
-  %200 = getelementptr inbounds nuw i16, ptr %161, i64 %199
+  %200 = getelementptr inbounds nuw [2 x i8], ptr %161, i64 %199
   %201 = load i16, ptr %200, align 2, !tbaa !247
   %202 = zext i16 %201 to i64
-  %203 = getelementptr inbounds nuw %struct.ImDrawVert, ptr %166, i64 %202
-  %204 = getelementptr inbounds nuw %struct.ImVec2, ptr %10, i64 %indvars.iv
+  %203 = getelementptr inbounds nuw [20 x i8], ptr %166, i64 %202
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %205 = load i64, ptr %203, align 4
   store i64 %205, ptr %204, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -78377,7 +78342,7 @@ _ZN5ImGui8SameLineEff.exit:                       ; preds = %46, %50
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false), !tbaa !81
   %218 = zext i32 %217 to i64
-  %219 = getelementptr inbounds nuw %struct.ImDrawVert, ptr %216, i64 %218
+  %219 = getelementptr inbounds nuw [20 x i8], ptr %216, i64 %218
   br label %_ZN6ImRect3AddERK6ImVec2.exit.us.i.us.preheader
 
 .preheader.us.i:                                  ; preds = %.lr.ph.split.us.i
@@ -78387,7 +78352,7 @@ _ZN5ImGui8SameLineEff.exit:                       ; preds = %46, %50
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false), !tbaa !81
   %223 = zext i32 %222 to i64
-  %224 = getelementptr inbounds nuw %struct.ImDrawVert, ptr %221, i64 %223
+  %224 = getelementptr inbounds nuw [20 x i8], ptr %221, i64 %223
   %.not.us.i = icmp eq ptr %220, null
   br i1 %.not.us.i, label %_ZN6ImRect3AddERK6ImVec2.exit.us.i.us.preheader, label %_ZN6ImRect3AddERK6ImVec2.exit.us.i
 
@@ -78399,8 +78364,8 @@ _ZN6ImRect3AddERK6ImVec2.exit.us.i.us:            ; preds = %_ZN6ImRect3AddERK6I
   %indvars.iv105.i.us = phi i64 [ %indvars.iv.next106.i.us, %_ZN6ImRect3AddERK6ImVec2.exit.us.i.us ], [ 0, %_ZN6ImRect3AddERK6ImVec2.exit.us.i.us.preheader ]
   %.149.us.i.us = phi i32 [ %230, %_ZN6ImRect3AddERK6ImVec2.exit.us.i.us ], [ %.02755.us.i, %_ZN6ImRect3AddERK6ImVec2.exit.us.i.us.preheader ]
   %226 = zext i32 %.149.us.i.us to i64
-  %227 = getelementptr inbounds nuw %struct.ImDrawVert, ptr %225, i64 %226
-  %228 = getelementptr inbounds nuw %struct.ImVec2, ptr %5, i64 %indvars.iv105.i.us
+  %227 = getelementptr inbounds nuw [20 x i8], ptr %225, i64 %226
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv105.i.us
   %229 = load i64, ptr %227, align 4
   store i64 %229, ptr %228, align 8
   %indvars.iv.next106.i.us = add nuw nsw i64 %indvars.iv105.i.us, 1
@@ -78419,11 +78384,11 @@ _ZN6ImRect3AddERK6ImVec2.exit.us.i:               ; preds = %.preheader.us.i, %_
   %indvars.iv105.i = phi i64 [ %indvars.iv.next106.i, %_ZN6ImRect3AddERK6ImVec2.exit.us.i ], [ 0, %.preheader.us.i ]
   %.149.us.i = phi i32 [ %239, %_ZN6ImRect3AddERK6ImVec2.exit.us.i ], [ %.02755.us.i, %.preheader.us.i ]
   %232 = zext i32 %.149.us.i to i64
-  %233 = getelementptr inbounds nuw i16, ptr %220, i64 %232
+  %233 = getelementptr inbounds nuw [2 x i8], ptr %220, i64 %232
   %234 = load i16, ptr %233, align 2, !tbaa !247
   %235 = zext i16 %234 to i64
-  %236 = getelementptr inbounds nuw %struct.ImDrawVert, ptr %224, i64 %235
-  %237 = getelementptr inbounds nuw %struct.ImVec2, ptr %5, i64 %indvars.iv105.i
+  %236 = getelementptr inbounds nuw [20 x i8], ptr %224, i64 %235
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv105.i
   %238 = load i64, ptr %236, align 4
   store i64 %238, ptr %237, align 8
   %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
@@ -78503,7 +78468,7 @@ _ZN5ImGui38DebugNodeDrawCmdShowMeshAndBoundingBoxEP10ImDrawListPKS0_PK9ImDrawCmd
   br i1 %.not144, label %262, label %258
 
 258:                                              ; preds = %.preheader
-  %259 = getelementptr inbounds i16, ptr %161, i64 %indvars.iv207
+  %259 = getelementptr inbounds [2 x i8], ptr %161, i64 %indvars.iv207
   %260 = load i16, ptr %259, align 2, !tbaa !247
   %261 = zext i16 %260 to i64
   br label %262
@@ -78512,8 +78477,8 @@ _ZN5ImGui38DebugNodeDrawCmdShowMeshAndBoundingBoxEP10ImDrawListPKS0_PK9ImDrawCmd
   %263 = phi i64 [ %261, %258 ], [ %indvars.iv207, %.preheader ]
   %sext = shl i64 %263, 32
   %264 = ashr exact i64 %sext, 32
-  %265 = getelementptr inbounds %struct.ImDrawVert, ptr %166, i64 %264
-  %266 = getelementptr inbounds nuw %struct.ImVec2, ptr %13, i64 %indvars.iv205
+  %265 = getelementptr inbounds [20 x i8], ptr %166, i64 %264
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv205
   %267 = load i64, ptr %265, align 4
   store i64 %267, ptr %266, align 8
   %268 = ptrtoint ptr %.0116180 to i64
@@ -78763,7 +78728,7 @@ _ZN16ImGuiListClipperD2Ev.exit:                   ; preds = %388
 393:                                              ; preds = %392, %115
   %394 = getelementptr inbounds nuw i8, ptr %.0115186, i64 56
   %395 = load ptr, ptr %91, align 8, !tbaa !1444
-  %396 = getelementptr inbounds nuw %struct.ImDrawCmd, ptr %395, i64 %92
+  %396 = getelementptr inbounds nuw [56 x i8], ptr %395, i64 %92
   %397 = icmp ult ptr %394, %396
   br i1 %397, label %112, label %.sink.split, !llvm.loop !1469
 
@@ -78929,7 +78894,7 @@ define dso_local void @_ZN5ImGui15DebugNodeTabBarEP11ImGuiTabBarPKc(ptr noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %.070 = phi ptr [ %25, %.lr.ph ], [ %43, %34 ]
   %35 = load ptr, ptr %28, align 8, !tbaa !1477
-  %36 = getelementptr inbounds nuw %struct.ImGuiTabItem, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [44 x i8], ptr %35, i64 %indvars.iv
   %37 = ptrtoint ptr %.070 to i64
   %38 = sub i64 %17, %37
   %.not64 = icmp eq i64 %indvars.iv, 0
@@ -78991,12 +78956,12 @@ define dso_local void @_ZN5ImGui15DebugNodeTabBarEP11ImGuiTabBarPKc(ptr noundef 
   %.110.i = phi i32 [ %.0.i68, %.lr.ph.i ], [ %82, %70 ]
   %72 = load ptr, ptr %68, align 8, !tbaa !420
   %73 = sext i32 %71 to i64
-  %74 = getelementptr %struct.ImGuiColorMod, ptr %72, i64 %73
+  %74 = getelementptr [20 x i8], ptr %72, i64 %73
   %75 = getelementptr i8, ptr %74, i64 -20
   %76 = getelementptr i8, ptr %74, i64 -16
   %77 = load i32, ptr %75, align 4, !tbaa !414
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds %struct.ImVec4, ptr %69, i64 %78
+  %79 = getelementptr inbounds [16 x i8], ptr %69, i64 %78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 4 dereferenceable(16) %76, i64 16, i1 false), !tbaa.struct !416
   %80 = load i32, ptr %60, align 8, !tbaa !418
   %81 = add nsw i32 %80, -1
@@ -79076,7 +79041,7 @@ _ZN5ImGui13PopStyleColorEi.exit:                  ; preds = %70, %63, %.critedge
   %114 = phi ptr [ %.pre81, %.lr.ph73 ], [ %196, %_ZN5ImGui5PopIDEv.exit ]
   %indvars.iv78 = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next79, %_ZN5ImGui5PopIDEv.exit ]
   %115 = load ptr, ptr %111, align 8, !tbaa !1477
-  %116 = getelementptr inbounds nuw %struct.ImGuiTabItem, ptr %115, i64 %indvars.iv78
+  %116 = getelementptr inbounds nuw [44 x i8], ptr %115, i64 %indvars.iv78
   %117 = getelementptr inbounds nuw i8, ptr %114, i64 4928
   %118 = load ptr, ptr %117, align 8, !tbaa !307
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -79305,7 +79270,7 @@ _ZN5ImGui13BeginDisabledEb.exit:                  ; preds = %5, %10
   %57 = getelementptr inbounds nuw i8, ptr %43, i64 7704
   %58 = load ptr, ptr %57, align 8, !tbaa !303
   %59 = sext i32 %56 to i64
-  %60 = getelementptr i32, ptr %58, i64 %59
+  %60 = getelementptr [4 x i8], ptr %58, i64 %59
   %61 = getelementptr i8, ptr %60, i64 -4
   %62 = load i32, ptr %61, align 4, !tbaa !221
   store i32 %62, ptr %51, align 8, !tbaa !602
@@ -79423,7 +79388,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui16DebugBreakButtonEPKcS1_(ptr noun
   %17 = load ptr, ptr %16, align 8, !tbaa !553
   %18 = load i32, ptr %15, align 8, !tbaa !555
   %19 = sext i32 %18 to i64
-  %20 = getelementptr i32, ptr %17, i64 %19
+  %20 = getelementptr [4 x i8], ptr %17, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -4
   %22 = load i32, ptr %21, align 4, !tbaa !221
   %23 = ptrtoint ptr %0 to i64
@@ -79457,7 +79422,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui16DebugBreakButtonEPKcS1_(ptr noun
   %37 = and i32 %.5.i.i, 255
   %38 = xor i32 %37, %28
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr @_ZL17GCrc32LookupTable, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17GCrc32LookupTable, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !221
   %42 = xor i32 %36, %41
   %.not33.i.i = icmp eq i8 %.pre.i.i, 0
@@ -79508,13 +79473,13 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr %16, align 8, !tbaa !553
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv.i
   %65 = load i32, ptr %64, align 4, !tbaa !221
   br label %66
 
 66:                                               ; preds = %62, %60
   %67 = phi i32 [ %65, %62 ], [ %.2.i.i, %60 ]
-  %68 = getelementptr inbounds nuw %struct.ImGuiStackLevelInfo, ptr %57, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [64 x i8], ptr %57, i64 %indvars.iv.i
   store i32 %67, ptr %68, align 4, !tbaa !717
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -79527,7 +79492,7 @@ _Z9ImHashStrPKcmj.exit.i:                         ; preds = %_Z9ImHashStrPKcmj.e
 70:                                               ; preds = %69
   %71 = getelementptr inbounds nuw i8, ptr %7, i64 9992
   %72 = load ptr, ptr %71, align 8, !tbaa !654
-  %73 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %72, i64 %19
+  %73 = getelementptr inbounds [64 x i8], ptr %72, i64 %19
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 7
   %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #64
   %76 = trunc i64 %75 to i32
@@ -79669,7 +79634,7 @@ _ZN5ImGui14IsMouseClickedEiij.exit.thread:        ; preds = %130, %125, %.crited
   call void @_ZN5ImGui23DebugBreakButtonTooltipEbPKc(i1 noundef zeroext false, ptr noundef %1)
   %143 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 3256
-  %145 = getelementptr inbounds nuw %struct.ImVec4, ptr %144, i64 %141
+  %145 = getelementptr inbounds nuw [16 x i8], ptr %144, i64 %141
   %.sroa.044.0.copyload = load float, ptr %145, align 4, !tbaa !81
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %145, i64 4
   %.sroa.12.0.copyload = load float, ptr %.sroa.12.0..sroa_idx, align 4, !tbaa !81
@@ -79989,7 +79954,7 @@ define dso_local void @_ZN5ImGui38DebugNodeDrawCmdShowMeshAndBoundingBoxEP10ImDr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false), !tbaa !81
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %struct.ImDrawVert, ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [20 x i8], ptr %36, i64 %38
   %.not.us = icmp eq ptr %35, null
   br label %42
 
@@ -80010,7 +79975,7 @@ define dso_local void @_ZN5ImGui38DebugNodeDrawCmdShowMeshAndBoundingBoxEP10ImDr
 
 43:                                               ; preds = %42
   %44 = zext i32 %.149.us to i64
-  %45 = getelementptr inbounds nuw i16, ptr %35, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !247
   %47 = zext i16 %46 to i32
   br label %_ZN6ImRect3AddERK6ImVec2.exit.us
@@ -80018,8 +79983,8 @@ define dso_local void @_ZN5ImGui38DebugNodeDrawCmdShowMeshAndBoundingBoxEP10ImDr
 _ZN6ImRect3AddERK6ImVec2.exit.us:                 ; preds = %43, %42
   %48 = phi i32 [ %47, %43 ], [ %.149.us, %42 ]
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw %struct.ImDrawVert, ptr %39, i64 %49
-  %51 = getelementptr inbounds nuw %struct.ImVec2, ptr %6, i64 %indvars.iv105
+  %50 = getelementptr inbounds nuw [20 x i8], ptr %39, i64 %49
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv105
   %52 = load i64, ptr %50, align 4
   store i64 %52, ptr %51, align 8
   %53 = trunc i64 %52 to i32
@@ -80049,7 +80014,7 @@ _ZN6ImRect3AddERK6ImVec2.exit.us:                 ; preds = %43, %42
   %65 = load ptr, ptr %29, align 8, !tbaa !1452
   %66 = load i32, ptr %30, align 8, !tbaa !1453
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw %struct.ImDrawVert, ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [20 x i8], ptr %65, i64 %67
   br label %.preheader
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
@@ -80057,7 +80022,7 @@ _ZN6ImRect3AddERK6ImVec2.exit.us:                 ; preds = %43, %42
   %70 = load ptr, ptr %29, align 8, !tbaa !1452
   %71 = load i32, ptr %30, align 8, !tbaa !1453
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw %struct.ImDrawVert, ptr %70, i64 %72
+  %73 = getelementptr inbounds nuw [20 x i8], ptr %70, i64 %72
   %.not.us87 = icmp eq ptr %69, null
   br label %.preheader.us86.preheader
 
@@ -80086,7 +80051,7 @@ _ZN6ImRect3AddERK6ImVec2.exit.us:                 ; preds = %43, %42
 
 76:                                               ; preds = %.preheader.us86
   %77 = zext i32 %.149.us76 to i64
-  %78 = getelementptr inbounds nuw i16, ptr %69, i64 %77
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %69, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !247
   %80 = zext i16 %79 to i32
   br label %_ZN6ImRect3AddERK6ImVec2.exit.us81
@@ -80094,8 +80059,8 @@ _ZN6ImRect3AddERK6ImVec2.exit.us:                 ; preds = %43, %42
 _ZN6ImRect3AddERK6ImVec2.exit.us81:               ; preds = %76, %.preheader.us86
   %81 = phi i32 [ %80, %76 ], [ %.149.us76, %.preheader.us86 ]
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %struct.ImDrawVert, ptr %73, i64 %82
-  %84 = getelementptr inbounds nuw %struct.ImVec2, ptr %6, i64 %indvars.iv101
+  %83 = getelementptr inbounds nuw [20 x i8], ptr %73, i64 %82
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv101
   %85 = load i64, ptr %83, align 4
   store i64 %85, ptr %84, align 8
   %86 = trunc i64 %85 to i32
@@ -80145,8 +80110,8 @@ _ZN6ImRect3AddERK6ImVec2.exit:                    ; preds = %.preheader, %_ZN6Im
   %.sroa.10.146 = phi float [ %.sroa.10.052, %.preheader ], [ %.sroa.10.2, %_ZN6ImRect3AddERK6ImVec2.exit ]
   %.sroa.14.145 = phi float [ %.sroa.14.051, %.preheader ], [ %.sroa.14.2, %_ZN6ImRect3AddERK6ImVec2.exit ]
   %.pre = zext i32 %.149 to i64
-  %98 = getelementptr inbounds nuw %struct.ImDrawVert, ptr %68, i64 %.pre
-  %99 = getelementptr inbounds nuw %struct.ImVec2, ptr %6, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [20 x i8], ptr %68, i64 %.pre
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %100 = load i64, ptr %98, align 4
   store i64 %100, ptr %99, align 8
   %101 = trunc i64 %100 to i32
@@ -80377,12 +80342,12 @@ define dso_local void @_ZN5ImGui15DebugNodeWindowEP11ImGuiWindowPKc(ptr noundef 
   %.110.i = phi i32 [ %.0.i154, %.lr.ph.i ], [ %51, %39 ]
   %41 = load ptr, ptr %37, align 8, !tbaa !420
   %42 = sext i32 %40 to i64
-  %43 = getelementptr %struct.ImGuiColorMod, ptr %41, i64 %42
+  %43 = getelementptr [20 x i8], ptr %41, i64 %42
   %44 = getelementptr i8, ptr %43, i64 -20
   %45 = getelementptr i8, ptr %43, i64 -16
   %46 = load i32, ptr %44, align 4, !tbaa !414
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds %struct.ImVec4, ptr %38, i64 %47
+  %48 = getelementptr inbounds [16 x i8], ptr %38, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !416
   %49 = load i32, ptr %29, align 8, !tbaa !418
   %50 = add nsw i32 %49, -1
@@ -80605,7 +80570,7 @@ _ZN5ImGui13PopStyleColorEi.exit:                  ; preds = %7
 199:                                              ; preds = %178, %216
   %200 = phi i1 [ true, %178 ], [ false, %216 ]
   %indvars.iv = phi i64 [ 0, %178 ], [ 1, %216 ]
-  %201 = getelementptr inbounds nuw %struct.ImRect, ptr %195, i64 %indvars.iv
+  %201 = getelementptr inbounds nuw [16 x i8], ptr %195, i64 %indvars.iv
   %.sroa.0.0.copyload = load float, ptr %201, align 8, !tbaa !81
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %201, i64 4
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !81
@@ -80617,7 +80582,7 @@ _ZN5ImGui13PopStyleColorEi.exit:                  ; preds = %7
   br i1 %or.cond146, label %208, label %204
 
 204:                                              ; preds = %199
-  %205 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %196, i64 %indvars.iv
   %206 = load i32, ptr %205, align 4, !tbaa !221
   %207 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ...) @_ZN5ImGui10BulletTextEPKcz(ptr noundef nonnull @.str.466, i32 noundef %207, i32 noundef %206)
@@ -80626,7 +80591,7 @@ _ZN5ImGui13PopStyleColorEi.exit:                  ; preds = %7
 208:                                              ; preds = %199
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %201, i64 8
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !81
-  %209 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %196, i64 %indvars.iv
   %210 = load i32, ptr %209, align 4, !tbaa !221
   %211 = fpext float %.sroa.0.0.copyload to double
   %212 = fpext float %.sroa.5.0.copyload to double
@@ -80637,7 +80602,7 @@ _ZN5ImGui13PopStyleColorEi.exit:                  ; preds = %7
   br label %216
 
 216:                                              ; preds = %208, %204
-  %217 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %196, i64 %indvars.iv
   %218 = load i32, ptr %217, align 4, !tbaa !221
   call void @_ZN5ImGui22DebugLocateItemOnHoverEj(i32 noundef %218)
   br i1 %200, label %199, label %197, !llvm.loop !1502
@@ -80654,7 +80619,7 @@ _ZN5ImGui13PopStyleColorEi.exit:                  ; preds = %7
 225:                                              ; preds = %197, %225
   %226 = phi i1 [ true, %197 ], [ false, %225 ]
   %indvars.iv161 = phi i64 [ 0, %197 ], [ 1, %225 ]
-  %227 = getelementptr inbounds nuw %struct.ImVec2, ptr %198, i64 %indvars.iv161
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %indvars.iv161
   %228 = load float, ptr %227, align 4, !tbaa !49
   %229 = fcmp oeq float %228, 0x47EFFFFFE0000000
   %230 = fpext float %228 to double
@@ -81127,12 +81092,12 @@ _ZN5ImGui14PushStyleColorEiRK6ImVec4.exit:        ; preds = %69, %83
   %.110.i = phi i32 [ %.0.i25, %.lr.ph.i ], [ %136, %124 ]
   %126 = load ptr, ptr %122, align 8, !tbaa !420
   %127 = sext i32 %125 to i64
-  %128 = getelementptr %struct.ImGuiColorMod, ptr %126, i64 %127
+  %128 = getelementptr [20 x i8], ptr %126, i64 %127
   %129 = getelementptr i8, ptr %128, i64 -20
   %130 = getelementptr i8, ptr %128, i64 -16
   %131 = load i32, ptr %129, align 4, !tbaa !414
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds %struct.ImVec4, ptr %123, i64 %132
+  %133 = getelementptr inbounds [16 x i8], ptr %123, i64 %132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 4 dereferenceable(16) %130, i64 16, i1 false), !tbaa.struct !416
   %134 = load i32, ptr %114, align 8, !tbaa !418
   %135 = add nsw i32 %134, -1
@@ -81504,7 +81469,7 @@ _ZNK8ImVectorI19ImGuiStackLevelInfoE14_grow_capacityEi.exit: ; preds = %7, %8
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 10016
   %25 = load i16, ptr %24, align 8, !tbaa !212
   %26 = sext i16 %25 to i64
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %23, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %23, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %28, %22
   br i1 %.not.i.i.i, label %._crit_edge.i, label %30
@@ -81522,7 +81487,7 @@ _ZNK8ImVectorI19ImGuiStackLevelInfoE14_grow_capacityEi.exit: ; preds = %7, %8
   %34 = trunc nsw i32 %33 to i16
   store i16 %34, ptr %24, align 4, !tbaa !212
   %35 = sext i32 %33 to i64
-  %36 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %23, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %23, i64 %35
   store i32 %22, ptr %36, align 4, !tbaa !213
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 6
   store i16 0, ptr %37, align 2, !tbaa !216
@@ -81533,7 +81498,7 @@ _ZNK8ImVectorI19ImGuiStackLevelInfoE14_grow_capacityEi.exit: ; preds = %7, %8
 39:                                               ; preds = %30, %._crit_edge.i
   %40 = phi i16 [ 1, %30 ], [ %29, %._crit_edge.i ]
   %41 = phi i64 [ %35, %30 ], [ %26, %._crit_edge.i ]
-  %42 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %23, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %23, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i16 %40, ptr %43, align 4, !tbaa !215
   %44 = load i32, ptr %20, align 4, !tbaa !217
@@ -81568,7 +81533,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %39, %_ZNK8ImVectorI
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 10016
   %60 = load i16, ptr %59, align 8, !tbaa !212
   %61 = sext i16 %60 to i64
-  %62 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %58, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %58, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %63, %57
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %65
@@ -81586,7 +81551,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %39, %_ZNK8ImVectorI
   %69 = trunc nsw i32 %68 to i16
   store i16 %69, ptr %59, align 4, !tbaa !212
   %70 = sext i32 %68 to i64
-  %71 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %58, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %58, i64 %70
   store i32 %57, ptr %71, align 4, !tbaa !213
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 6
   store i16 0, ptr %72, align 2, !tbaa !216
@@ -81597,7 +81562,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %39, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %74 = phi i16 [ 1, %65 ], [ %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %75 = phi i64 [ %70, %65 ], [ %61, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %76 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %58, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %58, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 6
   store i16 %74, ptr %77, align 2, !tbaa !216
   %78 = getelementptr inbounds nuw i8, ptr %54, i64 10012
@@ -81631,7 +81596,7 @@ _ZN8ImVectorI19ImGuiStackLevelInfoE7reserveEi.exit: ; preds = %83, %3
 88:                                               ; preds = %.preheader, %88
   %indvars.iv = phi i64 [ %87, %.preheader ], [ %indvars.iv.next, %88 ]
   %89 = load ptr, ptr %86, align 8, !tbaa !654
-  %90 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds [64 x i8], ptr %89, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %90, ptr noundef nonnull align 4 dereferenceable(64) %2, i64 64, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -81648,7 +81613,7 @@ define internal fastcc void @_ZL24StackToolFormatLevelInfoP16ImGuiIDStackToolibP
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !654
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds %struct.ImGuiStackLevelInfo, ptr %8, i64 %9
+  %10 = getelementptr inbounds [64 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 7
   %12 = load i8, ptr %11, align 1, !tbaa !205
   %13 = icmp eq i8 %12, 0
@@ -81673,7 +81638,7 @@ define internal fastcc void @_ZL24StackToolFormatLevelInfoP16ImGuiIDStackToolibP
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %20, %15 ]
   %.01316.i.i.i = phi i64 [ %.114.i.i.i, %.lr.ph.i.i.i ], [ %22, %15 ]
   %24 = lshr i64 %.01316.i.i.i, 1
-  %25 = getelementptr inbounds nuw %struct.ImGuiStoragePair, ptr %.017.i.i.i, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %.017.i.i.i, i64 %24
   %26 = load i32, ptr %25, align 8, !tbaa !270
   %27 = icmp ult i32 %26, %16
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -81782,7 +81747,7 @@ _ZNK8ImVectorI21ImGuiListClipperRangeE14_grow_capacityEi.exit: ; preds = %6, %7
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 10016
   %24 = load i16, ptr %23, align 8, !tbaa !212
   %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %27, %21
   br i1 %.not.i.i.i, label %._crit_edge.i, label %29
@@ -81800,7 +81765,7 @@ _ZNK8ImVectorI21ImGuiListClipperRangeE14_grow_capacityEi.exit: ; preds = %6, %7
   %33 = trunc nsw i32 %32 to i16
   store i16 %33, ptr %23, align 4, !tbaa !212
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %22, i64 %34
   store i32 %21, ptr %35, align 4, !tbaa !213
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i16 0, ptr %36, align 2, !tbaa !216
@@ -81811,7 +81776,7 @@ _ZNK8ImVectorI21ImGuiListClipperRangeE14_grow_capacityEi.exit: ; preds = %6, %7
 38:                                               ; preds = %29, %._crit_edge.i
   %39 = phi i16 [ 1, %29 ], [ %28, %._crit_edge.i ]
   %40 = phi i64 [ %34, %29 ], [ %25, %._crit_edge.i ]
-  %41 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %22, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 %39, ptr %42, align 4, !tbaa !215
   %43 = load i32, ptr %19, align 4, !tbaa !217
@@ -81846,7 +81811,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 10016
   %59 = load i16, ptr %58, align 8, !tbaa !212
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %62, %56
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %64
@@ -81864,7 +81829,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %68 = trunc nsw i32 %67 to i16
   store i16 %68, ptr %58, align 4, !tbaa !212
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %57, i64 %69
   store i32 %56, ptr %70, align 4, !tbaa !213
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 0, ptr %71, align 2, !tbaa !216
@@ -81875,7 +81840,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %73 = phi i16 [ 1, %64 ], [ %63, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %74 = phi i64 [ %69, %64 ], [ %60, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %75 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %57, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   store i16 %73, ptr %76, align 2, !tbaa !216
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 10012
@@ -81944,7 +81909,7 @@ _ZNK8ImVectorI21ImGuiListClipperRangeE14_grow_capacityEi.exit: ; preds = %14, %1
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 10016
   %33 = load i16, ptr %32, align 8, !tbaa !212
   %34 = sext i16 %33 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %31, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %31, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %36, %30
   br i1 %.not.i.i.i, label %._crit_edge.i, label %38
@@ -81962,7 +81927,7 @@ _ZNK8ImVectorI21ImGuiListClipperRangeE14_grow_capacityEi.exit: ; preds = %14, %1
   %42 = trunc nsw i32 %41 to i16
   store i16 %42, ptr %32, align 4, !tbaa !212
   %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %31, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %31, i64 %43
   store i32 %30, ptr %44, align 4, !tbaa !213
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 6
   store i16 0, ptr %45, align 2, !tbaa !216
@@ -81973,7 +81938,7 @@ _ZNK8ImVectorI21ImGuiListClipperRangeE14_grow_capacityEi.exit: ; preds = %14, %1
 47:                                               ; preds = %38, %._crit_edge.i
   %48 = phi i16 [ 1, %38 ], [ %37, %._crit_edge.i ]
   %49 = phi i64 [ %43, %38 ], [ %34, %._crit_edge.i ]
-  %50 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %31, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %31, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i16 %48, ptr %51, align 4, !tbaa !215
   %52 = load i32, ptr %28, align 4, !tbaa !217
@@ -82007,7 +81972,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %47, %_ZNK8ImVectorI
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 10016
   %67 = load i16, ptr %66, align 8, !tbaa !212
   %68 = sext i16 %67 to i64
-  %69 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %65, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %65, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %70, %64
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %72
@@ -82025,7 +81990,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %47, %_ZNK8ImVectorI
   %76 = trunc nsw i32 %75 to i16
   store i16 %76, ptr %66, align 4, !tbaa !212
   %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %65, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %65, i64 %77
   store i32 %64, ptr %78, align 4, !tbaa !213
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 6
   store i16 0, ptr %79, align 2, !tbaa !216
@@ -82036,7 +82001,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %47, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %72, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %81 = phi i16 [ 1, %72 ], [ %71, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %82 = phi i64 [ %77, %72 ], [ %68, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %83 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %65, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %65, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 6
   store i16 %81, ptr %84, align 2, !tbaa !216
   %85 = getelementptr inbounds nuw i8, ptr %61, i64 10012
@@ -82122,7 +82087,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev(ptr 
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -82140,7 +82105,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev(ptr 
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -82151,7 +82116,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorI19ImGuiKeyRoutingDataED2Ev(ptr 
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -82198,7 +82163,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP10ImDrawListED2Ev(ptr noundef 
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -82216,7 +82181,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP10ImDrawListED2Ev(ptr noundef 
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -82227,7 +82192,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIP10ImDrawListED2Ev(ptr noundef 
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -82329,7 +82294,7 @@ _ZNK8ImVectorIP10ImDrawListE14_grow_capacityEi.exit: ; preds = %6, %7
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 10016
   %24 = load i16, ptr %23, align 8, !tbaa !212
   %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %27, %21
   br i1 %.not.i.i.i, label %._crit_edge.i, label %29
@@ -82347,7 +82312,7 @@ _ZNK8ImVectorIP10ImDrawListE14_grow_capacityEi.exit: ; preds = %6, %7
   %33 = trunc nsw i32 %32 to i16
   store i16 %33, ptr %23, align 4, !tbaa !212
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %22, i64 %34
   store i32 %21, ptr %35, align 4, !tbaa !213
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i16 0, ptr %36, align 2, !tbaa !216
@@ -82358,7 +82323,7 @@ _ZNK8ImVectorIP10ImDrawListE14_grow_capacityEi.exit: ; preds = %6, %7
 38:                                               ; preds = %29, %._crit_edge.i
   %39 = phi i16 [ 1, %29 ], [ %28, %._crit_edge.i ]
   %40 = phi i64 [ %34, %29 ], [ %25, %._crit_edge.i ]
-  %41 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %22, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 %39, ptr %42, align 4, !tbaa !215
   %43 = load i32, ptr %19, align 4, !tbaa !217
@@ -82393,7 +82358,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 10016
   %59 = load i16, ptr %58, align 8, !tbaa !212
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %62, %56
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %64
@@ -82411,7 +82376,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %68 = trunc nsw i32 %67 to i16
   store i16 %68, ptr %58, align 4, !tbaa !212
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %57, i64 %69
   store i32 %56, ptr %70, align 4, !tbaa !213
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 0, ptr %71, align 2, !tbaa !216
@@ -82422,7 +82387,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %73 = phi i16 [ 1, %64 ], [ %63, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %74 = phi i64 [ %69, %64 ], [ %60, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %75 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %57, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   store i16 %73, ptr %76, align 2, !tbaa !216
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 10012
@@ -82513,7 +82478,7 @@ define internal fastcc void @_ZN5ImGuiL34RenderDimmedBackgroundBehindWindowEP11I
   %37 = load ptr, ptr %36, align 8, !tbaa !732
   %38 = load i32, ptr %27, align 8, !tbaa !1117
   %39 = sext i32 %38 to i64
-  %40 = getelementptr %struct.ImDrawCmd, ptr %37, i64 %39
+  %40 = getelementptr [56 x i8], ptr %37, i64 %39
   %41 = getelementptr i8, ptr %40, i64 -56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %41, i64 56, i1 false), !tbaa.struct !1509
   %42 = add nsw i32 %38, -1
@@ -82585,7 +82550,7 @@ _ZNK8ImVectorI9ImDrawCmdE14_grow_capacityEi.exit: ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -82603,7 +82568,7 @@ _ZNK8ImVectorI9ImDrawCmdE14_grow_capacityEi.exit: ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -82614,7 +82579,7 @@ _ZNK8ImVectorI9ImDrawCmdE14_grow_capacityEi.exit: ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -82649,7 +82614,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -82667,7 +82632,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -82678,7 +82643,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -82703,7 +82668,7 @@ _ZN8ImVectorI9ImDrawCmdE7reserveEi.exit:          ; preds = %._ZN8ImVectorI9ImDr
   %85 = phi i32 [ %3, %._ZN8ImVectorI9ImDrawCmdE7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorI9ImDrawCmdE7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds %struct.ImDrawCmd, ptr %86, i64 %87
+  %88 = getelementptr inbounds [56 x i8], ptr %86, i64 %87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %88, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   %89 = load i32, ptr %0, align 8, !tbaa !1117
   %90 = add nsw i32 %89, 1
@@ -82755,7 +82720,7 @@ _ZNK8ImVectorI9ImDrawCmdE14_grow_capacityEi.exit: ; preds = %14, %16
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 10016
   %33 = load i16, ptr %32, align 8, !tbaa !212
   %34 = sext i16 %33 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %31, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %31, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %36, %30
   br i1 %.not.i.i.i, label %._crit_edge.i, label %38
@@ -82773,7 +82738,7 @@ _ZNK8ImVectorI9ImDrawCmdE14_grow_capacityEi.exit: ; preds = %14, %16
   %42 = trunc nsw i32 %41 to i16
   store i16 %42, ptr %32, align 4, !tbaa !212
   %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %31, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %31, i64 %43
   store i32 %30, ptr %44, align 4, !tbaa !213
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 6
   store i16 0, ptr %45, align 2, !tbaa !216
@@ -82784,7 +82749,7 @@ _ZNK8ImVectorI9ImDrawCmdE14_grow_capacityEi.exit: ; preds = %14, %16
 47:                                               ; preds = %38, %._crit_edge.i
   %48 = phi i16 [ 1, %38 ], [ %37, %._crit_edge.i ]
   %49 = phi i64 [ %43, %38 ], [ %34, %._crit_edge.i ]
-  %50 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %31, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %31, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i16 %48, ptr %51, align 4, !tbaa !215
   %52 = load i32, ptr %28, align 4, !tbaa !217
@@ -82818,7 +82783,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %47, %_ZNK8ImVectorI
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 10016
   %67 = load i16, ptr %66, align 8, !tbaa !212
   %68 = sext i16 %67 to i64
-  %69 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %65, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %65, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %70, %64
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %72
@@ -82836,7 +82801,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %47, %_ZNK8ImVectorI
   %76 = trunc nsw i32 %75 to i16
   store i16 %76, ptr %66, align 4, !tbaa !212
   %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %65, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %65, i64 %77
   store i32 %64, ptr %78, align 4, !tbaa !213
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 6
   store i16 0, ptr %79, align 2, !tbaa !216
@@ -82847,7 +82812,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %47, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %72, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %81 = phi i16 [ 1, %72 ], [ %71, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %82 = phi i64 [ %77, %72 ], [ %68, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %83 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %65, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %65, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 6
   store i16 %81, ptr %84, align 2, !tbaa !216
   %85 = getelementptr inbounds nuw i8, ptr %61, i64 10012
@@ -82924,7 +82889,7 @@ define internal fastcc void @_ZL19AddWindowToDrawDataP11ImGuiWindowi(ptr noundef
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %21 = zext nneg i32 %1 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !1188
   tail call void @_ZN5ImGui23AddDrawListToDrawDataExEP10ImDrawDataP8ImVectorIP10ImDrawListES4_(ptr noundef nonnull %19, ptr noundef %23, ptr noundef %18)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -83010,7 +82975,7 @@ _ZNK8ImVectorIP11ImGuiWindowE14_grow_capacityEi.exit: ; preds = %14, %16
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 10016
   %33 = load i16, ptr %32, align 8, !tbaa !212
   %34 = sext i16 %33 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %31, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %31, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %36, %30
   br i1 %.not.i.i.i, label %._crit_edge.i, label %38
@@ -83028,7 +82993,7 @@ _ZNK8ImVectorIP11ImGuiWindowE14_grow_capacityEi.exit: ; preds = %14, %16
   %42 = trunc nsw i32 %41 to i16
   store i16 %42, ptr %32, align 4, !tbaa !212
   %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %31, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %31, i64 %43
   store i32 %30, ptr %44, align 4, !tbaa !213
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 6
   store i16 0, ptr %45, align 2, !tbaa !216
@@ -83039,7 +83004,7 @@ _ZNK8ImVectorIP11ImGuiWindowE14_grow_capacityEi.exit: ; preds = %14, %16
 47:                                               ; preds = %38, %._crit_edge.i
   %48 = phi i16 [ 1, %38 ], [ %37, %._crit_edge.i ]
   %49 = phi i64 [ %43, %38 ], [ %34, %._crit_edge.i ]
-  %50 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %31, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %31, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i16 %48, ptr %51, align 4, !tbaa !215
   %52 = load i32, ptr %28, align 4, !tbaa !217
@@ -83073,7 +83038,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %47, %_ZNK8ImVectorI
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 10016
   %67 = load i16, ptr %66, align 8, !tbaa !212
   %68 = sext i16 %67 to i64
-  %69 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %65, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %65, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %70, %64
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %72
@@ -83091,7 +83056,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %47, %_ZNK8ImVectorI
   %76 = trunc nsw i32 %75 to i16
   store i16 %76, ptr %66, align 4, !tbaa !212
   %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %65, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %65, i64 %77
   store i32 %64, ptr %78, align 4, !tbaa !213
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 6
   store i16 0, ptr %79, align 2, !tbaa !216
@@ -83102,7 +83067,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %47, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %72, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %81 = phi i16 [ 1, %72 ], [ %71, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %82 = phi i64 [ %77, %72 ], [ %68, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %83 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %65, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %65, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 6
   store i16 %81, ptr %84, align 2, !tbaa !216
   %85 = getelementptr inbounds nuw i8, ptr %61, i64 10012
@@ -83332,7 +83297,7 @@ _ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit:    ; preds = %7, %9
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 10016
   %26 = load i16, ptr %25, align 8, !tbaa !212
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %29, %23
   br i1 %.not.i.i.i, label %._crit_edge.i, label %31
@@ -83350,7 +83315,7 @@ _ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit:    ; preds = %7, %9
   %35 = trunc nsw i32 %34 to i16
   store i16 %35, ptr %25, align 4, !tbaa !212
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %24, i64 %36
   store i32 %23, ptr %37, align 4, !tbaa !213
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 6
   store i16 0, ptr %38, align 2, !tbaa !216
@@ -83361,7 +83326,7 @@ _ZNK8ImVectorI6ImVec2E14_grow_capacityEi.exit:    ; preds = %7, %9
 40:                                               ; preds = %31, %._crit_edge.i
   %41 = phi i16 [ 1, %31 ], [ %30, %._crit_edge.i ]
   %42 = phi i64 [ %36, %31 ], [ %27, %._crit_edge.i ]
-  %43 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i16 %41, ptr %44, align 4, !tbaa !215
   %45 = load i32, ptr %21, align 4, !tbaa !217
@@ -83396,7 +83361,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 10016
   %61 = load i16, ptr %60, align 8, !tbaa !212
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %64, %58
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %66
@@ -83414,7 +83379,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
   %70 = trunc nsw i32 %69 to i16
   store i16 %70, ptr %60, align 4, !tbaa !212
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %59, i64 %71
   store i32 %58, ptr %72, align 4, !tbaa !213
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 6
   store i16 0, ptr %73, align 2, !tbaa !216
@@ -83425,7 +83390,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %40, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %66, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %75 = phi i16 [ 1, %66 ], [ %65, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %76 = phi i64 [ %71, %66 ], [ %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %59, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %59, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 6
   store i16 %75, ptr %78, align 2, !tbaa !216
   %79 = getelementptr inbounds nuw i8, ptr %55, i64 10012
@@ -83450,7 +83415,7 @@ _ZN8ImVectorI6ImVec2E7reserveEi.exit:             ; preds = %._ZN8ImVectorI6ImVe
   %85 = phi i32 [ %3, %._ZN8ImVectorI6ImVec2E7reserveEi.exit_crit_edge ], [ %.pre3, %84 ]
   %86 = phi ptr [ %.pre, %._ZN8ImVectorI6ImVec2E7reserveEi.exit_crit_edge ], [ %18, %84 ]
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds %struct.ImVec2, ptr %86, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %86, i64 %87
   %89 = load i64, ptr %1, align 4
   store i64 %89, ptr %88, align 4
   %90 = load i32, ptr %0, align 8, !tbaa !513
@@ -83505,7 +83470,7 @@ _ZNK8ImVectorI19ImGuiKeyRoutingDataE14_grow_capacityEi.exit: ; preds = %6, %7
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 10016
   %24 = load i16, ptr %23, align 8, !tbaa !212
   %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %27, %21
   br i1 %.not.i.i.i, label %._crit_edge.i, label %29
@@ -83523,7 +83488,7 @@ _ZNK8ImVectorI19ImGuiKeyRoutingDataE14_grow_capacityEi.exit: ; preds = %6, %7
   %33 = trunc nsw i32 %32 to i16
   store i16 %33, ptr %23, align 4, !tbaa !212
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %22, i64 %34
   store i32 %21, ptr %35, align 4, !tbaa !213
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i16 0, ptr %36, align 2, !tbaa !216
@@ -83534,7 +83499,7 @@ _ZNK8ImVectorI19ImGuiKeyRoutingDataE14_grow_capacityEi.exit: ; preds = %6, %7
 38:                                               ; preds = %29, %._crit_edge.i
   %39 = phi i16 [ 1, %29 ], [ %28, %._crit_edge.i ]
   %40 = phi i64 [ %34, %29 ], [ %25, %._crit_edge.i ]
-  %41 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %22, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 %39, ptr %42, align 4, !tbaa !215
   %43 = load i32, ptr %19, align 4, !tbaa !217
@@ -83569,7 +83534,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 10016
   %59 = load i16, ptr %58, align 8, !tbaa !212
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %62, %56
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %64
@@ -83587,7 +83552,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %68 = trunc nsw i32 %67 to i16
   store i16 %68, ptr %58, align 4, !tbaa !212
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %57, i64 %69
   store i32 %56, ptr %70, align 4, !tbaa !213
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 0, ptr %71, align 2, !tbaa !216
@@ -83598,7 +83563,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %73 = phi i16 [ 1, %64 ], [ %63, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %74 = phi i64 [ %69, %64 ], [ %60, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %75 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %57, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   store i16 %73, ptr %76, align 2, !tbaa !216
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 10012
@@ -84039,14 +84004,14 @@ define internal fastcc void @_ZN5ImGuiL15NavRestoreLayerE13ImGuiNavLayer(i32 nou
   %26 = load ptr, ptr %25, align 8, !tbaa !389
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 960
   %28 = zext i32 %0 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !221
   %.not21 = icmp eq i32 %30, 0
   br i1 %.not21, label %56, label %31
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 968
-  %33 = getelementptr inbounds nuw %struct.ImRect, ptr %32, i64 %28
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %28
   %34 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 7800
   store i32 %30, ptr %35, align 8, !tbaa !397
@@ -84059,10 +84024,10 @@ define internal fastcc void @_ZN5ImGuiL15NavRestoreLayerE13ImGuiNavLayer(i32 nou
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 7792
   %40 = load ptr, ptr %39, align 8, !tbaa !389
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 960
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %28
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %28
   store i32 %30, ptr %42, align 4, !tbaa !221
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 968
-  %44 = getelementptr inbounds nuw %struct.ImRect, ptr %43, i64 %28
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull readonly align 4 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !416
   %45 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 7792
@@ -84073,7 +84038,7 @@ define internal fastcc void @_ZN5ImGuiL15NavRestoreLayerE13ImGuiNavLayer(i32 nou
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 7808
   %52 = load i32, ptr %51, align 8, !tbaa !816
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw %struct.ImVec2, ptr %50, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %53
   store float 0x47EFFFFFE0000000, ptr %54, align 4, !tbaa !81
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store float 0x47EFFFFFE0000000, ptr %55, align 4, !tbaa !81
@@ -84139,7 +84104,7 @@ _ZNK8ImVectorI19ImGuiStackLevelInfoE14_grow_capacityEi.exit: ; preds = %6, %7
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 10016
   %24 = load i16, ptr %23, align 8, !tbaa !212
   %25 = sext i16 %24 to i64
-  %26 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %27, %21
   br i1 %.not.i.i.i, label %._crit_edge.i, label %29
@@ -84157,7 +84122,7 @@ _ZNK8ImVectorI19ImGuiStackLevelInfoE14_grow_capacityEi.exit: ; preds = %6, %7
   %33 = trunc nsw i32 %32 to i16
   store i16 %33, ptr %23, align 4, !tbaa !212
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %22, i64 %34
   store i32 %21, ptr %35, align 4, !tbaa !213
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
   store i16 0, ptr %36, align 2, !tbaa !216
@@ -84168,7 +84133,7 @@ _ZNK8ImVectorI19ImGuiStackLevelInfoE14_grow_capacityEi.exit: ; preds = %6, %7
 38:                                               ; preds = %29, %._crit_edge.i
   %39 = phi i16 [ 1, %29 ], [ %28, %._crit_edge.i ]
   %40 = phi i64 [ %34, %29 ], [ %25, %._crit_edge.i ]
-  %41 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %22, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %22, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 %39, ptr %42, align 4, !tbaa !215
   %43 = load i32, ptr %19, align 4, !tbaa !217
@@ -84203,7 +84168,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 10016
   %59 = load i16, ptr %58, align 8, !tbaa !212
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %57, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !213
   %.not.i.i8.i = icmp eq i32 %62, %56
   br i1 %.not.i.i8.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %64
@@ -84221,7 +84186,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
   %68 = trunc nsw i32 %67 to i16
   store i16 %68, ptr %58, align 4, !tbaa !212
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %57, i64 %69
   store i32 %56, ptr %70, align 4, !tbaa !213
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6
   store i16 0, ptr %71, align 2, !tbaa !216
@@ -84232,7 +84197,7 @@ _ZN5ImGui8MemAllocEm.exit.i:                      ; preds = %38, %_ZNK8ImVectorI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %64, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %73 = phi i16 [ 1, %64 ], [ %63, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %74 = phi i64 [ %69, %64 ], [ %60, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %75 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %57, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %57, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 6
   store i16 %73, ptr %76, align 2, !tbaa !216
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 10012
@@ -84276,7 +84241,7 @@ define linkonce_odr dso_local void @_ZN12ImGuiContextD2Ev(ptr noundef nonnull al
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %16
@@ -84294,7 +84259,7 @@ define linkonce_odr dso_local void @_ZN12ImGuiContextD2Ev(ptr noundef nonnull al
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -84305,7 +84270,7 @@ define linkonce_odr dso_local void @_ZN12ImGuiContextD2Ev(ptr noundef nonnull al
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -84345,7 +84310,7 @@ _ZN8ImVectorIcED2Ev.exit:                         ; preds = %1, %32
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 10016
   %47 = load i16, ptr %46, align 8, !tbaa !212
   %48 = sext i16 %47 to i64
-  %49 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %45, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %50, %44
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %52
@@ -84363,7 +84328,7 @@ _ZN8ImVectorIcED2Ev.exit:                         ; preds = %1, %32
   %56 = trunc nsw i32 %55 to i16
   store i16 %56, ptr %46, align 4, !tbaa !212
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %45, i64 %57
   store i32 %44, ptr %58, align 4, !tbaa !213
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 6
   store i16 0, ptr %59, align 2, !tbaa !216
@@ -84374,7 +84339,7 @@ _ZN8ImVectorIcED2Ev.exit:                         ; preds = %1, %32
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %52, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %61 = phi i16 [ 1, %52 ], [ %51, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %62 = phi i64 [ %57, %52 ], [ %48, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %45, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 6
   store i16 %61, ptr %64, align 2, !tbaa !216
   %65 = getelementptr inbounds nuw i8, ptr %41, i64 10012
@@ -84414,7 +84379,7 @@ _ZN16ImGuiIDStackToolD2Ev.exit:                   ; preds = %_ZN8ImVectorIcED2Ev
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 10016
   %83 = load i16, ptr %82, align 8, !tbaa !212
   %84 = sext i16 %83 to i64
-  %85 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %81, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %81, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !213
   %.not.i.i.i.i3 = icmp eq i32 %86, %80
   br i1 %.not.i.i.i.i3, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i5, label %88
@@ -84432,7 +84397,7 @@ _ZN16ImGuiIDStackToolD2Ev.exit:                   ; preds = %_ZN8ImVectorIcED2Ev
   %92 = trunc nsw i32 %91 to i16
   store i16 %92, ptr %82, align 4, !tbaa !212
   %93 = sext i32 %91 to i64
-  %94 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %81, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %81, i64 %93
   store i32 %80, ptr %94, align 4, !tbaa !213
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 6
   store i16 0, ptr %95, align 2, !tbaa !216
@@ -84443,7 +84408,7 @@ _ZN16ImGuiIDStackToolD2Ev.exit:                   ; preds = %_ZN8ImVectorIcED2Ev
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i4: ; preds = %88, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i5
   %97 = phi i16 [ 1, %88 ], [ %87, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i5 ]
   %98 = phi i64 [ %93, %88 ], [ %84, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i5 ]
-  %99 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %81, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %81, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 6
   store i16 %97, ptr %100, align 2, !tbaa !216
   %101 = getelementptr inbounds nuw i8, ptr %77, i64 10012
@@ -84483,7 +84448,7 @@ _ZN14ImGuiTextIndexD2Ev.exit:                     ; preds = %_ZN16ImGuiIDStackTo
   %118 = getelementptr inbounds nuw i8, ptr %113, i64 10016
   %119 = load i16, ptr %118, align 8, !tbaa !212
   %120 = sext i16 %119 to i64
-  %121 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %117, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %117, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !213
   %.not.i.i.i.i10 = icmp eq i32 %122, %116
   br i1 %.not.i.i.i.i10, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i12, label %124
@@ -84501,7 +84466,7 @@ _ZN14ImGuiTextIndexD2Ev.exit:                     ; preds = %_ZN16ImGuiIDStackTo
   %128 = trunc nsw i32 %127 to i16
   store i16 %128, ptr %118, align 4, !tbaa !212
   %129 = sext i32 %127 to i64
-  %130 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %117, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %117, i64 %129
   store i32 %116, ptr %130, align 4, !tbaa !213
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 6
   store i16 0, ptr %131, align 2, !tbaa !216
@@ -84512,7 +84477,7 @@ _ZN14ImGuiTextIndexD2Ev.exit:                     ; preds = %_ZN16ImGuiIDStackTo
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i11: ; preds = %124, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i12
   %133 = phi i16 [ 1, %124 ], [ %123, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i12 ]
   %134 = phi i64 [ %129, %124 ], [ %120, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i12 ]
-  %135 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %117, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %117, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 6
   store i16 %133, ptr %136, align 2, !tbaa !216
   %137 = getelementptr inbounds nuw i8, ptr %113, i64 10012
@@ -84552,7 +84517,7 @@ _ZN15ImGuiTextBufferD2Ev.exit:                    ; preds = %_ZN14ImGuiTextIndex
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 10016
   %155 = load i16, ptr %154, align 8, !tbaa !212
   %156 = sext i16 %155 to i64
-  %157 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %153, i64 %156
+  %157 = getelementptr inbounds [8 x i8], ptr %153, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !213
   %.not.i.i.i.i17 = icmp eq i32 %158, %152
   br i1 %.not.i.i.i.i17, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i19, label %160
@@ -84570,7 +84535,7 @@ _ZN15ImGuiTextBufferD2Ev.exit:                    ; preds = %_ZN14ImGuiTextIndex
   %164 = trunc nsw i32 %163 to i16
   store i16 %164, ptr %154, align 4, !tbaa !212
   %165 = sext i32 %163 to i64
-  %166 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %153, i64 %165
+  %166 = getelementptr inbounds [8 x i8], ptr %153, i64 %165
   store i32 %152, ptr %166, align 4, !tbaa !213
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 6
   store i16 0, ptr %167, align 2, !tbaa !216
@@ -84581,7 +84546,7 @@ _ZN15ImGuiTextBufferD2Ev.exit:                    ; preds = %_ZN14ImGuiTextIndex
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i18: ; preds = %160, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i19
   %169 = phi i16 [ 1, %160 ], [ %159, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i19 ]
   %170 = phi i64 [ %165, %160 ], [ %156, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i19 ]
-  %171 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %153, i64 %170
+  %171 = getelementptr inbounds [8 x i8], ptr %153, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 6
   store i16 %169, ptr %172, align 2, !tbaa !216
   %173 = getelementptr inbounds nuw i8, ptr %149, i64 10012
@@ -84621,7 +84586,7 @@ _ZN15ImGuiTextBufferD2Ev.exit22:                  ; preds = %_ZN15ImGuiTextBuffe
   %190 = getelementptr inbounds nuw i8, ptr %185, i64 10016
   %191 = load i16, ptr %190, align 8, !tbaa !212
   %192 = sext i16 %191 to i64
-  %193 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %189, i64 %192
+  %193 = getelementptr inbounds [8 x i8], ptr %189, i64 %192
   %194 = load i32, ptr %193, align 4, !tbaa !213
   %.not.i.i.i25 = icmp eq i32 %194, %188
   br i1 %.not.i.i.i25, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i27, label %196
@@ -84639,7 +84604,7 @@ _ZN15ImGuiTextBufferD2Ev.exit22:                  ; preds = %_ZN15ImGuiTextBuffe
   %200 = trunc nsw i32 %199 to i16
   store i16 %200, ptr %190, align 4, !tbaa !212
   %201 = sext i32 %199 to i64
-  %202 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %189, i64 %201
+  %202 = getelementptr inbounds [8 x i8], ptr %189, i64 %201
   store i32 %188, ptr %202, align 4, !tbaa !213
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 6
   store i16 0, ptr %203, align 2, !tbaa !216
@@ -84650,7 +84615,7 @@ _ZN15ImGuiTextBufferD2Ev.exit22:                  ; preds = %_ZN15ImGuiTextBuffe
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i26: ; preds = %196, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i27
   %205 = phi i16 [ 1, %196 ], [ %195, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i27 ]
   %206 = phi i64 [ %201, %196 ], [ %192, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i27 ]
-  %207 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %189, i64 %206
+  %207 = getelementptr inbounds [8 x i8], ptr %189, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 6
   store i16 %205, ptr %208, align 2, !tbaa !216
   %209 = getelementptr inbounds nuw i8, ptr %185, i64 10012
@@ -84690,7 +84655,7 @@ _ZN8ImVectorI16ImGuiContextHookED2Ev.exit:        ; preds = %_ZN15ImGuiTextBuffe
   %226 = getelementptr inbounds nuw i8, ptr %221, i64 10016
   %227 = load i16, ptr %226, align 8, !tbaa !212
   %228 = sext i16 %227 to i64
-  %229 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %225, i64 %228
+  %229 = getelementptr inbounds [8 x i8], ptr %225, i64 %228
   %230 = load i32, ptr %229, align 4, !tbaa !213
   %.not.i.i.i.i32 = icmp eq i32 %230, %224
   br i1 %.not.i.i.i.i32, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i34, label %232
@@ -84708,7 +84673,7 @@ _ZN8ImVectorI16ImGuiContextHookED2Ev.exit:        ; preds = %_ZN15ImGuiTextBuffe
   %236 = trunc nsw i32 %235 to i16
   store i16 %236, ptr %226, align 4, !tbaa !212
   %237 = sext i32 %235 to i64
-  %238 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %225, i64 %237
+  %238 = getelementptr inbounds [8 x i8], ptr %225, i64 %237
   store i32 %224, ptr %238, align 4, !tbaa !213
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 6
   store i16 0, ptr %239, align 2, !tbaa !216
@@ -84719,7 +84684,7 @@ _ZN8ImVectorI16ImGuiContextHookED2Ev.exit:        ; preds = %_ZN15ImGuiTextBuffe
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i33: ; preds = %232, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i34
   %241 = phi i16 [ 1, %232 ], [ %231, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i34 ]
   %242 = phi i64 [ %237, %232 ], [ %228, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i34 ]
-  %243 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %225, i64 %242
+  %243 = getelementptr inbounds [8 x i8], ptr %225, i64 %242
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 6
   store i16 %241, ptr %244, align 2, !tbaa !216
   %245 = getelementptr inbounds nuw i8, ptr %221, i64 10012
@@ -84759,7 +84724,7 @@ _ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev.exit: ; preds = %_ZN8ImVectorI16ImG
   %262 = getelementptr inbounds nuw i8, ptr %257, i64 10016
   %263 = load i16, ptr %262, align 8, !tbaa !212
   %264 = sext i16 %263 to i64
-  %265 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %261, i64 %264
+  %265 = getelementptr inbounds [8 x i8], ptr %261, i64 %264
   %266 = load i32, ptr %265, align 4, !tbaa !213
   %.not.i.i.i.i39 = icmp eq i32 %266, %260
   br i1 %.not.i.i.i.i39, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i41, label %268
@@ -84777,7 +84742,7 @@ _ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev.exit: ; preds = %_ZN8ImVectorI16ImG
   %272 = trunc nsw i32 %271 to i16
   store i16 %272, ptr %262, align 4, !tbaa !212
   %273 = sext i32 %271 to i64
-  %274 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %261, i64 %273
+  %274 = getelementptr inbounds [8 x i8], ptr %261, i64 %273
   store i32 %260, ptr %274, align 4, !tbaa !213
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 6
   store i16 0, ptr %275, align 2, !tbaa !216
@@ -84788,7 +84753,7 @@ _ZN13ImChunkStreamI18ImGuiTableSettingsED2Ev.exit: ; preds = %_ZN8ImVectorI16ImG
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i40: ; preds = %268, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i41
   %277 = phi i16 [ 1, %268 ], [ %267, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i41 ]
   %278 = phi i64 [ %273, %268 ], [ %264, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i41 ]
-  %279 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %261, i64 %278
+  %279 = getelementptr inbounds [8 x i8], ptr %261, i64 %278
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 6
   store i16 %277, ptr %280, align 2, !tbaa !216
   %281 = getelementptr inbounds nuw i8, ptr %257, i64 10012
@@ -84828,7 +84793,7 @@ _ZN13ImChunkStreamI19ImGuiWindowSettingsED2Ev.exit: ; preds = %_ZN13ImChunkStrea
   %298 = getelementptr inbounds nuw i8, ptr %293, i64 10016
   %299 = load i16, ptr %298, align 8, !tbaa !212
   %300 = sext i16 %299 to i64
-  %301 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %297, i64 %300
+  %301 = getelementptr inbounds [8 x i8], ptr %297, i64 %300
   %302 = load i32, ptr %301, align 4, !tbaa !213
   %.not.i.i.i46 = icmp eq i32 %302, %296
   br i1 %.not.i.i.i46, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i48, label %304
@@ -84846,7 +84811,7 @@ _ZN13ImChunkStreamI19ImGuiWindowSettingsED2Ev.exit: ; preds = %_ZN13ImChunkStrea
   %308 = trunc nsw i32 %307 to i16
   store i16 %308, ptr %298, align 4, !tbaa !212
   %309 = sext i32 %307 to i64
-  %310 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %297, i64 %309
+  %310 = getelementptr inbounds [8 x i8], ptr %297, i64 %309
   store i32 %296, ptr %310, align 4, !tbaa !213
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 6
   store i16 0, ptr %311, align 2, !tbaa !216
@@ -84857,7 +84822,7 @@ _ZN13ImChunkStreamI19ImGuiWindowSettingsED2Ev.exit: ; preds = %_ZN13ImChunkStrea
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i47: ; preds = %304, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i48
   %313 = phi i16 [ 1, %304 ], [ %303, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i48 ]
   %314 = phi i64 [ %309, %304 ], [ %300, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i48 ]
-  %315 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %297, i64 %314
+  %315 = getelementptr inbounds [8 x i8], ptr %297, i64 %314
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 6
   store i16 %313, ptr %316, align 2, !tbaa !216
   %317 = getelementptr inbounds nuw i8, ptr %293, i64 10012
@@ -84897,7 +84862,7 @@ _ZN8ImVectorI20ImGuiSettingsHandlerED2Ev.exit:    ; preds = %_ZN13ImChunkStreamI
   %334 = getelementptr inbounds nuw i8, ptr %329, i64 10016
   %335 = load i16, ptr %334, align 8, !tbaa !212
   %336 = sext i16 %335 to i64
-  %337 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %333, i64 %336
+  %337 = getelementptr inbounds [8 x i8], ptr %333, i64 %336
   %338 = load i32, ptr %337, align 4, !tbaa !213
   %.not.i.i.i.i53 = icmp eq i32 %338, %332
   br i1 %.not.i.i.i.i53, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i55, label %340
@@ -84915,7 +84880,7 @@ _ZN8ImVectorI20ImGuiSettingsHandlerED2Ev.exit:    ; preds = %_ZN13ImChunkStreamI
   %344 = trunc nsw i32 %343 to i16
   store i16 %344, ptr %334, align 4, !tbaa !212
   %345 = sext i32 %343 to i64
-  %346 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %333, i64 %345
+  %346 = getelementptr inbounds [8 x i8], ptr %333, i64 %345
   store i32 %332, ptr %346, align 4, !tbaa !213
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 6
   store i16 0, ptr %347, align 2, !tbaa !216
@@ -84926,7 +84891,7 @@ _ZN8ImVectorI20ImGuiSettingsHandlerED2Ev.exit:    ; preds = %_ZN13ImChunkStreamI
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i54: ; preds = %340, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i55
   %349 = phi i16 [ 1, %340 ], [ %339, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i55 ]
   %350 = phi i64 [ %345, %340 ], [ %336, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i55 ]
-  %351 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %333, i64 %350
+  %351 = getelementptr inbounds [8 x i8], ptr %333, i64 %350
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 6
   store i16 %349, ptr %352, align 2, !tbaa !216
   %353 = getelementptr inbounds nuw i8, ptr %329, i64 10012
@@ -84966,7 +84931,7 @@ _ZN15ImGuiTextBufferD2Ev.exit58:                  ; preds = %_ZN8ImVectorI20ImGu
   %370 = getelementptr inbounds nuw i8, ptr %365, i64 10016
   %371 = load i16, ptr %370, align 8, !tbaa !212
   %372 = sext i16 %371 to i64
-  %373 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %369, i64 %372
+  %373 = getelementptr inbounds [8 x i8], ptr %369, i64 %372
   %374 = load i32, ptr %373, align 4, !tbaa !213
   %.not.i.i.i61 = icmp eq i32 %374, %368
   br i1 %.not.i.i.i61, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i63, label %376
@@ -84984,7 +84949,7 @@ _ZN15ImGuiTextBufferD2Ev.exit58:                  ; preds = %_ZN8ImVectorI20ImGu
   %380 = trunc nsw i32 %379 to i16
   store i16 %380, ptr %370, align 4, !tbaa !212
   %381 = sext i32 %379 to i64
-  %382 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %369, i64 %381
+  %382 = getelementptr inbounds [8 x i8], ptr %369, i64 %381
   store i32 %368, ptr %382, align 4, !tbaa !213
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 6
   store i16 0, ptr %383, align 2, !tbaa !216
@@ -84995,7 +84960,7 @@ _ZN15ImGuiTextBufferD2Ev.exit58:                  ; preds = %_ZN8ImVectorI20ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i62: ; preds = %376, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i63
   %385 = phi i16 [ 1, %376 ], [ %375, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i63 ]
   %386 = phi i64 [ %381, %376 ], [ %372, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i63 ]
-  %387 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %369, i64 %386
+  %387 = getelementptr inbounds [8 x i8], ptr %369, i64 %386
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 6
   store i16 %385, ptr %388, align 2, !tbaa !216
   %389 = getelementptr inbounds nuw i8, ptr %365, i64 10012
@@ -85035,7 +85000,7 @@ _ZN8ImVectorIjED2Ev.exit:                         ; preds = %_ZN15ImGuiTextBuffe
   %406 = getelementptr inbounds nuw i8, ptr %401, i64 10016
   %407 = load i16, ptr %406, align 8, !tbaa !212
   %408 = sext i16 %407 to i64
-  %409 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %405, i64 %408
+  %409 = getelementptr inbounds [8 x i8], ptr %405, i64 %408
   %410 = load i32, ptr %409, align 4, !tbaa !213
   %.not.i.i.i68 = icmp eq i32 %410, %404
   br i1 %.not.i.i.i68, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i70, label %412
@@ -85053,7 +85018,7 @@ _ZN8ImVectorIjED2Ev.exit:                         ; preds = %_ZN15ImGuiTextBuffe
   %416 = trunc nsw i32 %415 to i16
   store i16 %416, ptr %406, align 4, !tbaa !212
   %417 = sext i32 %415 to i64
-  %418 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %405, i64 %417
+  %418 = getelementptr inbounds [8 x i8], ptr %405, i64 %417
   store i32 %404, ptr %418, align 4, !tbaa !213
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 6
   store i16 0, ptr %419, align 2, !tbaa !216
@@ -85064,7 +85029,7 @@ _ZN8ImVectorIjED2Ev.exit:                         ; preds = %_ZN15ImGuiTextBuffe
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i69: ; preds = %412, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i70
   %421 = phi i16 [ 1, %412 ], [ %411, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i70 ]
   %422 = phi i64 [ %417, %412 ], [ %408, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i70 ]
-  %423 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %405, i64 %422
+  %423 = getelementptr inbounds [8 x i8], ptr %405, i64 %422
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 6
   store i16 %421, ptr %424, align 2, !tbaa !216
   %425 = getelementptr inbounds nuw i8, ptr %401, i64 10012
@@ -85106,7 +85071,7 @@ _ZN8ImVectorIcED2Ev.exit73:                       ; preds = %_ZN8ImVectorIjED2Ev
   %443 = getelementptr inbounds nuw i8, ptr %438, i64 10016
   %444 = load i16, ptr %443, align 8, !tbaa !212
   %445 = sext i16 %444 to i64
-  %446 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %442, i64 %445
+  %446 = getelementptr inbounds [8 x i8], ptr %442, i64 %445
   %447 = load i32, ptr %446, align 4, !tbaa !213
   %.not.i.i.i.i76 = icmp eq i32 %447, %441
   br i1 %.not.i.i.i.i76, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i78, label %449
@@ -85124,7 +85089,7 @@ _ZN8ImVectorIcED2Ev.exit73:                       ; preds = %_ZN8ImVectorIjED2Ev
   %453 = trunc nsw i32 %452 to i16
   store i16 %453, ptr %443, align 4, !tbaa !212
   %454 = sext i32 %452 to i64
-  %455 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %442, i64 %454
+  %455 = getelementptr inbounds [8 x i8], ptr %442, i64 %454
   store i32 %441, ptr %455, align 4, !tbaa !213
   %456 = getelementptr inbounds nuw i8, ptr %455, i64 6
   store i16 0, ptr %456, align 2, !tbaa !216
@@ -85135,7 +85100,7 @@ _ZN8ImVectorIcED2Ev.exit73:                       ; preds = %_ZN8ImVectorIjED2Ev
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i77: ; preds = %449, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i78
   %458 = phi i16 [ 1, %449 ], [ %448, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i78 ]
   %459 = phi i64 [ %454, %449 ], [ %445, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i78 ]
-  %460 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %442, i64 %459
+  %460 = getelementptr inbounds [8 x i8], ptr %442, i64 %459
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 6
   store i16 %458, ptr %461, align 2, !tbaa !216
   %462 = getelementptr inbounds nuw i8, ptr %438, i64 10012
@@ -85179,7 +85144,7 @@ _ZN30ImGuiInputTextDeactivatedStateD2Ev.exit:     ; preds = %_ZN8ImVectorIcED2Ev
   %481 = getelementptr inbounds nuw i8, ptr %476, i64 10016
   %482 = load i16, ptr %481, align 8, !tbaa !212
   %483 = sext i16 %482 to i64
-  %484 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %480, i64 %483
+  %484 = getelementptr inbounds [8 x i8], ptr %480, i64 %483
   %485 = load i32, ptr %484, align 4, !tbaa !213
   %.not.i.i.i83 = icmp eq i32 %485, %479
   br i1 %.not.i.i.i83, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i85, label %487
@@ -85197,7 +85162,7 @@ _ZN30ImGuiInputTextDeactivatedStateD2Ev.exit:     ; preds = %_ZN8ImVectorIcED2Ev
   %491 = trunc nsw i32 %490 to i16
   store i16 %491, ptr %481, align 4, !tbaa !212
   %492 = sext i32 %490 to i64
-  %493 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %480, i64 %492
+  %493 = getelementptr inbounds [8 x i8], ptr %480, i64 %492
   store i32 %479, ptr %493, align 4, !tbaa !213
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 6
   store i16 0, ptr %494, align 2, !tbaa !216
@@ -85208,7 +85173,7 @@ _ZN30ImGuiInputTextDeactivatedStateD2Ev.exit:     ; preds = %_ZN8ImVectorIcED2Ev
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i84: ; preds = %487, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i85
   %496 = phi i16 [ 1, %487 ], [ %486, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i85 ]
   %497 = phi i64 [ %492, %487 ], [ %483, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i85 ]
-  %498 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %480, i64 %497
+  %498 = getelementptr inbounds [8 x i8], ptr %480, i64 %497
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 6
   store i16 %496, ptr %499, align 2, !tbaa !216
   %500 = getelementptr inbounds nuw i8, ptr %476, i64 10012
@@ -85248,7 +85213,7 @@ _ZN8ImVectorI24ImGuiMultiSelectTempDataED2Ev.exit: ; preds = %_ZN30ImGuiInputTex
   %517 = getelementptr inbounds nuw i8, ptr %512, i64 10016
   %518 = load i16, ptr %517, align 8, !tbaa !212
   %519 = sext i16 %518 to i64
-  %520 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %516, i64 %519
+  %520 = getelementptr inbounds [8 x i8], ptr %516, i64 %519
   %521 = load i32, ptr %520, align 4, !tbaa !213
   %.not.i.i.i90 = icmp eq i32 %521, %515
   br i1 %.not.i.i.i90, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i92, label %523
@@ -85266,7 +85231,7 @@ _ZN8ImVectorI24ImGuiMultiSelectTempDataED2Ev.exit: ; preds = %_ZN30ImGuiInputTex
   %527 = trunc nsw i32 %526 to i16
   store i16 %527, ptr %517, align 4, !tbaa !212
   %528 = sext i32 %526 to i64
-  %529 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %516, i64 %528
+  %529 = getelementptr inbounds [8 x i8], ptr %516, i64 %528
   store i32 %515, ptr %529, align 4, !tbaa !213
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 6
   store i16 0, ptr %530, align 2, !tbaa !216
@@ -85277,7 +85242,7 @@ _ZN8ImVectorI24ImGuiMultiSelectTempDataED2Ev.exit: ; preds = %_ZN30ImGuiInputTex
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i91: ; preds = %523, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i92
   %532 = phi i16 [ 1, %523 ], [ %522, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i92 ]
   %533 = phi i64 [ %528, %523 ], [ %519, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i92 ]
-  %534 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %516, i64 %533
+  %534 = getelementptr inbounds [8 x i8], ptr %516, i64 %533
   %535 = getelementptr inbounds nuw i8, ptr %534, i64 6
   store i16 %532, ptr %535, align 2, !tbaa !216
   %536 = getelementptr inbounds nuw i8, ptr %512, i64 10012
@@ -85317,7 +85282,7 @@ _ZN8ImVectorI20ImGuiShrinkWidthItemED2Ev.exit:    ; preds = %_ZN8ImVectorI24ImGu
   %553 = getelementptr inbounds nuw i8, ptr %548, i64 10016
   %554 = load i16, ptr %553, align 8, !tbaa !212
   %555 = sext i16 %554 to i64
-  %556 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %552, i64 %555
+  %556 = getelementptr inbounds [8 x i8], ptr %552, i64 %555
   %557 = load i32, ptr %556, align 4, !tbaa !213
   %.not.i.i.i97 = icmp eq i32 %557, %551
   br i1 %.not.i.i.i97, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i99, label %559
@@ -85335,7 +85300,7 @@ _ZN8ImVectorI20ImGuiShrinkWidthItemED2Ev.exit:    ; preds = %_ZN8ImVectorI24ImGu
   %563 = trunc nsw i32 %562 to i16
   store i16 %563, ptr %553, align 4, !tbaa !212
   %564 = sext i32 %562 to i64
-  %565 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %552, i64 %564
+  %565 = getelementptr inbounds [8 x i8], ptr %552, i64 %564
   store i32 %551, ptr %565, align 4, !tbaa !213
   %566 = getelementptr inbounds nuw i8, ptr %565, i64 6
   store i16 0, ptr %566, align 2, !tbaa !216
@@ -85346,7 +85311,7 @@ _ZN8ImVectorI20ImGuiShrinkWidthItemED2Ev.exit:    ; preds = %_ZN8ImVectorI24ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i98: ; preds = %559, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i99
   %568 = phi i16 [ 1, %559 ], [ %558, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i99 ]
   %569 = phi i64 [ %564, %559 ], [ %555, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i99 ]
-  %570 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %552, i64 %569
+  %570 = getelementptr inbounds [8 x i8], ptr %552, i64 %569
   %571 = getelementptr inbounds nuw i8, ptr %570, i64 6
   store i16 %568, ptr %571, align 2, !tbaa !216
   %572 = getelementptr inbounds nuw i8, ptr %548, i64 10012
@@ -85388,7 +85353,7 @@ _ZN8ImVectorI15ImGuiPtrOrIndexED2Ev.exit:         ; preds = %_ZN8ImVectorI20ImGu
   %590 = getelementptr inbounds nuw i8, ptr %585, i64 10016
   %591 = load i16, ptr %590, align 8, !tbaa !212
   %592 = sext i16 %591 to i64
-  %593 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %589, i64 %592
+  %593 = getelementptr inbounds [8 x i8], ptr %589, i64 %592
   %594 = load i32, ptr %593, align 4, !tbaa !213
   %.not.i.i.i104 = icmp eq i32 %594, %588
   br i1 %.not.i.i.i104, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i106, label %596
@@ -85406,7 +85371,7 @@ _ZN8ImVectorI15ImGuiPtrOrIndexED2Ev.exit:         ; preds = %_ZN8ImVectorI20ImGu
   %600 = trunc nsw i32 %599 to i16
   store i16 %600, ptr %590, align 4, !tbaa !212
   %601 = sext i32 %599 to i64
-  %602 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %589, i64 %601
+  %602 = getelementptr inbounds [8 x i8], ptr %589, i64 %601
   store i32 %588, ptr %602, align 4, !tbaa !213
   %603 = getelementptr inbounds nuw i8, ptr %602, i64 6
   store i16 0, ptr %603, align 2, !tbaa !216
@@ -85417,7 +85382,7 @@ _ZN8ImVectorI15ImGuiPtrOrIndexED2Ev.exit:         ; preds = %_ZN8ImVectorI20ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i105: ; preds = %596, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i106
   %605 = phi i16 [ 1, %596 ], [ %595, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i106 ]
   %606 = phi i64 [ %601, %596 ], [ %592, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i106 ]
-  %607 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %589, i64 %606
+  %607 = getelementptr inbounds [8 x i8], ptr %589, i64 %606
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 6
   store i16 %605, ptr %608, align 2, !tbaa !216
   %609 = getelementptr inbounds nuw i8, ptr %585, i64 10012
@@ -85457,7 +85422,7 @@ _ZN8ImVectorI13ImDrawChannelED2Ev.exit:           ; preds = %_ZN8ImVectorI15ImGu
   %626 = getelementptr inbounds nuw i8, ptr %621, i64 10016
   %627 = load i16, ptr %626, align 8, !tbaa !212
   %628 = sext i16 %627 to i64
-  %629 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %625, i64 %628
+  %629 = getelementptr inbounds [8 x i8], ptr %625, i64 %628
   %630 = load i32, ptr %629, align 4, !tbaa !213
   %.not.i.i.i111 = icmp eq i32 %630, %624
   br i1 %.not.i.i.i111, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i113, label %632
@@ -85475,7 +85440,7 @@ _ZN8ImVectorI13ImDrawChannelED2Ev.exit:           ; preds = %_ZN8ImVectorI15ImGu
   %636 = trunc nsw i32 %635 to i16
   store i16 %636, ptr %626, align 4, !tbaa !212
   %637 = sext i32 %635 to i64
-  %638 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %625, i64 %637
+  %638 = getelementptr inbounds [8 x i8], ptr %625, i64 %637
   store i32 %624, ptr %638, align 4, !tbaa !213
   %639 = getelementptr inbounds nuw i8, ptr %638, i64 6
   store i16 0, ptr %639, align 2, !tbaa !216
@@ -85486,7 +85451,7 @@ _ZN8ImVectorI13ImDrawChannelED2Ev.exit:           ; preds = %_ZN8ImVectorI15ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i112: ; preds = %632, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i113
   %641 = phi i16 [ 1, %632 ], [ %631, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i113 ]
   %642 = phi i64 [ %637, %632 ], [ %628, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i113 ]
-  %643 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %625, i64 %642
+  %643 = getelementptr inbounds [8 x i8], ptr %625, i64 %642
   %644 = getelementptr inbounds nuw i8, ptr %643, i64 6
   store i16 %641, ptr %644, align 2, !tbaa !216
   %645 = getelementptr inbounds nuw i8, ptr %621, i64 10012
@@ -85528,7 +85493,7 @@ _ZN8ImVectorIfED2Ev.exit:                         ; preds = %_ZN8ImVectorI13ImDr
   %663 = getelementptr inbounds nuw i8, ptr %658, i64 10016
   %664 = load i16, ptr %663, align 8, !tbaa !212
   %665 = sext i16 %664 to i64
-  %666 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %662, i64 %665
+  %666 = getelementptr inbounds [8 x i8], ptr %662, i64 %665
   %667 = load i32, ptr %666, align 4, !tbaa !213
   %.not.i.i.i118 = icmp eq i32 %667, %661
   br i1 %.not.i.i.i118, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i120, label %669
@@ -85546,7 +85511,7 @@ _ZN8ImVectorIfED2Ev.exit:                         ; preds = %_ZN8ImVectorI13ImDr
   %673 = trunc nsw i32 %672 to i16
   store i16 %673, ptr %663, align 4, !tbaa !212
   %674 = sext i32 %672 to i64
-  %675 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %662, i64 %674
+  %675 = getelementptr inbounds [8 x i8], ptr %662, i64 %674
   store i32 %661, ptr %675, align 4, !tbaa !213
   %676 = getelementptr inbounds nuw i8, ptr %675, i64 6
   store i16 0, ptr %676, align 2, !tbaa !216
@@ -85557,7 +85522,7 @@ _ZN8ImVectorIfED2Ev.exit:                         ; preds = %_ZN8ImVectorI13ImDr
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i119: ; preds = %669, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i120
   %678 = phi i16 [ 1, %669 ], [ %668, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i120 ]
   %679 = phi i64 [ %674, %669 ], [ %665, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i120 ]
-  %680 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %662, i64 %679
+  %680 = getelementptr inbounds [8 x i8], ptr %662, i64 %679
   %681 = getelementptr inbounds nuw i8, ptr %680, i64 6
   store i16 %678, ptr %681, align 2, !tbaa !216
   %682 = getelementptr inbounds nuw i8, ptr %658, i64 10012
@@ -85597,7 +85562,7 @@ _ZN8ImVectorI18ImGuiTableTempDataED2Ev.exit:      ; preds = %_ZN8ImVectorIfED2Ev
   %699 = getelementptr inbounds nuw i8, ptr %694, i64 10016
   %700 = load i16, ptr %699, align 8, !tbaa !212
   %701 = sext i16 %700 to i64
-  %702 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %698, i64 %701
+  %702 = getelementptr inbounds [8 x i8], ptr %698, i64 %701
   %703 = load i32, ptr %702, align 4, !tbaa !213
   %.not.i.i.i125 = icmp eq i32 %703, %697
   br i1 %.not.i.i.i125, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i127, label %705
@@ -85615,7 +85580,7 @@ _ZN8ImVectorI18ImGuiTableTempDataED2Ev.exit:      ; preds = %_ZN8ImVectorIfED2Ev
   %709 = trunc nsw i32 %708 to i16
   store i16 %709, ptr %699, align 4, !tbaa !212
   %710 = sext i32 %708 to i64
-  %711 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %698, i64 %710
+  %711 = getelementptr inbounds [8 x i8], ptr %698, i64 %710
   store i32 %697, ptr %711, align 4, !tbaa !213
   %712 = getelementptr inbounds nuw i8, ptr %711, i64 6
   store i16 0, ptr %712, align 2, !tbaa !216
@@ -85626,7 +85591,7 @@ _ZN8ImVectorI18ImGuiTableTempDataED2Ev.exit:      ; preds = %_ZN8ImVectorIfED2Ev
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i126: ; preds = %705, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i127
   %714 = phi i16 [ 1, %705 ], [ %704, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i127 ]
   %715 = phi i64 [ %710, %705 ], [ %701, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i127 ]
-  %716 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %698, i64 %715
+  %716 = getelementptr inbounds [8 x i8], ptr %698, i64 %715
   %717 = getelementptr inbounds nuw i8, ptr %716, i64 6
   store i16 %714, ptr %717, align 2, !tbaa !216
   %718 = getelementptr inbounds nuw i8, ptr %694, i64 10012
@@ -85666,7 +85631,7 @@ _ZN8ImVectorI20ImGuiListClipperDataED2Ev.exit:    ; preds = %_ZN8ImVectorI18ImGu
   %735 = getelementptr inbounds nuw i8, ptr %730, i64 10016
   %736 = load i16, ptr %735, align 8, !tbaa !212
   %737 = sext i16 %736 to i64
-  %738 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %734, i64 %737
+  %738 = getelementptr inbounds [8 x i8], ptr %734, i64 %737
   %739 = load i32, ptr %738, align 4, !tbaa !213
   %.not.i.i.i132 = icmp eq i32 %739, %733
   br i1 %.not.i.i.i132, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i134, label %741
@@ -85684,7 +85649,7 @@ _ZN8ImVectorI20ImGuiListClipperDataED2Ev.exit:    ; preds = %_ZN8ImVectorI18ImGu
   %745 = trunc nsw i32 %744 to i16
   store i16 %745, ptr %735, align 4, !tbaa !212
   %746 = sext i32 %744 to i64
-  %747 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %734, i64 %746
+  %747 = getelementptr inbounds [8 x i8], ptr %734, i64 %746
   store i32 %733, ptr %747, align 4, !tbaa !213
   %748 = getelementptr inbounds nuw i8, ptr %747, i64 6
   store i16 0, ptr %748, align 2, !tbaa !216
@@ -85695,7 +85660,7 @@ _ZN8ImVectorI20ImGuiListClipperDataED2Ev.exit:    ; preds = %_ZN8ImVectorI18ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i133: ; preds = %741, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i134
   %750 = phi i16 [ 1, %741 ], [ %740, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i134 ]
   %751 = phi i64 [ %746, %741 ], [ %737, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i134 ]
-  %752 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %734, i64 %751
+  %752 = getelementptr inbounds [8 x i8], ptr %734, i64 %751
   %753 = getelementptr inbounds nuw i8, ptr %752, i64 6
   store i16 %750, ptr %753, align 2, !tbaa !216
   %754 = getelementptr inbounds nuw i8, ptr %730, i64 10012
@@ -85735,7 +85700,7 @@ _ZN8ImVectorIhED2Ev.exit:                         ; preds = %_ZN8ImVectorI20ImGu
   %771 = getelementptr inbounds nuw i8, ptr %766, i64 10016
   %772 = load i16, ptr %771, align 8, !tbaa !212
   %773 = sext i16 %772 to i64
-  %774 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %770, i64 %773
+  %774 = getelementptr inbounds [8 x i8], ptr %770, i64 %773
   %775 = load i32, ptr %774, align 4, !tbaa !213
   %.not.i.i.i139 = icmp eq i32 %775, %769
   br i1 %.not.i.i.i139, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i141, label %777
@@ -85753,7 +85718,7 @@ _ZN8ImVectorIhED2Ev.exit:                         ; preds = %_ZN8ImVectorI20ImGu
   %781 = trunc nsw i32 %780 to i16
   store i16 %781, ptr %771, align 4, !tbaa !212
   %782 = sext i32 %780 to i64
-  %783 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %770, i64 %782
+  %783 = getelementptr inbounds [8 x i8], ptr %770, i64 %782
   store i32 %769, ptr %783, align 4, !tbaa !213
   %784 = getelementptr inbounds nuw i8, ptr %783, i64 6
   store i16 0, ptr %784, align 2, !tbaa !216
@@ -85764,7 +85729,7 @@ _ZN8ImVectorIhED2Ev.exit:                         ; preds = %_ZN8ImVectorI20ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i140: ; preds = %777, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i141
   %786 = phi i16 [ 1, %777 ], [ %776, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i141 ]
   %787 = phi i64 [ %782, %777 ], [ %773, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i141 ]
-  %788 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %770, i64 %787
+  %788 = getelementptr inbounds [8 x i8], ptr %770, i64 %787
   %789 = getelementptr inbounds nuw i8, ptr %788, i64 6
   store i16 %786, ptr %789, align 2, !tbaa !216
   %790 = getelementptr inbounds nuw i8, ptr %766, i64 10012
@@ -85804,7 +85769,7 @@ _ZN8ImVectorI19ImGuiFocusScopeDataED2Ev.exit:     ; preds = %_ZN8ImVectorIhED2Ev
   %807 = getelementptr inbounds nuw i8, ptr %802, i64 10016
   %808 = load i16, ptr %807, align 8, !tbaa !212
   %809 = sext i16 %808 to i64
-  %810 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %806, i64 %809
+  %810 = getelementptr inbounds [8 x i8], ptr %806, i64 %809
   %811 = load i32, ptr %810, align 4, !tbaa !213
   %.not.i.i.i146 = icmp eq i32 %811, %805
   br i1 %.not.i.i.i146, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i148, label %813
@@ -85822,7 +85787,7 @@ _ZN8ImVectorI19ImGuiFocusScopeDataED2Ev.exit:     ; preds = %_ZN8ImVectorIhED2Ev
   %817 = trunc nsw i32 %816 to i16
   store i16 %817, ptr %807, align 4, !tbaa !212
   %818 = sext i32 %816 to i64
-  %819 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %806, i64 %818
+  %819 = getelementptr inbounds [8 x i8], ptr %806, i64 %818
   store i32 %805, ptr %819, align 4, !tbaa !213
   %820 = getelementptr inbounds nuw i8, ptr %819, i64 6
   store i16 0, ptr %820, align 2, !tbaa !216
@@ -85833,7 +85798,7 @@ _ZN8ImVectorI19ImGuiFocusScopeDataED2Ev.exit:     ; preds = %_ZN8ImVectorIhED2Ev
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i147: ; preds = %813, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i148
   %822 = phi i16 [ 1, %813 ], [ %812, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i148 ]
   %823 = phi i64 [ %818, %813 ], [ %809, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i148 ]
-  %824 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %806, i64 %823
+  %824 = getelementptr inbounds [8 x i8], ptr %806, i64 %823
   %825 = getelementptr inbounds nuw i8, ptr %824, i64 6
   store i16 %822, ptr %825, align 2, !tbaa !216
   %826 = getelementptr inbounds nuw i8, ptr %802, i64 10012
@@ -85873,7 +85838,7 @@ _ZN8ImVectorIP14ImGuiViewportPED2Ev.exit:         ; preds = %_ZN8ImVectorI19ImGu
   %843 = getelementptr inbounds nuw i8, ptr %838, i64 10016
   %844 = load i16, ptr %843, align 8, !tbaa !212
   %845 = sext i16 %844 to i64
-  %846 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %842, i64 %845
+  %846 = getelementptr inbounds [8 x i8], ptr %842, i64 %845
   %847 = load i32, ptr %846, align 4, !tbaa !213
   %.not.i.i.i153 = icmp eq i32 %847, %841
   br i1 %.not.i.i.i153, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i155, label %849
@@ -85891,7 +85856,7 @@ _ZN8ImVectorIP14ImGuiViewportPED2Ev.exit:         ; preds = %_ZN8ImVectorI19ImGu
   %853 = trunc nsw i32 %852 to i16
   store i16 %853, ptr %843, align 4, !tbaa !212
   %854 = sext i32 %852 to i64
-  %855 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %842, i64 %854
+  %855 = getelementptr inbounds [8 x i8], ptr %842, i64 %854
   store i32 %841, ptr %855, align 4, !tbaa !213
   %856 = getelementptr inbounds nuw i8, ptr %855, i64 6
   store i16 0, ptr %856, align 2, !tbaa !216
@@ -85902,7 +85867,7 @@ _ZN8ImVectorIP14ImGuiViewportPED2Ev.exit:         ; preds = %_ZN8ImVectorI19ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i154: ; preds = %849, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i155
   %858 = phi i16 [ 1, %849 ], [ %848, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i155 ]
   %859 = phi i64 [ %854, %849 ], [ %845, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i155 ]
-  %860 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %842, i64 %859
+  %860 = getelementptr inbounds [8 x i8], ptr %842, i64 %859
   %861 = getelementptr inbounds nuw i8, ptr %860, i64 6
   store i16 %858, ptr %861, align 2, !tbaa !216
   %862 = getelementptr inbounds nuw i8, ptr %838, i64 10012
@@ -85942,7 +85907,7 @@ _ZN8ImVectorI22ImGuiTreeNodeStackDataED2Ev.exit:  ; preds = %_ZN8ImVectorIP14ImG
   %879 = getelementptr inbounds nuw i8, ptr %874, i64 10016
   %880 = load i16, ptr %879, align 8, !tbaa !212
   %881 = sext i16 %880 to i64
-  %882 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %878, i64 %881
+  %882 = getelementptr inbounds [8 x i8], ptr %878, i64 %881
   %883 = load i32, ptr %882, align 4, !tbaa !213
   %.not.i.i.i160 = icmp eq i32 %883, %877
   br i1 %.not.i.i.i160, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i162, label %885
@@ -85960,7 +85925,7 @@ _ZN8ImVectorI22ImGuiTreeNodeStackDataED2Ev.exit:  ; preds = %_ZN8ImVectorIP14ImG
   %889 = trunc nsw i32 %888 to i16
   store i16 %889, ptr %879, align 4, !tbaa !212
   %890 = sext i32 %888 to i64
-  %891 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %878, i64 %890
+  %891 = getelementptr inbounds [8 x i8], ptr %878, i64 %890
   store i32 %877, ptr %891, align 4, !tbaa !213
   %892 = getelementptr inbounds nuw i8, ptr %891, i64 6
   store i16 0, ptr %892, align 2, !tbaa !216
@@ -85971,7 +85936,7 @@ _ZN8ImVectorI22ImGuiTreeNodeStackDataED2Ev.exit:  ; preds = %_ZN8ImVectorIP14ImG
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i161: ; preds = %885, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i162
   %894 = phi i16 [ 1, %885 ], [ %884, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i162 ]
   %895 = phi i64 [ %890, %885 ], [ %881, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i162 ]
-  %896 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %878, i64 %895
+  %896 = getelementptr inbounds [8 x i8], ptr %878, i64 %895
   %897 = getelementptr inbounds nuw i8, ptr %896, i64 6
   store i16 %894, ptr %897, align 2, !tbaa !216
   %898 = getelementptr inbounds nuw i8, ptr %874, i64 10012
@@ -86011,7 +85976,7 @@ _ZN8ImVectorI14ImGuiPopupDataED2Ev.exit:          ; preds = %_ZN8ImVectorI22ImGu
   %915 = getelementptr inbounds nuw i8, ptr %910, i64 10016
   %916 = load i16, ptr %915, align 8, !tbaa !212
   %917 = sext i16 %916 to i64
-  %918 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %914, i64 %917
+  %918 = getelementptr inbounds [8 x i8], ptr %914, i64 %917
   %919 = load i32, ptr %918, align 4, !tbaa !213
   %.not.i.i.i167 = icmp eq i32 %919, %913
   br i1 %.not.i.i.i167, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i169, label %921
@@ -86029,7 +85994,7 @@ _ZN8ImVectorI14ImGuiPopupDataED2Ev.exit:          ; preds = %_ZN8ImVectorI22ImGu
   %925 = trunc nsw i32 %924 to i16
   store i16 %925, ptr %915, align 4, !tbaa !212
   %926 = sext i32 %924 to i64
-  %927 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %914, i64 %926
+  %927 = getelementptr inbounds [8 x i8], ptr %914, i64 %926
   store i32 %913, ptr %927, align 4, !tbaa !213
   %928 = getelementptr inbounds nuw i8, ptr %927, i64 6
   store i16 0, ptr %928, align 2, !tbaa !216
@@ -86040,7 +86005,7 @@ _ZN8ImVectorI14ImGuiPopupDataED2Ev.exit:          ; preds = %_ZN8ImVectorI22ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i168: ; preds = %921, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i169
   %930 = phi i16 [ 1, %921 ], [ %920, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i169 ]
   %931 = phi i64 [ %926, %921 ], [ %917, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i169 ]
-  %932 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %914, i64 %931
+  %932 = getelementptr inbounds [8 x i8], ptr %914, i64 %931
   %933 = getelementptr inbounds nuw i8, ptr %932, i64 6
   store i16 %930, ptr %933, align 2, !tbaa !216
   %934 = getelementptr inbounds nuw i8, ptr %910, i64 10012
@@ -86080,7 +86045,7 @@ _ZN8ImVectorI14ImGuiPopupDataED2Ev.exit172:       ; preds = %_ZN8ImVectorI14ImGu
   %951 = getelementptr inbounds nuw i8, ptr %946, i64 10016
   %952 = load i16, ptr %951, align 8, !tbaa !212
   %953 = sext i16 %952 to i64
-  %954 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %950, i64 %953
+  %954 = getelementptr inbounds [8 x i8], ptr %950, i64 %953
   %955 = load i32, ptr %954, align 4, !tbaa !213
   %.not.i.i.i175 = icmp eq i32 %955, %949
   br i1 %.not.i.i.i175, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i177, label %957
@@ -86098,7 +86063,7 @@ _ZN8ImVectorI14ImGuiPopupDataED2Ev.exit172:       ; preds = %_ZN8ImVectorI14ImGu
   %961 = trunc nsw i32 %960 to i16
   store i16 %961, ptr %951, align 4, !tbaa !212
   %962 = sext i32 %960 to i64
-  %963 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %950, i64 %962
+  %963 = getelementptr inbounds [8 x i8], ptr %950, i64 %962
   store i32 %949, ptr %963, align 4, !tbaa !213
   %964 = getelementptr inbounds nuw i8, ptr %963, i64 6
   store i16 0, ptr %964, align 2, !tbaa !216
@@ -86109,7 +86074,7 @@ _ZN8ImVectorI14ImGuiPopupDataED2Ev.exit172:       ; preds = %_ZN8ImVectorI14ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i176: ; preds = %957, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i177
   %966 = phi i16 [ 1, %957 ], [ %956, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i177 ]
   %967 = phi i64 [ %962, %957 ], [ %953, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i177 ]
-  %968 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %950, i64 %967
+  %968 = getelementptr inbounds [8 x i8], ptr %950, i64 %967
   %969 = getelementptr inbounds nuw i8, ptr %968, i64 6
   store i16 %966, ptr %969, align 2, !tbaa !216
   %970 = getelementptr inbounds nuw i8, ptr %946, i64 10012
@@ -86149,7 +86114,7 @@ _ZN8ImVectorI14ImGuiGroupDataED2Ev.exit:          ; preds = %_ZN8ImVectorI14ImGu
   %987 = getelementptr inbounds nuw i8, ptr %982, i64 10016
   %988 = load i16, ptr %987, align 8, !tbaa !212
   %989 = sext i16 %988 to i64
-  %990 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %986, i64 %989
+  %990 = getelementptr inbounds [8 x i8], ptr %986, i64 %989
   %991 = load i32, ptr %990, align 4, !tbaa !213
   %.not.i.i.i182 = icmp eq i32 %991, %985
   br i1 %.not.i.i.i182, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i184, label %993
@@ -86167,7 +86132,7 @@ _ZN8ImVectorI14ImGuiGroupDataED2Ev.exit:          ; preds = %_ZN8ImVectorI14ImGu
   %997 = trunc nsw i32 %996 to i16
   store i16 %997, ptr %987, align 4, !tbaa !212
   %998 = sext i32 %996 to i64
-  %999 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %986, i64 %998
+  %999 = getelementptr inbounds [8 x i8], ptr %986, i64 %998
   store i32 %985, ptr %999, align 4, !tbaa !213
   %1000 = getelementptr inbounds nuw i8, ptr %999, i64 6
   store i16 0, ptr %1000, align 2, !tbaa !216
@@ -86178,7 +86143,7 @@ _ZN8ImVectorI14ImGuiGroupDataED2Ev.exit:          ; preds = %_ZN8ImVectorI14ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i183: ; preds = %993, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i184
   %1002 = phi i16 [ 1, %993 ], [ %992, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i184 ]
   %1003 = phi i64 [ %998, %993 ], [ %989, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i184 ]
-  %1004 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %986, i64 %1003
+  %1004 = getelementptr inbounds [8 x i8], ptr %986, i64 %1003
   %1005 = getelementptr inbounds nuw i8, ptr %1004, i64 6
   store i16 %1002, ptr %1005, align 2, !tbaa !216
   %1006 = getelementptr inbounds nuw i8, ptr %982, i64 10012
@@ -86218,7 +86183,7 @@ _ZN8ImVectorIiED2Ev.exit:                         ; preds = %_ZN8ImVectorI14ImGu
   %1023 = getelementptr inbounds nuw i8, ptr %1018, i64 10016
   %1024 = load i16, ptr %1023, align 8, !tbaa !212
   %1025 = sext i16 %1024 to i64
-  %1026 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1022, i64 %1025
+  %1026 = getelementptr inbounds [8 x i8], ptr %1022, i64 %1025
   %1027 = load i32, ptr %1026, align 4, !tbaa !213
   %.not.i.i.i189 = icmp eq i32 %1027, %1021
   br i1 %.not.i.i.i189, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i191, label %1029
@@ -86236,7 +86201,7 @@ _ZN8ImVectorIiED2Ev.exit:                         ; preds = %_ZN8ImVectorI14ImGu
   %1033 = trunc nsw i32 %1032 to i16
   store i16 %1033, ptr %1023, align 4, !tbaa !212
   %1034 = sext i32 %1032 to i64
-  %1035 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1022, i64 %1034
+  %1035 = getelementptr inbounds [8 x i8], ptr %1022, i64 %1034
   store i32 %1021, ptr %1035, align 4, !tbaa !213
   %1036 = getelementptr inbounds nuw i8, ptr %1035, i64 6
   store i16 0, ptr %1036, align 2, !tbaa !216
@@ -86247,7 +86212,7 @@ _ZN8ImVectorIiED2Ev.exit:                         ; preds = %_ZN8ImVectorI14ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i190: ; preds = %1029, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i191
   %1038 = phi i16 [ 1, %1029 ], [ %1028, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i191 ]
   %1039 = phi i64 [ %1034, %1029 ], [ %1025, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i191 ]
-  %1040 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1022, i64 %1039
+  %1040 = getelementptr inbounds [8 x i8], ptr %1022, i64 %1039
   %1041 = getelementptr inbounds nuw i8, ptr %1040, i64 6
   store i16 %1038, ptr %1041, align 2, !tbaa !216
   %1042 = getelementptr inbounds nuw i8, ptr %1018, i64 10012
@@ -86287,7 +86252,7 @@ _ZN8ImVectorI19ImGuiFocusScopeDataED2Ev.exit194:  ; preds = %_ZN8ImVectorIiED2Ev
   %1059 = getelementptr inbounds nuw i8, ptr %1054, i64 10016
   %1060 = load i16, ptr %1059, align 8, !tbaa !212
   %1061 = sext i16 %1060 to i64
-  %1062 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1058, i64 %1061
+  %1062 = getelementptr inbounds [8 x i8], ptr %1058, i64 %1061
   %1063 = load i32, ptr %1062, align 4, !tbaa !213
   %.not.i.i.i197 = icmp eq i32 %1063, %1057
   br i1 %.not.i.i.i197, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i199, label %1065
@@ -86305,7 +86270,7 @@ _ZN8ImVectorI19ImGuiFocusScopeDataED2Ev.exit194:  ; preds = %_ZN8ImVectorIiED2Ev
   %1069 = trunc nsw i32 %1068 to i16
   store i16 %1069, ptr %1059, align 4, !tbaa !212
   %1070 = sext i32 %1068 to i64
-  %1071 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1058, i64 %1070
+  %1071 = getelementptr inbounds [8 x i8], ptr %1058, i64 %1070
   store i32 %1057, ptr %1071, align 4, !tbaa !213
   %1072 = getelementptr inbounds nuw i8, ptr %1071, i64 6
   store i16 0, ptr %1072, align 2, !tbaa !216
@@ -86316,7 +86281,7 @@ _ZN8ImVectorI19ImGuiFocusScopeDataED2Ev.exit194:  ; preds = %_ZN8ImVectorIiED2Ev
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i198: ; preds = %1065, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i199
   %1074 = phi i16 [ 1, %1065 ], [ %1064, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i199 ]
   %1075 = phi i64 [ %1070, %1065 ], [ %1061, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i199 ]
-  %1076 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1058, i64 %1075
+  %1076 = getelementptr inbounds [8 x i8], ptr %1058, i64 %1075
   %1077 = getelementptr inbounds nuw i8, ptr %1076, i64 6
   store i16 %1074, ptr %1077, align 2, !tbaa !216
   %1078 = getelementptr inbounds nuw i8, ptr %1054, i64 10012
@@ -86356,7 +86321,7 @@ _ZN8ImVectorIP6ImFontED2Ev.exit:                  ; preds = %_ZN8ImVectorI19ImGu
   %1095 = getelementptr inbounds nuw i8, ptr %1090, i64 10016
   %1096 = load i16, ptr %1095, align 8, !tbaa !212
   %1097 = sext i16 %1096 to i64
-  %1098 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1094, i64 %1097
+  %1098 = getelementptr inbounds [8 x i8], ptr %1094, i64 %1097
   %1099 = load i32, ptr %1098, align 4, !tbaa !213
   %.not.i.i.i204 = icmp eq i32 %1099, %1093
   br i1 %.not.i.i.i204, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i206, label %1101
@@ -86374,7 +86339,7 @@ _ZN8ImVectorIP6ImFontED2Ev.exit:                  ; preds = %_ZN8ImVectorI19ImGu
   %1105 = trunc nsw i32 %1104 to i16
   store i16 %1105, ptr %1095, align 4, !tbaa !212
   %1106 = sext i32 %1104 to i64
-  %1107 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1094, i64 %1106
+  %1107 = getelementptr inbounds [8 x i8], ptr %1094, i64 %1106
   store i32 %1093, ptr %1107, align 4, !tbaa !213
   %1108 = getelementptr inbounds nuw i8, ptr %1107, i64 6
   store i16 0, ptr %1108, align 2, !tbaa !216
@@ -86385,7 +86350,7 @@ _ZN8ImVectorIP6ImFontED2Ev.exit:                  ; preds = %_ZN8ImVectorI19ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i205: ; preds = %1101, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i206
   %1110 = phi i16 [ 1, %1101 ], [ %1100, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i206 ]
   %1111 = phi i64 [ %1106, %1101 ], [ %1097, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i206 ]
-  %1112 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1094, i64 %1111
+  %1112 = getelementptr inbounds [8 x i8], ptr %1094, i64 %1111
   %1113 = getelementptr inbounds nuw i8, ptr %1112, i64 6
   store i16 %1110, ptr %1113, align 2, !tbaa !216
   %1114 = getelementptr inbounds nuw i8, ptr %1090, i64 10012
@@ -86425,7 +86390,7 @@ _ZN8ImVectorI13ImGuiStyleModED2Ev.exit:           ; preds = %_ZN8ImVectorIP6ImFo
   %1131 = getelementptr inbounds nuw i8, ptr %1126, i64 10016
   %1132 = load i16, ptr %1131, align 8, !tbaa !212
   %1133 = sext i16 %1132 to i64
-  %1134 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1130, i64 %1133
+  %1134 = getelementptr inbounds [8 x i8], ptr %1130, i64 %1133
   %1135 = load i32, ptr %1134, align 4, !tbaa !213
   %.not.i.i.i211 = icmp eq i32 %1135, %1129
   br i1 %.not.i.i.i211, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i213, label %1137
@@ -86443,7 +86408,7 @@ _ZN8ImVectorI13ImGuiStyleModED2Ev.exit:           ; preds = %_ZN8ImVectorIP6ImFo
   %1141 = trunc nsw i32 %1140 to i16
   store i16 %1141, ptr %1131, align 4, !tbaa !212
   %1142 = sext i32 %1140 to i64
-  %1143 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1130, i64 %1142
+  %1143 = getelementptr inbounds [8 x i8], ptr %1130, i64 %1142
   store i32 %1129, ptr %1143, align 4, !tbaa !213
   %1144 = getelementptr inbounds nuw i8, ptr %1143, i64 6
   store i16 0, ptr %1144, align 2, !tbaa !216
@@ -86454,7 +86419,7 @@ _ZN8ImVectorI13ImGuiStyleModED2Ev.exit:           ; preds = %_ZN8ImVectorIP6ImFo
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i212: ; preds = %1137, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i213
   %1146 = phi i16 [ 1, %1137 ], [ %1136, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i213 ]
   %1147 = phi i64 [ %1142, %1137 ], [ %1133, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i213 ]
-  %1148 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1130, i64 %1147
+  %1148 = getelementptr inbounds [8 x i8], ptr %1130, i64 %1147
   %1149 = getelementptr inbounds nuw i8, ptr %1148, i64 6
   store i16 %1146, ptr %1149, align 2, !tbaa !216
   %1150 = getelementptr inbounds nuw i8, ptr %1126, i64 10012
@@ -86496,7 +86461,7 @@ _ZN8ImVectorI13ImGuiColorModED2Ev.exit:           ; preds = %_ZN8ImVectorI13ImGu
   %1168 = getelementptr inbounds nuw i8, ptr %1163, i64 10016
   %1169 = load i16, ptr %1168, align 8, !tbaa !212
   %1170 = sext i16 %1169 to i64
-  %1171 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1167, i64 %1170
+  %1171 = getelementptr inbounds [8 x i8], ptr %1167, i64 %1170
   %1172 = load i32, ptr %1171, align 4, !tbaa !213
   %.not.i.i.i.i218 = icmp eq i32 %1172, %1166
   br i1 %.not.i.i.i.i218, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i220, label %1174
@@ -86514,7 +86479,7 @@ _ZN8ImVectorI13ImGuiColorModED2Ev.exit:           ; preds = %_ZN8ImVectorI13ImGu
   %1178 = trunc nsw i32 %1177 to i16
   store i16 %1178, ptr %1168, align 4, !tbaa !212
   %1179 = sext i32 %1177 to i64
-  %1180 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1167, i64 %1179
+  %1180 = getelementptr inbounds [8 x i8], ptr %1167, i64 %1179
   store i32 %1166, ptr %1180, align 4, !tbaa !213
   %1181 = getelementptr inbounds nuw i8, ptr %1180, i64 6
   store i16 0, ptr %1181, align 2, !tbaa !216
@@ -86525,7 +86490,7 @@ _ZN8ImVectorI13ImGuiColorModED2Ev.exit:           ; preds = %_ZN8ImVectorI13ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i219: ; preds = %1174, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i220
   %1183 = phi i16 [ 1, %1174 ], [ %1173, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i220 ]
   %1184 = phi i64 [ %1179, %1174 ], [ %1170, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i220 ]
-  %1185 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1167, i64 %1184
+  %1185 = getelementptr inbounds [8 x i8], ptr %1167, i64 %1184
   %1186 = getelementptr inbounds nuw i8, ptr %1185, i64 6
   store i16 %1183, ptr %1186, align 2, !tbaa !216
   %1187 = getelementptr inbounds nuw i8, ptr %1163, i64 10012
@@ -86565,7 +86530,7 @@ _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %_ZN8ImVectorI13ImGu
   %1204 = getelementptr inbounds nuw i8, ptr %1199, i64 10016
   %1205 = load i16, ptr %1204, align 8, !tbaa !212
   %1206 = sext i16 %1205 to i64
-  %1207 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1203, i64 %1206
+  %1207 = getelementptr inbounds [8 x i8], ptr %1203, i64 %1206
   %1208 = load i32, ptr %1207, align 4, !tbaa !213
   %.not.i.i.i225 = icmp eq i32 %1208, %1202
   br i1 %.not.i.i.i225, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i227, label %1210
@@ -86583,7 +86548,7 @@ _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %_ZN8ImVectorI13ImGu
   %1214 = trunc nsw i32 %1213 to i16
   store i16 %1214, ptr %1204, align 4, !tbaa !212
   %1215 = sext i32 %1213 to i64
-  %1216 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1203, i64 %1215
+  %1216 = getelementptr inbounds [8 x i8], ptr %1203, i64 %1215
   store i32 %1202, ptr %1216, align 4, !tbaa !213
   %1217 = getelementptr inbounds nuw i8, ptr %1216, i64 6
   store i16 0, ptr %1217, align 2, !tbaa !216
@@ -86594,7 +86559,7 @@ _ZN12ImGuiStorageD2Ev.exit:                       ; preds = %_ZN8ImVectorI13ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i226: ; preds = %1210, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i227
   %1219 = phi i16 [ 1, %1210 ], [ %1209, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i227 ]
   %1220 = phi i64 [ %1215, %1210 ], [ %1206, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i227 ]
-  %1221 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1203, i64 %1220
+  %1221 = getelementptr inbounds [8 x i8], ptr %1203, i64 %1220
   %1222 = getelementptr inbounds nuw i8, ptr %1221, i64 6
   store i16 %1219, ptr %1222, align 2, !tbaa !216
   %1223 = getelementptr inbounds nuw i8, ptr %1199, i64 10012
@@ -86634,7 +86599,7 @@ _ZN8ImVectorI20ImGuiWindowStackDataED2Ev.exit:    ; preds = %_ZN12ImGuiStorageD2
   %1240 = getelementptr inbounds nuw i8, ptr %1235, i64 10016
   %1241 = load i16, ptr %1240, align 8, !tbaa !212
   %1242 = sext i16 %1241 to i64
-  %1243 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1239, i64 %1242
+  %1243 = getelementptr inbounds [8 x i8], ptr %1239, i64 %1242
   %1244 = load i32, ptr %1243, align 4, !tbaa !213
   %.not.i.i.i232 = icmp eq i32 %1244, %1238
   br i1 %.not.i.i.i232, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i234, label %1246
@@ -86652,7 +86617,7 @@ _ZN8ImVectorI20ImGuiWindowStackDataED2Ev.exit:    ; preds = %_ZN12ImGuiStorageD2
   %1250 = trunc nsw i32 %1249 to i16
   store i16 %1250, ptr %1240, align 4, !tbaa !212
   %1251 = sext i32 %1249 to i64
-  %1252 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1239, i64 %1251
+  %1252 = getelementptr inbounds [8 x i8], ptr %1239, i64 %1251
   store i32 %1238, ptr %1252, align 4, !tbaa !213
   %1253 = getelementptr inbounds nuw i8, ptr %1252, i64 6
   store i16 0, ptr %1253, align 2, !tbaa !216
@@ -86663,7 +86628,7 @@ _ZN8ImVectorI20ImGuiWindowStackDataED2Ev.exit:    ; preds = %_ZN12ImGuiStorageD2
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i233: ; preds = %1246, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i234
   %1255 = phi i16 [ 1, %1246 ], [ %1245, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i234 ]
   %1256 = phi i64 [ %1251, %1246 ], [ %1242, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i234 ]
-  %1257 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1239, i64 %1256
+  %1257 = getelementptr inbounds [8 x i8], ptr %1239, i64 %1256
   %1258 = getelementptr inbounds nuw i8, ptr %1257, i64 6
   store i16 %1255, ptr %1258, align 2, !tbaa !216
   %1259 = getelementptr inbounds nuw i8, ptr %1235, i64 10012
@@ -86703,7 +86668,7 @@ _ZN8ImVectorIP11ImGuiWindowED2Ev.exit:            ; preds = %_ZN8ImVectorI20ImGu
   %1276 = getelementptr inbounds nuw i8, ptr %1271, i64 10016
   %1277 = load i16, ptr %1276, align 8, !tbaa !212
   %1278 = sext i16 %1277 to i64
-  %1279 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1275, i64 %1278
+  %1279 = getelementptr inbounds [8 x i8], ptr %1275, i64 %1278
   %1280 = load i32, ptr %1279, align 4, !tbaa !213
   %.not.i.i.i239 = icmp eq i32 %1280, %1274
   br i1 %.not.i.i.i239, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i241, label %1282
@@ -86721,7 +86686,7 @@ _ZN8ImVectorIP11ImGuiWindowED2Ev.exit:            ; preds = %_ZN8ImVectorI20ImGu
   %1286 = trunc nsw i32 %1285 to i16
   store i16 %1286, ptr %1276, align 4, !tbaa !212
   %1287 = sext i32 %1285 to i64
-  %1288 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1275, i64 %1287
+  %1288 = getelementptr inbounds [8 x i8], ptr %1275, i64 %1287
   store i32 %1274, ptr %1288, align 4, !tbaa !213
   %1289 = getelementptr inbounds nuw i8, ptr %1288, i64 6
   store i16 0, ptr %1289, align 2, !tbaa !216
@@ -86732,7 +86697,7 @@ _ZN8ImVectorIP11ImGuiWindowED2Ev.exit:            ; preds = %_ZN8ImVectorI20ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i240: ; preds = %1282, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i241
   %1291 = phi i16 [ 1, %1282 ], [ %1281, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i241 ]
   %1292 = phi i64 [ %1287, %1282 ], [ %1278, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i241 ]
-  %1293 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1275, i64 %1292
+  %1293 = getelementptr inbounds [8 x i8], ptr %1275, i64 %1292
   %1294 = getelementptr inbounds nuw i8, ptr %1293, i64 6
   store i16 %1291, ptr %1294, align 2, !tbaa !216
   %1295 = getelementptr inbounds nuw i8, ptr %1271, i64 10012
@@ -86772,7 +86737,7 @@ _ZN8ImVectorIP11ImGuiWindowED2Ev.exit244:         ; preds = %_ZN8ImVectorIP11ImG
   %1312 = getelementptr inbounds nuw i8, ptr %1307, i64 10016
   %1313 = load i16, ptr %1312, align 8, !tbaa !212
   %1314 = sext i16 %1313 to i64
-  %1315 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1311, i64 %1314
+  %1315 = getelementptr inbounds [8 x i8], ptr %1311, i64 %1314
   %1316 = load i32, ptr %1315, align 4, !tbaa !213
   %.not.i.i.i247 = icmp eq i32 %1316, %1310
   br i1 %.not.i.i.i247, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i249, label %1318
@@ -86790,7 +86755,7 @@ _ZN8ImVectorIP11ImGuiWindowED2Ev.exit244:         ; preds = %_ZN8ImVectorIP11ImG
   %1322 = trunc nsw i32 %1321 to i16
   store i16 %1322, ptr %1312, align 4, !tbaa !212
   %1323 = sext i32 %1321 to i64
-  %1324 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1311, i64 %1323
+  %1324 = getelementptr inbounds [8 x i8], ptr %1311, i64 %1323
   store i32 %1310, ptr %1324, align 4, !tbaa !213
   %1325 = getelementptr inbounds nuw i8, ptr %1324, i64 6
   store i16 0, ptr %1325, align 2, !tbaa !216
@@ -86801,7 +86766,7 @@ _ZN8ImVectorIP11ImGuiWindowED2Ev.exit244:         ; preds = %_ZN8ImVectorIP11ImG
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i248: ; preds = %1318, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i249
   %1327 = phi i16 [ 1, %1318 ], [ %1317, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i249 ]
   %1328 = phi i64 [ %1323, %1318 ], [ %1314, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i249 ]
-  %1329 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1311, i64 %1328
+  %1329 = getelementptr inbounds [8 x i8], ptr %1311, i64 %1328
   %1330 = getelementptr inbounds nuw i8, ptr %1329, i64 6
   store i16 %1327, ptr %1330, align 2, !tbaa !216
   %1331 = getelementptr inbounds nuw i8, ptr %1307, i64 10012
@@ -86841,7 +86806,7 @@ _ZN8ImVectorIP11ImGuiWindowED2Ev.exit252:         ; preds = %_ZN8ImVectorIP11ImG
   %1348 = getelementptr inbounds nuw i8, ptr %1343, i64 10016
   %1349 = load i16, ptr %1348, align 8, !tbaa !212
   %1350 = sext i16 %1349 to i64
-  %1351 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1347, i64 %1350
+  %1351 = getelementptr inbounds [8 x i8], ptr %1347, i64 %1350
   %1352 = load i32, ptr %1351, align 4, !tbaa !213
   %.not.i.i.i255 = icmp eq i32 %1352, %1346
   br i1 %.not.i.i.i255, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i257, label %1354
@@ -86859,7 +86824,7 @@ _ZN8ImVectorIP11ImGuiWindowED2Ev.exit252:         ; preds = %_ZN8ImVectorIP11ImG
   %1358 = trunc nsw i32 %1357 to i16
   store i16 %1358, ptr %1348, align 4, !tbaa !212
   %1359 = sext i32 %1357 to i64
-  %1360 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1347, i64 %1359
+  %1360 = getelementptr inbounds [8 x i8], ptr %1347, i64 %1359
   store i32 %1346, ptr %1360, align 4, !tbaa !213
   %1361 = getelementptr inbounds nuw i8, ptr %1360, i64 6
   store i16 0, ptr %1361, align 2, !tbaa !216
@@ -86870,7 +86835,7 @@ _ZN8ImVectorIP11ImGuiWindowED2Ev.exit252:         ; preds = %_ZN8ImVectorIP11ImG
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i256: ; preds = %1354, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i257
   %1363 = phi i16 [ 1, %1354 ], [ %1353, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i257 ]
   %1364 = phi i64 [ %1359, %1354 ], [ %1350, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i257 ]
-  %1365 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1347, i64 %1364
+  %1365 = getelementptr inbounds [8 x i8], ptr %1347, i64 %1364
   %1366 = getelementptr inbounds nuw i8, ptr %1365, i64 6
   store i16 %1363, ptr %1366, align 2, !tbaa !216
   %1367 = getelementptr inbounds nuw i8, ptr %1343, i64 10012
@@ -86910,7 +86875,7 @@ _ZN8ImVectorI15ImGuiInputEventED2Ev.exit:         ; preds = %_ZN8ImVectorIP11ImG
   %1384 = getelementptr inbounds nuw i8, ptr %1379, i64 10016
   %1385 = load i16, ptr %1384, align 8, !tbaa !212
   %1386 = sext i16 %1385 to i64
-  %1387 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1383, i64 %1386
+  %1387 = getelementptr inbounds [8 x i8], ptr %1383, i64 %1386
   %1388 = load i32, ptr %1387, align 4, !tbaa !213
   %.not.i.i.i262 = icmp eq i32 %1388, %1382
   br i1 %.not.i.i.i262, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i264, label %1390
@@ -86928,7 +86893,7 @@ _ZN8ImVectorI15ImGuiInputEventED2Ev.exit:         ; preds = %_ZN8ImVectorIP11ImG
   %1394 = trunc nsw i32 %1393 to i16
   store i16 %1394, ptr %1384, align 4, !tbaa !212
   %1395 = sext i32 %1393 to i64
-  %1396 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1383, i64 %1395
+  %1396 = getelementptr inbounds [8 x i8], ptr %1383, i64 %1395
   store i32 %1382, ptr %1396, align 4, !tbaa !213
   %1397 = getelementptr inbounds nuw i8, ptr %1396, i64 6
   store i16 0, ptr %1397, align 2, !tbaa !216
@@ -86939,7 +86904,7 @@ _ZN8ImVectorI15ImGuiInputEventED2Ev.exit:         ; preds = %_ZN8ImVectorIP11ImG
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i263: ; preds = %1390, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i264
   %1399 = phi i16 [ 1, %1390 ], [ %1389, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i264 ]
   %1400 = phi i64 [ %1395, %1390 ], [ %1386, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i264 ]
-  %1401 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1383, i64 %1400
+  %1401 = getelementptr inbounds [8 x i8], ptr %1383, i64 %1400
   %1402 = getelementptr inbounds nuw i8, ptr %1401, i64 6
   store i16 %1399, ptr %1402, align 2, !tbaa !216
   %1403 = getelementptr inbounds nuw i8, ptr %1379, i64 10012
@@ -86979,7 +86944,7 @@ _ZN8ImVectorI15ImGuiInputEventED2Ev.exit267:      ; preds = %_ZN8ImVectorI15ImGu
   %1420 = getelementptr inbounds nuw i8, ptr %1415, i64 10016
   %1421 = load i16, ptr %1420, align 8, !tbaa !212
   %1422 = sext i16 %1421 to i64
-  %1423 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1419, i64 %1422
+  %1423 = getelementptr inbounds [8 x i8], ptr %1419, i64 %1422
   %1424 = load i32, ptr %1423, align 4, !tbaa !213
   %.not.i.i.i.i270 = icmp eq i32 %1424, %1418
   br i1 %.not.i.i.i.i270, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i272, label %1426
@@ -86997,7 +86962,7 @@ _ZN8ImVectorI15ImGuiInputEventED2Ev.exit267:      ; preds = %_ZN8ImVectorI15ImGu
   %1430 = trunc nsw i32 %1429 to i16
   store i16 %1430, ptr %1420, align 4, !tbaa !212
   %1431 = sext i32 %1429 to i64
-  %1432 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1419, i64 %1431
+  %1432 = getelementptr inbounds [8 x i8], ptr %1419, i64 %1431
   store i32 %1418, ptr %1432, align 4, !tbaa !213
   %1433 = getelementptr inbounds nuw i8, ptr %1432, i64 6
   store i16 0, ptr %1433, align 2, !tbaa !216
@@ -87008,7 +86973,7 @@ _ZN8ImVectorI15ImGuiInputEventED2Ev.exit267:      ; preds = %_ZN8ImVectorI15ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i271: ; preds = %1426, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i272
   %1435 = phi i16 [ 1, %1426 ], [ %1425, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i272 ]
   %1436 = phi i64 [ %1431, %1426 ], [ %1422, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i272 ]
-  %1437 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1419, i64 %1436
+  %1437 = getelementptr inbounds [8 x i8], ptr %1419, i64 %1436
   %1438 = getelementptr inbounds nuw i8, ptr %1437, i64 6
   store i16 %1435, ptr %1438, align 2, !tbaa !216
   %1439 = getelementptr inbounds nuw i8, ptr %1415, i64 10012
@@ -87048,7 +87013,7 @@ _ZN20ImDrawListSharedDataD2Ev.exit:               ; preds = %_ZN8ImVectorI15ImGu
   %1456 = getelementptr inbounds nuw i8, ptr %1451, i64 10016
   %1457 = load i16, ptr %1456, align 8, !tbaa !212
   %1458 = sext i16 %1457 to i64
-  %1459 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1455, i64 %1458
+  %1459 = getelementptr inbounds [8 x i8], ptr %1455, i64 %1458
   %1460 = load i32, ptr %1459, align 4, !tbaa !213
   %.not.i.i.i.i277 = icmp eq i32 %1460, %1454
   br i1 %.not.i.i.i.i277, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i279, label %1462
@@ -87066,7 +87031,7 @@ _ZN20ImDrawListSharedDataD2Ev.exit:               ; preds = %_ZN8ImVectorI15ImGu
   %1466 = trunc nsw i32 %1465 to i16
   store i16 %1466, ptr %1456, align 4, !tbaa !212
   %1467 = sext i32 %1465 to i64
-  %1468 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1455, i64 %1467
+  %1468 = getelementptr inbounds [8 x i8], ptr %1455, i64 %1467
   store i32 %1454, ptr %1468, align 4, !tbaa !213
   %1469 = getelementptr inbounds nuw i8, ptr %1468, i64 6
   store i16 0, ptr %1469, align 2, !tbaa !216
@@ -87077,7 +87042,7 @@ _ZN20ImDrawListSharedDataD2Ev.exit:               ; preds = %_ZN8ImVectorI15ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i278: ; preds = %1462, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i279
   %1471 = phi i16 [ 1, %1462 ], [ %1461, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i279 ]
   %1472 = phi i64 [ %1467, %1462 ], [ %1458, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i279 ]
-  %1473 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %1455, i64 %1472
+  %1473 = getelementptr inbounds [8 x i8], ptr %1455, i64 %1472
   %1474 = getelementptr inbounds nuw i8, ptr %1473, i64 6
   store i16 %1471, ptr %1474, align 2, !tbaa !216
   %1475 = getelementptr inbounds nuw i8, ptr %1451, i64 10012
@@ -87126,7 +87091,7 @@ define linkonce_odr dso_local void @_ZN14ImGuiViewportPD2Ev(ptr noundef nonnull 
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %16
@@ -87144,7 +87109,7 @@ define linkonce_odr dso_local void @_ZN14ImGuiViewportPD2Ev(ptr noundef nonnull 
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -87155,7 +87120,7 @@ define linkonce_odr dso_local void @_ZN14ImGuiViewportPD2Ev(ptr noundef nonnull 
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -87189,7 +87154,7 @@ _Z9IM_DELETEI10ImDrawListEvPT_.exit:              ; preds = %_ZN5ImGui7MemFreeEP
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 10016
   %43 = load i16, ptr %42, align 8, !tbaa !212
   %44 = sext i16 %43 to i64
-  %45 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !213
   %.not.i.i.i5 = icmp eq i32 %46, %40
   br i1 %.not.i.i.i5, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i8, label %48
@@ -87207,7 +87172,7 @@ _Z9IM_DELETEI10ImDrawListEvPT_.exit:              ; preds = %_ZN5ImGui7MemFreeEP
   %52 = trunc nsw i32 %51 to i16
   store i16 %52, ptr %42, align 4, !tbaa !212
   %53 = sext i32 %51 to i64
-  %54 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %41, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %41, i64 %53
   store i32 %40, ptr %54, align 4, !tbaa !213
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 6
   store i16 0, ptr %55, align 2, !tbaa !216
@@ -87218,7 +87183,7 @@ _Z9IM_DELETEI10ImDrawListEvPT_.exit:              ; preds = %_ZN5ImGui7MemFreeEP
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i6: ; preds = %48, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i8
   %57 = phi i16 [ 1, %48 ], [ %47, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i8 ]
   %58 = phi i64 [ %53, %48 ], [ %44, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i8 ]
-  %59 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %41, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %41, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 6
   store i16 %57, ptr %60, align 2, !tbaa !216
   %61 = getelementptr inbounds nuw i8, ptr %37, i64 10012
@@ -87251,7 +87216,7 @@ _Z9IM_DELETEI10ImDrawListEvPT_.exit12:            ; preds = %_ZN5ImGui7MemFreeEP
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 10016
   %75 = load i16, ptr %74, align 8, !tbaa !212
   %76 = sext i16 %75 to i64
-  %77 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %73, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %73, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %78, %72
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %80
@@ -87269,7 +87234,7 @@ _Z9IM_DELETEI10ImDrawListEvPT_.exit12:            ; preds = %_ZN5ImGui7MemFreeEP
   %84 = trunc nsw i32 %83 to i16
   store i16 %84, ptr %74, align 4, !tbaa !212
   %85 = sext i32 %83 to i64
-  %86 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %73, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %73, i64 %85
   store i32 %72, ptr %86, align 4, !tbaa !213
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 6
   store i16 0, ptr %87, align 2, !tbaa !216
@@ -87280,7 +87245,7 @@ _Z9IM_DELETEI10ImDrawListEvPT_.exit12:            ; preds = %_ZN5ImGui7MemFreeEP
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %80, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %89 = phi i16 [ 1, %80 ], [ %79, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %90 = phi i64 [ %85, %80 ], [ %76, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %91 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %73, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %73, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 6
   store i16 %89, ptr %92, align 2, !tbaa !216
   %93 = getelementptr inbounds nuw i8, ptr %69, i64 10012
@@ -87320,7 +87285,7 @@ _ZN17ImDrawDataBuilderD2Ev.exit:                  ; preds = %_Z9IM_DELETEI10ImDr
   %110 = getelementptr inbounds nuw i8, ptr %105, i64 10016
   %111 = load i16, ptr %110, align 8, !tbaa !212
   %112 = sext i16 %111 to i64
-  %113 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %109, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %109, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !213
   %.not.i.i.i.i15 = icmp eq i32 %114, %108
   br i1 %.not.i.i.i.i15, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i17, label %116
@@ -87338,7 +87303,7 @@ _ZN17ImDrawDataBuilderD2Ev.exit:                  ; preds = %_Z9IM_DELETEI10ImDr
   %120 = trunc nsw i32 %119 to i16
   store i16 %120, ptr %110, align 4, !tbaa !212
   %121 = sext i32 %119 to i64
-  %122 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %109, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %109, i64 %121
   store i32 %108, ptr %122, align 4, !tbaa !213
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 6
   store i16 0, ptr %123, align 2, !tbaa !216
@@ -87349,7 +87314,7 @@ _ZN17ImDrawDataBuilderD2Ev.exit:                  ; preds = %_Z9IM_DELETEI10ImDr
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i16: ; preds = %116, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i17
   %125 = phi i16 [ 1, %116 ], [ %115, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i17 ]
   %126 = phi i64 [ %121, %116 ], [ %112, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i17 ]
-  %127 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %109, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %109, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 6
   store i16 %125, ptr %128, align 2, !tbaa !216
   %129 = getelementptr inbounds nuw i8, ptr %105, i64 10012
@@ -87401,7 +87366,7 @@ define linkonce_odr dso_local void @_ZN11ImGuiTabBarD2Ev(ptr noundef nonnull ali
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %16
@@ -87419,7 +87384,7 @@ define linkonce_odr dso_local void @_ZN11ImGuiTabBarD2Ev(ptr noundef nonnull ali
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -87430,7 +87395,7 @@ define linkonce_odr dso_local void @_ZN11ImGuiTabBarD2Ev(ptr noundef nonnull ali
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -87470,7 +87435,7 @@ _ZN15ImGuiTextBufferD2Ev.exit:                    ; preds = %1, %32
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 10016
   %47 = load i16, ptr %46, align 8, !tbaa !212
   %48 = sext i16 %47 to i64
-  %49 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %45, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %50, %44
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %52
@@ -87488,7 +87453,7 @@ _ZN15ImGuiTextBufferD2Ev.exit:                    ; preds = %1, %32
   %56 = trunc nsw i32 %55 to i16
   store i16 %56, ptr %46, align 4, !tbaa !212
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %45, i64 %57
   store i32 %44, ptr %58, align 4, !tbaa !213
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 6
   store i16 0, ptr %59, align 2, !tbaa !216
@@ -87499,7 +87464,7 @@ _ZN15ImGuiTextBufferD2Ev.exit:                    ; preds = %1, %32
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %52, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %61 = phi i16 [ 1, %52 ], [ %51, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %62 = phi i64 [ %57, %52 ], [ %48, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %45, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %45, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 6
   store i16 %61, ptr %64, align 2, !tbaa !216
   %65 = getelementptr inbounds nuw i8, ptr %41, i64 10012
@@ -87544,7 +87509,7 @@ define linkonce_odr dso_local void @_ZN10ImGuiTableD2Ev(ptr noundef nonnull alig
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 10016
   %11 = load i16, ptr %10, align 8, !tbaa !212
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %14, %8
   br i1 %.not.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %16
@@ -87562,7 +87527,7 @@ define linkonce_odr dso_local void @_ZN10ImGuiTableD2Ev(ptr noundef nonnull alig
   %20 = trunc nsw i32 %19 to i16
   store i16 %20, ptr %10, align 4, !tbaa !212
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %9, i64 %21
   store i32 %8, ptr %22, align 4, !tbaa !213
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 6
   store i16 0, ptr %23, align 2, !tbaa !216
@@ -87573,7 +87538,7 @@ define linkonce_odr dso_local void @_ZN10ImGuiTableD2Ev(ptr noundef nonnull alig
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %16, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %25 = phi i16 [ 1, %16 ], [ %15, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %26 = phi i64 [ %21, %16 ], [ %12, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %9, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %9, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 %25, ptr %28, align 2, !tbaa !216
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 10012
@@ -87606,7 +87571,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 10016
   %44 = load i16, ptr %43, align 8, !tbaa !212
   %45 = sext i16 %44 to i64
-  %46 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %42, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %42, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %47, %41
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %49
@@ -87624,7 +87589,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32
   %53 = trunc nsw i32 %52 to i16
   store i16 %53, ptr %43, align 4, !tbaa !212
   %54 = sext i32 %52 to i64
-  %55 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %42, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %42, i64 %54
   store i32 %41, ptr %55, align 4, !tbaa !213
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 6
   store i16 0, ptr %56, align 2, !tbaa !216
@@ -87635,7 +87600,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %32
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %49, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %58 = phi i16 [ 1, %49 ], [ %48, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %59 = phi i64 [ %54, %49 ], [ %45, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %60 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %42, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %42, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 6
   store i16 %58, ptr %61, align 2, !tbaa !216
   %62 = getelementptr inbounds nuw i8, ptr %38, i64 10012
@@ -87675,7 +87640,7 @@ _ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev.exit: ; preds = %_ZN5ImGui7MemFree
   %79 = getelementptr inbounds nuw i8, ptr %74, i64 10016
   %80 = load i16, ptr %79, align 8, !tbaa !212
   %81 = sext i16 %80 to i64
-  %82 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %78, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %78, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !213
   %.not.i.i.i4 = icmp eq i32 %83, %77
   br i1 %.not.i.i.i4, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i6, label %85
@@ -87693,7 +87658,7 @@ _ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev.exit: ; preds = %_ZN5ImGui7MemFree
   %89 = trunc nsw i32 %88 to i16
   store i16 %89, ptr %79, align 4, !tbaa !212
   %90 = sext i32 %88 to i64
-  %91 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %78, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %78, i64 %90
   store i32 %77, ptr %91, align 4, !tbaa !213
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 6
   store i16 0, ptr %92, align 2, !tbaa !216
@@ -87704,7 +87669,7 @@ _ZN8ImVectorI25ImGuiTableColumnSortSpecsED2Ev.exit: ; preds = %_ZN5ImGui7MemFree
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i5: ; preds = %85, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i6
   %94 = phi i16 [ 1, %85 ], [ %84, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i6 ]
   %95 = phi i64 [ %90, %85 ], [ %81, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i6 ]
-  %96 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %78, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %78, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 6
   store i16 %94, ptr %97, align 2, !tbaa !216
   %98 = getelementptr inbounds nuw i8, ptr %74, i64 10012
@@ -87744,7 +87709,7 @@ _ZN8ImVectorI22ImGuiTableInstanceDataED2Ev.exit:  ; preds = %_ZN8ImVectorI25ImGu
   %115 = getelementptr inbounds nuw i8, ptr %110, i64 10016
   %116 = load i16, ptr %115, align 8, !tbaa !212
   %117 = sext i16 %116 to i64
-  %118 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %114, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %114, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %119, %113
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %121
@@ -87762,7 +87727,7 @@ _ZN8ImVectorI22ImGuiTableInstanceDataED2Ev.exit:  ; preds = %_ZN8ImVectorI25ImGu
   %125 = trunc nsw i32 %124 to i16
   store i16 %125, ptr %115, align 4, !tbaa !212
   %126 = sext i32 %124 to i64
-  %127 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %114, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %114, i64 %126
   store i32 %113, ptr %127, align 4, !tbaa !213
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 6
   store i16 0, ptr %128, align 2, !tbaa !216
@@ -87773,7 +87738,7 @@ _ZN8ImVectorI22ImGuiTableInstanceDataED2Ev.exit:  ; preds = %_ZN8ImVectorI25ImGu
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %121, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %130 = phi i16 [ 1, %121 ], [ %120, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %131 = phi i64 [ %126, %121 ], [ %117, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %132 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %114, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %114, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 6
   store i16 %130, ptr %133, align 2, !tbaa !216
   %134 = getelementptr inbounds nuw i8, ptr %110, i64 10012
@@ -87830,7 +87795,7 @@ define linkonce_odr dso_local void @_ZN18ImGuiTableTempDataD2Ev(ptr noundef nonn
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 10016
   %13 = load i16, ptr %12, align 8, !tbaa !212
   %14 = sext i16 %13 to i64
-  %15 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %16, %10
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %18
@@ -87848,7 +87813,7 @@ define linkonce_odr dso_local void @_ZN18ImGuiTableTempDataD2Ev(ptr noundef nonn
   %22 = trunc nsw i32 %21 to i16
   store i16 %22, ptr %12, align 4, !tbaa !212
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %11, i64 %23
   store i32 %10, ptr %24, align 4, !tbaa !213
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 6
   store i16 0, ptr %25, align 2, !tbaa !216
@@ -87859,7 +87824,7 @@ define linkonce_odr dso_local void @_ZN18ImGuiTableTempDataD2Ev(ptr noundef nonn
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %18, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %27 = phi i16 [ 1, %18 ], [ %17, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %28 = phi i64 [ %23, %18 ], [ %14, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %29 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %11, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 6
   store i16 %27, ptr %30, align 2, !tbaa !216
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 10012
@@ -87906,7 +87871,7 @@ _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %3, %34
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 10016
   %52 = load i16, ptr %51, align 8, !tbaa !212
   %53 = sext i16 %52 to i64
-  %54 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %50, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %50, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %55, %49
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %57
@@ -87924,7 +87889,7 @@ _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %3, %34
   %61 = trunc nsw i32 %60 to i16
   store i16 %61, ptr %51, align 4, !tbaa !212
   %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %50, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %50, i64 %62
   store i32 %49, ptr %63, align 4, !tbaa !213
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 6
   store i16 0, ptr %64, align 2, !tbaa !216
@@ -87935,7 +87900,7 @@ _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %3, %34
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %57, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %66 = phi i16 [ 1, %57 ], [ %56, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %67 = phi i64 [ %62, %57 ], [ %53, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %68 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %50, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %50, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 6
   store i16 %66, ptr %69, align 2, !tbaa !216
   %70 = getelementptr inbounds nuw i8, ptr %46, i64 10012
@@ -87985,7 +87950,7 @@ define linkonce_odr dso_local void @_ZN15ImGuiOldColumnsD2Ev(ptr noundef nonnull
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 10016
   %13 = load i16, ptr %12, align 8, !tbaa !212
   %14 = sext i16 %13 to i64
-  %15 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %11, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !213
   %.not.i.i.i.i = icmp eq i32 %16, %10
   br i1 %.not.i.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i, label %18
@@ -88003,7 +87968,7 @@ define linkonce_odr dso_local void @_ZN15ImGuiOldColumnsD2Ev(ptr noundef nonnull
   %22 = trunc nsw i32 %21 to i16
   store i16 %22, ptr %12, align 4, !tbaa !212
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %11, i64 %23
   store i32 %10, ptr %24, align 4, !tbaa !213
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 6
   store i16 0, ptr %25, align 2, !tbaa !216
@@ -88014,7 +87979,7 @@ define linkonce_odr dso_local void @_ZN15ImGuiOldColumnsD2Ev(ptr noundef nonnull
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i.i: ; preds = %18, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i
   %27 = phi i16 [ 1, %18 ], [ %17, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
   %28 = phi i64 [ %23, %18 ], [ %14, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i.i ]
-  %29 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %11, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %11, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 6
   store i16 %27, ptr %30, align 2, !tbaa !216
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 10012
@@ -88061,7 +88026,7 @@ _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %3, %34
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 10016
   %52 = load i16, ptr %51, align 8, !tbaa !212
   %53 = sext i16 %52 to i64
-  %54 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %50, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %50, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !213
   %.not.i.i.i = icmp eq i32 %55, %49
   br i1 %.not.i.i.i, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i, label %57
@@ -88079,7 +88044,7 @@ _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %3, %34
   %61 = trunc nsw i32 %60 to i16
   store i16 %61, ptr %51, align 4, !tbaa !212
   %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %50, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %50, i64 %62
   store i32 %49, ptr %63, align 4, !tbaa !213
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 6
   store i16 0, ptr %64, align 2, !tbaa !216
@@ -88090,7 +88055,7 @@ _ZN18ImDrawListSplitterD2Ev.exit:                 ; preds = %3, %34
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i.i: ; preds = %57, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i
   %66 = phi i16 [ 1, %57 ], [ %56, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
   %67 = phi i64 [ %62, %57 ], [ %53, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i.i ]
-  %68 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %50, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %50, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 6
   store i16 %66, ptr %69, align 2, !tbaa !216
   %70 = getelementptr inbounds nuw i8, ptr %46, i64 10012
@@ -88140,7 +88105,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIhE7reserveEi(ptr noundef nonnul
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 10016
   %17 = load i16, ptr %16, align 8, !tbaa !212
   %18 = sext i16 %17 to i64
-  %19 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %15, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !213
   %.not.i.i = icmp eq i32 %20, %14
   br i1 %.not.i.i, label %30, label %21
@@ -88152,7 +88117,7 @@ define linkonce_odr dso_local void @_ZN8ImVectorIhE7reserveEi(ptr noundef nonnul
   %25 = trunc nsw i32 %24 to i16
   store i16 %25, ptr %16, align 4, !tbaa !212
   %26 = sext i32 %24 to i64
-  %27 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %15, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %15, i64 %26
   store i32 %14, ptr %27, align 4, !tbaa !213
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 6
   store i16 0, ptr %28, align 2, !tbaa !216
@@ -88212,7 +88177,7 @@ _ZN5ImGui8MemAllocEm.exit:                        ; preds = %5, %31, %37
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 10016
   %57 = load i16, ptr %56, align 8, !tbaa !212
   %58 = sext i16 %57 to i64
-  %59 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %55, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %55, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !213
   %.not.i.i8 = icmp eq i32 %60, %54
   br i1 %.not.i.i8, label %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i, label %62
@@ -88230,7 +88195,7 @@ _ZN5ImGui8MemAllocEm.exit:                        ; preds = %5, %31, %37
   %66 = trunc nsw i32 %65 to i16
   store i16 %66, ptr %56, align 4, !tbaa !212
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %55, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %55, i64 %67
   store i32 %54, ptr %68, align 4, !tbaa !213
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 6
   store i16 0, ptr %69, align 2, !tbaa !216
@@ -88241,7 +88206,7 @@ _ZN5ImGui8MemAllocEm.exit:                        ; preds = %5, %31, %37
 _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit.i: ; preds = %62, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i
   %71 = phi i16 [ 1, %62 ], [ %61, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
   %72 = phi i64 [ %67, %62 ], [ %58, %._ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit_crit_edge.i ]
-  %73 = getelementptr inbounds %struct.ImGuiDebugAllocEntry, ptr %55, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %55, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 6
   store i16 %71, ptr %74, align 2, !tbaa !216
   %75 = getelementptr inbounds nuw i8, ptr %51, i64 10012

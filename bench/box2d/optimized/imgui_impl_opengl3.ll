@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { i32, i32 }
 %union.ImGL3WProcs = type { [59 x ptr] }
 %struct.ImVector.11 = type { i32, i32, ptr }
-%struct.ImDrawCmd = type { %struct.ImVec4, ptr, i32, i32, i32, ptr, ptr }
-%struct.ImVec4 = type { float, float, float, float }
 
 $_ZN8ImVectorIcED2Ev = comdat any
 
@@ -272,7 +270,7 @@ _ZL10open_libglv.exit:                            ; preds = %42
 
 56:                                               ; preds = %_ZL8get_procPKc.exit, %_ZL10open_libglv.exit
   %.04.i.i = phi i64 [ 0, %_ZL10open_libglv.exit ], [ %72, %_ZL8get_procPKc.exit ]
-  %57 = getelementptr inbounds nuw ptr, ptr @_ZL10proc_names, i64 %.04.i.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @_ZL10proc_names, i64 %.04.i.i
   %58 = load ptr, ptr %57, align 8, !tbaa !8
   %59 = load ptr, ptr @_ZL6libegl, align 8, !tbaa !4
   %.not.i = icmp eq ptr %59, null
@@ -300,7 +298,7 @@ _ZL10open_libglv.exit:                            ; preds = %42
 
 _ZL8get_procPKc.exit:                             ; preds = %60, %.thread.i7, %68
   %.2.i = phi ptr [ %64, %.thread.i7 ], [ %70, %68 ], [ %62, %60 ]
-  %71 = getelementptr inbounds nuw ptr, ptr @imgl3wProcs, i64 %.04.i.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr @imgl3wProcs, i64 %.04.i.i
   store ptr %.2.i, ptr %71, align 8, !tbaa !10
   %72 = add nuw nsw i64 %.04.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %72, 59
@@ -387,10 +385,10 @@ define dso_local range(i32 -3, 1) i32 @imgl3wInit2(ptr noundef readonly captures
 
 2:                                                ; preds = %2, %1
   %.04.i = phi i64 [ 0, %1 ], [ %7, %2 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZL10proc_names, i64 %.04.i
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZL10proc_names, i64 %.04.i
   %4 = load ptr, ptr %3, align 8, !tbaa !8
   %5 = tail call noundef ptr %0(ptr noundef %4)
-  %6 = getelementptr inbounds nuw ptr, ptr @imgl3wProcs, i64 %.04.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @imgl3wProcs, i64 %.04.i
   store ptr %5, ptr %6, align 8, !tbaa !10
   %7 = add nuw nsw i64 %.04.i, 1
   %exitcond.not.i = icmp eq i64 %7, 59
@@ -1314,7 +1312,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
 100:                                              ; preds = %.lr.ph110, %._crit_edge
   %indvars.iv113 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next114, %._crit_edge ]
   %101 = load ptr, ptr %92, align 8, !tbaa !81
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv113
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv113
   %103 = load ptr, ptr %102, align 8, !tbaa !82
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %105 = load i32, ptr %104, align 8, !tbaa !84
@@ -1391,7 +1389,7 @@ _ZL32ImGui_ImplOpenGL3_GetBackendDatav.exit:      ; preds = %32, %34
 145:                                              ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %146 = load ptr, ptr %141, align 8, !tbaa !108
-  %147 = getelementptr inbounds nuw %struct.ImDrawCmd, ptr %146, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw [56 x i8], ptr %146, i64 %indvars.iv
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 40
   %149 = load ptr, ptr %148, align 8, !tbaa !109
   %magicptr = ptrtoint ptr %149 to i64

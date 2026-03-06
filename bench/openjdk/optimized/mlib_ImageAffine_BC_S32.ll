@@ -51,13 +51,13 @@ define hidden noundef i32 @mlib_ImageAffine_s32_1ch_bc(ptr noundef readonly capt
   %.0444552 = phi i32 [ %25, %.lr.ph554 ], [ %.1445, %403 ]
   %.0452551 = phi i32 [ %23, %.lr.ph554 ], [ %.1453, %403 ]
   %36 = getelementptr inbounds i8, ptr %.0404553, i64 %30
-  %37 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %37 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %39 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %41 = getelementptr inbounds [4 x i8], ptr %7, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
+  %43 = getelementptr inbounds [4 x i8], ptr %9, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4
   br i1 %.not461, label %50, label %45
 
@@ -150,11 +150,11 @@ define hidden noundef i32 @mlib_ImageAffine_s32_1ch_bc(ptr noundef readonly capt
   %106 = ashr i32 %42, 16
   %107 = ashr i32 %44, 16
   %108 = sext i32 %107 to i64
-  %109 = getelementptr ptr, ptr %11, i64 %108
+  %109 = getelementptr [8 x i8], ptr %11, i64 %108
   %110 = getelementptr i8, ptr %109, i64 -8
   %111 = load ptr, ptr %110, align 8
   %112 = sext i32 %106 to i64
-  %113 = getelementptr i32, ptr %111, i64 %112
+  %113 = getelementptr [4 x i8], ptr %111, i64 %112
   %114 = getelementptr i8, ptr %113, i64 -4
   %115 = load i32, ptr %114, align 4
   %116 = sitofp i32 %115 to double
@@ -296,11 +296,11 @@ define hidden noundef i32 @mlib_ImageAffine_s32_1ch_bc(ptr noundef readonly capt
   %218 = ashr i32 %141, 16
   %219 = ashr i32 %142, 16
   %220 = sext i32 %219 to i64
-  %221 = getelementptr ptr, ptr %11, i64 %220
+  %221 = getelementptr [8 x i8], ptr %11, i64 %220
   %222 = getelementptr i8, ptr %221, i64 -8
   %223 = load ptr, ptr %222, align 8
   %224 = sext i32 %218 to i64
-  %225 = getelementptr i32, ptr %223, i64 %224
+  %225 = getelementptr [4 x i8], ptr %223, i64 %224
   %226 = getelementptr i8, ptr %225, i64 -4
   %227 = load i32, ptr %226, align 4
   %228 = sitofp i32 %227 to double
@@ -432,11 +432,11 @@ define hidden noundef i32 @mlib_ImageAffine_s32_1ch_bc(ptr noundef readonly capt
   %326 = ashr i32 %253, 16
   %327 = ashr i32 %254, 16
   %328 = sext i32 %327 to i64
-  %329 = getelementptr ptr, ptr %11, i64 %328
+  %329 = getelementptr [8 x i8], ptr %11, i64 %328
   %330 = getelementptr i8, ptr %329, i64 -8
   %331 = load ptr, ptr %330, align 8
   %332 = sext i32 %326 to i64
-  %333 = getelementptr i32, ptr %331, i64 %332
+  %333 = getelementptr [4 x i8], ptr %331, i64 %332
   %334 = getelementptr i8, ptr %333, i64 -4
   %335 = load i32, ptr %334, align 4
   %336 = sitofp i32 %335 to double
@@ -596,13 +596,13 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   %.0457564 = phi i32 [ %25, %.lr.ph566 ], [ %.1458, %.loopexit481 ]
   %.0459563 = phi i32 [ %23, %.lr.ph566 ], [ %.1460, %.loopexit481 ]
   %36 = getelementptr inbounds i8, ptr %.0421565, i64 %30
-  %37 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv614
+  %37 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv614
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv614
+  %39 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv614
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv614
+  %41 = getelementptr inbounds [4 x i8], ptr %7, i64 %indvars.iv614
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv614
+  %43 = getelementptr inbounds [4 x i8], ptr %9, i64 %indvars.iv614
   %44 = load i32, ptr %43, align 4
   br i1 %.not471, label %50, label %45
 
@@ -629,7 +629,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   %57 = getelementptr inbounds i8, ptr %36, i64 %.idx575
   %58 = ashr i32 %44, 16
   %59 = sext i32 %58 to i64
-  %60 = getelementptr ptr, ptr %11, i64 %59
+  %60 = getelementptr [8 x i8], ptr %11, i64 %59
   %61 = getelementptr i8, ptr %60, i64 -8
   %62 = ashr i32 %42, 15
   %63 = and i32 %62, -2
@@ -692,9 +692,9 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   %112 = shl nsw i64 %.idx576, 2
   %113 = getelementptr inbounds i8, ptr %36, i64 %112
   %114 = load ptr, ptr %61, align 8
-  %115 = getelementptr i32, ptr %114, i64 %64
+  %115 = getelementptr [4 x i8], ptr %114, i64 %64
   %116 = getelementptr i8, ptr %115, i64 -8
-  %117 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv
   %118 = load i32, ptr %117, align 4
   %119 = sitofp i32 %118 to double
   %120 = getelementptr inbounds nuw i8, ptr %117, i64 8
@@ -749,7 +749,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   %.1454522 = phi double [ %202, %.lr.ph541 ], [ %96, %.preheader ]
   %141 = phi ptr [ %230, %.lr.ph541 ], [ %115, %.preheader ]
   %142 = getelementptr i8, ptr %141, i64 -8
-  %143 = getelementptr inbounds nuw i32, ptr %142, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %142, i64 %indvars.iv
   %144 = getelementptr inbounds i8, ptr %143, i64 %32
   %145 = add nsw i32 %.0394538, %.1458
   %146 = add nsw i32 %.0392539, %.1460
@@ -835,15 +835,15 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   store i32 %221, ptr %.0540, align 4
   %222 = ashr i32 %146, 16
   %223 = sext i32 %222 to i64
-  %224 = getelementptr ptr, ptr %11, i64 %223
+  %224 = getelementptr [8 x i8], ptr %11, i64 %223
   %225 = getelementptr i8, ptr %224, i64 -8
   %226 = load ptr, ptr %225, align 8
   %227 = ashr i32 %145, 15
   %228 = and i32 %227, -2
   %229 = sext i32 %228 to i64
-  %230 = getelementptr i32, ptr %226, i64 %229
+  %230 = getelementptr [4 x i8], ptr %226, i64 %229
   %231 = getelementptr i8, ptr %230, i64 -8
-  %232 = getelementptr inbounds nuw i32, ptr %231, i64 %indvars.iv
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %231, i64 %indvars.iv
   %233 = load i32, ptr %232, align 4
   %234 = sitofp i32 %233 to double
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 8
@@ -893,7 +893,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   %.3456484 = phi double [ %316, %.lr.ph ], [ %78, %.preheader479 ]
   %257 = phi ptr [ %342, %.lr.ph ], [ %115, %.preheader479 ]
   %258 = getelementptr i8, ptr %257, i64 -8
-  %259 = getelementptr inbounds nuw i32, ptr %258, i64 %indvars.iv
+  %259 = getelementptr inbounds nuw [4 x i8], ptr %258, i64 %indvars.iv
   %260 = getelementptr inbounds i8, ptr %259, i64 %32
   %261 = add nsw i32 %.1395500, %.1458
   %262 = add nsw i32 %.1393501, %.1460
@@ -975,15 +975,15 @@ define hidden noundef i32 @mlib_ImageAffine_s32_2ch_bc(ptr noundef readonly capt
   store i32 %333, ptr %.2502, align 4
   %334 = ashr i32 %262, 16
   %335 = sext i32 %334 to i64
-  %336 = getelementptr ptr, ptr %11, i64 %335
+  %336 = getelementptr [8 x i8], ptr %11, i64 %335
   %337 = getelementptr i8, ptr %336, i64 -8
   %338 = load ptr, ptr %337, align 8
   %339 = ashr i32 %261, 15
   %340 = and i32 %339, -2
   %341 = sext i32 %340 to i64
-  %342 = getelementptr i32, ptr %338, i64 %341
+  %342 = getelementptr [4 x i8], ptr %338, i64 %341
   %343 = getelementptr i8, ptr %342, i64 -8
-  %344 = getelementptr inbounds nuw i32, ptr %343, i64 %indvars.iv
+  %344 = getelementptr inbounds nuw [4 x i8], ptr %343, i64 %indvars.iv
   %345 = load i32, ptr %344, align 4
   %346 = sitofp i32 %345 to double
   %347 = getelementptr inbounds nuw i8, ptr %344, i64 8
@@ -1140,13 +1140,13 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   %.0457564 = phi i32 [ %25, %.lr.ph566 ], [ %.1458, %.loopexit481 ]
   %.0459563 = phi i32 [ %23, %.lr.ph566 ], [ %.1460, %.loopexit481 ]
   %36 = getelementptr inbounds i8, ptr %.0421565, i64 %30
-  %37 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv614
+  %37 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv614
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv614
+  %39 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv614
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv614
+  %41 = getelementptr inbounds [4 x i8], ptr %7, i64 %indvars.iv614
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv614
+  %43 = getelementptr inbounds [4 x i8], ptr %9, i64 %indvars.iv614
   %44 = load i32, ptr %43, align 4
   br i1 %.not471, label %50, label %45
 
@@ -1174,7 +1174,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   %58 = ashr i32 %42, 16
   %59 = ashr i32 %44, 16
   %60 = sext i32 %59 to i64
-  %61 = getelementptr ptr, ptr %11, i64 %60
+  %61 = getelementptr [8 x i8], ptr %11, i64 %60
   %62 = getelementptr i8, ptr %61, i64 -8
   %63 = mul nsw i32 %58, 3
   %64 = sext i32 %63 to i64
@@ -1235,9 +1235,9 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   %111 = shl nsw i64 %.idx576, 2
   %112 = getelementptr inbounds i8, ptr %36, i64 %111
   %113 = load ptr, ptr %62, align 8
-  %114 = getelementptr i32, ptr %113, i64 %64
+  %114 = getelementptr [4 x i8], ptr %113, i64 %64
   %115 = getelementptr i8, ptr %114, i64 -12
-  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv
   %117 = load i32, ptr %116, align 4
   %118 = sitofp i32 %117 to double
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 12
@@ -1292,7 +1292,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   %.1454522 = phi double [ %201, %.lr.ph541 ], [ %96, %.preheader ]
   %140 = phi ptr [ %229, %.lr.ph541 ], [ %114, %.preheader ]
   %141 = getelementptr i8, ptr %140, i64 -12
-  %142 = getelementptr inbounds nuw i32, ptr %141, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %indvars.iv
   %143 = getelementptr inbounds i8, ptr %142, i64 %32
   %144 = add nsw i32 %.0394538, %.1458
   %145 = add nsw i32 %.0392539, %.1460
@@ -1379,14 +1379,14 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   %221 = ashr i32 %144, 16
   %222 = ashr i32 %145, 16
   %223 = sext i32 %222 to i64
-  %224 = getelementptr ptr, ptr %11, i64 %223
+  %224 = getelementptr [8 x i8], ptr %11, i64 %223
   %225 = getelementptr i8, ptr %224, i64 -8
   %226 = load ptr, ptr %225, align 8
   %227 = mul nsw i32 %221, 3
   %228 = sext i32 %227 to i64
-  %229 = getelementptr i32, ptr %226, i64 %228
+  %229 = getelementptr [4 x i8], ptr %226, i64 %228
   %230 = getelementptr i8, ptr %229, i64 -12
-  %231 = getelementptr inbounds nuw i32, ptr %230, i64 %indvars.iv
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %230, i64 %indvars.iv
   %232 = load i32, ptr %231, align 4
   %233 = sitofp i32 %232 to double
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 12
@@ -1436,7 +1436,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   %.3456484 = phi double [ %315, %.lr.ph ], [ %78, %.preheader479 ]
   %256 = phi ptr [ %341, %.lr.ph ], [ %114, %.preheader479 ]
   %257 = getelementptr i8, ptr %256, i64 -12
-  %258 = getelementptr inbounds nuw i32, ptr %257, i64 %indvars.iv
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %257, i64 %indvars.iv
   %259 = getelementptr inbounds i8, ptr %258, i64 %32
   %260 = add nsw i32 %.1395500, %.1458
   %261 = add nsw i32 %.1393501, %.1460
@@ -1519,14 +1519,14 @@ define hidden noundef i32 @mlib_ImageAffine_s32_3ch_bc(ptr noundef readonly capt
   %333 = ashr i32 %260, 16
   %334 = ashr i32 %261, 16
   %335 = sext i32 %334 to i64
-  %336 = getelementptr ptr, ptr %11, i64 %335
+  %336 = getelementptr [8 x i8], ptr %11, i64 %335
   %337 = getelementptr i8, ptr %336, i64 -8
   %338 = load ptr, ptr %337, align 8
   %339 = mul nsw i32 %333, 3
   %340 = sext i32 %339 to i64
-  %341 = getelementptr i32, ptr %338, i64 %340
+  %341 = getelementptr [4 x i8], ptr %338, i64 %340
   %342 = getelementptr i8, ptr %341, i64 -12
-  %343 = getelementptr inbounds nuw i32, ptr %342, i64 %indvars.iv
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %342, i64 %indvars.iv
   %344 = load i32, ptr %343, align 4
   %345 = sitofp i32 %344 to double
   %346 = getelementptr inbounds nuw i8, ptr %343, i64 12
@@ -1685,13 +1685,13 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   %.0457564 = phi i32 [ %25, %.lr.ph566 ], [ %.1458, %.loopexit481 ]
   %.0459563 = phi i32 [ %23, %.lr.ph566 ], [ %.1460, %.loopexit481 ]
   %36 = getelementptr inbounds i8, ptr %.0421565, i64 %30
-  %37 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv614
+  %37 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv614
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv614
+  %39 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv614
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv614
+  %41 = getelementptr inbounds [4 x i8], ptr %7, i64 %indvars.iv614
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv614
+  %43 = getelementptr inbounds [4 x i8], ptr %9, i64 %indvars.iv614
   %44 = load i32, ptr %43, align 4
   br i1 %.not471, label %50, label %45
 
@@ -1718,7 +1718,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   %57 = getelementptr inbounds i8, ptr %36, i64 %.idx575
   %58 = ashr i32 %44, 16
   %59 = sext i32 %58 to i64
-  %60 = getelementptr ptr, ptr %11, i64 %59
+  %60 = getelementptr [8 x i8], ptr %11, i64 %59
   %61 = getelementptr i8, ptr %60, i64 -8
   %62 = ashr i32 %42, 14
   %63 = and i32 %62, -4
@@ -1780,9 +1780,9 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   %111 = shl nsw i64 %.idx576, 2
   %112 = getelementptr inbounds i8, ptr %36, i64 %111
   %113 = load ptr, ptr %61, align 8
-  %114 = getelementptr i32, ptr %113, i64 %64
+  %114 = getelementptr [4 x i8], ptr %113, i64 %64
   %115 = getelementptr i8, ptr %114, i64 -16
-  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv
   %117 = load i32, ptr %116, align 4
   %118 = sitofp i32 %117 to double
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 16
@@ -1837,7 +1837,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   %.1454522 = phi double [ %201, %.lr.ph541 ], [ %96, %.preheader ]
   %140 = phi ptr [ %229, %.lr.ph541 ], [ %114, %.preheader ]
   %141 = getelementptr i8, ptr %140, i64 -16
-  %142 = getelementptr inbounds nuw i32, ptr %141, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %indvars.iv
   %143 = getelementptr inbounds i8, ptr %142, i64 %32
   %144 = add nsw i32 %.0394538, %.1458
   %145 = add nsw i32 %.0392539, %.1460
@@ -1923,15 +1923,15 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   store i32 %220, ptr %.0540, align 4
   %221 = ashr i32 %145, 16
   %222 = sext i32 %221 to i64
-  %223 = getelementptr ptr, ptr %11, i64 %222
+  %223 = getelementptr [8 x i8], ptr %11, i64 %222
   %224 = getelementptr i8, ptr %223, i64 -8
   %225 = load ptr, ptr %224, align 8
   %226 = ashr i32 %144, 14
   %227 = and i32 %226, -4
   %228 = sext i32 %227 to i64
-  %229 = getelementptr i32, ptr %225, i64 %228
+  %229 = getelementptr [4 x i8], ptr %225, i64 %228
   %230 = getelementptr i8, ptr %229, i64 -16
-  %231 = getelementptr inbounds nuw i32, ptr %230, i64 %indvars.iv
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %230, i64 %indvars.iv
   %232 = load i32, ptr %231, align 4
   %233 = sitofp i32 %232 to double
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 16
@@ -1981,7 +1981,7 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   %.3456484 = phi double [ %315, %.lr.ph ], [ %78, %.preheader479 ]
   %256 = phi ptr [ %341, %.lr.ph ], [ %114, %.preheader479 ]
   %257 = getelementptr i8, ptr %256, i64 -16
-  %258 = getelementptr inbounds nuw i32, ptr %257, i64 %indvars.iv
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %257, i64 %indvars.iv
   %259 = getelementptr inbounds i8, ptr %258, i64 %32
   %260 = add nsw i32 %.1395500, %.1458
   %261 = add nsw i32 %.1393501, %.1460
@@ -2063,15 +2063,15 @@ define hidden noundef i32 @mlib_ImageAffine_s32_4ch_bc(ptr noundef readonly capt
   store i32 %332, ptr %.2502, align 4
   %333 = ashr i32 %261, 16
   %334 = sext i32 %333 to i64
-  %335 = getelementptr ptr, ptr %11, i64 %334
+  %335 = getelementptr [8 x i8], ptr %11, i64 %334
   %336 = getelementptr i8, ptr %335, i64 -8
   %337 = load ptr, ptr %336, align 8
   %338 = ashr i32 %260, 14
   %339 = and i32 %338, -4
   %340 = sext i32 %339 to i64
-  %341 = getelementptr i32, ptr %337, i64 %340
+  %341 = getelementptr [4 x i8], ptr %337, i64 %340
   %342 = getelementptr i8, ptr %341, i64 -16
-  %343 = getelementptr inbounds nuw i32, ptr %342, i64 %indvars.iv
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %342, i64 %indvars.iv
   %344 = load i32, ptr %343, align 4
   %345 = sitofp i32 %344 to double
   %346 = getelementptr inbounds nuw i8, ptr %343, i64 16

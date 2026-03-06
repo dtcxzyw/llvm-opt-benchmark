@@ -367,7 +367,7 @@ _ZNSt6vectorIPKN7testing8TestInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.
 _ZNSt6vectorIPKN7testing8TestInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %29, %_ZNSt6vectorIPKN7testing8TestInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %24, ptr @_ZN6cvtestL13skipped_testsE, align 8, !tbaa !17
   store ptr %28, ptr getelementptr inbounds nuw (i8, ptr @_ZN6cvtestL13skipped_testsE, i64 8), align 8, !tbaa !21
-  %30 = getelementptr inbounds nuw ptr, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %30, ptr getelementptr inbounds nuw (i8, ptr @_ZN6cvtestL13skipped_testsE, i64 16), align 8, !tbaa !22
   br label %_ZNSt6vectorIPKN7testing8TestInfoESaIS3_EE9push_backEOS3_.exit
 
@@ -571,7 +571,7 @@ _ZNSt6vectorIPKN7testing8TestInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.
 _ZNSt6vectorIPKN7testing8TestInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIPKN7testing8TestInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %23, ptr %0, align 8, !tbaa !17
   store ptr %28, ptr %3, align 8, !tbaa !21
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !22
   br label %_ZNSt6vectorIPKN7testing8TestInfoESaIS3_EE12emplace_backIJS3_EEEvDpOT_.exit
 
@@ -706,7 +706,7 @@ define hidden void @_ZN6cvtest21registerGlobalSkipTagERKNSt7__cxx1112basic_strin
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10.us
   %.0913.us = phi i64 [ %20, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10.us ], [ 0, %.lr.ph ]
-  %16 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %.0913.us
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %.0913.us
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !35
   %19 = icmp eq i64 %18, 0
@@ -719,7 +719,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10
   %.0913 = phi i64 [ %27, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10 ], [ 0, %.lr.ph ]
-  %21 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %.0913
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %.0913
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !35
   %24 = icmp eq i64 %.fr14, %23
@@ -1019,7 +1019,7 @@ _ZN6cvtestL23getTestTagsRequiredListB5cxx11Ev.exit: ; preds = %0, %27, %29
   %39 = phi ptr [ %31, %.lr.ph320 ], [ %124, %.loopexit262 ]
   %.065319 = phi i64 [ 0, %.lr.ph320 ], [ %.267, %.loopexit262 ]
   %.070316 = phi i64 [ 0, %.lr.ph320 ], [ %122, %.loopexit262 ]
-  %40 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %39, i64 %.070316
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %.070316
   %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6cvtestL21currentDirectTestTagsB5cxx11E, i64 8), align 8, !tbaa !9
   %42 = load ptr, ptr @_ZN6cvtestL21currentDirectTestTagsB5cxx11E, align 8, !tbaa !3
   %.not332 = icmp eq ptr %41, %42
@@ -1033,7 +1033,7 @@ _ZN6cvtestL23getTestTagsRequiredListB5cxx11Ev.exit: ; preds = %0, %27, %29
   %45 = phi ptr [ %42, %.lr.ph ], [ %113, %112 ]
   %46 = phi ptr [ %41, %.lr.ph ], [ %114, %112 ]
   %.081315 = phi i64 [ 0, %.lr.ph ], [ %115, %112 ]
-  %47 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %45, i64 %.070316
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %.070316
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !35
   %50 = load i64, ptr %43, align 8, !tbaa !35
@@ -1353,7 +1353,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %14
 157:                                              ; preds = %.lr.ph325, %_ZN6cvtestL15isTestTagForcedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %158 = phi ptr [ %150, %.lr.ph325 ], [ %244, %_ZN6cvtestL15isTestTagForcedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %.071323 = phi i64 [ 0, %.lr.ph325 ], [ %242, %_ZN6cvtestL15isTestTagForcedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
-  %159 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %158, i64 %.071323
+  %159 = getelementptr inbounds nuw [32 x i8], ptr %158, i64 %.071323
   %160 = load atomic i8, ptr @_ZGVZN6cvtestL20getTestTagsForceListB5cxx11EvE20getTestTagsForceListB5cxx11 acquire, align 8
   %161 = icmp eq i8 %160, 0
   br i1 %161, label %162, label %_ZN6cvtestL20getTestTagsForceListB5cxx11Ev.exit.i, !prof !25
@@ -1383,7 +1383,7 @@ _ZN6cvtestL20getTestTagsForceListB5cxx11Ev.exit.i: ; preds = %164, %162, %157
   %170 = phi ptr [ %167, %.lr.ph.i ], [ %233, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit44.thread.i ]
   %171 = phi ptr [ %166, %.lr.ph.i ], [ %234, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit44.thread.i ]
   %.02857.i = phi i64 [ 0, %.lr.ph.i ], [ %235, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit44.thread.i ]
-  %172 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %170, i64 %.02857.i
+  %172 = getelementptr inbounds nuw [32 x i8], ptr %170, i64 %.02857.i
   %173 = load i64, ptr %168, align 8, !tbaa !35
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %175 = load i64, ptr %174, align 8, !tbaa !35
@@ -1643,7 +1643,7 @@ _ZN6cvtestL15isTestTagForcedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 272:                                              ; preds = %.lr.ph327, %378
   %273 = phi ptr [ %244, %.lr.ph327 ], [ %381, %378 ]
   %.069326 = phi i64 [ 0, %.lr.ph327 ], [ %379, %378 ]
-  %274 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %273, i64 %.069326
+  %274 = getelementptr inbounds nuw [32 x i8], ptr %273, i64 %.069326
   %275 = invoke fastcc noundef zeroext i1 @_ZN6cvtestL16isTestTagSkippedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_(ptr noundef nonnull align 8 dereferenceable(32) %274, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %276 unwind label %367
 
@@ -2025,7 +2025,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161: ; preds = %_Z
 389:                                              ; preds = %.lr.ph329, %495
   %390 = phi ptr [ %263, %.lr.ph329 ], [ %498, %495 ]
   %.050328 = phi i64 [ 0, %.lr.ph329 ], [ %496, %495 ]
-  %391 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %390, i64 %.050328
+  %391 = getelementptr inbounds nuw [32 x i8], ptr %390, i64 %.050328
   %392 = invoke fastcc noundef zeroext i1 @_ZN6cvtestL16isTestTagSkippedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_(ptr noundef nonnull align 8 dereferenceable(32) %391, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %393 unwind label %484
 
@@ -2544,7 +2544,7 @@ define internal fastcc noundef zeroext i1 @_ZN6cvtestL16isTestTagSkippedERKNSt7_
   %17 = phi ptr [ %10, %.lr.ph ], [ %80, %.critedge41 ]
   %18 = phi ptr [ %9, %.lr.ph ], [ %81, %.critedge41 ]
   %.03166 = phi i64 [ 0, %.lr.ph ], [ %82, %.critedge41 ]
-  %19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %17, i64 %.03166
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %.03166
   %20 = load i64, ptr %11, align 8, !tbaa !35
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !35
@@ -2905,7 +2905,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %24, %
 
 38:                                               ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
   %.027180 = phi i64 [ 0, %.lr.ph ], [ %45, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread ]
-  %39 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %32, i64 %.027180
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %.027180
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !35
   %42 = icmp eq i64 %17, %41
@@ -3553,7 +3553,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %.b
 .lr.ph305:                                        ; preds = %.preheader296, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
   %46 = phi ptr [ %94, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ], [ %39, %.preheader296 ]
   %.081304 = phi i64 [ %92, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit ], [ 0, %.preheader296 ]
-  %47 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %46, i64 %.081304
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %46, i64 %.081304
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6cvtestL19getTestTagsSkipListB5cxx11EvE16testSkipWithTagsB5cxx11, i64 8), align 8, !tbaa !9
   %49 = load ptr, ptr @_ZZN6cvtestL19getTestTagsSkipListB5cxx11EvE16testSkipWithTagsB5cxx11, align 8, !tbaa !3
   %50 = ptrtoint ptr %48 to i64
@@ -3572,7 +3572,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %.b
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread289.us
   %.087303.us = phi i64 [ %61, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread289.us ], [ 0, %.lr.ph ]
-  %57 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %49, i64 %.087303.us
+  %57 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %.087303.us
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !35
   %60 = icmp eq i64 %59, 0
@@ -3585,7 +3585,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread289
   %.087303 = phi i64 [ %69, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread289 ], [ 0, %.lr.ph ]
-  %62 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %49, i64 %.087303
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %.087303
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i64, ptr %63, align 8, !tbaa !35
   %65 = icmp eq i64 %.fr327, %64
@@ -3819,7 +3819,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142: ; preds = %.b
 .lr.ph310:                                        ; preds = %.preheader, %_ZNSolsEPFRSoS_E.exit
   %138 = phi ptr [ %238, %_ZNSolsEPFRSoS_E.exit ], [ %131, %.preheader ]
   %.088309 = phi i64 [ %236, %_ZNSolsEPFRSoS_E.exit ], [ 0, %.preheader ]
-  %139 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %138, i64 %.088309
+  %139 = getelementptr inbounds nuw [32 x i8], ptr %138, i64 %.088309
   %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6cvtestL19getTestTagsSkipListB5cxx11EvE16testSkipWithTagsB5cxx11, i64 8), align 8, !tbaa !9
   %141 = load ptr, ptr @_ZZN6cvtestL19getTestTagsSkipListB5cxx11EvE16testSkipWithTagsB5cxx11, align 8, !tbaa !3
   %.not329 = icmp eq ptr %140, %141
@@ -3839,7 +3839,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit142: ; preds = %.b
   %147 = phi ptr [ %141, %.lr.ph308 ], [ %205, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ]
   %.084307 = phi i64 [ 0, %.lr.ph308 ], [ %204, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ]
   %.085306 = phi i1 [ false, %.lr.ph308 ], [ %.186, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ]
-  %148 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %147, i64 %.084307
+  %148 = getelementptr inbounds nuw [32 x i8], ptr %147, i64 %.084307
   %149 = load i64, ptr %143, align 8, !tbaa !35
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %151 = load i64, ptr %150, align 8, !tbaa !35
@@ -4220,7 +4220,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179: ; preds = %.b
 .lr.ph317:                                        ; preds = %_ZN6cvtestL20getTestTagsForceListB5cxx11Ev.exit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit188
   %286 = phi ptr [ %334, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit188 ], [ %281, %_ZN6cvtestL20getTestTagsForceListB5cxx11Ev.exit ]
   %.082316 = phi i64 [ %332, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit188 ], [ 0, %_ZN6cvtestL20getTestTagsForceListB5cxx11Ev.exit ]
-  %287 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %286, i64 %.082316
+  %287 = getelementptr inbounds nuw [32 x i8], ptr %286, i64 %.082316
   %288 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6cvtestL20getTestTagsForceListB5cxx11EvE20getTestTagsForceListB5cxx11, i64 8), align 8, !tbaa !9
   %289 = load ptr, ptr @_ZZN6cvtestL20getTestTagsForceListB5cxx11EvE20getTestTagsForceListB5cxx11, align 8, !tbaa !3
   %290 = ptrtoint ptr %288 to i64
@@ -4239,7 +4239,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit179: ; preds = %.b
 
 .lr.ph313.split.us:                               ; preds = %.lr.ph313, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit181.thread291.us
   %.079311.us = phi i64 [ %301, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit181.thread291.us ], [ 0, %.lr.ph313 ]
-  %297 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %289, i64 %.079311.us
+  %297 = getelementptr inbounds nuw [32 x i8], ptr %289, i64 %.079311.us
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 8
   %299 = load i64, ptr %298, align 8, !tbaa !35
   %300 = icmp eq i64 %299, 0
@@ -4252,7 +4252,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .lr.ph313.split:                                  ; preds = %.lr.ph313, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit181.thread291
   %.079311 = phi i64 [ %309, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit181.thread291 ], [ 0, %.lr.ph313 ]
-  %302 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %289, i64 %.079311
+  %302 = getelementptr inbounds nuw [32 x i8], ptr %289, i64 %.079311
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
   %304 = load i64, ptr %303, align 8, !tbaa !35
   %305 = icmp eq i64 %.fr, %304
@@ -4489,7 +4489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217: ; preds = %.b
 .lr.ph324:                                        ; preds = %_ZN6cvtestL23getTestTagsRequiredListB5cxx11Ev.exit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit226
   %381 = phi ptr [ %429, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit226 ], [ %376, %_ZN6cvtestL23getTestTagsRequiredListB5cxx11Ev.exit ]
   %.058323 = phi i64 [ %427, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit226 ], [ 0, %_ZN6cvtestL23getTestTagsRequiredListB5cxx11Ev.exit ]
-  %382 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %381, i64 %.058323
+  %382 = getelementptr inbounds nuw [32 x i8], ptr %381, i64 %.058323
   %383 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6cvtestL23getTestTagsRequiredListB5cxx11EvE23getTestTagsRequiredListB5cxx11, i64 8), align 8, !tbaa !9
   %384 = load ptr, ptr @_ZZN6cvtestL23getTestTagsRequiredListB5cxx11EvE23getTestTagsRequiredListB5cxx11, align 8, !tbaa !3
   %385 = ptrtoint ptr %383 to i64
@@ -4508,7 +4508,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217: ; preds = %.b
 
 .lr.ph320.split.us:                               ; preds = %.lr.ph320, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit219.thread292.us
   %.0318.us = phi i64 [ %396, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit219.thread292.us ], [ 0, %.lr.ph320 ]
-  %392 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %384, i64 %.0318.us
+  %392 = getelementptr inbounds nuw [32 x i8], ptr %384, i64 %.0318.us
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 8
   %394 = load i64, ptr %393, align 8, !tbaa !35
   %395 = icmp eq i64 %394, 0
@@ -4521,7 +4521,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .lr.ph320.split:                                  ; preds = %.lr.ph320, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit219.thread292
   %.0318 = phi i64 [ %404, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit219.thread292 ], [ 0, %.lr.ph320 ]
-  %397 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %384, i64 %.0318
+  %397 = getelementptr inbounds nuw [32 x i8], ptr %384, i64 %.0318
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
   %399 = load i64, ptr %398, align 8, !tbaa !35
   %400 = icmp eq i64 %.fr334, %399
@@ -5298,7 +5298,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !3
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !9
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !44
   ret void
 }
@@ -5440,7 +5440,7 @@ _ZN6cvtestL23getTestTagsRequiredListB5cxx11Ev.exit: ; preds = %2, %20, %22
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %.lr.ph
   %52 = load ptr, ptr @_ZZN6cvtestL23getTestTagsRequiredListB5cxx11EvE23getTestTagsRequiredListB5cxx11, align 8, !tbaa !3
-  %53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %52, i64 %.052276
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %52, i64 %.052276
   %54 = load ptr, ptr %53, align 8, !tbaa !10
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load i64, ptr %55, align 8, !tbaa !35
@@ -5459,7 +5459,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit78: ; preds = %_ZStl
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit80: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit78
   %62 = load ptr, ptr @_ZZN6cvtestL23getTestTagsRequiredListB5cxx11EvE23getTestTagsRequiredListB5cxx11, align 8, !tbaa !3
-  %63 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %62, i64 %.052276
+  %63 = getelementptr inbounds nuw [32 x i8], ptr %62, i64 %.052276
   %64 = load ptr, ptr %63, align 8, !tbaa !10
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load i64, ptr %65, align 8, !tbaa !35
@@ -5810,7 +5810,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118: ; preds = %.b
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit124: ; preds = %.lr.ph278
   %197 = load ptr, ptr @_ZZN6cvtestL19getTestTagsSkipListB5cxx11EvE16testSkipWithTagsB5cxx11, align 8, !tbaa !3
-  %198 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %197, i64 %.032277
+  %198 = getelementptr inbounds nuw [32 x i8], ptr %197, i64 %.032277
   %199 = load ptr, ptr %198, align 8, !tbaa !10
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %201 = load i64, ptr %200, align 8, !tbaa !35
@@ -5829,7 +5829,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit128: ; preds = %_ZSt
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit131: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit128
   %207 = load ptr, ptr @_ZZN6cvtestL19getTestTagsSkipListB5cxx11EvE16testSkipWithTagsB5cxx11, align 8, !tbaa !3
-  %208 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %207, i64 %.032277
+  %208 = getelementptr inbounds nuw [32 x i8], ptr %207, i64 %.032277
   %209 = load ptr, ptr %208, align 8, !tbaa !10
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %211 = load i64, ptr %210, align 8, !tbaa !35
@@ -6192,7 +6192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185: ; preds = %.b
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit191: ; preds = %.lr.ph281
   %345 = load ptr, ptr @_ZZN6cvtestL20getTestTagsForceListB5cxx11EvE20getTestTagsForceListB5cxx11, align 8, !tbaa !3
-  %346 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %345, i64 %.0280
+  %346 = getelementptr inbounds nuw [32 x i8], ptr %345, i64 %.0280
   %347 = load ptr, ptr %346, align 8, !tbaa !10
   %348 = getelementptr inbounds nuw i8, ptr %346, i64 8
   %349 = load i64, ptr %348, align 8, !tbaa !35
@@ -6211,7 +6211,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit195: ; preds = %_ZSt
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit198: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit195
   %355 = load ptr, ptr @_ZZN6cvtestL20getTestTagsForceListB5cxx11EvE20getTestTagsForceListB5cxx11, align 8, !tbaa !3
-  %356 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %355, i64 %.0280
+  %356 = getelementptr inbounds nuw [32 x i8], ptr %355, i64 %.0280
   %357 = load ptr, ptr %356, align 8, !tbaa !10
   %358 = getelementptr inbounds nuw i8, ptr %356, i64 8
   %359 = load i64, ptr %358, align 8, !tbaa !35
@@ -6973,7 +6973,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %32, 
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %.lr.ph
   %57 = load ptr, ptr @_ZN6cvtestL21currentDirectTestTagsB5cxx11E, align 8, !tbaa !3
-  %58 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %57, i64 %.014115
+  %58 = getelementptr inbounds nuw [32 x i8], ptr %57, i64 %.014115
   %59 = load ptr, ptr %58, align 8, !tbaa !10
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !35
@@ -6988,7 +6988,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit
   %66 = load ptr, ptr @_ZN6cvtestL21currentDirectTestTagsB5cxx11E, align 8, !tbaa !3
-  %67 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %66, i64 %.014115
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %66, i64 %.014115
   %68 = load ptr, ptr %67, align 8, !tbaa !10
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %70 = load i64, ptr %69, align 8, !tbaa !35
@@ -7040,7 +7040,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit39._crit_edge: ; pre
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit41: ; preds = %.lr.ph117
   %93 = load ptr, ptr @_ZN6cvtestL22currentImpliedTestTagsB5cxx11E, align 8, !tbaa !3
-  %94 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %93, i64 %.0116
+  %94 = getelementptr inbounds nuw [32 x i8], ptr %93, i64 %.0116
   %95 = load ptr, ptr %94, align 8, !tbaa !10
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %97 = load i64, ptr %96, align 8, !tbaa !35
@@ -7055,7 +7055,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit42
   %102 = load ptr, ptr @_ZN6cvtestL22currentImpliedTestTagsB5cxx11E, align 8, !tbaa !3
-  %103 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %102, i64 %.0116
+  %103 = getelementptr inbounds nuw [32 x i8], ptr %102, i64 %.0116
   %104 = load ptr, ptr %103, align 8, !tbaa !10
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %106 = load i64, ptr %105, align 8, !tbaa !35
@@ -9045,7 +9045,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !3
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !9
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !44
   ret void
 

@@ -175,7 +175,7 @@ u_strlen_77.exit:                                 ; preds = %.preheader149
 
 84:                                               ; preds = %82
   %85 = zext nneg i32 %1 to i64
-  %86 = getelementptr inbounds nuw i16, ptr %0, i64 %85
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %85
   br label %87
 
 87:                                               ; preds = %90, %84
@@ -503,7 +503,7 @@ define ptr @u_memchr_77(ptr noundef readonly %0, i16 noundef zeroext %1, i32 nou
 
 11:                                               ; preds = %6
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %12
   br label %14
 
 14:                                               ; preds = %17, %11
@@ -884,7 +884,7 @@ define ptr @u_memchr32_77(ptr noundef readonly %0, i32 noundef %1, i32 noundef %
 
 14:                                               ; preds = %9
   %15 = zext nneg i32 %2 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %15
   br label %17
 
 17:                                               ; preds = %20, %14
@@ -911,7 +911,7 @@ u_memchr_77.exit:                                 ; preds = %17, %20, %6, %12
 
 25:                                               ; preds = %22
   %26 = zext nneg i32 %2 to i64
-  %27 = getelementptr inbounds nuw i16, ptr %0, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -2
   %29 = lshr i32 %1, 10
   %30 = add nuw nsw i32 %29, 55232
@@ -1013,7 +1013,7 @@ u_strlen_77.exit:                                 ; preds = %.preheader79
 
 38:                                               ; preds = %36
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr inbounds nuw i16, ptr %0, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %39
   br label %41
 
 41:                                               ; preds = %45, %38
@@ -1052,9 +1052,9 @@ u_strlen_77.exit69:                               ; preds = %.preheader74
 
 55:                                               ; preds = %54
   %56 = sext i32 %.053 to i64
-  %57 = getelementptr inbounds i16, ptr %0, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %0, i64 %56
   %58 = sext i32 %26 to i64
-  %59 = getelementptr inbounds i16, ptr %0, i64 %58
+  %59 = getelementptr inbounds [2 x i8], ptr %0, i64 %58
   %.not81 = icmp eq i32 %26, %.053
   br i1 %.not81, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %.lr.ph.preheader
 
@@ -1152,7 +1152,7 @@ u_strlen_77.exit69.i:                             ; preds = %.preheader74.i
 
 14:                                               ; preds = %u_strlen_77.exit69.i
   %15 = and i64 %12, 2147483647
-  %16 = getelementptr inbounds nuw i16, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %15
   %17 = and i16 %1, -9216
   switch i16 %17, label %.lr.ph.i.us.us [
     i16 -10240, label %.lr.ph.i.us16
@@ -1246,7 +1246,7 @@ define ptr @u_memrchr_77(ptr noundef readonly %0, i16 noundef zeroext %1, i32 no
 
 11:                                               ; preds = %6
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %12
   br label %14
 
 14:                                               ; preds = %18, %11
@@ -1304,7 +1304,7 @@ u_strlen_77.exit69.i.i:                           ; preds = %.preheader74.i.i
 
 17:                                               ; preds = %u_strlen_77.exit69.i.i
   %18 = and i64 %15, 2147483647
-  %19 = getelementptr inbounds nuw i16, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %18
   %20 = and i16 %5, -9216
   switch i16 %20, label %.lr.ph.i.us.us.i [
     i16 -10240, label %.lr.ph.i.us16.i
@@ -1432,7 +1432,7 @@ define ptr @u_memrchr32_77(ptr noundef readonly %0, i32 noundef %1, i32 noundef 
 
 14:                                               ; preds = %9
   %15 = zext nneg i32 %2 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %15
   br label %17
 
 17:                                               ; preds = %21, %14
@@ -1459,7 +1459,7 @@ u_memrchr_77.exit:                                ; preds = %17, %21, %6, %12
 
 25:                                               ; preds = %22
   %26 = zext nneg i32 %2 to i64
-  %27 = getelementptr inbounds nuw i16, ptr %0, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %26
   %28 = getelementptr inbounds i8, ptr %27, i64 -2
   %29 = lshr i32 %1, 10
   %30 = add nuw nsw i32 %29, 55232
@@ -1500,7 +1500,7 @@ define ptr @u_strpbrk_77(ptr noundef readonly captures(ret: address, provenance)
   %3 = tail call fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef %0, ptr noundef %1, i8 noundef signext 1)
   %4 = icmp sgt i32 %3, -1
   %5 = zext nneg i32 %3 to i64
-  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %5
   %.0 = select i1 %4, ptr %6, ptr null
   ret ptr %.0
 }
@@ -1512,7 +1512,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
 4:                                                ; preds = %4, %3
   %indvars.iv149 = phi i32 [ %indvars.iv.next150, %4 ], [ 0, %3 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %4 ], [ 0, %3 ]
-  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2, !tbaa !3
   %7 = icmp ne i16 %6, 0
   %8 = and i16 %6, -2048
@@ -1525,7 +1525,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
 .preheader102:                                    ; preds = %4, %.preheader102
   %indvars.iv151 = phi i32 [ %indvars.iv.next152, %.preheader102 ], [ %indvars.iv149, %4 ]
   %indvars.iv143 = phi i64 [ %indvars.iv.next144, %.preheader102 ], [ %indvars.iv, %4 ]
-  %11 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv143
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv143
   %12 = load i16, ptr %11, align 2, !tbaa !3
   %.not = icmp eq i16 %12, 0
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
@@ -1562,7 +1562,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
 
 .lr.ph111.us:                                     ; preds = %.preheader95.us, %22
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %22 ], [ 0, %.preheader95.us ]
-  %23 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv165
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv165
   %24 = load i16, ptr %23, align 2, !tbaa !3
   %25 = icmp eq i16 %18, %24
   br i1 %25, label %.loopexit.us, label %22
@@ -1574,7 +1574,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
 
 29:                                               ; preds = %26
   %30 = sext i32 %19 to i64
-  %31 = getelementptr inbounds i16, ptr %0, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %0, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !3
   %33 = zext i16 %32 to i32
   %34 = and i32 %33, 64512
@@ -1601,7 +1601,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
 43:                                               ; preds = %41
   %44 = add nsw i32 %.5.us, 1
   %45 = sext i32 %.5.us to i64
-  %46 = getelementptr inbounds i16, ptr %1, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %1, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !3
   %48 = zext i16 %47 to i32
   %49 = and i32 %48, 64512
@@ -1612,7 +1612,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
 
 51:                                               ; preds = %43
   %52 = sext i32 %44 to i64
-  %53 = getelementptr inbounds i16, ptr %1, i64 %52
+  %53 = getelementptr inbounds [2 x i8], ptr %1, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !3
   %55 = zext i16 %54 to i32
   %56 = and i32 %55, 64512
@@ -1635,7 +1635,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
 .loopexit.us:                                     ; preds = %.lr.ph111.us, %63
   %.179.us = phi i32 [ %.280.us, %63 ], [ %19, %.lr.ph111.us ]
   %65 = sext i32 %.179.us to i64
-  %66 = getelementptr inbounds i16, ptr %0, i64 %65
+  %66 = getelementptr inbounds [2 x i8], ptr %0, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !3
   %68 = zext i16 %67 to i32
   %.not86.us = icmp eq i16 %67, 0
@@ -1663,7 +1663,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
 
 .lr.ph:                                           ; preds = %.preheader98, %74
   %indvars.iv146 = phi i64 [ %indvars.iv.next147, %74 ], [ 0, %.preheader98 ]
-  %75 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv146
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv146
   %76 = load i16, ptr %75, align 2, !tbaa !3
   %77 = icmp eq i16 %70, %76
   br i1 %77, label %.loopexit96, label %74
@@ -1675,7 +1675,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
 
 81:                                               ; preds = %78
   %82 = sext i32 %71 to i64
-  %83 = getelementptr inbounds i16, ptr %0, i64 %82
+  %83 = getelementptr inbounds [2 x i8], ptr %0, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !3
   %85 = zext i16 %84 to i32
   %86 = and i32 %85, 64512
@@ -1702,7 +1702,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
 95:                                               ; preds = %93
   %96 = add nsw i32 %.276, 1
   %97 = sext i32 %.276 to i64
-  %98 = getelementptr inbounds i16, ptr %1, i64 %97
+  %98 = getelementptr inbounds [2 x i8], ptr %1, i64 %97
   %99 = load i16, ptr %98, align 2, !tbaa !3
   %100 = zext i16 %99 to i32
   %101 = and i32 %100, 64512
@@ -1713,7 +1713,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
 
 103:                                              ; preds = %95
   %104 = sext i32 %96 to i64
-  %105 = getelementptr inbounds i16, ptr %1, i64 %104
+  %105 = getelementptr inbounds [2 x i8], ptr %1, i64 %104
   %106 = load i16, ptr %105, align 2, !tbaa !3
   %107 = zext i16 %106 to i32
   %108 = and i32 %107, 64512
@@ -1748,7 +1748,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
 .loopexit94:                                      ; preds = %74, %93, %.preheader98
   %.179 = phi i32 [ %.280, %93 ], [ %71, %.preheader98 ], [ %71, %74 ]
   %122 = sext i32 %.179 to i64
-  %123 = getelementptr inbounds i16, ptr %0, i64 %122
+  %123 = getelementptr inbounds [2 x i8], ptr %0, i64 %122
   %124 = load i16, ptr %123, align 2, !tbaa !3
   %125 = zext i16 %124 to i32
   %.not86 = icmp eq i16 %124, 0
@@ -1800,7 +1800,7 @@ define noundef ptr @u_strtok_r_77(ptr noundef %0, ptr noundef readonly captures(
   %.lobit.i = ashr i32 %9, 31
   %.0.i = xor i32 %.lobit.i, %9
   %10 = zext nneg i32 %.0.i to i64
-  %11 = getelementptr inbounds nuw i16, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !3
   %.not27 = icmp eq i16 %12, 0
   br i1 %.not27, label %.sink.split, label %13
@@ -1812,7 +1812,7 @@ define noundef ptr @u_strtok_r_77(ptr noundef %0, ptr noundef readonly captures(
 
 16:                                               ; preds = %13
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds nuw i16, ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store i16 0, ptr %18, align 2, !tbaa !3
   br label %.sink.split
@@ -1983,7 +1983,7 @@ define range(i32 -65535, 65536) i32 @uprv_strCompare_77(ptr noundef %0, i32 noun
   br i1 %or.cond175, label %.critedge, label %.lr.ph168, !llvm.loop !41
 
 35:                                               ; preds = %.lr.ph168
-  %36 = getelementptr inbounds i16, ptr %2, i64 %25
+  %36 = getelementptr inbounds [2 x i8], ptr %2, i64 %25
   br label %.loopexit
 
 37:                                               ; preds = %21
@@ -2051,9 +2051,9 @@ u_strlen_77.exit141:                              ; preds = %.preheader142
 
 64:                                               ; preds = %.lr.ph172
   %65 = sext i32 %.0107 to i64
-  %66 = getelementptr inbounds i16, ptr %0, i64 %65
+  %66 = getelementptr inbounds [2 x i8], ptr %0, i64 %65
   %67 = sext i32 %.0113 to i64
-  %68 = getelementptr inbounds i16, ptr %2, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %2, i64 %67
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %.preheader145, %64, %35
@@ -2978,7 +2978,7 @@ _ZL8_digit16Ds.exit.thread:                       ; preds = %_ZL8_digit16Ds.exit
 
 .critedge.preheader:                              ; preds = %22, %105
   %indvars.iv = phi i64 [ %indvars.iv.next, %105 ], [ 0, %22 ]
-  %102 = getelementptr inbounds nuw i16, ptr @_ZL12UNESCAPE_MAP, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [2 x i8], ptr @_ZL12UNESCAPE_MAP, i64 %indvars.iv
   %103 = load i16, ptr %102, align 4, !tbaa !3
   %104 = icmp eq i16 %10, %103
   br i1 %104, label %108, label %105
@@ -2991,7 +2991,7 @@ _ZL8_digit16Ds.exit.thread:                       ; preds = %_ZL8_digit16Ds.exit
   br i1 %or.cond260, label %.critedge.preheader, label %113, !llvm.loop !61
 
 108:                                              ; preds = %.critedge.preheader
-  %109 = getelementptr inbounds nuw i16, ptr @_ZL12UNESCAPE_MAP, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [2 x i8], ptr @_ZL12UNESCAPE_MAP, i64 %indvars.iv
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 2
   %111 = load i16, ptr %110, align 2, !tbaa !3
   %112 = zext i16 %111 to i32
@@ -3142,7 +3142,7 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 
 26:                                               ; preds = %25
   %27 = sext i32 %.064.ph to i64
-  %28 = getelementptr inbounds i16, ptr %1, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr %1, i64 %27
   %29 = sub nsw i32 %2, %.064.ph
   %30 = ptrtoint ptr %.063 to i64
   %31 = ptrtoint ptr %.063.ph to i64
@@ -3179,7 +3179,7 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 49:                                               ; preds = %48
   %50 = trunc nuw i32 %39 to i16
   %51 = sext i32 %.165 to i64
-  %52 = getelementptr inbounds i16, ptr %1, i64 %51
+  %52 = getelementptr inbounds [2 x i8], ptr %1, i64 %51
   store i16 %50, ptr %52, align 2, !tbaa !3
   br label %.thread
 
@@ -3188,7 +3188,7 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %55 = trunc i32 %54 to i16
   %56 = add i16 %55, -10304
   %57 = sext i32 %.165 to i64
-  %58 = getelementptr inbounds i16, ptr %1, i64 %57
+  %58 = getelementptr inbounds [2 x i8], ptr %1, i64 %57
   store i16 %56, ptr %58, align 2, !tbaa !3
   %59 = trunc i32 %39 to i16
   %60 = and i16 %59, 1023
@@ -3231,7 +3231,7 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 
 66:                                               ; preds = %65
   %67 = sext i32 %.us-phi99 to i64
-  %68 = getelementptr inbounds i16, ptr %1, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %1, i64 %67
   %69 = sub nsw i32 %2, %.us-phi99
   %70 = ptrtoint ptr %.us-phi100 to i64
   %71 = ptrtoint ptr %.us-phi to i64
@@ -3256,7 +3256,7 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 
 78:                                               ; preds = %76
   %79 = sext i32 %.5 to i64
-  %80 = getelementptr inbounds i16, ptr %1, i64 %79
+  %80 = getelementptr inbounds [2 x i8], ptr %1, i64 %79
   store i16 0, ptr %80, align 2, !tbaa !3
   br label %84
 
@@ -3318,7 +3318,7 @@ define noundef i32 @u_terminateUChars_77(ptr noundef writeonly captures(none) %0
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %12
   store i16 0, ptr %13, align 2, !tbaa !3
   %14 = icmp eq i32 %6, -124
   br i1 %14, label %.sink.split, label %17
@@ -3393,7 +3393,7 @@ define noundef i32 @u_terminateUChar32s_77(ptr noundef writeonly captures(none) 
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %12
   store i32 0, ptr %13, align 4, !tbaa !59
   %14 = icmp eq i32 %6, -124
   br i1 %14, label %.sink.split, label %17
@@ -3430,7 +3430,7 @@ define noundef i32 @u_terminateWChars_77(ptr noundef writeonly captures(none) %0
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %12
   store i32 0, ptr %13, align 4, !tbaa !66
   %14 = icmp eq i32 %6, -124
   br i1 %14, label %.sink.split, label %17
@@ -3474,7 +3474,7 @@ define i32 @ustr_hashUCharsN_77(ptr noundef readonly captures(address) %0, i32 n
   %12 = load i16, ptr %.01214, align 2, !tbaa !3
   %13 = zext i16 %12 to i32
   %14 = add i32 %11, %13
-  %15 = getelementptr i16, ptr %.01214, i64 %9
+  %15 = getelementptr [2 x i8], ptr %.01214, i64 %9
   %16 = getelementptr i8, ptr %15, i64 2
   %17 = icmp ult ptr %16, %5
   br i1 %17, label %10, label %.loopexit, !llvm.loop !68

@@ -19,14 +19,14 @@ define hidden double @BrotliPopulationCostLiteral(ptr noundef readonly captures(
 .preheader117:                                    ; preds = %1, %15
   %.088119 = phi i32 [ %.2, %15 ], [ 0, %1 ]
   %.097118 = phi i64 [ %16, %15 ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %.097118
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.097118
   %9 = load i32, ptr %8, align 4, !tbaa !9
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %.preheader117
   %11 = sext i32 %.088119 to i64
-  %12 = getelementptr inbounds i64, ptr %2, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %2, i64 %11
   store i64 %.097118, ptr %12, align 8, !tbaa !11
   %13 = add nsw i32 %.088119, 1
   %14 = icmp sgt i32 %.088119, 3
@@ -54,15 +54,15 @@ define hidden double @BrotliPopulationCostLiteral(ptr noundef readonly captures(
 
 21:                                               ; preds = %17
   %22 = load i64, ptr %2, align 16, !tbaa !11
-  %23 = getelementptr inbounds nuw i32, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !9
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !11
-  %27 = getelementptr inbounds nuw i32, ptr %0, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !9
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load i64, ptr %29, align 16, !tbaa !11
-  %31 = getelementptr inbounds nuw i32, ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !9
   %33 = tail call i32 @llvm.umax.i32(i32 %28, i32 %32)
   %34 = tail call i32 @llvm.umax.i32(i32 %24, i32 %33)
@@ -81,11 +81,11 @@ define hidden double @BrotliPopulationCostLiteral(ptr noundef readonly captures(
 
 43:                                               ; preds = %42, %43
   %.198120 = phi i64 [ 0, %42 ], [ %49, %43 ]
-  %44 = getelementptr inbounds nuw i64, ptr %2, i64 %.198120
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.198120
   %45 = load i64, ptr %44, align 8, !tbaa !11
-  %46 = getelementptr inbounds nuw i32, ptr %0, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !9
-  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %.198120
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.198120
   store i32 %47, ptr %48, align 4, !tbaa !9
   %49 = add nuw nsw i64 %.198120, 1
   %exitcond149.not = icmp eq i64 %49, 4
@@ -102,14 +102,14 @@ define hidden double @BrotliPopulationCostLiteral(ptr noundef readonly captures(
   br i1 %51, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader116
-  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %.299122
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.299122
   %.pre = load i32, ptr %52, align 4, !tbaa !9
   br label %53
 
 53:                                               ; preds = %.lr.ph, %59
   %54 = phi i32 [ %.pre, %.lr.ph ], [ %60, %59 ]
   %.096121 = phi i64 [ %50, %.lr.ph ], [ %61, %59 ]
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %.096121
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.096121
   %56 = load i32, ptr %55, align 4, !tbaa !9
   %57 = icmp ugt i32 %56, %54
   br i1 %57, label %58, label %59
@@ -154,7 +154,7 @@ define hidden double @BrotliPopulationCostLiteral(ptr noundef readonly captures(
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %6
+  %84 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %6
   %85 = load double, ptr %84, align 8, !tbaa !17
   br label %FastLog2.exit
 
@@ -173,7 +173,7 @@ FastLog2.exit:                                    ; preds = %83, %86
   %.090136 = phi i64 [ 1, %FastLog2.exit ], [ %.292, %.thread ]
   %.093135 = phi double [ 0.000000e+00, %FastLog2.exit ], [ %.295, %.thread ]
   %.3100134 = phi i64 [ 0, %FastLog2.exit ], [ %.4101, %.thread ]
-  %91 = getelementptr inbounds nuw i32, ptr %0, i64 %.3100134
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.3100134
   %92 = load i32, ptr %91, align 4, !tbaa !9
   %.not109 = icmp eq i32 %92, 0
   br i1 %.not109, label %.preheader, label %93
@@ -188,7 +188,7 @@ FastLog2.exit:                                    ; preds = %83, %86
 
 95:                                               ; preds = %93
   %96 = zext nneg i32 %92 to i64
-  %97 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %96
   %98 = load double, ptr %97, align 8, !tbaa !17
   br label %FastLog2.exit112
 
@@ -208,7 +208,7 @@ FastLog2.exit112:                                 ; preds = %95, %99
   %107 = tail call double @llvm.fmuladd.f64(double %106, double %103, double %.093135)
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %105, i64 15)
   %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %.090136)
-  %108 = getelementptr inbounds nuw i32, ptr %4, i64 %spec.store.select
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %spec.store.select
   %109 = load i32, ptr %108, align 4, !tbaa !9
   %110 = add i32 %109, 1
   store i32 %110, ptr %108, align 4, !tbaa !9
@@ -219,7 +219,7 @@ FastLog2.exit112:                                 ; preds = %95, %99
   %.0125.in = phi i64 [ %.0125, %115 ], [ %.3100134, %.preheader ]
   %.086124 = phi i32 [ %116, %115 ], [ 1, %.preheader ]
   %.0125 = add nuw nsw i64 %.0125.in, 1
-  %112 = getelementptr inbounds nuw i32, ptr %0, i64 %.0125
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0125
   %113 = load i32, ptr %112, align 4, !tbaa !9
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %115, label %.critedge
@@ -286,7 +286,7 @@ FastLog2.exit112:                                 ; preds = %95, %99
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %134
+  %137 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %134
   %138 = load double, ptr %137, align 8, !tbaa !17
   %.pre153 = uitofp nneg i32 %133 to double
   br label %FastLog2.exit31.i
@@ -312,7 +312,7 @@ FastLog2.exit31.i:                                ; preds = %139, %136
   br i1 %149, label %150, label %153
 
 150:                                              ; preds = %FastLog2.exit31.i
-  %151 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %146
+  %151 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %146
   %152 = load double, ptr %151, align 8, !tbaa !17
   br label %FastLog2.exit29.i
 
@@ -341,7 +341,7 @@ FastLog2.exit29.i:                                ; preds = %153, %150
   br i1 %165, label %166, label %169
 
 166:                                              ; preds = %163
-  %167 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %147
+  %167 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %147
   %168 = load double, ptr %167, align 8, !tbaa !17
   br label %FastLog2.exit.i
 
@@ -389,14 +389,14 @@ define hidden double @BrotliPopulationCostCommand(ptr noundef readonly captures(
 .preheader117:                                    ; preds = %1, %15
   %.088119 = phi i32 [ %.2, %15 ], [ 0, %1 ]
   %.097118 = phi i64 [ %16, %15 ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %.097118
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.097118
   %9 = load i32, ptr %8, align 4, !tbaa !9
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %.preheader117
   %11 = sext i32 %.088119 to i64
-  %12 = getelementptr inbounds i64, ptr %2, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %2, i64 %11
   store i64 %.097118, ptr %12, align 8, !tbaa !11
   %13 = add nsw i32 %.088119, 1
   %14 = icmp sgt i32 %.088119, 3
@@ -424,15 +424,15 @@ define hidden double @BrotliPopulationCostCommand(ptr noundef readonly captures(
 
 21:                                               ; preds = %17
   %22 = load i64, ptr %2, align 16, !tbaa !11
-  %23 = getelementptr inbounds nuw i32, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !9
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !11
-  %27 = getelementptr inbounds nuw i32, ptr %0, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !9
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load i64, ptr %29, align 16, !tbaa !11
-  %31 = getelementptr inbounds nuw i32, ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !9
   %33 = tail call i32 @llvm.umax.i32(i32 %28, i32 %32)
   %34 = tail call i32 @llvm.umax.i32(i32 %24, i32 %33)
@@ -451,11 +451,11 @@ define hidden double @BrotliPopulationCostCommand(ptr noundef readonly captures(
 
 43:                                               ; preds = %42, %43
   %.198120 = phi i64 [ 0, %42 ], [ %49, %43 ]
-  %44 = getelementptr inbounds nuw i64, ptr %2, i64 %.198120
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.198120
   %45 = load i64, ptr %44, align 8, !tbaa !11
-  %46 = getelementptr inbounds nuw i32, ptr %0, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !9
-  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %.198120
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.198120
   store i32 %47, ptr %48, align 4, !tbaa !9
   %49 = add nuw nsw i64 %.198120, 1
   %exitcond148.not = icmp eq i64 %49, 4
@@ -472,14 +472,14 @@ define hidden double @BrotliPopulationCostCommand(ptr noundef readonly captures(
   br i1 %51, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader116
-  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %.299122
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.299122
   %.pre = load i32, ptr %52, align 4, !tbaa !9
   br label %53
 
 53:                                               ; preds = %.lr.ph, %59
   %54 = phi i32 [ %.pre, %.lr.ph ], [ %60, %59 ]
   %.096121 = phi i64 [ %50, %.lr.ph ], [ %61, %59 ]
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %.096121
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.096121
   %56 = load i32, ptr %55, align 4, !tbaa !9
   %57 = icmp ugt i32 %56, %54
   br i1 %57, label %58, label %59
@@ -524,7 +524,7 @@ define hidden double @BrotliPopulationCostCommand(ptr noundef readonly captures(
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %6
+  %84 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %6
   %85 = load double, ptr %84, align 8, !tbaa !17
   br label %FastLog2.exit112
 
@@ -543,7 +543,7 @@ FastLog2.exit112:                                 ; preds = %83, %86
   %.090136 = phi i64 [ 1, %FastLog2.exit112 ], [ %.292, %.thread ]
   %.093135 = phi double [ 0.000000e+00, %FastLog2.exit112 ], [ %.295, %.thread ]
   %.3100134 = phi i64 [ 0, %FastLog2.exit112 ], [ %.4101, %.thread ]
-  %91 = getelementptr inbounds nuw i32, ptr %0, i64 %.3100134
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.3100134
   %92 = load i32, ptr %91, align 4, !tbaa !9
   %.not109 = icmp eq i32 %92, 0
   br i1 %.not109, label %.preheader, label %96
@@ -563,7 +563,7 @@ FastLog2.exit112:                                 ; preds = %83, %86
 
 98:                                               ; preds = %96
   %99 = zext nneg i32 %92 to i64
-  %100 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %99
   %101 = load double, ptr %100, align 8, !tbaa !17
   br label %FastLog2.exit
 
@@ -583,7 +583,7 @@ FastLog2.exit:                                    ; preds = %98, %102
   %110 = tail call double @llvm.fmuladd.f64(double %109, double %106, double %.093135)
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %108, i64 15)
   %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %.090136)
-  %111 = getelementptr inbounds nuw i32, ptr %4, i64 %spec.store.select
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %spec.store.select
   %112 = load i32, ptr %111, align 4, !tbaa !9
   %113 = add i32 %112, 1
   store i32 %113, ptr %111, align 4, !tbaa !9
@@ -594,7 +594,7 @@ FastLog2.exit:                                    ; preds = %98, %102
   %.0125.in = phi i64 [ %.0125, %118 ], [ %.3100134, %.lr.ph126.preheader ]
   %.086124 = phi i32 [ %119, %118 ], [ 1, %.lr.ph126.preheader ]
   %.0125 = add nuw nsw i64 %.0125.in, 1
-  %115 = getelementptr inbounds nuw i32, ptr %0, i64 %.0125
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0125
   %116 = load i32, ptr %115, align 4, !tbaa !9
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %118, label %.critedge
@@ -668,7 +668,7 @@ FastLog2.exit:                                    ; preds = %98, %102
   br i1 %140, label %141, label %144
 
 141:                                              ; preds = %137
-  %142 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %139
+  %142 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %139
   %143 = load double, ptr %142, align 8, !tbaa !17
   %.pre153 = uitofp nneg i32 %138 to double
   br label %FastLog2.exit31.i
@@ -694,7 +694,7 @@ FastLog2.exit31.i:                                ; preds = %144, %141
   br i1 %154, label %155, label %158
 
 155:                                              ; preds = %FastLog2.exit31.i
-  %156 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %151
+  %156 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %151
   %157 = load double, ptr %156, align 8, !tbaa !17
   br label %FastLog2.exit29.i
 
@@ -723,7 +723,7 @@ FastLog2.exit29.i:                                ; preds = %158, %155
   br i1 %170, label %171, label %174
 
 171:                                              ; preds = %168
-  %172 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %152
+  %172 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %152
   %173 = load double, ptr %172, align 8, !tbaa !17
   br label %FastLog2.exit.i
 
@@ -765,14 +765,14 @@ define hidden double @BrotliPopulationCostDistance(ptr noundef readonly captures
 .preheader117:                                    ; preds = %1, %15
   %.088119 = phi i32 [ %.2, %15 ], [ 0, %1 ]
   %.097118 = phi i64 [ %16, %15 ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw i32, ptr %0, i64 %.097118
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.097118
   %9 = load i32, ptr %8, align 4, !tbaa !9
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %.preheader117
   %11 = sext i32 %.088119 to i64
-  %12 = getelementptr inbounds i64, ptr %2, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %2, i64 %11
   store i64 %.097118, ptr %12, align 8, !tbaa !11
   %13 = add nsw i32 %.088119, 1
   %14 = icmp sgt i32 %.088119, 3
@@ -800,15 +800,15 @@ define hidden double @BrotliPopulationCostDistance(ptr noundef readonly captures
 
 21:                                               ; preds = %17
   %22 = load i64, ptr %2, align 16, !tbaa !11
-  %23 = getelementptr inbounds nuw i32, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !9
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !11
-  %27 = getelementptr inbounds nuw i32, ptr %0, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !9
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %30 = load i64, ptr %29, align 16, !tbaa !11
-  %31 = getelementptr inbounds nuw i32, ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !9
   %33 = tail call i32 @llvm.umax.i32(i32 %28, i32 %32)
   %34 = tail call i32 @llvm.umax.i32(i32 %24, i32 %33)
@@ -827,11 +827,11 @@ define hidden double @BrotliPopulationCostDistance(ptr noundef readonly captures
 
 43:                                               ; preds = %42, %43
   %.198120 = phi i64 [ 0, %42 ], [ %49, %43 ]
-  %44 = getelementptr inbounds nuw i64, ptr %2, i64 %.198120
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.198120
   %45 = load i64, ptr %44, align 8, !tbaa !11
-  %46 = getelementptr inbounds nuw i32, ptr %0, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !9
-  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %.198120
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.198120
   store i32 %47, ptr %48, align 4, !tbaa !9
   %49 = add nuw nsw i64 %.198120, 1
   %exitcond148.not = icmp eq i64 %49, 4
@@ -848,14 +848,14 @@ define hidden double @BrotliPopulationCostDistance(ptr noundef readonly captures
   br i1 %51, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader116
-  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %.299122
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.299122
   %.pre = load i32, ptr %52, align 4, !tbaa !9
   br label %53
 
 53:                                               ; preds = %.lr.ph, %59
   %54 = phi i32 [ %.pre, %.lr.ph ], [ %60, %59 ]
   %.096121 = phi i64 [ %50, %.lr.ph ], [ %61, %59 ]
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %.096121
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.096121
   %56 = load i32, ptr %55, align 4, !tbaa !9
   %57 = icmp ugt i32 %56, %54
   br i1 %57, label %58, label %59
@@ -900,7 +900,7 @@ define hidden double @BrotliPopulationCostDistance(ptr noundef readonly captures
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %6
+  %84 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %6
   %85 = load double, ptr %84, align 8, !tbaa !17
   br label %FastLog2.exit112
 
@@ -919,7 +919,7 @@ FastLog2.exit112:                                 ; preds = %83, %86
   %.090136 = phi i64 [ 1, %FastLog2.exit112 ], [ %.292, %.thread ]
   %.093135 = phi double [ 0.000000e+00, %FastLog2.exit112 ], [ %.295, %.thread ]
   %.3100134 = phi i64 [ 0, %FastLog2.exit112 ], [ %.4101, %.thread ]
-  %91 = getelementptr inbounds nuw i32, ptr %0, i64 %.3100134
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.3100134
   %92 = load i32, ptr %91, align 4, !tbaa !9
   %.not109 = icmp eq i32 %92, 0
   br i1 %.not109, label %.preheader, label %96
@@ -939,7 +939,7 @@ FastLog2.exit112:                                 ; preds = %83, %86
 
 98:                                               ; preds = %96
   %99 = zext nneg i32 %92 to i64
-  %100 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %99
   %101 = load double, ptr %100, align 8, !tbaa !17
   br label %FastLog2.exit
 
@@ -959,7 +959,7 @@ FastLog2.exit:                                    ; preds = %98, %102
   %110 = tail call double @llvm.fmuladd.f64(double %109, double %106, double %.093135)
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %108, i64 15)
   %spec.select = tail call i64 @llvm.umax.i64(i64 %spec.store.select, i64 %.090136)
-  %111 = getelementptr inbounds nuw i32, ptr %4, i64 %spec.store.select
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %spec.store.select
   %112 = load i32, ptr %111, align 4, !tbaa !9
   %113 = add i32 %112, 1
   store i32 %113, ptr %111, align 4, !tbaa !9
@@ -970,7 +970,7 @@ FastLog2.exit:                                    ; preds = %98, %102
   %.0125.in = phi i64 [ %.0125, %118 ], [ %.3100134, %.lr.ph126.preheader ]
   %.086124 = phi i32 [ %119, %118 ], [ 1, %.lr.ph126.preheader ]
   %.0125 = add nuw nsw i64 %.0125.in, 1
-  %115 = getelementptr inbounds nuw i32, ptr %0, i64 %.0125
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0125
   %116 = load i32, ptr %115, align 4, !tbaa !9
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %118, label %.critedge
@@ -1044,7 +1044,7 @@ FastLog2.exit:                                    ; preds = %98, %102
   br i1 %140, label %141, label %144
 
 141:                                              ; preds = %137
-  %142 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %139
+  %142 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %139
   %143 = load double, ptr %142, align 8, !tbaa !17
   %.pre153 = uitofp nneg i32 %138 to double
   br label %FastLog2.exit31.i
@@ -1070,7 +1070,7 @@ FastLog2.exit31.i:                                ; preds = %144, %141
   br i1 %154, label %155, label %158
 
 155:                                              ; preds = %FastLog2.exit31.i
-  %156 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %151
+  %156 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %151
   %157 = load double, ptr %156, align 8, !tbaa !17
   br label %FastLog2.exit29.i
 
@@ -1099,7 +1099,7 @@ FastLog2.exit29.i:                                ; preds = %158, %155
   br i1 %170, label %171, label %174
 
 171:                                              ; preds = %168
-  %172 = getelementptr inbounds nuw double, ptr @kBrotliLog2Table, i64 %152
+  %172 = getelementptr inbounds nuw [8 x i8], ptr @kBrotliLog2Table, i64 %152
   %173 = load double, ptr %172, align 8, !tbaa !17
   br label %FastLog2.exit.i
 

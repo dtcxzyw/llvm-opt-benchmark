@@ -11,26 +11,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<const llvm::Record *, std::allocator<const llvm::Record *>>::_Vector_impl" }
 %"struct.std::_Vector_base<const llvm::Record *, std::allocator<const llvm::Record *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const llvm::Record *, std::allocator<const llvm::Record *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<const llvm::Record *, std::allocator<const llvm::Record *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.InstructionSpecifier = type { [6 x %"struct.llvm::X86Disassembler::OperandSpecifier"], i32, %"class.std::__cxx11::basic_string" }
-%"struct.llvm::X86Disassembler::OperandSpecifier" = type { i8, i8 }
 %"class.llvm::X86Disassembler::RecognizableInstr" = type { %"struct.llvm::X86Disassembler::RecognizableInstrBase", ptr, %"class.std::__cxx11::basic_string", i8, i8, ptr, i16, ptr }
 %"struct.llvm::X86Disassembler::RecognizableInstrBase" = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%"struct.llvm::CGIOperandList::OperandInfo" = type { ptr, %"class.std::__cxx11::basic_string", %"class.std::vector.50", %"class.std::__cxx11::basic_string", %"class.std::vector.50", %"class.std::__cxx11::basic_string", i32, i32, %"class.llvm::BitVector", ptr, %"class.std::vector.60" }
-%"class.std::vector.50" = type { %"struct.std::_Vector_base.51" }
-%"struct.std::_Vector_base.51" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvm::BitVector" = type <{ %"class.llvm::SmallVector.55", i32, [4 x i8] }>
-%"class.llvm::SmallVector.55" = type { %"class.llvm::SmallVectorImpl.56", %"struct.llvm::SmallVectorStorage.59" }
-%"class.llvm::SmallVectorImpl.56" = type { %"class.llvm::SmallVectorTemplateBase.57" }
-%"class.llvm::SmallVectorTemplateBase.57" = type { %"class.llvm::SmallVectorTemplateCommon.58" }
-%"class.llvm::SmallVectorTemplateCommon.58" = type { %"class.llvm::SmallVectorBase" }
-%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvm::SmallVectorStorage.59" = type { [48 x i8] }
-%"class.std::vector.60" = type { %"struct.std::_Vector_base.61" }
-%"struct.std::_Vector_base.61" = type { %"struct.std::_Vector_base<llvm::CGIOperandList::ConstraintInfo, std::allocator<llvm::CGIOperandList::ConstraintInfo>>::_Vector_impl" }
-%"struct.std::_Vector_base<llvm::CGIOperandList::ConstraintInfo, std::allocator<llvm::CGIOperandList::ConstraintInfo>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::CGIOperandList::ConstraintInfo, std::allocator<llvm::CGIOperandList::ConstraintInfo>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<llvm::CGIOperandList::ConstraintInfo, std::allocator<llvm::CGIOperandList::ConstraintInfo>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNK4llvm6Record12isSubClassOfENS_9StringRefE = comdat any
 
@@ -603,7 +585,7 @@ define dso_local void @_ZN4llvm15X86Disassembler21RecognizableInstrBaseC2ERKNS_1
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %9 ]
   %.0912.i.i = phi i8 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i, %9 ]
   %.01011.i.i = phi i8 [ 1, %.lr.ph.i.i ], [ %16, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !96
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i8, ptr %12, align 8, !tbaa !97, !range !99, !noundef !100
@@ -633,7 +615,7 @@ _ZL11byteFromRecPKN4llvm6RecordENS_9StringRefE.exit: ; preds = %9, %2
   %indvars.iv.i.i29 = phi i64 [ 0, %.lr.ph.i.i27 ], [ %indvars.iv.next.i.i33, %22 ]
   %.0912.i.i30 = phi i8 [ 0, %.lr.ph.i.i27 ], [ %spec.select.i.i32, %22 ]
   %.01011.i.i31 = phi i8 [ 1, %.lr.ph.i.i27 ], [ %29, %22 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i.i29
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i.i29
   %24 = load ptr, ptr %23, align 8, !tbaa !96
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i8, ptr %25, align 8, !tbaa !97, !range !99, !noundef !100
@@ -664,7 +646,7 @@ _ZL11byteFromRecPKN4llvm6RecordENS_9StringRefE.exit35: ; preds = %22, %_ZL11byte
   %indvars.iv.i.i39 = phi i64 [ 0, %.lr.ph.i.i37 ], [ %indvars.iv.next.i.i43, %36 ]
   %.0912.i.i40 = phi i8 [ 0, %.lr.ph.i.i37 ], [ %spec.select.i.i42, %36 ]
   %.01011.i.i41 = phi i8 [ 1, %.lr.ph.i.i37 ], [ %43, %36 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i.i39
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i.i39
   %38 = load ptr, ptr %37, align 8, !tbaa !96
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = load i8, ptr %39, align 8, !tbaa !97, !range !99, !noundef !100
@@ -695,7 +677,7 @@ _ZL11byteFromRecPKN4llvm6RecordENS_9StringRefE.exit45: ; preds = %36, %_ZL11byte
   %indvars.iv.i.i49 = phi i64 [ 0, %.lr.ph.i.i47 ], [ %indvars.iv.next.i.i53, %50 ]
   %.0912.i.i50 = phi i8 [ 0, %.lr.ph.i.i47 ], [ %spec.select.i.i52, %50 ]
   %.01011.i.i51 = phi i8 [ 1, %.lr.ph.i.i47 ], [ %57, %50 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.i.i49
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i.i49
   %52 = load ptr, ptr %51, align 8, !tbaa !96
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load i8, ptr %53, align 8, !tbaa !97, !range !99, !noundef !100
@@ -726,7 +708,7 @@ _ZL11byteFromRecPKN4llvm6RecordENS_9StringRefE.exit55: ; preds = %50, %_ZL11byte
   %indvars.iv.i.i59 = phi i64 [ 0, %.lr.ph.i.i57 ], [ %indvars.iv.next.i.i63, %64 ]
   %.0912.i.i60 = phi i8 [ 0, %.lr.ph.i.i57 ], [ %spec.select.i.i62, %64 ]
   %.01011.i.i61 = phi i8 [ 1, %.lr.ph.i.i57 ], [ %71, %64 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv.i.i59
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv.i.i59
   %66 = load ptr, ptr %65, align 8, !tbaa !96
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %68 = load i8, ptr %67, align 8, !tbaa !97, !range !99, !noundef !100
@@ -757,7 +739,7 @@ _ZL11byteFromRecPKN4llvm6RecordENS_9StringRefE.exit65: ; preds = %64, %_ZL11byte
   %indvars.iv.i.i69 = phi i64 [ 0, %.lr.ph.i.i67 ], [ %indvars.iv.next.i.i73, %78 ]
   %.0912.i.i70 = phi i8 [ 0, %.lr.ph.i.i67 ], [ %spec.select.i.i72, %78 ]
   %.01011.i.i71 = phi i8 [ 1, %.lr.ph.i.i67 ], [ %85, %78 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv.i.i69
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv.i.i69
   %80 = load ptr, ptr %79, align 8, !tbaa !96
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %82 = load i8, ptr %81, align 8, !tbaa !97, !range !99, !noundef !100
@@ -788,7 +770,7 @@ _ZL11byteFromRecPKN4llvm6RecordENS_9StringRefE.exit75: ; preds = %78, %_ZL11byte
   %indvars.iv.i.i79 = phi i64 [ 0, %.lr.ph.i.i77 ], [ %indvars.iv.next.i.i83, %92 ]
   %.0912.i.i80 = phi i8 [ 0, %.lr.ph.i.i77 ], [ %spec.select.i.i82, %92 ]
   %.01011.i.i81 = phi i8 [ 1, %.lr.ph.i.i77 ], [ %99, %92 ]
-  %93 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv.i.i79
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv.i.i79
   %94 = load ptr, ptr %93, align 8, !tbaa !96
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %96 = load i8, ptr %95, align 8, !tbaa !97, !range !99, !noundef !100
@@ -875,7 +857,7 @@ _ZL11byteFromRecPKN4llvm6RecordENS_9StringRefE.exit85: ; preds = %92, %_ZL11byte
   %indvars.iv.i.i89 = phi i64 [ 0, %.lr.ph.i.i87 ], [ %indvars.iv.next.i.i93, %148 ]
   %.0912.i.i90 = phi i8 [ 0, %.lr.ph.i.i87 ], [ %spec.select.i.i92, %148 ]
   %.01011.i.i91 = phi i8 [ 1, %.lr.ph.i.i87 ], [ %155, %148 ]
-  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv.i.i89
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %indvars.iv.i.i89
   %150 = load ptr, ptr %149, align 8, !tbaa !96
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
   %152 = load i8, ptr %151, align 8, !tbaa !97, !range !99, !noundef !100
@@ -910,7 +892,7 @@ _ZL11byteFromRecPKN4llvm6RecordENS_9StringRefE.exit95: ; preds = %148, %_ZL11byt
   %indvars.iv.i.i99 = phi i64 [ 0, %.lr.ph.i.i97 ], [ %indvars.iv.next.i.i103, %165 ]
   %.0912.i.i100 = phi i8 [ 0, %.lr.ph.i.i97 ], [ %spec.select.i.i102, %165 ]
   %.01011.i.i101 = phi i8 [ 1, %.lr.ph.i.i97 ], [ %172, %165 ]
-  %166 = getelementptr inbounds nuw ptr, ptr %164, i64 %indvars.iv.i.i99
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %indvars.iv.i.i99
   %167 = load ptr, ptr %166, align 8, !tbaa !96
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
   %169 = load i8, ptr %168, align 8, !tbaa !97, !range !99, !noundef !100
@@ -1084,7 +1066,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %16, %_ZNSt7__cxx111
 
 _ZN4llvm15X86Disassembler18DisassemblerTables10specForUIDEt.exit: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit, %46
   %49 = phi ptr [ %.pre.i, %46 ], [ %41, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit ]
-  %50 = getelementptr inbounds nuw %struct.InstructionSpecifier, ptr %49, i64 %37
+  %50 = getelementptr inbounds nuw [48 x i8], ptr %49, i64 %37
   store ptr %50, ptr %36, align 8, !tbaa !143
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %51 = load ptr, ptr %10, align 8, !tbaa !128
@@ -1294,7 +1276,7 @@ define dso_local void @_ZN4llvm15X86Disassembler17RecognizableInstr24emitInstruc
 28:                                               ; preds = %.lr.ph, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
   %.0142 = phi i32 [ 0, %.lr.ph ], [ %.2, %53 ]
-  %29 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %16, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [264 x i8], ptr %16, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 240
   %31 = load ptr, ptr %30, align 8, !tbaa !153
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 248
@@ -1308,26 +1290,26 @@ define dso_local void @_ZN4llvm15X86Disassembler17RecognizableInstr24emitInstruc
   br i1 %37, label %38, label %45
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %40 = trunc nuw i64 %indvars.iv to i32
   store i32 %40, ptr %39, align 4, !tbaa !152
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !158
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %2, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %43
   store i32 %40, ptr %44, align 4, !tbaa !152
   br label %53
 
 45:                                               ; preds = %35
   %46 = add i32 %.0142, 1
-  %47 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %48 = trunc nuw i64 %indvars.iv to i32
   store i32 %48, ptr %47, align 4, !tbaa !152
   br label %53
 
 49:                                               ; preds = %28
   %50 = add i32 %.0142, 1
-  %51 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %52 = trunc nuw i64 %indvars.iv to i32
   store i32 %52, ptr %51, align 4, !tbaa !152
   br label %53
@@ -2019,7 +2001,7 @@ _ZNSt10unique_ptrIN4llvm15X86Disassembler11ExactFilterESt14default_deleteIS2_EED
 
 switch.lookup229:                                 ; preds = %30
   %36 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr14emitDecodePathERNS0_18DisassemblerTablesE, i64 %36
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr14emitDecodePathERNS0_18DisassemblerTablesE, i64 %36
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %37
 
@@ -3240,13 +3222,13 @@ define dso_local noundef range(i32 0, 219) i32 @_ZNK4llvm15X86Disassembler17Reco
 
 switch.lookup:                                    ; preds = %520
   %612 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv, i64 %612
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv, i64 %612
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %614
 
 switch.lookup341:                                 ; preds = %540
   %613 = zext nneg i8 %switch.tableidx340 to i64
-  %switch.gep342 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv.3, i64 %613
+  %switch.gep342 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK4llvm15X86Disassembler17RecognizableInstr11insnContextEv.3, i64 %613
   %switch.load343 = load i32, ptr %switch.gep342, align 4
   br label %614
 
@@ -3344,7 +3326,7 @@ define dso_local void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOpera
 .preheader:                                       ; preds = %7
   %.promoted = load i32, ptr %2, align 4, !tbaa !152
   %13 = zext i32 %.promoted to i64
-  %14 = getelementptr inbounds nuw i32, ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !152
   %.not1730 = icmp eq i32 %15, %.promoted
   br i1 %.not1730, label %._crit_edge, label %.lr.ph
@@ -3358,7 +3340,7 @@ define dso_local void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOpera
   %19 = phi i32 [ %15, %.lr.ph ], [ %29, %18 ]
   %20 = phi i64 [ %13, %.lr.ph ], [ %27, %18 ]
   %21 = phi i32 [ %.promoted, %.lr.ph ], [ %26, %18 ]
-  %22 = getelementptr inbounds nuw %"struct.llvm::X86Disassembler::OperandSpecifier", ptr %17, i64 %20
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %20
   store i8 34, ptr %22, align 2, !tbaa !203
   %23 = trunc i32 %19 to i8
   %24 = add i8 %23, 31
@@ -3367,7 +3349,7 @@ define dso_local void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOpera
   %26 = add i32 %21, 1
   store i32 %26, ptr %2, align 4, !tbaa !152
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %5, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !152
   %.not17 = icmp eq i32 %29, %26
   br i1 %.not17, label %._crit_edge, label %18, !llvm.loop !206
@@ -3377,7 +3359,7 @@ define dso_local void @_ZN4llvm15X86Disassembler17RecognizableInstr13handleOpera
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %31 = load ptr, ptr %30, align 8, !tbaa !138
   %32 = load ptr, ptr %31, align 8, !tbaa !151
-  %33 = getelementptr inbounds nuw %"struct.llvm::CGIOperandList::OperandInfo", ptr %32, i64 %.lcssa
+  %33 = getelementptr inbounds nuw [264 x i8], ptr %32, i64 %.lcssa
   %34 = load ptr, ptr %33, align 8, !tbaa !207
   %35 = load ptr, ptr %34, align 8, !tbaa !29
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
@@ -3474,7 +3456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %73 = load ptr, ptr %72, align 8, !tbaa !143
   %74 = load i32, ptr %2, align 4, !tbaa !152
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %"struct.llvm::X86Disassembler::OperandSpecifier", ptr %73, i64 %75
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %75
   store i8 %71, ptr %76, align 2, !tbaa !203
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %77 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -3523,7 +3505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %95 = load ptr, ptr %72, align 8, !tbaa !143
   %96 = load i32, ptr %2, align 4, !tbaa !152
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw %"struct.llvm::X86Disassembler::OperandSpecifier", ptr %95, i64 %97
+  %98 = getelementptr inbounds nuw [2 x i8], ptr %95, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
   store i8 %94, ptr %99, align 1, !tbaa !205
   %100 = load ptr, ptr %11, align 8, !tbaa !3
@@ -5515,9 +5497,9 @@ _ZNSt6vectorI20InstructionSpecifierSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; 
 
 _ZNSt12_Vector_baseI20InstructionSpecifierSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI20InstructionSpecifierSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %58
   store ptr %32, ptr %0, align 8, !tbaa !142
-  %62 = getelementptr inbounds nuw %struct.InstructionSpecifier, ptr %33, i64 %1
+  %62 = getelementptr inbounds nuw [48 x i8], ptr %33, i64 %1
   store ptr %62, ptr %4, align 8, !tbaa !140
-  %63 = getelementptr inbounds nuw %struct.InstructionSpecifier, ptr %32, i64 %30
+  %63 = getelementptr inbounds nuw [48 x i8], ptr %32, i64 %30
   store ptr %63, ptr %11, align 8, !tbaa !225
   br label %64
 

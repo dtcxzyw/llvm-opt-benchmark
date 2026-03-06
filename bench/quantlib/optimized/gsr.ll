@@ -1420,7 +1420,7 @@ if.else.i:                                        ; preds = %do.end
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i35 = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %42, i64 %sub.ptr.div.i
+  %add.ptr.i35 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %sub.ptr.div.i
   %tobool.not.i.i = icmp eq ptr %41, %add.ptr.i35
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EE6resizeEm.exit, label %for.body.i.i.i.i.i
 
@@ -1565,7 +1565,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp50)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp51)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp52)
-  %add.ptr.i78 = getelementptr inbounds nuw double, ptr %61, i64 %i.0211
+  %add.ptr.i78 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %i.0211
   invoke void @_ZN5boost11make_sharedIN8QuantLib11SimpleQuoteEJRKdEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.64") align 8 %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i78)
           to label %invoke.cont55 unwind label %lpad54
 
@@ -1580,7 +1580,7 @@ invoke.cont55:                                    ; preds = %for.body
 
 invoke.cont57:                                    ; preds = %invoke.cont55
   %64 = load ptr, ptr %volatilities_, align 8, !tbaa !64
-  %add.ptr.i79 = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %64, i64 %i.0211
+  %add.ptr.i79 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %i.0211
   %65 = load ptr, ptr %ref.tmp50, align 8, !tbaa !71
   %66 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp50, i8 0, i64 16, i1 false)
@@ -3579,7 +3579,7 @@ for.body:                                         ; preds = %_ZN8QuantLib10Const
   %150 = phi ptr [ %156, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit259 ], [ %147, %_ZN8QuantLib10ConstraintD2Ev.exit254 ]
   %i.0912 = phi i64 [ %inc, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit259 ], [ 0, %_ZN8QuantLib10ConstraintD2Ev.exit254 ]
   %151 = load ptr, ptr %reversions_, align 8, !tbaa !64
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %151, i64 %i.0912
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %151, i64 %i.0912
   %call134 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_5QuoteEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i)
   %152 = load ptr, ptr %call134, align 8, !tbaa !69
   %cmp.not.i256 = icmp eq ptr %152, null
@@ -3598,7 +3598,7 @@ _ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit259: ; preds = %for.body, %con
   %call138 = call noundef double %154(ptr noundef nonnull align 8 dereferenceable(8) %153)
   %params_.i260 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %155 = load ptr, ptr %params_.i260, align 8, !tbaa !18
-  %arrayidx.i.i = getelementptr inbounds nuw double, ptr %155, i64 %i.0912
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %i.0912
   store double %call138, ptr %arrayidx.i.i, align 8, !tbaa !47
   %inc = add nuw i64 %i.0912, 1
   %156 = load ptr, ptr %reversion_123, align 8, !tbaa !102
@@ -4141,7 +4141,7 @@ for.body155:                                      ; preds = %_ZN8QuantLib10Const
   %244 = phi ptr [ %250, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit394 ], [ %203, %_ZN8QuantLib10ConstraintD2Ev.exit352 ]
   %i149.0915 = phi i64 [ %inc165, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit394 ], [ 0, %_ZN8QuantLib10ConstraintD2Ev.exit352 ]
   %245 = load ptr, ptr %volatilities_, align 8, !tbaa !64
-  %add.ptr.i390 = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %245, i64 %i149.0915
+  %add.ptr.i390 = getelementptr inbounds nuw [16 x i8], ptr %245, i64 %i149.0915
   %call159 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_5QuoteEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i390)
   %246 = load ptr, ptr %call159, align 8, !tbaa !69
   %cmp.not.i391 = icmp eq ptr %246, null
@@ -4160,7 +4160,7 @@ _ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit394: ; preds = %for.body155, %
   %call163 = call noundef double %248(ptr noundef nonnull align 8 dereferenceable(8) %247)
   %params_.i395 = getelementptr inbounds nuw i8, ptr %244, i64 16
   %249 = load ptr, ptr %params_.i395, align 8, !tbaa !18
-  %arrayidx.i.i396 = getelementptr inbounds nuw double, ptr %249, i64 %i149.0915
+  %arrayidx.i.i396 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %i149.0915
   store double %call163, ptr %arrayidx.i.i396, align 8, !tbaa !47
   %inc165 = add nuw i64 %i149.0915, 1
   %250 = load ptr, ptr %sigma_, align 8, !tbaa !140
@@ -5842,7 +5842,7 @@ if.else.i:                                        ; preds = %do.end
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i40 = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %36, i64 %sub.ptr.div.i
+  %add.ptr.i40 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %sub.ptr.div.i
   %tobool.not.i.i = icmp eq ptr %35, %add.ptr.i40
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EE6resizeEm.exit, label %for.body.i.i.i.i.i
 
@@ -5987,7 +5987,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp48)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp49)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp50)
-  %add.ptr.i83 = getelementptr inbounds nuw double, ptr %55, i64 %i.0216
+  %add.ptr.i83 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %i.0216
   invoke void @_ZN5boost11make_sharedIN8QuantLib11SimpleQuoteEJRKdEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.64") align 8 %ref.tmp50, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i83)
           to label %invoke.cont53 unwind label %lpad52
 
@@ -6002,7 +6002,7 @@ invoke.cont53:                                    ; preds = %for.body
 
 invoke.cont55:                                    ; preds = %invoke.cont53
   %58 = load ptr, ptr %volatilities_, align 8, !tbaa !64
-  %add.ptr.i84 = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %58, i64 %i.0216
+  %add.ptr.i84 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %i.0216
   %59 = load ptr, ptr %ref.tmp48, align 8, !tbaa !71
   %60 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp48, i8 0, i64 16, i1 false)
@@ -6733,7 +6733,7 @@ if.else.i:                                        ; preds = %do.end
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i40 = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %42, i64 %sub.ptr.div.i
+  %add.ptr.i40 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %sub.ptr.div.i
   %tobool.not.i.i = icmp eq ptr %41, %add.ptr.i40
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EE6resizeEm.exit, label %for.body.i.i.i.i.i
 
@@ -6826,7 +6826,7 @@ if.else.i58:                                      ; preds = %for.cond.cleanup
   br i1 %cmp4.i59, label %if.then5.i60, label %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EE6resizeEm.exit87
 
 if.then5.i60:                                     ; preds = %if.else.i58
-  %add.ptr.i61 = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %55, i64 %sub.ptr.div.i51
+  %add.ptr.i61 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %sub.ptr.div.i51
   %tobool.not.i.i62 = icmp eq ptr %54, %add.ptr.i61
   br i1 %tobool.not.i.i62, label %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EE6resizeEm.exit87, label %for.body.i.i.i.i.i63
 
@@ -6897,7 +6897,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp50)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp51)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp52)
-  %add.ptr.i88 = getelementptr inbounds nuw double, ptr %65, i64 %i.0227
+  %add.ptr.i88 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %i.0227
   invoke void @_ZN5boost11make_sharedIN8QuantLib11SimpleQuoteEJRKdEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.64") align 8 %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i88)
           to label %invoke.cont55 unwind label %lpad54
 
@@ -6912,7 +6912,7 @@ invoke.cont55:                                    ; preds = %for.body
 
 invoke.cont57:                                    ; preds = %invoke.cont55
   %68 = load ptr, ptr %volatilities_, align 8, !tbaa !64
-  %add.ptr.i89 = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %68, i64 %i.0227
+  %add.ptr.i89 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %i.0227
   %69 = load ptr, ptr %ref.tmp50, align 8, !tbaa !71
   %70 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp50, i8 0, i64 16, i1 false)
@@ -7113,7 +7113,7 @@ for.body75:                                       ; preds = %for.body75.lr.ph, %
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp76)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp77)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp78)
-  %add.ptr.i124 = getelementptr inbounds nuw double, ptr %103, i64 %i70.0233
+  %add.ptr.i124 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %i70.0233
   invoke void @_ZN5boost11make_sharedIN8QuantLib11SimpleQuoteEJRKdEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.64") align 8 %ref.tmp78, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i124)
           to label %invoke.cont81 unwind label %lpad80
 
@@ -7128,7 +7128,7 @@ invoke.cont81:                                    ; preds = %for.body75
 
 invoke.cont84:                                    ; preds = %invoke.cont81
   %106 = load ptr, ptr %reversions_, align 8, !tbaa !64
-  %add.ptr.i127 = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %106, i64 %i70.0233
+  %add.ptr.i127 = getelementptr inbounds nuw [16 x i8], ptr %106, i64 %i70.0233
   %107 = load ptr, ptr %ref.tmp76, align 8, !tbaa !71
   %108 = load ptr, ptr %pn3.i.i.i128, align 8, !tbaa !16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp76, i8 0, i64 16, i1 false)
@@ -7663,7 +7663,7 @@ if.else.i:                                        ; preds = %do.end
   br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EE6resizeEm.exit
 
 if.then5.i:                                       ; preds = %if.else.i
-  %add.ptr.i45 = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %36, i64 %sub.ptr.div.i
+  %add.ptr.i45 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %sub.ptr.div.i
   %tobool.not.i.i = icmp eq ptr %35, %add.ptr.i45
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EE6resizeEm.exit, label %for.body.i.i.i.i.i
 
@@ -7756,7 +7756,7 @@ if.else.i63:                                      ; preds = %for.cond.cleanup
   br i1 %cmp4.i64, label %if.then5.i65, label %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EE6resizeEm.exit92
 
 if.then5.i65:                                     ; preds = %if.else.i63
-  %add.ptr.i66 = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %49, i64 %sub.ptr.div.i56
+  %add.ptr.i66 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %sub.ptr.div.i56
   %tobool.not.i.i67 = icmp eq ptr %48, %add.ptr.i66
   br i1 %tobool.not.i.i67, label %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EE6resizeEm.exit92, label %for.body.i.i.i.i.i68
 
@@ -7827,7 +7827,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp48)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp49)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp50)
-  %add.ptr.i93 = getelementptr inbounds nuw double, ptr %59, i64 %i.0232
+  %add.ptr.i93 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %i.0232
   invoke void @_ZN5boost11make_sharedIN8QuantLib11SimpleQuoteEJRKdEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.64") align 8 %ref.tmp50, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i93)
           to label %invoke.cont53 unwind label %lpad52
 
@@ -7842,7 +7842,7 @@ invoke.cont53:                                    ; preds = %for.body
 
 invoke.cont55:                                    ; preds = %invoke.cont53
   %62 = load ptr, ptr %volatilities_, align 8, !tbaa !64
-  %add.ptr.i94 = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %62, i64 %i.0232
+  %add.ptr.i94 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %i.0232
   %63 = load ptr, ptr %ref.tmp48, align 8, !tbaa !71
   %64 = load ptr, ptr %pn3.i.i.i, align 8, !tbaa !16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp48, i8 0, i64 16, i1 false)
@@ -8043,7 +8043,7 @@ for.body73:                                       ; preds = %for.body73.lr.ph, %
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp74)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp75)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp76)
-  %add.ptr.i129 = getelementptr inbounds nuw double, ptr %97, i64 %i68.0238
+  %add.ptr.i129 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %i68.0238
   invoke void @_ZN5boost11make_sharedIN8QuantLib11SimpleQuoteEJRKdEEENS_6detail15sp_if_not_arrayIT_E4typeEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.64") align 8 %ref.tmp76, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i129)
           to label %invoke.cont79 unwind label %lpad78
 
@@ -8058,7 +8058,7 @@ invoke.cont79:                                    ; preds = %for.body73
 
 invoke.cont82:                                    ; preds = %invoke.cont79
   %100 = load ptr, ptr %reversions_, align 8, !tbaa !64
-  %add.ptr.i132 = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %100, i64 %i68.0238
+  %add.ptr.i132 = getelementptr inbounds nuw [16 x i8], ptr %100, i64 %i68.0238
   %101 = load ptr, ptr %ref.tmp74, align 8, !tbaa !71
   %102 = load ptr, ptr %pn3.i.i.i133, align 8, !tbaa !16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp74, i8 0, i64 16, i1 false)
@@ -10014,16 +10014,16 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %volsteptimes_, align 8, !tbaa !61
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !59
-  %add.ptr19.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !74
   br label %_ZNSt6vectorIdSaIdEE9push_backEOd.exit
 
 _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %if.then.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i
   %11 = phi ptr [ %.pre, %if.then.i.i ], [ %call5.i.i.i.i.i.i, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %12 = load double, ptr %add.ptr.i, align 8, !tbaa !47
   %13 = load ptr, ptr %volsteptimesArray_, align 8, !tbaa !18
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   store double %12, ptr %arrayidx.i, align 8, !tbaa !47
   %cmp = icmp eq i64 %indvars.iv, 0
   br i1 %cmp, label %do.body, label %do.body52
@@ -10176,7 +10176,7 @@ ehcleanup50:                                      ; preds = %if.then.i.i39, %ehc
 
 do.body52:                                        ; preds = %_ZNSt6vectorIdSaIdEE9push_backEOd.exit
   %34 = add nsw i64 %indvars.iv, -1
-  %add.ptr.i46 = getelementptr inbounds nuw double, ptr %11, i64 %34
+  %add.ptr.i46 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %34
   %35 = load double, ptr %add.ptr.i46, align 8, !tbaa !47
   %cmp59 = fcmp ogt double %12, %35
   br i1 %cmp59, label %for.inc, label %if.then60
@@ -10191,7 +10191,7 @@ if.then60:                                        ; preds = %do.body52
 
 invoke.cont63:                                    ; preds = %if.then60
   %38 = load ptr, ptr %volsteptimes_, align 8, !tbaa !61
-  %add.ptr.i50 = getelementptr inbounds nuw double, ptr %38, i64 %34
+  %add.ptr.i50 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %34
   %39 = load double, ptr %add.ptr.i50, align 8, !tbaa !47
   %call.i51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream61, double noundef %39)
           to label %invoke.cont69 unwind label %lpad62
@@ -10210,7 +10210,7 @@ invoke.cont74:                                    ; preds = %invoke.cont71
 
 invoke.cont76:                                    ; preds = %invoke.cont74
   %40 = load ptr, ptr %volsteptimes_, align 8, !tbaa !61
-  %add.ptr.i59 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv
+  %add.ptr.i59 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %41 = load double, ptr %add.ptr.i59, align 8, !tbaa !47
   %call.i60 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call75, double noundef %41)
           to label %invoke.cont81 unwind label %lpad62
@@ -10733,7 +10733,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %3 = phi ptr [ %0, %for.body.lr.ph ], [ %9, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit ]
   %i.06 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit ]
   %4 = load ptr, ptr %volatilities_, align 8, !tbaa !64
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %4, i64 %i.06
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %i.06
   %call4 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_5QuoteEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i)
   %5 = load ptr, ptr %call4, align 8, !tbaa !69
   %cmp.not.i = icmp eq ptr %5, null
@@ -10752,7 +10752,7 @@ _ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit: ; preds = %for.body, %cond.f
   %call6 = tail call noundef double %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %params_.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %params_.i, align 8, !tbaa !18
-  %arrayidx.i.i = getelementptr inbounds nuw double, ptr %8, i64 %i.06
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %i.06
   store double %call6, ptr %arrayidx.i.i, align 8, !tbaa !47
   %inc = add nuw i64 %i.06, 1
   %9 = load ptr, ptr %sigma_, align 8, !tbaa !140
@@ -10951,7 +10951,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %3 = phi ptr [ %0, %for.body.lr.ph ], [ %9, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit ]
   %i.06 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit ]
   %4 = load ptr, ptr %reversions_, align 8, !tbaa !64
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %4, i64 %i.06
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %i.06
   %call4 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_5QuoteEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i)
   %5 = load ptr, ptr %call4, align 8, !tbaa !69
   %cmp.not.i = icmp eq ptr %5, null
@@ -10970,7 +10970,7 @@ _ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit: ; preds = %for.body, %cond.f
   %call6 = tail call noundef double %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %params_.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %params_.i, align 8, !tbaa !18
-  %arrayidx.i.i = getelementptr inbounds nuw double, ptr %8, i64 %i.06
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %i.06
   store double %call6, ptr %arrayidx.i.i, align 8, !tbaa !47
   %inc = add nuw i64 %i.06, 1
   %9 = load ptr, ptr %reversion_, align 8, !tbaa !102
@@ -14945,7 +14945,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   %__len.08.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i.i, %entry ]
   %__first.sroa.0.07.i.i = phi ptr [ %__first.sroa.0.1.i.i, %while.body.i.i ], [ %0, %entry ]
   %shr.i.i = lshr i64 %__len.08.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw double, ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
   %2 = load double, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !47
   %cmp.i.i.i = fcmp olt double %t, %2
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -15530,9 +15530,9 @@ if.then.i25:                                      ; preds = %_ZNSt6vectorIN8Quan
 
 _ZNSt12_Vector_baseIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EE13_M_deallocateEPS3_m.exit27: ; preds = %_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %if.then.i25
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !64
-  %add.ptr37 = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [16 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !62
-  %add.ptr40 = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !156
   br label %if.end44
 
@@ -16889,7 +16889,7 @@ for.body.i:                                       ; preds = %_ZNK5boost10shared_
   %3 = phi ptr [ %1, %for.body.lr.ph.i ], [ %9, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit.i ]
   %i.06.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit.i ]
   %4 = load ptr, ptr %volatilities_.i, align 8, !tbaa !64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %4, i64 %i.06.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %i.06.i
   %call4.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_5QuoteEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i)
   %5 = load ptr, ptr %call4.i, align 8, !tbaa !69
   %cmp.not.i.i = icmp eq ptr %5, null
@@ -16908,7 +16908,7 @@ _ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit.i: ; preds = %cond.false.i.i,
   %call6.i = tail call noundef double %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %params_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %params_.i.i, align 8, !tbaa !18
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %8, i64 %i.06.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %i.06.i
   store double %call6.i, ptr %arrayidx.i.i.i, align 8, !tbaa !47
   %inc.i = add nuw i64 %i.06.i, 1
   %9 = load ptr, ptr %sigma_.i, align 8, !tbaa !140
@@ -17171,7 +17171,7 @@ for.body.i:                                       ; preds = %_ZNK5boost10shared_
   %3 = phi ptr [ %1, %for.body.lr.ph.i ], [ %9, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit.i ]
   %i.06.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit.i ]
   %4 = load ptr, ptr %reversions_.i, align 8, !tbaa !64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.QuantLib::Handle.61", ptr %4, i64 %i.06.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %i.06.i
   %call4.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_5QuoteEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i)
   %5 = load ptr, ptr %call4.i, align 8, !tbaa !69
   %cmp.not.i.i = icmp eq ptr %5, null
@@ -17190,7 +17190,7 @@ _ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit.i: ; preds = %cond.false.i.i,
   %call6.i = tail call noundef double %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %params_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %params_.i.i, align 8, !tbaa !18
-  %arrayidx.i.i.i = getelementptr inbounds nuw double, ptr %8, i64 %i.06.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %i.06.i
   store double %call6.i, ptr %arrayidx.i.i.i, align 8, !tbaa !47
   %inc.i = add nuw i64 %i.06.i, 1
   %9 = load ptr, ptr %reversion_.i, align 8, !tbaa !102

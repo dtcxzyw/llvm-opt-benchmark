@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::nothrow_t" = type { i8 }
 %"struct.llvm::ASanStackFrameLayout" = type { i64, i64, i64 }
-%"struct.llvm::ASanStackVariableDescription" = type { ptr, i64, i64, i64, ptr, i64, i32 }
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector" }
 %"class.llvm::SmallVector" = type { %"class.llvm::SmallVectorImpl.0", %"struct.llvm::SmallVectorStorage" }
 %"class.llvm::SmallVectorImpl.0" = type { %"class.llvm::SmallVectorTemplateBase.1" }
@@ -28,6 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase.9" = type { %"class.llvm::SmallVectorTemplateCommon.10" }
 %"class.llvm::SmallVectorTemplateCommon.10" = type { %"class.llvm::SmallVectorBase.3" }
 %"struct.llvm::SmallVectorStorage.11" = type { [64 x i8] }
+%"struct.llvm::ASanStackVariableDescription" = type { ptr, i64, i64, i64, ptr, i64, i32 }
 
 $_ZSt21__inplace_stable_sortIPN4llvm28ASanStackVariableDescriptionEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_ = comdat any
 
@@ -115,7 +115,7 @@ _ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEE
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.057 = phi i64 [ %27, %.lr.ph ], [ 0, %4 ]
-  %23 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %.pre, i64 %.057
+  %23 = getelementptr inbounds nuw [56 x i8], ptr %.pre, i64 %.057
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %26 = tail call i64 @llvm.umax.i64(i64 %25, i64 16)
@@ -139,7 +139,7 @@ _ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEE
   %.03359 = phi i64 [ %20, %.lr.ph60 ], [ %67, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit ]
   %.03458 = phi i64 [ 0, %.lr.ph60 ], [ %68, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit ]
   %33 = icmp eq i64 %.03458, %21
-  %34 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %14, i64 %.03458
+  %34 = getelementptr inbounds nuw [56 x i8], ptr %14, i64 %.03458
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !23
   br i1 %33, label %41, label %37
@@ -835,7 +835,7 @@ define linkonce_odr void @_ZSt21__inplace_stable_sortIPN4llvm28ASanStackVariable
   %15 = ptrtoint ptr %.020.i to i64
   %16 = sub i64 %15, %7
   %.neg.i.i.i.i.i.i = sdiv exact i64 %16, -56
-  %17 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %14, i64 %.neg.i.i.i.i.i.i
+  %17 = getelementptr inbounds [56 x i8], ptr %14, i64 %.neg.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false), !tbaa.struct !62
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -872,7 +872,7 @@ common.ret24:                                     ; preds = %10, %21, %22
 22:                                               ; preds = %3
   %23 = udiv exact i64 %8, 56
   %24 = lshr i64 %23, 1
-  %25 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %0, i64 %24
   tail call void @_ZSt21__inplace_stable_sortIPN4llvm28ASanStackVariableDescriptionEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_(ptr noundef %0, ptr noundef %25, ptr %2)
   tail call void @_ZSt21__inplace_stable_sortIPN4llvm28ASanStackVariableDescriptionEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_(ptr noundef %25, ptr noundef %1, ptr %2)
   %26 = ptrtoint ptr %25 to i64
@@ -890,7 +890,7 @@ define linkonce_odr void @_ZSt22__stable_sort_adaptiveIPN4llvm28ASanStackVariabl
   %9 = sdiv exact i64 %8, 56
   %10 = add nsw i64 %9, 1
   %11 = sdiv i64 %10, 2
-  %12 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %0, i64 %11
+  %12 = getelementptr inbounds [56 x i8], ptr %0, i64 %11
   %13 = icmp sgt i64 %11, %3
   br i1 %13, label %14, label %15
 
@@ -956,7 +956,7 @@ define linkonce_odr void @_ZSt22__merge_without_bufferIPN4llvm28ASanStackVariabl
 
 _ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit: ; preds = %17
   %20 = sdiv i64 %.tr6978, 2
-  %21 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.tr75, i64 %20
+  %21 = getelementptr inbounds [56 x i8], ptr %.tr75, i64 %20
   %22 = sub i64 %10, %19
   %23 = icmp sgt i64 %22, 0
   br i1 %23, label %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i, label %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit
@@ -969,7 +969,7 @@ _ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i: ; preds = %
   %.017.i = phi ptr [ %.1.i, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i ], [ %.tr6776, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i ]
   %.01116.i = phi i64 [ %.112.i, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i ], [ %24, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i ]
   %25 = lshr i64 %.01116.i, 1
-  %26 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %.017.i, i64 %25
+  %26 = getelementptr inbounds nuw [56 x i8], ptr %.017.i, i64 %25
   %27 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(56) %26, ptr noundef nonnull align 8 dereferenceable(56) %21) #15
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %29 = xor i64 %25, -1
@@ -992,7 +992,7 @@ _ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14
 
 _ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit44: ; preds = %17
   %34 = sdiv i64 %.tr7079, 2
-  %35 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.tr6776, i64 %34
+  %35 = getelementptr inbounds [56 x i8], ptr %.tr6776, i64 %34
   %36 = ptrtoint ptr %.tr75 to i64
   %37 = sub i64 %19, %36
   %38 = icmp sgt i64 %37, 0
@@ -1006,7 +1006,7 @@ _ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i47: ; preds =
   %.017.i48 = phi ptr [ %.1.i53, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i47 ], [ %.tr75, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i46 ]
   %.01116.i49 = phi i64 [ %.112.i52, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i47 ], [ %39, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i46 ]
   %40 = lshr i64 %.01116.i49, 1
-  %41 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %.017.i48, i64 %40
+  %41 = getelementptr inbounds nuw [56 x i8], ptr %.017.i48, i64 %40
   %42 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(56) %35, ptr noundef nonnull align 8 dereferenceable(56) %41) #15
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %44 = xor i64 %40, -1
@@ -1129,7 +1129,7 @@ _ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit: ; preds = 
   br i1 %38, label %.lr.ph109.preheader, label %._crit_edge110
 
 .lr.ph109.preheader:                              ; preds = %37
-  %39 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.054, i64 %.082
+  %39 = getelementptr inbounds [56 x i8], ptr %.054, i64 %.082
   br label %.lr.ph109
 
 ._crit_edge110:                                   ; preds = %.lr.ph109, %37
@@ -1173,7 +1173,7 @@ _ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit: ; preds = 
 51:                                               ; preds = %48
   %52 = add nsw i64 %.idx, -56
   %.neg.i.i.i.i.i = sdiv exact i64 %52, -56
-  %53 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %49, i64 %.neg.i.i.i.i.i
+  %53 = getelementptr inbounds [56 x i8], ptr %49, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 8 %.054, i64 %52, i1 false)
   br label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit
 
@@ -1183,9 +1183,9 @@ _ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit: 
   br label %_ZSt11swap_rangesIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.054, i64 %.085
+  %55 = getelementptr inbounds [56 x i8], ptr %.054, i64 %.085
   %56 = sub i64 0, %28
-  %57 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %55, i64 %56
+  %57 = getelementptr inbounds [56 x i8], ptr %55, i64 %56
   %58 = icmp sgt i64 %.082, 0
   br i1 %58, label %.lr.ph, label %._crit_edge
 
@@ -1654,7 +1654,7 @@ _ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.s
   %52 = ptrtoint ptr %5 to i64
   %53 = sub i64 %51, %52
   %.neg.i.i.i.i.i33.i = sdiv exact i64 %53, -56
-  %54 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
+  %54 = getelementptr inbounds [56 x i8], ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %54, ptr align 8 %5, i64 %53, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_S2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_T0_SC_T1_T2_.exit
 
@@ -1664,7 +1664,7 @@ _ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.s
 
 _ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit: ; preds = %55
   %57 = sdiv i64 %.tr107125, 2
-  %58 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.tr122, i64 %57
+  %58 = getelementptr inbounds [56 x i8], ptr %.tr122, i64 %57
   %59 = sub i64 %10, %56
   %60 = icmp sgt i64 %59, 0
   br i1 %60, label %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i, label %_ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14_Iter_comp_valIPFbRKS1_S7_EEEET_SB_SB_RKT0_T1_.exit
@@ -1677,7 +1677,7 @@ _ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i: ; preds = %
   %.017.i = phi ptr [ %.1.i74, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i ], [ %.tr105123, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i ]
   %.01116.i = phi i64 [ %.112.i, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i ], [ %61, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i ]
   %62 = lshr i64 %.01116.i, 1
-  %63 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %.017.i, i64 %62
+  %63 = getelementptr inbounds nuw [56 x i8], ptr %.017.i, i64 %62
   %64 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(56) %63, ptr noundef nonnull align 8 dereferenceable(56) %58) #15
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %66 = xor i64 %62, -1
@@ -1700,7 +1700,7 @@ _ZSt13__lower_boundIPN4llvm28ASanStackVariableDescriptionES1_N9__gnu_cxx5__ops14
 
 _ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit78: ; preds = %55
   %71 = sdiv i64 %.tr108126, 2
-  %72 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.tr105123, i64 %71
+  %72 = getelementptr inbounds [56 x i8], ptr %.tr105123, i64 %71
   %73 = ptrtoint ptr %.tr122 to i64
   %74 = sub i64 %56, %73
   %75 = icmp sgt i64 %74, 0
@@ -1714,7 +1714,7 @@ _ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i82: ; preds =
   %.017.i83 = phi ptr [ %.1.i88, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i82 ], [ %.tr122, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i81 ]
   %.01116.i84 = phi i64 [ %.112.i87, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.i82 ], [ %76, %_ZSt7advanceIPN4llvm28ASanStackVariableDescriptionElEvRT_T0_.exit.preheader.i81 ]
   %77 = lshr i64 %.01116.i84, 1
-  %78 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %.017.i83, i64 %77
+  %78 = getelementptr inbounds nuw [56 x i8], ptr %.017.i83, i64 %77
   %79 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(56) %72, ptr noundef nonnull align 8 dereferenceable(56) %78) #15
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 56
   %81 = xor i64 %77, -1
@@ -1769,7 +1769,7 @@ _ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i90: ; pred
   %96 = ptrtoint ptr %.0102 to i64
   %97 = sub i64 %92, %96
   %.neg.i.i.i.i.i.i = sdiv exact i64 %97, -56
-  %98 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.0101, i64 %.neg.i.i.i.i.i.i
+  %98 = getelementptr inbounds [56 x i8], ptr %.0101, i64 %.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %98, ptr align 8 %.0102, i64 %97, i1 false)
   br label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit.i
 
@@ -1818,13 +1818,13 @@ _ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i: ; pred
 
 111:                                              ; preds = %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i
   %.neg.i.i.i.i.i44.i = sdiv exact i64 %106, -56
-  %112 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.0101, i64 %.neg.i.i.i.i.i44.i
+  %112 = getelementptr inbounds [56 x i8], ptr %.0101, i64 %.neg.i.i.i.i.i44.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %112, ptr align 8 %5, i64 %106, i1 false)
   br label %_ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit46.i
 
 _ZSt13move_backwardIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit46.i: ; preds = %111, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i
   %.pre-phi.i.i.i.i.i45.i = phi i64 [ %.neg.i.i.i.i.i44.i, %111 ], [ 0, %_ZSt4moveIPN4llvm28ASanStackVariableDescriptionES2_ET0_T_S4_S3_.exit42.i ]
-  %113 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %.0101, i64 %.pre-phi.i.i.i.i.i45.i
+  %113 = getelementptr inbounds [56 x i8], ptr %.0101, i64 %.pre-phi.i.i.i.i.i45.i
   br label %_ZSt17__rotate_adaptiveIPN4llvm28ASanStackVariableDescriptionES2_lET_S3_S3_S3_T1_S4_T0_S4_.exit
 
 114:                                              ; preds = %101
@@ -1891,7 +1891,7 @@ _ZSt16__insertion_sortIPN4llvm28ASanStackVariableDescriptionEN9__gnu_cxx5__ops15
   %22 = ptrtoint ptr %.020.i to i64
   %23 = sub i64 %22, %17
   %.neg.i.i.i.i.i.i = sdiv exact i64 %23, -56
-  %24 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %21, i64 %.neg.i.i.i.i.i.i
+  %24 = getelementptr inbounds [56 x i8], ptr %21, i64 %.neg.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(1) %.030, i64 %23, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.030, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false), !tbaa.struct !62
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1951,7 +1951,7 @@ _ZSt16__insertion_sortIPN4llvm28ASanStackVariableDescriptionEN9__gnu_cxx5__ops15
   %36 = ptrtoint ptr %.020.i16 to i64
   %37 = sub i64 %36, %.lcssa
   %.neg.i.i.i.i.i.i26 = sdiv exact i64 %37, -56
-  %38 = getelementptr inbounds %"struct.llvm::ASanStackVariableDescription", ptr %35, i64 %.neg.i.i.i.i.i.i26
+  %38 = getelementptr inbounds [56 x i8], ptr %35, i64 %.neg.i.i.i.i.i.i26
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %38, ptr noundef nonnull align 8 dereferenceable(1) %.0.lcssa, i64 %37, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.0.lcssa, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false), !tbaa.struct !62
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

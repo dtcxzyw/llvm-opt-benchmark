@@ -261,7 +261,7 @@ Vec_IntAlloc.exit:                                ; preds = %1, %6
   %21 = phi ptr [ %15, %.lr.ph.preheader ], [ %58, %Vec_IntPush.exit ]
   %22 = getelementptr i8, ptr %21, i64 8
   %.val31 = load ptr, ptr %22, align 8, !tbaa !37
-  %23 = getelementptr inbounds ptr, ptr %.val31, i64 %indvars.iv
+  %23 = getelementptr inbounds [8 x i8], ptr %.val31, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !38
   %25 = getelementptr i8, ptr %24, i64 8
   %.val33 = load ptr, ptr %25, align 8, !tbaa !39
@@ -325,7 +325,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %55 = add nsw i32 %37, 1
   store i32 %55, ptr %5, align 4, !tbaa !17
   %56 = sext i32 %37 to i64
-  %57 = getelementptr inbounds i32, ptr %.pre.i59, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %.pre.i59, i64 %56
   store i32 %36, ptr %57, align 4, !tbaa !16
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %58 = load ptr, ptr %14, align 8, !tbaa !34
@@ -341,7 +341,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %63 = load ptr, ptr %14, align 8, !tbaa !34
   %64 = getelementptr i8, ptr %63, i64 8
   %.val32 = load ptr, ptr %64, align 8, !tbaa !37
-  %65 = getelementptr inbounds nuw ptr, ptr %.val32, i64 %indvars.iv55
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %.val32, i64 %indvars.iv55
   %66 = load ptr, ptr %65, align 8, !tbaa !38
   %67 = getelementptr i8, ptr %66, i64 8
   %.val34 = load ptr, ptr %67, align 8, !tbaa !39
@@ -405,7 +405,7 @@ Vec_IntPush.exit47:                               ; preds = %Vec_IntPush.exit47.
   %97 = add nsw i32 %79, 1
   store i32 %97, ptr %5, align 4, !tbaa !17
   %98 = sext i32 %79 to i64
-  %99 = getelementptr inbounds i32, ptr %.pre.i4363, i64 %98
+  %99 = getelementptr inbounds [4 x i8], ptr %.pre.i4363, i64 %98
   store i32 %78, ptr %99, align 4, !tbaa !16
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %.val27 = load i32, ptr %2, align 4, !tbaa !16
@@ -483,7 +483,7 @@ Ioa_WriteAigerEncode.exit:                        ; preds = %Vec_StrAlloc.exit, 
   %.02955 = phi i32 [ %.029, %46 ], [ %.02951, %Ioa_WriteAigerEncode.exit ]
   %.03053 = phi i32 [ %25, %46 ], [ %12, %Ioa_WriteAigerEncode.exit ]
   %.val34 = load ptr, ptr %11, align 8, !tbaa !21
-  %24 = getelementptr inbounds nuw i32, ptr %.val34, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.val34, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !16
   %26 = sub nsw i32 %25, %.03053
   %27 = icmp slt i32 %25, %.03053
@@ -580,7 +580,7 @@ define noundef ptr @Ioa_WriteAigerIntoMemoryStr(ptr noundef readonly captures(no
   %.099259 = phi i32 [ %16, %.lr.ph ], [ 1, %1 ]
   %13 = getelementptr i8, ptr %12, i64 8
   %.val125 = load ptr, ptr %13, align 8, !tbaa !37
-  %14 = getelementptr inbounds nuw ptr, ptr %.val125, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val125, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !38
   %16 = add nuw nsw i32 %.099259, 1
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -599,7 +599,7 @@ define noundef ptr @Ioa_WriteAigerIntoMemoryStr(ptr noundef readonly captures(no
   %.1100262 = phi i32 [ %.2101, %.critedge ], [ %.099.lcssa, %.critedge.preheader ]
   %23 = getelementptr i8, ptr %22, i64 8
   %.val124 = load ptr, ptr %23, align 8, !tbaa !37
-  %24 = getelementptr inbounds nuw ptr, ptr %.val124, i64 %indvars.iv276
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.val124, i64 %indvars.iv276
   %25 = load ptr, ptr %24, align 8, !tbaa !38
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.critedge, label %27
@@ -1087,7 +1087,7 @@ Vec_StrPush.exit.i210:                            ; preds = %218, %Vec_StrGrow.e
   %232 = phi ptr [ %227, %.lr.ph.i217.preheader ], [ %275, %Vec_StrPush.exit.i223 ]
   %233 = getelementptr i8, ptr %232, i64 8
   %.val123 = load ptr, ptr %233, align 8, !tbaa !37
-  %234 = getelementptr inbounds ptr, ptr %.val123, i64 %indvars.iv279
+  %234 = getelementptr inbounds [8 x i8], ptr %.val123, i64 %indvars.iv279
   %235 = load ptr, ptr %234, align 8, !tbaa !38
   %236 = getelementptr i8, ptr %235, i64 8
   %.val128 = load ptr, ptr %236, align 8, !tbaa !39
@@ -1185,7 +1185,7 @@ Vec_StrPush.exit.i223:                            ; preds = %268, %Vec_StrGrow.e
   %282 = load ptr, ptr %226, align 8, !tbaa !34
   %283 = getelementptr i8, ptr %282, i64 8
   %.val122 = load ptr, ptr %283, align 8, !tbaa !37
-  %284 = getelementptr inbounds nuw ptr, ptr %.val122, i64 %indvars.iv282
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %.val122, i64 %indvars.iv282
   %285 = load ptr, ptr %284, align 8, !tbaa !38
   %286 = getelementptr i8, ptr %285, i64 8
   %.val127 = load ptr, ptr %286, align 8, !tbaa !39
@@ -1282,7 +1282,7 @@ Vec_StrPush.exit.i236:                            ; preds = %318, %Vec_StrGrow.e
   %indvars.iv285 = phi i64 [ %indvars.iv.next286, %.critedge6 ], [ 0, %.critedge6.preheader ]
   %332 = getelementptr i8, ptr %331, i64 8
   %.val121 = load ptr, ptr %332, align 8, !tbaa !37
-  %333 = getelementptr inbounds nuw ptr, ptr %.val121, i64 %indvars.iv285
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %.val121, i64 %indvars.iv285
   %334 = load ptr, ptr %333, align 8, !tbaa !38
   %335 = icmp eq ptr %334, null
   br i1 %335, label %.critedge6, label %336
@@ -1982,7 +1982,7 @@ define void @Ioa_WriteAiger(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %.0122219 = phi i32 [ %29, %.lr.ph ], [ 1, %14 ]
   %26 = getelementptr i8, ptr %25, i64 8
   %.val166 = load ptr, ptr %26, align 8, !tbaa !37
-  %27 = getelementptr inbounds nuw ptr, ptr %.val166, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.val166, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !38
   %29 = add nuw nsw i32 %.0122219, 1
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 40
@@ -2001,7 +2001,7 @@ define void @Ioa_WriteAiger(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %.1123222 = phi i32 [ %.2124, %.critedge ], [ %.0122.lcssa, %.critedge.preheader ]
   %36 = getelementptr i8, ptr %35, i64 8
   %.val165 = load ptr, ptr %36, align 8, !tbaa !37
-  %37 = getelementptr inbounds nuw ptr, ptr %.val165, i64 %indvars.iv240
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.val165, i64 %indvars.iv240
   %38 = load ptr, ptr %37, align 8, !tbaa !38
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.critedge, label %40
@@ -2107,7 +2107,7 @@ define void @Ioa_WriteAiger(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %79 = phi ptr [ %74, %.lr.ph227.preheader ], [ %96, %.lr.ph227 ]
   %80 = getelementptr i8, ptr %79, i64 8
   %.val164 = load ptr, ptr %80, align 8, !tbaa !37
-  %81 = getelementptr inbounds ptr, ptr %.val164, i64 %indvars.iv243
+  %81 = getelementptr inbounds [8 x i8], ptr %.val164, i64 %indvars.iv243
   %82 = load ptr, ptr %81, align 8, !tbaa !38
   %83 = getelementptr i8, ptr %82, i64 8
   %.val169 = load ptr, ptr %83, align 8, !tbaa !39
@@ -2137,7 +2137,7 @@ define void @Ioa_WriteAiger(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %100 = load ptr, ptr %73, align 8, !tbaa !34
   %101 = getelementptr i8, ptr %100, i64 8
   %.val163 = load ptr, ptr %101, align 8, !tbaa !37
-  %102 = getelementptr inbounds nuw ptr, ptr %.val163, i64 %indvars.iv246
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %.val163, i64 %indvars.iv246
   %103 = load ptr, ptr %102, align 8, !tbaa !38
   %104 = getelementptr i8, ptr %103, i64 8
   %.val168 = load ptr, ptr %104, align 8, !tbaa !39
@@ -2218,7 +2218,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_StrFree.exit, %
 141:                                              ; preds = %.lr.ph234, %195
   %indvars.iv249 = phi i64 [ 0, %.lr.ph234 ], [ %indvars.iv.next250, %195 ]
   %.0127232 = phi i32 [ 0, %.lr.ph234 ], [ %.1128, %195 ]
-  %142 = getelementptr inbounds nuw ptr, ptr %.val162, i64 %indvars.iv249
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %.val162, i64 %indvars.iv249
   %143 = load ptr, ptr %142, align 8, !tbaa !38
   %144 = icmp eq ptr %143, null
   br i1 %144, label %195, label %145

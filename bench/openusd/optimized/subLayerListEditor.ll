@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfLayerOffset, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfLayerOffset>>::_Vector_impl" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfLayerOffset, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfLayerOffset>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::SdfLayerOffset, std::allocator<pxrInternal_v0_24__pxrReserved__::SdfLayerOffset>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator.53" = type { i8 }
-%"class.pxrInternal_v0_24__pxrReserved__::SdfLayerOffset" = type { double, double }
 %"class.pxrInternal_v0_24__pxrReserved__::VtValue" = type { %"union.std::aligned_storage<8, 8>::type", %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits.35" }
 %"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
 %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits.35" = type { ptr }
@@ -984,7 +983,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetESaIS1_EED2Ev.ex
 .lr.ph:                                           ; preds = %.preheader, %114
   %88 = phi ptr [ %117, %114 ], [ %87, %.preheader ]
   %.02148 = phi i64 [ %115, %114 ], [ 0, %.preheader ]
-  %89 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %88, i64 %.02148
+  %89 = getelementptr inbounds [32 x i8], ptr %88, i64 %.02148
   %90 = load ptr, ptr %2, align 8
   %91 = load ptr, ptr %44, align 8
   %92 = invoke ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIS8_EEET_SH_SH_T0_St26random_access_iterator_tag(ptr %90, ptr %91, ptr nonnull align 8 dereferenceable(32) %89)
@@ -1034,7 +1033,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_t
   %110 = ashr exact i64 %108, 1
   %111 = getelementptr inbounds i8, ptr %109, i64 %110
   %112 = load ptr, ptr %12, align 8
-  %113 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfLayerOffset", ptr %112, i64 %.02148
+  %113 = getelementptr inbounds [16 x i8], ptr %112, i64 %.02148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull align 8 dereferenceable(16) %111, i64 16, i1 false)
   br label %114
 
@@ -1414,7 +1413,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetESaIS1_EE
   store ptr %8, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::SdfLayerOffset", ptr %8, i64 %1
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8
   br label %.lr.ph.i.i.i.i
@@ -2216,7 +2215,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %_ZSteq
   %64 = and i32 %62, 255
   %65 = lshr i32 %62, 8
   %66 = zext nneg i32 %64 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = mul nuw nsw i32 %65, 24
   %70 = zext nneg i32 %69 to i64
@@ -5427,7 +5426,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr 
   %4 = and i32 %2, 255
   %5 = lshr i32 %2, 8
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = mul nuw nsw i32 %5, 24
   %10 = zext nneg i32 %9 to i64

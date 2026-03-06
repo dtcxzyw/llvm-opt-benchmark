@@ -92,8 +92,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.69" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::HdPrimvarDescriptor, std::allocator<pxrInternal_v0_24__pxrReserved__::HdPrimvarDescriptor>>::_Vector_impl" }
 %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::HdPrimvarDescriptor, std::allocator<pxrInternal_v0_24__pxrReserved__::HdPrimvarDescriptor>>::_Vector_impl" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::HdPrimvarDescriptor, std::allocator<pxrInternal_v0_24__pxrReserved__::HdPrimvarDescriptor>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::HdPrimvarDescriptor, std::allocator<pxrInternal_v0_24__pxrReserved__::HdPrimvarDescriptor>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.pxrInternal_v0_24__pxrReserved__::HdPrimvarDescriptor" = type <{ %"class.pxrInternal_v0_24__pxrReserved__::TfToken", i32, [4 x i8], %"class.pxrInternal_v0_24__pxrReserved__::TfToken", i8, [7 x i8] }>
-%"struct.std::pair.84" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfToken", %"class.std::shared_ptr.81" }
 %"struct.pxrInternal_v0_24__pxrReserved__::VtValue::_HoldAside" = type { %"union.std::aligned_storage<8, 8>::type", ptr }
 %struct._Guard = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::Tf_HashState" = type <{ i64, i8, [7 x i8] }>
@@ -3143,7 +3141,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_NullRprim4Sy
   %42 = and i32 %40, 255
   %43 = lshr i32 %40, 8
   %44 = zext nneg i32 %42 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = mul nuw nsw i32 %43, 24
   %48 = zext nneg i32 %47 to i64
@@ -3667,7 +3665,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_NullRprim13_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %.01516 = phi i64 [ %44, %43 ], [ 0, %.lr.ph.preheader ]
   %21 = load ptr, ptr %4, align 8
-  %22 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::HdPrimvarDescriptor", ptr %21, i64 %.01516
+  %22 = getelementptr inbounds [32 x i8], ptr %21, i64 %.01516
   %23 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__15HdChangeTracker14IsPrimvarDirtyEjRKNS_7SdfPathERKNS_7TfTokenE(i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %22)
           to label %24 unwind label %41
 
@@ -4381,7 +4379,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrI
 _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS1_6HdReprEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS1_6HdReprEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit33, %57
   store ptr %21, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8
-  %61 = getelementptr inbounds nuw %"struct.std::pair.84", ptr %21, i64 %17
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %17
   store ptr %61, ptr %56, align 8
   ret void
 }

@@ -521,13 +521,13 @@ _ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit54.i: ; preds = %87
 
 switch.lookup:                                    ; preds = %_ZL9checkIs32RN4llvm9MCContextENS_5SMLocE13X86_64RelType.exit48.i
   %150 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK12_GLOBAL__N_118X86ELFObjectWriter12getRelocTypeERN4llvm9MCContextERKNS1_7MCValueERKNS1_7MCFixupEb, i64 %150
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK12_GLOBAL__N_118X86ELFObjectWriter12getRelocTypeERN4llvm9MCContextERKNS1_7MCValueERKNS1_7MCFixupEb, i64 %150
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 
 switch.lookup36:                                  ; preds = %95
   %151 = zext nneg i32 %switch.tableidx35 to i64
-  %switch.gep37 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK12_GLOBAL__N_118X86ELFObjectWriter12getRelocTypeERN4llvm9MCContextERKNS1_7MCValueERKNS1_7MCFixupEb.12, i64 %151
+  %switch.gep37 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK12_GLOBAL__N_118X86ELFObjectWriter12getRelocTypeERN4llvm9MCContextERKNS1_7MCValueERKNS1_7MCFixupEb.12, i64 %151
   %switch.load38 = load i32, ptr %switch.gep37, align 4
   br label %_ZL14getRelocType64RN4llvm9MCContextENS_5SMLocENS_15MCSymbolRefExpr11VariantKindE13X86_64RelTypebNS_11MCFixupKindE.exit
 

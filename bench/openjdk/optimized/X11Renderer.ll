@@ -510,7 +510,7 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
 26:                                               ; preds = %25
   %27 = add nsw i32 %9, -1
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %13, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %13, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %13, align 4
   %.not114 = icmp eq i32 %30, %31
@@ -521,7 +521,7 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   br label %39
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i32, ptr %19, i64 %28
+  %34 = getelementptr inbounds [4 x i8], ptr %19, i64 %28
   %35 = load i32, ptr %34, align 4
   %36 = load i32, ptr %19, align 4
   %37 = icmp ne i32 %35, %36
@@ -572,12 +572,12 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
   %.098132 = phi i32 [ %50, %.lr.ph.preheader ], [ %.1, %71 ]
   %.099131 = phi i32 [ %47, %.lr.ph.preheader ], [ %.1100, %71 ]
   %.0101130 = phi i32 [ 1, %.lr.ph.preheader ], [ %.1102, %71 ]
-  %56 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4
   %58 = add nsw i32 %57, %3
   %spec.select121 = tail call i32 @llvm.smax.i32(i32 %58, i32 -32768)
   %59 = tail call i32 @llvm.smin.i32(i32 %spec.select121, i32 32767)
-  %60 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = add nsw i32 %61, %4
   %spec.select122 = tail call i32 @llvm.smax.i32(i32 %62, i32 -32768)
@@ -590,7 +590,7 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
 64:                                               ; preds = %.lr.ph
   %65 = trunc nsw i32 %59 to i16
   %66 = sext i32 %.0101130 to i64
-  %67 = getelementptr inbounds %struct.XPoint, ptr %.097127, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %.097127, i64 %66
   store i16 %65, ptr %67, align 2
   %68 = trunc nsw i32 %63 to i16
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 2
@@ -627,7 +627,7 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
 78:                                               ; preds = %77
   %79 = add nsw i32 %.1102, 1
   %80 = sext i32 %.1102 to i64
-  %81 = getelementptr inbounds %struct.XPoint, ptr %.097127, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %.097127, i64 %80
   %82 = load i32, ptr %.097127, align 2
   store i32 %82, ptr %81, align 2
   br label %83
@@ -883,7 +883,7 @@ define internal void @storeLine(ptr noundef readonly captures(none) %0, i32 noun
 28:                                               ; preds = %26, %5
   %.0 = phi ptr [ %27, %26 ], [ %9, %5 ]
   %29 = sext i32 %11 to i64
-  %30 = getelementptr inbounds %struct.XPoint, ptr %.0, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %.0, i64 %29
   %31 = trunc i32 %1 to i16
   store i16 %31, ptr %30, align 2
   %32 = trunc i32 %2 to i16
@@ -925,7 +925,7 @@ define internal void @storeLine(ptr noundef readonly captures(none) %0, i32 noun
 51:                                               ; preds = %49, %28
   %.052 = phi ptr [ %50, %49 ], [ %35, %28 ]
   %52 = sext i32 %34 to i64
-  %53 = getelementptr inbounds %struct.XPoint, ptr %.052, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %.052, i64 %52
   %54 = trunc i32 %3 to i16
   store i16 %54, ptr %53, align 2
   %55 = trunc i32 %4 to i16
@@ -978,7 +978,7 @@ define internal void @storePoint(ptr noundef readonly captures(none) %0, i32 nou
 26:                                               ; preds = %24, %3
   %.0 = phi ptr [ %25, %24 ], [ %7, %3 ]
   %27 = sext i32 %9 to i64
-  %28 = getelementptr inbounds %struct.XPoint, ptr %.0, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %.0, i64 %27
   %29 = trunc i32 %1 to i16
   store i16 %29, ptr %28, align 2
   %30 = trunc i32 %2 to i16

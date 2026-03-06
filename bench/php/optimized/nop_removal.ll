@@ -3,10 +3,6 @@ source_filename = "bench/php/original/nop_removal.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._zend_op = type { ptr, %union._znode_op, %union._znode_op, %union._znode_op, i32, i32, i8, i8, i8, i8 }
-%union._znode_op = type { i32 }
-%struct._zend_try_catch_element = type { i32, i32, i32, i32 }
-
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -52,7 +48,7 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr noundef readn
   %26 = getelementptr inbounds i8, ptr %.0107126, i64 %25
   %27 = load ptr, ptr %14, align 8, !tbaa !24
   %28 = zext i32 %.0113120 to i64
-  %29 = getelementptr inbounds nuw %struct._zend_op, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %28
   %30 = icmp ugt ptr %26, %29
   br i1 %30, label %.preheader119, label %thread-pre-split.thread
 
@@ -71,20 +67,20 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr noundef readn
 .thread:                                          ; preds = %34
   store i8 0, ptr %19, align 4, !tbaa !25
   %36 = add i32 %.0113120, 1
-  %37 = getelementptr inbounds nuw i32, ptr %13, i64 %28
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %28
   store i32 %.0111122, ptr %37, align 4, !tbaa !28
   br label %43
 
 thread-pre-split.thread:                          ; preds = %34, %22
   %38 = add i32 %.0113120, 1
-  %39 = getelementptr inbounds nuw i32, ptr %13, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %28
   store i32 %.0111122, ptr %39, align 4, !tbaa !28
   br label %46
 
 thread-pre-split:                                 ; preds = %.lr.ph
   %.pre = zext i32 %.0113120 to i64
   %40 = add i32 %.0113120, 1
-  %41 = getelementptr inbounds nuw i32, ptr %13, i64 %.pre
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.pre
   store i32 %.0111122, ptr %41, align 4, !tbaa !28
   %42 = icmp eq i8 %20, 0
   br i1 %42, label %43, label %46
@@ -102,7 +98,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
 48:                                               ; preds = %46
   %49 = load ptr, ptr %14, align 8, !tbaa !24
   %50 = zext i32 %.0108125 to i64
-  %51 = getelementptr inbounds nuw %struct._zend_op, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull align 8 dereferenceable(32) %.0107126, i64 32, i1 false), !tbaa.struct !29
   tail call void @zend_optimizer_migrate_jump(ptr noundef %0, ptr noundef nonnull %51, ptr noundef nonnull %.0107126) #5
   br label %52
@@ -153,17 +149,17 @@ thread-pre-split:                                 ; preds = %.lr.ph
 
 70:                                               ; preds = %.lr.ph132, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph132 ], [ %indvars.iv.next, %96 ]
-  %71 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %67, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !33
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %13, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !28
   %76 = sub i32 %72, %75
   store i32 %76, ptr %71, align 4, !tbaa !33
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !35
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %13, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !28
   %82 = sub i32 %78, %81
   store i32 %82, ptr %77, align 4, !tbaa !35
@@ -174,14 +170,14 @@ thread-pre-split:                                 ; preds = %.lr.ph
 
 85:                                               ; preds = %70
   %86 = zext i32 %84 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %13, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !28
   %89 = sub i32 %84, %88
   store i32 %89, ptr %83, align 4, !tbaa !36
   %90 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %91 = load i32, ptr %90, align 4, !tbaa !37
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw i32, ptr %13, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !28
   %95 = sub i32 %91, %94
   store i32 %95, ptr %90, align 4, !tbaa !37

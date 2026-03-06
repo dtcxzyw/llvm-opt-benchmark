@@ -206,7 +206,7 @@ define hidden void @"_ZN113_$LT$rayon..iter..collect..consumer..CollectResult$LT
 
 16:                                               ; preds = %3
   %17 = load ptr, ptr %1, align 8, !noundef !18
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %7
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %7
   store ptr %2, ptr %18, align 8
   %19 = add nuw i64 %7, 1
   store i64 %19, ptr %6, align 8
@@ -252,7 +252,7 @@ define hidden void @"_ZN117_$LT$rayon..iter..collect..consumer..CollectConsumer$
   unreachable
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds ptr, ptr %1, i64 %3
+  %7 = getelementptr inbounds [8 x i8], ptr %1, i64 %3
   %8 = sub nuw i64 %2, %3
   store ptr %1, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -269,7 +269,7 @@ define hidden void @"_ZN159_$LT$rayon..iter..collect..consumer..CollectReducer$u
   %4 = load ptr, ptr %1, align 8, !noundef !18
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !18
-  %7 = getelementptr inbounds ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %4, i64 %6
   %8 = load ptr, ptr %2, align 8, !noundef !18
   %9 = icmp eq ptr %7, %8
   br i1 %9, label %33, label %10
@@ -285,7 +285,7 @@ define hidden void @"_ZN159_$LT$rayon..iter..collect..consumer..CollectReducer$u
 
 .lr.ph.i.i.i:                                     ; preds = %10, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit.i.i.i"
   %.sroa.0.09.i.i.i = phi i64 [ %15, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit.i.i.i" ], [ 0, %10 ]
-  %14 = getelementptr inbounds ptr, ptr %8, i64 %.sroa.0.09.i.i.i
+  %14 = getelementptr inbounds [8 x i8], ptr %8, i64 %.sroa.0.09.i.i.i
   %15 = add nuw i64 %.sroa.0.09.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
@@ -312,7 +312,7 @@ define hidden void @"_ZN159_$LT$rayon..iter..collect..consumer..CollectReducer$u
 
 .lr.ph12.i.i.i:                                   ; preds = %21, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit8.i.i.i"
   %.sroa.0.110.i.i.i = phi i64 [ %25, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit8.i.i.i" ], [ %15, %21 ]
-  %24 = getelementptr inbounds ptr, ptr %8, i64 %.sroa.0.110.i.i.i
+  %24 = getelementptr inbounds [8 x i8], ptr %8, i64 %.sroa.0.110.i.i.i
   %25 = add i64 %.sroa.0.110.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
@@ -399,7 +399,7 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hc
   %27 = load i64, ptr %26, align 8, !noundef !18
   %28 = add i64 %27, -1
   %29 = and i64 %28, %13
-  %30 = getelementptr inbounds { ptr, ptr }, ptr %25, i64 %29
+  %30 = getelementptr inbounds [16 x i8], ptr %25, i64 %29
   %31 = load volatile { [2 x i64] }, ptr %30, align 8
   %.fca.0.0.extract = extractvalue { [2 x i64] } %31, 0, 0
   %.fca.0.1.extract = extractvalue { [2 x i64] } %31, 0, 1
@@ -436,7 +436,7 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hc
   %48 = load i64, ptr %47, align 8, !noundef !18
   %49 = add i64 %48, -1
   %50 = and i64 %49, %17
-  %51 = getelementptr inbounds { ptr, ptr }, ptr %46, i64 %50
+  %51 = getelementptr inbounds [16 x i8], ptr %46, i64 %50
   %52 = load volatile { [2 x i64] }, ptr %51, align 8
   %.fca.0.0.extract11 = extractvalue { [2 x i64] } %52, 0, 0
   %.fca.0.1.extract12 = extractvalue { [2 x i64] } %52, 0, 1
@@ -498,7 +498,7 @@ define hidden void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$4push17haa7196ff
   %.sroa.02.0 = load ptr, ptr %16, align 8, !noundef !18
   %17 = add i64 %.sroa.03.0, -1
   %18 = and i64 %17, %6
-  %19 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.02.0, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %.sroa.02.0, i64 %18
   store volatile ptr %1, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store volatile ptr %2, ptr %20, align 8
@@ -558,9 +558,9 @@ define hidden void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize17hdfbcf9
 24:                                               ; preds = %.lr.ph, %24
   %.sroa.0.07 = phi i64 [ %9, %.lr.ph ], [ %29, %24 ]
   %25 = and i64 %.sroa.0.07, %16
-  %26 = getelementptr inbounds { ptr, ptr }, ptr %11, i64 %25
+  %26 = getelementptr inbounds [16 x i8], ptr %11, i64 %25
   %27 = and i64 %.sroa.0.07, %17
-  %28 = getelementptr inbounds { ptr, ptr }, ptr %15, i64 %27
+  %28 = getelementptr inbounds [16 x i8], ptr %15, i64 %27
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   %29 = add i64 %.sroa.0.07, 1
   %.not = icmp eq i64 %29, %7
@@ -716,7 +716,7 @@ _ZN15crossbeam_epoch7default11with_handle17hc5e0e8a71f58ed6cE.llvm.1400532147688
   %33 = load i64, ptr %32, align 8, !noundef !18
   %34 = add i64 %33, -1
   %35 = and i64 %34, %6
-  %36 = getelementptr inbounds { ptr, ptr }, ptr %31, i64 %35
+  %36 = getelementptr inbounds [16 x i8], ptr %31, i64 %35
   %37 = load volatile { [2 x i64] }, ptr %36, align 8
   %.fca.0.0.extract = extractvalue { [2 x i64] } %37, 0, 0
   %.fca.0.1.extract = extractvalue { [2 x i64] } %37, 0, 1
@@ -2407,7 +2407,7 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h1272f3f49a3f4
 
 47:                                               ; preds = %30
   %48 = load ptr, ptr %8, align 8, !alias.scope !227, !noalias !224, !noundef !18
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %31
+  %49 = getelementptr inbounds [8 x i8], ptr %48, i64 %31
   store ptr %23, ptr %49, align 8, !noalias !229
   %50 = add nuw i64 %31, 1
   store i64 %50, ptr %12, align 8, !alias.scope !227, !noalias !224
@@ -2513,7 +2513,7 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h26a05ffd7c7d4
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %29, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit.i.i.i.i.i.i.i"
   %.sroa.0.09.i.i.i.i.i.i.i = phi i64 [ %34, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit.i.i.i.i.i.i.i" ], [ 0, %29 ]
-  %33 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.0.09.i.i.i.i.i.i.i
+  %33 = getelementptr inbounds [8 x i8], ptr %27, i64 %.sroa.0.09.i.i.i.i.i.i.i
   %34 = add nuw i64 %.sroa.0.09.i.i.i.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !270)
   call void @llvm.experimental.noalias.scope.decl(metadata !273)
@@ -2540,7 +2540,7 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h26a05ffd7c7d4
 
 .lr.ph12.i.i.i.i.i.i.i:                           ; preds = %40, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit8.i.i.i.i.i.i.i"
   %.sroa.0.110.i.i.i.i.i.i.i = phi i64 [ %44, %"_ZN4core3ptr57drop_in_place$LT$sum_tree..SumTree$LT$rope..Chunk$GT$$GT$17h63c55cf2187f9c07E.exit8.i.i.i.i.i.i.i" ], [ %34, %40 ]
-  %43 = getelementptr inbounds ptr, ptr %27, i64 %.sroa.0.110.i.i.i.i.i.i.i
+  %43 = getelementptr inbounds [8 x i8], ptr %27, i64 %.sroa.0.110.i.i.i.i.i.i.i
   %44 = add i64 %.sroa.0.110.i.i.i.i.i.i.i, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !283)
   call void @llvm.experimental.noalias.scope.decl(metadata !286)
@@ -2621,7 +2621,7 @@ define hidden void @_ZN5rayon4iter8plumbing6Folder12consume_iter17h26a05ffd7c7d4
 
 69:                                               ; preds = %52
   %70 = load ptr, ptr %8, align 8, !alias.scope !297, !noalias !294, !noundef !18
-  %71 = getelementptr inbounds ptr, ptr %70, i64 %53
+  %71 = getelementptr inbounds [8 x i8], ptr %70, i64 %53
   store ptr %23, ptr %71, align 8, !noalias !299
   %72 = add nuw i64 %53, 1
   store i64 %72, ptr %12, align 8, !alias.scope !297, !noalias !294

@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<unsigned long>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<unsigned long>::_Storage" = type { i64 }
-%struct.tlb_entry_t = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -210,7 +209,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_cbo_zeroP1
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %68 = lshr i64 %1, 15
   %69 = and i64 %68, 31
-  %70 = getelementptr inbounds nuw i64, ptr %67, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !3
   tail call void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 dereferenceable(43168) %66, i64 noundef %71)
   ret i64 %64
@@ -265,13 +264,13 @@ define linkonce_odr void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 deref
   call void @_ZN5mmu_t14check_triggersEN8triggers11operation_tEmbmSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(43168) %0, i32 noundef 1, i64 noundef %20, i1 noundef zeroext false, i64 noundef %8, ptr noundef nonnull byval(%"class.std::optional") align 8 %6)
   %21 = lshr i64 %20, 12
   %22 = and i64 %21, 255
-  %23 = getelementptr inbounds nuw i64, ptr %14, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = icmp eq i64 %24, %21
   br i1 %25, label %26, label %30, !prof !169
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %15, i64 %22
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %22
   %28 = load ptr, ptr %27, align 8, !tbaa !170
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %20
   store i8 0, ptr %29, align 1
@@ -421,7 +420,7 @@ define noundef i64 @_Z19fast_rv64i_cbo_zeroP11processor_t6insn_tm(ptr noundef re
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %66 = lshr i64 %1, 15
   %67 = and i64 %66, 31
-  %68 = getelementptr inbounds nuw i64, ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !3
   tail call void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 dereferenceable(43168) %64, i64 noundef %69)
   ret i64 %62
@@ -535,7 +534,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_cbo_zero
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %68 = lshr i64 %1, 15
   %69 = and i64 %68, 31
-  %70 = getelementptr inbounds nuw i64, ptr %67, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !3
   tail call void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 dereferenceable(43168) %66, i64 noundef %71)
   ret i64 %64
@@ -647,7 +646,7 @@ define noundef i64 @_Z21logged_rv64i_cbo_zeroP11processor_t6insn_tm(ptr noundef 
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %66 = lshr i64 %1, 15
   %67 = and i64 %66, 31
-  %68 = getelementptr inbounds nuw i64, ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !3
   tail call void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 dereferenceable(43168) %64, i64 noundef %69)
   ret i64 %62
@@ -777,7 +776,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_cbo_zeroP1
   %74 = add i64 %73, 17179869184
   %75 = ashr exact i64 %74, 32
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %77 = getelementptr inbounds nuw i64, ptr %76, i64 %63
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %63
   %78 = load i64, ptr %77, align 8, !tbaa !3
   tail call void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 dereferenceable(43168) %72, i64 noundef %78)
   ret i64 %75
@@ -905,7 +904,7 @@ define noundef i64 @_Z19fast_rv64e_cbo_zeroP11processor_t6insn_tm(ptr noundef re
   %72 = load ptr, ptr %71, align 8, !tbaa !95
   %73 = add i64 %2, 4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %63
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %63
   %76 = load i64, ptr %75, align 8, !tbaa !3
   tail call void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 dereferenceable(43168) %72, i64 noundef %76)
   ret i64 %73
@@ -1035,7 +1034,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_cbo_zero
   %74 = add i64 %73, 17179869184
   %75 = ashr exact i64 %74, 32
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %77 = getelementptr inbounds nuw i64, ptr %76, i64 %63
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %63
   %78 = load i64, ptr %77, align 8, !tbaa !3
   tail call void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 dereferenceable(43168) %72, i64 noundef %78)
   ret i64 %75
@@ -1163,7 +1162,7 @@ define noundef i64 @_Z21logged_rv64e_cbo_zeroP11processor_t6insn_tm(ptr noundef 
   %72 = load ptr, ptr %71, align 8, !tbaa !95
   %73 = add i64 %2, 4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %75 = getelementptr inbounds nuw i64, ptr %74, i64 %63
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %63
   %76 = load i64, ptr %75, align 8, !tbaa !3
   tail call void @_ZN5mmu_t8cbo_zeroEm(ptr noundef nonnull align 8 dereferenceable(43168) %72, i64 noundef %76)
   ret i64 %73
@@ -1403,7 +1402,7 @@ _ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds
 _ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !188
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !186
-  %53 = getelementptr inbounds nuw %"class.std::tuple", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !187
   ret void
 }

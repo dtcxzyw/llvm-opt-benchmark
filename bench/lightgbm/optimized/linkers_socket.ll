@@ -17,15 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.LightGBM::RecursiveHalvingMap" = type { i32, i32, i8, i32, %"class.std::vector.13", %"class.std::vector.13", %"class.std::vector.13", %"class.std::vector.13", %"class.std::vector.13" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.34" }
-%"struct.std::_Head_base.34" = type { ptr }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
@@ -35,6 +26,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.LightGBM::TextReader" = type <{ ptr, %"class.std::vector", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [7 x i8], i64, i32, [4 x i8] }>
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.timespec = type { i64, i64 }
@@ -331,7 +325,7 @@ define void @_ZN8LightGBM7LinkersC2ENS_6ConfigE(ptr noundef nonnull align 8 dere
 .lr.ph:                                           ; preds = %.preheader, %55
   %41 = phi ptr [ %58, %55 ], [ %34, %.preheader ]
   %.0956 = phi i64 [ %56, %55 ], [ 0, %.preheader ]
-  %42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %41, i64 %.0956
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %.0956
   %43 = invoke ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS5_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(32) %42)
           to label %44 unwind label %53
 
@@ -341,7 +335,7 @@ define void @_ZN8LightGBM7LinkersC2ENS_6ConfigE(ptr noundef nonnull align 8 dere
 
 45:                                               ; preds = %44
   %46 = load ptr, ptr %12, align 8, !tbaa !73
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %.0956
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.0956
   %48 = load i32, ptr %47, align 4, !tbaa !74
   %49 = load i32, ptr %22, align 4, !tbaa !67
   %50 = icmp eq i32 %48, %49
@@ -587,7 +581,7 @@ _ZNSt6vectorISt10unique_ptrIN8LightGBM9TcpSocketESt14default_deleteIS2_EESaIS5_E
   %.pre63 = phi i32 [ %.pre63.pre, %133 ], [ %.pre6364, %_ZNSt6vectorISt10unique_ptrIN8LightGBM9TcpSocketESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i ]
   store ptr %127, ptr %13, align 8, !tbaa !100
   store ptr %132, ptr %101, align 8, !tbaa !98
-  %134 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %127, i64 %125
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %125
   store ptr %134, ptr %102, align 8, !tbaa !99
   br label %_ZNSt10unique_ptrIN8LightGBM9TcpSocketESt14default_deleteIS1_EED2Ev.exit30
 
@@ -1997,7 +1991,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %400, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %402, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %397, ptr %120, align 8, !tbaa !73
   store ptr %401, ptr %121, align 8, !tbaa !109
-  %403 = getelementptr inbounds nuw i32, ptr %397, i64 %395
+  %403 = getelementptr inbounds nuw [4 x i8], ptr %397, i64 %395
   store ptr %403, ptr %122, align 8, !tbaa !110
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -2729,7 +2723,7 @@ define void @_ZN8LightGBM7Linkers9ConstructEv(ptr noundef nonnull align 8 derefe
   %24 = load i64, ptr %12, align 8, !tbaa !147
   %25 = urem i64 %indvars.iv, %24
   %26 = load ptr, ptr %8, align 8, !tbaa !145
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8, !tbaa !149
   %.not.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %29
@@ -2960,10 +2954,10 @@ _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i8.i: ; preds = %74
 
 _ZN8LightGBM9TcpSocketC2Ev.exit:                  ; preds = %.noexc33, %108, %117
   %118 = load ptr, ptr %90, align 8, !tbaa !72
-  %119 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %118, i64 %104
+  %119 = getelementptr inbounds nuw [32 x i8], ptr %118, i64 %104
   %120 = load ptr, ptr %119, align 8, !tbaa !86
   %121 = load ptr, ptr %91, align 8, !tbaa !73
-  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %104
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %104
   %123 = load i32, ptr %122, align 4, !tbaa !74
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3014,7 +3008,7 @@ _ZN8LightGBM9TcpSocket4SendEPKcii.exit:           ; preds = %.noexc36, %135
           to label %141 unwind label %144
 
 141:                                              ; preds = %.noexc38
-  %142 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %139, i64 %104
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %104
   %143 = load ptr, ptr %142, align 8, !tbaa !90
   store ptr %140, ptr %142, align 8, !tbaa !90
   %.not.i.i.i = icmp eq ptr %143, null
@@ -3032,7 +3026,7 @@ _ZNKSt14default_deleteIN8LightGBM9TcpSocketEEclEPS1_.exit.i.i.i: ; preds = %141
 
 .thread:                                          ; preds = %_ZNKSt14default_deleteIN8LightGBM9TcpSocketEEclEPS1_.exit.i.i.i, %141
   %146 = load ptr, ptr %96, align 8, !tbaa !100
-  %147 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %146, i64 %104
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %104
   %148 = load ptr, ptr %147, align 8, !tbaa !90
   %149 = load i32, ptr %58, align 8, !tbaa !69
   %150 = mul nsw i32 %149, 60000
@@ -3147,7 +3141,7 @@ _ZN8LightGBM9TcpSocket5CloseEv.exit:              ; preds = %.noexc41, %156
   %185 = phi i32 [ %181, %.lr.ph.i ], [ %192, %_ZN8LightGBM7Linkers11CheckLinkerEi.exit.thread.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN8LightGBM7Linkers11CheckLinkerEi.exit.thread.i ]
   %186 = load ptr, ptr %183, align 8, !tbaa !100
-  %187 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %186, i64 %indvars.iv.i
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %indvars.iv.i
   %188 = load ptr, ptr %187, align 8, !tbaa !90
   %.not.i.i.i43 = icmp eq ptr %188, null
   br i1 %.not.i.i.i43, label %_ZN8LightGBM7Linkers11CheckLinkerEi.exit.thread.i, label %_ZN8LightGBM7Linkers11CheckLinkerEi.exit.i
@@ -3436,7 +3430,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 34:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9_IdentityESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS6_EEmRKT_.exit
   %35 = load ptr, ptr %0, align 8, !tbaa !88
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %37 = load ptr, ptr %36, align 8, !tbaa !149
   %.not.i.i = icmp eq ptr %37, null
   %.pre55 = load ptr, ptr %1, align 8, !tbaa !86
@@ -3622,7 +3616,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2, ptr %32, align 8, !tbaa !180
   %33 = load ptr, ptr %0, align 8, !tbaa !88
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !149
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -3648,7 +3642,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %46 = load i64, ptr %45, align 8, !tbaa !180
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !149
   br label %49
 
@@ -3750,7 +3744,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 40
   %16 = load i64, ptr %15, align 8, !tbaa !180
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !149
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -3765,7 +3759,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !149
   br label %28
 
@@ -3877,7 +3871,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !89
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !88
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !149
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS5_m.exit, label %34
@@ -4072,7 +4066,7 @@ define void @_ZN8LightGBM7LinkersD2Ev(ptr noundef nonnull align 8 captures(none)
   %9 = phi ptr [ %18, %_ZN8LightGBM9TcpSocket5CloseEv.exit ], [ %8, %.preheader ]
   %10 = phi ptr [ %19, %_ZN8LightGBM9TcpSocket5CloseEv.exit ], [ %7, %.preheader ]
   %.016 = phi i64 [ %20, %_ZN8LightGBM9TcpSocket5CloseEv.exit ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %9, i64 %.016
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.016
   %12 = load ptr, ptr %11, align 8, !tbaa !90
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %_ZN8LightGBM9TcpSocket5CloseEv.exit, label %13
@@ -6220,7 +6214,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %24, ptr %0, align 8, !tbaa !72
   store ptr %.0.lcssa.i.i.i.i37, ptr %6, align 8, !tbaa !71
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %24, i64 %18
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %18
   store ptr %77, ptr %76, align 8, !tbaa !126
   ret void
 
@@ -6845,7 +6839,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !72
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !71
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !126
   ret void
 }
@@ -7047,7 +7041,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !72
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !71
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !126
   ret void
 
@@ -7103,7 +7097,7 @@ define void @_ZN8LightGBM7Linkers9SetLinkerEiRKNS_9TcpSocketE(ptr noundef nonnul
           to label %9 unwind label %20
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %7, i64 %6
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %11 = load ptr, ptr %10, align 8, !tbaa !90
   store ptr %8, ptr %10, align 8, !tbaa !90
   %.not.i.i = icmp eq ptr %11, null
@@ -7115,7 +7109,7 @@ _ZNKSt14default_deleteIN8LightGBM9TcpSocketEEclEPS1_.exit.i.i: ; preds = %9
 
 _ZNSt10unique_ptrIN8LightGBM9TcpSocketESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %9, %_ZNKSt14default_deleteIN8LightGBM9TcpSocketEEclEPS1_.exit.i.i
   %12 = load ptr, ptr %5, align 8, !tbaa !100
-  %13 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %12, i64 %6
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %6
   %14 = load ptr, ptr %13, align 8, !tbaa !90
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %16 = load i32, ptr %15, align 8, !tbaa !69
@@ -7263,7 +7257,7 @@ _ZN8LightGBM9TcpSocket4RecvEPcii.exit:            ; preds = %29, %.noexc
           to label %43 unwind label %.body
 
 43:                                               ; preds = %.noexc24
-  %44 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %41, i64 %40
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %40
   %45 = load ptr, ptr %44, align 8, !tbaa !90
   store ptr %42, ptr %44, align 8, !tbaa !90
   %.not.i.i.i = icmp eq ptr %45, null
@@ -7283,7 +7277,7 @@ _ZNKSt14default_deleteIN8LightGBM9TcpSocketEEclEPS1_.exit.i.i.i: ; preds = %43
 
 47:                                               ; preds = %_ZNKSt14default_deleteIN8LightGBM9TcpSocketEEclEPS1_.exit.i.i.i, %43
   %48 = load ptr, ptr %9, align 8, !tbaa !100
-  %49 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %48, i64 %40
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %40
   %50 = load ptr, ptr %49, align 8, !tbaa !90
   %51 = load i32, ptr %10, align 8, !tbaa !69
   %52 = mul nsw i32 %51, 60000
@@ -7377,7 +7371,7 @@ define void @_ZN8LightGBM7Linkers12PrintLinkersEv(ptr noundef nonnull readonly a
   %7 = phi i32 [ %3, %.lr.ph ], [ %14, %_ZN8LightGBM7Linkers11CheckLinkerEi.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN8LightGBM7Linkers11CheckLinkerEi.exit.thread ]
   %8 = load ptr, ptr %5, align 8, !tbaa !100
-  %9 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !90
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZN8LightGBM7Linkers11CheckLinkerEi.exit.thread, label %_ZN8LightGBM7Linkers11CheckLinkerEi.exit
@@ -7490,7 +7484,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 31:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !145
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !149
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -7517,7 +7511,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %45 = load i32, ptr %43, align 4, !tbaa !74
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !149
   br label %49
 
@@ -7580,7 +7574,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %16 = load i32, ptr %15, align 8, !tbaa !74
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !149
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -7595,7 +7589,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !149
   br label %29
 
@@ -7684,7 +7678,7 @@ define noundef zeroext i1 @_ZN8LightGBM7Linkers11CheckLinkerEi(ptr noundef nonnu
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !100
-  %6 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %4
   %7 = load ptr, ptr %6, align 8, !tbaa !90
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %11, label %8

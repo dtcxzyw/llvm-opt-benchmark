@@ -252,7 +252,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr noundef captures(none) %0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %11 = phi i64 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
-  %12 = getelementptr inbounds nuw %struct.shm_mq_iovec, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %11
@@ -318,7 +318,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr noundef captures(none) %0
   %.0109 = phi i32 [ %.1110163, %.thread157 ], [ 0, %23 ]
   %.0106 = phi i64 [ %.1107164, %.thread157 ], [ %26, %23 ]
   %41 = sext i32 %.0109 to i64
-  %42 = getelementptr inbounds %struct.shm_mq_iovec, ptr %1, i64 %41
+  %42 = getelementptr inbounds [16 x i8], ptr %1, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8
   %.not = icmp ult i64 %.0106, %44
@@ -348,7 +348,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr noundef captures(none) %0
   %.2108.ph = phi i64 [ %68, %._crit_edge190 ], [ %.0106, %53 ]
   %.0.ph = phi i32 [ %.0, %._crit_edge190 ], [ 0, %53 ]
   %54 = sext i32 %.2111.ph to i64
-  %55 = getelementptr inbounds %struct.shm_mq_iovec, ptr %1, i64 %54
+  %55 = getelementptr inbounds [16 x i8], ptr %1, i64 %54
   br label %56
 
 56:                                               ; preds = %.outer, %58
@@ -377,7 +377,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr noundef captures(none) %0
 
 ._crit_edge190:                                   ; preds = %67
   %.phi.trans.insert.phi.trans.insert = sext i32 %69 to i64
-  %.phi.trans.insert188.phi.trans.insert = getelementptr inbounds %struct.shm_mq_iovec, ptr %1, i64 %.phi.trans.insert.phi.trans.insert
+  %.phi.trans.insert188.phi.trans.insert = getelementptr inbounds [16 x i8], ptr %1, i64 %.phi.trans.insert.phi.trans.insert
   %.phi.trans.insert189.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.phi.trans.insert188.phi.trans.insert, i64 8
   %.pre.pre = load i64, ptr %.phi.trans.insert189.phi.trans.insert, align 8
   br label %.outer

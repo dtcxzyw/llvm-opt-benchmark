@@ -88,13 +88,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.opencv_test::(anonymous namespace)::SGBMModes" = type { i32 }
 %"struct.std::_Head_base.25" = type { i32 }
 %"struct.std::_Head_base.26" = type { %"class.cv::Size_" }
-%"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::TestStereoCorrespSGBM_SGBM>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.testing::internal::ParamIterator.126" = type { %"class.testing::internal::scoped_ptr.127" }
 %"class.testing::internal::scoped_ptr.127" = type { ptr }
 %"struct.testing::TestParamInfo.107" = type { %"class.std::tuple.46", i64 }
 %"class.std::tuple.46" = type { %"struct.std::_Tuple_impl.47" }
 %"struct.std::_Tuple_impl.47" = type { %"struct.std::_Tuple_impl.48", %"struct.std::_Head_base.26" }
 %"struct.std::_Tuple_impl.48" = type { %"struct.std::_Head_base.25" }
+%"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::TestStereoCorrespSGBM_SGBM>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
 
 $_ZN11opencv_test36TestStereoCorrespSGBM_SGBM_SGBM_Test13AddToRegistryEv = comdat any
 
@@ -1287,7 +1287,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !74
   store ptr %102, ptr %9, align 8, !tbaa !71
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !73
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -2426,7 +2426,7 @@ _ZN2cv3RNG7uniformEii.exit104:                    ; preds = %_ZN2cv3RNG7uniformE
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i
   %61 = load i8, ptr %60, align 1, !tbaa !14
   %62 = uitofp i8 %61 to double
-  %63 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   store double %62, ptr %63, align 8, !tbaa !182
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -2453,7 +2453,7 @@ _ZN2cv7Scalar_IdEC2IhLi3EEERKNS_3VecIT_XT0_EEE.exit: ; preds = %59
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i105
   %70 = load i8, ptr %69, align 1, !tbaa !14
   %71 = uitofp i8 %70 to double
-  %72 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i105
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i105
   store double %71, ptr %72, align 8, !tbaa !182
   %indvars.iv.next.i106 = add nuw nsw i64 %indvars.iv.i105, 1
   %exitcond.not.i107 = icmp eq i64 %indvars.iv.next.i106, 3
@@ -2515,7 +2515,7 @@ _ZN2cv7Scalar_IdEC2IhLi3EEERKNS_3VecIT_XT0_EEE.exit108: ; preds = %68
   %91 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv.i109
   %92 = load i8, ptr %91, align 1, !tbaa !14
   %93 = uitofp i8 %92 to double
-  %94 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.i109
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i109
   store double %93, ptr %94, align 8, !tbaa !182
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i109, 1
   %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i110, 3
@@ -2594,7 +2594,7 @@ _ZN2cv7Scalar_IdEC2IhLi3EEERKNS_3VecIT_XT0_EEE.exit108: ; preds = %68
   %120 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i113
   %121 = load i8, ptr %120, align 1, !tbaa !14
   %122 = uitofp i8 %121 to double
-  %123 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i113
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i113
   store double %122, ptr %123, align 8, !tbaa !182
   %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i113, 1
   %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, 3
@@ -3395,7 +3395,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !74
   store ptr %102, ptr %9, align 8, !tbaa !71
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !73
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -4457,7 +4457,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !220
   store ptr %35, ptr %4, align 8, !tbaa !30
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.53", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !33
   ret void
 
@@ -8753,7 +8753,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !337
   store ptr %35, ptr %4, align 8, !tbaa !330
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.100", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !333
   ret void
 
@@ -12630,7 +12630,7 @@ _ZNK7testing8internal13ParamIteratorISt5tupleIJN2cv5Size_IiEEiN11opencv_test12_G
 .critedge37.i.i.i.i.i.i.i.i.i.i:                  ; preds = %508, %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i
   %.2.lcssa.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv70.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv70.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv70.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next71.i.i.i.i.i.i.i.i.i.i, %508 ]
   %.lcssa49.i.i.i.i.i.i.i.i.i.i = phi i64 [ %502, %.preheader.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv70.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv70.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv70.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next71.i.i.i.i.i.i.i.i.i.i, %508 ]
-  %513 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_19SGBMModes7PrintToEPSo.vals, i64 %indvars.iv73.i.i.i.i.i.i.i.i.i.i
+  %513 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZNK11opencv_test12_GLOBAL__N_19SGBMModes7PrintToEPSo.vals, i64 %indvars.iv73.i.i.i.i.i.i.i.i.i.i
   %514 = load i32, ptr %513, align 4, !tbaa !89, !noalias !441
   %.not35.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i.i, %514
   br i1 %.not35.i.i.i.i.i.i.i.i.i.i, label %515, label %493
@@ -13610,7 +13610,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !392
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !395
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::TestStereoCorrespSGBM_SGBM>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !483
   ret void
 }
@@ -15860,7 +15860,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !484
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !205
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::TestStereoCorrespBM_BM>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !208
   ret void
 }

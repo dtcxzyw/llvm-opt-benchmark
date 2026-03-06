@@ -25,8 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
 %"class.cv::Rect_" = type { i32, i32, i32, i32 }
-%"class.cv::Vec.8" = type { %"class.cv::Matx.9" }
-%"class.cv::Matx.9" = type { [4 x i8] }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -148,7 +146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %28,
   %44 = load i64, ptr %43, align 8, !tbaa !28
   %45 = mul i64 %44, %indvars.iv33.i
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 %45
-  %47 = getelementptr inbounds nuw %"class.cv::Vec.8", ptr %46, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv.i
   store i8 -1, ptr %47, align 1, !tbaa !29
   %48 = load i32, ptr %21, align 4, !tbaa !18
   %49 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -776,7 +774,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !67
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !58
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !61
   ret void
 
@@ -888,7 +886,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !67
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !58
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !61
   ret void
 }

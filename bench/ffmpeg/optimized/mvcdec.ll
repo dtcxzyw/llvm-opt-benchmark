@@ -187,7 +187,7 @@ bytestream2_init.exit:                            ; preds = %12
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 2
   %78 = load i16, ptr %76, align 1, !tbaa !40
   %79 = tail call i16 @llvm.bswap.i16(i16 %78)
-  %80 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv.i
   store i16 %79, ptr %80, align 2, !tbaa !41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -224,7 +224,7 @@ bytestream2_init.exit:                            ; preds = %12
   %84 = and i32 %64, 1
   %85 = xor i32 %84, 1
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw i16, ptr %7, i64 %86
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !41
   %89 = and i16 %88, 32767
   store i16 %89, ptr %83, align 2, !tbaa !40
@@ -233,7 +233,7 @@ bytestream2_init.exit:                            ; preds = %12
   %.lobit.us.i = and i32 %91, 1
   %92 = xor i32 %.lobit.us.i, 1
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw i16, ptr %7, i64 %93
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %93
   %95 = load i16, ptr %94, align 2, !tbaa !41
   %96 = and i16 %95, 32767
   store i16 %96, ptr %90, align 2, !tbaa !40
@@ -254,7 +254,7 @@ bytestream2_init.exit:                            ; preds = %12
   %.lobit104.us.i = and i32 %106, 1
   %107 = xor i32 %.lobit104.us.i, 1
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i16, ptr %7, i64 %108
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %108
   %110 = load i16, ptr %109, align 2, !tbaa !41
   %111 = and i16 %110, 32767
   store i16 %111, ptr %105, align 2, !tbaa !40
@@ -263,7 +263,7 @@ bytestream2_init.exit:                            ; preds = %12
   %.lobit106.us.i = and i32 %113, 1
   %114 = xor i32 %.lobit106.us.i, 1
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw i16, ptr %7, i64 %115
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %115
   %117 = load i16, ptr %116, align 2, !tbaa !41
   %118 = and i16 %117, 32767
   store i16 %118, ptr %112, align 2, !tbaa !40
@@ -420,7 +420,7 @@ decode_mvc1.exit:                                 ; preds = %._crit_edge.us.i, %
   %201 = or disjoint i32 %193, %197
   %202 = or disjoint i32 %201, %200
   %203 = or disjoint i32 %202, -16777216
-  %204 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i24
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i24
   store i32 %203, ptr %204, align 4, !tbaa !39
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, %wide.trip.count.i
@@ -587,7 +587,7 @@ decode_mvc1.exit:                                 ; preds = %._crit_edge.us.i, %
   %297 = sext i32 %296 to i64
   %298 = getelementptr inbounds i8, ptr %295, i64 %297
   %299 = zext nneg i8 %231 to i64
-  %300 = getelementptr inbounds nuw i32, ptr %5, i64 %299
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %299
   %301 = load i32, ptr %300, align 4, !tbaa !39
   br label %.preheader.i277.i
 
@@ -620,13 +620,13 @@ decode_mvc1.exit:                                 ; preds = %._crit_edge.us.i, %
 
 313:                                              ; preds = %308
   %314 = zext nneg i8 %231 to i64
-  %315 = getelementptr inbounds nuw i32, ptr %5, i64 %314
+  %315 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %314
   %316 = load i32, ptr %315, align 4, !tbaa !39
   store i32 %316, ptr %221, align 8, !tbaa !39
   store i32 %316, ptr %222, align 16, !tbaa !39
   store i32 %316, ptr %223, align 8, !tbaa !39
   %317 = zext nneg i8 %290 to i64
-  %318 = getelementptr inbounds nuw i32, ptr %5, i64 %317
+  %318 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %317
   %319 = load i32, ptr %318, align 4, !tbaa !39
   store i32 %319, ptr %224, align 4, !tbaa !39
   store i32 %319, ptr %225, align 4, !tbaa !39
@@ -742,10 +742,10 @@ decode_mvc1.exit:                                 ; preds = %._crit_edge.us.i, %
 
 392:                                              ; preds = %387
   %393 = zext nneg i8 %231 to i64
-  %394 = getelementptr inbounds nuw i32, ptr %5, i64 %393
+  %394 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %393
   %395 = load i32, ptr %394, align 4, !tbaa !39
   %396 = zext nneg i8 %288 to i64
-  %397 = getelementptr inbounds nuw i32, ptr %5, i64 %396
+  %397 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %396
   %398 = load i32, ptr %397, align 4, !tbaa !39
   store i32 %398, ptr %227, align 4, !tbaa !39
   br label %399
@@ -757,9 +757,9 @@ decode_mvc1.exit:                                 ; preds = %._crit_edge.us.i, %
   %402 = load i8, ptr %400, align 1, !tbaa !40
   %403 = and i8 %402, 127
   %404 = zext nneg i8 %403 to i64
-  %405 = getelementptr inbounds nuw i32, ptr %5, i64 %404
+  %405 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %404
   %406 = load i32, ptr %405, align 4, !tbaa !39
-  %407 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv317.i
+  %407 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv317.i
   store i32 %406, ptr %407, align 4, !tbaa !39
   %indvars.iv.next318.i = add nuw nsw i64 %indvars.iv317.i, 1
   %exitcond320.not.i = icmp eq i64 %indvars.iv.next318.i, 8

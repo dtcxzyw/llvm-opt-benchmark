@@ -12,8 +12,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_key = type { %struct.atomic_t, %union.anon.42 }
 %struct.atomic_t = type { i32 }
 %union.anon.42 = type { i64 }
-%struct.elf32_phdr = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.elf64_phdr = type { i32, i32, i64, i64, i64, i64, i64, i64 }
 
 @.str = private unnamed_addr constant [5 x i8] c"\7FELF\00", align 1
 @__stop_notes = extern_weak dso_local constant i8, align 1
@@ -97,7 +95,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr noundef reado
 
 46:                                               ; preds = %.thread11, %42
   %47 = phi i64 [ 0, %42 ], [ %105, %.thread11 ]
-  %48 = getelementptr %struct.elf32_phdr, ptr %40, i64 %47
+  %48 = getelementptr [32 x i8], ptr %40, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 4
   br i1 %50, label %51, label %.thread11
@@ -201,7 +199,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr noundef reado
 
 118:                                              ; preds = %.thread15, %114
   %119 = phi i64 [ 0, %114 ], [ %176, %.thread15 ]
-  %120 = getelementptr %struct.elf64_phdr, ptr %112, i64 %119
+  %120 = getelementptr [56 x i8], ptr %112, i64 %119
   %121 = load i32, ptr %120, align 8
   %122 = icmp eq i32 %121, 4
   br i1 %122, label %123, label %.thread15

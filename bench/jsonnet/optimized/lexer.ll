@@ -772,7 +772,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %110
 
 switch.lookup:                                    ; preds = %16
   %121 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN7jsonnet8internal10lex_numberERPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationE, i64 %121
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN7jsonnet8internal10lex_numberERPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationE, i64 %121
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %._crit_edge
 
@@ -787,7 +787,7 @@ switch.lookup107:                                 ; preds = %switch.hole_check
   %switch.gep108 = getelementptr inbounds nuw i8, ptr @switch.table._ZN7jsonnet8internal10lex_numberERPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationE.3, i64 %122
   %switch.load109 = load i8, ptr %switch.gep108, align 1
   %123 = zext nneg i8 %switch.tableidx105 to i64
-  %switch.gep110 = getelementptr inbounds nuw i32, ptr @switch.table._ZN7jsonnet8internal10lex_numberERPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationE.4, i64 %123
+  %switch.gep110 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN7jsonnet8internal10lex_numberERPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationE.4, i64 %123
   %switch.load111 = load i32, ptr %switch.gep110, align 4
   br label %._crit_edge
 
@@ -6779,7 +6779,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !6
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !12
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !21
   ret void
 }
@@ -7225,7 +7225,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_R
 _ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %78
   store ptr %23, ptr %0, align 8, !tbaa !81
   store ptr %.0.lcssa.i.i.i35, ptr %7, align 8, !tbaa !84
-  %82 = getelementptr inbounds nuw %"struct.jsonnet::internal::FodderElement", ptr %23, i64 %19
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %19
   store ptr %82, ptr %77, align 8, !tbaa !87
   ret void
 
@@ -7489,7 +7489,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_R
 _ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %78
   store ptr %23, ptr %0, align 8, !tbaa !81
   store ptr %.0.lcssa.i.i.i35, ptr %7, align 8, !tbaa !84
-  %82 = getelementptr inbounds nuw %"struct.jsonnet::internal::FodderElement", ptr %23, i64 %19
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %19
   store ptr %82, ptr %77, align 8, !tbaa !87
   ret void
 
@@ -7684,7 +7684,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_R
 _ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, %71
   store ptr %20, ptr %0, align 8, !tbaa !81
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !84
-  %75 = getelementptr inbounds nuw %"struct.jsonnet::internal::FodderElement", ptr %20, i64 %16
+  %75 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %75, ptr %70, align 8, !tbaa !87
   ret void
 
@@ -8621,7 +8621,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_R
 _ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %78
   store ptr %23, ptr %0, align 8, !tbaa !81
   store ptr %.0.lcssa.i.i.i35, ptr %7, align 8, !tbaa !84
-  %82 = getelementptr inbounds nuw %"struct.jsonnet::internal::FodderElement", ptr %23, i64 %19
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %19
   store ptr %82, ptr %77, align 8, !tbaa !87
   ret void
 
@@ -8822,7 +8822,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_R
 _ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %78
   store ptr %23, ptr %0, align 8, !tbaa !81
   store ptr %.0.lcssa.i.i.i35, ptr %7, align 8, !tbaa !84
-  %82 = getelementptr inbounds nuw %"struct.jsonnet::internal::FodderElement", ptr %23, i64 %19
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %19
   store ptr %82, ptr %77, align 8, !tbaa !87
   ret void
 
@@ -9048,7 +9048,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !6
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !12
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !21
   ret void
 
@@ -9246,7 +9246,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_R
 _ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %78
   store ptr %23, ptr %0, align 8, !tbaa !81
   store ptr %.0.lcssa.i.i.i35, ptr %7, align 8, !tbaa !84
-  %82 = getelementptr inbounds nuw %"struct.jsonnet::internal::FodderElement", ptr %23, i64 %19
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %19
   store ptr %82, ptr %77, align 8, !tbaa !87
   ret void
 
@@ -9447,7 +9447,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_R
 _ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %78
   store ptr %23, ptr %0, align 8, !tbaa !81
   store ptr %.0.lcssa.i.i.i35, ptr %7, align 8, !tbaa !84
-  %82 = getelementptr inbounds nuw %"struct.jsonnet::internal::FodderElement", ptr %23, i64 %19
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %19
   store ptr %82, ptr %77, align 8, !tbaa !87
   ret void
 

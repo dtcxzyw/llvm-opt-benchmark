@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.asmjit::_abi_1_10::ZoneVector.0" = type { %"class.asmjit::_abi_1_10::ZoneVectorBase" }
 %"class.asmjit::_abi_1_10::ZoneVectorBase" = type { ptr, i32, i32 }
-%"struct.asmjit::_abi_1_10::RAStackGap" = type { i32, i32 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN6asmjit9_abi_1_1016RAStackAllocator7newSlotEjjjj(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
@@ -57,7 +56,7 @@ define hidden noundef ptr @_ZN6asmjit9_abi_1_1016RAStackAllocator7newSlotEjjjj(p
   %35 = load ptr, ptr %7, align 8, !tbaa !26
   %36 = load i32, ptr %10, align 8, !tbaa !9
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %37
   %39 = ptrtoint ptr %19 to i64
   store i64 %39, ptr %38, align 8
   %40 = load i32, ptr %10, align 8, !tbaa !9
@@ -79,7 +78,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RAStackAllocator19calculateStac
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !9
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %8
   %10 = icmp eq i32 %7, 0
   br i1 %10, label %.loopexit35, label %11
 
@@ -147,7 +146,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RAStackAllocator19calculateStac
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %54 = getelementptr inbounds i8, ptr %45, i64 -8
   %55 = lshr i64 %50, 1
-  %56 = getelementptr inbounds nuw ptr, ptr %44, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !27
   %58 = load ptr, ptr %44, align 8, !tbaa !27
   store ptr %58, ptr %56, align 8, !tbaa !27
@@ -348,7 +347,7 @@ split:                                            ; preds = %107, %._crit_edge
   %166 = load ptr, ptr %4, align 8, !tbaa !26
   %167 = load i32, ptr %6, align 8, !tbaa !9
   %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds nuw ptr, ptr %166, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %168
   %170 = icmp eq i32 %167, 0
   br i1 %170, label %319, label %.preheader31
 
@@ -451,7 +450,7 @@ split:                                            ; preds = %107, %._crit_edge
 
 244:                                              ; preds = %250, %241
   %245 = phi i64 [ %251, %250 ], [ %243, %241 ]
-  %246 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::ZoneVector.0", ptr %3, i64 %245
+  %246 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %245
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %248 = load i32, ptr %247, align 8, !tbaa !9
   %249 = icmp eq i32 %248, 0
@@ -474,7 +473,7 @@ split:                                            ; preds = %107, %._crit_edge
   store i32 %258, ptr %257, align 8, !tbaa !9, !noalias !37
   %259 = load ptr, ptr %246, align 8, !tbaa !26, !noalias !37
   %260 = zext i32 %258 to i64
-  %261 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::RAStackGap", ptr %259, i64 %260
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %260
   %262 = load i32, ptr %261, align 4, !tbaa !40, !noalias !37
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 4
   %264 = load i32, ptr %263, align 4, !tbaa !42, !noalias !37
@@ -507,7 +506,7 @@ split:                                            ; preds = %107, %._crit_edge
 
 282:                                              ; preds = %.preheader
   %283 = zext nneg i32 %278 to i64
-  %284 = getelementptr inbounds nuw %"class.asmjit::_abi_1_10::ZoneVector.0", ptr %3, i64 %283
+  %284 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %283
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %286 = load i32, ptr %285, align 8, !tbaa !9
   %287 = getelementptr inbounds nuw i8, ptr %284, i64 12
@@ -529,7 +528,7 @@ split:                                            ; preds = %107, %._crit_edge
   %297 = phi i32 [ %295, %294 ], [ %286, %282 ]
   %298 = load ptr, ptr %284, align 16, !tbaa !26
   %299 = zext i32 %297 to i64
-  %300 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::RAStackGap", ptr %298, i64 %299
+  %300 = getelementptr inbounds nuw [8 x i8], ptr %298, i64 %299
   %301 = zext i32 %279 to i64
   %302 = shl nuw i64 %301, 32
   %303 = zext i32 %277 to i64
@@ -586,7 +585,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RAStackAllocator17adjustSlotOff
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !9
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = icmp eq i32 %6, 0
   br i1 %9, label %.loopexit, label %10
 

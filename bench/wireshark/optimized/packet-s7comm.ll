@@ -6063,7 +6063,7 @@ define internal fastcc void @s7comm_decode_pistart_parameters(ptr noundef %0, pt
   %17 = zext i8 %15 to i32
   %18 = tail call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %16, ptr noundef %0, i32 noundef %.042, i32 noundef 1, i32 noundef %17)
   %19 = add i32 %.042, 1
-  %20 = getelementptr i32, ptr %6, i64 %indvars.iv
+  %20 = getelementptr [4 x i8], ptr %6, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %21, ptr noundef %0, i32 noundef %19, i32 noundef %17, i32 noundef 0)
   tail call void @wmem_strbuf_append(ptr noundef %11, ptr noundef nonnull @.str.2339)

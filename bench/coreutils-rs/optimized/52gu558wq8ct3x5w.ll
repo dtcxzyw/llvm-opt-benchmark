@@ -1464,7 +1464,7 @@ define void @_ZN5uu_ln6uu_app17h955498f1a7178eabE(ptr noalias noundef writeonly 
   %260 = phi i64 [ %.pre.i.i, %.noexc.i108 ], [ %251, %248 ]
   %261 = getelementptr inbounds nuw i8, ptr %61, i64 136
   %262 = load ptr, ptr %261, align 8, !alias.scope !387, !noalias !392, !nonnull !5, !noundef !5
-  %263 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %262, i64 %260
+  %263 = getelementptr inbounds [16 x i8], ptr %262, i64 %260
   store ptr @anon.c1679ea9953714c8ca2e1ea5b4911e8f.44, ptr %263, align 8, !noalias !392
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store i64 8, ptr %264, align 8, !noalias !397
@@ -1772,7 +1772,7 @@ define void @_ZN5uu_ln6uu_app17h955498f1a7178eabE(ptr noalias noundef writeonly 
   %342 = phi i64 [ %.pre.i.i147, %.noexc.i146 ], [ %333, %330 ]
   %343 = getelementptr inbounds nuw i8, ptr %56, i64 136
   %344 = load ptr, ptr %343, align 8, !alias.scope !511, !noalias !516, !nonnull !5, !noundef !5
-  %345 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %344, i64 %342
+  %345 = getelementptr inbounds [16 x i8], ptr %344, i64 %342
   store ptr @anon.c1679ea9953714c8ca2e1ea5b4911e8f.46, ptr %345, align 8, !noalias !516
   %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
   store i64 8, ptr %346, align 8, !noalias !521
@@ -2044,7 +2044,7 @@ define void @_ZN5uu_ln6uu_app17h955498f1a7178eabE(ptr noalias noundef writeonly 
   %414 = phi i64 [ %.pre.i.i176, %.noexc.i175 ], [ %405, %402 ]
   %415 = getelementptr inbounds nuw i8, ptr %52, i64 112
   %416 = load ptr, ptr %415, align 8, !alias.scope !624, !noalias !629, !nonnull !5, !noundef !5
-  %417 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %416, i64 %414
+  %417 = getelementptr inbounds [16 x i8], ptr %416, i64 %414
   store ptr @anon.c1679ea9953714c8ca2e1ea5b4911e8f.51, ptr %417, align 8, !noalias !629
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 8
   store i64 19, ptr %418, align 8, !noalias !634
@@ -2717,7 +2717,7 @@ common.resume:                                    ; preds = %140, %117, %30, %56
 51:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not46 = icmp eq i64 %1, 0
-  %52 = getelementptr { { { { { i64, ptr, {} }, i64 } } } }, ptr %0, i64 %1
+  %52 = getelementptr [24 x i8], ptr %0, i64 %1
   %53 = getelementptr i8, ptr %52, i64 -24
   %54 = icmp eq ptr %53, null
   %55 = or i1 %.not46, %54

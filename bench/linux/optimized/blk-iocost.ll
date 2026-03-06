@@ -163,9 +163,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.ioc_now = type { i64, i64, i64 }
 %struct.blkg_conf_ctx = type { ptr, ptr, ptr, ptr }
 %struct.substring_t = type { ptr, ptr }
-%struct.ioc_missed = type { %struct.local_t, %struct.local_t, i32, i32 }
-%struct.local_t = type { %struct.atomic64_t }
-%struct.atomic64_t = type { i64 }
 %struct.iocg_wake_ctx = type { ptr, i32, i64 }
 %struct.iocg_wait = type { %struct.wait_queue_entry, ptr, i64, i8 }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
@@ -1585,7 +1582,7 @@ define internal noalias noundef ptr @ioc_cpd_alloc(i32 noundef %0) #1 align 16 {
 
 9:                                                ; preds = %5, %1
   %10 = phi i64 [ 0, %1 ], [ %8, %5 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %10
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %10
   %11 = getelementptr i8, ptr %.split, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias align 8 dereferenceable_or_null(24) ptr @kmalloc_trace(ptr noundef %12, i32 noundef %2, i64 noundef 24) #24
@@ -1767,12 +1764,12 @@ define internal void @ioc_pd_init(ptr noundef %0) #1 align 16 {
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 208
   %75 = load i32, ptr @blkcg_policy_iocost, align 8
   %76 = sext i32 %75 to i64
-  %77 = getelementptr ptr, ptr %74, i64 %76
+  %77 = getelementptr [8 x i8], ptr %74, i64 %76
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 416
   %80 = load i32, ptr %79, align 8
   %81 = sext i32 %80 to i64
-  %82 = getelementptr ptr, ptr %71, i64 %81
+  %82 = getelementptr [8 x i8], ptr %71, i64 %81
   store ptr %78, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %84 = load ptr, ptr %83, align 8
@@ -1799,7 +1796,7 @@ define internal void @ioc_pd_init(ptr noundef %0) #1 align 16 {
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 240
   %97 = load i32, ptr @blkcg_policy_iocost, align 8
   %98 = sext i32 %97 to i64
-  %99 = getelementptr ptr, ptr %96, i64 %98
+  %99 = getelementptr [8 x i8], ptr %96, i64 %98
   %100 = load ptr, ptr %99, align 8
   br label %101
 
@@ -1940,10 +1937,10 @@ define internal void @ioc_pd_free(ptr noundef %0) #1 align 16 {
   %56 = phi i32 [ %92, %.lr.ph.backedge ], [ %39, %48 ]
   %57 = phi i32 [ %54, %.lr.ph.backedge ], [ %50, %48 ]
   %58 = zext nneg i32 %54 to i64
-  %59 = getelementptr ptr, ptr %51, i64 %58
+  %59 = getelementptr [8 x i8], ptr %51, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = sext i32 %57 to i64
-  %62 = getelementptr ptr, ptr %51, i64 %61
+  %62 = getelementptr [8 x i8], ptr %51, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %65 = load i32, ptr %64, align 8
@@ -2133,7 +2130,7 @@ define internal noundef i32 @ioc_weight_show(ptr noundef %0, ptr readnone captur
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 240
   %9 = load i32, ptr @blkcg_policy_iocost, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr ptr, ptr %8, i64 %10
+  %11 = getelementptr [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
   br label %13
 
@@ -2167,7 +2164,7 @@ define internal i64 @ioc_weight_write(ptr noundef %0, ptr noundef %1, i64 nounde
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %12 = load i32, ptr @blkcg_policy_iocost, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr ptr, ptr %11, i64 %13
+  %14 = getelementptr [8 x i8], ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8
   br label %16
 
@@ -2225,7 +2222,7 @@ define internal i64 @ioc_weight_write(ptr noundef %0, ptr noundef %1, i64 nounde
   %46 = phi ptr [ %38, %41 ], [ %124, %119 ]
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 208
   %48 = sext i32 %45 to i64
-  %49 = getelementptr ptr, ptr %47, i64 %48
+  %49 = getelementptr [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %119, label %52
@@ -2285,7 +2282,7 @@ define internal i64 @ioc_weight_write(ptr noundef %0, ptr noundef %1, i64 nounde
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 240
   %86 = load i32, ptr @blkcg_policy_iocost, align 8
   %87 = sext i32 %86 to i64
-  %88 = getelementptr ptr, ptr %85, i64 %87
+  %88 = getelementptr [8 x i8], ptr %85, i64 %87
   %89 = load ptr, ptr %88, align 8
   br label %90
 
@@ -2369,7 +2366,7 @@ define internal i64 @ioc_weight_write(ptr noundef %0, ptr noundef %1, i64 nounde
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 208
   %136 = load i32, ptr @blkcg_policy_iocost, align 8
   %137 = sext i32 %136 to i64
-  %138 = getelementptr ptr, ptr %135, i64 %137
+  %138 = getelementptr [8 x i8], ptr %135, i64 %137
   %139 = load ptr, ptr %138, align 8
   br label %140
 
@@ -2465,7 +2462,7 @@ define internal i64 @ioc_weight_write(ptr noundef %0, ptr noundef %1, i64 nounde
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 240
   %197 = load i32, ptr @blkcg_policy_iocost, align 8
   %198 = sext i32 %197 to i64
-  %199 = getelementptr ptr, ptr %196, i64 %198
+  %199 = getelementptr [8 x i8], ptr %196, i64 %198
   %200 = load ptr, ptr %199, align 8
   br label %201
 
@@ -2717,7 +2714,7 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
   %96 = trunc nuw nsw i64 %93 to i32
   %97 = mul nuw nsw i32 %96, 100
   %98 = zext nneg i32 %85 to i64
-  %99 = getelementptr i32, ptr %6, i64 %98
+  %99 = getelementptr [4 x i8], ptr %6, i64 %98
   store i32 %97, ptr %99, align 4
   br label %select.unfold
 
@@ -2730,7 +2727,7 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
   %104 = load i64, ptr %10, align 8
   %105 = trunc i64 %104 to i32
   %106 = zext nneg i32 %85 to i64
-  %107 = getelementptr i32, ptr %6, i64 %106
+  %107 = getelementptr [4 x i8], ptr %6, i64 %106
   store i32 %105, ptr %107, align 4
   br label %select.unfold
 
@@ -2755,7 +2752,7 @@ define internal i64 @ioc_qos_write(ptr readnone captures(none) %0, ptr noundef %
   %120 = call i64 @llvm.umin.i64(i64 %119, i64 100000000)
   %121 = trunc nuw nsw i64 %120 to i32
   %122 = zext nneg i32 %85 to i64
-  %123 = getelementptr i32, ptr %6, i64 %122
+  %123 = getelementptr [4 x i8], ptr %6, i64 %122
   store i32 %121, ptr %123, align 4
   br label %select.unfold
 
@@ -3025,7 +3022,7 @@ define internal i64 @ioc_cost_model_write(ptr readnone captures(none) %0, ptr no
 81:                                               ; preds = %78
   %82 = load i64, ptr %10, align 8
   %83 = sext i32 %76 to i64
-  %84 = getelementptr i64, ptr %6, i64 %83
+  %84 = getelementptr [8 x i8], ptr %6, i64 %83
   store i64 %82, ptr %84, align 8
   br label %select.unfold
 
@@ -3223,10 +3220,10 @@ define internal fastcc void @__propagate_weights(ptr noundef %0, i32 noundef %1,
   %54 = phi i32 [ %90, %.lr.ph.backedge ], [ %29, %46 ]
   %55 = phi i32 [ %52, %.lr.ph.backedge ], [ %48, %46 ]
   %56 = zext nneg i32 %52 to i64
-  %57 = getelementptr ptr, ptr %49, i64 %56
+  %57 = getelementptr [8 x i8], ptr %49, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = sext i32 %55 to i64
-  %60 = getelementptr ptr, ptr %49, i64 %59
+  %60 = getelementptr [8 x i8], ptr %49, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load i32, ptr %62, align 8
@@ -3396,7 +3393,7 @@ define internal fastcc i32 @blk_iocost_init(ptr noundef %0) unnamed_addr #1 alig
   %18 = load ptr, ptr %7, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %15, 63
-  %21 = getelementptr i64, ptr @__per_cpu_offset, i64 %20
+  %21 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %19
   %24 = inttoptr i64 %23 to ptr
@@ -3579,7 +3576,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %22 = load ptr, ptr %9, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %18, 63
-  %25 = getelementptr i64, ptr @__per_cpu_offset, i64 %24
+  %25 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, %23
   %28 = inttoptr i64 %27 to ptr
@@ -3590,7 +3587,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %.sroa.phi227 = phi ptr [ %.sroa.0, %21 ], [ %.sroa.5, %29 ]
   %.sroa.phi233 = phi ptr [ %.sroa.0236, %21 ], [ %.sroa.5237, %29 ]
   %31 = phi i64 [ 0, %21 ], [ 1, %29 ]
-  %32 = getelementptr %struct.ioc_missed, ptr %28, i64 %31
+  %32 = getelementptr [24 x i8], ptr %28, i64 %31
   %33 = load volatile i64, ptr %32, align 8
   %34 = trunc i64 %33 to i32
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -3925,7 +3922,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %252 = phi i32 [ 65536, %246 ], [ %282, %281 ]
   %253 = add i32 %250, 1
   %254 = sext i32 %253 to i64
-  %255 = getelementptr ptr, ptr %247, i64 %254
+  %255 = getelementptr [8 x i8], ptr %247, i64 %254
   %256 = load ptr, ptr %255, align 8
   %257 = getelementptr inbounds nuw i8, ptr %249, i64 128
   %258 = load volatile i64, ptr %257, align 8
@@ -4097,10 +4094,10 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %365 = phi i32 [ %401, %.lr.ph.backedge ], [ %348, %357 ]
   %366 = phi i32 [ %363, %.lr.ph.backedge ], [ %359, %357 ]
   %367 = zext nneg i32 %363 to i64
-  %368 = getelementptr ptr, ptr %360, i64 %367
+  %368 = getelementptr [8 x i8], ptr %360, i64 %367
   %369 = load ptr, ptr %368, align 8
   %370 = sext i32 %366 to i64
-  %371 = getelementptr ptr, ptr %360, i64 %370
+  %371 = getelementptr [8 x i8], ptr %360, i64 %370
   %372 = load ptr, ptr %371, align 8
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 32
   %374 = load i32, ptr %373, align 8
@@ -4240,7 +4237,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %449 = load ptr, ptr %437, align 8
   %450 = ptrtoint ptr %449 to i64
   %451 = and i64 %445, 63
-  %452 = getelementptr i64, ptr @__per_cpu_offset, i64 %451
+  %452 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %451
   %453 = load i64, ptr %452, align 8
   %454 = add i64 %453, %450
   %455 = inttoptr i64 %454 to ptr
@@ -4273,7 +4270,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
 
 474:                                              ; preds = %.thread111
   %475 = zext nneg i32 %472 to i64
-  %476 = getelementptr ptr, ptr %433, i64 %475
+  %476 = getelementptr [8 x i8], ptr %433, i64 %475
   %477 = getelementptr i8, ptr %476, i64 304
   %478 = load ptr, ptr %477, align 8
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 312
@@ -4344,7 +4341,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
 
 527:                                              ; preds = %522
   %528 = and i64 %524, 2147483647
-  %529 = getelementptr ptr, ptr %517, i64 %528
+  %529 = getelementptr [8 x i8], ptr %517, i64 %528
   %530 = load ptr, ptr %529, align 8
   %531 = getelementptr inbounds nuw i8, ptr %530, i64 176
   %532 = load volatile ptr, ptr %531, align 8
@@ -4363,7 +4360,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
 .preheader169:                                    ; preds = %.loopexit171, %.preheader169
   %538 = phi i32 [ %545, %.preheader169 ], [ %536, %.loopexit171 ]
   %539 = sext i32 %538 to i64
-  %540 = getelementptr ptr, ptr %517, i64 %539
+  %540 = getelementptr [8 x i8], ptr %517, i64 %539
   %541 = load ptr, ptr %540, align 8
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 176
   %543 = load ptr, ptr %430, align 8
@@ -4399,7 +4396,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
 
 558:                                              ; preds = %.preheader167
   %559 = zext nneg i32 %556 to i64
-  %560 = getelementptr ptr, ptr %552, i64 %559
+  %560 = getelementptr [8 x i8], ptr %552, i64 %559
   %561 = getelementptr i8, ptr %560, i64 240
   %562 = load ptr, ptr %561, align 8
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 312
@@ -4520,7 +4517,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %640 = phi i32 [ 65536, %634 ], [ %670, %669 ]
   %641 = add i32 %638, 1
   %642 = sext i32 %641 to i64
-  %643 = getelementptr ptr, ptr %635, i64 %642
+  %643 = getelementptr [8 x i8], ptr %635, i64 %642
   %644 = load ptr, ptr %643, align 8
   %645 = getelementptr inbounds nuw i8, ptr %637, i64 128
   %646 = load volatile i64, ptr %645, align 8
@@ -4715,7 +4712,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %775 = phi i32 [ 65536, %769 ], [ %805, %804 ]
   %776 = add i32 %773, 1
   %777 = sext i32 %776 to i64
-  %778 = getelementptr ptr, ptr %770, i64 %777
+  %778 = getelementptr [8 x i8], ptr %770, i64 %777
   %779 = load ptr, ptr %778, align 8
   %780 = getelementptr inbounds nuw i8, ptr %772, i64 128
   %781 = load volatile i64, ptr %780, align 8
@@ -4784,10 +4781,10 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %824 = phi i64 [ 65536, %817 ], [ %842, %822 ]
   %825 = phi i32 [ %819, %817 ], [ %852, %822 ]
   %826 = phi i32 [ %813, %817 ], [ %854, %822 ]
-  %827 = getelementptr ptr, ptr %820, i64 %823
+  %827 = getelementptr [8 x i8], ptr %820, i64 %823
   %828 = load ptr, ptr %827, align 8
   %829 = sext i32 %826 to i64
-  %830 = getelementptr ptr, ptr %820, i64 %829
+  %830 = getelementptr [8 x i8], ptr %820, i64 %829
   %831 = load ptr, ptr %830, align 8
   %832 = getelementptr inbounds nuw i8, ptr %828, i64 136
   %833 = load i64, ptr %832, align 8
@@ -5057,7 +5054,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %1002 = phi i32 [ 65536, %996 ], [ %1032, %1031 ]
   %1003 = add i32 %1000, 1
   %1004 = sext i32 %1003 to i64
-  %1005 = getelementptr ptr, ptr %997, i64 %1004
+  %1005 = getelementptr [8 x i8], ptr %997, i64 %1004
   %1006 = load ptr, ptr %1005, align 8
   %1007 = getelementptr inbounds nuw i8, ptr %999, i64 128
   %1008 = load volatile i64, ptr %1007, align 8
@@ -5228,7 +5225,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
 
 1108:                                             ; preds = %1103
   %1109 = and i64 %1105, 2147483647
-  %1110 = getelementptr ptr, ptr %1098, i64 %1109
+  %1110 = getelementptr [8 x i8], ptr %1098, i64 %1109
   %1111 = load ptr, ptr %1110, align 8
   %1112 = getelementptr inbounds nuw i8, ptr %1111, i64 176
   %1113 = load volatile ptr, ptr %1112, align 8
@@ -5247,7 +5244,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
 .preheader158:                                    ; preds = %.loopexit160, %.preheader158
   %1119 = phi i32 [ %1126, %.preheader158 ], [ %1117, %.loopexit160 ]
   %1120 = sext i32 %1119 to i64
-  %1121 = getelementptr ptr, ptr %1098, i64 %1120
+  %1121 = getelementptr [8 x i8], ptr %1098, i64 %1120
   %1122 = load ptr, ptr %1121, align 8
   %1123 = getelementptr inbounds nuw i8, ptr %1122, i64 176
   %1124 = load ptr, ptr %979, align 8
@@ -5310,7 +5307,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %1151 = load i32, ptr %1150, align 8
   %1152 = add i32 %1151, -1
   %1153 = sext i32 %1152 to i64
-  %1154 = getelementptr ptr, ptr %1149, i64 %1153
+  %1154 = getelementptr [8 x i8], ptr %1149, i64 %1153
   %1155 = load ptr, ptr %1154, align 8
   %1156 = getelementptr i8, ptr %1148, i64 -28
   %1157 = load i32, ptr %1156, align 4
@@ -5347,7 +5344,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
 
 1176:                                             ; preds = %.preheader152
   %1177 = zext nneg i32 %1174 to i64
-  %1178 = getelementptr ptr, ptr %1172, i64 %1177
+  %1178 = getelementptr [8 x i8], ptr %1172, i64 %1177
   %1179 = getelementptr i8, ptr %1178, i64 240
   %1180 = load ptr, ptr %1179, align 8
   %1181 = getelementptr i8, ptr %1172, i64 -12
@@ -5387,7 +5384,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %1201 = getelementptr i8, ptr %1195, i64 248
   %1202 = add i32 %1198, -1
   %1203 = sext i32 %1202 to i64
-  %1204 = getelementptr ptr, ptr %1201, i64 %1203
+  %1204 = getelementptr [8 x i8], ptr %1201, i64 %1203
   %1205 = load ptr, ptr %1204, align 8
   %1206 = getelementptr inbounds nuw i8, ptr %1205, i64 128
   %1207 = load i64, ptr %1206, align 8
@@ -5514,7 +5511,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %1291 = getelementptr i8, ptr %1271, i64 248
   %1292 = add i32 %1273, -1
   %1293 = sext i32 %1292 to i64
-  %1294 = getelementptr ptr, ptr %1291, i64 %1293
+  %1294 = getelementptr [8 x i8], ptr %1291, i64 %1293
   %1295 = load ptr, ptr %1294, align 8
   %1296 = getelementptr i8, ptr %1271, i64 -20
   %1297 = load i32, ptr %1296, align 4
@@ -5605,7 +5602,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %1366 = load i32, ptr %1365, align 8
   %1367 = add i32 %1366, -1
   %1368 = sext i32 %1367 to i64
-  %1369 = getelementptr ptr, ptr %1364, i64 %1368
+  %1369 = getelementptr [8 x i8], ptr %1364, i64 %1368
   %1370 = load ptr, ptr %1369, align 8
   %1371 = getelementptr inbounds nuw i8, ptr %1370, i64 160
   %1372 = load i32, ptr %1371, align 8
@@ -5892,7 +5889,7 @@ define internal void @ioc_timer_fn(ptr noundef %0) #1 align 16 {
   %1535 = call i32 @llvm.abs.i32(i32 %1487, i1 true)
   %1536 = call i32 @llvm.umin.i32(i32 %1535, i32 52)
   %1537 = zext nneg i32 %1536 to i64
-  %1538 = getelementptr i32, ptr @vrate_adj_pct, i64 %1537
+  %1538 = getelementptr [4 x i8], ptr @vrate_adj_pct, i64 %1537
   %1539 = load i32, ptr %1538, align 4
   %1540 = icmp sgt i32 %1485, 0
   %1541 = sub i32 0, %1539
@@ -6262,7 +6259,7 @@ define internal fastcc void @ioc_refresh_params_disk(ptr noundef %0, i1 noundef 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr %struct.ioc_params, ptr @autop, i64 %6
+  %7 = getelementptr [128 x i8], ptr @autop, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -6369,7 +6366,7 @@ define internal fastcc void @ioc_refresh_params_disk(ptr noundef %0, i1 noundef 
 73:                                               ; preds = %72, %67, %53, %27, %25, %22, %3
   %74 = phi i32 [ %54, %53 ], [ 1, %3 ], [ 2, %22 ], [ 3, %25 ], [ %5, %27 ], [ %5, %72 ], [ %71, %67 ]
   %75 = sext i32 %74 to i64
-  %76 = getelementptr %struct.ioc_params, ptr @autop, i64 %75
+  %76 = getelementptr [128 x i8], ptr @autop, i64 %75
   %77 = load i32, ptr %4, align 8
   %78 = icmp ne i32 %74, %77
   %79 = or i1 %1, %78
@@ -6705,7 +6702,7 @@ define internal fastcc void @iocg_kick_waitq(ptr noundef %0, i1 noundef zeroext 
   %27 = phi i32 [ 65536, %21 ], [ %57, %56 ]
   %28 = add i32 %25, 1
   %29 = sext i32 %28 to i64
-  %30 = getelementptr ptr, ptr %22, i64 %29
+  %30 = getelementptr [8 x i8], ptr %22, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %33 = load volatile i64, ptr %32, align 8
@@ -6915,7 +6912,7 @@ define internal fastcc void @iocg_kick_waitq(ptr noundef %0, i1 noundef zeroext 
   %162 = phi i32 [ 65536, %156 ], [ %192, %191 ]
   %163 = add i32 %160, 1
   %164 = sext i32 %163 to i64
-  %165 = getelementptr ptr, ptr %157, i64 %164
+  %165 = getelementptr [8 x i8], ptr %157, i64 %164
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr inbounds nuw i8, ptr %159, i64 128
   %168 = load volatile i64, ptr %167, align 8
@@ -7114,7 +7111,7 @@ define internal fastcc noundef zeroext i1 @iocg_kick_delay(ptr noundef %0, ptr n
   %41 = phi i32 [ 65536, %35 ], [ %71, %70 ]
   %42 = add i32 %39, 1
   %43 = sext i32 %42 to i64
-  %44 = getelementptr ptr, ptr %36, i64 %43
+  %44 = getelementptr [8 x i8], ptr %36, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 128
   %47 = load volatile i64, ptr %46, align 8
@@ -7353,7 +7350,7 @@ define internal void @ioc_rqos_throttle(ptr noundef readonly captures(none) %0, 
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %10 = load i32, ptr @blkcg_policy_iocost, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr ptr, ptr %9, i64 %11
+  %12 = getelementptr [8 x i8], ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -7569,7 +7566,7 @@ define internal void @ioc_rqos_throttle(ptr noundef readonly captures(none) %0, 
 
 149:                                              ; preds = %144
   %150 = and i64 %146, 2147483647
-  %151 = getelementptr ptr, ptr %142, i64 %150
+  %151 = getelementptr [8 x i8], ptr %142, i64 %150
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 112
   %154 = load volatile ptr, ptr %153, align 8
@@ -7898,7 +7895,7 @@ define internal void @ioc_rqos_merge(ptr noundef %0, ptr noundef readonly captur
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %10 = load i32, ptr @blkcg_policy_iocost, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr ptr, ptr %9, i64 %11
+  %12 = getelementptr [8 x i8], ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %14
 
@@ -8177,7 +8174,7 @@ define internal void @ioc_rqos_done(ptr noundef readonly captures(none) %0, ptr 
 47:                                               ; preds = %40
   %48 = sub nuw i64 %24, %41
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %50 = getelementptr i32, ptr %49, i64 %20
+  %50 = getelementptr [4 x i8], ptr %49, i64 %20
   %51 = load i32, ptr %50, align 4
   %52 = zext i32 %51 to i64
   %53 = mul nuw nsw i64 %52, 1000
@@ -8185,12 +8182,12 @@ define internal void @ioc_rqos_done(ptr noundef readonly captures(none) %0, ptr 
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %47, %40
-  %56 = getelementptr %struct.ioc_missed, ptr %45, i64 %21
+  %56 = getelementptr [24 x i8], ptr %45, i64 %21
   tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %56, ptr elementtype(i64) %56) #22, !srcloc !145
   br label %59
 
 57:                                               ; preds = %47
-  %.split = getelementptr %struct.ioc_missed, ptr %45, i64 %21
+  %.split = getelementptr [24 x i8], ptr %45, i64 %21
   %58 = getelementptr i8, ptr %.split, i64 8
   tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %58, ptr elementtype(i64) %58) #22, !srcloc !145
   br label %59
@@ -8226,7 +8223,7 @@ define internal void @ioc_rqos_done_bio(ptr readnone captures(none) %0, ptr noun
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 208
   %8 = load i32, ptr @blkcg_policy_iocost, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr ptr, ptr %7, i64 %9
+  %10 = getelementptr [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.thread, label %13
@@ -8314,7 +8311,7 @@ define internal fastcc i64 @adjust_inuse_and_calc_cost(ptr noundef nonnull %0, i
   %25 = phi i32 [ 65536, %19 ], [ %55, %54 ]
   %26 = add i32 %23, 1
   %27 = sext i32 %26 to i64
-  %28 = getelementptr ptr, ptr %20, i64 %27
+  %28 = getelementptr [8 x i8], ptr %20, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %31 = load volatile i64, ptr %30, align 8
@@ -8478,7 +8475,7 @@ define internal fastcc i64 @adjust_inuse_and_calc_cost(ptr noundef nonnull %0, i
   %134 = phi i32 [ %164, %163 ], [ 65536, %.preheader.preheader ]
   %135 = add i32 %132, 1
   %136 = sext i32 %135 to i64
-  %137 = getelementptr ptr, ptr %109, i64 %136
+  %137 = getelementptr [8 x i8], ptr %109, i64 %136
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %131, i64 128
   %140 = load volatile i64, ptr %139, align 8

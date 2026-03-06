@@ -260,7 +260,7 @@ define void @ff_h264_filter_mb_fast(ptr noundef %0, ptr noundef %1, i32 noundef 
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 729312
   %242 = load ptr, ptr %241, align 8, !tbaa !85
   %243 = sext i32 %226 to i64
-  %244 = getelementptr inbounds i32, ptr %242, i64 %243
+  %244 = getelementptr inbounds [4 x i8], ptr %242, i64 %243
   %245 = load i32, ptr %244, align 4, !tbaa !80
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 729264
   %247 = load ptr, ptr %246, align 8, !tbaa !86
@@ -8108,7 +8108,7 @@ define void @ff_h264_filter_mb(ptr noundef readonly %0, ptr noundef readonly %1,
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 729312
   %73 = load ptr, ptr %72, align 8, !tbaa !85
   %74 = sext i32 %71 to i64
-  %75 = getelementptr inbounds i32, ptr %73, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %73, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !80
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 734784
   %78 = load ptr, ptr %77, align 8, !tbaa !68
@@ -8160,7 +8160,7 @@ define void @ff_h264_filter_mb(ptr noundef readonly %0, ptr noundef readonly %1,
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 21072
   %104 = load i32, ptr %103, align 16, !tbaa !103
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds [2 x [8 x i8]], ptr @ff_h264_filter_mb.offset, i64 %105
+  %106 = getelementptr inbounds [16 x i8], ptr @ff_h264_filter_mb.offset, i64 %105
   %107 = and i32 %3, 1
   %108 = zext nneg i32 %107 to i64
   %109 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %108
@@ -8178,14 +8178,14 @@ define void @ff_h264_filter_mb(ptr noundef readonly %0, ptr noundef readonly %1,
   %117 = and i32 %115, 1
   %118 = select i1 %.not296, i32 %117, i32 %116
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw i32, ptr %94, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !80
   %122 = and i32 %121, 7
   %.not297 = icmp eq i32 %122, 0
   br i1 %.not297, label %123, label %159
 
 123:                                              ; preds = %114
-  %124 = getelementptr inbounds nuw i32, ptr %110, i64 %119
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %119
   %125 = load i32, ptr %124, align 4, !tbaa !80
   %126 = shl i64 %indvars.iv, 2
   %127 = and i64 %126, 24
@@ -8205,7 +8205,7 @@ define void @ff_h264_filter_mb(ptr noundef readonly %0, ptr noundef readonly %1,
 
 137:                                              ; preds = %123
   %138 = load ptr, ptr %112, align 8, !tbaa !105
-  %139 = getelementptr inbounds i16, ptr %138, i64 %136
+  %139 = getelementptr inbounds [2 x i8], ptr %138, i64 %136
   %140 = load i16, ptr %139, align 2, !tbaa !92
   %141 = zext i16 %140 to i32
   %142 = and i32 %115, 2
@@ -8235,7 +8235,7 @@ define void @ff_h264_filter_mb(ptr noundef readonly %0, ptr noundef readonly %1,
 
 159:                                              ; preds = %114, %155
   %.sink602 = phi i16 [ %158, %155 ], [ 4, %114 ]
-  %160 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %indvars.iv
   store i16 %.sink602, ptr %160, align 2, !tbaa !92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -9985,7 +9985,7 @@ filter_mb_mbaff_edgev.exit313:                    ; preds = %1350, %1320, %filte
 
 1409:                                             ; preds = %.split.us, %1406
   %.sink = phi i16 [ %1408, %1406 ], [ 2, %.split.us ]
-  %1410 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv460
+  %1410 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv460
   store i16 %.sink, ptr %1410, align 2, !tbaa !92
   %indvars.iv.next461 = add nuw nsw i64 %indvars.iv460, 1
   %exitcond463.not = icmp eq i64 %indvars.iv.next461, 4
@@ -10004,7 +10004,7 @@ filter_mb_mbaff_edgev.exit313:                    ; preds = %1350, %1320, %filte
   br i1 %.not471.i, label %1420, label %1418
 
 1418:                                             ; preds = %.split
-  %1419 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv456
+  %1419 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv456
   store i16 2, ptr %1419, align 2, !tbaa !92
   br label %1420
 
@@ -10459,7 +10459,7 @@ filter_mb_edgev.exit:                             ; preds = %1651, %1627, %filte
 
 1714:                                             ; preds = %.split437.us, %1711
   %.sink500 = phi i16 [ %1713, %1711 ], [ 2, %.split437.us ]
-  %1715 = getelementptr inbounds nuw i16, ptr %42, i64 %indvars.iv468
+  %1715 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %indvars.iv468
   store i16 %.sink500, ptr %1715, align 2, !tbaa !92
   %indvars.iv.next469 = add nuw nsw i64 %indvars.iv468, 1
   %exitcond471.not = icmp eq i64 %indvars.iv.next469, 4
@@ -10477,7 +10477,7 @@ filter_mb_edgev.exit:                             ; preds = %1651, %1627, %filte
   br i1 %.not500.i, label %1724, label %1722
 
 1722:                                             ; preds = %.split437
-  %1723 = getelementptr inbounds nuw i16, ptr %42, i64 %indvars.iv464
+  %1723 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %indvars.iv464
   store i16 2, ptr %1723, align 2, !tbaa !92
   br label %1724
 
@@ -10858,7 +10858,7 @@ filter_mb_dir.exit:                               ; preds = %filter_mb_edgev.exi
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %1997 = load ptr, ptr %72, align 8, !tbaa !85
   %1998 = sext i32 %.0454.i443 to i64
-  %1999 = getelementptr inbounds i32, ptr %1997, i64 %1998
+  %1999 = getelementptr inbounds [4 x i8], ptr %1997, i64 %1998
   %2000 = load i32, ptr %1999, align 4, !tbaa !80
   %2001 = or i32 %2000, %76
   %2002 = and i32 %2001, 7
@@ -10881,7 +10881,7 @@ filter_mb_dir.exit:                               ; preds = %filter_mb_edgev.exi
 
 2009:                                             ; preds = %2004
   %2010 = load ptr, ptr %1963, align 8, !tbaa !105
-  %2011 = getelementptr inbounds i16, ptr %2010, i64 %1998
+  %2011 = getelementptr inbounds [2 x i8], ptr %2010, i64 %1998
   %2012 = load i16, ptr %2011, align 2, !tbaa !92
   %2013 = and i16 %2012, 16384
   %.not481.i = icmp eq i16 %2013, 0
@@ -10939,7 +10939,7 @@ filter_mb_dir.exit:                               ; preds = %filter_mb_edgev.exi
   %2039 = or i8 %2038, %2036
   %.not489.i = icmp eq i8 %2039, 0
   %2040 = select i1 %.not489.i, i16 1, i16 2
-  %2041 = getelementptr inbounds nuw i16, ptr %38, i64 %indvars.iv476
+  %2041 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %indvars.iv476
   store i16 %2040, ptr %2041, align 2, !tbaa !92
   %indvars.iv.next477 = add nuw nsw i64 %indvars.iv476, 1
   %exitcond479.not = icmp eq i64 %indvars.iv.next477, 4
@@ -11295,7 +11295,7 @@ filter_mb_edgeh.exit:                             ; preds = %2208, %filter_mb_ed
 
 .sink.split:                                      ; preds = %2263, %2272
   %.sink604 = phi i16 [ %2274, %2272 ], [ 2, %2263 ]
-  %2275 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv483
+  %2275 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %indvars.iv483
   store i16 %.sink604, ptr %2275, align 2, !tbaa !92
   br label %2276
 
@@ -11763,7 +11763,7 @@ filter_mb_edgeh.exit390:                          ; preds = %2507, %2483, %filte
 
 2580:                                             ; preds = %.split446.us, %2577
   %.sink502 = phi i16 [ %2579, %2577 ], [ 2, %.split446.us ]
-  %2581 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv491
+  %2581 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %indvars.iv491
   store i16 %.sink502, ptr %2581, align 2, !tbaa !92
   %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, 1
   %exitcond494.not = icmp eq i64 %indvars.iv.next492, 4
@@ -11782,7 +11782,7 @@ filter_mb_edgeh.exit390:                          ; preds = %2507, %2483, %filte
   br i1 %.not500.i363, label %2591, label %2589
 
 2589:                                             ; preds = %.split446
-  %2590 = getelementptr inbounds nuw i16, ptr %40, i64 %indvars.iv487
+  %2590 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %indvars.iv487
   store i16 2, ptr %2590, align 2, !tbaa !92
   br label %2591
 
@@ -12224,10 +12224,10 @@ define internal fastcc range(i32 0, 2) i32 @check_mv(ptr noundef readonly captur
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28752
-  %13 = getelementptr inbounds [2 x i16], ptr %12, i64 %1
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %1
   %14 = load i16, ptr %13, align 4, !tbaa !92
   %15 = sext i16 %14 to i32
-  %16 = getelementptr inbounds [2 x i16], ptr %12, i64 %2
+  %16 = getelementptr inbounds [4 x i8], ptr %12, i64 %2
   %17 = load i16, ptr %16, align 4, !tbaa !92
   %18 = sext i16 %17 to i32
   %19 = add nsw i32 %15, -4
@@ -12270,10 +12270,10 @@ define internal fastcc range(i32 0, 2) i32 @check_mv(ptr noundef readonly captur
   %41 = load i8, ptr %40, align 1, !tbaa !87
   %42 = icmp eq i8 %39, %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 28912
-  %44 = getelementptr inbounds [2 x i16], ptr %43, i64 %1
+  %44 = getelementptr inbounds [4 x i8], ptr %43, i64 %1
   %45 = load i16, ptr %44, align 4, !tbaa !92
   %46 = sext i16 %45 to i32
-  %47 = getelementptr inbounds [2 x i16], ptr %43, i64 %2
+  %47 = getelementptr inbounds [4 x i8], ptr %43, i64 %2
   %48 = load i16, ptr %47, align 4, !tbaa !92
   %49 = sext i16 %48 to i32
   %50 = add nsw i32 %46, 3
@@ -12302,11 +12302,11 @@ define internal fastcc range(i32 0, 2) i32 @check_mv(ptr noundef readonly captur
 
 67:                                               ; preds = %.critedge
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 28752
-  %69 = getelementptr inbounds [2 x i16], ptr %68, i64 %1
+  %69 = getelementptr inbounds [4 x i8], ptr %68, i64 %1
   %70 = load i16, ptr %69, align 4, !tbaa !92
   %71 = sext i16 %70 to i32
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 28912
-  %73 = getelementptr inbounds [2 x i16], ptr %72, i64 %2
+  %73 = getelementptr inbounds [4 x i8], ptr %72, i64 %2
   %74 = load i16, ptr %73, align 4, !tbaa !92
   %75 = sext i16 %74 to i32
   %76 = add nsw i32 %71, -4
@@ -12322,10 +12322,10 @@ define internal fastcc range(i32 0, 2) i32 @check_mv(ptr noundef readonly captur
   %86 = tail call i32 @llvm.abs.i32(i32 %85, i1 true)
   %87 = icmp samesign uge i32 %86, %3
   %88 = or i1 %78, %87
-  %89 = getelementptr inbounds [2 x i16], ptr %72, i64 %1
+  %89 = getelementptr inbounds [4 x i8], ptr %72, i64 %1
   %90 = load i16, ptr %89, align 4, !tbaa !92
   %91 = sext i16 %90 to i32
-  %92 = getelementptr inbounds [2 x i16], ptr %68, i64 %2
+  %92 = getelementptr inbounds [4 x i8], ptr %68, i64 %2
   %93 = load i16, ptr %92, align 4, !tbaa !92
   %94 = sext i16 %93 to i32
   %95 = add nsw i32 %91, -4

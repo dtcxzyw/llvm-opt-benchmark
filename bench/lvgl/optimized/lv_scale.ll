@@ -544,7 +544,7 @@ define void @lv_scale_set_text_src(ptr noundef %0, ptr noundef %1) local_unnamed
   %7 = phi i32 [ %8, %.lr.ph ], [ 0, %.preheader13 ]
   %8 = add nuw nsw i32 %7, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %..loopexit_crit_edge, label %.lr.ph, !llvm.loop !35
@@ -1986,7 +1986,7 @@ scale_set_indicator_label_properties.exit:        ; preds = %118, %119
 143:                                              ; preds = %140
   %144 = add nsw i32 %141, -1
   %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds nuw ptr, ptr %139, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %145
   %147 = load ptr, ptr %146, align 8, !tbaa !34
   %.not11.i.i = icmp eq ptr %147, null
   br i1 %.not11.i.i, label %151, label %148

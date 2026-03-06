@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.expert_field = type { i32, i32 }
 %struct.wccp_address_table = type { i8, i16, i16, i16, ptr, ptr }
 %struct.e_in6_addr = type { [16 x i8] }
-%struct.capability_flag = type { i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"HTTP\00", align 1
 @service_id_vals = hidden constant [2 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str }, { i32, [4 x i8], ptr } zeroinitializer], align 16
@@ -2921,7 +2920,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
 84:                                               ; preds = %80
   %85 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %.099118)
   %86 = load ptr, ptr %69, align 8
-  %87 = getelementptr i32, ptr %86, i64 %indvars.iv
+  %87 = getelementptr [4 x i8], ptr %86, i64 %indvars.iv
   store i32 %85, ptr %87, align 4
   br label %106
 
@@ -2944,7 +2943,7 @@ define internal i32 @dissect_wccp2r1_address_table_info(ptr noundef %0, i32 noun
   br i1 %98, label %99, label %106
 
 99:                                               ; preds = %95
-  %100 = getelementptr %struct.e_in6_addr, ptr %94, i64 %indvars.iv
+  %100 = getelementptr [16 x i8], ptr %94, i64 %indvars.iv
   tail call void @tvb_get_ipv6(ptr noundef %0, i32 noundef %.099118, ptr noundef %100)
   br label %106
 
@@ -3163,7 +3162,7 @@ define internal fastcc ptr @wccp_add_ipaddress_item(ptr noundef %0, i32 noundef 
 
 34:                                               ; preds = %31
   %35 = zext nneg i32 %14 to i64
-  %36 = getelementptr i32, ptr %33, i64 %35
+  %36 = getelementptr [4 x i8], ptr %33, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -4
   %38 = load i32, ptr %37, align 4
   %39 = tail call ptr @proto_tree_add_ipv4(ptr noundef %0, i32 noundef %2, ptr noundef %4, i32 noundef %5, i32 noundef 4, i32 noundef %38)
@@ -3200,7 +3199,7 @@ define internal fastcc ptr @wccp_add_ipaddress_item(ptr noundef %0, i32 noundef 
 
 56:                                               ; preds = %53
   %57 = zext nneg i32 %14 to i64
-  %58 = getelementptr %struct.e_in6_addr, ptr %55, i64 %57
+  %58 = getelementptr [16 x i8], ptr %55, i64 %57
   %59 = getelementptr i8, ptr %58, i64 -16
   %60 = tail call ptr @proto_tree_add_ipv6(ptr noundef %0, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef 4, ptr noundef %59)
   br label %65
@@ -3859,7 +3858,7 @@ define internal fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noun
   %39 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc(ptr noundef %37, i64 noundef 16) #9
   %40 = load ptr, ptr %35, align 8
   %41 = zext nneg i32 %12 to i64
-  %42 = getelementptr i32, ptr %40, i64 %41
+  %42 = getelementptr [4 x i8], ptr %40, i64 %41
   %43 = getelementptr i8, ptr %42, i64 -4
   tail call void @ip_addr_to_str_buf(ptr noundef %43, ptr noundef %39, i32 noundef 16)
   br label %76
@@ -3902,7 +3901,7 @@ define internal fastcc ptr @decode_wccp_encoded_address(ptr noundef %0, i32 noun
   %66 = tail call noalias dereferenceable_or_null(46) ptr @wmem_alloc(ptr noundef %64, i64 noundef 46) #9
   %67 = load ptr, ptr %62, align 8
   %68 = zext nneg i32 %12 to i64
-  %69 = getelementptr %struct.e_in6_addr, ptr %67, i64 %68
+  %69 = getelementptr [16 x i8], ptr %67, i64 %68
   %70 = getelementptr i8, ptr %69, i64 -16
   tail call void @ip6_to_str_buf(ptr noundef %70, ptr noundef %66, i64 noundef 46)
   br label %76
@@ -4190,7 +4189,7 @@ define internal fastcc void @dissect_32_bit_capability_flags(ptr noundef %0, i32
   %.1 = phi i8 [ %.051, %.lr.ph ], [ 0, %.sink.split ]
   %28 = add i32 %.04150, 1
   %29 = sext i32 %28 to i64
-  %30 = getelementptr %struct.capability_flag, ptr %4, i64 %29
+  %30 = getelementptr [24 x i8], ptr %4, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not46 = icmp eq ptr %32, null
@@ -4219,7 +4218,7 @@ define internal fastcc void @dissect_32_bit_capability_flags(ptr noundef %0, i32
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %39, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
   %41 = add i32 %.14253, 1
   %42 = sext i32 %41 to i64
-  %43 = getelementptr %struct.capability_flag, ptr %4, i64 %42
+  %43 = getelementptr [24 x i8], ptr %4, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   %.not47 = icmp eq ptr %45, null

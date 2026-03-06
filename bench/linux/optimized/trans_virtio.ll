@@ -29,13 +29,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.spinlock = type { %union.anon }
 %union.anon = type { %struct.raw_spinlock }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
-%struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
-%struct.page = type { i64, %union.anon.6, %union.anon.14, %struct.atomic_t, [8 x i8] }
-%union.anon.6 = type { %struct.anon.7 }
-%struct.anon.7 = type { %union.anon.8, ptr, %union.anon.10, i64 }
-%union.anon.8 = type { %struct.list_head }
-%union.anon.10 = type { i64 }
-%union.anon.14 = type { %struct.atomic_t }
 
 @p9_virtio_drv = internal global %struct.virtio_driver { %struct.device_driver { ptr @.str, ptr null, ptr null, ptr null, i8 0, i32 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, ptr @id_table, ptr @features, i32 1, ptr null, i32 0, ptr null, ptr @p9_virtio_probe, ptr null, ptr @p9_virtio_remove, ptr null, ptr null, ptr null }, align 8
 @p9_virtio_trans = internal global %struct.p9_trans_module { %struct.list_head zeroinitializer, ptr @.str.9, i32 512000, i8 0, i32 1, ptr null, ptr @p9_virtio_create, ptr @p9_virtio_close, ptr @p9_virtio_request, ptr @p9_virtio_cancel, ptr @p9_virtio_cancelled, ptr @p9_virtio_zc_request, ptr null }, align 8
@@ -702,7 +695,7 @@ define internal noundef range(i32 -512, 1) i32 @p9_virtio_request(ptr noundef re
   unreachable
 
 30:                                               ; preds = %.preheader12
-  %31 = getelementptr %struct.scatterlist, ptr %8, i64 %20
+  %31 = getelementptr [32 x i8], ptr %8, i64 %20
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %32, -3
   store i64 %33, ptr %31, align 8
@@ -774,7 +767,7 @@ define internal noundef range(i32 -512, 1) i32 @p9_virtio_request(ptr noundef re
   unreachable
 
 74:                                               ; preds = %.preheader
-  %75 = getelementptr %struct.scatterlist, ptr %8, i64 %64
+  %75 = getelementptr [32 x i8], ptr %8, i64 %64
   %76 = load i64, ptr %75, align 8
   %77 = and i64 %76, -3
   store i64 %77, ptr %75, align 8
@@ -851,7 +844,7 @@ pack_sg_list.exit7:                               ; preds = %57
   %122 = ashr exact i64 %sext, 27
   %123 = getelementptr i8, ptr %8, i64 %122
   %124 = zext nneg i32 %120 to i64
-  %125 = getelementptr ptr, ptr %3, i64 %124
+  %125 = getelementptr [8 x i8], ptr %3, i64 %124
   store ptr %123, ptr %125, align 8
   br label %pack_sg_list.exit7.thread
 
@@ -1074,7 +1067,7 @@ define internal i32 @p9_virtio_zc_request(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 90:                                               ; preds = %.preheader
-  %91 = getelementptr %struct.scatterlist, ptr %69, i64 %80
+  %91 = getelementptr [32 x i8], ptr %69, i64 %80
   %92 = load i64, ptr %91, align 8
   %93 = and i64 %92, -3
   store i64 %93, ptr %91, align 8
@@ -1138,10 +1131,10 @@ pack_sg_list.exit.thread:                         ; preds = %.critedge, %117, %1
 
 130:                                              ; preds = %pack_sg_list.exit.thread
   %131 = sext i32 %126 to i64
-  %132 = getelementptr %struct.scatterlist, ptr %69, i64 %131
+  %132 = getelementptr [32 x i8], ptr %69, i64 %131
   %133 = add nuw nsw i32 %127, 1
   %134 = zext nneg i32 %127 to i64
-  %135 = getelementptr ptr, ptr %10, i64 %134
+  %135 = getelementptr [8 x i8], ptr %10, i64 %134
   store ptr %132, ptr %135, align 8
   %136 = load i64, ptr %11, align 8
   %137 = call fastcc i32 @pack_sg_list_p(ptr noundef nonnull %69, i32 noundef %126, ptr noundef nonnull %128, i32 noundef %64, i64 noundef %136, i32 noundef %66)
@@ -1158,9 +1151,9 @@ pack_sg_list.exit.thread:                         ; preds = %.critedge, %117, %1
 
 145:                                              ; preds = %139
   %146 = sext i32 %141 to i64
-  %147 = getelementptr %struct.scatterlist, ptr %69, i64 %146
+  %147 = getelementptr [32 x i8], ptr %69, i64 %146
   %148 = zext nneg i32 %140 to i64
-  %149 = getelementptr ptr, ptr %10, i64 %148
+  %149 = getelementptr [8 x i8], ptr %10, i64 %148
   store ptr %147, ptr %149, align 8
   br label %150
 
@@ -1172,13 +1165,13 @@ pack_sg_list.exit.thread:                         ; preds = %.critedge, %117, %1
 
 154:                                              ; preds = %150
   %155 = sext i32 %141 to i64
-  %156 = getelementptr %struct.scatterlist, ptr %69, i64 %155
+  %156 = getelementptr [32 x i8], ptr %69, i64 %155
   %157 = sext i32 %143 to i64
-  %158 = getelementptr %struct.scatterlist, ptr %156, i64 %157
+  %158 = getelementptr [32 x i8], ptr %156, i64 %157
   %159 = add nuw nsw i32 %151, 1
   %160 = add nuw nsw i32 %151, %140
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr ptr, ptr %10, i64 %161
+  %162 = getelementptr [8 x i8], ptr %10, i64 %161
   store ptr %158, ptr %162, align 8
   %163 = add i32 %143, %141
   %164 = load i64, ptr %11, align 8
@@ -1394,7 +1387,7 @@ define internal fastcc i32 @pack_sg_list(ptr noundef captures(none) %0, i32 noun
   unreachable
 
 21:                                               ; preds = %10
-  %22 = getelementptr %struct.scatterlist, ptr %0, i64 %11
+  %22 = getelementptr [32 x i8], ptr %0, i64 %11
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, -3
   store i64 %24, ptr %22, align 8
@@ -1636,13 +1629,13 @@ define internal fastcc i32 @p9_get_mapped_pages(ptr noundef readonly captures(no
   %103 = select i1 %99, i64 %100, i64 %102
   %104 = add i64 %98, %103
   %105 = lshr i64 %104, 12
-  %106 = getelementptr %struct.page, ptr %96, i64 %105
+  %106 = getelementptr [64 x i8], ptr %96, i64 %105
   br label %107
 
 107:                                              ; preds = %94, %92
   %108 = phi ptr [ %106, %94 ], [ %93, %92 ]
   %109 = load ptr, ptr %1, align 8
-  %110 = getelementptr ptr, ptr %109, i64 %89
+  %110 = getelementptr [8 x i8], ptr %109, i64 %89
   store ptr %108, ptr %110, align 8
   %111 = getelementptr i8, ptr %90, i64 4096
   %112 = add nuw nsw i64 %89, 1
@@ -1698,12 +1691,12 @@ define internal fastcc i32 @pack_sg_list_p(ptr noundef captures(none) %0, i32 no
   unreachable
 
 27:                                               ; preds = %17
-  %28 = getelementptr %struct.scatterlist, ptr %0, i64 %18
+  %28 = getelementptr [32 x i8], ptr %0, i64 %18
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, -3
   store i64 %30, ptr %28, align 8
   %31 = sext i32 %20 to i64
-  %32 = getelementptr ptr, ptr %2, i64 %31
+  %32 = getelementptr [8 x i8], ptr %2, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, 3

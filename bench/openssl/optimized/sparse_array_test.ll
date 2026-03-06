@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { i64, ptr }
 %struct.anon.0 = type { i64, i64, ptr }
 %struct.doall_st = type { ptr, i64, ptr, i32, i32 }
-%struct.index_cases_st = type { i64, ptr, i32 }
 
 @.str = private unnamed_addr constant [18 x i8] c"test_sparse_array\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"test_sparse_array_num\00", align 1
@@ -87,7 +86,7 @@ define internal range(i32 0, 2) i32 @test_sparse_array() #0 {
 .preheader26:                                     ; preds = %9, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 1, %9 ]
   %.01931 = phi i64 [ %34, %33 ], [ 0, %9 ]
-  %12 = getelementptr inbounds nuw %struct.anon, ptr @test_sparse_array.cases, i64 %.01931
+  %12 = getelementptr inbounds nuw [16 x i8], ptr @test_sparse_array.cases, i64 %.01931
   %13 = load i64, ptr %12, align 16, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !11
@@ -105,7 +104,7 @@ define internal range(i32 0, 2) i32 @test_sparse_array() #0 {
 
 .preheader:                                       ; preds = %.preheader26, %31
   %.01830 = phi i64 [ %32, %31 ], [ 0, %.preheader26 ]
-  %22 = getelementptr inbounds nuw %struct.anon, ptr @test_sparse_array.cases, i64 %.01830
+  %22 = getelementptr inbounds nuw [16 x i8], ptr @test_sparse_array.cases, i64 %.01830
   %23 = load i64, ptr %22, align 16, !tbaa !4
   %24 = tail call ptr @ossl_sa_get(ptr noundef %1, i64 noundef %23) #4
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -163,7 +162,7 @@ define internal range(i32 0, 2) i32 @test_sparse_array_num() #0 {
 
 .preheader:                                       ; preds = %6, %9
   %.0915 = phi i64 [ %10, %9 ], [ 0, %6 ]
-  %11 = getelementptr inbounds nuw %struct.anon.0, ptr @test_sparse_array_num.cases, i64 %.0915
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @test_sparse_array_num.cases, i64 %.0915
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -210,7 +209,7 @@ define internal range(i32 0, 2) i32 @test_sparse_array_doall() #0 {
 
 8:                                                ; preds = %4, %19
   %.01114 = phi i64 [ 0, %4 ], [ %17, %19 ]
-  %9 = getelementptr inbounds nuw %struct.index_cases_st, ptr @test_sparse_array_doall.cases, i64 %.01114
+  %9 = getelementptr inbounds nuw [24 x i8], ptr @test_sparse_array_doall.cases, i64 %.01114
   %10 = load i64, ptr %9, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !30
@@ -311,7 +310,7 @@ define internal void @leaf_check_all(i64 noundef %0, ptr noundef %1, ptr noundef
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %22
   %.018.us = phi i64 [ %23, %22 ], [ 0, %.lr.ph ]
-  %11 = getelementptr inbounds nuw %struct.index_cases_st, ptr %5, i64 %.018.us
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.018.us
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !33
   %.not17.us = icmp eq i32 %13, 0
@@ -336,7 +335,7 @@ define internal void @leaf_check_all(i64 noundef %0, ptr noundef %1, ptr noundef
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %32
   %.018 = phi i64 [ %33, %32 ], [ 0, %.lr.ph ]
-  %24 = getelementptr inbounds nuw %struct.index_cases_st, ptr %5, i64 %.018
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.018
   %25 = load i64, ptr %24, align 8, !tbaa !28
   %26 = icmp eq i64 %0, %25
   br i1 %26, label %27, label %32
@@ -380,7 +379,7 @@ define internal void @leaf_delete(i64 noundef %0, ptr noundef %1, ptr noundef ca
 
 .lr.ph:                                           ; preds = %3, %20
   %.017 = phi i64 [ %21, %20 ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw %struct.index_cases_st, ptr %5, i64 %.017
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.017
   %10 = load i64, ptr %9, align 8, !tbaa !28
   %11 = icmp eq i64 %0, %10
   br i1 %11, label %12, label %20

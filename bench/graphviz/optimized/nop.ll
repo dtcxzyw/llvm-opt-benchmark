@@ -73,7 +73,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 18:                                               ; preds = %16
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds ptr, ptr %1, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %19
   store ptr %20, ptr @Files, align 8, !tbaa !13
   br label %init.exit
 

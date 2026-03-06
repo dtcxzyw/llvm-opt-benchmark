@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ldmParams_t = type { i32, i32, i32, i32, i32, i32 }
 %struct.ldmRollingHashState_t = type { i64, i64 }
-%struct.ldmEntry_t = type { i32, i32 }
-%struct.ldmMatchCandidate_t = type { ptr, i32, i32, ptr }
-%struct.rawSeq = type { i32, i32, i32 }
 
 @ZSTD_ldm_gearTab = internal unnamed_addr constant [256 x i64] [i64 -740570368750160036, i64 -8893660220509993966, i64 -5312086290702594868, i64 -5735972619299081762, i64 3771850993348288464, i64 5663242980927105797, i64 4180421565056919044, i64 -3545172778422107057, i64 8565414132019635614, i64 -7168278193325086006, i64 -8766759121928489687, i64 2955002781598341257, i64 -5786234267245351962, i64 -3591879250321086919, i64 152752410645948062, i64 980088017434152, i64 331732851626658549, i64 -8838640746785046208, i64 357946512872856607, i64 -9034488908246861280, i64 5763983574984628126, i64 -8902527927300804837, i64 5836814799640872626, i64 7626666828866112607, i64 -8314407865459583812, i64 -4338073698025259005, i64 -3427841724570307695, i64 -4735281124383641554, i64 3783546168938607943, i64 -5997679262622952944, i64 7335087386897913548, i64 -8164338418464644131, i64 -4068556904131095362, i64 -7831782995437506261, i64 6793784568496124290, i64 2174722154453825146, i64 2984138818416736892, i64 -7113741742226294226, i64 -2281435508835450325, i64 -7721633399858986080, i64 -3643393691544233469, i64 4998707500772197108, i64 -8746917044558380703, i64 4094234931541430821, i64 -5443419906114852421, i64 -6623610566688024079, i64 8857814660316604090, i64 -3400738594147523822, i64 -8919821665358523128, i64 -6282918144253290562, i64 2432827404989958913, i64 -7394112240096411410, i64 -6121261480113539237, i64 5984878076832140732, i64 3384046157297573234, i64 -4595246024994827002, i64 5291253059634137447, i64 8671685973221512352, i64 2826049182810801527, i64 7403797093788988755, i64 5165094797103512198, i64 3882952073790264921, i64 5144544719191608175, i64 7834774775704163346, i64 -2473432571472174399, i64 8174605543888266482, i64 -2355378437650417609, i64 -8592654940661990135, i64 6401049270349998237, i64 1690663705589720305, i64 -325991306605533225, i64 3162055811205276826, i64 7360403718927882347, i64 4149314189569060432, i64 242631106765699956, i64 4800188873694292702, i64 -4240136128533032951, i64 7695287510285100531, i64 -838191446823566789, i64 -8426618797363772681, i64 4318197351340892641, i64 1149634524221210890, i64 -7114863459094900121, i64 6598639596032476539, i64 -6839639621591231422, i64 -4468079783678231221, i64 7415306797865260392, i64 -8387907088140799907, i64 -1258625276876293193, i64 -8475030331983742166, i64 -4522295019934803305, i64 7907118757495767932, i64 -4069547487456468751, i64 -2916501145698388069, i64 -713064998698898503, i64 3241772581917522649, i64 -8751519476800664287, i64 2730958776012430807, i64 -5042858452473121693, i64 5670495071248203466, i64 -4753026106883975734, i64 8596907927398544058, i64 5161444109349651405, i64 5785732034315264735, i64 -2307004377459233095, i64 5101781436946662964, i64 -959555898603366205, i64 3854890476374695265, i64 2640596163920942051, i64 612531917322106041, i64 2943830675960290284, i64 5689027370104560298, i64 -8631226724040007757, i64 -4511209064617679402, i64 -4894469369141432134, i64 476493605933034202, i64 -4884230169516457813, i64 5170495216195818230, i64 5692683294927132859, i64 8144723081244076501, i64 -8597519866247633570, i64 -880939249453910632, i64 -4429072432866837671, i64 -9094346755688061955, i64 -8586012847855474869, i64 938274653391260135, i64 -1919596203828456659, i64 -4685062728154955610, i64 -7589917696820385588, i64 -4644676758005663535, i64 7411488509093422598, i64 -8990486576947324933, i64 -5153218641461172124, i64 -2632799881851607396, i64 -8546249320962975810, i64 -3973672932846999028, i64 8549157441122500270, i64 -6599514505156005102, i64 -6129339347647600276, i64 5601198583872550840, i64 448237196439497921, i64 4429298985553249414, i64 1710925370934130233, i64 649627535685727708, i64 7473286985276266860, i64 -6451688405355166991, i64 5916903098106068381, i64 4015692238528745986, i64 -8870599050489169071, i64 723755141375996997, i64 585701537146942606, i64 1762095187648923356, i64 -7499075263319252708, i64 -5534672106163518806, i64 2150778153372540978, i64 -6551385365357708843, i64 2851098796233701843, i64 8892087314106251931, i64 8629034505480888229, i64 -2056021433480337670, i64 -5504367576396503223, i64 -7836592892958478552, i64 -5799392812474758156, i64 1034405184557968969, i64 6802162732334632298, i64 2989737911373486958, i64 -8778167736429364826, i64 -1835460623793774935, i64 -7486017181440748174, i64 -429617951838635019, i64 3508842189232906005, i64 8135704789603646339, i64 6514020828226693353, i64 -3613195514473760017, i64 -2970174223312647786, i64 -1563248340095853661, i64 6024843996518658034, i64 718621336730405080, i64 -6679302967219244155, i64 3328034870986208117, i64 1672684744619306689, i64 -5162658619115609223, i64 -8970545856075756829, i64 -5111708603220227731, i64 8965210182149532773, i64 8555535473824159125, i64 4111651333356154152, i64 -4330767061174003086, i64 -4239562835870723191, i64 -2914198924640402128, i64 3999682325075695998, i64 8341500896009323972, i64 297956889220308695, i64 -7099292734868670191, i64 -8152361012580292778, i64 6806741856855634849, i64 5498675928299174173, i64 -5725270285902950948, i64 8841901128597221836, i64 8452800421686628345, i64 8170466794247151429, i64 3418145686321779422, i64 -7629649436654009993, i64 -885980405828750614, i64 -1279615140145250661, i64 -3645584372000451097, i64 -1959380958373714385, i64 -7401854505386743612, i64 2726709086420568843, i64 56600323866146812, i64 2432711764059673306, i64 6875692401370490017, i64 -2525618730407733492, i64 7150469517113480430, i64 -4524184818551573686, i64 6398633964089323354, i64 6824119869706748626, i64 7124491435314367896, i64 -5413128683141149161, i64 1648863654502257127, i64 -8159518228174467393, i64 7114119705011199411, i64 -3748695836744730090, i64 8708228644950752452, i64 -1200969192612019724, i64 -8253548825649809075, i64 -6218007400084108795, i64 4090442791415205777, i64 7208173716382451811, i64 -9156885958826744472, i64 4175721917217417792, i64 -1595983873127263617, i64 -7915925144243690988, i64 -4991676479780784319, i64 3502286560157455023, i64 -6532203062862126574, i64 4777171913562308143, i64 4711368926514029619, i64 -5148279762458990696, i64 -3276523506038921052, i64 -7330618301729952061, i64 8867750111338937128, i64 5817503254400830125, i64 7843308076737921667, i64 -8540058046490989581, i64 2422652698756804679, i64 4252262198383740502, i64 -2659446422212208921, i64 -8298729576016271950, i64 -382681700768530275, i64 4672201502568865753, i64 -5821590899938985698, i64 -1473505948212511144, i64 -4914601613263338112, i64 934305549654010667, i64 3120327478150945012], align 16
 
@@ -191,7 +188,7 @@ define void @ZSTD_ldm_fillHashTable(ptr noundef captures(none) %0, ptr noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %62 ]
-  %38 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %39 = load i64, ptr %38, align 8, !tbaa !26
   %40 = getelementptr inbounds nuw i8, ptr %.043, i64 %39
   %.not = icmp ult ptr %40, %27
@@ -216,9 +213,9 @@ define void @ZSTD_ldm_fillHashTable(ptr noundef captures(none) %0, ptr noundef %
   %52 = zext i8 %51 to i32
   %53 = zext nneg i32 %49 to i64
   %54 = shl i64 %48, %53
-  %55 = getelementptr inbounds nuw %struct.ldmEntry_t, ptr %.val40, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %.val40, i64 %54
   %56 = zext i8 %51 to i64
-  %57 = getelementptr inbounds nuw %struct.ldmEntry_t, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %56
   store i64 %.sroa.0.0.insert.insert, ptr %57, align 4
   %58 = add nuw nsw i32 %52, 1
   %notmask.i = shl nsw i32 -1, %49
@@ -265,7 +262,7 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.072
   %13 = load i8, ptr %12, align 1, !tbaa !29
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw i64, ptr @ZSTD_ldm_gearTab, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @ZSTD_ldm_gearTab, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !26
   %17 = add i64 %16, %11
   %18 = or disjoint i64 %.072, 1
@@ -276,7 +273,7 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none
 21:                                               ; preds = %.lr.ph
   %22 = load i32, ptr %4, align 4, !tbaa !25
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i64, ptr %3, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %23
   store i64 %18, ptr %24, align 8, !tbaa !26
   %25 = add i32 %22, 1
   store i32 %25, ptr %4, align 4, !tbaa !25
@@ -288,7 +285,7 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 %18
   %30 = load i8, ptr %29, align 1, !tbaa !29
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds nuw i64, ptr @ZSTD_ldm_gearTab, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @ZSTD_ldm_gearTab, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !26
   %34 = add i64 %33, %28
   %35 = or disjoint i64 %.072, 2
@@ -299,7 +296,7 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none
 38:                                               ; preds = %27
   %39 = load i32, ptr %4, align 4, !tbaa !25
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %3, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %40
   store i64 %35, ptr %41, align 8, !tbaa !26
   %42 = add i32 %39, 1
   store i32 %42, ptr %4, align 4, !tbaa !25
@@ -311,7 +308,7 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 %35
   %47 = load i8, ptr %46, align 1, !tbaa !29
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds nuw i64, ptr @ZSTD_ldm_gearTab, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @ZSTD_ldm_gearTab, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !26
   %51 = add i64 %50, %45
   %52 = or disjoint i64 %.072, 3
@@ -322,7 +319,7 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none
 55:                                               ; preds = %44
   %56 = load i32, ptr %4, align 4, !tbaa !25
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw i64, ptr %3, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %57
   store i64 %52, ptr %58, align 8, !tbaa !26
   %59 = add i32 %56, 1
   store i32 %59, ptr %4, align 4, !tbaa !25
@@ -334,7 +331,7 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 %52
   %64 = load i8, ptr %63, align 1, !tbaa !29
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw i64, ptr @ZSTD_ldm_gearTab, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @ZSTD_ldm_gearTab, i64 %65
   %67 = load i64, ptr %66, align 8, !tbaa !26
   %68 = add i64 %67, %62
   %69 = add i64 %.072, 4
@@ -345,7 +342,7 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none
 72:                                               ; preds = %61
   %73 = load i32, ptr %4, align 4, !tbaa !25
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw i64, ptr %3, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %74
   store i64 %69, ptr %75, align 8, !tbaa !26
   %76 = add i32 %73, 1
   store i32 %76, ptr %4, align 4, !tbaa !25
@@ -364,7 +361,7 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 %.275
   %83 = load i8, ptr %82, align 1, !tbaa !29
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw i64, ptr @ZSTD_ldm_gearTab, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr @ZSTD_ldm_gearTab, i64 %84
   %86 = load i64, ptr %85, align 8, !tbaa !26
   %87 = add i64 %86, %81
   %88 = add nuw i64 %.275, 1
@@ -375,7 +372,7 @@ define internal fastcc i64 @ZSTD_ldm_gear_feed(ptr noundef nonnull captures(none
 91:                                               ; preds = %.lr.ph76
   %92 = load i32, ptr %4, align 4, !tbaa !25
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw i64, ptr %3, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %93
   store i64 %88, ptr %94, align 8, !tbaa !26
   %95 = add i32 %92, 1
   store i32 %95, ptr %4, align 4, !tbaa !25
@@ -499,7 +496,7 @@ define range(i64 -119, 1) i64 @ZSTD_ldm_generateSequences(ptr noundef captures(n
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %51
   %indvars.iv.i = phi i64 [ 0, %51 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %70 = getelementptr inbounds nuw %struct.ldmEntry_t, ptr %69, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv.i
   %71 = load i32, ptr %70, align 4, !tbaa !44
   %storemerge.i61 = tail call i32 @llvm.usub.sat.i32(i32 %71, i32 %56)
   store i32 %storemerge.i61, ptr %70, align 4, !tbaa !44
@@ -648,13 +645,13 @@ ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
 
 132:                                              ; preds = %132, %.lr.ph.i62
   %indvars.iv.i64 = phi i64 [ 0, %.lr.ph.i62 ], [ %indvars.iv.next.i65, %132 ]
-  %133 = getelementptr inbounds nuw i64, ptr %29, i64 %indvars.iv.i64
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i64
   %134 = load i64, ptr %133, align 8, !tbaa !26
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %134
   %135 = tail call i64 @ZSTD_XXH64(ptr noundef captures(none) %gep.i, i64 noundef %106, i64 noundef 0) #14
   %136 = trunc i64 %135 to i32
   %137 = and i32 %136, %118
-  %138 = getelementptr inbounds nuw %struct.ldmMatchCandidate_t, ptr %30, i64 %indvars.iv.i64
+  %138 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %indvars.iv.i64
   store ptr %gep.i, ptr %138, align 8, !tbaa !49
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store i32 %137, ptr %139, align 8, !tbaa !51
@@ -664,7 +661,7 @@ ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
   store i32 %141, ptr %142, align 4, !tbaa !52
   %143 = zext nneg i32 %137 to i64
   %144 = shl i64 %143, %130
-  %145 = getelementptr inbounds nuw %struct.ldmEntry_t, ptr %.val259.i, i64 %144
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %.val259.i, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %138, i64 16
   store ptr %145, ptr %146, align 8, !tbaa !53
   tail call void @llvm.prefetch.p0(ptr %145, i32 0, i32 3, i32 1)
@@ -675,7 +672,7 @@ ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
 147:                                              ; preds = %402, %.lr.ph329.i
   %indvars.iv345.i = phi i64 [ 0, %.lr.ph329.i ], [ %indvars.iv.next346.i, %402 ]
   %.1209327.i = phi ptr [ %.0208332.i, %.lr.ph329.i ], [ %.3211.ph.i, %402 ]
-  %148 = getelementptr inbounds nuw %struct.ldmMatchCandidate_t, ptr %30, i64 %indvars.iv345.i
+  %148 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %indvars.iv345.i
   %149 = load ptr, ptr %148, align 8, !tbaa !49
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 12
   %151 = load i32, ptr %150, align 4, !tbaa !52
@@ -1186,7 +1183,7 @@ ZSTD_ldm_generateSequences_internal.exit.thread72: ; preds = %351
 
 354:                                              ; preds = %351
   %355 = load ptr, ptr %1, align 8, !tbaa !60
-  %356 = getelementptr inbounds nuw %struct.rawSeq, ptr %355, i64 %352
+  %356 = getelementptr inbounds nuw [12 x i8], ptr %355, i64 %352
   %357 = add i64 %.0225.lcssa.i, %.0228.lcssa.i
   %358 = load i32, ptr %.0243.lcssa.i, align 4, !tbaa !44
   %359 = sub i32 %156, %358
@@ -1217,9 +1214,9 @@ ZSTD_ldm_generateSequences_internal.exit.thread72: ; preds = %351
   %374 = zext i8 %373 to i32
   %375 = zext nneg i32 %371 to i64
   %376 = shl i64 %370, %375
-  %377 = getelementptr inbounds nuw %struct.ldmEntry_t, ptr %.val260.i, i64 %376
+  %377 = getelementptr inbounds nuw [8 x i8], ptr %.val260.i, i64 %376
   %378 = zext i8 %373 to i64
-  %379 = getelementptr inbounds nuw %struct.ldmEntry_t, ptr %377, i64 %378
+  %379 = getelementptr inbounds nuw [8 x i8], ptr %377, i64 %378
   store i64 %.sroa.0.0.insert.insert27.i, ptr %379, align 4
   %380 = add nuw nsw i32 %374, 1
   %notmask.i277.i = shl nsw i32 -1, %371
@@ -1250,9 +1247,9 @@ ZSTD_ldm_generateSequences_internal.exit.thread72: ; preds = %351
   %392 = zext i8 %391 to i32
   %393 = zext nneg i32 %389 to i64
   %394 = shl i64 %388, %393
-  %395 = getelementptr inbounds nuw %struct.ldmEntry_t, ptr %.val264.i, i64 %394
+  %395 = getelementptr inbounds nuw [8 x i8], ptr %.val264.i, i64 %394
   %396 = zext i8 %391 to i64
-  %397 = getelementptr inbounds nuw %struct.ldmEntry_t, ptr %395, i64 %396
+  %397 = getelementptr inbounds nuw [8 x i8], ptr %395, i64 %396
   store i64 %.sroa.0.0.insert.insert.i, ptr %397, align 4
   %398 = add nuw nsw i32 %392, 1
   %notmask.i.i = shl nsw i32 -1, %389
@@ -1304,7 +1301,7 @@ ZSTD_ldm_generateSequences_internal.exit._crit_edge: ; preds = %ZSTD_ldm_generat
 411:                                              ; preds = %406
   %412 = trunc i64 %.05687 to i32
   %413 = load ptr, ptr %1, align 8, !tbaa !60
-  %414 = getelementptr inbounds nuw %struct.rawSeq, ptr %413, i64 %35
+  %414 = getelementptr inbounds nuw [12 x i8], ptr %413, i64 %35
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 4
   %416 = load i32, ptr %415, align 4, !tbaa !61
   %417 = add i32 %416, %412
@@ -1342,7 +1339,7 @@ define void @ZSTD_ldm_skipSequences(ptr noundef captures(none) %0, i64 noundef %
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %0, align 8, !tbaa !60
-  %12 = getelementptr inbounds nuw %struct.rawSeq, ptr %11, i64 %8
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %11, i64 %8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !61
   %15 = zext i32 %14 to i64
@@ -1423,7 +1420,7 @@ define void @ZSTD_ldm_skipRawSeqStoreBytes(ptr noundef captures(none) %0, i64 no
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %0, align 8, !tbaa !60
-  %15 = getelementptr inbounds nuw %struct.rawSeq, ptr %14, i64 %11
+  %15 = getelementptr inbounds nuw [12 x i8], ptr %14, i64 %11
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !25
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1539,7 +1536,7 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %7, %14, %17
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr %0, align 8, !tbaa !60
-  %57 = getelementptr inbounds nuw %struct.rawSeq, ptr %56, i64 %53
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %56, i64 %53
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 4
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 4, !tbaa !25
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -1576,7 +1573,7 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %7, %14, %17
   %68 = sub i64 %33, %67
   %69 = trunc i64 %68 to i32
   %70 = load ptr, ptr %0, align 8, !tbaa !60
-  %71 = getelementptr inbounds nuw %struct.rawSeq, ptr %70, i64 %66
+  %71 = getelementptr inbounds nuw [12 x i8], ptr %70, i64 %66
   %.sroa.010.0.copyload.i = load i64, ptr %71, align 4
   %.sroa.010.sroa.4.0.extract.shift.i = lshr i64 %.sroa.010.0.copyload.i, 32
   %.sroa.010.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.010.sroa.4.0.extract.shift.i to i32
@@ -1612,7 +1609,7 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %7, %14, %17
   br i1 %82, label %83, label %maybeSplitSequence.exit
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds nuw %struct.rawSeq, ptr %70, i64 %81
+  %84 = getelementptr inbounds nuw [12 x i8], ptr %70, i64 %81
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %86 = load i32, ptr %85, align 4, !tbaa !61
   %87 = zext i32 %86 to i64

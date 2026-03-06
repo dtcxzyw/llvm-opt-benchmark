@@ -5,14 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ExecParallelEstimateContext = type { ptr, i32 }
 %struct.ExecParallelInitializeDSMContext = type { ptr, ptr, i32 }
-%union.ListCell = type { ptr }
-%struct.Instrumentation = type { i8, i8, i8, i8, i8, %struct.instr_time, %struct.instr_time, double, double, %struct.BufferUsage, %struct.WalUsage, double, double, double, double, double, double, double, %struct.BufferUsage, %struct.WalUsage }
-%struct.instr_time = type { i64 }
-%struct.BufferUsage = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time }
-%struct.WalUsage = type { i64, i64, i64, i64 }
-%struct.ParamExecData = type { ptr, i64, i8 }
-%struct.ParallelWorkerInfo = type { ptr, ptr }
-%struct.JitInstrumentation = type { i64, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time }
 %struct.ParallelWorkerContext = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [9 x i8] c"postgres\00", align 1
@@ -71,7 +63,7 @@ define dso_local noundef ptr @ExecInitParallelPlan(ptr noundef %0, ptr noundef %
 .lr.ph67.i:                                       ; preds = %.lr.ph.i, %.lr.ph67.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph67.i ], [ 0, %.lr.ph.i ]
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 42
   store i8 0, ptr %30, align 2
@@ -140,7 +132,7 @@ define dso_local noundef ptr @ExecInitParallelPlan(ptr noundef %0, ptr noundef %
   %67 = phi ptr [ %76, %75 ], [ null, %.lr.ph69.i ]
   %indvars.iv74.i = phi i64 [ %indvars.iv.next75.i, %75 ], [ 0, %.lr.ph69.i ]
   %68 = load ptr, ptr %64, align 8
-  %69 = getelementptr inbounds nuw %union.ListCell, ptr %68, i64 %indvars.iv74.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv74.i
   %70 = load ptr, ptr %69, align 8
   %.not61.i = icmp eq ptr %70, null
   br i1 %.not61.i, label %75, label %71
@@ -405,7 +397,7 @@ ExecSerializePlan.exit:                           ; preds = %75, %.critedge.i, %
 
 .lr.ph:                                           ; preds = %237, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %237 ]
-  %250 = getelementptr inbounds nuw %struct.Instrumentation, ptr %247, i64 %indvars.iv
+  %250 = getelementptr inbounds nuw [416 x i8], ptr %247, i64 %indvars.iv
   %251 = load i32, ptr %157, align 4
   call void @InstrInit(ptr noundef nonnull %250, i32 noundef %251) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -734,7 +726,7 @@ define internal fastcc ptr @ExecParallelSetupTupleQueues(ptr noundef readonly ca
   tail call void @shm_mq_set_receiver(ptr noundef %26, ptr noundef %27) #8
   %28 = load ptr, ptr %22, align 8
   %29 = tail call ptr @shm_mq_attach(ptr noundef %26, ptr noundef %28, ptr noundef null) #8
-  %30 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %29, ptr %30, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %3, align 4
@@ -787,13 +779,13 @@ define internal fastcc noundef i64 @SerializeParamExecParams(ptr noundef readonl
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %15 = load ptr, ptr %11, align 8
   %16 = zext nneg i32 %14 to i64
-  %17 = getelementptr inbounds nuw %struct.ParamExecData, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %12, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 128
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 16
   %.val.i = load ptr, ptr %21, align 8
-  %22 = getelementptr inbounds nuw %union.ListCell, ptr %.val.i, i64 %16
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %16
   %23 = load i32, ptr %22, align 8
   %24 = call i64 @add_size(i64 noundef %.01215.i, i64 noundef 4) #8
   %.not.i = icmp eq i32 %23, 0
@@ -851,13 +843,13 @@ EstimateParamExecSpace.exit:                      ; preds = %29, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %51 = load ptr, ptr %47, align 8
   %52 = zext nneg i32 %50 to i64
-  %53 = getelementptr inbounds nuw %struct.ParamExecData, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %52
   %54 = load ptr, ptr %48, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 128
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr i8, ptr %56, i64 16
   %.val = load ptr, ptr %57, align 8
-  %58 = getelementptr inbounds nuw %union.ListCell, ptr %.val, i64 %52
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %52
   %59 = load i32, ptr %58, align 8
   %60 = load ptr, ptr %6, align 8
   store i32 %50, ptr %60, align 1
@@ -920,7 +912,7 @@ define internal zeroext i1 @ExecParallelInitializeDSM(ptr noundef %0, ptr nounde
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %12, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %12, i64 %15
   store i32 %11, ptr %16, align 4
   br label %17
 
@@ -1112,20 +1104,20 @@ define dso_local void @ExecParallelCreateReaders(ptr noundef captures(none) %0) 
 13:                                               ; preds = %7, %13
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %2, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw %struct.ParallelWorkerInfo, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   tail call void @shm_mq_set_handle(ptr noundef %16, ptr noundef %21) #8
   %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @CreateTupleQueueReader(ptr noundef %24) #8
   %26 = load ptr, ptr %11, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   store ptr %25, ptr %27, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
@@ -1190,7 +1182,7 @@ define dso_local void @ExecParallelReinitialize(ptr noundef %0, ptr noundef capt
   tail call void @shm_mq_set_receiver(ptr noundef %31, ptr noundef %32) #8
   %33 = load ptr, ptr %27, align 8
   %34 = tail call ptr @shm_mq_attach(ptr noundef %31, ptr noundef %33, ptr noundef null) #8
-  %35 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i
   store ptr %34, ptr %35, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %36 = load i32, ptr %15, align 4
@@ -1403,7 +1395,7 @@ define dso_local void @ExecParallelFinish(ptr noundef captures(none) %0) local_u
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   tail call void @shm_mq_detach(ptr noundef %15) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1437,7 +1429,7 @@ define dso_local void @ExecParallelFinish(ptr noundef captures(none) %0) local_u
 .lr.ph30:                                         ; preds = %.lr.ph30.preheader, %.lr.ph30
   %indvars.iv37 = phi i64 [ 0, %.lr.ph30.preheader ], [ %indvars.iv.next38, %.lr.ph30 ]
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv37
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv37
   %23 = load ptr, ptr %22, align 8
   tail call void @DestroyTupleQueueReader(ptr noundef %23) #8
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
@@ -1469,9 +1461,9 @@ define dso_local void @ExecParallelFinish(ptr noundef captures(none) %0) local_u
 30:                                               ; preds = %.lr.ph34, %30
   %indvars.iv42 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next43, %30 ]
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds nuw %struct.BufferUsage, ptr %31, i64 %indvars.iv42
+  %32 = getelementptr inbounds nuw [128 x i8], ptr %31, i64 %indvars.iv42
   %33 = load ptr, ptr %29, align 8
-  %34 = getelementptr inbounds nuw %struct.WalUsage, ptr %33, i64 %indvars.iv42
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %indvars.iv42
   tail call void @InstrAccumParallelQuery(ptr noundef %32, ptr noundef %34) #8
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
@@ -1550,7 +1542,7 @@ define dso_local void @ExecParallelCleanup(ptr noundef %0) local_unnamed_addr #0
 
 27:                                               ; preds = %27, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr inbounds nuw %struct.JitInstrumentation, ptr %26, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %indvars.iv.i
   tail call void @InstrJitAgg(ptr noundef %23, ptr noundef nonnull %28) #8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %29 = load i32, ptr %9, align 8
@@ -1631,7 +1623,7 @@ define internal zeroext i1 @ExecParallelRetrieveInstrumentation(ptr noundef %0, 
 
 11:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %6
   br i1 %14, label %18, label %15
@@ -1657,7 +1649,7 @@ define internal zeroext i1 @ExecParallelRetrieveInstrumentation(ptr noundef %0, 
   %25 = load i32, ptr %24, align 4
   %26 = mul i32 %25, %19
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %struct.Instrumentation, ptr %23, i64 %27
+  %28 = getelementptr inbounds [416 x i8], ptr %23, i64 %27
   %29 = icmp sgt i32 %25, 0
   br i1 %29, label %.lr.ph44, label %.._crit_edge45_crit_edge
 
@@ -1672,7 +1664,7 @@ define internal zeroext i1 @ExecParallelRetrieveInstrumentation(ptr noundef %0, 
 31:                                               ; preds = %.lr.ph44, %31
   %indvars.iv49 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next50, %31 ]
   %32 = load ptr, ptr %30, align 8
-  %33 = getelementptr inbounds nuw %struct.Instrumentation, ptr %28, i64 %indvars.iv49
+  %33 = getelementptr inbounds nuw [416 x i8], ptr %28, i64 %indvars.iv49
   tail call void @InstrAggNode(ptr noundef %32, ptr noundef %33) #8
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %34 = load i32, ptr %24, align 4
@@ -1830,7 +1822,7 @@ define dso_local void @ParallelQueryMain(ptr noundef %0, ptr noundef %1) local_u
   store ptr %54, ptr %3, align 8
   %55 = load ptr, ptr %51, align 8
   %56 = sext i32 %.0.copyload.i to i64
-  %57 = getelementptr inbounds %struct.ParamExecData, ptr %55, i64 %56
+  %57 = getelementptr inbounds [24 x i8], ptr %55, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = call i64 @datumRestore(ptr noundef nonnull %3, ptr noundef nonnull %58) #8
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -1862,8 +1854,8 @@ RestoreParamExecParams.exit:                      ; preds = %52, %45
   %70 = call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef -2305843009213693942, i1 noundef zeroext false) #8
   %71 = load i32, ptr @ParallelWorkerNumber, align 4
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds %struct.BufferUsage, ptr %69, i64 %72
-  %74 = getelementptr inbounds %struct.WalUsage, ptr %70, i64 %72
+  %73 = getelementptr inbounds [128 x i8], ptr %69, i64 %72
+  %74 = getelementptr inbounds [32 x i8], ptr %70, i64 %72
   call void @InstrEndParallelQuery(ptr noundef %73, ptr noundef %74) #8
   br i1 %.not, label %78, label %75
 
@@ -1886,7 +1878,7 @@ RestoreParamExecParams.exit:                      ; preds = %52, %45
   %86 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %87 = load i32, ptr @ParallelWorkerNumber, align 4
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds %struct.JitInstrumentation, ptr %86, i64 %88
+  %89 = getelementptr inbounds [48 x i8], ptr %86, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %82, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %89, ptr noundef nonnull align 8 dereferenceable(48) %90, i64 48, i1 false)
   br label %91
@@ -2089,7 +2081,7 @@ define internal zeroext i1 @ExecParallelReportInstrumentation(ptr noundef %0, pt
 
 13:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %6
   br i1 %16, label %20, label %17
@@ -2115,10 +2107,10 @@ define internal zeroext i1 @ExecParallelReportInstrumentation(ptr noundef %0, pt
   %27 = load i32, ptr %26, align 4
   %28 = mul i32 %27, %21
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %struct.Instrumentation, ptr %25, i64 %29
+  %30 = getelementptr inbounds [416 x i8], ptr %25, i64 %29
   %31 = load i32, ptr @ParallelWorkerNumber, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.Instrumentation, ptr %30, i64 %32
+  %33 = getelementptr inbounds [416 x i8], ptr %30, i64 %32
   %34 = load ptr, ptr %7, align 8
   tail call void @InstrAggNode(ptr noundef %33, ptr noundef %34) #8
   %35 = tail call zeroext i1 @planstate_tree_walker_impl(ptr noundef %0, ptr noundef nonnull @ExecParallelReportInstrumentation, ptr noundef nonnull %1) #8

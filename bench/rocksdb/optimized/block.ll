@@ -9,9 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.rocksdb::DataBlockIter::CachedPrevEntry" = type { i32, ptr, i64, i64, %"class.rocksdb::Slice" }
-%"struct.std::atomic.68" = type { %"struct.std::__atomic_base.69" }
-%"struct.std::__atomic_base.69" = type { i32 }
 %"class.rocksdb::PerfStepTimer" = type { i8, i8, i32, ptr, i64, ptr, ptr }
 %"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
 %"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
@@ -661,7 +658,7 @@ _ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i: ; preds = %133, %129, %
 134:                                              ; preds = %134, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i
   %.114.i.i.i = phi ptr [ %storemerge.i.i.i, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i ], [ %139, %134 ]
   %.01213.i.i.i = phi i64 [ 0, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i ], [ %140, %134 ]
-  %135 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %118, i64 %.01213.i.i.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %118, i64 %.01213.i.i.i
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   %137 = load i64, ptr %136, align 8, !tbaa !11
   %138 = load ptr, ptr %135, align 8, !tbaa !4
@@ -1099,7 +1096,7 @@ define void @_ZN7rocksdb13DataBlockIter8PrevImplEv(ptr noundef nonnull align 8 d
 18:                                               ; preds = %1
   %19 = zext nneg i32 %15 to i64
   %20 = load ptr, ptr %17, align 8, !tbaa !110
-  %21 = getelementptr inbounds nuw %"struct.rocksdb::DataBlockIter::CachedPrevEntry", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %19
   %22 = load i32, ptr %21, align 8, !tbaa !111
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %24 = load i32, ptr %23, align 4, !tbaa !51
@@ -1110,7 +1107,7 @@ define void @_ZN7rocksdb13DataBlockIter8PrevImplEv(ptr noundef nonnull align 8 d
   %27 = add nsw i32 %15, -1
   store i32 %27, ptr %14, align 8, !tbaa !101
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"struct.rocksdb::DataBlockIter::CachedPrevEntry", ptr %20, i64 %28
+  %29 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !113
   %.not17 = icmp eq ptr %31, null
@@ -1311,7 +1308,7 @@ _ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE5clearEv.exit: ; 
   %140 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %141 = load ptr, ptr %140, align 8, !tbaa !128
   %142 = zext i32 %137 to i64
-  %143 = getelementptr inbounds nuw %"struct.std::atomic.68", ptr %141, i64 %142
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %142
   %144 = atomicrmw or ptr %143, i32 %139 monotonic, align 4
   %145 = and i32 %144, %139
   %.not9.i.i = icmp eq i32 %145, 0
@@ -1418,7 +1415,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   %199 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %200 = load ptr, ptr %199, align 8, !tbaa !128
   %201 = zext i32 %196 to i64
-  %202 = getelementptr inbounds nuw %"struct.std::atomic.68", ptr %200, i64 %201
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %201
   %203 = atomicrmw or ptr %202, i32 %198 monotonic, align 4
   %204 = and i32 %203, %198
   %.not9.i.i31 = icmp eq i32 %204, 0
@@ -1592,7 +1589,7 @@ _ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE11_S_relocateEPS2
 _ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE17_M_realloc_insertIJRjPKcimNS0_5SliceEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i, %51
   store ptr %37, ptr %0, align 8, !tbaa !110
   store ptr %50, ptr %8, align 8, !tbaa !117
-  %52 = getelementptr inbounds nuw %"struct.rocksdb::DataBlockIter::CachedPrevEntry", ptr %37, i64 %35
+  %52 = getelementptr inbounds nuw [48 x i8], ptr %37, i64 %35
   store ptr %52, ptr %10, align 8, !tbaa !133
   br label %53
 
@@ -1659,7 +1656,7 @@ define linkonce_odr { ptr, i64 } @_ZNK7rocksdb13DataBlockIter5valueEv(ptr nounde
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !128
   %46 = zext i32 %41 to i64
-  %47 = getelementptr inbounds nuw %"struct.std::atomic.68", ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %46
   %48 = atomicrmw or ptr %47, i32 %43 monotonic, align 4
   %49 = and i32 %48, %43
   %.not9.i = icmp eq i32 %49, 0
@@ -1791,7 +1788,7 @@ _ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE11_S_relocateEPS2
 _ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE17_M_realloc_insertIJRjDnRmmNS0_5SliceEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN7rocksdb13DataBlockIter15CachedPrevEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36.i, %47
   store ptr %35, ptr %0, align 8, !tbaa !110
   store ptr %46, ptr %8, align 8, !tbaa !117
-  %48 = getelementptr inbounds nuw %"struct.rocksdb::DataBlockIter::CachedPrevEntry", ptr %35, i64 %33
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %35, i64 %33
   store ptr %48, ptr %10, align 8, !tbaa !133
   br label %49
 
@@ -2313,7 +2310,7 @@ _ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i: ; preds = %125, %122, %
 126:                                              ; preds = %126, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i
   %.114.i.i.i = phi ptr [ %storemerge.i.i.i, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i ], [ %131, %126 ]
   %.01213.i.i.i = phi i64 [ 0, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i ], [ %132, %126 ]
-  %127 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %24, i64 %.01213.i.i.i
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %.01213.i.i.i
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load i64, ptr %128, align 8, !tbaa !11
   %130 = load ptr, ptr %127, align 8, !tbaa !4
@@ -3728,7 +3725,7 @@ _ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i: ; preds = %114, %111, %
 115:                                              ; preds = %115, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i
   %.114.i.i.i = phi ptr [ %storemerge.i.i.i, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i ], [ %120, %115 ]
   %.01213.i.i.i = phi i64 [ 0, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i ], [ %121, %115 ]
-  %116 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %23, i64 %.01213.i.i.i
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %.01213.i.i.i
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load i64, ptr %117, align 8, !tbaa !11
   %119 = load ptr, ptr %116, align 8, !tbaa !4
@@ -4056,7 +4053,7 @@ _ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i: ; preds = %125, %122, %
 126:                                              ; preds = %126, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i
   %.114.i.i.i = phi ptr [ %storemerge.i.i.i, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i ], [ %131, %126 ]
   %.01213.i.i.i = phi i64 [ 0, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i ], [ %132, %126 ]
-  %127 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %24, i64 %.01213.i.i.i
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %.01213.i.i.i
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load i64, ptr %128, align 8, !tbaa !11
   %130 = load ptr, ptr %127, align 8, !tbaa !4
@@ -5336,7 +5333,7 @@ define noundef zeroext i1 @_ZN7rocksdb14IndexBlockIter20BinaryBlockIndexSeekERKN
   %10 = add i32 %.04266, %.04665
   %11 = lshr i32 %10, 1
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %2, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !56
   %15 = tail call noundef i32 @_ZN7rocksdb14IndexBlockIter15CompareBlockKeyEjRKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(680) %0, i32 noundef %14, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %16 = load i8, ptr %8, align 8, !tbaa !166
@@ -5363,7 +5360,7 @@ define noundef zeroext i1 @_ZN7rocksdb14IndexBlockIter20BinaryBlockIndexSeekERKN
 
 .thread58:                                        ; preds = %22
   %25 = zext i32 %.04266 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %2, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !56
   %.not52 = icmp eq i32 %27, 0
   br i1 %.not52, label %43, label %28
@@ -5379,7 +5376,7 @@ define noundef zeroext i1 @_ZN7rocksdb14IndexBlockIter20BinaryBlockIndexSeekERKN
 30:                                               ; preds = %28
   %31 = add i32 %.04266, -1
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %2, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !56
   %35 = add i32 %27, -1
   %.not53 = icmp eq i32 %34, %35
@@ -5411,7 +5408,7 @@ define noundef zeroext i1 @_ZN7rocksdb14IndexBlockIter20BinaryBlockIndexSeekERKN
 .loopexit:                                        ; preds = %24, %7
   %.046.lcssa.ph = phi i32 [ %4, %7 ], [ %.248, %24 ]
   %45 = zext i32 %.046.lcssa.ph to i64
-  %46 = getelementptr inbounds nuw i32, ptr %2, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !56
   %48 = add i32 %47, 1
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -5729,7 +5726,7 @@ _ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i: ; preds = %137, %133, %
 138:                                              ; preds = %138, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i
   %.114.i.i.i = phi ptr [ %storemerge.i.i.i, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i ], [ %143, %138 ]
   %.01213.i.i.i = phi i64 [ 0, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i ], [ %144, %138 ]
-  %139 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %122, i64 %.01213.i.i.i
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %122, i64 %.01213.i.i.i
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load i64, ptr %140, align 8, !tbaa !11
   %142 = load ptr, ptr %139, align 8, !tbaa !4
@@ -6633,7 +6630,7 @@ _ZN7rocksdb9BlockIterINS_5SliceEE11SeekToFirstEv.exit.preheader: ; preds = %.noe
   %189 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %190 = load ptr, ptr %189, align 8, !tbaa !128
   %191 = zext i32 %186 to i64
-  %192 = getelementptr inbounds nuw %"struct.std::atomic.68", ptr %190, i64 %191
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %191
   %193 = atomicrmw or ptr %192, i32 %188 monotonic, align 4
   %194 = and i32 %193, %188
   %.not9.i.i = icmp eq i32 %194, 0
@@ -10853,7 +10850,7 @@ _ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i: ; preds = %124, %120, %
 125:                                              ; preds = %125, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i
   %.114.i.i.i = phi ptr [ %storemerge.i.i.i, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i ], [ %130, %125 ]
   %.01213.i.i.i = phi i64 [ 0, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i ], [ %131, %125 ]
-  %126 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %109, i64 %.01213.i.i.i
+  %126 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %.01213.i.i.i
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load i64, ptr %127, align 8, !tbaa !11
   %129 = load ptr, ptr %126, align 8, !tbaa !4
@@ -11241,7 +11238,7 @@ _ZN7rocksdb7IterKey29MaybeAddKeyPartsWithTimestampEPKcmbmmPmPb.exit33: ; preds =
 63:                                               ; preds = %63, %.lr.ph.i
   %.114.i = phi ptr [ %storemerge.i, %.lr.ph.i ], [ %68, %63 ]
   %.01213.i = phi i64 [ 0, %.lr.ph.i ], [ %69, %63 ]
-  %64 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %62, i64 %.01213.i
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %.01213.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i64, ptr %65, align 8, !tbaa !11
   %67 = load ptr, ptr %64, align 8, !tbaa !4
@@ -11490,7 +11487,7 @@ _ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i: ; preds = %112, %108, %
 113:                                              ; preds = %113, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i
   %.114.i.i.i = phi ptr [ %storemerge.i.i.i, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i ], [ %118, %113 ]
   %.01213.i.i.i = phi i64 [ 0, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i ], [ %119, %113 ]
-  %114 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %97, i64 %.01213.i.i.i
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %97, i64 %.01213.i.i.i
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load i64, ptr %115, align 8, !tbaa !11
   %117 = load ptr, ptr %114, align 8, !tbaa !4
@@ -11892,7 +11889,7 @@ _ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i: ; preds = %124, %120, %
 125:                                              ; preds = %125, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i
   %.114.i.i.i = phi ptr [ %storemerge.i.i.i, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i ], [ %130, %125 ]
   %.01213.i.i.i = phi i64 [ 0, %_ZN7rocksdb7IterKey21EnlargeBufferIfNeededEm.exit.i.i.i ], [ %131, %125 ]
-  %126 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %109, i64 %.01213.i.i.i
+  %126 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %.01213.i.i.i
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load i64, ptr %127, align 8, !tbaa !11
   %129 = load ptr, ptr %126, align 8, !tbaa !4

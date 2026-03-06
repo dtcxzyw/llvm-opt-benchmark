@@ -9,11 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.icu_77::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
 %"class.icu_77::ConstChar16Ptr" = type { ptr }
-%"struct.icu_77::Regex8BitSet" = type { [32 x i8] }
-%"class.icu_77::UnicodeSet" = type <{ %"class.icu_77::UnicodeFilter", ptr, i32, i32, i8, [7 x i8], ptr, ptr, i32, [4 x i8], ptr, i32, [4 x i8], ptr, ptr, [25 x i32], [4 x i8] }>
-%"class.icu_77::UnicodeFilter" = type { %"class.icu_77::UnicodeFunctor", %"class.icu_77::UnicodeMatcher" }
-%"class.icu_77::UnicodeFunctor" = type { %"class.icu_77::UObject" }
-%"class.icu_77::UnicodeMatcher" = type { ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -548,8 +543,8 @@ define void @_ZN6icu_7715RegexStaticSetsC2EP10UErrorCode(ptr noundef nonnull ali
 
 .preheader:                                       ; preds = %116, %_ZN6icu_7712Regex8BitSet4initEPKNS_10UnicodeSetE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6icu_7712Regex8BitSet4initEPKNS_10UnicodeSetE.exit ], [ 0, %116 ]
-  %194 = getelementptr inbounds nuw %"struct.icu_77::Regex8BitSet", ptr %.ptr49, i64 %indvars.iv
-  %195 = getelementptr inbounds nuw %"class.icu_77::UnicodeSet", ptr %.ptr41, i64 %indvars.iv
+  %194 = getelementptr inbounds nuw [32 x i8], ptr %.ptr49, i64 %indvars.iv
+  %195 = getelementptr inbounds nuw [200 x i8], ptr %.ptr41, i64 %indvars.iv
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader, %206

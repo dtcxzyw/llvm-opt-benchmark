@@ -3,8 +3,6 @@ source_filename = "bench/libquic/original/pcy_tree.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.X509_POLICY_LEVEL_st = type { ptr, ptr, ptr, i32 }
-
 ; Function Attrs: nounwind uwtable
 define hidden void @X509_policy_tree_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
@@ -744,7 +742,7 @@ tree_evaluate.exit:                               ; preds = %281
   %291 = phi i32 [ %115, %.thread72 ], [ %288, %286 ]
   %292 = phi ptr [ %.pre, %.thread72 ], [ %284, %286 ]
   %293 = sext i32 %291 to i64
-  %294 = getelementptr inbounds %struct.X509_POLICY_LEVEL_st, ptr %292, i64 %293
+  %294 = getelementptr inbounds [32 x i8], ptr %292, i64 %293
   %295 = getelementptr inbounds i8, ptr %294, i64 -16
   %296 = load ptr, ptr %295, align 8, !tbaa !23
   %.not.i29 = icmp eq ptr %296, null
@@ -863,7 +861,7 @@ tree_add_auth_node.exit44.thread52.i:             ; preds = %tree_add_auth_node.
   %341 = load ptr, ptr %48, align 8, !tbaa !17
   %342 = load i32, ptr %52, align 8, !tbaa !16
   %343 = sext i32 %342 to i64
-  %344 = getelementptr %struct.X509_POLICY_LEVEL_st, ptr %341, i64 %343
+  %344 = getelementptr [32 x i8], ptr %341, i64 %343
   %345 = getelementptr i8, ptr %344, i64 -16
   %346 = load ptr, ptr %345, align 8, !tbaa !23
   %.fr.i = freeze ptr %346

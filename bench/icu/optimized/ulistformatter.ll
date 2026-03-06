@@ -1013,8 +1013,8 @@ _ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %58
   %indvars.iv70 = phi i64 [ 0, %.lr.ph66.preheader ], [ %indvars.iv.next71, %58 ]
-  %54 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.043, i64 %indvars.iv70
-  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv70
+  %54 = getelementptr inbounds nuw [64 x i8], ptr %.043, i64 %indvars.iv70
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv70
   %56 = load ptr, ptr %55, align 8, !tbaa !37
   store ptr %56, ptr %7, align 8, !tbaa !38
   %57 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %54, i8 noundef signext 1, ptr noundef nonnull %7, i32 noundef -1)
@@ -1036,12 +1036,12 @@ _ZN6icu_7710LocalArrayINS_13UnicodeStringEE29adoptInsteadAndCheckErrorCodeEPS1_R
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %70 ]
-  %63 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.043, i64 %indvars.iv
-  %64 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [64 x i8], ptr %.043, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %65 = load i32, ptr %64, align 4, !tbaa !12
   %.lobit = lshr i32 %65, 31
   %66 = trunc nuw nsw i32 %.lobit to i8
-  %67 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8, !tbaa !37
   store ptr %68, ptr %8, align 8, !tbaa !38
   %69 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %63, i8 noundef signext %66, ptr noundef nonnull %8, i32 noundef %65)

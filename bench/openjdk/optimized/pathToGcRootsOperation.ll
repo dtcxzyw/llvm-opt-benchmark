@@ -18,8 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.OopClosure = type { ptr }
 %class.RootSetClosure = type { %class.BasicOopIterateClosure, ptr }
 %class.EventEmitter = type { ptr, ptr, ptr, ptr }
-%"class.ObjectSampleMarker::ObjectSampleMarkWord" = type { ptr, %class.markWord }
-%class.markWord = type { i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 $_ZN7LogImplILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz = comdat any
@@ -279,7 +277,7 @@ _ZL22log_edge_queue_summaryRK9EdgeQueue.exit:     ; preds = %65, %67, %69
   %89 = add nsw i32 %85, -1
   store i32 %89, ptr %86, align 8
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds %"class.ObjectSampleMarker::ObjectSampleMarkWord", ptr %88, i64 %90
+  %91 = getelementptr inbounds [16 x i8], ptr %88, i64 %90
   %.sroa.0.0.copyload.i.i = load ptr, ptr %91, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %91, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
@@ -333,7 +331,7 @@ _ZN18ObjectSampleMarkerD2Ev.exit:                 ; preds = %.lr.ph.i, %82, %21,
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %.lr.ph13.i.i.i
   %104 = phi ptr [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %100, %.lr.ph13.i.i.i ]
   %105 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 8
-  %106 = getelementptr inbounds nuw ptr, ptr %104, i64 %99
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %99
   %107 = icmp ult ptr %105, %106
   br i1 %107, label %.lr.ph13.i.i.i, label %_ZN12ObjectBitSetIL8MEMFLAGS16EED2Ev.exit, !llvm.loop !10
 
@@ -427,7 +425,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef no
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12VM_Operation6_namesE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12VM_Operation6_namesE, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }

@@ -35,7 +35,7 @@ define void @dggglm_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %19 = load i32, ptr %6, align 4, !tbaa !3
   %narrow = xor i32 %19, -1
   %20 = sext i32 %narrow to i64
-  %21 = getelementptr inbounds double, ptr %5, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %5, i64 %20
   %22 = getelementptr inbounds i8, ptr %7, i64 -8
   %23 = getelementptr inbounds i8, ptr %9, i64 -8
   %24 = getelementptr inbounds i8, ptr %10, i64 -8
@@ -158,16 +158,16 @@ define void @dggglm_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %80 = sub i32 %66, %79
   store i32 %80, ptr %14, align 4, !tbaa !3
   %81 = sext i32 %64 to i64
-  %82 = getelementptr double, ptr %24, i64 %81
+  %82 = getelementptr [8 x i8], ptr %24, i64 %81
   %83 = getelementptr i8, ptr %82, i64 8
   %84 = sext i32 %79 to i64
-  %85 = getelementptr double, ptr %24, i64 %84
+  %85 = getelementptr [8 x i8], ptr %24, i64 %84
   %86 = getelementptr i8, ptr %85, i64 8
   call void @dggqrf_(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %10, ptr noundef %5, ptr noundef nonnull %6, ptr noundef %83, ptr noundef %86, ptr noundef nonnull %14, ptr noundef nonnull %12) #5
   %87 = load i32, ptr %1, align 4, !tbaa !3
   %88 = add nsw i32 %., %87
   %89 = sext i32 %88 to i64
-  %90 = getelementptr double, ptr %24, i64 %89
+  %90 = getelementptr [8 x i8], ptr %24, i64 %89
   %91 = getelementptr i8, ptr %90, i64 8
   %92 = load double, ptr %91, align 8, !tbaa !7
   %93 = fptosi double %92 to i32
@@ -181,7 +181,7 @@ define void @dggglm_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %97 = load i32, ptr %1, align 4, !tbaa !3
   %98 = add nsw i32 %., %97
   %99 = sext i32 %98 to i64
-  %100 = getelementptr double, ptr %24, i64 %99
+  %100 = getelementptr [8 x i8], ptr %24, i64 %99
   %101 = getelementptr i8, ptr %100, i64 8
   %102 = load double, ptr %101, align 8, !tbaa !7
   %103 = fptosi double %102 to i32
@@ -202,9 +202,9 @@ define void @dggglm_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %113 = mul nsw i32 %112, %19
   %114 = add nsw i32 %113, %109
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds double, ptr %21, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %21, i64 %115
   %117 = sext i32 %109 to i64
-  %118 = getelementptr inbounds double, ptr %22, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %22, i64 %117
   call void @dtrtrs_(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull %14, ptr noundef nonnull @c__1, ptr noundef %116, ptr noundef nonnull %6, ptr noundef nonnull %118, ptr noundef nonnull %15, ptr noundef nonnull %12) #5
   %119 = load i32, ptr %12, align 4, !tbaa !3
   %120 = icmp sgt i32 %119, 0
@@ -220,13 +220,13 @@ define void @dggglm_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %125 = sub nsw i32 %123, %124
   store i32 %125, ptr %14, align 4, !tbaa !3
   %126 = sext i32 %124 to i64
-  %127 = getelementptr double, ptr %22, i64 %126
+  %127 = getelementptr [8 x i8], ptr %22, i64 %126
   %128 = getelementptr i8, ptr %127, i64 8
   %129 = load i32, ptr %2, align 4, !tbaa !3
   %130 = sub i32 %124, %123
   %131 = add i32 %130, %129
   %132 = sext i32 %131 to i64
-  %133 = getelementptr double, ptr %23, i64 %132
+  %133 = getelementptr [8 x i8], ptr %23, i64 %132
   %134 = getelementptr i8, ptr %133, i64 8
   call void @dcopy_(ptr noundef nonnull %14, ptr noundef %128, ptr noundef nonnull @c__1, ptr noundef %134, ptr noundef nonnull @c__1) #5
   %.pre259 = load i32, ptr %1, align 4, !tbaa !3
@@ -254,10 +254,10 @@ define void @dggglm_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %144 = add nsw i32 %140, 1
   %145 = mul nsw i32 %144, %19
   %146 = sext i32 %145 to i64
-  %147 = getelementptr double, ptr %21, i64 %146
+  %147 = getelementptr [8 x i8], ptr %21, i64 %146
   %148 = getelementptr i8, ptr %147, i64 8
   %149 = sext i32 %144 to i64
-  %150 = getelementptr inbounds double, ptr %23, i64 %149
+  %150 = getelementptr inbounds [8 x i8], ptr %23, i64 %149
   call void @dgemv_(ptr noundef nonnull @.str.9, ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull @c_b32, ptr noundef %148, ptr noundef nonnull %6, ptr noundef nonnull %150, ptr noundef nonnull @c__1, ptr noundef nonnull @c_b34, ptr noundef %7, ptr noundef nonnull @c__1) #5
   %151 = load i32, ptr %1, align 4, !tbaa !3
   %152 = icmp sgt i32 %151, 0
@@ -295,19 +295,19 @@ define void @dggglm_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %167 = call i32 @llvm.smax.i32(i32 %163, i32 1)
   %168 = add nsw i32 %167, %19
   %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds double, ptr %21, i64 %169
+  %170 = getelementptr inbounds [8 x i8], ptr %21, i64 %169
   %171 = sext i32 %159 to i64
-  %172 = getelementptr double, ptr %24, i64 %171
+  %172 = getelementptr [8 x i8], ptr %24, i64 %171
   %173 = getelementptr i8, ptr %172, i64 8
   %174 = sext i32 %165 to i64
-  %175 = getelementptr double, ptr %24, i64 %174
+  %175 = getelementptr [8 x i8], ptr %24, i64 %174
   %176 = getelementptr i8, ptr %175, i64 8
   call void @dormrq_(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %2, ptr noundef nonnull @c__1, ptr noundef nonnull %18, ptr noundef %170, ptr noundef nonnull %6, ptr noundef %173, ptr noundef nonnull %9, ptr noundef nonnull %16, ptr noundef %176, ptr noundef nonnull %17, ptr noundef nonnull %12) #5
   %177 = load i32, ptr %1, align 4, !tbaa !3
   %178 = load i32, ptr %18, align 4, !tbaa !3
   %179 = add nsw i32 %178, %177
   %180 = sext i32 %179 to i64
-  %181 = getelementptr double, ptr %24, i64 %180
+  %181 = getelementptr [8 x i8], ptr %24, i64 %180
   %182 = getelementptr i8, ptr %181, i64 8
   %183 = load double, ptr %182, align 8, !tbaa !7
   %184 = fptosi double %183 to i32

@@ -151,7 +151,7 @@ define dso_local i32 @intel_sseu_copy_eumask_to_user(ptr noundef %0, ptr noundef
 25:                                               ; preds = %.split10
   %26 = icmp eq i64 %23, 0
   %27 = trunc nuw nsw i64 %23 to i32
-  %.split = getelementptr [8 x i16], ptr %16, i64 %23
+  %.split = getelementptr [16 x i8], ptr %16, i64 %23
   br i1 %17, label %.split6.us, label %.split6
 
 .split6.us:                                       ; preds = %25
@@ -195,7 +195,7 @@ define dso_local i32 @intel_sseu_copy_eumask_to_user(ptr noundef %0, ptr noundef
   %44 = phi i64 [ 0, %.split6.split.us ], [ %59, %.loopexit.us ]
   %45 = trunc nuw nsw i64 %44 to i32
   %46 = mul i32 %8, %45
-  %47 = getelementptr i16, ptr %.split., i64 %44
+  %47 = getelementptr [2 x i8], ptr %.split., i64 %44
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
   %50 = sext i32 %46 to i64
@@ -240,7 +240,7 @@ define dso_local i32 @intel_sseu_copy_eumask_to_user(ptr noundef %0, ptr noundef
 
 71:                                               ; preds = %.split6.split, %70
   %.pn = phi ptr [ %16, %70 ], [ %.split, %.split6.split ]
-  %72 = getelementptr i16, ptr %.pn, i64 %60
+  %72 = getelementptr [2 x i8], ptr %.pn, i64 %60
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = sext i32 %66 to i64
@@ -568,7 +568,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   br label %107
 
 107:                                              ; preds = %105, %104
-  %108 = getelementptr i16, ptr %87, i64 %89
+  %108 = getelementptr [2 x i8], ptr %87, i64 %89
   store i16 %75, ptr %108, align 2
   br label %109
 
@@ -606,13 +606,13 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
 129:                                              ; preds = %.loopexit, %.split88
   %130 = phi i64 [ 0, %.split88 ], [ %150, %.loopexit ]
   %131 = phi i32 [ 0, %.split88 ], [ %.us-phi, %.loopexit ]
-  %.split30 = getelementptr [8 x i16], ptr %123, i64 %130
+  %.split30 = getelementptr [16 x i8], ptr %123, i64 %130
   br i1 %128, label %.split87.us, label %.split87
 
 .split87.us:                                      ; preds = %129, %.split87.us
   %132 = phi i64 [ %139, %.split87.us ], [ 0, %129 ]
   %133 = phi i32 [ %138, %.split87.us ], [ %131, %129 ]
-  %134 = getelementptr i16, ptr %.split30, i64 %132
+  %134 = getelementptr [2 x i8], ptr %.split30, i64 %132
   %135 = load i16, ptr %134, align 2
   %136 = zext i16 %135 to i32
   %137 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %136) #11, !srcloc !6
@@ -624,7 +624,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
 .split87:                                         ; preds = %129, %.split87
   %141 = phi i64 [ %148, %.split87 ], [ 0, %129 ]
   %142 = phi i32 [ %147, %.split87 ], [ %131, %129 ]
-  %143 = getelementptr i16, ptr %123, i64 %141
+  %143 = getelementptr [2 x i8], ptr %123, i64 %141
   %144 = load i16, ptr %143, align 2
   %145 = zext i16 %144 to i32
   %146 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %145) #11, !srcloc !6
@@ -937,8 +937,8 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %352 = and i8 %351, 8
   %353 = icmp eq i8 %352, 0
   %.v27.idx = select i1 %353, i64 %302, i64 0
-  %.v27 = getelementptr [8 x i16], ptr %298, i64 %.v27.idx
-  %354 = getelementptr i16, ptr %.v27, i64 %321
+  %.v27 = getelementptr [16 x i8], ptr %298, i64 %.v27.idx
+  %354 = getelementptr [2 x i8], ptr %.v27, i64 %321
   store i16 %345, ptr %354, align 2
   %355 = load i8, ptr %288, align 2
   %356 = zext i8 %355 to i32
@@ -989,13 +989,13 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
 .split.us80.us:                                   ; preds = %.split81, %.loopexit49.split.us.us
   %384 = phi i64 [ %396, %.loopexit49.split.us.us ], [ 0, %.split81 ]
   %385 = phi i32 [ %393, %.loopexit49.split.us.us ], [ 0, %.split81 ]
-  %.split28.us = getelementptr [8 x i16], ptr %298, i64 %384
+  %.split28.us = getelementptr [16 x i8], ptr %298, i64 %384
   br label %386
 
 386:                                              ; preds = %386, %.split.us80.us
   %387 = phi i64 [ 0, %.split.us80.us ], [ %394, %386 ]
   %388 = phi i32 [ %385, %.split.us80.us ], [ %393, %386 ]
-  %389 = getelementptr i16, ptr %.split28.us, i64 %387
+  %389 = getelementptr [2 x i8], ptr %.split28.us, i64 %387
   %390 = load i16, ptr %389, align 2
   %391 = zext i16 %390 to i32
   %392 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %391) #11, !srcloc !6
@@ -1017,7 +1017,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
 400:                                              ; preds = %400, %.split
   %401 = phi i64 [ 0, %.split ], [ %408, %400 ]
   %402 = phi i32 [ %399, %.split ], [ %407, %400 ]
-  %403 = getelementptr i16, ptr %298, i64 %401
+  %403 = getelementptr [2 x i8], ptr %298, i64 %401
   %404 = load i16, ptr %403, align 2
   %405 = zext i16 %404 to i32
   %406 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %405) #11, !srcloc !6
@@ -1319,7 +1319,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   br i1 %605, label %.loopexit54, label %606
 
 606:                                              ; preds = %602
-  %607 = getelementptr i32, ptr %2, i64 %596
+  %607 = getelementptr [4 x i8], ptr %2, i64 %596
   %608 = getelementptr i8, ptr %594, i64 %596
   br label %609
 
@@ -1378,8 +1378,8 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %645 = and i8 %644, 8
   %646 = icmp eq i8 %645, 0
   %.v.idx = select i1 %646, i64 %596, i64 0
-  %.v = getelementptr [8 x i16], ptr %593, i64 %.v.idx
-  %647 = getelementptr i16, ptr %.v, i64 %611
+  %.v = getelementptr [16 x i8], ptr %593, i64 %.v.idx
+  %647 = getelementptr [2 x i8], ptr %.v, i64 %611
   store i16 %638, ptr %647, align 2
   %648 = and i32 %635, 255
   %649 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %648) #11, !srcloc !6
@@ -1430,13 +1430,13 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
 .split73.us.us:                                   ; preds = %.split74, %.loopexit53.split.us.us
   %677 = phi i64 [ %689, %.loopexit53.split.us.us ], [ 0, %.split74 ]
   %678 = phi i32 [ %686, %.loopexit53.split.us.us ], [ 0, %.split74 ]
-  %.split.us = getelementptr [8 x i16], ptr %593, i64 %677
+  %.split.us = getelementptr [16 x i8], ptr %593, i64 %677
   br label %679
 
 679:                                              ; preds = %679, %.split73.us.us
   %680 = phi i64 [ 0, %.split73.us.us ], [ %687, %679 ]
   %681 = phi i32 [ %678, %.split73.us.us ], [ %686, %679 ]
-  %682 = getelementptr i16, ptr %.split.us, i64 %680
+  %682 = getelementptr [2 x i8], ptr %.split.us, i64 %680
   %683 = load i16, ptr %682, align 2
   %684 = zext i16 %683 to i32
   %685 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %684) #11, !srcloc !6
@@ -1458,7 +1458,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
 693:                                              ; preds = %693, %.split73
   %694 = phi i64 [ 0, %.split73 ], [ %701, %693 ]
   %695 = phi i32 [ %692, %.split73 ], [ %700, %693 ]
-  %696 = getelementptr i16, ptr %593, i64 %694
+  %696 = getelementptr [2 x i8], ptr %593, i64 %694
   %697 = load i16, ptr %696, align 2
   %698 = zext i16 %697 to i32
   %699 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %698) #11, !srcloc !6
@@ -1671,7 +1671,7 @@ define internal fastcc void @cherryview_sseu_info_init(ptr noundef captures(none
   %49 = phi i1 [ true, %.backedge.us ], [ false, %43 ]
   %50 = phi i64 [ 1, %.backedge.us ], [ 0, %43 ]
   %51 = phi i32 [ %56, %.backedge.us ], [ 0, %43 ]
-  %52 = getelementptr i16, ptr %45, i64 %50
+  %52 = getelementptr [2 x i8], ptr %45, i64 %50
   %53 = load i16, ptr %52, align 2
   %54 = zext i16 %53 to i32
   %55 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %54) #11, !srcloc !6
@@ -1682,7 +1682,7 @@ define internal fastcc void @cherryview_sseu_info_init(ptr noundef captures(none
   %57 = phi i1 [ true, %.thread ], [ false, %43 ]
   %58 = phi i64 [ 1, %.thread ], [ 0, %43 ]
   %59 = phi i32 [ %64, %.thread ], [ 0, %43 ]
-  %60 = getelementptr i16, ptr %45, i64 %58
+  %60 = getelementptr [2 x i8], ptr %45, i64 %58
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i32
   %63 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %62) #11, !srcloc !6
@@ -1924,8 +1924,8 @@ default.unreachable26:                            ; preds = %16
   %65 = and i8 %64, 8
   %66 = icmp eq i8 %65, 0
   %.v.idx = select i1 %66, i64 %49, i64 0
-  %.v = getelementptr [8 x i16], ptr %47, i64 %.v.idx
-  %67 = getelementptr i16, ptr %.v, i64 %53
+  %.v = getelementptr [16 x i8], ptr %47, i64 %.v.idx
+  %67 = getelementptr [2 x i8], ptr %.v, i64 %53
   store i16 %58, ptr %67, align 2
   %68 = add nuw nsw i64 %53, 1
   %69 = load i8, ptr %40, align 1
@@ -1964,13 +1964,13 @@ default.unreachable26:                            ; preds = %16
 .split11.us.us:                                   ; preds = %.split12, %.loopexit.split.us.us
   %89 = phi i64 [ %101, %.loopexit.split.us.us ], [ 0, %.split12 ]
   %90 = phi i32 [ %98, %.loopexit.split.us.us ], [ 0, %.split12 ]
-  %.split.us = getelementptr [8 x i16], ptr %82, i64 %89
+  %.split.us = getelementptr [16 x i8], ptr %82, i64 %89
   br label %91
 
 91:                                               ; preds = %91, %.split11.us.us
   %92 = phi i64 [ 0, %.split11.us.us ], [ %99, %91 ]
   %93 = phi i32 [ %90, %.split11.us.us ], [ %98, %91 ]
-  %94 = getelementptr i16, ptr %.split.us, i64 %92
+  %94 = getelementptr [2 x i8], ptr %.split.us, i64 %92
   %95 = load i16, ptr %94, align 2
   %96 = zext i16 %95 to i32
   %97 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %96) #11, !srcloc !6
@@ -1992,7 +1992,7 @@ default.unreachable26:                            ; preds = %16
 105:                                              ; preds = %105, %.split11
   %106 = phi i64 [ 0, %.split11 ], [ %113, %105 ]
   %107 = phi i32 [ %104, %.split11 ], [ %112, %105 ]
-  %108 = getelementptr i16, ptr %82, i64 %106
+  %108 = getelementptr [2 x i8], ptr %82, i64 %106
   %109 = load i16, ptr %108, align 2
   %110 = zext i16 %109 to i32
   %111 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %110) #11, !srcloc !6
@@ -2263,7 +2263,7 @@ define dso_local void @intel_sseu_print_topology(ptr noundef readonly captures(n
 
 26:                                               ; preds = %26, %22
   %27 = phi i64 [ 0, %22 ], [ %41, %26 ]
-  %28 = getelementptr i16, ptr %23, i64 %27
+  %28 = getelementptr [2 x i8], ptr %23, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = trunc nuw nsw i64 %27 to i32
   %31 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %24, i64 %27) #12, !srcloc !24
@@ -2306,7 +2306,7 @@ define dso_local void @intel_sseu_print_topology(ptr noundef readonly captures(n
 
 59:                                               ; preds = %50
   %60 = icmp eq i64 %51, 0
-  %.split = getelementptr [8 x i16], ptr %49, i64 %51
+  %.split = getelementptr [16 x i8], ptr %49, i64 %51
   br i1 %60, label %.split4.us, label %.split4, !prof !10
 
 .split4.us:                                       ; preds = %59, %.split4.us
@@ -2315,7 +2315,7 @@ define dso_local void @intel_sseu_print_topology(ptr noundef readonly captures(n
   %63 = and i8 %62, 8
   %64 = icmp eq i8 %63, 0
   %.split. = select i1 %64, ptr %.split, ptr %49
-  %65 = getelementptr i16, ptr %.split., i64 %61
+  %65 = getelementptr [2 x i8], ptr %.split., i64 %61
   %66 = load i16, ptr %65, align 2
   %67 = zext i16 %66 to i32
   %68 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %67) #11, !srcloc !6
@@ -2342,7 +2342,7 @@ define dso_local void @intel_sseu_print_topology(ptr noundef readonly captures(n
 
 79:                                               ; preds = %.split4, %78
   %.pn = phi ptr [ %49, %78 ], [ %.split, %.split4 ]
-  %80 = getelementptr i16, ptr %.pn, i64 %74
+  %80 = getelementptr [2 x i8], ptr %.pn, i64 %74
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
   %83 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %82) #11, !srcloc !6
@@ -2523,7 +2523,7 @@ define internal void @xehp_load_dss_mask(ptr noundef %0, ptr noundef %1, i32 nou
   %25 = load i32, ptr %24, align 4
   %26 = load ptr, ptr %9, align 8
   %27 = call i32 %26(ptr noundef %0, i32 %25, i1 noundef zeroext true) #12
-  %28 = getelementptr i32, ptr %5, i64 %12
+  %28 = getelementptr [4 x i8], ptr %5, i64 %12
   store i32 %27, ptr %28, align 4
   %29 = add nuw nsw i64 %12, 1
   %30 = icmp eq i64 %29, %10
@@ -2615,7 +2615,7 @@ define internal fastcc void @gen11_compute_sseu_info(ptr noundef initializes((8,
   br label %43
 
 43:                                               ; preds = %41, %40
-  %44 = getelementptr i16, ptr %22, i64 %26
+  %44 = getelementptr [2 x i8], ptr %22, i64 %26
   store i16 %2, ptr %44, align 2
   br label %45
 
@@ -2655,13 +2655,13 @@ define internal fastcc void @gen11_compute_sseu_info(ptr noundef initializes((8,
 .split10.us.us:                                   ; preds = %.split12, %.loopexit.split.us.us
   %67 = phi i64 [ %79, %.loopexit.split.us.us ], [ 0, %.split12 ]
   %68 = phi i32 [ %76, %.loopexit.split.us.us ], [ 0, %.split12 ]
-  %.split.us = getelementptr [8 x i16], ptr %60, i64 %67
+  %.split.us = getelementptr [16 x i8], ptr %60, i64 %67
   br label %69
 
 69:                                               ; preds = %69, %.split10.us.us
   %70 = phi i64 [ 0, %.split10.us.us ], [ %77, %69 ]
   %71 = phi i32 [ %68, %.split10.us.us ], [ %76, %69 ]
-  %72 = getelementptr i16, ptr %.split.us, i64 %70
+  %72 = getelementptr [2 x i8], ptr %.split.us, i64 %70
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %74) #11, !srcloc !6
@@ -2683,7 +2683,7 @@ define internal fastcc void @gen11_compute_sseu_info(ptr noundef initializes((8,
 83:                                               ; preds = %83, %.split10
   %84 = phi i64 [ 0, %.split10 ], [ %91, %83 ]
   %85 = phi i32 [ %82, %.split10 ], [ %90, %83 ]
-  %86 = getelementptr i16, ptr %60, i64 %84
+  %86 = getelementptr [2 x i8], ptr %60, i64 %84
   %87 = load i16, ptr %86, align 2
   %88 = zext i16 %87 to i32
   %89 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %88) #11, !srcloc !6

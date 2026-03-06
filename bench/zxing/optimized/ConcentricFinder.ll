@@ -916,10 +916,10 @@ _ZSt11min_elementIPKN5ZXing6PointTIdEEZNS0_5BlendIS2_EENS0_13QuadrilateralIT_EER
 
 37:                                               ; preds = %37, %_ZSt11min_elementIPKN5ZXing6PointTIdEEZNS0_5BlendIS2_EENS0_13QuadrilateralIT_EERKS8_SA_EUlS7_T0_E_ES7_S7_S7_SB_.exit.i
   %indvars.iv.i = phi i64 [ 0, %_ZSt11min_elementIPKN5ZXing6PointTIdEEZNS0_5BlendIS2_EENS0_13QuadrilateralIT_EERKS8_SA_EUlS7_T0_E_ES7_S7_S7_SB_.exit.i ], [ %indvars.iv.next.i, %37 ]
-  %38 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %7, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv.i
   %39 = add nuw nsw i64 %indvars.iv.i, %36
   %40 = and i64 %39, 3
-  %41 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %8, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %40
   %42 = load double, ptr %38, align 8, !tbaa !50, !noalias !46
   %43 = load double, ptr %41, align 8, !tbaa !50, !noalias !46
   %44 = fadd double %42, %43
@@ -930,7 +930,7 @@ _ZSt11min_elementIPKN5ZXing6PointTIdEEZNS0_5BlendIS2_EENS0_13QuadrilateralIT_EER
   %49 = fadd double %46, %48
   %50 = fmul double %44, 5.000000e-01
   %51 = fmul double %49, 5.000000e-01
-  %52 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %9, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv.i
   store double %50, ptr %52, align 8, !tbaa !23, !alias.scope !46
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %52, i64 8
   store double %51, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !23, !alias.scope !46
@@ -1012,7 +1012,7 @@ define internal fastcc void @_ZN5ZXingL17FitSquareToPointsERKNS_9BitMatrixENS_6P
 _ZNSt12_Vector_baseIN5ZXing6PointTIdEESaIS2_EE11_M_allocateEm.exit.i.i: ; preds = %32
   %33 = shl nuw nsw i64 %30, 4
   %34 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %33) #17, !noalias !54
-  %35 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %34, i64 %30
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %30
   br label %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EE7reserveEm.exit.i
 
 _ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_baseIN5ZXing6PointTIdEESaIS2_EE11_M_allocateEm.exit.i.i, %32
@@ -1100,7 +1100,7 @@ _ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
 
 _ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %60, %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i
   %.pre.i = phi i32 [ %.pre.pre.i, %60 ], [ %.sroa.2.0.extract.trunc.i.i, %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i.i ]
-  %61 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %56, i64 %54
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %54
   br label %62
 
 62:                                               ; preds = %_ZNSt6vectorIN5ZXing6PointTIdEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %43
@@ -1298,7 +1298,7 @@ _ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit: ; preds = 
   br i1 %141, label %.lr.ph66.preheader.i.i.i, label %._crit_edge67.i.i.i
 
 .lr.ph66.preheader.i.i.i:                         ; preds = %140
-  %142 = getelementptr inbounds %"struct.ZXing::PointT", ptr %.sroa.026.0.i.i.i, i64 %.0.i.i.i
+  %142 = getelementptr inbounds [16 x i8], ptr %.sroa.026.0.i.i.i, i64 %.0.i.i.i
   br label %.lr.ph66.i.i.i
 
 ._crit_edge67.i.i.i:                              ; preds = %.lr.ph66.i.i.i, %140
@@ -1327,9 +1327,9 @@ _ZN5ZXingL17CollectRingPointsERKNS_9BitMatrixENS_6PointTIdEEiib.exit: ; preds = 
   br label %.preheader.i.backedge
 
 149:                                              ; preds = %.preheader.i
-  %150 = getelementptr inbounds %"struct.ZXing::PointT", ptr %.sroa.026.0.i.i.i, i64 %.056.i.i.i
+  %150 = getelementptr inbounds [16 x i8], ptr %.sroa.026.0.i.i.i, i64 %.056.i.i.i
   %151 = sub i64 0, %138
-  %152 = getelementptr inbounds %"struct.ZXing::PointT", ptr %150, i64 %151
+  %152 = getelementptr inbounds [16 x i8], ptr %150, i64 %151
   %153 = icmp sgt i64 %.0.i.i.i, 0
   br i1 %153, label %.lr.ph.i.i94.i, label %._crit_edge.i.i.i
 
@@ -2021,9 +2021,9 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
 
 482:                                              ; preds = %.critedge80.i, %.thread.i12
   %indvars.iv.i = phi i64 [ 0, %.thread.i12 ], [ %indvars.iv.next.i, %.critedge80.i ]
-  %483 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
+  %483 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   %484 = load ptr, ptr %483, align 8, !tbaa !85, !noalias !64
-  %485 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %485 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %486 = load ptr, ptr %485, align 8, !tbaa !85, !noalias !64
   %.not417.i = icmp eq ptr %484, %486
   br i1 %.not417.i, label %.critedge80.i, label %.lr.ph.i
@@ -2043,7 +2043,7 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   br i1 %491, label %.lr.ph.split.us.i, label %.critedge80.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  %497 = getelementptr inbounds nuw %"class.ZXing::RegressionLine", ptr %11, i64 %indvars.iv.i
+  %497 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %indvars.iv.i
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 56
   %.sroa.3.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %497, i64 32
   %499 = getelementptr inbounds nuw i8, ptr %497, i64 24
@@ -2087,10 +2087,10 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
 
 513:                                              ; preds = %513, %.critedge82.i
   %indvars.iv461.i = phi i64 [ 0, %.critedge82.i ], [ %indvars.iv.next462.i, %513 ]
-  %514 = getelementptr inbounds nuw %"class.ZXing::RegressionLine", ptr %11, i64 %indvars.iv461.i
+  %514 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %indvars.iv461.i
   %indvars.iv.next462.i = add nuw nsw i64 %indvars.iv461.i, 1
   %515 = and i64 %indvars.iv.next462.i, 3
-  %516 = getelementptr inbounds nuw %"class.ZXing::RegressionLine", ptr %11, i64 %515
+  %516 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %515
   %517 = getelementptr inbounds nuw i8, ptr %514, i64 40
   %518 = load double, ptr %517, align 8, !tbaa !76, !noalias !64
   %519 = getelementptr inbounds nuw i8, ptr %516, i64 48
@@ -2113,7 +2113,7 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %536 = fmul double %529, %525
   %537 = call double @llvm.fmuladd.f64(double %518, double %531, double %536)
   %538 = fdiv double %537, %527
-  %539 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr %14, i64 %indvars.iv461.i
+  %539 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %indvars.iv461.i
   store double %535, ptr %539, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %539, i64 8
   store double %538, ptr %.sroa.5.0..sroa_idx.i, align 8
@@ -2174,7 +2174,7 @@ _ZN5ZXing14RegressionLineD2Ev.exit.i.i:           ; preds = %544, %540
   %indvars.iv.i13 = phi i64 [ 1, %552 ], [ %indvars.iv.next.i15, %558 ]
   %.01518.i = phi double [ %sqrt.i.i.i, %552 ], [ %.sroa.speculated.i.i14, %558 ]
   %.01617.i = phi double [ %sqrt.i.i.i, %552 ], [ %.sroa.speculated8.i.i, %558 ]
-  %559 = getelementptr %"struct.ZXing::PointT", ptr %16, i64 %indvars.iv.i13
+  %559 = getelementptr [16 x i8], ptr %16, i64 %indvars.iv.i13
   %560 = getelementptr i8, ptr %559, i64 -16
   %.sroa.01.0.copyload.i = load double, ptr %560, align 8, !tbaa !23
   %.sroa.22.0..sroa_idx.i = getelementptr i8, ptr %559, i64 -8

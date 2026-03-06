@@ -782,7 +782,7 @@ define internal void @_ZNK4ncnn10Dequantize7forwardERKNS_3MatERS1_RKNS_6OptionE.
   %.reass28.us = mul i64 %factor.op.mul27, %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %26, i64 %.reass28.us
   %.in.us.idx = select i1 %34, i64 0, i64 %indvars.iv
-  %.in.us = getelementptr inbounds nuw float, ptr %43, i64 %.in.us.idx
+  %.in.us = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.in.us.idx
   %46 = load float, ptr %.in.us, align 4, !tbaa !45
   switch i32 %37, label %50 [
     i32 0, label %.lr.ph.i.preheader.us
@@ -796,7 +796,7 @@ define internal void @_ZNK4ncnn10Dequantize7forwardERKNS_3MatERS1_RKNS_6OptionE.
 
 50:                                               ; preds = %.lr.ph.split.us
   %51 = load ptr, ptr %38, align 8, !tbaa !16
-  %52 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv
   %53 = load float, ptr %52, align 4, !tbaa !45
   br label %.lr.ph.i.preheader.us
 
@@ -920,7 +920,7 @@ define internal void @_ZNK4ncnn10Dequantize7forwardERKNS_3MatERS1_RKNS_6OptionE.
   %.reass60.us = mul i64 %factor.op.mul59, %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %26, i64 %.reass60.us
   %.in.us.idx = select i1 %33, i64 0, i64 %indvars.iv
-  %.in.us = getelementptr inbounds nuw float, ptr %44, i64 %.in.us.idx
+  %.in.us = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.in.us.idx
   %47 = load float, ptr %.in.us, align 4, !tbaa !45
   switch i32 %36, label %51 [
     i32 0, label %.lr.ph.i.preheader.us
@@ -934,7 +934,7 @@ define internal void @_ZNK4ncnn10Dequantize7forwardERKNS_3MatERS1_RKNS_6OptionE.
 
 51:                                               ; preds = %.noexc34.us
   %52 = load ptr, ptr %37, align 8, !tbaa !16
-  %53 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv
   %54 = load float, ptr %53, align 4, !tbaa !45
   br label %.lr.ph.i.preheader.us
 

@@ -448,7 +448,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef read
   %.116 = phi ptr [ %14, %13 ], [ %.012, %.lr.ph.preheader ]
   %15 = load i8, ptr %.116, align 1, !tbaa !4
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr @VALID_HD_NAME_CHARS, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @VALID_HD_NAME_CHARS, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !9
   %.not14 = icmp eq i32 %18, 0
   br i1 %.not14, label %.loopexit, label %13
@@ -473,7 +473,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef rea
   %.069 = phi ptr [ %5, %4 ], [ %0, %2 ]
   %6 = load i8, ptr %.069, align 1, !tbaa !4
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr @VALID_HD_VALUE_CHARS, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @VALID_HD_VALUE_CHARS, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !9
   %.not7 = icmp eq i32 %9, 0
   br i1 %.not7, label %._crit_edge, label %4
@@ -513,7 +513,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_header_value_rfc9113(ptr nou
   %.069.i = phi ptr [ %11, %10 ], [ %0, %6 ]
   %12 = load i8, ptr %.069.i, align 1, !tbaa !4
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr @VALID_HD_VALUE_CHARS, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @VALID_HD_VALUE_CHARS, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !9
   %.not7.i = icmp eq i32 %15, 0
   br i1 %.not7.i, label %nghttp2_check_header_value.exit, label %10
@@ -623,7 +623,7 @@ define dso_local noundef nonnull ptr @nghttp2_http2_strerror(i32 noundef %0) loc
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.nghttp2_http2_strerror, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.nghttp2_http2_strerror, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

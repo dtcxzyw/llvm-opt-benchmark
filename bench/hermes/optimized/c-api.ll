@@ -647,7 +647,7 @@ hermes_source_map_get_num_paths.exit:             ; preds = %lor.lhs.false.i
 
 if.end:                                           ; preds = %hermes_source_map_get_num_paths.exit
   %conv.i = zext i32 %index to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %2, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %conv.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(104) %0) #9
   %call.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i) #9
   %pathBuf_ = getelementptr inbounds nuw i8, ptr %map, i64 40

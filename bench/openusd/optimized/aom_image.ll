@@ -523,7 +523,7 @@ define hidden void @aom_img_free(ptr noundef captures(address_is_null) %0) local
   %9 = phi i64 [ %18, %aom_img_metadata_free.exit.i.i ], [ %8, %.preheader.i.i ]
   %.010.i.i = phi i64 [ %19, %aom_img_metadata_free.exit.i.i ], [ 0, %.preheader.i.i ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %.010.i.i
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %.010.i.i
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i, label %aom_img_metadata_free.exit.i.i, label %13
@@ -619,7 +619,7 @@ define hidden void @aom_img_remove_metadata(ptr noundef captures(address_is_null
   %9 = phi i64 [ %18, %aom_img_metadata_free.exit.i ], [ %8, %.preheader.i ]
   %.010.i = phi i64 [ %19, %aom_img_metadata_free.exit.i ], [ 0, %.preheader.i ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %.010.i
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %.010.i
   %12 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %aom_img_metadata_free.exit.i, label %13
@@ -843,7 +843,7 @@ define hidden void @aom_img_metadata_array_free(ptr noundef captures(address_is_
   %6 = phi i64 [ %15, %aom_img_metadata_free.exit ], [ %5, %.preheader ]
   %.010 = phi i64 [ %16, %aom_img_metadata_free.exit ], [ 0, %.preheader ]
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %.010
+  %8 = getelementptr inbounds [8 x i8], ptr %7, i64 %.010
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %aom_img_metadata_free.exit, label %10
@@ -962,7 +962,7 @@ aom_img_metadata_free.exit:                       ; preds = %21
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load i64, ptr %33, align 8
-  %37 = getelementptr inbounds ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %35, i64 %36
   store ptr %16, ptr %37, align 8
   %38 = load ptr, ptr %7, align 8
   %39 = load i64, ptr %38, align 8
@@ -997,7 +997,7 @@ define hidden ptr @aom_img_get_metadata(ptr noundef readonly captures(address_is
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %1
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %1
   %13 = load ptr, ptr %12, align 8
   br label %14
 

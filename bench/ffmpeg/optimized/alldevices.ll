@@ -48,7 +48,7 @@ define internal fastcc ptr @next_input(ptr noundef readnone captures(address) %0
   br i1 %.not, label %.critedge.loopexit, label %3
 
 3:                                                ; preds = %.preheader
-  %4 = getelementptr inbounds nuw ptr, ptr @indev_list, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @indev_list, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not19 = icmp eq ptr %0, %5
@@ -67,7 +67,7 @@ define internal fastcc ptr @next_input(ptr noundef readnone captures(address) %0
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %15 ], [ %indvars.iv23.ph, %.critedge.preheader ]
   %.014 = phi i32 [ %.115, %15 ], [ 0, %.critedge.preheader ]
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %7 = getelementptr inbounds nuw ptr, ptr @indev_list, i64 %indvars.iv23
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @indev_list, i64 %indvars.iv23
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %.not20 = icmp eq i64 %indvars.iv23, 7
   br i1 %.not20, label %19, label %9
@@ -117,7 +117,7 @@ define internal fastcc ptr @next_output(ptr noundef readnone captures(address) %
   br i1 %.not, label %.critedge.loopexit, label %3
 
 3:                                                ; preds = %.preheader
-  %4 = getelementptr inbounds nuw ptr, ptr @outdev_list, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @outdev_list, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not19 = icmp eq ptr %0, %5
@@ -136,7 +136,7 @@ define internal fastcc ptr @next_output(ptr noundef readnone captures(address) %
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %15 ], [ %indvars.iv23.ph, %.critedge.preheader ]
   %.014 = phi i32 [ %.115, %15 ], [ 0, %.critedge.preheader ]
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %7 = getelementptr inbounds nuw ptr, ptr @outdev_list, i64 %indvars.iv23
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @outdev_list, i64 %indvars.iv23
   %8 = load ptr, ptr %7, align 8, !tbaa !23
   %.not20 = icmp eq i64 %indvars.iv23, 5
   br i1 %.not20, label %19, label %9

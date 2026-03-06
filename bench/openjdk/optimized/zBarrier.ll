@@ -6,15 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogTagSet = type { ptr, i64, [5 x i32], [4 x i8], %class.LogOutputList, %class.LogDecorators, ptr }
 %class.LogOutputList = type <{ [6 x ptr], i32, [4 x i8] }>
 %class.LogDecorators = type { i32 }
-%struct.ZStoreBarrierEntry = type { ptr, i64 }
-%class.ZMovableBitMap = type { %class.CHeapBitMap.base, [7 x i8] }
-%class.CHeapBitMap.base = type <{ %class.GrowableBitMap, i8 }>
-%class.GrowableBitMap = type { %class.BitMap }
-%class.BitMap = type { ptr, i64 }
-%class.ZMarkThreadLocalStacks = type { ptr, [16 x ptr] }
-%class.ZMarkStripe = type { %class.ZStackList.2, %class.ZStackList.2 }
-%class.ZStackList.2 = type { i64, ptr, [48 x i8] }
-%class.ZMarkStackEntry = type { i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 $_ZN8ZBarrier17mark_and_rememberEPV8zpointer8zaddress = comdat any
@@ -80,7 +71,7 @@ define hidden noundef i64 @_ZN8ZBarrier17relocate_or_remapE15zaddress_unsafeP11Z
   %5 = lshr i64 %4, 21
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %5
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_ZN11ZGeneration24relocate_or_remap_objectE15zaddress_unsafe.exit, label %11
@@ -102,7 +93,7 @@ define hidden noundef i64 @_ZN8ZBarrier5remapE15zaddress_unsafeP11ZGeneration(i6
   %5 = lshr i64 %4, 21
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %5
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_ZN11ZGeneration12remap_objectE15zaddress_unsafe.exit, label %11
@@ -129,7 +120,7 @@ define hidden noundef i64 @_ZN8ZBarrier37blocking_keep_alive_on_weak_slow_pathEP
   %8 = lshr i64 %7, 21
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 624
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %8
   %12 = load volatile ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1
@@ -173,7 +164,7 @@ define hidden noundef i64 @_ZN8ZBarrier40blocking_keep_alive_on_phantom_slow_pat
   %8 = lshr i64 %7, 21
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 624
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %8
   %12 = load volatile ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1
@@ -217,7 +208,7 @@ define hidden noundef i64 @_ZN8ZBarrier39blocking_load_barrier_on_weak_slow_path
   %8 = lshr i64 %7, 21
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 624
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %8
   %12 = load volatile ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1
@@ -261,7 +252,7 @@ define hidden noundef i64 @_ZN8ZBarrier42blocking_load_barrier_on_phantom_slow_p
   %8 = lshr i64 %7, 21
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 624
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %8
   %12 = load volatile ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1
@@ -305,7 +296,7 @@ define hidden noundef i64 @_ZN8ZBarrier14mark_slow_pathE8zaddress(i64 noundef re
   %7 = lshr i64 %6, 21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 624
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1
@@ -348,7 +339,7 @@ define hidden noundef i64 @_ZN8ZBarrier25mark_from_young_slow_pathE8zaddress(i64
   %7 = lshr i64 %6, 21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 624
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1
@@ -389,7 +380,7 @@ define hidden noundef i64 @_ZN8ZBarrier23mark_from_old_slow_pathE8zaddress(i64 n
   %7 = lshr i64 %6, 21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 624
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1
@@ -419,7 +410,7 @@ define hidden noundef i64 @_ZN8ZBarrier20mark_young_slow_pathE8zaddress(i64 noun
   %7 = lshr i64 %6, 21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 624
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1
@@ -448,7 +439,7 @@ define hidden noundef i64 @_ZN8ZBarrier26mark_finalizable_slow_pathE8zaddress(i6
   %7 = lshr i64 %6, 21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 624
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1
@@ -489,7 +480,7 @@ define hidden noundef i64 @_ZN8ZBarrier35mark_finalizable_from_old_slow_pathE8za
   %7 = lshr i64 %6, 21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 624
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1
@@ -545,7 +536,7 @@ _ZN19ZStoreBarrierBuffer3addEPV8zpointerS0_.exit: ; preds = %17, %21
   %23 = add i64 %22, -16
   store i64 %23, ptr %18, align 8
   %24 = lshr i64 %23, 4
-  %25 = getelementptr inbounds nuw %struct.ZStoreBarrierEntry, ptr %14, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %24
   store ptr %0, ptr %25, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -571,7 +562,7 @@ define linkonce_odr hidden void @_ZN8ZBarrier17mark_and_rememberEPV8zpointer8zad
   %6 = lshr i64 %5, 21
   %7 = getelementptr inbounds nuw i8, ptr %.pre3, i64 624
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %6
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %6
   %10 = load volatile ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %12 = load i8, ptr %11, align 1
@@ -608,7 +599,7 @@ _ZN8ZBarrier4markILb0ELb0ELb1ELb0EEEv8zaddress.exit: ; preds = %_ZN11ZGeneration
   %28 = lshr i64 %27, 21
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 624
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   %32 = load volatile ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %34 = load i8, ptr %33, align 1
@@ -621,7 +612,7 @@ _ZN8ZBarrier4markILb0ELb0ELb1ELb0EEEv8zaddress.exit: ; preds = %_ZN11ZGeneration
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %28
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %28
   %42 = load volatile ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i64, ptr %43, align 8
@@ -630,10 +621,10 @@ _ZN8ZBarrier4markILb0ELb0ELb1ELb0EEEv8zaddress.exit: ; preds = %_ZN11ZGeneration
   %47 = lshr i64 %45, 3
   %48 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %class.ZMovableBitMap, ptr %46, i64 %49
+  %50 = getelementptr inbounds [24 x i8], ptr %46, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = lshr i64 %45, 9
-  %53 = getelementptr inbounds nuw i64, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = and i64 %47, 63
   %55 = shl nuw i64 1, %54
   %56 = load volatile i64, ptr %53, align 8
@@ -663,7 +654,7 @@ define hidden noundef i64 @_ZN8ZBarrier34no_keep_alive_heap_store_slow_pathEPV8z
   %7 = lshr i64 %6, 21
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 624
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1
@@ -676,7 +667,7 @@ define hidden noundef i64 @_ZN8ZBarrier34no_keep_alive_heap_store_slow_pathEPV8z
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %7
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %7
   %21 = load volatile ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %22, align 8
@@ -685,10 +676,10 @@ define hidden noundef i64 @_ZN8ZBarrier34no_keep_alive_heap_store_slow_pathEPV8z
   %26 = lshr i64 %24, 3
   %27 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %class.ZMovableBitMap, ptr %25, i64 %28
+  %29 = getelementptr inbounds [24 x i8], ptr %25, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = lshr i64 %24, 9
-  %32 = getelementptr inbounds nuw i64, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = and i64 %26, 63
   %34 = shl nuw i64 1, %33
   %35 = load volatile i64, ptr %32, align 8
@@ -721,7 +712,7 @@ define hidden noundef i64 @_ZN8ZBarrier22native_store_slow_pathE8zaddress(i64 no
   %7 = lshr i64 %6, 21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 624
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1
@@ -764,7 +755,7 @@ define hidden noundef i64 @_ZN8ZBarrier20keep_alive_slow_pathE8zaddress(i64 noun
   %7 = lshr i64 %6, 21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 624
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1
@@ -949,7 +940,7 @@ _ZNK5ZPage9bit_indexE8zaddress.exit.i:            ; preds = %_ZNK5ZPage22object_
   %36 = lshr i64 %27, %29
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %38 = lshr i64 %36, 6
-  %39 = getelementptr inbounds nuw i64, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = load volatile i64, ptr %39, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %41 = and i64 %36, 63
@@ -962,7 +953,7 @@ _ZNK5ZPage9bit_indexE8zaddress.exit.i:            ; preds = %_ZNK5ZPage22object_
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %46 = load ptr, ptr %45, align 8
   %47 = lshr i64 %23, 6
-  %48 = getelementptr inbounds nuw i64, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = load volatile i64, ptr %48, align 8
   %50 = and i64 %27, 63
   %51 = shl nuw i64 1, %50
@@ -989,7 +980,7 @@ define linkonce_odr hidden void @_ZN5ZMark11mark_objectILb1ELb0ELb1ELb0EEEv8zadd
   %7 = lshr i64 %6, 21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1028,20 +1019,20 @@ _ZN14ZMarkTerminate15set_resurrectedEb.exit:      ; preds = %20, %25, %.sink.spl
   %31 = load i8, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %33 = zext i8 %31 to i64
-  %34 = getelementptr inbounds nuw %class.ZMarkThreadLocalStacks, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [136 x i8], ptr %32, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %36 = lshr i64 %1, 21
   %37 = load volatile i64, ptr %35, align 64
   %38 = and i64 %37, %36
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %40 = getelementptr inbounds nuw %class.ZMarkStripe, ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [128 x i8], ptr %39, i64 %38
   %41 = load i64, ptr @ZAddressOffsetMask, align 8
   %42 = and i64 %41, %1
   %43 = shl i64 %42, 5
   %44 = or disjoint i64 %43, 20
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %38
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %38
   %48 = load ptr, ptr %47, align 8
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.i, label %49
@@ -1055,7 +1046,7 @@ _ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.thread.i: ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %52 = add i64 %50, 1
   store i64 %52, ptr %48, align 8
-  %53 = getelementptr inbounds %class.ZMarkStackEntry, ptr %51, i64 %50
+  %53 = getelementptr inbounds [8 x i8], ptr %51, i64 %50
   store i64 %44, ptr %53, align 8
   br label %_ZN22ZMarkThreadLocalStacks4pushEP19ZMarkStackAllocatorP14ZMarkStripeSetP11ZMarkStripeP14ZMarkTerminate15ZMarkStackEntryb.exit
 
@@ -1130,7 +1121,7 @@ _ZNK5ZPage9bit_indexE8zaddress.exit.i:            ; preds = %_ZNK5ZPage22object_
   %35 = lshr i64 %23, %28
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %37 = lshr i64 %35, 6
-  %38 = getelementptr inbounds nuw i64, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %37
   %39 = load volatile i64, ptr %38, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %40 = and i64 %35, 63
@@ -1143,7 +1134,7 @@ _ZNK5ZPage9bit_indexE8zaddress.exit.i:            ; preds = %_ZNK5ZPage22object_
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %45 = load ptr, ptr %44, align 8
   %46 = lshr i64 %23, 6
-  %47 = getelementptr inbounds nuw i64, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load volatile i64, ptr %47, align 8
   %49 = and i64 %23, 62
   %50 = shl nuw nsw i64 1, %49
@@ -1191,7 +1182,7 @@ define linkonce_odr hidden void @_ZN5ZMark11mark_objectILb0ELb0ELb1ELb0EEEv8zadd
   %7 = lshr i64 %6, 21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1213,13 +1204,13 @@ define linkonce_odr hidden void @_ZN5ZMark11mark_objectILb0ELb0ELb1ELb0EEEv8zadd
   %25 = load i8, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 104
   %27 = zext i8 %25 to i64
-  %28 = getelementptr inbounds nuw %class.ZMarkThreadLocalStacks, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [136 x i8], ptr %26, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %30 = lshr i64 %1, 21
   %31 = load volatile i64, ptr %29, align 64
   %32 = and i64 %31, %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %34 = getelementptr inbounds nuw %class.ZMarkStripe, ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [128 x i8], ptr %33, i64 %32
   %35 = load i64, ptr @ZAddressOffsetMask, align 8
   %36 = and i64 %35, %1
   %37 = shl i64 %36, 5
@@ -1227,7 +1218,7 @@ define linkonce_odr hidden void @_ZN5ZMark11mark_objectILb0ELb0ELb1ELb0EEEv8zadd
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %32
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %32
   %43 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.i, label %44
@@ -1241,7 +1232,7 @@ _ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.thread.i: ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %47 = add i64 %45, 1
   store i64 %47, ptr %43, align 8
-  %48 = getelementptr inbounds %class.ZMarkStackEntry, ptr %46, i64 %45
+  %48 = getelementptr inbounds [8 x i8], ptr %46, i64 %45
   store i64 %38, ptr %48, align 8
   br label %_ZN22ZMarkThreadLocalStacks4pushEP19ZMarkStackAllocatorP14ZMarkStripeSetP11ZMarkStripeP14ZMarkTerminate15ZMarkStackEntryb.exit
 
@@ -1262,7 +1253,7 @@ define linkonce_odr hidden void @_ZN5ZMark11mark_objectILb0ELb1ELb1ELb0EEEv8zadd
   %7 = lshr i64 %6, 21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1329,7 +1320,7 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
   %45 = lshr i64 %32, %44
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %47 = lshr i64 %45, 6
-  %48 = getelementptr inbounds nuw i64, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = load volatile i64, ptr %48, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %50 = and i64 %45, 63
@@ -1346,7 +1337,7 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %56 = load ptr, ptr %55, align 8
   %57 = lshr i64 %32, 6
-  %58 = getelementptr inbounds nuw i64, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = and i64 %32, 62
   %60 = load volatile i64, ptr %58, align 8
   %61 = shl nuw i64 3, %59
@@ -1373,13 +1364,13 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
   %74 = load i8, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 104
   %76 = zext i8 %74 to i64
-  %77 = getelementptr inbounds nuw %class.ZMarkThreadLocalStacks, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [136 x i8], ptr %75, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %79 = lshr i64 %1, 21
   %80 = load volatile i64, ptr %78, align 64
   %81 = and i64 %80, %79
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %83 = getelementptr inbounds nuw %class.ZMarkStripe, ptr %82, i64 %81
+  %83 = getelementptr inbounds nuw [128 x i8], ptr %82, i64 %81
   %84 = load i64, ptr @ZAddressOffsetMask, align 8
   %85 = and i64 %84, %1
   %86 = shl i64 %85, 5
@@ -1390,7 +1381,7 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   %93 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %81
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %81
   %95 = load ptr, ptr %94, align 8
   %.not.i = icmp eq ptr %95, null
   br i1 %.not.i, label %_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.i, label %96
@@ -1404,7 +1395,7 @@ _ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.thread.i: ; preds = %96
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %99 = add i64 %97, 1
   store i64 %99, ptr %95, align 8
-  %100 = getelementptr inbounds %class.ZMarkStackEntry, ptr %98, i64 %97
+  %100 = getelementptr inbounds [8 x i8], ptr %98, i64 %97
   store i64 %90, ptr %100, align 8
   br label %_ZN8ZLiveMap3setE13ZGenerationIdmbRb.exit
 
@@ -1429,7 +1420,7 @@ define linkonce_odr hidden void @_ZN5ZMark11mark_objectILb0ELb1ELb1ELb1EEEv8zadd
   %7 = lshr i64 %6, 21
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load volatile ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
@@ -1496,7 +1487,7 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
   %45 = lshr i64 %32, %44
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %47 = lshr i64 %45, 6
-  %48 = getelementptr inbounds nuw i64, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = load volatile i64, ptr %48, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %50 = and i64 %45, 63
@@ -1513,7 +1504,7 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %56 = load ptr, ptr %55, align 8
   %57 = lshr i64 %32, 6
-  %58 = getelementptr inbounds nuw i64, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %57
   %59 = and i64 %32, 62
   %60 = load volatile i64, ptr %58, align 8
   %61 = shl nuw nsw i64 1, %59
@@ -1539,13 +1530,13 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
   %72 = load i8, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 104
   %74 = zext i8 %72 to i64
-  %75 = getelementptr inbounds nuw %class.ZMarkThreadLocalStacks, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [136 x i8], ptr %73, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %77 = lshr i64 %1, 21
   %78 = load volatile i64, ptr %76, align 64
   %79 = and i64 %78, %77
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %81 = getelementptr inbounds nuw %class.ZMarkStripe, ptr %80, i64 %79
+  %81 = getelementptr inbounds nuw [128 x i8], ptr %80, i64 %79
   %82 = load i64, ptr @ZAddressOffsetMask, align 8
   %83 = and i64 %82, %1
   %84 = shl i64 %83, 5
@@ -1553,7 +1544,7 @@ _ZN5ZPage11mark_objectE8zaddressbRb.exit:         ; preds = %18, %_ZNK5ZPage22ob
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   %88 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %79
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %79
   %90 = load ptr, ptr %89, align 8
   %.not.i = icmp eq ptr %90, null
   br i1 %.not.i, label %_ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.i, label %91
@@ -1567,7 +1558,7 @@ _ZN6ZStackI15ZMarkStackEntryLm254EE4pushES0_.exit.thread.i: ; preds = %91
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %94 = add i64 %92, 1
   store i64 %94, ptr %90, align 8
-  %95 = getelementptr inbounds %class.ZMarkStackEntry, ptr %93, i64 %92
+  %95 = getelementptr inbounds [8 x i8], ptr %93, i64 %92
   store i64 %85, ptr %95, align 8
   br label %_ZN22ZMarkThreadLocalStacks4pushEP19ZMarkStackAllocatorP14ZMarkStripeSetP11ZMarkStripeP14ZMarkTerminate15ZMarkStackEntryb.exit
 

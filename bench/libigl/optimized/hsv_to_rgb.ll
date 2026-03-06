@@ -64,9 +64,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
 
 21:                                               ; preds = %.lr.ph, %_ZN3igl10hsv_to_rgbIdEEvPKT_PS1_.exit
   %.022 = phi i64 [ 0, %.lr.ph ], [ %54, %_ZN3igl10hsv_to_rgbIdEEvPKT_PS1_.exit ]
-  %22 = getelementptr double, ptr %17, i64 %.022
+  %22 = getelementptr [8 x i8], ptr %17, i64 %.022
   %23 = load double, ptr %22, align 8, !tbaa !15
-  %24 = getelementptr double, ptr %22, i64 %15
+  %24 = getelementptr [8 x i8], ptr %22, i64 %15
   %25 = load double, ptr %24, align 8, !tbaa !15
   %26 = getelementptr i8, ptr %22, i64 %.idx
   %27 = load double, ptr %26, align 8, !tbaa !15
@@ -121,9 +121,9 @@ _ZN3igl10hsv_to_rgbIdEEvPKT_PS1_.exit:            ; preds = %46, %47, %48, %49, 
   %.sroa.0.1 = phi double [ 0.000000e+00, %21 ], [ %27, %50 ], [ %42, %46 ], [ %39, %47 ], [ %39, %48 ], [ %45, %49 ], [ %27, %.sink.split.i.i ]
   %.sroa.10.1 = phi double [ 0.000000e+00, %21 ], [ %39, %50 ], [ %27, %46 ], [ %27, %47 ], [ %42, %48 ], [ %39, %49 ], [ %45, %.sink.split.i.i ]
   %.sroa.17.0 = phi double [ 0.000000e+00, %21 ], [ %42, %50 ], [ %39, %46 ], [ %45, %47 ], [ %27, %48 ], [ %27, %49 ], [ %39, %.sink.split.i.i ]
-  %51 = getelementptr double, ptr %18, i64 %.022
+  %51 = getelementptr [8 x i8], ptr %18, i64 %.022
   store double %.sroa.0.1, ptr %51, align 8, !tbaa !15
-  %52 = getelementptr double, ptr %51, i64 %20
+  %52 = getelementptr [8 x i8], ptr %51, i64 %20
   store double %.sroa.10.1, ptr %52, align 8, !tbaa !15
   %53 = getelementptr i8, ptr %51, i64 %.idx21
   store double %.sroa.17.0, ptr %53, align 8, !tbaa !15
@@ -256,9 +256,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE10resizeLikeIS
 
 21:                                               ; preds = %.lr.ph, %_ZN3igl10hsv_to_rgbIfEEvRKT_S3_S3_RS1_S4_S4_.exit
   %.022 = phi i64 [ 0, %.lr.ph ], [ %69, %_ZN3igl10hsv_to_rgbIfEEvRKT_S3_S3_RS1_S4_S4_.exit ]
-  %22 = getelementptr float, ptr %17, i64 %.022
+  %22 = getelementptr [4 x i8], ptr %17, i64 %.022
   %23 = load float, ptr %22, align 4, !tbaa !24
-  %24 = getelementptr float, ptr %22, i64 %15
+  %24 = getelementptr [4 x i8], ptr %22, i64 %15
   %25 = load float, ptr %24, align 4, !tbaa !24
   %26 = getelementptr i8, ptr %22, i64 %.idx
   %27 = load float, ptr %26, align 4, !tbaa !24
@@ -327,9 +327,9 @@ _ZN3igl10hsv_to_rgbIfEEvRKT_S3_S3_RS1_S4_S4_.exit: ; preds = %48, %51, %54, %57,
   %.sroa.0.1 = phi float [ 0.000000e+00, %21 ], [ %27, %48 ], [ %52, %51 ], [ %55, %54 ], [ %58, %57 ], [ %61, %60 ], [ %27, %63 ]
   %.sroa.10.1 = phi float [ 0.000000e+00, %21 ], [ %49, %48 ], [ %27, %51 ], [ %27, %54 ], [ %59, %57 ], [ %62, %60 ], [ %64, %63 ]
   %.sroa.17.0 = phi float [ 0.000000e+00, %21 ], [ %50, %48 ], [ %53, %51 ], [ %56, %54 ], [ %27, %57 ], [ %27, %60 ], [ %65, %63 ]
-  %66 = getelementptr float, ptr %18, i64 %.022
+  %66 = getelementptr [4 x i8], ptr %18, i64 %.022
   store float %.sroa.0.1, ptr %66, align 4, !tbaa !24
-  %67 = getelementptr float, ptr %66, i64 %20
+  %67 = getelementptr [4 x i8], ptr %66, i64 %20
   store float %.sroa.10.1, ptr %67, align 4, !tbaa !24
   %68 = getelementptr i8, ptr %66, i64 %.idx21
   store float %.sroa.17.0, ptr %68, align 4, !tbaa !24

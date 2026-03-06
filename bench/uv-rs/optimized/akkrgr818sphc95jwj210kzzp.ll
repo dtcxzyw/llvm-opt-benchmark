@@ -3048,7 +3048,7 @@ common.resume:                                    ; preds = %270, %273, %274, %.
 64:                                               ; preds = %57, %51
   %65 = getelementptr inbounds nuw i8, ptr %39, i64 400
   %66 = load ptr, ptr %65, align 8, !alias.scope !604, !noalias !607, !nonnull !3, !noundef !3
-  %67 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %66, i64 %54
+  %67 = getelementptr inbounds [104 x i8], ptr %66, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %67, ptr noundef nonnull readonly align 8 dereferenceable(104) %38, i64 104, i1 false), !noalias !611
   %68 = add i64 %54, 1
   store i64 %68, ptr %53, align 8, !alias.scope !604, !noalias !607
@@ -3988,7 +3988,7 @@ common.resume:                                    ; preds = %272, %275, %276, %.
 64:                                               ; preds = %57, %51
   %65 = getelementptr inbounds nuw i8, ptr %39, i64 400
   %66 = load ptr, ptr %65, align 8, !alias.scope !857, !noalias !860, !nonnull !3, !noundef !3
-  %67 = getelementptr inbounds { { { { i64, [2 x i64] } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, i8, i8, [6 x i8] }, ptr %66, i64 %54
+  %67 = getelementptr inbounds [104 x i8], ptr %66, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %67, ptr noundef nonnull readonly align 8 dereferenceable(104) %38, i64 104, i1 false), !noalias !863
   %68 = add i64 %54, 1
   store i64 %68, ptr %53, align 8, !alias.scope !857, !noalias !860

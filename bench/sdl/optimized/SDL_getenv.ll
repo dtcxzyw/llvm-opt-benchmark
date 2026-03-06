@@ -88,7 +88,7 @@ define hidden noundef ptr @SDL_CreateEnvironment_REAL(i1 noundef zeroext %0) loc
 
 21:                                               ; preds = %17, %18, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next
   %23 = load ptr, ptr %22, align 8
   %.not31 = icmp eq ptr %23, null
   br i1 %.not31, label %.loopexit, label %.lr.ph, !llvm.loop !3
@@ -255,7 +255,7 @@ define hidden ptr @SDL_GetEnvironmentVariables_REAL(ptr noundef readonly capture
 
 18:                                               ; preds = %6
   %19 = load i64, ptr %2, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %17, ptr %3, align 8
@@ -266,7 +266,7 @@ define hidden ptr @SDL_GetEnvironmentVariables_REAL(ptr noundef readonly capture
   %24 = load ptr, ptr %8, align 8
   %25 = call zeroext i1 @SDL_IterateHashTable(ptr noundef %24, ptr noundef nonnull @CopyEnvStrings, ptr noundef nonnull %3) #11
   %26 = load i64, ptr %23, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %17, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %26
   store ptr null, ptr %27, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %28
@@ -315,7 +315,7 @@ define internal noundef zeroext i1 @CopyEnvStrings(ptr noundef captures(none) %0
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   store ptr %7, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %2, i64 %5, i1 false)
   %12 = load ptr, ptr %6, align 8

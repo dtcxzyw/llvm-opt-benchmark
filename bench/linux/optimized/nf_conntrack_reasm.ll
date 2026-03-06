@@ -311,7 +311,7 @@ define dso_local noundef range(i32 -115, 1) i32 @nf_ct_frag6_gather(ptr noundef 
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %131 = load volatile ptr, ptr %130, align 8
   %132 = zext i32 %129 to i64
-  %133 = getelementptr ptr, ptr %131, i64 %132
+  %133 = getelementptr [8 x i8], ptr %131, i64 %132
   %134 = load ptr, ptr %133, align 8
   call void @__rcu_read_unlock() #11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1232,7 +1232,7 @@ define internal range(i32 -2147483648, 1) i32 @nf_ct_net_init(ptr noundef %0) #0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr ptr, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1263,7 +1263,7 @@ define internal range(i32 -2147483648, 1) i32 @nf_ct_net_init(ptr noundef %0) #0
   tail call void @__rcu_read_lock() #11
   %24 = load volatile ptr, ptr %3, align 8
   %25 = zext i32 %23 to i64
-  %26 = getelementptr ptr, ptr %24, i64 %25
+  %26 = getelementptr [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   tail call void @__rcu_read_unlock() #11
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -1316,7 +1316,7 @@ define internal void @nf_ct_net_pre_exit(ptr noundef %0) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr ptr, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1334,14 +1334,14 @@ define internal void @nf_ct_net_exit(ptr noundef %0) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %4 = load volatile ptr, ptr %3, align 8
   %5 = zext i32 %2 to i64
-  %6 = getelementptr ptr, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void @__rcu_read_unlock() #11
   %8 = load i32, ptr @nf_frag_pernet_id, align 4
   tail call void @__rcu_read_lock() #11
   %9 = load volatile ptr, ptr %3, align 8
   %10 = zext i32 %8 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @__rcu_read_unlock() #11
   %13 = load ptr, ptr %12, align 8

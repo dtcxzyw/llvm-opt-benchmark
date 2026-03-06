@@ -3,10 +3,6 @@ source_filename = "bench/hdf5/original/H5Gent.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.H5G_entry_t = type { i32, %union.H5G_cache_t, i64, i64 }
-%union.H5G_cache_t = type { %struct.anon }
-%struct.anon = type { i64, i64 }
-
 @H5G_init_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
 @.str = private unnamed_addr constant [100 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/hdf5/hdf5/src/H5Gent.c\00", align 1
@@ -89,7 +85,7 @@ define range(i32 -1, 1) i32 @H5G__ent_decode_vec(ptr noundef %0, ptr noundef %1,
   br label %.loopexit
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %3, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %indvars.iv
   %22 = tail call i32 @H5G_ent_decode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %21, ptr noundef %2)
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %13
@@ -461,7 +457,7 @@ define range(i32 -1, 1) i32 @H5G__ent_encode_vec(ptr noundef %0, ptr noundef %1,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw %struct.H5G_entry_t, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %indvars.iv
   %14 = tail call i32 @H5G_ent_encode(ptr noundef %0, ptr noundef %1, ptr noundef %13)
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %12

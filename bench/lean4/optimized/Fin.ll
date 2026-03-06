@@ -2228,7 +2228,7 @@ declare ptr @l_Lean_Meta_getFinValue_x3f(ptr noundef, ptr noundef, ptr noundef, 
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !5
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1

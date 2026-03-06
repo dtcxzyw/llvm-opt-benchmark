@@ -93,7 +93,7 @@ define hidden noundef i32 @getSampleSizeInBytes(i32 noundef %0, i32 noundef %1) 
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.getSampleSizeInBytes, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.getSampleSizeInBytes, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %5
 
@@ -110,7 +110,7 @@ define hidden noundef i32 @getSignificantBits(i32 noundef %0, i32 noundef %1) lo
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.getSignificantBits, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.getSignificantBits, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %5
 
@@ -237,13 +237,13 @@ getBitIndex.exit:                                 ; preds = %getBitIndex.exit.pr
   ]
 
 61:                                               ; preds = %getBitIndex.exit
-  %62 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4
   %.not52 = icmp eq i32 %63, 0
   br i1 %.not52, label %64, label %.loopexit
 
 64:                                               ; preds = %getBitIndex.exit, %getBitIndex.exit, %61
-  %65 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 1, ptr %65, align 4
   switch i32 %60, label %66 [
     i32 1, label %getSignificantBits.exit

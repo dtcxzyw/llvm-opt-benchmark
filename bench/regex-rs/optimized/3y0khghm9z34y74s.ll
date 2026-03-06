@@ -101,7 +101,7 @@ define hidden void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3new1
 30:                                               ; preds = %._crit_edge.i, %19
   %31 = phi ptr [ %.pre, %._crit_edge.i ], [ %20, %19 ]
   %32 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %21, %19 ]
-  %33 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr }, i64 } } }, [4 x i64] }, ptr %31, i64 %32
+  %33 = getelementptr inbounds [64 x i8], ptr %31, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %33, ptr noundef nonnull align 64 dereferenceable(64) %4, i64 64, i1 false)
   %34 = add i64 %32, 1
   store i64 %34, ptr %14, align 8, !alias.scope !4, !noalias !7

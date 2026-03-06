@@ -164,10 +164,10 @@ define noundef zeroext i1 @"_ZN109_$LT$html_to_markdown..markdown..ParagraphHand
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !47
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !48, !noalias !49, !nonnull !20, !noundef !20
-  %28 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %27, i64 %19
-  %29 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %27, i64 %23
-  %30 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %27, i64 %21
-  %31 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %27, i64 %25
+  %28 = getelementptr inbounds [56 x i8], ptr %27, i64 %19
+  %29 = getelementptr inbounds [56 x i8], ptr %27, i64 %23
+  %30 = getelementptr inbounds [56 x i8], ptr %27, i64 %21
+  %31 = getelementptr inbounds [56 x i8], ptr %27, i64 %25
   store ptr %28, ptr %7, align 8, !alias.scope !42, !noalias !50
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %30, ptr %32, align 8, !alias.scope !42, !noalias !50
@@ -216,7 +216,7 @@ _ZN16html_to_markdown15markdown_writer14MarkdownWriter9is_inside17h699a810a01f68
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6": ; preds = %37, %48
   %.pn27 = phi i64 [ %41, %48 ], [ %45, %37 ]
-  %.pn = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %46, i64 %.pn27
+  %.pn = getelementptr inbounds [56 x i8], ptr %46, i64 %.pn27
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.pn, i64 -56
   %50 = call noundef zeroext i1 @_ZN16html_to_markdown12html_element11HtmlElement9is_inline17he27e04e46236419aE(ptr noundef nonnull align 8 %.sroa.0.0)
   br i1 %50, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hadaf0983d6f82fc2E.exit6.thread", label %51
@@ -1420,10 +1420,10 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !480
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !481, !noalias !482, !nonnull !20, !noundef !20
-  %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %18
-  %28 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %22
-  %29 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %20
-  %30 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %24
+  %27 = getelementptr inbounds [56 x i8], ptr %26, i64 %18
+  %28 = getelementptr inbounds [56 x i8], ptr %26, i64 %22
+  %29 = getelementptr inbounds [56 x i8], ptr %26, i64 %20
+  %30 = getelementptr inbounds [56 x i8], ptr %26, i64 %24
   store ptr %27, ptr %6, align 8, !alias.scope !475, !noalias !483
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %29, ptr %31, align 8, !alias.scope !475, !noalias !483
@@ -1550,10 +1550,10 @@ define void @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u20$as$u20$html
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !520
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !521, !noalias !522, !nonnull !20, !noundef !20
-  %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %18
-  %28 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %22
-  %29 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %20
-  %30 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %26, i64 %24
+  %27 = getelementptr inbounds [56 x i8], ptr %26, i64 %18
+  %28 = getelementptr inbounds [56 x i8], ptr %26, i64 %22
+  %29 = getelementptr inbounds [56 x i8], ptr %26, i64 %20
+  %30 = getelementptr inbounds [56 x i8], ptr %26, i64 %24
   store ptr %27, ptr %6, align 8, !alias.scope !515, !noalias !523
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %29, ptr %31, align 8, !alias.scope !515, !noalias !523
@@ -1660,10 +1660,10 @@ define noundef zeroext i1 @"_ZN104_$LT$html_to_markdown..markdown..CodeHandler$u
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !552
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !553, !noalias !554, !nonnull !20, !noundef !20
-  %21 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %20, i64 %12
-  %22 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %20, i64 %16
-  %23 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %20, i64 %14
-  %24 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, { { { i64, ptr, {} }, i64 } } } }, ptr %20, i64 %18
+  %21 = getelementptr inbounds [56 x i8], ptr %20, i64 %12
+  %22 = getelementptr inbounds [56 x i8], ptr %20, i64 %16
+  %23 = getelementptr inbounds [56 x i8], ptr %20, i64 %14
+  %24 = getelementptr inbounds [56 x i8], ptr %20, i64 %18
   store ptr %21, ptr %7, align 8, !alias.scope !547, !noalias !555
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %23, ptr %25, align 8, !alias.scope !547, !noalias !555

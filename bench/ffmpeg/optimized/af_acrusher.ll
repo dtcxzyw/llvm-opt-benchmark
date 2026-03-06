@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVFilterPad = type { ptr, i32, i32, %union.anon, ptr, ptr, ptr }
 %union.anon = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.SRContext = type { double, double, double, double }
 
 @.str = private unnamed_addr constant [9 x i8] c"acrusher\00", align 1
 @.str.1 = private unnamed_addr constant [29 x i8] c"Reduce audio bit resolution.\00", align 1
@@ -212,11 +211,11 @@ lfo_get.exit:                                     ; preds = %62, %.thread.i, %.t
 
 .lr.ph:                                           ; preds = %91, %242
   %indvars.iv = phi i64 [ %indvars.iv.next, %242 ], [ 0, %91 ]
-  %94 = getelementptr inbounds nuw double, ptr %.05465, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %.05465, i64 %indvars.iv
   %95 = load double, ptr %94, align 8, !tbaa !59
   %96 = fmul nsz double %13, %95
   %97 = load ptr, ptr %41, align 8, !tbaa !60
-  %98 = getelementptr inbounds nuw %struct.SRContext, ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %97, i64 %indvars.iv
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load double, ptr %99, align 8, !tbaa !61
   %101 = fadd nsz double %100, 1.000000e+00
@@ -413,7 +412,7 @@ bitreduction.exit:                                ; preds = %144, %149, %163, %1
 
 242:                                              ; preds = %samplereduction.exit, %bitreduction.exit
   %243 = phi nsz double [ %241, %bitreduction.exit ], [ %118, %samplereduction.exit ]
-  %244 = getelementptr inbounds nuw double, ptr %.05564, i64 %indvars.iv
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %.05564, i64 %indvars.iv
   store double %243, ptr %244, align 8, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %245 = load i32, ptr %40, align 4, !tbaa !58
@@ -429,8 +428,8 @@ bitreduction.exit:                                ; preds = %144, %149, %163, %1
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %91
   %249 = phi i32 [ %54, %91 ], [ %.pre72, %._crit_edge.loopexit ]
   %.0.lcssa = phi i64 [ 0, %91 ], [ %248, %._crit_edge.loopexit ]
-  %250 = getelementptr inbounds nuw double, ptr %.05465, i64 %.0.lcssa
-  %251 = getelementptr inbounds nuw double, ptr %.05564, i64 %.0.lcssa
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %.05465, i64 %.0.lcssa
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %.05564, i64 %.0.lcssa
   %.not60 = icmp eq i32 %249, 0
   br i1 %.not60, label %262, label %252
 

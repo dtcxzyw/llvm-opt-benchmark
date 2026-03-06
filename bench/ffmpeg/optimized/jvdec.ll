@@ -241,7 +241,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %124 = lshr i32 %123, 7
   %125 = and i32 %124, 1
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw i32, ptr %7, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !39
   %129 = trunc i32 %128 to i8
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv47.i
@@ -362,7 +362,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %194 = lshr i32 %193, 7
   %195 = and i32 %194, 1
   %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr inbounds nuw i32, ptr %6, i64 %196
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %196
   %198 = load i32, ptr %197, align 4, !tbaa !39
   %199 = trunc i32 %198 to i8
   %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %indvars.iv59.i.i
@@ -387,7 +387,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %210 = lshr i32 %209, 7
   %211 = and i32 %210, 1
   %212 = zext nneg i32 %211 to i64
-  %213 = getelementptr inbounds nuw i32, ptr %6, i64 %212
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %212
   %214 = load i32, ptr %213, align 4, !tbaa !39
   %215 = trunc i32 %214 to i8
   %gep78.i.i = getelementptr i8, ptr %invariant.gep77.i.i, i64 %indvars.iv62.i.i
@@ -499,7 +499,7 @@ decode2x2.exit.i.i.loopexit.critedge:             ; preds = %220
   %278 = lshr i32 %277, 7
   %279 = and i32 %278, 1
   %280 = zext nneg i32 %279 to i64
-  %281 = getelementptr inbounds nuw i32, ptr %5, i64 %280
+  %281 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %280
   %282 = load i32, ptr %281, align 4, !tbaa !39
   %283 = trunc i32 %282 to i8
   %gep55.i.i.i = getelementptr i8, ptr %invariant.gep54.i.i.i, i64 %indvars.iv43.i.i.i
@@ -672,7 +672,7 @@ decode8x8.exit:                                   ; preds = %303, %130, %.lr.ph1
   %361 = and i32 %360, 197379
   %362 = or i32 %359, %361
   %363 = or i32 %362, -16777216
-  %364 = getelementptr inbounds nuw i32, ptr %345, i64 %indvars.iv147
+  %364 = getelementptr inbounds nuw [4 x i8], ptr %345, i64 %indvars.iv147
   store i32 %363, ptr %364, align 4, !tbaa !39
   %365 = getelementptr inbounds nuw i8, ptr %.281139, i64 3
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1

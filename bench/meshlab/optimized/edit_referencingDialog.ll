@@ -45,7 +45,6 @@ module asm ".previous"
 %class.QColor = type <{ i32, %"union.QColor::CT", [2 x i8] }>
 %"union.QColor::CT" = type { %struct.anon }
 %struct.anon = type { i16, i16, i16, i16, i16 }
-%"class.vcg::Point3" = type { [3 x double] }
 %"struct.std::pair" = type { i32, %"class.std::vector.5" }
 %"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl" }
@@ -5781,7 +5780,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i89: ; preds = %_ZN9QtPrivate8RefC
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %86 = load i32, ptr %85, align 8
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds ptr, ptr %84, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %84, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %83, i64 12
   %90 = load i32, ptr %89, align 4
   %.not4.i.i.i.i = icmp eq i32 %86, %90
@@ -5789,7 +5788,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i89: ; preds = %_ZN9QtPrivate8RefC
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i89
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr %84, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %84, i64 %91
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -5923,7 +5922,7 @@ _ZN7QStringD2Ev.exit99:                           ; preds = %_ZN7QStringD2Ev.exi
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 168
   %142 = load ptr, ptr %141, align 8
   %143 = sdiv i64 %.068449, 64
-  %144 = getelementptr inbounds i64, ptr %142, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %142, i64 %143
   %145 = and i64 %.068449, -9223372036854775745
   %146 = icmp ugt i64 %145, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %146, i64 -8, i64 0
@@ -6185,7 +6184,7 @@ _ZN7QStringD2Ev.exit119:                          ; preds = %195, %_ZN9QtPrivate
   %223 = load ptr, ptr %45, align 8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 208
   %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds %class.QString, ptr %225, i64 %.068449
+  %226 = getelementptr inbounds [8 x i8], ptr %225, i64 %.068449
   invoke void @_ZN16QTableWidgetItemC1ERK7QStringi(ptr noundef nonnull align 8 dereferenceable(44) %222, ptr noundef nonnull align 8 dereferenceable(8) %226, i32 noundef 0)
           to label %227 unwind label %405
 
@@ -6198,7 +6197,7 @@ _ZN7QStringD2Ev.exit119:                          ; preds = %195, %_ZN9QtPrivate
   %232 = load ptr, ptr %45, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 232
   %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds %"class.vcg::Point3", ptr %234, i64 %.068449
+  %235 = getelementptr inbounds [24 x i8], ptr %234, i64 %.068449
   %236 = load double, ptr %235, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %23, double noundef %236, i8 noundef signext 103, i32 noundef 6)
           to label %237 unwind label %407
@@ -6273,7 +6272,7 @@ _ZN7QStringD2Ev.exit130:                          ; preds = %238, %_ZN9QtPrivate
   %258 = load ptr, ptr %45, align 8
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 232
   %260 = load ptr, ptr %259, align 8
-  %261 = getelementptr inbounds %"class.vcg::Point3", ptr %260, i64 %.068449
+  %261 = getelementptr inbounds [24 x i8], ptr %260, i64 %.068449
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %263 = load double, ptr %262, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %26, double noundef %263, i8 noundef signext 103, i32 noundef 6)
@@ -6349,7 +6348,7 @@ _ZN7QStringD2Ev.exit141:                          ; preds = %265, %_ZN9QtPrivate
   %285 = load ptr, ptr %45, align 8
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 232
   %287 = load ptr, ptr %286, align 8
-  %288 = getelementptr inbounds %"class.vcg::Point3", ptr %287, i64 %.068449
+  %288 = getelementptr inbounds [24 x i8], ptr %287, i64 %.068449
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 16
   %290 = load double, ptr %289, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %29, double noundef %290, i8 noundef signext 103, i32 noundef 6)
@@ -6425,7 +6424,7 @@ _ZN7QStringD2Ev.exit152:                          ; preds = %292, %_ZN9QtPrivate
   %312 = load ptr, ptr %45, align 8
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 256
   %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds %"class.vcg::Point3", ptr %314, i64 %.068449
+  %315 = getelementptr inbounds [24 x i8], ptr %314, i64 %.068449
   %316 = load double, ptr %315, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %32, double noundef %316, i8 noundef signext 103, i32 noundef 6)
           to label %317 unwind label %428
@@ -6500,7 +6499,7 @@ _ZN7QStringD2Ev.exit163:                          ; preds = %318, %_ZN9QtPrivate
   %338 = load ptr, ptr %45, align 8
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 256
   %340 = load ptr, ptr %339, align 8
-  %341 = getelementptr inbounds %"class.vcg::Point3", ptr %340, i64 %.068449
+  %341 = getelementptr inbounds [24 x i8], ptr %340, i64 %.068449
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 8
   %343 = load double, ptr %342, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %35, double noundef %343, i8 noundef signext 103, i32 noundef 6)
@@ -6576,7 +6575,7 @@ _ZN7QStringD2Ev.exit174:                          ; preds = %345, %_ZN9QtPrivate
   %365 = load ptr, ptr %45, align 8
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 256
   %367 = load ptr, ptr %366, align 8
-  %368 = getelementptr inbounds %"class.vcg::Point3", ptr %367, i64 %.068449
+  %368 = getelementptr inbounds [24 x i8], ptr %367, i64 %.068449
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 16
   %370 = load double, ptr %369, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %38, double noundef %370, i8 noundef signext 103, i32 noundef 6)
@@ -6651,7 +6650,7 @@ _ZN7QStringD2Ev.exit185:                          ; preds = %372, %_ZN9QtPrivate
   %391 = load ptr, ptr %45, align 8
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 280
   %393 = load ptr, ptr %392, align 8
-  %394 = getelementptr inbounds double, ptr %393, i64 %.068449
+  %394 = getelementptr inbounds [8 x i8], ptr %393, i64 %.068449
   %395 = load double, ptr %394, align 8
   %396 = fcmp oeq double %395, -1.000000e+00
   %397 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
@@ -6863,7 +6862,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
 
 454:                                              ; preds = %387
   %455 = load ptr, ptr %392, align 8
-  %456 = getelementptr inbounds double, ptr %455, i64 %.068449
+  %456 = getelementptr inbounds [8 x i8], ptr %455, i64 %.068449
   %457 = load double, ptr %456, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %42, double noundef %457, i8 noundef signext 103, i32 noundef 6)
           to label %458 unwind label %463
@@ -7025,7 +7024,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %12 = load i32, ptr %11, align 4
   %.not4.i.i.i = icmp eq i32 %8, %12
@@ -7033,7 +7032,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds ptr, ptr %6, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %6, i64 %13
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN7QStringD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
@@ -7358,7 +7357,7 @@ _ZNK16QTableWidgetItem4textEv.exit:               ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 208
   %64 = sext i32 %48 to i64
   %65 = load ptr, ptr %63, align 8
-  %66 = getelementptr inbounds %class.QString, ptr %65, i64 %64
+  %66 = getelementptr inbounds [8 x i8], ptr %65, i64 %64
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %17, align 8
   store ptr %68, ptr %66, align 8
@@ -7433,7 +7432,7 @@ _ZN7QStringD2Ev.exit54:                           ; preds = %79, %_ZN9QtPrivate8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 232
   %88 = sext i32 %48 to i64
   %89 = load ptr, ptr %87, align 8
-  %90 = getelementptr inbounds %"class.vcg::Point3", ptr %89, i64 %88
+  %90 = getelementptr inbounds [24 x i8], ptr %89, i64 %88
   br i1 %85, label %91, label %94
 
 91:                                               ; preds = %_ZN7QStringD2Ev.exit54
@@ -7550,7 +7549,7 @@ _ZN7QStringD2Ev.exit67:                           ; preds = %115, %_ZN9QtPrivate
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 232
   %124 = sext i32 %48 to i64
   %125 = load ptr, ptr %123, align 8
-  %126 = getelementptr inbounds %"class.vcg::Point3", ptr %125, i64 %124
+  %126 = getelementptr inbounds [24 x i8], ptr %125, i64 %124
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   br i1 %121, label %128, label %131
 
@@ -7668,7 +7667,7 @@ _ZN7QStringD2Ev.exit84:                           ; preds = %152, %_ZN9QtPrivate
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 232
   %161 = sext i32 %48 to i64
   %162 = load ptr, ptr %160, align 8
-  %163 = getelementptr inbounds %"class.vcg::Point3", ptr %162, i64 %161
+  %163 = getelementptr inbounds [24 x i8], ptr %162, i64 %161
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
   br i1 %158, label %165, label %168
 
@@ -7786,7 +7785,7 @@ _ZN7QStringD2Ev.exit101:                          ; preds = %189, %_ZN9QtPrivate
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 256
   %198 = sext i32 %48 to i64
   %199 = load ptr, ptr %197, align 8
-  %200 = getelementptr inbounds %"class.vcg::Point3", ptr %199, i64 %198
+  %200 = getelementptr inbounds [24 x i8], ptr %199, i64 %198
   br i1 %195, label %201, label %204
 
 201:                                              ; preds = %_ZN7QStringD2Ev.exit101
@@ -7903,7 +7902,7 @@ _ZN7QStringD2Ev.exit118:                          ; preds = %225, %_ZN9QtPrivate
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 256
   %234 = sext i32 %48 to i64
   %235 = load ptr, ptr %233, align 8
-  %236 = getelementptr inbounds %"class.vcg::Point3", ptr %235, i64 %234
+  %236 = getelementptr inbounds [24 x i8], ptr %235, i64 %234
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   br i1 %231, label %238, label %241
 
@@ -8021,7 +8020,7 @@ _ZN7QStringD2Ev.exit135:                          ; preds = %262, %_ZN9QtPrivate
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 256
   %271 = sext i32 %48 to i64
   %272 = load ptr, ptr %270, align 8
-  %273 = getelementptr inbounds %"class.vcg::Point3", ptr %272, i64 %271
+  %273 = getelementptr inbounds [24 x i8], ptr %272, i64 %271
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 16
   br i1 %268, label %275, label %278
 
@@ -8162,7 +8161,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %_ZN7QStringaSEPKc.e
   %27 = load ptr, ptr %25, align 8
   %28 = sdiv i32 %1, 64
   %.sext = sext i32 %28 to i64
-  %29 = getelementptr inbounds i64, ptr %27, i64 %.sext
+  %29 = getelementptr inbounds [8 x i8], ptr %27, i64 %.sext
   %30 = and i64 %26, -9223372036854775745
   %31 = icmp ugt i64 %30, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %31, i64 -8, i64 0
@@ -8180,7 +8179,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %_ZN7QStringaSEPKc.e
   %39 = load ptr, ptr %15, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 168
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i64, ptr %41, i64 %.sext
+  %42 = getelementptr inbounds [8 x i8], ptr %41, i64 %.sext
   %storemerge.i.i.i.i.i22 = getelementptr inbounds i8, ptr %42, i64 %storemerge.idx.i.i.i.i.i
   %43 = load i64, ptr %storemerge.i.i.i.i.i22, align 8
   %44 = and i64 %43, %33
@@ -8619,7 +8618,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i122: ; preds = %_ZN9QtPrivate8Ref
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %103 = load i32, ptr %102, align 8
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds ptr, ptr %101, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %101, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %100, i64 12
   %107 = load i32, ptr %106, align 4
   %.not4.i.i.i.i = icmp eq i32 %103, %107
@@ -8627,7 +8626,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i122: ; preds = %_ZN9QtPrivate8Ref
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i122
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds ptr, ptr %101, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %101, i64 %108
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
@@ -8765,7 +8764,7 @@ _ZN7QStringD2Ev.exit132:                          ; preds = %_ZN7QStringD2Ev.exi
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 304
   %163 = load ptr, ptr %162, align 8
   %164 = sdiv i64 %.094717, 64
-  %165 = getelementptr inbounds i64, ptr %163, i64 %164
+  %165 = getelementptr inbounds [8 x i8], ptr %163, i64 %164
   %166 = and i64 %.094717, -9223372036854775745
   %167 = icmp ugt i64 %166, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %167, i64 -8, i64 0
@@ -9027,7 +9026,7 @@ _ZN7QStringD2Ev.exit152:                          ; preds = %216, %_ZN9QtPrivate
   %244 = load ptr, ptr %62, align 8
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 344
   %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds %class.QString, ptr %246, i64 %.094717
+  %247 = getelementptr inbounds [8 x i8], ptr %246, i64 %.094717
   invoke void @_ZN16QTableWidgetItemC1ERK7QStringi(ptr noundef nonnull align 8 dereferenceable(44) %243, ptr noundef nonnull align 8 dereferenceable(8) %247, i32 noundef 0)
           to label %248 unwind label %498
 
@@ -9040,7 +9039,7 @@ _ZN7QStringD2Ev.exit152:                          ; preds = %216, %_ZN9QtPrivate
   %253 = load ptr, ptr %62, align 8
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 368
   %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds %"class.vcg::Point3", ptr %255, i64 %.094717
+  %256 = getelementptr inbounds [24 x i8], ptr %255, i64 %.094717
   %257 = load double, ptr %256, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %27, double noundef %257, i8 noundef signext 103, i32 noundef 6)
           to label %258 unwind label %500
@@ -9115,7 +9114,7 @@ _ZN7QStringD2Ev.exit163:                          ; preds = %259, %_ZN9QtPrivate
   %279 = load ptr, ptr %62, align 8
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 368
   %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds %"class.vcg::Point3", ptr %281, i64 %.094717
+  %282 = getelementptr inbounds [24 x i8], ptr %281, i64 %.094717
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %284 = load double, ptr %283, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %30, double noundef %284, i8 noundef signext 103, i32 noundef 6)
@@ -9191,7 +9190,7 @@ _ZN7QStringD2Ev.exit174:                          ; preds = %286, %_ZN9QtPrivate
   %306 = load ptr, ptr %62, align 8
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 368
   %308 = load ptr, ptr %307, align 8
-  %309 = getelementptr inbounds %"class.vcg::Point3", ptr %308, i64 %.094717
+  %309 = getelementptr inbounds [24 x i8], ptr %308, i64 %.094717
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 16
   %311 = load double, ptr %310, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %33, double noundef %311, i8 noundef signext 103, i32 noundef 6)
@@ -9267,7 +9266,7 @@ _ZN7QStringD2Ev.exit185:                          ; preds = %313, %_ZN9QtPrivate
   %333 = load ptr, ptr %62, align 8
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 392
   %335 = load ptr, ptr %334, align 8
-  %336 = getelementptr inbounds %"class.vcg::Point3", ptr %335, i64 %.094717
+  %336 = getelementptr inbounds [24 x i8], ptr %335, i64 %.094717
   %337 = load double, ptr %336, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %36, double noundef %337, i8 noundef signext 103, i32 noundef 6)
           to label %338 unwind label %521
@@ -9342,7 +9341,7 @@ _ZN7QStringD2Ev.exit196:                          ; preds = %339, %_ZN9QtPrivate
   %359 = load ptr, ptr %62, align 8
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 392
   %361 = load ptr, ptr %360, align 8
-  %362 = getelementptr inbounds %"class.vcg::Point3", ptr %361, i64 %.094717
+  %362 = getelementptr inbounds [24 x i8], ptr %361, i64 %.094717
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 8
   %364 = load double, ptr %363, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %39, double noundef %364, i8 noundef signext 103, i32 noundef 6)
@@ -9418,7 +9417,7 @@ _ZN7QStringD2Ev.exit207:                          ; preds = %366, %_ZN9QtPrivate
   %386 = load ptr, ptr %62, align 8
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 392
   %388 = load ptr, ptr %387, align 8
-  %389 = getelementptr inbounds %"class.vcg::Point3", ptr %388, i64 %.094717
+  %389 = getelementptr inbounds [24 x i8], ptr %388, i64 %.094717
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 16
   %391 = load double, ptr %390, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %42, double noundef %391, i8 noundef signext 103, i32 noundef 6)
@@ -9494,7 +9493,7 @@ _ZN7QStringD2Ev.exit218:                          ; preds = %393, %_ZN9QtPrivate
   %413 = load ptr, ptr %62, align 8
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 416
   %415 = load ptr, ptr %414, align 8
-  %416 = getelementptr inbounds double, ptr %415, i64 %.094717
+  %416 = getelementptr inbounds [8 x i8], ptr %415, i64 %.094717
   %417 = load double, ptr %416, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %45, double noundef %417, i8 noundef signext 103, i32 noundef 6)
           to label %418 unwind label %542
@@ -9573,7 +9572,7 @@ _ZN7QStringD2Ev.exit229:                          ; preds = %419, %_ZN9QtPrivate
   %441 = load ptr, ptr %62, align 8
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 440
   %443 = load ptr, ptr %442, align 8
-  %444 = getelementptr inbounds double, ptr %443, i64 %.094717
+  %444 = getelementptr inbounds [8 x i8], ptr %443, i64 %.094717
   %445 = load double, ptr %444, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %48, double noundef %445, i8 noundef signext 103, i32 noundef 6)
           to label %446 unwind label %549
@@ -9648,7 +9647,7 @@ _ZN7QStringD2Ev.exit241:                          ; preds = %447, %_ZN9QtPrivate
   %467 = load ptr, ptr %62, align 8
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 464
   %469 = load ptr, ptr %468, align 8
-  %470 = getelementptr inbounds double, ptr %469, i64 %.094717
+  %470 = getelementptr inbounds [8 x i8], ptr %469, i64 %.094717
   %471 = load double, ptr %470, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %51, double noundef %471, i8 noundef signext 103, i32 noundef 6)
           to label %472 unwind label %556
@@ -9687,7 +9686,7 @@ _ZN7QStringD2Ev.exit252:                          ; preds = %473, %_ZN9QtPrivate
   %480 = load ptr, ptr %62, align 8
   %481 = getelementptr inbounds nuw i8, ptr %480, i64 464
   %482 = load ptr, ptr %481, align 8
-  %483 = getelementptr inbounds double, ptr %482, i64 %.094717
+  %483 = getelementptr inbounds [8 x i8], ptr %482, i64 %.094717
   %484 = load double, ptr %483, align 8
   %485 = fcmp oeq double %484, 0.000000e+00
   br i1 %485, label %486, label %563
@@ -10026,7 +10025,7 @@ _ZN7QStringD2Ev.exit252:                          ; preds = %473, %_ZN9QtPrivate
   %581 = load ptr, ptr %62, align 8
   %582 = getelementptr inbounds nuw i8, ptr %581, i64 304
   %583 = load ptr, ptr %582, align 8
-  %584 = getelementptr inbounds i64, ptr %583, i64 %164
+  %584 = getelementptr inbounds [8 x i8], ptr %583, i64 %164
   %storemerge.i.i.i.i.i265 = getelementptr inbounds i8, ptr %584, i64 %storemerge.idx.i.i.i.i.i
   %585 = load i64, ptr %storemerge.i.i.i.i.i265, align 8
   %586 = and i64 %585, %169
@@ -10037,7 +10036,7 @@ _ZN7QStringD2Ev.exit252:                          ; preds = %473, %_ZN9QtPrivate
 588:                                              ; preds = %577
   %589 = getelementptr inbounds nuw i8, ptr %581, i64 488
   %590 = load ptr, ptr %589, align 8
-  %591 = getelementptr inbounds double, ptr %590, i64 %.094717
+  %591 = getelementptr inbounds [8 x i8], ptr %590, i64 %.094717
   %592 = load double, ptr %591, align 8
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %56, double noundef %592, i8 noundef signext 103, i32 noundef 6)
           to label %593 unwind label %598
@@ -10404,7 +10403,7 @@ _ZNK16QTableWidgetItem4textEv.exit:               ; preds = %61
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 344
   %69 = sext i32 %53 to i64
   %70 = load ptr, ptr %68, align 8
-  %71 = getelementptr inbounds %class.QString, ptr %70, i64 %69
+  %71 = getelementptr inbounds [8 x i8], ptr %70, i64 %69
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %19, align 8
   store ptr %73, ptr %71, align 8
@@ -10479,7 +10478,7 @@ _ZN7QStringD2Ev.exit60:                           ; preds = %84, %_ZN9QtPrivate8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 368
   %93 = sext i32 %53 to i64
   %94 = load ptr, ptr %92, align 8
-  %95 = getelementptr inbounds %"class.vcg::Point3", ptr %94, i64 %93
+  %95 = getelementptr inbounds [24 x i8], ptr %94, i64 %93
   br i1 %90, label %96, label %99
 
 96:                                               ; preds = %_ZN7QStringD2Ev.exit60
@@ -10601,7 +10600,7 @@ _ZN7QStringD2Ev.exit73:                           ; preds = %121, %_ZN9QtPrivate
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 368
   %130 = sext i32 %53 to i64
   %131 = load ptr, ptr %129, align 8
-  %132 = getelementptr inbounds %"class.vcg::Point3", ptr %131, i64 %130
+  %132 = getelementptr inbounds [24 x i8], ptr %131, i64 %130
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   br i1 %127, label %134, label %137
 
@@ -10724,7 +10723,7 @@ _ZN7QStringD2Ev.exit90:                           ; preds = %159, %_ZN9QtPrivate
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 368
   %168 = sext i32 %53 to i64
   %169 = load ptr, ptr %167, align 8
-  %170 = getelementptr inbounds %"class.vcg::Point3", ptr %169, i64 %168
+  %170 = getelementptr inbounds [24 x i8], ptr %169, i64 %168
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   br i1 %165, label %172, label %175
 
@@ -10847,7 +10846,7 @@ _ZN7QStringD2Ev.exit107:                          ; preds = %197, %_ZN9QtPrivate
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 392
   %206 = sext i32 %53 to i64
   %207 = load ptr, ptr %205, align 8
-  %208 = getelementptr inbounds %"class.vcg::Point3", ptr %207, i64 %206
+  %208 = getelementptr inbounds [24 x i8], ptr %207, i64 %206
   br i1 %203, label %209, label %212
 
 209:                                              ; preds = %_ZN7QStringD2Ev.exit107
@@ -10969,7 +10968,7 @@ _ZN7QStringD2Ev.exit124:                          ; preds = %234, %_ZN9QtPrivate
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 392
   %243 = sext i32 %53 to i64
   %244 = load ptr, ptr %242, align 8
-  %245 = getelementptr inbounds %"class.vcg::Point3", ptr %244, i64 %243
+  %245 = getelementptr inbounds [24 x i8], ptr %244, i64 %243
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
   br i1 %240, label %247, label %250
 
@@ -11092,7 +11091,7 @@ _ZN7QStringD2Ev.exit141:                          ; preds = %272, %_ZN9QtPrivate
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 392
   %281 = sext i32 %53 to i64
   %282 = load ptr, ptr %280, align 8
-  %283 = getelementptr inbounds %"class.vcg::Point3", ptr %282, i64 %281
+  %283 = getelementptr inbounds [24 x i8], ptr %282, i64 %281
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 16
   br i1 %278, label %285, label %288
 
@@ -11215,7 +11214,7 @@ _ZN7QStringD2Ev.exit158:                          ; preds = %310, %_ZN9QtPrivate
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 440
   %319 = sext i32 %53 to i64
   %320 = load ptr, ptr %318, align 8
-  %321 = getelementptr inbounds double, ptr %320, i64 %319
+  %321 = getelementptr inbounds [8 x i8], ptr %320, i64 %319
   br i1 %316, label %322, label %325
 
 322:                                              ; preds = %_ZN7QStringD2Ev.exit158
@@ -11354,7 +11353,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %_ZN7QStringaSEPKc.e
   %27 = load ptr, ptr %25, align 8
   %28 = sdiv i32 %1, 64
   %.sext = sext i32 %28 to i64
-  %29 = getelementptr inbounds i64, ptr %27, i64 %.sext
+  %29 = getelementptr inbounds [8 x i8], ptr %27, i64 %.sext
   %30 = and i64 %26, -9223372036854775745
   %31 = icmp ugt i64 %30, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %31, i64 -8, i64 0
@@ -11372,7 +11371,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %_ZN7QStringaSEPKc.e
   %39 = load ptr, ptr %15, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 304
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i64, ptr %41, i64 %.sext
+  %42 = getelementptr inbounds [8 x i8], ptr %41, i64 %.sext
   %storemerge.i.i.i.i.i22 = getelementptr inbounds i8, ptr %42, i64 %storemerge.idx.i.i.i.i.i
   %43 = load i64, ptr %storemerge.i.i.i.i.i22, align 8
   %44 = and i64 %43, %33

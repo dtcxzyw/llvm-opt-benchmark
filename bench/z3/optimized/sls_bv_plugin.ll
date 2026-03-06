@@ -788,7 +788,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i:       ; preds = %11
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.then.i:  ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i
   %20 = zext nneg i32 %13 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %20
   %.pre.i.then.val.i = load ptr, ptr %21, align 8, !tbaa !94
   br label %_ZN3sls7context4atomEj.exit
 
@@ -1470,7 +1470,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i:              ; preds = %43
   %.fr.i.i = freeze i32 %50
   %51 = icmp ult i32 %48, %.fr.i.i
   %52 = zext i32 %48 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %46, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %52
   %spec.select.i.i = select i1 %51, ptr %53, ptr @_ZN3sat13null_bool_varE
   br label %_ZNK3sls7context13atom2bool_varEP4expr.exit
 
@@ -1530,7 +1530,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i:       ; preds = %11
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.then.i:  ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i
   %20 = zext nneg i32 %13 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %20
   %.pre.i.then.val.i = load ptr, ptr %21, align 8, !tbaa !94
   br label %_ZN3sls7context4atomEj.exit
 
@@ -2123,14 +2123,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3
 
 12:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %13 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4, !tbaa !83
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %11, label %_ZNK3sls12bv_valuation7is_zeroERKNS_5bvectE.exit.thread
 
 _ZNK3sls12bv_valuation7is_zeroERKNS_5bvectE.exit: ; preds = %11, %2
   %.pre-phi.i = phi i64 [ 0, %2 ], [ %wide.trip.count.i, %11 ]
-  %15 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %.pre-phi.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i, i64 %.pre-phi.i
   %16 = load i32, ptr %15, align 4, !tbaa !83
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %18 = load i32, ptr %17, align 4, !tbaa !169

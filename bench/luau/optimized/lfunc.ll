@@ -3,10 +3,6 @@ source_filename = "bench/luau/original/lfunc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.lua_TValue = type { %union.Value, [1 x i32], i32 }
-%union.Value = type { ptr }
-%struct.LocVar = type { ptr, i32, i32, i8 }
-
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z13luaF_newprotoP9lua_State(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -76,7 +72,7 @@ define hidden noundef ptr @_Z16luaF_newLclosureP9lua_StateiP8LuaTableP5Proto(ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %29 = getelementptr inbounds nuw %struct.lua_TValue, ptr %10, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 44
   store i32 0, ptr %30, align 4, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -417,7 +413,7 @@ define hidden noundef ptr @_Z13luaF_getlocalPK5Protoii(ptr noundef readonly capt
 9:                                                ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.01622 = phi i32 [ %1, %.lr.ph ], [ %.117, %20 ]
-  %10 = getelementptr inbounds nuw %struct.LocVar, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !84
   %.not = icmp slt i32 %2, %12
@@ -460,7 +456,7 @@ define hidden noundef ptr @_Z14luaF_findlocalPK5Protoii(ptr noundef readonly cap
 
 9:                                                ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %10 = getelementptr inbounds nuw %struct.LocVar, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 8, !tbaa !88
   %13 = zext i8 %12 to i32

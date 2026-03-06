@@ -57,10 +57,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.ctl_table = type { ptr, ptr, i32, i16, i32, ptr, ptr, ptr, ptr }
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.seq_operations = type { ptr, ptr, ptr, ptr }
-%struct.module_memory = type { ptr, i32, %struct.mod_tree_node }
-%struct.mod_tree_node = type { ptr, %struct.latch_tree_node }
-%struct.latch_tree_node = type { [2 x %struct.rb_node] }
-%struct.rb_node = type { i64, ptr, ptr }
 
 @kprobe_insn_slots = dso_local global %struct.kprobe_insn_cache { %struct.mutex { %struct.atomic64_t zeroinitializer, %struct.raw_spinlock zeroinitializer, %struct.optimistic_spin_queue zeroinitializer, %struct.list_head { ptr getelementptr (i8, ptr @kprobe_insn_slots, i64 16), ptr getelementptr (i8, ptr @kprobe_insn_slots, i64 16) } }, ptr @alloc_insn_page, ptr @free_insn_page, ptr @.str, %struct.list_head { ptr getelementptr (i8, ptr @kprobe_insn_slots, i64 56), ptr getelementptr (i8, ptr @kprobe_insn_slots, i64 56) }, i64 15, i32 0 }, align 8
 @.str = private unnamed_addr constant [17 x i8] c"kprobe_insn_page\00", align 1
@@ -662,7 +658,7 @@ define dso_local ptr @get_kprobe(ptr noundef %0) #3 align 16 {
   %2 = ptrtoint ptr %0 to i64
   %3 = mul i64 %2, 7046029254386353131
   %4 = lshr i64 %3, 58
-  %5 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %4
+  %5 = getelementptr [8 x i8], ptr @kprobe_table, i64 %4
   br label %6
 
 6:                                                ; preds = %10, %1
@@ -1119,7 +1115,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   %39 = ptrtoint ptr %38 to i64
   %40 = mul i64 %39, 7046029254386353131
   %41 = lshr i64 %40, 58
-  %42 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %41
+  %42 = getelementptr [8 x i8], ptr @kprobe_table, i64 %41
   br label %43
 
 43:                                               ; preds = %47, %37
@@ -1257,7 +1253,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   br i1 %122, label %123, label %132
 
 123:                                              ; preds = %116
-  %124 = getelementptr %struct.module_memory, ptr %115, i64 %117
+  %124 = getelementptr [72 x i8], ptr %115, i64 %117
   %125 = load ptr, ptr %124, align 8
   %126 = ptrtoint ptr %125 to i64
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 8
@@ -1324,7 +1320,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   %161 = ptrtoint ptr %160 to i64
   %162 = mul i64 %161, 7046029254386353131
   %163 = lshr i64 %162, 58
-  %164 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %163
+  %164 = getelementptr [8 x i8], ptr @kprobe_table, i64 %163
   br label %165
 
 165:                                              ; preds = %169, %159
@@ -1628,7 +1624,7 @@ define dso_local i32 @register_kprobe(ptr noundef %0) #0 align 16 {
   %326 = ptrtoint ptr %325 to i64
   %327 = mul i64 %326, 7046029254386353131
   %328 = lshr i64 %327, 58
-  %329 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %328
+  %329 = getelementptr [8 x i8], ptr @kprobe_table, i64 %328
   %330 = load ptr, ptr %329, align 8
   store ptr %330, ptr %0, align 8
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1723,7 +1719,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @arm_kprobe(ptr noundef %0)
   %13 = ptrtoint ptr %12 to i64
   %14 = mul i64 %13, 7046029254386353131
   %15 = lshr i64 %14, 58
-  %16 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %15
+  %16 = getelementptr [8 x i8], ptr @kprobe_table, i64 %15
   br label %17
 
 17:                                               ; preds = %21, %9
@@ -1916,7 +1912,7 @@ define dso_local i32 @register_kprobes(ptr noundef readonly captures(none) %0, i
 
 6:                                                ; preds = %16, %4
   %7 = phi i64 [ 0, %4 ], [ %17, %16 ]
-  %8 = getelementptr ptr, ptr %0, i64 %7
+  %8 = getelementptr [8 x i8], ptr %0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @register_kprobe(ptr noundef %9)
   %11 = icmp slt i32 %10, 0
@@ -1953,7 +1949,7 @@ define dso_local void @unregister_kprobes(ptr noundef readonly captures(none) %0
 
 6:                                                ; preds = %15, %4
   %7 = phi i64 [ 0, %4 ], [ %16, %15 ]
-  %8 = getelementptr ptr, ptr %0, i64 %7
+  %8 = getelementptr [8 x i8], ptr %0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = tail call fastcc i32 @__unregister_kprobe_top(ptr noundef %9)
   %11 = icmp slt i32 %10, 0
@@ -1977,7 +1973,7 @@ define dso_local void @unregister_kprobes(ptr noundef readonly captures(none) %0
 
 19:                                               ; preds = %41, %18
   %20 = phi i64 [ 0, %18 ], [ %42, %41 ]
-  %21 = getelementptr ptr, ptr %0, i64 %20
+  %21 = getelementptr [8 x i8], ptr %0, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load ptr, ptr %23, align 8
@@ -2041,7 +2037,7 @@ define internal fastcc i32 @__unregister_kprobe_top(ptr noundef captures(address
   %4 = ptrtoint ptr %3 to i64
   %5 = mul i64 %4, 7046029254386353131
   %6 = lshr i64 %5, 58
-  %7 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %6
+  %7 = getelementptr [8 x i8], ptr @kprobe_table, i64 %6
   br label %8
 
 8:                                                ; preds = %12, %1
@@ -2499,7 +2495,7 @@ define dso_local i32 @register_kretprobe(ptr noundef %0) #0 align 16 {
   %49 = ptrtoint ptr %48 to i64
   %50 = mul i64 %49, 7046029254386353131
   %51 = lshr i64 %50, 58
-  %52 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %51
+  %52 = getelementptr [8 x i8], ptr @kprobe_table, i64 %51
   br label %53
 
 53:                                               ; preds = %57, %47
@@ -2614,7 +2610,7 @@ define dso_local i32 @register_kretprobe(ptr noundef %0) #0 align 16 {
 109:                                              ; preds = %.preheader
   %110 = add i32 %116, 1
   %111 = sext i32 %110 to i64
-  %112 = getelementptr %struct.kretprobe_blackpoint, ptr @kretprobe_blacklist, i64 %111
+  %112 = getelementptr [16 x i8], ptr @kretprobe_blacklist, i64 %111
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %113, null
   br i1 %114, label %.loopexit17, label %.preheader, !llvm.loop !78
@@ -2702,7 +2698,7 @@ define dso_local i32 @register_kretprobes(ptr noundef readonly captures(none) %0
 
 6:                                                ; preds = %16, %4
   %7 = phi i64 [ 0, %4 ], [ %17, %16 ]
-  %8 = getelementptr ptr, ptr %0, i64 %7
+  %8 = getelementptr [8 x i8], ptr %0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @register_kretprobe(ptr noundef %9)
   %11 = icmp slt i32 %10, 0
@@ -2739,7 +2735,7 @@ define dso_local void @unregister_kretprobes(ptr noundef readonly captures(none)
 
 6:                                                ; preds = %15, %4
   %7 = phi i64 [ 0, %4 ], [ %19, %15 ]
-  %8 = getelementptr ptr, ptr %0, i64 %7
+  %8 = getelementptr [8 x i8], ptr %0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = tail call fastcc i32 @__unregister_kprobe_top(ptr noundef %9)
   %11 = icmp slt i32 %10, 0
@@ -2767,7 +2763,7 @@ define dso_local void @unregister_kretprobes(ptr noundef readonly captures(none)
 
 22:                                               ; preds = %44, %21
   %23 = phi i64 [ 0, %21 ], [ %45, %44 ]
-  %24 = getelementptr ptr, ptr %0, i64 %23
+  %24 = getelementptr [8 x i8], ptr %0, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
@@ -2832,7 +2828,7 @@ define dso_local i32 @disable_kprobe(ptr noundef captures(address) %0) #0 align 
   %4 = ptrtoint ptr %3 to i64
   %5 = mul i64 %4, 7046029254386353131
   %6 = lshr i64 %5, 58
-  %7 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %6
+  %7 = getelementptr [8 x i8], ptr @kprobe_table, i64 %6
   br label %8
 
 8:                                                ; preds = %12, %1
@@ -2948,7 +2944,7 @@ define dso_local noundef range(i32 -22, 1) i32 @enable_kprobe(ptr noundef captur
   %4 = ptrtoint ptr %3 to i64
   %5 = mul i64 %4, 7046029254386353131
   %6 = lshr i64 %5, 58
-  %7 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %6
+  %7 = getelementptr [8 x i8], ptr @kprobe_table, i64 %6
   br label %8
 
 8:                                                ; preds = %12, %1
@@ -3263,7 +3259,7 @@ define dso_local void @kprobe_free_init_mem() local_unnamed_addr #0 align 16 {
 
 1:                                                ; preds = %.loopexit, %0
   %2 = phi i64 [ 0, %0 ], [ %66, %.loopexit ]
-  %3 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %2
+  %3 = getelementptr [8 x i8], ptr @kprobe_table, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -3426,7 +3422,7 @@ define internal i32 @init_kprobes() #11 section ".init.text" align 16 {
 20:                                               ; preds = %17, %.preheader
   %21 = add i32 %13, 1
   %22 = sext i32 %21 to i64
-  %23 = getelementptr %struct.kretprobe_blackpoint, ptr @kretprobe_blacklist, i64 %22
+  %23 = getelementptr [16 x i8], ptr @kretprobe_blacklist, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !87
@@ -4033,7 +4029,7 @@ define internal fastcc noundef range(i32 -19, 1) i32 @disarm_kprobe(ptr noundef 
   %23 = ptrtoint ptr %22 to i64
   %24 = mul i64 %23, 7046029254386353131
   %25 = lshr i64 %24, 58
-  %26 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %25
+  %26 = getelementptr [8 x i8], ptr @kprobe_table, i64 %25
   br label %27
 
 27:                                               ; preds = %31, %19
@@ -4164,7 +4160,7 @@ define internal noundef i32 @kprobes_module_callback(ptr readnone captures(none)
   %20 = phi i32 [ %42, %41 ], [ 0, %16 ]
   %21 = load ptr, ptr %13, align 8
   %22 = sext i32 %20 to i64
-  %23 = getelementptr i64, ptr %21, i64 %22
+  %23 = getelementptr [8 x i8], ptr %21, i64 %22
   %24 = load i64, ptr %23, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8
@@ -4366,7 +4362,7 @@ kprobe_add_area_blacklist.exit22:                 ; preds = %110, %100, %.thread
 
 120:                                              ; preds = %.loopexit32, %118
   %121 = phi i64 [ 0, %118 ], [ %227, %.loopexit32 ]
-  %122 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %121
+  %122 = getelementptr [8 x i8], ptr @kprobe_table, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = icmp eq ptr %123, null
   br i1 %124, label %.loopexit32, label %.preheader31
@@ -4388,7 +4384,7 @@ kprobe_add_area_blacklist.exit22:                 ; preds = %110, %100, %.thread
   br i1 %135, label %136, label %145
 
 136:                                              ; preds = %129
-  %137 = getelementptr %struct.module_memory, ptr %119, i64 %130
+  %137 = getelementptr [72 x i8], ptr %119, i64 %130
   %138 = load ptr, ptr %137, align 8
   %139 = ptrtoint ptr %138 to i64
   %140 = getelementptr inbounds nuw i8, ptr %137, i64 8
@@ -4421,7 +4417,7 @@ kprobe_add_area_blacklist.exit22:                 ; preds = %110, %100, %.thread
   br i1 %157, label %167, label %158
 
 158:                                              ; preds = %.preheader30
-  %159 = getelementptr %struct.module_memory, ptr %119, i64 %152
+  %159 = getelementptr [72 x i8], ptr %119, i64 %152
   %160 = load ptr, ptr %159, align 8
   %161 = ptrtoint ptr %160 to i64
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 8
@@ -4569,7 +4565,7 @@ kill_kprobe.exit:                                 ; preds = %173, %223
   %241 = phi i32 [ %263, %.loopexit27 ], [ 0, %234 ]
   %242 = load ptr, ptr %231, align 8
   %243 = sext i32 %241 to i64
-  %244 = getelementptr i64, ptr %242, i64 %243
+  %244 = getelementptr [8 x i8], ptr %242, i64 %243
   %245 = load i64, ptr %244, align 8
   %246 = add i64 %245, 1
   %247 = load ptr, ptr @kprobe_blacklist, align 8
@@ -4735,7 +4731,7 @@ define internal i32 @proc_kprobes_optimization_handler(ptr noundef %0, i32 nound
 
 16:                                               ; preds = %.loopexit, %15
   %17 = phi i64 [ 0, %15 ], [ %59, %.loopexit ]
-  %18 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %17
+  %18 = getelementptr [8 x i8], ptr @kprobe_table, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.loopexit, label %.preheader4
@@ -4858,7 +4854,7 @@ define internal fastcc void @optimize_all_kprobes() unnamed_addr #0 align 16 {
 
 3:                                                ; preds = %.loopexit, %2
   %4 = phi i64 [ 0, %2 ], [ %64, %.loopexit ]
-  %5 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %4
+  %5 = getelementptr [8 x i8], ptr @kprobe_table, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -5056,7 +5052,7 @@ define internal noundef i32 @show_kprobe_addr(ptr noundef %0, ptr noundef readon
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %5, i8 0, i64 512, i1 false), !annotation !44
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %7
+  %8 = getelementptr [8 x i8], ptr @kprobe_table, i64 %7
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #21, !srcloc !36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !109
   %9 = load volatile ptr, ptr %8, align 8
@@ -5294,7 +5290,7 @@ define internal i64 @write_enabled_file_bool(ptr readnone captures(none) %0, ptr
   %18 = phi i32 [ 0, %15 ], [ %47, %.loopexit12 ]
   %19 = phi i32 [ 0, %15 ], [ %46, %.loopexit12 ]
   %20 = phi i32 [ 0, %15 ], [ %45, %.loopexit12 ]
-  %21 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %17
+  %21 = getelementptr [8 x i8], ptr @kprobe_table, i64 %17
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.loopexit12, label %.preheader11
@@ -5359,7 +5355,7 @@ define internal i64 @write_enabled_file_bool(ptr readnone captures(none) %0, ptr
   %60 = phi i32 [ 0, %57 ], [ %92, %.loopexit10 ]
   %61 = phi i32 [ 0, %57 ], [ %91, %.loopexit10 ]
   %62 = phi i32 [ 0, %57 ], [ %90, %.loopexit10 ]
-  %63 = getelementptr %struct.hlist_head, ptr @kprobe_table, i64 %59
+  %63 = getelementptr [8 x i8], ptr @kprobe_table, i64 %59
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %.loopexit10, label %.preheader

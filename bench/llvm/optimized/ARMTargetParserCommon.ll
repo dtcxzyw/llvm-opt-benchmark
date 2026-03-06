@@ -955,7 +955,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit62.thread134:    ; preds = %_ZN4llvmeqENS_9Stri
   %.049177 = phi i32 [ 0, %.lr.ph179 ], [ %64, %.thread ]
   %22 = sext i32 %.049177 to i64
   %23 = load ptr, ptr %9, align 8, !tbaa !24
-  %24 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %22
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !15
@@ -1011,7 +1011,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit70.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   %indvars.iv = phi i64 [ %41, %.lr.ph.preheader ], [ %indvars.iv.next, %60 ]
   %.251170 = phi i32 [ %.049177, %.lr.ph.preheader ], [ %62, %60 ]
   %42 = load ptr, ptr %9, align 8, !tbaa !24
-  %43 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i64, ptr %44, align 8, !tbaa !15

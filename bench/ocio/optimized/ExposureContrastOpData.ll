@@ -322,7 +322,7 @@ define hidden noundef nonnull ptr @_ZN19OpenColorIO_v2_5dev22ExposureContrastOpD
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData10getCacheIDB5cxx11Ev, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData10getCacheIDB5cxx11Ev, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -617,7 +617,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %34
 
 switch.lookup:                                    ; preds = %1
   %44 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12ConvertStyleENS0_5StyleE, i64 %44
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12ConvertStyleENS0_5StyleE, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 
@@ -1587,7 +1587,7 @@ _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData5cloneEv.exit: ; preds = %_ZSt1
 
 switch.lookup:                                    ; preds = %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData5cloneEv.exit
   %17 = zext nneg i32 %15 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12setDirectionENS_18TransformDirectionE.1, i64 %17
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12setDirectionENS_18TransformDirectionE.1, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN19OpenColorIO_v2_5dev22ExposureContrastOpData6invertEv.exit
 
@@ -1606,7 +1606,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev22ExposureContrastOpData6invertEv(pt
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12setDirectionENS_18TransformDirectionE.1, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12setDirectionENS_18TransformDirectionE.1, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -1705,7 +1705,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZStlsI
 
 switch.lookup:                                    ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %38 = zext nneg i32 %31 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData10getCacheIDB5cxx11Ev, i64 %38
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData10getCacheIDB5cxx11Ev, i64 %38
   %switch.load = load ptr, ptr %switch.gep, align 8
   %39 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #18
   %40 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %switch.load, i64 noundef %39)
@@ -2617,7 +2617,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZNK19OpenColorIO_v2_5dev22ExposureCo
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12setDirectionENS_18TransformDirectionE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12setDirectionENS_18TransformDirectionE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -2636,7 +2636,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12setDirecti
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12setDirectionENS_18TransformDirectionE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12setDirectionENS_18TransformDirectionE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData12getDirectionEv.exit
 
@@ -2651,7 +2651,7 @@ _ZNK19OpenColorIO_v2_5dev22ExposureContrastOpData12getDirectionEv.exit: ; preds 
 
 switch.lookup2:                                   ; preds = %7
   %9 = zext nneg i32 %4 to i64
-  %switch.gep3 = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12setDirectionENS_18TransformDirectionE.1, i64 %9
+  %switch.gep3 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev22ExposureContrastOpData12setDirectionENS_18TransformDirectionE.1, i64 %9
   %switch.load4 = load i32, ptr %switch.gep3, align 4
   br label %_ZN19OpenColorIO_v2_5dev22ExposureContrastOpData6invertEv.exit
 

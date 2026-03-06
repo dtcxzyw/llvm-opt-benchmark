@@ -453,7 +453,7 @@ define hidden i64 @rb_parser_build_script_lines_from(ptr noundef readonly captur
   %13 = phi i64 [ 0, %.lr.ph ], [ %26, %12 ]
   %.01419 = phi i32 [ 0, %.lr.ph ], [ %25, %12 ]
   %14 = load ptr, ptr %11, align 8, !tbaa !49
-  %15 = getelementptr ptr, ptr %14, i64 %13
+  %15 = getelementptr [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !50
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !51
@@ -1172,7 +1172,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %15
   %40 = phi i64 [ 0, %.lr.ph.i14.i ], [ %53, %39 ]
   %.01419.i.i = phi i32 [ 0, %.lr.ph.i14.i ], [ %52, %39 ]
   %41 = load ptr, ptr %38, align 8, !tbaa !49
-  %42 = getelementptr ptr, ptr %41, i64 %40
+  %42 = getelementptr [8 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8, !tbaa !50
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !51

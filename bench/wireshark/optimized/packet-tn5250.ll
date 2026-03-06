@@ -3837,7 +3837,7 @@ define internal fastcc i32 @tn5250_add_hf_items(ptr noundef %0, ptr noundef %1, 
   %33 = add i32 %29, %.2
   %34 = add i32 %.041, 1
   %35 = sext i32 %34 to i64
-  %36 = getelementptr %struct.hf_items, ptr %3, i64 %35
+  %36 = getelementptr [32 x i8], ptr %3, i64 %35
   %37 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -6398,7 +6398,7 @@ define internal fastcc i32 @dissect_write_single_structured_field(ptr noundef %0
   %173 = add i32 %170, %.2.i.us
   %174 = add i32 %.041.i.us, 1
   %175 = sext i32 %174 to i64
-  %176 = getelementptr %struct.hf_items, ptr %.sink23.i.us, i64 %175
+  %176 = getelementptr [32 x i8], ptr %.sink23.i.us, i64 %175
   %177 = load ptr, ptr %176, align 16
   %.not.i.us = icmp eq ptr %177, null
   br i1 %.not.i.us, label %tn5250_add_hf_items.exit.us, label %.lr.ph.i99.us, !llvm.loop !9
@@ -7189,7 +7189,7 @@ tn5250_add_hf_items.exit.us:                      ; preds = %.lr.ph227, %tn5250_
   %349 = add i32 %345, %.2.i
   %350 = add i32 %.041.i, 1
   %351 = sext i32 %350 to i64
-  %352 = getelementptr %struct.hf_items, ptr %8, i64 %351
+  %352 = getelementptr [32 x i8], ptr %8, i64 %351
   %353 = load ptr, ptr %352, align 16
   %.not.i = icmp eq ptr %353, null
   br i1 %.not.i, label %tn5250_add_hf_items.exit.loopexit, label %.lr.ph.i.backedge

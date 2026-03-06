@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVChannelLayout = type { i32, i32, %union.anon, ptr }
 %union.anon = type { i64 }
-%struct.ChannelMap = type { i32, i32, i32, i32, i32 }
 
 @opus_frame_duration = internal unnamed_addr constant [32 x i16] [i16 480, i16 960, i16 1920, i16 2880, i16 480, i16 960, i16 1920, i16 2880, i16 480, i16 960, i16 1920, i16 2880, i16 480, i16 960, i16 480, i16 960, i16 120, i16 240, i16 480, i16 960, i16 120, i16 240, i16 480, i16 960, i16 120, i16 240, i16 480, i16 960, i16 120, i16 240, i16 480, i16 960], align 16
 @ff_opus_parse_extradata.default_channel_map = internal unnamed_addr constant [2 x i8] c"\00\01", align 1
@@ -414,7 +413,7 @@ xiph_lacing_full.exit:                            ; preds = %.lr.ph.i
 xiph_lacing_16bit.exit272:                        ; preds = %191, %185
   %.12 = phi ptr [ %192, %191 ], [ %186, %185 ]
   %.09.i270 = phi i32 [ %196, %191 ], [ %188, %185 ]
-  %197 = getelementptr inbounds nuw i32, ptr %183, i64 %indvars.iv
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %indvars.iv
   store i32 %.09.i270, ptr %197, align 4, !tbaa !14
   %198 = add nuw nsw i32 %.09.i270, %.0197375
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -508,10 +507,10 @@ xiph_lacing_16bit.exit276:                        ; preds = %206, %200
 241:                                              ; preds = %.lr.ph379, %241
   %242 = phi i32 [ %238, %.lr.ph379 ], [ %245, %241 ]
   %indvars.iv390 = phi i64 [ 1, %.lr.ph379 ], [ %indvars.iv.next391, %241 ]
-  %243 = getelementptr i32, ptr %240, i64 %indvars.iv390
+  %243 = getelementptr [4 x i8], ptr %240, i64 %indvars.iv390
   %244 = load i32, ptr %243, align 4, !tbaa !14
   %245 = add nsw i32 %244, %242
-  %246 = getelementptr inbounds nuw i32, ptr %239, i64 %indvars.iv390
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %239, i64 %indvars.iv390
   store i32 %245, ptr %246, align 4, !tbaa !14
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
   %exitcond394.not = icmp eq i64 %indvars.iv.next391, %wide.trip.count393
@@ -519,7 +518,7 @@ xiph_lacing_16bit.exit276:                        ; preds = %206, %200
 
 ._crit_edge380:                                   ; preds = %241, %235
   %247 = sub nsw i32 %233, %.0197.lcssa
-  %248 = getelementptr i32, ptr %0, i64 %wide.trip.count393
+  %248 = getelementptr [4 x i8], ptr %0, i64 %wide.trip.count393
   %249 = getelementptr i8, ptr %248, i64 216
   store i32 %247, ptr %249, align 4, !tbaa !14
   br label %thread-pre-split
@@ -614,9 +613,9 @@ xiph_lacing_16bit.exit280:                        ; preds = %258, %252
   %297 = phi i32 [ %293, %.lr.ph383.preheader ], [ %298, %.lr.ph383 ]
   %indvars.iv395 = phi i64 [ 1, %.lr.ph383.preheader ], [ %indvars.iv.next396, %.lr.ph383 ]
   %298 = add nsw i32 %291, %297
-  %299 = getelementptr inbounds nuw i32, ptr %294, i64 %indvars.iv395
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %294, i64 %indvars.iv395
   store i32 %298, ptr %299, align 4, !tbaa !14
-  %300 = getelementptr inbounds nuw i32, ptr %295, i64 %indvars.iv395
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %295, i64 %indvars.iv395
   store i32 %291, ptr %300, align 4, !tbaa !14
   %indvars.iv.next396 = add nuw nsw i64 %indvars.iv395, 1
   %exitcond399.not = icmp eq i64 %indvars.iv.next396, %wide.trip.count398
@@ -631,7 +630,7 @@ thread-pre-split:                                 ; preds = %.lr.ph383, %290, %5
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %302, ptr %303, align 4, !tbaa !20
   %304 = zext nneg i32 %17 to i64
-  %305 = getelementptr inbounds nuw i16, ptr @opus_frame_duration, i64 %304
+  %305 = getelementptr inbounds nuw [2 x i8], ptr @opus_frame_duration, i64 %304
   %306 = load i16, ptr %305, align 2, !tbaa !21
   %307 = zext i16 %306 to i32
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 412
@@ -855,7 +854,7 @@ define range(i32 -2147483648, 1) i32 @ff_opus_parse_extradata(ptr noundef %0, pt
 
 77:                                               ; preds = %74
   %78 = zext nneg i32 %40 to i64
-  %79 = getelementptr %struct.AVChannelLayout, ptr @ff_vorbis_ch_layouts, i64 %78
+  %79 = getelementptr [24 x i8], ptr @ff_vorbis_ch_layouts, i64 %78
   %80 = getelementptr i8, ptr %79, i64 -24
   %81 = call i32 @av_channel_layout_copy(ptr noundef nonnull %3, ptr noundef %80) #6
   br label %.thread180
@@ -945,7 +944,7 @@ ff_sqrt.exit.thread:                              ; preds = %82
 114:                                              ; preds = %.lr.ph189, %144
   %indvars.iv = phi i64 [ 0, %.lr.ph189 ], [ %indvars.iv.next, %144 ]
   %115 = load ptr, ptr %111, align 8, !tbaa !63
-  %116 = getelementptr inbounds nuw %struct.ChannelMap, ptr %115, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [20 x i8], ptr %115, i64 %indvars.iv
   %117 = trunc nuw nsw i64 %indvars.iv to i32
   %118 = call i32 %.0130(i32 noundef %40, i32 noundef %117) #6, !callees !64
   %119 = sext i32 %118 to i64

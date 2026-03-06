@@ -204,22 +204,22 @@ define internal i32 @add_left_pred_int16_c(ptr noundef writeonly captures(none) 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %.02832 = phi i32 [ %22, %.lr.ph ], [ %4, %5 ]
-  %10 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %11 = load i16, ptr %10, align 2, !tbaa !24
   %12 = zext i16 %11 to i32
   %13 = add i32 %.02832, %12
   %14 = and i32 %13, %2
   %15 = trunc i32 %14 to i16
-  %16 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %15, ptr %16, align 2, !tbaa !24
   %17 = or disjoint i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw i16, ptr %1, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !24
   %20 = zext i16 %19 to i32
   %21 = add i32 %14, %20
   %22 = and i32 %21, %2
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds nuw i16, ptr %0, i64 %17
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %17
   store i16 %23, ptr %24, align 2, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %25 = icmp sgt i64 %6, %indvars.iv.next
@@ -228,13 +228,13 @@ define internal i32 @add_left_pred_int16_c(ptr noundef writeonly captures(none) 
 .lr.ph37:                                         ; preds = %.preheader, %.lr.ph37
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %.lr.ph37 ], [ %.0.lcssa, %.preheader ]
   %.12935 = phi i32 [ %30, %.lr.ph37 ], [ %.028.lcssa, %.preheader ]
-  %26 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv42
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv42
   %27 = load i16, ptr %26, align 2, !tbaa !24
   %28 = zext i16 %27 to i32
   %29 = add i32 %.12935, %28
   %30 = and i32 %29, %2
   %31 = trunc i32 %30 to i16
-  %32 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv42
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv42
   store i16 %31, ptr %32, align 2, !tbaa !24
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next43, %3

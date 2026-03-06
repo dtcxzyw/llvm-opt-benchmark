@@ -36,7 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.9" = type { %"struct.std::_Head_base.12" }
 %"struct.std::_Head_base.12" = type { ptr }
 %"class.testing::internal::AssertHelper" = type { ptr }
-%"struct.utils::LifetimeOperation" = type { i32, i32 }
 %"class.pro::proxy.18" = type { %"struct.pro::details::meta_ptr", [8 x i8] }
 %"class.std::pmr::polymorphic_allocator.97" = type { ptr }
 %"class.std::unique_ptr.99" = type { %"struct.std::__uniq_ptr_data.100" }
@@ -1986,7 +1985,7 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %35, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
   store ptr %27, ptr %4, align 8
   store ptr %34, ptr %5, align 8
-  %36 = getelementptr inbounds nuw %"struct.utils::LifetimeOperation", ptr %27, i64 %25
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %36, ptr %7, align 8
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJRiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit
 
@@ -28310,7 +28309,7 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %41, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
   store ptr %34, ptr %10, align 8
   store ptr %40, ptr %13, align 8
-  %42 = getelementptr inbounds nuw %"struct.utils::LifetimeOperation", ptr %34, i64 %32
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   store ptr %42, ptr %15, align 8
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJRiRNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit
 

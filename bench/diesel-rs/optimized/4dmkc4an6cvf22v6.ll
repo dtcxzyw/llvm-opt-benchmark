@@ -6029,7 +6029,7 @@ define hidden { ptr, i64 } @_ZN6diesel2pg10connection6result8PgResult11column_na
   %.not = icmp ult i64 %1, %6
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !4
-  %9 = getelementptr inbounds { i64, [2 x i64] }, ptr %8, i64 %1
+  %9 = getelementptr inbounds [24 x i8], ptr %8, i64 %1
   br i1 %.not, label %10, label %12
 
 10:                                               ; preds = %2
@@ -6504,7 +6504,7 @@ define { ptr, i64 } @"_ZN122_$LT$diesel..sqlite..connection..row..SqliteField$u2
   %.not.i = icmp ugt i64 %11, %12
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !4
-  %15 = getelementptr inbounds { ptr, i64 }, ptr %14, i64 %12
+  %15 = getelementptr inbounds [16 x i8], ptr %14, i64 %12
   br i1 %.not.i, label %16, label %_ZN6diesel6sqlite10connection4stmt12StatementUse10field_name17hf08bc0c75e51dcd0E.exit
 
 16:                                               ; preds = %5
@@ -6537,7 +6537,7 @@ _ZN6diesel6sqlite10connection4stmt12StatementUse10field_name17hf08bc0c75e51dcd0E
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %33 = getelementptr inbounds { i64, [2 x i64] }, ptr %32, i64 %27
+  %33 = getelementptr inbounds [24 x i8], ptr %32, i64 %27
   %34 = load i64, ptr %33, align 8, !range !55, !alias.scope !1326, !noundef !4
   %35 = icmp eq i64 %34, -9223372036854775808
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -6660,7 +6660,7 @@ define internal fastcc void @_ZN6diesel6sqlite10connection18statement_iterator17
   %34 = load ptr, ptr %33, align 8, !alias.scope !1344, !noalias !1349, !nonnull !4, !noundef !4
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %36 = load i64, ptr %35, align 8, !alias.scope !1344, !noalias !1349, !noundef !4
-  %37 = getelementptr inbounds ptr, ptr %34, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %34, i64 %36
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hd6ab6c55b892b8e5E.llvm.11731155751478127742"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %11, ptr noundef nonnull %34, ptr noundef nonnull %37)
           to label %.noexc unwind label %102
 
@@ -8740,10 +8740,10 @@ define internal noundef zeroext i1 @"_ZN70_$LT$diesel..result..DatabaseErrorKind
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !1763, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E.25", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E.25", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

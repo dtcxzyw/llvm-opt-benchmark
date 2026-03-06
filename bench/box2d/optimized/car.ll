@@ -181,7 +181,7 @@ define dso_local void @_ZN3Car5SpawnE9b2WorldId6b2Vec2ffffPv(ptr noundef nonnull
 
 74:                                               ; preds = %8, %74
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %74 ]
-  %75 = getelementptr inbounds nuw %struct.b2Vec2, ptr %9, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %76 = load float, ptr %75, align 8, !tbaa !15
   %77 = fmul float %16, %76
   store float %77, ptr %75, align 8, !tbaa !15
@@ -483,7 +483,7 @@ define dso_local void @_ZN5Truck5SpawnE9b2WorldId6b2Vec2fffffPv(ptr noundef nonn
 
 87:                                               ; preds = %9, %87
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %87 ]
-  %88 = getelementptr inbounds nuw %struct.b2Vec2, ptr %10, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %89 = load float, ptr %88, align 8, !tbaa !15
   %90 = fmul float %19, %89
   store float %90, ptr %88, align 8, !tbaa !15

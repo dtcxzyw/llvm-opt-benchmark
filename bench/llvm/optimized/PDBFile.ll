@@ -3,9 +3,6 @@ source_filename = "bench/llvm/original/PDBFile.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
-%struct.anon = type { [4 x i8] }
-%"class.llvm::ArrayRef" = type { ptr, i64 }
 %"class.llvm::Expected" = type { %union.anon.88, i8, [7 x i8] }
 %union.anon.88 = type { %"struct.llvm::AlignedCharArrayUnion" }
 %"struct.llvm::AlignedCharArrayUnion" = type { [16 x i8] }
@@ -79,12 +76,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Expected.174" = type { %union.anon.175, i8, [7 x i8] }
 %union.anon.175 = type { %"struct.llvm::AlignedCharArrayUnion.176" }
 %"struct.llvm::AlignedCharArrayUnion.176" = type { [8 x i8] }
-%"class.std::unique_ptr.204" = type { %"struct.std::__uniq_ptr_data.205" }
-%"struct.std::__uniq_ptr_data.205" = type { %"class.std::__uniq_ptr_impl.206" }
-%"class.std::__uniq_ptr_impl.206" = type { %"class.std::tuple.207" }
-%"class.std::tuple.207" = type { %"struct.std::_Tuple_impl.208" }
-%"struct.std::_Tuple_impl.208" = type { %"struct.std::_Head_base.211" }
-%"struct.std::_Head_base.211" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -646,7 +637,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb7PDBFile17getStreamByteSizeEj(ptr nou
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !136
-  %6 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %4
   %.0.copyload.i.i.i = load i32, ptr %6, align 1
   ret i32 %.0.copyload.i.i.i
 }
@@ -656,7 +647,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm3pdb7PDBFile18getStreamBlockListEj(ptr n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = zext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8, !tbaa !70
-  %6 = getelementptr inbounds nuw %"class.llvm::ArrayRef", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %4
   %.sroa.0.0.copyload = load ptr, ptr %6, align 8, !tbaa !138
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !11
@@ -889,7 +880,7 @@ _ZN4llvm5ErrorD2Ev.exit40:                        ; preds = %_ZN4llvm5ErrorD2Ev.
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %64 = load i32, ptr %63, align 8, !tbaa !40
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i64, ptr %62, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %65
   %67 = getelementptr inbounds i8, ptr %66, i64 -8
   %68 = load i64, ptr %67, align 8, !tbaa !11
   %69 = and i64 %68, %61
@@ -931,7 +922,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE28reserveForParamAndGetAddressERmm.exit.
   %.pre-phi.i.i = phi i64 [ %.pre-phi.i, %78 ], [ %.pre.i.i, %82 ]
   %84 = phi i32 [ %70, %78 ], [ %.pre.i.i.i, %82 ]
   %85 = load ptr, ptr %53, align 8, !tbaa !39
-  %86 = getelementptr inbounds nuw i64, ptr %85, i64 %.pre-phi.i.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.pre-phi.i.i
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %79, 3
   call void @llvm.memset.p0.i64(ptr align 8 %86, i8 0, i64 %.idx.i.i.i.i.i.i.i, i1 false), !tbaa !11
   %87 = trunc nuw nsw i64 %79 to i32
@@ -957,7 +948,7 @@ _ZN4llvm15SmallVectorImplImE6resizeEmm.exit.i:    ; preds = %.sink.split.i.i, %_
   %95 = xor i64 %94, -1
   %96 = load ptr, ptr %53, align 8, !tbaa !39
   %97 = zext i32 %89 to i64
-  %98 = getelementptr inbounds nuw i64, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %97
   %99 = getelementptr inbounds i8, ptr %98, i64 -8
   %100 = load i64, ptr %99, align 8, !tbaa !11
   %101 = and i64 %100, %95
@@ -1174,7 +1165,7 @@ _ZN4llvm18BinaryStreamReader9readArrayINS_7support6detail31packed_endian_specifi
 194:                                              ; preds = %191
   %195 = lshr i32 %.12878, 6
   %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr inbounds nuw i64, ptr %188, i64 %196
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %196
   %198 = and i32 %.12878, 63
   %199 = zext nneg i32 %198 to i64
   %200 = shl nuw i64 1, %199
@@ -1712,7 +1703,7 @@ _ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integra
 _ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EE17_M_realloc_insertIJRKS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i: ; preds = %133, %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i
   store ptr %128, ptr %62, align 8, !tbaa !70
   store ptr %132, ptr %63, align 8, !tbaa !243
-  %134 = getelementptr inbounds nuw %"class.llvm::ArrayRef", ptr %128, i64 %126
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %128, i64 %126
   store ptr %134, ptr %64, align 8, !tbaa !71
   br label %_ZNSt6vectorIN4llvm8ArrayRefINS0_7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEEEESaIS7_EE9push_backERKS7_.exit
 
@@ -1909,7 +1900,7 @@ define dso_local void @_ZNK4llvm3pdb7PDBFile15getStreamLayoutEj(ptr dead_on_unwi
   %8 = tail call { ptr, i64 } %7(ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2) #19
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1
-  %11 = getelementptr inbounds nuw %"struct.llvm::support::detail::packed_endian_specific_integral", ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %10
   tail call void @_ZNSt6vectorIN4llvm7support6detail31packed_endian_specific_integralIjLNS0_10endiannessE1ELm1ELm1EEESaIS5_EE13_M_assign_auxIPKS5_EEvT_SB_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %9, ptr noundef %11)
   %12 = load ptr, ptr %1, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -4164,7 +4155,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !520
   store ptr %67, ptr %41, align 8, !tbaa !517
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.204", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !519
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -4314,7 +4305,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !520
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !517
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.204", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !519
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -4437,7 +4428,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !520
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !517
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.204", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !519
   ret void
 }

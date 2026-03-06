@@ -42,7 +42,7 @@ define hidden void @_ZN10bit_vector9expand_toEj(ptr noundef nonnull align 8 capt
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !10
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %storemerge, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %storemerge, i64 %14
   %16 = sub i32 %1, %13
   %17 = zext i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 2
@@ -101,7 +101,7 @@ _ZN10bit_vector9expand_toEj.exit:                 ; preds = %19, %21
   store ptr %storemerge.i, ptr %15, align 8, !tbaa !3
   %23 = load i32, ptr %8, align 4, !tbaa !10
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %storemerge.i, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %storemerge.i, i64 %24
   %26 = sub i32 %14, %23
   %27 = zext i32 %26 to i64
   %28 = shl nuw nsw i64 %27, 2
@@ -115,7 +115,7 @@ _ZN10bit_vector9expand_toEj.exit:                 ; preds = %19, %21
   %31 = phi i32 [ %.pre, %_ZN10bit_vector9expand_toEj.exit ], [ %4, %._crit_edge ]
   %32 = lshr i32 %31, 5
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %30, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %33
   %35 = and i32 %31, 31
   %notmask = shl nsw i32 -1, %35
   br i1 %2, label %36, label %39
@@ -202,7 +202,7 @@ _ZN10bit_vector9expand_toEj.exit.i:               ; preds = %25, %23
   store ptr %storemerge.i.i, ptr %19, align 8, !tbaa !3
   %27 = load i32, ptr %12, align 4, !tbaa !10
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %storemerge.i.i, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %storemerge.i.i, i64 %28
   %30 = sub i32 %18, %27
   %31 = zext i32 %30 to i64
   %32 = shl nuw nsw i64 %31, 2
@@ -216,7 +216,7 @@ _ZN10bit_vector9expand_toEj.exit.i:               ; preds = %25, %23
   %35 = phi i32 [ %.pre.i, %_ZN10bit_vector9expand_toEj.exit.i ], [ %5, %._crit_edge.i ]
   %36 = lshr i32 %35, 5
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %37
   %39 = and i32 %35, 31
   %notmask.i = shl nsw i32 -1, %39
   %40 = xor i32 %notmask.i, -1
@@ -272,10 +272,10 @@ _ZN10bit_vector6resizeEjb.exit:                   ; preds = %4, %33, %44
   %.03342 = phi i32 [ %53, %.lr.ph ], [ %64, %62 ]
   %63 = add nsw i64 %indvars.iv, -1
   %64 = add nsw i32 %.03342, -1
-  %65 = getelementptr inbounds nuw i32, ptr %55, i64 %63
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %63
   %66 = load i32, ptr %65, align 4, !tbaa !12
   %67 = zext i32 %64 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %55, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %67
   store i32 %66, ptr %68, align 4, !tbaa !12
   %.not37.wide = icmp eq i64 %63, 0
   br i1 %.not37.wide, label %.preheader, label %62, !llvm.loop !13
@@ -302,7 +302,7 @@ _ZN10bit_vector6resizeEjb.exit:                   ; preds = %4, %33, %44
 77:                                               ; preds = %.lr.ph49, %77
   %indvars.iv53 = phi i64 [ %74, %.lr.ph49 ], [ %indvars.iv.next54, %77 ]
   %.03247 = phi i32 [ 0, %.lr.ph49 ], [ %80, %77 ]
-  %78 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv53
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv53
   %79 = load i32, ptr %78, align 4, !tbaa !12
   %80 = lshr i32 %79, %narrow
   %81 = shl i32 %79, %50
@@ -345,9 +345,9 @@ define hidden noundef zeroext i1 @_ZNK10bit_vectoreqERKS_(ptr noundef nonnull re
 
 11:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %12 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !12
-  %14 = getelementptr inbounds nuw i32, ptr %.pre25, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.pre25, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !12
   %.not19 = icmp eq i32 %13, %15
   br i1 %.not19, label %16, label %.loopexit
@@ -368,9 +368,9 @@ define hidden noundef zeroext i1 @_ZNK10bit_vectoreqERKS_(ptr noundef nonnull re
   %19 = xor i32 %notmask, -1
   %20 = icmp eq i32 %18, 0
   %spec.store.select = select i1 %20, i32 -1, i32 %19
-  %21 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.017.lcssa
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.017.lcssa
   %22 = load i32, ptr %21, align 4, !tbaa !12
-  %23 = getelementptr inbounds nuw i32, ptr %.pre25, i64 %.017.lcssa
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.pre25, i64 %.017.lcssa
   %24 = load i32, ptr %23, align 4, !tbaa !12
   %25 = xor i32 %24, %22
   %26 = and i32 %25, %spec.store.select
@@ -426,7 +426,7 @@ _ZN10bit_vector9expand_toEj.exit.i:               ; preds = %22, %20
   store ptr %storemerge.i.i, ptr %16, align 8, !tbaa !3
   %24 = load i32, ptr %9, align 4, !tbaa !10
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %storemerge.i.i, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %storemerge.i.i, i64 %25
   %27 = sub i32 %15, %24
   %28 = zext i32 %27 to i64
   %29 = shl nuw nsw i64 %28, 2
@@ -440,7 +440,7 @@ _ZN10bit_vector9expand_toEj.exit.i:               ; preds = %22, %20
   %32 = phi i32 [ %.pre.i, %_ZN10bit_vector9expand_toEj.exit.i ], [ %3, %._crit_edge.i ]
   %33 = lshr i32 %32, 5
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %34
   %36 = and i32 %32, 31
   %notmask.i = shl nsw i32 -1, %36
   %37 = xor i32 %notmask.i, -1
@@ -499,9 +499,9 @@ _ZN10bit_vector6resizeEjb.exit:                   ; preds = %30, %41
 
 58:                                               ; preds = %.lr.ph27, %58
   %indvars.iv30 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next31, %58 ]
-  %59 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv30
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv30
   %60 = load i32, ptr %59, align 4, !tbaa !12
-  %61 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv30
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv30
   %62 = load i32, ptr %61, align 4, !tbaa !12
   %63 = or i32 %62, %60
   store i32 %63, ptr %61, align 4, !tbaa !12
@@ -511,9 +511,9 @@ _ZN10bit_vector6resizeEjb.exit:                   ; preds = %30, %41
 
 64:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %65 = getelementptr inbounds nuw i32, ptr %.pre35, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %.pre35, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !12
-  %67 = getelementptr inbounds nuw i32, ptr %.pre37, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %.pre37, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4, !tbaa !12
   %69 = or i32 %68, %66
   store i32 %69, ptr %67, align 4, !tbaa !12
@@ -529,10 +529,10 @@ _ZN10bit_vector6resizeEjb.exit:                   ; preds = %30, %41
   %.022.lcssa = phi i64 [ %70, %._crit_edge.loopexit ], [ 0, %.preheader24 ]
   %notmask = shl nsw i32 -1, %51
   %71 = xor i32 %notmask, -1
-  %72 = getelementptr inbounds nuw i32, ptr %.pre35, i64 %.022.lcssa
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %.pre35, i64 %.022.lcssa
   %73 = load i32, ptr %72, align 4, !tbaa !12
   %74 = and i32 %73, %71
-  %75 = getelementptr inbounds nuw i32, ptr %.pre37, i64 %.022.lcssa
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %.pre37, i64 %.022.lcssa
   %76 = load i32, ptr %75, align 4, !tbaa !12
   %77 = or i32 %76, %74
   store i32 %77, ptr %75, align 4, !tbaa !12
@@ -567,9 +567,9 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10bit_vectoraN
 
 16:                                               ; preds = %.preheader, %16
   %indvars.iv60 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next61, %16 ]
-  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv60
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv60
   %18 = load i32, ptr %17, align 4, !tbaa !12
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv60
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv60
   %20 = load i32, ptr %19, align 4, !tbaa !12
   %21 = and i32 %20, %18
   store i32 %21, ptr %19, align 4, !tbaa !12
@@ -609,9 +609,9 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10bit_vectoraN
 
 30:                                               ; preds = %.lr.ph45, %30
   %indvars.iv53 = phi i64 [ 0, %.lr.ph45 ], [ %indvars.iv.next54, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv53
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv53
   %32 = load i32, ptr %31, align 4, !tbaa !12
-  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv53
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv53
   %34 = load i32, ptr %33, align 4, !tbaa !12
   %35 = and i32 %34, %32
   store i32 %35, ptr %33, align 4, !tbaa !12
@@ -621,9 +621,9 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10bit_vectoraN
 
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %37 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !12
-  %39 = getelementptr inbounds nuw i32, ptr %.pre66, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %.pre66, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !12
   %41 = and i32 %40, %38
   store i32 %41, ptr %39, align 4, !tbaa !12
@@ -639,10 +639,10 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10bit_vectoraN
   %.1.lcssa = phi i64 [ %42, %._crit_edge.loopexit ], [ 0, %.preheader42 ]
   %notmask = shl nsw i32 -1, %23
   %43 = xor i32 %notmask, -1
-  %44 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.1.lcssa
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.1.lcssa
   %45 = load i32, ptr %44, align 4, !tbaa !12
   %46 = and i32 %45, %43
-  %47 = getelementptr inbounds nuw i32, ptr %.pre66, i64 %.1.lcssa
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %.pre66, i64 %.1.lcssa
   %48 = load i32, ptr %47, align 4, !tbaa !12
   %49 = and i32 %46, %48
   store i32 %49, ptr %47, align 4, !tbaa !12
@@ -687,7 +687,7 @@ define hidden void @_ZNK10bit_vector7displayERSo(ptr noundef nonnull readonly al
   %7 = load ptr, ptr %4, align 8, !tbaa !3
   %8 = lshr i32 %6, 5
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !12
   %12 = and i32 %6, 31
   %13 = shl nuw i32 1, %12
@@ -737,9 +737,9 @@ define hidden noundef zeroext i1 @_ZNK10bit_vector8containsERKS_(ptr noundef non
 
 13:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !12
-  %16 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !12
   %18 = and i32 %17, %15
   %.not = icmp eq i32 %18, %17
@@ -754,10 +754,10 @@ define hidden noundef zeroext i1 @_ZNK10bit_vector8containsERKS_(ptr noundef non
   %22 = xor i32 %notmask, -1
   %23 = icmp eq i32 %21, 0
   %spec.store.select = select i1 %23, i32 -1, i32 %22
-  %24 = getelementptr inbounds nuw i32, ptr %20, i64 %.pre-phi
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.pre-phi
   %25 = load i32, ptr %24, align 4, !tbaa !12
   %26 = and i32 %25, %spec.store.select
-  %27 = getelementptr inbounds nuw i32, ptr %19, i64 %.pre-phi
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.pre-phi
   %28 = load i32, ptr %27, align 4, !tbaa !12
   %29 = and i32 %28, %26
   %30 = icmp eq i32 %29, %26
@@ -799,7 +799,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN10bit_vector3n
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !12
   %10 = xor i32 %9, -1
   store i32 %10, ptr %8, align 4, !tbaa !12
@@ -842,7 +842,7 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %1
   %19 = xor i32 %18, -1
   %20 = lshr i32 %14, 5
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %12, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %24 = and i32 %23, %19
   store i32 %24, ptr %22, align 4, !tbaa !12

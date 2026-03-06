@@ -275,7 +275,7 @@ define hidden void @_ZN2cv4DSSTC2ERKNS_3MatENS_5Rect_IfEENS_5Size_IfEEiffff(ptr 
   %138 = call double @exp(double noundef %137) #20, !tbaa !31
   %139 = fptrunc double %138 to float
   %140 = load ptr, ptr %110, align 8, !tbaa !40
-  %141 = getelementptr inbounds nuw float, ptr %140, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %indvars.iv
   store float %139, ptr %141, align 4, !tbaa !41
   %142 = load float, ptr %40, align 4, !tbaa !26
   %143 = load i32, ptr %39, align 8, !tbaa !9
@@ -345,7 +345,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i: ; preds = %169, %.n
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i: ; preds = %171, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i
   store ptr %166, ptr %36, align 8, !tbaa !42
   store ptr %170, ptr %111, align 8, !tbaa !38
-  %172 = getelementptr inbounds nuw float, ptr %166, i64 %164
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %164
   store ptr %172, ptr %112, align 8, !tbaa !39
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit
 
@@ -934,13 +934,13 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %129 ]
   %102 = phi ptr [ %48, %.lr.ph ], [ %105, %129 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %103 = getelementptr inbounds nuw %"class.cv::Mat", ptr %102, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [96 x i8], ptr %102, i64 %indvars.iv
   invoke void @_ZNK2cv3Mat1tEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %17, ptr noundef nonnull align 8 dereferenceable(96) %103)
           to label %104 unwind label %135
 
 104:                                              ; preds = %101
   %105 = load ptr, ptr %14, align 8, !tbaa !49
-  %106 = getelementptr inbounds nuw %"class.cv::Mat", ptr %105, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [96 x i8], ptr %105, i64 %indvars.iv
   %107 = load ptr, ptr %17, align 8, !tbaa !54
   %108 = load ptr, ptr %107, align 8, !tbaa !61
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
@@ -2011,7 +2011,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %60
   %86 = load i32, ptr %22, align 4, !tbaa !83
   %87 = sext i32 %86 to i64
   %88 = load ptr, ptr %30, align 8, !tbaa !42
-  %89 = getelementptr inbounds nuw float, ptr %88, i64 %87
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %87
   %90 = load float, ptr %89, align 4, !tbaa !41
   %91 = load float, ptr %28, align 4, !tbaa !30
   %92 = fmul float %90, %91
@@ -2378,7 +2378,7 @@ define linkonce_odr hidden void @_ZNK2cv24ParallelGetScaleFeaturesclERKNS_5Range
   %indvars.iv86 = phi i64 [ %51, %.lr.ph81 ], [ %indvars.iv.next87, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit55 ]
   %53 = load float, ptr %19, align 8, !tbaa !73
   %54 = load ptr, ptr %20, align 8, !tbaa !42
-  %55 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv86
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv86
   %56 = load float, ptr %55, align 4, !tbaa !41
   %57 = fmul float %53, %56
   %58 = load float, ptr %21, align 8, !tbaa !87
@@ -2494,13 +2494,13 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit55:        ; preds = %_ZSt8_DestroyIPN2cv
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %118 ]
   %88 = phi ptr [ %67, %.lr.ph.preheader ], [ %91, %118 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %89 = getelementptr inbounds nuw %"class.cv::Mat", ptr %88, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [96 x i8], ptr %88, i64 %indvars.iv
   invoke void @_ZNK2cv3Mat1tEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %9, ptr noundef nonnull align 8 dereferenceable(96) %89)
           to label %90 unwind label %124
 
 90:                                               ; preds = %.lr.ph
   %91 = load ptr, ptr %7, align 8, !tbaa !49
-  %92 = getelementptr inbounds nuw %"class.cv::Mat", ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [96 x i8], ptr %91, i64 %indvars.iv
   %93 = load ptr, ptr %9, align 8, !tbaa !54
   %94 = load ptr, ptr %93, align 8, !tbaa !61
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
@@ -2515,7 +2515,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %90
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %97 = load ptr, ptr %40, align 8, !tbaa !40
-  %98 = getelementptr inbounds float, ptr %97, i64 %indvars.iv86
+  %98 = getelementptr inbounds [4 x i8], ptr %97, i64 %indvars.iv86
   %99 = load float, ptr %98, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %100 = load i32, ptr %41, align 8, !tbaa !78

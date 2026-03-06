@@ -41,10 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
 %class.anon.121 = type { i8 }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.140" }
-%"struct.std::pair.140" = type { %"struct.std::pair.138", %"struct.std::_List_iterator" }
-%"struct.std::pair.138" = type { ptr, ptr }
-%"struct.std::_List_iterator" = type { ptr }
 %"struct.llvm::cl::desc" = type { %"class.llvm::StringRef" }
 
 $_ZN4llvm2cl3optIbLb0ENS0_6parserIbEEEC2IJA22_cNS0_12OptionHiddenENS0_4descEEEEDpRKT_ = comdat any
@@ -121,7 +117,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %26 = phi i32 [ %21, %4 ], [ %.pre.i.i, %23 ]
   %27 = load ptr, ptr %10, align 8, !tbaa !25
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = ptrtoint ptr %20 to i64
   store i64 %30, ptr %29, align 1
   %31 = load i32, ptr %12, align 8, !tbaa !26
@@ -259,7 +255,7 @@ define dso_local void @_ZN4llvm32EliminateAvailableExternallyPass3runERNS_6Modul
   %36 = add i32 %17, -1
   %37 = and i32 %36, %35
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %15, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !54
   %41 = icmp eq ptr %40, @_ZN4llvm15CtxProfAnalysis3KeyE
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -283,7 +279,7 @@ define dso_local void @_ZN4llvm32EliminateAvailableExternallyPass3runERNS_6Modul
   %53 = add i32 %.01726.i.i.i.i.i, %.01527.i.i.i.i.i
   %54 = and i32 %53, %36
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %15, i64 %55
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !54
   %58 = icmp eq ptr %57, @_ZN4llvm15CtxProfAnalysis3KeyE
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -294,13 +290,13 @@ define dso_local void @_ZN4llvm32EliminateAvailableExternallyPass3runERNS_6Modul
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %4
   %63 = zext i32 %17 to i64
-  %64 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %15, i64 %63
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %63
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_11AnalysisKeyEPNS_6ModuleEESt14_List_iteratorIS2_IS4_St10unique_ptrINS_6detail21AnalysisResultConceptIS5_NS_15AnalysisManagerIS5_JEE11InvalidatorEEESt14default_deleteISF_EEEENS_12DenseMapInfoIS7_vEENSA_12DenseMapPairIS7_SK_EEEES7_SK_SM_SO_E4findERKS7_.exit.i.i
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_11AnalysisKeyEPNS_6ModuleEESt14_List_iteratorIS2_IS4_St10unique_ptrINS_6detail21AnalysisResultConceptIS5_NS_15AnalysisManagerIS5_JEE11InvalidatorEEESt14default_deleteISF_EEEENS_12DenseMapInfoIS7_vEENSA_12DenseMapPairIS7_SK_EEEES7_SK_SM_SO_E4findERKS7_.exit.i.i: ; preds = %51, %.loopexit.i.i.i, %19
   %.sroa.0.1.i.i.i = phi ptr [ %64, %.loopexit.i.i.i ], [ %39, %19 ], [ %56, %51 ]
   %65 = zext i32 %17 to i64
-  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %15, i64 %65
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %65
   %67 = icmp eq ptr %.sroa.0.1.i.i.i, %66
   br i1 %67, label %_ZNK4llvm15AnalysisManagerINS_6ModuleEJEE15getCachedResultINS_15CtxProfAnalysisEEEPNT_6ResultERS1_.exit.thread, label %_ZNK4llvm15AnalysisManagerINS_6ModuleEJEE15getCachedResultINS_15CtxProfAnalysisEEEPNT_6ResultERS1_.exit
 

@@ -178,7 +178,7 @@ _ZSt6fill_nIPhmiET_S1_T0_RKT1_.exit.i:            ; preds = %.lr.ph.i.i.i.i.i, %
   %88 = lshr i64 %.09.i.i, 6
   %89 = and i64 %.09.i.i, 63
   %90 = shl nuw i64 1, %89
-  %91 = getelementptr inbounds nuw i64, ptr %77, i64 %88
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %88
   %92 = load i64, ptr %91, align 8, !tbaa !21, !noalias !26
   %93 = or i64 %92, %90
   store i64 %93, ptr %91, align 8, !tbaa !21, !noalias !26

@@ -50,7 +50,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<rocksdb::AtomicCompactionUnitBoundary, std::allocator<rocksdb::AtomicCompactionUnitBoundary>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::AtomicCompactionUnitBoundary, std::allocator<rocksdb::AtomicCompactionUnitBoundary>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<rocksdb::AtomicCompactionUnitBoundary, std::allocator<rocksdb::AtomicCompactionUnitBoundary>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator.0" = type { i8 }
-%"struct.rocksdb::FileTemperatureAge" = type { i8, i64 }
 %"class.std::tuple.266" = type { %"struct.std::_Tuple_impl.267" }
 %"struct.std::_Tuple_impl.267" = type { %"struct.std::_Head_base.268" }
 %"struct.std::_Head_base.268" = type { ptr }
@@ -794,7 +793,7 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit1
 _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %183, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %178, ptr %158, align 8, !tbaa !260
   store ptr %182, ptr %159, align 8, !tbaa !258
-  %184 = getelementptr inbounds nuw ptr, ptr %178, i64 %176
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %176
   store ptr %184, ptr %161, align 8, !tbaa !259
   br label %.thread167
 
@@ -1483,7 +1482,7 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit1
 _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i, %29
   store ptr %23, ptr %0, align 8, !tbaa !260
   store ptr %28, ptr %3, align 8, !tbaa !258
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !259
   br label %31
 
@@ -1604,7 +1603,7 @@ define noundef ptr @_ZN7rocksdb20FIFOCompactionPicker18PickSizeCompactionERKNSt7
 
 ._crit_edge:                                      ; preds = %_ZN7rocksdb12_GLOBAL__N_117GetTotalFilesSizeERKSt6vectorIPNS_12FileMetaDataESaIS3_EE.exit.thread
   %27 = sext i32 %43 to i64
-  %28 = getelementptr inbounds %"class.std::vector.64", ptr %24, i64 %27
+  %28 = getelementptr inbounds [24 x i8], ptr %24, i64 %27
   %29 = icmp ne i32 %43, 0
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %31 = load i64, ptr %30, align 8
@@ -1616,7 +1615,7 @@ define noundef ptr @_ZN7rocksdb20FIFOCompactionPicker18PickSizeCompactionERKNSt7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN7rocksdb12_GLOBAL__N_117GetTotalFilesSizeERKSt6vectorIPNS_12FileMetaDataESaIS3_EE.exit.thread ]
   %.086244 = phi i32 [ 0, %.lr.ph ], [ %43, %_ZN7rocksdb12_GLOBAL__N_117GetTotalFilesSizeERKSt6vectorIPNS_12FileMetaDataESaIS3_EE.exit.thread ]
   %.088243 = phi i64 [ 0, %.lr.ph ], [ %42, %_ZN7rocksdb12_GLOBAL__N_117GetTotalFilesSizeERKSt6vectorIPNS_12FileMetaDataESaIS3_EE.exit.thread ]
-  %33 = getelementptr inbounds nuw %"class.std::vector.64", ptr %24, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %indvars.iv
   %.val = load ptr, ptr %33, align 8, !tbaa !108
   %34 = getelementptr i8, ptr %33, i64 8
   %.val130 = load ptr, ptr %34, align 8, !tbaa !108
@@ -2238,7 +2237,7 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit1
 _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %295, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %290, ptr %270, align 8, !tbaa !260
   store ptr %294, ptr %271, align 8, !tbaa !258
-  %296 = getelementptr inbounds nuw ptr, ptr %290, i64 %288
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %288
   store ptr %296, ptr %273, align 8, !tbaa !259
   br label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE9push_backERKS2_.exit
 
@@ -2364,7 +2363,7 @@ _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit1
 _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i164: ; preds = %347, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i162
   store ptr %341, ptr %321, align 8, !tbaa !260
   store ptr %346, ptr %322, align 8, !tbaa !258
-  %348 = getelementptr inbounds nuw ptr, ptr %341, i64 %339
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %341, i64 %339
   store ptr %348, ptr %324, align 8, !tbaa !259
   br label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EE9push_backERKS2_.exit167
 
@@ -2977,14 +2976,14 @@ _ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE12emplace_backIJEEERS1_DpOT
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %91 = add i64 %.072142, -1
   %92 = load ptr, ptr %30, align 8, !tbaa !260
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %91
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %91
   %94 = load ptr, ptr %93, align 8, !tbaa !110
   store ptr %94, ptr %11, align 8, !tbaa !110
   %95 = icmp eq i64 %.072142, 1
   br i1 %95, label %100, label %96
 
 96:                                               ; preds = %.lr.ph144
-  %97 = getelementptr ptr, ptr %92, i64 %.072142
+  %97 = getelementptr [8 x i8], ptr %92, i64 %.072142
   %98 = getelementptr i8, ptr %97, i64 -16
   %99 = load ptr, ptr %98, align 8, !tbaa !110
   br label %100
@@ -3041,7 +3040,7 @@ _ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE12emplace_backIJEEERS1_DpOT
 .lr.ph:                                           ; preds = %113, %134
   %127 = phi i8 [ %135, %134 ], [ %115, %113 ]
   %.059140 = phi i64 [ %136, %134 ], [ 1, %113 ]
-  %128 = getelementptr inbounds nuw %"struct.rocksdb::FileTemperatureAge", ptr %114, i64 %.059140
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %.059140
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load i64, ptr %129, align 8, !tbaa !299
   %.not94 = icmp ult i64 %65, %130
@@ -3986,7 +3985,7 @@ _ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2
 _ZNSt12_Vector_baseIN7rocksdb20CompactionInputFilesESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21, %65
   store ptr %19, ptr %0, align 8, !tbaa !199
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8, !tbaa !264
-  %69 = getelementptr inbounds nuw %"struct.rocksdb::CompactionInputFiles", ptr %19, i64 %15
+  %69 = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %15
   store ptr %69, ptr %64, align 8, !tbaa !265
   ret void
 }

@@ -52,17 +52,17 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
 26:                                               ; preds = %24
   %27 = sdiv i32 %0, 128
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds i16, ptr @_pcre2_ucd_stage1_8, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr @_pcre2_ucd_stage1_8, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !7
   %31 = zext i16 %30 to i32
   %32 = shl nuw nsw i32 %31, 7
   %33 = srem i32 %0, 128
   %34 = add nsw i32 %32, %33
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i16, ptr @_pcre2_ucd_stage2_8, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr @_pcre2_ucd_stage2_8, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !7
   %38 = zext i16 %37 to i64
-  %39 = getelementptr inbounds nuw %struct.ucd_record, ptr @_pcre2_ucd_records_8, i64 %38
+  %39 = getelementptr inbounds nuw [12 x i8], ptr @_pcre2_ucd_records_8, i64 %38
   %40 = add i32 %0, -48
   %or.cond18 = icmp ult i32 %40, 10
   %41 = and i32 %0, -33
@@ -140,7 +140,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
   %74 = zext i8 %73 to i32
   %75 = load i8, ptr %48, align 1, !tbaa !9
   %76 = zext i8 %75 to i64
-  %77 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gentype_8, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucp_gentype_8, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !12
   %79 = icmp ne i32 %78, %74
   %80 = xor i1 %62, %79
@@ -174,10 +174,10 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
   %100 = load i16, ptr %54, align 4, !tbaa !14
   %101 = and i16 %100, 1023
   %102 = zext nneg i16 %101 to i64
-  %103 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_script_sets_8, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucd_script_sets_8, i64 %102
   %104 = lshr i32 %99, 5
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw i32, ptr %103, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %105
   %107 = load i32, ptr %106, align 4, !tbaa !12
   %108 = and i32 %99, 31
   %109 = lshr i32 %107, %108
@@ -191,7 +191,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
 113:                                              ; preds = %.critedge
   %114 = load i8, ptr %48, align 1, !tbaa !9
   %115 = zext i8 %114 to i64
-  %116 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gentype_8, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucp_gentype_8, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !12
   %118 = icmp eq i32 %117, 1
   br i1 %118, label %122, label %119
@@ -240,7 +240,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
 125:                                              ; preds = %123
   %126 = load i8, ptr %48, align 1, !tbaa !9
   %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gentype_8, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucp_gentype_8, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !12
   %130 = icmp ne i32 %129, 6
   %131 = xor i1 %62, %130
@@ -249,7 +249,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
 132:                                              ; preds = %.critedge
   %133 = load i8, ptr %48, align 1, !tbaa !9
   %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gentype_8, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucp_gentype_8, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !12
   %137 = icmp eq i32 %136, 1
   br i1 %137, label %144, label %138
@@ -302,13 +302,13 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
   %161 = load i16, ptr %53, align 2, !tbaa !15
   %162 = and i16 %161, 4095
   %163 = zext nneg i16 %162 to i64
-  %164 = getelementptr inbounds nuw i32, ptr @_pcre2_ucd_boolprop_sets_8, i64 %163
+  %164 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucd_boolprop_sets_8, i64 %163
   %165 = getelementptr inbounds nuw i8, ptr %.2326, i64 2
   %166 = load i8, ptr %165, align 1, !tbaa !4
   %167 = zext i8 %166 to i32
   %168 = lshr i32 %167, 5
   %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds nuw i32, ptr %164, i64 %169
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !12
   %172 = and i32 %167, 31
   %173 = lshr i32 %171, %172
@@ -320,7 +320,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
   %177 = load i8, ptr %48, align 1, !tbaa !9
   %.fr = freeze i8 %177
   %178 = zext i8 %.fr to i64
-  %179 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gentype_8, i64 %178
+  %179 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucp_gentype_8, i64 %178
   %180 = load i32, ptr %179, align 4, !tbaa !12
   switch i32 %180, label %.fold.split [
     i32 6, label %184
@@ -356,7 +356,7 @@ switch.early.test:                                ; preds = %181
 
 190:                                              ; preds = %187
   %191 = zext i8 %188 to i64
-  %192 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gentype_8, i64 %191
+  %192 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucp_gentype_8, i64 %191
   %193 = load i32, ptr %192, align 4, !tbaa !12
   %.not392 = icmp eq i32 %193, 0
   br i1 %.not392, label %194, label %196
@@ -375,7 +375,7 @@ switch.early.test:                                ; preds = %181
 199:                                              ; preds = %.critedge
   %200 = load i8, ptr %48, align 1, !tbaa !9
   %201 = zext i8 %200 to i64
-  %202 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gentype_8, i64 %201
+  %202 = getelementptr inbounds nuw [4 x i8], ptr @_pcre2_ucp_gentype_8, i64 %201
   %203 = load i32, ptr %202, align 4, !tbaa !12
   %204 = icmp ne i32 %203, 4
   %205 = icmp ne i32 %203, 5
@@ -762,7 +762,7 @@ switch.early.test:                                ; preds = %181
 
 471:                                              ; preds = %463
   %472 = zext nneg i32 %.1349 to i64
-  %473 = getelementptr i16, ptr %.2339, i64 %472
+  %473 = getelementptr [2 x i8], ptr %.2339, i64 %472
   %474 = getelementptr i8, ptr %473, i64 -2
   %475 = load i16, ptr %474, align 2, !tbaa !7
   %476 = zext i16 %475 to i32
@@ -794,7 +794,7 @@ switch.early.test:                                ; preds = %181
   %489 = add i32 %.0342, %.2350.ph
   %490 = lshr i32 %489, 1
   %491 = zext nneg i32 %490 to i64
-  %492 = getelementptr inbounds nuw i16, ptr %.2339, i64 %491
+  %492 = getelementptr inbounds nuw [2 x i8], ptr %.2339, i64 %491
   %493 = load i16, ptr %492, align 2, !tbaa !7
   %494 = zext i16 %493 to i32
   %495 = icmp samesign ult i32 %455, %494
@@ -807,7 +807,7 @@ switch.early.test:                                ; preds = %181
 498:                                              ; preds = %488
   %499 = add nuw i32 %490, 1
   %500 = zext i32 %499 to i64
-  %501 = getelementptr inbounds nuw i16, ptr %.2339, i64 %500
+  %501 = getelementptr inbounds nuw [2 x i8], ptr %.2339, i64 %500
   %502 = load i16, ptr %501, align 2, !tbaa !7
   %.not400 = icmp ugt i16 %502, %487
   br i1 %.not400, label %.thread427, label %488
@@ -871,7 +871,7 @@ switch.early.test:                                ; preds = %181
 537:                                              ; preds = %530
   %538 = add i32 %.6354, -1
   %539 = zext i32 %538 to i64
-  %540 = getelementptr inbounds nuw i32, ptr %.4341, i64 %539
+  %540 = getelementptr inbounds nuw [4 x i8], ptr %.4341, i64 %539
   %541 = load i32, ptr %540, align 4, !tbaa !12
   %.not397 = icmp ult i32 %523, %541
   br i1 %.not397, label %550, label %542
@@ -900,7 +900,7 @@ switch.early.test:                                ; preds = %181
   %553 = add i32 %.3345, %.7355.ph
   %554 = lshr i32 %553, 1
   %555 = zext nneg i32 %554 to i64
-  %556 = getelementptr inbounds nuw i32, ptr %.4341, i64 %555
+  %556 = getelementptr inbounds nuw [4 x i8], ptr %.4341, i64 %555
   %557 = load i32, ptr %556, align 4, !tbaa !12
   %558 = icmp ult i32 %523, %557
   br i1 %558, label %559, label %561
@@ -912,7 +912,7 @@ switch.early.test:                                ; preds = %181
 561:                                              ; preds = %552
   %562 = add nuw i32 %554, 1
   %563 = zext i32 %562 to i64
-  %564 = getelementptr inbounds nuw i32, ptr %.4341, i64 %563
+  %564 = getelementptr inbounds nuw [4 x i8], ptr %.4341, i64 %563
   %565 = load i32, ptr %564, align 4, !tbaa !12
   %.not398 = icmp ugt i32 %565, %523
   br i1 %.not398, label %.thread432, label %552

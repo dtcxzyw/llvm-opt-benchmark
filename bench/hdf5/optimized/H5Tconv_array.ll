@@ -106,9 +106,9 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly captures(addre
 
 42:                                               ; preds = %.lr.ph281, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph281 ], [ %indvars.iv.next, %41 ]
-  %43 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8, !tbaa !25
-  %45 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8, !tbaa !25
   %.not173 = icmp eq i64 %44, %46
   br i1 %.not173, label %41, label %47

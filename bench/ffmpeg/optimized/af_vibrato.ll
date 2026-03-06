@@ -38,7 +38,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %8, align 8, !tbaa !24
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   tail call void @av_freep(ptr noundef %11) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %5, align 8, !tbaa !20
@@ -123,7 +123,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %.06898.us = phi i32 [ %spec.select.us, %._crit_edge.us ], [ %22, %.lr.ph100.split.us ]
   %.07097.us = phi i32 [ %spec.select94.us, %._crit_edge.us ], [ %24, %.lr.ph100.split.us ]
   %44 = sext i32 %.06898.us to i64
-  %45 = getelementptr inbounds double, ptr %11, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %11, i64 %44
   %46 = load double, ptr %45, align 8, !tbaa !54
   %47 = fmul nsz double %20, %46
   %48 = tail call nsz { double, double } @llvm.modf.f64(double %47)
@@ -146,23 +146,23 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 60:                                               ; preds = %.lr.ph.us, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %60 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !55
-  %63 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !55
-  %65 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !56
-  %67 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv109
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv109
   %68 = load double, ptr %67, align 8, !tbaa !54
-  %69 = getelementptr inbounds double, ptr %66, i64 %57
+  %69 = getelementptr inbounds [8 x i8], ptr %66, i64 %57
   %70 = load double, ptr %69, align 8, !tbaa !54
-  %71 = getelementptr inbounds double, ptr %66, i64 %58
+  %71 = getelementptr inbounds [8 x i8], ptr %66, i64 %58
   %72 = load double, ptr %71, align 8, !tbaa !54
   %73 = fsub nsz double %72, %70
   %74 = tail call nsz double @llvm.fmuladd.f64(double %49, double %73, double %70)
-  %75 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv109
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv109
   store double %74, ptr %75, align 8, !tbaa !54
-  %76 = getelementptr inbounds double, ptr %66, i64 %59
+  %76 = getelementptr inbounds [8 x i8], ptr %66, i64 %59
   store double %68, ptr %76, align 8, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -261,7 +261,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %27 = sext i32 %26 to i64
   %28 = tail call ptr @av_malloc_array(i64 noundef %27, i64 noundef 8) #5
   %29 = load ptr, ptr %10, align 8, !tbaa !24
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   store ptr %28, ptr %30, align 8, !tbaa !56
   %.not31 = icmp eq ptr %28, null
   br i1 %.not31, label %.loopexit, label %22

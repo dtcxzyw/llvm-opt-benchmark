@@ -922,7 +922,7 @@ define internal fastcc noundef range(i32 0, 5) i32 @_ZN12_GLOBAL__N_126_uloc_get
 
 switch.lookup:                                    ; preds = %25
   %32 = zext nneg i32 %29 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_126_uloc_getOrientationHelperEPKcS1_R10UErrorCode, i64 %32
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN12_GLOBAL__N_126_uloc_getOrientationHelperEPKcS1_R10UErrorCode, i64 %32
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %33
 
